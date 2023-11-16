@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Swf
         /// Amazon Resource Name (ARN)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The domain description.
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Swf
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

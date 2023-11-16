@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInternetGatewayAttachment {
@@ -13,27 +15,27 @@ public final class GetInternetGatewayAttachment {
      * @return Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return ID of an attached VPC.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetInternetGatewayAttachment() {}
     /**
      * @return Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return ID of an attached VPC.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetInternetGatewayAttachment {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String state;
-        private String vpcId;
+        private @Nullable String state;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetInternetGatewayAttachment defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetInternetGatewayAttachment {
         }
 
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetInternetGatewayAttachment build() {

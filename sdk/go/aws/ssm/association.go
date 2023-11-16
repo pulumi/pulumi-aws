@@ -165,9 +165,9 @@ type Association struct {
 	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
 	ApplyOnlyAtCronInterval pulumi.BoolPtrOutput `pulumi:"applyOnlyAtCronInterval"`
 	// The ARN of the SSM association
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the SSM association.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
+	AssociationId pulumi.StringPtrOutput `pulumi:"associationId"`
 	// The descriptive name for the association.
 	AssociationName pulumi.StringPtrOutput `pulumi:"associationName"`
 	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
@@ -175,7 +175,7 @@ type Association struct {
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrOutput `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
-	DocumentVersion pulumi.StringOutput `pulumi:"documentVersion"`
+	DocumentVersion pulumi.StringPtrOutput `pulumi:"documentVersion"`
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
 	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
@@ -485,13 +485,13 @@ func (o AssociationOutput) ApplyOnlyAtCronInterval() pulumi.BoolPtrOutput {
 }
 
 // The ARN of the SSM association
-func (o AssociationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AssociationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the SSM association.
-func (o AssociationOutput) AssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+func (o AssociationOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
 // The descriptive name for the association.
@@ -510,8 +510,8 @@ func (o AssociationOutput) ComplianceSeverity() pulumi.StringPtrOutput {
 }
 
 // The document version you want to associate with the target(s). Can be a specific version or the default version.
-func (o AssociationOutput) DocumentVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.DocumentVersion }).(pulumi.StringOutput)
+func (o AssociationOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.DocumentVersion }).(pulumi.StringPtrOutput)
 }
 
 // The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.

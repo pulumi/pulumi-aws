@@ -484,7 +484,7 @@ namespace Pulumi.Aws.S3
         /// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
         /// </summary>
         [Output("accelerationStatus")]
-        public Output<string> AccelerationStatus { get; private set; } = null!;
+        public Output<string?> AccelerationStatus { get; private set; } = null!;
 
         /// <summary>
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
@@ -496,7 +496,7 @@ namespace Pulumi.Aws.S3
         /// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -508,7 +508,7 @@ namespace Pulumi.Aws.S3
         /// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         /// </summary>
         [Output("bucketDomainName")]
-        public Output<string> BucketDomainName { get; private set; } = null!;
+        public Output<string?> BucketDomainName { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.S3
         /// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
         /// </summary>
         [Output("bucketRegionalDomainName")]
-        public Output<string> BucketRegionalDomainName { get; private set; } = null!;
+        public Output<string?> BucketRegionalDomainName { get; private set; } = null!;
 
         /// <summary>
         /// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
@@ -544,7 +544,7 @@ namespace Pulumi.Aws.S3
         /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         /// </summary>
         [Output("hostedZoneId")]
-        public Output<string> HostedZoneId { get; private set; } = null!;
+        public Output<string?> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
@@ -576,7 +576,7 @@ namespace Pulumi.Aws.S3
         /// The AWS region this bucket resides in.
         /// </summary>
         [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
+        public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
         /// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
@@ -591,13 +591,13 @@ namespace Pulumi.Aws.S3
         /// developer guide for more information.
         /// </summary>
         [Output("requestPayer")]
-        public Output<string> RequestPayer { get; private set; } = null!;
+        public Output<string?> RequestPayer { get; private set; } = null!;
 
         /// <summary>
         /// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
-        public Output<Outputs.BucketServerSideEncryptionConfiguration> ServerSideEncryptionConfiguration { get; private set; } = null!;
+        public Output<Outputs.BucketServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -615,7 +615,7 @@ namespace Pulumi.Aws.S3
         /// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
         /// </summary>
         [Output("versioning")]
-        public Output<Outputs.BucketVersioning> Versioning { get; private set; } = null!;
+        public Output<Outputs.BucketVersioning?> Versioning { get; private set; } = null!;
 
         /// <summary>
         /// A website object (documented below).
@@ -627,13 +627,13 @@ namespace Pulumi.Aws.S3
         /// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         /// </summary>
         [Output("websiteDomain")]
-        public Output<string> WebsiteDomain { get; private set; } = null!;
+        public Output<string?> WebsiteDomain { get; private set; } = null!;
 
         /// <summary>
         /// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         /// </summary>
         [Output("websiteEndpoint")]
-        public Output<string> WebsiteEndpoint { get; private set; } = null!;
+        public Output<string?> WebsiteEndpoint { get; private set; } = null!;
 
 
         /// <summary>

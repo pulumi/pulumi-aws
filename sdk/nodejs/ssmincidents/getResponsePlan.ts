@@ -42,37 +42,37 @@ export interface GetResponsePlanResult {
     /**
      * (Optional) The actions that the response plan starts at the beginning of an incident.
      */
-    readonly actions: outputs.ssmincidents.GetResponsePlanAction[];
+    readonly actions?: outputs.ssmincidents.GetResponsePlanAction[];
     readonly arn: string;
     /**
      * The Chatbot chat channel used for collaboration during an incident.
      */
-    readonly chatChannels: string[];
+    readonly chatChannels?: string[];
     /**
      * The long format of the response plan name. This field can contain spaces.
      */
-    readonly displayName: string;
+    readonly displayName?: string;
     /**
      * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
      */
-    readonly engagements: string[];
+    readonly engagements?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly incidentTemplates: outputs.ssmincidents.GetResponsePlanIncidentTemplate[];
+    readonly id?: string;
+    readonly incidentTemplates?: outputs.ssmincidents.GetResponsePlanIncidentTemplate[];
     /**
      * Information about third-party services integrated into the response plan. The following values are supported:
      */
-    readonly integrations: outputs.ssmincidents.GetResponsePlanIntegration[];
+    readonly integrations?: outputs.ssmincidents.GetResponsePlanIntegration[];
     /**
      * The name of the PagerDuty configuration.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * The tags applied to the response plan.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.

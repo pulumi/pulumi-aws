@@ -68,7 +68,7 @@ type ThingGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Thing Group.
-	Arn       pulumi.StringOutput           `pulumi:"arn"`
+	Arn       pulumi.StringPtrOutput        `pulumi:"arn"`
 	Metadatas ThingGroupMetadataArrayOutput `pulumi:"metadatas"`
 	// The name of the Thing Group.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -81,7 +81,7 @@ type ThingGroup struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current version of the Thing Group record in the registry.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewThingGroup registers a new resource with the given unique name, arguments, and options.
@@ -268,8 +268,8 @@ func (o ThingGroupOutput) ToThingGroupOutputWithContext(ctx context.Context) Thi
 }
 
 // The ARN of the Thing Group.
-func (o ThingGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ThingGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThingGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o ThingGroupOutput) Metadatas() ThingGroupMetadataArrayOutput {
@@ -302,8 +302,8 @@ func (o ThingGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The current version of the Thing Group record in the registry.
-func (o ThingGroupOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *ThingGroup) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o ThingGroupOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ThingGroup) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type ThingGroupArrayOutput struct{ *pulumi.OutputState }

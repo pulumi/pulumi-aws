@@ -62,21 +62,21 @@ type LookupServiceArgs struct {
 // A collection of values returned by getService.
 type LookupServiceResult struct {
 	// ARN of the service.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType string `pulumi:"authType"`
+	AuthType *string `pulumi:"authType"`
 	// Amazon Resource Name (ARN) of the certificate.
-	CertificateArn string `pulumi:"certificateArn"`
+	CertificateArn *string `pulumi:"certificateArn"`
 	// Custom domain name of the service.
-	CustomDomainName string `pulumi:"customDomainName"`
+	CustomDomainName *string `pulumi:"customDomainName"`
 	// DNS name of the service.
 	DnsEntries []GetServiceDnsEntry `pulumi:"dnsEntries"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
-	Name              string `pulumi:"name"`
-	ServiceIdentifier string `pulumi:"serviceIdentifier"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// Status of the service.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// List of tags associated with the service.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,23 +124,23 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 }
 
 // ARN of the service.
-func (o LookupServiceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Type of IAM policy. Either `NONE` or `AWS_IAM`.
-func (o LookupServiceResultOutput) AuthType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.AuthType }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the certificate.
-func (o LookupServiceResultOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.CertificateArn }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // Custom domain name of the service.
-func (o LookupServiceResultOutput) CustomDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.CustomDomainName }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) CustomDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
 
 // DNS name of the service.
@@ -149,21 +149,21 @@ func (o LookupServiceResultOutput) DnsEntries() GetServiceDnsEntryArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServiceResultOutput) ServiceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.ServiceIdentifier }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) ServiceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Status of the service.
-func (o LookupServiceResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // List of tags associated with the service.

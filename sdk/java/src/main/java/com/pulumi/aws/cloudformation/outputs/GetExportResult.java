@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudformation.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExportResult {
@@ -13,33 +15,33 @@ public final class GetExportResult {
      * @return ARN of stack that contains the exported output name and value.
      * 
      */
-    private String exportingStackId;
+    private @Nullable String exportingStackId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
-    private String value;
+    private @Nullable String value;
 
     private GetExportResult() {}
     /**
      * @return ARN of stack that contains the exported output name and value.
      * 
      */
-    public String exportingStackId() {
-        return this.exportingStackId;
+    public Optional<String> exportingStackId() {
+        return Optional.ofNullable(this.exportingStackId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -48,8 +50,8 @@ public final class GetExportResult {
      * @return Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -61,10 +63,10 @@ public final class GetExportResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String exportingStackId;
-        private String id;
+        private @Nullable String exportingStackId;
+        private @Nullable String id;
         private String name;
-        private String value;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetExportResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -75,13 +77,13 @@ public final class GetExportResult {
         }
 
         @CustomType.Setter
-        public Builder exportingStackId(String exportingStackId) {
-            this.exportingStackId = Objects.requireNonNull(exportingStackId);
+        public Builder exportingStackId(@Nullable String exportingStackId) {
+            this.exportingStackId = exportingStackId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -90,8 +92,8 @@ public final class GetExportResult {
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetExportResult build() {

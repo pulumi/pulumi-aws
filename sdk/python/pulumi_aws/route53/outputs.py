@@ -421,18 +421,18 @@ class GetResolverEndpointFilterResult(dict):
 @pulumi.output_type
 class GetResolverFirewallRulesFirewallRuleResult(dict):
     def __init__(__self__, *,
-                 action: str,
-                 block_override_dns_type: str,
-                 block_override_domain: str,
-                 block_override_ttl: int,
-                 block_response: str,
-                 creation_time: str,
-                 creator_request_id: str,
-                 firewall_domain_list_id: str,
-                 firewall_rule_group_id: str,
-                 modification_time: str,
-                 name: str,
-                 priority: int):
+                 action: Optional[str] = None,
+                 block_override_dns_type: Optional[str] = None,
+                 block_override_domain: Optional[str] = None,
+                 block_override_ttl: Optional[int] = None,
+                 block_response: Optional[str] = None,
+                 creation_time: Optional[str] = None,
+                 creator_request_id: Optional[str] = None,
+                 firewall_domain_list_id: Optional[str] = None,
+                 firewall_rule_group_id: Optional[str] = None,
+                 modification_time: Optional[str] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None):
         """
         :param str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
         :param str block_override_dns_type: The DNS record's type.
@@ -447,22 +447,34 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
         :param str name: The name of the rule.
         :param int priority: The setting that determines the processing order of the rules in a rule group.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "block_override_dns_type", block_override_dns_type)
-        pulumi.set(__self__, "block_override_domain", block_override_domain)
-        pulumi.set(__self__, "block_override_ttl", block_override_ttl)
-        pulumi.set(__self__, "block_response", block_response)
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "creator_request_id", creator_request_id)
-        pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
-        pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
-        pulumi.set(__self__, "modification_time", modification_time)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if block_override_dns_type is not None:
+            pulumi.set(__self__, "block_override_dns_type", block_override_dns_type)
+        if block_override_domain is not None:
+            pulumi.set(__self__, "block_override_domain", block_override_domain)
+        if block_override_ttl is not None:
+            pulumi.set(__self__, "block_override_ttl", block_override_ttl)
+        if block_response is not None:
+            pulumi.set(__self__, "block_response", block_response)
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if creator_request_id is not None:
+            pulumi.set(__self__, "creator_request_id", creator_request_id)
+        if firewall_domain_list_id is not None:
+            pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
+        if firewall_rule_group_id is not None:
+            pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
+        if modification_time is not None:
+            pulumi.set(__self__, "modification_time", modification_time)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter
-    def action(self) -> str:
+    def action(self) -> Optional[str]:
         """
         The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
         """
@@ -470,7 +482,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter(name="blockOverrideDnsType")
-    def block_override_dns_type(self) -> str:
+    def block_override_dns_type(self) -> Optional[str]:
         """
         The DNS record's type.
         """
@@ -478,7 +490,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter(name="blockOverrideDomain")
-    def block_override_domain(self) -> str:
+    def block_override_domain(self) -> Optional[str]:
         """
         The custom DNS record to send back in response to the query.
         """
@@ -486,7 +498,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter(name="blockOverrideTtl")
-    def block_override_ttl(self) -> int:
+    def block_override_ttl(self) -> Optional[int]:
         """
         The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
         """
@@ -494,7 +506,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter(name="blockResponse")
-    def block_response(self) -> str:
+    def block_response(self) -> Optional[str]:
         """
         The way that you want DNS Firewall to block the request.
         """
@@ -502,7 +514,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> Optional[str]:
         """
         The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
         """
@@ -510,7 +522,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter(name="creatorRequestId")
-    def creator_request_id(self) -> str:
+    def creator_request_id(self) -> Optional[str]:
         """
         A unique string defined by you to identify the request.
         """
@@ -518,7 +530,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter(name="firewallDomainListId")
-    def firewall_domain_list_id(self) -> str:
+    def firewall_domain_list_id(self) -> Optional[str]:
         """
         The ID of the domain list that's used in the rule.
         """
@@ -526,7 +538,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter(name="firewallRuleGroupId")
-    def firewall_rule_group_id(self) -> str:
+    def firewall_rule_group_id(self) -> Optional[str]:
         """
         The unique identifier of the firewall rule group that you want to retrieve the rules for.
         """
@@ -534,7 +546,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter(name="modificationTime")
-    def modification_time(self) -> str:
+    def modification_time(self) -> Optional[str]:
         """
         The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
         """
@@ -542,7 +554,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the rule.
         """
@@ -550,7 +562,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> int:
+    def priority(self) -> Optional[int]:
         """
         The setting that determines the processing order of the rules in a rule group.
         """

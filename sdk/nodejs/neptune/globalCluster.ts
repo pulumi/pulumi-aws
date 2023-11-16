@@ -120,7 +120,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * Global Cluster Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
@@ -128,12 +128,12 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `sourceDbClusterIdentifier`.
      */
-    public readonly engine!: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
      * * **NOTE:** Upgrading major versions is not supported.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * The global cluster identifier.
      */
@@ -141,20 +141,20 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * Set of objects containing Global Cluster members.
      */
-    public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.neptune.GlobalClusterGlobalClusterMember[]>;
+    public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.neptune.GlobalClusterGlobalClusterMember[] | undefined>;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
-    public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
+    public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
      */
-    public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly storageEncrypted!: pulumi.Output<boolean>;
+    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.

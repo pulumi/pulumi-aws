@@ -66,7 +66,7 @@ class GetBucketObjectsResult:
 
     @property
     @pulumi.getter(name="commonPrefixes")
-    def common_prefixes(self) -> Sequence[str]:
+    def common_prefixes(self) -> Optional[Sequence[str]]:
         """
         List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
         """
@@ -89,7 +89,7 @@ class GetBucketObjectsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -97,7 +97,7 @@ class GetBucketObjectsResult:
 
     @property
     @pulumi.getter
-    def keys(self) -> Sequence[str]:
+    def keys(self) -> Optional[Sequence[str]]:
         """
         List of strings representing object keys
         """
@@ -110,7 +110,7 @@ class GetBucketObjectsResult:
 
     @property
     @pulumi.getter
-    def owners(self) -> Sequence[str]:
+    def owners(self) -> Optional[Sequence[str]]:
         """
         List of strings representing object owner IDs (see `fetch_owner` above)
         """

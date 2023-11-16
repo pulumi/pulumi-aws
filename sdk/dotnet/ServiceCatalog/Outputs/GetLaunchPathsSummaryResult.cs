@@ -20,25 +20,25 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
         /// <summary>
         /// Name of the portfolio to which the path was assigned.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Identifier of the product path.
         /// </summary>
-        public readonly string PathId;
+        public readonly string? PathId;
         /// <summary>
         /// Tags associated with this product path.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLaunchPathsSummaryResult(
             ImmutableArray<Outputs.GetLaunchPathsSummaryConstraintSummaryResult> constraintSummaries,
 
-            string name,
+            string? name,
 
-            string pathId,
+            string? pathId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             ConstraintSummaries = constraintSummaries;
             Name = name;

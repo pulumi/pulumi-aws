@@ -51,7 +51,7 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
      */
@@ -85,7 +85,7 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string | undefined>;
     /**
      * KX database that will be available for querying. Defined below.
      */
@@ -109,7 +109,7 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string | undefined>;
     /**
      * Unique name for the cluster that you want to create.
      */
@@ -122,8 +122,8 @@ export class KxCluster extends pulumi.CustomResource {
      * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
      */
     public readonly savedownStorageConfiguration!: pulumi.Output<outputs.finspace.KxClusterSavedownStorageConfiguration | undefined>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

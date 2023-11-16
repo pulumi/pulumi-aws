@@ -57,19 +57,19 @@ export interface GetCustomRoutingAcceleratorArgs {
  * A collection of values returned by getCustomRoutingAccelerator.
  */
 export interface GetCustomRoutingAcceleratorResult {
-    readonly arn: string;
-    readonly attributes: outputs.globalaccelerator.GetCustomRoutingAcceleratorAttribute[];
-    readonly dnsName: string;
-    readonly enabled: boolean;
-    readonly hostedZoneId: string;
+    readonly arn?: string;
+    readonly attributes?: outputs.globalaccelerator.GetCustomRoutingAcceleratorAttribute[];
+    readonly dnsName?: string;
+    readonly enabled?: boolean;
+    readonly hostedZoneId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly ipAddressType: string;
-    readonly ipSets: outputs.globalaccelerator.GetCustomRoutingAcceleratorIpSet[];
-    readonly name: string;
-    readonly tags: {[key: string]: string};
+    readonly id?: string;
+    readonly ipAddressType?: string;
+    readonly ipSets?: outputs.globalaccelerator.GetCustomRoutingAcceleratorIpSet[];
+    readonly name?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides information about a Global Accelerator custom routing accelerator.

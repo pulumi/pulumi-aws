@@ -46,13 +46,13 @@ namespace Pulumi.Aws.DirectConnect
         /// Required for IPv4 BGP peers on public virtual interfaces.
         /// </summary>
         [Output("amazonAddress")]
-        public Output<string> AmazonAddress { get; private set; } = null!;
+        public Output<string?> AmazonAddress { get; private set; } = null!;
 
         /// <summary>
         /// The Direct Connect endpoint on which the BGP peer terminates.
         /// </summary>
         [Output("awsDevice")]
-        public Output<string> AwsDevice { get; private set; } = null!;
+        public Output<string?> AwsDevice { get; private set; } = null!;
 
         /// <summary>
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -64,26 +64,26 @@ namespace Pulumi.Aws.DirectConnect
         /// The authentication key for BGP configuration.
         /// </summary>
         [Output("bgpAuthKey")]
-        public Output<string> BgpAuthKey { get; private set; } = null!;
+        public Output<string?> BgpAuthKey { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the BGP peer.
         /// </summary>
         [Output("bgpPeerId")]
-        public Output<string> BgpPeerId { get; private set; } = null!;
+        public Output<string?> BgpPeerId { get; private set; } = null!;
 
         /// <summary>
         /// The Up/Down state of the BGP peer.
         /// </summary>
         [Output("bgpStatus")]
-        public Output<string> BgpStatus { get; private set; } = null!;
+        public Output<string?> BgpStatus { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 CIDR destination address to which Amazon should send traffic.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         /// </summary>
         [Output("customerAddress")]
-        public Output<string> CustomerAddress { get; private set; } = null!;
+        public Output<string?> CustomerAddress { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Direct Connect virtual interface on which to create the BGP peer.

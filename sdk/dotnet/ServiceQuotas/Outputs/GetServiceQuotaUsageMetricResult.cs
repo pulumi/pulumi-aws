@@ -20,25 +20,25 @@ namespace Pulumi.Aws.ServiceQuotas.Outputs
         /// <summary>
         /// The name of the metric.
         /// </summary>
-        public readonly string MetricName;
+        public readonly string? MetricName;
         /// <summary>
         /// The namespace of the metric.
         /// </summary>
-        public readonly string MetricNamespace;
+        public readonly string? MetricNamespace;
         /// <summary>
         /// The metric statistic that AWS recommend you use when determining quota usage.
         /// </summary>
-        public readonly string MetricStatisticRecommendation;
+        public readonly string? MetricStatisticRecommendation;
 
         [OutputConstructor]
         private GetServiceQuotaUsageMetricResult(
             ImmutableArray<Outputs.GetServiceQuotaUsageMetricMetricDimensionResult> metricDimensions,
 
-            string metricName,
+            string? metricName,
 
-            string metricNamespace,
+            string? metricNamespace,
 
-            string metricStatisticRecommendation)
+            string? metricStatisticRecommendation)
         {
             MetricDimensions = metricDimensions;
             MetricName = metricName;

@@ -9,26 +9,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerOutlierDetection {
-    private List<GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration> baseEjectionDurations;
-    private List<GetVirtualNodeSpecListenerOutlierDetectionInterval> intervals;
-    private Integer maxEjectionPercent;
-    private Integer maxServerErrors;
+    private @Nullable List<GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration> baseEjectionDurations;
+    private @Nullable List<GetVirtualNodeSpecListenerOutlierDetectionInterval> intervals;
+    private @Nullable Integer maxEjectionPercent;
+    private @Nullable Integer maxServerErrors;
 
     private GetVirtualNodeSpecListenerOutlierDetection() {}
     public List<GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration> baseEjectionDurations() {
-        return this.baseEjectionDurations;
+        return this.baseEjectionDurations == null ? List.of() : this.baseEjectionDurations;
     }
     public List<GetVirtualNodeSpecListenerOutlierDetectionInterval> intervals() {
-        return this.intervals;
+        return this.intervals == null ? List.of() : this.intervals;
     }
-    public Integer maxEjectionPercent() {
-        return this.maxEjectionPercent;
+    public Optional<Integer> maxEjectionPercent() {
+        return Optional.ofNullable(this.maxEjectionPercent);
     }
-    public Integer maxServerErrors() {
-        return this.maxServerErrors;
+    public Optional<Integer> maxServerErrors() {
+        return Optional.ofNullable(this.maxServerErrors);
     }
 
     public static Builder builder() {
@@ -40,10 +42,10 @@ public final class GetVirtualNodeSpecListenerOutlierDetection {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration> baseEjectionDurations;
-        private List<GetVirtualNodeSpecListenerOutlierDetectionInterval> intervals;
-        private Integer maxEjectionPercent;
-        private Integer maxServerErrors;
+        private @Nullable List<GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration> baseEjectionDurations;
+        private @Nullable List<GetVirtualNodeSpecListenerOutlierDetectionInterval> intervals;
+        private @Nullable Integer maxEjectionPercent;
+        private @Nullable Integer maxServerErrors;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerOutlierDetection defaults) {
     	      Objects.requireNonNull(defaults);
@@ -54,29 +56,29 @@ public final class GetVirtualNodeSpecListenerOutlierDetection {
         }
 
         @CustomType.Setter
-        public Builder baseEjectionDurations(List<GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration> baseEjectionDurations) {
-            this.baseEjectionDurations = Objects.requireNonNull(baseEjectionDurations);
+        public Builder baseEjectionDurations(@Nullable List<GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration> baseEjectionDurations) {
+            this.baseEjectionDurations = baseEjectionDurations;
             return this;
         }
         public Builder baseEjectionDurations(GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration... baseEjectionDurations) {
             return baseEjectionDurations(List.of(baseEjectionDurations));
         }
         @CustomType.Setter
-        public Builder intervals(List<GetVirtualNodeSpecListenerOutlierDetectionInterval> intervals) {
-            this.intervals = Objects.requireNonNull(intervals);
+        public Builder intervals(@Nullable List<GetVirtualNodeSpecListenerOutlierDetectionInterval> intervals) {
+            this.intervals = intervals;
             return this;
         }
         public Builder intervals(GetVirtualNodeSpecListenerOutlierDetectionInterval... intervals) {
             return intervals(List.of(intervals));
         }
         @CustomType.Setter
-        public Builder maxEjectionPercent(Integer maxEjectionPercent) {
-            this.maxEjectionPercent = Objects.requireNonNull(maxEjectionPercent);
+        public Builder maxEjectionPercent(@Nullable Integer maxEjectionPercent) {
+            this.maxEjectionPercent = maxEjectionPercent;
             return this;
         }
         @CustomType.Setter
-        public Builder maxServerErrors(Integer maxServerErrors) {
-            this.maxServerErrors = Objects.requireNonNull(maxServerErrors);
+        public Builder maxServerErrors(@Nullable Integer maxServerErrors) {
+            this.maxServerErrors = maxServerErrors;
             return this;
         }
         public GetVirtualNodeSpecListenerOutlierDetection build() {

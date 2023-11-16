@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImagePipelineImageScanningConfigurationEcrConfiguration {
@@ -14,12 +16,12 @@ public final class GetImagePipelineImageScanningConfigurationEcrConfiguration {
      * @return Tags that are added to the output containers that are scanned
      * 
      */
-    private List<String> containerTags;
+    private @Nullable List<String> containerTags;
     /**
      * @return The name of the container repository that Amazon Inspector scans
      * 
      */
-    private String repositoryName;
+    private @Nullable String repositoryName;
 
     private GetImagePipelineImageScanningConfigurationEcrConfiguration() {}
     /**
@@ -27,14 +29,14 @@ public final class GetImagePipelineImageScanningConfigurationEcrConfiguration {
      * 
      */
     public List<String> containerTags() {
-        return this.containerTags;
+        return this.containerTags == null ? List.of() : this.containerTags;
     }
     /**
      * @return The name of the container repository that Amazon Inspector scans
      * 
      */
-    public String repositoryName() {
-        return this.repositoryName;
+    public Optional<String> repositoryName() {
+        return Optional.ofNullable(this.repositoryName);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetImagePipelineImageScanningConfigurationEcrConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> containerTags;
-        private String repositoryName;
+        private @Nullable List<String> containerTags;
+        private @Nullable String repositoryName;
         public Builder() {}
         public Builder(GetImagePipelineImageScanningConfigurationEcrConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,16 +58,16 @@ public final class GetImagePipelineImageScanningConfigurationEcrConfiguration {
         }
 
         @CustomType.Setter
-        public Builder containerTags(List<String> containerTags) {
-            this.containerTags = Objects.requireNonNull(containerTags);
+        public Builder containerTags(@Nullable List<String> containerTags) {
+            this.containerTags = containerTags;
             return this;
         }
         public Builder containerTags(String... containerTags) {
             return containerTags(List.of(containerTags));
         }
         @CustomType.Setter
-        public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+        public Builder repositoryName(@Nullable String repositoryName) {
+            this.repositoryName = repositoryName;
             return this;
         }
         public GetImagePipelineImageScanningConfigurationEcrConfiguration build() {

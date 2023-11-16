@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReplicationSetResult {
@@ -17,93 +19,93 @@ public final class GetReplicationSetResult {
      * @return The Amazon Resouce Name (ARN) of the replication set.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The ARN of the user who created the replication set.
      * 
      */
-    private String createdBy;
+    private @Nullable String createdBy;
     /**
      * @return If `true`, the last remaining Region in a replication set can’t be deleted.
      * 
      */
-    private Boolean deletionProtected;
+    private @Nullable Boolean deletionProtected;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The ARN of the user who last modified the replication set.
      * 
      */
-    private String lastModifiedBy;
-    private List<GetReplicationSetRegion> regions;
+    private @Nullable String lastModifiedBy;
+    private @Nullable List<GetReplicationSetRegion> regions;
     /**
      * @return The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return All tags applied to the replication set.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetReplicationSetResult() {}
     /**
      * @return The Amazon Resouce Name (ARN) of the replication set.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The ARN of the user who created the replication set.
      * 
      */
-    public String createdBy() {
-        return this.createdBy;
+    public Optional<String> createdBy() {
+        return Optional.ofNullable(this.createdBy);
     }
     /**
      * @return If `true`, the last remaining Region in a replication set can’t be deleted.
      * 
      */
-    public Boolean deletionProtected() {
-        return this.deletionProtected;
+    public Optional<Boolean> deletionProtected() {
+        return Optional.ofNullable(this.deletionProtected);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The ARN of the user who last modified the replication set.
      * 
      */
-    public String lastModifiedBy() {
-        return this.lastModifiedBy;
+    public Optional<String> lastModifiedBy() {
+        return Optional.ofNullable(this.lastModifiedBy);
     }
     public List<GetReplicationSetRegion> regions() {
-        return this.regions;
+        return this.regions == null ? List.of() : this.regions;
     }
     /**
      * @return The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return All tags applied to the replication set.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -115,14 +117,14 @@ public final class GetReplicationSetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String createdBy;
-        private Boolean deletionProtected;
-        private String id;
-        private String lastModifiedBy;
-        private List<GetReplicationSetRegion> regions;
-        private String status;
-        private Map<String,String> tags;
+        private @Nullable String arn;
+        private @Nullable String createdBy;
+        private @Nullable Boolean deletionProtected;
+        private @Nullable String id;
+        private @Nullable String lastModifiedBy;
+        private @Nullable List<GetReplicationSetRegion> regions;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetReplicationSetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -137,46 +139,46 @@ public final class GetReplicationSetResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdBy(String createdBy) {
-            this.createdBy = Objects.requireNonNull(createdBy);
+        public Builder createdBy(@Nullable String createdBy) {
+            this.createdBy = createdBy;
             return this;
         }
         @CustomType.Setter
-        public Builder deletionProtected(Boolean deletionProtected) {
-            this.deletionProtected = Objects.requireNonNull(deletionProtected);
+        public Builder deletionProtected(@Nullable Boolean deletionProtected) {
+            this.deletionProtected = deletionProtected;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedBy(String lastModifiedBy) {
-            this.lastModifiedBy = Objects.requireNonNull(lastModifiedBy);
+        public Builder lastModifiedBy(@Nullable String lastModifiedBy) {
+            this.lastModifiedBy = lastModifiedBy;
             return this;
         }
         @CustomType.Setter
-        public Builder regions(List<GetReplicationSetRegion> regions) {
-            this.regions = Objects.requireNonNull(regions);
+        public Builder regions(@Nullable List<GetReplicationSetRegion> regions) {
+            this.regions = regions;
             return this;
         }
         public Builder regions(GetReplicationSetRegion... regions) {
             return regions(List.of(regions));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetReplicationSetResult build() {

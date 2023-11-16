@@ -97,9 +97,9 @@ type UploadBuffer struct {
 	pulumi.CustomResourceState
 
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId pulumi.StringOutput `pulumi:"diskId"`
+	DiskId pulumi.StringPtrOutput `pulumi:"diskId"`
 	// Local disk path. For example, `/dev/nvme1n1`.
-	DiskPath pulumi.StringOutput `pulumi:"diskPath"`
+	DiskPath pulumi.StringPtrOutput `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 }
@@ -265,13 +265,13 @@ func (o UploadBufferOutput) ToUploadBufferOutputWithContext(ctx context.Context)
 }
 
 // Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-func (o UploadBufferOutput) DiskId() pulumi.StringOutput {
-	return o.ApplyT(func(v *UploadBuffer) pulumi.StringOutput { return v.DiskId }).(pulumi.StringOutput)
+func (o UploadBufferOutput) DiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UploadBuffer) pulumi.StringPtrOutput { return v.DiskId }).(pulumi.StringPtrOutput)
 }
 
 // Local disk path. For example, `/dev/nvme1n1`.
-func (o UploadBufferOutput) DiskPath() pulumi.StringOutput {
-	return o.ApplyT(func(v *UploadBuffer) pulumi.StringOutput { return v.DiskPath }).(pulumi.StringOutput)
+func (o UploadBufferOutput) DiskPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UploadBuffer) pulumi.StringPtrOutput { return v.DiskPath }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the gateway.

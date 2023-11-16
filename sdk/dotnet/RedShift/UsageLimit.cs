@@ -54,7 +54,7 @@ namespace Pulumi.Aws.RedShift
         /// Amazon Resource Name (ARN) of the Redshift Usage Limit.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.

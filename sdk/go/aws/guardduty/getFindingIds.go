@@ -61,8 +61,8 @@ type GetFindingIdsResult struct {
 	// A list of finding IDs for the specified detector.
 	FindingIds []string `pulumi:"findingIds"`
 	// Indicates whether findings are present for the specified detector.
-	HasFindings bool   `pulumi:"hasFindings"`
-	Id          string `pulumi:"id"`
+	HasFindings *bool   `pulumi:"hasFindings"`
+	Id          *string `pulumi:"id"`
 }
 
 func GetFindingIdsOutput(ctx *pulumi.Context, args GetFindingIdsOutputArgs, opts ...pulumi.InvokeOption) GetFindingIdsResultOutput {
@@ -113,12 +113,12 @@ func (o GetFindingIdsResultOutput) FindingIds() pulumi.StringArrayOutput {
 }
 
 // Indicates whether findings are present for the specified detector.
-func (o GetFindingIdsResultOutput) HasFindings() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetFindingIdsResult) bool { return v.HasFindings }).(pulumi.BoolOutput)
+func (o GetFindingIdsResultOutput) HasFindings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetFindingIdsResult) *bool { return v.HasFindings }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetFindingIdsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFindingIdsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetFindingIdsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFindingIdsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

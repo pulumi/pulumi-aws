@@ -1263,14 +1263,14 @@ func (o FrameworkControlSetControlArrayOutput) Index(i pulumi.IntInput) Framewor
 }
 
 type GetControlControlMappingSource struct {
-	SourceDescription   string                                       `pulumi:"sourceDescription"`
-	SourceFrequency     string                                       `pulumi:"sourceFrequency"`
-	SourceId            string                                       `pulumi:"sourceId"`
+	SourceDescription   *string                                      `pulumi:"sourceDescription"`
+	SourceFrequency     *string                                      `pulumi:"sourceFrequency"`
+	SourceId            *string                                      `pulumi:"sourceId"`
 	SourceKeyword       *GetControlControlMappingSourceSourceKeyword `pulumi:"sourceKeyword"`
-	SourceName          string                                       `pulumi:"sourceName"`
-	SourceSetUpOption   string                                       `pulumi:"sourceSetUpOption"`
-	SourceType          string                                       `pulumi:"sourceType"`
-	TroubleshootingText string                                       `pulumi:"troubleshootingText"`
+	SourceName          *string                                      `pulumi:"sourceName"`
+	SourceSetUpOption   *string                                      `pulumi:"sourceSetUpOption"`
+	SourceType          *string                                      `pulumi:"sourceType"`
+	TroubleshootingText *string                                      `pulumi:"troubleshootingText"`
 }
 
 // GetControlControlMappingSourceInput is an input type that accepts GetControlControlMappingSourceArgs and GetControlControlMappingSourceOutput values.
@@ -1285,14 +1285,14 @@ type GetControlControlMappingSourceInput interface {
 }
 
 type GetControlControlMappingSourceArgs struct {
-	SourceDescription   pulumi.StringInput                                  `pulumi:"sourceDescription"`
-	SourceFrequency     pulumi.StringInput                                  `pulumi:"sourceFrequency"`
-	SourceId            pulumi.StringInput                                  `pulumi:"sourceId"`
+	SourceDescription   pulumi.StringPtrInput                               `pulumi:"sourceDescription"`
+	SourceFrequency     pulumi.StringPtrInput                               `pulumi:"sourceFrequency"`
+	SourceId            pulumi.StringPtrInput                               `pulumi:"sourceId"`
 	SourceKeyword       GetControlControlMappingSourceSourceKeywordPtrInput `pulumi:"sourceKeyword"`
-	SourceName          pulumi.StringInput                                  `pulumi:"sourceName"`
-	SourceSetUpOption   pulumi.StringInput                                  `pulumi:"sourceSetUpOption"`
-	SourceType          pulumi.StringInput                                  `pulumi:"sourceType"`
-	TroubleshootingText pulumi.StringInput                                  `pulumi:"troubleshootingText"`
+	SourceName          pulumi.StringPtrInput                               `pulumi:"sourceName"`
+	SourceSetUpOption   pulumi.StringPtrInput                               `pulumi:"sourceSetUpOption"`
+	SourceType          pulumi.StringPtrInput                               `pulumi:"sourceType"`
+	TroubleshootingText pulumi.StringPtrInput                               `pulumi:"troubleshootingText"`
 }
 
 func (GetControlControlMappingSourceArgs) ElementType() reflect.Type {
@@ -1346,16 +1346,16 @@ func (o GetControlControlMappingSourceOutput) ToGetControlControlMappingSourceOu
 	return o
 }
 
-func (o GetControlControlMappingSourceOutput) SourceDescription() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlControlMappingSource) string { return v.SourceDescription }).(pulumi.StringOutput)
+func (o GetControlControlMappingSourceOutput) SourceDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlControlMappingSource) *string { return v.SourceDescription }).(pulumi.StringPtrOutput)
 }
 
-func (o GetControlControlMappingSourceOutput) SourceFrequency() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlControlMappingSource) string { return v.SourceFrequency }).(pulumi.StringOutput)
+func (o GetControlControlMappingSourceOutput) SourceFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlControlMappingSource) *string { return v.SourceFrequency }).(pulumi.StringPtrOutput)
 }
 
-func (o GetControlControlMappingSourceOutput) SourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlControlMappingSource) string { return v.SourceId }).(pulumi.StringOutput)
+func (o GetControlControlMappingSourceOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlControlMappingSource) *string { return v.SourceId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetControlControlMappingSourceOutput) SourceKeyword() GetControlControlMappingSourceSourceKeywordPtrOutput {
@@ -1364,20 +1364,20 @@ func (o GetControlControlMappingSourceOutput) SourceKeyword() GetControlControlM
 	}).(GetControlControlMappingSourceSourceKeywordPtrOutput)
 }
 
-func (o GetControlControlMappingSourceOutput) SourceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlControlMappingSource) string { return v.SourceName }).(pulumi.StringOutput)
+func (o GetControlControlMappingSourceOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlControlMappingSource) *string { return v.SourceName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetControlControlMappingSourceOutput) SourceSetUpOption() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlControlMappingSource) string { return v.SourceSetUpOption }).(pulumi.StringOutput)
+func (o GetControlControlMappingSourceOutput) SourceSetUpOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlControlMappingSource) *string { return v.SourceSetUpOption }).(pulumi.StringPtrOutput)
 }
 
-func (o GetControlControlMappingSourceOutput) SourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlControlMappingSource) string { return v.SourceType }).(pulumi.StringOutput)
+func (o GetControlControlMappingSourceOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlControlMappingSource) *string { return v.SourceType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetControlControlMappingSourceOutput) TroubleshootingText() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlControlMappingSource) string { return v.TroubleshootingText }).(pulumi.StringOutput)
+func (o GetControlControlMappingSourceOutput) TroubleshootingText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlControlMappingSource) *string { return v.TroubleshootingText }).(pulumi.StringPtrOutput)
 }
 
 type GetControlControlMappingSourceArrayOutput struct{ *pulumi.OutputState }
@@ -1401,8 +1401,8 @@ func (o GetControlControlMappingSourceArrayOutput) Index(i pulumi.IntInput) GetC
 }
 
 type GetControlControlMappingSourceSourceKeyword struct {
-	KeywordInputType string `pulumi:"keywordInputType"`
-	KeywordValue     string `pulumi:"keywordValue"`
+	KeywordInputType *string `pulumi:"keywordInputType"`
+	KeywordValue     *string `pulumi:"keywordValue"`
 }
 
 // GetControlControlMappingSourceSourceKeywordInput is an input type that accepts GetControlControlMappingSourceSourceKeywordArgs and GetControlControlMappingSourceSourceKeywordOutput values.
@@ -1417,8 +1417,8 @@ type GetControlControlMappingSourceSourceKeywordInput interface {
 }
 
 type GetControlControlMappingSourceSourceKeywordArgs struct {
-	KeywordInputType pulumi.StringInput `pulumi:"keywordInputType"`
-	KeywordValue     pulumi.StringInput `pulumi:"keywordValue"`
+	KeywordInputType pulumi.StringPtrInput `pulumi:"keywordInputType"`
+	KeywordValue     pulumi.StringPtrInput `pulumi:"keywordValue"`
 }
 
 func (GetControlControlMappingSourceSourceKeywordArgs) ElementType() reflect.Type {
@@ -1498,12 +1498,12 @@ func (o GetControlControlMappingSourceSourceKeywordOutput) ToGetControlControlMa
 	}).(GetControlControlMappingSourceSourceKeywordPtrOutput)
 }
 
-func (o GetControlControlMappingSourceSourceKeywordOutput) KeywordInputType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlControlMappingSourceSourceKeyword) string { return v.KeywordInputType }).(pulumi.StringOutput)
+func (o GetControlControlMappingSourceSourceKeywordOutput) KeywordInputType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlControlMappingSourceSourceKeyword) *string { return v.KeywordInputType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetControlControlMappingSourceSourceKeywordOutput) KeywordValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlControlMappingSourceSourceKeyword) string { return v.KeywordValue }).(pulumi.StringOutput)
+func (o GetControlControlMappingSourceSourceKeywordOutput) KeywordValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlControlMappingSourceSourceKeyword) *string { return v.KeywordValue }).(pulumi.StringPtrOutput)
 }
 
 type GetControlControlMappingSourceSourceKeywordPtrOutput struct{ *pulumi.OutputState }
@@ -1535,7 +1535,7 @@ func (o GetControlControlMappingSourceSourceKeywordPtrOutput) KeywordInputType()
 		if v == nil {
 			return nil
 		}
-		return &v.KeywordInputType
+		return v.KeywordInputType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1544,15 +1544,15 @@ func (o GetControlControlMappingSourceSourceKeywordPtrOutput) KeywordValue() pul
 		if v == nil {
 			return nil
 		}
-		return &v.KeywordValue
+		return v.KeywordValue
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetFrameworkControlSet struct {
 	Controls []GetFrameworkControlSetControl `pulumi:"controls"`
-	Id       string                          `pulumi:"id"`
+	Id       *string                         `pulumi:"id"`
 	// Name of the framework.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetFrameworkControlSetInput is an input type that accepts GetFrameworkControlSetArgs and GetFrameworkControlSetOutput values.
@@ -1568,9 +1568,9 @@ type GetFrameworkControlSetInput interface {
 
 type GetFrameworkControlSetArgs struct {
 	Controls GetFrameworkControlSetControlArrayInput `pulumi:"controls"`
-	Id       pulumi.StringInput                      `pulumi:"id"`
+	Id       pulumi.StringPtrInput                   `pulumi:"id"`
 	// Name of the framework.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetFrameworkControlSetArgs) ElementType() reflect.Type {
@@ -1628,13 +1628,13 @@ func (o GetFrameworkControlSetOutput) Controls() GetFrameworkControlSetControlAr
 	return o.ApplyT(func(v GetFrameworkControlSet) []GetFrameworkControlSetControl { return v.Controls }).(GetFrameworkControlSetControlArrayOutput)
 }
 
-func (o GetFrameworkControlSetOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFrameworkControlSet) string { return v.Id }).(pulumi.StringOutput)
+func (o GetFrameworkControlSetOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFrameworkControlSet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the framework.
-func (o GetFrameworkControlSetOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFrameworkControlSet) string { return v.Name }).(pulumi.StringOutput)
+func (o GetFrameworkControlSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFrameworkControlSet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetFrameworkControlSetArrayOutput struct{ *pulumi.OutputState }
@@ -1658,7 +1658,7 @@ func (o GetFrameworkControlSetArrayOutput) Index(i pulumi.IntInput) GetFramework
 }
 
 type GetFrameworkControlSetControl struct {
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 // GetFrameworkControlSetControlInput is an input type that accepts GetFrameworkControlSetControlArgs and GetFrameworkControlSetControlOutput values.
@@ -1673,7 +1673,7 @@ type GetFrameworkControlSetControlInput interface {
 }
 
 type GetFrameworkControlSetControlArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (GetFrameworkControlSetControlArgs) ElementType() reflect.Type {
@@ -1727,8 +1727,8 @@ func (o GetFrameworkControlSetControlOutput) ToGetFrameworkControlSetControlOutp
 	return o
 }
 
-func (o GetFrameworkControlSetControlOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFrameworkControlSetControl) string { return v.Id }).(pulumi.StringOutput)
+func (o GetFrameworkControlSetControlOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFrameworkControlSetControl) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 type GetFrameworkControlSetControlArrayOutput struct{ *pulumi.OutputState }

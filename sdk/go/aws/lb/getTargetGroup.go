@@ -79,27 +79,27 @@ type LookupTargetGroupArgs struct {
 
 // A collection of values returned by getTargetGroup.
 type LookupTargetGroupResult struct {
-	Arn                   string                    `pulumi:"arn"`
-	ArnSuffix             string                    `pulumi:"arnSuffix"`
-	ConnectionTermination bool                      `pulumi:"connectionTermination"`
-	DeregistrationDelay   int                       `pulumi:"deregistrationDelay"`
-	HealthCheck           GetTargetGroupHealthCheck `pulumi:"healthCheck"`
+	Arn                   *string                    `pulumi:"arn"`
+	ArnSuffix             *string                    `pulumi:"arnSuffix"`
+	ConnectionTermination *bool                      `pulumi:"connectionTermination"`
+	DeregistrationDelay   *int                       `pulumi:"deregistrationDelay"`
+	HealthCheck           *GetTargetGroupHealthCheck `pulumi:"healthCheck"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                             string                   `pulumi:"id"`
-	LambdaMultiValueHeadersEnabled bool                     `pulumi:"lambdaMultiValueHeadersEnabled"`
-	LoadBalancingAlgorithmType     string                   `pulumi:"loadBalancingAlgorithmType"`
-	LoadBalancingCrossZoneEnabled  string                   `pulumi:"loadBalancingCrossZoneEnabled"`
-	Name                           string                   `pulumi:"name"`
-	Port                           int                      `pulumi:"port"`
-	PreserveClientIp               string                   `pulumi:"preserveClientIp"`
-	Protocol                       string                   `pulumi:"protocol"`
-	ProtocolVersion                string                   `pulumi:"protocolVersion"`
-	ProxyProtocolV2                bool                     `pulumi:"proxyProtocolV2"`
-	SlowStart                      int                      `pulumi:"slowStart"`
-	Stickiness                     GetTargetGroupStickiness `pulumi:"stickiness"`
-	Tags                           map[string]string        `pulumi:"tags"`
-	TargetType                     string                   `pulumi:"targetType"`
-	VpcId                          string                   `pulumi:"vpcId"`
+	Id                             *string                   `pulumi:"id"`
+	LambdaMultiValueHeadersEnabled *bool                     `pulumi:"lambdaMultiValueHeadersEnabled"`
+	LoadBalancingAlgorithmType     *string                   `pulumi:"loadBalancingAlgorithmType"`
+	LoadBalancingCrossZoneEnabled  *string                   `pulumi:"loadBalancingCrossZoneEnabled"`
+	Name                           *string                   `pulumi:"name"`
+	Port                           *int                      `pulumi:"port"`
+	PreserveClientIp               *string                   `pulumi:"preserveClientIp"`
+	Protocol                       *string                   `pulumi:"protocol"`
+	ProtocolVersion                *string                   `pulumi:"protocolVersion"`
+	ProxyProtocolV2                *bool                     `pulumi:"proxyProtocolV2"`
+	SlowStart                      *int                      `pulumi:"slowStart"`
+	Stickiness                     *GetTargetGroupStickiness `pulumi:"stickiness"`
+	Tags                           map[string]string         `pulumi:"tags"`
+	TargetType                     *string                   `pulumi:"targetType"`
+	VpcId                          *string                   `pulumi:"vpcId"`
 }
 
 func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupTargetGroupResultOutput {
@@ -146,85 +146,85 @@ func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutputWithContex
 	return o
 }
 
-func (o LookupTargetGroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) ArnSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.ArnSuffix }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) ArnSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.ArnSuffix }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) ConnectionTermination() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) bool { return v.ConnectionTermination }).(pulumi.BoolOutput)
+func (o LookupTargetGroupResultOutput) ConnectionTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *bool { return v.ConnectionTermination }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) DeregistrationDelay() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) int { return v.DeregistrationDelay }).(pulumi.IntOutput)
+func (o LookupTargetGroupResultOutput) DeregistrationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *int { return v.DeregistrationDelay }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) HealthCheck() GetTargetGroupHealthCheckOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) GetTargetGroupHealthCheck { return v.HealthCheck }).(GetTargetGroupHealthCheckOutput)
+func (o LookupTargetGroupResultOutput) HealthCheck() GetTargetGroupHealthCheckPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *GetTargetGroupHealthCheck { return v.HealthCheck }).(GetTargetGroupHealthCheckPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupTargetGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) LambdaMultiValueHeadersEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) bool { return v.LambdaMultiValueHeadersEnabled }).(pulumi.BoolOutput)
+func (o LookupTargetGroupResultOutput) LambdaMultiValueHeadersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *bool { return v.LambdaMultiValueHeadersEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) LoadBalancingAlgorithmType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.LoadBalancingAlgorithmType }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) LoadBalancingAlgorithmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.LoadBalancingAlgorithmType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) LoadBalancingCrossZoneEnabled() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.LoadBalancingCrossZoneEnabled }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) LoadBalancingCrossZoneEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.LoadBalancingCrossZoneEnabled }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) int { return v.Port }).(pulumi.IntOutput)
+func (o LookupTargetGroupResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) PreserveClientIp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.PreserveClientIp }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) PreserveClientIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.PreserveClientIp }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.Protocol }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) ProtocolVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.ProtocolVersion }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) ProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) ProxyProtocolV2() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) bool { return v.ProxyProtocolV2 }).(pulumi.BoolOutput)
+func (o LookupTargetGroupResultOutput) ProxyProtocolV2() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *bool { return v.ProxyProtocolV2 }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) SlowStart() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) int { return v.SlowStart }).(pulumi.IntOutput)
+func (o LookupTargetGroupResultOutput) SlowStart() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *int { return v.SlowStart }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) Stickiness() GetTargetGroupStickinessOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) GetTargetGroupStickiness { return v.Stickiness }).(GetTargetGroupStickinessOutput)
+func (o LookupTargetGroupResultOutput) Stickiness() GetTargetGroupStickinessPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *GetTargetGroupStickiness { return v.Stickiness }).(GetTargetGroupStickinessPtrOutput)
 }
 
 func (o LookupTargetGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupTargetGroupResultOutput) TargetType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.TargetType }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) TargetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.TargetType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTargetGroupResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupTargetGroupResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

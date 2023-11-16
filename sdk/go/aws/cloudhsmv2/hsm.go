@@ -62,19 +62,19 @@ type Hsm struct {
 	pulumi.CustomResourceState
 
 	// The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The ID of Cloud HSM v2 cluster to which HSM will be added.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// The id of the ENI interface allocated for HSM module.
-	HsmEniId pulumi.StringOutput `pulumi:"hsmEniId"`
+	HsmEniId pulumi.StringPtrOutput `pulumi:"hsmEniId"`
 	// The id of the HSM module.
-	HsmId pulumi.StringOutput `pulumi:"hsmId"`
+	HsmId pulumi.StringPtrOutput `pulumi:"hsmId"`
 	// The state of the HSM module.
-	HsmState pulumi.StringOutput `pulumi:"hsmState"`
+	HsmState pulumi.StringPtrOutput `pulumi:"hsmState"`
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 }
 
 // NewHsm registers a new resource with the given unique name, arguments, and options.
@@ -258,8 +258,8 @@ func (o HsmOutput) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
 }
 
 // The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
-func (o HsmOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o HsmOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hsm) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The ID of Cloud HSM v2 cluster to which HSM will be added.
@@ -268,28 +268,28 @@ func (o HsmOutput) ClusterId() pulumi.StringOutput {
 }
 
 // The id of the ENI interface allocated for HSM module.
-func (o HsmOutput) HsmEniId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.HsmEniId }).(pulumi.StringOutput)
+func (o HsmOutput) HsmEniId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hsm) pulumi.StringPtrOutput { return v.HsmEniId }).(pulumi.StringPtrOutput)
 }
 
 // The id of the HSM module.
-func (o HsmOutput) HsmId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.HsmId }).(pulumi.StringOutput)
+func (o HsmOutput) HsmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hsm) pulumi.StringPtrOutput { return v.HsmId }).(pulumi.StringPtrOutput)
 }
 
 // The state of the HSM module.
-func (o HsmOutput) HsmState() pulumi.StringOutput {
-	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.HsmState }).(pulumi.StringOutput)
+func (o HsmOutput) HsmState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hsm) pulumi.StringPtrOutput { return v.HsmState }).(pulumi.StringPtrOutput)
 }
 
 // The IP address of HSM module. Must be within the CIDR of selected subnet.
-func (o HsmOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+func (o HsmOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hsm) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
-func (o HsmOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+func (o HsmOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hsm) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 type HsmArrayOutput struct{ *pulumi.OutputState }

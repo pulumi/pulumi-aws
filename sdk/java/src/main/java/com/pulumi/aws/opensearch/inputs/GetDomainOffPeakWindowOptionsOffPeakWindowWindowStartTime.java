@@ -6,6 +6,8 @@ package com.pulumi.aws.opensearch.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime extends com.pulumi.resources.InvokeArgs {
@@ -16,30 +18,30 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime ext
      * Starting hour of the 10-hour window for updates
      * 
      */
-    @Import(name="hours", required=true)
-    private Integer hours;
+    @Import(name="hours")
+    private @Nullable Integer hours;
 
     /**
      * @return Starting hour of the 10-hour window for updates
      * 
      */
-    public Integer hours() {
-        return this.hours;
+    public Optional<Integer> hours() {
+        return Optional.ofNullable(this.hours);
     }
 
     /**
      * Starting minute of the 10-hour window for updates
      * 
      */
-    @Import(name="minutes", required=true)
-    private Integer minutes;
+    @Import(name="minutes")
+    private @Nullable Integer minutes;
 
     /**
      * @return Starting minute of the 10-hour window for updates
      * 
      */
-    public Integer minutes() {
-        return this.minutes;
+    public Optional<Integer> minutes() {
+        return Optional.ofNullable(this.minutes);
     }
 
     private GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime() {}
@@ -73,7 +75,7 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime ext
          * @return builder
          * 
          */
-        public Builder hours(Integer hours) {
+        public Builder hours(@Nullable Integer hours) {
             $.hours = hours;
             return this;
         }
@@ -84,14 +86,12 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime ext
          * @return builder
          * 
          */
-        public Builder minutes(Integer minutes) {
+        public Builder minutes(@Nullable Integer minutes) {
             $.minutes = minutes;
             return this;
         }
 
         public GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime build() {
-            $.hours = Objects.requireNonNull($.hours, "expected parameter 'hours' to be non-null");
-            $.minutes = Objects.requireNonNull($.minutes, "expected parameter 'minutes' to be non-null");
             return $;
         }
     }

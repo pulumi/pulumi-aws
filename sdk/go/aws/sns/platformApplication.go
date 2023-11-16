@@ -115,7 +115,7 @@ type PlatformApplication struct {
 	// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
 	ApplePlatformTeamId pulumi.StringPtrOutput `pulumi:"applePlatformTeamId"`
 	// The ARN of the SNS platform application
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
 	EventDeliveryFailureTopicArn pulumi.StringPtrOutput `pulumi:"eventDeliveryFailureTopicArn"`
 	// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
@@ -419,8 +419,8 @@ func (o PlatformApplicationOutput) ApplePlatformTeamId() pulumi.StringPtrOutput 
 }
 
 // The ARN of the SNS platform application
-func (o PlatformApplicationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PlatformApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PlatformApplicationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.

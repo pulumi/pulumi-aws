@@ -57,8 +57,8 @@ type LookupRateBasedRuleArgs struct {
 // A collection of values returned by getRateBasedRule.
 type LookupRateBasedRuleResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func LookupRateBasedRuleOutput(ctx *pulumi.Context, args LookupRateBasedRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRateBasedRuleResultOutput {
@@ -100,8 +100,8 @@ func (o LookupRateBasedRuleResultOutput) ToLookupRateBasedRuleResultOutputWithCo
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupRateBasedRuleResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRateBasedRuleResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupRateBasedRuleResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRateBasedRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRateBasedRuleResultOutput) Name() pulumi.StringOutput {

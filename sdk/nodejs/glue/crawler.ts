@@ -161,7 +161,7 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * The ARN of the crawler
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
      */

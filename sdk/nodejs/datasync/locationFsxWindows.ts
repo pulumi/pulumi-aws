@@ -60,11 +60,11 @@ export class LocationFsxWindows extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The time that the FSx for Windows location was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      */
@@ -84,7 +84,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
     /**
      * Subdirectory to perform actions as source or destination.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -98,7 +98,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
     /**
      * The URL of the FSx for Windows location that was described.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      */

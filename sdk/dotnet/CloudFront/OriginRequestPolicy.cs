@@ -90,7 +90,7 @@ namespace Pulumi.Aws.CloudFront
         /// The current version of the origin request policy.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.

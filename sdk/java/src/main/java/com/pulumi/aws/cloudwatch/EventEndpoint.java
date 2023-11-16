@@ -95,14 +95,14 @@ public class EventEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the endpoint that was created.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A description of the global endpoint.
@@ -123,14 +123,14 @@ public class EventEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointUrl", refs={String.class}, tree="[0]")
-    private Output<String> endpointUrl;
+    private Output</* @Nullable */ String> endpointUrl;
 
     /**
      * @return The URL of the endpoint that was created.
      * 
      */
-    public Output<String> endpointUrl() {
-        return this.endpointUrl;
+    public Output<Optional<String>> endpointUrl() {
+        return Codegen.optional(this.endpointUrl);
     }
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.

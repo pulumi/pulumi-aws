@@ -50,7 +50,7 @@ namespace Pulumi.Aws.GameLift
         /// GameLift Script ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the script
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.GameLift
         /// Information indicating where your game script files are stored. See below.
         /// </summary>
         [Output("storageLocation")]
-        public Output<Outputs.ScriptStorageLocation> StorageLocation { get; private set; } = null!;
+        public Output<Outputs.ScriptStorageLocation?> StorageLocation { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

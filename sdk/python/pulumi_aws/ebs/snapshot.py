@@ -594,7 +594,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the EBS Snapshot.
         """
@@ -602,7 +602,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataEncryptionKeyId")
-    def data_encryption_key_id(self) -> pulumi.Output[str]:
+    def data_encryption_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The data encryption key identifier for the snapshot.
         """
@@ -618,7 +618,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> pulumi.Output[bool]:
+    def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the snapshot is encrypted.
         """
@@ -626,7 +626,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the KMS encryption key.
         """
@@ -642,7 +642,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAlias")
-    def owner_alias(self) -> pulumi.Output[str]:
+    def owner_alias(self) -> pulumi.Output[Optional[str]]:
         """
         Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         """
@@ -650,7 +650,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID of the EBS snapshot owner.
         """
@@ -666,7 +666,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageTier")
-    def storage_tier(self) -> pulumi.Output[str]:
+    def storage_tier(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         """
@@ -709,7 +709,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> pulumi.Output[int]:
+    def volume_size(self) -> pulumi.Output[Optional[int]]:
         """
         The size of the drive in GiBs.
         """

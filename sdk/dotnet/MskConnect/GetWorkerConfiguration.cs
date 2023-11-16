@@ -104,38 +104,38 @@ namespace Pulumi.Aws.MskConnect
         /// <summary>
         /// the ARN of the worker configuration.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// a summary description of the worker configuration.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// an ID of the latest successfully created revision of the worker configuration.
         /// </summary>
-        public readonly int LatestRevision;
+        public readonly int? LatestRevision;
         public readonly string Name;
         /// <summary>
         /// contents of connect-distributed.properties file.
         /// </summary>
-        public readonly string PropertiesFileContent;
+        public readonly string? PropertiesFileContent;
 
         [OutputConstructor]
         private GetWorkerConfigurationResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            int latestRevision,
+            int? latestRevision,
 
             string name,
 
-            string propertiesFileContent)
+            string? propertiesFileContent)
         {
             Arn = arn;
             Description = description;

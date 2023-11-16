@@ -46,7 +46,7 @@ type LookupUserResult struct {
 	Addresses           []GetUserAddress            `pulumi:"addresses"`
 	AlternateIdentifier *GetUserAlternateIdentifier `pulumi:"alternateIdentifier"`
 	// The name that is typically displayed when the user is referenced.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 	// List of details about the user's email.
 	Emails []GetUserEmail `pulumi:"emails"`
 	// List of identifiers issued to this resource by an external identity provider.
@@ -54,29 +54,29 @@ type LookupUserResult struct {
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter *GetUserFilter `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IdentityStoreId string `pulumi:"identityStoreId"`
+	Id              *string `pulumi:"id"`
+	IdentityStoreId string  `pulumi:"identityStoreId"`
 	// The user's geographical region or location.
-	Locale string `pulumi:"locale"`
+	Locale *string `pulumi:"locale"`
 	// Details about the user's full name.
 	Names []GetUserName `pulumi:"names"`
 	// An alternate name for the user.
-	Nickname string `pulumi:"nickname"`
+	Nickname *string `pulumi:"nickname"`
 	// List of details about the user's phone number.
 	PhoneNumbers []GetUserPhoneNumber `pulumi:"phoneNumbers"`
 	// The preferred language of the user.
-	PreferredLanguage string `pulumi:"preferredLanguage"`
+	PreferredLanguage *string `pulumi:"preferredLanguage"`
 	// An URL that may be associated with the user.
-	ProfileUrl string `pulumi:"profileUrl"`
+	ProfileUrl *string `pulumi:"profileUrl"`
 	// The user's time zone.
-	Timezone string `pulumi:"timezone"`
+	Timezone *string `pulumi:"timezone"`
 	// The user's title.
-	Title  string `pulumi:"title"`
-	UserId string `pulumi:"userId"`
+	Title  *string `pulumi:"title"`
+	UserId *string `pulumi:"userId"`
 	// User's user name value.
-	UserName string `pulumi:"userName"`
+	UserName *string `pulumi:"userName"`
 	// The user type.
-	UserType string `pulumi:"userType"`
+	UserType *string `pulumi:"userType"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -139,8 +139,8 @@ func (o LookupUserResultOutput) AlternateIdentifier() GetUserAlternateIdentifier
 }
 
 // The name that is typically displayed when the user is referenced.
-func (o LookupUserResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // List of details about the user's email.
@@ -159,8 +159,8 @@ func (o LookupUserResultOutput) Filter() GetUserFilterPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupUserResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserResultOutput) IdentityStoreId() pulumi.StringOutput {
@@ -168,8 +168,8 @@ func (o LookupUserResultOutput) IdentityStoreId() pulumi.StringOutput {
 }
 
 // The user's geographical region or location.
-func (o LookupUserResultOutput) Locale() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Locale }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 // Details about the user's full name.
@@ -178,8 +178,8 @@ func (o LookupUserResultOutput) Names() GetUserNameArrayOutput {
 }
 
 // An alternate name for the user.
-func (o LookupUserResultOutput) Nickname() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Nickname }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Nickname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Nickname }).(pulumi.StringPtrOutput)
 }
 
 // List of details about the user's phone number.
@@ -188,37 +188,37 @@ func (o LookupUserResultOutput) PhoneNumbers() GetUserPhoneNumberArrayOutput {
 }
 
 // The preferred language of the user.
-func (o LookupUserResultOutput) PreferredLanguage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.PreferredLanguage }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) PreferredLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.PreferredLanguage }).(pulumi.StringPtrOutput)
 }
 
 // An URL that may be associated with the user.
-func (o LookupUserResultOutput) ProfileUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.ProfileUrl }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) ProfileUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.ProfileUrl }).(pulumi.StringPtrOutput)
 }
 
 // The user's time zone.
-func (o LookupUserResultOutput) Timezone() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Timezone }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 // The user's title.
-func (o LookupUserResultOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Title }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserResultOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.UserId }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 // User's user name value.
-func (o LookupUserResultOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.UserName }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 // The user type.
-func (o LookupUserResultOutput) UserType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.UserType }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) UserType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.UserType }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -162,14 +162,14 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the organization conformance pack.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.

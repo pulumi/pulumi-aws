@@ -62,7 +62,7 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
     /**
      * AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
      * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.

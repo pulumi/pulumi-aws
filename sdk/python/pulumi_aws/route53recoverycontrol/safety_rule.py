@@ -510,7 +510,7 @@ class SafetyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the safety rule.
         """
@@ -558,7 +558,7 @@ class SafetyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """

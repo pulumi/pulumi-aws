@@ -16,23 +16,23 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// <summary>
         /// When `true`, this is the primary phone number associated with the user.
         /// </summary>
-        public readonly bool Primary;
+        public readonly bool? Primary;
         /// <summary>
         /// The type of phone number.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// The user's phone number.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetUserEmailResult(
-            bool primary,
+            bool? primary,
 
-            string type,
+            string? type,
 
-            string value)
+            string? value)
         {
             Primary = primary;
             Type = type;

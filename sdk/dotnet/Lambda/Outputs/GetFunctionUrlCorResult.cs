@@ -13,16 +13,16 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionUrlCorResult
     {
-        public readonly bool AllowCredentials;
+        public readonly bool? AllowCredentials;
         public readonly ImmutableArray<string> AllowHeaders;
         public readonly ImmutableArray<string> AllowMethods;
         public readonly ImmutableArray<string> AllowOrigins;
         public readonly ImmutableArray<string> ExposeHeaders;
-        public readonly int MaxAge;
+        public readonly int? MaxAge;
 
         [OutputConstructor]
         private GetFunctionUrlCorResult(
-            bool allowCredentials,
+            bool? allowCredentials,
 
             ImmutableArray<string> allowHeaders,
 
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Lambda.Outputs
 
             ImmutableArray<string> exposeHeaders,
 
-            int maxAge)
+            int? maxAge)
         {
             AllowCredentials = allowCredentials;
             AllowHeaders = allowHeaders;

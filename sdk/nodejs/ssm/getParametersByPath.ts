@@ -39,25 +39,25 @@ export interface GetParametersByPathResult {
     /**
      * A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * A list that contains the names of the retrieved parameters.
      */
-    readonly names: string[];
+    readonly names?: string[];
     readonly path: string;
     readonly recursive?: boolean;
     /**
      * A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
      */
-    readonly types: string[];
+    readonly types?: string[];
     /**
      * A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
      */
-    readonly values: string[];
+    readonly values?: string[];
     readonly withDecryption?: boolean;
 }
 export function getParametersByPathOutput(args: GetParametersByPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParametersByPathResult> {

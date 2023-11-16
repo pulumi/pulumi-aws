@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -63,14 +64,14 @@ public class LicenseGrantAccepter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allowedOperations", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> allowedOperations;
+    private Output</* @Nullable */ List<String>> allowedOperations;
 
     /**
      * @return A list of the allowed operations for the grant.
      * 
      */
-    public Output<List<String>> allowedOperations() {
-        return this.allowedOperations;
+    public Output<Optional<List<String>>> allowedOperations() {
+        return Codegen.optional(this.allowedOperations);
     }
     /**
      * The ARN of the grant to accept.
@@ -91,98 +92,98 @@ public class LicenseGrantAccepter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="homeRegion", refs={String.class}, tree="[0]")
-    private Output<String> homeRegion;
+    private Output</* @Nullable */ String> homeRegion;
 
     /**
      * @return The home region for the license.
      * 
      */
-    public Output<String> homeRegion() {
-        return this.homeRegion;
+    public Output<Optional<String>> homeRegion() {
+        return Codegen.optional(this.homeRegion);
     }
     /**
      * The ARN of the license for the grant.
      * 
      */
     @Export(name="licenseArn", refs={String.class}, tree="[0]")
-    private Output<String> licenseArn;
+    private Output</* @Nullable */ String> licenseArn;
 
     /**
      * @return The ARN of the license for the grant.
      * 
      */
-    public Output<String> licenseArn() {
-        return this.licenseArn;
+    public Output<Optional<String>> licenseArn() {
+        return Codegen.optional(this.licenseArn);
     }
     /**
      * The Name of the grant.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return The Name of the grant.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * The parent ARN.
      * 
      */
     @Export(name="parentArn", refs={String.class}, tree="[0]")
-    private Output<String> parentArn;
+    private Output</* @Nullable */ String> parentArn;
 
     /**
      * @return The parent ARN.
      * 
      */
-    public Output<String> parentArn() {
-        return this.parentArn;
+    public Output<Optional<String>> parentArn() {
+        return Codegen.optional(this.parentArn);
     }
     /**
      * The target account for the grant.
      * 
      */
     @Export(name="principal", refs={String.class}, tree="[0]")
-    private Output<String> principal;
+    private Output</* @Nullable */ String> principal;
 
     /**
      * @return The target account for the grant.
      * 
      */
-    public Output<String> principal() {
-        return this.principal;
+    public Output<Optional<String>> principal() {
+        return Codegen.optional(this.principal);
     }
     /**
      * The grant status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The grant status.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * The grant version.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return The grant version.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

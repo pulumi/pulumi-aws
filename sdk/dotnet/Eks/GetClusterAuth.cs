@@ -70,20 +70,20 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Token to use to authenticate with the cluster.
         /// </summary>
-        public readonly string Token;
+        public readonly string? Token;
 
         [OutputConstructor]
         private GetClusterAuthResult(
-            string id,
+            string? id,
 
             string name,
 
-            string token)
+            string? token)
         {
             Id = id;
             Name = name;

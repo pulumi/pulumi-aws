@@ -782,7 +782,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the configuration.
         """
@@ -790,7 +790,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> pulumi.Output[str]:
+    def date_created(self) -> pulumi.Output[Optional[str]]:
         """
         Date when the configuration was created.
         """
@@ -798,7 +798,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateUpdated")
-    def date_updated(self) -> pulumi.Output[str]:
+    def date_updated(self) -> pulumi.Output[Optional[str]]:
         """
         Date when the configuration was updated.
         """

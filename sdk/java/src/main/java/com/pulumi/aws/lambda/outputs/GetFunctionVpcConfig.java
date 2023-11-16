@@ -8,26 +8,28 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFunctionVpcConfig {
-    private Boolean ipv6AllowedForDualStack;
-    private List<String> securityGroupIds;
-    private List<String> subnetIds;
-    private String vpcId;
+    private @Nullable Boolean ipv6AllowedForDualStack;
+    private @Nullable List<String> securityGroupIds;
+    private @Nullable List<String> subnetIds;
+    private @Nullable String vpcId;
 
     private GetFunctionVpcConfig() {}
-    public Boolean ipv6AllowedForDualStack() {
-        return this.ipv6AllowedForDualStack;
+    public Optional<Boolean> ipv6AllowedForDualStack() {
+        return Optional.ofNullable(this.ipv6AllowedForDualStack);
     }
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -39,10 +41,10 @@ public final class GetFunctionVpcConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean ipv6AllowedForDualStack;
-        private List<String> securityGroupIds;
-        private List<String> subnetIds;
-        private String vpcId;
+        private @Nullable Boolean ipv6AllowedForDualStack;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable List<String> subnetIds;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetFunctionVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -53,29 +55,29 @@ public final class GetFunctionVpcConfig {
         }
 
         @CustomType.Setter
-        public Builder ipv6AllowedForDualStack(Boolean ipv6AllowedForDualStack) {
-            this.ipv6AllowedForDualStack = Objects.requireNonNull(ipv6AllowedForDualStack);
+        public Builder ipv6AllowedForDualStack(@Nullable Boolean ipv6AllowedForDualStack) {
+            this.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetFunctionVpcConfig build() {

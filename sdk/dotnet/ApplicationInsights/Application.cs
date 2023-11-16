@@ -71,7 +71,7 @@ namespace Pulumi.Aws.ApplicationInsights
         /// ARN of the Application.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.

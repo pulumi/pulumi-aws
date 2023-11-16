@@ -142,7 +142,7 @@ namespace Pulumi.Aws.S3
         /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         /// </summary>
         [Output("routingRuleDetails")]
-        public Output<string> RoutingRuleDetails { get; private set; } = null!;
+        public Output<string?> RoutingRuleDetails { get; private set; } = null!;
 
         /// <summary>
         /// List of rules that define when a redirect is applied and the redirect behavior. See below.
@@ -154,13 +154,13 @@ namespace Pulumi.Aws.S3
         /// Domain of the website endpoint. This is used to create Route 53 alias records.
         /// </summary>
         [Output("websiteDomain")]
-        public Output<string> WebsiteDomain { get; private set; } = null!;
+        public Output<string?> WebsiteDomain { get; private set; } = null!;
 
         /// <summary>
         /// Website endpoint.
         /// </summary>
         [Output("websiteEndpoint")]
-        public Output<string> WebsiteEndpoint { get; private set; } = null!;
+        public Output<string?> WebsiteEndpoint { get; private set; } = null!;
 
 
         /// <summary>

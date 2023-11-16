@@ -60,11 +60,11 @@ export class PolicyTable extends pulumi.CustomResource {
     /**
      * EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The state of the EC2 Transit Gateway Policy Table.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

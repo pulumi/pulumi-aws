@@ -52,31 +52,31 @@ export interface GetDistributionConfigurationResult {
     /**
      * Date the distribution configuration was created.
      */
-    readonly dateCreated: string;
+    readonly dateCreated?: string;
     /**
      * Date the distribution configuration was updated.
      */
-    readonly dateUpdated: string;
+    readonly dateUpdated?: string;
     /**
      * Description of the container distribution configuration.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Set of distributions.
      */
-    readonly distributions: outputs.imagebuilder.GetDistributionConfigurationDistribution[];
+    readonly distributions?: outputs.imagebuilder.GetDistributionConfigurationDistribution[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the distribution configuration.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Key-value map of resource tags for the distribution configuration.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about an Image Builder Distribution Configuration.

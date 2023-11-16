@@ -214,56 +214,56 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string Bucket;
         /// <summary>
         /// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         /// </summary>
-        public readonly string BucketDomainName;
+        public readonly string? BucketDomainName;
         /// <summary>
         /// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         /// </summary>
-        public readonly string BucketRegionalDomainName;
+        public readonly string? BucketRegionalDomainName;
         /// <summary>
         /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         /// </summary>
-        public readonly string HostedZoneId;
+        public readonly string? HostedZoneId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// AWS region this bucket resides in.
         /// </summary>
-        public readonly string Region;
+        public readonly string? Region;
         /// <summary>
         /// Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         /// </summary>
-        public readonly string WebsiteDomain;
+        public readonly string? WebsiteDomain;
         /// <summary>
         /// Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         /// </summary>
-        public readonly string WebsiteEndpoint;
+        public readonly string? WebsiteEndpoint;
 
         [OutputConstructor]
         private GetBucketResult(
-            string arn,
+            string? arn,
 
             string bucket,
 
-            string bucketDomainName,
+            string? bucketDomainName,
 
-            string bucketRegionalDomainName,
+            string? bucketRegionalDomainName,
 
-            string hostedZoneId,
+            string? hostedZoneId,
 
-            string id,
+            string? id,
 
-            string region,
+            string? region,
 
-            string websiteDomain,
+            string? websiteDomain,
 
-            string websiteEndpoint)
+            string? websiteEndpoint)
         {
             Arn = arn;
             Bucket = bucket;

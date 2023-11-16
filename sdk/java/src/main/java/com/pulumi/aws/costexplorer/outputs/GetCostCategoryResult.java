@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCostCategoryResult {
@@ -18,43 +20,43 @@ public final class GetCostCategoryResult {
      * @return Default value for the cost category.
      * 
      */
-    private String defaultValue;
+    private @Nullable String defaultValue;
     /**
      * @return Effective end data of your Cost Category.
      * 
      */
-    private String effectiveEnd;
+    private @Nullable String effectiveEnd;
     /**
      * @return Effective state data of your Cost Category.
      * 
      */
-    private String effectiveStart;
+    private @Nullable String effectiveStart;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String name;
+    private @Nullable String id;
+    private @Nullable String name;
     /**
      * @return Rule schema version in this particular Cost Category.
      * 
      */
-    private String ruleVersion;
+    private @Nullable String ruleVersion;
     /**
      * @return Configuration block for the `Expression` object used to categorize costs. See below.
      * 
      */
-    private List<GetCostCategoryRule> rules;
+    private @Nullable List<GetCostCategoryRule> rules;
     /**
      * @return Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      * 
      */
-    private List<GetCostCategorySplitChargeRule> splitChargeRules;
+    private @Nullable List<GetCostCategorySplitChargeRule> splitChargeRules;
     /**
      * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetCostCategoryResult() {}
     public String costCategoryArn() {
@@ -64,60 +66,60 @@ public final class GetCostCategoryResult {
      * @return Default value for the cost category.
      * 
      */
-    public String defaultValue() {
-        return this.defaultValue;
+    public Optional<String> defaultValue() {
+        return Optional.ofNullable(this.defaultValue);
     }
     /**
      * @return Effective end data of your Cost Category.
      * 
      */
-    public String effectiveEnd() {
-        return this.effectiveEnd;
+    public Optional<String> effectiveEnd() {
+        return Optional.ofNullable(this.effectiveEnd);
     }
     /**
      * @return Effective state data of your Cost Category.
      * 
      */
-    public String effectiveStart() {
-        return this.effectiveStart;
+    public Optional<String> effectiveStart() {
+        return Optional.ofNullable(this.effectiveStart);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Rule schema version in this particular Cost Category.
      * 
      */
-    public String ruleVersion() {
-        return this.ruleVersion;
+    public Optional<String> ruleVersion() {
+        return Optional.ofNullable(this.ruleVersion);
     }
     /**
      * @return Configuration block for the `Expression` object used to categorize costs. See below.
      * 
      */
     public List<GetCostCategoryRule> rules() {
-        return this.rules;
+        return this.rules == null ? List.of() : this.rules;
     }
     /**
      * @return Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      * 
      */
     public List<GetCostCategorySplitChargeRule> splitChargeRules() {
-        return this.splitChargeRules;
+        return this.splitChargeRules == null ? List.of() : this.splitChargeRules;
     }
     /**
      * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -130,15 +132,15 @@ public final class GetCostCategoryResult {
     @CustomType.Builder
     public static final class Builder {
         private String costCategoryArn;
-        private String defaultValue;
-        private String effectiveEnd;
-        private String effectiveStart;
-        private String id;
-        private String name;
-        private String ruleVersion;
-        private List<GetCostCategoryRule> rules;
-        private List<GetCostCategorySplitChargeRule> splitChargeRules;
-        private Map<String,String> tags;
+        private @Nullable String defaultValue;
+        private @Nullable String effectiveEnd;
+        private @Nullable String effectiveStart;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String ruleVersion;
+        private @Nullable List<GetCostCategoryRule> rules;
+        private @Nullable List<GetCostCategorySplitChargeRule> splitChargeRules;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetCostCategoryResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -160,54 +162,54 @@ public final class GetCostCategoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder defaultValue(String defaultValue) {
-            this.defaultValue = Objects.requireNonNull(defaultValue);
+        public Builder defaultValue(@Nullable String defaultValue) {
+            this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
-        public Builder effectiveEnd(String effectiveEnd) {
-            this.effectiveEnd = Objects.requireNonNull(effectiveEnd);
+        public Builder effectiveEnd(@Nullable String effectiveEnd) {
+            this.effectiveEnd = effectiveEnd;
             return this;
         }
         @CustomType.Setter
-        public Builder effectiveStart(String effectiveStart) {
-            this.effectiveStart = Objects.requireNonNull(effectiveStart);
+        public Builder effectiveStart(@Nullable String effectiveStart) {
+            this.effectiveStart = effectiveStart;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder ruleVersion(String ruleVersion) {
-            this.ruleVersion = Objects.requireNonNull(ruleVersion);
+        public Builder ruleVersion(@Nullable String ruleVersion) {
+            this.ruleVersion = ruleVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder rules(List<GetCostCategoryRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+        public Builder rules(@Nullable List<GetCostCategoryRule> rules) {
+            this.rules = rules;
             return this;
         }
         public Builder rules(GetCostCategoryRule... rules) {
             return rules(List.of(rules));
         }
         @CustomType.Setter
-        public Builder splitChargeRules(List<GetCostCategorySplitChargeRule> splitChargeRules) {
-            this.splitChargeRules = Objects.requireNonNull(splitChargeRules);
+        public Builder splitChargeRules(@Nullable List<GetCostCategorySplitChargeRule> splitChargeRules) {
+            this.splitChargeRules = splitChargeRules;
             return this;
         }
         public Builder splitChargeRules(GetCostCategorySplitChargeRule... splitChargeRules) {
             return splitChargeRules(List.of(splitChargeRules));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetCostCategoryResult build() {

@@ -89,22 +89,22 @@ type LookupWorkspaceArgs struct {
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	BundleId string `pulumi:"bundleId"`
+	BundleId *string `pulumi:"bundleId"`
 	// Name of the WorkSpace, as seen by the operating system.
-	ComputerName string `pulumi:"computerName"`
-	DirectoryId  string `pulumi:"directoryId"`
+	ComputerName *string `pulumi:"computerName"`
+	DirectoryId  *string `pulumi:"directoryId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// IP address of the WorkSpace.
-	IpAddress                   string `pulumi:"ipAddress"`
-	RootVolumeEncryptionEnabled bool   `pulumi:"rootVolumeEncryptionEnabled"`
+	IpAddress                   *string `pulumi:"ipAddress"`
+	RootVolumeEncryptionEnabled *bool   `pulumi:"rootVolumeEncryptionEnabled"`
 	// Operational state of the WorkSpace.
-	State                       string                          `pulumi:"state"`
+	State                       *string                         `pulumi:"state"`
 	Tags                        map[string]string               `pulumi:"tags"`
-	UserName                    string                          `pulumi:"userName"`
-	UserVolumeEncryptionEnabled bool                            `pulumi:"userVolumeEncryptionEnabled"`
-	VolumeEncryptionKey         string                          `pulumi:"volumeEncryptionKey"`
-	WorkspaceId                 string                          `pulumi:"workspaceId"`
+	UserName                    *string                         `pulumi:"userName"`
+	UserVolumeEncryptionEnabled *bool                           `pulumi:"userVolumeEncryptionEnabled"`
+	VolumeEncryptionKey         *string                         `pulumi:"volumeEncryptionKey"`
+	WorkspaceId                 *string                         `pulumi:"workspaceId"`
 	WorkspaceProperties         []GetWorkspaceWorkspaceProperty `pulumi:"workspaceProperties"`
 }
 
@@ -152,56 +152,56 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 	return o
 }
 
-func (o LookupWorkspaceResultOutput) BundleId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.BundleId }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) BundleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.BundleId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the WorkSpace, as seen by the operating system.
-func (o LookupWorkspaceResultOutput) ComputerName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ComputerName }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) ComputerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ComputerName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupWorkspaceResultOutput) DirectoryId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.DirectoryId }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) DirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.DirectoryId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // IP address of the WorkSpace.
-func (o LookupWorkspaceResultOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.IpAddress }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupWorkspaceResultOutput) RootVolumeEncryptionEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) bool { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolOutput)
+func (o LookupWorkspaceResultOutput) RootVolumeEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *bool { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Operational state of the WorkSpace.
-func (o LookupWorkspaceResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.State }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupWorkspaceResultOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.UserName }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupWorkspaceResultOutput) UserVolumeEncryptionEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) bool { return v.UserVolumeEncryptionEnabled }).(pulumi.BoolOutput)
+func (o LookupWorkspaceResultOutput) UserVolumeEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *bool { return v.UserVolumeEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupWorkspaceResultOutput) VolumeEncryptionKey() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.VolumeEncryptionKey }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) VolumeEncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.VolumeEncryptionKey }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupWorkspaceResultOutput) WorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) WorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupWorkspaceResultOutput) WorkspaceProperties() GetWorkspaceWorkspacePropertyArrayOutput {

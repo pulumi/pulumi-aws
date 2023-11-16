@@ -95,7 +95,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Hosted Zone.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
      */
@@ -116,11 +116,11 @@ export class Zone extends pulumi.CustomResource {
      * A list of name servers in associated (or default) delegation set.
      * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
      */
-    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    public /*out*/ readonly nameServers!: pulumi.Output<string[] | undefined>;
     /**
      * The Route 53 name server that created the SOA record.
      */
-    public /*out*/ readonly primaryNameServer!: pulumi.Output<string>;
+    public /*out*/ readonly primaryNameServer!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -138,7 +138,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
-    public /*out*/ readonly zoneId!: pulumi.Output<string>;
+    public /*out*/ readonly zoneId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.

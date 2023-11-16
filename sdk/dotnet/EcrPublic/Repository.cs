@@ -80,7 +80,7 @@ namespace Pulumi.Aws.EcrPublic
         /// Full ARN of the repository.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Catalog data configuration for the repository. See below for schema.
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.EcrPublic
         /// The registry ID where the repository was created.
         /// </summary>
         [Output("registryId")]
-        public Output<string> RegistryId { get; private set; } = null!;
+        public Output<string?> RegistryId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the repository.
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.EcrPublic
         /// The URI of the repository.
         /// </summary>
         [Output("repositoryUri")]
-        public Output<string> RepositoryUri { get; private set; } = null!;
+        public Output<string?> RepositoryUri { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

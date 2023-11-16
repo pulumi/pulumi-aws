@@ -77,28 +77,28 @@ export interface GetRouteTableResult {
     /**
      * EC2 Transit Gateway Route Table ARN.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway
      */
-    readonly defaultAssociationRouteTable: boolean;
+    readonly defaultAssociationRouteTable?: boolean;
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway
      */
-    readonly defaultPropagationRouteTable: boolean;
+    readonly defaultPropagationRouteTable?: boolean;
     readonly filters?: outputs.ec2transitgateway.GetRouteTableFilter[];
     /**
      * EC2 Transit Gateway Route Table identifier
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * EC2 Transit Gateway identifier
      */
-    readonly transitGatewayId: string;
+    readonly transitGatewayId?: string;
 }
 /**
  * Get information on an EC2 Transit Gateway Route Table.

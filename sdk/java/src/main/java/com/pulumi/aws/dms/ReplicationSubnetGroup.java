@@ -133,10 +133,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")
 public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource {
     @Export(name="replicationSubnetGroupArn", refs={String.class}, tree="[0]")
-    private Output<String> replicationSubnetGroupArn;
+    private Output</* @Nullable */ String> replicationSubnetGroupArn;
 
-    public Output<String> replicationSubnetGroupArn() {
-        return this.replicationSubnetGroupArn;
+    public Output<Optional<String>> replicationSubnetGroupArn() {
+        return Codegen.optional(this.replicationSubnetGroupArn);
     }
     /**
      * Description for the subnet group.
@@ -217,14 +217,14 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The ID of the VPC the subnet group is in.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

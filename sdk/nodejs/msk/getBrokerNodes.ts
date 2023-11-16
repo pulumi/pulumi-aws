@@ -47,8 +47,8 @@ export interface GetBrokerNodesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly nodeInfoLists: outputs.msk.GetBrokerNodesNodeInfoList[];
+    readonly id?: string;
+    readonly nodeInfoLists?: outputs.msk.GetBrokerNodesNodeInfoList[];
 }
 /**
  * Get information on an Amazon MSK Broker Nodes.

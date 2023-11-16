@@ -66,9 +66,9 @@ type LookupServiceArgs struct {
 // A collection of values returned by getService.
 type LookupServiceResult struct {
 	// ARN of the service.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the service.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
 	DnsConfigs []GetServiceDnsConfig `pulumi:"dnsConfigs"`
 	// Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
@@ -76,8 +76,8 @@ type LookupServiceResult struct {
 	// A complex type that contains settings for ECS managed health checks.
 	HealthCheckCustomConfigs []GetServiceHealthCheckCustomConfig `pulumi:"healthCheckCustomConfigs"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// ID of the namespace to use for DNS configuration.
 	NamespaceId string `pulumi:"namespaceId"`
 	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -135,13 +135,13 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 }
 
 // ARN of the service.
-func (o LookupServiceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the service.
-func (o LookupServiceResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
@@ -160,8 +160,8 @@ func (o LookupServiceResultOutput) HealthCheckCustomConfigs() GetServiceHealthCh
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServiceResultOutput) Name() pulumi.StringOutput {

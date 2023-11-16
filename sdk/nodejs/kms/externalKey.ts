@@ -56,7 +56,7 @@ export class ExternalKey extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the key.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
      */
@@ -72,11 +72,11 @@ export class ExternalKey extends pulumi.CustomResource {
     /**
      * Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
      */
-    public /*out*/ readonly expirationModel!: pulumi.Output<string>;
+    public /*out*/ readonly expirationModel!: pulumi.Output<string | undefined>;
     /**
      * Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
      */
@@ -84,19 +84,19 @@ export class ExternalKey extends pulumi.CustomResource {
     /**
      * The state of the CMK.
      */
-    public /*out*/ readonly keyState!: pulumi.Output<string>;
+    public /*out*/ readonly keyState!: pulumi.Output<string | undefined>;
     /**
      * The cryptographic operations for which you can use the CMK.
      */
-    public /*out*/ readonly keyUsage!: pulumi.Output<string>;
+    public /*out*/ readonly keyUsage!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      */
-    public readonly multiRegion!: pulumi.Output<boolean>;
+    public readonly multiRegion!: pulumi.Output<boolean | undefined>;
     /**
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      */
-    public readonly policy!: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

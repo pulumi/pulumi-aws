@@ -13,26 +13,26 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class GetEndpointMongodbSettingResult
     {
-        public readonly string AuthMechanism;
-        public readonly string AuthSource;
-        public readonly string AuthType;
-        public readonly string DocsToInvestigate;
-        public readonly string ExtractDocId;
-        public readonly string NestingLevel;
+        public readonly string? AuthMechanism;
+        public readonly string? AuthSource;
+        public readonly string? AuthType;
+        public readonly string? DocsToInvestigate;
+        public readonly string? ExtractDocId;
+        public readonly string? NestingLevel;
 
         [OutputConstructor]
         private GetEndpointMongodbSettingResult(
-            string authMechanism,
+            string? authMechanism,
 
-            string authSource,
+            string? authSource,
 
-            string authType,
+            string? authType,
 
-            string docsToInvestigate,
+            string? docsToInvestigate,
 
-            string extractDocId,
+            string? extractDocId,
 
-            string nestingLevel)
+            string? nestingLevel)
         {
             AuthMechanism = authMechanism;
             AuthSource = authSource;

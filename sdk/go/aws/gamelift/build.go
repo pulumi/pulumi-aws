@@ -58,7 +58,7 @@ type Build struct {
 	pulumi.CustomResourceState
 
 	// GameLift Build ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the build
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
@@ -271,8 +271,8 @@ func (o BuildOutput) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 }
 
 // GameLift Build ARN.
-func (o BuildOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BuildOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Build) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the build

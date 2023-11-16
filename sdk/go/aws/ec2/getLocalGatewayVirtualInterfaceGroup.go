@@ -63,8 +63,8 @@ type GetLocalGatewayVirtualInterfaceGroupArgs struct {
 // A collection of values returned by getLocalGatewayVirtualInterfaceGroup.
 type GetLocalGatewayVirtualInterfaceGroupResult struct {
 	Filters        []GetLocalGatewayVirtualInterfaceGroupFilter `pulumi:"filters"`
-	Id             string                                       `pulumi:"id"`
-	LocalGatewayId string                                       `pulumi:"localGatewayId"`
+	Id             *string                                      `pulumi:"id"`
+	LocalGatewayId *string                                      `pulumi:"localGatewayId"`
 	// Set of EC2 Local Gateway Virtual Interface identifiers.
 	LocalGatewayVirtualInterfaceIds []string          `pulumi:"localGatewayVirtualInterfaceIds"`
 	Tags                            map[string]string `pulumi:"tags"`
@@ -120,12 +120,12 @@ func (o GetLocalGatewayVirtualInterfaceGroupResultOutput) Filters() GetLocalGate
 	}).(GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput)
 }
 
-func (o GetLocalGatewayVirtualInterfaceGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocalGatewayVirtualInterfaceGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLocalGatewayVirtualInterfaceGroupResultOutput) LocalGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupResult) string { return v.LocalGatewayId }).(pulumi.StringOutput)
+func (o GetLocalGatewayVirtualInterfaceGroupResultOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupResult) *string { return v.LocalGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // Set of EC2 Local Gateway Virtual Interface identifiers.

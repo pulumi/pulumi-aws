@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecLoggingAccessLogFileFormat {
-    private List<GetVirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons;
-    private String text;
+    private @Nullable List<GetVirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons;
+    private @Nullable String text;
 
     private GetVirtualGatewaySpecLoggingAccessLogFileFormat() {}
     public List<GetVirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons() {
-        return this.jsons;
+        return this.jsons == null ? List.of() : this.jsons;
     }
-    public String text() {
-        return this.text;
+    public Optional<String> text() {
+        return Optional.ofNullable(this.text);
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetVirtualGatewaySpecLoggingAccessLogFileFormat {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons;
-        private String text;
+        private @Nullable List<GetVirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons;
+        private @Nullable String text;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecLoggingAccessLogFileFormat defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +43,16 @@ public final class GetVirtualGatewaySpecLoggingAccessLogFileFormat {
         }
 
         @CustomType.Setter
-        public Builder jsons(List<GetVirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons) {
-            this.jsons = Objects.requireNonNull(jsons);
+        public Builder jsons(@Nullable List<GetVirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons) {
+            this.jsons = jsons;
             return this;
         }
         public Builder jsons(GetVirtualGatewaySpecLoggingAccessLogFileFormatJson... jsons) {
             return jsons(List.of(jsons));
         }
         @CustomType.Setter
-        public Builder text(String text) {
-            this.text = Objects.requireNonNull(text);
+        public Builder text(@Nullable String text) {
+            this.text = text;
             return this;
         }
         public GetVirtualGatewaySpecLoggingAccessLogFileFormat build() {

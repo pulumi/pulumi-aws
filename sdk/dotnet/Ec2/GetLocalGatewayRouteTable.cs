@@ -203,28 +203,28 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string LocalGatewayId;
-        public readonly string LocalGatewayRouteTableId;
-        public readonly string OutpostArn;
-        public readonly string State;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? Id;
+        public readonly string? LocalGatewayId;
+        public readonly string? LocalGatewayRouteTableId;
+        public readonly string? OutpostArn;
+        public readonly string? State;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLocalGatewayRouteTableResult(
             ImmutableArray<Outputs.GetLocalGatewayRouteTableFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string localGatewayId,
+            string? localGatewayId,
 
-            string localGatewayRouteTableId,
+            string? localGatewayRouteTableId,
 
-            string outpostArn,
+            string? outpostArn,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;

@@ -57,74 +57,74 @@ export interface GetNetworkInterfaceResult {
     /**
      * ARN of the network interface.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
      */
-    readonly associations: outputs.ec2.GetNetworkInterfaceAssociation[];
-    readonly attachments: outputs.ec2.GetNetworkInterfaceAttachment[];
+    readonly associations?: outputs.ec2.GetNetworkInterfaceAssociation[];
+    readonly attachments?: outputs.ec2.GetNetworkInterfaceAttachment[];
     /**
      * Availability Zone.
      */
-    readonly availabilityZone: string;
+    readonly availabilityZone?: string;
     /**
      * Description of the network interface.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly filters?: outputs.ec2.GetNetworkInterfaceFilter[];
-    readonly id: string;
+    readonly id?: string;
     /**
      * Type of interface.
      */
-    readonly interfaceType: string;
+    readonly interfaceType?: string;
     /**
      * List of IPv6 addresses to assign to the ENI.
      */
-    readonly ipv6Addresses: string[];
+    readonly ipv6Addresses?: string[];
     /**
      * MAC address.
      */
-    readonly macAddress: string;
+    readonly macAddress?: string;
     /**
      * ARN of the Outpost.
      */
-    readonly outpostArn: string;
+    readonly outpostArn?: string;
     /**
      * AWS account ID of the owner of the network interface.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * Private DNS name.
      */
-    readonly privateDnsName: string;
+    readonly privateDnsName?: string;
     /**
      * Private IPv4 address of the network interface within the subnet.
      */
-    readonly privateIp: string;
+    readonly privateIp?: string;
     /**
      * Private IPv4 addresses associated with the network interface.
      */
-    readonly privateIps: string[];
+    readonly privateIps?: string[];
     /**
      * ID of the entity that launched the instance on your behalf.
      */
-    readonly requesterId: string;
+    readonly requesterId?: string;
     /**
      * List of security groups for the network interface.
      */
-    readonly securityGroups: string[];
+    readonly securityGroups?: string[];
     /**
      * ID of the subnet.
      */
-    readonly subnetId: string;
+    readonly subnetId?: string;
     /**
      * Any tags assigned to the network interface.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * ID of the VPC.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Use this data source to get information about a Network Interface.

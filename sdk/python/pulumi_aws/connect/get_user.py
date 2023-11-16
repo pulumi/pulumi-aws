@@ -62,7 +62,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the User.
         """
@@ -70,7 +70,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="directoryUserId")
-    def directory_user_id(self) -> str:
+    def directory_user_id(self) -> Optional[str]:
         """
         The identifier of the user account in the directory used for identity management.
         """
@@ -78,7 +78,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="hierarchyGroupId")
-    def hierarchy_group_id(self) -> str:
+    def hierarchy_group_id(self) -> Optional[str]:
         """
         The identifier of the hierarchy group for the user.
         """
@@ -86,7 +86,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -94,7 +94,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="identityInfos")
-    def identity_infos(self) -> Sequence['outputs.GetUserIdentityInfoResult']:
+    def identity_infos(self) -> Optional[Sequence['outputs.GetUserIdentityInfoResult']]:
         """
         A block that contains information about the identity of the user. Documented below.
         """
@@ -110,12 +110,12 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="phoneConfigs")
-    def phone_configs(self) -> Sequence['outputs.GetUserPhoneConfigResult']:
+    def phone_configs(self) -> Optional[Sequence['outputs.GetUserPhoneConfigResult']]:
         """
         A block that contains information about the phone settings for the user. Documented below.
         """
@@ -123,7 +123,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="routingProfileId")
-    def routing_profile_id(self) -> str:
+    def routing_profile_id(self) -> Optional[str]:
         """
         The identifier of the routing profile for the user.
         """
@@ -131,7 +131,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="securityProfileIds")
-    def security_profile_ids(self) -> Sequence[str]:
+    def security_profile_ids(self) -> Optional[Sequence[str]]:
         """
         A list of identifiers for the security profiles for the user.
         """
@@ -139,7 +139,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags to assign to the User.
         """
@@ -147,7 +147,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> Optional[str]:
         return pulumi.get(self, "user_id")
 
 

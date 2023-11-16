@@ -35,7 +35,7 @@ type Group struct {
 	// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
 	ExternalIds GroupExternalIdArrayOutput `pulumi:"externalIds"`
 	// The identifier of the newly created group in the identity store.
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
+	GroupId pulumi.StringPtrOutput `pulumi:"groupId"`
 	// The globally unique identifier for the identity store.
 	//
 	// The following arguments are optional:
@@ -237,8 +237,8 @@ func (o GroupOutput) ExternalIds() GroupExternalIdArrayOutput {
 }
 
 // The identifier of the newly created group in the identity store.
-func (o GroupOutput) GroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+func (o GroupOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
 // The globally unique identifier for the identity store.

@@ -66,7 +66,7 @@ type FrameworkShare struct {
 	// The following arguments are optional:
 	FrameworkId pulumi.StringOutput `pulumi:"frameworkId"`
 	// Status of the share request.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewFrameworkShare registers a new resource with the given unique name, arguments, and options.
@@ -278,8 +278,8 @@ func (o FrameworkShareOutput) FrameworkId() pulumi.StringOutput {
 }
 
 // Status of the share request.
-func (o FrameworkShareOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *FrameworkShare) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o FrameworkShareOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrameworkShare) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type FrameworkShareArrayOutput struct{ *pulumi.OutputState }

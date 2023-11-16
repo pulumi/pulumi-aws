@@ -60,18 +60,18 @@ type LookupServerlessSecurityConfigArgs struct {
 // A collection of values returned by getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigResult struct {
 	// The version of the security configuration.
-	ConfigVersion string `pulumi:"configVersion"`
+	ConfigVersion *string `pulumi:"configVersion"`
 	// The date the configuration was created.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// The description of the security configuration.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
+	Description *string `pulumi:"description"`
+	Id          string  `pulumi:"id"`
 	// The date the configuration was last modified.
-	LastModifiedDate string `pulumi:"lastModifiedDate"`
+	LastModifiedDate *string `pulumi:"lastModifiedDate"`
 	// SAML options for the security configuration.
 	SamlOptions *GetServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
 	// The type of security configuration.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 func LookupServerlessSecurityConfigOutput(ctx *pulumi.Context, args LookupServerlessSecurityConfigOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessSecurityConfigResultOutput {
@@ -115,18 +115,18 @@ func (o LookupServerlessSecurityConfigResultOutput) ToLookupServerlessSecurityCo
 }
 
 // The version of the security configuration.
-func (o LookupServerlessSecurityConfigResultOutput) ConfigVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.ConfigVersion }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityConfigResultOutput) ConfigVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) *string { return v.ConfigVersion }).(pulumi.StringPtrOutput)
 }
 
 // The date the configuration was created.
-func (o LookupServerlessSecurityConfigResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityConfigResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The description of the security configuration.
-func (o LookupServerlessSecurityConfigResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityConfigResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServerlessSecurityConfigResultOutput) Id() pulumi.StringOutput {
@@ -134,8 +134,8 @@ func (o LookupServerlessSecurityConfigResultOutput) Id() pulumi.StringOutput {
 }
 
 // The date the configuration was last modified.
-func (o LookupServerlessSecurityConfigResultOutput) LastModifiedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityConfigResultOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) *string { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }
 
 // SAML options for the security configuration.
@@ -146,8 +146,8 @@ func (o LookupServerlessSecurityConfigResultOutput) SamlOptions() GetServerlessS
 }
 
 // The type of security configuration.
-func (o LookupServerlessSecurityConfigResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityConfigResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

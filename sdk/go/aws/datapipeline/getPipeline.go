@@ -59,12 +59,12 @@ type LookupPipelineArgs struct {
 // A collection of values returned by getPipeline.
 type LookupPipelineResult struct {
 	// Description of Pipeline.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of Pipeline.
-	Name       string `pulumi:"name"`
-	PipelineId string `pulumi:"pipelineId"`
+	Name       *string `pulumi:"name"`
+	PipelineId string  `pulumi:"pipelineId"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -110,18 +110,18 @@ func (o LookupPipelineResultOutput) ToLookupPipelineResultOutputWithContext(ctx 
 }
 
 // Description of Pipeline.
-func (o LookupPipelineResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPipelineResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupPipelineResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupPipelineResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPipelineResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupPipelineResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of Pipeline.
-func (o LookupPipelineResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPipelineResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupPipelineResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupPipelineResultOutput) PipelineId() pulumi.StringOutput {

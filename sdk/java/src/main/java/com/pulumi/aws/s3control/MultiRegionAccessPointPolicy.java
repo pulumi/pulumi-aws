@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -106,14 +107,14 @@ public class MultiRegionAccessPointPolicy extends com.pulumi.resources.CustomRes
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
+    private Output</* @Nullable */ String> accountId;
 
     /**
      * @return The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
     }
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
@@ -134,28 +135,28 @@ public class MultiRegionAccessPointPolicy extends com.pulumi.resources.CustomRes
      * 
      */
     @Export(name="established", refs={String.class}, tree="[0]")
-    private Output<String> established;
+    private Output</* @Nullable */ String> established;
 
     /**
      * @return The last established policy for the Multi-Region Access Point.
      * 
      */
-    public Output<String> established() {
-        return this.established;
+    public Output<Optional<String>> established() {
+        return Codegen.optional(this.established);
     }
     /**
      * The proposed policy for the Multi-Region Access Point.
      * 
      */
     @Export(name="proposed", refs={String.class}, tree="[0]")
-    private Output<String> proposed;
+    private Output</* @Nullable */ String> proposed;
 
     /**
      * @return The proposed policy for the Multi-Region Access Point.
      * 
      */
-    public Output<String> proposed() {
-        return this.proposed;
+    public Output<Optional<String>> proposed() {
+        return Codegen.optional(this.proposed);
     }
 
     /**

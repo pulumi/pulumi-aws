@@ -132,98 +132,98 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// ARN of the MSK cluster.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         /// </summary>
-        public readonly string BootstrapBrokers;
+        public readonly string? BootstrapBrokers;
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        public readonly string BootstrapBrokersPublicSaslIam;
+        public readonly string? BootstrapBrokersPublicSaslIam;
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        public readonly string BootstrapBrokersPublicSaslScram;
+        public readonly string? BootstrapBrokersPublicSaslScram;
         /// <summary>
         /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        public readonly string BootstrapBrokersPublicTls;
+        public readonly string? BootstrapBrokersPublicTls;
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        public readonly string BootstrapBrokersSaslIam;
+        public readonly string? BootstrapBrokersSaslIam;
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        public readonly string BootstrapBrokersSaslScram;
+        public readonly string? BootstrapBrokersSaslScram;
         /// <summary>
         /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        public readonly string BootstrapBrokersTls;
+        public readonly string? BootstrapBrokersTls;
         public readonly string ClusterName;
         /// <summary>
         /// UUID of the MSK cluster, for use in IAM policies.
         /// </summary>
-        public readonly string ClusterUuid;
+        public readonly string? ClusterUuid;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Apache Kafka version.
         /// </summary>
-        public readonly string KafkaVersion;
+        public readonly string? KafkaVersion;
         /// <summary>
         /// Number of broker nodes in the cluster.
         /// </summary>
-        public readonly int NumberOfBrokerNodes;
+        public readonly int? NumberOfBrokerNodes;
         /// <summary>
         /// Map of key-value pairs assigned to the cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
-        public readonly string ZookeeperConnectString;
+        public readonly string? ZookeeperConnectString;
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
-        public readonly string ZookeeperConnectStringTls;
+        public readonly string? ZookeeperConnectStringTls;
 
         [OutputConstructor]
         private GetClusterResult(
-            string arn,
+            string? arn,
 
-            string bootstrapBrokers,
+            string? bootstrapBrokers,
 
-            string bootstrapBrokersPublicSaslIam,
+            string? bootstrapBrokersPublicSaslIam,
 
-            string bootstrapBrokersPublicSaslScram,
+            string? bootstrapBrokersPublicSaslScram,
 
-            string bootstrapBrokersPublicTls,
+            string? bootstrapBrokersPublicTls,
 
-            string bootstrapBrokersSaslIam,
+            string? bootstrapBrokersSaslIam,
 
-            string bootstrapBrokersSaslScram,
+            string? bootstrapBrokersSaslScram,
 
-            string bootstrapBrokersTls,
+            string? bootstrapBrokersTls,
 
             string clusterName,
 
-            string clusterUuid,
+            string? clusterUuid,
 
-            string id,
+            string? id,
 
-            string kafkaVersion,
+            string? kafkaVersion,
 
-            int numberOfBrokerNodes,
+            int? numberOfBrokerNodes,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string zookeeperConnectString,
+            string? zookeeperConnectString,
 
-            string zookeeperConnectStringTls)
+            string? zookeeperConnectStringTls)
         {
             Arn = arn;
             BootstrapBrokers = bootstrapBrokers;

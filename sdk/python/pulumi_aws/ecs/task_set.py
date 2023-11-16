@@ -862,7 +862,7 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) that identifies the task set.
         """
@@ -886,7 +886,7 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> pulumi.Output[str]:
+    def external_id(self) -> pulumi.Output[Optional[str]]:
         """
         The external ID associated with the task set.
         """
@@ -902,7 +902,7 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchType")
-    def launch_type(self) -> pulumi.Output[str]:
+    def launch_type(self) -> pulumi.Output[Optional[str]]:
         """
         The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         """
@@ -926,7 +926,7 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> pulumi.Output[str]:
+    def platform_version(self) -> pulumi.Output[Optional[str]]:
         """
         The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         """
@@ -934,7 +934,7 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scale(self) -> pulumi.Output['outputs.TaskSetScale']:
+    def scale(self) -> pulumi.Output[Optional['outputs.TaskSetScale']]:
         """
         A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         """
@@ -958,7 +958,7 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stabilityStatus")
-    def stability_status(self) -> pulumi.Output[str]:
+    def stability_status(self) -> pulumi.Output[Optional[str]]:
         """
         The stability status. This indicates whether the task set has reached a steady state.
         """
@@ -966,7 +966,7 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the task set.
         """
@@ -1003,7 +1003,7 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="taskSetId")
-    def task_set_id(self) -> pulumi.Output[str]:
+    def task_set_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the task set.
         """

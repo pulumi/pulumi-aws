@@ -49,7 +49,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// (Required) Amazon Resource Name (ARN) of the component.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Change description of the component.
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.ImageBuilder
         /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Output("data")]
-        public Output<string> Data { get; private set; } = null!;
+        public Output<string?> Data { get; private set; } = null!;
 
         /// <summary>
         /// Date the component was created.
         /// </summary>
         [Output("dateCreated")]
-        public Output<string> DateCreated { get; private set; } = null!;
+        public Output<string?> DateCreated { get; private set; } = null!;
 
         /// <summary>
         /// Description of the component.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Encryption status of the component.
         /// </summary>
         [Output("encrypted")]
-        public Output<bool> Encrypted { get; private set; } = null!;
+        public Output<bool?> Encrypted { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Owner of the component.
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// Platform of the component.
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Type of the component.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.

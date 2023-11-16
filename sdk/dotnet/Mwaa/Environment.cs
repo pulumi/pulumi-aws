@@ -185,20 +185,20 @@ namespace Pulumi.Aws.Mwaa
         /// Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         /// </summary>
         [Output("airflowVersion")]
-        public Output<string> AirflowVersion { get; private set; } = null!;
+        public Output<string?> AirflowVersion { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the MWAA Environment
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Created At date of the MWAA Environment
         /// * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Mwaa
         /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         /// </summary>
         [Output("environmentClass")]
-        public Output<string> EnvironmentClass { get; private set; } = null!;
+        public Output<string?> EnvironmentClass { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -231,19 +231,19 @@ namespace Pulumi.Aws.Mwaa
         /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
         /// </summary>
         [Output("loggingConfiguration")]
-        public Output<Outputs.EnvironmentLoggingConfiguration> LoggingConfiguration { get; private set; } = null!;
+        public Output<Outputs.EnvironmentLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         /// </summary>
         [Output("maxWorkers")]
-        public Output<int> MaxWorkers { get; private set; } = null!;
+        public Output<int?> MaxWorkers { get; private set; } = null!;
 
         /// <summary>
         /// The minimum number of workers that you want to run in your environment. Will be `1` by default.
         /// </summary>
         [Output("minWorkers")]
-        public Output<int> MinWorkers { get; private set; } = null!;
+        public Output<int?> MinWorkers { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Apache Airflow Environment
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Mwaa
         /// The plugins.zip file version you want to use.
         /// </summary>
         [Output("pluginsS3ObjectVersion")]
-        public Output<string> PluginsS3ObjectVersion { get; private set; } = null!;
+        public Output<string?> PluginsS3ObjectVersion { get; private set; } = null!;
 
         /// <summary>
         /// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Mwaa
         /// The requirements.txt file version you want to use.
         /// </summary>
         [Output("requirementsS3ObjectVersion")]
-        public Output<string> RequirementsS3ObjectVersion { get; private set; } = null!;
+        public Output<string?> RequirementsS3ObjectVersion { get; private set; } = null!;
 
         /// <summary>
         /// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -285,13 +285,13 @@ namespace Pulumi.Aws.Mwaa
         /// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         /// </summary>
         [Output("schedulers")]
-        public Output<int> Schedulers { get; private set; } = null!;
+        public Output<int?> Schedulers { get; private set; } = null!;
 
         /// <summary>
         /// The Service Role ARN of the Amazon MWAA Environment
         /// </summary>
         [Output("serviceRoleArn")]
-        public Output<string> ServiceRoleArn { get; private set; } = null!;
+        public Output<string?> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.Mwaa
         /// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         /// </summary>
         [Output("startupScriptS3ObjectVersion")]
-        public Output<string> StartupScriptS3ObjectVersion { get; private set; } = null!;
+        public Output<string?> StartupScriptS3ObjectVersion { get; private set; } = null!;
 
         /// <summary>
         /// The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Mwaa
         /// The status of the Amazon MWAA Environment
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -333,19 +333,19 @@ namespace Pulumi.Aws.Mwaa
         /// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         /// </summary>
         [Output("webserverAccessMode")]
-        public Output<string> WebserverAccessMode { get; private set; } = null!;
+        public Output<string?> WebserverAccessMode { get; private set; } = null!;
 
         /// <summary>
         /// The webserver URL of the MWAA Environment
         /// </summary>
         [Output("webserverUrl")]
-        public Output<string> WebserverUrl { get; private set; } = null!;
+        public Output<string?> WebserverUrl { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the start date for the weekly maintenance window.
         /// </summary>
         [Output("weeklyMaintenanceWindowStart")]
-        public Output<string> WeeklyMaintenanceWindowStart { get; private set; } = null!;
+        public Output<string?> WeeklyMaintenanceWindowStart { get; private set; } = null!;
 
 
         /// <summary>

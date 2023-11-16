@@ -73,7 +73,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
     /**
      * The registry ID where the registry was created.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RegistryPolicy resource with the given unique name, arguments, and options.

@@ -433,7 +433,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the created certificate.
         """
@@ -449,7 +449,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificatePem")
-    def certificate_pem(self) -> pulumi.Output[str]:
+    def certificate_pem(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate to be registered. If `ca_pem` is unspecified, review
         [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
@@ -473,7 +473,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> pulumi.Output[str]:
+    def private_key(self) -> pulumi.Output[Optional[str]]:
         """
         When neither CSR nor certificate is provided, the private key.
         """
@@ -481,7 +481,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> pulumi.Output[str]:
+    def public_key(self) -> pulumi.Output[Optional[str]]:
         """
         When neither CSR nor certificate is provided, the public key.
         """

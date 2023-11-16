@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Ses
         /// The ARN of the domain identity.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The domain name to assign to SES
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Ses
         /// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         /// </summary>
         [Output("verificationToken")]
-        public Output<string> VerificationToken { get; private set; } = null!;
+        public Output<string?> VerificationToken { get; private set; } = null!;
 
 
         /// <summary>

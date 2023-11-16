@@ -5190,11 +5190,11 @@ func (o VpcEndpointVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type GetDomainAdvancedSecurityOption struct {
-	AnonymousAuthEnabled bool `pulumi:"anonymousAuthEnabled"`
+	AnonymousAuthEnabled *bool `pulumi:"anonymousAuthEnabled"`
 	// Enabled disabled toggle for off-peak update window
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
-	InternalUserDatabaseEnabled bool `pulumi:"internalUserDatabaseEnabled"`
+	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
 }
 
 // GetDomainAdvancedSecurityOptionInput is an input type that accepts GetDomainAdvancedSecurityOptionArgs and GetDomainAdvancedSecurityOptionOutput values.
@@ -5209,11 +5209,11 @@ type GetDomainAdvancedSecurityOptionInput interface {
 }
 
 type GetDomainAdvancedSecurityOptionArgs struct {
-	AnonymousAuthEnabled pulumi.BoolInput `pulumi:"anonymousAuthEnabled"`
+	AnonymousAuthEnabled pulumi.BoolPtrInput `pulumi:"anonymousAuthEnabled"`
 	// Enabled disabled toggle for off-peak update window
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
-	InternalUserDatabaseEnabled pulumi.BoolInput `pulumi:"internalUserDatabaseEnabled"`
+	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
 }
 
 func (GetDomainAdvancedSecurityOptionArgs) ElementType() reflect.Type {
@@ -5267,18 +5267,18 @@ func (o GetDomainAdvancedSecurityOptionOutput) ToGetDomainAdvancedSecurityOption
 	return o
 }
 
-func (o GetDomainAdvancedSecurityOptionOutput) AnonymousAuthEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.AnonymousAuthEnabled }).(pulumi.BoolOutput)
+func (o GetDomainAdvancedSecurityOptionOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) *bool { return v.AnonymousAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Enabled disabled toggle for off-peak update window
-func (o GetDomainAdvancedSecurityOptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetDomainAdvancedSecurityOptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the internal user database is enabled.
-func (o GetDomainAdvancedSecurityOptionOutput) InternalUserDatabaseEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolOutput)
+func (o GetDomainAdvancedSecurityOptionOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) *bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetDomainAdvancedSecurityOptionArrayOutput struct{ *pulumi.OutputState }
@@ -5303,11 +5303,11 @@ func (o GetDomainAdvancedSecurityOptionArrayOutput) Index(i pulumi.IntInput) Get
 
 type GetDomainAutoTuneOption struct {
 	// Auto-Tune desired state for the domain.
-	DesiredState string `pulumi:"desiredState"`
+	DesiredState *string `pulumi:"desiredState"`
 	// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
 	MaintenanceSchedules []GetDomainAutoTuneOptionMaintenanceSchedule `pulumi:"maintenanceSchedules"`
 	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-	RollbackOnDisable string `pulumi:"rollbackOnDisable"`
+	RollbackOnDisable *string `pulumi:"rollbackOnDisable"`
 }
 
 // GetDomainAutoTuneOptionInput is an input type that accepts GetDomainAutoTuneOptionArgs and GetDomainAutoTuneOptionOutput values.
@@ -5323,11 +5323,11 @@ type GetDomainAutoTuneOptionInput interface {
 
 type GetDomainAutoTuneOptionArgs struct {
 	// Auto-Tune desired state for the domain.
-	DesiredState pulumi.StringInput `pulumi:"desiredState"`
+	DesiredState pulumi.StringPtrInput `pulumi:"desiredState"`
 	// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
 	MaintenanceSchedules GetDomainAutoTuneOptionMaintenanceScheduleArrayInput `pulumi:"maintenanceSchedules"`
 	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-	RollbackOnDisable pulumi.StringInput `pulumi:"rollbackOnDisable"`
+	RollbackOnDisable pulumi.StringPtrInput `pulumi:"rollbackOnDisable"`
 }
 
 func (GetDomainAutoTuneOptionArgs) ElementType() reflect.Type {
@@ -5382,8 +5382,8 @@ func (o GetDomainAutoTuneOptionOutput) ToGetDomainAutoTuneOptionOutputWithContex
 }
 
 // Auto-Tune desired state for the domain.
-func (o GetDomainAutoTuneOptionOutput) DesiredState() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainAutoTuneOption) string { return v.DesiredState }).(pulumi.StringOutput)
+func (o GetDomainAutoTuneOptionOutput) DesiredState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOption) *string { return v.DesiredState }).(pulumi.StringPtrOutput)
 }
 
 // A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
@@ -5394,8 +5394,8 @@ func (o GetDomainAutoTuneOptionOutput) MaintenanceSchedules() GetDomainAutoTuneO
 }
 
 // Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-func (o GetDomainAutoTuneOptionOutput) RollbackOnDisable() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainAutoTuneOption) string { return v.RollbackOnDisable }).(pulumi.StringOutput)
+func (o GetDomainAutoTuneOptionOutput) RollbackOnDisable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOption) *string { return v.RollbackOnDisable }).(pulumi.StringPtrOutput)
 }
 
 type GetDomainAutoTuneOptionArrayOutput struct{ *pulumi.OutputState }
@@ -5420,11 +5420,11 @@ func (o GetDomainAutoTuneOptionArrayOutput) Index(i pulumi.IntInput) GetDomainAu
 
 type GetDomainAutoTuneOptionMaintenanceSchedule struct {
 	// Cron expression for an Auto-Tune maintenance schedule.
-	CronExpressionForRecurrence string `pulumi:"cronExpressionForRecurrence"`
+	CronExpressionForRecurrence *string `pulumi:"cronExpressionForRecurrence"`
 	// Configuration block for the duration of the Auto-Tune maintenance window.
 	Durations []GetDomainAutoTuneOptionMaintenanceScheduleDuration `pulumi:"durations"`
 	// Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	StartAt string `pulumi:"startAt"`
+	StartAt *string `pulumi:"startAt"`
 }
 
 // GetDomainAutoTuneOptionMaintenanceScheduleInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleArgs and GetDomainAutoTuneOptionMaintenanceScheduleOutput values.
@@ -5440,11 +5440,11 @@ type GetDomainAutoTuneOptionMaintenanceScheduleInput interface {
 
 type GetDomainAutoTuneOptionMaintenanceScheduleArgs struct {
 	// Cron expression for an Auto-Tune maintenance schedule.
-	CronExpressionForRecurrence pulumi.StringInput `pulumi:"cronExpressionForRecurrence"`
+	CronExpressionForRecurrence pulumi.StringPtrInput `pulumi:"cronExpressionForRecurrence"`
 	// Configuration block for the duration of the Auto-Tune maintenance window.
 	Durations GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput `pulumi:"durations"`
 	// Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	StartAt pulumi.StringInput `pulumi:"startAt"`
+	StartAt pulumi.StringPtrInput `pulumi:"startAt"`
 }
 
 func (GetDomainAutoTuneOptionMaintenanceScheduleArgs) ElementType() reflect.Type {
@@ -5499,8 +5499,8 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) ToGetDomainAutoTuneOpt
 }
 
 // Cron expression for an Auto-Tune maintenance schedule.
-func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) CronExpressionForRecurrence() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceSchedule) string { return v.CronExpressionForRecurrence }).(pulumi.StringOutput)
+func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) CronExpressionForRecurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceSchedule) *string { return v.CronExpressionForRecurrence }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the duration of the Auto-Tune maintenance window.
@@ -5511,8 +5511,8 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) Durations() GetDomainA
 }
 
 // Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) StartAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceSchedule) string { return v.StartAt }).(pulumi.StringOutput)
+func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) StartAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceSchedule) *string { return v.StartAt }).(pulumi.StringPtrOutput)
 }
 
 type GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput struct{ *pulumi.OutputState }
@@ -5537,9 +5537,9 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) Index(i pulumi.In
 
 type GetDomainAutoTuneOptionMaintenanceScheduleDuration struct {
 	// Unit of time.
-	Unit string `pulumi:"unit"`
+	Unit *string `pulumi:"unit"`
 	// Duration of an Auto-Tune maintenance window.
-	Value int `pulumi:"value"`
+	Value *int `pulumi:"value"`
 }
 
 // GetDomainAutoTuneOptionMaintenanceScheduleDurationInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs and GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput values.
@@ -5555,9 +5555,9 @@ type GetDomainAutoTuneOptionMaintenanceScheduleDurationInput interface {
 
 type GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs struct {
 	// Unit of time.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 	// Duration of an Auto-Tune maintenance window.
-	Value pulumi.IntInput `pulumi:"value"`
+	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
 func (GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs) ElementType() reflect.Type {
@@ -5612,13 +5612,13 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ToGetDomainAut
 }
 
 // Unit of time.
-func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
 // Duration of an Auto-Tune maintenance window.
-func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) int { return v.Value }).(pulumi.IntOutput)
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput struct{ *pulumi.OutputState }
@@ -5645,26 +5645,26 @@ type GetDomainClusterConfig struct {
 	// Configuration block containing cold storage configuration.
 	ColdStorageOptions []GetDomainClusterConfigColdStorageOption `pulumi:"coldStorageOptions"`
 	// Number of dedicated master nodes in the cluster.
-	DedicatedMasterCount int `pulumi:"dedicatedMasterCount"`
+	DedicatedMasterCount *int `pulumi:"dedicatedMasterCount"`
 	// Indicates whether dedicated master nodes are enabled for the cluster.
-	DedicatedMasterEnabled bool `pulumi:"dedicatedMasterEnabled"`
+	DedicatedMasterEnabled *bool `pulumi:"dedicatedMasterEnabled"`
 	// Instance type of the dedicated master nodes in the cluster.
-	DedicatedMasterType string `pulumi:"dedicatedMasterType"`
+	DedicatedMasterType *string `pulumi:"dedicatedMasterType"`
 	// Number of instances in the cluster.
-	InstanceCount int `pulumi:"instanceCount"`
+	InstanceCount *int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              string `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled bool   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType              *string `pulumi:"instanceType"`
+	MultiAzWithStandbyEnabled *bool   `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster.
-	WarmCount int `pulumi:"warmCount"`
+	WarmCount *int `pulumi:"warmCount"`
 	// Warm storage is enabled.
 	WarmEnabled *bool `pulumi:"warmEnabled"`
 	// Instance type for the OpenSearch cluster's warm nodes.
-	WarmType string `pulumi:"warmType"`
+	WarmType *string `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings.
 	ZoneAwarenessConfigs []GetDomainClusterConfigZoneAwarenessConfig `pulumi:"zoneAwarenessConfigs"`
 	// Indicates whether zone awareness is enabled.
-	ZoneAwarenessEnabled bool `pulumi:"zoneAwarenessEnabled"`
+	ZoneAwarenessEnabled *bool `pulumi:"zoneAwarenessEnabled"`
 }
 
 // GetDomainClusterConfigInput is an input type that accepts GetDomainClusterConfigArgs and GetDomainClusterConfigOutput values.
@@ -5682,26 +5682,26 @@ type GetDomainClusterConfigArgs struct {
 	// Configuration block containing cold storage configuration.
 	ColdStorageOptions GetDomainClusterConfigColdStorageOptionArrayInput `pulumi:"coldStorageOptions"`
 	// Number of dedicated master nodes in the cluster.
-	DedicatedMasterCount pulumi.IntInput `pulumi:"dedicatedMasterCount"`
+	DedicatedMasterCount pulumi.IntPtrInput `pulumi:"dedicatedMasterCount"`
 	// Indicates whether dedicated master nodes are enabled for the cluster.
-	DedicatedMasterEnabled pulumi.BoolInput `pulumi:"dedicatedMasterEnabled"`
+	DedicatedMasterEnabled pulumi.BoolPtrInput `pulumi:"dedicatedMasterEnabled"`
 	// Instance type of the dedicated master nodes in the cluster.
-	DedicatedMasterType pulumi.StringInput `pulumi:"dedicatedMasterType"`
+	DedicatedMasterType pulumi.StringPtrInput `pulumi:"dedicatedMasterType"`
 	// Number of instances in the cluster.
-	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              pulumi.StringInput `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled pulumi.BoolInput   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType              pulumi.StringPtrInput `pulumi:"instanceType"`
+	MultiAzWithStandbyEnabled pulumi.BoolPtrInput   `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster.
-	WarmCount pulumi.IntInput `pulumi:"warmCount"`
+	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
 	// Warm storage is enabled.
 	WarmEnabled pulumi.BoolPtrInput `pulumi:"warmEnabled"`
 	// Instance type for the OpenSearch cluster's warm nodes.
-	WarmType pulumi.StringInput `pulumi:"warmType"`
+	WarmType pulumi.StringPtrInput `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings.
 	ZoneAwarenessConfigs GetDomainClusterConfigZoneAwarenessConfigArrayInput `pulumi:"zoneAwarenessConfigs"`
 	// Indicates whether zone awareness is enabled.
-	ZoneAwarenessEnabled pulumi.BoolInput `pulumi:"zoneAwarenessEnabled"`
+	ZoneAwarenessEnabled pulumi.BoolPtrInput `pulumi:"zoneAwarenessEnabled"`
 }
 
 func (GetDomainClusterConfigArgs) ElementType() reflect.Type {
@@ -5761,37 +5761,37 @@ func (o GetDomainClusterConfigOutput) ColdStorageOptions() GetDomainClusterConfi
 }
 
 // Number of dedicated master nodes in the cluster.
-func (o GetDomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.DedicatedMasterCount }).(pulumi.IntOutput)
+func (o GetDomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether dedicated master nodes are enabled for the cluster.
-func (o GetDomainClusterConfigOutput) DedicatedMasterEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.DedicatedMasterEnabled }).(pulumi.BoolOutput)
+func (o GetDomainClusterConfigOutput) DedicatedMasterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *bool { return v.DedicatedMasterEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Instance type of the dedicated master nodes in the cluster.
-func (o GetDomainClusterConfigOutput) DedicatedMasterType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.DedicatedMasterType }).(pulumi.StringOutput)
+func (o GetDomainClusterConfigOutput) DedicatedMasterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *string { return v.DedicatedMasterType }).(pulumi.StringPtrOutput)
 }
 
 // Number of instances in the cluster.
-func (o GetDomainClusterConfigOutput) InstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
+func (o GetDomainClusterConfigOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
 // Instance type of data nodes in the cluster.
-func (o GetDomainClusterConfigOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o GetDomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolOutput)
+func (o GetDomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Number of warm nodes in the cluster.
-func (o GetDomainClusterConfigOutput) WarmCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.WarmCount }).(pulumi.IntOutput)
+func (o GetDomainClusterConfigOutput) WarmCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *int { return v.WarmCount }).(pulumi.IntPtrOutput)
 }
 
 // Warm storage is enabled.
@@ -5800,8 +5800,8 @@ func (o GetDomainClusterConfigOutput) WarmEnabled() pulumi.BoolPtrOutput {
 }
 
 // Instance type for the OpenSearch cluster's warm nodes.
-func (o GetDomainClusterConfigOutput) WarmType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.WarmType }).(pulumi.StringOutput)
+func (o GetDomainClusterConfigOutput) WarmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *string { return v.WarmType }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing zone awareness settings.
@@ -5812,8 +5812,8 @@ func (o GetDomainClusterConfigOutput) ZoneAwarenessConfigs() GetDomainClusterCon
 }
 
 // Indicates whether zone awareness is enabled.
-func (o GetDomainClusterConfigOutput) ZoneAwarenessEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolOutput)
+func (o GetDomainClusterConfigOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetDomainClusterConfigArrayOutput struct{ *pulumi.OutputState }
@@ -5838,7 +5838,7 @@ func (o GetDomainClusterConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClu
 
 type GetDomainClusterConfigColdStorageOption struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 }
 
 // GetDomainClusterConfigColdStorageOptionInput is an input type that accepts GetDomainClusterConfigColdStorageOptionArgs and GetDomainClusterConfigColdStorageOptionOutput values.
@@ -5854,7 +5854,7 @@ type GetDomainClusterConfigColdStorageOptionInput interface {
 
 type GetDomainClusterConfigColdStorageOptionArgs struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
 func (GetDomainClusterConfigColdStorageOptionArgs) ElementType() reflect.Type {
@@ -5909,8 +5909,8 @@ func (o GetDomainClusterConfigColdStorageOptionOutput) ToGetDomainClusterConfigC
 }
 
 // Enabled disabled toggle for off-peak update window
-func (o GetDomainClusterConfigColdStorageOptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainClusterConfigColdStorageOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetDomainClusterConfigColdStorageOptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfigColdStorageOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetDomainClusterConfigColdStorageOptionArrayOutput struct{ *pulumi.OutputState }
@@ -5935,7 +5935,7 @@ func (o GetDomainClusterConfigColdStorageOptionArrayOutput) Index(i pulumi.IntIn
 
 type GetDomainClusterConfigZoneAwarenessConfig struct {
 	// Number of availability zones used.
-	AvailabilityZoneCount int `pulumi:"availabilityZoneCount"`
+	AvailabilityZoneCount *int `pulumi:"availabilityZoneCount"`
 }
 
 // GetDomainClusterConfigZoneAwarenessConfigInput is an input type that accepts GetDomainClusterConfigZoneAwarenessConfigArgs and GetDomainClusterConfigZoneAwarenessConfigOutput values.
@@ -5951,7 +5951,7 @@ type GetDomainClusterConfigZoneAwarenessConfigInput interface {
 
 type GetDomainClusterConfigZoneAwarenessConfigArgs struct {
 	// Number of availability zones used.
-	AvailabilityZoneCount pulumi.IntInput `pulumi:"availabilityZoneCount"`
+	AvailabilityZoneCount pulumi.IntPtrInput `pulumi:"availabilityZoneCount"`
 }
 
 func (GetDomainClusterConfigZoneAwarenessConfigArgs) ElementType() reflect.Type {
@@ -6006,8 +6006,8 @@ func (o GetDomainClusterConfigZoneAwarenessConfigOutput) ToGetDomainClusterConfi
 }
 
 // Number of availability zones used.
-func (o GetDomainClusterConfigZoneAwarenessConfigOutput) AvailabilityZoneCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainClusterConfigZoneAwarenessConfig) int { return v.AvailabilityZoneCount }).(pulumi.IntOutput)
+func (o GetDomainClusterConfigZoneAwarenessConfigOutput) AvailabilityZoneCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfigZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
 }
 
 type GetDomainClusterConfigZoneAwarenessConfigArrayOutput struct{ *pulumi.OutputState }
@@ -6032,13 +6032,13 @@ func (o GetDomainClusterConfigZoneAwarenessConfigArrayOutput) Index(i pulumi.Int
 
 type GetDomainCognitoOption struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 	// Cognito Identity pool used by the domain.
-	IdentityPoolId string `pulumi:"identityPoolId"`
+	IdentityPoolId *string `pulumi:"identityPoolId"`
 	// IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 	// Cognito User pool used by the domain.
-	UserPoolId string `pulumi:"userPoolId"`
+	UserPoolId *string `pulumi:"userPoolId"`
 }
 
 // GetDomainCognitoOptionInput is an input type that accepts GetDomainCognitoOptionArgs and GetDomainCognitoOptionOutput values.
@@ -6054,13 +6054,13 @@ type GetDomainCognitoOptionInput interface {
 
 type GetDomainCognitoOptionArgs struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Cognito Identity pool used by the domain.
-	IdentityPoolId pulumi.StringInput `pulumi:"identityPoolId"`
+	IdentityPoolId pulumi.StringPtrInput `pulumi:"identityPoolId"`
 	// IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// Cognito User pool used by the domain.
-	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+	UserPoolId pulumi.StringPtrInput `pulumi:"userPoolId"`
 }
 
 func (GetDomainCognitoOptionArgs) ElementType() reflect.Type {
@@ -6115,23 +6115,23 @@ func (o GetDomainCognitoOptionOutput) ToGetDomainCognitoOptionOutputWithContext(
 }
 
 // Enabled disabled toggle for off-peak update window
-func (o GetDomainCognitoOptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainCognitoOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetDomainCognitoOptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainCognitoOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Cognito Identity pool used by the domain.
-func (o GetDomainCognitoOptionOutput) IdentityPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainCognitoOption) string { return v.IdentityPoolId }).(pulumi.StringOutput)
+func (o GetDomainCognitoOptionOutput) IdentityPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainCognitoOption) *string { return v.IdentityPoolId }).(pulumi.StringPtrOutput)
 }
 
 // IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
-func (o GetDomainCognitoOptionOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainCognitoOption) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o GetDomainCognitoOptionOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainCognitoOption) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Cognito User pool used by the domain.
-func (o GetDomainCognitoOptionOutput) UserPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainCognitoOption) string { return v.UserPoolId }).(pulumi.StringOutput)
+func (o GetDomainCognitoOptionOutput) UserPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainCognitoOption) *string { return v.UserPoolId }).(pulumi.StringPtrOutput)
 }
 
 type GetDomainCognitoOptionArrayOutput struct{ *pulumi.OutputState }
@@ -6156,15 +6156,15 @@ func (o GetDomainCognitoOptionArrayOutput) Index(i pulumi.IntInput) GetDomainCog
 
 type GetDomainEbsOption struct {
 	// Whether EBS volumes are attached to data nodes in the domain.
-	EbsEnabled bool `pulumi:"ebsEnabled"`
+	EbsEnabled *bool `pulumi:"ebsEnabled"`
 	// Baseline input/output (I/O) performance of EBS volumes attached to data nodes.
-	Iops int `pulumi:"iops"`
+	Iops *int `pulumi:"iops"`
 	// The throughput (in MiB/s) of the EBS volumes attached to data nodes.
-	Throughput int `pulumi:"throughput"`
+	Throughput *int `pulumi:"throughput"`
 	// Size of EBS volumes attached to data nodes (in GB).
-	VolumeSize int `pulumi:"volumeSize"`
+	VolumeSize *int `pulumi:"volumeSize"`
 	// Type of EBS volumes attached to data nodes.
-	VolumeType string `pulumi:"volumeType"`
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 // GetDomainEbsOptionInput is an input type that accepts GetDomainEbsOptionArgs and GetDomainEbsOptionOutput values.
@@ -6180,15 +6180,15 @@ type GetDomainEbsOptionInput interface {
 
 type GetDomainEbsOptionArgs struct {
 	// Whether EBS volumes are attached to data nodes in the domain.
-	EbsEnabled pulumi.BoolInput `pulumi:"ebsEnabled"`
+	EbsEnabled pulumi.BoolPtrInput `pulumi:"ebsEnabled"`
 	// Baseline input/output (I/O) performance of EBS volumes attached to data nodes.
-	Iops pulumi.IntInput `pulumi:"iops"`
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The throughput (in MiB/s) of the EBS volumes attached to data nodes.
-	Throughput pulumi.IntInput `pulumi:"throughput"`
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// Size of EBS volumes attached to data nodes (in GB).
-	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// Type of EBS volumes attached to data nodes.
-	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (GetDomainEbsOptionArgs) ElementType() reflect.Type {
@@ -6243,28 +6243,28 @@ func (o GetDomainEbsOptionOutput) ToGetDomainEbsOptionOutputWithContext(ctx cont
 }
 
 // Whether EBS volumes are attached to data nodes in the domain.
-func (o GetDomainEbsOptionOutput) EbsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainEbsOption) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
+func (o GetDomainEbsOptionOutput) EbsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainEbsOption) *bool { return v.EbsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Baseline input/output (I/O) performance of EBS volumes attached to data nodes.
-func (o GetDomainEbsOptionOutput) Iops() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainEbsOption) int { return v.Iops }).(pulumi.IntOutput)
+func (o GetDomainEbsOptionOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainEbsOption) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 // The throughput (in MiB/s) of the EBS volumes attached to data nodes.
-func (o GetDomainEbsOptionOutput) Throughput() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainEbsOption) int { return v.Throughput }).(pulumi.IntOutput)
+func (o GetDomainEbsOptionOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainEbsOption) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 // Size of EBS volumes attached to data nodes (in GB).
-func (o GetDomainEbsOptionOutput) VolumeSize() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainEbsOption) int { return v.VolumeSize }).(pulumi.IntOutput)
+func (o GetDomainEbsOptionOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainEbsOption) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
 // Type of EBS volumes attached to data nodes.
-func (o GetDomainEbsOptionOutput) VolumeType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainEbsOption) string { return v.VolumeType }).(pulumi.StringOutput)
+func (o GetDomainEbsOptionOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainEbsOption) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
 type GetDomainEbsOptionArrayOutput struct{ *pulumi.OutputState }
@@ -6289,9 +6289,9 @@ func (o GetDomainEbsOptionArrayOutput) Index(i pulumi.IntInput) GetDomainEbsOpti
 
 type GetDomainEncryptionAtRest struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 	// KMS key id used to encrypt data at rest.
-	KmsKeyId string `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
 // GetDomainEncryptionAtRestInput is an input type that accepts GetDomainEncryptionAtRestArgs and GetDomainEncryptionAtRestOutput values.
@@ -6307,9 +6307,9 @@ type GetDomainEncryptionAtRestInput interface {
 
 type GetDomainEncryptionAtRestArgs struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// KMS key id used to encrypt data at rest.
-	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
 func (GetDomainEncryptionAtRestArgs) ElementType() reflect.Type {
@@ -6364,13 +6364,13 @@ func (o GetDomainEncryptionAtRestOutput) ToGetDomainEncryptionAtRestOutputWithCo
 }
 
 // Enabled disabled toggle for off-peak update window
-func (o GetDomainEncryptionAtRestOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainEncryptionAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetDomainEncryptionAtRestOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainEncryptionAtRest) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // KMS key id used to encrypt data at rest.
-func (o GetDomainEncryptionAtRestOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainEncryptionAtRest) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o GetDomainEncryptionAtRestOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainEncryptionAtRest) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 type GetDomainEncryptionAtRestArrayOutput struct{ *pulumi.OutputState }
@@ -6395,11 +6395,11 @@ func (o GetDomainEncryptionAtRestArrayOutput) Index(i pulumi.IntInput) GetDomain
 
 type GetDomainLogPublishingOption struct {
 	// CloudWatch Log Group where the logs are published.
-	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
+	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Enabled disabled toggle for off-peak update window
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 	// Type of OpenSearch log being published.
-	LogType string `pulumi:"logType"`
+	LogType *string `pulumi:"logType"`
 }
 
 // GetDomainLogPublishingOptionInput is an input type that accepts GetDomainLogPublishingOptionArgs and GetDomainLogPublishingOptionOutput values.
@@ -6415,11 +6415,11 @@ type GetDomainLogPublishingOptionInput interface {
 
 type GetDomainLogPublishingOptionArgs struct {
 	// CloudWatch Log Group where the logs are published.
-	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
+	CloudwatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudwatchLogGroupArn"`
 	// Enabled disabled toggle for off-peak update window
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Type of OpenSearch log being published.
-	LogType pulumi.StringInput `pulumi:"logType"`
+	LogType pulumi.StringPtrInput `pulumi:"logType"`
 }
 
 func (GetDomainLogPublishingOptionArgs) ElementType() reflect.Type {
@@ -6474,18 +6474,18 @@ func (o GetDomainLogPublishingOptionOutput) ToGetDomainLogPublishingOptionOutput
 }
 
 // CloudWatch Log Group where the logs are published.
-func (o GetDomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
+func (o GetDomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainLogPublishingOption) *string { return v.CloudwatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // Enabled disabled toggle for off-peak update window
-func (o GetDomainLogPublishingOptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainLogPublishingOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetDomainLogPublishingOptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainLogPublishingOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Type of OpenSearch log being published.
-func (o GetDomainLogPublishingOptionOutput) LogType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainLogPublishingOption) string { return v.LogType }).(pulumi.StringOutput)
+func (o GetDomainLogPublishingOptionOutput) LogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainLogPublishingOption) *string { return v.LogType }).(pulumi.StringPtrOutput)
 }
 
 type GetDomainLogPublishingOptionArrayOutput struct{ *pulumi.OutputState }
@@ -6510,7 +6510,7 @@ func (o GetDomainLogPublishingOptionArrayOutput) Index(i pulumi.IntInput) GetDom
 
 type GetDomainNodeToNodeEncryption struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 }
 
 // GetDomainNodeToNodeEncryptionInput is an input type that accepts GetDomainNodeToNodeEncryptionArgs and GetDomainNodeToNodeEncryptionOutput values.
@@ -6526,7 +6526,7 @@ type GetDomainNodeToNodeEncryptionInput interface {
 
 type GetDomainNodeToNodeEncryptionArgs struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
 func (GetDomainNodeToNodeEncryptionArgs) ElementType() reflect.Type {
@@ -6581,8 +6581,8 @@ func (o GetDomainNodeToNodeEncryptionOutput) ToGetDomainNodeToNodeEncryptionOutp
 }
 
 // Enabled disabled toggle for off-peak update window
-func (o GetDomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetDomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainNodeToNodeEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetDomainNodeToNodeEncryptionArrayOutput struct{ *pulumi.OutputState }
@@ -6607,7 +6607,7 @@ func (o GetDomainNodeToNodeEncryptionArrayOutput) Index(i pulumi.IntInput) GetDo
 
 type GetDomainOffPeakWindowOptions struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled        bool                                         `pulumi:"enabled"`
+	Enabled        *bool                                        `pulumi:"enabled"`
 	OffPeakWindows []GetDomainOffPeakWindowOptionsOffPeakWindow `pulumi:"offPeakWindows"`
 }
 
@@ -6624,7 +6624,7 @@ type GetDomainOffPeakWindowOptionsInput interface {
 
 type GetDomainOffPeakWindowOptionsArgs struct {
 	// Enabled disabled toggle for off-peak update window
-	Enabled        pulumi.BoolInput                                     `pulumi:"enabled"`
+	Enabled        pulumi.BoolPtrInput                                  `pulumi:"enabled"`
 	OffPeakWindows GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput `pulumi:"offPeakWindows"`
 }
 
@@ -6706,8 +6706,8 @@ func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsPtrO
 }
 
 // Enabled disabled toggle for off-peak update window
-func (o GetDomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainOffPeakWindowOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetDomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetDomainOffPeakWindowOptionsOutput) OffPeakWindows() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
@@ -6746,7 +6746,7 @@ func (o GetDomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -6860,9 +6860,9 @@ func (o GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) Index(i pulumi.In
 
 type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime struct {
 	// Starting hour of the 10-hour window for updates
-	Hours int `pulumi:"hours"`
+	Hours *int `pulumi:"hours"`
 	// Starting minute of the 10-hour window for updates
-	Minutes int `pulumi:"minutes"`
+	Minutes *int `pulumi:"minutes"`
 }
 
 // GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput is an input type that accepts GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs and GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput values.
@@ -6878,9 +6878,9 @@ type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput interface {
 
 type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs struct {
 	// Starting hour of the 10-hour window for updates
-	Hours pulumi.IntInput `pulumi:"hours"`
+	Hours pulumi.IntPtrInput `pulumi:"hours"`
 	// Starting minute of the 10-hour window for updates
-	Minutes pulumi.IntInput `pulumi:"minutes"`
+	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
 }
 
 func (GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ElementType() reflect.Type {
@@ -6935,13 +6935,13 @@ func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToGetDo
 }
 
 // Starting hour of the 10-hour window for updates
-func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Hours() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) int { return v.Hours }).(pulumi.IntOutput)
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int { return v.Hours }).(pulumi.IntPtrOutput)
 }
 
 // Starting minute of the 10-hour window for updates
-func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Minutes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) int { return v.Minutes }).(pulumi.IntOutput)
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int { return v.Minutes }).(pulumi.IntPtrOutput)
 }
 
 type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput struct{ *pulumi.OutputState }
@@ -6966,7 +6966,7 @@ func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) In
 
 type GetDomainSnapshotOption struct {
 	// Hour during which the service takes an automated daily snapshot of the indices in the domain.
-	AutomatedSnapshotStartHour int `pulumi:"automatedSnapshotStartHour"`
+	AutomatedSnapshotStartHour *int `pulumi:"automatedSnapshotStartHour"`
 }
 
 // GetDomainSnapshotOptionInput is an input type that accepts GetDomainSnapshotOptionArgs and GetDomainSnapshotOptionOutput values.
@@ -6982,7 +6982,7 @@ type GetDomainSnapshotOptionInput interface {
 
 type GetDomainSnapshotOptionArgs struct {
 	// Hour during which the service takes an automated daily snapshot of the indices in the domain.
-	AutomatedSnapshotStartHour pulumi.IntInput `pulumi:"automatedSnapshotStartHour"`
+	AutomatedSnapshotStartHour pulumi.IntPtrInput `pulumi:"automatedSnapshotStartHour"`
 }
 
 func (GetDomainSnapshotOptionArgs) ElementType() reflect.Type {
@@ -7037,8 +7037,8 @@ func (o GetDomainSnapshotOptionOutput) ToGetDomainSnapshotOptionOutputWithContex
 }
 
 // Hour during which the service takes an automated daily snapshot of the indices in the domain.
-func (o GetDomainSnapshotOptionOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainSnapshotOption) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
+func (o GetDomainSnapshotOptionOutput) AutomatedSnapshotStartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDomainSnapshotOption) *int { return v.AutomatedSnapshotStartHour }).(pulumi.IntPtrOutput)
 }
 
 type GetDomainSnapshotOptionArrayOutput struct{ *pulumi.OutputState }
@@ -7063,7 +7063,7 @@ func (o GetDomainSnapshotOptionArrayOutput) Index(i pulumi.IntInput) GetDomainSn
 
 type GetDomainSoftwareUpdateOption struct {
 	// Enabled or disabled.
-	AutoSoftwareUpdateEnabled bool `pulumi:"autoSoftwareUpdateEnabled"`
+	AutoSoftwareUpdateEnabled *bool `pulumi:"autoSoftwareUpdateEnabled"`
 }
 
 // GetDomainSoftwareUpdateOptionInput is an input type that accepts GetDomainSoftwareUpdateOptionArgs and GetDomainSoftwareUpdateOptionOutput values.
@@ -7079,7 +7079,7 @@ type GetDomainSoftwareUpdateOptionInput interface {
 
 type GetDomainSoftwareUpdateOptionArgs struct {
 	// Enabled or disabled.
-	AutoSoftwareUpdateEnabled pulumi.BoolInput `pulumi:"autoSoftwareUpdateEnabled"`
+	AutoSoftwareUpdateEnabled pulumi.BoolPtrInput `pulumi:"autoSoftwareUpdateEnabled"`
 }
 
 func (GetDomainSoftwareUpdateOptionArgs) ElementType() reflect.Type {
@@ -7134,8 +7134,8 @@ func (o GetDomainSoftwareUpdateOptionOutput) ToGetDomainSoftwareUpdateOptionOutp
 }
 
 // Enabled or disabled.
-func (o GetDomainSoftwareUpdateOptionOutput) AutoSoftwareUpdateEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDomainSoftwareUpdateOption) bool { return v.AutoSoftwareUpdateEnabled }).(pulumi.BoolOutput)
+func (o GetDomainSoftwareUpdateOptionOutput) AutoSoftwareUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainSoftwareUpdateOption) *bool { return v.AutoSoftwareUpdateEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetDomainSoftwareUpdateOptionArrayOutput struct{ *pulumi.OutputState }
@@ -7166,7 +7166,7 @@ type GetDomainVpcOption struct {
 	// Subnets used by the domain.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// VPC used by the domain.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // GetDomainVpcOptionInput is an input type that accepts GetDomainVpcOptionArgs and GetDomainVpcOptionOutput values.
@@ -7188,7 +7188,7 @@ type GetDomainVpcOptionArgs struct {
 	// Subnets used by the domain.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// VPC used by the domain.
-	VpcId pulumi.StringInput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (GetDomainVpcOptionArgs) ElementType() reflect.Type {
@@ -7258,8 +7258,8 @@ func (o GetDomainVpcOptionOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // VPC used by the domain.
-func (o GetDomainVpcOptionOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainVpcOption) string { return v.VpcId }).(pulumi.StringOutput)
+func (o GetDomainVpcOptionOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDomainVpcOption) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type GetDomainVpcOptionArrayOutput struct{ *pulumi.OutputState }
@@ -7284,13 +7284,13 @@ func (o GetDomainVpcOptionArrayOutput) Index(i pulumi.IntInput) GetDomainVpcOpti
 
 type GetServerlessSecurityConfigSamlOptions struct {
 	// Group attribute for this SAML integration.
-	GroupAttribute string `pulumi:"groupAttribute"`
+	GroupAttribute *string `pulumi:"groupAttribute"`
 	// The XML IdP metadata file generated from your identity provider.
-	Metadata string `pulumi:"metadata"`
+	Metadata *string `pulumi:"metadata"`
 	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
-	SessionTimeout int `pulumi:"sessionTimeout"`
+	SessionTimeout *int `pulumi:"sessionTimeout"`
 	// User attribute for this SAML integration.
-	UserAttribute string `pulumi:"userAttribute"`
+	UserAttribute *string `pulumi:"userAttribute"`
 }
 
 // GetServerlessSecurityConfigSamlOptionsInput is an input type that accepts GetServerlessSecurityConfigSamlOptionsArgs and GetServerlessSecurityConfigSamlOptionsOutput values.
@@ -7306,13 +7306,13 @@ type GetServerlessSecurityConfigSamlOptionsInput interface {
 
 type GetServerlessSecurityConfigSamlOptionsArgs struct {
 	// Group attribute for this SAML integration.
-	GroupAttribute pulumi.StringInput `pulumi:"groupAttribute"`
+	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
 	// The XML IdP metadata file generated from your identity provider.
-	Metadata pulumi.StringInput `pulumi:"metadata"`
+	Metadata pulumi.StringPtrInput `pulumi:"metadata"`
 	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
-	SessionTimeout pulumi.IntInput `pulumi:"sessionTimeout"`
+	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
 	// User attribute for this SAML integration.
-	UserAttribute pulumi.StringInput `pulumi:"userAttribute"`
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
 }
 
 func (GetServerlessSecurityConfigSamlOptionsArgs) ElementType() reflect.Type {
@@ -7393,23 +7393,23 @@ func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityCon
 }
 
 // Group attribute for this SAML integration.
-func (o GetServerlessSecurityConfigSamlOptionsOutput) GroupAttribute() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.GroupAttribute }).(pulumi.StringOutput)
+func (o GetServerlessSecurityConfigSamlOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
 }
 
 // The XML IdP metadata file generated from your identity provider.
-func (o GetServerlessSecurityConfigSamlOptionsOutput) Metadata() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.Metadata }).(pulumi.StringOutput)
+func (o GetServerlessSecurityConfigSamlOptionsOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) *string { return v.Metadata }).(pulumi.StringPtrOutput)
 }
 
 // Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
-func (o GetServerlessSecurityConfigSamlOptionsOutput) SessionTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) int { return v.SessionTimeout }).(pulumi.IntOutput)
+func (o GetServerlessSecurityConfigSamlOptionsOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
 }
 
 // User attribute for this SAML integration.
-func (o GetServerlessSecurityConfigSamlOptionsOutput) UserAttribute() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.UserAttribute }).(pulumi.StringOutput)
+func (o GetServerlessSecurityConfigSamlOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
 }
 
 type GetServerlessSecurityConfigSamlOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -7442,7 +7442,7 @@ func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) GroupAttribute() pulumi
 		if v == nil {
 			return nil
 		}
-		return &v.GroupAttribute
+		return v.GroupAttribute
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7452,7 +7452,7 @@ func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) Metadata() pulumi.Strin
 		if v == nil {
 			return nil
 		}
-		return &v.Metadata
+		return v.Metadata
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7462,7 +7462,7 @@ func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) SessionTimeout() pulumi
 		if v == nil {
 			return nil
 		}
-		return &v.SessionTimeout
+		return v.SessionTimeout
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -7472,7 +7472,7 @@ func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) UserAttribute() pulumi.
 		if v == nil {
 			return nil
 		}
-		return &v.UserAttribute
+		return v.UserAttribute
 	}).(pulumi.StringPtrOutput)
 }
 

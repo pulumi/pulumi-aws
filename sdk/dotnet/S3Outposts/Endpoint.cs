@@ -47,25 +47,25 @@ namespace Pulumi.Aws.S3Outposts
         /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         /// </summary>
         [Output("accessType")]
-        public Output<string> AccessType { get; private set; } = null!;
+        public Output<string?> AccessType { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the endpoint.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// VPC CIDR block of the endpoint.
         /// </summary>
         [Output("cidrBlock")]
-        public Output<string> CidrBlock { get; private set; } = null!;
+        public Output<string?> CidrBlock { get; private set; } = null!;
 
         /// <summary>
         /// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).

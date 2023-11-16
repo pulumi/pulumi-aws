@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEncryptionByDefaultResult {
@@ -14,27 +16,27 @@ public final class GetEncryptionByDefaultResult {
      * @return Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetEncryptionByDefaultResult() {}
     /**
      * @return Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetEncryptionByDefaultResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private String id;
+        private @Nullable Boolean enabled;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetEncryptionByDefaultResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetEncryptionByDefaultResult {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetEncryptionByDefaultResult build() {

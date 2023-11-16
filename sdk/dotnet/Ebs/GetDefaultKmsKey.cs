@@ -83,17 +83,17 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
         /// </summary>
-        public readonly string KeyArn;
+        public readonly string? KeyArn;
 
         [OutputConstructor]
         private GetDefaultKmsKeyResult(
-            string id,
+            string? id,
 
-            string keyArn)
+            string? keyArn)
         {
             Id = id;
             KeyArn = keyArn;

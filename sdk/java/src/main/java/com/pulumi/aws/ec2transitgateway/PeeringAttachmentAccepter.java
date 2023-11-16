@@ -67,34 +67,34 @@ public class PeeringAttachmentAccepter extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="peerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> peerAccountId;
+    private Output</* @Nullable */ String> peerAccountId;
 
     /**
      * @return Identifier of the AWS account that owns the EC2 TGW peering.
      * 
      */
-    public Output<String> peerAccountId() {
-        return this.peerAccountId;
+    public Output<Optional<String>> peerAccountId() {
+        return Codegen.optional(this.peerAccountId);
     }
     @Export(name="peerRegion", refs={String.class}, tree="[0]")
-    private Output<String> peerRegion;
+    private Output</* @Nullable */ String> peerRegion;
 
-    public Output<String> peerRegion() {
-        return this.peerRegion;
+    public Output<Optional<String>> peerRegion() {
+        return Codegen.optional(this.peerRegion);
     }
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      * 
      */
     @Export(name="peerTransitGatewayId", refs={String.class}, tree="[0]")
-    private Output<String> peerTransitGatewayId;
+    private Output</* @Nullable */ String> peerTransitGatewayId;
 
     /**
      * @return Identifier of EC2 Transit Gateway to peer with.
      * 
      */
-    public Output<String> peerTransitGatewayId() {
-        return this.peerTransitGatewayId;
+    public Output<Optional<String>> peerTransitGatewayId() {
+        return Codegen.optional(this.peerTransitGatewayId);
     }
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -147,14 +147,14 @@ public class PeeringAttachmentAccepter extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
-    private Output<String> transitGatewayId;
+    private Output</* @Nullable */ String> transitGatewayId;
 
     /**
      * @return Identifier of EC2 Transit Gateway.
      * 
      */
-    public Output<String> transitGatewayId() {
-        return this.transitGatewayId;
+    public Output<Optional<String>> transitGatewayId() {
+        return Codegen.optional(this.transitGatewayId);
     }
 
     /**

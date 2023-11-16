@@ -530,7 +530,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Configuration Set.
         """
@@ -554,7 +554,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reputationOptions")
-    def reputation_options(self) -> pulumi.Output['outputs.ConfigurationSetReputationOptions']:
+    def reputation_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetReputationOptions']]:
         """
         An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         """
@@ -562,7 +562,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sendingOptions")
-    def sending_options(self) -> pulumi.Output['outputs.ConfigurationSetSendingOptions']:
+    def sending_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetSendingOptions']]:
         """
         An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         """

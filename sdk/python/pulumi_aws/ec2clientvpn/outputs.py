@@ -270,104 +270,116 @@ class EndpointConnectionLogOptions(dict):
 @pulumi.output_type
 class GetEndpointAuthenticationOptionResult(dict):
     def __init__(__self__, *,
-                 active_directory_id: str,
-                 root_certificate_chain_arn: str,
-                 saml_provider_arn: str,
-                 self_service_saml_provider_arn: str,
-                 type: str):
-        pulumi.set(__self__, "active_directory_id", active_directory_id)
-        pulumi.set(__self__, "root_certificate_chain_arn", root_certificate_chain_arn)
-        pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
-        pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
-        pulumi.set(__self__, "type", type)
+                 active_directory_id: Optional[str] = None,
+                 root_certificate_chain_arn: Optional[str] = None,
+                 saml_provider_arn: Optional[str] = None,
+                 self_service_saml_provider_arn: Optional[str] = None,
+                 type: Optional[str] = None):
+        if active_directory_id is not None:
+            pulumi.set(__self__, "active_directory_id", active_directory_id)
+        if root_certificate_chain_arn is not None:
+            pulumi.set(__self__, "root_certificate_chain_arn", root_certificate_chain_arn)
+        if saml_provider_arn is not None:
+            pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
+        if self_service_saml_provider_arn is not None:
+            pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="activeDirectoryId")
-    def active_directory_id(self) -> str:
+    def active_directory_id(self) -> Optional[str]:
         return pulumi.get(self, "active_directory_id")
 
     @property
     @pulumi.getter(name="rootCertificateChainArn")
-    def root_certificate_chain_arn(self) -> str:
+    def root_certificate_chain_arn(self) -> Optional[str]:
         return pulumi.get(self, "root_certificate_chain_arn")
 
     @property
     @pulumi.getter(name="samlProviderArn")
-    def saml_provider_arn(self) -> str:
+    def saml_provider_arn(self) -> Optional[str]:
         return pulumi.get(self, "saml_provider_arn")
 
     @property
     @pulumi.getter(name="selfServiceSamlProviderArn")
-    def self_service_saml_provider_arn(self) -> str:
+    def self_service_saml_provider_arn(self) -> Optional[str]:
         return pulumi.get(self, "self_service_saml_provider_arn")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetEndpointClientConnectOptionResult(dict):
     def __init__(__self__, *,
-                 enabled: bool,
-                 lambda_function_arn: str):
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+                 enabled: Optional[bool] = None,
+                 lambda_function_arn: Optional[str] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if lambda_function_arn is not None:
+            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="lambdaFunctionArn")
-    def lambda_function_arn(self) -> str:
+    def lambda_function_arn(self) -> Optional[str]:
         return pulumi.get(self, "lambda_function_arn")
 
 
 @pulumi.output_type
 class GetEndpointClientLoginBannerOptionResult(dict):
     def __init__(__self__, *,
-                 banner_text: str,
-                 enabled: bool):
-        pulumi.set(__self__, "banner_text", banner_text)
-        pulumi.set(__self__, "enabled", enabled)
+                 banner_text: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        if banner_text is not None:
+            pulumi.set(__self__, "banner_text", banner_text)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="bannerText")
-    def banner_text(self) -> str:
+    def banner_text(self) -> Optional[str]:
         return pulumi.get(self, "banner_text")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
 class GetEndpointConnectionLogOptionResult(dict):
     def __init__(__self__, *,
-                 cloudwatch_log_group: str,
-                 cloudwatch_log_stream: str,
-                 enabled: bool):
-        pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
-        pulumi.set(__self__, "cloudwatch_log_stream", cloudwatch_log_stream)
-        pulumi.set(__self__, "enabled", enabled)
+                 cloudwatch_log_group: Optional[str] = None,
+                 cloudwatch_log_stream: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        if cloudwatch_log_group is not None:
+            pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
+        if cloudwatch_log_stream is not None:
+            pulumi.set(__self__, "cloudwatch_log_stream", cloudwatch_log_stream)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroup")
-    def cloudwatch_log_group(self) -> str:
+    def cloudwatch_log_group(self) -> Optional[str]:
         return pulumi.get(self, "cloudwatch_log_group")
 
     @property
     @pulumi.getter(name="cloudwatchLogStream")
-    def cloudwatch_log_stream(self) -> str:
+    def cloudwatch_log_stream(self) -> Optional[str]:
         return pulumi.get(self, "cloudwatch_log_stream")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
 

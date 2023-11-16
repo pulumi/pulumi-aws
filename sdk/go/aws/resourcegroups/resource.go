@@ -65,7 +65,7 @@ type Resource struct {
 	// The ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 }
 
 // NewResource registers a new resource with the given unique name, arguments, and options.
@@ -248,8 +248,8 @@ func (o ResourceOutput) ResourceArn() pulumi.StringOutput {
 }
 
 // The resource type of a resource, such as `AWS::EC2::Instance`.
-func (o ResourceOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+func (o ResourceOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 type ResourceArrayOutput struct{ *pulumi.OutputState }

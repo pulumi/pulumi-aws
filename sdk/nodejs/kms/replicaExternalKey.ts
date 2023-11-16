@@ -72,7 +72,7 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
      * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
@@ -92,15 +92,15 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
     /**
      * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
      */
-    public /*out*/ readonly expirationModel!: pulumi.Output<string>;
+    public /*out*/ readonly expirationModel!: pulumi.Output<string | undefined>;
     /**
      * The key ID of the replica key. Related multi-Region keys have the same key ID.
      */
-    public /*out*/ readonly keyId!: pulumi.Output<string>;
+    public /*out*/ readonly keyId!: pulumi.Output<string | undefined>;
     /**
      * Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
      */
@@ -108,15 +108,15 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
     /**
      * The state of the replica key.
      */
-    public /*out*/ readonly keyState!: pulumi.Output<string>;
+    public /*out*/ readonly keyState!: pulumi.Output<string | undefined>;
     /**
      * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      */
-    public /*out*/ readonly keyUsage!: pulumi.Output<string>;
+    public /*out*/ readonly keyUsage!: pulumi.Output<string | undefined>;
     /**
      * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      */
-    public readonly policy!: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      */

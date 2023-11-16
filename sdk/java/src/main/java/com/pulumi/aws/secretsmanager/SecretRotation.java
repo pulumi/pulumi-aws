@@ -78,14 +78,14 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="rotationEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> rotationEnabled;
+    private Output</* @Nullable */ Boolean> rotationEnabled;
 
     /**
      * @return Specifies whether automatic rotation is enabled for this secret.
      * 
      */
-    public Output<Boolean> rotationEnabled() {
-        return this.rotationEnabled;
+    public Output<Optional<Boolean>> rotationEnabled() {
+        return Codegen.optional(this.rotationEnabled);
     }
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.

@@ -99,14 +99,14 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="activationCode", refs={String.class}, tree="[0]")
-    private Output<String> activationCode;
+    private Output</* @Nullable */ String> activationCode;
 
     /**
      * @return The code the system generates when it processes the activation.
      * 
      */
-    public Output<String> activationCode() {
-        return this.activationCode;
+    public Output<Optional<String>> activationCode() {
+        return Codegen.optional(this.activationCode);
     }
     /**
      * The description of the resource that you want to register.
@@ -127,28 +127,28 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
-    private Output<String> expirationDate;
+    private Output</* @Nullable */ String> expirationDate;
 
     /**
      * @return UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    public Output<String> expirationDate() {
-        return this.expirationDate;
+    public Output<Optional<String>> expirationDate() {
+        return Codegen.optional(this.expirationDate);
     }
     /**
      * If the current activation has expired.
      * 
      */
     @Export(name="expired", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> expired;
+    private Output</* @Nullable */ Boolean> expired;
 
     /**
      * @return If the current activation has expired.
      * 
      */
-    public Output<Boolean> expired() {
-        return this.expired;
+    public Output<Optional<Boolean>> expired() {
+        return Codegen.optional(this.expired);
     }
     /**
      * The IAM Role to attach to the managed instance.
@@ -183,14 +183,14 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="registrationCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> registrationCount;
+    private Output</* @Nullable */ Integer> registrationCount;
 
     /**
      * @return The number of managed instances that are currently registered using this activation.
      * 
      */
-    public Output<Integer> registrationCount() {
-        return this.registrationCount;
+    public Output<Optional<Integer>> registrationCount() {
+        return Codegen.optional(this.registrationCount);
     }
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.

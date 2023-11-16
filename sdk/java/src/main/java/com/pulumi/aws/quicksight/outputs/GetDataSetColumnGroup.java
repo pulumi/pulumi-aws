@@ -7,14 +7,15 @@ import com.pulumi.aws.quicksight.outputs.GetDataSetColumnGroupGeoSpatialColumnGr
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetColumnGroup {
-    private List<GetDataSetColumnGroupGeoSpatialColumnGroup> geoSpatialColumnGroups;
+    private @Nullable List<GetDataSetColumnGroupGeoSpatialColumnGroup> geoSpatialColumnGroups;
 
     private GetDataSetColumnGroup() {}
     public List<GetDataSetColumnGroupGeoSpatialColumnGroup> geoSpatialColumnGroups() {
-        return this.geoSpatialColumnGroups;
+        return this.geoSpatialColumnGroups == null ? List.of() : this.geoSpatialColumnGroups;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetDataSetColumnGroup {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDataSetColumnGroupGeoSpatialColumnGroup> geoSpatialColumnGroups;
+        private @Nullable List<GetDataSetColumnGroupGeoSpatialColumnGroup> geoSpatialColumnGroups;
         public Builder() {}
         public Builder(GetDataSetColumnGroup defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetDataSetColumnGroup {
         }
 
         @CustomType.Setter
-        public Builder geoSpatialColumnGroups(List<GetDataSetColumnGroupGeoSpatialColumnGroup> geoSpatialColumnGroups) {
-            this.geoSpatialColumnGroups = Objects.requireNonNull(geoSpatialColumnGroups);
+        public Builder geoSpatialColumnGroups(@Nullable List<GetDataSetColumnGroupGeoSpatialColumnGroup> geoSpatialColumnGroups) {
+            this.geoSpatialColumnGroups = geoSpatialColumnGroups;
             return this;
         }
         public Builder geoSpatialColumnGroups(GetDataSetColumnGroupGeoSpatialColumnGroup... geoSpatialColumnGroups) {

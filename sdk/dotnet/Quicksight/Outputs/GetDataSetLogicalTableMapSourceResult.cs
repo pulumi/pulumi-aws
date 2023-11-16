@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetLogicalTableMapSourceResult
     {
-        public readonly string DataSetArn;
+        public readonly string? DataSetArn;
         public readonly ImmutableArray<Outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult> JoinInstructions;
-        public readonly string PhysicalTableId;
+        public readonly string? PhysicalTableId;
 
         [OutputConstructor]
         private GetDataSetLogicalTableMapSourceResult(
-            string dataSetArn,
+            string? dataSetArn,
 
             ImmutableArray<Outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult> joinInstructions,
 
-            string physicalTableId)
+            string? physicalTableId)
         {
             DataSetArn = dataSetArn;
             JoinInstructions = joinInstructions;

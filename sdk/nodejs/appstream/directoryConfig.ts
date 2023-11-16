@@ -65,7 +65,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the directory.
      */

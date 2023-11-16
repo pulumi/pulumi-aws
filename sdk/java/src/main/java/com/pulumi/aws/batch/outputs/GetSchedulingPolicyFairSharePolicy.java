@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSchedulingPolicyFairSharePolicy {
@@ -15,31 +17,31 @@ public final class GetSchedulingPolicyFairSharePolicy {
      * @return Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
-    private Integer computeReservation;
-    private Integer shareDecaySeconds;
+    private @Nullable Integer computeReservation;
+    private @Nullable Integer shareDecaySeconds;
     /**
      * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
      * 
      */
-    private List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
+    private @Nullable List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
 
     private GetSchedulingPolicyFairSharePolicy() {}
     /**
      * @return Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
-    public Integer computeReservation() {
-        return this.computeReservation;
+    public Optional<Integer> computeReservation() {
+        return Optional.ofNullable(this.computeReservation);
     }
-    public Integer shareDecaySeconds() {
-        return this.shareDecaySeconds;
+    public Optional<Integer> shareDecaySeconds() {
+        return Optional.ofNullable(this.shareDecaySeconds);
     }
     /**
      * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
      * 
      */
     public List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions() {
-        return this.shareDistributions;
+        return this.shareDistributions == null ? List.of() : this.shareDistributions;
     }
 
     public static Builder builder() {
@@ -51,9 +53,9 @@ public final class GetSchedulingPolicyFairSharePolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer computeReservation;
-        private Integer shareDecaySeconds;
-        private List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
+        private @Nullable Integer computeReservation;
+        private @Nullable Integer shareDecaySeconds;
+        private @Nullable List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
         public Builder() {}
         public Builder(GetSchedulingPolicyFairSharePolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -63,18 +65,18 @@ public final class GetSchedulingPolicyFairSharePolicy {
         }
 
         @CustomType.Setter
-        public Builder computeReservation(Integer computeReservation) {
-            this.computeReservation = Objects.requireNonNull(computeReservation);
+        public Builder computeReservation(@Nullable Integer computeReservation) {
+            this.computeReservation = computeReservation;
             return this;
         }
         @CustomType.Setter
-        public Builder shareDecaySeconds(Integer shareDecaySeconds) {
-            this.shareDecaySeconds = Objects.requireNonNull(shareDecaySeconds);
+        public Builder shareDecaySeconds(@Nullable Integer shareDecaySeconds) {
+            this.shareDecaySeconds = shareDecaySeconds;
             return this;
         }
         @CustomType.Setter
-        public Builder shareDistributions(List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions) {
-            this.shareDistributions = Objects.requireNonNull(shareDistributions);
+        public Builder shareDistributions(@Nullable List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions) {
+            this.shareDistributions = shareDistributions;
             return this;
         }
         public Builder shareDistributions(GetSchedulingPolicyFairSharePolicyShareDistribution... shareDistributions) {

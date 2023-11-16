@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -90,14 +91,14 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> ownerAccountId;
+    private Output</* @Nullable */ String> ownerAccountId;
 
     /**
      * @return AWS Account ID of the gateway.
      * 
      */
-    public Output<String> ownerAccountId() {
-        return this.ownerAccountId;
+    public Output<Optional<String>> ownerAccountId() {
+        return Codegen.optional(this.ownerAccountId);
     }
 
     /**

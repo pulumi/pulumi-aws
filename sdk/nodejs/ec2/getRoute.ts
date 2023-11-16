@@ -120,24 +120,24 @@ export interface GetRouteArgs {
  * A collection of values returned by getRoute.
  */
 export interface GetRouteResult {
-    readonly carrierGatewayId: string;
-    readonly coreNetworkArn: string;
-    readonly destinationCidrBlock: string;
-    readonly destinationIpv6CidrBlock: string;
-    readonly destinationPrefixListId: string;
-    readonly egressOnlyGatewayId: string;
-    readonly gatewayId: string;
+    readonly carrierGatewayId?: string;
+    readonly coreNetworkArn?: string;
+    readonly destinationCidrBlock?: string;
+    readonly destinationIpv6CidrBlock?: string;
+    readonly destinationPrefixListId?: string;
+    readonly egressOnlyGatewayId?: string;
+    readonly gatewayId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly instanceId: string;
-    readonly localGatewayId: string;
-    readonly natGatewayId: string;
-    readonly networkInterfaceId: string;
+    readonly id?: string;
+    readonly instanceId?: string;
+    readonly localGatewayId?: string;
+    readonly natGatewayId?: string;
+    readonly networkInterfaceId?: string;
     readonly routeTableId: string;
-    readonly transitGatewayId: string;
-    readonly vpcPeeringConnectionId: string;
+    readonly transitGatewayId?: string;
+    readonly vpcPeeringConnectionId?: string;
 }
 /**
  * `aws.ec2.Route` provides details about a specific Route.

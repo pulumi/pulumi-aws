@@ -67,11 +67,11 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the EBS Snapshot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The data encryption key identifier for the snapshot.
      */
-    public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string | undefined>;
     /**
      * A description of what the snapshot is.
      */
@@ -79,11 +79,11 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Whether the snapshot is encrypted.
      */
-    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
+    public /*out*/ readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN for the KMS encryption key.
      */
-    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
      */
@@ -91,11 +91,11 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
-    public /*out*/ readonly ownerAlias!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAlias!: pulumi.Output<string | undefined>;
     /**
      * The AWS account ID of the EBS snapshot owner.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to permanently restore an archived snapshot.
      */
@@ -103,7 +103,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
-    public readonly storageTier!: pulumi.Output<string>;
+    public readonly storageTier!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -125,7 +125,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The size of the drive in GiBs.
      */
-    public /*out*/ readonly volumeSize!: pulumi.Output<number>;
+    public /*out*/ readonly volumeSize!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.

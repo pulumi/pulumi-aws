@@ -173,14 +173,14 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Function object.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
@@ -229,28 +229,28 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="functionId", refs={String.class}, tree="[0]")
-    private Output<String> functionId;
+    private Output</* @Nullable */ String> functionId;
 
     /**
      * @return Unique ID representing the Function object.
      * 
      */
-    public Output<String> functionId() {
-        return this.functionId;
+    public Output<Optional<String>> functionId() {
+        return Codegen.optional(this.functionId);
     }
     /**
      * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      * 
      */
     @Export(name="functionVersion", refs={String.class}, tree="[0]")
-    private Output<String> functionVersion;
+    private Output</* @Nullable */ String> functionVersion;
 
     /**
      * @return Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      * 
      */
-    public Output<String> functionVersion() {
-        return this.functionVersion;
+    public Output<Optional<String>> functionVersion() {
+        return Codegen.optional(this.functionVersion);
     }
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.

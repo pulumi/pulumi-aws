@@ -81,28 +81,28 @@ public class ConnectionAlias extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> ownerAccountId;
+    private Output</* @Nullable */ String> ownerAccountId;
 
     /**
      * @return The identifier of the Amazon Web Services account that owns the connection alias.
      * 
      */
-    public Output<String> ownerAccountId() {
-        return this.ownerAccountId;
+    public Output<Optional<String>> ownerAccountId() {
+        return Codegen.optional(this.ownerAccountId);
     }
     /**
      * The current state of the connection alias.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The current state of the connection alias.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

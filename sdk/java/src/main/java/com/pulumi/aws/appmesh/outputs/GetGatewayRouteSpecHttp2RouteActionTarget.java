@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecHttp2RouteActionTarget {
-    private Integer port;
-    private List<GetGatewayRouteSpecHttp2RouteActionTargetVirtualService> virtualServices;
+    private @Nullable Integer port;
+    private @Nullable List<GetGatewayRouteSpecHttp2RouteActionTargetVirtualService> virtualServices;
 
     private GetGatewayRouteSpecHttp2RouteActionTarget() {}
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     public List<GetGatewayRouteSpecHttp2RouteActionTargetVirtualService> virtualServices() {
-        return this.virtualServices;
+        return this.virtualServices == null ? List.of() : this.virtualServices;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetGatewayRouteSpecHttp2RouteActionTarget {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer port;
-        private List<GetGatewayRouteSpecHttp2RouteActionTargetVirtualService> virtualServices;
+        private @Nullable Integer port;
+        private @Nullable List<GetGatewayRouteSpecHttp2RouteActionTargetVirtualService> virtualServices;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttp2RouteActionTarget defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetGatewayRouteSpecHttp2RouteActionTarget {
         }
 
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder virtualServices(List<GetGatewayRouteSpecHttp2RouteActionTargetVirtualService> virtualServices) {
-            this.virtualServices = Objects.requireNonNull(virtualServices);
+        public Builder virtualServices(@Nullable List<GetGatewayRouteSpecHttp2RouteActionTargetVirtualService> virtualServices) {
+            this.virtualServices = virtualServices;
             return this;
         }
         public Builder virtualServices(GetGatewayRouteSpecHttp2RouteActionTargetVirtualService... virtualServices) {

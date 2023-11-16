@@ -13,20 +13,20 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecHttp2RouteMatchHeaderResult
     {
-        public readonly bool Invert;
+        public readonly bool? Invert;
         public readonly ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult> Matches;
         /// <summary>
         /// Name of the route.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetRouteSpecHttp2RouteMatchHeaderResult(
-            bool invert,
+            bool? invert,
 
             ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult> matches,
 
-            string name)
+            string? name)
         {
             Invert = invert;
             Matches = matches;

@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Iam
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The policy document. This is a JSON formatted string.

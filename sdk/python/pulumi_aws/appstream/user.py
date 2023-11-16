@@ -428,7 +428,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the appstream user.
         """
@@ -444,7 +444,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when the user was created.
         """

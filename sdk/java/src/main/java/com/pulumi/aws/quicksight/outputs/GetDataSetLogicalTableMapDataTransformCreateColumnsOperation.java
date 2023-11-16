@@ -7,14 +7,15 @@ import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapDataTransformC
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransformCreateColumnsOperation {
-    private List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns;
 
     private GetDataSetLogicalTableMapDataTransformCreateColumnsOperation() {}
     public List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns() {
-        return this.columns;
+        return this.columns == null ? List.of() : this.columns;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetDataSetLogicalTableMapDataTransformCreateColumnsOperation 
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransformCreateColumnsOperation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetDataSetLogicalTableMapDataTransformCreateColumnsOperation 
         }
 
         @CustomType.Setter
-        public Builder columns(List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+        public Builder columns(@Nullable List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns) {
+            this.columns = columns;
             return this;
         }
         public Builder columns(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn... columns) {

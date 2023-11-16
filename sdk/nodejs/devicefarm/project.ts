@@ -60,7 +60,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this project
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
      */

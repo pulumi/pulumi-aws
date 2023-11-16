@@ -111,8 +111,8 @@ namespace Pulumi.Aws.GuardDuty
         /// <summary>
         /// Indicates whether findings are present for the specified detector.
         /// </summary>
-        public readonly bool HasFindings;
-        public readonly string Id;
+        public readonly bool? HasFindings;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetFindingIdsResult(
@@ -120,9 +120,9 @@ namespace Pulumi.Aws.GuardDuty
 
             ImmutableArray<string> findingIds,
 
-            bool hasFindings,
+            bool? hasFindings,
 
-            string id)
+            string? id)
         {
             DetectorId = detectorId;
             FindingIds = findingIds;

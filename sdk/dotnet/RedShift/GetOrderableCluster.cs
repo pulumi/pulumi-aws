@@ -163,26 +163,26 @@ namespace Pulumi.Aws.RedShift
         /// List of Availability Zone names where the Redshift Cluster is available.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
-        public readonly string ClusterType;
-        public readonly string ClusterVersion;
+        public readonly string? ClusterType;
+        public readonly string? ClusterVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string NodeType;
+        public readonly string? Id;
+        public readonly string? NodeType;
         public readonly ImmutableArray<string> PreferredNodeTypes;
 
         [OutputConstructor]
         private GetOrderableClusterResult(
             ImmutableArray<string> availabilityZones,
 
-            string clusterType,
+            string? clusterType,
 
-            string clusterVersion,
+            string? clusterVersion,
 
-            string id,
+            string? id,
 
-            string nodeType,
+            string? nodeType,
 
             ImmutableArray<string> preferredNodeTypes)
         {

@@ -163,14 +163,14 @@ public class InstanceAutomatedBackupsReplication extends com.pulumi.resources.Cu
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.

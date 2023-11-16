@@ -86,33 +86,33 @@ type ClusterInstance struct {
 	// are applied immediately, or during the next maintenance window. Default is`false`.
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster instance
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// (Optional) The identifier of the CA certificate for the DB instance.
-	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
+	CaCertIdentifier pulumi.StringPtrOutput `pulumi:"caCertIdentifier"`
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// Copy all DB instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// The DB subnet group to associate with this DB instance.
-	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
+	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
 	// The region-unique, immutable identifier for the DB instance.
-	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
+	DbiResourceId pulumi.StringPtrOutput `pulumi:"dbiResourceId"`
 	// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
 	EnablePerformanceInsights pulumi.BoolPtrOutput `pulumi:"enablePerformanceInsights"`
 	// The DNS address for this instance. May not be writable
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	Identifier pulumi.StringPtrOutput `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
+	IdentifierPrefix pulumi.StringPtrOutput `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
 	// DocumentDB currently supports the below instance classes.
 	// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
@@ -139,21 +139,21 @@ type ClusterInstance struct {
 	// - db.t3.medium
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
 	// The ARN for the KMS encryption key if one is set to the cluster.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-	PerformanceInsightsKmsKeyId pulumi.StringOutput `pulumi:"performanceInsightsKmsKeyId"`
+	PerformanceInsightsKmsKeyId pulumi.StringPtrOutput `pulumi:"performanceInsightsKmsKeyId"`
 	// The database port
-	Port pulumi.IntOutput `pulumi:"port"`
+	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled.
-	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
+	PreferredBackupWindow pulumi.StringPtrOutput `pulumi:"preferredBackupWindow"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-	PromotionTier      pulumi.IntPtrOutput `pulumi:"promotionTier"`
-	PubliclyAccessible pulumi.BoolOutput   `pulumi:"publiclyAccessible"`
+	PromotionTier      pulumi.IntPtrOutput  `pulumi:"promotionTier"`
+	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
-	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
+	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -161,7 +161,7 @@ type ClusterInstance struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-	Writer pulumi.BoolOutput `pulumi:"writer"`
+	Writer pulumi.BoolPtrOutput `pulumi:"writer"`
 }
 
 // NewClusterInstance registers a new resource with the given unique name, arguments, and options.
@@ -584,8 +584,8 @@ func (o ClusterInstanceOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 }
 
 // Amazon Resource Name (ARN) of cluster instance
-func (o ClusterInstanceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
@@ -594,13 +594,13 @@ func (o ClusterInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 }
 
 // The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-func (o ClusterInstanceOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) The identifier of the CA certificate for the DB instance.
-func (o ClusterInstanceOutput) CaCertIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.CaCertIdentifier }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) CaCertIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.CaCertIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the `docdb.Cluster` in which to launch this instance.
@@ -614,13 +614,13 @@ func (o ClusterInstanceOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 }
 
 // The DB subnet group to associate with this DB instance.
-func (o ClusterInstanceOutput) DbSubnetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.DbSubnetGroupName }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The region-unique, immutable identifier for the DB instance.
-func (o ClusterInstanceOutput) DbiResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.DbiResourceId }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) DbiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.DbiResourceId }).(pulumi.StringPtrOutput)
 }
 
 // A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
@@ -629,8 +629,8 @@ func (o ClusterInstanceOutput) EnablePerformanceInsights() pulumi.BoolPtrOutput 
 }
 
 // The DNS address for this instance. May not be writable
-func (o ClusterInstanceOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -639,18 +639,18 @@ func (o ClusterInstanceOutput) Engine() pulumi.StringPtrOutput {
 }
 
 // The database engine version
-func (o ClusterInstanceOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-func (o ClusterInstanceOutput) Identifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.Identifier }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-func (o ClusterInstanceOutput) IdentifierPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.IdentifierPrefix }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) IdentifierPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.IdentifierPrefix }).(pulumi.StringPtrOutput)
 }
 
 // The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
@@ -682,29 +682,29 @@ func (o ClusterInstanceOutput) InstanceClass() pulumi.StringOutput {
 }
 
 // The ARN for the KMS encryption key if one is set to the cluster.
-func (o ClusterInstanceOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-func (o ClusterInstanceOutput) PerformanceInsightsKmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) PerformanceInsightsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The database port
-func (o ClusterInstanceOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+func (o ClusterInstanceOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The daily time range during which automated backups are created if automated backups are enabled.
-func (o ClusterInstanceOutput) PreferredBackupWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.PreferredBackupWindow }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
 // The window to perform maintenance in.
 // Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-func (o ClusterInstanceOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
@@ -712,13 +712,13 @@ func (o ClusterInstanceOutput) PromotionTier() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.IntPtrOutput { return v.PromotionTier }).(pulumi.IntPtrOutput)
 }
 
-func (o ClusterInstanceOutput) PubliclyAccessible() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+func (o ClusterInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether the DB cluster is encrypted.
-func (o ClusterInstanceOutput) StorageEncrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
+func (o ClusterInstanceOutput) StorageEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
 // A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -734,8 +734,8 @@ func (o ClusterInstanceOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-func (o ClusterInstanceOutput) Writer() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.Writer }).(pulumi.BoolOutput)
+func (o ClusterInstanceOutput) Writer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.Writer }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterInstanceArrayOutput struct{ *pulumi.OutputState }

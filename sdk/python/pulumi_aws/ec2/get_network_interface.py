@@ -87,7 +87,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the network interface.
         """
@@ -95,7 +95,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter
-    def associations(self) -> Sequence['outputs.GetNetworkInterfaceAssociationResult']:
+    def associations(self) -> Optional[Sequence['outputs.GetNetworkInterfaceAssociationResult']]:
         """
         Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
         """
@@ -103,12 +103,12 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter
-    def attachments(self) -> Sequence['outputs.GetNetworkInterfaceAttachmentResult']:
+    def attachments(self) -> Optional[Sequence['outputs.GetNetworkInterfaceAttachmentResult']]:
         return pulumi.get(self, "attachments")
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         """
         Availability Zone.
         """
@@ -116,7 +116,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the network interface.
         """
@@ -129,12 +129,12 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="interfaceType")
-    def interface_type(self) -> str:
+    def interface_type(self) -> Optional[str]:
         """
         Type of interface.
         """
@@ -142,7 +142,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> Sequence[str]:
+    def ipv6_addresses(self) -> Optional[Sequence[str]]:
         """
         List of IPv6 addresses to assign to the ENI.
         """
@@ -150,7 +150,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> str:
+    def mac_address(self) -> Optional[str]:
         """
         MAC address.
         """
@@ -158,7 +158,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> str:
+    def outpost_arn(self) -> Optional[str]:
         """
         ARN of the Outpost.
         """
@@ -166,7 +166,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         AWS account ID of the owner of the network interface.
         """
@@ -174,7 +174,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="privateDnsName")
-    def private_dns_name(self) -> str:
+    def private_dns_name(self) -> Optional[str]:
         """
         Private DNS name.
         """
@@ -182,7 +182,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> str:
+    def private_ip(self) -> Optional[str]:
         """
         Private IPv4 address of the network interface within the subnet.
         """
@@ -190,7 +190,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="privateIps")
-    def private_ips(self) -> Sequence[str]:
+    def private_ips(self) -> Optional[Sequence[str]]:
         """
         Private IPv4 addresses associated with the network interface.
         """
@@ -198,7 +198,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="requesterId")
-    def requester_id(self) -> str:
+    def requester_id(self) -> Optional[str]:
         """
         ID of the entity that launched the instance on your behalf.
         """
@@ -206,7 +206,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Sequence[str]:
+    def security_groups(self) -> Optional[Sequence[str]]:
         """
         List of security groups for the network interface.
         """
@@ -214,7 +214,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> Optional[str]:
         """
         ID of the subnet.
         """
@@ -222,7 +222,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Any tags assigned to the network interface.
         """
@@ -230,7 +230,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         ID of the VPC.
         """

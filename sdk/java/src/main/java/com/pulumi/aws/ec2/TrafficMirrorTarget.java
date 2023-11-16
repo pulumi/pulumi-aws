@@ -79,14 +79,14 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the traffic mirror target.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A description of the traffic mirror session.
@@ -149,14 +149,14 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The ID of the AWS account that owns the traffic mirror target.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

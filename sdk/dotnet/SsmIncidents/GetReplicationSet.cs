@@ -116,51 +116,51 @@ namespace Pulumi.Aws.SsmIncidents
         /// <summary>
         /// The Amazon Resouce Name (ARN) of the replication set.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The ARN of the user who created the replication set.
         /// </summary>
-        public readonly string CreatedBy;
+        public readonly string? CreatedBy;
         /// <summary>
         /// If `true`, the last remaining Region in a replication set can’t be deleted.
         /// </summary>
-        public readonly bool DeletionProtected;
+        public readonly bool? DeletionProtected;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The ARN of the user who last modified the replication set.
         /// </summary>
-        public readonly string LastModifiedBy;
+        public readonly string? LastModifiedBy;
         public readonly ImmutableArray<Outputs.GetReplicationSetRegionResult> Regions;
         /// <summary>
         /// The current status of the Region.
         /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// All tags applied to the replication set.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetReplicationSetResult(
-            string arn,
+            string? arn,
 
-            string createdBy,
+            string? createdBy,
 
-            bool deletionProtected,
+            bool? deletionProtected,
 
-            string id,
+            string? id,
 
-            string lastModifiedBy,
+            string? lastModifiedBy,
 
             ImmutableArray<Outputs.GetReplicationSetRegionResult> regions,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CreatedBy = createdBy;

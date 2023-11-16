@@ -60,14 +60,14 @@ type GetStreamKeyArgs struct {
 // A collection of values returned by getStreamKey.
 type GetStreamKeyResult struct {
 	// ARN of the Stream Key.
-	Arn        string `pulumi:"arn"`
-	ChannelArn string `pulumi:"channelArn"`
+	Arn        *string `pulumi:"arn"`
+	ChannelArn string  `pulumi:"channelArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Stream Key value.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 func GetStreamKeyOutput(ctx *pulumi.Context, args GetStreamKeyOutputArgs, opts ...pulumi.InvokeOption) GetStreamKeyResultOutput {
@@ -111,8 +111,8 @@ func (o GetStreamKeyResultOutput) ToGetStreamKeyResultOutputWithContext(ctx cont
 }
 
 // ARN of the Stream Key.
-func (o GetStreamKeyResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetStreamKeyResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStreamKeyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o GetStreamKeyResultOutput) ChannelArn() pulumi.StringOutput {
@@ -120,8 +120,8 @@ func (o GetStreamKeyResultOutput) ChannelArn() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetStreamKeyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetStreamKeyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStreamKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the resource.
@@ -130,8 +130,8 @@ func (o GetStreamKeyResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Stream Key value.
-func (o GetStreamKeyResultOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Value }).(pulumi.StringOutput)
+func (o GetStreamKeyResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStreamKeyResult) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 func init() {

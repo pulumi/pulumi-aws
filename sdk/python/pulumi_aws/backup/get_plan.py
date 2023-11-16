@@ -43,7 +43,7 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the backup plan.
         """
@@ -51,7 +51,7 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -59,7 +59,7 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Display name of a backup plan.
         """
@@ -72,7 +72,7 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Metadata that you can assign to help organize the plans you create.
         """
@@ -80,7 +80,7 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         """

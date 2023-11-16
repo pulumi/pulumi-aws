@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrganizationRoot {
@@ -15,51 +17,51 @@ public final class GetOrganizationRoot {
      * @return ARN of the root
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Identifier of the root
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The name of the policy type
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return List of policy types enabled for this root. All elements have these attributes:
      * 
      */
-    private List<GetOrganizationRootPolicyType> policyTypes;
+    private @Nullable List<GetOrganizationRootPolicyType> policyTypes;
 
     private GetOrganizationRoot() {}
     /**
      * @return ARN of the root
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Identifier of the root
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The name of the policy type
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return List of policy types enabled for this root. All elements have these attributes:
      * 
      */
     public List<GetOrganizationRootPolicyType> policyTypes() {
-        return this.policyTypes;
+        return this.policyTypes == null ? List.of() : this.policyTypes;
     }
 
     public static Builder builder() {
@@ -71,10 +73,10 @@ public final class GetOrganizationRoot {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String name;
-        private List<GetOrganizationRootPolicyType> policyTypes;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable List<GetOrganizationRootPolicyType> policyTypes;
         public Builder() {}
         public Builder(GetOrganizationRoot defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,23 +87,23 @@ public final class GetOrganizationRoot {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder policyTypes(List<GetOrganizationRootPolicyType> policyTypes) {
-            this.policyTypes = Objects.requireNonNull(policyTypes);
+        public Builder policyTypes(@Nullable List<GetOrganizationRootPolicyType> policyTypes) {
+            this.policyTypes = policyTypes;
             return this;
         }
         public Builder policyTypes(GetOrganizationRootPolicyType... policyTypes) {

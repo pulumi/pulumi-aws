@@ -13,10 +13,10 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionFixedResponseResult
     {
-        public readonly int StatusCode;
+        public readonly int? StatusCode;
 
         [OutputConstructor]
-        private GetListenerDefaultActionFixedResponseResult(int statusCode)
+        private GetListenerDefaultActionFixedResponseResult(int? statusCode)
         {
             StatusCode = statusCode;
         }

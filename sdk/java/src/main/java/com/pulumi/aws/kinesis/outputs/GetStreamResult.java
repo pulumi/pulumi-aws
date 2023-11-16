@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStreamResult {
@@ -17,22 +19,22 @@ public final class GetStreamResult {
      * @return ARN of the Kinesis Stream (same as id).
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      * 
      */
-    private List<String> closedShards;
+    private @Nullable List<String> closedShards;
     /**
      * @return Approximate UNIX timestamp that the stream was created.
      * 
      */
-    private Integer creationTimestamp;
+    private @Nullable Integer creationTimestamp;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the Kinesis Stream.
      * 
@@ -42,61 +44,61 @@ public final class GetStreamResult {
      * @return List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      * 
      */
-    private List<String> openShards;
+    private @Nullable List<String> openShards;
     /**
      * @return Length of time (in hours) data records are accessible after they are added to the stream.
      * 
      */
-    private Integer retentionPeriod;
+    private @Nullable Integer retentionPeriod;
     /**
      * @return List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
      * 
      */
-    private List<String> shardLevelMetrics;
+    private @Nullable List<String> shardLevelMetrics;
     /**
      * @return Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
-    private List<GetStreamStreamModeDetail> streamModeDetails;
+    private @Nullable List<GetStreamStreamModeDetail> streamModeDetails;
     /**
      * @return Map of tags to assigned to the stream.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetStreamResult() {}
     /**
      * @return ARN of the Kinesis Stream (same as id).
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      * 
      */
     public List<String> closedShards() {
-        return this.closedShards;
+        return this.closedShards == null ? List.of() : this.closedShards;
     }
     /**
      * @return Approximate UNIX timestamp that the stream was created.
      * 
      */
-    public Integer creationTimestamp() {
-        return this.creationTimestamp;
+    public Optional<Integer> creationTimestamp() {
+        return Optional.ofNullable(this.creationTimestamp);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the Kinesis Stream.
@@ -110,42 +112,42 @@ public final class GetStreamResult {
      * 
      */
     public List<String> openShards() {
-        return this.openShards;
+        return this.openShards == null ? List.of() : this.openShards;
     }
     /**
      * @return Length of time (in hours) data records are accessible after they are added to the stream.
      * 
      */
-    public Integer retentionPeriod() {
-        return this.retentionPeriod;
+    public Optional<Integer> retentionPeriod() {
+        return Optional.ofNullable(this.retentionPeriod);
     }
     /**
      * @return List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
      * 
      */
     public List<String> shardLevelMetrics() {
-        return this.shardLevelMetrics;
+        return this.shardLevelMetrics == null ? List.of() : this.shardLevelMetrics;
     }
     /**
      * @return Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
     public List<GetStreamStreamModeDetail> streamModeDetails() {
-        return this.streamModeDetails;
+        return this.streamModeDetails == null ? List.of() : this.streamModeDetails;
     }
     /**
      * @return Map of tags to assigned to the stream.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -157,17 +159,17 @@ public final class GetStreamResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<String> closedShards;
-        private Integer creationTimestamp;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable List<String> closedShards;
+        private @Nullable Integer creationTimestamp;
+        private @Nullable String id;
         private String name;
-        private List<String> openShards;
-        private Integer retentionPeriod;
-        private List<String> shardLevelMetrics;
-        private String status;
-        private List<GetStreamStreamModeDetail> streamModeDetails;
-        private Map<String,String> tags;
+        private @Nullable List<String> openShards;
+        private @Nullable Integer retentionPeriod;
+        private @Nullable List<String> shardLevelMetrics;
+        private @Nullable String status;
+        private @Nullable List<GetStreamStreamModeDetail> streamModeDetails;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetStreamResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -185,26 +187,26 @@ public final class GetStreamResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder closedShards(List<String> closedShards) {
-            this.closedShards = Objects.requireNonNull(closedShards);
+        public Builder closedShards(@Nullable List<String> closedShards) {
+            this.closedShards = closedShards;
             return this;
         }
         public Builder closedShards(String... closedShards) {
             return closedShards(List.of(closedShards));
         }
         @CustomType.Setter
-        public Builder creationTimestamp(Integer creationTimestamp) {
-            this.creationTimestamp = Objects.requireNonNull(creationTimestamp);
+        public Builder creationTimestamp(@Nullable Integer creationTimestamp) {
+            this.creationTimestamp = creationTimestamp;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -213,42 +215,42 @@ public final class GetStreamResult {
             return this;
         }
         @CustomType.Setter
-        public Builder openShards(List<String> openShards) {
-            this.openShards = Objects.requireNonNull(openShards);
+        public Builder openShards(@Nullable List<String> openShards) {
+            this.openShards = openShards;
             return this;
         }
         public Builder openShards(String... openShards) {
             return openShards(List.of(openShards));
         }
         @CustomType.Setter
-        public Builder retentionPeriod(Integer retentionPeriod) {
-            this.retentionPeriod = Objects.requireNonNull(retentionPeriod);
+        public Builder retentionPeriod(@Nullable Integer retentionPeriod) {
+            this.retentionPeriod = retentionPeriod;
             return this;
         }
         @CustomType.Setter
-        public Builder shardLevelMetrics(List<String> shardLevelMetrics) {
-            this.shardLevelMetrics = Objects.requireNonNull(shardLevelMetrics);
+        public Builder shardLevelMetrics(@Nullable List<String> shardLevelMetrics) {
+            this.shardLevelMetrics = shardLevelMetrics;
             return this;
         }
         public Builder shardLevelMetrics(String... shardLevelMetrics) {
             return shardLevelMetrics(List.of(shardLevelMetrics));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder streamModeDetails(List<GetStreamStreamModeDetail> streamModeDetails) {
-            this.streamModeDetails = Objects.requireNonNull(streamModeDetails);
+        public Builder streamModeDetails(@Nullable List<GetStreamStreamModeDetail> streamModeDetails) {
+            this.streamModeDetails = streamModeDetails;
             return this;
         }
         public Builder streamModeDetails(GetStreamStreamModeDetail... streamModeDetails) {
             return streamModeDetails(List.of(streamModeDetails));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetStreamResult build() {

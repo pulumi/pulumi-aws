@@ -822,7 +822,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Fleet ARN.
         """
@@ -830,7 +830,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="buildArn")
-    def build_arn(self) -> pulumi.Output[str]:
+    def build_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Build ARN.
         """
@@ -846,7 +846,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateConfiguration")
-    def certificate_configuration(self) -> pulumi.Output['outputs.FleetCertificateConfiguration']:
+    def certificate_configuration(self) -> pulumi.Output[Optional['outputs.FleetCertificateConfiguration']]:
         """
         Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         """
@@ -862,7 +862,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ec2InboundPermissions")
-    def ec2_inbound_permissions(self) -> pulumi.Output[Sequence['outputs.FleetEc2InboundPermission']]:
+    def ec2_inbound_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.FleetEc2InboundPermission']]]:
         """
         Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         """
@@ -894,12 +894,12 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logPaths")
-    def log_paths(self) -> pulumi.Output[Sequence[str]]:
+    def log_paths(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "log_paths")
 
     @property
     @pulumi.getter(name="metricGroups")
-    def metric_groups(self) -> pulumi.Output[Sequence[str]]:
+    def metric_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
         """
@@ -923,7 +923,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> pulumi.Output[str]:
+    def operating_system(self) -> pulumi.Output[Optional[str]]:
         """
         Operating system of the fleet's computing resources.
         """
@@ -947,7 +947,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scriptArn")
-    def script_arn(self) -> pulumi.Output[str]:
+    def script_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Script ARN.
         """

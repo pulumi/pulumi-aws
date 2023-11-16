@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// Name of the table.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
         /// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
         /// </summary>
-        public readonly string SerializationLibrary;
+        public readonly string? SerializationLibrary;
 
         [OutputConstructor]
         private GetCatalogTableStorageDescriptorSerDeInfoResult(
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> parameters,
+            ImmutableDictionary<string, string>? parameters,
 
-            string serializationLibrary)
+            string? serializationLibrary)
         {
             Name = name;
             Parameters = parameters;

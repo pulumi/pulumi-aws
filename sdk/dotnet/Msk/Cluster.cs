@@ -259,67 +259,67 @@ namespace Pulumi.Aws.Msk
         /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Output("bootstrapBrokers")]
-        public Output<string> BootstrapBrokers { get; private set; } = null!;
+        public Output<string?> BootstrapBrokers { get; private set; } = null!;
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersPublicSaslIam")]
-        public Output<string> BootstrapBrokersPublicSaslIam { get; private set; } = null!;
+        public Output<string?> BootstrapBrokersPublicSaslIam { get; private set; } = null!;
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersPublicSaslScram")]
-        public Output<string> BootstrapBrokersPublicSaslScram { get; private set; } = null!;
+        public Output<string?> BootstrapBrokersPublicSaslScram { get; private set; } = null!;
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersPublicTls")]
-        public Output<string> BootstrapBrokersPublicTls { get; private set; } = null!;
+        public Output<string?> BootstrapBrokersPublicTls { get; private set; } = null!;
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersSaslIam")]
-        public Output<string> BootstrapBrokersSaslIam { get; private set; } = null!;
+        public Output<string?> BootstrapBrokersSaslIam { get; private set; } = null!;
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersSaslScram")]
-        public Output<string> BootstrapBrokersSaslScram { get; private set; } = null!;
+        public Output<string?> BootstrapBrokersSaslScram { get; private set; } = null!;
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersTls")]
-        public Output<string> BootstrapBrokersTls { get; private set; } = null!;
+        public Output<string?> BootstrapBrokersTls { get; private set; } = null!;
 
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersVpcConnectivitySaslIam")]
-        public Output<string> BootstrapBrokersVpcConnectivitySaslIam { get; private set; } = null!;
+        public Output<string?> BootstrapBrokersVpcConnectivitySaslIam { get; private set; } = null!;
 
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersVpcConnectivitySaslScram")]
-        public Output<string> BootstrapBrokersVpcConnectivitySaslScram { get; private set; } = null!;
+        public Output<string?> BootstrapBrokersVpcConnectivitySaslScram { get; private set; } = null!;
 
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersVpcConnectivityTls")]
-        public Output<string> BootstrapBrokersVpcConnectivityTls { get; private set; } = null!;
+        public Output<string?> BootstrapBrokersVpcConnectivityTls { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the broker nodes of the Kafka cluster.
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.Msk
         /// UUID of the MSK cluster, for use in IAM policies.
         /// </summary>
         [Output("clusterUuid")]
-        public Output<string> ClusterUuid { get; private set; } = null!;
+        public Output<string?> ClusterUuid { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.Msk
         /// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         /// </summary>
         [Output("currentVersion")]
-        public Output<string> CurrentVersion { get; private set; } = null!;
+        public Output<string?> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for specifying encryption. See below.
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Msk
         /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         /// </summary>
         [Output("storageMode")]
-        public Output<string> StorageMode { get; private set; } = null!;
+        public Output<string?> StorageMode { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -416,13 +416,13 @@ namespace Pulumi.Aws.Msk
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Output("zookeeperConnectString")]
-        public Output<string> ZookeeperConnectString { get; private set; } = null!;
+        public Output<string?> ZookeeperConnectString { get; private set; } = null!;
 
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Output("zookeeperConnectStringTls")]
-        public Output<string> ZookeeperConnectStringTls { get; private set; } = null!;
+        public Output<string?> ZookeeperConnectStringTls { get; private set; } = null!;
 
 
         /// <summary>

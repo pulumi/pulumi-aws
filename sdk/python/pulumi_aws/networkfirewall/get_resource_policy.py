@@ -34,7 +34,7 @@ class GetResourcePolicyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -42,7 +42,7 @@ class GetResourcePolicyResult:
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> Optional[str]:
         """
         The [policy][1] for the resource.
         """

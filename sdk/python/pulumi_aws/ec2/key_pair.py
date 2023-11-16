@@ -415,7 +415,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The key pair ARN.
         """
@@ -423,7 +423,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> pulumi.Output[str]:
+    def fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         """
@@ -439,7 +439,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyNamePrefix")
-    def key_name_prefix(self) -> pulumi.Output[str]:
+    def key_name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         """
@@ -447,7 +447,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyPairId")
-    def key_pair_id(self) -> pulumi.Output[str]:
+    def key_pair_id(self) -> pulumi.Output[Optional[str]]:
         """
         The key pair ID.
         """
@@ -455,7 +455,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> pulumi.Output[str]:
+    def key_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of key pair.
         """

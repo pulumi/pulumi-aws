@@ -81,14 +81,14 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="callerReference", refs={String.class}, tree="[0]")
-    private Output<String> callerReference;
+    private Output</* @Nullable */ String> callerReference;
 
     /**
      * @return Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      * 
      */
-    public Output<String> callerReference() {
-        return this.callerReference;
+    public Output<Optional<String>> callerReference() {
+        return Codegen.optional(this.callerReference);
     }
     /**
      * An optional comment about the Field Level Encryption Profile.
@@ -123,14 +123,14 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * The name of the Field Level Encryption Profile.

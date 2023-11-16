@@ -659,7 +659,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the EBS Snapshot.
         """
@@ -667,7 +667,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataEncryptionKeyId")
-    def data_encryption_key_id(self) -> pulumi.Output[str]:
+    def data_encryption_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The data encryption key identifier for the snapshot.
         """
@@ -699,12 +699,12 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> pulumi.Output[str]:
+    def outpost_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerAlias")
-    def owner_alias(self) -> pulumi.Output[str]:
+    def owner_alias(self) -> pulumi.Output[Optional[str]]:
         """
         Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         """
@@ -712,7 +712,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID of the snapshot owner.
         """
@@ -744,7 +744,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageTier")
-    def storage_tier(self) -> pulumi.Output[str]:
+    def storage_tier(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         """
@@ -779,12 +779,12 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> pulumi.Output[str]:
+    def volume_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "volume_id")
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> pulumi.Output[int]:
+    def volume_size(self) -> pulumi.Output[Optional[int]]:
         """
         The size of the drive in GiBs.
         """

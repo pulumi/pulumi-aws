@@ -55,7 +55,7 @@ export interface GetBotAssociationResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
     readonly lexBot: outputs.connect.GetBotAssociationLexBot;
 }

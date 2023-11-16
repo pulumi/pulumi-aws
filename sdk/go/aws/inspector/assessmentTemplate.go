@@ -66,7 +66,7 @@ type AssessmentTemplate struct {
 	pulumi.CustomResourceState
 
 	// The template assessment ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The duration of the inspector run.
 	Duration pulumi.IntOutput `pulumi:"duration"`
 	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
@@ -292,8 +292,8 @@ func (o AssessmentTemplateOutput) ToAssessmentTemplateOutputWithContext(ctx cont
 }
 
 // The template assessment ARN.
-func (o AssessmentTemplateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AssessmentTemplateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The duration of the inspector run.

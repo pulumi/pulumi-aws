@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceResult {
@@ -16,107 +18,107 @@ public final class GetServiceResult {
      * @return ARN of the service.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Type of IAM policy. Either `NONE` or `AWS_IAM`.
      * 
      */
-    private String authType;
+    private @Nullable String authType;
     /**
      * @return Amazon Resource Name (ARN) of the certificate.
      * 
      */
-    private String certificateArn;
+    private @Nullable String certificateArn;
     /**
      * @return Custom domain name of the service.
      * 
      */
-    private String customDomainName;
+    private @Nullable String customDomainName;
     /**
      * @return DNS name of the service.
      * 
      */
-    private List<GetServiceDnsEntry> dnsEntries;
+    private @Nullable List<GetServiceDnsEntry> dnsEntries;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String name;
-    private String serviceIdentifier;
+    private @Nullable String id;
+    private @Nullable String name;
+    private @Nullable String serviceIdentifier;
     /**
      * @return Status of the service.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return List of tags associated with the service.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetServiceResult() {}
     /**
      * @return ARN of the service.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Type of IAM policy. Either `NONE` or `AWS_IAM`.
      * 
      */
-    public String authType() {
-        return this.authType;
+    public Optional<String> authType() {
+        return Optional.ofNullable(this.authType);
     }
     /**
      * @return Amazon Resource Name (ARN) of the certificate.
      * 
      */
-    public String certificateArn() {
-        return this.certificateArn;
+    public Optional<String> certificateArn() {
+        return Optional.ofNullable(this.certificateArn);
     }
     /**
      * @return Custom domain name of the service.
      * 
      */
-    public String customDomainName() {
-        return this.customDomainName;
+    public Optional<String> customDomainName() {
+        return Optional.ofNullable(this.customDomainName);
     }
     /**
      * @return DNS name of the service.
      * 
      */
     public List<GetServiceDnsEntry> dnsEntries() {
-        return this.dnsEntries;
+        return this.dnsEntries == null ? List.of() : this.dnsEntries;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public String serviceIdentifier() {
-        return this.serviceIdentifier;
+    public Optional<String> serviceIdentifier() {
+        return Optional.ofNullable(this.serviceIdentifier);
     }
     /**
      * @return Status of the service.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return List of tags associated with the service.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -128,16 +130,16 @@ public final class GetServiceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String authType;
-        private String certificateArn;
-        private String customDomainName;
-        private List<GetServiceDnsEntry> dnsEntries;
-        private String id;
-        private String name;
-        private String serviceIdentifier;
-        private String status;
-        private Map<String,String> tags;
+        private @Nullable String arn;
+        private @Nullable String authType;
+        private @Nullable String certificateArn;
+        private @Nullable String customDomainName;
+        private @Nullable List<GetServiceDnsEntry> dnsEntries;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String serviceIdentifier;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -154,56 +156,56 @@ public final class GetServiceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+        public Builder authType(@Nullable String authType) {
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+        public Builder certificateArn(@Nullable String certificateArn) {
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
-        public Builder customDomainName(String customDomainName) {
-            this.customDomainName = Objects.requireNonNull(customDomainName);
+        public Builder customDomainName(@Nullable String customDomainName) {
+            this.customDomainName = customDomainName;
             return this;
         }
         @CustomType.Setter
-        public Builder dnsEntries(List<GetServiceDnsEntry> dnsEntries) {
-            this.dnsEntries = Objects.requireNonNull(dnsEntries);
+        public Builder dnsEntries(@Nullable List<GetServiceDnsEntry> dnsEntries) {
+            this.dnsEntries = dnsEntries;
             return this;
         }
         public Builder dnsEntries(GetServiceDnsEntry... dnsEntries) {
             return dnsEntries(List.of(dnsEntries));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceIdentifier(String serviceIdentifier) {
-            this.serviceIdentifier = Objects.requireNonNull(serviceIdentifier);
+        public Builder serviceIdentifier(@Nullable String serviceIdentifier) {
+            this.serviceIdentifier = serviceIdentifier;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetServiceResult build() {

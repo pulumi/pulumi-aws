@@ -53,7 +53,7 @@ type RecoveryGroup struct {
 	pulumi.CustomResourceState
 
 	// ARN of the recovery group
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// List of cell arns to add as nested fault domains within this recovery group
 	Cells pulumi.StringArrayOutput `pulumi:"cells"`
 	// A unique name describing the recovery group.
@@ -253,8 +253,8 @@ func (o RecoveryGroupOutput) ToRecoveryGroupOutputWithContext(ctx context.Contex
 }
 
 // ARN of the recovery group
-func (o RecoveryGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RecoveryGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // List of cell arns to add as nested fault domains within this recovery group

@@ -10,26 +10,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetPhysicalTableMap {
-    private List<GetDataSetPhysicalTableMapCustomSql> customSqls;
-    private String physicalTableMapId;
-    private List<GetDataSetPhysicalTableMapRelationalTable> relationalTables;
-    private List<GetDataSetPhysicalTableMapS3Source> s3Sources;
+    private @Nullable List<GetDataSetPhysicalTableMapCustomSql> customSqls;
+    private @Nullable String physicalTableMapId;
+    private @Nullable List<GetDataSetPhysicalTableMapRelationalTable> relationalTables;
+    private @Nullable List<GetDataSetPhysicalTableMapS3Source> s3Sources;
 
     private GetDataSetPhysicalTableMap() {}
     public List<GetDataSetPhysicalTableMapCustomSql> customSqls() {
-        return this.customSqls;
+        return this.customSqls == null ? List.of() : this.customSqls;
     }
-    public String physicalTableMapId() {
-        return this.physicalTableMapId;
+    public Optional<String> physicalTableMapId() {
+        return Optional.ofNullable(this.physicalTableMapId);
     }
     public List<GetDataSetPhysicalTableMapRelationalTable> relationalTables() {
-        return this.relationalTables;
+        return this.relationalTables == null ? List.of() : this.relationalTables;
     }
     public List<GetDataSetPhysicalTableMapS3Source> s3Sources() {
-        return this.s3Sources;
+        return this.s3Sources == null ? List.of() : this.s3Sources;
     }
 
     public static Builder builder() {
@@ -41,10 +43,10 @@ public final class GetDataSetPhysicalTableMap {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDataSetPhysicalTableMapCustomSql> customSqls;
-        private String physicalTableMapId;
-        private List<GetDataSetPhysicalTableMapRelationalTable> relationalTables;
-        private List<GetDataSetPhysicalTableMapS3Source> s3Sources;
+        private @Nullable List<GetDataSetPhysicalTableMapCustomSql> customSqls;
+        private @Nullable String physicalTableMapId;
+        private @Nullable List<GetDataSetPhysicalTableMapRelationalTable> relationalTables;
+        private @Nullable List<GetDataSetPhysicalTableMapS3Source> s3Sources;
         public Builder() {}
         public Builder(GetDataSetPhysicalTableMap defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,29 +57,29 @@ public final class GetDataSetPhysicalTableMap {
         }
 
         @CustomType.Setter
-        public Builder customSqls(List<GetDataSetPhysicalTableMapCustomSql> customSqls) {
-            this.customSqls = Objects.requireNonNull(customSqls);
+        public Builder customSqls(@Nullable List<GetDataSetPhysicalTableMapCustomSql> customSqls) {
+            this.customSqls = customSqls;
             return this;
         }
         public Builder customSqls(GetDataSetPhysicalTableMapCustomSql... customSqls) {
             return customSqls(List.of(customSqls));
         }
         @CustomType.Setter
-        public Builder physicalTableMapId(String physicalTableMapId) {
-            this.physicalTableMapId = Objects.requireNonNull(physicalTableMapId);
+        public Builder physicalTableMapId(@Nullable String physicalTableMapId) {
+            this.physicalTableMapId = physicalTableMapId;
             return this;
         }
         @CustomType.Setter
-        public Builder relationalTables(List<GetDataSetPhysicalTableMapRelationalTable> relationalTables) {
-            this.relationalTables = Objects.requireNonNull(relationalTables);
+        public Builder relationalTables(@Nullable List<GetDataSetPhysicalTableMapRelationalTable> relationalTables) {
+            this.relationalTables = relationalTables;
             return this;
         }
         public Builder relationalTables(GetDataSetPhysicalTableMapRelationalTable... relationalTables) {
             return relationalTables(List.of(relationalTables));
         }
         @CustomType.Setter
-        public Builder s3Sources(List<GetDataSetPhysicalTableMapS3Source> s3Sources) {
-            this.s3Sources = Objects.requireNonNull(s3Sources);
+        public Builder s3Sources(@Nullable List<GetDataSetPhysicalTableMapS3Source> s3Sources) {
+            this.s3Sources = s3Sources;
             return this;
         }
         public Builder s3Sources(GetDataSetPhysicalTableMapS3Source... s3Sources) {

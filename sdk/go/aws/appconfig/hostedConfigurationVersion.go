@@ -148,7 +148,7 @@ type HostedConfigurationVersion struct {
 	// Application ID.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// ARN of the AppConfig  hosted configuration version.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration profile ID.
 	ConfigurationProfileId pulumi.StringOutput `pulumi:"configurationProfileId"`
 	// Content of the configuration or the configuration data.
@@ -158,7 +158,7 @@ type HostedConfigurationVersion struct {
 	// Description of the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Version number of the hosted configuration.
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	VersionNumber pulumi.IntPtrOutput `pulumi:"versionNumber"`
 }
 
 // NewHostedConfigurationVersion registers a new resource with the given unique name, arguments, and options.
@@ -367,8 +367,8 @@ func (o HostedConfigurationVersionOutput) ApplicationId() pulumi.StringOutput {
 }
 
 // ARN of the AppConfig  hosted configuration version.
-func (o HostedConfigurationVersionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HostedConfigurationVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration profile ID.
@@ -392,8 +392,8 @@ func (o HostedConfigurationVersionOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Version number of the hosted configuration.
-func (o HostedConfigurationVersionOutput) VersionNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
+func (o HostedConfigurationVersionOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.IntPtrOutput { return v.VersionNumber }).(pulumi.IntPtrOutput)
 }
 
 type HostedConfigurationVersionArrayOutput struct{ *pulumi.OutputState }

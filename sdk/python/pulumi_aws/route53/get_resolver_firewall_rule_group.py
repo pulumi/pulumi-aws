@@ -61,17 +61,17 @@ class GetResolverFirewallRuleGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> Optional[str]:
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
-    def creator_request_id(self) -> str:
+    def creator_request_id(self) -> Optional[str]:
         return pulumi.get(self, "creator_request_id")
 
     @property
@@ -81,7 +81,7 @@ class GetResolverFirewallRuleGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -89,37 +89,37 @@ class GetResolverFirewallRuleGroupResult:
 
     @property
     @pulumi.getter(name="modificationTime")
-    def modification_time(self) -> str:
+    def modification_time(self) -> Optional[str]:
         return pulumi.get(self, "modification_time")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="ruleCount")
-    def rule_count(self) -> int:
+    def rule_count(self) -> Optional[int]:
         return pulumi.get(self, "rule_count")
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> str:
+    def share_status(self) -> Optional[str]:
         return pulumi.get(self, "share_status")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> str:
+    def status_message(self) -> Optional[str]:
         return pulumi.get(self, "status_message")
 
 

@@ -55,7 +55,7 @@ type Project struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of this project
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 	DefaultJobTimeoutMinutes pulumi.IntPtrOutput `pulumi:"defaultJobTimeoutMinutes"`
 	// The name of the project
@@ -242,8 +242,8 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 }
 
 // The Amazon Resource Name of this project
-func (o ProjectOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProjectOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.

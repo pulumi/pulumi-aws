@@ -45,7 +45,7 @@ class GetWorkspacesResult:
 
     @property
     @pulumi.getter
-    def aliases(self) -> Sequence[str]:
+    def aliases(self) -> Optional[Sequence[str]]:
         """
         List of aliases of the matched Prometheus workspaces.
         """
@@ -53,7 +53,7 @@ class GetWorkspacesResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         List of ARNs of the matched Prometheus workspaces.
         """
@@ -61,7 +61,7 @@ class GetWorkspacesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -69,7 +69,7 @@ class GetWorkspacesResult:
 
     @property
     @pulumi.getter(name="workspaceIds")
-    def workspace_ids(self) -> Sequence[str]:
+    def workspace_ids(self) -> Optional[Sequence[str]]:
         """
         List of workspace IDs of the matched Prometheus workspaces.
         """

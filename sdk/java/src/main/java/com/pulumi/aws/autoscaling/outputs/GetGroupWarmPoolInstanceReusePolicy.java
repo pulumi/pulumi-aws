@@ -6,6 +6,8 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupWarmPoolInstanceReusePolicy {
@@ -13,15 +15,15 @@ public final class GetGroupWarmPoolInstanceReusePolicy {
      * @return Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
      * 
      */
-    private Boolean reuseOnScaleIn;
+    private @Nullable Boolean reuseOnScaleIn;
 
     private GetGroupWarmPoolInstanceReusePolicy() {}
     /**
      * @return Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
      * 
      */
-    public Boolean reuseOnScaleIn() {
-        return this.reuseOnScaleIn;
+    public Optional<Boolean> reuseOnScaleIn() {
+        return Optional.ofNullable(this.reuseOnScaleIn);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetGroupWarmPoolInstanceReusePolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean reuseOnScaleIn;
+        private @Nullable Boolean reuseOnScaleIn;
         public Builder() {}
         public Builder(GetGroupWarmPoolInstanceReusePolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetGroupWarmPoolInstanceReusePolicy {
         }
 
         @CustomType.Setter
-        public Builder reuseOnScaleIn(Boolean reuseOnScaleIn) {
-            this.reuseOnScaleIn = Objects.requireNonNull(reuseOnScaleIn);
+        public Builder reuseOnScaleIn(@Nullable Boolean reuseOnScaleIn) {
+            this.reuseOnScaleIn = reuseOnScaleIn;
             return this;
         }
         public GetGroupWarmPoolInstanceReusePolicy build() {

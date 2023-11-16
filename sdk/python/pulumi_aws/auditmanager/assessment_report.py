@@ -314,7 +314,7 @@ class AssessmentReport(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def author(self) -> pulumi.Output[str]:
+    def author(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the user who created the assessment report.
         """
@@ -338,7 +338,7 @@ class AssessmentReport(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
         """

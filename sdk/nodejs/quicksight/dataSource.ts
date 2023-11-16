@@ -69,11 +69,11 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the data source
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
      */

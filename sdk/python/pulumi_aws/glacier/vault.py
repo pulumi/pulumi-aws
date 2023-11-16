@@ -427,7 +427,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the vault.
         """
@@ -435,7 +435,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The URI of the vault that was created.
         """

@@ -29,21 +29,21 @@ type LicenseGrant struct {
 	// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
 	AllowedOperations pulumi.StringArrayOutput `pulumi:"allowedOperations"`
 	// The grant ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The home region for the license.
-	HomeRegion pulumi.StringOutput `pulumi:"homeRegion"`
+	HomeRegion pulumi.StringPtrOutput `pulumi:"homeRegion"`
 	// The ARN of the license to grant.
 	LicenseArn pulumi.StringOutput `pulumi:"licenseArn"`
 	// The Name of the grant.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The parent ARN.
-	ParentArn pulumi.StringOutput `pulumi:"parentArn"`
+	ParentArn pulumi.StringPtrOutput `pulumi:"parentArn"`
 	// The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The grant status.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The grant version.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewLicenseGrant registers a new resource with the given unique name, arguments, and options.
@@ -246,13 +246,13 @@ func (o LicenseGrantOutput) AllowedOperations() pulumi.StringArrayOutput {
 }
 
 // The grant ARN.
-func (o LicenseGrantOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LicenseGrantOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrant) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The home region for the license.
-func (o LicenseGrantOutput) HomeRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.HomeRegion }).(pulumi.StringOutput)
+func (o LicenseGrantOutput) HomeRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrant) pulumi.StringPtrOutput { return v.HomeRegion }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the license to grant.
@@ -266,8 +266,8 @@ func (o LicenseGrantOutput) Name() pulumi.StringOutput {
 }
 
 // The parent ARN.
-func (o LicenseGrantOutput) ParentArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.ParentArn }).(pulumi.StringOutput)
+func (o LicenseGrantOutput) ParentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrant) pulumi.StringPtrOutput { return v.ParentArn }).(pulumi.StringPtrOutput)
 }
 
 // The target account for the grant in the form of the ARN for an account principal of the root user.
@@ -276,13 +276,13 @@ func (o LicenseGrantOutput) Principal() pulumi.StringOutput {
 }
 
 // The grant status.
-func (o LicenseGrantOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o LicenseGrantOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrant) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The grant version.
-func (o LicenseGrantOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o LicenseGrantOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrant) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type LicenseGrantArrayOutput struct{ *pulumi.OutputState }

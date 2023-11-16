@@ -8,6 +8,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSubnetGroupResult {
@@ -15,55 +17,55 @@ public final class GetSubnetGroupResult {
      * @return ARN of the subnet group.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the subnet group.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Set of VPC Subnet ID-s of the subnet group.
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return Map of tags assigned to the subnet group.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return VPC in which the subnet group exists.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetSubnetGroupResult() {}
     /**
      * @return ARN of the subnet group.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the subnet group.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -73,21 +75,21 @@ public final class GetSubnetGroupResult {
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
      * @return Map of tags assigned to the subnet group.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return VPC in which the subnet group exists.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -99,13 +101,13 @@ public final class GetSubnetGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private List<String> subnetIds;
-        private Map<String,String> tags;
-        private String vpcId;
+        private @Nullable List<String> subnetIds;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetSubnetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -119,18 +121,18 @@ public final class GetSubnetGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -139,21 +141,21 @@ public final class GetSubnetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetSubnetGroupResult build() {

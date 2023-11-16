@@ -140,13 +140,13 @@ namespace Pulumi.Aws.VpcLattice
         /// ARN of the listener.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Date and time that the listener was created, specified in ISO-8601 format.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Default action block for the default listener rule. Default action blocks are defined below.
@@ -155,13 +155,13 @@ namespace Pulumi.Aws.VpcLattice
         public Output<Outputs.ListenerDefaultAction> DefaultAction { get; private set; } = null!;
 
         [Output("lastUpdatedAt")]
-        public Output<string> LastUpdatedAt { get; private set; } = null!;
+        public Output<string?> LastUpdatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
         /// </summary>
         [Output("listenerId")]
-        public Output<string> ListenerId { get; private set; } = null!;
+        public Output<string?> ListenerId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.VpcLattice
         /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
@@ -185,14 +185,14 @@ namespace Pulumi.Aws.VpcLattice
         /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// </summary>
         [Output("serviceArn")]
-        public Output<string> ServiceArn { get; private set; } = null!;
+        public Output<string?> ServiceArn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         /// </summary>
         [Output("serviceIdentifier")]
-        public Output<string> ServiceIdentifier { get; private set; } = null!;
+        public Output<string?> ServiceIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

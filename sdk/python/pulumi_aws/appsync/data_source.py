@@ -471,11 +471,11 @@ class DataSource(pulumi.CustomResource):
             actions=["sts:AssumeRole"],
         )])
         example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = example_table.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["dynamodb:*"],
-            resources=[example_table.arn],
-        )])
+            resources=[arn],
+        )]))
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
             policy=example_policy_document.json)
@@ -545,11 +545,11 @@ class DataSource(pulumi.CustomResource):
             actions=["sts:AssumeRole"],
         )])
         example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = example_table.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["dynamodb:*"],
-            resources=[example_table.arn],
-        )])
+            resources=[arn],
+        )]))
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
             policy=example_policy_document.json)
@@ -698,7 +698,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN
         """

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Neptune
         /// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the endpoint.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Neptune
         /// The DNS address of the endpoint.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.

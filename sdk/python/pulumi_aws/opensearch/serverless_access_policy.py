@@ -504,7 +504,7 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyVersion")
-    def policy_version(self) -> pulumi.Output[str]:
+    def policy_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of the policy.
         """

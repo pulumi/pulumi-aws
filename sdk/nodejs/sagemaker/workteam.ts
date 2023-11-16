@@ -87,7 +87,7 @@ export class Workteam extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description of the work team.
      */
@@ -103,7 +103,7 @@ export class Workteam extends pulumi.CustomResource {
     /**
      * The subdomain for your OIDC Identity Provider.
      */
-    public /*out*/ readonly subdomain!: pulumi.Output<string>;
+    public /*out*/ readonly subdomain!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

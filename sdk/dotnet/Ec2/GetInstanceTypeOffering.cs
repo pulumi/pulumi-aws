@@ -185,11 +185,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// EC2 Instance Type.
         /// </summary>
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         public readonly string? LocationType;
         public readonly ImmutableArray<string> PreferredInstanceTypes;
 
@@ -197,9 +197,9 @@ namespace Pulumi.Aws.Ec2
         private GetInstanceTypeOfferingResult(
             ImmutableArray<Outputs.GetInstanceTypeOfferingFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string instanceType,
+            string? instanceType,
 
             string? locationType,
 

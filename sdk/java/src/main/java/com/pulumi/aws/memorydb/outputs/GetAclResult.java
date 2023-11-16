@@ -8,6 +8,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAclResult {
@@ -15,50 +17,50 @@ public final class GetAclResult {
      * @return ARN of the ACL.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The minimum engine version supported by the ACL.
      * 
      */
-    private String minimumEngineVersion;
+    private @Nullable String minimumEngineVersion;
     private String name;
     /**
      * @return Map of tags assigned to the ACL.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Set of MemoryDB user names included in this ACL.
      * 
      */
-    private List<String> userNames;
+    private @Nullable List<String> userNames;
 
     private GetAclResult() {}
     /**
      * @return ARN of the ACL.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The minimum engine version supported by the ACL.
      * 
      */
-    public String minimumEngineVersion() {
-        return this.minimumEngineVersion;
+    public Optional<String> minimumEngineVersion() {
+        return Optional.ofNullable(this.minimumEngineVersion);
     }
     public String name() {
         return this.name;
@@ -68,14 +70,14 @@ public final class GetAclResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Set of MemoryDB user names included in this ACL.
      * 
      */
     public List<String> userNames() {
-        return this.userNames;
+        return this.userNames == null ? List.of() : this.userNames;
     }
 
     public static Builder builder() {
@@ -87,12 +89,12 @@ public final class GetAclResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String minimumEngineVersion;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String minimumEngineVersion;
         private String name;
-        private Map<String,String> tags;
-        private List<String> userNames;
+        private @Nullable Map<String,String> tags;
+        private @Nullable List<String> userNames;
         public Builder() {}
         public Builder(GetAclResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -105,18 +107,18 @@ public final class GetAclResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder minimumEngineVersion(String minimumEngineVersion) {
-            this.minimumEngineVersion = Objects.requireNonNull(minimumEngineVersion);
+        public Builder minimumEngineVersion(@Nullable String minimumEngineVersion) {
+            this.minimumEngineVersion = minimumEngineVersion;
             return this;
         }
         @CustomType.Setter
@@ -125,13 +127,13 @@ public final class GetAclResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder userNames(List<String> userNames) {
-            this.userNames = Objects.requireNonNull(userNames);
+        public Builder userNames(@Nullable List<String> userNames) {
+            this.userNames = userNames;
             return this;
         }
         public Builder userNames(String... userNames) {

@@ -65,29 +65,29 @@ export interface GetCachePolicyResult {
     /**
      * Comment to describe the cache policy.
      */
-    readonly comment: string;
+    readonly comment?: string;
     /**
      * Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    readonly defaultTtl: number;
+    readonly defaultTtl?: number;
     /**
      * Current version of the cache policy.
      */
-    readonly etag: string;
+    readonly etag?: string;
     readonly id?: string;
     /**
      * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    readonly maxTtl: number;
+    readonly maxTtl?: number;
     /**
      * Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    readonly minTtl: number;
+    readonly minTtl?: number;
     readonly name?: string;
     /**
      * The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
      */
-    readonly parametersInCacheKeyAndForwardedToOrigins: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOrigin[];
+    readonly parametersInCacheKeyAndForwardedToOrigins?: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOrigin[];
 }
 /**
  * Use this data source to retrieve information about a CloudFront cache policy.

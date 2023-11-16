@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -15,22 +16,22 @@ public final class GetSdkResult {
      * @return SDK as a string.
      * 
      */
-    private String body;
+    private @Nullable String body;
     /**
      * @return Content-disposition header value in the HTTP response.
      * 
      */
-    private String contentDisposition;
+    private @Nullable String contentDisposition;
     /**
      * @return Content-type header value in the HTTP response.
      * 
      */
-    private String contentType;
+    private @Nullable String contentType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Map<String,String> parameters;
     private String restApiId;
     private String sdkType;
@@ -41,29 +42,29 @@ public final class GetSdkResult {
      * @return SDK as a string.
      * 
      */
-    public String body() {
-        return this.body;
+    public Optional<String> body() {
+        return Optional.ofNullable(this.body);
     }
     /**
      * @return Content-disposition header value in the HTTP response.
      * 
      */
-    public String contentDisposition() {
-        return this.contentDisposition;
+    public Optional<String> contentDisposition() {
+        return Optional.ofNullable(this.contentDisposition);
     }
     /**
      * @return Content-type header value in the HTTP response.
      * 
      */
-    public String contentType() {
-        return this.contentType;
+    public Optional<String> contentType() {
+        return Optional.ofNullable(this.contentType);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
@@ -87,10 +88,10 @@ public final class GetSdkResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String body;
-        private String contentDisposition;
-        private String contentType;
-        private String id;
+        private @Nullable String body;
+        private @Nullable String contentDisposition;
+        private @Nullable String contentType;
+        private @Nullable String id;
         private @Nullable Map<String,String> parameters;
         private String restApiId;
         private String sdkType;
@@ -109,23 +110,23 @@ public final class GetSdkResult {
         }
 
         @CustomType.Setter
-        public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+        public Builder body(@Nullable String body) {
+            this.body = body;
             return this;
         }
         @CustomType.Setter
-        public Builder contentDisposition(String contentDisposition) {
-            this.contentDisposition = Objects.requireNonNull(contentDisposition);
+        public Builder contentDisposition(@Nullable String contentDisposition) {
+            this.contentDisposition = contentDisposition;
             return this;
         }
         @CustomType.Setter
-        public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+        public Builder contentType(@Nullable String contentType) {
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

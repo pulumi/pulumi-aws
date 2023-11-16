@@ -9,22 +9,23 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientP
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust {
-    private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms;
-    private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files;
-    private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds;
 
     private GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust() {}
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms() {
-        return this.acms;
+        return this.acms == null ? List.of() : this.acms;
     }
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files() {
-        return this.files;
+        return this.files == null ? List.of() : this.files;
     }
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds() {
-        return this.sds;
+        return this.sds == null ? List.of() : this.sds;
     }
 
     public static Builder builder() {
@@ -36,9 +37,9 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms;
-        private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files;
-        private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,24 +49,24 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
         }
 
         @CustomType.Setter
-        public Builder acms(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms) {
-            this.acms = Objects.requireNonNull(acms);
+        public Builder acms(@Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms) {
+            this.acms = acms;
             return this;
         }
         public Builder acms(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm... acms) {
             return acms(List.of(acms));
         }
         @CustomType.Setter
-        public Builder files(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files) {
-            this.files = Objects.requireNonNull(files);
+        public Builder files(@Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files) {
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile... files) {
             return files(List.of(files));
         }
         @CustomType.Setter
-        public Builder sds(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+        public Builder sds(@Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds) {
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd... sds) {

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContactFlowModuleResult {
@@ -14,99 +16,99 @@ public final class GetContactFlowModuleResult {
      * @return ARN of the Contact Flow Module.
      * 
      */
-    private String arn;
-    private String contactFlowModuleId;
+    private @Nullable String arn;
+    private @Nullable String contactFlowModuleId;
     /**
      * @return Logic of the Contact Flow Module.
      * 
      */
-    private String content;
+    private @Nullable String content;
     /**
      * @return Description of the Contact Flow Module.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
-    private String name;
+    private @Nullable String name;
     /**
      * @return Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Map of tags to assign to the Contact Flow Module.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetContactFlowModuleResult() {}
     /**
      * @return ARN of the Contact Flow Module.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String contactFlowModuleId() {
-        return this.contactFlowModuleId;
+    public Optional<String> contactFlowModuleId() {
+        return Optional.ofNullable(this.contactFlowModuleId);
     }
     /**
      * @return Logic of the Contact Flow Module.
      * 
      */
-    public String content() {
-        return this.content;
+    public Optional<String> content() {
+        return Optional.ofNullable(this.content);
     }
     /**
      * @return Description of the Contact Flow Module.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Map of tags to assign to the Contact Flow Module.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -118,16 +120,16 @@ public final class GetContactFlowModuleResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String contactFlowModuleId;
-        private String content;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String contactFlowModuleId;
+        private @Nullable String content;
+        private @Nullable String description;
+        private @Nullable String id;
         private String instanceId;
-        private String name;
-        private String state;
-        private String status;
-        private Map<String,String> tags;
+        private @Nullable String name;
+        private @Nullable String state;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetContactFlowModuleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -144,28 +146,28 @@ public final class GetContactFlowModuleResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder contactFlowModuleId(String contactFlowModuleId) {
-            this.contactFlowModuleId = Objects.requireNonNull(contactFlowModuleId);
+        public Builder contactFlowModuleId(@Nullable String contactFlowModuleId) {
+            this.contactFlowModuleId = contactFlowModuleId;
             return this;
         }
         @CustomType.Setter
-        public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+        public Builder content(@Nullable String content) {
+            this.content = content;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -174,23 +176,23 @@ public final class GetContactFlowModuleResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetContactFlowModuleResult build() {

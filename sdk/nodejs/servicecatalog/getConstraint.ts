@@ -58,32 +58,32 @@ export interface GetConstraintResult {
     /**
      * Description of the constraint.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly id: string;
     /**
      * Owner of the constraint.
      */
-    readonly owner: string;
+    readonly owner?: string;
     /**
      * Constraint parameters in JSON format.
      */
-    readonly parameters: string;
+    readonly parameters?: string;
     /**
      * Portfolio identifier.
      */
-    readonly portfolioId: string;
+    readonly portfolioId?: string;
     /**
      * Product identifier.
      */
-    readonly productId: string;
+    readonly productId?: string;
     /**
      * Constraint status.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * Provides information on a Service Catalog Constraint.

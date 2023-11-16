@@ -20,13 +20,13 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
         /// </summary>
-        public readonly string StreamType;
+        public readonly string? StreamType;
 
         [OutputConstructor]
         private GetRealtimeLogConfigEndpointResult(
             ImmutableArray<Outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult> kinesisStreamConfigs,
 
-            string streamType)
+            string? streamType)
         {
             KinesisStreamConfigs = kinesisStreamConfigs;
             StreamType = streamType;

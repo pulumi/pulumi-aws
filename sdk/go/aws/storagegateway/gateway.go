@@ -223,9 +223,9 @@ type Gateway struct {
 	pulumi.CustomResourceState
 
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
+	ActivationKey pulumi.StringPtrOutput `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
 	AverageDownloadRateLimitInBitsPerSec pulumi.IntPtrOutput `pulumi:"averageDownloadRateLimitInBitsPerSec"`
 	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
@@ -233,13 +233,13 @@ type Gateway struct {
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudwatchLogGroupArn"`
 	// The ID of the Amazon EC2 instance that was used to launch the gateway.
-	Ec2InstanceId pulumi.StringOutput `pulumi:"ec2InstanceId"`
+	Ec2InstanceId pulumi.StringPtrOutput `pulumi:"ec2InstanceId"`
 	// The type of endpoint for your gateway.
-	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
+	EndpointType pulumi.StringPtrOutput `pulumi:"endpointType"`
 	// Identifier of the gateway.
-	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
+	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-	GatewayIpAddress pulumi.StringOutput `pulumi:"gatewayIpAddress"`
+	GatewayIpAddress pulumi.StringPtrOutput `pulumi:"gatewayIpAddress"`
 	// Name of the gateway.
 	GatewayName pulumi.StringOutput `pulumi:"gatewayName"`
 	// An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
@@ -251,9 +251,9 @@ type Gateway struct {
 	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint pulumi.StringPtrOutput `pulumi:"gatewayVpcEndpoint"`
 	// The type of hypervisor environment used by the host.
-	HostEnvironment pulumi.StringOutput `pulumi:"hostEnvironment"`
+	HostEnvironment pulumi.StringPtrOutput `pulumi:"hostEnvironment"`
 	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
-	MaintenanceStartTime GatewayMaintenanceStartTimeOutput `pulumi:"maintenanceStartTime"`
+	MaintenanceStartTime GatewayMaintenanceStartTimePtrOutput `pulumi:"maintenanceStartTime"`
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType pulumi.StringPtrOutput `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
@@ -263,7 +263,7 @@ type Gateway struct {
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword pulumi.StringPtrOutput `pulumi:"smbGuestPassword"`
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
-	SmbSecurityStrategy pulumi.StringOutput `pulumi:"smbSecurityStrategy"`
+	SmbSecurityStrategy pulumi.StringPtrOutput `pulumi:"smbSecurityStrategy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -590,13 +590,13 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 }
 
 // Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-func (o GatewayOutput) ActivationKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.ActivationKey }).(pulumi.StringOutput)
+func (o GatewayOutput) ActivationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.ActivationKey }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the gateway.
-func (o GatewayOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GatewayOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
@@ -615,23 +615,23 @@ func (o GatewayOutput) CloudwatchLogGroupArn() pulumi.StringPtrOutput {
 }
 
 // The ID of the Amazon EC2 instance that was used to launch the gateway.
-func (o GatewayOutput) Ec2InstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Ec2InstanceId }).(pulumi.StringOutput)
+func (o GatewayOutput) Ec2InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.Ec2InstanceId }).(pulumi.StringPtrOutput)
 }
 
 // The type of endpoint for your gateway.
-func (o GatewayOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.EndpointType }).(pulumi.StringOutput)
+func (o GatewayOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the gateway.
-func (o GatewayOutput) GatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.GatewayId }).(pulumi.StringOutput)
+func (o GatewayOutput) GatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
 // Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-func (o GatewayOutput) GatewayIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.GatewayIpAddress }).(pulumi.StringOutput)
+func (o GatewayOutput) GatewayIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.GatewayIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // Name of the gateway.
@@ -660,13 +660,13 @@ func (o GatewayOutput) GatewayVpcEndpoint() pulumi.StringPtrOutput {
 }
 
 // The type of hypervisor environment used by the host.
-func (o GatewayOutput) HostEnvironment() pulumi.StringOutput {
-	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.HostEnvironment }).(pulumi.StringOutput)
+func (o GatewayOutput) HostEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.HostEnvironment }).(pulumi.StringPtrOutput)
 }
 
 // The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
-func (o GatewayOutput) MaintenanceStartTime() GatewayMaintenanceStartTimeOutput {
-	return o.ApplyT(func(v *Gateway) GatewayMaintenanceStartTimeOutput { return v.MaintenanceStartTime }).(GatewayMaintenanceStartTimeOutput)
+func (o GatewayOutput) MaintenanceStartTime() GatewayMaintenanceStartTimePtrOutput {
+	return o.ApplyT(func(v *Gateway) GatewayMaintenanceStartTimePtrOutput { return v.MaintenanceStartTime }).(GatewayMaintenanceStartTimePtrOutput)
 }
 
 // Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
@@ -690,8 +690,8 @@ func (o GatewayOutput) SmbGuestPassword() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
-func (o GatewayOutput) SmbSecurityStrategy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.SmbSecurityStrategy }).(pulumi.StringOutput)
+func (o GatewayOutput) SmbSecurityStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.SmbSecurityStrategy }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

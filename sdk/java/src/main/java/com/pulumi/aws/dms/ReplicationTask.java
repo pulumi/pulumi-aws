@@ -76,14 +76,14 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cdcStartPosition", refs={String.class}, tree="[0]")
-    private Output<String> cdcStartPosition;
+    private Output</* @Nullable */ String> cdcStartPosition;
 
     /**
      * @return Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
-    public Output<String> cdcStartPosition() {
-        return this.cdcStartPosition;
+    public Output<Optional<String>> cdcStartPosition() {
+        return Codegen.optional(this.cdcStartPosition);
     }
     /**
      * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
@@ -132,14 +132,14 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="replicationTaskArn", refs={String.class}, tree="[0]")
-    private Output<String> replicationTaskArn;
+    private Output</* @Nullable */ String> replicationTaskArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the replication task.
      * 
      */
-    public Output<String> replicationTaskArn() {
-        return this.replicationTaskArn;
+    public Output<Optional<String>> replicationTaskArn() {
+        return Codegen.optional(this.replicationTaskArn);
     }
     /**
      * The replication task identifier.
@@ -212,14 +212,14 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Replication Task status.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)

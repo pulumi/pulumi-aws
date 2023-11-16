@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBudgetAutoAdjustData {
@@ -15,39 +17,39 @@ public final class GetBudgetAutoAdjustData {
      * @return (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
      * 
      */
-    private String autoAdjustType;
+    private @Nullable String autoAdjustType;
     /**
      * @return (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
      * 
      */
-    private List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions;
+    private @Nullable List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions;
     /**
      * @return (Optional) - The last time that your budget was auto-adjusted.
      * 
      */
-    private String lastAutoAdjustTime;
+    private @Nullable String lastAutoAdjustTime;
 
     private GetBudgetAutoAdjustData() {}
     /**
      * @return (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
      * 
      */
-    public String autoAdjustType() {
-        return this.autoAdjustType;
+    public Optional<String> autoAdjustType() {
+        return Optional.ofNullable(this.autoAdjustType);
     }
     /**
      * @return (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
      * 
      */
     public List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions() {
-        return this.historicalOptions;
+        return this.historicalOptions == null ? List.of() : this.historicalOptions;
     }
     /**
      * @return (Optional) - The last time that your budget was auto-adjusted.
      * 
      */
-    public String lastAutoAdjustTime() {
-        return this.lastAutoAdjustTime;
+    public Optional<String> lastAutoAdjustTime() {
+        return Optional.ofNullable(this.lastAutoAdjustTime);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetBudgetAutoAdjustData {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String autoAdjustType;
-        private List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions;
-        private String lastAutoAdjustTime;
+        private @Nullable String autoAdjustType;
+        private @Nullable List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions;
+        private @Nullable String lastAutoAdjustTime;
         public Builder() {}
         public Builder(GetBudgetAutoAdjustData defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetBudgetAutoAdjustData {
         }
 
         @CustomType.Setter
-        public Builder autoAdjustType(String autoAdjustType) {
-            this.autoAdjustType = Objects.requireNonNull(autoAdjustType);
+        public Builder autoAdjustType(@Nullable String autoAdjustType) {
+            this.autoAdjustType = autoAdjustType;
             return this;
         }
         @CustomType.Setter
-        public Builder historicalOptions(List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions) {
-            this.historicalOptions = Objects.requireNonNull(historicalOptions);
+        public Builder historicalOptions(@Nullable List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions) {
+            this.historicalOptions = historicalOptions;
             return this;
         }
         public Builder historicalOptions(GetBudgetAutoAdjustDataHistoricalOption... historicalOptions) {
             return historicalOptions(List.of(historicalOptions));
         }
         @CustomType.Setter
-        public Builder lastAutoAdjustTime(String lastAutoAdjustTime) {
-            this.lastAutoAdjustTime = Objects.requireNonNull(lastAutoAdjustTime);
+        public Builder lastAutoAdjustTime(@Nullable String lastAutoAdjustTime) {
+            this.lastAutoAdjustTime = lastAutoAdjustTime;
             return this;
         }
         public GetBudgetAutoAdjustData build() {

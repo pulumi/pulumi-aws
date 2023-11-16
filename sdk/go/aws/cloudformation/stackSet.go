@@ -109,7 +109,7 @@ import (
 //						},
 //						Effect: pulumi.String("Allow"),
 //						Resources: pulumi.StringArray{
-//							example.ExecutionRoleName.ApplyT(func(executionRoleName string) (string, error) {
+//							example.ExecutionRoleName.ApplyT(func(executionRoleName *string) (string, error) {
 //								return fmt.Sprintf("arn:aws:iam::*:role/%v", executionRoleName), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -156,7 +156,7 @@ type StackSet struct {
 	// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
 	AdministrationRoleArn pulumi.StringPtrOutput `pulumi:"administrationRoleArn"`
 	// Amazon Resource Name (ARN) of the StackSet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
 	AutoDeployment StackSetAutoDeploymentPtrOutput `pulumi:"autoDeployment"`
 	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
@@ -166,7 +166,7 @@ type StackSet struct {
 	// Description of the StackSet.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
-	ExecutionRoleName pulumi.StringOutput `pulumi:"executionRoleName"`
+	ExecutionRoleName pulumi.StringPtrOutput `pulumi:"executionRoleName"`
 	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
 	ManagedExecution StackSetManagedExecutionPtrOutput `pulumi:"managedExecution"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
@@ -178,7 +178,7 @@ type StackSet struct {
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
 	PermissionModel pulumi.StringPtrOutput `pulumi:"permissionModel"`
 	// Unique identifier of the StackSet.
-	StackSetId pulumi.StringOutput `pulumi:"stackSetId"`
+	StackSetId pulumi.StringPtrOutput `pulumi:"stackSetId"`
 	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -186,7 +186,7 @@ type StackSet struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
-	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
+	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
 	// String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `templateBody`.
 	TemplateUrl pulumi.StringPtrOutput `pulumi:"templateUrl"`
 }
@@ -462,8 +462,8 @@ func (o StackSetOutput) AdministrationRoleArn() pulumi.StringPtrOutput {
 }
 
 // Amazon Resource Name (ARN) of the StackSet.
-func (o StackSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StackSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
@@ -487,8 +487,8 @@ func (o StackSetOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
-func (o StackSetOutput) ExecutionRoleName() pulumi.StringOutput {
-	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.ExecutionRoleName }).(pulumi.StringOutput)
+func (o StackSetOutput) ExecutionRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.ExecutionRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
@@ -517,8 +517,8 @@ func (o StackSetOutput) PermissionModel() pulumi.StringPtrOutput {
 }
 
 // Unique identifier of the StackSet.
-func (o StackSetOutput) StackSetId() pulumi.StringOutput {
-	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.StackSetId }).(pulumi.StringOutput)
+func (o StackSetOutput) StackSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.StackSetId }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -534,8 +534,8 @@ func (o StackSetOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
-func (o StackSetOutput) TemplateBody() pulumi.StringOutput {
-	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.TemplateBody }).(pulumi.StringOutput)
+func (o StackSetOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.TemplateBody }).(pulumi.StringPtrOutput)
 }
 
 // String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `templateBody`.

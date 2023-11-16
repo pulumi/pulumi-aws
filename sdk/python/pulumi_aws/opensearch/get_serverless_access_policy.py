@@ -43,7 +43,7 @@ class GetServerlessAccessPolicyResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the policy. Typically used to store information about the permissions defined in the policy.
         """
@@ -51,7 +51,7 @@ class GetServerlessAccessPolicyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
@@ -61,7 +61,7 @@ class GetServerlessAccessPolicyResult:
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> Optional[str]:
         """
         JSON policy document to use as the content for the new policy.
         """
@@ -69,7 +69,7 @@ class GetServerlessAccessPolicyResult:
 
     @property
     @pulumi.getter(name="policyVersion")
-    def policy_version(self) -> str:
+    def policy_version(self) -> Optional[str]:
         """
         Version of the policy.
         """

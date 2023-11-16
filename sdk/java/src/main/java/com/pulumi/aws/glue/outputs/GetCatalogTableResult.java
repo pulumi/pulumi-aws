@@ -22,12 +22,12 @@ public final class GetCatalogTableResult {
      * @return The ARN of the Glue Table.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return ID of the Data Catalog in which the table resides.
      * 
      */
-    private String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return Name of the catalog database that contains the target table.
      * 
@@ -37,12 +37,12 @@ public final class GetCatalogTableResult {
      * @return Description of the table.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the target table.
      * 
@@ -52,69 +52,69 @@ public final class GetCatalogTableResult {
      * @return Owner of the table.
      * 
      */
-    private String owner;
+    private @Nullable String owner;
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
      * 
      */
-    private List<GetCatalogTablePartitionIndex> partitionIndices;
+    private @Nullable List<GetCatalogTablePartitionIndex> partitionIndices;
     /**
      * @return Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
      * 
      */
-    private List<GetCatalogTablePartitionKey> partitionKeys;
+    private @Nullable List<GetCatalogTablePartitionKey> partitionKeys;
     private @Nullable String queryAsOfTime;
     /**
      * @return Retention time for this table.
      * 
      */
-    private Integer retention;
+    private @Nullable Integer retention;
     /**
      * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
      * 
      */
-    private List<GetCatalogTableStorageDescriptor> storageDescriptors;
+    private @Nullable List<GetCatalogTableStorageDescriptor> storageDescriptors;
     /**
      * @return Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      * 
      */
-    private String tableType;
+    private @Nullable String tableType;
     /**
      * @return Configuration block of a target table for resource linking. See `target_table` below.
      * 
      */
-    private List<GetCatalogTableTargetTable> targetTables;
+    private @Nullable List<GetCatalogTableTargetTable> targetTables;
     private @Nullable Integer transactionId;
     /**
      * @return If the table is a view, the expanded text of the view; otherwise null.
      * 
      */
-    private String viewExpandedText;
+    private @Nullable String viewExpandedText;
     /**
      * @return If the table is a view, the original text of the view; otherwise null.
      * 
      */
-    private String viewOriginalText;
+    private @Nullable String viewOriginalText;
 
     private GetCatalogTableResult() {}
     /**
      * @return The ARN of the Glue Table.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return ID of the Data Catalog in which the table resides.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
     /**
      * @return Name of the catalog database that contains the target table.
@@ -127,15 +127,15 @@ public final class GetCatalogTableResult {
      * @return Description of the table.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the target table.
@@ -148,29 +148,29 @@ public final class GetCatalogTableResult {
      * @return Owner of the table.
      * 
      */
-    public String owner() {
-        return this.owner;
+    public Optional<String> owner() {
+        return Optional.ofNullable(this.owner);
     }
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
     public Map<String,String> parameters() {
-        return this.parameters;
+        return this.parameters == null ? Map.of() : this.parameters;
     }
     /**
      * @return Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
      * 
      */
     public List<GetCatalogTablePartitionIndex> partitionIndices() {
-        return this.partitionIndices;
+        return this.partitionIndices == null ? List.of() : this.partitionIndices;
     }
     /**
      * @return Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
      * 
      */
     public List<GetCatalogTablePartitionKey> partitionKeys() {
-        return this.partitionKeys;
+        return this.partitionKeys == null ? List.of() : this.partitionKeys;
     }
     public Optional<String> queryAsOfTime() {
         return Optional.ofNullable(this.queryAsOfTime);
@@ -179,29 +179,29 @@ public final class GetCatalogTableResult {
      * @return Retention time for this table.
      * 
      */
-    public Integer retention() {
-        return this.retention;
+    public Optional<Integer> retention() {
+        return Optional.ofNullable(this.retention);
     }
     /**
      * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
      * 
      */
     public List<GetCatalogTableStorageDescriptor> storageDescriptors() {
-        return this.storageDescriptors;
+        return this.storageDescriptors == null ? List.of() : this.storageDescriptors;
     }
     /**
      * @return Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      * 
      */
-    public String tableType() {
-        return this.tableType;
+    public Optional<String> tableType() {
+        return Optional.ofNullable(this.tableType);
     }
     /**
      * @return Configuration block of a target table for resource linking. See `target_table` below.
      * 
      */
     public List<GetCatalogTableTargetTable> targetTables() {
-        return this.targetTables;
+        return this.targetTables == null ? List.of() : this.targetTables;
     }
     public Optional<Integer> transactionId() {
         return Optional.ofNullable(this.transactionId);
@@ -210,15 +210,15 @@ public final class GetCatalogTableResult {
      * @return If the table is a view, the expanded text of the view; otherwise null.
      * 
      */
-    public String viewExpandedText() {
-        return this.viewExpandedText;
+    public Optional<String> viewExpandedText() {
+        return Optional.ofNullable(this.viewExpandedText);
     }
     /**
      * @return If the table is a view, the original text of the view; otherwise null.
      * 
      */
-    public String viewOriginalText() {
-        return this.viewOriginalText;
+    public Optional<String> viewOriginalText() {
+        return Optional.ofNullable(this.viewOriginalText);
     }
 
     public static Builder builder() {
@@ -230,24 +230,24 @@ public final class GetCatalogTableResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String catalogId;
+        private @Nullable String arn;
+        private @Nullable String catalogId;
         private String databaseName;
-        private String description;
-        private String id;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private String owner;
-        private Map<String,String> parameters;
-        private List<GetCatalogTablePartitionIndex> partitionIndices;
-        private List<GetCatalogTablePartitionKey> partitionKeys;
+        private @Nullable String owner;
+        private @Nullable Map<String,String> parameters;
+        private @Nullable List<GetCatalogTablePartitionIndex> partitionIndices;
+        private @Nullable List<GetCatalogTablePartitionKey> partitionKeys;
         private @Nullable String queryAsOfTime;
-        private Integer retention;
-        private List<GetCatalogTableStorageDescriptor> storageDescriptors;
-        private String tableType;
-        private List<GetCatalogTableTargetTable> targetTables;
+        private @Nullable Integer retention;
+        private @Nullable List<GetCatalogTableStorageDescriptor> storageDescriptors;
+        private @Nullable String tableType;
+        private @Nullable List<GetCatalogTableTargetTable> targetTables;
         private @Nullable Integer transactionId;
-        private String viewExpandedText;
-        private String viewOriginalText;
+        private @Nullable String viewExpandedText;
+        private @Nullable String viewOriginalText;
         public Builder() {}
         public Builder(GetCatalogTableResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -272,13 +272,13 @@ public final class GetCatalogTableResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+        public Builder catalogId(@Nullable String catalogId) {
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
@@ -287,13 +287,13 @@ public final class GetCatalogTableResult {
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -302,26 +302,26 @@ public final class GetCatalogTableResult {
             return this;
         }
         @CustomType.Setter
-        public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+        public Builder owner(@Nullable String owner) {
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable Map<String,String> parameters) {
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
-        public Builder partitionIndices(List<GetCatalogTablePartitionIndex> partitionIndices) {
-            this.partitionIndices = Objects.requireNonNull(partitionIndices);
+        public Builder partitionIndices(@Nullable List<GetCatalogTablePartitionIndex> partitionIndices) {
+            this.partitionIndices = partitionIndices;
             return this;
         }
         public Builder partitionIndices(GetCatalogTablePartitionIndex... partitionIndices) {
             return partitionIndices(List.of(partitionIndices));
         }
         @CustomType.Setter
-        public Builder partitionKeys(List<GetCatalogTablePartitionKey> partitionKeys) {
-            this.partitionKeys = Objects.requireNonNull(partitionKeys);
+        public Builder partitionKeys(@Nullable List<GetCatalogTablePartitionKey> partitionKeys) {
+            this.partitionKeys = partitionKeys;
             return this;
         }
         public Builder partitionKeys(GetCatalogTablePartitionKey... partitionKeys) {
@@ -333,26 +333,26 @@ public final class GetCatalogTableResult {
             return this;
         }
         @CustomType.Setter
-        public Builder retention(Integer retention) {
-            this.retention = Objects.requireNonNull(retention);
+        public Builder retention(@Nullable Integer retention) {
+            this.retention = retention;
             return this;
         }
         @CustomType.Setter
-        public Builder storageDescriptors(List<GetCatalogTableStorageDescriptor> storageDescriptors) {
-            this.storageDescriptors = Objects.requireNonNull(storageDescriptors);
+        public Builder storageDescriptors(@Nullable List<GetCatalogTableStorageDescriptor> storageDescriptors) {
+            this.storageDescriptors = storageDescriptors;
             return this;
         }
         public Builder storageDescriptors(GetCatalogTableStorageDescriptor... storageDescriptors) {
             return storageDescriptors(List.of(storageDescriptors));
         }
         @CustomType.Setter
-        public Builder tableType(String tableType) {
-            this.tableType = Objects.requireNonNull(tableType);
+        public Builder tableType(@Nullable String tableType) {
+            this.tableType = tableType;
             return this;
         }
         @CustomType.Setter
-        public Builder targetTables(List<GetCatalogTableTargetTable> targetTables) {
-            this.targetTables = Objects.requireNonNull(targetTables);
+        public Builder targetTables(@Nullable List<GetCatalogTableTargetTable> targetTables) {
+            this.targetTables = targetTables;
             return this;
         }
         public Builder targetTables(GetCatalogTableTargetTable... targetTables) {
@@ -364,13 +364,13 @@ public final class GetCatalogTableResult {
             return this;
         }
         @CustomType.Setter
-        public Builder viewExpandedText(String viewExpandedText) {
-            this.viewExpandedText = Objects.requireNonNull(viewExpandedText);
+        public Builder viewExpandedText(@Nullable String viewExpandedText) {
+            this.viewExpandedText = viewExpandedText;
             return this;
         }
         @CustomType.Setter
-        public Builder viewOriginalText(String viewOriginalText) {
-            this.viewOriginalText = Objects.requireNonNull(viewOriginalText);
+        public Builder viewOriginalText(@Nullable String viewOriginalText) {
+            this.viewOriginalText = viewOriginalText;
             return this;
         }
         public GetCatalogTableResult build() {

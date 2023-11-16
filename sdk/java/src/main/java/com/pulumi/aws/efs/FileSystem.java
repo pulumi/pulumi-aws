@@ -103,42 +103,42 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
      * 
      */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZoneId;
+    private Output</* @Nullable */ String> availabilityZoneId;
 
     /**
      * @return The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    public Output<String> availabilityZoneId() {
-        return this.availabilityZoneId;
+    public Output<Optional<String>> availabilityZoneId() {
+        return Codegen.optional(this.availabilityZoneId);
     }
     /**
      * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
      * 
      */
     @Export(name="availabilityZoneName", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZoneName;
+    private Output</* @Nullable */ String> availabilityZoneName;
 
     /**
      * @return the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
      * 
      */
-    public Output<String> availabilityZoneName() {
-        return this.availabilityZoneName;
+    public Output<Optional<String>> availabilityZoneName() {
+        return Codegen.optional(this.availabilityZoneName);
     }
     /**
      * A unique name (a maximum of 64 characters are allowed)
@@ -165,42 +165,42 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * If true, the disk will be encrypted.
      * 
      */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> encrypted;
+    private Output</* @Nullable */ Boolean> encrypted;
 
     /**
      * @return If true, the disk will be encrypted.
      * 
      */
-    public Output<Boolean> encrypted() {
-        return this.encrypted;
+    public Output<Optional<Boolean>> encrypted() {
+        return Codegen.optional(this.encrypted);
     }
     /**
      * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
@@ -221,56 +221,56 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return The value of the file system&#39;s `Name` tag.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * The current number of mount targets that the file system has.
      * 
      */
     @Export(name="numberOfMountTargets", refs={Integer.class}, tree="[0]")
-    private Output<Integer> numberOfMountTargets;
+    private Output</* @Nullable */ Integer> numberOfMountTargets;
 
     /**
      * @return The current number of mount targets that the file system has.
      * 
      */
-    public Output<Integer> numberOfMountTargets() {
-        return this.numberOfMountTargets;
+    public Output<Optional<Integer>> numberOfMountTargets() {
+        return Codegen.optional(this.numberOfMountTargets);
     }
     /**
      * The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The file system performance mode. Can be either `&#34;generalPurpose&#34;` or `&#34;maxIO&#34;` (Default: `&#34;generalPurpose&#34;`).
      * 
      */
     @Export(name="performanceMode", refs={String.class}, tree="[0]")
-    private Output<String> performanceMode;
+    private Output</* @Nullable */ String> performanceMode;
 
     /**
      * @return The file system performance mode. Can be either `&#34;generalPurpose&#34;` or `&#34;maxIO&#34;` (Default: `&#34;generalPurpose&#34;`).
      * 
      */
-    public Output<String> performanceMode() {
-        return this.performanceMode;
+    public Output<Optional<String>> performanceMode() {
+        return Codegen.optional(this.performanceMode);
     }
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
@@ -291,14 +291,14 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sizeInBytes", refs={List.class,FileSystemSizeInByte.class}, tree="[0,1]")
-    private Output<List<FileSystemSizeInByte>> sizeInBytes;
+    private Output</* @Nullable */ List<FileSystemSizeInByte>> sizeInBytes;
 
     /**
      * @return The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      * 
      */
-    public Output<List<FileSystemSizeInByte>> sizeInBytes() {
-        return this.sizeInBytes;
+    public Output<Optional<List<FileSystemSizeInByte>>> sizeInBytes() {
+        return Codegen.optional(this.sizeInBytes);
     }
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

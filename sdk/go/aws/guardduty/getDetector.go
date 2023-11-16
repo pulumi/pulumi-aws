@@ -57,12 +57,12 @@ type LookupDetectorResult struct {
 	// Current configuration of the detector features.
 	Features []GetDetectorFeatureType `pulumi:"features"`
 	// The frequency of notifications sent about subsequent finding occurrences.
-	FindingPublishingFrequency string `pulumi:"findingPublishingFrequency"`
-	Id                         string `pulumi:"id"`
+	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
+	Id                         *string `pulumi:"id"`
 	// Service-linked role that grants GuardDuty access to the resources in the AWS account.
-	ServiceRoleArn string `pulumi:"serviceRoleArn"`
+	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// Current status of the detector.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
@@ -109,22 +109,22 @@ func (o LookupDetectorResultOutput) Features() GetDetectorFeatureTypeArrayOutput
 }
 
 // The frequency of notifications sent about subsequent finding occurrences.
-func (o LookupDetectorResultOutput) FindingPublishingFrequency() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDetectorResult) string { return v.FindingPublishingFrequency }).(pulumi.StringOutput)
+func (o LookupDetectorResultOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDetectorResult) *string { return v.FindingPublishingFrequency }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDetectorResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDetectorResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDetectorResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDetectorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Service-linked role that grants GuardDuty access to the resources in the AWS account.
-func (o LookupDetectorResultOutput) ServiceRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDetectorResult) string { return v.ServiceRoleArn }).(pulumi.StringOutput)
+func (o LookupDetectorResultOutput) ServiceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDetectorResult) *string { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Current status of the detector.
-func (o LookupDetectorResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDetectorResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupDetectorResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDetectorResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func init() {

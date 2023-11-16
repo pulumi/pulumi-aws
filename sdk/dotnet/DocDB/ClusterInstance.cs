@@ -78,7 +78,7 @@ namespace Pulumi.Aws.DocDB
         /// Amazon Resource Name (ARN) of cluster instance
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
@@ -90,13 +90,13 @@ namespace Pulumi.Aws.DocDB
         /// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// (Optional) The identifier of the CA certificate for the DB instance.
         /// </summary>
         [Output("caCertIdentifier")]
-        public Output<string> CaCertIdentifier { get; private set; } = null!;
+        public Output<string?> CaCertIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the `aws.docdb.Cluster` in which to launch this instance.
@@ -114,13 +114,13 @@ namespace Pulumi.Aws.DocDB
         /// The DB subnet group to associate with this DB instance.
         /// </summary>
         [Output("dbSubnetGroupName")]
-        public Output<string> DbSubnetGroupName { get; private set; } = null!;
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The region-unique, immutable identifier for the DB instance.
         /// </summary>
         [Output("dbiResourceId")]
-        public Output<string> DbiResourceId { get; private set; } = null!;
+        public Output<string?> DbiResourceId { get; private set; } = null!;
 
         /// <summary>
         /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.DocDB
         /// The DNS address for this instance. May not be writable
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -144,19 +144,19 @@ namespace Pulumi.Aws.DocDB
         /// The database engine version
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         /// </summary>
         [Output("identifier")]
-        public Output<string> Identifier { get; private set; } = null!;
+        public Output<string?> Identifier { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Output("identifierPrefix")]
-        public Output<string> IdentifierPrefix { get; private set; } = null!;
+        public Output<string?> IdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
         /// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
@@ -191,32 +191,32 @@ namespace Pulumi.Aws.DocDB
         /// The ARN for the KMS encryption key if one is set to the cluster.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         /// </summary>
         [Output("performanceInsightsKmsKeyId")]
-        public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
+        public Output<string?> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The database port
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled.
         /// </summary>
         [Output("preferredBackupWindow")]
-        public Output<string> PreferredBackupWindow { get; private set; } = null!;
+        public Output<string?> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// The window to perform maintenance in.
         /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         /// </summary>
         [Output("preferredMaintenanceWindow")]
-        public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+        public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
@@ -225,13 +225,13 @@ namespace Pulumi.Aws.DocDB
         public Output<int?> PromotionTier { get; private set; } = null!;
 
         [Output("publiclyAccessible")]
-        public Output<bool> PubliclyAccessible { get; private set; } = null!;
+        public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
-        public Output<bool> StorageEncrypted { get; private set; } = null!;
+        public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.DocDB
         /// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         /// </summary>
         [Output("writer")]
-        public Output<bool> Writer { get; private set; } = null!;
+        public Output<bool?> Writer { get; private set; } = null!;
 
 
         /// <summary>

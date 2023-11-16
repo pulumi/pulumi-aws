@@ -128,20 +128,20 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Directory alias.
         /// </summary>
-        public readonly string Alias;
+        public readonly string? Alias;
         /// <summary>
         /// User name for the service account.
         /// </summary>
-        public readonly string CustomerUserName;
+        public readonly string? CustomerUserName;
         public readonly string DirectoryId;
         /// <summary>
         /// Name of the directory.
         /// </summary>
-        public readonly string DirectoryName;
+        public readonly string? DirectoryName;
         /// <summary>
         /// Directory type.
         /// </summary>
-        public readonly string DirectoryType;
+        public readonly string? DirectoryType;
         /// <summary>
         /// IP addresses of the DNS servers for the directory.
         /// </summary>
@@ -149,11 +149,11 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         /// </summary>
-        public readonly string IamRoleId;
+        public readonly string? IamRoleId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Identifiers of the IP access control groups associated with the directory.
         /// </summary>
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         /// </summary>
-        public readonly string RegistrationCode;
+        public readonly string? RegistrationCode;
         /// <summary>
         /// The permissions to enable or disable self-service capabilities.
         /// </summary>
@@ -185,29 +185,29 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// The identifier of the security group that is assigned to new WorkSpaces. Defined below.
         /// </summary>
-        public readonly string WorkspaceSecurityGroupId;
+        public readonly string? WorkspaceSecurityGroupId;
 
         [OutputConstructor]
         private GetDirectoryResult(
-            string alias,
+            string? alias,
 
-            string customerUserName,
+            string? customerUserName,
 
             string directoryId,
 
-            string directoryName,
+            string? directoryName,
 
-            string directoryType,
+            string? directoryType,
 
             ImmutableArray<string> dnsIpAddresses,
 
-            string iamRoleId,
+            string? iamRoleId,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ipGroupIds,
 
-            string registrationCode,
+            string? registrationCode,
 
             ImmutableArray<Outputs.GetDirectorySelfServicePermissionResult> selfServicePermissions,
 
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Workspaces
 
             ImmutableArray<Outputs.GetDirectoryWorkspaceCreationPropertyResult> workspaceCreationProperties,
 
-            string workspaceSecurityGroupId)
+            string? workspaceSecurityGroupId)
         {
             Alias = alias;
             CustomerUserName = customerUserName;

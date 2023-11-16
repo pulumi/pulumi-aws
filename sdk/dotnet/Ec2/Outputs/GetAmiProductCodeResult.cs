@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetAmiProductCodeResult
     {
-        public readonly string ProductCodeId;
-        public readonly string ProductCodeType;
+        public readonly string? ProductCodeId;
+        public readonly string? ProductCodeType;
 
         [OutputConstructor]
         private GetAmiProductCodeResult(
-            string productCodeId,
+            string? productCodeId,
 
-            string productCodeType)
+            string? productCodeType)
         {
             ProductCodeId = productCodeId;
             ProductCodeType = productCodeType;

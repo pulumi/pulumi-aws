@@ -7,6 +7,7 @@ import com.pulumi.aws.imagebuilder.outputs.GetInfrastructureConfigurationLogging
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInfrastructureConfigurationLogging {
@@ -14,7 +15,7 @@ public final class GetInfrastructureConfigurationLogging {
      * @return Nested list of S3 logs settings.
      * 
      */
-    private List<GetInfrastructureConfigurationLoggingS3Log> s3Logs;
+    private @Nullable List<GetInfrastructureConfigurationLoggingS3Log> s3Logs;
 
     private GetInfrastructureConfigurationLogging() {}
     /**
@@ -22,7 +23,7 @@ public final class GetInfrastructureConfigurationLogging {
      * 
      */
     public List<GetInfrastructureConfigurationLoggingS3Log> s3Logs() {
-        return this.s3Logs;
+        return this.s3Logs == null ? List.of() : this.s3Logs;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetInfrastructureConfigurationLogging {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetInfrastructureConfigurationLoggingS3Log> s3Logs;
+        private @Nullable List<GetInfrastructureConfigurationLoggingS3Log> s3Logs;
         public Builder() {}
         public Builder(GetInfrastructureConfigurationLogging defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetInfrastructureConfigurationLogging {
         }
 
         @CustomType.Setter
-        public Builder s3Logs(List<GetInfrastructureConfigurationLoggingS3Log> s3Logs) {
-            this.s3Logs = Objects.requireNonNull(s3Logs);
+        public Builder s3Logs(@Nullable List<GetInfrastructureConfigurationLoggingS3Log> s3Logs) {
+            this.s3Logs = s3Logs;
             return this;
         }
         public Builder s3Logs(GetInfrastructureConfigurationLoggingS3Log... s3Logs) {

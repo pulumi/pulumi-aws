@@ -51,13 +51,13 @@ namespace Pulumi.Aws.VpcLattice
         /// The ARN of the Association.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The account that created the association.
         /// </summary>
         [Output("createdBy")]
-        public Output<string> CreatedBy { get; private set; } = null!;
+        public Output<string?> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The IDs of the security groups.
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.VpcLattice
         /// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

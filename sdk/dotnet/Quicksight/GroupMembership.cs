@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Quicksight
     public partial class GroupMembership : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the group in which the member will be added.

@@ -63,18 +63,18 @@ type LookupVirtualRouterArgs struct {
 // A collection of values returned by getVirtualRouter.
 type LookupVirtualRouterResult struct {
 	// ARN of the virtual router.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Creation date of the virtual router.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Last update date of the virtual router.
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
-	MeshName        string `pulumi:"meshName"`
-	MeshOwner       string `pulumi:"meshOwner"`
-	Name            string `pulumi:"name"`
+	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
+	MeshName        string  `pulumi:"meshName"`
+	MeshOwner       *string `pulumi:"meshOwner"`
+	Name            string  `pulumi:"name"`
 	// Resource owner's AWS account ID.
-	ResourceOwner string `pulumi:"resourceOwner"`
+	ResourceOwner *string `pulumi:"resourceOwner"`
 	// Virtual routers specification. See the `appmesh.VirtualRouter` resource for details.
 	Specs []GetVirtualRouterSpec `pulumi:"specs"`
 	// Map of tags.
@@ -125,31 +125,31 @@ func (o LookupVirtualRouterResultOutput) ToLookupVirtualRouterResultOutputWithCo
 }
 
 // ARN of the virtual router.
-func (o LookupVirtualRouterResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualRouterResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupVirtualRouterResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualRouterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Creation date of the virtual router.
-func (o LookupVirtualRouterResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualRouterResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupVirtualRouterResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualRouterResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupVirtualRouterResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualRouterResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVirtualRouterResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualRouterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Last update date of the virtual router.
-func (o LookupVirtualRouterResultOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualRouterResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o LookupVirtualRouterResultOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualRouterResult) *string { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVirtualRouterResultOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualRouterResult) string { return v.MeshName }).(pulumi.StringOutput)
 }
 
-func (o LookupVirtualRouterResultOutput) MeshOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualRouterResult) string { return v.MeshOwner }).(pulumi.StringOutput)
+func (o LookupVirtualRouterResultOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualRouterResult) *string { return v.MeshOwner }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVirtualRouterResultOutput) Name() pulumi.StringOutput {
@@ -157,8 +157,8 @@ func (o LookupVirtualRouterResultOutput) Name() pulumi.StringOutput {
 }
 
 // Resource owner's AWS account ID.
-func (o LookupVirtualRouterResultOutput) ResourceOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualRouterResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
+func (o LookupVirtualRouterResultOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualRouterResult) *string { return v.ResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // Virtual routers specification. See the `appmesh.VirtualRouter` resource for details.

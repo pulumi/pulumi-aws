@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Batch
         /// The Amazon Resource Name of the job definition.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Batch
         /// The revision of the job definition.
         /// </summary>
         [Output("revision")]
-        public Output<int> Revision { get; private set; } = null!;
+        public Output<int?> Revision { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

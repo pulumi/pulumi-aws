@@ -221,28 +221,28 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accessUrl", refs={String.class}, tree="[0]")
-    private Output<String> accessUrl;
+    private Output</* @Nullable */ String> accessUrl;
 
     /**
      * @return The access URL for the directory, such as `http://alias.awsapps.com`.
      * 
      */
-    public Output<String> accessUrl() {
-        return this.accessUrl;
+    public Output<Optional<String>> accessUrl() {
+        return Codegen.optional(this.accessUrl);
     }
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
-    private Output<String> alias;
+    private Output</* @Nullable */ String> alias;
 
     /**
      * @return The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
      * 
      */
-    public Output<String> alias() {
-        return this.alias;
+    public Output<Optional<String>> alias() {
+        return Codegen.optional(this.alias);
     }
     /**
      * Connector related information about the directory. Fields documented below.
@@ -277,42 +277,42 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="desiredNumberOfDomainControllers", refs={Integer.class}, tree="[0]")
-    private Output<Integer> desiredNumberOfDomainControllers;
+    private Output</* @Nullable */ Integer> desiredNumberOfDomainControllers;
 
     /**
      * @return The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
      * 
      */
-    public Output<Integer> desiredNumberOfDomainControllers() {
-        return this.desiredNumberOfDomainControllers;
+    public Output<Optional<Integer>> desiredNumberOfDomainControllers() {
+        return Codegen.optional(this.desiredNumberOfDomainControllers);
     }
     /**
      * A list of IP addresses of the DNS servers for the directory or connector.
      * 
      */
     @Export(name="dnsIpAddresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> dnsIpAddresses;
+    private Output</* @Nullable */ List<String>> dnsIpAddresses;
 
     /**
      * @return A list of IP addresses of the DNS servers for the directory or connector.
      * 
      */
-    public Output<List<String>> dnsIpAddresses() {
-        return this.dnsIpAddresses;
+    public Output<Optional<List<String>>> dnsIpAddresses() {
+        return Codegen.optional(this.dnsIpAddresses);
     }
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      * 
      */
     @Export(name="edition", refs={String.class}, tree="[0]")
-    private Output<String> edition;
+    private Output</* @Nullable */ String> edition;
 
     /**
      * @return The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      * 
      */
-    public Output<String> edition() {
-        return this.edition;
+    public Output<Optional<String>> edition() {
+        return Codegen.optional(this.edition);
     }
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
@@ -361,42 +361,42 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
-    private Output<String> securityGroupId;
+    private Output</* @Nullable */ String> securityGroupId;
 
     /**
      * @return The ID of the security group created by the directory.
      * 
      */
-    public Output<String> securityGroupId() {
-        return this.securityGroupId;
+    public Output<Optional<String>> securityGroupId() {
+        return Codegen.optional(this.securityGroupId);
     }
     /**
      * The short name of the directory, such as `CORP`.
      * 
      */
     @Export(name="shortName", refs={String.class}, tree="[0]")
-    private Output<String> shortName;
+    private Output</* @Nullable */ String> shortName;
 
     /**
      * @return The short name of the directory, such as `CORP`.
      * 
      */
-    public Output<String> shortName() {
-        return this.shortName;
+    public Output<Optional<String>> shortName() {
+        return Codegen.optional(this.shortName);
     }
     /**
      * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      * 
      */
     @Export(name="size", refs={String.class}, tree="[0]")
-    private Output<String> size;
+    private Output</* @Nullable */ String> size;
 
     /**
      * @return (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      * 
      */
-    public Output<String> size() {
-        return this.size;
+    public Output<Optional<String>> size() {
+        return Codegen.optional(this.size);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

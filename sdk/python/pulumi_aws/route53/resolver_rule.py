@@ -513,7 +513,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN (Amazon Resource Name) for the resolver rule.
         """
@@ -537,7 +537,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
         """
@@ -562,7 +562,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> pulumi.Output[str]:
+    def share_status(self) -> pulumi.Output[Optional[str]]:
         """
         Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
         Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`

@@ -67,7 +67,7 @@ export class JobTemplate extends pulumi.CustomResource {
     /**
      * ARN of the job template.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The job template data which holds values of StartJobRun API request.
      */

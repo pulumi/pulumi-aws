@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -95,14 +96,14 @@ public class VpcEndpointPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * The VPC Endpoint ID.

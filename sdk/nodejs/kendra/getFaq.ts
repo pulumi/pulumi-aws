@@ -57,57 +57,57 @@ export interface GetFaqResult {
     /**
      * ARN of the FAQ.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Unix datetime that the faq was created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * Description of the FAQ.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * When the `status` field value is `FAILED`, this contains a message that explains why.
      */
-    readonly errorMessage: string;
+    readonly errorMessage?: string;
     readonly faqId: string;
     /**
      * File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
      */
-    readonly fileFormat: string;
+    readonly fileFormat?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly indexId: string;
     /**
      * Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      */
-    readonly languageCode: string;
+    readonly languageCode?: string;
     /**
      * Name of the FAQ.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
-    readonly roleArn: string;
+    readonly roleArn?: string;
     /**
      * S3 location of the FAQ input data. Detailed below.
      */
-    readonly s3Paths: outputs.kendra.GetFaqS3Path[];
+    readonly s3Paths?: outputs.kendra.GetFaqS3Path[];
     /**
      * Status of the FAQ. It is ready to use when the status is ACTIVE.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Metadata that helps organize the FAQs you create.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Date and time that the FAQ was last updated.
      */
-    readonly updatedAt: string;
+    readonly updatedAt?: string;
 }
 /**
  * Provides details about a specific Amazon Kendra Faq.

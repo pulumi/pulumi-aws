@@ -57,31 +57,31 @@ export interface GetBrokerArgs {
  * A collection of values returned by getBroker.
  */
 export interface GetBrokerResult {
-    readonly arn: string;
-    readonly authenticationStrategy: string;
-    readonly autoMinorVersionUpgrade: boolean;
-    readonly brokerId: string;
-    readonly brokerName: string;
-    readonly configuration: outputs.mq.GetBrokerConfiguration;
-    readonly deploymentMode: string;
-    readonly encryptionOptions: outputs.mq.GetBrokerEncryptionOption[];
-    readonly engineType: string;
-    readonly engineVersion: string;
-    readonly hostInstanceType: string;
+    readonly arn?: string;
+    readonly authenticationStrategy?: string;
+    readonly autoMinorVersionUpgrade?: boolean;
+    readonly brokerId?: string;
+    readonly brokerName?: string;
+    readonly configuration?: outputs.mq.GetBrokerConfiguration;
+    readonly deploymentMode?: string;
+    readonly encryptionOptions?: outputs.mq.GetBrokerEncryptionOption[];
+    readonly engineType?: string;
+    readonly engineVersion?: string;
+    readonly hostInstanceType?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly instances: outputs.mq.GetBrokerInstance[];
-    readonly ldapServerMetadatas: outputs.mq.GetBrokerLdapServerMetadata[];
-    readonly logs: outputs.mq.GetBrokerLogs;
-    readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
-    readonly publiclyAccessible: boolean;
-    readonly securityGroups: string[];
-    readonly storageType: string;
-    readonly subnetIds: string[];
-    readonly tags: {[key: string]: string};
-    readonly users: outputs.mq.GetBrokerUser[];
+    readonly id?: string;
+    readonly instances?: outputs.mq.GetBrokerInstance[];
+    readonly ldapServerMetadatas?: outputs.mq.GetBrokerLdapServerMetadata[];
+    readonly logs?: outputs.mq.GetBrokerLogs;
+    readonly maintenanceWindowStartTime?: outputs.mq.GetBrokerMaintenanceWindowStartTime;
+    readonly publiclyAccessible?: boolean;
+    readonly securityGroups?: string[];
+    readonly storageType?: string;
+    readonly subnetIds?: string[];
+    readonly tags?: {[key: string]: string};
+    readonly users?: outputs.mq.GetBrokerUser[];
 }
 /**
  * Provides information about a MQ Broker.

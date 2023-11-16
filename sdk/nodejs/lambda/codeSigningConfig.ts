@@ -75,11 +75,11 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the code signing configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Unique identifier for the code signing configuration.
      */
-    public /*out*/ readonly configId!: pulumi.Output<string>;
+    public /*out*/ readonly configId!: pulumi.Output<string | undefined>;
     /**
      * Descriptive name for this code signing configuration.
      */
@@ -87,11 +87,11 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     /**
      * The date and time that the code signing configuration was last modified.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string | undefined>;
     /**
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      */
-    public readonly policies!: pulumi.Output<outputs.lambda.CodeSigningConfigPolicies>;
+    public readonly policies!: pulumi.Output<outputs.lambda.CodeSigningConfigPolicies | undefined>;
 
     /**
      * Create a CodeSigningConfig resource with the given unique name, arguments, and options.

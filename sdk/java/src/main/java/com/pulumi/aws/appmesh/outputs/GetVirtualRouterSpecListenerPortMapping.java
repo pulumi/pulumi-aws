@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualRouterSpecListenerPortMapping {
-    private Integer port;
-    private String protocol;
+    private @Nullable Integer port;
+    private @Nullable String protocol;
 
     private GetVirtualRouterSpecListenerPortMapping() {}
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetVirtualRouterSpecListenerPortMapping {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer port;
-        private String protocol;
+        private @Nullable Integer port;
+        private @Nullable String protocol;
         public Builder() {}
         public Builder(GetVirtualRouterSpecListenerPortMapping defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetVirtualRouterSpecListenerPortMapping {
         }
 
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         public GetVirtualRouterSpecListenerPortMapping build() {

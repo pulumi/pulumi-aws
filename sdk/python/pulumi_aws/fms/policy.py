@@ -758,7 +758,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "arn")
 
     @property
@@ -819,7 +819,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyUpdateToken")
-    def policy_update_token(self) -> pulumi.Output[str]:
+    def policy_update_token(self) -> pulumi.Output[Optional[str]]:
         """
         A unique identifier for each update to the policy.
         """
@@ -843,7 +843,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Output[str]:
+    def resource_type(self) -> pulumi.Output[Optional[str]]:
         """
         A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         """
@@ -851,7 +851,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceTypeLists")
-    def resource_type_lists(self) -> pulumi.Output[Sequence[str]]:
+    def resource_type_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         """

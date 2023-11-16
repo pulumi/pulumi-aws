@@ -72,24 +72,24 @@ export interface GetConnectResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Tunnel protocol
      */
-    readonly protocol: string;
+    readonly protocol?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect
      */
-    readonly tags: {[key: string]: string};
-    readonly transitGatewayConnectId: string;
+    readonly tags?: {[key: string]: string};
+    readonly transitGatewayConnectId?: string;
     /**
      * EC2 Transit Gateway identifier
      */
-    readonly transitGatewayId: string;
+    readonly transitGatewayId?: string;
     /**
      * The underlaying VPC attachment
      */
-    readonly transportAttachmentId: string;
+    readonly transportAttachmentId?: string;
 }
 /**
  * Get information on an EC2 Transit Gateway Connect.

@@ -51,48 +51,48 @@ export interface GetClusterResult {
     /**
      * Name of the Access Control List associated with the cluster.
      */
-    readonly aclName: string;
+    readonly aclName?: string;
     /**
      * ARN of the cluster.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * True when the cluster allows automatic minor version upgrades.
      */
-    readonly autoMinorVersionUpgrade: boolean;
-    readonly clusterEndpoints: outputs.memorydb.GetClusterClusterEndpoint[];
+    readonly autoMinorVersionUpgrade?: boolean;
+    readonly clusterEndpoints?: outputs.memorydb.GetClusterClusterEndpoint[];
     /**
      * True when data tiering is enabled.
      */
-    readonly dataTiering: boolean;
+    readonly dataTiering?: boolean;
     /**
      * Description for the cluster.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Patch version number of the Redis engine used by the cluster.
      */
-    readonly enginePatchVersion: string;
+    readonly enginePatchVersion?: string;
     /**
      * Version number of the Redis engine used by the cluster.
      */
-    readonly engineVersion: string;
+    readonly engineVersion?: string;
     /**
      * Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
      */
-    readonly finalSnapshotName: string;
+    readonly finalSnapshotName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the KMS key used to encrypt the cluster at rest.
      */
-    readonly kmsKeyArn: string;
+    readonly kmsKeyArn?: string;
     /**
      * Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
      */
-    readonly maintenanceWindow: string;
+    readonly maintenanceWindow?: string;
     /**
      * Name of this node.
      */
@@ -100,55 +100,55 @@ export interface GetClusterResult {
     /**
      * Compute and memory capacity of the nodes in the cluster.
      */
-    readonly nodeType: string;
+    readonly nodeType?: string;
     /**
      * The number of replicas to apply to each shard.
      */
-    readonly numReplicasPerShard: number;
+    readonly numReplicasPerShard?: number;
     /**
      * Number of shards in the cluster.
      */
-    readonly numShards: number;
+    readonly numShards?: number;
     /**
      * The name of the parameter group associated with the cluster.
      */
-    readonly parameterGroupName: string;
+    readonly parameterGroupName?: string;
     /**
      * Port number that this node is listening on.
      */
-    readonly port: number;
+    readonly port?: number;
     /**
      * Set of VPC Security Group ID-s associated with this cluster.
      */
-    readonly securityGroupIds: string[];
+    readonly securityGroupIds?: string[];
     /**
      * Set of shards in this cluster.
      */
-    readonly shards: outputs.memorydb.GetClusterShard[];
+    readonly shards?: outputs.memorydb.GetClusterShard[];
     /**
      * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
      */
-    readonly snapshotRetentionLimit: number;
+    readonly snapshotRetentionLimit?: number;
     /**
      * Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      */
-    readonly snapshotWindow: string;
+    readonly snapshotWindow?: string;
     /**
      * ARN of the SNS topic to which cluster notifications are sent.
      */
-    readonly snsTopicArn: string;
+    readonly snsTopicArn?: string;
     /**
      * The name of the subnet group used for the cluster.
      */
-    readonly subnetGroupName: string;
+    readonly subnetGroupName?: string;
     /**
      * Map of tags assigned to the cluster.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * When true, in-transit encryption is enabled for the cluster.
      */
-    readonly tlsEnabled: boolean;
+    readonly tlsEnabled?: boolean;
 }
 /**
  * Provides information about a MemoryDB Cluster.

@@ -58,7 +58,7 @@ type HsmConfiguration struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A text description of the HSM configuration to be created.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The identifier to be assigned to the new Amazon Redshift HSM configuration.
@@ -307,8 +307,8 @@ func (o HsmConfigurationOutput) ToHsmConfigurationOutputWithContext(ctx context.
 }
 
 // Amazon Resource Name (ARN) of the Hsm Client Certificate.
-func (o HsmConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HsmConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A text description of the HSM configuration to be created.

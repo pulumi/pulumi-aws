@@ -971,18 +971,20 @@ class EmailIdentityDkimSigningAttributes(dict):
 @pulumi.output_type
 class GetConfigurationSetDeliveryOptionResult(dict):
     def __init__(__self__, *,
-                 sending_pool_name: str,
-                 tls_policy: str):
+                 sending_pool_name: Optional[str] = None,
+                 tls_policy: Optional[str] = None):
         """
         :param str sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
         :param str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         """
-        pulumi.set(__self__, "sending_pool_name", sending_pool_name)
-        pulumi.set(__self__, "tls_policy", tls_policy)
+        if sending_pool_name is not None:
+            pulumi.set(__self__, "sending_pool_name", sending_pool_name)
+        if tls_policy is not None:
+            pulumi.set(__self__, "tls_policy", tls_policy)
 
     @property
     @pulumi.getter(name="sendingPoolName")
-    def sending_pool_name(self) -> str:
+    def sending_pool_name(self) -> Optional[str]:
         """
         The name of the dedicated IP pool to associate with the configuration set.
         """
@@ -990,7 +992,7 @@ class GetConfigurationSetDeliveryOptionResult(dict):
 
     @property
     @pulumi.getter(name="tlsPolicy")
-    def tls_policy(self) -> str:
+    def tls_policy(self) -> Optional[str]:
         """
         Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         """
@@ -1000,18 +1002,20 @@ class GetConfigurationSetDeliveryOptionResult(dict):
 @pulumi.output_type
 class GetConfigurationSetReputationOptionResult(dict):
     def __init__(__self__, *,
-                 last_fresh_start: str,
-                 reputation_metrics_enabled: bool):
+                 last_fresh_start: Optional[str] = None,
+                 reputation_metrics_enabled: Optional[bool] = None):
         """
         :param str last_fresh_start: The date and time (in Unix time) when the reputation metrics were last given a fresh start.
         :param bool reputation_metrics_enabled: Specifies whether tracking of reputation metrics is enabled.
         """
-        pulumi.set(__self__, "last_fresh_start", last_fresh_start)
-        pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+        if last_fresh_start is not None:
+            pulumi.set(__self__, "last_fresh_start", last_fresh_start)
+        if reputation_metrics_enabled is not None:
+            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
 
     @property
     @pulumi.getter(name="lastFreshStart")
-    def last_fresh_start(self) -> str:
+    def last_fresh_start(self) -> Optional[str]:
         """
         The date and time (in Unix time) when the reputation metrics were last given a fresh start.
         """
@@ -1019,7 +1023,7 @@ class GetConfigurationSetReputationOptionResult(dict):
 
     @property
     @pulumi.getter(name="reputationMetricsEnabled")
-    def reputation_metrics_enabled(self) -> bool:
+    def reputation_metrics_enabled(self) -> Optional[bool]:
         """
         Specifies whether tracking of reputation metrics is enabled.
         """
@@ -1029,15 +1033,16 @@ class GetConfigurationSetReputationOptionResult(dict):
 @pulumi.output_type
 class GetConfigurationSetSendingOptionResult(dict):
     def __init__(__self__, *,
-                 sending_enabled: bool):
+                 sending_enabled: Optional[bool] = None):
         """
         :param bool sending_enabled: Specifies whether email sending is enabled.
         """
-        pulumi.set(__self__, "sending_enabled", sending_enabled)
+        if sending_enabled is not None:
+            pulumi.set(__self__, "sending_enabled", sending_enabled)
 
     @property
     @pulumi.getter(name="sendingEnabled")
-    def sending_enabled(self) -> bool:
+    def sending_enabled(self) -> Optional[bool]:
         """
         Specifies whether email sending is enabled.
         """
@@ -1047,15 +1052,16 @@ class GetConfigurationSetSendingOptionResult(dict):
 @pulumi.output_type
 class GetConfigurationSetSuppressionOptionResult(dict):
     def __init__(__self__, *,
-                 suppressed_reasons: Sequence[str]):
+                 suppressed_reasons: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
         """
-        pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+        if suppressed_reasons is not None:
+            pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
 
     @property
     @pulumi.getter(name="suppressedReasons")
-    def suppressed_reasons(self) -> Sequence[str]:
+    def suppressed_reasons(self) -> Optional[Sequence[str]]:
         """
         A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
         """
@@ -1065,15 +1071,16 @@ class GetConfigurationSetSuppressionOptionResult(dict):
 @pulumi.output_type
 class GetConfigurationSetTrackingOptionResult(dict):
     def __init__(__self__, *,
-                 custom_redirect_domain: str):
+                 custom_redirect_domain: Optional[str] = None):
         """
         :param str custom_redirect_domain: The domain to use for tracking open and click events.
         """
-        pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        if custom_redirect_domain is not None:
+            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
-    def custom_redirect_domain(self) -> str:
+    def custom_redirect_domain(self) -> Optional[str]:
         """
         The domain to use for tracking open and click events.
         """
@@ -1083,18 +1090,20 @@ class GetConfigurationSetTrackingOptionResult(dict):
 @pulumi.output_type
 class GetConfigurationSetVdmOptionResult(dict):
     def __init__(__self__, *,
-                 dashboard_options: Sequence['outputs.GetConfigurationSetVdmOptionDashboardOptionResult'],
-                 guardian_options: Sequence['outputs.GetConfigurationSetVdmOptionGuardianOptionResult']):
+                 dashboard_options: Optional[Sequence['outputs.GetConfigurationSetVdmOptionDashboardOptionResult']] = None,
+                 guardian_options: Optional[Sequence['outputs.GetConfigurationSetVdmOptionGuardianOptionResult']] = None):
         """
         :param Sequence['GetConfigurationSetVdmOptionDashboardOptionArgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param Sequence['GetConfigurationSetVdmOptionGuardianOptionArgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
-        pulumi.set(__self__, "dashboard_options", dashboard_options)
-        pulumi.set(__self__, "guardian_options", guardian_options)
+        if dashboard_options is not None:
+            pulumi.set(__self__, "dashboard_options", dashboard_options)
+        if guardian_options is not None:
+            pulumi.set(__self__, "guardian_options", guardian_options)
 
     @property
     @pulumi.getter(name="dashboardOptions")
-    def dashboard_options(self) -> Sequence['outputs.GetConfigurationSetVdmOptionDashboardOptionResult']:
+    def dashboard_options(self) -> Optional[Sequence['outputs.GetConfigurationSetVdmOptionDashboardOptionResult']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
@@ -1102,7 +1111,7 @@ class GetConfigurationSetVdmOptionResult(dict):
 
     @property
     @pulumi.getter(name="guardianOptions")
-    def guardian_options(self) -> Sequence['outputs.GetConfigurationSetVdmOptionGuardianOptionResult']:
+    def guardian_options(self) -> Optional[Sequence['outputs.GetConfigurationSetVdmOptionGuardianOptionResult']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
@@ -1112,15 +1121,16 @@ class GetConfigurationSetVdmOptionResult(dict):
 @pulumi.output_type
 class GetConfigurationSetVdmOptionDashboardOptionResult(dict):
     def __init__(__self__, *,
-                 engagement_metrics: str):
+                 engagement_metrics: Optional[str] = None):
         """
         :param str engagement_metrics: Specifies the status of your VDM engagement metrics collection.
         """
-        pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+        if engagement_metrics is not None:
+            pulumi.set(__self__, "engagement_metrics", engagement_metrics)
 
     @property
     @pulumi.getter(name="engagementMetrics")
-    def engagement_metrics(self) -> str:
+    def engagement_metrics(self) -> Optional[str]:
         """
         Specifies the status of your VDM engagement metrics collection.
         """
@@ -1130,15 +1140,16 @@ class GetConfigurationSetVdmOptionDashboardOptionResult(dict):
 @pulumi.output_type
 class GetConfigurationSetVdmOptionGuardianOptionResult(dict):
     def __init__(__self__, *,
-                 optimized_shared_delivery: str):
+                 optimized_shared_delivery: Optional[str] = None):
         """
         :param str optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery.
         """
-        pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+        if optimized_shared_delivery is not None:
+            pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
 
     @property
     @pulumi.getter(name="optimizedSharedDelivery")
-    def optimized_shared_delivery(self) -> str:
+    def optimized_shared_delivery(self) -> Optional[str]:
         """
         Specifies the status of your VDM optimized shared delivery.
         """
@@ -1148,21 +1159,24 @@ class GetConfigurationSetVdmOptionGuardianOptionResult(dict):
 @pulumi.output_type
 class GetDedicatedIpPoolDedicatedIpResult(dict):
     def __init__(__self__, *,
-                 ip: str,
-                 warmup_percentage: int,
-                 warmup_status: str):
+                 ip: Optional[str] = None,
+                 warmup_percentage: Optional[int] = None,
+                 warmup_status: Optional[str] = None):
         """
         :param str ip: IPv4 address.
         :param int warmup_percentage: Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
         :param str warmup_status: The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
         """
-        pulumi.set(__self__, "ip", ip)
-        pulumi.set(__self__, "warmup_percentage", warmup_percentage)
-        pulumi.set(__self__, "warmup_status", warmup_status)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if warmup_percentage is not None:
+            pulumi.set(__self__, "warmup_percentage", warmup_percentage)
+        if warmup_status is not None:
+            pulumi.set(__self__, "warmup_status", warmup_status)
 
     @property
     @pulumi.getter
-    def ip(self) -> str:
+    def ip(self) -> Optional[str]:
         """
         IPv4 address.
         """
@@ -1170,7 +1184,7 @@ class GetDedicatedIpPoolDedicatedIpResult(dict):
 
     @property
     @pulumi.getter(name="warmupPercentage")
-    def warmup_percentage(self) -> int:
+    def warmup_percentage(self) -> Optional[int]:
         """
         Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
         """
@@ -1178,7 +1192,7 @@ class GetDedicatedIpPoolDedicatedIpResult(dict):
 
     @property
     @pulumi.getter(name="warmupStatus")
-    def warmup_status(self) -> str:
+    def warmup_status(self) -> Optional[str]:
         """
         The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
         """
@@ -1188,14 +1202,14 @@ class GetDedicatedIpPoolDedicatedIpResult(dict):
 @pulumi.output_type
 class GetEmailIdentityDkimSigningAttributeResult(dict):
     def __init__(__self__, *,
-                 current_signing_key_length: str,
-                 domain_signing_private_key: str,
-                 domain_signing_selector: str,
-                 last_key_generation_timestamp: str,
-                 next_signing_key_length: str,
-                 signing_attributes_origin: str,
-                 status: str,
-                 tokens: Sequence[str]):
+                 current_signing_key_length: Optional[str] = None,
+                 domain_signing_private_key: Optional[str] = None,
+                 domain_signing_selector: Optional[str] = None,
+                 last_key_generation_timestamp: Optional[str] = None,
+                 next_signing_key_length: Optional[str] = None,
+                 signing_attributes_origin: Optional[str] = None,
+                 status: Optional[str] = None,
+                 tokens: Optional[Sequence[str]] = None):
         """
         :param str current_signing_key_length: [Easy DKIM] The key length of the DKIM key pair in use.
         :param str last_key_generation_timestamp: [Easy DKIM] The last time a key pair was generated for this identity.
@@ -1204,18 +1218,26 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
         :param str status: Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         :param Sequence[str] tokens: If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
         """
-        pulumi.set(__self__, "current_signing_key_length", current_signing_key_length)
-        pulumi.set(__self__, "domain_signing_private_key", domain_signing_private_key)
-        pulumi.set(__self__, "domain_signing_selector", domain_signing_selector)
-        pulumi.set(__self__, "last_key_generation_timestamp", last_key_generation_timestamp)
-        pulumi.set(__self__, "next_signing_key_length", next_signing_key_length)
-        pulumi.set(__self__, "signing_attributes_origin", signing_attributes_origin)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "tokens", tokens)
+        if current_signing_key_length is not None:
+            pulumi.set(__self__, "current_signing_key_length", current_signing_key_length)
+        if domain_signing_private_key is not None:
+            pulumi.set(__self__, "domain_signing_private_key", domain_signing_private_key)
+        if domain_signing_selector is not None:
+            pulumi.set(__self__, "domain_signing_selector", domain_signing_selector)
+        if last_key_generation_timestamp is not None:
+            pulumi.set(__self__, "last_key_generation_timestamp", last_key_generation_timestamp)
+        if next_signing_key_length is not None:
+            pulumi.set(__self__, "next_signing_key_length", next_signing_key_length)
+        if signing_attributes_origin is not None:
+            pulumi.set(__self__, "signing_attributes_origin", signing_attributes_origin)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tokens is not None:
+            pulumi.set(__self__, "tokens", tokens)
 
     @property
     @pulumi.getter(name="currentSigningKeyLength")
-    def current_signing_key_length(self) -> str:
+    def current_signing_key_length(self) -> Optional[str]:
         """
         [Easy DKIM] The key length of the DKIM key pair in use.
         """
@@ -1223,17 +1245,17 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
 
     @property
     @pulumi.getter(name="domainSigningPrivateKey")
-    def domain_signing_private_key(self) -> str:
+    def domain_signing_private_key(self) -> Optional[str]:
         return pulumi.get(self, "domain_signing_private_key")
 
     @property
     @pulumi.getter(name="domainSigningSelector")
-    def domain_signing_selector(self) -> str:
+    def domain_signing_selector(self) -> Optional[str]:
         return pulumi.get(self, "domain_signing_selector")
 
     @property
     @pulumi.getter(name="lastKeyGenerationTimestamp")
-    def last_key_generation_timestamp(self) -> str:
+    def last_key_generation_timestamp(self) -> Optional[str]:
         """
         [Easy DKIM] The last time a key pair was generated for this identity.
         """
@@ -1241,7 +1263,7 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
 
     @property
     @pulumi.getter(name="nextSigningKeyLength")
-    def next_signing_key_length(self) -> str:
+    def next_signing_key_length(self) -> Optional[str]:
         """
         [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
         """
@@ -1249,7 +1271,7 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
 
     @property
     @pulumi.getter(name="signingAttributesOrigin")
-    def signing_attributes_origin(self) -> str:
+    def signing_attributes_origin(self) -> Optional[str]:
         """
         A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
         """
@@ -1257,7 +1279,7 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         """
@@ -1265,7 +1287,7 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
 
     @property
     @pulumi.getter
-    def tokens(self) -> Sequence[str]:
+    def tokens(self) -> Optional[Sequence[str]]:
         """
         If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
         """

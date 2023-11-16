@@ -1457,7 +1457,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the CodeBuild project.
         """
@@ -1481,7 +1481,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="badgeUrl")
-    def badge_url(self) -> pulumi.Output[str]:
+    def badge_url(self) -> pulumi.Output[Optional[str]]:
         """
         URL of the build badge when `badge_enabled` is enabled.
         """
@@ -1521,7 +1521,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Short description of the project.
         """
@@ -1529,7 +1529,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> pulumi.Output[str]:
+    def encryption_key(self) -> pulumi.Output[Optional[str]]:
         """
         AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         """
@@ -1577,7 +1577,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicProjectAlias")
-    def public_project_alias(self) -> pulumi.Output[str]:
+    def public_project_alias(self) -> pulumi.Output[Optional[str]]:
         """
         The project identifier used with the public build APIs.
         """

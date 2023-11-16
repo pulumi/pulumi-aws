@@ -122,7 +122,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def architectures(self) -> Sequence[str]:
+    def architectures(self) -> Optional[Sequence[str]]:
         """
         Instruction set architecture for the Lambda function.
         """
@@ -130,7 +130,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         """
@@ -138,7 +138,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="codeSigningConfigArn")
-    def code_signing_config_arn(self) -> str:
+    def code_signing_config_arn(self) -> Optional[str]:
         """
         ARN for a Code Signing Configuration.
         """
@@ -146,7 +146,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="deadLetterConfig")
-    def dead_letter_config(self) -> 'outputs.GetFunctionDeadLetterConfigResult':
+    def dead_letter_config(self) -> Optional['outputs.GetFunctionDeadLetterConfigResult']:
         """
         Configure the function's *dead letter queue*.
         """
@@ -154,7 +154,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of what your Lambda Function does.
         """
@@ -162,7 +162,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def environment(self) -> 'outputs.GetFunctionEnvironmentResult':
+    def environment(self) -> Optional['outputs.GetFunctionEnvironmentResult']:
         """
         Lambda environment's configuration settings.
         """
@@ -170,7 +170,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="ephemeralStorages")
-    def ephemeral_storages(self) -> Sequence['outputs.GetFunctionEphemeralStorageResult']:
+    def ephemeral_storages(self) -> Optional[Sequence['outputs.GetFunctionEphemeralStorageResult']]:
         """
         Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
         """
@@ -178,7 +178,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="fileSystemConfigs")
-    def file_system_configs(self) -> Sequence['outputs.GetFunctionFileSystemConfigResult']:
+    def file_system_configs(self) -> Optional[Sequence['outputs.GetFunctionFileSystemConfigResult']]:
         """
         Connection settings for an Amazon EFS file system.
         """
@@ -191,7 +191,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def handler(self) -> str:
+    def handler(self) -> Optional[str]:
         """
         Function entrypoint in your code.
         """
@@ -199,7 +199,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -207,7 +207,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="imageUri")
-    def image_uri(self) -> str:
+    def image_uri(self) -> Optional[str]:
         """
         URI of the container image.
         """
@@ -215,7 +215,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="invokeArn")
-    def invoke_arn(self) -> str:
+    def invoke_arn(self) -> Optional[str]:
         """
         ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
         """
@@ -223,7 +223,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> Optional[str]:
         """
         ARN for the KMS encryption key.
         """
@@ -231,7 +231,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> Optional[str]:
         """
         Date this resource was last modified.
         """
@@ -239,7 +239,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def layers(self) -> Sequence[str]:
+    def layers(self) -> Optional[Sequence[str]]:
         """
         List of Lambda Layer ARNs attached to your Lambda Function.
         """
@@ -247,7 +247,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="memorySize")
-    def memory_size(self) -> int:
+    def memory_size(self) -> Optional[int]:
         """
         Amount of memory in MB your Lambda Function can use at runtime.
         """
@@ -255,7 +255,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="qualifiedArn")
-    def qualified_arn(self) -> str:
+    def qualified_arn(self) -> Optional[str]:
         """
         Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
         """
@@ -263,7 +263,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="qualifiedInvokeArn")
-    def qualified_invoke_arn(self) -> str:
+    def qualified_invoke_arn(self) -> Optional[str]:
         """
         Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
         """
@@ -276,7 +276,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="reservedConcurrentExecutions")
-    def reserved_concurrent_executions(self) -> int:
+    def reserved_concurrent_executions(self) -> Optional[int]:
         """
         The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
         """
@@ -284,7 +284,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> Optional[str]:
         """
         IAM role attached to the Lambda Function.
         """
@@ -292,7 +292,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def runtime(self) -> str:
+    def runtime(self) -> Optional[str]:
         """
         Runtime environment for the Lambda function.
         """
@@ -300,7 +300,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="signingJobArn")
-    def signing_job_arn(self) -> str:
+    def signing_job_arn(self) -> Optional[str]:
         """
         ARN of a signing job.
         """
@@ -308,7 +308,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="signingProfileVersionArn")
-    def signing_profile_version_arn(self) -> str:
+    def signing_profile_version_arn(self) -> Optional[str]:
         """
         The ARN for a signing profile version.
         """
@@ -316,7 +316,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="sourceCodeHash")
-    def source_code_hash(self) -> str:
+    def source_code_hash(self) -> Optional[str]:
         """
         Base64-encoded representation of raw SHA-256 sum of the zip file.
         """
@@ -324,7 +324,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="sourceCodeSize")
-    def source_code_size(self) -> int:
+    def source_code_size(self) -> Optional[int]:
         """
         Size in bytes of the function .zip file.
         """
@@ -332,12 +332,12 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def timeout(self) -> int:
+    def timeout(self) -> Optional[int]:
         """
         Function execution time at which Lambda should terminate the function.
         """
@@ -345,7 +345,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="tracingConfig")
-    def tracing_config(self) -> 'outputs.GetFunctionTracingConfigResult':
+    def tracing_config(self) -> Optional['outputs.GetFunctionTracingConfigResult']:
         """
         Tracing settings of the function.
         """
@@ -353,7 +353,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
         """
@@ -361,7 +361,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> 'outputs.GetFunctionVpcConfigResult':
+    def vpc_config(self) -> Optional['outputs.GetFunctionVpcConfigResult']:
         """
         VPC configuration associated with your Lambda function.
         """

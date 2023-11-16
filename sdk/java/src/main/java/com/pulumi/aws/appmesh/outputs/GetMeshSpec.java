@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetMeshSpecEgressFilter;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMeshSpec {
-    private List<GetMeshSpecEgressFilter> egressFilters;
+    private @Nullable List<GetMeshSpecEgressFilter> egressFilters;
 
     private GetMeshSpec() {}
     public List<GetMeshSpecEgressFilter> egressFilters() {
-        return this.egressFilters;
+        return this.egressFilters == null ? List.of() : this.egressFilters;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetMeshSpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetMeshSpecEgressFilter> egressFilters;
+        private @Nullable List<GetMeshSpecEgressFilter> egressFilters;
         public Builder() {}
         public Builder(GetMeshSpec defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetMeshSpec {
         }
 
         @CustomType.Setter
-        public Builder egressFilters(List<GetMeshSpecEgressFilter> egressFilters) {
-            this.egressFilters = Objects.requireNonNull(egressFilters);
+        public Builder egressFilters(@Nullable List<GetMeshSpecEgressFilter> egressFilters) {
+            this.egressFilters = egressFilters;
             return this;
         }
         public Builder egressFilters(GetMeshSpecEgressFilter... egressFilters) {

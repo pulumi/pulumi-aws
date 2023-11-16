@@ -63,24 +63,24 @@ type Member struct {
 	// AWS account ID for the account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// AWS account ID for the administrator account.
-	AdministratorId pulumi.StringOutput `pulumi:"administratorId"`
+	AdministratorId pulumi.StringPtrOutput `pulumi:"administratorId"`
 	// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
-	DisableEmailNotification pulumi.BoolPtrOutput `pulumi:"disableEmailNotification"`
-	DisabledReason           pulumi.StringOutput  `pulumi:"disabledReason"`
+	DisableEmailNotification pulumi.BoolPtrOutput   `pulumi:"disableEmailNotification"`
+	DisabledReason           pulumi.StringPtrOutput `pulumi:"disabledReason"`
 	// Email address for the account.
 	EmailAddress pulumi.StringOutput `pulumi:"emailAddress"`
 	// ARN of the behavior graph to invite the member accounts to contribute their data to.
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
 	// Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
-	InvitedTime pulumi.StringOutput `pulumi:"invitedTime"`
+	InvitedTime pulumi.StringPtrOutput `pulumi:"invitedTime"`
 	// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
 	Message pulumi.StringPtrOutput `pulumi:"message"`
 	// Current membership status of the member account.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
-	UpdatedTime pulumi.StringOutput `pulumi:"updatedTime"`
+	UpdatedTime pulumi.StringPtrOutput `pulumi:"updatedTime"`
 	// Data volume in bytes per day for the member account.
-	VolumeUsageInBytes pulumi.StringOutput `pulumi:"volumeUsageInBytes"`
+	VolumeUsageInBytes pulumi.StringPtrOutput `pulumi:"volumeUsageInBytes"`
 }
 
 // NewMember registers a new resource with the given unique name, arguments, and options.
@@ -293,8 +293,8 @@ func (o MemberOutput) AccountId() pulumi.StringOutput {
 }
 
 // AWS account ID for the administrator account.
-func (o MemberOutput) AdministratorId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.AdministratorId }).(pulumi.StringOutput)
+func (o MemberOutput) AdministratorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.AdministratorId }).(pulumi.StringPtrOutput)
 }
 
 // If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
@@ -302,8 +302,8 @@ func (o MemberOutput) DisableEmailNotification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Member) pulumi.BoolPtrOutput { return v.DisableEmailNotification }).(pulumi.BoolPtrOutput)
 }
 
-func (o MemberOutput) DisabledReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.DisabledReason }).(pulumi.StringOutput)
+func (o MemberOutput) DisabledReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.DisabledReason }).(pulumi.StringPtrOutput)
 }
 
 // Email address for the account.
@@ -317,8 +317,8 @@ func (o MemberOutput) GraphArn() pulumi.StringOutput {
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
-func (o MemberOutput) InvitedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.InvitedTime }).(pulumi.StringOutput)
+func (o MemberOutput) InvitedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.InvitedTime }).(pulumi.StringPtrOutput)
 }
 
 // A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
@@ -327,18 +327,18 @@ func (o MemberOutput) Message() pulumi.StringPtrOutput {
 }
 
 // Current membership status of the member account.
-func (o MemberOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o MemberOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
-func (o MemberOutput) UpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.UpdatedTime }).(pulumi.StringOutput)
+func (o MemberOutput) UpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.UpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Data volume in bytes per day for the member account.
-func (o MemberOutput) VolumeUsageInBytes() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.VolumeUsageInBytes }).(pulumi.StringOutput)
+func (o MemberOutput) VolumeUsageInBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.VolumeUsageInBytes }).(pulumi.StringPtrOutput)
 }
 
 type MemberArrayOutput struct{ *pulumi.OutputState }

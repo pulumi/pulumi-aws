@@ -88,7 +88,7 @@ type SubnetGroup struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Redshift Subnet group name
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The name of the Redshift Subnet group.
@@ -291,8 +291,8 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 }
 
 // Amazon Resource Name (ARN) of the Redshift Subnet group name
-func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SubnetGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".

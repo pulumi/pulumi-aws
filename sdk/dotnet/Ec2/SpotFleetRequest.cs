@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> AllocationStrategy { get; private set; } = null!;
 
         [Output("clientToken")]
-        public Output<string> ClientToken { get; private set; } = null!;
+        public Output<string?> ClientToken { get; private set; } = null!;
 
         /// <summary>
         /// Reserved.
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Ec2
         /// The state of the Spot fleet request.
         /// </summary>
         [Output("spotRequestState")]
-        public Output<string> SpotRequestState { get; private set; } = null!;
+        public Output<string?> SpotRequestState { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

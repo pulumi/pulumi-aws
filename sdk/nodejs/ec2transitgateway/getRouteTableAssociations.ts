@@ -58,11 +58,11 @@ export interface GetRouteTableAssociationsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of Transit Gateway Route Table Association identifiers.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly transitGatewayRouteTableId: string;
 }
 /**

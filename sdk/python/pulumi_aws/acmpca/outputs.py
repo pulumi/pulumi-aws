@@ -490,78 +490,87 @@ class CertificateValidity(dict):
 @pulumi.output_type
 class GetCertificateAuthorityRevocationConfigurationResult(dict):
     def __init__(__self__, *,
-                 crl_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult'],
-                 ocsp_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult']):
-        pulumi.set(__self__, "crl_configurations", crl_configurations)
-        pulumi.set(__self__, "ocsp_configurations", ocsp_configurations)
+                 crl_configurations: Optional[Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult']] = None,
+                 ocsp_configurations: Optional[Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult']] = None):
+        if crl_configurations is not None:
+            pulumi.set(__self__, "crl_configurations", crl_configurations)
+        if ocsp_configurations is not None:
+            pulumi.set(__self__, "ocsp_configurations", ocsp_configurations)
 
     @property
     @pulumi.getter(name="crlConfigurations")
-    def crl_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult']:
+    def crl_configurations(self) -> Optional[Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult']]:
         return pulumi.get(self, "crl_configurations")
 
     @property
     @pulumi.getter(name="ocspConfigurations")
-    def ocsp_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult']:
+    def ocsp_configurations(self) -> Optional[Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult']]:
         return pulumi.get(self, "ocsp_configurations")
 
 
 @pulumi.output_type
 class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict):
     def __init__(__self__, *,
-                 custom_cname: str,
-                 enabled: bool,
-                 expiration_in_days: int,
-                 s3_bucket_name: str,
-                 s3_object_acl: str):
-        pulumi.set(__self__, "custom_cname", custom_cname)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "expiration_in_days", expiration_in_days)
-        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
-        pulumi.set(__self__, "s3_object_acl", s3_object_acl)
+                 custom_cname: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 expiration_in_days: Optional[int] = None,
+                 s3_bucket_name: Optional[str] = None,
+                 s3_object_acl: Optional[str] = None):
+        if custom_cname is not None:
+            pulumi.set(__self__, "custom_cname", custom_cname)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if expiration_in_days is not None:
+            pulumi.set(__self__, "expiration_in_days", expiration_in_days)
+        if s3_bucket_name is not None:
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if s3_object_acl is not None:
+            pulumi.set(__self__, "s3_object_acl", s3_object_acl)
 
     @property
     @pulumi.getter(name="customCname")
-    def custom_cname(self) -> str:
+    def custom_cname(self) -> Optional[str]:
         return pulumi.get(self, "custom_cname")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="expirationInDays")
-    def expiration_in_days(self) -> int:
+    def expiration_in_days(self) -> Optional[int]:
         return pulumi.get(self, "expiration_in_days")
 
     @property
     @pulumi.getter(name="s3BucketName")
-    def s3_bucket_name(self) -> str:
+    def s3_bucket_name(self) -> Optional[str]:
         return pulumi.get(self, "s3_bucket_name")
 
     @property
     @pulumi.getter(name="s3ObjectAcl")
-    def s3_object_acl(self) -> str:
+    def s3_object_acl(self) -> Optional[str]:
         return pulumi.get(self, "s3_object_acl")
 
 
 @pulumi.output_type
 class GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult(dict):
     def __init__(__self__, *,
-                 enabled: bool,
-                 ocsp_custom_cname: str):
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
+                 enabled: Optional[bool] = None,
+                 ocsp_custom_cname: Optional[str] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if ocsp_custom_cname is not None:
+            pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="ocspCustomCname")
-    def ocsp_custom_cname(self) -> str:
+    def ocsp_custom_cname(self) -> Optional[str]:
         return pulumi.get(self, "ocsp_custom_cname")
 
 

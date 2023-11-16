@@ -19,12 +19,12 @@ public final class GetConnectionsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return IDs of the connections.
      * 
      */
-    private List<String> ids;
+    private @Nullable List<String> ids;
     private @Nullable Map<String,String> tags;
 
     private GetConnectionsResult() {}
@@ -38,15 +38,15 @@ public final class GetConnectionsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IDs of the connections.
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
@@ -63,8 +63,8 @@ public final class GetConnectionsResult {
     public static final class Builder {
         private @Nullable String deviceId;
         private String globalNetworkId;
-        private String id;
-        private List<String> ids;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetConnectionsResult defaults) {
@@ -87,13 +87,13 @@ public final class GetConnectionsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {

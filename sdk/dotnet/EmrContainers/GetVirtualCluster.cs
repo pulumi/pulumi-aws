@@ -138,7 +138,7 @@ namespace Pulumi.Aws.EmrContainers
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
         /// </summary>
@@ -146,40 +146,40 @@ namespace Pulumi.Aws.EmrContainers
         /// <summary>
         /// Unix epoch time stamp in seconds for when the cluster was created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the cluster.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// Key-value mapping of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string VirtualClusterId;
 
         [OutputConstructor]
         private GetVirtualClusterResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetVirtualClusterContainerProviderResult> containerProviders,
 
-            string createdAt,
+            string? createdAt,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string virtualClusterId)
         {

@@ -321,7 +321,7 @@ namespace Pulumi.Aws.LB
         /// The following arguments are optional:
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
@@ -353,13 +353,13 @@ namespace Pulumi.Aws.LB
         /// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         /// </summary>
         [Output("protocol")]
-        public Output<string> Protocol { get; private set; } = null!;
+        public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         /// </summary>
         [Output("sslPolicy")]
-        public Output<string> SslPolicy { get; private set; } = null!;
+        public Output<string?> SslPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

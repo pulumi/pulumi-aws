@@ -34,7 +34,7 @@ class GetClusterAuthResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -47,7 +47,7 @@ class GetClusterAuthResult:
 
     @property
     @pulumi.getter
-    def token(self) -> str:
+    def token(self) -> Optional[str]:
         """
         Token to use to authenticate with the cluster.
         """

@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserHierarchyGroupResult {
@@ -16,59 +18,59 @@ public final class GetUserHierarchyGroupResult {
      * @return ARN of the hierarchy group.
      * 
      */
-    private String arn;
-    private String hierarchyGroupId;
+    private @Nullable String arn;
+    private @Nullable String hierarchyGroupId;
     /**
      * @return Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
-    private List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths;
+    private @Nullable List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
     /**
      * @return Identifier of the level in the hierarchy group.
      * 
      */
-    private String levelId;
+    private @Nullable String levelId;
     /**
      * @return Name of the hierarchy group.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Map of tags to assign to the hierarchy group.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetUserHierarchyGroupResult() {}
     /**
      * @return ARN of the hierarchy group.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String hierarchyGroupId() {
-        return this.hierarchyGroupId;
+    public Optional<String> hierarchyGroupId() {
+        return Optional.ofNullable(this.hierarchyGroupId);
     }
     /**
      * @return Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths() {
-        return this.hierarchyPaths;
+        return this.hierarchyPaths == null ? List.of() : this.hierarchyPaths;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
@@ -77,22 +79,22 @@ public final class GetUserHierarchyGroupResult {
      * @return Identifier of the level in the hierarchy group.
      * 
      */
-    public String levelId() {
-        return this.levelId;
+    public Optional<String> levelId() {
+        return Optional.ofNullable(this.levelId);
     }
     /**
      * @return Name of the hierarchy group.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Map of tags to assign to the hierarchy group.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -104,14 +106,14 @@ public final class GetUserHierarchyGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String hierarchyGroupId;
-        private List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String hierarchyGroupId;
+        private @Nullable List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths;
+        private @Nullable String id;
         private String instanceId;
-        private String levelId;
-        private String name;
-        private Map<String,String> tags;
+        private @Nullable String levelId;
+        private @Nullable String name;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetUserHierarchyGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -126,26 +128,26 @@ public final class GetUserHierarchyGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder hierarchyGroupId(String hierarchyGroupId) {
-            this.hierarchyGroupId = Objects.requireNonNull(hierarchyGroupId);
+        public Builder hierarchyGroupId(@Nullable String hierarchyGroupId) {
+            this.hierarchyGroupId = hierarchyGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder hierarchyPaths(List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths) {
-            this.hierarchyPaths = Objects.requireNonNull(hierarchyPaths);
+        public Builder hierarchyPaths(@Nullable List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths) {
+            this.hierarchyPaths = hierarchyPaths;
             return this;
         }
         public Builder hierarchyPaths(GetUserHierarchyGroupHierarchyPath... hierarchyPaths) {
             return hierarchyPaths(List.of(hierarchyPaths));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -154,18 +156,18 @@ public final class GetUserHierarchyGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder levelId(String levelId) {
-            this.levelId = Objects.requireNonNull(levelId);
+        public Builder levelId(@Nullable String levelId) {
+            this.levelId = levelId;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetUserHierarchyGroupResult build() {

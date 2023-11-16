@@ -16,29 +16,29 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
         /// </summary>
-        public readonly int AccessControlMaxAgeSec;
+        public readonly int? AccessControlMaxAgeSec;
         /// <summary>
         /// Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
         /// </summary>
-        public readonly bool IncludeSubdomains;
+        public readonly bool? IncludeSubdomains;
         /// <summary>
         /// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        public readonly bool Override;
+        public readonly bool? Override;
         /// <summary>
         /// Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
         /// </summary>
-        public readonly bool Preload;
+        public readonly bool? Preload;
 
         [OutputConstructor]
         private GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult(
-            int accessControlMaxAgeSec,
+            int? accessControlMaxAgeSec,
 
-            bool includeSubdomains,
+            bool? includeSubdomains,
 
-            bool @override,
+            bool? @override,
 
-            bool preload)
+            bool? preload)
         {
             AccessControlMaxAgeSec = accessControlMaxAgeSec;
             IncludeSubdomains = includeSubdomains;

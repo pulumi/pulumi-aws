@@ -67,7 +67,7 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * The ARN of the WAF IPSet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      */

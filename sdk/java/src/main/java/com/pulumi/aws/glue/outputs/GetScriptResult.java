@@ -20,18 +20,18 @@ public final class GetScriptResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String language;
     /**
      * @return Python script generated from the DAG when the `language` argument is set to `PYTHON`.
      * 
      */
-    private String pythonScript;
+    private @Nullable String pythonScript;
     /**
      * @return Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      * 
      */
-    private String scalaCode;
+    private @Nullable String scalaCode;
 
     private GetScriptResult() {}
     public List<GetScriptDagEdge> dagEdges() {
@@ -44,8 +44,8 @@ public final class GetScriptResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> language() {
         return Optional.ofNullable(this.language);
@@ -54,15 +54,15 @@ public final class GetScriptResult {
      * @return Python script generated from the DAG when the `language` argument is set to `PYTHON`.
      * 
      */
-    public String pythonScript() {
-        return this.pythonScript;
+    public Optional<String> pythonScript() {
+        return Optional.ofNullable(this.pythonScript);
     }
     /**
      * @return Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      * 
      */
-    public String scalaCode() {
-        return this.scalaCode;
+    public Optional<String> scalaCode() {
+        return Optional.ofNullable(this.scalaCode);
     }
 
     public static Builder builder() {
@@ -76,10 +76,10 @@ public final class GetScriptResult {
     public static final class Builder {
         private List<GetScriptDagEdge> dagEdges;
         private List<GetScriptDagNode> dagNodes;
-        private String id;
+        private @Nullable String id;
         private @Nullable String language;
-        private String pythonScript;
-        private String scalaCode;
+        private @Nullable String pythonScript;
+        private @Nullable String scalaCode;
         public Builder() {}
         public Builder(GetScriptResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -108,8 +108,8 @@ public final class GetScriptResult {
             return dagNodes(List.of(dagNodes));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -118,13 +118,13 @@ public final class GetScriptResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pythonScript(String pythonScript) {
-            this.pythonScript = Objects.requireNonNull(pythonScript);
+        public Builder pythonScript(@Nullable String pythonScript) {
+            this.pythonScript = pythonScript;
             return this;
         }
         @CustomType.Setter
-        public Builder scalaCode(String scalaCode) {
-            this.scalaCode = Objects.requireNonNull(scalaCode);
+        public Builder scalaCode(@Nullable String scalaCode) {
+            this.scalaCode = scalaCode;
             return this;
         }
         public GetScriptResult build() {

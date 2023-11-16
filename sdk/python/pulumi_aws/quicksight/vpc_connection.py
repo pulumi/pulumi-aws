@@ -633,7 +633,7 @@ class VpcConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the VPC connection.
         """
@@ -641,7 +641,7 @@ class VpcConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> pulumi.Output[str]:
+    def availability_status(self) -> pulumi.Output[Optional[str]]:
         """
         The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
         """
@@ -649,7 +649,7 @@ class VpcConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """

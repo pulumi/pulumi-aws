@@ -165,14 +165,14 @@ public class Member extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
-    private Output<String> relationshipStatus;
+    private Output</* @Nullable */ String> relationshipStatus;
 
     /**
      * @return The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      * 
      */
-    public Output<String> relationshipStatus() {
-        return this.relationshipStatus;
+    public Output<Optional<String>> relationshipStatus() {
+        return Codegen.optional(this.relationshipStatus);
     }
 
     /**

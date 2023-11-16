@@ -113,19 +113,19 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Unique identifier for the code signing configuration.
         /// </summary>
-        public readonly string ConfigId;
+        public readonly string? ConfigId;
         /// <summary>
         /// Code signing configuration description.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Date and time that the code signing configuration was last modified.
         /// </summary>
-        public readonly string LastModified;
+        public readonly string? LastModified;
         /// <summary>
         /// List of code signing policies that control the validation failure action for signature mismatch or expiry.
         /// </summary>
@@ -137,13 +137,13 @@ namespace Pulumi.Aws.Lambda
 
             string arn,
 
-            string configId,
+            string? configId,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string lastModified,
+            string? lastModified,
 
             ImmutableArray<Outputs.GetCodeSigningConfigPolicyResult> policies)
         {

@@ -55,11 +55,11 @@ export class GroupMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupMembership.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * The name of the group in which the member will be added.
      */

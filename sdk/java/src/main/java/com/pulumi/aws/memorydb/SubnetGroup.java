@@ -81,14 +81,14 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the subnet group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description for the subnet group.
@@ -123,14 +123,14 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
@@ -187,14 +187,14 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The VPC in which the subnet group exists.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

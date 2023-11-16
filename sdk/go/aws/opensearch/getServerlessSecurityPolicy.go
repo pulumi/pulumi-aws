@@ -60,19 +60,19 @@ type LookupServerlessSecurityPolicyArgs struct {
 // A collection of values returned by getServerlessSecurityPolicy.
 type LookupServerlessSecurityPolicyResult struct {
 	// The date the security policy was created.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the security policy.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The date the security policy was last modified.
-	LastModifiedDate string `pulumi:"lastModifiedDate"`
-	Name             string `pulumi:"name"`
+	LastModifiedDate *string `pulumi:"lastModifiedDate"`
+	Name             string  `pulumi:"name"`
 	// The JSON policy document without any whitespaces.
-	Policy string `pulumi:"policy"`
+	Policy *string `pulumi:"policy"`
 	// Version of the policy.
-	PolicyVersion string `pulumi:"policyVersion"`
-	Type          string `pulumi:"type"`
+	PolicyVersion *string `pulumi:"policyVersion"`
+	Type          string  `pulumi:"type"`
 }
 
 func LookupServerlessSecurityPolicyOutput(ctx *pulumi.Context, args LookupServerlessSecurityPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessSecurityPolicyResultOutput {
@@ -116,23 +116,23 @@ func (o LookupServerlessSecurityPolicyResultOutput) ToLookupServerlessSecurityPo
 }
 
 // The date the security policy was created.
-func (o LookupServerlessSecurityPolicyResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityPolicyResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of the security policy.
-func (o LookupServerlessSecurityPolicyResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityPolicyResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupServerlessSecurityPolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The date the security policy was last modified.
-func (o LookupServerlessSecurityPolicyResultOutput) LastModifiedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityPolicyResultOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) *string { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServerlessSecurityPolicyResultOutput) Name() pulumi.StringOutput {
@@ -140,13 +140,13 @@ func (o LookupServerlessSecurityPolicyResultOutput) Name() pulumi.StringOutput {
 }
 
 // The JSON policy document without any whitespaces.
-func (o LookupServerlessSecurityPolicyResultOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityPolicyResultOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // Version of the policy.
-func (o LookupServerlessSecurityPolicyResultOutput) PolicyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
+func (o LookupServerlessSecurityPolicyResultOutput) PolicyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) *string { return v.PolicyVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServerlessSecurityPolicyResultOutput) Type() pulumi.StringOutput {

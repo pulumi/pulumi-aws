@@ -152,77 +152,77 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the selected Network Insights Path.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// AWS resource that is the destination of the path.
         /// </summary>
-        public readonly string Destination;
+        public readonly string? Destination;
         /// <summary>
         /// ARN of the destination.
         /// </summary>
-        public readonly string DestinationArn;
+        public readonly string? DestinationArn;
         /// <summary>
         /// IP address of the AWS resource that is the destination of the path.
         /// </summary>
-        public readonly string DestinationIp;
+        public readonly string? DestinationIp;
         /// <summary>
         /// Destination port.
         /// </summary>
-        public readonly int DestinationPort;
+        public readonly int? DestinationPort;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsPathFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string NetworkInsightsPathId;
+        public readonly string? Id;
+        public readonly string? NetworkInsightsPathId;
         /// <summary>
         /// Protocol.
         /// </summary>
-        public readonly string Protocol;
+        public readonly string? Protocol;
         /// <summary>
         /// AWS resource that is the source of the path.
         /// </summary>
-        public readonly string Source;
+        public readonly string? Source;
         /// <summary>
         /// ARN of the source.
         /// </summary>
-        public readonly string SourceArn;
+        public readonly string? SourceArn;
         /// <summary>
         /// IP address of the AWS resource that is the source of the path.
         /// </summary>
-        public readonly string SourceIp;
+        public readonly string? SourceIp;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetNetworkInsightsPathResult(
-            string arn,
+            string? arn,
 
-            string destination,
+            string? destination,
 
-            string destinationArn,
+            string? destinationArn,
 
-            string destinationIp,
+            string? destinationIp,
 
-            int destinationPort,
+            int? destinationPort,
 
             ImmutableArray<Outputs.GetNetworkInsightsPathFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string networkInsightsPathId,
+            string? networkInsightsPathId,
 
-            string protocol,
+            string? protocol,
 
-            string source,
+            string? source,
 
-            string sourceArn,
+            string? sourceArn,
 
-            string sourceIp,
+            string? sourceIp,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Destination = destination;

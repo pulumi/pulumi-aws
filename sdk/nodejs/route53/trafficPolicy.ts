@@ -84,11 +84,11 @@ export class TrafficPolicy extends pulumi.CustomResource {
     /**
      * DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
     /**
      * Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a TrafficPolicy resource with the given unique name, arguments, and options.

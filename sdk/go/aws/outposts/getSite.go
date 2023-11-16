@@ -59,11 +59,11 @@ type GetSiteArgs struct {
 // A collection of values returned by getSite.
 type GetSiteResult struct {
 	// AWS Account identifier.
-	AccountId string `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Description.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
+	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
+	Name        *string `pulumi:"name"`
 }
 
 func GetSiteOutput(ctx *pulumi.Context, args GetSiteOutputArgs, opts ...pulumi.InvokeOption) GetSiteResultOutput {
@@ -107,21 +107,21 @@ func (o GetSiteResultOutput) ToGetSiteResultOutputWithContext(ctx context.Contex
 }
 
 // AWS Account identifier.
-func (o GetSiteResultOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSiteResult) string { return v.AccountId }).(pulumi.StringOutput)
+func (o GetSiteResultOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSiteResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // Description.
-func (o GetSiteResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSiteResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetSiteResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSiteResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSiteResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSiteResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSiteResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSiteResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSiteResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSiteResult) string { return v.Name }).(pulumi.StringOutput)
+func (o GetSiteResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSiteResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func init() {

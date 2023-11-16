@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionAmiDistributionConfiguration {
@@ -16,32 +18,32 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
      * @return Key-value map of tags to apply to distributed AMI.
      * 
      */
-    private Map<String,String> amiTags;
+    private @Nullable Map<String,String> amiTags;
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return ARN of Key Management Service (KMS) Key to encrypt AMI.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Nested list of EC2 launch permissions.
      * 
      */
-    private List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions;
+    private @Nullable List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions;
     /**
      * @return Name of the distribution configuration.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Set of target AWS Account identifiers.
      * 
      */
-    private List<String> targetAccountIds;
+    private @Nullable List<String> targetAccountIds;
 
     private GetDistributionConfigurationDistributionAmiDistributionConfiguration() {}
     /**
@@ -49,42 +51,42 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
      * 
      */
     public Map<String,String> amiTags() {
-        return this.amiTags;
+        return this.amiTags == null ? Map.of() : this.amiTags;
     }
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return ARN of Key Management Service (KMS) Key to encrypt AMI.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return Nested list of EC2 launch permissions.
      * 
      */
     public List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions() {
-        return this.launchPermissions;
+        return this.launchPermissions == null ? List.of() : this.launchPermissions;
     }
     /**
      * @return Name of the distribution configuration.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Set of target AWS Account identifiers.
      * 
      */
     public List<String> targetAccountIds() {
-        return this.targetAccountIds;
+        return this.targetAccountIds == null ? List.of() : this.targetAccountIds;
     }
 
     public static Builder builder() {
@@ -96,12 +98,12 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,String> amiTags;
-        private String description;
-        private String kmsKeyId;
-        private List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions;
-        private String name;
-        private List<String> targetAccountIds;
+        private @Nullable Map<String,String> amiTags;
+        private @Nullable String description;
+        private @Nullable String kmsKeyId;
+        private @Nullable List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions;
+        private @Nullable String name;
+        private @Nullable List<String> targetAccountIds;
         public Builder() {}
         public Builder(GetDistributionConfigurationDistributionAmiDistributionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -114,36 +116,36 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
         }
 
         @CustomType.Setter
-        public Builder amiTags(Map<String,String> amiTags) {
-            this.amiTags = Objects.requireNonNull(amiTags);
+        public Builder amiTags(@Nullable Map<String,String> amiTags) {
+            this.amiTags = amiTags;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder launchPermissions(List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions) {
-            this.launchPermissions = Objects.requireNonNull(launchPermissions);
+        public Builder launchPermissions(@Nullable List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions) {
+            this.launchPermissions = launchPermissions;
             return this;
         }
         public Builder launchPermissions(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission... launchPermissions) {
             return launchPermissions(List.of(launchPermissions));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder targetAccountIds(List<String> targetAccountIds) {
-            this.targetAccountIds = Objects.requireNonNull(targetAccountIds);
+        public Builder targetAccountIds(@Nullable List<String> targetAccountIds) {
+            this.targetAccountIds = targetAccountIds;
             return this;
         }
         public Builder targetAccountIds(String... targetAccountIds) {

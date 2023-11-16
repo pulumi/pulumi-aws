@@ -772,7 +772,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appstreamAgentVersion")
-    def appstream_agent_version(self) -> pulumi.Output[str]:
+    def appstream_agent_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of the AppStream 2.0 agent to use for this image builder.
         """
@@ -780,7 +780,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the appstream image builder.
         """
@@ -788,7 +788,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         """
@@ -796,7 +796,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description to display.
         """
@@ -804,7 +804,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         Human-readable friendly name for the AppStream image builder.
         """
@@ -812,7 +812,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainJoinInfo")
-    def domain_join_info(self) -> pulumi.Output['outputs.ImageBuilderDomainJoinInfo']:
+    def domain_join_info(self) -> pulumi.Output[Optional['outputs.ImageBuilderDomainJoinInfo']]:
         """
         Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         """
@@ -820,7 +820,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
-    def enable_default_internet_access(self) -> pulumi.Output[bool]:
+    def enable_default_internet_access(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables or disables default internet access for the image builder.
         """
@@ -828,7 +828,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> pulumi.Output[str]:
+    def iam_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the IAM role to apply to the image builder.
         """
@@ -836,7 +836,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageArn")
-    def image_arn(self) -> pulumi.Output[str]:
+    def image_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the public, private, or shared image to use.
         """
@@ -844,7 +844,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> pulumi.Output[str]:
+    def image_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the image used to create the image builder.
         """
@@ -870,7 +870,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
         """
@@ -897,7 +897,7 @@ class ImageBuilder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> pulumi.Output['outputs.ImageBuilderVpcConfig']:
+    def vpc_config(self) -> pulumi.Output[Optional['outputs.ImageBuilderVpcConfig']]:
         """
         Configuration block for the VPC configuration for the image builder. See below.
         """

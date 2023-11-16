@@ -69,17 +69,17 @@ type Disk struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Lightsail load balancer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Availability Zone in which to create your disk.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// The timestamp when the load balancer was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The name of the Lightsail load balancer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The instance port the load balancer will connect.
 	SizeInGb pulumi.IntOutput `pulumi:"sizeInGb"`
 	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
+	SupportCode pulumi.StringPtrOutput `pulumi:"supportCode"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -284,8 +284,8 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 }
 
 // The ARN of the Lightsail load balancer.
-func (o DiskOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DiskOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone in which to create your disk.
@@ -294,8 +294,8 @@ func (o DiskOutput) AvailabilityZone() pulumi.StringOutput {
 }
 
 // The timestamp when the load balancer was created.
-func (o DiskOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o DiskOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Lightsail load balancer.
@@ -309,8 +309,8 @@ func (o DiskOutput) SizeInGb() pulumi.IntOutput {
 }
 
 // The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-func (o DiskOutput) SupportCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
+func (o DiskOutput) SupportCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.SupportCode }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

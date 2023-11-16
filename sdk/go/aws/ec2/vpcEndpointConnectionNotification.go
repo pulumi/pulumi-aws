@@ -106,9 +106,9 @@ type VpcEndpointConnectionNotification struct {
 	// The ARN of the SNS topic for the notifications.
 	ConnectionNotificationArn pulumi.StringOutput `pulumi:"connectionNotificationArn"`
 	// The type of notification.
-	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
+	NotificationType pulumi.StringPtrOutput `pulumi:"notificationType"`
 	// The state of the notification.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The ID of the VPC Endpoint to receive notifications for.
 	VpcEndpointId pulumi.StringPtrOutput `pulumi:"vpcEndpointId"`
 	// The ID of the VPC Endpoint Service to receive notifications for.
@@ -315,13 +315,13 @@ func (o VpcEndpointConnectionNotificationOutput) ConnectionNotificationArn() pul
 }
 
 // The type of notification.
-func (o VpcEndpointConnectionNotificationOutput) NotificationType() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
+func (o VpcEndpointConnectionNotificationOutput) NotificationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringPtrOutput { return v.NotificationType }).(pulumi.StringPtrOutput)
 }
 
 // The state of the notification.
-func (o VpcEndpointConnectionNotificationOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o VpcEndpointConnectionNotificationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the VPC Endpoint to receive notifications for.

@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlaceIndexResult {
@@ -16,86 +18,86 @@ public final class GetPlaceIndexResult {
      * @return Timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
-    private String createTime;
+    private @Nullable String createTime;
     /**
      * @return Data provider of geospatial data.
      * 
      */
-    private String dataSource;
+    private @Nullable String dataSource;
     /**
      * @return List of configurations that specify data storage option for requesting Places.
      * 
      */
-    private List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations;
+    private @Nullable List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations;
     /**
      * @return Optional description for the place index resource.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN for the place index resource.
      * 
      */
-    private String indexArn;
+    private @Nullable String indexArn;
     private String indexName;
     /**
      * @return Key-value map of resource tags for the place index.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
-    private String updateTime;
+    private @Nullable String updateTime;
 
     private GetPlaceIndexResult() {}
     /**
      * @return Timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
-    public String createTime() {
-        return this.createTime;
+    public Optional<String> createTime() {
+        return Optional.ofNullable(this.createTime);
     }
     /**
      * @return Data provider of geospatial data.
      * 
      */
-    public String dataSource() {
-        return this.dataSource;
+    public Optional<String> dataSource() {
+        return Optional.ofNullable(this.dataSource);
     }
     /**
      * @return List of configurations that specify data storage option for requesting Places.
      * 
      */
     public List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations() {
-        return this.dataSourceConfigurations;
+        return this.dataSourceConfigurations == null ? List.of() : this.dataSourceConfigurations;
     }
     /**
      * @return Optional description for the place index resource.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN for the place index resource.
      * 
      */
-    public String indexArn() {
-        return this.indexArn;
+    public Optional<String> indexArn() {
+        return Optional.ofNullable(this.indexArn);
     }
     public String indexName() {
         return this.indexName;
@@ -105,14 +107,14 @@ public final class GetPlaceIndexResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
-    public String updateTime() {
-        return this.updateTime;
+    public Optional<String> updateTime() {
+        return Optional.ofNullable(this.updateTime);
     }
 
     public static Builder builder() {
@@ -124,15 +126,15 @@ public final class GetPlaceIndexResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String createTime;
-        private String dataSource;
-        private List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations;
-        private String description;
-        private String id;
-        private String indexArn;
+        private @Nullable String createTime;
+        private @Nullable String dataSource;
+        private @Nullable List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String indexArn;
         private String indexName;
-        private Map<String,String> tags;
-        private String updateTime;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String updateTime;
         public Builder() {}
         public Builder(GetPlaceIndexResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -148,36 +150,36 @@ public final class GetPlaceIndexResult {
         }
 
         @CustomType.Setter
-        public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+        public Builder createTime(@Nullable String createTime) {
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
-        public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+        public Builder dataSource(@Nullable String dataSource) {
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
-        public Builder dataSourceConfigurations(List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations) {
-            this.dataSourceConfigurations = Objects.requireNonNull(dataSourceConfigurations);
+        public Builder dataSourceConfigurations(@Nullable List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations) {
+            this.dataSourceConfigurations = dataSourceConfigurations;
             return this;
         }
         public Builder dataSourceConfigurations(GetPlaceIndexDataSourceConfiguration... dataSourceConfigurations) {
             return dataSourceConfigurations(List.of(dataSourceConfigurations));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder indexArn(String indexArn) {
-            this.indexArn = Objects.requireNonNull(indexArn);
+        public Builder indexArn(@Nullable String indexArn) {
+            this.indexArn = indexArn;
             return this;
         }
         @CustomType.Setter
@@ -186,13 +188,13 @@ public final class GetPlaceIndexResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder updateTime(String updateTime) {
-            this.updateTime = Objects.requireNonNull(updateTime);
+        public Builder updateTime(@Nullable String updateTime) {
+            this.updateTime = updateTime;
             return this;
         }
         public GetPlaceIndexResult build() {

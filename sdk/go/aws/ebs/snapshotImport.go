@@ -53,30 +53,30 @@ type SnapshotImport struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the EBS Snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The client-specific data. Detailed below.
 	ClientData SnapshotImportClientDataPtrOutput `pulumi:"clientData"`
 	// The data encryption key identifier for the snapshot.
-	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
+	DataEncryptionKeyId pulumi.StringPtrOutput `pulumi:"dataEncryptionKeyId"`
 	// The description string for the import snapshot task.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Information about the disk container. Detailed below.
 	DiskContainer SnapshotImportDiskContainerOutput `pulumi:"diskContainer"`
 	// Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
 	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
 	KmsKeyId   pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	OutpostArn pulumi.StringOutput    `pulumi:"outpostArn"`
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
+	OwnerAlias pulumi.StringPtrOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
+	StorageTier pulumi.StringPtrOutput `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -84,10 +84,10 @@ type SnapshotImport struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-	TemporaryRestoreDays pulumi.IntPtrOutput `pulumi:"temporaryRestoreDays"`
-	VolumeId             pulumi.StringOutput `pulumi:"volumeId"`
+	TemporaryRestoreDays pulumi.IntPtrOutput    `pulumi:"temporaryRestoreDays"`
+	VolumeId             pulumi.StringPtrOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
-	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
+	VolumeSize pulumi.IntPtrOutput `pulumi:"volumeSize"`
 }
 
 // NewSnapshotImport registers a new resource with the given unique name, arguments, and options.
@@ -343,8 +343,8 @@ func (o SnapshotImportOutput) ToSnapshotImportOutputWithContext(ctx context.Cont
 }
 
 // Amazon Resource Name (ARN) of the EBS Snapshot.
-func (o SnapshotImportOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SnapshotImportOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The client-specific data. Detailed below.
@@ -353,13 +353,13 @@ func (o SnapshotImportOutput) ClientData() SnapshotImportClientDataPtrOutput {
 }
 
 // The data encryption key identifier for the snapshot.
-func (o SnapshotImportOutput) DataEncryptionKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.DataEncryptionKeyId }).(pulumi.StringOutput)
+func (o SnapshotImportOutput) DataEncryptionKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.StringPtrOutput { return v.DataEncryptionKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The description string for the import snapshot task.
-func (o SnapshotImportOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o SnapshotImportOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Information about the disk container. Detailed below.
@@ -377,18 +377,18 @@ func (o SnapshotImportOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImport) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o SnapshotImportOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.OutpostArn }).(pulumi.StringOutput)
+func (o SnapshotImportOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-func (o SnapshotImportOutput) OwnerAlias() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.OwnerAlias }).(pulumi.StringOutput)
+func (o SnapshotImportOutput) OwnerAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.StringPtrOutput { return v.OwnerAlias }).(pulumi.StringPtrOutput)
 }
 
 // The AWS account ID of the EBS snapshot owner.
-func (o SnapshotImportOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o SnapshotImportOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether to permanently restore an archived snapshot.
@@ -402,8 +402,8 @@ func (o SnapshotImportOutput) RoleName() pulumi.StringPtrOutput {
 }
 
 // The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-func (o SnapshotImportOutput) StorageTier() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.StorageTier }).(pulumi.StringOutput)
+func (o SnapshotImportOutput) StorageTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.StringPtrOutput { return v.StorageTier }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the snapshot.
@@ -423,13 +423,13 @@ func (o SnapshotImportOutput) TemporaryRestoreDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SnapshotImport) pulumi.IntPtrOutput { return v.TemporaryRestoreDays }).(pulumi.IntPtrOutput)
 }
 
-func (o SnapshotImportOutput) VolumeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
+func (o SnapshotImportOutput) VolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.StringPtrOutput { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
 // The size of the drive in GiBs.
-func (o SnapshotImportOutput) VolumeSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *SnapshotImport) pulumi.IntOutput { return v.VolumeSize }).(pulumi.IntOutput)
+func (o SnapshotImportOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotImport) pulumi.IntPtrOutput { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
 type SnapshotImportArrayOutput struct{ *pulumi.OutputState }

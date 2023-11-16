@@ -4800,7 +4800,7 @@ func (o UserPhoneConfigPtrOutput) PhoneType() pulumi.StringPtrOutput {
 
 type GetBotAssociationLexBot struct {
 	// Region that the Amazon Lex (V1) bot was created in.
-	LexRegion string `pulumi:"lexRegion"`
+	LexRegion *string `pulumi:"lexRegion"`
 	// Name of the Amazon Lex (V1) bot.
 	Name string `pulumi:"name"`
 }
@@ -4818,7 +4818,7 @@ type GetBotAssociationLexBotInput interface {
 
 type GetBotAssociationLexBotArgs struct {
 	// Region that the Amazon Lex (V1) bot was created in.
-	LexRegion pulumi.StringInput `pulumi:"lexRegion"`
+	LexRegion pulumi.StringPtrInput `pulumi:"lexRegion"`
 	// Name of the Amazon Lex (V1) bot.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -4850,8 +4850,8 @@ func (o GetBotAssociationLexBotOutput) ToGetBotAssociationLexBotOutputWithContex
 }
 
 // Region that the Amazon Lex (V1) bot was created in.
-func (o GetBotAssociationLexBotOutput) LexRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBotAssociationLexBot) string { return v.LexRegion }).(pulumi.StringOutput)
+func (o GetBotAssociationLexBotOutput) LexRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBotAssociationLexBot) *string { return v.LexRegion }).(pulumi.StringPtrOutput)
 }
 
 // Name of the Amazon Lex (V1) bot.
@@ -4861,7 +4861,7 @@ func (o GetBotAssociationLexBotOutput) Name() pulumi.StringOutput {
 
 type GetHoursOfOperationConfig struct {
 	// Day that the hours of operation applies to.
-	Day string `pulumi:"day"`
+	Day *string `pulumi:"day"`
 	// End time block specifies the time that your contact center closes. The `endTime` is documented below.
 	EndTimes []GetHoursOfOperationConfigEndTime `pulumi:"endTimes"`
 	// Start time block specifies the time that your contact center opens. The `startTime` is documented below.
@@ -4881,7 +4881,7 @@ type GetHoursOfOperationConfigInput interface {
 
 type GetHoursOfOperationConfigArgs struct {
 	// Day that the hours of operation applies to.
-	Day pulumi.StringInput `pulumi:"day"`
+	Day pulumi.StringPtrInput `pulumi:"day"`
 	// End time block specifies the time that your contact center closes. The `endTime` is documented below.
 	EndTimes GetHoursOfOperationConfigEndTimeArrayInput `pulumi:"endTimes"`
 	// Start time block specifies the time that your contact center opens. The `startTime` is documented below.
@@ -4940,8 +4940,8 @@ func (o GetHoursOfOperationConfigOutput) ToGetHoursOfOperationConfigOutputWithCo
 }
 
 // Day that the hours of operation applies to.
-func (o GetHoursOfOperationConfigOutput) Day() pulumi.StringOutput {
-	return o.ApplyT(func(v GetHoursOfOperationConfig) string { return v.Day }).(pulumi.StringOutput)
+func (o GetHoursOfOperationConfigOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetHoursOfOperationConfig) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
 // End time block specifies the time that your contact center closes. The `endTime` is documented below.
@@ -4976,9 +4976,9 @@ func (o GetHoursOfOperationConfigArrayOutput) Index(i pulumi.IntInput) GetHoursO
 
 type GetHoursOfOperationConfigEndTime struct {
 	// Hour of opening.
-	Hours int `pulumi:"hours"`
+	Hours *int `pulumi:"hours"`
 	// Minute of opening.
-	Minutes int `pulumi:"minutes"`
+	Minutes *int `pulumi:"minutes"`
 }
 
 // GetHoursOfOperationConfigEndTimeInput is an input type that accepts GetHoursOfOperationConfigEndTimeArgs and GetHoursOfOperationConfigEndTimeOutput values.
@@ -4994,9 +4994,9 @@ type GetHoursOfOperationConfigEndTimeInput interface {
 
 type GetHoursOfOperationConfigEndTimeArgs struct {
 	// Hour of opening.
-	Hours pulumi.IntInput `pulumi:"hours"`
+	Hours pulumi.IntPtrInput `pulumi:"hours"`
 	// Minute of opening.
-	Minutes pulumi.IntInput `pulumi:"minutes"`
+	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
 }
 
 func (GetHoursOfOperationConfigEndTimeArgs) ElementType() reflect.Type {
@@ -5051,13 +5051,13 @@ func (o GetHoursOfOperationConfigEndTimeOutput) ToGetHoursOfOperationConfigEndTi
 }
 
 // Hour of opening.
-func (o GetHoursOfOperationConfigEndTimeOutput) Hours() pulumi.IntOutput {
-	return o.ApplyT(func(v GetHoursOfOperationConfigEndTime) int { return v.Hours }).(pulumi.IntOutput)
+func (o GetHoursOfOperationConfigEndTimeOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetHoursOfOperationConfigEndTime) *int { return v.Hours }).(pulumi.IntPtrOutput)
 }
 
 // Minute of opening.
-func (o GetHoursOfOperationConfigEndTimeOutput) Minutes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetHoursOfOperationConfigEndTime) int { return v.Minutes }).(pulumi.IntOutput)
+func (o GetHoursOfOperationConfigEndTimeOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetHoursOfOperationConfigEndTime) *int { return v.Minutes }).(pulumi.IntPtrOutput)
 }
 
 type GetHoursOfOperationConfigEndTimeArrayOutput struct{ *pulumi.OutputState }
@@ -5082,9 +5082,9 @@ func (o GetHoursOfOperationConfigEndTimeArrayOutput) Index(i pulumi.IntInput) Ge
 
 type GetHoursOfOperationConfigStartTime struct {
 	// Hour of opening.
-	Hours int `pulumi:"hours"`
+	Hours *int `pulumi:"hours"`
 	// Minute of opening.
-	Minutes int `pulumi:"minutes"`
+	Minutes *int `pulumi:"minutes"`
 }
 
 // GetHoursOfOperationConfigStartTimeInput is an input type that accepts GetHoursOfOperationConfigStartTimeArgs and GetHoursOfOperationConfigStartTimeOutput values.
@@ -5100,9 +5100,9 @@ type GetHoursOfOperationConfigStartTimeInput interface {
 
 type GetHoursOfOperationConfigStartTimeArgs struct {
 	// Hour of opening.
-	Hours pulumi.IntInput `pulumi:"hours"`
+	Hours pulumi.IntPtrInput `pulumi:"hours"`
 	// Minute of opening.
-	Minutes pulumi.IntInput `pulumi:"minutes"`
+	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
 }
 
 func (GetHoursOfOperationConfigStartTimeArgs) ElementType() reflect.Type {
@@ -5157,13 +5157,13 @@ func (o GetHoursOfOperationConfigStartTimeOutput) ToGetHoursOfOperationConfigSta
 }
 
 // Hour of opening.
-func (o GetHoursOfOperationConfigStartTimeOutput) Hours() pulumi.IntOutput {
-	return o.ApplyT(func(v GetHoursOfOperationConfigStartTime) int { return v.Hours }).(pulumi.IntOutput)
+func (o GetHoursOfOperationConfigStartTimeOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetHoursOfOperationConfigStartTime) *int { return v.Hours }).(pulumi.IntPtrOutput)
 }
 
 // Minute of opening.
-func (o GetHoursOfOperationConfigStartTimeOutput) Minutes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetHoursOfOperationConfigStartTime) int { return v.Minutes }).(pulumi.IntOutput)
+func (o GetHoursOfOperationConfigStartTimeOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetHoursOfOperationConfigStartTime) *int { return v.Minutes }).(pulumi.IntPtrOutput)
 }
 
 type GetHoursOfOperationConfigStartTimeArrayOutput struct{ *pulumi.OutputState }
@@ -5196,7 +5196,7 @@ type GetInstanceStorageConfigStorageConfig struct {
 	// A block that specifies the configuration of S3 Bucket. Documented below.
 	S3Configs []GetInstanceStorageConfigStorageConfigS3Config `pulumi:"s3Configs"`
 	// A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-	StorageType string `pulumi:"storageType"`
+	StorageType *string `pulumi:"storageType"`
 }
 
 // GetInstanceStorageConfigStorageConfigInput is an input type that accepts GetInstanceStorageConfigStorageConfigArgs and GetInstanceStorageConfigStorageConfigOutput values.
@@ -5220,7 +5220,7 @@ type GetInstanceStorageConfigStorageConfigArgs struct {
 	// A block that specifies the configuration of S3 Bucket. Documented below.
 	S3Configs GetInstanceStorageConfigStorageConfigS3ConfigArrayInput `pulumi:"s3Configs"`
 	// A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-	StorageType pulumi.StringInput `pulumi:"storageType"`
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 }
 
 func (GetInstanceStorageConfigStorageConfigArgs) ElementType() reflect.Type {
@@ -5303,8 +5303,8 @@ func (o GetInstanceStorageConfigStorageConfigOutput) S3Configs() GetInstanceStor
 }
 
 // A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-func (o GetInstanceStorageConfigStorageConfigOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfig) string { return v.StorageType }).(pulumi.StringOutput)
+func (o GetInstanceStorageConfigStorageConfigOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfig) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 type GetInstanceStorageConfigStorageConfigArrayOutput struct{ *pulumi.OutputState }
@@ -5329,7 +5329,7 @@ func (o GetInstanceStorageConfigStorageConfigArrayOutput) Index(i pulumi.IntInpu
 
 type GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
-	FirehoseArn string `pulumi:"firehoseArn"`
+	FirehoseArn *string `pulumi:"firehoseArn"`
 }
 
 // GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigInput is an input type that accepts GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs and GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigOutput values.
@@ -5345,7 +5345,7 @@ type GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigInput interface {
 
 type GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
-	FirehoseArn pulumi.StringInput `pulumi:"firehoseArn"`
+	FirehoseArn pulumi.StringPtrInput `pulumi:"firehoseArn"`
 }
 
 func (GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs) ElementType() reflect.Type {
@@ -5400,8 +5400,8 @@ func (o GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigOutput) ToGetI
 }
 
 // The Amazon Resource Name (ARN) of the delivery stream.
-func (o GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigOutput) FirehoseArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig) string { return v.FirehoseArn }).(pulumi.StringOutput)
+func (o GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigOutput) FirehoseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig) *string { return v.FirehoseArn }).(pulumi.StringPtrOutput)
 }
 
 type GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArrayOutput struct{ *pulumi.OutputState }
@@ -5426,7 +5426,7 @@ func (o GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArrayOutput) I
 
 type GetInstanceStorageConfigStorageConfigKinesisStreamConfig struct {
 	// The Amazon Resource Name (ARN) of the data stream.
-	StreamArn string `pulumi:"streamArn"`
+	StreamArn *string `pulumi:"streamArn"`
 }
 
 // GetInstanceStorageConfigStorageConfigKinesisStreamConfigInput is an input type that accepts GetInstanceStorageConfigStorageConfigKinesisStreamConfigArgs and GetInstanceStorageConfigStorageConfigKinesisStreamConfigOutput values.
@@ -5442,7 +5442,7 @@ type GetInstanceStorageConfigStorageConfigKinesisStreamConfigInput interface {
 
 type GetInstanceStorageConfigStorageConfigKinesisStreamConfigArgs struct {
 	// The Amazon Resource Name (ARN) of the data stream.
-	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+	StreamArn pulumi.StringPtrInput `pulumi:"streamArn"`
 }
 
 func (GetInstanceStorageConfigStorageConfigKinesisStreamConfigArgs) ElementType() reflect.Type {
@@ -5497,8 +5497,8 @@ func (o GetInstanceStorageConfigStorageConfigKinesisStreamConfigOutput) ToGetIns
 }
 
 // The Amazon Resource Name (ARN) of the data stream.
-func (o GetInstanceStorageConfigStorageConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
+func (o GetInstanceStorageConfigStorageConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisStreamConfig) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
 
 type GetInstanceStorageConfigStorageConfigKinesisStreamConfigArrayOutput struct{ *pulumi.OutputState }
@@ -5525,9 +5525,9 @@ type GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig struct {
 	// The encryption configuration. Documented below.
 	EncryptionConfigs []GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig `pulumi:"encryptionConfigs"`
 	// The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
-	Prefix string `pulumi:"prefix"`
+	Prefix *string `pulumi:"prefix"`
 	// The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
-	RetentionPeriodHours int `pulumi:"retentionPeriodHours"`
+	RetentionPeriodHours *int `pulumi:"retentionPeriodHours"`
 }
 
 // GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigInput is an input type that accepts GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs and GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigOutput values.
@@ -5545,9 +5545,9 @@ type GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs struct {
 	// The encryption configuration. Documented below.
 	EncryptionConfigs GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrayInput `pulumi:"encryptionConfigs"`
 	// The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
-	Prefix pulumi.StringInput `pulumi:"prefix"`
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
-	RetentionPeriodHours pulumi.IntInput `pulumi:"retentionPeriodHours"`
+	RetentionPeriodHours pulumi.IntPtrInput `pulumi:"retentionPeriodHours"`
 }
 
 func (GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs) ElementType() reflect.Type {
@@ -5609,15 +5609,15 @@ func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigOutput) Enc
 }
 
 // The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
-func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 // The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
-func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigOutput) RetentionPeriodHours() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig) int {
+func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigOutput) RetentionPeriodHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig) *int {
 		return v.RetentionPeriodHours
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrayOutput struct{ *pulumi.OutputState }
@@ -5642,9 +5642,9 @@ func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrayOutput
 
 type GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig struct {
 	// The type of encryption. Valid Values: `KMS`.
-	EncryptionType string `pulumi:"encryptionType"`
+	EncryptionType *string `pulumi:"encryptionType"`
 	// The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-	KeyId string `pulumi:"keyId"`
+	KeyId *string `pulumi:"keyId"`
 }
 
 // GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigInput is an input type that accepts GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs and GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigOutput values.
@@ -5660,9 +5660,9 @@ type GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConf
 
 type GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs struct {
 	// The type of encryption. Valid Values: `KMS`.
-	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
+	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
 	// The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-	KeyId pulumi.StringInput `pulumi:"keyId"`
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
 }
 
 func (GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs) ElementType() reflect.Type {
@@ -5717,17 +5717,17 @@ func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionC
 }
 
 // The type of encryption. Valid Values: `KMS`.
-func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigOutput) EncryptionType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig) string {
+func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig) *string {
 		return v.EncryptionType
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigOutput) KeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig) string {
+func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig) *string {
 		return v.KeyId
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrayOutput struct{ *pulumi.OutputState }
@@ -5752,9 +5752,9 @@ func (o GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionC
 
 type GetInstanceStorageConfigStorageConfigS3Config struct {
 	// The S3 bucket name.
-	BucketName string `pulumi:"bucketName"`
+	BucketName *string `pulumi:"bucketName"`
 	// The S3 bucket prefix.
-	BucketPrefix string `pulumi:"bucketPrefix"`
+	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// The encryption configuration. Documented below.
 	EncryptionConfigs []GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig `pulumi:"encryptionConfigs"`
 }
@@ -5772,9 +5772,9 @@ type GetInstanceStorageConfigStorageConfigS3ConfigInput interface {
 
 type GetInstanceStorageConfigStorageConfigS3ConfigArgs struct {
 	// The S3 bucket name.
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
 	// The S3 bucket prefix.
-	BucketPrefix pulumi.StringInput `pulumi:"bucketPrefix"`
+	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	// The encryption configuration. Documented below.
 	EncryptionConfigs GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrayInput `pulumi:"encryptionConfigs"`
 }
@@ -5831,13 +5831,13 @@ func (o GetInstanceStorageConfigStorageConfigS3ConfigOutput) ToGetInstanceStorag
 }
 
 // The S3 bucket name.
-func (o GetInstanceStorageConfigStorageConfigS3ConfigOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigS3Config) string { return v.BucketName }).(pulumi.StringOutput)
+func (o GetInstanceStorageConfigStorageConfigS3ConfigOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigS3Config) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
 // The S3 bucket prefix.
-func (o GetInstanceStorageConfigStorageConfigS3ConfigOutput) BucketPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigS3Config) string { return v.BucketPrefix }).(pulumi.StringOutput)
+func (o GetInstanceStorageConfigStorageConfigS3ConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigS3Config) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
 // The encryption configuration. Documented below.
@@ -5869,9 +5869,9 @@ func (o GetInstanceStorageConfigStorageConfigS3ConfigArrayOutput) Index(i pulumi
 
 type GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig struct {
 	// The type of encryption. Valid Values: `KMS`.
-	EncryptionType string `pulumi:"encryptionType"`
+	EncryptionType *string `pulumi:"encryptionType"`
 	// The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-	KeyId string `pulumi:"keyId"`
+	KeyId *string `pulumi:"keyId"`
 }
 
 // GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigInput is an input type that accepts GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs and GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigOutput values.
@@ -5887,9 +5887,9 @@ type GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigInput interfac
 
 type GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs struct {
 	// The type of encryption. Valid Values: `KMS`.
-	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
+	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
 	// The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-	KeyId pulumi.StringInput `pulumi:"keyId"`
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
 }
 
 func (GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs) ElementType() reflect.Type {
@@ -5944,13 +5944,13 @@ func (o GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigOutput) ToG
 }
 
 // The type of encryption. Valid Values: `KMS`.
-func (o GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigOutput) EncryptionType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig) string { return v.EncryptionType }).(pulumi.StringOutput)
+func (o GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }
 
 // The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-func (o GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigOutput) KeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig) string { return v.KeyId }).(pulumi.StringOutput)
+func (o GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
 type GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrayOutput struct{ *pulumi.OutputState }
@@ -5975,11 +5975,11 @@ func (o GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrayOutput
 
 type GetQueueOutboundCallerConfig struct {
 	// Specifies the caller ID name.
-	OutboundCallerIdName string `pulumi:"outboundCallerIdName"`
+	OutboundCallerIdName *string `pulumi:"outboundCallerIdName"`
 	// Specifies the caller ID number.
-	OutboundCallerIdNumberId string `pulumi:"outboundCallerIdNumberId"`
+	OutboundCallerIdNumberId *string `pulumi:"outboundCallerIdNumberId"`
 	// Outbound whisper flow to be used during an outbound call.
-	OutboundFlowId string `pulumi:"outboundFlowId"`
+	OutboundFlowId *string `pulumi:"outboundFlowId"`
 }
 
 // GetQueueOutboundCallerConfigInput is an input type that accepts GetQueueOutboundCallerConfigArgs and GetQueueOutboundCallerConfigOutput values.
@@ -5995,11 +5995,11 @@ type GetQueueOutboundCallerConfigInput interface {
 
 type GetQueueOutboundCallerConfigArgs struct {
 	// Specifies the caller ID name.
-	OutboundCallerIdName pulumi.StringInput `pulumi:"outboundCallerIdName"`
+	OutboundCallerIdName pulumi.StringPtrInput `pulumi:"outboundCallerIdName"`
 	// Specifies the caller ID number.
-	OutboundCallerIdNumberId pulumi.StringInput `pulumi:"outboundCallerIdNumberId"`
+	OutboundCallerIdNumberId pulumi.StringPtrInput `pulumi:"outboundCallerIdNumberId"`
 	// Outbound whisper flow to be used during an outbound call.
-	OutboundFlowId pulumi.StringInput `pulumi:"outboundFlowId"`
+	OutboundFlowId pulumi.StringPtrInput `pulumi:"outboundFlowId"`
 }
 
 func (GetQueueOutboundCallerConfigArgs) ElementType() reflect.Type {
@@ -6054,18 +6054,18 @@ func (o GetQueueOutboundCallerConfigOutput) ToGetQueueOutboundCallerConfigOutput
 }
 
 // Specifies the caller ID name.
-func (o GetQueueOutboundCallerConfigOutput) OutboundCallerIdName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQueueOutboundCallerConfig) string { return v.OutboundCallerIdName }).(pulumi.StringOutput)
+func (o GetQueueOutboundCallerConfigOutput) OutboundCallerIdName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQueueOutboundCallerConfig) *string { return v.OutboundCallerIdName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the caller ID number.
-func (o GetQueueOutboundCallerConfigOutput) OutboundCallerIdNumberId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQueueOutboundCallerConfig) string { return v.OutboundCallerIdNumberId }).(pulumi.StringOutput)
+func (o GetQueueOutboundCallerConfigOutput) OutboundCallerIdNumberId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQueueOutboundCallerConfig) *string { return v.OutboundCallerIdNumberId }).(pulumi.StringPtrOutput)
 }
 
 // Outbound whisper flow to be used during an outbound call.
-func (o GetQueueOutboundCallerConfigOutput) OutboundFlowId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQueueOutboundCallerConfig) string { return v.OutboundFlowId }).(pulumi.StringOutput)
+func (o GetQueueOutboundCallerConfigOutput) OutboundFlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQueueOutboundCallerConfig) *string { return v.OutboundFlowId }).(pulumi.StringPtrOutput)
 }
 
 type GetQueueOutboundCallerConfigArrayOutput struct{ *pulumi.OutputState }
@@ -6094,7 +6094,7 @@ type GetQuickConnectQuickConnectConfig struct {
 	// Queue configuration of the Quick Connect. This is returned only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
 	QueueConfigs []GetQuickConnectQuickConnectConfigQueueConfig `pulumi:"queueConfigs"`
 	// Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-	QuickConnectType string `pulumi:"quickConnectType"`
+	QuickConnectType *string `pulumi:"quickConnectType"`
 	// User configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
 	UserConfigs []GetQuickConnectQuickConnectConfigUserConfig `pulumi:"userConfigs"`
 }
@@ -6116,7 +6116,7 @@ type GetQuickConnectQuickConnectConfigArgs struct {
 	// Queue configuration of the Quick Connect. This is returned only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
 	QueueConfigs GetQuickConnectQuickConnectConfigQueueConfigArrayInput `pulumi:"queueConfigs"`
 	// Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-	QuickConnectType pulumi.StringInput `pulumi:"quickConnectType"`
+	QuickConnectType pulumi.StringPtrInput `pulumi:"quickConnectType"`
 	// User configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
 	UserConfigs GetQuickConnectQuickConnectConfigUserConfigArrayInput `pulumi:"userConfigs"`
 }
@@ -6187,8 +6187,8 @@ func (o GetQuickConnectQuickConnectConfigOutput) QueueConfigs() GetQuickConnectQ
 }
 
 // Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-func (o GetQuickConnectQuickConnectConfigOutput) QuickConnectType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuickConnectQuickConnectConfig) string { return v.QuickConnectType }).(pulumi.StringOutput)
+func (o GetQuickConnectQuickConnectConfigOutput) QuickConnectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuickConnectQuickConnectConfig) *string { return v.QuickConnectType }).(pulumi.StringPtrOutput)
 }
 
 // User configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
@@ -6220,7 +6220,7 @@ func (o GetQuickConnectQuickConnectConfigArrayOutput) Index(i pulumi.IntInput) G
 
 type GetQuickConnectQuickConnectConfigPhoneConfig struct {
 	// Phone number in in E.164 format.
-	PhoneNumber string `pulumi:"phoneNumber"`
+	PhoneNumber *string `pulumi:"phoneNumber"`
 }
 
 // GetQuickConnectQuickConnectConfigPhoneConfigInput is an input type that accepts GetQuickConnectQuickConnectConfigPhoneConfigArgs and GetQuickConnectQuickConnectConfigPhoneConfigOutput values.
@@ -6236,7 +6236,7 @@ type GetQuickConnectQuickConnectConfigPhoneConfigInput interface {
 
 type GetQuickConnectQuickConnectConfigPhoneConfigArgs struct {
 	// Phone number in in E.164 format.
-	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
+	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
 }
 
 func (GetQuickConnectQuickConnectConfigPhoneConfigArgs) ElementType() reflect.Type {
@@ -6291,8 +6291,8 @@ func (o GetQuickConnectQuickConnectConfigPhoneConfigOutput) ToGetQuickConnectQui
 }
 
 // Phone number in in E.164 format.
-func (o GetQuickConnectQuickConnectConfigPhoneConfigOutput) PhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigPhoneConfig) string { return v.PhoneNumber }).(pulumi.StringOutput)
+func (o GetQuickConnectQuickConnectConfigPhoneConfigOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigPhoneConfig) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
 
 type GetQuickConnectQuickConnectConfigPhoneConfigArrayOutput struct{ *pulumi.OutputState }
@@ -6317,9 +6317,9 @@ func (o GetQuickConnectQuickConnectConfigPhoneConfigArrayOutput) Index(i pulumi.
 
 type GetQuickConnectQuickConnectConfigQueueConfig struct {
 	// Identifier of the contact flow.
-	ContactFlowId string `pulumi:"contactFlowId"`
+	ContactFlowId *string `pulumi:"contactFlowId"`
 	// Identifier for the queue.
-	QueueId string `pulumi:"queueId"`
+	QueueId *string `pulumi:"queueId"`
 }
 
 // GetQuickConnectQuickConnectConfigQueueConfigInput is an input type that accepts GetQuickConnectQuickConnectConfigQueueConfigArgs and GetQuickConnectQuickConnectConfigQueueConfigOutput values.
@@ -6335,9 +6335,9 @@ type GetQuickConnectQuickConnectConfigQueueConfigInput interface {
 
 type GetQuickConnectQuickConnectConfigQueueConfigArgs struct {
 	// Identifier of the contact flow.
-	ContactFlowId pulumi.StringInput `pulumi:"contactFlowId"`
+	ContactFlowId pulumi.StringPtrInput `pulumi:"contactFlowId"`
 	// Identifier for the queue.
-	QueueId pulumi.StringInput `pulumi:"queueId"`
+	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
 }
 
 func (GetQuickConnectQuickConnectConfigQueueConfigArgs) ElementType() reflect.Type {
@@ -6392,13 +6392,13 @@ func (o GetQuickConnectQuickConnectConfigQueueConfigOutput) ToGetQuickConnectQui
 }
 
 // Identifier of the contact flow.
-func (o GetQuickConnectQuickConnectConfigQueueConfigOutput) ContactFlowId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigQueueConfig) string { return v.ContactFlowId }).(pulumi.StringOutput)
+func (o GetQuickConnectQuickConnectConfigQueueConfigOutput) ContactFlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigQueueConfig) *string { return v.ContactFlowId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier for the queue.
-func (o GetQuickConnectQuickConnectConfigQueueConfigOutput) QueueId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigQueueConfig) string { return v.QueueId }).(pulumi.StringOutput)
+func (o GetQuickConnectQuickConnectConfigQueueConfigOutput) QueueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigQueueConfig) *string { return v.QueueId }).(pulumi.StringPtrOutput)
 }
 
 type GetQuickConnectQuickConnectConfigQueueConfigArrayOutput struct{ *pulumi.OutputState }
@@ -6423,9 +6423,9 @@ func (o GetQuickConnectQuickConnectConfigQueueConfigArrayOutput) Index(i pulumi.
 
 type GetQuickConnectQuickConnectConfigUserConfig struct {
 	// Identifier of the contact flow.
-	ContactFlowId string `pulumi:"contactFlowId"`
+	ContactFlowId *string `pulumi:"contactFlowId"`
 	// Identifier for the user.
-	UserId string `pulumi:"userId"`
+	UserId *string `pulumi:"userId"`
 }
 
 // GetQuickConnectQuickConnectConfigUserConfigInput is an input type that accepts GetQuickConnectQuickConnectConfigUserConfigArgs and GetQuickConnectQuickConnectConfigUserConfigOutput values.
@@ -6441,9 +6441,9 @@ type GetQuickConnectQuickConnectConfigUserConfigInput interface {
 
 type GetQuickConnectQuickConnectConfigUserConfigArgs struct {
 	// Identifier of the contact flow.
-	ContactFlowId pulumi.StringInput `pulumi:"contactFlowId"`
+	ContactFlowId pulumi.StringPtrInput `pulumi:"contactFlowId"`
 	// Identifier for the user.
-	UserId pulumi.StringInput `pulumi:"userId"`
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 
 func (GetQuickConnectQuickConnectConfigUserConfigArgs) ElementType() reflect.Type {
@@ -6498,13 +6498,13 @@ func (o GetQuickConnectQuickConnectConfigUserConfigOutput) ToGetQuickConnectQuic
 }
 
 // Identifier of the contact flow.
-func (o GetQuickConnectQuickConnectConfigUserConfigOutput) ContactFlowId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigUserConfig) string { return v.ContactFlowId }).(pulumi.StringOutput)
+func (o GetQuickConnectQuickConnectConfigUserConfigOutput) ContactFlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigUserConfig) *string { return v.ContactFlowId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier for the user.
-func (o GetQuickConnectQuickConnectConfigUserConfigOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigUserConfig) string { return v.UserId }).(pulumi.StringOutput)
+func (o GetQuickConnectQuickConnectConfigUserConfigOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigUserConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 type GetQuickConnectQuickConnectConfigUserConfigArrayOutput struct{ *pulumi.OutputState }
@@ -6529,9 +6529,9 @@ func (o GetQuickConnectQuickConnectConfigUserConfigArrayOutput) Index(i pulumi.I
 
 type GetRoutingProfileMediaConcurrency struct {
 	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-	Channel string `pulumi:"channel"`
+	Channel *string `pulumi:"channel"`
 	// Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
-	Concurrency int `pulumi:"concurrency"`
+	Concurrency *int `pulumi:"concurrency"`
 }
 
 // GetRoutingProfileMediaConcurrencyInput is an input type that accepts GetRoutingProfileMediaConcurrencyArgs and GetRoutingProfileMediaConcurrencyOutput values.
@@ -6547,9 +6547,9 @@ type GetRoutingProfileMediaConcurrencyInput interface {
 
 type GetRoutingProfileMediaConcurrencyArgs struct {
 	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-	Channel pulumi.StringInput `pulumi:"channel"`
+	Channel pulumi.StringPtrInput `pulumi:"channel"`
 	// Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
-	Concurrency pulumi.IntInput `pulumi:"concurrency"`
+	Concurrency pulumi.IntPtrInput `pulumi:"concurrency"`
 }
 
 func (GetRoutingProfileMediaConcurrencyArgs) ElementType() reflect.Type {
@@ -6604,13 +6604,13 @@ func (o GetRoutingProfileMediaConcurrencyOutput) ToGetRoutingProfileMediaConcurr
 }
 
 // Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-func (o GetRoutingProfileMediaConcurrencyOutput) Channel() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRoutingProfileMediaConcurrency) string { return v.Channel }).(pulumi.StringOutput)
+func (o GetRoutingProfileMediaConcurrencyOutput) Channel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRoutingProfileMediaConcurrency) *string { return v.Channel }).(pulumi.StringPtrOutput)
 }
 
 // Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
-func (o GetRoutingProfileMediaConcurrencyOutput) Concurrency() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRoutingProfileMediaConcurrency) int { return v.Concurrency }).(pulumi.IntOutput)
+func (o GetRoutingProfileMediaConcurrencyOutput) Concurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRoutingProfileMediaConcurrency) *int { return v.Concurrency }).(pulumi.IntPtrOutput)
 }
 
 type GetRoutingProfileMediaConcurrencyArrayOutput struct{ *pulumi.OutputState }
@@ -6635,17 +6635,17 @@ func (o GetRoutingProfileMediaConcurrencyArrayOutput) Index(i pulumi.IntInput) G
 
 type GetRoutingProfileQueueConfig struct {
 	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-	Channel string `pulumi:"channel"`
+	Channel *string `pulumi:"channel"`
 	// Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-	Delay int `pulumi:"delay"`
+	Delay *int `pulumi:"delay"`
 	// Order in which contacts are to be handled for the queue.
-	Priority int `pulumi:"priority"`
+	Priority *int `pulumi:"priority"`
 	// ARN for the queue.
-	QueueArn string `pulumi:"queueArn"`
+	QueueArn *string `pulumi:"queueArn"`
 	// Identifier for the queue.
-	QueueId string `pulumi:"queueId"`
+	QueueId *string `pulumi:"queueId"`
 	// Name for the queue.
-	QueueName string `pulumi:"queueName"`
+	QueueName *string `pulumi:"queueName"`
 }
 
 // GetRoutingProfileQueueConfigInput is an input type that accepts GetRoutingProfileQueueConfigArgs and GetRoutingProfileQueueConfigOutput values.
@@ -6661,17 +6661,17 @@ type GetRoutingProfileQueueConfigInput interface {
 
 type GetRoutingProfileQueueConfigArgs struct {
 	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-	Channel pulumi.StringInput `pulumi:"channel"`
+	Channel pulumi.StringPtrInput `pulumi:"channel"`
 	// Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-	Delay pulumi.IntInput `pulumi:"delay"`
+	Delay pulumi.IntPtrInput `pulumi:"delay"`
 	// Order in which contacts are to be handled for the queue.
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// ARN for the queue.
-	QueueArn pulumi.StringInput `pulumi:"queueArn"`
+	QueueArn pulumi.StringPtrInput `pulumi:"queueArn"`
 	// Identifier for the queue.
-	QueueId pulumi.StringInput `pulumi:"queueId"`
+	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
 	// Name for the queue.
-	QueueName pulumi.StringInput `pulumi:"queueName"`
+	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
 }
 
 func (GetRoutingProfileQueueConfigArgs) ElementType() reflect.Type {
@@ -6726,33 +6726,33 @@ func (o GetRoutingProfileQueueConfigOutput) ToGetRoutingProfileQueueConfigOutput
 }
 
 // Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-func (o GetRoutingProfileQueueConfigOutput) Channel() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRoutingProfileQueueConfig) string { return v.Channel }).(pulumi.StringOutput)
+func (o GetRoutingProfileQueueConfigOutput) Channel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRoutingProfileQueueConfig) *string { return v.Channel }).(pulumi.StringPtrOutput)
 }
 
 // Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-func (o GetRoutingProfileQueueConfigOutput) Delay() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRoutingProfileQueueConfig) int { return v.Delay }).(pulumi.IntOutput)
+func (o GetRoutingProfileQueueConfigOutput) Delay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRoutingProfileQueueConfig) *int { return v.Delay }).(pulumi.IntPtrOutput)
 }
 
 // Order in which contacts are to be handled for the queue.
-func (o GetRoutingProfileQueueConfigOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRoutingProfileQueueConfig) int { return v.Priority }).(pulumi.IntOutput)
+func (o GetRoutingProfileQueueConfigOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRoutingProfileQueueConfig) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // ARN for the queue.
-func (o GetRoutingProfileQueueConfigOutput) QueueArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRoutingProfileQueueConfig) string { return v.QueueArn }).(pulumi.StringOutput)
+func (o GetRoutingProfileQueueConfigOutput) QueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRoutingProfileQueueConfig) *string { return v.QueueArn }).(pulumi.StringPtrOutput)
 }
 
 // Identifier for the queue.
-func (o GetRoutingProfileQueueConfigOutput) QueueId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRoutingProfileQueueConfig) string { return v.QueueId }).(pulumi.StringOutput)
+func (o GetRoutingProfileQueueConfigOutput) QueueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRoutingProfileQueueConfig) *string { return v.QueueId }).(pulumi.StringPtrOutput)
 }
 
 // Name for the queue.
-func (o GetRoutingProfileQueueConfigOutput) QueueName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRoutingProfileQueueConfig) string { return v.QueueName }).(pulumi.StringOutput)
+func (o GetRoutingProfileQueueConfigOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRoutingProfileQueueConfig) *string { return v.QueueName }).(pulumi.StringPtrOutput)
 }
 
 type GetRoutingProfileQueueConfigArrayOutput struct{ *pulumi.OutputState }
@@ -6920,11 +6920,11 @@ func (o GetUserHierarchyGroupHierarchyPathArrayOutput) Index(i pulumi.IntInput) 
 
 type GetUserHierarchyGroupHierarchyPathLevelFife struct {
 	// ARN of the hierarchy group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyGroupHierarchyPathLevelFifeInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelFifeArgs and GetUserHierarchyGroupHierarchyPathLevelFifeOutput values.
@@ -6940,11 +6940,11 @@ type GetUserHierarchyGroupHierarchyPathLevelFifeInput interface {
 
 type GetUserHierarchyGroupHierarchyPathLevelFifeArgs struct {
 	// ARN of the hierarchy group.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyGroupHierarchyPathLevelFifeArgs) ElementType() reflect.Type {
@@ -6999,18 +6999,18 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) ToGetUserHierarchyGro
 }
 
 // ARN of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Returns information on a specific hierarchy group by name
-func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput struct{ *pulumi.OutputState }
@@ -7035,11 +7035,11 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput) Index(i pulumi.I
 
 type GetUserHierarchyGroupHierarchyPathLevelFour struct {
 	// ARN of the hierarchy group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyGroupHierarchyPathLevelFourInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelFourArgs and GetUserHierarchyGroupHierarchyPathLevelFourOutput values.
@@ -7055,11 +7055,11 @@ type GetUserHierarchyGroupHierarchyPathLevelFourInput interface {
 
 type GetUserHierarchyGroupHierarchyPathLevelFourArgs struct {
 	// ARN of the hierarchy group.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyGroupHierarchyPathLevelFourArgs) ElementType() reflect.Type {
@@ -7114,18 +7114,18 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) ToGetUserHierarchyGro
 }
 
 // ARN of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Returns information on a specific hierarchy group by name
-func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput struct{ *pulumi.OutputState }
@@ -7150,11 +7150,11 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput) Index(i pulumi.I
 
 type GetUserHierarchyGroupHierarchyPathLevelOne struct {
 	// ARN of the hierarchy group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyGroupHierarchyPathLevelOneInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelOneArgs and GetUserHierarchyGroupHierarchyPathLevelOneOutput values.
@@ -7170,11 +7170,11 @@ type GetUserHierarchyGroupHierarchyPathLevelOneInput interface {
 
 type GetUserHierarchyGroupHierarchyPathLevelOneArgs struct {
 	// ARN of the hierarchy group.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyGroupHierarchyPathLevelOneArgs) ElementType() reflect.Type {
@@ -7229,18 +7229,18 @@ func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) ToGetUserHierarchyGrou
 }
 
 // ARN of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Returns information on a specific hierarchy group by name
-func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput struct{ *pulumi.OutputState }
@@ -7265,11 +7265,11 @@ func (o GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput) Index(i pulumi.In
 
 type GetUserHierarchyGroupHierarchyPathLevelThree struct {
 	// ARN of the hierarchy group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyGroupHierarchyPathLevelThreeInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelThreeArgs and GetUserHierarchyGroupHierarchyPathLevelThreeOutput values.
@@ -7285,11 +7285,11 @@ type GetUserHierarchyGroupHierarchyPathLevelThreeInput interface {
 
 type GetUserHierarchyGroupHierarchyPathLevelThreeArgs struct {
 	// ARN of the hierarchy group.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyGroupHierarchyPathLevelThreeArgs) ElementType() reflect.Type {
@@ -7344,18 +7344,18 @@ func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) ToGetUserHierarchyGr
 }
 
 // ARN of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Returns information on a specific hierarchy group by name
-func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput struct{ *pulumi.OutputState }
@@ -7380,11 +7380,11 @@ func (o GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput) Index(i pulumi.
 
 type GetUserHierarchyGroupHierarchyPathLevelTwo struct {
 	// ARN of the hierarchy group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyGroupHierarchyPathLevelTwoInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelTwoArgs and GetUserHierarchyGroupHierarchyPathLevelTwoOutput values.
@@ -7400,11 +7400,11 @@ type GetUserHierarchyGroupHierarchyPathLevelTwoInput interface {
 
 type GetUserHierarchyGroupHierarchyPathLevelTwoArgs struct {
 	// ARN of the hierarchy group.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyGroupHierarchyPathLevelTwoArgs) ElementType() reflect.Type {
@@ -7459,18 +7459,18 @@ func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) ToGetUserHierarchyGrou
 }
 
 // ARN of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy group.
-func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Returns information on a specific hierarchy group by name
-func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput struct{ *pulumi.OutputState }
@@ -7638,11 +7638,11 @@ func (o GetUserHierarchyStructureHierarchyStructureArrayOutput) Index(i pulumi.I
 
 type GetUserHierarchyStructureHierarchyStructureLevelFife struct {
 	// ARN of the hierarchy level.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyStructureHierarchyStructureLevelFifeInput is an input type that accepts GetUserHierarchyStructureHierarchyStructureLevelFifeArgs and GetUserHierarchyStructureHierarchyStructureLevelFifeOutput values.
@@ -7658,11 +7658,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelFifeInput interface {
 
 type GetUserHierarchyStructureHierarchyStructureLevelFifeArgs struct {
 	// ARN of the hierarchy level.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyStructureHierarchyStructureLevelFifeArgs) ElementType() reflect.Type {
@@ -7717,18 +7717,18 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) ToGetUserHie
 }
 
 // ARN of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFife) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFife) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFife) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFife) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the user hierarchy level. Must not be more than 50 characters.
-func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFife) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFife) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelFifeArrayOutput struct{ *pulumi.OutputState }
@@ -7753,11 +7753,11 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFifeArrayOutput) Index(i
 
 type GetUserHierarchyStructureHierarchyStructureLevelFour struct {
 	// ARN of the hierarchy level.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyStructureHierarchyStructureLevelFourInput is an input type that accepts GetUserHierarchyStructureHierarchyStructureLevelFourArgs and GetUserHierarchyStructureHierarchyStructureLevelFourOutput values.
@@ -7773,11 +7773,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelFourInput interface {
 
 type GetUserHierarchyStructureHierarchyStructureLevelFourArgs struct {
 	// ARN of the hierarchy level.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyStructureHierarchyStructureLevelFourArgs) ElementType() reflect.Type {
@@ -7832,18 +7832,18 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) ToGetUserHie
 }
 
 // ARN of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFour) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFour) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFour) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFour) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the user hierarchy level. Must not be more than 50 characters.
-func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFour) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFour) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelFourArrayOutput struct{ *pulumi.OutputState }
@@ -7868,11 +7868,11 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFourArrayOutput) Index(i
 
 type GetUserHierarchyStructureHierarchyStructureLevelOne struct {
 	// ARN of the hierarchy level.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyStructureHierarchyStructureLevelOneInput is an input type that accepts GetUserHierarchyStructureHierarchyStructureLevelOneArgs and GetUserHierarchyStructureHierarchyStructureLevelOneOutput values.
@@ -7888,11 +7888,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelOneInput interface {
 
 type GetUserHierarchyStructureHierarchyStructureLevelOneArgs struct {
 	// ARN of the hierarchy level.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyStructureHierarchyStructureLevelOneArgs) ElementType() reflect.Type {
@@ -7947,18 +7947,18 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) ToGetUserHier
 }
 
 // ARN of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelOne) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelOne) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelOne) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelOne) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the user hierarchy level. Must not be more than 50 characters.
-func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelOne) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelOne) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelOneArrayOutput struct{ *pulumi.OutputState }
@@ -7983,11 +7983,11 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelOneArrayOutput) Index(i 
 
 type GetUserHierarchyStructureHierarchyStructureLevelThree struct {
 	// ARN of the hierarchy level.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyStructureHierarchyStructureLevelThreeInput is an input type that accepts GetUserHierarchyStructureHierarchyStructureLevelThreeArgs and GetUserHierarchyStructureHierarchyStructureLevelThreeOutput values.
@@ -8003,11 +8003,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelThreeInput interface {
 
 type GetUserHierarchyStructureHierarchyStructureLevelThreeArgs struct {
 	// ARN of the hierarchy level.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyStructureHierarchyStructureLevelThreeArgs) ElementType() reflect.Type {
@@ -8062,18 +8062,18 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) ToGetUserHi
 }
 
 // ARN of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelThree) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelThree) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelThree) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelThree) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the user hierarchy level. Must not be more than 50 characters.
-func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelThree) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelThree) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelThreeArrayOutput struct{ *pulumi.OutputState }
@@ -8098,11 +8098,11 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelThreeArrayOutput) Index(
 
 type GetUserHierarchyStructureHierarchyStructureLevelTwo struct {
 	// ARN of the hierarchy level.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetUserHierarchyStructureHierarchyStructureLevelTwoInput is an input type that accepts GetUserHierarchyStructureHierarchyStructureLevelTwoArgs and GetUserHierarchyStructureHierarchyStructureLevelTwoOutput values.
@@ -8118,11 +8118,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelTwoInput interface {
 
 type GetUserHierarchyStructureHierarchyStructureLevelTwoArgs struct {
 	// ARN of the hierarchy level.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the user hierarchy level. Must not be more than 50 characters.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetUserHierarchyStructureHierarchyStructureLevelTwoArgs) ElementType() reflect.Type {
@@ -8177,18 +8177,18 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) ToGetUserHier
 }
 
 // ARN of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelTwo) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelTwo) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy level.
-func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelTwo) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelTwo) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the user hierarchy level. Must not be more than 50 characters.
-func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelTwo) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelTwo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelTwoArrayOutput struct{ *pulumi.OutputState }
@@ -8213,11 +8213,11 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelTwoArrayOutput) Index(i 
 
 type GetUserIdentityInfo struct {
 	// The email address.
-	Email string `pulumi:"email"`
+	Email *string `pulumi:"email"`
 	// The first name.
-	FirstName string `pulumi:"firstName"`
+	FirstName *string `pulumi:"firstName"`
 	// The last name.
-	LastName string `pulumi:"lastName"`
+	LastName *string `pulumi:"lastName"`
 }
 
 // GetUserIdentityInfoInput is an input type that accepts GetUserIdentityInfoArgs and GetUserIdentityInfoOutput values.
@@ -8233,11 +8233,11 @@ type GetUserIdentityInfoInput interface {
 
 type GetUserIdentityInfoArgs struct {
 	// The email address.
-	Email pulumi.StringInput `pulumi:"email"`
+	Email pulumi.StringPtrInput `pulumi:"email"`
 	// The first name.
-	FirstName pulumi.StringInput `pulumi:"firstName"`
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
 	// The last name.
-	LastName pulumi.StringInput `pulumi:"lastName"`
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
 }
 
 func (GetUserIdentityInfoArgs) ElementType() reflect.Type {
@@ -8292,18 +8292,18 @@ func (o GetUserIdentityInfoOutput) ToGetUserIdentityInfoOutputWithContext(ctx co
 }
 
 // The email address.
-func (o GetUserIdentityInfoOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserIdentityInfo) string { return v.Email }).(pulumi.StringOutput)
+func (o GetUserIdentityInfoOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserIdentityInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
 // The first name.
-func (o GetUserIdentityInfoOutput) FirstName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserIdentityInfo) string { return v.FirstName }).(pulumi.StringOutput)
+func (o GetUserIdentityInfoOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserIdentityInfo) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
 // The last name.
-func (o GetUserIdentityInfoOutput) LastName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserIdentityInfo) string { return v.LastName }).(pulumi.StringOutput)
+func (o GetUserIdentityInfoOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserIdentityInfo) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
 type GetUserIdentityInfoArrayOutput struct{ *pulumi.OutputState }
@@ -8328,13 +8328,13 @@ func (o GetUserIdentityInfoArrayOutput) Index(i pulumi.IntInput) GetUserIdentity
 
 type GetUserPhoneConfig struct {
 	// The After Call Work (ACW) timeout setting, in seconds.
-	AfterContactWorkTimeLimit int `pulumi:"afterContactWorkTimeLimit"`
+	AfterContactWorkTimeLimit *int `pulumi:"afterContactWorkTimeLimit"`
 	// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-	AutoAccept bool `pulumi:"autoAccept"`
+	AutoAccept *bool `pulumi:"autoAccept"`
 	// The phone number for the user's desk phone.
-	DeskPhoneNumber string `pulumi:"deskPhoneNumber"`
+	DeskPhoneNumber *string `pulumi:"deskPhoneNumber"`
 	// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-	PhoneType string `pulumi:"phoneType"`
+	PhoneType *string `pulumi:"phoneType"`
 }
 
 // GetUserPhoneConfigInput is an input type that accepts GetUserPhoneConfigArgs and GetUserPhoneConfigOutput values.
@@ -8350,13 +8350,13 @@ type GetUserPhoneConfigInput interface {
 
 type GetUserPhoneConfigArgs struct {
 	// The After Call Work (ACW) timeout setting, in seconds.
-	AfterContactWorkTimeLimit pulumi.IntInput `pulumi:"afterContactWorkTimeLimit"`
+	AfterContactWorkTimeLimit pulumi.IntPtrInput `pulumi:"afterContactWorkTimeLimit"`
 	// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-	AutoAccept pulumi.BoolInput `pulumi:"autoAccept"`
+	AutoAccept pulumi.BoolPtrInput `pulumi:"autoAccept"`
 	// The phone number for the user's desk phone.
-	DeskPhoneNumber pulumi.StringInput `pulumi:"deskPhoneNumber"`
+	DeskPhoneNumber pulumi.StringPtrInput `pulumi:"deskPhoneNumber"`
 	// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-	PhoneType pulumi.StringInput `pulumi:"phoneType"`
+	PhoneType pulumi.StringPtrInput `pulumi:"phoneType"`
 }
 
 func (GetUserPhoneConfigArgs) ElementType() reflect.Type {
@@ -8411,23 +8411,23 @@ func (o GetUserPhoneConfigOutput) ToGetUserPhoneConfigOutputWithContext(ctx cont
 }
 
 // The After Call Work (ACW) timeout setting, in seconds.
-func (o GetUserPhoneConfigOutput) AfterContactWorkTimeLimit() pulumi.IntOutput {
-	return o.ApplyT(func(v GetUserPhoneConfig) int { return v.AfterContactWorkTimeLimit }).(pulumi.IntOutput)
+func (o GetUserPhoneConfigOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetUserPhoneConfig) *int { return v.AfterContactWorkTimeLimit }).(pulumi.IntPtrOutput)
 }
 
 // When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-func (o GetUserPhoneConfigOutput) AutoAccept() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetUserPhoneConfig) bool { return v.AutoAccept }).(pulumi.BoolOutput)
+func (o GetUserPhoneConfigOutput) AutoAccept() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetUserPhoneConfig) *bool { return v.AutoAccept }).(pulumi.BoolPtrOutput)
 }
 
 // The phone number for the user's desk phone.
-func (o GetUserPhoneConfigOutput) DeskPhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPhoneConfig) string { return v.DeskPhoneNumber }).(pulumi.StringOutput)
+func (o GetUserPhoneConfigOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPhoneConfig) *string { return v.DeskPhoneNumber }).(pulumi.StringPtrOutput)
 }
 
 // The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-func (o GetUserPhoneConfigOutput) PhoneType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPhoneConfig) string { return v.PhoneType }).(pulumi.StringOutput)
+func (o GetUserPhoneConfigOutput) PhoneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPhoneConfig) *string { return v.PhoneType }).(pulumi.StringPtrOutput)
 }
 
 type GetUserPhoneConfigArrayOutput struct{ *pulumi.OutputState }

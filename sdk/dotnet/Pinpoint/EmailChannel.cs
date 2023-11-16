@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Pinpoint
         /// Messages per second that can be sent.
         /// </summary>
         [Output("messagesPerSecond")]
-        public Output<int> MessagesPerSecond { get; private set; } = null!;
+        public Output<int?> MessagesPerSecond { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.

@@ -68,11 +68,11 @@ export class View extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Resource Explorer view.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
      */
-    public readonly defaultView!: pulumi.Output<boolean>;
+    public readonly defaultView!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      */

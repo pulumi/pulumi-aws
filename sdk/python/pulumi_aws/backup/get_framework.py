@@ -53,7 +53,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the backup framework.
         """
@@ -61,7 +61,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def controls(self) -> Sequence['outputs.GetFrameworkControlResult']:
+    def controls(self) -> Optional[Sequence['outputs.GetFrameworkControlResult']]:
         """
         One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         """
@@ -69,7 +69,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> Optional[str]:
         """
         Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         """
@@ -77,7 +77,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter(name="deploymentStatus")
-    def deployment_status(self) -> str:
+    def deployment_status(self) -> Optional[str]:
         """
         Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
         """
@@ -85,7 +85,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the framework.
         """
@@ -93,7 +93,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -109,7 +109,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         """
@@ -117,7 +117,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """

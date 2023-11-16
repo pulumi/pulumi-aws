@@ -96,14 +96,14 @@ public class HoursOfOperation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Hours of Operation.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
@@ -138,14 +138,14 @@ public class HoursOfOperation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hoursOfOperationId", refs={String.class}, tree="[0]")
-    private Output<String> hoursOfOperationId;
+    private Output</* @Nullable */ String> hoursOfOperationId;
 
     /**
      * @return The identifier for the hours of operation.
      * 
      */
-    public Output<String> hoursOfOperationId() {
-        return this.hoursOfOperationId;
+    public Output<Optional<String>> hoursOfOperationId() {
+        return Codegen.optional(this.hoursOfOperationId);
     }
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.

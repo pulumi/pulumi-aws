@@ -49,7 +49,7 @@ class GetReplicationSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -57,12 +57,12 @@ class GetReplicationSubnetGroupResult:
 
     @property
     @pulumi.getter(name="replicationSubnetGroupArn")
-    def replication_subnet_group_arn(self) -> str:
+    def replication_subnet_group_arn(self) -> Optional[str]:
         return pulumi.get(self, "replication_subnet_group_arn")
 
     @property
     @pulumi.getter(name="replicationSubnetGroupDescription")
-    def replication_subnet_group_description(self) -> str:
+    def replication_subnet_group_description(self) -> Optional[str]:
         """
         Description for the subnet group.
         """
@@ -75,12 +75,12 @@ class GetReplicationSubnetGroupResult:
 
     @property
     @pulumi.getter(name="subnetGroupStatus")
-    def subnet_group_status(self) -> str:
+    def subnet_group_status(self) -> Optional[str]:
         return pulumi.get(self, "subnet_group_status")
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         """
@@ -88,12 +88,12 @@ class GetReplicationSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         The ID of the VPC the subnet group is in.
         """

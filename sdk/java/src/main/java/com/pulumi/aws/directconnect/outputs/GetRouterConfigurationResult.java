@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouterConfigurationResult {
@@ -15,12 +17,12 @@ public final class GetRouterConfigurationResult {
      * @return Instructions for configuring your router
      * 
      */
-    private String customerRouterConfig;
+    private @Nullable String customerRouterConfig;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Router type identifier
      * 
@@ -30,24 +32,24 @@ public final class GetRouterConfigurationResult {
      * @return Block of the router type details
      * 
      */
-    private List<GetRouterConfigurationRouter> routers;
+    private @Nullable List<GetRouterConfigurationRouter> routers;
     private String virtualInterfaceId;
-    private String virtualInterfaceName;
+    private @Nullable String virtualInterfaceName;
 
     private GetRouterConfigurationResult() {}
     /**
      * @return Instructions for configuring your router
      * 
      */
-    public String customerRouterConfig() {
-        return this.customerRouterConfig;
+    public Optional<String> customerRouterConfig() {
+        return Optional.ofNullable(this.customerRouterConfig);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Router type identifier
@@ -61,13 +63,13 @@ public final class GetRouterConfigurationResult {
      * 
      */
     public List<GetRouterConfigurationRouter> routers() {
-        return this.routers;
+        return this.routers == null ? List.of() : this.routers;
     }
     public String virtualInterfaceId() {
         return this.virtualInterfaceId;
     }
-    public String virtualInterfaceName() {
-        return this.virtualInterfaceName;
+    public Optional<String> virtualInterfaceName() {
+        return Optional.ofNullable(this.virtualInterfaceName);
     }
 
     public static Builder builder() {
@@ -79,12 +81,12 @@ public final class GetRouterConfigurationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String customerRouterConfig;
-        private String id;
+        private @Nullable String customerRouterConfig;
+        private @Nullable String id;
         private String routerTypeIdentifier;
-        private List<GetRouterConfigurationRouter> routers;
+        private @Nullable List<GetRouterConfigurationRouter> routers;
         private String virtualInterfaceId;
-        private String virtualInterfaceName;
+        private @Nullable String virtualInterfaceName;
         public Builder() {}
         public Builder(GetRouterConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,13 +99,13 @@ public final class GetRouterConfigurationResult {
         }
 
         @CustomType.Setter
-        public Builder customerRouterConfig(String customerRouterConfig) {
-            this.customerRouterConfig = Objects.requireNonNull(customerRouterConfig);
+        public Builder customerRouterConfig(@Nullable String customerRouterConfig) {
+            this.customerRouterConfig = customerRouterConfig;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -112,8 +114,8 @@ public final class GetRouterConfigurationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder routers(List<GetRouterConfigurationRouter> routers) {
-            this.routers = Objects.requireNonNull(routers);
+        public Builder routers(@Nullable List<GetRouterConfigurationRouter> routers) {
+            this.routers = routers;
             return this;
         }
         public Builder routers(GetRouterConfigurationRouter... routers) {
@@ -125,8 +127,8 @@ public final class GetRouterConfigurationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder virtualInterfaceName(String virtualInterfaceName) {
-            this.virtualInterfaceName = Objects.requireNonNull(virtualInterfaceName);
+        public Builder virtualInterfaceName(@Nullable String virtualInterfaceName) {
+            this.virtualInterfaceName = virtualInterfaceName;
             return this;
         }
         public GetRouterConfigurationResult build() {

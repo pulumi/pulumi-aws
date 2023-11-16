@@ -6,30 +6,32 @@ package com.pulumi.aws.lb.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLoadBalancerSubnetMapping {
-    private String allocationId;
-    private String ipv6Address;
-    private String outpostId;
-    private String privateIpv4Address;
-    private String subnetId;
+    private @Nullable String allocationId;
+    private @Nullable String ipv6Address;
+    private @Nullable String outpostId;
+    private @Nullable String privateIpv4Address;
+    private @Nullable String subnetId;
 
     private GetLoadBalancerSubnetMapping() {}
-    public String allocationId() {
-        return this.allocationId;
+    public Optional<String> allocationId() {
+        return Optional.ofNullable(this.allocationId);
     }
-    public String ipv6Address() {
-        return this.ipv6Address;
+    public Optional<String> ipv6Address() {
+        return Optional.ofNullable(this.ipv6Address);
     }
-    public String outpostId() {
-        return this.outpostId;
+    public Optional<String> outpostId() {
+        return Optional.ofNullable(this.outpostId);
     }
-    public String privateIpv4Address() {
-        return this.privateIpv4Address;
+    public Optional<String> privateIpv4Address() {
+        return Optional.ofNullable(this.privateIpv4Address);
     }
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
     public static Builder builder() {
@@ -41,11 +43,11 @@ public final class GetLoadBalancerSubnetMapping {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String allocationId;
-        private String ipv6Address;
-        private String outpostId;
-        private String privateIpv4Address;
-        private String subnetId;
+        private @Nullable String allocationId;
+        private @Nullable String ipv6Address;
+        private @Nullable String outpostId;
+        private @Nullable String privateIpv4Address;
+        private @Nullable String subnetId;
         public Builder() {}
         public Builder(GetLoadBalancerSubnetMapping defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,28 +59,28 @@ public final class GetLoadBalancerSubnetMapping {
         }
 
         @CustomType.Setter
-        public Builder allocationId(String allocationId) {
-            this.allocationId = Objects.requireNonNull(allocationId);
+        public Builder allocationId(@Nullable String allocationId) {
+            this.allocationId = allocationId;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6Address(String ipv6Address) {
-            this.ipv6Address = Objects.requireNonNull(ipv6Address);
+        public Builder ipv6Address(@Nullable String ipv6Address) {
+            this.ipv6Address = ipv6Address;
             return this;
         }
         @CustomType.Setter
-        public Builder outpostId(String outpostId) {
-            this.outpostId = Objects.requireNonNull(outpostId);
+        public Builder outpostId(@Nullable String outpostId) {
+            this.outpostId = outpostId;
             return this;
         }
         @CustomType.Setter
-        public Builder privateIpv4Address(String privateIpv4Address) {
-            this.privateIpv4Address = Objects.requireNonNull(privateIpv4Address);
+        public Builder privateIpv4Address(@Nullable String privateIpv4Address) {
+            this.privateIpv4Address = privateIpv4Address;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         public GetLoadBalancerSubnetMapping build() {

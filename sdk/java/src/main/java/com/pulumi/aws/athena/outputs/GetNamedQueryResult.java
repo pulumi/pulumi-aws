@@ -15,19 +15,19 @@ public final class GetNamedQueryResult {
      * @return Database to which the query belongs.
      * 
      */
-    private String database;
+    private @Nullable String database;
     /**
      * @return Brief explanation of the query.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
-    private String querystring;
+    private @Nullable String querystring;
     private @Nullable String workgroup;
 
     private GetNamedQueryResult() {}
@@ -35,28 +35,28 @@ public final class GetNamedQueryResult {
      * @return Database to which the query belongs.
      * 
      */
-    public String database() {
-        return this.database;
+    public Optional<String> database() {
+        return Optional.ofNullable(this.database);
     }
     /**
      * @return Brief explanation of the query.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
     }
-    public String querystring() {
-        return this.querystring;
+    public Optional<String> querystring() {
+        return Optional.ofNullable(this.querystring);
     }
     public Optional<String> workgroup() {
         return Optional.ofNullable(this.workgroup);
@@ -71,11 +71,11 @@ public final class GetNamedQueryResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String database;
-        private String description;
-        private String id;
+        private @Nullable String database;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private String querystring;
+        private @Nullable String querystring;
         private @Nullable String workgroup;
         public Builder() {}
         public Builder(GetNamedQueryResult defaults) {
@@ -89,18 +89,18 @@ public final class GetNamedQueryResult {
         }
 
         @CustomType.Setter
-        public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+        public Builder database(@Nullable String database) {
+            this.database = database;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -109,8 +109,8 @@ public final class GetNamedQueryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder querystring(String querystring) {
-            this.querystring = Objects.requireNonNull(querystring);
+        public Builder querystring(@Nullable String querystring) {
+            this.querystring = querystring;
             return this;
         }
         @CustomType.Setter

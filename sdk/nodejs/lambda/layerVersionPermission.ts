@@ -77,7 +77,7 @@ export class LayerVersionPermission extends pulumi.CustomResource {
     /**
      * Full Lambda Layer Permission policy.
      */
-    public /*out*/ readonly policy!: pulumi.Output<string>;
+    public /*out*/ readonly policy!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
      */
@@ -85,7 +85,7 @@ export class LayerVersionPermission extends pulumi.CustomResource {
     /**
      * A unique identifier for the current revision of the policy.
      */
-    public /*out*/ readonly revisionId!: pulumi.Output<string>;
+    public /*out*/ readonly revisionId!: pulumi.Output<string | undefined>;
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */

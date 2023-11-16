@@ -63,25 +63,25 @@ export interface GetOriginRequestPolicyResult {
     /**
      * Comment to describe the origin request policy.
      */
-    readonly comment: string;
+    readonly comment?: string;
     /**
      * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      */
-    readonly cookiesConfigs: outputs.cloudfront.GetOriginRequestPolicyCookiesConfig[];
+    readonly cookiesConfigs?: outputs.cloudfront.GetOriginRequestPolicyCookiesConfig[];
     /**
      * Current version of the origin request policy.
      */
-    readonly etag: string;
+    readonly etag?: string;
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      */
-    readonly headersConfigs: outputs.cloudfront.GetOriginRequestPolicyHeadersConfig[];
+    readonly headersConfigs?: outputs.cloudfront.GetOriginRequestPolicyHeadersConfig[];
     readonly id?: string;
     readonly name?: string;
     /**
      * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      */
-    readonly queryStringsConfigs: outputs.cloudfront.GetOriginRequestPolicyQueryStringsConfig[];
+    readonly queryStringsConfigs?: outputs.cloudfront.GetOriginRequestPolicyQueryStringsConfig[];
 }
 /**
  * ## Example Usage

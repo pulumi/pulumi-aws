@@ -452,7 +452,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationSubnetGroupArn")
-    def replication_subnet_group_arn(self) -> pulumi.Output[str]:
+    def replication_subnet_group_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "replication_subnet_group_arn")
 
     @property
@@ -500,7 +500,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the VPC the subnet group is in.
         """

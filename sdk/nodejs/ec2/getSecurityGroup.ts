@@ -85,16 +85,16 @@ export interface GetSecurityGroupResult {
     /**
      * Computed ARN of the security group.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the security group.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly filters?: outputs.ec2.GetSecurityGroupFilter[];
-    readonly id: string;
-    readonly name: string;
-    readonly tags: {[key: string]: string};
-    readonly vpcId: string;
+    readonly id?: string;
+    readonly name?: string;
+    readonly tags?: {[key: string]: string};
+    readonly vpcId?: string;
 }
 /**
  * `aws.ec2.SecurityGroup` provides details about a specific Security Group.

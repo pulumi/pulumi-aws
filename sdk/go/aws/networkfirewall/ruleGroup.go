@@ -246,7 +246,7 @@ type RuleGroup struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) that identifies the rule group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
 	// A friendly description of the rule group.
@@ -256,7 +256,7 @@ type RuleGroup struct {
 	// A friendly name of the rule group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-	RuleGroup RuleGroupRuleGroupOutput `pulumi:"ruleGroup"`
+	RuleGroup RuleGroupRuleGroupPtrOutput `pulumi:"ruleGroup"`
 	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
 	Rules pulumi.StringPtrOutput `pulumi:"rules"`
 	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -268,7 +268,7 @@ type RuleGroup struct {
 	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A string token used when updating the rule group.
-	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
+	UpdateToken pulumi.StringPtrOutput `pulumi:"updateToken"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -495,8 +495,8 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 }
 
 // The Amazon Resource Name (ARN) that identifies the rule group.
-func (o RuleGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RuleGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
@@ -520,8 +520,8 @@ func (o RuleGroupOutput) Name() pulumi.StringOutput {
 }
 
 // A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-func (o RuleGroupOutput) RuleGroup() RuleGroupRuleGroupOutput {
-	return o.ApplyT(func(v *RuleGroup) RuleGroupRuleGroupOutput { return v.RuleGroup }).(RuleGroupRuleGroupOutput)
+func (o RuleGroupOutput) RuleGroup() RuleGroupRuleGroupPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupRuleGroupPtrOutput { return v.RuleGroup }).(RuleGroupRuleGroupPtrOutput)
 }
 
 // The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
@@ -547,8 +547,8 @@ func (o RuleGroupOutput) Type() pulumi.StringOutput {
 }
 
 // A string token used when updating the rule group.
-func (o RuleGroupOutput) UpdateToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.UpdateToken }).(pulumi.StringOutput)
+func (o RuleGroupOutput) UpdateToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.UpdateToken }).(pulumi.StringPtrOutput)
 }
 
 type RuleGroupArrayOutput struct{ *pulumi.OutputState }

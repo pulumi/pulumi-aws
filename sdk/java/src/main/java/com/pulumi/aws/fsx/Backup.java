@@ -192,14 +192,14 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name of the backup.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
@@ -220,28 +220,28 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * AWS account identifier that created the file system.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return AWS account identifier that created the file system.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
@@ -280,14 +280,14 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return The type of the file system backup.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
     /**
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.

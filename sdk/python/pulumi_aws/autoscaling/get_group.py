@@ -116,7 +116,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Auto Scaling group.
         """
@@ -124,7 +124,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         One or more Availability Zones for the group.
         """
@@ -132,12 +132,12 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="defaultCooldown")
-    def default_cooldown(self) -> int:
+    def default_cooldown(self) -> Optional[int]:
         return pulumi.get(self, "default_cooldown")
 
     @property
     @pulumi.getter(name="desiredCapacity")
-    def desired_capacity(self) -> int:
+    def desired_capacity(self) -> Optional[int]:
         """
         Desired size of the group.
         """
@@ -145,7 +145,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="desiredCapacityType")
-    def desired_capacity_type(self) -> str:
+    def desired_capacity_type(self) -> Optional[str]:
         """
         The unit of measurement for the value returned for `desired_capacity`.
         """
@@ -153,7 +153,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> Sequence[str]:
+    def enabled_metrics(self) -> Optional[Sequence[str]]:
         """
         List of metrics enabled for collection.
         """
@@ -161,7 +161,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="healthCheckGracePeriod")
-    def health_check_grace_period(self) -> int:
+    def health_check_grace_period(self) -> Optional[int]:
         """
         The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
         """
@@ -169,7 +169,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="healthCheckType")
-    def health_check_type(self) -> str:
+    def health_check_type(self) -> Optional[str]:
         """
         Service to use for the health checks. The valid values are EC2 and ELB.
         """
@@ -177,7 +177,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -185,7 +185,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="launchConfiguration")
-    def launch_configuration(self) -> str:
+    def launch_configuration(self) -> Optional[str]:
         """
         The name of the associated launch configuration.
         """
@@ -193,7 +193,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="launchTemplates")
-    def launch_templates(self) -> Sequence['outputs.GetGroupLaunchTemplateResult']:
+    def launch_templates(self) -> Optional[Sequence['outputs.GetGroupLaunchTemplateResult']]:
         """
         List of launch templates along with the overrides.
         """
@@ -201,7 +201,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Sequence[str]:
+    def load_balancers(self) -> Optional[Sequence[str]]:
         """
         One or more load balancers associated with the group.
         """
@@ -209,7 +209,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="maxInstanceLifetime")
-    def max_instance_lifetime(self) -> int:
+    def max_instance_lifetime(self) -> Optional[int]:
         """
         Maximum amount of time, in seconds, that an instance can be in service.
         """
@@ -217,7 +217,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> int:
+    def max_size(self) -> Optional[int]:
         """
         Maximum size of the group.
         """
@@ -225,7 +225,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> int:
+    def min_size(self) -> Optional[int]:
         """
         Minimum number of instances to maintain in the warm pool.
         """
@@ -233,7 +233,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="mixedInstancesPolicies")
-    def mixed_instances_policies(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyResult']:
+    def mixed_instances_policies(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyResult']]:
         """
         List of mixed instances policy objects for the group.
         """
@@ -249,12 +249,12 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="newInstancesProtectedFromScaleIn")
-    def new_instances_protected_from_scale_in(self) -> bool:
+    def new_instances_protected_from_scale_in(self) -> Optional[bool]:
         return pulumi.get(self, "new_instances_protected_from_scale_in")
 
     @property
     @pulumi.getter(name="placementGroup")
-    def placement_group(self) -> str:
+    def placement_group(self) -> Optional[str]:
         """
         Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
         """
@@ -262,7 +262,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="predictedCapacity")
-    def predicted_capacity(self) -> int:
+    def predicted_capacity(self) -> Optional[int]:
         """
         Predicted capacity of the group.
         """
@@ -270,7 +270,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="serviceLinkedRoleArn")
-    def service_linked_role_arn(self) -> str:
+    def service_linked_role_arn(self) -> Optional[str]:
         """
         ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
         """
@@ -278,7 +278,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current state of the group when DeleteAutoScalingGroup is in progress.
         """
@@ -286,7 +286,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="suspendedProcesses")
-    def suspended_processes(self) -> Sequence[str]:
+    def suspended_processes(self) -> Optional[Sequence[str]]:
         """
         List of processes suspended processes for the Auto Scaling Group.
         """
@@ -294,7 +294,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Sequence['outputs.GetGroupTagResult']:
+    def tags(self) -> Optional[Sequence['outputs.GetGroupTagResult']]:
         """
         List of tags for the group.
         """
@@ -302,7 +302,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="targetGroupArns")
-    def target_group_arns(self) -> Sequence[str]:
+    def target_group_arns(self) -> Optional[Sequence[str]]:
         """
         ARNs of the target groups for your load balancer.
         """
@@ -310,7 +310,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="terminationPolicies")
-    def termination_policies(self) -> Sequence[str]:
+    def termination_policies(self) -> Optional[Sequence[str]]:
         """
         The termination policies for the group.
         """
@@ -318,7 +318,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="trafficSources")
-    def traffic_sources(self) -> Sequence['outputs.GetGroupTrafficSourceResult']:
+    def traffic_sources(self) -> Optional[Sequence['outputs.GetGroupTrafficSourceResult']]:
         """
         Traffic sources.
         """
@@ -326,7 +326,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="vpcZoneIdentifier")
-    def vpc_zone_identifier(self) -> str:
+    def vpc_zone_identifier(self) -> Optional[str]:
         """
         VPC ID for the group.
         """
@@ -334,7 +334,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="warmPoolSize")
-    def warm_pool_size(self) -> int:
+    def warm_pool_size(self) -> Optional[int]:
         """
         Current size of the warm pool.
         """
@@ -342,7 +342,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="warmPools")
-    def warm_pools(self) -> Sequence['outputs.GetGroupWarmPoolResult']:
+    def warm_pools(self) -> Optional[Sequence['outputs.GetGroupWarmPoolResult']]:
         """
         List of warm pool configuration objects.
         """

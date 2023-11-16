@@ -143,14 +143,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the service.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The description of the service.
@@ -241,14 +241,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
-    private Output<String> namespaceId;
+    private Output</* @Nullable */ String> namespaceId;
 
     /**
      * @return The ID of the namespace that you want to use to create the service.
      * 
      */
-    public Output<String> namespaceId() {
-        return this.namespaceId;
+    public Output<Optional<String>> namespaceId() {
+        return Codegen.optional(this.namespaceId);
     }
     /**
      * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -287,14 +287,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

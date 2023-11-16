@@ -141,7 +141,7 @@ type InstanceAutomatedBackupsReplication struct {
 	pulumi.CustomResourceState
 
 	// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
 	PreSignedUrl pulumi.StringPtrOutput `pulumi:"preSignedUrl"`
 	// The retention period for the replicated automated backups, defaults to `7`.
@@ -319,8 +319,8 @@ func (o InstanceAutomatedBackupsReplicationOutput) ToInstanceAutomatedBackupsRep
 }
 
 // The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-func (o InstanceAutomatedBackupsReplicationOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceAutomatedBackupsReplication) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o InstanceAutomatedBackupsReplicationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceAutomatedBackupsReplication) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.

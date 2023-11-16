@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQueueOutboundCallerConfig {
@@ -13,39 +15,39 @@ public final class GetQueueOutboundCallerConfig {
      * @return Specifies the caller ID name.
      * 
      */
-    private String outboundCallerIdName;
+    private @Nullable String outboundCallerIdName;
     /**
      * @return Specifies the caller ID number.
      * 
      */
-    private String outboundCallerIdNumberId;
+    private @Nullable String outboundCallerIdNumberId;
     /**
      * @return Outbound whisper flow to be used during an outbound call.
      * 
      */
-    private String outboundFlowId;
+    private @Nullable String outboundFlowId;
 
     private GetQueueOutboundCallerConfig() {}
     /**
      * @return Specifies the caller ID name.
      * 
      */
-    public String outboundCallerIdName() {
-        return this.outboundCallerIdName;
+    public Optional<String> outboundCallerIdName() {
+        return Optional.ofNullable(this.outboundCallerIdName);
     }
     /**
      * @return Specifies the caller ID number.
      * 
      */
-    public String outboundCallerIdNumberId() {
-        return this.outboundCallerIdNumberId;
+    public Optional<String> outboundCallerIdNumberId() {
+        return Optional.ofNullable(this.outboundCallerIdNumberId);
     }
     /**
      * @return Outbound whisper flow to be used during an outbound call.
      * 
      */
-    public String outboundFlowId() {
-        return this.outboundFlowId;
+    public Optional<String> outboundFlowId() {
+        return Optional.ofNullable(this.outboundFlowId);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetQueueOutboundCallerConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String outboundCallerIdName;
-        private String outboundCallerIdNumberId;
-        private String outboundFlowId;
+        private @Nullable String outboundCallerIdName;
+        private @Nullable String outboundCallerIdNumberId;
+        private @Nullable String outboundFlowId;
         public Builder() {}
         public Builder(GetQueueOutboundCallerConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetQueueOutboundCallerConfig {
         }
 
         @CustomType.Setter
-        public Builder outboundCallerIdName(String outboundCallerIdName) {
-            this.outboundCallerIdName = Objects.requireNonNull(outboundCallerIdName);
+        public Builder outboundCallerIdName(@Nullable String outboundCallerIdName) {
+            this.outboundCallerIdName = outboundCallerIdName;
             return this;
         }
         @CustomType.Setter
-        public Builder outboundCallerIdNumberId(String outboundCallerIdNumberId) {
-            this.outboundCallerIdNumberId = Objects.requireNonNull(outboundCallerIdNumberId);
+        public Builder outboundCallerIdNumberId(@Nullable String outboundCallerIdNumberId) {
+            this.outboundCallerIdNumberId = outboundCallerIdNumberId;
             return this;
         }
         @CustomType.Setter
-        public Builder outboundFlowId(String outboundFlowId) {
-            this.outboundFlowId = Objects.requireNonNull(outboundFlowId);
+        public Builder outboundFlowId(@Nullable String outboundFlowId) {
+            this.outboundFlowId = outboundFlowId;
             return this;
         }
         public GetQueueOutboundCallerConfig build() {

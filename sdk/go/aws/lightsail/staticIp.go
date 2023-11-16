@@ -42,13 +42,13 @@ type StaticIp struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Lightsail static IP
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The allocated static IP address
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
 	// The name for the allocated static IP
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The support code.
-	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
+	SupportCode pulumi.StringPtrOutput `pulumi:"supportCode"`
 }
 
 // NewStaticIp registers a new resource with the given unique name, arguments, and options.
@@ -205,13 +205,13 @@ func (o StaticIpOutput) ToStaticIpOutputWithContext(ctx context.Context) StaticI
 }
 
 // The ARN of the Lightsail static IP
-func (o StaticIpOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StaticIpOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticIp) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The allocated static IP address
-func (o StaticIpOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+func (o StaticIpOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticIp) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The name for the allocated static IP
@@ -220,8 +220,8 @@ func (o StaticIpOutput) Name() pulumi.StringOutput {
 }
 
 // The support code.
-func (o StaticIpOutput) SupportCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
+func (o StaticIpOutput) SupportCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticIp) pulumi.StringPtrOutput { return v.SupportCode }).(pulumi.StringPtrOutput)
 }
 
 type StaticIpArrayOutput struct{ *pulumi.OutputState }

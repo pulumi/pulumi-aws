@@ -113,14 +113,14 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
-    private Output<String> key;
+    private Output</* @Nullable */ String> key;
 
     /**
      * @return API key
      * 
      */
-    public Output<String> key() {
-        return this.key;
+    public Output<Optional<String>> key() {
+        return Codegen.optional(this.key);
     }
 
     /**

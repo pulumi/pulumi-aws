@@ -468,86 +468,57 @@ class FrameworkControlSetControlArgs:
 @pulumi.input_type
 class GetControlControlMappingSourceArgs:
     def __init__(__self__, *,
-                 source_description: str,
-                 source_frequency: str,
-                 source_id: str,
-                 source_name: str,
-                 source_set_up_option: str,
-                 source_type: str,
-                 troubleshooting_text: str,
-                 source_keyword: Optional['GetControlControlMappingSourceSourceKeywordArgs'] = None):
-        pulumi.set(__self__, "source_description", source_description)
-        pulumi.set(__self__, "source_frequency", source_frequency)
-        pulumi.set(__self__, "source_id", source_id)
-        pulumi.set(__self__, "source_name", source_name)
-        pulumi.set(__self__, "source_set_up_option", source_set_up_option)
-        pulumi.set(__self__, "source_type", source_type)
-        pulumi.set(__self__, "troubleshooting_text", troubleshooting_text)
+                 source_description: Optional[str] = None,
+                 source_frequency: Optional[str] = None,
+                 source_id: Optional[str] = None,
+                 source_keyword: Optional['GetControlControlMappingSourceSourceKeywordArgs'] = None,
+                 source_name: Optional[str] = None,
+                 source_set_up_option: Optional[str] = None,
+                 source_type: Optional[str] = None,
+                 troubleshooting_text: Optional[str] = None):
+        if source_description is not None:
+            pulumi.set(__self__, "source_description", source_description)
+        if source_frequency is not None:
+            pulumi.set(__self__, "source_frequency", source_frequency)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
         if source_keyword is not None:
             pulumi.set(__self__, "source_keyword", source_keyword)
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+        if source_set_up_option is not None:
+            pulumi.set(__self__, "source_set_up_option", source_set_up_option)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+        if troubleshooting_text is not None:
+            pulumi.set(__self__, "troubleshooting_text", troubleshooting_text)
 
     @property
     @pulumi.getter(name="sourceDescription")
-    def source_description(self) -> str:
+    def source_description(self) -> Optional[str]:
         return pulumi.get(self, "source_description")
 
     @source_description.setter
-    def source_description(self, value: str):
+    def source_description(self, value: Optional[str]):
         pulumi.set(self, "source_description", value)
 
     @property
     @pulumi.getter(name="sourceFrequency")
-    def source_frequency(self) -> str:
+    def source_frequency(self) -> Optional[str]:
         return pulumi.get(self, "source_frequency")
 
     @source_frequency.setter
-    def source_frequency(self, value: str):
+    def source_frequency(self, value: Optional[str]):
         pulumi.set(self, "source_frequency", value)
 
     @property
     @pulumi.getter(name="sourceId")
-    def source_id(self) -> str:
+    def source_id(self) -> Optional[str]:
         return pulumi.get(self, "source_id")
 
     @source_id.setter
-    def source_id(self, value: str):
+    def source_id(self, value: Optional[str]):
         pulumi.set(self, "source_id", value)
-
-    @property
-    @pulumi.getter(name="sourceName")
-    def source_name(self) -> str:
-        return pulumi.get(self, "source_name")
-
-    @source_name.setter
-    def source_name(self, value: str):
-        pulumi.set(self, "source_name", value)
-
-    @property
-    @pulumi.getter(name="sourceSetUpOption")
-    def source_set_up_option(self) -> str:
-        return pulumi.get(self, "source_set_up_option")
-
-    @source_set_up_option.setter
-    def source_set_up_option(self, value: str):
-        pulumi.set(self, "source_set_up_option", value)
-
-    @property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> str:
-        return pulumi.get(self, "source_type")
-
-    @source_type.setter
-    def source_type(self, value: str):
-        pulumi.set(self, "source_type", value)
-
-    @property
-    @pulumi.getter(name="troubleshootingText")
-    def troubleshooting_text(self) -> str:
-        return pulumi.get(self, "troubleshooting_text")
-
-    @troubleshooting_text.setter
-    def troubleshooting_text(self, value: str):
-        pulumi.set(self, "troubleshooting_text", value)
 
     @property
     @pulumi.getter(name="sourceKeyword")
@@ -558,68 +529,87 @@ class GetControlControlMappingSourceArgs:
     def source_keyword(self, value: Optional['GetControlControlMappingSourceSourceKeywordArgs']):
         pulumi.set(self, "source_keyword", value)
 
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[str]:
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: Optional[str]):
+        pulumi.set(self, "source_name", value)
+
+    @property
+    @pulumi.getter(name="sourceSetUpOption")
+    def source_set_up_option(self) -> Optional[str]:
+        return pulumi.get(self, "source_set_up_option")
+
+    @source_set_up_option.setter
+    def source_set_up_option(self, value: Optional[str]):
+        pulumi.set(self, "source_set_up_option", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[str]:
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[str]):
+        pulumi.set(self, "source_type", value)
+
+    @property
+    @pulumi.getter(name="troubleshootingText")
+    def troubleshooting_text(self) -> Optional[str]:
+        return pulumi.get(self, "troubleshooting_text")
+
+    @troubleshooting_text.setter
+    def troubleshooting_text(self, value: Optional[str]):
+        pulumi.set(self, "troubleshooting_text", value)
+
 
 @pulumi.input_type
 class GetControlControlMappingSourceSourceKeywordArgs:
     def __init__(__self__, *,
-                 keyword_input_type: str,
-                 keyword_value: str):
-        pulumi.set(__self__, "keyword_input_type", keyword_input_type)
-        pulumi.set(__self__, "keyword_value", keyword_value)
+                 keyword_input_type: Optional[str] = None,
+                 keyword_value: Optional[str] = None):
+        if keyword_input_type is not None:
+            pulumi.set(__self__, "keyword_input_type", keyword_input_type)
+        if keyword_value is not None:
+            pulumi.set(__self__, "keyword_value", keyword_value)
 
     @property
     @pulumi.getter(name="keywordInputType")
-    def keyword_input_type(self) -> str:
+    def keyword_input_type(self) -> Optional[str]:
         return pulumi.get(self, "keyword_input_type")
 
     @keyword_input_type.setter
-    def keyword_input_type(self, value: str):
+    def keyword_input_type(self, value: Optional[str]):
         pulumi.set(self, "keyword_input_type", value)
 
     @property
     @pulumi.getter(name="keywordValue")
-    def keyword_value(self) -> str:
+    def keyword_value(self) -> Optional[str]:
         return pulumi.get(self, "keyword_value")
 
     @keyword_value.setter
-    def keyword_value(self, value: str):
+    def keyword_value(self, value: Optional[str]):
         pulumi.set(self, "keyword_value", value)
 
 
 @pulumi.input_type
 class GetFrameworkControlSetArgs:
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 controls: Optional[Sequence['GetFrameworkControlSetControlArgs']] = None):
+                 controls: Optional[Sequence['GetFrameworkControlSetControlArgs']] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the framework.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
         if controls is not None:
             pulumi.set(__self__, "controls", controls)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: str):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the framework.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -630,20 +620,42 @@ class GetFrameworkControlSetArgs:
     def controls(self, value: Optional[Sequence['GetFrameworkControlSetControlArgs']]):
         pulumi.set(self, "controls", value)
 
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the framework.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[str]):
+        pulumi.set(self, "name", value)
+
 
 @pulumi.input_type
 class GetFrameworkControlSetControlArgs:
     def __init__(__self__, *,
-                 id: str):
-        pulumi.set(__self__, "id", id)
+                 id: Optional[str] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: str):
+    def id(self, value: Optional[str]):
         pulumi.set(self, "id", value)
 
 

@@ -34,7 +34,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         Set of Amazon Resource Names (ARNs) of the SSO Instances.
         """
@@ -42,7 +42,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -50,7 +50,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter(name="identityStoreIds")
-    def identity_store_ids(self) -> Sequence[str]:
+    def identity_store_ids(self) -> Optional[Sequence[str]]:
         """
         Set of identifiers of the identity stores connected to the SSO Instances.
         """

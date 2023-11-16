@@ -62,26 +62,26 @@ type LookupRestApiArgs struct {
 // A collection of values returned by getRestApi.
 type LookupRestApiResult struct {
 	// Source of the API key for requests.
-	ApiKeySource string `pulumi:"apiKeySource"`
+	ApiKeySource *string `pulumi:"apiKeySource"`
 	// ARN of the REST API.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// List of binary media types supported by the REST API.
 	BinaryMediaTypes []string `pulumi:"binaryMediaTypes"`
 	// Description of the REST API.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The endpoint configuration of this RestApi showing the endpoint types of the API.
 	EndpointConfigurations []GetRestApiEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// Execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
-	ExecutionArn string `pulumi:"executionArn"`
+	ExecutionArn *string `pulumi:"executionArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Minimum response size to compress for the REST API.
-	MinimumCompressionSize string `pulumi:"minimumCompressionSize"`
-	Name                   string `pulumi:"name"`
+	MinimumCompressionSize *string `pulumi:"minimumCompressionSize"`
+	Name                   string  `pulumi:"name"`
 	// JSON formatted policy document that controls access to the API Gateway.
-	Policy string `pulumi:"policy"`
+	Policy *string `pulumi:"policy"`
 	// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
-	RootResourceId string `pulumi:"rootResourceId"`
+	RootResourceId *string `pulumi:"rootResourceId"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -127,13 +127,13 @@ func (o LookupRestApiResultOutput) ToLookupRestApiResultOutputWithContext(ctx co
 }
 
 // Source of the API key for requests.
-func (o LookupRestApiResultOutput) ApiKeySource() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRestApiResult) string { return v.ApiKeySource }).(pulumi.StringOutput)
+func (o LookupRestApiResultOutput) ApiKeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.ApiKeySource }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the REST API.
-func (o LookupRestApiResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRestApiResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupRestApiResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // List of binary media types supported by the REST API.
@@ -142,8 +142,8 @@ func (o LookupRestApiResultOutput) BinaryMediaTypes() pulumi.StringArrayOutput {
 }
 
 // Description of the REST API.
-func (o LookupRestApiResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRestApiResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupRestApiResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint configuration of this RestApi showing the endpoint types of the API.
@@ -152,18 +152,18 @@ func (o LookupRestApiResultOutput) EndpointConfigurations() GetRestApiEndpointCo
 }
 
 // Execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
-func (o LookupRestApiResultOutput) ExecutionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRestApiResult) string { return v.ExecutionArn }).(pulumi.StringOutput)
+func (o LookupRestApiResultOutput) ExecutionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.ExecutionArn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupRestApiResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRestApiResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupRestApiResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Minimum response size to compress for the REST API.
-func (o LookupRestApiResultOutput) MinimumCompressionSize() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRestApiResult) string { return v.MinimumCompressionSize }).(pulumi.StringOutput)
+func (o LookupRestApiResultOutput) MinimumCompressionSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.MinimumCompressionSize }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRestApiResultOutput) Name() pulumi.StringOutput {
@@ -171,13 +171,13 @@ func (o LookupRestApiResultOutput) Name() pulumi.StringOutput {
 }
 
 // JSON formatted policy document that controls access to the API Gateway.
-func (o LookupRestApiResultOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRestApiResult) string { return v.Policy }).(pulumi.StringOutput)
+func (o LookupRestApiResultOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
-func (o LookupRestApiResultOutput) RootResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRestApiResult) string { return v.RootResourceId }).(pulumi.StringOutput)
+func (o LookupRestApiResultOutput) RootResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.RootResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags.

@@ -73,7 +73,7 @@ export class RateBasedRule extends pulumi.CustomResource {
     /**
      * The ARN of the WAF Regional Rate Based Rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */

@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOriginRequestPolicyCookiesConfig {
-    private String cookieBehavior;
-    private List<GetOriginRequestPolicyCookiesConfigCookie> cookies;
+    private @Nullable String cookieBehavior;
+    private @Nullable List<GetOriginRequestPolicyCookiesConfigCookie> cookies;
 
     private GetOriginRequestPolicyCookiesConfig() {}
-    public String cookieBehavior() {
-        return this.cookieBehavior;
+    public Optional<String> cookieBehavior() {
+        return Optional.ofNullable(this.cookieBehavior);
     }
     public List<GetOriginRequestPolicyCookiesConfigCookie> cookies() {
-        return this.cookies;
+        return this.cookies == null ? List.of() : this.cookies;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetOriginRequestPolicyCookiesConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cookieBehavior;
-        private List<GetOriginRequestPolicyCookiesConfigCookie> cookies;
+        private @Nullable String cookieBehavior;
+        private @Nullable List<GetOriginRequestPolicyCookiesConfigCookie> cookies;
         public Builder() {}
         public Builder(GetOriginRequestPolicyCookiesConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetOriginRequestPolicyCookiesConfig {
         }
 
         @CustomType.Setter
-        public Builder cookieBehavior(String cookieBehavior) {
-            this.cookieBehavior = Objects.requireNonNull(cookieBehavior);
+        public Builder cookieBehavior(@Nullable String cookieBehavior) {
+            this.cookieBehavior = cookieBehavior;
             return this;
         }
         @CustomType.Setter
-        public Builder cookies(List<GetOriginRequestPolicyCookiesConfigCookie> cookies) {
-            this.cookies = Objects.requireNonNull(cookies);
+        public Builder cookies(@Nullable List<GetOriginRequestPolicyCookiesConfigCookie> cookies) {
+            this.cookies = cookies;
             return this;
         }
         public Builder cookies(GetOriginRequestPolicyCookiesConfigCookie... cookies) {

@@ -74,41 +74,41 @@ type GetOrderableDbInstanceResult struct {
 	// Availability zones where the instance is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	Engine            *string  `pulumi:"engine"`
-	EngineVersion     string   `pulumi:"engineVersion"`
+	EngineVersion     *string  `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string  `pulumi:"id"`
-	InstanceClass string  `pulumi:"instanceClass"`
+	Id            *string `pulumi:"id"`
+	InstanceClass *string `pulumi:"instanceClass"`
 	LicenseModel  *string `pulumi:"licenseModel"`
 	// Maximum total provisioned IOPS for a DB instance.
-	MaxIopsPerDbInstance int `pulumi:"maxIopsPerDbInstance"`
+	MaxIopsPerDbInstance *int `pulumi:"maxIopsPerDbInstance"`
 	// Maximum provisioned IOPS per GiB for a DB instance.
-	MaxIopsPerGib float64 `pulumi:"maxIopsPerGib"`
+	MaxIopsPerGib *float64 `pulumi:"maxIopsPerGib"`
 	// Maximum storage size for a DB instance.
-	MaxStorageSize int `pulumi:"maxStorageSize"`
+	MaxStorageSize *int `pulumi:"maxStorageSize"`
 	// Minimum total provisioned IOPS for a DB instance.
-	MinIopsPerDbInstance int `pulumi:"minIopsPerDbInstance"`
+	MinIopsPerDbInstance *int `pulumi:"minIopsPerDbInstance"`
 	// Minimum provisioned IOPS per GiB for a DB instance.
-	MinIopsPerGib float64 `pulumi:"minIopsPerGib"`
+	MinIopsPerGib *float64 `pulumi:"minIopsPerGib"`
 	// Minimum storage size for a DB instance.
-	MinStorageSize int `pulumi:"minStorageSize"`
+	MinStorageSize *int `pulumi:"minStorageSize"`
 	// Whether a DB instance is Multi-AZ capable.
-	MultiAzCapable           bool     `pulumi:"multiAzCapable"`
+	MultiAzCapable           *bool    `pulumi:"multiAzCapable"`
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
 	// Whether a DB instance can have a read replica.
-	ReadReplicaCapable bool `pulumi:"readReplicaCapable"`
+	ReadReplicaCapable *bool `pulumi:"readReplicaCapable"`
 	// Storage type for a DB instance.
-	StorageType string `pulumi:"storageType"`
+	StorageType *string `pulumi:"storageType"`
 	// Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
-	SupportsEnhancedMonitoring bool `pulumi:"supportsEnhancedMonitoring"`
+	SupportsEnhancedMonitoring *bool `pulumi:"supportsEnhancedMonitoring"`
 	// Whether a DB instance supports IAM database authentication.
-	SupportsIamDatabaseAuthentication bool `pulumi:"supportsIamDatabaseAuthentication"`
+	SupportsIamDatabaseAuthentication *bool `pulumi:"supportsIamDatabaseAuthentication"`
 	// Whether a DB instance supports provisioned IOPS.
-	SupportsIops bool `pulumi:"supportsIops"`
+	SupportsIops *bool `pulumi:"supportsIops"`
 	// Whether a DB instance supports Performance Insights.
-	SupportsPerformanceInsights bool `pulumi:"supportsPerformanceInsights"`
+	SupportsPerformanceInsights *bool `pulumi:"supportsPerformanceInsights"`
 	// Whether a DB instance supports encrypted storage.
-	SupportsStorageEncryption bool `pulumi:"supportsStorageEncryption"`
-	Vpc                       bool `pulumi:"vpc"`
+	SupportsStorageEncryption *bool `pulumi:"supportsStorageEncryption"`
+	Vpc                       *bool `pulumi:"vpc"`
 }
 
 func GetOrderableDbInstanceOutput(ctx *pulumi.Context, args GetOrderableDbInstanceOutputArgs, opts ...pulumi.InvokeOption) GetOrderableDbInstanceResultOutput {
@@ -168,17 +168,17 @@ func (o GetOrderableDbInstanceResultOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOrderableDbInstanceResultOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.EngineVersion }).(pulumi.StringOutput)
+func (o GetOrderableDbInstanceResultOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetOrderableDbInstanceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetOrderableDbInstanceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOrderableDbInstanceResultOutput) InstanceClass() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.InstanceClass }).(pulumi.StringOutput)
+func (o GetOrderableDbInstanceResultOutput) InstanceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *string { return v.InstanceClass }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) LicenseModel() pulumi.StringPtrOutput {
@@ -186,38 +186,38 @@ func (o GetOrderableDbInstanceResultOutput) LicenseModel() pulumi.StringPtrOutpu
 }
 
 // Maximum total provisioned IOPS for a DB instance.
-func (o GetOrderableDbInstanceResultOutput) MaxIopsPerDbInstance() pulumi.IntOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) int { return v.MaxIopsPerDbInstance }).(pulumi.IntOutput)
+func (o GetOrderableDbInstanceResultOutput) MaxIopsPerDbInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *int { return v.MaxIopsPerDbInstance }).(pulumi.IntPtrOutput)
 }
 
 // Maximum provisioned IOPS per GiB for a DB instance.
-func (o GetOrderableDbInstanceResultOutput) MaxIopsPerGib() pulumi.Float64Output {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) float64 { return v.MaxIopsPerGib }).(pulumi.Float64Output)
+func (o GetOrderableDbInstanceResultOutput) MaxIopsPerGib() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *float64 { return v.MaxIopsPerGib }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum storage size for a DB instance.
-func (o GetOrderableDbInstanceResultOutput) MaxStorageSize() pulumi.IntOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) int { return v.MaxStorageSize }).(pulumi.IntOutput)
+func (o GetOrderableDbInstanceResultOutput) MaxStorageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *int { return v.MaxStorageSize }).(pulumi.IntPtrOutput)
 }
 
 // Minimum total provisioned IOPS for a DB instance.
-func (o GetOrderableDbInstanceResultOutput) MinIopsPerDbInstance() pulumi.IntOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) int { return v.MinIopsPerDbInstance }).(pulumi.IntOutput)
+func (o GetOrderableDbInstanceResultOutput) MinIopsPerDbInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *int { return v.MinIopsPerDbInstance }).(pulumi.IntPtrOutput)
 }
 
 // Minimum provisioned IOPS per GiB for a DB instance.
-func (o GetOrderableDbInstanceResultOutput) MinIopsPerGib() pulumi.Float64Output {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) float64 { return v.MinIopsPerGib }).(pulumi.Float64Output)
+func (o GetOrderableDbInstanceResultOutput) MinIopsPerGib() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *float64 { return v.MinIopsPerGib }).(pulumi.Float64PtrOutput)
 }
 
 // Minimum storage size for a DB instance.
-func (o GetOrderableDbInstanceResultOutput) MinStorageSize() pulumi.IntOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) int { return v.MinStorageSize }).(pulumi.IntOutput)
+func (o GetOrderableDbInstanceResultOutput) MinStorageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *int { return v.MinStorageSize }).(pulumi.IntPtrOutput)
 }
 
 // Whether a DB instance is Multi-AZ capable.
-func (o GetOrderableDbInstanceResultOutput) MultiAzCapable() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.MultiAzCapable }).(pulumi.BoolOutput)
+func (o GetOrderableDbInstanceResultOutput) MultiAzCapable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.MultiAzCapable }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) PreferredInstanceClasses() pulumi.StringArrayOutput {
@@ -225,42 +225,42 @@ func (o GetOrderableDbInstanceResultOutput) PreferredInstanceClasses() pulumi.St
 }
 
 // Whether a DB instance can have a read replica.
-func (o GetOrderableDbInstanceResultOutput) ReadReplicaCapable() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.ReadReplicaCapable }).(pulumi.BoolOutput)
+func (o GetOrderableDbInstanceResultOutput) ReadReplicaCapable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.ReadReplicaCapable }).(pulumi.BoolPtrOutput)
 }
 
 // Storage type for a DB instance.
-func (o GetOrderableDbInstanceResultOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.StorageType }).(pulumi.StringOutput)
+func (o GetOrderableDbInstanceResultOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 // Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
-func (o GetOrderableDbInstanceResultOutput) SupportsEnhancedMonitoring() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsEnhancedMonitoring }).(pulumi.BoolOutput)
+func (o GetOrderableDbInstanceResultOutput) SupportsEnhancedMonitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.SupportsEnhancedMonitoring }).(pulumi.BoolPtrOutput)
 }
 
 // Whether a DB instance supports IAM database authentication.
-func (o GetOrderableDbInstanceResultOutput) SupportsIamDatabaseAuthentication() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsIamDatabaseAuthentication }).(pulumi.BoolOutput)
+func (o GetOrderableDbInstanceResultOutput) SupportsIamDatabaseAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.SupportsIamDatabaseAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // Whether a DB instance supports provisioned IOPS.
-func (o GetOrderableDbInstanceResultOutput) SupportsIops() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsIops }).(pulumi.BoolOutput)
+func (o GetOrderableDbInstanceResultOutput) SupportsIops() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.SupportsIops }).(pulumi.BoolPtrOutput)
 }
 
 // Whether a DB instance supports Performance Insights.
-func (o GetOrderableDbInstanceResultOutput) SupportsPerformanceInsights() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsPerformanceInsights }).(pulumi.BoolOutput)
+func (o GetOrderableDbInstanceResultOutput) SupportsPerformanceInsights() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.SupportsPerformanceInsights }).(pulumi.BoolPtrOutput)
 }
 
 // Whether a DB instance supports encrypted storage.
-func (o GetOrderableDbInstanceResultOutput) SupportsStorageEncryption() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsStorageEncryption }).(pulumi.BoolOutput)
+func (o GetOrderableDbInstanceResultOutput) SupportsStorageEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.SupportsStorageEncryption }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetOrderableDbInstanceResultOutput) Vpc() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.Vpc }).(pulumi.BoolOutput)
+func (o GetOrderableDbInstanceResultOutput) Vpc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.Vpc }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

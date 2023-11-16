@@ -244,7 +244,7 @@ namespace Pulumi.Aws.CodePipeline
         /// The codepipeline ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// One or more artifact_store blocks. Artifact stores are documented below.

@@ -218,14 +218,14 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsConfigs", refs={List.class,InstanceGroupEbsConfig.class}, tree="[0,1]")
-    private Output<List<InstanceGroupEbsConfig>> ebsConfigs;
+    private Output</* @Nullable */ List<InstanceGroupEbsConfig>> ebsConfigs;
 
     /**
      * @return One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    public Output<List<InstanceGroupEbsConfig>> ebsConfigs() {
-        return this.ebsConfigs;
+    public Output<Optional<List<InstanceGroupEbsConfig>>> ebsConfigs() {
+        return Codegen.optional(this.ebsConfigs);
     }
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -246,14 +246,14 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> instanceCount;
+    private Output</* @Nullable */ Integer> instanceCount;
 
     /**
      * @return target number of instances for the instance group. defaults to 0.
      * 
      */
-    public Output<Integer> instanceCount() {
-        return this.instanceCount;
+    public Output<Optional<Integer>> instanceCount() {
+        return Codegen.optional(this.instanceCount);
     }
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
@@ -288,28 +288,28 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="runningInstanceCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> runningInstanceCount;
+    private Output</* @Nullable */ Integer> runningInstanceCount;
 
     /**
      * @return The number of instances currently running in this instance group.
      * 
      */
-    public Output<Integer> runningInstanceCount() {
-        return this.runningInstanceCount;
+    public Output<Optional<Integer>> runningInstanceCount() {
+        return Codegen.optional(this.runningInstanceCount);
     }
     /**
      * The current status of the instance group.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The current status of the instance group.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

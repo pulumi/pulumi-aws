@@ -7,24 +7,26 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDataSetColumnLevelPermissionRule extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDataSetColumnLevelPermissionRule Empty = new GetDataSetColumnLevelPermissionRule();
 
-    @Import(name="columnNames", required=true)
-    private List<String> columnNames;
+    @Import(name="columnNames")
+    private @Nullable List<String> columnNames;
 
-    public List<String> columnNames() {
-        return this.columnNames;
+    public Optional<List<String>> columnNames() {
+        return Optional.ofNullable(this.columnNames);
     }
 
-    @Import(name="principals", required=true)
-    private List<String> principals;
+    @Import(name="principals")
+    private @Nullable List<String> principals;
 
-    public List<String> principals() {
-        return this.principals;
+    public Optional<List<String>> principals() {
+        return Optional.ofNullable(this.principals);
     }
 
     private GetDataSetColumnLevelPermissionRule() {}
@@ -52,7 +54,7 @@ public final class GetDataSetColumnLevelPermissionRule extends com.pulumi.resour
             $ = new GetDataSetColumnLevelPermissionRule(Objects.requireNonNull(defaults));
         }
 
-        public Builder columnNames(List<String> columnNames) {
+        public Builder columnNames(@Nullable List<String> columnNames) {
             $.columnNames = columnNames;
             return this;
         }
@@ -61,7 +63,7 @@ public final class GetDataSetColumnLevelPermissionRule extends com.pulumi.resour
             return columnNames(List.of(columnNames));
         }
 
-        public Builder principals(List<String> principals) {
+        public Builder principals(@Nullable List<String> principals) {
             $.principals = principals;
             return this;
         }
@@ -71,8 +73,6 @@ public final class GetDataSetColumnLevelPermissionRule extends com.pulumi.resour
         }
 
         public GetDataSetColumnLevelPermissionRule build() {
-            $.columnNames = Objects.requireNonNull($.columnNames, "expected parameter 'columnNames' to be non-null");
-            $.principals = Objects.requireNonNull($.principals, "expected parameter 'principals' to be non-null");
             return $;
         }
     }

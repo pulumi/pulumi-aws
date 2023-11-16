@@ -749,7 +749,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "arn")
 
     @property
@@ -771,7 +771,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> pulumi.Output[str]:
+    def availability_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AZ ID of the subnet
         """
@@ -779,7 +779,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Output[str]:
+    def cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv4 CIDR block assigned to the subnet
         """
@@ -797,7 +797,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableLniAtDeviceIndex")
-    def enable_lni_at_device_index(self) -> pulumi.Output[int]:
+    def enable_lni_at_device_index(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "enable_lni_at_device_index")
 
     @property
@@ -812,7 +812,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="existingDefaultSubnet")
-    def existing_default_subnet(self) -> pulumi.Output[bool]:
+    def existing_default_subnet(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "existing_default_subnet")
 
     @property
@@ -825,12 +825,12 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
-    def ipv6_cidr_block_association_id(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block_association_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipv6_cidr_block_association_id")
 
     @property
@@ -850,17 +850,17 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> pulumi.Output[str]:
+    def outpost_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
-    def private_dns_hostname_type_on_launch(self) -> pulumi.Output[str]:
+    def private_dns_hostname_type_on_launch(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "private_dns_hostname_type_on_launch")
 
     @property
@@ -878,7 +878,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the VPC the subnet is in
         """

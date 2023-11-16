@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexCapacityUnit {
@@ -13,27 +15,27 @@ public final class GetIndexCapacityUnit {
      * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
      * 
      */
-    private Integer queryCapacityUnits;
+    private @Nullable Integer queryCapacityUnits;
     /**
      * @return The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
      * 
      */
-    private Integer storageCapacityUnits;
+    private @Nullable Integer storageCapacityUnits;
 
     private GetIndexCapacityUnit() {}
     /**
      * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
      * 
      */
-    public Integer queryCapacityUnits() {
-        return this.queryCapacityUnits;
+    public Optional<Integer> queryCapacityUnits() {
+        return Optional.ofNullable(this.queryCapacityUnits);
     }
     /**
      * @return The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
      * 
      */
-    public Integer storageCapacityUnits() {
-        return this.storageCapacityUnits;
+    public Optional<Integer> storageCapacityUnits() {
+        return Optional.ofNullable(this.storageCapacityUnits);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetIndexCapacityUnit {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer queryCapacityUnits;
-        private Integer storageCapacityUnits;
+        private @Nullable Integer queryCapacityUnits;
+        private @Nullable Integer storageCapacityUnits;
         public Builder() {}
         public Builder(GetIndexCapacityUnit defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetIndexCapacityUnit {
         }
 
         @CustomType.Setter
-        public Builder queryCapacityUnits(Integer queryCapacityUnits) {
-            this.queryCapacityUnits = Objects.requireNonNull(queryCapacityUnits);
+        public Builder queryCapacityUnits(@Nullable Integer queryCapacityUnits) {
+            this.queryCapacityUnits = queryCapacityUnits;
             return this;
         }
         @CustomType.Setter
-        public Builder storageCapacityUnits(Integer storageCapacityUnits) {
-            this.storageCapacityUnits = Objects.requireNonNull(storageCapacityUnits);
+        public Builder storageCapacityUnits(@Nullable Integer storageCapacityUnits) {
+            this.storageCapacityUnits = storageCapacityUnits;
             return this;
         }
         public GetIndexCapacityUnit build() {

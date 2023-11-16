@@ -8,42 +8,44 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultActionAuthenticateCognito {
-    private Map<String,String> authenticationRequestExtraParams;
-    private String onUnauthenticatedRequest;
-    private String scope;
-    private String sessionCookieName;
-    private Integer sessionTimeout;
-    private String userPoolArn;
-    private String userPoolClientId;
-    private String userPoolDomain;
+    private @Nullable Map<String,String> authenticationRequestExtraParams;
+    private @Nullable String onUnauthenticatedRequest;
+    private @Nullable String scope;
+    private @Nullable String sessionCookieName;
+    private @Nullable Integer sessionTimeout;
+    private @Nullable String userPoolArn;
+    private @Nullable String userPoolClientId;
+    private @Nullable String userPoolDomain;
 
     private GetListenerDefaultActionAuthenticateCognito() {}
     public Map<String,String> authenticationRequestExtraParams() {
-        return this.authenticationRequestExtraParams;
+        return this.authenticationRequestExtraParams == null ? Map.of() : this.authenticationRequestExtraParams;
     }
-    public String onUnauthenticatedRequest() {
-        return this.onUnauthenticatedRequest;
+    public Optional<String> onUnauthenticatedRequest() {
+        return Optional.ofNullable(this.onUnauthenticatedRequest);
     }
-    public String scope() {
-        return this.scope;
+    public Optional<String> scope() {
+        return Optional.ofNullable(this.scope);
     }
-    public String sessionCookieName() {
-        return this.sessionCookieName;
+    public Optional<String> sessionCookieName() {
+        return Optional.ofNullable(this.sessionCookieName);
     }
-    public Integer sessionTimeout() {
-        return this.sessionTimeout;
+    public Optional<Integer> sessionTimeout() {
+        return Optional.ofNullable(this.sessionTimeout);
     }
-    public String userPoolArn() {
-        return this.userPoolArn;
+    public Optional<String> userPoolArn() {
+        return Optional.ofNullable(this.userPoolArn);
     }
-    public String userPoolClientId() {
-        return this.userPoolClientId;
+    public Optional<String> userPoolClientId() {
+        return Optional.ofNullable(this.userPoolClientId);
     }
-    public String userPoolDomain() {
-        return this.userPoolDomain;
+    public Optional<String> userPoolDomain() {
+        return Optional.ofNullable(this.userPoolDomain);
     }
 
     public static Builder builder() {
@@ -55,14 +57,14 @@ public final class GetListenerDefaultActionAuthenticateCognito {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,String> authenticationRequestExtraParams;
-        private String onUnauthenticatedRequest;
-        private String scope;
-        private String sessionCookieName;
-        private Integer sessionTimeout;
-        private String userPoolArn;
-        private String userPoolClientId;
-        private String userPoolDomain;
+        private @Nullable Map<String,String> authenticationRequestExtraParams;
+        private @Nullable String onUnauthenticatedRequest;
+        private @Nullable String scope;
+        private @Nullable String sessionCookieName;
+        private @Nullable Integer sessionTimeout;
+        private @Nullable String userPoolArn;
+        private @Nullable String userPoolClientId;
+        private @Nullable String userPoolDomain;
         public Builder() {}
         public Builder(GetListenerDefaultActionAuthenticateCognito defaults) {
     	      Objects.requireNonNull(defaults);
@@ -77,43 +79,43 @@ public final class GetListenerDefaultActionAuthenticateCognito {
         }
 
         @CustomType.Setter
-        public Builder authenticationRequestExtraParams(Map<String,String> authenticationRequestExtraParams) {
-            this.authenticationRequestExtraParams = Objects.requireNonNull(authenticationRequestExtraParams);
+        public Builder authenticationRequestExtraParams(@Nullable Map<String,String> authenticationRequestExtraParams) {
+            this.authenticationRequestExtraParams = authenticationRequestExtraParams;
             return this;
         }
         @CustomType.Setter
-        public Builder onUnauthenticatedRequest(String onUnauthenticatedRequest) {
-            this.onUnauthenticatedRequest = Objects.requireNonNull(onUnauthenticatedRequest);
+        public Builder onUnauthenticatedRequest(@Nullable String onUnauthenticatedRequest) {
+            this.onUnauthenticatedRequest = onUnauthenticatedRequest;
             return this;
         }
         @CustomType.Setter
-        public Builder scope(String scope) {
-            this.scope = Objects.requireNonNull(scope);
+        public Builder scope(@Nullable String scope) {
+            this.scope = scope;
             return this;
         }
         @CustomType.Setter
-        public Builder sessionCookieName(String sessionCookieName) {
-            this.sessionCookieName = Objects.requireNonNull(sessionCookieName);
+        public Builder sessionCookieName(@Nullable String sessionCookieName) {
+            this.sessionCookieName = sessionCookieName;
             return this;
         }
         @CustomType.Setter
-        public Builder sessionTimeout(Integer sessionTimeout) {
-            this.sessionTimeout = Objects.requireNonNull(sessionTimeout);
+        public Builder sessionTimeout(@Nullable Integer sessionTimeout) {
+            this.sessionTimeout = sessionTimeout;
             return this;
         }
         @CustomType.Setter
-        public Builder userPoolArn(String userPoolArn) {
-            this.userPoolArn = Objects.requireNonNull(userPoolArn);
+        public Builder userPoolArn(@Nullable String userPoolArn) {
+            this.userPoolArn = userPoolArn;
             return this;
         }
         @CustomType.Setter
-        public Builder userPoolClientId(String userPoolClientId) {
-            this.userPoolClientId = Objects.requireNonNull(userPoolClientId);
+        public Builder userPoolClientId(@Nullable String userPoolClientId) {
+            this.userPoolClientId = userPoolClientId;
             return this;
         }
         @CustomType.Setter
-        public Builder userPoolDomain(String userPoolDomain) {
-            this.userPoolDomain = Objects.requireNonNull(userPoolDomain);
+        public Builder userPoolDomain(@Nullable String userPoolDomain) {
+            this.userPoolDomain = userPoolDomain;
             return this;
         }
         public GetListenerDefaultActionAuthenticateCognito build() {

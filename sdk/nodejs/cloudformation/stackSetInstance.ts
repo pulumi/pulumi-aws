@@ -128,7 +128,7 @@ export class StackSetInstance extends pulumi.CustomResource {
     /**
      * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      */
@@ -144,7 +144,7 @@ export class StackSetInstance extends pulumi.CustomResource {
     /**
      * Organizational unit ID in which the stack is deployed.
      */
-    public /*out*/ readonly organizationalUnitId!: pulumi.Output<string>;
+    public /*out*/ readonly organizationalUnitId!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of input parameters to override from the StackSet for this Instance.
      */
@@ -152,7 +152,7 @@ export class StackSetInstance extends pulumi.CustomResource {
     /**
      * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
      */
-    public readonly region!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string | undefined>;
     /**
      * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
      */
@@ -160,11 +160,11 @@ export class StackSetInstance extends pulumi.CustomResource {
     /**
      * Stack identifier.
      */
-    public /*out*/ readonly stackId!: pulumi.Output<string>;
+    public /*out*/ readonly stackId!: pulumi.Output<string | undefined>;
     /**
      * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      */
-    public /*out*/ readonly stackInstanceSummaries!: pulumi.Output<outputs.cloudformation.StackSetInstanceStackInstanceSummary[]>;
+    public /*out*/ readonly stackInstanceSummaries!: pulumi.Output<outputs.cloudformation.StackSetInstanceStackInstanceSummary[] | undefined>;
     /**
      * Name of the StackSet.
      */

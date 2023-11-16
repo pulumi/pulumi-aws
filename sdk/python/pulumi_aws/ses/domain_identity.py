@@ -263,7 +263,7 @@ class DomainIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the domain identity.
         """
@@ -279,7 +279,7 @@ class DomainIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="verificationToken")
-    def verification_token(self) -> pulumi.Output[str]:
+    def verification_token(self) -> pulumi.Output[Optional[str]]:
         """
         A code which when added to the domain as a TXT record
         will signal to SES that the owner of the domain has authorised SES to act on

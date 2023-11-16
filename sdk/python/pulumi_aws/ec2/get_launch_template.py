@@ -144,67 +144,67 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Sequence['outputs.GetLaunchTemplateBlockDeviceMappingResult']:
+    def block_device_mappings(self) -> Optional[Sequence['outputs.GetLaunchTemplateBlockDeviceMappingResult']]:
         return pulumi.get(self, "block_device_mappings")
 
     @property
     @pulumi.getter(name="capacityReservationSpecifications")
-    def capacity_reservation_specifications(self) -> Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationResult']:
+    def capacity_reservation_specifications(self) -> Optional[Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationResult']]:
         return pulumi.get(self, "capacity_reservation_specifications")
 
     @property
     @pulumi.getter(name="cpuOptions")
-    def cpu_options(self) -> Sequence['outputs.GetLaunchTemplateCpuOptionResult']:
+    def cpu_options(self) -> Optional[Sequence['outputs.GetLaunchTemplateCpuOptionResult']]:
         return pulumi.get(self, "cpu_options")
 
     @property
     @pulumi.getter(name="creditSpecifications")
-    def credit_specifications(self) -> Sequence['outputs.GetLaunchTemplateCreditSpecificationResult']:
+    def credit_specifications(self) -> Optional[Sequence['outputs.GetLaunchTemplateCreditSpecificationResult']]:
         return pulumi.get(self, "credit_specifications")
 
     @property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> int:
+    def default_version(self) -> Optional[int]:
         return pulumi.get(self, "default_version")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="disableApiStop")
-    def disable_api_stop(self) -> bool:
+    def disable_api_stop(self) -> Optional[bool]:
         return pulumi.get(self, "disable_api_stop")
 
     @property
     @pulumi.getter(name="disableApiTermination")
-    def disable_api_termination(self) -> bool:
+    def disable_api_termination(self) -> Optional[bool]:
         return pulumi.get(self, "disable_api_termination")
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> str:
+    def ebs_optimized(self) -> Optional[str]:
         return pulumi.get(self, "ebs_optimized")
 
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
-    def elastic_gpu_specifications(self) -> Sequence['outputs.GetLaunchTemplateElasticGpuSpecificationResult']:
+    def elastic_gpu_specifications(self) -> Optional[Sequence['outputs.GetLaunchTemplateElasticGpuSpecificationResult']]:
         return pulumi.get(self, "elastic_gpu_specifications")
 
     @property
     @pulumi.getter(name="elasticInferenceAccelerators")
-    def elastic_inference_accelerators(self) -> Sequence['outputs.GetLaunchTemplateElasticInferenceAcceleratorResult']:
+    def elastic_inference_accelerators(self) -> Optional[Sequence['outputs.GetLaunchTemplateElasticInferenceAcceleratorResult']]:
         return pulumi.get(self, "elastic_inference_accelerators")
 
     @property
     @pulumi.getter(name="enclaveOptions")
-    def enclave_options(self) -> Sequence['outputs.GetLaunchTemplateEnclaveOptionResult']:
+    def enclave_options(self) -> Optional[Sequence['outputs.GetLaunchTemplateEnclaveOptionResult']]:
         return pulumi.get(self, "enclave_options")
 
     @property
@@ -214,17 +214,17 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="hibernationOptions")
-    def hibernation_options(self) -> Sequence['outputs.GetLaunchTemplateHibernationOptionResult']:
+    def hibernation_options(self) -> Optional[Sequence['outputs.GetLaunchTemplateHibernationOptionResult']]:
         return pulumi.get(self, "hibernation_options")
 
     @property
     @pulumi.getter(name="iamInstanceProfiles")
-    def iam_instance_profiles(self) -> Sequence['outputs.GetLaunchTemplateIamInstanceProfileResult']:
+    def iam_instance_profiles(self) -> Optional[Sequence['outputs.GetLaunchTemplateIamInstanceProfileResult']]:
         return pulumi.get(self, "iam_instance_profiles")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         ID of the launch template.
         """
@@ -232,112 +232,112 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> str:
+    def image_id(self) -> Optional[str]:
         return pulumi.get(self, "image_id")
 
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
-    def instance_initiated_shutdown_behavior(self) -> str:
+    def instance_initiated_shutdown_behavior(self) -> Optional[str]:
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @property
     @pulumi.getter(name="instanceMarketOptions")
-    def instance_market_options(self) -> Sequence['outputs.GetLaunchTemplateInstanceMarketOptionResult']:
+    def instance_market_options(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceMarketOptionResult']]:
         return pulumi.get(self, "instance_market_options")
 
     @property
     @pulumi.getter(name="instanceRequirements")
-    def instance_requirements(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementResult']:
+    def instance_requirements(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementResult']]:
         return pulumi.get(self, "instance_requirements")
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> Optional[str]:
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> str:
+    def kernel_id(self) -> Optional[str]:
         return pulumi.get(self, "kernel_id")
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
+    def key_name(self) -> Optional[str]:
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="latestVersion")
-    def latest_version(self) -> int:
+    def latest_version(self) -> Optional[int]:
         return pulumi.get(self, "latest_version")
 
     @property
     @pulumi.getter(name="licenseSpecifications")
-    def license_specifications(self) -> Sequence['outputs.GetLaunchTemplateLicenseSpecificationResult']:
+    def license_specifications(self) -> Optional[Sequence['outputs.GetLaunchTemplateLicenseSpecificationResult']]:
         return pulumi.get(self, "license_specifications")
 
     @property
     @pulumi.getter(name="maintenanceOptions")
-    def maintenance_options(self) -> Sequence['outputs.GetLaunchTemplateMaintenanceOptionResult']:
+    def maintenance_options(self) -> Optional[Sequence['outputs.GetLaunchTemplateMaintenanceOptionResult']]:
         return pulumi.get(self, "maintenance_options")
 
     @property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> Sequence['outputs.GetLaunchTemplateMetadataOptionResult']:
+    def metadata_options(self) -> Optional[Sequence['outputs.GetLaunchTemplateMetadataOptionResult']]:
         return pulumi.get(self, "metadata_options")
 
     @property
     @pulumi.getter
-    def monitorings(self) -> Sequence['outputs.GetLaunchTemplateMonitoringResult']:
+    def monitorings(self) -> Optional[Sequence['outputs.GetLaunchTemplateMonitoringResult']]:
         return pulumi.get(self, "monitorings")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Sequence['outputs.GetLaunchTemplateNetworkInterfaceResult']:
+    def network_interfaces(self) -> Optional[Sequence['outputs.GetLaunchTemplateNetworkInterfaceResult']]:
         return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter
-    def placements(self) -> Sequence['outputs.GetLaunchTemplatePlacementResult']:
+    def placements(self) -> Optional[Sequence['outputs.GetLaunchTemplatePlacementResult']]:
         return pulumi.get(self, "placements")
 
     @property
     @pulumi.getter(name="privateDnsNameOptions")
-    def private_dns_name_options(self) -> Sequence['outputs.GetLaunchTemplatePrivateDnsNameOptionResult']:
+    def private_dns_name_options(self) -> Optional[Sequence['outputs.GetLaunchTemplatePrivateDnsNameOptionResult']]:
         return pulumi.get(self, "private_dns_name_options")
 
     @property
     @pulumi.getter(name="ramDiskId")
-    def ram_disk_id(self) -> str:
+    def ram_disk_id(self) -> Optional[str]:
         return pulumi.get(self, "ram_disk_id")
 
     @property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Sequence[str]:
+    def security_group_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "security_group_names")
 
     @property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Sequence['outputs.GetLaunchTemplateTagSpecificationResult']:
+    def tag_specifications(self) -> Optional[Sequence['outputs.GetLaunchTemplateTagSpecificationResult']]:
         return pulumi.get(self, "tag_specifications")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> str:
+    def user_data(self) -> Optional[str]:
         return pulumi.get(self, "user_data")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Sequence[str]:
+    def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "vpc_security_group_ids")
 
 

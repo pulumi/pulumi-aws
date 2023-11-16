@@ -20,13 +20,13 @@ public final class GetEndpointResult {
      * * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
      * 
      */
-    private String endpointAddress;
+    private @Nullable String endpointAddress;
     private @Nullable String endpointType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetEndpointResult() {}
     /**
@@ -38,8 +38,8 @@ public final class GetEndpointResult {
      * * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
      * 
      */
-    public String endpointAddress() {
-        return this.endpointAddress;
+    public Optional<String> endpointAddress() {
+        return Optional.ofNullable(this.endpointAddress);
     }
     public Optional<String> endpointType() {
         return Optional.ofNullable(this.endpointType);
@@ -48,8 +48,8 @@ public final class GetEndpointResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -61,9 +61,9 @@ public final class GetEndpointResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String endpointAddress;
+        private @Nullable String endpointAddress;
         private @Nullable String endpointType;
-        private String id;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -73,8 +73,8 @@ public final class GetEndpointResult {
         }
 
         @CustomType.Setter
-        public Builder endpointAddress(String endpointAddress) {
-            this.endpointAddress = Objects.requireNonNull(endpointAddress);
+        public Builder endpointAddress(@Nullable String endpointAddress) {
+            this.endpointAddress = endpointAddress;
             return this;
         }
         @CustomType.Setter
@@ -83,8 +83,8 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetEndpointResult build() {

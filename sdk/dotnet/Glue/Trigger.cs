@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Glue
         /// Amazon Resource Name (ARN) of Glue Trigger
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the new trigger.
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Glue
         /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

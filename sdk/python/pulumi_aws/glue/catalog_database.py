@@ -524,7 +524,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Glue Catalog Database.
         """
@@ -532,7 +532,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> pulumi.Output[str]:
+    def catalog_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         """
@@ -540,7 +540,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTableDefaultPermissions")
-    def create_table_default_permissions(self) -> pulumi.Output[Sequence['outputs.CatalogDatabaseCreateTableDefaultPermission']]:
+    def create_table_default_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogDatabaseCreateTableDefaultPermission']]]:
         """
         Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         """
@@ -556,7 +556,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="locationUri")
-    def location_uri(self) -> pulumi.Output[str]:
+    def location_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Location of the database (for example, an HDFS path).
         """

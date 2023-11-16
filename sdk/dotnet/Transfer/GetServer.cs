@@ -106,39 +106,39 @@ namespace Pulumi.Aws.Transfer
         /// <summary>
         /// ARN of Transfer Server.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// ARN of any certificate.
         /// </summary>
-        public readonly string Certificate;
+        public readonly string? Certificate;
         /// <summary>
         /// The domain of the storage system that is used for file transfers.
         /// </summary>
-        public readonly string Domain;
+        public readonly string? Domain;
         /// <summary>
         /// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
         /// </summary>
-        public readonly string Endpoint;
+        public readonly string? Endpoint;
         /// <summary>
         /// Type of endpoint that the server is connected to.
         /// </summary>
-        public readonly string EndpointType;
+        public readonly string? EndpointType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
         /// </summary>
-        public readonly string IdentityProviderType;
+        public readonly string? IdentityProviderType;
         /// <summary>
         /// ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
-        public readonly string InvocationRole;
+        public readonly string? InvocationRole;
         /// <summary>
         /// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         /// </summary>
-        public readonly string LoggingRole;
+        public readonly string? LoggingRole;
         /// <summary>
         /// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Transfer
         /// <summary>
         /// The name of the security policy that is attached to the server.
         /// </summary>
-        public readonly string SecurityPolicyName;
+        public readonly string? SecurityPolicyName;
         public readonly string ServerId;
         /// <summary>
         /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
@@ -155,37 +155,37 @@ namespace Pulumi.Aws.Transfer
         /// <summary>
         /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
-        public readonly string Url;
+        public readonly string? Url;
 
         [OutputConstructor]
         private GetServerResult(
-            string arn,
+            string? arn,
 
-            string certificate,
+            string? certificate,
 
-            string domain,
+            string? domain,
 
-            string endpoint,
+            string? endpoint,
 
-            string endpointType,
+            string? endpointType,
 
-            string id,
+            string? id,
 
-            string identityProviderType,
+            string? identityProviderType,
 
-            string invocationRole,
+            string? invocationRole,
 
-            string loggingRole,
+            string? loggingRole,
 
             ImmutableArray<string> protocols,
 
-            string securityPolicyName,
+            string? securityPolicyName,
 
             string serverId,
 
             ImmutableArray<string> structuredLogDestinations,
 
-            string url)
+            string? url)
         {
             Arn = arn;
             Certificate = certificate;

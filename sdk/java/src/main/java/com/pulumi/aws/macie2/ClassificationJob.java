@@ -83,42 +83,42 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The date and time, in UTC and extended RFC 3339 format, when the job was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The custom data identifiers to use for data analysis and classification.
      * 
      */
     @Export(name="customDataIdentifierIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> customDataIdentifierIds;
+    private Output</* @Nullable */ List<String>> customDataIdentifierIds;
 
     /**
      * @return The custom data identifiers to use for data analysis and classification.
      * 
      */
-    public Output<List<String>> customDataIdentifierIds() {
-        return this.customDataIdentifierIds;
+    public Output<Optional<List<String>>> customDataIdentifierIds() {
+        return Codegen.optional(this.customDataIdentifierIds);
     }
     /**
      * A custom description of the job. The description can contain as many as 200 characters.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return A custom description of the job. The description can contain as many as 200 characters.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
@@ -135,30 +135,30 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.initialRun);
     }
     @Export(name="jobArn", refs={String.class}, tree="[0]")
-    private Output<String> jobArn;
+    private Output</* @Nullable */ String> jobArn;
 
-    public Output<String> jobArn() {
-        return this.jobArn;
+    public Output<Optional<String>> jobArn() {
+        return Codegen.optional(this.jobArn);
     }
     @Export(name="jobId", refs={String.class}, tree="[0]")
-    private Output<String> jobId;
+    private Output</* @Nullable */ String> jobId;
 
-    public Output<String> jobId() {
-        return this.jobId;
+    public Output<Optional<String>> jobId() {
+        return Codegen.optional(this.jobId);
     }
     /**
      * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
      * 
      */
     @Export(name="jobStatus", refs={String.class}, tree="[0]")
-    private Output<String> jobStatus;
+    private Output</* @Nullable */ String> jobStatus;
 
     /**
      * @return The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
      * 
      */
-    public Output<String> jobStatus() {
-        return this.jobStatus;
+    public Output<Optional<String>> jobStatus() {
+        return Codegen.optional(this.jobStatus);
     }
     /**
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
@@ -193,14 +193,14 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
@@ -221,28 +221,28 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="samplingPercentage", refs={Integer.class}, tree="[0]")
-    private Output<Integer> samplingPercentage;
+    private Output</* @Nullable */ Integer> samplingPercentage;
 
     /**
      * @return The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      * 
      */
-    public Output<Integer> samplingPercentage() {
-        return this.samplingPercentage;
+    public Output<Optional<Integer>> samplingPercentage() {
+        return Codegen.optional(this.samplingPercentage);
     }
     /**
      * The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
      * 
      */
     @Export(name="scheduleFrequency", refs={ClassificationJobScheduleFrequency.class}, tree="[0]")
-    private Output<ClassificationJobScheduleFrequency> scheduleFrequency;
+    private Output</* @Nullable */ ClassificationJobScheduleFrequency> scheduleFrequency;
 
     /**
      * @return The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
      * 
      */
-    public Output<ClassificationJobScheduleFrequency> scheduleFrequency() {
-        return this.scheduleFrequency;
+    public Output<Optional<ClassificationJobScheduleFrequency>> scheduleFrequency() {
+        return Codegen.optional(this.scheduleFrequency);
     }
     /**
      * A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
@@ -275,14 +275,14 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userPausedDetails", refs={List.class,ClassificationJobUserPausedDetail.class}, tree="[0,1]")
-    private Output<List<ClassificationJobUserPausedDetail>> userPausedDetails;
+    private Output</* @Nullable */ List<ClassificationJobUserPausedDetail>> userPausedDetails;
 
     /**
      * @return If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      * 
      */
-    public Output<List<ClassificationJobUserPausedDetail>> userPausedDetails() {
-        return this.userPausedDetails;
+    public Output<Optional<List<ClassificationJobUserPausedDetail>>> userPausedDetails() {
+        return Codegen.optional(this.userPausedDetails);
     }
 
     /**

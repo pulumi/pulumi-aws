@@ -6,6 +6,8 @@ package com.pulumi.aws.emrcontainers.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualClusterContainerProviderInfoEksInfo {
@@ -13,15 +15,15 @@ public final class GetVirtualClusterContainerProviderInfoEksInfo {
      * @return The namespace where the EMR Containers cluster is running
      * 
      */
-    private String namespace;
+    private @Nullable String namespace;
 
     private GetVirtualClusterContainerProviderInfoEksInfo() {}
     /**
      * @return The namespace where the EMR Containers cluster is running
      * 
      */
-    public String namespace() {
-        return this.namespace;
+    public Optional<String> namespace() {
+        return Optional.ofNullable(this.namespace);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetVirtualClusterContainerProviderInfoEksInfo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String namespace;
+        private @Nullable String namespace;
         public Builder() {}
         public Builder(GetVirtualClusterContainerProviderInfoEksInfo defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetVirtualClusterContainerProviderInfoEksInfo {
         }
 
         @CustomType.Setter
-        public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+        public Builder namespace(@Nullable String namespace) {
+            this.namespace = namespace;
             return this;
         }
         public GetVirtualClusterContainerProviderInfoEksInfo build() {

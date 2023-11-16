@@ -345,7 +345,7 @@ class PublicKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> pulumi.Output[str]:
+    def caller_reference(self) -> pulumi.Output[Optional[str]]:
         """
         Internal value used by CloudFront to allow future updates to the public key configuration.
         """
@@ -369,7 +369,7 @@ class PublicKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The current version of the public key. For example: `E2QWRUHAPOMQZL`.
         """
@@ -385,7 +385,7 @@ class PublicKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The name for the public key. Conflicts with `name`.
 

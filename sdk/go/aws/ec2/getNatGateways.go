@@ -40,7 +40,7 @@ type GetNatGatewaysArgs struct {
 type GetNatGatewaysResult struct {
 	Filters []GetNatGatewaysFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all the NAT gateway ids found.
 	Ids   []string          `pulumi:"ids"`
 	Tags  map[string]string `pulumi:"tags"`
@@ -98,8 +98,8 @@ func (o GetNatGatewaysResultOutput) Filters() GetNatGatewaysFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetNatGatewaysResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetNatGatewaysResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetNatGatewaysResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNatGatewaysResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the NAT gateway ids found.

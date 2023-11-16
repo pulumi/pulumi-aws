@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateMonitoringResult
     {
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
-        private GetLaunchTemplateMonitoringResult(bool enabled)
+        private GetLaunchTemplateMonitoringResult(bool? enabled)
         {
             Enabled = enabled;
         }

@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSigningProfileResult {
@@ -17,68 +19,68 @@ public final class GetSigningProfileResult {
      * @return ARN for the signing profile.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return A human-readable name for the signing platform associated with the signing profile.
      * 
      */
-    private String platformDisplayName;
+    private @Nullable String platformDisplayName;
     /**
      * @return ID of the platform that is used by the target signing profile.
      * 
      */
-    private String platformId;
+    private @Nullable String platformId;
     /**
      * @return Revocation information for a signing profile.
      * 
      */
-    private List<GetSigningProfileRevocationRecord> revocationRecords;
+    private @Nullable List<GetSigningProfileRevocationRecord> revocationRecords;
     /**
      * @return The validity period for a signing job.
      * 
      */
-    private List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
+    private @Nullable List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
     /**
      * @return Status of the target signing profile.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return List of tags associated with the signing profile.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Current version of the signing profile.
      * 
      */
-    private String version;
+    private @Nullable String version;
     /**
      * @return Signing profile ARN, including the profile version.
      * 
      */
-    private String versionArn;
+    private @Nullable String versionArn;
 
     private GetSigningProfileResult() {}
     /**
      * @return ARN for the signing profile.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -87,57 +89,57 @@ public final class GetSigningProfileResult {
      * @return A human-readable name for the signing platform associated with the signing profile.
      * 
      */
-    public String platformDisplayName() {
-        return this.platformDisplayName;
+    public Optional<String> platformDisplayName() {
+        return Optional.ofNullable(this.platformDisplayName);
     }
     /**
      * @return ID of the platform that is used by the target signing profile.
      * 
      */
-    public String platformId() {
-        return this.platformId;
+    public Optional<String> platformId() {
+        return Optional.ofNullable(this.platformId);
     }
     /**
      * @return Revocation information for a signing profile.
      * 
      */
     public List<GetSigningProfileRevocationRecord> revocationRecords() {
-        return this.revocationRecords;
+        return this.revocationRecords == null ? List.of() : this.revocationRecords;
     }
     /**
      * @return The validity period for a signing job.
      * 
      */
     public List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods() {
-        return this.signatureValidityPeriods;
+        return this.signatureValidityPeriods == null ? List.of() : this.signatureValidityPeriods;
     }
     /**
      * @return Status of the target signing profile.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return List of tags associated with the signing profile.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Current version of the signing profile.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
     /**
      * @return Signing profile ARN, including the profile version.
      * 
      */
-    public String versionArn() {
-        return this.versionArn;
+    public Optional<String> versionArn() {
+        return Optional.ofNullable(this.versionArn);
     }
 
     public static Builder builder() {
@@ -149,17 +151,17 @@ public final class GetSigningProfileResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String id;
         private String name;
-        private String platformDisplayName;
-        private String platformId;
-        private List<GetSigningProfileRevocationRecord> revocationRecords;
-        private List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
-        private String status;
-        private Map<String,String> tags;
-        private String version;
-        private String versionArn;
+        private @Nullable String platformDisplayName;
+        private @Nullable String platformId;
+        private @Nullable List<GetSigningProfileRevocationRecord> revocationRecords;
+        private @Nullable List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String version;
+        private @Nullable String versionArn;
         public Builder() {}
         public Builder(GetSigningProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -177,13 +179,13 @@ public final class GetSigningProfileResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -192,49 +194,49 @@ public final class GetSigningProfileResult {
             return this;
         }
         @CustomType.Setter
-        public Builder platformDisplayName(String platformDisplayName) {
-            this.platformDisplayName = Objects.requireNonNull(platformDisplayName);
+        public Builder platformDisplayName(@Nullable String platformDisplayName) {
+            this.platformDisplayName = platformDisplayName;
             return this;
         }
         @CustomType.Setter
-        public Builder platformId(String platformId) {
-            this.platformId = Objects.requireNonNull(platformId);
+        public Builder platformId(@Nullable String platformId) {
+            this.platformId = platformId;
             return this;
         }
         @CustomType.Setter
-        public Builder revocationRecords(List<GetSigningProfileRevocationRecord> revocationRecords) {
-            this.revocationRecords = Objects.requireNonNull(revocationRecords);
+        public Builder revocationRecords(@Nullable List<GetSigningProfileRevocationRecord> revocationRecords) {
+            this.revocationRecords = revocationRecords;
             return this;
         }
         public Builder revocationRecords(GetSigningProfileRevocationRecord... revocationRecords) {
             return revocationRecords(List.of(revocationRecords));
         }
         @CustomType.Setter
-        public Builder signatureValidityPeriods(List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods) {
-            this.signatureValidityPeriods = Objects.requireNonNull(signatureValidityPeriods);
+        public Builder signatureValidityPeriods(@Nullable List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods) {
+            this.signatureValidityPeriods = signatureValidityPeriods;
             return this;
         }
         public Builder signatureValidityPeriods(GetSigningProfileSignatureValidityPeriod... signatureValidityPeriods) {
             return signatureValidityPeriods(List.of(signatureValidityPeriods));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         @CustomType.Setter
-        public Builder versionArn(String versionArn) {
-            this.versionArn = Objects.requireNonNull(versionArn);
+        public Builder versionArn(@Nullable String versionArn) {
+            this.versionArn = versionArn;
             return this;
         }
         public GetSigningProfileResult build() {

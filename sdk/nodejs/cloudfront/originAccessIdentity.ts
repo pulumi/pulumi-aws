@@ -112,12 +112,12 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
      * Internal value used by CloudFront to allow future
      * updates to the origin access identity.
      */
-    public /*out*/ readonly callerReference!: pulumi.Output<string>;
+    public /*out*/ readonly callerReference!: pulumi.Output<string | undefined>;
     /**
      * A shortcut to the full path for the
      * origin access identity to use in CloudFront, see below.
      */
-    public /*out*/ readonly cloudfrontAccessIdentityPath!: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontAccessIdentityPath!: pulumi.Output<string | undefined>;
     /**
      * An optional comment for the origin access identity.
      */
@@ -126,19 +126,19 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
      * The current version of the origin access identity's information.
      * For example: `E2QWRUHAPOMQZL`.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A pre-generated ARN for use in S3 bucket policies (see below).
      * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
      * E2QWRUHAPOMQZL`.
      */
-    public /*out*/ readonly iamArn!: pulumi.Output<string>;
+    public /*out*/ readonly iamArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon S3 canonical user ID for the origin
      * access identity, which you use when giving the origin access identity read
      * permission to an object in Amazon S3.
      */
-    public /*out*/ readonly s3CanonicalUserId!: pulumi.Output<string>;
+    public /*out*/ readonly s3CanonicalUserId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OriginAccessIdentity resource with the given unique name, arguments, and options.

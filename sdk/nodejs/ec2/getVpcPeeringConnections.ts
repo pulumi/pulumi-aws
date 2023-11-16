@@ -67,12 +67,12 @@ export interface GetVpcPeeringConnectionsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IDs of the VPC Peering Connections.
      */
-    readonly ids: string[];
-    readonly tags: {[key: string]: string};
+    readonly ids?: string[];
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get IDs of Amazon VPC peering connections

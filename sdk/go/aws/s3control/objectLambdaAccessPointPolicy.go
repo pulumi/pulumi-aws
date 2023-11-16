@@ -62,7 +62,7 @@ import (
 //				return err
 //			}
 //			_, err = s3control.NewObjectLambdaAccessPointPolicy(ctx, "exampleObjectLambdaAccessPointPolicy", &s3control.ObjectLambdaAccessPointPolicyArgs{
-//				Policy: exampleObjectLambdaAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				Policy: exampleObjectLambdaAccessPoint.Arn.ApplyT(func(arn *string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"Version": "2008-10-17",
@@ -106,9 +106,9 @@ type ObjectLambdaAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
 	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// Indicates whether this access point currently has a policy that allows public access.
-	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
+	HasPublicAccessPolicy pulumi.BoolPtrOutput `pulumi:"hasPublicAccessPolicy"`
 	// The name of the Object Lambda Access Point.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Object Lambda Access Point resource policy document.
@@ -280,13 +280,13 @@ func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyOutp
 }
 
 // The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-func (o ObjectLambdaAccessPointPolicyOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+func (o ObjectLambdaAccessPointPolicyOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether this access point currently has a policy that allows public access.
-func (o ObjectLambdaAccessPointPolicyOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.BoolOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolOutput)
+func (o ObjectLambdaAccessPointPolicyOutput) HasPublicAccessPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.BoolPtrOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Object Lambda Access Point.

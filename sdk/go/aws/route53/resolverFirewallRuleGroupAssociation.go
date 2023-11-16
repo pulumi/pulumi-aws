@@ -59,11 +59,11 @@ type ResolverFirewallRuleGroupAssociation struct {
 	pulumi.CustomResourceState
 
 	// The ARN (Amazon Resource Name) of the firewall rule group association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The unique identifier of the firewall rule group.
 	FirewallRuleGroupId pulumi.StringOutput `pulumi:"firewallRuleGroupId"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-	MutationProtection pulumi.StringOutput `pulumi:"mutationProtection"`
+	MutationProtection pulumi.StringPtrOutput `pulumi:"mutationProtection"`
 	// A name that lets you identify the rule group association, to manage and use it.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
@@ -285,8 +285,8 @@ func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupA
 }
 
 // The ARN (Amazon Resource Name) of the firewall rule group association.
-func (o ResolverFirewallRuleGroupAssociationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResolverFirewallRuleGroupAssociationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of the firewall rule group.
@@ -295,8 +295,8 @@ func (o ResolverFirewallRuleGroupAssociationOutput) FirewallRuleGroupId() pulumi
 }
 
 // If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-func (o ResolverFirewallRuleGroupAssociationOutput) MutationProtection() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringOutput { return v.MutationProtection }).(pulumi.StringOutput)
+func (o ResolverFirewallRuleGroupAssociationOutput) MutationProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringPtrOutput { return v.MutationProtection }).(pulumi.StringPtrOutput)
 }
 
 // A name that lets you identify the rule group association, to manage and use it.

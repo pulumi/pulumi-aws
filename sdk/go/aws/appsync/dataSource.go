@@ -27,94 +27,94 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
-//				ReadCapacity:  pulumi.Int(1),
-//				WriteCapacity: pulumi.Int(1),
-//				HashKey:       pulumi.String("UserId"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("UserId"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"appsync.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("dynamodb:*"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleTable.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
-//				Role: exampleRole.ID(),
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewDataSource(ctx, "exampleDataSource", &appsync.DataSourceArgs{
-//				ApiId:          exampleGraphQLApi.ID(),
-//				Name:           pulumi.String("my_appsync_example"),
-//				ServiceRoleArn: exampleRole.Arn,
-//				Type:           pulumi.String("AMAZON_DYNAMODB"),
-//				DynamodbConfig: &appsync.DataSourceDynamodbConfigArgs{
-//					TableName: exampleTable.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
+// ReadCapacity: pulumi.Int(1),
+// WriteCapacity: pulumi.Int(1),
+// HashKey: pulumi.String("UserId"),
+// Attributes: dynamodb.TableAttributeArray{
+// &dynamodb.TableAttributeArgs{
+// Name: pulumi.String("UserId"),
+// Type: pulumi.String("S"),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "appsync.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument := exampleTable.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "dynamodb:*",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+// Role: exampleRole.ID(),
+// Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &examplePolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+// AuthenticationType: pulumi.String("API_KEY"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appsync.NewDataSource(ctx, "exampleDataSource", &appsync.DataSourceArgs{
+// ApiId: exampleGraphQLApi.ID(),
+// Name: pulumi.String("my_appsync_example"),
+// ServiceRoleArn: exampleRole.Arn,
+// Type: pulumi.String("AMAZON_DYNAMODB"),
+// DynamodbConfig: &appsync.DataSourceDynamodbConfigArgs{
+// TableName: exampleTable.Name,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -132,7 +132,7 @@ type DataSource struct {
 	// API ID for the GraphQL API for the data source.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the data source.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// DynamoDB settings. See DynamoDB Config
@@ -402,8 +402,8 @@ func (o DataSourceOutput) ApiId() pulumi.StringOutput {
 }
 
 // ARN
-func (o DataSourceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DataSourceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the data source.

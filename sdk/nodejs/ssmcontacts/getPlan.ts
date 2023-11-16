@@ -48,11 +48,11 @@ export interface GetPlanResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
      */
-    readonly stages: outputs.ssmcontacts.GetPlanStage[];
+    readonly stages?: outputs.ssmcontacts.GetPlanStage[];
 }
 /**
  * Data source for managing a Plan of an AWS SSM Contact.

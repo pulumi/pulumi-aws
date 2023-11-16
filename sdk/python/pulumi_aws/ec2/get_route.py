@@ -70,42 +70,42 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="carrierGatewayId")
-    def carrier_gateway_id(self) -> str:
+    def carrier_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "carrier_gateway_id")
 
     @property
     @pulumi.getter(name="coreNetworkArn")
-    def core_network_arn(self) -> str:
+    def core_network_arn(self) -> Optional[str]:
         return pulumi.get(self, "core_network_arn")
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> str:
+    def destination_cidr_block(self) -> Optional[str]:
         return pulumi.get(self, "destination_cidr_block")
 
     @property
     @pulumi.getter(name="destinationIpv6CidrBlock")
-    def destination_ipv6_cidr_block(self) -> str:
+    def destination_ipv6_cidr_block(self) -> Optional[str]:
         return pulumi.get(self, "destination_ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
-    def destination_prefix_list_id(self) -> str:
+    def destination_prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyGatewayId")
-    def egress_only_gateway_id(self) -> str:
+    def egress_only_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "egress_only_gateway_id")
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> str:
+    def gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "gateway_id")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -113,22 +113,22 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> Optional[str]:
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="localGatewayId")
-    def local_gateway_id(self) -> str:
+    def local_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "local_gateway_id")
 
     @property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> str:
+    def nat_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "nat_gateway_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> Optional[str]:
         return pulumi.get(self, "network_interface_id")
 
     @property
@@ -138,12 +138,12 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
-    def vpc_peering_connection_id(self) -> str:
+    def vpc_peering_connection_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_peering_connection_id")
 
 

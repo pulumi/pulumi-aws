@@ -55,15 +55,15 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */
-    public /*out*/ readonly defaultAssociationRouteTable!: pulumi.Output<boolean>;
+    public /*out*/ readonly defaultAssociationRouteTable!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
-    public /*out*/ readonly defaultPropagationRouteTable!: pulumi.Output<boolean>;
+    public /*out*/ readonly defaultPropagationRouteTable!: pulumi.Output<boolean | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

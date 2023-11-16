@@ -77,7 +77,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
-    public readonly peerAccountId!: pulumi.Output<string>;
+    public readonly peerAccountId!: pulumi.Output<string | undefined>;
     /**
      * Region of EC2 Transit Gateway to peer with.
      */

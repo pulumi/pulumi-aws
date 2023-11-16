@@ -47,7 +47,7 @@ class GetContactChannelResult:
 
     @property
     @pulumi.getter(name="activationStatus")
-    def activation_status(self) -> str:
+    def activation_status(self) -> Optional[str]:
         """
         Whether the contact channel is activated.
         """
@@ -60,7 +60,7 @@ class GetContactChannelResult:
 
     @property
     @pulumi.getter(name="contactId")
-    def contact_id(self) -> str:
+    def contact_id(self) -> Optional[str]:
         """
         Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         """
@@ -68,7 +68,7 @@ class GetContactChannelResult:
 
     @property
     @pulumi.getter(name="deliveryAddresses")
-    def delivery_addresses(self) -> Sequence['outputs.GetContactChannelDeliveryAddressResult']:
+    def delivery_addresses(self) -> Optional[Sequence['outputs.GetContactChannelDeliveryAddressResult']]:
         """
         Details used to engage the contact channel.
         """
@@ -76,7 +76,7 @@ class GetContactChannelResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -84,7 +84,7 @@ class GetContactChannelResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the contact channel.
         """
@@ -92,7 +92,7 @@ class GetContactChannelResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of the contact channel.
         """

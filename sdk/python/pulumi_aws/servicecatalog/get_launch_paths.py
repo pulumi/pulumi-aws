@@ -43,7 +43,7 @@ class GetLaunchPathsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -56,7 +56,7 @@ class GetLaunchPathsResult:
 
     @property
     @pulumi.getter
-    def summaries(self) -> Sequence['outputs.GetLaunchPathsSummaryResult']:
+    def summaries(self) -> Optional[Sequence['outputs.GetLaunchPathsSummaryResult']]:
         """
         Block with information about the launch path. See details below.
         """

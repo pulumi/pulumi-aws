@@ -215,14 +215,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Lightsail instance (matches `id`).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Availability Zone in which to create your
@@ -273,28 +273,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cpuCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> cpuCount;
+    private Output</* @Nullable */ Integer> cpuCount;
 
     /**
      * @return The number of vCPUs the instance has.
      * 
      */
-    public Output<Integer> cpuCount() {
-        return this.cpuCount;
+    public Output<Optional<Integer>> cpuCount() {
+        return Codegen.optional(this.cpuCount);
     }
     /**
      * The timestamp when the instance was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The timestamp when the instance was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
@@ -315,28 +315,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipv6Addresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> ipv6Addresses;
+    private Output</* @Nullable */ List<String>> ipv6Addresses;
 
     /**
      * @return List of IPv6 addresses for the Lightsail instance.
      * 
      */
-    public Output<List<String>> ipv6Addresses() {
-        return this.ipv6Addresses;
+    public Output<Optional<List<String>>> ipv6Addresses() {
+        return Codegen.optional(this.ipv6Addresses);
     }
     /**
      * A Boolean value indicating whether this instance has a static IP assigned to it.
      * 
      */
     @Export(name="isStaticIp", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> isStaticIp;
+    private Output</* @Nullable */ Boolean> isStaticIp;
 
     /**
      * @return A Boolean value indicating whether this instance has a static IP assigned to it.
      * 
      */
-    public Output<Boolean> isStaticIp() {
-        return this.isStaticIp;
+    public Output<Optional<Boolean>> isStaticIp() {
+        return Codegen.optional(this.isStaticIp);
     }
     /**
      * The name of your key pair. Created in the
@@ -373,42 +373,42 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
-    private Output<String> privateIpAddress;
+    private Output</* @Nullable */ String> privateIpAddress;
 
     /**
      * @return The private IP address of the instance.
      * 
      */
-    public Output<String> privateIpAddress() {
-        return this.privateIpAddress;
+    public Output<Optional<String>> privateIpAddress() {
+        return Codegen.optional(this.privateIpAddress);
     }
     /**
      * The public IP address of the instance.
      * 
      */
     @Export(name="publicIpAddress", refs={String.class}, tree="[0]")
-    private Output<String> publicIpAddress;
+    private Output</* @Nullable */ String> publicIpAddress;
 
     /**
      * @return The public IP address of the instance.
      * 
      */
-    public Output<String> publicIpAddress() {
-        return this.publicIpAddress;
+    public Output<Optional<String>> publicIpAddress() {
+        return Codegen.optional(this.publicIpAddress);
     }
     /**
      * The amount of RAM in GB on the instance (e.g., 1.0).
      * 
      */
     @Export(name="ramSize", refs={Double.class}, tree="[0]")
-    private Output<Double> ramSize;
+    private Output</* @Nullable */ Double> ramSize;
 
     /**
      * @return The amount of RAM in GB on the instance (e.g., 1.0).
      * 
      */
-    public Output<Double> ramSize() {
-        return this.ramSize;
+    public Output<Optional<Double>> ramSize() {
+        return Codegen.optional(this.ramSize);
     }
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -461,14 +461,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
-    private Output<String> username;
+    private Output</* @Nullable */ String> username;
 
     /**
      * @return The user name for connecting to the instance (e.g., ec2-user).
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Output<Optional<String>> username() {
+        return Codegen.optional(this.username);
     }
 
     /**

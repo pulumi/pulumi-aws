@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
@@ -14,27 +16,27 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityP
      * @return The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
      * 
      */
-    private String contentSecurityPolicy;
+    private @Nullable String contentSecurityPolicy;
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private Boolean override;
+    private @Nullable Boolean override;
 
     private GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy() {}
     /**
      * @return The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
      * 
      */
-    public String contentSecurityPolicy() {
-        return this.contentSecurityPolicy;
+    public Optional<String> contentSecurityPolicy() {
+        return Optional.ofNullable(this.contentSecurityPolicy);
     }
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    public Boolean override() {
-        return this.override;
+    public Optional<Boolean> override() {
+        return Optional.ofNullable(this.override);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityP
     }
     @CustomType.Builder
     public static final class Builder {
-        private String contentSecurityPolicy;
-        private Boolean override;
+        private @Nullable String contentSecurityPolicy;
+        private @Nullable Boolean override;
         public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityP
         }
 
         @CustomType.Setter
-        public Builder contentSecurityPolicy(String contentSecurityPolicy) {
-            this.contentSecurityPolicy = Objects.requireNonNull(contentSecurityPolicy);
+        public Builder contentSecurityPolicy(@Nullable String contentSecurityPolicy) {
+            this.contentSecurityPolicy = contentSecurityPolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+        public Builder override(@Nullable Boolean override) {
+            this.override = override;
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy build() {

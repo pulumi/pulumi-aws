@@ -418,7 +418,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The codestar connection ARN.
         """
@@ -426,7 +426,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> pulumi.Output[str]:
+    def connection_status(self) -> pulumi.Output[Optional[str]]:
         """
         The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         """
@@ -450,7 +450,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> pulumi.Output[str]:
+    def provider_type(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         """

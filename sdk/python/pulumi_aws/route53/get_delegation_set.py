@@ -37,12 +37,12 @@ class GetDelegationSetResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> str:
+    def caller_reference(self) -> Optional[str]:
         return pulumi.get(self, "caller_reference")
 
     @property
@@ -52,7 +52,7 @@ class GetDelegationSetResult:
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> Sequence[str]:
+    def name_servers(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "name_servers")
 
 

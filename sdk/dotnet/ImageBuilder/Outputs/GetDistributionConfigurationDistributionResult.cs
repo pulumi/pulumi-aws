@@ -36,7 +36,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// AWS Region of distribution.
         /// </summary>
-        public readonly string Region;
+        public readonly string? Region;
 
         [OutputConstructor]
         private GetDistributionConfigurationDistributionResult(
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
             ImmutableArray<string> licenseConfigurationArns,
 
-            string region)
+            string? region)
         {
             AmiDistributionConfigurations = amiDistributionConfigurations;
             ContainerDistributionConfigurations = containerDistributionConfigurations;

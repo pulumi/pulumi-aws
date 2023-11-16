@@ -101,47 +101,47 @@ type LookupSnapshotArgs struct {
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
 	// Allocated storage size in gigabytes (GB).
-	AllocatedStorage int `pulumi:"allocatedStorage"`
+	AllocatedStorage *int `pulumi:"allocatedStorage"`
 	// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-	AvailabilityZone     string  `pulumi:"availabilityZone"`
+	AvailabilityZone     *string `pulumi:"availabilityZone"`
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
 	// ARN for the DB snapshot.
-	DbSnapshotArn        string  `pulumi:"dbSnapshotArn"`
+	DbSnapshotArn        *string `pulumi:"dbSnapshotArn"`
 	DbSnapshotIdentifier *string `pulumi:"dbSnapshotIdentifier"`
 	// Whether the DB snapshot is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted *bool `pulumi:"encrypted"`
 	// Name of the database engine.
-	Engine string `pulumi:"engine"`
+	Engine *string `pulumi:"engine"`
 	// Version of the database engine.
-	EngineVersion string `pulumi:"engineVersion"`
+	EngineVersion *string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	IncludePublic *bool  `pulumi:"includePublic"`
-	IncludeShared *bool  `pulumi:"includeShared"`
+	Id            *string `pulumi:"id"`
+	IncludePublic *bool   `pulumi:"includePublic"`
+	IncludeShared *bool   `pulumi:"includeShared"`
 	// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-	Iops int `pulumi:"iops"`
+	Iops *int `pulumi:"iops"`
 	// ARN for the KMS encryption key.
-	KmsKeyId string `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// License model information for the restored DB instance.
-	LicenseModel string `pulumi:"licenseModel"`
-	MostRecent   *bool  `pulumi:"mostRecent"`
+	LicenseModel *string `pulumi:"licenseModel"`
+	MostRecent   *bool   `pulumi:"mostRecent"`
 	// Provides the option group name for the DB snapshot.
-	OptionGroupName string `pulumi:"optionGroupName"`
-	Port            int    `pulumi:"port"`
+	OptionGroupName *string `pulumi:"optionGroupName"`
+	Port            *int    `pulumi:"port"`
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
-	SnapshotCreateTime string  `pulumi:"snapshotCreateTime"`
+	SnapshotCreateTime *string `pulumi:"snapshotCreateTime"`
 	SnapshotType       *string `pulumi:"snapshotType"`
 	// DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-	SourceDbSnapshotIdentifier string `pulumi:"sourceDbSnapshotIdentifier"`
+	SourceDbSnapshotIdentifier *string `pulumi:"sourceDbSnapshotIdentifier"`
 	// Region that the DB snapshot was created in or copied from.
-	SourceRegion string `pulumi:"sourceRegion"`
+	SourceRegion *string `pulumi:"sourceRegion"`
 	// Status of this DB snapshot.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Storage type associated with DB snapshot.
-	StorageType string            `pulumi:"storageType"`
+	StorageType *string           `pulumi:"storageType"`
 	Tags        map[string]string `pulumi:"tags"`
 	// ID of the VPC associated with the DB snapshot.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
@@ -202,13 +202,13 @@ func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx 
 }
 
 // Allocated storage size in gigabytes (GB).
-func (o LookupSnapshotResultOutput) AllocatedStorage() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) int { return v.AllocatedStorage }).(pulumi.IntOutput)
+func (o LookupSnapshotResultOutput) AllocatedStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *int { return v.AllocatedStorage }).(pulumi.IntPtrOutput)
 }
 
 // Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-func (o LookupSnapshotResultOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSnapshotResultOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
@@ -216,8 +216,8 @@ func (o LookupSnapshotResultOutput) DbInstanceIdentifier() pulumi.StringPtrOutpu
 }
 
 // ARN for the DB snapshot.
-func (o LookupSnapshotResultOutput) DbSnapshotArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.DbSnapshotArn }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) DbSnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.DbSnapshotArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSnapshotResultOutput) DbSnapshotIdentifier() pulumi.StringPtrOutput {
@@ -225,23 +225,23 @@ func (o LookupSnapshotResultOutput) DbSnapshotIdentifier() pulumi.StringPtrOutpu
 }
 
 // Whether the DB snapshot is encrypted.
-func (o LookupSnapshotResultOutput) Encrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) bool { return v.Encrypted }).(pulumi.BoolOutput)
+func (o LookupSnapshotResultOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // Name of the database engine.
-func (o LookupSnapshotResultOutput) Engine() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Engine }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
 // Version of the database engine.
-func (o LookupSnapshotResultOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.EngineVersion }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSnapshotResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSnapshotResultOutput) IncludePublic() pulumi.BoolPtrOutput {
@@ -253,18 +253,18 @@ func (o LookupSnapshotResultOutput) IncludeShared() pulumi.BoolPtrOutput {
 }
 
 // Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-func (o LookupSnapshotResultOutput) Iops() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) int { return v.Iops }).(pulumi.IntOutput)
+func (o LookupSnapshotResultOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 // ARN for the KMS encryption key.
-func (o LookupSnapshotResultOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // License model information for the restored DB instance.
-func (o LookupSnapshotResultOutput) LicenseModel() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.LicenseModel }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) LicenseModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.LicenseModel }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
@@ -272,17 +272,17 @@ func (o LookupSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
 }
 
 // Provides the option group name for the DB snapshot.
-func (o LookupSnapshotResultOutput) OptionGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OptionGroupName }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) OptionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.OptionGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSnapshotResultOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) int { return v.Port }).(pulumi.IntOutput)
+func (o LookupSnapshotResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
-func (o LookupSnapshotResultOutput) SnapshotCreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.SnapshotCreateTime }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) SnapshotCreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.SnapshotCreateTime }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSnapshotResultOutput) SnapshotType() pulumi.StringPtrOutput {
@@ -290,23 +290,23 @@ func (o LookupSnapshotResultOutput) SnapshotType() pulumi.StringPtrOutput {
 }
 
 // DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-func (o LookupSnapshotResultOutput) SourceDbSnapshotIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.SourceDbSnapshotIdentifier }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) SourceDbSnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.SourceDbSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Region that the DB snapshot was created in or copied from.
-func (o LookupSnapshotResultOutput) SourceRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.SourceRegion }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) SourceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.SourceRegion }).(pulumi.StringPtrOutput)
 }
 
 // Status of this DB snapshot.
-func (o LookupSnapshotResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Storage type associated with DB snapshot.
-func (o LookupSnapshotResultOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.StorageType }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSnapshotResultOutput) Tags() pulumi.StringMapOutput {
@@ -314,8 +314,8 @@ func (o LookupSnapshotResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // ID of the VPC associated with the DB snapshot.
-func (o LookupSnapshotResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupSnapshotResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

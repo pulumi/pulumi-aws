@@ -72,7 +72,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The ARN of the Client VPN endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
@@ -84,11 +84,11 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The options for managing connection authorization for new client connections.
      */
-    public readonly clientConnectOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientConnectOptions>;
+    public readonly clientConnectOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientConnectOptions | undefined>;
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
-    public readonly clientLoginBannerOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    public readonly clientLoginBannerOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientLoginBannerOptions | undefined>;
     /**
      * Information about the client connection logging options.
      */
@@ -100,7 +100,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The DNS name to be used by clients when establishing their VPN session.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */
@@ -108,7 +108,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      */
@@ -116,7 +116,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The URL of the self-service portal.
      */
-    public /*out*/ readonly selfServicePortalUrl!: pulumi.Output<string>;
+    public /*out*/ readonly selfServicePortalUrl!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the ACM server certificate.
      */
@@ -146,7 +146,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
      */

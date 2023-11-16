@@ -1005,7 +1005,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheNamespace")
-    def cache_namespace(self) -> pulumi.Output[str]:
+    def cache_namespace(self) -> pulumi.Output[Optional[str]]:
         """
         Integration's cache namespace.
         """
@@ -1066,7 +1066,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passthroughBehavior")
-    def passthrough_behavior(self) -> pulumi.Output[str]:
+    def passthrough_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         """

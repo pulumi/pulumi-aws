@@ -583,7 +583,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computerName")
-    def computer_name(self) -> pulumi.Output[str]:
+    def computer_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the WorkSpace, as seen by the operating system.
         """
@@ -599,7 +599,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> pulumi.Output[str]:
+    def ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The IP address of the WorkSpace.
         """
@@ -615,7 +615,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The operational state of the WorkSpace.
         """
@@ -666,7 +666,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceProperties")
-    def workspace_properties(self) -> pulumi.Output['outputs.WorkspaceWorkspaceProperties']:
+    def workspace_properties(self) -> pulumi.Output[Optional['outputs.WorkspaceWorkspaceProperties']]:
         """
         The WorkSpace properties.
         """

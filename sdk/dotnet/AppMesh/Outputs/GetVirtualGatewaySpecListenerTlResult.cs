@@ -14,14 +14,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualGatewaySpecListenerTlResult
     {
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerTlCertificateResult> Certificates;
-        public readonly string Mode;
+        public readonly string? Mode;
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerTlValidationResult> Validations;
 
         [OutputConstructor]
         private GetVirtualGatewaySpecListenerTlResult(
             ImmutableArray<Outputs.GetVirtualGatewaySpecListenerTlCertificateResult> certificates,
 
-            string mode,
+            string? mode,
 
             ImmutableArray<Outputs.GetVirtualGatewaySpecListenerTlValidationResult> validations)
         {

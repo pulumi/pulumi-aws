@@ -74,14 +74,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the snapshot.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The cluster identifier for which you want a snapshot.
@@ -102,14 +102,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
@@ -130,14 +130,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerAccount", refs={String.class}, tree="[0]")
-    private Output<String> ownerAccount;
+    private Output</* @Nullable */ String> ownerAccount;
 
     /**
      * @return For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
      * 
      */
-    public Output<String> ownerAccount() {
-        return this.ownerAccount;
+    public Output<Optional<String>> ownerAccount() {
+        return Codegen.optional(this.ownerAccount);
     }
     /**
      * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.

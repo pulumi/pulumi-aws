@@ -133,7 +133,7 @@ type EventDestination struct {
 	pulumi.CustomResourceState
 
 	// The SES event destination ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// CloudWatch destination for the events
 	CloudwatchDestinations EventDestinationCloudwatchDestinationArrayOutput `pulumi:"cloudwatchDestinations"`
 	// The name of the configuration set
@@ -360,8 +360,8 @@ func (o EventDestinationOutput) ToEventDestinationOutputWithContext(ctx context.
 }
 
 // The SES event destination ARN.
-func (o EventDestinationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EventDestinationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDestination) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // CloudWatch destination for the events

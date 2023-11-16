@@ -8,46 +8,48 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLedgerResult {
-    private String arn;
-    private Boolean deletionProtection;
+    private @Nullable String arn;
+    private @Nullable Boolean deletionProtection;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String kmsKey;
+    private @Nullable String id;
+    private @Nullable String kmsKey;
     private String name;
-    private String permissionsMode;
-    private Map<String,String> tags;
+    private @Nullable String permissionsMode;
+    private @Nullable Map<String,String> tags;
 
     private GetLedgerResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public Boolean deletionProtection() {
-        return this.deletionProtection;
+    public Optional<Boolean> deletionProtection() {
+        return Optional.ofNullable(this.deletionProtection);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String kmsKey() {
-        return this.kmsKey;
+    public Optional<String> kmsKey() {
+        return Optional.ofNullable(this.kmsKey);
     }
     public String name() {
         return this.name;
     }
-    public String permissionsMode() {
-        return this.permissionsMode;
+    public Optional<String> permissionsMode() {
+        return Optional.ofNullable(this.permissionsMode);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -59,13 +61,13 @@ public final class GetLedgerResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Boolean deletionProtection;
-        private String id;
-        private String kmsKey;
+        private @Nullable String arn;
+        private @Nullable Boolean deletionProtection;
+        private @Nullable String id;
+        private @Nullable String kmsKey;
         private String name;
-        private String permissionsMode;
-        private Map<String,String> tags;
+        private @Nullable String permissionsMode;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLedgerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,23 +81,23 @@ public final class GetLedgerResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder deletionProtection(Boolean deletionProtection) {
-            this.deletionProtection = Objects.requireNonNull(deletionProtection);
+        public Builder deletionProtection(@Nullable Boolean deletionProtection) {
+            this.deletionProtection = deletionProtection;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKey(String kmsKey) {
-            this.kmsKey = Objects.requireNonNull(kmsKey);
+        public Builder kmsKey(@Nullable String kmsKey) {
+            this.kmsKey = kmsKey;
             return this;
         }
         @CustomType.Setter
@@ -104,13 +106,13 @@ public final class GetLedgerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder permissionsMode(String permissionsMode) {
-            this.permissionsMode = Objects.requireNonNull(permissionsMode);
+        public Builder permissionsMode(@Nullable String permissionsMode) {
+            this.permissionsMode = permissionsMode;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetLedgerResult build() {

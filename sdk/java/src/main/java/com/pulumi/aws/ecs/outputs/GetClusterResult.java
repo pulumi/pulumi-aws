@@ -11,6 +11,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterResult {
@@ -18,56 +20,56 @@ public final class GetClusterResult {
      * @return ARN of the ECS Cluster
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     private String clusterName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Number of pending tasks for the ECS Cluster
      * 
      */
-    private Integer pendingTasksCount;
+    private @Nullable Integer pendingTasksCount;
     /**
      * @return The number of registered container instances for the ECS Cluster
      * 
      */
-    private Integer registeredContainerInstancesCount;
+    private @Nullable Integer registeredContainerInstancesCount;
     /**
      * @return Number of running tasks for the ECS Cluster
      * 
      */
-    private Integer runningTasksCount;
+    private @Nullable Integer runningTasksCount;
     /**
      * @return The default Service Connect namespace
      * 
      */
-    private List<GetClusterServiceConnectDefault> serviceConnectDefaults;
+    private @Nullable List<GetClusterServiceConnectDefault> serviceConnectDefaults;
     /**
      * @return Settings associated with the ECS Cluster
      * 
      */
-    private List<GetClusterSetting> settings;
+    private @Nullable List<GetClusterSetting> settings;
     /**
      * @return Status of the ECS Cluster
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Key-value map of resource tags
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetClusterResult() {}
     /**
      * @return ARN of the ECS Cluster
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public String clusterName() {
         return this.clusterName;
@@ -76,57 +78,57 @@ public final class GetClusterResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Number of pending tasks for the ECS Cluster
      * 
      */
-    public Integer pendingTasksCount() {
-        return this.pendingTasksCount;
+    public Optional<Integer> pendingTasksCount() {
+        return Optional.ofNullable(this.pendingTasksCount);
     }
     /**
      * @return The number of registered container instances for the ECS Cluster
      * 
      */
-    public Integer registeredContainerInstancesCount() {
-        return this.registeredContainerInstancesCount;
+    public Optional<Integer> registeredContainerInstancesCount() {
+        return Optional.ofNullable(this.registeredContainerInstancesCount);
     }
     /**
      * @return Number of running tasks for the ECS Cluster
      * 
      */
-    public Integer runningTasksCount() {
-        return this.runningTasksCount;
+    public Optional<Integer> runningTasksCount() {
+        return Optional.ofNullable(this.runningTasksCount);
     }
     /**
      * @return The default Service Connect namespace
      * 
      */
     public List<GetClusterServiceConnectDefault> serviceConnectDefaults() {
-        return this.serviceConnectDefaults;
+        return this.serviceConnectDefaults == null ? List.of() : this.serviceConnectDefaults;
     }
     /**
      * @return Settings associated with the ECS Cluster
      * 
      */
     public List<GetClusterSetting> settings() {
-        return this.settings;
+        return this.settings == null ? List.of() : this.settings;
     }
     /**
      * @return Status of the ECS Cluster
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Key-value map of resource tags
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -138,16 +140,16 @@ public final class GetClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private String clusterName;
-        private String id;
-        private Integer pendingTasksCount;
-        private Integer registeredContainerInstancesCount;
-        private Integer runningTasksCount;
-        private List<GetClusterServiceConnectDefault> serviceConnectDefaults;
-        private List<GetClusterSetting> settings;
-        private String status;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable Integer pendingTasksCount;
+        private @Nullable Integer registeredContainerInstancesCount;
+        private @Nullable Integer runningTasksCount;
+        private @Nullable List<GetClusterServiceConnectDefault> serviceConnectDefaults;
+        private @Nullable List<GetClusterSetting> settings;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -164,8 +166,8 @@ public final class GetClusterResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -174,49 +176,49 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder pendingTasksCount(Integer pendingTasksCount) {
-            this.pendingTasksCount = Objects.requireNonNull(pendingTasksCount);
+        public Builder pendingTasksCount(@Nullable Integer pendingTasksCount) {
+            this.pendingTasksCount = pendingTasksCount;
             return this;
         }
         @CustomType.Setter
-        public Builder registeredContainerInstancesCount(Integer registeredContainerInstancesCount) {
-            this.registeredContainerInstancesCount = Objects.requireNonNull(registeredContainerInstancesCount);
+        public Builder registeredContainerInstancesCount(@Nullable Integer registeredContainerInstancesCount) {
+            this.registeredContainerInstancesCount = registeredContainerInstancesCount;
             return this;
         }
         @CustomType.Setter
-        public Builder runningTasksCount(Integer runningTasksCount) {
-            this.runningTasksCount = Objects.requireNonNull(runningTasksCount);
+        public Builder runningTasksCount(@Nullable Integer runningTasksCount) {
+            this.runningTasksCount = runningTasksCount;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceConnectDefaults(List<GetClusterServiceConnectDefault> serviceConnectDefaults) {
-            this.serviceConnectDefaults = Objects.requireNonNull(serviceConnectDefaults);
+        public Builder serviceConnectDefaults(@Nullable List<GetClusterServiceConnectDefault> serviceConnectDefaults) {
+            this.serviceConnectDefaults = serviceConnectDefaults;
             return this;
         }
         public Builder serviceConnectDefaults(GetClusterServiceConnectDefault... serviceConnectDefaults) {
             return serviceConnectDefaults(List.of(serviceConnectDefaults));
         }
         @CustomType.Setter
-        public Builder settings(List<GetClusterSetting> settings) {
-            this.settings = Objects.requireNonNull(settings);
+        public Builder settings(@Nullable List<GetClusterSetting> settings) {
+            this.settings = settings;
             return this;
         }
         public Builder settings(GetClusterSetting... settings) {
             return settings(List.of(settings));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetClusterResult build() {

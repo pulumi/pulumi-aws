@@ -21,11 +21,11 @@ export interface GetClustersResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of EKS clusters names
      */
-    readonly names: string[];
+    readonly names?: string[];
 }
 /**
  * Retrieve EKS Clusters list

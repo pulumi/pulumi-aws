@@ -73,8 +73,8 @@ export class ThingGroup extends pulumi.CustomResource {
     /**
      * The ARN of the Thing Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly metadatas!: pulumi.Output<outputs.iot.ThingGroupMetadata[]>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly metadatas!: pulumi.Output<outputs.iot.ThingGroupMetadata[] | undefined>;
     /**
      * The name of the Thing Group.
      */
@@ -98,7 +98,7 @@ export class ThingGroup extends pulumi.CustomResource {
     /**
      * The current version of the Thing Group record in the registry.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ThingGroup resource with the given unique name, arguments, and options.

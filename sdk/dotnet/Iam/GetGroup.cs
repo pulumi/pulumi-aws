@@ -108,20 +108,20 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// User ARN.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Stable and unique string identifying the group.
         /// </summary>
-        public readonly string GroupId;
+        public readonly string? GroupId;
         public readonly string GroupName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Path to the IAM user.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         /// <summary>
         /// List of objects containing group member information. See below.
         /// </summary>
@@ -129,15 +129,15 @@ namespace Pulumi.Aws.Iam
 
         [OutputConstructor]
         private GetGroupResult(
-            string arn,
+            string? arn,
 
-            string groupId,
+            string? groupId,
 
             string groupName,
 
-            string id,
+            string? id,
 
-            string path,
+            string? path,
 
             ImmutableArray<Outputs.GetGroupUserResult> users)
         {

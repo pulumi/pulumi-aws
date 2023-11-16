@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Msk
         /// Amazon Resource Name (ARN) of the configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the configuration.
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Msk
         /// Latest revision of the configuration.
         /// </summary>
         [Output("latestRevision")]
-        public Output<int> LatestRevision { get; private set; } = null!;
+        public Output<int?> LatestRevision { get; private set; } = null!;
 
         /// <summary>
         /// Name of the configuration.

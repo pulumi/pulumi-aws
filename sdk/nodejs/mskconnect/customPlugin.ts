@@ -73,7 +73,7 @@ export class CustomPlugin extends pulumi.CustomResource {
     /**
      * the Amazon Resource Name (ARN) of the custom plugin.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
      */
@@ -85,7 +85,7 @@ export class CustomPlugin extends pulumi.CustomResource {
     /**
      * an ID of the latest successfully created revision of the custom plugin.
      */
-    public /*out*/ readonly latestRevision!: pulumi.Output<number>;
+    public /*out*/ readonly latestRevision!: pulumi.Output<number | undefined>;
     /**
      * Information about the location of a custom plugin. See below.
      *
@@ -99,7 +99,7 @@ export class CustomPlugin extends pulumi.CustomResource {
     /**
      * the state of the custom plugin.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomPlugin resource with the given unique name, arguments, and options.

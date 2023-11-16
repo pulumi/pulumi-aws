@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2
     public partial class LocalGatewayRouteTableVpcAssociation : global::Pulumi.CustomResource
     {
         [Output("localGatewayId")]
-        public Output<string> LocalGatewayId { get; private set; } = null!;
+        public Output<string?> LocalGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of EC2 Local Gateway Route Table.

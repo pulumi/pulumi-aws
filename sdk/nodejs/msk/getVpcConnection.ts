@@ -49,31 +49,31 @@ export interface GetVpcConnectionResult {
     /**
      * The authentication type for the client VPC Connection.
      */
-    readonly authentication: string;
+    readonly authentication?: string;
     /**
      * The list of subnets in the client VPC.
      */
-    readonly clientSubnets: string[];
+    readonly clientSubnets?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The security groups attached to the ENIs for the broker nodes.
      */
-    readonly securityGroups: string[];
+    readonly securityGroups?: string[];
     /**
      * Map of key-value pairs assigned to the VPC Connection.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    readonly targetClusterArn: string;
+    readonly targetClusterArn?: string;
     /**
      * The VPC ID of the remote client.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Get information on an Amazon MSK VPC Connection.

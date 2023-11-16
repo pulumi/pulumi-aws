@@ -633,7 +633,7 @@ class Firewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) that identifies the firewall.
         """
@@ -681,7 +681,7 @@ class Firewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallStatuses")
-    def firewall_statuses(self) -> pulumi.Output[Sequence['outputs.FirewallFirewallStatus']]:
+    def firewall_statuses(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallFirewallStatus']]]:
         """
         Nested list of information about the current status of the firewall.
         """
@@ -732,7 +732,7 @@ class Firewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateToken")
-    def update_token(self) -> pulumi.Output[str]:
+    def update_token(self) -> pulumi.Output[Optional[str]]:
         """
         A string token used when updating a firewall.
         """

@@ -172,59 +172,59 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// is set to the ARN of the IAM Server Certificate
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer
         /// </summary>
-        public readonly string CertificateBody;
+        public readonly string? CertificateBody;
         /// <summary>
         /// is the public key certificate chain (PEM-encoded) if exists, empty otherwise
         /// </summary>
-        public readonly string CertificateChain;
+        public readonly string? CertificateChain;
         /// <summary>
         /// is set to the expiration date of the IAM Server Certificate
         /// </summary>
-        public readonly string ExpirationDate;
+        public readonly string? ExpirationDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? Latest;
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string? NamePrefix;
         /// <summary>
         /// is set to the path of the IAM Server Certificate
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         public readonly string? PathPrefix;
         /// <summary>
         /// is the date when the server certificate was uploaded
         /// </summary>
-        public readonly string UploadDate;
+        public readonly string? UploadDate;
 
         [OutputConstructor]
         private GetServerCertificateResult(
-            string arn,
+            string? arn,
 
-            string certificateBody,
+            string? certificateBody,
 
-            string certificateChain,
+            string? certificateChain,
 
-            string expirationDate,
+            string? expirationDate,
 
-            string id,
+            string? id,
 
             bool? latest,
 
-            string name,
+            string? name,
 
             string? namePrefix,
 
-            string path,
+            string? path,
 
             string? pathPrefix,
 
-            string uploadDate)
+            string? uploadDate)
         {
             Arn = arn;
             CertificateBody = certificateBody;

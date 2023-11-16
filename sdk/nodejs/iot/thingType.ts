@@ -58,7 +58,7 @@ export class ThingType extends pulumi.CustomResource {
     /**
      * The ARN of the created AWS IoT Thing Type.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      */

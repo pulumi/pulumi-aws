@@ -39,11 +39,11 @@ export interface GetDefaultTagsArgs {
  * A collection of values returned by getDefaultTags.
  */
 export interface GetDefaultTagsResult {
-    readonly id: string;
+    readonly id?: string;
     /**
      * Blocks of default tags set on the provider. See details below.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get the default tags configured on the provider.

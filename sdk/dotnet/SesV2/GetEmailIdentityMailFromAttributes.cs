@@ -116,26 +116,26 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         /// </summary>
-        public readonly string BehaviorOnMxFailure;
+        public readonly string? BehaviorOnMxFailure;
         public readonly string EmailIdentity;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The custom MAIL FROM domain that you want the verified identity to use.
         /// </summary>
-        public readonly string MailFromDomain;
+        public readonly string? MailFromDomain;
 
         [OutputConstructor]
         private GetEmailIdentityMailFromAttributesResult(
-            string behaviorOnMxFailure,
+            string? behaviorOnMxFailure,
 
             string emailIdentity,
 
-            string id,
+            string? id,
 
-            string mailFromDomain)
+            string? mailFromDomain)
         {
             BehaviorOnMxFailure = behaviorOnMxFailure;
             EmailIdentity = emailIdentity;

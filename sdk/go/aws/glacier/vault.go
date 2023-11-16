@@ -99,9 +99,9 @@ type Vault struct {
 	// The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
 	AccessPolicy pulumi.StringPtrOutput `pulumi:"accessPolicy"`
 	// The ARN of the vault.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The URI of the vault that was created.
-	Location pulumi.StringOutput `pulumi:"location"`
+	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
@@ -310,13 +310,13 @@ func (o VaultOutput) AccessPolicy() pulumi.StringPtrOutput {
 }
 
 // The ARN of the vault.
-func (o VaultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VaultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The URI of the vault that was created.
-func (o VaultOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+func (o VaultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).

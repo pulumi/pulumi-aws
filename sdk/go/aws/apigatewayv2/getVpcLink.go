@@ -60,11 +60,11 @@ type LookupVpcLinkArgs struct {
 // A collection of values returned by getVpcLink.
 type LookupVpcLinkResult struct {
 	// ARN of the VPC Link.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// VPC Link Name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// List of security groups associated with the VPC Link.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of subnets attached to the VPC Link.
@@ -115,18 +115,18 @@ func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutputWithContext(ctx co
 }
 
 // ARN of the VPC Link.
-func (o LookupVpcLinkResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupVpcLinkResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupVpcLinkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVpcLinkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // VPC Link Name.
-func (o LookupVpcLinkResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupVpcLinkResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of security groups associated with the VPC Link.

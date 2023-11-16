@@ -523,7 +523,7 @@ class PhoneNumber(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the phone number.
         """
@@ -547,7 +547,7 @@ class PhoneNumber(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> pulumi.Output[str]:
+    def phone_number(self) -> pulumi.Output[Optional[str]]:
         """
         The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
         """
@@ -563,7 +563,7 @@ class PhoneNumber(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def statuses(self) -> pulumi.Output[Sequence['outputs.PhoneNumberStatus']]:
+    def statuses(self) -> pulumi.Output[Optional[Sequence['outputs.PhoneNumberStatus']]]:
         """
         The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         """

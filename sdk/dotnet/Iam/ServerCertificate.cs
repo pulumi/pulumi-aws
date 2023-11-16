@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Iam
         /// The Amazon Resource Name (ARN) specifying the server certificate.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The contents of the public key certificate in
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Iam
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
         /// </summary>
         [Output("expiration")]
-        public Output<string> Expiration { get; private set; } = null!;
+        public Output<string?> Expiration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Server Certificate. Do not include the
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Iam
         /// prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The IAM path for the server certificate.  If it is not
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Iam
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
         /// </summary>
         [Output("uploadDate")]
-        public Output<string> UploadDate { get; private set; } = null!;
+        public Output<string?> UploadDate { get; private set; } = null!;
 
 
         /// <summary>

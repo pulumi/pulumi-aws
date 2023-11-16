@@ -67,9 +67,9 @@ type Member struct {
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
 	// The ID of the master Security Hub AWS account.
-	MasterId pulumi.StringOutput `pulumi:"masterId"`
+	MasterId pulumi.StringPtrOutput `pulumi:"masterId"`
 	// The status of the member account relationship.
-	MemberStatus pulumi.StringOutput `pulumi:"memberStatus"`
+	MemberStatus pulumi.StringPtrOutput `pulumi:"memberStatus"`
 }
 
 // NewMember registers a new resource with the given unique name, arguments, and options.
@@ -256,13 +256,13 @@ func (o MemberOutput) Invite() pulumi.BoolPtrOutput {
 }
 
 // The ID of the master Security Hub AWS account.
-func (o MemberOutput) MasterId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MasterId }).(pulumi.StringOutput)
+func (o MemberOutput) MasterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.MasterId }).(pulumi.StringPtrOutput)
 }
 
 // The status of the member account relationship.
-func (o MemberOutput) MemberStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MemberStatus }).(pulumi.StringOutput)
+func (o MemberOutput) MemberStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.MemberStatus }).(pulumi.StringPtrOutput)
 }
 
 type MemberArrayOutput struct{ *pulumi.OutputState }

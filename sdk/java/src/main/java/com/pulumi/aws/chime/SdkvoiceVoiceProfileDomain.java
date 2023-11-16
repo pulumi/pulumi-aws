@@ -79,14 +79,14 @@ public class SdkvoiceVoiceProfileDomain extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Voice Profile Domain.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of Voice Profile Domain.

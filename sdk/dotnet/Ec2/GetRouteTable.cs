@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the route table.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// List of associations with attributes detailed below.
         /// </summary>
@@ -223,19 +223,19 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
         /// </summary>
-        public readonly string GatewayId;
+        public readonly string? GatewayId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ID of the AWS account that owns the route table.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// Route Table ID.
         /// </summary>
-        public readonly string RouteTableId;
+        public readonly string? RouteTableId;
         /// <summary>
         /// List of routes with attributes detailed below.
         /// </summary>
@@ -243,33 +243,33 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Subnet ID. Only set when associated with a subnet.
         /// </summary>
-        public readonly string SubnetId;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string VpcId;
+        public readonly string? SubnetId;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetRouteTableResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetRouteTableAssociationResult> associations,
 
             ImmutableArray<Outputs.GetRouteTableFilterResult> filters,
 
-            string gatewayId,
+            string? gatewayId,
 
-            string id,
+            string? id,
 
-            string ownerId,
+            string? ownerId,
 
-            string routeTableId,
+            string? routeTableId,
 
             ImmutableArray<Outputs.GetRouteTableRouteResult> routes,
 
-            string subnetId,
+            string? subnetId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             Associations = associations;

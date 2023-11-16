@@ -125,22 +125,22 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="backtrackWindow")
-    def backtrack_window(self) -> int:
+    def backtrack_window(self) -> Optional[int]:
         return pulumi.get(self, "backtrack_window")
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> int:
+    def backup_retention_period(self) -> Optional[int]:
         return pulumi.get(self, "backup_retention_period")
 
     @property
@@ -150,82 +150,82 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterMembers")
-    def cluster_members(self) -> Sequence[str]:
+    def cluster_members(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "cluster_members")
 
     @property
     @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> str:
+    def cluster_resource_id(self) -> Optional[str]:
         return pulumi.get(self, "cluster_resource_id")
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> Optional[str]:
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="dbClusterParameterGroupName")
-    def db_cluster_parameter_group_name(self) -> str:
+    def db_cluster_parameter_group_name(self) -> Optional[str]:
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
-    def db_subnet_group_name(self) -> str:
+    def db_subnet_group_name(self) -> Optional[str]:
         return pulumi.get(self, "db_subnet_group_name")
 
     @property
     @pulumi.getter(name="dbSystemId")
-    def db_system_id(self) -> str:
+    def db_system_id(self) -> Optional[str]:
         return pulumi.get(self, "db_system_id")
 
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
-    def enabled_cloudwatch_logs_exports(self) -> Sequence[str]:
+    def enabled_cloudwatch_logs_exports(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> Optional[str]:
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter
-    def engine(self) -> str:
+    def engine(self) -> Optional[str]:
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineMode")
-    def engine_mode(self) -> str:
+    def engine_mode(self) -> Optional[str]:
         return pulumi.get(self, "engine_mode")
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> Optional[str]:
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="finalSnapshotIdentifier")
-    def final_snapshot_identifier(self) -> str:
+    def final_snapshot_identifier(self) -> Optional[str]:
         return pulumi.get(self, "final_snapshot_identifier")
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> str:
+    def hosted_zone_id(self) -> Optional[str]:
         return pulumi.get(self, "hosted_zone_id")
 
     @property
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
-    def iam_database_authentication_enabled(self) -> bool:
+    def iam_database_authentication_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "iam_database_authentication_enabled")
 
     @property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> Sequence[str]:
+    def iam_roles(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "iam_roles")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -233,57 +233,57 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="masterUserSecrets")
-    def master_user_secrets(self) -> Sequence['outputs.GetClusterMasterUserSecretResult']:
+    def master_user_secrets(self) -> Optional[Sequence['outputs.GetClusterMasterUserSecretResult']]:
         return pulumi.get(self, "master_user_secrets")
 
     @property
     @pulumi.getter(name="masterUsername")
-    def master_username(self) -> str:
+    def master_username(self) -> Optional[str]:
         return pulumi.get(self, "master_username")
 
     @property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> str:
+    def network_type(self) -> Optional[str]:
         return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> str:
+    def preferred_backup_window(self) -> Optional[str]:
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> str:
+    def preferred_maintenance_window(self) -> Optional[str]:
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="readerEndpoint")
-    def reader_endpoint(self) -> str:
+    def reader_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "reader_endpoint")
 
     @property
     @pulumi.getter(name="replicationSourceIdentifier")
-    def replication_source_identifier(self) -> str:
+    def replication_source_identifier(self) -> Optional[str]:
         return pulumi.get(self, "replication_source_identifier")
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> bool:
+    def storage_encrypted(self) -> Optional[bool]:
         return pulumi.get(self, "storage_encrypted")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags assigned to the resource.
         """
@@ -291,7 +291,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Sequence[str]:
+    def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "vpc_security_group_ids")
 
 

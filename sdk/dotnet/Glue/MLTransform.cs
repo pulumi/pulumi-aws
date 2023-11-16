@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Glue
         /// Amazon Resource Name (ARN) of Glue ML Transform.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the ML Transform.
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Glue
         /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
         [Output("glueVersion")]
-        public Output<string> GlueVersion { get; private set; } = null!;
+        public Output<string?> GlueVersion { get; private set; } = null!;
 
         /// <summary>
         /// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Glue
         /// The number of labels available for this transform.
         /// </summary>
         [Output("labelCount")]
-        public Output<int> LabelCount { get; private set; } = null!;
+        public Output<int?> LabelCount { get; private set; } = null!;
 
         /// <summary>
         /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
         /// </summary>
         [Output("maxCapacity")]
-        public Output<double> MaxCapacity { get; private set; } = null!;
+        public Output<double?> MaxCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of times to retry this ML Transform if it fails.

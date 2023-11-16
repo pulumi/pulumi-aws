@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppFlow
         /// ARN of the connector profile.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.AppFlow
         /// ARN of the connector profile credentials.
         /// </summary>
         [Output("credentialsArn")]
-        public Output<string> CredentialsArn { get; private set; } = null!;
+        public Output<string?> CredentialsArn { get; private set; } = null!;
 
         /// <summary>
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Output("kmsArn")]
-        public Output<string> KmsArn { get; private set; } = null!;
+        public Output<string?> KmsArn { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;

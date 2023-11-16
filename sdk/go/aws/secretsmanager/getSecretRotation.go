@@ -58,11 +58,11 @@ type LookupSecretRotationArgs struct {
 // A collection of values returned by getSecretRotation.
 type LookupSecretRotationResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN of the secret.
-	RotationEnabled bool `pulumi:"rotationEnabled"`
+	RotationEnabled *bool `pulumi:"rotationEnabled"`
 	// Decrypted part of the protected secret information that was originally provided as a string.
-	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
+	RotationLambdaArn *string `pulumi:"rotationLambdaArn"`
 	// Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
 	RotationRules []GetSecretRotationRotationRule `pulumi:"rotationRules"`
 	SecretId      string                          `pulumi:"secretId"`
@@ -107,18 +107,18 @@ func (o LookupSecretRotationResultOutput) ToLookupSecretRotationResultOutputWith
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSecretRotationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSecretRotationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretRotationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the secret.
-func (o LookupSecretRotationResultOutput) RotationEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupSecretRotationResult) bool { return v.RotationEnabled }).(pulumi.BoolOutput)
+func (o LookupSecretRotationResultOutput) RotationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSecretRotationResult) *bool { return v.RotationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Decrypted part of the protected secret information that was originally provided as a string.
-func (o LookupSecretRotationResultOutput) RotationLambdaArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.RotationLambdaArn }).(pulumi.StringOutput)
+func (o LookupSecretRotationResultOutput) RotationLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretRotationResult) *string { return v.RotationLambdaArn }).(pulumi.StringPtrOutput)
 }
 
 // Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.

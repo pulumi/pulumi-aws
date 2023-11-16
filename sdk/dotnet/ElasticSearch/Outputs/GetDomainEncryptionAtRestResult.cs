@@ -16,17 +16,17 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Whether node to node encryption is enabled.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// The KMS key id used to encrypt data at rest.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
 
         [OutputConstructor]
         private GetDomainEncryptionAtRestResult(
-            bool enabled,
+            bool? enabled,
 
-            string kmsKeyId)
+            string? kmsKeyId)
         {
             Enabled = enabled;
             KmsKeyId = kmsKeyId;

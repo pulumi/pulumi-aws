@@ -39,13 +39,13 @@ namespace Pulumi.Aws.Kms
         /// The unique identifier for the grant.
         /// </summary>
         [Output("grantId")]
-        public Output<string> GrantId { get; private set; } = null!;
+        public Output<string?> GrantId { get; private set; } = null!;
 
         /// <summary>
         /// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
         /// </summary>
         [Output("grantToken")]
-        public Output<string> GrantToken { get; private set; } = null!;
+        public Output<string?> GrantToken { get; private set; } = null!;
 
         /// <summary>
         /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.

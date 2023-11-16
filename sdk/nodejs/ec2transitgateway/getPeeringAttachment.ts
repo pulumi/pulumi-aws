@@ -73,24 +73,24 @@ export interface GetPeeringAttachmentArgs {
  */
 export interface GetPeeringAttachmentResult {
     readonly filters?: outputs.ec2transitgateway.GetPeeringAttachmentFilter[];
-    readonly id: string;
+    readonly id?: string;
     /**
      * Identifier of the peer AWS account
      */
-    readonly peerAccountId: string;
+    readonly peerAccountId?: string;
     /**
      * Identifier of the peer AWS region
      */
-    readonly peerRegion: string;
+    readonly peerRegion?: string;
     /**
      * Identifier of the peer EC2 Transit Gateway
      */
-    readonly peerTransitGatewayId: string;
-    readonly tags: {[key: string]: string};
+    readonly peerTransitGatewayId?: string;
+    readonly tags?: {[key: string]: string};
     /**
      * Identifier of the local EC2 Transit Gateway
      */
-    readonly transitGatewayId: string;
+    readonly transitGatewayId?: string;
 }
 /**
  * Get information on an EC2 Transit Gateway Peering Attachment.

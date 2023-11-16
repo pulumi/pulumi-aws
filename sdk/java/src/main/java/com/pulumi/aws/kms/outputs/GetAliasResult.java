@@ -6,6 +6,8 @@ package com.pulumi.aws.kms.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAliasResult {
@@ -13,38 +15,38 @@ public final class GetAliasResult {
      * @return Amazon Resource Name(ARN) of the key alias.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return ARN pointed to by the alias.
      * 
      */
-    private String targetKeyArn;
+    private @Nullable String targetKeyArn;
     /**
      * @return Key identifier pointed to by the alias.
      * 
      */
-    private String targetKeyId;
+    private @Nullable String targetKeyId;
 
     private GetAliasResult() {}
     /**
      * @return Amazon Resource Name(ARN) of the key alias.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -53,15 +55,15 @@ public final class GetAliasResult {
      * @return ARN pointed to by the alias.
      * 
      */
-    public String targetKeyArn() {
-        return this.targetKeyArn;
+    public Optional<String> targetKeyArn() {
+        return Optional.ofNullable(this.targetKeyArn);
     }
     /**
      * @return Key identifier pointed to by the alias.
      * 
      */
-    public String targetKeyId() {
-        return this.targetKeyId;
+    public Optional<String> targetKeyId() {
+        return Optional.ofNullable(this.targetKeyId);
     }
 
     public static Builder builder() {
@@ -73,11 +75,11 @@ public final class GetAliasResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String id;
         private String name;
-        private String targetKeyArn;
-        private String targetKeyId;
+        private @Nullable String targetKeyArn;
+        private @Nullable String targetKeyId;
         public Builder() {}
         public Builder(GetAliasResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -89,13 +91,13 @@ public final class GetAliasResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -104,13 +106,13 @@ public final class GetAliasResult {
             return this;
         }
         @CustomType.Setter
-        public Builder targetKeyArn(String targetKeyArn) {
-            this.targetKeyArn = Objects.requireNonNull(targetKeyArn);
+        public Builder targetKeyArn(@Nullable String targetKeyArn) {
+            this.targetKeyArn = targetKeyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder targetKeyId(String targetKeyId) {
-            this.targetKeyId = Objects.requireNonNull(targetKeyId);
+        public Builder targetKeyId(@Nullable String targetKeyId) {
+            this.targetKeyId = targetKeyId;
             return this;
         }
         public GetAliasResult build() {

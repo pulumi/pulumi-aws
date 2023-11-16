@@ -73,11 +73,11 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig Configuration Profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The configuration profile ID.
      */
-    public /*out*/ readonly configurationProfileId!: pulumi.Output<string>;
+    public /*out*/ readonly configurationProfileId!: pulumi.Output<string | undefined>;
     /**
      * Description of the configuration profile. Can be at most 1024 characters.
      */

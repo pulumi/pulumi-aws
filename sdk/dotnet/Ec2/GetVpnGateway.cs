@@ -235,32 +235,32 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetVpnGatewayResult
     {
-        public readonly string AmazonSideAsn;
-        public readonly string Arn;
-        public readonly string AttachedVpcId;
-        public readonly string AvailabilityZone;
+        public readonly string? AmazonSideAsn;
+        public readonly string? Arn;
+        public readonly string? AttachedVpcId;
+        public readonly string? AvailabilityZone;
         public readonly ImmutableArray<Outputs.GetVpnGatewayFilterResult> Filters;
-        public readonly string Id;
-        public readonly string State;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? Id;
+        public readonly string? State;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetVpnGatewayResult(
-            string amazonSideAsn,
+            string? amazonSideAsn,
 
-            string arn,
+            string? arn,
 
-            string attachedVpcId,
+            string? attachedVpcId,
 
-            string availabilityZone,
+            string? availabilityZone,
 
             ImmutableArray<Outputs.GetVpnGatewayFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AmazonSideAsn = amazonSideAsn;
             Arn = arn;

@@ -70,13 +70,13 @@ namespace Pulumi.Aws.Sfn
         /// The Amazon Resource Name (ARN) identifying your state machine alias.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date the state machine alias was created.
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// Description of the alias.

@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// ARN of the bot alias.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Name of the bot.
         /// </summary>
@@ -126,27 +126,27 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Version of the bot that the alias points to.
         /// </summary>
-        public readonly string BotVersion;
+        public readonly string? BotVersion;
         /// <summary>
         /// Checksum of the bot alias.
         /// </summary>
-        public readonly string Checksum;
+        public readonly string? Checksum;
         /// <summary>
         /// Date that the bot alias was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Description of the alias.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         /// </summary>
-        public readonly string LastUpdatedDate;
+        public readonly string? LastUpdatedDate;
         /// <summary>
         /// Name of the alias. The name is not case sensitive.
         /// </summary>
@@ -154,21 +154,21 @@ namespace Pulumi.Aws.Lex
 
         [OutputConstructor]
         private GetBotAliasResult(
-            string arn,
+            string? arn,
 
             string botName,
 
-            string botVersion,
+            string? botVersion,
 
-            string checksum,
+            string? checksum,
 
-            string createdDate,
+            string? createdDate,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string lastUpdatedDate,
+            string? lastUpdatedDate,
 
             string name)
         {

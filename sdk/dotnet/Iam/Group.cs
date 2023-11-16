@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Iam
         /// The ARN assigned by AWS for this group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Iam
         /// The [unique ID][1] assigned by AWS.
         /// </summary>
         [Output("uniqueId")]
-        public Output<string> UniqueId { get; private set; } = null!;
+        public Output<string?> UniqueId { get; private set; } = null!;
 
 
         /// <summary>

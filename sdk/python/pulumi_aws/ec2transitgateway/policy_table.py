@@ -287,7 +287,7 @@ class PolicyTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
         """
@@ -295,7 +295,7 @@ class PolicyTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the EC2 Transit Gateway Policy Table.
         """

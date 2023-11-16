@@ -65,7 +65,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      */
@@ -85,7 +85,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      */
-    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
+    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string | undefined>;
     /**
      * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
      */
@@ -93,27 +93,27 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
      */
-    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
+    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemDiskIopsConfiguration | undefined>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
      */
-    public readonly endpointIpAddressRange!: pulumi.Output<string>;
+    public readonly endpointIpAddressRange!: pulumi.Output<string | undefined>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[] | undefined>;
     /**
      * AWS account identifier that created the file system.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
      */
@@ -121,15 +121,15 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
      */
-    public readonly rootVolumeConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
+    public readonly rootVolumeConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemRootVolumeConfiguration | undefined>;
     /**
      * Identifier of the root volume, e.g., `fsvol-12345678`
      */
-    public /*out*/ readonly rootVolumeId!: pulumi.Output<string>;
+    public /*out*/ readonly rootVolumeId!: pulumi.Output<string | undefined>;
     /**
      * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */
-    public readonly routeTableIds!: pulumi.Output<string[]>;
+    public readonly routeTableIds!: pulumi.Output<string[] | undefined>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -163,11 +163,11 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string>;
+    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OpenZfsFileSystem resource with the given unique name, arguments, and options.

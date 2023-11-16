@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ec2
         /// State of the VPC Endpoint.
         /// </summary>
         [Output("vpcEndpointState")]
-        public Output<string> VpcEndpointState { get; private set; } = null!;
+        public Output<string?> VpcEndpointState { get; private set; } = null!;
 
 
         /// <summary>

@@ -48,40 +48,40 @@ export interface GetMultiRegionAccessPointArgs {
  * A collection of values returned by getMultiRegionAccessPoint.
  */
 export interface GetMultiRegionAccessPointResult {
-    readonly accountId: string;
+    readonly accountId?: string;
     /**
      * The alias for the Multi-Region Access Point.
      */
-    readonly alias: string;
+    readonly alias?: string;
     /**
      * Amazon Resource Name (ARN) of the Multi-Region Access Point.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Timestamp when the resource has been created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      */
-    readonly domainName: string;
+    readonly domainName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Public Access Block of the Multi-Region Access Point. Detailed below.
      */
-    readonly publicAccessBlocks: outputs.s3control.GetMultiRegionAccessPointPublicAccessBlock[];
+    readonly publicAccessBlocks?: outputs.s3control.GetMultiRegionAccessPointPublicAccessBlock[];
     /**
      * A collection of the regions and buckets associated with the Multi-Region Access Point.
      */
-    readonly regions: outputs.s3control.GetMultiRegionAccessPointRegion[];
+    readonly regions?: outputs.s3control.GetMultiRegionAccessPointRegion[];
     /**
      * The current status of the Multi-Region Access Point.
      */
-    readonly status: string;
+    readonly status?: string;
 }
 /**
  * Provides details on a specific S3 Multi-Region Access Point.

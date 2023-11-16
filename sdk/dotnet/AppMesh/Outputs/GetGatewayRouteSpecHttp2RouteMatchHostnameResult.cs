@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetGatewayRouteSpecHttp2RouteMatchHostnameResult
     {
-        public readonly string Exact;
-        public readonly string Suffix;
+        public readonly string? Exact;
+        public readonly string? Suffix;
 
         [OutputConstructor]
         private GetGatewayRouteSpecHttp2RouteMatchHostnameResult(
-            string exact,
+            string? exact,
 
-            string suffix)
+            string? suffix)
         {
             Exact = exact;
             Suffix = suffix;

@@ -74,56 +74,56 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return EC2 Transit Gateway Connect Peer ARN
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
      * 
      */
     @Export(name="bgpAsn", refs={String.class}, tree="[0]")
-    private Output<String> bgpAsn;
+    private Output</* @Nullable */ String> bgpAsn;
 
     /**
      * @return The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
      * 
      */
-    public Output<String> bgpAsn() {
-        return this.bgpAsn;
+    public Output<Optional<String>> bgpAsn() {
+        return Codegen.optional(this.bgpAsn);
     }
     /**
      * The IP address assigned to customer device, which is used as BGP IP address.
      * 
      */
     @Export(name="bgpPeerAddress", refs={String.class}, tree="[0]")
-    private Output<String> bgpPeerAddress;
+    private Output</* @Nullable */ String> bgpPeerAddress;
 
     /**
      * @return The IP address assigned to customer device, which is used as BGP IP address.
      * 
      */
-    public Output<String> bgpPeerAddress() {
-        return this.bgpPeerAddress;
+    public Output<Optional<String>> bgpPeerAddress() {
+        return Codegen.optional(this.bgpPeerAddress);
     }
     /**
      * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
      * 
      */
     @Export(name="bgpTransitGatewayAddresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> bgpTransitGatewayAddresses;
+    private Output</* @Nullable */ List<String>> bgpTransitGatewayAddresses;
 
     /**
      * @return The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
      * 
      */
-    public Output<List<String>> bgpTransitGatewayAddresses() {
-        return this.bgpTransitGatewayAddresses;
+    public Output<Optional<List<String>>> bgpTransitGatewayAddresses() {
+        return Codegen.optional(this.bgpTransitGatewayAddresses);
     }
     /**
      * The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
@@ -190,14 +190,14 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="transitGatewayAddress", refs={String.class}, tree="[0]")
-    private Output<String> transitGatewayAddress;
+    private Output</* @Nullable */ String> transitGatewayAddress;
 
     /**
      * @return The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
      * 
      */
-    public Output<String> transitGatewayAddress() {
-        return this.transitGatewayAddress;
+    public Output<Optional<String>> transitGatewayAddress() {
+        return Codegen.optional(this.transitGatewayAddress);
     }
     /**
      * The Transit Gateway Connect

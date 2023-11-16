@@ -100,13 +100,13 @@ namespace Pulumi.Aws.CodeStarConnections
         /// The codestar connection ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         /// </summary>
         [Output("connectionStatus")]
-        public Output<string> ConnectionStatus { get; private set; } = null!;
+        public Output<string?> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Output("providerType")]
-        public Output<string> ProviderType { get; private set; } = null!;
+        public Output<string?> ProviderType { get; private set; } = null!;
 
         /// <summary>
         /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

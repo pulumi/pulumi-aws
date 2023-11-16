@@ -62,19 +62,19 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
      */
-    public readonly accessType!: pulumi.Output<string>;
+    public readonly accessType!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * VPC CIDR block of the endpoint.
      */
-    public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
+    public /*out*/ readonly cidrBlock!: pulumi.Output<string | undefined>;
     /**
      * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      */
@@ -82,7 +82,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
+    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[] | undefined>;
     /**
      * Identifier of the Outpost to contain this endpoint.
      */

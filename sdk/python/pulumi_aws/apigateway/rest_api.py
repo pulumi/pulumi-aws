@@ -825,7 +825,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiKeySource")
-    def api_key_source(self) -> pulumi.Output[str]:
+    def api_key_source(self) -> pulumi.Output[Optional[str]]:
         """
         Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
@@ -833,7 +833,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN
         """
@@ -841,7 +841,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="binaryMediaTypes")
-    def binary_media_types(self) -> pulumi.Output[Sequence[str]]:
+    def binary_media_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
@@ -857,7 +857,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         Creation date of the REST API
         """
@@ -865,7 +865,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
@@ -873,7 +873,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableExecuteApiEndpoint")
-    def disable_execute_api_endpoint(self) -> pulumi.Output[bool]:
+    def disable_execute_api_endpoint(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
@@ -881,7 +881,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> pulumi.Output['outputs.RestApiEndpointConfiguration']:
+    def endpoint_configuration(self) -> pulumi.Output[Optional['outputs.RestApiEndpointConfiguration']]:
         """
         Configuration block defining API endpoint configuration including endpoint type. Defined below.
         """
@@ -889,7 +889,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> pulumi.Output[str]:
+    def execution_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Execution ARN part to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
@@ -907,7 +907,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumCompressionSize")
-    def minimum_compression_size(self) -> pulumi.Output[str]:
+    def minimum_compression_size(self) -> pulumi.Output[Optional[str]]:
         """
         Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
@@ -931,7 +931,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
@@ -947,7 +947,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootResourceId")
-    def root_resource_id(self) -> pulumi.Output[str]:
+    def root_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Resource ID of the REST API's root
         """

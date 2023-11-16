@@ -76,23 +76,23 @@ type Domain struct {
 	pulumi.CustomResourceState
 
 	// The domain's ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The service endpoint for updating documents in a search domain.
-	DocumentServiceEndpoint pulumi.StringOutput `pulumi:"documentServiceEndpoint"`
+	DocumentServiceEndpoint pulumi.StringPtrOutput `pulumi:"documentServiceEndpoint"`
 	// An internally generated unique identifier for the domain.
-	DomainId pulumi.StringOutput `pulumi:"domainId"`
+	DomainId pulumi.StringPtrOutput `pulumi:"domainId"`
 	// Domain endpoint options. Documented below.
-	EndpointOptions DomainEndpointOptionsOutput `pulumi:"endpointOptions"`
+	EndpointOptions DomainEndpointOptionsPtrOutput `pulumi:"endpointOptions"`
 	// The index fields for documents added to the domain. Documented below.
 	IndexFields DomainIndexFieldArrayOutput `pulumi:"indexFields"`
 	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
+	MultiAz pulumi.BoolPtrOutput `pulumi:"multiAz"`
 	// The name of the CloudSearch domain.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Domain scaling parameters. Documented below.
-	ScalingParameters DomainScalingParametersOutput `pulumi:"scalingParameters"`
+	ScalingParameters DomainScalingParametersPtrOutput `pulumi:"scalingParameters"`
 	// The service endpoint for requesting search results from a search domain.
-	SearchServiceEndpoint pulumi.StringOutput `pulumi:"searchServiceEndpoint"`
+	SearchServiceEndpoint pulumi.StringPtrOutput `pulumi:"searchServiceEndpoint"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -285,23 +285,23 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 }
 
 // The domain's ARN.
-func (o DomainOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DomainOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The service endpoint for updating documents in a search domain.
-func (o DomainOutput) DocumentServiceEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DocumentServiceEndpoint }).(pulumi.StringOutput)
+func (o DomainOutput) DocumentServiceEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DocumentServiceEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // An internally generated unique identifier for the domain.
-func (o DomainOutput) DomainId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
+func (o DomainOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
 // Domain endpoint options. Documented below.
-func (o DomainOutput) EndpointOptions() DomainEndpointOptionsOutput {
-	return o.ApplyT(func(v *Domain) DomainEndpointOptionsOutput { return v.EndpointOptions }).(DomainEndpointOptionsOutput)
+func (o DomainOutput) EndpointOptions() DomainEndpointOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainEndpointOptionsPtrOutput { return v.EndpointOptions }).(DomainEndpointOptionsPtrOutput)
 }
 
 // The index fields for documents added to the domain. Documented below.
@@ -310,8 +310,8 @@ func (o DomainOutput) IndexFields() DomainIndexFieldArrayOutput {
 }
 
 // Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-func (o DomainOutput) MultiAz() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Domain) pulumi.BoolOutput { return v.MultiAz }).(pulumi.BoolOutput)
+func (o DomainOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the CloudSearch domain.
@@ -320,13 +320,13 @@ func (o DomainOutput) Name() pulumi.StringOutput {
 }
 
 // Domain scaling parameters. Documented below.
-func (o DomainOutput) ScalingParameters() DomainScalingParametersOutput {
-	return o.ApplyT(func(v *Domain) DomainScalingParametersOutput { return v.ScalingParameters }).(DomainScalingParametersOutput)
+func (o DomainOutput) ScalingParameters() DomainScalingParametersPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainScalingParametersPtrOutput { return v.ScalingParameters }).(DomainScalingParametersPtrOutput)
 }
 
 // The service endpoint for requesting search results from a search domain.
-func (o DomainOutput) SearchServiceEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SearchServiceEndpoint }).(pulumi.StringOutput)
+func (o DomainOutput) SearchServiceEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.SearchServiceEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type DomainArrayOutput struct{ *pulumi.OutputState }

@@ -97,14 +97,14 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the AMI.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -154,15 +154,15 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsBlockDevices", refs={List.class,AmiEbsBlockDevice.class}, tree="[0,1]")
-    private Output<List<AmiEbsBlockDevice>> ebsBlockDevices;
+    private Output</* @Nullable */ List<AmiEbsBlockDevice>> ebsBlockDevices;
 
     /**
      * @return Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      * 
      */
-    public Output<List<AmiEbsBlockDevice>> ebsBlockDevices() {
-        return this.ebsBlockDevices;
+    public Output<Optional<List<AmiEbsBlockDevice>>> ebsBlockDevices() {
+        return Codegen.optional(this.ebsBlockDevices);
     }
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
@@ -184,29 +184,29 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ephemeralBlockDevices", refs={List.class,AmiEphemeralBlockDevice.class}, tree="[0,1]")
-    private Output<List<AmiEphemeralBlockDevice>> ephemeralBlockDevices;
+    private Output</* @Nullable */ List<AmiEphemeralBlockDevice>> ephemeralBlockDevices;
 
     /**
      * @return Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      * 
      */
-    public Output<List<AmiEphemeralBlockDevice>> ephemeralBlockDevices() {
-        return this.ephemeralBlockDevices;
+    public Output<Optional<List<AmiEphemeralBlockDevice>>> ephemeralBlockDevices() {
+        return Codegen.optional(this.ephemeralBlockDevices);
     }
     /**
      * Hypervisor type of the image.
      * 
      */
     @Export(name="hypervisor", refs={String.class}, tree="[0]")
-    private Output<String> hypervisor;
+    private Output</* @Nullable */ String> hypervisor;
 
     /**
      * @return Hypervisor type of the image.
      * 
      */
-    public Output<String> hypervisor() {
-        return this.hypervisor;
+    public Output<Optional<String>> hypervisor() {
+        return Codegen.optional(this.hypervisor);
     }
     /**
      * Path to an S3 object containing an image manifest, e.g., created
@@ -214,43 +214,43 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="imageLocation", refs={String.class}, tree="[0]")
-    private Output<String> imageLocation;
+    private Output</* @Nullable */ String> imageLocation;
 
     /**
      * @return Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      * 
      */
-    public Output<String> imageLocation() {
-        return this.imageLocation;
+    public Output<Optional<String>> imageLocation() {
+        return Codegen.optional(this.imageLocation);
     }
     /**
      * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      * 
      */
     @Export(name="imageOwnerAlias", refs={String.class}, tree="[0]")
-    private Output<String> imageOwnerAlias;
+    private Output</* @Nullable */ String> imageOwnerAlias;
 
     /**
      * @return AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      * 
      */
-    public Output<String> imageOwnerAlias() {
-        return this.imageOwnerAlias;
+    public Output<Optional<String>> imageOwnerAlias() {
+        return Codegen.optional(this.imageOwnerAlias);
     }
     /**
      * Type of image.
      * 
      */
     @Export(name="imageType", refs={String.class}, tree="[0]")
-    private Output<String> imageType;
+    private Output</* @Nullable */ String> imageType;
 
     /**
      * @return Type of image.
      * 
      */
-    public Output<String> imageType() {
-        return this.imageType;
+    public Output<Optional<String>> imageType() {
+        return Codegen.optional(this.imageType);
     }
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
@@ -283,10 +283,10 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kernelId);
     }
     @Export(name="manageEbsSnapshots", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> manageEbsSnapshots;
+    private Output</* @Nullable */ Boolean> manageEbsSnapshots;
 
-    public Output<Boolean> manageEbsSnapshots() {
-        return this.manageEbsSnapshots;
+    public Output<Optional<Boolean>> manageEbsSnapshots() {
+        return Codegen.optional(this.manageEbsSnapshots);
     }
     /**
      * Region-unique name for the AMI.
@@ -307,56 +307,56 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return AWS account ID of the image owner.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * This value is set to windows for Windows AMIs; otherwise, it is blank.
      * 
      */
     @Export(name="platform", refs={String.class}, tree="[0]")
-    private Output<String> platform;
+    private Output</* @Nullable */ String> platform;
 
     /**
      * @return This value is set to windows for Windows AMIs; otherwise, it is blank.
      * 
      */
-    public Output<String> platform() {
-        return this.platform;
+    public Output<Optional<String>> platform() {
+        return Codegen.optional(this.platform);
     }
     /**
      * Platform details associated with the billing code of the AMI.
      * 
      */
     @Export(name="platformDetails", refs={String.class}, tree="[0]")
-    private Output<String> platformDetails;
+    private Output</* @Nullable */ String> platformDetails;
 
     /**
      * @return Platform details associated with the billing code of the AMI.
      * 
      */
-    public Output<String> platformDetails() {
-        return this.platformDetails;
+    public Output<Optional<String>> platformDetails() {
+        return Codegen.optional(this.platformDetails);
     }
     /**
      * Whether the image has public launch permissions.
      * 
      */
     @Export(name="public", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> public_;
+    private Output</* @Nullable */ Boolean> public_;
 
     /**
      * @return Whether the image has public launch permissions.
      * 
      */
-    public Output<Boolean> public_() {
-        return this.public_;
+    public Output<Optional<Boolean>> public_() {
+        return Codegen.optional(this.public_);
     }
     /**
      * ID of an initrd image (ARI) that will be used when booting the
@@ -393,14 +393,14 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="rootSnapshotId", refs={String.class}, tree="[0]")
-    private Output<String> rootSnapshotId;
+    private Output</* @Nullable */ String> rootSnapshotId;
 
     /**
      * @return Snapshot ID for the root volume (for EBS-backed AMIs)
      * 
      */
-    public Output<String> rootSnapshotId() {
-        return this.rootSnapshotId;
+    public Output<Optional<String>> rootSnapshotId() {
+        return Codegen.optional(this.rootSnapshotId);
     }
     /**
      * When set to &#34;simple&#34; (the default), enables enhanced networking
@@ -469,14 +469,14 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="usageOperation", refs={String.class}, tree="[0]")
-    private Output<String> usageOperation;
+    private Output</* @Nullable */ String> usageOperation;
 
     /**
      * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
-    public Output<String> usageOperation() {
-        return this.usageOperation;
+    public Output<Optional<String>> usageOperation() {
+        return Codegen.optional(this.usageOperation);
     }
     /**
      * Keyword to choose what virtualization mode created instances

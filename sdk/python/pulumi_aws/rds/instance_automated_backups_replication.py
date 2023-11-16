@@ -375,7 +375,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
         """

@@ -19,21 +19,21 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult> AcceleratorTotalMemoryMibs;
         public readonly ImmutableArray<string> AcceleratorTypes;
         public readonly ImmutableArray<string> AllowedInstanceTypes;
-        public readonly string BareMetal;
+        public readonly string? BareMetal;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult> BaselineEbsBandwidthMbps;
-        public readonly string BurstablePerformance;
+        public readonly string? BurstablePerformance;
         public readonly ImmutableArray<string> CpuManufacturers;
         public readonly ImmutableArray<string> ExcludedInstanceTypes;
         public readonly ImmutableArray<string> InstanceGenerations;
-        public readonly string LocalStorage;
+        public readonly string? LocalStorage;
         public readonly ImmutableArray<string> LocalStorageTypes;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult> MemoryGibPerVcpus;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult> MemoryMibs;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult> NetworkBandwidthGbps;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult> NetworkInterfaceCounts;
-        public readonly int OnDemandMaxPricePercentageOverLowestPrice;
-        public readonly bool RequireHibernateSupport;
-        public readonly int SpotMaxPricePercentageOverLowestPrice;
+        public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
+        public readonly bool? RequireHibernateSupport;
+        public readonly int? SpotMaxPricePercentageOverLowestPrice;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult> TotalLocalStorageGbs;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementVcpuCountResult> VcpuCounts;
 
@@ -51,11 +51,11 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<string> allowedInstanceTypes,
 
-            string bareMetal,
+            string? bareMetal,
 
             ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult> baselineEbsBandwidthMbps,
 
-            string burstablePerformance,
+            string? burstablePerformance,
 
             ImmutableArray<string> cpuManufacturers,
 
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<string> instanceGenerations,
 
-            string localStorage,
+            string? localStorage,
 
             ImmutableArray<string> localStorageTypes,
 
@@ -75,11 +75,11 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult> networkInterfaceCounts,
 
-            int onDemandMaxPricePercentageOverLowestPrice,
+            int? onDemandMaxPricePercentageOverLowestPrice,
 
-            bool requireHibernateSupport,
+            bool? requireHibernateSupport,
 
-            int spotMaxPricePercentageOverLowestPrice,
+            int? spotMaxPricePercentageOverLowestPrice,
 
             ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult> totalLocalStorageGbs,
 

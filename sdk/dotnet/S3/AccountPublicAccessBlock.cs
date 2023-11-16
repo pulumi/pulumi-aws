@@ -50,7 +50,7 @@ namespace Pulumi.Aws.S3
         /// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:

@@ -147,19 +147,19 @@ type NatGateway struct {
 	// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
 	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
 	// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
+	AssociationId pulumi.StringPtrOutput `pulumi:"associationId"`
 	// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
 	ConnectivityType pulumi.StringPtrOutput `pulumi:"connectivityType"`
 	// The ID of the network interface associated with the NAT Gateway.
-	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
 	// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
+	PrivateIp pulumi.StringPtrOutput `pulumi:"privateIp"`
 	// The Elastic IP address associated with the NAT Gateway.
-	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+	PublicIp pulumi.StringPtrOutput `pulumi:"publicIp"`
 	// A list of secondary allocation EIP IDs for this NAT Gateway.
 	SecondaryAllocationIds pulumi.StringArrayOutput `pulumi:"secondaryAllocationIds"`
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-	SecondaryPrivateIpAddressCount pulumi.IntOutput `pulumi:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddressCount pulumi.IntPtrOutput `pulumi:"secondaryPrivateIpAddressCount"`
 	// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
 	SecondaryPrivateIpAddresses pulumi.StringArrayOutput `pulumi:"secondaryPrivateIpAddresses"`
 	// The Subnet ID of the subnet in which to place the NAT Gateway.
@@ -402,8 +402,8 @@ func (o NatGatewayOutput) AllocationId() pulumi.StringPtrOutput {
 }
 
 // The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
-func (o NatGatewayOutput) AssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+func (o NatGatewayOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
 // Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
@@ -412,18 +412,18 @@ func (o NatGatewayOutput) ConnectivityType() pulumi.StringPtrOutput {
 }
 
 // The ID of the network interface associated with the NAT Gateway.
-func (o NatGatewayOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o NatGatewayOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-func (o NatGatewayOutput) PrivateIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
+func (o NatGatewayOutput) PrivateIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.PrivateIp }).(pulumi.StringPtrOutput)
 }
 
 // The Elastic IP address associated with the NAT Gateway.
-func (o NatGatewayOutput) PublicIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
+func (o NatGatewayOutput) PublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.PublicIp }).(pulumi.StringPtrOutput)
 }
 
 // A list of secondary allocation EIP IDs for this NAT Gateway.
@@ -432,8 +432,8 @@ func (o NatGatewayOutput) SecondaryAllocationIds() pulumi.StringArrayOutput {
 }
 
 // [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-func (o NatGatewayOutput) SecondaryPrivateIpAddressCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *NatGateway) pulumi.IntOutput { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntOutput)
+func (o NatGatewayOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.IntPtrOutput { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
 }
 
 // A list of secondary private IPv4 addresses to assign to the NAT Gateway.

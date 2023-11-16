@@ -393,7 +393,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) identifying your Lambda function alias.
         """
@@ -425,7 +425,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invokeArn")
-    def invoke_arn(self) -> pulumi.Output[str]:
+    def invoke_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
         """

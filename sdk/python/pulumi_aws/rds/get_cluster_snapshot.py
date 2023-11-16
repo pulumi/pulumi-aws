@@ -88,7 +88,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> int:
+    def allocated_storage(self) -> Optional[int]:
         """
         Allocated storage size in gigabytes (GB).
         """
@@ -96,7 +96,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         """
@@ -112,7 +112,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="dbClusterSnapshotArn")
-    def db_cluster_snapshot_arn(self) -> str:
+    def db_cluster_snapshot_arn(self) -> Optional[str]:
         """
         The ARN for the DB Cluster Snapshot.
         """
@@ -125,7 +125,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter
-    def engine(self) -> str:
+    def engine(self) -> Optional[str]:
         """
         Name of the database engine.
         """
@@ -133,7 +133,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> Optional[str]:
         """
         Version of the database engine for this DB cluster snapshot.
         """
@@ -141,7 +141,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -159,7 +159,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         """
@@ -167,7 +167,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> str:
+    def license_model(self) -> Optional[str]:
         """
         License model information for the restored DB cluster.
         """
@@ -180,7 +180,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         """
         Port that the DB cluster was listening on at the time of the snapshot.
         """
@@ -188,7 +188,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="snapshotCreateTime")
-    def snapshot_create_time(self) -> str:
+    def snapshot_create_time(self) -> Optional[str]:
         """
         Time when the snapshot was taken, in Universal Coordinated Time (UTC).
         """
@@ -201,12 +201,12 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="sourceDbClusterSnapshotArn")
-    def source_db_cluster_snapshot_arn(self) -> str:
+    def source_db_cluster_snapshot_arn(self) -> Optional[str]:
         return pulumi.get(self, "source_db_cluster_snapshot_arn")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of this DB Cluster Snapshot.
         """
@@ -214,7 +214,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> bool:
+    def storage_encrypted(self) -> Optional[bool]:
         """
         Whether the DB cluster snapshot is encrypted.
         """
@@ -222,7 +222,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags for the resource.
         """
@@ -230,7 +230,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         VPC ID associated with the DB cluster snapshot.
         """

@@ -6,22 +6,24 @@ package com.pulumi.aws.alb.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultActionFixedResponse {
-    private String contentType;
-    private String messageBody;
-    private String statusCode;
+    private @Nullable String contentType;
+    private @Nullable String messageBody;
+    private @Nullable String statusCode;
 
     private GetListenerDefaultActionFixedResponse() {}
-    public String contentType() {
-        return this.contentType;
+    public Optional<String> contentType() {
+        return Optional.ofNullable(this.contentType);
     }
-    public String messageBody() {
-        return this.messageBody;
+    public Optional<String> messageBody() {
+        return Optional.ofNullable(this.messageBody);
     }
-    public String statusCode() {
-        return this.statusCode;
+    public Optional<String> statusCode() {
+        return Optional.ofNullable(this.statusCode);
     }
 
     public static Builder builder() {
@@ -33,9 +35,9 @@ public final class GetListenerDefaultActionFixedResponse {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String contentType;
-        private String messageBody;
-        private String statusCode;
+        private @Nullable String contentType;
+        private @Nullable String messageBody;
+        private @Nullable String statusCode;
         public Builder() {}
         public Builder(GetListenerDefaultActionFixedResponse defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,18 +47,18 @@ public final class GetListenerDefaultActionFixedResponse {
         }
 
         @CustomType.Setter
-        public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+        public Builder contentType(@Nullable String contentType) {
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
-        public Builder messageBody(String messageBody) {
-            this.messageBody = Objects.requireNonNull(messageBody);
+        public Builder messageBody(@Nullable String messageBody) {
+            this.messageBody = messageBody;
             return this;
         }
         @CustomType.Setter
-        public Builder statusCode(String statusCode) {
-            this.statusCode = Objects.requireNonNull(statusCode);
+        public Builder statusCode(@Nullable String statusCode) {
+            this.statusCode = statusCode;
             return this;
         }
         public GetListenerDefaultActionFixedResponse build() {

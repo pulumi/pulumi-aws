@@ -61,42 +61,42 @@ export interface GetOutpostArgs {
  * A collection of values returned by getOutpost.
  */
 export interface GetOutpostResult {
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Availability Zone name.
      */
-    readonly availabilityZone: string;
+    readonly availabilityZone?: string;
     /**
      * Availability Zone identifier.
      */
-    readonly availabilityZoneId: string;
+    readonly availabilityZoneId?: string;
     /**
      * The description of the Outpost.
      */
-    readonly description: string;
-    readonly id: string;
+    readonly description?: string;
+    readonly id?: string;
     /**
      * The life cycle status.
      */
-    readonly lifecycleStatus: string;
-    readonly name: string;
+    readonly lifecycleStatus?: string;
+    readonly name?: string;
     readonly ownerId?: string;
     /**
      * The Amazon Resource Name (ARN) of the site.
      */
-    readonly siteArn: string;
+    readonly siteArn?: string;
     /**
      * The ID of the site.
      */
-    readonly siteId: string;
+    readonly siteId?: string;
     /**
      * The hardware type.
      */
-    readonly supportedHardwareType: string;
+    readonly supportedHardwareType?: string;
     /**
      * The Outpost tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about an Outposts Outpost.

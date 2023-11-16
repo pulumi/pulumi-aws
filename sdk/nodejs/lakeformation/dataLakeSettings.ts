@@ -112,7 +112,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
-    public readonly admins!: pulumi.Output<string[]>;
+    public readonly admins!: pulumi.Output<string[] | undefined>;
     /**
      * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
      */
@@ -122,7 +122,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
      *
      * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
-    public readonly authorizedSessionTagValueLists!: pulumi.Output<string[]>;
+    public readonly authorizedSessionTagValueLists!: pulumi.Output<string[] | undefined>;
     /**
      * Identifier for the Data Catalog. By default, the account ID.
      */
@@ -130,23 +130,23 @@ export class DataLakeSettings extends pulumi.CustomResource {
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      */
-    public readonly createDatabaseDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission[]>;
+    public readonly createDatabaseDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission[] | undefined>;
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
-    public readonly createTableDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission[]>;
+    public readonly createTableDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission[] | undefined>;
     /**
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      */
-    public readonly externalDataFilteringAllowLists!: pulumi.Output<string[]>;
+    public readonly externalDataFilteringAllowLists!: pulumi.Output<string[] | undefined>;
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
-    public readonly readOnlyAdmins!: pulumi.Output<string[]>;
+    public readonly readOnlyAdmins!: pulumi.Output<string[] | undefined>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
-    public readonly trustedResourceOwners!: pulumi.Output<string[]>;
+    public readonly trustedResourceOwners!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a DataLakeSettings resource with the given unique name, arguments, and options.

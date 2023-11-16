@@ -88,7 +88,7 @@ type EntityRecognizer struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Entity Recognizer version.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
 	DataAccessRoleArn pulumi.StringOutput `pulumi:"dataAccessRoleArn"`
 	// Configuration for the training and testing data.
@@ -118,12 +118,12 @@ type EntityRecognizer struct {
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
 	// Conflicts with `versionNamePrefix`.
-	VersionName pulumi.StringOutput `pulumi:"versionName"`
+	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
 	// Conflicts with `versionName`.
-	VersionNamePrefix pulumi.StringOutput `pulumi:"versionNamePrefix"`
+	VersionNamePrefix pulumi.StringPtrOutput `pulumi:"versionNamePrefix"`
 	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
 	VolumeKmsKeyId pulumi.StringPtrOutput `pulumi:"volumeKmsKeyId"`
 	// Configuration parameters for VPC to contain Entity Recognizer resources.
@@ -434,8 +434,8 @@ func (o EntityRecognizerOutput) ToEntityRecognizerOutputWithContext(ctx context.
 }
 
 // ARN of the Entity Recognizer version.
-func (o EntityRecognizerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EntityRecognizerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN for an IAM Role which allows Comprehend to read the training and testing data.
@@ -488,16 +488,16 @@ func (o EntityRecognizerOutput) TagsAll() pulumi.StringMapOutput {
 // Has a maximum length of 63 characters.
 // Can contain upper- and lower-case letters, numbers, and hypen (`-`).
 // Conflicts with `versionNamePrefix`.
-func (o EntityRecognizerOutput) VersionName() pulumi.StringOutput {
-	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.VersionName }).(pulumi.StringOutput)
+func (o EntityRecognizerOutput) VersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringPtrOutput { return v.VersionName }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique version name beginning with the specified prefix.
 // Has a maximum length of 37 characters.
 // Can contain upper- and lower-case letters, numbers, and hypen (`-`).
 // Conflicts with `versionName`.
-func (o EntityRecognizerOutput) VersionNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.VersionNamePrefix }).(pulumi.StringOutput)
+func (o EntityRecognizerOutput) VersionNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringPtrOutput { return v.VersionNamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // ID or ARN of a KMS Key used to encrypt storage volumes during job processing.

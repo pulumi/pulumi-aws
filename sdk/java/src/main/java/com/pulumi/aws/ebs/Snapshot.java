@@ -76,28 +76,28 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the EBS Snapshot.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The data encryption key identifier for the snapshot.
      * 
      */
     @Export(name="dataEncryptionKeyId", refs={String.class}, tree="[0]")
-    private Output<String> dataEncryptionKeyId;
+    private Output</* @Nullable */ String> dataEncryptionKeyId;
 
     /**
      * @return The data encryption key identifier for the snapshot.
      * 
      */
-    public Output<String> dataEncryptionKeyId() {
-        return this.dataEncryptionKeyId;
+    public Output<Optional<String>> dataEncryptionKeyId() {
+        return Codegen.optional(this.dataEncryptionKeyId);
     }
     /**
      * A description of what the snapshot is.
@@ -118,28 +118,28 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> encrypted;
+    private Output</* @Nullable */ Boolean> encrypted;
 
     /**
      * @return Whether the snapshot is encrypted.
      * 
      */
-    public Output<Boolean> encrypted() {
-        return this.encrypted;
+    public Output<Optional<Boolean>> encrypted() {
+        return Codegen.optional(this.encrypted);
     }
     /**
      * The ARN for the KMS encryption key.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ARN for the KMS encryption key.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
@@ -160,28 +160,28 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerAlias", refs={String.class}, tree="[0]")
-    private Output<String> ownerAlias;
+    private Output</* @Nullable */ String> ownerAlias;
 
     /**
      * @return Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      * 
      */
-    public Output<String> ownerAlias() {
-        return this.ownerAlias;
+    public Output<Optional<String>> ownerAlias() {
+        return Codegen.optional(this.ownerAlias);
     }
     /**
      * The AWS account ID of the EBS snapshot owner.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The AWS account ID of the EBS snapshot owner.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Indicates whether to permanently restore an archived snapshot.
@@ -202,14 +202,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageTier", refs={String.class}, tree="[0]")
-    private Output<String> storageTier;
+    private Output</* @Nullable */ String> storageTier;
 
     /**
      * @return The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      * 
      */
-    public Output<String> storageTier() {
-        return this.storageTier;
+    public Output<Optional<String>> storageTier() {
+        return Codegen.optional(this.storageTier);
     }
     /**
      * A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -276,14 +276,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="volumeSize", refs={Integer.class}, tree="[0]")
-    private Output<Integer> volumeSize;
+    private Output</* @Nullable */ Integer> volumeSize;
 
     /**
      * @return The size of the drive in GiBs.
      * 
      */
-    public Output<Integer> volumeSize() {
-        return this.volumeSize;
+    public Output<Optional<Integer>> volumeSize() {
+        return Codegen.optional(this.volumeSize);
     }
 
     /**

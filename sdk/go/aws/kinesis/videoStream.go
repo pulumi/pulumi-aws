@@ -59,15 +59,15 @@ type VideoStream struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A time stamp that indicates when the stream was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
 	DataRetentionInHours pulumi.IntPtrOutput `pulumi:"dataRetentionInHours"`
 	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
 	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType pulumi.StringPtrOutput `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
@@ -80,7 +80,7 @@ type VideoStream struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The version of the stream.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewVideoStream registers a new resource with the given unique name, arguments, and options.
@@ -293,13 +293,13 @@ func (o VideoStreamOutput) ToVideoStreamOutputWithContext(ctx context.Context) V
 }
 
 // The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-func (o VideoStreamOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VideoStreamOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoStream) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A time stamp that indicates when the stream was created.
-func (o VideoStreamOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o VideoStreamOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoStream) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
@@ -313,8 +313,8 @@ func (o VideoStreamOutput) DeviceName() pulumi.StringPtrOutput {
 }
 
 // The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-func (o VideoStreamOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o VideoStreamOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoStream) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
@@ -341,8 +341,8 @@ func (o VideoStreamOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The version of the stream.
-func (o VideoStreamOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o VideoStreamOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoStream) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type VideoStreamArrayOutput struct{ *pulumi.OutputState }

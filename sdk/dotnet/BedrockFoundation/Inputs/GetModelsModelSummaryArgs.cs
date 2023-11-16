@@ -12,7 +12,7 @@ namespace Pulumi.Aws.BedrockFoundation.Inputs
 
     public sealed class GetModelsModelSummaryInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("customizationsSupporteds", required: true)]
+        [Input("customizationsSupporteds")]
         private InputList<string>? _customizationsSupporteds;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.BedrockFoundation.Inputs
             set => _customizationsSupporteds = value;
         }
 
-        [Input("inferenceTypesSupporteds", required: true)]
+        [Input("inferenceTypesSupporteds")]
         private InputList<string>? _inferenceTypesSupporteds;
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.BedrockFoundation.Inputs
             set => _inferenceTypesSupporteds = value;
         }
 
-        [Input("inputModalities", required: true)]
+        [Input("inputModalities")]
         private InputList<string>? _inputModalities;
 
         /// <summary>
@@ -51,22 +51,22 @@ namespace Pulumi.Aws.BedrockFoundation.Inputs
         /// <summary>
         /// Model ARN.
         /// </summary>
-        [Input("modelArn", required: true)]
-        public Input<string> ModelArn { get; set; } = null!;
+        [Input("modelArn")]
+        public Input<string>? ModelArn { get; set; }
 
         /// <summary>
         /// Model identifier.
         /// </summary>
-        [Input("modelId", required: true)]
-        public Input<string> ModelId { get; set; } = null!;
+        [Input("modelId")]
+        public Input<string>? ModelId { get; set; }
 
         /// <summary>
         /// Model name.
         /// </summary>
-        [Input("modelName", required: true)]
-        public Input<string> ModelName { get; set; } = null!;
+        [Input("modelName")]
+        public Input<string>? ModelName { get; set; }
 
-        [Input("outputModalities", required: true)]
+        [Input("outputModalities")]
         private InputList<string>? _outputModalities;
 
         /// <summary>
@@ -81,14 +81,14 @@ namespace Pulumi.Aws.BedrockFoundation.Inputs
         /// <summary>
         /// Model provider name.
         /// </summary>
-        [Input("providerName", required: true)]
-        public Input<string> ProviderName { get; set; } = null!;
+        [Input("providerName")]
+        public Input<string>? ProviderName { get; set; }
 
         /// <summary>
         /// Indicates whether the model supports streaming.
         /// </summary>
-        [Input("responseStreamingSupported", required: true)]
-        public Input<bool> ResponseStreamingSupported { get; set; } = null!;
+        [Input("responseStreamingSupported")]
+        public Input<bool>? ResponseStreamingSupported { get; set; }
 
         public GetModelsModelSummaryInputArgs()
         {

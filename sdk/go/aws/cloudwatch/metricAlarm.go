@@ -281,7 +281,7 @@ type MetricAlarm struct {
 	// The description for the alarm.
 	AlarmDescription pulumi.StringPtrOutput `pulumi:"alarmDescription"`
 	// The ARN of the CloudWatch Metric Alarm.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator pulumi.StringOutput `pulumi:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
@@ -292,7 +292,7 @@ type MetricAlarm struct {
 	// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
 	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
-	EvaluateLowSampleCountPercentiles pulumi.StringOutput `pulumi:"evaluateLowSampleCountPercentiles"`
+	EvaluateLowSampleCountPercentiles pulumi.StringPtrOutput `pulumi:"evaluateLowSampleCountPercentiles"`
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods pulumi.IntOutput `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -718,8 +718,8 @@ func (o MetricAlarmOutput) AlarmDescription() pulumi.StringPtrOutput {
 }
 
 // The ARN of the CloudWatch Metric Alarm.
-func (o MetricAlarmOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricAlarm) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MetricAlarmOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
@@ -741,8 +741,8 @@ func (o MetricAlarmOutput) Dimensions() pulumi.StringMapOutput {
 // If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
 // If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 // The following values are supported: `ignore`, and `evaluate`.
-func (o MetricAlarmOutput) EvaluateLowSampleCountPercentiles() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricAlarm) pulumi.StringOutput { return v.EvaluateLowSampleCountPercentiles }).(pulumi.StringOutput)
+func (o MetricAlarmOutput) EvaluateLowSampleCountPercentiles() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.EvaluateLowSampleCountPercentiles }).(pulumi.StringPtrOutput)
 }
 
 // The number of periods over which data is compared to the specified threshold.

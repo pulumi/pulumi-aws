@@ -59,7 +59,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the image.
      */

@@ -8,18 +8,19 @@ import com.pulumi.aws.vpclattice.outputs.GetListenerDefaultActionForward;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultAction {
-    private List<GetListenerDefaultActionFixedResponse> fixedResponses;
-    private List<GetListenerDefaultActionForward> forwards;
+    private @Nullable List<GetListenerDefaultActionFixedResponse> fixedResponses;
+    private @Nullable List<GetListenerDefaultActionForward> forwards;
 
     private GetListenerDefaultAction() {}
     public List<GetListenerDefaultActionFixedResponse> fixedResponses() {
-        return this.fixedResponses;
+        return this.fixedResponses == null ? List.of() : this.fixedResponses;
     }
     public List<GetListenerDefaultActionForward> forwards() {
-        return this.forwards;
+        return this.forwards == null ? List.of() : this.forwards;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetListenerDefaultAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetListenerDefaultActionFixedResponse> fixedResponses;
-        private List<GetListenerDefaultActionForward> forwards;
+        private @Nullable List<GetListenerDefaultActionFixedResponse> fixedResponses;
+        private @Nullable List<GetListenerDefaultActionForward> forwards;
         public Builder() {}
         public Builder(GetListenerDefaultAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetListenerDefaultAction {
         }
 
         @CustomType.Setter
-        public Builder fixedResponses(List<GetListenerDefaultActionFixedResponse> fixedResponses) {
-            this.fixedResponses = Objects.requireNonNull(fixedResponses);
+        public Builder fixedResponses(@Nullable List<GetListenerDefaultActionFixedResponse> fixedResponses) {
+            this.fixedResponses = fixedResponses;
             return this;
         }
         public Builder fixedResponses(GetListenerDefaultActionFixedResponse... fixedResponses) {
             return fixedResponses(List.of(fixedResponses));
         }
         @CustomType.Setter
-        public Builder forwards(List<GetListenerDefaultActionForward> forwards) {
-            this.forwards = Objects.requireNonNull(forwards);
+        public Builder forwards(@Nullable List<GetListenerDefaultActionForward> forwards) {
+            this.forwards = forwards;
             return this;
         }
         public Builder forwards(GetListenerDefaultActionForward... forwards) {

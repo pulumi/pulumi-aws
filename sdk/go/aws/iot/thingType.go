@@ -50,7 +50,7 @@ type ThingType struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the created AWS IoT Thing Type.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
 	Deprecated pulumi.BoolPtrOutput `pulumi:"deprecated"`
 	// The name of the thing type.
@@ -247,8 +247,8 @@ func (o ThingTypeOutput) ToThingTypeOutputWithContext(ctx context.Context) Thing
 }
 
 // The ARN of the created AWS IoT Thing Type.
-func (o ThingTypeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ThingTypeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThingType) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether the thing type is deprecated. If true, no new things could be associated with this type.

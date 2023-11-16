@@ -295,7 +295,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appsyncDomainName")
-    def appsync_domain_name(self) -> pulumi.Output[str]:
+    def appsync_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         Domain name that AppSync provides.
         """
@@ -327,7 +327,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> pulumi.Output[str]:
+    def hosted_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of your Amazon Route 53 hosted zone.
         """

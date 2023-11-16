@@ -64,17 +64,17 @@ export interface GetPrebuiltEcrImageResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly imageTag?: string;
     readonly region?: string;
     /**
      * Account ID containing the image. For example, `469771592824`.
      */
-    readonly registryId: string;
+    readonly registryId?: string;
     /**
      * Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
      */
-    readonly registryPath: string;
+    readonly registryPath?: string;
     readonly repositoryName: string;
 }
 /**

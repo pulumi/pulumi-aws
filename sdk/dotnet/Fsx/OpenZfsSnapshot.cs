@@ -91,10 +91,10 @@ namespace Pulumi.Aws.Fsx
         /// Amazon Resource Name of the snapshot.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.

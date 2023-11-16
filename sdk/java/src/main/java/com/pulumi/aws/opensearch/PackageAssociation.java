@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -102,10 +103,10 @@ public class PackageAssociation extends com.pulumi.resources.CustomResource {
         return this.packageId;
     }
     @Export(name="referencePath", refs={String.class}, tree="[0]")
-    private Output<String> referencePath;
+    private Output</* @Nullable */ String> referencePath;
 
-    public Output<String> referencePath() {
-        return this.referencePath;
+    public Output<Optional<String>> referencePath() {
+        return Codegen.optional(this.referencePath);
     }
 
     /**

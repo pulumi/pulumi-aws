@@ -133,19 +133,19 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the VPN Connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the core network.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the core network attachment.
      */
-    public /*out*/ readonly coreNetworkAttachmentArn!: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkAttachmentArn!: pulumi.Output<string | undefined>;
     /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
-    public /*out*/ readonly customerGatewayConfiguration!: pulumi.Output<string>;
+    public /*out*/ readonly customerGatewayConfiguration!: pulumi.Output<string | undefined>;
     /**
      * The ID of the customer gateway.
      */
@@ -153,35 +153,35 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      */
-    public readonly enableAcceleration!: pulumi.Output<boolean>;
+    public readonly enableAcceleration!: pulumi.Output<boolean | undefined>;
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    public readonly localIpv4NetworkCidr!: pulumi.Output<string>;
+    public readonly localIpv4NetworkCidr!: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    public readonly localIpv6NetworkCidr!: pulumi.Output<string>;
+    public readonly localIpv6NetworkCidr!: pulumi.Output<string | undefined>;
     /**
      * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
      */
-    public readonly outsideIpAddressType!: pulumi.Output<string>;
+    public readonly outsideIpAddressType!: pulumi.Output<string | undefined>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
-    public readonly remoteIpv4NetworkCidr!: pulumi.Output<string>;
+    public readonly remoteIpv4NetworkCidr!: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    public readonly remoteIpv6NetworkCidr!: pulumi.Output<string>;
+    public readonly remoteIpv6NetworkCidr!: pulumi.Output<string | undefined>;
     /**
      * The static routes associated with the VPN connection. Detailed below.
      */
-    public /*out*/ readonly routes!: pulumi.Output<outputs.ec2.VpnConnectionRoute[]>;
+    public /*out*/ readonly routes!: pulumi.Output<outputs.ec2.VpnConnectionRoute[] | undefined>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
-    public readonly staticRoutesOnly!: pulumi.Output<boolean>;
+    public readonly staticRoutesOnly!: pulumi.Output<boolean | undefined>;
     /**
      * Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -195,7 +195,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      */
-    public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the EC2 Transit Gateway.
      */
@@ -207,19 +207,19 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The public IP address of the first VPN tunnel.
      */
-    public /*out*/ readonly tunnel1Address!: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1Address!: pulumi.Output<string | undefined>;
     /**
      * The bgp asn number of the first VPN tunnel.
      */
-    public /*out*/ readonly tunnel1BgpAsn!: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1BgpAsn!: pulumi.Output<string | undefined>;
     /**
      * The bgp holdtime of the first VPN tunnel.
      */
-    public /*out*/ readonly tunnel1BgpHoldtime!: pulumi.Output<number>;
+    public /*out*/ readonly tunnel1BgpHoldtime!: pulumi.Output<number | undefined>;
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      */
-    public /*out*/ readonly tunnel1CgwInsideAddress!: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1CgwInsideAddress!: pulumi.Output<string | undefined>;
     /**
      * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      */
@@ -239,15 +239,15 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      */
-    public readonly tunnel1InsideCidr!: pulumi.Output<string>;
+    public readonly tunnel1InsideCidr!: pulumi.Output<string | undefined>;
     /**
      * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
-    public readonly tunnel1InsideIpv6Cidr!: pulumi.Output<string>;
+    public readonly tunnel1InsideIpv6Cidr!: pulumi.Output<string | undefined>;
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    public readonly tunnel1LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel1LogOptions>;
+    public readonly tunnel1LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel1LogOptions | undefined>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
@@ -283,7 +283,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
-    public readonly tunnel1PresharedKey!: pulumi.Output<string>;
+    public readonly tunnel1PresharedKey!: pulumi.Output<string | undefined>;
     /**
      * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      */
@@ -303,23 +303,23 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
      */
-    public /*out*/ readonly tunnel1VgwInsideAddress!: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1VgwInsideAddress!: pulumi.Output<string | undefined>;
     /**
      * The public IP address of the second VPN tunnel.
      */
-    public /*out*/ readonly tunnel2Address!: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2Address!: pulumi.Output<string | undefined>;
     /**
      * The bgp asn number of the second VPN tunnel.
      */
-    public /*out*/ readonly tunnel2BgpAsn!: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2BgpAsn!: pulumi.Output<string | undefined>;
     /**
      * The bgp holdtime of the second VPN tunnel.
      */
-    public /*out*/ readonly tunnel2BgpHoldtime!: pulumi.Output<number>;
+    public /*out*/ readonly tunnel2BgpHoldtime!: pulumi.Output<number | undefined>;
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      */
-    public /*out*/ readonly tunnel2CgwInsideAddress!: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2CgwInsideAddress!: pulumi.Output<string | undefined>;
     /**
      * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      */
@@ -339,15 +339,15 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      */
-    public readonly tunnel2InsideCidr!: pulumi.Output<string>;
+    public readonly tunnel2InsideCidr!: pulumi.Output<string | undefined>;
     /**
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
-    public readonly tunnel2InsideIpv6Cidr!: pulumi.Output<string>;
+    public readonly tunnel2InsideIpv6Cidr!: pulumi.Output<string | undefined>;
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    public readonly tunnel2LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel2LogOptions>;
+    public readonly tunnel2LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel2LogOptions | undefined>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
@@ -383,7 +383,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
-    public readonly tunnel2PresharedKey!: pulumi.Output<string>;
+    public readonly tunnel2PresharedKey!: pulumi.Output<string | undefined>;
     /**
      * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      */
@@ -403,11 +403,11 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
      */
-    public /*out*/ readonly tunnel2VgwInsideAddress!: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2VgwInsideAddress!: pulumi.Output<string | undefined>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      */
-    public readonly tunnelInsideIpVersion!: pulumi.Output<string>;
+    public readonly tunnelInsideIpVersion!: pulumi.Output<string | undefined>;
     /**
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
@@ -415,7 +415,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Telemetry for the VPN tunnels. Detailed below.
      */
-    public /*out*/ readonly vgwTelemetries!: pulumi.Output<outputs.ec2.VpnConnectionVgwTelemetry[]>;
+    public /*out*/ readonly vgwTelemetries!: pulumi.Output<outputs.ec2.VpnConnectionVgwTelemetry[] | undefined>;
     /**
      * The ID of the Virtual Private Gateway.
      */

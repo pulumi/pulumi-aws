@@ -72,11 +72,11 @@ export class Application extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly applicationId!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the CodeDeploy application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
@@ -84,11 +84,11 @@ export class Application extends pulumi.CustomResource {
     /**
      * The name for a connection to a GitHub account.
      */
-    public /*out*/ readonly githubAccountName!: pulumi.Output<string>;
+    public /*out*/ readonly githubAccountName!: pulumi.Output<string | undefined>;
     /**
      * Whether the user has authenticated with GitHub for the specified application.
      */
-    public /*out*/ readonly linkedToGithub!: pulumi.Output<boolean>;
+    public /*out*/ readonly linkedToGithub!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the application.
      */

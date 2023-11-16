@@ -725,7 +725,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         (Required) Amazon Resource Name (ARN) of the component.
         """
@@ -741,7 +741,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def data(self) -> pulumi.Output[str]:
+    def data(self) -> pulumi.Output[Optional[str]]:
         """
         Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         """
@@ -749,7 +749,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> pulumi.Output[str]:
+    def date_created(self) -> pulumi.Output[Optional[str]]:
         """
         Date the component was created.
         """
@@ -765,7 +765,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> pulumi.Output[bool]:
+    def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Encryption status of the component.
         """
@@ -789,7 +789,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         Owner of the component.
         """
@@ -840,7 +840,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of the component.
         """

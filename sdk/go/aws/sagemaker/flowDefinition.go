@@ -172,7 +172,7 @@ type FlowDefinition struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of your flow definition.
 	FlowDefinitionName pulumi.StringOutput `pulumi:"flowDefinitionName"`
 	// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
@@ -411,8 +411,8 @@ func (o FlowDefinitionOutput) ToFlowDefinitionOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
-func (o FlowDefinitionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FlowDefinitionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDefinition) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of your flow definition.

@@ -60,27 +60,27 @@ type LookupAuthorizerArgs struct {
 // A collection of values returned by getAuthorizer.
 type LookupAuthorizerResult struct {
 	// ARN of the API Gateway Authorizer.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Credentials required for the authorizer.
-	AuthorizerCredentials string `pulumi:"authorizerCredentials"`
-	AuthorizerId          string `pulumi:"authorizerId"`
+	AuthorizerCredentials *string `pulumi:"authorizerCredentials"`
+	AuthorizerId          string  `pulumi:"authorizerId"`
 	// TTL of cached authorizer results in seconds.
-	AuthorizerResultTtlInSeconds int `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
 	// Authorizer's Uniform Resource Identifier (URI).
-	AuthorizerUri string `pulumi:"authorizerUri"`
+	AuthorizerUri *string `pulumi:"authorizerUri"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Source of the identity in an incoming request.
-	IdentitySource string `pulumi:"identitySource"`
+	IdentitySource *string `pulumi:"identitySource"`
 	// Validation expression for the incoming identity.
-	IdentityValidationExpression string `pulumi:"identityValidationExpression"`
+	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
 	// Name of the authorizer.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// List of the Amazon Cognito user pool ARNs.
 	ProviderArns []string `pulumi:"providerArns"`
 	RestApiId    string   `pulumi:"restApiId"`
 	// Type of the authorizer.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizerResultOutput {
@@ -124,13 +124,13 @@ func (o LookupAuthorizerResultOutput) ToLookupAuthorizerResultOutputWithContext(
 }
 
 // ARN of the API Gateway Authorizer.
-func (o LookupAuthorizerResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupAuthorizerResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Credentials required for the authorizer.
-func (o LookupAuthorizerResultOutput) AuthorizerCredentials() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.AuthorizerCredentials }).(pulumi.StringOutput)
+func (o LookupAuthorizerResultOutput) AuthorizerCredentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerCredentials }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAuthorizerResultOutput) AuthorizerId() pulumi.StringOutput {
@@ -138,33 +138,33 @@ func (o LookupAuthorizerResultOutput) AuthorizerId() pulumi.StringOutput {
 }
 
 // TTL of cached authorizer results in seconds.
-func (o LookupAuthorizerResultOutput) AuthorizerResultTtlInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntOutput)
+func (o LookupAuthorizerResultOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Authorizer's Uniform Resource Identifier (URI).
-func (o LookupAuthorizerResultOutput) AuthorizerUri() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.AuthorizerUri }).(pulumi.StringOutput)
+func (o LookupAuthorizerResultOutput) AuthorizerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerUri }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAuthorizerResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAuthorizerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Source of the identity in an incoming request.
-func (o LookupAuthorizerResultOutput) IdentitySource() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.IdentitySource }).(pulumi.StringOutput)
+func (o LookupAuthorizerResultOutput) IdentitySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.IdentitySource }).(pulumi.StringPtrOutput)
 }
 
 // Validation expression for the incoming identity.
-func (o LookupAuthorizerResultOutput) IdentityValidationExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.IdentityValidationExpression }).(pulumi.StringOutput)
+func (o LookupAuthorizerResultOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.IdentityValidationExpression }).(pulumi.StringPtrOutput)
 }
 
 // Name of the authorizer.
-func (o LookupAuthorizerResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupAuthorizerResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of the Amazon Cognito user pool ARNs.
@@ -177,8 +177,8 @@ func (o LookupAuthorizerResultOutput) RestApiId() pulumi.StringOutput {
 }
 
 // Type of the authorizer.
-func (o LookupAuthorizerResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupAuthorizerResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

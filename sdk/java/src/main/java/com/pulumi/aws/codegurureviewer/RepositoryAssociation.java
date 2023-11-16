@@ -80,42 +80,42 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) identifying the repository association.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ID of the repository association.
      * 
      */
     @Export(name="associationId", refs={String.class}, tree="[0]")
-    private Output<String> associationId;
+    private Output</* @Nullable */ String> associationId;
 
     /**
      * @return The ID of the repository association.
      * 
      */
-    public Output<String> associationId() {
-        return this.associationId;
+    public Output<Optional<String>> associationId() {
+        return Codegen.optional(this.associationId);
     }
     /**
      * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      * 
      */
     @Export(name="connectionArn", refs={String.class}, tree="[0]")
-    private Output<String> connectionArn;
+    private Output</* @Nullable */ String> connectionArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      * 
      */
-    public Output<String> connectionArn() {
-        return this.connectionArn;
+    public Output<Optional<String>> connectionArn() {
+        return Codegen.optional(this.connectionArn);
     }
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
@@ -136,42 +136,42 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return The name of the third party source repository.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * The username for the account that owns the repository.
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return The username for the account that owns the repository.
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * The provider type of the repository association.
      * 
      */
     @Export(name="providerType", refs={String.class}, tree="[0]")
-    private Output<String> providerType;
+    private Output</* @Nullable */ String> providerType;
 
     /**
      * @return The provider type of the repository association.
      * 
      */
-    public Output<String> providerType() {
-        return this.providerType;
+    public Output<Optional<String>> providerType() {
+        return Codegen.optional(this.providerType);
     }
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
@@ -192,38 +192,38 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
         return this.repository;
     }
     @Export(name="s3RepositoryDetails", refs={List.class,RepositoryAssociationS3RepositoryDetail.class}, tree="[0,1]")
-    private Output<List<RepositoryAssociationS3RepositoryDetail>> s3RepositoryDetails;
+    private Output</* @Nullable */ List<RepositoryAssociationS3RepositoryDetail>> s3RepositoryDetails;
 
-    public Output<List<RepositoryAssociationS3RepositoryDetail>> s3RepositoryDetails() {
-        return this.s3RepositoryDetails;
+    public Output<Optional<List<RepositoryAssociationS3RepositoryDetail>>> s3RepositoryDetails() {
+        return Codegen.optional(this.s3RepositoryDetails);
     }
     /**
      * The state of the repository association.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The state of the repository association.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * A description of why the repository association is in the current state.
      * 
      */
     @Export(name="stateReason", refs={String.class}, tree="[0]")
-    private Output<String> stateReason;
+    private Output</* @Nullable */ String> stateReason;
 
     /**
      * @return A description of why the repository association is in the current state.
      * 
      */
-    public Output<String> stateReason() {
-        return this.stateReason;
+    public Output<Optional<String>> stateReason() {
+        return Codegen.optional(this.stateReason);
     }
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;

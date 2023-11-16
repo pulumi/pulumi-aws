@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -80,14 +81,14 @@ public class RegionSettings extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceTypeManagementPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
-    private Output<Map<String,Boolean>> resourceTypeManagementPreference;
+    private Output</* @Nullable */ Map<String,Boolean>> resourceTypeManagementPreference;
 
     /**
      * @return A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      * 
      */
-    public Output<Map<String,Boolean>> resourceTypeManagementPreference() {
-        return this.resourceTypeManagementPreference;
+    public Output<Optional<Map<String,Boolean>>> resourceTypeManagementPreference() {
+        return Codegen.optional(this.resourceTypeManagementPreference);
     }
     /**
      * A map of services along with the opt-in preferences for the Region.

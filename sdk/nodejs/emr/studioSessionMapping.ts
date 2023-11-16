@@ -60,11 +60,11 @@ export class StudioSessionMapping extends pulumi.CustomResource {
     /**
      * The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
      */
-    public readonly identityId!: pulumi.Output<string>;
+    public readonly identityId!: pulumi.Output<string | undefined>;
     /**
      * The name of the user or group from the Amazon Web Services SSO Identity Store.
      */
-    public readonly identityName!: pulumi.Output<string>;
+    public readonly identityName!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
      */

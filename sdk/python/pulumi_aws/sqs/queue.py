@@ -1036,7 +1036,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the SQS queue
         """
@@ -1052,7 +1052,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deduplicationScope")
-    def deduplication_scope(self) -> pulumi.Output[str]:
+    def deduplication_scope(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
         """
@@ -1076,7 +1076,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fifoThroughputLimit")
-    def fifo_throughput_limit(self) -> pulumi.Output[str]:
+    def fifo_throughput_limit(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
         """
@@ -1084,7 +1084,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
-    def kms_data_key_reuse_period_seconds(self) -> pulumi.Output[int]:
+    def kms_data_key_reuse_period_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
         """
@@ -1124,7 +1124,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`
         """
@@ -1132,7 +1132,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         The JSON policy for the SQS queue.
         """
@@ -1148,7 +1148,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redriveAllowPolicy")
-    def redrive_allow_policy(self) -> pulumi.Output[str]:
+    def redrive_allow_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         """
@@ -1156,7 +1156,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redrivePolicy")
-    def redrive_policy(self) -> pulumi.Output[str]:
+    def redrive_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         """
@@ -1164,7 +1164,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqsManagedSseEnabled")
-    def sqs_managed_sse_enabled(self) -> pulumi.Output[bool]:
+    def sqs_managed_sse_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         """
@@ -1191,7 +1191,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         Same as `id`: The URL for the created Amazon SQS queue.
         """

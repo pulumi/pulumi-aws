@@ -6,6 +6,8 @@ package com.pulumi.aws.lambda.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFunctionFileSystemConfig {
@@ -13,19 +15,19 @@ public final class GetFunctionFileSystemConfig {
      * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
      * 
      */
-    private String arn;
-    private String localMountPath;
+    private @Nullable String arn;
+    private @Nullable String localMountPath;
 
     private GetFunctionFileSystemConfig() {}
     /**
      * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String localMountPath() {
-        return this.localMountPath;
+    public Optional<String> localMountPath() {
+        return Optional.ofNullable(this.localMountPath);
     }
 
     public static Builder builder() {
@@ -37,8 +39,8 @@ public final class GetFunctionFileSystemConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String localMountPath;
+        private @Nullable String arn;
+        private @Nullable String localMountPath;
         public Builder() {}
         public Builder(GetFunctionFileSystemConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -47,13 +49,13 @@ public final class GetFunctionFileSystemConfig {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder localMountPath(String localMountPath) {
-            this.localMountPath = Objects.requireNonNull(localMountPath);
+        public Builder localMountPath(@Nullable String localMountPath) {
+            this.localMountPath = localMountPath;
             return this;
         }
         public GetFunctionFileSystemConfig build() {

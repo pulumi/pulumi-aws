@@ -75,42 +75,42 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="abuseContactEmail", refs={String.class}, tree="[0]")
-    private Output<String> abuseContactEmail;
+    private Output</* @Nullable */ String> abuseContactEmail;
 
     /**
      * @return Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
      * 
      */
-    public Output<String> abuseContactEmail() {
-        return this.abuseContactEmail;
+    public Output<Optional<String>> abuseContactEmail() {
+        return Codegen.optional(this.abuseContactEmail);
     }
     /**
      * Phone number for reporting abuse.
      * 
      */
     @Export(name="abuseContactPhone", refs={String.class}, tree="[0]")
-    private Output<String> abuseContactPhone;
+    private Output</* @Nullable */ String> abuseContactPhone;
 
     /**
      * @return Phone number for reporting abuse.
      * 
      */
-    public Output<String> abuseContactPhone() {
-        return this.abuseContactPhone;
+    public Output<Optional<String>> abuseContactPhone() {
+        return Codegen.optional(this.abuseContactPhone);
     }
     /**
      * Details about the domain administrative contact.
      * 
      */
     @Export(name="adminContact", refs={RegisteredDomainAdminContact.class}, tree="[0]")
-    private Output<RegisteredDomainAdminContact> adminContact;
+    private Output</* @Nullable */ RegisteredDomainAdminContact> adminContact;
 
     /**
      * @return Details about the domain administrative contact.
      * 
      */
-    public Output<RegisteredDomainAdminContact> adminContact() {
-        return this.adminContact;
+    public Output<Optional<RegisteredDomainAdminContact>> adminContact() {
+        return Codegen.optional(this.adminContact);
     }
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
@@ -145,14 +145,14 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
-    private Output<String> creationDate;
+    private Output</* @Nullable */ String> creationDate;
 
     /**
      * @return The date when the domain was created as found in the response to a WHOIS query.
      * 
      */
-    public Output<String> creationDate() {
-        return this.creationDate;
+    public Output<Optional<String>> creationDate() {
+        return Codegen.optional(this.creationDate);
     }
     /**
      * The name of the registered domain.
@@ -173,42 +173,42 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
-    private Output<String> expirationDate;
+    private Output</* @Nullable */ String> expirationDate;
 
     /**
      * @return The date when the registration for the domain is set to expire.
      * 
      */
-    public Output<String> expirationDate() {
-        return this.expirationDate;
+    public Output<Optional<String>> expirationDate() {
+        return Codegen.optional(this.expirationDate);
     }
     /**
      * The list of nameservers for the domain.
      * 
      */
     @Export(name="nameServers", refs={List.class,RegisteredDomainNameServer.class}, tree="[0,1]")
-    private Output<List<RegisteredDomainNameServer>> nameServers;
+    private Output</* @Nullable */ List<RegisteredDomainNameServer>> nameServers;
 
     /**
      * @return The list of nameservers for the domain.
      * 
      */
-    public Output<List<RegisteredDomainNameServer>> nameServers() {
-        return this.nameServers;
+    public Output<Optional<List<RegisteredDomainNameServer>>> nameServers() {
+        return Codegen.optional(this.nameServers);
     }
     /**
      * Details about the domain registrant.
      * 
      */
     @Export(name="registrantContact", refs={RegisteredDomainRegistrantContact.class}, tree="[0]")
-    private Output<RegisteredDomainRegistrantContact> registrantContact;
+    private Output</* @Nullable */ RegisteredDomainRegistrantContact> registrantContact;
 
     /**
      * @return Details about the domain registrant.
      * 
      */
-    public Output<RegisteredDomainRegistrantContact> registrantContact() {
-        return this.registrantContact;
+    public Output<Optional<RegisteredDomainRegistrantContact>> registrantContact() {
+        return Codegen.optional(this.registrantContact);
     }
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
@@ -229,56 +229,56 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="registrarName", refs={String.class}, tree="[0]")
-    private Output<String> registrarName;
+    private Output</* @Nullable */ String> registrarName;
 
     /**
      * @return Name of the registrar of the domain as identified in the registry.
      * 
      */
-    public Output<String> registrarName() {
-        return this.registrarName;
+    public Output<Optional<String>> registrarName() {
+        return Codegen.optional(this.registrarName);
     }
     /**
      * Web address of the registrar.
      * 
      */
     @Export(name="registrarUrl", refs={String.class}, tree="[0]")
-    private Output<String> registrarUrl;
+    private Output</* @Nullable */ String> registrarUrl;
 
     /**
      * @return Web address of the registrar.
      * 
      */
-    public Output<String> registrarUrl() {
-        return this.registrarUrl;
+    public Output<Optional<String>> registrarUrl() {
+        return Codegen.optional(this.registrarUrl);
     }
     /**
      * Reseller of the domain.
      * 
      */
     @Export(name="reseller", refs={String.class}, tree="[0]")
-    private Output<String> reseller;
+    private Output</* @Nullable */ String> reseller;
 
     /**
      * @return Reseller of the domain.
      * 
      */
-    public Output<String> reseller() {
-        return this.reseller;
+    public Output<Optional<String>> reseller() {
+        return Codegen.optional(this.reseller);
     }
     /**
      * List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
      * 
      */
     @Export(name="statusLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> statusLists;
+    private Output</* @Nullable */ List<String>> statusLists;
 
     /**
      * @return List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
      * 
      */
-    public Output<List<String>> statusLists() {
-        return this.statusLists;
+    public Output<Optional<List<String>>> statusLists() {
+        return Codegen.optional(this.statusLists);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -317,14 +317,14 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="techContact", refs={RegisteredDomainTechContact.class}, tree="[0]")
-    private Output<RegisteredDomainTechContact> techContact;
+    private Output</* @Nullable */ RegisteredDomainTechContact> techContact;
 
     /**
      * @return Details about the domain technical contact.
      * 
      */
-    public Output<RegisteredDomainTechContact> techContact() {
-        return this.techContact;
+    public Output<Optional<RegisteredDomainTechContact>> techContact() {
+        return Codegen.optional(this.techContact);
     }
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
@@ -359,28 +359,28 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updatedDate", refs={String.class}, tree="[0]")
-    private Output<String> updatedDate;
+    private Output</* @Nullable */ String> updatedDate;
 
     /**
      * @return The last updated date of the domain as found in the response to a WHOIS query.
      * 
      */
-    public Output<String> updatedDate() {
-        return this.updatedDate;
+    public Output<Optional<String>> updatedDate() {
+        return Codegen.optional(this.updatedDate);
     }
     /**
      * The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
      * 
      */
     @Export(name="whoisServer", refs={String.class}, tree="[0]")
-    private Output<String> whoisServer;
+    private Output</* @Nullable */ String> whoisServer;
 
     /**
      * @return The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
      * 
      */
-    public Output<String> whoisServer() {
-        return this.whoisServer;
+    public Output<Optional<String>> whoisServer() {
+        return Codegen.optional(this.whoisServer);
     }
 
     /**

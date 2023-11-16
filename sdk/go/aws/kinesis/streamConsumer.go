@@ -63,9 +63,9 @@ type StreamConsumer struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the stream consumer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-	CreationTimestamp pulumi.StringOutput `pulumi:"creationTimestamp"`
+	CreationTimestamp pulumi.StringPtrOutput `pulumi:"creationTimestamp"`
 	// Name of the stream consumer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
@@ -233,13 +233,13 @@ func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Cont
 }
 
 // Amazon Resource Name (ARN) of the stream consumer.
-func (o StreamConsumerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StreamConsumerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-func (o StreamConsumerOutput) CreationTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.CreationTimestamp }).(pulumi.StringOutput)
+func (o StreamConsumerOutput) CreationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringPtrOutput { return v.CreationTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // Name of the stream consumer.

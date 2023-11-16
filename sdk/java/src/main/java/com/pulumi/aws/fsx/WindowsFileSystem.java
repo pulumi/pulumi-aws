@@ -151,28 +151,28 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      * 
      */
     @Export(name="auditLogConfiguration", refs={WindowsFileSystemAuditLogConfiguration.class}, tree="[0]")
-    private Output<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration;
+    private Output</* @Nullable */ WindowsFileSystemAuditLogConfiguration> auditLogConfiguration;
 
     /**
      * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      * 
      */
-    public Output<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration() {
-        return this.auditLogConfiguration;
+    public Output<Optional<WindowsFileSystemAuditLogConfiguration>> auditLogConfiguration() {
+        return Codegen.optional(this.auditLogConfiguration);
     }
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
@@ -221,14 +221,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dailyAutomaticBackupStartTime", refs={String.class}, tree="[0]")
-    private Output<String> dailyAutomaticBackupStartTime;
+    private Output</* @Nullable */ String> dailyAutomaticBackupStartTime;
 
     /**
      * @return The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
-    public Output<String> dailyAutomaticBackupStartTime() {
-        return this.dailyAutomaticBackupStartTime;
+    public Output<Optional<String>> dailyAutomaticBackupStartTime() {
+        return Codegen.optional(this.dailyAutomaticBackupStartTime);
     }
     /**
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
@@ -249,112 +249,112 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="diskIopsConfiguration", refs={WindowsFileSystemDiskIopsConfiguration.class}, tree="[0]")
-    private Output<WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
+    private Output</* @Nullable */ WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
     /**
      * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
      * 
      */
-    public Output<WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration() {
-        return this.diskIopsConfiguration;
+    public Output<Optional<WindowsFileSystemDiskIopsConfiguration>> diskIopsConfiguration() {
+        return Codegen.optional(this.diskIopsConfiguration);
     }
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible.
      * 
      */
     @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> networkInterfaceIds;
+    private Output</* @Nullable */ List<String>> networkInterfaceIds;
 
     /**
      * @return Set of Elastic Network Interface identifiers from which the file system is accessible.
      * 
      */
-    public Output<List<String>> networkInterfaceIds() {
-        return this.networkInterfaceIds;
+    public Output<Optional<List<String>>> networkInterfaceIds() {
+        return Codegen.optional(this.networkInterfaceIds);
     }
     /**
      * AWS account identifier that created the file system.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return AWS account identifier that created the file system.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The IP address of the primary, or preferred, file server.
      * 
      */
     @Export(name="preferredFileServerIp", refs={String.class}, tree="[0]")
-    private Output<String> preferredFileServerIp;
+    private Output</* @Nullable */ String> preferredFileServerIp;
 
     /**
      * @return The IP address of the primary, or preferred, file server.
      * 
      */
-    public Output<String> preferredFileServerIp() {
-        return this.preferredFileServerIp;
+    public Output<Optional<String>> preferredFileServerIp() {
+        return Codegen.optional(this.preferredFileServerIp);
     }
     /**
      * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
     @Export(name="preferredSubnetId", refs={String.class}, tree="[0]")
-    private Output<String> preferredSubnetId;
+    private Output</* @Nullable */ String> preferredSubnetId;
 
     /**
      * @return Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
-    public Output<String> preferredSubnetId() {
-        return this.preferredSubnetId;
+    public Output<Optional<String>> preferredSubnetId() {
+        return Codegen.optional(this.preferredSubnetId);
     }
     /**
      * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      * 
      */
     @Export(name="remoteAdministrationEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> remoteAdministrationEndpoint;
+    private Output</* @Nullable */ String> remoteAdministrationEndpoint;
 
     /**
      * @return For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      * 
      */
-    public Output<String> remoteAdministrationEndpoint() {
-        return this.remoteAdministrationEndpoint;
+    public Output<Optional<String>> remoteAdministrationEndpoint() {
+        return Codegen.optional(this.remoteAdministrationEndpoint);
     }
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -403,14 +403,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> storageCapacity;
+    private Output</* @Nullable */ Integer> storageCapacity;
 
     /**
      * @return Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      * 
      */
-    public Output<Integer> storageCapacity() {
-        return this.storageCapacity;
+    public Output<Optional<Integer>> storageCapacity() {
+        return Codegen.optional(this.storageCapacity);
     }
     /**
      * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
@@ -495,28 +495,28 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return Identifier of the Virtual Private Cloud for the file system.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Export(name="weeklyMaintenanceStartTime", refs={String.class}, tree="[0]")
-    private Output<String> weeklyMaintenanceStartTime;
+    private Output</* @Nullable */ String> weeklyMaintenanceStartTime;
 
     /**
      * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    public Output<String> weeklyMaintenanceStartTime() {
-        return this.weeklyMaintenanceStartTime;
+    public Output<Optional<String>> weeklyMaintenanceStartTime() {
+        return Codegen.optional(this.weeklyMaintenanceStartTime);
     }
 
     /**

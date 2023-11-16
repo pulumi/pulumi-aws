@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageOutputResourceContainer {
@@ -14,12 +16,12 @@ public final class GetImageOutputResourceContainer {
      * @return Set of URIs for created containers.
      * 
      */
-    private List<String> imageUris;
+    private @Nullable List<String> imageUris;
     /**
      * @return Region of the container image.
      * 
      */
-    private String region;
+    private @Nullable String region;
 
     private GetImageOutputResourceContainer() {}
     /**
@@ -27,14 +29,14 @@ public final class GetImageOutputResourceContainer {
      * 
      */
     public List<String> imageUris() {
-        return this.imageUris;
+        return this.imageUris == null ? List.of() : this.imageUris;
     }
     /**
      * @return Region of the container image.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetImageOutputResourceContainer {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> imageUris;
-        private String region;
+        private @Nullable List<String> imageUris;
+        private @Nullable String region;
         public Builder() {}
         public Builder(GetImageOutputResourceContainer defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,16 +58,16 @@ public final class GetImageOutputResourceContainer {
         }
 
         @CustomType.Setter
-        public Builder imageUris(List<String> imageUris) {
-            this.imageUris = Objects.requireNonNull(imageUris);
+        public Builder imageUris(@Nullable List<String> imageUris) {
+            this.imageUris = imageUris;
             return this;
         }
         public Builder imageUris(String... imageUris) {
             return imageUris(List.of(imageUris));
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         public GetImageOutputResourceContainer build() {

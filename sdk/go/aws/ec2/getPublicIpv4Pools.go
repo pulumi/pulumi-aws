@@ -94,7 +94,7 @@ type GetPublicIpv4PoolsArgs struct {
 type GetPublicIpv4PoolsResult struct {
 	Filters []GetPublicIpv4PoolsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all the pool IDs found.
 	PoolIds []string          `pulumi:"poolIds"`
 	Tags    map[string]string `pulumi:"tags"`
@@ -148,8 +148,8 @@ func (o GetPublicIpv4PoolsResultOutput) Filters() GetPublicIpv4PoolsFilterArrayO
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetPublicIpv4PoolsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicIpv4PoolsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPublicIpv4PoolsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the pool IDs found.

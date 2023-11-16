@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCustomPluginResult {
@@ -14,57 +16,57 @@ public final class GetCustomPluginResult {
      * @return the ARN of the custom plugin.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return a summary description of the custom plugin.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return an ID of the latest successfully created revision of the custom plugin.
      * 
      */
-    private Integer latestRevision;
+    private @Nullable Integer latestRevision;
     private String name;
     /**
      * @return the state of the custom plugin.
      * 
      */
-    private String state;
+    private @Nullable String state;
 
     private GetCustomPluginResult() {}
     /**
      * @return the ARN of the custom plugin.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return a summary description of the custom plugin.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return an ID of the latest successfully created revision of the custom plugin.
      * 
      */
-    public Integer latestRevision() {
-        return this.latestRevision;
+    public Optional<Integer> latestRevision() {
+        return Optional.ofNullable(this.latestRevision);
     }
     public String name() {
         return this.name;
@@ -73,8 +75,8 @@ public final class GetCustomPluginResult {
      * @return the state of the custom plugin.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
 
     public static Builder builder() {
@@ -86,12 +88,12 @@ public final class GetCustomPluginResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String id;
-        private Integer latestRevision;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable Integer latestRevision;
         private String name;
-        private String state;
+        private @Nullable String state;
         public Builder() {}
         public Builder(GetCustomPluginResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,23 +106,23 @@ public final class GetCustomPluginResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder latestRevision(Integer latestRevision) {
-            this.latestRevision = Objects.requireNonNull(latestRevision);
+        public Builder latestRevision(@Nullable Integer latestRevision) {
+            this.latestRevision = latestRevision;
             return this;
         }
         @CustomType.Setter
@@ -129,8 +131,8 @@ public final class GetCustomPluginResult {
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         public GetCustomPluginResult build() {

@@ -435,14 +435,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
-    private Output<Integer> allocatedStorage;
+    private Output</* @Nullable */ Integer> allocatedStorage;
 
     /**
      * @return The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
      * 
      */
-    public Output<Integer> allocatedStorage() {
-        return this.allocatedStorage;
+    public Output<Optional<Integer>> allocatedStorage() {
+        return Codegen.optional(this.allocatedStorage);
     }
     /**
      * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
@@ -463,28 +463,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * Amazon Resource Name (ARN) of cluster
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of cluster
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
@@ -494,7 +494,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> availabilityZones;
+    private Output</* @Nullable */ List<String>> availabilityZones;
 
     /**
      * @return List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
@@ -503,8 +503,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A maximum of 3 AZs can be configured.
      * 
      */
-    public Output<List<String>> availabilityZones() {
-        return this.availabilityZones;
+    public Output<Optional<List<String>>> availabilityZones() {
+        return Codegen.optional(this.availabilityZones);
     }
     /**
      * Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
@@ -525,70 +525,70 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="backupRetentionPeriod", refs={Integer.class}, tree="[0]")
-    private Output<Integer> backupRetentionPeriod;
+    private Output</* @Nullable */ Integer> backupRetentionPeriod;
 
     /**
      * @return Days to retain backups for. Default `1`
      * 
      */
-    public Output<Integer> backupRetentionPeriod() {
-        return this.backupRetentionPeriod;
+    public Output<Optional<Integer>> backupRetentionPeriod() {
+        return Codegen.optional(this.backupRetentionPeriod);
     }
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> clusterIdentifier;
+    private Output</* @Nullable */ String> clusterIdentifier;
 
     /**
      * @return The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
-    public Output<String> clusterIdentifier() {
-        return this.clusterIdentifier;
+    public Output<Optional<String>> clusterIdentifier() {
+        return Codegen.optional(this.clusterIdentifier);
     }
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
     @Export(name="clusterIdentifierPrefix", refs={String.class}, tree="[0]")
-    private Output<String> clusterIdentifierPrefix;
+    private Output</* @Nullable */ String> clusterIdentifierPrefix;
 
     /**
      * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    public Output<String> clusterIdentifierPrefix() {
-        return this.clusterIdentifierPrefix;
+    public Output<Optional<String>> clusterIdentifierPrefix() {
+        return Codegen.optional(this.clusterIdentifierPrefix);
     }
     /**
      * List of RDS Instances that are a part of this cluster
      * 
      */
     @Export(name="clusterMembers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> clusterMembers;
+    private Output</* @Nullable */ List<String>> clusterMembers;
 
     /**
      * @return List of RDS Instances that are a part of this cluster
      * 
      */
-    public Output<List<String>> clusterMembers() {
-        return this.clusterMembers;
+    public Output<Optional<List<String>>> clusterMembers() {
+        return Codegen.optional(this.clusterMembers);
     }
     /**
      * RDS Cluster Resource ID
      * 
      */
     @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
-    private Output<String> clusterResourceId;
+    private Output</* @Nullable */ String> clusterResourceId;
 
     /**
      * @return RDS Cluster Resource ID
      * 
      */
-    public Output<String> clusterResourceId() {
-        return this.clusterResourceId;
+    public Output<Optional<String>> clusterResourceId() {
+        return Codegen.optional(this.clusterResourceId);
     }
     /**
      * Copy all Cluster `tags` to snapshots. Default is `false`.
@@ -609,14 +609,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
-    private Output<String> databaseName;
+    private Output</* @Nullable */ String> databaseName;
 
     /**
      * @return Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      * 
      */
-    public Output<String> databaseName() {
-        return this.databaseName;
+    public Output<Optional<String>> databaseName() {
+        return Codegen.optional(this.databaseName);
     }
     /**
      * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
@@ -637,14 +637,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbClusterParameterGroupName", refs={String.class}, tree="[0]")
-    private Output<String> dbClusterParameterGroupName;
+    private Output</* @Nullable */ String> dbClusterParameterGroupName;
 
     /**
      * @return A cluster parameter group to associate with the cluster.
      * 
      */
-    public Output<String> dbClusterParameterGroupName() {
-        return this.dbClusterParameterGroupName;
+    public Output<Optional<String>> dbClusterParameterGroupName() {
+        return Codegen.optional(this.dbClusterParameterGroupName);
     }
     /**
      * Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
@@ -666,29 +666,29 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> dbSubnetGroupName;
+    private Output</* @Nullable */ String> dbSubnetGroupName;
 
     /**
      * @return DB subnet group to associate with this DB cluster.
      * **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
-    public Output<String> dbSubnetGroupName() {
-        return this.dbSubnetGroupName;
+    public Output<Optional<String>> dbSubnetGroupName() {
+        return Codegen.optional(this.dbSubnetGroupName);
     }
     /**
      * For use with RDS Custom.
      * 
      */
     @Export(name="dbSystemId", refs={String.class}, tree="[0]")
-    private Output<String> dbSystemId;
+    private Output</* @Nullable */ String> dbSystemId;
 
     /**
      * @return For use with RDS Custom.
      * 
      */
-    public Output<String> dbSystemId() {
-        return this.dbSystemId;
+    public Output<Optional<String>> dbSystemId() {
+        return Codegen.optional(this.dbSystemId);
     }
     /**
      * If the DB cluster should have deletion protection enabled.
@@ -755,14 +755,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return DNS address of the RDS instance
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
@@ -797,28 +797,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * Running version of the database.
      * 
      */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
-    private Output<String> engineVersionActual;
+    private Output</* @Nullable */ String> engineVersionActual;
 
     /**
      * @return Running version of the database.
      * 
      */
-    public Output<String> engineVersionActual() {
-        return this.engineVersionActual;
+    public Output<Optional<String>> engineVersionActual() {
+        return Codegen.optional(this.engineVersionActual);
     }
     /**
      * Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
@@ -853,14 +853,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
-    private Output<String> hostedZoneId;
+    private Output</* @Nullable */ String> hostedZoneId;
 
     /**
      * @return Route53 Hosted Zone ID of the endpoint
      * 
      */
-    public Output<String> hostedZoneId() {
-        return this.hostedZoneId;
+    public Output<Optional<String>> hostedZoneId() {
+        return Codegen.optional(this.hostedZoneId);
     }
     /**
      * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
@@ -881,14 +881,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="iamRoles", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> iamRoles;
+    private Output</* @Nullable */ List<String>> iamRoles;
 
     /**
      * @return List of ARNs for the IAM roles to associate to the RDS Cluster.
      * 
      */
-    public Output<List<String>> iamRoles() {
-        return this.iamRoles;
+    public Output<Optional<List<String>>> iamRoles() {
+        return Codegen.optional(this.iamRoles);
     }
     /**
      * Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
@@ -909,14 +909,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
@@ -951,98 +951,98 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="masterUserSecretKmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> masterUserSecretKmsKeyId;
+    private Output</* @Nullable */ String> masterUserSecretKmsKeyId;
 
     /**
      * @return Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      * 
      */
-    public Output<String> masterUserSecretKmsKeyId() {
-        return this.masterUserSecretKmsKeyId;
+    public Output<Optional<String>> masterUserSecretKmsKeyId() {
+        return Codegen.optional(this.masterUserSecretKmsKeyId);
     }
     /**
      * Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
      * 
      */
     @Export(name="masterUserSecrets", refs={List.class,ClusterMasterUserSecret.class}, tree="[0,1]")
-    private Output<List<ClusterMasterUserSecret>> masterUserSecrets;
+    private Output</* @Nullable */ List<ClusterMasterUserSecret>> masterUserSecrets;
 
     /**
      * @return Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
      * 
      */
-    public Output<List<ClusterMasterUserSecret>> masterUserSecrets() {
-        return this.masterUserSecrets;
+    public Output<Optional<List<ClusterMasterUserSecret>>> masterUserSecrets() {
+        return Codegen.optional(this.masterUserSecrets);
     }
     /**
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      * 
      */
     @Export(name="masterUsername", refs={String.class}, tree="[0]")
-    private Output<String> masterUsername;
+    private Output</* @Nullable */ String> masterUsername;
 
     /**
      * @return Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      * 
      */
-    public Output<String> masterUsername() {
-        return this.masterUsername;
+    public Output<Optional<String>> masterUsername() {
+        return Codegen.optional(this.masterUsername);
     }
     /**
      * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
-    private Output<String> networkType;
+    private Output</* @Nullable */ String> networkType;
 
     /**
      * @return Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      * 
      */
-    public Output<String> networkType() {
-        return this.networkType;
+    public Output<Optional<String>> networkType() {
+        return Codegen.optional(this.networkType);
     }
     /**
      * Port on which the DB accepts connections
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return Port on which the DB accepts connections
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredBackupWindow;
+    private Output</* @Nullable */ String> preferredBackupWindow;
 
     /**
      * @return Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
-    public Output<String> preferredBackupWindow() {
-        return this.preferredBackupWindow;
+    public Output<Optional<String>> preferredBackupWindow() {
+        return Codegen.optional(this.preferredBackupWindow);
     }
     /**
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredMaintenanceWindow;
+    private Output</* @Nullable */ String> preferredMaintenanceWindow;
 
     /**
      * @return Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
-    public Output<String> preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Output<Optional<String>> preferredMaintenanceWindow() {
+        return Codegen.optional(this.preferredMaintenanceWindow);
     }
     /**
      * Read-only endpoint for the Aurora cluster, automatically
@@ -1050,15 +1050,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="readerEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> readerEndpoint;
+    private Output</* @Nullable */ String> readerEndpoint;
 
     /**
      * @return Read-only endpoint for the Aurora cluster, automatically
      * load-balanced across replicas
      * 
      */
-    public Output<String> readerEndpoint() {
-        return this.readerEndpoint;
+    public Output<Optional<String>> readerEndpoint() {
+        return Codegen.optional(this.readerEndpoint);
     }
     /**
      * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
@@ -1169,28 +1169,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> storageEncrypted;
+    private Output</* @Nullable */ Boolean> storageEncrypted;
 
     /**
      * @return Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<Boolean> storageEncrypted() {
-        return this.storageEncrypted;
+    public Output<Optional<Boolean>> storageEncrypted() {
+        return Codegen.optional(this.storageEncrypted);
     }
     /**
      * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
-    private Output<String> storageType;
+    private Output</* @Nullable */ String> storageType;
 
     /**
      * @return (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
-    public Output<String> storageType() {
-        return this.storageType;
+    public Output<Optional<String>> storageType() {
+        return Codegen.optional(this.storageType);
     }
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1229,14 +1229,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return List of VPC security groups to associate with the Cluster
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
 
     /**

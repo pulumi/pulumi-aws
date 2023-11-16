@@ -46,8 +46,8 @@ import (
 // return err
 // }
 // allowBillingLoggingPolicyDocument := pulumi.All(billingLogs.Arn,billingLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// billingLogsArn := _args[0].(string)
-// billingLogsArn1 := _args[1].(string)
+// billingLogsArn := _args[0].(*string)
+// billingLogsArn1 := _args[1].(*string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -64,7 +64,7 @@ import (
 // "s3:GetBucketAcl",
 // "s3:GetBucketPolicy",
 // },
-// Resources: []string{
+// Resources: interface{}{
 // billingLogsArn,
 // },
 // },
@@ -120,9 +120,9 @@ type GetBillingServiceAccountArgs struct {
 // A collection of values returned by getBillingServiceAccount.
 type GetBillingServiceAccountResult struct {
 	// ARN of the AWS billing service account.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// ID of the AWS billing service account.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetBillingServiceAccountOutput(ctx *pulumi.Context, args GetBillingServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetBillingServiceAccountResultOutput {
@@ -164,13 +164,13 @@ func (o GetBillingServiceAccountResultOutput) ToGetBillingServiceAccountResultOu
 }
 
 // ARN of the AWS billing service account.
-func (o GetBillingServiceAccountResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBillingServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetBillingServiceAccountResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBillingServiceAccountResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the AWS billing service account.
-func (o GetBillingServiceAccountResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBillingServiceAccountResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetBillingServiceAccountResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBillingServiceAccountResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

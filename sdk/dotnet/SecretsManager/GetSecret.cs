@@ -156,44 +156,44 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// ARN of the secret.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the secret.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         /// </summary>
-        public readonly string KmsKeyId;
-        public readonly string Name;
+        public readonly string? KmsKeyId;
+        public readonly string? Name;
         /// <summary>
         /// Resource-based policy document that's attached to the secret.
         /// </summary>
-        public readonly string Policy;
+        public readonly string? Policy;
         /// <summary>
         /// Tags of the secret.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSecretResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string name,
+            string? name,
 
-            string policy,
+            string? policy,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

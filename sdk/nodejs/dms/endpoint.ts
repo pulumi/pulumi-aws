@@ -77,7 +77,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * ARN for the certificate.
      */
-    public readonly certificateArn!: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the endpoint database.
      */
@@ -89,7 +89,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * ARN for the endpoint.
      */
-    public /*out*/ readonly endpointArn!: pulumi.Output<string>;
+    public /*out*/ readonly endpointArn!: pulumi.Output<string | undefined>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
@@ -105,7 +105,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      */
-    public readonly extraConnectionAttributes!: pulumi.Output<string>;
+    public readonly extraConnectionAttributes!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for Kafka settings. See below.
      */
@@ -119,7 +119,7 @@ export class Endpoint extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly kmsKeyArn!: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for MongoDB settings. See below.
      */
@@ -137,7 +137,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Configuration block for Redshift settings. See below.
      */
-    public readonly redshiftSettings!: pulumi.Output<outputs.dms.EndpointRedshiftSettings>;
+    public readonly redshiftSettings!: pulumi.Output<outputs.dms.EndpointRedshiftSettings | undefined>;
     /**
      * (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
      */
@@ -161,7 +161,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      */
-    public readonly sslMode!: pulumi.Output<string>;
+    public readonly sslMode!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Indicates whether bare metal instances are included, excluded, or required.
         /// </summary>
-        public readonly string BareMetal;
+        public readonly string? BareMetal;
         /// <summary>
         /// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Indicates whether burstable performance instance types are included, excluded, or required.
         /// </summary>
-        public readonly string BurstablePerformance;
+        public readonly string? BurstablePerformance;
         /// <summary>
         /// List of CPU manufacturer names.
         /// </summary>
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Indicates whether instance types with instance store volumes are included, excluded, or required.
         /// </summary>
-        public readonly string LocalStorage;
+        public readonly string? LocalStorage;
         /// <summary>
         /// List of local storage type names.
         /// </summary>
@@ -85,15 +85,15 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Price protection threshold for On-Demand Instances.
         /// </summary>
-        public readonly int OnDemandMaxPricePercentageOverLowestPrice;
+        public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
         /// <summary>
         /// Indicates whether instance types must support On-Demand Instance Hibernation.
         /// </summary>
-        public readonly bool RequireHibernateSupport;
+        public readonly bool? RequireHibernateSupport;
         /// <summary>
         /// Price protection threshold for Spot Instances.
         /// </summary>
-        public readonly int SpotMaxPricePercentageOverLowestPrice;
+        public readonly int? SpotMaxPricePercentageOverLowestPrice;
         /// <summary>
         /// List of objects describing the minimum and maximum total storage (GB).
         /// </summary>
@@ -117,11 +117,11 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             ImmutableArray<string> allowedInstanceTypes,
 
-            string bareMetal,
+            string? bareMetal,
 
             ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult> baselineEbsBandwidthMbps,
 
-            string burstablePerformance,
+            string? burstablePerformance,
 
             ImmutableArray<string> cpuManufacturers,
 
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             ImmutableArray<string> instanceGenerations,
 
-            string localStorage,
+            string? localStorage,
 
             ImmutableArray<string> localStorageTypes,
 
@@ -141,11 +141,11 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult> networkInterfaceCounts,
 
-            int onDemandMaxPricePercentageOverLowestPrice,
+            int? onDemandMaxPricePercentageOverLowestPrice,
 
-            bool requireHibernateSupport,
+            bool? requireHibernateSupport,
 
-            int spotMaxPricePercentageOverLowestPrice,
+            int? spotMaxPricePercentageOverLowestPrice,
 
             ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult> totalLocalStorageGbs,
 

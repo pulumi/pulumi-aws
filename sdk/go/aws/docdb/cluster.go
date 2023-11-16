@@ -73,35 +73,35 @@ type Cluster struct {
 	// `false`.
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A list of EC2 Availability Zones that
 	// instances in the DB cluster can be created in.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
 	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	ClusterIdentifier pulumi.StringPtrOutput `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
-	ClusterIdentifierPrefix pulumi.StringOutput `pulumi:"clusterIdentifierPrefix"`
+	ClusterIdentifierPrefix pulumi.StringPtrOutput `pulumi:"clusterIdentifierPrefix"`
 	// List of DocumentDB Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
 	// The DocumentDB Cluster Resource ID
-	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+	ClusterResourceId pulumi.StringPtrOutput `pulumi:"clusterResourceId"`
 	// A cluster parameter group to associate with the cluster.
-	DbClusterParameterGroupName pulumi.StringOutput `pulumi:"dbClusterParameterGroupName"`
+	DbClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dbClusterParameterGroupName"`
 	// A DB subnet group to associate with this DB instance.
-	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
+	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the DocumentDB instance
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version. Updating this argument results in an outage.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The name of your final DB snapshot
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
@@ -109,23 +109,23 @@ type Cluster struct {
 	// The global cluster identifier specified on `docdb.GlobalCluster`.
 	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringPtrOutput `pulumi:"hostedZoneId"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
 	// Username for the master DB user.
-	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
+	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
+	PreferredBackupWindow pulumi.StringPtrOutput `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
-	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
+	ReaderEndpoint pulumi.StringPtrOutput `pulumi:"readerEndpoint"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
@@ -569,8 +569,8 @@ func (o ClusterOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 }
 
 // Amazon Resource Name (ARN) of cluster
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A list of EC2 Availability Zones that
@@ -585,13 +585,13 @@ func (o ClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 }
 
 // The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-func (o ClusterOutput) ClusterIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
-func (o ClusterOutput) ClusterIdentifierPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifierPrefix }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterIdentifierPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterIdentifierPrefix }).(pulumi.StringPtrOutput)
 }
 
 // List of DocumentDB Instances that are a part of this cluster
@@ -600,18 +600,18 @@ func (o ClusterOutput) ClusterMembers() pulumi.StringArrayOutput {
 }
 
 // The DocumentDB Cluster Resource ID
-func (o ClusterOutput) ClusterResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterResourceId }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
 // A cluster parameter group to associate with the cluster.
-func (o ClusterOutput) DbClusterParameterGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DbClusterParameterGroupName }).(pulumi.StringOutput)
+func (o ClusterOutput) DbClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DbClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // A DB subnet group to associate with this DB instance.
-func (o ClusterOutput) DbSubnetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DbSubnetGroupName }).(pulumi.StringOutput)
+func (o ClusterOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -626,8 +626,8 @@ func (o ClusterOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {
 }
 
 // The DNS address of the DocumentDB instance
-func (o ClusterOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ClusterOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
@@ -636,8 +636,8 @@ func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
 }
 
 // The database engine version. Updating this argument results in an outage.
-func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o ClusterOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The name of your final DB snapshot
@@ -653,13 +653,13 @@ func (o ClusterOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
 }
 
 // The Route53 Hosted Zone ID of the endpoint
-func (o ClusterOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o ClusterOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-func (o ClusterOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o ClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Password for the master DB user. Note that this may
@@ -669,8 +669,8 @@ func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 }
 
 // Username for the master DB user.
-func (o ClusterOutput) MasterUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterUsername }).(pulumi.StringOutput)
+func (o ClusterOutput) MasterUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterUsername }).(pulumi.StringPtrOutput)
 }
 
 // The port on which the DB accepts connections
@@ -680,18 +680,18 @@ func (o ClusterOutput) Port() pulumi.IntPtrOutput {
 
 // The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 // Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-func (o ClusterOutput) PreferredBackupWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredBackupWindow }).(pulumi.StringOutput)
+func (o ClusterOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
 // The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
-func (o ClusterOutput) ReaderEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ReaderEndpoint }).(pulumi.StringOutput)
+func (o ClusterOutput) ReaderEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ReaderEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.

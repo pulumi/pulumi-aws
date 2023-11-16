@@ -46,20 +46,20 @@ export interface GetResolverFirewallDomainListArgs {
  * A collection of values returned by getResolverFirewallDomainList.
  */
 export interface GetResolverFirewallDomainListResult {
-    readonly arn: string;
-    readonly creationTime: string;
-    readonly creatorRequestId: string;
-    readonly domainCount: number;
+    readonly arn?: string;
+    readonly creationTime?: string;
+    readonly creatorRequestId?: string;
+    readonly domainCount?: number;
     readonly firewallDomainListId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly managedOwnerName: string;
-    readonly modificationTime: string;
-    readonly name: string;
-    readonly status: string;
-    readonly statusMessage: string;
+    readonly id?: string;
+    readonly managedOwnerName?: string;
+    readonly modificationTime?: string;
+    readonly name?: string;
+    readonly status?: string;
+    readonly statusMessage?: string;
 }
 /**
  * `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.

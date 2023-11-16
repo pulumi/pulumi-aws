@@ -93,7 +93,7 @@ type SmbFileShare struct {
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists pulumi.StringArrayOutput `pulumi:"adminUserLists"`
 	// Amazon Resource Name (ARN) of the SMB File Share.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
@@ -107,9 +107,9 @@ type SmbFileShare struct {
 	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass pulumi.StringPtrOutput `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
-	FileShareName pulumi.StringOutput `pulumi:"fileShareName"`
+	FileShareName pulumi.StringPtrOutput `pulumi:"fileShareName"`
 	// ID of the SMB File Share.
-	FileshareId pulumi.StringOutput `pulumi:"fileshareId"`
+	FileshareId pulumi.StringPtrOutput `pulumi:"fileshareId"`
 	// Amazon Resource Name (ARN) of the file gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
@@ -127,9 +127,9 @@ type SmbFileShare struct {
 	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrOutput `pulumi:"objectAcl"`
 	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
-	OplocksEnabled pulumi.BoolOutput `pulumi:"oplocksEnabled"`
+	OplocksEnabled pulumi.BoolPtrOutput `pulumi:"oplocksEnabled"`
 	// File share path used by the NFS client to identify the mount point.
-	Path pulumi.StringOutput `pulumi:"path"`
+	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly pulumi.BoolPtrOutput `pulumi:"readOnly"`
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -527,8 +527,8 @@ func (o SmbFileShareOutput) AdminUserLists() pulumi.StringArrayOutput {
 }
 
 // Amazon Resource Name (ARN) of the SMB File Share.
-func (o SmbFileShareOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SmbFileShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SmbFileShareOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbFileShare) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
@@ -562,13 +562,13 @@ func (o SmbFileShareOutput) DefaultStorageClass() pulumi.StringPtrOutput {
 }
 
 // The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
-func (o SmbFileShareOutput) FileShareName() pulumi.StringOutput {
-	return o.ApplyT(func(v *SmbFileShare) pulumi.StringOutput { return v.FileShareName }).(pulumi.StringOutput)
+func (o SmbFileShareOutput) FileShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbFileShare) pulumi.StringPtrOutput { return v.FileShareName }).(pulumi.StringPtrOutput)
 }
 
 // ID of the SMB File Share.
-func (o SmbFileShareOutput) FileshareId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SmbFileShare) pulumi.StringOutput { return v.FileshareId }).(pulumi.StringOutput)
+func (o SmbFileShareOutput) FileshareId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbFileShare) pulumi.StringPtrOutput { return v.FileshareId }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the file gateway.
@@ -612,13 +612,13 @@ func (o SmbFileShareOutput) ObjectAcl() pulumi.StringPtrOutput {
 }
 
 // Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
-func (o SmbFileShareOutput) OplocksEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *SmbFileShare) pulumi.BoolOutput { return v.OplocksEnabled }).(pulumi.BoolOutput)
+func (o SmbFileShareOutput) OplocksEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SmbFileShare) pulumi.BoolPtrOutput { return v.OplocksEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // File share path used by the NFS client to identify the mount point.
-func (o SmbFileShareOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v *SmbFileShare) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
+func (o SmbFileShareOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbFileShare) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.

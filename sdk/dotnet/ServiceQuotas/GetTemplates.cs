@@ -127,7 +127,7 @@ namespace Pulumi.Aws.ServiceQuotas
     [OutputType]
     public sealed class GetTemplatesResult
     {
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// AWS Region to which the template applies.
         /// </summary>
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.ServiceQuotas
 
         [OutputConstructor]
         private GetTemplatesResult(
-            string id,
+            string? id,
 
             string region,
 

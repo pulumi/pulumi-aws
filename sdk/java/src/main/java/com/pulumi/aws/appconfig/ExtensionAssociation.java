@@ -106,14 +106,14 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the AppConfig Extension Association.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ARN of the extension defined in the association.
@@ -134,14 +134,14 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="extensionVersion", refs={Integer.class}, tree="[0]")
-    private Output<Integer> extensionVersion;
+    private Output</* @Nullable */ Integer> extensionVersion;
 
     /**
      * @return The version number for the extension defined in the association.
      * 
      */
-    public Output<Integer> extensionVersion() {
-        return this.extensionVersion;
+    public Output<Optional<Integer>> extensionVersion() {
+        return Codegen.optional(this.extensionVersion);
     }
     /**
      * The parameter names and values defined for the association.

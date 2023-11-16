@@ -20,19 +20,19 @@ namespace Pulumi.Aws.LicenseManager.Outputs
         /// <summary>
         /// Received status.
         /// </summary>
-        public readonly string ReceivedStatus;
+        public readonly string? ReceivedStatus;
         /// <summary>
         /// Received status reason.
         /// </summary>
-        public readonly string ReceivedStatusReason;
+        public readonly string? ReceivedStatusReason;
 
         [OutputConstructor]
         private GetReceivedLicenseReceivedMetadataResult(
             ImmutableArray<string> allowedOperations,
 
-            string receivedStatus,
+            string? receivedStatus,
 
-            string receivedStatusReason)
+            string? receivedStatusReason)
         {
             AllowedOperations = allowedOperations;
             ReceivedStatus = receivedStatus;

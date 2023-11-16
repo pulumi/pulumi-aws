@@ -141,7 +141,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * ARN of an ECS cluster.
      */
-    public readonly cluster!: pulumi.Output<string>;
+    public readonly cluster!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for deployment circuit breaker. See below.
      */
@@ -181,11 +181,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
      */
-    public readonly iamRole!: pulumi.Output<string>;
+    public readonly iamRole!: pulumi.Output<string | undefined>;
     /**
      * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      */
-    public readonly launchType!: pulumi.Output<string>;
+    public readonly launchType!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for load balancers. See below.
      */
@@ -211,7 +211,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
-    public readonly platformVersion!: pulumi.Output<string>;
+    public readonly platformVersion!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
@@ -245,7 +245,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
      */
-    public readonly triggers!: pulumi.Output<{[key: string]: string}>;
+    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */

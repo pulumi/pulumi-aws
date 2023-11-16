@@ -140,11 +140,11 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Policy document attached to the domain.
         /// </summary>
-        public readonly string AccessPolicies;
+        public readonly string? AccessPolicies;
         /// <summary>
         /// Key-value string pairs to specify advanced configuration options.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> AdvancedOptions;
+        public readonly ImmutableDictionary<string, string>? AdvancedOptions;
         /// <summary>
         /// Status of the OpenSearch domain's advanced security options. The block consists of the following attributes:
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// ARN of the domain.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Configuration of the Auto-Tune options of the domain.
         /// </summary>
@@ -168,19 +168,19 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Status of the creation of the domain.
         /// </summary>
-        public readonly bool Created;
+        public readonly bool? Created;
         /// <summary>
         /// Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
         /// </summary>
-        public readonly string DashboardEndpoint;
+        public readonly string? DashboardEndpoint;
         /// <summary>
         /// Status of the deletion of the domain.
         /// </summary>
-        public readonly bool Deleted;
+        public readonly bool? Deleted;
         /// <summary>
         /// Unique identifier for the domain.
         /// </summary>
-        public readonly string DomainId;
+        public readonly string? DomainId;
         public readonly string DomainName;
         /// <summary>
         /// EBS Options for the instances in the domain.
@@ -193,19 +193,19 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Domain-specific endpoint used to submit index, search, and data upload requests.
         /// </summary>
-        public readonly string Endpoint;
+        public readonly string? Endpoint;
         /// <summary>
         /// OpenSearch version for the domain.
         /// </summary>
-        public readonly string EngineVersion;
+        public readonly string? EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         /// </summary>
-        public readonly string KibanaEndpoint;
+        public readonly string? KibanaEndpoint;
         /// <summary>
         /// Domain log publishing related options.
         /// </summary>
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Status of a configuration change in the domain.
         /// </summary>
-        public readonly bool Processing;
+        public readonly bool? Processing;
         /// <summary>
         /// Domain snapshot related options.
         /// </summary>
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Tags assigned to the domain.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// VPC Options for private OpenSearch domains.
         /// </summary>
@@ -241,13 +241,13 @@ namespace Pulumi.Aws.OpenSearch
 
         [OutputConstructor]
         private GetDomainResult(
-            string accessPolicies,
+            string? accessPolicies,
 
-            ImmutableDictionary<string, string> advancedOptions,
+            ImmutableDictionary<string, string>? advancedOptions,
 
             ImmutableArray<Outputs.GetDomainAdvancedSecurityOptionResult> advancedSecurityOptions,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetDomainAutoTuneOptionResult> autoTuneOptions,
 
@@ -255,13 +255,13 @@ namespace Pulumi.Aws.OpenSearch
 
             ImmutableArray<Outputs.GetDomainCognitoOptionResult> cognitoOptions,
 
-            bool created,
+            bool? created,
 
-            string dashboardEndpoint,
+            string? dashboardEndpoint,
 
-            bool deleted,
+            bool? deleted,
 
-            string domainId,
+            string? domainId,
 
             string domainName,
 
@@ -269,13 +269,13 @@ namespace Pulumi.Aws.OpenSearch
 
             ImmutableArray<Outputs.GetDomainEncryptionAtRestResult> encryptionAtRests,
 
-            string endpoint,
+            string? endpoint,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string id,
+            string? id,
 
-            string kibanaEndpoint,
+            string? kibanaEndpoint,
 
             ImmutableArray<Outputs.GetDomainLogPublishingOptionResult> logPublishingOptions,
 
@@ -283,13 +283,13 @@ namespace Pulumi.Aws.OpenSearch
 
             Outputs.GetDomainOffPeakWindowOptionsResult? offPeakWindowOptions,
 
-            bool processing,
+            bool? processing,
 
             ImmutableArray<Outputs.GetDomainSnapshotOptionResult> snapshotOptions,
 
             ImmutableArray<Outputs.GetDomainSoftwareUpdateOptionResult> softwareUpdateOptions,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.GetDomainVpcOptionResult> vpcOptions)
         {

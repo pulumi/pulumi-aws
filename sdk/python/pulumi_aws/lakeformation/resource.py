@@ -241,7 +241,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> pulumi.Output[str]:
+    def last_modified(self) -> pulumi.Output[Optional[str]]:
         """
         (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -249,7 +249,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Output[str]:
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
 

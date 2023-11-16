@@ -6,14 +6,16 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateMonitoring {
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
 
     private GetLaunchTemplateMonitoring() {}
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetLaunchTemplateMonitoring {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
+        private @Nullable Boolean enabled;
         public Builder() {}
         public Builder(GetLaunchTemplateMonitoring defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetLaunchTemplateMonitoring {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         public GetLaunchTemplateMonitoring build() {

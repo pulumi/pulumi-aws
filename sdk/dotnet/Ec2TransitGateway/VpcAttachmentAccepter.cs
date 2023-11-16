@@ -55,19 +55,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
         /// </summary>
         [Output("applianceModeSupport")]
-        public Output<string> ApplianceModeSupport { get; private set; } = null!;
+        public Output<string?> ApplianceModeSupport { get; private set; } = null!;
 
         /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`.
         /// </summary>
         [Output("dnsSupport")]
-        public Output<string> DnsSupport { get; private set; } = null!;
+        public Output<string?> DnsSupport { get; private set; } = null!;
 
         /// <summary>
         /// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
         /// </summary>
         [Output("ipv6Support")]
-        public Output<string> Ipv6Support { get; private set; } = null!;
+        public Output<string?> Ipv6Support { get; private set; } = null!;
 
         /// <summary>
         /// Identifiers of EC2 Subnets.
@@ -109,19 +109,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
         [Output("transitGatewayId")]
-        public Output<string> TransitGatewayId { get; private set; } = null!;
+        public Output<string?> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of EC2 VPC.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 VPC.
         /// </summary>
         [Output("vpcOwnerId")]
-        public Output<string> VpcOwnerId { get; private set; } = null!;
+        public Output<string?> VpcOwnerId { get; private set; } = null!;
 
 
         /// <summary>

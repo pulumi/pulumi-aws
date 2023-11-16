@@ -104,10 +104,10 @@ import * as utilities from "../utilities";
  *     type: "NS",
  *     zoneId: exampleZone.zoneId,
  *     records: [
- *         exampleZone.nameServers[0],
- *         exampleZone.nameServers[1],
- *         exampleZone.nameServers[2],
- *         exampleZone.nameServers[3],
+ *         exampleZone.nameServers.apply(nameServers => nameServers?.[0]),
+ *         exampleZone.nameServers.apply(nameServers => nameServers?.[1]),
+ *         exampleZone.nameServers.apply(nameServers => nameServers?.[2]),
+ *         exampleZone.nameServers.apply(nameServers => nameServers?.[3]),
  *     ],
  * });
  * ```
@@ -169,7 +169,7 @@ export class Record extends pulumi.CustomResource {
      *
      * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
-    public readonly allowOverwrite!: pulumi.Output<boolean>;
+    public readonly allowOverwrite!: pulumi.Output<boolean | undefined>;
     /**
      * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
      */
@@ -181,7 +181,7 @@ export class Record extends pulumi.CustomResource {
     /**
      * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string | undefined>;
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */

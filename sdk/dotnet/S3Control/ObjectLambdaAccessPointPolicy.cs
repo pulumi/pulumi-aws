@@ -94,13 +94,13 @@ namespace Pulumi.Aws.S3Control
         /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether this access point currently has a policy that allows public access.
         /// </summary>
         [Output("hasPublicAccessPolicy")]
-        public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
+        public Output<bool?> HasPublicAccessPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Object Lambda Access Point.

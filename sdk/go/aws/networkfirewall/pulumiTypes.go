@@ -5721,9 +5721,9 @@ func (o RuleGroupRuleGroupStatefulRuleOptionsPtrOutput) RuleOrder() pulumi.Strin
 
 type GetFirewallEncryptionConfiguration struct {
 	// The ID of the AWS Key Management Service (AWS KMS) customer managed key.
-	KeyId string `pulumi:"keyId"`
+	KeyId *string `pulumi:"keyId"`
 	// The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetFirewallEncryptionConfigurationInput is an input type that accepts GetFirewallEncryptionConfigurationArgs and GetFirewallEncryptionConfigurationOutput values.
@@ -5739,9 +5739,9 @@ type GetFirewallEncryptionConfigurationInput interface {
 
 type GetFirewallEncryptionConfigurationArgs struct {
 	// The ID of the AWS Key Management Service (AWS KMS) customer managed key.
-	KeyId pulumi.StringInput `pulumi:"keyId"`
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
 	// The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetFirewallEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -5796,13 +5796,13 @@ func (o GetFirewallEncryptionConfigurationOutput) ToGetFirewallEncryptionConfigu
 }
 
 // The ID of the AWS Key Management Service (AWS KMS) customer managed key.
-func (o GetFirewallEncryptionConfigurationOutput) KeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallEncryptionConfiguration) string { return v.KeyId }).(pulumi.StringOutput)
+func (o GetFirewallEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
 // The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
-func (o GetFirewallEncryptionConfigurationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallEncryptionConfiguration) string { return v.Type }).(pulumi.StringOutput)
+func (o GetFirewallEncryptionConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallEncryptionConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetFirewallEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -5829,8 +5829,8 @@ type GetFirewallFirewallStatus struct {
 	// Aggregated count of all resources used by reference sets in a firewall.
 	CapacityUsageSummaries []GetFirewallFirewallStatusCapacityUsageSummary `pulumi:"capacityUsageSummaries"`
 	// Summary of sync states for all availability zones in which the firewall is configured.
-	ConfigurationSyncStateSummary string `pulumi:"configurationSyncStateSummary"`
-	Status                        string `pulumi:"status"`
+	ConfigurationSyncStateSummary *string `pulumi:"configurationSyncStateSummary"`
+	Status                        *string `pulumi:"status"`
 	// Set of subnets configured for use by the firewall.
 	SyncStates []GetFirewallFirewallStatusSyncState `pulumi:"syncStates"`
 }
@@ -5850,8 +5850,8 @@ type GetFirewallFirewallStatusArgs struct {
 	// Aggregated count of all resources used by reference sets in a firewall.
 	CapacityUsageSummaries GetFirewallFirewallStatusCapacityUsageSummaryArrayInput `pulumi:"capacityUsageSummaries"`
 	// Summary of sync states for all availability zones in which the firewall is configured.
-	ConfigurationSyncStateSummary pulumi.StringInput `pulumi:"configurationSyncStateSummary"`
-	Status                        pulumi.StringInput `pulumi:"status"`
+	ConfigurationSyncStateSummary pulumi.StringPtrInput `pulumi:"configurationSyncStateSummary"`
+	Status                        pulumi.StringPtrInput `pulumi:"status"`
 	// Set of subnets configured for use by the firewall.
 	SyncStates GetFirewallFirewallStatusSyncStateArrayInput `pulumi:"syncStates"`
 }
@@ -5915,12 +5915,12 @@ func (o GetFirewallFirewallStatusOutput) CapacityUsageSummaries() GetFirewallFir
 }
 
 // Summary of sync states for all availability zones in which the firewall is configured.
-func (o GetFirewallFirewallStatusOutput) ConfigurationSyncStateSummary() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallFirewallStatus) string { return v.ConfigurationSyncStateSummary }).(pulumi.StringOutput)
+func (o GetFirewallFirewallStatusOutput) ConfigurationSyncStateSummary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatus) *string { return v.ConfigurationSyncStateSummary }).(pulumi.StringPtrOutput)
 }
 
-func (o GetFirewallFirewallStatusOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallFirewallStatus) string { return v.Status }).(pulumi.StringOutput)
+func (o GetFirewallFirewallStatusOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatus) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Set of subnets configured for use by the firewall.
@@ -6049,11 +6049,11 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput) Index(i pulumi
 
 type GetFirewallFirewallStatusCapacityUsageSummaryCidr struct {
 	// Available number of CIDR blocks available for use by the IP set references in a firewall.
-	AvailableCidrCount int `pulumi:"availableCidrCount"`
+	AvailableCidrCount *int `pulumi:"availableCidrCount"`
 	// The list of IP set references used by a firewall.
 	IpSetReferences []GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference `pulumi:"ipSetReferences"`
 	// Number of CIDR blocks used by the IP set references in a firewall.
-	UtilizedCidrCount int `pulumi:"utilizedCidrCount"`
+	UtilizedCidrCount *int `pulumi:"utilizedCidrCount"`
 }
 
 // GetFirewallFirewallStatusCapacityUsageSummaryCidrInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs and GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput values.
@@ -6069,11 +6069,11 @@ type GetFirewallFirewallStatusCapacityUsageSummaryCidrInput interface {
 
 type GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs struct {
 	// Available number of CIDR blocks available for use by the IP set references in a firewall.
-	AvailableCidrCount pulumi.IntInput `pulumi:"availableCidrCount"`
+	AvailableCidrCount pulumi.IntPtrInput `pulumi:"availableCidrCount"`
 	// The list of IP set references used by a firewall.
 	IpSetReferences GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayInput `pulumi:"ipSetReferences"`
 	// Number of CIDR blocks used by the IP set references in a firewall.
-	UtilizedCidrCount pulumi.IntInput `pulumi:"utilizedCidrCount"`
+	UtilizedCidrCount pulumi.IntPtrInput `pulumi:"utilizedCidrCount"`
 }
 
 func (GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs) ElementType() reflect.Type {
@@ -6128,8 +6128,8 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) ToGetFirewallFi
 }
 
 // Available number of CIDR blocks available for use by the IP set references in a firewall.
-func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) AvailableCidrCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidr) int { return v.AvailableCidrCount }).(pulumi.IntOutput)
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) AvailableCidrCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidr) *int { return v.AvailableCidrCount }).(pulumi.IntPtrOutput)
 }
 
 // The list of IP set references used by a firewall.
@@ -6140,8 +6140,8 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) IpSetReferences
 }
 
 // Number of CIDR blocks used by the IP set references in a firewall.
-func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) UtilizedCidrCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidr) int { return v.UtilizedCidrCount }).(pulumi.IntOutput)
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) UtilizedCidrCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidr) *int { return v.UtilizedCidrCount }).(pulumi.IntPtrOutput)
 }
 
 type GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput struct{ *pulumi.OutputState }
@@ -6166,7 +6166,7 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput) Index(i pu
 
 type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference struct {
 	// Total number of CIDR blocks used by the IP set references in a firewall.
-	ResolvedCidrCount int `pulumi:"resolvedCidrCount"`
+	ResolvedCidrCount *int `pulumi:"resolvedCidrCount"`
 }
 
 // GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs and GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput values.
@@ -6182,7 +6182,7 @@ type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceInput interf
 
 type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs struct {
 	// Total number of CIDR blocks used by the IP set references in a firewall.
-	ResolvedCidrCount pulumi.IntInput `pulumi:"resolvedCidrCount"`
+	ResolvedCidrCount pulumi.IntPtrInput `pulumi:"resolvedCidrCount"`
 }
 
 func (GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs) ElementType() reflect.Type {
@@ -6237,10 +6237,10 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) T
 }
 
 // Total number of CIDR blocks used by the IP set references in a firewall.
-func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) ResolvedCidrCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference) int {
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) ResolvedCidrCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference) *int {
 		return v.ResolvedCidrCount
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput struct{ *pulumi.OutputState }
@@ -6267,7 +6267,7 @@ type GetFirewallFirewallStatusSyncState struct {
 	// Nested list describing the attachment status of the firewall's association with a single VPC subnet.
 	Attachments []GetFirewallFirewallStatusSyncStateAttachment `pulumi:"attachments"`
 	// The Availability Zone where the subnet is configured.
-	AvailabilityZone string `pulumi:"availabilityZone"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 }
 
 // GetFirewallFirewallStatusSyncStateInput is an input type that accepts GetFirewallFirewallStatusSyncStateArgs and GetFirewallFirewallStatusSyncStateOutput values.
@@ -6285,7 +6285,7 @@ type GetFirewallFirewallStatusSyncStateArgs struct {
 	// Nested list describing the attachment status of the firewall's association with a single VPC subnet.
 	Attachments GetFirewallFirewallStatusSyncStateAttachmentArrayInput `pulumi:"attachments"`
 	// The Availability Zone where the subnet is configured.
-	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 }
 
 func (GetFirewallFirewallStatusSyncStateArgs) ElementType() reflect.Type {
@@ -6347,8 +6347,8 @@ func (o GetFirewallFirewallStatusSyncStateOutput) Attachments() GetFirewallFirew
 }
 
 // The Availability Zone where the subnet is configured.
-func (o GetFirewallFirewallStatusSyncStateOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallFirewallStatusSyncState) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o GetFirewallFirewallStatusSyncStateOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusSyncState) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 type GetFirewallFirewallStatusSyncStateArrayOutput struct{ *pulumi.OutputState }
@@ -6373,10 +6373,10 @@ func (o GetFirewallFirewallStatusSyncStateArrayOutput) Index(i pulumi.IntInput) 
 
 type GetFirewallFirewallStatusSyncStateAttachment struct {
 	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-	EndpointId string `pulumi:"endpointId"`
-	Status     string `pulumi:"status"`
+	EndpointId *string `pulumi:"endpointId"`
+	Status     *string `pulumi:"status"`
 	// The unique identifier for the subnet.
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // GetFirewallFirewallStatusSyncStateAttachmentInput is an input type that accepts GetFirewallFirewallStatusSyncStateAttachmentArgs and GetFirewallFirewallStatusSyncStateAttachmentOutput values.
@@ -6392,10 +6392,10 @@ type GetFirewallFirewallStatusSyncStateAttachmentInput interface {
 
 type GetFirewallFirewallStatusSyncStateAttachmentArgs struct {
 	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-	EndpointId pulumi.StringInput `pulumi:"endpointId"`
-	Status     pulumi.StringInput `pulumi:"status"`
+	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
+	Status     pulumi.StringPtrInput `pulumi:"status"`
 	// The unique identifier for the subnet.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (GetFirewallFirewallStatusSyncStateAttachmentArgs) ElementType() reflect.Type {
@@ -6450,17 +6450,17 @@ func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) ToGetFirewallFirewal
 }
 
 // The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) EndpointId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) string { return v.EndpointId }).(pulumi.StringOutput)
+func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) EndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) string { return v.Status }).(pulumi.StringOutput)
+func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier for the subnet.
-func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 type GetFirewallFirewallStatusSyncStateAttachmentArrayOutput struct{ *pulumi.OutputState }
@@ -6622,8 +6622,8 @@ func (o GetFirewallPolicyFirewallPolicyArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOption struct {
-	RuleOrder             string `pulumi:"ruleOrder"`
-	StreamExceptionPolicy string `pulumi:"streamExceptionPolicy"`
+	RuleOrder             *string `pulumi:"ruleOrder"`
+	StreamExceptionPolicy *string `pulumi:"streamExceptionPolicy"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs and GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput values.
@@ -6638,8 +6638,8 @@ type GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput interface {
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs struct {
-	RuleOrder             pulumi.StringInput `pulumi:"ruleOrder"`
-	StreamExceptionPolicy pulumi.StringInput `pulumi:"streamExceptionPolicy"`
+	RuleOrder             pulumi.StringPtrInput `pulumi:"ruleOrder"`
+	StreamExceptionPolicy pulumi.StringPtrInput `pulumi:"streamExceptionPolicy"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ElementType() reflect.Type {
@@ -6693,12 +6693,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) ToGetFirewall
 	return o
 }
 
-func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) RuleOrder() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) string { return v.RuleOrder }).(pulumi.StringOutput)
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) RuleOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) *string { return v.RuleOrder }).(pulumi.StringPtrOutput)
 }
 
-func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) StreamExceptionPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) string { return v.StreamExceptionPolicy }).(pulumi.StringOutput)
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) StreamExceptionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) *string { return v.StreamExceptionPolicy }).(pulumi.StringPtrOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput struct{ *pulumi.OutputState }
@@ -6723,8 +6723,8 @@ func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) Index(i 
 
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference struct {
 	Overrides   []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride `pulumi:"overrides"`
-	Priority    int                                                                 `pulumi:"priority"`
-	ResourceArn string                                                              `pulumi:"resourceArn"`
+	Priority    *int                                                                `pulumi:"priority"`
+	ResourceArn *string                                                             `pulumi:"resourceArn"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs and GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput values.
@@ -6740,8 +6740,8 @@ type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput interface {
 
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs struct {
 	Overrides   GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput `pulumi:"overrides"`
-	Priority    pulumi.IntInput                                                             `pulumi:"priority"`
-	ResourceArn pulumi.StringInput                                                          `pulumi:"resourceArn"`
+	Priority    pulumi.IntPtrInput                                                          `pulumi:"priority"`
+	ResourceArn pulumi.StringPtrInput                                                       `pulumi:"resourceArn"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ElementType() reflect.Type {
@@ -6801,12 +6801,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) Overrid
 	}).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput)
 }
 
-func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference) int { return v.Priority }).(pulumi.IntOutput)
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference) string { return v.ResourceArn }).(pulumi.StringOutput)
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput struct{ *pulumi.OutputState }
@@ -6925,7 +6925,7 @@ func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOu
 
 type GetFirewallPolicyFirewallPolicyStatelessCustomAction struct {
 	ActionDefinitions []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition `pulumi:"actionDefinitions"`
-	ActionName        string                                                                 `pulumi:"actionName"`
+	ActionName        *string                                                                `pulumi:"actionName"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatelessCustomActionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs and GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput values.
@@ -6941,7 +6941,7 @@ type GetFirewallPolicyFirewallPolicyStatelessCustomActionInput interface {
 
 type GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs struct {
 	ActionDefinitions GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayInput `pulumi:"actionDefinitions"`
-	ActionName        pulumi.StringInput                                                             `pulumi:"actionName"`
+	ActionName        pulumi.StringPtrInput                                                          `pulumi:"actionName"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs) ElementType() reflect.Type {
@@ -7001,8 +7001,8 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ActionDefini
 	}).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput)
 }
 
-func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ActionName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessCustomAction) string { return v.ActionName }).(pulumi.StringOutput)
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ActionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessCustomAction) *string { return v.ActionName }).(pulumi.StringPtrOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput struct{ *pulumi.OutputState }
@@ -7218,7 +7218,7 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 }
 
 type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension struct {
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput values.
@@ -7233,7 +7233,7 @@ type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublish
 }
 
 type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs struct {
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs) ElementType() reflect.Type {
@@ -7287,10 +7287,10 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 	return o
 }
 
-func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension) string {
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension) *string {
 		return v.Value
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput struct{ *pulumi.OutputState }
@@ -7314,8 +7314,8 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 }
 
 type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference struct {
-	Priority    int    `pulumi:"priority"`
-	ResourceArn string `pulumi:"resourceArn"`
+	Priority    *int    `pulumi:"priority"`
+	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs and GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput values.
@@ -7330,8 +7330,8 @@ type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceInput interface {
 }
 
 type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs struct {
-	Priority    pulumi.IntInput    `pulumi:"priority"`
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	Priority    pulumi.IntPtrInput    `pulumi:"priority"`
+	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs) ElementType() reflect.Type {
@@ -7385,12 +7385,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ToGetF
 	return o
 }
 
-func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference) int { return v.Priority }).(pulumi.IntOutput)
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference) string { return v.ResourceArn }).(pulumi.StringOutput)
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput struct{ *pulumi.OutputState }

@@ -8,54 +8,56 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBrokerLdapServerMetadata {
-    private List<String> hosts;
-    private String roleBase;
-    private String roleName;
-    private String roleSearchMatching;
-    private Boolean roleSearchSubtree;
-    private String serviceAccountPassword;
-    private String serviceAccountUsername;
-    private String userBase;
-    private String userRoleName;
-    private String userSearchMatching;
-    private Boolean userSearchSubtree;
+    private @Nullable List<String> hosts;
+    private @Nullable String roleBase;
+    private @Nullable String roleName;
+    private @Nullable String roleSearchMatching;
+    private @Nullable Boolean roleSearchSubtree;
+    private @Nullable String serviceAccountPassword;
+    private @Nullable String serviceAccountUsername;
+    private @Nullable String userBase;
+    private @Nullable String userRoleName;
+    private @Nullable String userSearchMatching;
+    private @Nullable Boolean userSearchSubtree;
 
     private GetBrokerLdapServerMetadata() {}
     public List<String> hosts() {
-        return this.hosts;
+        return this.hosts == null ? List.of() : this.hosts;
     }
-    public String roleBase() {
-        return this.roleBase;
+    public Optional<String> roleBase() {
+        return Optional.ofNullable(this.roleBase);
     }
-    public String roleName() {
-        return this.roleName;
+    public Optional<String> roleName() {
+        return Optional.ofNullable(this.roleName);
     }
-    public String roleSearchMatching() {
-        return this.roleSearchMatching;
+    public Optional<String> roleSearchMatching() {
+        return Optional.ofNullable(this.roleSearchMatching);
     }
-    public Boolean roleSearchSubtree() {
-        return this.roleSearchSubtree;
+    public Optional<Boolean> roleSearchSubtree() {
+        return Optional.ofNullable(this.roleSearchSubtree);
     }
-    public String serviceAccountPassword() {
-        return this.serviceAccountPassword;
+    public Optional<String> serviceAccountPassword() {
+        return Optional.ofNullable(this.serviceAccountPassword);
     }
-    public String serviceAccountUsername() {
-        return this.serviceAccountUsername;
+    public Optional<String> serviceAccountUsername() {
+        return Optional.ofNullable(this.serviceAccountUsername);
     }
-    public String userBase() {
-        return this.userBase;
+    public Optional<String> userBase() {
+        return Optional.ofNullable(this.userBase);
     }
-    public String userRoleName() {
-        return this.userRoleName;
+    public Optional<String> userRoleName() {
+        return Optional.ofNullable(this.userRoleName);
     }
-    public String userSearchMatching() {
-        return this.userSearchMatching;
+    public Optional<String> userSearchMatching() {
+        return Optional.ofNullable(this.userSearchMatching);
     }
-    public Boolean userSearchSubtree() {
-        return this.userSearchSubtree;
+    public Optional<Boolean> userSearchSubtree() {
+        return Optional.ofNullable(this.userSearchSubtree);
     }
 
     public static Builder builder() {
@@ -67,17 +69,17 @@ public final class GetBrokerLdapServerMetadata {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> hosts;
-        private String roleBase;
-        private String roleName;
-        private String roleSearchMatching;
-        private Boolean roleSearchSubtree;
-        private String serviceAccountPassword;
-        private String serviceAccountUsername;
-        private String userBase;
-        private String userRoleName;
-        private String userSearchMatching;
-        private Boolean userSearchSubtree;
+        private @Nullable List<String> hosts;
+        private @Nullable String roleBase;
+        private @Nullable String roleName;
+        private @Nullable String roleSearchMatching;
+        private @Nullable Boolean roleSearchSubtree;
+        private @Nullable String serviceAccountPassword;
+        private @Nullable String serviceAccountUsername;
+        private @Nullable String userBase;
+        private @Nullable String userRoleName;
+        private @Nullable String userSearchMatching;
+        private @Nullable Boolean userSearchSubtree;
         public Builder() {}
         public Builder(GetBrokerLdapServerMetadata defaults) {
     	      Objects.requireNonNull(defaults);
@@ -95,61 +97,61 @@ public final class GetBrokerLdapServerMetadata {
         }
 
         @CustomType.Setter
-        public Builder hosts(List<String> hosts) {
-            this.hosts = Objects.requireNonNull(hosts);
+        public Builder hosts(@Nullable List<String> hosts) {
+            this.hosts = hosts;
             return this;
         }
         public Builder hosts(String... hosts) {
             return hosts(List.of(hosts));
         }
         @CustomType.Setter
-        public Builder roleBase(String roleBase) {
-            this.roleBase = Objects.requireNonNull(roleBase);
+        public Builder roleBase(@Nullable String roleBase) {
+            this.roleBase = roleBase;
             return this;
         }
         @CustomType.Setter
-        public Builder roleName(String roleName) {
-            this.roleName = Objects.requireNonNull(roleName);
+        public Builder roleName(@Nullable String roleName) {
+            this.roleName = roleName;
             return this;
         }
         @CustomType.Setter
-        public Builder roleSearchMatching(String roleSearchMatching) {
-            this.roleSearchMatching = Objects.requireNonNull(roleSearchMatching);
+        public Builder roleSearchMatching(@Nullable String roleSearchMatching) {
+            this.roleSearchMatching = roleSearchMatching;
             return this;
         }
         @CustomType.Setter
-        public Builder roleSearchSubtree(Boolean roleSearchSubtree) {
-            this.roleSearchSubtree = Objects.requireNonNull(roleSearchSubtree);
+        public Builder roleSearchSubtree(@Nullable Boolean roleSearchSubtree) {
+            this.roleSearchSubtree = roleSearchSubtree;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceAccountPassword(String serviceAccountPassword) {
-            this.serviceAccountPassword = Objects.requireNonNull(serviceAccountPassword);
+        public Builder serviceAccountPassword(@Nullable String serviceAccountPassword) {
+            this.serviceAccountPassword = serviceAccountPassword;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceAccountUsername(String serviceAccountUsername) {
-            this.serviceAccountUsername = Objects.requireNonNull(serviceAccountUsername);
+        public Builder serviceAccountUsername(@Nullable String serviceAccountUsername) {
+            this.serviceAccountUsername = serviceAccountUsername;
             return this;
         }
         @CustomType.Setter
-        public Builder userBase(String userBase) {
-            this.userBase = Objects.requireNonNull(userBase);
+        public Builder userBase(@Nullable String userBase) {
+            this.userBase = userBase;
             return this;
         }
         @CustomType.Setter
-        public Builder userRoleName(String userRoleName) {
-            this.userRoleName = Objects.requireNonNull(userRoleName);
+        public Builder userRoleName(@Nullable String userRoleName) {
+            this.userRoleName = userRoleName;
             return this;
         }
         @CustomType.Setter
-        public Builder userSearchMatching(String userSearchMatching) {
-            this.userSearchMatching = Objects.requireNonNull(userSearchMatching);
+        public Builder userSearchMatching(@Nullable String userSearchMatching) {
+            this.userSearchMatching = userSearchMatching;
             return this;
         }
         @CustomType.Setter
-        public Builder userSearchSubtree(Boolean userSearchSubtree) {
-            this.userSearchSubtree = Objects.requireNonNull(userSearchSubtree);
+        public Builder userSearchSubtree(@Nullable Boolean userSearchSubtree) {
+            this.userSearchSubtree = userSearchSubtree;
             return this;
         }
         public GetBrokerLdapServerMetadata build() {

@@ -450,18 +450,20 @@ class StackSetOperationPreferences(dict):
 @pulumi.output_type
 class GetCloudFormationTypeLoggingConfigResult(dict):
     def __init__(__self__, *,
-                 log_group_name: str,
-                 log_role_arn: str):
+                 log_group_name: Optional[str] = None,
+                 log_role_arn: Optional[str] = None):
         """
         :param str log_group_name: Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
         :param str log_role_arn: ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
-        pulumi.set(__self__, "log_role_arn", log_role_arn)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_role_arn is not None:
+            pulumi.set(__self__, "log_role_arn", log_role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> str:
+    def log_group_name(self) -> Optional[str]:
         """
         Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
         """
@@ -469,7 +471,7 @@ class GetCloudFormationTypeLoggingConfigResult(dict):
 
     @property
     @pulumi.getter(name="logRoleArn")
-    def log_role_arn(self) -> str:
+    def log_role_arn(self) -> Optional[str]:
         """
         ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
         """

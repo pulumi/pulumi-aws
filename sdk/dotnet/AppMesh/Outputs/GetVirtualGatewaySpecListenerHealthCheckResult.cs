@@ -13,29 +13,29 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecListenerHealthCheckResult
     {
-        public readonly int HealthyThreshold;
-        public readonly int IntervalMillis;
-        public readonly string Path;
-        public readonly int Port;
-        public readonly string Protocol;
-        public readonly int TimeoutMillis;
-        public readonly int UnhealthyThreshold;
+        public readonly int? HealthyThreshold;
+        public readonly int? IntervalMillis;
+        public readonly string? Path;
+        public readonly int? Port;
+        public readonly string? Protocol;
+        public readonly int? TimeoutMillis;
+        public readonly int? UnhealthyThreshold;
 
         [OutputConstructor]
         private GetVirtualGatewaySpecListenerHealthCheckResult(
-            int healthyThreshold,
+            int? healthyThreshold,
 
-            int intervalMillis,
+            int? intervalMillis,
 
-            string path,
+            string? path,
 
-            int port,
+            int? port,
 
-            string protocol,
+            string? protocol,
 
-            int timeoutMillis,
+            int? timeoutMillis,
 
-            int unhealthyThreshold)
+            int? unhealthyThreshold)
         {
             HealthyThreshold = healthyThreshold;
             IntervalMillis = intervalMillis;

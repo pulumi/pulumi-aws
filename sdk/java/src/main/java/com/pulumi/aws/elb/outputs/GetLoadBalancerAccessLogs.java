@@ -8,26 +8,28 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLoadBalancerAccessLogs {
-    private String bucket;
-    private String bucketPrefix;
-    private Boolean enabled;
-    private Integer interval;
+    private @Nullable String bucket;
+    private @Nullable String bucketPrefix;
+    private @Nullable Boolean enabled;
+    private @Nullable Integer interval;
 
     private GetLoadBalancerAccessLogs() {}
-    public String bucket() {
-        return this.bucket;
+    public Optional<String> bucket() {
+        return Optional.ofNullable(this.bucket);
     }
-    public String bucketPrefix() {
-        return this.bucketPrefix;
+    public Optional<String> bucketPrefix() {
+        return Optional.ofNullable(this.bucketPrefix);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
-    public Integer interval() {
-        return this.interval;
+    public Optional<Integer> interval() {
+        return Optional.ofNullable(this.interval);
     }
 
     public static Builder builder() {
@@ -39,10 +41,10 @@ public final class GetLoadBalancerAccessLogs {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bucket;
-        private String bucketPrefix;
-        private Boolean enabled;
-        private Integer interval;
+        private @Nullable String bucket;
+        private @Nullable String bucketPrefix;
+        private @Nullable Boolean enabled;
+        private @Nullable Integer interval;
         public Builder() {}
         public Builder(GetLoadBalancerAccessLogs defaults) {
     	      Objects.requireNonNull(defaults);
@@ -53,23 +55,23 @@ public final class GetLoadBalancerAccessLogs {
         }
 
         @CustomType.Setter
-        public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+        public Builder bucket(@Nullable String bucket) {
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
-        public Builder bucketPrefix(String bucketPrefix) {
-            this.bucketPrefix = Objects.requireNonNull(bucketPrefix);
+        public Builder bucketPrefix(@Nullable String bucketPrefix) {
+            this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+        public Builder interval(@Nullable Integer interval) {
+            this.interval = interval;
             return this;
         }
         public GetLoadBalancerAccessLogs build() {

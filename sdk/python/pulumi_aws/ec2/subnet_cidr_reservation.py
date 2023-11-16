@@ -333,7 +333,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the AWS account that owns this CIDR reservation.
         """

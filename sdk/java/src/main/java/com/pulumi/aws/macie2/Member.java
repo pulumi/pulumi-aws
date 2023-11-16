@@ -90,28 +90,28 @@ public class Member extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="administratorAccountId", refs={String.class}, tree="[0]")
-    private Output<String> administratorAccountId;
+    private Output</* @Nullable */ String> administratorAccountId;
 
     /**
      * @return The AWS account ID for the administrator account.
      * 
      */
-    public Output<String> administratorAccountId() {
-        return this.administratorAccountId;
+    public Output<Optional<String>> administratorAccountId() {
+        return Codegen.optional(this.administratorAccountId);
     }
     /**
      * The Amazon Resource Name (ARN) of the account.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the account.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The email address for the account.
@@ -160,62 +160,62 @@ public class Member extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="invite", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> invite;
+    private Output</* @Nullable */ Boolean> invite;
 
     /**
      * @return Send an invitation to a member
      * 
      */
-    public Output<Boolean> invite() {
-        return this.invite;
+    public Output<Optional<Boolean>> invite() {
+        return Codegen.optional(this.invite);
     }
     /**
      * The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn&#39;t been sent to the account.
      * 
      */
     @Export(name="invitedAt", refs={String.class}, tree="[0]")
-    private Output<String> invitedAt;
+    private Output</* @Nullable */ String> invitedAt;
 
     /**
      * @return The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn&#39;t been sent to the account.
      * 
      */
-    public Output<String> invitedAt() {
-        return this.invitedAt;
+    public Output<Optional<String>> invitedAt() {
+        return Codegen.optional(this.invitedAt);
     }
     @Export(name="masterAccountId", refs={String.class}, tree="[0]")
-    private Output<String> masterAccountId;
+    private Output</* @Nullable */ String> masterAccountId;
 
-    public Output<String> masterAccountId() {
-        return this.masterAccountId;
+    public Output<Optional<String>> masterAccountId() {
+        return Codegen.optional(this.masterAccountId);
     }
     /**
      * The current status of the relationship between the account and the administrator account.
      * 
      */
     @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
-    private Output<String> relationshipStatus;
+    private Output</* @Nullable */ String> relationshipStatus;
 
     /**
      * @return The current status of the relationship between the account and the administrator account.
      * 
      */
-    public Output<String> relationshipStatus() {
-        return this.relationshipStatus;
+    public Output<Optional<String>> relationshipStatus() {
+        return Codegen.optional(this.relationshipStatus);
     }
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
@@ -248,14 +248,14 @@ public class Member extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
-    private Output<String> updatedAt;
+    private Output</* @Nullable */ String> updatedAt;
 
     /**
      * @return The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
      * 
      */
-    public Output<String> updatedAt() {
-        return this.updatedAt;
+    public Output<Optional<String>> updatedAt() {
+        return Codegen.optional(this.updatedAt);
     }
 
     /**

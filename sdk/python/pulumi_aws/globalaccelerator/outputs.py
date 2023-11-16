@@ -609,45 +609,50 @@ class GetAcceleratorIpSetResult(dict):
 @pulumi.output_type
 class GetCustomRoutingAcceleratorAttributeResult(dict):
     def __init__(__self__, *,
-                 flow_logs_enabled: bool,
-                 flow_logs_s3_bucket: str,
-                 flow_logs_s3_prefix: str):
-        pulumi.set(__self__, "flow_logs_enabled", flow_logs_enabled)
-        pulumi.set(__self__, "flow_logs_s3_bucket", flow_logs_s3_bucket)
-        pulumi.set(__self__, "flow_logs_s3_prefix", flow_logs_s3_prefix)
+                 flow_logs_enabled: Optional[bool] = None,
+                 flow_logs_s3_bucket: Optional[str] = None,
+                 flow_logs_s3_prefix: Optional[str] = None):
+        if flow_logs_enabled is not None:
+            pulumi.set(__self__, "flow_logs_enabled", flow_logs_enabled)
+        if flow_logs_s3_bucket is not None:
+            pulumi.set(__self__, "flow_logs_s3_bucket", flow_logs_s3_bucket)
+        if flow_logs_s3_prefix is not None:
+            pulumi.set(__self__, "flow_logs_s3_prefix", flow_logs_s3_prefix)
 
     @property
     @pulumi.getter(name="flowLogsEnabled")
-    def flow_logs_enabled(self) -> bool:
+    def flow_logs_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "flow_logs_enabled")
 
     @property
     @pulumi.getter(name="flowLogsS3Bucket")
-    def flow_logs_s3_bucket(self) -> str:
+    def flow_logs_s3_bucket(self) -> Optional[str]:
         return pulumi.get(self, "flow_logs_s3_bucket")
 
     @property
     @pulumi.getter(name="flowLogsS3Prefix")
-    def flow_logs_s3_prefix(self) -> str:
+    def flow_logs_s3_prefix(self) -> Optional[str]:
         return pulumi.get(self, "flow_logs_s3_prefix")
 
 
 @pulumi.output_type
 class GetCustomRoutingAcceleratorIpSetResult(dict):
     def __init__(__self__, *,
-                 ip_addresses: Sequence[str],
-                 ip_family: str):
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
-        pulumi.set(__self__, "ip_family", ip_family)
+                 ip_addresses: Optional[Sequence[str]] = None,
+                 ip_family: Optional[str] = None):
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if ip_family is not None:
+            pulumi.set(__self__, "ip_family", ip_family)
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Sequence[str]:
+    def ip_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "ip_addresses")
 
     @property
     @pulumi.getter(name="ipFamily")
-    def ip_family(self) -> str:
+    def ip_family(self) -> Optional[str]:
         return pulumi.get(self, "ip_family")
 
 

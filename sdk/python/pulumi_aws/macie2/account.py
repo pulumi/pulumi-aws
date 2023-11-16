@@ -274,7 +274,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         """
@@ -282,7 +282,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
-    def finding_publishing_frequency(self) -> pulumi.Output[str]:
+    def finding_publishing_frequency(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         """
@@ -290,7 +290,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> pulumi.Output[str]:
+    def service_role(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
         """
@@ -298,7 +298,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
@@ -306,7 +306,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> pulumi.Output[str]:
+    def updated_at(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         """

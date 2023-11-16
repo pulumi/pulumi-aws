@@ -6,6 +6,8 @@ package com.pulumi.aws.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPartitionResult {
@@ -13,51 +15,51 @@ public final class GetPartitionResult {
      * @return Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
      * 
      */
-    private String dnsSuffix;
+    private @Nullable String dnsSuffix;
     /**
      * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
-    private String partition;
+    private @Nullable String partition;
     /**
      * @return Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
      * 
      */
-    private String reverseDnsPrefix;
+    private @Nullable String reverseDnsPrefix;
 
     private GetPartitionResult() {}
     /**
      * @return Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
      * 
      */
-    public String dnsSuffix() {
-        return this.dnsSuffix;
+    public Optional<String> dnsSuffix() {
+        return Optional.ofNullable(this.dnsSuffix);
     }
     /**
      * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
-    public String partition() {
-        return this.partition;
+    public Optional<String> partition() {
+        return Optional.ofNullable(this.partition);
     }
     /**
      * @return Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
      * 
      */
-    public String reverseDnsPrefix() {
-        return this.reverseDnsPrefix;
+    public Optional<String> reverseDnsPrefix() {
+        return Optional.ofNullable(this.reverseDnsPrefix);
     }
 
     public static Builder builder() {
@@ -69,10 +71,10 @@ public final class GetPartitionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dnsSuffix;
-        private String id;
-        private String partition;
-        private String reverseDnsPrefix;
+        private @Nullable String dnsSuffix;
+        private @Nullable String id;
+        private @Nullable String partition;
+        private @Nullable String reverseDnsPrefix;
         public Builder() {}
         public Builder(GetPartitionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,23 +85,23 @@ public final class GetPartitionResult {
         }
 
         @CustomType.Setter
-        public Builder dnsSuffix(String dnsSuffix) {
-            this.dnsSuffix = Objects.requireNonNull(dnsSuffix);
+        public Builder dnsSuffix(@Nullable String dnsSuffix) {
+            this.dnsSuffix = dnsSuffix;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+        public Builder partition(@Nullable String partition) {
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
-        public Builder reverseDnsPrefix(String reverseDnsPrefix) {
-            this.reverseDnsPrefix = Objects.requireNonNull(reverseDnsPrefix);
+        public Builder reverseDnsPrefix(@Nullable String reverseDnsPrefix) {
+            this.reverseDnsPrefix = reverseDnsPrefix;
             return this;
         }
         public GetPartitionResult build() {

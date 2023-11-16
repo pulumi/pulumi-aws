@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -78,56 +79,56 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZoneId;
+    private Output</* @Nullable */ String> availabilityZoneId;
 
     /**
      * @return The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    public Output<String> availabilityZoneId() {
-        return this.availabilityZoneId;
+    public Output<Optional<String>> availabilityZoneId() {
+        return Codegen.optional(this.availabilityZoneId);
     }
     /**
      * The name of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
     @Export(name="availabilityZoneName", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZoneName;
+    private Output</* @Nullable */ String> availabilityZoneName;
 
     /**
      * @return The name of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    public Output<String> availabilityZoneName() {
-        return this.availabilityZoneName;
+    public Output<Optional<String>> availabilityZoneName() {
+        return Codegen.optional(this.availabilityZoneName);
     }
     /**
      * The DNS name for the EFS file system.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name for the EFS file system.
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * Amazon Resource Name of the file system.
      * 
      */
     @Export(name="fileSystemArn", refs={String.class}, tree="[0]")
-    private Output<String> fileSystemArn;
+    private Output</* @Nullable */ String> fileSystemArn;
 
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public Output<String> fileSystemArn() {
-        return this.fileSystemArn;
+    public Output<Optional<String>> fileSystemArn() {
+        return Codegen.optional(this.fileSystemArn);
     }
     /**
      * The ID of the file system for which the mount target is intended.
@@ -149,57 +150,57 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
-    private Output<String> ipAddress;
+    private Output</* @Nullable */ String> ipAddress;
 
     /**
      * @return The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Output<Optional<String>> ipAddress() {
+        return Codegen.optional(this.ipAddress);
     }
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
     @Export(name="mountTargetDnsName", refs={String.class}, tree="[0]")
-    private Output<String> mountTargetDnsName;
+    private Output</* @Nullable */ String> mountTargetDnsName;
 
     /**
      * @return The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    public Output<String> mountTargetDnsName() {
-        return this.mountTargetDnsName;
+    public Output<Optional<String>> mountTargetDnsName() {
+        return Codegen.optional(this.mountTargetDnsName);
     }
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      * 
      */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
-    private Output<String> networkInterfaceId;
+    private Output</* @Nullable */ String> networkInterfaceId;
 
     /**
      * @return The ID of the network interface that Amazon EFS created when it created the mount target.
      * 
      */
-    public Output<String> networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Output<Optional<String>> networkInterfaceId() {
+        return Codegen.optional(this.networkInterfaceId);
     }
     /**
      * AWS account ID that owns the resource.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return AWS account ID that owns the resource.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * A list of up to 5 VPC security group IDs (that must
@@ -207,15 +208,15 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroups;
+    private Output</* @Nullable */ List<String>> securityGroups;
 
     /**
      * @return A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      * 
      */
-    public Output<List<String>> securityGroups() {
-        return this.securityGroups;
+    public Output<Optional<List<String>>> securityGroups() {
+        return Codegen.optional(this.securityGroups);
     }
     /**
      * The ID of the subnet to add the mount target in.

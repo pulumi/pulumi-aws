@@ -184,14 +184,14 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
+    private Output</* @Nullable */ String> accountId;
 
     /**
      * @return Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
     }
     /**
      * Specifies whether you are acting as an account administrator in the organization&#39;s management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
@@ -240,14 +240,14 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="organizationalUnitId", refs={String.class}, tree="[0]")
-    private Output<String> organizationalUnitId;
+    private Output</* @Nullable */ String> organizationalUnitId;
 
     /**
      * @return Organizational unit ID in which the stack is deployed.
      * 
      */
-    public Output<String> organizationalUnitId() {
-        return this.organizationalUnitId;
+    public Output<Optional<String>> organizationalUnitId() {
+        return Codegen.optional(this.organizationalUnitId);
     }
     /**
      * Key-value map of input parameters to override from the StackSet for this Instance.
@@ -268,14 +268,14 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
-    private Output<String> region;
+    private Output</* @Nullable */ String> region;
 
     /**
      * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    public Output<Optional<String>> region() {
+        return Codegen.optional(this.region);
     }
     /**
      * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
@@ -296,28 +296,28 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="stackId", refs={String.class}, tree="[0]")
-    private Output<String> stackId;
+    private Output</* @Nullable */ String> stackId;
 
     /**
      * @return Stack identifier.
      * 
      */
-    public Output<String> stackId() {
-        return this.stackId;
+    public Output<Optional<String>> stackId() {
+        return Codegen.optional(this.stackId);
     }
     /**
      * List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
      * 
      */
     @Export(name="stackInstanceSummaries", refs={List.class,StackSetInstanceStackInstanceSummary.class}, tree="[0,1]")
-    private Output<List<StackSetInstanceStackInstanceSummary>> stackInstanceSummaries;
+    private Output</* @Nullable */ List<StackSetInstanceStackInstanceSummary>> stackInstanceSummaries;
 
     /**
      * @return List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
      * 
      */
-    public Output<List<StackSetInstanceStackInstanceSummary>> stackInstanceSummaries() {
-        return this.stackInstanceSummaries;
+    public Output<Optional<List<StackSetInstanceStackInstanceSummary>>> stackInstanceSummaries() {
+        return Codegen.optional(this.stackInstanceSummaries);
     }
     /**
      * Name of the StackSet.

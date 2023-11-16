@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// ARN of the Lambda Layer with version.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string? CompatibleArchitecture;
         /// <summary>
         /// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
@@ -158,48 +158,48 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Date this resource was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Description of the specific Lambda Layer version.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the Lambda Layer without version.
         /// </summary>
-        public readonly string LayerArn;
+        public readonly string? LayerArn;
         public readonly string LayerName;
         /// <summary>
         /// License info associated with the specific Lambda Layer version.
         /// </summary>
-        public readonly string LicenseInfo;
+        public readonly string? LicenseInfo;
         /// <summary>
         /// ARN of a signing job.
         /// </summary>
-        public readonly string SigningJobArn;
+        public readonly string? SigningJobArn;
         /// <summary>
         /// The ARN for a signing profile version.
         /// </summary>
-        public readonly string SigningProfileVersionArn;
+        public readonly string? SigningProfileVersionArn;
         /// <summary>
         /// Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
-        public readonly string SourceCodeHash;
+        public readonly string? SourceCodeHash;
         /// <summary>
         /// Size in bytes of the function .zip file.
         /// </summary>
-        public readonly int SourceCodeSize;
+        public readonly int? SourceCodeSize;
         /// <summary>
         /// This Lamba Layer version.
         /// </summary>
-        public readonly int Version;
+        public readonly int? Version;
 
         [OutputConstructor]
         private GetLayerVersionResult(
-            string arn,
+            string? arn,
 
             string? compatibleArchitecture,
 
@@ -209,27 +209,27 @@ namespace Pulumi.Aws.Lambda
 
             ImmutableArray<string> compatibleRuntimes,
 
-            string createdDate,
+            string? createdDate,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string layerArn,
+            string? layerArn,
 
             string layerName,
 
-            string licenseInfo,
+            string? licenseInfo,
 
-            string signingJobArn,
+            string? signingJobArn,
 
-            string signingProfileVersionArn,
+            string? signingProfileVersionArn,
 
-            string sourceCodeHash,
+            string? sourceCodeHash,
 
-            int sourceCodeSize,
+            int? sourceCodeSize,
 
-            int version)
+            int? version)
         {
             Arn = arn;
             CompatibleArchitecture = compatibleArchitecture;

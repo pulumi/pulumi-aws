@@ -54,12 +54,12 @@ class GetQueryLogConfigResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> str:
+    def destination_arn(self) -> Optional[str]:
         return pulumi.get(self, "destination_arn")
 
     @property
@@ -69,7 +69,7 @@ class GetQueryLogConfigResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -82,7 +82,7 @@ class GetQueryLogConfigResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         return pulumi.get(self, "owner_id")
 
     @property
@@ -92,12 +92,12 @@ class GetQueryLogConfigResult:
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> str:
+    def share_status(self) -> Optional[str]:
         return pulumi.get(self, "share_status")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

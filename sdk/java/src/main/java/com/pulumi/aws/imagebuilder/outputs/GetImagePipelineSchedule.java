@@ -6,6 +6,8 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImagePipelineSchedule {
@@ -13,27 +15,27 @@ public final class GetImagePipelineSchedule {
      * @return Condition when the pipeline should trigger a new image build.
      * 
      */
-    private String pipelineExecutionStartCondition;
+    private @Nullable String pipelineExecutionStartCondition;
     /**
      * @return Cron expression of how often the pipeline start condition is evaluated.
      * 
      */
-    private String scheduleExpression;
+    private @Nullable String scheduleExpression;
 
     private GetImagePipelineSchedule() {}
     /**
      * @return Condition when the pipeline should trigger a new image build.
      * 
      */
-    public String pipelineExecutionStartCondition() {
-        return this.pipelineExecutionStartCondition;
+    public Optional<String> pipelineExecutionStartCondition() {
+        return Optional.ofNullable(this.pipelineExecutionStartCondition);
     }
     /**
      * @return Cron expression of how often the pipeline start condition is evaluated.
      * 
      */
-    public String scheduleExpression() {
-        return this.scheduleExpression;
+    public Optional<String> scheduleExpression() {
+        return Optional.ofNullable(this.scheduleExpression);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetImagePipelineSchedule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String pipelineExecutionStartCondition;
-        private String scheduleExpression;
+        private @Nullable String pipelineExecutionStartCondition;
+        private @Nullable String scheduleExpression;
         public Builder() {}
         public Builder(GetImagePipelineSchedule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetImagePipelineSchedule {
         }
 
         @CustomType.Setter
-        public Builder pipelineExecutionStartCondition(String pipelineExecutionStartCondition) {
-            this.pipelineExecutionStartCondition = Objects.requireNonNull(pipelineExecutionStartCondition);
+        public Builder pipelineExecutionStartCondition(@Nullable String pipelineExecutionStartCondition) {
+            this.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
             return this;
         }
         @CustomType.Setter
-        public Builder scheduleExpression(String scheduleExpression) {
-            this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
+        public Builder scheduleExpression(@Nullable String scheduleExpression) {
+            this.scheduleExpression = scheduleExpression;
             return this;
         }
         public GetImagePipelineSchedule build() {

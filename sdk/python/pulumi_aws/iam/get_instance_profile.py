@@ -49,7 +49,7 @@ class GetInstanceProfileResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN.
         """
@@ -57,7 +57,7 @@ class GetInstanceProfileResult:
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> str:
+    def create_date(self) -> Optional[str]:
         """
         String representation of the date the instance profile was created.
         """
@@ -65,7 +65,7 @@ class GetInstanceProfileResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -78,7 +78,7 @@ class GetInstanceProfileResult:
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
         Path to the instance profile.
         """
@@ -86,7 +86,7 @@ class GetInstanceProfileResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         Role ARN associated with this instance profile.
         """
@@ -94,7 +94,7 @@ class GetInstanceProfileResult:
 
     @property
     @pulumi.getter(name="roleId")
-    def role_id(self) -> str:
+    def role_id(self) -> Optional[str]:
         """
         Role ID associated with this instance profile.
         """
@@ -102,7 +102,7 @@ class GetInstanceProfileResult:
 
     @property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> str:
+    def role_name(self) -> Optional[str]:
         """
         Role name associated with this instance profile.
         """

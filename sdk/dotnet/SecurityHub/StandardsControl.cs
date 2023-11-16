@@ -62,7 +62,7 @@ namespace Pulumi.Aws.SecurityHub
         /// The identifier of the security standard control.
         /// </summary>
         [Output("controlId")]
-        public Output<string> ControlId { get; private set; } = null!;
+        public Output<string?> ControlId { get; private set; } = null!;
 
         /// <summary>
         /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
@@ -74,19 +74,19 @@ namespace Pulumi.Aws.SecurityHub
         /// The date and time that the status of the security standard control was most recently updated.
         /// </summary>
         [Output("controlStatusUpdatedAt")]
-        public Output<string> ControlStatusUpdatedAt { get; private set; } = null!;
+        public Output<string?> ControlStatusUpdatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The standard control longer description. Provides information about what the control is checking for.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         /// </summary>
         [Output("disabledReason")]
-        public Output<string> DisabledReason { get; private set; } = null!;
+        public Output<string?> DisabledReason { get; private set; } = null!;
 
         /// <summary>
         /// The list of requirements that are related to this control.
@@ -98,13 +98,13 @@ namespace Pulumi.Aws.SecurityHub
         /// A link to remediation information for the control in the Security Hub user documentation.
         /// </summary>
         [Output("remediationUrl")]
-        public Output<string> RemediationUrl { get; private set; } = null!;
+        public Output<string?> RemediationUrl { get; private set; } = null!;
 
         /// <summary>
         /// The severity of findings generated from this security standard control.
         /// </summary>
         [Output("severityRating")]
-        public Output<string> SeverityRating { get; private set; } = null!;
+        public Output<string?> SeverityRating { get; private set; } = null!;
 
         /// <summary>
         /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.SecurityHub
         /// The standard control title.
         /// </summary>
         [Output("title")]
-        public Output<string> Title { get; private set; } = null!;
+        public Output<string?> Title { get; private set; } = null!;
 
 
         /// <summary>

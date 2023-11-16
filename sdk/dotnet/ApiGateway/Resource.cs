@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Complete path for this API resource, including all parent paths.
         /// </summary>
         [Output("path")]
-        public Output<string> Path { get; private set; } = null!;
+        public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
         /// Last path segment of this API resource.

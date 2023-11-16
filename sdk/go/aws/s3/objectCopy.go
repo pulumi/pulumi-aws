@@ -54,30 +54,30 @@ type ObjectCopy struct {
 	pulumi.CustomResourceState
 
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
-	Acl pulumi.StringOutput `pulumi:"acl"`
+	Acl pulumi.StringPtrOutput `pulumi:"acl"`
 	// Name of the bucket to put the file in.
-	Bucket           pulumi.StringOutput `pulumi:"bucket"`
-	BucketKeyEnabled pulumi.BoolOutput   `pulumi:"bucketKeyEnabled"`
+	Bucket           pulumi.StringOutput  `pulumi:"bucket"`
+	BucketKeyEnabled pulumi.BoolPtrOutput `pulumi:"bucketKeyEnabled"`
 	// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-	CacheControl pulumi.StringOutput `pulumi:"cacheControl"`
+	CacheControl pulumi.StringPtrOutput `pulumi:"cacheControl"`
 	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
 	ChecksumAlgorithm pulumi.StringPtrOutput `pulumi:"checksumAlgorithm"`
 	// The base64-encoded, 32-bit CRC32 checksum of the object.
-	ChecksumCrc32 pulumi.StringOutput `pulumi:"checksumCrc32"`
+	ChecksumCrc32 pulumi.StringPtrOutput `pulumi:"checksumCrc32"`
 	// The base64-encoded, 32-bit CRC32C checksum of the object.
-	ChecksumCrc32c pulumi.StringOutput `pulumi:"checksumCrc32c"`
+	ChecksumCrc32c pulumi.StringPtrOutput `pulumi:"checksumCrc32c"`
 	// The base64-encoded, 160-bit SHA-1 digest of the object.
-	ChecksumSha1 pulumi.StringOutput `pulumi:"checksumSha1"`
+	ChecksumSha1 pulumi.StringPtrOutput `pulumi:"checksumSha1"`
 	// The base64-encoded, 256-bit SHA-256 digest of the object.
-	ChecksumSha256 pulumi.StringOutput `pulumi:"checksumSha256"`
+	ChecksumSha256 pulumi.StringPtrOutput `pulumi:"checksumSha256"`
 	// Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
-	ContentDisposition pulumi.StringOutput `pulumi:"contentDisposition"`
+	ContentDisposition pulumi.StringPtrOutput `pulumi:"contentDisposition"`
 	// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-	ContentEncoding pulumi.StringOutput `pulumi:"contentEncoding"`
+	ContentEncoding pulumi.StringPtrOutput `pulumi:"contentEncoding"`
 	// Language the content is in e.g., en-US or en-GB.
-	ContentLanguage pulumi.StringOutput `pulumi:"contentLanguage"`
+	ContentLanguage pulumi.StringPtrOutput `pulumi:"contentLanguage"`
 	// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
-	ContentType pulumi.StringOutput `pulumi:"contentType"`
+	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// Copies the object if its entity tag (ETag) matches the specified tag.
 	CopyIfMatch pulumi.StringPtrOutput `pulumi:"copyIfMatch"`
 	// Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
@@ -87,19 +87,19 @@ type ObjectCopy struct {
 	// Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CopyIfUnmodifiedSince pulumi.StringPtrOutput `pulumi:"copyIfUnmodifiedSince"`
 	// Specifies the algorithm to use to when encrypting the object (for example, AES256).
-	CustomerAlgorithm pulumi.StringOutput `pulumi:"customerAlgorithm"`
+	CustomerAlgorithm pulumi.StringPtrOutput `pulumi:"customerAlgorithm"`
 	// Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
 	CustomerKey pulumi.StringPtrOutput `pulumi:"customerKey"`
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-	CustomerKeyMd5 pulumi.StringOutput `pulumi:"customerKeyMd5"`
+	CustomerKeyMd5 pulumi.StringPtrOutput `pulumi:"customerKeyMd5"`
 	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedSourceBucketOwner pulumi.StringPtrOutput `pulumi:"expectedSourceBucketOwner"`
 	// If the object expiration is configured, this attribute will be set.
-	Expiration pulumi.StringOutput `pulumi:"expiration"`
+	Expiration pulumi.StringPtrOutput `pulumi:"expiration"`
 	// Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	Expires pulumi.StringPtrOutput `pulumi:"expires"`
 	// Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
@@ -109,27 +109,27 @@ type ObjectCopy struct {
 	// Name of the object once it is in the bucket.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-	KmsEncryptionContext pulumi.StringOutput `pulumi:"kmsEncryptionContext"`
+	KmsEncryptionContext pulumi.StringPtrOutput `pulumi:"kmsEncryptionContext"`
 	// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
+	LastModified pulumi.StringPtrOutput `pulumi:"lastModified"`
 	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
 	MetadataDirective pulumi.StringPtrOutput `pulumi:"metadataDirective"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
-	ObjectLockLegalHoldStatus pulumi.StringOutput `pulumi:"objectLockLegalHoldStatus"`
+	ObjectLockLegalHoldStatus pulumi.StringPtrOutput `pulumi:"objectLockLegalHoldStatus"`
 	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-	ObjectLockMode pulumi.StringOutput `pulumi:"objectLockMode"`
+	ObjectLockMode pulumi.StringPtrOutput `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-	ObjectLockRetainUntilDate pulumi.StringOutput `pulumi:"objectLockRetainUntilDate"`
+	ObjectLockRetainUntilDate pulumi.StringPtrOutput `pulumi:"objectLockRetainUntilDate"`
 	// If present, indicates that the requester was successfully charged for the request.
-	RequestCharged pulumi.BoolOutput `pulumi:"requestCharged"`
+	RequestCharged pulumi.BoolPtrOutput `pulumi:"requestCharged"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
 	RequestPayer pulumi.StringPtrOutput `pulumi:"requestPayer"`
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
-	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
+	ServerSideEncryption pulumi.StringPtrOutput `pulumi:"serverSideEncryption"`
 	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 	//
 	// The following arguments are optional:
@@ -141,9 +141,9 @@ type ObjectCopy struct {
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 	SourceCustomerKeyMd5 pulumi.StringPtrOutput `pulumi:"sourceCustomerKeyMd5"`
 	// Version of the copied object in the source bucket.
-	SourceVersionId pulumi.StringOutput `pulumi:"sourceVersionId"`
+	SourceVersionId pulumi.StringPtrOutput `pulumi:"sourceVersionId"`
 	// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
-	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
+	StorageClass pulumi.StringPtrOutput `pulumi:"storageClass"`
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective pulumi.StringPtrOutput `pulumi:"taggingDirective"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -153,9 +153,9 @@ type ObjectCopy struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Version ID of the newly created copy.
-	VersionId pulumi.StringOutput `pulumi:"versionId"`
+	VersionId pulumi.StringPtrOutput `pulumi:"versionId"`
 	// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-	WebsiteRedirect pulumi.StringOutput `pulumi:"websiteRedirect"`
+	WebsiteRedirect pulumi.StringPtrOutput `pulumi:"websiteRedirect"`
 }
 
 // NewObjectCopy registers a new resource with the given unique name, arguments, and options.
@@ -685,8 +685,8 @@ func (o ObjectCopyOutput) ToObjectCopyOutputWithContext(ctx context.Context) Obj
 }
 
 // [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
-func (o ObjectCopyOutput) Acl() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Acl }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) Acl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
 }
 
 // Name of the bucket to put the file in.
@@ -694,13 +694,13 @@ func (o ObjectCopyOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-func (o ObjectCopyOutput) BucketKeyEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.BoolOutput { return v.BucketKeyEnabled }).(pulumi.BoolOutput)
+func (o ObjectCopyOutput) BucketKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.BoolPtrOutput { return v.BucketKeyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-func (o ObjectCopyOutput) CacheControl() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.CacheControl }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) CacheControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.CacheControl }).(pulumi.StringPtrOutput)
 }
 
 // Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
@@ -709,43 +709,43 @@ func (o ObjectCopyOutput) ChecksumAlgorithm() pulumi.StringPtrOutput {
 }
 
 // The base64-encoded, 32-bit CRC32 checksum of the object.
-func (o ObjectCopyOutput) ChecksumCrc32() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ChecksumCrc32 }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ChecksumCrc32() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ChecksumCrc32 }).(pulumi.StringPtrOutput)
 }
 
 // The base64-encoded, 32-bit CRC32C checksum of the object.
-func (o ObjectCopyOutput) ChecksumCrc32c() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ChecksumCrc32c }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ChecksumCrc32c() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ChecksumCrc32c }).(pulumi.StringPtrOutput)
 }
 
 // The base64-encoded, 160-bit SHA-1 digest of the object.
-func (o ObjectCopyOutput) ChecksumSha1() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ChecksumSha1 }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ChecksumSha1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ChecksumSha1 }).(pulumi.StringPtrOutput)
 }
 
 // The base64-encoded, 256-bit SHA-256 digest of the object.
-func (o ObjectCopyOutput) ChecksumSha256() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ChecksumSha256 }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ChecksumSha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ChecksumSha256 }).(pulumi.StringPtrOutput)
 }
 
 // Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
-func (o ObjectCopyOutput) ContentDisposition() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ContentDisposition }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ContentDisposition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ContentDisposition }).(pulumi.StringPtrOutput)
 }
 
 // Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-func (o ObjectCopyOutput) ContentEncoding() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ContentEncoding }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ContentEncoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ContentEncoding }).(pulumi.StringPtrOutput)
 }
 
 // Language the content is in e.g., en-US or en-GB.
-func (o ObjectCopyOutput) ContentLanguage() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ContentLanguage }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ContentLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ContentLanguage }).(pulumi.StringPtrOutput)
 }
 
 // Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
-func (o ObjectCopyOutput) ContentType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
 // Copies the object if its entity tag (ETag) matches the specified tag.
@@ -769,8 +769,8 @@ func (o ObjectCopyOutput) CopyIfUnmodifiedSince() pulumi.StringPtrOutput {
 }
 
 // Specifies the algorithm to use to when encrypting the object (for example, AES256).
-func (o ObjectCopyOutput) CustomerAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.CustomerAlgorithm }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) CustomerAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.CustomerAlgorithm }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
@@ -779,13 +779,13 @@ func (o ObjectCopyOutput) CustomerKey() pulumi.StringPtrOutput {
 }
 
 // Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-func (o ObjectCopyOutput) CustomerKeyMd5() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.CustomerKeyMd5 }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) CustomerKeyMd5() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.CustomerKeyMd5 }).(pulumi.StringPtrOutput)
 }
 
 // ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
-func (o ObjectCopyOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
@@ -799,8 +799,8 @@ func (o ObjectCopyOutput) ExpectedSourceBucketOwner() pulumi.StringPtrOutput {
 }
 
 // If the object expiration is configured, this attribute will be set.
-func (o ObjectCopyOutput) Expiration() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Expiration }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
 // Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
@@ -824,18 +824,18 @@ func (o ObjectCopyOutput) Key() pulumi.StringOutput {
 }
 
 // Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-func (o ObjectCopyOutput) KmsEncryptionContext() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.KmsEncryptionContext }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) KmsEncryptionContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.KmsEncryptionContext }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
-func (o ObjectCopyOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o ObjectCopyOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
 // Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -849,23 +849,23 @@ func (o ObjectCopyOutput) MetadataDirective() pulumi.StringPtrOutput {
 }
 
 // The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
-func (o ObjectCopyOutput) ObjectLockLegalHoldStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ObjectLockLegalHoldStatus }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ObjectLockLegalHoldStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ObjectLockLegalHoldStatus }).(pulumi.StringPtrOutput)
 }
 
 // Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-func (o ObjectCopyOutput) ObjectLockMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ObjectLockMode }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ObjectLockMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ObjectLockMode }).(pulumi.StringPtrOutput)
 }
 
 // Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-func (o ObjectCopyOutput) ObjectLockRetainUntilDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ObjectLockRetainUntilDate }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ObjectLockRetainUntilDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ObjectLockRetainUntilDate }).(pulumi.StringPtrOutput)
 }
 
 // If present, indicates that the requester was successfully charged for the request.
-func (o ObjectCopyOutput) RequestCharged() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.BoolOutput { return v.RequestCharged }).(pulumi.BoolOutput)
+func (o ObjectCopyOutput) RequestCharged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.BoolPtrOutput { return v.RequestCharged }).(pulumi.BoolPtrOutput)
 }
 
 // Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
@@ -874,8 +874,8 @@ func (o ObjectCopyOutput) RequestPayer() pulumi.StringPtrOutput {
 }
 
 // Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
-func (o ObjectCopyOutput) ServerSideEncryption() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ServerSideEncryption }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) ServerSideEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ServerSideEncryption }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
@@ -901,13 +901,13 @@ func (o ObjectCopyOutput) SourceCustomerKeyMd5() pulumi.StringPtrOutput {
 }
 
 // Version of the copied object in the source bucket.
-func (o ObjectCopyOutput) SourceVersionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.SourceVersionId }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) SourceVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.SourceVersionId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
-func (o ObjectCopyOutput) StorageClass() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.StorageClass }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
@@ -928,13 +928,13 @@ func (o ObjectCopyOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Version ID of the newly created copy.
-func (o ObjectCopyOutput) VersionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.VersionId }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.VersionId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-func (o ObjectCopyOutput) WebsiteRedirect() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.WebsiteRedirect }).(pulumi.StringOutput)
+func (o ObjectCopyOutput) WebsiteRedirect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.WebsiteRedirect }).(pulumi.StringPtrOutput)
 }
 
 type ObjectCopyArrayOutput struct{ *pulumi.OutputState }

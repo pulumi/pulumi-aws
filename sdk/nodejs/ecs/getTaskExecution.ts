@@ -127,7 +127,7 @@ export interface GetTaskExecutionResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly launchType?: string;
     readonly networkConfiguration?: outputs.ecs.GetTaskExecutionNetworkConfiguration;
     readonly overrides?: outputs.ecs.GetTaskExecutionOverrides;
@@ -141,7 +141,7 @@ export interface GetTaskExecutionResult {
     /**
      * A list of the provisioned task ARNs.
      */
-    readonly taskArns: string[];
+    readonly taskArns?: string[];
     readonly taskDefinition: string;
 }
 /**

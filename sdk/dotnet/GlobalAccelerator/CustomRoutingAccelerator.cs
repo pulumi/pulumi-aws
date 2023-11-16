@@ -62,7 +62,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         /// </summary>
         [Output("hostedZoneId")]
-        public Output<string> HostedZoneId { get; private set; } = null!;
+        public Output<string?> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.

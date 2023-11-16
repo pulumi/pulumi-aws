@@ -98,17 +98,17 @@ type MacsecKeyAssociation struct {
 	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
 	Cak pulumi.StringPtrOutput `pulumi:"cak"`
 	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-	Ckn pulumi.StringOutput `pulumi:"ckn"`
+	Ckn pulumi.StringPtrOutput `pulumi:"ckn"`
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
 	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
+	SecretArn pulumi.StringPtrOutput `pulumi:"secretArn"`
 	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-	StartOn pulumi.StringOutput `pulumi:"startOn"`
+	StartOn pulumi.StringPtrOutput `pulumi:"startOn"`
 	// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 }
 
 // NewMacsecKeyAssociation registers a new resource with the given unique name, arguments, and options.
@@ -301,8 +301,8 @@ func (o MacsecKeyAssociationOutput) Cak() pulumi.StringPtrOutput {
 }
 
 // The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-func (o MacsecKeyAssociationOutput) Ckn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.Ckn }).(pulumi.StringOutput)
+func (o MacsecKeyAssociationOutput) Ckn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringPtrOutput { return v.Ckn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
@@ -313,18 +313,18 @@ func (o MacsecKeyAssociationOutput) ConnectionId() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 //
 // > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-func (o MacsecKeyAssociationOutput) SecretArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
+func (o MacsecKeyAssociationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringPtrOutput { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
 // The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-func (o MacsecKeyAssociationOutput) StartOn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.StartOn }).(pulumi.StringOutput)
+func (o MacsecKeyAssociationOutput) StartOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringPtrOutput { return v.StartOn }).(pulumi.StringPtrOutput)
 }
 
 // The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-func (o MacsecKeyAssociationOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o MacsecKeyAssociationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type MacsecKeyAssociationArrayOutput struct{ *pulumi.OutputState }

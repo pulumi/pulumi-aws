@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -74,24 +75,24 @@ public class GroupAssociation extends com.pulumi.resources.CustomResource {
         return this.canaryArn;
     }
     @Export(name="groupArn", refs={String.class}, tree="[0]")
-    private Output<String> groupArn;
+    private Output</* @Nullable */ String> groupArn;
 
-    public Output<String> groupArn() {
-        return this.groupArn;
+    public Output<Optional<String>> groupArn() {
+        return Codegen.optional(this.groupArn);
     }
     /**
      * ID of the Group.
      * 
      */
     @Export(name="groupId", refs={String.class}, tree="[0]")
-    private Output<String> groupId;
+    private Output</* @Nullable */ String> groupId;
 
     /**
      * @return ID of the Group.
      * 
      */
-    public Output<String> groupId() {
-        return this.groupId;
+    public Output<Optional<String>> groupId() {
+        return Codegen.optional(this.groupId);
     }
     /**
      * Name of the group that the canary will be associated with.

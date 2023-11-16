@@ -127,13 +127,13 @@ type Webhook struct {
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups WebhookFilterGroupArrayOutput `pulumi:"filterGroups"`
 	// The CodeBuild endpoint where webhook events are sent.
-	PayloadUrl pulumi.StringOutput `pulumi:"payloadUrl"`
+	PayloadUrl pulumi.StringPtrOutput `pulumi:"payloadUrl"`
 	// The name of the build project.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
-	Secret pulumi.StringOutput `pulumi:"secret"`
+	Secret pulumi.StringPtrOutput `pulumi:"secret"`
 	// The URL to the webhook.
-	Url pulumi.StringOutput `pulumi:"url"`
+	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewWebhook registers a new resource with the given unique name, arguments, and options.
@@ -336,8 +336,8 @@ func (o WebhookOutput) FilterGroups() WebhookFilterGroupArrayOutput {
 }
 
 // The CodeBuild endpoint where webhook events are sent.
-func (o WebhookOutput) PayloadUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.PayloadUrl }).(pulumi.StringOutput)
+func (o WebhookOutput) PayloadUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.PayloadUrl }).(pulumi.StringPtrOutput)
 }
 
 // The name of the build project.
@@ -346,13 +346,13 @@ func (o WebhookOutput) ProjectName() pulumi.StringOutput {
 }
 
 // The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
-func (o WebhookOutput) Secret() pulumi.StringOutput {
-	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Secret }).(pulumi.StringOutput)
+func (o WebhookOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
 // The URL to the webhook.
-func (o WebhookOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+func (o WebhookOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 type WebhookArrayOutput struct{ *pulumi.OutputState }

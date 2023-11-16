@@ -43,7 +43,7 @@ export interface GetWebAclResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
 }
 /**

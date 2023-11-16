@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -70,14 +71,14 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Fully qualified name of the directory.

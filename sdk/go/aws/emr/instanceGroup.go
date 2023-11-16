@@ -108,15 +108,15 @@ type InstanceGroup struct {
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
 	// target number of instances for the instance group. defaults to 0.
-	InstanceCount pulumi.IntOutput `pulumi:"instanceCount"`
+	InstanceCount pulumi.IntPtrOutput `pulumi:"instanceCount"`
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of instances currently running in this instance group.
-	RunningInstanceCount pulumi.IntOutput `pulumi:"runningInstanceCount"`
+	RunningInstanceCount pulumi.IntPtrOutput `pulumi:"runningInstanceCount"`
 	// The current status of the instance group.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewInstanceGroup registers a new resource with the given unique name, arguments, and options.
@@ -554,8 +554,8 @@ func (o InstanceGroupOutput) EbsOptimized() pulumi.BoolPtrOutput {
 }
 
 // target number of instances for the instance group. defaults to 0.
-func (o InstanceGroupOutput) InstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *InstanceGroup) pulumi.IntOutput { return v.InstanceCount }).(pulumi.IntOutput)
+func (o InstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceGroup) pulumi.IntPtrOutput { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
 // The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
@@ -569,13 +569,13 @@ func (o InstanceGroupOutput) Name() pulumi.StringOutput {
 }
 
 // The number of instances currently running in this instance group.
-func (o InstanceGroupOutput) RunningInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *InstanceGroup) pulumi.IntOutput { return v.RunningInstanceCount }).(pulumi.IntOutput)
+func (o InstanceGroupOutput) RunningInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceGroup) pulumi.IntPtrOutput { return v.RunningInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 // The current status of the instance group.
-func (o InstanceGroupOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o InstanceGroupOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceGroup) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type InstanceGroupArrayOutput struct{ *pulumi.OutputState }

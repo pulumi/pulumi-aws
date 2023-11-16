@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			src, err := sqs.NewQueue(ctx, "src", &sqs.QueueArgs{
-//				RedrivePolicy: exampleQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				RedrivePolicy: exampleQueue.Arn.ApplyT(func(arn *string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"deadLetterTargetArn": arn,
@@ -53,11 +53,11 @@ import (
 //			}
 //			_, err = sqs.NewRedriveAllowPolicy(ctx, "exampleRedriveAllowPolicy", &sqs.RedriveAllowPolicyArgs{
 //				QueueUrl: exampleQueue.ID(),
-//				RedriveAllowPolicy: src.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				RedriveAllowPolicy: src.Arn.ApplyT(func(arn *string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
 //						"redrivePermission": "byQueue",
-//						"sourceQueueArns": []string{
+//						"sourceQueueArns": []*string{
 //							arn,
 //						},
 //					})

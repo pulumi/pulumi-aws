@@ -74,7 +74,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter
-    def beneficiary(self) -> str:
+    def beneficiary(self) -> Optional[str]:
         """
         Granted license beneficiary. This is in the form of the ARN of the root user of the account.
         """
@@ -82,7 +82,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter(name="consumptionConfigurations")
-    def consumption_configurations(self) -> Sequence['outputs.GetReceivedLicenseConsumptionConfigurationResult']:
+    def consumption_configurations(self) -> Optional[Sequence['outputs.GetReceivedLicenseConsumptionConfigurationResult']]:
         """
         Configuration for consumption of the license. Detailed below
         """
@@ -90,7 +90,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> str:
+    def create_time(self) -> Optional[str]:
         """
         Creation time of the granted license in RFC 3339 format.
         """
@@ -98,7 +98,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter
-    def entitlements(self) -> Sequence['outputs.GetReceivedLicenseEntitlementResult']:
+    def entitlements(self) -> Optional[Sequence['outputs.GetReceivedLicenseEntitlementResult']]:
         """
         License entitlements. Detailed below
         """
@@ -106,7 +106,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter(name="homeRegion")
-    def home_region(self) -> str:
+    def home_region(self) -> Optional[str]:
         """
         Home Region of the granted license.
         """
@@ -114,7 +114,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -122,7 +122,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter
-    def issuers(self) -> Sequence['outputs.GetReceivedLicenseIssuerResult']:
+    def issuers(self) -> Optional[Sequence['outputs.GetReceivedLicenseIssuerResult']]:
         """
         Granted license issuer. Detailed below
         """
@@ -138,7 +138,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter(name="licenseMetadatas")
-    def license_metadatas(self) -> Sequence['outputs.GetReceivedLicenseLicenseMetadataResult']:
+    def license_metadatas(self) -> Optional[Sequence['outputs.GetReceivedLicenseLicenseMetadataResult']]:
         """
         Granted license metadata. This is in the form of a set of all meta data. Detailed below
         """
@@ -146,7 +146,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter(name="licenseName")
-    def license_name(self) -> str:
+    def license_name(self) -> Optional[str]:
         """
         License name.
         """
@@ -154,7 +154,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter(name="productName")
-    def product_name(self) -> str:
+    def product_name(self) -> Optional[str]:
         """
         Product name.
         * `product_sku ` - Product SKU.
@@ -163,12 +163,12 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter(name="productSku")
-    def product_sku(self) -> str:
+    def product_sku(self) -> Optional[str]:
         return pulumi.get(self, "product_sku")
 
     @property
     @pulumi.getter(name="receivedMetadatas")
-    def received_metadatas(self) -> Sequence['outputs.GetReceivedLicenseReceivedMetadataResult']:
+    def received_metadatas(self) -> Optional[Sequence['outputs.GetReceivedLicenseReceivedMetadataResult']]:
         """
         Granted license received metadata. Detailed below
         """
@@ -176,7 +176,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Granted license status.
         """
@@ -184,7 +184,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter
-    def validities(self) -> Sequence['outputs.GetReceivedLicenseValidityResult']:
+    def validities(self) -> Optional[Sequence['outputs.GetReceivedLicenseValidityResult']]:
         """
         Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
         """
@@ -192,7 +192,7 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Version of the granted license.
         """

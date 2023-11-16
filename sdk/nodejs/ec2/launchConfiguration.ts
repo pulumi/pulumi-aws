@@ -211,7 +211,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the launch configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Associate a public ip address with an instance in a VPC.
      */
@@ -219,11 +219,11 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.LaunchConfigurationEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.LaunchConfigurationEbsBlockDevice[] | undefined>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    public readonly ebsOptimized!: pulumi.Output<boolean>;
+    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      */
@@ -249,11 +249,11 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * The key name that should be used for the instance.
      */
-    public readonly keyName!: pulumi.Output<string>;
+    public readonly keyName!: pulumi.Output<string | undefined>;
     /**
      * The metadata options for the instance.
      */
-    public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchConfigurationMetadataOptions>;
+    public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchConfigurationMetadataOptions | undefined>;
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
@@ -261,7 +261,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      */
@@ -269,7 +269,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.LaunchConfigurationRootBlockDevice>;
+    public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.LaunchConfigurationRootBlockDevice | undefined>;
     /**
      * A list of associated security group IDS.
      */

@@ -71,49 +71,49 @@ type Fleet struct {
 	pulumi.CustomResourceState
 
 	// ARN of the appstream fleet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block for the desired capacity of the fleet. See below.
 	ComputeCapacity FleetComputeCapacityOutput `pulumi:"computeCapacity"`
 	// Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Description to display.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Amount of time that a streaming session remains active after users disconnect.
-	DisconnectTimeoutInSeconds pulumi.IntOutput `pulumi:"disconnectTimeoutInSeconds"`
+	DisconnectTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"disconnectTimeoutInSeconds"`
 	// Human-readable friendly name for the AppStream fleet.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-	DomainJoinInfo FleetDomainJoinInfoOutput `pulumi:"domainJoinInfo"`
+	DomainJoinInfo FleetDomainJoinInfoPtrOutput `pulumi:"domainJoinInfo"`
 	// Enables or disables default internet access for the fleet.
-	EnableDefaultInternetAccess pulumi.BoolOutput `pulumi:"enableDefaultInternetAccess"`
+	EnableDefaultInternetAccess pulumi.BoolPtrOutput `pulumi:"enableDefaultInternetAccess"`
 	// Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-	FleetType pulumi.StringOutput `pulumi:"fleetType"`
+	FleetType pulumi.StringPtrOutput `pulumi:"fleetType"`
 	// ARN of the IAM role to apply to the fleet.
-	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
+	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
 	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins.
 	IdleDisconnectTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"idleDisconnectTimeoutInSeconds"`
 	// ARN of the public, private, or shared image to use.
-	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
+	ImageArn pulumi.StringPtrOutput `pulumi:"imageArn"`
 	// Name of the image used to create the fleet.
-	ImageName pulumi.StringOutput `pulumi:"imageName"`
+	ImageName pulumi.StringPtrOutput `pulumi:"imageName"`
 	// Instance type to use when launching fleet instances.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Maximum amount of time that a streaming session can remain active, in seconds.
-	MaxUserDurationInSeconds pulumi.IntOutput `pulumi:"maxUserDurationInSeconds"`
+	MaxUserDurationInSeconds pulumi.IntPtrOutput `pulumi:"maxUserDurationInSeconds"`
 	// Unique name for the fleet.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-	StreamView pulumi.StringOutput `pulumi:"streamView"`
+	StreamView pulumi.StringPtrOutput `pulumi:"streamView"`
 	// Map of tags to attach to AppStream instances.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for the VPC configuration for the image builder. See below.
-	VpcConfig FleetVpcConfigOutput `pulumi:"vpcConfig"`
+	VpcConfig FleetVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -420,8 +420,8 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 }
 
 // ARN of the appstream fleet.
-func (o FleetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FleetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the desired capacity of the fleet. See below.
@@ -430,43 +430,43 @@ func (o FleetOutput) ComputeCapacity() FleetComputeCapacityOutput {
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-func (o FleetOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o FleetOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Description to display.
-func (o FleetOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o FleetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Amount of time that a streaming session remains active after users disconnect.
-func (o FleetOutput) DisconnectTimeoutInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.IntOutput { return v.DisconnectTimeoutInSeconds }).(pulumi.IntOutput)
+func (o FleetOutput) DisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.DisconnectTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Human-readable friendly name for the AppStream fleet.
-func (o FleetOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+func (o FleetOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-func (o FleetOutput) DomainJoinInfo() FleetDomainJoinInfoOutput {
-	return o.ApplyT(func(v *Fleet) FleetDomainJoinInfoOutput { return v.DomainJoinInfo }).(FleetDomainJoinInfoOutput)
+func (o FleetOutput) DomainJoinInfo() FleetDomainJoinInfoPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetDomainJoinInfoPtrOutput { return v.DomainJoinInfo }).(FleetDomainJoinInfoPtrOutput)
 }
 
 // Enables or disables default internet access for the fleet.
-func (o FleetOutput) EnableDefaultInternetAccess() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.BoolOutput { return v.EnableDefaultInternetAccess }).(pulumi.BoolOutput)
+func (o FleetOutput) EnableDefaultInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.BoolPtrOutput { return v.EnableDefaultInternetAccess }).(pulumi.BoolPtrOutput)
 }
 
 // Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-func (o FleetOutput) FleetType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.FleetType }).(pulumi.StringOutput)
+func (o FleetOutput) FleetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.FleetType }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM role to apply to the fleet.
-func (o FleetOutput) IamRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
+func (o FleetOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins.
@@ -475,13 +475,13 @@ func (o FleetOutput) IdleDisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
 }
 
 // ARN of the public, private, or shared image to use.
-func (o FleetOutput) ImageArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.ImageArn }).(pulumi.StringOutput)
+func (o FleetOutput) ImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ImageArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the image used to create the fleet.
-func (o FleetOutput) ImageName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
+func (o FleetOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ImageName }).(pulumi.StringPtrOutput)
 }
 
 // Instance type to use when launching fleet instances.
@@ -490,8 +490,8 @@ func (o FleetOutput) InstanceType() pulumi.StringOutput {
 }
 
 // Maximum amount of time that a streaming session can remain active, in seconds.
-func (o FleetOutput) MaxUserDurationInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.IntOutput { return v.MaxUserDurationInSeconds }).(pulumi.IntOutput)
+func (o FleetOutput) MaxUserDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.MaxUserDurationInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Unique name for the fleet.
@@ -502,13 +502,13 @@ func (o FleetOutput) Name() pulumi.StringOutput {
 }
 
 // State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-func (o FleetOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o FleetOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-func (o FleetOutput) StreamView() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.StreamView }).(pulumi.StringOutput)
+func (o FleetOutput) StreamView() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.StreamView }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to attach to AppStream instances.
@@ -522,8 +522,8 @@ func (o FleetOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Configuration block for the VPC configuration for the image builder. See below.
-func (o FleetOutput) VpcConfig() FleetVpcConfigOutput {
-	return o.ApplyT(func(v *Fleet) FleetVpcConfigOutput { return v.VpcConfig }).(FleetVpcConfigOutput)
+func (o FleetOutput) VpcConfig() FleetVpcConfigPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetVpcConfigPtrOutput { return v.VpcConfig }).(FleetVpcConfigPtrOutput)
 }
 
 type FleetArrayOutput struct{ *pulumi.OutputState }

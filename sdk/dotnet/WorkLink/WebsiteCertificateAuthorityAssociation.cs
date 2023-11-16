@@ -65,7 +65,7 @@ namespace Pulumi.Aws.WorkLink
         /// A unique identifier for the Certificate Authority.
         /// </summary>
         [Output("websiteCaId")]
-        public Output<string> WebsiteCaId { get; private set; } = null!;
+        public Output<string?> WebsiteCaId { get; private set; } = null!;
 
 
         /// <summary>

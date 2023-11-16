@@ -6,24 +6,26 @@ package com.pulumi.aws.auditmanager.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetControlControlMappingSourceSourceKeyword extends com.pulumi.resources.InvokeArgs {
 
     public static final GetControlControlMappingSourceSourceKeyword Empty = new GetControlControlMappingSourceSourceKeyword();
 
-    @Import(name="keywordInputType", required=true)
-    private String keywordInputType;
+    @Import(name="keywordInputType")
+    private @Nullable String keywordInputType;
 
-    public String keywordInputType() {
-        return this.keywordInputType;
+    public Optional<String> keywordInputType() {
+        return Optional.ofNullable(this.keywordInputType);
     }
 
-    @Import(name="keywordValue", required=true)
-    private String keywordValue;
+    @Import(name="keywordValue")
+    private @Nullable String keywordValue;
 
-    public String keywordValue() {
-        return this.keywordValue;
+    public Optional<String> keywordValue() {
+        return Optional.ofNullable(this.keywordValue);
     }
 
     private GetControlControlMappingSourceSourceKeyword() {}
@@ -51,19 +53,17 @@ public final class GetControlControlMappingSourceSourceKeyword extends com.pulum
             $ = new GetControlControlMappingSourceSourceKeyword(Objects.requireNonNull(defaults));
         }
 
-        public Builder keywordInputType(String keywordInputType) {
+        public Builder keywordInputType(@Nullable String keywordInputType) {
             $.keywordInputType = keywordInputType;
             return this;
         }
 
-        public Builder keywordValue(String keywordValue) {
+        public Builder keywordValue(@Nullable String keywordValue) {
             $.keywordValue = keywordValue;
             return this;
         }
 
         public GetControlControlMappingSourceSourceKeyword build() {
-            $.keywordInputType = Objects.requireNonNull($.keywordInputType, "expected parameter 'keywordInputType' to be non-null");
-            $.keywordValue = Objects.requireNonNull($.keywordValue, "expected parameter 'keywordValue' to be non-null");
             return $;
         }
     }

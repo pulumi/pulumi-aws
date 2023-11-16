@@ -313,7 +313,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the thing.
         """
@@ -329,7 +329,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultClientId")
-    def default_client_id(self) -> pulumi.Output[str]:
+    def default_client_id(self) -> pulumi.Output[Optional[str]]:
         """
         The default client ID.
         """
@@ -353,7 +353,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         The current version of the thing record in the registry.
         """

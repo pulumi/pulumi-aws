@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Inspector
         /// The template assessment ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The duration of the inspector run.

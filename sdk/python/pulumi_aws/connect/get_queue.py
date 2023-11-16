@@ -59,7 +59,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Queue.
         """
@@ -67,7 +67,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Queue.
         """
@@ -75,7 +75,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="hoursOfOperationId")
-    def hours_of_operation_id(self) -> str:
+    def hours_of_operation_id(self) -> Optional[str]:
         """
         Specifies the identifier of the Hours of Operation.
         """
@@ -83,7 +83,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -96,7 +96,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="maxContacts")
-    def max_contacts(self) -> int:
+    def max_contacts(self) -> Optional[int]:
         """
         Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         """
@@ -104,12 +104,12 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="outboundCallerConfigs")
-    def outbound_caller_configs(self) -> Sequence['outputs.GetQueueOutboundCallerConfigResult']:
+    def outbound_caller_configs(self) -> Optional[Sequence['outputs.GetQueueOutboundCallerConfigResult']]:
         """
         A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         """
@@ -117,7 +117,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter(name="queueId")
-    def queue_id(self) -> str:
+    def queue_id(self) -> Optional[str]:
         """
         Identifier for the Queue.
         """
@@ -125,7 +125,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Description of the Queue. Values are `ENABLED` or `DISABLED`.
         """
@@ -133,7 +133,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the Queue.
         """

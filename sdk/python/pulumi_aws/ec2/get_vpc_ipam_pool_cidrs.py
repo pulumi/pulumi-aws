@@ -44,7 +44,7 @@ class GetVpcIpamPoolCidrsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -52,7 +52,7 @@ class GetVpcIpamPoolCidrsResult:
 
     @property
     @pulumi.getter(name="ipamPoolCidrs")
-    def ipam_pool_cidrs(self) -> Sequence['outputs.GetVpcIpamPoolCidrsIpamPoolCidrResult']:
+    def ipam_pool_cidrs(self) -> Optional[Sequence['outputs.GetVpcIpamPoolCidrsIpamPoolCidrResult']]:
         """
         The CIDRs provisioned into the IPAM pool, described below.
         """

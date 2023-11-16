@@ -9,6 +9,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,12 +19,12 @@ public final class GetVpcIamPoolsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of IPAM pools and their attributes. See below for details
      * 
      */
-    private List<GetVpcIamPoolsIpamPool> ipamPools;
+    private @Nullable List<GetVpcIamPoolsIpamPool> ipamPools;
 
     private GetVpcIamPoolsResult() {}
     public List<GetVpcIamPoolsFilter> filters() {
@@ -33,15 +34,15 @@ public final class GetVpcIamPoolsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of IPAM pools and their attributes. See below for details
      * 
      */
     public List<GetVpcIamPoolsIpamPool> ipamPools() {
-        return this.ipamPools;
+        return this.ipamPools == null ? List.of() : this.ipamPools;
     }
 
     public static Builder builder() {
@@ -54,8 +55,8 @@ public final class GetVpcIamPoolsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetVpcIamPoolsFilter> filters;
-        private String id;
-        private List<GetVpcIamPoolsIpamPool> ipamPools;
+        private @Nullable String id;
+        private @Nullable List<GetVpcIamPoolsIpamPool> ipamPools;
         public Builder() {}
         public Builder(GetVpcIamPoolsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -73,13 +74,13 @@ public final class GetVpcIamPoolsResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipamPools(List<GetVpcIamPoolsIpamPool> ipamPools) {
-            this.ipamPools = Objects.requireNonNull(ipamPools);
+        public Builder ipamPools(@Nullable List<GetVpcIamPoolsIpamPool> ipamPools) {
+            this.ipamPools = ipamPools;
             return this;
         }
         public Builder ipamPools(GetVpcIamPoolsIpamPool... ipamPools) {

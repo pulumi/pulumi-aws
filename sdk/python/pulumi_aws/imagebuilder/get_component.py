@@ -75,7 +75,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="changeDescription")
-    def change_description(self) -> str:
+    def change_description(self) -> Optional[str]:
         """
         Change description of the component.
         """
@@ -83,7 +83,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def data(self) -> str:
+    def data(self) -> Optional[str]:
         """
         Data of the component.
         """
@@ -91,7 +91,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> str:
+    def date_created(self) -> Optional[str]:
         """
         Date the component was created.
         """
@@ -99,7 +99,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the component.
         """
@@ -107,7 +107,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> Optional[bool]:
         """
         Encryption status of the component.
         """
@@ -115,7 +115,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -123,7 +123,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         ARN of the Key Management Service (KMS) Key used to encrypt the component.
         """
@@ -131,7 +131,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the component.
         """
@@ -139,7 +139,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def owner(self) -> str:
+    def owner(self) -> Optional[str]:
         """
         Owner of the component.
         """
@@ -147,7 +147,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> str:
+    def platform(self) -> Optional[str]:
         """
         Platform of the component.
         """
@@ -155,7 +155,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="supportedOsVersions")
-    def supported_os_versions(self) -> Sequence[str]:
+    def supported_os_versions(self) -> Optional[Sequence[str]]:
         """
         Operating Systems (OSes) supported by the component.
         """
@@ -163,7 +163,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the component.
         """
@@ -171,7 +171,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of the component.
         """
@@ -179,7 +179,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Version of the component.
         """

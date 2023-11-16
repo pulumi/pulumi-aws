@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualServiceSpecProviderVirtualRouter
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualServiceSpecProvider {
-    private List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes;
-    private List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters;
+    private @Nullable List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes;
+    private @Nullable List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters;
 
     private GetVirtualServiceSpecProvider() {}
     public List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes() {
-        return this.virtualNodes;
+        return this.virtualNodes == null ? List.of() : this.virtualNodes;
     }
     public List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters() {
-        return this.virtualRouters;
+        return this.virtualRouters == null ? List.of() : this.virtualRouters;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualServiceSpecProvider {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes;
-        private List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters;
+        private @Nullable List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes;
+        private @Nullable List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters;
         public Builder() {}
         public Builder(GetVirtualServiceSpecProvider defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualServiceSpecProvider {
         }
 
         @CustomType.Setter
-        public Builder virtualNodes(List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes) {
-            this.virtualNodes = Objects.requireNonNull(virtualNodes);
+        public Builder virtualNodes(@Nullable List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes) {
+            this.virtualNodes = virtualNodes;
             return this;
         }
         public Builder virtualNodes(GetVirtualServiceSpecProviderVirtualNode... virtualNodes) {
             return virtualNodes(List.of(virtualNodes));
         }
         @CustomType.Setter
-        public Builder virtualRouters(List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters) {
-            this.virtualRouters = Objects.requireNonNull(virtualRouters);
+        public Builder virtualRouters(@Nullable List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters) {
+            this.virtualRouters = virtualRouters;
             return this;
         }
         public Builder virtualRouters(GetVirtualServiceSpecProviderVirtualRouter... virtualRouters) {

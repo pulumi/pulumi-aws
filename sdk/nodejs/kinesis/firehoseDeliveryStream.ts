@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *                 type: "Lambda",
  *                 parameters: [{
  *                     parameterName: "LambdaArn",
- *                     parameterValue: pulumi.interpolate`${lambdaProcessor.arn}:$LATEST`,
+ *                     parameterValue: lambdaProcessor.arn.apply(arn => `${arn}:$LATEST`),
  *                 }],
  *             }],
  *         },
@@ -177,7 +177,7 @@ import * as utilities from "../utilities";
  *     destination: "redshift",
  *     redshiftConfiguration: {
  *         roleArn: aws_iam_role.firehose_role.arn,
- *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
+ *         clusterJdbcurl: pulumi.all([testCluster.endpoint, testCluster.databaseName]).apply(([endpoint, databaseName]) => `jdbc:redshift://${endpoint}/${databaseName}`),
  *         username: "testuser",
  *         password: "T3stPass",
  *         dataTableName: "test-table",
@@ -259,14 +259,14 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  * });
- * const firehose-elasticsearchPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const firehose-elasticsearchPolicyDocument = pulumi.all([testCluster.arn, testCluster.arn]).apply(([testClusterArn, testClusterArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
  *             actions: ["es:*"],
  *             resources: [
- *                 testCluster.arn,
- *                 pulumi.interpolate`${testCluster.arn}/*`,
+ *                 testClusterArn,
+ *                 `${testClusterArn1}/*`,
  *             ],
  *         },
  *         {
@@ -284,7 +284,7 @@ import * as utilities from "../utilities";
  *             resources: ["*"],
  *         },
  *     ],
- * });
+ * }));
  * const firehose_elasticsearchRolePolicy = new aws.iam.RolePolicy("firehose-elasticsearchRolePolicy", {
  *     role: aws_iam_role.firehose.id,
  *     policy: firehose_elasticsearchPolicyDocument.apply(firehose_elasticsearchPolicyDocument => firehose_elasticsearchPolicyDocument.json),
@@ -372,7 +372,7 @@ import * as utilities from "../utilities";
  * });
  * const firehose_opensearch = new aws.iam.RolePolicy("firehose-opensearch", {
  *     role: aws_iam_role.firehose.id,
- *     policy: pulumi.interpolate`{
+ *     policy: pulumi.all([testCluster.arn, testCluster.arn]).apply(([testClusterArn, testClusterArn1]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -381,8 +381,8 @@ import * as utilities from "../utilities";
  *         "es:*"
  *       ],
  *       "Resource": [
- *         "${testCluster.arn}",
- *         "${testCluster.arn}/*"
+ *         "${testClusterArn}",
+ *         "${testClusterArn1}/*"
  *       ]
  *         },
  *         {
@@ -403,7 +403,7 @@ import * as utilities from "../utilities";
  *         }
  *   ]
  * }
- * `,
+ * `),
  * });
  * const test = new aws.kinesis.FirehoseDeliveryStream("test", {
  *     destination: "opensearch",
@@ -565,13 +565,13 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream
      */
-    public readonly arn!: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string | undefined>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
      * is redshift). More details are given below.
      */
     public readonly destination!: pulumi.Output<string>;
-    public readonly destinationId!: pulumi.Output<string>;
+    public readonly destinationId!: pulumi.Output<string | undefined>;
     /**
      * Configuration options when `destination` is `elasticsearch`. More details are given below.
      */
@@ -630,7 +630,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
-    public readonly versionId!: pulumi.Output<string>;
+    public readonly versionId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FirehoseDeliveryStream resource with the given unique name, arguments, and options.

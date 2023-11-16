@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     domain: "example",
  *     encryptionKey: exampleKey.arn,
  * });
- * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const testPolicyDocument = exampleDomain.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -26,9 +26,9 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["codeartifact:CreateRepository"],
- *         resources: [exampleDomain.arn],
+ *         resources: [arn],
  *     }],
- * });
+ * }));
  * const testDomainPermissions = new aws.codeartifact.DomainPermissions("testDomainPermissions", {
  *     domain: exampleDomain.domain,
  *     policyDocument: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
@@ -78,7 +78,7 @@ export class DomainPermissions extends pulumi.CustomResource {
     /**
      * The account number of the AWS account that owns the domain.
      */
-    public readonly domainOwner!: pulumi.Output<string>;
+    public readonly domainOwner!: pulumi.Output<string | undefined>;
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      */
@@ -86,11 +86,11 @@ export class DomainPermissions extends pulumi.CustomResource {
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
-    public readonly policyRevision!: pulumi.Output<string>;
+    public readonly policyRevision!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the resource associated with the resource policy.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DomainPermissions resource with the given unique name, arguments, and options.

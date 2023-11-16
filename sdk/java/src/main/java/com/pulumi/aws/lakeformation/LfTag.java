@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -67,14 +68,14 @@ public class LfTag extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
-    private Output<String> catalogId;
+    private Output</* @Nullable */ String> catalogId;
 
     /**
      * @return ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Output<Optional<String>> catalogId() {
+        return Codegen.optional(this.catalogId);
     }
     /**
      * Key-name for the tag.

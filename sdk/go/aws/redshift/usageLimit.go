@@ -58,7 +58,7 @@ type UsageLimit struct {
 	// The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
 	Amount pulumi.IntOutput `pulumi:"amount"`
 	// Amazon Resource Name (ARN) of the Redshift Usage Limit.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
 	BreachAction pulumi.StringPtrOutput `pulumi:"breachAction"`
 	// The identifier of the cluster that you want to limit usage.
@@ -300,8 +300,8 @@ func (o UsageLimitOutput) Amount() pulumi.IntOutput {
 }
 
 // Amazon Resource Name (ARN) of the Redshift Usage Limit.
-func (o UsageLimitOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *UsageLimit) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UsageLimitOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UsageLimit) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.

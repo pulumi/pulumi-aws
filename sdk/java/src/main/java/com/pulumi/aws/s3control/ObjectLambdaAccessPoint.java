@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -84,42 +85,42 @@ public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
+    private Output</* @Nullable */ String> accountId;
 
     /**
      * @return The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
     }
     /**
      * Alias for the S3 Object Lambda Access Point.
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
-    private Output<String> alias;
+    private Output</* @Nullable */ String> alias;
 
     /**
      * @return Alias for the S3 Object Lambda Access Point.
      * 
      */
-    public Output<String> alias() {
-        return this.alias;
+    public Output<Optional<String>> alias() {
+        return Codegen.optional(this.alias);
     }
     /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Object Lambda Access Point.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.

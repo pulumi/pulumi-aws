@@ -6,6 +6,8 @@ package com.pulumi.aws.networkfirewall.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallEncryptionConfiguration {
@@ -13,27 +15,27 @@ public final class GetFirewallEncryptionConfiguration {
      * @return The ID of the AWS Key Management Service (AWS KMS) customer managed key.
      * 
      */
-    private String keyId;
+    private @Nullable String keyId;
     /**
      * @return The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetFirewallEncryptionConfiguration() {}
     /**
      * @return The ID of the AWS Key Management Service (AWS KMS) customer managed key.
      * 
      */
-    public String keyId() {
-        return this.keyId;
+    public Optional<String> keyId() {
+        return Optional.ofNullable(this.keyId);
     }
     /**
      * @return The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetFirewallEncryptionConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String keyId;
-        private String type;
+        private @Nullable String keyId;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetFirewallEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetFirewallEncryptionConfiguration {
         }
 
         @CustomType.Setter
-        public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+        public Builder keyId(@Nullable String keyId) {
+            this.keyId = keyId;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetFirewallEncryptionConfiguration build() {

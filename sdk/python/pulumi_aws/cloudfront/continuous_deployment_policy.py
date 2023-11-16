@@ -426,7 +426,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Current version of the continuous distribution policy.
         """
@@ -434,7 +434,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> pulumi.Output[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time the continuous deployment policy was last modified.
         """

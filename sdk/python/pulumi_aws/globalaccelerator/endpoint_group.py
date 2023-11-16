@@ -561,7 +561,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the endpoint group.
         """
@@ -577,7 +577,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointGroupRegion")
-    def endpoint_group_region(self) -> pulumi.Output[str]:
+    def endpoint_group_region(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the AWS Region where the endpoint group is located.
         """
@@ -593,7 +593,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> pulumi.Output[str]:
+    def health_check_path(self) -> pulumi.Output[Optional[str]]:
         """
         If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
         """
@@ -601,7 +601,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckPort")
-    def health_check_port(self) -> pulumi.Output[int]:
+    def health_check_port(self) -> pulumi.Output[Optional[int]]:
         """
         The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
         the provider will only perform drift detection of its value when present in a configuration.

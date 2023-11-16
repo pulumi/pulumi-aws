@@ -6,18 +6,20 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetManagedPrefixListEntry {
-    private String cidr;
-    private String description;
+    private @Nullable String cidr;
+    private @Nullable String description;
 
     private GetManagedPrefixListEntry() {}
-    public String cidr() {
-        return this.cidr;
+    public Optional<String> cidr() {
+        return Optional.ofNullable(this.cidr);
     }
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetManagedPrefixListEntry {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cidr;
-        private String description;
+        private @Nullable String cidr;
+        private @Nullable String description;
         public Builder() {}
         public Builder(GetManagedPrefixListEntry defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetManagedPrefixListEntry {
         }
 
         @CustomType.Setter
-        public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+        public Builder cidr(@Nullable String cidr) {
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         public GetManagedPrefixListEntry build() {

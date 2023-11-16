@@ -84,14 +84,14 @@ public class OrganizationCustomPolicyRule extends com.pulumi.resources.CustomRes
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the rule
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * List of AWS account identifiers to exclude from the rule

@@ -77,11 +77,11 @@ type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
 	// SES configuration set ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether messages that use the configuration set are required to use TLS. See below.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
 	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
-	LastFreshStart pulumi.StringOutput `pulumi:"lastFreshStart"`
+	LastFreshStart pulumi.StringPtrOutput `pulumi:"lastFreshStart"`
 	// Name of the configuration set.
 	//
 	// The following argument is optional:
@@ -290,8 +290,8 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 }
 
 // SES configuration set ARN.
-func (o ConfigurationSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConfigurationSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether messages that use the configuration set are required to use TLS. See below.
@@ -300,8 +300,8 @@ func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOption
 }
 
 // Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
-func (o ConfigurationSetOutput) LastFreshStart() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.LastFreshStart }).(pulumi.StringOutput)
+func (o ConfigurationSetOutput) LastFreshStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringPtrOutput { return v.LastFreshStart }).(pulumi.StringPtrOutput)
 }
 
 // Name of the configuration set.

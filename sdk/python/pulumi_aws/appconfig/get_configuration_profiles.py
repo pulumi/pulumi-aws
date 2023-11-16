@@ -39,7 +39,7 @@ class GetConfigurationProfilesResult:
 
     @property
     @pulumi.getter(name="configurationProfileIds")
-    def configuration_profile_ids(self) -> Sequence[str]:
+    def configuration_profile_ids(self) -> Optional[Sequence[str]]:
         """
         Set of Configuration Profile IDs associated with the AppConfig Application.
         """
@@ -47,7 +47,7 @@ class GetConfigurationProfilesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

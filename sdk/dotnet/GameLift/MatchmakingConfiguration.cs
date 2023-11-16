@@ -113,7 +113,7 @@ namespace Pulumi.Aws.GameLift
         /// Matchmaking Configuration ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The method used to backfill game sessions that are created with this matchmaking configuration.
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.GameLift
         /// The time when the Matchmaking Configuration was created.
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// Information to be added to all events related to this matchmaking configuration.
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.GameLift
         /// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
         /// </summary>
         [Output("flexMatchMode")]
-        public Output<string> FlexMatchMode { get; private set; } = null!;
+        public Output<string?> FlexMatchMode { get; private set; } = null!;
 
         /// <summary>
         /// One or more custom game properties. See below.
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.GameLift
         public Output<int> RequestTimeoutSeconds { get; private set; } = null!;
 
         [Output("ruleSetArn")]
-        public Output<string> RuleSetArn { get; private set; } = null!;
+        public Output<string?> RuleSetArn { get; private set; } = null!;
 
         /// <summary>
         /// A rule set names for the matchmaking rule set to use with this configuration.

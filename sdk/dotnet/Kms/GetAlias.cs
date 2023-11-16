@@ -108,32 +108,32 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// Amazon Resource Name(ARN) of the key alias.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// ARN pointed to by the alias.
         /// </summary>
-        public readonly string TargetKeyArn;
+        public readonly string? TargetKeyArn;
         /// <summary>
         /// Key identifier pointed to by the alias.
         /// </summary>
-        public readonly string TargetKeyId;
+        public readonly string? TargetKeyId;
 
         [OutputConstructor]
         private GetAliasResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
             string name,
 
-            string targetKeyArn,
+            string? targetKeyArn,
 
-            string targetKeyId)
+            string? targetKeyId)
         {
             Arn = arn;
             Id = id;

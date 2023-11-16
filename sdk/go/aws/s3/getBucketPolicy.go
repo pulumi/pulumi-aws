@@ -61,9 +61,9 @@ type LookupBucketPolicyArgs struct {
 type LookupBucketPolicyResult struct {
 	Bucket string `pulumi:"bucket"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// IAM bucket policy.
-	Policy string `pulumi:"policy"`
+	Policy *string `pulumi:"policy"`
 }
 
 func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBucketPolicyResultOutput {
@@ -109,13 +109,13 @@ func (o LookupBucketPolicyResultOutput) Bucket() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupBucketPolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBucketPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupBucketPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBucketPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // IAM bucket policy.
-func (o LookupBucketPolicyResultOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBucketPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+func (o LookupBucketPolicyResultOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBucketPolicyResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 func init() {

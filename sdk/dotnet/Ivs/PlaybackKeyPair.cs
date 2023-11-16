@@ -47,13 +47,13 @@ namespace Pulumi.Aws.Ivs
         /// ARN of the Playback Key Pair.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Key-pair identifier.
         /// </summary>
         [Output("fingerprint")]
-        public Output<string> Fingerprint { get; private set; } = null!;
+        public Output<string?> Fingerprint { get; private set; } = null!;
 
         /// <summary>
         /// Playback Key Pair name.

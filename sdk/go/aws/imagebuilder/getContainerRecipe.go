@@ -62,37 +62,37 @@ type LookupContainerRecipeResult struct {
 	// List of objects with components for the container recipe.
 	Components []GetContainerRecipeComponent `pulumi:"components"`
 	// Type of the container.
-	ContainerType string `pulumi:"containerType"`
+	ContainerType *string `pulumi:"containerType"`
 	// Date the container recipe was created.
-	DateCreated string `pulumi:"dateCreated"`
+	DateCreated *string `pulumi:"dateCreated"`
 	// Description of the container recipe.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Dockerfile template used to build the image.
-	DockerfileTemplateData string `pulumi:"dockerfileTemplateData"`
+	DockerfileTemplateData *string `pulumi:"dockerfileTemplateData"`
 	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted *bool `pulumi:"encrypted"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of objects with instance configurations for building and testing container images.
 	InstanceConfigurations []GetContainerRecipeInstanceConfiguration `pulumi:"instanceConfigurations"`
 	// KMS key used to encrypt the container image.
-	KmsKeyId string `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the container recipe.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Owner of the container recipe.
-	Owner string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
 	// Base image for the container recipe.
-	ParentImage string `pulumi:"parentImage"`
+	ParentImage *string `pulumi:"parentImage"`
 	// Platform of the container recipe.
-	Platform string `pulumi:"platform"`
+	Platform *string `pulumi:"platform"`
 	// Key-value map of resource tags for the container recipe.
 	Tags map[string]string `pulumi:"tags"`
 	// Destination repository for the container image.
 	TargetRepositories []GetContainerRecipeTargetRepository `pulumi:"targetRepositories"`
 	// Version of the container recipe.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 	// Working directory used during build and test workflows.
-	WorkingDirectory string `pulumi:"workingDirectory"`
+	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
 func LookupContainerRecipeOutput(ctx *pulumi.Context, args LookupContainerRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupContainerRecipeResultOutput {
@@ -145,33 +145,33 @@ func (o LookupContainerRecipeResultOutput) Components() GetContainerRecipeCompon
 }
 
 // Type of the container.
-func (o LookupContainerRecipeResultOutput) ContainerType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.ContainerType }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
 
 // Date the container recipe was created.
-func (o LookupContainerRecipeResultOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.DateCreated }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Description of the container recipe.
-func (o LookupContainerRecipeResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Dockerfile template used to build the image.
-func (o LookupContainerRecipeResultOutput) DockerfileTemplateData() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.DockerfileTemplateData }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) DockerfileTemplateData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.DockerfileTemplateData }).(pulumi.StringPtrOutput)
 }
 
 // Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-func (o LookupContainerRecipeResultOutput) Encrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) bool { return v.Encrypted }).(pulumi.BoolOutput)
+func (o LookupContainerRecipeResultOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupContainerRecipeResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of objects with instance configurations for building and testing container images.
@@ -182,28 +182,28 @@ func (o LookupContainerRecipeResultOutput) InstanceConfigurations() GetContainer
 }
 
 // KMS key used to encrypt the container image.
-func (o LookupContainerRecipeResultOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the container recipe.
-func (o LookupContainerRecipeResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Owner of the container recipe.
-func (o LookupContainerRecipeResultOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Owner }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // Base image for the container recipe.
-func (o LookupContainerRecipeResultOutput) ParentImage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.ParentImage }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) ParentImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.ParentImage }).(pulumi.StringPtrOutput)
 }
 
 // Platform of the container recipe.
-func (o LookupContainerRecipeResultOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Platform }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags for the container recipe.
@@ -217,13 +217,13 @@ func (o LookupContainerRecipeResultOutput) TargetRepositories() GetContainerReci
 }
 
 // Version of the container recipe.
-func (o LookupContainerRecipeResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // Working directory used during build and test workflows.
-func (o LookupContainerRecipeResultOutput) WorkingDirectory() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.WorkingDirectory }).(pulumi.StringOutput)
+func (o LookupContainerRecipeResultOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }
 
 func init() {

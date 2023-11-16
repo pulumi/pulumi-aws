@@ -65,16 +65,16 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const metricStreamToFirehosePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const metricStreamToFirehosePolicyDocument = s3Stream.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
  *             "firehose:PutRecord",
  *             "firehose:PutRecordBatch",
  *         ],
- *         resources: [s3Stream.arn],
+ *         resources: [arn],
  *     }],
- * });
+ * }));
  * const metricStreamToFirehoseRolePolicy = new aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy", {
  *     role: metricStreamToFirehoseRole.id,
  *     policy: metricStreamToFirehosePolicyDocument.apply(metricStreamToFirehosePolicyDocument => metricStreamToFirehosePolicyDocument.json),
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *     bucket: bucket.id,
  *     acl: "private",
  * });
- * const firehoseToS3PolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const firehoseToS3PolicyDocument = pulumi.all([bucket.arn, bucket.arn]).apply(([bucketArn, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -95,11 +95,11 @@ import * as utilities from "../utilities";
  *             "s3:PutObject",
  *         ],
  *         resources: [
- *             bucket.arn,
- *             pulumi.interpolate`${bucket.arn}/*`,
+ *             bucketArn,
+ *             `${bucketArn1}/*`,
  *         ],
  *     }],
- * });
+ * }));
  * const firehoseToS3RolePolicy = new aws.iam.RolePolicy("firehoseToS3RolePolicy", {
  *     role: firehoseToS3Role.id,
  *     policy: firehoseToS3PolicyDocument.apply(firehoseToS3PolicyDocument => firehoseToS3PolicyDocument.json),
@@ -176,11 +176,11 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * ARN of the metric stream.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      */
@@ -200,7 +200,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      */
-    public /*out*/ readonly lastUpdateDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdateDate!: pulumi.Output<string | undefined>;
     /**
      * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -208,7 +208,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      *
@@ -222,7 +222,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * State of the metric stream. Possible values are `running` and `stopped`.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
      */

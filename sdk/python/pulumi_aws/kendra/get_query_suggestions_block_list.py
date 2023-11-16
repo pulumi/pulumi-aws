@@ -71,7 +71,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the block list.
         """
@@ -79,7 +79,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Date-time a block list was created.
         """
@@ -87,7 +87,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description for the block list.
         """
@@ -95,7 +95,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> str:
+    def error_message(self) -> Optional[str]:
         """
         Error message containing details if there are issues processing the block list.
         """
@@ -103,7 +103,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter(name="fileSizeBytes")
-    def file_size_bytes(self) -> int:
+    def file_size_bytes(self) -> Optional[int]:
         """
         Current size of the block list text file in S3.
         """
@@ -111,7 +111,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -124,7 +124,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter(name="itemCount")
-    def item_count(self) -> int:
+    def item_count(self) -> Optional[int]:
         """
         Current number of valid, non-empty words or phrases in the block list text file.
         """
@@ -132,7 +132,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the block list.
         """
@@ -145,7 +145,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
@@ -153,7 +153,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter(name="sourceS3Paths")
-    def source_s3_paths(self) -> Sequence['outputs.GetQuerySuggestionsBlockListSourceS3PathResult']:
+    def source_s3_paths(self) -> Optional[Sequence['outputs.GetQuerySuggestionsBlockListSourceS3PathResult']]:
         """
         S3 location of the block list input data. Detailed below.
         """
@@ -161,7 +161,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
         """
@@ -169,7 +169,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Metadata that helps organize the block list you create.
         """
@@ -177,7 +177,7 @@ class GetQuerySuggestionsBlockListResult:
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> Optional[str]:
         """
         Date and time that the block list was last updated.
         """

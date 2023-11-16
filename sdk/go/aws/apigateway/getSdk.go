@@ -69,13 +69,13 @@ type GetSdkArgs struct {
 // A collection of values returned by getSdk.
 type GetSdkResult struct {
 	// SDK as a string.
-	Body string `pulumi:"body"`
+	Body *string `pulumi:"body"`
 	// Content-disposition header value in the HTTP response.
-	ContentDisposition string `pulumi:"contentDisposition"`
+	ContentDisposition *string `pulumi:"contentDisposition"`
 	// Content-type header value in the HTTP response.
-	ContentType string `pulumi:"contentType"`
+	ContentType *string `pulumi:"contentType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string            `pulumi:"id"`
+	Id         *string           `pulumi:"id"`
 	Parameters map[string]string `pulumi:"parameters"`
 	RestApiId  string            `pulumi:"restApiId"`
 	SdkType    string            `pulumi:"sdkType"`
@@ -127,23 +127,23 @@ func (o GetSdkResultOutput) ToGetSdkResultOutputWithContext(ctx context.Context)
 }
 
 // SDK as a string.
-func (o GetSdkResultOutput) Body() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSdkResult) string { return v.Body }).(pulumi.StringOutput)
+func (o GetSdkResultOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSdkResult) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
 // Content-disposition header value in the HTTP response.
-func (o GetSdkResultOutput) ContentDisposition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSdkResult) string { return v.ContentDisposition }).(pulumi.StringOutput)
+func (o GetSdkResultOutput) ContentDisposition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSdkResult) *string { return v.ContentDisposition }).(pulumi.StringPtrOutput)
 }
 
 // Content-type header value in the HTTP response.
-func (o GetSdkResultOutput) ContentType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSdkResult) string { return v.ContentType }).(pulumi.StringOutput)
+func (o GetSdkResultOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSdkResult) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSdkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSdkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSdkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSdkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSdkResultOutput) Parameters() pulumi.StringMapOutput {

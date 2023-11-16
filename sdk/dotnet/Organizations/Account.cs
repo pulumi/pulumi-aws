@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Organizations
         /// The ARN for this account.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Organizations
         /// ID for a GovCloud account created with the account.
         /// </summary>
         [Output("govcloudId")]
-        public Output<string> GovcloudId { get; private set; } = null!;
+        public Output<string?> GovcloudId { get; private set; } = null!;
 
         /// <summary>
         /// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
@@ -83,10 +83,10 @@ namespace Pulumi.Aws.Organizations
         public Output<string?> IamUserAccessToBilling { get; private set; } = null!;
 
         [Output("joinedMethod")]
-        public Output<string> JoinedMethod { get; private set; } = null!;
+        public Output<string?> JoinedMethod { get; private set; } = null!;
 
         [Output("joinedTimestamp")]
-        public Output<string> JoinedTimestamp { get; private set; } = null!;
+        public Output<string?> JoinedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Friendly name for the member account.
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Organizations
         /// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         /// </summary>
         [Output("parentId")]
-        public Output<string> ParentId { get; private set; } = null!;
+        public Output<string?> ParentId { get; private set; } = null!;
 
         /// <summary>
         /// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Organizations
         public Output<string?> RoleName { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

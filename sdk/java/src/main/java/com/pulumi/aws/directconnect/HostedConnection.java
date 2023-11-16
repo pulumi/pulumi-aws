@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -59,14 +60,14 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="awsDevice", refs={String.class}, tree="[0]")
-    private Output<String> awsDevice;
+    private Output</* @Nullable */ String> awsDevice;
 
     /**
      * @return The Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    public Output<String> awsDevice() {
-        return this.awsDevice;
+    public Output<Optional<String>> awsDevice() {
+        return Codegen.optional(this.awsDevice);
     }
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
@@ -101,70 +102,70 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hasLogicalRedundancy", refs={String.class}, tree="[0]")
-    private Output<String> hasLogicalRedundancy;
+    private Output</* @Nullable */ String> hasLogicalRedundancy;
 
     /**
      * @return Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    public Output<String> hasLogicalRedundancy() {
-        return this.hasLogicalRedundancy;
+    public Output<Optional<String>> hasLogicalRedundancy() {
+        return Codegen.optional(this.hasLogicalRedundancy);
     }
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      * 
      */
     @Export(name="jumboFrameCapable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> jumboFrameCapable;
+    private Output</* @Nullable */ Boolean> jumboFrameCapable;
 
     /**
      * @return Boolean value representing if jumbo frames have been enabled for this connection.
      * 
      */
-    public Output<Boolean> jumboFrameCapable() {
-        return this.jumboFrameCapable;
+    public Output<Optional<Boolean>> jumboFrameCapable() {
+        return Codegen.optional(this.jumboFrameCapable);
     }
     /**
      * The ID of the LAG.
      * 
      */
     @Export(name="lagId", refs={String.class}, tree="[0]")
-    private Output<String> lagId;
+    private Output</* @Nullable */ String> lagId;
 
     /**
      * @return The ID of the LAG.
      * 
      */
-    public Output<String> lagId() {
-        return this.lagId;
+    public Output<Optional<String>> lagId() {
+        return Codegen.optional(this.lagId);
     }
     /**
      * The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
      * 
      */
     @Export(name="loaIssueTime", refs={String.class}, tree="[0]")
-    private Output<String> loaIssueTime;
+    private Output</* @Nullable */ String> loaIssueTime;
 
     /**
      * @return The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
      * 
      */
-    public Output<String> loaIssueTime() {
-        return this.loaIssueTime;
+    public Output<Optional<String>> loaIssueTime() {
+        return Codegen.optional(this.loaIssueTime);
     }
     /**
      * The location of the connection.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
-    private Output<String> location;
+    private Output</* @Nullable */ String> location;
 
     /**
      * @return The location of the connection.
      * 
      */
-    public Output<String> location() {
-        return this.location;
+    public Output<Optional<String>> location() {
+        return Codegen.optional(this.location);
     }
     /**
      * The name of the connection.
@@ -199,56 +200,56 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="partnerName", refs={String.class}, tree="[0]")
-    private Output<String> partnerName;
+    private Output</* @Nullable */ String> partnerName;
 
     /**
      * @return The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
-    public Output<String> partnerName() {
-        return this.partnerName;
+    public Output<Optional<String>> partnerName() {
+        return Codegen.optional(this.partnerName);
     }
     /**
      * The name of the service provider associated with the connection.
      * 
      */
     @Export(name="providerName", refs={String.class}, tree="[0]")
-    private Output<String> providerName;
+    private Output</* @Nullable */ String> providerName;
 
     /**
      * @return The name of the service provider associated with the connection.
      * 
      */
-    public Output<String> providerName() {
-        return this.providerName;
+    public Output<Optional<String>> providerName() {
+        return Codegen.optional(this.providerName);
     }
     /**
      * The AWS Region where the connection is located.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
-    private Output<String> region;
+    private Output</* @Nullable */ String> region;
 
     /**
      * @return The AWS Region where the connection is located.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    public Output<Optional<String>> region() {
+        return Codegen.optional(this.region);
     }
     /**
      * The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * The dedicated VLAN provisioned to the hosted connection.

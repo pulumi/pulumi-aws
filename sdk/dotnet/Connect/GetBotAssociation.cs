@@ -126,13 +126,13 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
         public readonly Outputs.GetBotAssociationLexBotResult LexBot;
 
         [OutputConstructor]
         private GetBotAssociationResult(
-            string id,
+            string? id,
 
             string instanceId,
 

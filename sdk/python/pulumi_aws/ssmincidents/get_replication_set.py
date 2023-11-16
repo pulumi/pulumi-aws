@@ -50,7 +50,7 @@ class GetReplicationSetResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resouce Name (ARN) of the replication set.
         """
@@ -58,7 +58,7 @@ class GetReplicationSetResult:
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> str:
+    def created_by(self) -> Optional[str]:
         """
         The ARN of the user who created the replication set.
         """
@@ -66,7 +66,7 @@ class GetReplicationSetResult:
 
     @property
     @pulumi.getter(name="deletionProtected")
-    def deletion_protected(self) -> bool:
+    def deletion_protected(self) -> Optional[bool]:
         """
         If `true`, the last remaining Region in a replication set can’t be deleted.
         """
@@ -74,7 +74,7 @@ class GetReplicationSetResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -82,7 +82,7 @@ class GetReplicationSetResult:
 
     @property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> str:
+    def last_modified_by(self) -> Optional[str]:
         """
         The ARN of the user who last modified the replication set.
         """
@@ -90,12 +90,12 @@ class GetReplicationSetResult:
 
     @property
     @pulumi.getter
-    def regions(self) -> Sequence['outputs.GetReplicationSetRegionResult']:
+    def regions(self) -> Optional[Sequence['outputs.GetReplicationSetRegionResult']]:
         return pulumi.get(self, "regions")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The current status of the Region.
         * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
@@ -104,7 +104,7 @@ class GetReplicationSetResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         All tags applied to the replication set.
         """

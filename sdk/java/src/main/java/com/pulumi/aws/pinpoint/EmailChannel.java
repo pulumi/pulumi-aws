@@ -182,14 +182,14 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="messagesPerSecond", refs={Integer.class}, tree="[0]")
-    private Output<Integer> messagesPerSecond;
+    private Output</* @Nullable */ Integer> messagesPerSecond;
 
     /**
      * @return Messages per second that can be sent.
      * 
      */
-    public Output<Integer> messagesPerSecond() {
-        return this.messagesPerSecond;
+    public Output<Optional<Integer>> messagesPerSecond() {
+        return Codegen.optional(this.messagesPerSecond);
     }
     /**
      * The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.

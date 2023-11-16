@@ -77,7 +77,7 @@ export class Multiplex extends pulumi.CustomResource {
     /**
      * ARN of the Multiplex.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A list of availability zones. You must specify exactly two.
      */

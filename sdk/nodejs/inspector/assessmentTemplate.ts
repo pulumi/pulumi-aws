@@ -71,7 +71,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
     /**
      * The template assessment ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The duration of the inspector run.
      */

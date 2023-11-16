@@ -165,56 +165,56 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The configuration for an application to automatically start on job submission.
      * 
      */
     @Export(name="autoStartConfiguration", refs={ApplicationAutoStartConfiguration.class}, tree="[0]")
-    private Output<ApplicationAutoStartConfiguration> autoStartConfiguration;
+    private Output</* @Nullable */ ApplicationAutoStartConfiguration> autoStartConfiguration;
 
     /**
      * @return The configuration for an application to automatically start on job submission.
      * 
      */
-    public Output<ApplicationAutoStartConfiguration> autoStartConfiguration() {
-        return this.autoStartConfiguration;
+    public Output<Optional<ApplicationAutoStartConfiguration>> autoStartConfiguration() {
+        return Codegen.optional(this.autoStartConfiguration);
     }
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      * 
      */
     @Export(name="autoStopConfiguration", refs={ApplicationAutoStopConfiguration.class}, tree="[0]")
-    private Output<ApplicationAutoStopConfiguration> autoStopConfiguration;
+    private Output</* @Nullable */ ApplicationAutoStopConfiguration> autoStopConfiguration;
 
     /**
      * @return The configuration for an application to automatically stop after a certain amount of time being idle.
      * 
      */
-    public Output<ApplicationAutoStopConfiguration> autoStopConfiguration() {
-        return this.autoStopConfiguration;
+    public Output<Optional<ApplicationAutoStopConfiguration>> autoStopConfiguration() {
+        return Codegen.optional(this.autoStopConfiguration);
     }
     /**
      * The image configuration applied to all worker types.
      * 
      */
     @Export(name="imageConfiguration", refs={ApplicationImageConfiguration.class}, tree="[0]")
-    private Output<ApplicationImageConfiguration> imageConfiguration;
+    private Output</* @Nullable */ ApplicationImageConfiguration> imageConfiguration;
 
     /**
      * @return The image configuration applied to all worker types.
      * 
      */
-    public Output<ApplicationImageConfiguration> imageConfiguration() {
-        return this.imageConfiguration;
+    public Output<Optional<ApplicationImageConfiguration>> imageConfiguration() {
+        return Codegen.optional(this.imageConfiguration);
     }
     /**
      * The capacity to initialize when the application is created.
@@ -235,14 +235,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maximumCapacity", refs={ApplicationMaximumCapacity.class}, tree="[0]")
-    private Output<ApplicationMaximumCapacity> maximumCapacity;
+    private Output</* @Nullable */ ApplicationMaximumCapacity> maximumCapacity;
 
     /**
      * @return The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      * 
      */
-    public Output<ApplicationMaximumCapacity> maximumCapacity() {
-        return this.maximumCapacity;
+    public Output<Optional<ApplicationMaximumCapacity>> maximumCapacity() {
+        return Codegen.optional(this.maximumCapacity);
     }
     /**
      * The name of the application.

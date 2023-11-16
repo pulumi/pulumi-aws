@@ -6,24 +6,26 @@ package com.pulumi.aws.codecatalyst.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDevEnvironmentRepository extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDevEnvironmentRepository Empty = new GetDevEnvironmentRepository();
 
-    @Import(name="branchName", required=true)
-    private String branchName;
+    @Import(name="branchName")
+    private @Nullable String branchName;
 
-    public String branchName() {
-        return this.branchName;
+    public Optional<String> branchName() {
+        return Optional.ofNullable(this.branchName);
     }
 
-    @Import(name="repositoryName", required=true)
-    private String repositoryName;
+    @Import(name="repositoryName")
+    private @Nullable String repositoryName;
 
-    public String repositoryName() {
-        return this.repositoryName;
+    public Optional<String> repositoryName() {
+        return Optional.ofNullable(this.repositoryName);
     }
 
     private GetDevEnvironmentRepository() {}
@@ -51,19 +53,17 @@ public final class GetDevEnvironmentRepository extends com.pulumi.resources.Invo
             $ = new GetDevEnvironmentRepository(Objects.requireNonNull(defaults));
         }
 
-        public Builder branchName(String branchName) {
+        public Builder branchName(@Nullable String branchName) {
             $.branchName = branchName;
             return this;
         }
 
-        public Builder repositoryName(String repositoryName) {
+        public Builder repositoryName(@Nullable String repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
         public GetDevEnvironmentRepository build() {
-            $.branchName = Objects.requireNonNull($.branchName, "expected parameter 'branchName' to be non-null");
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
             return $;
         }
     }

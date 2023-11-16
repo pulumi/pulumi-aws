@@ -162,14 +162,14 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="cidr", refs={String.class}, tree="[0]")
-    private Output<String> cidr;
+    private Output</* @Nullable */ String> cidr;
 
     /**
      * @return The CIDR you want to assign to the pool.
      * 
      */
-    public Output<String> cidr() {
-        return this.cidr;
+    public Output<Optional<String>> cidr() {
+        return Codegen.optional(this.cidr);
     }
     /**
      * The description for the allocation.
@@ -200,10 +200,10 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.disallowedCidrs);
     }
     @Export(name="ipamPoolAllocationId", refs={String.class}, tree="[0]")
-    private Output<String> ipamPoolAllocationId;
+    private Output</* @Nullable */ String> ipamPoolAllocationId;
 
-    public Output<String> ipamPoolAllocationId() {
-        return this.ipamPoolAllocationId;
+    public Output<Optional<String>> ipamPoolAllocationId() {
+        return Codegen.optional(this.ipamPoolAllocationId);
     }
     /**
      * The ID of the pool to which you want to assign a CIDR.
@@ -238,42 +238,42 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
-    private Output<String> resourceId;
+    private Output</* @Nullable */ String> resourceId;
 
     /**
      * @return The ID of the resource.
      * 
      */
-    public Output<String> resourceId() {
-        return this.resourceId;
+    public Output<Optional<String>> resourceId() {
+        return Codegen.optional(this.resourceId);
     }
     /**
      * The owner of the resource.
      * 
      */
     @Export(name="resourceOwner", refs={String.class}, tree="[0]")
-    private Output<String> resourceOwner;
+    private Output</* @Nullable */ String> resourceOwner;
 
     /**
      * @return The owner of the resource.
      * 
      */
-    public Output<String> resourceOwner() {
-        return this.resourceOwner;
+    public Output<Optional<String>> resourceOwner() {
+        return Codegen.optional(this.resourceOwner);
     }
     /**
      * The type of the resource.
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
-    private Output<String> resourceType;
+    private Output</* @Nullable */ String> resourceType;
 
     /**
      * @return The type of the resource.
      * 
      */
-    public Output<String> resourceType() {
-        return this.resourceType;
+    public Output<Optional<String>> resourceType() {
+        return Codegen.optional(this.resourceType);
     }
 
     /**

@@ -75,15 +75,15 @@ export class ServerlessCollection extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the collection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      */
-    public /*out*/ readonly collectionEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly collectionEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      */
-    public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Description of the collection.
      */
@@ -91,7 +91,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      */
-    public /*out*/ readonly kmsKeyArn!: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the collection.
      *
@@ -110,7 +110,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
     /**
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerlessCollection resource with the given unique name, arguments, and options.

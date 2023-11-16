@@ -97,9 +97,9 @@ type Connection struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Glue Connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties pulumi.StringMapOutput `pulumi:"connectionProperties"`
 	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
@@ -338,13 +338,13 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 }
 
 // The ARN of the Glue Connection.
-func (o ConnectionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConnectionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-func (o ConnectionOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+func (o ConnectionOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // A map of key-value pairs used as parameters for this connection.

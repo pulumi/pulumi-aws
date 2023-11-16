@@ -72,7 +72,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      */
-    public /*out*/ readonly apiEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly apiEndpoint!: pulumi.Output<string | undefined>;
     /**
      * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
      * Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
@@ -82,7 +82,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * ARN of the API.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      */
@@ -110,7 +110,7 @@ export class Api extends pulumi.CustomResource {
      * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
-    public /*out*/ readonly executionArn!: pulumi.Output<string>;
+    public /*out*/ readonly executionArn!: pulumi.Output<string | undefined>;
     /**
      * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
      */

@@ -100,7 +100,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Kinesis data streams where real-time log data is sent.
      */

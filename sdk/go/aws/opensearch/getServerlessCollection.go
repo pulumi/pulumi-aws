@@ -60,25 +60,25 @@ type LookupServerlessCollectionArgs struct {
 // A collection of values returned by getServerlessCollection.
 type LookupServerlessCollectionResult struct {
 	// Amazon Resource Name (ARN) of the collection.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
-	CollectionEndpoint string `pulumi:"collectionEndpoint"`
+	CollectionEndpoint *string `pulumi:"collectionEndpoint"`
 	// Date the Collection was created.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// Collection-specific endpoint used to access OpenSearch Dashboards.
-	DashboardEndpoint string `pulumi:"dashboardEndpoint"`
+	DashboardEndpoint *string `pulumi:"dashboardEndpoint"`
 	// Description of the collection.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
+	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Date the Collection was last modified.
-	LastModifiedDate string `pulumi:"lastModifiedDate"`
-	Name             string `pulumi:"name"`
+	LastModifiedDate *string `pulumi:"lastModifiedDate"`
+	Name             *string `pulumi:"name"`
 	// A map of tags to assign to the collection.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of collection.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 func LookupServerlessCollectionOutput(ctx *pulumi.Context, args LookupServerlessCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessCollectionResultOutput {
@@ -122,46 +122,46 @@ func (o LookupServerlessCollectionResultOutput) ToLookupServerlessCollectionResu
 }
 
 // Amazon Resource Name (ARN) of the collection.
-func (o LookupServerlessCollectionResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
-func (o LookupServerlessCollectionResultOutput) CollectionEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.CollectionEndpoint }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) CollectionEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.CollectionEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Date the Collection was created.
-func (o LookupServerlessCollectionResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Collection-specific endpoint used to access OpenSearch Dashboards.
-func (o LookupServerlessCollectionResultOutput) DashboardEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.DashboardEndpoint }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) DashboardEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.DashboardEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Description of the collection.
-func (o LookupServerlessCollectionResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServerlessCollectionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the Amazon Web Services KMS key used to encrypt the collection.
-func (o LookupServerlessCollectionResultOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Date the Collection was last modified.
-func (o LookupServerlessCollectionResultOutput) LastModifiedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServerlessCollectionResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the collection.
@@ -170,8 +170,8 @@ func (o LookupServerlessCollectionResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Type of collection.
-func (o LookupServerlessCollectionResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupServerlessCollectionResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

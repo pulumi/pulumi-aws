@@ -20,12 +20,12 @@ public final class GetRegionsResult {
      * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Names of regions that meets the criteria.
      * 
      */
-    private List<String> names;
+    private @Nullable List<String> names;
 
     private GetRegionsResult() {}
     public Optional<Boolean> allRegions() {
@@ -38,15 +38,15 @@ public final class GetRegionsResult {
      * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Names of regions that meets the criteria.
      * 
      */
     public List<String> names() {
-        return this.names;
+        return this.names == null ? List.of() : this.names;
     }
 
     public static Builder builder() {
@@ -60,8 +60,8 @@ public final class GetRegionsResult {
     public static final class Builder {
         private @Nullable Boolean allRegions;
         private @Nullable List<GetRegionsFilter> filters;
-        private String id;
-        private List<String> names;
+        private @Nullable String id;
+        private @Nullable List<String> names;
         public Builder() {}
         public Builder(GetRegionsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,13 +85,13 @@ public final class GetRegionsResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+        public Builder names(@Nullable List<String> names) {
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {

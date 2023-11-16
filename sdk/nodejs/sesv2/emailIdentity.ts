@@ -95,7 +95,7 @@ export class EmailIdentity extends pulumi.CustomResource {
     /**
      * ARN of the Email Identity.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
      */
@@ -103,7 +103,7 @@ export class EmailIdentity extends pulumi.CustomResource {
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      */
-    public readonly dkimSigningAttributes!: pulumi.Output<outputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    public readonly dkimSigningAttributes!: pulumi.Output<outputs.sesv2.EmailIdentityDkimSigningAttributes | undefined>;
     /**
      * The email address or domain to verify.
      *
@@ -113,7 +113,7 @@ export class EmailIdentity extends pulumi.CustomResource {
     /**
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
-    public /*out*/ readonly identityType!: pulumi.Output<string>;
+    public /*out*/ readonly identityType!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -127,7 +127,7 @@ export class EmailIdentity extends pulumi.CustomResource {
     /**
      * Specifies whether or not the identity is verified.
      */
-    public /*out*/ readonly verifiedForSendingStatus!: pulumi.Output<boolean>;
+    public /*out*/ readonly verifiedForSendingStatus!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a EmailIdentity resource with the given unique name, arguments, and options.

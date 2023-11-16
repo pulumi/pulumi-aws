@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of all node group names in an EKS Cluster.
         /// </summary>
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Eks
         private GetNodeGroupsResult(
             string clusterName,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> names)
         {

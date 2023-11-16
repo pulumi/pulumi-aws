@@ -58,16 +58,16 @@ type ServiceNetworkVpcAssociation struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The account that created the association.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	CreatedBy pulumi.StringPtrOutput `pulumi:"createdBy"`
 	// The IDs of the security groups.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
 	// The following arguments are optional:
 	ServiceNetworkIdentifier pulumi.StringOutput `pulumi:"serviceNetworkIdentifier"`
 	// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -278,13 +278,13 @@ func (o ServiceNetworkVpcAssociationOutput) ToServiceNetworkVpcAssociationOutput
 }
 
 // The ARN of the Association.
-func (o ServiceNetworkVpcAssociationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServiceNetworkVpcAssociationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The account that created the association.
-func (o ServiceNetworkVpcAssociationOutput) CreatedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+func (o ServiceNetworkVpcAssociationOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
 // The IDs of the security groups.
@@ -299,8 +299,8 @@ func (o ServiceNetworkVpcAssociationOutput) ServiceNetworkIdentifier() pulumi.St
 }
 
 // The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-func (o ServiceNetworkVpcAssociationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ServiceNetworkVpcAssociationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

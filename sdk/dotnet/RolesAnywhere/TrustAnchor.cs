@@ -95,13 +95,13 @@ namespace Pulumi.Aws.RolesAnywhere
         /// Amazon Resource Name (ARN) of the Trust Anchor
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not the Trust Anchor should be enabled.
         /// </summary>
         [Output("enabled")]
-        public Output<bool> Enabled { get; private set; } = null!;
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Trust Anchor.

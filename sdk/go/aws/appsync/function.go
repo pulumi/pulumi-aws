@@ -157,7 +157,7 @@ type Function struct {
 	// ID of the associated AppSync API.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// ARN of the Function object.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
 	Code pulumi.StringPtrOutput `pulumi:"code"`
 	// Function data source name.
@@ -165,9 +165,9 @@ type Function struct {
 	// Function description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Unique ID representing the Function object.
-	FunctionId pulumi.StringOutput `pulumi:"functionId"`
+	FunctionId pulumi.StringPtrOutput `pulumi:"functionId"`
 	// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
-	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
+	FunctionVersion pulumi.StringPtrOutput `pulumi:"functionVersion"`
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
 	// Function name. The function name does not have to be unique.
@@ -423,8 +423,8 @@ func (o FunctionOutput) ApiId() pulumi.StringOutput {
 }
 
 // ARN of the Function object.
-func (o FunctionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FunctionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
@@ -443,13 +443,13 @@ func (o FunctionOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Unique ID representing the Function object.
-func (o FunctionOutput) FunctionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionId }).(pulumi.StringOutput)
+func (o FunctionOutput) FunctionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.FunctionId }).(pulumi.StringPtrOutput)
 }
 
 // Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
-func (o FunctionOutput) FunctionVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionVersion }).(pulumi.StringOutput)
+func (o FunctionOutput) FunctionVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.FunctionVersion }).(pulumi.StringPtrOutput)
 }
 
 // Maximum batching size for a resolver. Valid values are between `0` and `2000`.

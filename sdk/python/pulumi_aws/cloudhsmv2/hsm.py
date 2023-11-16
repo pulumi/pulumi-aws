@@ -359,7 +359,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         """
@@ -375,7 +375,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hsmEniId")
-    def hsm_eni_id(self) -> pulumi.Output[str]:
+    def hsm_eni_id(self) -> pulumi.Output[Optional[str]]:
         """
         The id of the ENI interface allocated for HSM module.
         """
@@ -383,7 +383,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hsmId")
-    def hsm_id(self) -> pulumi.Output[str]:
+    def hsm_id(self) -> pulumi.Output[Optional[str]]:
         """
         The id of the HSM module.
         """
@@ -391,7 +391,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hsmState")
-    def hsm_state(self) -> pulumi.Output[str]:
+    def hsm_state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the HSM module.
         """
@@ -399,7 +399,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> pulumi.Output[str]:
+    def ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The IP address of HSM module. Must be within the CIDR of selected subnet.
         """
@@ -407,7 +407,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Output[str]:
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         """

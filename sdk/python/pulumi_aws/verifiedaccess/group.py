@@ -420,7 +420,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp when the access group was created.
         """
@@ -428,7 +428,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deletionTime")
-    def deletion_time(self) -> pulumi.Output[str]:
+    def deletion_time(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp when the access group was deleted.
         """
@@ -436,7 +436,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the verified access group.
         """
@@ -444,7 +444,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp when the access group was last updated.
         """
@@ -452,7 +452,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account number owning this resource.
         """
@@ -481,7 +481,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="verifiedaccessGroupArn")
-    def verifiedaccess_group_arn(self) -> pulumi.Output[str]:
+    def verifiedaccess_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of this verified acess group.
         """
@@ -489,7 +489,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="verifiedaccessGroupId")
-    def verifiedaccess_group_id(self) -> pulumi.Output[str]:
+    def verifiedaccess_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of this verified access group.
         """

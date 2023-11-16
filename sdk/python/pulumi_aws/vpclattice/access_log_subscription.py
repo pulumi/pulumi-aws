@@ -310,7 +310,7 @@ class AccessLogSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the access log subscription.
         """
@@ -326,7 +326,7 @@ class AccessLogSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Output[str]:
+    def resource_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the service network or service.
         """

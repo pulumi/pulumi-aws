@@ -62,7 +62,7 @@ export class AssessmentReport extends pulumi.CustomResource {
     /**
      * Name of the user who created the assessment report.
      */
-    public /*out*/ readonly author!: pulumi.Output<string>;
+    public /*out*/ readonly author!: pulumi.Output<string | undefined>;
     /**
      * Description of the assessment report.
      */
@@ -74,7 +74,7 @@ export class AssessmentReport extends pulumi.CustomResource {
     /**
      * Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AssessmentReport resource with the given unique name, arguments, and options.

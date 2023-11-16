@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
         /// <summary>
         /// The ID of the subnet associated with the transit gateway multicast domain.
         /// </summary>
-        public readonly string SubnetId;
+        public readonly string? SubnetId;
         /// <summary>
         /// The ID of the transit gateway attachment.
         /// </summary>
-        public readonly string TransitGatewayAttachmentId;
+        public readonly string? TransitGatewayAttachmentId;
 
         [OutputConstructor]
         private GetMulticastDomainAssociationResult(
-            string subnetId,
+            string? subnetId,
 
-            string transitGatewayAttachmentId)
+            string? transitGatewayAttachmentId)
         {
             SubnetId = subnetId;
             TransitGatewayAttachmentId = transitGatewayAttachmentId;

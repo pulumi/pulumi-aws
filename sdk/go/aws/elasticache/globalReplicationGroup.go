@@ -132,23 +132,23 @@ type GlobalReplicationGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the ElastiCache Global Replication Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A flag that indicate whether the encryption at rest is enabled.
-	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
 	// A flag that indicate whether AuthToken (password) is enabled.
-	AuthTokenEnabled pulumi.BoolOutput `pulumi:"authTokenEnabled"`
+	AuthTokenEnabled pulumi.BoolPtrOutput `pulumi:"authTokenEnabled"`
 	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
 	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
-	AutomaticFailoverEnabled pulumi.BoolOutput `pulumi:"automaticFailoverEnabled"`
+	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
 	// The instance class used.
 	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
 	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
 	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
-	CacheNodeType pulumi.StringOutput `pulumi:"cacheNodeType"`
+	CacheNodeType pulumi.StringPtrOutput `pulumi:"cacheNodeType"`
 	// Indicates whether the Global Datastore is cluster enabled.
-	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
+	ClusterEnabled pulumi.BoolPtrOutput `pulumi:"clusterEnabled"`
 	// The name of the cache engine to be used for the clusters in this global replication group.
-	Engine pulumi.StringOutput `pulumi:"engine"`
+	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// Redis version to use for the Global Replication Group.
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
@@ -157,20 +157,20 @@ type GlobalReplicationGroup struct {
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The full version number of the cache engine running on the members of this global replication group.
-	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
+	EngineVersionActual pulumi.StringPtrOutput `pulumi:"engineVersionActual"`
 	// Set of node groups (shards) on the global replication group.
 	// Has the values:
 	GlobalNodeGroups GlobalReplicationGroupGlobalNodeGroupArrayOutput `pulumi:"globalNodeGroups"`
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrOutput `pulumi:"globalReplicationGroupDescription"`
 	// The full ID of the global replication group.
-	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
+	GlobalReplicationGroupId pulumi.StringPtrOutput `pulumi:"globalReplicationGroupId"`
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix pulumi.StringOutput `pulumi:"globalReplicationGroupIdSuffix"`
 	// The number of node groups (shards) on the global replication group.
-	NumNodeGroups pulumi.IntOutput `pulumi:"numNodeGroups"`
+	NumNodeGroups pulumi.IntPtrOutput `pulumi:"numNodeGroups"`
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
 	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
@@ -179,7 +179,7 @@ type GlobalReplicationGroup struct {
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId pulumi.StringOutput `pulumi:"primaryReplicationGroupId"`
 	// A flag that indicates whether the encryption in transit is enabled.
-	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
+	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
 }
 
 // NewGlobalReplicationGroup registers a new resource with the given unique name, arguments, and options.
@@ -480,42 +480,42 @@ func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutputWithContext(
 }
 
 // The ARN of the ElastiCache Global Replication Group.
-func (o GlobalReplicationGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GlobalReplicationGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A flag that indicate whether the encryption at rest is enabled.
-func (o GlobalReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolOutput)
+func (o GlobalReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A flag that indicate whether AuthToken (password) is enabled.
-func (o GlobalReplicationGroupOutput) AuthTokenEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.AuthTokenEnabled }).(pulumi.BoolOutput)
+func (o GlobalReplicationGroupOutput) AuthTokenEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolPtrOutput { return v.AuthTokenEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
 // When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
-func (o GlobalReplicationGroupOutput) AutomaticFailoverEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.AutomaticFailoverEnabled }).(pulumi.BoolOutput)
+func (o GlobalReplicationGroupOutput) AutomaticFailoverEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolPtrOutput { return v.AutomaticFailoverEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The instance class used.
 // See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
 // and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
 // When creating, by default the Global Replication Group inherits the node type of the primary replication group.
-func (o GlobalReplicationGroupOutput) CacheNodeType() pulumi.StringOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.CacheNodeType }).(pulumi.StringOutput)
+func (o GlobalReplicationGroupOutput) CacheNodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.CacheNodeType }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the Global Datastore is cluster enabled.
-func (o GlobalReplicationGroupOutput) ClusterEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.ClusterEnabled }).(pulumi.BoolOutput)
+func (o GlobalReplicationGroupOutput) ClusterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolPtrOutput { return v.ClusterEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the cache engine to be used for the clusters in this global replication group.
-func (o GlobalReplicationGroupOutput) Engine() pulumi.StringOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
+func (o GlobalReplicationGroupOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
 // Redis version to use for the Global Replication Group.
@@ -526,13 +526,13 @@ func (o GlobalReplicationGroupOutput) Engine() pulumi.StringOutput {
 // When the version is 6, the major and minor version can be set, e.g., `6.2`,
 // or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 // The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
-func (o GlobalReplicationGroupOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o GlobalReplicationGroupOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The full version number of the cache engine running on the members of this global replication group.
-func (o GlobalReplicationGroupOutput) EngineVersionActual() pulumi.StringOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.EngineVersionActual }).(pulumi.StringOutput)
+func (o GlobalReplicationGroupOutput) EngineVersionActual() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.EngineVersionActual }).(pulumi.StringPtrOutput)
 }
 
 // Set of node groups (shards) on the global replication group.
@@ -549,8 +549,8 @@ func (o GlobalReplicationGroupOutput) GlobalReplicationGroupDescription() pulumi
 }
 
 // The full ID of the global replication group.
-func (o GlobalReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.GlobalReplicationGroupId }).(pulumi.StringOutput)
+func (o GlobalReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.GlobalReplicationGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
@@ -559,8 +559,8 @@ func (o GlobalReplicationGroupOutput) GlobalReplicationGroupIdSuffix() pulumi.St
 }
 
 // The number of node groups (shards) on the global replication group.
-func (o GlobalReplicationGroupOutput) NumNodeGroups() pulumi.IntOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.IntOutput { return v.NumNodeGroups }).(pulumi.IntOutput)
+func (o GlobalReplicationGroupOutput) NumNodeGroups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.IntPtrOutput { return v.NumNodeGroups }).(pulumi.IntPtrOutput)
 }
 
 // An ElastiCache Parameter Group to use for the Global Replication Group.
@@ -577,8 +577,8 @@ func (o GlobalReplicationGroupOutput) PrimaryReplicationGroupId() pulumi.StringO
 }
 
 // A flag that indicates whether the encryption in transit is enabled.
-func (o GlobalReplicationGroupOutput) TransitEncryptionEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolOutput)
+func (o GlobalReplicationGroupOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type GlobalReplicationGroupArrayOutput struct{ *pulumi.OutputState }

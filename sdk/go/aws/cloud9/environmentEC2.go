@@ -134,7 +134,7 @@ type EnvironmentEC2 struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the environment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The number of minutes until the running instance is shut down after the environment has last been used.
 	AutomaticStopTimeMinutes pulumi.IntPtrOutput `pulumi:"automaticStopTimeMinutes"`
 	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
@@ -156,7 +156,7 @@ type EnvironmentEC2 struct {
 	// The name of the environment.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-	OwnerArn pulumi.StringOutput `pulumi:"ownerArn"`
+	OwnerArn pulumi.StringPtrOutput `pulumi:"ownerArn"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -166,7 +166,7 @@ type EnvironmentEC2 struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the environment (e.g., `ssh` or `ec2`)
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewEnvironmentEC2 registers a new resource with the given unique name, arguments, and options.
@@ -430,8 +430,8 @@ func (o EnvironmentEC2Output) ToEnvironmentEC2OutputWithContext(ctx context.Cont
 }
 
 // The ARN of the environment.
-func (o EnvironmentEC2Output) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EnvironmentEC2Output) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The number of minutes until the running instance is shut down after the environment has last been used.
@@ -473,8 +473,8 @@ func (o EnvironmentEC2Output) Name() pulumi.StringOutput {
 }
 
 // The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-func (o EnvironmentEC2Output) OwnerArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.OwnerArn }).(pulumi.StringOutput)
+func (o EnvironmentEC2Output) OwnerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.OwnerArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
@@ -495,8 +495,8 @@ func (o EnvironmentEC2Output) TagsAll() pulumi.StringMapOutput {
 }
 
 // The type of the environment (e.g., `ssh` or `ec2`)
-func (o EnvironmentEC2Output) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o EnvironmentEC2Output) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type EnvironmentEC2ArrayOutput struct{ *pulumi.OutputState }

@@ -6,6 +6,8 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeConfigurationUiColorPalette {
@@ -13,195 +15,195 @@ public final class GetThemeConfigurationUiColorPalette {
      * @return Color (hexadecimal) that applies to selected states and buttons.
      * 
      */
-    private String accent;
+    private @Nullable String accent;
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
      * 
      */
-    private String accentForeground;
+    private @Nullable String accentForeground;
     /**
      * @return Color (hexadecimal) that applies to error messages.
      * 
      */
-    private String danger;
+    private @Nullable String danger;
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the error color.
      * 
      */
-    private String dangerForeground;
+    private @Nullable String dangerForeground;
     /**
      * @return Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
      * 
      */
-    private String dimension;
+    private @Nullable String dimension;
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
      * 
      */
-    private String dimensionForeground;
+    private @Nullable String dimensionForeground;
     /**
      * @return Color (hexadecimal) that applies to the names of fields that are identified as measures.
      * 
      */
-    private String measure;
+    private @Nullable String measure;
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
      * 
      */
-    private String measureForeground;
+    private @Nullable String measureForeground;
     /**
      * @return Color (hexadecimal) that applies to visuals and other high emphasis UI.
      * 
      */
-    private String primaryBackground;
+    private @Nullable String primaryBackground;
     /**
      * @return Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
      * 
      */
-    private String primaryForeground;
+    private @Nullable String primaryForeground;
     /**
      * @return Color (hexadecimal) that applies to the sheet background and sheet controls.
      * 
      */
-    private String secondaryBackground;
+    private @Nullable String secondaryBackground;
     /**
      * @return Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
      * 
      */
-    private String secondaryForeground;
+    private @Nullable String secondaryForeground;
     /**
      * @return Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
      * 
      */
-    private String success;
+    private @Nullable String success;
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the success color.
      * 
      */
-    private String successForeground;
+    private @Nullable String successForeground;
     /**
      * @return Color (hexadecimal) that applies to warning and informational messages.
      * 
      */
-    private String warning;
+    private @Nullable String warning;
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
      * 
      */
-    private String warningForeground;
+    private @Nullable String warningForeground;
 
     private GetThemeConfigurationUiColorPalette() {}
     /**
      * @return Color (hexadecimal) that applies to selected states and buttons.
      * 
      */
-    public String accent() {
-        return this.accent;
+    public Optional<String> accent() {
+        return Optional.ofNullable(this.accent);
     }
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
      * 
      */
-    public String accentForeground() {
-        return this.accentForeground;
+    public Optional<String> accentForeground() {
+        return Optional.ofNullable(this.accentForeground);
     }
     /**
      * @return Color (hexadecimal) that applies to error messages.
      * 
      */
-    public String danger() {
-        return this.danger;
+    public Optional<String> danger() {
+        return Optional.ofNullable(this.danger);
     }
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the error color.
      * 
      */
-    public String dangerForeground() {
-        return this.dangerForeground;
+    public Optional<String> dangerForeground() {
+        return Optional.ofNullable(this.dangerForeground);
     }
     /**
      * @return Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
      * 
      */
-    public String dimension() {
-        return this.dimension;
+    public Optional<String> dimension() {
+        return Optional.ofNullable(this.dimension);
     }
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
      * 
      */
-    public String dimensionForeground() {
-        return this.dimensionForeground;
+    public Optional<String> dimensionForeground() {
+        return Optional.ofNullable(this.dimensionForeground);
     }
     /**
      * @return Color (hexadecimal) that applies to the names of fields that are identified as measures.
      * 
      */
-    public String measure() {
-        return this.measure;
+    public Optional<String> measure() {
+        return Optional.ofNullable(this.measure);
     }
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
      * 
      */
-    public String measureForeground() {
-        return this.measureForeground;
+    public Optional<String> measureForeground() {
+        return Optional.ofNullable(this.measureForeground);
     }
     /**
      * @return Color (hexadecimal) that applies to visuals and other high emphasis UI.
      * 
      */
-    public String primaryBackground() {
-        return this.primaryBackground;
+    public Optional<String> primaryBackground() {
+        return Optional.ofNullable(this.primaryBackground);
     }
     /**
      * @return Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
      * 
      */
-    public String primaryForeground() {
-        return this.primaryForeground;
+    public Optional<String> primaryForeground() {
+        return Optional.ofNullable(this.primaryForeground);
     }
     /**
      * @return Color (hexadecimal) that applies to the sheet background and sheet controls.
      * 
      */
-    public String secondaryBackground() {
-        return this.secondaryBackground;
+    public Optional<String> secondaryBackground() {
+        return Optional.ofNullable(this.secondaryBackground);
     }
     /**
      * @return Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
      * 
      */
-    public String secondaryForeground() {
-        return this.secondaryForeground;
+    public Optional<String> secondaryForeground() {
+        return Optional.ofNullable(this.secondaryForeground);
     }
     /**
      * @return Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
      * 
      */
-    public String success() {
-        return this.success;
+    public Optional<String> success() {
+        return Optional.ofNullable(this.success);
     }
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the success color.
      * 
      */
-    public String successForeground() {
-        return this.successForeground;
+    public Optional<String> successForeground() {
+        return Optional.ofNullable(this.successForeground);
     }
     /**
      * @return Color (hexadecimal) that applies to warning and informational messages.
      * 
      */
-    public String warning() {
-        return this.warning;
+    public Optional<String> warning() {
+        return Optional.ofNullable(this.warning);
     }
     /**
      * @return Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
      * 
      */
-    public String warningForeground() {
-        return this.warningForeground;
+    public Optional<String> warningForeground() {
+        return Optional.ofNullable(this.warningForeground);
     }
 
     public static Builder builder() {
@@ -213,22 +215,22 @@ public final class GetThemeConfigurationUiColorPalette {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accent;
-        private String accentForeground;
-        private String danger;
-        private String dangerForeground;
-        private String dimension;
-        private String dimensionForeground;
-        private String measure;
-        private String measureForeground;
-        private String primaryBackground;
-        private String primaryForeground;
-        private String secondaryBackground;
-        private String secondaryForeground;
-        private String success;
-        private String successForeground;
-        private String warning;
-        private String warningForeground;
+        private @Nullable String accent;
+        private @Nullable String accentForeground;
+        private @Nullable String danger;
+        private @Nullable String dangerForeground;
+        private @Nullable String dimension;
+        private @Nullable String dimensionForeground;
+        private @Nullable String measure;
+        private @Nullable String measureForeground;
+        private @Nullable String primaryBackground;
+        private @Nullable String primaryForeground;
+        private @Nullable String secondaryBackground;
+        private @Nullable String secondaryForeground;
+        private @Nullable String success;
+        private @Nullable String successForeground;
+        private @Nullable String warning;
+        private @Nullable String warningForeground;
         public Builder() {}
         public Builder(GetThemeConfigurationUiColorPalette defaults) {
     	      Objects.requireNonNull(defaults);
@@ -251,83 +253,83 @@ public final class GetThemeConfigurationUiColorPalette {
         }
 
         @CustomType.Setter
-        public Builder accent(String accent) {
-            this.accent = Objects.requireNonNull(accent);
+        public Builder accent(@Nullable String accent) {
+            this.accent = accent;
             return this;
         }
         @CustomType.Setter
-        public Builder accentForeground(String accentForeground) {
-            this.accentForeground = Objects.requireNonNull(accentForeground);
+        public Builder accentForeground(@Nullable String accentForeground) {
+            this.accentForeground = accentForeground;
             return this;
         }
         @CustomType.Setter
-        public Builder danger(String danger) {
-            this.danger = Objects.requireNonNull(danger);
+        public Builder danger(@Nullable String danger) {
+            this.danger = danger;
             return this;
         }
         @CustomType.Setter
-        public Builder dangerForeground(String dangerForeground) {
-            this.dangerForeground = Objects.requireNonNull(dangerForeground);
+        public Builder dangerForeground(@Nullable String dangerForeground) {
+            this.dangerForeground = dangerForeground;
             return this;
         }
         @CustomType.Setter
-        public Builder dimension(String dimension) {
-            this.dimension = Objects.requireNonNull(dimension);
+        public Builder dimension(@Nullable String dimension) {
+            this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
-        public Builder dimensionForeground(String dimensionForeground) {
-            this.dimensionForeground = Objects.requireNonNull(dimensionForeground);
+        public Builder dimensionForeground(@Nullable String dimensionForeground) {
+            this.dimensionForeground = dimensionForeground;
             return this;
         }
         @CustomType.Setter
-        public Builder measure(String measure) {
-            this.measure = Objects.requireNonNull(measure);
+        public Builder measure(@Nullable String measure) {
+            this.measure = measure;
             return this;
         }
         @CustomType.Setter
-        public Builder measureForeground(String measureForeground) {
-            this.measureForeground = Objects.requireNonNull(measureForeground);
+        public Builder measureForeground(@Nullable String measureForeground) {
+            this.measureForeground = measureForeground;
             return this;
         }
         @CustomType.Setter
-        public Builder primaryBackground(String primaryBackground) {
-            this.primaryBackground = Objects.requireNonNull(primaryBackground);
+        public Builder primaryBackground(@Nullable String primaryBackground) {
+            this.primaryBackground = primaryBackground;
             return this;
         }
         @CustomType.Setter
-        public Builder primaryForeground(String primaryForeground) {
-            this.primaryForeground = Objects.requireNonNull(primaryForeground);
+        public Builder primaryForeground(@Nullable String primaryForeground) {
+            this.primaryForeground = primaryForeground;
             return this;
         }
         @CustomType.Setter
-        public Builder secondaryBackground(String secondaryBackground) {
-            this.secondaryBackground = Objects.requireNonNull(secondaryBackground);
+        public Builder secondaryBackground(@Nullable String secondaryBackground) {
+            this.secondaryBackground = secondaryBackground;
             return this;
         }
         @CustomType.Setter
-        public Builder secondaryForeground(String secondaryForeground) {
-            this.secondaryForeground = Objects.requireNonNull(secondaryForeground);
+        public Builder secondaryForeground(@Nullable String secondaryForeground) {
+            this.secondaryForeground = secondaryForeground;
             return this;
         }
         @CustomType.Setter
-        public Builder success(String success) {
-            this.success = Objects.requireNonNull(success);
+        public Builder success(@Nullable String success) {
+            this.success = success;
             return this;
         }
         @CustomType.Setter
-        public Builder successForeground(String successForeground) {
-            this.successForeground = Objects.requireNonNull(successForeground);
+        public Builder successForeground(@Nullable String successForeground) {
+            this.successForeground = successForeground;
             return this;
         }
         @CustomType.Setter
-        public Builder warning(String warning) {
-            this.warning = Objects.requireNonNull(warning);
+        public Builder warning(@Nullable String warning) {
+            this.warning = warning;
             return this;
         }
         @CustomType.Setter
-        public Builder warningForeground(String warningForeground) {
-            this.warningForeground = Objects.requireNonNull(warningForeground);
+        public Builder warningForeground(@Nullable String warningForeground) {
+            this.warningForeground = warningForeground;
             return this;
         }
         public GetThemeConfigurationUiColorPalette build() {

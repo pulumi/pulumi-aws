@@ -67,8 +67,8 @@ type GetResolverFirewallRulesResult struct {
 	// List with information about the firewall rules. See details below.
 	FirewallRules []GetResolverFirewallRulesFirewallRule `pulumi:"firewallRules"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
-	Priority *int   `pulumi:"priority"`
+	Id       *string `pulumi:"id"`
+	Priority *int    `pulumi:"priority"`
 }
 
 func GetResolverFirewallRulesOutput(ctx *pulumi.Context, args GetResolverFirewallRulesOutputArgs, opts ...pulumi.InvokeOption) GetResolverFirewallRulesResultOutput {
@@ -127,8 +127,8 @@ func (o GetResolverFirewallRulesResultOutput) FirewallRules() GetResolverFirewal
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetResolverFirewallRulesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetResolverFirewallRulesResultOutput) Priority() pulumi.IntPtrOutput {

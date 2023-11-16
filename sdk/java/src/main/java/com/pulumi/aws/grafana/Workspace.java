@@ -103,14 +103,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Grafana workspace.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
@@ -131,14 +131,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configuration", refs={String.class}, tree="[0]")
-    private Output<String> configuration;
+    private Output</* @Nullable */ String> configuration;
 
     /**
      * @return The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      * 
      */
-    public Output<String> configuration() {
-        return this.configuration;
+    public Output<Optional<String>> configuration() {
+        return Codegen.optional(this.configuration);
     }
     /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
@@ -173,28 +173,28 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The endpoint of the Grafana workspace.
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      * 
      */
     @Export(name="grafanaVersion", refs={String.class}, tree="[0]")
-    private Output<String> grafanaVersion;
+    private Output</* @Nullable */ String> grafanaVersion;
 
     /**
      * @return Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      * 
      */
-    public Output<String> grafanaVersion() {
-        return this.grafanaVersion;
+    public Output<Optional<String>> grafanaVersion() {
+        return Codegen.optional(this.grafanaVersion);
     }
     /**
      * The Grafana workspace name.
@@ -299,10 +299,10 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.roleArn);
     }
     @Export(name="samlConfigurationStatus", refs={String.class}, tree="[0]")
-    private Output<String> samlConfigurationStatus;
+    private Output</* @Nullable */ String> samlConfigurationStatus;
 
-    public Output<String> samlConfigurationStatus() {
-        return this.samlConfigurationStatus;
+    public Output<Optional<String>> samlConfigurationStatus() {
+        return Codegen.optional(this.samlConfigurationStatus);
     }
     /**
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.

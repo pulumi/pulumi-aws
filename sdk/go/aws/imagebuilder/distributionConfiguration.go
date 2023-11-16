@@ -73,11 +73,11 @@ type DistributionConfiguration struct {
 	pulumi.CustomResourceState
 
 	// (Required) Amazon Resource Name (ARN) of the distribution configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Date the distribution configuration was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
+	DateCreated pulumi.StringPtrOutput `pulumi:"dateCreated"`
 	// Date the distribution configuration was updated.
-	DateUpdated pulumi.StringOutput `pulumi:"dateUpdated"`
+	DateUpdated pulumi.StringPtrOutput `pulumi:"dateUpdated"`
 	// Description of the distribution configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
@@ -295,18 +295,18 @@ func (o DistributionConfigurationOutput) ToDistributionConfigurationOutputWithCo
 }
 
 // (Required) Amazon Resource Name (ARN) of the distribution configuration.
-func (o DistributionConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DistributionConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date the distribution configuration was created.
-func (o DistributionConfigurationOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
+func (o DistributionConfigurationOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringPtrOutput { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Date the distribution configuration was updated.
-func (o DistributionConfigurationOutput) DateUpdated() pulumi.StringOutput {
-	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.DateUpdated }).(pulumi.StringOutput)
+func (o DistributionConfigurationOutput) DateUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringPtrOutput { return v.DateUpdated }).(pulumi.StringPtrOutput)
 }
 
 // Description of the distribution configuration.

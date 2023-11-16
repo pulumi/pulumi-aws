@@ -96,7 +96,7 @@ namespace Pulumi.Aws.CloudFront
         /// Current version of the cache policy.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.

@@ -100,14 +100,14 @@ public class QueryDefinition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="queryDefinitionId", refs={String.class}, tree="[0]")
-    private Output<String> queryDefinitionId;
+    private Output</* @Nullable */ String> queryDefinitionId;
 
     /**
      * @return The query definition ID.
      * 
      */
-    public Output<String> queryDefinitionId() {
-        return this.queryDefinitionId;
+    public Output<Optional<String>> queryDefinitionId() {
+        return Codegen.optional(this.queryDefinitionId);
     }
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).

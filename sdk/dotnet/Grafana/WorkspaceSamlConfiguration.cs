@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Grafana
         /// The email assertion.
         /// </summary>
         [Output("emailAssertion")]
-        public Output<string> EmailAssertion { get; private set; } = null!;
+        public Output<string?> EmailAssertion { get; private set; } = null!;
 
         /// <summary>
         /// The groups assertion.
@@ -126,19 +126,19 @@ namespace Pulumi.Aws.Grafana
         /// The login assertion.
         /// </summary>
         [Output("loginAssertion")]
-        public Output<string> LoginAssertion { get; private set; } = null!;
+        public Output<string?> LoginAssertion { get; private set; } = null!;
 
         /// <summary>
         /// The login validity duration.
         /// </summary>
         [Output("loginValidityDuration")]
-        public Output<int> LoginValidityDuration { get; private set; } = null!;
+        public Output<int?> LoginValidityDuration { get; private set; } = null!;
 
         /// <summary>
         /// The name assertion.
         /// </summary>
         [Output("nameAssertion")]
-        public Output<string> NameAssertion { get; private set; } = null!;
+        public Output<string?> NameAssertion { get; private set; } = null!;
 
         /// <summary>
         /// The org assertion.
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Grafana
         /// The status of the SAML configuration.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The workspace id.

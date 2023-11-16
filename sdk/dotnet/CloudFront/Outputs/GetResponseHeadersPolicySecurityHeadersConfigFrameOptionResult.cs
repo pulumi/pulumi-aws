@@ -16,17 +16,17 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// Value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
         /// </summary>
-        public readonly string FrameOption;
+        public readonly string? FrameOption;
         /// <summary>
         /// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        public readonly bool Override;
+        public readonly bool? Override;
 
         [OutputConstructor]
         private GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult(
-            string frameOption,
+            string? frameOption,
 
-            bool @override)
+            bool? @override)
         {
             FrameOption = frameOption;
             Override = @override;

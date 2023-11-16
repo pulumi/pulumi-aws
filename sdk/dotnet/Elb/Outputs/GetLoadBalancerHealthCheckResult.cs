@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Elb.Outputs
     [OutputType]
     public sealed class GetLoadBalancerHealthCheckResult
     {
-        public readonly int HealthyThreshold;
-        public readonly int Interval;
-        public readonly string Target;
-        public readonly int Timeout;
-        public readonly int UnhealthyThreshold;
+        public readonly int? HealthyThreshold;
+        public readonly int? Interval;
+        public readonly string? Target;
+        public readonly int? Timeout;
+        public readonly int? UnhealthyThreshold;
 
         [OutputConstructor]
         private GetLoadBalancerHealthCheckResult(
-            int healthyThreshold,
+            int? healthyThreshold,
 
-            int interval,
+            int? interval,
 
-            string target,
+            string? target,
 
-            int timeout,
+            int? timeout,
 
-            int unhealthyThreshold)
+            int? unhealthyThreshold)
         {
             HealthyThreshold = healthyThreshold;
             Interval = interval;

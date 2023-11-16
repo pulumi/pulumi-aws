@@ -55,15 +55,15 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ARN of the Domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The total size of all assets in the domain.
      */
-    public /*out*/ readonly assetSizeBytes!: pulumi.Output<string>;
+    public /*out*/ readonly assetSizeBytes!: pulumi.Output<string | undefined>;
     /**
      * A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
      */
@@ -71,15 +71,15 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
      */
-    public readonly encryptionKey!: pulumi.Output<string>;
+    public readonly encryptionKey!: pulumi.Output<string | undefined>;
     /**
      * The AWS account ID that owns the domain.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * The number of repositories in the domain.
      */
-    public /*out*/ readonly repositoryCount!: pulumi.Output<number>;
+    public /*out*/ readonly repositoryCount!: pulumi.Output<number | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

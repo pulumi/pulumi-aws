@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Macie2
         /// The unique identifier for the invitation.
         /// </summary>
         [Output("invitationId")]
-        public Output<string> InvitationId { get; private set; } = null!;
+        public Output<string?> InvitationId { get; private set; } = null!;
 
 
         /// <summary>

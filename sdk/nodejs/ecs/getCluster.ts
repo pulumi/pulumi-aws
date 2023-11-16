@@ -52,40 +52,40 @@ export interface GetClusterResult {
     /**
      * ARN of the ECS Cluster
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly clusterName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Number of pending tasks for the ECS Cluster
      */
-    readonly pendingTasksCount: number;
+    readonly pendingTasksCount?: number;
     /**
      * The number of registered container instances for the ECS Cluster
      */
-    readonly registeredContainerInstancesCount: number;
+    readonly registeredContainerInstancesCount?: number;
     /**
      * Number of running tasks for the ECS Cluster
      */
-    readonly runningTasksCount: number;
+    readonly runningTasksCount?: number;
     /**
      * The default Service Connect namespace
      */
-    readonly serviceConnectDefaults: outputs.ecs.GetClusterServiceConnectDefault[];
+    readonly serviceConnectDefaults?: outputs.ecs.GetClusterServiceConnectDefault[];
     /**
      * Settings associated with the ECS Cluster
      */
-    readonly settings: outputs.ecs.GetClusterSetting[];
+    readonly settings?: outputs.ecs.GetClusterSetting[];
     /**
      * Status of the ECS Cluster
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Key-value map of resource tags
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * The ECS Cluster data source allows access to details of a specific

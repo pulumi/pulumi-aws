@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -77,84 +78,84 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date when the account was made a delegated administrator.
      * 
      */
     @Export(name="delegationEnabledDate", refs={String.class}, tree="[0]")
-    private Output<String> delegationEnabledDate;
+    private Output</* @Nullable */ String> delegationEnabledDate;
 
     /**
      * @return The date when the account was made a delegated administrator.
      * 
      */
-    public Output<String> delegationEnabledDate() {
-        return this.delegationEnabledDate;
+    public Output<Optional<String>> delegationEnabledDate() {
+        return Codegen.optional(this.delegationEnabledDate);
     }
     /**
      * The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
     @Export(name="email", refs={String.class}, tree="[0]")
-    private Output<String> email;
+    private Output</* @Nullable */ String> email;
 
     /**
      * @return The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
-    public Output<String> email() {
-        return this.email;
+    public Output<Optional<String>> email() {
+        return Codegen.optional(this.email);
     }
     /**
      * The method by which the delegated administrator&#39;s account joined the organization.
      * 
      */
     @Export(name="joinedMethod", refs={String.class}, tree="[0]")
-    private Output<String> joinedMethod;
+    private Output</* @Nullable */ String> joinedMethod;
 
     /**
      * @return The method by which the delegated administrator&#39;s account joined the organization.
      * 
      */
-    public Output<String> joinedMethod() {
-        return this.joinedMethod;
+    public Output<Optional<String>> joinedMethod() {
+        return Codegen.optional(this.joinedMethod);
     }
     /**
      * The date when the delegated administrator&#39;s account became a part of the organization.
      * 
      */
     @Export(name="joinedTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> joinedTimestamp;
+    private Output</* @Nullable */ String> joinedTimestamp;
 
     /**
      * @return The date when the delegated administrator&#39;s account became a part of the organization.
      * 
      */
-    public Output<String> joinedTimestamp() {
-        return this.joinedTimestamp;
+    public Output<Optional<String>> joinedTimestamp() {
+        return Codegen.optional(this.joinedTimestamp);
     }
     /**
      * The friendly name of the delegated administrator&#39;s account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return The friendly name of the delegated administrator&#39;s account.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
@@ -175,14 +176,14 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the delegated administrator&#39;s account in the organization.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

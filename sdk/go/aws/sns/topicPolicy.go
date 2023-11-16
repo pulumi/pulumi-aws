@@ -34,7 +34,7 @@ import (
 // if err != nil {
 // return err
 // }
-// snsTopicPolicy := test.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// snsTopicPolicy := test.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // PolicyId: "__default_policy_ID",
 // Statements: []iam.GetPolicyDocumentStatement{
@@ -105,7 +105,7 @@ type TopicPolicy struct {
 	// The ARN of the SNS topic
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS Account ID of the SNS topic owner
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
@@ -275,8 +275,8 @@ func (o TopicPolicyOutput) Arn() pulumi.StringOutput {
 }
 
 // The AWS Account ID of the SNS topic owner
-func (o TopicPolicyOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o TopicPolicyOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicPolicy) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // The fully-formed AWS policy as JSON.

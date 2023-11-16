@@ -75,7 +75,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
     /**
      * The connection endpoint ID for connecting to the domain.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * Options to specify the subnets and security groups for the endpoint.
      */

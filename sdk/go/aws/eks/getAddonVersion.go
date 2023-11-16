@@ -82,11 +82,11 @@ type GetAddonVersionArgs struct {
 type GetAddonVersionResult struct {
 	AddonName string `pulumi:"addonName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
-	KubernetesVersion string `pulumi:"kubernetesVersion"`
-	MostRecent        *bool  `pulumi:"mostRecent"`
+	Id                *string `pulumi:"id"`
+	KubernetesVersion string  `pulumi:"kubernetesVersion"`
+	MostRecent        *bool   `pulumi:"mostRecent"`
 	// Version of the EKS add-on.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 func GetAddonVersionOutput(ctx *pulumi.Context, args GetAddonVersionOutputArgs, opts ...pulumi.InvokeOption) GetAddonVersionResultOutput {
@@ -137,8 +137,8 @@ func (o GetAddonVersionResultOutput) AddonName() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAddonVersionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAddonVersionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetAddonVersionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAddonVersionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAddonVersionResultOutput) KubernetesVersion() pulumi.StringOutput {
@@ -150,8 +150,8 @@ func (o GetAddonVersionResultOutput) MostRecent() pulumi.BoolPtrOutput {
 }
 
 // Version of the EKS add-on.
-func (o GetAddonVersionResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAddonVersionResult) string { return v.Version }).(pulumi.StringOutput)
+func (o GetAddonVersionResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAddonVersionResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

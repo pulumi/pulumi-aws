@@ -238,7 +238,7 @@ class Graph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
         """
@@ -246,7 +246,7 @@ class Graph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="graphArn")
-    def graph_arn(self) -> pulumi.Output[str]:
+    def graph_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Detective Graph.
         """

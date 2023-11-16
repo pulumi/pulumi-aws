@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Backup
         /// The ARN of the backup framework.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
@@ -167,13 +167,13 @@ namespace Pulumi.Aws.Backup
         /// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
         /// </summary>
         [Output("deploymentStatus")]
-        public Output<string> DeploymentStatus { get; private set; } = null!;
+        public Output<string?> DeploymentStatus { get; private set; } = null!;
 
         /// <summary>
         /// The description of the framework with a maximum of 1,024 characters
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Backup
         /// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

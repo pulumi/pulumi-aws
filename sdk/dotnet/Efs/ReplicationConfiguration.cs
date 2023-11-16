@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Efs
         /// When the replication configuration was created.
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// A destination configuration block (documented below).
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Efs
         /// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
         /// </summary>
         [Output("originalSourceFileSystemArn")]
-        public Output<string> OriginalSourceFileSystemArn { get; private set; } = null!;
+        public Output<string?> OriginalSourceFileSystemArn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
         /// </summary>
         [Output("sourceFileSystemArn")]
-        public Output<string> SourceFileSystemArn { get; private set; } = null!;
+        public Output<string?> SourceFileSystemArn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the file system that is to be replicated.
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Efs
         /// * `destination[0].status` - The status of the replication.
         /// </summary>
         [Output("sourceFileSystemRegion")]
-        public Output<string> SourceFileSystemRegion { get; private set; } = null!;
+        public Output<string?> SourceFileSystemRegion { get; private set; } = null!;
 
 
         /// <summary>

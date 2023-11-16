@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Glue
         /// Amazon Resource Name (ARN) of Glue Registry.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the registry.

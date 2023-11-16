@@ -1122,7 +1122,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationResponseSelectionExpression")
-    def integration_response_selection_expression(self) -> pulumi.Output[str]:
+    def integration_response_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
         The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
         """
@@ -1208,7 +1208,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeoutMilliseconds")
-    def timeout_milliseconds(self) -> pulumi.Output[int]:
+    def timeout_milliseconds(self) -> pulumi.Output[Optional[int]]:
         """
         Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
         The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.

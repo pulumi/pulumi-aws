@@ -62,8 +62,8 @@ type LookupTrackerAssociationArgs struct {
 type LookupTrackerAssociationResult struct {
 	ConsumerArn string `pulumi:"consumerArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string `pulumi:"id"`
-	TrackerName string `pulumi:"trackerName"`
+	Id          *string `pulumi:"id"`
+	TrackerName string  `pulumi:"trackerName"`
 }
 
 func LookupTrackerAssociationOutput(ctx *pulumi.Context, args LookupTrackerAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerAssociationResultOutput {
@@ -111,8 +111,8 @@ func (o LookupTrackerAssociationResultOutput) ConsumerArn() pulumi.StringOutput 
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupTrackerAssociationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTrackerAssociationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupTrackerAssociationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTrackerAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupTrackerAssociationResultOutput) TrackerName() pulumi.StringOutput {

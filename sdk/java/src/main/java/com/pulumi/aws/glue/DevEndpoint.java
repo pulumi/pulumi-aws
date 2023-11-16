@@ -107,28 +107,28 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the endpoint.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The AWS availability zone where this endpoint is located.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The AWS availability zone where this endpoint is located.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
@@ -163,14 +163,14 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="failureReason", refs={String.class}, tree="[0]")
-    private Output<String> failureReason;
+    private Output</* @Nullable */ String> failureReason;
 
     /**
      * @return The reason for a current failure in this endpoint.
      * 
      */
-    public Output<String> failureReason() {
-        return this.failureReason;
+    public Output<Optional<String>> failureReason() {
+        return Codegen.optional(this.failureReason);
     }
     /**
      * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
@@ -233,28 +233,28 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateAddress", refs={String.class}, tree="[0]")
-    private Output<String> privateAddress;
+    private Output</* @Nullable */ String> privateAddress;
 
     /**
      * @return A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      * 
      */
-    public Output<String> privateAddress() {
-        return this.privateAddress;
+    public Output<Optional<String>> privateAddress() {
+        return Codegen.optional(this.privateAddress);
     }
     /**
      * The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      * 
      */
     @Export(name="publicAddress", refs={String.class}, tree="[0]")
-    private Output<String> publicAddress;
+    private Output</* @Nullable */ String> publicAddress;
 
     /**
      * @return The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      * 
      */
-    public Output<String> publicAddress() {
-        return this.publicAddress;
+    public Output<Optional<String>> publicAddress() {
+        return Codegen.optional(this.publicAddress);
     }
     /**
      * The public key to be used by this endpoint for authentication.
@@ -331,14 +331,14 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The current status of this endpoint.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * The subnet ID for the new endpoint to use.
@@ -391,14 +391,14 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return he ID of the VPC used by this endpoint.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
     /**
      * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
@@ -419,28 +419,28 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="yarnEndpointAddress", refs={String.class}, tree="[0]")
-    private Output<String> yarnEndpointAddress;
+    private Output</* @Nullable */ String> yarnEndpointAddress;
 
     /**
      * @return The YARN endpoint address used by this endpoint.
      * 
      */
-    public Output<String> yarnEndpointAddress() {
-        return this.yarnEndpointAddress;
+    public Output<Optional<String>> yarnEndpointAddress() {
+        return Codegen.optional(this.yarnEndpointAddress);
     }
     /**
      * The Apache Zeppelin port for the remote Apache Spark interpreter.
      * 
      */
     @Export(name="zeppelinRemoteSparkInterpreterPort", refs={Integer.class}, tree="[0]")
-    private Output<Integer> zeppelinRemoteSparkInterpreterPort;
+    private Output</* @Nullable */ Integer> zeppelinRemoteSparkInterpreterPort;
 
     /**
      * @return The Apache Zeppelin port for the remote Apache Spark interpreter.
      * 
      */
-    public Output<Integer> zeppelinRemoteSparkInterpreterPort() {
-        return this.zeppelinRemoteSparkInterpreterPort;
+    public Output<Optional<Integer>> zeppelinRemoteSparkInterpreterPort() {
+        return Codegen.optional(this.zeppelinRemoteSparkInterpreterPort);
     }
 
     /**

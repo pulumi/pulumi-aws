@@ -116,30 +116,30 @@ type AccessPoint struct {
 	pulumi.CustomResourceState
 
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// Alias of the S3 Access Point.
-	Alias pulumi.StringOutput `pulumi:"alias"`
+	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// ARN of the S3 Access Point.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// AWS account ID associated with the S3 bucket associated with this access point.
-	BucketAccountId pulumi.StringOutput `pulumi:"bucketAccountId"`
+	BucketAccountId pulumi.StringPtrOutput `pulumi:"bucketAccountId"`
 	// DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
 	// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// VPC endpoints for the S3 Access Point.
 	Endpoints pulumi.StringMapOutput `pulumi:"endpoints"`
 	// Indicates whether this access point currently has a policy that allows public access.
-	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
+	HasPublicAccessPolicy pulumi.BoolPtrOutput `pulumi:"hasPublicAccessPolicy"`
 	// Name you want to assign to this access point.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
-	NetworkOrigin pulumi.StringOutput `pulumi:"networkOrigin"`
+	NetworkOrigin pulumi.StringPtrOutput `pulumi:"networkOrigin"`
 	// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
 	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationPtrOutput `pulumi:"publicAccessBlockConfiguration"`
 	// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
@@ -373,18 +373,18 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 }
 
 // AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
-func (o AccessPointOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+func (o AccessPointOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // Alias of the S3 Access Point.
-func (o AccessPointOutput) Alias() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+func (o AccessPointOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the S3 Access Point.
-func (o AccessPointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AccessPointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
@@ -393,14 +393,14 @@ func (o AccessPointOutput) Bucket() pulumi.StringOutput {
 }
 
 // AWS account ID associated with the S3 bucket associated with this access point.
-func (o AccessPointOutput) BucketAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.BucketAccountId }).(pulumi.StringOutput)
+func (o AccessPointOutput) BucketAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.BucketAccountId }).(pulumi.StringPtrOutput)
 }
 
 // DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
 // Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
-func (o AccessPointOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+func (o AccessPointOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // VPC endpoints for the S3 Access Point.
@@ -409,8 +409,8 @@ func (o AccessPointOutput) Endpoints() pulumi.StringMapOutput {
 }
 
 // Indicates whether this access point currently has a policy that allows public access.
-func (o AccessPointOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.BoolOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolOutput)
+func (o AccessPointOutput) HasPublicAccessPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.BoolPtrOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // Name you want to assign to this access point.
@@ -421,13 +421,13 @@ func (o AccessPointOutput) Name() pulumi.StringOutput {
 }
 
 // Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
-func (o AccessPointOutput) NetworkOrigin() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.NetworkOrigin }).(pulumi.StringOutput)
+func (o AccessPointOutput) NetworkOrigin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.NetworkOrigin }).(pulumi.StringPtrOutput)
 }
 
 // Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
-func (o AccessPointOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o AccessPointOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.

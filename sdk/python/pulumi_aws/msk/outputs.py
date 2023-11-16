@@ -1559,12 +1559,12 @@ class ServerlessClusterVpcConfig(dict):
 @pulumi.output_type
 class GetBrokerNodesNodeInfoListResult(dict):
     def __init__(__self__, *,
-                 attached_eni_id: str,
-                 broker_id: float,
-                 client_subnet: str,
-                 client_vpc_ip_address: str,
-                 endpoints: Sequence[str],
-                 node_arn: str):
+                 attached_eni_id: Optional[str] = None,
+                 broker_id: Optional[float] = None,
+                 client_subnet: Optional[str] = None,
+                 client_vpc_ip_address: Optional[str] = None,
+                 endpoints: Optional[Sequence[str]] = None,
+                 node_arn: Optional[str] = None):
         """
         :param str attached_eni_id: Attached elastic network interface of the broker
         :param float broker_id: ID of the broker
@@ -1573,16 +1573,22 @@ class GetBrokerNodesNodeInfoListResult(dict):
         :param Sequence[str] endpoints: Set of endpoints for accessing the broker. This does not include ports
         :param str node_arn: ARN of the node
         """
-        pulumi.set(__self__, "attached_eni_id", attached_eni_id)
-        pulumi.set(__self__, "broker_id", broker_id)
-        pulumi.set(__self__, "client_subnet", client_subnet)
-        pulumi.set(__self__, "client_vpc_ip_address", client_vpc_ip_address)
-        pulumi.set(__self__, "endpoints", endpoints)
-        pulumi.set(__self__, "node_arn", node_arn)
+        if attached_eni_id is not None:
+            pulumi.set(__self__, "attached_eni_id", attached_eni_id)
+        if broker_id is not None:
+            pulumi.set(__self__, "broker_id", broker_id)
+        if client_subnet is not None:
+            pulumi.set(__self__, "client_subnet", client_subnet)
+        if client_vpc_ip_address is not None:
+            pulumi.set(__self__, "client_vpc_ip_address", client_vpc_ip_address)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if node_arn is not None:
+            pulumi.set(__self__, "node_arn", node_arn)
 
     @property
     @pulumi.getter(name="attachedEniId")
-    def attached_eni_id(self) -> str:
+    def attached_eni_id(self) -> Optional[str]:
         """
         Attached elastic network interface of the broker
         """
@@ -1590,7 +1596,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
 
     @property
     @pulumi.getter(name="brokerId")
-    def broker_id(self) -> float:
+    def broker_id(self) -> Optional[float]:
         """
         ID of the broker
         """
@@ -1598,7 +1604,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
 
     @property
     @pulumi.getter(name="clientSubnet")
-    def client_subnet(self) -> str:
+    def client_subnet(self) -> Optional[str]:
         """
         Client subnet to which this broker node belongs
         """
@@ -1606,7 +1612,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
 
     @property
     @pulumi.getter(name="clientVpcIpAddress")
-    def client_vpc_ip_address(self) -> str:
+    def client_vpc_ip_address(self) -> Optional[str]:
         """
         The client virtual private cloud (VPC) IP address
         """
@@ -1614,7 +1620,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Sequence[str]:
+    def endpoints(self) -> Optional[Sequence[str]]:
         """
         Set of endpoints for accessing the broker. This does not include ports
         """
@@ -1622,7 +1628,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
 
     @property
     @pulumi.getter(name="nodeArn")
-    def node_arn(self) -> str:
+    def node_arn(self) -> Optional[str]:
         """
         ARN of the node
         """

@@ -61,37 +61,37 @@ export interface GetPublicKeyResult {
     /**
      * Key ARN of the asymmetric CMK from which the public key was downloaded.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Type of the public key that was downloaded.
      */
-    readonly customerMasterKeySpec: string;
+    readonly customerMasterKeySpec?: string;
     /**
      * Encryption algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `ENCRYPT_DECRYPT`.
      */
-    readonly encryptionAlgorithms: string[];
+    readonly encryptionAlgorithms?: string[];
     readonly grantTokens?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly keyId: string;
     /**
      * Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
      */
-    readonly keyUsage: string;
+    readonly keyUsage?: string;
     /**
      * Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
      */
-    readonly publicKey: string;
+    readonly publicKey?: string;
     /**
      * Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
      */
-    readonly publicKeyPem: string;
+    readonly publicKeyPem?: string;
     /**
      * Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
      */
-    readonly signingAlgorithms: string[];
+    readonly signingAlgorithms?: string[];
 }
 /**
  * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.

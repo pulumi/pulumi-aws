@@ -86,7 +86,7 @@ export class EventConnection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      */
@@ -106,7 +106,7 @@ export class EventConnection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
      */
-    public /*out*/ readonly secretArn!: pulumi.Output<string>;
+    public /*out*/ readonly secretArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventConnection resource with the given unique name, arguments, and options.

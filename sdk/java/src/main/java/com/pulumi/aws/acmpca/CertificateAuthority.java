@@ -202,28 +202,28 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the certificate authority.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
     @Export(name="certificate", refs={String.class}, tree="[0]")
-    private Output<String> certificate;
+    private Output</* @Nullable */ String> certificate;
 
     /**
      * @return Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public Output<String> certificate() {
-        return this.certificate;
+    public Output<Optional<String>> certificate() {
+        return Codegen.optional(this.certificate);
     }
     /**
      * Nested argument containing algorithms and certificate subject information. Defined below.
@@ -244,28 +244,28 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
-    private Output<String> certificateChain;
+    private Output</* @Nullable */ String> certificateChain;
 
     /**
      * @return Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public Output<String> certificateChain() {
-        return this.certificateChain;
+    public Output<Optional<String>> certificateChain() {
+        return Codegen.optional(this.certificateChain);
     }
     /**
      * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      * 
      */
     @Export(name="certificateSigningRequest", refs={String.class}, tree="[0]")
-    private Output<String> certificateSigningRequest;
+    private Output</* @Nullable */ String> certificateSigningRequest;
 
     /**
      * @return The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      * 
      */
-    public Output<String> certificateSigningRequest() {
-        return this.certificateSigningRequest;
+    public Output<Optional<String>> certificateSigningRequest() {
+        return Codegen.optional(this.certificateSigningRequest);
     }
     /**
      * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
@@ -286,42 +286,42 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyStorageSecurityStandard", refs={String.class}, tree="[0]")
-    private Output<String> keyStorageSecurityStandard;
+    private Output</* @Nullable */ String> keyStorageSecurityStandard;
 
     /**
      * @return Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
      * 
      */
-    public Output<String> keyStorageSecurityStandard() {
-        return this.keyStorageSecurityStandard;
+    public Output<Optional<String>> keyStorageSecurityStandard() {
+        return Codegen.optional(this.keyStorageSecurityStandard);
     }
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
     @Export(name="notAfter", refs={String.class}, tree="[0]")
-    private Output<String> notAfter;
+    private Output</* @Nullable */ String> notAfter;
 
     /**
      * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public Output<String> notAfter() {
-        return this.notAfter;
+    public Output<Optional<String>> notAfter() {
+        return Codegen.optional(this.notAfter);
     }
     /**
      * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
     @Export(name="notBefore", refs={String.class}, tree="[0]")
-    private Output<String> notBefore;
+    private Output</* @Nullable */ String> notBefore;
 
     /**
      * @return Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public Output<String> notBefore() {
-        return this.notBefore;
+    public Output<Optional<String>> notBefore() {
+        return Codegen.optional(this.notBefore);
     }
     /**
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
@@ -356,14 +356,14 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serial", refs={String.class}, tree="[0]")
-    private Output<String> serial;
+    private Output</* @Nullable */ String> serial;
 
     /**
      * @return Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public Output<String> serial() {
-        return this.serial;
+    public Output<Optional<String>> serial() {
+        return Codegen.optional(this.serial);
     }
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -416,14 +416,14 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="usageMode", refs={String.class}, tree="[0]")
-    private Output<String> usageMode;
+    private Output</* @Nullable */ String> usageMode;
 
     /**
      * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
      * 
      */
-    public Output<String> usageMode() {
-        return this.usageMode;
+    public Output<Optional<String>> usageMode() {
+        return Codegen.optional(this.usageMode);
     }
 
     /**

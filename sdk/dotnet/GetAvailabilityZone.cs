@@ -142,44 +142,44 @@ namespace Pulumi.Aws
         /// <summary>
         /// For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
         /// </summary>
-        public readonly string GroupName;
+        public readonly string? GroupName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string Name;
+        public readonly string? Id;
+        public readonly string? Name;
         /// <summary>
         /// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
         /// For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
         /// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
         /// </summary>
-        public readonly string NameSuffix;
+        public readonly string? NameSuffix;
         /// <summary>
         /// The name of the location from which the address is advertised.
         /// </summary>
-        public readonly string NetworkBorderGroup;
+        public readonly string? NetworkBorderGroup;
         /// <summary>
         /// For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
         /// </summary>
-        public readonly string OptInStatus;
+        public readonly string? OptInStatus;
         /// <summary>
         /// ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
         /// </summary>
-        public readonly string ParentZoneId;
+        public readonly string? ParentZoneId;
         /// <summary>
         /// Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
         /// </summary>
-        public readonly string ParentZoneName;
+        public readonly string? ParentZoneName;
         /// <summary>
         /// Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
         /// </summary>
-        public readonly string Region;
-        public readonly string State;
-        public readonly string ZoneId;
+        public readonly string? Region;
+        public readonly string? State;
+        public readonly string? ZoneId;
         /// <summary>
         /// Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
         /// </summary>
-        public readonly string ZoneType;
+        public readonly string? ZoneType;
 
         [OutputConstructor]
         private GetAvailabilityZoneResult(
@@ -187,29 +187,29 @@ namespace Pulumi.Aws
 
             ImmutableArray<Outputs.GetAvailabilityZoneFilterResult> filters,
 
-            string groupName,
+            string? groupName,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string nameSuffix,
+            string? nameSuffix,
 
-            string networkBorderGroup,
+            string? networkBorderGroup,
 
-            string optInStatus,
+            string? optInStatus,
 
-            string parentZoneId,
+            string? parentZoneId,
 
-            string parentZoneName,
+            string? parentZoneName,
 
-            string region,
+            string? region,
 
-            string state,
+            string? state,
 
-            string zoneId,
+            string? zoneId,
 
-            string zoneType)
+            string? zoneType)
         {
             AllAvailabilityZones = allAvailabilityZones;
             Filters = filters;

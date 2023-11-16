@@ -64,9 +64,9 @@ type SnapshotCopyGrant struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of snapshot copy grant
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringOutput `pulumi:"snapshotCopyGrantName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -254,13 +254,13 @@ func (o SnapshotCopyGrantOutput) ToSnapshotCopyGrantOutputWithContext(ctx contex
 }
 
 // Amazon Resource Name (ARN) of snapshot copy grant
-func (o SnapshotCopyGrantOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SnapshotCopyGrantOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-func (o SnapshotCopyGrantOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o SnapshotCopyGrantOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // A friendly name for identifying the grant.

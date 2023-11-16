@@ -62,7 +62,7 @@ export class HsmConfiguration extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A text description of the HSM configuration to be created.
      */

@@ -84,24 +84,24 @@ export interface GetFirewallPolicyResult {
     /**
      * Description of the firewall policy.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The [policy][2] for the specified firewall policy.
      */
-    readonly firewallPolicies: outputs.networkfirewall.GetFirewallPolicyFirewallPolicy[];
+    readonly firewallPolicies?: outputs.networkfirewall.GetFirewallPolicyFirewallPolicy[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name?: string;
     /**
      * Key-value tags for the firewall policy.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Token used for optimistic locking.
      */
-    readonly updateToken: string;
+    readonly updateToken?: string;
 }
 /**
  * Retrieve information about a firewall policy.

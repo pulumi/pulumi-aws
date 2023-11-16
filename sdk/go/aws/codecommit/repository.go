@@ -54,17 +54,17 @@ type Repository struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the repository
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The URL to use for cloning the repository over HTTPS.
-	CloneUrlHttp pulumi.StringOutput `pulumi:"cloneUrlHttp"`
+	CloneUrlHttp pulumi.StringPtrOutput `pulumi:"cloneUrlHttp"`
 	// The URL to use for cloning the repository over SSH.
-	CloneUrlSsh pulumi.StringOutput `pulumi:"cloneUrlSsh"`
+	CloneUrlSsh pulumi.StringPtrOutput `pulumi:"cloneUrlSsh"`
 	// The default branch of the repository. The branch specified here needs to exist.
 	DefaultBranch pulumi.StringPtrOutput `pulumi:"defaultBranch"`
 	// The description of the repository. This needs to be less than 1000 characters
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the repository
-	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
+	RepositoryId pulumi.StringPtrOutput `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -272,18 +272,18 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 }
 
 // The ARN of the repository
-func (o RepositoryOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RepositoryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The URL to use for cloning the repository over HTTPS.
-func (o RepositoryOutput) CloneUrlHttp() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.CloneUrlHttp }).(pulumi.StringOutput)
+func (o RepositoryOutput) CloneUrlHttp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.CloneUrlHttp }).(pulumi.StringPtrOutput)
 }
 
 // The URL to use for cloning the repository over SSH.
-func (o RepositoryOutput) CloneUrlSsh() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.CloneUrlSsh }).(pulumi.StringOutput)
+func (o RepositoryOutput) CloneUrlSsh() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.CloneUrlSsh }).(pulumi.StringPtrOutput)
 }
 
 // The default branch of the repository. The branch specified here needs to exist.
@@ -297,8 +297,8 @@ func (o RepositoryOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The ID of the repository
-func (o RepositoryOutput) RepositoryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryId }).(pulumi.StringOutput)
+func (o RepositoryOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.RepositoryId }).(pulumi.StringPtrOutput)
 }
 
 // The name for the repository. This needs to be less than 100 characters.

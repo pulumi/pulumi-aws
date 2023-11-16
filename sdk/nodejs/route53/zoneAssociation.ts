@@ -84,7 +84,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
     /**
      * The account ID of the account that created the hosted zone.
      */
-    public /*out*/ readonly owningAccount!: pulumi.Output<string>;
+    public /*out*/ readonly owningAccount!: pulumi.Output<string | undefined>;
     /**
      * The VPC to associate with the private hosted zone.
      */
@@ -92,7 +92,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    public readonly vpcRegion!: pulumi.Output<string>;
+    public readonly vpcRegion!: pulumi.Output<string | undefined>;
     /**
      * The private hosted zone to associate.
      */

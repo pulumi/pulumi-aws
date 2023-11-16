@@ -64,7 +64,7 @@ export class TagOption extends pulumi.CustomResource {
      * Tag option key.
      */
     public readonly key!: pulumi.Output<string>;
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * Tag option value.
      *

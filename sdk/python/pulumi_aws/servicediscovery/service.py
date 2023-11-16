@@ -609,7 +609,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the service.
         """
@@ -665,7 +665,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> pulumi.Output[str]:
+    def namespace_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the namespace that you want to use to create the service.
         """
@@ -692,7 +692,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
         """

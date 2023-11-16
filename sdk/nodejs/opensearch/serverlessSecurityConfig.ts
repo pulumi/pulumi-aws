@@ -51,7 +51,7 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
     /**
      * Version of the configuration.
      */
-    public /*out*/ readonly configVersion!: pulumi.Output<string>;
+    public /*out*/ readonly configVersion!: pulumi.Output<string | undefined>;
     /**
      * Description of the security configuration.
      */

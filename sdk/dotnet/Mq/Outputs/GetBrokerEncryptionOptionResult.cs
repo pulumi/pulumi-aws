@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerEncryptionOptionResult
     {
-        public readonly string KmsKeyId;
-        public readonly bool UseAwsOwnedKey;
+        public readonly string? KmsKeyId;
+        public readonly bool? UseAwsOwnedKey;
 
         [OutputConstructor]
         private GetBrokerEncryptionOptionResult(
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            bool useAwsOwnedKey)
+            bool? useAwsOwnedKey)
         {
             KmsKeyId = kmsKeyId;
             UseAwsOwnedKey = useAwsOwnedKey;

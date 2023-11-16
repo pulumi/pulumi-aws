@@ -58,7 +58,7 @@ type MonitoringSchedule struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigOutput `pulumi:"monitoringScheduleConfig"`
 	// The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
@@ -248,8 +248,8 @@ func (o MonitoringScheduleOutput) ToMonitoringScheduleOutputWithContext(ctx cont
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
-func (o MonitoringScheduleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MonitoringScheduleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.

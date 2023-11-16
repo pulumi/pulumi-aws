@@ -128,15 +128,15 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// ARN of the Redshift Subnet Group name.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the Redshift Subnet group.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// An array of VPC subnet IDs.
@@ -145,21 +145,21 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Tags associated to the Subnet Group
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSubnetGroupResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

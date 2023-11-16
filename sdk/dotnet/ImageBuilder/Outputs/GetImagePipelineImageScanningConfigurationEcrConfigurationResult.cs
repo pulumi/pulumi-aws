@@ -20,13 +20,13 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// The name of the container repository that Amazon Inspector scans
         /// </summary>
-        public readonly string RepositoryName;
+        public readonly string? RepositoryName;
 
         [OutputConstructor]
         private GetImagePipelineImageScanningConfigurationEcrConfigurationResult(
             ImmutableArray<string> containerTags,
 
-            string repositoryName)
+            string? repositoryName)
         {
             ContainerTags = containerTags;
             RepositoryName = repositoryName;

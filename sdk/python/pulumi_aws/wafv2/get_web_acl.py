@@ -40,7 +40,7 @@ class GetWebAclResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the entity.
         """
@@ -48,7 +48,7 @@ class GetWebAclResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the WebACL that helps with identification.
         """
@@ -56,7 +56,7 @@ class GetWebAclResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

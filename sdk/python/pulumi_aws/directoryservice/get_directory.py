@@ -77,7 +77,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="accessUrl")
-    def access_url(self) -> str:
+    def access_url(self) -> Optional[str]:
         """
         Access URL for the directory/connector, such as http://alias.awsapps.com.
         """
@@ -85,7 +85,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> Optional[str]:
         """
         Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
         """
@@ -93,12 +93,12 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="connectSettings")
-    def connect_settings(self) -> Sequence['outputs.GetDirectoryConnectSettingResult']:
+    def connect_settings(self) -> Optional[Sequence['outputs.GetDirectoryConnectSettingResult']]:
         return pulumi.get(self, "connect_settings")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Textual description for the directory/connector.
         """
@@ -111,7 +111,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> Sequence[str]:
+    def dns_ip_addresses(self) -> Optional[Sequence[str]]:
         """
         List of IP addresses of the DNS servers for the directory/connector.
         """
@@ -119,7 +119,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def edition(self) -> str:
+    def edition(self) -> Optional[str]:
         """
         (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
         """
@@ -127,7 +127,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="enableSso")
-    def enable_sso(self) -> bool:
+    def enable_sso(self) -> Optional[bool]:
         """
         Directory/connector single-sign on status.
         """
@@ -135,7 +135,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -143,7 +143,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Fully qualified name for the directory/connector.
         """
@@ -151,12 +151,12 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="radiusSettings")
-    def radius_settings(self) -> Sequence['outputs.GetDirectoryRadiusSettingResult']:
+    def radius_settings(self) -> Optional[Sequence['outputs.GetDirectoryRadiusSettingResult']]:
         return pulumi.get(self, "radius_settings")
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> str:
+    def security_group_id(self) -> Optional[str]:
         """
         ID of the security group created by the directory/connector.
         """
@@ -164,7 +164,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="shortName")
-    def short_name(self) -> str:
+    def short_name(self) -> Optional[str]:
         """
         Short name of the directory/connector, such as `CORP`.
         """
@@ -172,7 +172,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def size(self) -> str:
+    def size(self) -> Optional[str]:
         """
         (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
         """
@@ -180,7 +180,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags assigned to the directory/connector.
         """
@@ -188,7 +188,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
         """
@@ -196,7 +196,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="vpcSettings")
-    def vpc_settings(self) -> Sequence['outputs.GetDirectoryVpcSettingResult']:
+    def vpc_settings(self) -> Optional[Sequence['outputs.GetDirectoryVpcSettingResult']]:
         return pulumi.get(self, "vpc_settings")
 
 

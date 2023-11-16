@@ -521,14 +521,14 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="statementIdPrefix", refs={String.class}, tree="[0]")
-    private Output<String> statementIdPrefix;
+    private Output</* @Nullable */ String> statementIdPrefix;
 
     /**
      * @return A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
      * 
      */
-    public Output<String> statementIdPrefix() {
-        return this.statementIdPrefix;
+    public Output<Optional<String>> statementIdPrefix() {
+        return Codegen.optional(this.statementIdPrefix);
     }
 
     /**

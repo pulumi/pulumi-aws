@@ -440,7 +440,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         """

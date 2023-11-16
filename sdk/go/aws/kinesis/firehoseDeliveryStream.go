@@ -26,6 +26,7 @@ import (
 //
 //	"fmt"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
@@ -116,7 +117,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName: pulumi.String("LambdaArn"),
-//										ParameterValue: lambdaProcessor.Arn.ApplyT(func(arn string) (string, error) {
+//										ParameterValue: lambdaProcessor.Arn.ApplyT(func(arn *string) (string, error) {
 //											return fmt.Sprintf("%v:$LATEST", arn), nil
 //										}).(pulumi.StringOutput),
 //									},
@@ -297,8 +298,8 @@ import (
 //				RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
 //					RoleArn: pulumi.Any(aws_iam_role.Firehose_role.Arn),
 //					ClusterJdbcurl: pulumi.All(testCluster.Endpoint, testCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
-//						endpoint := _args[0].(string)
-//						databaseName := _args[1].(string)
+//						endpoint := _args[0].(*string)
+//						databaseName := _args[1].(*string)
 //						return fmt.Sprintf("jdbc:redshift://%v/%v", endpoint, databaseName), nil
 //					}).(pulumi.StringOutput),
 //					Username:         pulumi.String("testuser"),
@@ -405,105 +406,105 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCluster, err := elasticsearch.NewDomain(ctx, "testCluster", &elasticsearch.DomainArgs{
-//				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
-//					InstanceCount:        pulumi.Int(2),
-//					ZoneAwarenessEnabled: pulumi.Bool(true),
-//					InstanceType:         pulumi.String("t2.small.elasticsearch"),
-//				},
-//				EbsOptions: &elasticsearch.DomainEbsOptionsArgs{
-//					EbsEnabled: pulumi.Bool(true),
-//					VolumeSize: pulumi.Int(10),
-//				},
-//				VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
-//					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.First.Id,
-//					},
-//					SubnetIds: pulumi.StringArray{
-//						aws_subnet.First.Id,
-//						aws_subnet.Second.Id,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			firehose_elasticsearchPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("es:*"),
-//						},
-//						Resources: pulumi.StringArray{
-//							testCluster.Arn,
-//							testCluster.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("ec2:DescribeVpcs"),
-//							pulumi.String("ec2:DescribeVpcAttribute"),
-//							pulumi.String("ec2:DescribeSubnets"),
-//							pulumi.String("ec2:DescribeSecurityGroups"),
-//							pulumi.String("ec2:DescribeNetworkInterfaces"),
-//							pulumi.String("ec2:CreateNetworkInterface"),
-//							pulumi.String("ec2:CreateNetworkInterfacePermission"),
-//							pulumi.String("ec2:DeleteNetworkInterface"),
-//						},
-//						Resources: pulumi.StringArray{
-//							pulumi.String("*"),
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "firehose-elasticsearchRolePolicy", &iam.RolePolicyArgs{
-//				Role: pulumi.Any(aws_iam_role.Firehose.Id),
-//				Policy: firehose_elasticsearchPolicyDocument.ApplyT(func(firehose_elasticsearchPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &firehose_elasticsearchPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("elasticsearch"),
-//				ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
-//					DomainArn: testCluster.Arn,
-//					RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
-//					IndexName: pulumi.String("test"),
-//					TypeName:  pulumi.String("test"),
-//					S3Configuration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs{
-//						RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
-//						BucketArn: pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//					},
-//					VpcConfig: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs{
-//						SubnetIds: pulumi.StringArray{
-//							aws_subnet.First.Id,
-//							aws_subnet.Second.Id,
-//						},
-//						SecurityGroupIds: pulumi.StringArray{
-//							aws_security_group.First.Id,
-//						},
-//						RoleArn: pulumi.Any(aws_iam_role.Firehose.Arn),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				firehose_elasticsearchRolePolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testCluster, err := elasticsearch.NewDomain(ctx, "testCluster", &elasticsearch.DomainArgs{
+// ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
+// InstanceCount: pulumi.Int(2),
+// ZoneAwarenessEnabled: pulumi.Bool(true),
+// InstanceType: pulumi.String("t2.small.elasticsearch"),
+// },
+// EbsOptions: &elasticsearch.DomainEbsOptionsArgs{
+// EbsEnabled: pulumi.Bool(true),
+// VolumeSize: pulumi.Int(10),
+// },
+// VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
+// SecurityGroupIds: pulumi.StringArray{
+// aws_security_group.First.Id,
+// },
+// SubnetIds: pulumi.StringArray{
+// aws_subnet.First.Id,
+// aws_subnet.Second.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// firehose_elasticsearchPolicyDocument := pulumi.All(testCluster.Arn,testCluster.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// testClusterArn := _args[0].(*string)
+// testClusterArn1 := _args[1].(*string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "es:*",
+// },
+// Resources: interface{}{
+// testClusterArn,
+// fmt.Sprintf("%v/*", testClusterArn1),
+// },
+// },
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "ec2:DescribeVpcs",
+// "ec2:DescribeVpcAttribute",
+// "ec2:DescribeSubnets",
+// "ec2:DescribeSecurityGroups",
+// "ec2:DescribeNetworkInterfaces",
+// "ec2:CreateNetworkInterface",
+// "ec2:CreateNetworkInterfacePermission",
+// "ec2:DeleteNetworkInterface",
+// },
+// Resources: []string{
+// "*",
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = iam.NewRolePolicy(ctx, "firehose-elasticsearchRolePolicy", &iam.RolePolicyArgs{
+// Role: pulumi.Any(aws_iam_role.Firehose.Id),
+// Policy: firehose_elasticsearchPolicyDocument.ApplyT(func(firehose_elasticsearchPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &firehose_elasticsearchPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kinesis.NewFirehoseDeliveryStream(ctx, "test", &kinesis.FirehoseDeliveryStreamArgs{
+// Destination: pulumi.String("elasticsearch"),
+// ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
+// DomainArn: testCluster.Arn,
+// RoleArn: pulumi.Any(aws_iam_role.Firehose.Arn),
+// IndexName: pulumi.String("test"),
+// TypeName: pulumi.String("test"),
+// S3Configuration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs{
+// RoleArn: pulumi.Any(aws_iam_role.Firehose.Arn),
+// BucketArn: pulumi.Any(aws_s3_bucket.Bucket.Arn),
+// },
+// VpcConfig: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs{
+// SubnetIds: pulumi.StringArray{
+// aws_subnet.First.Id,
+// aws_subnet.Second.Id,
+// },
+// SecurityGroupIds: pulumi.StringArray{
+// aws_security_group.First.Id,
+// },
+// RoleArn: pulumi.Any(aws_iam_role.Firehose.Arn),
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// firehose_elasticsearchRolePolicy,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### OpenSearch Destination
 //
@@ -607,8 +608,8 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "firehose-opensearch", &iam.RolePolicyArgs{
 //				Role: pulumi.Any(aws_iam_role.Firehose.Id),
 //				Policy: pulumi.All(testCluster.Arn, testCluster.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					testClusterArn := _args[0].(string)
-//					testClusterArn1 := _args[1].(string)
+//					testClusterArn := _args[0].(*string)
+//					testClusterArn1 := _args[1].(*string)
 //					return fmt.Sprintf(`{
 //	  "Version": "2012-10-17",
 //	  "Statement": [
@@ -847,11 +848,11 @@ type FirehoseDeliveryStream struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) specifying the Stream
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
 	// is redshift). More details are given below.
-	Destination   pulumi.StringOutput `pulumi:"destination"`
-	DestinationId pulumi.StringOutput `pulumi:"destinationId"`
+	Destination   pulumi.StringOutput    `pulumi:"destination"`
+	DestinationId pulumi.StringPtrOutput `pulumi:"destinationId"`
 	// Configuration options when `destination` is `elasticsearch`. More details are given below.
 	ElasticsearchConfiguration FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput `pulumi:"elasticsearchConfiguration"`
 	// Enhanced configuration options for the s3 destination. More details are given below.
@@ -882,7 +883,7 @@ type FirehoseDeliveryStream struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
-	VersionId pulumi.StringOutput `pulumi:"versionId"`
+	VersionId pulumi.StringPtrOutput `pulumi:"versionId"`
 }
 
 // NewFirehoseDeliveryStream registers a new resource with the given unique name, arguments, and options.
@@ -1166,8 +1167,8 @@ func (o FirehoseDeliveryStreamOutput) ToFirehoseDeliveryStreamOutputWithContext(
 }
 
 // The Amazon Resource Name (ARN) specifying the Stream
-func (o FirehoseDeliveryStreamOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FirehoseDeliveryStreamOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
@@ -1176,8 +1177,8 @@ func (o FirehoseDeliveryStreamOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }
 
-func (o FirehoseDeliveryStreamOutput) DestinationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.DestinationId }).(pulumi.StringOutput)
+func (o FirehoseDeliveryStreamOutput) DestinationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringPtrOutput { return v.DestinationId }).(pulumi.StringPtrOutput)
 }
 
 // Configuration options when `destination` is `elasticsearch`. More details are given below.
@@ -1269,8 +1270,8 @@ func (o FirehoseDeliveryStreamOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Specifies the table version for the output data schema. Defaults to `LATEST`.
-func (o FirehoseDeliveryStreamOutput) VersionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.VersionId }).(pulumi.StringOutput)
+func (o FirehoseDeliveryStreamOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringPtrOutput { return v.VersionId }).(pulumi.StringPtrOutput)
 }
 
 type FirehoseDeliveryStreamArrayOutput struct{ *pulumi.OutputState }

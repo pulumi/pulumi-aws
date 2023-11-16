@@ -63,7 +63,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Full ARN of the repository.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Encryption configuration for the repository. See below for schema.
      */
@@ -88,11 +88,11 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The registry ID where the repository was created.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string | undefined>;
     /**
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      */
-    public /*out*/ readonly repositoryUrl!: pulumi.Output<string>;
+    public /*out*/ readonly repositoryUrl!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

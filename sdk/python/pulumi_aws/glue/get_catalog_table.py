@@ -80,7 +80,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The ARN of the Glue Table.
         """
@@ -88,7 +88,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> str:
+    def catalog_id(self) -> Optional[str]:
         """
         ID of the Data Catalog in which the table resides.
         """
@@ -104,7 +104,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the table.
         """
@@ -112,7 +112,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -128,7 +128,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter
-    def owner(self) -> str:
+    def owner(self) -> Optional[str]:
         """
         Owner of the table.
         """
@@ -136,7 +136,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, str]:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         """
         Map of initialization parameters for the SerDe, in key-value form.
         """
@@ -144,7 +144,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter(name="partitionIndices")
-    def partition_indices(self) -> Sequence['outputs.GetCatalogTablePartitionIndexResult']:
+    def partition_indices(self) -> Optional[Sequence['outputs.GetCatalogTablePartitionIndexResult']]:
         """
         Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """
@@ -152,7 +152,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Sequence['outputs.GetCatalogTablePartitionKeyResult']:
+    def partition_keys(self) -> Optional[Sequence['outputs.GetCatalogTablePartitionKeyResult']]:
         """
         Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         """
@@ -165,7 +165,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter
-    def retention(self) -> int:
+    def retention(self) -> Optional[int]:
         """
         Retention time for this table.
         """
@@ -173,7 +173,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter(name="storageDescriptors")
-    def storage_descriptors(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorResult']:
+    def storage_descriptors(self) -> Optional[Sequence['outputs.GetCatalogTableStorageDescriptorResult']]:
         """
         Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         """
@@ -181,7 +181,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter(name="tableType")
-    def table_type(self) -> str:
+    def table_type(self) -> Optional[str]:
         """
         Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         """
@@ -189,7 +189,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter(name="targetTables")
-    def target_tables(self) -> Sequence['outputs.GetCatalogTableTargetTableResult']:
+    def target_tables(self) -> Optional[Sequence['outputs.GetCatalogTableTargetTableResult']]:
         """
         Configuration block of a target table for resource linking. See `target_table` below.
         """
@@ -202,7 +202,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter(name="viewExpandedText")
-    def view_expanded_text(self) -> str:
+    def view_expanded_text(self) -> Optional[str]:
         """
         If the table is a view, the expanded text of the view; otherwise null.
         """
@@ -210,7 +210,7 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter(name="viewOriginalText")
-    def view_original_text(self) -> str:
+    def view_original_text(self) -> Optional[str]:
         """
         If the table is a view, the original text of the view; otherwise null.
         """

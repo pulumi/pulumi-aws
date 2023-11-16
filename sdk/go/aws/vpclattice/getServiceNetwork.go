@@ -59,21 +59,21 @@ type LookupServiceNetworkArgs struct {
 // A collection of values returned by getServiceNetwork.
 type LookupServiceNetworkResult struct {
 	// ARN of the Service Network.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Authentication type for the service network. Either `NONE` or `AWS_IAM`.
-	AuthType string `pulumi:"authType"`
+	AuthType *string `pulumi:"authType"`
 	// Date and time the service network was created.
-	CreatedAt string `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Date and time the service network was last updated.
-	LastUpdatedAt string `pulumi:"lastUpdatedAt"`
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// Name of the service network.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Number of services associated with this service network.
-	NumberOfAssociatedServices int `pulumi:"numberOfAssociatedServices"`
+	NumberOfAssociatedServices *int `pulumi:"numberOfAssociatedServices"`
 	// Number of VPCs associated with this service network.
-	NumberOfAssociatedVpcs   int               `pulumi:"numberOfAssociatedVpcs"`
+	NumberOfAssociatedVpcs   *int              `pulumi:"numberOfAssociatedVpcs"`
 	ServiceNetworkIdentifier string            `pulumi:"serviceNetworkIdentifier"`
 	Tags                     map[string]string `pulumi:"tags"`
 }
@@ -118,43 +118,43 @@ func (o LookupServiceNetworkResultOutput) ToLookupServiceNetworkResultOutputWith
 }
 
 // ARN of the Service Network.
-func (o LookupServiceNetworkResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupServiceNetworkResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Authentication type for the service network. Either `NONE` or `AWS_IAM`.
-func (o LookupServiceNetworkResultOutput) AuthType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.AuthType }).(pulumi.StringOutput)
+func (o LookupServiceNetworkResultOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
 // Date and time the service network was created.
-func (o LookupServiceNetworkResultOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+func (o LookupServiceNetworkResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupServiceNetworkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServiceNetworkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Date and time the service network was last updated.
-func (o LookupServiceNetworkResultOutput) LastUpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.LastUpdatedAt }).(pulumi.StringOutput)
+func (o LookupServiceNetworkResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Name of the service network.
-func (o LookupServiceNetworkResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupServiceNetworkResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Number of services associated with this service network.
-func (o LookupServiceNetworkResultOutput) NumberOfAssociatedServices() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupServiceNetworkResult) int { return v.NumberOfAssociatedServices }).(pulumi.IntOutput)
+func (o LookupServiceNetworkResultOutput) NumberOfAssociatedServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkResult) *int { return v.NumberOfAssociatedServices }).(pulumi.IntPtrOutput)
 }
 
 // Number of VPCs associated with this service network.
-func (o LookupServiceNetworkResultOutput) NumberOfAssociatedVpcs() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupServiceNetworkResult) int { return v.NumberOfAssociatedVpcs }).(pulumi.IntOutput)
+func (o LookupServiceNetworkResultOutput) NumberOfAssociatedVpcs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkResult) *int { return v.NumberOfAssociatedVpcs }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupServiceNetworkResultOutput) ServiceNetworkIdentifier() pulumi.StringOutput {

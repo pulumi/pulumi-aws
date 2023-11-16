@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -104,14 +105,14 @@ public class DomainPermissions extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domainOwner", refs={String.class}, tree="[0]")
-    private Output<String> domainOwner;
+    private Output</* @Nullable */ String> domainOwner;
 
     /**
      * @return The account number of the AWS account that owns the domain.
      * 
      */
-    public Output<String> domainOwner() {
-        return this.domainOwner;
+    public Output<Optional<String>> domainOwner() {
+        return Codegen.optional(this.domainOwner);
     }
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
@@ -132,28 +133,28 @@ public class DomainPermissions extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policyRevision", refs={String.class}, tree="[0]")
-    private Output<String> policyRevision;
+    private Output</* @Nullable */ String> policyRevision;
 
     /**
      * @return The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
      * 
      */
-    public Output<String> policyRevision() {
-        return this.policyRevision;
+    public Output<Optional<String>> policyRevision() {
+        return Codegen.optional(this.policyRevision);
     }
     /**
      * The ARN of the resource associated with the resource policy.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
-    private Output<String> resourceArn;
+    private Output</* @Nullable */ String> resourceArn;
 
     /**
      * @return The ARN of the resource associated with the resource policy.
      * 
      */
-    public Output<String> resourceArn() {
-        return this.resourceArn;
+    public Output<Optional<String>> resourceArn() {
+        return Codegen.optional(this.resourceArn);
     }
 
     /**

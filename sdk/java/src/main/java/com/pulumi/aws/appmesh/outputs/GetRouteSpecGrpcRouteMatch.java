@@ -9,30 +9,32 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecGrpcRouteMatch {
-    private List<GetRouteSpecGrpcRouteMatchMetadata> metadatas;
-    private String methodName;
-    private Integer port;
-    private String prefix;
-    private String serviceName;
+    private @Nullable List<GetRouteSpecGrpcRouteMatchMetadata> metadatas;
+    private @Nullable String methodName;
+    private @Nullable Integer port;
+    private @Nullable String prefix;
+    private @Nullable String serviceName;
 
     private GetRouteSpecGrpcRouteMatch() {}
     public List<GetRouteSpecGrpcRouteMatchMetadata> metadatas() {
-        return this.metadatas;
+        return this.metadatas == null ? List.of() : this.metadatas;
     }
-    public String methodName() {
-        return this.methodName;
+    public Optional<String> methodName() {
+        return Optional.ofNullable(this.methodName);
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String prefix() {
-        return this.prefix;
+    public Optional<String> prefix() {
+        return Optional.ofNullable(this.prefix);
     }
-    public String serviceName() {
-        return this.serviceName;
+    public Optional<String> serviceName() {
+        return Optional.ofNullable(this.serviceName);
     }
 
     public static Builder builder() {
@@ -44,11 +46,11 @@ public final class GetRouteSpecGrpcRouteMatch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecGrpcRouteMatchMetadata> metadatas;
-        private String methodName;
-        private Integer port;
-        private String prefix;
-        private String serviceName;
+        private @Nullable List<GetRouteSpecGrpcRouteMatchMetadata> metadatas;
+        private @Nullable String methodName;
+        private @Nullable Integer port;
+        private @Nullable String prefix;
+        private @Nullable String serviceName;
         public Builder() {}
         public Builder(GetRouteSpecGrpcRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,31 +62,31 @@ public final class GetRouteSpecGrpcRouteMatch {
         }
 
         @CustomType.Setter
-        public Builder metadatas(List<GetRouteSpecGrpcRouteMatchMetadata> metadatas) {
-            this.metadatas = Objects.requireNonNull(metadatas);
+        public Builder metadatas(@Nullable List<GetRouteSpecGrpcRouteMatchMetadata> metadatas) {
+            this.metadatas = metadatas;
             return this;
         }
         public Builder metadatas(GetRouteSpecGrpcRouteMatchMetadata... metadatas) {
             return metadatas(List.of(metadatas));
         }
         @CustomType.Setter
-        public Builder methodName(String methodName) {
-            this.methodName = Objects.requireNonNull(methodName);
+        public Builder methodName(@Nullable String methodName) {
+            this.methodName = methodName;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+        public Builder prefix(@Nullable String prefix) {
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+        public Builder serviceName(@Nullable String serviceName) {
+            this.serviceName = serviceName;
             return this;
         }
         public GetRouteSpecGrpcRouteMatch build() {

@@ -29,8 +29,8 @@ type Replicator struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-	Arn            pulumi.StringOutput `pulumi:"arn"`
-	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
+	Arn            pulumi.StringPtrOutput `pulumi:"arn"`
+	CurrentVersion pulumi.StringPtrOutput `pulumi:"currentVersion"`
 	// A summary description of the replicator.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
@@ -250,12 +250,12 @@ func (o ReplicatorOutput) ToReplicatorOutputWithContext(ctx context.Context) Rep
 }
 
 // ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-func (o ReplicatorOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Replicator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReplicatorOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Replicator) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o ReplicatorOutput) CurrentVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Replicator) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
+func (o ReplicatorOutput) CurrentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Replicator) pulumi.StringPtrOutput { return v.CurrentVersion }).(pulumi.StringPtrOutput)
 }
 
 // A summary description of the replicator.

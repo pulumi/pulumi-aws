@@ -20,19 +20,19 @@ namespace Pulumi.Aws.ServiceDiscovery.Outputs
         /// <summary>
         /// ID of the namespace that the service belongs to.
         /// </summary>
-        public readonly string NamespaceId;
+        public readonly string? NamespaceId;
         /// <summary>
         /// Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
         /// </summary>
-        public readonly string RoutingPolicy;
+        public readonly string? RoutingPolicy;
 
         [OutputConstructor]
         private GetServiceDnsConfigResult(
             ImmutableArray<Outputs.GetServiceDnsConfigDnsRecordResult> dnsRecords,
 
-            string namespaceId,
+            string? namespaceId,
 
-            string routingPolicy)
+            string? routingPolicy)
         {
             DnsRecords = dnsRecords;
             NamespaceId = namespaceId;

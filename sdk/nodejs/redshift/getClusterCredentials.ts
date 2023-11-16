@@ -73,17 +73,17 @@ export interface GetClusterCredentialsResult {
     /**
      * Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
      */
-    readonly dbPassword: string;
+    readonly dbPassword?: string;
     readonly dbUser: string;
     readonly durationSeconds?: number;
     /**
      * Date and time the password in `dbPassword` expires.
      */
-    readonly expiration: string;
+    readonly expiration?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Provides redshift cluster temporary credentials.

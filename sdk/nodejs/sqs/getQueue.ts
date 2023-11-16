@@ -50,20 +50,20 @@ export interface GetQueueResult {
     /**
      * ARN of the queue.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * URL of the queue.
      */
-    readonly url: string;
+    readonly url?: string;
 }
 /**
  * Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).

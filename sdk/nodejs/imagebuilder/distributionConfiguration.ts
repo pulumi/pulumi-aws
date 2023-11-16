@@ -72,15 +72,15 @@ export class DistributionConfiguration extends pulumi.CustomResource {
     /**
      * (Required) Amazon Resource Name (ARN) of the distribution configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Date the distribution configuration was created.
      */
-    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string | undefined>;
     /**
      * Date the distribution configuration was updated.
      */
-    public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
+    public /*out*/ readonly dateUpdated!: pulumi.Output<string | undefined>;
     /**
      * Description of the distribution configuration.
      */

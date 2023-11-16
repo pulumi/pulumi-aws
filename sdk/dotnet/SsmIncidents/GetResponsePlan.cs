@@ -101,7 +101,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// <summary>
         /// The long format of the response plan name. This field can contain spaces.
         /// </summary>
-        public readonly string DisplayName;
+        public readonly string? DisplayName;
         /// <summary>
         /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
         /// </summary>
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<Outputs.GetResponsePlanIncidentTemplateResult> IncidentTemplates;
         /// <summary>
         /// Information about third-party services integrated into the response plan. The following values are supported:
@@ -118,11 +118,11 @@ namespace Pulumi.Aws.SsmIncidents
         /// <summary>
         /// The name of the PagerDuty configuration.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The tags applied to the response plan.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetResponsePlanResult(
@@ -132,19 +132,19 @@ namespace Pulumi.Aws.SsmIncidents
 
             ImmutableArray<string> chatChannels,
 
-            string displayName,
+            string? displayName,
 
             ImmutableArray<string> engagements,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetResponsePlanIncidentTemplateResult> incidentTemplates,
 
             ImmutableArray<Outputs.GetResponsePlanIntegrationResult> integrations,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Actions = actions;
             Arn = arn;

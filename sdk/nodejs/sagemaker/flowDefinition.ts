@@ -141,7 +141,7 @@ export class FlowDefinition extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of your flow definition.
      */

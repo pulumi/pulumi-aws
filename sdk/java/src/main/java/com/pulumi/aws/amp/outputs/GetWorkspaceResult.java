@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkspaceResult {
@@ -14,37 +16,37 @@ public final class GetWorkspaceResult {
      * @return Prometheus workspace alias.
      * 
      */
-    private String alias;
+    private @Nullable String alias;
     /**
      * @return ARN of the Prometheus workspace.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Creation date of the Prometheus workspace.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Endpoint of the Prometheus workspace.
      * 
      */
-    private String prometheusEndpoint;
+    private @Nullable String prometheusEndpoint;
     /**
      * @return Status of the Prometheus workspace.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     private String workspaceId;
 
     private GetWorkspaceResult() {}
@@ -52,50 +54,50 @@ public final class GetWorkspaceResult {
      * @return Prometheus workspace alias.
      * 
      */
-    public String alias() {
-        return this.alias;
+    public Optional<String> alias() {
+        return Optional.ofNullable(this.alias);
     }
     /**
      * @return ARN of the Prometheus workspace.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Creation date of the Prometheus workspace.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Endpoint of the Prometheus workspace.
      * 
      */
-    public String prometheusEndpoint() {
-        return this.prometheusEndpoint;
+    public Optional<String> prometheusEndpoint() {
+        return Optional.ofNullable(this.prometheusEndpoint);
     }
     /**
      * @return Status of the Prometheus workspace.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public String workspaceId() {
         return this.workspaceId;
@@ -110,13 +112,13 @@ public final class GetWorkspaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String alias;
-        private String arn;
-        private String createdDate;
-        private String id;
-        private String prometheusEndpoint;
-        private String status;
-        private Map<String,String> tags;
+        private @Nullable String alias;
+        private @Nullable String arn;
+        private @Nullable String createdDate;
+        private @Nullable String id;
+        private @Nullable String prometheusEndpoint;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
         private String workspaceId;
         public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
@@ -132,38 +134,38 @@ public final class GetWorkspaceResult {
         }
 
         @CustomType.Setter
-        public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+        public Builder alias(@Nullable String alias) {
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder prometheusEndpoint(String prometheusEndpoint) {
-            this.prometheusEndpoint = Objects.requireNonNull(prometheusEndpoint);
+        public Builder prometheusEndpoint(@Nullable String prometheusEndpoint) {
+            this.prometheusEndpoint = prometheusEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

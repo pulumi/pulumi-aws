@@ -93,7 +93,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The ARN of the Client VPN endpoint.
         """
@@ -101,7 +101,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="authenticationOptions")
-    def authentication_options(self) -> Sequence['outputs.GetEndpointAuthenticationOptionResult']:
+    def authentication_options(self) -> Optional[Sequence['outputs.GetEndpointAuthenticationOptionResult']]:
         """
         Information about the authentication method used by the Client VPN endpoint.
         """
@@ -109,7 +109,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="clientCidrBlock")
-    def client_cidr_block(self) -> str:
+    def client_cidr_block(self) -> Optional[str]:
         """
         IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
         """
@@ -117,7 +117,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="clientConnectOptions")
-    def client_connect_options(self) -> Sequence['outputs.GetEndpointClientConnectOptionResult']:
+    def client_connect_options(self) -> Optional[Sequence['outputs.GetEndpointClientConnectOptionResult']]:
         """
         The options for managing connection authorization for new client connections.
         """
@@ -125,7 +125,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="clientLoginBannerOptions")
-    def client_login_banner_options(self) -> Sequence['outputs.GetEndpointClientLoginBannerOptionResult']:
+    def client_login_banner_options(self) -> Optional[Sequence['outputs.GetEndpointClientLoginBannerOptionResult']]:
         """
         Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         """
@@ -133,12 +133,12 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
-    def client_vpn_endpoint_id(self) -> str:
+    def client_vpn_endpoint_id(self) -> Optional[str]:
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @property
     @pulumi.getter(name="connectionLogOptions")
-    def connection_log_options(self) -> Sequence['outputs.GetEndpointConnectionLogOptionResult']:
+    def connection_log_options(self) -> Optional[Sequence['outputs.GetEndpointConnectionLogOptionResult']]:
         """
         Information about the client connection logging options for the Client VPN endpoint.
         """
@@ -146,7 +146,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Brief description of the endpoint.
         """
@@ -154,7 +154,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> Optional[str]:
         """
         DNS name to be used by clients when connecting to the Client VPN endpoint.
         """
@@ -162,7 +162,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Sequence[str]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         Information about the DNS servers to be used for DNS resolution.
         """
@@ -175,7 +175,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -183,7 +183,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         IDs of the security groups for the target network associated with the Client VPN endpoint.
         """
@@ -191,7 +191,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="selfServicePortal")
-    def self_service_portal(self) -> str:
+    def self_service_portal(self) -> Optional[str]:
         """
         Whether the self-service portal for the Client VPN endpoint is enabled.
         """
@@ -199,7 +199,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="selfServicePortalUrl")
-    def self_service_portal_url(self) -> str:
+    def self_service_portal_url(self) -> Optional[str]:
         """
         The URL of the self-service portal.
         """
@@ -207,7 +207,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="serverCertificateArn")
-    def server_certificate_arn(self) -> str:
+    def server_certificate_arn(self) -> Optional[str]:
         """
         The ARN of the server certificate.
         """
@@ -215,7 +215,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="sessionTimeoutHours")
-    def session_timeout_hours(self) -> int:
+    def session_timeout_hours(self) -> Optional[int]:
         """
         The maximum VPN session duration time in hours.
         """
@@ -223,7 +223,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="splitTunnel")
-    def split_tunnel(self) -> bool:
+    def split_tunnel(self) -> Optional[bool]:
         """
         Whether split-tunnel is enabled in the AWS Client VPN endpoint.
         """
@@ -231,12 +231,12 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transportProtocol")
-    def transport_protocol(self) -> str:
+    def transport_protocol(self) -> Optional[str]:
         """
         Transport protocol used by the Client VPN endpoint.
         """
@@ -244,7 +244,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         ID of the VPC associated with the Client VPN endpoint.
         """
@@ -252,7 +252,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="vpnPort")
-    def vpn_port(self) -> int:
+    def vpn_port(self) -> Optional[int]:
         """
         Port number for the Client VPN endpoint.
         """

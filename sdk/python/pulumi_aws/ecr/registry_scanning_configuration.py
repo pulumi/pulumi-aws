@@ -301,7 +301,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> pulumi.Output[str]:
+    def registry_id(self) -> pulumi.Output[Optional[str]]:
         """
         The registry ID the scanning configuration applies to.
         """

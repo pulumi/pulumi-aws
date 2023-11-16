@@ -69,19 +69,19 @@ export interface GetListenerArgs {
  * A collection of values returned by getListener.
  */
 export interface GetListenerResult {
-    readonly alpnPolicy: string;
-    readonly arn: string;
-    readonly certificateArn: string;
-    readonly defaultActions: outputs.lb.GetListenerDefaultAction[];
+    readonly alpnPolicy?: string;
+    readonly arn?: string;
+    readonly certificateArn?: string;
+    readonly defaultActions?: outputs.lb.GetListenerDefaultAction[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly loadBalancerArn: string;
-    readonly port: number;
-    readonly protocol: string;
-    readonly sslPolicy: string;
-    readonly tags: {[key: string]: string};
+    readonly id?: string;
+    readonly loadBalancerArn?: string;
+    readonly port?: number;
+    readonly protocol?: string;
+    readonly sslPolicy?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * > **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.

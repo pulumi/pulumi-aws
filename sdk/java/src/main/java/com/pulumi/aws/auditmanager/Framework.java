@@ -74,15 +74,15 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
@@ -135,14 +135,14 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="frameworkType", refs={String.class}, tree="[0]")
-    private Output<String> frameworkType;
+    private Output</* @Nullable */ String> frameworkType;
 
     /**
      * @return Framework type, such as a custom framework or a standard framework.
      * 
      */
-    public Output<String> frameworkType() {
-        return this.frameworkType;
+    public Output<Optional<String>> frameworkType() {
+        return Codegen.optional(this.frameworkType);
     }
     /**
      * Name of the framework.

@@ -542,7 +542,7 @@ type CoreNetworkPolicyAttachment struct {
 	// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
 	// Current state of a core network.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 }
 
 // NewCoreNetworkPolicyAttachment registers a new resource with the given unique name, arguments, and options.
@@ -715,8 +715,8 @@ func (o CoreNetworkPolicyAttachmentOutput) PolicyDocument() pulumi.StringOutput 
 }
 
 // Current state of a core network.
-func (o CoreNetworkPolicyAttachmentOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *CoreNetworkPolicyAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o CoreNetworkPolicyAttachmentOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CoreNetworkPolicyAttachment) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type CoreNetworkPolicyAttachmentArrayOutput struct{ *pulumi.OutputState }

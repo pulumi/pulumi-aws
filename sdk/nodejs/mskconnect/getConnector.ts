@@ -43,20 +43,20 @@ export interface GetConnectorResult {
     /**
      * ARN of the connector.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Summary description of the connector.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Current version of the connector.
      */
-    readonly version: string;
+    readonly version?: string;
 }
 /**
  * Get information on an Amazon MSK Connect Connector.

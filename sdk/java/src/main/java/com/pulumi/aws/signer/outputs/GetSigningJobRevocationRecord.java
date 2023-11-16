@@ -6,22 +6,24 @@ package com.pulumi.aws.signer.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSigningJobRevocationRecord {
-    private String reason;
-    private String revokedAt;
-    private String revokedBy;
+    private @Nullable String reason;
+    private @Nullable String revokedAt;
+    private @Nullable String revokedBy;
 
     private GetSigningJobRevocationRecord() {}
-    public String reason() {
-        return this.reason;
+    public Optional<String> reason() {
+        return Optional.ofNullable(this.reason);
     }
-    public String revokedAt() {
-        return this.revokedAt;
+    public Optional<String> revokedAt() {
+        return Optional.ofNullable(this.revokedAt);
     }
-    public String revokedBy() {
-        return this.revokedBy;
+    public Optional<String> revokedBy() {
+        return Optional.ofNullable(this.revokedBy);
     }
 
     public static Builder builder() {
@@ -33,9 +35,9 @@ public final class GetSigningJobRevocationRecord {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String reason;
-        private String revokedAt;
-        private String revokedBy;
+        private @Nullable String reason;
+        private @Nullable String revokedAt;
+        private @Nullable String revokedBy;
         public Builder() {}
         public Builder(GetSigningJobRevocationRecord defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,18 +47,18 @@ public final class GetSigningJobRevocationRecord {
         }
 
         @CustomType.Setter
-        public Builder reason(String reason) {
-            this.reason = Objects.requireNonNull(reason);
+        public Builder reason(@Nullable String reason) {
+            this.reason = reason;
             return this;
         }
         @CustomType.Setter
-        public Builder revokedAt(String revokedAt) {
-            this.revokedAt = Objects.requireNonNull(revokedAt);
+        public Builder revokedAt(@Nullable String revokedAt) {
+            this.revokedAt = revokedAt;
             return this;
         }
         @CustomType.Setter
-        public Builder revokedBy(String revokedBy) {
-            this.revokedBy = Objects.requireNonNull(revokedBy);
+        public Builder revokedBy(@Nullable String revokedBy) {
+            this.revokedBy = revokedBy;
             return this;
         }
         public GetSigningJobRevocationRecord build() {

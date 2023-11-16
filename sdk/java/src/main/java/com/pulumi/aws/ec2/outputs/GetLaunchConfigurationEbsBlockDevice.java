@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchConfigurationEbsBlockDevice {
@@ -15,111 +17,111 @@ public final class GetLaunchConfigurationEbsBlockDevice {
      * @return Whether the EBS Volume will be deleted on instance termination.
      * 
      */
-    private Boolean deleteOnTermination;
+    private @Nullable Boolean deleteOnTermination;
     /**
      * @return Name of the device.
      * 
      */
-    private String deviceName;
+    private @Nullable String deviceName;
     /**
      * @return Whether the volume is Encrypted.
      * 
      */
-    private Boolean encrypted;
+    private @Nullable Boolean encrypted;
     /**
      * @return Provisioned IOPs of the volume.
      * 
      */
-    private Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return Whether the device in the block device mapping of the AMI is suppressed.
      * 
      */
-    private Boolean noDevice;
+    private @Nullable Boolean noDevice;
     /**
      * @return Snapshot ID of the mount.
      * 
      */
-    private String snapshotId;
+    private @Nullable String snapshotId;
     /**
      * @return Throughput of the volume.
      * 
      */
-    private Integer throughput;
+    private @Nullable Integer throughput;
     /**
      * @return Size of the volume.
      * 
      */
-    private Integer volumeSize;
+    private @Nullable Integer volumeSize;
     /**
      * @return Type of the volume.
      * 
      */
-    private String volumeType;
+    private @Nullable String volumeType;
 
     private GetLaunchConfigurationEbsBlockDevice() {}
     /**
      * @return Whether the EBS Volume will be deleted on instance termination.
      * 
      */
-    public Boolean deleteOnTermination() {
-        return this.deleteOnTermination;
+    public Optional<Boolean> deleteOnTermination() {
+        return Optional.ofNullable(this.deleteOnTermination);
     }
     /**
      * @return Name of the device.
      * 
      */
-    public String deviceName() {
-        return this.deviceName;
+    public Optional<String> deviceName() {
+        return Optional.ofNullable(this.deviceName);
     }
     /**
      * @return Whether the volume is Encrypted.
      * 
      */
-    public Boolean encrypted() {
-        return this.encrypted;
+    public Optional<Boolean> encrypted() {
+        return Optional.ofNullable(this.encrypted);
     }
     /**
      * @return Provisioned IOPs of the volume.
      * 
      */
-    public Integer iops() {
-        return this.iops;
+    public Optional<Integer> iops() {
+        return Optional.ofNullable(this.iops);
     }
     /**
      * @return Whether the device in the block device mapping of the AMI is suppressed.
      * 
      */
-    public Boolean noDevice() {
-        return this.noDevice;
+    public Optional<Boolean> noDevice() {
+        return Optional.ofNullable(this.noDevice);
     }
     /**
      * @return Snapshot ID of the mount.
      * 
      */
-    public String snapshotId() {
-        return this.snapshotId;
+    public Optional<String> snapshotId() {
+        return Optional.ofNullable(this.snapshotId);
     }
     /**
      * @return Throughput of the volume.
      * 
      */
-    public Integer throughput() {
-        return this.throughput;
+    public Optional<Integer> throughput() {
+        return Optional.ofNullable(this.throughput);
     }
     /**
      * @return Size of the volume.
      * 
      */
-    public Integer volumeSize() {
-        return this.volumeSize;
+    public Optional<Integer> volumeSize() {
+        return Optional.ofNullable(this.volumeSize);
     }
     /**
      * @return Type of the volume.
      * 
      */
-    public String volumeType() {
-        return this.volumeType;
+    public Optional<String> volumeType() {
+        return Optional.ofNullable(this.volumeType);
     }
 
     public static Builder builder() {
@@ -131,15 +133,15 @@ public final class GetLaunchConfigurationEbsBlockDevice {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean deleteOnTermination;
-        private String deviceName;
-        private Boolean encrypted;
-        private Integer iops;
-        private Boolean noDevice;
-        private String snapshotId;
-        private Integer throughput;
-        private Integer volumeSize;
-        private String volumeType;
+        private @Nullable Boolean deleteOnTermination;
+        private @Nullable String deviceName;
+        private @Nullable Boolean encrypted;
+        private @Nullable Integer iops;
+        private @Nullable Boolean noDevice;
+        private @Nullable String snapshotId;
+        private @Nullable Integer throughput;
+        private @Nullable Integer volumeSize;
+        private @Nullable String volumeType;
         public Builder() {}
         public Builder(GetLaunchConfigurationEbsBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
@@ -155,48 +157,48 @@ public final class GetLaunchConfigurationEbsBlockDevice {
         }
 
         @CustomType.Setter
-        public Builder deleteOnTermination(Boolean deleteOnTermination) {
-            this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
+        public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+            this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+        public Builder deviceName(@Nullable String deviceName) {
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+        public Builder encrypted(@Nullable Boolean encrypted) {
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+        public Builder iops(@Nullable Integer iops) {
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
-        public Builder noDevice(Boolean noDevice) {
-            this.noDevice = Objects.requireNonNull(noDevice);
+        public Builder noDevice(@Nullable Boolean noDevice) {
+            this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotId(String snapshotId) {
-            this.snapshotId = Objects.requireNonNull(snapshotId);
+        public Builder snapshotId(@Nullable String snapshotId) {
+            this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
-        public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+        public Builder throughput(@Nullable Integer throughput) {
+            this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+        public Builder volumeSize(@Nullable Integer volumeSize) {
+            this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeType(String volumeType) {
-            this.volumeType = Objects.requireNonNull(volumeType);
+        public Builder volumeType(@Nullable String volumeType) {
+            this.volumeType = volumeType;
             return this;
         }
         public GetLaunchConfigurationEbsBlockDevice build() {

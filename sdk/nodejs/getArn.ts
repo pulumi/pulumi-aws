@@ -45,27 +45,27 @@ export interface GetArnResult {
     /**
      * The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
      */
-    readonly account: string;
+    readonly account?: string;
     readonly arn: string;
-    readonly id: string;
+    readonly id?: string;
     /**
      * Partition that the resource is in.
      */
-    readonly partition: string;
+    readonly partition?: string;
     /**
      * Region the resource resides in.
      * Note that the ARNs for some resources do not require a region, so this component might be omitted.
      */
-    readonly region: string;
+    readonly region?: string;
     /**
      * Content of this part of the ARN varies by service.
      * It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
      */
-    readonly resource: string;
+    readonly resource?: string;
     /**
      * The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
      */
-    readonly service: string;
+    readonly service?: string;
 }
 /**
  * Parses an ARN into its constituent parts.

@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
- *             identifiers: [privateRegistryAccess.ecrImagePullerRole?.principalArn],
+ *             identifiers: [privateRegistryAccess?.ecrImagePullerRole?.principalArn],
  *         }],
  *         actions: [
  *             "ecr:BatchGetImage",
@@ -115,12 +115,12 @@ export class ContainerService extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the container service.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone. Follows the format us-east-2a (case-sensitive).
      */
-    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
      */
@@ -139,22 +139,22 @@ export class ContainerService extends pulumi.CustomResource {
     /**
      * The ID of the power of the container service.
      */
-    public /*out*/ readonly powerId!: pulumi.Output<string>;
+    public /*out*/ readonly powerId!: pulumi.Output<string | undefined>;
     /**
      * The principal ARN of the container service. The principal ARN can be used to create a trust
      * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
      * service permission to access resources in your standard AWS account.
      */
-    public /*out*/ readonly principalArn!: pulumi.Output<string>;
+    public /*out*/ readonly principalArn!: pulumi.Output<string | undefined>;
     /**
      * The private domain name of the container service. The private domain name is accessible only
      * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
      */
-    public /*out*/ readonly privateDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly privateDomainName!: pulumi.Output<string | undefined>;
     /**
      * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
      */
-    public readonly privateRegistryAccess!: pulumi.Output<outputs.lightsail.ContainerServicePrivateRegistryAccess>;
+    public readonly privateRegistryAccess!: pulumi.Output<outputs.lightsail.ContainerServicePrivateRegistryAccess | undefined>;
     /**
      * The public domain names to use with the container service, such as example.com
      * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
@@ -166,7 +166,7 @@ export class ContainerService extends pulumi.CustomResource {
     /**
      * The Lightsail resource type of the container service (i.e., ContainerService).
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * The scale specification for the container service. The scale specifies the allocated compute
      * nodes of the container service.
@@ -175,7 +175,7 @@ export class ContainerService extends pulumi.CustomResource {
     /**
      * The current state of the container service.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
      * configured with a provider
@@ -194,7 +194,7 @@ export class ContainerService extends pulumi.CustomResource {
      * The publicly accessible URL of the container service. If no public endpoint is specified in the
      * currentDeployment, this URL returns a 404 response.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ContainerService resource with the given unique name, arguments, and options.

@@ -10,6 +10,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,95 +19,95 @@ public final class GetCustomerGatewayResult {
      * @return ARN of the customer gateway.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      * 
      */
-    private Integer bgpAsn;
+    private @Nullable Integer bgpAsn;
     /**
      * @return ARN for the customer gateway certificate.
      * 
      */
-    private String certificateArn;
+    private @Nullable String certificateArn;
     /**
      * @return Name for the customer gateway device.
      * 
      */
-    private String deviceName;
+    private @Nullable String deviceName;
     private @Nullable List<GetCustomerGatewayFilter> filters;
-    private String id;
+    private @Nullable String id;
     /**
      * @return IP address of the gateway&#39;s Internet-routable external interface.
      * 
      */
-    private String ipAddress;
+    private @Nullable String ipAddress;
     /**
      * @return Map of key-value pairs assigned to the gateway.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of customer gateway. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetCustomerGatewayResult() {}
     /**
      * @return ARN of the customer gateway.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      * 
      */
-    public Integer bgpAsn() {
-        return this.bgpAsn;
+    public Optional<Integer> bgpAsn() {
+        return Optional.ofNullable(this.bgpAsn);
     }
     /**
      * @return ARN for the customer gateway certificate.
      * 
      */
-    public String certificateArn() {
-        return this.certificateArn;
+    public Optional<String> certificateArn() {
+        return Optional.ofNullable(this.certificateArn);
     }
     /**
      * @return Name for the customer gateway device.
      * 
      */
-    public String deviceName() {
-        return this.deviceName;
+    public Optional<String> deviceName() {
+        return Optional.ofNullable(this.deviceName);
     }
     public List<GetCustomerGatewayFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IP address of the gateway&#39;s Internet-routable external interface.
      * 
      */
-    public String ipAddress() {
-        return this.ipAddress;
+    public Optional<String> ipAddress() {
+        return Optional.ofNullable(this.ipAddress);
     }
     /**
      * @return Map of key-value pairs assigned to the gateway.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of customer gateway. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -118,15 +119,15 @@ public final class GetCustomerGatewayResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Integer bgpAsn;
-        private String certificateArn;
-        private String deviceName;
+        private @Nullable String arn;
+        private @Nullable Integer bgpAsn;
+        private @Nullable String certificateArn;
+        private @Nullable String deviceName;
         private @Nullable List<GetCustomerGatewayFilter> filters;
-        private String id;
-        private String ipAddress;
-        private Map<String,String> tags;
-        private String type;
+        private @Nullable String id;
+        private @Nullable String ipAddress;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetCustomerGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -142,23 +143,23 @@ public final class GetCustomerGatewayResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder bgpAsn(Integer bgpAsn) {
-            this.bgpAsn = Objects.requireNonNull(bgpAsn);
+        public Builder bgpAsn(@Nullable Integer bgpAsn) {
+            this.bgpAsn = bgpAsn;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+        public Builder certificateArn(@Nullable String certificateArn) {
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+        public Builder deviceName(@Nullable String deviceName) {
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
@@ -170,23 +171,23 @@ public final class GetCustomerGatewayResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+        public Builder ipAddress(@Nullable String ipAddress) {
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetCustomerGatewayResult build() {

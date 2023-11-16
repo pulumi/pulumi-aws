@@ -230,7 +230,7 @@ class InboundConnectionAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> pulumi.Output[str]:
+    def connection_status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the connection request.
         """

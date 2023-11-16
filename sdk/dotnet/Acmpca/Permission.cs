@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Acmpca
         /// IAM policy that is associated with the permission.
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Acmpca
         /// ID of the calling account
         /// </summary>
         [Output("sourceAccount")]
-        public Output<string> SourceAccount { get; private set; } = null!;
+        public Output<string?> SourceAccount { get; private set; } = null!;
 
 
         /// <summary>

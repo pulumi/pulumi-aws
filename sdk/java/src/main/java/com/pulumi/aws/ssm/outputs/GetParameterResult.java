@@ -13,44 +13,44 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetParameterResult {
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String insecureValue;
+    private @Nullable String id;
+    private @Nullable String insecureValue;
     private String name;
-    private String type;
-    private String value;
-    private Integer version;
+    private @Nullable String type;
+    private @Nullable String value;
+    private @Nullable Integer version;
     private @Nullable Boolean withDecryption;
 
     private GetParameterResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String insecureValue() {
-        return this.insecureValue;
+    public Optional<String> insecureValue() {
+        return Optional.ofNullable(this.insecureValue);
     }
     public String name() {
         return this.name;
     }
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
-    public Integer version() {
-        return this.version;
+    public Optional<Integer> version() {
+        return Optional.ofNullable(this.version);
     }
     public Optional<Boolean> withDecryption() {
         return Optional.ofNullable(this.withDecryption);
@@ -65,13 +65,13 @@ public final class GetParameterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String insecureValue;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String insecureValue;
         private String name;
-        private String type;
-        private String value;
-        private Integer version;
+        private @Nullable String type;
+        private @Nullable String value;
+        private @Nullable Integer version;
         private @Nullable Boolean withDecryption;
         public Builder() {}
         public Builder(GetParameterResult defaults) {
@@ -87,18 +87,18 @@ public final class GetParameterResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder insecureValue(String insecureValue) {
-            this.insecureValue = Objects.requireNonNull(insecureValue);
+        public Builder insecureValue(@Nullable String insecureValue) {
+            this.insecureValue = insecureValue;
             return this;
         }
         @CustomType.Setter
@@ -107,18 +107,18 @@ public final class GetParameterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         @CustomType.Setter
-        public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable Integer version) {
+            this.version = version;
             return this;
         }
         @CustomType.Setter

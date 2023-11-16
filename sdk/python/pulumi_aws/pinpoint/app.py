@@ -450,7 +450,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> pulumi.Output[str]:
+    def application_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Application ID of the Pinpoint App.
         """
@@ -458,7 +458,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the PinPoint Application
         """
@@ -490,7 +490,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Pinpoint application. Conflicts with `name`
         """

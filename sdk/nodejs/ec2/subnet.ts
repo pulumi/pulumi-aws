@@ -82,7 +82,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * The ARN of the subnet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specify true to indicate
      * that network interfaces created in the specified subnet should be
@@ -92,11 +92,11 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * AZ for the subnet.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      */
-    public readonly availabilityZoneId!: pulumi.Output<string>;
+    public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
     /**
      * The IPv4 CIDR block for the subnet.
      */
@@ -129,7 +129,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string>;
+    public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to create an IPv6-only subnet. Default: `false`.
      */
@@ -151,11 +151,11 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the subnet.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
      */
-    public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string>;
+    public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

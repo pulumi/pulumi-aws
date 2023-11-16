@@ -186,14 +186,14 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Health Check.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
@@ -280,28 +280,28 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enableSni", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableSni;
+    private Output</* @Nullable */ Boolean> enableSni;
 
     /**
      * @return A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS&#39; defaults: when the `type` is &#34;HTTPS&#34; `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
      * 
      */
-    public Output<Boolean> enableSni() {
-        return this.enableSni;
+    public Output<Optional<Boolean>> enableSni() {
+        return Codegen.optional(this.enableSni);
     }
     /**
      * The number of consecutive health checks that an endpoint must pass or fail.
      * 
      */
     @Export(name="failureThreshold", refs={Integer.class}, tree="[0]")
-    private Output<Integer> failureThreshold;
+    private Output</* @Nullable */ Integer> failureThreshold;
 
     /**
      * @return The number of consecutive health checks that an endpoint must pass or fail.
      * 
      */
-    public Output<Integer> failureThreshold() {
-        return this.failureThreshold;
+    public Output<Optional<Integer>> failureThreshold() {
+        return Codegen.optional(this.failureThreshold);
     }
     /**
      * The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.

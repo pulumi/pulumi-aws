@@ -8,82 +8,84 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointKafkaSetting {
-    private String broker;
-    private Boolean includeControlDetails;
-    private Boolean includeNullAndEmpty;
-    private Boolean includePartitionValue;
-    private Boolean includeTableAlterOperations;
-    private Boolean includeTransactionDetails;
-    private String messageFormat;
-    private Integer messageMaxBytes;
-    private Boolean noHexPrefix;
-    private Boolean partitionIncludeSchemaTable;
-    private String saslPassword;
-    private String saslUsername;
-    private String securityProtocol;
-    private String sslCaCertificateArn;
-    private String sslClientCertificateArn;
-    private String sslClientKeyArn;
-    private String sslClientKeyPassword;
-    private String topic;
+    private @Nullable String broker;
+    private @Nullable Boolean includeControlDetails;
+    private @Nullable Boolean includeNullAndEmpty;
+    private @Nullable Boolean includePartitionValue;
+    private @Nullable Boolean includeTableAlterOperations;
+    private @Nullable Boolean includeTransactionDetails;
+    private @Nullable String messageFormat;
+    private @Nullable Integer messageMaxBytes;
+    private @Nullable Boolean noHexPrefix;
+    private @Nullable Boolean partitionIncludeSchemaTable;
+    private @Nullable String saslPassword;
+    private @Nullable String saslUsername;
+    private @Nullable String securityProtocol;
+    private @Nullable String sslCaCertificateArn;
+    private @Nullable String sslClientCertificateArn;
+    private @Nullable String sslClientKeyArn;
+    private @Nullable String sslClientKeyPassword;
+    private @Nullable String topic;
 
     private GetEndpointKafkaSetting() {}
-    public String broker() {
-        return this.broker;
+    public Optional<String> broker() {
+        return Optional.ofNullable(this.broker);
     }
-    public Boolean includeControlDetails() {
-        return this.includeControlDetails;
+    public Optional<Boolean> includeControlDetails() {
+        return Optional.ofNullable(this.includeControlDetails);
     }
-    public Boolean includeNullAndEmpty() {
-        return this.includeNullAndEmpty;
+    public Optional<Boolean> includeNullAndEmpty() {
+        return Optional.ofNullable(this.includeNullAndEmpty);
     }
-    public Boolean includePartitionValue() {
-        return this.includePartitionValue;
+    public Optional<Boolean> includePartitionValue() {
+        return Optional.ofNullable(this.includePartitionValue);
     }
-    public Boolean includeTableAlterOperations() {
-        return this.includeTableAlterOperations;
+    public Optional<Boolean> includeTableAlterOperations() {
+        return Optional.ofNullable(this.includeTableAlterOperations);
     }
-    public Boolean includeTransactionDetails() {
-        return this.includeTransactionDetails;
+    public Optional<Boolean> includeTransactionDetails() {
+        return Optional.ofNullable(this.includeTransactionDetails);
     }
-    public String messageFormat() {
-        return this.messageFormat;
+    public Optional<String> messageFormat() {
+        return Optional.ofNullable(this.messageFormat);
     }
-    public Integer messageMaxBytes() {
-        return this.messageMaxBytes;
+    public Optional<Integer> messageMaxBytes() {
+        return Optional.ofNullable(this.messageMaxBytes);
     }
-    public Boolean noHexPrefix() {
-        return this.noHexPrefix;
+    public Optional<Boolean> noHexPrefix() {
+        return Optional.ofNullable(this.noHexPrefix);
     }
-    public Boolean partitionIncludeSchemaTable() {
-        return this.partitionIncludeSchemaTable;
+    public Optional<Boolean> partitionIncludeSchemaTable() {
+        return Optional.ofNullable(this.partitionIncludeSchemaTable);
     }
-    public String saslPassword() {
-        return this.saslPassword;
+    public Optional<String> saslPassword() {
+        return Optional.ofNullable(this.saslPassword);
     }
-    public String saslUsername() {
-        return this.saslUsername;
+    public Optional<String> saslUsername() {
+        return Optional.ofNullable(this.saslUsername);
     }
-    public String securityProtocol() {
-        return this.securityProtocol;
+    public Optional<String> securityProtocol() {
+        return Optional.ofNullable(this.securityProtocol);
     }
-    public String sslCaCertificateArn() {
-        return this.sslCaCertificateArn;
+    public Optional<String> sslCaCertificateArn() {
+        return Optional.ofNullable(this.sslCaCertificateArn);
     }
-    public String sslClientCertificateArn() {
-        return this.sslClientCertificateArn;
+    public Optional<String> sslClientCertificateArn() {
+        return Optional.ofNullable(this.sslClientCertificateArn);
     }
-    public String sslClientKeyArn() {
-        return this.sslClientKeyArn;
+    public Optional<String> sslClientKeyArn() {
+        return Optional.ofNullable(this.sslClientKeyArn);
     }
-    public String sslClientKeyPassword() {
-        return this.sslClientKeyPassword;
+    public Optional<String> sslClientKeyPassword() {
+        return Optional.ofNullable(this.sslClientKeyPassword);
     }
-    public String topic() {
-        return this.topic;
+    public Optional<String> topic() {
+        return Optional.ofNullable(this.topic);
     }
 
     public static Builder builder() {
@@ -95,24 +97,24 @@ public final class GetEndpointKafkaSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String broker;
-        private Boolean includeControlDetails;
-        private Boolean includeNullAndEmpty;
-        private Boolean includePartitionValue;
-        private Boolean includeTableAlterOperations;
-        private Boolean includeTransactionDetails;
-        private String messageFormat;
-        private Integer messageMaxBytes;
-        private Boolean noHexPrefix;
-        private Boolean partitionIncludeSchemaTable;
-        private String saslPassword;
-        private String saslUsername;
-        private String securityProtocol;
-        private String sslCaCertificateArn;
-        private String sslClientCertificateArn;
-        private String sslClientKeyArn;
-        private String sslClientKeyPassword;
-        private String topic;
+        private @Nullable String broker;
+        private @Nullable Boolean includeControlDetails;
+        private @Nullable Boolean includeNullAndEmpty;
+        private @Nullable Boolean includePartitionValue;
+        private @Nullable Boolean includeTableAlterOperations;
+        private @Nullable Boolean includeTransactionDetails;
+        private @Nullable String messageFormat;
+        private @Nullable Integer messageMaxBytes;
+        private @Nullable Boolean noHexPrefix;
+        private @Nullable Boolean partitionIncludeSchemaTable;
+        private @Nullable String saslPassword;
+        private @Nullable String saslUsername;
+        private @Nullable String securityProtocol;
+        private @Nullable String sslCaCertificateArn;
+        private @Nullable String sslClientCertificateArn;
+        private @Nullable String sslClientKeyArn;
+        private @Nullable String sslClientKeyPassword;
+        private @Nullable String topic;
         public Builder() {}
         public Builder(GetEndpointKafkaSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -137,93 +139,93 @@ public final class GetEndpointKafkaSetting {
         }
 
         @CustomType.Setter
-        public Builder broker(String broker) {
-            this.broker = Objects.requireNonNull(broker);
+        public Builder broker(@Nullable String broker) {
+            this.broker = broker;
             return this;
         }
         @CustomType.Setter
-        public Builder includeControlDetails(Boolean includeControlDetails) {
-            this.includeControlDetails = Objects.requireNonNull(includeControlDetails);
+        public Builder includeControlDetails(@Nullable Boolean includeControlDetails) {
+            this.includeControlDetails = includeControlDetails;
             return this;
         }
         @CustomType.Setter
-        public Builder includeNullAndEmpty(Boolean includeNullAndEmpty) {
-            this.includeNullAndEmpty = Objects.requireNonNull(includeNullAndEmpty);
+        public Builder includeNullAndEmpty(@Nullable Boolean includeNullAndEmpty) {
+            this.includeNullAndEmpty = includeNullAndEmpty;
             return this;
         }
         @CustomType.Setter
-        public Builder includePartitionValue(Boolean includePartitionValue) {
-            this.includePartitionValue = Objects.requireNonNull(includePartitionValue);
+        public Builder includePartitionValue(@Nullable Boolean includePartitionValue) {
+            this.includePartitionValue = includePartitionValue;
             return this;
         }
         @CustomType.Setter
-        public Builder includeTableAlterOperations(Boolean includeTableAlterOperations) {
-            this.includeTableAlterOperations = Objects.requireNonNull(includeTableAlterOperations);
+        public Builder includeTableAlterOperations(@Nullable Boolean includeTableAlterOperations) {
+            this.includeTableAlterOperations = includeTableAlterOperations;
             return this;
         }
         @CustomType.Setter
-        public Builder includeTransactionDetails(Boolean includeTransactionDetails) {
-            this.includeTransactionDetails = Objects.requireNonNull(includeTransactionDetails);
+        public Builder includeTransactionDetails(@Nullable Boolean includeTransactionDetails) {
+            this.includeTransactionDetails = includeTransactionDetails;
             return this;
         }
         @CustomType.Setter
-        public Builder messageFormat(String messageFormat) {
-            this.messageFormat = Objects.requireNonNull(messageFormat);
+        public Builder messageFormat(@Nullable String messageFormat) {
+            this.messageFormat = messageFormat;
             return this;
         }
         @CustomType.Setter
-        public Builder messageMaxBytes(Integer messageMaxBytes) {
-            this.messageMaxBytes = Objects.requireNonNull(messageMaxBytes);
+        public Builder messageMaxBytes(@Nullable Integer messageMaxBytes) {
+            this.messageMaxBytes = messageMaxBytes;
             return this;
         }
         @CustomType.Setter
-        public Builder noHexPrefix(Boolean noHexPrefix) {
-            this.noHexPrefix = Objects.requireNonNull(noHexPrefix);
+        public Builder noHexPrefix(@Nullable Boolean noHexPrefix) {
+            this.noHexPrefix = noHexPrefix;
             return this;
         }
         @CustomType.Setter
-        public Builder partitionIncludeSchemaTable(Boolean partitionIncludeSchemaTable) {
-            this.partitionIncludeSchemaTable = Objects.requireNonNull(partitionIncludeSchemaTable);
+        public Builder partitionIncludeSchemaTable(@Nullable Boolean partitionIncludeSchemaTable) {
+            this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             return this;
         }
         @CustomType.Setter
-        public Builder saslPassword(String saslPassword) {
-            this.saslPassword = Objects.requireNonNull(saslPassword);
+        public Builder saslPassword(@Nullable String saslPassword) {
+            this.saslPassword = saslPassword;
             return this;
         }
         @CustomType.Setter
-        public Builder saslUsername(String saslUsername) {
-            this.saslUsername = Objects.requireNonNull(saslUsername);
+        public Builder saslUsername(@Nullable String saslUsername) {
+            this.saslUsername = saslUsername;
             return this;
         }
         @CustomType.Setter
-        public Builder securityProtocol(String securityProtocol) {
-            this.securityProtocol = Objects.requireNonNull(securityProtocol);
+        public Builder securityProtocol(@Nullable String securityProtocol) {
+            this.securityProtocol = securityProtocol;
             return this;
         }
         @CustomType.Setter
-        public Builder sslCaCertificateArn(String sslCaCertificateArn) {
-            this.sslCaCertificateArn = Objects.requireNonNull(sslCaCertificateArn);
+        public Builder sslCaCertificateArn(@Nullable String sslCaCertificateArn) {
+            this.sslCaCertificateArn = sslCaCertificateArn;
             return this;
         }
         @CustomType.Setter
-        public Builder sslClientCertificateArn(String sslClientCertificateArn) {
-            this.sslClientCertificateArn = Objects.requireNonNull(sslClientCertificateArn);
+        public Builder sslClientCertificateArn(@Nullable String sslClientCertificateArn) {
+            this.sslClientCertificateArn = sslClientCertificateArn;
             return this;
         }
         @CustomType.Setter
-        public Builder sslClientKeyArn(String sslClientKeyArn) {
-            this.sslClientKeyArn = Objects.requireNonNull(sslClientKeyArn);
+        public Builder sslClientKeyArn(@Nullable String sslClientKeyArn) {
+            this.sslClientKeyArn = sslClientKeyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder sslClientKeyPassword(String sslClientKeyPassword) {
-            this.sslClientKeyPassword = Objects.requireNonNull(sslClientKeyPassword);
+        public Builder sslClientKeyPassword(@Nullable String sslClientKeyPassword) {
+            this.sslClientKeyPassword = sslClientKeyPassword;
             return this;
         }
         @CustomType.Setter
-        public Builder topic(String topic) {
-            this.topic = Objects.requireNonNull(topic);
+        public Builder topic(@Nullable String topic) {
+            this.topic = topic;
             return this;
         }
         public GetEndpointKafkaSetting build() {

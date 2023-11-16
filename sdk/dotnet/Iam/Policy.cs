@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Iam
         /// The ARN assigned by AWS to this policy.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the IAM policy.
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Iam
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Path in which to create the policy.
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Iam
         /// The policy's ID.
         /// </summary>
         [Output("policyId")]
-        public Output<string> PolicyId { get; private set; } = null!;
+        public Output<string?> PolicyId { get; private set; } = null!;
 
         /// <summary>
         /// Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

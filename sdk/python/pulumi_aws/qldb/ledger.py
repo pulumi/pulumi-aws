@@ -380,7 +380,7 @@ class Ledger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the QLDB Ledger
         """
@@ -396,7 +396,7 @@ class Ledger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> pulumi.Output[str]:
+    def kms_key(self) -> pulumi.Output[Optional[str]]:
         """
         The key in AWS Key Management Service (AWS KMS) to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `"AWS_OWNED_KMS_KEY"` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
         """

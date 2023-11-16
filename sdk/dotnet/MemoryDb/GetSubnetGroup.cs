@@ -128,15 +128,15 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// ARN of the subnet group.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the subnet group.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Set of VPC Subnet ID-s of the subnet group.
@@ -145,27 +145,27 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// Map of tags assigned to the subnet group.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// VPC in which the subnet group exists.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetSubnetGroupResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             Description = description;

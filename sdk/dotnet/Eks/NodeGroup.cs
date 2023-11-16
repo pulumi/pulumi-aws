@@ -139,19 +139,19 @@ namespace Pulumi.Aws.Eks
         /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("amiType")]
-        public Output<string> AmiType { get; private set; } = null!;
+        public Output<string?> AmiType { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Node Group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("capacityType")]
-        public Output<string> CapacityType { get; private set; } = null!;
+        public Output<string?> CapacityType { get; private set; } = null!;
 
         /// <summary>
         /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Eks
         /// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("diskSize")]
-        public Output<int> DiskSize { get; private set; } = null!;
+        public Output<int?> DiskSize { get; private set; } = null!;
 
         /// <summary>
         /// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Eks
         /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         /// </summary>
         [Output("nodeGroupNamePrefix")]
-        public Output<string> NodeGroupNamePrefix { get; private set; } = null!;
+        public Output<string?> NodeGroupNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Eks
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         /// </summary>
         [Output("releaseVersion")]
-        public Output<string> ReleaseVersion { get; private set; } = null!;
+        public Output<string?> ReleaseVersion { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with remote access settings. See `remote_access` below for details.
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Eks
         /// Status of the EKS Node Group.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
@@ -267,13 +267,13 @@ namespace Pulumi.Aws.Eks
         /// Configuration block with update settings. See `update_config` below for details.
         /// </summary>
         [Output("updateConfig")]
-        public Output<Outputs.NodeGroupUpdateConfig> UpdateConfig { get; private set; } = null!;
+        public Output<Outputs.NodeGroupUpdateConfig?> UpdateConfig { get; private set; } = null!;
 
         /// <summary>
         /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

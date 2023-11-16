@@ -26,49 +26,49 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SES:SendEmail"),
-//							pulumi.String("SES:SendRawEmail"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleDomainIdentity.Arn,
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//								Type: pulumi.String("AWS"),
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = ses.NewIdentityPolicy(ctx, "exampleIdentityPolicy", &ses.IdentityPolicyArgs{
-//				Identity: exampleDomainIdentity.Arn,
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
+// Domain: pulumi.String("example.com"),
+// })
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument := exampleDomainIdentity.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "SES:SendEmail",
+// "SES:SendRawEmail",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Identifiers: []string{
+// "*",
+// },
+// Type: "AWS",
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = ses.NewIdentityPolicy(ctx, "exampleIdentityPolicy", &ses.IdentityPolicyArgs{
+// Identity: exampleDomainIdentity.Arn,
+// Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &examplePolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

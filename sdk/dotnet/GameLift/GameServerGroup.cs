@@ -185,13 +185,13 @@ namespace Pulumi.Aws.GameLift
         /// The ARN of the GameLift Game Server Group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the created EC2 Auto Scaling group.
         /// </summary>
         [Output("autoScalingGroupArn")]
-        public Output<string> AutoScalingGroupArn { get; private set; } = null!;
+        public Output<string?> AutoScalingGroupArn { get; private set; } = null!;
 
         [Output("autoScalingPolicy")]
         public Output<Outputs.GameServerGroupAutoScalingPolicy?> AutoScalingPolicy { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.GameLift
         /// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         /// </summary>
         [Output("balancingStrategy")]
-        public Output<string> BalancingStrategy { get; private set; } = null!;
+        public Output<string?> BalancingStrategy { get; private set; } = null!;
 
         /// <summary>
         /// Name of the game server group.
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.GameLift
         /// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         /// </summary>
         [Output("gameServerProtectionPolicy")]
-        public Output<string> GameServerProtectionPolicy { get; private set; } = null!;
+        public Output<string?> GameServerProtectionPolicy { get; private set; } = null!;
 
         [Output("instanceDefinitions")]
         public Output<ImmutableArray<Outputs.GameServerGroupInstanceDefinition>> InstanceDefinitions { get; private set; } = null!;

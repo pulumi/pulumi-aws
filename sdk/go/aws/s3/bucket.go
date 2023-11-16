@@ -380,9 +380,9 @@ import (
 //			}
 //			replicationPolicy, err := iam.NewPolicy(ctx, "replicationPolicy", &iam.PolicyArgs{
 //				Policy: pulumi.All(source.Arn, source.Arn, destination.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					sourceArn := _args[0].(string)
-//					sourceArn1 := _args[1].(string)
-//					destinationArn := _args[2].(string)
+//					sourceArn := _args[0].(*string)
+//					sourceArn1 := _args[1].(*string)
+//					destinationArn := _args[2].(*string)
 //					return fmt.Sprintf(`{
 //	  "Version": "2012-10-17",
 //	  "Statement": [
@@ -539,19 +539,19 @@ type Bucket struct {
 	pulumi.CustomResourceState
 
 	// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
-	AccelerationStatus pulumi.StringOutput `pulumi:"accelerationStatus"`
+	AccelerationStatus pulumi.StringPtrOutput `pulumi:"accelerationStatus"`
 	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-	BucketDomainName pulumi.StringOutput `pulumi:"bucketDomainName"`
+	BucketDomainName pulumi.StringPtrOutput `pulumi:"bucketDomainName"`
 	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix pulumi.StringPtrOutput `pulumi:"bucketPrefix"`
 	// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
-	BucketRegionalDomainName pulumi.StringOutput `pulumi:"bucketRegionalDomainName"`
+	BucketRegionalDomainName pulumi.StringPtrOutput `pulumi:"bucketRegionalDomainName"`
 	// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
 	CorsRules BucketCorsRuleArrayOutput `pulumi:"corsRules"`
 	// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
@@ -559,7 +559,7 @@ type Bucket struct {
 	// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
 	Grants BucketGrantArrayOutput `pulumi:"grants"`
 	// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringPtrOutput `pulumi:"hostedZoneId"`
 	// A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
 	LifecycleRules BucketLifecycleRuleArrayOutput `pulumi:"lifecycleRules"`
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
@@ -571,16 +571,16 @@ type Bucket struct {
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// The AWS region this bucket resides in.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
 	ReplicationConfiguration BucketReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
 	// the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
 	// developer guide for more information.
-	RequestPayer pulumi.StringOutput `pulumi:"requestPayer"`
+	RequestPayer pulumi.StringPtrOutput `pulumi:"requestPayer"`
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
-	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
+	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -588,13 +588,13 @@ type Bucket struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
-	Versioning BucketVersioningOutput `pulumi:"versioning"`
+	Versioning BucketVersioningPtrOutput `pulumi:"versioning"`
 	// A website object (documented below).
 	Website BucketWebsitePtrOutput `pulumi:"website"`
 	// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-	WebsiteDomain pulumi.StringOutput `pulumi:"websiteDomain"`
+	WebsiteDomain pulumi.StringPtrOutput `pulumi:"websiteDomain"`
 	// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-	WebsiteEndpoint pulumi.StringOutput `pulumi:"websiteEndpoint"`
+	WebsiteEndpoint pulumi.StringPtrOutput `pulumi:"websiteEndpoint"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -943,8 +943,8 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 }
 
 // Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
-func (o BucketOutput) AccelerationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.AccelerationStatus }).(pulumi.StringOutput)
+func (o BucketOutput) AccelerationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.AccelerationStatus }).(pulumi.StringPtrOutput)
 }
 
 // The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
@@ -953,8 +953,8 @@ func (o BucketOutput) Acl() pulumi.StringPtrOutput {
 }
 
 // The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-func (o BucketOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BucketOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -963,8 +963,8 @@ func (o BucketOutput) Bucket() pulumi.StringOutput {
 }
 
 // The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-func (o BucketOutput) BucketDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BucketDomainName }).(pulumi.StringOutput)
+func (o BucketOutput) BucketDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.BucketDomainName }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -973,8 +973,8 @@ func (o BucketOutput) BucketPrefix() pulumi.StringPtrOutput {
 }
 
 // The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
-func (o BucketOutput) BucketRegionalDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BucketRegionalDomainName }).(pulumi.StringOutput)
+func (o BucketOutput) BucketRegionalDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.BucketRegionalDomainName }).(pulumi.StringPtrOutput)
 }
 
 // A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
@@ -993,8 +993,8 @@ func (o BucketOutput) Grants() BucketGrantArrayOutput {
 }
 
 // The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-func (o BucketOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o BucketOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
@@ -1020,8 +1020,8 @@ func (o BucketOutput) Policy() pulumi.StringPtrOutput {
 }
 
 // The AWS region this bucket resides in.
-func (o BucketOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+func (o BucketOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
@@ -1033,15 +1033,15 @@ func (o BucketOutput) ReplicationConfiguration() BucketReplicationConfigurationP
 // Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
 // the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
 // developer guide for more information.
-func (o BucketOutput) RequestPayer() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.RequestPayer }).(pulumi.StringOutput)
+func (o BucketOutput) RequestPayer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.RequestPayer }).(pulumi.StringPtrOutput)
 }
 
 // A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
-func (o BucketOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionConfigurationOutput {
-	return o.ApplyT(func(v *Bucket) BucketServerSideEncryptionConfigurationOutput {
+func (o BucketOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
-	}).(BucketServerSideEncryptionConfigurationOutput)
+	}).(BucketServerSideEncryptionConfigurationPtrOutput)
 }
 
 // A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1057,8 +1057,8 @@ func (o BucketOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
-func (o BucketOutput) Versioning() BucketVersioningOutput {
-	return o.ApplyT(func(v *Bucket) BucketVersioningOutput { return v.Versioning }).(BucketVersioningOutput)
+func (o BucketOutput) Versioning() BucketVersioningPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketVersioningPtrOutput { return v.Versioning }).(BucketVersioningPtrOutput)
 }
 
 // A website object (documented below).
@@ -1067,13 +1067,13 @@ func (o BucketOutput) Website() BucketWebsitePtrOutput {
 }
 
 // The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-func (o BucketOutput) WebsiteDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.WebsiteDomain }).(pulumi.StringOutput)
+func (o BucketOutput) WebsiteDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.WebsiteDomain }).(pulumi.StringPtrOutput)
 }
 
 // The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-func (o BucketOutput) WebsiteEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.WebsiteEndpoint }).(pulumi.StringOutput)
+func (o BucketOutput) WebsiteEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.WebsiteEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type BucketArrayOutput struct{ *pulumi.OutputState }

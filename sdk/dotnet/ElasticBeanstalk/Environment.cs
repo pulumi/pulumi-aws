@@ -118,7 +118,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> Application { get; private set; } = null!;
 
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The autoscaling groups used by this Environment.
@@ -130,14 +130,14 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// Fully qualified DNS name for this Environment.
         /// </summary>
         [Output("cname")]
-        public Output<string> Cname { get; private set; } = null!;
+        public Output<string?> Cname { get; private set; } = null!;
 
         /// <summary>
         /// Prefix to use for the fully qualified DNS name of
         /// the Environment.
         /// </summary>
         [Output("cnamePrefix")]
-        public Output<string> CnamePrefix { get; private set; } = null!;
+        public Output<string?> CnamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Short description of the Environment
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// The URL to the Load Balancer for this Environment
         /// </summary>
         [Output("endpointUrl")]
-        public Output<string> EndpointUrl { get; private set; } = null!;
+        public Output<string?> EndpointUrl { get; private set; } = null!;
 
         /// <summary>
         /// Instances used by this Environment.
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// to use in deployment
         /// </summary>
         [Output("platformArn")]
-        public Output<string> PlatformArn { get; private set; } = null!;
+        public Output<string?> PlatformArn { get; private set; } = null!;
 
         /// <summary>
         /// The time between polling the AWS API to
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
         [Output("solutionStackName")]
-        public Output<string> SolutionStackName { get; private set; } = null!;
+        public Output<string?> SolutionStackName { get; private set; } = null!;
 
         /// <summary>
         /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// to use in deployment.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
         /// <summary>
         /// The maximum

@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Amp
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of workspace IDs of the matched Prometheus workspaces.
         /// </summary>
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Amp
 
             ImmutableArray<string> arns,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> workspaceIds)
         {

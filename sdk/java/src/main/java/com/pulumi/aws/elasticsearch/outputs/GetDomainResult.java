@@ -19,6 +19,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainResult {
@@ -26,184 +28,184 @@ public final class GetDomainResult {
      * @return The policy document attached to the domain.
      * 
      */
-    private String accessPolicies;
+    private @Nullable String accessPolicies;
     /**
      * @return Key-value string pairs to specify advanced configuration options.
      * 
      */
-    private Map<String,String> advancedOptions;
+    private @Nullable Map<String,String> advancedOptions;
     /**
      * @return Status of the Elasticsearch domain&#39;s advanced security options. The block consists of the following attributes:
      * 
      */
-    private List<GetDomainAdvancedSecurityOption> advancedSecurityOptions;
+    private @Nullable List<GetDomainAdvancedSecurityOption> advancedSecurityOptions;
     /**
      * @return The ARN of the domain.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Configuration of the Auto-Tune options of the domain.
      * 
      */
-    private List<GetDomainAutoTuneOption> autoTuneOptions;
+    private @Nullable List<GetDomainAutoTuneOption> autoTuneOptions;
     /**
      * @return Cluster configuration of the domain.
      * 
      */
-    private List<GetDomainClusterConfig> clusterConfigs;
+    private @Nullable List<GetDomainClusterConfig> clusterConfigs;
     /**
      * @return Domain Amazon Cognito Authentication options for Kibana.
      * 
      */
-    private List<GetDomainCognitoOption> cognitoOptions;
+    private @Nullable List<GetDomainCognitoOption> cognitoOptions;
     /**
      * @return Status of the creation of the domain.
      * 
      */
-    private Boolean created;
+    private @Nullable Boolean created;
     /**
      * @return Status of the deletion of the domain.
      * 
      */
-    private Boolean deleted;
+    private @Nullable Boolean deleted;
     /**
      * @return Unique identifier for the domain.
      * 
      */
-    private String domainId;
+    private @Nullable String domainId;
     private String domainName;
     /**
      * @return EBS Options for the instances in the domain.
      * 
      */
-    private List<GetDomainEbsOption> ebsOptions;
+    private @Nullable List<GetDomainEbsOption> ebsOptions;
     /**
      * @return Elasticsearch version for the domain.
      * 
      */
-    private String elasticsearchVersion;
+    private @Nullable String elasticsearchVersion;
     /**
      * @return Domain encryption at rest related options.
      * 
      */
-    private List<GetDomainEncryptionAtRest> encryptionAtRests;
+    private @Nullable List<GetDomainEncryptionAtRest> encryptionAtRests;
     /**
      * @return Domain-specific endpoint used to submit index, search, and data upload requests.
      * 
      */
-    private String endpoint;
+    private @Nullable String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Domain-specific endpoint used to access the Kibana application.
      * 
      */
-    private String kibanaEndpoint;
+    private @Nullable String kibanaEndpoint;
     /**
      * @return Domain log publishing related options.
      * 
      */
-    private List<GetDomainLogPublishingOption> logPublishingOptions;
+    private @Nullable List<GetDomainLogPublishingOption> logPublishingOptions;
     /**
      * @return Domain in transit encryption related options.
      * 
      */
-    private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
+    private @Nullable List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
     /**
      * @return Status of a configuration change in the domain.
      * 
      */
-    private Boolean processing;
+    private @Nullable Boolean processing;
     /**
      * @return Domain snapshot related options.
      * 
      */
-    private List<GetDomainSnapshotOption> snapshotOptions;
+    private @Nullable List<GetDomainSnapshotOption> snapshotOptions;
     /**
      * @return Tags assigned to the domain.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return VPC Options for private Elasticsearch domains.
      * 
      */
-    private List<GetDomainVpcOption> vpcOptions;
+    private @Nullable List<GetDomainVpcOption> vpcOptions;
 
     private GetDomainResult() {}
     /**
      * @return The policy document attached to the domain.
      * 
      */
-    public String accessPolicies() {
-        return this.accessPolicies;
+    public Optional<String> accessPolicies() {
+        return Optional.ofNullable(this.accessPolicies);
     }
     /**
      * @return Key-value string pairs to specify advanced configuration options.
      * 
      */
     public Map<String,String> advancedOptions() {
-        return this.advancedOptions;
+        return this.advancedOptions == null ? Map.of() : this.advancedOptions;
     }
     /**
      * @return Status of the Elasticsearch domain&#39;s advanced security options. The block consists of the following attributes:
      * 
      */
     public List<GetDomainAdvancedSecurityOption> advancedSecurityOptions() {
-        return this.advancedSecurityOptions;
+        return this.advancedSecurityOptions == null ? List.of() : this.advancedSecurityOptions;
     }
     /**
      * @return The ARN of the domain.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Configuration of the Auto-Tune options of the domain.
      * 
      */
     public List<GetDomainAutoTuneOption> autoTuneOptions() {
-        return this.autoTuneOptions;
+        return this.autoTuneOptions == null ? List.of() : this.autoTuneOptions;
     }
     /**
      * @return Cluster configuration of the domain.
      * 
      */
     public List<GetDomainClusterConfig> clusterConfigs() {
-        return this.clusterConfigs;
+        return this.clusterConfigs == null ? List.of() : this.clusterConfigs;
     }
     /**
      * @return Domain Amazon Cognito Authentication options for Kibana.
      * 
      */
     public List<GetDomainCognitoOption> cognitoOptions() {
-        return this.cognitoOptions;
+        return this.cognitoOptions == null ? List.of() : this.cognitoOptions;
     }
     /**
      * @return Status of the creation of the domain.
      * 
      */
-    public Boolean created() {
-        return this.created;
+    public Optional<Boolean> created() {
+        return Optional.ofNullable(this.created);
     }
     /**
      * @return Status of the deletion of the domain.
      * 
      */
-    public Boolean deleted() {
-        return this.deleted;
+    public Optional<Boolean> deleted() {
+        return Optional.ofNullable(this.deleted);
     }
     /**
      * @return Unique identifier for the domain.
      * 
      */
-    public String domainId() {
-        return this.domainId;
+    public Optional<String> domainId() {
+        return Optional.ofNullable(this.domainId);
     }
     public String domainName() {
         return this.domainName;
@@ -213,84 +215,84 @@ public final class GetDomainResult {
      * 
      */
     public List<GetDomainEbsOption> ebsOptions() {
-        return this.ebsOptions;
+        return this.ebsOptions == null ? List.of() : this.ebsOptions;
     }
     /**
      * @return Elasticsearch version for the domain.
      * 
      */
-    public String elasticsearchVersion() {
-        return this.elasticsearchVersion;
+    public Optional<String> elasticsearchVersion() {
+        return Optional.ofNullable(this.elasticsearchVersion);
     }
     /**
      * @return Domain encryption at rest related options.
      * 
      */
     public List<GetDomainEncryptionAtRest> encryptionAtRests() {
-        return this.encryptionAtRests;
+        return this.encryptionAtRests == null ? List.of() : this.encryptionAtRests;
     }
     /**
      * @return Domain-specific endpoint used to submit index, search, and data upload requests.
      * 
      */
-    public String endpoint() {
-        return this.endpoint;
+    public Optional<String> endpoint() {
+        return Optional.ofNullable(this.endpoint);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Domain-specific endpoint used to access the Kibana application.
      * 
      */
-    public String kibanaEndpoint() {
-        return this.kibanaEndpoint;
+    public Optional<String> kibanaEndpoint() {
+        return Optional.ofNullable(this.kibanaEndpoint);
     }
     /**
      * @return Domain log publishing related options.
      * 
      */
     public List<GetDomainLogPublishingOption> logPublishingOptions() {
-        return this.logPublishingOptions;
+        return this.logPublishingOptions == null ? List.of() : this.logPublishingOptions;
     }
     /**
      * @return Domain in transit encryption related options.
      * 
      */
     public List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions() {
-        return this.nodeToNodeEncryptions;
+        return this.nodeToNodeEncryptions == null ? List.of() : this.nodeToNodeEncryptions;
     }
     /**
      * @return Status of a configuration change in the domain.
      * 
      */
-    public Boolean processing() {
-        return this.processing;
+    public Optional<Boolean> processing() {
+        return Optional.ofNullable(this.processing);
     }
     /**
      * @return Domain snapshot related options.
      * 
      */
     public List<GetDomainSnapshotOption> snapshotOptions() {
-        return this.snapshotOptions;
+        return this.snapshotOptions == null ? List.of() : this.snapshotOptions;
     }
     /**
      * @return Tags assigned to the domain.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return VPC Options for private Elasticsearch domains.
      * 
      */
     public List<GetDomainVpcOption> vpcOptions() {
-        return this.vpcOptions;
+        return this.vpcOptions == null ? List.of() : this.vpcOptions;
     }
 
     public static Builder builder() {
@@ -302,29 +304,29 @@ public final class GetDomainResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accessPolicies;
-        private Map<String,String> advancedOptions;
-        private List<GetDomainAdvancedSecurityOption> advancedSecurityOptions;
-        private String arn;
-        private List<GetDomainAutoTuneOption> autoTuneOptions;
-        private List<GetDomainClusterConfig> clusterConfigs;
-        private List<GetDomainCognitoOption> cognitoOptions;
-        private Boolean created;
-        private Boolean deleted;
-        private String domainId;
+        private @Nullable String accessPolicies;
+        private @Nullable Map<String,String> advancedOptions;
+        private @Nullable List<GetDomainAdvancedSecurityOption> advancedSecurityOptions;
+        private @Nullable String arn;
+        private @Nullable List<GetDomainAutoTuneOption> autoTuneOptions;
+        private @Nullable List<GetDomainClusterConfig> clusterConfigs;
+        private @Nullable List<GetDomainCognitoOption> cognitoOptions;
+        private @Nullable Boolean created;
+        private @Nullable Boolean deleted;
+        private @Nullable String domainId;
         private String domainName;
-        private List<GetDomainEbsOption> ebsOptions;
-        private String elasticsearchVersion;
-        private List<GetDomainEncryptionAtRest> encryptionAtRests;
-        private String endpoint;
-        private String id;
-        private String kibanaEndpoint;
-        private List<GetDomainLogPublishingOption> logPublishingOptions;
-        private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
-        private Boolean processing;
-        private List<GetDomainSnapshotOption> snapshotOptions;
-        private Map<String,String> tags;
-        private List<GetDomainVpcOption> vpcOptions;
+        private @Nullable List<GetDomainEbsOption> ebsOptions;
+        private @Nullable String elasticsearchVersion;
+        private @Nullable List<GetDomainEncryptionAtRest> encryptionAtRests;
+        private @Nullable String endpoint;
+        private @Nullable String id;
+        private @Nullable String kibanaEndpoint;
+        private @Nullable List<GetDomainLogPublishingOption> logPublishingOptions;
+        private @Nullable List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
+        private @Nullable Boolean processing;
+        private @Nullable List<GetDomainSnapshotOption> snapshotOptions;
+        private @Nullable Map<String,String> tags;
+        private @Nullable List<GetDomainVpcOption> vpcOptions;
         public Builder() {}
         public Builder(GetDomainResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -354,65 +356,65 @@ public final class GetDomainResult {
         }
 
         @CustomType.Setter
-        public Builder accessPolicies(String accessPolicies) {
-            this.accessPolicies = Objects.requireNonNull(accessPolicies);
+        public Builder accessPolicies(@Nullable String accessPolicies) {
+            this.accessPolicies = accessPolicies;
             return this;
         }
         @CustomType.Setter
-        public Builder advancedOptions(Map<String,String> advancedOptions) {
-            this.advancedOptions = Objects.requireNonNull(advancedOptions);
+        public Builder advancedOptions(@Nullable Map<String,String> advancedOptions) {
+            this.advancedOptions = advancedOptions;
             return this;
         }
         @CustomType.Setter
-        public Builder advancedSecurityOptions(List<GetDomainAdvancedSecurityOption> advancedSecurityOptions) {
-            this.advancedSecurityOptions = Objects.requireNonNull(advancedSecurityOptions);
+        public Builder advancedSecurityOptions(@Nullable List<GetDomainAdvancedSecurityOption> advancedSecurityOptions) {
+            this.advancedSecurityOptions = advancedSecurityOptions;
             return this;
         }
         public Builder advancedSecurityOptions(GetDomainAdvancedSecurityOption... advancedSecurityOptions) {
             return advancedSecurityOptions(List.of(advancedSecurityOptions));
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder autoTuneOptions(List<GetDomainAutoTuneOption> autoTuneOptions) {
-            this.autoTuneOptions = Objects.requireNonNull(autoTuneOptions);
+        public Builder autoTuneOptions(@Nullable List<GetDomainAutoTuneOption> autoTuneOptions) {
+            this.autoTuneOptions = autoTuneOptions;
             return this;
         }
         public Builder autoTuneOptions(GetDomainAutoTuneOption... autoTuneOptions) {
             return autoTuneOptions(List.of(autoTuneOptions));
         }
         @CustomType.Setter
-        public Builder clusterConfigs(List<GetDomainClusterConfig> clusterConfigs) {
-            this.clusterConfigs = Objects.requireNonNull(clusterConfigs);
+        public Builder clusterConfigs(@Nullable List<GetDomainClusterConfig> clusterConfigs) {
+            this.clusterConfigs = clusterConfigs;
             return this;
         }
         public Builder clusterConfigs(GetDomainClusterConfig... clusterConfigs) {
             return clusterConfigs(List.of(clusterConfigs));
         }
         @CustomType.Setter
-        public Builder cognitoOptions(List<GetDomainCognitoOption> cognitoOptions) {
-            this.cognitoOptions = Objects.requireNonNull(cognitoOptions);
+        public Builder cognitoOptions(@Nullable List<GetDomainCognitoOption> cognitoOptions) {
+            this.cognitoOptions = cognitoOptions;
             return this;
         }
         public Builder cognitoOptions(GetDomainCognitoOption... cognitoOptions) {
             return cognitoOptions(List.of(cognitoOptions));
         }
         @CustomType.Setter
-        public Builder created(Boolean created) {
-            this.created = Objects.requireNonNull(created);
+        public Builder created(@Nullable Boolean created) {
+            this.created = created;
             return this;
         }
         @CustomType.Setter
-        public Builder deleted(Boolean deleted) {
-            this.deleted = Objects.requireNonNull(deleted);
+        public Builder deleted(@Nullable Boolean deleted) {
+            this.deleted = deleted;
             return this;
         }
         @CustomType.Setter
-        public Builder domainId(String domainId) {
-            this.domainId = Objects.requireNonNull(domainId);
+        public Builder domainId(@Nullable String domainId) {
+            this.domainId = domainId;
             return this;
         }
         @CustomType.Setter
@@ -421,78 +423,78 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ebsOptions(List<GetDomainEbsOption> ebsOptions) {
-            this.ebsOptions = Objects.requireNonNull(ebsOptions);
+        public Builder ebsOptions(@Nullable List<GetDomainEbsOption> ebsOptions) {
+            this.ebsOptions = ebsOptions;
             return this;
         }
         public Builder ebsOptions(GetDomainEbsOption... ebsOptions) {
             return ebsOptions(List.of(ebsOptions));
         }
         @CustomType.Setter
-        public Builder elasticsearchVersion(String elasticsearchVersion) {
-            this.elasticsearchVersion = Objects.requireNonNull(elasticsearchVersion);
+        public Builder elasticsearchVersion(@Nullable String elasticsearchVersion) {
+            this.elasticsearchVersion = elasticsearchVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder encryptionAtRests(List<GetDomainEncryptionAtRest> encryptionAtRests) {
-            this.encryptionAtRests = Objects.requireNonNull(encryptionAtRests);
+        public Builder encryptionAtRests(@Nullable List<GetDomainEncryptionAtRest> encryptionAtRests) {
+            this.encryptionAtRests = encryptionAtRests;
             return this;
         }
         public Builder encryptionAtRests(GetDomainEncryptionAtRest... encryptionAtRests) {
             return encryptionAtRests(List.of(encryptionAtRests));
         }
         @CustomType.Setter
-        public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+        public Builder endpoint(@Nullable String endpoint) {
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kibanaEndpoint(String kibanaEndpoint) {
-            this.kibanaEndpoint = Objects.requireNonNull(kibanaEndpoint);
+        public Builder kibanaEndpoint(@Nullable String kibanaEndpoint) {
+            this.kibanaEndpoint = kibanaEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder logPublishingOptions(List<GetDomainLogPublishingOption> logPublishingOptions) {
-            this.logPublishingOptions = Objects.requireNonNull(logPublishingOptions);
+        public Builder logPublishingOptions(@Nullable List<GetDomainLogPublishingOption> logPublishingOptions) {
+            this.logPublishingOptions = logPublishingOptions;
             return this;
         }
         public Builder logPublishingOptions(GetDomainLogPublishingOption... logPublishingOptions) {
             return logPublishingOptions(List.of(logPublishingOptions));
         }
         @CustomType.Setter
-        public Builder nodeToNodeEncryptions(List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions) {
-            this.nodeToNodeEncryptions = Objects.requireNonNull(nodeToNodeEncryptions);
+        public Builder nodeToNodeEncryptions(@Nullable List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions) {
+            this.nodeToNodeEncryptions = nodeToNodeEncryptions;
             return this;
         }
         public Builder nodeToNodeEncryptions(GetDomainNodeToNodeEncryption... nodeToNodeEncryptions) {
             return nodeToNodeEncryptions(List.of(nodeToNodeEncryptions));
         }
         @CustomType.Setter
-        public Builder processing(Boolean processing) {
-            this.processing = Objects.requireNonNull(processing);
+        public Builder processing(@Nullable Boolean processing) {
+            this.processing = processing;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotOptions(List<GetDomainSnapshotOption> snapshotOptions) {
-            this.snapshotOptions = Objects.requireNonNull(snapshotOptions);
+        public Builder snapshotOptions(@Nullable List<GetDomainSnapshotOption> snapshotOptions) {
+            this.snapshotOptions = snapshotOptions;
             return this;
         }
         public Builder snapshotOptions(GetDomainSnapshotOption... snapshotOptions) {
             return snapshotOptions(List.of(snapshotOptions));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcOptions(List<GetDomainVpcOption> vpcOptions) {
-            this.vpcOptions = Objects.requireNonNull(vpcOptions);
+        public Builder vpcOptions(@Nullable List<GetDomainVpcOption> vpcOptions) {
+            this.vpcOptions = vpcOptions;
             return this;
         }
         public Builder vpcOptions(GetDomainVpcOption... vpcOptions) {

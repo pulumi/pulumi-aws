@@ -442,7 +442,7 @@ class SecurityProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Security Profile.
         """
@@ -474,7 +474,7 @@ class SecurityProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="organizationResourceId")
-    def organization_resource_id(self) -> pulumi.Output[str]:
+    def organization_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The organization resource identifier for the security profile.
         """
@@ -490,7 +490,7 @@ class SecurityProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityProfileId")
-    def security_profile_id(self) -> pulumi.Output[str]:
+    def security_profile_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for the Security Profile.
         """

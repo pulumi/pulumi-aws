@@ -141,13 +141,13 @@ namespace Pulumi.Aws.Iot
         /// The ARN that identifies the provisioning template.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The default version of the fleet provisioning template.
         /// </summary>
         [Output("defaultVersionId")]
-        public Output<int> DefaultVersionId { get; private set; } = null!;
+        public Output<int?> DefaultVersionId { get; private set; } = null!;
 
         /// <summary>
         /// The description of the fleet provisioning template.
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Iot
         /// The type you define in a provisioning template.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

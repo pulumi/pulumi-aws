@@ -51,32 +51,32 @@ export interface GetMapResult {
     /**
      * List of configurations that specify the map tile style selected from a partner data provider.
      */
-    readonly configurations: outputs.location.GetMapConfiguration[];
+    readonly configurations?: outputs.location.GetMapConfiguration[];
     /**
      * Timestamp for when the map resource was created in ISO 8601 format.
      */
-    readonly createTime: string;
+    readonly createTime?: string;
     /**
      * Optional description for the map resource.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN for the map resource.
      */
-    readonly mapArn: string;
+    readonly mapArn?: string;
     readonly mapName: string;
     /**
      * Key-value map of resource tags for the map.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Timestamp for when the map resource was last updated in ISO 8601 format.
      */
-    readonly updateTime: string;
+    readonly updateTime?: string;
 }
 /**
  * Retrieve information about a Location Service Map.

@@ -55,11 +55,11 @@ export class ClientCertificate extends pulumi.CustomResource {
     /**
      * ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Date when the client certificate was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * Description of the client certificate.
      */
@@ -67,11 +67,11 @@ export class ClientCertificate extends pulumi.CustomResource {
     /**
      * Date when the client certificate will expire.
      */
-    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    public /*out*/ readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
      * The PEM-encoded public key of the client certificate.
      */
-    public /*out*/ readonly pemEncodedCertificate!: pulumi.Output<string>;
+    public /*out*/ readonly pemEncodedCertificate!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

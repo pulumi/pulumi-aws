@@ -348,7 +348,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         When the replication configuration was created.
         """
@@ -364,7 +364,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originalSourceFileSystemArn")
-    def original_source_file_system_arn(self) -> pulumi.Output[str]:
+    def original_source_file_system_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
         """
@@ -372,7 +372,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceFileSystemArn")
-    def source_file_system_arn(self) -> pulumi.Output[str]:
+    def source_file_system_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
         """
@@ -388,7 +388,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceFileSystemRegion")
-    def source_file_system_region(self) -> pulumi.Output[str]:
+    def source_file_system_region(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS Region in which the source Amazon EFS file system is located.
         * `destination[0].file_system_id` - The fs ID of the replica.

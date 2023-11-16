@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Alb
         /// The Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Alb
         /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         /// </summary>
         [Output("priority")]
-        public Output<int> Priority { get; private set; } = null!;
+        public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

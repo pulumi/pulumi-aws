@@ -67,14 +67,14 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Neptune Cluster Endpoint Amazon Resource Name (ARN).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The identifier of the endpoint.
@@ -109,14 +109,14 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The DNS address of the endpoint.
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.

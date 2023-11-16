@@ -155,14 +155,14 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of Glue ML Transform.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of the ML Transform.
@@ -183,14 +183,14 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="glueVersion", refs={String.class}, tree="[0]")
-    private Output<String> glueVersion;
+    private Output</* @Nullable */ String> glueVersion;
 
     /**
      * @return The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
-    public Output<String> glueVersion() {
-        return this.glueVersion;
+    public Output<Optional<String>> glueVersion() {
+        return Codegen.optional(this.glueVersion);
     }
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
@@ -211,28 +211,28 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="labelCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> labelCount;
+    private Output</* @Nullable */ Integer> labelCount;
 
     /**
      * @return The number of labels available for this transform.
      * 
      */
-    public Output<Integer> labelCount() {
-        return this.labelCount;
+    public Output<Optional<Integer>> labelCount() {
+        return Codegen.optional(this.labelCount);
     }
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
      * 
      */
     @Export(name="maxCapacity", refs={Double.class}, tree="[0]")
-    private Output<Double> maxCapacity;
+    private Output</* @Nullable */ Double> maxCapacity;
 
     /**
      * @return The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
      * 
      */
-    public Output<Double> maxCapacity() {
-        return this.maxCapacity;
+    public Output<Optional<Double>> maxCapacity() {
+        return Codegen.optional(this.maxCapacity);
     }
     /**
      * The maximum number of times to retry this ML Transform if it fails.
@@ -309,14 +309,14 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="schemas", refs={List.class,MLTransformSchema.class}, tree="[0,1]")
-    private Output<List<MLTransformSchema>> schemas;
+    private Output</* @Nullable */ List<MLTransformSchema>> schemas;
 
     /**
      * @return The object that represents the schema that this transform accepts. see Schema.
      * 
      */
-    public Output<List<MLTransformSchema>> schemas() {
-        return this.schemas;
+    public Output<Optional<List<MLTransformSchema>>> schemas() {
+        return Codegen.optional(this.schemas);
     }
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

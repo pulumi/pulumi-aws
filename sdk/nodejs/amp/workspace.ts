@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
  * const exampleWorkspace = new aws.amp.Workspace("exampleWorkspace", {loggingConfiguration: {
- *     logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
+ *     logGroupArn: exampleLogGroup.arn.apply(arn => `${arn}:*`),
  * }});
  * ```
  *
@@ -78,7 +78,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the workspace.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      */
@@ -86,7 +86,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Prometheus endpoint available for this workspace.
      */
-    public /*out*/ readonly prometheusEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly prometheusEndpoint!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

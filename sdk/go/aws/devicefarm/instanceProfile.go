@@ -52,7 +52,7 @@ type InstanceProfile struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of this instance profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the instance profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
@@ -269,8 +269,8 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 }
 
 // The Amazon Resource Name of this instance profile.
-func (o InstanceProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InstanceProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the instance profile.

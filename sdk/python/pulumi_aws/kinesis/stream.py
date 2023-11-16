@@ -588,7 +588,7 @@ class Stream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         """
@@ -653,7 +653,7 @@ class Stream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamModeDetails")
-    def stream_mode_details(self) -> pulumi.Output['outputs.StreamStreamModeDetails']:
+    def stream_mode_details(self) -> pulumi.Output[Optional['outputs.StreamStreamModeDetails']]:
         """
         Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         """

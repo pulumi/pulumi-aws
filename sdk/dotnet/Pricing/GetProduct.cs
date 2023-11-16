@@ -265,20 +265,20 @@ namespace Pulumi.Aws.Pricing
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set to the product returned from the API.
         /// </summary>
-        public readonly string Result;
+        public readonly string? Result;
         public readonly string ServiceCode;
 
         [OutputConstructor]
         private GetProductResult(
             ImmutableArray<Outputs.GetProductFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string result,
+            string? result,
 
             string serviceCode)
         {

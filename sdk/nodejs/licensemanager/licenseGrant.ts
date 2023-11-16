@@ -50,11 +50,11 @@ export class LicenseGrant extends pulumi.CustomResource {
     /**
      * The grant ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The home region for the license.
      */
-    public /*out*/ readonly homeRegion!: pulumi.Output<string>;
+    public /*out*/ readonly homeRegion!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the license to grant.
      */
@@ -66,7 +66,7 @@ export class LicenseGrant extends pulumi.CustomResource {
     /**
      * The parent ARN.
      */
-    public /*out*/ readonly parentArn!: pulumi.Output<string>;
+    public /*out*/ readonly parentArn!: pulumi.Output<string | undefined>;
     /**
      * The target account for the grant in the form of the ARN for an account principal of the root user.
      */
@@ -74,11 +74,11 @@ export class LicenseGrant extends pulumi.CustomResource {
     /**
      * The grant status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * The grant version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LicenseGrant resource with the given unique name, arguments, and options.

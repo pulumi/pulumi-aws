@@ -59,7 +59,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the access log subscription.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the log destination.
      */
@@ -67,7 +67,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the service network or service.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string | undefined>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      */

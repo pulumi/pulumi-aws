@@ -44,7 +44,7 @@ class GetAttachmentsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -52,7 +52,7 @@ class GetAttachmentsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> Sequence[str]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway_get_attachment][2] data source, searching by identifier.
         """
@@ -60,7 +60,7 @@ class GetAttachmentsResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

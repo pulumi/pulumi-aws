@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ec2
         /// Amazon Resource Name (ARN) of IPAM
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
@@ -39,13 +39,13 @@ namespace Pulumi.Aws.Ec2
         /// The IPAM's default resource discovery association ID.
         /// </summary>
         [Output("defaultResourceDiscoveryAssociationId")]
-        public Output<string> DefaultResourceDiscoveryAssociationId { get; private set; } = null!;
+        public Output<string?> DefaultResourceDiscoveryAssociationId { get; private set; } = null!;
 
         /// <summary>
         /// The IPAM's default resource discovery ID.
         /// </summary>
         [Output("defaultResourceDiscoveryId")]
-        public Output<string> DefaultResourceDiscoveryId { get; private set; } = null!;
+        public Output<string?> DefaultResourceDiscoveryId { get; private set; } = null!;
 
         /// <summary>
         /// A description for the IPAM.
@@ -63,20 +63,20 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         /// </summary>
         [Output("privateDefaultScopeId")]
-        public Output<string> PrivateDefaultScopeId { get; private set; } = null!;
+        public Output<string?> PrivateDefaultScopeId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
         /// IP space. The public scope is intended for all internet-routable IP space.
         /// </summary>
         [Output("publicDefaultScopeId")]
-        public Output<string> PublicDefaultScopeId { get; private set; } = null!;
+        public Output<string?> PublicDefaultScopeId { get; private set; } = null!;
 
         /// <summary>
         /// The number of scopes in the IPAM.
         /// </summary>
         [Output("scopeCount")]
-        public Output<int> ScopeCount { get; private set; } = null!;
+        public Output<int?> ScopeCount { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

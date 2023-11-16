@@ -96,7 +96,7 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// ARN of the device.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// AWS location of the device. Documented below.
         /// </summary>
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Description of the device.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string DeviceId;
         public readonly string GlobalNetworkId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Location of the device. Documented below.
         /// </summary>
@@ -118,55 +118,55 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Model of device.
         /// </summary>
-        public readonly string Model;
+        public readonly string? Model;
         /// <summary>
         /// Serial number of the device.
         /// </summary>
-        public readonly string SerialNumber;
+        public readonly string? SerialNumber;
         /// <summary>
         /// ID of the site.
         /// </summary>
-        public readonly string SiteId;
+        public readonly string? SiteId;
         /// <summary>
         /// Key-value tags for the device.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of device.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// Vendor of the device.
         /// </summary>
-        public readonly string Vendor;
+        public readonly string? Vendor;
 
         [OutputConstructor]
         private GetDeviceResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetDeviceAwsLocationResult> awsLocations,
 
-            string description,
+            string? description,
 
             string deviceId,
 
             string globalNetworkId,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetDeviceLocationResult> locations,
 
-            string model,
+            string? model,
 
-            string serialNumber,
+            string? serialNumber,
 
-            string siteId,
+            string? siteId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type,
+            string? type,
 
-            string vendor)
+            string? vendor)
         {
             Arn = arn;
             AwsLocations = awsLocations;

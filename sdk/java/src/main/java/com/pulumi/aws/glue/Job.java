@@ -223,14 +223,14 @@ public class Job extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of Glue Job
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The command of the job. Defined below.
@@ -307,42 +307,42 @@ public class Job extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="executionProperty", refs={JobExecutionProperty.class}, tree="[0]")
-    private Output<JobExecutionProperty> executionProperty;
+    private Output</* @Nullable */ JobExecutionProperty> executionProperty;
 
     /**
      * @return Execution property of the job. Defined below.
      * 
      */
-    public Output<JobExecutionProperty> executionProperty() {
-        return this.executionProperty;
+    public Output<Optional<JobExecutionProperty>> executionProperty() {
+        return Codegen.optional(this.executionProperty);
     }
     /**
      * The version of glue to use, for example &#34;1.0&#34;. Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
     @Export(name="glueVersion", refs={String.class}, tree="[0]")
-    private Output<String> glueVersion;
+    private Output</* @Nullable */ String> glueVersion;
 
     /**
      * @return The version of glue to use, for example &#34;1.0&#34;. Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
-    public Output<String> glueVersion() {
-        return this.glueVersion;
+    public Output<Optional<String>> glueVersion() {
+        return Codegen.optional(this.glueVersion);
     }
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
      * 
      */
     @Export(name="maxCapacity", refs={Double.class}, tree="[0]")
-    private Output<Double> maxCapacity;
+    private Output</* @Nullable */ Double> maxCapacity;
 
     /**
      * @return The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
      * 
      */
-    public Output<Double> maxCapacity() {
-        return this.maxCapacity;
+    public Output<Optional<Double>> maxCapacity() {
+        return Codegen.optional(this.maxCapacity);
     }
     /**
      * The maximum number of times to retry this job if it fails.
@@ -391,14 +391,14 @@ public class Job extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="notificationProperty", refs={JobNotificationProperty.class}, tree="[0]")
-    private Output<JobNotificationProperty> notificationProperty;
+    private Output</* @Nullable */ JobNotificationProperty> notificationProperty;
 
     /**
      * @return Notification property of the job. Defined below.
      * 
      */
-    public Output<JobNotificationProperty> notificationProperty() {
-        return this.notificationProperty;
+    public Output<Optional<JobNotificationProperty>> notificationProperty() {
+        return Codegen.optional(this.notificationProperty);
     }
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
@@ -479,14 +479,14 @@ public class Job extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="timeout", refs={Integer.class}, tree="[0]")
-    private Output<Integer> timeout;
+    private Output</* @Nullable */ Integer> timeout;
 
     /**
      * @return The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
      * 
      */
-    public Output<Integer> timeout() {
-        return this.timeout;
+    public Output<Optional<Integer>> timeout() {
+        return Codegen.optional(this.timeout);
     }
     /**
      * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.

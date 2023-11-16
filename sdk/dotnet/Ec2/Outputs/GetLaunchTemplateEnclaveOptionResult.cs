@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateEnclaveOptionResult
     {
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
-        private GetLaunchTemplateEnclaveOptionResult(bool enabled)
+        private GetLaunchTemplateEnclaveOptionResult(bool? enabled)
         {
             Enabled = enabled;
         }

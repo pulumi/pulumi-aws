@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDedicatedIpPoolResult {
@@ -16,50 +18,50 @@ public final class GetDedicatedIpPoolResult {
      * @return ARN of the Dedicated IP Pool.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicated_ips`.
      * 
      */
-    private List<GetDedicatedIpPoolDedicatedIp> dedicatedIps;
+    private @Nullable List<GetDedicatedIpPoolDedicatedIp> dedicatedIps;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String poolName;
     /**
      * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
      * 
      */
-    private String scalingMode;
+    private @Nullable String scalingMode;
     /**
      * @return A map of tags attached to the pool.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetDedicatedIpPoolResult() {}
     /**
      * @return ARN of the Dedicated IP Pool.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicated_ips`.
      * 
      */
     public List<GetDedicatedIpPoolDedicatedIp> dedicatedIps() {
-        return this.dedicatedIps;
+        return this.dedicatedIps == null ? List.of() : this.dedicatedIps;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String poolName() {
         return this.poolName;
@@ -68,15 +70,15 @@ public final class GetDedicatedIpPoolResult {
      * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
      * 
      */
-    public String scalingMode() {
-        return this.scalingMode;
+    public Optional<String> scalingMode() {
+        return Optional.ofNullable(this.scalingMode);
     }
     /**
      * @return A map of tags attached to the pool.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -88,12 +90,12 @@ public final class GetDedicatedIpPoolResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetDedicatedIpPoolDedicatedIp> dedicatedIps;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable List<GetDedicatedIpPoolDedicatedIp> dedicatedIps;
+        private @Nullable String id;
         private String poolName;
-        private String scalingMode;
-        private Map<String,String> tags;
+        private @Nullable String scalingMode;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetDedicatedIpPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -106,21 +108,21 @@ public final class GetDedicatedIpPoolResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder dedicatedIps(List<GetDedicatedIpPoolDedicatedIp> dedicatedIps) {
-            this.dedicatedIps = Objects.requireNonNull(dedicatedIps);
+        public Builder dedicatedIps(@Nullable List<GetDedicatedIpPoolDedicatedIp> dedicatedIps) {
+            this.dedicatedIps = dedicatedIps;
             return this;
         }
         public Builder dedicatedIps(GetDedicatedIpPoolDedicatedIp... dedicatedIps) {
             return dedicatedIps(List.of(dedicatedIps));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -129,13 +131,13 @@ public final class GetDedicatedIpPoolResult {
             return this;
         }
         @CustomType.Setter
-        public Builder scalingMode(String scalingMode) {
-            this.scalingMode = Objects.requireNonNull(scalingMode);
+        public Builder scalingMode(@Nullable String scalingMode) {
+            this.scalingMode = scalingMode;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetDedicatedIpPoolResult build() {

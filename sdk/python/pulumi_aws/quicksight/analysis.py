@@ -651,7 +651,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the resource.
         """
@@ -659,7 +659,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """
@@ -667,7 +667,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the analysis was created.
         """
@@ -675,12 +675,12 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastPublishedTime")
-    def last_published_time(self) -> pulumi.Output[str]:
+    def last_published_time(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "last_published_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the analysis was last updated.
         """
@@ -698,7 +698,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output['outputs.AnalysisParameters']:
+    def parameters(self) -> pulumi.Output[Optional['outputs.AnalysisParameters']]:
         """
         The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         """
@@ -730,7 +730,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The analysis creation status.
         """

@@ -1153,7 +1153,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the file system.
         """
@@ -1161,7 +1161,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoImportPolicy")
-    def auto_import_policy(self) -> pulumi.Output[str]:
+    def auto_import_policy(self) -> pulumi.Output[Optional[str]]:
         """
         How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
         """
@@ -1169,7 +1169,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticBackupRetentionDays")
-    def automatic_backup_retention_days(self) -> pulumi.Output[int]:
+    def automatic_backup_retention_days(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         """
@@ -1193,7 +1193,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> pulumi.Output[str]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
         """
@@ -1217,7 +1217,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         """
@@ -1233,7 +1233,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="exportPath")
-    def export_path(self) -> pulumi.Output[str]:
+    def export_path(self) -> pulumi.Output[Optional[str]]:
         """
         S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         """
@@ -1241,7 +1241,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemTypeVersion")
-    def file_system_type_version(self) -> pulumi.Output[str]:
+    def file_system_type_version(self) -> pulumi.Output[Optional[str]]:
         """
         Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
         """
@@ -1257,7 +1257,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="importedFileChunkSize")
-    def imported_file_chunk_size(self) -> pulumi.Output[int]:
+    def imported_file_chunk_size(self) -> pulumi.Output[Optional[int]]:
         """
         For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
         """
@@ -1265,7 +1265,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
         """
@@ -1273,7 +1273,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> pulumi.Output['outputs.LustreFileSystemLogConfiguration']:
+    def log_configuration(self) -> pulumi.Output[Optional['outputs.LustreFileSystemLogConfiguration']]:
         """
         The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
         """
@@ -1281,7 +1281,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountName")
-    def mount_name(self) -> pulumi.Output[str]:
+    def mount_name(self) -> pulumi.Output[Optional[str]]:
         """
         The value to be used when mounting the filesystem.
         """
@@ -1289,7 +1289,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
+    def network_interface_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
         """
@@ -1297,7 +1297,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account identifier that created the file system.
         """
@@ -1372,7 +1372,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the Virtual Private Cloud for the file system.
         """
@@ -1380,7 +1380,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> pulumi.Output[str]:
+    def weekly_maintenance_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """

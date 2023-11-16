@@ -102,7 +102,7 @@ type NotebookInstance struct {
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 	AdditionalCodeRepositories pulumi.StringArrayOutput `pulumi:"additionalCodeRepositories"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
 	DefaultCodeRepository pulumi.StringPtrOutput `pulumi:"defaultCodeRepository"`
 	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
@@ -118,9 +118,9 @@ type NotebookInstance struct {
 	// The name of the notebook instance (must be unique).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnetId`.
-	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
-	PlatformIdentifier pulumi.StringOutput `pulumi:"platformIdentifier"`
+	PlatformIdentifier pulumi.StringPtrOutput `pulumi:"platformIdentifier"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
@@ -136,7 +136,7 @@ type NotebookInstance struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
-	Url pulumi.StringOutput `pulumi:"url"`
+	Url pulumi.StringPtrOutput `pulumi:"url"`
 	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
 	VolumeSize pulumi.IntPtrOutput `pulumi:"volumeSize"`
 }
@@ -448,8 +448,8 @@ func (o NotebookInstanceOutput) AdditionalCodeRepositories() pulumi.StringArrayO
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
-func (o NotebookInstanceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NotebookInstanceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
@@ -490,13 +490,13 @@ func (o NotebookInstanceOutput) Name() pulumi.StringOutput {
 }
 
 // The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnetId`.
-func (o NotebookInstanceOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o NotebookInstanceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
-func (o NotebookInstanceOutput) PlatformIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.PlatformIdentifier }).(pulumi.StringOutput)
+func (o NotebookInstanceOutput) PlatformIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.PlatformIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
@@ -532,8 +532,8 @@ func (o NotebookInstanceOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
-func (o NotebookInstanceOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+func (o NotebookInstanceOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 // The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.

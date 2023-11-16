@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecLoggingAccessLogFileFormat {
-    private List<GetVirtualNodeSpecLoggingAccessLogFileFormatJson> jsons;
-    private String text;
+    private @Nullable List<GetVirtualNodeSpecLoggingAccessLogFileFormatJson> jsons;
+    private @Nullable String text;
 
     private GetVirtualNodeSpecLoggingAccessLogFileFormat() {}
     public List<GetVirtualNodeSpecLoggingAccessLogFileFormatJson> jsons() {
-        return this.jsons;
+        return this.jsons == null ? List.of() : this.jsons;
     }
-    public String text() {
-        return this.text;
+    public Optional<String> text() {
+        return Optional.ofNullable(this.text);
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetVirtualNodeSpecLoggingAccessLogFileFormat {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecLoggingAccessLogFileFormatJson> jsons;
-        private String text;
+        private @Nullable List<GetVirtualNodeSpecLoggingAccessLogFileFormatJson> jsons;
+        private @Nullable String text;
         public Builder() {}
         public Builder(GetVirtualNodeSpecLoggingAccessLogFileFormat defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +43,16 @@ public final class GetVirtualNodeSpecLoggingAccessLogFileFormat {
         }
 
         @CustomType.Setter
-        public Builder jsons(List<GetVirtualNodeSpecLoggingAccessLogFileFormatJson> jsons) {
-            this.jsons = Objects.requireNonNull(jsons);
+        public Builder jsons(@Nullable List<GetVirtualNodeSpecLoggingAccessLogFileFormatJson> jsons) {
+            this.jsons = jsons;
             return this;
         }
         public Builder jsons(GetVirtualNodeSpecLoggingAccessLogFileFormatJson... jsons) {
             return jsons(List.of(jsons));
         }
         @CustomType.Setter
-        public Builder text(String text) {
-            this.text = Objects.requireNonNull(text);
+        public Builder text(@Nullable String text) {
+            this.text = text;
             return this;
         }
         public GetVirtualNodeSpecLoggingAccessLogFileFormat build() {

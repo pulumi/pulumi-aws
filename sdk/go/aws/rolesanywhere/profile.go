@@ -86,9 +86,9 @@ type Profile struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Profile
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The number of seconds the vended session credentials are valid for. Defaults to 3600.
-	DurationSeconds pulumi.IntOutput `pulumi:"durationSeconds"`
+	DurationSeconds pulumi.IntPtrOutput `pulumi:"durationSeconds"`
 	// Whether or not the Profile is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// A list of managed policy ARNs that apply to the vended session credentials.
@@ -326,13 +326,13 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 }
 
 // Amazon Resource Name (ARN) of the Profile
-func (o ProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The number of seconds the vended session credentials are valid for. Defaults to 3600.
-func (o ProfileOutput) DurationSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v *Profile) pulumi.IntOutput { return v.DurationSeconds }).(pulumi.IntOutput)
+func (o ProfileOutput) DurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.IntPtrOutput { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Whether or not the Profile is enabled.

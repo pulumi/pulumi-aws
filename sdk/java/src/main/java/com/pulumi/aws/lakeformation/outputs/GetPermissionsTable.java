@@ -16,7 +16,7 @@ public final class GetPermissionsTable {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return Name of the database for the table. Unique to a Data Catalog.
      * 
@@ -28,7 +28,7 @@ public final class GetPermissionsTable {
      * @return Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
      * 
@@ -40,8 +40,8 @@ public final class GetPermissionsTable {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
     /**
      * @return Name of the database for the table. Unique to a Data Catalog.
@@ -56,8 +56,8 @@ public final class GetPermissionsTable {
      * @return Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
@@ -76,9 +76,9 @@ public final class GetPermissionsTable {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String catalogId;
+        private @Nullable String catalogId;
         private String databaseName;
-        private String name;
+        private @Nullable String name;
         private @Nullable Boolean wildcard;
         public Builder() {}
         public Builder(GetPermissionsTable defaults) {
@@ -90,8 +90,8 @@ public final class GetPermissionsTable {
         }
 
         @CustomType.Setter
-        public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+        public Builder catalogId(@Nullable String catalogId) {
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
@@ -100,8 +100,8 @@ public final class GetPermissionsTable {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter

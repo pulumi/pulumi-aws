@@ -58,11 +58,11 @@ export interface GetAliasResult {
     /**
      * ARN identifying the State Machine alias.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Date the state machine Alias was created.
      */
-    readonly creationDate: string;
+    readonly creationDate?: string;
     /**
      * Description of state machine alias.
      */
@@ -70,12 +70,12 @@ export interface GetAliasResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Routing Configuration of state machine alias
      */
-    readonly routingConfigurations: outputs.sfn.GetAliasRoutingConfiguration[];
+    readonly routingConfigurations?: outputs.sfn.GetAliasRoutingConfiguration[];
     readonly statemachineArn: string;
 }
 /**

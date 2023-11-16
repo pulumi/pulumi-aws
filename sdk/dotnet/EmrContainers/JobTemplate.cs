@@ -57,7 +57,7 @@ namespace Pulumi.Aws.EmrContainers
         /// ARN of the job template.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The job template data which holds values of StartJobRun API request.

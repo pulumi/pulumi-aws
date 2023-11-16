@@ -20,13 +20,13 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Region of the container image.
         /// </summary>
-        public readonly string Region;
+        public readonly string? Region;
 
         [OutputConstructor]
         private GetImageOutputResourceContainerResult(
             ImmutableArray<string> imageUris,
 
-            string region)
+            string? region)
         {
             ImageUris = imageUris;
             Region = region;

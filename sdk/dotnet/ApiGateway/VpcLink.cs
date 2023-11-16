@@ -27,7 +27,7 @@ namespace Pulumi.Aws.ApiGateway
     public partial class VpcLink : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the VPC link.

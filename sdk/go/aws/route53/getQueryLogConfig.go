@@ -105,15 +105,15 @@ type GetQueryLogConfigArgs struct {
 
 // A collection of values returned by getQueryLogConfig.
 type GetQueryLogConfigResult struct {
-	Arn            string                    `pulumi:"arn"`
-	DestinationArn string                    `pulumi:"destinationArn"`
+	Arn            *string                   `pulumi:"arn"`
+	DestinationArn *string                   `pulumi:"destinationArn"`
 	Filters        []GetQueryLogConfigFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string            `pulumi:"id"`
+	Id                       *string           `pulumi:"id"`
 	Name                     *string           `pulumi:"name"`
-	OwnerId                  string            `pulumi:"ownerId"`
+	OwnerId                  *string           `pulumi:"ownerId"`
 	ResolverQueryLogConfigId *string           `pulumi:"resolverQueryLogConfigId"`
-	ShareStatus              string            `pulumi:"shareStatus"`
+	ShareStatus              *string           `pulumi:"shareStatus"`
 	Tags                     map[string]string `pulumi:"tags"`
 }
 
@@ -167,12 +167,12 @@ func (o GetQueryLogConfigResultOutput) ToGetQueryLogConfigResultOutputWithContex
 	return o
 }
 
-func (o GetQueryLogConfigResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetQueryLogConfigResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQueryLogConfigResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetQueryLogConfigResultOutput) DestinationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.DestinationArn }).(pulumi.StringOutput)
+func (o GetQueryLogConfigResultOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQueryLogConfigResult) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
 
 func (o GetQueryLogConfigResultOutput) Filters() GetQueryLogConfigFilterArrayOutput {
@@ -180,24 +180,24 @@ func (o GetQueryLogConfigResultOutput) Filters() GetQueryLogConfigFilterArrayOut
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetQueryLogConfigResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetQueryLogConfigResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQueryLogConfigResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetQueryLogConfigResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetQueryLogConfigResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o GetQueryLogConfigResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQueryLogConfigResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetQueryLogConfigResultOutput) ResolverQueryLogConfigId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) *string { return v.ResolverQueryLogConfigId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetQueryLogConfigResultOutput) ShareStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.ShareStatus }).(pulumi.StringOutput)
+func (o GetQueryLogConfigResultOutput) ShareStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQueryLogConfigResult) *string { return v.ShareStatus }).(pulumi.StringPtrOutput)
 }
 
 func (o GetQueryLogConfigResultOutput) Tags() pulumi.StringMapOutput {

@@ -74,7 +74,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> Optional[str]:
         """
         Directory alias.
         """
@@ -82,7 +82,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="customerUserName")
-    def customer_user_name(self) -> str:
+    def customer_user_name(self) -> Optional[str]:
         """
         User name for the service account.
         """
@@ -95,7 +95,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> str:
+    def directory_name(self) -> Optional[str]:
         """
         Name of the directory.
         """
@@ -103,7 +103,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="directoryType")
-    def directory_type(self) -> str:
+    def directory_type(self) -> Optional[str]:
         """
         Directory type.
         """
@@ -111,7 +111,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> Sequence[str]:
+    def dns_ip_addresses(self) -> Optional[Sequence[str]]:
         """
         IP addresses of the DNS servers for the directory.
         """
@@ -119,7 +119,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="iamRoleId")
-    def iam_role_id(self) -> str:
+    def iam_role_id(self) -> Optional[str]:
         """
         Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         """
@@ -127,7 +127,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -135,7 +135,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="ipGroupIds")
-    def ip_group_ids(self) -> Sequence[str]:
+    def ip_group_ids(self) -> Optional[Sequence[str]]:
         """
         Identifiers of the IP access control groups associated with the directory.
         """
@@ -143,7 +143,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="registrationCode")
-    def registration_code(self) -> str:
+    def registration_code(self) -> Optional[str]:
         """
         Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         """
@@ -151,7 +151,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="selfServicePermissions")
-    def self_service_permissions(self) -> Sequence['outputs.GetDirectorySelfServicePermissionResult']:
+    def self_service_permissions(self) -> Optional[Sequence['outputs.GetDirectorySelfServicePermissionResult']]:
         """
         The permissions to enable or disable self-service capabilities.
         """
@@ -159,7 +159,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Identifiers of the subnets where the directory resides.
         """
@@ -175,7 +175,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="workspaceAccessProperties")
-    def workspace_access_properties(self) -> Sequence['outputs.GetDirectoryWorkspaceAccessPropertyResult']:
+    def workspace_access_properties(self) -> Optional[Sequence['outputs.GetDirectoryWorkspaceAccessPropertyResult']]:
         """
         (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         """
@@ -183,7 +183,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="workspaceCreationProperties")
-    def workspace_creation_properties(self) -> Sequence['outputs.GetDirectoryWorkspaceCreationPropertyResult']:
+    def workspace_creation_properties(self) -> Optional[Sequence['outputs.GetDirectoryWorkspaceCreationPropertyResult']]:
         """
         The default properties that are used for creating WorkSpaces. Defined below.
         """
@@ -191,7 +191,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="workspaceSecurityGroupId")
-    def workspace_security_group_id(self) -> str:
+    def workspace_security_group_id(self) -> Optional[str]:
         """
         The identifier of the security group that is assigned to new WorkSpaces. Defined below.
         """

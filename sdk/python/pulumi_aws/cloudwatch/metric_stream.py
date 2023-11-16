@@ -508,21 +508,21 @@ class MetricStream(pulumi.CustomResource):
                     metric_names=[],
                 ),
             ])
-        metric_stream_to_firehose_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        metric_stream_to_firehose_policy_document = s3_stream.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "firehose:PutRecord",
                 "firehose:PutRecordBatch",
             ],
-            resources=[s3_stream.arn],
-        )])
+            resources=[arn],
+        )]))
         metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy",
             role=metric_stream_to_firehose_role.id,
             policy=metric_stream_to_firehose_policy_document.json)
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
-        firehose_to_s3_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        firehose_to_s3_policy_document = pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "s3:AbortMultipartUpload",
@@ -533,10 +533,10 @@ class MetricStream(pulumi.CustomResource):
                 "s3:PutObject",
             ],
             resources=[
-                bucket.arn,
-                bucket.arn.apply(lambda arn: f"{arn}/*"),
+                bucket_arn,
+                f"{bucket_arn1}/*",
             ],
-        )])
+        )]))
         firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
             role=firehose_to_s3_role.id,
             policy=firehose_to_s3_policy_document.json)
@@ -653,21 +653,21 @@ class MetricStream(pulumi.CustomResource):
                     metric_names=[],
                 ),
             ])
-        metric_stream_to_firehose_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        metric_stream_to_firehose_policy_document = s3_stream.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "firehose:PutRecord",
                 "firehose:PutRecordBatch",
             ],
-            resources=[s3_stream.arn],
-        )])
+            resources=[arn],
+        )]))
         metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy",
             role=metric_stream_to_firehose_role.id,
             policy=metric_stream_to_firehose_policy_document.json)
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
-        firehose_to_s3_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        firehose_to_s3_policy_document = pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "s3:AbortMultipartUpload",
@@ -678,10 +678,10 @@ class MetricStream(pulumi.CustomResource):
                 "s3:PutObject",
             ],
             resources=[
-                bucket.arn,
-                bucket.arn.apply(lambda arn: f"{arn}/*"),
+                bucket_arn,
+                f"{bucket_arn1}/*",
             ],
-        )])
+        )]))
         firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
             role=firehose_to_s3_role.id,
             policy=firehose_to_s3_policy_document.json)
@@ -855,7 +855,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the metric stream.
         """
@@ -863,7 +863,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
         """
@@ -903,7 +903,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdateDate")
-    def last_update_date(self) -> pulumi.Output[str]:
+    def last_update_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
         """
@@ -919,7 +919,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -945,7 +945,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the metric stream. Possible values are `running` and `stopped`.
         """

@@ -21,10 +21,10 @@ public final class GetPrincipalPolicySimulationInvokeResult {
      * @return `true` if all of the simulation results have decision &#34;allowed&#34;, or `false` otherwise.
      * 
      */
-    private Boolean allAllowed;
+    private @Nullable Boolean allAllowed;
     private @Nullable String callerArn;
     private @Nullable List<GetPrincipalPolicySimulationContext> contexts;
-    private String id;
+    private @Nullable String id;
     private @Nullable List<String> permissionsBoundaryPoliciesJsons;
     private String policySourceArn;
     private @Nullable List<String> resourceArns;
@@ -35,7 +35,7 @@ public final class GetPrincipalPolicySimulationInvokeResult {
      * @return A set of result objects, one for each of the simulated requests, with the following nested attributes:
      * 
      */
-    private List<GetPrincipalPolicySimulationResult> results;
+    private @Nullable List<GetPrincipalPolicySimulationResult> results;
 
     private GetPrincipalPolicySimulationInvokeResult() {}
     public List<String> actionNames() {
@@ -48,8 +48,8 @@ public final class GetPrincipalPolicySimulationInvokeResult {
      * @return `true` if all of the simulation results have decision &#34;allowed&#34;, or `false` otherwise.
      * 
      */
-    public Boolean allAllowed() {
-        return this.allAllowed;
+    public Optional<Boolean> allAllowed() {
+        return Optional.ofNullable(this.allAllowed);
     }
     public Optional<String> callerArn() {
         return Optional.ofNullable(this.callerArn);
@@ -57,8 +57,8 @@ public final class GetPrincipalPolicySimulationInvokeResult {
     public List<GetPrincipalPolicySimulationContext> contexts() {
         return this.contexts == null ? List.of() : this.contexts;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<String> permissionsBoundaryPoliciesJsons() {
         return this.permissionsBoundaryPoliciesJsons == null ? List.of() : this.permissionsBoundaryPoliciesJsons;
@@ -83,7 +83,7 @@ public final class GetPrincipalPolicySimulationInvokeResult {
      * 
      */
     public List<GetPrincipalPolicySimulationResult> results() {
-        return this.results;
+        return this.results == null ? List.of() : this.results;
     }
 
     public static Builder builder() {
@@ -97,17 +97,17 @@ public final class GetPrincipalPolicySimulationInvokeResult {
     public static final class Builder {
         private List<String> actionNames;
         private @Nullable List<String> additionalPoliciesJsons;
-        private Boolean allAllowed;
+        private @Nullable Boolean allAllowed;
         private @Nullable String callerArn;
         private @Nullable List<GetPrincipalPolicySimulationContext> contexts;
-        private String id;
+        private @Nullable String id;
         private @Nullable List<String> permissionsBoundaryPoliciesJsons;
         private String policySourceArn;
         private @Nullable List<String> resourceArns;
         private @Nullable String resourceHandlingOption;
         private @Nullable String resourceOwnerAccountId;
         private @Nullable String resourcePolicyJson;
-        private List<GetPrincipalPolicySimulationResult> results;
+        private @Nullable List<GetPrincipalPolicySimulationResult> results;
         public Builder() {}
         public Builder(GetPrincipalPolicySimulationInvokeResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -143,8 +143,8 @@ public final class GetPrincipalPolicySimulationInvokeResult {
             return additionalPoliciesJsons(List.of(additionalPoliciesJsons));
         }
         @CustomType.Setter
-        public Builder allAllowed(Boolean allAllowed) {
-            this.allAllowed = Objects.requireNonNull(allAllowed);
+        public Builder allAllowed(@Nullable Boolean allAllowed) {
+            this.allAllowed = allAllowed;
             return this;
         }
         @CustomType.Setter
@@ -161,8 +161,8 @@ public final class GetPrincipalPolicySimulationInvokeResult {
             return contexts(List.of(contexts));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -202,8 +202,8 @@ public final class GetPrincipalPolicySimulationInvokeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder results(List<GetPrincipalPolicySimulationResult> results) {
-            this.results = Objects.requireNonNull(results);
+        public Builder results(@Nullable List<GetPrincipalPolicySimulationResult> results) {
+            this.results = results;
             return this;
         }
         public Builder results(GetPrincipalPolicySimulationResult... results) {

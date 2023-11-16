@@ -93,7 +93,7 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -101,7 +101,7 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter
-    def ides(self) -> Sequence['outputs.GetDevEnvironmentIdeResult']:
+    def ides(self) -> Optional[Sequence['outputs.GetDevEnvironmentIdeResult']]:
         """
         Information about the integrated development environment (IDE) configured for a Dev Environment.
         """
@@ -109,7 +109,7 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter(name="inactivityTimeoutMinutes")
-    def inactivity_timeout_minutes(self) -> int:
+    def inactivity_timeout_minutes(self) -> Optional[int]:
         """
         The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         """
@@ -117,7 +117,7 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> Optional[str]:
         """
         The Amazon EC2 instace type to use for the Dev Environment.
         """
@@ -125,7 +125,7 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> str:
+    def last_updated_time(self) -> Optional[str]:
         """
         The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
         """
@@ -133,7 +133,7 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter(name="persistentStorages")
-    def persistent_storages(self) -> Sequence['outputs.GetDevEnvironmentPersistentStorageResult']:
+    def persistent_storages(self) -> Optional[Sequence['outputs.GetDevEnvironmentPersistentStorageResult']]:
         """
         Information about the amount of storage allocated to the Dev Environment.
         """
@@ -159,7 +159,7 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
         """
@@ -167,7 +167,7 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> str:
+    def status_reason(self) -> Optional[str]:
         """
         The reason for the status.
         """
@@ -175,7 +175,7 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

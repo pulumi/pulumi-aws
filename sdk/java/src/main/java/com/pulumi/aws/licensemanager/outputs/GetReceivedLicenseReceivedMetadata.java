@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReceivedLicenseReceivedMetadata {
@@ -14,17 +16,17 @@ public final class GetReceivedLicenseReceivedMetadata {
      * @return A list of allowed operations.
      * 
      */
-    private List<String> allowedOperations;
+    private @Nullable List<String> allowedOperations;
     /**
      * @return Received status.
      * 
      */
-    private String receivedStatus;
+    private @Nullable String receivedStatus;
     /**
      * @return Received status reason.
      * 
      */
-    private String receivedStatusReason;
+    private @Nullable String receivedStatusReason;
 
     private GetReceivedLicenseReceivedMetadata() {}
     /**
@@ -32,21 +34,21 @@ public final class GetReceivedLicenseReceivedMetadata {
      * 
      */
     public List<String> allowedOperations() {
-        return this.allowedOperations;
+        return this.allowedOperations == null ? List.of() : this.allowedOperations;
     }
     /**
      * @return Received status.
      * 
      */
-    public String receivedStatus() {
-        return this.receivedStatus;
+    public Optional<String> receivedStatus() {
+        return Optional.ofNullable(this.receivedStatus);
     }
     /**
      * @return Received status reason.
      * 
      */
-    public String receivedStatusReason() {
-        return this.receivedStatusReason;
+    public Optional<String> receivedStatusReason() {
+        return Optional.ofNullable(this.receivedStatusReason);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetReceivedLicenseReceivedMetadata {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> allowedOperations;
-        private String receivedStatus;
-        private String receivedStatusReason;
+        private @Nullable List<String> allowedOperations;
+        private @Nullable String receivedStatus;
+        private @Nullable String receivedStatusReason;
         public Builder() {}
         public Builder(GetReceivedLicenseReceivedMetadata defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,21 +72,21 @@ public final class GetReceivedLicenseReceivedMetadata {
         }
 
         @CustomType.Setter
-        public Builder allowedOperations(List<String> allowedOperations) {
-            this.allowedOperations = Objects.requireNonNull(allowedOperations);
+        public Builder allowedOperations(@Nullable List<String> allowedOperations) {
+            this.allowedOperations = allowedOperations;
             return this;
         }
         public Builder allowedOperations(String... allowedOperations) {
             return allowedOperations(List.of(allowedOperations));
         }
         @CustomType.Setter
-        public Builder receivedStatus(String receivedStatus) {
-            this.receivedStatus = Objects.requireNonNull(receivedStatus);
+        public Builder receivedStatus(@Nullable String receivedStatus) {
+            this.receivedStatus = receivedStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder receivedStatusReason(String receivedStatusReason) {
-            this.receivedStatusReason = Objects.requireNonNull(receivedStatusReason);
+        public Builder receivedStatusReason(@Nullable String receivedStatusReason) {
+            this.receivedStatusReason = receivedStatusReason;
             return this;
         }
         public GetReceivedLicenseReceivedMetadata build() {

@@ -62,7 +62,7 @@ namespace Pulumi.Aws.CloudFront
         /// The identifier for this version of the key group.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// A list of the identifiers of the public keys in the key group.

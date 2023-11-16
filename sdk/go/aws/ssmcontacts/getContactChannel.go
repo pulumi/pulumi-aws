@@ -58,18 +58,18 @@ type LookupContactChannelArgs struct {
 // A collection of values returned by getContactChannel.
 type LookupContactChannelResult struct {
 	// Whether the contact channel is activated.
-	ActivationStatus string `pulumi:"activationStatus"`
-	Arn              string `pulumi:"arn"`
+	ActivationStatus *string `pulumi:"activationStatus"`
+	Arn              string  `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-	ContactId string `pulumi:"contactId"`
+	ContactId *string `pulumi:"contactId"`
 	// Details used to engage the contact channel.
 	DeliveryAddresses []GetContactChannelDeliveryAddress `pulumi:"deliveryAddresses"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the contact channel.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Type of the contact channel.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOutputArgs, opts ...pulumi.InvokeOption) LookupContactChannelResultOutput {
@@ -111,8 +111,8 @@ func (o LookupContactChannelResultOutput) ToLookupContactChannelResultOutputWith
 }
 
 // Whether the contact channel is activated.
-func (o LookupContactChannelResultOutput) ActivationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactChannelResult) string { return v.ActivationStatus }).(pulumi.StringOutput)
+func (o LookupContactChannelResultOutput) ActivationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactChannelResult) *string { return v.ActivationStatus }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupContactChannelResultOutput) Arn() pulumi.StringOutput {
@@ -120,8 +120,8 @@ func (o LookupContactChannelResultOutput) Arn() pulumi.StringOutput {
 }
 
 // Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-func (o LookupContactChannelResultOutput) ContactId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactChannelResult) string { return v.ContactId }).(pulumi.StringOutput)
+func (o LookupContactChannelResultOutput) ContactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactChannelResult) *string { return v.ContactId }).(pulumi.StringPtrOutput)
 }
 
 // Details used to engage the contact channel.
@@ -130,18 +130,18 @@ func (o LookupContactChannelResultOutput) DeliveryAddresses() GetContactChannelD
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupContactChannelResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupContactChannelResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactChannelResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the contact channel.
-func (o LookupContactChannelResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupContactChannelResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactChannelResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Type of the contact channel.
-func (o LookupContactChannelResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupContactChannelResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactChannelResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

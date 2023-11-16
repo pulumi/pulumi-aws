@@ -649,7 +649,7 @@ class Collaboration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The arn of the collaboration.
         """
@@ -657,7 +657,7 @@ class Collaboration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[str]:
+    def create_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time the collaboration was created.
         * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
@@ -750,6 +750,6 @@ class Collaboration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[str]:
+    def update_time(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "update_time")
 

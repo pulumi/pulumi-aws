@@ -39,7 +39,7 @@ class GetNodeGroupsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -47,7 +47,7 @@ class GetNodeGroupsResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         Set of all node group names in an EKS Cluster.
         """

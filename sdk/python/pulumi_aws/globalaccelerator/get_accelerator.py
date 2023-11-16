@@ -59,57 +59,57 @@ class GetAcceleratorResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def attributes(self) -> Sequence['outputs.GetAcceleratorAttributeResult']:
+    def attributes(self) -> Optional[Sequence['outputs.GetAcceleratorAttributeResult']]:
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> Optional[str]:
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="dualStackDnsName")
-    def dual_stack_dns_name(self) -> str:
+    def dual_stack_dns_name(self) -> Optional[str]:
         return pulumi.get(self, "dual_stack_dns_name")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> str:
+    def hosted_zone_id(self) -> Optional[str]:
         return pulumi.get(self, "hosted_zone_id")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> str:
+    def ip_address_type(self) -> Optional[str]:
         return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="ipSets")
-    def ip_sets(self) -> Sequence['outputs.GetAcceleratorIpSetResult']:
+    def ip_sets(self) -> Optional[Sequence['outputs.GetAcceleratorIpSetResult']]:
         return pulumi.get(self, "ip_sets")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

@@ -42,16 +42,16 @@ export interface GetLedgerArgs {
  * A collection of values returned by getLedger.
  */
 export interface GetLedgerResult {
-    readonly arn: string;
-    readonly deletionProtection: boolean;
+    readonly arn?: string;
+    readonly deletionProtection?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly kmsKey: string;
+    readonly id?: string;
+    readonly kmsKey?: string;
     readonly name: string;
-    readonly permissionsMode: string;
-    readonly tags: {[key: string]: string};
+    readonly permissionsMode?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to fetch information about a Quantum Ledger Database.

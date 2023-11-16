@@ -6,6 +6,8 @@ package com.pulumi.aws.storagegateway.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocalDiskResult {
@@ -13,29 +15,29 @@ public final class GetLocalDiskResult {
      * @return Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
      * 
      */
-    private String diskId;
-    private String diskNode;
-    private String diskPath;
+    private @Nullable String diskId;
+    private @Nullable String diskNode;
+    private @Nullable String diskPath;
     private String gatewayArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetLocalDiskResult() {}
     /**
      * @return Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
      * 
      */
-    public String diskId() {
-        return this.diskId;
+    public Optional<String> diskId() {
+        return Optional.ofNullable(this.diskId);
     }
-    public String diskNode() {
-        return this.diskNode;
+    public Optional<String> diskNode() {
+        return Optional.ofNullable(this.diskNode);
     }
-    public String diskPath() {
-        return this.diskPath;
+    public Optional<String> diskPath() {
+        return Optional.ofNullable(this.diskPath);
     }
     public String gatewayArn() {
         return this.gatewayArn;
@@ -44,8 +46,8 @@ public final class GetLocalDiskResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -57,11 +59,11 @@ public final class GetLocalDiskResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String diskId;
-        private String diskNode;
-        private String diskPath;
+        private @Nullable String diskId;
+        private @Nullable String diskNode;
+        private @Nullable String diskPath;
         private String gatewayArn;
-        private String id;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetLocalDiskResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -73,18 +75,18 @@ public final class GetLocalDiskResult {
         }
 
         @CustomType.Setter
-        public Builder diskId(String diskId) {
-            this.diskId = Objects.requireNonNull(diskId);
+        public Builder diskId(@Nullable String diskId) {
+            this.diskId = diskId;
             return this;
         }
         @CustomType.Setter
-        public Builder diskNode(String diskNode) {
-            this.diskNode = Objects.requireNonNull(diskNode);
+        public Builder diskNode(@Nullable String diskNode) {
+            this.diskNode = diskNode;
             return this;
         }
         @CustomType.Setter
-        public Builder diskPath(String diskPath) {
-            this.diskPath = Objects.requireNonNull(diskPath);
+        public Builder diskPath(@Nullable String diskPath) {
+            this.diskPath = diskPath;
             return this;
         }
         @CustomType.Setter
@@ -93,8 +95,8 @@ public final class GetLocalDiskResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetLocalDiskResult build() {

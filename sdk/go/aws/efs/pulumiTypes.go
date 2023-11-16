@@ -1084,11 +1084,11 @@ func (o ReplicationConfigurationDestinationPtrOutput) Status() pulumi.StringPtrO
 
 type GetAccessPointPosixUser struct {
 	// Group ID
-	Gid int `pulumi:"gid"`
+	Gid *int `pulumi:"gid"`
 	// Secondary group IDs
 	SecondaryGids []int `pulumi:"secondaryGids"`
 	// User Id
-	Uid int `pulumi:"uid"`
+	Uid *int `pulumi:"uid"`
 }
 
 // GetAccessPointPosixUserInput is an input type that accepts GetAccessPointPosixUserArgs and GetAccessPointPosixUserOutput values.
@@ -1104,11 +1104,11 @@ type GetAccessPointPosixUserInput interface {
 
 type GetAccessPointPosixUserArgs struct {
 	// Group ID
-	Gid pulumi.IntInput `pulumi:"gid"`
+	Gid pulumi.IntPtrInput `pulumi:"gid"`
 	// Secondary group IDs
 	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
 	// User Id
-	Uid pulumi.IntInput `pulumi:"uid"`
+	Uid pulumi.IntPtrInput `pulumi:"uid"`
 }
 
 func (GetAccessPointPosixUserArgs) ElementType() reflect.Type {
@@ -1163,8 +1163,8 @@ func (o GetAccessPointPosixUserOutput) ToGetAccessPointPosixUserOutputWithContex
 }
 
 // Group ID
-func (o GetAccessPointPosixUserOutput) Gid() pulumi.IntOutput {
-	return o.ApplyT(func(v GetAccessPointPosixUser) int { return v.Gid }).(pulumi.IntOutput)
+func (o GetAccessPointPosixUserOutput) Gid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetAccessPointPosixUser) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
 
 // Secondary group IDs
@@ -1173,8 +1173,8 @@ func (o GetAccessPointPosixUserOutput) SecondaryGids() pulumi.IntArrayOutput {
 }
 
 // User Id
-func (o GetAccessPointPosixUserOutput) Uid() pulumi.IntOutput {
-	return o.ApplyT(func(v GetAccessPointPosixUser) int { return v.Uid }).(pulumi.IntOutput)
+func (o GetAccessPointPosixUserOutput) Uid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetAccessPointPosixUser) *int { return v.Uid }).(pulumi.IntPtrOutput)
 }
 
 type GetAccessPointPosixUserArrayOutput struct{ *pulumi.OutputState }
@@ -1201,7 +1201,7 @@ type GetAccessPointRootDirectory struct {
 	// Single element list containing information on the creation permissions of the directory
 	CreationInfos []GetAccessPointRootDirectoryCreationInfo `pulumi:"creationInfos"`
 	// Path exposed as the root directory
-	Path string `pulumi:"path"`
+	Path *string `pulumi:"path"`
 }
 
 // GetAccessPointRootDirectoryInput is an input type that accepts GetAccessPointRootDirectoryArgs and GetAccessPointRootDirectoryOutput values.
@@ -1219,7 +1219,7 @@ type GetAccessPointRootDirectoryArgs struct {
 	// Single element list containing information on the creation permissions of the directory
 	CreationInfos GetAccessPointRootDirectoryCreationInfoArrayInput `pulumi:"creationInfos"`
 	// Path exposed as the root directory
-	Path pulumi.StringInput `pulumi:"path"`
+	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (GetAccessPointRootDirectoryArgs) ElementType() reflect.Type {
@@ -1279,8 +1279,8 @@ func (o GetAccessPointRootDirectoryOutput) CreationInfos() GetAccessPointRootDir
 }
 
 // Path exposed as the root directory
-func (o GetAccessPointRootDirectoryOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccessPointRootDirectory) string { return v.Path }).(pulumi.StringOutput)
+func (o GetAccessPointRootDirectoryOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAccessPointRootDirectory) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 type GetAccessPointRootDirectoryArrayOutput struct{ *pulumi.OutputState }
@@ -1305,11 +1305,11 @@ func (o GetAccessPointRootDirectoryArrayOutput) Index(i pulumi.IntInput) GetAcce
 
 type GetAccessPointRootDirectoryCreationInfo struct {
 	// POSIX owner group ID
-	OwnerGid int `pulumi:"ownerGid"`
+	OwnerGid *int `pulumi:"ownerGid"`
 	// POSIX owner user ID
-	OwnerUid int `pulumi:"ownerUid"`
+	OwnerUid *int `pulumi:"ownerUid"`
 	// POSIX permissions mode
-	Permissions string `pulumi:"permissions"`
+	Permissions *string `pulumi:"permissions"`
 }
 
 // GetAccessPointRootDirectoryCreationInfoInput is an input type that accepts GetAccessPointRootDirectoryCreationInfoArgs and GetAccessPointRootDirectoryCreationInfoOutput values.
@@ -1325,11 +1325,11 @@ type GetAccessPointRootDirectoryCreationInfoInput interface {
 
 type GetAccessPointRootDirectoryCreationInfoArgs struct {
 	// POSIX owner group ID
-	OwnerGid pulumi.IntInput `pulumi:"ownerGid"`
+	OwnerGid pulumi.IntPtrInput `pulumi:"ownerGid"`
 	// POSIX owner user ID
-	OwnerUid pulumi.IntInput `pulumi:"ownerUid"`
+	OwnerUid pulumi.IntPtrInput `pulumi:"ownerUid"`
 	// POSIX permissions mode
-	Permissions pulumi.StringInput `pulumi:"permissions"`
+	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
 }
 
 func (GetAccessPointRootDirectoryCreationInfoArgs) ElementType() reflect.Type {
@@ -1384,18 +1384,18 @@ func (o GetAccessPointRootDirectoryCreationInfoOutput) ToGetAccessPointRootDirec
 }
 
 // POSIX owner group ID
-func (o GetAccessPointRootDirectoryCreationInfoOutput) OwnerGid() pulumi.IntOutput {
-	return o.ApplyT(func(v GetAccessPointRootDirectoryCreationInfo) int { return v.OwnerGid }).(pulumi.IntOutput)
+func (o GetAccessPointRootDirectoryCreationInfoOutput) OwnerGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetAccessPointRootDirectoryCreationInfo) *int { return v.OwnerGid }).(pulumi.IntPtrOutput)
 }
 
 // POSIX owner user ID
-func (o GetAccessPointRootDirectoryCreationInfoOutput) OwnerUid() pulumi.IntOutput {
-	return o.ApplyT(func(v GetAccessPointRootDirectoryCreationInfo) int { return v.OwnerUid }).(pulumi.IntOutput)
+func (o GetAccessPointRootDirectoryCreationInfoOutput) OwnerUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetAccessPointRootDirectoryCreationInfo) *int { return v.OwnerUid }).(pulumi.IntPtrOutput)
 }
 
 // POSIX permissions mode
-func (o GetAccessPointRootDirectoryCreationInfoOutput) Permissions() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccessPointRootDirectoryCreationInfo) string { return v.Permissions }).(pulumi.StringOutput)
+func (o GetAccessPointRootDirectoryCreationInfoOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAccessPointRootDirectoryCreationInfo) *string { return v.Permissions }).(pulumi.StringPtrOutput)
 }
 
 type GetAccessPointRootDirectoryCreationInfoArrayOutput struct{ *pulumi.OutputState }
@@ -1419,8 +1419,8 @@ func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetFileSystemLifecyclePolicy struct {
-	TransitionToIa                  string `pulumi:"transitionToIa"`
-	TransitionToPrimaryStorageClass string `pulumi:"transitionToPrimaryStorageClass"`
+	TransitionToIa                  *string `pulumi:"transitionToIa"`
+	TransitionToPrimaryStorageClass *string `pulumi:"transitionToPrimaryStorageClass"`
 }
 
 // GetFileSystemLifecyclePolicyInput is an input type that accepts GetFileSystemLifecyclePolicyArgs and GetFileSystemLifecyclePolicyOutput values.
@@ -1435,8 +1435,8 @@ type GetFileSystemLifecyclePolicyInput interface {
 }
 
 type GetFileSystemLifecyclePolicyArgs struct {
-	TransitionToIa                  pulumi.StringInput `pulumi:"transitionToIa"`
-	TransitionToPrimaryStorageClass pulumi.StringInput `pulumi:"transitionToPrimaryStorageClass"`
+	TransitionToIa                  pulumi.StringPtrInput `pulumi:"transitionToIa"`
+	TransitionToPrimaryStorageClass pulumi.StringPtrInput `pulumi:"transitionToPrimaryStorageClass"`
 }
 
 func (GetFileSystemLifecyclePolicyArgs) ElementType() reflect.Type {
@@ -1449,6 +1449,47 @@ func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyOutput()
 
 func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemLifecyclePolicyOutput)
+}
+
+func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyPtrOutput() GetFileSystemLifecyclePolicyPtrOutput {
+	return i.ToGetFileSystemLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyPtrOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemLifecyclePolicyOutput).ToGetFileSystemLifecyclePolicyPtrOutputWithContext(ctx)
+}
+
+// GetFileSystemLifecyclePolicyPtrInput is an input type that accepts GetFileSystemLifecyclePolicyArgs, GetFileSystemLifecyclePolicyPtr and GetFileSystemLifecyclePolicyPtrOutput values.
+// You can construct a concrete instance of `GetFileSystemLifecyclePolicyPtrInput` via:
+//
+//	        GetFileSystemLifecyclePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFileSystemLifecyclePolicyPtrInput interface {
+	pulumi.Input
+
+	ToGetFileSystemLifecyclePolicyPtrOutput() GetFileSystemLifecyclePolicyPtrOutput
+	ToGetFileSystemLifecyclePolicyPtrOutputWithContext(context.Context) GetFileSystemLifecyclePolicyPtrOutput
+}
+
+type getFileSystemLifecyclePolicyPtrType GetFileSystemLifecyclePolicyArgs
+
+func GetFileSystemLifecyclePolicyPtr(v *GetFileSystemLifecyclePolicyArgs) GetFileSystemLifecyclePolicyPtrInput {
+	return (*getFileSystemLifecyclePolicyPtrType)(v)
+}
+
+func (*getFileSystemLifecyclePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFileSystemLifecyclePolicy)(nil)).Elem()
+}
+
+func (i *getFileSystemLifecyclePolicyPtrType) ToGetFileSystemLifecyclePolicyPtrOutput() GetFileSystemLifecyclePolicyPtrOutput {
+	return i.ToGetFileSystemLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *getFileSystemLifecyclePolicyPtrType) ToGetFileSystemLifecyclePolicyPtrOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemLifecyclePolicyPtrOutput)
 }
 
 type GetFileSystemLifecyclePolicyOutput struct{ *pulumi.OutputState }
@@ -1465,12 +1506,64 @@ func (o GetFileSystemLifecyclePolicyOutput) ToGetFileSystemLifecyclePolicyOutput
 	return o
 }
 
-func (o GetFileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) string { return v.TransitionToIa }).(pulumi.StringOutput)
+func (o GetFileSystemLifecyclePolicyOutput) ToGetFileSystemLifecyclePolicyPtrOutput() GetFileSystemLifecyclePolicyPtrOutput {
+	return o.ToGetFileSystemLifecyclePolicyPtrOutputWithContext(context.Background())
 }
 
-func (o GetFileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringOutput)
+func (o GetFileSystemLifecyclePolicyOutput) ToGetFileSystemLifecyclePolicyPtrOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFileSystemLifecyclePolicy) *GetFileSystemLifecyclePolicy {
+		return &v
+	}).(GetFileSystemLifecyclePolicyPtrOutput)
+}
+
+func (o GetFileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) *string { return v.TransitionToIa }).(pulumi.StringPtrOutput)
+}
+
+func (o GetFileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) *string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringPtrOutput)
+}
+
+type GetFileSystemLifecyclePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFileSystemLifecyclePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFileSystemLifecyclePolicy)(nil)).Elem()
+}
+
+func (o GetFileSystemLifecyclePolicyPtrOutput) ToGetFileSystemLifecyclePolicyPtrOutput() GetFileSystemLifecyclePolicyPtrOutput {
+	return o
+}
+
+func (o GetFileSystemLifecyclePolicyPtrOutput) ToGetFileSystemLifecyclePolicyPtrOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyPtrOutput {
+	return o
+}
+
+func (o GetFileSystemLifecyclePolicyPtrOutput) Elem() GetFileSystemLifecyclePolicyOutput {
+	return o.ApplyT(func(v *GetFileSystemLifecyclePolicy) GetFileSystemLifecyclePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GetFileSystemLifecyclePolicy
+		return ret
+	}).(GetFileSystemLifecyclePolicyOutput)
+}
+
+func (o GetFileSystemLifecyclePolicyPtrOutput) TransitionToIa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFileSystemLifecyclePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitionToIa
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetFileSystemLifecyclePolicyPtrOutput) TransitionToPrimaryStorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFileSystemLifecyclePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitionToPrimaryStorageClass
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -1495,6 +1588,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfoInput)(nil)).Elem(), GetAccessPointRootDirectoryCreationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfoArrayInput)(nil)).Elem(), GetAccessPointRootDirectoryCreationInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemLifecyclePolicyInput)(nil)).Elem(), GetFileSystemLifecyclePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemLifecyclePolicyPtrInput)(nil)).Elem(), GetFileSystemLifecyclePolicyArgs{})
 	pulumi.RegisterOutputType(AccessPointPosixUserOutput{})
 	pulumi.RegisterOutputType(AccessPointPosixUserPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryOutput{})
@@ -1516,4 +1610,5 @@ func init() {
 	pulumi.RegisterOutputType(GetAccessPointRootDirectoryCreationInfoOutput{})
 	pulumi.RegisterOutputType(GetAccessPointRootDirectoryCreationInfoArrayOutput{})
 	pulumi.RegisterOutputType(GetFileSystemLifecyclePolicyOutput{})
+	pulumi.RegisterOutputType(GetFileSystemLifecyclePolicyPtrOutput{})
 }

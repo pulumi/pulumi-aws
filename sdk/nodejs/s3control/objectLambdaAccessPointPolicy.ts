@@ -78,11 +78,11 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
     /**
      * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      */
-    public /*out*/ readonly hasPublicAccessPolicy!: pulumi.Output<boolean>;
+    public /*out*/ readonly hasPublicAccessPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Object Lambda Access Point.
      */

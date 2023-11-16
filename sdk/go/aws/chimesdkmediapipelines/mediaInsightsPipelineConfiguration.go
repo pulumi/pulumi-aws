@@ -405,7 +405,7 @@ type MediaInsightsPipelineConfiguration struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Media Insights Pipeline Configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Collection of processors and sinks to transform media and deliver data.
 	Elements MediaInsightsPipelineConfigurationElementArrayOutput `pulumi:"elements"`
 	// Configuration name.
@@ -612,8 +612,8 @@ func (o MediaInsightsPipelineConfigurationOutput) ToMediaInsightsPipelineConfigu
 }
 
 // ARN of the Media Insights Pipeline Configuration.
-func (o MediaInsightsPipelineConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MediaInsightsPipelineConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Collection of processors and sinks to transform media and deliver data.

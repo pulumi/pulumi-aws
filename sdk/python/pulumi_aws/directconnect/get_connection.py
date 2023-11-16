@@ -58,7 +58,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the connection.
         """
@@ -66,7 +66,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="awsDevice")
-    def aws_device(self) -> str:
+    def aws_device(self) -> Optional[str]:
         """
         Direct Connect endpoint on which the physical connection terminates.
         """
@@ -74,7 +74,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def bandwidth(self) -> str:
+    def bandwidth(self) -> Optional[str]:
         """
         Bandwidth of the connection.
         """
@@ -82,7 +82,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -90,7 +90,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
         AWS Direct Connect location where the connection is located.
         """
@@ -103,7 +103,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> str:
+    def owner_account_id(self) -> Optional[str]:
         """
         ID of the AWS account that owns the connection.
         """
@@ -111,7 +111,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="partnerName")
-    def partner_name(self) -> str:
+    def partner_name(self) -> Optional[str]:
         """
         The name of the AWS Direct Connect service provider associated with the connection.
         """
@@ -119,7 +119,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> str:
+    def provider_name(self) -> Optional[str]:
         """
         Name of the service provider associated with the connection.
         """
@@ -127,7 +127,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags for the resource.
         """
@@ -135,7 +135,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> int:
+    def vlan_id(self) -> Optional[int]:
         """
         The VLAN ID.
         """

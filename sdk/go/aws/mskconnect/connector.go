@@ -102,7 +102,7 @@ type Connector struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the custom plugin.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Information about the capacity allocated to the connector. See below.
 	Capacity ConnectorCapacityOutput `pulumi:"capacity"`
 	// A map of keys to values that represent the configuration for the connector.
@@ -126,7 +126,7 @@ type Connector struct {
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
 	ServiceExecutionRoleArn pulumi.StringOutput `pulumi:"serviceExecutionRoleArn"`
 	// The current version of the connector.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 	// Specifies which worker configuration to use with the connector. See below.
 	WorkerConfiguration ConnectorWorkerConfigurationPtrOutput `pulumi:"workerConfiguration"`
 }
@@ -393,8 +393,8 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 }
 
 // The Amazon Resource Name (ARN) of the custom plugin.
-func (o ConnectorOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConnectorOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Information about the capacity allocated to the connector. See below.
@@ -457,8 +457,8 @@ func (o ConnectorOutput) ServiceExecutionRoleArn() pulumi.StringOutput {
 }
 
 // The current version of the connector.
-func (o ConnectorOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o ConnectorOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // Specifies which worker configuration to use with the connector. See below.

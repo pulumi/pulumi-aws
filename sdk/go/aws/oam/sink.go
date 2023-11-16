@@ -55,13 +55,13 @@ type Sink struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Sink.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name for the sink.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID string that AWS generated as part of the sink ARN.
-	SinkId pulumi.StringOutput `pulumi:"sinkId"`
+	SinkId pulumi.StringPtrOutput `pulumi:"sinkId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -242,8 +242,8 @@ func (o SinkOutput) ToSinkOutputWithContext(ctx context.Context) SinkOutput {
 }
 
 // ARN of the Sink.
-func (o SinkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Sink) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SinkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sink) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name for the sink.
@@ -254,8 +254,8 @@ func (o SinkOutput) Name() pulumi.StringOutput {
 }
 
 // ID string that AWS generated as part of the sink ARN.
-func (o SinkOutput) SinkId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Sink) pulumi.StringOutput { return v.SinkId }).(pulumi.StringOutput)
+func (o SinkOutput) SinkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sink) pulumi.StringPtrOutput { return v.SinkId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

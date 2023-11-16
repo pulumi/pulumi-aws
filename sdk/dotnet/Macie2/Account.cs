@@ -46,31 +46,31 @@ namespace Pulumi.Aws.Macie2
         /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         /// </summary>
         [Output("findingPublishingFrequency")]
-        public Output<string> FindingPublishingFrequency { get; private set; } = null!;
+        public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
         /// </summary>
         [Output("serviceRole")]
-        public Output<string> ServiceRole { get; private set; } = null!;
+        public Output<string?> ServiceRole { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         /// </summary>
         [Output("updatedAt")]
-        public Output<string> UpdatedAt { get; private set; } = null!;
+        public Output<string?> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

@@ -59,17 +59,17 @@ type GetReceivedLicenseArgs struct {
 // A collection of values returned by getReceivedLicense.
 type GetReceivedLicenseResult struct {
 	// Granted license beneficiary. This is in the form of the ARN of the root user of the account.
-	Beneficiary string `pulumi:"beneficiary"`
+	Beneficiary *string `pulumi:"beneficiary"`
 	// Configuration for consumption of the license. Detailed below
 	ConsumptionConfigurations []GetReceivedLicenseConsumptionConfiguration `pulumi:"consumptionConfigurations"`
 	// Creation time of the granted license in RFC 3339 format.
-	CreateTime string `pulumi:"createTime"`
+	CreateTime *string `pulumi:"createTime"`
 	// License entitlements. Detailed below
 	Entitlements []GetReceivedLicenseEntitlement `pulumi:"entitlements"`
 	// Home Region of the granted license.
-	HomeRegion string `pulumi:"homeRegion"`
+	HomeRegion *string `pulumi:"homeRegion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Granted license issuer. Detailed below
 	Issuers []GetReceivedLicenseIssuer `pulumi:"issuers"`
 	// Amazon Resource Name (ARN) of the license.
@@ -77,19 +77,19 @@ type GetReceivedLicenseResult struct {
 	// Granted license metadata. This is in the form of a set of all meta data. Detailed below
 	LicenseMetadatas []GetReceivedLicenseLicenseMetadata `pulumi:"licenseMetadatas"`
 	// License name.
-	LicenseName string `pulumi:"licenseName"`
+	LicenseName *string `pulumi:"licenseName"`
 	// Product name.
 	// * ` productSku  ` - Product SKU.
-	ProductName string `pulumi:"productName"`
-	ProductSku  string `pulumi:"productSku"`
+	ProductName *string `pulumi:"productName"`
+	ProductSku  *string `pulumi:"productSku"`
 	// Granted license received metadata. Detailed below
 	ReceivedMetadatas []GetReceivedLicenseReceivedMetadata `pulumi:"receivedMetadatas"`
 	// Granted license status.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
 	Validities []GetReceivedLicenseValidity `pulumi:"validities"`
 	// Version of the granted license.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 func GetReceivedLicenseOutput(ctx *pulumi.Context, args GetReceivedLicenseOutputArgs, opts ...pulumi.InvokeOption) GetReceivedLicenseResultOutput {
@@ -131,8 +131,8 @@ func (o GetReceivedLicenseResultOutput) ToGetReceivedLicenseResultOutputWithCont
 }
 
 // Granted license beneficiary. This is in the form of the ARN of the root user of the account.
-func (o GetReceivedLicenseResultOutput) Beneficiary() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.Beneficiary }).(pulumi.StringOutput)
+func (o GetReceivedLicenseResultOutput) Beneficiary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) *string { return v.Beneficiary }).(pulumi.StringPtrOutput)
 }
 
 // Configuration for consumption of the license. Detailed below
@@ -143,8 +143,8 @@ func (o GetReceivedLicenseResultOutput) ConsumptionConfigurations() GetReceivedL
 }
 
 // Creation time of the granted license in RFC 3339 format.
-func (o GetReceivedLicenseResultOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.CreateTime }).(pulumi.StringOutput)
+func (o GetReceivedLicenseResultOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // License entitlements. Detailed below
@@ -153,13 +153,13 @@ func (o GetReceivedLicenseResultOutput) Entitlements() GetReceivedLicenseEntitle
 }
 
 // Home Region of the granted license.
-func (o GetReceivedLicenseResultOutput) HomeRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.HomeRegion }).(pulumi.StringOutput)
+func (o GetReceivedLicenseResultOutput) HomeRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) *string { return v.HomeRegion }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetReceivedLicenseResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetReceivedLicenseResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Granted license issuer. Detailed below
@@ -178,18 +178,18 @@ func (o GetReceivedLicenseResultOutput) LicenseMetadatas() GetReceivedLicenseLic
 }
 
 // License name.
-func (o GetReceivedLicenseResultOutput) LicenseName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.LicenseName }).(pulumi.StringOutput)
+func (o GetReceivedLicenseResultOutput) LicenseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) *string { return v.LicenseName }).(pulumi.StringPtrOutput)
 }
 
 // Product name.
 // * ` productSku  ` - Product SKU.
-func (o GetReceivedLicenseResultOutput) ProductName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.ProductName }).(pulumi.StringOutput)
+func (o GetReceivedLicenseResultOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) *string { return v.ProductName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetReceivedLicenseResultOutput) ProductSku() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.ProductSku }).(pulumi.StringOutput)
+func (o GetReceivedLicenseResultOutput) ProductSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) *string { return v.ProductSku }).(pulumi.StringPtrOutput)
 }
 
 // Granted license received metadata. Detailed below
@@ -198,8 +198,8 @@ func (o GetReceivedLicenseResultOutput) ReceivedMetadatas() GetReceivedLicenseRe
 }
 
 // Granted license status.
-func (o GetReceivedLicenseResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.Status }).(pulumi.StringOutput)
+func (o GetReceivedLicenseResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
@@ -208,8 +208,8 @@ func (o GetReceivedLicenseResultOutput) Validities() GetReceivedLicenseValidityA
 }
 
 // Version of the granted license.
-func (o GetReceivedLicenseResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.Version }).(pulumi.StringOutput)
+func (o GetReceivedLicenseResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

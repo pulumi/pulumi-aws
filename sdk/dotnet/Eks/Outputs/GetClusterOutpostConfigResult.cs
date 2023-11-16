@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// The Amazon EC2 instance type for all Kubernetes control plane instances.
         /// </summary>
-        public readonly string ControlPlaneInstanceType;
+        public readonly string? ControlPlaneInstanceType;
         /// <summary>
         /// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Eks.Outputs
 
         [OutputConstructor]
         private GetClusterOutpostConfigResult(
-            string controlPlaneInstanceType,
+            string? controlPlaneInstanceType,
 
             ImmutableArray<Outputs.GetClusterOutpostConfigControlPlanePlacementResult> controlPlanePlacements,
 

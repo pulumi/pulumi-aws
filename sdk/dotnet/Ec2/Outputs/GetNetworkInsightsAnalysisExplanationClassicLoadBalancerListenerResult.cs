@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult
     {
-        public readonly int InstancePort;
-        public readonly int LoadBalancerPort;
+        public readonly int? InstancePort;
+        public readonly int? LoadBalancerPort;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult(
-            int instancePort,
+            int? instancePort,
 
-            int loadBalancerPort)
+            int? loadBalancerPort)
         {
             InstancePort = instancePort;
             LoadBalancerPort = loadBalancerPort;

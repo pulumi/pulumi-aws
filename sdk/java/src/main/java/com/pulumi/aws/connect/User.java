@@ -246,28 +246,28 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the user.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
      * 
      */
     @Export(name="directoryUserId", refs={String.class}, tree="[0]")
-    private Output<String> directoryUserId;
+    private Output</* @Nullable */ String> directoryUserId;
 
     /**
      * @return The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
      * 
      */
-    public Output<String> directoryUserId() {
-        return this.directoryUserId;
+    public Output<Optional<String>> directoryUserId() {
+        return Codegen.optional(this.directoryUserId);
     }
     /**
      * The identifier of the hierarchy group for the user.
@@ -420,14 +420,14 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
-    private Output<String> userId;
+    private Output</* @Nullable */ String> userId;
 
     /**
      * @return The identifier for the user.
      * 
      */
-    public Output<String> userId() {
-        return this.userId;
+    public Output<Optional<String>> userId() {
+        return Codegen.optional(this.userId);
     }
 
     /**

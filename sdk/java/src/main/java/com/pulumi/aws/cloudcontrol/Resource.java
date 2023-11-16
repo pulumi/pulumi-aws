@@ -79,14 +79,14 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="properties", refs={String.class}, tree="[0]")
-    private Output<String> properties;
+    private Output</* @Nullable */ String> properties;
 
     /**
      * @return JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
      * 
      */
-    public Output<String> properties() {
-        return this.properties;
+    public Output<Optional<String>> properties() {
+        return Codegen.optional(this.properties);
     }
     /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
@@ -107,14 +107,14 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
-    private Output<String> schema;
+    private Output</* @Nullable */ String> schema;
 
     /**
      * @return JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
      * 
      */
-    public Output<String> schema() {
-        return this.schema;
+    public Output<Optional<String>> schema() {
+        return Codegen.optional(this.schema);
     }
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.

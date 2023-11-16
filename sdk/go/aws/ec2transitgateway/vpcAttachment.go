@@ -71,15 +71,15 @@ type VpcAttachment struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-	TransitGatewayDefaultRouteTableAssociation pulumi.BoolOutput `pulumi:"transitGatewayDefaultRouteTableAssociation"`
+	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrOutput `pulumi:"transitGatewayDefaultRouteTableAssociation"`
 	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-	TransitGatewayDefaultRouteTablePropagation pulumi.BoolOutput `pulumi:"transitGatewayDefaultRouteTablePropagation"`
+	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrOutput `pulumi:"transitGatewayDefaultRouteTablePropagation"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 	// Identifier of EC2 VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// Identifier of the AWS account that owns the EC2 VPC.
-	VpcOwnerId pulumi.StringOutput `pulumi:"vpcOwnerId"`
+	VpcOwnerId pulumi.StringPtrOutput `pulumi:"vpcOwnerId"`
 }
 
 // NewVpcAttachment registers a new resource with the given unique name, arguments, and options.
@@ -345,13 +345,13 @@ func (o VpcAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-func (o VpcAttachmentOutput) TransitGatewayDefaultRouteTableAssociation() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.BoolOutput { return v.TransitGatewayDefaultRouteTableAssociation }).(pulumi.BoolOutput)
+func (o VpcAttachmentOutput) TransitGatewayDefaultRouteTableAssociation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.BoolPtrOutput { return v.TransitGatewayDefaultRouteTableAssociation }).(pulumi.BoolPtrOutput)
 }
 
 // Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-func (o VpcAttachmentOutput) TransitGatewayDefaultRouteTablePropagation() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.BoolOutput { return v.TransitGatewayDefaultRouteTablePropagation }).(pulumi.BoolOutput)
+func (o VpcAttachmentOutput) TransitGatewayDefaultRouteTablePropagation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.BoolPtrOutput { return v.TransitGatewayDefaultRouteTablePropagation }).(pulumi.BoolPtrOutput)
 }
 
 // Identifier of EC2 Transit Gateway.
@@ -365,8 +365,8 @@ func (o VpcAttachmentOutput) VpcId() pulumi.StringOutput {
 }
 
 // Identifier of the AWS account that owns the EC2 VPC.
-func (o VpcAttachmentOutput) VpcOwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.VpcOwnerId }).(pulumi.StringOutput)
+func (o VpcAttachmentOutput) VpcOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.VpcOwnerId }).(pulumi.StringPtrOutput)
 }
 
 type VpcAttachmentArrayOutput struct{ *pulumi.OutputState }

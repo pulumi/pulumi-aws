@@ -72,7 +72,7 @@ export class FeatureGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A free-form description of a Feature Group.
      */

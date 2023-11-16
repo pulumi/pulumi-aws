@@ -45,7 +45,7 @@ namespace Pulumi.Aws.ResourceExplorer
         /// Amazon Resource Name (ARN) of the Resource Explorer index.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

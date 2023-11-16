@@ -73,19 +73,19 @@ namespace Pulumi.Aws.S3Control
         /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Alias for the S3 Object Lambda Access Point.
         /// </summary>
         [Output("alias")]
-        public Output<string> Alias { get; private set; } = null!;
+        public Output<string?> Alias { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.

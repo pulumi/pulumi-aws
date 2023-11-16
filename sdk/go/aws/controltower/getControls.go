@@ -70,8 +70,8 @@ type GetControlsResult struct {
 	// List of all the ARNs for the controls applied to the `targetIdentifier`.
 	EnabledControls []string `pulumi:"enabledControls"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string `pulumi:"id"`
-	TargetIdentifier string `pulumi:"targetIdentifier"`
+	Id               *string `pulumi:"id"`
+	TargetIdentifier string  `pulumi:"targetIdentifier"`
 }
 
 func GetControlsOutput(ctx *pulumi.Context, args GetControlsOutputArgs, opts ...pulumi.InvokeOption) GetControlsResultOutput {
@@ -118,8 +118,8 @@ func (o GetControlsResultOutput) EnabledControls() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetControlsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetControlsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetControlsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetControlsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetControlsResultOutput) TargetIdentifier() pulumi.StringOutput {

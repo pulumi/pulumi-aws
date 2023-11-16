@@ -65,7 +65,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Project.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description for the project.
      */
@@ -73,7 +73,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The ID of the project.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    public /*out*/ readonly projectId!: pulumi.Output<string | undefined>;
     /**
      * The name of the Project.
      */

@@ -7,26 +7,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointElasticsearchSetting {
-    private String endpointUri;
-    private Integer errorRetryDuration;
-    private Integer fullLoadErrorPercentage;
-    private String serviceAccessRoleArn;
+    private @Nullable String endpointUri;
+    private @Nullable Integer errorRetryDuration;
+    private @Nullable Integer fullLoadErrorPercentage;
+    private @Nullable String serviceAccessRoleArn;
 
     private GetEndpointElasticsearchSetting() {}
-    public String endpointUri() {
-        return this.endpointUri;
+    public Optional<String> endpointUri() {
+        return Optional.ofNullable(this.endpointUri);
     }
-    public Integer errorRetryDuration() {
-        return this.errorRetryDuration;
+    public Optional<Integer> errorRetryDuration() {
+        return Optional.ofNullable(this.errorRetryDuration);
     }
-    public Integer fullLoadErrorPercentage() {
-        return this.fullLoadErrorPercentage;
+    public Optional<Integer> fullLoadErrorPercentage() {
+        return Optional.ofNullable(this.fullLoadErrorPercentage);
     }
-    public String serviceAccessRoleArn() {
-        return this.serviceAccessRoleArn;
+    public Optional<String> serviceAccessRoleArn() {
+        return Optional.ofNullable(this.serviceAccessRoleArn);
     }
 
     public static Builder builder() {
@@ -38,10 +40,10 @@ public final class GetEndpointElasticsearchSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String endpointUri;
-        private Integer errorRetryDuration;
-        private Integer fullLoadErrorPercentage;
-        private String serviceAccessRoleArn;
+        private @Nullable String endpointUri;
+        private @Nullable Integer errorRetryDuration;
+        private @Nullable Integer fullLoadErrorPercentage;
+        private @Nullable String serviceAccessRoleArn;
         public Builder() {}
         public Builder(GetEndpointElasticsearchSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -52,23 +54,23 @@ public final class GetEndpointElasticsearchSetting {
         }
 
         @CustomType.Setter
-        public Builder endpointUri(String endpointUri) {
-            this.endpointUri = Objects.requireNonNull(endpointUri);
+        public Builder endpointUri(@Nullable String endpointUri) {
+            this.endpointUri = endpointUri;
             return this;
         }
         @CustomType.Setter
-        public Builder errorRetryDuration(Integer errorRetryDuration) {
-            this.errorRetryDuration = Objects.requireNonNull(errorRetryDuration);
+        public Builder errorRetryDuration(@Nullable Integer errorRetryDuration) {
+            this.errorRetryDuration = errorRetryDuration;
             return this;
         }
         @CustomType.Setter
-        public Builder fullLoadErrorPercentage(Integer fullLoadErrorPercentage) {
-            this.fullLoadErrorPercentage = Objects.requireNonNull(fullLoadErrorPercentage);
+        public Builder fullLoadErrorPercentage(@Nullable Integer fullLoadErrorPercentage) {
+            this.fullLoadErrorPercentage = fullLoadErrorPercentage;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
-            this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
+        public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         public GetEndpointElasticsearchSetting build() {

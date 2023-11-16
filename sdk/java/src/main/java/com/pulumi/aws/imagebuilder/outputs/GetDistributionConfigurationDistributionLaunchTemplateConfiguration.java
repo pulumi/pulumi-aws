@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionLaunchTemplateConfiguration {
@@ -14,39 +16,39 @@ public final class GetDistributionConfigurationDistributionLaunchTemplateConfigu
      * @return The account ID that this configuration applies to.
      * 
      */
-    private String accountId;
+    private @Nullable String accountId;
     /**
      * @return Whether the specified Amazon EC2 launch template is set as the default launch template.
      * 
      */
-    private Boolean default_;
+    private @Nullable Boolean default_;
     /**
      * @return ID of the Amazon EC2 launch template.
      * 
      */
-    private String launchTemplateId;
+    private @Nullable String launchTemplateId;
 
     private GetDistributionConfigurationDistributionLaunchTemplateConfiguration() {}
     /**
      * @return The account ID that this configuration applies to.
      * 
      */
-    public String accountId() {
-        return this.accountId;
+    public Optional<String> accountId() {
+        return Optional.ofNullable(this.accountId);
     }
     /**
      * @return Whether the specified Amazon EC2 launch template is set as the default launch template.
      * 
      */
-    public Boolean default_() {
-        return this.default_;
+    public Optional<Boolean> default_() {
+        return Optional.ofNullable(this.default_);
     }
     /**
      * @return ID of the Amazon EC2 launch template.
      * 
      */
-    public String launchTemplateId() {
-        return this.launchTemplateId;
+    public Optional<String> launchTemplateId() {
+        return Optional.ofNullable(this.launchTemplateId);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetDistributionConfigurationDistributionLaunchTemplateConfigu
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountId;
-        private Boolean default_;
-        private String launchTemplateId;
+        private @Nullable String accountId;
+        private @Nullable Boolean default_;
+        private @Nullable String launchTemplateId;
         public Builder() {}
         public Builder(GetDistributionConfigurationDistributionLaunchTemplateConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetDistributionConfigurationDistributionLaunchTemplateConfigu
         }
 
         @CustomType.Setter
-        public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+        public Builder accountId(@Nullable String accountId) {
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter("default")
-        public Builder default_(Boolean default_) {
-            this.default_ = Objects.requireNonNull(default_);
+        public Builder default_(@Nullable Boolean default_) {
+            this.default_ = default_;
             return this;
         }
         @CustomType.Setter
-        public Builder launchTemplateId(String launchTemplateId) {
-            this.launchTemplateId = Objects.requireNonNull(launchTemplateId);
+        public Builder launchTemplateId(@Nullable String launchTemplateId) {
+            this.launchTemplateId = launchTemplateId;
             return this;
         }
         public GetDistributionConfigurationDistributionLaunchTemplateConfiguration build() {

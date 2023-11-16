@@ -16,29 +16,29 @@ namespace Pulumi.Aws.RedshiftServerless.Outputs
         /// <summary>
         /// The availability Zone.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// The unique identifier of the network interface.
         /// </summary>
-        public readonly string NetworkInterfaceId;
+        public readonly string? NetworkInterfaceId;
         /// <summary>
         /// The IPv4 address of the network interface within the subnet.
         /// </summary>
-        public readonly string PrivateIpAddress;
+        public readonly string? PrivateIpAddress;
         /// <summary>
         /// The unique identifier of the subnet.
         /// </summary>
-        public readonly string SubnetId;
+        public readonly string? SubnetId;
 
         [OutputConstructor]
         private GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult(
-            string availabilityZone,
+            string? availabilityZone,
 
-            string networkInterfaceId,
+            string? networkInterfaceId,
 
-            string privateIpAddress,
+            string? privateIpAddress,
 
-            string subnetId)
+            string? subnetId)
         {
             AvailabilityZone = availabilityZone;
             NetworkInterfaceId = networkInterfaceId;

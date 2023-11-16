@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Vpc
     public sealed class GetSecurityGroupRulesResult
     {
         public readonly ImmutableArray<Outputs.GetSecurityGroupRulesFilterResult> Filters;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of all the security group rule IDs found.
         /// </summary>
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Vpc
         private GetSecurityGroupRulesResult(
             ImmutableArray<Outputs.GetSecurityGroupRulesFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

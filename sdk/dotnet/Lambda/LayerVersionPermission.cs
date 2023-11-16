@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Lambda
         /// Full Lambda Layer Permission policy.
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Lambda
         /// A unique identifier for the current revision of the policy.
         /// </summary>
         [Output("revisionId")]
-        public Output<string> RevisionId { get; private set; } = null!;
+        public Output<string?> RevisionId { get; private set; } = null!;
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.

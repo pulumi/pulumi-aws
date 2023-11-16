@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponsePlanActionSsmAutomationParameter {
@@ -14,27 +16,27 @@ public final class GetResponsePlanActionSsmAutomationParameter {
      * @return The name of the PagerDuty configuration.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The values for the associated parameter name.
      * 
      */
-    private List<String> values;
+    private @Nullable List<String> values;
 
     private GetResponsePlanActionSsmAutomationParameter() {}
     /**
      * @return The name of the PagerDuty configuration.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The values for the associated parameter name.
      * 
      */
     public List<String> values() {
-        return this.values;
+        return this.values == null ? List.of() : this.values;
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetResponsePlanActionSsmAutomationParameter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String name;
-        private List<String> values;
+        private @Nullable String name;
+        private @Nullable List<String> values;
         public Builder() {}
         public Builder(GetResponsePlanActionSsmAutomationParameter defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetResponsePlanActionSsmAutomationParameter {
         }
 
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+        public Builder values(@Nullable List<String> values) {
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {

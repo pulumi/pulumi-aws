@@ -89,7 +89,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Version of the policy.
         /// </summary>
         [Output("policyVersion")]
-        public Output<string> PolicyVersion { get; private set; } = null!;
+        public Output<string?> PolicyVersion { get; private set; } = null!;
 
         /// <summary>
         /// Type of lifecycle policy. Must be `retention`.

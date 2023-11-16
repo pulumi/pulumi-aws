@@ -71,61 +71,61 @@ export interface GetVolumeResult {
     /**
      * Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * AZ where the EBS volume exists.
      */
-    readonly availabilityZone: string;
+    readonly availabilityZone?: string;
     /**
      * Whether the disk is encrypted.
      */
-    readonly encrypted: boolean;
+    readonly encrypted?: boolean;
     readonly filters?: outputs.ebs.GetVolumeFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Amount of IOPS for the disk.
      */
-    readonly iops: number;
+    readonly iops?: number;
     /**
      * ARN for the KMS encryption key.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     readonly mostRecent?: boolean;
     /**
      * (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
      */
-    readonly multiAttachEnabled: boolean;
+    readonly multiAttachEnabled?: boolean;
     /**
      * ARN of the Outpost.
      */
-    readonly outpostArn: string;
+    readonly outpostArn?: string;
     /**
      * Size of the drive in GiBs.
      */
-    readonly size: number;
+    readonly size?: number;
     /**
      * Snapshot_id the EBS volume is based off.
      */
-    readonly snapshotId: string;
+    readonly snapshotId?: string;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Throughput that the volume supports, in MiB/s.
      */
-    readonly throughput: number;
+    readonly throughput?: number;
     /**
      * Volume ID (e.g., vol-59fcb34e).
      */
-    readonly volumeId: string;
+    readonly volumeId?: string;
     /**
      * Type of EBS volume.
      */
-    readonly volumeType: string;
+    readonly volumeType?: string;
 }
 /**
  * Use this data source to get information about an EBS volume for use in other

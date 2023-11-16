@@ -8,6 +8,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,27 +17,27 @@ public final class GetVpcLinkResult {
      * @return ARN of the VPC Link.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return VPC Link Name.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return List of security groups associated with the VPC Link.
      * 
      */
-    private List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return List of subnets attached to the VPC Link.
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return VPC Link Tags.
      * 
@@ -49,36 +50,36 @@ public final class GetVpcLinkResult {
      * @return ARN of the VPC Link.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return VPC Link Name.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return List of security groups associated with the VPC Link.
      * 
      */
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
      * @return List of subnets attached to the VPC Link.
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
      * @return VPC Link Tags.
@@ -100,11 +101,11 @@ public final class GetVpcLinkResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String name;
-        private List<String> securityGroupIds;
-        private List<String> subnetIds;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable List<String> subnetIds;
         private @Nullable Map<String,String> tags;
         private String vpcLinkId;
         public Builder() {}
@@ -120,31 +121,31 @@ public final class GetVpcLinkResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {

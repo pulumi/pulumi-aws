@@ -82,7 +82,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="buildVersionArn")
-    def build_version_arn(self) -> str:
+    def build_version_arn(self) -> Optional[str]:
         """
         Build version ARN of the image. This will always have the `#.#.#/#` suffix.
         """
@@ -90,7 +90,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="containerRecipeArn")
-    def container_recipe_arn(self) -> str:
+    def container_recipe_arn(self) -> Optional[str]:
         """
         ARN of the container recipe.
         """
@@ -98,7 +98,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> str:
+    def date_created(self) -> Optional[str]:
         """
         Date the image was created.
         """
@@ -106,7 +106,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="distributionConfigurationArn")
-    def distribution_configuration_arn(self) -> str:
+    def distribution_configuration_arn(self) -> Optional[str]:
         """
         ARN of the Image Builder Distribution Configuration.
         """
@@ -114,7 +114,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
-    def enhanced_image_metadata_enabled(self) -> bool:
+    def enhanced_image_metadata_enabled(self) -> Optional[bool]:
         """
         Whether additional information about the image being created is collected.
         """
@@ -122,7 +122,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -130,7 +130,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="imageRecipeArn")
-    def image_recipe_arn(self) -> str:
+    def image_recipe_arn(self) -> Optional[str]:
         """
         ARN of the image recipe.
         """
@@ -138,7 +138,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="imageScanningConfigurations")
-    def image_scanning_configurations(self) -> Sequence['outputs.GetImageImageScanningConfigurationResult']:
+    def image_scanning_configurations(self) -> Optional[Sequence['outputs.GetImageImageScanningConfigurationResult']]:
         """
         List of an object with image scanning configuration fields.
         """
@@ -146,7 +146,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="imageTestsConfigurations")
-    def image_tests_configurations(self) -> Sequence['outputs.GetImageImageTestsConfigurationResult']:
+    def image_tests_configurations(self) -> Optional[Sequence['outputs.GetImageImageTestsConfigurationResult']]:
         """
         List of an object with image tests configuration.
         """
@@ -154,7 +154,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="infrastructureConfigurationArn")
-    def infrastructure_configuration_arn(self) -> str:
+    def infrastructure_configuration_arn(self) -> Optional[str]:
         """
         ARN of the Image Builder Infrastructure Configuration.
         """
@@ -162,7 +162,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the AMI.
         """
@@ -170,7 +170,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="osVersion")
-    def os_version(self) -> str:
+    def os_version(self) -> Optional[str]:
         """
         Operating System version of the image.
         """
@@ -178,7 +178,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="outputResources")
-    def output_resources(self) -> Sequence['outputs.GetImageOutputResourceResult']:
+    def output_resources(self) -> Optional[Sequence['outputs.GetImageOutputResourceResult']]:
         """
         List of objects with resources created by the image.
         """
@@ -186,7 +186,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> str:
+    def platform(self) -> Optional[str]:
         """
         Platform of the image.
         """
@@ -194,7 +194,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the image.
         """
@@ -202,7 +202,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Version of the image.
         """

@@ -66,12 +66,12 @@ type GetRegionArgs struct {
 // A collection of values returned by getRegion.
 type GetRegionResult struct {
 	// Region's description in this format: "Location (Region name)".
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// EC2 endpoint for the selected region.
-	Endpoint string `pulumi:"endpoint"`
-	Id       string `pulumi:"id"`
+	Endpoint *string `pulumi:"endpoint"`
+	Id       *string `pulumi:"id"`
 	// Name of the selected region.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 func GetRegionOutput(ctx *pulumi.Context, args GetRegionOutputArgs, opts ...pulumi.InvokeOption) GetRegionResultOutput {
@@ -116,22 +116,22 @@ func (o GetRegionResultOutput) ToGetRegionResultOutputWithContext(ctx context.Co
 }
 
 // Region's description in this format: "Location (Region name)".
-func (o GetRegionResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRegionResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetRegionResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // EC2 endpoint for the selected region.
-func (o GetRegionResultOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRegionResult) string { return v.Endpoint }).(pulumi.StringOutput)
+func (o GetRegionResultOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegionResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRegionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRegionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetRegionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the selected region.
-func (o GetRegionResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRegionResult) string { return v.Name }).(pulumi.StringOutput)
+func (o GetRegionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func init() {

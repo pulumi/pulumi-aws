@@ -61,7 +61,7 @@ type Thesaurus struct {
 	pulumi.CustomResourceState
 
 	// ARN of the thesaurus.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description for a thesaurus.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The identifier of the index for a thesaurus.
@@ -75,14 +75,14 @@ type Thesaurus struct {
 	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathOutput `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
-	ThesaurusId pulumi.StringOutput    `pulumi:"thesaurusId"`
+	ThesaurusId pulumi.StringPtrOutput `pulumi:"thesaurusId"`
 }
 
 // NewThesaurus registers a new resource with the given unique name, arguments, and options.
@@ -306,8 +306,8 @@ func (o ThesaurusOutput) ToThesaurusOutputWithContext(ctx context.Context) Thesa
 }
 
 // ARN of the thesaurus.
-func (o ThesaurusOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ThesaurusOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Thesaurus) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description for a thesaurus.
@@ -338,8 +338,8 @@ func (o ThesaurusOutput) SourceS3Path() ThesaurusSourceS3PathOutput {
 }
 
 // The current status of the thesaurus.
-func (o ThesaurusOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ThesaurusOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Thesaurus) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -354,8 +354,8 @@ func (o ThesaurusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-func (o ThesaurusOutput) ThesaurusId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.ThesaurusId }).(pulumi.StringOutput)
+func (o ThesaurusOutput) ThesaurusId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Thesaurus) pulumi.StringPtrOutput { return v.ThesaurusId }).(pulumi.StringPtrOutput)
 }
 
 type ThesaurusArrayOutput struct{ *pulumi.OutputState }

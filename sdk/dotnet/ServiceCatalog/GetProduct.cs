@@ -151,88 +151,88 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// ARN of the product.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Time when the product was created.
         /// </summary>
-        public readonly string CreatedTime;
+        public readonly string? CreatedTime;
         /// <summary>
         /// Description of the product.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Vendor of the product.
         /// </summary>
-        public readonly string Distributor;
+        public readonly string? Distributor;
         /// <summary>
         /// Whether the product has a default path.
         /// </summary>
-        public readonly bool HasDefaultPath;
+        public readonly bool? HasDefaultPath;
         public readonly string Id;
         /// <summary>
         /// Name of the product.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Owner of the product.
         /// </summary>
-        public readonly string Owner;
+        public readonly string? Owner;
         /// <summary>
         /// Status of the product.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Field that provides support information about the product.
         /// </summary>
-        public readonly string SupportDescription;
+        public readonly string? SupportDescription;
         /// <summary>
         /// Contact email for product support.
         /// </summary>
-        public readonly string SupportEmail;
+        public readonly string? SupportEmail;
         /// <summary>
         /// Contact URL for product support.
         /// </summary>
-        public readonly string SupportUrl;
+        public readonly string? SupportUrl;
         /// <summary>
         /// Tags applied to the product.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of product.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetProductResult(
             string? acceptLanguage,
 
-            string arn,
+            string? arn,
 
-            string createdTime,
+            string? createdTime,
 
-            string description,
+            string? description,
 
-            string distributor,
+            string? distributor,
 
-            bool hasDefaultPath,
+            bool? hasDefaultPath,
 
             string id,
 
-            string name,
+            string? name,
 
-            string owner,
+            string? owner,
 
-            string status,
+            string? status,
 
-            string supportDescription,
+            string? supportDescription,
 
-            string supportEmail,
+            string? supportEmail,
 
-            string supportUrl,
+            string? supportUrl,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? type)
         {
             AcceptLanguage = acceptLanguage;
             Arn = arn;

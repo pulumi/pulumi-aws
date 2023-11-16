@@ -422,7 +422,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the snapshot.
         """
@@ -430,7 +430,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterConfigurations")
-    def cluster_configurations(self) -> pulumi.Output[Sequence['outputs.SnapshotClusterConfiguration']]:
+    def cluster_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.SnapshotClusterConfiguration']]]:
         """
         The configuration of the cluster from which the snapshot was taken.
         """
@@ -462,7 +462,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -470,7 +470,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Output[str]:
+    def source(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         """

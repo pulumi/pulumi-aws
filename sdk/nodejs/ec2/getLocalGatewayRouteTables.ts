@@ -58,12 +58,12 @@ export interface GetLocalGatewayRouteTablesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of Local Gateway Route Table identifiers
      */
-    readonly ids: string[];
-    readonly tags: {[key: string]: string};
+    readonly ids?: string[];
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.

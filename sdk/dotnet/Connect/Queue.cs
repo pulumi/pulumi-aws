@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Connect
         /// The Amazon Resource Name (ARN) of the Queue.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the description of the Queue.
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Connect
         /// The identifier for the Queue.
         /// </summary>
         [Output("queueId")]
-        public Output<string> QueueId { get; private set; } = null!;
+        public Output<string?> QueueId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Connect
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

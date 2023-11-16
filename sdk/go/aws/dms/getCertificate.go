@@ -59,27 +59,27 @@ type LookupCertificateArgs struct {
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
 	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn string `pulumi:"certificateArn"`
+	CertificateArn *string `pulumi:"certificateArn"`
 	// The date that the certificate was created.
-	CertificateCreationDate string `pulumi:"certificateCreationDate"`
-	CertificateId           string `pulumi:"certificateId"`
+	CertificateCreationDate *string `pulumi:"certificateCreationDate"`
+	CertificateId           string  `pulumi:"certificateId"`
 	// The owner of the certificate.
-	CertificateOwner string `pulumi:"certificateOwner"`
+	CertificateOwner *string `pulumi:"certificateOwner"`
 	// The contents of a .pem file, which contains an X.509 certificate.
-	CertificatePem string `pulumi:"certificatePem"`
+	CertificatePem *string `pulumi:"certificatePem"`
 	// The owner of the certificate.
-	CertificateWallet string `pulumi:"certificateWallet"`
+	CertificateWallet *string `pulumi:"certificateWallet"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The key length of the cryptographic algorithm being used.
-	KeyLength int `pulumi:"keyLength"`
+	KeyLength *int `pulumi:"keyLength"`
 	// The algorithm for the certificate.
-	SigningAlgorithm string            `pulumi:"signingAlgorithm"`
+	SigningAlgorithm *string           `pulumi:"signingAlgorithm"`
 	Tags             map[string]string `pulumi:"tags"`
 	// The beginning date that the certificate is valid.
-	ValidFromDate string `pulumi:"validFromDate"`
+	ValidFromDate *string `pulumi:"validFromDate"`
 	// The final date that the certificate is valid.
-	ValidToDate string `pulumi:"validToDate"`
+	ValidToDate *string `pulumi:"validToDate"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -122,13 +122,13 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 }
 
 // The Amazon Resource Name (ARN) for the certificate.
-func (o LookupCertificateResultOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateArn }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // The date that the certificate was created.
-func (o LookupCertificateResultOutput) CertificateCreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateCreationDate }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) CertificateCreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.CertificateCreationDate }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCertificateResultOutput) CertificateId() pulumi.StringOutput {
@@ -136,33 +136,33 @@ func (o LookupCertificateResultOutput) CertificateId() pulumi.StringOutput {
 }
 
 // The owner of the certificate.
-func (o LookupCertificateResultOutput) CertificateOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateOwner }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) CertificateOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.CertificateOwner }).(pulumi.StringPtrOutput)
 }
 
 // The contents of a .pem file, which contains an X.509 certificate.
-func (o LookupCertificateResultOutput) CertificatePem() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificatePem }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) CertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.CertificatePem }).(pulumi.StringPtrOutput)
 }
 
 // The owner of the certificate.
-func (o LookupCertificateResultOutput) CertificateWallet() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateWallet }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) CertificateWallet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.CertificateWallet }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The key length of the cryptographic algorithm being used.
-func (o LookupCertificateResultOutput) KeyLength() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupCertificateResult) int { return v.KeyLength }).(pulumi.IntOutput)
+func (o LookupCertificateResultOutput) KeyLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *int { return v.KeyLength }).(pulumi.IntPtrOutput)
 }
 
 // The algorithm for the certificate.
-func (o LookupCertificateResultOutput) SigningAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) SigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.SigningAlgorithm }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCertificateResultOutput) Tags() pulumi.StringMapOutput {
@@ -170,13 +170,13 @@ func (o LookupCertificateResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The beginning date that the certificate is valid.
-func (o LookupCertificateResultOutput) ValidFromDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.ValidFromDate }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) ValidFromDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.ValidFromDate }).(pulumi.StringPtrOutput)
 }
 
 // The final date that the certificate is valid.
-func (o LookupCertificateResultOutput) ValidToDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.ValidToDate }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) ValidToDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.ValidToDate }).(pulumi.StringPtrOutput)
 }
 
 func init() {

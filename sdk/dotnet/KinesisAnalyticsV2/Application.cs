@@ -320,13 +320,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// The application's configuration
         /// </summary>
         [Output("applicationConfiguration")]
-        public Output<Outputs.ApplicationApplicationConfiguration> ApplicationConfiguration { get; private set; } = null!;
+        public Output<Outputs.ApplicationApplicationConfiguration?> ApplicationConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the application.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A CloudWatch log stream to monitor application configuration errors.
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// The current timestamp when the application was created.
         /// </summary>
         [Output("createTimestamp")]
-        public Output<string> CreateTimestamp { get; private set; } = null!;
+        public Output<string?> CreateTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// A summary description of the application.
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// The current timestamp when the application was last updated.
         /// </summary>
         [Output("lastUpdateTimestamp")]
-        public Output<string> LastUpdateTimestamp { get; private set; } = null!;
+        public Output<string?> LastUpdateTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// The name of the application.
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// The status of the application.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         /// </summary>
         [Output("versionId")]
-        public Output<int> VersionId { get; private set; } = null!;
+        public Output<int?> VersionId { get; private set; } = null!;
 
 
         /// <summary>

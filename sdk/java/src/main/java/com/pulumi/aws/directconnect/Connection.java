@@ -134,28 +134,28 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the connection.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      * 
      */
     @Export(name="awsDevice", refs={String.class}, tree="[0]")
-    private Output<String> awsDevice;
+    private Output</* @Nullable */ String> awsDevice;
 
     /**
      * @return The Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    public Output<String> awsDevice() {
-        return this.awsDevice;
+    public Output<Optional<String>> awsDevice() {
+        return Codegen.optional(this.awsDevice);
     }
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
@@ -176,42 +176,42 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encryptionMode", refs={String.class}, tree="[0]")
-    private Output<String> encryptionMode;
+    private Output</* @Nullable */ String> encryptionMode;
 
     /**
      * @return The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
      * 
      */
-    public Output<String> encryptionMode() {
-        return this.encryptionMode;
+    public Output<Optional<String>> encryptionMode() {
+        return Codegen.optional(this.encryptionMode);
     }
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
     @Export(name="hasLogicalRedundancy", refs={String.class}, tree="[0]")
-    private Output<String> hasLogicalRedundancy;
+    private Output</* @Nullable */ String> hasLogicalRedundancy;
 
     /**
      * @return Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    public Output<String> hasLogicalRedundancy() {
-        return this.hasLogicalRedundancy;
+    public Output<Optional<String>> hasLogicalRedundancy() {
+        return Codegen.optional(this.hasLogicalRedundancy);
     }
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      * 
      */
     @Export(name="jumboFrameCapable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> jumboFrameCapable;
+    private Output</* @Nullable */ Boolean> jumboFrameCapable;
 
     /**
      * @return Boolean value representing if jumbo frames have been enabled for this connection.
      * 
      */
-    public Output<Boolean> jumboFrameCapable() {
-        return this.jumboFrameCapable;
+    public Output<Optional<Boolean>> jumboFrameCapable() {
+        return Codegen.optional(this.jumboFrameCapable);
     }
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
@@ -232,14 +232,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="macsecCapable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> macsecCapable;
+    private Output</* @Nullable */ Boolean> macsecCapable;
 
     /**
      * @return Boolean value indicating whether the connection supports MAC Security (MACsec).
      * 
      */
-    public Output<Boolean> macsecCapable() {
-        return this.macsecCapable;
+    public Output<Optional<Boolean>> macsecCapable() {
+        return Codegen.optional(this.macsecCapable);
     }
     /**
      * The name of the connection.
@@ -260,56 +260,56 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> ownerAccountId;
+    private Output</* @Nullable */ String> ownerAccountId;
 
     /**
      * @return The ID of the AWS account that owns the connection.
      * 
      */
-    public Output<String> ownerAccountId() {
-        return this.ownerAccountId;
+    public Output<Optional<String>> ownerAccountId() {
+        return Codegen.optional(this.ownerAccountId);
     }
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
     @Export(name="partnerName", refs={String.class}, tree="[0]")
-    private Output<String> partnerName;
+    private Output</* @Nullable */ String> partnerName;
 
     /**
      * @return The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
-    public Output<String> partnerName() {
-        return this.partnerName;
+    public Output<Optional<String>> partnerName() {
+        return Codegen.optional(this.partnerName);
     }
     /**
      * The MAC Security (MACsec) port link status of the connection.
      * 
      */
     @Export(name="portEncryptionStatus", refs={String.class}, tree="[0]")
-    private Output<String> portEncryptionStatus;
+    private Output</* @Nullable */ String> portEncryptionStatus;
 
     /**
      * @return The MAC Security (MACsec) port link status of the connection.
      * 
      */
-    public Output<String> portEncryptionStatus() {
-        return this.portEncryptionStatus;
+    public Output<Optional<String>> portEncryptionStatus() {
+        return Codegen.optional(this.portEncryptionStatus);
     }
     /**
      * The name of the service provider associated with the connection.
      * 
      */
     @Export(name="providerName", refs={String.class}, tree="[0]")
-    private Output<String> providerName;
+    private Output</* @Nullable */ String> providerName;
 
     /**
      * @return The name of the service provider associated with the connection.
      * 
      */
-    public Output<String> providerName() {
-        return this.providerName;
+    public Output<Optional<String>> providerName() {
+        return Codegen.optional(this.providerName);
     }
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
@@ -380,14 +380,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vlanId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> vlanId;
+    private Output</* @Nullable */ Integer> vlanId;
 
     /**
      * @return The VLAN ID.
      * 
      */
-    public Output<Integer> vlanId() {
-        return this.vlanId;
+    public Output<Optional<Integer>> vlanId() {
+        return Codegen.optional(this.vlanId);
     }
 
     /**

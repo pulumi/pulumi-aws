@@ -54,7 +54,7 @@ type Channel struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the channel
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A unique identifier describing the channel
 	ChannelId pulumi.StringOutput `pulumi:"channelId"`
 	// A description of the channel
@@ -253,8 +253,8 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 }
 
 // The ARN of the channel
-func (o ChannelOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ChannelOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A unique identifier describing the channel

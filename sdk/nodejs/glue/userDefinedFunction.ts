@@ -69,7 +69,7 @@ export class UserDefinedFunction extends pulumi.CustomResource {
     /**
      * The ARN of the Glue User Defined Function.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
      */
@@ -81,7 +81,7 @@ export class UserDefinedFunction extends pulumi.CustomResource {
     /**
      * The time at which the function was created.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string | undefined>;
     /**
      * The name of the Database to create the Function.
      */

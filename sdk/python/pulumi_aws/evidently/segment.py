@@ -487,7 +487,7 @@ class Segment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the segment.
         """
@@ -495,7 +495,7 @@ class Segment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the segment is created.
         """
@@ -511,7 +511,7 @@ class Segment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="experimentCount")
-    def experiment_count(self) -> pulumi.Output[int]:
+    def experiment_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
         """
@@ -519,7 +519,7 @@ class Segment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that this segment was most recently updated.
         """
@@ -527,7 +527,7 @@ class Segment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchCount")
-    def launch_count(self) -> pulumi.Output[int]:
+    def launch_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
         """

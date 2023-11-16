@@ -346,28 +346,28 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applicationConfiguration", refs={ApplicationApplicationConfiguration.class}, tree="[0]")
-    private Output<ApplicationApplicationConfiguration> applicationConfiguration;
+    private Output</* @Nullable */ ApplicationApplicationConfiguration> applicationConfiguration;
 
     /**
      * @return The application&#39;s configuration
      * 
      */
-    public Output<ApplicationApplicationConfiguration> applicationConfiguration() {
-        return this.applicationConfiguration;
+    public Output<Optional<ApplicationApplicationConfiguration>> applicationConfiguration() {
+        return Codegen.optional(this.applicationConfiguration);
     }
     /**
      * The ARN of the application.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the application.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A CloudWatch log stream to monitor application configuration errors.
@@ -388,14 +388,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> createTimestamp;
+    private Output</* @Nullable */ String> createTimestamp;
 
     /**
      * @return The current timestamp when the application was created.
      * 
      */
-    public Output<String> createTimestamp() {
-        return this.createTimestamp;
+    public Output<Optional<String>> createTimestamp() {
+        return Codegen.optional(this.createTimestamp);
     }
     /**
      * A summary description of the application.
@@ -430,14 +430,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdateTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdateTimestamp;
+    private Output</* @Nullable */ String> lastUpdateTimestamp;
 
     /**
      * @return The current timestamp when the application was last updated.
      * 
      */
-    public Output<String> lastUpdateTimestamp() {
-        return this.lastUpdateTimestamp;
+    public Output<Optional<String>> lastUpdateTimestamp() {
+        return Codegen.optional(this.lastUpdateTimestamp);
     }
     /**
      * The name of the application.
@@ -500,14 +500,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the application.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -546,14 +546,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> versionId;
+    private Output</* @Nullable */ Integer> versionId;
 
     /**
      * @return The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
      * 
      */
-    public Output<Integer> versionId() {
-        return this.versionId;
+    public Output<Optional<Integer>> versionId() {
+        return Codegen.optional(this.versionId);
     }
 
     /**

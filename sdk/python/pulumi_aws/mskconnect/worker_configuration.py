@@ -310,7 +310,7 @@ class WorkerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         the Amazon Resource Name (ARN) of the worker configuration.
         """
@@ -326,7 +326,7 @@ class WorkerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> pulumi.Output[int]:
+    def latest_revision(self) -> pulumi.Output[Optional[int]]:
         """
         an ID of the latest successfully created revision of the worker configuration.
         """

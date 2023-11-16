@@ -136,7 +136,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
             function: this.func,
             action: "lambda:InvokeFunction",
             principal: "dynamodb.amazonaws.com",
-            sourceArn: streamArn,
+            sourceArn: streamArn.apply(x => x!),
         }, parentOpts);
 
         this.eventSourceMapping = new lambda.EventSourceMapping(name, {
@@ -144,7 +144,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
             bisectBatchOnFunctionError: args.bisectBatchOnFunctionError,
             destinationConfig: args.destinationConfig,
             enabled: true,
-            eventSourceArn: streamArn,
+            eventSourceArn: streamArn.apply(x => x!),
             functionName: this.func.name,
             maximumBatchingWindowInSeconds: args.maximumBatchingWindowInSeconds,
             maximumRecordAgeInSeconds: args.maximumRecordAgeInSeconds,

@@ -98,44 +98,44 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
         /// </summary>
-        public readonly string AuthorizationToken;
+        public readonly string? AuthorizationToken;
         /// <summary>
         /// Time in UTC RFC3339 format when the authorization token expires.
         /// </summary>
-        public readonly string ExpiresAt;
+        public readonly string? ExpiresAt;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Password decoded from the authorization token.
         /// </summary>
-        public readonly string Password;
+        public readonly string? Password;
         /// <summary>
         /// Registry URL to use in the docker login command.
         /// </summary>
-        public readonly string ProxyEndpoint;
+        public readonly string? ProxyEndpoint;
         public readonly string? RegistryId;
         /// <summary>
         /// User name decoded from the authorization token.
         /// </summary>
-        public readonly string UserName;
+        public readonly string? UserName;
 
         [OutputConstructor]
         private GetAuthorizationTokenResult(
-            string authorizationToken,
+            string? authorizationToken,
 
-            string expiresAt,
+            string? expiresAt,
 
-            string id,
+            string? id,
 
-            string password,
+            string? password,
 
-            string proxyEndpoint,
+            string? proxyEndpoint,
 
             string? registryId,
 
-            string userName)
+            string? userName)
         {
             AuthorizationToken = authorizationToken;
             ExpiresAt = expiresAt;

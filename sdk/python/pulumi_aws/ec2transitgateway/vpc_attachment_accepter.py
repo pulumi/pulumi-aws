@@ -477,7 +477,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applianceModeSupport")
-    def appliance_mode_support(self) -> pulumi.Output[str]:
+    def appliance_mode_support(self) -> pulumi.Output[Optional[str]]:
         """
         Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
         """
@@ -485,7 +485,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsSupport")
-    def dns_support(self) -> pulumi.Output[str]:
+    def dns_support(self) -> pulumi.Output[Optional[str]]:
         """
         Whether DNS support is enabled. Valid values: `disable`, `enable`.
         """
@@ -493,7 +493,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Support")
-    def ipv6_support(self) -> pulumi.Output[str]:
+    def ipv6_support(self) -> pulumi.Output[Optional[str]]:
         """
         Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
         """
@@ -501,7 +501,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+    def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Identifiers of EC2 Subnets.
         """
@@ -552,7 +552,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> pulumi.Output[str]:
+    def transit_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of EC2 Transit Gateway.
         """
@@ -560,7 +560,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of EC2 VPC.
         """
@@ -568,7 +568,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcOwnerId")
-    def vpc_owner_id(self) -> pulumi.Output[str]:
+    def vpc_owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the AWS account that owns the EC2 VPC.
         """

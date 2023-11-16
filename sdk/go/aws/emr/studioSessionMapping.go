@@ -56,9 +56,9 @@ type StudioSessionMapping struct {
 	pulumi.CustomResourceState
 
 	// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityId pulumi.StringOutput `pulumi:"identityId"`
+	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The name of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityName pulumi.StringOutput `pulumi:"identityName"`
+	IdentityName pulumi.StringPtrOutput `pulumi:"identityName"`
 	// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
 	IdentityType pulumi.StringOutput `pulumi:"identityType"`
 	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
@@ -250,13 +250,13 @@ func (o StudioSessionMappingOutput) ToStudioSessionMappingOutputWithContext(ctx 
 }
 
 // The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
-func (o StudioSessionMappingOutput) IdentityId() pulumi.StringOutput {
-	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.IdentityId }).(pulumi.StringOutput)
+func (o StudioSessionMappingOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringPtrOutput { return v.IdentityId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the user or group from the Amazon Web Services SSO Identity Store.
-func (o StudioSessionMappingOutput) IdentityName() pulumi.StringOutput {
-	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.IdentityName }).(pulumi.StringOutput)
+func (o StudioSessionMappingOutput) IdentityName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringPtrOutput { return v.IdentityName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.

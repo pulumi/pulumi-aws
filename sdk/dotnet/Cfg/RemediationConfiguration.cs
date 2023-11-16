@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Cfg
         /// ARN of the Config Remediation Configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Remediation is triggered automatically if `true`.

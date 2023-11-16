@@ -6,6 +6,8 @@ package com.pulumi.aws.organizations.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrganizationRootPolicyType {
@@ -13,19 +15,19 @@ public final class GetOrganizationRootPolicyType {
      * @return The status of the policy type as it relates to the associated root
      * 
      */
-    private String status;
-    private String type;
+    private @Nullable String status;
+    private @Nullable String type;
 
     private GetOrganizationRootPolicyType() {}
     /**
      * @return The status of the policy type as it relates to the associated root
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -37,8 +39,8 @@ public final class GetOrganizationRootPolicyType {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String status;
-        private String type;
+        private @Nullable String status;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetOrganizationRootPolicyType defaults) {
     	      Objects.requireNonNull(defaults);
@@ -47,13 +49,13 @@ public final class GetOrganizationRootPolicyType {
         }
 
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetOrganizationRootPolicyType build() {

@@ -547,7 +547,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the schema.
         """
@@ -579,7 +579,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestSchemaVersion")
-    def latest_schema_version(self) -> pulumi.Output[int]:
+    def latest_schema_version(self) -> pulumi.Output[Optional[int]]:
         """
         The latest version of the schema associated with the returned schema definition.
         """
@@ -587,7 +587,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextSchemaVersion")
-    def next_schema_version(self) -> pulumi.Output[int]:
+    def next_schema_version(self) -> pulumi.Output[Optional[int]]:
         """
         The next version of the schema associated with the returned schema definition.
         """
@@ -595,7 +595,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registryArn")
-    def registry_arn(self) -> pulumi.Output[str]:
+    def registry_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Glue Registry to create the schema in.
         """
@@ -603,7 +603,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registryName")
-    def registry_name(self) -> pulumi.Output[str]:
+    def registry_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Glue Registry.
         """
@@ -611,7 +611,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaCheckpoint")
-    def schema_checkpoint(self) -> pulumi.Output[int]:
+    def schema_checkpoint(self) -> pulumi.Output[Optional[int]]:
         """
         The version number of the checkpoint (the last time the compatibility mode was changed).
         """

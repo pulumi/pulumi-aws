@@ -63,7 +63,7 @@ type Firewall struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) that identifies the firewall.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
@@ -89,7 +89,7 @@ type Firewall struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A string token used when updating a firewall.
-	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
+	UpdateToken pulumi.StringPtrOutput `pulumi:"updateToken"`
 	// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -341,8 +341,8 @@ func (o FirewallOutput) ToFirewallOutputWithContext(ctx context.Context) Firewal
 }
 
 // The Amazon Resource Name (ARN) that identifies the firewall.
-func (o FirewallOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FirewallOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
@@ -403,8 +403,8 @@ func (o FirewallOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // A string token used when updating a firewall.
-func (o FirewallOutput) UpdateToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.UpdateToken }).(pulumi.StringOutput)
+func (o FirewallOutput) UpdateToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.UpdateToken }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of the VPC where AWS Network Firewall should create the firewall.

@@ -58,7 +58,7 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * Domain name that AppSync provides.
      */
-    public /*out*/ readonly appsyncDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly appsyncDomainName!: pulumi.Output<string | undefined>;
     /**
      * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      */
@@ -74,7 +74,7 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * ID of your Amazon Route 53 hosted zone.
      */
-    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.

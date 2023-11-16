@@ -451,7 +451,7 @@ class FunctionUrl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionArn")
-    def function_arn(self) -> pulumi.Output[str]:
+    def function_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the function.
         """
@@ -467,7 +467,7 @@ class FunctionUrl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionUrl")
-    def function_url(self) -> pulumi.Output[str]:
+    def function_url(self) -> pulumi.Output[Optional[str]]:
         """
         The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
         """
@@ -491,7 +491,7 @@ class FunctionUrl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="urlId")
-    def url_id(self) -> pulumi.Output[str]:
+    def url_id(self) -> pulumi.Output[Optional[str]]:
         """
         A generated ID for the endpoint.
         """

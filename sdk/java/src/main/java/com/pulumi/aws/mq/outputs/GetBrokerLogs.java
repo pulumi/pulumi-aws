@@ -6,18 +6,20 @@ package com.pulumi.aws.mq.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBrokerLogs {
-    private Boolean audit;
-    private Boolean general;
+    private @Nullable Boolean audit;
+    private @Nullable Boolean general;
 
     private GetBrokerLogs() {}
-    public Boolean audit() {
-        return this.audit;
+    public Optional<Boolean> audit() {
+        return Optional.ofNullable(this.audit);
     }
-    public Boolean general() {
-        return this.general;
+    public Optional<Boolean> general() {
+        return Optional.ofNullable(this.general);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetBrokerLogs {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean audit;
-        private Boolean general;
+        private @Nullable Boolean audit;
+        private @Nullable Boolean general;
         public Builder() {}
         public Builder(GetBrokerLogs defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetBrokerLogs {
         }
 
         @CustomType.Setter
-        public Builder audit(Boolean audit) {
-            this.audit = Objects.requireNonNull(audit);
+        public Builder audit(@Nullable Boolean audit) {
+            this.audit = audit;
             return this;
         }
         @CustomType.Setter
-        public Builder general(Boolean general) {
-            this.general = Objects.requireNonNull(general);
+        public Builder general(@Nullable Boolean general) {
+            this.general = general;
             return this;
         }
         public GetBrokerLogs build() {

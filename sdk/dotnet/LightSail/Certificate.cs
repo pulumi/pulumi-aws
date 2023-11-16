@@ -49,19 +49,19 @@ namespace Pulumi.Aws.LightSail
         /// The ARN of the lightsail certificate.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// A domain name for which the certificate should be issued.
         /// </summary>
         [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
+        public Output<string?> DomainName { get; private set; } = null!;
 
         /// <summary>
         /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.

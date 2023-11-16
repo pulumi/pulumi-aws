@@ -59,11 +59,11 @@ type AmiFromInstance struct {
 	pulumi.CustomResourceState
 
 	// Machine architecture for created instances. Defaults to "x8664".
-	Architecture pulumi.StringOutput `pulumi:"architecture"`
+	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
 	// ARN of the AMI.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-	BootMode pulumi.StringOutput `pulumi:"bootMode"`
+	BootMode pulumi.StringPtrOutput `pulumi:"bootMode"`
 	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime pulumi.StringPtrOutput `pulumi:"deprecationTime"`
 	// Longer, human-readable description for the AMI.
@@ -72,34 +72,34 @@ type AmiFromInstance struct {
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices AmiFromInstanceEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
 	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
-	EnaSupport pulumi.BoolOutput `pulumi:"enaSupport"`
+	EnaSupport pulumi.BoolPtrOutput `pulumi:"enaSupport"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiFromInstanceEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
-	Hypervisor            pulumi.StringOutput                            `pulumi:"hypervisor"`
+	Hypervisor            pulumi.StringPtrOutput                         `pulumi:"hypervisor"`
 	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation   pulumi.StringOutput `pulumi:"imageLocation"`
-	ImageOwnerAlias pulumi.StringOutput `pulumi:"imageOwnerAlias"`
-	ImageType       pulumi.StringOutput `pulumi:"imageType"`
+	ImageLocation   pulumi.StringPtrOutput `pulumi:"imageLocation"`
+	ImageOwnerAlias pulumi.StringPtrOutput `pulumi:"imageOwnerAlias"`
+	ImageType       pulumi.StringPtrOutput `pulumi:"imageType"`
 	// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-	ImdsSupport pulumi.StringOutput `pulumi:"imdsSupport"`
+	ImdsSupport pulumi.StringPtrOutput `pulumi:"imdsSupport"`
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId           pulumi.StringOutput `pulumi:"kernelId"`
-	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
+	KernelId           pulumi.StringPtrOutput `pulumi:"kernelId"`
+	ManageEbsSnapshots pulumi.BoolPtrOutput   `pulumi:"manageEbsSnapshots"`
 	// Region-unique name for the AMI.
-	Name            pulumi.StringOutput `pulumi:"name"`
-	OwnerId         pulumi.StringOutput `pulumi:"ownerId"`
-	Platform        pulumi.StringOutput `pulumi:"platform"`
-	PlatformDetails pulumi.StringOutput `pulumi:"platformDetails"`
-	Public          pulumi.BoolOutput   `pulumi:"public"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	OwnerId         pulumi.StringPtrOutput `pulumi:"ownerId"`
+	Platform        pulumi.StringPtrOutput `pulumi:"platform"`
+	PlatformDetails pulumi.StringPtrOutput `pulumi:"platformDetails"`
+	Public          pulumi.BoolPtrOutput   `pulumi:"public"`
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
-	RamdiskId pulumi.StringOutput `pulumi:"ramdiskId"`
+	RamdiskId pulumi.StringPtrOutput `pulumi:"ramdiskId"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-	RootDeviceName pulumi.StringOutput `pulumi:"rootDeviceName"`
-	RootSnapshotId pulumi.StringOutput `pulumi:"rootSnapshotId"`
+	RootDeviceName pulumi.StringPtrOutput `pulumi:"rootDeviceName"`
+	RootSnapshotId pulumi.StringPtrOutput `pulumi:"rootSnapshotId"`
 	// Boolean that overrides the behavior of stopping
 	// the instance before snapshotting. This is risky since it may cause a snapshot of an
 	// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
@@ -109,18 +109,18 @@ type AmiFromInstance struct {
 	SourceInstanceId pulumi.StringOutput `pulumi:"sourceInstanceId"`
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
-	SriovNetSupport pulumi.StringOutput `pulumi:"sriovNetSupport"`
+	SriovNetSupport pulumi.StringPtrOutput `pulumi:"sriovNetSupport"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-	TpmSupport     pulumi.StringOutput `pulumi:"tpmSupport"`
-	UsageOperation pulumi.StringOutput `pulumi:"usageOperation"`
+	TpmSupport     pulumi.StringPtrOutput `pulumi:"tpmSupport"`
+	UsageOperation pulumi.StringPtrOutput `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
-	VirtualizationType pulumi.StringOutput `pulumi:"virtualizationType"`
+	VirtualizationType pulumi.StringPtrOutput `pulumi:"virtualizationType"`
 }
 
 // NewAmiFromInstance registers a new resource with the given unique name, arguments, and options.
@@ -432,18 +432,18 @@ func (o AmiFromInstanceOutput) ToAmiFromInstanceOutputWithContext(ctx context.Co
 }
 
 // Machine architecture for created instances. Defaults to "x8664".
-func (o AmiFromInstanceOutput) Architecture() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Architecture }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) Architecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.Architecture }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the AMI.
-func (o AmiFromInstanceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-func (o AmiFromInstanceOutput) BootMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.BootMode }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) BootMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.BootMode }).(pulumi.StringPtrOutput)
 }
 
 // Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -463,8 +463,8 @@ func (o AmiFromInstanceOutput) EbsBlockDevices() AmiFromInstanceEbsBlockDeviceAr
 }
 
 // Whether enhanced networking with ENA is enabled. Defaults to `false`.
-func (o AmiFromInstanceOutput) EnaSupport() pulumi.BoolOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolOutput { return v.EnaSupport }).(pulumi.BoolOutput)
+func (o AmiFromInstanceOutput) EnaSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolPtrOutput { return v.EnaSupport }).(pulumi.BoolPtrOutput)
 }
 
 // Nested block describing an ephemeral block device that
@@ -475,37 +475,37 @@ func (o AmiFromInstanceOutput) EphemeralBlockDevices() AmiFromInstanceEphemeralB
 	}).(AmiFromInstanceEphemeralBlockDeviceArrayOutput)
 }
 
-func (o AmiFromInstanceOutput) Hypervisor() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Hypervisor }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) Hypervisor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.Hypervisor }).(pulumi.StringPtrOutput)
 }
 
 // Path to an S3 object containing an image manifest, e.g., created
 // by the `ec2-upload-bundle` command in the EC2 command line tools.
-func (o AmiFromInstanceOutput) ImageLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.ImageLocation }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) ImageLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.ImageLocation }).(pulumi.StringPtrOutput)
 }
 
-func (o AmiFromInstanceOutput) ImageOwnerAlias() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.ImageOwnerAlias }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) ImageOwnerAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.ImageOwnerAlias }).(pulumi.StringPtrOutput)
 }
 
-func (o AmiFromInstanceOutput) ImageType() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.ImageType }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) ImageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.ImageType }).(pulumi.StringPtrOutput)
 }
 
 // If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-func (o AmiFromInstanceOutput) ImdsSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.ImdsSupport }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) ImdsSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.ImdsSupport }).(pulumi.StringPtrOutput)
 }
 
 // ID of the kernel image (AKI) that will be used as the paravirtual
 // kernel in created instances.
-func (o AmiFromInstanceOutput) KernelId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.KernelId }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.KernelId }).(pulumi.StringPtrOutput)
 }
 
-func (o AmiFromInstanceOutput) ManageEbsSnapshots() pulumi.BoolOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolOutput { return v.ManageEbsSnapshots }).(pulumi.BoolOutput)
+func (o AmiFromInstanceOutput) ManageEbsSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolPtrOutput { return v.ManageEbsSnapshots }).(pulumi.BoolPtrOutput)
 }
 
 // Region-unique name for the AMI.
@@ -513,35 +513,35 @@ func (o AmiFromInstanceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o AmiFromInstanceOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
-func (o AmiFromInstanceOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
-func (o AmiFromInstanceOutput) PlatformDetails() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.PlatformDetails }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) PlatformDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.PlatformDetails }).(pulumi.StringPtrOutput)
 }
 
-func (o AmiFromInstanceOutput) Public() pulumi.BoolOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolOutput { return v.Public }).(pulumi.BoolOutput)
+func (o AmiFromInstanceOutput) Public() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolPtrOutput { return v.Public }).(pulumi.BoolPtrOutput)
 }
 
 // ID of an initrd image (ARI) that will be used when booting the
 // created instances.
-func (o AmiFromInstanceOutput) RamdiskId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.RamdiskId }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) RamdiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.RamdiskId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-func (o AmiFromInstanceOutput) RootDeviceName() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.RootDeviceName }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) RootDeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.RootDeviceName }).(pulumi.StringPtrOutput)
 }
 
-func (o AmiFromInstanceOutput) RootSnapshotId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.RootSnapshotId }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) RootSnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.RootSnapshotId }).(pulumi.StringPtrOutput)
 }
 
 // Boolean that overrides the behavior of stopping
@@ -559,8 +559,8 @@ func (o AmiFromInstanceOutput) SourceInstanceId() pulumi.StringOutput {
 
 // When set to "simple" (the default), enables enhanced networking
 // for created instances. No other value is supported at this time.
-func (o AmiFromInstanceOutput) SriovNetSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.SriovNetSupport }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) SriovNetSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.SriovNetSupport }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -574,19 +574,19 @@ func (o AmiFromInstanceOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-func (o AmiFromInstanceOutput) TpmSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.TpmSupport }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) TpmSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.TpmSupport }).(pulumi.StringPtrOutput)
 }
 
-func (o AmiFromInstanceOutput) UsageOperation() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.UsageOperation }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) UsageOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.UsageOperation }).(pulumi.StringPtrOutput)
 }
 
 // Keyword to choose what virtualization mode created instances
 // will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 // changes the set of further arguments that are required, as described below.
-func (o AmiFromInstanceOutput) VirtualizationType() pulumi.StringOutput {
-	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.VirtualizationType }).(pulumi.StringOutput)
+func (o AmiFromInstanceOutput) VirtualizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.VirtualizationType }).(pulumi.StringPtrOutput)
 }
 
 type AmiFromInstanceArrayOutput struct{ *pulumi.OutputState }

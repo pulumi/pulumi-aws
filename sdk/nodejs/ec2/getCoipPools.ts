@@ -46,12 +46,12 @@ export interface GetCoipPoolsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of COIP Pool Identifiers
      */
-    readonly poolIds: string[];
-    readonly tags: {[key: string]: string};
+    readonly poolIds?: string[];
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.

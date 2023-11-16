@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutTcpIdle;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTimeoutTcp {
-    private List<GetVirtualNodeSpecListenerTimeoutTcpIdle> idles;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeoutTcpIdle> idles;
 
     private GetVirtualNodeSpecListenerTimeoutTcp() {}
     public List<GetVirtualNodeSpecListenerTimeoutTcpIdle> idles() {
-        return this.idles;
+        return this.idles == null ? List.of() : this.idles;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualNodeSpecListenerTimeoutTcp {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerTimeoutTcpIdle> idles;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeoutTcpIdle> idles;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTimeoutTcp defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualNodeSpecListenerTimeoutTcp {
         }
 
         @CustomType.Setter
-        public Builder idles(List<GetVirtualNodeSpecListenerTimeoutTcpIdle> idles) {
-            this.idles = Objects.requireNonNull(idles);
+        public Builder idles(@Nullable List<GetVirtualNodeSpecListenerTimeoutTcpIdle> idles) {
+            this.idles = idles;
             return this;
         }
         public Builder idles(GetVirtualNodeSpecListenerTimeoutTcpIdle... idles) {

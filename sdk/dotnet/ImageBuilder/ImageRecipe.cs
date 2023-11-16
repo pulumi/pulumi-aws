@@ -79,7 +79,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// (Required) Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block(s) with block device mappings for the image recipe. Detailed below.
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Date the image recipe was created.
         /// </summary>
         [Output("dateCreated")]
-        public Output<string> DateCreated { get; private set; } = null!;
+        public Output<string?> DateCreated { get; private set; } = null!;
 
         /// <summary>
         /// Description of the image recipe.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Owner of the image recipe.
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
@@ -127,13 +127,13 @@ namespace Pulumi.Aws.ImageBuilder
         /// Platform of the image recipe.
         /// </summary>
         [Output("platform")]
-        public Output<string> Platform { get; private set; } = null!;
+        public Output<string?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         /// </summary>
         [Output("systemsManagerAgent")]
-        public Output<Outputs.ImageRecipeSystemsManagerAgent> SystemsManagerAgent { get; private set; } = null!;
+        public Output<Outputs.ImageRecipeSystemsManagerAgent?> SystemsManagerAgent { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         /// </summary>
         [Output("userDataBase64")]
-        public Output<string> UserDataBase64 { get; private set; } = null!;
+        public Output<string?> UserDataBase64 { get; private set; } = null!;
 
         /// <summary>
         /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.

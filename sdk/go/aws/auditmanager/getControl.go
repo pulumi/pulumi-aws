@@ -117,15 +117,15 @@ type LookupControlArgs struct {
 
 // A collection of values returned by getControl.
 type LookupControlResult struct {
-	ActionPlanInstructions string                           `pulumi:"actionPlanInstructions"`
-	ActionPlanTitle        string                           `pulumi:"actionPlanTitle"`
-	Arn                    string                           `pulumi:"arn"`
+	ActionPlanInstructions *string                          `pulumi:"actionPlanInstructions"`
+	ActionPlanTitle        *string                          `pulumi:"actionPlanTitle"`
+	Arn                    *string                          `pulumi:"arn"`
 	ControlMappingSources  []GetControlControlMappingSource `pulumi:"controlMappingSources"`
-	Description            string                           `pulumi:"description"`
-	Id                     string                           `pulumi:"id"`
+	Description            *string                          `pulumi:"description"`
+	Id                     *string                          `pulumi:"id"`
 	Name                   string                           `pulumi:"name"`
 	Tags                   map[string]string                `pulumi:"tags"`
-	TestingInformation     string                           `pulumi:"testingInformation"`
+	TestingInformation     *string                          `pulumi:"testingInformation"`
 	Type                   string                           `pulumi:"type"`
 }
 
@@ -170,28 +170,28 @@ func (o LookupControlResultOutput) ToLookupControlResultOutputWithContext(ctx co
 	return o
 }
 
-func (o LookupControlResultOutput) ActionPlanInstructions() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupControlResult) string { return v.ActionPlanInstructions }).(pulumi.StringOutput)
+func (o LookupControlResultOutput) ActionPlanInstructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupControlResult) *string { return v.ActionPlanInstructions }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupControlResultOutput) ActionPlanTitle() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupControlResult) string { return v.ActionPlanTitle }).(pulumi.StringOutput)
+func (o LookupControlResultOutput) ActionPlanTitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupControlResult) *string { return v.ActionPlanTitle }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupControlResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupControlResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupControlResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupControlResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupControlResultOutput) ControlMappingSources() GetControlControlMappingSourceArrayOutput {
 	return o.ApplyT(func(v LookupControlResult) []GetControlControlMappingSource { return v.ControlMappingSources }).(GetControlControlMappingSourceArrayOutput)
 }
 
-func (o LookupControlResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupControlResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupControlResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupControlResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupControlResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupControlResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupControlResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupControlResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupControlResultOutput) Name() pulumi.StringOutput {
@@ -202,8 +202,8 @@ func (o LookupControlResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupControlResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupControlResultOutput) TestingInformation() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupControlResult) string { return v.TestingInformation }).(pulumi.StringOutput)
+func (o LookupControlResultOutput) TestingInformation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupControlResult) *string { return v.TestingInformation }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupControlResultOutput) Type() pulumi.StringOutput {

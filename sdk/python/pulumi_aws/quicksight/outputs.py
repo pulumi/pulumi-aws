@@ -5774,826 +5774,921 @@ class VpcConnectionTimeouts(dict):
 @pulumi.output_type
 class GetDataSetColumnGroupResult(dict):
     def __init__(__self__, *,
-                 geo_spatial_column_groups: Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult']):
-        pulumi.set(__self__, "geo_spatial_column_groups", geo_spatial_column_groups)
+                 geo_spatial_column_groups: Optional[Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult']] = None):
+        if geo_spatial_column_groups is not None:
+            pulumi.set(__self__, "geo_spatial_column_groups", geo_spatial_column_groups)
 
     @property
     @pulumi.getter(name="geoSpatialColumnGroups")
-    def geo_spatial_column_groups(self) -> Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult']:
+    def geo_spatial_column_groups(self) -> Optional[Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult']]:
         return pulumi.get(self, "geo_spatial_column_groups")
 
 
 @pulumi.output_type
 class GetDataSetColumnGroupGeoSpatialColumnGroupResult(dict):
     def __init__(__self__, *,
-                 columns: Sequence[str],
-                 country_code: str,
-                 name: str):
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
+                 columns: Optional[Sequence[str]] = None,
+                 country_code: Optional[str] = None,
+                 name: Optional[str] = None):
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def columns(self) -> Sequence[str]:
+    def columns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "columns")
 
     @property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> str:
+    def country_code(self) -> Optional[str]:
         return pulumi.get(self, "country_code")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class GetDataSetColumnLevelPermissionRuleResult(dict):
     def __init__(__self__, *,
-                 column_names: Sequence[str],
-                 principals: Sequence[str]):
-        pulumi.set(__self__, "column_names", column_names)
-        pulumi.set(__self__, "principals", principals)
+                 column_names: Optional[Sequence[str]] = None,
+                 principals: Optional[Sequence[str]] = None):
+        if column_names is not None:
+            pulumi.set(__self__, "column_names", column_names)
+        if principals is not None:
+            pulumi.set(__self__, "principals", principals)
 
     @property
     @pulumi.getter(name="columnNames")
-    def column_names(self) -> Sequence[str]:
+    def column_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "column_names")
 
     @property
     @pulumi.getter
-    def principals(self) -> Sequence[str]:
+    def principals(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "principals")
 
 
 @pulumi.output_type
 class GetDataSetDataSetUsageConfigurationResult(dict):
     def __init__(__self__, *,
-                 disable_use_as_direct_query_source: bool,
-                 disable_use_as_imported_source: bool):
-        pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
-        pulumi.set(__self__, "disable_use_as_imported_source", disable_use_as_imported_source)
+                 disable_use_as_direct_query_source: Optional[bool] = None,
+                 disable_use_as_imported_source: Optional[bool] = None):
+        if disable_use_as_direct_query_source is not None:
+            pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
+        if disable_use_as_imported_source is not None:
+            pulumi.set(__self__, "disable_use_as_imported_source", disable_use_as_imported_source)
 
     @property
     @pulumi.getter(name="disableUseAsDirectQuerySource")
-    def disable_use_as_direct_query_source(self) -> bool:
+    def disable_use_as_direct_query_source(self) -> Optional[bool]:
         return pulumi.get(self, "disable_use_as_direct_query_source")
 
     @property
     @pulumi.getter(name="disableUseAsImportedSource")
-    def disable_use_as_imported_source(self) -> bool:
+    def disable_use_as_imported_source(self) -> Optional[bool]:
         return pulumi.get(self, "disable_use_as_imported_source")
 
 
 @pulumi.output_type
 class GetDataSetFieldFolderResult(dict):
     def __init__(__self__, *,
-                 columns: Sequence[str],
-                 description: str,
-                 field_folders_id: str):
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "field_folders_id", field_folders_id)
+                 columns: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 field_folders_id: Optional[str] = None):
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if field_folders_id is not None:
+            pulumi.set(__self__, "field_folders_id", field_folders_id)
 
     @property
     @pulumi.getter
-    def columns(self) -> Sequence[str]:
+    def columns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "columns")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="fieldFoldersId")
-    def field_folders_id(self) -> str:
+    def field_folders_id(self) -> Optional[str]:
         return pulumi.get(self, "field_folders_id")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapResult(dict):
     def __init__(__self__, *,
-                 alias: str,
-                 data_transforms: Sequence['outputs.GetDataSetLogicalTableMapDataTransformResult'],
-                 logical_table_map_id: str,
-                 sources: Sequence['outputs.GetDataSetLogicalTableMapSourceResult']):
-        pulumi.set(__self__, "alias", alias)
-        pulumi.set(__self__, "data_transforms", data_transforms)
-        pulumi.set(__self__, "logical_table_map_id", logical_table_map_id)
-        pulumi.set(__self__, "sources", sources)
+                 alias: Optional[str] = None,
+                 data_transforms: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformResult']] = None,
+                 logical_table_map_id: Optional[str] = None,
+                 sources: Optional[Sequence['outputs.GetDataSetLogicalTableMapSourceResult']] = None):
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if data_transforms is not None:
+            pulumi.set(__self__, "data_transforms", data_transforms)
+        if logical_table_map_id is not None:
+            pulumi.set(__self__, "logical_table_map_id", logical_table_map_id)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> Optional[str]:
         return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter(name="dataTransforms")
-    def data_transforms(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformResult']:
+    def data_transforms(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformResult']]:
         return pulumi.get(self, "data_transforms")
 
     @property
     @pulumi.getter(name="logicalTableMapId")
-    def logical_table_map_id(self) -> str:
+    def logical_table_map_id(self) -> Optional[str]:
         return pulumi.get(self, "logical_table_map_id")
 
     @property
     @pulumi.getter
-    def sources(self) -> Sequence['outputs.GetDataSetLogicalTableMapSourceResult']:
+    def sources(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapSourceResult']]:
         return pulumi.get(self, "sources")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformResult(dict):
     def __init__(__self__, *,
-                 cast_column_type_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult'],
-                 create_columns_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult'],
-                 filter_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformFilterOperationResult'],
-                 project_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformProjectOperationResult'],
-                 rename_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult'],
-                 tag_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationResult'],
-                 untag_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult']):
-        pulumi.set(__self__, "cast_column_type_operations", cast_column_type_operations)
-        pulumi.set(__self__, "create_columns_operations", create_columns_operations)
-        pulumi.set(__self__, "filter_operations", filter_operations)
-        pulumi.set(__self__, "project_operations", project_operations)
-        pulumi.set(__self__, "rename_column_operations", rename_column_operations)
-        pulumi.set(__self__, "tag_column_operations", tag_column_operations)
-        pulumi.set(__self__, "untag_column_operations", untag_column_operations)
+                 cast_column_type_operations: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult']] = None,
+                 create_columns_operations: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult']] = None,
+                 filter_operations: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformFilterOperationResult']] = None,
+                 project_operations: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformProjectOperationResult']] = None,
+                 rename_column_operations: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult']] = None,
+                 tag_column_operations: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationResult']] = None,
+                 untag_column_operations: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult']] = None):
+        if cast_column_type_operations is not None:
+            pulumi.set(__self__, "cast_column_type_operations", cast_column_type_operations)
+        if create_columns_operations is not None:
+            pulumi.set(__self__, "create_columns_operations", create_columns_operations)
+        if filter_operations is not None:
+            pulumi.set(__self__, "filter_operations", filter_operations)
+        if project_operations is not None:
+            pulumi.set(__self__, "project_operations", project_operations)
+        if rename_column_operations is not None:
+            pulumi.set(__self__, "rename_column_operations", rename_column_operations)
+        if tag_column_operations is not None:
+            pulumi.set(__self__, "tag_column_operations", tag_column_operations)
+        if untag_column_operations is not None:
+            pulumi.set(__self__, "untag_column_operations", untag_column_operations)
 
     @property
     @pulumi.getter(name="castColumnTypeOperations")
-    def cast_column_type_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult']:
+    def cast_column_type_operations(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult']]:
         return pulumi.get(self, "cast_column_type_operations")
 
     @property
     @pulumi.getter(name="createColumnsOperations")
-    def create_columns_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult']:
+    def create_columns_operations(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult']]:
         return pulumi.get(self, "create_columns_operations")
 
     @property
     @pulumi.getter(name="filterOperations")
-    def filter_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformFilterOperationResult']:
+    def filter_operations(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformFilterOperationResult']]:
         return pulumi.get(self, "filter_operations")
 
     @property
     @pulumi.getter(name="projectOperations")
-    def project_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformProjectOperationResult']:
+    def project_operations(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformProjectOperationResult']]:
         return pulumi.get(self, "project_operations")
 
     @property
     @pulumi.getter(name="renameColumnOperations")
-    def rename_column_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult']:
+    def rename_column_operations(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult']]:
         return pulumi.get(self, "rename_column_operations")
 
     @property
     @pulumi.getter(name="tagColumnOperations")
-    def tag_column_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationResult']:
+    def tag_column_operations(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationResult']]:
         return pulumi.get(self, "tag_column_operations")
 
     @property
     @pulumi.getter(name="untagColumnOperations")
-    def untag_column_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult']:
+    def untag_column_operations(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult']]:
         return pulumi.get(self, "untag_column_operations")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult(dict):
     def __init__(__self__, *,
-                 column_name: str,
-                 format: str,
-                 new_column_type: str):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "new_column_type", new_column_type)
+                 column_name: Optional[str] = None,
+                 format: Optional[str] = None,
+                 new_column_type: Optional[str] = None):
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if new_column_type is not None:
+            pulumi.set(__self__, "new_column_type", new_column_type)
 
     @property
     @pulumi.getter(name="columnName")
-    def column_name(self) -> str:
+    def column_name(self) -> Optional[str]:
         return pulumi.get(self, "column_name")
 
     @property
     @pulumi.getter
-    def format(self) -> str:
+    def format(self) -> Optional[str]:
         return pulumi.get(self, "format")
 
     @property
     @pulumi.getter(name="newColumnType")
-    def new_column_type(self) -> str:
+    def new_column_type(self) -> Optional[str]:
         return pulumi.get(self, "new_column_type")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult(dict):
     def __init__(__self__, *,
-                 columns: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult']):
-        pulumi.set(__self__, "columns", columns)
+                 columns: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult']] = None):
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
 
     @property
     @pulumi.getter
-    def columns(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult']:
+    def columns(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult']]:
         return pulumi.get(self, "columns")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult(dict):
     def __init__(__self__, *,
-                 column_id: str,
-                 column_name: str,
-                 expression: str):
-        pulumi.set(__self__, "column_id", column_id)
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "expression", expression)
+                 column_id: Optional[str] = None,
+                 column_name: Optional[str] = None,
+                 expression: Optional[str] = None):
+        if column_id is not None:
+            pulumi.set(__self__, "column_id", column_id)
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
 
     @property
     @pulumi.getter(name="columnId")
-    def column_id(self) -> str:
+    def column_id(self) -> Optional[str]:
         return pulumi.get(self, "column_id")
 
     @property
     @pulumi.getter(name="columnName")
-    def column_name(self) -> str:
+    def column_name(self) -> Optional[str]:
         return pulumi.get(self, "column_name")
 
     @property
     @pulumi.getter
-    def expression(self) -> str:
+    def expression(self) -> Optional[str]:
         return pulumi.get(self, "expression")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformFilterOperationResult(dict):
     def __init__(__self__, *,
-                 condition_expression: str):
-        pulumi.set(__self__, "condition_expression", condition_expression)
+                 condition_expression: Optional[str] = None):
+        if condition_expression is not None:
+            pulumi.set(__self__, "condition_expression", condition_expression)
 
     @property
     @pulumi.getter(name="conditionExpression")
-    def condition_expression(self) -> str:
+    def condition_expression(self) -> Optional[str]:
         return pulumi.get(self, "condition_expression")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformProjectOperationResult(dict):
     def __init__(__self__, *,
-                 projected_columns: Sequence[str]):
-        pulumi.set(__self__, "projected_columns", projected_columns)
+                 projected_columns: Optional[Sequence[str]] = None):
+        if projected_columns is not None:
+            pulumi.set(__self__, "projected_columns", projected_columns)
 
     @property
     @pulumi.getter(name="projectedColumns")
-    def projected_columns(self) -> Sequence[str]:
+    def projected_columns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "projected_columns")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult(dict):
     def __init__(__self__, *,
-                 column_name: str,
-                 new_column_name: str):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "new_column_name", new_column_name)
+                 column_name: Optional[str] = None,
+                 new_column_name: Optional[str] = None):
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if new_column_name is not None:
+            pulumi.set(__self__, "new_column_name", new_column_name)
 
     @property
     @pulumi.getter(name="columnName")
-    def column_name(self) -> str:
+    def column_name(self) -> Optional[str]:
         return pulumi.get(self, "column_name")
 
     @property
     @pulumi.getter(name="newColumnName")
-    def new_column_name(self) -> str:
+    def new_column_name(self) -> Optional[str]:
         return pulumi.get(self, "new_column_name")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformTagColumnOperationResult(dict):
     def __init__(__self__, *,
-                 column_name: str,
-                 tags: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult']):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "tags", tags)
+                 column_name: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult']] = None):
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="columnName")
-    def column_name(self) -> str:
+    def column_name(self) -> Optional[str]:
         return pulumi.get(self, "column_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult']:
+    def tags(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult']]:
         return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult(dict):
     def __init__(__self__, *,
-                 column_descriptions: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult'],
-                 column_geographic_role: str):
-        pulumi.set(__self__, "column_descriptions", column_descriptions)
-        pulumi.set(__self__, "column_geographic_role", column_geographic_role)
+                 column_descriptions: Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult']] = None,
+                 column_geographic_role: Optional[str] = None):
+        if column_descriptions is not None:
+            pulumi.set(__self__, "column_descriptions", column_descriptions)
+        if column_geographic_role is not None:
+            pulumi.set(__self__, "column_geographic_role", column_geographic_role)
 
     @property
     @pulumi.getter(name="columnDescriptions")
-    def column_descriptions(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult']:
+    def column_descriptions(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult']]:
         return pulumi.get(self, "column_descriptions")
 
     @property
     @pulumi.getter(name="columnGeographicRole")
-    def column_geographic_role(self) -> str:
+    def column_geographic_role(self) -> Optional[str]:
         return pulumi.get(self, "column_geographic_role")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult(dict):
     def __init__(__self__, *,
-                 text: str):
-        pulumi.set(__self__, "text", text)
+                 text: Optional[str] = None):
+        if text is not None:
+            pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
-    def text(self) -> str:
+    def text(self) -> Optional[str]:
         return pulumi.get(self, "text")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult(dict):
     def __init__(__self__, *,
-                 column_name: str,
-                 tag_names: Sequence[str]):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "tag_names", tag_names)
+                 column_name: Optional[str] = None,
+                 tag_names: Optional[Sequence[str]] = None):
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if tag_names is not None:
+            pulumi.set(__self__, "tag_names", tag_names)
 
     @property
     @pulumi.getter(name="columnName")
-    def column_name(self) -> str:
+    def column_name(self) -> Optional[str]:
         return pulumi.get(self, "column_name")
 
     @property
     @pulumi.getter(name="tagNames")
-    def tag_names(self) -> Sequence[str]:
+    def tag_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "tag_names")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapSourceResult(dict):
     def __init__(__self__, *,
-                 data_set_arn: str,
-                 join_instructions: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult'],
-                 physical_table_id: str):
-        pulumi.set(__self__, "data_set_arn", data_set_arn)
-        pulumi.set(__self__, "join_instructions", join_instructions)
-        pulumi.set(__self__, "physical_table_id", physical_table_id)
+                 data_set_arn: Optional[str] = None,
+                 join_instructions: Optional[Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult']] = None,
+                 physical_table_id: Optional[str] = None):
+        if data_set_arn is not None:
+            pulumi.set(__self__, "data_set_arn", data_set_arn)
+        if join_instructions is not None:
+            pulumi.set(__self__, "join_instructions", join_instructions)
+        if physical_table_id is not None:
+            pulumi.set(__self__, "physical_table_id", physical_table_id)
 
     @property
     @pulumi.getter(name="dataSetArn")
-    def data_set_arn(self) -> str:
+    def data_set_arn(self) -> Optional[str]:
         return pulumi.get(self, "data_set_arn")
 
     @property
     @pulumi.getter(name="joinInstructions")
-    def join_instructions(self) -> Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult']:
+    def join_instructions(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult']]:
         return pulumi.get(self, "join_instructions")
 
     @property
     @pulumi.getter(name="physicalTableId")
-    def physical_table_id(self) -> str:
+    def physical_table_id(self) -> Optional[str]:
         return pulumi.get(self, "physical_table_id")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapSourceJoinInstructionResult(dict):
     def __init__(__self__, *,
-                 left_join_key_properties: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult'],
-                 left_operand: str,
-                 on_clause: str,
-                 right_join_key_properties: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult'],
-                 right_operand: str,
-                 type: str):
-        pulumi.set(__self__, "left_join_key_properties", left_join_key_properties)
-        pulumi.set(__self__, "left_operand", left_operand)
-        pulumi.set(__self__, "on_clause", on_clause)
-        pulumi.set(__self__, "right_join_key_properties", right_join_key_properties)
-        pulumi.set(__self__, "right_operand", right_operand)
-        pulumi.set(__self__, "type", type)
+                 left_join_key_properties: Optional[Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult']] = None,
+                 left_operand: Optional[str] = None,
+                 on_clause: Optional[str] = None,
+                 right_join_key_properties: Optional[Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult']] = None,
+                 right_operand: Optional[str] = None,
+                 type: Optional[str] = None):
+        if left_join_key_properties is not None:
+            pulumi.set(__self__, "left_join_key_properties", left_join_key_properties)
+        if left_operand is not None:
+            pulumi.set(__self__, "left_operand", left_operand)
+        if on_clause is not None:
+            pulumi.set(__self__, "on_clause", on_clause)
+        if right_join_key_properties is not None:
+            pulumi.set(__self__, "right_join_key_properties", right_join_key_properties)
+        if right_operand is not None:
+            pulumi.set(__self__, "right_operand", right_operand)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="leftJoinKeyProperties")
-    def left_join_key_properties(self) -> Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult']:
+    def left_join_key_properties(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult']]:
         return pulumi.get(self, "left_join_key_properties")
 
     @property
     @pulumi.getter(name="leftOperand")
-    def left_operand(self) -> str:
+    def left_operand(self) -> Optional[str]:
         return pulumi.get(self, "left_operand")
 
     @property
     @pulumi.getter(name="onClause")
-    def on_clause(self) -> str:
+    def on_clause(self) -> Optional[str]:
         return pulumi.get(self, "on_clause")
 
     @property
     @pulumi.getter(name="rightJoinKeyProperties")
-    def right_join_key_properties(self) -> Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult']:
+    def right_join_key_properties(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult']]:
         return pulumi.get(self, "right_join_key_properties")
 
     @property
     @pulumi.getter(name="rightOperand")
-    def right_operand(self) -> str:
+    def right_operand(self) -> Optional[str]:
         return pulumi.get(self, "right_operand")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult(dict):
     def __init__(__self__, *,
-                 unique_key: bool):
-        pulumi.set(__self__, "unique_key", unique_key)
+                 unique_key: Optional[bool] = None):
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
 
     @property
     @pulumi.getter(name="uniqueKey")
-    def unique_key(self) -> bool:
+    def unique_key(self) -> Optional[bool]:
         return pulumi.get(self, "unique_key")
 
 
 @pulumi.output_type
 class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult(dict):
     def __init__(__self__, *,
-                 unique_key: bool):
-        pulumi.set(__self__, "unique_key", unique_key)
+                 unique_key: Optional[bool] = None):
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
 
     @property
     @pulumi.getter(name="uniqueKey")
-    def unique_key(self) -> bool:
+    def unique_key(self) -> Optional[bool]:
         return pulumi.get(self, "unique_key")
 
 
 @pulumi.output_type
 class GetDataSetPermissionResult(dict):
     def __init__(__self__, *,
-                 actions: Sequence[str],
-                 principal: str):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+                 actions: Optional[Sequence[str]] = None,
+                 principal: Optional[str] = None):
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence[str]:
+    def actions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def principal(self) -> str:
+    def principal(self) -> Optional[str]:
         return pulumi.get(self, "principal")
 
 
 @pulumi.output_type
 class GetDataSetPhysicalTableMapResult(dict):
     def __init__(__self__, *,
-                 custom_sqls: Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlResult'],
-                 physical_table_map_id: str,
-                 relational_tables: Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableResult'],
-                 s3_sources: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceResult']):
-        pulumi.set(__self__, "custom_sqls", custom_sqls)
-        pulumi.set(__self__, "physical_table_map_id", physical_table_map_id)
-        pulumi.set(__self__, "relational_tables", relational_tables)
-        pulumi.set(__self__, "s3_sources", s3_sources)
+                 custom_sqls: Optional[Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlResult']] = None,
+                 physical_table_map_id: Optional[str] = None,
+                 relational_tables: Optional[Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableResult']] = None,
+                 s3_sources: Optional[Sequence['outputs.GetDataSetPhysicalTableMapS3SourceResult']] = None):
+        if custom_sqls is not None:
+            pulumi.set(__self__, "custom_sqls", custom_sqls)
+        if physical_table_map_id is not None:
+            pulumi.set(__self__, "physical_table_map_id", physical_table_map_id)
+        if relational_tables is not None:
+            pulumi.set(__self__, "relational_tables", relational_tables)
+        if s3_sources is not None:
+            pulumi.set(__self__, "s3_sources", s3_sources)
 
     @property
     @pulumi.getter(name="customSqls")
-    def custom_sqls(self) -> Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlResult']:
+    def custom_sqls(self) -> Optional[Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlResult']]:
         return pulumi.get(self, "custom_sqls")
 
     @property
     @pulumi.getter(name="physicalTableMapId")
-    def physical_table_map_id(self) -> str:
+    def physical_table_map_id(self) -> Optional[str]:
         return pulumi.get(self, "physical_table_map_id")
 
     @property
     @pulumi.getter(name="relationalTables")
-    def relational_tables(self) -> Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableResult']:
+    def relational_tables(self) -> Optional[Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableResult']]:
         return pulumi.get(self, "relational_tables")
 
     @property
     @pulumi.getter(name="s3Sources")
-    def s3_sources(self) -> Sequence['outputs.GetDataSetPhysicalTableMapS3SourceResult']:
+    def s3_sources(self) -> Optional[Sequence['outputs.GetDataSetPhysicalTableMapS3SourceResult']]:
         return pulumi.get(self, "s3_sources")
 
 
 @pulumi.output_type
 class GetDataSetPhysicalTableMapCustomSqlResult(dict):
     def __init__(__self__, *,
-                 columns: Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult'],
-                 data_source_arn: str,
-                 name: str,
-                 sql_query: str):
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sql_query", sql_query)
+                 columns: Optional[Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult']] = None,
+                 data_source_arn: Optional[str] = None,
+                 name: Optional[str] = None,
+                 sql_query: Optional[str] = None):
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if data_source_arn is not None:
+            pulumi.set(__self__, "data_source_arn", data_source_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sql_query is not None:
+            pulumi.set(__self__, "sql_query", sql_query)
 
     @property
     @pulumi.getter
-    def columns(self) -> Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult']:
+    def columns(self) -> Optional[Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult']]:
         return pulumi.get(self, "columns")
 
     @property
     @pulumi.getter(name="dataSourceArn")
-    def data_source_arn(self) -> str:
+    def data_source_arn(self) -> Optional[str]:
         return pulumi.get(self, "data_source_arn")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sqlQuery")
-    def sql_query(self) -> str:
+    def sql_query(self) -> Optional[str]:
         return pulumi.get(self, "sql_query")
 
 
 @pulumi.output_type
 class GetDataSetPhysicalTableMapCustomSqlColumnResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 type: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetDataSetPhysicalTableMapRelationalTableResult(dict):
     def __init__(__self__, *,
-                 catalog: str,
-                 data_source_arn: str,
-                 input_columns: Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult'],
-                 name: str,
-                 schema: str):
-        pulumi.set(__self__, "catalog", catalog)
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "input_columns", input_columns)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "schema", schema)
+                 catalog: Optional[str] = None,
+                 data_source_arn: Optional[str] = None,
+                 input_columns: Optional[Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult']] = None,
+                 name: Optional[str] = None,
+                 schema: Optional[str] = None):
+        if catalog is not None:
+            pulumi.set(__self__, "catalog", catalog)
+        if data_source_arn is not None:
+            pulumi.set(__self__, "data_source_arn", data_source_arn)
+        if input_columns is not None:
+            pulumi.set(__self__, "input_columns", input_columns)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
-    def catalog(self) -> str:
+    def catalog(self) -> Optional[str]:
         return pulumi.get(self, "catalog")
 
     @property
     @pulumi.getter(name="dataSourceArn")
-    def data_source_arn(self) -> str:
+    def data_source_arn(self) -> Optional[str]:
         return pulumi.get(self, "data_source_arn")
 
     @property
     @pulumi.getter(name="inputColumns")
-    def input_columns(self) -> Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult']:
+    def input_columns(self) -> Optional[Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult']]:
         return pulumi.get(self, "input_columns")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def schema(self) -> str:
+    def schema(self) -> Optional[str]:
         return pulumi.get(self, "schema")
 
 
 @pulumi.output_type
 class GetDataSetPhysicalTableMapRelationalTableInputColumnResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 type: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetDataSetPhysicalTableMapS3SourceResult(dict):
     def __init__(__self__, *,
-                 data_source_arn: str,
-                 input_columns: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult'],
-                 upload_settings: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult']):
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "input_columns", input_columns)
-        pulumi.set(__self__, "upload_settings", upload_settings)
+                 data_source_arn: Optional[str] = None,
+                 input_columns: Optional[Sequence['outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult']] = None,
+                 upload_settings: Optional[Sequence['outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult']] = None):
+        if data_source_arn is not None:
+            pulumi.set(__self__, "data_source_arn", data_source_arn)
+        if input_columns is not None:
+            pulumi.set(__self__, "input_columns", input_columns)
+        if upload_settings is not None:
+            pulumi.set(__self__, "upload_settings", upload_settings)
 
     @property
     @pulumi.getter(name="dataSourceArn")
-    def data_source_arn(self) -> str:
+    def data_source_arn(self) -> Optional[str]:
         return pulumi.get(self, "data_source_arn")
 
     @property
     @pulumi.getter(name="inputColumns")
-    def input_columns(self) -> Sequence['outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult']:
+    def input_columns(self) -> Optional[Sequence['outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult']]:
         return pulumi.get(self, "input_columns")
 
     @property
     @pulumi.getter(name="uploadSettings")
-    def upload_settings(self) -> Sequence['outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult']:
+    def upload_settings(self) -> Optional[Sequence['outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult']]:
         return pulumi.get(self, "upload_settings")
 
 
 @pulumi.output_type
 class GetDataSetPhysicalTableMapS3SourceInputColumnResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 type: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetDataSetPhysicalTableMapS3SourceUploadSettingResult(dict):
     def __init__(__self__, *,
-                 contains_header: bool,
-                 delimiter: str,
-                 format: str,
-                 start_from_row: int,
-                 text_qualifier: str):
-        pulumi.set(__self__, "contains_header", contains_header)
-        pulumi.set(__self__, "delimiter", delimiter)
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "start_from_row", start_from_row)
-        pulumi.set(__self__, "text_qualifier", text_qualifier)
+                 contains_header: Optional[bool] = None,
+                 delimiter: Optional[str] = None,
+                 format: Optional[str] = None,
+                 start_from_row: Optional[int] = None,
+                 text_qualifier: Optional[str] = None):
+        if contains_header is not None:
+            pulumi.set(__self__, "contains_header", contains_header)
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if start_from_row is not None:
+            pulumi.set(__self__, "start_from_row", start_from_row)
+        if text_qualifier is not None:
+            pulumi.set(__self__, "text_qualifier", text_qualifier)
 
     @property
     @pulumi.getter(name="containsHeader")
-    def contains_header(self) -> bool:
+    def contains_header(self) -> Optional[bool]:
         return pulumi.get(self, "contains_header")
 
     @property
     @pulumi.getter
-    def delimiter(self) -> str:
+    def delimiter(self) -> Optional[str]:
         return pulumi.get(self, "delimiter")
 
     @property
     @pulumi.getter
-    def format(self) -> str:
+    def format(self) -> Optional[str]:
         return pulumi.get(self, "format")
 
     @property
     @pulumi.getter(name="startFromRow")
-    def start_from_row(self) -> int:
+    def start_from_row(self) -> Optional[int]:
         return pulumi.get(self, "start_from_row")
 
     @property
     @pulumi.getter(name="textQualifier")
-    def text_qualifier(self) -> str:
+    def text_qualifier(self) -> Optional[str]:
         return pulumi.get(self, "text_qualifier")
 
 
 @pulumi.output_type
 class GetDataSetRowLevelPermissionDataSetResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 format_version: str,
-                 namespace: str,
-                 permission_policy: str,
-                 status: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "format_version", format_version)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "permission_policy", permission_policy)
-        pulumi.set(__self__, "status", status)
+                 arn: Optional[str] = None,
+                 format_version: Optional[str] = None,
+                 namespace: Optional[str] = None,
+                 permission_policy: Optional[str] = None,
+                 status: Optional[str] = None):
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if format_version is not None:
+            pulumi.set(__self__, "format_version", format_version)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if permission_policy is not None:
+            pulumi.set(__self__, "permission_policy", permission_policy)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="formatVersion")
-    def format_version(self) -> str:
+    def format_version(self) -> Optional[str]:
         return pulumi.get(self, "format_version")
 
     @property
     @pulumi.getter
-    def namespace(self) -> str:
+    def namespace(self) -> Optional[str]:
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter(name="permissionPolicy")
-    def permission_policy(self) -> str:
+    def permission_policy(self) -> Optional[str]:
         return pulumi.get(self, "permission_policy")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
 
 
 @pulumi.output_type
 class GetDataSetRowLevelPermissionTagConfigurationResult(dict):
     def __init__(__self__, *,
-                 status: str,
-                 tag_rules: Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult']):
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "tag_rules", tag_rules)
+                 status: Optional[str] = None,
+                 tag_rules: Optional[Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult']] = None):
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tag_rules is not None:
+            pulumi.set(__self__, "tag_rules", tag_rules)
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="tagRules")
-    def tag_rules(self) -> Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult']:
+    def tag_rules(self) -> Optional[Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult']]:
         return pulumi.get(self, "tag_rules")
 
 
 @pulumi.output_type
 class GetDataSetRowLevelPermissionTagConfigurationTagRuleResult(dict):
     def __init__(__self__, *,
-                 column_name: str,
-                 match_all_value: str,
-                 tag_key: str,
-                 tag_multi_value_delimiter: str):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "match_all_value", match_all_value)
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_multi_value_delimiter", tag_multi_value_delimiter)
+                 column_name: Optional[str] = None,
+                 match_all_value: Optional[str] = None,
+                 tag_key: Optional[str] = None,
+                 tag_multi_value_delimiter: Optional[str] = None):
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if match_all_value is not None:
+            pulumi.set(__self__, "match_all_value", match_all_value)
+        if tag_key is not None:
+            pulumi.set(__self__, "tag_key", tag_key)
+        if tag_multi_value_delimiter is not None:
+            pulumi.set(__self__, "tag_multi_value_delimiter", tag_multi_value_delimiter)
 
     @property
     @pulumi.getter(name="columnName")
-    def column_name(self) -> str:
+    def column_name(self) -> Optional[str]:
         return pulumi.get(self, "column_name")
 
     @property
     @pulumi.getter(name="matchAllValue")
-    def match_all_value(self) -> str:
+    def match_all_value(self) -> Optional[str]:
         return pulumi.get(self, "match_all_value")
 
     @property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> str:
+    def tag_key(self) -> Optional[str]:
         return pulumi.get(self, "tag_key")
 
     @property
     @pulumi.getter(name="tagMultiValueDelimiter")
-    def tag_multi_value_delimiter(self) -> str:
+    def tag_multi_value_delimiter(self) -> Optional[str]:
         return pulumi.get(self, "tag_multi_value_delimiter")
 
 
 @pulumi.output_type
 class GetThemeConfigurationResult(dict):
     def __init__(__self__, *,
-                 data_color_palettes: Sequence['outputs.GetThemeConfigurationDataColorPaletteResult'],
-                 sheets: Sequence['outputs.GetThemeConfigurationSheetResult'],
-                 typographies: Sequence['outputs.GetThemeConfigurationTypographyResult'],
-                 ui_color_palettes: Sequence['outputs.GetThemeConfigurationUiColorPaletteResult']):
+                 data_color_palettes: Optional[Sequence['outputs.GetThemeConfigurationDataColorPaletteResult']] = None,
+                 sheets: Optional[Sequence['outputs.GetThemeConfigurationSheetResult']] = None,
+                 typographies: Optional[Sequence['outputs.GetThemeConfigurationTypographyResult']] = None,
+                 ui_color_palettes: Optional[Sequence['outputs.GetThemeConfigurationUiColorPaletteResult']] = None):
         """
         :param Sequence['GetThemeConfigurationDataColorPaletteArgs'] data_color_palettes: Color properties that apply to chart data colors. See data_color_palette.
         :param Sequence['GetThemeConfigurationSheetArgs'] sheets: Display options related to sheets. See sheet.
         :param Sequence['GetThemeConfigurationTypographyArgs'] typographies: Determines the typography options. See typography.
         :param Sequence['GetThemeConfigurationUiColorPaletteArgs'] ui_color_palettes: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         """
-        pulumi.set(__self__, "data_color_palettes", data_color_palettes)
-        pulumi.set(__self__, "sheets", sheets)
-        pulumi.set(__self__, "typographies", typographies)
-        pulumi.set(__self__, "ui_color_palettes", ui_color_palettes)
+        if data_color_palettes is not None:
+            pulumi.set(__self__, "data_color_palettes", data_color_palettes)
+        if sheets is not None:
+            pulumi.set(__self__, "sheets", sheets)
+        if typographies is not None:
+            pulumi.set(__self__, "typographies", typographies)
+        if ui_color_palettes is not None:
+            pulumi.set(__self__, "ui_color_palettes", ui_color_palettes)
 
     @property
     @pulumi.getter(name="dataColorPalettes")
-    def data_color_palettes(self) -> Sequence['outputs.GetThemeConfigurationDataColorPaletteResult']:
+    def data_color_palettes(self) -> Optional[Sequence['outputs.GetThemeConfigurationDataColorPaletteResult']]:
         """
         Color properties that apply to chart data colors. See data_color_palette.
         """
@@ -6601,7 +6696,7 @@ class GetThemeConfigurationResult(dict):
 
     @property
     @pulumi.getter
-    def sheets(self) -> Sequence['outputs.GetThemeConfigurationSheetResult']:
+    def sheets(self) -> Optional[Sequence['outputs.GetThemeConfigurationSheetResult']]:
         """
         Display options related to sheets. See sheet.
         """
@@ -6609,7 +6704,7 @@ class GetThemeConfigurationResult(dict):
 
     @property
     @pulumi.getter
-    def typographies(self) -> Sequence['outputs.GetThemeConfigurationTypographyResult']:
+    def typographies(self) -> Optional[Sequence['outputs.GetThemeConfigurationTypographyResult']]:
         """
         Determines the typography options. See typography.
         """
@@ -6617,7 +6712,7 @@ class GetThemeConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="uiColorPalettes")
-    def ui_color_palettes(self) -> Sequence['outputs.GetThemeConfigurationUiColorPaletteResult']:
+    def ui_color_palettes(self) -> Optional[Sequence['outputs.GetThemeConfigurationUiColorPaletteResult']]:
         """
         Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         """
@@ -6627,21 +6722,24 @@ class GetThemeConfigurationResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationDataColorPaletteResult(dict):
     def __init__(__self__, *,
-                 colors: Sequence[str],
-                 empty_fill_color: str,
-                 min_max_gradients: Sequence[str]):
+                 colors: Optional[Sequence[str]] = None,
+                 empty_fill_color: Optional[str] = None,
+                 min_max_gradients: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] colors: List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
         :param str empty_fill_color: The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
         :param Sequence[str] min_max_gradients: The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
         """
-        pulumi.set(__self__, "colors", colors)
-        pulumi.set(__self__, "empty_fill_color", empty_fill_color)
-        pulumi.set(__self__, "min_max_gradients", min_max_gradients)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if empty_fill_color is not None:
+            pulumi.set(__self__, "empty_fill_color", empty_fill_color)
+        if min_max_gradients is not None:
+            pulumi.set(__self__, "min_max_gradients", min_max_gradients)
 
     @property
     @pulumi.getter
-    def colors(self) -> Sequence[str]:
+    def colors(self) -> Optional[Sequence[str]]:
         """
         List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
         """
@@ -6649,7 +6747,7 @@ class GetThemeConfigurationDataColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="emptyFillColor")
-    def empty_fill_color(self) -> str:
+    def empty_fill_color(self) -> Optional[str]:
         """
         The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
         """
@@ -6657,7 +6755,7 @@ class GetThemeConfigurationDataColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="minMaxGradients")
-    def min_max_gradients(self) -> Sequence[str]:
+    def min_max_gradients(self) -> Optional[Sequence[str]]:
         """
         The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
         """
@@ -6667,18 +6765,20 @@ class GetThemeConfigurationDataColorPaletteResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationSheetResult(dict):
     def __init__(__self__, *,
-                 tile_layouts: Sequence['outputs.GetThemeConfigurationSheetTileLayoutResult'],
-                 tiles: Sequence['outputs.GetThemeConfigurationSheetTileResult']):
+                 tile_layouts: Optional[Sequence['outputs.GetThemeConfigurationSheetTileLayoutResult']] = None,
+                 tiles: Optional[Sequence['outputs.GetThemeConfigurationSheetTileResult']] = None):
         """
         :param Sequence['GetThemeConfigurationSheetTileLayoutArgs'] tile_layouts: The layout options for tiles. See tile_layout.
         :param Sequence['GetThemeConfigurationSheetTileArgs'] tiles: The display options for tiles. See tile.
         """
-        pulumi.set(__self__, "tile_layouts", tile_layouts)
-        pulumi.set(__self__, "tiles", tiles)
+        if tile_layouts is not None:
+            pulumi.set(__self__, "tile_layouts", tile_layouts)
+        if tiles is not None:
+            pulumi.set(__self__, "tiles", tiles)
 
     @property
     @pulumi.getter(name="tileLayouts")
-    def tile_layouts(self) -> Sequence['outputs.GetThemeConfigurationSheetTileLayoutResult']:
+    def tile_layouts(self) -> Optional[Sequence['outputs.GetThemeConfigurationSheetTileLayoutResult']]:
         """
         The layout options for tiles. See tile_layout.
         """
@@ -6686,7 +6786,7 @@ class GetThemeConfigurationSheetResult(dict):
 
     @property
     @pulumi.getter
-    def tiles(self) -> Sequence['outputs.GetThemeConfigurationSheetTileResult']:
+    def tiles(self) -> Optional[Sequence['outputs.GetThemeConfigurationSheetTileResult']]:
         """
         The display options for tiles. See tile.
         """
@@ -6696,15 +6796,16 @@ class GetThemeConfigurationSheetResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationSheetTileResult(dict):
     def __init__(__self__, *,
-                 borders: Sequence['outputs.GetThemeConfigurationSheetTileBorderResult']):
+                 borders: Optional[Sequence['outputs.GetThemeConfigurationSheetTileBorderResult']] = None):
         """
         :param Sequence['GetThemeConfigurationSheetTileBorderArgs'] borders: The border around a tile. See border.
         """
-        pulumi.set(__self__, "borders", borders)
+        if borders is not None:
+            pulumi.set(__self__, "borders", borders)
 
     @property
     @pulumi.getter
-    def borders(self) -> Sequence['outputs.GetThemeConfigurationSheetTileBorderResult']:
+    def borders(self) -> Optional[Sequence['outputs.GetThemeConfigurationSheetTileBorderResult']]:
         """
         The border around a tile. See border.
         """
@@ -6714,15 +6815,16 @@ class GetThemeConfigurationSheetTileResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationSheetTileBorderResult(dict):
     def __init__(__self__, *,
-                 show: bool):
+                 show: Optional[bool] = None):
         """
         :param bool show: This Boolean value controls whether to display sheet margins.
         """
-        pulumi.set(__self__, "show", show)
+        if show is not None:
+            pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
-    def show(self) -> bool:
+    def show(self) -> Optional[bool]:
         """
         This Boolean value controls whether to display sheet margins.
         """
@@ -6732,18 +6834,20 @@ class GetThemeConfigurationSheetTileBorderResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationSheetTileLayoutResult(dict):
     def __init__(__self__, *,
-                 gutters: Sequence['outputs.GetThemeConfigurationSheetTileLayoutGutterResult'],
-                 margins: Sequence['outputs.GetThemeConfigurationSheetTileLayoutMarginResult']):
+                 gutters: Optional[Sequence['outputs.GetThemeConfigurationSheetTileLayoutGutterResult']] = None,
+                 margins: Optional[Sequence['outputs.GetThemeConfigurationSheetTileLayoutMarginResult']] = None):
         """
         :param Sequence['GetThemeConfigurationSheetTileLayoutGutterArgs'] gutters: The gutter settings that apply between tiles. See gutter.
         :param Sequence['GetThemeConfigurationSheetTileLayoutMarginArgs'] margins: The margin settings that apply around the outside edge of sheets. See margin.
         """
-        pulumi.set(__self__, "gutters", gutters)
-        pulumi.set(__self__, "margins", margins)
+        if gutters is not None:
+            pulumi.set(__self__, "gutters", gutters)
+        if margins is not None:
+            pulumi.set(__self__, "margins", margins)
 
     @property
     @pulumi.getter
-    def gutters(self) -> Sequence['outputs.GetThemeConfigurationSheetTileLayoutGutterResult']:
+    def gutters(self) -> Optional[Sequence['outputs.GetThemeConfigurationSheetTileLayoutGutterResult']]:
         """
         The gutter settings that apply between tiles. See gutter.
         """
@@ -6751,7 +6855,7 @@ class GetThemeConfigurationSheetTileLayoutResult(dict):
 
     @property
     @pulumi.getter
-    def margins(self) -> Sequence['outputs.GetThemeConfigurationSheetTileLayoutMarginResult']:
+    def margins(self) -> Optional[Sequence['outputs.GetThemeConfigurationSheetTileLayoutMarginResult']]:
         """
         The margin settings that apply around the outside edge of sheets. See margin.
         """
@@ -6761,15 +6865,16 @@ class GetThemeConfigurationSheetTileLayoutResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationSheetTileLayoutGutterResult(dict):
     def __init__(__self__, *,
-                 show: bool):
+                 show: Optional[bool] = None):
         """
         :param bool show: This Boolean value controls whether to display sheet margins.
         """
-        pulumi.set(__self__, "show", show)
+        if show is not None:
+            pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
-    def show(self) -> bool:
+    def show(self) -> Optional[bool]:
         """
         This Boolean value controls whether to display sheet margins.
         """
@@ -6779,15 +6884,16 @@ class GetThemeConfigurationSheetTileLayoutGutterResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationSheetTileLayoutMarginResult(dict):
     def __init__(__self__, *,
-                 show: bool):
+                 show: Optional[bool] = None):
         """
         :param bool show: This Boolean value controls whether to display sheet margins.
         """
-        pulumi.set(__self__, "show", show)
+        if show is not None:
+            pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
-    def show(self) -> bool:
+    def show(self) -> Optional[bool]:
         """
         This Boolean value controls whether to display sheet margins.
         """
@@ -6797,15 +6903,16 @@ class GetThemeConfigurationSheetTileLayoutMarginResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationTypographyResult(dict):
     def __init__(__self__, *,
-                 font_families: Sequence['outputs.GetThemeConfigurationTypographyFontFamilyResult']):
+                 font_families: Optional[Sequence['outputs.GetThemeConfigurationTypographyFontFamilyResult']] = None):
         """
         :param Sequence['GetThemeConfigurationTypographyFontFamilyArgs'] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
         """
-        pulumi.set(__self__, "font_families", font_families)
+        if font_families is not None:
+            pulumi.set(__self__, "font_families", font_families)
 
     @property
     @pulumi.getter(name="fontFamilies")
-    def font_families(self) -> Sequence['outputs.GetThemeConfigurationTypographyFontFamilyResult']:
+    def font_families(self) -> Optional[Sequence['outputs.GetThemeConfigurationTypographyFontFamilyResult']]:
         """
         Determines the list of font families. Maximum number of 5 items. See font_families.
         """
@@ -6815,15 +6922,16 @@ class GetThemeConfigurationTypographyResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationTypographyFontFamilyResult(dict):
     def __init__(__self__, *,
-                 font_family: str):
+                 font_family: Optional[str] = None):
         """
         :param str font_family: Font family name.
         """
-        pulumi.set(__self__, "font_family", font_family)
+        if font_family is not None:
+            pulumi.set(__self__, "font_family", font_family)
 
     @property
     @pulumi.getter(name="fontFamily")
-    def font_family(self) -> str:
+    def font_family(self) -> Optional[str]:
         """
         Font family name.
         """
@@ -6833,22 +6941,22 @@ class GetThemeConfigurationTypographyFontFamilyResult(dict):
 @pulumi.output_type
 class GetThemeConfigurationUiColorPaletteResult(dict):
     def __init__(__self__, *,
-                 accent: str,
-                 accent_foreground: str,
-                 danger: str,
-                 danger_foreground: str,
-                 dimension: str,
-                 dimension_foreground: str,
-                 measure: str,
-                 measure_foreground: str,
-                 primary_background: str,
-                 primary_foreground: str,
-                 secondary_background: str,
-                 secondary_foreground: str,
-                 success: str,
-                 success_foreground: str,
-                 warning: str,
-                 warning_foreground: str):
+                 accent: Optional[str] = None,
+                 accent_foreground: Optional[str] = None,
+                 danger: Optional[str] = None,
+                 danger_foreground: Optional[str] = None,
+                 dimension: Optional[str] = None,
+                 dimension_foreground: Optional[str] = None,
+                 measure: Optional[str] = None,
+                 measure_foreground: Optional[str] = None,
+                 primary_background: Optional[str] = None,
+                 primary_foreground: Optional[str] = None,
+                 secondary_background: Optional[str] = None,
+                 secondary_foreground: Optional[str] = None,
+                 success: Optional[str] = None,
+                 success_foreground: Optional[str] = None,
+                 warning: Optional[str] = None,
+                 warning_foreground: Optional[str] = None):
         """
         :param str accent: Color (hexadecimal) that applies to selected states and buttons.
         :param str accent_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
@@ -6867,26 +6975,42 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
         :param str warning: Color (hexadecimal) that applies to warning and informational messages.
         :param str warning_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
         """
-        pulumi.set(__self__, "accent", accent)
-        pulumi.set(__self__, "accent_foreground", accent_foreground)
-        pulumi.set(__self__, "danger", danger)
-        pulumi.set(__self__, "danger_foreground", danger_foreground)
-        pulumi.set(__self__, "dimension", dimension)
-        pulumi.set(__self__, "dimension_foreground", dimension_foreground)
-        pulumi.set(__self__, "measure", measure)
-        pulumi.set(__self__, "measure_foreground", measure_foreground)
-        pulumi.set(__self__, "primary_background", primary_background)
-        pulumi.set(__self__, "primary_foreground", primary_foreground)
-        pulumi.set(__self__, "secondary_background", secondary_background)
-        pulumi.set(__self__, "secondary_foreground", secondary_foreground)
-        pulumi.set(__self__, "success", success)
-        pulumi.set(__self__, "success_foreground", success_foreground)
-        pulumi.set(__self__, "warning", warning)
-        pulumi.set(__self__, "warning_foreground", warning_foreground)
+        if accent is not None:
+            pulumi.set(__self__, "accent", accent)
+        if accent_foreground is not None:
+            pulumi.set(__self__, "accent_foreground", accent_foreground)
+        if danger is not None:
+            pulumi.set(__self__, "danger", danger)
+        if danger_foreground is not None:
+            pulumi.set(__self__, "danger_foreground", danger_foreground)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if dimension_foreground is not None:
+            pulumi.set(__self__, "dimension_foreground", dimension_foreground)
+        if measure is not None:
+            pulumi.set(__self__, "measure", measure)
+        if measure_foreground is not None:
+            pulumi.set(__self__, "measure_foreground", measure_foreground)
+        if primary_background is not None:
+            pulumi.set(__self__, "primary_background", primary_background)
+        if primary_foreground is not None:
+            pulumi.set(__self__, "primary_foreground", primary_foreground)
+        if secondary_background is not None:
+            pulumi.set(__self__, "secondary_background", secondary_background)
+        if secondary_foreground is not None:
+            pulumi.set(__self__, "secondary_foreground", secondary_foreground)
+        if success is not None:
+            pulumi.set(__self__, "success", success)
+        if success_foreground is not None:
+            pulumi.set(__self__, "success_foreground", success_foreground)
+        if warning is not None:
+            pulumi.set(__self__, "warning", warning)
+        if warning_foreground is not None:
+            pulumi.set(__self__, "warning_foreground", warning_foreground)
 
     @property
     @pulumi.getter
-    def accent(self) -> str:
+    def accent(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to selected states and buttons.
         """
@@ -6894,7 +7018,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="accentForeground")
-    def accent_foreground(self) -> str:
+    def accent_foreground(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
         """
@@ -6902,7 +7026,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter
-    def danger(self) -> str:
+    def danger(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to error messages.
         """
@@ -6910,7 +7034,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="dangerForeground")
-    def danger_foreground(self) -> str:
+    def danger_foreground(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to any text or other elements that appear over the error color.
         """
@@ -6918,7 +7042,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter
-    def dimension(self) -> str:
+    def dimension(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
         """
@@ -6926,7 +7050,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="dimensionForeground")
-    def dimension_foreground(self) -> str:
+    def dimension_foreground(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
         """
@@ -6934,7 +7058,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter
-    def measure(self) -> str:
+    def measure(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to the names of fields that are identified as measures.
         """
@@ -6942,7 +7066,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="measureForeground")
-    def measure_foreground(self) -> str:
+    def measure_foreground(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
         """
@@ -6950,7 +7074,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="primaryBackground")
-    def primary_background(self) -> str:
+    def primary_background(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to visuals and other high emphasis UI.
         """
@@ -6958,7 +7082,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="primaryForeground")
-    def primary_foreground(self) -> str:
+    def primary_foreground(self) -> Optional[str]:
         """
         Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
         """
@@ -6966,7 +7090,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="secondaryBackground")
-    def secondary_background(self) -> str:
+    def secondary_background(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to the sheet background and sheet controls.
         """
@@ -6974,7 +7098,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="secondaryForeground")
-    def secondary_foreground(self) -> str:
+    def secondary_foreground(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
         """
@@ -6982,7 +7106,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter
-    def success(self) -> str:
+    def success(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
         """
@@ -6990,7 +7114,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="successForeground")
-    def success_foreground(self) -> str:
+    def success_foreground(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to any text or other elements that appear over the success color.
         """
@@ -6998,7 +7122,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter
-    def warning(self) -> str:
+    def warning(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to warning and informational messages.
         """
@@ -7006,7 +7130,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
     @property
     @pulumi.getter(name="warningForeground")
-    def warning_foreground(self) -> str:
+    def warning_foreground(self) -> Optional[str]:
         """
         Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
         """
@@ -7016,18 +7140,20 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 @pulumi.output_type
 class GetThemePermissionResult(dict):
     def __init__(__self__, *,
-                 actions: Sequence[str],
-                 principal: str):
+                 actions: Optional[Sequence[str]] = None,
+                 principal: Optional[str] = None):
         """
         :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
         :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence[str]:
+    def actions(self) -> Optional[Sequence[str]]:
         """
         List of IAM actions to grant or revoke permissions on.
         """
@@ -7035,7 +7161,7 @@ class GetThemePermissionResult(dict):
 
     @property
     @pulumi.getter
-    def principal(self) -> str:
+    def principal(self) -> Optional[str]:
         """
         ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """

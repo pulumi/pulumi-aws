@@ -19,32 +19,32 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// * PUT Object calls fail if the request includes a public ACL.
         /// * PUT Bucket calls fail if the request includes a public ACL.
         /// </summary>
-        public readonly bool BlockPublicAcls;
+        public readonly bool? BlockPublicAcls;
         /// <summary>
         /// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
         /// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
         /// </summary>
-        public readonly bool BlockPublicPolicy;
+        public readonly bool? BlockPublicPolicy;
         /// <summary>
         /// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
         /// * Ignore all public ACLs on buckets in this account and any objects that they contain.
         /// </summary>
-        public readonly bool IgnorePublicAcls;
+        public readonly bool? IgnorePublicAcls;
         /// <summary>
         /// Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
         /// * Only the bucket owner and AWS Services can access buckets with public policies.
         /// </summary>
-        public readonly bool RestrictPublicBuckets;
+        public readonly bool? RestrictPublicBuckets;
 
         [OutputConstructor]
         private GetMultiRegionAccessPointPublicAccessBlockResult(
-            bool blockPublicAcls,
+            bool? blockPublicAcls,
 
-            bool blockPublicPolicy,
+            bool? blockPublicPolicy,
 
-            bool ignorePublicAcls,
+            bool? ignorePublicAcls,
 
-            bool restrictPublicBuckets)
+            bool? restrictPublicBuckets)
         {
             BlockPublicAcls = blockPublicAcls;
             BlockPublicPolicy = blockPublicPolicy;

@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = codebuild.NewResourcePolicy(ctx, "exampleResourcePolicy", &codebuild.ResourcePolicyArgs{
 //				ResourceArn: exampleReportGroup.Arn,
-//				Policy: exampleReportGroup.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				Policy: exampleReportGroup.Arn.ApplyT(func(arn *string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",

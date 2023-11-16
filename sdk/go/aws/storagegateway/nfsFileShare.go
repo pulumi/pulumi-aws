@@ -58,7 +58,7 @@ type NfsFileShare struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the NFS File Share.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the storage used for audit logs.
 	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
@@ -70,9 +70,9 @@ type NfsFileShare struct {
 	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass pulumi.StringPtrOutput `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
-	FileShareName pulumi.StringOutput `pulumi:"fileShareName"`
+	FileShareName pulumi.StringPtrOutput `pulumi:"fileShareName"`
 	// ID of the NFS File Share.
-	FileshareId pulumi.StringOutput `pulumi:"fileshareId"`
+	FileshareId pulumi.StringPtrOutput `pulumi:"fileshareId"`
 	// Amazon Resource Name (ARN) of the file gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
@@ -90,7 +90,7 @@ type NfsFileShare struct {
 	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrOutput `pulumi:"objectAcl"`
 	// File share path used by the NFS client to identify the mount point.
-	Path pulumi.StringOutput `pulumi:"path"`
+	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly pulumi.BoolPtrOutput `pulumi:"readOnly"`
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -439,8 +439,8 @@ func (o NfsFileShareOutput) ToNfsFileShareOutputWithContext(ctx context.Context)
 }
 
 // Amazon Resource Name (ARN) of the NFS File Share.
-func (o NfsFileShareOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NfsFileShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NfsFileShareOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsFileShare) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the storage used for audit logs.
@@ -469,13 +469,13 @@ func (o NfsFileShareOutput) DefaultStorageClass() pulumi.StringPtrOutput {
 }
 
 // The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
-func (o NfsFileShareOutput) FileShareName() pulumi.StringOutput {
-	return o.ApplyT(func(v *NfsFileShare) pulumi.StringOutput { return v.FileShareName }).(pulumi.StringOutput)
+func (o NfsFileShareOutput) FileShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsFileShare) pulumi.StringPtrOutput { return v.FileShareName }).(pulumi.StringPtrOutput)
 }
 
 // ID of the NFS File Share.
-func (o NfsFileShareOutput) FileshareId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NfsFileShare) pulumi.StringOutput { return v.FileshareId }).(pulumi.StringOutput)
+func (o NfsFileShareOutput) FileshareId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsFileShare) pulumi.StringPtrOutput { return v.FileshareId }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the file gateway.
@@ -519,8 +519,8 @@ func (o NfsFileShareOutput) ObjectAcl() pulumi.StringPtrOutput {
 }
 
 // File share path used by the NFS client to identify the mount point.
-func (o NfsFileShareOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v *NfsFileShare) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
+func (o NfsFileShareOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsFileShare) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.

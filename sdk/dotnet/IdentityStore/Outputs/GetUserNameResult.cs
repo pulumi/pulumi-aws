@@ -16,41 +16,41 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// <summary>
         /// The family name of the user.
         /// </summary>
-        public readonly string FamilyName;
+        public readonly string? FamilyName;
         /// <summary>
         /// The name that is typically displayed when the name is shown for display.
         /// </summary>
-        public readonly string Formatted;
+        public readonly string? Formatted;
         /// <summary>
         /// The given name of the user.
         /// </summary>
-        public readonly string GivenName;
+        public readonly string? GivenName;
         /// <summary>
         /// The honorific prefix of the user.
         /// </summary>
-        public readonly string HonorificPrefix;
+        public readonly string? HonorificPrefix;
         /// <summary>
         /// The honorific suffix of the user.
         /// </summary>
-        public readonly string HonorificSuffix;
+        public readonly string? HonorificSuffix;
         /// <summary>
         /// The middle name of the user.
         /// </summary>
-        public readonly string MiddleName;
+        public readonly string? MiddleName;
 
         [OutputConstructor]
         private GetUserNameResult(
-            string familyName,
+            string? familyName,
 
-            string formatted,
+            string? formatted,
 
-            string givenName,
+            string? givenName,
 
-            string honorificPrefix,
+            string? honorificPrefix,
 
-            string honorificSuffix,
+            string? honorificSuffix,
 
-            string middleName)
+            string? middleName)
         {
             FamilyName = familyName;
             Formatted = formatted;

@@ -619,7 +619,7 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -675,7 +675,7 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> pulumi.Output[str]:
+    def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
         A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
         """
@@ -702,7 +702,7 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> pulumi.Output[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URL of the Object Storage location that was described.
         """

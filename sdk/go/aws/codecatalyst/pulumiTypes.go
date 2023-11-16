@@ -419,8 +419,8 @@ func (o DevEnvironmentRepositoryArrayOutput) Index(i pulumi.IntInput) DevEnviron
 }
 
 type GetDevEnvironmentIde struct {
-	Name    string `pulumi:"name"`
-	Runtime string `pulumi:"runtime"`
+	Name    *string `pulumi:"name"`
+	Runtime *string `pulumi:"runtime"`
 }
 
 // GetDevEnvironmentIdeInput is an input type that accepts GetDevEnvironmentIdeArgs and GetDevEnvironmentIdeOutput values.
@@ -435,8 +435,8 @@ type GetDevEnvironmentIdeInput interface {
 }
 
 type GetDevEnvironmentIdeArgs struct {
-	Name    pulumi.StringInput `pulumi:"name"`
-	Runtime pulumi.StringInput `pulumi:"runtime"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Runtime pulumi.StringPtrInput `pulumi:"runtime"`
 }
 
 func (GetDevEnvironmentIdeArgs) ElementType() reflect.Type {
@@ -490,12 +490,12 @@ func (o GetDevEnvironmentIdeOutput) ToGetDevEnvironmentIdeOutputWithContext(ctx 
 	return o
 }
 
-func (o GetDevEnvironmentIdeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDevEnvironmentIde) string { return v.Name }).(pulumi.StringOutput)
+func (o GetDevEnvironmentIdeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDevEnvironmentIde) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDevEnvironmentIdeOutput) Runtime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDevEnvironmentIde) string { return v.Runtime }).(pulumi.StringOutput)
+func (o GetDevEnvironmentIdeOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDevEnvironmentIde) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
 type GetDevEnvironmentIdeArrayOutput struct{ *pulumi.OutputState }
@@ -519,7 +519,7 @@ func (o GetDevEnvironmentIdeArrayOutput) Index(i pulumi.IntInput) GetDevEnvironm
 }
 
 type GetDevEnvironmentPersistentStorage struct {
-	Size int `pulumi:"size"`
+	Size *int `pulumi:"size"`
 }
 
 // GetDevEnvironmentPersistentStorageInput is an input type that accepts GetDevEnvironmentPersistentStorageArgs and GetDevEnvironmentPersistentStorageOutput values.
@@ -534,7 +534,7 @@ type GetDevEnvironmentPersistentStorageInput interface {
 }
 
 type GetDevEnvironmentPersistentStorageArgs struct {
-	Size pulumi.IntInput `pulumi:"size"`
+	Size pulumi.IntPtrInput `pulumi:"size"`
 }
 
 func (GetDevEnvironmentPersistentStorageArgs) ElementType() reflect.Type {
@@ -588,8 +588,8 @@ func (o GetDevEnvironmentPersistentStorageOutput) ToGetDevEnvironmentPersistentS
 	return o
 }
 
-func (o GetDevEnvironmentPersistentStorageOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDevEnvironmentPersistentStorage) int { return v.Size }).(pulumi.IntOutput)
+func (o GetDevEnvironmentPersistentStorageOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDevEnvironmentPersistentStorage) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
 type GetDevEnvironmentPersistentStorageArrayOutput struct{ *pulumi.OutputState }
@@ -613,8 +613,8 @@ func (o GetDevEnvironmentPersistentStorageArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetDevEnvironmentRepository struct {
-	BranchName     string `pulumi:"branchName"`
-	RepositoryName string `pulumi:"repositoryName"`
+	BranchName     *string `pulumi:"branchName"`
+	RepositoryName *string `pulumi:"repositoryName"`
 }
 
 // GetDevEnvironmentRepositoryInput is an input type that accepts GetDevEnvironmentRepositoryArgs and GetDevEnvironmentRepositoryOutput values.
@@ -629,8 +629,8 @@ type GetDevEnvironmentRepositoryInput interface {
 }
 
 type GetDevEnvironmentRepositoryArgs struct {
-	BranchName     pulumi.StringInput `pulumi:"branchName"`
-	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	BranchName     pulumi.StringPtrInput `pulumi:"branchName"`
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
 }
 
 func (GetDevEnvironmentRepositoryArgs) ElementType() reflect.Type {
@@ -684,12 +684,12 @@ func (o GetDevEnvironmentRepositoryOutput) ToGetDevEnvironmentRepositoryOutputWi
 	return o
 }
 
-func (o GetDevEnvironmentRepositoryOutput) BranchName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDevEnvironmentRepository) string { return v.BranchName }).(pulumi.StringOutput)
+func (o GetDevEnvironmentRepositoryOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDevEnvironmentRepository) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDevEnvironmentRepositoryOutput) RepositoryName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDevEnvironmentRepository) string { return v.RepositoryName }).(pulumi.StringOutput)
+func (o GetDevEnvironmentRepositoryOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDevEnvironmentRepository) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
 }
 
 type GetDevEnvironmentRepositoryArrayOutput struct{ *pulumi.OutputState }

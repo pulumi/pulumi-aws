@@ -114,14 +114,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of cluster
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A list of EC2 Availability Zones that
@@ -129,15 +129,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> availabilityZones;
+    private Output</* @Nullable */ List<String>> availabilityZones;
 
     /**
      * @return A list of EC2 Availability Zones that
      * instances in the DB cluster can be created in.
      * 
      */
-    public Output<List<String>> availabilityZones() {
-        return this.availabilityZones;
+    public Output<Optional<List<String>>> availabilityZones() {
+        return Codegen.optional(this.availabilityZones);
     }
     /**
      * The days to retain backups for. Default `1`
@@ -158,84 +158,84 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> clusterIdentifier;
+    private Output</* @Nullable */ String> clusterIdentifier;
 
     /**
      * @return The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      * 
      */
-    public Output<String> clusterIdentifier() {
-        return this.clusterIdentifier;
+    public Output<Optional<String>> clusterIdentifier() {
+        return Codegen.optional(this.clusterIdentifier);
     }
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
     @Export(name="clusterIdentifierPrefix", refs={String.class}, tree="[0]")
-    private Output<String> clusterIdentifierPrefix;
+    private Output</* @Nullable */ String> clusterIdentifierPrefix;
 
     /**
      * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    public Output<String> clusterIdentifierPrefix() {
-        return this.clusterIdentifierPrefix;
+    public Output<Optional<String>> clusterIdentifierPrefix() {
+        return Codegen.optional(this.clusterIdentifierPrefix);
     }
     /**
      * List of DocumentDB Instances that are a part of this cluster
      * 
      */
     @Export(name="clusterMembers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> clusterMembers;
+    private Output</* @Nullable */ List<String>> clusterMembers;
 
     /**
      * @return List of DocumentDB Instances that are a part of this cluster
      * 
      */
-    public Output<List<String>> clusterMembers() {
-        return this.clusterMembers;
+    public Output<Optional<List<String>>> clusterMembers() {
+        return Codegen.optional(this.clusterMembers);
     }
     /**
      * The DocumentDB Cluster Resource ID
      * 
      */
     @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
-    private Output<String> clusterResourceId;
+    private Output</* @Nullable */ String> clusterResourceId;
 
     /**
      * @return The DocumentDB Cluster Resource ID
      * 
      */
-    public Output<String> clusterResourceId() {
-        return this.clusterResourceId;
+    public Output<Optional<String>> clusterResourceId() {
+        return Codegen.optional(this.clusterResourceId);
     }
     /**
      * A cluster parameter group to associate with the cluster.
      * 
      */
     @Export(name="dbClusterParameterGroupName", refs={String.class}, tree="[0]")
-    private Output<String> dbClusterParameterGroupName;
+    private Output</* @Nullable */ String> dbClusterParameterGroupName;
 
     /**
      * @return A cluster parameter group to associate with the cluster.
      * 
      */
-    public Output<String> dbClusterParameterGroupName() {
-        return this.dbClusterParameterGroupName;
+    public Output<Optional<String>> dbClusterParameterGroupName() {
+        return Codegen.optional(this.dbClusterParameterGroupName);
     }
     /**
      * A DB subnet group to associate with this DB instance.
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> dbSubnetGroupName;
+    private Output</* @Nullable */ String> dbSubnetGroupName;
 
     /**
      * @return A DB subnet group to associate with this DB instance.
      * 
      */
-    public Output<String> dbSubnetGroupName() {
-        return this.dbSubnetGroupName;
+    public Output<Optional<String>> dbSubnetGroupName() {
+        return Codegen.optional(this.dbSubnetGroupName);
     }
     /**
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -272,14 +272,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The DNS address of the DocumentDB instance
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
@@ -300,14 +300,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return The database engine version. Updating this argument results in an outage.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * The name of your final DB snapshot
@@ -346,28 +346,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
-    private Output<String> hostedZoneId;
+    private Output</* @Nullable */ String> hostedZoneId;
 
     /**
      * @return The Route53 Hosted Zone ID of the endpoint
      * 
      */
-    public Output<String> hostedZoneId() {
-        return this.hostedZoneId;
+    public Output<Optional<String>> hostedZoneId() {
+        return Codegen.optional(this.hostedZoneId);
     }
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * Password for the master DB user. Note that this may
@@ -390,14 +390,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="masterUsername", refs={String.class}, tree="[0]")
-    private Output<String> masterUsername;
+    private Output</* @Nullable */ String> masterUsername;
 
     /**
      * @return Username for the master DB user.
      * 
      */
-    public Output<String> masterUsername() {
-        return this.masterUsername;
+    public Output<Optional<String>> masterUsername() {
+        return Codegen.optional(this.masterUsername);
     }
     /**
      * The port on which the DB accepts connections
@@ -419,43 +419,43 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredBackupWindow;
+    private Output</* @Nullable */ String> preferredBackupWindow;
 
     /**
      * @return The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
      * Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
-    public Output<String> preferredBackupWindow() {
-        return this.preferredBackupWindow;
+    public Output<Optional<String>> preferredBackupWindow() {
+        return Codegen.optional(this.preferredBackupWindow);
     }
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredMaintenanceWindow;
+    private Output</* @Nullable */ String> preferredMaintenanceWindow;
 
     /**
      * @return The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
-    public Output<String> preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Output<Optional<String>> preferredMaintenanceWindow() {
+        return Codegen.optional(this.preferredMaintenanceWindow);
     }
     /**
      * A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      * 
      */
     @Export(name="readerEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> readerEndpoint;
+    private Output</* @Nullable */ String> readerEndpoint;
 
     /**
      * @return A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      * 
      */
-    public Output<String> readerEndpoint() {
-        return this.readerEndpoint;
+    public Output<Optional<String>> readerEndpoint() {
+        return Codegen.optional(this.readerEndpoint);
     }
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
@@ -537,15 +537,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return List of VPC security groups to associate
      * with the Cluster
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
 
     /**

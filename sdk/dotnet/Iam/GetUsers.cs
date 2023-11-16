@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? NameRegex;
         /// <summary>
         /// Set of Names of the matched IAM users.
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Iam
         private GetUsersResult(
             ImmutableArray<string> arns,
 
-            string id,
+            string? id,
 
             string? nameRegex,
 

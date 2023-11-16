@@ -63,7 +63,7 @@ type LookupBotAssociationArgs struct {
 // A collection of values returned by getBotAssociation.
 type LookupBotAssociationResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id         string                  `pulumi:"id"`
+	Id         *string                 `pulumi:"id"`
 	InstanceId string                  `pulumi:"instanceId"`
 	LexBot     GetBotAssociationLexBot `pulumi:"lexBot"`
 }
@@ -109,8 +109,8 @@ func (o LookupBotAssociationResultOutput) ToLookupBotAssociationResultOutputWith
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupBotAssociationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotAssociationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupBotAssociationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupBotAssociationResultOutput) InstanceId() pulumi.StringOutput {

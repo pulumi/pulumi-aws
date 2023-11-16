@@ -108,20 +108,20 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="associationId", refs={String.class}, tree="[0]")
-    private Output<String> associationId;
+    private Output</* @Nullable */ String> associationId;
 
-    public Output<String> associationId() {
-        return this.associationId;
+    public Output<Optional<String>> associationId() {
+        return Codegen.optional(this.associationId);
     }
     /**
      * Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
@@ -198,14 +198,14 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="importedFileChunkSize", refs={Integer.class}, tree="[0]")
-    private Output<Integer> importedFileChunkSize;
+    private Output</* @Nullable */ Integer> importedFileChunkSize;
 
     /**
      * @return For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
      * 
      */
-    public Output<Integer> importedFileChunkSize() {
-        return this.importedFileChunkSize;
+    public Output<Optional<Integer>> importedFileChunkSize() {
+        return Codegen.optional(this.importedFileChunkSize);
     }
     /**
      * See the `s3` configuration block. Max of 1.
@@ -213,15 +213,15 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="s3", refs={DataRepositoryAssociationS3.class}, tree="[0]")
-    private Output<DataRepositoryAssociationS3> s3;
+    private Output</* @Nullable */ DataRepositoryAssociationS3> s3;
 
     /**
      * @return See the `s3` configuration block. Max of 1.
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      * 
      */
-    public Output<DataRepositoryAssociationS3> s3() {
-        return this.s3;
+    public Output<Optional<DataRepositoryAssociationS3>> s3() {
+        return Codegen.optional(this.s3);
     }
     /**
      * A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

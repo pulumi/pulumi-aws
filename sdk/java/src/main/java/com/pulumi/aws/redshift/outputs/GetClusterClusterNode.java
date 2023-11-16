@@ -6,6 +6,8 @@ package com.pulumi.aws.redshift.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterClusterNode {
@@ -13,39 +15,39 @@ public final class GetClusterClusterNode {
      * @return Whether the node is a leader node or a compute node
      * 
      */
-    private String nodeRole;
+    private @Nullable String nodeRole;
     /**
      * @return Private IP address of a node within a cluster
      * 
      */
-    private String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return Public IP address of a node within a cluster
      * 
      */
-    private String publicIpAddress;
+    private @Nullable String publicIpAddress;
 
     private GetClusterClusterNode() {}
     /**
      * @return Whether the node is a leader node or a compute node
      * 
      */
-    public String nodeRole() {
-        return this.nodeRole;
+    public Optional<String> nodeRole() {
+        return Optional.ofNullable(this.nodeRole);
     }
     /**
      * @return Private IP address of a node within a cluster
      * 
      */
-    public String privateIpAddress() {
-        return this.privateIpAddress;
+    public Optional<String> privateIpAddress() {
+        return Optional.ofNullable(this.privateIpAddress);
     }
     /**
      * @return Public IP address of a node within a cluster
      * 
      */
-    public String publicIpAddress() {
-        return this.publicIpAddress;
+    public Optional<String> publicIpAddress() {
+        return Optional.ofNullable(this.publicIpAddress);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetClusterClusterNode {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String nodeRole;
-        private String privateIpAddress;
-        private String publicIpAddress;
+        private @Nullable String nodeRole;
+        private @Nullable String privateIpAddress;
+        private @Nullable String publicIpAddress;
         public Builder() {}
         public Builder(GetClusterClusterNode defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetClusterClusterNode {
         }
 
         @CustomType.Setter
-        public Builder nodeRole(String nodeRole) {
-            this.nodeRole = Objects.requireNonNull(nodeRole);
+        public Builder nodeRole(@Nullable String nodeRole) {
+            this.nodeRole = nodeRole;
             return this;
         }
         @CustomType.Setter
-        public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+        public Builder privateIpAddress(@Nullable String privateIpAddress) {
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder publicIpAddress(String publicIpAddress) {
-            this.publicIpAddress = Objects.requireNonNull(publicIpAddress);
+        public Builder publicIpAddress(@Nullable String publicIpAddress) {
+            this.publicIpAddress = publicIpAddress;
             return this;
         }
         public GetClusterClusterNode build() {

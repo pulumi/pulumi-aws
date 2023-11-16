@@ -95,14 +95,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="appSources", refs={List.class,ApplicationAppSource.class}, tree="[0,1]")
-    private Output<List<ApplicationAppSource>> appSources;
+    private Output</* @Nullable */ List<ApplicationAppSource>> appSources;
 
     /**
      * @return SCM configuration of the app as described below.
      * 
      */
-    public Output<List<ApplicationAppSource>> appSources() {
-        return this.appSources;
+    public Output<Optional<List<ApplicationAppSource>>> appSources() {
+        return Codegen.optional(this.appSources);
     }
     /**
      * Run bundle install when deploying for application of type `rails`.
@@ -277,14 +277,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="shortName", refs={String.class}, tree="[0]")
-    private Output<String> shortName;
+    private Output</* @Nullable */ String> shortName;
 
     /**
      * @return A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
      * 
      */
-    public Output<String> shortName() {
-        return this.shortName;
+    public Output<Optional<String>> shortName() {
+        return Codegen.optional(this.shortName);
     }
     /**
      * The SSL configuration of the app. Object is described below.

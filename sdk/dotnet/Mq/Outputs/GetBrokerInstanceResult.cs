@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerInstanceResult
     {
-        public readonly string ConsoleUrl;
+        public readonly string? ConsoleUrl;
         public readonly ImmutableArray<string> Endpoints;
-        public readonly string IpAddress;
+        public readonly string? IpAddress;
 
         [OutputConstructor]
         private GetBrokerInstanceResult(
-            string consoleUrl,
+            string? consoleUrl,
 
             ImmutableArray<string> endpoints,
 
-            string ipAddress)
+            string? ipAddress)
         {
             ConsoleUrl = consoleUrl;
             Endpoints = endpoints;

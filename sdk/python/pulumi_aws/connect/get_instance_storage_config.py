@@ -46,7 +46,7 @@ class GetInstanceStorageConfigResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -64,7 +64,7 @@ class GetInstanceStorageConfigResult:
 
     @property
     @pulumi.getter(name="storageConfigs")
-    def storage_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigResult']:
+    def storage_configs(self) -> Optional[Sequence['outputs.GetInstanceStorageConfigStorageConfigResult']]:
         """
         Specifies the storage configuration options for the Connect Instance. Documented below.
         """

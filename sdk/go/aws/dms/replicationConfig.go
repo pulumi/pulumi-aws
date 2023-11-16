@@ -67,17 +67,17 @@ type ReplicationConfig struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the serverless replication config.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigOutput `pulumi:"computeConfig"`
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier pulumi.StringOutput `pulumi:"replicationConfigIdentifier"`
 	// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
-	ReplicationSettings pulumi.StringOutput `pulumi:"replicationSettings"`
+	ReplicationSettings pulumi.StringPtrOutput `pulumi:"replicationSettings"`
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	ReplicationType pulumi.StringOutput `pulumi:"replicationType"`
 	// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
-	ResourceIdentifier pulumi.StringOutput `pulumi:"resourceIdentifier"`
+	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringOutput `pulumi:"sourceEndpointArn"`
 	// Whether to run or stop the serverless replication, default is false.
@@ -352,8 +352,8 @@ func (o ReplicationConfigOutput) ToReplicationConfigOutputWithContext(ctx contex
 }
 
 // The Amazon Resource Name (ARN) for the serverless replication config.
-func (o ReplicationConfigOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReplicationConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for provisioning an DMS Serverless replication.
@@ -367,8 +367,8 @@ func (o ReplicationConfigOutput) ReplicationConfigIdentifier() pulumi.StringOutp
 }
 
 // An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
-func (o ReplicationConfigOutput) ReplicationSettings() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.ReplicationSettings }).(pulumi.StringOutput)
+func (o ReplicationConfigOutput) ReplicationSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringPtrOutput { return v.ReplicationSettings }).(pulumi.StringPtrOutput)
 }
 
 // The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -377,8 +377,8 @@ func (o ReplicationConfigOutput) ReplicationType() pulumi.StringOutput {
 }
 
 // Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
-func (o ReplicationConfigOutput) ResourceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.ResourceIdentifier }).(pulumi.StringOutput)
+func (o ReplicationConfigOutput) ResourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.

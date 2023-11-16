@@ -704,9 +704,9 @@ type GetPolicyDocumentArgs struct {
 // A collection of values returned by getPolicyDocument.
 type GetPolicyDocumentResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Standard JSON policy document rendered based on the arguments above.
-	Json                    string                       `pulumi:"json"`
+	Json                    *string                      `pulumi:"json"`
 	OverridePolicyDocuments []string                     `pulumi:"overridePolicyDocuments"`
 	PolicyId                *string                      `pulumi:"policyId"`
 	SourcePolicyDocuments   []string                     `pulumi:"sourcePolicyDocuments"`
@@ -761,13 +761,13 @@ func (o GetPolicyDocumentResultOutput) ToGetPolicyDocumentResultOutputWithContex
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetPolicyDocumentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPolicyDocumentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPolicyDocumentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPolicyDocumentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Standard JSON policy document rendered based on the arguments above.
-func (o GetPolicyDocumentResultOutput) Json() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPolicyDocumentResult) string { return v.Json }).(pulumi.StringOutput)
+func (o GetPolicyDocumentResultOutput) Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPolicyDocumentResult) *string { return v.Json }).(pulumi.StringPtrOutput)
 }
 
 func (o GetPolicyDocumentResultOutput) OverridePolicyDocuments() pulumi.StringArrayOutput {

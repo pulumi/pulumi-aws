@@ -222,7 +222,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationId")
-    def configuration_id(self) -> pulumi.Output[str]:
+    def configuration_id(self) -> pulumi.Output[Optional[str]]:
         """
         System-generated unique identifier.
         """

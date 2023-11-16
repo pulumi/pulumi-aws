@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainLogPublishingOption {
@@ -14,39 +16,39 @@ public final class GetDomainLogPublishingOption {
      * @return The CloudWatch Log Group where the logs are published.
      * 
      */
-    private String cloudwatchLogGroupArn;
+    private @Nullable String cloudwatchLogGroupArn;
     /**
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The type of Elasticsearch log being published.
      * 
      */
-    private String logType;
+    private @Nullable String logType;
 
     private GetDomainLogPublishingOption() {}
     /**
      * @return The CloudWatch Log Group where the logs are published.
      * 
      */
-    public String cloudwatchLogGroupArn() {
-        return this.cloudwatchLogGroupArn;
+    public Optional<String> cloudwatchLogGroupArn() {
+        return Optional.ofNullable(this.cloudwatchLogGroupArn);
     }
     /**
      * @return Whether node to node encryption is enabled.
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return The type of Elasticsearch log being published.
      * 
      */
-    public String logType() {
-        return this.logType;
+    public Optional<String> logType() {
+        return Optional.ofNullable(this.logType);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetDomainLogPublishingOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cloudwatchLogGroupArn;
-        private Boolean enabled;
-        private String logType;
+        private @Nullable String cloudwatchLogGroupArn;
+        private @Nullable Boolean enabled;
+        private @Nullable String logType;
         public Builder() {}
         public Builder(GetDomainLogPublishingOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetDomainLogPublishingOption {
         }
 
         @CustomType.Setter
-        public Builder cloudwatchLogGroupArn(String cloudwatchLogGroupArn) {
-            this.cloudwatchLogGroupArn = Objects.requireNonNull(cloudwatchLogGroupArn);
+        public Builder cloudwatchLogGroupArn(@Nullable String cloudwatchLogGroupArn) {
+            this.cloudwatchLogGroupArn = cloudwatchLogGroupArn;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder logType(String logType) {
-            this.logType = Objects.requireNonNull(logType);
+        public Builder logType(@Nullable String logType) {
+            this.logType = logType;
             return this;
         }
         public GetDomainLogPublishingOption build() {

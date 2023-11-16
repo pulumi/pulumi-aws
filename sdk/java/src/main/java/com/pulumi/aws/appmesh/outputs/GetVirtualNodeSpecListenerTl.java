@@ -9,22 +9,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTl {
-    private List<GetVirtualNodeSpecListenerTlCertificate> certificates;
-    private String mode;
-    private List<GetVirtualNodeSpecListenerTlValidation> validations;
+    private @Nullable List<GetVirtualNodeSpecListenerTlCertificate> certificates;
+    private @Nullable String mode;
+    private @Nullable List<GetVirtualNodeSpecListenerTlValidation> validations;
 
     private GetVirtualNodeSpecListenerTl() {}
     public List<GetVirtualNodeSpecListenerTlCertificate> certificates() {
-        return this.certificates;
+        return this.certificates == null ? List.of() : this.certificates;
     }
-    public String mode() {
-        return this.mode;
+    public Optional<String> mode() {
+        return Optional.ofNullable(this.mode);
     }
     public List<GetVirtualNodeSpecListenerTlValidation> validations() {
-        return this.validations;
+        return this.validations == null ? List.of() : this.validations;
     }
 
     public static Builder builder() {
@@ -36,9 +38,9 @@ public final class GetVirtualNodeSpecListenerTl {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerTlCertificate> certificates;
-        private String mode;
-        private List<GetVirtualNodeSpecListenerTlValidation> validations;
+        private @Nullable List<GetVirtualNodeSpecListenerTlCertificate> certificates;
+        private @Nullable String mode;
+        private @Nullable List<GetVirtualNodeSpecListenerTlValidation> validations;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTl defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,21 +50,21 @@ public final class GetVirtualNodeSpecListenerTl {
         }
 
         @CustomType.Setter
-        public Builder certificates(List<GetVirtualNodeSpecListenerTlCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+        public Builder certificates(@Nullable List<GetVirtualNodeSpecListenerTlCertificate> certificates) {
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(GetVirtualNodeSpecListenerTlCertificate... certificates) {
             return certificates(List.of(certificates));
         }
         @CustomType.Setter
-        public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+        public Builder mode(@Nullable String mode) {
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
-        public Builder validations(List<GetVirtualNodeSpecListenerTlValidation> validations) {
-            this.validations = Objects.requireNonNull(validations);
+        public Builder validations(@Nullable List<GetVirtualNodeSpecListenerTlValidation> validations) {
+            this.validations = validations;
             return this;
         }
         public Builder validations(GetVirtualNodeSpecListenerTlValidation... validations) {

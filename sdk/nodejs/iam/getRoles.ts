@@ -94,16 +94,16 @@ export interface GetRolesResult {
     /**
      * Set of ARNs of the matched IAM roles.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly nameRegex?: string;
     /**
      * Set of Names of the matched IAM roles.
      */
-    readonly names: string[];
+    readonly names?: string[];
     readonly pathPrefix?: string;
 }
 /**

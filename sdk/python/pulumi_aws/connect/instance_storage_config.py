@@ -444,7 +444,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> pulumi.Output[str]:
+    def association_id(self) -> pulumi.Output[Optional[str]]:
         """
         The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
         """

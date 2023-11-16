@@ -58,25 +58,25 @@ namespace Pulumi.Aws.Efs
         /// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
         /// </summary>
         [Output("availabilityZoneId")]
-        public Output<string> AvailabilityZoneId { get; private set; } = null!;
+        public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Availability Zone (AZ) that the mount target resides in.
         /// </summary>
         [Output("availabilityZoneName")]
-        public Output<string> AvailabilityZoneName { get; private set; } = null!;
+        public Output<string?> AvailabilityZoneName { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name for the EFS file system.
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Output("fileSystemArn")]
-        public Output<string> FileSystemArn { get; private set; } = null!;
+        public Output<string?> FileSystemArn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the file system for which the mount target is intended.
@@ -89,25 +89,25 @@ namespace Pulumi.Aws.Efs
         /// which the file system may be mounted via the mount target.
         /// </summary>
         [Output("ipAddress")]
-        public Output<string> IpAddress { get; private set; } = null!;
+        public Output<string?> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         /// </summary>
         [Output("mountTargetDnsName")]
-        public Output<string> MountTargetDnsName { get; private set; } = null!;
+        public Output<string?> MountTargetDnsName { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the network interface that Amazon EFS created when it created the mount target.
         /// </summary>
         [Output("networkInterfaceId")]
-        public Output<string> NetworkInterfaceId { get; private set; } = null!;
+        public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID that owns the resource.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// A list of up to 5 VPC security group IDs (that must

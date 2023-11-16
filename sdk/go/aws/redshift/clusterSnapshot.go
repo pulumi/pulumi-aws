@@ -27,15 +27,15 @@ type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The cluster identifier for which you want a snapshot.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
 	// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
+	OwnerAccount pulumi.StringPtrOutput `pulumi:"ownerAccount"`
 	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
 	SnapshotIdentifier pulumi.StringOutput `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -242,8 +242,8 @@ func (o ClusterSnapshotOutput) ToClusterSnapshotOutputWithContext(ctx context.Co
 }
 
 // Amazon Resource Name (ARN) of the snapshot.
-func (o ClusterSnapshotOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The cluster identifier for which you want a snapshot.
@@ -252,8 +252,8 @@ func (o ClusterSnapshotOutput) ClusterIdentifier() pulumi.StringOutput {
 }
 
 // The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-func (o ClusterSnapshotOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
@@ -262,8 +262,8 @@ func (o ClusterSnapshotOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtrOutp
 }
 
 // For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-func (o ClusterSnapshotOutput) OwnerAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.OwnerAccount }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) OwnerAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.OwnerAccount }).(pulumi.StringPtrOutput)
 }
 
 // A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.

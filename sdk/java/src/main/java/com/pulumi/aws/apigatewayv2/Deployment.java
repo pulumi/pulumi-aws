@@ -85,14 +85,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="autoDeployed", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> autoDeployed;
+    private Output</* @Nullable */ Boolean> autoDeployed;
 
     /**
      * @return Whether the deployment was automatically released.
      * 
      */
-    public Output<Boolean> autoDeployed() {
-        return this.autoDeployed;
+    public Output<Optional<Boolean>> autoDeployed() {
+        return Codegen.optional(this.autoDeployed);
     }
     /**
      * Description for the deployment resource. Must be less than or equal to 1024 characters in length.

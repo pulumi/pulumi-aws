@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Synthetics
         /// ARN of the Group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the Group.
         /// </summary>
         [Output("groupId")]
-        public Output<string> GroupId { get; private set; } = null!;
+        public Output<string?> GroupId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the group.

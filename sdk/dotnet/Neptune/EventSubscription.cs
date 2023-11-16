@@ -88,13 +88,13 @@ namespace Pulumi.Aws.Neptune
         /// The Amazon Resource Name of the Neptune event notification subscription.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS customer account associated with the Neptune event notification subscription.
         /// </summary>
         [Output("customerAwsId")]
-        public Output<string> CustomerAwsId { get; private set; } = null!;
+        public Output<string?> CustomerAwsId { get; private set; } = null!;
 
         /// <summary>
         /// A boolean flag to enable/disable the subscription. Defaults to true.
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Neptune
         /// The name of the Neptune event subscription. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the SNS topic to send events to.

@@ -94,15 +94,15 @@ export class Folder extends pulumi.CustomResource {
     /**
      * ARN of the folder.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * The time that the folder was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Identifier for the folder.
      */
@@ -110,7 +110,7 @@ export class Folder extends pulumi.CustomResource {
     /**
      * An array of ancestor ARN strings for the folder. Empty for root-level folders.
      */
-    public /*out*/ readonly folderPaths!: pulumi.Output<string[]>;
+    public /*out*/ readonly folderPaths!: pulumi.Output<string[] | undefined>;
     /**
      * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      */
@@ -118,7 +118,7 @@ export class Folder extends pulumi.CustomResource {
     /**
      * The time that the folder was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * Display name for the folder.
      *

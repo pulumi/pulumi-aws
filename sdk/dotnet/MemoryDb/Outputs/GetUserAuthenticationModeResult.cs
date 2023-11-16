@@ -16,17 +16,17 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// <summary>
         /// The number of passwords belonging to the user.
         /// </summary>
-        public readonly int PasswordCount;
+        public readonly int? PasswordCount;
         /// <summary>
         /// Whether the user requires a password to authenticate.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetUserAuthenticationModeResult(
-            int passwordCount,
+            int? passwordCount,
 
-            string type)
+            string? type)
         {
             PasswordCount = passwordCount;
             Type = type;

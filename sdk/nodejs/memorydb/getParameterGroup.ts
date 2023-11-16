@@ -51,19 +51,19 @@ export interface GetParameterGroupResult {
     /**
      * ARN of the parameter group.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the parameter group.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Engine version that the parameter group can be used with.
      */
-    readonly family: string;
+    readonly family?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the parameter.
      */
@@ -71,11 +71,11 @@ export interface GetParameterGroupResult {
     /**
      * Set of user-defined MemoryDB parameters applied by the parameter group.
      */
-    readonly parameters: outputs.memorydb.GetParameterGroupParameter[];
+    readonly parameters?: outputs.memorydb.GetParameterGroupParameter[];
     /**
      * Map of tags assigned to the parameter group.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides information about a MemoryDB Parameter Group.

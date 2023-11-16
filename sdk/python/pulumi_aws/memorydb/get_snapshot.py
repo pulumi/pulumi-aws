@@ -50,7 +50,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the snapshot.
         """
@@ -58,7 +58,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="clusterConfigurations")
-    def cluster_configurations(self) -> Sequence['outputs.GetSnapshotClusterConfigurationResult']:
+    def cluster_configurations(self) -> Optional[Sequence['outputs.GetSnapshotClusterConfigurationResult']]:
         """
         The configuration of the cluster from which the snapshot was taken.
         """
@@ -66,7 +66,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
+    def cluster_name(self) -> Optional[str]:
         """
         Name of the MemoryDB cluster that this snapshot was taken from.
         """
@@ -74,7 +74,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -82,7 +82,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> Optional[str]:
         """
         ARN of the KMS key used to encrypt the snapshot at rest.
         """
@@ -98,7 +98,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def source(self) -> str:
+    def source(self) -> Optional[str]:
         """
         Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         """
@@ -106,7 +106,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the snapshot.
         """

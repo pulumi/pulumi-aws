@@ -199,11 +199,11 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * ARN of the dataset that contains permissions for RLS.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
      */
@@ -219,7 +219,7 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
      */
-    public readonly dataSetUsageConfiguration!: pulumi.Output<outputs.quicksight.DataSetDataSetUsageConfiguration>;
+    public readonly dataSetUsageConfiguration!: pulumi.Output<outputs.quicksight.DataSetDataSetUsageConfiguration | undefined>;
     /**
      * The folder that contains fields and nested subfolders for your dataset. See field_folders.
      */
@@ -231,12 +231,12 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
      */
-    public readonly logicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetLogicalTableMap[]>;
+    public readonly logicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetLogicalTableMap[] | undefined>;
     /**
      * Display name for the dataset.
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
+    public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[] | undefined>;
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      */

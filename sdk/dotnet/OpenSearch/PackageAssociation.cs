@@ -68,7 +68,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> PackageId { get; private set; } = null!;
 
         [Output("referencePath")]
-        public Output<string> ReferencePath { get; private set; } = null!;
+        public Output<string?> ReferencePath { get; private set; } = null!;
 
 
         /// <summary>

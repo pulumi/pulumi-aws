@@ -926,7 +926,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) specifying the role.
         """
@@ -946,7 +946,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> pulumi.Output[str]:
+    def create_date(self) -> pulumi.Output[Optional[str]]:
         """
         Creation date of the IAM role.
         """
@@ -970,7 +970,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inlinePolicies")
-    def inline_policies(self) -> pulumi.Output[Sequence['outputs.RoleInlinePolicy']]:
+    def inline_policies(self) -> pulumi.Output[Optional[Sequence['outputs.RoleInlinePolicy']]]:
         """
         Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
         """
@@ -978,7 +978,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedPolicyArns")
-    def managed_policy_arns(self) -> pulumi.Output[Sequence[str]]:
+    def managed_policy_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "managed_policy_arns")
 
     @property
@@ -999,7 +999,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -1042,7 +1042,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> pulumi.Output[str]:
+    def unique_id(self) -> pulumi.Output[Optional[str]]:
         """
         Stable and unique string identifying the role.
         """

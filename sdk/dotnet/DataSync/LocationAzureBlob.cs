@@ -68,7 +68,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.DataSync
         /// Path segments if you want to limit your transfer to a virtual directory in the container.
         /// </summary>
         [Output("subdirectory")]
-        public Output<string> Subdirectory { get; private set; } = null!;
+        public Output<string?> Subdirectory { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("uri")]
-        public Output<string> Uri { get; private set; } = null!;
+        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

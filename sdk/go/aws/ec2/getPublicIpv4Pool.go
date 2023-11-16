@@ -60,20 +60,20 @@ type GetPublicIpv4PoolArgs struct {
 // A collection of values returned by getPublicIpv4Pool.
 type GetPublicIpv4PoolResult struct {
 	// Description of the pool, if any.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the location from which the address pool is advertised.
 	// * poolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
-	NetworkBorderGroup string                              `pulumi:"networkBorderGroup"`
+	NetworkBorderGroup *string                             `pulumi:"networkBorderGroup"`
 	PoolAddressRanges  []GetPublicIpv4PoolPoolAddressRange `pulumi:"poolAddressRanges"`
 	PoolId             string                              `pulumi:"poolId"`
 	// Any tags for the address pool.
 	Tags map[string]string `pulumi:"tags"`
 	// Total number of addresses in the pool.
-	TotalAddressCount int `pulumi:"totalAddressCount"`
+	TotalAddressCount *int `pulumi:"totalAddressCount"`
 	// Total number of available addresses in the pool.
-	TotalAvailableAddressCount int `pulumi:"totalAvailableAddressCount"`
+	TotalAvailableAddressCount *int `pulumi:"totalAvailableAddressCount"`
 }
 
 func GetPublicIpv4PoolOutput(ctx *pulumi.Context, args GetPublicIpv4PoolOutputArgs, opts ...pulumi.InvokeOption) GetPublicIpv4PoolResultOutput {
@@ -117,19 +117,19 @@ func (o GetPublicIpv4PoolResultOutput) ToGetPublicIpv4PoolResultOutputWithContex
 }
 
 // Description of the pool, if any.
-func (o GetPublicIpv4PoolResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicIpv4PoolResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetPublicIpv4PoolResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetPublicIpv4PoolResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicIpv4PoolResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPublicIpv4PoolResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the location from which the address pool is advertised.
 // * poolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
-func (o GetPublicIpv4PoolResultOutput) NetworkBorderGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicIpv4PoolResult) string { return v.NetworkBorderGroup }).(pulumi.StringOutput)
+func (o GetPublicIpv4PoolResultOutput) NetworkBorderGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolResult) *string { return v.NetworkBorderGroup }).(pulumi.StringPtrOutput)
 }
 
 func (o GetPublicIpv4PoolResultOutput) PoolAddressRanges() GetPublicIpv4PoolPoolAddressRangeArrayOutput {
@@ -146,13 +146,13 @@ func (o GetPublicIpv4PoolResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Total number of addresses in the pool.
-func (o GetPublicIpv4PoolResultOutput) TotalAddressCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetPublicIpv4PoolResult) int { return v.TotalAddressCount }).(pulumi.IntOutput)
+func (o GetPublicIpv4PoolResultOutput) TotalAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolResult) *int { return v.TotalAddressCount }).(pulumi.IntPtrOutput)
 }
 
 // Total number of available addresses in the pool.
-func (o GetPublicIpv4PoolResultOutput) TotalAvailableAddressCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetPublicIpv4PoolResult) int { return v.TotalAvailableAddressCount }).(pulumi.IntOutput)
+func (o GetPublicIpv4PoolResultOutput) TotalAvailableAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolResult) *int { return v.TotalAvailableAddressCount }).(pulumi.IntPtrOutput)
 }
 
 func init() {

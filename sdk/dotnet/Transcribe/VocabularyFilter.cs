@@ -57,13 +57,13 @@ namespace Pulumi.Aws.Transcribe
         /// ARN of the VocabularyFilter.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Generated download URI.
         /// </summary>
         [Output("downloadUri")]
-        public Output<string> DownloadUri { get; private set; } = null!;
+        public Output<string?> DownloadUri { get; private set; } = null!;
 
         /// <summary>
         /// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.

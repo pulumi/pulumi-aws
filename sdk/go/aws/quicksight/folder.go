@@ -126,11 +126,11 @@ type Folder struct {
 	pulumi.CustomResourceState
 
 	// ARN of the folder.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// The time that the folder was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Identifier for the folder.
 	FolderId pulumi.StringOutput `pulumi:"folderId"`
 	// An array of ancestor ARN strings for the folder. Empty for root-level folders.
@@ -138,7 +138,7 @@ type Folder struct {
 	// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
 	FolderType pulumi.StringPtrOutput `pulumi:"folderType"`
 	// The time that the folder was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// Display name for the folder.
 	//
 	// The following arguments are optional:
@@ -384,18 +384,18 @@ func (o FolderOutput) ToFolderOutputWithContext(ctx context.Context) FolderOutpu
 }
 
 // ARN of the folder.
-func (o FolderOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FolderOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o FolderOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o FolderOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The time that the folder was created.
-func (o FolderOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o FolderOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Identifier for the folder.
@@ -414,8 +414,8 @@ func (o FolderOutput) FolderType() pulumi.StringPtrOutput {
 }
 
 // The time that the folder was last updated.
-func (o FolderOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o FolderOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Display name for the folder.

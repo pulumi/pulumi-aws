@@ -54,37 +54,37 @@ export interface GetConnectionResult {
     /**
      * ARN of the connection.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * ID of the second device in the connection.
      */
-    readonly connectedDeviceId: string;
+    readonly connectedDeviceId?: string;
     /**
      * ID of the link for the second device.
      */
-    readonly connectedLinkId: string;
+    readonly connectedLinkId?: string;
     readonly connectionId: string;
     /**
      * Description of the connection.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * ID of the first device in the connection.
      */
-    readonly deviceId: string;
+    readonly deviceId?: string;
     readonly globalNetworkId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ID of the link for the first device.
      */
-    readonly linkId: string;
+    readonly linkId?: string;
     /**
      * Key-value tags for the connection.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Retrieve information about a connection.

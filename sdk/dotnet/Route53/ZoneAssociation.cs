@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Route53
         /// The account ID of the account that created the hosted zone.
         /// </summary>
         [Output("owningAccount")]
-        public Output<string> OwningAccount { get; private set; } = null!;
+        public Output<string?> OwningAccount { get; private set; } = null!;
 
         /// <summary>
         /// The VPC to associate with the private hosted zone.
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Route53
         /// The VPC's region. Defaults to the region of the AWS provider.
         /// </summary>
         [Output("vpcRegion")]
-        public Output<string> VpcRegion { get; private set; } = null!;
+        public Output<string?> VpcRegion { get; private set; } = null!;
 
         /// <summary>
         /// The private hosted zone to associate.

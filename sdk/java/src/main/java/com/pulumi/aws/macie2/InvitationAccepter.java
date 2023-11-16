@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -99,14 +100,14 @@ public class InvitationAccepter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="invitationId", refs={String.class}, tree="[0]")
-    private Output<String> invitationId;
+    private Output</* @Nullable */ String> invitationId;
 
     /**
      * @return The unique identifier for the invitation.
      * 
      */
-    public Output<String> invitationId() {
-        return this.invitationId;
+    public Output<Optional<String>> invitationId() {
+        return Codegen.optional(this.invitationId);
     }
 
     /**

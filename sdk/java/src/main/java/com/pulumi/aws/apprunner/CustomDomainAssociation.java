@@ -69,28 +69,28 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="certificateValidationRecords", refs={List.class,CustomDomainAssociationCertificateValidationRecord.class}, tree="[0,1]")
-    private Output<List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords;
+    private Output</* @Nullable */ List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords;
 
     /**
      * @return A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      * 
      */
-    public Output<List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords() {
-        return this.certificateValidationRecords;
+    public Output<Optional<List<CustomDomainAssociationCertificateValidationRecord>>> certificateValidationRecords() {
+        return Codegen.optional(this.certificateValidationRecords);
     }
     /**
      * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      * 
      */
     @Export(name="dnsTarget", refs={String.class}, tree="[0]")
-    private Output<String> dnsTarget;
+    private Output</* @Nullable */ String> dnsTarget;
 
     /**
      * @return App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      * 
      */
-    public Output<String> dnsTarget() {
-        return this.dnsTarget;
+    public Output<Optional<String>> dnsTarget() {
+        return Codegen.optional(this.dnsTarget);
     }
     /**
      * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
@@ -139,14 +139,14 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

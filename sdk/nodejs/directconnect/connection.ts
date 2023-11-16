@@ -86,11 +86,11 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The ARN of the connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      */
-    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice!: pulumi.Output<string | undefined>;
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
      */
@@ -98,15 +98,15 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `noEncrypt`, `shouldEncrypt`, and `mustEncrypt`.
      */
-    public readonly encryptionMode!: pulumi.Output<string>;
+    public readonly encryptionMode!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
-    public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
+    public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string | undefined>;
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      */
-    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
+    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean | undefined>;
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
@@ -114,7 +114,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Boolean value indicating whether the connection supports MAC Security (MACsec).
      */
-    public /*out*/ readonly macsecCapable!: pulumi.Output<boolean>;
+    public /*out*/ readonly macsecCapable!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the connection.
      */
@@ -122,19 +122,19 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the connection.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string | undefined>;
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      */
-    public /*out*/ readonly partnerName!: pulumi.Output<string>;
+    public /*out*/ readonly partnerName!: pulumi.Output<string | undefined>;
     /**
      * The MAC Security (MACsec) port link status of the connection.
      */
-    public /*out*/ readonly portEncryptionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly portEncryptionStatus!: pulumi.Output<string | undefined>;
     /**
      * The name of the service provider associated with the connection.
      */
-    public readonly providerName!: pulumi.Output<string>;
+    public readonly providerName!: pulumi.Output<string | undefined>;
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      *
@@ -158,7 +158,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The VLAN ID.
      */
-    public /*out*/ readonly vlanId!: pulumi.Output<number>;
+    public /*out*/ readonly vlanId!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.

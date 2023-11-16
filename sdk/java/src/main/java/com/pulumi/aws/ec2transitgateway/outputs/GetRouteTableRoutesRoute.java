@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteTableRoutesRoute {
@@ -13,63 +15,63 @@ public final class GetRouteTableRoutesRoute {
      * @return The CIDR used for route destination matches.
      * 
      */
-    private String destinationCidrBlock;
+    private @Nullable String destinationCidrBlock;
     /**
      * @return The ID of the prefix list used for destination matches.
      * 
      */
-    private String prefixListId;
+    private @Nullable String prefixListId;
     /**
      * @return The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return The id of the transit gateway route table announcement, most of the time it is an empty string.
      * 
      */
-    private String transitGatewayRouteTableAnnouncementId;
+    private @Nullable String transitGatewayRouteTableAnnouncementId;
     /**
      * @return The type of the route, can be `propagated` or `static`.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetRouteTableRoutesRoute() {}
     /**
      * @return The CIDR used for route destination matches.
      * 
      */
-    public String destinationCidrBlock() {
-        return this.destinationCidrBlock;
+    public Optional<String> destinationCidrBlock() {
+        return Optional.ofNullable(this.destinationCidrBlock);
     }
     /**
      * @return The ID of the prefix list used for destination matches.
      * 
      */
-    public String prefixListId() {
-        return this.prefixListId;
+    public Optional<String> prefixListId() {
+        return Optional.ofNullable(this.prefixListId);
     }
     /**
      * @return The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return The id of the transit gateway route table announcement, most of the time it is an empty string.
      * 
      */
-    public String transitGatewayRouteTableAnnouncementId() {
-        return this.transitGatewayRouteTableAnnouncementId;
+    public Optional<String> transitGatewayRouteTableAnnouncementId() {
+        return Optional.ofNullable(this.transitGatewayRouteTableAnnouncementId);
     }
     /**
      * @return The type of the route, can be `propagated` or `static`.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -81,11 +83,11 @@ public final class GetRouteTableRoutesRoute {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String destinationCidrBlock;
-        private String prefixListId;
-        private String state;
-        private String transitGatewayRouteTableAnnouncementId;
-        private String type;
+        private @Nullable String destinationCidrBlock;
+        private @Nullable String prefixListId;
+        private @Nullable String state;
+        private @Nullable String transitGatewayRouteTableAnnouncementId;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetRouteTableRoutesRoute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,28 +99,28 @@ public final class GetRouteTableRoutesRoute {
         }
 
         @CustomType.Setter
-        public Builder destinationCidrBlock(String destinationCidrBlock) {
-            this.destinationCidrBlock = Objects.requireNonNull(destinationCidrBlock);
+        public Builder destinationCidrBlock(@Nullable String destinationCidrBlock) {
+            this.destinationCidrBlock = destinationCidrBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+        public Builder prefixListId(@Nullable String prefixListId) {
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayRouteTableAnnouncementId(String transitGatewayRouteTableAnnouncementId) {
-            this.transitGatewayRouteTableAnnouncementId = Objects.requireNonNull(transitGatewayRouteTableAnnouncementId);
+        public Builder transitGatewayRouteTableAnnouncementId(@Nullable String transitGatewayRouteTableAnnouncementId) {
+            this.transitGatewayRouteTableAnnouncementId = transitGatewayRouteTableAnnouncementId;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetRouteTableRoutesRoute build() {

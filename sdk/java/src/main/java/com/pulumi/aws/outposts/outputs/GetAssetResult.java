@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAssetResult {
@@ -16,27 +18,27 @@ public final class GetAssetResult {
      * @return Type of the asset.
      * 
      */
-    private String assetType;
+    private @Nullable String assetType;
     /**
      * @return Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
      * 
      */
-    private String hostId;
+    private @Nullable String hostId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Position of an asset in a rack measured in rack units.
      * 
      */
-    private Integer rackElevation;
+    private @Nullable Integer rackElevation;
     /**
      * @return Rack ID of the asset.
      * 
      */
-    private String rackId;
+    private @Nullable String rackId;
 
     private GetAssetResult() {}
     public String arn() {
@@ -49,36 +51,36 @@ public final class GetAssetResult {
      * @return Type of the asset.
      * 
      */
-    public String assetType() {
-        return this.assetType;
+    public Optional<String> assetType() {
+        return Optional.ofNullable(this.assetType);
     }
     /**
      * @return Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
      * 
      */
-    public String hostId() {
-        return this.hostId;
+    public Optional<String> hostId() {
+        return Optional.ofNullable(this.hostId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Position of an asset in a rack measured in rack units.
      * 
      */
-    public Integer rackElevation() {
-        return this.rackElevation;
+    public Optional<Integer> rackElevation() {
+        return Optional.ofNullable(this.rackElevation);
     }
     /**
      * @return Rack ID of the asset.
      * 
      */
-    public String rackId() {
-        return this.rackId;
+    public Optional<String> rackId() {
+        return Optional.ofNullable(this.rackId);
     }
 
     public static Builder builder() {
@@ -92,11 +94,11 @@ public final class GetAssetResult {
     public static final class Builder {
         private String arn;
         private String assetId;
-        private String assetType;
-        private String hostId;
-        private String id;
-        private Integer rackElevation;
-        private String rackId;
+        private @Nullable String assetType;
+        private @Nullable String hostId;
+        private @Nullable String id;
+        private @Nullable Integer rackElevation;
+        private @Nullable String rackId;
         public Builder() {}
         public Builder(GetAssetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -120,28 +122,28 @@ public final class GetAssetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder assetType(String assetType) {
-            this.assetType = Objects.requireNonNull(assetType);
+        public Builder assetType(@Nullable String assetType) {
+            this.assetType = assetType;
             return this;
         }
         @CustomType.Setter
-        public Builder hostId(String hostId) {
-            this.hostId = Objects.requireNonNull(hostId);
+        public Builder hostId(@Nullable String hostId) {
+            this.hostId = hostId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder rackElevation(Integer rackElevation) {
-            this.rackElevation = Objects.requireNonNull(rackElevation);
+        public Builder rackElevation(@Nullable Integer rackElevation) {
+            this.rackElevation = rackElevation;
             return this;
         }
         @CustomType.Setter
-        public Builder rackId(String rackId) {
-            this.rackId = Objects.requireNonNull(rackId);
+        public Builder rackId(@Nullable String rackId) {
+            this.rackId = rackId;
             return this;
         }
         public GetAssetResult build() {

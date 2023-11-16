@@ -189,51 +189,51 @@ type Environment struct {
 	// The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
 	AirflowConfigurationOptions pulumi.StringMapOutput `pulumi:"airflowConfigurationOptions"`
 	// Airflow version of your environment, will be set by default to the latest version that MWAA supports.
-	AirflowVersion pulumi.StringOutput `pulumi:"airflowVersion"`
+	AirflowVersion pulumi.StringPtrOutput `pulumi:"airflowVersion"`
 	// The ARN of the MWAA Environment
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Created At date of the MWAA Environment
 	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	DagS3Path pulumi.StringOutput `pulumi:"dagS3Path"`
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
-	EnvironmentClass pulumi.StringOutput `pulumi:"environmentClass"`
+	EnvironmentClass pulumi.StringPtrOutput `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey       pulumi.StringPtrOutput            `pulumi:"kmsKey"`
 	LastUpdateds EnvironmentLastUpdatedArrayOutput `pulumi:"lastUpdateds"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
-	LoggingConfiguration EnvironmentLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
+	LoggingConfiguration EnvironmentLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers pulumi.IntOutput `pulumi:"maxWorkers"`
+	MaxWorkers pulumi.IntPtrOutput `pulumi:"maxWorkers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
-	MinWorkers pulumi.IntOutput `pulumi:"minWorkers"`
+	MinWorkers pulumi.IntPtrOutput `pulumi:"minWorkers"`
 	// The name of the Apache Airflow Environment
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
 	NetworkConfiguration EnvironmentNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// The plugins.zip file version you want to use.
-	PluginsS3ObjectVersion pulumi.StringOutput `pulumi:"pluginsS3ObjectVersion"`
+	PluginsS3ObjectVersion pulumi.StringPtrOutput `pulumi:"pluginsS3ObjectVersion"`
 	// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	PluginsS3Path pulumi.StringPtrOutput `pulumi:"pluginsS3Path"`
 	// The requirements.txt file version you want to use.
-	RequirementsS3ObjectVersion pulumi.StringOutput `pulumi:"requirementsS3ObjectVersion"`
+	RequirementsS3ObjectVersion pulumi.StringPtrOutput `pulumi:"requirementsS3ObjectVersion"`
 	// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	RequirementsS3Path pulumi.StringPtrOutput `pulumi:"requirementsS3Path"`
 	// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
-	Schedulers pulumi.IntOutput `pulumi:"schedulers"`
+	Schedulers pulumi.IntPtrOutput `pulumi:"schedulers"`
 	// The Service Role ARN of the Amazon MWAA Environment
-	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
+	ServiceRoleArn pulumi.StringPtrOutput `pulumi:"serviceRoleArn"`
 	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
 	SourceBucketArn pulumi.StringOutput `pulumi:"sourceBucketArn"`
 	// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
-	StartupScriptS3ObjectVersion pulumi.StringOutput `pulumi:"startupScriptS3ObjectVersion"`
+	StartupScriptS3ObjectVersion pulumi.StringPtrOutput `pulumi:"startupScriptS3ObjectVersion"`
 	// The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
 	StartupScriptS3Path pulumi.StringPtrOutput `pulumi:"startupScriptS3Path"`
 	// The status of the Amazon MWAA Environment
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -241,11 +241,11 @@ type Environment struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
-	WebserverAccessMode pulumi.StringOutput `pulumi:"webserverAccessMode"`
+	WebserverAccessMode pulumi.StringPtrOutput `pulumi:"webserverAccessMode"`
 	// The webserver URL of the MWAA Environment
-	WebserverUrl pulumi.StringOutput `pulumi:"webserverUrl"`
+	WebserverUrl pulumi.StringPtrOutput `pulumi:"webserverUrl"`
 	// Specifies the start date for the weekly maintenance window.
-	WeeklyMaintenanceWindowStart pulumi.StringOutput `pulumi:"weeklyMaintenanceWindowStart"`
+	WeeklyMaintenanceWindowStart pulumi.StringPtrOutput `pulumi:"weeklyMaintenanceWindowStart"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -615,19 +615,19 @@ func (o EnvironmentOutput) AirflowConfigurationOptions() pulumi.StringMapOutput 
 }
 
 // Airflow version of your environment, will be set by default to the latest version that MWAA supports.
-func (o EnvironmentOutput) AirflowVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.AirflowVersion }).(pulumi.StringOutput)
+func (o EnvironmentOutput) AirflowVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.AirflowVersion }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the MWAA Environment
-func (o EnvironmentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EnvironmentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Created At date of the MWAA Environment
 // * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
-func (o EnvironmentOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o EnvironmentOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -636,8 +636,8 @@ func (o EnvironmentOutput) DagS3Path() pulumi.StringOutput {
 }
 
 // Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
-func (o EnvironmentOutput) EnvironmentClass() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentClass }).(pulumi.StringOutput)
+func (o EnvironmentOutput) EnvironmentClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentClass }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -655,18 +655,18 @@ func (o EnvironmentOutput) LastUpdateds() EnvironmentLastUpdatedArrayOutput {
 }
 
 // The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
-func (o EnvironmentOutput) LoggingConfiguration() EnvironmentLoggingConfigurationOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentLoggingConfigurationOutput { return v.LoggingConfiguration }).(EnvironmentLoggingConfigurationOutput)
+func (o EnvironmentOutput) LoggingConfiguration() EnvironmentLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
 // The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-func (o EnvironmentOutput) MaxWorkers() pulumi.IntOutput {
-	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MaxWorkers }).(pulumi.IntOutput)
+func (o EnvironmentOutput) MaxWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.MaxWorkers }).(pulumi.IntPtrOutput)
 }
 
 // The minimum number of workers that you want to run in your environment. Will be `1` by default.
-func (o EnvironmentOutput) MinWorkers() pulumi.IntOutput {
-	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MinWorkers }).(pulumi.IntOutput)
+func (o EnvironmentOutput) MinWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.MinWorkers }).(pulumi.IntPtrOutput)
 }
 
 // The name of the Apache Airflow Environment
@@ -680,8 +680,8 @@ func (o EnvironmentOutput) NetworkConfiguration() EnvironmentNetworkConfiguratio
 }
 
 // The plugins.zip file version you want to use.
-func (o EnvironmentOutput) PluginsS3ObjectVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.PluginsS3ObjectVersion }).(pulumi.StringOutput)
+func (o EnvironmentOutput) PluginsS3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.PluginsS3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
 // The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -690,8 +690,8 @@ func (o EnvironmentOutput) PluginsS3Path() pulumi.StringPtrOutput {
 }
 
 // The requirements.txt file version you want to use.
-func (o EnvironmentOutput) RequirementsS3ObjectVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.RequirementsS3ObjectVersion }).(pulumi.StringOutput)
+func (o EnvironmentOutput) RequirementsS3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.RequirementsS3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
 // The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -700,13 +700,13 @@ func (o EnvironmentOutput) RequirementsS3Path() pulumi.StringPtrOutput {
 }
 
 // The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
-func (o EnvironmentOutput) Schedulers() pulumi.IntOutput {
-	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.Schedulers }).(pulumi.IntOutput)
+func (o EnvironmentOutput) Schedulers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.Schedulers }).(pulumi.IntPtrOutput)
 }
 
 // The Service Role ARN of the Amazon MWAA Environment
-func (o EnvironmentOutput) ServiceRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
+func (o EnvironmentOutput) ServiceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
@@ -715,8 +715,8 @@ func (o EnvironmentOutput) SourceBucketArn() pulumi.StringOutput {
 }
 
 // The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
-func (o EnvironmentOutput) StartupScriptS3ObjectVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.StartupScriptS3ObjectVersion }).(pulumi.StringOutput)
+func (o EnvironmentOutput) StartupScriptS3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.StartupScriptS3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
 // The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
@@ -725,8 +725,8 @@ func (o EnvironmentOutput) StartupScriptS3Path() pulumi.StringPtrOutput {
 }
 
 // The status of the Amazon MWAA Environment
-func (o EnvironmentOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o EnvironmentOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -742,18 +742,18 @@ func (o EnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
-func (o EnvironmentOutput) WebserverAccessMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.WebserverAccessMode }).(pulumi.StringOutput)
+func (o EnvironmentOutput) WebserverAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.WebserverAccessMode }).(pulumi.StringPtrOutput)
 }
 
 // The webserver URL of the MWAA Environment
-func (o EnvironmentOutput) WebserverUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.WebserverUrl }).(pulumi.StringOutput)
+func (o EnvironmentOutput) WebserverUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.WebserverUrl }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the start date for the weekly maintenance window.
-func (o EnvironmentOutput) WeeklyMaintenanceWindowStart() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.WeeklyMaintenanceWindowStart }).(pulumi.StringOutput)
+func (o EnvironmentOutput) WeeklyMaintenanceWindowStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.WeeklyMaintenanceWindowStart }).(pulumi.StringPtrOutput)
 }
 
 type EnvironmentArrayOutput struct{ *pulumi.OutputState }

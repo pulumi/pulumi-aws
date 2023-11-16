@@ -73,7 +73,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter
-    def certificate(self) -> str:
+    def certificate(self) -> Optional[str]:
         """
         Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
         """
@@ -81,7 +81,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         """
         Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         """
@@ -89,7 +89,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter(name="certificateSigningRequest")
-    def certificate_signing_request(self) -> str:
+    def certificate_signing_request(self) -> Optional[str]:
         """
         The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         """
@@ -97,7 +97,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -105,12 +105,12 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter(name="keyStorageSecurityStandard")
-    def key_storage_security_standard(self) -> str:
+    def key_storage_security_standard(self) -> Optional[str]:
         return pulumi.get(self, "key_storage_security_standard")
 
     @property
     @pulumi.getter(name="notAfter")
-    def not_after(self) -> str:
+    def not_after(self) -> Optional[str]:
         """
         Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         """
@@ -118,7 +118,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> str:
+    def not_before(self) -> Optional[str]:
         """
         Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         """
@@ -126,7 +126,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter(name="revocationConfigurations")
-    def revocation_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationResult']:
+    def revocation_configurations(self) -> Optional[Sequence['outputs.GetCertificateAuthorityRevocationConfigurationResult']]:
         """
         Nested attribute containing revocation configuration.
         * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -142,7 +142,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter
-    def serial(self) -> str:
+    def serial(self) -> Optional[str]:
         """
         Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         """
@@ -150,7 +150,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the certificate authority.
         """
@@ -158,7 +158,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of user-defined tags that are attached to the certificate authority.
         """
@@ -166,7 +166,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of the certificate authority.
         """
@@ -174,7 +174,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter(name="usageMode")
-    def usage_mode(self) -> str:
+    def usage_mode(self) -> Optional[str]:
         """
         Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
         """

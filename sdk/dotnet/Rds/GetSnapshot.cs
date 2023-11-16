@@ -252,131 +252,131 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Allocated storage size in gigabytes (GB).
         /// </summary>
-        public readonly int AllocatedStorage;
+        public readonly int? AllocatedStorage;
         /// <summary>
         /// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         public readonly string? DbInstanceIdentifier;
         /// <summary>
         /// ARN for the DB snapshot.
         /// </summary>
-        public readonly string DbSnapshotArn;
+        public readonly string? DbSnapshotArn;
         public readonly string? DbSnapshotIdentifier;
         /// <summary>
         /// Whether the DB snapshot is encrypted.
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly bool? Encrypted;
         /// <summary>
         /// Name of the database engine.
         /// </summary>
-        public readonly string Engine;
+        public readonly string? Engine;
         /// <summary>
         /// Version of the database engine.
         /// </summary>
-        public readonly string EngineVersion;
+        public readonly string? EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? IncludePublic;
         public readonly bool? IncludeShared;
         /// <summary>
         /// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         /// </summary>
-        public readonly int Iops;
+        public readonly int? Iops;
         /// <summary>
         /// ARN for the KMS encryption key.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// License model information for the restored DB instance.
         /// </summary>
-        public readonly string LicenseModel;
+        public readonly string? LicenseModel;
         public readonly bool? MostRecent;
         /// <summary>
         /// Provides the option group name for the DB snapshot.
         /// </summary>
-        public readonly string OptionGroupName;
-        public readonly int Port;
+        public readonly string? OptionGroupName;
+        public readonly int? Port;
         /// <summary>
         /// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
         /// </summary>
-        public readonly string SnapshotCreateTime;
+        public readonly string? SnapshotCreateTime;
         public readonly string? SnapshotType;
         /// <summary>
         /// DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         /// </summary>
-        public readonly string SourceDbSnapshotIdentifier;
+        public readonly string? SourceDbSnapshotIdentifier;
         /// <summary>
         /// Region that the DB snapshot was created in or copied from.
         /// </summary>
-        public readonly string SourceRegion;
+        public readonly string? SourceRegion;
         /// <summary>
         /// Status of this DB snapshot.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Storage type associated with DB snapshot.
         /// </summary>
-        public readonly string StorageType;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? StorageType;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// ID of the VPC associated with the DB snapshot.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetSnapshotResult(
-            int allocatedStorage,
+            int? allocatedStorage,
 
-            string availabilityZone,
+            string? availabilityZone,
 
             string? dbInstanceIdentifier,
 
-            string dbSnapshotArn,
+            string? dbSnapshotArn,
 
             string? dbSnapshotIdentifier,
 
-            bool encrypted,
+            bool? encrypted,
 
-            string engine,
+            string? engine,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string id,
+            string? id,
 
             bool? includePublic,
 
             bool? includeShared,
 
-            int iops,
+            int? iops,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string licenseModel,
+            string? licenseModel,
 
             bool? mostRecent,
 
-            string optionGroupName,
+            string? optionGroupName,
 
-            int port,
+            int? port,
 
-            string snapshotCreateTime,
+            string? snapshotCreateTime,
 
             string? snapshotType,
 
-            string sourceDbSnapshotIdentifier,
+            string? sourceDbSnapshotIdentifier,
 
-            string sourceRegion,
+            string? sourceRegion,
 
-            string status,
+            string? status,
 
-            string storageType,
+            string? storageType,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             AllocatedStorage = allocatedStorage;
             AvailabilityZone = availabilityZone;

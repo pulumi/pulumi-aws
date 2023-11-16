@@ -169,11 +169,11 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * The alternate domain names of the distribution.
      */
-    public /*out*/ readonly alternativeDomainNames!: pulumi.Output<string[]>;
+    public /*out*/ readonly alternativeDomainNames!: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the distribution.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Bundle ID to use for the distribution.
      */
@@ -195,7 +195,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * The timestamp when the distribution was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * Object that describes the default cache behavior of the distribution. Detailed below
      */
@@ -203,7 +203,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * The domain name of the distribution.
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    public /*out*/ readonly domainName!: pulumi.Output<string | undefined>;
     /**
      * The IP address type of the distribution. Default: `dualstack`.
      */
@@ -215,7 +215,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
      */
-    public /*out*/ readonly locations!: pulumi.Output<outputs.lightsail.DistributionLocation[]>;
+    public /*out*/ readonly locations!: pulumi.Output<outputs.lightsail.DistributionLocation[] | undefined>;
     /**
      * Name of the distribution.
      */
@@ -227,19 +227,19 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * The public DNS of the origin.
      */
-    public /*out*/ readonly originPublicDns!: pulumi.Output<string>;
+    public /*out*/ readonly originPublicDns!: pulumi.Output<string | undefined>;
     /**
      * The resource type of the origin resource (e.g., Instance).
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * The status of the distribution.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string | undefined>;
     /**
      * Map of tags for the Lightsail Distribution. If
      * configured with a provider

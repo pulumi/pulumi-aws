@@ -7,37 +7,39 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResolverFirewallDomainListResult {
-    private String arn;
-    private String creationTime;
-    private String creatorRequestId;
-    private Integer domainCount;
+    private @Nullable String arn;
+    private @Nullable String creationTime;
+    private @Nullable String creatorRequestId;
+    private @Nullable Integer domainCount;
     private String firewallDomainListId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String managedOwnerName;
-    private String modificationTime;
-    private String name;
-    private String status;
-    private String statusMessage;
+    private @Nullable String id;
+    private @Nullable String managedOwnerName;
+    private @Nullable String modificationTime;
+    private @Nullable String name;
+    private @Nullable String status;
+    private @Nullable String statusMessage;
 
     private GetResolverFirewallDomainListResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String creationTime() {
-        return this.creationTime;
+    public Optional<String> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
-    public String creatorRequestId() {
-        return this.creatorRequestId;
+    public Optional<String> creatorRequestId() {
+        return Optional.ofNullable(this.creatorRequestId);
     }
-    public Integer domainCount() {
-        return this.domainCount;
+    public Optional<Integer> domainCount() {
+        return Optional.ofNullable(this.domainCount);
     }
     public String firewallDomainListId() {
         return this.firewallDomainListId;
@@ -46,23 +48,23 @@ public final class GetResolverFirewallDomainListResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String managedOwnerName() {
-        return this.managedOwnerName;
+    public Optional<String> managedOwnerName() {
+        return Optional.ofNullable(this.managedOwnerName);
     }
-    public String modificationTime() {
-        return this.modificationTime;
+    public Optional<String> modificationTime() {
+        return Optional.ofNullable(this.modificationTime);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
-    public String statusMessage() {
-        return this.statusMessage;
+    public Optional<String> statusMessage() {
+        return Optional.ofNullable(this.statusMessage);
     }
 
     public static Builder builder() {
@@ -74,17 +76,17 @@ public final class GetResolverFirewallDomainListResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String creationTime;
-        private String creatorRequestId;
-        private Integer domainCount;
+        private @Nullable String arn;
+        private @Nullable String creationTime;
+        private @Nullable String creatorRequestId;
+        private @Nullable Integer domainCount;
         private String firewallDomainListId;
-        private String id;
-        private String managedOwnerName;
-        private String modificationTime;
-        private String name;
-        private String status;
-        private String statusMessage;
+        private @Nullable String id;
+        private @Nullable String managedOwnerName;
+        private @Nullable String modificationTime;
+        private @Nullable String name;
+        private @Nullable String status;
+        private @Nullable String statusMessage;
         public Builder() {}
         public Builder(GetResolverFirewallDomainListResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -102,23 +104,23 @@ public final class GetResolverFirewallDomainListResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable String creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder creatorRequestId(String creatorRequestId) {
-            this.creatorRequestId = Objects.requireNonNull(creatorRequestId);
+        public Builder creatorRequestId(@Nullable String creatorRequestId) {
+            this.creatorRequestId = creatorRequestId;
             return this;
         }
         @CustomType.Setter
-        public Builder domainCount(Integer domainCount) {
-            this.domainCount = Objects.requireNonNull(domainCount);
+        public Builder domainCount(@Nullable Integer domainCount) {
+            this.domainCount = domainCount;
             return this;
         }
         @CustomType.Setter
@@ -127,33 +129,33 @@ public final class GetResolverFirewallDomainListResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder managedOwnerName(String managedOwnerName) {
-            this.managedOwnerName = Objects.requireNonNull(managedOwnerName);
+        public Builder managedOwnerName(@Nullable String managedOwnerName) {
+            this.managedOwnerName = managedOwnerName;
             return this;
         }
         @CustomType.Setter
-        public Builder modificationTime(String modificationTime) {
-            this.modificationTime = Objects.requireNonNull(modificationTime);
+        public Builder modificationTime(@Nullable String modificationTime) {
+            this.modificationTime = modificationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+        public Builder statusMessage(@Nullable String statusMessage) {
+            this.statusMessage = statusMessage;
             return this;
         }
         public GetResolverFirewallDomainListResult build() {

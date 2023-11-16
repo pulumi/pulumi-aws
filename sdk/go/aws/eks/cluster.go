@@ -220,36 +220,36 @@ type Cluster struct {
 	pulumi.CustomResourceState
 
 	// ARN of the cluster.
-	Arn                    pulumi.StringOutput                    `pulumi:"arn"`
+	Arn                    pulumi.StringPtrOutput                 `pulumi:"arn"`
 	CertificateAuthorities ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
+	CertificateAuthority ClusterCertificateAuthorityPtrOutput `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
-	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
+	ClusterId pulumi.StringPtrOutput `pulumi:"clusterId"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
-	CreatedAt              pulumi.StringOutput      `pulumi:"createdAt"`
+	CreatedAt              pulumi.StringPtrOutput   `pulumi:"createdAt"`
 	DefaultAddonsToRemoves pulumi.StringArrayOutput `pulumi:"defaultAddonsToRemoves"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayOutput `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
 	EncryptionConfig ClusterEncryptionConfigPtrOutput `pulumi:"encryptionConfig"`
 	// Endpoint for your Kubernetes API server.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
 	// * `kubernetes_network_config.service_ipv6_cidr` - The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 	Identities ClusterIdentityArrayOutput `pulumi:"identities"`
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
-	KubernetesNetworkConfig ClusterKubernetesNetworkConfigOutput `pulumi:"kubernetesNetworkConfig"`
+	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrOutput `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig ClusterOutpostConfigPtrOutput `pulumi:"outpostConfig"`
 	// Platform version for the cluster.
-	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
+	PlatformVersion pulumi.StringPtrOutput `pulumi:"platformVersion"`
 	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -257,7 +257,7 @@ type Cluster struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 	// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
 	//
 	// The following arguments are optional:
@@ -536,8 +536,8 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 }
 
 // ARN of the cluster.
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterOutput) CertificateAuthorities() ClusterCertificateAuthorityArrayOutput {
@@ -545,18 +545,18 @@ func (o ClusterOutput) CertificateAuthorities() ClusterCertificateAuthorityArray
 }
 
 // Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-func (o ClusterOutput) CertificateAuthority() ClusterCertificateAuthorityOutput {
-	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityOutput { return v.CertificateAuthority }).(ClusterCertificateAuthorityOutput)
+func (o ClusterOutput) CertificateAuthority() ClusterCertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityPtrOutput { return v.CertificateAuthority }).(ClusterCertificateAuthorityPtrOutput)
 }
 
 // The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
-func (o ClusterOutput) ClusterId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterId }).(pulumi.StringPtrOutput)
 }
 
 // Unix epoch timestamp in seconds for when the cluster was created.
-func (o ClusterOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o ClusterOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterOutput) DefaultAddonsToRemoves() pulumi.StringArrayOutput {
@@ -574,8 +574,8 @@ func (o ClusterOutput) EncryptionConfig() ClusterEncryptionConfigPtrOutput {
 }
 
 // Endpoint for your Kubernetes API server.
-func (o ClusterOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ClusterOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
@@ -585,8 +585,8 @@ func (o ClusterOutput) Identities() ClusterIdentityArrayOutput {
 }
 
 // Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
-func (o ClusterOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigOutput {
-	return o.ApplyT(func(v *Cluster) ClusterKubernetesNetworkConfigOutput { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigOutput)
+func (o ClusterOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterKubernetesNetworkConfigPtrOutput { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
 // Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -600,8 +600,8 @@ func (o ClusterOutput) OutpostConfig() ClusterOutpostConfigPtrOutput {
 }
 
 // Platform version for the cluster.
-func (o ClusterOutput) PlatformVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PlatformVersion }).(pulumi.StringOutput)
+func (o ClusterOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -610,8 +610,8 @@ func (o ClusterOutput) RoleArn() pulumi.StringOutput {
 }
 
 // Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
-func (o ClusterOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ClusterOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -627,8 +627,8 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
-func (o ClusterOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o ClusterOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.

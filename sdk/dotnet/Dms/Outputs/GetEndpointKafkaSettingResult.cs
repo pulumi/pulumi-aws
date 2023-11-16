@@ -13,62 +13,62 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class GetEndpointKafkaSettingResult
     {
-        public readonly string Broker;
-        public readonly bool IncludeControlDetails;
-        public readonly bool IncludeNullAndEmpty;
-        public readonly bool IncludePartitionValue;
-        public readonly bool IncludeTableAlterOperations;
-        public readonly bool IncludeTransactionDetails;
-        public readonly string MessageFormat;
-        public readonly int MessageMaxBytes;
-        public readonly bool NoHexPrefix;
-        public readonly bool PartitionIncludeSchemaTable;
-        public readonly string SaslPassword;
-        public readonly string SaslUsername;
-        public readonly string SecurityProtocol;
-        public readonly string SslCaCertificateArn;
-        public readonly string SslClientCertificateArn;
-        public readonly string SslClientKeyArn;
-        public readonly string SslClientKeyPassword;
-        public readonly string Topic;
+        public readonly string? Broker;
+        public readonly bool? IncludeControlDetails;
+        public readonly bool? IncludeNullAndEmpty;
+        public readonly bool? IncludePartitionValue;
+        public readonly bool? IncludeTableAlterOperations;
+        public readonly bool? IncludeTransactionDetails;
+        public readonly string? MessageFormat;
+        public readonly int? MessageMaxBytes;
+        public readonly bool? NoHexPrefix;
+        public readonly bool? PartitionIncludeSchemaTable;
+        public readonly string? SaslPassword;
+        public readonly string? SaslUsername;
+        public readonly string? SecurityProtocol;
+        public readonly string? SslCaCertificateArn;
+        public readonly string? SslClientCertificateArn;
+        public readonly string? SslClientKeyArn;
+        public readonly string? SslClientKeyPassword;
+        public readonly string? Topic;
 
         [OutputConstructor]
         private GetEndpointKafkaSettingResult(
-            string broker,
+            string? broker,
 
-            bool includeControlDetails,
+            bool? includeControlDetails,
 
-            bool includeNullAndEmpty,
+            bool? includeNullAndEmpty,
 
-            bool includePartitionValue,
+            bool? includePartitionValue,
 
-            bool includeTableAlterOperations,
+            bool? includeTableAlterOperations,
 
-            bool includeTransactionDetails,
+            bool? includeTransactionDetails,
 
-            string messageFormat,
+            string? messageFormat,
 
-            int messageMaxBytes,
+            int? messageMaxBytes,
 
-            bool noHexPrefix,
+            bool? noHexPrefix,
 
-            bool partitionIncludeSchemaTable,
+            bool? partitionIncludeSchemaTable,
 
-            string saslPassword,
+            string? saslPassword,
 
-            string saslUsername,
+            string? saslUsername,
 
-            string securityProtocol,
+            string? securityProtocol,
 
-            string sslCaCertificateArn,
+            string? sslCaCertificateArn,
 
-            string sslClientCertificateArn,
+            string? sslClientCertificateArn,
 
-            string sslClientKeyArn,
+            string? sslClientKeyArn,
 
-            string sslClientKeyPassword,
+            string? sslClientKeyPassword,
 
-            string topic)
+            string? topic)
         {
             Broker = broker;
             IncludeControlDetails = includeControlDetails;

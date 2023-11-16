@@ -505,7 +505,7 @@ class LocationFsxWindows(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -513,7 +513,7 @@ class LocationFsxWindows(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the FSx for Windows location was created.
         """
@@ -553,7 +553,7 @@ class LocationFsxWindows(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> pulumi.Output[str]:
+    def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
         Subdirectory to perform actions as source or destination.
         """
@@ -580,7 +580,7 @@ class LocationFsxWindows(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> pulumi.Output[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URL of the FSx for Windows location that was described.
         """

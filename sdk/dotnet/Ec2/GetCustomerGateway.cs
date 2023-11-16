@@ -204,53 +204,53 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the customer gateway.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
-        public readonly int BgpAsn;
+        public readonly int? BgpAsn;
         /// <summary>
         /// ARN for the customer gateway certificate.
         /// </summary>
-        public readonly string CertificateArn;
+        public readonly string? CertificateArn;
         /// <summary>
         /// Name for the customer gateway device.
         /// </summary>
-        public readonly string DeviceName;
+        public readonly string? DeviceName;
         public readonly ImmutableArray<Outputs.GetCustomerGatewayFilterResult> Filters;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// IP address of the gateway's Internet-routable external interface.
         /// </summary>
-        public readonly string IpAddress;
+        public readonly string? IpAddress;
         /// <summary>
         /// Map of key-value pairs assigned to the gateway.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetCustomerGatewayResult(
-            string arn,
+            string? arn,
 
-            int bgpAsn,
+            int? bgpAsn,
 
-            string certificateArn,
+            string? certificateArn,
 
-            string deviceName,
+            string? deviceName,
 
             ImmutableArray<Outputs.GetCustomerGatewayFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string ipAddress,
+            string? ipAddress,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? type)
         {
             Arn = arn;
             BgpAsn = bgpAsn;

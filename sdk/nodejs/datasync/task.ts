@@ -86,7 +86,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Task.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */

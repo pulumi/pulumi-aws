@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? LaunchType;
         public readonly Outputs.GetTaskExecutionNetworkConfigurationResult? NetworkConfiguration;
         public readonly Outputs.GetTaskExecutionOverridesResult? Overrides;
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.Ecs
 
             string? group,
 
-            string id,
+            string? id,
 
             string? launchType,
 

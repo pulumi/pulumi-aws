@@ -74,43 +74,43 @@ export class ImageBuilder extends pulumi.CustomResource {
     /**
      * Version of the AppStream 2.0 agent to use for this image builder.
      */
-    public readonly appstreamAgentVersion!: pulumi.Output<string>;
+    public readonly appstreamAgentVersion!: pulumi.Output<string | undefined>;
     /**
      * ARN of the appstream image builder.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Description to display.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Human-readable friendly name for the AppStream image builder.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      */
-    public readonly domainJoinInfo!: pulumi.Output<outputs.appstream.ImageBuilderDomainJoinInfo>;
+    public readonly domainJoinInfo!: pulumi.Output<outputs.appstream.ImageBuilderDomainJoinInfo | undefined>;
     /**
      * Enables or disables default internet access for the image builder.
      */
-    public readonly enableDefaultInternetAccess!: pulumi.Output<boolean>;
+    public readonly enableDefaultInternetAccess!: pulumi.Output<boolean | undefined>;
     /**
      * ARN of the IAM role to apply to the image builder.
      */
-    public readonly iamRoleArn!: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the public, private, or shared image to use.
      */
-    public readonly imageArn!: pulumi.Output<string>;
+    public readonly imageArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the image used to create the image builder.
      */
-    public readonly imageName!: pulumi.Output<string>;
+    public readonly imageName!: pulumi.Output<string | undefined>;
     /**
      * Instance type to use when launching the image builder.
      */
@@ -124,7 +124,7 @@ export class ImageBuilder extends pulumi.CustomResource {
     /**
      * State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -138,7 +138,7 @@ export class ImageBuilder extends pulumi.CustomResource {
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig>;
+    public readonly vpcConfig!: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig | undefined>;
 
     /**
      * Create a ImageBuilder resource with the given unique name, arguments, and options.

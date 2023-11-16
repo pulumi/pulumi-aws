@@ -80,11 +80,11 @@ export class UploadBuffer extends pulumi.CustomResource {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    public readonly diskId!: pulumi.Output<string>;
+    public readonly diskId!: pulumi.Output<string | undefined>;
     /**
      * Local disk path. For example, `/dev/nvme1n1`.
      */
-    public readonly diskPath!: pulumi.Output<string>;
+    public readonly diskPath!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */

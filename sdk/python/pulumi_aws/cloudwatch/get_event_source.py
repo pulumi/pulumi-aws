@@ -43,7 +43,7 @@ class GetEventSourceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the partner event source
         """
@@ -51,7 +51,7 @@ class GetEventSourceResult:
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> str:
+    def created_by(self) -> Optional[str]:
         """
         Name of the SaaS partner that created the event source
         """
@@ -59,7 +59,7 @@ class GetEventSourceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -67,7 +67,7 @@ class GetEventSourceResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the event source
         """
@@ -80,7 +80,7 @@ class GetEventSourceResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         State of the event source (`ACTIVE` or `PENDING`)
         """

@@ -63,29 +63,29 @@ type OntapFileSystem struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name of the file system.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
 	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
+	DailyAutomaticBackupStartTime pulumi.StringPtrOutput `pulumi:"dailyAutomaticBackupStartTime"`
 	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringOutput `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
-	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
+	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationPtrOutput `pulumi:"diskIopsConfiguration"`
 	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
 	// Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-	EndpointIpAddressRange pulumi.StringOutput `pulumi:"endpointIpAddressRange"`
+	EndpointIpAddressRange pulumi.StringPtrOutput `pulumi:"endpointIpAddressRange"`
 	// The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
 	Endpoints OntapFileSystemEndpointArrayOutput `pulumi:"endpoints"`
 	// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
 	FsxAdminPassword pulumi.StringPtrOutput `pulumi:"fsxAdminPassword"`
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
 	PreferredSubnetId pulumi.StringOutput `pulumi:"preferredSubnetId"`
 	// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
@@ -107,9 +107,9 @@ type OntapFileSystem struct {
 	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
 	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
 	// Identifier of the Virtual Private Cloud for the file system.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime pulumi.StringOutput `pulumi:"weeklyMaintenanceStartTime"`
+	WeeklyMaintenanceStartTime pulumi.StringPtrOutput `pulumi:"weeklyMaintenanceStartTime"`
 }
 
 // NewOntapFileSystem registers a new resource with the given unique name, arguments, and options.
@@ -426,8 +426,8 @@ func (o OntapFileSystemOutput) ToOntapFileSystemOutputWithContext(ctx context.Co
 }
 
 // Amazon Resource Name of the file system.
-func (o OntapFileSystemOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OntapFileSystemOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
@@ -436,8 +436,8 @@ func (o OntapFileSystemOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutpu
 }
 
 // A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-func (o OntapFileSystemOutput) DailyAutomaticBackupStartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.DailyAutomaticBackupStartTime }).(pulumi.StringOutput)
+func (o OntapFileSystemOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringPtrOutput { return v.DailyAutomaticBackupStartTime }).(pulumi.StringPtrOutput)
 }
 
 // The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
@@ -446,18 +446,18 @@ func (o OntapFileSystemOutput) DeploymentType() pulumi.StringOutput {
 }
 
 // The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
-func (o OntapFileSystemOutput) DiskIopsConfiguration() OntapFileSystemDiskIopsConfigurationOutput {
-	return o.ApplyT(func(v *OntapFileSystem) OntapFileSystemDiskIopsConfigurationOutput { return v.DiskIopsConfiguration }).(OntapFileSystemDiskIopsConfigurationOutput)
+func (o OntapFileSystemOutput) DiskIopsConfiguration() OntapFileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystem) OntapFileSystemDiskIopsConfigurationPtrOutput { return v.DiskIopsConfiguration }).(OntapFileSystemDiskIopsConfigurationPtrOutput)
 }
 
 // The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
-func (o OntapFileSystemOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+func (o OntapFileSystemOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-func (o OntapFileSystemOutput) EndpointIpAddressRange() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.EndpointIpAddressRange }).(pulumi.StringOutput)
+func (o OntapFileSystemOutput) EndpointIpAddressRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringPtrOutput { return v.EndpointIpAddressRange }).(pulumi.StringPtrOutput)
 }
 
 // The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
@@ -471,8 +471,8 @@ func (o OntapFileSystemOutput) FsxAdminPassword() pulumi.StringPtrOutput {
 }
 
 // ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-func (o OntapFileSystemOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o OntapFileSystemOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
@@ -481,8 +481,8 @@ func (o OntapFileSystemOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 }
 
 // AWS account identifier that created the file system.
-func (o OntapFileSystemOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o OntapFileSystemOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
@@ -533,13 +533,13 @@ func (o OntapFileSystemOutput) ThroughputCapacity() pulumi.IntOutput {
 }
 
 // Identifier of the Virtual Private Cloud for the file system.
-func (o OntapFileSystemOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o OntapFileSystemOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-func (o OntapFileSystemOutput) WeeklyMaintenanceStartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.WeeklyMaintenanceStartTime }).(pulumi.StringOutput)
+func (o OntapFileSystemOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringPtrOutput { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
 }
 
 type OntapFileSystemArrayOutput struct{ *pulumi.OutputState }

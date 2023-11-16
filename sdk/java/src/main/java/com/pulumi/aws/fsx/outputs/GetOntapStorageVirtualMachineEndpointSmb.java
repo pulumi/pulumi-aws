@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineEndpointSmb {
-    private String dnsName;
-    private List<String> ipAddresses;
+    private @Nullable String dnsName;
+    private @Nullable List<String> ipAddresses;
 
     private GetOntapStorageVirtualMachineEndpointSmb() {}
-    public String dnsName() {
-        return this.dnsName;
+    public Optional<String> dnsName() {
+        return Optional.ofNullable(this.dnsName);
     }
     public List<String> ipAddresses() {
-        return this.ipAddresses;
+        return this.ipAddresses == null ? List.of() : this.ipAddresses;
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetOntapStorageVirtualMachineEndpointSmb {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dnsName;
-        private List<String> ipAddresses;
+        private @Nullable String dnsName;
+        private @Nullable List<String> ipAddresses;
         public Builder() {}
         public Builder(GetOntapStorageVirtualMachineEndpointSmb defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetOntapStorageVirtualMachineEndpointSmb {
         }
 
         @CustomType.Setter
-        public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+        public Builder dnsName(@Nullable String dnsName) {
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddresses(List<String> ipAddresses) {
-            this.ipAddresses = Objects.requireNonNull(ipAddresses);
+        public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+            this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {

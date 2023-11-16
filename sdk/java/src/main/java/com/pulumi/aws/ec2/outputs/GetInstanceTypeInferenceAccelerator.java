@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceTypeInferenceAccelerator {
-    private Integer count;
-    private String manufacturer;
-    private String name;
+    private @Nullable Integer count;
+    private @Nullable String manufacturer;
+    private @Nullable String name;
 
     private GetInstanceTypeInferenceAccelerator() {}
-    public Integer count() {
-        return this.count;
+    public Optional<Integer> count() {
+        return Optional.ofNullable(this.count);
     }
-    public String manufacturer() {
-        return this.manufacturer;
+    public Optional<String> manufacturer() {
+        return Optional.ofNullable(this.manufacturer);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetInstanceTypeInferenceAccelerator {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer count;
-        private String manufacturer;
-        private String name;
+        private @Nullable Integer count;
+        private @Nullable String manufacturer;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetInstanceTypeInferenceAccelerator defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetInstanceTypeInferenceAccelerator {
         }
 
         @CustomType.Setter
-        public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+        public Builder count(@Nullable Integer count) {
+            this.count = count;
             return this;
         }
         @CustomType.Setter
-        public Builder manufacturer(String manufacturer) {
-            this.manufacturer = Objects.requireNonNull(manufacturer);
+        public Builder manufacturer(@Nullable String manufacturer) {
+            this.manufacturer = manufacturer;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetInstanceTypeInferenceAccelerator build() {

@@ -578,7 +578,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the file system.
         """
@@ -586,7 +586,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> pulumi.Output[str]:
+    def association_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "association_id")
 
     @property
@@ -631,7 +631,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="importedFileChunkSize")
-    def imported_file_chunk_size(self) -> pulumi.Output[int]:
+    def imported_file_chunk_size(self) -> pulumi.Output[Optional[int]]:
         """
         For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
         """
@@ -639,7 +639,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def s3(self) -> pulumi.Output['outputs.DataRepositoryAssociationS3']:
+    def s3(self) -> pulumi.Output[Optional['outputs.DataRepositoryAssociationS3']]:
         """
         See the `s3` configuration block. Max of 1.
         The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.

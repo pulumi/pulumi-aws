@@ -97,11 +97,11 @@ type ZoneAssociation struct {
 	pulumi.CustomResourceState
 
 	// The account ID of the account that created the hosted zone.
-	OwningAccount pulumi.StringOutput `pulumi:"owningAccount"`
+	OwningAccount pulumi.StringPtrOutput `pulumi:"owningAccount"`
 	// The VPC to associate with the private hosted zone.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The VPC's region. Defaults to the region of the AWS provider.
-	VpcRegion pulumi.StringOutput `pulumi:"vpcRegion"`
+	VpcRegion pulumi.StringPtrOutput `pulumi:"vpcRegion"`
 	// The private hosted zone to associate.
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
@@ -274,8 +274,8 @@ func (o ZoneAssociationOutput) ToZoneAssociationOutputWithContext(ctx context.Co
 }
 
 // The account ID of the account that created the hosted zone.
-func (o ZoneAssociationOutput) OwningAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v *ZoneAssociation) pulumi.StringOutput { return v.OwningAccount }).(pulumi.StringOutput)
+func (o ZoneAssociationOutput) OwningAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ZoneAssociation) pulumi.StringPtrOutput { return v.OwningAccount }).(pulumi.StringPtrOutput)
 }
 
 // The VPC to associate with the private hosted zone.
@@ -284,8 +284,8 @@ func (o ZoneAssociationOutput) VpcId() pulumi.StringOutput {
 }
 
 // The VPC's region. Defaults to the region of the AWS provider.
-func (o ZoneAssociationOutput) VpcRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ZoneAssociation) pulumi.StringOutput { return v.VpcRegion }).(pulumi.StringOutput)
+func (o ZoneAssociationOutput) VpcRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ZoneAssociation) pulumi.StringPtrOutput { return v.VpcRegion }).(pulumi.StringPtrOutput)
 }
 
 // The private hosted zone to associate.

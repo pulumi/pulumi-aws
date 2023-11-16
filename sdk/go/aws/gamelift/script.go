@@ -56,11 +56,11 @@ type Script struct {
 	pulumi.CustomResourceState
 
 	// GameLift Script ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the script
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Information indicating where your game script files are stored. See below.
-	StorageLocation ScriptStorageLocationOutput `pulumi:"storageLocation"`
+	StorageLocation ScriptStorageLocationPtrOutput `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -263,8 +263,8 @@ func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutpu
 }
 
 // GameLift Script ARN.
-func (o ScriptOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ScriptOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the script
@@ -273,8 +273,8 @@ func (o ScriptOutput) Name() pulumi.StringOutput {
 }
 
 // Information indicating where your game script files are stored. See below.
-func (o ScriptOutput) StorageLocation() ScriptStorageLocationOutput {
-	return o.ApplyT(func(v *Script) ScriptStorageLocationOutput { return v.StorageLocation }).(ScriptStorageLocationOutput)
+func (o ScriptOutput) StorageLocation() ScriptStorageLocationPtrOutput {
+	return o.ApplyT(func(v *Script) ScriptStorageLocationPtrOutput { return v.StorageLocation }).(ScriptStorageLocationPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

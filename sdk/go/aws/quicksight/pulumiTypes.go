@@ -17900,8 +17900,8 @@ func (o GetDataSetColumnGroupArrayOutput) Index(i pulumi.IntInput) GetDataSetCol
 
 type GetDataSetColumnGroupGeoSpatialColumnGroup struct {
 	Columns     []string `pulumi:"columns"`
-	CountryCode string   `pulumi:"countryCode"`
-	Name        string   `pulumi:"name"`
+	CountryCode *string  `pulumi:"countryCode"`
+	Name        *string  `pulumi:"name"`
 }
 
 // GetDataSetColumnGroupGeoSpatialColumnGroupInput is an input type that accepts GetDataSetColumnGroupGeoSpatialColumnGroupArgs and GetDataSetColumnGroupGeoSpatialColumnGroupOutput values.
@@ -17917,8 +17917,8 @@ type GetDataSetColumnGroupGeoSpatialColumnGroupInput interface {
 
 type GetDataSetColumnGroupGeoSpatialColumnGroupArgs struct {
 	Columns     pulumi.StringArrayInput `pulumi:"columns"`
-	CountryCode pulumi.StringInput      `pulumi:"countryCode"`
-	Name        pulumi.StringInput      `pulumi:"name"`
+	CountryCode pulumi.StringPtrInput   `pulumi:"countryCode"`
+	Name        pulumi.StringPtrInput   `pulumi:"name"`
 }
 
 func (GetDataSetColumnGroupGeoSpatialColumnGroupArgs) ElementType() reflect.Type {
@@ -17976,12 +17976,12 @@ func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) Columns() pulumi.Strin
 	return o.ApplyT(func(v GetDataSetColumnGroupGeoSpatialColumnGroup) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
 
-func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) CountryCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetColumnGroupGeoSpatialColumnGroup) string { return v.CountryCode }).(pulumi.StringOutput)
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetColumnGroupGeoSpatialColumnGroup) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetColumnGroupGeoSpatialColumnGroup) string { return v.Name }).(pulumi.StringOutput)
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetColumnGroupGeoSpatialColumnGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput struct{ *pulumi.OutputState }
@@ -18105,8 +18105,8 @@ func (o GetDataSetColumnLevelPermissionRuleArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetDataSetDataSetUsageConfiguration struct {
-	DisableUseAsDirectQuerySource bool `pulumi:"disableUseAsDirectQuerySource"`
-	DisableUseAsImportedSource    bool `pulumi:"disableUseAsImportedSource"`
+	DisableUseAsDirectQuerySource *bool `pulumi:"disableUseAsDirectQuerySource"`
+	DisableUseAsImportedSource    *bool `pulumi:"disableUseAsImportedSource"`
 }
 
 // GetDataSetDataSetUsageConfigurationInput is an input type that accepts GetDataSetDataSetUsageConfigurationArgs and GetDataSetDataSetUsageConfigurationOutput values.
@@ -18121,8 +18121,8 @@ type GetDataSetDataSetUsageConfigurationInput interface {
 }
 
 type GetDataSetDataSetUsageConfigurationArgs struct {
-	DisableUseAsDirectQuerySource pulumi.BoolInput `pulumi:"disableUseAsDirectQuerySource"`
-	DisableUseAsImportedSource    pulumi.BoolInput `pulumi:"disableUseAsImportedSource"`
+	DisableUseAsDirectQuerySource pulumi.BoolPtrInput `pulumi:"disableUseAsDirectQuerySource"`
+	DisableUseAsImportedSource    pulumi.BoolPtrInput `pulumi:"disableUseAsImportedSource"`
 }
 
 func (GetDataSetDataSetUsageConfigurationArgs) ElementType() reflect.Type {
@@ -18176,12 +18176,12 @@ func (o GetDataSetDataSetUsageConfigurationOutput) ToGetDataSetDataSetUsageConfi
 	return o
 }
 
-func (o GetDataSetDataSetUsageConfigurationOutput) DisableUseAsDirectQuerySource() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDataSetDataSetUsageConfiguration) bool { return v.DisableUseAsDirectQuerySource }).(pulumi.BoolOutput)
+func (o GetDataSetDataSetUsageConfigurationOutput) DisableUseAsDirectQuerySource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDataSetDataSetUsageConfiguration) *bool { return v.DisableUseAsDirectQuerySource }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetDataSetDataSetUsageConfigurationOutput) DisableUseAsImportedSource() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDataSetDataSetUsageConfiguration) bool { return v.DisableUseAsImportedSource }).(pulumi.BoolOutput)
+func (o GetDataSetDataSetUsageConfigurationOutput) DisableUseAsImportedSource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDataSetDataSetUsageConfiguration) *bool { return v.DisableUseAsImportedSource }).(pulumi.BoolPtrOutput)
 }
 
 type GetDataSetDataSetUsageConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -18206,8 +18206,8 @@ func (o GetDataSetDataSetUsageConfigurationArrayOutput) Index(i pulumi.IntInput)
 
 type GetDataSetFieldFolder struct {
 	Columns        []string `pulumi:"columns"`
-	Description    string   `pulumi:"description"`
-	FieldFoldersId string   `pulumi:"fieldFoldersId"`
+	Description    *string  `pulumi:"description"`
+	FieldFoldersId *string  `pulumi:"fieldFoldersId"`
 }
 
 // GetDataSetFieldFolderInput is an input type that accepts GetDataSetFieldFolderArgs and GetDataSetFieldFolderOutput values.
@@ -18223,8 +18223,8 @@ type GetDataSetFieldFolderInput interface {
 
 type GetDataSetFieldFolderArgs struct {
 	Columns        pulumi.StringArrayInput `pulumi:"columns"`
-	Description    pulumi.StringInput      `pulumi:"description"`
-	FieldFoldersId pulumi.StringInput      `pulumi:"fieldFoldersId"`
+	Description    pulumi.StringPtrInput   `pulumi:"description"`
+	FieldFoldersId pulumi.StringPtrInput   `pulumi:"fieldFoldersId"`
 }
 
 func (GetDataSetFieldFolderArgs) ElementType() reflect.Type {
@@ -18282,12 +18282,12 @@ func (o GetDataSetFieldFolderOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDataSetFieldFolder) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
 
-func (o GetDataSetFieldFolderOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetFieldFolder) string { return v.Description }).(pulumi.StringOutput)
+func (o GetDataSetFieldFolderOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetFieldFolder) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetFieldFolderOutput) FieldFoldersId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetFieldFolder) string { return v.FieldFoldersId }).(pulumi.StringOutput)
+func (o GetDataSetFieldFolderOutput) FieldFoldersId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetFieldFolder) *string { return v.FieldFoldersId }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetFieldFolderArrayOutput struct{ *pulumi.OutputState }
@@ -18311,9 +18311,9 @@ func (o GetDataSetFieldFolderArrayOutput) Index(i pulumi.IntInput) GetDataSetFie
 }
 
 type GetDataSetLogicalTableMap struct {
-	Alias             string                                   `pulumi:"alias"`
+	Alias             *string                                  `pulumi:"alias"`
 	DataTransforms    []GetDataSetLogicalTableMapDataTransform `pulumi:"dataTransforms"`
-	LogicalTableMapId string                                   `pulumi:"logicalTableMapId"`
+	LogicalTableMapId *string                                  `pulumi:"logicalTableMapId"`
 	Sources           []GetDataSetLogicalTableMapSource        `pulumi:"sources"`
 }
 
@@ -18329,9 +18329,9 @@ type GetDataSetLogicalTableMapInput interface {
 }
 
 type GetDataSetLogicalTableMapArgs struct {
-	Alias             pulumi.StringInput                               `pulumi:"alias"`
+	Alias             pulumi.StringPtrInput                            `pulumi:"alias"`
 	DataTransforms    GetDataSetLogicalTableMapDataTransformArrayInput `pulumi:"dataTransforms"`
-	LogicalTableMapId pulumi.StringInput                               `pulumi:"logicalTableMapId"`
+	LogicalTableMapId pulumi.StringPtrInput                            `pulumi:"logicalTableMapId"`
 	Sources           GetDataSetLogicalTableMapSourceArrayInput        `pulumi:"sources"`
 }
 
@@ -18386,16 +18386,16 @@ func (o GetDataSetLogicalTableMapOutput) ToGetDataSetLogicalTableMapOutputWithCo
 	return o
 }
 
-func (o GetDataSetLogicalTableMapOutput) Alias() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMap) string { return v.Alias }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMap) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetLogicalTableMapOutput) DataTransforms() GetDataSetLogicalTableMapDataTransformArrayOutput {
 	return o.ApplyT(func(v GetDataSetLogicalTableMap) []GetDataSetLogicalTableMapDataTransform { return v.DataTransforms }).(GetDataSetLogicalTableMapDataTransformArrayOutput)
 }
 
-func (o GetDataSetLogicalTableMapOutput) LogicalTableMapId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMap) string { return v.LogicalTableMapId }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapOutput) LogicalTableMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMap) *string { return v.LogicalTableMapId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetLogicalTableMapOutput) Sources() GetDataSetLogicalTableMapSourceArrayOutput {
@@ -18567,9 +18567,9 @@ func (o GetDataSetLogicalTableMapDataTransformArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation struct {
-	ColumnName    string `pulumi:"columnName"`
-	Format        string `pulumi:"format"`
-	NewColumnType string `pulumi:"newColumnType"`
+	ColumnName    *string `pulumi:"columnName"`
+	Format        *string `pulumi:"format"`
+	NewColumnType *string `pulumi:"newColumnType"`
 }
 
 // GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs and GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput values.
@@ -18584,9 +18584,9 @@ type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationInput interfac
 }
 
 type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs struct {
-	ColumnName    pulumi.StringInput `pulumi:"columnName"`
-	Format        pulumi.StringInput `pulumi:"format"`
-	NewColumnType pulumi.StringInput `pulumi:"newColumnType"`
+	ColumnName    pulumi.StringPtrInput `pulumi:"columnName"`
+	Format        pulumi.StringPtrInput `pulumi:"format"`
+	NewColumnType pulumi.StringPtrInput `pulumi:"newColumnType"`
 }
 
 func (GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) ElementType() reflect.Type {
@@ -18640,16 +18640,16 @@ func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ToG
 	return o
 }
 
-func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) Format() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation) string { return v.Format }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) NewColumnType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation) string { return v.NewColumnType }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) NewColumnType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation) *string { return v.NewColumnType }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput struct{ *pulumi.OutputState }
@@ -18769,9 +18769,9 @@ func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput)
 }
 
 type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn struct {
-	ColumnId   string `pulumi:"columnId"`
-	ColumnName string `pulumi:"columnName"`
-	Expression string `pulumi:"expression"`
+	ColumnId   *string `pulumi:"columnId"`
+	ColumnName *string `pulumi:"columnName"`
+	Expression *string `pulumi:"expression"`
 }
 
 // GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput is an input type that accepts GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs and GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput values.
@@ -18786,9 +18786,9 @@ type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput int
 }
 
 type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs struct {
-	ColumnId   pulumi.StringInput `pulumi:"columnId"`
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	Expression pulumi.StringInput `pulumi:"expression"`
+	ColumnId   pulumi.StringPtrInput `pulumi:"columnId"`
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
 }
 
 func (GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs) ElementType() reflect.Type {
@@ -18842,16 +18842,20 @@ func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput
 	return o
 }
 
-func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.ColumnId }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) *string { return v.ColumnId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.ColumnName }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) *string {
+		return v.ColumnName
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) Expression() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.Expression }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) *string {
+		return v.Expression
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput struct{ *pulumi.OutputState }
@@ -18875,7 +18879,7 @@ func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayO
 }
 
 type GetDataSetLogicalTableMapDataTransformFilterOperation struct {
-	ConditionExpression string `pulumi:"conditionExpression"`
+	ConditionExpression *string `pulumi:"conditionExpression"`
 }
 
 // GetDataSetLogicalTableMapDataTransformFilterOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformFilterOperationArgs and GetDataSetLogicalTableMapDataTransformFilterOperationOutput values.
@@ -18890,7 +18894,7 @@ type GetDataSetLogicalTableMapDataTransformFilterOperationInput interface {
 }
 
 type GetDataSetLogicalTableMapDataTransformFilterOperationArgs struct {
-	ConditionExpression pulumi.StringInput `pulumi:"conditionExpression"`
+	ConditionExpression pulumi.StringPtrInput `pulumi:"conditionExpression"`
 }
 
 func (GetDataSetLogicalTableMapDataTransformFilterOperationArgs) ElementType() reflect.Type {
@@ -18944,8 +18948,8 @@ func (o GetDataSetLogicalTableMapDataTransformFilterOperationOutput) ToGetDataSe
 	return o
 }
 
-func (o GetDataSetLogicalTableMapDataTransformFilterOperationOutput) ConditionExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformFilterOperation) string { return v.ConditionExpression }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformFilterOperationOutput) ConditionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformFilterOperation) *string { return v.ConditionExpression }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput struct{ *pulumi.OutputState }
@@ -19063,8 +19067,8 @@ func (o GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput) Index
 }
 
 type GetDataSetLogicalTableMapDataTransformRenameColumnOperation struct {
-	ColumnName    string `pulumi:"columnName"`
-	NewColumnName string `pulumi:"newColumnName"`
+	ColumnName    *string `pulumi:"columnName"`
+	NewColumnName *string `pulumi:"newColumnName"`
 }
 
 // GetDataSetLogicalTableMapDataTransformRenameColumnOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs and GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput values.
@@ -19079,8 +19083,8 @@ type GetDataSetLogicalTableMapDataTransformRenameColumnOperationInput interface 
 }
 
 type GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs struct {
-	ColumnName    pulumi.StringInput `pulumi:"columnName"`
-	NewColumnName pulumi.StringInput `pulumi:"newColumnName"`
+	ColumnName    pulumi.StringPtrInput `pulumi:"columnName"`
+	NewColumnName pulumi.StringPtrInput `pulumi:"newColumnName"`
 }
 
 func (GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs) ElementType() reflect.Type {
@@ -19134,12 +19138,12 @@ func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ToGet
 	return o
 }
 
-func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformRenameColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformRenameColumnOperation) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) NewColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformRenameColumnOperation) string { return v.NewColumnName }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) NewColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformRenameColumnOperation) *string { return v.NewColumnName }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput struct{ *pulumi.OutputState }
@@ -19163,7 +19167,7 @@ func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput) 
 }
 
 type GetDataSetLogicalTableMapDataTransformTagColumnOperation struct {
-	ColumnName string                                                        `pulumi:"columnName"`
+	ColumnName *string                                                       `pulumi:"columnName"`
 	Tags       []GetDataSetLogicalTableMapDataTransformTagColumnOperationTag `pulumi:"tags"`
 }
 
@@ -19179,7 +19183,7 @@ type GetDataSetLogicalTableMapDataTransformTagColumnOperationInput interface {
 }
 
 type GetDataSetLogicalTableMapDataTransformTagColumnOperationArgs struct {
-	ColumnName pulumi.StringInput                                                    `pulumi:"columnName"`
+	ColumnName pulumi.StringPtrInput                                                 `pulumi:"columnName"`
 	Tags       GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput `pulumi:"tags"`
 }
 
@@ -19234,8 +19238,8 @@ func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput) ToGetDat
 	return o
 }
 
-func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperation) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput) Tags() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
@@ -19266,7 +19270,7 @@ func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput) Ind
 
 type GetDataSetLogicalTableMapDataTransformTagColumnOperationTag struct {
 	ColumnDescriptions   []GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription `pulumi:"columnDescriptions"`
-	ColumnGeographicRole string                                                                         `pulumi:"columnGeographicRole"`
+	ColumnGeographicRole *string                                                                        `pulumi:"columnGeographicRole"`
 }
 
 // GetDataSetLogicalTableMapDataTransformTagColumnOperationTagInput is an input type that accepts GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs and GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput values.
@@ -19282,7 +19286,7 @@ type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagInput interface 
 
 type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs struct {
 	ColumnDescriptions   GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayInput `pulumi:"columnDescriptions"`
-	ColumnGeographicRole pulumi.StringInput                                                                     `pulumi:"columnGeographicRole"`
+	ColumnGeographicRole pulumi.StringPtrInput                                                                  `pulumi:"columnGeographicRole"`
 }
 
 func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs) ElementType() reflect.Type {
@@ -19342,10 +19346,10 @@ func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) Colum
 	}).(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput)
 }
 
-func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ColumnGeographicRole() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperationTag) string {
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ColumnGeographicRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperationTag) *string {
 		return v.ColumnGeographicRole
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput struct{ *pulumi.OutputState }
@@ -19369,7 +19373,7 @@ func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) 
 }
 
 type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription struct {
-	Text string `pulumi:"text"`
+	Text *string `pulumi:"text"`
 }
 
 // GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput is an input type that accepts GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs and GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput values.
@@ -19384,7 +19388,7 @@ type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptio
 }
 
 type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs struct {
-	Text pulumi.StringInput `pulumi:"text"`
+	Text pulumi.StringPtrInput `pulumi:"text"`
 }
 
 func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) ElementType() reflect.Type {
@@ -19438,10 +19442,10 @@ func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescrip
 	return o
 }
 
-func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) Text() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription) string {
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription) *string {
 		return v.Text
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput struct{ *pulumi.OutputState }
@@ -19465,7 +19469,7 @@ func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescrip
 }
 
 type GetDataSetLogicalTableMapDataTransformUntagColumnOperation struct {
-	ColumnName string   `pulumi:"columnName"`
+	ColumnName *string  `pulumi:"columnName"`
 	TagNames   []string `pulumi:"tagNames"`
 }
 
@@ -19481,7 +19485,7 @@ type GetDataSetLogicalTableMapDataTransformUntagColumnOperationInput interface {
 }
 
 type GetDataSetLogicalTableMapDataTransformUntagColumnOperationArgs struct {
-	ColumnName pulumi.StringInput      `pulumi:"columnName"`
+	ColumnName pulumi.StringPtrInput   `pulumi:"columnName"`
 	TagNames   pulumi.StringArrayInput `pulumi:"tagNames"`
 }
 
@@ -19536,8 +19540,8 @@ func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ToGetD
 	return o
 }
 
-func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformUntagColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformUntagColumnOperation) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput) TagNames() pulumi.StringArrayOutput {
@@ -19565,9 +19569,9 @@ func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput) I
 }
 
 type GetDataSetLogicalTableMapSource struct {
-	DataSetArn       string                                           `pulumi:"dataSetArn"`
+	DataSetArn       *string                                          `pulumi:"dataSetArn"`
 	JoinInstructions []GetDataSetLogicalTableMapSourceJoinInstruction `pulumi:"joinInstructions"`
-	PhysicalTableId  string                                           `pulumi:"physicalTableId"`
+	PhysicalTableId  *string                                          `pulumi:"physicalTableId"`
 }
 
 // GetDataSetLogicalTableMapSourceInput is an input type that accepts GetDataSetLogicalTableMapSourceArgs and GetDataSetLogicalTableMapSourceOutput values.
@@ -19582,9 +19586,9 @@ type GetDataSetLogicalTableMapSourceInput interface {
 }
 
 type GetDataSetLogicalTableMapSourceArgs struct {
-	DataSetArn       pulumi.StringInput                                       `pulumi:"dataSetArn"`
+	DataSetArn       pulumi.StringPtrInput                                    `pulumi:"dataSetArn"`
 	JoinInstructions GetDataSetLogicalTableMapSourceJoinInstructionArrayInput `pulumi:"joinInstructions"`
-	PhysicalTableId  pulumi.StringInput                                       `pulumi:"physicalTableId"`
+	PhysicalTableId  pulumi.StringPtrInput                                    `pulumi:"physicalTableId"`
 }
 
 func (GetDataSetLogicalTableMapSourceArgs) ElementType() reflect.Type {
@@ -19638,8 +19642,8 @@ func (o GetDataSetLogicalTableMapSourceOutput) ToGetDataSetLogicalTableMapSource
 	return o
 }
 
-func (o GetDataSetLogicalTableMapSourceOutput) DataSetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapSource) string { return v.DataSetArn }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapSourceOutput) DataSetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSource) *string { return v.DataSetArn }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetLogicalTableMapSourceOutput) JoinInstructions() GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput {
@@ -19648,8 +19652,8 @@ func (o GetDataSetLogicalTableMapSourceOutput) JoinInstructions() GetDataSetLogi
 	}).(GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput)
 }
 
-func (o GetDataSetLogicalTableMapSourceOutput) PhysicalTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapSource) string { return v.PhysicalTableId }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapSourceOutput) PhysicalTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSource) *string { return v.PhysicalTableId }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetLogicalTableMapSourceArrayOutput struct{ *pulumi.OutputState }
@@ -19674,11 +19678,11 @@ func (o GetDataSetLogicalTableMapSourceArrayOutput) Index(i pulumi.IntInput) Get
 
 type GetDataSetLogicalTableMapSourceJoinInstruction struct {
 	LeftJoinKeyProperties  []GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty  `pulumi:"leftJoinKeyProperties"`
-	LeftOperand            string                                                               `pulumi:"leftOperand"`
-	OnClause               string                                                               `pulumi:"onClause"`
+	LeftOperand            *string                                                              `pulumi:"leftOperand"`
+	OnClause               *string                                                              `pulumi:"onClause"`
 	RightJoinKeyProperties []GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty `pulumi:"rightJoinKeyProperties"`
-	RightOperand           string                                                               `pulumi:"rightOperand"`
-	Type                   string                                                               `pulumi:"type"`
+	RightOperand           *string                                                              `pulumi:"rightOperand"`
+	Type                   *string                                                              `pulumi:"type"`
 }
 
 // GetDataSetLogicalTableMapSourceJoinInstructionInput is an input type that accepts GetDataSetLogicalTableMapSourceJoinInstructionArgs and GetDataSetLogicalTableMapSourceJoinInstructionOutput values.
@@ -19694,11 +19698,11 @@ type GetDataSetLogicalTableMapSourceJoinInstructionInput interface {
 
 type GetDataSetLogicalTableMapSourceJoinInstructionArgs struct {
 	LeftJoinKeyProperties  GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayInput  `pulumi:"leftJoinKeyProperties"`
-	LeftOperand            pulumi.StringInput                                                           `pulumi:"leftOperand"`
-	OnClause               pulumi.StringInput                                                           `pulumi:"onClause"`
+	LeftOperand            pulumi.StringPtrInput                                                        `pulumi:"leftOperand"`
+	OnClause               pulumi.StringPtrInput                                                        `pulumi:"onClause"`
 	RightJoinKeyProperties GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayInput `pulumi:"rightJoinKeyProperties"`
-	RightOperand           pulumi.StringInput                                                           `pulumi:"rightOperand"`
-	Type                   pulumi.StringInput                                                           `pulumi:"type"`
+	RightOperand           pulumi.StringPtrInput                                                        `pulumi:"rightOperand"`
+	Type                   pulumi.StringPtrInput                                                        `pulumi:"type"`
 }
 
 func (GetDataSetLogicalTableMapSourceJoinInstructionArgs) ElementType() reflect.Type {
@@ -19758,12 +19762,12 @@ func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) LeftJoinKeyPropert
 	}).(GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput)
 }
 
-func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) LeftOperand() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) string { return v.LeftOperand }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) LeftOperand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) *string { return v.LeftOperand }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) OnClause() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) string { return v.OnClause }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) OnClause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) *string { return v.OnClause }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) RightJoinKeyProperties() GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput {
@@ -19772,12 +19776,12 @@ func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) RightJoinKeyProper
 	}).(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput)
 }
 
-func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) RightOperand() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) string { return v.RightOperand }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) RightOperand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) *string { return v.RightOperand }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) string { return v.Type }).(pulumi.StringOutput)
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput struct{ *pulumi.OutputState }
@@ -19801,7 +19805,7 @@ func (o GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput) Index(i pulum
 }
 
 type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty struct {
-	UniqueKey bool `pulumi:"uniqueKey"`
+	UniqueKey *bool `pulumi:"uniqueKey"`
 }
 
 // GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyInput is an input type that accepts GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs and GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput values.
@@ -19816,7 +19820,7 @@ type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyInput inte
 }
 
 type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs struct {
-	UniqueKey pulumi.BoolInput `pulumi:"uniqueKey"`
+	UniqueKey pulumi.BoolPtrInput `pulumi:"uniqueKey"`
 }
 
 func (GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs) ElementType() reflect.Type {
@@ -19870,8 +19874,8 @@ func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput)
 	return o
 }
 
-func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput) UniqueKey() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty) bool { return v.UniqueKey }).(pulumi.BoolOutput)
+func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput) UniqueKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty) *bool { return v.UniqueKey }).(pulumi.BoolPtrOutput)
 }
 
 type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -19895,7 +19899,7 @@ func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOu
 }
 
 type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty struct {
-	UniqueKey bool `pulumi:"uniqueKey"`
+	UniqueKey *bool `pulumi:"uniqueKey"`
 }
 
 // GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyInput is an input type that accepts GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs and GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput values.
@@ -19910,7 +19914,7 @@ type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyInput int
 }
 
 type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs struct {
-	UniqueKey pulumi.BoolInput `pulumi:"uniqueKey"`
+	UniqueKey pulumi.BoolPtrInput `pulumi:"uniqueKey"`
 }
 
 func (GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs) ElementType() reflect.Type {
@@ -19964,8 +19968,8 @@ func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput
 	return o
 }
 
-func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput) UniqueKey() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty) bool { return v.UniqueKey }).(pulumi.BoolOutput)
+func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput) UniqueKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty) *bool { return v.UniqueKey }).(pulumi.BoolPtrOutput)
 }
 
 type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -19990,7 +19994,7 @@ func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayO
 
 type GetDataSetPermission struct {
 	Actions   []string `pulumi:"actions"`
-	Principal string   `pulumi:"principal"`
+	Principal *string  `pulumi:"principal"`
 }
 
 // GetDataSetPermissionInput is an input type that accepts GetDataSetPermissionArgs and GetDataSetPermissionOutput values.
@@ -20006,7 +20010,7 @@ type GetDataSetPermissionInput interface {
 
 type GetDataSetPermissionArgs struct {
 	Actions   pulumi.StringArrayInput `pulumi:"actions"`
-	Principal pulumi.StringInput      `pulumi:"principal"`
+	Principal pulumi.StringPtrInput   `pulumi:"principal"`
 }
 
 func (GetDataSetPermissionArgs) ElementType() reflect.Type {
@@ -20064,8 +20068,8 @@ func (o GetDataSetPermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDataSetPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-func (o GetDataSetPermissionOutput) Principal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPermission) string { return v.Principal }).(pulumi.StringOutput)
+func (o GetDataSetPermissionOutput) Principal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPermission) *string { return v.Principal }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetPermissionArrayOutput struct{ *pulumi.OutputState }
@@ -20090,7 +20094,7 @@ func (o GetDataSetPermissionArrayOutput) Index(i pulumi.IntInput) GetDataSetPerm
 
 type GetDataSetPhysicalTableMap struct {
 	CustomSqls         []GetDataSetPhysicalTableMapCustomSql       `pulumi:"customSqls"`
-	PhysicalTableMapId string                                      `pulumi:"physicalTableMapId"`
+	PhysicalTableMapId *string                                     `pulumi:"physicalTableMapId"`
 	RelationalTables   []GetDataSetPhysicalTableMapRelationalTable `pulumi:"relationalTables"`
 	S3Sources          []GetDataSetPhysicalTableMapS3Source        `pulumi:"s3Sources"`
 }
@@ -20108,7 +20112,7 @@ type GetDataSetPhysicalTableMapInput interface {
 
 type GetDataSetPhysicalTableMapArgs struct {
 	CustomSqls         GetDataSetPhysicalTableMapCustomSqlArrayInput       `pulumi:"customSqls"`
-	PhysicalTableMapId pulumi.StringInput                                  `pulumi:"physicalTableMapId"`
+	PhysicalTableMapId pulumi.StringPtrInput                               `pulumi:"physicalTableMapId"`
 	RelationalTables   GetDataSetPhysicalTableMapRelationalTableArrayInput `pulumi:"relationalTables"`
 	S3Sources          GetDataSetPhysicalTableMapS3SourceArrayInput        `pulumi:"s3Sources"`
 }
@@ -20168,8 +20172,8 @@ func (o GetDataSetPhysicalTableMapOutput) CustomSqls() GetDataSetPhysicalTableMa
 	return o.ApplyT(func(v GetDataSetPhysicalTableMap) []GetDataSetPhysicalTableMapCustomSql { return v.CustomSqls }).(GetDataSetPhysicalTableMapCustomSqlArrayOutput)
 }
 
-func (o GetDataSetPhysicalTableMapOutput) PhysicalTableMapId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMap) string { return v.PhysicalTableMapId }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapOutput) PhysicalTableMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMap) *string { return v.PhysicalTableMapId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetPhysicalTableMapOutput) RelationalTables() GetDataSetPhysicalTableMapRelationalTableArrayOutput {
@@ -20204,9 +20208,9 @@ func (o GetDataSetPhysicalTableMapArrayOutput) Index(i pulumi.IntInput) GetDataS
 
 type GetDataSetPhysicalTableMapCustomSql struct {
 	Columns       []GetDataSetPhysicalTableMapCustomSqlColumn `pulumi:"columns"`
-	DataSourceArn string                                      `pulumi:"dataSourceArn"`
-	Name          string                                      `pulumi:"name"`
-	SqlQuery      string                                      `pulumi:"sqlQuery"`
+	DataSourceArn *string                                     `pulumi:"dataSourceArn"`
+	Name          *string                                     `pulumi:"name"`
+	SqlQuery      *string                                     `pulumi:"sqlQuery"`
 }
 
 // GetDataSetPhysicalTableMapCustomSqlInput is an input type that accepts GetDataSetPhysicalTableMapCustomSqlArgs and GetDataSetPhysicalTableMapCustomSqlOutput values.
@@ -20222,9 +20226,9 @@ type GetDataSetPhysicalTableMapCustomSqlInput interface {
 
 type GetDataSetPhysicalTableMapCustomSqlArgs struct {
 	Columns       GetDataSetPhysicalTableMapCustomSqlColumnArrayInput `pulumi:"columns"`
-	DataSourceArn pulumi.StringInput                                  `pulumi:"dataSourceArn"`
-	Name          pulumi.StringInput                                  `pulumi:"name"`
-	SqlQuery      pulumi.StringInput                                  `pulumi:"sqlQuery"`
+	DataSourceArn pulumi.StringPtrInput                               `pulumi:"dataSourceArn"`
+	Name          pulumi.StringPtrInput                               `pulumi:"name"`
+	SqlQuery      pulumi.StringPtrInput                               `pulumi:"sqlQuery"`
 }
 
 func (GetDataSetPhysicalTableMapCustomSqlArgs) ElementType() reflect.Type {
@@ -20284,16 +20288,16 @@ func (o GetDataSetPhysicalTableMapCustomSqlOutput) Columns() GetDataSetPhysicalT
 	}).(GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput)
 }
 
-func (o GetDataSetPhysicalTableMapCustomSqlOutput) DataSourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) string { return v.DataSourceArn }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapCustomSqlOutput) DataSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) *string { return v.DataSourceArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapCustomSqlOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) string { return v.Name }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapCustomSqlOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapCustomSqlOutput) SqlQuery() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) string { return v.SqlQuery }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapCustomSqlOutput) SqlQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) *string { return v.SqlQuery }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetPhysicalTableMapCustomSqlArrayOutput struct{ *pulumi.OutputState }
@@ -20317,8 +20321,8 @@ func (o GetDataSetPhysicalTableMapCustomSqlArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetDataSetPhysicalTableMapCustomSqlColumn struct {
-	Name string `pulumi:"name"`
-	Type string `pulumi:"type"`
+	Name *string `pulumi:"name"`
+	Type *string `pulumi:"type"`
 }
 
 // GetDataSetPhysicalTableMapCustomSqlColumnInput is an input type that accepts GetDataSetPhysicalTableMapCustomSqlColumnArgs and GetDataSetPhysicalTableMapCustomSqlColumnOutput values.
@@ -20333,8 +20337,8 @@ type GetDataSetPhysicalTableMapCustomSqlColumnInput interface {
 }
 
 type GetDataSetPhysicalTableMapCustomSqlColumnArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetDataSetPhysicalTableMapCustomSqlColumnArgs) ElementType() reflect.Type {
@@ -20388,12 +20392,12 @@ func (o GetDataSetPhysicalTableMapCustomSqlColumnOutput) ToGetDataSetPhysicalTab
 	return o
 }
 
-func (o GetDataSetPhysicalTableMapCustomSqlColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSqlColumn) string { return v.Name }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapCustomSqlColumnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSqlColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapCustomSqlColumnOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSqlColumn) string { return v.Type }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapCustomSqlColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSqlColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput struct{ *pulumi.OutputState }
@@ -20417,11 +20421,11 @@ func (o GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput) Index(i pulumi.Int
 }
 
 type GetDataSetPhysicalTableMapRelationalTable struct {
-	Catalog       string                                                 `pulumi:"catalog"`
-	DataSourceArn string                                                 `pulumi:"dataSourceArn"`
+	Catalog       *string                                                `pulumi:"catalog"`
+	DataSourceArn *string                                                `pulumi:"dataSourceArn"`
 	InputColumns  []GetDataSetPhysicalTableMapRelationalTableInputColumn `pulumi:"inputColumns"`
-	Name          string                                                 `pulumi:"name"`
-	Schema        string                                                 `pulumi:"schema"`
+	Name          *string                                                `pulumi:"name"`
+	Schema        *string                                                `pulumi:"schema"`
 }
 
 // GetDataSetPhysicalTableMapRelationalTableInput is an input type that accepts GetDataSetPhysicalTableMapRelationalTableArgs and GetDataSetPhysicalTableMapRelationalTableOutput values.
@@ -20436,11 +20440,11 @@ type GetDataSetPhysicalTableMapRelationalTableInput interface {
 }
 
 type GetDataSetPhysicalTableMapRelationalTableArgs struct {
-	Catalog       pulumi.StringInput                                             `pulumi:"catalog"`
-	DataSourceArn pulumi.StringInput                                             `pulumi:"dataSourceArn"`
+	Catalog       pulumi.StringPtrInput                                          `pulumi:"catalog"`
+	DataSourceArn pulumi.StringPtrInput                                          `pulumi:"dataSourceArn"`
 	InputColumns  GetDataSetPhysicalTableMapRelationalTableInputColumnArrayInput `pulumi:"inputColumns"`
-	Name          pulumi.StringInput                                             `pulumi:"name"`
-	Schema        pulumi.StringInput                                             `pulumi:"schema"`
+	Name          pulumi.StringPtrInput                                          `pulumi:"name"`
+	Schema        pulumi.StringPtrInput                                          `pulumi:"schema"`
 }
 
 func (GetDataSetPhysicalTableMapRelationalTableArgs) ElementType() reflect.Type {
@@ -20494,12 +20498,12 @@ func (o GetDataSetPhysicalTableMapRelationalTableOutput) ToGetDataSetPhysicalTab
 	return o
 }
 
-func (o GetDataSetPhysicalTableMapRelationalTableOutput) Catalog() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) string { return v.Catalog }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) Catalog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) *string { return v.Catalog }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapRelationalTableOutput) DataSourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) string { return v.DataSourceArn }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) DataSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) *string { return v.DataSourceArn }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetPhysicalTableMapRelationalTableOutput) InputColumns() GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
@@ -20508,12 +20512,12 @@ func (o GetDataSetPhysicalTableMapRelationalTableOutput) InputColumns() GetDataS
 	}).(GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput)
 }
 
-func (o GetDataSetPhysicalTableMapRelationalTableOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) string { return v.Name }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapRelationalTableOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) string { return v.Schema }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetPhysicalTableMapRelationalTableArrayOutput struct{ *pulumi.OutputState }
@@ -20537,8 +20541,8 @@ func (o GetDataSetPhysicalTableMapRelationalTableArrayOutput) Index(i pulumi.Int
 }
 
 type GetDataSetPhysicalTableMapRelationalTableInputColumn struct {
-	Name string `pulumi:"name"`
-	Type string `pulumi:"type"`
+	Name *string `pulumi:"name"`
+	Type *string `pulumi:"type"`
 }
 
 // GetDataSetPhysicalTableMapRelationalTableInputColumnInput is an input type that accepts GetDataSetPhysicalTableMapRelationalTableInputColumnArgs and GetDataSetPhysicalTableMapRelationalTableInputColumnOutput values.
@@ -20553,8 +20557,8 @@ type GetDataSetPhysicalTableMapRelationalTableInputColumnInput interface {
 }
 
 type GetDataSetPhysicalTableMapRelationalTableInputColumnArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetDataSetPhysicalTableMapRelationalTableInputColumnArgs) ElementType() reflect.Type {
@@ -20608,12 +20612,12 @@ func (o GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) ToGetDataSet
 	return o
 }
 
-func (o GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTableInputColumn) string { return v.Name }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTableInputColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTableInputColumn) string { return v.Type }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTableInputColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput struct{ *pulumi.OutputState }
@@ -20637,7 +20641,7 @@ func (o GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) Index(i
 }
 
 type GetDataSetPhysicalTableMapS3Source struct {
-	DataSourceArn  string                                            `pulumi:"dataSourceArn"`
+	DataSourceArn  *string                                           `pulumi:"dataSourceArn"`
 	InputColumns   []GetDataSetPhysicalTableMapS3SourceInputColumn   `pulumi:"inputColumns"`
 	UploadSettings []GetDataSetPhysicalTableMapS3SourceUploadSetting `pulumi:"uploadSettings"`
 }
@@ -20654,7 +20658,7 @@ type GetDataSetPhysicalTableMapS3SourceInput interface {
 }
 
 type GetDataSetPhysicalTableMapS3SourceArgs struct {
-	DataSourceArn  pulumi.StringInput                                        `pulumi:"dataSourceArn"`
+	DataSourceArn  pulumi.StringPtrInput                                     `pulumi:"dataSourceArn"`
 	InputColumns   GetDataSetPhysicalTableMapS3SourceInputColumnArrayInput   `pulumi:"inputColumns"`
 	UploadSettings GetDataSetPhysicalTableMapS3SourceUploadSettingArrayInput `pulumi:"uploadSettings"`
 }
@@ -20710,8 +20714,8 @@ func (o GetDataSetPhysicalTableMapS3SourceOutput) ToGetDataSetPhysicalTableMapS3
 	return o
 }
 
-func (o GetDataSetPhysicalTableMapS3SourceOutput) DataSourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3Source) string { return v.DataSourceArn }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapS3SourceOutput) DataSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3Source) *string { return v.DataSourceArn }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetPhysicalTableMapS3SourceOutput) InputColumns() GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
@@ -20747,8 +20751,8 @@ func (o GetDataSetPhysicalTableMapS3SourceArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetDataSetPhysicalTableMapS3SourceInputColumn struct {
-	Name string `pulumi:"name"`
-	Type string `pulumi:"type"`
+	Name *string `pulumi:"name"`
+	Type *string `pulumi:"type"`
 }
 
 // GetDataSetPhysicalTableMapS3SourceInputColumnInput is an input type that accepts GetDataSetPhysicalTableMapS3SourceInputColumnArgs and GetDataSetPhysicalTableMapS3SourceInputColumnOutput values.
@@ -20763,8 +20767,8 @@ type GetDataSetPhysicalTableMapS3SourceInputColumnInput interface {
 }
 
 type GetDataSetPhysicalTableMapS3SourceInputColumnArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetDataSetPhysicalTableMapS3SourceInputColumnArgs) ElementType() reflect.Type {
@@ -20818,12 +20822,12 @@ func (o GetDataSetPhysicalTableMapS3SourceInputColumnOutput) ToGetDataSetPhysica
 	return o
 }
 
-func (o GetDataSetPhysicalTableMapS3SourceInputColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceInputColumn) string { return v.Name }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapS3SourceInputColumnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceInputColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapS3SourceInputColumnOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceInputColumn) string { return v.Type }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapS3SourceInputColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceInputColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput struct{ *pulumi.OutputState }
@@ -20847,11 +20851,11 @@ func (o GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput) Index(i pulumi
 }
 
 type GetDataSetPhysicalTableMapS3SourceUploadSetting struct {
-	ContainsHeader bool   `pulumi:"containsHeader"`
-	Delimiter      string `pulumi:"delimiter"`
-	Format         string `pulumi:"format"`
-	StartFromRow   int    `pulumi:"startFromRow"`
-	TextQualifier  string `pulumi:"textQualifier"`
+	ContainsHeader *bool   `pulumi:"containsHeader"`
+	Delimiter      *string `pulumi:"delimiter"`
+	Format         *string `pulumi:"format"`
+	StartFromRow   *int    `pulumi:"startFromRow"`
+	TextQualifier  *string `pulumi:"textQualifier"`
 }
 
 // GetDataSetPhysicalTableMapS3SourceUploadSettingInput is an input type that accepts GetDataSetPhysicalTableMapS3SourceUploadSettingArgs and GetDataSetPhysicalTableMapS3SourceUploadSettingOutput values.
@@ -20866,11 +20870,11 @@ type GetDataSetPhysicalTableMapS3SourceUploadSettingInput interface {
 }
 
 type GetDataSetPhysicalTableMapS3SourceUploadSettingArgs struct {
-	ContainsHeader pulumi.BoolInput   `pulumi:"containsHeader"`
-	Delimiter      pulumi.StringInput `pulumi:"delimiter"`
-	Format         pulumi.StringInput `pulumi:"format"`
-	StartFromRow   pulumi.IntInput    `pulumi:"startFromRow"`
-	TextQualifier  pulumi.StringInput `pulumi:"textQualifier"`
+	ContainsHeader pulumi.BoolPtrInput   `pulumi:"containsHeader"`
+	Delimiter      pulumi.StringPtrInput `pulumi:"delimiter"`
+	Format         pulumi.StringPtrInput `pulumi:"format"`
+	StartFromRow   pulumi.IntPtrInput    `pulumi:"startFromRow"`
+	TextQualifier  pulumi.StringPtrInput `pulumi:"textQualifier"`
 }
 
 func (GetDataSetPhysicalTableMapS3SourceUploadSettingArgs) ElementType() reflect.Type {
@@ -20924,24 +20928,24 @@ func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) ToGetDataSetPhysi
 	return o
 }
 
-func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) ContainsHeader() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) bool { return v.ContainsHeader }).(pulumi.BoolOutput)
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) ContainsHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) *bool { return v.ContainsHeader }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) Delimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) string { return v.Delimiter }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) Format() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) string { return v.Format }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) StartFromRow() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) int { return v.StartFromRow }).(pulumi.IntOutput)
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) StartFromRow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) *int { return v.StartFromRow }).(pulumi.IntPtrOutput)
 }
 
-func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) TextQualifier() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) string { return v.TextQualifier }).(pulumi.StringOutput)
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) TextQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) *string { return v.TextQualifier }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput struct{ *pulumi.OutputState }
@@ -20965,11 +20969,11 @@ func (o GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput) Index(i pulu
 }
 
 type GetDataSetRowLevelPermissionDataSet struct {
-	Arn              string `pulumi:"arn"`
-	FormatVersion    string `pulumi:"formatVersion"`
-	Namespace        string `pulumi:"namespace"`
-	PermissionPolicy string `pulumi:"permissionPolicy"`
-	Status           string `pulumi:"status"`
+	Arn              *string `pulumi:"arn"`
+	FormatVersion    *string `pulumi:"formatVersion"`
+	Namespace        *string `pulumi:"namespace"`
+	PermissionPolicy *string `pulumi:"permissionPolicy"`
+	Status           *string `pulumi:"status"`
 }
 
 // GetDataSetRowLevelPermissionDataSetInput is an input type that accepts GetDataSetRowLevelPermissionDataSetArgs and GetDataSetRowLevelPermissionDataSetOutput values.
@@ -20984,11 +20988,11 @@ type GetDataSetRowLevelPermissionDataSetInput interface {
 }
 
 type GetDataSetRowLevelPermissionDataSetArgs struct {
-	Arn              pulumi.StringInput `pulumi:"arn"`
-	FormatVersion    pulumi.StringInput `pulumi:"formatVersion"`
-	Namespace        pulumi.StringInput `pulumi:"namespace"`
-	PermissionPolicy pulumi.StringInput `pulumi:"permissionPolicy"`
-	Status           pulumi.StringInput `pulumi:"status"`
+	Arn              pulumi.StringPtrInput `pulumi:"arn"`
+	FormatVersion    pulumi.StringPtrInput `pulumi:"formatVersion"`
+	Namespace        pulumi.StringPtrInput `pulumi:"namespace"`
+	PermissionPolicy pulumi.StringPtrInput `pulumi:"permissionPolicy"`
+	Status           pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (GetDataSetRowLevelPermissionDataSetArgs) ElementType() reflect.Type {
@@ -21042,24 +21046,24 @@ func (o GetDataSetRowLevelPermissionDataSetOutput) ToGetDataSetRowLevelPermissio
 	return o
 }
 
-func (o GetDataSetRowLevelPermissionDataSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionDataSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetRowLevelPermissionDataSetOutput) FormatVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.FormatVersion }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionDataSetOutput) FormatVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) *string { return v.FormatVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetRowLevelPermissionDataSetOutput) Namespace() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.Namespace }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionDataSetOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetRowLevelPermissionDataSetOutput) PermissionPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.PermissionPolicy }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionDataSetOutput) PermissionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) *string { return v.PermissionPolicy }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetRowLevelPermissionDataSetOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.Status }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionDataSetOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetRowLevelPermissionDataSetArrayOutput struct{ *pulumi.OutputState }
@@ -21083,7 +21087,7 @@ func (o GetDataSetRowLevelPermissionDataSetArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetDataSetRowLevelPermissionTagConfiguration struct {
-	Status   string                                                `pulumi:"status"`
+	Status   *string                                               `pulumi:"status"`
 	TagRules []GetDataSetRowLevelPermissionTagConfigurationTagRule `pulumi:"tagRules"`
 }
 
@@ -21099,7 +21103,7 @@ type GetDataSetRowLevelPermissionTagConfigurationInput interface {
 }
 
 type GetDataSetRowLevelPermissionTagConfigurationArgs struct {
-	Status   pulumi.StringInput                                            `pulumi:"status"`
+	Status   pulumi.StringPtrInput                                         `pulumi:"status"`
 	TagRules GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayInput `pulumi:"tagRules"`
 }
 
@@ -21154,8 +21158,8 @@ func (o GetDataSetRowLevelPermissionTagConfigurationOutput) ToGetDataSetRowLevel
 	return o
 }
 
-func (o GetDataSetRowLevelPermissionTagConfigurationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfiguration) string { return v.Status }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionTagConfigurationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDataSetRowLevelPermissionTagConfigurationOutput) TagRules() GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
@@ -21185,10 +21189,10 @@ func (o GetDataSetRowLevelPermissionTagConfigurationArrayOutput) Index(i pulumi.
 }
 
 type GetDataSetRowLevelPermissionTagConfigurationTagRule struct {
-	ColumnName             string `pulumi:"columnName"`
-	MatchAllValue          string `pulumi:"matchAllValue"`
-	TagKey                 string `pulumi:"tagKey"`
-	TagMultiValueDelimiter string `pulumi:"tagMultiValueDelimiter"`
+	ColumnName             *string `pulumi:"columnName"`
+	MatchAllValue          *string `pulumi:"matchAllValue"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagMultiValueDelimiter *string `pulumi:"tagMultiValueDelimiter"`
 }
 
 // GetDataSetRowLevelPermissionTagConfigurationTagRuleInput is an input type that accepts GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs and GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput values.
@@ -21203,10 +21207,10 @@ type GetDataSetRowLevelPermissionTagConfigurationTagRuleInput interface {
 }
 
 type GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs struct {
-	ColumnName             pulumi.StringInput `pulumi:"columnName"`
-	MatchAllValue          pulumi.StringInput `pulumi:"matchAllValue"`
-	TagKey                 pulumi.StringInput `pulumi:"tagKey"`
-	TagMultiValueDelimiter pulumi.StringInput `pulumi:"tagMultiValueDelimiter"`
+	ColumnName             pulumi.StringPtrInput `pulumi:"columnName"`
+	MatchAllValue          pulumi.StringPtrInput `pulumi:"matchAllValue"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagMultiValueDelimiter pulumi.StringPtrInput `pulumi:"tagMultiValueDelimiter"`
 }
 
 func (GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs) ElementType() reflect.Type {
@@ -21260,20 +21264,20 @@ func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) ToGetDataSetR
 	return o
 }
 
-func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) string { return v.ColumnName }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) MatchAllValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) string { return v.MatchAllValue }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) MatchAllValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) *string { return v.MatchAllValue }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) string { return v.TagKey }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagMultiValueDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) string { return v.TagMultiValueDelimiter }).(pulumi.StringOutput)
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagMultiValueDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) *string { return v.TagMultiValueDelimiter }).(pulumi.StringPtrOutput)
 }
 
 type GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput struct{ *pulumi.OutputState }
@@ -21424,7 +21428,7 @@ type GetThemeConfigurationDataColorPalette struct {
 	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
 	Colors []string `pulumi:"colors"`
 	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-	EmptyFillColor string `pulumi:"emptyFillColor"`
+	EmptyFillColor *string `pulumi:"emptyFillColor"`
 	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
 	MinMaxGradients []string `pulumi:"minMaxGradients"`
 }
@@ -21444,7 +21448,7 @@ type GetThemeConfigurationDataColorPaletteArgs struct {
 	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
 	Colors pulumi.StringArrayInput `pulumi:"colors"`
 	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-	EmptyFillColor pulumi.StringInput `pulumi:"emptyFillColor"`
+	EmptyFillColor pulumi.StringPtrInput `pulumi:"emptyFillColor"`
 	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
 	MinMaxGradients pulumi.StringArrayInput `pulumi:"minMaxGradients"`
 }
@@ -21506,8 +21510,8 @@ func (o GetThemeConfigurationDataColorPaletteOutput) Colors() pulumi.StringArray
 }
 
 // The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-func (o GetThemeConfigurationDataColorPaletteOutput) EmptyFillColor() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationDataColorPalette) string { return v.EmptyFillColor }).(pulumi.StringOutput)
+func (o GetThemeConfigurationDataColorPaletteOutput) EmptyFillColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationDataColorPalette) *string { return v.EmptyFillColor }).(pulumi.StringPtrOutput)
 }
 
 // The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
@@ -21740,7 +21744,7 @@ func (o GetThemeConfigurationSheetTileArrayOutput) Index(i pulumi.IntInput) GetT
 
 type GetThemeConfigurationSheetTileBorder struct {
 	// This Boolean value controls whether to display sheet margins.
-	Show bool `pulumi:"show"`
+	Show *bool `pulumi:"show"`
 }
 
 // GetThemeConfigurationSheetTileBorderInput is an input type that accepts GetThemeConfigurationSheetTileBorderArgs and GetThemeConfigurationSheetTileBorderOutput values.
@@ -21756,7 +21760,7 @@ type GetThemeConfigurationSheetTileBorderInput interface {
 
 type GetThemeConfigurationSheetTileBorderArgs struct {
 	// This Boolean value controls whether to display sheet margins.
-	Show pulumi.BoolInput `pulumi:"show"`
+	Show pulumi.BoolPtrInput `pulumi:"show"`
 }
 
 func (GetThemeConfigurationSheetTileBorderArgs) ElementType() reflect.Type {
@@ -21811,8 +21815,8 @@ func (o GetThemeConfigurationSheetTileBorderOutput) ToGetThemeConfigurationSheet
 }
 
 // This Boolean value controls whether to display sheet margins.
-func (o GetThemeConfigurationSheetTileBorderOutput) Show() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetThemeConfigurationSheetTileBorder) bool { return v.Show }).(pulumi.BoolOutput)
+func (o GetThemeConfigurationSheetTileBorderOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheetTileBorder) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
 
 type GetThemeConfigurationSheetTileBorderArrayOutput struct{ *pulumi.OutputState }
@@ -21947,7 +21951,7 @@ func (o GetThemeConfigurationSheetTileLayoutArrayOutput) Index(i pulumi.IntInput
 
 type GetThemeConfigurationSheetTileLayoutGutter struct {
 	// This Boolean value controls whether to display sheet margins.
-	Show bool `pulumi:"show"`
+	Show *bool `pulumi:"show"`
 }
 
 // GetThemeConfigurationSheetTileLayoutGutterInput is an input type that accepts GetThemeConfigurationSheetTileLayoutGutterArgs and GetThemeConfigurationSheetTileLayoutGutterOutput values.
@@ -21963,7 +21967,7 @@ type GetThemeConfigurationSheetTileLayoutGutterInput interface {
 
 type GetThemeConfigurationSheetTileLayoutGutterArgs struct {
 	// This Boolean value controls whether to display sheet margins.
-	Show pulumi.BoolInput `pulumi:"show"`
+	Show pulumi.BoolPtrInput `pulumi:"show"`
 }
 
 func (GetThemeConfigurationSheetTileLayoutGutterArgs) ElementType() reflect.Type {
@@ -22018,8 +22022,8 @@ func (o GetThemeConfigurationSheetTileLayoutGutterOutput) ToGetThemeConfiguratio
 }
 
 // This Boolean value controls whether to display sheet margins.
-func (o GetThemeConfigurationSheetTileLayoutGutterOutput) Show() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayoutGutter) bool { return v.Show }).(pulumi.BoolOutput)
+func (o GetThemeConfigurationSheetTileLayoutGutterOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayoutGutter) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
 
 type GetThemeConfigurationSheetTileLayoutGutterArrayOutput struct{ *pulumi.OutputState }
@@ -22044,7 +22048,7 @@ func (o GetThemeConfigurationSheetTileLayoutGutterArrayOutput) Index(i pulumi.In
 
 type GetThemeConfigurationSheetTileLayoutMargin struct {
 	// This Boolean value controls whether to display sheet margins.
-	Show bool `pulumi:"show"`
+	Show *bool `pulumi:"show"`
 }
 
 // GetThemeConfigurationSheetTileLayoutMarginInput is an input type that accepts GetThemeConfigurationSheetTileLayoutMarginArgs and GetThemeConfigurationSheetTileLayoutMarginOutput values.
@@ -22060,7 +22064,7 @@ type GetThemeConfigurationSheetTileLayoutMarginInput interface {
 
 type GetThemeConfigurationSheetTileLayoutMarginArgs struct {
 	// This Boolean value controls whether to display sheet margins.
-	Show pulumi.BoolInput `pulumi:"show"`
+	Show pulumi.BoolPtrInput `pulumi:"show"`
 }
 
 func (GetThemeConfigurationSheetTileLayoutMarginArgs) ElementType() reflect.Type {
@@ -22115,8 +22119,8 @@ func (o GetThemeConfigurationSheetTileLayoutMarginOutput) ToGetThemeConfiguratio
 }
 
 // This Boolean value controls whether to display sheet margins.
-func (o GetThemeConfigurationSheetTileLayoutMarginOutput) Show() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayoutMargin) bool { return v.Show }).(pulumi.BoolOutput)
+func (o GetThemeConfigurationSheetTileLayoutMarginOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayoutMargin) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
 
 type GetThemeConfigurationSheetTileLayoutMarginArrayOutput struct{ *pulumi.OutputState }
@@ -22240,7 +22244,7 @@ func (o GetThemeConfigurationTypographyArrayOutput) Index(i pulumi.IntInput) Get
 
 type GetThemeConfigurationTypographyFontFamily struct {
 	// Font family name.
-	FontFamily string `pulumi:"fontFamily"`
+	FontFamily *string `pulumi:"fontFamily"`
 }
 
 // GetThemeConfigurationTypographyFontFamilyInput is an input type that accepts GetThemeConfigurationTypographyFontFamilyArgs and GetThemeConfigurationTypographyFontFamilyOutput values.
@@ -22256,7 +22260,7 @@ type GetThemeConfigurationTypographyFontFamilyInput interface {
 
 type GetThemeConfigurationTypographyFontFamilyArgs struct {
 	// Font family name.
-	FontFamily pulumi.StringInput `pulumi:"fontFamily"`
+	FontFamily pulumi.StringPtrInput `pulumi:"fontFamily"`
 }
 
 func (GetThemeConfigurationTypographyFontFamilyArgs) ElementType() reflect.Type {
@@ -22311,8 +22315,8 @@ func (o GetThemeConfigurationTypographyFontFamilyOutput) ToGetThemeConfiguration
 }
 
 // Font family name.
-func (o GetThemeConfigurationTypographyFontFamilyOutput) FontFamily() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationTypographyFontFamily) string { return v.FontFamily }).(pulumi.StringOutput)
+func (o GetThemeConfigurationTypographyFontFamilyOutput) FontFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationTypographyFontFamily) *string { return v.FontFamily }).(pulumi.StringPtrOutput)
 }
 
 type GetThemeConfigurationTypographyFontFamilyArrayOutput struct{ *pulumi.OutputState }
@@ -22337,37 +22341,37 @@ func (o GetThemeConfigurationTypographyFontFamilyArrayOutput) Index(i pulumi.Int
 
 type GetThemeConfigurationUiColorPalette struct {
 	// Color (hexadecimal) that applies to selected states and buttons.
-	Accent string `pulumi:"accent"`
+	Accent *string `pulumi:"accent"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
-	AccentForeground string `pulumi:"accentForeground"`
+	AccentForeground *string `pulumi:"accentForeground"`
 	// Color (hexadecimal) that applies to error messages.
-	Danger string `pulumi:"danger"`
+	Danger *string `pulumi:"danger"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
-	DangerForeground string `pulumi:"dangerForeground"`
+	DangerForeground *string `pulumi:"dangerForeground"`
 	// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
-	Dimension string `pulumi:"dimension"`
+	Dimension *string `pulumi:"dimension"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
-	DimensionForeground string `pulumi:"dimensionForeground"`
+	DimensionForeground *string `pulumi:"dimensionForeground"`
 	// Color (hexadecimal) that applies to the names of fields that are identified as measures.
-	Measure string `pulumi:"measure"`
+	Measure *string `pulumi:"measure"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
-	MeasureForeground string `pulumi:"measureForeground"`
+	MeasureForeground *string `pulumi:"measureForeground"`
 	// Color (hexadecimal) that applies to visuals and other high emphasis UI.
-	PrimaryBackground string `pulumi:"primaryBackground"`
+	PrimaryBackground *string `pulumi:"primaryBackground"`
 	// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
-	PrimaryForeground string `pulumi:"primaryForeground"`
+	PrimaryForeground *string `pulumi:"primaryForeground"`
 	// Color (hexadecimal) that applies to the sheet background and sheet controls.
-	SecondaryBackground string `pulumi:"secondaryBackground"`
+	SecondaryBackground *string `pulumi:"secondaryBackground"`
 	// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
-	SecondaryForeground string `pulumi:"secondaryForeground"`
+	SecondaryForeground *string `pulumi:"secondaryForeground"`
 	// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
-	Success string `pulumi:"success"`
+	Success *string `pulumi:"success"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
-	SuccessForeground string `pulumi:"successForeground"`
+	SuccessForeground *string `pulumi:"successForeground"`
 	// Color (hexadecimal) that applies to warning and informational messages.
-	Warning string `pulumi:"warning"`
+	Warning *string `pulumi:"warning"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
-	WarningForeground string `pulumi:"warningForeground"`
+	WarningForeground *string `pulumi:"warningForeground"`
 }
 
 // GetThemeConfigurationUiColorPaletteInput is an input type that accepts GetThemeConfigurationUiColorPaletteArgs and GetThemeConfigurationUiColorPaletteOutput values.
@@ -22383,37 +22387,37 @@ type GetThemeConfigurationUiColorPaletteInput interface {
 
 type GetThemeConfigurationUiColorPaletteArgs struct {
 	// Color (hexadecimal) that applies to selected states and buttons.
-	Accent pulumi.StringInput `pulumi:"accent"`
+	Accent pulumi.StringPtrInput `pulumi:"accent"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
-	AccentForeground pulumi.StringInput `pulumi:"accentForeground"`
+	AccentForeground pulumi.StringPtrInput `pulumi:"accentForeground"`
 	// Color (hexadecimal) that applies to error messages.
-	Danger pulumi.StringInput `pulumi:"danger"`
+	Danger pulumi.StringPtrInput `pulumi:"danger"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
-	DangerForeground pulumi.StringInput `pulumi:"dangerForeground"`
+	DangerForeground pulumi.StringPtrInput `pulumi:"dangerForeground"`
 	// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
-	Dimension pulumi.StringInput `pulumi:"dimension"`
+	Dimension pulumi.StringPtrInput `pulumi:"dimension"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
-	DimensionForeground pulumi.StringInput `pulumi:"dimensionForeground"`
+	DimensionForeground pulumi.StringPtrInput `pulumi:"dimensionForeground"`
 	// Color (hexadecimal) that applies to the names of fields that are identified as measures.
-	Measure pulumi.StringInput `pulumi:"measure"`
+	Measure pulumi.StringPtrInput `pulumi:"measure"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
-	MeasureForeground pulumi.StringInput `pulumi:"measureForeground"`
+	MeasureForeground pulumi.StringPtrInput `pulumi:"measureForeground"`
 	// Color (hexadecimal) that applies to visuals and other high emphasis UI.
-	PrimaryBackground pulumi.StringInput `pulumi:"primaryBackground"`
+	PrimaryBackground pulumi.StringPtrInput `pulumi:"primaryBackground"`
 	// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
-	PrimaryForeground pulumi.StringInput `pulumi:"primaryForeground"`
+	PrimaryForeground pulumi.StringPtrInput `pulumi:"primaryForeground"`
 	// Color (hexadecimal) that applies to the sheet background and sheet controls.
-	SecondaryBackground pulumi.StringInput `pulumi:"secondaryBackground"`
+	SecondaryBackground pulumi.StringPtrInput `pulumi:"secondaryBackground"`
 	// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
-	SecondaryForeground pulumi.StringInput `pulumi:"secondaryForeground"`
+	SecondaryForeground pulumi.StringPtrInput `pulumi:"secondaryForeground"`
 	// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
-	Success pulumi.StringInput `pulumi:"success"`
+	Success pulumi.StringPtrInput `pulumi:"success"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
-	SuccessForeground pulumi.StringInput `pulumi:"successForeground"`
+	SuccessForeground pulumi.StringPtrInput `pulumi:"successForeground"`
 	// Color (hexadecimal) that applies to warning and informational messages.
-	Warning pulumi.StringInput `pulumi:"warning"`
+	Warning pulumi.StringPtrInput `pulumi:"warning"`
 	// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
-	WarningForeground pulumi.StringInput `pulumi:"warningForeground"`
+	WarningForeground pulumi.StringPtrInput `pulumi:"warningForeground"`
 }
 
 func (GetThemeConfigurationUiColorPaletteArgs) ElementType() reflect.Type {
@@ -22468,83 +22472,83 @@ func (o GetThemeConfigurationUiColorPaletteOutput) ToGetThemeConfigurationUiColo
 }
 
 // Color (hexadecimal) that applies to selected states and buttons.
-func (o GetThemeConfigurationUiColorPaletteOutput) Accent() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Accent }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) Accent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.Accent }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
-func (o GetThemeConfigurationUiColorPaletteOutput) AccentForeground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.AccentForeground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) AccentForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.AccentForeground }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to error messages.
-func (o GetThemeConfigurationUiColorPaletteOutput) Danger() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Danger }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) Danger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.Danger }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to any text or other elements that appear over the error color.
-func (o GetThemeConfigurationUiColorPaletteOutput) DangerForeground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.DangerForeground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) DangerForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.DangerForeground }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
-func (o GetThemeConfigurationUiColorPaletteOutput) Dimension() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Dimension }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) Dimension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.Dimension }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
-func (o GetThemeConfigurationUiColorPaletteOutput) DimensionForeground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.DimensionForeground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) DimensionForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.DimensionForeground }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to the names of fields that are identified as measures.
-func (o GetThemeConfigurationUiColorPaletteOutput) Measure() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Measure }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) Measure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.Measure }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
-func (o GetThemeConfigurationUiColorPaletteOutput) MeasureForeground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.MeasureForeground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) MeasureForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.MeasureForeground }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to visuals and other high emphasis UI.
-func (o GetThemeConfigurationUiColorPaletteOutput) PrimaryBackground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.PrimaryBackground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) PrimaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.PrimaryBackground }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
-func (o GetThemeConfigurationUiColorPaletteOutput) PrimaryForeground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.PrimaryForeground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) PrimaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.PrimaryForeground }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to the sheet background and sheet controls.
-func (o GetThemeConfigurationUiColorPaletteOutput) SecondaryBackground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.SecondaryBackground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) SecondaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.SecondaryBackground }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
-func (o GetThemeConfigurationUiColorPaletteOutput) SecondaryForeground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.SecondaryForeground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) SecondaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.SecondaryForeground }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
-func (o GetThemeConfigurationUiColorPaletteOutput) Success() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Success }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) Success() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.Success }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to any text or other elements that appear over the success color.
-func (o GetThemeConfigurationUiColorPaletteOutput) SuccessForeground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.SuccessForeground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) SuccessForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.SuccessForeground }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to warning and informational messages.
-func (o GetThemeConfigurationUiColorPaletteOutput) Warning() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Warning }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) Warning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.Warning }).(pulumi.StringPtrOutput)
 }
 
 // Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
-func (o GetThemeConfigurationUiColorPaletteOutput) WarningForeground() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.WarningForeground }).(pulumi.StringOutput)
+func (o GetThemeConfigurationUiColorPaletteOutput) WarningForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) *string { return v.WarningForeground }).(pulumi.StringPtrOutput)
 }
 
 type GetThemeConfigurationUiColorPaletteArrayOutput struct{ *pulumi.OutputState }
@@ -22571,7 +22575,7 @@ type GetThemePermission struct {
 	// List of IAM actions to grant or revoke permissions on.
 	Actions []string `pulumi:"actions"`
 	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-	Principal string `pulumi:"principal"`
+	Principal *string `pulumi:"principal"`
 }
 
 // GetThemePermissionInput is an input type that accepts GetThemePermissionArgs and GetThemePermissionOutput values.
@@ -22589,7 +22593,7 @@ type GetThemePermissionArgs struct {
 	// List of IAM actions to grant or revoke permissions on.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
 	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-	Principal pulumi.StringInput `pulumi:"principal"`
+	Principal pulumi.StringPtrInput `pulumi:"principal"`
 }
 
 func (GetThemePermissionArgs) ElementType() reflect.Type {
@@ -22649,8 +22653,8 @@ func (o GetThemePermissionOutput) Actions() pulumi.StringArrayOutput {
 }
 
 // ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-func (o GetThemePermissionOutput) Principal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetThemePermission) string { return v.Principal }).(pulumi.StringOutput)
+func (o GetThemePermissionOutput) Principal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetThemePermission) *string { return v.Principal }).(pulumi.StringPtrOutput)
 }
 
 type GetThemePermissionArrayOutput struct{ *pulumi.OutputState }

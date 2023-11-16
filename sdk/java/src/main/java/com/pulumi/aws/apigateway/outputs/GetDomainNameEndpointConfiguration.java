@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainNameEndpointConfiguration {
@@ -14,7 +15,7 @@ public final class GetDomainNameEndpointConfiguration {
      * @return List of endpoint types.
      * 
      */
-    private List<String> types;
+    private @Nullable List<String> types;
 
     private GetDomainNameEndpointConfiguration() {}
     /**
@@ -22,7 +23,7 @@ public final class GetDomainNameEndpointConfiguration {
      * 
      */
     public List<String> types() {
-        return this.types;
+        return this.types == null ? List.of() : this.types;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetDomainNameEndpointConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> types;
+        private @Nullable List<String> types;
         public Builder() {}
         public Builder(GetDomainNameEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetDomainNameEndpointConfiguration {
         }
 
         @CustomType.Setter
-        public Builder types(List<String> types) {
-            this.types = Objects.requireNonNull(types);
+        public Builder types(@Nullable List<String> types) {
+            this.types = types;
             return this;
         }
         public Builder types(String... types) {

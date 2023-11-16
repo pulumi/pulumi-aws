@@ -85,28 +85,28 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Redshift event notification subscription
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The AWS customer account associated with the Redshift event notification subscription
      * 
      */
     @Export(name="customerAwsId", refs={String.class}, tree="[0]")
-    private Output<String> customerAwsId;
+    private Output</* @Nullable */ String> customerAwsId;
 
     /**
      * @return The AWS customer account associated with the Redshift event notification subscription
      * 
      */
-    public Output<String> customerAwsId() {
-        return this.customerAwsId;
+    public Output<Optional<String>> customerAwsId() {
+        return Codegen.optional(this.customerAwsId);
     }
     /**
      * A boolean flag to enable/disable the subscription. Defaults to `true`.
@@ -207,10 +207,10 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceType);
     }
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

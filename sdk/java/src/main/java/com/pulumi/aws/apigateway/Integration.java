@@ -304,14 +304,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cacheNamespace", refs={String.class}, tree="[0]")
-    private Output<String> cacheNamespace;
+    private Output</* @Nullable */ String> cacheNamespace;
 
     /**
      * @return Integration&#39;s cache namespace.
      * 
      */
-    public Output<String> cacheNamespace() {
-        return this.cacheNamespace;
+    public Output<Optional<String>> cacheNamespace() {
+        return Codegen.optional(this.cacheNamespace);
     }
     /**
      * ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
@@ -412,14 +412,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="passthroughBehavior", refs={String.class}, tree="[0]")
-    private Output<String> passthroughBehavior;
+    private Output</* @Nullable */ String> passthroughBehavior;
 
     /**
      * @return Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
      * 
      */
-    public Output<String> passthroughBehavior() {
-        return this.passthroughBehavior;
+    public Output<Optional<String>> passthroughBehavior() {
+        return Codegen.optional(this.passthroughBehavior);
     }
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.

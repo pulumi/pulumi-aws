@@ -16,7 +16,7 @@ public final class GetResolverRulesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String nameRegex;
     private @Nullable String ownerId;
     private @Nullable String resolverEndpointId;
@@ -24,7 +24,7 @@ public final class GetResolverRulesResult {
      * @return IDs of the matched resolver rules.
      * 
      */
-    private List<String> resolverRuleIds;
+    private @Nullable List<String> resolverRuleIds;
     private @Nullable String ruleType;
     private @Nullable String shareStatus;
 
@@ -33,8 +33,8 @@ public final class GetResolverRulesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
@@ -50,7 +50,7 @@ public final class GetResolverRulesResult {
      * 
      */
     public List<String> resolverRuleIds() {
-        return this.resolverRuleIds;
+        return this.resolverRuleIds == null ? List.of() : this.resolverRuleIds;
     }
     public Optional<String> ruleType() {
         return Optional.ofNullable(this.ruleType);
@@ -68,11 +68,11 @@ public final class GetResolverRulesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private @Nullable String nameRegex;
         private @Nullable String ownerId;
         private @Nullable String resolverEndpointId;
-        private List<String> resolverRuleIds;
+        private @Nullable List<String> resolverRuleIds;
         private @Nullable String ruleType;
         private @Nullable String shareStatus;
         public Builder() {}
@@ -88,8 +88,8 @@ public final class GetResolverRulesResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -108,8 +108,8 @@ public final class GetResolverRulesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resolverRuleIds(List<String> resolverRuleIds) {
-            this.resolverRuleIds = Objects.requireNonNull(resolverRuleIds);
+        public Builder resolverRuleIds(@Nullable List<String> resolverRuleIds) {
+            this.resolverRuleIds = resolverRuleIds;
             return this;
         }
         public Builder resolverRuleIds(String... resolverRuleIds) {

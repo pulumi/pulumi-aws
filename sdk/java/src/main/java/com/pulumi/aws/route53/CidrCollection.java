@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -60,14 +61,14 @@ public class CidrCollection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the CIDR collection.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Unique name for the CIDR collection.
@@ -88,14 +89,14 @@ public class CidrCollection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
-    private Output<Integer> version;
+    private Output</* @Nullable */ Integer> version;
 
     /**
      * @return The lastest version of the CIDR collection.
      * 
      */
-    public Output<Integer> version() {
-        return this.version;
+    public Output<Optional<Integer>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

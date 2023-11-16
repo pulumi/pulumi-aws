@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the place index resource was created in ISO 8601 format.
         /// </summary>
         [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        public Output<string?> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the geospatial data provider for the new place index.
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Location
         /// Configuration block with the data storage option chosen for requesting Places. Detailed below.
         /// </summary>
         [Output("dataSourceConfiguration")]
-        public Output<Outputs.PlaceIndexDataSourceConfiguration> DataSourceConfiguration { get; private set; } = null!;
+        public Output<Outputs.PlaceIndexDataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The optional description for the place index resource.
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Location
         /// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
         /// </summary>
         [Output("indexArn")]
-        public Output<string> IndexArn { get; private set; } = null!;
+        public Output<string?> IndexArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the place index resource.
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the place index resource was last update in ISO 8601.
         /// </summary>
         [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        public Output<string?> UpdateTime { get; private set; } = null!;
 
 
         /// <summary>

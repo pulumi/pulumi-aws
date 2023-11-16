@@ -31,49 +31,49 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVault, err := glacier.NewVault(ctx, "exampleVault", nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("glacier:DeleteArchive"),
-//						},
-//						Effect: pulumi.String("Deny"),
-//						Resources: pulumi.StringArray{
-//							exampleVault.Arn,
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("NumericLessThanEquals"),
-//								Variable: pulumi.String("glacier:ArchiveAgeinDays"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("365"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = glacier.NewVaultLock(ctx, "exampleVaultLock", &glacier.VaultLockArgs{
-//				CompleteLock: pulumi.Bool(false),
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//				VaultName: exampleVault.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleVault, err := glacier.NewVault(ctx, "exampleVault", nil)
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument := exampleVault.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "glacier:DeleteArchive",
+// },
+// Effect: "Deny",
+// Resources: interface{}{
+// arn,
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "NumericLessThanEquals",
+// Variable: "glacier:ArchiveAgeinDays",
+// Values: []string{
+// "365",
+// },
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = glacier.NewVaultLock(ctx, "exampleVaultLock", &glacier.VaultLockArgs{
+// CompleteLock: pulumi.Bool(false),
+// Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &examplePolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// VaultName: exampleVault.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Permanently Applying Glacier Vault Lock Policy
 //

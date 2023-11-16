@@ -97,15 +97,15 @@ type CostCategory struct {
 	pulumi.CustomResourceState
 
 	// ARN of the cost category.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Default value for the cost category.
 	DefaultValue pulumi.StringPtrOutput `pulumi:"defaultValue"`
 	// Effective end data of your Cost Category.
-	EffectiveEnd pulumi.StringOutput `pulumi:"effectiveEnd"`
+	EffectiveEnd pulumi.StringPtrOutput `pulumi:"effectiveEnd"`
 	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
 	//
 	// The following arguments are optional:
-	EffectiveStart pulumi.StringOutput `pulumi:"effectiveStart"`
+	EffectiveStart pulumi.StringPtrOutput `pulumi:"effectiveStart"`
 	// Unique name for the Cost Category.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Rule schema version in this particular Cost Category.
@@ -346,8 +346,8 @@ func (o CostCategoryOutput) ToCostCategoryOutputWithContext(ctx context.Context)
 }
 
 // ARN of the cost category.
-func (o CostCategoryOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CostCategoryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Default value for the cost category.
@@ -356,15 +356,15 @@ func (o CostCategoryOutput) DefaultValue() pulumi.StringPtrOutput {
 }
 
 // Effective end data of your Cost Category.
-func (o CostCategoryOutput) EffectiveEnd() pulumi.StringOutput {
-	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.EffectiveEnd }).(pulumi.StringOutput)
+func (o CostCategoryOutput) EffectiveEnd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringPtrOutput { return v.EffectiveEnd }).(pulumi.StringPtrOutput)
 }
 
 // The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
 //
 // The following arguments are optional:
-func (o CostCategoryOutput) EffectiveStart() pulumi.StringOutput {
-	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.EffectiveStart }).(pulumi.StringOutput)
+func (o CostCategoryOutput) EffectiveStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringPtrOutput { return v.EffectiveStart }).(pulumi.StringPtrOutput)
 }
 
 // Unique name for the Cost Category.

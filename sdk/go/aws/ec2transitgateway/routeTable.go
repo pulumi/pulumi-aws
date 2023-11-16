@@ -53,11 +53,11 @@ type RouteTable struct {
 	pulumi.CustomResourceState
 
 	// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Boolean whether this is the default association route table for the EC2 Transit Gateway.
-	DefaultAssociationRouteTable pulumi.BoolOutput `pulumi:"defaultAssociationRouteTable"`
+	DefaultAssociationRouteTable pulumi.BoolPtrOutput `pulumi:"defaultAssociationRouteTable"`
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-	DefaultPropagationRouteTable pulumi.BoolOutput `pulumi:"defaultPropagationRouteTable"`
+	DefaultPropagationRouteTable pulumi.BoolPtrOutput `pulumi:"defaultPropagationRouteTable"`
 	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -245,18 +245,18 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 }
 
 // EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
-func (o RouteTableOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RouteTableOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Boolean whether this is the default association route table for the EC2 Transit Gateway.
-func (o RouteTableOutput) DefaultAssociationRouteTable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *RouteTable) pulumi.BoolOutput { return v.DefaultAssociationRouteTable }).(pulumi.BoolOutput)
+func (o RouteTableOutput) DefaultAssociationRouteTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.BoolPtrOutput { return v.DefaultAssociationRouteTable }).(pulumi.BoolPtrOutput)
 }
 
 // Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-func (o RouteTableOutput) DefaultPropagationRouteTable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *RouteTable) pulumi.BoolOutput { return v.DefaultPropagationRouteTable }).(pulumi.BoolOutput)
+func (o RouteTableOutput) DefaultPropagationRouteTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.BoolPtrOutput { return v.DefaultPropagationRouteTable }).(pulumi.BoolPtrOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

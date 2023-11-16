@@ -1422,7 +1422,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cluster(self) -> pulumi.Output[str]:
+    def cluster(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of an ECS cluster.
         """
@@ -1502,7 +1502,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRole")
-    def iam_role(self) -> pulumi.Output[str]:
+    def iam_role(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         """
@@ -1510,7 +1510,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchType")
-    def launch_type(self) -> pulumi.Output[str]:
+    def launch_type(self) -> pulumi.Output[Optional[str]]:
         """
         Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         """
@@ -1560,7 +1560,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> pulumi.Output[str]:
+    def platform_version(self) -> pulumi.Output[Optional[str]]:
         """
         Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         """
@@ -1627,7 +1627,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> pulumi.Output[Mapping[str, str]]:
+    def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         """

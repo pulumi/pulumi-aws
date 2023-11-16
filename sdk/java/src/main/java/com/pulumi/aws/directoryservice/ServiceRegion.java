@@ -38,14 +38,14 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="desiredNumberOfDomainControllers", refs={Integer.class}, tree="[0]")
-    private Output<Integer> desiredNumberOfDomainControllers;
+    private Output</* @Nullable */ Integer> desiredNumberOfDomainControllers;
 
     /**
      * @return The number of domain controllers desired in the replicated directory. Minimum value of `2`.
      * 
      */
-    public Output<Integer> desiredNumberOfDomainControllers() {
-        return this.desiredNumberOfDomainControllers;
+    public Output<Optional<Integer>> desiredNumberOfDomainControllers() {
+        return Codegen.optional(this.desiredNumberOfDomainControllers);
     }
     /**
      * The identifier of the directory to which you want to add Region replication.

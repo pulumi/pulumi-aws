@@ -110,19 +110,19 @@ namespace Pulumi.Aws.AppStream
         /// See `application_settings` below.
         /// </summary>
         [Output("applicationSettings")]
-        public Output<Outputs.StackApplicationSettings> ApplicationSettings { get; private set; } = null!;
+        public Output<Outputs.StackApplicationSettings?> ApplicationSettings { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the appstream stack.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Description for the AppStream stack.
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.AppStream
         /// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         /// </summary>
         [Output("feedbackUrl")]
-        public Output<string> FeedbackUrl { get; private set; } = null!;
+        public Output<string?> FeedbackUrl { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for the AppStream stack.
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.AppStream
         /// URL that users are redirected to after their streaming session ends.
         /// </summary>
         [Output("redirectUrl")]
-        public Output<string> RedirectUrl { get; private set; } = null!;
+        public Output<string?> RedirectUrl { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the storage connectors to enable.
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.AppStream
         /// See `streaming_experience_settings` below.
         /// </summary>
         [Output("streamingExperienceSettings")]
-        public Output<Outputs.StackStreamingExperienceSettings> StreamingExperienceSettings { get; private set; } = null!;
+        public Output<Outputs.StackStreamingExperienceSettings?> StreamingExperienceSettings { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

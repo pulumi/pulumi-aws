@@ -28,7 +28,7 @@ type TestGridProject struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of this Test Grid Project.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Human-readable description of the project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Selenium testing project.
@@ -225,8 +225,8 @@ func (o TestGridProjectOutput) ToTestGridProjectOutputWithContext(ctx context.Co
 }
 
 // The Amazon Resource Name of this Test Grid Project.
-func (o TestGridProjectOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TestGridProjectOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TestGridProject) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Human-readable description of the project.

@@ -53,13 +53,13 @@ namespace Pulumi.Aws.Kinesis
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A time stamp that indicates when the stream was created.
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Kinesis
         /// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Kinesis
         /// The version of the stream.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

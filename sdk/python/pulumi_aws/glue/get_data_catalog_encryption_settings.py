@@ -40,7 +40,7 @@ class GetDataCatalogEncryptionSettingsResult:
 
     @property
     @pulumi.getter(name="dataCatalogEncryptionSettings")
-    def data_catalog_encryption_settings(self) -> Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult']:
+    def data_catalog_encryption_settings(self) -> Optional[Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult']]:
         """
         The security configuration to set. see Data Catalog Encryption Settings.
         """
@@ -48,7 +48,7 @@ class GetDataCatalogEncryptionSettingsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

@@ -1321,26 +1321,29 @@ class ReservedInstanceRecurringCharge(dict):
 @pulumi.output_type
 class GetClusterMasterUserSecretResult(dict):
     def __init__(__self__, *,
-                 kms_key_id: str,
-                 secret_arn: str,
-                 secret_status: str):
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "secret_arn", secret_arn)
-        pulumi.set(__self__, "secret_status", secret_status)
+                 kms_key_id: Optional[str] = None,
+                 secret_arn: Optional[str] = None,
+                 secret_status: Optional[str] = None):
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_status is not None:
+            pulumi.set(__self__, "secret_status", secret_status)
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> str:
+    def secret_arn(self) -> Optional[str]:
         return pulumi.get(self, "secret_arn")
 
     @property
     @pulumi.getter(name="secretStatus")
-    def secret_status(self) -> str:
+    def secret_status(self) -> Optional[str]:
         return pulumi.get(self, "secret_status")
 
 
@@ -1395,21 +1398,24 @@ class GetEngineVersionFilterResult(dict):
 @pulumi.output_type
 class GetInstanceMasterUserSecretResult(dict):
     def __init__(__self__, *,
-                 kms_key_id: str,
-                 secret_arn: str,
-                 secret_status: str):
+                 kms_key_id: Optional[str] = None,
+                 secret_arn: Optional[str] = None,
+                 secret_status: Optional[str] = None):
         """
         :param str kms_key_id: The Amazon Web Services KMS key identifier that is used to encrypt the secret.
         :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
         :param str secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "secret_arn", secret_arn)
-        pulumi.set(__self__, "secret_status", secret_status)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_status is not None:
+            pulumi.set(__self__, "secret_status", secret_status)
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         The Amazon Web Services KMS key identifier that is used to encrypt the secret.
         """
@@ -1417,7 +1423,7 @@ class GetInstanceMasterUserSecretResult(dict):
 
     @property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> str:
+    def secret_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the secret.
         """
@@ -1425,7 +1431,7 @@ class GetInstanceMasterUserSecretResult(dict):
 
     @property
     @pulumi.getter(name="secretStatus")
-    def secret_status(self) -> str:
+    def secret_status(self) -> Optional[str]:
         """
         The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
@@ -1464,47 +1470,53 @@ class GetInstancesFilterResult(dict):
 @pulumi.output_type
 class GetProxyAuthResult(dict):
     def __init__(__self__, *,
-                 auth_scheme: str,
-                 client_password_auth_type: str,
-                 description: str,
-                 iam_auth: str,
-                 secret_arn: str,
-                 username: str):
-        pulumi.set(__self__, "auth_scheme", auth_scheme)
-        pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "iam_auth", iam_auth)
-        pulumi.set(__self__, "secret_arn", secret_arn)
-        pulumi.set(__self__, "username", username)
+                 auth_scheme: Optional[str] = None,
+                 client_password_auth_type: Optional[str] = None,
+                 description: Optional[str] = None,
+                 iam_auth: Optional[str] = None,
+                 secret_arn: Optional[str] = None,
+                 username: Optional[str] = None):
+        if auth_scheme is not None:
+            pulumi.set(__self__, "auth_scheme", auth_scheme)
+        if client_password_auth_type is not None:
+            pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if iam_auth is not None:
+            pulumi.set(__self__, "iam_auth", iam_auth)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="authScheme")
-    def auth_scheme(self) -> str:
+    def auth_scheme(self) -> Optional[str]:
         return pulumi.get(self, "auth_scheme")
 
     @property
     @pulumi.getter(name="clientPasswordAuthType")
-    def client_password_auth_type(self) -> str:
+    def client_password_auth_type(self) -> Optional[str]:
         return pulumi.get(self, "client_password_auth_type")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="iamAuth")
-    def iam_auth(self) -> str:
+    def iam_auth(self) -> Optional[str]:
         return pulumi.get(self, "iam_auth")
 
     @property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> str:
+    def secret_arn(self) -> Optional[str]:
         return pulumi.get(self, "secret_arn")
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
 

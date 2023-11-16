@@ -45,13 +45,13 @@ namespace Pulumi.Aws.LightSail
         /// The ARN of the lightsail bucket.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.LightSail
         /// The timestamp when the bucket was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
@@ -81,13 +81,13 @@ namespace Pulumi.Aws.LightSail
         /// The Amazon Web Services Region name.
         /// </summary>
         [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
+        public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
         /// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Output("supportCode")]
-        public Output<string> SupportCode { get; private set; } = null!;
+        public Output<string?> SupportCode { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.LightSail
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>

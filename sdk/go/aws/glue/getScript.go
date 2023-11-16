@@ -267,12 +267,12 @@ type GetScriptResult struct {
 	DagEdges []GetScriptDagEdge `pulumi:"dagEdges"`
 	DagNodes []GetScriptDagNode `pulumi:"dagNodes"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string  `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Language *string `pulumi:"language"`
 	// Python script generated from the DAG when the `language` argument is set to `PYTHON`.
-	PythonScript string `pulumi:"pythonScript"`
+	PythonScript *string `pulumi:"pythonScript"`
 	// Scala code generated from the DAG when the `language` argument is set to `SCALA`.
-	ScalaCode string `pulumi:"scalaCode"`
+	ScalaCode *string `pulumi:"scalaCode"`
 }
 
 func GetScriptOutput(ctx *pulumi.Context, args GetScriptOutputArgs, opts ...pulumi.InvokeOption) GetScriptResultOutput {
@@ -326,8 +326,8 @@ func (o GetScriptResultOutput) DagNodes() GetScriptDagNodeArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetScriptResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetScriptResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetScriptResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetScriptResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetScriptResultOutput) Language() pulumi.StringPtrOutput {
@@ -335,13 +335,13 @@ func (o GetScriptResultOutput) Language() pulumi.StringPtrOutput {
 }
 
 // Python script generated from the DAG when the `language` argument is set to `PYTHON`.
-func (o GetScriptResultOutput) PythonScript() pulumi.StringOutput {
-	return o.ApplyT(func(v GetScriptResult) string { return v.PythonScript }).(pulumi.StringOutput)
+func (o GetScriptResultOutput) PythonScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetScriptResult) *string { return v.PythonScript }).(pulumi.StringPtrOutput)
 }
 
 // Scala code generated from the DAG when the `language` argument is set to `SCALA`.
-func (o GetScriptResultOutput) ScalaCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetScriptResult) string { return v.ScalaCode }).(pulumi.StringOutput)
+func (o GetScriptResultOutput) ScalaCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetScriptResult) *string { return v.ScalaCode }).(pulumi.StringPtrOutput)
 }
 
 func init() {

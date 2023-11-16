@@ -64,7 +64,7 @@ export class VpcIpamScope extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the scope.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description for the scope you're creating.
      */
@@ -72,20 +72,20 @@ export class VpcIpamScope extends pulumi.CustomResource {
     /**
      * The ARN of the IPAM for which you're creating this scope.
      */
-    public /*out*/ readonly ipamArn!: pulumi.Output<string>;
+    public /*out*/ readonly ipamArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the IPAM for which you're creating this scope.
      */
     public readonly ipamId!: pulumi.Output<string>;
-    public /*out*/ readonly ipamScopeType!: pulumi.Output<string>;
+    public /*out*/ readonly ipamScopeType!: pulumi.Output<string | undefined>;
     /**
      * Defines if the scope is the default scope or not.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    public /*out*/ readonly isDefault!: pulumi.Output<boolean | undefined>;
     /**
      * The number of pools in the scope.
      */
-    public /*out*/ readonly poolCount!: pulumi.Output<number>;
+    public /*out*/ readonly poolCount!: pulumi.Output<number | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

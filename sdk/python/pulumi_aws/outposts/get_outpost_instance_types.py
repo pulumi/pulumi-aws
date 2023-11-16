@@ -39,7 +39,7 @@ class GetOutpostInstanceTypesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -47,7 +47,7 @@ class GetOutpostInstanceTypesResult:
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Sequence[str]:
+    def instance_types(self) -> Optional[Sequence[str]]:
         """
         Set of instance types.
         """

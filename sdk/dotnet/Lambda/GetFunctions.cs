@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetFunctionsResult(
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Lambda
 
             ImmutableArray<string> functionNames,
 
-            string id)
+            string? id)
         {
             FunctionArns = functionArns;
             FunctionNames = functionNames;

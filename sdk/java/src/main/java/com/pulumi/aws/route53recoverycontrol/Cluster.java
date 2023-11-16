@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -61,28 +62,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the cluster
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
      * 
      */
     @Export(name="clusterEndpoints", refs={List.class,ClusterClusterEndpoint.class}, tree="[0,1]")
-    private Output<List<ClusterClusterEndpoint>> clusterEndpoints;
+    private Output</* @Nullable */ List<ClusterClusterEndpoint>> clusterEndpoints;
 
     /**
      * @return List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
      * 
      */
-    public Output<List<ClusterClusterEndpoint>> clusterEndpoints() {
-        return this.clusterEndpoints;
+    public Output<Optional<List<ClusterClusterEndpoint>>> clusterEndpoints() {
+        return Codegen.optional(this.clusterEndpoints);
     }
     /**
      * Unique name describing the cluster.
@@ -103,14 +104,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

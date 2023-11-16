@@ -72,28 +72,28 @@ public class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.Cu
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Amazon Resource Name (ARN) of the IPAM.
      * 
      */
     @Export(name="ipamArn", refs={String.class}, tree="[0]")
-    private Output<String> ipamArn;
+    private Output</* @Nullable */ String> ipamArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the IPAM.
      * 
      */
-    public Output<String> ipamArn() {
-        return this.ipamArn;
+    public Output<Optional<String>> ipamArn() {
+        return Codegen.optional(this.ipamArn);
     }
     /**
      * The ID of the IPAM to associate.
@@ -114,14 +114,14 @@ public class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.Cu
      * 
      */
     @Export(name="ipamRegion", refs={String.class}, tree="[0]")
-    private Output<String> ipamRegion;
+    private Output</* @Nullable */ String> ipamRegion;
 
     /**
      * @return The home region of the IPAM.
      * 
      */
-    public Output<String> ipamRegion() {
-        return this.ipamRegion;
+    public Output<Optional<String>> ipamRegion() {
+        return Codegen.optional(this.ipamRegion);
     }
     /**
      * The ID of the Resource Discovery to associate.
@@ -142,42 +142,42 @@ public class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.Cu
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> isDefault;
+    private Output</* @Nullable */ Boolean> isDefault;
 
     /**
      * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
-    public Output<Boolean> isDefault() {
-        return this.isDefault;
+    public Output<Optional<Boolean>> isDefault() {
+        return Codegen.optional(this.isDefault);
     }
     /**
      * The account ID for the account that manages the Resource Discovery
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The account ID for the account that manages the Resource Discovery
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The lifecycle state of the association when you associate or disassociate a resource discovery.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The lifecycle state of the association when you associate or disassociate a resource discovery.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * A map of tags to add to the IPAM resource discovery association resource.

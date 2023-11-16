@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFrameworkControl {
@@ -16,17 +18,17 @@ public final class GetFrameworkControl {
      * @return One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
      * 
      */
-    private List<GetFrameworkControlInputParameter> inputParameters;
+    private @Nullable List<GetFrameworkControlInputParameter> inputParameters;
     /**
      * @return Backup framework name.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
-    private List<GetFrameworkControlScope> scopes;
+    private @Nullable List<GetFrameworkControlScope> scopes;
 
     private GetFrameworkControl() {}
     /**
@@ -34,21 +36,21 @@ public final class GetFrameworkControl {
      * 
      */
     public List<GetFrameworkControlInputParameter> inputParameters() {
-        return this.inputParameters;
+        return this.inputParameters == null ? List.of() : this.inputParameters;
     }
     /**
      * @return Backup framework name.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
     public List<GetFrameworkControlScope> scopes() {
-        return this.scopes;
+        return this.scopes == null ? List.of() : this.scopes;
     }
 
     public static Builder builder() {
@@ -60,9 +62,9 @@ public final class GetFrameworkControl {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetFrameworkControlInputParameter> inputParameters;
-        private String name;
-        private List<GetFrameworkControlScope> scopes;
+        private @Nullable List<GetFrameworkControlInputParameter> inputParameters;
+        private @Nullable String name;
+        private @Nullable List<GetFrameworkControlScope> scopes;
         public Builder() {}
         public Builder(GetFrameworkControl defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,21 +74,21 @@ public final class GetFrameworkControl {
         }
 
         @CustomType.Setter
-        public Builder inputParameters(List<GetFrameworkControlInputParameter> inputParameters) {
-            this.inputParameters = Objects.requireNonNull(inputParameters);
+        public Builder inputParameters(@Nullable List<GetFrameworkControlInputParameter> inputParameters) {
+            this.inputParameters = inputParameters;
             return this;
         }
         public Builder inputParameters(GetFrameworkControlInputParameter... inputParameters) {
             return inputParameters(List.of(inputParameters));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder scopes(List<GetFrameworkControlScope> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+        public Builder scopes(@Nullable List<GetFrameworkControlScope> scopes) {
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(GetFrameworkControlScope... scopes) {

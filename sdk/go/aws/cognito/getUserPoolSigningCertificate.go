@@ -57,10 +57,10 @@ type GetUserPoolSigningCertificateArgs struct {
 // A collection of values returned by getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateResult struct {
 	// Certificate string
-	Certificate string `pulumi:"certificate"`
+	Certificate *string `pulumi:"certificate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	UserPoolId string `pulumi:"userPoolId"`
+	Id         *string `pulumi:"id"`
+	UserPoolId string  `pulumi:"userPoolId"`
 }
 
 func GetUserPoolSigningCertificateOutput(ctx *pulumi.Context, args GetUserPoolSigningCertificateOutputArgs, opts ...pulumi.InvokeOption) GetUserPoolSigningCertificateResultOutput {
@@ -102,13 +102,13 @@ func (o GetUserPoolSigningCertificateResultOutput) ToGetUserPoolSigningCertifica
 }
 
 // Certificate string
-func (o GetUserPoolSigningCertificateResultOutput) Certificate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolSigningCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
+func (o GetUserPoolSigningCertificateResultOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolSigningCertificateResult) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetUserPoolSigningCertificateResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolSigningCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserPoolSigningCertificateResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolSigningCertificateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetUserPoolSigningCertificateResultOutput) UserPoolId() pulumi.StringOutput {

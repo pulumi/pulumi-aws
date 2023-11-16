@@ -61,7 +61,7 @@ class GetCostCategoryResult:
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> str:
+    def default_value(self) -> Optional[str]:
         """
         Default value for the cost category.
         """
@@ -69,7 +69,7 @@ class GetCostCategoryResult:
 
     @property
     @pulumi.getter(name="effectiveEnd")
-    def effective_end(self) -> str:
+    def effective_end(self) -> Optional[str]:
         """
         Effective end data of your Cost Category.
         """
@@ -77,7 +77,7 @@ class GetCostCategoryResult:
 
     @property
     @pulumi.getter(name="effectiveStart")
-    def effective_start(self) -> str:
+    def effective_start(self) -> Optional[str]:
         """
         Effective state data of your Cost Category.
         """
@@ -85,7 +85,7 @@ class GetCostCategoryResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -93,12 +93,12 @@ class GetCostCategoryResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ruleVersion")
-    def rule_version(self) -> str:
+    def rule_version(self) -> Optional[str]:
         """
         Rule schema version in this particular Cost Category.
         """
@@ -106,7 +106,7 @@ class GetCostCategoryResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Sequence['outputs.GetCostCategoryRuleResult']:
+    def rules(self) -> Optional[Sequence['outputs.GetCostCategoryRuleResult']]:
         """
         Configuration block for the `Expression` object used to categorize costs. See below.
         """
@@ -114,7 +114,7 @@ class GetCostCategoryResult:
 
     @property
     @pulumi.getter(name="splitChargeRules")
-    def split_charge_rules(self) -> Sequence['outputs.GetCostCategorySplitChargeRuleResult']:
+    def split_charge_rules(self) -> Optional[Sequence['outputs.GetCostCategorySplitChargeRuleResult']]:
         """
         Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         """
@@ -122,7 +122,7 @@ class GetCostCategoryResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Configuration block for the specific `Tag` to use for `Expression`. See below.
         """

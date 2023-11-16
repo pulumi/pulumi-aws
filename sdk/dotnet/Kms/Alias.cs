@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Kms
         /// The Amazon Resource Name (ARN) of the key alias.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
@@ -62,13 +62,13 @@ namespace Pulumi.Aws.Kms
         /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target key identifier.
         /// </summary>
         [Output("targetKeyArn")]
-        public Output<string> TargetKeyArn { get; private set; } = null!;
+        public Output<string?> TargetKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for the key for which the alias is for, can be either an ARN or key_id.

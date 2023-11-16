@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// The AWS SSO field name that contains the identifiers of your users, such as their emails.
         /// </summary>
-        public readonly string IdentityAttributeName;
+        public readonly string? IdentityAttributeName;
 
         [OutputConstructor]
-        private GetExperienceConfigurationUserIdentityConfigurationResult(string identityAttributeName)
+        private GetExperienceConfigurationUserIdentityConfigurationResult(string? identityAttributeName)
         {
             IdentityAttributeName = identityAttributeName;
         }

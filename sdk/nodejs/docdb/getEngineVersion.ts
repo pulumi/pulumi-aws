@@ -60,30 +60,30 @@ export interface GetEngineVersionResult {
     /**
      * Description of the database engine.
      */
-    readonly engineDescription: string;
+    readonly engineDescription?: string;
     /**
      * Set of log types that the database engine has available for export to CloudWatch Logs.
      */
-    readonly exportableLogTypes: string[];
+    readonly exportableLogTypes?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly parameterGroupFamily: string;
+    readonly id?: string;
+    readonly parameterGroupFamily?: string;
     readonly preferredVersions?: string[];
     /**
      * Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
      */
-    readonly supportsLogExportsToCloudwatch: boolean;
+    readonly supportsLogExportsToCloudwatch?: boolean;
     /**
      * A set of engine versions that this database engine version can be upgraded to.
      */
-    readonly validUpgradeTargets: string[];
-    readonly version: string;
+    readonly validUpgradeTargets?: string[];
+    readonly version?: string;
     /**
      * Description of the database engine version.
      */
-    readonly versionDescription: string;
+    readonly versionDescription?: string;
 }
 /**
  * Information about a DocumentDB engine version.

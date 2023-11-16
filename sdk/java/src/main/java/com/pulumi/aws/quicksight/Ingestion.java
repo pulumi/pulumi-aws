@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -65,28 +66,28 @@ public class Ingestion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Ingestion.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * AWS account ID.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * ID of the dataset used in the ingestion.
@@ -121,14 +122,14 @@ public class Ingestion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ingestionStatus", refs={String.class}, tree="[0]")
-    private Output<String> ingestionStatus;
+    private Output</* @Nullable */ String> ingestionStatus;
 
     /**
      * @return Ingestion status.
      * 
      */
-    public Output<String> ingestionStatus() {
-        return this.ingestionStatus;
+    public Output<Optional<String>> ingestionStatus() {
+        return Codegen.optional(this.ingestionStatus);
     }
     /**
      * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.

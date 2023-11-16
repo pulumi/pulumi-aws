@@ -14,13 +14,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualNodeSpecBackendVirtualServiceResult
     {
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult> ClientPolicies;
-        public readonly string VirtualServiceName;
+        public readonly string? VirtualServiceName;
 
         [OutputConstructor]
         private GetVirtualNodeSpecBackendVirtualServiceResult(
             ImmutableArray<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult> clientPolicies,
 
-            string virtualServiceName)
+            string? virtualServiceName)
         {
             ClientPolicies = clientPolicies;
             VirtualServiceName = virtualServiceName;

@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2
     public partial class DefaultSubnet : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("assignIpv6AddressOnCreation")]
         public Output<bool?> AssignIpv6AddressOnCreation { get; private set; } = null!;
@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Ec2
         /// The AZ ID of the subnet
         /// </summary>
         [Output("availabilityZoneId")]
-        public Output<string> AvailabilityZoneId { get; private set; } = null!;
+        public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 CIDR block assigned to the subnet
         /// </summary>
         [Output("cidrBlock")]
-        public Output<string> CidrBlock { get; private set; } = null!;
+        public Output<string?> CidrBlock { get; private set; } = null!;
 
         [Output("customerOwnedIpv4Pool")]
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> EnableDns64 { get; private set; } = null!;
 
         [Output("enableLniAtDeviceIndex")]
-        public Output<int> EnableLniAtDeviceIndex { get; private set; } = null!;
+        public Output<int?> EnableLniAtDeviceIndex { get; private set; } = null!;
 
         [Output("enableResourceNameDnsARecordOnLaunch")]
         public Output<bool?> EnableResourceNameDnsARecordOnLaunch { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> EnableResourceNameDnsAaaaRecordOnLaunch { get; private set; } = null!;
 
         [Output("existingDefaultSubnet")]
-        public Output<bool> ExistingDefaultSubnet { get; private set; } = null!;
+        public Output<bool?> ExistingDefaultSubnet { get; private set; } = null!;
 
         /// <summary>
         /// Whether destroying the resource deletes the default subnet. Default: `false`
@@ -105,10 +105,10 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         [Output("ipv6CidrBlock")]
-        public Output<string> Ipv6CidrBlock { get; private set; } = null!;
+        public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
         [Output("ipv6CidrBlockAssociationId")]
-        public Output<string> Ipv6CidrBlockAssociationId { get; private set; } = null!;
+        public Output<string?> Ipv6CidrBlockAssociationId { get; private set; } = null!;
 
         [Output("ipv6Native")]
         public Output<bool?> Ipv6Native { get; private set; } = null!;
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
 
         [Output("outpostArn")]
-        public Output<string> OutpostArn { get; private set; } = null!;
+        public Output<string?> OutpostArn { get; private set; } = null!;
 
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         [Output("privateDnsHostnameTypeOnLaunch")]
-        public Output<string> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
+        public Output<string?> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the VPC the subnet is in
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

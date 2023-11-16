@@ -66,28 +66,28 @@ public class PlaybackKeyPair extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Playback Key Pair.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Key-pair identifier.
      * 
      */
     @Export(name="fingerprint", refs={String.class}, tree="[0]")
-    private Output<String> fingerprint;
+    private Output</* @Nullable */ String> fingerprint;
 
     /**
      * @return Key-pair identifier.
      * 
      */
-    public Output<String> fingerprint() {
-        return this.fingerprint;
+    public Output<Optional<String>> fingerprint() {
+        return Codegen.optional(this.fingerprint);
     }
     /**
      * Playback Key Pair name.

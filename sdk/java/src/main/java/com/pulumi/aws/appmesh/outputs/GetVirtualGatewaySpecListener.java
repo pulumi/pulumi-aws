@@ -10,26 +10,27 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTl;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecListener {
-    private List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools;
-    private List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks;
-    private List<GetVirtualGatewaySpecListenerPortMapping> portMappings;
-    private List<GetVirtualGatewaySpecListenerTl> tls;
+    private @Nullable List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools;
+    private @Nullable List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks;
+    private @Nullable List<GetVirtualGatewaySpecListenerPortMapping> portMappings;
+    private @Nullable List<GetVirtualGatewaySpecListenerTl> tls;
 
     private GetVirtualGatewaySpecListener() {}
     public List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools() {
-        return this.connectionPools;
+        return this.connectionPools == null ? List.of() : this.connectionPools;
     }
     public List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks() {
-        return this.healthChecks;
+        return this.healthChecks == null ? List.of() : this.healthChecks;
     }
     public List<GetVirtualGatewaySpecListenerPortMapping> portMappings() {
-        return this.portMappings;
+        return this.portMappings == null ? List.of() : this.portMappings;
     }
     public List<GetVirtualGatewaySpecListenerTl> tls() {
-        return this.tls;
+        return this.tls == null ? List.of() : this.tls;
     }
 
     public static Builder builder() {
@@ -41,10 +42,10 @@ public final class GetVirtualGatewaySpecListener {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools;
-        private List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks;
-        private List<GetVirtualGatewaySpecListenerPortMapping> portMappings;
-        private List<GetVirtualGatewaySpecListenerTl> tls;
+        private @Nullable List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools;
+        private @Nullable List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks;
+        private @Nullable List<GetVirtualGatewaySpecListenerPortMapping> portMappings;
+        private @Nullable List<GetVirtualGatewaySpecListenerTl> tls;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecListener defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,32 +56,32 @@ public final class GetVirtualGatewaySpecListener {
         }
 
         @CustomType.Setter
-        public Builder connectionPools(List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools) {
-            this.connectionPools = Objects.requireNonNull(connectionPools);
+        public Builder connectionPools(@Nullable List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools) {
+            this.connectionPools = connectionPools;
             return this;
         }
         public Builder connectionPools(GetVirtualGatewaySpecListenerConnectionPool... connectionPools) {
             return connectionPools(List.of(connectionPools));
         }
         @CustomType.Setter
-        public Builder healthChecks(List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks) {
-            this.healthChecks = Objects.requireNonNull(healthChecks);
+        public Builder healthChecks(@Nullable List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks) {
+            this.healthChecks = healthChecks;
             return this;
         }
         public Builder healthChecks(GetVirtualGatewaySpecListenerHealthCheck... healthChecks) {
             return healthChecks(List.of(healthChecks));
         }
         @CustomType.Setter
-        public Builder portMappings(List<GetVirtualGatewaySpecListenerPortMapping> portMappings) {
-            this.portMappings = Objects.requireNonNull(portMappings);
+        public Builder portMappings(@Nullable List<GetVirtualGatewaySpecListenerPortMapping> portMappings) {
+            this.portMappings = portMappings;
             return this;
         }
         public Builder portMappings(GetVirtualGatewaySpecListenerPortMapping... portMappings) {
             return portMappings(List.of(portMappings));
         }
         @CustomType.Setter
-        public Builder tls(List<GetVirtualGatewaySpecListenerTl> tls) {
-            this.tls = Objects.requireNonNull(tls);
+        public Builder tls(@Nullable List<GetVirtualGatewaySpecListenerTl> tls) {
+            this.tls = tls;
             return this;
         }
         public Builder tls(GetVirtualGatewaySpecListenerTl... tls) {

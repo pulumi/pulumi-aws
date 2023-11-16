@@ -6,6 +6,8 @@ package com.pulumi.aws.cognito.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserPoolClientTokenValidityUnit {
@@ -13,39 +15,39 @@ public final class GetUserPoolClientTokenValidityUnit {
      * @return (Optional) Time unit in for the value in `access_token_validity`, defaults to `hours`.
      * 
      */
-    private String accessToken;
+    private @Nullable String accessToken;
     /**
      * @return (Optional) Time unit in for the value in `id_token_validity`, defaults to `hours`.
      * 
      */
-    private String idToken;
+    private @Nullable String idToken;
     /**
      * @return (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
      * 
      */
-    private String refreshToken;
+    private @Nullable String refreshToken;
 
     private GetUserPoolClientTokenValidityUnit() {}
     /**
      * @return (Optional) Time unit in for the value in `access_token_validity`, defaults to `hours`.
      * 
      */
-    public String accessToken() {
-        return this.accessToken;
+    public Optional<String> accessToken() {
+        return Optional.ofNullable(this.accessToken);
     }
     /**
      * @return (Optional) Time unit in for the value in `id_token_validity`, defaults to `hours`.
      * 
      */
-    public String idToken() {
-        return this.idToken;
+    public Optional<String> idToken() {
+        return Optional.ofNullable(this.idToken);
     }
     /**
      * @return (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
      * 
      */
-    public String refreshToken() {
-        return this.refreshToken;
+    public Optional<String> refreshToken() {
+        return Optional.ofNullable(this.refreshToken);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetUserPoolClientTokenValidityUnit {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accessToken;
-        private String idToken;
-        private String refreshToken;
+        private @Nullable String accessToken;
+        private @Nullable String idToken;
+        private @Nullable String refreshToken;
         public Builder() {}
         public Builder(GetUserPoolClientTokenValidityUnit defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetUserPoolClientTokenValidityUnit {
         }
 
         @CustomType.Setter
-        public Builder accessToken(String accessToken) {
-            this.accessToken = Objects.requireNonNull(accessToken);
+        public Builder accessToken(@Nullable String accessToken) {
+            this.accessToken = accessToken;
             return this;
         }
         @CustomType.Setter
-        public Builder idToken(String idToken) {
-            this.idToken = Objects.requireNonNull(idToken);
+        public Builder idToken(@Nullable String idToken) {
+            this.idToken = idToken;
             return this;
         }
         @CustomType.Setter
-        public Builder refreshToken(String refreshToken) {
-            this.refreshToken = Objects.requireNonNull(refreshToken);
+        public Builder refreshToken(@Nullable String refreshToken) {
+            this.refreshToken = refreshToken;
             return this;
         }
         public GetUserPoolClientTokenValidityUnit build() {

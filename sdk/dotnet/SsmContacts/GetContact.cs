@@ -130,38 +130,38 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// A unique and identifiable alias of the contact or escalation plan.
         /// </summary>
-        public readonly string Alias;
+        public readonly string? Alias;
         public readonly string Arn;
         /// <summary>
         /// Full friendly name of the contact or escalation plan.
         /// </summary>
-        public readonly string DisplayName;
+        public readonly string? DisplayName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Map of tags to assign to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetContactResult(
-            string alias,
+            string? alias,
 
             string arn,
 
-            string displayName,
+            string? displayName,
 
-            string id,
+            string? id,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? type)
         {
             Alias = alias;
             Arn = arn;

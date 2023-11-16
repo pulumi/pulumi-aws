@@ -40,7 +40,7 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -48,7 +48,7 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
-    def stages(self) -> Sequence['outputs.GetPlanStageResult']:
+    def stages(self) -> Optional[Sequence['outputs.GetPlanStageResult']]:
         """
         List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
         """

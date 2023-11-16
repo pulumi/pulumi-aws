@@ -74,7 +74,7 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      */
-    public /*out*/ readonly callerReference!: pulumi.Output<string>;
+    public /*out*/ readonly callerReference!: pulumi.Output<string | undefined>;
     /**
      * An optional comment about the Field Level Encryption Profile.
      */
@@ -86,7 +86,7 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
     /**
      * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The name of the Field Level Encryption Profile.
      */

@@ -57,41 +57,41 @@ type LookupLaunchConfigurationArgs struct {
 // A collection of values returned by getLaunchConfiguration.
 type LookupLaunchConfigurationResult struct {
 	// Amazon Resource Name of the launch configuration.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Whether a Public IP address is associated with the instance.
-	AssociatePublicIpAddress bool `pulumi:"associatePublicIpAddress"`
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
 	// EBS Block Devices attached to the instance.
 	EbsBlockDevices []GetLaunchConfigurationEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// Whether the launched EC2 instance will be EBS-optimized.
-	EbsOptimized bool `pulumi:"ebsOptimized"`
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
 	// Whether Detailed Monitoring is Enabled.
-	EnableMonitoring bool `pulumi:"enableMonitoring"`
+	EnableMonitoring *bool `pulumi:"enableMonitoring"`
 	// The Ephemeral volumes on the instance.
 	EphemeralBlockDevices []GetLaunchConfigurationEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// The IAM Instance Profile to associate with launched instances.
-	IamInstanceProfile string `pulumi:"iamInstanceProfile"`
+	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// EC2 Image ID of the instance.
-	ImageId string `pulumi:"imageId"`
+	ImageId *string `pulumi:"imageId"`
 	// Instance Type of the instance to launch.
-	InstanceType string `pulumi:"instanceType"`
+	InstanceType *string `pulumi:"instanceType"`
 	// Key Name that should be used for the instance.
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// Metadata options for the instance.
 	MetadataOptions []GetLaunchConfigurationMetadataOption `pulumi:"metadataOptions"`
 	// Name of the launch configuration.
 	Name string `pulumi:"name"`
 	// Tenancy of the instance.
-	PlacementTenancy string `pulumi:"placementTenancy"`
+	PlacementTenancy *string `pulumi:"placementTenancy"`
 	// Root Block Device of the instance.
 	RootBlockDevices []GetLaunchConfigurationRootBlockDevice `pulumi:"rootBlockDevices"`
 	// List of associated Security Group IDS.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Price to use for reserving Spot instances.
-	SpotPrice string `pulumi:"spotPrice"`
+	SpotPrice *string `pulumi:"spotPrice"`
 	// User Data of the instance.
-	UserData string `pulumi:"userData"`
+	UserData *string `pulumi:"userData"`
 }
 
 func LookupLaunchConfigurationOutput(ctx *pulumi.Context, args LookupLaunchConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchConfigurationResultOutput {
@@ -133,13 +133,13 @@ func (o LookupLaunchConfigurationResultOutput) ToLookupLaunchConfigurationResult
 }
 
 // Amazon Resource Name of the launch configuration.
-func (o LookupLaunchConfigurationResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupLaunchConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether a Public IP address is associated with the instance.
-func (o LookupLaunchConfigurationResultOutput) AssociatePublicIpAddress() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) bool { return v.AssociatePublicIpAddress }).(pulumi.BoolOutput)
+func (o LookupLaunchConfigurationResultOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
 // EBS Block Devices attached to the instance.
@@ -150,13 +150,13 @@ func (o LookupLaunchConfigurationResultOutput) EbsBlockDevices() GetLaunchConfig
 }
 
 // Whether the launched EC2 instance will be EBS-optimized.
-func (o LookupLaunchConfigurationResultOutput) EbsOptimized() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) bool { return v.EbsOptimized }).(pulumi.BoolOutput)
+func (o LookupLaunchConfigurationResultOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
 // Whether Detailed Monitoring is Enabled.
-func (o LookupLaunchConfigurationResultOutput) EnableMonitoring() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) bool { return v.EnableMonitoring }).(pulumi.BoolOutput)
+func (o LookupLaunchConfigurationResultOutput) EnableMonitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *bool { return v.EnableMonitoring }).(pulumi.BoolPtrOutput)
 }
 
 // The Ephemeral volumes on the instance.
@@ -167,28 +167,28 @@ func (o LookupLaunchConfigurationResultOutput) EphemeralBlockDevices() GetLaunch
 }
 
 // The IAM Instance Profile to associate with launched instances.
-func (o LookupLaunchConfigurationResultOutput) IamInstanceProfile() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.IamInstanceProfile }).(pulumi.StringOutput)
+func (o LookupLaunchConfigurationResultOutput) IamInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *string { return v.IamInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupLaunchConfigurationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupLaunchConfigurationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // EC2 Image ID of the instance.
-func (o LookupLaunchConfigurationResultOutput) ImageId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.ImageId }).(pulumi.StringOutput)
+func (o LookupLaunchConfigurationResultOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
 // Instance Type of the instance to launch.
-func (o LookupLaunchConfigurationResultOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o LookupLaunchConfigurationResultOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // Key Name that should be used for the instance.
-func (o LookupLaunchConfigurationResultOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.KeyName }).(pulumi.StringOutput)
+func (o LookupLaunchConfigurationResultOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
 // Metadata options for the instance.
@@ -204,8 +204,8 @@ func (o LookupLaunchConfigurationResultOutput) Name() pulumi.StringOutput {
 }
 
 // Tenancy of the instance.
-func (o LookupLaunchConfigurationResultOutput) PlacementTenancy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.PlacementTenancy }).(pulumi.StringOutput)
+func (o LookupLaunchConfigurationResultOutput) PlacementTenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *string { return v.PlacementTenancy }).(pulumi.StringPtrOutput)
 }
 
 // Root Block Device of the instance.
@@ -221,13 +221,13 @@ func (o LookupLaunchConfigurationResultOutput) SecurityGroups() pulumi.StringArr
 }
 
 // Price to use for reserving Spot instances.
-func (o LookupLaunchConfigurationResultOutput) SpotPrice() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.SpotPrice }).(pulumi.StringOutput)
+func (o LookupLaunchConfigurationResultOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }
 
 // User Data of the instance.
-func (o LookupLaunchConfigurationResultOutput) UserData() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.UserData }).(pulumi.StringOutput)
+func (o LookupLaunchConfigurationResultOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
 func init() {

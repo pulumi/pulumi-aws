@@ -21,28 +21,28 @@ import javax.annotation.Nullable;
 public final class GetPermissionsResult {
     private @Nullable String catalogId;
     private @Nullable Boolean catalogResource;
-    private GetPermissionsDataLocation dataLocation;
-    private GetPermissionsDatabase database;
+    private @Nullable GetPermissionsDataLocation dataLocation;
+    private @Nullable GetPermissionsDatabase database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private GetPermissionsLfTag lfTag;
-    private GetPermissionsLfTagPolicy lfTagPolicy;
+    private @Nullable String id;
+    private @Nullable GetPermissionsLfTag lfTag;
+    private @Nullable GetPermissionsLfTagPolicy lfTagPolicy;
     /**
      * @return List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
      */
-    private List<String> permissions;
+    private @Nullable List<String> permissions;
     /**
      * @return Subset of `permissions` which the principal can pass.
      * 
      */
-    private List<String> permissionsWithGrantOptions;
+    private @Nullable List<String> permissionsWithGrantOptions;
     private String principal;
-    private GetPermissionsTable table;
-    private GetPermissionsTableWithColumns tableWithColumns;
+    private @Nullable GetPermissionsTable table;
+    private @Nullable GetPermissionsTableWithColumns tableWithColumns;
 
     private GetPermissionsResult() {}
     public Optional<String> catalogId() {
@@ -51,47 +51,47 @@ public final class GetPermissionsResult {
     public Optional<Boolean> catalogResource() {
         return Optional.ofNullable(this.catalogResource);
     }
-    public GetPermissionsDataLocation dataLocation() {
-        return this.dataLocation;
+    public Optional<GetPermissionsDataLocation> dataLocation() {
+        return Optional.ofNullable(this.dataLocation);
     }
-    public GetPermissionsDatabase database() {
-        return this.database;
+    public Optional<GetPermissionsDatabase> database() {
+        return Optional.ofNullable(this.database);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public GetPermissionsLfTag lfTag() {
-        return this.lfTag;
+    public Optional<GetPermissionsLfTag> lfTag() {
+        return Optional.ofNullable(this.lfTag);
     }
-    public GetPermissionsLfTagPolicy lfTagPolicy() {
-        return this.lfTagPolicy;
+    public Optional<GetPermissionsLfTagPolicy> lfTagPolicy() {
+        return Optional.ofNullable(this.lfTagPolicy);
     }
     /**
      * @return List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
      */
     public List<String> permissions() {
-        return this.permissions;
+        return this.permissions == null ? List.of() : this.permissions;
     }
     /**
      * @return Subset of `permissions` which the principal can pass.
      * 
      */
     public List<String> permissionsWithGrantOptions() {
-        return this.permissionsWithGrantOptions;
+        return this.permissionsWithGrantOptions == null ? List.of() : this.permissionsWithGrantOptions;
     }
     public String principal() {
         return this.principal;
     }
-    public GetPermissionsTable table() {
-        return this.table;
+    public Optional<GetPermissionsTable> table() {
+        return Optional.ofNullable(this.table);
     }
-    public GetPermissionsTableWithColumns tableWithColumns() {
-        return this.tableWithColumns;
+    public Optional<GetPermissionsTableWithColumns> tableWithColumns() {
+        return Optional.ofNullable(this.tableWithColumns);
     }
 
     public static Builder builder() {
@@ -105,16 +105,16 @@ public final class GetPermissionsResult {
     public static final class Builder {
         private @Nullable String catalogId;
         private @Nullable Boolean catalogResource;
-        private GetPermissionsDataLocation dataLocation;
-        private GetPermissionsDatabase database;
-        private String id;
-        private GetPermissionsLfTag lfTag;
-        private GetPermissionsLfTagPolicy lfTagPolicy;
-        private List<String> permissions;
-        private List<String> permissionsWithGrantOptions;
+        private @Nullable GetPermissionsDataLocation dataLocation;
+        private @Nullable GetPermissionsDatabase database;
+        private @Nullable String id;
+        private @Nullable GetPermissionsLfTag lfTag;
+        private @Nullable GetPermissionsLfTagPolicy lfTagPolicy;
+        private @Nullable List<String> permissions;
+        private @Nullable List<String> permissionsWithGrantOptions;
         private String principal;
-        private GetPermissionsTable table;
-        private GetPermissionsTableWithColumns tableWithColumns;
+        private @Nullable GetPermissionsTable table;
+        private @Nullable GetPermissionsTableWithColumns tableWithColumns;
         public Builder() {}
         public Builder(GetPermissionsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -143,41 +143,41 @@ public final class GetPermissionsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dataLocation(GetPermissionsDataLocation dataLocation) {
-            this.dataLocation = Objects.requireNonNull(dataLocation);
+        public Builder dataLocation(@Nullable GetPermissionsDataLocation dataLocation) {
+            this.dataLocation = dataLocation;
             return this;
         }
         @CustomType.Setter
-        public Builder database(GetPermissionsDatabase database) {
-            this.database = Objects.requireNonNull(database);
+        public Builder database(@Nullable GetPermissionsDatabase database) {
+            this.database = database;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lfTag(GetPermissionsLfTag lfTag) {
-            this.lfTag = Objects.requireNonNull(lfTag);
+        public Builder lfTag(@Nullable GetPermissionsLfTag lfTag) {
+            this.lfTag = lfTag;
             return this;
         }
         @CustomType.Setter
-        public Builder lfTagPolicy(GetPermissionsLfTagPolicy lfTagPolicy) {
-            this.lfTagPolicy = Objects.requireNonNull(lfTagPolicy);
+        public Builder lfTagPolicy(@Nullable GetPermissionsLfTagPolicy lfTagPolicy) {
+            this.lfTagPolicy = lfTagPolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder permissions(List<String> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+        public Builder permissions(@Nullable List<String> permissions) {
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
         @CustomType.Setter
-        public Builder permissionsWithGrantOptions(List<String> permissionsWithGrantOptions) {
-            this.permissionsWithGrantOptions = Objects.requireNonNull(permissionsWithGrantOptions);
+        public Builder permissionsWithGrantOptions(@Nullable List<String> permissionsWithGrantOptions) {
+            this.permissionsWithGrantOptions = permissionsWithGrantOptions;
             return this;
         }
         public Builder permissionsWithGrantOptions(String... permissionsWithGrantOptions) {
@@ -189,13 +189,13 @@ public final class GetPermissionsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder table(GetPermissionsTable table) {
-            this.table = Objects.requireNonNull(table);
+        public Builder table(@Nullable GetPermissionsTable table) {
+            this.table = table;
             return this;
         }
         @CustomType.Setter
-        public Builder tableWithColumns(GetPermissionsTableWithColumns tableWithColumns) {
-            this.tableWithColumns = Objects.requireNonNull(tableWithColumns);
+        public Builder tableWithColumns(@Nullable GetPermissionsTableWithColumns tableWithColumns) {
+            this.tableWithColumns = tableWithColumns;
             return this;
         }
         public GetPermissionsResult build() {

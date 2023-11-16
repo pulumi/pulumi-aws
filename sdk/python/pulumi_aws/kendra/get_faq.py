@@ -71,7 +71,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the FAQ.
         """
@@ -79,7 +79,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Unix datetime that the faq was created.
         """
@@ -87,7 +87,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the FAQ.
         """
@@ -95,7 +95,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> str:
+    def error_message(self) -> Optional[str]:
         """
         When the `status` field value is `FAILED`, this contains a message that explains why.
         """
@@ -108,7 +108,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> str:
+    def file_format(self) -> Optional[str]:
         """
         File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
         """
@@ -116,7 +116,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -129,7 +129,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter(name="languageCode")
-    def language_code(self) -> str:
+    def language_code(self) -> Optional[str]:
         """
         Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         """
@@ -137,7 +137,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the FAQ.
         """
@@ -145,7 +145,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
@@ -153,7 +153,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter(name="s3Paths")
-    def s3_paths(self) -> Sequence['outputs.GetFaqS3PathResult']:
+    def s3_paths(self) -> Optional[Sequence['outputs.GetFaqS3PathResult']]:
         """
         S3 location of the FAQ input data. Detailed below.
         """
@@ -161,7 +161,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the FAQ. It is ready to use when the status is ACTIVE.
         """
@@ -169,7 +169,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Metadata that helps organize the FAQs you create.
         """
@@ -177,7 +177,7 @@ class GetFaqResult:
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> Optional[str]:
         """
         Date and time that the FAQ was last updated.
         """

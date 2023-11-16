@@ -313,14 +313,14 @@ public class DeploymentGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the CodeDeploy deployment group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
@@ -355,28 +355,28 @@ public class DeploymentGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="blueGreenDeploymentConfig", refs={DeploymentGroupBlueGreenDeploymentConfig.class}, tree="[0]")
-    private Output<DeploymentGroupBlueGreenDeploymentConfig> blueGreenDeploymentConfig;
+    private Output</* @Nullable */ DeploymentGroupBlueGreenDeploymentConfig> blueGreenDeploymentConfig;
 
     /**
      * @return Configuration block of the blue/green deployment options for a deployment group (documented below).
      * 
      */
-    public Output<DeploymentGroupBlueGreenDeploymentConfig> blueGreenDeploymentConfig() {
-        return this.blueGreenDeploymentConfig;
+    public Output<Optional<DeploymentGroupBlueGreenDeploymentConfig>> blueGreenDeploymentConfig() {
+        return Codegen.optional(this.blueGreenDeploymentConfig);
     }
     /**
      * The destination platform type for the deployment.
      * 
      */
     @Export(name="computePlatform", refs={String.class}, tree="[0]")
-    private Output<String> computePlatform;
+    private Output</* @Nullable */ String> computePlatform;
 
     /**
      * @return The destination platform type for the deployment.
      * 
      */
-    public Output<String> computePlatform() {
-        return this.computePlatform;
+    public Output<Optional<String>> computePlatform() {
+        return Codegen.optional(this.computePlatform);
     }
     /**
      * The name of the group&#39;s deployment config. The default is &#34;CodeDeployDefault.OneAtATime&#34;.
@@ -397,14 +397,14 @@ public class DeploymentGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="deploymentGroupId", refs={String.class}, tree="[0]")
-    private Output<String> deploymentGroupId;
+    private Output</* @Nullable */ String> deploymentGroupId;
 
     /**
      * @return The ID of the CodeDeploy deployment group.
      * 
      */
-    public Output<String> deploymentGroupId() {
-        return this.deploymentGroupId;
+    public Output<Optional<String>> deploymentGroupId() {
+        return Codegen.optional(this.deploymentGroupId);
     }
     /**
      * The name of the deployment group.

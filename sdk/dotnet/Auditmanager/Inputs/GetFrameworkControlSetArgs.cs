@@ -20,14 +20,14 @@ namespace Pulumi.Aws.Auditmanager.Inputs
             set => _controls = value;
         }
 
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// Name of the framework.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public GetFrameworkControlSetInputArgs()
         {

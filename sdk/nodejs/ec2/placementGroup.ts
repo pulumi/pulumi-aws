@@ -59,7 +59,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the placement group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the placement group.
      */
@@ -69,16 +69,16 @@ export class PlacementGroup extends pulumi.CustomResource {
      * placement group.  Can only be specified when the `strategy` is set to
      * `partition`.  Valid values are 1 - 7 (default is `2`).
      */
-    public readonly partitionCount!: pulumi.Output<number>;
+    public readonly partitionCount!: pulumi.Output<number | undefined>;
     /**
      * The ID of the placement group.
      */
-    public /*out*/ readonly placementGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly placementGroupId!: pulumi.Output<string | undefined>;
     /**
      * Determines how placement groups spread instances. Can only be used
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
-    public readonly spreadLevel!: pulumi.Output<string>;
+    public readonly spreadLevel!: pulumi.Output<string | undefined>;
     /**
      * The placement strategy. Can be `cluster`, `partition` or `spread`.
      */

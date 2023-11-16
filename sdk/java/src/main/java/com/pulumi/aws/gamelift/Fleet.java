@@ -78,28 +78,28 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Fleet ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Build ARN.
      * 
      */
     @Export(name="buildArn", refs={String.class}, tree="[0]")
-    private Output<String> buildArn;
+    private Output</* @Nullable */ String> buildArn;
 
     /**
      * @return Build ARN.
      * 
      */
-    public Output<String> buildArn() {
-        return this.buildArn;
+    public Output<Optional<String>> buildArn() {
+        return Codegen.optional(this.buildArn);
     }
     /**
      * ID of the GameLift Build to be deployed on the fleet.
@@ -120,14 +120,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificateConfiguration", refs={FleetCertificateConfiguration.class}, tree="[0]")
-    private Output<FleetCertificateConfiguration> certificateConfiguration;
+    private Output</* @Nullable */ FleetCertificateConfiguration> certificateConfiguration;
 
     /**
      * @return Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
      * 
      */
-    public Output<FleetCertificateConfiguration> certificateConfiguration() {
-        return this.certificateConfiguration;
+    public Output<Optional<FleetCertificateConfiguration>> certificateConfiguration() {
+        return Codegen.optional(this.certificateConfiguration);
     }
     /**
      * Human-readable description of the fleet.
@@ -148,14 +148,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ec2InboundPermissions", refs={List.class,FleetEc2InboundPermission.class}, tree="[0,1]")
-    private Output<List<FleetEc2InboundPermission>> ec2InboundPermissions;
+    private Output</* @Nullable */ List<FleetEc2InboundPermission>> ec2InboundPermissions;
 
     /**
      * @return Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      * 
      */
-    public Output<List<FleetEc2InboundPermission>> ec2InboundPermissions() {
-        return this.ec2InboundPermissions;
+    public Output<Optional<List<FleetEc2InboundPermission>>> ec2InboundPermissions() {
+        return Codegen.optional(this.ec2InboundPermissions);
     }
     /**
      * Name of an EC2 instance typeE.g., `t2.micro`
@@ -200,24 +200,24 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceRoleArn);
     }
     @Export(name="logPaths", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> logPaths;
+    private Output</* @Nullable */ List<String>> logPaths;
 
-    public Output<List<String>> logPaths() {
-        return this.logPaths;
+    public Output<Optional<List<String>>> logPaths() {
+        return Codegen.optional(this.logPaths);
     }
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      * 
      */
     @Export(name="metricGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> metricGroups;
+    private Output</* @Nullable */ List<String>> metricGroups;
 
     /**
      * @return List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      * 
      */
-    public Output<List<String>> metricGroups() {
-        return this.metricGroups;
+    public Output<Optional<List<String>>> metricGroups() {
+        return Codegen.optional(this.metricGroups);
     }
     /**
      * The name of the fleet.
@@ -252,14 +252,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="operatingSystem", refs={String.class}, tree="[0]")
-    private Output<String> operatingSystem;
+    private Output</* @Nullable */ String> operatingSystem;
 
     /**
      * @return Operating system of the fleet&#39;s computing resources.
      * 
      */
-    public Output<String> operatingSystem() {
-        return this.operatingSystem;
+    public Output<Optional<String>> operatingSystem() {
+        return Codegen.optional(this.operatingSystem);
     }
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
@@ -294,14 +294,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="scriptArn", refs={String.class}, tree="[0]")
-    private Output<String> scriptArn;
+    private Output</* @Nullable */ String> scriptArn;
 
     /**
      * @return Script ARN.
      * 
      */
-    public Output<String> scriptArn() {
-        return this.scriptArn;
+    public Output<Optional<String>> scriptArn() {
+        return Codegen.optional(this.scriptArn);
     }
     /**
      * ID of the GameLift Script to be deployed on the fleet.

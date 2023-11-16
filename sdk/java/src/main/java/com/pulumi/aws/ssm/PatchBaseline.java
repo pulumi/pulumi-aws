@@ -341,14 +341,14 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the patch baseline.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The description of the patch baseline.
@@ -464,15 +464,15 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="rejectedPatchesAction", refs={String.class}, tree="[0]")
-    private Output<String> rejectedPatchesAction;
+    private Output</* @Nullable */ String> rejectedPatchesAction;
 
     /**
      * @return The action for Patch Manager to take on patches included in the `rejected_patches` list.
      * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
-    public Output<String> rejectedPatchesAction() {
-        return this.rejectedPatchesAction;
+    public Output<Optional<String>> rejectedPatchesAction() {
+        return Codegen.optional(this.rejectedPatchesAction);
     }
     /**
      * Configuration block with alternate sources for patches.

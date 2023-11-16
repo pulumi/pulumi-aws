@@ -3508,21 +3508,24 @@ class GetAmiIdsFilterResult(dict):
 @pulumi.output_type
 class GetGroupLaunchTemplateResult(dict):
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 version: str):
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
         """
         :param str id: ID of the launch template.
         :param str name: Specify the exact name of the desired autoscaling group.
         :param str version: Template version.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         ID of the launch template.
         """
@@ -3530,7 +3533,7 @@ class GetGroupLaunchTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Specify the exact name of the desired autoscaling group.
         """
@@ -3538,7 +3541,7 @@ class GetGroupLaunchTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Template version.
         """
@@ -3548,18 +3551,20 @@ class GetGroupLaunchTemplateResult(dict):
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyResult(dict):
     def __init__(__self__, *,
-                 instances_distributions: Sequence['outputs.GetGroupMixedInstancesPolicyInstancesDistributionResult'],
-                 launch_templates: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateResult']):
+                 instances_distributions: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyInstancesDistributionResult']] = None,
+                 launch_templates: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateResult']] = None):
         """
         :param Sequence['GetGroupMixedInstancesPolicyInstancesDistributionArgs'] instances_distributions: List of instances distribution objects.
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateArgs'] launch_templates: List of launch templates along with the overrides.
         """
-        pulumi.set(__self__, "instances_distributions", instances_distributions)
-        pulumi.set(__self__, "launch_templates", launch_templates)
+        if instances_distributions is not None:
+            pulumi.set(__self__, "instances_distributions", instances_distributions)
+        if launch_templates is not None:
+            pulumi.set(__self__, "launch_templates", launch_templates)
 
     @property
     @pulumi.getter(name="instancesDistributions")
-    def instances_distributions(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyInstancesDistributionResult']:
+    def instances_distributions(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyInstancesDistributionResult']]:
         """
         List of instances distribution objects.
         """
@@ -3567,7 +3572,7 @@ class GetGroupMixedInstancesPolicyResult(dict):
 
     @property
     @pulumi.getter(name="launchTemplates")
-    def launch_templates(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateResult']:
+    def launch_templates(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateResult']]:
         """
         List of launch templates along with the overrides.
         """
@@ -3577,12 +3582,12 @@ class GetGroupMixedInstancesPolicyResult(dict):
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
     def __init__(__self__, *,
-                 on_demand_allocation_strategy: str,
-                 on_demand_base_capacity: int,
-                 on_demand_percentage_above_base_capacity: int,
-                 spot_allocation_strategy: str,
-                 spot_instance_pools: int,
-                 spot_max_price: str):
+                 on_demand_allocation_strategy: Optional[str] = None,
+                 on_demand_base_capacity: Optional[int] = None,
+                 on_demand_percentage_above_base_capacity: Optional[int] = None,
+                 spot_allocation_strategy: Optional[str] = None,
+                 spot_instance_pools: Optional[int] = None,
+                 spot_max_price: Optional[str] = None):
         """
         :param str on_demand_allocation_strategy: Strategy used when launching on-demand instances.
         :param int on_demand_base_capacity: Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
@@ -3590,16 +3595,22 @@ class GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
         :param int spot_instance_pools: Number of Spot pools per availability zone to allocate capacity.
         :param str spot_max_price: Maximum price per unit hour that the user is willing to pay for the Spot instances.
         """
-        pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
-        pulumi.set(__self__, "on_demand_base_capacity", on_demand_base_capacity)
-        pulumi.set(__self__, "on_demand_percentage_above_base_capacity", on_demand_percentage_above_base_capacity)
-        pulumi.set(__self__, "spot_allocation_strategy", spot_allocation_strategy)
-        pulumi.set(__self__, "spot_instance_pools", spot_instance_pools)
-        pulumi.set(__self__, "spot_max_price", spot_max_price)
+        if on_demand_allocation_strategy is not None:
+            pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
+        if on_demand_base_capacity is not None:
+            pulumi.set(__self__, "on_demand_base_capacity", on_demand_base_capacity)
+        if on_demand_percentage_above_base_capacity is not None:
+            pulumi.set(__self__, "on_demand_percentage_above_base_capacity", on_demand_percentage_above_base_capacity)
+        if spot_allocation_strategy is not None:
+            pulumi.set(__self__, "spot_allocation_strategy", spot_allocation_strategy)
+        if spot_instance_pools is not None:
+            pulumi.set(__self__, "spot_instance_pools", spot_instance_pools)
+        if spot_max_price is not None:
+            pulumi.set(__self__, "spot_max_price", spot_max_price)
 
     @property
     @pulumi.getter(name="onDemandAllocationStrategy")
-    def on_demand_allocation_strategy(self) -> str:
+    def on_demand_allocation_strategy(self) -> Optional[str]:
         """
         Strategy used when launching on-demand instances.
         """
@@ -3607,7 +3618,7 @@ class GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
 
     @property
     @pulumi.getter(name="onDemandBaseCapacity")
-    def on_demand_base_capacity(self) -> int:
+    def on_demand_base_capacity(self) -> Optional[int]:
         """
         Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
         """
@@ -3615,12 +3626,12 @@ class GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
 
     @property
     @pulumi.getter(name="onDemandPercentageAboveBaseCapacity")
-    def on_demand_percentage_above_base_capacity(self) -> int:
+    def on_demand_percentage_above_base_capacity(self) -> Optional[int]:
         return pulumi.get(self, "on_demand_percentage_above_base_capacity")
 
     @property
     @pulumi.getter(name="spotAllocationStrategy")
-    def spot_allocation_strategy(self) -> str:
+    def spot_allocation_strategy(self) -> Optional[str]:
         """
         Strategy used when launching Spot instances.
         """
@@ -3628,7 +3639,7 @@ class GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
 
     @property
     @pulumi.getter(name="spotInstancePools")
-    def spot_instance_pools(self) -> int:
+    def spot_instance_pools(self) -> Optional[int]:
         """
         Number of Spot pools per availability zone to allocate capacity.
         """
@@ -3636,7 +3647,7 @@ class GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
 
     @property
     @pulumi.getter(name="spotMaxPrice")
-    def spot_max_price(self) -> str:
+    def spot_max_price(self) -> Optional[str]:
         """
         Maximum price per unit hour that the user is willing to pay for the Spot instances.
         """
@@ -3646,18 +3657,20 @@ class GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateResult(dict):
     def __init__(__self__, *,
-                 launch_template_specifications: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult'],
-                 overrides: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult']):
+                 launch_template_specifications: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult']] = None,
+                 overrides: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult']] = None):
         """
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs'] launch_template_specifications: List of overriding launch template specification objects.
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs'] overrides: List of properties overriding the same properties in the launch template.
         """
-        pulumi.set(__self__, "launch_template_specifications", launch_template_specifications)
-        pulumi.set(__self__, "overrides", overrides)
+        if launch_template_specifications is not None:
+            pulumi.set(__self__, "launch_template_specifications", launch_template_specifications)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
 
     @property
     @pulumi.getter(name="launchTemplateSpecifications")
-    def launch_template_specifications(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult']:
+    def launch_template_specifications(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult']]:
         """
         List of overriding launch template specification objects.
         """
@@ -3665,7 +3678,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def overrides(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult']:
+    def overrides(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult']]:
         """
         List of properties overriding the same properties in the launch template.
         """
@@ -3675,21 +3688,24 @@ class GetGroupMixedInstancesPolicyLaunchTemplateResult(dict):
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult(dict):
     def __init__(__self__, *,
-                 launch_template_id: str,
-                 launch_template_name: str,
-                 version: str):
+                 launch_template_id: Optional[str] = None,
+                 launch_template_name: Optional[str] = None,
+                 version: Optional[str] = None):
         """
         :param str launch_template_id: ID of the launch template.
         :param str launch_template_name: Name of the launch template.
         :param str version: Template version.
         """
-        pulumi.set(__self__, "launch_template_id", launch_template_id)
-        pulumi.set(__self__, "launch_template_name", launch_template_name)
-        pulumi.set(__self__, "version", version)
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="launchTemplateId")
-    def launch_template_id(self) -> str:
+    def launch_template_id(self) -> Optional[str]:
         """
         ID of the launch template.
         """
@@ -3697,7 +3713,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResul
 
     @property
     @pulumi.getter(name="launchTemplateName")
-    def launch_template_name(self) -> str:
+    def launch_template_name(self) -> Optional[str]:
         """
         Name of the launch template.
         """
@@ -3705,7 +3721,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResul
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Template version.
         """
@@ -3715,10 +3731,10 @@ class GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResul
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
     def __init__(__self__, *,
-                 instance_requirements: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult'],
-                 instance_type: str,
-                 launch_template_specifications: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult'],
-                 weighted_capacity: str):
+                 instance_requirements: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult']] = None,
+                 instance_type: Optional[str] = None,
+                 launch_template_specifications: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult']] = None,
+                 weighted_capacity: Optional[str] = None):
         """
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs'] instance_requirements: List of instance requirements objects.
                * `accelerator_count - List of objects describing the minimum and maximum number of accelerators for an instance type.
@@ -3726,14 +3742,18 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs'] launch_template_specifications: List of overriding launch template specification objects.
         :param str weighted_capacity: Number of capacity units, which gives the instance type a proportional weight to other instance types.
         """
-        pulumi.set(__self__, "instance_requirements", instance_requirements)
-        pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "launch_template_specifications", launch_template_specifications)
-        pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if launch_template_specifications is not None:
+            pulumi.set(__self__, "launch_template_specifications", launch_template_specifications)
+        if weighted_capacity is not None:
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
 
     @property
     @pulumi.getter(name="instanceRequirements")
-    def instance_requirements(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult']:
+    def instance_requirements(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult']]:
         """
         List of instance requirements objects.
         * `accelerator_count - List of objects describing the minimum and maximum number of accelerators for an instance type.
@@ -3742,7 +3762,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> Optional[str]:
         """
         Overriding instance type.
         """
@@ -3750,7 +3770,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
 
     @property
     @pulumi.getter(name="launchTemplateSpecifications")
-    def launch_template_specifications(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult']:
+    def launch_template_specifications(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult']]:
         """
         List of overriding launch template specification objects.
         """
@@ -3758,7 +3778,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
 
     @property
     @pulumi.getter(name="weightedCapacity")
-    def weighted_capacity(self) -> str:
+    def weighted_capacity(self) -> Optional[str]:
         """
         Number of capacity units, which gives the instance type a proportional weight to other instance types.
         """
@@ -3768,29 +3788,29 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult(dict):
     def __init__(__self__, *,
-                 accelerator_counts: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult'],
-                 accelerator_manufacturers: Sequence[str],
-                 accelerator_names: Sequence[str],
-                 accelerator_total_memory_mibs: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult'],
-                 accelerator_types: Sequence[str],
-                 allowed_instance_types: Sequence[str],
-                 bare_metal: str,
-                 baseline_ebs_bandwidth_mbps: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult'],
-                 burstable_performance: str,
-                 cpu_manufacturers: Sequence[str],
-                 excluded_instance_types: Sequence[str],
-                 instance_generations: Sequence[str],
-                 local_storage: str,
-                 local_storage_types: Sequence[str],
-                 memory_gib_per_vcpus: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult'],
-                 memory_mibs: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult'],
-                 network_bandwidth_gbps: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult'],
-                 network_interface_counts: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult'],
-                 on_demand_max_price_percentage_over_lowest_price: int,
-                 require_hibernate_support: bool,
-                 spot_max_price_percentage_over_lowest_price: int,
-                 total_local_storage_gbs: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult'],
-                 vcpu_counts: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult']):
+                 accelerator_counts: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult']] = None,
+                 accelerator_manufacturers: Optional[Sequence[str]] = None,
+                 accelerator_names: Optional[Sequence[str]] = None,
+                 accelerator_total_memory_mibs: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult']] = None,
+                 accelerator_types: Optional[Sequence[str]] = None,
+                 allowed_instance_types: Optional[Sequence[str]] = None,
+                 bare_metal: Optional[str] = None,
+                 baseline_ebs_bandwidth_mbps: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult']] = None,
+                 burstable_performance: Optional[str] = None,
+                 cpu_manufacturers: Optional[Sequence[str]] = None,
+                 excluded_instance_types: Optional[Sequence[str]] = None,
+                 instance_generations: Optional[Sequence[str]] = None,
+                 local_storage: Optional[str] = None,
+                 local_storage_types: Optional[Sequence[str]] = None,
+                 memory_gib_per_vcpus: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult']] = None,
+                 memory_mibs: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult']] = None,
+                 network_bandwidth_gbps: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult']] = None,
+                 network_interface_counts: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult']] = None,
+                 on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
+                 require_hibernate_support: Optional[bool] = None,
+                 spot_max_price_percentage_over_lowest_price: Optional[int] = None,
+                 total_local_storage_gbs: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult']] = None,
+                 vcpu_counts: Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult']] = None):
         """
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names.
         :param Sequence[str] accelerator_names: List of accelerator names.
@@ -3815,38 +3835,61 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArgs'] total_local_storage_gbs: List of objects describing the minimum and maximum total storage (GB).
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArgs'] vcpu_counts: List of objects describing the minimum and maximum number of vCPUs.
         """
-        pulumi.set(__self__, "accelerator_counts", accelerator_counts)
-        pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
-        pulumi.set(__self__, "accelerator_names", accelerator_names)
-        pulumi.set(__self__, "accelerator_total_memory_mibs", accelerator_total_memory_mibs)
-        pulumi.set(__self__, "accelerator_types", accelerator_types)
-        pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
-        pulumi.set(__self__, "bare_metal", bare_metal)
-        pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
-        pulumi.set(__self__, "burstable_performance", burstable_performance)
-        pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
-        pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
-        pulumi.set(__self__, "instance_generations", instance_generations)
-        pulumi.set(__self__, "local_storage", local_storage)
-        pulumi.set(__self__, "local_storage_types", local_storage_types)
-        pulumi.set(__self__, "memory_gib_per_vcpus", memory_gib_per_vcpus)
-        pulumi.set(__self__, "memory_mibs", memory_mibs)
-        pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
-        pulumi.set(__self__, "network_interface_counts", network_interface_counts)
-        pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
-        pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
-        pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
-        pulumi.set(__self__, "total_local_storage_gbs", total_local_storage_gbs)
-        pulumi.set(__self__, "vcpu_counts", vcpu_counts)
+        if accelerator_counts is not None:
+            pulumi.set(__self__, "accelerator_counts", accelerator_counts)
+        if accelerator_manufacturers is not None:
+            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+        if accelerator_names is not None:
+            pulumi.set(__self__, "accelerator_names", accelerator_names)
+        if accelerator_total_memory_mibs is not None:
+            pulumi.set(__self__, "accelerator_total_memory_mibs", accelerator_total_memory_mibs)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+        if bare_metal is not None:
+            pulumi.set(__self__, "bare_metal", bare_metal)
+        if baseline_ebs_bandwidth_mbps is not None:
+            pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if burstable_performance is not None:
+            pulumi.set(__self__, "burstable_performance", burstable_performance)
+        if cpu_manufacturers is not None:
+            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+        if excluded_instance_types is not None:
+            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+        if instance_generations is not None:
+            pulumi.set(__self__, "instance_generations", instance_generations)
+        if local_storage is not None:
+            pulumi.set(__self__, "local_storage", local_storage)
+        if local_storage_types is not None:
+            pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if memory_gib_per_vcpus is not None:
+            pulumi.set(__self__, "memory_gib_per_vcpus", memory_gib_per_vcpus)
+        if memory_mibs is not None:
+            pulumi.set(__self__, "memory_mibs", memory_mibs)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
+        if network_interface_counts is not None:
+            pulumi.set(__self__, "network_interface_counts", network_interface_counts)
+        if on_demand_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_hibernate_support is not None:
+            pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
+        if spot_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
+        if total_local_storage_gbs is not None:
+            pulumi.set(__self__, "total_local_storage_gbs", total_local_storage_gbs)
+        if vcpu_counts is not None:
+            pulumi.set(__self__, "vcpu_counts", vcpu_counts)
 
     @property
     @pulumi.getter(name="acceleratorCounts")
-    def accelerator_counts(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult']:
+    def accelerator_counts(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult']]:
         return pulumi.get(self, "accelerator_counts")
 
     @property
     @pulumi.getter(name="acceleratorManufacturers")
-    def accelerator_manufacturers(self) -> Sequence[str]:
+    def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of accelerator manufacturer names.
         """
@@ -3854,7 +3897,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="acceleratorNames")
-    def accelerator_names(self) -> Sequence[str]:
+    def accelerator_names(self) -> Optional[Sequence[str]]:
         """
         List of accelerator names.
         """
@@ -3862,7 +3905,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="acceleratorTotalMemoryMibs")
-    def accelerator_total_memory_mibs(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult']:
+    def accelerator_total_memory_mibs(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult']]:
         """
         List of objects describing the minimum and maximum total memory of the accelerators.
         """
@@ -3870,7 +3913,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="acceleratorTypes")
-    def accelerator_types(self) -> Sequence[str]:
+    def accelerator_types(self) -> Optional[Sequence[str]]:
         """
         List of accelerator types.
         """
@@ -3878,7 +3921,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="allowedInstanceTypes")
-    def allowed_instance_types(self) -> Sequence[str]:
+    def allowed_instance_types(self) -> Optional[Sequence[str]]:
         """
         List of instance types to apply the specified attributes against.
         """
@@ -3886,7 +3929,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="bareMetal")
-    def bare_metal(self) -> str:
+    def bare_metal(self) -> Optional[str]:
         """
         Indicates whether bare metal instances are included, excluded, or required.
         """
@@ -3894,7 +3937,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="baselineEbsBandwidthMbps")
-    def baseline_ebs_bandwidth_mbps(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult']:
+    def baseline_ebs_bandwidth_mbps(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult']]:
         """
         List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
         """
@@ -3902,7 +3945,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="burstablePerformance")
-    def burstable_performance(self) -> str:
+    def burstable_performance(self) -> Optional[str]:
         """
         Indicates whether burstable performance instance types are included, excluded, or required.
         """
@@ -3910,7 +3953,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="cpuManufacturers")
-    def cpu_manufacturers(self) -> Sequence[str]:
+    def cpu_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of CPU manufacturer names.
         """
@@ -3918,7 +3961,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="excludedInstanceTypes")
-    def excluded_instance_types(self) -> Sequence[str]:
+    def excluded_instance_types(self) -> Optional[Sequence[str]]:
         """
         List of excluded instance types.
         """
@@ -3926,7 +3969,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="instanceGenerations")
-    def instance_generations(self) -> Sequence[str]:
+    def instance_generations(self) -> Optional[Sequence[str]]:
         """
         List of instance generation names.
         """
@@ -3934,7 +3977,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="localStorage")
-    def local_storage(self) -> str:
+    def local_storage(self) -> Optional[str]:
         """
         Indicates whether instance types with instance store volumes are included, excluded, or required.
         """
@@ -3942,7 +3985,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="localStorageTypes")
-    def local_storage_types(self) -> Sequence[str]:
+    def local_storage_types(self) -> Optional[Sequence[str]]:
         """
         List of local storage type names.
         """
@@ -3950,7 +3993,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="memoryGibPerVcpus")
-    def memory_gib_per_vcpus(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult']:
+    def memory_gib_per_vcpus(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult']]:
         """
         List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
         """
@@ -3958,7 +4001,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="memoryMibs")
-    def memory_mibs(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult']:
+    def memory_mibs(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult']]:
         """
         List of objects describing the minimum and maximum amount of memory (MiB).
         """
@@ -3966,7 +4009,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="networkBandwidthGbps")
-    def network_bandwidth_gbps(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult']:
+    def network_bandwidth_gbps(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult']]:
         """
         List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
         """
@@ -3974,7 +4017,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="networkInterfaceCounts")
-    def network_interface_counts(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult']:
+    def network_interface_counts(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult']]:
         """
         List of objects describing the minimum and maximum amount of network interfaces.
         """
@@ -3982,7 +4025,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
-    def on_demand_max_price_percentage_over_lowest_price(self) -> int:
+    def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         Price protection threshold for On-Demand Instances.
         """
@@ -3990,7 +4033,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="requireHibernateSupport")
-    def require_hibernate_support(self) -> bool:
+    def require_hibernate_support(self) -> Optional[bool]:
         """
         Indicates whether instance types must support On-Demand Instance Hibernation.
         """
@@ -3998,7 +4041,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
-    def spot_max_price_percentage_over_lowest_price(self) -> int:
+    def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         Price protection threshold for Spot Instances.
         """
@@ -4006,7 +4049,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="totalLocalStorageGbs")
-    def total_local_storage_gbs(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult']:
+    def total_local_storage_gbs(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult']]:
         """
         List of objects describing the minimum and maximum total storage (GB).
         """
@@ -4014,7 +4057,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
     @property
     @pulumi.getter(name="vcpuCounts")
-    def vcpu_counts(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult']:
+    def vcpu_counts(self) -> Optional[Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult']]:
         """
         List of objects describing the minimum and maximum number of vCPUs.
         """
@@ -4024,18 +4067,20 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
         """
         :param int max: Maximum.
         :param int min: Minimum.
         """
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         """
         Maximum.
         """
@@ -4043,7 +4088,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccel
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         """
         Minimum.
         """
@@ -4053,18 +4098,20 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccel
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
         """
         :param int max: Maximum.
         :param int min: Minimum.
         """
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         """
         Maximum.
         """
@@ -4072,7 +4119,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccel
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         """
         Minimum.
         """
@@ -4082,18 +4129,20 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccel
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
         """
         :param int max: Maximum.
         :param int min: Minimum.
         """
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         """
         Maximum.
         """
@@ -4101,7 +4150,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBasel
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         """
         Minimum.
         """
@@ -4111,18 +4160,20 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBasel
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult(dict):
     def __init__(__self__, *,
-                 max: float,
-                 min: float):
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
         """
         :param float max: Maximum.
         :param float min: Minimum.
         """
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> float:
+    def max(self) -> Optional[float]:
         """
         Maximum.
         """
@@ -4130,7 +4181,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemor
 
     @property
     @pulumi.getter
-    def min(self) -> float:
+    def min(self) -> Optional[float]:
         """
         Minimum.
         """
@@ -4140,18 +4191,20 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemor
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
         """
         :param int max: Maximum.
         :param int min: Minimum.
         """
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         """
         Maximum.
         """
@@ -4159,7 +4212,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemor
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         """
         Minimum.
         """
@@ -4169,18 +4222,20 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemor
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult(dict):
     def __init__(__self__, *,
-                 max: float,
-                 min: float):
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
         """
         :param float max: Maximum.
         :param float min: Minimum.
         """
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> float:
+    def max(self) -> Optional[float]:
         """
         Maximum.
         """
@@ -4188,7 +4243,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwo
 
     @property
     @pulumi.getter
-    def min(self) -> float:
+    def min(self) -> Optional[float]:
         """
         Minimum.
         """
@@ -4198,18 +4253,20 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwo
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
         """
         :param int max: Maximum.
         :param int min: Minimum.
         """
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         """
         Maximum.
         """
@@ -4217,7 +4274,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwo
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         """
         Minimum.
         """
@@ -4227,18 +4284,20 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwo
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult(dict):
     def __init__(__self__, *,
-                 max: float,
-                 min: float):
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
         """
         :param float max: Maximum.
         :param float min: Minimum.
         """
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> float:
+    def max(self) -> Optional[float]:
         """
         Maximum.
         """
@@ -4246,7 +4305,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotal
 
     @property
     @pulumi.getter
-    def min(self) -> float:
+    def min(self) -> Optional[float]:
         """
         Minimum.
         """
@@ -4256,18 +4315,20 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotal
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
         """
         :param int max: Maximum.
         :param int min: Minimum.
         """
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         """
         Maximum.
         """
@@ -4275,7 +4336,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuC
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         """
         Minimum.
         """
@@ -4285,21 +4346,24 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuC
 @pulumi.output_type
 class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult(dict):
     def __init__(__self__, *,
-                 launch_template_id: str,
-                 launch_template_name: str,
-                 version: str):
+                 launch_template_id: Optional[str] = None,
+                 launch_template_name: Optional[str] = None,
+                 version: Optional[str] = None):
         """
         :param str launch_template_id: ID of the launch template.
         :param str launch_template_name: Name of the launch template.
         :param str version: Template version.
         """
-        pulumi.set(__self__, "launch_template_id", launch_template_id)
-        pulumi.set(__self__, "launch_template_name", launch_template_name)
-        pulumi.set(__self__, "version", version)
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="launchTemplateId")
-    def launch_template_id(self) -> str:
+    def launch_template_id(self) -> Optional[str]:
         """
         ID of the launch template.
         """
@@ -4307,7 +4371,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificat
 
     @property
     @pulumi.getter(name="launchTemplateName")
-    def launch_template_name(self) -> str:
+    def launch_template_name(self) -> Optional[str]:
         """
         Name of the launch template.
         """
@@ -4315,7 +4379,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificat
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Template version.
         """
@@ -4325,21 +4389,24 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificat
 @pulumi.output_type
 class GetGroupTagResult(dict):
     def __init__(__self__, *,
-                 key: str,
-                 propagate_at_launch: bool,
-                 value: str):
+                 key: Optional[str] = None,
+                 propagate_at_launch: Optional[bool] = None,
+                 value: Optional[str] = None):
         """
         :param str key: Key.
         :param bool propagate_at_launch: Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
         :param str value: Value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "propagate_at_launch", propagate_at_launch)
-        pulumi.set(__self__, "value", value)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if propagate_at_launch is not None:
+            pulumi.set(__self__, "propagate_at_launch", propagate_at_launch)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         """
         Key.
         """
@@ -4347,7 +4414,7 @@ class GetGroupTagResult(dict):
 
     @property
     @pulumi.getter(name="propagateAtLaunch")
-    def propagate_at_launch(self) -> bool:
+    def propagate_at_launch(self) -> Optional[bool]:
         """
         Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
         """
@@ -4355,7 +4422,7 @@ class GetGroupTagResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         Value.
         """
@@ -4365,18 +4432,20 @@ class GetGroupTagResult(dict):
 @pulumi.output_type
 class GetGroupTrafficSourceResult(dict):
     def __init__(__self__, *,
-                 identifier: str,
-                 type: str):
+                 identifier: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param str identifier: Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
         :param str type: Traffic source type.
         """
-        pulumi.set(__self__, "identifier", identifier)
-        pulumi.set(__self__, "type", type)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def identifier(self) -> str:
+    def identifier(self) -> Optional[str]:
         """
         Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
         """
@@ -4384,7 +4453,7 @@ class GetGroupTrafficSourceResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Traffic source type.
         """
@@ -4394,23 +4463,27 @@ class GetGroupTrafficSourceResult(dict):
 @pulumi.output_type
 class GetGroupWarmPoolResult(dict):
     def __init__(__self__, *,
-                 instance_reuse_policies: Sequence['outputs.GetGroupWarmPoolInstanceReusePolicyResult'],
-                 max_group_prepared_capacity: int,
-                 min_size: int,
-                 pool_state: str):
+                 instance_reuse_policies: Optional[Sequence['outputs.GetGroupWarmPoolInstanceReusePolicyResult']] = None,
+                 max_group_prepared_capacity: Optional[int] = None,
+                 min_size: Optional[int] = None,
+                 pool_state: Optional[str] = None):
         """
         :param Sequence['GetGroupWarmPoolInstanceReusePolicyArgs'] instance_reuse_policies: List of instance reuse policy objects.
         :param int min_size: Minimum number of instances to maintain in the warm pool.
         :param str pool_state: Instance state to transition to after the lifecycle actions are complete.
         """
-        pulumi.set(__self__, "instance_reuse_policies", instance_reuse_policies)
-        pulumi.set(__self__, "max_group_prepared_capacity", max_group_prepared_capacity)
-        pulumi.set(__self__, "min_size", min_size)
-        pulumi.set(__self__, "pool_state", pool_state)
+        if instance_reuse_policies is not None:
+            pulumi.set(__self__, "instance_reuse_policies", instance_reuse_policies)
+        if max_group_prepared_capacity is not None:
+            pulumi.set(__self__, "max_group_prepared_capacity", max_group_prepared_capacity)
+        if min_size is not None:
+            pulumi.set(__self__, "min_size", min_size)
+        if pool_state is not None:
+            pulumi.set(__self__, "pool_state", pool_state)
 
     @property
     @pulumi.getter(name="instanceReusePolicies")
-    def instance_reuse_policies(self) -> Sequence['outputs.GetGroupWarmPoolInstanceReusePolicyResult']:
+    def instance_reuse_policies(self) -> Optional[Sequence['outputs.GetGroupWarmPoolInstanceReusePolicyResult']]:
         """
         List of instance reuse policy objects.
         """
@@ -4418,12 +4491,12 @@ class GetGroupWarmPoolResult(dict):
 
     @property
     @pulumi.getter(name="maxGroupPreparedCapacity")
-    def max_group_prepared_capacity(self) -> int:
+    def max_group_prepared_capacity(self) -> Optional[int]:
         return pulumi.get(self, "max_group_prepared_capacity")
 
     @property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> int:
+    def min_size(self) -> Optional[int]:
         """
         Minimum number of instances to maintain in the warm pool.
         """
@@ -4431,7 +4504,7 @@ class GetGroupWarmPoolResult(dict):
 
     @property
     @pulumi.getter(name="poolState")
-    def pool_state(self) -> str:
+    def pool_state(self) -> Optional[str]:
         """
         Instance state to transition to after the lifecycle actions are complete.
         """
@@ -4441,15 +4514,16 @@ class GetGroupWarmPoolResult(dict):
 @pulumi.output_type
 class GetGroupWarmPoolInstanceReusePolicyResult(dict):
     def __init__(__self__, *,
-                 reuse_on_scale_in: bool):
+                 reuse_on_scale_in: Optional[bool] = None):
         """
         :param bool reuse_on_scale_in: Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
         """
-        pulumi.set(__self__, "reuse_on_scale_in", reuse_on_scale_in)
+        if reuse_on_scale_in is not None:
+            pulumi.set(__self__, "reuse_on_scale_in", reuse_on_scale_in)
 
     @property
     @pulumi.getter(name="reuseOnScaleIn")
-    def reuse_on_scale_in(self) -> bool:
+    def reuse_on_scale_in(self) -> Optional[bool]:
         """
         Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
         """

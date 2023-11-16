@@ -47,7 +47,7 @@ class GetOriginRequestPolicyResult:
 
     @property
     @pulumi.getter
-    def comment(self) -> str:
+    def comment(self) -> Optional[str]:
         """
         Comment to describe the origin request policy.
         """
@@ -55,7 +55,7 @@ class GetOriginRequestPolicyResult:
 
     @property
     @pulumi.getter(name="cookiesConfigs")
-    def cookies_configs(self) -> Sequence['outputs.GetOriginRequestPolicyCookiesConfigResult']:
+    def cookies_configs(self) -> Optional[Sequence['outputs.GetOriginRequestPolicyCookiesConfigResult']]:
         """
         Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         """
@@ -63,7 +63,7 @@ class GetOriginRequestPolicyResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> Optional[str]:
         """
         Current version of the origin request policy.
         """
@@ -71,7 +71,7 @@ class GetOriginRequestPolicyResult:
 
     @property
     @pulumi.getter(name="headersConfigs")
-    def headers_configs(self) -> Sequence['outputs.GetOriginRequestPolicyHeadersConfigResult']:
+    def headers_configs(self) -> Optional[Sequence['outputs.GetOriginRequestPolicyHeadersConfigResult']]:
         """
         Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         """
@@ -89,7 +89,7 @@ class GetOriginRequestPolicyResult:
 
     @property
     @pulumi.getter(name="queryStringsConfigs")
-    def query_strings_configs(self) -> Sequence['outputs.GetOriginRequestPolicyQueryStringsConfigResult']:
+    def query_strings_configs(self) -> Optional[Sequence['outputs.GetOriginRequestPolicyQueryStringsConfigResult']]:
         """
         Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """

@@ -83,14 +83,14 @@ export interface GetVpnGatewayArgs {
  * A collection of values returned by getVpnGateway.
  */
 export interface GetVpnGatewayResult {
-    readonly amazonSideAsn: string;
-    readonly arn: string;
-    readonly attachedVpcId: string;
-    readonly availabilityZone: string;
+    readonly amazonSideAsn?: string;
+    readonly arn?: string;
+    readonly attachedVpcId?: string;
+    readonly availabilityZone?: string;
     readonly filters?: outputs.ec2.GetVpnGatewayFilter[];
-    readonly id: string;
-    readonly state: string;
-    readonly tags: {[key: string]: string};
+    readonly id?: string;
+    readonly state?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * The VPN Gateway data source provides details about

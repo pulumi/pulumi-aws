@@ -213,40 +213,40 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Tunnel protocol
         /// </summary>
-        public readonly string Protocol;
+        public readonly string? Protocol;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string TransitGatewayConnectId;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? TransitGatewayConnectId;
         /// <summary>
         /// EC2 Transit Gateway identifier
         /// </summary>
-        public readonly string TransitGatewayId;
+        public readonly string? TransitGatewayId;
         /// <summary>
         /// The underlaying VPC attachment
         /// </summary>
-        public readonly string TransportAttachmentId;
+        public readonly string? TransportAttachmentId;
 
         [OutputConstructor]
         private GetConnectResult(
             ImmutableArray<Outputs.GetConnectFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string protocol,
+            string? protocol,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string transitGatewayConnectId,
+            string? transitGatewayConnectId,
 
-            string transitGatewayId,
+            string? transitGatewayId,
 
-            string transportAttachmentId)
+            string? transportAttachmentId)
         {
             Filters = filters;
             Id = id;

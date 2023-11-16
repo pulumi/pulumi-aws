@@ -54,7 +54,7 @@ type ModelPackageGroup struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description for the model group.
 	ModelPackageGroupDescription pulumi.StringPtrOutput `pulumi:"modelPackageGroupDescription"`
 	// The name of the model group.
@@ -244,8 +244,8 @@ func (o ModelPackageGroupOutput) ToModelPackageGroupOutputWithContext(ctx contex
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
-func (o ModelPackageGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ModelPackageGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description for the model group.

@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -66,14 +67,14 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="originalRouteTableId", refs={String.class}, tree="[0]")
-    private Output<String> originalRouteTableId;
+    private Output</* @Nullable */ String> originalRouteTableId;
 
     /**
      * @return Used internally, see **Notes** below
      * 
      */
-    public Output<String> originalRouteTableId() {
-        return this.originalRouteTableId;
+    public Output<Optional<String>> originalRouteTableId() {
+        return Codegen.optional(this.originalRouteTableId);
     }
     /**
      * The ID of the Route Table to set as the new

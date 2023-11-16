@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallFirewallStatusCapacityUsageSummaryCidr {
@@ -15,39 +17,39 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidr {
      * @return Available number of CIDR blocks available for use by the IP set references in a firewall.
      * 
      */
-    private Integer availableCidrCount;
+    private @Nullable Integer availableCidrCount;
     /**
      * @return The list of IP set references used by a firewall.
      * 
      */
-    private List<GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference> ipSetReferences;
+    private @Nullable List<GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference> ipSetReferences;
     /**
      * @return Number of CIDR blocks used by the IP set references in a firewall.
      * 
      */
-    private Integer utilizedCidrCount;
+    private @Nullable Integer utilizedCidrCount;
 
     private GetFirewallFirewallStatusCapacityUsageSummaryCidr() {}
     /**
      * @return Available number of CIDR blocks available for use by the IP set references in a firewall.
      * 
      */
-    public Integer availableCidrCount() {
-        return this.availableCidrCount;
+    public Optional<Integer> availableCidrCount() {
+        return Optional.ofNullable(this.availableCidrCount);
     }
     /**
      * @return The list of IP set references used by a firewall.
      * 
      */
     public List<GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference> ipSetReferences() {
-        return this.ipSetReferences;
+        return this.ipSetReferences == null ? List.of() : this.ipSetReferences;
     }
     /**
      * @return Number of CIDR blocks used by the IP set references in a firewall.
      * 
      */
-    public Integer utilizedCidrCount() {
-        return this.utilizedCidrCount;
+    public Optional<Integer> utilizedCidrCount() {
+        return Optional.ofNullable(this.utilizedCidrCount);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidr {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer availableCidrCount;
-        private List<GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference> ipSetReferences;
-        private Integer utilizedCidrCount;
+        private @Nullable Integer availableCidrCount;
+        private @Nullable List<GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference> ipSetReferences;
+        private @Nullable Integer utilizedCidrCount;
         public Builder() {}
         public Builder(GetFirewallFirewallStatusCapacityUsageSummaryCidr defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidr {
         }
 
         @CustomType.Setter
-        public Builder availableCidrCount(Integer availableCidrCount) {
-            this.availableCidrCount = Objects.requireNonNull(availableCidrCount);
+        public Builder availableCidrCount(@Nullable Integer availableCidrCount) {
+            this.availableCidrCount = availableCidrCount;
             return this;
         }
         @CustomType.Setter
-        public Builder ipSetReferences(List<GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference> ipSetReferences) {
-            this.ipSetReferences = Objects.requireNonNull(ipSetReferences);
+        public Builder ipSetReferences(@Nullable List<GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference> ipSetReferences) {
+            this.ipSetReferences = ipSetReferences;
             return this;
         }
         public Builder ipSetReferences(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference... ipSetReferences) {
             return ipSetReferences(List.of(ipSetReferences));
         }
         @CustomType.Setter
-        public Builder utilizedCidrCount(Integer utilizedCidrCount) {
-            this.utilizedCidrCount = Objects.requireNonNull(utilizedCidrCount);
+        public Builder utilizedCidrCount(@Nullable Integer utilizedCidrCount) {
+            this.utilizedCidrCount = utilizedCidrCount;
             return this;
         }
         public GetFirewallFirewallStatusCapacityUsageSummaryCidr build() {

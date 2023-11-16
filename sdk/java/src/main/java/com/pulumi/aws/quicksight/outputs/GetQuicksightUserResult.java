@@ -16,79 +16,79 @@ public final class GetQuicksightUserResult {
      * @return The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
      * 
      */
-    private Boolean active;
+    private @Nullable Boolean active;
     /**
      * @return The Amazon Resource Name (ARN) for the user.
      * 
      */
-    private String arn;
-    private String awsAccountId;
+    private @Nullable String arn;
+    private @Nullable String awsAccountId;
     /**
      * @return The user&#39;s email address.
      * 
      */
-    private String email;
+    private @Nullable String email;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The type of identity authentication used by the user.
      * 
      */
-    private String identityType;
+    private @Nullable String identityType;
     private @Nullable String namespace;
     /**
      * @return The principal ID of the user.
      * 
      */
-    private String principalId;
+    private @Nullable String principalId;
     private String userName;
     /**
      * @return The Amazon QuickSight role for the user. The user role can be one of the following:.
      * 
      */
-    private String userRole;
+    private @Nullable String userRole;
 
     private GetQuicksightUserResult() {}
     /**
      * @return The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
      * 
      */
-    public Boolean active() {
-        return this.active;
+    public Optional<Boolean> active() {
+        return Optional.ofNullable(this.active);
     }
     /**
      * @return The Amazon Resource Name (ARN) for the user.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String awsAccountId() {
-        return this.awsAccountId;
+    public Optional<String> awsAccountId() {
+        return Optional.ofNullable(this.awsAccountId);
     }
     /**
      * @return The user&#39;s email address.
      * 
      */
-    public String email() {
-        return this.email;
+    public Optional<String> email() {
+        return Optional.ofNullable(this.email);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The type of identity authentication used by the user.
      * 
      */
-    public String identityType() {
-        return this.identityType;
+    public Optional<String> identityType() {
+        return Optional.ofNullable(this.identityType);
     }
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
@@ -97,8 +97,8 @@ public final class GetQuicksightUserResult {
      * @return The principal ID of the user.
      * 
      */
-    public String principalId() {
-        return this.principalId;
+    public Optional<String> principalId() {
+        return Optional.ofNullable(this.principalId);
     }
     public String userName() {
         return this.userName;
@@ -107,8 +107,8 @@ public final class GetQuicksightUserResult {
      * @return The Amazon QuickSight role for the user. The user role can be one of the following:.
      * 
      */
-    public String userRole() {
-        return this.userRole;
+    public Optional<String> userRole() {
+        return Optional.ofNullable(this.userRole);
     }
 
     public static Builder builder() {
@@ -120,16 +120,16 @@ public final class GetQuicksightUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean active;
-        private String arn;
-        private String awsAccountId;
-        private String email;
-        private String id;
-        private String identityType;
+        private @Nullable Boolean active;
+        private @Nullable String arn;
+        private @Nullable String awsAccountId;
+        private @Nullable String email;
+        private @Nullable String id;
+        private @Nullable String identityType;
         private @Nullable String namespace;
-        private String principalId;
+        private @Nullable String principalId;
         private String userName;
-        private String userRole;
+        private @Nullable String userRole;
         public Builder() {}
         public Builder(GetQuicksightUserResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -146,33 +146,33 @@ public final class GetQuicksightUserResult {
         }
 
         @CustomType.Setter
-        public Builder active(Boolean active) {
-            this.active = Objects.requireNonNull(active);
+        public Builder active(@Nullable Boolean active) {
+            this.active = active;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
+        public Builder awsAccountId(@Nullable String awsAccountId) {
+            this.awsAccountId = awsAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+        public Builder email(@Nullable String email) {
+            this.email = email;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder identityType(String identityType) {
-            this.identityType = Objects.requireNonNull(identityType);
+        public Builder identityType(@Nullable String identityType) {
+            this.identityType = identityType;
             return this;
         }
         @CustomType.Setter
@@ -181,8 +181,8 @@ public final class GetQuicksightUserResult {
             return this;
         }
         @CustomType.Setter
-        public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+        public Builder principalId(@Nullable String principalId) {
+            this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
@@ -191,8 +191,8 @@ public final class GetQuicksightUserResult {
             return this;
         }
         @CustomType.Setter
-        public Builder userRole(String userRole) {
-            this.userRole = Objects.requireNonNull(userRole);
+        public Builder userRole(@Nullable String userRole) {
+            this.userRole = userRole;
             return this;
         }
         public GetQuicksightUserResult build() {

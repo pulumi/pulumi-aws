@@ -144,21 +144,21 @@ type Trust struct {
 	// Can contain between 1 and 4 values.
 	ConditionalForwarderIpAddrs pulumi.StringArrayOutput `pulumi:"conditionalForwarderIpAddrs"`
 	// Date and time when the Trust was created.
-	CreatedDateTime pulumi.StringOutput `pulumi:"createdDateTime"`
+	CreatedDateTime pulumi.StringPtrOutput `pulumi:"createdDateTime"`
 	// Whether to delete the conditional forwarder when deleting the Trust relationship.
-	DeleteAssociatedConditionalForwarder pulumi.BoolOutput `pulumi:"deleteAssociatedConditionalForwarder"`
+	DeleteAssociatedConditionalForwarder pulumi.BoolPtrOutput `pulumi:"deleteAssociatedConditionalForwarder"`
 	// ID of the Directory.
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// Date and time when the Trust was last updated.
-	LastUpdatedDateTime pulumi.StringOutput `pulumi:"lastUpdatedDateTime"`
+	LastUpdatedDateTime pulumi.StringPtrOutput `pulumi:"lastUpdatedDateTime"`
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName pulumi.StringOutput `pulumi:"remoteDomainName"`
 	// Whether to enable selective authentication.
 	// Valid values are `Enabled` and `Disabled`.
 	// Default value is `Disabled`.
-	SelectiveAuth pulumi.StringOutput `pulumi:"selectiveAuth"`
+	SelectiveAuth pulumi.StringPtrOutput `pulumi:"selectiveAuth"`
 	// Date and time when the Trust state in `trustState` was last updated.
-	StateLastUpdatedDateTime pulumi.StringOutput `pulumi:"stateLastUpdatedDateTime"`
+	StateLastUpdatedDateTime pulumi.StringPtrOutput `pulumi:"stateLastUpdatedDateTime"`
 	// The direction of the Trust relationship.
 	// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
 	TrustDirection pulumi.StringOutput `pulumi:"trustDirection"`
@@ -169,13 +169,13 @@ type Trust struct {
 	TrustPassword pulumi.StringOutput `pulumi:"trustPassword"`
 	// State of the Trust relationship.
 	// One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-	TrustState pulumi.StringOutput `pulumi:"trustState"`
+	TrustState pulumi.StringPtrOutput `pulumi:"trustState"`
 	// Reason for the Trust state set in `trustState`.
-	TrustStateReason pulumi.StringOutput `pulumi:"trustStateReason"`
+	TrustStateReason pulumi.StringPtrOutput `pulumi:"trustStateReason"`
 	// Type of the Trust relationship.
 	// Valid values are `Forest` and `External`.
 	// Default value is `Forest`.
-	TrustType pulumi.StringOutput `pulumi:"trustType"`
+	TrustType pulumi.StringPtrOutput `pulumi:"trustType"`
 }
 
 // NewTrust registers a new resource with the given unique name, arguments, and options.
@@ -452,13 +452,13 @@ func (o TrustOutput) ConditionalForwarderIpAddrs() pulumi.StringArrayOutput {
 }
 
 // Date and time when the Trust was created.
-func (o TrustOutput) CreatedDateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.CreatedDateTime }).(pulumi.StringOutput)
+func (o TrustOutput) CreatedDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trust) pulumi.StringPtrOutput { return v.CreatedDateTime }).(pulumi.StringPtrOutput)
 }
 
 // Whether to delete the conditional forwarder when deleting the Trust relationship.
-func (o TrustOutput) DeleteAssociatedConditionalForwarder() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Trust) pulumi.BoolOutput { return v.DeleteAssociatedConditionalForwarder }).(pulumi.BoolOutput)
+func (o TrustOutput) DeleteAssociatedConditionalForwarder() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Trust) pulumi.BoolPtrOutput { return v.DeleteAssociatedConditionalForwarder }).(pulumi.BoolPtrOutput)
 }
 
 // ID of the Directory.
@@ -467,8 +467,8 @@ func (o TrustOutput) DirectoryId() pulumi.StringOutput {
 }
 
 // Date and time when the Trust was last updated.
-func (o TrustOutput) LastUpdatedDateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.LastUpdatedDateTime }).(pulumi.StringOutput)
+func (o TrustOutput) LastUpdatedDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trust) pulumi.StringPtrOutput { return v.LastUpdatedDateTime }).(pulumi.StringPtrOutput)
 }
 
 // Fully qualified domain name of the remote Directory.
@@ -479,13 +479,13 @@ func (o TrustOutput) RemoteDomainName() pulumi.StringOutput {
 // Whether to enable selective authentication.
 // Valid values are `Enabled` and `Disabled`.
 // Default value is `Disabled`.
-func (o TrustOutput) SelectiveAuth() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.SelectiveAuth }).(pulumi.StringOutput)
+func (o TrustOutput) SelectiveAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trust) pulumi.StringPtrOutput { return v.SelectiveAuth }).(pulumi.StringPtrOutput)
 }
 
 // Date and time when the Trust state in `trustState` was last updated.
-func (o TrustOutput) StateLastUpdatedDateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.StateLastUpdatedDateTime }).(pulumi.StringOutput)
+func (o TrustOutput) StateLastUpdatedDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trust) pulumi.StringPtrOutput { return v.StateLastUpdatedDateTime }).(pulumi.StringPtrOutput)
 }
 
 // The direction of the Trust relationship.
@@ -504,20 +504,20 @@ func (o TrustOutput) TrustPassword() pulumi.StringOutput {
 
 // State of the Trust relationship.
 // One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-func (o TrustOutput) TrustState() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.TrustState }).(pulumi.StringOutput)
+func (o TrustOutput) TrustState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trust) pulumi.StringPtrOutput { return v.TrustState }).(pulumi.StringPtrOutput)
 }
 
 // Reason for the Trust state set in `trustState`.
-func (o TrustOutput) TrustStateReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.TrustStateReason }).(pulumi.StringOutput)
+func (o TrustOutput) TrustStateReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trust) pulumi.StringPtrOutput { return v.TrustStateReason }).(pulumi.StringPtrOutput)
 }
 
 // Type of the Trust relationship.
 // Valid values are `Forest` and `External`.
 // Default value is `Forest`.
-func (o TrustOutput) TrustType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.TrustType }).(pulumi.StringOutput)
+func (o TrustOutput) TrustType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trust) pulumi.StringPtrOutput { return v.TrustType }).(pulumi.StringPtrOutput)
 }
 
 type TrustArrayOutput struct{ *pulumi.OutputState }

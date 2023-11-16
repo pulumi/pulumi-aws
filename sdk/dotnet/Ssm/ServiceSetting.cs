@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ssm
         /// ARN of the service setting.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the service setting.
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ssm
         /// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

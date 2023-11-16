@@ -20,8 +20,8 @@ public final class GetAmiIdsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private List<String> ids;
+    private @Nullable String id;
+    private @Nullable List<String> ids;
     private @Nullable Boolean includeDeprecated;
     private @Nullable String nameRegex;
     private List<String> owners;
@@ -38,11 +38,11 @@ public final class GetAmiIdsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
@@ -68,8 +68,8 @@ public final class GetAmiIdsResult {
     public static final class Builder {
         private @Nullable List<String> executableUsers;
         private @Nullable List<GetAmiIdsFilter> filters;
-        private String id;
-        private List<String> ids;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
         private @Nullable Boolean includeDeprecated;
         private @Nullable String nameRegex;
         private List<String> owners;
@@ -104,13 +104,13 @@ public final class GetAmiIdsResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {

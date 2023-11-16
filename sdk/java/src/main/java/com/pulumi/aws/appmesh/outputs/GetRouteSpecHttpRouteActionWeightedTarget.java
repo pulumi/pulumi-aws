@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecHttpRouteActionWeightedTarget {
-    private Integer port;
-    private String virtualNode;
-    private Integer weight;
+    private @Nullable Integer port;
+    private @Nullable String virtualNode;
+    private @Nullable Integer weight;
 
     private GetRouteSpecHttpRouteActionWeightedTarget() {}
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String virtualNode() {
-        return this.virtualNode;
+    public Optional<String> virtualNode() {
+        return Optional.ofNullable(this.virtualNode);
     }
-    public Integer weight() {
-        return this.weight;
+    public Optional<Integer> weight() {
+        return Optional.ofNullable(this.weight);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetRouteSpecHttpRouteActionWeightedTarget {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer port;
-        private String virtualNode;
-        private Integer weight;
+        private @Nullable Integer port;
+        private @Nullable String virtualNode;
+        private @Nullable Integer weight;
         public Builder() {}
         public Builder(GetRouteSpecHttpRouteActionWeightedTarget defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetRouteSpecHttpRouteActionWeightedTarget {
         }
 
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder virtualNode(String virtualNode) {
-            this.virtualNode = Objects.requireNonNull(virtualNode);
+        public Builder virtualNode(@Nullable String virtualNode) {
+            this.virtualNode = virtualNode;
             return this;
         }
         @CustomType.Setter
-        public Builder weight(Integer weight) {
-            this.weight = Objects.requireNonNull(weight);
+        public Builder weight(@Nullable Integer weight) {
+            this.weight = weight;
             return this;
         }
         public GetRouteSpecHttpRouteActionWeightedTarget build() {

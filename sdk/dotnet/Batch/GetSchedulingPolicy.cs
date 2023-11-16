@@ -130,15 +130,15 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the scheduling policy.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSchedulingPolicyResult(
@@ -146,11 +146,11 @@ namespace Pulumi.Aws.Batch
 
             ImmutableArray<Outputs.GetSchedulingPolicyFairSharePolicyResult> fairSharePolicies,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             FairSharePolicies = fairSharePolicies;

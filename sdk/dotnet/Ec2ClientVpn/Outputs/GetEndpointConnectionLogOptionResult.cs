@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     [OutputType]
     public sealed class GetEndpointConnectionLogOptionResult
     {
-        public readonly string CloudwatchLogGroup;
-        public readonly string CloudwatchLogStream;
-        public readonly bool Enabled;
+        public readonly string? CloudwatchLogGroup;
+        public readonly string? CloudwatchLogStream;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
         private GetEndpointConnectionLogOptionResult(
-            string cloudwatchLogGroup,
+            string? cloudwatchLogGroup,
 
-            string cloudwatchLogStream,
+            string? cloudwatchLogStream,
 
-            bool enabled)
+            bool? enabled)
         {
             CloudwatchLogGroup = cloudwatchLogGroup;
             CloudwatchLogStream = cloudwatchLogStream;

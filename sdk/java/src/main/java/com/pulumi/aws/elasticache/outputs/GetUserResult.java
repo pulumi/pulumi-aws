@@ -25,7 +25,7 @@ public final class GetUserResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean noPasswordRequired;
     private @Nullable List<String> passwords;
     /**
@@ -57,8 +57,8 @@ public final class GetUserResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> noPasswordRequired() {
         return Optional.ofNullable(this.noPasswordRequired);
@@ -93,7 +93,7 @@ public final class GetUserResult {
         private @Nullable String accessString;
         private @Nullable List<GetUserAuthenticationMode> authenticationModes;
         private @Nullable String engine;
-        private String id;
+        private @Nullable String id;
         private @Nullable Boolean noPasswordRequired;
         private @Nullable List<String> passwords;
         private String userId;
@@ -130,8 +130,8 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

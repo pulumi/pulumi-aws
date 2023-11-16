@@ -160,40 +160,40 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Currency code for the reserved DB instance.
         /// </summary>
-        public readonly string CurrencyCode;
+        public readonly string? CurrencyCode;
         public readonly string DbInstanceClass;
         public readonly int Duration;
         /// <summary>
         /// Fixed price charged for this reserved DB instance.
         /// </summary>
-        public readonly double FixedPrice;
+        public readonly double? FixedPrice;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool MultiAz;
         /// <summary>
         /// Unique identifier for the reservation.
         /// </summary>
-        public readonly string OfferingId;
+        public readonly string? OfferingId;
         public readonly string OfferingType;
         public readonly string ProductDescription;
 
         [OutputConstructor]
         private GetReservedInstanceOfferingResult(
-            string currencyCode,
+            string? currencyCode,
 
             string dbInstanceClass,
 
             int duration,
 
-            double fixedPrice,
+            double? fixedPrice,
 
-            string id,
+            string? id,
 
             bool multiAz,
 
-            string offeringId,
+            string? offeringId,
 
             string offeringType,
 

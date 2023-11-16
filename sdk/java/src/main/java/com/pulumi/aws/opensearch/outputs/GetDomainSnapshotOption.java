@@ -6,6 +6,8 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainSnapshotOption {
@@ -13,15 +15,15 @@ public final class GetDomainSnapshotOption {
      * @return Hour during which the service takes an automated daily snapshot of the indices in the domain.
      * 
      */
-    private Integer automatedSnapshotStartHour;
+    private @Nullable Integer automatedSnapshotStartHour;
 
     private GetDomainSnapshotOption() {}
     /**
      * @return Hour during which the service takes an automated daily snapshot of the indices in the domain.
      * 
      */
-    public Integer automatedSnapshotStartHour() {
-        return this.automatedSnapshotStartHour;
+    public Optional<Integer> automatedSnapshotStartHour() {
+        return Optional.ofNullable(this.automatedSnapshotStartHour);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetDomainSnapshotOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer automatedSnapshotStartHour;
+        private @Nullable Integer automatedSnapshotStartHour;
         public Builder() {}
         public Builder(GetDomainSnapshotOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetDomainSnapshotOption {
         }
 
         @CustomType.Setter
-        public Builder automatedSnapshotStartHour(Integer automatedSnapshotStartHour) {
-            this.automatedSnapshotStartHour = Objects.requireNonNull(automatedSnapshotStartHour);
+        public Builder automatedSnapshotStartHour(@Nullable Integer automatedSnapshotStartHour) {
+            this.automatedSnapshotStartHour = automatedSnapshotStartHour;
             return this;
         }
         public GetDomainSnapshotOption build() {

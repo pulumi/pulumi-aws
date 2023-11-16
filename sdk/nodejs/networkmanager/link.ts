@@ -66,7 +66,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * Link Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The upload speed and download speed in Mbps. Documented below.
      */

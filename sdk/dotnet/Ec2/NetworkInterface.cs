@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Ec2
         /// ARN of the network interface.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
@@ -95,13 +95,13 @@ namespace Pulumi.Aws.Ec2
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("interfaceType")]
-        public Output<string> InterfaceType { get; private set; } = null!;
+        public Output<string?> InterfaceType { get; private set; } = null!;
 
         /// <summary>
         /// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         /// </summary>
         [Output("ipv4PrefixCount")]
-        public Output<int> Ipv4PrefixCount { get; private set; } = null!;
+        public Output<int?> Ipv4PrefixCount { get; private set; } = null!;
 
         /// <summary>
         /// One or more IPv4 prefixes assigned to the network interface.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ec2
         /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         /// </summary>
         [Output("ipv6AddressCount")]
-        public Output<int> Ipv6AddressCount { get; private set; } = null!;
+        public Output<int?> Ipv6AddressCount { get; private set; } = null!;
 
         /// <summary>
         /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ec2
         /// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         /// </summary>
         [Output("ipv6PrefixCount")]
-        public Output<int> Ipv6PrefixCount { get; private set; } = null!;
+        public Output<int?> Ipv6PrefixCount { get; private set; } = null!;
 
         /// <summary>
         /// One or more IPv6 prefixes assigned to the network interface.
@@ -149,25 +149,25 @@ namespace Pulumi.Aws.Ec2
         /// MAC address of the network interface.
         /// </summary>
         [Output("macAddress")]
-        public Output<string> MacAddress { get; private set; } = null!;
+        public Output<string?> MacAddress { get; private set; } = null!;
 
         [Output("outpostArn")]
-        public Output<string> OutpostArn { get; private set; } = null!;
+        public Output<string?> OutpostArn { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID of the owner of the network interface.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Private DNS name of the network interface (IPv4).
         /// </summary>
         [Output("privateDnsName")]
-        public Output<string> PrivateDnsName { get; private set; } = null!;
+        public Output<string?> PrivateDnsName { get; private set; } = null!;
 
         [Output("privateIp")]
-        public Output<string> PrivateIp { get; private set; } = null!;
+        public Output<string?> PrivateIp { get; private set; } = null!;
 
         /// <summary>
         /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Ec2
         /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Output("privateIpsCount")]
-        public Output<int> PrivateIpsCount { get; private set; } = null!;
+        public Output<int?> PrivateIpsCount { get; private set; } = null!;
 
         /// <summary>
         /// List of security group IDs to assign to the ENI.

@@ -735,7 +735,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Function object.
         """
@@ -767,7 +767,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionId")
-    def function_id(self) -> pulumi.Output[str]:
+    def function_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique ID representing the Function object.
         """
@@ -775,7 +775,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionVersion")
-    def function_version(self) -> pulumi.Output[str]:
+    def function_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         """

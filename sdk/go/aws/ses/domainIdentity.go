@@ -92,7 +92,7 @@ type DomainIdentity struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the domain identity.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The domain name to assign to SES
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// A code which when added to the domain as a TXT record
@@ -103,7 +103,7 @@ type DomainIdentity struct {
 	// managed by this provider.  Find out more about verifying domains in Amazon
 	// SES in the [AWS SES
 	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-	VerificationToken pulumi.StringOutput `pulumi:"verificationToken"`
+	VerificationToken pulumi.StringPtrOutput `pulumi:"verificationToken"`
 }
 
 // NewDomainIdentity registers a new resource with the given unique name, arguments, and options.
@@ -273,8 +273,8 @@ func (o DomainIdentityOutput) ToDomainIdentityOutputWithContext(ctx context.Cont
 }
 
 // The ARN of the domain identity.
-func (o DomainIdentityOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DomainIdentityOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentity) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The domain name to assign to SES
@@ -290,8 +290,8 @@ func (o DomainIdentityOutput) Domain() pulumi.StringOutput {
 // managed by this provider.  Find out more about verifying domains in Amazon
 // SES in the [AWS SES
 // docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-func (o DomainIdentityOutput) VerificationToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.VerificationToken }).(pulumi.StringOutput)
+func (o DomainIdentityOutput) VerificationToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentity) pulumi.StringPtrOutput { return v.VerificationToken }).(pulumi.StringPtrOutput)
 }
 
 type DomainIdentityArrayOutput struct{ *pulumi.OutputState }

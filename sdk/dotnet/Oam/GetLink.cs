@@ -122,23 +122,23 @@ namespace Pulumi.Aws.Oam
         /// <summary>
         /// ARN of the link.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Label that is assigned to this link.
         /// </summary>
-        public readonly string Label;
+        public readonly string? Label;
         /// <summary>
         /// Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
         /// </summary>
-        public readonly string LabelTemplate;
+        public readonly string? LabelTemplate;
         /// <summary>
         /// ID string that AWS generated as part of the link ARN.
         /// </summary>
-        public readonly string LinkId;
+        public readonly string? LinkId;
         public readonly string LinkIdentifier;
         /// <summary>
         /// Types of data that the source account shares with the monitoring account.
@@ -147,28 +147,28 @@ namespace Pulumi.Aws.Oam
         /// <summary>
         /// ARN of the sink that is used for this link.
         /// </summary>
-        public readonly string SinkArn;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? SinkArn;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLinkResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string label,
+            string? label,
 
-            string labelTemplate,
+            string? labelTemplate,
 
-            string linkId,
+            string? linkId,
 
             string linkIdentifier,
 
             ImmutableArray<string> resourceTypes,
 
-            string sinkArn,
+            string? sinkArn,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Id = id;

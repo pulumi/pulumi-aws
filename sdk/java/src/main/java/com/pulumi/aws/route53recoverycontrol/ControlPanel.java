@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -64,14 +65,14 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the control panel.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN of the cluster in which this control panel will reside.
@@ -92,14 +93,14 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultControlPanel", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> defaultControlPanel;
+    private Output</* @Nullable */ Boolean> defaultControlPanel;
 
     /**
      * @return Whether a control panel is default.
      * 
      */
-    public Output<Boolean> defaultControlPanel() {
-        return this.defaultControlPanel;
+    public Output<Optional<Boolean>> defaultControlPanel() {
+        return Codegen.optional(this.defaultControlPanel);
     }
     /**
      * Name describing the control panel.
@@ -120,28 +121,28 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="routingControlCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> routingControlCount;
+    private Output</* @Nullable */ Integer> routingControlCount;
 
     /**
      * @return Number routing controls in a control panel.
      * 
      */
-    public Output<Integer> routingControlCount() {
-        return this.routingControlCount;
+    public Output<Optional<Integer>> routingControlCount() {
+        return Codegen.optional(this.routingControlCount);
     }
     /**
      * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

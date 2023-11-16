@@ -100,7 +100,7 @@ type GetVpnAttachmentArgs struct {
 type GetVpnAttachmentResult struct {
 	Filters []GetVpnAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway VPN Attachment
 	Tags             map[string]string `pulumi:"tags"`
 	TransitGatewayId *string           `pulumi:"transitGatewayId"`
@@ -156,8 +156,8 @@ func (o GetVpnAttachmentResultOutput) Filters() GetVpnAttachmentFilterArrayOutpu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetVpnAttachmentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpnAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetVpnAttachmentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpnAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway VPN Attachment

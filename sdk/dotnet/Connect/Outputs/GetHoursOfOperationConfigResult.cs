@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// Day that the hours of operation applies to.
         /// </summary>
-        public readonly string Day;
+        public readonly string? Day;
         /// <summary>
         /// End time block specifies the time that your contact center closes. The `end_time` is documented below.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Connect.Outputs
 
         [OutputConstructor]
         private GetHoursOfOperationConfigResult(
-            string day,
+            string? day,
 
             ImmutableArray<Outputs.GetHoursOfOperationConfigEndTimeResult> endTimes,
 

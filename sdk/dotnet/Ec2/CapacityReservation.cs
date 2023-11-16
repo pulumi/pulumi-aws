@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the Capacity Reservation.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Availability Zone in which to create the Capacity Reservation.
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the AWS account that owns the Capacity Reservation.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.

@@ -104,83 +104,83 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `true` if auto recovery is supported.
         /// </summary>
-        public readonly bool AutoRecoverySupported;
+        public readonly bool? AutoRecoverySupported;
         /// <summary>
         /// `true` if it is a bare metal instance type.
         /// </summary>
-        public readonly bool BareMetal;
+        public readonly bool? BareMetal;
         /// <summary>
         /// `true` if the instance type is a burstable performance instance type.
         /// </summary>
-        public readonly bool BurstablePerformanceSupported;
+        public readonly bool? BurstablePerformanceSupported;
         /// <summary>
         /// `true`  if the instance type is a current generation.
         /// </summary>
-        public readonly bool CurrentGeneration;
+        public readonly bool? CurrentGeneration;
         /// <summary>
         /// `true` if Dedicated Hosts are supported on the instance type.
         /// </summary>
-        public readonly bool DedicatedHostsSupported;
+        public readonly bool? DedicatedHostsSupported;
         /// <summary>
         /// Default number of cores for the instance type.
         /// </summary>
-        public readonly int DefaultCores;
+        public readonly int? DefaultCores;
         /// <summary>
         /// The  default  number of threads per core for the instance type.
         /// </summary>
-        public readonly int DefaultThreadsPerCore;
+        public readonly int? DefaultThreadsPerCore;
         /// <summary>
         /// Default number of vCPUs for the instance type.
         /// </summary>
-        public readonly int DefaultVcpus;
+        public readonly int? DefaultVcpus;
         /// <summary>
         /// Indicates whether Amazon EBS encryption is supported.
         /// </summary>
-        public readonly string EbsEncryptionSupport;
+        public readonly string? EbsEncryptionSupport;
         /// <summary>
         /// Whether non-volatile memory express (NVMe) is supported.
         /// </summary>
-        public readonly string EbsNvmeSupport;
+        public readonly string? EbsNvmeSupport;
         /// <summary>
         /// Indicates that the instance type is Amazon EBS-optimized.
         /// </summary>
-        public readonly string EbsOptimizedSupport;
+        public readonly string? EbsOptimizedSupport;
         /// <summary>
         /// The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
         /// </summary>
-        public readonly int EbsPerformanceBaselineBandwidth;
+        public readonly int? EbsPerformanceBaselineBandwidth;
         /// <summary>
         /// The baseline input/output storage operations per seconds for an EBS-optimized instance type.
         /// </summary>
-        public readonly int EbsPerformanceBaselineIops;
+        public readonly int? EbsPerformanceBaselineIops;
         /// <summary>
         /// The baseline throughput performance for an EBS-optimized instance type, in MBps.
         /// </summary>
-        public readonly double EbsPerformanceBaselineThroughput;
+        public readonly double? EbsPerformanceBaselineThroughput;
         /// <summary>
         /// The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
         /// </summary>
-        public readonly int EbsPerformanceMaximumBandwidth;
+        public readonly int? EbsPerformanceMaximumBandwidth;
         /// <summary>
         /// The maximum input/output storage operations per second for an EBS-optimized instance type.
         /// </summary>
-        public readonly int EbsPerformanceMaximumIops;
+        public readonly int? EbsPerformanceMaximumIops;
         /// <summary>
         /// The maximum throughput performance for an EBS-optimized instance type, in MBps.
         /// </summary>
-        public readonly double EbsPerformanceMaximumThroughput;
+        public readonly double? EbsPerformanceMaximumThroughput;
         /// <summary>
         /// Whether Elastic Fabric Adapter (EFA) is supported.
         /// </summary>
-        public readonly bool EfaSupported;
+        public readonly bool? EfaSupported;
         /// <summary>
         /// Whether Elastic Network Adapter (ENA) is supported.
         /// </summary>
-        public readonly string EnaSupport;
+        public readonly string? EnaSupport;
         /// <summary>
         /// Indicates whether encryption in-transit between instances is supported.
         /// </summary>
-        public readonly bool EncryptionInTransitSupported;
+        public readonly bool? EncryptionInTransitSupported;
         /// <summary>
         /// Describes the FPGA accelerator settings for the instance type.
         /// * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `true` if the instance type is eligible for the free tier.
         /// </summary>
-        public readonly bool FreeTierEligible;
+        public readonly bool? FreeTierEligible;
         /// <summary>
         /// Describes the GPU accelerators for the instance type.
         /// * `gpus.#.count` - The number of GPUs for the instance type.
@@ -204,15 +204,15 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `true` if On-Demand hibernation is supported.
         /// </summary>
-        public readonly bool HibernationSupported;
+        public readonly bool? HibernationSupported;
         /// <summary>
         /// Hypervisor used for the instance type.
         /// </summary>
-        public readonly string Hypervisor;
+        public readonly string? Hypervisor;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Describes the Inference accelerators for the instance type.
         /// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
@@ -230,32 +230,32 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `true` if instance storage is supported.
         /// </summary>
-        public readonly bool InstanceStorageSupported;
+        public readonly bool? InstanceStorageSupported;
         public readonly string InstanceType;
         /// <summary>
         /// `true` if IPv6 is supported.
         /// </summary>
-        public readonly bool Ipv6Supported;
+        public readonly bool? Ipv6Supported;
         /// <summary>
         /// The maximum number of IPv4 addresses per network interface.
         /// </summary>
-        public readonly int MaximumIpv4AddressesPerInterface;
+        public readonly int? MaximumIpv4AddressesPerInterface;
         /// <summary>
         /// The maximum number of IPv6 addresses per network interface.
         /// </summary>
-        public readonly int MaximumIpv6AddressesPerInterface;
+        public readonly int? MaximumIpv6AddressesPerInterface;
         /// <summary>
         /// The maximum number of network interfaces for the instance type.
         /// </summary>
-        public readonly int MaximumNetworkInterfaces;
+        public readonly int? MaximumNetworkInterfaces;
         /// <summary>
         /// Size of the instance memory, in MiB.
         /// </summary>
-        public readonly int MemorySize;
+        public readonly int? MemorySize;
         /// <summary>
         /// Describes the network performance.
         /// </summary>
-        public readonly string NetworkPerformance;
+        public readonly string? NetworkPerformance;
         /// <summary>
         /// A list of architectures supported by the instance type.
         /// </summary>
@@ -279,19 +279,19 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The speed of the processor, in GHz.
         /// </summary>
-        public readonly double SustainedClockSpeed;
+        public readonly double? SustainedClockSpeed;
         /// <summary>
         /// Total memory of all FPGA accelerators for the instance type (in MiB).
         /// </summary>
-        public readonly int TotalFpgaMemory;
+        public readonly int? TotalFpgaMemory;
         /// <summary>
         /// Total size of the memory for the GPU accelerators for the instance type (in MiB).
         /// </summary>
-        public readonly int TotalGpuMemory;
+        public readonly int? TotalGpuMemory;
         /// <summary>
         /// The total size of the instance disks, in GB.
         /// </summary>
-        public readonly int TotalInstanceStorage;
+        public readonly int? TotalInstanceStorage;
         /// <summary>
         /// List of the valid number of cores that can be configured for the instance type.
         /// </summary>
@@ -303,77 +303,77 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetInstanceTypeResult(
-            bool autoRecoverySupported,
+            bool? autoRecoverySupported,
 
-            bool bareMetal,
+            bool? bareMetal,
 
-            bool burstablePerformanceSupported,
+            bool? burstablePerformanceSupported,
 
-            bool currentGeneration,
+            bool? currentGeneration,
 
-            bool dedicatedHostsSupported,
+            bool? dedicatedHostsSupported,
 
-            int defaultCores,
+            int? defaultCores,
 
-            int defaultThreadsPerCore,
+            int? defaultThreadsPerCore,
 
-            int defaultVcpus,
+            int? defaultVcpus,
 
-            string ebsEncryptionSupport,
+            string? ebsEncryptionSupport,
 
-            string ebsNvmeSupport,
+            string? ebsNvmeSupport,
 
-            string ebsOptimizedSupport,
+            string? ebsOptimizedSupport,
 
-            int ebsPerformanceBaselineBandwidth,
+            int? ebsPerformanceBaselineBandwidth,
 
-            int ebsPerformanceBaselineIops,
+            int? ebsPerformanceBaselineIops,
 
-            double ebsPerformanceBaselineThroughput,
+            double? ebsPerformanceBaselineThroughput,
 
-            int ebsPerformanceMaximumBandwidth,
+            int? ebsPerformanceMaximumBandwidth,
 
-            int ebsPerformanceMaximumIops,
+            int? ebsPerformanceMaximumIops,
 
-            double ebsPerformanceMaximumThroughput,
+            double? ebsPerformanceMaximumThroughput,
 
-            bool efaSupported,
+            bool? efaSupported,
 
-            string enaSupport,
+            string? enaSupport,
 
-            bool encryptionInTransitSupported,
+            bool? encryptionInTransitSupported,
 
             ImmutableArray<Outputs.GetInstanceTypeFpgaResult> fpgas,
 
-            bool freeTierEligible,
+            bool? freeTierEligible,
 
             ImmutableArray<Outputs.GetInstanceTypeGpusResult> gpuses,
 
-            bool hibernationSupported,
+            bool? hibernationSupported,
 
-            string hypervisor,
+            string? hypervisor,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetInstanceTypeInferenceAcceleratorResult> inferenceAccelerators,
 
             ImmutableArray<Outputs.GetInstanceTypeInstanceDiskResult> instanceDisks,
 
-            bool instanceStorageSupported,
+            bool? instanceStorageSupported,
 
             string instanceType,
 
-            bool ipv6Supported,
+            bool? ipv6Supported,
 
-            int maximumIpv4AddressesPerInterface,
+            int? maximumIpv4AddressesPerInterface,
 
-            int maximumIpv6AddressesPerInterface,
+            int? maximumIpv6AddressesPerInterface,
 
-            int maximumNetworkInterfaces,
+            int? maximumNetworkInterfaces,
 
-            int memorySize,
+            int? memorySize,
 
-            string networkPerformance,
+            string? networkPerformance,
 
             ImmutableArray<string> supportedArchitectures,
 
@@ -385,13 +385,13 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> supportedVirtualizationTypes,
 
-            double sustainedClockSpeed,
+            double? sustainedClockSpeed,
 
-            int totalFpgaMemory,
+            int? totalFpgaMemory,
 
-            int totalGpuMemory,
+            int? totalGpuMemory,
 
-            int totalInstanceStorage,
+            int? totalInstanceStorage,
 
             ImmutableArray<int> validCores,
 

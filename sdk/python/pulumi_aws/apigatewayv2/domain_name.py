@@ -428,7 +428,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiMappingSelectionExpression")
-    def api_mapping_selection_expression(self) -> pulumi.Output[str]:
+    def api_mapping_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
         [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         """
@@ -436,7 +436,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the domain name.
         """

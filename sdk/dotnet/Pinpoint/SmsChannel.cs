@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Pinpoint
         /// Maximum number of promotional messages that can be sent per second.
         /// </summary>
         [Output("promotionalMessagesPerSecond")]
-        public Output<int> PromotionalMessagesPerSecond { get; private set; } = null!;
+        public Output<int?> PromotionalMessagesPerSecond { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the sender for your messages.
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Pinpoint
         /// Maximum number of transactional messages per second that can be sent.
         /// </summary>
         [Output("transactionalMessagesPerSecond")]
-        public Output<int> TransactionalMessagesPerSecond { get; private set; } = null!;
+        public Output<int?> TransactionalMessagesPerSecond { get; private set; } = null!;
 
 
         /// <summary>

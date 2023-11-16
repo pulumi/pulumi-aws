@@ -65,14 +65,14 @@ public class PublicDnsNamespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN that Amazon Route 53 assigns to the namespace when you create it.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The description that you specify for the namespace when you create it.
@@ -93,14 +93,14 @@ public class PublicDnsNamespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostedZone", refs={String.class}, tree="[0]")
-    private Output<String> hostedZone;
+    private Output</* @Nullable */ String> hostedZone;
 
     /**
      * @return The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      * 
      */
-    public Output<String> hostedZone() {
-        return this.hostedZone;
+    public Output<Optional<String>> hostedZone() {
+        return Codegen.optional(this.hostedZone);
     }
     /**
      * The name of the namespace.

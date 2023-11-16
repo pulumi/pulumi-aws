@@ -43,28 +43,28 @@ export interface GetServerlessVpcEndpointResult {
     /**
      * The date the endpoint was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The name of the endpoint.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      */
-    readonly securityGroupIds: string[];
+    readonly securityGroupIds?: string[];
     /**
      * The IDs of the subnets from which you access OpenSearch Serverless.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     readonly vpcEndpointId: string;
     /**
      * The ID of the VPC from which you access OpenSearch Serverless.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.

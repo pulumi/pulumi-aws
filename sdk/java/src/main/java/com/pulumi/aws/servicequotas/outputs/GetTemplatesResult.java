@@ -8,11 +8,12 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTemplatesResult {
-    private String id;
+    private @Nullable String id;
     /**
      * @return AWS Region to which the template applies.
      * 
@@ -25,8 +26,8 @@ public final class GetTemplatesResult {
     private @Nullable List<GetTemplatesTemplate> templates;
 
     private GetTemplatesResult() {}
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return AWS Region to which the template applies.
@@ -52,7 +53,7 @@ public final class GetTemplatesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private String region;
         private @Nullable List<GetTemplatesTemplate> templates;
         public Builder() {}
@@ -64,8 +65,8 @@ public final class GetTemplatesResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

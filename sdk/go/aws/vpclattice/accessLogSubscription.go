@@ -55,11 +55,11 @@ type AccessLogSubscription struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the access log subscription.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
 	// Amazon Resource Name (ARN) of the service network or service.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	ResourceIdentifier pulumi.StringOutput    `pulumi:"resourceIdentifier"`
 	Tags               pulumi.StringMapOutput `pulumi:"tags"`
@@ -243,8 +243,8 @@ func (o AccessLogSubscriptionOutput) ToAccessLogSubscriptionOutputWithContext(ct
 }
 
 // Amazon Resource Name (ARN) of the access log subscription.
-func (o AccessLogSubscriptionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AccessLogSubscriptionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the log destination.
@@ -253,8 +253,8 @@ func (o AccessLogSubscriptionOutput) DestinationArn() pulumi.StringOutput {
 }
 
 // Amazon Resource Name (ARN) of the service network or service.
-func (o AccessLogSubscriptionOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+func (o AccessLogSubscriptionOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.

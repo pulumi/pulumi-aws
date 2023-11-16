@@ -116,24 +116,24 @@ type User struct {
 	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
 	// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `clientMetadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
 	ClientMetadata pulumi.StringMapOutput `pulumi:"clientMetadata"`
-	CreationDate   pulumi.StringOutput    `pulumi:"creationDate"`
+	CreationDate   pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
 	DesiredDeliveryMediums pulumi.StringArrayOutput `pulumi:"desiredDeliveryMediums"`
 	// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `messageAction` argument. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// If this parameter is set to True and the `phoneNumber` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `forceAliasCreation` value. Defaults to `false`.
-	ForceAliasCreation pulumi.BoolPtrOutput `pulumi:"forceAliasCreation"`
-	LastModifiedDate   pulumi.StringOutput  `pulumi:"lastModifiedDate"`
+	ForceAliasCreation pulumi.BoolPtrOutput   `pulumi:"forceAliasCreation"`
+	LastModifiedDate   pulumi.StringPtrOutput `pulumi:"lastModifiedDate"`
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
 	MessageAction   pulumi.StringPtrOutput   `pulumi:"messageAction"`
 	MfaSettingLists pulumi.StringArrayOutput `pulumi:"mfaSettingLists"`
 	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
 	Password            pulumi.StringPtrOutput `pulumi:"password"`
-	PreferredMfaSetting pulumi.StringOutput    `pulumi:"preferredMfaSetting"`
+	PreferredMfaSetting pulumi.StringPtrOutput `pulumi:"preferredMfaSetting"`
 	// current user status.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// unique user id that is never reassignable to another user.
-	Sub pulumi.StringOutput `pulumi:"sub"`
+	Sub pulumi.StringPtrOutput `pulumi:"sub"`
 	// The user's temporary password. Conflicts with `password`.
 	TemporaryPassword pulumi.StringPtrOutput `pulumi:"temporaryPassword"`
 	// The user pool ID for the user pool where the user will be created.
@@ -428,8 +428,8 @@ func (o UserOutput) ClientMetadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.ClientMetadata }).(pulumi.StringMapOutput)
 }
 
-func (o UserOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o UserOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
@@ -447,8 +447,8 @@ func (o UserOutput) ForceAliasCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.ForceAliasCreation }).(pulumi.BoolPtrOutput)
 }
 
-func (o UserOutput) LastModifiedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
+func (o UserOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }
 
 // Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
@@ -465,18 +465,18 @@ func (o UserOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-func (o UserOutput) PreferredMfaSetting() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.PreferredMfaSetting }).(pulumi.StringOutput)
+func (o UserOutput) PreferredMfaSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PreferredMfaSetting }).(pulumi.StringPtrOutput)
 }
 
 // current user status.
-func (o UserOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o UserOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // unique user id that is never reassignable to another user.
-func (o UserOutput) Sub() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Sub }).(pulumi.StringOutput)
+func (o UserOutput) Sub() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Sub }).(pulumi.StringPtrOutput)
 }
 
 // The user's temporary password. Conflicts with `password`.

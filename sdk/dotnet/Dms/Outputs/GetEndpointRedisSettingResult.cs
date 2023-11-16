@@ -13,29 +13,29 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class GetEndpointRedisSettingResult
     {
-        public readonly string AuthPassword;
-        public readonly string AuthType;
-        public readonly string AuthUserName;
-        public readonly int Port;
-        public readonly string ServerName;
-        public readonly string SslCaCertificateArn;
-        public readonly string SslSecurityProtocol;
+        public readonly string? AuthPassword;
+        public readonly string? AuthType;
+        public readonly string? AuthUserName;
+        public readonly int? Port;
+        public readonly string? ServerName;
+        public readonly string? SslCaCertificateArn;
+        public readonly string? SslSecurityProtocol;
 
         [OutputConstructor]
         private GetEndpointRedisSettingResult(
-            string authPassword,
+            string? authPassword,
 
-            string authType,
+            string? authType,
 
-            string authUserName,
+            string? authUserName,
 
-            int port,
+            int? port,
 
-            string serverName,
+            string? serverName,
 
-            string sslCaCertificateArn,
+            string? sslCaCertificateArn,
 
-            string sslSecurityProtocol)
+            string? sslSecurityProtocol)
         {
             AuthPassword = authPassword;
             AuthType = authType;

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetHttpNamespaceResult {
@@ -14,57 +16,57 @@ public final class GetHttpNamespaceResult {
      * @return ARN that Amazon Route 53 assigns to the namespace when you create it.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description that you specify for the namespace when you create it.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Name of an HTTP namespace.
      * 
      */
-    private String httpName;
+    private @Nullable String httpName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Map of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetHttpNamespaceResult() {}
     /**
      * @return ARN that Amazon Route 53 assigns to the namespace when you create it.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description that you specify for the namespace when you create it.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Name of an HTTP namespace.
      * 
      */
-    public String httpName() {
-        return this.httpName;
+    public Optional<String> httpName() {
+        return Optional.ofNullable(this.httpName);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -74,7 +76,7 @@ public final class GetHttpNamespaceResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -86,12 +88,12 @@ public final class GetHttpNamespaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String httpName;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String httpName;
+        private @Nullable String id;
         private String name;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetHttpNamespaceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,23 +106,23 @@ public final class GetHttpNamespaceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder httpName(String httpName) {
-            this.httpName = Objects.requireNonNull(httpName);
+        public Builder httpName(@Nullable String httpName) {
+            this.httpName = httpName;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -129,8 +131,8 @@ public final class GetHttpNamespaceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetHttpNamespaceResult build() {

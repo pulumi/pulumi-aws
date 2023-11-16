@@ -60,11 +60,11 @@ type LookupUserPoolClientArgs struct {
 // A collection of values returned by getUserPoolClient.
 type LookupUserPoolClientResult struct {
 	// (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
-	AccessTokenValidity int `pulumi:"accessTokenValidity"`
+	AccessTokenValidity *int `pulumi:"accessTokenValidity"`
 	// (Optional) List of allowed OAuth flows (code, implicit, client_credentials).
 	AllowedOauthFlows []string `pulumi:"allowedOauthFlows"`
 	// (Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-	AllowedOauthFlowsUserPoolClient bool `pulumi:"allowedOauthFlowsUserPoolClient"`
+	AllowedOauthFlowsUserPoolClient *bool `pulumi:"allowedOauthFlowsUserPoolClient"`
 	// (Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
 	// (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
@@ -73,29 +73,29 @@ type LookupUserPoolClientResult struct {
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	ClientId     string   `pulumi:"clientId"`
 	// Client secret of the user pool client.
-	ClientSecret string `pulumi:"clientSecret"`
+	ClientSecret *string `pulumi:"clientSecret"`
 	// (Optional) Default redirect URI. Must be in the list of callback URLs.
-	DefaultRedirectUri                       string `pulumi:"defaultRedirectUri"`
-	EnablePropagateAdditionalUserContextData bool   `pulumi:"enablePropagateAdditionalUserContextData"`
+	DefaultRedirectUri                       *string `pulumi:"defaultRedirectUri"`
+	EnablePropagateAdditionalUserContextData *bool   `pulumi:"enablePropagateAdditionalUserContextData"`
 	// (Optional) Enables or disables token revocation.
-	EnableTokenRevocation bool `pulumi:"enableTokenRevocation"`
+	EnableTokenRevocation *bool `pulumi:"enableTokenRevocation"`
 	// (Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 	ExplicitAuthFlows []string `pulumi:"explicitAuthFlows"`
 	// (Optional) Should an application secret be generated.
-	GenerateSecret bool `pulumi:"generateSecret"`
+	GenerateSecret *bool `pulumi:"generateSecret"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
-	IdTokenValidity int `pulumi:"idTokenValidity"`
+	IdTokenValidity *int `pulumi:"idTokenValidity"`
 	// (Optional) List of allowed logout URLs for the identity providers.
 	LogoutUrls []string `pulumi:"logoutUrls"`
-	Name       string   `pulumi:"name"`
+	Name       *string  `pulumi:"name"`
 	// (Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-	PreventUserExistenceErrors string `pulumi:"preventUserExistenceErrors"`
+	PreventUserExistenceErrors *string `pulumi:"preventUserExistenceErrors"`
 	// (Optional) List of user pool attributes the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
 	// (Optional) Time limit in days refresh tokens are valid for.
-	RefreshTokenValidity int `pulumi:"refreshTokenValidity"`
+	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
 	// (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
 	// (Optional) Configuration block for units in which the validity times are represented in. Detailed below.
@@ -146,8 +146,8 @@ func (o LookupUserPoolClientResultOutput) ToLookupUserPoolClientResultOutputWith
 }
 
 // (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
-func (o LookupUserPoolClientResultOutput) AccessTokenValidity() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) int { return v.AccessTokenValidity }).(pulumi.IntOutput)
+func (o LookupUserPoolClientResultOutput) AccessTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.AccessTokenValidity }).(pulumi.IntPtrOutput)
 }
 
 // (Optional) List of allowed OAuth flows (code, implicit, client_credentials).
@@ -156,8 +156,8 @@ func (o LookupUserPoolClientResultOutput) AllowedOauthFlows() pulumi.StringArray
 }
 
 // (Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-func (o LookupUserPoolClientResultOutput) AllowedOauthFlowsUserPoolClient() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) bool { return v.AllowedOauthFlowsUserPoolClient }).(pulumi.BoolOutput)
+func (o LookupUserPoolClientResultOutput) AllowedOauthFlowsUserPoolClient() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *bool { return v.AllowedOauthFlowsUserPoolClient }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
@@ -182,22 +182,22 @@ func (o LookupUserPoolClientResultOutput) ClientId() pulumi.StringOutput {
 }
 
 // Client secret of the user pool client.
-func (o LookupUserPoolClientResultOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o LookupUserPoolClientResultOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Default redirect URI. Must be in the list of callback URLs.
-func (o LookupUserPoolClientResultOutput) DefaultRedirectUri() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.DefaultRedirectUri }).(pulumi.StringOutput)
+func (o LookupUserPoolClientResultOutput) DefaultRedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.DefaultRedirectUri }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserPoolClientResultOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) bool { return v.EnablePropagateAdditionalUserContextData }).(pulumi.BoolOutput)
+func (o LookupUserPoolClientResultOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *bool { return v.EnablePropagateAdditionalUserContextData }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Enables or disables token revocation.
-func (o LookupUserPoolClientResultOutput) EnableTokenRevocation() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) bool { return v.EnableTokenRevocation }).(pulumi.BoolOutput)
+func (o LookupUserPoolClientResultOutput) EnableTokenRevocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *bool { return v.EnableTokenRevocation }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
@@ -206,18 +206,18 @@ func (o LookupUserPoolClientResultOutput) ExplicitAuthFlows() pulumi.StringArray
 }
 
 // (Optional) Should an application secret be generated.
-func (o LookupUserPoolClientResultOutput) GenerateSecret() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) bool { return v.GenerateSecret }).(pulumi.BoolOutput)
+func (o LookupUserPoolClientResultOutput) GenerateSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *bool { return v.GenerateSecret }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupUserPoolClientResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupUserPoolClientResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
-func (o LookupUserPoolClientResultOutput) IdTokenValidity() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) int { return v.IdTokenValidity }).(pulumi.IntOutput)
+func (o LookupUserPoolClientResultOutput) IdTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.IdTokenValidity }).(pulumi.IntPtrOutput)
 }
 
 // (Optional) List of allowed logout URLs for the identity providers.
@@ -225,13 +225,13 @@ func (o LookupUserPoolClientResultOutput) LogoutUrls() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.LogoutUrls }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupUserPoolClientResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupUserPoolClientResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-func (o LookupUserPoolClientResultOutput) PreventUserExistenceErrors() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.PreventUserExistenceErrors }).(pulumi.StringOutput)
+func (o LookupUserPoolClientResultOutput) PreventUserExistenceErrors() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.PreventUserExistenceErrors }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) List of user pool attributes the application client can read from.
@@ -240,8 +240,8 @@ func (o LookupUserPoolClientResultOutput) ReadAttributes() pulumi.StringArrayOut
 }
 
 // (Optional) Time limit in days refresh tokens are valid for.
-func (o LookupUserPoolClientResultOutput) RefreshTokenValidity() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) int { return v.RefreshTokenValidity }).(pulumi.IntOutput)
+func (o LookupUserPoolClientResultOutput) RefreshTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.RefreshTokenValidity }).(pulumi.IntPtrOutput)
 }
 
 // (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).

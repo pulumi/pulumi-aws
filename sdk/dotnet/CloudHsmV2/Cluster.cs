@@ -47,13 +47,13 @@ namespace Pulumi.Aws.CloudHsmV2
         /// The id of the CloudHSM cluster.
         /// </summary>
         [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
+        public Output<string?> ClusterId { get; private set; } = null!;
 
         /// <summary>
         /// The state of the CloudHSM cluster.
         /// </summary>
         [Output("clusterState")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// The ID of the security group associated with the CloudHSM cluster.
         /// </summary>
         [Output("securityGroupId")]
-        public Output<string> SecurityGroupId { get; private set; } = null!;
+        public Output<string?> SecurityGroupId { get; private set; } = null!;
 
         /// <summary>
         /// ID of Cloud HSM v2 cluster backup to be restored.
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// The id of the VPC that the CloudHSM cluster resides in.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

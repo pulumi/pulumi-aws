@@ -61,7 +61,7 @@ export class ActionTarget extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Security Hub custom action target.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the custom action target.
      */

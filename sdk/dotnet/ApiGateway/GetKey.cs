@@ -130,19 +130,19 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Date and time when the API Key was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         /// </summary>
-        public readonly string CustomerId;
+        public readonly string? CustomerId;
         /// <summary>
         /// Description of the API Key.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Whether the API Key is enabled.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// Set to the ID of the API Key.
         /// </summary>
@@ -150,39 +150,39 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Date and time when the API Key was last updated.
         /// </summary>
-        public readonly string LastUpdatedDate;
+        public readonly string? LastUpdatedDate;
         /// <summary>
         /// Set to the name of the API Key.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Set to the value of the API Key.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetKeyResult(
-            string createdDate,
+            string? createdDate,
 
-            string customerId,
+            string? customerId,
 
-            string description,
+            string? description,
 
-            bool enabled,
+            bool? enabled,
 
             string id,
 
-            string lastUpdatedDate,
+            string? lastUpdatedDate,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string value)
+            string? value)
         {
             CreatedDate = createdDate;
             CustomerId = customerId;

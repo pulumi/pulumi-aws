@@ -63,13 +63,13 @@ type CustomRoutingAccelerator struct {
 	// The attributes of the accelerator. Fields documented below.
 	Attributes CustomRoutingAcceleratorAttributesPtrOutput `pulumi:"attributes"`
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// -  The Global Accelerator Route 53 zone ID that can be used to
 	//    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
 	//    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringPtrOutput `pulumi:"hostedZoneId"`
 	// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
@@ -301,8 +301,8 @@ func (o CustomRoutingAcceleratorOutput) Attributes() CustomRoutingAcceleratorAtt
 }
 
 // The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-func (o CustomRoutingAcceleratorOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+func (o CustomRoutingAcceleratorOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
@@ -313,8 +313,8 @@ func (o CustomRoutingAcceleratorOutput) Enabled() pulumi.BoolPtrOutput {
 //   - The Global Accelerator Route 53 zone ID that can be used to
 //     route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
 //     is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-func (o CustomRoutingAcceleratorOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o CustomRoutingAcceleratorOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.

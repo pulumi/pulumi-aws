@@ -60,7 +60,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="engineDescription")
-    def engine_description(self) -> str:
+    def engine_description(self) -> Optional[str]:
         """
         Description of the database engine.
         """
@@ -68,7 +68,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="exportableLogTypes")
-    def exportable_log_types(self) -> Sequence[str]:
+    def exportable_log_types(self) -> Optional[Sequence[str]]:
         """
         Set of log types that the database engine has available for export to CloudWatch Logs.
         """
@@ -76,7 +76,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -84,7 +84,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="parameterGroupFamily")
-    def parameter_group_family(self) -> str:
+    def parameter_group_family(self) -> Optional[str]:
         return pulumi.get(self, "parameter_group_family")
 
     @property
@@ -94,7 +94,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="supportsLogExportsToCloudwatch")
-    def supports_log_exports_to_cloudwatch(self) -> bool:
+    def supports_log_exports_to_cloudwatch(self) -> Optional[bool]:
         """
         Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
         """
@@ -102,7 +102,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="validUpgradeTargets")
-    def valid_upgrade_targets(self) -> Sequence[str]:
+    def valid_upgrade_targets(self) -> Optional[Sequence[str]]:
         """
         A set of engine versions that this database engine version can be upgraded to.
         """
@@ -110,12 +110,12 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="versionDescription")
-    def version_description(self) -> str:
+    def version_description(self) -> Optional[str]:
         """
         Description of the database engine version.
         """

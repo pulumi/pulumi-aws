@@ -140,14 +140,14 @@ public class Intent extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Lex intent.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Checksum identifying the version of the intent that was created. The checksum is not
@@ -155,15 +155,15 @@ public class Intent extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="checksum", refs={String.class}, tree="[0]")
-    private Output<String> checksum;
+    private Output</* @Nullable */ String> checksum;
 
     /**
      * @return Checksum identifying the version of the intent that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the intent.
      * 
      */
-    public Output<String> checksum() {
-        return this.checksum;
+    public Output<Optional<String>> checksum() {
+        return Codegen.optional(this.checksum);
     }
     /**
      * The statement that you want Amazon Lex to convey to the user
@@ -226,14 +226,14 @@ public class Intent extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
-    private Output<String> createdDate;
+    private Output</* @Nullable */ String> createdDate;
 
     /**
      * @return The date when the intent version was created.
      * 
      */
-    public Output<String> createdDate() {
-        return this.createdDate;
+    public Output<Optional<String>> createdDate() {
+        return Codegen.optional(this.createdDate);
     }
     /**
      * A description of the intent. Must be less than or equal to 200 characters in length.
@@ -308,14 +308,14 @@ public class Intent extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedDate;
+    private Output</* @Nullable */ String> lastUpdatedDate;
 
     /**
      * @return The date when the $LATEST version of this intent was updated.
      * 
      */
-    public Output<String> lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Output<Optional<String>> lastUpdatedDate() {
+        return Codegen.optional(this.lastUpdatedDate);
     }
     /**
      * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
@@ -410,14 +410,14 @@ public class Intent extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return The version of the bot.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

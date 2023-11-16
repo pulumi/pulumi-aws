@@ -436,7 +436,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentConfigId")
-    def deployment_config_id(self) -> pulumi.Output[str]:
+    def deployment_config_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS Assigned deployment config id
         """

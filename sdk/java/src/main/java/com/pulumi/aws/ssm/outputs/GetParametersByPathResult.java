@@ -17,29 +17,29 @@ public final class GetParametersByPathResult {
      * @return A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
      * 
      */
-    private List<String> arns;
+    private @Nullable List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return A list that contains the names of the retrieved parameters.
      * 
      */
-    private List<String> names;
+    private @Nullable List<String> names;
     private String path;
     private @Nullable Boolean recursive;
     /**
      * @return A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
      * 
      */
-    private List<String> types;
+    private @Nullable List<String> types;
     /**
      * @return A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
      * 
      */
-    private List<String> values;
+    private @Nullable List<String> values;
     private @Nullable Boolean withDecryption;
 
     private GetParametersByPathResult() {}
@@ -48,21 +48,21 @@ public final class GetParametersByPathResult {
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return A list that contains the names of the retrieved parameters.
      * 
      */
     public List<String> names() {
-        return this.names;
+        return this.names == null ? List.of() : this.names;
     }
     public String path() {
         return this.path;
@@ -75,14 +75,14 @@ public final class GetParametersByPathResult {
      * 
      */
     public List<String> types() {
-        return this.types;
+        return this.types == null ? List.of() : this.types;
     }
     /**
      * @return A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
      * 
      */
     public List<String> values() {
-        return this.values;
+        return this.values == null ? List.of() : this.values;
     }
     public Optional<Boolean> withDecryption() {
         return Optional.ofNullable(this.withDecryption);
@@ -97,13 +97,13 @@ public final class GetParametersByPathResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> arns;
-        private String id;
-        private List<String> names;
+        private @Nullable List<String> arns;
+        private @Nullable String id;
+        private @Nullable List<String> names;
         private String path;
         private @Nullable Boolean recursive;
-        private List<String> types;
-        private List<String> values;
+        private @Nullable List<String> types;
+        private @Nullable List<String> values;
         private @Nullable Boolean withDecryption;
         public Builder() {}
         public Builder(GetParametersByPathResult defaults) {
@@ -119,21 +119,21 @@ public final class GetParametersByPathResult {
         }
 
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+        public Builder names(@Nullable List<String> names) {
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
@@ -150,16 +150,16 @@ public final class GetParametersByPathResult {
             return this;
         }
         @CustomType.Setter
-        public Builder types(List<String> types) {
-            this.types = Objects.requireNonNull(types);
+        public Builder types(@Nullable List<String> types) {
+            this.types = types;
             return this;
         }
         public Builder types(String... types) {
             return types(List.of(types));
         }
         @CustomType.Setter
-        public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+        public Builder values(@Nullable List<String> values) {
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {

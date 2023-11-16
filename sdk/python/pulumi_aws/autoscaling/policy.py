@@ -1222,7 +1222,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN assigned by AWS to the scaling policy.
         """
@@ -1264,7 +1264,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricAggregationType")
-    def metric_aggregation_type(self) -> pulumi.Output[str]:
+    def metric_aggregation_type(self) -> pulumi.Output[Optional[str]]:
         """
         Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         """

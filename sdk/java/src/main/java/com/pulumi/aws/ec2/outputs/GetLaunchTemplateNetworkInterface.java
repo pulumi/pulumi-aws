@@ -14,29 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateNetworkInterface {
-    private String associateCarrierIpAddress;
+    private @Nullable String associateCarrierIpAddress;
     private @Nullable Boolean associatePublicIpAddress;
     private @Nullable Boolean deleteOnTermination;
-    private String description;
-    private Integer deviceIndex;
-    private String interfaceType;
-    private Integer ipv4AddressCount;
-    private List<String> ipv4Addresses;
-    private Integer ipv4PrefixCount;
-    private List<String> ipv4Prefixes;
-    private Integer ipv6AddressCount;
-    private List<String> ipv6Addresses;
-    private Integer ipv6PrefixCount;
-    private List<String> ipv6Prefixes;
-    private Integer networkCardIndex;
-    private String networkInterfaceId;
-    private String privateIpAddress;
-    private List<String> securityGroups;
-    private String subnetId;
+    private @Nullable String description;
+    private @Nullable Integer deviceIndex;
+    private @Nullable String interfaceType;
+    private @Nullable Integer ipv4AddressCount;
+    private @Nullable List<String> ipv4Addresses;
+    private @Nullable Integer ipv4PrefixCount;
+    private @Nullable List<String> ipv4Prefixes;
+    private @Nullable Integer ipv6AddressCount;
+    private @Nullable List<String> ipv6Addresses;
+    private @Nullable Integer ipv6PrefixCount;
+    private @Nullable List<String> ipv6Prefixes;
+    private @Nullable Integer networkCardIndex;
+    private @Nullable String networkInterfaceId;
+    private @Nullable String privateIpAddress;
+    private @Nullable List<String> securityGroups;
+    private @Nullable String subnetId;
 
     private GetLaunchTemplateNetworkInterface() {}
-    public String associateCarrierIpAddress() {
-        return this.associateCarrierIpAddress;
+    public Optional<String> associateCarrierIpAddress() {
+        return Optional.ofNullable(this.associateCarrierIpAddress);
     }
     public Optional<Boolean> associatePublicIpAddress() {
         return Optional.ofNullable(this.associatePublicIpAddress);
@@ -44,53 +44,53 @@ public final class GetLaunchTemplateNetworkInterface {
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
-    public Integer deviceIndex() {
-        return this.deviceIndex;
+    public Optional<Integer> deviceIndex() {
+        return Optional.ofNullable(this.deviceIndex);
     }
-    public String interfaceType() {
-        return this.interfaceType;
+    public Optional<String> interfaceType() {
+        return Optional.ofNullable(this.interfaceType);
     }
-    public Integer ipv4AddressCount() {
-        return this.ipv4AddressCount;
+    public Optional<Integer> ipv4AddressCount() {
+        return Optional.ofNullable(this.ipv4AddressCount);
     }
     public List<String> ipv4Addresses() {
-        return this.ipv4Addresses;
+        return this.ipv4Addresses == null ? List.of() : this.ipv4Addresses;
     }
-    public Integer ipv4PrefixCount() {
-        return this.ipv4PrefixCount;
+    public Optional<Integer> ipv4PrefixCount() {
+        return Optional.ofNullable(this.ipv4PrefixCount);
     }
     public List<String> ipv4Prefixes() {
-        return this.ipv4Prefixes;
+        return this.ipv4Prefixes == null ? List.of() : this.ipv4Prefixes;
     }
-    public Integer ipv6AddressCount() {
-        return this.ipv6AddressCount;
+    public Optional<Integer> ipv6AddressCount() {
+        return Optional.ofNullable(this.ipv6AddressCount);
     }
     public List<String> ipv6Addresses() {
-        return this.ipv6Addresses;
+        return this.ipv6Addresses == null ? List.of() : this.ipv6Addresses;
     }
-    public Integer ipv6PrefixCount() {
-        return this.ipv6PrefixCount;
+    public Optional<Integer> ipv6PrefixCount() {
+        return Optional.ofNullable(this.ipv6PrefixCount);
     }
     public List<String> ipv6Prefixes() {
-        return this.ipv6Prefixes;
+        return this.ipv6Prefixes == null ? List.of() : this.ipv6Prefixes;
     }
-    public Integer networkCardIndex() {
-        return this.networkCardIndex;
+    public Optional<Integer> networkCardIndex() {
+        return Optional.ofNullable(this.networkCardIndex);
     }
-    public String networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Optional<String> networkInterfaceId() {
+        return Optional.ofNullable(this.networkInterfaceId);
     }
-    public String privateIpAddress() {
-        return this.privateIpAddress;
+    public Optional<String> privateIpAddress() {
+        return Optional.ofNullable(this.privateIpAddress);
     }
     public List<String> securityGroups() {
-        return this.securityGroups;
+        return this.securityGroups == null ? List.of() : this.securityGroups;
     }
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
     public static Builder builder() {
@@ -102,25 +102,25 @@ public final class GetLaunchTemplateNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String associateCarrierIpAddress;
+        private @Nullable String associateCarrierIpAddress;
         private @Nullable Boolean associatePublicIpAddress;
         private @Nullable Boolean deleteOnTermination;
-        private String description;
-        private Integer deviceIndex;
-        private String interfaceType;
-        private Integer ipv4AddressCount;
-        private List<String> ipv4Addresses;
-        private Integer ipv4PrefixCount;
-        private List<String> ipv4Prefixes;
-        private Integer ipv6AddressCount;
-        private List<String> ipv6Addresses;
-        private Integer ipv6PrefixCount;
-        private List<String> ipv6Prefixes;
-        private Integer networkCardIndex;
-        private String networkInterfaceId;
-        private String privateIpAddress;
-        private List<String> securityGroups;
-        private String subnetId;
+        private @Nullable String description;
+        private @Nullable Integer deviceIndex;
+        private @Nullable String interfaceType;
+        private @Nullable Integer ipv4AddressCount;
+        private @Nullable List<String> ipv4Addresses;
+        private @Nullable Integer ipv4PrefixCount;
+        private @Nullable List<String> ipv4Prefixes;
+        private @Nullable Integer ipv6AddressCount;
+        private @Nullable List<String> ipv6Addresses;
+        private @Nullable Integer ipv6PrefixCount;
+        private @Nullable List<String> ipv6Prefixes;
+        private @Nullable Integer networkCardIndex;
+        private @Nullable String networkInterfaceId;
+        private @Nullable String privateIpAddress;
+        private @Nullable List<String> securityGroups;
+        private @Nullable String subnetId;
         public Builder() {}
         public Builder(GetLaunchTemplateNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
@@ -146,8 +146,8 @@ public final class GetLaunchTemplateNetworkInterface {
         }
 
         @CustomType.Setter
-        public Builder associateCarrierIpAddress(String associateCarrierIpAddress) {
-            this.associateCarrierIpAddress = Objects.requireNonNull(associateCarrierIpAddress);
+        public Builder associateCarrierIpAddress(@Nullable String associateCarrierIpAddress) {
+            this.associateCarrierIpAddress = associateCarrierIpAddress;
             return this;
         }
         @CustomType.Setter
@@ -161,98 +161,98 @@ public final class GetLaunchTemplateNetworkInterface {
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceIndex(Integer deviceIndex) {
-            this.deviceIndex = Objects.requireNonNull(deviceIndex);
+        public Builder deviceIndex(@Nullable Integer deviceIndex) {
+            this.deviceIndex = deviceIndex;
             return this;
         }
         @CustomType.Setter
-        public Builder interfaceType(String interfaceType) {
-            this.interfaceType = Objects.requireNonNull(interfaceType);
+        public Builder interfaceType(@Nullable String interfaceType) {
+            this.interfaceType = interfaceType;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv4AddressCount(Integer ipv4AddressCount) {
-            this.ipv4AddressCount = Objects.requireNonNull(ipv4AddressCount);
+        public Builder ipv4AddressCount(@Nullable Integer ipv4AddressCount) {
+            this.ipv4AddressCount = ipv4AddressCount;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv4Addresses(List<String> ipv4Addresses) {
-            this.ipv4Addresses = Objects.requireNonNull(ipv4Addresses);
+        public Builder ipv4Addresses(@Nullable List<String> ipv4Addresses) {
+            this.ipv4Addresses = ipv4Addresses;
             return this;
         }
         public Builder ipv4Addresses(String... ipv4Addresses) {
             return ipv4Addresses(List.of(ipv4Addresses));
         }
         @CustomType.Setter
-        public Builder ipv4PrefixCount(Integer ipv4PrefixCount) {
-            this.ipv4PrefixCount = Objects.requireNonNull(ipv4PrefixCount);
+        public Builder ipv4PrefixCount(@Nullable Integer ipv4PrefixCount) {
+            this.ipv4PrefixCount = ipv4PrefixCount;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv4Prefixes(List<String> ipv4Prefixes) {
-            this.ipv4Prefixes = Objects.requireNonNull(ipv4Prefixes);
+        public Builder ipv4Prefixes(@Nullable List<String> ipv4Prefixes) {
+            this.ipv4Prefixes = ipv4Prefixes;
             return this;
         }
         public Builder ipv4Prefixes(String... ipv4Prefixes) {
             return ipv4Prefixes(List.of(ipv4Prefixes));
         }
         @CustomType.Setter
-        public Builder ipv6AddressCount(Integer ipv6AddressCount) {
-            this.ipv6AddressCount = Objects.requireNonNull(ipv6AddressCount);
+        public Builder ipv6AddressCount(@Nullable Integer ipv6AddressCount) {
+            this.ipv6AddressCount = ipv6AddressCount;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6Addresses(List<String> ipv6Addresses) {
-            this.ipv6Addresses = Objects.requireNonNull(ipv6Addresses);
+        public Builder ipv6Addresses(@Nullable List<String> ipv6Addresses) {
+            this.ipv6Addresses = ipv6Addresses;
             return this;
         }
         public Builder ipv6Addresses(String... ipv6Addresses) {
             return ipv6Addresses(List.of(ipv6Addresses));
         }
         @CustomType.Setter
-        public Builder ipv6PrefixCount(Integer ipv6PrefixCount) {
-            this.ipv6PrefixCount = Objects.requireNonNull(ipv6PrefixCount);
+        public Builder ipv6PrefixCount(@Nullable Integer ipv6PrefixCount) {
+            this.ipv6PrefixCount = ipv6PrefixCount;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6Prefixes(List<String> ipv6Prefixes) {
-            this.ipv6Prefixes = Objects.requireNonNull(ipv6Prefixes);
+        public Builder ipv6Prefixes(@Nullable List<String> ipv6Prefixes) {
+            this.ipv6Prefixes = ipv6Prefixes;
             return this;
         }
         public Builder ipv6Prefixes(String... ipv6Prefixes) {
             return ipv6Prefixes(List.of(ipv6Prefixes));
         }
         @CustomType.Setter
-        public Builder networkCardIndex(Integer networkCardIndex) {
-            this.networkCardIndex = Objects.requireNonNull(networkCardIndex);
+        public Builder networkCardIndex(@Nullable Integer networkCardIndex) {
+            this.networkCardIndex = networkCardIndex;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+        public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+        public Builder privateIpAddress(@Nullable String privateIpAddress) {
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+        public Builder securityGroups(@Nullable List<String> securityGroups) {
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         public GetLaunchTemplateNetworkInterface build() {

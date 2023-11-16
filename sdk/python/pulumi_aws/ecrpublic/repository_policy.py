@@ -302,7 +302,7 @@ class RepositoryPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> pulumi.Output[str]:
+    def registry_id(self) -> pulumi.Output[Optional[str]]:
         """
         The registry ID where the repository was created.
         """

@@ -61,12 +61,12 @@ export interface GetResourceResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly identifier: string;
     /**
      * JSON string matching the CloudFormation resource type schema with current configuration.
      */
-    readonly properties: string;
+    readonly properties?: string;
     readonly roleArn?: string;
     readonly typeName: string;
     readonly typeVersionId?: string;

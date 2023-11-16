@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Cognito
         /// The ARN of the identity pool.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// An array of Amazon Cognito Identity user pools and their client IDs.

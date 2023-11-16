@@ -104,56 +104,56 @@ namespace Pulumi.Aws.CodeCommit
         /// <summary>
         /// The ID of the approval rule template.
         /// </summary>
-        public readonly string ApprovalRuleTemplateId;
+        public readonly string? ApprovalRuleTemplateId;
         /// <summary>
         /// Content of the approval rule template.
         /// </summary>
-        public readonly string Content;
+        public readonly string? Content;
         /// <summary>
         /// Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        public readonly string CreationDate;
+        public readonly string? CreationDate;
         /// <summary>
         /// Description of the approval rule template.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        public readonly string LastModifiedDate;
+        public readonly string? LastModifiedDate;
         /// <summary>
         /// ARN of the user who made the most recent changes to the approval rule template.
         /// </summary>
-        public readonly string LastModifiedUser;
+        public readonly string? LastModifiedUser;
         public readonly string Name;
         /// <summary>
         /// SHA-256 hash signature for the content of the approval rule template.
         /// </summary>
-        public readonly string RuleContentSha256;
+        public readonly string? RuleContentSha256;
 
         [OutputConstructor]
         private GetApprovalRuleTemplateResult(
-            string approvalRuleTemplateId,
+            string? approvalRuleTemplateId,
 
-            string content,
+            string? content,
 
-            string creationDate,
+            string? creationDate,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string lastModifiedDate,
+            string? lastModifiedDate,
 
-            string lastModifiedUser,
+            string? lastModifiedUser,
 
             string name,
 
-            string ruleContentSha256)
+            string? ruleContentSha256)
         {
             ApprovalRuleTemplateId = approvalRuleTemplateId;
             Content = content;

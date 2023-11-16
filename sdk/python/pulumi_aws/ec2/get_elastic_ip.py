@@ -75,7 +75,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> str:
+    def association_id(self) -> Optional[str]:
         """
         ID representing the association of the address with an instance in a VPC.
         """
@@ -83,7 +83,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="carrierIp")
-    def carrier_ip(self) -> str:
+    def carrier_ip(self) -> Optional[str]:
         """
         Carrier IP address.
         """
@@ -91,7 +91,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="customerOwnedIp")
-    def customer_owned_ip(self) -> str:
+    def customer_owned_ip(self) -> Optional[str]:
         """
         Customer Owned IP.
         """
@@ -99,7 +99,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
-    def customer_owned_ipv4_pool(self) -> str:
+    def customer_owned_ipv4_pool(self) -> Optional[str]:
         """
         The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
         """
@@ -107,7 +107,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter
-    def domain(self) -> str:
+    def domain(self) -> Optional[str]:
         """
         Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
         """
@@ -120,7 +120,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
         """
@@ -128,7 +128,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> Optional[str]:
         """
         ID of the instance that the address is associated with (if any).
         """
@@ -136,7 +136,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> Optional[str]:
         """
         The ID of the network interface.
         """
@@ -144,7 +144,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="networkInterfaceOwnerId")
-    def network_interface_owner_id(self) -> str:
+    def network_interface_owner_id(self) -> Optional[str]:
         """
         The ID of the AWS account that owns the network interface.
         """
@@ -152,7 +152,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="privateDns")
-    def private_dns(self) -> str:
+    def private_dns(self) -> Optional[str]:
         """
         Private DNS associated with the Elastic IP address.
         """
@@ -160,7 +160,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> str:
+    def private_ip(self) -> Optional[str]:
         """
         Private IP address associated with the Elastic IP address.
         """
@@ -168,7 +168,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="publicDns")
-    def public_dns(self) -> str:
+    def public_dns(self) -> Optional[str]:
         """
         Public DNS associated with the Elastic IP address.
         """
@@ -176,7 +176,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> str:
+    def public_ip(self) -> Optional[str]:
         """
         Public IP address of Elastic IP.
         """
@@ -184,7 +184,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter(name="publicIpv4Pool")
-    def public_ipv4_pool(self) -> str:
+    def public_ipv4_pool(self) -> Optional[str]:
         """
         ID of an address pool.
         """
@@ -192,7 +192,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of tags associated with Elastic IP.
         """

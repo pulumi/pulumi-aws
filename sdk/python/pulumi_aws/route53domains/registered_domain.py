@@ -808,7 +808,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="abuseContactEmail")
-    def abuse_contact_email(self) -> pulumi.Output[str]:
+    def abuse_contact_email(self) -> pulumi.Output[Optional[str]]:
         """
         Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
         """
@@ -816,7 +816,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="abuseContactPhone")
-    def abuse_contact_phone(self) -> pulumi.Output[str]:
+    def abuse_contact_phone(self) -> pulumi.Output[Optional[str]]:
         """
         Phone number for reporting abuse.
         """
@@ -824,7 +824,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminContact")
-    def admin_contact(self) -> pulumi.Output['outputs.RegisteredDomainAdminContact']:
+    def admin_contact(self) -> pulumi.Output[Optional['outputs.RegisteredDomainAdminContact']]:
         """
         Details about the domain administrative contact.
         """
@@ -848,7 +848,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the domain was created as found in the response to a WHOIS query.
         """
@@ -864,7 +864,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> pulumi.Output[str]:
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the registration for the domain is set to expire.
         """
@@ -872,7 +872,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[Sequence['outputs.RegisteredDomainNameServer']]:
+    def name_servers(self) -> pulumi.Output[Optional[Sequence['outputs.RegisteredDomainNameServer']]]:
         """
         The list of nameservers for the domain.
         """
@@ -880,7 +880,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrantContact")
-    def registrant_contact(self) -> pulumi.Output['outputs.RegisteredDomainRegistrantContact']:
+    def registrant_contact(self) -> pulumi.Output[Optional['outputs.RegisteredDomainRegistrantContact']]:
         """
         Details about the domain registrant.
         """
@@ -896,7 +896,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrarName")
-    def registrar_name(self) -> pulumi.Output[str]:
+    def registrar_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the registrar of the domain as identified in the registry.
         """
@@ -904,7 +904,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrarUrl")
-    def registrar_url(self) -> pulumi.Output[str]:
+    def registrar_url(self) -> pulumi.Output[Optional[str]]:
         """
         Web address of the registrar.
         """
@@ -912,7 +912,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def reseller(self) -> pulumi.Output[str]:
+    def reseller(self) -> pulumi.Output[Optional[str]]:
         """
         Reseller of the domain.
         """
@@ -920,7 +920,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusLists")
-    def status_lists(self) -> pulumi.Output[Sequence[str]]:
+    def status_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
         """
@@ -947,7 +947,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="techContact")
-    def tech_contact(self) -> pulumi.Output['outputs.RegisteredDomainTechContact']:
+    def tech_contact(self) -> pulumi.Output[Optional['outputs.RegisteredDomainTechContact']]:
         """
         Details about the domain technical contact.
         """
@@ -971,7 +971,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedDate")
-    def updated_date(self) -> pulumi.Output[str]:
+    def updated_date(self) -> pulumi.Output[Optional[str]]:
         """
         The last updated date of the domain as found in the response to a WHOIS query.
         """
@@ -979,7 +979,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="whoisServer")
-    def whois_server(self) -> pulumi.Output[str]:
+    def whois_server(self) -> pulumi.Output[Optional[str]]:
         """
         The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
         """

@@ -87,14 +87,14 @@ type LookupSecurityGroupArgs struct {
 // A collection of values returned by getSecurityGroup.
 type LookupSecurityGroupResult struct {
 	// Computed ARN of the security group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the security group.
-	Description string                   `pulumi:"description"`
+	Description *string                  `pulumi:"description"`
 	Filters     []GetSecurityGroupFilter `pulumi:"filters"`
-	Id          string                   `pulumi:"id"`
-	Name        string                   `pulumi:"name"`
+	Id          *string                  `pulumi:"id"`
+	Name        *string                  `pulumi:"name"`
 	Tags        map[string]string        `pulumi:"tags"`
-	VpcId       string                   `pulumi:"vpcId"`
+	VpcId       *string                  `pulumi:"vpcId"`
 }
 
 func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupResultOutput {
@@ -149,33 +149,33 @@ func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutputWithCo
 }
 
 // Computed ARN of the security group.
-func (o LookupSecurityGroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSecurityGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the security group.
-func (o LookupSecurityGroupResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupSecurityGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSecurityGroupResultOutput) Filters() GetSecurityGroupFilterArrayOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) []GetSecurityGroupFilter { return v.Filters }).(GetSecurityGroupFilterArrayOutput)
 }
 
-func (o LookupSecurityGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSecurityGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSecurityGroupResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupSecurityGroupResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSecurityGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupSecurityGroupResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupSecurityGroupResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

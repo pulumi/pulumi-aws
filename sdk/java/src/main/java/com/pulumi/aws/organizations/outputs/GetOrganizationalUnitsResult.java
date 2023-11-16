@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrganizationalUnitsResult {
@@ -15,12 +17,12 @@ public final class GetOrganizationalUnitsResult {
      * @return List of child organizational units, which have the following attributes:
      * 
      */
-    private List<GetOrganizationalUnitsChild> children;
+    private @Nullable List<GetOrganizationalUnitsChild> children;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String parentId;
 
     private GetOrganizationalUnitsResult() {}
@@ -29,14 +31,14 @@ public final class GetOrganizationalUnitsResult {
      * 
      */
     public List<GetOrganizationalUnitsChild> children() {
-        return this.children;
+        return this.children == null ? List.of() : this.children;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String parentId() {
         return this.parentId;
@@ -51,8 +53,8 @@ public final class GetOrganizationalUnitsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetOrganizationalUnitsChild> children;
-        private String id;
+        private @Nullable List<GetOrganizationalUnitsChild> children;
+        private @Nullable String id;
         private String parentId;
         public Builder() {}
         public Builder(GetOrganizationalUnitsResult defaults) {
@@ -63,16 +65,16 @@ public final class GetOrganizationalUnitsResult {
         }
 
         @CustomType.Setter
-        public Builder children(List<GetOrganizationalUnitsChild> children) {
-            this.children = Objects.requireNonNull(children);
+        public Builder children(@Nullable List<GetOrganizationalUnitsChild> children) {
+            this.children = children;
             return this;
         }
         public Builder children(GetOrganizationalUnitsChild... children) {
             return children(List.of(children));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

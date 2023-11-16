@@ -57,7 +57,7 @@ type LogStream struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) specifying the log stream.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the log group under which the log stream is to be created.
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
@@ -221,8 +221,8 @@ func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogSt
 }
 
 // The Amazon Resource Name (ARN) specifying the log stream.
-func (o LogStreamOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LogStreamOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogStream) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the log group under which the log stream is to be created.

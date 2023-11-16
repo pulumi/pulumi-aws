@@ -98,64 +98,64 @@ export interface GetElasticIpResult {
     /**
      * ID representing the association of the address with an instance in a VPC.
      */
-    readonly associationId: string;
+    readonly associationId?: string;
     /**
      * Carrier IP address.
      */
-    readonly carrierIp: string;
+    readonly carrierIp?: string;
     /**
      * Customer Owned IP.
      */
-    readonly customerOwnedIp: string;
+    readonly customerOwnedIp?: string;
     /**
      * The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
      */
-    readonly customerOwnedIpv4Pool: string;
+    readonly customerOwnedIpv4Pool?: string;
     /**
      * Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      */
-    readonly domain: string;
+    readonly domain?: string;
     readonly filters?: outputs.ec2.GetElasticIpFilter[];
     /**
      * If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ID of the instance that the address is associated with (if any).
      */
-    readonly instanceId: string;
+    readonly instanceId?: string;
     /**
      * The ID of the network interface.
      */
-    readonly networkInterfaceId: string;
+    readonly networkInterfaceId?: string;
     /**
      * The ID of the AWS account that owns the network interface.
      */
-    readonly networkInterfaceOwnerId: string;
+    readonly networkInterfaceOwnerId?: string;
     /**
      * Private DNS associated with the Elastic IP address.
      */
-    readonly privateDns: string;
+    readonly privateDns?: string;
     /**
      * Private IP address associated with the Elastic IP address.
      */
-    readonly privateIp: string;
+    readonly privateIp?: string;
     /**
      * Public DNS associated with the Elastic IP address.
      */
-    readonly publicDns: string;
+    readonly publicDns?: string;
     /**
      * Public IP address of Elastic IP.
      */
-    readonly publicIp: string;
+    readonly publicIp?: string;
     /**
      * ID of an address pool.
      */
-    readonly publicIpv4Pool: string;
+    readonly publicIpv4Pool?: string;
     /**
      * Key-value map of tags associated with Elastic IP.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * `aws.ec2.Eip` provides details about a specific Elastic IP.

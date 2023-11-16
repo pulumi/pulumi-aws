@@ -58,7 +58,7 @@ export class NetworkProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this network profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the network profile.
      */

@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Inspector2
         /// Whether your configuration reached the max account limit.
         /// </summary>
         [Output("maxAccountLimitReached")]
-        public Output<bool> MaxAccountLimitReached { get; private set; } = null!;
+        public Output<bool?> MaxAccountLimitReached { get; private set; } = null!;
 
 
         /// <summary>

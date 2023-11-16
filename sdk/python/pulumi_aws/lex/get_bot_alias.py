@@ -52,7 +52,7 @@ class GetBotAliasResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the bot alias.
         """
@@ -68,7 +68,7 @@ class GetBotAliasResult:
 
     @property
     @pulumi.getter(name="botVersion")
-    def bot_version(self) -> str:
+    def bot_version(self) -> Optional[str]:
         """
         Version of the bot that the alias points to.
         """
@@ -76,7 +76,7 @@ class GetBotAliasResult:
 
     @property
     @pulumi.getter
-    def checksum(self) -> str:
+    def checksum(self) -> Optional[str]:
         """
         Checksum of the bot alias.
         """
@@ -84,7 +84,7 @@ class GetBotAliasResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Date that the bot alias was created.
         """
@@ -92,7 +92,7 @@ class GetBotAliasResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the alias.
         """
@@ -100,7 +100,7 @@ class GetBotAliasResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -108,7 +108,7 @@ class GetBotAliasResult:
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> Optional[str]:
         """
         Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         """

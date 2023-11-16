@@ -60,19 +60,19 @@ type LookupEmailIdentityArgs struct {
 // A collection of values returned by getEmailIdentity.
 type LookupEmailIdentityResult struct {
 	// ARN of the Email Identity.
-	Arn                  string `pulumi:"arn"`
-	ConfigurationSetName string `pulumi:"configurationSetName"`
+	Arn                  *string `pulumi:"arn"`
+	ConfigurationSetName *string `pulumi:"configurationSetName"`
 	// A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
 	DkimSigningAttributes []GetEmailIdentityDkimSigningAttribute `pulumi:"dkimSigningAttributes"`
 	EmailIdentity         string                                 `pulumi:"emailIdentity"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-	IdentityType string `pulumi:"identityType"`
+	IdentityType *string `pulumi:"identityType"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies whether or not the identity is verified.
-	VerifiedForSendingStatus bool `pulumi:"verifiedForSendingStatus"`
+	VerifiedForSendingStatus *bool `pulumi:"verifiedForSendingStatus"`
 }
 
 func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityResultOutput {
@@ -116,12 +116,12 @@ func (o LookupEmailIdentityResultOutput) ToLookupEmailIdentityResultOutputWithCo
 }
 
 // ARN of the Email Identity.
-func (o LookupEmailIdentityResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupEmailIdentityResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEmailIdentityResultOutput) ConfigurationSetName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.ConfigurationSetName }).(pulumi.StringOutput)
+func (o LookupEmailIdentityResultOutput) ConfigurationSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.ConfigurationSetName }).(pulumi.StringPtrOutput)
 }
 
 // A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
@@ -136,13 +136,13 @@ func (o LookupEmailIdentityResultOutput) EmailIdentity() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupEmailIdentityResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupEmailIdentityResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-func (o LookupEmailIdentityResultOutput) IdentityType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.IdentityType }).(pulumi.StringOutput)
+func (o LookupEmailIdentityResultOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags.
@@ -151,8 +151,8 @@ func (o LookupEmailIdentityResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Specifies whether or not the identity is verified.
-func (o LookupEmailIdentityResultOutput) VerifiedForSendingStatus() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) bool { return v.VerifiedForSendingStatus }).(pulumi.BoolOutput)
+func (o LookupEmailIdentityResultOutput) VerifiedForSendingStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *bool { return v.VerifiedForSendingStatus }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

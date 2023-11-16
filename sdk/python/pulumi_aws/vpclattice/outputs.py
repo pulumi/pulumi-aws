@@ -1051,81 +1051,89 @@ class TargetGroupConfigHealthCheckMatcher(dict):
 @pulumi.output_type
 class GetListenerDefaultActionResult(dict):
     def __init__(__self__, *,
-                 fixed_responses: Sequence['outputs.GetListenerDefaultActionFixedResponseResult'],
-                 forwards: Sequence['outputs.GetListenerDefaultActionForwardResult']):
-        pulumi.set(__self__, "fixed_responses", fixed_responses)
-        pulumi.set(__self__, "forwards", forwards)
+                 fixed_responses: Optional[Sequence['outputs.GetListenerDefaultActionFixedResponseResult']] = None,
+                 forwards: Optional[Sequence['outputs.GetListenerDefaultActionForwardResult']] = None):
+        if fixed_responses is not None:
+            pulumi.set(__self__, "fixed_responses", fixed_responses)
+        if forwards is not None:
+            pulumi.set(__self__, "forwards", forwards)
 
     @property
     @pulumi.getter(name="fixedResponses")
-    def fixed_responses(self) -> Sequence['outputs.GetListenerDefaultActionFixedResponseResult']:
+    def fixed_responses(self) -> Optional[Sequence['outputs.GetListenerDefaultActionFixedResponseResult']]:
         return pulumi.get(self, "fixed_responses")
 
     @property
     @pulumi.getter
-    def forwards(self) -> Sequence['outputs.GetListenerDefaultActionForwardResult']:
+    def forwards(self) -> Optional[Sequence['outputs.GetListenerDefaultActionForwardResult']]:
         return pulumi.get(self, "forwards")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionFixedResponseResult(dict):
     def __init__(__self__, *,
-                 status_code: int):
-        pulumi.set(__self__, "status_code", status_code)
+                 status_code: Optional[int] = None):
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
 
     @property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> int:
+    def status_code(self) -> Optional[int]:
         return pulumi.get(self, "status_code")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionForwardResult(dict):
     def __init__(__self__, *,
-                 target_groups: Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']):
-        pulumi.set(__self__, "target_groups", target_groups)
+                 target_groups: Optional[Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']] = None):
+        if target_groups is not None:
+            pulumi.set(__self__, "target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']:
+    def target_groups(self) -> Optional[Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']]:
         return pulumi.get(self, "target_groups")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionForwardTargetGroupResult(dict):
     def __init__(__self__, *,
-                 target_group_identifier: str,
-                 weight: int):
-        pulumi.set(__self__, "target_group_identifier", target_group_identifier)
-        pulumi.set(__self__, "weight", weight)
+                 target_group_identifier: Optional[str] = None,
+                 weight: Optional[int] = None):
+        if target_group_identifier is not None:
+            pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="targetGroupIdentifier")
-    def target_group_identifier(self) -> str:
+    def target_group_identifier(self) -> Optional[str]:
         return pulumi.get(self, "target_group_identifier")
 
     @property
     @pulumi.getter
-    def weight(self) -> int:
+    def weight(self) -> Optional[int]:
         return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
 class GetServiceDnsEntryResult(dict):
     def __init__(__self__, *,
-                 domain_name: str,
-                 hosted_zone_id: str):
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+                 domain_name: Optional[str] = None,
+                 hosted_zone_id: Optional[str] = None):
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> Optional[str]:
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> str:
+    def hosted_zone_id(self) -> Optional[str]:
         return pulumi.get(self, "hosted_zone_id")
 
 

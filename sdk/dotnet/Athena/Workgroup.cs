@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Athena
         /// ARN of the workgroup
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with various settings for the workgroup. Documented below.

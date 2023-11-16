@@ -40,7 +40,7 @@ import (
 // if err != nil {
 // return err
 // }
-// notifAccess := notif.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// notifAccess := notif.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -104,7 +104,7 @@ type NotificationRule struct {
 	pulumi.CustomResourceState
 
 	// The codestar notification rule ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
 	DetailType pulumi.StringOutput `pulumi:"detailType"`
 	// A list of event types associated with this notification rule.
@@ -345,8 +345,8 @@ func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.
 }
 
 // The codestar notification rule ARN.
-func (o NotificationRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NotificationRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.

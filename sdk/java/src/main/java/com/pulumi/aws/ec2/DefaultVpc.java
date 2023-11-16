@@ -75,10 +75,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/defaultVpc:DefaultVpc")
 public class DefaultVpc extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="assignGeneratedIpv6CidrBlock", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> assignGeneratedIpv6CidrBlock;
@@ -91,38 +91,38 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
-    private Output<String> cidrBlock;
+    private Output</* @Nullable */ String> cidrBlock;
 
     /**
      * @return The primary IPv4 CIDR block for the VPC
      * 
      */
-    public Output<String> cidrBlock() {
-        return this.cidrBlock;
+    public Output<Optional<String>> cidrBlock() {
+        return Codegen.optional(this.cidrBlock);
     }
     @Export(name="defaultNetworkAclId", refs={String.class}, tree="[0]")
-    private Output<String> defaultNetworkAclId;
+    private Output</* @Nullable */ String> defaultNetworkAclId;
 
-    public Output<String> defaultNetworkAclId() {
-        return this.defaultNetworkAclId;
+    public Output<Optional<String>> defaultNetworkAclId() {
+        return Codegen.optional(this.defaultNetworkAclId);
     }
     @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
-    private Output<String> defaultRouteTableId;
+    private Output</* @Nullable */ String> defaultRouteTableId;
 
-    public Output<String> defaultRouteTableId() {
-        return this.defaultRouteTableId;
+    public Output<Optional<String>> defaultRouteTableId() {
+        return Codegen.optional(this.defaultRouteTableId);
     }
     @Export(name="defaultSecurityGroupId", refs={String.class}, tree="[0]")
-    private Output<String> defaultSecurityGroupId;
+    private Output</* @Nullable */ String> defaultSecurityGroupId;
 
-    public Output<String> defaultSecurityGroupId() {
-        return this.defaultSecurityGroupId;
+    public Output<Optional<String>> defaultSecurityGroupId() {
+        return Codegen.optional(this.defaultSecurityGroupId);
     }
     @Export(name="dhcpOptionsId", refs={String.class}, tree="[0]")
-    private Output<String> dhcpOptionsId;
+    private Output</* @Nullable */ String> dhcpOptionsId;
 
-    public Output<String> dhcpOptionsId() {
-        return this.dhcpOptionsId;
+    public Output<Optional<String>> dhcpOptionsId() {
+        return Codegen.optional(this.dhcpOptionsId);
     }
     @Export(name="enableDnsHostnames", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDnsHostnames;
@@ -137,16 +137,16 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableDnsSupport);
     }
     @Export(name="enableNetworkAddressUsageMetrics", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableNetworkAddressUsageMetrics;
+    private Output</* @Nullable */ Boolean> enableNetworkAddressUsageMetrics;
 
-    public Output<Boolean> enableNetworkAddressUsageMetrics() {
-        return this.enableNetworkAddressUsageMetrics;
+    public Output<Optional<Boolean>> enableNetworkAddressUsageMetrics() {
+        return Codegen.optional(this.enableNetworkAddressUsageMetrics);
     }
     @Export(name="existingDefaultVpc", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> existingDefaultVpc;
+    private Output</* @Nullable */ Boolean> existingDefaultVpc;
 
-    public Output<Boolean> existingDefaultVpc() {
-        return this.existingDefaultVpc;
+    public Output<Optional<Boolean>> existingDefaultVpc() {
+        return Codegen.optional(this.existingDefaultVpc);
     }
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
@@ -167,32 +167,32 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="instanceTenancy", refs={String.class}, tree="[0]")
-    private Output<String> instanceTenancy;
+    private Output</* @Nullable */ String> instanceTenancy;
 
     /**
      * @return The allowed tenancy of instances launched into the VPC
      * 
      */
-    public Output<String> instanceTenancy() {
-        return this.instanceTenancy;
+    public Output<Optional<String>> instanceTenancy() {
+        return Codegen.optional(this.instanceTenancy);
     }
     @Export(name="ipv6AssociationId", refs={String.class}, tree="[0]")
-    private Output<String> ipv6AssociationId;
+    private Output</* @Nullable */ String> ipv6AssociationId;
 
-    public Output<String> ipv6AssociationId() {
-        return this.ipv6AssociationId;
+    public Output<Optional<String>> ipv6AssociationId() {
+        return Codegen.optional(this.ipv6AssociationId);
     }
     @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
-    private Output<String> ipv6CidrBlock;
+    private Output</* @Nullable */ String> ipv6CidrBlock;
 
-    public Output<String> ipv6CidrBlock() {
-        return this.ipv6CidrBlock;
+    public Output<Optional<String>> ipv6CidrBlock() {
+        return Codegen.optional(this.ipv6CidrBlock);
     }
     @Export(name="ipv6CidrBlockNetworkBorderGroup", refs={String.class}, tree="[0]")
-    private Output<String> ipv6CidrBlockNetworkBorderGroup;
+    private Output</* @Nullable */ String> ipv6CidrBlockNetworkBorderGroup;
 
-    public Output<String> ipv6CidrBlockNetworkBorderGroup() {
-        return this.ipv6CidrBlockNetworkBorderGroup;
+    public Output<Optional<String>> ipv6CidrBlockNetworkBorderGroup() {
+        return Codegen.optional(this.ipv6CidrBlockNetworkBorderGroup);
     }
     @Export(name="ipv6IpamPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv6IpamPoolId;
@@ -207,16 +207,16 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipv6NetmaskLength);
     }
     @Export(name="mainRouteTableId", refs={String.class}, tree="[0]")
-    private Output<String> mainRouteTableId;
+    private Output</* @Nullable */ String> mainRouteTableId;
 
-    public Output<String> mainRouteTableId() {
-        return this.mainRouteTableId;
+    public Output<Optional<String>> mainRouteTableId() {
+        return Codegen.optional(this.mainRouteTableId);
     }
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;

@@ -57,7 +57,7 @@ type Alias struct {
 	pulumi.CustomResourceState
 
 	// Alias ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the alias.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the alias.
@@ -257,8 +257,8 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 }
 
 // Alias ARN.
-func (o AliasOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AliasOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the alias.

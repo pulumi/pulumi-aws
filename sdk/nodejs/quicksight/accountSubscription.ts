@@ -60,7 +60,7 @@ export class AccountSubscription extends pulumi.CustomResource {
     /**
      * Status of the Amazon QuickSight account's subscription.
      */
-    public /*out*/ readonly accountSubscriptionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly accountSubscriptionStatus!: pulumi.Output<string | undefined>;
     /**
      * Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      */
@@ -80,7 +80,7 @@ export class AccountSubscription extends pulumi.CustomResource {
     /**
      * AWS account ID hosting the QuickSight account. Default to provider account.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */

@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -112,14 +113,14 @@ public class TopicPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return The AWS Account ID of the SNS topic owner
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * The fully-formed AWS policy as JSON.

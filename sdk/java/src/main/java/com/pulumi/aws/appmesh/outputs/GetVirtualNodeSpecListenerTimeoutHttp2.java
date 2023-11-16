@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerR
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTimeoutHttp2 {
-    private List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles;
-    private List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests;
 
     private GetVirtualNodeSpecListenerTimeoutHttp2() {}
     public List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles() {
-        return this.idles;
+        return this.idles == null ? List.of() : this.idles;
     }
     public List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests() {
-        return this.perRequests;
+        return this.perRequests == null ? List.of() : this.perRequests;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualNodeSpecListenerTimeoutHttp2 {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles;
-        private List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTimeoutHttp2 defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualNodeSpecListenerTimeoutHttp2 {
         }
 
         @CustomType.Setter
-        public Builder idles(List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles) {
-            this.idles = Objects.requireNonNull(idles);
+        public Builder idles(@Nullable List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles) {
+            this.idles = idles;
             return this;
         }
         public Builder idles(GetVirtualNodeSpecListenerTimeoutHttp2Idle... idles) {
             return idles(List.of(idles));
         }
         @CustomType.Setter
-        public Builder perRequests(List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests) {
-            this.perRequests = Objects.requireNonNull(perRequests);
+        public Builder perRequests(@Nullable List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests) {
+            this.perRequests = perRequests;
             return this;
         }
         public Builder perRequests(GetVirtualNodeSpecListenerTimeoutHttp2PerRequest... perRequests) {

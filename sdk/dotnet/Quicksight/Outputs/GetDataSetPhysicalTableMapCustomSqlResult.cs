@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class GetDataSetPhysicalTableMapCustomSqlResult
     {
         public readonly ImmutableArray<Outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult> Columns;
-        public readonly string DataSourceArn;
-        public readonly string Name;
-        public readonly string SqlQuery;
+        public readonly string? DataSourceArn;
+        public readonly string? Name;
+        public readonly string? SqlQuery;
 
         [OutputConstructor]
         private GetDataSetPhysicalTableMapCustomSqlResult(
             ImmutableArray<Outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult> columns,
 
-            string dataSourceArn,
+            string? dataSourceArn,
 
-            string name,
+            string? name,
 
-            string sqlQuery)
+            string? sqlQuery)
         {
             Columns = columns;
             DataSourceArn = dataSourceArn;

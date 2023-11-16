@@ -58,7 +58,7 @@ export class GroupMembership extends pulumi.CustomResource {
     /**
      * The identifier of the newly created group membership in the Identity Store.
      */
-    public /*out*/ readonly membershipId!: pulumi.Output<string>;
+    public /*out*/ readonly membershipId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GroupMembership resource with the given unique name, arguments, and options.

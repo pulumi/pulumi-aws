@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Neptune
         /// The ARN of the neptune cluster parameter group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the neptune cluster parameter group. Defaults to "Managed by Pulumi".
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Neptune
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// A list of neptune parameters to apply.

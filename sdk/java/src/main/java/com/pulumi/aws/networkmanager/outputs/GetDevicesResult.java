@@ -18,12 +18,12 @@ public final class GetDevicesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return IDs of the devices.
      * 
      */
-    private List<String> ids;
+    private @Nullable List<String> ids;
     private @Nullable String siteId;
     private @Nullable Map<String,String> tags;
 
@@ -35,15 +35,15 @@ public final class GetDevicesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IDs of the devices.
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     public Optional<String> siteId() {
         return Optional.ofNullable(this.siteId);
@@ -62,8 +62,8 @@ public final class GetDevicesResult {
     @CustomType.Builder
     public static final class Builder {
         private String globalNetworkId;
-        private String id;
-        private List<String> ids;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
         private @Nullable String siteId;
         private @Nullable Map<String,String> tags;
         public Builder() {}
@@ -82,13 +82,13 @@ public final class GetDevicesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {

@@ -9,22 +9,23 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerConnectionPoo
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerConnectionPool {
-    private List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs;
-    private List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s;
-    private List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https;
+    private @Nullable List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs;
+    private @Nullable List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s;
+    private @Nullable List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https;
 
     private GetVirtualGatewaySpecListenerConnectionPool() {}
     public List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs() {
-        return this.grpcs;
+        return this.grpcs == null ? List.of() : this.grpcs;
     }
     public List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s() {
-        return this.http2s;
+        return this.http2s == null ? List.of() : this.http2s;
     }
     public List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https() {
-        return this.https;
+        return this.https == null ? List.of() : this.https;
     }
 
     public static Builder builder() {
@@ -36,9 +37,9 @@ public final class GetVirtualGatewaySpecListenerConnectionPool {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs;
-        private List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s;
-        private List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https;
+        private @Nullable List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs;
+        private @Nullable List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s;
+        private @Nullable List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecListenerConnectionPool defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,24 +49,24 @@ public final class GetVirtualGatewaySpecListenerConnectionPool {
         }
 
         @CustomType.Setter
-        public Builder grpcs(List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs) {
-            this.grpcs = Objects.requireNonNull(grpcs);
+        public Builder grpcs(@Nullable List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs) {
+            this.grpcs = grpcs;
             return this;
         }
         public Builder grpcs(GetVirtualGatewaySpecListenerConnectionPoolGrpc... grpcs) {
             return grpcs(List.of(grpcs));
         }
         @CustomType.Setter
-        public Builder http2s(List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s) {
-            this.http2s = Objects.requireNonNull(http2s);
+        public Builder http2s(@Nullable List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s) {
+            this.http2s = http2s;
             return this;
         }
         public Builder http2s(GetVirtualGatewaySpecListenerConnectionPoolHttp2... http2s) {
             return http2s(List.of(http2s));
         }
         @CustomType.Setter
-        public Builder https(List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https) {
-            this.https = Objects.requireNonNull(https);
+        public Builder https(@Nullable List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https) {
+            this.https = https;
             return this;
         }
         public Builder https(GetVirtualGatewaySpecListenerConnectionPoolHttp... https) {

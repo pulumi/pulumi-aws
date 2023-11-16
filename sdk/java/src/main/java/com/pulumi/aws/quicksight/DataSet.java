@@ -309,28 +309,28 @@ public class DataSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the dataset that contains permissions for RLS.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * AWS account ID.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
@@ -379,14 +379,14 @@ public class DataSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataSetUsageConfiguration", refs={DataSetDataSetUsageConfiguration.class}, tree="[0]")
-    private Output<DataSetDataSetUsageConfiguration> dataSetUsageConfiguration;
+    private Output</* @Nullable */ DataSetDataSetUsageConfiguration> dataSetUsageConfiguration;
 
     /**
      * @return The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
      * 
      */
-    public Output<DataSetDataSetUsageConfiguration> dataSetUsageConfiguration() {
-        return this.dataSetUsageConfiguration;
+    public Output<Optional<DataSetDataSetUsageConfiguration>> dataSetUsageConfiguration() {
+        return Codegen.optional(this.dataSetUsageConfiguration);
     }
     /**
      * The folder that contains fields and nested subfolders for your dataset. See field_folders.
@@ -421,14 +421,14 @@ public class DataSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="logicalTableMaps", refs={List.class,DataSetLogicalTableMap.class}, tree="[0,1]")
-    private Output<List<DataSetLogicalTableMap>> logicalTableMaps;
+    private Output</* @Nullable */ List<DataSetLogicalTableMap>> logicalTableMaps;
 
     /**
      * @return Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
      * 
      */
-    public Output<List<DataSetLogicalTableMap>> logicalTableMaps() {
-        return this.logicalTableMaps;
+    public Output<Optional<List<DataSetLogicalTableMap>>> logicalTableMaps() {
+        return Codegen.optional(this.logicalTableMaps);
     }
     /**
      * Display name for the dataset.
@@ -445,10 +445,10 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     @Export(name="outputColumns", refs={List.class,DataSetOutputColumn.class}, tree="[0,1]")
-    private Output<List<DataSetOutputColumn>> outputColumns;
+    private Output</* @Nullable */ List<DataSetOutputColumn>> outputColumns;
 
-    public Output<List<DataSetOutputColumn>> outputColumns() {
-        return this.outputColumns;
+    public Output<Optional<List<DataSetOutputColumn>>> outputColumns() {
+        return Codegen.optional(this.outputColumns);
     }
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.

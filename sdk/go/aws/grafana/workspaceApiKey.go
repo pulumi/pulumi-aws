@@ -47,7 +47,7 @@ type WorkspaceApiKey struct {
 	pulumi.CustomResourceState
 
 	// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
-	Key pulumi.StringOutput `pulumi:"key"`
+	Key pulumi.StringPtrOutput `pulumi:"key"`
 	// Specifies the name of the API key. Key names must be unique to the workspace.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
@@ -240,8 +240,8 @@ func (o WorkspaceApiKeyOutput) ToWorkspaceApiKeyOutputWithContext(ctx context.Co
 }
 
 // The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
-func (o WorkspaceApiKeyOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+func (o WorkspaceApiKeyOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the API key. Key names must be unique to the workspace.

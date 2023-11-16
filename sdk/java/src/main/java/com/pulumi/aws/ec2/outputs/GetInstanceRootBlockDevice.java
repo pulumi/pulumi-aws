@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceRootBlockDevice {
@@ -16,107 +18,107 @@ public final class GetInstanceRootBlockDevice {
      * @return If the root block device will be deleted on termination.
      * 
      */
-    private Boolean deleteOnTermination;
+    private @Nullable Boolean deleteOnTermination;
     /**
      * @return Physical name of the device.
      * 
      */
-    private String deviceName;
+    private @Nullable String deviceName;
     /**
      * @return If the EBS volume is encrypted.
      * 
      */
-    private Boolean encrypted;
+    private @Nullable Boolean encrypted;
     /**
      * @return `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
      * 
      */
-    private Integer iops;
-    private String kmsKeyId;
+    private @Nullable Integer iops;
+    private @Nullable String kmsKeyId;
     /**
      * @return Map of tags assigned to the Instance.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Throughput of the volume, in MiB/s.
      * 
      */
-    private Integer throughput;
-    private String volumeId;
+    private @Nullable Integer throughput;
+    private @Nullable String volumeId;
     /**
      * @return Size of the volume, in GiB.
      * 
      */
-    private Integer volumeSize;
+    private @Nullable Integer volumeSize;
     /**
      * @return Type of the volume.
      * 
      */
-    private String volumeType;
+    private @Nullable String volumeType;
 
     private GetInstanceRootBlockDevice() {}
     /**
      * @return If the root block device will be deleted on termination.
      * 
      */
-    public Boolean deleteOnTermination() {
-        return this.deleteOnTermination;
+    public Optional<Boolean> deleteOnTermination() {
+        return Optional.ofNullable(this.deleteOnTermination);
     }
     /**
      * @return Physical name of the device.
      * 
      */
-    public String deviceName() {
-        return this.deviceName;
+    public Optional<String> deviceName() {
+        return Optional.ofNullable(this.deviceName);
     }
     /**
      * @return If the EBS volume is encrypted.
      * 
      */
-    public Boolean encrypted() {
-        return this.encrypted;
+    public Optional<Boolean> encrypted() {
+        return Optional.ofNullable(this.encrypted);
     }
     /**
      * @return `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
      * 
      */
-    public Integer iops() {
-        return this.iops;
+    public Optional<Integer> iops() {
+        return Optional.ofNullable(this.iops);
     }
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return Map of tags assigned to the Instance.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Throughput of the volume, in MiB/s.
      * 
      */
-    public Integer throughput() {
-        return this.throughput;
+    public Optional<Integer> throughput() {
+        return Optional.ofNullable(this.throughput);
     }
-    public String volumeId() {
-        return this.volumeId;
+    public Optional<String> volumeId() {
+        return Optional.ofNullable(this.volumeId);
     }
     /**
      * @return Size of the volume, in GiB.
      * 
      */
-    public Integer volumeSize() {
-        return this.volumeSize;
+    public Optional<Integer> volumeSize() {
+        return Optional.ofNullable(this.volumeSize);
     }
     /**
      * @return Type of the volume.
      * 
      */
-    public String volumeType() {
-        return this.volumeType;
+    public Optional<String> volumeType() {
+        return Optional.ofNullable(this.volumeType);
     }
 
     public static Builder builder() {
@@ -128,16 +130,16 @@ public final class GetInstanceRootBlockDevice {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean deleteOnTermination;
-        private String deviceName;
-        private Boolean encrypted;
-        private Integer iops;
-        private String kmsKeyId;
-        private Map<String,String> tags;
-        private Integer throughput;
-        private String volumeId;
-        private Integer volumeSize;
-        private String volumeType;
+        private @Nullable Boolean deleteOnTermination;
+        private @Nullable String deviceName;
+        private @Nullable Boolean encrypted;
+        private @Nullable Integer iops;
+        private @Nullable String kmsKeyId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Integer throughput;
+        private @Nullable String volumeId;
+        private @Nullable Integer volumeSize;
+        private @Nullable String volumeType;
         public Builder() {}
         public Builder(GetInstanceRootBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
@@ -154,53 +156,53 @@ public final class GetInstanceRootBlockDevice {
         }
 
         @CustomType.Setter
-        public Builder deleteOnTermination(Boolean deleteOnTermination) {
-            this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
+        public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+            this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+        public Builder deviceName(@Nullable String deviceName) {
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+        public Builder encrypted(@Nullable Boolean encrypted) {
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+        public Builder iops(@Nullable Integer iops) {
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+        public Builder throughput(@Nullable Integer throughput) {
+            this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeId(String volumeId) {
-            this.volumeId = Objects.requireNonNull(volumeId);
+        public Builder volumeId(@Nullable String volumeId) {
+            this.volumeId = volumeId;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+        public Builder volumeSize(@Nullable Integer volumeSize) {
+            this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeType(String volumeType) {
-            this.volumeType = Objects.requireNonNull(volumeType);
+        public Builder volumeType(@Nullable String volumeType) {
+            this.volumeType = volumeType;
             return this;
         }
         public GetInstanceRootBlockDevice build() {

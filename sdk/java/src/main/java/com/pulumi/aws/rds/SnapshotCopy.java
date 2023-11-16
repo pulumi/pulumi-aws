@@ -90,28 +90,28 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
-    private Output<Integer> allocatedStorage;
+    private Output</* @Nullable */ Integer> allocatedStorage;
 
     /**
      * @return Specifies the allocated storage size in gigabytes (GB).
      * 
      */
-    public Output<Integer> allocatedStorage() {
-        return this.allocatedStorage;
+    public Output<Optional<Integer>> allocatedStorage() {
+        return Codegen.optional(this.allocatedStorage);
     }
     /**
      * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * Whether to copy existing tags. Defaults to `false`.
@@ -132,14 +132,14 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbSnapshotArn", refs={String.class}, tree="[0]")
-    private Output<String> dbSnapshotArn;
+    private Output</* @Nullable */ String> dbSnapshotArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the DB snapshot.
      * 
      */
-    public Output<String> dbSnapshotArn() {
-        return this.dbSnapshotArn;
+    public Output<Optional<String>> dbSnapshotArn() {
+        return Codegen.optional(this.dbSnapshotArn);
     }
     /**
      * The Destination region to place snapshot copy.
@@ -160,56 +160,56 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> encrypted;
+    private Output</* @Nullable */ Boolean> encrypted;
 
     /**
      * @return Specifies whether the DB snapshot is encrypted.
      * 
      */
-    public Output<Boolean> encrypted() {
-        return this.encrypted;
+    public Output<Optional<Boolean>> encrypted() {
+        return Codegen.optional(this.encrypted);
     }
     /**
      * Specifies the name of the database engine.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output<String> engine;
+    private Output</* @Nullable */ String> engine;
 
     /**
      * @return Specifies the name of the database engine.
      * 
      */
-    public Output<String> engine() {
-        return this.engine;
+    public Output<Optional<String>> engine() {
+        return Codegen.optional(this.engine);
     }
     /**
      * Specifies the version of the database engine.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Specifies the version of the database engine.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
     @Export(name="iops", refs={Integer.class}, tree="[0]")
-    private Output<Integer> iops;
+    private Output</* @Nullable */ Integer> iops;
 
     /**
      * @return Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
-    public Output<Integer> iops() {
-        return this.iops;
+    public Output<Optional<Integer>> iops() {
+        return Codegen.optional(this.iops);
     }
     /**
      * KMS key ID.
@@ -230,34 +230,34 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="licenseModel", refs={String.class}, tree="[0]")
-    private Output<String> licenseModel;
+    private Output</* @Nullable */ String> licenseModel;
 
     /**
      * @return License model information for the restored DB instance.
      * 
      */
-    public Output<String> licenseModel() {
-        return this.licenseModel;
+    public Output<Optional<String>> licenseModel() {
+        return Codegen.optional(this.licenseModel);
     }
     /**
      * The name of an option group to associate with the copy of the snapshot.
      * 
      */
     @Export(name="optionGroupName", refs={String.class}, tree="[0]")
-    private Output<String> optionGroupName;
+    private Output</* @Nullable */ String> optionGroupName;
 
     /**
      * @return The name of an option group to associate with the copy of the snapshot.
      * 
      */
-    public Output<String> optionGroupName() {
-        return this.optionGroupName;
+    public Output<Optional<String>> optionGroupName() {
+        return Codegen.optional(this.optionGroupName);
     }
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * he URL that contains a Signature Version 4 signed request.
@@ -274,10 +274,10 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.presignedUrl);
     }
     @Export(name="snapshotType", refs={String.class}, tree="[0]")
-    private Output<String> snapshotType;
+    private Output</* @Nullable */ String> snapshotType;
 
-    public Output<String> snapshotType() {
-        return this.snapshotType;
+    public Output<Optional<String>> snapshotType() {
+        return Codegen.optional(this.snapshotType);
     }
     /**
      * Snapshot identifier of the source snapshot.
@@ -298,28 +298,28 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceRegion", refs={String.class}, tree="[0]")
-    private Output<String> sourceRegion;
+    private Output</* @Nullable */ String> sourceRegion;
 
     /**
      * @return The region that the DB snapshot was created in or copied from.
      * 
      */
-    public Output<String> sourceRegion() {
-        return this.sourceRegion;
+    public Output<Optional<String>> sourceRegion() {
+        return Codegen.optional(this.sourceRegion);
     }
     /**
      * Specifies the storage type associated with DB snapshot.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
-    private Output<String> storageType;
+    private Output</* @Nullable */ String> storageType;
 
     /**
      * @return Specifies the storage type associated with DB snapshot.
      * 
      */
-    public Output<String> storageType() {
-        return this.storageType;
+    public Output<Optional<String>> storageType() {
+        return Codegen.optional(this.storageType);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -386,14 +386,14 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return Provides the VPC ID associated with the DB snapshot.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

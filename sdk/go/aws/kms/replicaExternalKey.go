@@ -74,7 +74,7 @@ type ReplicaExternalKey struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A flag to indicate whether to bypass the key policy lockout safety check.
 	// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
 	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
@@ -86,19 +86,19 @@ type ReplicaExternalKey struct {
 	// A description of the KMS key.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
-	ExpirationModel pulumi.StringOutput `pulumi:"expirationModel"`
+	ExpirationModel pulumi.StringPtrOutput `pulumi:"expirationModel"`
 	// The key ID of the replica key. Related multi-Region keys have the same key ID.
-	KeyId pulumi.StringOutput `pulumi:"keyId"`
+	KeyId pulumi.StringPtrOutput `pulumi:"keyId"`
 	// Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
 	KeyMaterialBase64 pulumi.StringPtrOutput `pulumi:"keyMaterialBase64"`
 	// The state of the replica key.
-	KeyState pulumi.StringOutput `pulumi:"keyState"`
+	KeyState pulumi.StringPtrOutput `pulumi:"keyState"`
 	// The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
-	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
+	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
 	PrimaryKeyArn pulumi.StringOutput `pulumi:"primaryKeyArn"`
 	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -372,8 +372,8 @@ func (o ReplicaExternalKeyOutput) ToReplicaExternalKeyOutputWithContext(ctx cont
 }
 
 // The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
-func (o ReplicaExternalKeyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReplicaExternalKeyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A flag to indicate whether to bypass the key policy lockout safety check.
@@ -396,18 +396,18 @@ func (o ReplicaExternalKeyOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
-func (o ReplicaExternalKeyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+func (o ReplicaExternalKeyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
-func (o ReplicaExternalKeyOutput) ExpirationModel() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringOutput { return v.ExpirationModel }).(pulumi.StringOutput)
+func (o ReplicaExternalKeyOutput) ExpirationModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringPtrOutput { return v.ExpirationModel }).(pulumi.StringPtrOutput)
 }
 
 // The key ID of the replica key. Related multi-Region keys have the same key ID.
-func (o ReplicaExternalKeyOutput) KeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+func (o ReplicaExternalKeyOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringPtrOutput { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
@@ -416,18 +416,18 @@ func (o ReplicaExternalKeyOutput) KeyMaterialBase64() pulumi.StringPtrOutput {
 }
 
 // The state of the replica key.
-func (o ReplicaExternalKeyOutput) KeyState() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringOutput { return v.KeyState }).(pulumi.StringOutput)
+func (o ReplicaExternalKeyOutput) KeyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringPtrOutput { return v.KeyState }).(pulumi.StringPtrOutput)
 }
 
 // The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
-func (o ReplicaExternalKeyOutput) KeyUsage() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringOutput { return v.KeyUsage }).(pulumi.StringOutput)
+func (o ReplicaExternalKeyOutput) KeyUsage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringPtrOutput { return v.KeyUsage }).(pulumi.StringPtrOutput)
 }
 
 // The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-func (o ReplicaExternalKeyOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o ReplicaExternalKeyOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Cron expression for an Auto-Tune maintenance schedule.
         /// </summary>
-        public readonly string CronExpressionForRecurrence;
+        public readonly string? CronExpressionForRecurrence;
         /// <summary>
         /// Configuration block for the duration of the Auto-Tune maintenance window.
         /// </summary>
@@ -24,15 +24,15 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        public readonly string StartAt;
+        public readonly string? StartAt;
 
         [OutputConstructor]
         private GetDomainAutoTuneOptionMaintenanceScheduleResult(
-            string cronExpressionForRecurrence,
+            string? cronExpressionForRecurrence,
 
             ImmutableArray<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult> durations,
 
-            string startAt)
+            string? startAt)
         {
             CronExpressionForRecurrence = cronExpressionForRecurrence;
             Durations = durations;

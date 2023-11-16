@@ -725,7 +725,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the resource.
         """
@@ -733,7 +733,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """
@@ -741,7 +741,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the dashboard was created.
         """
@@ -757,7 +757,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardPublishOptions")
-    def dashboard_publish_options(self) -> pulumi.Output['outputs.DashboardDashboardPublishOptions']:
+    def dashboard_publish_options(self) -> pulumi.Output[Optional['outputs.DashboardDashboardPublishOptions']]:
         """
         Options for publishing the dashboard. See dashboard_publish_options.
         """
@@ -765,12 +765,12 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastPublishedTime")
-    def last_published_time(self) -> pulumi.Output[str]:
+    def last_published_time(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "last_published_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the dashboard was last updated.
         """
@@ -786,7 +786,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output['outputs.DashboardParameters']:
+    def parameters(self) -> pulumi.Output[Optional['outputs.DashboardParameters']]:
         """
         The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
         """
@@ -810,7 +810,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceEntityArn")
-    def source_entity_arn(self) -> pulumi.Output[str]:
+    def source_entity_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of a template that was used to create this dashboard.
         """
@@ -818,7 +818,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The dashboard creation status.
         """
@@ -863,7 +863,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionNumber")
-    def version_number(self) -> pulumi.Output[int]:
+    def version_number(self) -> pulumi.Output[Optional[int]]:
         """
         The version number of the dashboard version.
         """

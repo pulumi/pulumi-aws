@@ -57,11 +57,11 @@ export class Grant extends pulumi.CustomResource {
     /**
      * The unique identifier for the grant.
      */
-    public /*out*/ readonly grantId!: pulumi.Output<string>;
+    public /*out*/ readonly grantId!: pulumi.Output<string | undefined>;
     /**
      * The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
      */
-    public /*out*/ readonly grantToken!: pulumi.Output<string>;
+    public /*out*/ readonly grantToken!: pulumi.Output<string | undefined>;
     /**
      * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */

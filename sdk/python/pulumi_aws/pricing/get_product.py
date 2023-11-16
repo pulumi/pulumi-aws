@@ -44,7 +44,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -52,7 +52,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def result(self) -> str:
+    def result(self) -> Optional[str]:
         """
         Set to the product returned from the API.
         """

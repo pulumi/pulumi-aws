@@ -65,7 +65,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
      */

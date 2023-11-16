@@ -51,19 +51,19 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The username of the administrator for the first database created in the namespace.
         /// </summary>
         [Output("adminUsername")]
-        public Output<string> AdminUsername { get; private set; } = null!;
+        public Output<string?> AdminUsername { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the first database created in the namespace.
         /// </summary>
         [Output("dbName")]
-        public Output<string> DbName { get; private set; } = null!;
+        public Output<string?> DbName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The Redshift Namespace ID.
         /// </summary>
         [Output("namespaceId")]
-        public Output<string> NamespaceId { get; private set; } = null!;
+        public Output<string?> NamespaceId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the namespace.

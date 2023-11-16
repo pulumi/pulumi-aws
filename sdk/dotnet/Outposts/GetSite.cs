@@ -116,23 +116,23 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// AWS Account identifier.
         /// </summary>
-        public readonly string AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// Description.
         /// </summary>
-        public readonly string Description;
-        public readonly string Id;
-        public readonly string Name;
+        public readonly string? Description;
+        public readonly string? Id;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetSiteResult(
-            string accountId,
+            string? accountId,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             AccountId = accountId;
             Description = description;

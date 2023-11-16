@@ -68,42 +68,42 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Lightsail load balancer.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The timestamp when the load balancer was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The timestamp when the load balancer was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The DNS name of the load balancer.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name of the load balancer.
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * The health check path of the load balancer. Default value &#34;/&#34;.
@@ -158,42 +158,42 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
-    private Output<String> protocol;
+    private Output</* @Nullable */ String> protocol;
 
     /**
      * @return The protocol of the load balancer.
      * 
      */
-    public Output<String> protocol() {
-        return this.protocol;
+    public Output<Optional<String>> protocol() {
+        return Codegen.optional(this.protocol);
     }
     /**
      * The public ports of the load balancer.
      * 
      */
     @Export(name="publicPorts", refs={List.class,Integer.class}, tree="[0,1]")
-    private Output<List<Integer>> publicPorts;
+    private Output</* @Nullable */ List<Integer>> publicPorts;
 
     /**
      * @return The public ports of the load balancer.
      * 
      */
-    public Output<List<Integer>> publicPorts() {
-        return this.publicPorts;
+    public Output<Optional<List<Integer>>> publicPorts() {
+        return Codegen.optional(this.publicPorts);
     }
     /**
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
-    private Output<String> supportCode;
+    private Output</* @Nullable */ String> supportCode;
 
     /**
      * @return The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    public Output<String> supportCode() {
-        return this.supportCode;
+    public Output<Optional<String>> supportCode() {
+        return Codegen.optional(this.supportCode);
     }
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -333,7 +333,7 @@ type Role struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) specifying the role.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Policy that grants an entity permission to assume the role.
 	//
 	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
@@ -341,7 +341,7 @@ type Role struct {
 	// The following arguments are optional:
 	AssumeRolePolicy pulumi.StringOutput `pulumi:"assumeRolePolicy"`
 	// Creation date of the IAM role.
-	CreateDate pulumi.StringOutput `pulumi:"createDate"`
+	CreateDate pulumi.StringPtrOutput `pulumi:"createDate"`
 	// Description of the role.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
@@ -354,7 +354,7 @@ type Role struct {
 	// Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// ARN of the policy that is used to set the permissions boundary for the role.
@@ -366,7 +366,7 @@ type Role struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Stable and unique string identifying the role.
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	UniqueId pulumi.StringPtrOutput `pulumi:"uniqueId"`
 }
 
 // NewRole registers a new resource with the given unique name, arguments, and options.
@@ -630,8 +630,8 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 }
 
 // Amazon Resource Name (ARN) specifying the role.
-func (o RoleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RoleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Policy that grants an entity permission to assume the role.
@@ -644,8 +644,8 @@ func (o RoleOutput) AssumeRolePolicy() pulumi.StringOutput {
 }
 
 // Creation date of the IAM role.
-func (o RoleOutput) CreateDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
+func (o RoleOutput) CreateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.CreateDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of the role.
@@ -678,8 +678,8 @@ func (o RoleOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-func (o RoleOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o RoleOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -705,8 +705,8 @@ func (o RoleOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Stable and unique string identifying the role.
-func (o RoleOutput) UniqueId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
+func (o RoleOutput) UniqueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.UniqueId }).(pulumi.StringPtrOutput)
 }
 
 type RoleArrayOutput struct{ *pulumi.OutputState }

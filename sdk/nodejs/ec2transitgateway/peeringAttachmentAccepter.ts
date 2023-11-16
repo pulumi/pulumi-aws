@@ -60,12 +60,12 @@ export class PeeringAttachmentAccepter extends pulumi.CustomResource {
     /**
      * Identifier of the AWS account that owns the EC2 TGW peering.
      */
-    public /*out*/ readonly peerAccountId!: pulumi.Output<string>;
-    public /*out*/ readonly peerRegion!: pulumi.Output<string>;
+    public /*out*/ readonly peerAccountId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly peerRegion!: pulumi.Output<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      */
-    public /*out*/ readonly peerTransitGatewayId!: pulumi.Output<string>;
+    public /*out*/ readonly peerTransitGatewayId!: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -83,7 +83,7 @@ export class PeeringAttachmentAccepter extends pulumi.CustomResource {
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    public /*out*/ readonly transitGatewayId!: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PeeringAttachmentAccepter resource with the given unique name, arguments, and options.

@@ -61,11 +61,11 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The DNS address of the VPC endpoint.
      */
-    public /*out*/ readonly address!: pulumi.Output<string>;
+    public /*out*/ readonly address!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the endpoint.
      */
@@ -73,7 +73,7 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The port that Amazon Redshift Serverless listens on.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
     /**
      * An array of VPC subnet IDs to associate with the endpoint.
      */
@@ -81,11 +81,11 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
      */
-    public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.redshiftserverless.EndpointAccessVpcEndpoint[]>;
+    public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.redshiftserverless.EndpointAccessVpcEndpoint[] | undefined>;
     /**
      * An array of security group IDs to associate with the workgroup.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the workgroup.
      */

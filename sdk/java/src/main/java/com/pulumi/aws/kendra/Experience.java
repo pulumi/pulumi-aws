@@ -81,28 +81,28 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Experience.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
     @Export(name="configuration", refs={ExperienceConfiguration.class}, tree="[0]")
-    private Output<ExperienceConfiguration> configuration;
+    private Output</* @Nullable */ ExperienceConfiguration> configuration;
 
     /**
      * @return Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
-    public Output<ExperienceConfiguration> configuration() {
-        return this.configuration;
+    public Output<Optional<ExperienceConfiguration>> configuration() {
+        return Codegen.optional(this.configuration);
     }
     /**
      * A description for your Amazon Kendra experience.
@@ -123,28 +123,28 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoints", refs={List.class,ExperienceEndpoint.class}, tree="[0,1]")
-    private Output<List<ExperienceEndpoint>> endpoints;
+    private Output</* @Nullable */ List<ExperienceEndpoint>> endpoints;
 
     /**
      * @return Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
      * 
      */
-    public Output<List<ExperienceEndpoint>> endpoints() {
-        return this.endpoints;
+    public Output<Optional<List<ExperienceEndpoint>>> endpoints() {
+        return Codegen.optional(this.endpoints);
     }
     /**
      * The unique identifier of the experience.
      * 
      */
     @Export(name="experienceId", refs={String.class}, tree="[0]")
-    private Output<String> experienceId;
+    private Output</* @Nullable */ String> experienceId;
 
     /**
      * @return The unique identifier of the experience.
      * 
      */
-    public Output<String> experienceId() {
-        return this.experienceId;
+    public Output<Optional<String>> experienceId() {
+        return Codegen.optional(this.experienceId);
     }
     /**
      * The identifier of the index for your Amazon Kendra experience.
@@ -197,14 +197,14 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The current processing status of your Amazon Kendra experience.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

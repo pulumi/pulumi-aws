@@ -103,13 +103,13 @@ namespace Pulumi.Aws.AppConfig
         /// ARN of the AppConfig Extension.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Information about the extension.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.AppConfig
         /// The version number for the extension.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>

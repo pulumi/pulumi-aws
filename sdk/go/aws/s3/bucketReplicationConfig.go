@@ -32,156 +32,155 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "central", &aws.ProviderArgs{
-//				Region: pulumi.String("eu-central-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"s3.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			destinationBucketV2, err := s3.NewBucketV2(ctx, "destinationBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			sourceBucketV2, err := s3.NewBucketV2(ctx, "sourceBucketV2", nil, pulumi.Provider(aws.Central))
-//			if err != nil {
-//				return err
-//			}
-//			replicationPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetReplicationConfiguration"),
-//							pulumi.String("s3:ListBucket"),
-//						},
-//						Resources: pulumi.StringArray{
-//							sourceBucketV2.Arn,
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetObjectVersionForReplication"),
-//							pulumi.String("s3:GetObjectVersionAcl"),
-//							pulumi.String("s3:GetObjectVersionTagging"),
-//						},
-//						Resources: pulumi.StringArray{
-//							sourceBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:ReplicateObject"),
-//							pulumi.String("s3:ReplicateDelete"),
-//							pulumi.String("s3:ReplicateTags"),
-//						},
-//						Resources: pulumi.StringArray{
-//							destinationBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			replicationPolicy, err := iam.NewPolicy(ctx, "replicationPolicy", &iam.PolicyArgs{
-//				Policy: replicationPolicyDocument.ApplyT(func(replicationPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &replicationPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "replicationRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      replicationRole.Name,
-//				PolicyArn: replicationPolicy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "destinationBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: destinationBucketV2.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "sourceBucketAcl", &s3.BucketAclV2Args{
-//				Bucket: sourceBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			}, pulumi.Provider(aws.Central))
-//			if err != nil {
-//				return err
-//			}
-//			sourceBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "sourceBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: sourceBucketV2.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			}, pulumi.Provider(aws.Central))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketReplicationConfig(ctx, "replicationBucketReplicationConfig", &s3.BucketReplicationConfigArgs{
-//				Role:   replicationRole.Arn,
-//				Bucket: sourceBucketV2.ID(),
-//				Rules: s3.BucketReplicationConfigRuleArray{
-//					&s3.BucketReplicationConfigRuleArgs{
-//						Id: pulumi.String("foobar"),
-//						Filter: &s3.BucketReplicationConfigRuleFilterArgs{
-//							Prefix: pulumi.String("foo"),
-//						},
-//						Status: pulumi.String("Enabled"),
-//						Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
-//							Bucket:       destinationBucketV2.Arn,
-//							StorageClass: pulumi.String("STANDARD"),
-//						},
-//					},
-//				},
-//			}, pulumi.Provider(aws.Central), pulumi.DependsOn([]pulumi.Resource{
-//				sourceBucketVersioningV2,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := aws.NewProvider(ctx, "central", &aws.ProviderArgs{
+// Region: pulumi.String("eu-central-1"),
+// })
+// if err != nil {
+// return err
+// }
+// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "s3.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// destinationBucketV2, err := s3.NewBucketV2(ctx, "destinationBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// sourceBucketV2, err := s3.NewBucketV2(ctx, "sourceBucketV2", nil, pulumi.Provider(aws.Central))
+// if err != nil {
+// return err
+// }
+// replicationPolicyDocument := pulumi.All(sourceBucketV2.Arn,sourceBucketV2.Arn,destinationBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// sourceBucketV2Arn := _args[0].(*string)
+// sourceBucketV2Arn1 := _args[1].(*string)
+// destinationBucketV2Arn := _args[2].(*string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "s3:GetReplicationConfiguration",
+// "s3:ListBucket",
+// },
+// Resources: interface{}{
+// sourceBucketV2Arn,
+// },
+// },
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "s3:GetObjectVersionForReplication",
+// "s3:GetObjectVersionAcl",
+// "s3:GetObjectVersionTagging",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v/*", sourceBucketV2Arn1),
+// },
+// },
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "s3:ReplicateObject",
+// "s3:ReplicateDelete",
+// "s3:ReplicateTags",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v/*", destinationBucketV2Arn),
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// replicationPolicy, err := iam.NewPolicy(ctx, "replicationPolicy", &iam.PolicyArgs{
+// Policy: replicationPolicyDocument.ApplyT(func(replicationPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &replicationPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicyAttachment(ctx, "replicationRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+// Role: replicationRole.Name,
+// PolicyArn: replicationPolicy.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3.NewBucketVersioningV2(ctx, "destinationBucketVersioningV2", &s3.BucketVersioningV2Args{
+// Bucket: destinationBucketV2.ID(),
+// VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+// Status: pulumi.String("Enabled"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3.NewBucketAclV2(ctx, "sourceBucketAcl", &s3.BucketAclV2Args{
+// Bucket: sourceBucketV2.ID(),
+// Acl: pulumi.String("private"),
+// }, pulumi.Provider(aws.Central))
+// if err != nil {
+// return err
+// }
+// sourceBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "sourceBucketVersioningV2", &s3.BucketVersioningV2Args{
+// Bucket: sourceBucketV2.ID(),
+// VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+// Status: pulumi.String("Enabled"),
+// },
+// }, pulumi.Provider(aws.Central))
+// if err != nil {
+// return err
+// }
+// _, err = s3.NewBucketReplicationConfig(ctx, "replicationBucketReplicationConfig", &s3.BucketReplicationConfigArgs{
+// Role: replicationRole.Arn,
+// Bucket: sourceBucketV2.ID(),
+// Rules: s3.BucketReplicationConfigRuleArray{
+// &s3.BucketReplicationConfigRuleArgs{
+// Id: pulumi.String("foobar"),
+// Filter: &s3.BucketReplicationConfigRuleFilterArgs{
+// Prefix: pulumi.String("foo"),
+// },
+// Status: pulumi.String("Enabled"),
+// Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
+// Bucket: destinationBucketV2.Arn,
+// StorageClass: pulumi.String("STANDARD"),
+// },
+// },
+// },
+// }, pulumi.Provider(aws.Central), pulumi.DependsOn([]pulumi.Resource{
+// sourceBucketVersioningV2,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Bi-Directional Replication
 //

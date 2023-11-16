@@ -10,6 +10,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,32 +19,32 @@ public final class GetDistributionResult {
      * @return List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
      * 
      */
-    private List<String> aliases;
+    private @Nullable List<String> aliases;
     /**
      * @return ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Domain name corresponding to the distribution. For
      * example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
-    private String domainName;
-    private Boolean enabled;
+    private @Nullable String domainName;
+    private @Nullable Boolean enabled;
     /**
      * @return Current version of the distribution&#39;s information. For example:
      * `E2QWRUHAPOMQZL`.
      * 
      */
-    private String etag;
+    private @Nullable String etag;
     /**
      * @return CloudFront Route 53 zone ID that can be used to
      * route an [Alias Resource Record Set][7] to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
-    private String hostedZoneId;
+    private @Nullable String hostedZoneId;
     /**
      * @return Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
      * 
@@ -54,25 +55,25 @@ public final class GetDistributionResult {
      * currently in progress.
      * 
      */
-    private Integer inProgressValidationBatches;
+    private @Nullable Integer inProgressValidationBatches;
     /**
      * @return Date and time the distribution was last modified.
      * 
      */
-    private String lastModifiedTime;
+    private @Nullable String lastModifiedTime;
     /**
      * @return Current status of the distribution. `Deployed` if the
      * distribution&#39;s information is fully propagated throughout the Amazon
      * CloudFront system.
      * 
      */
-    private String status;
+    private @Nullable String status;
     private @Nullable Map<String,String> tags;
     /**
      * @return AWS WAF web ACL associated with this distribution.
      * 
      */
-    private String webAclId;
+    private @Nullable String webAclId;
 
     private GetDistributionResult() {}
     /**
@@ -80,33 +81,33 @@ public final class GetDistributionResult {
      * 
      */
     public List<String> aliases() {
-        return this.aliases;
+        return this.aliases == null ? List.of() : this.aliases;
     }
     /**
      * @return ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Domain name corresponding to the distribution. For
      * example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
-    public String domainName() {
-        return this.domainName;
+    public Optional<String> domainName() {
+        return Optional.ofNullable(this.domainName);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return Current version of the distribution&#39;s information. For example:
      * `E2QWRUHAPOMQZL`.
      * 
      */
-    public String etag() {
-        return this.etag;
+    public Optional<String> etag() {
+        return Optional.ofNullable(this.etag);
     }
     /**
      * @return CloudFront Route 53 zone ID that can be used to
@@ -114,8 +115,8 @@ public final class GetDistributionResult {
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
-    public String hostedZoneId() {
-        return this.hostedZoneId;
+    public Optional<String> hostedZoneId() {
+        return Optional.ofNullable(this.hostedZoneId);
     }
     /**
      * @return Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
@@ -129,15 +130,15 @@ public final class GetDistributionResult {
      * currently in progress.
      * 
      */
-    public Integer inProgressValidationBatches() {
-        return this.inProgressValidationBatches;
+    public Optional<Integer> inProgressValidationBatches() {
+        return Optional.ofNullable(this.inProgressValidationBatches);
     }
     /**
      * @return Date and time the distribution was last modified.
      * 
      */
-    public String lastModifiedTime() {
-        return this.lastModifiedTime;
+    public Optional<String> lastModifiedTime() {
+        return Optional.ofNullable(this.lastModifiedTime);
     }
     /**
      * @return Current status of the distribution. `Deployed` if the
@@ -145,8 +146,8 @@ public final class GetDistributionResult {
      * CloudFront system.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
@@ -155,8 +156,8 @@ public final class GetDistributionResult {
      * @return AWS WAF web ACL associated with this distribution.
      * 
      */
-    public String webAclId() {
-        return this.webAclId;
+    public Optional<String> webAclId() {
+        return Optional.ofNullable(this.webAclId);
     }
 
     public static Builder builder() {
@@ -168,18 +169,18 @@ public final class GetDistributionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> aliases;
-        private String arn;
-        private String domainName;
-        private Boolean enabled;
-        private String etag;
-        private String hostedZoneId;
+        private @Nullable List<String> aliases;
+        private @Nullable String arn;
+        private @Nullable String domainName;
+        private @Nullable Boolean enabled;
+        private @Nullable String etag;
+        private @Nullable String hostedZoneId;
         private String id;
-        private Integer inProgressValidationBatches;
-        private String lastModifiedTime;
-        private String status;
+        private @Nullable Integer inProgressValidationBatches;
+        private @Nullable String lastModifiedTime;
+        private @Nullable String status;
         private @Nullable Map<String,String> tags;
-        private String webAclId;
+        private @Nullable String webAclId;
         public Builder() {}
         public Builder(GetDistributionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -198,36 +199,36 @@ public final class GetDistributionResult {
         }
 
         @CustomType.Setter
-        public Builder aliases(List<String> aliases) {
-            this.aliases = Objects.requireNonNull(aliases);
+        public Builder aliases(@Nullable List<String> aliases) {
+            this.aliases = aliases;
             return this;
         }
         public Builder aliases(String... aliases) {
             return aliases(List.of(aliases));
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+        public Builder domainName(@Nullable String domainName) {
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+        public Builder etag(@Nullable String etag) {
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
-        public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+        public Builder hostedZoneId(@Nullable String hostedZoneId) {
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
@@ -236,18 +237,18 @@ public final class GetDistributionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder inProgressValidationBatches(Integer inProgressValidationBatches) {
-            this.inProgressValidationBatches = Objects.requireNonNull(inProgressValidationBatches);
+        public Builder inProgressValidationBatches(@Nullable Integer inProgressValidationBatches) {
+            this.inProgressValidationBatches = inProgressValidationBatches;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedTime(String lastModifiedTime) {
-            this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
+        public Builder lastModifiedTime(@Nullable String lastModifiedTime) {
+            this.lastModifiedTime = lastModifiedTime;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
@@ -256,8 +257,8 @@ public final class GetDistributionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder webAclId(String webAclId) {
-            this.webAclId = Objects.requireNonNull(webAclId);
+        public Builder webAclId(@Nullable String webAclId) {
+            this.webAclId = webAclId;
             return this;
         }
         public GetDistributionResult build() {

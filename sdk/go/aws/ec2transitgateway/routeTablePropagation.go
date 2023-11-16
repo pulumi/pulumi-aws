@@ -54,9 +54,9 @@ type RouteTablePropagation struct {
 	pulumi.CustomResourceState
 
 	// Identifier of the resource
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// Type of the resource
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -227,13 +227,13 @@ func (o RouteTablePropagationOutput) ToRouteTablePropagationOutputWithContext(ct
 }
 
 // Identifier of the resource
-func (o RouteTablePropagationOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteTablePropagation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+func (o RouteTablePropagationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTablePropagation) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Type of the resource
-func (o RouteTablePropagationOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteTablePropagation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+func (o RouteTablePropagationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTablePropagation) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of EC2 Transit Gateway Attachment.

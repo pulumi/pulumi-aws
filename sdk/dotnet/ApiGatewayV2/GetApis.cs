@@ -142,7 +142,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of API identifiers.
         /// </summary>
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         [OutputConstructor]
         private GetApisResult(
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

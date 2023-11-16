@@ -38,7 +38,7 @@ type GetVpcIamPoolCidrsArgs struct {
 type GetVpcIamPoolCidrsResult struct {
 	Filters []GetVpcIamPoolCidrsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The CIDRs provisioned into the IPAM pool, described below.
 	IpamPoolCidrs []GetVpcIamPoolCidrsIpamPoolCidr `pulumi:"ipamPoolCidrs"`
 	IpamPoolId    string                           `pulumi:"ipamPoolId"`
@@ -89,8 +89,8 @@ func (o GetVpcIamPoolCidrsResultOutput) Filters() GetVpcIamPoolCidrsFilterArrayO
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetVpcIamPoolCidrsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolCidrsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetVpcIamPoolCidrsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolCidrsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The CIDRs provisioned into the IPAM pool, described below.

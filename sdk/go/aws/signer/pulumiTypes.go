@@ -1315,9 +1315,9 @@ func (o SigningProfileSigningMaterialPtrOutput) CertificateArn() pulumi.StringPt
 }
 
 type GetSigningJobRevocationRecord struct {
-	Reason    string `pulumi:"reason"`
-	RevokedAt string `pulumi:"revokedAt"`
-	RevokedBy string `pulumi:"revokedBy"`
+	Reason    *string `pulumi:"reason"`
+	RevokedAt *string `pulumi:"revokedAt"`
+	RevokedBy *string `pulumi:"revokedBy"`
 }
 
 // GetSigningJobRevocationRecordInput is an input type that accepts GetSigningJobRevocationRecordArgs and GetSigningJobRevocationRecordOutput values.
@@ -1332,9 +1332,9 @@ type GetSigningJobRevocationRecordInput interface {
 }
 
 type GetSigningJobRevocationRecordArgs struct {
-	Reason    pulumi.StringInput `pulumi:"reason"`
-	RevokedAt pulumi.StringInput `pulumi:"revokedAt"`
-	RevokedBy pulumi.StringInput `pulumi:"revokedBy"`
+	Reason    pulumi.StringPtrInput `pulumi:"reason"`
+	RevokedAt pulumi.StringPtrInput `pulumi:"revokedAt"`
+	RevokedBy pulumi.StringPtrInput `pulumi:"revokedBy"`
 }
 
 func (GetSigningJobRevocationRecordArgs) ElementType() reflect.Type {
@@ -1388,16 +1388,16 @@ func (o GetSigningJobRevocationRecordOutput) ToGetSigningJobRevocationRecordOutp
 	return o
 }
 
-func (o GetSigningJobRevocationRecordOutput) Reason() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningJobRevocationRecord) string { return v.Reason }).(pulumi.StringOutput)
+func (o GetSigningJobRevocationRecordOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningJobRevocationRecord) *string { return v.Reason }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSigningJobRevocationRecordOutput) RevokedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningJobRevocationRecord) string { return v.RevokedAt }).(pulumi.StringOutput)
+func (o GetSigningJobRevocationRecordOutput) RevokedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningJobRevocationRecord) *string { return v.RevokedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSigningJobRevocationRecordOutput) RevokedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningJobRevocationRecord) string { return v.RevokedBy }).(pulumi.StringOutput)
+func (o GetSigningJobRevocationRecordOutput) RevokedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningJobRevocationRecord) *string { return v.RevokedBy }).(pulumi.StringPtrOutput)
 }
 
 type GetSigningJobRevocationRecordArrayOutput struct{ *pulumi.OutputState }
@@ -1515,8 +1515,8 @@ func (o GetSigningJobSignedObjectArrayOutput) Index(i pulumi.IntInput) GetSignin
 }
 
 type GetSigningJobSignedObjectS3 struct {
-	Bucket string `pulumi:"bucket"`
-	Key    string `pulumi:"key"`
+	Bucket *string `pulumi:"bucket"`
+	Key    *string `pulumi:"key"`
 }
 
 // GetSigningJobSignedObjectS3Input is an input type that accepts GetSigningJobSignedObjectS3Args and GetSigningJobSignedObjectS3Output values.
@@ -1531,8 +1531,8 @@ type GetSigningJobSignedObjectS3Input interface {
 }
 
 type GetSigningJobSignedObjectS3Args struct {
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	Key    pulumi.StringInput `pulumi:"key"`
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	Key    pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (GetSigningJobSignedObjectS3Args) ElementType() reflect.Type {
@@ -1586,12 +1586,12 @@ func (o GetSigningJobSignedObjectS3Output) ToGetSigningJobSignedObjectS3OutputWi
 	return o
 }
 
-func (o GetSigningJobSignedObjectS3Output) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningJobSignedObjectS3) string { return v.Bucket }).(pulumi.StringOutput)
+func (o GetSigningJobSignedObjectS3Output) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningJobSignedObjectS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSigningJobSignedObjectS3Output) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningJobSignedObjectS3) string { return v.Key }).(pulumi.StringOutput)
+func (o GetSigningJobSignedObjectS3Output) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningJobSignedObjectS3) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 type GetSigningJobSignedObjectS3ArrayOutput struct{ *pulumi.OutputState }
@@ -1709,9 +1709,9 @@ func (o GetSigningJobSourceArrayOutput) Index(i pulumi.IntInput) GetSigningJobSo
 }
 
 type GetSigningJobSourceS3 struct {
-	Bucket  string `pulumi:"bucket"`
-	Key     string `pulumi:"key"`
-	Version string `pulumi:"version"`
+	Bucket  *string `pulumi:"bucket"`
+	Key     *string `pulumi:"key"`
+	Version *string `pulumi:"version"`
 }
 
 // GetSigningJobSourceS3Input is an input type that accepts GetSigningJobSourceS3Args and GetSigningJobSourceS3Output values.
@@ -1726,9 +1726,9 @@ type GetSigningJobSourceS3Input interface {
 }
 
 type GetSigningJobSourceS3Args struct {
-	Bucket  pulumi.StringInput `pulumi:"bucket"`
-	Key     pulumi.StringInput `pulumi:"key"`
-	Version pulumi.StringInput `pulumi:"version"`
+	Bucket  pulumi.StringPtrInput `pulumi:"bucket"`
+	Key     pulumi.StringPtrInput `pulumi:"key"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GetSigningJobSourceS3Args) ElementType() reflect.Type {
@@ -1782,16 +1782,16 @@ func (o GetSigningJobSourceS3Output) ToGetSigningJobSourceS3OutputWithContext(ct
 	return o
 }
 
-func (o GetSigningJobSourceS3Output) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningJobSourceS3) string { return v.Bucket }).(pulumi.StringOutput)
+func (o GetSigningJobSourceS3Output) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningJobSourceS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSigningJobSourceS3Output) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningJobSourceS3) string { return v.Key }).(pulumi.StringOutput)
+func (o GetSigningJobSourceS3Output) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningJobSourceS3) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSigningJobSourceS3Output) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningJobSourceS3) string { return v.Version }).(pulumi.StringOutput)
+func (o GetSigningJobSourceS3Output) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningJobSourceS3) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type GetSigningJobSourceS3ArrayOutput struct{ *pulumi.OutputState }
@@ -1815,9 +1815,9 @@ func (o GetSigningJobSourceS3ArrayOutput) Index(i pulumi.IntInput) GetSigningJob
 }
 
 type GetSigningProfileRevocationRecord struct {
-	RevocationEffectiveFrom string `pulumi:"revocationEffectiveFrom"`
-	RevokedAt               string `pulumi:"revokedAt"`
-	RevokedBy               string `pulumi:"revokedBy"`
+	RevocationEffectiveFrom *string `pulumi:"revocationEffectiveFrom"`
+	RevokedAt               *string `pulumi:"revokedAt"`
+	RevokedBy               *string `pulumi:"revokedBy"`
 }
 
 // GetSigningProfileRevocationRecordInput is an input type that accepts GetSigningProfileRevocationRecordArgs and GetSigningProfileRevocationRecordOutput values.
@@ -1832,9 +1832,9 @@ type GetSigningProfileRevocationRecordInput interface {
 }
 
 type GetSigningProfileRevocationRecordArgs struct {
-	RevocationEffectiveFrom pulumi.StringInput `pulumi:"revocationEffectiveFrom"`
-	RevokedAt               pulumi.StringInput `pulumi:"revokedAt"`
-	RevokedBy               pulumi.StringInput `pulumi:"revokedBy"`
+	RevocationEffectiveFrom pulumi.StringPtrInput `pulumi:"revocationEffectiveFrom"`
+	RevokedAt               pulumi.StringPtrInput `pulumi:"revokedAt"`
+	RevokedBy               pulumi.StringPtrInput `pulumi:"revokedBy"`
 }
 
 func (GetSigningProfileRevocationRecordArgs) ElementType() reflect.Type {
@@ -1888,16 +1888,16 @@ func (o GetSigningProfileRevocationRecordOutput) ToGetSigningProfileRevocationRe
 	return o
 }
 
-func (o GetSigningProfileRevocationRecordOutput) RevocationEffectiveFrom() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningProfileRevocationRecord) string { return v.RevocationEffectiveFrom }).(pulumi.StringOutput)
+func (o GetSigningProfileRevocationRecordOutput) RevocationEffectiveFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningProfileRevocationRecord) *string { return v.RevocationEffectiveFrom }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSigningProfileRevocationRecordOutput) RevokedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningProfileRevocationRecord) string { return v.RevokedAt }).(pulumi.StringOutput)
+func (o GetSigningProfileRevocationRecordOutput) RevokedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningProfileRevocationRecord) *string { return v.RevokedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSigningProfileRevocationRecordOutput) RevokedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningProfileRevocationRecord) string { return v.RevokedBy }).(pulumi.StringOutput)
+func (o GetSigningProfileRevocationRecordOutput) RevokedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningProfileRevocationRecord) *string { return v.RevokedBy }).(pulumi.StringPtrOutput)
 }
 
 type GetSigningProfileRevocationRecordArrayOutput struct{ *pulumi.OutputState }
@@ -1921,8 +1921,8 @@ func (o GetSigningProfileRevocationRecordArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetSigningProfileSignatureValidityPeriod struct {
-	Type  string `pulumi:"type"`
-	Value int    `pulumi:"value"`
+	Type  *string `pulumi:"type"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetSigningProfileSignatureValidityPeriodInput is an input type that accepts GetSigningProfileSignatureValidityPeriodArgs and GetSigningProfileSignatureValidityPeriodOutput values.
@@ -1937,8 +1937,8 @@ type GetSigningProfileSignatureValidityPeriodInput interface {
 }
 
 type GetSigningProfileSignatureValidityPeriodArgs struct {
-	Type  pulumi.StringInput `pulumi:"type"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetSigningProfileSignatureValidityPeriodArgs) ElementType() reflect.Type {
@@ -1992,12 +1992,12 @@ func (o GetSigningProfileSignatureValidityPeriodOutput) ToGetSigningProfileSigna
 	return o
 }
 
-func (o GetSigningProfileSignatureValidityPeriodOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSigningProfileSignatureValidityPeriod) string { return v.Type }).(pulumi.StringOutput)
+func (o GetSigningProfileSignatureValidityPeriodOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSigningProfileSignatureValidityPeriod) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSigningProfileSignatureValidityPeriodOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSigningProfileSignatureValidityPeriod) int { return v.Value }).(pulumi.IntOutput)
+func (o GetSigningProfileSignatureValidityPeriodOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetSigningProfileSignatureValidityPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetSigningProfileSignatureValidityPeriodArrayOutput struct{ *pulumi.OutputState }

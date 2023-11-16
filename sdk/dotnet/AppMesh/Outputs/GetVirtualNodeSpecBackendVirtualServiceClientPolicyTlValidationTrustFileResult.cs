@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult
     {
-        public readonly string CertificateChain;
+        public readonly string? CertificateChain;
 
         [OutputConstructor]
-        private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult(string certificateChain)
+        private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult(string? certificateChain)
         {
             CertificateChain = certificateChain;
         }

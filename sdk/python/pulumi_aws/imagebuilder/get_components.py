@@ -42,7 +42,7 @@ class GetComponentsResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         Set of ARNs of the matched Image Builder Components.
         """
@@ -55,7 +55,7 @@ class GetComponentsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -63,7 +63,7 @@ class GetComponentsResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         Set of names of the matched Image Builder Components.
         """

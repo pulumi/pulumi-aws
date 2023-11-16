@@ -184,22 +184,22 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// Base64 encoded ciphertext
         /// </summary>
-        public readonly string CiphertextBlob;
+        public readonly string? CiphertextBlob;
         public readonly ImmutableDictionary<string, string>? Context;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string KeyId;
         public readonly string Plaintext;
 
         [OutputConstructor]
         private GetCipherTextResult(
-            string ciphertextBlob,
+            string? ciphertextBlob,
 
             ImmutableDictionary<string, string>? context,
 
-            string id,
+            string? id,
 
             string keyId,
 

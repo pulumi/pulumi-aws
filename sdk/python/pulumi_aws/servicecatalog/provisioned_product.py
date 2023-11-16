@@ -984,7 +984,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the provisioned product.
         """
@@ -992,7 +992,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchDashboardNames")
-    def cloudwatch_dashboard_names(self) -> pulumi.Output[Sequence[str]]:
+    def cloudwatch_dashboard_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of CloudWatch dashboards that were created when provisioning the product.
         """
@@ -1000,7 +1000,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Time when the provisioned product was created.
         """
@@ -1016,7 +1016,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastProvisioningRecordId")
-    def last_provisioning_record_id(self) -> pulumi.Output[str]:
+    def last_provisioning_record_id(self) -> pulumi.Output[Optional[str]]:
         """
         Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         """
@@ -1024,7 +1024,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastRecordId")
-    def last_record_id(self) -> pulumi.Output[str]:
+    def last_record_id(self) -> pulumi.Output[Optional[str]]:
         """
         Record identifier of the last request performed on this provisioned product.
         """
@@ -1032,7 +1032,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastSuccessfulProvisioningRecordId")
-    def last_successful_provisioning_record_id(self) -> pulumi.Output[str]:
+    def last_successful_provisioning_record_id(self) -> pulumi.Output[Optional[str]]:
         """
         Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         """
@@ -1040,7 +1040,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchRoleArn")
-    def launch_role_arn(self) -> pulumi.Output[str]:
+    def launch_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the launch role associated with the provisioned product.
         """
@@ -1066,7 +1066,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[Sequence['outputs.ProvisionedProductOutput']]:
+    def outputs(self) -> pulumi.Output[Optional[Sequence['outputs.ProvisionedProductOutput']]]:
         """
         The set of outputs for the product created.
         """
@@ -1074,7 +1074,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pathId")
-    def path_id(self) -> pulumi.Output[str]:
+    def path_id(self) -> pulumi.Output[Optional[str]]:
         """
         Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         """
@@ -1090,7 +1090,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productId")
-    def product_id(self) -> pulumi.Output[str]:
+    def product_id(self) -> pulumi.Output[Optional[str]]:
         """
         Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         """
@@ -1106,7 +1106,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningArtifactId")
-    def provisioning_artifact_id(self) -> pulumi.Output[str]:
+    def provisioning_artifact_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         """
@@ -1146,7 +1146,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Current status of the provisioned product. See meanings below.
         """
@@ -1154,7 +1154,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> pulumi.Output[str]:
+    def status_message(self) -> pulumi.Output[Optional[str]]:
         """
         Current status message of the provisioned product.
         """
@@ -1181,7 +1181,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
         """

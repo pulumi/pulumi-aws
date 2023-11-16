@@ -138,56 +138,56 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
         /// </summary>
-        public readonly bool Active;
+        public readonly bool? Active;
         /// <summary>
         /// The Amazon Resource Name (ARN) for the user.
         /// </summary>
-        public readonly string Arn;
-        public readonly string AwsAccountId;
+        public readonly string? Arn;
+        public readonly string? AwsAccountId;
         /// <summary>
         /// The user's email address.
         /// </summary>
-        public readonly string Email;
+        public readonly string? Email;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The type of identity authentication used by the user.
         /// </summary>
-        public readonly string IdentityType;
+        public readonly string? IdentityType;
         public readonly string? Namespace;
         /// <summary>
         /// The principal ID of the user.
         /// </summary>
-        public readonly string PrincipalId;
+        public readonly string? PrincipalId;
         public readonly string UserName;
         /// <summary>
         /// The Amazon QuickSight role for the user. The user role can be one of the following:.
         /// </summary>
-        public readonly string UserRole;
+        public readonly string? UserRole;
 
         [OutputConstructor]
         private GetQuicksightUserResult(
-            bool active,
+            bool? active,
 
-            string arn,
+            string? arn,
 
-            string awsAccountId,
+            string? awsAccountId,
 
-            string email,
+            string? email,
 
-            string id,
+            string? id,
 
-            string identityType,
+            string? identityType,
 
             string? @namespace,
 
-            string principalId,
+            string? principalId,
 
             string userName,
 
-            string userRole)
+            string? userRole)
         {
             Active = active;
             Arn = arn;

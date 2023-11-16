@@ -103,9 +103,9 @@ type TrustAnchor struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Trust Anchor
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether or not the Trust Anchor should be enabled.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The name of the Trust Anchor.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The source of trust, documented below
@@ -303,13 +303,13 @@ func (o TrustAnchorOutput) ToTrustAnchorOutputWithContext(ctx context.Context) T
 }
 
 // Amazon Resource Name (ARN) of the Trust Anchor
-func (o TrustAnchorOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TrustAnchorOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustAnchor) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether or not the Trust Anchor should be enabled.
-func (o TrustAnchorOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *TrustAnchor) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+func (o TrustAnchorOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrustAnchor) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Trust Anchor.

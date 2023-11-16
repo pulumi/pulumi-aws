@@ -385,7 +385,7 @@ class Script(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         GameLift Script ARN.
         """
@@ -401,7 +401,7 @@ class Script(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageLocation")
-    def storage_location(self) -> pulumi.Output['outputs.ScriptStorageLocation']:
+    def storage_location(self) -> pulumi.Output[Optional['outputs.ScriptStorageLocation']]:
         """
         Information indicating where your game script files are stored. See below.
         """

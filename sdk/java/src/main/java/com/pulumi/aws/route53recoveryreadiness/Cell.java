@@ -65,14 +65,14 @@ public class Cell extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the cell
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Unique name describing the cell.
@@ -111,14 +111,14 @@ public class Cell extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parentReadinessScopes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> parentReadinessScopes;
+    private Output</* @Nullable */ List<String>> parentReadinessScopes;
 
     /**
      * @return List of readiness scopes (recovery groups or cells) that contain this cell.
      * 
      */
-    public Output<List<String>> parentReadinessScopes() {
-        return this.parentReadinessScopes;
+    public Output<Optional<List<String>>> parentReadinessScopes() {
+        return Codegen.optional(this.parentReadinessScopes);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

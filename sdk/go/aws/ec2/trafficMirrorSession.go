@@ -75,13 +75,13 @@ type TrafficMirrorSession struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the traffic mirror session.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the traffic mirror session.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The AWS account ID of the session owner.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength pulumi.IntPtrOutput `pulumi:"packetLength"`
 	// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
@@ -97,7 +97,7 @@ type TrafficMirrorSession struct {
 	// ID of the traffic mirror target to be used
 	TrafficMirrorTargetId pulumi.StringOutput `pulumi:"trafficMirrorTargetId"`
 	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
-	VirtualNetworkId pulumi.IntOutput `pulumi:"virtualNetworkId"`
+	VirtualNetworkId pulumi.IntPtrOutput `pulumi:"virtualNetworkId"`
 }
 
 // NewTrafficMirrorSession registers a new resource with the given unique name, arguments, and options.
@@ -330,8 +330,8 @@ func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutputWithContext(ctx 
 }
 
 // The ARN of the traffic mirror session.
-func (o TrafficMirrorSessionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TrafficMirrorSessionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the traffic mirror session.
@@ -345,8 +345,8 @@ func (o TrafficMirrorSessionOutput) NetworkInterfaceId() pulumi.StringOutput {
 }
 
 // The AWS account ID of the session owner.
-func (o TrafficMirrorSessionOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o TrafficMirrorSessionOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
@@ -382,8 +382,8 @@ func (o TrafficMirrorSessionOutput) TrafficMirrorTargetId() pulumi.StringOutput 
 }
 
 // The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
-func (o TrafficMirrorSessionOutput) VirtualNetworkId() pulumi.IntOutput {
-	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntOutput { return v.VirtualNetworkId }).(pulumi.IntOutput)
+func (o TrafficMirrorSessionOutput) VirtualNetworkId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntPtrOutput { return v.VirtualNetworkId }).(pulumi.IntPtrOutput)
 }
 
 type TrafficMirrorSessionArrayOutput struct{ *pulumi.OutputState }

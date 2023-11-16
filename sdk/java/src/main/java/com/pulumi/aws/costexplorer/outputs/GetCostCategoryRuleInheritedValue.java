@@ -6,6 +6,8 @@ package com.pulumi.aws.costexplorer.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCostCategoryRuleInheritedValue {
@@ -13,27 +15,27 @@ public final class GetCostCategoryRuleInheritedValue {
      * @return Key to extract cost category values.
      * 
      */
-    private String dimensionKey;
+    private @Nullable String dimensionKey;
     /**
      * @return Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
      * 
      */
-    private String dimensionName;
+    private @Nullable String dimensionName;
 
     private GetCostCategoryRuleInheritedValue() {}
     /**
      * @return Key to extract cost category values.
      * 
      */
-    public String dimensionKey() {
-        return this.dimensionKey;
+    public Optional<String> dimensionKey() {
+        return Optional.ofNullable(this.dimensionKey);
     }
     /**
      * @return Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
      * 
      */
-    public String dimensionName() {
-        return this.dimensionName;
+    public Optional<String> dimensionName() {
+        return Optional.ofNullable(this.dimensionName);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetCostCategoryRuleInheritedValue {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dimensionKey;
-        private String dimensionName;
+        private @Nullable String dimensionKey;
+        private @Nullable String dimensionName;
         public Builder() {}
         public Builder(GetCostCategoryRuleInheritedValue defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetCostCategoryRuleInheritedValue {
         }
 
         @CustomType.Setter
-        public Builder dimensionKey(String dimensionKey) {
-            this.dimensionKey = Objects.requireNonNull(dimensionKey);
+        public Builder dimensionKey(@Nullable String dimensionKey) {
+            this.dimensionKey = dimensionKey;
             return this;
         }
         @CustomType.Setter
-        public Builder dimensionName(String dimensionName) {
-            this.dimensionName = Objects.requireNonNull(dimensionName);
+        public Builder dimensionName(@Nullable String dimensionName) {
+            this.dimensionName = dimensionName;
             return this;
         }
         public GetCostCategoryRuleInheritedValue build() {

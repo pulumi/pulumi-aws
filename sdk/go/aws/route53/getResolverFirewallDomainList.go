@@ -62,18 +62,18 @@ type LookupResolverFirewallDomainListArgs struct {
 
 // A collection of values returned by getResolverFirewallDomainList.
 type LookupResolverFirewallDomainListResult struct {
-	Arn                  string `pulumi:"arn"`
-	CreationTime         string `pulumi:"creationTime"`
-	CreatorRequestId     string `pulumi:"creatorRequestId"`
-	DomainCount          int    `pulumi:"domainCount"`
-	FirewallDomainListId string `pulumi:"firewallDomainListId"`
+	Arn                  *string `pulumi:"arn"`
+	CreationTime         *string `pulumi:"creationTime"`
+	CreatorRequestId     *string `pulumi:"creatorRequestId"`
+	DomainCount          *int    `pulumi:"domainCount"`
+	FirewallDomainListId string  `pulumi:"firewallDomainListId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string `pulumi:"id"`
-	ManagedOwnerName string `pulumi:"managedOwnerName"`
-	ModificationTime string `pulumi:"modificationTime"`
-	Name             string `pulumi:"name"`
-	Status           string `pulumi:"status"`
-	StatusMessage    string `pulumi:"statusMessage"`
+	Id               *string `pulumi:"id"`
+	ManagedOwnerName *string `pulumi:"managedOwnerName"`
+	ModificationTime *string `pulumi:"modificationTime"`
+	Name             *string `pulumi:"name"`
+	Status           *string `pulumi:"status"`
+	StatusMessage    *string `pulumi:"statusMessage"`
 }
 
 func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupResolverFirewallDomainListOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallDomainListResultOutput {
@@ -116,20 +116,20 @@ func (o LookupResolverFirewallDomainListResultOutput) ToLookupResolverFirewallDo
 	return o
 }
 
-func (o LookupResolverFirewallDomainListResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupResolverFirewallDomainListResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallDomainListResultOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o LookupResolverFirewallDomainListResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallDomainListResultOutput) CreatorRequestId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.CreatorRequestId }).(pulumi.StringOutput)
+func (o LookupResolverFirewallDomainListResultOutput) CreatorRequestId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *string { return v.CreatorRequestId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallDomainListResultOutput) DomainCount() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) int { return v.DomainCount }).(pulumi.IntOutput)
+func (o LookupResolverFirewallDomainListResultOutput) DomainCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *int { return v.DomainCount }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupResolverFirewallDomainListResultOutput) FirewallDomainListId() pulumi.StringOutput {
@@ -137,28 +137,28 @@ func (o LookupResolverFirewallDomainListResultOutput) FirewallDomainListId() pul
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResolverFirewallDomainListResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResolverFirewallDomainListResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallDomainListResultOutput) ManagedOwnerName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.ManagedOwnerName }).(pulumi.StringOutput)
+func (o LookupResolverFirewallDomainListResultOutput) ManagedOwnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *string { return v.ManagedOwnerName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallDomainListResultOutput) ModificationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.ModificationTime }).(pulumi.StringOutput)
+func (o LookupResolverFirewallDomainListResultOutput) ModificationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *string { return v.ModificationTime }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallDomainListResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupResolverFirewallDomainListResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallDomainListResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupResolverFirewallDomainListResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallDomainListResultOutput) StatusMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.StatusMessage }).(pulumi.StringOutput)
+func (o LookupResolverFirewallDomainListResultOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
 func init() {

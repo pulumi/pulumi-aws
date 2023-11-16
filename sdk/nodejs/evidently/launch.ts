@@ -295,11 +295,11 @@ export class Launch extends pulumi.CustomResource {
     /**
      * The ARN of the launch.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time that the launch is created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the launch.
      */
@@ -307,7 +307,7 @@ export class Launch extends pulumi.CustomResource {
     /**
      * A block that contains information about the start and end times of the launch. Detailed below
      */
-    public /*out*/ readonly executions!: pulumi.Output<outputs.evidently.LaunchExecution[]>;
+    public /*out*/ readonly executions!: pulumi.Output<outputs.evidently.LaunchExecution[] | undefined>;
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      */
@@ -315,7 +315,7 @@ export class Launch extends pulumi.CustomResource {
     /**
      * The date and time that the launch was most recently updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      */
@@ -339,11 +339,11 @@ export class Launch extends pulumi.CustomResource {
     /**
      * The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
      */
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -357,7 +357,7 @@ export class Launch extends pulumi.CustomResource {
     /**
      * The type of launch.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Launch resource with the given unique name, arguments, and options.

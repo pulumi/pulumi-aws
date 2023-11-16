@@ -60,8 +60,8 @@ type GetAccessKeysResult struct {
 	// List of the IAM access keys associated with the specified user. See below.
 	AccessKeys []GetAccessKeysAccessKey `pulumi:"accessKeys"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	User string `pulumi:"user"`
+	Id   *string `pulumi:"id"`
+	User string  `pulumi:"user"`
 }
 
 func GetAccessKeysOutput(ctx *pulumi.Context, args GetAccessKeysOutputArgs, opts ...pulumi.InvokeOption) GetAccessKeysResultOutput {
@@ -108,8 +108,8 @@ func (o GetAccessKeysResultOutput) AccessKeys() GetAccessKeysAccessKeyArrayOutpu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAccessKeysResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccessKeysResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetAccessKeysResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAccessKeysResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAccessKeysResultOutput) User() pulumi.StringOutput {

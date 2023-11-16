@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCustomRoutingAcceleratorIpSet {
-    private List<String> ipAddresses;
-    private String ipFamily;
+    private @Nullable List<String> ipAddresses;
+    private @Nullable String ipFamily;
 
     private GetCustomRoutingAcceleratorIpSet() {}
     public List<String> ipAddresses() {
-        return this.ipAddresses;
+        return this.ipAddresses == null ? List.of() : this.ipAddresses;
     }
-    public String ipFamily() {
-        return this.ipFamily;
+    public Optional<String> ipFamily() {
+        return Optional.ofNullable(this.ipFamily);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetCustomRoutingAcceleratorIpSet {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> ipAddresses;
-        private String ipFamily;
+        private @Nullable List<String> ipAddresses;
+        private @Nullable String ipFamily;
         public Builder() {}
         public Builder(GetCustomRoutingAcceleratorIpSet defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,16 +42,16 @@ public final class GetCustomRoutingAcceleratorIpSet {
         }
 
         @CustomType.Setter
-        public Builder ipAddresses(List<String> ipAddresses) {
-            this.ipAddresses = Objects.requireNonNull(ipAddresses);
+        public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+            this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
         @CustomType.Setter
-        public Builder ipFamily(String ipFamily) {
-            this.ipFamily = Objects.requireNonNull(ipFamily);
+        public Builder ipFamily(@Nullable String ipFamily) {
+            this.ipFamily = ipFamily;
             return this;
         }
         public GetCustomRoutingAcceleratorIpSet build() {

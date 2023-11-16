@@ -53,19 +53,19 @@ namespace Pulumi.Aws.Ec2
         /// Machine architecture for created instances. Defaults to "x86_64".
         /// </summary>
         [Output("architecture")]
-        public Output<string> Architecture { get; private set; } = null!;
+        public Output<string?> Architecture { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the AMI.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
         [Output("bootMode")]
-        public Output<string> BootMode { get; private set; } = null!;
+        public Output<string?> BootMode { get; private set; } = null!;
 
         /// <summary>
         /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ec2
         /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
         /// </summary>
         [Output("enaSupport")]
-        public Output<bool> EnaSupport { get; private set; } = null!;
+        public Output<bool?> EnaSupport { get; private set; } = null!;
 
         /// <summary>
         /// Nested block describing an ephemeral block device that
@@ -100,36 +100,36 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.AmiFromInstanceEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         [Output("hypervisor")]
-        public Output<string> Hypervisor { get; private set; } = null!;
+        public Output<string?> Hypervisor { get; private set; } = null!;
 
         /// <summary>
         /// Path to an S3 object containing an image manifest, e.g., created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Output("imageLocation")]
-        public Output<string> ImageLocation { get; private set; } = null!;
+        public Output<string?> ImageLocation { get; private set; } = null!;
 
         [Output("imageOwnerAlias")]
-        public Output<string> ImageOwnerAlias { get; private set; } = null!;
+        public Output<string?> ImageOwnerAlias { get; private set; } = null!;
 
         [Output("imageType")]
-        public Output<string> ImageType { get; private set; } = null!;
+        public Output<string?> ImageType { get; private set; } = null!;
 
         /// <summary>
         /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         /// </summary>
         [Output("imdsSupport")]
-        public Output<string> ImdsSupport { get; private set; } = null!;
+        public Output<string?> ImdsSupport { get; private set; } = null!;
 
         /// <summary>
         /// ID of the kernel image (AKI) that will be used as the paravirtual
         /// kernel in created instances.
         /// </summary>
         [Output("kernelId")]
-        public Output<string> KernelId { get; private set; } = null!;
+        public Output<string?> KernelId { get; private set; } = null!;
 
         [Output("manageEbsSnapshots")]
-        public Output<bool> ManageEbsSnapshots { get; private set; } = null!;
+        public Output<bool?> ManageEbsSnapshots { get; private set; } = null!;
 
         /// <summary>
         /// Region-unique name for the AMI.
@@ -138,32 +138,32 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Name { get; private set; } = null!;
 
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         [Output("platform")]
-        public Output<string> Platform { get; private set; } = null!;
+        public Output<string?> Platform { get; private set; } = null!;
 
         [Output("platformDetails")]
-        public Output<string> PlatformDetails { get; private set; } = null!;
+        public Output<string?> PlatformDetails { get; private set; } = null!;
 
         [Output("public")]
-        public Output<bool> Public { get; private set; } = null!;
+        public Output<bool?> Public { get; private set; } = null!;
 
         /// <summary>
         /// ID of an initrd image (ARI) that will be used when booting the
         /// created instances.
         /// </summary>
         [Output("ramdiskId")]
-        public Output<string> RamdiskId { get; private set; } = null!;
+        public Output<string?> RamdiskId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         /// </summary>
         [Output("rootDeviceName")]
-        public Output<string> RootDeviceName { get; private set; } = null!;
+        public Output<string?> RootDeviceName { get; private set; } = null!;
 
         [Output("rootSnapshotId")]
-        public Output<string> RootSnapshotId { get; private set; } = null!;
+        public Output<string?> RootSnapshotId { get; private set; } = null!;
 
         /// <summary>
         /// Boolean that overrides the behavior of stopping
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Ec2
         /// for created instances. No other value is supported at this time.
         /// </summary>
         [Output("sriovNetSupport")]
-        public Output<string> SriovNetSupport { get; private set; } = null!;
+        public Output<string?> SriovNetSupport { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -200,10 +200,10 @@ namespace Pulumi.Aws.Ec2
         /// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
         [Output("tpmSupport")]
-        public Output<string> TpmSupport { get; private set; } = null!;
+        public Output<string?> TpmSupport { get; private set; } = null!;
 
         [Output("usageOperation")]
-        public Output<string> UsageOperation { get; private set; } = null!;
+        public Output<string?> UsageOperation { get; private set; } = null!;
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Ec2
         /// changes the set of further arguments that are required, as described below.
         /// </summary>
         [Output("virtualizationType")]
-        public Output<string> VirtualizationType { get; private set; } = null!;
+        public Output<string?> VirtualizationType { get; private set; } = null!;
 
 
         /// <summary>

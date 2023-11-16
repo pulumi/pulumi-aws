@@ -95,7 +95,7 @@ export class Authorizer extends pulumi.CustomResource {
      * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
      * Supported only for HTTP API Lambda authorizers.
      */
-    public readonly authorizerResultTtlInSeconds!: pulumi.Output<number>;
+    public readonly authorizerResultTtlInSeconds!: pulumi.Output<number | undefined>;
     /**
      * Authorizer type. Valid values: `JWT`, `REQUEST`.
      * Specify `REQUEST` for a Lambda function using incoming request parameters.

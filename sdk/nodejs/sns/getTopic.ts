@@ -45,11 +45,11 @@ export interface GetTopicResult {
     /**
      * ARN of the found topic, suitable for referencing in other resources that support SNS topics.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
 }
 /**

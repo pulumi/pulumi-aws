@@ -11,6 +11,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponsePlanResult {
@@ -18,44 +20,44 @@ public final class GetResponsePlanResult {
      * @return (Optional) The actions that the response plan starts at the beginning of an incident.
      * 
      */
-    private List<GetResponsePlanAction> actions;
+    private @Nullable List<GetResponsePlanAction> actions;
     private String arn;
     /**
      * @return The Chatbot chat channel used for collaboration during an incident.
      * 
      */
-    private List<String> chatChannels;
+    private @Nullable List<String> chatChannels;
     /**
      * @return The long format of the response plan name. This field can contain spaces.
      * 
      */
-    private String displayName;
+    private @Nullable String displayName;
     /**
      * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
      * 
      */
-    private List<String> engagements;
+    private @Nullable List<String> engagements;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private List<GetResponsePlanIncidentTemplate> incidentTemplates;
+    private @Nullable String id;
+    private @Nullable List<GetResponsePlanIncidentTemplate> incidentTemplates;
     /**
      * @return Information about third-party services integrated into the response plan. The following values are supported:
      * 
      */
-    private List<GetResponsePlanIntegration> integrations;
+    private @Nullable List<GetResponsePlanIntegration> integrations;
     /**
      * @return The name of the PagerDuty configuration.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The tags applied to the response plan.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetResponsePlanResult() {}
     /**
@@ -63,7 +65,7 @@ public final class GetResponsePlanResult {
      * 
      */
     public List<GetResponsePlanAction> actions() {
-        return this.actions;
+        return this.actions == null ? List.of() : this.actions;
     }
     public String arn() {
         return this.arn;
@@ -73,52 +75,52 @@ public final class GetResponsePlanResult {
      * 
      */
     public List<String> chatChannels() {
-        return this.chatChannels;
+        return this.chatChannels == null ? List.of() : this.chatChannels;
     }
     /**
      * @return The long format of the response plan name. This field can contain spaces.
      * 
      */
-    public String displayName() {
-        return this.displayName;
+    public Optional<String> displayName() {
+        return Optional.ofNullable(this.displayName);
     }
     /**
      * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
      * 
      */
     public List<String> engagements() {
-        return this.engagements;
+        return this.engagements == null ? List.of() : this.engagements;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<GetResponsePlanIncidentTemplate> incidentTemplates() {
-        return this.incidentTemplates;
+        return this.incidentTemplates == null ? List.of() : this.incidentTemplates;
     }
     /**
      * @return Information about third-party services integrated into the response plan. The following values are supported:
      * 
      */
     public List<GetResponsePlanIntegration> integrations() {
-        return this.integrations;
+        return this.integrations == null ? List.of() : this.integrations;
     }
     /**
      * @return The name of the PagerDuty configuration.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The tags applied to the response plan.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -130,16 +132,16 @@ public final class GetResponsePlanResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetResponsePlanAction> actions;
+        private @Nullable List<GetResponsePlanAction> actions;
         private String arn;
-        private List<String> chatChannels;
-        private String displayName;
-        private List<String> engagements;
-        private String id;
-        private List<GetResponsePlanIncidentTemplate> incidentTemplates;
-        private List<GetResponsePlanIntegration> integrations;
-        private String name;
-        private Map<String,String> tags;
+        private @Nullable List<String> chatChannels;
+        private @Nullable String displayName;
+        private @Nullable List<String> engagements;
+        private @Nullable String id;
+        private @Nullable List<GetResponsePlanIncidentTemplate> incidentTemplates;
+        private @Nullable List<GetResponsePlanIntegration> integrations;
+        private @Nullable String name;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetResponsePlanResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -156,8 +158,8 @@ public final class GetResponsePlanResult {
         }
 
         @CustomType.Setter
-        public Builder actions(List<GetResponsePlanAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+        public Builder actions(@Nullable List<GetResponsePlanAction> actions) {
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetResponsePlanAction... actions) {
@@ -169,55 +171,55 @@ public final class GetResponsePlanResult {
             return this;
         }
         @CustomType.Setter
-        public Builder chatChannels(List<String> chatChannels) {
-            this.chatChannels = Objects.requireNonNull(chatChannels);
+        public Builder chatChannels(@Nullable List<String> chatChannels) {
+            this.chatChannels = chatChannels;
             return this;
         }
         public Builder chatChannels(String... chatChannels) {
             return chatChannels(List.of(chatChannels));
         }
         @CustomType.Setter
-        public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+        public Builder displayName(@Nullable String displayName) {
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
-        public Builder engagements(List<String> engagements) {
-            this.engagements = Objects.requireNonNull(engagements);
+        public Builder engagements(@Nullable List<String> engagements) {
+            this.engagements = engagements;
             return this;
         }
         public Builder engagements(String... engagements) {
             return engagements(List.of(engagements));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder incidentTemplates(List<GetResponsePlanIncidentTemplate> incidentTemplates) {
-            this.incidentTemplates = Objects.requireNonNull(incidentTemplates);
+        public Builder incidentTemplates(@Nullable List<GetResponsePlanIncidentTemplate> incidentTemplates) {
+            this.incidentTemplates = incidentTemplates;
             return this;
         }
         public Builder incidentTemplates(GetResponsePlanIncidentTemplate... incidentTemplates) {
             return incidentTemplates(List.of(incidentTemplates));
         }
         @CustomType.Setter
-        public Builder integrations(List<GetResponsePlanIntegration> integrations) {
-            this.integrations = Objects.requireNonNull(integrations);
+        public Builder integrations(@Nullable List<GetResponsePlanIntegration> integrations) {
+            this.integrations = integrations;
             return this;
         }
         public Builder integrations(GetResponsePlanIntegration... integrations) {
             return integrations(List.of(integrations));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetResponsePlanResult build() {

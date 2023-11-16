@@ -132,32 +132,32 @@ namespace Pulumi.Aws.Sqs
         /// <summary>
         /// ARN of the queue.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// URL of the queue.
         /// </summary>
-        public readonly string Url;
+        public readonly string? Url;
 
         [OutputConstructor]
         private GetQueueResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
             string name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string url)
+            string? url)
         {
             Arn = arn;
             Id = id;

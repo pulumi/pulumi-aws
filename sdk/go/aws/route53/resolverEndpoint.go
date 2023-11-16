@@ -71,13 +71,13 @@ type ResolverEndpoint struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Route 53 Resolver endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The direction of DNS queries to or from the Route 53 Resolver endpoint.
 	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
 	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
 	Direction pulumi.StringOutput `pulumi:"direction"`
 	// The ID of the VPC that you want to create the resolver endpoint in.
-	HostVpcId pulumi.StringOutput `pulumi:"hostVpcId"`
+	HostVpcId pulumi.StringPtrOutput `pulumi:"hostVpcId"`
 	// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
 	IpAddresses ResolverEndpointIpAddressArrayOutput `pulumi:"ipAddresses"`
@@ -308,8 +308,8 @@ func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.
 }
 
 // The ARN of the Route 53 Resolver endpoint.
-func (o ResolverEndpointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResolverEndpointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The direction of DNS queries to or from the Route 53 Resolver endpoint.
@@ -320,8 +320,8 @@ func (o ResolverEndpointOutput) Direction() pulumi.StringOutput {
 }
 
 // The ID of the VPC that you want to create the resolver endpoint in.
-func (o ResolverEndpointOutput) HostVpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.HostVpcId }).(pulumi.StringOutput)
+func (o ResolverEndpointOutput) HostVpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringPtrOutput { return v.HostVpcId }).(pulumi.StringPtrOutput)
 }
 
 // The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs

@@ -46,19 +46,19 @@ export interface GetCallerIdentityResult {
     /**
      * AWS Account ID number of the account that owns or contains the calling entity.
      */
-    readonly accountId: string;
+    readonly accountId?: string;
     /**
      * ARN associated with the calling entity.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Account ID number of the account that owns or contains the calling entity.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Unique identifier of the calling entity.
      */
-    readonly userId: string;
+    readonly userId?: string;
 }
 /**
  * Use this data source to get the access to the effective Account ID, User ID, and ARN in

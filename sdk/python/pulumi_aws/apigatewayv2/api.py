@@ -843,7 +843,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiEndpoint")
-    def api_endpoint(self) -> pulumi.Output[str]:
+    def api_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         """
@@ -861,7 +861,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the API.
         """
@@ -911,7 +911,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> pulumi.Output[str]:
+    def execution_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
         or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).

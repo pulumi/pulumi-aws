@@ -56,7 +56,7 @@ class GetRoutingProfileResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Routing Profile.
         """
@@ -64,7 +64,7 @@ class GetRoutingProfileResult:
 
     @property
     @pulumi.getter(name="defaultOutboundQueueId")
-    def default_outbound_queue_id(self) -> str:
+    def default_outbound_queue_id(self) -> Optional[str]:
         """
         Specifies the default outbound queue for the Routing Profile.
         """
@@ -72,7 +72,7 @@ class GetRoutingProfileResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Routing Profile.
         """
@@ -80,7 +80,7 @@ class GetRoutingProfileResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -93,7 +93,7 @@ class GetRoutingProfileResult:
 
     @property
     @pulumi.getter(name="mediaConcurrencies")
-    def media_concurrencies(self) -> Sequence['outputs.GetRoutingProfileMediaConcurrencyResult']:
+    def media_concurrencies(self) -> Optional[Sequence['outputs.GetRoutingProfileMediaConcurrencyResult']]:
         """
         One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
         """
@@ -101,12 +101,12 @@ class GetRoutingProfileResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="queueConfigs")
-    def queue_configs(self) -> Sequence['outputs.GetRoutingProfileQueueConfigResult']:
+    def queue_configs(self) -> Optional[Sequence['outputs.GetRoutingProfileQueueConfigResult']]:
         """
         One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         """
@@ -114,12 +114,12 @@ class GetRoutingProfileResult:
 
     @property
     @pulumi.getter(name="routingProfileId")
-    def routing_profile_id(self) -> str:
+    def routing_profile_id(self) -> Optional[str]:
         return pulumi.get(self, "routing_profile_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assign to the Routing Profile.
         """

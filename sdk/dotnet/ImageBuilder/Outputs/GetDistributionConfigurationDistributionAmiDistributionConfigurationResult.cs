@@ -16,15 +16,15 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Key-value map of tags to apply to distributed AMI.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> AmiTags;
+        public readonly ImmutableDictionary<string, string>? AmiTags;
         /// <summary>
         /// Description of the container distribution configuration.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// ARN of Key Management Service (KMS) Key to encrypt AMI.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// Nested list of EC2 launch permissions.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Name of the distribution configuration.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Set of target AWS Account identifiers.
         /// </summary>
@@ -40,15 +40,15 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
         [OutputConstructor]
         private GetDistributionConfigurationDistributionAmiDistributionConfigurationResult(
-            ImmutableDictionary<string, string> amiTags,
+            ImmutableDictionary<string, string>? amiTags,
 
-            string description,
+            string? description,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
             ImmutableArray<Outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult> launchPermissions,
 
-            string name,
+            string? name,
 
             ImmutableArray<string> targetAccountIds)
         {

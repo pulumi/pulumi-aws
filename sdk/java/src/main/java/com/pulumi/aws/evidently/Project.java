@@ -144,56 +144,56 @@ public class Project extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="activeExperimentCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> activeExperimentCount;
+    private Output</* @Nullable */ Integer> activeExperimentCount;
 
     /**
      * @return The number of ongoing experiments currently in the project.
      * 
      */
-    public Output<Integer> activeExperimentCount() {
-        return this.activeExperimentCount;
+    public Output<Optional<Integer>> activeExperimentCount() {
+        return Codegen.optional(this.activeExperimentCount);
     }
     /**
      * The number of ongoing launches currently in the project.
      * 
      */
     @Export(name="activeLaunchCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> activeLaunchCount;
+    private Output</* @Nullable */ Integer> activeLaunchCount;
 
     /**
      * @return The number of ongoing launches currently in the project.
      * 
      */
-    public Output<Integer> activeLaunchCount() {
-        return this.activeLaunchCount;
+    public Output<Optional<Integer>> activeLaunchCount() {
+        return Codegen.optional(this.activeLaunchCount);
     }
     /**
      * The ARN of the project.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the project.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date and time that the project is created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return The date and time that the project is created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
@@ -228,56 +228,56 @@ public class Project extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="experimentCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> experimentCount;
+    private Output</* @Nullable */ Integer> experimentCount;
 
     /**
      * @return The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
      * 
      */
-    public Output<Integer> experimentCount() {
-        return this.experimentCount;
+    public Output<Optional<Integer>> experimentCount() {
+        return Codegen.optional(this.experimentCount);
     }
     /**
      * The number of features currently in the project.
      * 
      */
     @Export(name="featureCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> featureCount;
+    private Output</* @Nullable */ Integer> featureCount;
 
     /**
      * @return The number of features currently in the project.
      * 
      */
-    public Output<Integer> featureCount() {
-        return this.featureCount;
+    public Output<Optional<Integer>> featureCount() {
+        return Codegen.optional(this.featureCount);
     }
     /**
      * The date and time that the project was most recently updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
+    private Output</* @Nullable */ String> lastUpdatedTime;
 
     /**
      * @return The date and time that the project was most recently updated.
      * 
      */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Output<Optional<String>> lastUpdatedTime() {
+        return Codegen.optional(this.lastUpdatedTime);
     }
     /**
      * The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
      * 
      */
     @Export(name="launchCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> launchCount;
+    private Output</* @Nullable */ Integer> launchCount;
 
     /**
      * @return The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
      * 
      */
-    public Output<Integer> launchCount() {
-        return this.launchCount;
+    public Output<Optional<Integer>> launchCount() {
+        return Codegen.optional(this.launchCount);
     }
     /**
      * A name for the project.
@@ -298,14 +298,14 @@ public class Project extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -55,13 +55,13 @@ type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
 	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The identifier of the endpoint.
 	ClusterEndpointIdentifier pulumi.StringOutput `pulumi:"clusterEndpointIdentifier"`
 	// The DB cluster identifier of the DB cluster associated with the endpoint.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The DNS address of the endpoint.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
@@ -287,8 +287,8 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Co
 }
 
 // The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-func (o ClusterEndpointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterEndpointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the endpoint.
@@ -302,8 +302,8 @@ func (o ClusterEndpointOutput) ClusterIdentifier() pulumi.StringOutput {
 }
 
 // The DNS address of the endpoint.
-func (o ClusterEndpointOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ClusterEndpointOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.

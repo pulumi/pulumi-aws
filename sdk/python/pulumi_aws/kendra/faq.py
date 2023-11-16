@@ -689,7 +689,7 @@ class Faq(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the FAQ.
         """
@@ -697,7 +697,7 @@ class Faq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The Unix datetime that the FAQ was created.
         """
@@ -713,7 +713,7 @@ class Faq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> pulumi.Output[str]:
+    def error_message(self) -> pulumi.Output[Optional[str]]:
         """
         When the Status field value is `FAILED`, this contains a message that explains why.
         """
@@ -721,7 +721,7 @@ class Faq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="faqId")
-    def faq_id(self) -> pulumi.Output[str]:
+    def faq_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the FAQ.
         """
@@ -745,7 +745,7 @@ class Faq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="languageCode")
-    def language_code(self) -> pulumi.Output[str]:
+    def language_code(self) -> pulumi.Output[Optional[str]]:
         """
         The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         """
@@ -779,7 +779,7 @@ class Faq(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the FAQ. It is ready to use when the status is ACTIVE.
         """
@@ -806,7 +806,7 @@ class Faq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> pulumi.Output[str]:
+    def updated_at(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the FAQ was last updated.
         """

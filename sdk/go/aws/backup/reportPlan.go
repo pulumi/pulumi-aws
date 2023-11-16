@@ -66,11 +66,11 @@ type ReportPlan struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the backup report plan.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
+	DeploymentStatus pulumi.StringPtrOutput `pulumi:"deploymentStatus"`
 	// The description of the report plan with a maximum of 1,024 characters
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
@@ -291,18 +291,18 @@ func (o ReportPlanOutput) ToReportPlanOutputWithContext(ctx context.Context) Rep
 }
 
 // The ARN of the backup report plan.
-func (o ReportPlanOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReportPlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReportPlanOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportPlan) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-func (o ReportPlanOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReportPlan) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o ReportPlanOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportPlan) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-func (o ReportPlanOutput) DeploymentStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReportPlan) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+func (o ReportPlanOutput) DeploymentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportPlan) pulumi.StringPtrOutput { return v.DeploymentStatus }).(pulumi.StringPtrOutput)
 }
 
 // The description of the report plan with a maximum of 1,024 characters

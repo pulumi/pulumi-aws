@@ -518,7 +518,7 @@ class Invocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def result(self) -> pulumi.Output[str]:
+    def result(self) -> pulumi.Output[Optional[str]]:
         """
         String result of the lambda function invocation.
         """

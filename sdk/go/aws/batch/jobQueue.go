@@ -105,7 +105,7 @@ type JobQueue struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of the job queue.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// List of compute environment ARNs mapped to a job queue.
 	// The position of the compute environments in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayOutput `pulumi:"computeEnvironments"`
@@ -346,8 +346,8 @@ func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueu
 }
 
 // The Amazon Resource Name of the job queue.
-func (o JobQueueOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *JobQueue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o JobQueueOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // List of compute environment ARNs mapped to a job queue.

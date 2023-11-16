@@ -210,9 +210,9 @@ type RouteTable struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the route table.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the AWS account that owns the route table.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
@@ -421,13 +421,13 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 }
 
 // The ARN of the route table.
-func (o RouteTableOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RouteTableOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the AWS account that owns the route table.
-func (o RouteTableOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o RouteTableOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // A list of virtual gateways for propagation.

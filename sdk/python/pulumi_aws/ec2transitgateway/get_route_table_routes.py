@@ -44,7 +44,7 @@ class GetRouteTableRoutesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -52,7 +52,7 @@ class GetRouteTableRoutesResult:
 
     @property
     @pulumi.getter
-    def routes(self) -> Sequence['outputs.GetRouteTableRoutesRouteResult']:
+    def routes(self) -> Optional[Sequence['outputs.GetRouteTableRoutesRouteResult']]:
         """
         List of Transit Gateway Routes.
         """

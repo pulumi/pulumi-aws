@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPoli
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation {
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames;
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust> trusts;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust> trusts;
 
     private GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation() {}
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames() {
-        return this.subjectAlternativeNames;
+        return this.subjectAlternativeNames == null ? List.of() : this.subjectAlternativeNames;
     }
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust> trusts() {
-        return this.trusts;
+        return this.trusts == null ? List.of() : this.trusts;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames;
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust> trusts;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust> trusts;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation {
         }
 
         @CustomType.Setter
-        public Builder subjectAlternativeNames(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+        public Builder subjectAlternativeNames(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames) {
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
         @CustomType.Setter
-        public Builder trusts(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust> trusts) {
-            this.trusts = Objects.requireNonNull(trusts);
+        public Builder trusts(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust> trusts) {
+            this.trusts = trusts;
             return this;
         }
         public Builder trusts(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust... trusts) {

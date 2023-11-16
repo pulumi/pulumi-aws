@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
         /// </summary>
-        public readonly string CidrBlock;
+        public readonly string? CidrBlock;
 
         [OutputConstructor]
-        private GetVpcPeeringConnectionPeerCidrBlockSetResult(string cidrBlock)
+        private GetVpcPeeringConnectionPeerCidrBlockSetResult(string? cidrBlock)
         {
             CidrBlock = cidrBlock;
         }

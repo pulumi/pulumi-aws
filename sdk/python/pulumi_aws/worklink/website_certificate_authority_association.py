@@ -297,7 +297,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteCaId")
-    def website_ca_id(self) -> pulumi.Output[str]:
+    def website_ca_id(self) -> pulumi.Output[Optional[str]]:
         """
         A unique identifier for the Certificate Authority.
         """

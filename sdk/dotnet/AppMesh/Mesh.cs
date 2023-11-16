@@ -66,25 +66,25 @@ namespace Pulumi.Aws.AppMesh
         /// ARN of the service mesh.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Creation date of the service mesh.
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// Last update date of the service mesh.
         /// </summary>
         [Output("lastUpdatedDate")]
-        public Output<string> LastUpdatedDate { get; private set; } = null!;
+        public Output<string?> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID of the service mesh's owner.
         /// </summary>
         [Output("meshOwner")]
-        public Output<string> MeshOwner { get; private set; } = null!;
+        public Output<string?> MeshOwner { get; private set; } = null!;
 
         /// <summary>
         /// Name to use for the service mesh. Must be between 1 and 255 characters in length.
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.AppMesh
         /// Resource owner's AWS account ID.
         /// </summary>
         [Output("resourceOwner")]
-        public Output<string> ResourceOwner { get; private set; } = null!;
+        public Output<string?> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
         /// Service mesh specification to apply.

@@ -13,10 +13,10 @@ namespace Pulumi.Aws.SsmContacts.Outputs
     [OutputType]
     public sealed class GetContactChannelDeliveryAddressResult
     {
-        public readonly string SimpleAddress;
+        public readonly string? SimpleAddress;
 
         [OutputConstructor]
-        private GetContactChannelDeliveryAddressResult(string simpleAddress)
+        private GetContactChannelDeliveryAddressResult(string? simpleAddress)
         {
             SimpleAddress = simpleAddress;
         }

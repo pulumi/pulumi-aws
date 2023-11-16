@@ -55,18 +55,18 @@ type GetAuthorizationTokenArgs struct {
 // A collection of values returned by getAuthorizationToken.
 type GetAuthorizationTokenResult struct {
 	// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
-	AuthorizationToken string `pulumi:"authorizationToken"`
+	AuthorizationToken *string `pulumi:"authorizationToken"`
 	// Time in UTC RFC3339 format when the authorization token expires.
-	ExpiresAt string `pulumi:"expiresAt"`
+	ExpiresAt *string `pulumi:"expiresAt"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Password decoded from the authorization token.
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// Registry URL to use in the docker login command.
-	ProxyEndpoint string  `pulumi:"proxyEndpoint"`
+	ProxyEndpoint *string `pulumi:"proxyEndpoint"`
 	RegistryId    *string `pulumi:"registryId"`
 	// User name decoded from the authorization token.
-	UserName string `pulumi:"userName"`
+	UserName *string `pulumi:"userName"`
 }
 
 func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationTokenOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizationTokenResultOutput {
@@ -108,28 +108,28 @@ func (o GetAuthorizationTokenResultOutput) ToGetAuthorizationTokenResultOutputWi
 }
 
 // Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
-func (o GetAuthorizationTokenResultOutput) AuthorizationToken() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.AuthorizationToken }).(pulumi.StringOutput)
+func (o GetAuthorizationTokenResultOutput) AuthorizationToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) *string { return v.AuthorizationToken }).(pulumi.StringPtrOutput)
 }
 
 // Time in UTC RFC3339 format when the authorization token expires.
-func (o GetAuthorizationTokenResultOutput) ExpiresAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.ExpiresAt }).(pulumi.StringOutput)
+func (o GetAuthorizationTokenResultOutput) ExpiresAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) *string { return v.ExpiresAt }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAuthorizationTokenResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetAuthorizationTokenResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Password decoded from the authorization token.
-func (o GetAuthorizationTokenResultOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Password }).(pulumi.StringOutput)
+func (o GetAuthorizationTokenResultOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // Registry URL to use in the docker login command.
-func (o GetAuthorizationTokenResultOutput) ProxyEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.ProxyEndpoint }).(pulumi.StringOutput)
+func (o GetAuthorizationTokenResultOutput) ProxyEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) *string { return v.ProxyEndpoint }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAuthorizationTokenResultOutput) RegistryId() pulumi.StringPtrOutput {
@@ -137,8 +137,8 @@ func (o GetAuthorizationTokenResultOutput) RegistryId() pulumi.StringPtrOutput {
 }
 
 // User name decoded from the authorization token.
-func (o GetAuthorizationTokenResultOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.UserName }).(pulumi.StringOutput)
+func (o GetAuthorizationTokenResultOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

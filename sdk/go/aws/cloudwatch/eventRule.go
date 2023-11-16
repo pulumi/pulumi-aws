@@ -59,7 +59,7 @@ import (
 // if err != nil {
 // return err
 // }
-// snsTopicPolicy := awsLogins.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// snsTopicPolicy := awsLogins.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -109,7 +109,7 @@ type EventRule struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name or ARN of the event bus to associate with this rule.
@@ -122,7 +122,7 @@ type EventRule struct {
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
@@ -361,8 +361,8 @@ func (o EventRuleOutput) ToEventRuleOutputWithContext(ctx context.Context) Event
 }
 
 // The Amazon Resource Name (ARN) of the rule.
-func (o EventRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EventRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the rule.
@@ -392,8 +392,8 @@ func (o EventRuleOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
-func (o EventRuleOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o EventRuleOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) associated with the role that is used for target invocation.

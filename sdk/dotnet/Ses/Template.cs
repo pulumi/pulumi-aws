@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ses
         /// The ARN of the SES template
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.

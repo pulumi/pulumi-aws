@@ -18,149 +18,149 @@ public final class GetObjectResult {
      * @return Object data (see **limitations above** to understand cases in which this field is actually available)
      * 
      */
-    private String body;
+    private @Nullable String body;
     private String bucket;
     /**
      * @return (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
-    private Boolean bucketKeyEnabled;
+    private @Nullable Boolean bucketKeyEnabled;
     /**
      * @return Caching behavior along the request/reply chain.
      * 
      */
-    private String cacheControl;
+    private @Nullable String cacheControl;
     /**
      * @return The base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
-    private String checksumCrc32;
+    private @Nullable String checksumCrc32;
     /**
      * @return The base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
-    private String checksumCrc32c;
+    private @Nullable String checksumCrc32c;
     private @Nullable String checksumMode;
     /**
      * @return The base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
-    private String checksumSha1;
+    private @Nullable String checksumSha1;
     /**
      * @return The base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
-    private String checksumSha256;
+    private @Nullable String checksumSha256;
     /**
      * @return Presentational information for the object.
      * 
      */
-    private String contentDisposition;
+    private @Nullable String contentDisposition;
     /**
      * @return What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
      * 
      */
-    private String contentEncoding;
+    private @Nullable String contentEncoding;
     /**
      * @return Language the content is in.
      * 
      */
-    private String contentLanguage;
+    private @Nullable String contentLanguage;
     /**
      * @return Size of the body in bytes.
      * 
      */
-    private Integer contentLength;
+    private @Nullable Integer contentLength;
     /**
      * @return Standard MIME type describing the format of the object data.
      * 
      */
-    private String contentType;
+    private @Nullable String contentType;
     /**
      * @return [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it&#39;s not encrypted)
      * 
      */
-    private String etag;
+    private @Nullable String etag;
     /**
      * @return If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
      * 
      */
-    private String expiration;
+    private @Nullable String expiration;
     /**
      * @return Date and time at which the object is no longer cacheable.
      * 
      */
-    private String expires;
+    private @Nullable String expires;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String key;
     /**
      * @return Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
      * 
      */
-    private String lastModified;
+    private @Nullable String lastModified;
     /**
      * @return Map of metadata stored with the object in S3. Keys are always returned in lowercase.
      * 
      */
-    private Map<String,String> metadata;
+    private @Nullable Map<String,String> metadata;
     /**
      * @return Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
      * 
      */
-    private String objectLockLegalHoldStatus;
+    private @Nullable String objectLockLegalHoldStatus;
     /**
      * @return Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
      * 
      */
-    private String objectLockMode;
+    private @Nullable String objectLockMode;
     /**
      * @return The date and time when this object&#39;s object lock will expire.
      * 
      */
-    private String objectLockRetainUntilDate;
+    private @Nullable String objectLockRetainUntilDate;
     private @Nullable String range;
     /**
      * @return If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
      * 
      */
-    private String serverSideEncryption;
+    private @Nullable String serverSideEncryption;
     /**
      * @return If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
      * 
      */
-    private String sseKmsKeyId;
+    private @Nullable String sseKmsKeyId;
     /**
      * @return [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
      * 
      */
-    private String storageClass;
+    private @Nullable String storageClass;
     /**
      * @return Map of tags assigned to the object.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Latest version ID of the object returned.
      * 
      */
-    private String versionId;
+    private @Nullable String versionId;
     /**
      * @return If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
      * 
      */
-    private String websiteRedirectLocation;
+    private @Nullable String websiteRedirectLocation;
 
     private GetObjectResult() {}
     /**
      * @return Object data (see **limitations above** to understand cases in which this field is actually available)
      * 
      */
-    public String body() {
-        return this.body;
+    public Optional<String> body() {
+        return Optional.ofNullable(this.body);
     }
     public String bucket() {
         return this.bucket;
@@ -169,29 +169,29 @@ public final class GetObjectResult {
      * @return (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
-    public Boolean bucketKeyEnabled() {
-        return this.bucketKeyEnabled;
+    public Optional<Boolean> bucketKeyEnabled() {
+        return Optional.ofNullable(this.bucketKeyEnabled);
     }
     /**
      * @return Caching behavior along the request/reply chain.
      * 
      */
-    public String cacheControl() {
-        return this.cacheControl;
+    public Optional<String> cacheControl() {
+        return Optional.ofNullable(this.cacheControl);
     }
     /**
      * @return The base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
-    public String checksumCrc32() {
-        return this.checksumCrc32;
+    public Optional<String> checksumCrc32() {
+        return Optional.ofNullable(this.checksumCrc32);
     }
     /**
      * @return The base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
-    public String checksumCrc32c() {
-        return this.checksumCrc32c;
+    public Optional<String> checksumCrc32c() {
+        return Optional.ofNullable(this.checksumCrc32c);
     }
     public Optional<String> checksumMode() {
         return Optional.ofNullable(this.checksumMode);
@@ -200,78 +200,78 @@ public final class GetObjectResult {
      * @return The base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
-    public String checksumSha1() {
-        return this.checksumSha1;
+    public Optional<String> checksumSha1() {
+        return Optional.ofNullable(this.checksumSha1);
     }
     /**
      * @return The base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
-    public String checksumSha256() {
-        return this.checksumSha256;
+    public Optional<String> checksumSha256() {
+        return Optional.ofNullable(this.checksumSha256);
     }
     /**
      * @return Presentational information for the object.
      * 
      */
-    public String contentDisposition() {
-        return this.contentDisposition;
+    public Optional<String> contentDisposition() {
+        return Optional.ofNullable(this.contentDisposition);
     }
     /**
      * @return What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
      * 
      */
-    public String contentEncoding() {
-        return this.contentEncoding;
+    public Optional<String> contentEncoding() {
+        return Optional.ofNullable(this.contentEncoding);
     }
     /**
      * @return Language the content is in.
      * 
      */
-    public String contentLanguage() {
-        return this.contentLanguage;
+    public Optional<String> contentLanguage() {
+        return Optional.ofNullable(this.contentLanguage);
     }
     /**
      * @return Size of the body in bytes.
      * 
      */
-    public Integer contentLength() {
-        return this.contentLength;
+    public Optional<Integer> contentLength() {
+        return Optional.ofNullable(this.contentLength);
     }
     /**
      * @return Standard MIME type describing the format of the object data.
      * 
      */
-    public String contentType() {
-        return this.contentType;
+    public Optional<String> contentType() {
+        return Optional.ofNullable(this.contentType);
     }
     /**
      * @return [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it&#39;s not encrypted)
      * 
      */
-    public String etag() {
-        return this.etag;
+    public Optional<String> etag() {
+        return Optional.ofNullable(this.etag);
     }
     /**
      * @return If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
      * 
      */
-    public String expiration() {
-        return this.expiration;
+    public Optional<String> expiration() {
+        return Optional.ofNullable(this.expiration);
     }
     /**
      * @return Date and time at which the object is no longer cacheable.
      * 
      */
-    public String expires() {
-        return this.expires;
+    public Optional<String> expires() {
+        return Optional.ofNullable(this.expires);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String key() {
         return this.key;
@@ -280,36 +280,36 @@ public final class GetObjectResult {
      * @return Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
      * 
      */
-    public String lastModified() {
-        return this.lastModified;
+    public Optional<String> lastModified() {
+        return Optional.ofNullable(this.lastModified);
     }
     /**
      * @return Map of metadata stored with the object in S3. Keys are always returned in lowercase.
      * 
      */
     public Map<String,String> metadata() {
-        return this.metadata;
+        return this.metadata == null ? Map.of() : this.metadata;
     }
     /**
      * @return Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
      * 
      */
-    public String objectLockLegalHoldStatus() {
-        return this.objectLockLegalHoldStatus;
+    public Optional<String> objectLockLegalHoldStatus() {
+        return Optional.ofNullable(this.objectLockLegalHoldStatus);
     }
     /**
      * @return Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
      * 
      */
-    public String objectLockMode() {
-        return this.objectLockMode;
+    public Optional<String> objectLockMode() {
+        return Optional.ofNullable(this.objectLockMode);
     }
     /**
      * @return The date and time when this object&#39;s object lock will expire.
      * 
      */
-    public String objectLockRetainUntilDate() {
-        return this.objectLockRetainUntilDate;
+    public Optional<String> objectLockRetainUntilDate() {
+        return Optional.ofNullable(this.objectLockRetainUntilDate);
     }
     public Optional<String> range() {
         return Optional.ofNullable(this.range);
@@ -318,43 +318,43 @@ public final class GetObjectResult {
      * @return If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
      * 
      */
-    public String serverSideEncryption() {
-        return this.serverSideEncryption;
+    public Optional<String> serverSideEncryption() {
+        return Optional.ofNullable(this.serverSideEncryption);
     }
     /**
      * @return If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
      * 
      */
-    public String sseKmsKeyId() {
-        return this.sseKmsKeyId;
+    public Optional<String> sseKmsKeyId() {
+        return Optional.ofNullable(this.sseKmsKeyId);
     }
     /**
      * @return [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
      * 
      */
-    public String storageClass() {
-        return this.storageClass;
+    public Optional<String> storageClass() {
+        return Optional.ofNullable(this.storageClass);
     }
     /**
      * @return Map of tags assigned to the object.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Latest version ID of the object returned.
      * 
      */
-    public String versionId() {
-        return this.versionId;
+    public Optional<String> versionId() {
+        return Optional.ofNullable(this.versionId);
     }
     /**
      * @return If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
      * 
      */
-    public String websiteRedirectLocation() {
-        return this.websiteRedirectLocation;
+    public Optional<String> websiteRedirectLocation() {
+        return Optional.ofNullable(this.websiteRedirectLocation);
     }
 
     public static Builder builder() {
@@ -366,37 +366,37 @@ public final class GetObjectResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String body;
+        private @Nullable String body;
         private String bucket;
-        private Boolean bucketKeyEnabled;
-        private String cacheControl;
-        private String checksumCrc32;
-        private String checksumCrc32c;
+        private @Nullable Boolean bucketKeyEnabled;
+        private @Nullable String cacheControl;
+        private @Nullable String checksumCrc32;
+        private @Nullable String checksumCrc32c;
         private @Nullable String checksumMode;
-        private String checksumSha1;
-        private String checksumSha256;
-        private String contentDisposition;
-        private String contentEncoding;
-        private String contentLanguage;
-        private Integer contentLength;
-        private String contentType;
-        private String etag;
-        private String expiration;
-        private String expires;
-        private String id;
+        private @Nullable String checksumSha1;
+        private @Nullable String checksumSha256;
+        private @Nullable String contentDisposition;
+        private @Nullable String contentEncoding;
+        private @Nullable String contentLanguage;
+        private @Nullable Integer contentLength;
+        private @Nullable String contentType;
+        private @Nullable String etag;
+        private @Nullable String expiration;
+        private @Nullable String expires;
+        private @Nullable String id;
         private String key;
-        private String lastModified;
-        private Map<String,String> metadata;
-        private String objectLockLegalHoldStatus;
-        private String objectLockMode;
-        private String objectLockRetainUntilDate;
+        private @Nullable String lastModified;
+        private @Nullable Map<String,String> metadata;
+        private @Nullable String objectLockLegalHoldStatus;
+        private @Nullable String objectLockMode;
+        private @Nullable String objectLockRetainUntilDate;
         private @Nullable String range;
-        private String serverSideEncryption;
-        private String sseKmsKeyId;
-        private String storageClass;
-        private Map<String,String> tags;
-        private String versionId;
-        private String websiteRedirectLocation;
+        private @Nullable String serverSideEncryption;
+        private @Nullable String sseKmsKeyId;
+        private @Nullable String storageClass;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String versionId;
+        private @Nullable String websiteRedirectLocation;
         public Builder() {}
         public Builder(GetObjectResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -434,8 +434,8 @@ public final class GetObjectResult {
         }
 
         @CustomType.Setter
-        public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+        public Builder body(@Nullable String body) {
+            this.body = body;
             return this;
         }
         @CustomType.Setter
@@ -444,23 +444,23 @@ public final class GetObjectResult {
             return this;
         }
         @CustomType.Setter
-        public Builder bucketKeyEnabled(Boolean bucketKeyEnabled) {
-            this.bucketKeyEnabled = Objects.requireNonNull(bucketKeyEnabled);
+        public Builder bucketKeyEnabled(@Nullable Boolean bucketKeyEnabled) {
+            this.bucketKeyEnabled = bucketKeyEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder cacheControl(String cacheControl) {
-            this.cacheControl = Objects.requireNonNull(cacheControl);
+        public Builder cacheControl(@Nullable String cacheControl) {
+            this.cacheControl = cacheControl;
             return this;
         }
         @CustomType.Setter
-        public Builder checksumCrc32(String checksumCrc32) {
-            this.checksumCrc32 = Objects.requireNonNull(checksumCrc32);
+        public Builder checksumCrc32(@Nullable String checksumCrc32) {
+            this.checksumCrc32 = checksumCrc32;
             return this;
         }
         @CustomType.Setter
-        public Builder checksumCrc32c(String checksumCrc32c) {
-            this.checksumCrc32c = Objects.requireNonNull(checksumCrc32c);
+        public Builder checksumCrc32c(@Nullable String checksumCrc32c) {
+            this.checksumCrc32c = checksumCrc32c;
             return this;
         }
         @CustomType.Setter
@@ -469,58 +469,58 @@ public final class GetObjectResult {
             return this;
         }
         @CustomType.Setter
-        public Builder checksumSha1(String checksumSha1) {
-            this.checksumSha1 = Objects.requireNonNull(checksumSha1);
+        public Builder checksumSha1(@Nullable String checksumSha1) {
+            this.checksumSha1 = checksumSha1;
             return this;
         }
         @CustomType.Setter
-        public Builder checksumSha256(String checksumSha256) {
-            this.checksumSha256 = Objects.requireNonNull(checksumSha256);
+        public Builder checksumSha256(@Nullable String checksumSha256) {
+            this.checksumSha256 = checksumSha256;
             return this;
         }
         @CustomType.Setter
-        public Builder contentDisposition(String contentDisposition) {
-            this.contentDisposition = Objects.requireNonNull(contentDisposition);
+        public Builder contentDisposition(@Nullable String contentDisposition) {
+            this.contentDisposition = contentDisposition;
             return this;
         }
         @CustomType.Setter
-        public Builder contentEncoding(String contentEncoding) {
-            this.contentEncoding = Objects.requireNonNull(contentEncoding);
+        public Builder contentEncoding(@Nullable String contentEncoding) {
+            this.contentEncoding = contentEncoding;
             return this;
         }
         @CustomType.Setter
-        public Builder contentLanguage(String contentLanguage) {
-            this.contentLanguage = Objects.requireNonNull(contentLanguage);
+        public Builder contentLanguage(@Nullable String contentLanguage) {
+            this.contentLanguage = contentLanguage;
             return this;
         }
         @CustomType.Setter
-        public Builder contentLength(Integer contentLength) {
-            this.contentLength = Objects.requireNonNull(contentLength);
+        public Builder contentLength(@Nullable Integer contentLength) {
+            this.contentLength = contentLength;
             return this;
         }
         @CustomType.Setter
-        public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+        public Builder contentType(@Nullable String contentType) {
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
-        public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+        public Builder etag(@Nullable String etag) {
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
-        public Builder expiration(String expiration) {
-            this.expiration = Objects.requireNonNull(expiration);
+        public Builder expiration(@Nullable String expiration) {
+            this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
-        public Builder expires(String expires) {
-            this.expires = Objects.requireNonNull(expires);
+        public Builder expires(@Nullable String expires) {
+            this.expires = expires;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -529,28 +529,28 @@ public final class GetObjectResult {
             return this;
         }
         @CustomType.Setter
-        public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+        public Builder lastModified(@Nullable String lastModified) {
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
-        public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+        public Builder metadata(@Nullable Map<String,String> metadata) {
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
-        public Builder objectLockLegalHoldStatus(String objectLockLegalHoldStatus) {
-            this.objectLockLegalHoldStatus = Objects.requireNonNull(objectLockLegalHoldStatus);
+        public Builder objectLockLegalHoldStatus(@Nullable String objectLockLegalHoldStatus) {
+            this.objectLockLegalHoldStatus = objectLockLegalHoldStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder objectLockMode(String objectLockMode) {
-            this.objectLockMode = Objects.requireNonNull(objectLockMode);
+        public Builder objectLockMode(@Nullable String objectLockMode) {
+            this.objectLockMode = objectLockMode;
             return this;
         }
         @CustomType.Setter
-        public Builder objectLockRetainUntilDate(String objectLockRetainUntilDate) {
-            this.objectLockRetainUntilDate = Objects.requireNonNull(objectLockRetainUntilDate);
+        public Builder objectLockRetainUntilDate(@Nullable String objectLockRetainUntilDate) {
+            this.objectLockRetainUntilDate = objectLockRetainUntilDate;
             return this;
         }
         @CustomType.Setter
@@ -559,33 +559,33 @@ public final class GetObjectResult {
             return this;
         }
         @CustomType.Setter
-        public Builder serverSideEncryption(String serverSideEncryption) {
-            this.serverSideEncryption = Objects.requireNonNull(serverSideEncryption);
+        public Builder serverSideEncryption(@Nullable String serverSideEncryption) {
+            this.serverSideEncryption = serverSideEncryption;
             return this;
         }
         @CustomType.Setter
-        public Builder sseKmsKeyId(String sseKmsKeyId) {
-            this.sseKmsKeyId = Objects.requireNonNull(sseKmsKeyId);
+        public Builder sseKmsKeyId(@Nullable String sseKmsKeyId) {
+            this.sseKmsKeyId = sseKmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder storageClass(String storageClass) {
-            this.storageClass = Objects.requireNonNull(storageClass);
+        public Builder storageClass(@Nullable String storageClass) {
+            this.storageClass = storageClass;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder versionId(String versionId) {
-            this.versionId = Objects.requireNonNull(versionId);
+        public Builder versionId(@Nullable String versionId) {
+            this.versionId = versionId;
             return this;
         }
         @CustomType.Setter
-        public Builder websiteRedirectLocation(String websiteRedirectLocation) {
-            this.websiteRedirectLocation = Objects.requireNonNull(websiteRedirectLocation);
+        public Builder websiteRedirectLocation(@Nullable String websiteRedirectLocation) {
+            this.websiteRedirectLocation = websiteRedirectLocation;
             return this;
         }
         public GetObjectResult build() {

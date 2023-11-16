@@ -217,14 +217,14 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of IPAM
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
@@ -285,10 +285,10 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
         return this.ipamScopeId;
     }
     @Export(name="ipamScopeType", refs={String.class}, tree="[0]")
-    private Output<String> ipamScopeType;
+    private Output</* @Nullable */ String> ipamScopeType;
 
-    public Output<String> ipamScopeType() {
-        return this.ipamScopeType;
+    public Output<Optional<String>> ipamScopeType() {
+        return Codegen.optional(this.ipamScopeType);
     }
     /**
      * The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
@@ -305,10 +305,10 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.locale);
     }
     @Export(name="poolDepth", refs={Integer.class}, tree="[0]")
-    private Output<Integer> poolDepth;
+    private Output</* @Nullable */ Integer> poolDepth;
 
-    public Output<Integer> poolDepth() {
-        return this.poolDepth;
+    public Output<Optional<Integer>> poolDepth() {
+        return Codegen.optional(this.poolDepth);
     }
     /**
      * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
@@ -357,14 +357,14 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The ID of the IPAM
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

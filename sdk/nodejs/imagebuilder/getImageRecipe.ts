@@ -52,39 +52,39 @@ export interface GetImageRecipeResult {
     /**
      * Set of objects with block device mappings for the image recipe.
      */
-    readonly blockDeviceMappings: outputs.imagebuilder.GetImageRecipeBlockDeviceMapping[];
+    readonly blockDeviceMappings?: outputs.imagebuilder.GetImageRecipeBlockDeviceMapping[];
     /**
      * List of objects with components for the image recipe.
      */
-    readonly components: outputs.imagebuilder.GetImageRecipeComponent[];
+    readonly components?: outputs.imagebuilder.GetImageRecipeComponent[];
     /**
      * Date the image recipe was created.
      */
-    readonly dateCreated: string;
+    readonly dateCreated?: string;
     /**
      * Description of the image recipe.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the image recipe.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Owner of the image recipe.
      */
-    readonly owner: string;
+    readonly owner?: string;
     /**
      * Base image of the image recipe.
      */
-    readonly parentImage: string;
+    readonly parentImage?: string;
     /**
      * Platform of the image recipe.
      */
-    readonly platform: string;
+    readonly platform?: string;
     /**
      * Key-value map of resource tags for the image recipe.
      */
@@ -92,15 +92,15 @@ export interface GetImageRecipeResult {
     /**
      * Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
      */
-    readonly userDataBase64: string;
+    readonly userDataBase64?: string;
     /**
      * Version of the image recipe.
      */
-    readonly version: string;
+    readonly version?: string;
     /**
      * Working directory used during build and test workflows.
      */
-    readonly workingDirectory: string;
+    readonly workingDirectory?: string;
 }
 /**
  * Provides details about an Image Builder Image Recipe.

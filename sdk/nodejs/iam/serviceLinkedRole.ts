@@ -55,7 +55,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the role.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
      */
@@ -63,7 +63,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     /**
      * The creation date of the IAM role.
      */
-    public /*out*/ readonly createDate!: pulumi.Output<string>;
+    public /*out*/ readonly createDate!: pulumi.Output<string | undefined>;
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      */
@@ -75,11 +75,11 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     /**
      * The name of the role.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * The path of the role.
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    public /*out*/ readonly path!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -93,7 +93,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     /**
      * The stable and unique string identifying the role.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServiceLinkedRole resource with the given unique name, arguments, and options.

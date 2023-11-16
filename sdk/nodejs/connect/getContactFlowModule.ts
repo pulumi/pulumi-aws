@@ -73,34 +73,34 @@ export interface GetContactFlowModuleResult {
     /**
      * ARN of the Contact Flow Module.
      */
-    readonly arn: string;
-    readonly contactFlowModuleId: string;
+    readonly arn?: string;
+    readonly contactFlowModuleId?: string;
     /**
      * Logic of the Contact Flow Module.
      */
-    readonly content: string;
+    readonly content?: string;
     /**
      * Description of the Contact Flow Module.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
-    readonly name: string;
+    readonly name?: string;
     /**
      * Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      */
-    readonly state: string;
+    readonly state?: string;
     /**
      * Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Map of tags to assign to the Contact Flow Module.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific Amazon Connect Contact Flow Module.

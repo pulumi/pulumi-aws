@@ -132,36 +132,36 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// ARN of the role.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Policy document associated with the role.
         /// </summary>
-        public readonly string AssumeRolePolicy;
+        public readonly string? AssumeRolePolicy;
         /// <summary>
         /// Creation date of the role in RFC 3339 format.
         /// </summary>
-        public readonly string CreateDate;
+        public readonly string? CreateDate;
         /// <summary>
         /// Description for the role.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Maximum session duration.
         /// </summary>
-        public readonly int MaxSessionDuration;
+        public readonly int? MaxSessionDuration;
         public readonly string Name;
         /// <summary>
         /// Path to the role.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         /// <summary>
         /// The ARN of the policy that is used to set the permissions boundary for the role.
         /// </summary>
-        public readonly string PermissionsBoundary;
+        public readonly string? PermissionsBoundary;
         /// <summary>
         /// Contains information about the last time that an IAM role was used. See `role_last_used` for details.
         /// </summary>
@@ -169,37 +169,37 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Tags attached to the role.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Stable and unique string identifying the role.
         /// </summary>
-        public readonly string UniqueId;
+        public readonly string? UniqueId;
 
         [OutputConstructor]
         private GetRoleResult(
-            string arn,
+            string? arn,
 
-            string assumeRolePolicy,
+            string? assumeRolePolicy,
 
-            string createDate,
+            string? createDate,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            int maxSessionDuration,
+            int? maxSessionDuration,
 
             string name,
 
-            string path,
+            string? path,
 
-            string permissionsBoundary,
+            string? permissionsBoundary,
 
             ImmutableArray<Outputs.GetRoleRoleLastUsedResult> roleLastUseds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string uniqueId)
+            string? uniqueId)
         {
             Arn = arn;
             AssumeRolePolicy = assumeRolePolicy;

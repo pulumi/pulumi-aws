@@ -104,7 +104,7 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// (Required) Amazon Kinesis data streams where real-time log data is sent.
         /// </summary>
@@ -116,26 +116,26 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         /// </summary>
-        public readonly int SamplingRate;
+        public readonly int? SamplingRate;
 
         [OutputConstructor]
         private GetRealtimeLogConfigResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetRealtimeLogConfigEndpointResult> endpoints,
 
             ImmutableArray<string> fields,
 
-            string id,
+            string? id,
 
             string name,
 
-            int samplingRate)
+            int? samplingRate)
         {
             Arn = arn;
             Endpoints = endpoints;

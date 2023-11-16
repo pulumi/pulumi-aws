@@ -68,14 +68,14 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The user profile Amazon Resource Name (ARN).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ID of the associated Domain.
@@ -96,14 +96,14 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="homeEfsFileSystemUid", refs={String.class}, tree="[0]")
-    private Output<String> homeEfsFileSystemUid;
+    private Output</* @Nullable */ String> homeEfsFileSystemUid;
 
     /**
      * @return The ID of the user&#39;s profile in the Amazon Elastic File System (EFS) volume.
      * 
      */
-    public Output<String> homeEfsFileSystemUid() {
-        return this.homeEfsFileSystemUid;
+    public Output<Optional<String>> homeEfsFileSystemUid() {
+        return Codegen.optional(this.homeEfsFileSystemUid);
     }
     /**
      * A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.

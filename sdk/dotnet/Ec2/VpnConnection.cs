@@ -165,25 +165,25 @@ namespace Pulumi.Aws.Ec2
         /// Amazon Resource Name (ARN) of the VPN Connection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the core network.
         /// </summary>
         [Output("coreNetworkArn")]
-        public Output<string> CoreNetworkArn { get; private set; } = null!;
+        public Output<string?> CoreNetworkArn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the core network attachment.
         /// </summary>
         [Output("coreNetworkAttachmentArn")]
-        public Output<string> CoreNetworkAttachmentArn { get; private set; } = null!;
+        public Output<string?> CoreNetworkAttachmentArn { get; private set; } = null!;
 
         /// <summary>
         /// The configuration information for the VPN connection's customer gateway (in the native XML format).
         /// </summary>
         [Output("customerGatewayConfiguration")]
-        public Output<string> CustomerGatewayConfiguration { get; private set; } = null!;
+        public Output<string?> CustomerGatewayConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the customer gateway.
@@ -195,37 +195,37 @@ namespace Pulumi.Aws.Ec2
         /// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
         /// </summary>
         [Output("enableAcceleration")]
-        public Output<bool> EnableAcceleration { get; private set; } = null!;
+        public Output<bool?> EnableAcceleration { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         /// </summary>
         [Output("localIpv4NetworkCidr")]
-        public Output<string> LocalIpv4NetworkCidr { get; private set; } = null!;
+        public Output<string?> LocalIpv4NetworkCidr { get; private set; } = null!;
 
         /// <summary>
         /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         /// </summary>
         [Output("localIpv6NetworkCidr")]
-        public Output<string> LocalIpv6NetworkCidr { get; private set; } = null!;
+        public Output<string?> LocalIpv6NetworkCidr { get; private set; } = null!;
 
         /// <summary>
         /// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         /// </summary>
         [Output("outsideIpAddressType")]
-        public Output<string> OutsideIpAddressType { get; private set; } = null!;
+        public Output<string?> OutsideIpAddressType { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Output("remoteIpv4NetworkCidr")]
-        public Output<string> RemoteIpv4NetworkCidr { get; private set; } = null!;
+        public Output<string?> RemoteIpv4NetworkCidr { get; private set; } = null!;
 
         /// <summary>
         /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         /// </summary>
         [Output("remoteIpv6NetworkCidr")]
-        public Output<string> RemoteIpv6NetworkCidr { get; private set; } = null!;
+        public Output<string?> RemoteIpv6NetworkCidr { get; private set; } = null!;
 
         /// <summary>
         /// The static routes associated with the VPN connection. Detailed below.
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Ec2
         /// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         /// </summary>
         [Output("staticRoutesOnly")]
-        public Output<bool> StaticRoutesOnly { get; private set; } = null!;
+        public Output<bool?> StaticRoutesOnly { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Ec2
         /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
         /// </summary>
         [Output("transitGatewayAttachmentId")]
-        public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
+        public Output<string?> TransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the EC2 Transit Gateway.
@@ -273,25 +273,25 @@ namespace Pulumi.Aws.Ec2
         /// The public IP address of the first VPN tunnel.
         /// </summary>
         [Output("tunnel1Address")]
-        public Output<string> Tunnel1Address { get; private set; } = null!;
+        public Output<string?> Tunnel1Address { get; private set; } = null!;
 
         /// <summary>
         /// The bgp asn number of the first VPN tunnel.
         /// </summary>
         [Output("tunnel1BgpAsn")]
-        public Output<string> Tunnel1BgpAsn { get; private set; } = null!;
+        public Output<string?> Tunnel1BgpAsn { get; private set; } = null!;
 
         /// <summary>
         /// The bgp holdtime of the first VPN tunnel.
         /// </summary>
         [Output("tunnel1BgpHoldtime")]
-        public Output<int> Tunnel1BgpHoldtime { get; private set; } = null!;
+        public Output<int?> Tunnel1BgpHoldtime { get; private set; } = null!;
 
         /// <summary>
         /// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
         /// </summary>
         [Output("tunnel1CgwInsideAddress")]
-        public Output<string> Tunnel1CgwInsideAddress { get; private set; } = null!;
+        public Output<string?> Tunnel1CgwInsideAddress { get; private set; } = null!;
 
         /// <summary>
         /// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -321,19 +321,19 @@ namespace Pulumi.Aws.Ec2
         /// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Output("tunnel1InsideCidr")]
-        public Output<string> Tunnel1InsideCidr { get; private set; } = null!;
+        public Output<string?> Tunnel1InsideCidr { get; private set; } = null!;
 
         /// <summary>
         /// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         /// </summary>
         [Output("tunnel1InsideIpv6Cidr")]
-        public Output<string> Tunnel1InsideIpv6Cidr { get; private set; } = null!;
+        public Output<string?> Tunnel1InsideIpv6Cidr { get; private set; } = null!;
 
         /// <summary>
         /// Options for logging VPN tunnel activity. See Log Options below for more details.
         /// </summary>
         [Output("tunnel1LogOptions")]
-        public Output<Outputs.VpnConnectionTunnel1LogOptions> Tunnel1LogOptions { get; private set; } = null!;
+        public Output<Outputs.VpnConnectionTunnel1LogOptions?> Tunnel1LogOptions { get; private set; } = null!;
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Ec2
         /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Output("tunnel1PresharedKey")]
-        public Output<string> Tunnel1PresharedKey { get; private set; } = null!;
+        public Output<string?> Tunnel1PresharedKey { get; private set; } = null!;
 
         /// <summary>
         /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
@@ -417,31 +417,31 @@ namespace Pulumi.Aws.Ec2
         /// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
         /// </summary>
         [Output("tunnel1VgwInsideAddress")]
-        public Output<string> Tunnel1VgwInsideAddress { get; private set; } = null!;
+        public Output<string?> Tunnel1VgwInsideAddress { get; private set; } = null!;
 
         /// <summary>
         /// The public IP address of the second VPN tunnel.
         /// </summary>
         [Output("tunnel2Address")]
-        public Output<string> Tunnel2Address { get; private set; } = null!;
+        public Output<string?> Tunnel2Address { get; private set; } = null!;
 
         /// <summary>
         /// The bgp asn number of the second VPN tunnel.
         /// </summary>
         [Output("tunnel2BgpAsn")]
-        public Output<string> Tunnel2BgpAsn { get; private set; } = null!;
+        public Output<string?> Tunnel2BgpAsn { get; private set; } = null!;
 
         /// <summary>
         /// The bgp holdtime of the second VPN tunnel.
         /// </summary>
         [Output("tunnel2BgpHoldtime")]
-        public Output<int> Tunnel2BgpHoldtime { get; private set; } = null!;
+        public Output<int?> Tunnel2BgpHoldtime { get; private set; } = null!;
 
         /// <summary>
         /// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
         /// </summary>
         [Output("tunnel2CgwInsideAddress")]
-        public Output<string> Tunnel2CgwInsideAddress { get; private set; } = null!;
+        public Output<string?> Tunnel2CgwInsideAddress { get; private set; } = null!;
 
         /// <summary>
         /// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -471,19 +471,19 @@ namespace Pulumi.Aws.Ec2
         /// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Output("tunnel2InsideCidr")]
-        public Output<string> Tunnel2InsideCidr { get; private set; } = null!;
+        public Output<string?> Tunnel2InsideCidr { get; private set; } = null!;
 
         /// <summary>
         /// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         /// </summary>
         [Output("tunnel2InsideIpv6Cidr")]
-        public Output<string> Tunnel2InsideIpv6Cidr { get; private set; } = null!;
+        public Output<string?> Tunnel2InsideIpv6Cidr { get; private set; } = null!;
 
         /// <summary>
         /// Options for logging VPN tunnel activity. See Log Options below for more details.
         /// </summary>
         [Output("tunnel2LogOptions")]
-        public Output<Outputs.VpnConnectionTunnel2LogOptions> Tunnel2LogOptions { get; private set; } = null!;
+        public Output<Outputs.VpnConnectionTunnel2LogOptions?> Tunnel2LogOptions { get; private set; } = null!;
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
@@ -537,7 +537,7 @@ namespace Pulumi.Aws.Ec2
         /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Output("tunnel2PresharedKey")]
-        public Output<string> Tunnel2PresharedKey { get; private set; } = null!;
+        public Output<string?> Tunnel2PresharedKey { get; private set; } = null!;
 
         /// <summary>
         /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
@@ -567,13 +567,13 @@ namespace Pulumi.Aws.Ec2
         /// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
         /// </summary>
         [Output("tunnel2VgwInsideAddress")]
-        public Output<string> Tunnel2VgwInsideAddress { get; private set; } = null!;
+        public Output<string?> Tunnel2VgwInsideAddress { get; private set; } = null!;
 
         /// <summary>
         /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
         /// </summary>
         [Output("tunnelInsideIpVersion")]
-        public Output<string> TunnelInsideIpVersion { get; private set; } = null!;
+        public Output<string?> TunnelInsideIpVersion { get; private set; } = null!;
 
         /// <summary>
         /// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".

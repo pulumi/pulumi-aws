@@ -16,11 +16,11 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// The S3 bucket name.
         /// </summary>
-        public readonly string BucketName;
+        public readonly string? BucketName;
         /// <summary>
         /// The S3 bucket prefix.
         /// </summary>
-        public readonly string BucketPrefix;
+        public readonly string? BucketPrefix;
         /// <summary>
         /// The encryption configuration. Documented below.
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.Aws.Connect.Outputs
 
         [OutputConstructor]
         private GetInstanceStorageConfigStorageConfigS3ConfigResult(
-            string bucketName,
+            string? bucketName,
 
-            string bucketPrefix,
+            string? bucketPrefix,
 
             ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult> encryptionConfigs)
         {

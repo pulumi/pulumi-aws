@@ -41,19 +41,19 @@ namespace Pulumi.Aws.OpsWorks
         /// Whether the user is allowed to use SSH to communicate with the instance
         /// </summary>
         [Output("allowSsh")]
-        public Output<bool> AllowSsh { get; private set; } = null!;
+        public Output<bool?> AllowSsh { get; private set; } = null!;
 
         /// <summary>
         /// Whether the user is allowed to use sudo to elevate privileges
         /// </summary>
         [Output("allowSudo")]
-        public Output<bool> AllowSudo { get; private set; } = null!;
+        public Output<bool?> AllowSudo { get; private set; } = null!;
 
         /// <summary>
         /// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
         /// </summary>
         [Output("level")]
-        public Output<string> Level { get; private set; } = null!;
+        public Output<string?> Level { get; private set; } = null!;
 
         /// <summary>
         /// The stack to set the permissions for

@@ -198,7 +198,7 @@ type Service struct {
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayOutput `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster.
-	Cluster pulumi.StringOutput `pulumi:"cluster"`
+	Cluster pulumi.StringPtrOutput `pulumi:"cluster"`
 	// Configuration block for deployment circuit breaker. See below.
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrOutput `pulumi:"deploymentCircuitBreaker"`
 	// Configuration block for deployment controller configuration. See below.
@@ -218,9 +218,9 @@ type Service struct {
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriodSeconds"`
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-	IamRole pulumi.StringOutput `pulumi:"iamRole"`
+	IamRole pulumi.StringPtrOutput `pulumi:"iamRole"`
 	// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-	LaunchType pulumi.StringOutput `pulumi:"launchType"`
+	LaunchType pulumi.StringPtrOutput `pulumi:"launchType"`
 	// Configuration block for load balancers. See below.
 	LoadBalancers ServiceLoadBalancerArrayOutput `pulumi:"loadBalancers"`
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
@@ -234,7 +234,7 @@ type Service struct {
 	// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. See below.
 	PlacementConstraints ServicePlacementConstraintArrayOutput `pulumi:"placementConstraints"`
 	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
+	PlatformVersion pulumi.StringPtrOutput `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrOutput `pulumi:"propagateTags"`
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
@@ -645,8 +645,8 @@ func (o ServiceOutput) CapacityProviderStrategies() ServiceCapacityProviderStrat
 }
 
 // ARN of an ECS cluster.
-func (o ServiceOutput) Cluster() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Cluster }).(pulumi.StringOutput)
+func (o ServiceOutput) Cluster() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Cluster }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for deployment circuit breaker. See below.
@@ -695,13 +695,13 @@ func (o ServiceOutput) HealthCheckGracePeriodSeconds() pulumi.IntPtrOutput {
 }
 
 // ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-func (o ServiceOutput) IamRole() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.IamRole }).(pulumi.StringOutput)
+func (o ServiceOutput) IamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.IamRole }).(pulumi.StringPtrOutput)
 }
 
 // Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-func (o ServiceOutput) LaunchType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.LaunchType }).(pulumi.StringOutput)
+func (o ServiceOutput) LaunchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.LaunchType }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for load balancers. See below.
@@ -732,8 +732,8 @@ func (o ServiceOutput) PlacementConstraints() ServicePlacementConstraintArrayOut
 }
 
 // Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-func (o ServiceOutput) PlatformVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.PlatformVersion }).(pulumi.StringOutput)
+func (o ServiceOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.

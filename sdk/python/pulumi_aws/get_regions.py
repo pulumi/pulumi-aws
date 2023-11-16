@@ -49,7 +49,7 @@ class GetRegionsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         """
@@ -57,7 +57,7 @@ class GetRegionsResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         Names of regions that meets the criteria.
         """

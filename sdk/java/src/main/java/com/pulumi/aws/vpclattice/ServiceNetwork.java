@@ -66,28 +66,28 @@ public class ServiceNetwork extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Service Network.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Type of IAM policy. Either `NONE` or `AWS_IAM`.
      * 
      */
     @Export(name="authType", refs={String.class}, tree="[0]")
-    private Output<String> authType;
+    private Output</* @Nullable */ String> authType;
 
     /**
      * @return Type of IAM policy. Either `NONE` or `AWS_IAM`.
      * 
      */
-    public Output<String> authType() {
-        return this.authType;
+    public Output<Optional<String>> authType() {
+        return Codegen.optional(this.authType);
     }
     /**
      * Name of the service network

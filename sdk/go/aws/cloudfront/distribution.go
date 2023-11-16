@@ -325,13 +325,13 @@ type Distribution struct {
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
-	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
+	CallerReference pulumi.StringPtrOutput `pulumi:"callerReference"`
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-	ContinuousDeploymentPolicyId pulumi.StringOutput `pulumi:"continuousDeploymentPolicyId"`
+	ContinuousDeploymentPolicyId pulumi.StringPtrOutput `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses DistributionCustomErrorResponseArrayOutput `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -339,21 +339,21 @@ type Distribution struct {
 	// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
 	DefaultRootObject pulumi.StringPtrOutput `pulumi:"defaultRootObject"`
 	// DNS domain name of either the S3 bucket, or web site of your custom origin.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// Whether Origin Shield is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringPtrOutput `pulumi:"hostedZoneId"`
 	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
 	HttpVersion pulumi.StringPtrOutput `pulumi:"httpVersion"`
 	// Number of invalidation batches currently in progress.
-	InProgressValidationBatches pulumi.IntOutput `pulumi:"inProgressValidationBatches"`
+	InProgressValidationBatches pulumi.IntPtrOutput `pulumi:"inProgressValidationBatches"`
 	// Whether the IPv6 is enabled for the distribution.
 	IsIpv6Enabled pulumi.BoolPtrOutput `pulumi:"isIpv6Enabled"`
 	// Date and time the distribution was last modified.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
 	// The logging configuration that controls how logs are written to your distribution (maximum one).
 	LoggingConfig DistributionLoggingConfigPtrOutput `pulumi:"loggingConfig"`
 	// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
@@ -371,7 +371,7 @@ type Distribution struct {
 	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
 	Staging pulumi.BoolPtrOutput `pulumi:"staging"`
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -764,13 +764,13 @@ func (o DistributionOutput) Aliases() pulumi.StringArrayOutput {
 }
 
 // ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
-func (o DistributionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DistributionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Internal value used by CloudFront to allow future updates to the distribution configuration.
-func (o DistributionOutput) CallerReference() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.CallerReference }).(pulumi.StringOutput)
+func (o DistributionOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.CallerReference }).(pulumi.StringPtrOutput)
 }
 
 // Any comments you want to include about the distribution.
@@ -779,8 +779,8 @@ func (o DistributionOutput) Comment() pulumi.StringPtrOutput {
 }
 
 // Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-func (o DistributionOutput) ContinuousDeploymentPolicyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.ContinuousDeploymentPolicyId }).(pulumi.StringOutput)
+func (o DistributionOutput) ContinuousDeploymentPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.ContinuousDeploymentPolicyId }).(pulumi.StringPtrOutput)
 }
 
 // One or more custom error response elements (multiples allowed).
@@ -799,8 +799,8 @@ func (o DistributionOutput) DefaultRootObject() pulumi.StringPtrOutput {
 }
 
 // DNS domain name of either the S3 bucket, or web site of your custom origin.
-func (o DistributionOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+func (o DistributionOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // Whether Origin Shield is enabled.
@@ -809,13 +809,13 @@ func (o DistributionOutput) Enabled() pulumi.BoolOutput {
 }
 
 // Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
-func (o DistributionOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o DistributionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
-func (o DistributionOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o DistributionOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
@@ -824,8 +824,8 @@ func (o DistributionOutput) HttpVersion() pulumi.StringPtrOutput {
 }
 
 // Number of invalidation batches currently in progress.
-func (o DistributionOutput) InProgressValidationBatches() pulumi.IntOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.IntOutput { return v.InProgressValidationBatches }).(pulumi.IntOutput)
+func (o DistributionOutput) InProgressValidationBatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.IntPtrOutput { return v.InProgressValidationBatches }).(pulumi.IntPtrOutput)
 }
 
 // Whether the IPv6 is enabled for the distribution.
@@ -834,8 +834,8 @@ func (o DistributionOutput) IsIpv6Enabled() pulumi.BoolPtrOutput {
 }
 
 // Date and time the distribution was last modified.
-func (o DistributionOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+func (o DistributionOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
 // The logging configuration that controls how logs are written to your distribution (maximum one).
@@ -879,8 +879,8 @@ func (o DistributionOutput) Staging() pulumi.BoolPtrOutput {
 }
 
 // Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-func (o DistributionOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o DistributionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

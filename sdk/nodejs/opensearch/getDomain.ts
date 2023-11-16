@@ -56,82 +56,82 @@ export interface GetDomainResult {
     /**
      * Policy document attached to the domain.
      */
-    readonly accessPolicies: string;
+    readonly accessPolicies?: string;
     /**
      * Key-value string pairs to specify advanced configuration options.
      */
-    readonly advancedOptions: {[key: string]: string};
+    readonly advancedOptions?: {[key: string]: string};
     /**
      * Status of the OpenSearch domain's advanced security options. The block consists of the following attributes:
      */
-    readonly advancedSecurityOptions: outputs.opensearch.GetDomainAdvancedSecurityOption[];
+    readonly advancedSecurityOptions?: outputs.opensearch.GetDomainAdvancedSecurityOption[];
     /**
      * ARN of the domain.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Configuration of the Auto-Tune options of the domain.
      */
-    readonly autoTuneOptions: outputs.opensearch.GetDomainAutoTuneOption[];
+    readonly autoTuneOptions?: outputs.opensearch.GetDomainAutoTuneOption[];
     /**
      * Cluster configuration of the domain.
      */
-    readonly clusterConfigs: outputs.opensearch.GetDomainClusterConfig[];
+    readonly clusterConfigs?: outputs.opensearch.GetDomainClusterConfig[];
     /**
      * Domain Amazon Cognito Authentication options for Dashboard.
      */
-    readonly cognitoOptions: outputs.opensearch.GetDomainCognitoOption[];
+    readonly cognitoOptions?: outputs.opensearch.GetDomainCognitoOption[];
     /**
      * Status of the creation of the domain.
      */
-    readonly created: boolean;
+    readonly created?: boolean;
     /**
      * Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
      */
-    readonly dashboardEndpoint: string;
+    readonly dashboardEndpoint?: string;
     /**
      * Status of the deletion of the domain.
      */
-    readonly deleted: boolean;
+    readonly deleted?: boolean;
     /**
      * Unique identifier for the domain.
      */
-    readonly domainId: string;
+    readonly domainId?: string;
     readonly domainName: string;
     /**
      * EBS Options for the instances in the domain.
      */
-    readonly ebsOptions: outputs.opensearch.GetDomainEbsOption[];
+    readonly ebsOptions?: outputs.opensearch.GetDomainEbsOption[];
     /**
      * Domain encryption at rest related options.
      */
-    readonly encryptionAtRests: outputs.opensearch.GetDomainEncryptionAtRest[];
+    readonly encryptionAtRests?: outputs.opensearch.GetDomainEncryptionAtRest[];
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
-    readonly endpoint: string;
+    readonly endpoint?: string;
     /**
      * OpenSearch version for the domain.
      */
-    readonly engineVersion: string;
+    readonly engineVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
      *
      * @deprecated use 'dashboard_endpoint' attribute instead
      */
-    readonly kibanaEndpoint: string;
+    readonly kibanaEndpoint?: string;
     /**
      * Domain log publishing related options.
      */
-    readonly logPublishingOptions: outputs.opensearch.GetDomainLogPublishingOption[];
+    readonly logPublishingOptions?: outputs.opensearch.GetDomainLogPublishingOption[];
     /**
      * Domain in transit encryption related options.
      */
-    readonly nodeToNodeEncryptions: outputs.opensearch.GetDomainNodeToNodeEncryption[];
+    readonly nodeToNodeEncryptions?: outputs.opensearch.GetDomainNodeToNodeEncryption[];
     /**
      * Off Peak update options
      */
@@ -139,23 +139,23 @@ export interface GetDomainResult {
     /**
      * Status of a configuration change in the domain.
      */
-    readonly processing: boolean;
+    readonly processing?: boolean;
     /**
      * Domain snapshot related options.
      */
-    readonly snapshotOptions: outputs.opensearch.GetDomainSnapshotOption[];
+    readonly snapshotOptions?: outputs.opensearch.GetDomainSnapshotOption[];
     /**
      * Software update options for the domain
      */
-    readonly softwareUpdateOptions: outputs.opensearch.GetDomainSoftwareUpdateOption[];
+    readonly softwareUpdateOptions?: outputs.opensearch.GetDomainSoftwareUpdateOption[];
     /**
      * Tags assigned to the domain.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * VPC Options for private OpenSearch domains.
      */
-    readonly vpcOptions: outputs.opensearch.GetDomainVpcOption[];
+    readonly vpcOptions?: outputs.opensearch.GetDomainVpcOption[];
 }
 /**
  * Use this data source to get information about an OpenSearch Domain

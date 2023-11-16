@@ -65,11 +65,11 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM.
      */
-    public /*out*/ readonly ipamArn!: pulumi.Output<string>;
+    public /*out*/ readonly ipamArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the IPAM to associate.
      */
@@ -77,7 +77,7 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
     /**
      * The home region of the IPAM.
      */
-    public /*out*/ readonly ipamRegion!: pulumi.Output<string>;
+    public /*out*/ readonly ipamRegion!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Resource Discovery to associate.
      */
@@ -85,15 +85,15 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
     /**
      * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    public /*out*/ readonly isDefault!: pulumi.Output<boolean | undefined>;
     /**
      * The account ID for the account that manages the Resource Discovery
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The lifecycle state of the association when you associate or disassociate a resource discovery.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to add to the IPAM resource discovery association resource.
      */

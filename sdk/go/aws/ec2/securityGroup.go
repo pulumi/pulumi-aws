@@ -305,7 +305,7 @@ type SecurityGroup struct {
 	pulumi.CustomResourceState
 
 	// ARN of the security group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
@@ -315,9 +315,9 @@ type SecurityGroup struct {
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Owner ID.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -327,7 +327,7 @@ type SecurityGroup struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC ID. Defaults to the region's default VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
@@ -551,8 +551,8 @@ func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Contex
 }
 
 // ARN of the security group.
-func (o SecurityGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SecurityGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
@@ -576,13 +576,13 @@ func (o SecurityGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o SecurityGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o SecurityGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Owner ID.
-func (o SecurityGroupOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o SecurityGroupOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
@@ -603,8 +603,8 @@ func (o SecurityGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // VPC ID. Defaults to the region's default VPC.
-func (o SecurityGroupOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o SecurityGroupOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type SecurityGroupArrayOutput struct{ *pulumi.OutputState }

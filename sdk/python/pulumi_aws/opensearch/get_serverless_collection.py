@@ -58,7 +58,7 @@ class GetServerlessCollectionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name (ARN) of the collection.
         """
@@ -66,7 +66,7 @@ class GetServerlessCollectionResult:
 
     @property
     @pulumi.getter(name="collectionEndpoint")
-    def collection_endpoint(self) -> str:
+    def collection_endpoint(self) -> Optional[str]:
         """
         Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         """
@@ -74,7 +74,7 @@ class GetServerlessCollectionResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Date the Collection was created.
         """
@@ -82,7 +82,7 @@ class GetServerlessCollectionResult:
 
     @property
     @pulumi.getter(name="dashboardEndpoint")
-    def dashboard_endpoint(self) -> str:
+    def dashboard_endpoint(self) -> Optional[str]:
         """
         Collection-specific endpoint used to access OpenSearch Dashboards.
         """
@@ -90,7 +90,7 @@ class GetServerlessCollectionResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the collection.
         """
@@ -98,12 +98,12 @@ class GetServerlessCollectionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> Optional[str]:
         """
         The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         """
@@ -111,7 +111,7 @@ class GetServerlessCollectionResult:
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> str:
+    def last_modified_date(self) -> Optional[str]:
         """
         Date the Collection was last modified.
         """
@@ -119,12 +119,12 @@ class GetServerlessCollectionResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags to assign to the collection.
         """
@@ -132,7 +132,7 @@ class GetServerlessCollectionResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of collection.
         """

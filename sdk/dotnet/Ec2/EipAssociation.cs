@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Ec2
         /// The allocation ID. This is required for EC2-VPC.
         /// </summary>
         [Output("allocationId")]
-        public Output<string> AllocationId { get; private set; } = null!;
+        public Output<string?> AllocationId { get; private set; } = null!;
 
         /// <summary>
         /// Whether to allow an Elastic IP to
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2
         /// instance ID unless exactly one network interface is attached.
         /// </summary>
         [Output("instanceId")]
-        public Output<string> InstanceId { get; private set; } = null!;
+        public Output<string?> InstanceId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the network interface. If the
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Ec2
         /// interface ID.
         /// </summary>
         [Output("networkInterfaceId")]
-        public Output<string> NetworkInterfaceId { get; private set; } = null!;
+        public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
         /// The primary or secondary private IP address
@@ -101,13 +101,13 @@ namespace Pulumi.Aws.Ec2
         /// address.
         /// </summary>
         [Output("privateIpAddress")]
-        public Output<string> PrivateIpAddress { get; private set; } = null!;
+        public Output<string?> PrivateIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The Elastic IP address. This is required for EC2-Classic.
         /// </summary>
         [Output("publicIp")]
-        public Output<string> PublicIp { get; private set; } = null!;
+        public Output<string?> PublicIp { get; private set; } = null!;
 
 
         /// <summary>

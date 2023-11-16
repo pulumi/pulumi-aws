@@ -453,7 +453,7 @@ class CachePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Current version of the cache policy.
         """

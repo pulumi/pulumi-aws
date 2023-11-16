@@ -64,7 +64,7 @@ type Cluster struct {
 	// The name of the Access Control List to associate with the cluster.
 	AclName pulumi.StringOutput `pulumi:"aclName"`
 	// The ARN of the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput              `pulumi:"autoMinorVersionUpgrade"`
 	ClusterEndpoints        ClusterClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
@@ -73,19 +73,19 @@ type Cluster struct {
 	// Description for the cluster.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Patch version number of the Redis engine used by the cluster.
-	EnginePatchVersion pulumi.StringOutput `pulumi:"enginePatchVersion"`
+	EnginePatchVersion pulumi.StringPtrOutput `pulumi:"enginePatchVersion"`
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotName pulumi.StringPtrOutput `pulumi:"finalSnapshotName"`
 	// ARN of the KMS key used to encrypt the cluster at rest.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
-	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
+	MaintenanceWindow pulumi.StringPtrOutput `pulumi:"maintenanceWindow"`
 	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
 	//
 	// The following arguments are optional:
@@ -95,9 +95,9 @@ type Cluster struct {
 	// The number of shards in the cluster. Defaults to `1`.
 	NumShards pulumi.IntPtrOutput `pulumi:"numShards"`
 	// The name of the parameter group associated with the cluster.
-	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
+	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
 	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
-	Port pulumi.IntOutput `pulumi:"port"`
+	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Set of VPC Security Group ID-s to associate with this cluster.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Set of shards in this cluster.
@@ -107,13 +107,13 @@ type Cluster struct {
 	// The name of a snapshot from which to restore data into the new cluster.
 	SnapshotName pulumi.StringPtrOutput `pulumi:"snapshotName"`
 	// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
-	SnapshotRetentionLimit pulumi.IntOutput `pulumi:"snapshotRetentionLimit"`
+	SnapshotRetentionLimit pulumi.IntPtrOutput `pulumi:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
-	SnapshotWindow pulumi.StringOutput `pulumi:"snapshotWindow"`
+	SnapshotWindow pulumi.StringPtrOutput `pulumi:"snapshotWindow"`
 	// ARN of the SNS topic to which cluster notifications are sent.
 	SnsTopicArn pulumi.StringPtrOutput `pulumi:"snsTopicArn"`
 	// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
-	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
+	SubnetGroupName pulumi.StringPtrOutput `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -495,8 +495,8 @@ func (o ClusterOutput) AclName() pulumi.StringOutput {
 }
 
 // The ARN of the cluster.
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
@@ -519,13 +519,13 @@ func (o ClusterOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Patch version number of the Redis engine used by the cluster.
-func (o ClusterOutput) EnginePatchVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EnginePatchVersion }).(pulumi.StringOutput)
+func (o ClusterOutput) EnginePatchVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.EnginePatchVersion }).(pulumi.StringPtrOutput)
 }
 
 // Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
-func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o ClusterOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
@@ -539,8 +539,8 @@ func (o ClusterOutput) KmsKeyArn() pulumi.StringPtrOutput {
 }
 
 // Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
-func (o ClusterOutput) MaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MaintenanceWindow }).(pulumi.StringOutput)
+func (o ClusterOutput) MaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -549,8 +549,8 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o ClusterOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o ClusterOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
@@ -571,13 +571,13 @@ func (o ClusterOutput) NumShards() pulumi.IntPtrOutput {
 }
 
 // The name of the parameter group associated with the cluster.
-func (o ClusterOutput) ParameterGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
+func (o ClusterOutput) ParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The port number on which each of the nodes accepts connections. Defaults to `6379`.
-func (o ClusterOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+func (o ClusterOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // Set of VPC Security Group ID-s to associate with this cluster.
@@ -601,13 +601,13 @@ func (o ClusterOutput) SnapshotName() pulumi.StringPtrOutput {
 }
 
 // The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
-func (o ClusterOutput) SnapshotRetentionLimit() pulumi.IntOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
+func (o ClusterOutput) SnapshotRetentionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.SnapshotRetentionLimit }).(pulumi.IntPtrOutput)
 }
 
 // The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
-func (o ClusterOutput) SnapshotWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SnapshotWindow }).(pulumi.StringOutput)
+func (o ClusterOutput) SnapshotWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotWindow }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the SNS topic to which cluster notifications are sent.
@@ -616,8 +616,8 @@ func (o ClusterOutput) SnsTopicArn() pulumi.StringPtrOutput {
 }
 
 // The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
-func (o ClusterOutput) SubnetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SubnetGroupName }).(pulumi.StringOutput)
+func (o ClusterOutput) SubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

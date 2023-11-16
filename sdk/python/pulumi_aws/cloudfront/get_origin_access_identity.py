@@ -46,7 +46,7 @@ class GetOriginAccessIdentityResult:
 
     @property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> str:
+    def caller_reference(self) -> Optional[str]:
         """
         Internal value used by CloudFront to allow future
         updates to the origin access identity.
@@ -55,7 +55,7 @@ class GetOriginAccessIdentityResult:
 
     @property
     @pulumi.getter(name="cloudfrontAccessIdentityPath")
-    def cloudfront_access_identity_path(self) -> str:
+    def cloudfront_access_identity_path(self) -> Optional[str]:
         """
         A shortcut to the full path for the
         origin access identity to use in CloudFront, see below.
@@ -64,7 +64,7 @@ class GetOriginAccessIdentityResult:
 
     @property
     @pulumi.getter
-    def comment(self) -> str:
+    def comment(self) -> Optional[str]:
         """
         An optional comment for the origin access identity.
         """
@@ -72,7 +72,7 @@ class GetOriginAccessIdentityResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> Optional[str]:
         """
         Current version of the origin access identity's information.
         For example: `E2QWRUHAPOMQZL`.
@@ -81,7 +81,7 @@ class GetOriginAccessIdentityResult:
 
     @property
     @pulumi.getter(name="iamArn")
-    def iam_arn(self) -> str:
+    def iam_arn(self) -> Optional[str]:
         """
         Pre-generated ARN for use in S3 bucket policies (see below).
         Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
@@ -96,7 +96,7 @@ class GetOriginAccessIdentityResult:
 
     @property
     @pulumi.getter(name="s3CanonicalUserId")
-    def s3_canonical_user_id(self) -> str:
+    def s3_canonical_user_id(self) -> Optional[str]:
         """
         The Amazon S3 canonical user ID for the origin
         access identity, which you use when giving the origin access identity read

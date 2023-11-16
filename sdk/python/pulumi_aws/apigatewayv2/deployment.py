@@ -292,7 +292,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDeployed")
-    def auto_deployed(self) -> pulumi.Output[bool]:
+    def auto_deployed(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the deployment was automatically released.
         """

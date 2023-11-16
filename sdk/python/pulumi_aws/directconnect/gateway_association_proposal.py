@@ -357,7 +357,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedPrefixes")
-    def allowed_prefixes(self) -> pulumi.Output[Sequence[str]]:
+    def allowed_prefixes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
         """
@@ -373,7 +373,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedGatewayOwnerAccountId")
-    def associated_gateway_owner_account_id(self) -> pulumi.Output[str]:
+    def associated_gateway_owner_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         """
@@ -381,7 +381,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedGatewayType")
-    def associated_gateway_type(self) -> pulumi.Output[str]:
+    def associated_gateway_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         """

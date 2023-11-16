@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// Identifier of the contact flow.
         /// </summary>
-        public readonly string ContactFlowId;
+        public readonly string? ContactFlowId;
         /// <summary>
         /// Identifier for the user.
         /// </summary>
-        public readonly string UserId;
+        public readonly string? UserId;
 
         [OutputConstructor]
         private GetQuickConnectQuickConnectConfigUserConfigResult(
-            string contactFlowId,
+            string? contactFlowId,
 
-            string userId)
+            string? userId)
         {
             ContactFlowId = contactFlowId;
             UserId = userId;

@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     public sealed class GetFrameworkControlSetResult
     {
         public readonly ImmutableArray<Outputs.GetFrameworkControlSetControlResult> Controls;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the framework.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetFrameworkControlSetResult(
             ImmutableArray<Outputs.GetFrameworkControlSetControlResult> controls,
 
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             Controls = controls;
             Id = id;

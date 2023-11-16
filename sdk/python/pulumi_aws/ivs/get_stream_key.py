@@ -40,7 +40,7 @@ class GetStreamKeyResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Stream Key.
         """
@@ -53,7 +53,7 @@ class GetStreamKeyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -61,7 +61,7 @@ class GetStreamKeyResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the resource.
         """
@@ -69,7 +69,7 @@ class GetStreamKeyResult:
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         Stream Key value.
         """

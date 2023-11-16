@@ -544,7 +544,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Glue Connection.
         """
@@ -552,7 +552,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> pulumi.Output[str]:
+    def catalog_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         """

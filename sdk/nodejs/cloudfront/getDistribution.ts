@@ -45,28 +45,28 @@ export interface GetDistributionResult {
     /**
      * List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
      */
-    readonly aliases: string[];
+    readonly aliases?: string[];
     /**
      * ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Domain name corresponding to the distribution. For
      * example: `d604721fxaaqy9.cloudfront.net`.
      */
-    readonly domainName: string;
-    readonly enabled: boolean;
+    readonly domainName?: string;
+    readonly enabled?: boolean;
     /**
      * Current version of the distribution's information. For example:
      * `E2QWRUHAPOMQZL`.
      */
-    readonly etag: string;
+    readonly etag?: string;
     /**
      * CloudFront Route 53 zone ID that can be used to
      * route an [Alias Resource Record Set][7] to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      */
-    readonly hostedZoneId: string;
+    readonly hostedZoneId?: string;
     /**
      * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
      */
@@ -75,22 +75,22 @@ export interface GetDistributionResult {
      * The number of invalidation batches
      * currently in progress.
      */
-    readonly inProgressValidationBatches: number;
+    readonly inProgressValidationBatches?: number;
     /**
      * Date and time the distribution was last modified.
      */
-    readonly lastModifiedTime: string;
+    readonly lastModifiedTime?: string;
     /**
      * Current status of the distribution. `Deployed` if the
      * distribution's information is fully propagated throughout the Amazon
      * CloudFront system.
      */
-    readonly status: string;
+    readonly status?: string;
     readonly tags?: {[key: string]: string};
     /**
      * AWS WAF web ACL associated with this distribution.
      */
-    readonly webAclId: string;
+    readonly webAclId?: string;
 }
 /**
  * Use this data source to retrieve information about a CloudFront distribution.

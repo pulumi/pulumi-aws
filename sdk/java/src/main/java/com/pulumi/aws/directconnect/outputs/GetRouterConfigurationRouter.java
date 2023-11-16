@@ -6,6 +6,8 @@ package com.pulumi.aws.directconnect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouterConfigurationRouter {
@@ -13,7 +15,7 @@ public final class GetRouterConfigurationRouter {
      * @return Router platform
      * 
      */
-    private String platform;
+    private @Nullable String platform;
     /**
      * @return ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
      * 
@@ -42,31 +44,31 @@ public final class GetRouterConfigurationRouter {
      * ```
      * 
      */
-    private String routerTypeIdentifier;
+    private @Nullable String routerTypeIdentifier;
     /**
      * @return Router operating system
      * 
      */
-    private String software;
+    private @Nullable String software;
     /**
      * @return Router vendor
      * 
      */
-    private String vendor;
+    private @Nullable String vendor;
     /**
      * @return Router XSLT Template Name
      * 
      */
-    private String xsltTemplateName;
-    private String xsltTemplateNameForMacSec;
+    private @Nullable String xsltTemplateName;
+    private @Nullable String xsltTemplateNameForMacSec;
 
     private GetRouterConfigurationRouter() {}
     /**
      * @return Router platform
      * 
      */
-    public String platform() {
-        return this.platform;
+    public Optional<String> platform() {
+        return Optional.ofNullable(this.platform);
     }
     /**
      * @return ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
@@ -96,32 +98,32 @@ public final class GetRouterConfigurationRouter {
      * ```
      * 
      */
-    public String routerTypeIdentifier() {
-        return this.routerTypeIdentifier;
+    public Optional<String> routerTypeIdentifier() {
+        return Optional.ofNullable(this.routerTypeIdentifier);
     }
     /**
      * @return Router operating system
      * 
      */
-    public String software() {
-        return this.software;
+    public Optional<String> software() {
+        return Optional.ofNullable(this.software);
     }
     /**
      * @return Router vendor
      * 
      */
-    public String vendor() {
-        return this.vendor;
+    public Optional<String> vendor() {
+        return Optional.ofNullable(this.vendor);
     }
     /**
      * @return Router XSLT Template Name
      * 
      */
-    public String xsltTemplateName() {
-        return this.xsltTemplateName;
+    public Optional<String> xsltTemplateName() {
+        return Optional.ofNullable(this.xsltTemplateName);
     }
-    public String xsltTemplateNameForMacSec() {
-        return this.xsltTemplateNameForMacSec;
+    public Optional<String> xsltTemplateNameForMacSec() {
+        return Optional.ofNullable(this.xsltTemplateNameForMacSec);
     }
 
     public static Builder builder() {
@@ -133,12 +135,12 @@ public final class GetRouterConfigurationRouter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String platform;
-        private String routerTypeIdentifier;
-        private String software;
-        private String vendor;
-        private String xsltTemplateName;
-        private String xsltTemplateNameForMacSec;
+        private @Nullable String platform;
+        private @Nullable String routerTypeIdentifier;
+        private @Nullable String software;
+        private @Nullable String vendor;
+        private @Nullable String xsltTemplateName;
+        private @Nullable String xsltTemplateNameForMacSec;
         public Builder() {}
         public Builder(GetRouterConfigurationRouter defaults) {
     	      Objects.requireNonNull(defaults);
@@ -151,33 +153,33 @@ public final class GetRouterConfigurationRouter {
         }
 
         @CustomType.Setter
-        public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+        public Builder platform(@Nullable String platform) {
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
-        public Builder routerTypeIdentifier(String routerTypeIdentifier) {
-            this.routerTypeIdentifier = Objects.requireNonNull(routerTypeIdentifier);
+        public Builder routerTypeIdentifier(@Nullable String routerTypeIdentifier) {
+            this.routerTypeIdentifier = routerTypeIdentifier;
             return this;
         }
         @CustomType.Setter
-        public Builder software(String software) {
-            this.software = Objects.requireNonNull(software);
+        public Builder software(@Nullable String software) {
+            this.software = software;
             return this;
         }
         @CustomType.Setter
-        public Builder vendor(String vendor) {
-            this.vendor = Objects.requireNonNull(vendor);
+        public Builder vendor(@Nullable String vendor) {
+            this.vendor = vendor;
             return this;
         }
         @CustomType.Setter
-        public Builder xsltTemplateName(String xsltTemplateName) {
-            this.xsltTemplateName = Objects.requireNonNull(xsltTemplateName);
+        public Builder xsltTemplateName(@Nullable String xsltTemplateName) {
+            this.xsltTemplateName = xsltTemplateName;
             return this;
         }
         @CustomType.Setter
-        public Builder xsltTemplateNameForMacSec(String xsltTemplateNameForMacSec) {
-            this.xsltTemplateNameForMacSec = Objects.requireNonNull(xsltTemplateNameForMacSec);
+        public Builder xsltTemplateNameForMacSec(@Nullable String xsltTemplateNameForMacSec) {
+            this.xsltTemplateNameForMacSec = xsltTemplateNameForMacSec;
             return this;
         }
         public GetRouterConfigurationRouter build() {

@@ -267,7 +267,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN assigned by AWS to this policy.
         """
@@ -275,7 +275,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVersionId")
-    def default_version_id(self) -> pulumi.Output[str]:
+    def default_version_id(self) -> pulumi.Output[Optional[str]]:
         """
         The default version of this policy.
         """

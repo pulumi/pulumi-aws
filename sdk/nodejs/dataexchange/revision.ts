@@ -55,7 +55,7 @@ export class Revision extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this data set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * An optional comment about the revision.
      */
@@ -67,7 +67,7 @@ export class Revision extends pulumi.CustomResource {
     /**
      * The Id of the revision.
      */
-    public /*out*/ readonly revisionId!: pulumi.Output<string>;
+    public /*out*/ readonly revisionId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

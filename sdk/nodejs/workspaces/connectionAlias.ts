@@ -63,11 +63,11 @@ export class ConnectionAlias extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Web Services account that owns the connection alias.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string | undefined>;
     /**
      * The current state of the connection alias.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

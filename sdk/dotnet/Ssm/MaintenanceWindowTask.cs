@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Ssm
         /// The ARN of the maintenance window task.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
@@ -202,13 +202,13 @@ namespace Pulumi.Aws.Ssm
         /// The maximum number of targets this task can be run for in parallel.
         /// </summary>
         [Output("maxConcurrency")]
-        public Output<string> MaxConcurrency { get; private set; } = null!;
+        public Output<string?> MaxConcurrency { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of errors allowed before this task stops being scheduled.
         /// </summary>
         [Output("maxErrors")]
-        public Output<string> MaxErrors { get; private set; } = null!;
+        public Output<string?> MaxErrors { get; private set; } = null!;
 
         /// <summary>
         /// The name of the maintenance window task.
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Ssm
         /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         /// </summary>
         [Output("serviceRoleArn")]
-        public Output<string> ServiceRoleArn { get; private set; } = null!;
+        public Output<string?> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Ssm
         /// The ID of the maintenance window task.
         /// </summary>
         [Output("windowTaskId")]
-        public Output<string> WindowTaskId { get; private set; } = null!;
+        public Output<string?> WindowTaskId { get; private set; } = null!;
 
 
         /// <summary>

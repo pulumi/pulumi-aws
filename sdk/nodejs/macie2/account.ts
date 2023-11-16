@@ -58,23 +58,23 @@ export class Account extends pulumi.CustomResource {
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      */
-    public readonly findingPublishingFrequency!: pulumi.Output<string>;
+    public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      */
-    public /*out*/ readonly serviceRole!: pulumi.Output<string>;
+    public /*out*/ readonly serviceRole!: pulumi.Output<string | undefined>;
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.

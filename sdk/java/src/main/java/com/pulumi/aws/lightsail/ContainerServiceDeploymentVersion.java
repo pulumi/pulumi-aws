@@ -108,14 +108,14 @@ public class ContainerServiceDeploymentVersion extends com.pulumi.resources.Cust
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The timestamp when the deployment was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
@@ -150,28 +150,28 @@ public class ContainerServiceDeploymentVersion extends com.pulumi.resources.Cust
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The current state of the container service.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * The version number of the deployment.
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
-    private Output<Integer> version;
+    private Output</* @Nullable */ Integer> version;
 
     /**
      * @return The version number of the deployment.
      * 
      */
-    public Output<Integer> version() {
-        return this.version;
+    public Output<Optional<Integer>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

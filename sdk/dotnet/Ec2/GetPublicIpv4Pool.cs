@@ -130,48 +130,48 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Description of the pool, if any.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the location from which the address pool is advertised.
         /// * pool_address_ranges` - List of Address Ranges in the Pool; each address range record contains:
         /// </summary>
-        public readonly string NetworkBorderGroup;
+        public readonly string? NetworkBorderGroup;
         public readonly ImmutableArray<Outputs.GetPublicIpv4PoolPoolAddressRangeResult> PoolAddressRanges;
         public readonly string PoolId;
         /// <summary>
         /// Any tags for the address pool.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Total number of addresses in the pool.
         /// </summary>
-        public readonly int TotalAddressCount;
+        public readonly int? TotalAddressCount;
         /// <summary>
         /// Total number of available addresses in the pool.
         /// </summary>
-        public readonly int TotalAvailableAddressCount;
+        public readonly int? TotalAvailableAddressCount;
 
         [OutputConstructor]
         private GetPublicIpv4PoolResult(
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string networkBorderGroup,
+            string? networkBorderGroup,
 
             ImmutableArray<Outputs.GetPublicIpv4PoolPoolAddressRangeResult> poolAddressRanges,
 
             string poolId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int totalAddressCount,
+            int? totalAddressCount,
 
-            int totalAvailableAddressCount)
+            int? totalAvailableAddressCount)
         {
             Description = description;
             Id = id;

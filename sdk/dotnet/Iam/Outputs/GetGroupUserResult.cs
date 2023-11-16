@@ -16,29 +16,29 @@ namespace Pulumi.Aws.Iam.Outputs
         /// <summary>
         /// User ARN.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Path to the IAM user.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         /// <summary>
         /// Stable and unique string identifying the IAM user.
         /// </summary>
-        public readonly string UserId;
+        public readonly string? UserId;
         /// <summary>
         /// Name of the IAM user.
         /// </summary>
-        public readonly string UserName;
+        public readonly string? UserName;
 
         [OutputConstructor]
         private GetGroupUserResult(
-            string arn,
+            string? arn,
 
-            string path,
+            string? path,
 
-            string userId,
+            string? userId,
 
-            string userName)
+            string? userName)
         {
             Arn = arn;
             Path = path;

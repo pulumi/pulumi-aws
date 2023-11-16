@@ -6,18 +6,20 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib {
-    private Integer max;
-    private Integer min;
+    private @Nullable Integer max;
+    private @Nullable Integer min;
 
     private GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib() {}
-    public Integer max() {
-        return this.max;
+    public Optional<Integer> max() {
+        return Optional.ofNullable(this.max);
     }
-    public Integer min() {
-        return this.min;
+    public Optional<Integer> min() {
+        return Optional.ofNullable(this.min);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer max;
-        private Integer min;
+        private @Nullable Integer max;
+        private @Nullable Integer min;
         public Builder() {}
         public Builder(GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib
         }
 
         @CustomType.Setter
-        public Builder max(Integer max) {
-            this.max = Objects.requireNonNull(max);
+        public Builder max(@Nullable Integer max) {
+            this.max = max;
             return this;
         }
         @CustomType.Setter
-        public Builder min(Integer min) {
-            this.min = Objects.requireNonNull(min);
+        public Builder min(@Nullable Integer min) {
+            this.min = min;
             return this;
         }
         public GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib build() {

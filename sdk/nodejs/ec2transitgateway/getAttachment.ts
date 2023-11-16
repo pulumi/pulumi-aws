@@ -66,49 +66,49 @@ export interface GetAttachmentResult {
     /**
      * ARN of the attachment.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
      */
-    readonly associationState: string;
+    readonly associationState?: string;
     /**
      * The ID of the route table for the transit gateway.
      */
-    readonly associationTransitGatewayRouteTableId: string;
+    readonly associationTransitGatewayRouteTableId?: string;
     readonly filters?: outputs.ec2transitgateway.GetAttachmentFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ID of the resource.
      */
-    readonly resourceId: string;
+    readonly resourceId?: string;
     /**
      * ID of the AWS account that owns the resource.
      */
-    readonly resourceOwnerId: string;
+    readonly resourceOwnerId?: string;
     /**
      * Resource type.
      */
-    readonly resourceType: string;
+    readonly resourceType?: string;
     /**
      * Attachment state.
      */
-    readonly state: string;
+    readonly state?: string;
     /**
      * Key-value tags for the attachment.
      */
-    readonly tags: {[key: string]: string};
-    readonly transitGatewayAttachmentId: string;
+    readonly tags?: {[key: string]: string};
+    readonly transitGatewayAttachmentId?: string;
     /**
      * ID of the transit gateway.
      */
-    readonly transitGatewayId: string;
+    readonly transitGatewayId?: string;
     /**
      * The ID of the AWS account that owns the transit gateway.
      */
-    readonly transitGatewayOwnerId: string;
+    readonly transitGatewayOwnerId?: string;
 }
 /**
  * Get information on an EC2 Transit Gateway's attachment to a resource.

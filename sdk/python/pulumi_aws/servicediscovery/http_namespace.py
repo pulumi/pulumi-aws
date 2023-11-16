@@ -313,7 +313,7 @@ class HttpNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN that Amazon Route 53 assigns to the namespace when you create it.
         """
@@ -329,7 +329,7 @@ class HttpNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpName")
-    def http_name(self) -> pulumi.Output[str]:
+    def http_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of an HTTP namespace.
         """

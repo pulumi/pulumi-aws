@@ -96,11 +96,11 @@ export interface GetClusterSnapshotResult {
     /**
      * Allocated storage size in gigabytes (GB).
      */
-    readonly allocatedStorage: number;
+    readonly allocatedStorage?: number;
     /**
      * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      */
-    readonly availabilityZones: string[];
+    readonly availabilityZones?: string[];
     /**
      * Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
      */
@@ -108,57 +108,57 @@ export interface GetClusterSnapshotResult {
     /**
      * The ARN for the DB Cluster Snapshot.
      */
-    readonly dbClusterSnapshotArn: string;
+    readonly dbClusterSnapshotArn?: string;
     readonly dbClusterSnapshotIdentifier?: string;
     /**
      * Name of the database engine.
      */
-    readonly engine: string;
+    readonly engine?: string;
     /**
      * Version of the database engine for this DB cluster snapshot.
      */
-    readonly engineVersion: string;
+    readonly engineVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
      * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     /**
      * License model information for the restored DB cluster.
      */
-    readonly licenseModel: string;
+    readonly licenseModel?: string;
     readonly mostRecent?: boolean;
     /**
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
-    readonly port: number;
+    readonly port?: number;
     /**
      * Time when the snapshot was taken, in Universal Coordinated Time (UTC).
      */
-    readonly snapshotCreateTime: string;
+    readonly snapshotCreateTime?: string;
     readonly snapshotType?: string;
-    readonly sourceDbClusterSnapshotArn: string;
+    readonly sourceDbClusterSnapshotArn?: string;
     /**
      * Status of this DB Cluster Snapshot.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Whether the DB cluster snapshot is encrypted.
      */
-    readonly storageEncrypted: boolean;
+    readonly storageEncrypted?: boolean;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * VPC ID associated with the DB cluster snapshot.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.

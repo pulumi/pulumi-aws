@@ -139,7 +139,7 @@ export class ResponsePlan extends pulumi.CustomResource {
     /**
      * The ARN of the response plan.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Chatbot chat channel used for collaboration during an incident.
      */

@@ -16,34 +16,34 @@ public final class GetAuthorizationTokenResult {
      * @return Temporary authorization token.
      * 
      */
-    private String authorizationToken;
+    private @Nullable String authorizationToken;
     private String domain;
-    private String domainOwner;
+    private @Nullable String domainOwner;
     private @Nullable Integer durationSeconds;
     /**
      * @return Time in UTC RFC3339 format when the authorization token expires.
      * 
      */
-    private String expiration;
+    private @Nullable String expiration;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetAuthorizationTokenResult() {}
     /**
      * @return Temporary authorization token.
      * 
      */
-    public String authorizationToken() {
-        return this.authorizationToken;
+    public Optional<String> authorizationToken() {
+        return Optional.ofNullable(this.authorizationToken);
     }
     public String domain() {
         return this.domain;
     }
-    public String domainOwner() {
-        return this.domainOwner;
+    public Optional<String> domainOwner() {
+        return Optional.ofNullable(this.domainOwner);
     }
     public Optional<Integer> durationSeconds() {
         return Optional.ofNullable(this.durationSeconds);
@@ -52,15 +52,15 @@ public final class GetAuthorizationTokenResult {
      * @return Time in UTC RFC3339 format when the authorization token expires.
      * 
      */
-    public String expiration() {
-        return this.expiration;
+    public Optional<String> expiration() {
+        return Optional.ofNullable(this.expiration);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -72,12 +72,12 @@ public final class GetAuthorizationTokenResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String authorizationToken;
+        private @Nullable String authorizationToken;
         private String domain;
-        private String domainOwner;
+        private @Nullable String domainOwner;
         private @Nullable Integer durationSeconds;
-        private String expiration;
-        private String id;
+        private @Nullable String expiration;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetAuthorizationTokenResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -90,8 +90,8 @@ public final class GetAuthorizationTokenResult {
         }
 
         @CustomType.Setter
-        public Builder authorizationToken(String authorizationToken) {
-            this.authorizationToken = Objects.requireNonNull(authorizationToken);
+        public Builder authorizationToken(@Nullable String authorizationToken) {
+            this.authorizationToken = authorizationToken;
             return this;
         }
         @CustomType.Setter
@@ -100,8 +100,8 @@ public final class GetAuthorizationTokenResult {
             return this;
         }
         @CustomType.Setter
-        public Builder domainOwner(String domainOwner) {
-            this.domainOwner = Objects.requireNonNull(domainOwner);
+        public Builder domainOwner(@Nullable String domainOwner) {
+            this.domainOwner = domainOwner;
             return this;
         }
         @CustomType.Setter
@@ -110,13 +110,13 @@ public final class GetAuthorizationTokenResult {
             return this;
         }
         @CustomType.Setter
-        public Builder expiration(String expiration) {
-            this.expiration = Objects.requireNonNull(expiration);
+        public Builder expiration(@Nullable String expiration) {
+            this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetAuthorizationTokenResult build() {

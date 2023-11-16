@@ -128,35 +128,35 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the COIP pool
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly ImmutableArray<Outputs.GetCoipPoolFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string LocalGatewayRouteTableId;
+        public readonly string? Id;
+        public readonly string? LocalGatewayRouteTableId;
         /// <summary>
         /// Set of CIDR blocks in pool
         /// </summary>
         public readonly ImmutableArray<string> PoolCidrs;
-        public readonly string PoolId;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? PoolId;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetCoipPoolResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetCoipPoolFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string localGatewayRouteTableId,
+            string? localGatewayRouteTableId,
 
             ImmutableArray<string> poolCidrs,
 
-            string poolId,
+            string? poolId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Filters = filters;

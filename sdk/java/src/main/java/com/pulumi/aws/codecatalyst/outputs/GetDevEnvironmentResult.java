@@ -32,32 +32,32 @@ public final class GetDevEnvironmentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Information about the integrated development environment (IDE) configured for a Dev Environment.
      * 
      */
-    private List<GetDevEnvironmentIde> ides;
+    private @Nullable List<GetDevEnvironmentIde> ides;
     /**
      * @return The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      * 
      */
-    private Integer inactivityTimeoutMinutes;
+    private @Nullable Integer inactivityTimeoutMinutes;
     /**
      * @return The Amazon EC2 instace type to use for the Dev Environment.
      * 
      */
-    private String instanceType;
+    private @Nullable String instanceType;
     /**
      * @return The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
      * 
      */
-    private String lastUpdatedTime;
+    private @Nullable String lastUpdatedTime;
     /**
      * @return Information about the amount of storage allocated to the Dev Environment.
      * 
      */
-    private List<GetDevEnvironmentPersistentStorage> persistentStorages;
+    private @Nullable List<GetDevEnvironmentPersistentStorage> persistentStorages;
     private String projectName;
     /**
      * @return The source repository that contains the branch to clone into the Dev Environment.
@@ -69,13 +69,13 @@ public final class GetDevEnvironmentResult {
      * @return The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return The reason for the status.
      * 
      */
-    private String statusReason;
-    private Map<String,String> tags;
+    private @Nullable String statusReason;
+    private @Nullable Map<String,String> tags;
 
     private GetDevEnvironmentResult() {}
     /**
@@ -99,43 +99,43 @@ public final class GetDevEnvironmentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Information about the integrated development environment (IDE) configured for a Dev Environment.
      * 
      */
     public List<GetDevEnvironmentIde> ides() {
-        return this.ides;
+        return this.ides == null ? List.of() : this.ides;
     }
     /**
      * @return The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      * 
      */
-    public Integer inactivityTimeoutMinutes() {
-        return this.inactivityTimeoutMinutes;
+    public Optional<Integer> inactivityTimeoutMinutes() {
+        return Optional.ofNullable(this.inactivityTimeoutMinutes);
     }
     /**
      * @return The Amazon EC2 instace type to use for the Dev Environment.
      * 
      */
-    public String instanceType() {
-        return this.instanceType;
+    public Optional<String> instanceType() {
+        return Optional.ofNullable(this.instanceType);
     }
     /**
      * @return The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
      * 
      */
-    public String lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Optional<String> lastUpdatedTime() {
+        return Optional.ofNullable(this.lastUpdatedTime);
     }
     /**
      * @return Information about the amount of storage allocated to the Dev Environment.
      * 
      */
     public List<GetDevEnvironmentPersistentStorage> persistentStorages() {
-        return this.persistentStorages;
+        return this.persistentStorages == null ? List.of() : this.persistentStorages;
     }
     public String projectName() {
         return this.projectName;
@@ -154,18 +154,18 @@ public final class GetDevEnvironmentResult {
      * @return The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return The reason for the status.
      * 
      */
-    public String statusReason() {
-        return this.statusReason;
+    public Optional<String> statusReason() {
+        return Optional.ofNullable(this.statusReason);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -180,18 +180,18 @@ public final class GetDevEnvironmentResult {
         private @Nullable String alias;
         private @Nullable String creatorId;
         private String envId;
-        private String id;
-        private List<GetDevEnvironmentIde> ides;
-        private Integer inactivityTimeoutMinutes;
-        private String instanceType;
-        private String lastUpdatedTime;
-        private List<GetDevEnvironmentPersistentStorage> persistentStorages;
+        private @Nullable String id;
+        private @Nullable List<GetDevEnvironmentIde> ides;
+        private @Nullable Integer inactivityTimeoutMinutes;
+        private @Nullable String instanceType;
+        private @Nullable String lastUpdatedTime;
+        private @Nullable List<GetDevEnvironmentPersistentStorage> persistentStorages;
         private String projectName;
         private @Nullable List<GetDevEnvironmentRepository> repositories;
         private String spaceName;
-        private String status;
-        private String statusReason;
-        private Map<String,String> tags;
+        private @Nullable String status;
+        private @Nullable String statusReason;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetDevEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -228,36 +228,36 @@ public final class GetDevEnvironmentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ides(List<GetDevEnvironmentIde> ides) {
-            this.ides = Objects.requireNonNull(ides);
+        public Builder ides(@Nullable List<GetDevEnvironmentIde> ides) {
+            this.ides = ides;
             return this;
         }
         public Builder ides(GetDevEnvironmentIde... ides) {
             return ides(List.of(ides));
         }
         @CustomType.Setter
-        public Builder inactivityTimeoutMinutes(Integer inactivityTimeoutMinutes) {
-            this.inactivityTimeoutMinutes = Objects.requireNonNull(inactivityTimeoutMinutes);
+        public Builder inactivityTimeoutMinutes(@Nullable Integer inactivityTimeoutMinutes) {
+            this.inactivityTimeoutMinutes = inactivityTimeoutMinutes;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+        public Builder instanceType(@Nullable String instanceType) {
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedTime(String lastUpdatedTime) {
-            this.lastUpdatedTime = Objects.requireNonNull(lastUpdatedTime);
+        public Builder lastUpdatedTime(@Nullable String lastUpdatedTime) {
+            this.lastUpdatedTime = lastUpdatedTime;
             return this;
         }
         @CustomType.Setter
-        public Builder persistentStorages(List<GetDevEnvironmentPersistentStorage> persistentStorages) {
-            this.persistentStorages = Objects.requireNonNull(persistentStorages);
+        public Builder persistentStorages(@Nullable List<GetDevEnvironmentPersistentStorage> persistentStorages) {
+            this.persistentStorages = persistentStorages;
             return this;
         }
         public Builder persistentStorages(GetDevEnvironmentPersistentStorage... persistentStorages) {
@@ -282,18 +282,18 @@ public final class GetDevEnvironmentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder statusReason(String statusReason) {
-            this.statusReason = Objects.requireNonNull(statusReason);
+        public Builder statusReason(@Nullable String statusReason) {
+            this.statusReason = statusReason;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetDevEnvironmentResult build() {

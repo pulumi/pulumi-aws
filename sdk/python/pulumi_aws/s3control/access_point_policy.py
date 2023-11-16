@@ -288,7 +288,7 @@ class AccessPointPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasPublicAccessPolicy")
-    def has_public_access_policy(self) -> pulumi.Output[bool]:
+    def has_public_access_policy(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this access point currently has a policy that allows public access.
         """

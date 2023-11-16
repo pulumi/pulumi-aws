@@ -55,11 +55,11 @@ type UserProfile struct {
 	pulumi.CustomResourceState
 
 	// The user profile Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the associated Domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
+	HomeEfsFileSystemUid pulumi.StringPtrOutput `pulumi:"homeEfsFileSystemUid"`
 	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserIdentifier pulumi.StringPtrOutput `pulumi:"singleSignOnUserIdentifier"`
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
@@ -284,8 +284,8 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 }
 
 // The user profile Amazon Resource Name (ARN).
-func (o UserProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the associated Domain.
@@ -294,8 +294,8 @@ func (o UserProfileOutput) DomainId() pulumi.StringOutput {
 }
 
 // The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-func (o UserProfileOutput) HomeEfsFileSystemUid() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringOutput)
+func (o UserProfileOutput) HomeEfsFileSystemUid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringPtrOutput)
 }
 
 // A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.

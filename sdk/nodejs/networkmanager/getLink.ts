@@ -57,37 +57,37 @@ export interface GetLinkResult {
     /**
      * ARN of the link.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Upload speed and download speed of the link as documented below
      */
-    readonly bandwidths: outputs.networkmanager.GetLinkBandwidth[];
+    readonly bandwidths?: outputs.networkmanager.GetLinkBandwidth[];
     /**
      * Description of the link.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly globalNetworkId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly linkId: string;
     /**
      * Provider of the link.
      */
-    readonly providerName: string;
+    readonly providerName?: string;
     /**
      * ID of the site.
      */
-    readonly siteId: string;
+    readonly siteId?: string;
     /**
      * Key-value tags for the link.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Type of the link.
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * Retrieve information about a link.

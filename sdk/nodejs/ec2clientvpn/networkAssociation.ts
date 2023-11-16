@@ -59,7 +59,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
     /**
      * The unique ID of the target network association.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Client VPN endpoint.
      */
@@ -71,7 +71,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
     /**
      * The ID of the VPC in which the target subnet is located.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NetworkAssociation resource with the given unique name, arguments, and options.

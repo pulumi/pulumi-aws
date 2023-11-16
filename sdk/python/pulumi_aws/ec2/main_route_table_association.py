@@ -248,7 +248,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originalRouteTableId")
-    def original_route_table_id(self) -> pulumi.Output[str]:
+    def original_route_table_id(self) -> pulumi.Output[Optional[str]]:
         """
         Used internally, see **Notes** below
         """

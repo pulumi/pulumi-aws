@@ -63,9 +63,9 @@ type VocabularyFilter struct {
 	pulumi.CustomResourceState
 
 	// ARN of the VocabularyFilter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Generated download URI.
-	DownloadUri pulumi.StringOutput `pulumi:"downloadUri"`
+	DownloadUri pulumi.StringPtrOutput `pulumi:"downloadUri"`
 	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -286,13 +286,13 @@ func (o VocabularyFilterOutput) ToVocabularyFilterOutputWithContext(ctx context.
 }
 
 // ARN of the VocabularyFilter.
-func (o VocabularyFilterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VocabularyFilterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Generated download URI.
-func (o VocabularyFilterOutput) DownloadUri() pulumi.StringOutput {
-	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.DownloadUri }).(pulumi.StringOutput)
+func (o VocabularyFilterOutput) DownloadUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringPtrOutput { return v.DownloadUri }).(pulumi.StringPtrOutput)
 }
 
 // The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.

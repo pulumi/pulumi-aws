@@ -103,15 +103,15 @@ type Application struct {
 	pulumi.CustomResourceState
 
 	// The application ID.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	ApplicationId pulumi.StringPtrOutput `pulumi:"applicationId"`
 	// The ARN of the CodeDeploy application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
 	// The name for a connection to a GitHub account.
-	GithubAccountName pulumi.StringOutput `pulumi:"githubAccountName"`
+	GithubAccountName pulumi.StringPtrOutput `pulumi:"githubAccountName"`
 	// Whether the user has authenticated with GitHub for the specified application.
-	LinkedToGithub pulumi.BoolOutput `pulumi:"linkedToGithub"`
+	LinkedToGithub pulumi.BoolPtrOutput `pulumi:"linkedToGithub"`
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -308,13 +308,13 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 }
 
 // The application ID.
-func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+func (o ApplicationOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the CodeDeploy application.
-func (o ApplicationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ApplicationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
@@ -323,13 +323,13 @@ func (o ApplicationOutput) ComputePlatform() pulumi.StringPtrOutput {
 }
 
 // The name for a connection to a GitHub account.
-func (o ApplicationOutput) GithubAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.GithubAccountName }).(pulumi.StringOutput)
+func (o ApplicationOutput) GithubAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.GithubAccountName }).(pulumi.StringPtrOutput)
 }
 
 // Whether the user has authenticated with GitHub for the specified application.
-func (o ApplicationOutput) LinkedToGithub() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Application) pulumi.BoolOutput { return v.LinkedToGithub }).(pulumi.BoolOutput)
+func (o ApplicationOutput) LinkedToGithub() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.LinkedToGithub }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the application.

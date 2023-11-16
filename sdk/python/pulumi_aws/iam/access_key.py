@@ -416,7 +416,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> pulumi.Output[str]:
+    def create_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
         """
@@ -424,7 +424,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptedSecret")
-    def encrypted_secret(self) -> pulumi.Output[str]:
+    def encrypted_secret(self) -> pulumi.Output[Optional[str]]:
         """
         Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
         """
@@ -432,7 +432,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptedSesSmtpPasswordV4")
-    def encrypted_ses_smtp_password_v4(self) -> pulumi.Output[str]:
+    def encrypted_ses_smtp_password_v4(self) -> pulumi.Output[Optional[str]]:
         """
         Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
         """
@@ -440,7 +440,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyFingerprint")
-    def key_fingerprint(self) -> pulumi.Output[str]:
+    def key_fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
         """
@@ -456,7 +456,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secret(self) -> pulumi.Output[str]:
+    def secret(self) -> pulumi.Output[Optional[str]]:
         """
         Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
         """
@@ -464,7 +464,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sesSmtpPasswordV4")
-    def ses_smtp_password_v4(self) -> pulumi.Output[str]:
+    def ses_smtp_password_v4(self) -> pulumi.Output[Optional[str]]:
         """
         Secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
         """

@@ -66,19 +66,19 @@ export interface GetInternetGatewayResult {
     /**
      * ARN of the Internet Gateway.
      */
-    readonly arn: string;
-    readonly attachments: outputs.ec2.GetInternetGatewayAttachment[];
+    readonly arn?: string;
+    readonly attachments?: outputs.ec2.GetInternetGatewayAttachment[];
     readonly filters?: outputs.ec2.GetInternetGatewayFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly internetGatewayId: string;
+    readonly id?: string;
+    readonly internetGatewayId?: string;
     /**
      * ID of the AWS account that owns the internet gateway.
      */
-    readonly ownerId: string;
-    readonly tags: {[key: string]: string};
+    readonly ownerId?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.

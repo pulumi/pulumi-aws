@@ -75,7 +75,7 @@ export class InboundConnectionAccepter extends pulumi.CustomResource {
     /**
      * Status of the connection request.
      */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string | undefined>;
 
     /**
      * Create a InboundConnectionAccepter resource with the given unique name, arguments, and options.

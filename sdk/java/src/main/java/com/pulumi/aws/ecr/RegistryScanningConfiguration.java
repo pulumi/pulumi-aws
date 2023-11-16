@@ -119,14 +119,14 @@ public class RegistryScanningConfiguration extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="registryId", refs={String.class}, tree="[0]")
-    private Output<String> registryId;
+    private Output</* @Nullable */ String> registryId;
 
     /**
      * @return The registry ID the scanning configuration applies to.
      * 
      */
-    public Output<String> registryId() {
-        return this.registryId;
+    public Output<Optional<String>> registryId() {
+        return Codegen.optional(this.registryId);
     }
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.

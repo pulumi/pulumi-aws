@@ -309,7 +309,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of group
         """
@@ -317,7 +317,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         """

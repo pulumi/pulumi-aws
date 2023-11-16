@@ -197,7 +197,7 @@ type Job struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of Glue Job
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The command of the job. Defined below.
 	Command JobCommandOutput `pulumi:"command"`
 	// The list of connections used for this job.
@@ -209,11 +209,11 @@ type Job struct {
 	// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
 	ExecutionClass pulumi.StringPtrOutput `pulumi:"executionClass"`
 	// Execution property of the job. Defined below.
-	ExecutionProperty JobExecutionPropertyOutput `pulumi:"executionProperty"`
+	ExecutionProperty JobExecutionPropertyPtrOutput `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
+	GlueVersion pulumi.StringPtrOutput `pulumi:"glueVersion"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
-	MaxCapacity pulumi.Float64Output `pulumi:"maxCapacity"`
+	MaxCapacity pulumi.Float64PtrOutput `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrOutput `pulumi:"maxRetries"`
 	// The name you assign to this job. It must be unique in your account.
@@ -221,7 +221,7 @@ type Job struct {
 	// Non-overridable arguments for this job, specified as name-value pairs.
 	NonOverridableArguments pulumi.StringMapOutput `pulumi:"nonOverridableArguments"`
 	// Notification property of the job. Defined below.
-	NotificationProperty JobNotificationPropertyOutput `pulumi:"notificationProperty"`
+	NotificationProperty JobNotificationPropertyPtrOutput `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers pulumi.IntPtrOutput `pulumi:"numberOfWorkers"`
 	// The ARN of the IAM role associated with this job.
@@ -235,7 +235,7 @@ type Job struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
-	Timeout pulumi.IntOutput `pulumi:"timeout"`
+	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
 	// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
 	// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
@@ -565,8 +565,8 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 }
 
 // Amazon Resource Name (ARN) of Glue Job
-func (o JobOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o JobOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The command of the job. Defined below.
@@ -595,18 +595,18 @@ func (o JobOutput) ExecutionClass() pulumi.StringPtrOutput {
 }
 
 // Execution property of the job. Defined below.
-func (o JobOutput) ExecutionProperty() JobExecutionPropertyOutput {
-	return o.ApplyT(func(v *Job) JobExecutionPropertyOutput { return v.ExecutionProperty }).(JobExecutionPropertyOutput)
+func (o JobOutput) ExecutionProperty() JobExecutionPropertyPtrOutput {
+	return o.ApplyT(func(v *Job) JobExecutionPropertyPtrOutput { return v.ExecutionProperty }).(JobExecutionPropertyPtrOutput)
 }
 
 // The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-func (o JobOutput) GlueVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.GlueVersion }).(pulumi.StringOutput)
+func (o JobOutput) GlueVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.GlueVersion }).(pulumi.StringPtrOutput)
 }
 
 // The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
-func (o JobOutput) MaxCapacity() pulumi.Float64Output {
-	return o.ApplyT(func(v *Job) pulumi.Float64Output { return v.MaxCapacity }).(pulumi.Float64Output)
+func (o JobOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.Float64PtrOutput { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // The maximum number of times to retry this job if it fails.
@@ -625,8 +625,8 @@ func (o JobOutput) NonOverridableArguments() pulumi.StringMapOutput {
 }
 
 // Notification property of the job. Defined below.
-func (o JobOutput) NotificationProperty() JobNotificationPropertyOutput {
-	return o.ApplyT(func(v *Job) JobNotificationPropertyOutput { return v.NotificationProperty }).(JobNotificationPropertyOutput)
+func (o JobOutput) NotificationProperty() JobNotificationPropertyPtrOutput {
+	return o.ApplyT(func(v *Job) JobNotificationPropertyPtrOutput { return v.NotificationProperty }).(JobNotificationPropertyPtrOutput)
 }
 
 // The number of workers of a defined workerType that are allocated when a job runs.
@@ -657,8 +657,8 @@ func (o JobOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
-func (o JobOutput) Timeout() pulumi.IntOutput {
-	return o.ApplyT(func(v *Job) pulumi.IntOutput { return v.Timeout }).(pulumi.IntOutput)
+func (o JobOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
 // The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.

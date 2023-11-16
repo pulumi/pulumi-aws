@@ -46,33 +46,33 @@ type HostedConnection struct {
 	pulumi.CustomResourceState
 
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
+	AwsDevice pulumi.StringPtrOutput `pulumi:"awsDevice"`
 	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
 	Bandwidth pulumi.StringOutput `pulumi:"bandwidth"`
 	// The ID of the interconnect or LAG.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-	HasLogicalRedundancy pulumi.StringOutput `pulumi:"hasLogicalRedundancy"`
+	HasLogicalRedundancy pulumi.StringPtrOutput `pulumi:"hasLogicalRedundancy"`
 	// Boolean value representing if jumbo frames have been enabled for this connection.
-	JumboFrameCapable pulumi.BoolOutput `pulumi:"jumboFrameCapable"`
+	JumboFrameCapable pulumi.BoolPtrOutput `pulumi:"jumboFrameCapable"`
 	// The ID of the LAG.
-	LagId pulumi.StringOutput `pulumi:"lagId"`
+	LagId pulumi.StringPtrOutput `pulumi:"lagId"`
 	// The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
-	LoaIssueTime pulumi.StringOutput `pulumi:"loaIssueTime"`
+	LoaIssueTime pulumi.StringPtrOutput `pulumi:"loaIssueTime"`
 	// The location of the connection.
-	Location pulumi.StringOutput `pulumi:"location"`
+	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the connection.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the AWS account of the customer for the connection.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The name of the AWS Direct Connect service provider associated with the connection.
-	PartnerName pulumi.StringOutput `pulumi:"partnerName"`
+	PartnerName pulumi.StringPtrOutput `pulumi:"partnerName"`
 	// The name of the service provider associated with the connection.
-	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
 	// The AWS Region where the connection is located.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The dedicated VLAN provisioned to the hosted connection.
 	Vlan pulumi.IntOutput `pulumi:"vlan"`
 }
@@ -303,8 +303,8 @@ func (o HostedConnectionOutput) ToHostedConnectionOutputWithContext(ctx context.
 }
 
 // The Direct Connect endpoint on which the physical connection terminates.
-func (o HostedConnectionOutput) AwsDevice() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
+func (o HostedConnectionOutput) AwsDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringPtrOutput { return v.AwsDevice }).(pulumi.StringPtrOutput)
 }
 
 // The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
@@ -318,28 +318,28 @@ func (o HostedConnectionOutput) ConnectionId() pulumi.StringOutput {
 }
 
 // Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-func (o HostedConnectionOutput) HasLogicalRedundancy() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.HasLogicalRedundancy }).(pulumi.StringOutput)
+func (o HostedConnectionOutput) HasLogicalRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringPtrOutput { return v.HasLogicalRedundancy }).(pulumi.StringPtrOutput)
 }
 
 // Boolean value representing if jumbo frames have been enabled for this connection.
-func (o HostedConnectionOutput) JumboFrameCapable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.BoolOutput { return v.JumboFrameCapable }).(pulumi.BoolOutput)
+func (o HostedConnectionOutput) JumboFrameCapable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.BoolPtrOutput { return v.JumboFrameCapable }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the LAG.
-func (o HostedConnectionOutput) LagId() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.LagId }).(pulumi.StringOutput)
+func (o HostedConnectionOutput) LagId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringPtrOutput { return v.LagId }).(pulumi.StringPtrOutput)
 }
 
 // The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
-func (o HostedConnectionOutput) LoaIssueTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.LoaIssueTime }).(pulumi.StringOutput)
+func (o HostedConnectionOutput) LoaIssueTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringPtrOutput { return v.LoaIssueTime }).(pulumi.StringPtrOutput)
 }
 
 // The location of the connection.
-func (o HostedConnectionOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+func (o HostedConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // The name of the connection.
@@ -353,23 +353,23 @@ func (o HostedConnectionOutput) OwnerAccountId() pulumi.StringOutput {
 }
 
 // The name of the AWS Direct Connect service provider associated with the connection.
-func (o HostedConnectionOutput) PartnerName() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.PartnerName }).(pulumi.StringOutput)
+func (o HostedConnectionOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringPtrOutput { return v.PartnerName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the service provider associated with the connection.
-func (o HostedConnectionOutput) ProviderName() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+func (o HostedConnectionOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringPtrOutput { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region where the connection is located.
-func (o HostedConnectionOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+func (o HostedConnectionOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
-func (o HostedConnectionOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o HostedConnectionOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The dedicated VLAN provisioned to the hosted connection.

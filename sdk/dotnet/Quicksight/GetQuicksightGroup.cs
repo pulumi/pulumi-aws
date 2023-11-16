@@ -138,38 +138,38 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// The Amazon Resource Name (ARN) for the group.
         /// </summary>
-        public readonly string Arn;
-        public readonly string AwsAccountId;
+        public readonly string? Arn;
+        public readonly string? AwsAccountId;
         /// <summary>
         /// The group description.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string GroupName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? Namespace;
         /// <summary>
         /// The principal ID of the group.
         /// </summary>
-        public readonly string PrincipalId;
+        public readonly string? PrincipalId;
 
         [OutputConstructor]
         private GetQuicksightGroupResult(
-            string arn,
+            string? arn,
 
-            string awsAccountId,
+            string? awsAccountId,
 
-            string description,
+            string? description,
 
             string groupName,
 
-            string id,
+            string? id,
 
             string? @namespace,
 
-            string principalId)
+            string? principalId)
         {
             Arn = arn;
             AwsAccountId = awsAccountId;

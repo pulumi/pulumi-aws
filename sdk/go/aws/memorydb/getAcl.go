@@ -59,12 +59,12 @@ type LookupAclArgs struct {
 // A collection of values returned by getAcl.
 type LookupAclResult struct {
 	// ARN of the ACL.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The minimum engine version supported by the ACL.
-	MinimumEngineVersion string `pulumi:"minimumEngineVersion"`
-	Name                 string `pulumi:"name"`
+	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
+	Name                 string  `pulumi:"name"`
 	// Map of tags assigned to the ACL.
 	Tags map[string]string `pulumi:"tags"`
 	// Set of MemoryDB user names included in this ACL.
@@ -112,18 +112,18 @@ func (o LookupAclResultOutput) ToLookupAclResultOutputWithContext(ctx context.Co
 }
 
 // ARN of the ACL.
-func (o LookupAclResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAclResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupAclResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAclResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAclResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAclResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAclResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAclResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The minimum engine version supported by the ACL.
-func (o LookupAclResultOutput) MinimumEngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAclResult) string { return v.MinimumEngineVersion }).(pulumi.StringOutput)
+func (o LookupAclResultOutput) MinimumEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAclResult) *string { return v.MinimumEngineVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAclResultOutput) Name() pulumi.StringOutput {

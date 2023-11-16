@@ -18,12 +18,12 @@ public final class GetInstanceTypeOfferingResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return EC2 Instance Type.
      * 
      */
-    private String instanceType;
+    private @Nullable String instanceType;
     private @Nullable String locationType;
     private @Nullable List<String> preferredInstanceTypes;
 
@@ -35,15 +35,15 @@ public final class GetInstanceTypeOfferingResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return EC2 Instance Type.
      * 
      */
-    public String instanceType() {
-        return this.instanceType;
+    public Optional<String> instanceType() {
+        return Optional.ofNullable(this.instanceType);
     }
     public Optional<String> locationType() {
         return Optional.ofNullable(this.locationType);
@@ -62,8 +62,8 @@ public final class GetInstanceTypeOfferingResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetInstanceTypeOfferingFilter> filters;
-        private String id;
-        private String instanceType;
+        private @Nullable String id;
+        private @Nullable String instanceType;
         private @Nullable String locationType;
         private @Nullable List<String> preferredInstanceTypes;
         public Builder() {}
@@ -85,13 +85,13 @@ public final class GetInstanceTypeOfferingResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+        public Builder instanceType(@Nullable String instanceType) {
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter

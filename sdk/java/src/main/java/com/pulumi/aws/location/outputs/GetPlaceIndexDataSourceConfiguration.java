@@ -6,14 +6,16 @@ package com.pulumi.aws.location.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlaceIndexDataSourceConfiguration {
-    private String intendedUse;
+    private @Nullable String intendedUse;
 
     private GetPlaceIndexDataSourceConfiguration() {}
-    public String intendedUse() {
-        return this.intendedUse;
+    public Optional<String> intendedUse() {
+        return Optional.ofNullable(this.intendedUse);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetPlaceIndexDataSourceConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String intendedUse;
+        private @Nullable String intendedUse;
         public Builder() {}
         public Builder(GetPlaceIndexDataSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetPlaceIndexDataSourceConfiguration {
         }
 
         @CustomType.Setter
-        public Builder intendedUse(String intendedUse) {
-            this.intendedUse = Objects.requireNonNull(intendedUse);
+        public Builder intendedUse(@Nullable String intendedUse) {
+            this.intendedUse = intendedUse;
             return this;
         }
         public GetPlaceIndexDataSourceConfiguration build() {

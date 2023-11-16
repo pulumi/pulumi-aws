@@ -182,7 +182,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? NoPasswordRequired;
         public readonly ImmutableArray<string> Passwords;
         /// <summary>
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.ElastiCache
 
             string? engine,
 
-            string id,
+            string? id,
 
             bool? noPasswordRequired,
 

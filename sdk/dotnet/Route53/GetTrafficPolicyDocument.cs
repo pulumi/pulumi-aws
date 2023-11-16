@@ -473,11 +473,11 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Standard JSON policy document rendered based on the arguments above.
         /// </summary>
-        public readonly string Json;
+        public readonly string? Json;
         public readonly string? RecordType;
         public readonly ImmutableArray<Outputs.GetTrafficPolicyDocumentRuleResult> Rules;
         public readonly string? StartEndpoint;
@@ -488,9 +488,9 @@ namespace Pulumi.Aws.Route53
         private GetTrafficPolicyDocumentResult(
             ImmutableArray<Outputs.GetTrafficPolicyDocumentEndpointResult> endpoints,
 
-            string id,
+            string? id,
 
-            string json,
+            string? json,
 
             string? recordType,
 

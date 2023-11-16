@@ -42,7 +42,7 @@ class GetEipsResult:
 
     @property
     @pulumi.getter(name="allocationIds")
-    def allocation_ids(self) -> Sequence[str]:
+    def allocation_ids(self) -> Optional[Sequence[str]]:
         """
         List of all the allocation IDs for address for use with EC2-VPC.
         """
@@ -55,7 +55,7 @@ class GetEipsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -63,7 +63,7 @@ class GetEipsResult:
 
     @property
     @pulumi.getter(name="publicIps")
-    def public_ips(self) -> Sequence[str]:
+    def public_ips(self) -> Optional[Sequence[str]]:
         """
         List of all the Elastic IP addresses.
         """
@@ -71,7 +71,7 @@ class GetEipsResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

@@ -62,7 +62,7 @@ type Organization struct {
 	// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
 	Accounts OrganizationAccountArrayOutput `pulumi:"accounts"`
 	// ARN of the root
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `featureSet` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
 	AwsServiceAccessPrincipals pulumi.StringArrayOutput `pulumi:"awsServiceAccessPrincipals"`
 	// List of Organizations policy types to enable in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
@@ -70,11 +70,11 @@ type Organization struct {
 	// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
 	FeatureSet pulumi.StringPtrOutput `pulumi:"featureSet"`
 	// ARN of the master account
-	MasterAccountArn pulumi.StringOutput `pulumi:"masterAccountArn"`
+	MasterAccountArn pulumi.StringPtrOutput `pulumi:"masterAccountArn"`
 	// Email address of the master account
-	MasterAccountEmail pulumi.StringOutput `pulumi:"masterAccountEmail"`
+	MasterAccountEmail pulumi.StringPtrOutput `pulumi:"masterAccountEmail"`
 	// Identifier of the master account
-	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
+	MasterAccountId pulumi.StringPtrOutput `pulumi:"masterAccountId"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts OrganizationNonMasterAccountArrayOutput `pulumi:"nonMasterAccounts"`
 	// List of organization roots. All elements have these attributes:
@@ -272,8 +272,8 @@ func (o OrganizationOutput) Accounts() OrganizationAccountArrayOutput {
 }
 
 // ARN of the root
-func (o OrganizationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OrganizationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `featureSet` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
@@ -292,18 +292,18 @@ func (o OrganizationOutput) FeatureSet() pulumi.StringPtrOutput {
 }
 
 // ARN of the master account
-func (o OrganizationOutput) MasterAccountArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.MasterAccountArn }).(pulumi.StringOutput)
+func (o OrganizationOutput) MasterAccountArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringPtrOutput { return v.MasterAccountArn }).(pulumi.StringPtrOutput)
 }
 
 // Email address of the master account
-func (o OrganizationOutput) MasterAccountEmail() pulumi.StringOutput {
-	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.MasterAccountEmail }).(pulumi.StringOutput)
+func (o OrganizationOutput) MasterAccountEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringPtrOutput { return v.MasterAccountEmail }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the master account
-func (o OrganizationOutput) MasterAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.MasterAccountId }).(pulumi.StringOutput)
+func (o OrganizationOutput) MasterAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringPtrOutput { return v.MasterAccountId }).(pulumi.StringPtrOutput)
 }
 
 // List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:

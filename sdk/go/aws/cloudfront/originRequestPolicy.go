@@ -81,7 +81,7 @@ type OriginRequestPolicy struct {
 	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 	CookiesConfig OriginRequestPolicyCookiesConfigOutput `pulumi:"cookiesConfig"`
 	// The current version of the origin request policy.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
 	HeadersConfig OriginRequestPolicyHeadersConfigOutput `pulumi:"headersConfig"`
 	// Unique name to identify the origin request policy.
@@ -287,8 +287,8 @@ func (o OriginRequestPolicyOutput) CookiesConfig() OriginRequestPolicyCookiesCon
 }
 
 // The current version of the origin request policy.
-func (o OriginRequestPolicyOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o OriginRequestPolicyOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.

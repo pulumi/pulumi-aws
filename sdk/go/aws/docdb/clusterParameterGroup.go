@@ -60,7 +60,7 @@ type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the DocumentDB cluster parameter group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The family of the DocumentDB cluster parameter group.
@@ -68,7 +68,7 @@ type ClusterParameterGroup struct {
 	// The name of the DocumentDB parameter.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
 	Parameters ClusterParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -280,8 +280,8 @@ func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutputWithContext(ct
 }
 
 // The ARN of the DocumentDB cluster parameter group.
-func (o ClusterParameterGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterParameterGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
@@ -300,8 +300,8 @@ func (o ClusterParameterGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o ClusterParameterGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o ClusterParameterGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.

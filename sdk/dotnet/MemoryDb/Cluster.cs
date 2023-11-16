@@ -61,7 +61,7 @@ namespace Pulumi.Aws.MemoryDb
         /// The ARN of the cluster.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
@@ -88,13 +88,13 @@ namespace Pulumi.Aws.MemoryDb
         /// Patch version number of the Redis engine used by the cluster.
         /// </summary>
         [Output("enginePatchVersion")]
-        public Output<string> EnginePatchVersion { get; private set; } = null!;
+        public Output<string?> EnginePatchVersion { get; private set; } = null!;
 
         /// <summary>
         /// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.MemoryDb
         /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         /// </summary>
         [Output("maintenanceWindow")]
-        public Output<string> MaintenanceWindow { get; private set; } = null!;
+        public Output<string?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.MemoryDb
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
@@ -150,13 +150,13 @@ namespace Pulumi.Aws.MemoryDb
         /// The name of the parameter group associated with the cluster.
         /// </summary>
         [Output("parameterGroupName")]
-        public Output<string> ParameterGroupName { get; private set; } = null!;
+        public Output<string?> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The port number on which each of the nodes accepts connections. Defaults to `6379`.
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// Set of VPC Security Group ID-s to associate with this cluster.
@@ -186,13 +186,13 @@ namespace Pulumi.Aws.MemoryDb
         /// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         /// </summary>
         [Output("snapshotRetentionLimit")]
-        public Output<int> SnapshotRetentionLimit { get; private set; } = null!;
+        public Output<int?> SnapshotRetentionLimit { get; private set; } = null!;
 
         /// <summary>
         /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         /// </summary>
         [Output("snapshotWindow")]
-        public Output<string> SnapshotWindow { get; private set; } = null!;
+        public Output<string?> SnapshotWindow { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the SNS topic to which cluster notifications are sent.
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.MemoryDb
         /// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
         /// </summary>
         [Output("subnetGroupName")]
-        public Output<string> SubnetGroupName { get; private set; } = null!;
+        public Output<string?> SubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

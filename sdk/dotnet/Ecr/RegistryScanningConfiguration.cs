@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Ecr
         /// The registry ID the scanning configuration applies to.
         /// </summary>
         [Output("registryId")]
-        public Output<string> RegistryId { get; private set; } = null!;
+        public Output<string?> RegistryId { get; private set; } = null!;
 
         /// <summary>
         /// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.

@@ -267,11 +267,11 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Full ARN of the Task Definition (including both `family` and `revision`).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      */
-    public /*out*/ readonly arnWithoutRevision!: pulumi.Output<string>;
+    public /*out*/ readonly arnWithoutRevision!: pulumi.Output<string | undefined>;
     /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
@@ -309,7 +309,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      */
-    public readonly networkMode!: pulumi.Output<string>;
+    public readonly networkMode!: pulumi.Output<string | undefined>;
     /**
      * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
      */
@@ -329,7 +329,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Revision of the task in a particular family.
      */
-    public /*out*/ readonly revision!: pulumi.Output<number>;
+    public /*out*/ readonly revision!: pulumi.Output<number | undefined>;
     /**
      * Configuration block for runtimePlatform that containers in your task may use.
      */

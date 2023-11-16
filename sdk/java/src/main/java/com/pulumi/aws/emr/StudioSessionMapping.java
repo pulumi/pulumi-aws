@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -65,28 +66,28 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identityId", refs={String.class}, tree="[0]")
-    private Output<String> identityId;
+    private Output</* @Nullable */ String> identityId;
 
     /**
      * @return The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
      * 
      */
-    public Output<String> identityId() {
-        return this.identityId;
+    public Output<Optional<String>> identityId() {
+        return Codegen.optional(this.identityId);
     }
     /**
      * The name of the user or group from the Amazon Web Services SSO Identity Store.
      * 
      */
     @Export(name="identityName", refs={String.class}, tree="[0]")
-    private Output<String> identityName;
+    private Output</* @Nullable */ String> identityName;
 
     /**
      * @return The name of the user or group from the Amazon Web Services SSO Identity Store.
      * 
      */
-    public Output<String> identityName() {
-        return this.identityName;
+    public Output<Optional<String>> identityName() {
+        return Codegen.optional(this.identityName);
     }
     /**
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.

@@ -161,13 +161,13 @@ namespace Pulumi.Aws.LB
         /// The ARN of the load balancer (matches `id`).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN suffix for use with CloudWatch Metrics.
         /// </summary>
         [Output("arnSuffix")]
-        public Output<string> ArnSuffix { get; private set; } = null!;
+        public Output<string?> ArnSuffix { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the customer owned ipv4 pool to use for this load balancer.
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.LB
         /// The DNS name of the load balancer.
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
@@ -245,13 +245,13 @@ namespace Pulumi.Aws.LB
         /// If true, the LB will be internal. Defaults to `false`.
         /// </summary>
         [Output("internal")]
-        public Output<bool> Internal { get; private set; } = null!;
+        public Output<bool?> Internal { get; private set; } = null!;
 
         /// <summary>
         /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
         /// </summary>
         [Output("ipAddressType")]
-        public Output<string> IpAddressType { get; private set; } = null!;
+        public Output<string?> IpAddressType { get; private set; } = null!;
 
         /// <summary>
         /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.LB
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.LB
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.LB
         /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
         /// </summary>
         [Output("zoneId")]
-        public Output<string> ZoneId { get; private set; } = null!;
+        public Output<string?> ZoneId { get; private set; } = null!;
 
 
         /// <summary>

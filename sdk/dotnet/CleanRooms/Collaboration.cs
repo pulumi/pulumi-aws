@@ -74,14 +74,14 @@ namespace Pulumi.Aws.CleanRooms
         /// The arn of the collaboration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time the collaboration was created.
         /// * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         /// </summary>
         [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        public Output<string?> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// The name for the member record for the collaboration creator.
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.CleanRooms
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        public Output<string?> UpdateTime { get; private set; } = null!;
 
 
         /// <summary>

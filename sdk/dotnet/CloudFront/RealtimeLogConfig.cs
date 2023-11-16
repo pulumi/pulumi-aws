@@ -124,7 +124,7 @@ namespace Pulumi.Aws.CloudFront
         /// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Kinesis data streams where real-time log data is sent.

@@ -130,19 +130,19 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The number of days to retain automatic backups.
         /// </summary>
-        public readonly int AutomaticBackupRetentionDays;
+        public readonly int? AutomaticBackupRetentionDays;
         /// <summary>
         /// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         /// </summary>
-        public readonly string DailyAutomaticBackupStartTime;
+        public readonly string? DailyAutomaticBackupStartTime;
         /// <summary>
         /// The file system deployment type.
         /// </summary>
-        public readonly string DeploymentType;
+        public readonly string? DeploymentType;
         /// <summary>
         /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
         /// </summary>
@@ -150,11 +150,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
         /// </summary>
-        public readonly string DnsName;
+        public readonly string? DnsName;
         /// <summary>
         /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
         /// </summary>
-        public readonly string EndpointIpAddressRange;
+        public readonly string? EndpointIpAddressRange;
         /// <summary>
         /// The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// The IDs of the elastic network interfaces from which a specific file system is accessible.
         /// </summary>
@@ -174,11 +174,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// Specifies the subnet in which you want the preferred file server to be located.
         /// </summary>
-        public readonly string PreferredSubnetId;
+        public readonly string? PreferredSubnetId;
         /// <summary>
         /// (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.
         /// </summary>
@@ -186,11 +186,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// The storage capacity of the file system in gibibytes (GiB).
         /// </summary>
-        public readonly int StorageCapacity;
+        public readonly int? StorageCapacity;
         /// <summary>
         /// The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
         /// </summary>
-        public readonly string StorageType;
+        public readonly string? StorageType;
         /// <summary>
         /// Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferred_subnet_id` property.
         /// </summary>
@@ -198,63 +198,63 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// The tags associated with the file system.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
         /// </summary>
-        public readonly int ThroughputCapacity;
+        public readonly int? ThroughputCapacity;
         /// <summary>
         /// The ID of the primary virtual private cloud (VPC) for the file system.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
         /// <summary>
         /// The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
-        public readonly string WeeklyMaintenanceStartTime;
+        public readonly string? WeeklyMaintenanceStartTime;
 
         [OutputConstructor]
         private GetOntapFileSystemResult(
-            string arn,
+            string? arn,
 
-            int automaticBackupRetentionDays,
+            int? automaticBackupRetentionDays,
 
-            string dailyAutomaticBackupStartTime,
+            string? dailyAutomaticBackupStartTime,
 
-            string deploymentType,
+            string? deploymentType,
 
             ImmutableArray<Outputs.GetOntapFileSystemDiskIopsConfigurationResult> diskIopsConfigurations,
 
-            string dnsName,
+            string? dnsName,
 
-            string endpointIpAddressRange,
+            string? endpointIpAddressRange,
 
             ImmutableArray<Outputs.GetOntapFileSystemEndpointResult> endpoints,
 
             string id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
             ImmutableArray<string> networkInterfaceIds,
 
-            string ownerId,
+            string? ownerId,
 
-            string preferredSubnetId,
+            string? preferredSubnetId,
 
             ImmutableArray<string> routeTableIds,
 
-            int storageCapacity,
+            int? storageCapacity,
 
-            string storageType,
+            string? storageType,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int throughputCapacity,
+            int? throughputCapacity,
 
-            string vpcId,
+            string? vpcId,
 
-            string weeklyMaintenanceStartTime)
+            string? weeklyMaintenanceStartTime)
         {
             Arn = arn;
             AutomaticBackupRetentionDays = automaticBackupRetentionDays;

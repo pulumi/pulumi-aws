@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Lambda
         /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         /// </summary>
         [Output("amazonManagedKafkaEventSourceConfig")]
-        public Output<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig> AmazonManagedKafkaEventSourceConfig { get; private set; } = null!;
+        public Output<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig?> AmazonManagedKafkaEventSourceConfig { get; private set; } = null!;
 
         /// <summary>
         /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Lambda
         /// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         /// </summary>
         [Output("functionArn")]
-        public Output<string> FunctionArn { get; private set; } = null!;
+        public Output<string?> FunctionArn { get; private set; } = null!;
 
         /// <summary>
         /// The name or the ARN of the Lambda function that will be subscribing to events.
@@ -275,13 +275,13 @@ namespace Pulumi.Aws.Lambda
         /// The date this resource was last modified.
         /// </summary>
         [Output("lastModified")]
-        public Output<string> LastModified { get; private set; } = null!;
+        public Output<string?> LastModified { get; private set; } = null!;
 
         /// <summary>
         /// The result of the last AWS Lambda invocation of your Lambda function.
         /// </summary>
         [Output("lastProcessingResult")]
-        public Output<string> LastProcessingResult { get; private set; } = null!;
+        public Output<string?> LastProcessingResult { get; private set; } = null!;
 
         /// <summary>
         /// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
@@ -293,19 +293,19 @@ namespace Pulumi.Aws.Lambda
         /// - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         /// </summary>
         [Output("maximumRecordAgeInSeconds")]
-        public Output<int> MaximumRecordAgeInSeconds { get; private set; } = null!;
+        public Output<int?> MaximumRecordAgeInSeconds { get; private set; } = null!;
 
         /// <summary>
         /// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         /// </summary>
         [Output("maximumRetryAttempts")]
-        public Output<int> MaximumRetryAttempts { get; private set; } = null!;
+        public Output<int?> MaximumRetryAttempts { get; private set; } = null!;
 
         /// <summary>
         /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         /// </summary>
         [Output("parallelizationFactor")]
-        public Output<int> ParallelizationFactor { get; private set; } = null!;
+        public Output<int?> ParallelizationFactor { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.Lambda
         /// Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
         /// </summary>
         [Output("selfManagedKafkaEventSourceConfig")]
-        public Output<Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig> SelfManagedKafkaEventSourceConfig { get; private set; } = null!;
+        public Output<Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig?> SelfManagedKafkaEventSourceConfig { get; private set; } = null!;
 
         /// <summary>
         /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
@@ -353,13 +353,13 @@ namespace Pulumi.Aws.Lambda
         /// The state of the event source mapping.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The reason the event source mapping is in its current state.
         /// </summary>
         [Output("stateTransitionReason")]
-        public Output<string> StateTransitionReason { get; private set; } = null!;
+        public Output<string?> StateTransitionReason { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.Lambda
         /// The UUID of the created event source mapping.
         /// </summary>
         [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
+        public Output<string?> Uuid { get; private set; } = null!;
 
 
         /// <summary>

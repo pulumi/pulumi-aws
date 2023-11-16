@@ -146,7 +146,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The ARN of the config rule
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the rule
      */
@@ -154,7 +154,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      */
-    public readonly evaluationModes!: pulumi.Output<outputs.cfg.RuleEvaluationMode[]>;
+    public readonly evaluationModes!: pulumi.Output<outputs.cfg.RuleEvaluationMode[] | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
@@ -170,7 +170,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The ID of the config rule
      */
-    public /*out*/ readonly ruleId!: pulumi.Output<string>;
+    public /*out*/ readonly ruleId!: pulumi.Output<string | undefined>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
      */

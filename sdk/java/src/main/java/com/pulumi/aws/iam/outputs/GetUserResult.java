@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserResult {
@@ -14,32 +16,32 @@ public final class GetUserResult {
      * @return ARN assigned by AWS for this user.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Path in which this user was created.
      * 
      */
-    private String path;
+    private @Nullable String path;
     /**
      * @return The ARN of the policy that is used to set the permissions boundary for the user.
      * 
      */
-    private String permissionsBoundary;
+    private @Nullable String permissionsBoundary;
     /**
      * @return Map of key-value pairs associated with the user.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Unique ID assigned by AWS for this user.
      * 
      */
-    private String userId;
+    private @Nullable String userId;
     /**
      * @return Name associated to this User
      * 
@@ -51,43 +53,43 @@ public final class GetUserResult {
      * @return ARN assigned by AWS for this user.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Path in which this user was created.
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     /**
      * @return The ARN of the policy that is used to set the permissions boundary for the user.
      * 
      */
-    public String permissionsBoundary() {
-        return this.permissionsBoundary;
+    public Optional<String> permissionsBoundary() {
+        return Optional.ofNullable(this.permissionsBoundary);
     }
     /**
      * @return Map of key-value pairs associated with the user.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Unique ID assigned by AWS for this user.
      * 
      */
-    public String userId() {
-        return this.userId;
+    public Optional<String> userId() {
+        return Optional.ofNullable(this.userId);
     }
     /**
      * @return Name associated to this User
@@ -106,12 +108,12 @@ public final class GetUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String path;
-        private String permissionsBoundary;
-        private Map<String,String> tags;
-        private String userId;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String path;
+        private @Nullable String permissionsBoundary;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String userId;
         private String userName;
         public Builder() {}
         public Builder(GetUserResult defaults) {
@@ -126,33 +128,33 @@ public final class GetUserResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
-        public Builder permissionsBoundary(String permissionsBoundary) {
-            this.permissionsBoundary = Objects.requireNonNull(permissionsBoundary);
+        public Builder permissionsBoundary(@Nullable String permissionsBoundary) {
+            this.permissionsBoundary = permissionsBoundary;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+        public Builder userId(@Nullable String userId) {
+            this.userId = userId;
             return this;
         }
         @CustomType.Setter

@@ -95,16 +95,16 @@ type LookupResolverEndpointArgs struct {
 
 // A collection of values returned by getResolverEndpoint.
 type LookupResolverEndpointResult struct {
-	Arn       string                      `pulumi:"arn"`
-	Direction string                      `pulumi:"direction"`
+	Arn       *string                     `pulumi:"arn"`
+	Direction *string                     `pulumi:"direction"`
 	Filters   []GetResolverEndpointFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string   `pulumi:"id"`
+	Id                 *string  `pulumi:"id"`
 	IpAddresses        []string `pulumi:"ipAddresses"`
-	Name               string   `pulumi:"name"`
+	Name               *string  `pulumi:"name"`
 	ResolverEndpointId *string  `pulumi:"resolverEndpointId"`
-	Status             string   `pulumi:"status"`
-	VpcId              string   `pulumi:"vpcId"`
+	Status             *string  `pulumi:"status"`
+	VpcId              *string  `pulumi:"vpcId"`
 }
 
 func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverEndpointResultOutput {
@@ -151,12 +151,12 @@ func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutput
 	return o
 }
 
-func (o LookupResolverEndpointResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupResolverEndpointResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverEndpointResultOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Direction }).(pulumi.StringOutput)
+func (o LookupResolverEndpointResultOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.Direction }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResolverEndpointResultOutput) Filters() GetResolverEndpointFilterArrayOutput {
@@ -164,28 +164,28 @@ func (o LookupResolverEndpointResultOutput) Filters() GetResolverEndpointFilterA
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResolverEndpointResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResolverEndpointResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResolverEndpointResultOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupResolverEndpointResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupResolverEndpointResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResolverEndpointResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverEndpointResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupResolverEndpointResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverEndpointResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupResolverEndpointResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

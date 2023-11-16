@@ -48,7 +48,7 @@ namespace Pulumi.Aws.AppStream
         /// ARN of the appstream user.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.AppStream
         /// Date and time, in UTC and extended RFC 3339 format, when the user was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Whether the user in the user pool is enabled.

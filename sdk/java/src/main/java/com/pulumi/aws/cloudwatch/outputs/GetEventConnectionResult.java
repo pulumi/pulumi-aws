@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudwatch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEventConnectionResult {
@@ -13,17 +15,17 @@ public final class GetEventConnectionResult {
      * @return ARN (Amazon Resource Name) for the connection.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
-    private String authorizationType;
+    private @Nullable String authorizationType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the connection.
      * 
@@ -33,29 +35,29 @@ public final class GetEventConnectionResult {
      * @return ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
      * 
      */
-    private String secretArn;
+    private @Nullable String secretArn;
 
     private GetEventConnectionResult() {}
     /**
      * @return ARN (Amazon Resource Name) for the connection.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
-    public String authorizationType() {
-        return this.authorizationType;
+    public Optional<String> authorizationType() {
+        return Optional.ofNullable(this.authorizationType);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the connection.
@@ -68,8 +70,8 @@ public final class GetEventConnectionResult {
      * @return ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
      * 
      */
-    public String secretArn() {
-        return this.secretArn;
+    public Optional<String> secretArn() {
+        return Optional.ofNullable(this.secretArn);
     }
 
     public static Builder builder() {
@@ -81,11 +83,11 @@ public final class GetEventConnectionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String authorizationType;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String authorizationType;
+        private @Nullable String id;
         private String name;
-        private String secretArn;
+        private @Nullable String secretArn;
         public Builder() {}
         public Builder(GetEventConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,18 +99,18 @@ public final class GetEventConnectionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder authorizationType(String authorizationType) {
-            this.authorizationType = Objects.requireNonNull(authorizationType);
+        public Builder authorizationType(@Nullable String authorizationType) {
+            this.authorizationType = authorizationType;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -117,8 +119,8 @@ public final class GetEventConnectionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder secretArn(String secretArn) {
-            this.secretArn = Objects.requireNonNull(secretArn);
+        public Builder secretArn(@Nullable String secretArn) {
+            this.secretArn = secretArn;
             return this;
         }
         public GetEventConnectionResult build() {

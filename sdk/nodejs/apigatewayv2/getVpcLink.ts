@@ -49,23 +49,23 @@ export interface GetVpcLinkResult {
     /**
      * ARN of the VPC Link.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * VPC Link Name.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * List of security groups associated with the VPC Link.
      */
-    readonly securityGroupIds: string[];
+    readonly securityGroupIds?: string[];
     /**
      * List of subnets attached to the VPC Link.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * VPC Link Tags.
      */

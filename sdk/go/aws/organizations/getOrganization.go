@@ -65,7 +65,7 @@ import (
 // if err != nil {
 // return err
 // }
-// snsTopicPolicyPolicyDocument := snsTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// snsTopicPolicyPolicyDocument := snsTopic.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -126,21 +126,21 @@ type LookupOrganizationResult struct {
 	// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
 	Accounts []GetOrganizationAccount `pulumi:"accounts"`
 	// ARN of the root
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// A list of AWS service principal names that have integration enabled with your organization. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
 	AwsServiceAccessPrincipals []string `pulumi:"awsServiceAccessPrincipals"`
 	// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
 	EnabledPolicyTypes []string `pulumi:"enabledPolicyTypes"`
 	// FeatureSet of the organization.
-	FeatureSet string `pulumi:"featureSet"`
+	FeatureSet *string `pulumi:"featureSet"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN of the account that is designated as the master account for the organization.
-	MasterAccountArn string `pulumi:"masterAccountArn"`
+	MasterAccountArn *string `pulumi:"masterAccountArn"`
 	// The email address that is associated with the AWS account that is designated as the master account for the organization.
-	MasterAccountEmail string `pulumi:"masterAccountEmail"`
+	MasterAccountEmail *string `pulumi:"masterAccountEmail"`
 	// Unique identifier (ID) of the master account of an organization.
-	MasterAccountId string `pulumi:"masterAccountId"`
+	MasterAccountId *string `pulumi:"masterAccountId"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts []GetOrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
 	// List of organization roots. All elements have these attributes:
@@ -179,8 +179,8 @@ func (o LookupOrganizationResultOutput) Accounts() GetOrganizationAccountArrayOu
 }
 
 // ARN of the root
-func (o LookupOrganizationResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupOrganizationResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A list of AWS service principal names that have integration enabled with your organization. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
@@ -194,28 +194,28 @@ func (o LookupOrganizationResultOutput) EnabledPolicyTypes() pulumi.StringArrayO
 }
 
 // FeatureSet of the organization.
-func (o LookupOrganizationResultOutput) FeatureSet() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOrganizationResult) string { return v.FeatureSet }).(pulumi.StringOutput)
+func (o LookupOrganizationResultOutput) FeatureSet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) *string { return v.FeatureSet }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupOrganizationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupOrganizationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the account that is designated as the master account for the organization.
-func (o LookupOrganizationResultOutput) MasterAccountArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountArn }).(pulumi.StringOutput)
+func (o LookupOrganizationResultOutput) MasterAccountArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) *string { return v.MasterAccountArn }).(pulumi.StringPtrOutput)
 }
 
 // The email address that is associated with the AWS account that is designated as the master account for the organization.
-func (o LookupOrganizationResultOutput) MasterAccountEmail() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountEmail }).(pulumi.StringOutput)
+func (o LookupOrganizationResultOutput) MasterAccountEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) *string { return v.MasterAccountEmail }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier (ID) of the master account of an organization.
-func (o LookupOrganizationResultOutput) MasterAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountId }).(pulumi.StringOutput)
+func (o LookupOrganizationResultOutput) MasterAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) *string { return v.MasterAccountId }).(pulumi.StringPtrOutput)
 }
 
 // List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:

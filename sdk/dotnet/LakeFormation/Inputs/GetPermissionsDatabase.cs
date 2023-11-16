@@ -15,8 +15,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        [Input("catalogId", required: true)]
-        public string CatalogId { get; set; } = null!;
+        [Input("catalogId")]
+        public string? CatalogId { get; set; }
 
         /// <summary>
         /// Name of the database resource. Unique to the Data Catalog.

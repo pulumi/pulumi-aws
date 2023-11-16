@@ -306,7 +306,7 @@ class EnvironmentMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> pulumi.Output[str]:
+    def user_id(self) -> pulumi.Output[Optional[str]]:
         """
         he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """

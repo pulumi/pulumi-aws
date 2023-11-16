@@ -6,6 +6,8 @@ package com.pulumi.aws.workspaces.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectorySelfServicePermission {
@@ -13,63 +15,63 @@ public final class GetDirectorySelfServicePermission {
      * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
      * 
      */
-    private Boolean changeComputeType;
+    private @Nullable Boolean changeComputeType;
     /**
      * @return Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
      * 
      */
-    private Boolean increaseVolumeSize;
+    private @Nullable Boolean increaseVolumeSize;
     /**
      * @return Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
      * 
      */
-    private Boolean rebuildWorkspace;
+    private @Nullable Boolean rebuildWorkspace;
     /**
      * @return Whether WorkSpaces directory users can restart their workspace.
      * 
      */
-    private Boolean restartWorkspace;
+    private @Nullable Boolean restartWorkspace;
     /**
      * @return Whether WorkSpaces directory users can switch the running mode of their workspace.
      * 
      */
-    private Boolean switchRunningMode;
+    private @Nullable Boolean switchRunningMode;
 
     private GetDirectorySelfServicePermission() {}
     /**
      * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
      * 
      */
-    public Boolean changeComputeType() {
-        return this.changeComputeType;
+    public Optional<Boolean> changeComputeType() {
+        return Optional.ofNullable(this.changeComputeType);
     }
     /**
      * @return Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
      * 
      */
-    public Boolean increaseVolumeSize() {
-        return this.increaseVolumeSize;
+    public Optional<Boolean> increaseVolumeSize() {
+        return Optional.ofNullable(this.increaseVolumeSize);
     }
     /**
      * @return Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
      * 
      */
-    public Boolean rebuildWorkspace() {
-        return this.rebuildWorkspace;
+    public Optional<Boolean> rebuildWorkspace() {
+        return Optional.ofNullable(this.rebuildWorkspace);
     }
     /**
      * @return Whether WorkSpaces directory users can restart their workspace.
      * 
      */
-    public Boolean restartWorkspace() {
-        return this.restartWorkspace;
+    public Optional<Boolean> restartWorkspace() {
+        return Optional.ofNullable(this.restartWorkspace);
     }
     /**
      * @return Whether WorkSpaces directory users can switch the running mode of their workspace.
      * 
      */
-    public Boolean switchRunningMode() {
-        return this.switchRunningMode;
+    public Optional<Boolean> switchRunningMode() {
+        return Optional.ofNullable(this.switchRunningMode);
     }
 
     public static Builder builder() {
@@ -81,11 +83,11 @@ public final class GetDirectorySelfServicePermission {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean changeComputeType;
-        private Boolean increaseVolumeSize;
-        private Boolean rebuildWorkspace;
-        private Boolean restartWorkspace;
-        private Boolean switchRunningMode;
+        private @Nullable Boolean changeComputeType;
+        private @Nullable Boolean increaseVolumeSize;
+        private @Nullable Boolean rebuildWorkspace;
+        private @Nullable Boolean restartWorkspace;
+        private @Nullable Boolean switchRunningMode;
         public Builder() {}
         public Builder(GetDirectorySelfServicePermission defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,28 +99,28 @@ public final class GetDirectorySelfServicePermission {
         }
 
         @CustomType.Setter
-        public Builder changeComputeType(Boolean changeComputeType) {
-            this.changeComputeType = Objects.requireNonNull(changeComputeType);
+        public Builder changeComputeType(@Nullable Boolean changeComputeType) {
+            this.changeComputeType = changeComputeType;
             return this;
         }
         @CustomType.Setter
-        public Builder increaseVolumeSize(Boolean increaseVolumeSize) {
-            this.increaseVolumeSize = Objects.requireNonNull(increaseVolumeSize);
+        public Builder increaseVolumeSize(@Nullable Boolean increaseVolumeSize) {
+            this.increaseVolumeSize = increaseVolumeSize;
             return this;
         }
         @CustomType.Setter
-        public Builder rebuildWorkspace(Boolean rebuildWorkspace) {
-            this.rebuildWorkspace = Objects.requireNonNull(rebuildWorkspace);
+        public Builder rebuildWorkspace(@Nullable Boolean rebuildWorkspace) {
+            this.rebuildWorkspace = rebuildWorkspace;
             return this;
         }
         @CustomType.Setter
-        public Builder restartWorkspace(Boolean restartWorkspace) {
-            this.restartWorkspace = Objects.requireNonNull(restartWorkspace);
+        public Builder restartWorkspace(@Nullable Boolean restartWorkspace) {
+            this.restartWorkspace = restartWorkspace;
             return this;
         }
         @CustomType.Setter
-        public Builder switchRunningMode(Boolean switchRunningMode) {
-            this.switchRunningMode = Objects.requireNonNull(switchRunningMode);
+        public Builder switchRunningMode(@Nullable Boolean switchRunningMode) {
+            this.switchRunningMode = switchRunningMode;
             return this;
         }
         public GetDirectorySelfServicePermission build() {

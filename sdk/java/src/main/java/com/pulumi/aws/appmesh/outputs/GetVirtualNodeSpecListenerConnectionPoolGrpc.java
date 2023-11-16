@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerConnectionPoolGrpc {
-    private Integer maxRequests;
+    private @Nullable Integer maxRequests;
 
     private GetVirtualNodeSpecListenerConnectionPoolGrpc() {}
-    public Integer maxRequests() {
-        return this.maxRequests;
+    public Optional<Integer> maxRequests() {
+        return Optional.ofNullable(this.maxRequests);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetVirtualNodeSpecListenerConnectionPoolGrpc {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer maxRequests;
+        private @Nullable Integer maxRequests;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerConnectionPoolGrpc defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetVirtualNodeSpecListenerConnectionPoolGrpc {
         }
 
         @CustomType.Setter
-        public Builder maxRequests(Integer maxRequests) {
-            this.maxRequests = Objects.requireNonNull(maxRequests);
+        public Builder maxRequests(@Nullable Integer maxRequests) {
+            this.maxRequests = maxRequests;
             return this;
         }
         public GetVirtualNodeSpecListenerConnectionPoolGrpc build() {

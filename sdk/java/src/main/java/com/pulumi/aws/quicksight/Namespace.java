@@ -67,70 +67,70 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Namespace.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * AWS account ID.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * Namespace AWS Region.
      * 
      */
     @Export(name="capacityRegion", refs={String.class}, tree="[0]")
-    private Output<String> capacityRegion;
+    private Output</* @Nullable */ String> capacityRegion;
 
     /**
      * @return Namespace AWS Region.
      * 
      */
-    public Output<String> capacityRegion() {
-        return this.capacityRegion;
+    public Output<Optional<String>> capacityRegion() {
+        return Codegen.optional(this.capacityRegion);
     }
     /**
      * Creation status of the namespace.
      * 
      */
     @Export(name="creationStatus", refs={String.class}, tree="[0]")
-    private Output<String> creationStatus;
+    private Output</* @Nullable */ String> creationStatus;
 
     /**
      * @return Creation status of the namespace.
      * 
      */
-    public Output<String> creationStatus() {
-        return this.creationStatus;
+    public Output<Optional<String>> creationStatus() {
+        return Codegen.optional(this.creationStatus);
     }
     /**
      * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
      * 
      */
     @Export(name="identityStore", refs={String.class}, tree="[0]")
-    private Output<String> identityStore;
+    private Output</* @Nullable */ String> identityStore;
 
     /**
      * @return User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
      * 
      */
-    public Output<String> identityStore() {
-        return this.identityStore;
+    public Output<Optional<String>> identityStore() {
+        return Codegen.optional(this.identityStore);
     }
     /**
      * Name of the namespace.

@@ -112,42 +112,42 @@ public class ContactFlow extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Contact Flow.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The identifier of the Contact Flow.
      * 
      */
     @Export(name="contactFlowId", refs={String.class}, tree="[0]")
-    private Output<String> contactFlowId;
+    private Output</* @Nullable */ String> contactFlowId;
 
     /**
      * @return The identifier of the Contact Flow.
      * 
      */
-    public Output<String> contactFlowId() {
-        return this.contactFlowId;
+    public Output<Optional<String>> contactFlowId() {
+        return Codegen.optional(this.contactFlowId);
     }
     /**
      * Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      * 
      */
     @Export(name="content", refs={String.class}, tree="[0]")
-    private Output<String> content;
+    private Output</* @Nullable */ String> content;
 
     /**
      * @return Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      * 
      */
-    public Output<String> content() {
-        return this.content;
+    public Output<Optional<String>> content() {
+        return Codegen.optional(this.content);
     }
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.

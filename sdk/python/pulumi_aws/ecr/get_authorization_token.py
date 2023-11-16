@@ -46,7 +46,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter(name="authorizationToken")
-    def authorization_token(self) -> str:
+    def authorization_token(self) -> Optional[str]:
         """
         Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
         """
@@ -54,7 +54,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> str:
+    def expires_at(self) -> Optional[str]:
         """
         Time in UTC RFC3339 format when the authorization token expires.
         """
@@ -62,7 +62,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -70,7 +70,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def password(self) -> Optional[str]:
         """
         Password decoded from the authorization token.
         """
@@ -78,7 +78,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter(name="proxyEndpoint")
-    def proxy_endpoint(self) -> str:
+    def proxy_endpoint(self) -> Optional[str]:
         """
         Registry URL to use in the docker login command.
         """
@@ -91,7 +91,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> Optional[str]:
         """
         User name decoded from the authorization token.
         """

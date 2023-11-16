@@ -84,21 +84,21 @@ type ResourceShareAccepter struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the resource share invitation.
-	InvitationArn pulumi.StringOutput `pulumi:"invitationArn"`
+	InvitationArn pulumi.StringPtrOutput `pulumi:"invitationArn"`
 	// The account ID of the receiver account which accepts the invitation.
-	ReceiverAccountId pulumi.StringOutput `pulumi:"receiverAccountId"`
+	ReceiverAccountId pulumi.StringPtrOutput `pulumi:"receiverAccountId"`
 	// A list of the resource ARNs shared via the resource share.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
 	// The account ID of the sender account which submits the invitation.
-	SenderAccountId pulumi.StringOutput `pulumi:"senderAccountId"`
+	SenderAccountId pulumi.StringPtrOutput `pulumi:"senderAccountId"`
 	// The ARN of the resource share.
 	ShareArn pulumi.StringOutput `pulumi:"shareArn"`
 	// The ID of the resource share as displayed in the console.
-	ShareId pulumi.StringOutput `pulumi:"shareId"`
+	ShareId pulumi.StringPtrOutput `pulumi:"shareId"`
 	// The name of the resource share.
-	ShareName pulumi.StringOutput `pulumi:"shareName"`
+	ShareName pulumi.StringPtrOutput `pulumi:"shareName"`
 	// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewResourceShareAccepter registers a new resource with the given unique name, arguments, and options.
@@ -274,13 +274,13 @@ func (o ResourceShareAccepterOutput) ToResourceShareAccepterOutputWithContext(ct
 }
 
 // The ARN of the resource share invitation.
-func (o ResourceShareAccepterOutput) InvitationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.InvitationArn }).(pulumi.StringOutput)
+func (o ResourceShareAccepterOutput) InvitationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringPtrOutput { return v.InvitationArn }).(pulumi.StringPtrOutput)
 }
 
 // The account ID of the receiver account which accepts the invitation.
-func (o ResourceShareAccepterOutput) ReceiverAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.ReceiverAccountId }).(pulumi.StringOutput)
+func (o ResourceShareAccepterOutput) ReceiverAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringPtrOutput { return v.ReceiverAccountId }).(pulumi.StringPtrOutput)
 }
 
 // A list of the resource ARNs shared via the resource share.
@@ -289,8 +289,8 @@ func (o ResourceShareAccepterOutput) Resources() pulumi.StringArrayOutput {
 }
 
 // The account ID of the sender account which submits the invitation.
-func (o ResourceShareAccepterOutput) SenderAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.SenderAccountId }).(pulumi.StringOutput)
+func (o ResourceShareAccepterOutput) SenderAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringPtrOutput { return v.SenderAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the resource share.
@@ -299,18 +299,18 @@ func (o ResourceShareAccepterOutput) ShareArn() pulumi.StringOutput {
 }
 
 // The ID of the resource share as displayed in the console.
-func (o ResourceShareAccepterOutput) ShareId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.ShareId }).(pulumi.StringOutput)
+func (o ResourceShareAccepterOutput) ShareId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringPtrOutput { return v.ShareId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource share.
-func (o ResourceShareAccepterOutput) ShareName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.ShareName }).(pulumi.StringOutput)
+func (o ResourceShareAccepterOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringPtrOutput { return v.ShareName }).(pulumi.StringPtrOutput)
 }
 
 // The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
-func (o ResourceShareAccepterOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ResourceShareAccepterOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type ResourceShareAccepterArrayOutput struct{ *pulumi.OutputState }

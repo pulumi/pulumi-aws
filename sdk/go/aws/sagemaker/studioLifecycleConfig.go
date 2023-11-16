@@ -29,7 +29,7 @@ type StudioLifecycleConfig struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringOutput `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
@@ -235,8 +235,8 @@ func (o StudioLifecycleConfigOutput) ToStudioLifecycleConfigOutputWithContext(ct
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-func (o StudioLifecycleConfigOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StudioLifecycleConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.

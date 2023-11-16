@@ -64,16 +64,16 @@ export interface GetSpotPriceResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceType?: string;
     /**
      * Most recent Spot Price value for the given instance type and AZ.
      */
-    readonly spotPrice: string;
+    readonly spotPrice?: string;
     /**
      * The timestamp at which the Spot Price value was published.
      */
-    readonly spotPriceTimestamp: string;
+    readonly spotPriceTimestamp?: string;
 }
 /**
  * Information about most recent Spot Price for a given EC2 instance.

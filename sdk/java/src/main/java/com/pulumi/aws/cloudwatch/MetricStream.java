@@ -226,28 +226,28 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the metric stream.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
      * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
-    private Output<String> creationDate;
+    private Output</* @Nullable */ String> creationDate;
 
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
      * 
      */
-    public Output<String> creationDate() {
-        return this.creationDate;
+    public Output<Optional<String>> creationDate() {
+        return Codegen.optional(this.creationDate);
     }
     /**
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
@@ -310,14 +310,14 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdateDate", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdateDate;
+    private Output</* @Nullable */ String> lastUpdateDate;
 
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      * 
      */
-    public Output<String> lastUpdateDate() {
-        return this.lastUpdateDate;
+    public Output<Optional<String>> lastUpdateDate() {
+        return Codegen.optional(this.lastUpdateDate);
     }
     /**
      * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -338,14 +338,14 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
@@ -384,14 +384,14 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return State of the metric stream. Possible values are `running` and `stopped`.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.

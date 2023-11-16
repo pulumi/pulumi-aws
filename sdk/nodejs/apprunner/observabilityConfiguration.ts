@@ -66,11 +66,11 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
     /**
      * ARN of this observability configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether the observability configuration has the highest `observabilityConfigurationRevision` among all configurations that share the same `observabilityConfigurationName`.
      */
-    public /*out*/ readonly latest!: pulumi.Output<boolean>;
+    public /*out*/ readonly latest!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the observability configuration.
      */
@@ -78,11 +78,11 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
     /**
      * The revision of this observability configuration.
      */
-    public /*out*/ readonly observabilityConfigurationRevision!: pulumi.Output<number>;
+    public /*out*/ readonly observabilityConfigurationRevision!: pulumi.Output<number | undefined>;
     /**
      * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

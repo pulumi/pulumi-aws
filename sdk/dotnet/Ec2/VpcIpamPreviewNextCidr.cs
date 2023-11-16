@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Ec2
         /// The previewed CIDR from the pool.
         /// </summary>
         [Output("cidr")]
-        public Output<string> Cidr { get; private set; } = null!;
+        public Output<string?> Cidr { get; private set; } = null!;
 
         /// <summary>
         /// Exclude a particular CIDR range from being returned by the pool.

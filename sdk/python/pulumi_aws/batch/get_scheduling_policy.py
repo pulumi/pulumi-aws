@@ -46,12 +46,12 @@ class GetSchedulingPolicyResult:
 
     @property
     @pulumi.getter(name="fairSharePolicies")
-    def fair_share_policies(self) -> Sequence['outputs.GetSchedulingPolicyFairSharePolicyResult']:
+    def fair_share_policies(self) -> Optional[Sequence['outputs.GetSchedulingPolicyFairSharePolicyResult']]:
         return pulumi.get(self, "fair_share_policies")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -59,7 +59,7 @@ class GetSchedulingPolicyResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the scheduling policy.
         """
@@ -67,7 +67,7 @@ class GetSchedulingPolicyResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags
         """

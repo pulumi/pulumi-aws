@@ -46,11 +46,11 @@ export interface GetGlobalNetworksResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IDs of the global networks.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly tags?: {[key: string]: string};
 }
 /**

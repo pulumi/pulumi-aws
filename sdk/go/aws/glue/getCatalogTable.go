@@ -66,19 +66,19 @@ type LookupCatalogTableArgs struct {
 // A collection of values returned by getCatalogTable.
 type LookupCatalogTableResult struct {
 	// The ARN of the Glue Table.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// ID of the Data Catalog in which the table resides.
-	CatalogId string `pulumi:"catalogId"`
+	CatalogId *string `pulumi:"catalogId"`
 	// Name of the catalog database that contains the target table.
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the table.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the target table.
 	Name string `pulumi:"name"`
 	// Owner of the table.
-	Owner string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
 	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
@@ -87,18 +87,18 @@ type LookupCatalogTableResult struct {
 	PartitionKeys []GetCatalogTablePartitionKey `pulumi:"partitionKeys"`
 	QueryAsOfTime *string                       `pulumi:"queryAsOfTime"`
 	// Retention time for this table.
-	Retention int `pulumi:"retention"`
+	Retention *int `pulumi:"retention"`
 	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptors []GetCatalogTableStorageDescriptor `pulumi:"storageDescriptors"`
 	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-	TableType string `pulumi:"tableType"`
+	TableType *string `pulumi:"tableType"`
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTables  []GetCatalogTableTargetTable `pulumi:"targetTables"`
 	TransactionId *int                         `pulumi:"transactionId"`
 	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText string `pulumi:"viewExpandedText"`
+	ViewExpandedText *string `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText string `pulumi:"viewOriginalText"`
+	ViewOriginalText *string `pulumi:"viewOriginalText"`
 }
 
 func LookupCatalogTableOutput(ctx *pulumi.Context, args LookupCatalogTableOutputArgs, opts ...pulumi.InvokeOption) LookupCatalogTableResultOutput {
@@ -148,13 +148,13 @@ func (o LookupCatalogTableResultOutput) ToLookupCatalogTableResultOutputWithCont
 }
 
 // The ARN of the Glue Table.
-func (o LookupCatalogTableResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupCatalogTableResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the Data Catalog in which the table resides.
-func (o LookupCatalogTableResultOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.CatalogId }).(pulumi.StringOutput)
+func (o LookupCatalogTableResultOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the catalog database that contains the target table.
@@ -163,13 +163,13 @@ func (o LookupCatalogTableResultOutput) DatabaseName() pulumi.StringOutput {
 }
 
 // Description of the table.
-func (o LookupCatalogTableResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupCatalogTableResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCatalogTableResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCatalogTableResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the target table.
@@ -178,8 +178,8 @@ func (o LookupCatalogTableResultOutput) Name() pulumi.StringOutput {
 }
 
 // Owner of the table.
-func (o LookupCatalogTableResultOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.Owner }).(pulumi.StringOutput)
+func (o LookupCatalogTableResultOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // Map of initialization parameters for the SerDe, in key-value form.
@@ -202,8 +202,8 @@ func (o LookupCatalogTableResultOutput) QueryAsOfTime() pulumi.StringPtrOutput {
 }
 
 // Retention time for this table.
-func (o LookupCatalogTableResultOutput) Retention() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupCatalogTableResult) int { return v.Retention }).(pulumi.IntOutput)
+func (o LookupCatalogTableResultOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) *int { return v.Retention }).(pulumi.IntPtrOutput)
 }
 
 // Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
@@ -212,8 +212,8 @@ func (o LookupCatalogTableResultOutput) StorageDescriptors() GetCatalogTableStor
 }
 
 // Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-func (o LookupCatalogTableResultOutput) TableType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.TableType }).(pulumi.StringOutput)
+func (o LookupCatalogTableResultOutput) TableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) *string { return v.TableType }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block of a target table for resource linking. See `targetTable` below.
@@ -226,13 +226,13 @@ func (o LookupCatalogTableResultOutput) TransactionId() pulumi.IntPtrOutput {
 }
 
 // If the table is a view, the expanded text of the view; otherwise null.
-func (o LookupCatalogTableResultOutput) ViewExpandedText() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.ViewExpandedText }).(pulumi.StringOutput)
+func (o LookupCatalogTableResultOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) *string { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
 }
 
 // If the table is a view, the original text of the view; otherwise null.
-func (o LookupCatalogTableResultOutput) ViewOriginalText() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.ViewOriginalText }).(pulumi.StringOutput)
+func (o LookupCatalogTableResultOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogTableResult) *string { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
 }
 
 func init() {

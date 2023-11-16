@@ -6,6 +6,8 @@ package com.pulumi.aws.workspaces.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBundleUserStorage {
@@ -13,15 +15,15 @@ public final class GetBundleUserStorage {
      * @return Size of the user storage.
      * 
      */
-    private String capacity;
+    private @Nullable String capacity;
 
     private GetBundleUserStorage() {}
     /**
      * @return Size of the user storage.
      * 
      */
-    public String capacity() {
-        return this.capacity;
+    public Optional<String> capacity() {
+        return Optional.ofNullable(this.capacity);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetBundleUserStorage {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String capacity;
+        private @Nullable String capacity;
         public Builder() {}
         public Builder(GetBundleUserStorage defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetBundleUserStorage {
         }
 
         @CustomType.Setter
-        public Builder capacity(String capacity) {
-            this.capacity = Objects.requireNonNull(capacity);
+        public Builder capacity(@Nullable String capacity) {
+            this.capacity = capacity;
             return this;
         }
         public GetBundleUserStorage build() {

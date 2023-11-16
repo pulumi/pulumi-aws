@@ -83,7 +83,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * ARN that identifies the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The execute command configuration for the cluster. Detailed below.
      */
@@ -99,7 +99,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
-    public readonly settings!: pulumi.Output<outputs.ecs.ClusterSetting[]>;
+    public readonly settings!: pulumi.Output<outputs.ecs.ClusterSetting[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -119,13 +119,13 @@ namespace Pulumi.Aws.Inspector
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetRulesPackagesResult(
             ImmutableArray<string> arns,
 
-            string id)
+            string? id)
         {
             Arns = arns;
             Id = id;

@@ -44,7 +44,7 @@ type HaproxyLayer struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -76,8 +76,8 @@ type HaproxyLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput                    `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    HaproxyLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                       `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    HaproxyLayerLoadBasedAutoScalingPtrOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -482,8 +482,8 @@ func (o HaproxyLayerOutput) ToHaproxyLayerOutputWithContext(ctx context.Context)
 }
 
 // The Amazon Resource Name(ARN) of the layer.
-func (o HaproxyLayerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HaproxyLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HaproxyLayerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
@@ -575,8 +575,8 @@ func (o HaproxyLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HaproxyLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o HaproxyLayerOutput) LoadBasedAutoScaling() HaproxyLayerLoadBasedAutoScalingOutput {
-	return o.ApplyT(func(v *HaproxyLayer) HaproxyLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(HaproxyLayerLoadBasedAutoScalingOutput)
+func (o HaproxyLayerOutput) LoadBasedAutoScaling() HaproxyLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayer) HaproxyLayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(HaproxyLayerLoadBasedAutoScalingPtrOutput)
 }
 
 // A human-readable name for the layer.

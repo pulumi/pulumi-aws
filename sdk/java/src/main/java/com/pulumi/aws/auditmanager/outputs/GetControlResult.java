@@ -9,48 +9,49 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetControlResult {
-    private String actionPlanInstructions;
-    private String actionPlanTitle;
-    private String arn;
+    private @Nullable String actionPlanInstructions;
+    private @Nullable String actionPlanTitle;
+    private @Nullable String arn;
     private @Nullable List<GetControlControlMappingSource> controlMappingSources;
-    private String description;
-    private String id;
+    private @Nullable String description;
+    private @Nullable String id;
     private String name;
-    private Map<String,String> tags;
-    private String testingInformation;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String testingInformation;
     private String type;
 
     private GetControlResult() {}
-    public String actionPlanInstructions() {
-        return this.actionPlanInstructions;
+    public Optional<String> actionPlanInstructions() {
+        return Optional.ofNullable(this.actionPlanInstructions);
     }
-    public String actionPlanTitle() {
-        return this.actionPlanTitle;
+    public Optional<String> actionPlanTitle() {
+        return Optional.ofNullable(this.actionPlanTitle);
     }
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public List<GetControlControlMappingSource> controlMappingSources() {
         return this.controlMappingSources == null ? List.of() : this.controlMappingSources;
     }
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String testingInformation() {
-        return this.testingInformation;
+    public Optional<String> testingInformation() {
+        return Optional.ofNullable(this.testingInformation);
     }
     public String type() {
         return this.type;
@@ -65,15 +66,15 @@ public final class GetControlResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String actionPlanInstructions;
-        private String actionPlanTitle;
-        private String arn;
+        private @Nullable String actionPlanInstructions;
+        private @Nullable String actionPlanTitle;
+        private @Nullable String arn;
         private @Nullable List<GetControlControlMappingSource> controlMappingSources;
-        private String description;
-        private String id;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private Map<String,String> tags;
-        private String testingInformation;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String testingInformation;
         private String type;
         public Builder() {}
         public Builder(GetControlResult defaults) {
@@ -91,18 +92,18 @@ public final class GetControlResult {
         }
 
         @CustomType.Setter
-        public Builder actionPlanInstructions(String actionPlanInstructions) {
-            this.actionPlanInstructions = Objects.requireNonNull(actionPlanInstructions);
+        public Builder actionPlanInstructions(@Nullable String actionPlanInstructions) {
+            this.actionPlanInstructions = actionPlanInstructions;
             return this;
         }
         @CustomType.Setter
-        public Builder actionPlanTitle(String actionPlanTitle) {
-            this.actionPlanTitle = Objects.requireNonNull(actionPlanTitle);
+        public Builder actionPlanTitle(@Nullable String actionPlanTitle) {
+            this.actionPlanTitle = actionPlanTitle;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -114,13 +115,13 @@ public final class GetControlResult {
             return controlMappingSources(List.of(controlMappingSources));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -129,13 +130,13 @@ public final class GetControlResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder testingInformation(String testingInformation) {
-            this.testingInformation = Objects.requireNonNull(testingInformation);
+        public Builder testingInformation(@Nullable String testingInformation) {
+            this.testingInformation = testingInformation;
             return this;
         }
         @CustomType.Setter

@@ -49,12 +49,12 @@ class GetParameterResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -62,7 +62,7 @@ class GetParameterResult:
 
     @property
     @pulumi.getter(name="insecureValue")
-    def insecure_value(self) -> str:
+    def insecure_value(self) -> Optional[str]:
         return pulumi.get(self, "insecure_value")
 
     @property
@@ -72,17 +72,17 @@ class GetParameterResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
-    def version(self) -> int:
+    def version(self) -> Optional[int]:
         return pulumi.get(self, "version")
 
     @property

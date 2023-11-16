@@ -145,16 +145,16 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// ARN of the environment.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Name of the environment.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string EnvironmentId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of Amazon CloudWatch alarms to monitor during the deployment process.
         /// </summary>
@@ -162,36 +162,36 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// Name of the environment.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
         /// or `ROLLED_BACK`.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetEnvironmentResult(
             string applicationId,
 
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
             string environmentId,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetEnvironmentMonitorResult> monitors,
 
-            string name,
+            string? name,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             ApplicationId = applicationId;
             Arn = arn;

@@ -43,7 +43,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter(name="authorizationToken")
-    def authorization_token(self) -> str:
+    def authorization_token(self) -> Optional[str]:
         """
         Temporary authorization token.
         """
@@ -56,7 +56,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> str:
+    def domain_owner(self) -> Optional[str]:
         return pulumi.get(self, "domain_owner")
 
     @property
@@ -66,7 +66,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter
-    def expiration(self) -> str:
+    def expiration(self) -> Optional[str]:
         """
         Time in UTC RFC3339 format when the authorization token expires.
         """
@@ -74,7 +74,7 @@ class GetAuthorizationTokenResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

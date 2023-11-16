@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAddonResult {
@@ -15,40 +17,40 @@ public final class GetAddonResult {
      * @return Version of EKS add-on.
      * 
      */
-    private String addonVersion;
+    private @Nullable String addonVersion;
     /**
      * @return ARN of the EKS add-on.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     private String clusterName;
     /**
      * @return Configuration values for the addon with a single JSON string.
      * 
      */
-    private String configurationValues;
+    private @Nullable String configurationValues;
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
-    private String modifiedAt;
+    private @Nullable String modifiedAt;
     /**
      * @return ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.
      * 
      */
-    private String serviceAccountRoleArn;
-    private Map<String,String> tags;
+    private @Nullable String serviceAccountRoleArn;
+    private @Nullable Map<String,String> tags;
 
     private GetAddonResult() {}
     public String addonName() {
@@ -58,15 +60,15 @@ public final class GetAddonResult {
      * @return Version of EKS add-on.
      * 
      */
-    public String addonVersion() {
-        return this.addonVersion;
+    public Optional<String> addonVersion() {
+        return Optional.ofNullable(this.addonVersion);
     }
     /**
      * @return ARN of the EKS add-on.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public String clusterName() {
         return this.clusterName;
@@ -75,40 +77,40 @@ public final class GetAddonResult {
      * @return Configuration values for the addon with a single JSON string.
      * 
      */
-    public String configurationValues() {
-        return this.configurationValues;
+    public Optional<String> configurationValues() {
+        return Optional.ofNullable(this.configurationValues);
     }
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
-    public String modifiedAt() {
-        return this.modifiedAt;
+    public Optional<String> modifiedAt() {
+        return Optional.ofNullable(this.modifiedAt);
     }
     /**
      * @return ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.
      * 
      */
-    public String serviceAccountRoleArn() {
-        return this.serviceAccountRoleArn;
+    public Optional<String> serviceAccountRoleArn() {
+        return Optional.ofNullable(this.serviceAccountRoleArn);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -121,15 +123,15 @@ public final class GetAddonResult {
     @CustomType.Builder
     public static final class Builder {
         private String addonName;
-        private String addonVersion;
-        private String arn;
+        private @Nullable String addonVersion;
+        private @Nullable String arn;
         private String clusterName;
-        private String configurationValues;
-        private String createdAt;
-        private String id;
-        private String modifiedAt;
-        private String serviceAccountRoleArn;
-        private Map<String,String> tags;
+        private @Nullable String configurationValues;
+        private @Nullable String createdAt;
+        private @Nullable String id;
+        private @Nullable String modifiedAt;
+        private @Nullable String serviceAccountRoleArn;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetAddonResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -151,13 +153,13 @@ public final class GetAddonResult {
             return this;
         }
         @CustomType.Setter
-        public Builder addonVersion(String addonVersion) {
-            this.addonVersion = Objects.requireNonNull(addonVersion);
+        public Builder addonVersion(@Nullable String addonVersion) {
+            this.addonVersion = addonVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -166,33 +168,33 @@ public final class GetAddonResult {
             return this;
         }
         @CustomType.Setter
-        public Builder configurationValues(String configurationValues) {
-            this.configurationValues = Objects.requireNonNull(configurationValues);
+        public Builder configurationValues(@Nullable String configurationValues) {
+            this.configurationValues = configurationValues;
             return this;
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder modifiedAt(String modifiedAt) {
-            this.modifiedAt = Objects.requireNonNull(modifiedAt);
+        public Builder modifiedAt(@Nullable String modifiedAt) {
+            this.modifiedAt = modifiedAt;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceAccountRoleArn(String serviceAccountRoleArn) {
-            this.serviceAccountRoleArn = Objects.requireNonNull(serviceAccountRoleArn);
+        public Builder serviceAccountRoleArn(@Nullable String serviceAccountRoleArn) {
+            this.serviceAccountRoleArn = serviceAccountRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetAddonResult build() {

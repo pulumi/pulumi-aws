@@ -6,6 +6,8 @@ package com.pulumi.aws.apigateway.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResourceResult {
@@ -13,18 +15,18 @@ public final class GetResourceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set to the ID of the parent Resource.
      * 
      */
-    private String parentId;
+    private @Nullable String parentId;
     private String path;
     /**
      * @return Set to the path relative to the parent Resource.
      * 
      */
-    private String pathPart;
+    private @Nullable String pathPart;
     private String restApiId;
 
     private GetResourceResult() {}
@@ -32,15 +34,15 @@ public final class GetResourceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set to the ID of the parent Resource.
      * 
      */
-    public String parentId() {
-        return this.parentId;
+    public Optional<String> parentId() {
+        return Optional.ofNullable(this.parentId);
     }
     public String path() {
         return this.path;
@@ -49,8 +51,8 @@ public final class GetResourceResult {
      * @return Set to the path relative to the parent Resource.
      * 
      */
-    public String pathPart() {
-        return this.pathPart;
+    public Optional<String> pathPart() {
+        return Optional.ofNullable(this.pathPart);
     }
     public String restApiId() {
         return this.restApiId;
@@ -65,10 +67,10 @@ public final class GetResourceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String parentId;
+        private @Nullable String id;
+        private @Nullable String parentId;
         private String path;
-        private String pathPart;
+        private @Nullable String pathPart;
         private String restApiId;
         public Builder() {}
         public Builder(GetResourceResult defaults) {
@@ -81,13 +83,13 @@ public final class GetResourceResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder parentId(String parentId) {
-            this.parentId = Objects.requireNonNull(parentId);
+        public Builder parentId(@Nullable String parentId) {
+            this.parentId = parentId;
             return this;
         }
         @CustomType.Setter
@@ -96,8 +98,8 @@ public final class GetResourceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pathPart(String pathPart) {
-            this.pathPart = Objects.requireNonNull(pathPart);
+        public Builder pathPart(@Nullable String pathPart) {
+            this.pathPart = pathPart;
             return this;
         }
         @CustomType.Setter

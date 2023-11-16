@@ -76,7 +76,7 @@ export class Proxy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the proxy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
      */
@@ -88,7 +88,7 @@ export class Proxy extends pulumi.CustomResource {
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      */
@@ -96,7 +96,7 @@ export class Proxy extends pulumi.CustomResource {
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      */
-    public readonly idleClientTimeout!: pulumi.Output<number>;
+    public readonly idleClientTimeout!: pulumi.Output<number | undefined>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
@@ -122,7 +122,7 @@ export class Proxy extends pulumi.CustomResource {
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */

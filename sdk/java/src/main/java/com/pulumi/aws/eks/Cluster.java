@@ -234,62 +234,62 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="certificateAuthorities", refs={List.class,ClusterCertificateAuthority.class}, tree="[0,1]")
-    private Output<List<ClusterCertificateAuthority>> certificateAuthorities;
+    private Output</* @Nullable */ List<ClusterCertificateAuthority>> certificateAuthorities;
 
-    public Output<List<ClusterCertificateAuthority>> certificateAuthorities() {
-        return this.certificateAuthorities;
+    public Output<Optional<List<ClusterCertificateAuthority>>> certificateAuthorities() {
+        return Codegen.optional(this.certificateAuthorities);
     }
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
     @Export(name="certificateAuthority", refs={ClusterCertificateAuthority.class}, tree="[0]")
-    private Output<ClusterCertificateAuthority> certificateAuthority;
+    private Output</* @Nullable */ ClusterCertificateAuthority> certificateAuthority;
 
     /**
      * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    public Output<ClusterCertificateAuthority> certificateAuthority() {
-        return this.certificateAuthority;
+    public Output<Optional<ClusterCertificateAuthority>> certificateAuthority() {
+        return Codegen.optional(this.certificateAuthority);
     }
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
      * 
      */
     @Export(name="clusterId", refs={String.class}, tree="[0]")
-    private Output<String> clusterId;
+    private Output</* @Nullable */ String> clusterId;
 
     /**
      * @return The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
      * 
      */
-    public Output<String> clusterId() {
-        return this.clusterId;
+    public Output<Optional<String>> clusterId() {
+        return Codegen.optional(this.clusterId);
     }
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return Unix epoch timestamp in seconds for when the cluster was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     @Export(name="defaultAddonsToRemoves", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> defaultAddonsToRemoves;
@@ -330,14 +330,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return Endpoint for your Kubernetes API server.
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
@@ -345,29 +345,29 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identities", refs={List.class,ClusterIdentity.class}, tree="[0,1]")
-    private Output<List<ClusterIdentity>> identities;
+    private Output</* @Nullable */ List<ClusterIdentity>> identities;
 
     /**
      * @return Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      * * `kubernetes_network_config.service_ipv6_cidr` - The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
      * 
      */
-    public Output<List<ClusterIdentity>> identities() {
-        return this.identities;
+    public Output<Optional<List<ClusterIdentity>>> identities() {
+        return Codegen.optional(this.identities);
     }
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="kubernetesNetworkConfig", refs={ClusterKubernetesNetworkConfig.class}, tree="[0]")
-    private Output<ClusterKubernetesNetworkConfig> kubernetesNetworkConfig;
+    private Output</* @Nullable */ ClusterKubernetesNetworkConfig> kubernetesNetworkConfig;
 
     /**
      * @return Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<ClusterKubernetesNetworkConfig> kubernetesNetworkConfig() {
-        return this.kubernetesNetworkConfig;
+    public Output<Optional<ClusterKubernetesNetworkConfig>> kubernetesNetworkConfig() {
+        return Codegen.optional(this.kubernetesNetworkConfig);
     }
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -402,14 +402,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="platformVersion", refs={String.class}, tree="[0]")
-    private Output<String> platformVersion;
+    private Output</* @Nullable */ String> platformVersion;
 
     /**
      * @return Platform version for the cluster.
      * 
      */
-    public Output<String> platformVersion() {
-        return this.platformVersion;
+    public Output<Optional<String>> platformVersion() {
+        return Codegen.optional(this.platformVersion);
     }
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -430,14 +430,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -476,14 +476,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.

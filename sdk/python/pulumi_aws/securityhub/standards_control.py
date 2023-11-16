@@ -397,7 +397,7 @@ class StandardsControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="controlId")
-    def control_id(self) -> pulumi.Output[str]:
+    def control_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the security standard control.
         """
@@ -413,7 +413,7 @@ class StandardsControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="controlStatusUpdatedAt")
-    def control_status_updated_at(self) -> pulumi.Output[str]:
+    def control_status_updated_at(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the status of the security standard control was most recently updated.
         """
@@ -421,7 +421,7 @@ class StandardsControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The standard control longer description. Provides information about what the control is checking for.
         """
@@ -429,7 +429,7 @@ class StandardsControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disabledReason")
-    def disabled_reason(self) -> pulumi.Output[str]:
+    def disabled_reason(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         """
@@ -437,7 +437,7 @@ class StandardsControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relatedRequirements")
-    def related_requirements(self) -> pulumi.Output[Sequence[str]]:
+    def related_requirements(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of requirements that are related to this control.
         """
@@ -445,7 +445,7 @@ class StandardsControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remediationUrl")
-    def remediation_url(self) -> pulumi.Output[str]:
+    def remediation_url(self) -> pulumi.Output[Optional[str]]:
         """
         A link to remediation information for the control in the Security Hub user documentation.
         """
@@ -453,7 +453,7 @@ class StandardsControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="severityRating")
-    def severity_rating(self) -> pulumi.Output[str]:
+    def severity_rating(self) -> pulumi.Output[Optional[str]]:
         """
         The severity of findings generated from this security standard control.
         """
@@ -469,7 +469,7 @@ class StandardsControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> pulumi.Output[str]:
+    def title(self) -> pulumi.Output[Optional[str]]:
         """
         The standard control title.
         """

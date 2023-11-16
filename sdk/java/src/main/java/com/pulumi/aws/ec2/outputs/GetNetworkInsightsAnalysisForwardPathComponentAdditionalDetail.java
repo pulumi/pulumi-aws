@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail {
-    private String additionalDetailType;
-    private List<GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent> components;
+    private @Nullable String additionalDetailType;
+    private @Nullable List<GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent> components;
 
     private GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail() {}
-    public String additionalDetailType() {
-        return this.additionalDetailType;
+    public Optional<String> additionalDetailType() {
+        return Optional.ofNullable(this.additionalDetailType);
     }
     public List<GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent> components() {
-        return this.components;
+        return this.components == null ? List.of() : this.components;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetai
     }
     @CustomType.Builder
     public static final class Builder {
-        private String additionalDetailType;
-        private List<GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent> components;
+        private @Nullable String additionalDetailType;
+        private @Nullable List<GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent> components;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetai
         }
 
         @CustomType.Setter
-        public Builder additionalDetailType(String additionalDetailType) {
-            this.additionalDetailType = Objects.requireNonNull(additionalDetailType);
+        public Builder additionalDetailType(@Nullable String additionalDetailType) {
+            this.additionalDetailType = additionalDetailType;
             return this;
         }
         @CustomType.Setter
-        public Builder components(List<GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent> components) {
-            this.components = Objects.requireNonNull(components);
+        public Builder components(@Nullable List<GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent> components) {
+            this.components = components;
             return this;
         }
         public Builder components(GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent... components) {

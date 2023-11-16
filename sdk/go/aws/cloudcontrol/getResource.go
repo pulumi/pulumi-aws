@@ -66,10 +66,10 @@ type LookupResourceArgs struct {
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	Identifier string `pulumi:"identifier"`
+	Id         *string `pulumi:"id"`
+	Identifier string  `pulumi:"identifier"`
 	// JSON string matching the CloudFormation resource type schema with current configuration.
-	Properties    string  `pulumi:"properties"`
+	Properties    *string `pulumi:"properties"`
 	RoleArn       *string `pulumi:"roleArn"`
 	TypeName      string  `pulumi:"typeName"`
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -122,8 +122,8 @@ func (o LookupResourceResultOutput) ToLookupResourceResultOutputWithContext(ctx 
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResourceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResourceResultOutput) Identifier() pulumi.StringOutput {
@@ -131,8 +131,8 @@ func (o LookupResourceResultOutput) Identifier() pulumi.StringOutput {
 }
 
 // JSON string matching the CloudFormation resource type schema with current configuration.
-func (o LookupResourceResultOutput) Properties() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceResult) string { return v.Properties }).(pulumi.StringOutput)
+func (o LookupResourceResultOutput) Properties() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *string { return v.Properties }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResourceResultOutput) RoleArn() pulumi.StringPtrOutput {

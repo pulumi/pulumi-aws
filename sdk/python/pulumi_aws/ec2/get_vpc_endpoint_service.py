@@ -75,7 +75,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="acceptanceRequired")
-    def acceptance_required(self) -> bool:
+    def acceptance_required(self) -> Optional[bool]:
         """
         Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         """
@@ -83,7 +83,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the VPC endpoint service.
         """
@@ -91,7 +91,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         Availability Zones in which the service is available.
         """
@@ -99,7 +99,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="baseEndpointDnsNames")
-    def base_endpoint_dns_names(self) -> Sequence[str]:
+    def base_endpoint_dns_names(self) -> Optional[Sequence[str]]:
         """
         The DNS names for the service.
         """
@@ -112,7 +112,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -120,7 +120,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="managesVpcEndpoints")
-    def manages_vpc_endpoints(self) -> bool:
+    def manages_vpc_endpoints(self) -> Optional[bool]:
         """
         Whether or not the service manages its VPC endpoints - `true` or `false`.
         """
@@ -128,7 +128,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter
-    def owner(self) -> str:
+    def owner(self) -> Optional[str]:
         """
         AWS account ID of the service owner or `amazon`.
         """
@@ -136,7 +136,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="privateDnsName")
-    def private_dns_name(self) -> str:
+    def private_dns_name(self) -> Optional[str]:
         """
         Private DNS name for the service.
         """
@@ -149,7 +149,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> str:
+    def service_id(self) -> Optional[str]:
         """
         ID of the endpoint service.
         """
@@ -157,17 +157,17 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> Optional[str]:
         return pulumi.get(self, "service_name")
 
     @property
     @pulumi.getter(name="serviceType")
-    def service_type(self) -> str:
+    def service_type(self) -> Optional[str]:
         return pulumi.get(self, "service_type")
 
     @property
     @pulumi.getter(name="supportedIpAddressTypes")
-    def supported_ip_address_types(self) -> Sequence[str]:
+    def supported_ip_address_types(self) -> Optional[Sequence[str]]:
         """
         The supported IP address types.
         """
@@ -175,7 +175,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the resource.
         """
@@ -183,7 +183,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="vpcEndpointPolicySupported")
-    def vpc_endpoint_policy_supported(self) -> bool:
+    def vpc_endpoint_policy_supported(self) -> Optional[bool]:
         """
         Whether or not the service supports endpoint policies - `true` or `false`.
         """

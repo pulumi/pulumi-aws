@@ -128,20 +128,20 @@ namespace Pulumi.Aws.Signer
         /// <summary>
         /// ARN for the signing profile.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// A human-readable name for the signing platform associated with the signing profile.
         /// </summary>
-        public readonly string PlatformDisplayName;
+        public readonly string? PlatformDisplayName;
         /// <summary>
         /// ID of the platform that is used by the target signing profile.
         /// </summary>
-        public readonly string PlatformId;
+        public readonly string? PlatformId;
         /// <summary>
         /// Revocation information for a signing profile.
         /// </summary>
@@ -153,43 +153,43 @@ namespace Pulumi.Aws.Signer
         /// <summary>
         /// Status of the target signing profile.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// List of tags associated with the signing profile.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Current version of the signing profile.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
         /// <summary>
         /// Signing profile ARN, including the profile version.
         /// </summary>
-        public readonly string VersionArn;
+        public readonly string? VersionArn;
 
         [OutputConstructor]
         private GetSigningProfileResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
             string name,
 
-            string platformDisplayName,
+            string? platformDisplayName,
 
-            string platformId,
+            string? platformId,
 
             ImmutableArray<Outputs.GetSigningProfileRevocationRecordResult> revocationRecords,
 
             ImmutableArray<Outputs.GetSigningProfileSignatureValidityPeriodResult> signatureValidityPeriods,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string version,
+            string? version,
 
-            string versionArn)
+            string? versionArn)
         {
             Arn = arn;
             Id = id;

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyInstancesDistribution {
@@ -14,67 +16,67 @@ public final class GetGroupMixedInstancesPolicyInstancesDistribution {
      * @return Strategy used when launching on-demand instances.
      * 
      */
-    private String onDemandAllocationStrategy;
+    private @Nullable String onDemandAllocationStrategy;
     /**
      * @return Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
      * 
      */
-    private Integer onDemandBaseCapacity;
-    private Integer onDemandPercentageAboveBaseCapacity;
+    private @Nullable Integer onDemandBaseCapacity;
+    private @Nullable Integer onDemandPercentageAboveBaseCapacity;
     /**
      * @return Strategy used when launching Spot instances.
      * 
      */
-    private String spotAllocationStrategy;
+    private @Nullable String spotAllocationStrategy;
     /**
      * @return Number of Spot pools per availability zone to allocate capacity.
      * 
      */
-    private Integer spotInstancePools;
+    private @Nullable Integer spotInstancePools;
     /**
      * @return Maximum price per unit hour that the user is willing to pay for the Spot instances.
      * 
      */
-    private String spotMaxPrice;
+    private @Nullable String spotMaxPrice;
 
     private GetGroupMixedInstancesPolicyInstancesDistribution() {}
     /**
      * @return Strategy used when launching on-demand instances.
      * 
      */
-    public String onDemandAllocationStrategy() {
-        return this.onDemandAllocationStrategy;
+    public Optional<String> onDemandAllocationStrategy() {
+        return Optional.ofNullable(this.onDemandAllocationStrategy);
     }
     /**
      * @return Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
      * 
      */
-    public Integer onDemandBaseCapacity() {
-        return this.onDemandBaseCapacity;
+    public Optional<Integer> onDemandBaseCapacity() {
+        return Optional.ofNullable(this.onDemandBaseCapacity);
     }
-    public Integer onDemandPercentageAboveBaseCapacity() {
-        return this.onDemandPercentageAboveBaseCapacity;
+    public Optional<Integer> onDemandPercentageAboveBaseCapacity() {
+        return Optional.ofNullable(this.onDemandPercentageAboveBaseCapacity);
     }
     /**
      * @return Strategy used when launching Spot instances.
      * 
      */
-    public String spotAllocationStrategy() {
-        return this.spotAllocationStrategy;
+    public Optional<String> spotAllocationStrategy() {
+        return Optional.ofNullable(this.spotAllocationStrategy);
     }
     /**
      * @return Number of Spot pools per availability zone to allocate capacity.
      * 
      */
-    public Integer spotInstancePools() {
-        return this.spotInstancePools;
+    public Optional<Integer> spotInstancePools() {
+        return Optional.ofNullable(this.spotInstancePools);
     }
     /**
      * @return Maximum price per unit hour that the user is willing to pay for the Spot instances.
      * 
      */
-    public String spotMaxPrice() {
-        return this.spotMaxPrice;
+    public Optional<String> spotMaxPrice() {
+        return Optional.ofNullable(this.spotMaxPrice);
     }
 
     public static Builder builder() {
@@ -86,12 +88,12 @@ public final class GetGroupMixedInstancesPolicyInstancesDistribution {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String onDemandAllocationStrategy;
-        private Integer onDemandBaseCapacity;
-        private Integer onDemandPercentageAboveBaseCapacity;
-        private String spotAllocationStrategy;
-        private Integer spotInstancePools;
-        private String spotMaxPrice;
+        private @Nullable String onDemandAllocationStrategy;
+        private @Nullable Integer onDemandBaseCapacity;
+        private @Nullable Integer onDemandPercentageAboveBaseCapacity;
+        private @Nullable String spotAllocationStrategy;
+        private @Nullable Integer spotInstancePools;
+        private @Nullable String spotMaxPrice;
         public Builder() {}
         public Builder(GetGroupMixedInstancesPolicyInstancesDistribution defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,33 +106,33 @@ public final class GetGroupMixedInstancesPolicyInstancesDistribution {
         }
 
         @CustomType.Setter
-        public Builder onDemandAllocationStrategy(String onDemandAllocationStrategy) {
-            this.onDemandAllocationStrategy = Objects.requireNonNull(onDemandAllocationStrategy);
+        public Builder onDemandAllocationStrategy(@Nullable String onDemandAllocationStrategy) {
+            this.onDemandAllocationStrategy = onDemandAllocationStrategy;
             return this;
         }
         @CustomType.Setter
-        public Builder onDemandBaseCapacity(Integer onDemandBaseCapacity) {
-            this.onDemandBaseCapacity = Objects.requireNonNull(onDemandBaseCapacity);
+        public Builder onDemandBaseCapacity(@Nullable Integer onDemandBaseCapacity) {
+            this.onDemandBaseCapacity = onDemandBaseCapacity;
             return this;
         }
         @CustomType.Setter
-        public Builder onDemandPercentageAboveBaseCapacity(Integer onDemandPercentageAboveBaseCapacity) {
-            this.onDemandPercentageAboveBaseCapacity = Objects.requireNonNull(onDemandPercentageAboveBaseCapacity);
+        public Builder onDemandPercentageAboveBaseCapacity(@Nullable Integer onDemandPercentageAboveBaseCapacity) {
+            this.onDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;
             return this;
         }
         @CustomType.Setter
-        public Builder spotAllocationStrategy(String spotAllocationStrategy) {
-            this.spotAllocationStrategy = Objects.requireNonNull(spotAllocationStrategy);
+        public Builder spotAllocationStrategy(@Nullable String spotAllocationStrategy) {
+            this.spotAllocationStrategy = spotAllocationStrategy;
             return this;
         }
         @CustomType.Setter
-        public Builder spotInstancePools(Integer spotInstancePools) {
-            this.spotInstancePools = Objects.requireNonNull(spotInstancePools);
+        public Builder spotInstancePools(@Nullable Integer spotInstancePools) {
+            this.spotInstancePools = spotInstancePools;
             return this;
         }
         @CustomType.Setter
-        public Builder spotMaxPrice(String spotMaxPrice) {
-            this.spotMaxPrice = Objects.requireNonNull(spotMaxPrice);
+        public Builder spotMaxPrice(@Nullable String spotMaxPrice) {
+            this.spotMaxPrice = spotMaxPrice;
             return this;
         }
         public GetGroupMixedInstancesPolicyInstancesDistribution build() {

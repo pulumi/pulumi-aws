@@ -97,70 +97,70 @@ export interface GetEngineVersionResult {
     /**
      * The default character set for new instances of this engine version.
      */
-    readonly defaultCharacterSet: string;
+    readonly defaultCharacterSet?: string;
     readonly defaultOnly?: boolean;
     readonly engine: string;
     /**
      * Description of the database engine.
      */
-    readonly engineDescription: string;
+    readonly engineDescription?: string;
     /**
      * Set of log types that the database engine has available for export to CloudWatch Logs.
      */
-    readonly exportableLogTypes: string[];
+    readonly exportableLogTypes?: string[];
     readonly filters?: outputs.rds.GetEngineVersionFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly includeAll?: boolean;
-    readonly parameterGroupFamily: string;
+    readonly parameterGroupFamily?: string;
     readonly preferredVersions?: string[];
     /**
      * Status of the DB engine version, either available or deprecated.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Set of the character sets supported by this engine.
      */
-    readonly supportedCharacterSets: string[];
+    readonly supportedCharacterSets?: string[];
     /**
      * Set of features supported by the DB engine.
      */
-    readonly supportedFeatureNames: string[];
+    readonly supportedFeatureNames?: string[];
     /**
      * Set of the supported DB engine modes.
      */
-    readonly supportedModes: string[];
+    readonly supportedModes?: string[];
     /**
      * Set of the time zones supported by this engine.
      */
-    readonly supportedTimezones: string[];
+    readonly supportedTimezones?: string[];
     /**
      * Indicates whether you can use Aurora global databases with a specific DB engine version.
      */
-    readonly supportsGlobalDatabases: boolean;
+    readonly supportsGlobalDatabases?: boolean;
     /**
      * Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
      */
-    readonly supportsLogExportsToCloudwatch: boolean;
+    readonly supportsLogExportsToCloudwatch?: boolean;
     /**
      * Indicates whether you can use Aurora parallel query with a specific DB engine version.
      */
-    readonly supportsParallelQuery: boolean;
+    readonly supportsParallelQuery?: boolean;
     /**
      * Indicates whether the database engine version supports read replicas.
      */
-    readonly supportsReadReplica: boolean;
+    readonly supportsReadReplica?: boolean;
     /**
      * Set of engine versions that this database engine version can be upgraded to.
      */
-    readonly validUpgradeTargets: string[];
-    readonly version: string;
+    readonly validUpgradeTargets?: string[];
+    readonly version?: string;
     /**
      * Description of the database engine version.
      */
-    readonly versionDescription: string;
+    readonly versionDescription?: string;
 }
 /**
  * Information about an RDS engine version.

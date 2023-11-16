@@ -101,25 +101,25 @@ export class GatewayAssociation extends pulumi.CustomResource {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    public readonly allowedPrefixes!: pulumi.Output<string[]>;
+    public readonly allowedPrefixes!: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for single account Direct Connect gateway associations.
      */
-    public readonly associatedGatewayId!: pulumi.Output<string>;
+    public readonly associatedGatewayId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for cross-account Direct Connect gateway associations.
      */
-    public readonly associatedGatewayOwnerAccountId!: pulumi.Output<string>;
+    public readonly associatedGatewayOwnerAccountId!: pulumi.Output<string | undefined>;
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      */
-    public /*out*/ readonly associatedGatewayType!: pulumi.Output<string>;
+    public /*out*/ readonly associatedGatewayType!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Direct Connect gateway association.
      */
-    public /*out*/ readonly dxGatewayAssociationId!: pulumi.Output<string>;
+    public /*out*/ readonly dxGatewayAssociationId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Direct Connect gateway.
      */
@@ -127,7 +127,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the Direct Connect gateway.
      */
-    public /*out*/ readonly dxGatewayOwnerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly dxGatewayOwnerAccountId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Direct Connect gateway association proposal.
      * Used for cross-account Direct Connect gateway associations.

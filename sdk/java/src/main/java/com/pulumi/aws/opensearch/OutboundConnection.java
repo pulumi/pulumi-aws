@@ -130,28 +130,28 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="connectionProperties", refs={OutboundConnectionConnectionProperties.class}, tree="[0]")
-    private Output<OutboundConnectionConnectionProperties> connectionProperties;
+    private Output</* @Nullable */ OutboundConnectionConnectionProperties> connectionProperties;
 
     /**
      * @return Configuration block for the outbound connection.
      * 
      */
-    public Output<OutboundConnectionConnectionProperties> connectionProperties() {
-        return this.connectionProperties;
+    public Output<Optional<OutboundConnectionConnectionProperties>> connectionProperties() {
+        return Codegen.optional(this.connectionProperties);
     }
     /**
      * Status of the connection request.
      * 
      */
     @Export(name="connectionStatus", refs={String.class}, tree="[0]")
-    private Output<String> connectionStatus;
+    private Output</* @Nullable */ String> connectionStatus;
 
     /**
      * @return Status of the connection request.
      * 
      */
-    public Output<String> connectionStatus() {
-        return this.connectionStatus;
+    public Output<Optional<String>> connectionStatus() {
+        return Codegen.optional(this.connectionStatus);
     }
     /**
      * Configuration block for the local Opensearch domain.

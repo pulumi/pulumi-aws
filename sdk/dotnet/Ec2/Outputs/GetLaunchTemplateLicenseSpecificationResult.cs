@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateLicenseSpecificationResult
     {
-        public readonly string LicenseConfigurationArn;
+        public readonly string? LicenseConfigurationArn;
 
         [OutputConstructor]
-        private GetLaunchTemplateLicenseSpecificationResult(string licenseConfigurationArn)
+        private GetLaunchTemplateLicenseSpecificationResult(string? licenseConfigurationArn)
         {
             LicenseConfigurationArn = licenseConfigurationArn;
         }

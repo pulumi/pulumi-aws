@@ -6,18 +6,20 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerConnectionPoolHttp {
-    private Integer maxConnections;
-    private Integer maxPendingRequests;
+    private @Nullable Integer maxConnections;
+    private @Nullable Integer maxPendingRequests;
 
     private GetVirtualNodeSpecListenerConnectionPoolHttp() {}
-    public Integer maxConnections() {
-        return this.maxConnections;
+    public Optional<Integer> maxConnections() {
+        return Optional.ofNullable(this.maxConnections);
     }
-    public Integer maxPendingRequests() {
-        return this.maxPendingRequests;
+    public Optional<Integer> maxPendingRequests() {
+        return Optional.ofNullable(this.maxPendingRequests);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetVirtualNodeSpecListenerConnectionPoolHttp {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer maxConnections;
-        private Integer maxPendingRequests;
+        private @Nullable Integer maxConnections;
+        private @Nullable Integer maxPendingRequests;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerConnectionPoolHttp defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetVirtualNodeSpecListenerConnectionPoolHttp {
         }
 
         @CustomType.Setter
-        public Builder maxConnections(Integer maxConnections) {
-            this.maxConnections = Objects.requireNonNull(maxConnections);
+        public Builder maxConnections(@Nullable Integer maxConnections) {
+            this.maxConnections = maxConnections;
             return this;
         }
         @CustomType.Setter
-        public Builder maxPendingRequests(Integer maxPendingRequests) {
-            this.maxPendingRequests = Objects.requireNonNull(maxPendingRequests);
+        public Builder maxPendingRequests(@Nullable Integer maxPendingRequests) {
+            this.maxPendingRequests = maxPendingRequests;
             return this;
         }
         public GetVirtualNodeSpecListenerConnectionPoolHttp build() {

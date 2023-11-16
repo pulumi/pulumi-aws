@@ -55,7 +55,7 @@ class GetPublicKeyResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Key ARN of the asymmetric CMK from which the public key was downloaded.
         """
@@ -63,7 +63,7 @@ class GetPublicKeyResult:
 
     @property
     @pulumi.getter(name="customerMasterKeySpec")
-    def customer_master_key_spec(self) -> str:
+    def customer_master_key_spec(self) -> Optional[str]:
         """
         Type of the public key that was downloaded.
         """
@@ -71,7 +71,7 @@ class GetPublicKeyResult:
 
     @property
     @pulumi.getter(name="encryptionAlgorithms")
-    def encryption_algorithms(self) -> Sequence[str]:
+    def encryption_algorithms(self) -> Optional[Sequence[str]]:
         """
         Encryption algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `ENCRYPT_DECRYPT`.
         """
@@ -84,7 +84,7 @@ class GetPublicKeyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -97,7 +97,7 @@ class GetPublicKeyResult:
 
     @property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> str:
+    def key_usage(self) -> Optional[str]:
         """
         Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
         """
@@ -105,7 +105,7 @@ class GetPublicKeyResult:
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> str:
+    def public_key(self) -> Optional[str]:
         """
         Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
         """
@@ -113,7 +113,7 @@ class GetPublicKeyResult:
 
     @property
     @pulumi.getter(name="publicKeyPem")
-    def public_key_pem(self) -> str:
+    def public_key_pem(self) -> Optional[str]:
         """
         Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
         """
@@ -121,7 +121,7 @@ class GetPublicKeyResult:
 
     @property
     @pulumi.getter(name="signingAlgorithms")
-    def signing_algorithms(self) -> Sequence[str]:
+    def signing_algorithms(self) -> Optional[Sequence[str]]:
         """
         Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
         """

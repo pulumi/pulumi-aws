@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransformUntagColumnOperation {
-    private String columnName;
-    private List<String> tagNames;
+    private @Nullable String columnName;
+    private @Nullable List<String> tagNames;
 
     private GetDataSetLogicalTableMapDataTransformUntagColumnOperation() {}
-    public String columnName() {
-        return this.columnName;
+    public Optional<String> columnName() {
+        return Optional.ofNullable(this.columnName);
     }
     public List<String> tagNames() {
-        return this.tagNames;
+        return this.tagNames == null ? List.of() : this.tagNames;
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetDataSetLogicalTableMapDataTransformUntagColumnOperation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String columnName;
-        private List<String> tagNames;
+        private @Nullable String columnName;
+        private @Nullable List<String> tagNames;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransformUntagColumnOperation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetDataSetLogicalTableMapDataTransformUntagColumnOperation {
         }
 
         @CustomType.Setter
-        public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+        public Builder columnName(@Nullable String columnName) {
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
-        public Builder tagNames(List<String> tagNames) {
-            this.tagNames = Objects.requireNonNull(tagNames);
+        public Builder tagNames(@Nullable List<String> tagNames) {
+            this.tagNames = tagNames;
             return this;
         }
         public Builder tagNames(String... tagNames) {

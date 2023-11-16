@@ -56,19 +56,19 @@ export class Channel extends pulumi.CustomResource {
     /**
      * ARN of the Channel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * If `true`, channel is private (enabled for playback authorization).
      */
-    public readonly authorized!: pulumi.Output<boolean>;
+    public readonly authorized!: pulumi.Output<boolean | undefined>;
     /**
      * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
      */
-    public /*out*/ readonly ingestEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly ingestEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Channel latency mode. Valid values: `NORMAL`, `LOW`.
      */
-    public readonly latencyMode!: pulumi.Output<string>;
+    public readonly latencyMode!: pulumi.Output<string | undefined>;
     /**
      * Channel name.
      */
@@ -76,11 +76,11 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Channel playback URL.
      */
-    public /*out*/ readonly playbackUrl!: pulumi.Output<string>;
+    public /*out*/ readonly playbackUrl!: pulumi.Output<string | undefined>;
     /**
      * Recording configuration ARN.
      */
-    public readonly recordingConfigurationArn!: pulumi.Output<string>;
+    public readonly recordingConfigurationArn!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -94,7 +94,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.

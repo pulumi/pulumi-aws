@@ -130,15 +130,15 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Whether the classic / basic authentication flow is enabled.
         /// </summary>
-        public readonly bool AllowClassicFlow;
+        public readonly bool? AllowClassicFlow;
         /// <summary>
         /// Whether the identity pool supports unauthenticated logins or not.
         /// </summary>
-        public readonly bool AllowUnauthenticatedIdentities;
+        public readonly bool? AllowUnauthenticatedIdentities;
         /// <summary>
         /// ARN of the Pool.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// An array of Amazon Cognito Identity user pools and their client IDs.
         /// </summary>
@@ -146,11 +146,11 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// The "domain" by which Cognito will refer to your users.
         /// </summary>
-        public readonly string DeveloperProviderName;
+        public readonly string? DeveloperProviderName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string IdentityPoolName;
         /// <summary>
         /// Set of OpendID Connect provider ARNs.
@@ -163,25 +163,25 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Key-Value pairs mapping provider names to provider app IDs.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> SupportedLoginProviders;
+        public readonly ImmutableDictionary<string, string>? SupportedLoginProviders;
         /// <summary>
         /// A map of tags to assigned to the Identity Pool.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetIdentityPoolResult(
-            bool allowClassicFlow,
+            bool? allowClassicFlow,
 
-            bool allowUnauthenticatedIdentities,
+            bool? allowUnauthenticatedIdentities,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetIdentityPoolCognitoIdentityProviderResult> cognitoIdentityProviders,
 
-            string developerProviderName,
+            string? developerProviderName,
 
-            string id,
+            string? id,
 
             string identityPoolName,
 
@@ -189,9 +189,9 @@ namespace Pulumi.Aws.Cognito
 
             ImmutableArray<string> samlProviderArns,
 
-            ImmutableDictionary<string, string> supportedLoginProviders,
+            ImmutableDictionary<string, string>? supportedLoginProviders,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AllowClassicFlow = allowClassicFlow;
             AllowUnauthenticatedIdentities = allowUnauthenticatedIdentities;

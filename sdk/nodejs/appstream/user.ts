@@ -60,7 +60,7 @@ export class User extends pulumi.CustomResource {
     /**
      * ARN of the appstream user.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
      */
@@ -68,7 +68,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the user was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Whether the user in the user pool is enabled.
      */

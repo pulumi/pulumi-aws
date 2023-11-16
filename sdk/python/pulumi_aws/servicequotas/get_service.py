@@ -34,7 +34,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -42,7 +42,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="serviceCode")
-    def service_code(self) -> str:
+    def service_code(self) -> Optional[str]:
         """
         Code of the service.
         """

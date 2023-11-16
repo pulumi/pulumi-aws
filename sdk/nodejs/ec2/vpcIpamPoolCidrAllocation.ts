@@ -103,7 +103,7 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
     /**
      * The CIDR you want to assign to the pool.
      */
-    public readonly cidr!: pulumi.Output<string>;
+    public readonly cidr!: pulumi.Output<string | undefined>;
     /**
      * The description for the allocation.
      */
@@ -112,7 +112,7 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
      * Exclude a particular CIDR range from being returned by the pool.
      */
     public readonly disallowedCidrs!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly ipamPoolAllocationId!: pulumi.Output<string>;
+    public /*out*/ readonly ipamPoolAllocationId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the pool to which you want to assign a CIDR.
      */
@@ -124,15 +124,15 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
     /**
      * The ID of the resource.
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    public /*out*/ readonly resourceId!: pulumi.Output<string | undefined>;
     /**
      * The owner of the resource.
      */
-    public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
+    public /*out*/ readonly resourceOwner!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcIpamPoolCidrAllocation resource with the given unique name, arguments, and options.

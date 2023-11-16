@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Fsx
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Fsx
         /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         /// </summary>
         [Output("dailyAutomaticBackupStartTime")]
-        public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
+        public Output<string?> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
         /// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
@@ -79,19 +79,19 @@ namespace Pulumi.Aws.Fsx
         /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         /// </summary>
         [Output("diskIopsConfiguration")]
-        public Output<Outputs.OntapFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
+        public Output<Outputs.OntapFileSystemDiskIopsConfiguration?> DiskIopsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
         /// </summary>
         [Output("endpointIpAddressRange")]
-        public Output<string> EndpointIpAddressRange { get; private set; } = null!;
+        public Output<string?> EndpointIpAddressRange { get; private set; } = null!;
 
         /// <summary>
         /// The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Fsx
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Fsx
         /// AWS account identifier that created the file system.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
@@ -181,13 +181,13 @@ namespace Pulumi.Aws.Fsx
         /// Identifier of the Virtual Private Cloud for the file system.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Output("weeklyMaintenanceStartTime")]
-        public Output<string> WeeklyMaintenanceStartTime { get; private set; } = null!;
+        public Output<string?> WeeklyMaintenanceStartTime { get; private set; } = null!;
 
 
         /// <summary>

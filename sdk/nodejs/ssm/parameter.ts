@@ -95,11 +95,11 @@ export class Parameter extends pulumi.CustomResource {
     /**
      * ARN of the parameter.
      */
-    public readonly arn!: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      */
-    public readonly dataType!: pulumi.Output<string>;
+    public readonly dataType!: pulumi.Output<string | undefined>;
     /**
      * Description of the parameter.
      */
@@ -107,11 +107,11 @@ export class Parameter extends pulumi.CustomResource {
     /**
      * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      */
-    public readonly insecureValue!: pulumi.Output<string>;
+    public readonly insecureValue!: pulumi.Output<string | undefined>;
     /**
      * KMS key ID or ARN for encrypting a SecureString.
      */
-    public readonly keyId!: pulumi.Output<string>;
+    public readonly keyId!: pulumi.Output<string | undefined>;
     /**
      * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
@@ -147,11 +147,11 @@ export class Parameter extends pulumi.CustomResource {
      *
      * > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
      */
-    public readonly value!: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string | undefined>;
     /**
      * Version of the parameter.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Parameter resource with the given unique name, arguments, and options.

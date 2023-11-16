@@ -136,19 +136,19 @@ type Framework struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the backup framework.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
 	Controls FrameworkControlArrayOutput `pulumi:"controls"`
 	// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
+	DeploymentStatus pulumi.StringPtrOutput `pulumi:"deploymentStatus"`
 	// The description of the framework with a maximum of 1,024 characters
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -354,8 +354,8 @@ func (o FrameworkOutput) ToFrameworkOutputWithContext(ctx context.Context) Frame
 }
 
 // The ARN of the backup framework.
-func (o FrameworkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FrameworkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
@@ -364,13 +364,13 @@ func (o FrameworkOutput) Controls() FrameworkControlArrayOutput {
 }
 
 // The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-func (o FrameworkOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o FrameworkOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-func (o FrameworkOutput) DeploymentStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+func (o FrameworkOutput) DeploymentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.DeploymentStatus }).(pulumi.StringPtrOutput)
 }
 
 // The description of the framework with a maximum of 1,024 characters
@@ -384,8 +384,8 @@ func (o FrameworkOutput) Name() pulumi.StringOutput {
 }
 
 // A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-func (o FrameworkOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o FrameworkOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

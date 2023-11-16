@@ -238,14 +238,14 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accessControlPolicy", refs={BucketAclV2AccessControlPolicy.class}, tree="[0]")
-    private Output<BucketAclV2AccessControlPolicy> accessControlPolicy;
+    private Output</* @Nullable */ BucketAclV2AccessControlPolicy> accessControlPolicy;
 
     /**
      * @return Configuration block that sets the ACL permissions for an object per grantee. See below.
      * 
      */
-    public Output<BucketAclV2AccessControlPolicy> accessControlPolicy() {
-        return this.accessControlPolicy;
+    public Output<Optional<BucketAclV2AccessControlPolicy>> accessControlPolicy() {
+        return Codegen.optional(this.accessControlPolicy);
     }
     /**
      * Canned ACL to apply to the bucket.

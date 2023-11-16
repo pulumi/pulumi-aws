@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetConnectionPhysicalConnectionRequirementResult
     {
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         public readonly ImmutableArray<string> SecurityGroupIdLists;
-        public readonly string SubnetId;
+        public readonly string? SubnetId;
 
         [OutputConstructor]
         private GetConnectionPhysicalConnectionRequirementResult(
-            string availabilityZone,
+            string? availabilityZone,
 
             ImmutableArray<string> securityGroupIdLists,
 
-            string subnetId)
+            string? subnetId)
         {
             AvailabilityZone = availabilityZone;
             SecurityGroupIdLists = securityGroupIdLists;

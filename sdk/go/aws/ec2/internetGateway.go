@@ -55,9 +55,9 @@ type InternetGateway struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Internet Gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the AWS account that owns the internet gateway.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
@@ -94,7 +94,7 @@ type InternetGateway struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewInternetGateway registers a new resource with the given unique name, arguments, and options.
@@ -383,13 +383,13 @@ func (o InternetGatewayOutput) ToInternetGatewayOutputWithContext(ctx context.Co
 }
 
 // The ARN of the Internet Gateway.
-func (o InternetGatewayOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InternetGatewayOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InternetGateway) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the AWS account that owns the internet gateway.
-func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o InternetGatewayOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InternetGateway) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -437,8 +437,8 @@ func (o InternetGatewayOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
-func (o InternetGatewayOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o InternetGatewayOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InternetGateway) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type InternetGatewayArrayOutput struct{ *pulumi.OutputState }

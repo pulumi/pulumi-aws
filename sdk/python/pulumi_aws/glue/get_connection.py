@@ -56,7 +56,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Glue Connection.
         """
@@ -64,7 +64,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> str:
+    def catalog_id(self) -> Optional[str]:
         """
         Catalog ID of the Glue Connection.
         """
@@ -72,12 +72,12 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="connectionProperties")
-    def connection_properties(self) -> Mapping[str, str]:
+    def connection_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "connection_properties")
 
     @property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> str:
+    def connection_type(self) -> Optional[str]:
         """
         Type of Glue Connection.
         """
@@ -85,7 +85,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the connection.
         """
@@ -98,7 +98,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="matchCriterias")
-    def match_criterias(self) -> Sequence[str]:
+    def match_criterias(self) -> Optional[Sequence[str]]:
         """
         A list of criteria that can be used in selecting this connection.
         """
@@ -106,7 +106,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the Glue Connection.
         """
@@ -114,7 +114,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="physicalConnectionRequirements")
-    def physical_connection_requirements(self) -> Sequence['outputs.GetConnectionPhysicalConnectionRequirementResult']:
+    def physical_connection_requirements(self) -> Optional[Sequence['outputs.GetConnectionPhysicalConnectionRequirementResult']]:
         """
         A map of physical connection requirements, such as VPC and SecurityGroup.
         """
@@ -122,7 +122,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags assigned to the resource
         """

@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// Identifier of the remote access EC2 Security Group.
         /// </summary>
-        public readonly string RemoteAccessSecurityGroupId;
+        public readonly string? RemoteAccessSecurityGroupId;
 
         [OutputConstructor]
         private GetNodeGroupResourceResult(
             ImmutableArray<Outputs.GetNodeGroupResourceAutoscalingGroupResult> autoscalingGroups,
 
-            string remoteAccessSecurityGroupId)
+            string? remoteAccessSecurityGroupId)
         {
             AutoscalingGroups = autoscalingGroups;
             RemoteAccessSecurityGroupId = remoteAccessSecurityGroupId;

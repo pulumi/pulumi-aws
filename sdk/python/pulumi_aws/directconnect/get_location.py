@@ -43,7 +43,7 @@ class GetLocationResult:
 
     @property
     @pulumi.getter(name="availableMacsecPortSpeeds")
-    def available_macsec_port_speeds(self) -> Sequence[str]:
+    def available_macsec_port_speeds(self) -> Optional[Sequence[str]]:
         """
         The available MAC Security (MACsec) port speeds for the location.
         """
@@ -51,7 +51,7 @@ class GetLocationResult:
 
     @property
     @pulumi.getter(name="availablePortSpeeds")
-    def available_port_speeds(self) -> Sequence[str]:
+    def available_port_speeds(self) -> Optional[Sequence[str]]:
         """
         The available port speeds for the location.
         """
@@ -59,7 +59,7 @@ class GetLocationResult:
 
     @property
     @pulumi.getter(name="availableProviders")
-    def available_providers(self) -> Sequence[str]:
+    def available_providers(self) -> Optional[Sequence[str]]:
         """
         Names of the service providers for the location.
         """
@@ -67,7 +67,7 @@ class GetLocationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -80,7 +80,7 @@ class GetLocationResult:
 
     @property
     @pulumi.getter(name="locationName")
-    def location_name(self) -> str:
+    def location_name(self) -> Optional[str]:
         """
         Name of the location. This includes the name of the colocation partner and the physical site of the building.
         """

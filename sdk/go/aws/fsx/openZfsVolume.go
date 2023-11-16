@@ -54,7 +54,7 @@ type OpenZfsVolume struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name of the file system.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 	CopyTagsToSnapshots pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshots"`
 	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
@@ -70,13 +70,13 @@ type OpenZfsVolume struct {
 	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
 	ParentVolumeId pulumi.StringOutput `pulumi:"parentVolumeId"`
 	// specifies whether the volume is read-only. Default is false.
-	ReadOnly pulumi.BoolOutput `pulumi:"readOnly"`
+	ReadOnly pulumi.BoolPtrOutput `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrOutput `pulumi:"recordSizeKib"`
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
-	StorageCapacityQuotaGib pulumi.IntOutput `pulumi:"storageCapacityQuotaGib"`
+	StorageCapacityQuotaGib pulumi.IntPtrOutput `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
-	StorageCapacityReservationGib pulumi.IntOutput `pulumi:"storageCapacityReservationGib"`
+	StorageCapacityReservationGib pulumi.IntPtrOutput `pulumi:"storageCapacityReservationGib"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -349,8 +349,8 @@ func (o OpenZfsVolumeOutput) ToOpenZfsVolumeOutputWithContext(ctx context.Contex
 }
 
 // Amazon Resource Name of the file system.
-func (o OpenZfsVolumeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OpenZfsVolumeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
@@ -389,8 +389,8 @@ func (o OpenZfsVolumeOutput) ParentVolumeId() pulumi.StringOutput {
 }
 
 // specifies whether the volume is read-only. Default is false.
-func (o OpenZfsVolumeOutput) ReadOnly() pulumi.BoolOutput {
-	return o.ApplyT(func(v *OpenZfsVolume) pulumi.BoolOutput { return v.ReadOnly }).(pulumi.BoolOutput)
+func (o OpenZfsVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenZfsVolume) pulumi.BoolPtrOutput { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
 // The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
@@ -399,13 +399,13 @@ func (o OpenZfsVolumeOutput) RecordSizeKib() pulumi.IntPtrOutput {
 }
 
 // The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
-func (o OpenZfsVolumeOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
-	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntOutput { return v.StorageCapacityQuotaGib }).(pulumi.IntOutput)
+func (o OpenZfsVolumeOutput) StorageCapacityQuotaGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntPtrOutput { return v.StorageCapacityQuotaGib }).(pulumi.IntPtrOutput)
 }
 
 // The amount of storage in gibibytes (GiB) to reserve from the parent volume.
-func (o OpenZfsVolumeOutput) StorageCapacityReservationGib() pulumi.IntOutput {
-	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntOutput { return v.StorageCapacityReservationGib }).(pulumi.IntOutput)
+func (o OpenZfsVolumeOutput) StorageCapacityReservationGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntPtrOutput { return v.StorageCapacityReservationGib }).(pulumi.IntPtrOutput)
 }
 
 // A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Route53
         /// The ARN (Amazon Resource Name) for the resolver rule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Route53
         /// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Route53
         /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
         /// </summary>
         [Output("shareStatus")]
-        public Output<string> ShareStatus { get; private set; } = null!;
+        public Output<string?> ShareStatus { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

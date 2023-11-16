@@ -72,14 +72,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
@@ -114,14 +114,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="insightsConfiguration", refs={GroupInsightsConfiguration.class}, tree="[0]")
-    private Output<GroupInsightsConfiguration> insightsConfiguration;
+    private Output</* @Nullable */ GroupInsightsConfiguration> insightsConfiguration;
 
     /**
      * @return Configuration options for enabling insights.
      * 
      */
-    public Output<GroupInsightsConfiguration> insightsConfiguration() {
-        return this.insightsConfiguration;
+    public Output<Optional<GroupInsightsConfiguration>> insightsConfiguration() {
+        return Codegen.optional(this.insightsConfiguration);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

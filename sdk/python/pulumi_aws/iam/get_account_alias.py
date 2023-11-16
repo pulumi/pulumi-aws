@@ -31,7 +31,7 @@ class GetAccountAliasResult:
 
     @property
     @pulumi.getter(name="accountAlias")
-    def account_alias(self) -> str:
+    def account_alias(self) -> Optional[str]:
         """
         Alias associated with the AWS account.
         """
@@ -39,7 +39,7 @@ class GetAccountAliasResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

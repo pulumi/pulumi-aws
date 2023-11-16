@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Fsx
         /// Amazon Resource Name of the storage virtual machine.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Fsx
         /// Describes the SVM's subtype, e.g. `DEFAULT`
         /// </summary>
         [Output("subtype")]
-        public Output<string> Subtype { get; private set; } = null!;
+        public Output<string?> Subtype { get; private set; } = null!;
 
         [Output("svmAdminPassword")]
         public Output<string?> SvmAdminPassword { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Fsx
         /// The SVM's UUID (universally unique identifier).
         /// </summary>
         [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
+        public Output<string?> Uuid { get; private set; } = null!;
 
 
         /// <summary>

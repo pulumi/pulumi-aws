@@ -101,7 +101,7 @@ type Workteam struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the work team.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
@@ -109,7 +109,7 @@ type Workteam struct {
 	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 	NotificationConfiguration WorkteamNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
 	// The subdomain for your OIDC Identity Provider.
-	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
+	Subdomain pulumi.StringPtrOutput `pulumi:"subdomain"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -336,8 +336,8 @@ func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) Worktea
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
-func (o WorkteamOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WorkteamOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workteam) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the work team.
@@ -356,8 +356,8 @@ func (o WorkteamOutput) NotificationConfiguration() WorkteamNotificationConfigur
 }
 
 // The subdomain for your OIDC Identity Provider.
-func (o WorkteamOutput) Subdomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
+func (o WorkteamOutput) Subdomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workteam) pulumi.StringPtrOutput { return v.Subdomain }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

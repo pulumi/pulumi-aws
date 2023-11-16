@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// Issuer URL for the OpenID Connect identity provider.
         /// </summary>
-        public readonly string Issuer;
+        public readonly string? Issuer;
 
         [OutputConstructor]
-        private GetClusterIdentityOidcResult(string issuer)
+        private GetClusterIdentityOidcResult(string? issuer)
         {
             Issuer = issuer;
         }

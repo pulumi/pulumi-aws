@@ -233,7 +233,7 @@ type Distribution struct {
 	// The alternate domain names of the distribution.
 	AlternativeDomainNames pulumi.StringArrayOutput `pulumi:"alternativeDomainNames"`
 	// The Amazon Resource Name (ARN) of the distribution.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Bundle ID to use for the distribution.
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// An object that describes the cache behavior settings of the distribution. Detailed below
@@ -245,11 +245,11 @@ type Distribution struct {
 	// The name of the SSL/TLS certificate attached to the distribution, if any.
 	CertificateName pulumi.StringPtrOutput `pulumi:"certificateName"`
 	// The timestamp when the distribution was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// Object that describes the default cache behavior of the distribution. Detailed below
 	DefaultCacheBehavior DistributionDefaultCacheBehaviorOutput `pulumi:"defaultCacheBehavior"`
 	// The domain name of the distribution.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// The IP address type of the distribution. Default: `dualstack`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// Indicates whether the distribution is enabled. Default: `true`.
@@ -261,13 +261,13 @@ type Distribution struct {
 	// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
 	Origin DistributionOriginOutput `pulumi:"origin"`
 	// The public DNS of the origin.
-	OriginPublicDns pulumi.StringOutput `pulumi:"originPublicDns"`
+	OriginPublicDns pulumi.StringPtrOutput `pulumi:"originPublicDns"`
 	// The resource type of the origin resource (e.g., Instance).
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// The status of the distribution.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
+	SupportCode pulumi.StringPtrOutput `pulumi:"supportCode"`
 	// Map of tags for the Lightsail Distribution. If
 	// configured with a provider
 	// `defaultTags` configuration block
@@ -575,8 +575,8 @@ func (o DistributionOutput) AlternativeDomainNames() pulumi.StringArrayOutput {
 }
 
 // The Amazon Resource Name (ARN) of the distribution.
-func (o DistributionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DistributionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Bundle ID to use for the distribution.
@@ -602,8 +602,8 @@ func (o DistributionOutput) CertificateName() pulumi.StringPtrOutput {
 }
 
 // The timestamp when the distribution was created.
-func (o DistributionOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o DistributionOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Object that describes the default cache behavior of the distribution. Detailed below
@@ -612,8 +612,8 @@ func (o DistributionOutput) DefaultCacheBehavior() DistributionDefaultCacheBehav
 }
 
 // The domain name of the distribution.
-func (o DistributionOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+func (o DistributionOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // The IP address type of the distribution. Default: `dualstack`.
@@ -642,23 +642,23 @@ func (o DistributionOutput) Origin() DistributionOriginOutput {
 }
 
 // The public DNS of the origin.
-func (o DistributionOutput) OriginPublicDns() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.OriginPublicDns }).(pulumi.StringOutput)
+func (o DistributionOutput) OriginPublicDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.OriginPublicDns }).(pulumi.StringPtrOutput)
 }
 
 // The resource type of the origin resource (e.g., Instance).
-func (o DistributionOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+func (o DistributionOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 // The status of the distribution.
-func (o DistributionOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o DistributionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-func (o DistributionOutput) SupportCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
+func (o DistributionOutput) SupportCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.SupportCode }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags for the Lightsail Distribution. If

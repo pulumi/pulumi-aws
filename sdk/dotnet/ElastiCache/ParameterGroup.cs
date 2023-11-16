@@ -60,7 +60,7 @@ namespace Pulumi.Aws.ElastiCache
         /// The AWS ARN associated with the parameter group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".

@@ -123,14 +123,14 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return Current version of the cache policy.
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.

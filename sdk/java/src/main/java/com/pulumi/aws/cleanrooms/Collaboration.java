@@ -88,14 +88,14 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The arn of the collaboration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date and time the collaboration was created.
@@ -103,15 +103,15 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    private Output</* @Nullable */ String> createTime;
 
     /**
      * @return The date and time the collaboration was created.
      * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<Optional<String>> createTime() {
+        return Codegen.optional(this.createTime);
     }
     /**
      * The name for the member record for the collaboration creator.
@@ -262,10 +262,10 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    private Output</* @Nullable */ String> updateTime;
 
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<Optional<String>> updateTime() {
+        return Codegen.optional(this.updateTime);
     }
 
     /**

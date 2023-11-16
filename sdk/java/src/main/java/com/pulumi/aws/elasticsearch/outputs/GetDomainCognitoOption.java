@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainCognitoOption {
@@ -14,51 +16,51 @@ public final class GetDomainCognitoOption {
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The Cognito Identity pool used by the domain.
      * 
      */
-    private String identityPoolId;
+    private @Nullable String identityPoolId;
     /**
      * @return The IAM Role with the AmazonESCognitoAccess policy attached.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return The Cognito User pool used by the domain.
      * 
      */
-    private String userPoolId;
+    private @Nullable String userPoolId;
 
     private GetDomainCognitoOption() {}
     /**
      * @return Whether node to node encryption is enabled.
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return The Cognito Identity pool used by the domain.
      * 
      */
-    public String identityPoolId() {
-        return this.identityPoolId;
+    public Optional<String> identityPoolId() {
+        return Optional.ofNullable(this.identityPoolId);
     }
     /**
      * @return The IAM Role with the AmazonESCognitoAccess policy attached.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return The Cognito User pool used by the domain.
      * 
      */
-    public String userPoolId() {
-        return this.userPoolId;
+    public Optional<String> userPoolId() {
+        return Optional.ofNullable(this.userPoolId);
     }
 
     public static Builder builder() {
@@ -70,10 +72,10 @@ public final class GetDomainCognitoOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private String identityPoolId;
-        private String roleArn;
-        private String userPoolId;
+        private @Nullable Boolean enabled;
+        private @Nullable String identityPoolId;
+        private @Nullable String roleArn;
+        private @Nullable String userPoolId;
         public Builder() {}
         public Builder(GetDomainCognitoOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,23 +86,23 @@ public final class GetDomainCognitoOption {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder identityPoolId(String identityPoolId) {
-            this.identityPoolId = Objects.requireNonNull(identityPoolId);
+        public Builder identityPoolId(@Nullable String identityPoolId) {
+            this.identityPoolId = identityPoolId;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder userPoolId(String userPoolId) {
-            this.userPoolId = Objects.requireNonNull(userPoolId);
+        public Builder userPoolId(@Nullable String userPoolId) {
+            this.userPoolId = userPoolId;
             return this;
         }
         public GetDomainCognitoOption build() {

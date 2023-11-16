@@ -68,14 +68,14 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Network Insights Path.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
@@ -96,14 +96,14 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="destinationArn", refs={String.class}, tree="[0]")
-    private Output<String> destinationArn;
+    private Output</* @Nullable */ String> destinationArn;
 
     /**
      * @return ARN of the destination.
      * 
      */
-    public Output<String> destinationArn() {
-        return this.destinationArn;
+    public Output<Optional<String>> destinationArn() {
+        return Codegen.optional(this.destinationArn);
     }
     /**
      * IP address of the destination resource.
@@ -170,14 +170,14 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceArn", refs={String.class}, tree="[0]")
-    private Output<String> sourceArn;
+    private Output</* @Nullable */ String> sourceArn;
 
     /**
      * @return ARN of the source.
      * 
      */
-    public Output<String> sourceArn() {
-        return this.sourceArn;
+    public Output<Optional<String>> sourceArn() {
+        return Codegen.optional(this.sourceArn);
     }
     /**
      * IP address of the source resource.

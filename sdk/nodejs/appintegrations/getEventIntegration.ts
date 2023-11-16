@@ -51,28 +51,28 @@ export interface GetEventIntegrationResult {
     /**
      * The ARN of the AppIntegrations Event Integration.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The description of the Event Integration.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * A block that defines the configuration information for the event filter. The Event Filter block is documented below.
      */
-    readonly eventFilters: outputs.appintegrations.GetEventIntegrationEventFilter[];
+    readonly eventFilters?: outputs.appintegrations.GetEventIntegrationEventFilter[];
     /**
      * The EventBridge bus.
      */
-    readonly eventbridgeBus: string;
+    readonly eventbridgeBus?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get information on an existing AppIntegrations Event Integration.

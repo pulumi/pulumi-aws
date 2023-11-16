@@ -51,17 +51,17 @@ export interface GetPromptResult {
     /**
      * ARN of the Prompt.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
     readonly name: string;
     /**
      * Identifier for the prompt.
      */
-    readonly promptId: string;
+    readonly promptId?: string;
 }
 /**
  * Provides details about a specific Amazon Connect Prompt.

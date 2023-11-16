@@ -67,7 +67,7 @@ type GetImagePipelinesResult struct {
 	Arns    []string                  `pulumi:"arns"`
 	Filters []GetImagePipelinesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of names of the matched Image Builder Image Pipelines.
 	Names []string `pulumi:"names"`
 }
@@ -120,8 +120,8 @@ func (o GetImagePipelinesResultOutput) Filters() GetImagePipelinesFilterArrayOut
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetImagePipelinesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImagePipelinesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetImagePipelinesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImagePipelinesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of names of the matched Image Builder Image Pipelines.

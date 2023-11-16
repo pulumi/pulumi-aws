@@ -257,6 +257,6 @@ class PackageAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="referencePath")
-    def reference_path(self) -> pulumi.Output[str]:
+    def reference_path(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "reference_path")
 

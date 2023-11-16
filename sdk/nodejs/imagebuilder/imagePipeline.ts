@@ -64,7 +64,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the image pipeline.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the container recipe.
      */
@@ -72,19 +72,19 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * Date the image pipeline was created.
      */
-    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string | undefined>;
     /**
      * Date the image pipeline was last run.
      */
-    public /*out*/ readonly dateLastRun!: pulumi.Output<string>;
+    public /*out*/ readonly dateLastRun!: pulumi.Output<string | undefined>;
     /**
      * Date the image pipeline will run next.
      */
-    public /*out*/ readonly dateNextRun!: pulumi.Output<string>;
+    public /*out*/ readonly dateNextRun!: pulumi.Output<string | undefined>;
     /**
      * Date the image pipeline was updated.
      */
-    public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
+    public /*out*/ readonly dateUpdated!: pulumi.Output<string | undefined>;
     /**
      * Description of the image pipeline.
      */
@@ -104,11 +104,11 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageScanningConfiguration>;
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageScanningConfiguration | undefined>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
+    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageTestsConfiguration | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      */
@@ -122,7 +122,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * Platform of the image pipeline.
      */
-    public /*out*/ readonly platform!: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with schedule settings. Detailed below.
      */

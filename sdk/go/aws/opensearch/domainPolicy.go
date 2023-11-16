@@ -53,7 +53,7 @@ import (
 //							pulumi.String("es:*"),
 //						},
 //						Resources: pulumi.StringArray{
-//							example.Arn.ApplyT(func(arn string) (string, error) {
+//							example.Arn.ApplyT(func(arn *string) (string, error) {
 //								return fmt.Sprintf("%v/*", arn), nil
 //							}).(pulumi.StringOutput),
 //						},

@@ -67,14 +67,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the channel
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A unique identifier describing the channel
@@ -109,14 +109,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hlsIngests", refs={List.class,ChannelHlsIngest.class}, tree="[0,1]")
-    private Output<List<ChannelHlsIngest>> hlsIngests;
+    private Output</* @Nullable */ List<ChannelHlsIngest>> hlsIngests;
 
     /**
      * @return A single item list of HLS ingest information
      * 
      */
-    public Output<List<ChannelHlsIngest>> hlsIngests() {
-        return this.hlsIngests;
+    public Output<Optional<List<ChannelHlsIngest>>> hlsIngests() {
+        return Codegen.optional(this.hlsIngests);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

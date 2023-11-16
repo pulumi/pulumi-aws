@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Name { get; private set; } = null!;
 
         [Output("principalArn")]
-        public Output<string> PrincipalArn { get; private set; } = null!;
+        public Output<string?> PrincipalArn { get; private set; } = null!;
 
         /// <summary>
         /// State of the setting. Valid values are `enabled` and `disabled`.

@@ -852,14 +852,14 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) specifying the Stream
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
@@ -878,10 +878,10 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return this.destination;
     }
     @Export(name="destinationId", refs={String.class}, tree="[0]")
-    private Output<String> destinationId;
+    private Output</* @Nullable */ String> destinationId;
 
-    public Output<String> destinationId() {
-        return this.destinationId;
+    public Output<Optional<String>> destinationId() {
+        return Codegen.optional(this.destinationId);
     }
     /**
      * Configuration options when `destination` is `elasticsearch`. More details are given below.
@@ -1076,14 +1076,14 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="versionId", refs={String.class}, tree="[0]")
-    private Output<String> versionId;
+    private Output</* @Nullable */ String> versionId;
 
     /**
      * @return Specifies the table version for the output data schema. Defaults to `LATEST`.
      * 
      */
-    public Output<String> versionId() {
-        return this.versionId;
+    public Output<Optional<String>> versionId() {
+        return Codegen.optional(this.versionId);
     }
 
     /**

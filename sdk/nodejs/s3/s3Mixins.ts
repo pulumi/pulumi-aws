@@ -146,7 +146,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             function: this.func,
             action: "lambda:InvokeFunction",
             principal: "s3.amazonaws.com",
-            sourceArn: bucket.arn,
+            sourceArn: bucket.arn.apply(x => x!),
         }, parentOpts);
 
         // We must create only a single BucketNotification per Bucket per AWS API limitations.  See
@@ -164,7 +164,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             events: args.events,
             filterPrefix: args.filterPrefix,
             filterSuffix: args.filterSuffix,
-            lambdaFunctionArn: this.func.arn,
+            lambdaFunctionArn: this.func.arn.apply(x => x!),
             permission: this.permission,
 
             // See https://github.com/pulumi/pulumi/issues/2262 for full details.

@@ -63,7 +63,7 @@ type Framework struct {
 
 	// Amazon Resource Name (ARN) of the framework.
 	// * `control_sets[*].id` - Unique identifier for the framework control set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
 	ComplianceType pulumi.StringPtrOutput `pulumi:"complianceType"`
 	// Control sets that are associated with the framework. See `controlSets` below.
@@ -73,7 +73,7 @@ type Framework struct {
 	// Description of the framework.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Framework type, such as a custom framework or a standard framework.
-	FrameworkType pulumi.StringOutput `pulumi:"frameworkType"`
+	FrameworkType pulumi.StringPtrOutput `pulumi:"frameworkType"`
 	// Name of the framework.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -283,8 +283,8 @@ func (o FrameworkOutput) ToFrameworkOutputWithContext(ctx context.Context) Frame
 
 // Amazon Resource Name (ARN) of the framework.
 // * `control_sets[*].id` - Unique identifier for the framework control set.
-func (o FrameworkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FrameworkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
@@ -305,8 +305,8 @@ func (o FrameworkOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Framework type, such as a custom framework or a standard framework.
-func (o FrameworkOutput) FrameworkType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.FrameworkType }).(pulumi.StringOutput)
+func (o FrameworkOutput) FrameworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.FrameworkType }).(pulumi.StringPtrOutput)
 }
 
 // Name of the framework.

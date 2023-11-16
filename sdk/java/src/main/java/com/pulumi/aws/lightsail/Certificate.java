@@ -67,56 +67,56 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the lightsail certificate.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The timestamp when the instance was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The timestamp when the instance was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * A domain name for which the certificate should be issued.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
-    private Output<String> domainName;
+    private Output</* @Nullable */ String> domainName;
 
     /**
      * @return A domain name for which the certificate should be issued.
      * 
      */
-    public Output<String> domainName() {
-        return this.domainName;
+    public Output<Optional<String>> domainName() {
+        return Codegen.optional(this.domainName);
     }
     /**
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
      * 
      */
     @Export(name="domainValidationOptions", refs={List.class,CertificateDomainValidationOption.class}, tree="[0,1]")
-    private Output<List<CertificateDomainValidationOption>> domainValidationOptions;
+    private Output</* @Nullable */ List<CertificateDomainValidationOption>> domainValidationOptions;
 
     /**
      * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
      * 
      */
-    public Output<List<CertificateDomainValidationOption>> domainValidationOptions() {
-        return this.domainValidationOptions;
+    public Output<Optional<List<CertificateDomainValidationOption>>> domainValidationOptions() {
+        return Codegen.optional(this.domainValidationOptions);
     }
     /**
      * The name of the Lightsail load balancer.
@@ -137,14 +137,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subjectAlternativeNames;
+    private Output</* @Nullable */ List<String>> subjectAlternativeNames;
 
     /**
      * @return Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
      * 
      */
-    public Output<List<String>> subjectAlternativeNames() {
-        return this.subjectAlternativeNames;
+    public Output<Optional<List<String>>> subjectAlternativeNames() {
+        return Codegen.optional(this.subjectAlternativeNames);
     }
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

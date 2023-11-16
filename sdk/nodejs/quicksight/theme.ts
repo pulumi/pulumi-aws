@@ -51,11 +51,11 @@ export class Theme extends pulumi.CustomResource {
     /**
      * ARN of the theme.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      */
@@ -69,11 +69,11 @@ export class Theme extends pulumi.CustomResource {
     /**
      * The time that the theme was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * The time that the theme was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * Display name of the theme.
      */
@@ -85,7 +85,7 @@ export class Theme extends pulumi.CustomResource {
     /**
      * The theme creation status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -107,7 +107,7 @@ export class Theme extends pulumi.CustomResource {
     /**
      * The version number of the theme version.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    public /*out*/ readonly versionNumber!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Theme resource with the given unique name, arguments, and options.

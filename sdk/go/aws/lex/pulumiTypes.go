@@ -4470,7 +4470,7 @@ func (o V2modelsBotTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 
 type GetSlotTypeEnumerationValue struct {
 	Synonyms []string `pulumi:"synonyms"`
-	Value    string   `pulumi:"value"`
+	Value    *string  `pulumi:"value"`
 }
 
 // GetSlotTypeEnumerationValueInput is an input type that accepts GetSlotTypeEnumerationValueArgs and GetSlotTypeEnumerationValueOutput values.
@@ -4486,7 +4486,7 @@ type GetSlotTypeEnumerationValueInput interface {
 
 type GetSlotTypeEnumerationValueArgs struct {
 	Synonyms pulumi.StringArrayInput `pulumi:"synonyms"`
-	Value    pulumi.StringInput      `pulumi:"value"`
+	Value    pulumi.StringPtrInput   `pulumi:"value"`
 }
 
 func (GetSlotTypeEnumerationValueArgs) ElementType() reflect.Type {
@@ -4544,8 +4544,8 @@ func (o GetSlotTypeEnumerationValueOutput) Synonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSlotTypeEnumerationValue) []string { return v.Synonyms }).(pulumi.StringArrayOutput)
 }
 
-func (o GetSlotTypeEnumerationValueOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSlotTypeEnumerationValue) string { return v.Value }).(pulumi.StringOutput)
+func (o GetSlotTypeEnumerationValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSlotTypeEnumerationValue) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetSlotTypeEnumerationValueArrayOutput struct{ *pulumi.OutputState }

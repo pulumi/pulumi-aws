@@ -301,7 +301,7 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Output[str]:
+    def cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         """

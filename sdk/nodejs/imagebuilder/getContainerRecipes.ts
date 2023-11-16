@@ -56,16 +56,16 @@ export interface GetContainerRecipesResult {
     /**
      * Set of ARNs of the matched Image Builder Container Recipes.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     readonly filters?: outputs.imagebuilder.GetContainerRecipesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of names of the matched Image Builder Container Recipes.
      */
-    readonly names: string[];
+    readonly names?: string[];
     readonly owner?: string;
 }
 /**

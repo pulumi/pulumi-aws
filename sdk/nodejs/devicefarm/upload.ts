@@ -61,11 +61,11 @@ export class Upload extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this upload.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The upload's category.
      */
-    public /*out*/ readonly category!: pulumi.Output<string>;
+    public /*out*/ readonly category!: pulumi.Output<string | undefined>;
     /**
      * The upload's content type (for example, application/octet-stream).
      */
@@ -73,7 +73,7 @@ export class Upload extends pulumi.CustomResource {
     /**
      * The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
      */
-    public /*out*/ readonly metadata!: pulumi.Output<string>;
+    public /*out*/ readonly metadata!: pulumi.Output<string | undefined>;
     /**
      * The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
      */
@@ -89,7 +89,7 @@ export class Upload extends pulumi.CustomResource {
     /**
      * The presigned Amazon S3 URL that was used to store a file using a PUT request.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Upload resource with the given unique name, arguments, and options.

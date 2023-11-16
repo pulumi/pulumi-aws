@@ -223,13 +223,13 @@ type MulticastDomain struct {
 	pulumi.CustomResourceState
 
 	// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	AutoAcceptSharedAssociations pulumi.StringPtrOutput `pulumi:"autoAcceptSharedAssociations"`
 	// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	Igmpv2Support pulumi.StringPtrOutput `pulumi:"igmpv2Support"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport pulumi.StringPtrOutput `pulumi:"staticSourcesSupport"`
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -439,8 +439,8 @@ func (o MulticastDomainOutput) ToMulticastDomainOutputWithContext(ctx context.Co
 }
 
 // EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-func (o MulticastDomainOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MulticastDomain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MulticastDomainOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastDomain) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -454,8 +454,8 @@ func (o MulticastDomainOutput) Igmpv2Support() pulumi.StringPtrOutput {
 }
 
 // Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-func (o MulticastDomainOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *MulticastDomain) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o MulticastDomainOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastDomain) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.

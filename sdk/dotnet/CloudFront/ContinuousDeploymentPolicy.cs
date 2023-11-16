@@ -154,13 +154,13 @@ namespace Pulumi.Aws.CloudFront
         /// Current version of the continuous distribution policy.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Date and time the continuous deployment policy was last modified.
         /// </summary>
         [Output("lastModifiedTime")]
-        public Output<string> LastModifiedTime { get; private set; } = null!;
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.

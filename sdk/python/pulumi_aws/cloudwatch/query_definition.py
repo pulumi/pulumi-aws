@@ -304,7 +304,7 @@ class QueryDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryDefinitionId")
-    def query_definition_id(self) -> pulumi.Output[str]:
+    def query_definition_id(self) -> pulumi.Output[Optional[str]]:
         """
         The query definition ID.
         """

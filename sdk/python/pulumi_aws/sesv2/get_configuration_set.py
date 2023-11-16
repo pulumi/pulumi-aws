@@ -56,7 +56,7 @@ class GetConfigurationSetResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
@@ -66,7 +66,7 @@ class GetConfigurationSetResult:
 
     @property
     @pulumi.getter(name="deliveryOptions")
-    def delivery_options(self) -> Sequence['outputs.GetConfigurationSetDeliveryOptionResult']:
+    def delivery_options(self) -> Optional[Sequence['outputs.GetConfigurationSetDeliveryOptionResult']]:
         """
         An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
         """
@@ -74,7 +74,7 @@ class GetConfigurationSetResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -82,7 +82,7 @@ class GetConfigurationSetResult:
 
     @property
     @pulumi.getter(name="reputationOptions")
-    def reputation_options(self) -> Sequence['outputs.GetConfigurationSetReputationOptionResult']:
+    def reputation_options(self) -> Optional[Sequence['outputs.GetConfigurationSetReputationOptionResult']]:
         """
         An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         """
@@ -90,7 +90,7 @@ class GetConfigurationSetResult:
 
     @property
     @pulumi.getter(name="sendingOptions")
-    def sending_options(self) -> Sequence['outputs.GetConfigurationSetSendingOptionResult']:
+    def sending_options(self) -> Optional[Sequence['outputs.GetConfigurationSetSendingOptionResult']]:
         """
         An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         """
@@ -98,7 +98,7 @@ class GetConfigurationSetResult:
 
     @property
     @pulumi.getter(name="suppressionOptions")
-    def suppression_options(self) -> Sequence['outputs.GetConfigurationSetSuppressionOptionResult']:
+    def suppression_options(self) -> Optional[Sequence['outputs.GetConfigurationSetSuppressionOptionResult']]:
         """
         An object that contains information about the suppression list preferences for your account.
         """
@@ -106,7 +106,7 @@ class GetConfigurationSetResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the container recipe.
         """
@@ -114,7 +114,7 @@ class GetConfigurationSetResult:
 
     @property
     @pulumi.getter(name="trackingOptions")
-    def tracking_options(self) -> Sequence['outputs.GetConfigurationSetTrackingOptionResult']:
+    def tracking_options(self) -> Optional[Sequence['outputs.GetConfigurationSetTrackingOptionResult']]:
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
@@ -122,7 +122,7 @@ class GetConfigurationSetResult:
 
     @property
     @pulumi.getter(name="vdmOptions")
-    def vdm_options(self) -> Sequence['outputs.GetConfigurationSetVdmOptionResult']:
+    def vdm_options(self) -> Optional[Sequence['outputs.GetConfigurationSetVdmOptionResult']]:
         """
         An object that contains information about the VDM preferences for your configuration set.
         """

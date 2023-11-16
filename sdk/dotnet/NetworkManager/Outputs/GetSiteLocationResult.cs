@@ -16,23 +16,23 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// <summary>
         /// Address of the location.
         /// </summary>
-        public readonly string Address;
+        public readonly string? Address;
         /// <summary>
         /// Latitude of the location.
         /// </summary>
-        public readonly string Latitude;
+        public readonly string? Latitude;
         /// <summary>
         /// Longitude of the location.
         /// </summary>
-        public readonly string Longitude;
+        public readonly string? Longitude;
 
         [OutputConstructor]
         private GetSiteLocationResult(
-            string address,
+            string? address,
 
-            string latitude,
+            string? latitude,
 
-            string longitude)
+            string? longitude)
         {
             Address = address;
             Latitude = latitude;

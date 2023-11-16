@@ -803,7 +803,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the maintenance window task.
         """
@@ -827,7 +827,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> pulumi.Output[str]:
+    def max_concurrency(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum number of targets this task can be run for in parallel.
         """
@@ -835,7 +835,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxErrors")
-    def max_errors(self) -> pulumi.Output[str]:
+    def max_errors(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum number of errors allowed before this task stops being scheduled.
         """
@@ -859,7 +859,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRoleArn")
-    def service_role_arn(self) -> pulumi.Output[str]:
+    def service_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         """
@@ -907,7 +907,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="windowTaskId")
-    def window_task_id(self) -> pulumi.Output[str]:
+    def window_task_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the maintenance window task.
         """

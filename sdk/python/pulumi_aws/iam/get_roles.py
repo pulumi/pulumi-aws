@@ -40,7 +40,7 @@ class GetRolesResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         Set of ARNs of the matched IAM roles.
         """
@@ -48,7 +48,7 @@ class GetRolesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -61,7 +61,7 @@ class GetRolesResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         Set of Names of the matched IAM roles.
         """

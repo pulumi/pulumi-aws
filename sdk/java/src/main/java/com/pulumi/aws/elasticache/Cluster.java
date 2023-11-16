@@ -204,28 +204,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * The ARN of the created ElastiCache Cluster.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the created ElastiCache Cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -250,56 +250,56 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster&#39;s region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
      * 
      */
     @Export(name="azMode", refs={String.class}, tree="[0]")
-    private Output<String> azMode;
+    private Output</* @Nullable */ String> azMode;
 
     /**
      * @return Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster&#39;s region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
      * 
      */
-    public Output<String> azMode() {
-        return this.azMode;
+    public Output<Optional<String>> azMode() {
+        return Codegen.optional(this.azMode);
     }
     /**
      * List of node objects including `id`, `address`, `port` and `availability_zone`.
      * 
      */
     @Export(name="cacheNodes", refs={List.class,ClusterCacheNode.class}, tree="[0,1]")
-    private Output<List<ClusterCacheNode>> cacheNodes;
+    private Output</* @Nullable */ List<ClusterCacheNode>> cacheNodes;
 
     /**
      * @return List of node objects including `id`, `address`, `port` and `availability_zone`.
      * 
      */
-    public Output<List<ClusterCacheNode>> cacheNodes() {
-        return this.cacheNodes;
+    public Output<Optional<List<ClusterCacheNode>>> cacheNodes() {
+        return Codegen.optional(this.cacheNodes);
     }
     /**
      * (Memcached only) DNS name of the cache cluster without the port appended.
      * 
      */
     @Export(name="clusterAddress", refs={String.class}, tree="[0]")
-    private Output<String> clusterAddress;
+    private Output</* @Nullable */ String> clusterAddress;
 
     /**
      * @return (Memcached only) DNS name of the cache cluster without the port appended.
      * 
      */
-    public Output<String> clusterAddress() {
-        return this.clusterAddress;
+    public Output<Optional<String>> clusterAddress() {
+        return Codegen.optional(this.clusterAddress);
     }
     /**
      * Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
@@ -320,28 +320,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configurationEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> configurationEndpoint;
+    private Output</* @Nullable */ String> configurationEndpoint;
 
     /**
      * @return (Memcached only) Configuration endpoint to allow host discovery.
      * 
      */
-    public Output<String> configurationEndpoint() {
-        return this.configurationEndpoint;
+    public Output<Optional<String>> configurationEndpoint() {
+        return Codegen.optional(this.configurationEndpoint);
     }
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output<String> engine;
+    private Output</* @Nullable */ String> engine;
 
     /**
      * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
      * 
      */
-    public Output<String> engine() {
-        return this.engine;
+    public Output<Optional<String>> engine() {
+        return Codegen.optional(this.engine);
     }
     /**
      * Version number of the cache engine to be used.
@@ -355,7 +355,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Version number of the cache engine to be used.
@@ -368,22 +368,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      * 
      */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
-    private Output<String> engineVersionActual;
+    private Output</* @Nullable */ String> engineVersionActual;
 
     /**
      * @return Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      * 
      */
-    public Output<String> engineVersionActual() {
-        return this.engineVersionActual;
+    public Output<Optional<String>> engineVersionActual() {
+        return Codegen.optional(this.engineVersionActual);
     }
     /**
      * Name of your final cluster snapshot. If omitted, no final snapshot will be made.
@@ -404,14 +404,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipDiscovery", refs={String.class}, tree="[0]")
-    private Output<String> ipDiscovery;
+    private Output</* @Nullable */ String> ipDiscovery;
 
     /**
      * @return The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      * 
      */
-    public Output<String> ipDiscovery() {
-        return this.ipDiscovery;
+    public Output<Optional<String>> ipDiscovery() {
+        return Codegen.optional(this.ipDiscovery);
     }
     /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
@@ -434,7 +434,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> maintenanceWindow;
+    private Output</* @Nullable */ String> maintenanceWindow;
 
     /**
      * @return Specifies the weekly time range for when maintenance
@@ -442,36 +442,36 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
      * 
      */
-    public Output<String> maintenanceWindow() {
-        return this.maintenanceWindow;
+    public Output<Optional<String>> maintenanceWindow() {
+        return Codegen.optional(this.maintenanceWindow);
     }
     /**
      * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
-    private Output<String> networkType;
+    private Output</* @Nullable */ String> networkType;
 
     /**
      * @return The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
      * 
      */
-    public Output<String> networkType() {
-        return this.networkType;
+    public Output<Optional<String>> networkType() {
+        return Codegen.optional(this.networkType);
     }
     /**
      * The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
      * 
      */
     @Export(name="nodeType", refs={String.class}, tree="[0]")
-    private Output<String> nodeType;
+    private Output</* @Nullable */ String> nodeType;
 
     /**
      * @return The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
      * 
      */
-    public Output<String> nodeType() {
-        return this.nodeType;
+    public Output<Optional<String>> nodeType() {
+        return Codegen.optional(this.nodeType);
     }
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
@@ -492,14 +492,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="numCacheNodes", refs={Integer.class}, tree="[0]")
-    private Output<Integer> numCacheNodes;
+    private Output</* @Nullable */ Integer> numCacheNodes;
 
     /**
      * @return The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
      * 
      */
-    public Output<Integer> numCacheNodes() {
-        return this.numCacheNodes;
+    public Output<Optional<Integer>> numCacheNodes() {
+        return Codegen.optional(this.numCacheNodes);
     }
     /**
      * Specify the outpost mode that will apply to the cache cluster creation. Valid values are `&#34;single-outpost&#34;` and `&#34;cross-outpost&#34;`, however AWS currently only supports `&#34;single-outpost&#34;` mode.
@@ -522,7 +522,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
-    private Output<String> parameterGroupName;
+    private Output</* @Nullable */ String> parameterGroupName;
 
     /**
      * @return The name of the parameter group to associate with this cache cluster.
@@ -530,22 +530,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<String> parameterGroupName() {
-        return this.parameterGroupName;
+    public Output<Optional<String>> parameterGroupName() {
+        return Codegen.optional(this.parameterGroupName);
     }
     /**
      * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
@@ -566,42 +566,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preferredOutpostArn", refs={String.class}, tree="[0]")
-    private Output<String> preferredOutpostArn;
+    private Output</* @Nullable */ String> preferredOutpostArn;
 
     /**
      * @return The outpost ARN in which the cache cluster will be created.
      * 
      */
-    public Output<String> preferredOutpostArn() {
-        return this.preferredOutpostArn;
+    public Output<Optional<String>> preferredOutpostArn() {
+        return Codegen.optional(this.preferredOutpostArn);
     }
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      * 
      */
     @Export(name="replicationGroupId", refs={String.class}, tree="[0]")
-    private Output<String> replicationGroupId;
+    private Output</* @Nullable */ String> replicationGroupId;
 
     /**
      * @return ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      * 
      */
-    public Output<String> replicationGroupId() {
-        return this.replicationGroupId;
+    public Output<Optional<String>> replicationGroupId() {
+        return Codegen.optional(this.replicationGroupId);
     }
     /**
      * One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupIds;
+    private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
      * @return One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      * 
      */
-    public Output<List<String>> securityGroupIds() {
-        return this.securityGroupIds;
+    public Output<Optional<List<String>>> securityGroupIds() {
+        return Codegen.optional(this.securityGroupIds);
     }
     /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
@@ -650,28 +650,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="snapshotWindow", refs={String.class}, tree="[0]")
-    private Output<String> snapshotWindow;
+    private Output</* @Nullable */ String> snapshotWindow;
 
     /**
      * @return Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      * 
      */
-    public Output<String> snapshotWindow() {
-        return this.snapshotWindow;
+    public Output<Optional<String>> snapshotWindow() {
+        return Codegen.optional(this.snapshotWindow);
     }
     /**
      * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      * 
      */
     @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> subnetGroupName;
+    private Output</* @Nullable */ String> subnetGroupName;
 
     /**
      * @return Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      * 
      */
-    public Output<String> subnetGroupName() {
-        return this.subnetGroupName;
+    public Output<Optional<String>> subnetGroupName() {
+        return Codegen.optional(this.subnetGroupName);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -710,14 +710,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> transitEncryptionEnabled;
+    private Output</* @Nullable */ Boolean> transitEncryptionEnabled;
 
     /**
      * @return Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
      * 
      */
-    public Output<Boolean> transitEncryptionEnabled() {
-        return this.transitEncryptionEnabled;
+    public Output<Optional<Boolean>> transitEncryptionEnabled() {
+        return Codegen.optional(this.transitEncryptionEnabled);
     }
 
     /**

@@ -773,7 +773,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the image pipeline.
         """
@@ -789,7 +789,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> pulumi.Output[str]:
+    def date_created(self) -> pulumi.Output[Optional[str]]:
         """
         Date the image pipeline was created.
         """
@@ -797,7 +797,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateLastRun")
-    def date_last_run(self) -> pulumi.Output[str]:
+    def date_last_run(self) -> pulumi.Output[Optional[str]]:
         """
         Date the image pipeline was last run.
         """
@@ -805,7 +805,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateNextRun")
-    def date_next_run(self) -> pulumi.Output[str]:
+    def date_next_run(self) -> pulumi.Output[Optional[str]]:
         """
         Date the image pipeline will run next.
         """
@@ -813,7 +813,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateUpdated")
-    def date_updated(self) -> pulumi.Output[str]:
+    def date_updated(self) -> pulumi.Output[Optional[str]]:
         """
         Date the image pipeline was updated.
         """
@@ -853,7 +853,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageScanningConfiguration")
-    def image_scanning_configuration(self) -> pulumi.Output['outputs.ImagePipelineImageScanningConfiguration']:
+    def image_scanning_configuration(self) -> pulumi.Output[Optional['outputs.ImagePipelineImageScanningConfiguration']]:
         """
         Configuration block with image scanning configuration. Detailed below.
         """
@@ -861,7 +861,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageTestsConfiguration")
-    def image_tests_configuration(self) -> pulumi.Output['outputs.ImagePipelineImageTestsConfiguration']:
+    def image_tests_configuration(self) -> pulumi.Output[Optional['outputs.ImagePipelineImageTestsConfiguration']]:
         """
         Configuration block with image tests configuration. Detailed below.
         """
@@ -887,7 +887,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output[str]:
+    def platform(self) -> pulumi.Output[Optional[str]]:
         """
         Platform of the image pipeline.
         """

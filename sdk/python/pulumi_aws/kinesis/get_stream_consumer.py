@@ -43,12 +43,12 @@ class GetStreamConsumerResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTimestamp")
-    def creation_timestamp(self) -> str:
+    def creation_timestamp(self) -> Optional[str]:
         """
         Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         """
@@ -56,7 +56,7 @@ class GetStreamConsumerResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -64,12 +64,12 @@ class GetStreamConsumerResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current status of the stream consumer.
         """

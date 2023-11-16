@@ -46,11 +46,11 @@ export interface GetUserHierarchyStructureResult {
     /**
      * Block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
      */
-    readonly hierarchyStructures: outputs.connect.GetUserHierarchyStructureHierarchyStructure[];
+    readonly hierarchyStructures?: outputs.connect.GetUserHierarchyStructureHierarchyStructure[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
 }
 /**

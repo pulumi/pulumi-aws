@@ -210,7 +210,7 @@ type Trigger struct {
 	// List of actions initiated by this trigger when it fires. See Actions Below.
 	Actions TriggerActionArrayOutput `pulumi:"actions"`
 	// Amazon Resource Name (ARN) of Glue Trigger
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the new trigger.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Start the trigger. Defaults to `true`.
@@ -226,7 +226,7 @@ type Trigger struct {
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation pulumi.BoolPtrOutput `pulumi:"startOnCreation"`
 	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -492,8 +492,8 @@ func (o TriggerOutput) Actions() TriggerActionArrayOutput {
 }
 
 // Amazon Resource Name (ARN) of Glue Trigger
-func (o TriggerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TriggerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the new trigger.
@@ -532,8 +532,8 @@ func (o TriggerOutput) StartOnCreation() pulumi.BoolPtrOutput {
 }
 
 // The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
-func (o TriggerOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o TriggerOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

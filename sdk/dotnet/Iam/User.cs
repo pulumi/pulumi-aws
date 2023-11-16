@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Iam
         /// The ARN assigned by AWS for this user.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// When destroying this user, destroy even if it
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Iam
         /// The [unique ID][1] assigned by AWS.
         /// </summary>
         [Output("uniqueId")]
-        public Output<string> UniqueId { get; private set; } = null!;
+        public Output<string?> UniqueId { get; private set; } = null!;
 
 
         /// <summary>

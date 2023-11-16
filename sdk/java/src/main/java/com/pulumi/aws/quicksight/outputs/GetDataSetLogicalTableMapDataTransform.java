@@ -13,38 +13,39 @@ import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapDataTransformU
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransform {
-    private List<GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperations;
-    private List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperations;
-    private List<GetDataSetLogicalTableMapDataTransformFilterOperation> filterOperations;
-    private List<GetDataSetLogicalTableMapDataTransformProjectOperation> projectOperations;
-    private List<GetDataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperations;
-    private List<GetDataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperations;
-    private List<GetDataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperations;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperations;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperations;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformFilterOperation> filterOperations;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformProjectOperation> projectOperations;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperations;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperations;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperations;
 
     private GetDataSetLogicalTableMapDataTransform() {}
     public List<GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperations() {
-        return this.castColumnTypeOperations;
+        return this.castColumnTypeOperations == null ? List.of() : this.castColumnTypeOperations;
     }
     public List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperations() {
-        return this.createColumnsOperations;
+        return this.createColumnsOperations == null ? List.of() : this.createColumnsOperations;
     }
     public List<GetDataSetLogicalTableMapDataTransformFilterOperation> filterOperations() {
-        return this.filterOperations;
+        return this.filterOperations == null ? List.of() : this.filterOperations;
     }
     public List<GetDataSetLogicalTableMapDataTransformProjectOperation> projectOperations() {
-        return this.projectOperations;
+        return this.projectOperations == null ? List.of() : this.projectOperations;
     }
     public List<GetDataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperations() {
-        return this.renameColumnOperations;
+        return this.renameColumnOperations == null ? List.of() : this.renameColumnOperations;
     }
     public List<GetDataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperations() {
-        return this.tagColumnOperations;
+        return this.tagColumnOperations == null ? List.of() : this.tagColumnOperations;
     }
     public List<GetDataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperations() {
-        return this.untagColumnOperations;
+        return this.untagColumnOperations == null ? List.of() : this.untagColumnOperations;
     }
 
     public static Builder builder() {
@@ -56,13 +57,13 @@ public final class GetDataSetLogicalTableMapDataTransform {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperations;
-        private List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperations;
-        private List<GetDataSetLogicalTableMapDataTransformFilterOperation> filterOperations;
-        private List<GetDataSetLogicalTableMapDataTransformProjectOperation> projectOperations;
-        private List<GetDataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperations;
-        private List<GetDataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperations;
-        private List<GetDataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperations;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperations;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperations;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformFilterOperation> filterOperations;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformProjectOperation> projectOperations;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperations;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperations;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperations;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransform defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,56 +77,56 @@ public final class GetDataSetLogicalTableMapDataTransform {
         }
 
         @CustomType.Setter
-        public Builder castColumnTypeOperations(List<GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperations) {
-            this.castColumnTypeOperations = Objects.requireNonNull(castColumnTypeOperations);
+        public Builder castColumnTypeOperations(@Nullable List<GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperations) {
+            this.castColumnTypeOperations = castColumnTypeOperations;
             return this;
         }
         public Builder castColumnTypeOperations(GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation... castColumnTypeOperations) {
             return castColumnTypeOperations(List.of(castColumnTypeOperations));
         }
         @CustomType.Setter
-        public Builder createColumnsOperations(List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperations) {
-            this.createColumnsOperations = Objects.requireNonNull(createColumnsOperations);
+        public Builder createColumnsOperations(@Nullable List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperations) {
+            this.createColumnsOperations = createColumnsOperations;
             return this;
         }
         public Builder createColumnsOperations(GetDataSetLogicalTableMapDataTransformCreateColumnsOperation... createColumnsOperations) {
             return createColumnsOperations(List.of(createColumnsOperations));
         }
         @CustomType.Setter
-        public Builder filterOperations(List<GetDataSetLogicalTableMapDataTransformFilterOperation> filterOperations) {
-            this.filterOperations = Objects.requireNonNull(filterOperations);
+        public Builder filterOperations(@Nullable List<GetDataSetLogicalTableMapDataTransformFilterOperation> filterOperations) {
+            this.filterOperations = filterOperations;
             return this;
         }
         public Builder filterOperations(GetDataSetLogicalTableMapDataTransformFilterOperation... filterOperations) {
             return filterOperations(List.of(filterOperations));
         }
         @CustomType.Setter
-        public Builder projectOperations(List<GetDataSetLogicalTableMapDataTransformProjectOperation> projectOperations) {
-            this.projectOperations = Objects.requireNonNull(projectOperations);
+        public Builder projectOperations(@Nullable List<GetDataSetLogicalTableMapDataTransformProjectOperation> projectOperations) {
+            this.projectOperations = projectOperations;
             return this;
         }
         public Builder projectOperations(GetDataSetLogicalTableMapDataTransformProjectOperation... projectOperations) {
             return projectOperations(List.of(projectOperations));
         }
         @CustomType.Setter
-        public Builder renameColumnOperations(List<GetDataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperations) {
-            this.renameColumnOperations = Objects.requireNonNull(renameColumnOperations);
+        public Builder renameColumnOperations(@Nullable List<GetDataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperations) {
+            this.renameColumnOperations = renameColumnOperations;
             return this;
         }
         public Builder renameColumnOperations(GetDataSetLogicalTableMapDataTransformRenameColumnOperation... renameColumnOperations) {
             return renameColumnOperations(List.of(renameColumnOperations));
         }
         @CustomType.Setter
-        public Builder tagColumnOperations(List<GetDataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperations) {
-            this.tagColumnOperations = Objects.requireNonNull(tagColumnOperations);
+        public Builder tagColumnOperations(@Nullable List<GetDataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperations) {
+            this.tagColumnOperations = tagColumnOperations;
             return this;
         }
         public Builder tagColumnOperations(GetDataSetLogicalTableMapDataTransformTagColumnOperation... tagColumnOperations) {
             return tagColumnOperations(List.of(tagColumnOperations));
         }
         @CustomType.Setter
-        public Builder untagColumnOperations(List<GetDataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperations) {
-            this.untagColumnOperations = Objects.requireNonNull(untagColumnOperations);
+        public Builder untagColumnOperations(@Nullable List<GetDataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperations) {
+            this.untagColumnOperations = untagColumnOperations;
             return this;
         }
         public Builder untagColumnOperations(GetDataSetLogicalTableMapDataTransformUntagColumnOperation... untagColumnOperations) {

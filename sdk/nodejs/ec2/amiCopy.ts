@@ -67,15 +67,15 @@ export class AmiCopy extends pulumi.CustomResource {
     /**
      * Machine architecture for created instances. Defaults to "x8664".
      */
-    public /*out*/ readonly architecture!: pulumi.Output<string>;
+    public /*out*/ readonly architecture!: pulumi.Output<string | undefined>;
     /**
      * ARN of the AMI.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      */
-    public /*out*/ readonly bootMode!: pulumi.Output<string>;
+    public /*out*/ readonly bootMode!: pulumi.Output<string | undefined>;
     /**
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
@@ -93,11 +93,11 @@ export class AmiCopy extends pulumi.CustomResource {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.AmiCopyEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.AmiCopyEbsBlockDevice[] | undefined>;
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    public /*out*/ readonly enaSupport!: pulumi.Output<boolean>;
+    public /*out*/ readonly enaSupport!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
@@ -106,47 +106,47 @@ export class AmiCopy extends pulumi.CustomResource {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiCopyEphemeralBlockDevice[]>;
-    public /*out*/ readonly hypervisor!: pulumi.Output<string>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiCopyEphemeralBlockDevice[] | undefined>;
+    public /*out*/ readonly hypervisor!: pulumi.Output<string | undefined>;
     /**
      * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
-    public /*out*/ readonly imageLocation!: pulumi.Output<string>;
-    public /*out*/ readonly imageOwnerAlias!: pulumi.Output<string>;
-    public /*out*/ readonly imageType!: pulumi.Output<string>;
+    public /*out*/ readonly imageLocation!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly imageOwnerAlias!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly imageType!: pulumi.Output<string | undefined>;
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      */
-    public /*out*/ readonly imdsSupport!: pulumi.Output<string>;
+    public /*out*/ readonly imdsSupport!: pulumi.Output<string | undefined>;
     /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
-    public /*out*/ readonly kernelId!: pulumi.Output<string>;
+    public /*out*/ readonly kernelId!: pulumi.Output<string | undefined>;
     /**
      * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
-    public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean | undefined>;
     /**
      * Region-unique name for the AMI.
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    public /*out*/ readonly platform!: pulumi.Output<string>;
-    public /*out*/ readonly platformDetails!: pulumi.Output<string>;
-    public /*out*/ readonly public!: pulumi.Output<boolean>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly platform!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly platformDetails!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly public!: pulumi.Output<boolean | undefined>;
     /**
      * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
-    public /*out*/ readonly ramdiskId!: pulumi.Output<string>;
+    public /*out*/ readonly ramdiskId!: pulumi.Output<string | undefined>;
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
-    public /*out*/ readonly rootDeviceName!: pulumi.Output<string>;
-    public /*out*/ readonly rootSnapshotId!: pulumi.Output<string>;
+    public /*out*/ readonly rootDeviceName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly rootSnapshotId!: pulumi.Output<string | undefined>;
     /**
      * Id of the AMI to copy. This id must be valid in the region
      * given by `sourceAmiRegion`.
@@ -161,7 +161,7 @@ export class AmiCopy extends pulumi.CustomResource {
      * When set to "simple" (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
      */
-    public /*out*/ readonly sriovNetSupport!: pulumi.Output<string>;
+    public /*out*/ readonly sriovNetSupport!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -173,14 +173,14 @@ export class AmiCopy extends pulumi.CustomResource {
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      */
-    public /*out*/ readonly tpmSupport!: pulumi.Output<string>;
-    public /*out*/ readonly usageOperation!: pulumi.Output<string>;
+    public /*out*/ readonly tpmSupport!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly usageOperation!: pulumi.Output<string | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
      * changes the set of further arguments that are required, as described below.
      */
-    public /*out*/ readonly virtualizationType!: pulumi.Output<string>;
+    public /*out*/ readonly virtualizationType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AmiCopy resource with the given unique name, arguments, and options.

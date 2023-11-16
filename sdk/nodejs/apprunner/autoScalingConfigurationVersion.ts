@@ -63,7 +63,7 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
     /**
      * ARN of this auto scaling configuration version.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the auto scaling configuration.
      */
@@ -71,11 +71,11 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
     /**
      * The revision of this auto scaling configuration.
      */
-    public /*out*/ readonly autoScalingConfigurationRevision!: pulumi.Output<number>;
+    public /*out*/ readonly autoScalingConfigurationRevision!: pulumi.Output<number | undefined>;
     /**
      * Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
      */
-    public /*out*/ readonly latest!: pulumi.Output<boolean>;
+    public /*out*/ readonly latest!: pulumi.Output<boolean | undefined>;
     /**
      * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      */
@@ -91,7 +91,7 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
     /**
      * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

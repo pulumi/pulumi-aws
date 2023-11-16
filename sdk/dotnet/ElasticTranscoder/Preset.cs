@@ -105,7 +105,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Audio parameters object (documented below).
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// Codec options for the audio parameters (documented below)
         /// </summary>
         [Output("audioCodecOptions")]
-        public Output<Outputs.PresetAudioCodecOptions> AudioCodecOptions { get; private set; } = null!;
+        public Output<Outputs.PresetAudioCodecOptions?> AudioCodecOptions { get; private set; } = null!;
 
         /// <summary>
         /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Output<Outputs.PresetThumbnails?> Thumbnails { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// Video parameters object (documented below)

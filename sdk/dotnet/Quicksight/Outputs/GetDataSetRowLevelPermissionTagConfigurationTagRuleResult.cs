@@ -13,20 +13,20 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetRowLevelPermissionTagConfigurationTagRuleResult
     {
-        public readonly string ColumnName;
-        public readonly string MatchAllValue;
-        public readonly string TagKey;
-        public readonly string TagMultiValueDelimiter;
+        public readonly string? ColumnName;
+        public readonly string? MatchAllValue;
+        public readonly string? TagKey;
+        public readonly string? TagMultiValueDelimiter;
 
         [OutputConstructor]
         private GetDataSetRowLevelPermissionTagConfigurationTagRuleResult(
-            string columnName,
+            string? columnName,
 
-            string matchAllValue,
+            string? matchAllValue,
 
-            string tagKey,
+            string? tagKey,
 
-            string tagMultiValueDelimiter)
+            string? tagMultiValueDelimiter)
         {
             ColumnName = columnName;
             MatchAllValue = matchAllValue;

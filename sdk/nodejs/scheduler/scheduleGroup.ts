@@ -59,15 +59,15 @@ export class ScheduleGroup extends pulumi.CustomResource {
     /**
      * ARN of the schedule group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Time at which the schedule group was created.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * Time at which the schedule group was last modified.
      */
-    public /*out*/ readonly lastModificationDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastModificationDate!: pulumi.Output<string | undefined>;
     /**
      * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -75,11 +75,11 @@ export class ScheduleGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * State of the schedule group. Can be `ACTIVE` or `DELETING`.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

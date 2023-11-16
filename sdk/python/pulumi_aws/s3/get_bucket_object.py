@@ -103,7 +103,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter
-    def body(self) -> str:
+    def body(self) -> Optional[str]:
         """
         Object data (see **limitations above** to understand cases in which this field is actually available)
         """
@@ -119,7 +119,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="bucketKeyEnabled")
-    def bucket_key_enabled(self) -> bool:
+    def bucket_key_enabled(self) -> Optional[bool]:
         """
         (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
@@ -127,7 +127,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="cacheControl")
-    def cache_control(self) -> str:
+    def cache_control(self) -> Optional[str]:
         """
         Caching behavior along the request/reply chain.
         """
@@ -135,7 +135,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="contentDisposition")
-    def content_disposition(self) -> str:
+    def content_disposition(self) -> Optional[str]:
         """
         Presentational information for the object.
         """
@@ -143,7 +143,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="contentEncoding")
-    def content_encoding(self) -> str:
+    def content_encoding(self) -> Optional[str]:
         """
         What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
         """
@@ -151,7 +151,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="contentLanguage")
-    def content_language(self) -> str:
+    def content_language(self) -> Optional[str]:
         """
         Language the content is in.
         """
@@ -159,7 +159,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="contentLength")
-    def content_length(self) -> int:
+    def content_length(self) -> Optional[int]:
         """
         Size of the body in bytes.
         """
@@ -167,7 +167,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> str:
+    def content_type(self) -> Optional[str]:
         """
         Standard MIME type describing the format of the object data.
         """
@@ -175,7 +175,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> Optional[str]:
         """
         [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
         """
@@ -183,7 +183,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter
-    def expiration(self) -> str:
+    def expiration(self) -> Optional[str]:
         """
         If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
         """
@@ -191,7 +191,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter
-    def expires(self) -> str:
+    def expires(self) -> Optional[str]:
         """
         Date and time at which the object is no longer cacheable.
         """
@@ -199,7 +199,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -212,7 +212,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> Optional[str]:
         """
         Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
         """
@@ -220,7 +220,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Mapping[str, str]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
         """
         Map of metadata stored with the object in S3. Keys are always returned in lowercase.
         """
@@ -228,7 +228,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="objectLockLegalHoldStatus")
-    def object_lock_legal_hold_status(self) -> str:
+    def object_lock_legal_hold_status(self) -> Optional[str]:
         """
         Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
         """
@@ -236,7 +236,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="objectLockMode")
-    def object_lock_mode(self) -> str:
+    def object_lock_mode(self) -> Optional[str]:
         """
         Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
         """
@@ -244,7 +244,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="objectLockRetainUntilDate")
-    def object_lock_retain_until_date(self) -> str:
+    def object_lock_retain_until_date(self) -> Optional[str]:
         """
         The date and time when this object's object lock will expire.
         """
@@ -257,7 +257,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> str:
+    def server_side_encryption(self) -> Optional[str]:
         """
         If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
         """
@@ -265,7 +265,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="sseKmsKeyId")
-    def sse_kms_key_id(self) -> str:
+    def sse_kms_key_id(self) -> Optional[str]:
         """
         If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
         """
@@ -273,7 +273,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> str:
+    def storage_class(self) -> Optional[str]:
         """
         [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
         """
@@ -281,7 +281,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the object.
         """
@@ -289,7 +289,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> str:
+    def version_id(self) -> Optional[str]:
         """
         Latest version ID of the object returned.
         """
@@ -297,7 +297,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="websiteRedirectLocation")
-    def website_redirect_location(self) -> str:
+    def website_redirect_location(self) -> Optional[str]:
         """
         If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
         """

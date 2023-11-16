@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the tracker resource was created in ISO 8601 format.
         /// </summary>
         [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        public Output<string?> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// The optional description for the tracker resource.
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Location
         /// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         [Output("trackerArn")]
-        public Output<string> TrackerArn { get; private set; } = null!;
+        public Output<string?> TrackerArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the tracker resource.
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the tracker resource was last updated in ISO 8601 format.
         /// </summary>
         [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        public Output<string?> UpdateTime { get; private set; } = null!;
 
 
         /// <summary>

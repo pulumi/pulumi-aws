@@ -140,14 +140,14 @@ public class UserPoolUICustomization extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
-    private Output<String> creationDate;
+    private Output</* @Nullable */ String> creationDate;
 
     /**
      * @return The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      * 
      */
-    public Output<String> creationDate() {
-        return this.creationDate;
+    public Output<Optional<String>> creationDate() {
+        return Codegen.optional(this.creationDate);
     }
     /**
      * The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
@@ -168,14 +168,14 @@ public class UserPoolUICustomization extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="cssVersion", refs={String.class}, tree="[0]")
-    private Output<String> cssVersion;
+    private Output</* @Nullable */ String> cssVersion;
 
     /**
      * @return The CSS version number.
      * 
      */
-    public Output<String> cssVersion() {
-        return this.cssVersion;
+    public Output<Optional<String>> cssVersion() {
+        return Codegen.optional(this.cssVersion);
     }
     /**
      * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
@@ -196,28 +196,28 @@ public class UserPoolUICustomization extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="imageUrl", refs={String.class}, tree="[0]")
-    private Output<String> imageUrl;
+    private Output</* @Nullable */ String> imageUrl;
 
     /**
      * @return The logo image URL for the UI customization.
      * 
      */
-    public Output<String> imageUrl() {
-        return this.imageUrl;
+    public Output<Optional<String>> imageUrl() {
+        return Codegen.optional(this.imageUrl);
     }
     /**
      * The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      * 
      */
     @Export(name="lastModifiedDate", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedDate;
+    private Output</* @Nullable */ String> lastModifiedDate;
 
     /**
      * @return The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      * 
      */
-    public Output<String> lastModifiedDate() {
-        return this.lastModifiedDate;
+    public Output<Optional<String>> lastModifiedDate() {
+        return Codegen.optional(this.lastModifiedDate);
     }
     /**
      * The user pool ID for the user pool.

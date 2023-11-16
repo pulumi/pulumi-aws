@@ -110,7 +110,7 @@ type Workflow struct {
 	pulumi.CustomResourceState
 
 	// The Workflow ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A textual description for the workflow.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
@@ -310,8 +310,8 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 }
 
 // The Workflow ARN.
-func (o WorkflowOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WorkflowOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A textual description for the workflow.

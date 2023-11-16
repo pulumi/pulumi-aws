@@ -16,17 +16,17 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// <summary>
         /// Name of the parameter group.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Value of the parameter.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetParameterGroupParameterResult(
-            string name,
+            string? name,
 
-            string value)
+            string? value)
         {
             Name = name;
             Value = value;

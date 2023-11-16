@@ -117,32 +117,32 @@ namespace Pulumi.Aws.Qldb
     [OutputType]
     public sealed class GetLedgerResult
     {
-        public readonly string Arn;
-        public readonly bool DeletionProtection;
+        public readonly string? Arn;
+        public readonly bool? DeletionProtection;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string KmsKey;
+        public readonly string? Id;
+        public readonly string? KmsKey;
         public readonly string Name;
-        public readonly string PermissionsMode;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? PermissionsMode;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLedgerResult(
-            string arn,
+            string? arn,
 
-            bool deletionProtection,
+            bool? deletionProtection,
 
-            string id,
+            string? id,
 
-            string kmsKey,
+            string? kmsKey,
 
             string name,
 
-            string permissionsMode,
+            string? permissionsMode,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             DeletionProtection = deletionProtection;

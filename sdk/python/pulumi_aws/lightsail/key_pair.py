@@ -488,7 +488,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Lightsail key pair.
         """
@@ -496,7 +496,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptedFingerprint")
-    def encrypted_fingerprint(self) -> pulumi.Output[str]:
+    def encrypted_fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         The MD5 public key fingerprint for the encrypted private key.
         """
@@ -504,7 +504,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptedPrivateKey")
-    def encrypted_private_key(self) -> pulumi.Output[str]:
+    def encrypted_private_key(self) -> pulumi.Output[Optional[str]]:
         """
         the private key material, base 64 encoded and encrypted with the given `pgp_key`. This is only populated when creating a new key and `pgp_key` is supplied.
         """
@@ -512,7 +512,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> pulumi.Output[str]:
+    def fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         """
@@ -528,7 +528,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name_prefix")
 
     @property
@@ -541,7 +541,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> pulumi.Output[str]:
+    def private_key(self) -> pulumi.Output[Optional[str]]:
         """
         the private key, base64 encoded. This is only populated when creating a new key, and when no `pgp_key` is provided.
         """
@@ -549,7 +549,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> pulumi.Output[str]:
+    def public_key(self) -> pulumi.Output[Optional[str]]:
         """
         The public key material. This public key will be imported into Lightsail
         """

@@ -54,7 +54,7 @@ type Template struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the SES template
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
 	Html pulumi.StringPtrOutput `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
@@ -235,8 +235,8 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 }
 
 // The ARN of the SES template
-func (o TemplateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TemplateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.

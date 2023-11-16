@@ -78,7 +78,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     /**
      * The ARN of the Route 53 Resolver endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The direction of DNS queries to or from the Route 53 Resolver endpoint.
      * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
@@ -88,7 +88,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     /**
      * The ID of the VPC that you want to create the resolver endpoint in.
      */
-    public /*out*/ readonly hostVpcId!: pulumi.Output<string>;
+    public /*out*/ readonly hostVpcId!: pulumi.Output<string | undefined>;
     /**
      * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.

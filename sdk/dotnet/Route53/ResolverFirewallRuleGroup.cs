@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Route53
         /// The ARN (Amazon Resource Name) of the rule group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A name that lets you identify the rule group, to manage and use it.
@@ -56,13 +56,13 @@ namespace Pulumi.Aws.Route53
         /// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
         /// </summary>
         [Output("shareStatus")]
-        public Output<string> ShareStatus { get; private set; } = null!;
+        public Output<string?> ShareStatus { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

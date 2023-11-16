@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Vpc
         /// The Amazon Resource Name (ARN) of the security group rule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The destination IPv4 CIDR range.
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Vpc
         /// The ID of the security group rule.
         /// </summary>
         [Output("securityGroupRuleId")]
-        public Output<string> SecurityGroupRuleId { get; private set; } = null!;
+        public Output<string?> SecurityGroupRuleId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -229,25 +229,25 @@ type ComputeEnvironment struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the compute environment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-	ComputeEnvironmentName pulumi.StringOutput `pulumi:"computeEnvironmentName"`
+	ComputeEnvironmentName pulumi.StringPtrOutput `pulumi:"computeEnvironmentName"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
-	ComputeEnvironmentNamePrefix pulumi.StringOutput `pulumi:"computeEnvironmentNamePrefix"`
+	ComputeEnvironmentNamePrefix pulumi.StringPtrOutput `pulumi:"computeEnvironmentNamePrefix"`
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
 	ComputeResources ComputeEnvironmentComputeResourcesPtrOutput `pulumi:"computeResources"`
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-	EcsClusterArn pulumi.StringOutput `pulumi:"ecsClusterArn"`
+	EcsClusterArn pulumi.StringPtrOutput `pulumi:"ecsClusterArn"`
 	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
 	EksConfiguration ComputeEnvironmentEksConfigurationPtrOutput `pulumi:"eksConfiguration"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
+	ServiceRole pulumi.StringPtrOutput `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The current status of the compute environment (for example, CREATING or VALID).
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A short, human-readable string to provide additional details about the current status of the compute environment.
-	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
+	StatusReason pulumi.StringPtrOutput `pulumi:"statusReason"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -487,18 +487,18 @@ func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutputWithContext(ctx cont
 }
 
 // The Amazon Resource Name (ARN) of the compute environment.
-func (o ComputeEnvironmentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ComputeEnvironmentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-func (o ComputeEnvironmentOutput) ComputeEnvironmentName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.ComputeEnvironmentName }).(pulumi.StringOutput)
+func (o ComputeEnvironmentOutput) ComputeEnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.ComputeEnvironmentName }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
-func (o ComputeEnvironmentOutput) ComputeEnvironmentNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.ComputeEnvironmentNamePrefix }).(pulumi.StringOutput)
+func (o ComputeEnvironmentOutput) ComputeEnvironmentNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.ComputeEnvironmentNamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -507,8 +507,8 @@ func (o ComputeEnvironmentOutput) ComputeResources() ComputeEnvironmentComputeRe
 }
 
 // The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-func (o ComputeEnvironmentOutput) EcsClusterArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.EcsClusterArn }).(pulumi.StringOutput)
+func (o ComputeEnvironmentOutput) EcsClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.EcsClusterArn }).(pulumi.StringPtrOutput)
 }
 
 // Details for the Amazon EKS cluster that supports the compute environment. See details below.
@@ -517,8 +517,8 @@ func (o ComputeEnvironmentOutput) EksConfiguration() ComputeEnvironmentEksConfig
 }
 
 // The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-func (o ComputeEnvironmentOutput) ServiceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
+func (o ComputeEnvironmentOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.ServiceRole }).(pulumi.StringPtrOutput)
 }
 
 // The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -527,13 +527,13 @@ func (o ComputeEnvironmentOutput) State() pulumi.StringPtrOutput {
 }
 
 // The current status of the compute environment (for example, CREATING or VALID).
-func (o ComputeEnvironmentOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ComputeEnvironmentOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A short, human-readable string to provide additional details about the current status of the compute environment.
-func (o ComputeEnvironmentOutput) StatusReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
+func (o ComputeEnvironmentOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

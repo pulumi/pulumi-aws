@@ -76,19 +76,19 @@ namespace Pulumi.Aws.OpenSearch
         /// Amazon Resource Name (ARN) of the collection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         /// </summary>
         [Output("collectionEndpoint")]
-        public Output<string> CollectionEndpoint { get; private set; } = null!;
+        public Output<string?> CollectionEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Collection-specific endpoint used to access OpenSearch Dashboards.
         /// </summary>
         [Output("dashboardEndpoint")]
-        public Output<string> DashboardEndpoint { get; private set; } = null!;
+        public Output<string?> DashboardEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Description of the collection.
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.OpenSearch
         /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         /// </summary>
         [Output("kmsKeyArn")]
-        public Output<string> KmsKeyArn { get; private set; } = null!;
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the collection.
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

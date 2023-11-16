@@ -32,11 +32,11 @@ export interface GetAccountAliasResult {
     /**
      * Alias associated with the AWS account.
      */
-    readonly accountAlias: string;
+    readonly accountAlias?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * The IAM Account Alias data source allows access to the account alias

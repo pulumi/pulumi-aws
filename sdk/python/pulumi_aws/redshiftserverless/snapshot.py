@@ -395,7 +395,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountsWithProvisionedRestoreAccesses")
-    def accounts_with_provisioned_restore_accesses(self) -> pulumi.Output[Sequence[str]]:
+    def accounts_with_provisioned_restore_accesses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
         """
@@ -403,7 +403,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountsWithRestoreAccesses")
-    def accounts_with_restore_accesses(self) -> pulumi.Output[Sequence[str]]:
+    def accounts_with_restore_accesses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
         """
@@ -411,7 +411,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> pulumi.Output[str]:
+    def admin_username(self) -> pulumi.Output[Optional[str]]:
         """
         The username of the database within a snapshot.
         """
@@ -419,7 +419,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the snapshot.
         """
@@ -427,7 +427,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier of the KMS key used to encrypt the snapshot.
         """
@@ -435,7 +435,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceArn")
-    def namespace_arn(self) -> pulumi.Output[str]:
+    def namespace_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
         """
@@ -451,7 +451,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccount")
-    def owner_account(self) -> pulumi.Output[str]:
+    def owner_account(self) -> pulumi.Output[Optional[str]]:
         """
         The owner Amazon Web Services; account of the snapshot.
         """

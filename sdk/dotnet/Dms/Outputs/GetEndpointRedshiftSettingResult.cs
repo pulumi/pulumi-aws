@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class GetEndpointRedshiftSettingResult
     {
-        public readonly string BucketFolder;
-        public readonly string BucketName;
-        public readonly string EncryptionMode;
-        public readonly string ServerSideEncryptionKmsKeyId;
-        public readonly string ServiceAccessRoleArn;
+        public readonly string? BucketFolder;
+        public readonly string? BucketName;
+        public readonly string? EncryptionMode;
+        public readonly string? ServerSideEncryptionKmsKeyId;
+        public readonly string? ServiceAccessRoleArn;
 
         [OutputConstructor]
         private GetEndpointRedshiftSettingResult(
-            string bucketFolder,
+            string? bucketFolder,
 
-            string bucketName,
+            string? bucketName,
 
-            string encryptionMode,
+            string? encryptionMode,
 
-            string serverSideEncryptionKmsKeyId,
+            string? serverSideEncryptionKmsKeyId,
 
-            string serviceAccessRoleArn)
+            string? serviceAccessRoleArn)
         {
             BucketFolder = bucketFolder;
             BucketName = bucketName;

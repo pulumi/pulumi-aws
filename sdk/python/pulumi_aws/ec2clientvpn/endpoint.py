@@ -876,7 +876,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Client VPN endpoint.
         """
@@ -900,7 +900,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientConnectOptions")
-    def client_connect_options(self) -> pulumi.Output['outputs.EndpointClientConnectOptions']:
+    def client_connect_options(self) -> pulumi.Output[Optional['outputs.EndpointClientConnectOptions']]:
         """
         The options for managing connection authorization for new client connections.
         """
@@ -908,7 +908,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientLoginBannerOptions")
-    def client_login_banner_options(self) -> pulumi.Output['outputs.EndpointClientLoginBannerOptions']:
+    def client_login_banner_options(self) -> pulumi.Output[Optional['outputs.EndpointClientLoginBannerOptions']]:
         """
         Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         """
@@ -932,7 +932,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name to be used by clients when establishing their VPN session.
         """
@@ -948,7 +948,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         """
@@ -964,7 +964,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selfServicePortalUrl")
-    def self_service_portal_url(self) -> pulumi.Output[str]:
+    def self_service_portal_url(self) -> pulumi.Output[Optional[str]]:
         """
         The URL of the self-service portal.
         """
@@ -1023,7 +1023,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
         """

@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageResult {
@@ -20,82 +22,82 @@ public final class GetImageResult {
      * @return Build version ARN of the image. This will always have the `#.#.#/#` suffix.
      * 
      */
-    private String buildVersionArn;
+    private @Nullable String buildVersionArn;
     /**
      * @return ARN of the container recipe.
      * 
      */
-    private String containerRecipeArn;
+    private @Nullable String containerRecipeArn;
     /**
      * @return Date the image was created.
      * 
      */
-    private String dateCreated;
+    private @Nullable String dateCreated;
     /**
      * @return ARN of the Image Builder Distribution Configuration.
      * 
      */
-    private String distributionConfigurationArn;
+    private @Nullable String distributionConfigurationArn;
     /**
      * @return Whether additional information about the image being created is collected.
      * 
      */
-    private Boolean enhancedImageMetadataEnabled;
+    private @Nullable Boolean enhancedImageMetadataEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of the image recipe.
      * 
      */
-    private String imageRecipeArn;
+    private @Nullable String imageRecipeArn;
     /**
      * @return List of an object with image scanning configuration fields.
      * 
      */
-    private List<GetImageImageScanningConfiguration> imageScanningConfigurations;
+    private @Nullable List<GetImageImageScanningConfiguration> imageScanningConfigurations;
     /**
      * @return List of an object with image tests configuration.
      * 
      */
-    private List<GetImageImageTestsConfiguration> imageTestsConfigurations;
+    private @Nullable List<GetImageImageTestsConfiguration> imageTestsConfigurations;
     /**
      * @return ARN of the Image Builder Infrastructure Configuration.
      * 
      */
-    private String infrastructureConfigurationArn;
+    private @Nullable String infrastructureConfigurationArn;
     /**
      * @return Name of the AMI.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Operating System version of the image.
      * 
      */
-    private String osVersion;
+    private @Nullable String osVersion;
     /**
      * @return List of objects with resources created by the image.
      * 
      */
-    private List<GetImageOutputResource> outputResources;
+    private @Nullable List<GetImageOutputResource> outputResources;
     /**
      * @return Platform of the image.
      * 
      */
-    private String platform;
+    private @Nullable String platform;
     /**
      * @return Key-value map of resource tags for the image.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Version of the image.
      * 
      */
-    private String version;
+    private @Nullable String version;
 
     private GetImageResult() {}
     public String arn() {
@@ -105,113 +107,113 @@ public final class GetImageResult {
      * @return Build version ARN of the image. This will always have the `#.#.#/#` suffix.
      * 
      */
-    public String buildVersionArn() {
-        return this.buildVersionArn;
+    public Optional<String> buildVersionArn() {
+        return Optional.ofNullable(this.buildVersionArn);
     }
     /**
      * @return ARN of the container recipe.
      * 
      */
-    public String containerRecipeArn() {
-        return this.containerRecipeArn;
+    public Optional<String> containerRecipeArn() {
+        return Optional.ofNullable(this.containerRecipeArn);
     }
     /**
      * @return Date the image was created.
      * 
      */
-    public String dateCreated() {
-        return this.dateCreated;
+    public Optional<String> dateCreated() {
+        return Optional.ofNullable(this.dateCreated);
     }
     /**
      * @return ARN of the Image Builder Distribution Configuration.
      * 
      */
-    public String distributionConfigurationArn() {
-        return this.distributionConfigurationArn;
+    public Optional<String> distributionConfigurationArn() {
+        return Optional.ofNullable(this.distributionConfigurationArn);
     }
     /**
      * @return Whether additional information about the image being created is collected.
      * 
      */
-    public Boolean enhancedImageMetadataEnabled() {
-        return this.enhancedImageMetadataEnabled;
+    public Optional<Boolean> enhancedImageMetadataEnabled() {
+        return Optional.ofNullable(this.enhancedImageMetadataEnabled);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of the image recipe.
      * 
      */
-    public String imageRecipeArn() {
-        return this.imageRecipeArn;
+    public Optional<String> imageRecipeArn() {
+        return Optional.ofNullable(this.imageRecipeArn);
     }
     /**
      * @return List of an object with image scanning configuration fields.
      * 
      */
     public List<GetImageImageScanningConfiguration> imageScanningConfigurations() {
-        return this.imageScanningConfigurations;
+        return this.imageScanningConfigurations == null ? List.of() : this.imageScanningConfigurations;
     }
     /**
      * @return List of an object with image tests configuration.
      * 
      */
     public List<GetImageImageTestsConfiguration> imageTestsConfigurations() {
-        return this.imageTestsConfigurations;
+        return this.imageTestsConfigurations == null ? List.of() : this.imageTestsConfigurations;
     }
     /**
      * @return ARN of the Image Builder Infrastructure Configuration.
      * 
      */
-    public String infrastructureConfigurationArn() {
-        return this.infrastructureConfigurationArn;
+    public Optional<String> infrastructureConfigurationArn() {
+        return Optional.ofNullable(this.infrastructureConfigurationArn);
     }
     /**
      * @return Name of the AMI.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Operating System version of the image.
      * 
      */
-    public String osVersion() {
-        return this.osVersion;
+    public Optional<String> osVersion() {
+        return Optional.ofNullable(this.osVersion);
     }
     /**
      * @return List of objects with resources created by the image.
      * 
      */
     public List<GetImageOutputResource> outputResources() {
-        return this.outputResources;
+        return this.outputResources == null ? List.of() : this.outputResources;
     }
     /**
      * @return Platform of the image.
      * 
      */
-    public String platform() {
-        return this.platform;
+    public Optional<String> platform() {
+        return Optional.ofNullable(this.platform);
     }
     /**
      * @return Key-value map of resource tags for the image.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Version of the image.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -224,22 +226,22 @@ public final class GetImageResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String buildVersionArn;
-        private String containerRecipeArn;
-        private String dateCreated;
-        private String distributionConfigurationArn;
-        private Boolean enhancedImageMetadataEnabled;
-        private String id;
-        private String imageRecipeArn;
-        private List<GetImageImageScanningConfiguration> imageScanningConfigurations;
-        private List<GetImageImageTestsConfiguration> imageTestsConfigurations;
-        private String infrastructureConfigurationArn;
-        private String name;
-        private String osVersion;
-        private List<GetImageOutputResource> outputResources;
-        private String platform;
-        private Map<String,String> tags;
-        private String version;
+        private @Nullable String buildVersionArn;
+        private @Nullable String containerRecipeArn;
+        private @Nullable String dateCreated;
+        private @Nullable String distributionConfigurationArn;
+        private @Nullable Boolean enhancedImageMetadataEnabled;
+        private @Nullable String id;
+        private @Nullable String imageRecipeArn;
+        private @Nullable List<GetImageImageScanningConfiguration> imageScanningConfigurations;
+        private @Nullable List<GetImageImageTestsConfiguration> imageTestsConfigurations;
+        private @Nullable String infrastructureConfigurationArn;
+        private @Nullable String name;
+        private @Nullable String osVersion;
+        private @Nullable List<GetImageOutputResource> outputResources;
+        private @Nullable String platform;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetImageResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -268,92 +270,92 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder buildVersionArn(String buildVersionArn) {
-            this.buildVersionArn = Objects.requireNonNull(buildVersionArn);
+        public Builder buildVersionArn(@Nullable String buildVersionArn) {
+            this.buildVersionArn = buildVersionArn;
             return this;
         }
         @CustomType.Setter
-        public Builder containerRecipeArn(String containerRecipeArn) {
-            this.containerRecipeArn = Objects.requireNonNull(containerRecipeArn);
+        public Builder containerRecipeArn(@Nullable String containerRecipeArn) {
+            this.containerRecipeArn = containerRecipeArn;
             return this;
         }
         @CustomType.Setter
-        public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+        public Builder dateCreated(@Nullable String dateCreated) {
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
-        public Builder distributionConfigurationArn(String distributionConfigurationArn) {
-            this.distributionConfigurationArn = Objects.requireNonNull(distributionConfigurationArn);
+        public Builder distributionConfigurationArn(@Nullable String distributionConfigurationArn) {
+            this.distributionConfigurationArn = distributionConfigurationArn;
             return this;
         }
         @CustomType.Setter
-        public Builder enhancedImageMetadataEnabled(Boolean enhancedImageMetadataEnabled) {
-            this.enhancedImageMetadataEnabled = Objects.requireNonNull(enhancedImageMetadataEnabled);
+        public Builder enhancedImageMetadataEnabled(@Nullable Boolean enhancedImageMetadataEnabled) {
+            this.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder imageRecipeArn(String imageRecipeArn) {
-            this.imageRecipeArn = Objects.requireNonNull(imageRecipeArn);
+        public Builder imageRecipeArn(@Nullable String imageRecipeArn) {
+            this.imageRecipeArn = imageRecipeArn;
             return this;
         }
         @CustomType.Setter
-        public Builder imageScanningConfigurations(List<GetImageImageScanningConfiguration> imageScanningConfigurations) {
-            this.imageScanningConfigurations = Objects.requireNonNull(imageScanningConfigurations);
+        public Builder imageScanningConfigurations(@Nullable List<GetImageImageScanningConfiguration> imageScanningConfigurations) {
+            this.imageScanningConfigurations = imageScanningConfigurations;
             return this;
         }
         public Builder imageScanningConfigurations(GetImageImageScanningConfiguration... imageScanningConfigurations) {
             return imageScanningConfigurations(List.of(imageScanningConfigurations));
         }
         @CustomType.Setter
-        public Builder imageTestsConfigurations(List<GetImageImageTestsConfiguration> imageTestsConfigurations) {
-            this.imageTestsConfigurations = Objects.requireNonNull(imageTestsConfigurations);
+        public Builder imageTestsConfigurations(@Nullable List<GetImageImageTestsConfiguration> imageTestsConfigurations) {
+            this.imageTestsConfigurations = imageTestsConfigurations;
             return this;
         }
         public Builder imageTestsConfigurations(GetImageImageTestsConfiguration... imageTestsConfigurations) {
             return imageTestsConfigurations(List.of(imageTestsConfigurations));
         }
         @CustomType.Setter
-        public Builder infrastructureConfigurationArn(String infrastructureConfigurationArn) {
-            this.infrastructureConfigurationArn = Objects.requireNonNull(infrastructureConfigurationArn);
+        public Builder infrastructureConfigurationArn(@Nullable String infrastructureConfigurationArn) {
+            this.infrastructureConfigurationArn = infrastructureConfigurationArn;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder osVersion(String osVersion) {
-            this.osVersion = Objects.requireNonNull(osVersion);
+        public Builder osVersion(@Nullable String osVersion) {
+            this.osVersion = osVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder outputResources(List<GetImageOutputResource> outputResources) {
-            this.outputResources = Objects.requireNonNull(outputResources);
+        public Builder outputResources(@Nullable List<GetImageOutputResource> outputResources) {
+            this.outputResources = outputResources;
             return this;
         }
         public Builder outputResources(GetImageOutputResource... outputResources) {
             return outputResources(List.of(outputResources));
         }
         @CustomType.Setter
-        public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+        public Builder platform(@Nullable String platform) {
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetImageResult build() {

@@ -71,45 +71,45 @@ export interface GetConnectPeerResult {
     /**
      * EC2 Transit Gateway Connect Peer ARN
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * BGP ASN number assigned customer device
      */
-    readonly bgpAsn: string;
+    readonly bgpAsn?: string;
     /**
      * The IP address assigned to customer device, which is used as BGP IP address.
      */
-    readonly bgpPeerAddress: string;
+    readonly bgpPeerAddress?: string;
     /**
      * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
      */
-    readonly bgpTransitGatewayAddresses: string[];
+    readonly bgpTransitGatewayAddresses?: string[];
     readonly filters?: outputs.ec2transitgateway.GetConnectPeerFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * CIDR blocks that will be used for addressing within the tunnel.
      */
-    readonly insideCidrBlocks: string[];
+    readonly insideCidrBlocks?: string[];
     /**
      * IP addressed assigned to customer device, which is used as tunnel endpoint
      */
-    readonly peerAddress: string;
+    readonly peerAddress?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
      */
-    readonly transitGatewayAddress: string;
+    readonly transitGatewayAddress?: string;
     /**
      * The Transit Gateway Connect
      */
-    readonly transitGatewayAttachmentId: string;
-    readonly transitGatewayConnectPeerId: string;
+    readonly transitGatewayAttachmentId?: string;
+    readonly transitGatewayConnectPeerId?: string;
 }
 /**
  * Get information on an EC2 Transit Gateway Connect Peer.

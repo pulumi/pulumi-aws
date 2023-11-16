@@ -1178,7 +1178,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
         """
@@ -1186,7 +1186,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokers")
-    def bootstrap_brokers(self) -> pulumi.Output[str]:
+    def bootstrap_brokers(self) -> pulumi.Output[Optional[str]]:
         """
         Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         """
@@ -1194,7 +1194,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokersPublicSaslIam")
-    def bootstrap_brokers_public_sasl_iam(self) -> pulumi.Output[str]:
+    def bootstrap_brokers_public_sasl_iam(self) -> pulumi.Output[Optional[str]]:
         """
         One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
@@ -1202,7 +1202,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokersPublicSaslScram")
-    def bootstrap_brokers_public_sasl_scram(self) -> pulumi.Output[str]:
+    def bootstrap_brokers_public_sasl_scram(self) -> pulumi.Output[Optional[str]]:
         """
         One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
@@ -1210,7 +1210,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokersPublicTls")
-    def bootstrap_brokers_public_tls(self) -> pulumi.Output[str]:
+    def bootstrap_brokers_public_tls(self) -> pulumi.Output[Optional[str]]:
         """
         One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
@@ -1218,7 +1218,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokersSaslIam")
-    def bootstrap_brokers_sasl_iam(self) -> pulumi.Output[str]:
+    def bootstrap_brokers_sasl_iam(self) -> pulumi.Output[Optional[str]]:
         """
         One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
@@ -1226,7 +1226,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokersSaslScram")
-    def bootstrap_brokers_sasl_scram(self) -> pulumi.Output[str]:
+    def bootstrap_brokers_sasl_scram(self) -> pulumi.Output[Optional[str]]:
         """
         One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
@@ -1234,7 +1234,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokersTls")
-    def bootstrap_brokers_tls(self) -> pulumi.Output[str]:
+    def bootstrap_brokers_tls(self) -> pulumi.Output[Optional[str]]:
         """
         One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
@@ -1242,7 +1242,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslIam")
-    def bootstrap_brokers_vpc_connectivity_sasl_iam(self) -> pulumi.Output[str]:
+    def bootstrap_brokers_vpc_connectivity_sasl_iam(self) -> pulumi.Output[Optional[str]]:
         """
         A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         """
@@ -1250,7 +1250,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslScram")
-    def bootstrap_brokers_vpc_connectivity_sasl_scram(self) -> pulumi.Output[str]:
+    def bootstrap_brokers_vpc_connectivity_sasl_scram(self) -> pulumi.Output[Optional[str]]:
         """
         A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         """
@@ -1258,7 +1258,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootstrapBrokersVpcConnectivityTls")
-    def bootstrap_brokers_vpc_connectivity_tls(self) -> pulumi.Output[str]:
+    def bootstrap_brokers_vpc_connectivity_tls(self) -> pulumi.Output[Optional[str]]:
         """
         A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         """
@@ -1290,7 +1290,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterUuid")
-    def cluster_uuid(self) -> pulumi.Output[str]:
+    def cluster_uuid(self) -> pulumi.Output[Optional[str]]:
         """
         UUID of the MSK cluster, for use in IAM policies.
         """
@@ -1306,7 +1306,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> pulumi.Output[str]:
+    def current_version(self) -> pulumi.Output[Optional[str]]:
         """
         Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
@@ -1363,7 +1363,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageMode")
-    def storage_mode(self) -> pulumi.Output[str]:
+    def storage_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         """
@@ -1390,7 +1390,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zookeeperConnectString")
-    def zookeeper_connect_string(self) -> pulumi.Output[str]:
+    def zookeeper_connect_string(self) -> pulumi.Output[Optional[str]]:
         """
         A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
@@ -1398,7 +1398,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zookeeperConnectStringTls")
-    def zookeeper_connect_string_tls(self) -> pulumi.Output[str]:
+    def zookeeper_connect_string_tls(self) -> pulumi.Output[Optional[str]]:
         """
         A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """

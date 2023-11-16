@@ -1406,7 +1406,7 @@ class MetricAlarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the CloudWatch Metric Alarm.
         """
@@ -1438,7 +1438,7 @@ class MetricAlarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluateLowSampleCountPercentiles")
-    def evaluate_low_sample_count_percentiles(self) -> pulumi.Output[str]:
+    def evaluate_low_sample_count_percentiles(self) -> pulumi.Output[Optional[str]]:
         """
         Used only for alarms based on percentiles.
         If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.

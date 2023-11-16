@@ -74,7 +74,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * The ARN of the db cluster parameter group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
      */
@@ -90,7 +90,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
      */

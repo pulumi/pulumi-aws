@@ -110,13 +110,13 @@ namespace Pulumi.Aws.ElastiCache
         /// The ARN of the created ElastiCache User.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Denotes the user's authentication properties. Detailed below.
         /// </summary>
         [Output("authenticationMode")]
-        public Output<Outputs.UserAuthenticationMode> AuthenticationMode { get; private set; } = null!;
+        public Output<Outputs.UserAuthenticationMode?> AuthenticationMode { get; private set; } = null!;
 
         /// <summary>
         /// The current supported value is `REDIS`.

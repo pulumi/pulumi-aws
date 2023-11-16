@@ -159,7 +159,7 @@ type ResponseHeadersPolicy struct {
 	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
 	CustomHeadersConfig ResponseHeadersPolicyCustomHeadersConfigPtrOutput `pulumi:"customHeadersConfig"`
 	// The current version of the response headers policy.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// A unique name to identify the response headers policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
@@ -385,8 +385,8 @@ func (o ResponseHeadersPolicyOutput) CustomHeadersConfig() ResponseHeadersPolicy
 }
 
 // The current version of the response headers policy.
-func (o ResponseHeadersPolicyOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o ResponseHeadersPolicyOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // A unique name to identify the response headers policy.

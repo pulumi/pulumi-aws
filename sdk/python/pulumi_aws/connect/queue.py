@@ -639,7 +639,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Queue.
         """
@@ -695,7 +695,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queueId")
-    def queue_id(self) -> pulumi.Output[str]:
+    def queue_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for the Queue.
         """
@@ -711,7 +711,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         """

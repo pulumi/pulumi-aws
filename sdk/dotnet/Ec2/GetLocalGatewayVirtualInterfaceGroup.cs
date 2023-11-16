@@ -162,25 +162,25 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetLocalGatewayVirtualInterfaceGroupResult
     {
         public readonly ImmutableArray<Outputs.GetLocalGatewayVirtualInterfaceGroupFilterResult> Filters;
-        public readonly string Id;
-        public readonly string LocalGatewayId;
+        public readonly string? Id;
+        public readonly string? LocalGatewayId;
         /// <summary>
         /// Set of EC2 Local Gateway Virtual Interface identifiers.
         /// </summary>
         public readonly ImmutableArray<string> LocalGatewayVirtualInterfaceIds;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLocalGatewayVirtualInterfaceGroupResult(
             ImmutableArray<Outputs.GetLocalGatewayVirtualInterfaceGroupFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string localGatewayId,
+            string? localGatewayId,
 
             ImmutableArray<string> localGatewayVirtualInterfaceIds,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;

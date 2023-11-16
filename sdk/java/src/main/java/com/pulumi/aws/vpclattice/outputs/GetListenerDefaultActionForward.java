@@ -7,14 +7,15 @@ import com.pulumi.aws.vpclattice.outputs.GetListenerDefaultActionForwardTargetGr
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultActionForward {
-    private List<GetListenerDefaultActionForwardTargetGroup> targetGroups;
+    private @Nullable List<GetListenerDefaultActionForwardTargetGroup> targetGroups;
 
     private GetListenerDefaultActionForward() {}
     public List<GetListenerDefaultActionForwardTargetGroup> targetGroups() {
-        return this.targetGroups;
+        return this.targetGroups == null ? List.of() : this.targetGroups;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetListenerDefaultActionForward {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetListenerDefaultActionForwardTargetGroup> targetGroups;
+        private @Nullable List<GetListenerDefaultActionForwardTargetGroup> targetGroups;
         public Builder() {}
         public Builder(GetListenerDefaultActionForward defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetListenerDefaultActionForward {
         }
 
         @CustomType.Setter
-        public Builder targetGroups(List<GetListenerDefaultActionForwardTargetGroup> targetGroups) {
-            this.targetGroups = Objects.requireNonNull(targetGroups);
+        public Builder targetGroups(@Nullable List<GetListenerDefaultActionForwardTargetGroup> targetGroups) {
+            this.targetGroups = targetGroups;
             return this;
         }
         public Builder targetGroups(GetListenerDefaultActionForwardTargetGroup... targetGroups) {

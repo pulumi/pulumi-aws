@@ -63,8 +63,8 @@ type GetLaunchPathsArgs struct {
 type GetLaunchPathsResult struct {
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	ProductId string `pulumi:"productId"`
+	Id        *string `pulumi:"id"`
+	ProductId string  `pulumi:"productId"`
 	// Block with information about the launch path. See details below.
 	Summaries []GetLaunchPathsSummary `pulumi:"summaries"`
 }
@@ -116,8 +116,8 @@ func (o GetLaunchPathsResultOutput) AcceptLanguage() pulumi.StringPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLaunchPathsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLaunchPathsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLaunchPathsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLaunchPathsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLaunchPathsResultOutput) ProductId() pulumi.StringOutput {

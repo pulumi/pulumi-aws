@@ -6,6 +6,8 @@ package com.pulumi.aws.ecr.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPullThroughCacheRuleResult {
@@ -14,17 +16,17 @@ public final class GetPullThroughCacheRuleResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The registry ID where the repository was created.
      * 
      */
-    private String registryId;
+    private @Nullable String registryId;
     /**
      * @return The registry URL of the upstream public registry to use as the source.
      * 
      */
-    private String upstreamRegistryUrl;
+    private @Nullable String upstreamRegistryUrl;
 
     private GetPullThroughCacheRuleResult() {}
     public String ecrRepositoryPrefix() {
@@ -34,22 +36,22 @@ public final class GetPullThroughCacheRuleResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The registry ID where the repository was created.
      * 
      */
-    public String registryId() {
-        return this.registryId;
+    public Optional<String> registryId() {
+        return Optional.ofNullable(this.registryId);
     }
     /**
      * @return The registry URL of the upstream public registry to use as the source.
      * 
      */
-    public String upstreamRegistryUrl() {
-        return this.upstreamRegistryUrl;
+    public Optional<String> upstreamRegistryUrl() {
+        return Optional.ofNullable(this.upstreamRegistryUrl);
     }
 
     public static Builder builder() {
@@ -62,9 +64,9 @@ public final class GetPullThroughCacheRuleResult {
     @CustomType.Builder
     public static final class Builder {
         private String ecrRepositoryPrefix;
-        private String id;
-        private String registryId;
-        private String upstreamRegistryUrl;
+        private @Nullable String id;
+        private @Nullable String registryId;
+        private @Nullable String upstreamRegistryUrl;
         public Builder() {}
         public Builder(GetPullThroughCacheRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -80,18 +82,18 @@ public final class GetPullThroughCacheRuleResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+        public Builder registryId(@Nullable String registryId) {
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
-        public Builder upstreamRegistryUrl(String upstreamRegistryUrl) {
-            this.upstreamRegistryUrl = Objects.requireNonNull(upstreamRegistryUrl);
+        public Builder upstreamRegistryUrl(@Nullable String upstreamRegistryUrl) {
+            this.upstreamRegistryUrl = upstreamRegistryUrl;
             return this;
         }
         public GetPullThroughCacheRuleResult build() {

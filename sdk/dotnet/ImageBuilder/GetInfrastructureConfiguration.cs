@@ -153,16 +153,16 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Date the infrastructure configuration was updated.
         /// </summary>
-        public readonly string DateCreated;
-        public readonly string DateUpdated;
+        public readonly string? DateCreated;
+        public readonly string? DateUpdated;
         /// <summary>
         /// Description of the infrastructure configuration.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
         /// </summary>
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Name of the IAM Instance Profile associated with the configuration.
         /// </summary>
-        public readonly string InstanceProfileName;
+        public readonly string? InstanceProfileName;
         /// <summary>
         /// Set of EC2 Instance Types associated with the configuration.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Name of the EC2 Key Pair associated with the configuration.
         /// </summary>
-        public readonly string KeyPair;
+        public readonly string? KeyPair;
         /// <summary>
         /// Nested list of logging settings.
         /// </summary>
@@ -186,11 +186,11 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Name of the infrastructure configuration.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> ResourceTags;
+        public readonly ImmutableDictionary<string, string>? ResourceTags;
         /// <summary>
         /// Set of EC2 Security Group identifiers associated with the configuration.
         /// </summary>
@@ -198,55 +198,55 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// ARN of the SNS Topic associated with the configuration.
         /// </summary>
-        public readonly string SnsTopicArn;
+        public readonly string? SnsTopicArn;
         /// <summary>
         /// Identifier of the EC2 Subnet associated with the configuration.
         /// </summary>
-        public readonly string SubnetId;
+        public readonly string? SubnetId;
         /// <summary>
         /// Key-value map of resource tags for the infrastructure configuration.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Whether instances are terminated on failure.
         /// </summary>
-        public readonly bool TerminateInstanceOnFailure;
+        public readonly bool? TerminateInstanceOnFailure;
 
         [OutputConstructor]
         private GetInfrastructureConfigurationResult(
             string arn,
 
-            string dateCreated,
+            string? dateCreated,
 
-            string dateUpdated,
+            string? dateUpdated,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetInfrastructureConfigurationInstanceMetadataOptionResult> instanceMetadataOptions,
 
-            string instanceProfileName,
+            string? instanceProfileName,
 
             ImmutableArray<string> instanceTypes,
 
-            string keyPair,
+            string? keyPair,
 
             ImmutableArray<Outputs.GetInfrastructureConfigurationLoggingResult> loggings,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> resourceTags,
+            ImmutableDictionary<string, string>? resourceTags,
 
             ImmutableArray<string> securityGroupIds,
 
-            string snsTopicArn,
+            string? snsTopicArn,
 
-            string subnetId,
+            string? subnetId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            bool terminateInstanceOnFailure)
+            bool? terminateInstanceOnFailure)
         {
             Arn = arn;
             DateCreated = dateCreated;

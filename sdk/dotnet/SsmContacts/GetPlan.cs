@@ -107,7 +107,7 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
         /// </summary>
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.SsmContacts
         private GetPlanResult(
             string contactId,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetPlanStageResult> stages)
         {

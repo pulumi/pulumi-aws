@@ -58,7 +58,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name of the file system.
         """
@@ -66,7 +66,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter(name="fileSystemArn")
-    def file_system_arn(self) -> str:
+    def file_system_arn(self) -> Optional[str]:
         """
         Amazon Resource Name of the file system.
         """
@@ -74,7 +74,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> str:
+    def file_system_id(self) -> Optional[str]:
         """
         ID of the file system for which the access point is intended.
         """
@@ -82,7 +82,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -90,12 +90,12 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="posixUsers")
-    def posix_users(self) -> Sequence['outputs.GetAccessPointPosixUserResult']:
+    def posix_users(self) -> Optional[Sequence['outputs.GetAccessPointPosixUserResult']]:
         """
         Single element list containing operating system user and group applied to all file system requests made using the access point.
         """
@@ -103,7 +103,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter(name="rootDirectories")
-    def root_directories(self) -> Sequence['outputs.GetAccessPointRootDirectoryResult']:
+    def root_directories(self) -> Optional[Sequence['outputs.GetAccessPointRootDirectoryResult']]:
         """
         Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
         """

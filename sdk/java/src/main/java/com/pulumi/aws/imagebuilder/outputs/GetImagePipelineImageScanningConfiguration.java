@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImagePipelineImageScanningConfiguration {
@@ -15,12 +17,12 @@ public final class GetImagePipelineImageScanningConfiguration {
      * @return List if an object with ecr configuration for image scanning
      * 
      */
-    private List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations;
+    private @Nullable List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations;
     /**
      * @return Whether image scanning is enabled.
      * 
      */
-    private Boolean imageScanningEnabled;
+    private @Nullable Boolean imageScanningEnabled;
 
     private GetImagePipelineImageScanningConfiguration() {}
     /**
@@ -28,14 +30,14 @@ public final class GetImagePipelineImageScanningConfiguration {
      * 
      */
     public List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations() {
-        return this.ecrConfigurations;
+        return this.ecrConfigurations == null ? List.of() : this.ecrConfigurations;
     }
     /**
      * @return Whether image scanning is enabled.
      * 
      */
-    public Boolean imageScanningEnabled() {
-        return this.imageScanningEnabled;
+    public Optional<Boolean> imageScanningEnabled() {
+        return Optional.ofNullable(this.imageScanningEnabled);
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetImagePipelineImageScanningConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations;
-        private Boolean imageScanningEnabled;
+        private @Nullable List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations;
+        private @Nullable Boolean imageScanningEnabled;
         public Builder() {}
         public Builder(GetImagePipelineImageScanningConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +59,16 @@ public final class GetImagePipelineImageScanningConfiguration {
         }
 
         @CustomType.Setter
-        public Builder ecrConfigurations(List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations) {
-            this.ecrConfigurations = Objects.requireNonNull(ecrConfigurations);
+        public Builder ecrConfigurations(@Nullable List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations) {
+            this.ecrConfigurations = ecrConfigurations;
             return this;
         }
         public Builder ecrConfigurations(GetImagePipelineImageScanningConfigurationEcrConfiguration... ecrConfigurations) {
             return ecrConfigurations(List.of(ecrConfigurations));
         }
         @CustomType.Setter
-        public Builder imageScanningEnabled(Boolean imageScanningEnabled) {
-            this.imageScanningEnabled = Objects.requireNonNull(imageScanningEnabled);
+        public Builder imageScanningEnabled(@Nullable Boolean imageScanningEnabled) {
+            this.imageScanningEnabled = imageScanningEnabled;
             return this;
         }
         public GetImagePipelineImageScanningConfiguration build() {

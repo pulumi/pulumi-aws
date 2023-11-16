@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
         /// </summary>
-        public readonly string QuickConnectType;
+        public readonly string? QuickConnectType;
         /// <summary>
         /// User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Connect.Outputs
 
             ImmutableArray<Outputs.GetQuickConnectQuickConnectConfigQueueConfigResult> queueConfigs,
 
-            string quickConnectType,
+            string? quickConnectType,
 
             ImmutableArray<Outputs.GetQuickConnectQuickConnectConfigUserConfigResult> userConfigs)
         {

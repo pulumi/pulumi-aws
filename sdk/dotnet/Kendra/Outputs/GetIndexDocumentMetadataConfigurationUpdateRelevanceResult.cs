@@ -16,35 +16,35 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
         /// </summary>
-        public readonly string Duration;
+        public readonly string? Duration;
         /// <summary>
         /// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
         /// </summary>
-        public readonly bool Freshness;
+        public readonly bool? Freshness;
         /// <summary>
         /// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
         /// </summary>
-        public readonly int Importance;
+        public readonly int? Importance;
         /// <summary>
         /// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
         /// </summary>
-        public readonly string RankOrder;
+        public readonly string? RankOrder;
         /// <summary>
         /// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
         /// </summary>
-        public readonly ImmutableDictionary<string, int> ValuesImportanceMap;
+        public readonly ImmutableDictionary<string, int>? ValuesImportanceMap;
 
         [OutputConstructor]
         private GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(
-            string duration,
+            string? duration,
 
-            bool freshness,
+            bool? freshness,
 
-            int importance,
+            int? importance,
 
-            string rankOrder,
+            string? rankOrder,
 
-            ImmutableDictionary<string, int> valuesImportanceMap)
+            ImmutableDictionary<string, int>? valuesImportanceMap)
         {
             Duration = duration;
             Freshness = freshness;

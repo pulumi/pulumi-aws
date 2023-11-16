@@ -119,28 +119,28 @@ namespace Pulumi.Aws.Acmpca
         /// <summary>
         /// PEM-encoded certificate value.
         /// </summary>
-        public readonly string Certificate;
+        public readonly string? Certificate;
         public readonly string CertificateAuthorityArn;
         /// <summary>
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         /// </summary>
-        public readonly string CertificateChain;
+        public readonly string? CertificateChain;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetCertificateResult(
             string arn,
 
-            string certificate,
+            string? certificate,
 
             string certificateAuthorityArn,
 
-            string certificateChain,
+            string? certificateChain,
 
-            string id)
+            string? id)
         {
             Arn = arn;
             Certificate = certificate;

@@ -62,13 +62,13 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Description of the constraint.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Owner of the constraint.
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> ProductId { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.

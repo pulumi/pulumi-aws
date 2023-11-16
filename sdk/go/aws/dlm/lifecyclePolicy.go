@@ -100,7 +100,7 @@ type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description for the DLM lifecycle policy.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
@@ -316,8 +316,8 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 }
 
 // Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-func (o LifecyclePolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LifecyclePolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description for the DLM lifecycle policy.

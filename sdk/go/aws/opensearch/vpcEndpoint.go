@@ -66,7 +66,7 @@ type VpcEndpoint struct {
 	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
 	DomainArn pulumi.StringOutput `pulumi:"domainArn"`
 	// The connection endpoint ID for connecting to the domain.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// Options to specify the subnets and security groups for the endpoint.
 	VpcOptions VpcEndpointVpcOptionsOutput `pulumi:"vpcOptions"`
 }
@@ -236,8 +236,8 @@ func (o VpcEndpointOutput) DomainArn() pulumi.StringOutput {
 }
 
 // The connection endpoint ID for connecting to the domain.
-func (o VpcEndpointOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o VpcEndpointOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Options to specify the subnets and security groups for the endpoint.

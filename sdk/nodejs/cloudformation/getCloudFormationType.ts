@@ -60,59 +60,59 @@ export interface GetCloudFormationTypeArgs {
  * A collection of values returned by getCloudFormationType.
  */
 export interface GetCloudFormationTypeResult {
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Identifier of the CloudFormation Type default version.
      */
-    readonly defaultVersionId: string;
+    readonly defaultVersionId?: string;
     /**
      * Deprecation status of the CloudFormation Type.
      */
-    readonly deprecatedStatus: string;
+    readonly deprecatedStatus?: string;
     /**
      * Description of the CloudFormation Type.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * URL of the documentation for the CloudFormation Type.
      */
-    readonly documentationUrl: string;
+    readonly documentationUrl?: string;
     /**
      * ARN of the IAM Role used to register the CloudFormation Type.
      */
-    readonly executionRoleArn: string;
+    readonly executionRoleArn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Whether the CloudFormation Type version is the default version.
      */
-    readonly isDefaultVersion: boolean;
+    readonly isDefaultVersion?: boolean;
     /**
      * List of objects containing logging configuration.
      */
-    readonly loggingConfigs: outputs.cloudformation.GetCloudFormationTypeLoggingConfig[];
+    readonly loggingConfigs?: outputs.cloudformation.GetCloudFormationTypeLoggingConfig[];
     /**
      * Provisioning behavior of the CloudFormation Type.
      */
-    readonly provisioningType: string;
+    readonly provisioningType?: string;
     /**
      * JSON document of the CloudFormation Type schema.
      */
-    readonly schema: string;
+    readonly schema?: string;
     /**
      * URL of the source code for the CloudFormation Type.
      */
-    readonly sourceUrl: string;
-    readonly type: string;
-    readonly typeArn: string;
-    readonly typeName: string;
+    readonly sourceUrl?: string;
+    readonly type?: string;
+    readonly typeArn?: string;
+    readonly typeName?: string;
     readonly versionId?: string;
     /**
      * Scope of the CloudFormation Type.
      */
-    readonly visibility: string;
+    readonly visibility?: string;
 }
 /**
  * Provides details about a CloudFormation Type.

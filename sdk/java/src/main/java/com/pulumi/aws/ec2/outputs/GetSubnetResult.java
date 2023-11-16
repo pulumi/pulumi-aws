@@ -11,6 +11,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,223 +20,223 @@ public final class GetSubnetResult {
      * @return ARN of the subnet.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Whether an IPv6 address is assigned on creation.
      * 
      */
-    private Boolean assignIpv6AddressOnCreation;
-    private String availabilityZone;
-    private String availabilityZoneId;
+    private @Nullable Boolean assignIpv6AddressOnCreation;
+    private @Nullable String availabilityZone;
+    private @Nullable String availabilityZoneId;
     /**
      * @return Available IP addresses of the subnet.
      * 
      */
-    private Integer availableIpAddressCount;
-    private String cidrBlock;
+    private @Nullable Integer availableIpAddressCount;
+    private @Nullable String cidrBlock;
     /**
      * @return Identifier of customer owned IPv4 address pool.
      * 
      */
-    private String customerOwnedIpv4Pool;
-    private Boolean defaultForAz;
+    private @Nullable String customerOwnedIpv4Pool;
+    private @Nullable Boolean defaultForAz;
     /**
      * @return Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
      * 
      */
-    private Boolean enableDns64;
+    private @Nullable Boolean enableDns64;
     /**
      * @return Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
      * 
      */
-    private Integer enableLniAtDeviceIndex;
+    private @Nullable Integer enableLniAtDeviceIndex;
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
      * 
      */
-    private Boolean enableResourceNameDnsARecordOnLaunch;
+    private @Nullable Boolean enableResourceNameDnsARecordOnLaunch;
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
      * 
      */
-    private Boolean enableResourceNameDnsAaaaRecordOnLaunch;
+    private @Nullable Boolean enableResourceNameDnsAaaaRecordOnLaunch;
     private @Nullable List<GetSubnetFilter> filters;
-    private String id;
-    private String ipv6CidrBlock;
+    private @Nullable String id;
+    private @Nullable String ipv6CidrBlock;
     /**
      * @return Association ID of the IPv6 CIDR block.
      * 
      */
-    private String ipv6CidrBlockAssociationId;
+    private @Nullable String ipv6CidrBlockAssociationId;
     /**
      * @return Whether this is an IPv6-only subnet.
      * 
      */
-    private Boolean ipv6Native;
+    private @Nullable Boolean ipv6Native;
     /**
      * @return Whether customer owned IP addresses are assigned on network interface creation.
      * 
      */
-    private Boolean mapCustomerOwnedIpOnLaunch;
+    private @Nullable Boolean mapCustomerOwnedIpOnLaunch;
     /**
      * @return Whether public IP addresses are assigned on instance launch.
      * 
      */
-    private Boolean mapPublicIpOnLaunch;
+    private @Nullable Boolean mapPublicIpOnLaunch;
     /**
      * @return ARN of the Outpost.
      * 
      */
-    private String outpostArn;
+    private @Nullable String outpostArn;
     /**
      * @return ID of the AWS account that owns the subnet.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     /**
      * @return The type of hostnames assigned to instances in the subnet at launch.
      * 
      */
-    private String privateDnsHostnameTypeOnLaunch;
-    private String state;
-    private Map<String,String> tags;
-    private String vpcId;
+    private @Nullable String privateDnsHostnameTypeOnLaunch;
+    private @Nullable String state;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String vpcId;
 
     private GetSubnetResult() {}
     /**
      * @return ARN of the subnet.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Whether an IPv6 address is assigned on creation.
      * 
      */
-    public Boolean assignIpv6AddressOnCreation() {
-        return this.assignIpv6AddressOnCreation;
+    public Optional<Boolean> assignIpv6AddressOnCreation() {
+        return Optional.ofNullable(this.assignIpv6AddressOnCreation);
     }
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
-    public String availabilityZoneId() {
-        return this.availabilityZoneId;
+    public Optional<String> availabilityZoneId() {
+        return Optional.ofNullable(this.availabilityZoneId);
     }
     /**
      * @return Available IP addresses of the subnet.
      * 
      */
-    public Integer availableIpAddressCount() {
-        return this.availableIpAddressCount;
+    public Optional<Integer> availableIpAddressCount() {
+        return Optional.ofNullable(this.availableIpAddressCount);
     }
-    public String cidrBlock() {
-        return this.cidrBlock;
+    public Optional<String> cidrBlock() {
+        return Optional.ofNullable(this.cidrBlock);
     }
     /**
      * @return Identifier of customer owned IPv4 address pool.
      * 
      */
-    public String customerOwnedIpv4Pool() {
-        return this.customerOwnedIpv4Pool;
+    public Optional<String> customerOwnedIpv4Pool() {
+        return Optional.ofNullable(this.customerOwnedIpv4Pool);
     }
-    public Boolean defaultForAz() {
-        return this.defaultForAz;
+    public Optional<Boolean> defaultForAz() {
+        return Optional.ofNullable(this.defaultForAz);
     }
     /**
      * @return Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
      * 
      */
-    public Boolean enableDns64() {
-        return this.enableDns64;
+    public Optional<Boolean> enableDns64() {
+        return Optional.ofNullable(this.enableDns64);
     }
     /**
      * @return Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
      * 
      */
-    public Integer enableLniAtDeviceIndex() {
-        return this.enableLniAtDeviceIndex;
+    public Optional<Integer> enableLniAtDeviceIndex() {
+        return Optional.ofNullable(this.enableLniAtDeviceIndex);
     }
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
      * 
      */
-    public Boolean enableResourceNameDnsARecordOnLaunch() {
-        return this.enableResourceNameDnsARecordOnLaunch;
+    public Optional<Boolean> enableResourceNameDnsARecordOnLaunch() {
+        return Optional.ofNullable(this.enableResourceNameDnsARecordOnLaunch);
     }
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
      * 
      */
-    public Boolean enableResourceNameDnsAaaaRecordOnLaunch() {
-        return this.enableResourceNameDnsAaaaRecordOnLaunch;
+    public Optional<Boolean> enableResourceNameDnsAaaaRecordOnLaunch() {
+        return Optional.ofNullable(this.enableResourceNameDnsAaaaRecordOnLaunch);
     }
     public List<GetSubnetFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String ipv6CidrBlock() {
-        return this.ipv6CidrBlock;
+    public Optional<String> ipv6CidrBlock() {
+        return Optional.ofNullable(this.ipv6CidrBlock);
     }
     /**
      * @return Association ID of the IPv6 CIDR block.
      * 
      */
-    public String ipv6CidrBlockAssociationId() {
-        return this.ipv6CidrBlockAssociationId;
+    public Optional<String> ipv6CidrBlockAssociationId() {
+        return Optional.ofNullable(this.ipv6CidrBlockAssociationId);
     }
     /**
      * @return Whether this is an IPv6-only subnet.
      * 
      */
-    public Boolean ipv6Native() {
-        return this.ipv6Native;
+    public Optional<Boolean> ipv6Native() {
+        return Optional.ofNullable(this.ipv6Native);
     }
     /**
      * @return Whether customer owned IP addresses are assigned on network interface creation.
      * 
      */
-    public Boolean mapCustomerOwnedIpOnLaunch() {
-        return this.mapCustomerOwnedIpOnLaunch;
+    public Optional<Boolean> mapCustomerOwnedIpOnLaunch() {
+        return Optional.ofNullable(this.mapCustomerOwnedIpOnLaunch);
     }
     /**
      * @return Whether public IP addresses are assigned on instance launch.
      * 
      */
-    public Boolean mapPublicIpOnLaunch() {
-        return this.mapPublicIpOnLaunch;
+    public Optional<Boolean> mapPublicIpOnLaunch() {
+        return Optional.ofNullable(this.mapPublicIpOnLaunch);
     }
     /**
      * @return ARN of the Outpost.
      * 
      */
-    public String outpostArn() {
-        return this.outpostArn;
+    public Optional<String> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
     }
     /**
      * @return ID of the AWS account that owns the subnet.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
      * @return The type of hostnames assigned to instances in the subnet at launch.
      * 
      */
-    public String privateDnsHostnameTypeOnLaunch() {
-        return this.privateDnsHostnameTypeOnLaunch;
+    public Optional<String> privateDnsHostnameTypeOnLaunch() {
+        return Optional.ofNullable(this.privateDnsHostnameTypeOnLaunch);
     }
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -247,31 +248,31 @@ public final class GetSubnetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Boolean assignIpv6AddressOnCreation;
-        private String availabilityZone;
-        private String availabilityZoneId;
-        private Integer availableIpAddressCount;
-        private String cidrBlock;
-        private String customerOwnedIpv4Pool;
-        private Boolean defaultForAz;
-        private Boolean enableDns64;
-        private Integer enableLniAtDeviceIndex;
-        private Boolean enableResourceNameDnsARecordOnLaunch;
-        private Boolean enableResourceNameDnsAaaaRecordOnLaunch;
+        private @Nullable String arn;
+        private @Nullable Boolean assignIpv6AddressOnCreation;
+        private @Nullable String availabilityZone;
+        private @Nullable String availabilityZoneId;
+        private @Nullable Integer availableIpAddressCount;
+        private @Nullable String cidrBlock;
+        private @Nullable String customerOwnedIpv4Pool;
+        private @Nullable Boolean defaultForAz;
+        private @Nullable Boolean enableDns64;
+        private @Nullable Integer enableLniAtDeviceIndex;
+        private @Nullable Boolean enableResourceNameDnsARecordOnLaunch;
+        private @Nullable Boolean enableResourceNameDnsAaaaRecordOnLaunch;
         private @Nullable List<GetSubnetFilter> filters;
-        private String id;
-        private String ipv6CidrBlock;
-        private String ipv6CidrBlockAssociationId;
-        private Boolean ipv6Native;
-        private Boolean mapCustomerOwnedIpOnLaunch;
-        private Boolean mapPublicIpOnLaunch;
-        private String outpostArn;
-        private String ownerId;
-        private String privateDnsHostnameTypeOnLaunch;
-        private String state;
-        private Map<String,String> tags;
-        private String vpcId;
+        private @Nullable String id;
+        private @Nullable String ipv6CidrBlock;
+        private @Nullable String ipv6CidrBlockAssociationId;
+        private @Nullable Boolean ipv6Native;
+        private @Nullable Boolean mapCustomerOwnedIpOnLaunch;
+        private @Nullable Boolean mapPublicIpOnLaunch;
+        private @Nullable String outpostArn;
+        private @Nullable String ownerId;
+        private @Nullable String privateDnsHostnameTypeOnLaunch;
+        private @Nullable String state;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetSubnetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -303,63 +304,63 @@ public final class GetSubnetResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder assignIpv6AddressOnCreation(Boolean assignIpv6AddressOnCreation) {
-            this.assignIpv6AddressOnCreation = Objects.requireNonNull(assignIpv6AddressOnCreation);
+        public Builder assignIpv6AddressOnCreation(@Nullable Boolean assignIpv6AddressOnCreation) {
+            this.assignIpv6AddressOnCreation = assignIpv6AddressOnCreation;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZoneId(String availabilityZoneId) {
-            this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
+        public Builder availabilityZoneId(@Nullable String availabilityZoneId) {
+            this.availabilityZoneId = availabilityZoneId;
             return this;
         }
         @CustomType.Setter
-        public Builder availableIpAddressCount(Integer availableIpAddressCount) {
-            this.availableIpAddressCount = Objects.requireNonNull(availableIpAddressCount);
+        public Builder availableIpAddressCount(@Nullable Integer availableIpAddressCount) {
+            this.availableIpAddressCount = availableIpAddressCount;
             return this;
         }
         @CustomType.Setter
-        public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+        public Builder cidrBlock(@Nullable String cidrBlock) {
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
-            this.customerOwnedIpv4Pool = Objects.requireNonNull(customerOwnedIpv4Pool);
+        public Builder customerOwnedIpv4Pool(@Nullable String customerOwnedIpv4Pool) {
+            this.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultForAz(Boolean defaultForAz) {
-            this.defaultForAz = Objects.requireNonNull(defaultForAz);
+        public Builder defaultForAz(@Nullable Boolean defaultForAz) {
+            this.defaultForAz = defaultForAz;
             return this;
         }
         @CustomType.Setter
-        public Builder enableDns64(Boolean enableDns64) {
-            this.enableDns64 = Objects.requireNonNull(enableDns64);
+        public Builder enableDns64(@Nullable Boolean enableDns64) {
+            this.enableDns64 = enableDns64;
             return this;
         }
         @CustomType.Setter
-        public Builder enableLniAtDeviceIndex(Integer enableLniAtDeviceIndex) {
-            this.enableLniAtDeviceIndex = Objects.requireNonNull(enableLniAtDeviceIndex);
+        public Builder enableLniAtDeviceIndex(@Nullable Integer enableLniAtDeviceIndex) {
+            this.enableLniAtDeviceIndex = enableLniAtDeviceIndex;
             return this;
         }
         @CustomType.Setter
-        public Builder enableResourceNameDnsARecordOnLaunch(Boolean enableResourceNameDnsARecordOnLaunch) {
-            this.enableResourceNameDnsARecordOnLaunch = Objects.requireNonNull(enableResourceNameDnsARecordOnLaunch);
+        public Builder enableResourceNameDnsARecordOnLaunch(@Nullable Boolean enableResourceNameDnsARecordOnLaunch) {
+            this.enableResourceNameDnsARecordOnLaunch = enableResourceNameDnsARecordOnLaunch;
             return this;
         }
         @CustomType.Setter
-        public Builder enableResourceNameDnsAaaaRecordOnLaunch(Boolean enableResourceNameDnsAaaaRecordOnLaunch) {
-            this.enableResourceNameDnsAaaaRecordOnLaunch = Objects.requireNonNull(enableResourceNameDnsAaaaRecordOnLaunch);
+        public Builder enableResourceNameDnsAaaaRecordOnLaunch(@Nullable Boolean enableResourceNameDnsAaaaRecordOnLaunch) {
+            this.enableResourceNameDnsAaaaRecordOnLaunch = enableResourceNameDnsAaaaRecordOnLaunch;
             return this;
         }
         @CustomType.Setter
@@ -371,63 +372,63 @@ public final class GetSubnetResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6CidrBlock(String ipv6CidrBlock) {
-            this.ipv6CidrBlock = Objects.requireNonNull(ipv6CidrBlock);
+        public Builder ipv6CidrBlock(@Nullable String ipv6CidrBlock) {
+            this.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6CidrBlockAssociationId(String ipv6CidrBlockAssociationId) {
-            this.ipv6CidrBlockAssociationId = Objects.requireNonNull(ipv6CidrBlockAssociationId);
+        public Builder ipv6CidrBlockAssociationId(@Nullable String ipv6CidrBlockAssociationId) {
+            this.ipv6CidrBlockAssociationId = ipv6CidrBlockAssociationId;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6Native(Boolean ipv6Native) {
-            this.ipv6Native = Objects.requireNonNull(ipv6Native);
+        public Builder ipv6Native(@Nullable Boolean ipv6Native) {
+            this.ipv6Native = ipv6Native;
             return this;
         }
         @CustomType.Setter
-        public Builder mapCustomerOwnedIpOnLaunch(Boolean mapCustomerOwnedIpOnLaunch) {
-            this.mapCustomerOwnedIpOnLaunch = Objects.requireNonNull(mapCustomerOwnedIpOnLaunch);
+        public Builder mapCustomerOwnedIpOnLaunch(@Nullable Boolean mapCustomerOwnedIpOnLaunch) {
+            this.mapCustomerOwnedIpOnLaunch = mapCustomerOwnedIpOnLaunch;
             return this;
         }
         @CustomType.Setter
-        public Builder mapPublicIpOnLaunch(Boolean mapPublicIpOnLaunch) {
-            this.mapPublicIpOnLaunch = Objects.requireNonNull(mapPublicIpOnLaunch);
+        public Builder mapPublicIpOnLaunch(@Nullable Boolean mapPublicIpOnLaunch) {
+            this.mapPublicIpOnLaunch = mapPublicIpOnLaunch;
             return this;
         }
         @CustomType.Setter
-        public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+        public Builder outpostArn(@Nullable String outpostArn) {
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder privateDnsHostnameTypeOnLaunch(String privateDnsHostnameTypeOnLaunch) {
-            this.privateDnsHostnameTypeOnLaunch = Objects.requireNonNull(privateDnsHostnameTypeOnLaunch);
+        public Builder privateDnsHostnameTypeOnLaunch(@Nullable String privateDnsHostnameTypeOnLaunch) {
+            this.privateDnsHostnameTypeOnLaunch = privateDnsHostnameTypeOnLaunch;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetSubnetResult build() {

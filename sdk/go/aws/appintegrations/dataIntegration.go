@@ -63,7 +63,7 @@ type DataIntegration struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Data Integration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies the description of the Data Integration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
@@ -289,8 +289,8 @@ func (o DataIntegrationOutput) ToDataIntegrationOutputWithContext(ctx context.Co
 }
 
 // The Amazon Resource Name (ARN) of the Data Integration.
-func (o DataIntegrationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DataIntegrationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataIntegration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the description of the Data Integration.

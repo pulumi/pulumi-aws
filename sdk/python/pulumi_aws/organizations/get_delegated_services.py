@@ -40,7 +40,7 @@ class GetDelegatedServicesResult:
 
     @property
     @pulumi.getter(name="delegatedServices")
-    def delegated_services(self) -> Sequence['outputs.GetDelegatedServicesDelegatedServiceResult']:
+    def delegated_services(self) -> Optional[Sequence['outputs.GetDelegatedServicesDelegatedServiceResult']]:
         """
         Services for which the account is a delegated administrator, which have the following attributes:
         """
@@ -48,7 +48,7 @@ class GetDelegatedServicesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

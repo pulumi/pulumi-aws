@@ -130,24 +130,24 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// ARN of the ECS Cluster
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string ClusterName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Number of pending tasks for the ECS Cluster
         /// </summary>
-        public readonly int PendingTasksCount;
+        public readonly int? PendingTasksCount;
         /// <summary>
         /// The number of registered container instances for the ECS Cluster
         /// </summary>
-        public readonly int RegisteredContainerInstancesCount;
+        public readonly int? RegisteredContainerInstancesCount;
         /// <summary>
         /// Number of running tasks for the ECS Cluster
         /// </summary>
-        public readonly int RunningTasksCount;
+        public readonly int? RunningTasksCount;
         /// <summary>
         /// The default Service Connect namespace
         /// </summary>
@@ -159,33 +159,33 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// Status of the ECS Cluster
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetClusterResult(
-            string arn,
+            string? arn,
 
             string clusterName,
 
-            string id,
+            string? id,
 
-            int pendingTasksCount,
+            int? pendingTasksCount,
 
-            int registeredContainerInstancesCount,
+            int? registeredContainerInstancesCount,
 
-            int runningTasksCount,
+            int? runningTasksCount,
 
             ImmutableArray<Outputs.GetClusterServiceConnectDefaultResult> serviceConnectDefaults,
 
             ImmutableArray<Outputs.GetClusterSettingResult> settings,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ClusterName = clusterName;

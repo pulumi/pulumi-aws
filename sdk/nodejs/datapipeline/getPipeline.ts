@@ -48,20 +48,20 @@ export interface GetPipelineResult {
     /**
      * Description of Pipeline.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of Pipeline.
      */
-    readonly name: string;
+    readonly name?: string;
     readonly pipelineId: string;
     /**
      * Map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific DataPipeline Pipeline.

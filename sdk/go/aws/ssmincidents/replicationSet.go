@@ -168,17 +168,17 @@ type ReplicationSet struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the replication set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN of the user who created the replication set.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	CreatedBy pulumi.StringPtrOutput `pulumi:"createdBy"`
 	// If `true`, the last region in a replication set cannot be deleted.
-	DeletionProtected pulumi.BoolOutput `pulumi:"deletionProtected"`
+	DeletionProtected pulumi.BoolPtrOutput `pulumi:"deletionProtected"`
 	// A timestamp showing when the replication set was last modified.
-	LastModifiedBy pulumi.StringOutput             `pulumi:"lastModifiedBy"`
+	LastModifiedBy pulumi.StringPtrOutput          `pulumi:"lastModifiedBy"`
 	Regions        ReplicationSetRegionArrayOutput `pulumi:"regions"`
 	// The current status of the Region.
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Tags applied to the replication set.
 	//
 	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
@@ -380,23 +380,23 @@ func (o ReplicationSetOutput) ToReplicationSetOutputWithContext(ctx context.Cont
 }
 
 // The ARN of the replication set.
-func (o ReplicationSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReplicationSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the user who created the replication set.
-func (o ReplicationSetOutput) CreatedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationSet) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+func (o ReplicationSetOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationSet) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
 // If `true`, the last region in a replication set cannot be deleted.
-func (o ReplicationSetOutput) DeletionProtected() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationSet) pulumi.BoolOutput { return v.DeletionProtected }).(pulumi.BoolOutput)
+func (o ReplicationSetOutput) DeletionProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationSet) pulumi.BoolPtrOutput { return v.DeletionProtected }).(pulumi.BoolPtrOutput)
 }
 
 // A timestamp showing when the replication set was last modified.
-func (o ReplicationSetOutput) LastModifiedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationSet) pulumi.StringOutput { return v.LastModifiedBy }).(pulumi.StringOutput)
+func (o ReplicationSetOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationSet) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
 func (o ReplicationSetOutput) Regions() ReplicationSetRegionArrayOutput {
@@ -405,8 +405,8 @@ func (o ReplicationSetOutput) Regions() ReplicationSetRegionArrayOutput {
 
 // The current status of the Region.
 // * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-func (o ReplicationSetOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationSet) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ReplicationSetOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationSet) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Tags applied to the replication set.

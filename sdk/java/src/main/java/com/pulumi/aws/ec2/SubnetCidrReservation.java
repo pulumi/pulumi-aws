@@ -93,14 +93,14 @@ public class SubnetCidrReservation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return ID of the AWS account that owns this CIDR reservation.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The type of reservation to create. Valid values: `explicit`, `prefix`

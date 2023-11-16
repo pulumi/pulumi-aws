@@ -16,17 +16,17 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// <summary>
         /// Download speed in Mbps.
         /// </summary>
-        public readonly int DownloadSpeed;
+        public readonly int? DownloadSpeed;
         /// <summary>
         /// Upload speed in Mbps.
         /// </summary>
-        public readonly int UploadSpeed;
+        public readonly int? UploadSpeed;
 
         [OutputConstructor]
         private GetLinkBandwidthResult(
-            int downloadSpeed,
+            int? downloadSpeed,
 
-            int uploadSpeed)
+            int? uploadSpeed)
         {
             DownloadSpeed = downloadSpeed;
             UploadSpeed = uploadSpeed;

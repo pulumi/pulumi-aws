@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch {
-    private String exact;
+    private @Nullable String exact;
 
     private GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch() {}
-    public String exact() {
-        return this.exact;
+    public Optional<String> exact() {
+        return Optional.ofNullable(this.exact);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String exact;
+        private @Nullable String exact;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch {
         }
 
         @CustomType.Setter
-        public Builder exact(String exact) {
-            this.exact = Objects.requireNonNull(exact);
+        public Builder exact(@Nullable String exact) {
+            this.exact = exact;
             return this;
         }
         public GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch build() {

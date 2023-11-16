@@ -64,31 +64,31 @@ export interface GetConnectionArgs {
  * A collection of values returned by getConnection.
  */
 export interface GetConnectionResult {
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      */
-    readonly connectionStatus: string;
+    readonly connectionStatus?: string;
     /**
      * ARN of the host associated with the connection.
      */
-    readonly hostArn: string;
+    readonly hostArn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the CodeStar Connection. The name is unique in the calling AWS account.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `hostArn` instead.
      */
-    readonly providerType: string;
+    readonly providerType?: string;
     /**
      * Map of key-value resource tags to associate with the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about CodeStar Connection.

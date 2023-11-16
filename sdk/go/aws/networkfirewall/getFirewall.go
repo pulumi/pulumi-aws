@@ -113,33 +113,33 @@ type LookupFirewallArgs struct {
 // A collection of values returned by getFirewall.
 type LookupFirewallResult struct {
 	// ARN of the firewall.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Boolean flag indicating whether it is possible to delete the firewall.
-	DeleteProtection bool `pulumi:"deleteProtection"`
+	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// Description of the firewall.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
 	EncryptionConfigurations []GetFirewallEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// ARN of the VPC Firewall policy.
-	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
+	FirewallPolicyArn *string `pulumi:"firewallPolicyArn"`
 	// A boolean flag indicating whether it is possible to change the associated firewall policy.
-	FirewallPolicyChangeProtection bool `pulumi:"firewallPolicyChangeProtection"`
+	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
 	// Nested list of information about the current status of the firewall.
 	FirewallStatuses []GetFirewallFirewallStatus `pulumi:"firewallStatuses"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Descriptive name of the firewall.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A boolean flag indicating whether it is possible to change the associated subnet(s).
-	SubnetChangeProtection bool `pulumi:"subnetChangeProtection"`
+	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
 	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
 	SubnetMappings []GetFirewallSubnetMapping `pulumi:"subnetMappings"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// String token used when updating a firewall.
-	UpdateToken string `pulumi:"updateToken"`
+	UpdateToken *string `pulumi:"updateToken"`
 	// Unique identifier of the VPC where AWS Network Firewall should create the firewall.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallResultOutput {
@@ -185,18 +185,18 @@ func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx 
 }
 
 // ARN of the firewall.
-func (o LookupFirewallResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupFirewallResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Boolean flag indicating whether it is possible to delete the firewall.
-func (o LookupFirewallResultOutput) DeleteProtection() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupFirewallResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+func (o LookupFirewallResultOutput) DeleteProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *bool { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
 }
 
 // Description of the firewall.
-func (o LookupFirewallResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupFirewallResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // AWS Key Management Service (AWS KMS) encryption settings for the firewall.
@@ -205,13 +205,13 @@ func (o LookupFirewallResultOutput) EncryptionConfigurations() GetFirewallEncryp
 }
 
 // ARN of the VPC Firewall policy.
-func (o LookupFirewallResultOutput) FirewallPolicyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallResult) string { return v.FirewallPolicyArn }).(pulumi.StringOutput)
+func (o LookupFirewallResultOutput) FirewallPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *string { return v.FirewallPolicyArn }).(pulumi.StringPtrOutput)
 }
 
 // A boolean flag indicating whether it is possible to change the associated firewall policy.
-func (o LookupFirewallResultOutput) FirewallPolicyChangeProtection() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupFirewallResult) bool { return v.FirewallPolicyChangeProtection }).(pulumi.BoolOutput)
+func (o LookupFirewallResultOutput) FirewallPolicyChangeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *bool { return v.FirewallPolicyChangeProtection }).(pulumi.BoolPtrOutput)
 }
 
 // Nested list of information about the current status of the firewall.
@@ -220,18 +220,18 @@ func (o LookupFirewallResultOutput) FirewallStatuses() GetFirewallFirewallStatus
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupFirewallResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupFirewallResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Descriptive name of the firewall.
-func (o LookupFirewallResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupFirewallResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A boolean flag indicating whether it is possible to change the associated subnet(s).
-func (o LookupFirewallResultOutput) SubnetChangeProtection() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupFirewallResult) bool { return v.SubnetChangeProtection }).(pulumi.BoolOutput)
+func (o LookupFirewallResultOutput) SubnetChangeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *bool { return v.SubnetChangeProtection }).(pulumi.BoolPtrOutput)
 }
 
 // Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
@@ -245,13 +245,13 @@ func (o LookupFirewallResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // String token used when updating a firewall.
-func (o LookupFirewallResultOutput) UpdateToken() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallResult) string { return v.UpdateToken }).(pulumi.StringOutput)
+func (o LookupFirewallResultOutput) UpdateToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *string { return v.UpdateToken }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier of the VPC where AWS Network Firewall should create the firewall.
-func (o LookupFirewallResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupFirewallResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

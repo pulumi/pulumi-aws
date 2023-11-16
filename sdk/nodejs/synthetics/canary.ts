@@ -69,7 +69,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Canary.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
      */
@@ -85,7 +85,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * ARN of the Lambda function that is used as your canary's engine.
      */
-    public /*out*/ readonly engineArn!: pulumi.Output<string>;
+    public /*out*/ readonly engineArn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
      */
@@ -105,7 +105,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Configuration block for individual canary runs. Detailed below.
      */
-    public readonly runConfig!: pulumi.Output<outputs.synthetics.CanaryRunConfig>;
+    public readonly runConfig!: pulumi.Output<outputs.synthetics.CanaryRunConfig | undefined>;
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
      */
@@ -131,7 +131,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * ARN of the Lambda layer where Synthetics stores the canary script code.
      */
-    public /*out*/ readonly sourceLocationArn!: pulumi.Output<string>;
+    public /*out*/ readonly sourceLocationArn!: pulumi.Output<string | undefined>;
     /**
      * Whether to run or stop the canary.
      */
@@ -139,7 +139,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Canary status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      */
@@ -157,7 +157,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      */
-    public /*out*/ readonly timelines!: pulumi.Output<outputs.synthetics.CanaryTimeline[]>;
+    public /*out*/ readonly timelines!: pulumi.Output<outputs.synthetics.CanaryTimeline[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */

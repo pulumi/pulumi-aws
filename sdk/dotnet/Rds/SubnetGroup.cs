@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Rds
         /// The ARN of the db subnet group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the DB subnet group. Defaults to "Managed by Pulumi".
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Rds
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// A list of VPC subnet IDs.
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Rds
         /// Provides the VPC ID of the DB subnet group.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

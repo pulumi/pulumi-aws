@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of your flow definition.

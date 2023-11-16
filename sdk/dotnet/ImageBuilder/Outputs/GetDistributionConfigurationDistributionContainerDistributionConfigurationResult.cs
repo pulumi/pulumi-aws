@@ -20,7 +20,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Description of the container distribution configuration.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Set of destination repositories for the container distribution configuration.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         private GetDistributionConfigurationDistributionContainerDistributionConfigurationResult(
             ImmutableArray<string> containerTags,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult> targetRepositories)
         {

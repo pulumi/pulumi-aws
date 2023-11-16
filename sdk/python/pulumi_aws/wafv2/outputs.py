@@ -32922,15 +32922,16 @@ class WebAclVisibilityConfig(dict):
 @pulumi.output_type
 class GetRegexPatternSetRegularExpressionResult(dict):
     def __init__(__self__, *,
-                 regex_string: str):
+                 regex_string: Optional[str] = None):
         """
         :param str regex_string: (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
         """
-        pulumi.set(__self__, "regex_string", regex_string)
+        if regex_string is not None:
+            pulumi.set(__self__, "regex_string", regex_string)
 
     @property
     @pulumi.getter(name="regexString")
-    def regex_string(self) -> str:
+    def regex_string(self) -> Optional[str]:
         """
         (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
         """

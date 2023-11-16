@@ -204,13 +204,13 @@ namespace Pulumi.Aws.Workspaces
         /// The directory alias.
         /// </summary>
         [Output("alias")]
-        public Output<string> Alias { get; private set; } = null!;
+        public Output<string?> Alias { get; private set; } = null!;
 
         /// <summary>
         /// The user name for the service account.
         /// </summary>
         [Output("customerUserName")]
-        public Output<string> CustomerUserName { get; private set; } = null!;
+        public Output<string?> CustomerUserName { get; private set; } = null!;
 
         /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
@@ -222,13 +222,13 @@ namespace Pulumi.Aws.Workspaces
         /// The name of the directory.
         /// </summary>
         [Output("directoryName")]
-        public Output<string> DirectoryName { get; private set; } = null!;
+        public Output<string?> DirectoryName { get; private set; } = null!;
 
         /// <summary>
         /// The directory type.
         /// </summary>
         [Output("directoryType")]
-        public Output<string> DirectoryType { get; private set; } = null!;
+        public Output<string?> DirectoryType { get; private set; } = null!;
 
         /// <summary>
         /// The IP addresses of the DNS servers for the directory.
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Workspaces
         /// The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         /// </summary>
         [Output("iamRoleId")]
-        public Output<string> IamRoleId { get; private set; } = null!;
+        public Output<string?> IamRoleId { get; private set; } = null!;
 
         /// <summary>
         /// The identifiers of the IP access control groups associated with the directory.
@@ -252,13 +252,13 @@ namespace Pulumi.Aws.Workspaces
         /// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         /// </summary>
         [Output("registrationCode")]
-        public Output<string> RegistrationCode { get; private set; } = null!;
+        public Output<string?> RegistrationCode { get; private set; } = null!;
 
         /// <summary>
         /// Permissions to enable or disable self-service capabilities. Defined below.
         /// </summary>
         [Output("selfServicePermissions")]
-        public Output<Outputs.DirectorySelfServicePermissions> SelfServicePermissions { get; private set; } = null!;
+        public Output<Outputs.DirectorySelfServicePermissions?> SelfServicePermissions { get; private set; } = null!;
 
         /// <summary>
         /// The identifiers of the subnets where the directory resides.
@@ -282,19 +282,19 @@ namespace Pulumi.Aws.Workspaces
         /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         /// </summary>
         [Output("workspaceAccessProperties")]
-        public Output<Outputs.DirectoryWorkspaceAccessProperties> WorkspaceAccessProperties { get; private set; } = null!;
+        public Output<Outputs.DirectoryWorkspaceAccessProperties?> WorkspaceAccessProperties { get; private set; } = null!;
 
         /// <summary>
         /// Default properties that are used for creating WorkSpaces. Defined below.
         /// </summary>
         [Output("workspaceCreationProperties")]
-        public Output<Outputs.DirectoryWorkspaceCreationProperties> WorkspaceCreationProperties { get; private set; } = null!;
+        public Output<Outputs.DirectoryWorkspaceCreationProperties?> WorkspaceCreationProperties { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the security group that is assigned to new WorkSpaces.
         /// </summary>
         [Output("workspaceSecurityGroupId")]
-        public Output<string> WorkspaceSecurityGroupId { get; private set; } = null!;
+        public Output<string?> WorkspaceSecurityGroupId { get; private set; } = null!;
 
 
         /// <summary>

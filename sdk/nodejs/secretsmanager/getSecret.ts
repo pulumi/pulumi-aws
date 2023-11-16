@@ -60,28 +60,28 @@ export interface GetSecretResult {
     /**
      * ARN of the secret.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the secret.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      */
-    readonly kmsKeyId: string;
-    readonly name: string;
+    readonly kmsKeyId?: string;
+    readonly name?: string;
     /**
      * Resource-based policy document that's attached to the secret.
      */
-    readonly policy: string;
+    readonly policy?: string;
     /**
      * Tags of the secret.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.

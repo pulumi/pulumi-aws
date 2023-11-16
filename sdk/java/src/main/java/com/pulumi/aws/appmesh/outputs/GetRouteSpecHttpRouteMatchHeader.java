@@ -9,30 +9,32 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecHttpRouteMatchHeader {
-    private Boolean invert;
-    private List<GetRouteSpecHttpRouteMatchHeaderMatch> matches;
+    private @Nullable Boolean invert;
+    private @Nullable List<GetRouteSpecHttpRouteMatchHeaderMatch> matches;
     /**
      * @return Name of the route.
      * 
      */
-    private String name;
+    private @Nullable String name;
 
     private GetRouteSpecHttpRouteMatchHeader() {}
-    public Boolean invert() {
-        return this.invert;
+    public Optional<Boolean> invert() {
+        return Optional.ofNullable(this.invert);
     }
     public List<GetRouteSpecHttpRouteMatchHeaderMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
     /**
      * @return Name of the route.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -44,9 +46,9 @@ public final class GetRouteSpecHttpRouteMatchHeader {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean invert;
-        private List<GetRouteSpecHttpRouteMatchHeaderMatch> matches;
-        private String name;
+        private @Nullable Boolean invert;
+        private @Nullable List<GetRouteSpecHttpRouteMatchHeaderMatch> matches;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetRouteSpecHttpRouteMatchHeader defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,21 +58,21 @@ public final class GetRouteSpecHttpRouteMatchHeader {
         }
 
         @CustomType.Setter
-        public Builder invert(Boolean invert) {
-            this.invert = Objects.requireNonNull(invert);
+        public Builder invert(@Nullable Boolean invert) {
+            this.invert = invert;
             return this;
         }
         @CustomType.Setter
-        public Builder matches(List<GetRouteSpecHttpRouteMatchHeaderMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetRouteSpecHttpRouteMatchHeaderMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecHttpRouteMatchHeaderMatch... matches) {
             return matches(List.of(matches));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetRouteSpecHttpRouteMatchHeader build() {

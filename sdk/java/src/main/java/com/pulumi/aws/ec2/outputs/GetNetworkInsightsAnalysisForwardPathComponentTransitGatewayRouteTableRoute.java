@@ -6,38 +6,40 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute {
-    private String attachmentId;
-    private String destinationCidr;
-    private String prefixListId;
-    private String resourceId;
-    private String resourceType;
-    private String routeOrigin;
-    private String state;
+    private @Nullable String attachmentId;
+    private @Nullable String destinationCidr;
+    private @Nullable String prefixListId;
+    private @Nullable String resourceId;
+    private @Nullable String resourceType;
+    private @Nullable String routeOrigin;
+    private @Nullable String state;
 
     private GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute() {}
-    public String attachmentId() {
-        return this.attachmentId;
+    public Optional<String> attachmentId() {
+        return Optional.ofNullable(this.attachmentId);
     }
-    public String destinationCidr() {
-        return this.destinationCidr;
+    public Optional<String> destinationCidr() {
+        return Optional.ofNullable(this.destinationCidr);
     }
-    public String prefixListId() {
-        return this.prefixListId;
+    public Optional<String> prefixListId() {
+        return Optional.ofNullable(this.prefixListId);
     }
-    public String resourceId() {
-        return this.resourceId;
+    public Optional<String> resourceId() {
+        return Optional.ofNullable(this.resourceId);
     }
-    public String resourceType() {
-        return this.resourceType;
+    public Optional<String> resourceType() {
+        return Optional.ofNullable(this.resourceType);
     }
-    public String routeOrigin() {
-        return this.routeOrigin;
+    public Optional<String> routeOrigin() {
+        return Optional.ofNullable(this.routeOrigin);
     }
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
 
     public static Builder builder() {
@@ -49,13 +51,13 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayR
     }
     @CustomType.Builder
     public static final class Builder {
-        private String attachmentId;
-        private String destinationCidr;
-        private String prefixListId;
-        private String resourceId;
-        private String resourceType;
-        private String routeOrigin;
-        private String state;
+        private @Nullable String attachmentId;
+        private @Nullable String destinationCidr;
+        private @Nullable String prefixListId;
+        private @Nullable String resourceId;
+        private @Nullable String resourceType;
+        private @Nullable String routeOrigin;
+        private @Nullable String state;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,38 +71,38 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayR
         }
 
         @CustomType.Setter
-        public Builder attachmentId(String attachmentId) {
-            this.attachmentId = Objects.requireNonNull(attachmentId);
+        public Builder attachmentId(@Nullable String attachmentId) {
+            this.attachmentId = attachmentId;
             return this;
         }
         @CustomType.Setter
-        public Builder destinationCidr(String destinationCidr) {
-            this.destinationCidr = Objects.requireNonNull(destinationCidr);
+        public Builder destinationCidr(@Nullable String destinationCidr) {
+            this.destinationCidr = destinationCidr;
             return this;
         }
         @CustomType.Setter
-        public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+        public Builder prefixListId(@Nullable String prefixListId) {
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
-        public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+        public Builder resourceId(@Nullable String resourceId) {
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
-        public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+        public Builder resourceType(@Nullable String resourceType) {
+            this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
-        public Builder routeOrigin(String routeOrigin) {
-            this.routeOrigin = Objects.requireNonNull(routeOrigin);
+        public Builder routeOrigin(@Nullable String routeOrigin) {
+            this.routeOrigin = routeOrigin;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         public GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute build() {

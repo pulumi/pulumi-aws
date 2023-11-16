@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Backup
         /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         /// </summary>
         [Output("resourceTypeManagementPreference")]
-        public Output<ImmutableDictionary<string, bool>> ResourceTypeManagementPreference { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, bool>?> ResourceTypeManagementPreference { get; private set; } = null!;
 
         /// <summary>
         /// A map of services along with the opt-in preferences for the Region.

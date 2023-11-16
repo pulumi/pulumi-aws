@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudfront.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption {
@@ -13,15 +15,15 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptio
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private Boolean override;
+    private @Nullable Boolean override;
 
     private GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption() {}
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    public Boolean override() {
-        return this.override;
+    public Optional<Boolean> override() {
+        return Optional.ofNullable(this.override);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptio
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean override;
+        private @Nullable Boolean override;
         public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptio
         }
 
         @CustomType.Setter
-        public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+        public Builder override(@Nullable Boolean override) {
+            this.override = override;
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption build() {

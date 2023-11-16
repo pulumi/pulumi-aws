@@ -67,11 +67,11 @@ export class Agreement extends pulumi.CustomResource {
     /**
      * The unique identifier for the AS2 agreement.
      */
-    public /*out*/ readonly agreementId!: pulumi.Output<string>;
+    public /*out*/ readonly agreementId!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the agreement.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The landing directory for the files transferred by using the AS2 protocol.
      */
@@ -92,7 +92,7 @@ export class Agreement extends pulumi.CustomResource {
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      */
     public readonly serverId!: pulumi.Output<string>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

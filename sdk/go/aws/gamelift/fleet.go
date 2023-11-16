@@ -63,13 +63,13 @@ type Fleet struct {
 	pulumi.CustomResourceState
 
 	// Fleet ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Build ARN.
-	BuildArn pulumi.StringOutput `pulumi:"buildArn"`
+	BuildArn pulumi.StringPtrOutput `pulumi:"buildArn"`
 	// ID of the GameLift Build to be deployed on the fleet.
 	BuildId pulumi.StringPtrOutput `pulumi:"buildId"`
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-	CertificateConfiguration FleetCertificateConfigurationOutput `pulumi:"certificateConfiguration"`
+	CertificateConfiguration FleetCertificateConfigurationPtrOutput `pulumi:"certificateConfiguration"`
 	// Human-readable description of the fleet.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
@@ -88,13 +88,13 @@ type Fleet struct {
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrOutput `pulumi:"newGameSessionProtectionPolicy"`
 	// Operating system of the fleet's computing resources.
-	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
+	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrOutput `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrOutput `pulumi:"runtimeConfiguration"`
 	// Script ARN.
-	ScriptArn pulumi.StringOutput `pulumi:"scriptArn"`
+	ScriptArn pulumi.StringPtrOutput `pulumi:"scriptArn"`
 	// ID of the GameLift Script to be deployed on the fleet.
 	ScriptId pulumi.StringPtrOutput `pulumi:"scriptId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -384,13 +384,13 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 }
 
 // Fleet ARN.
-func (o FleetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FleetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Build ARN.
-func (o FleetOutput) BuildArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.BuildArn }).(pulumi.StringOutput)
+func (o FleetOutput) BuildArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.BuildArn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the GameLift Build to be deployed on the fleet.
@@ -399,8 +399,8 @@ func (o FleetOutput) BuildId() pulumi.StringPtrOutput {
 }
 
 // Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-func (o FleetOutput) CertificateConfiguration() FleetCertificateConfigurationOutput {
-	return o.ApplyT(func(v *Fleet) FleetCertificateConfigurationOutput { return v.CertificateConfiguration }).(FleetCertificateConfigurationOutput)
+func (o FleetOutput) CertificateConfiguration() FleetCertificateConfigurationPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetCertificateConfigurationPtrOutput { return v.CertificateConfiguration }).(FleetCertificateConfigurationPtrOutput)
 }
 
 // Human-readable description of the fleet.
@@ -448,8 +448,8 @@ func (o FleetOutput) NewGameSessionProtectionPolicy() pulumi.StringPtrOutput {
 }
 
 // Operating system of the fleet's computing resources.
-func (o FleetOutput) OperatingSystem() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
+func (o FleetOutput) OperatingSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.OperatingSystem }).(pulumi.StringPtrOutput)
 }
 
 // Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
@@ -463,8 +463,8 @@ func (o FleetOutput) RuntimeConfiguration() FleetRuntimeConfigurationPtrOutput {
 }
 
 // Script ARN.
-func (o FleetOutput) ScriptArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.ScriptArn }).(pulumi.StringOutput)
+func (o FleetOutput) ScriptArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ScriptArn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the GameLift Script to be deployed on the fleet.

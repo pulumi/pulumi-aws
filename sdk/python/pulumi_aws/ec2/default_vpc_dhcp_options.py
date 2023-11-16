@@ -364,7 +364,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the DHCP Options Set.
         """
@@ -372,17 +372,17 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="domainNameServers")
-    def domain_name_servers(self) -> pulumi.Output[str]:
+    def domain_name_servers(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "domain_name_servers")
 
     @property
     @pulumi.getter(name="netbiosNameServers")
-    def netbios_name_servers(self) -> pulumi.Output[str]:
+    def netbios_name_servers(self) -> pulumi.Output[Optional[str]]:
         """
         List of NETBIOS name servers.
         """
@@ -390,7 +390,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="netbiosNodeType")
-    def netbios_node_type(self) -> pulumi.Output[str]:
+    def netbios_node_type(self) -> pulumi.Output[Optional[str]]:
         """
         The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         """
@@ -398,12 +398,12 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ntpServers")
-    def ntp_servers(self) -> pulumi.Output[str]:
+    def ntp_servers(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ntp_servers")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that owns the DHCP options set.
         """

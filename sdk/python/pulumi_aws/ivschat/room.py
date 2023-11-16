@@ -480,7 +480,7 @@ class Room(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Room.
         """
@@ -497,7 +497,7 @@ class Room(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumMessageLength")
-    def maximum_message_length(self) -> pulumi.Output[int]:
+    def maximum_message_length(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of characters in a single
         message. Messages are expected to be UTF-8 encoded and this limit applies
@@ -507,7 +507,7 @@ class Room(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumMessageRatePerSecond")
-    def maximum_message_rate_per_second(self) -> pulumi.Output[int]:
+    def maximum_message_rate_per_second(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of messages per
         second that can be sent to the room (by all clients).

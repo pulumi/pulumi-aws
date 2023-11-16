@@ -540,7 +540,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the assessment.
         """
@@ -588,7 +588,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rolesAlls")
-    def roles_alls(self) -> pulumi.Output[Sequence['outputs.AssessmentRolesAll']]:
+    def roles_alls(self) -> pulumi.Output[Optional[Sequence['outputs.AssessmentRolesAll']]]:
         """
         Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
         """
@@ -606,7 +606,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
         """

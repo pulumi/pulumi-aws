@@ -407,7 +407,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
         /// ARN of the Media Insights Pipeline Configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Collection of processors and sinks to transform media and deliver data.

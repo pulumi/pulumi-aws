@@ -10,6 +10,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReplicationGroupResult {
@@ -17,206 +19,206 @@ public final class GetReplicationGroupResult {
      * @return ARN of the created ElastiCache Replication Group.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Whether an AuthToken (password) is enabled.
      * 
      */
-    private Boolean authTokenEnabled;
+    private @Nullable Boolean authTokenEnabled;
     /**
      * @return A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
      * 
      */
-    private Boolean automaticFailoverEnabled;
+    private @Nullable Boolean automaticFailoverEnabled;
     /**
      * @return The configuration endpoint address to allow host discovery.
      * 
      */
-    private String configurationEndpointAddress;
+    private @Nullable String configurationEndpointAddress;
     /**
      * @return Description of the replication group.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
      * 
      */
-    private List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations;
+    private @Nullable List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations;
     /**
      * @return Identifiers of all the nodes that are part of this replication group.
      * 
      */
-    private List<String> memberClusters;
+    private @Nullable List<String> memberClusters;
     /**
      * @return Whether Multi-AZ Support is enabled for the replication group.
      * 
      */
-    private Boolean multiAzEnabled;
+    private @Nullable Boolean multiAzEnabled;
     /**
      * @return The cluster node type.
      * 
      */
-    private String nodeType;
+    private @Nullable String nodeType;
     /**
      * @return The number of cache clusters that the replication group has.
      * 
      */
-    private Integer numCacheClusters;
+    private @Nullable Integer numCacheClusters;
     /**
      * @return Number of node groups (shards) for the replication group.
      * 
      */
-    private Integer numNodeGroups;
+    private @Nullable Integer numNodeGroups;
     /**
      * @return The port number on which the configuration endpoint will accept connections.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
     /**
      * @return The endpoint of the primary node in this node group (shard).
      * 
      */
-    private String primaryEndpointAddress;
+    private @Nullable String primaryEndpointAddress;
     /**
      * @return The endpoint of the reader node in this node group (shard).
      * 
      */
-    private String readerEndpointAddress;
+    private @Nullable String readerEndpointAddress;
     /**
      * @return Number of replica nodes in each node group.
      * 
      */
-    private Integer replicasPerNodeGroup;
+    private @Nullable Integer replicasPerNodeGroup;
     private String replicationGroupId;
     /**
      * @return The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
      * 
      */
-    private Integer snapshotRetentionLimit;
+    private @Nullable Integer snapshotRetentionLimit;
     /**
      * @return Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      * 
      */
-    private String snapshotWindow;
+    private @Nullable String snapshotWindow;
 
     private GetReplicationGroupResult() {}
     /**
      * @return ARN of the created ElastiCache Replication Group.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Whether an AuthToken (password) is enabled.
      * 
      */
-    public Boolean authTokenEnabled() {
-        return this.authTokenEnabled;
+    public Optional<Boolean> authTokenEnabled() {
+        return Optional.ofNullable(this.authTokenEnabled);
     }
     /**
      * @return A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
      * 
      */
-    public Boolean automaticFailoverEnabled() {
-        return this.automaticFailoverEnabled;
+    public Optional<Boolean> automaticFailoverEnabled() {
+        return Optional.ofNullable(this.automaticFailoverEnabled);
     }
     /**
      * @return The configuration endpoint address to allow host discovery.
      * 
      */
-    public String configurationEndpointAddress() {
-        return this.configurationEndpointAddress;
+    public Optional<String> configurationEndpointAddress() {
+        return Optional.ofNullable(this.configurationEndpointAddress);
     }
     /**
      * @return Description of the replication group.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
      * 
      */
     public List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations() {
-        return this.logDeliveryConfigurations;
+        return this.logDeliveryConfigurations == null ? List.of() : this.logDeliveryConfigurations;
     }
     /**
      * @return Identifiers of all the nodes that are part of this replication group.
      * 
      */
     public List<String> memberClusters() {
-        return this.memberClusters;
+        return this.memberClusters == null ? List.of() : this.memberClusters;
     }
     /**
      * @return Whether Multi-AZ Support is enabled for the replication group.
      * 
      */
-    public Boolean multiAzEnabled() {
-        return this.multiAzEnabled;
+    public Optional<Boolean> multiAzEnabled() {
+        return Optional.ofNullable(this.multiAzEnabled);
     }
     /**
      * @return The cluster node type.
      * 
      */
-    public String nodeType() {
-        return this.nodeType;
+    public Optional<String> nodeType() {
+        return Optional.ofNullable(this.nodeType);
     }
     /**
      * @return The number of cache clusters that the replication group has.
      * 
      */
-    public Integer numCacheClusters() {
-        return this.numCacheClusters;
+    public Optional<Integer> numCacheClusters() {
+        return Optional.ofNullable(this.numCacheClusters);
     }
     /**
      * @return Number of node groups (shards) for the replication group.
      * 
      */
-    public Integer numNodeGroups() {
-        return this.numNodeGroups;
+    public Optional<Integer> numNodeGroups() {
+        return Optional.ofNullable(this.numNodeGroups);
     }
     /**
      * @return The port number on which the configuration endpoint will accept connections.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return The endpoint of the primary node in this node group (shard).
      * 
      */
-    public String primaryEndpointAddress() {
-        return this.primaryEndpointAddress;
+    public Optional<String> primaryEndpointAddress() {
+        return Optional.ofNullable(this.primaryEndpointAddress);
     }
     /**
      * @return The endpoint of the reader node in this node group (shard).
      * 
      */
-    public String readerEndpointAddress() {
-        return this.readerEndpointAddress;
+    public Optional<String> readerEndpointAddress() {
+        return Optional.ofNullable(this.readerEndpointAddress);
     }
     /**
      * @return Number of replica nodes in each node group.
      * 
      */
-    public Integer replicasPerNodeGroup() {
-        return this.replicasPerNodeGroup;
+    public Optional<Integer> replicasPerNodeGroup() {
+        return Optional.ofNullable(this.replicasPerNodeGroup);
     }
     public String replicationGroupId() {
         return this.replicationGroupId;
@@ -225,15 +227,15 @@ public final class GetReplicationGroupResult {
      * @return The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
      * 
      */
-    public Integer snapshotRetentionLimit() {
-        return this.snapshotRetentionLimit;
+    public Optional<Integer> snapshotRetentionLimit() {
+        return Optional.ofNullable(this.snapshotRetentionLimit);
     }
     /**
      * @return Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      * 
      */
-    public String snapshotWindow() {
-        return this.snapshotWindow;
+    public Optional<String> snapshotWindow() {
+        return Optional.ofNullable(this.snapshotWindow);
     }
 
     public static Builder builder() {
@@ -245,25 +247,25 @@ public final class GetReplicationGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Boolean authTokenEnabled;
-        private Boolean automaticFailoverEnabled;
-        private String configurationEndpointAddress;
-        private String description;
-        private String id;
-        private List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations;
-        private List<String> memberClusters;
-        private Boolean multiAzEnabled;
-        private String nodeType;
-        private Integer numCacheClusters;
-        private Integer numNodeGroups;
-        private Integer port;
-        private String primaryEndpointAddress;
-        private String readerEndpointAddress;
-        private Integer replicasPerNodeGroup;
+        private @Nullable String arn;
+        private @Nullable Boolean authTokenEnabled;
+        private @Nullable Boolean automaticFailoverEnabled;
+        private @Nullable String configurationEndpointAddress;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations;
+        private @Nullable List<String> memberClusters;
+        private @Nullable Boolean multiAzEnabled;
+        private @Nullable String nodeType;
+        private @Nullable Integer numCacheClusters;
+        private @Nullable Integer numNodeGroups;
+        private @Nullable Integer port;
+        private @Nullable String primaryEndpointAddress;
+        private @Nullable String readerEndpointAddress;
+        private @Nullable Integer replicasPerNodeGroup;
         private String replicationGroupId;
-        private Integer snapshotRetentionLimit;
-        private String snapshotWindow;
+        private @Nullable Integer snapshotRetentionLimit;
+        private @Nullable String snapshotWindow;
         public Builder() {}
         public Builder(GetReplicationGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -289,89 +291,89 @@ public final class GetReplicationGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder authTokenEnabled(Boolean authTokenEnabled) {
-            this.authTokenEnabled = Objects.requireNonNull(authTokenEnabled);
+        public Builder authTokenEnabled(@Nullable Boolean authTokenEnabled) {
+            this.authTokenEnabled = authTokenEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder automaticFailoverEnabled(Boolean automaticFailoverEnabled) {
-            this.automaticFailoverEnabled = Objects.requireNonNull(automaticFailoverEnabled);
+        public Builder automaticFailoverEnabled(@Nullable Boolean automaticFailoverEnabled) {
+            this.automaticFailoverEnabled = automaticFailoverEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder configurationEndpointAddress(String configurationEndpointAddress) {
-            this.configurationEndpointAddress = Objects.requireNonNull(configurationEndpointAddress);
+        public Builder configurationEndpointAddress(@Nullable String configurationEndpointAddress) {
+            this.configurationEndpointAddress = configurationEndpointAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder logDeliveryConfigurations(List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations) {
-            this.logDeliveryConfigurations = Objects.requireNonNull(logDeliveryConfigurations);
+        public Builder logDeliveryConfigurations(@Nullable List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations) {
+            this.logDeliveryConfigurations = logDeliveryConfigurations;
             return this;
         }
         public Builder logDeliveryConfigurations(GetReplicationGroupLogDeliveryConfiguration... logDeliveryConfigurations) {
             return logDeliveryConfigurations(List.of(logDeliveryConfigurations));
         }
         @CustomType.Setter
-        public Builder memberClusters(List<String> memberClusters) {
-            this.memberClusters = Objects.requireNonNull(memberClusters);
+        public Builder memberClusters(@Nullable List<String> memberClusters) {
+            this.memberClusters = memberClusters;
             return this;
         }
         public Builder memberClusters(String... memberClusters) {
             return memberClusters(List.of(memberClusters));
         }
         @CustomType.Setter
-        public Builder multiAzEnabled(Boolean multiAzEnabled) {
-            this.multiAzEnabled = Objects.requireNonNull(multiAzEnabled);
+        public Builder multiAzEnabled(@Nullable Boolean multiAzEnabled) {
+            this.multiAzEnabled = multiAzEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+        public Builder nodeType(@Nullable String nodeType) {
+            this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
-        public Builder numCacheClusters(Integer numCacheClusters) {
-            this.numCacheClusters = Objects.requireNonNull(numCacheClusters);
+        public Builder numCacheClusters(@Nullable Integer numCacheClusters) {
+            this.numCacheClusters = numCacheClusters;
             return this;
         }
         @CustomType.Setter
-        public Builder numNodeGroups(Integer numNodeGroups) {
-            this.numNodeGroups = Objects.requireNonNull(numNodeGroups);
+        public Builder numNodeGroups(@Nullable Integer numNodeGroups) {
+            this.numNodeGroups = numNodeGroups;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder primaryEndpointAddress(String primaryEndpointAddress) {
-            this.primaryEndpointAddress = Objects.requireNonNull(primaryEndpointAddress);
+        public Builder primaryEndpointAddress(@Nullable String primaryEndpointAddress) {
+            this.primaryEndpointAddress = primaryEndpointAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder readerEndpointAddress(String readerEndpointAddress) {
-            this.readerEndpointAddress = Objects.requireNonNull(readerEndpointAddress);
+        public Builder readerEndpointAddress(@Nullable String readerEndpointAddress) {
+            this.readerEndpointAddress = readerEndpointAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder replicasPerNodeGroup(Integer replicasPerNodeGroup) {
-            this.replicasPerNodeGroup = Objects.requireNonNull(replicasPerNodeGroup);
+        public Builder replicasPerNodeGroup(@Nullable Integer replicasPerNodeGroup) {
+            this.replicasPerNodeGroup = replicasPerNodeGroup;
             return this;
         }
         @CustomType.Setter
@@ -380,13 +382,13 @@ public final class GetReplicationGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotRetentionLimit(Integer snapshotRetentionLimit) {
-            this.snapshotRetentionLimit = Objects.requireNonNull(snapshotRetentionLimit);
+        public Builder snapshotRetentionLimit(@Nullable Integer snapshotRetentionLimit) {
+            this.snapshotRetentionLimit = snapshotRetentionLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotWindow(String snapshotWindow) {
-            this.snapshotWindow = Objects.requireNonNull(snapshotWindow);
+        public Builder snapshotWindow(@Nullable String snapshotWindow) {
+            this.snapshotWindow = snapshotWindow;
             return this;
         }
         public GetReplicationGroupResult build() {

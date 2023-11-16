@@ -101,7 +101,7 @@ type Authorizer struct {
 	// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
 	// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
 	// Supported only for HTTP API Lambda authorizers.
-	AuthorizerResultTtlInSeconds pulumi.IntOutput `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds pulumi.IntPtrOutput `pulumi:"authorizerResultTtlInSeconds"`
 	// Authorizer type. Valid values: `JWT`, `REQUEST`.
 	// Specify `REQUEST` for a Lambda function using incoming request parameters.
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
@@ -411,8 +411,8 @@ func (o AuthorizerOutput) AuthorizerPayloadFormatVersion() pulumi.StringPtrOutpu
 // Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
 // If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
 // Supported only for HTTP API Lambda authorizers.
-func (o AuthorizerOutput) AuthorizerResultTtlInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v *Authorizer) pulumi.IntOutput { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntOutput)
+func (o AuthorizerOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.IntPtrOutput { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Authorizer type. Valid values: `JWT`, `REQUEST`.

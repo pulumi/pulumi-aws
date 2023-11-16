@@ -87,7 +87,7 @@ export class ResourceServer extends pulumi.CustomResource {
     /**
      * A list of all scopes configured for this resource server in the format identifier/scope_name.
      */
-    public /*out*/ readonly scopeIdentifiers!: pulumi.Output<string[]>;
+    public /*out*/ readonly scopeIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
      * A list of Authorization Scope.
      */

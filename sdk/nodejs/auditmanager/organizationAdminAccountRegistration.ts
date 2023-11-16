@@ -60,7 +60,7 @@ export class OrganizationAdminAccountRegistration extends pulumi.CustomResource 
     /**
      * Identifier for the organization.
      */
-    public /*out*/ readonly organizationId!: pulumi.Output<string>;
+    public /*out*/ readonly organizationId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OrganizationAdminAccountRegistration resource with the given unique name, arguments, and options.

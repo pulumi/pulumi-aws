@@ -60,13 +60,13 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Windows domain the SMB server belongs to.
         /// </summary>
         [Output("domain")]
-        public Output<string> Domain { get; private set; } = null!;
+        public Output<string?> Domain { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("uri")]
-        public Output<string> Uri { get; private set; } = null!;
+        public Output<string?> Uri { get; private set; } = null!;
 
         /// <summary>
         /// The user who can mount the share and has file and folder permissions in the SMB share.

@@ -72,14 +72,14 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of VPC connector.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
@@ -100,14 +100,14 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
@@ -174,14 +174,14 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcConnectorRevision", refs={Integer.class}, tree="[0]")
-    private Output<Integer> vpcConnectorRevision;
+    private Output</* @Nullable */ Integer> vpcConnectorRevision;
 
     /**
      * @return The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
      * 
      */
-    public Output<Integer> vpcConnectorRevision() {
-        return this.vpcConnectorRevision;
+    public Output<Optional<Integer>> vpcConnectorRevision() {
+        return Codegen.optional(this.vpcConnectorRevision);
     }
 
     /**

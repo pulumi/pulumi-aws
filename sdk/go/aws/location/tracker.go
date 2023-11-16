@@ -53,7 +53,7 @@ type Tracker struct {
 	pulumi.CustomResourceState
 
 	// The timestamp for when the tracker resource was created in ISO 8601 format.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	CreateTime pulumi.StringPtrOutput `pulumi:"createTime"`
 	// The optional description for the tracker resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
@@ -67,13 +67,13 @@ type Tracker struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-	TrackerArn pulumi.StringOutput `pulumi:"trackerArn"`
+	TrackerArn pulumi.StringPtrOutput `pulumi:"trackerArn"`
 	// The name of the tracker resource.
 	//
 	// The following arguments are optional:
 	TrackerName pulumi.StringOutput `pulumi:"trackerName"`
 	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	UpdateTime pulumi.StringPtrOutput `pulumi:"updateTime"`
 }
 
 // NewTracker registers a new resource with the given unique name, arguments, and options.
@@ -285,8 +285,8 @@ func (o TrackerOutput) ToTrackerOutputWithContext(ctx context.Context) TrackerOu
 }
 
 // The timestamp for when the tracker resource was created in ISO 8601 format.
-func (o TrackerOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+func (o TrackerOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // The optional description for the tracker resource.
@@ -317,8 +317,8 @@ func (o TrackerOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-func (o TrackerOutput) TrackerArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.TrackerArn }).(pulumi.StringOutput)
+func (o TrackerOutput) TrackerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.TrackerArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the tracker resource.
@@ -329,8 +329,8 @@ func (o TrackerOutput) TrackerName() pulumi.StringOutput {
 }
 
 // The timestamp for when the tracker resource was last updated in ISO 8601 format.
-func (o TrackerOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o TrackerOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 type TrackerArrayOutput struct{ *pulumi.OutputState }

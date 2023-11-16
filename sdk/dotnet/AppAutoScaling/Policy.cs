@@ -307,7 +307,7 @@ namespace Pulumi.Aws.AppAutoScaling
         /// ARN assigned by AWS to the scaling policy.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the policy. Must be between 1 and 255 characters in length.

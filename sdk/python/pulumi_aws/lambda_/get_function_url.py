@@ -59,7 +59,7 @@ class GetFunctionUrlResult:
 
     @property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> str:
+    def authorization_type(self) -> Optional[str]:
         """
         Type of authentication that the function URL uses.
         """
@@ -67,7 +67,7 @@ class GetFunctionUrlResult:
 
     @property
     @pulumi.getter
-    def cors(self) -> Sequence['outputs.GetFunctionUrlCorResult']:
+    def cors(self) -> Optional[Sequence['outputs.GetFunctionUrlCorResult']]:
         """
         The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `lambda.FunctionUrl` resource documentation for more details.
         """
@@ -75,7 +75,7 @@ class GetFunctionUrlResult:
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> Optional[str]:
         """
         When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
         """
@@ -83,7 +83,7 @@ class GetFunctionUrlResult:
 
     @property
     @pulumi.getter(name="functionArn")
-    def function_arn(self) -> str:
+    def function_arn(self) -> Optional[str]:
         """
         ARN of the function.
         """
@@ -96,7 +96,7 @@ class GetFunctionUrlResult:
 
     @property
     @pulumi.getter(name="functionUrl")
-    def function_url(self) -> str:
+    def function_url(self) -> Optional[str]:
         """
         HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
         """
@@ -104,7 +104,7 @@ class GetFunctionUrlResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -112,7 +112,7 @@ class GetFunctionUrlResult:
 
     @property
     @pulumi.getter(name="invokeMode")
-    def invoke_mode(self) -> str:
+    def invoke_mode(self) -> Optional[str]:
         """
         Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
         """
@@ -120,7 +120,7 @@ class GetFunctionUrlResult:
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> Optional[str]:
         """
         When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
         """
@@ -133,7 +133,7 @@ class GetFunctionUrlResult:
 
     @property
     @pulumi.getter(name="urlId")
-    def url_id(self) -> str:
+    def url_id(self) -> Optional[str]:
         """
         Generated ID for the endpoint.
         """

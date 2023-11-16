@@ -52,28 +52,28 @@ export interface GetVpcLinkResult {
     /**
      * Description of the VPC link.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Set to the ID of the found API Gateway VPC Link.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Status of the VPC link.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Status message of the VPC link.
      */
-    readonly statusMessage: string;
+    readonly statusMessage?: string;
     /**
      * Key-value map of resource tags
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */
-    readonly targetArns: string[];
+    readonly targetArns?: string[];
 }
 /**
  * Use this data source to get the id of a VPC Link in

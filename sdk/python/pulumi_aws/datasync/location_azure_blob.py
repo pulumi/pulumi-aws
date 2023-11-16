@@ -544,7 +544,7 @@ class LocationAzureBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -584,7 +584,7 @@ class LocationAzureBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> pulumi.Output[str]:
+    def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
         Path segments if you want to limit your transfer to a virtual directory in the container.
         """
@@ -611,6 +611,6 @@ class LocationAzureBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> pulumi.Output[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "uri")
 

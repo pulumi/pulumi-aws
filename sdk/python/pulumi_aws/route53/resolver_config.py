@@ -252,7 +252,7 @@ class ResolverConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID of the owner of the VPC that this resolver configuration applies to.
         """

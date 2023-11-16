@@ -104,18 +104,18 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The [policy][1] for the resource.
         /// </summary>
-        public readonly string Policy;
+        public readonly string? Policy;
         public readonly string ResourceArn;
 
         [OutputConstructor]
         private GetResourcePolicyResult(
-            string id,
+            string? id,
 
-            string policy,
+            string? policy,
 
             string resourceArn)
         {

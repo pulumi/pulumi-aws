@@ -109,7 +109,7 @@ export class ConformancePack extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the conformance pack.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
      */

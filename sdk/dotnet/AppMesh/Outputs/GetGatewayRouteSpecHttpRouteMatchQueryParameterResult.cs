@@ -17,13 +17,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// <summary>
         /// Name of the gateway route.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(
             ImmutableArray<Outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult> matches,
 
-            string name)
+            string? name)
         {
             Matches = matches;
             Name = name;

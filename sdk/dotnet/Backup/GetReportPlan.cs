@@ -128,23 +128,23 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// ARN of the backup report plan.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
-        public readonly string CreationTime;
+        public readonly string? CreationTime;
         /// <summary>
         /// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         /// </summary>
-        public readonly string DeploymentStatus;
+        public readonly string? DeploymentStatus;
         /// <summary>
         /// Description of the report plan.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
@@ -157,19 +157,19 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// Metadata that you can assign to help organize the report plans you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetReportPlanResult(
-            string arn,
+            string? arn,
 
-            string creationTime,
+            string? creationTime,
 
-            string deploymentStatus,
+            string? deploymentStatus,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Backup
 
             ImmutableArray<Outputs.GetReportPlanReportSettingResult> reportSettings,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CreationTime = creationTime;

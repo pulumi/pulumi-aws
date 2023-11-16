@@ -676,7 +676,7 @@ class ClassificationJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time, in UTC and extended RFC 3339 format, when the job was created.
         """
@@ -684,7 +684,7 @@ class ClassificationJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDataIdentifierIds")
-    def custom_data_identifier_ids(self) -> pulumi.Output[Sequence[str]]:
+    def custom_data_identifier_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The custom data identifiers to use for data analysis and classification.
         """
@@ -692,7 +692,7 @@ class ClassificationJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A custom description of the job. The description can contain as many as 200 characters.
         """
@@ -708,17 +708,17 @@ class ClassificationJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobArn")
-    def job_arn(self) -> pulumi.Output[str]:
+    def job_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "job_arn")
 
     @property
     @pulumi.getter(name="jobId")
-    def job_id(self) -> pulumi.Output[str]:
+    def job_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "job_id")
 
     @property
     @pulumi.getter(name="jobStatus")
-    def job_status(self) -> pulumi.Output[str]:
+    def job_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
         """
@@ -742,7 +742,7 @@ class ClassificationJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -758,7 +758,7 @@ class ClassificationJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> pulumi.Output[int]:
+    def sampling_percentage(self) -> pulumi.Output[Optional[int]]:
         """
         The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         """
@@ -766,7 +766,7 @@ class ClassificationJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduleFrequency")
-    def schedule_frequency(self) -> pulumi.Output['outputs.ClassificationJobScheduleFrequency']:
+    def schedule_frequency(self) -> pulumi.Output[Optional['outputs.ClassificationJobScheduleFrequency']]:
         """
         The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         """
@@ -790,7 +790,7 @@ class ClassificationJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userPausedDetails")
-    def user_paused_details(self) -> pulumi.Output[Sequence['outputs.ClassificationJobUserPausedDetail']]:
+    def user_paused_details(self) -> pulumi.Output[Optional[Sequence['outputs.ClassificationJobUserPausedDetail']]]:
         """
         If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """

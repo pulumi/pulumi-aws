@@ -126,9 +126,9 @@ type User struct {
 	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
 	AccessString pulumi.StringOutput `pulumi:"accessString"`
 	// The ARN of the created ElastiCache User.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Denotes the user's authentication properties. Detailed below.
-	AuthenticationMode UserAuthenticationModeOutput `pulumi:"authenticationMode"`
+	AuthenticationMode UserAuthenticationModePtrOutput `pulumi:"authenticationMode"`
 	// The current supported value is `REDIS`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Indicates a password is not required for this user.
@@ -386,13 +386,13 @@ func (o UserOutput) AccessString() pulumi.StringOutput {
 }
 
 // The ARN of the created ElastiCache User.
-func (o UserOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Denotes the user's authentication properties. Detailed below.
-func (o UserOutput) AuthenticationMode() UserAuthenticationModeOutput {
-	return o.ApplyT(func(v *User) UserAuthenticationModeOutput { return v.AuthenticationMode }).(UserAuthenticationModeOutput)
+func (o UserOutput) AuthenticationMode() UserAuthenticationModePtrOutput {
+	return o.ApplyT(func(v *User) UserAuthenticationModePtrOutput { return v.AuthenticationMode }).(UserAuthenticationModePtrOutput)
 }
 
 // The current supported value is `REDIS`.

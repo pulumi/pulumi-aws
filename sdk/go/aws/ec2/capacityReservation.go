@@ -56,7 +56,7 @@ type CapacityReservation struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Capacity Reservation.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
@@ -78,7 +78,7 @@ type CapacityReservation struct {
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Capacity Reservation.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
 	PlacementGroupArn pulumi.StringPtrOutput `pulumi:"placementGroupArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -361,8 +361,8 @@ func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx co
 }
 
 // The ARN of the Capacity Reservation.
-func (o CapacityReservationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CapacityReservationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone in which to create the Capacity Reservation.
@@ -416,8 +416,8 @@ func (o CapacityReservationOutput) OutpostArn() pulumi.StringPtrOutput {
 }
 
 // The ID of the AWS account that owns the Capacity Reservation.
-func (o CapacityReservationOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o CapacityReservationOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.

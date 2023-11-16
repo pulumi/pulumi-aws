@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? NameRegex;
         public readonly string? OwnerId;
         public readonly string? ResolverEndpointId;
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Route53
 
         [OutputConstructor]
         private GetResolverRulesResult(
-            string id,
+            string? id,
 
             string? nameRegex,
 

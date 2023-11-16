@@ -61,7 +61,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     /**
      * The timestamp for when the place index resource was created in ISO 8601 format.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string | undefined>;
     /**
      * Specifies the geospatial data provider for the new place index.
      */
@@ -69,7 +69,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration>;
+    public readonly dataSourceConfiguration!: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration | undefined>;
     /**
      * The optional description for the place index resource.
      */
@@ -77,7 +77,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      */
-    public /*out*/ readonly indexArn!: pulumi.Output<string>;
+    public /*out*/ readonly indexArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the place index resource.
      *
@@ -97,7 +97,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     /**
      * The timestamp for when the place index resource was last update in ISO 8601.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PlaceIndex resource with the given unique name, arguments, and options.

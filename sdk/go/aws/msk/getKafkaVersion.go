@@ -69,11 +69,11 @@ type GetKafkaVersionArgs struct {
 // A collection of values returned by getKafkaVersion.
 type GetKafkaVersionResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id                string   `pulumi:"id"`
+	Id                *string  `pulumi:"id"`
 	PreferredVersions []string `pulumi:"preferredVersions"`
 	// Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
-	Status  string `pulumi:"status"`
-	Version string `pulumi:"version"`
+	Status  *string `pulumi:"status"`
+	Version *string `pulumi:"version"`
 }
 
 func GetKafkaVersionOutput(ctx *pulumi.Context, args GetKafkaVersionOutputArgs, opts ...pulumi.InvokeOption) GetKafkaVersionResultOutput {
@@ -117,8 +117,8 @@ func (o GetKafkaVersionResultOutput) ToGetKafkaVersionResultOutputWithContext(ct
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetKafkaVersionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKafkaVersionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetKafkaVersionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKafkaVersionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetKafkaVersionResultOutput) PreferredVersions() pulumi.StringArrayOutput {
@@ -126,12 +126,12 @@ func (o GetKafkaVersionResultOutput) PreferredVersions() pulumi.StringArrayOutpu
 }
 
 // Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
-func (o GetKafkaVersionResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKafkaVersionResult) string { return v.Status }).(pulumi.StringOutput)
+func (o GetKafkaVersionResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKafkaVersionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-func (o GetKafkaVersionResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKafkaVersionResult) string { return v.Version }).(pulumi.StringOutput)
+func (o GetKafkaVersionResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKafkaVersionResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

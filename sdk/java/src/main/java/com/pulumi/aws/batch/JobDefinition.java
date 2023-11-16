@@ -249,14 +249,14 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name of the job definition.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -367,14 +367,14 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="revision", refs={Integer.class}, tree="[0]")
-    private Output<Integer> revision;
+    private Output</* @Nullable */ Integer> revision;
 
     /**
      * @return The revision of the job definition.
      * 
      */
-    public Output<Integer> revision() {
-        return this.revision;
+    public Output<Optional<Integer>> revision() {
+        return Codegen.optional(this.revision);
     }
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

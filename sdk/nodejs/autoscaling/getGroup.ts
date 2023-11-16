@@ -46,117 +46,117 @@ export interface GetGroupResult {
     /**
      * ARN of the Auto Scaling group.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * One or more Availability Zones for the group.
      */
-    readonly availabilityZones: string[];
-    readonly defaultCooldown: number;
+    readonly availabilityZones?: string[];
+    readonly defaultCooldown?: number;
     /**
      * Desired size of the group.
      */
-    readonly desiredCapacity: number;
+    readonly desiredCapacity?: number;
     /**
      * The unit of measurement for the value returned for `desiredCapacity`.
      */
-    readonly desiredCapacityType: string;
+    readonly desiredCapacityType?: string;
     /**
      * List of metrics enabled for collection.
      */
-    readonly enabledMetrics: string[];
+    readonly enabledMetrics?: string[];
     /**
      * The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
      */
-    readonly healthCheckGracePeriod: number;
+    readonly healthCheckGracePeriod?: number;
     /**
      * Service to use for the health checks. The valid values are EC2 and ELB.
      */
-    readonly healthCheckType: string;
+    readonly healthCheckType?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The name of the associated launch configuration.
      */
-    readonly launchConfiguration: string;
+    readonly launchConfiguration?: string;
     /**
      * List of launch templates along with the overrides.
      */
-    readonly launchTemplates: outputs.autoscaling.GetGroupLaunchTemplate[];
+    readonly launchTemplates?: outputs.autoscaling.GetGroupLaunchTemplate[];
     /**
      * One or more load balancers associated with the group.
      */
-    readonly loadBalancers: string[];
+    readonly loadBalancers?: string[];
     /**
      * Maximum amount of time, in seconds, that an instance can be in service.
      */
-    readonly maxInstanceLifetime: number;
+    readonly maxInstanceLifetime?: number;
     /**
      * Maximum size of the group.
      */
-    readonly maxSize: number;
+    readonly maxSize?: number;
     /**
      * Minimum number of instances to maintain in the warm pool.
      */
-    readonly minSize: number;
+    readonly minSize?: number;
     /**
      * List of mixed instances policy objects for the group.
      */
-    readonly mixedInstancesPolicies: outputs.autoscaling.GetGroupMixedInstancesPolicy[];
+    readonly mixedInstancesPolicies?: outputs.autoscaling.GetGroupMixedInstancesPolicy[];
     /**
      * Name of the Auto Scaling Group.
      */
     readonly name: string;
-    readonly newInstancesProtectedFromScaleIn: boolean;
+    readonly newInstancesProtectedFromScaleIn?: boolean;
     /**
      * Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
      */
-    readonly placementGroup: string;
+    readonly placementGroup?: string;
     /**
      * Predicted capacity of the group.
      */
-    readonly predictedCapacity: number;
+    readonly predictedCapacity?: number;
     /**
      * ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      */
-    readonly serviceLinkedRoleArn: string;
+    readonly serviceLinkedRoleArn?: string;
     /**
      * Current state of the group when DeleteAutoScalingGroup is in progress.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * List of processes suspended processes for the Auto Scaling Group.
      */
-    readonly suspendedProcesses: string[];
+    readonly suspendedProcesses?: string[];
     /**
      * List of tags for the group.
      */
-    readonly tags: outputs.autoscaling.GetGroupTag[];
+    readonly tags?: outputs.autoscaling.GetGroupTag[];
     /**
      * ARNs of the target groups for your load balancer.
      */
-    readonly targetGroupArns: string[];
+    readonly targetGroupArns?: string[];
     /**
      * The termination policies for the group.
      */
-    readonly terminationPolicies: string[];
+    readonly terminationPolicies?: string[];
     /**
      * Traffic sources.
      */
-    readonly trafficSources: outputs.autoscaling.GetGroupTrafficSource[];
+    readonly trafficSources?: outputs.autoscaling.GetGroupTrafficSource[];
     /**
      * VPC ID for the group.
      */
-    readonly vpcZoneIdentifier: string;
+    readonly vpcZoneIdentifier?: string;
     /**
      * Current size of the warm pool.
      */
-    readonly warmPoolSize: number;
+    readonly warmPoolSize?: number;
     /**
      * List of warm pool configuration objects.
      */
-    readonly warmPools: outputs.autoscaling.GetGroupWarmPool[];
+    readonly warmPools?: outputs.autoscaling.GetGroupWarmPool[];
 }
 /**
  * Use this data source to get information on an existing autoscaling group.

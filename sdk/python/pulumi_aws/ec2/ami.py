@@ -1132,7 +1132,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the AMI.
         """
@@ -1164,7 +1164,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> pulumi.Output[Sequence['outputs.AmiEbsBlockDevice']]:
+    def ebs_block_devices(self) -> pulumi.Output[Optional[Sequence['outputs.AmiEbsBlockDevice']]]:
         """
         Nested block describing an EBS block device that should be
         attached to created instances. The structure of this block is described below.
@@ -1181,7 +1181,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> pulumi.Output[Sequence['outputs.AmiEphemeralBlockDevice']]:
+    def ephemeral_block_devices(self) -> pulumi.Output[Optional[Sequence['outputs.AmiEphemeralBlockDevice']]]:
         """
         Nested block describing an ephemeral block device that
         should be attached to created instances. The structure of this block is described below.
@@ -1190,7 +1190,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hypervisor(self) -> pulumi.Output[str]:
+    def hypervisor(self) -> pulumi.Output[Optional[str]]:
         """
         Hypervisor type of the image.
         """
@@ -1198,7 +1198,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageLocation")
-    def image_location(self) -> pulumi.Output[str]:
+    def image_location(self) -> pulumi.Output[Optional[str]]:
         """
         Path to an S3 object containing an image manifest, e.g., created
         by the `ec2-upload-bundle` command in the EC2 command line tools.
@@ -1207,7 +1207,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageOwnerAlias")
-    def image_owner_alias(self) -> pulumi.Output[str]:
+    def image_owner_alias(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
         """
@@ -1215,7 +1215,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageType")
-    def image_type(self) -> pulumi.Output[str]:
+    def image_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of image.
         """
@@ -1240,7 +1240,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="manageEbsSnapshots")
-    def manage_ebs_snapshots(self) -> pulumi.Output[bool]:
+    def manage_ebs_snapshots(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "manage_ebs_snapshots")
 
     @property
@@ -1253,7 +1253,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID of the image owner.
         """
@@ -1261,7 +1261,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output[str]:
+    def platform(self) -> pulumi.Output[Optional[str]]:
         """
         This value is set to windows for Windows AMIs; otherwise, it is blank.
         """
@@ -1269,7 +1269,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformDetails")
-    def platform_details(self) -> pulumi.Output[str]:
+    def platform_details(self) -> pulumi.Output[Optional[str]]:
         """
         Platform details associated with the billing code of the AMI.
         """
@@ -1277,7 +1277,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def public(self) -> pulumi.Output[bool]:
+    def public(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the image has public launch permissions.
         """
@@ -1302,7 +1302,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootSnapshotId")
-    def root_snapshot_id(self) -> pulumi.Output[str]:
+    def root_snapshot_id(self) -> pulumi.Output[Optional[str]]:
         """
         Snapshot ID for the root volume (for EBS-backed AMIs)
         """
@@ -1346,7 +1346,7 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageOperation")
-    def usage_operation(self) -> pulumi.Output[str]:
+    def usage_operation(self) -> pulumi.Output[Optional[str]]:
         """
         Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         """

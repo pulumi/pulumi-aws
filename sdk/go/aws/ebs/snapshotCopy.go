@@ -66,20 +66,20 @@ type SnapshotCopy struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the EBS Snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
-	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
+	DataEncryptionKeyId pulumi.StringPtrOutput `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether the snapshot is encrypted.
 	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
 	KmsKeyId   pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	OutpostArn pulumi.StringOutput    `pulumi:"outpostArn"`
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
+	OwnerAlias pulumi.StringPtrOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the snapshot owner.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
 	// The region of the source snapshot.
@@ -87,7 +87,7 @@ type SnapshotCopy struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
+	StorageTier pulumi.StringPtrOutput `pulumi:"storageTier"`
 	// A map of tags for the snapshot.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -95,10 +95,10 @@ type SnapshotCopy struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-	TemporaryRestoreDays pulumi.IntPtrOutput `pulumi:"temporaryRestoreDays"`
-	VolumeId             pulumi.StringOutput `pulumi:"volumeId"`
+	TemporaryRestoreDays pulumi.IntPtrOutput    `pulumi:"temporaryRestoreDays"`
+	VolumeId             pulumi.StringPtrOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
-	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
+	VolumeSize pulumi.IntPtrOutput `pulumi:"volumeSize"`
 }
 
 // NewSnapshotCopy registers a new resource with the given unique name, arguments, and options.
@@ -349,13 +349,13 @@ func (o SnapshotCopyOutput) ToSnapshotCopyOutputWithContext(ctx context.Context)
 }
 
 // Amazon Resource Name (ARN) of the EBS Snapshot.
-func (o SnapshotCopyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The data encryption key identifier for the snapshot.
-func (o SnapshotCopyOutput) DataEncryptionKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.DataEncryptionKeyId }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) DataEncryptionKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.DataEncryptionKeyId }).(pulumi.StringPtrOutput)
 }
 
 // A description of what the snapshot is.
@@ -373,18 +373,18 @@ func (o SnapshotCopyOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o SnapshotCopyOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.OutpostArn }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-func (o SnapshotCopyOutput) OwnerAlias() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.OwnerAlias }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) OwnerAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.OwnerAlias }).(pulumi.StringPtrOutput)
 }
 
 // The AWS account ID of the snapshot owner.
-func (o SnapshotCopyOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether to permanently restore an archived snapshot.
@@ -403,8 +403,8 @@ func (o SnapshotCopyOutput) SourceSnapshotId() pulumi.StringOutput {
 }
 
 // The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-func (o SnapshotCopyOutput) StorageTier() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.StorageTier }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) StorageTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.StorageTier }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags for the snapshot.
@@ -424,13 +424,13 @@ func (o SnapshotCopyOutput) TemporaryRestoreDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntPtrOutput { return v.TemporaryRestoreDays }).(pulumi.IntPtrOutput)
 }
 
-func (o SnapshotCopyOutput) VolumeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) VolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
 // The size of the drive in GiBs.
-func (o SnapshotCopyOutput) VolumeSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntOutput { return v.VolumeSize }).(pulumi.IntOutput)
+func (o SnapshotCopyOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntPtrOutput { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
 type SnapshotCopyArrayOutput struct{ *pulumi.OutputState }

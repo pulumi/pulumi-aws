@@ -56,13 +56,13 @@ type DomainConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the domain configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// An object that specifies the authorization service for a domain. See below.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrOutput `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// The type of the domain.
-	DomainType pulumi.StringOutput `pulumi:"domainType"`
+	DomainType pulumi.StringPtrOutput `pulumi:"domainType"`
 	// The name of the domain configuration. This value must be unique to a region.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
@@ -77,7 +77,7 @@ type DomainConfiguration struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// An object that specifies the TLS configuration for a domain. See below.
-	TlsConfig DomainConfigurationTlsConfigOutput `pulumi:"tlsConfig"`
+	TlsConfig DomainConfigurationTlsConfigPtrOutput `pulumi:"tlsConfig"`
 	// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
 	ValidationCertificateArn pulumi.StringPtrOutput `pulumi:"validationCertificateArn"`
 }
@@ -304,8 +304,8 @@ func (o DomainConfigurationOutput) ToDomainConfigurationOutputWithContext(ctx co
 }
 
 // The ARN of the domain configuration.
-func (o DomainConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DomainConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // An object that specifies the authorization service for a domain. See below.
@@ -319,8 +319,8 @@ func (o DomainConfigurationOutput) DomainName() pulumi.StringPtrOutput {
 }
 
 // The type of the domain.
-func (o DomainConfigurationOutput) DomainType() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.DomainType }).(pulumi.StringOutput)
+func (o DomainConfigurationOutput) DomainType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.DomainType }).(pulumi.StringPtrOutput)
 }
 
 // The name of the domain configuration. This value must be unique to a region.
@@ -355,8 +355,8 @@ func (o DomainConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // An object that specifies the TLS configuration for a domain. See below.
-func (o DomainConfigurationOutput) TlsConfig() DomainConfigurationTlsConfigOutput {
-	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationTlsConfigOutput { return v.TlsConfig }).(DomainConfigurationTlsConfigOutput)
+func (o DomainConfigurationOutput) TlsConfig() DomainConfigurationTlsConfigPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationTlsConfigPtrOutput { return v.TlsConfig }).(DomainConfigurationTlsConfigPtrOutput)
 }
 
 // The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.

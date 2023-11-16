@@ -60,29 +60,29 @@ type LookupListenerArgs struct {
 // A collection of values returned by getListener.
 type LookupListenerResult struct {
 	// ARN of the listener.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The date and time that the listener was created.
-	CreatedAt string `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
 	// The actions for the default listener rule.
 	DefaultActions []GetListenerDefaultAction `pulumi:"defaultActions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The date and time the listener was last updated.
-	LastUpdatedAt string `pulumi:"lastUpdatedAt"`
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The ID of the listener.
-	ListenerId         string `pulumi:"listenerId"`
-	ListenerIdentifier string `pulumi:"listenerIdentifier"`
+	ListenerId         *string `pulumi:"listenerId"`
+	ListenerIdentifier string  `pulumi:"listenerIdentifier"`
 	// The name of the listener.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The listener port.
-	Port int `pulumi:"port"`
+	Port *int `pulumi:"port"`
 	// The listener protocol. Either `HTTPS` or `HTTP`.
-	Protocol string `pulumi:"protocol"`
+	Protocol *string `pulumi:"protocol"`
 	// The ARN of the service.
-	ServiceArn string `pulumi:"serviceArn"`
+	ServiceArn *string `pulumi:"serviceArn"`
 	// The ID of the service.
-	ServiceId         string `pulumi:"serviceId"`
-	ServiceIdentifier string `pulumi:"serviceIdentifier"`
+	ServiceId         *string `pulumi:"serviceId"`
+	ServiceIdentifier string  `pulumi:"serviceIdentifier"`
 	// List of tags associated with the listener.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -130,13 +130,13 @@ func (o LookupListenerResultOutput) ToLookupListenerResultOutputWithContext(ctx 
 }
 
 // ARN of the listener.
-func (o LookupListenerResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupListenerResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that the listener was created.
-func (o LookupListenerResultOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+func (o LookupListenerResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The actions for the default listener rule.
@@ -145,18 +145,18 @@ func (o LookupListenerResultOutput) DefaultActions() GetListenerDefaultActionArr
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupListenerResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupListenerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The date and time the listener was last updated.
-func (o LookupListenerResultOutput) LastUpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerResult) string { return v.LastUpdatedAt }).(pulumi.StringOutput)
+func (o LookupListenerResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the listener.
-func (o LookupListenerResultOutput) ListenerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerResult) string { return v.ListenerId }).(pulumi.StringOutput)
+func (o LookupListenerResultOutput) ListenerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupListenerResultOutput) ListenerIdentifier() pulumi.StringOutput {
@@ -164,28 +164,28 @@ func (o LookupListenerResultOutput) ListenerIdentifier() pulumi.StringOutput {
 }
 
 // The name of the listener.
-func (o LookupListenerResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupListenerResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The listener port.
-func (o LookupListenerResultOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupListenerResult) int { return v.Port }).(pulumi.IntOutput)
+func (o LookupListenerResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The listener protocol. Either `HTTPS` or `HTTP`.
-func (o LookupListenerResultOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerResult) string { return v.Protocol }).(pulumi.StringOutput)
+func (o LookupListenerResultOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the service.
-func (o LookupListenerResultOutput) ServiceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerResult) string { return v.ServiceArn }).(pulumi.StringOutput)
+func (o LookupListenerResultOutput) ServiceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *string { return v.ServiceArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the service.
-func (o LookupListenerResultOutput) ServiceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerResult) string { return v.ServiceId }).(pulumi.StringOutput)
+func (o LookupListenerResultOutput) ServiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupListenerResultOutput) ServiceIdentifier() pulumi.StringOutput {

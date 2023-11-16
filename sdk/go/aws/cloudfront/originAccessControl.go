@@ -61,7 +61,7 @@ type OriginAccessControl struct {
 	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The current version of this Origin Access Control.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// A name that identifies the Origin Access Control.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
@@ -264,8 +264,8 @@ func (o OriginAccessControlOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The current version of this Origin Access Control.
-func (o OriginAccessControlOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o OriginAccessControlOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // A name that identifies the Origin Access Control.

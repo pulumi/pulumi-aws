@@ -301,7 +301,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> pulumi.Output[str]:
+    def registry_id(self) -> pulumi.Output[Optional[str]]:
         """
         The account ID of the destination registry to replicate to.
         """

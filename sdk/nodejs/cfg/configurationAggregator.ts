@@ -94,7 +94,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * The ARN of the aggregator
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the configuration aggregator.
      */

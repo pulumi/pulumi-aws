@@ -16,40 +16,40 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
         /// <summary>
         /// Identifier of the constraint.
         /// </summary>
-        public readonly string ConstraintId;
+        public readonly string? ConstraintId;
         /// <summary>
         /// Description of the constraint.
         /// </summary>
-        public readonly string Description;
-        public readonly string Owner;
+        public readonly string? Description;
+        public readonly string? Owner;
         /// <summary>
         /// Portfolio identifier.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        public readonly string PortfolioId;
+        public readonly string? PortfolioId;
         /// <summary>
         /// Product identifier.
         /// </summary>
-        public readonly string ProductId;
+        public readonly string? ProductId;
         /// <summary>
         /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetPortfolioConstraintsDetailResult(
-            string constraintId,
+            string? constraintId,
 
-            string description,
+            string? description,
 
-            string owner,
+            string? owner,
 
-            string portfolioId,
+            string? portfolioId,
 
-            string productId,
+            string? productId,
 
-            string type)
+            string? type)
         {
             ConstraintId = constraintId;
             Description = description;

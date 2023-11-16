@@ -73,7 +73,7 @@ export class ContactList extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContactList.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the contact list.
      *
@@ -83,7 +83,7 @@ export class ContactList extends pulumi.CustomResource {
     /**
      * A timestamp noting when the contact list was created in ISO 8601 format.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string | undefined>;
     /**
      * A description of what the contact list is about.
      */
@@ -91,7 +91,7 @@ export class ContactList extends pulumi.CustomResource {
     /**
      * A timestamp noting the last time the contact list was updated in ISO 8601 format.
      */
-    public /*out*/ readonly lastUpdatedTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTimestamp!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -69,19 +69,19 @@ type Certificate struct {
 	pulumi.CustomResourceState
 
 	// An date when the certificate becomes active
-	ActiveDate pulumi.StringOutput `pulumi:"activeDate"`
+	ActiveDate pulumi.StringPtrOutput `pulumi:"activeDate"`
 	// The ARN of the certificate
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The valid certificate file required for the transfer.
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
 	// The optional list of certificate that make up the chain for the certificate that is being imported.
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
 	// The unique identifier for the AS2 certificate
-	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
+	CertificateId pulumi.StringPtrOutput `pulumi:"certificateId"`
 	// A short description that helps identify the certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// An date when the certificate becomes inactive
-	InactiveDate pulumi.StringOutput `pulumi:"inactiveDate"`
+	InactiveDate pulumi.StringPtrOutput `pulumi:"inactiveDate"`
 	// The private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -316,13 +316,13 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 }
 
 // An date when the certificate becomes active
-func (o CertificateOutput) ActiveDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ActiveDate }).(pulumi.StringOutput)
+func (o CertificateOutput) ActiveDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.ActiveDate }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the certificate
-func (o CertificateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CertificateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The valid certificate file required for the transfer.
@@ -336,8 +336,8 @@ func (o CertificateOutput) CertificateChain() pulumi.StringPtrOutput {
 }
 
 // The unique identifier for the AS2 certificate
-func (o CertificateOutput) CertificateId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)
+func (o CertificateOutput) CertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateId }).(pulumi.StringPtrOutput)
 }
 
 // A short description that helps identify the certificate.
@@ -346,8 +346,8 @@ func (o CertificateOutput) Description() pulumi.StringPtrOutput {
 }
 
 // An date when the certificate becomes inactive
-func (o CertificateOutput) InactiveDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.InactiveDate }).(pulumi.StringOutput)
+func (o CertificateOutput) InactiveDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.InactiveDate }).(pulumi.StringPtrOutput)
 }
 
 // The private key associated with the certificate being imported.

@@ -254,152 +254,152 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Object data (see **limitations above** to understand cases in which this field is actually available)
         /// </summary>
-        public readonly string Body;
+        public readonly string? Body;
         public readonly string Bucket;
         /// <summary>
         /// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         /// </summary>
-        public readonly bool BucketKeyEnabled;
+        public readonly bool? BucketKeyEnabled;
         /// <summary>
         /// Caching behavior along the request/reply chain.
         /// </summary>
-        public readonly string CacheControl;
+        public readonly string? CacheControl;
         /// <summary>
         /// Presentational information for the object.
         /// </summary>
-        public readonly string ContentDisposition;
+        public readonly string? ContentDisposition;
         /// <summary>
         /// What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
         /// </summary>
-        public readonly string ContentEncoding;
+        public readonly string? ContentEncoding;
         /// <summary>
         /// Language the content is in.
         /// </summary>
-        public readonly string ContentLanguage;
+        public readonly string? ContentLanguage;
         /// <summary>
         /// Size of the body in bytes.
         /// </summary>
-        public readonly int ContentLength;
+        public readonly int? ContentLength;
         /// <summary>
         /// Standard MIME type describing the format of the object data.
         /// </summary>
-        public readonly string ContentType;
+        public readonly string? ContentType;
         /// <summary>
         /// [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
         /// </summary>
-        public readonly string Etag;
+        public readonly string? Etag;
         /// <summary>
         /// If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
         /// </summary>
-        public readonly string Expiration;
+        public readonly string? Expiration;
         /// <summary>
         /// Date and time at which the object is no longer cacheable.
         /// </summary>
-        public readonly string Expires;
+        public readonly string? Expires;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Key;
         /// <summary>
         /// Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
         /// </summary>
-        public readonly string LastModified;
+        public readonly string? LastModified;
         /// <summary>
         /// Map of metadata stored with the object in S3. Keys are always returned in lowercase.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Metadata;
+        public readonly ImmutableDictionary<string, string>? Metadata;
         /// <summary>
         /// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
         /// </summary>
-        public readonly string ObjectLockLegalHoldStatus;
+        public readonly string? ObjectLockLegalHoldStatus;
         /// <summary>
         /// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
         /// </summary>
-        public readonly string ObjectLockMode;
+        public readonly string? ObjectLockMode;
         /// <summary>
         /// The date and time when this object's object lock will expire.
         /// </summary>
-        public readonly string ObjectLockRetainUntilDate;
+        public readonly string? ObjectLockRetainUntilDate;
         public readonly string? Range;
         /// <summary>
         /// If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
         /// </summary>
-        public readonly string ServerSideEncryption;
+        public readonly string? ServerSideEncryption;
         /// <summary>
         /// If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
         /// </summary>
-        public readonly string SseKmsKeyId;
+        public readonly string? SseKmsKeyId;
         /// <summary>
         /// [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
         /// </summary>
-        public readonly string StorageClass;
+        public readonly string? StorageClass;
         /// <summary>
         /// Map of tags assigned to the object.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Latest version ID of the object returned.
         /// </summary>
-        public readonly string VersionId;
+        public readonly string? VersionId;
         /// <summary>
         /// If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
         /// </summary>
-        public readonly string WebsiteRedirectLocation;
+        public readonly string? WebsiteRedirectLocation;
 
         [OutputConstructor]
         private GetBucketObjectResult(
-            string body,
+            string? body,
 
             string bucket,
 
-            bool bucketKeyEnabled,
+            bool? bucketKeyEnabled,
 
-            string cacheControl,
+            string? cacheControl,
 
-            string contentDisposition,
+            string? contentDisposition,
 
-            string contentEncoding,
+            string? contentEncoding,
 
-            string contentLanguage,
+            string? contentLanguage,
 
-            int contentLength,
+            int? contentLength,
 
-            string contentType,
+            string? contentType,
 
-            string etag,
+            string? etag,
 
-            string expiration,
+            string? expiration,
 
-            string expires,
+            string? expires,
 
-            string id,
+            string? id,
 
             string key,
 
-            string lastModified,
+            string? lastModified,
 
-            ImmutableDictionary<string, string> metadata,
+            ImmutableDictionary<string, string>? metadata,
 
-            string objectLockLegalHoldStatus,
+            string? objectLockLegalHoldStatus,
 
-            string objectLockMode,
+            string? objectLockMode,
 
-            string objectLockRetainUntilDate,
+            string? objectLockRetainUntilDate,
 
             string? range,
 
-            string serverSideEncryption,
+            string? serverSideEncryption,
 
-            string sseKmsKeyId,
+            string? sseKmsKeyId,
 
-            string storageClass,
+            string? storageClass,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string versionId,
+            string? versionId,
 
-            string websiteRedirectLocation)
+            string? websiteRedirectLocation)
         {
             Body = body;
             Bucket = bucket;

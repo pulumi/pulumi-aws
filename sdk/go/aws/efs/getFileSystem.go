@@ -75,35 +75,35 @@ type LookupFileSystemArgs struct {
 // A collection of values returned by getFileSystem.
 type LookupFileSystemResult struct {
 	// Amazon Resource Name of the file system.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
-	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The Availability Zone name in which the file system's One Zone storage classes exist.
-	AvailabilityZoneName string `pulumi:"availabilityZoneName"`
-	CreationToken        string `pulumi:"creationToken"`
+	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
+	CreationToken        *string `pulumi:"creationToken"`
 	// DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-	DnsName string `pulumi:"dnsName"`
+	DnsName *string `pulumi:"dnsName"`
 	// Whether EFS is encrypted.
-	Encrypted    bool   `pulumi:"encrypted"`
-	FileSystemId string `pulumi:"fileSystemId"`
+	Encrypted    *bool   `pulumi:"encrypted"`
+	FileSystemId *string `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN for the KMS encryption key.
-	KmsKeyId string `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-	LifecyclePolicy GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	LifecyclePolicy *GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
 	// The value of the file system's `Name` tag.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// File system performance mode.
-	PerformanceMode string `pulumi:"performanceMode"`
+	PerformanceMode *string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
-	ProvisionedThroughputInMibps float64 `pulumi:"provisionedThroughputInMibps"`
+	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
 	// Current byte count used by the file system.
-	SizeInBytes int `pulumi:"sizeInBytes"`
+	SizeInBytes *int `pulumi:"sizeInBytes"`
 	// A map of tags to assign to the file system.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput mode for the file system.
-	ThroughputMode string `pulumi:"throughputMode"`
+	ThroughputMode *string `pulumi:"throughputMode"`
 }
 
 func LookupFileSystemOutput(ctx *pulumi.Context, args LookupFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupFileSystemResultOutput {
@@ -149,71 +149,71 @@ func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutputWithContext(
 }
 
 // Amazon Resource Name of the file system.
-func (o LookupFileSystemResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
-func (o LookupFileSystemResultOutput) AvailabilityZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone name in which the file system's One Zone storage classes exist.
-func (o LookupFileSystemResultOutput) AvailabilityZoneName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.AvailabilityZoneName }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.AvailabilityZoneName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFileSystemResultOutput) CreationToken() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.CreationToken }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) CreationToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.CreationToken }).(pulumi.StringPtrOutput)
 }
 
 // DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-func (o LookupFileSystemResultOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.DnsName }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // Whether EFS is encrypted.
-func (o LookupFileSystemResultOutput) Encrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) bool { return v.Encrypted }).(pulumi.BoolOutput)
+func (o LookupFileSystemResultOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFileSystemResultOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.FileSystemId }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupFileSystemResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN for the KMS encryption key.
-func (o LookupFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-func (o LookupFileSystemResultOutput) LifecyclePolicy() GetFileSystemLifecyclePolicyOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) GetFileSystemLifecyclePolicy { return v.LifecyclePolicy }).(GetFileSystemLifecyclePolicyOutput)
+func (o LookupFileSystemResultOutput) LifecyclePolicy() GetFileSystemLifecyclePolicyPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *GetFileSystemLifecyclePolicy { return v.LifecyclePolicy }).(GetFileSystemLifecyclePolicyPtrOutput)
 }
 
 // The value of the file system's `Name` tag.
-func (o LookupFileSystemResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // File system performance mode.
-func (o LookupFileSystemResultOutput) PerformanceMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.PerformanceMode }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) PerformanceMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.PerformanceMode }).(pulumi.StringPtrOutput)
 }
 
 // The throughput, measured in MiB/s, that you want to provision for the file system.
-func (o LookupFileSystemResultOutput) ProvisionedThroughputInMibps() pulumi.Float64Output {
-	return o.ApplyT(func(v LookupFileSystemResult) float64 { return v.ProvisionedThroughputInMibps }).(pulumi.Float64Output)
+func (o LookupFileSystemResultOutput) ProvisionedThroughputInMibps() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *float64 { return v.ProvisionedThroughputInMibps }).(pulumi.Float64PtrOutput)
 }
 
 // Current byte count used by the file system.
-func (o LookupFileSystemResultOutput) SizeInBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) int { return v.SizeInBytes }).(pulumi.IntOutput)
+func (o LookupFileSystemResultOutput) SizeInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *int { return v.SizeInBytes }).(pulumi.IntPtrOutput)
 }
 
 // A map of tags to assign to the file system.
@@ -222,8 +222,8 @@ func (o LookupFileSystemResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Throughput mode for the file system.
-func (o LookupFileSystemResultOutput) ThroughputMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) string { return v.ThroughputMode }).(pulumi.StringOutput)
+func (o LookupFileSystemResultOutput) ThroughputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.ThroughputMode }).(pulumi.StringPtrOutput)
 }
 
 func init() {

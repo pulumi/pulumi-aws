@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  *     endpointType: "PUBLIC",
  *     loggingRole: iamForTransfer.arn,
  *     protocols: ["SFTP"],
- *     structuredLogDestinations: [pulumi.interpolate`${transferLogGroup.arn}:*`],
+ *     structuredLogDestinations: [transferLogGroup.arn.apply(arn => `${arn}:*`)],
  * });
  * ```
  *
@@ -161,7 +161,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Transfer Server
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
      */
@@ -177,7 +177,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      */
@@ -201,7 +201,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * This value contains the message-digest algorithm (MD5) hash of the server's host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
      */
-    public /*out*/ readonly hostKeyFingerprint!: pulumi.Output<string>;
+    public /*out*/ readonly hostKeyFingerprint!: pulumi.Output<string | undefined>;
     /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
      */
@@ -225,11 +225,11 @@ export class Server extends pulumi.CustomResource {
     /**
      * The protocol settings that are configured for your server.
      */
-    public readonly protocolDetails!: pulumi.Output<outputs.transfer.ServerProtocolDetails>;
+    public readonly protocolDetails!: pulumi.Output<outputs.transfer.ServerProtocolDetails | undefined>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
      */
-    public readonly protocols!: pulumi.Output<string[]>;
+    public readonly protocols!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
      */

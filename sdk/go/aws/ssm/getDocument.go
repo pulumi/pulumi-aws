@@ -92,16 +92,16 @@ type LookupDocumentArgs struct {
 // A collection of values returned by getDocument.
 type LookupDocumentResult struct {
 	// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Contents of the document.
-	Content        string  `pulumi:"content"`
+	Content        *string `pulumi:"content"`
 	DocumentFormat *string `pulumi:"documentFormat"`
 	// Type of the document.
-	DocumentType    string  `pulumi:"documentType"`
+	DocumentType    *string `pulumi:"documentType"`
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentResultOutput {
@@ -147,13 +147,13 @@ func (o LookupDocumentResultOutput) ToLookupDocumentResultOutputWithContext(ctx 
 }
 
 // ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
-func (o LookupDocumentResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDocumentResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupDocumentResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDocumentResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Contents of the document.
-func (o LookupDocumentResultOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDocumentResult) string { return v.Content }).(pulumi.StringOutput)
+func (o LookupDocumentResultOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDocumentResult) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDocumentResultOutput) DocumentFormat() pulumi.StringPtrOutput {
@@ -161,8 +161,8 @@ func (o LookupDocumentResultOutput) DocumentFormat() pulumi.StringPtrOutput {
 }
 
 // Type of the document.
-func (o LookupDocumentResultOutput) DocumentType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDocumentResult) string { return v.DocumentType }).(pulumi.StringOutput)
+func (o LookupDocumentResultOutput) DocumentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDocumentResult) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDocumentResultOutput) DocumentVersion() pulumi.StringPtrOutput {
@@ -170,8 +170,8 @@ func (o LookupDocumentResultOutput) DocumentVersion() pulumi.StringPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDocumentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDocumentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDocumentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDocumentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDocumentResultOutput) Name() pulumi.StringOutput {

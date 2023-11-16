@@ -190,13 +190,13 @@ type GameServerGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the GameLift Game Server Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN of the created EC2 Auto Scaling group.
-	AutoScalingGroupArn pulumi.StringOutput                       `pulumi:"autoScalingGroupArn"`
+	AutoScalingGroupArn pulumi.StringPtrOutput                    `pulumi:"autoScalingGroupArn"`
 	AutoScalingPolicy   GameServerGroupAutoScalingPolicyPtrOutput `pulumi:"autoScalingPolicy"`
 	// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
 	// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
-	BalancingStrategy pulumi.StringOutput `pulumi:"balancingStrategy"`
+	BalancingStrategy pulumi.StringPtrOutput `pulumi:"balancingStrategy"`
 	// Name of the game server group.
 	// This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
 	GameServerGroupName pulumi.StringOutput `pulumi:"gameServerGroupName"`
@@ -206,7 +206,7 @@ type GameServerGroup struct {
 	// Protected instances cannot be terminated while there are active game servers running except in the event
 	// of a forced game server group deletion.
 	// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
-	GameServerProtectionPolicy pulumi.StringOutput                          `pulumi:"gameServerProtectionPolicy"`
+	GameServerProtectionPolicy pulumi.StringPtrOutput                       `pulumi:"gameServerProtectionPolicy"`
 	InstanceDefinitions        GameServerGroupInstanceDefinitionArrayOutput `pulumi:"instanceDefinitions"`
 	LaunchTemplate             GameServerGroupLaunchTemplateOutput          `pulumi:"launchTemplate"`
 	// The maximum number of instances allowed in the EC2 Auto Scaling group.
@@ -510,13 +510,13 @@ func (o GameServerGroupOutput) ToGameServerGroupOutputWithContext(ctx context.Co
 }
 
 // The ARN of the GameLift Game Server Group.
-func (o GameServerGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GameServerGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GameServerGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the created EC2 Auto Scaling group.
-func (o GameServerGroupOutput) AutoScalingGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GameServerGroup) pulumi.StringOutput { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
+func (o GameServerGroupOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.StringPtrOutput { return v.AutoScalingGroupArn }).(pulumi.StringPtrOutput)
 }
 
 func (o GameServerGroupOutput) AutoScalingPolicy() GameServerGroupAutoScalingPolicyPtrOutput {
@@ -525,8 +525,8 @@ func (o GameServerGroupOutput) AutoScalingPolicy() GameServerGroupAutoScalingPol
 
 // Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
 // Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
-func (o GameServerGroupOutput) BalancingStrategy() pulumi.StringOutput {
-	return o.ApplyT(func(v *GameServerGroup) pulumi.StringOutput { return v.BalancingStrategy }).(pulumi.StringOutput)
+func (o GameServerGroupOutput) BalancingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.StringPtrOutput { return v.BalancingStrategy }).(pulumi.StringPtrOutput)
 }
 
 // Name of the game server group.
@@ -541,8 +541,8 @@ func (o GameServerGroupOutput) GameServerGroupName() pulumi.StringOutput {
 // Protected instances cannot be terminated while there are active game servers running except in the event
 // of a forced game server group deletion.
 // Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
-func (o GameServerGroupOutput) GameServerProtectionPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v *GameServerGroup) pulumi.StringOutput { return v.GameServerProtectionPolicy }).(pulumi.StringOutput)
+func (o GameServerGroupOutput) GameServerProtectionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.StringPtrOutput { return v.GameServerProtectionPolicy }).(pulumi.StringPtrOutput)
 }
 
 func (o GameServerGroupOutput) InstanceDefinitions() GameServerGroupInstanceDefinitionArrayOutput {

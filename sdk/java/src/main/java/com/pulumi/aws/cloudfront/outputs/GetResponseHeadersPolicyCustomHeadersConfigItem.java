@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
@@ -14,39 +16,39 @@ public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
      * @return The HTTP header name.
      * 
      */
-    private String header;
+    private @Nullable String header;
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private Boolean override;
+    private @Nullable Boolean override;
     /**
      * @return Value for the HTTP response header.
      * 
      */
-    private String value;
+    private @Nullable String value;
 
     private GetResponseHeadersPolicyCustomHeadersConfigItem() {}
     /**
      * @return The HTTP header name.
      * 
      */
-    public String header() {
-        return this.header;
+    public Optional<String> header() {
+        return Optional.ofNullable(this.header);
     }
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    public Boolean override() {
-        return this.override;
+    public Optional<Boolean> override() {
+        return Optional.ofNullable(this.override);
     }
     /**
      * @return Value for the HTTP response header.
      * 
      */
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String header;
-        private Boolean override;
-        private String value;
+        private @Nullable String header;
+        private @Nullable Boolean override;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetResponseHeadersPolicyCustomHeadersConfigItem defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
         }
 
         @CustomType.Setter
-        public Builder header(String header) {
-            this.header = Objects.requireNonNull(header);
+        public Builder header(@Nullable String header) {
+            this.header = header;
             return this;
         }
         @CustomType.Setter
-        public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+        public Builder override(@Nullable Boolean override) {
+            this.override = override;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetResponseHeadersPolicyCustomHeadersConfigItem build() {

@@ -200,28 +200,28 @@ public class CustomDbEngineVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the custom engine version.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date and time that the CEV was created.
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    private Output</* @Nullable */ String> createTime;
 
     /**
      * @return The date and time that the CEV was created.
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<Optional<String>> createTime() {
+        return Codegen.optional(this.createTime);
     }
     /**
      * The name of the Amazon S3 bucket that contains the database installation files.
@@ -256,14 +256,14 @@ public class CustomDbEngineVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbParameterGroupFamily", refs={String.class}, tree="[0]")
-    private Output<String> dbParameterGroupFamily;
+    private Output</* @Nullable */ String> dbParameterGroupFamily;
 
     /**
      * @return The name of the DB parameter group family for the CEV.
      * 
      */
-    public Output<String> dbParameterGroupFamily() {
-        return this.dbParameterGroupFamily;
+    public Output<Optional<String>> dbParameterGroupFamily() {
+        return Codegen.optional(this.dbParameterGroupFamily);
     }
     /**
      * The description of the CEV.
@@ -326,42 +326,42 @@ public class CustomDbEngineVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="imageId", refs={String.class}, tree="[0]")
-    private Output<String> imageId;
+    private Output</* @Nullable */ String> imageId;
 
     /**
      * @return The ID of the AMI that was created with the CEV.
      * 
      */
-    public Output<String> imageId() {
-        return this.imageId;
+    public Output<Optional<String>> imageId() {
+        return Codegen.optional(this.imageId);
     }
     /**
      * The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * The major version of the database engine.
      * 
      */
     @Export(name="majorEngineVersion", refs={String.class}, tree="[0]")
-    private Output<String> majorEngineVersion;
+    private Output</* @Nullable */ String> majorEngineVersion;
 
     /**
      * @return The major version of the database engine.
      * 
      */
-    public Output<String> majorEngineVersion() {
-        return this.majorEngineVersion;
+    public Output<Optional<String>> majorEngineVersion() {
+        return Codegen.optional(this.majorEngineVersion);
     }
     /**
      * The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
@@ -382,14 +382,14 @@ public class CustomDbEngineVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="manifestComputed", refs={String.class}, tree="[0]")
-    private Output<String> manifestComputed;
+    private Output</* @Nullable */ String> manifestComputed;
 
     /**
      * @return The returned manifest file, in JSON format, service generated and often different from input `manifest`.
      * 
      */
-    public Output<String> manifestComputed() {
-        return this.manifestComputed;
+    public Output<Optional<String>> manifestComputed() {
+        return Codegen.optional(this.manifestComputed);
     }
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
@@ -424,14 +424,14 @@ public class CustomDbEngineVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

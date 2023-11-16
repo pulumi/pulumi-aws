@@ -52,7 +52,7 @@ type GetSinksResult struct {
 	// Set of ARN of the Sinks.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetSinksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSinksResultOutput {
@@ -87,8 +87,8 @@ func (o GetSinksResultOutput) Arns() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSinksResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSinksResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSinksResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSinksResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

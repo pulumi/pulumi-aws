@@ -40,13 +40,13 @@ namespace Pulumi.Aws.Acmpca
         /// ARN of the certificate.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// PEM-encoded certificate value.
         /// </summary>
         [Output("certificate")]
-        public Output<string> CertificateDetails { get; private set; } = null!;
+        public Output<string?> CertificateDetails { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the certificate authority.
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Acmpca
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         /// </summary>
         [Output("certificateChain")]
-        public Output<string> CertificateChain { get; private set; } = null!;
+        public Output<string?> CertificateChain { get; private set; } = null!;
 
         /// <summary>
         /// Certificate Signing Request in PEM format.

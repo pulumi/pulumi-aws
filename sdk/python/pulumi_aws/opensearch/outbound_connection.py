@@ -445,7 +445,7 @@ class OutboundConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionProperties")
-    def connection_properties(self) -> pulumi.Output['outputs.OutboundConnectionConnectionProperties']:
+    def connection_properties(self) -> pulumi.Output[Optional['outputs.OutboundConnectionConnectionProperties']]:
         """
         Configuration block for the outbound connection.
         """
@@ -453,7 +453,7 @@ class OutboundConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> pulumi.Output[str]:
+    def connection_status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the connection request.
         """

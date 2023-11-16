@@ -86,11 +86,11 @@ export class OutboundConnection extends pulumi.CustomResource {
     /**
      * Configuration block for the outbound connection.
      */
-    public readonly connectionProperties!: pulumi.Output<outputs.opensearch.OutboundConnectionConnectionProperties>;
+    public readonly connectionProperties!: pulumi.Output<outputs.opensearch.OutboundConnectionConnectionProperties | undefined>;
     /**
      * Status of the connection request.
      */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the local Opensearch domain.
      */

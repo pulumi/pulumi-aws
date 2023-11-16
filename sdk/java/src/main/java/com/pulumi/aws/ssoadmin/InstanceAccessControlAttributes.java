@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -58,16 +59,16 @@ public class InstanceAccessControlAttributes extends com.pulumi.resources.Custom
         return this.instanceArn;
     }
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     @Export(name="statusReason", refs={String.class}, tree="[0]")
-    private Output<String> statusReason;
+    private Output</* @Nullable */ String> statusReason;
 
-    public Output<String> statusReason() {
-        return this.statusReason;
+    public Output<Optional<String>> statusReason() {
+        return Codegen.optional(this.statusReason);
     }
 
     /**

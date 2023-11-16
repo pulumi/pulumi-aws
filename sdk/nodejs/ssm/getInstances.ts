@@ -51,11 +51,11 @@ export interface GetInstancesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of instance IDs of the matched SSM managed instances.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
 }
 /**
  * Use this data source to get the instance IDs of SSM managed instances.

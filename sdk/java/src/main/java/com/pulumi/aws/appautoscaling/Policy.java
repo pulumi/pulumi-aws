@@ -314,28 +314,28 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="alarmArns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> alarmArns;
+    private Output</* @Nullable */ List<String>> alarmArns;
 
     /**
      * @return List of CloudWatch alarm ARNs associated with the scaling policy.
      * 
      */
-    public Output<List<String>> alarmArns() {
-        return this.alarmArns;
+    public Output<Optional<List<String>>> alarmArns() {
+        return Codegen.optional(this.alarmArns);
     }
     /**
      * ARN assigned by AWS to the scaling policy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN assigned by AWS to the scaling policy.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name of the policy. Must be between 1 and 255 characters in length.

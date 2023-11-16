@@ -63,11 +63,11 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * An date when the certificate becomes active
      */
-    public /*out*/ readonly activeDate!: pulumi.Output<string>;
+    public /*out*/ readonly activeDate!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the certificate
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The valid certificate file required for the transfer.
      */
@@ -79,7 +79,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The unique identifier for the AS2 certificate
      */
-    public /*out*/ readonly certificateId!: pulumi.Output<string>;
+    public /*out*/ readonly certificateId!: pulumi.Output<string | undefined>;
     /**
      * A short description that helps identify the certificate.
      */
@@ -87,7 +87,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * An date when the certificate becomes inactive
      */
-    public /*out*/ readonly inactiveDate!: pulumi.Output<string>;
+    public /*out*/ readonly inactiveDate!: pulumi.Output<string | undefined>;
     /**
      * The private key associated with the certificate being imported.
      */

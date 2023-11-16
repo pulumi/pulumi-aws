@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExperienceResult {
@@ -16,102 +18,102 @@ public final class GetExperienceResult {
      * @return ARN of the Experience.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
      * 
      */
-    private List<GetExperienceConfiguration> configurations;
+    private @Nullable List<GetExperienceConfiguration> configurations;
     /**
      * @return Unix datetime that the Experience was created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return Description of the Experience.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
      * 
      */
-    private List<GetExperienceEndpoint> endpoints;
+    private @Nullable List<GetExperienceEndpoint> endpoints;
     /**
      * @return Reason your Amazon Kendra Experience could not properly process.
      * 
      */
-    private String errorMessage;
+    private @Nullable String errorMessage;
     private String experienceId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String indexId;
     /**
      * @return Name of the Experience.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Date and time that the Experience was last updated.
      * 
      */
-    private String updatedAt;
+    private @Nullable String updatedAt;
 
     private GetExperienceResult() {}
     /**
      * @return ARN of the Experience.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
      * 
      */
     public List<GetExperienceConfiguration> configurations() {
-        return this.configurations;
+        return this.configurations == null ? List.of() : this.configurations;
     }
     /**
      * @return Unix datetime that the Experience was created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return Description of the Experience.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
      * 
      */
     public List<GetExperienceEndpoint> endpoints() {
-        return this.endpoints;
+        return this.endpoints == null ? List.of() : this.endpoints;
     }
     /**
      * @return Reason your Amazon Kendra Experience could not properly process.
      * 
      */
-    public String errorMessage() {
-        return this.errorMessage;
+    public Optional<String> errorMessage() {
+        return Optional.ofNullable(this.errorMessage);
     }
     public String experienceId() {
         return this.experienceId;
@@ -120,8 +122,8 @@ public final class GetExperienceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String indexId() {
         return this.indexId;
@@ -130,29 +132,29 @@ public final class GetExperienceResult {
      * @return Name of the Experience.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Date and time that the Experience was last updated.
      * 
      */
-    public String updatedAt() {
-        return this.updatedAt;
+    public Optional<String> updatedAt() {
+        return Optional.ofNullable(this.updatedAt);
     }
 
     public static Builder builder() {
@@ -164,19 +166,19 @@ public final class GetExperienceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetExperienceConfiguration> configurations;
-        private String createdAt;
-        private String description;
-        private List<GetExperienceEndpoint> endpoints;
-        private String errorMessage;
+        private @Nullable String arn;
+        private @Nullable List<GetExperienceConfiguration> configurations;
+        private @Nullable String createdAt;
+        private @Nullable String description;
+        private @Nullable List<GetExperienceEndpoint> endpoints;
+        private @Nullable String errorMessage;
         private String experienceId;
-        private String id;
+        private @Nullable String id;
         private String indexId;
-        private String name;
-        private String roleArn;
-        private String status;
-        private String updatedAt;
+        private @Nullable String name;
+        private @Nullable String roleArn;
+        private @Nullable String status;
+        private @Nullable String updatedAt;
         public Builder() {}
         public Builder(GetExperienceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -196,39 +198,39 @@ public final class GetExperienceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder configurations(List<GetExperienceConfiguration> configurations) {
-            this.configurations = Objects.requireNonNull(configurations);
+        public Builder configurations(@Nullable List<GetExperienceConfiguration> configurations) {
+            this.configurations = configurations;
             return this;
         }
         public Builder configurations(GetExperienceConfiguration... configurations) {
             return configurations(List.of(configurations));
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoints(List<GetExperienceEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+        public Builder endpoints(@Nullable List<GetExperienceEndpoint> endpoints) {
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetExperienceEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
         @CustomType.Setter
-        public Builder errorMessage(String errorMessage) {
-            this.errorMessage = Objects.requireNonNull(errorMessage);
+        public Builder errorMessage(@Nullable String errorMessage) {
+            this.errorMessage = errorMessage;
             return this;
         }
         @CustomType.Setter
@@ -237,8 +239,8 @@ public final class GetExperienceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -247,23 +249,23 @@ public final class GetExperienceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+        public Builder updatedAt(@Nullable String updatedAt) {
+            this.updatedAt = updatedAt;
             return this;
         }
         public GetExperienceResult build() {

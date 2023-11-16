@@ -79,47 +79,47 @@ export interface GetFirewallResult {
     /**
      * ARN of the firewall.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Boolean flag indicating whether it is possible to delete the firewall.
      */
-    readonly deleteProtection: boolean;
+    readonly deleteProtection?: boolean;
     /**
      * Description of the firewall.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * AWS Key Management Service (AWS KMS) encryption settings for the firewall.
      */
-    readonly encryptionConfigurations: outputs.networkfirewall.GetFirewallEncryptionConfiguration[];
+    readonly encryptionConfigurations?: outputs.networkfirewall.GetFirewallEncryptionConfiguration[];
     /**
      * ARN of the VPC Firewall policy.
      */
-    readonly firewallPolicyArn: string;
+    readonly firewallPolicyArn?: string;
     /**
      * A boolean flag indicating whether it is possible to change the associated firewall policy.
      */
-    readonly firewallPolicyChangeProtection: boolean;
+    readonly firewallPolicyChangeProtection?: boolean;
     /**
      * Nested list of information about the current status of the firewall.
      */
-    readonly firewallStatuses: outputs.networkfirewall.GetFirewallFirewallStatus[];
+    readonly firewallStatuses?: outputs.networkfirewall.GetFirewallFirewallStatus[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Descriptive name of the firewall.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * A boolean flag indicating whether it is possible to change the associated subnet(s).
      */
-    readonly subnetChangeProtection: boolean;
+    readonly subnetChangeProtection?: boolean;
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
      */
-    readonly subnetMappings: outputs.networkfirewall.GetFirewallSubnetMapping[];
+    readonly subnetMappings?: outputs.networkfirewall.GetFirewallSubnetMapping[];
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -127,11 +127,11 @@ export interface GetFirewallResult {
     /**
      * String token used when updating a firewall.
      */
-    readonly updateToken: string;
+    readonly updateToken?: string;
     /**
      * Unique identifier of the VPC where AWS Network Firewall should create the firewall.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Retrieve information about a firewall.

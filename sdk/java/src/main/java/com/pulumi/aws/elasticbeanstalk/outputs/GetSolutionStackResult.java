@@ -16,13 +16,13 @@ public final class GetSolutionStackResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean mostRecent;
     /**
      * @return Name of the solution stack.
      * 
      */
-    private String name;
+    private @Nullable String name;
     private String nameRegex;
 
     private GetSolutionStackResult() {}
@@ -30,8 +30,8 @@ public final class GetSolutionStackResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
@@ -40,8 +40,8 @@ public final class GetSolutionStackResult {
      * @return Name of the solution stack.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public String nameRegex() {
         return this.nameRegex;
@@ -56,9 +56,9 @@ public final class GetSolutionStackResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private @Nullable Boolean mostRecent;
-        private String name;
+        private @Nullable String name;
         private String nameRegex;
         public Builder() {}
         public Builder(GetSolutionStackResult defaults) {
@@ -70,8 +70,8 @@ public final class GetSolutionStackResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -80,8 +80,8 @@ public final class GetSolutionStackResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter

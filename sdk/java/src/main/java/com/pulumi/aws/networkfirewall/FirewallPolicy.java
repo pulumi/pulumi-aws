@@ -176,14 +176,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) that identifies the firewall policy.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A friendly description of the firewall policy.
@@ -278,14 +278,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateToken", refs={String.class}, tree="[0]")
-    private Output<String> updateToken;
+    private Output</* @Nullable */ String> updateToken;
 
     /**
      * @return A string token used when updating a firewall policy.
      * 
      */
-    public Output<String> updateToken() {
-        return this.updateToken;
+    public Output<Optional<String>> updateToken() {
+        return Codegen.optional(this.updateToken);
     }
 
     /**

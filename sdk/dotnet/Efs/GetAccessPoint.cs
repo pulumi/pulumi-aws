@@ -129,20 +129,20 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
-        public readonly string FileSystemArn;
+        public readonly string? FileSystemArn;
         /// <summary>
         /// ID of the file system for which the access point is intended.
         /// </summary>
-        public readonly string FileSystemId;
+        public readonly string? FileSystemId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string OwnerId;
+        public readonly string? Id;
+        public readonly string? OwnerId;
         /// <summary>
         /// Single element list containing operating system user and group applied to all file system requests made using the access point.
         /// </summary>
@@ -160,15 +160,15 @@ namespace Pulumi.Aws.Efs
         private GetAccessPointResult(
             string accessPointId,
 
-            string arn,
+            string? arn,
 
-            string fileSystemArn,
+            string? fileSystemArn,
 
-            string fileSystemId,
+            string? fileSystemId,
 
-            string id,
+            string? id,
 
-            string ownerId,
+            string? ownerId,
 
             ImmutableArray<Outputs.GetAccessPointPosixUserResult> posixUsers,
 

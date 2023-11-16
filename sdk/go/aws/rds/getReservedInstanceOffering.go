@@ -69,18 +69,18 @@ type GetReservedInstanceOfferingArgs struct {
 // A collection of values returned by getReservedInstanceOffering.
 type GetReservedInstanceOfferingResult struct {
 	// Currency code for the reserved DB instance.
-	CurrencyCode    string `pulumi:"currencyCode"`
-	DbInstanceClass string `pulumi:"dbInstanceClass"`
-	Duration        int    `pulumi:"duration"`
+	CurrencyCode    *string `pulumi:"currencyCode"`
+	DbInstanceClass string  `pulumi:"dbInstanceClass"`
+	Duration        int     `pulumi:"duration"`
 	// Fixed price charged for this reserved DB instance.
-	FixedPrice float64 `pulumi:"fixedPrice"`
+	FixedPrice *float64 `pulumi:"fixedPrice"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string `pulumi:"id"`
-	MultiAz bool   `pulumi:"multiAz"`
+	Id      *string `pulumi:"id"`
+	MultiAz bool    `pulumi:"multiAz"`
 	// Unique identifier for the reservation.
-	OfferingId         string `pulumi:"offeringId"`
-	OfferingType       string `pulumi:"offeringType"`
-	ProductDescription string `pulumi:"productDescription"`
+	OfferingId         *string `pulumi:"offeringId"`
+	OfferingType       string  `pulumi:"offeringType"`
+	ProductDescription string  `pulumi:"productDescription"`
 }
 
 func GetReservedInstanceOfferingOutput(ctx *pulumi.Context, args GetReservedInstanceOfferingOutputArgs, opts ...pulumi.InvokeOption) GetReservedInstanceOfferingResultOutput {
@@ -130,8 +130,8 @@ func (o GetReservedInstanceOfferingResultOutput) ToGetReservedInstanceOfferingRe
 }
 
 // Currency code for the reserved DB instance.
-func (o GetReservedInstanceOfferingResultOutput) CurrencyCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReservedInstanceOfferingResult) string { return v.CurrencyCode }).(pulumi.StringOutput)
+func (o GetReservedInstanceOfferingResultOutput) CurrencyCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReservedInstanceOfferingResult) *string { return v.CurrencyCode }).(pulumi.StringPtrOutput)
 }
 
 func (o GetReservedInstanceOfferingResultOutput) DbInstanceClass() pulumi.StringOutput {
@@ -143,13 +143,13 @@ func (o GetReservedInstanceOfferingResultOutput) Duration() pulumi.IntOutput {
 }
 
 // Fixed price charged for this reserved DB instance.
-func (o GetReservedInstanceOfferingResultOutput) FixedPrice() pulumi.Float64Output {
-	return o.ApplyT(func(v GetReservedInstanceOfferingResult) float64 { return v.FixedPrice }).(pulumi.Float64Output)
+func (o GetReservedInstanceOfferingResultOutput) FixedPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetReservedInstanceOfferingResult) *float64 { return v.FixedPrice }).(pulumi.Float64PtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetReservedInstanceOfferingResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReservedInstanceOfferingResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetReservedInstanceOfferingResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReservedInstanceOfferingResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetReservedInstanceOfferingResultOutput) MultiAz() pulumi.BoolOutput {
@@ -157,8 +157,8 @@ func (o GetReservedInstanceOfferingResultOutput) MultiAz() pulumi.BoolOutput {
 }
 
 // Unique identifier for the reservation.
-func (o GetReservedInstanceOfferingResultOutput) OfferingId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReservedInstanceOfferingResult) string { return v.OfferingId }).(pulumi.StringOutput)
+func (o GetReservedInstanceOfferingResultOutput) OfferingId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReservedInstanceOfferingResult) *string { return v.OfferingId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetReservedInstanceOfferingResultOutput) OfferingType() pulumi.StringOutput {

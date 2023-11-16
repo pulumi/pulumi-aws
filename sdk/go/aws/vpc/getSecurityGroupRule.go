@@ -59,32 +59,32 @@ type GetSecurityGroupRuleArgs struct {
 // A collection of values returned by getSecurityGroupRule.
 type GetSecurityGroupRuleResult struct {
 	// The Amazon Resource Name (ARN) of the security group rule.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The destination IPv4 CIDR range.
-	CidrIpv4 string `pulumi:"cidrIpv4"`
+	CidrIpv4 *string `pulumi:"cidrIpv4"`
 	// The destination IPv6 CIDR range.
-	CidrIpv6 string `pulumi:"cidrIpv6"`
+	CidrIpv6 *string `pulumi:"cidrIpv6"`
 	// The security group rule description.
-	Description string                       `pulumi:"description"`
+	Description *string                      `pulumi:"description"`
 	Filters     []GetSecurityGroupRuleFilter `pulumi:"filters"`
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-	FromPort int    `pulumi:"fromPort"`
-	Id       string `pulumi:"id"`
+	FromPort *int    `pulumi:"fromPort"`
+	Id       *string `pulumi:"id"`
 	// The IP protocol name or number. Use `-1` to specify all protocols.
-	IpProtocol string `pulumi:"ipProtocol"`
+	IpProtocol *string `pulumi:"ipProtocol"`
 	// Indicates whether the security group rule is an outbound rule.
-	IsEgress bool `pulumi:"isEgress"`
+	IsEgress *bool `pulumi:"isEgress"`
 	// The ID of the destination prefix list.
-	PrefixListId string `pulumi:"prefixListId"`
+	PrefixListId *string `pulumi:"prefixListId"`
 	// The destination security group that is referenced in the rule.
-	ReferencedSecurityGroupId string `pulumi:"referencedSecurityGroupId"`
+	ReferencedSecurityGroupId *string `pulumi:"referencedSecurityGroupId"`
 	// The ID of the security group.
-	SecurityGroupId     string `pulumi:"securityGroupId"`
-	SecurityGroupRuleId string `pulumi:"securityGroupRuleId"`
+	SecurityGroupId     *string `pulumi:"securityGroupId"`
+	SecurityGroupRuleId *string `pulumi:"securityGroupRuleId"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-	ToPort int `pulumi:"toPort"`
+	ToPort *int `pulumi:"toPort"`
 }
 
 func GetSecurityGroupRuleOutput(ctx *pulumi.Context, args GetSecurityGroupRuleOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupRuleResultOutput {
@@ -128,23 +128,23 @@ func (o GetSecurityGroupRuleResultOutput) ToGetSecurityGroupRuleResultOutputWith
 }
 
 // The Amazon Resource Name (ARN) of the security group rule.
-func (o GetSecurityGroupRuleResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The destination IPv4 CIDR range.
-func (o GetSecurityGroupRuleResultOutput) CidrIpv4() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.CidrIpv4 }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) CidrIpv4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.CidrIpv4 }).(pulumi.StringPtrOutput)
 }
 
 // The destination IPv6 CIDR range.
-func (o GetSecurityGroupRuleResultOutput) CidrIpv6() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.CidrIpv6 }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) CidrIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
 }
 
 // The security group rule description.
-func (o GetSecurityGroupRuleResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSecurityGroupRuleResultOutput) Filters() GetSecurityGroupRuleFilterArrayOutput {
@@ -152,41 +152,41 @@ func (o GetSecurityGroupRuleResultOutput) Filters() GetSecurityGroupRuleFilterAr
 }
 
 // The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-func (o GetSecurityGroupRuleResultOutput) FromPort() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) int { return v.FromPort }).(pulumi.IntOutput)
+func (o GetSecurityGroupRuleResultOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *int { return v.FromPort }).(pulumi.IntPtrOutput)
 }
 
-func (o GetSecurityGroupRuleResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The IP protocol name or number. Use `-1` to specify all protocols.
-func (o GetSecurityGroupRuleResultOutput) IpProtocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.IpProtocol }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) IpProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.IpProtocol }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the security group rule is an outbound rule.
-func (o GetSecurityGroupRuleResultOutput) IsEgress() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) bool { return v.IsEgress }).(pulumi.BoolOutput)
+func (o GetSecurityGroupRuleResultOutput) IsEgress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *bool { return v.IsEgress }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the destination prefix list.
-func (o GetSecurityGroupRuleResultOutput) PrefixListId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.PrefixListId }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) PrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.PrefixListId }).(pulumi.StringPtrOutput)
 }
 
 // The destination security group that is referenced in the rule.
-func (o GetSecurityGroupRuleResultOutput) ReferencedSecurityGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.ReferencedSecurityGroupId }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) ReferencedSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.ReferencedSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the security group.
-func (o GetSecurityGroupRuleResultOutput) SecurityGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.SecurityGroupId }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.SecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSecurityGroupRuleResultOutput) SecurityGroupRuleId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.SecurityGroupRuleId }).(pulumi.StringOutput)
+func (o GetSecurityGroupRuleResultOutput) SecurityGroupRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *string { return v.SecurityGroupRuleId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags assigned to the resource.
@@ -195,8 +195,8 @@ func (o GetSecurityGroupRuleResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-func (o GetSecurityGroupRuleResultOutput) ToPort() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSecurityGroupRuleResult) int { return v.ToPort }).(pulumi.IntOutput)
+func (o GetSecurityGroupRuleResultOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) *int { return v.ToPort }).(pulumi.IntPtrOutput)
 }
 
 func init() {

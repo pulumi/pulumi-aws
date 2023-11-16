@@ -58,33 +58,33 @@ type RegisteredDomain struct {
 	pulumi.CustomResourceState
 
 	// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
-	AbuseContactEmail pulumi.StringOutput `pulumi:"abuseContactEmail"`
+	AbuseContactEmail pulumi.StringPtrOutput `pulumi:"abuseContactEmail"`
 	// Phone number for reporting abuse.
-	AbuseContactPhone pulumi.StringOutput `pulumi:"abuseContactPhone"`
+	AbuseContactPhone pulumi.StringPtrOutput `pulumi:"abuseContactPhone"`
 	// Details about the domain administrative contact.
-	AdminContact RegisteredDomainAdminContactOutput `pulumi:"adminContact"`
+	AdminContact RegisteredDomainAdminContactPtrOutput `pulumi:"adminContact"`
 	// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
 	AdminPrivacy pulumi.BoolPtrOutput `pulumi:"adminPrivacy"`
 	// Whether the domain registration is set to renew automatically. Default: `true`.
 	AutoRenew pulumi.BoolPtrOutput `pulumi:"autoRenew"`
 	// The date when the domain was created as found in the response to a WHOIS query.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// The name of the registered domain.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The date when the registration for the domain is set to expire.
-	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
+	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
 	// The list of nameservers for the domain.
 	NameServers RegisteredDomainNameServerArrayOutput `pulumi:"nameServers"`
 	// Details about the domain registrant.
-	RegistrantContact RegisteredDomainRegistrantContactOutput `pulumi:"registrantContact"`
+	RegistrantContact RegisteredDomainRegistrantContactPtrOutput `pulumi:"registrantContact"`
 	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
 	RegistrantPrivacy pulumi.BoolPtrOutput `pulumi:"registrantPrivacy"`
 	// Name of the registrar of the domain as identified in the registry.
-	RegistrarName pulumi.StringOutput `pulumi:"registrarName"`
+	RegistrarName pulumi.StringPtrOutput `pulumi:"registrarName"`
 	// Web address of the registrar.
-	RegistrarUrl pulumi.StringOutput `pulumi:"registrarUrl"`
+	RegistrarUrl pulumi.StringPtrOutput `pulumi:"registrarUrl"`
 	// Reseller of the domain.
-	Reseller pulumi.StringOutput `pulumi:"reseller"`
+	Reseller pulumi.StringPtrOutput `pulumi:"reseller"`
 	// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
 	StatusLists pulumi.StringArrayOutput `pulumi:"statusLists"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -94,15 +94,15 @@ type RegisteredDomain struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Details about the domain technical contact.
-	TechContact RegisteredDomainTechContactOutput `pulumi:"techContact"`
+	TechContact RegisteredDomainTechContactPtrOutput `pulumi:"techContact"`
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 	TechPrivacy pulumi.BoolPtrOutput `pulumi:"techPrivacy"`
 	// Whether the domain is locked for transfer. Default: `true`.
 	TransferLock pulumi.BoolPtrOutput `pulumi:"transferLock"`
 	// The last updated date of the domain as found in the response to a WHOIS query.
-	UpdatedDate pulumi.StringOutput `pulumi:"updatedDate"`
+	UpdatedDate pulumi.StringPtrOutput `pulumi:"updatedDate"`
 	// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-	WhoisServer pulumi.StringOutput `pulumi:"whoisServer"`
+	WhoisServer pulumi.StringPtrOutput `pulumi:"whoisServer"`
 }
 
 // NewRegisteredDomain registers a new resource with the given unique name, arguments, and options.
@@ -382,18 +382,18 @@ func (o RegisteredDomainOutput) ToRegisteredDomainOutputWithContext(ctx context.
 }
 
 // Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
-func (o RegisteredDomainOutput) AbuseContactEmail() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.AbuseContactEmail }).(pulumi.StringOutput)
+func (o RegisteredDomainOutput) AbuseContactEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringPtrOutput { return v.AbuseContactEmail }).(pulumi.StringPtrOutput)
 }
 
 // Phone number for reporting abuse.
-func (o RegisteredDomainOutput) AbuseContactPhone() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.AbuseContactPhone }).(pulumi.StringOutput)
+func (o RegisteredDomainOutput) AbuseContactPhone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringPtrOutput { return v.AbuseContactPhone }).(pulumi.StringPtrOutput)
 }
 
 // Details about the domain administrative contact.
-func (o RegisteredDomainOutput) AdminContact() RegisteredDomainAdminContactOutput {
-	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainAdminContactOutput { return v.AdminContact }).(RegisteredDomainAdminContactOutput)
+func (o RegisteredDomainOutput) AdminContact() RegisteredDomainAdminContactPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainAdminContactPtrOutput { return v.AdminContact }).(RegisteredDomainAdminContactPtrOutput)
 }
 
 // Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
@@ -407,8 +407,8 @@ func (o RegisteredDomainOutput) AutoRenew() pulumi.BoolPtrOutput {
 }
 
 // The date when the domain was created as found in the response to a WHOIS query.
-func (o RegisteredDomainOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o RegisteredDomainOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // The name of the registered domain.
@@ -417,8 +417,8 @@ func (o RegisteredDomainOutput) DomainName() pulumi.StringOutput {
 }
 
 // The date when the registration for the domain is set to expire.
-func (o RegisteredDomainOutput) ExpirationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
+func (o RegisteredDomainOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
 // The list of nameservers for the domain.
@@ -427,8 +427,8 @@ func (o RegisteredDomainOutput) NameServers() RegisteredDomainNameServerArrayOut
 }
 
 // Details about the domain registrant.
-func (o RegisteredDomainOutput) RegistrantContact() RegisteredDomainRegistrantContactOutput {
-	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainRegistrantContactOutput { return v.RegistrantContact }).(RegisteredDomainRegistrantContactOutput)
+func (o RegisteredDomainOutput) RegistrantContact() RegisteredDomainRegistrantContactPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainRegistrantContactPtrOutput { return v.RegistrantContact }).(RegisteredDomainRegistrantContactPtrOutput)
 }
 
 // Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
@@ -437,18 +437,18 @@ func (o RegisteredDomainOutput) RegistrantPrivacy() pulumi.BoolPtrOutput {
 }
 
 // Name of the registrar of the domain as identified in the registry.
-func (o RegisteredDomainOutput) RegistrarName() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.RegistrarName }).(pulumi.StringOutput)
+func (o RegisteredDomainOutput) RegistrarName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringPtrOutput { return v.RegistrarName }).(pulumi.StringPtrOutput)
 }
 
 // Web address of the registrar.
-func (o RegisteredDomainOutput) RegistrarUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.RegistrarUrl }).(pulumi.StringOutput)
+func (o RegisteredDomainOutput) RegistrarUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringPtrOutput { return v.RegistrarUrl }).(pulumi.StringPtrOutput)
 }
 
 // Reseller of the domain.
-func (o RegisteredDomainOutput) Reseller() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.Reseller }).(pulumi.StringOutput)
+func (o RegisteredDomainOutput) Reseller() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringPtrOutput { return v.Reseller }).(pulumi.StringPtrOutput)
 }
 
 // List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
@@ -469,8 +469,8 @@ func (o RegisteredDomainOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Details about the domain technical contact.
-func (o RegisteredDomainOutput) TechContact() RegisteredDomainTechContactOutput {
-	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainTechContactOutput { return v.TechContact }).(RegisteredDomainTechContactOutput)
+func (o RegisteredDomainOutput) TechContact() RegisteredDomainTechContactPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainTechContactPtrOutput { return v.TechContact }).(RegisteredDomainTechContactPtrOutput)
 }
 
 // Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
@@ -484,13 +484,13 @@ func (o RegisteredDomainOutput) TransferLock() pulumi.BoolPtrOutput {
 }
 
 // The last updated date of the domain as found in the response to a WHOIS query.
-func (o RegisteredDomainOutput) UpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.UpdatedDate }).(pulumi.StringOutput)
+func (o RegisteredDomainOutput) UpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringPtrOutput { return v.UpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-func (o RegisteredDomainOutput) WhoisServer() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.WhoisServer }).(pulumi.StringOutput)
+func (o RegisteredDomainOutput) WhoisServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringPtrOutput { return v.WhoisServer }).(pulumi.StringPtrOutput)
 }
 
 type RegisteredDomainArrayOutput struct{ *pulumi.OutputState }

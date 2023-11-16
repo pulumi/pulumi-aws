@@ -91,7 +91,7 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
     /**
      * ARN of the traffic mirror filter rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the traffic mirror filter rule.
      */

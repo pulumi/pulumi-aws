@@ -76,14 +76,14 @@ public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the custom routing endpoint group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
@@ -118,14 +118,14 @@ public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="endpointGroupRegion", refs={String.class}, tree="[0]")
-    private Output<String> endpointGroupRegion;
+    private Output</* @Nullable */ String> endpointGroupRegion;
 
     /**
      * @return The name of the AWS Region where the custom routing endpoint group is located.
      * 
      */
-    public Output<String> endpointGroupRegion() {
-        return this.endpointGroupRegion;
+    public Output<Optional<String>> endpointGroupRegion() {
+        return Codegen.optional(this.endpointGroupRegion);
     }
     /**
      * The Amazon Resource Name (ARN) of the custom routing listener.

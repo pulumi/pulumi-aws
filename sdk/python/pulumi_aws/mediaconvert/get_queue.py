@@ -40,7 +40,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Arn of the queue.
         """
@@ -53,7 +53,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The same as `id`.
         """
@@ -61,7 +61,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The status of the queue.
         """
@@ -69,7 +69,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

@@ -6,18 +6,20 @@ package com.pulumi.aws.auditmanager.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetControlControlMappingSourceSourceKeyword {
-    private String keywordInputType;
-    private String keywordValue;
+    private @Nullable String keywordInputType;
+    private @Nullable String keywordValue;
 
     private GetControlControlMappingSourceSourceKeyword() {}
-    public String keywordInputType() {
-        return this.keywordInputType;
+    public Optional<String> keywordInputType() {
+        return Optional.ofNullable(this.keywordInputType);
     }
-    public String keywordValue() {
-        return this.keywordValue;
+    public Optional<String> keywordValue() {
+        return Optional.ofNullable(this.keywordValue);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetControlControlMappingSourceSourceKeyword {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String keywordInputType;
-        private String keywordValue;
+        private @Nullable String keywordInputType;
+        private @Nullable String keywordValue;
         public Builder() {}
         public Builder(GetControlControlMappingSourceSourceKeyword defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetControlControlMappingSourceSourceKeyword {
         }
 
         @CustomType.Setter
-        public Builder keywordInputType(String keywordInputType) {
-            this.keywordInputType = Objects.requireNonNull(keywordInputType);
+        public Builder keywordInputType(@Nullable String keywordInputType) {
+            this.keywordInputType = keywordInputType;
             return this;
         }
         @CustomType.Setter
-        public Builder keywordValue(String keywordValue) {
-            this.keywordValue = Objects.requireNonNull(keywordValue);
+        public Builder keywordValue(@Nullable String keywordValue) {
+            this.keywordValue = keywordValue;
             return this;
         }
         public GetControlControlMappingSourceSourceKeyword build() {

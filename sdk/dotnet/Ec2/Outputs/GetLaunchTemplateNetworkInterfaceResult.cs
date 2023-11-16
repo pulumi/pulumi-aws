@@ -13,65 +13,65 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateNetworkInterfaceResult
     {
-        public readonly string AssociateCarrierIpAddress;
+        public readonly string? AssociateCarrierIpAddress;
         public readonly bool? AssociatePublicIpAddress;
         public readonly bool? DeleteOnTermination;
-        public readonly string Description;
-        public readonly int DeviceIndex;
-        public readonly string InterfaceType;
-        public readonly int Ipv4AddressCount;
+        public readonly string? Description;
+        public readonly int? DeviceIndex;
+        public readonly string? InterfaceType;
+        public readonly int? Ipv4AddressCount;
         public readonly ImmutableArray<string> Ipv4Addresses;
-        public readonly int Ipv4PrefixCount;
+        public readonly int? Ipv4PrefixCount;
         public readonly ImmutableArray<string> Ipv4Prefixes;
-        public readonly int Ipv6AddressCount;
+        public readonly int? Ipv6AddressCount;
         public readonly ImmutableArray<string> Ipv6Addresses;
-        public readonly int Ipv6PrefixCount;
+        public readonly int? Ipv6PrefixCount;
         public readonly ImmutableArray<string> Ipv6Prefixes;
-        public readonly int NetworkCardIndex;
-        public readonly string NetworkInterfaceId;
-        public readonly string PrivateIpAddress;
+        public readonly int? NetworkCardIndex;
+        public readonly string? NetworkInterfaceId;
+        public readonly string? PrivateIpAddress;
         public readonly ImmutableArray<string> SecurityGroups;
-        public readonly string SubnetId;
+        public readonly string? SubnetId;
 
         [OutputConstructor]
         private GetLaunchTemplateNetworkInterfaceResult(
-            string associateCarrierIpAddress,
+            string? associateCarrierIpAddress,
 
             bool? associatePublicIpAddress,
 
             bool? deleteOnTermination,
 
-            string description,
+            string? description,
 
-            int deviceIndex,
+            int? deviceIndex,
 
-            string interfaceType,
+            string? interfaceType,
 
-            int ipv4AddressCount,
+            int? ipv4AddressCount,
 
             ImmutableArray<string> ipv4Addresses,
 
-            int ipv4PrefixCount,
+            int? ipv4PrefixCount,
 
             ImmutableArray<string> ipv4Prefixes,
 
-            int ipv6AddressCount,
+            int? ipv6AddressCount,
 
             ImmutableArray<string> ipv6Addresses,
 
-            int ipv6PrefixCount,
+            int? ipv6PrefixCount,
 
             ImmutableArray<string> ipv6Prefixes,
 
-            int networkCardIndex,
+            int? networkCardIndex,
 
-            string networkInterfaceId,
+            string? networkInterfaceId,
 
-            string privateIpAddress,
+            string? privateIpAddress,
 
             ImmutableArray<string> securityGroups,
 
-            string subnetId)
+            string? subnetId)
         {
             AssociateCarrierIpAddress = associateCarrierIpAddress;
             AssociatePublicIpAddress = associatePublicIpAddress;

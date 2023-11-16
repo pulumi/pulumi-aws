@@ -62,7 +62,7 @@ type LookupNetworkInsightsAnalysisResult struct {
 	// Potential intermediate components of a feasible path.
 	AlternatePathHints []GetNetworkInsightsAnalysisAlternatePathHint `pulumi:"alternatePathHints"`
 	// ARN of the selected Network Insights Analysis.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Explanation codes for an unreachable path.
 	Explanations []GetNetworkInsightsAnalysisExplanation `pulumi:"explanations"`
 	// ARNs of the AWS resources that the path must traverse.
@@ -71,23 +71,23 @@ type LookupNetworkInsightsAnalysisResult struct {
 	// The components in the path from source to destination.
 	ForwardPathComponents []GetNetworkInsightsAnalysisForwardPathComponent `pulumi:"forwardPathComponents"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                        string `pulumi:"id"`
-	NetworkInsightsAnalysisId string `pulumi:"networkInsightsAnalysisId"`
+	Id                        *string `pulumi:"id"`
+	NetworkInsightsAnalysisId *string `pulumi:"networkInsightsAnalysisId"`
 	// The ID of the path.
-	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
+	NetworkInsightsPathId *string `pulumi:"networkInsightsPathId"`
 	// Set to `true` if the destination was reachable.
-	PathFound bool `pulumi:"pathFound"`
+	PathFound *bool `pulumi:"pathFound"`
 	// The components in the path from destination to source.
 	ReturnPathComponents []GetNetworkInsightsAnalysisReturnPathComponent `pulumi:"returnPathComponents"`
 	// Date/time the analysis was started.
-	StartDate string `pulumi:"startDate"`
+	StartDate *string `pulumi:"startDate"`
 	// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Message to provide more context when the `status` is `failed`.
-	StatusMessage string            `pulumi:"statusMessage"`
+	StatusMessage *string           `pulumi:"statusMessage"`
 	Tags          map[string]string `pulumi:"tags"`
 	// Warning message.
-	WarningMessage string `pulumi:"warningMessage"`
+	WarningMessage *string `pulumi:"warningMessage"`
 }
 
 func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetworkInsightsAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAnalysisResultOutput {
@@ -139,8 +139,8 @@ func (o LookupNetworkInsightsAnalysisResultOutput) AlternatePathHints() GetNetwo
 }
 
 // ARN of the selected Network Insights Analysis.
-func (o LookupNetworkInsightsAnalysisResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Explanation codes for an unreachable path.
@@ -167,22 +167,22 @@ func (o LookupNetworkInsightsAnalysisResultOutput) ForwardPathComponents() GetNe
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupNetworkInsightsAnalysisResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupNetworkInsightsAnalysisResultOutput) NetworkInsightsAnalysisId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.NetworkInsightsAnalysisId }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) NetworkInsightsAnalysisId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *string { return v.NetworkInsightsAnalysisId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the path.
-func (o LookupNetworkInsightsAnalysisResultOutput) NetworkInsightsPathId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) NetworkInsightsPathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *string { return v.NetworkInsightsPathId }).(pulumi.StringPtrOutput)
 }
 
 // Set to `true` if the destination was reachable.
-func (o LookupNetworkInsightsAnalysisResultOutput) PathFound() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) bool { return v.PathFound }).(pulumi.BoolOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) PathFound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *bool { return v.PathFound }).(pulumi.BoolPtrOutput)
 }
 
 // The components in the path from destination to source.
@@ -193,18 +193,18 @@ func (o LookupNetworkInsightsAnalysisResultOutput) ReturnPathComponents() GetNet
 }
 
 // Date/time the analysis was started.
-func (o LookupNetworkInsightsAnalysisResultOutput) StartDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.StartDate }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *string { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
 // Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-func (o LookupNetworkInsightsAnalysisResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Message to provide more context when the `status` is `failed`.
-func (o LookupNetworkInsightsAnalysisResultOutput) StatusMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.StatusMessage }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNetworkInsightsAnalysisResultOutput) Tags() pulumi.StringMapOutput {
@@ -212,8 +212,8 @@ func (o LookupNetworkInsightsAnalysisResultOutput) Tags() pulumi.StringMapOutput
 }
 
 // Warning message.
-func (o LookupNetworkInsightsAnalysisResultOutput) WarningMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.WarningMessage }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) WarningMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *string { return v.WarningMessage }).(pulumi.StringPtrOutput)
 }
 
 func init() {

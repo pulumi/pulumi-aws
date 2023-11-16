@@ -63,7 +63,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the Recording Configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Object containing destination configuration for where recorded video will be stored.
      */
@@ -75,11 +75,11 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
      */
-    public readonly recordingReconnectWindowSeconds!: pulumi.Output<number>;
+    public readonly recordingReconnectWindowSeconds!: pulumi.Output<number | undefined>;
     /**
      * The current state of the Recording Configuration.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -93,7 +93,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
      */
-    public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration>;
+    public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration | undefined>;
 
     /**
      * Create a RecordingConfiguration resource with the given unique name, arguments, and options.

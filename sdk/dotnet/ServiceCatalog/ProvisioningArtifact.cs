@@ -66,13 +66,13 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Time when the provisioning artifact was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Provisioning artifact identifier.
         /// </summary>
         [Output("provisioningArtifactId")]
-        public Output<string> ProvisioningArtifactId { get; private set; } = null!;
+        public Output<string?> ProvisioningArtifactId { get; private set; } = null!;
 
         /// <summary>
         /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.

@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Dms
         /// The Amazon Resource Name (ARN) for the certificate.
         /// </summary>
         [Output("certificateArn")]
-        public Output<string> CertificateArn { get; private set; } = null!;
+        public Output<string?> CertificateArn { get; private set; } = null!;
 
         /// <summary>
         /// The certificate identifier.

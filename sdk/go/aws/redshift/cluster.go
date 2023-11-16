@@ -99,55 +99,55 @@ type Cluster struct {
 	// Always returns `auto`.
 	//
 	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
-	AquaConfigurationStatus pulumi.StringOutput `pulumi:"aquaConfigurationStatus"`
+	AquaConfigurationStatus pulumi.StringPtrOutput `pulumi:"aquaConfigurationStatus"`
 	// Amazon Resource Name (ARN) of cluster
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"automatedSnapshotRetentionPeriod"`
 	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
 	AvailabilityZoneRelocationEnabled pulumi.BoolPtrOutput `pulumi:"availabilityZoneRelocationEnabled"`
 	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The namespace Amazon Resource Name (ARN) of the cluster
-	ClusterNamespaceArn pulumi.StringOutput `pulumi:"clusterNamespaceArn"`
+	ClusterNamespaceArn pulumi.StringPtrOutput `pulumi:"clusterNamespaceArn"`
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes ClusterClusterNodeArrayOutput `pulumi:"clusterNodes"`
 	// The name of the parameter group to be associated with this cluster.
-	ClusterParameterGroupName pulumi.StringOutput `pulumi:"clusterParameterGroupName"`
+	ClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"clusterParameterGroupName"`
 	// The public key for the cluster
-	ClusterPublicKey pulumi.StringOutput `pulumi:"clusterPublicKey"`
+	ClusterPublicKey pulumi.StringPtrOutput `pulumi:"clusterPublicKey"`
 	// The specific revision number of the database in the cluster
-	ClusterRevisionNumber pulumi.StringOutput `pulumi:"clusterRevisionNumber"`
+	ClusterRevisionNumber pulumi.StringPtrOutput `pulumi:"clusterRevisionNumber"`
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-	ClusterSubnetGroupName pulumi.StringOutput `pulumi:"clusterSubnetGroupName"`
+	ClusterSubnetGroupName pulumi.StringPtrOutput `pulumi:"clusterSubnetGroupName"`
 	// The cluster type to use. Either `single-node` or `multi-node`.
-	ClusterType pulumi.StringOutput `pulumi:"clusterType"`
+	ClusterType pulumi.StringPtrOutput `pulumi:"clusterType"`
 	// The version of the Amazon Redshift engine software that you want to deploy on the cluster.
 	// The version selected runs on all the nodes in the cluster.
 	ClusterVersion pulumi.StringPtrOutput `pulumi:"clusterVersion"`
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
 	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-	DefaultIamRoleArn pulumi.StringOutput `pulumi:"defaultIamRoleArn"`
+	DefaultIamRoleArn pulumi.StringPtrOutput `pulumi:"defaultIamRoleArn"`
 	// The DNS name of the cluster
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp pulumi.StringPtrOutput `pulumi:"elasticIp"`
 	// If true , the data in the cluster is encrypted at rest.
 	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// The connection endpoint
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// If true , enhanced VPC routing is enabled.
-	EnhancedVpcRouting pulumi.BoolOutput `pulumi:"enhancedVpcRouting"`
+	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
 	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	Logging ClusterLoggingPtrOutput `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -165,9 +165,9 @@ type Cluster struct {
 	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
 	// ARN of the cluster admin credentials secret
-	MasterPasswordSecretArn pulumi.StringOutput `pulumi:"masterPasswordSecretArn"`
+	MasterPasswordSecretArn pulumi.StringPtrOutput `pulumi:"masterPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
-	MasterPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"masterPasswordSecretKmsKeyId"`
+	MasterPasswordSecretKmsKeyId pulumi.StringPtrOutput `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
 	// The node type to be provisioned for the cluster.
@@ -183,7 +183,7 @@ type Cluster struct {
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
-	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// If true, the cluster can be accessed from a public network. Default is `true`.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
@@ -796,13 +796,13 @@ func (o ClusterOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 // Always returns `auto`.
 //
 // Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
-func (o ClusterOutput) AquaConfigurationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AquaConfigurationStatus }).(pulumi.StringOutput)
+func (o ClusterOutput) AquaConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.AquaConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of cluster
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
@@ -811,8 +811,8 @@ func (o ClusterOutput) AutomatedSnapshotRetentionPeriod() pulumi.IntPtrOutput {
 }
 
 // The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
-func (o ClusterOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o ClusterOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
@@ -826,8 +826,8 @@ func (o ClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 }
 
 // The namespace Amazon Resource Name (ARN) of the cluster
-func (o ClusterOutput) ClusterNamespaceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterNamespaceArn }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterNamespaceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterNamespaceArn }).(pulumi.StringPtrOutput)
 }
 
 // The nodes in the cluster. Cluster node blocks are documented below
@@ -836,28 +836,28 @@ func (o ClusterOutput) ClusterNodes() ClusterClusterNodeArrayOutput {
 }
 
 // The name of the parameter group to be associated with this cluster.
-func (o ClusterOutput) ClusterParameterGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterParameterGroupName }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The public key for the cluster
-func (o ClusterOutput) ClusterPublicKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterPublicKey }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterPublicKey }).(pulumi.StringPtrOutput)
 }
 
 // The specific revision number of the database in the cluster
-func (o ClusterOutput) ClusterRevisionNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterRevisionNumber }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterRevisionNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterRevisionNumber }).(pulumi.StringPtrOutput)
 }
 
 // The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-func (o ClusterOutput) ClusterSubnetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterSubnetGroupName }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The cluster type to use. Either `single-node` or `multi-node`.
-func (o ClusterOutput) ClusterType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterType }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterType }).(pulumi.StringPtrOutput)
 }
 
 // The version of the Amazon Redshift engine software that you want to deploy on the cluster.
@@ -868,18 +868,18 @@ func (o ClusterOutput) ClusterVersion() pulumi.StringPtrOutput {
 
 // The name of the first database to be created when the cluster is created.
 // If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-func (o ClusterOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+func (o ClusterOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-func (o ClusterOutput) DefaultIamRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
+func (o ClusterOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DefaultIamRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The DNS name of the cluster
-func (o ClusterOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+func (o ClusterOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // The Elastic IP (EIP) address for the cluster.
@@ -893,13 +893,13 @@ func (o ClusterOutput) Encrypted() pulumi.BoolPtrOutput {
 }
 
 // The connection endpoint
-func (o ClusterOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ClusterOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // If true , enhanced VPC routing is enabled.
-func (o ClusterOutput) EnhancedVpcRouting() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.EnhancedVpcRouting }).(pulumi.BoolOutput)
+func (o ClusterOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
 }
 
 // The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
@@ -913,8 +913,8 @@ func (o ClusterOutput) IamRoles() pulumi.StringArrayOutput {
 }
 
 // The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
-func (o ClusterOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o ClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Logging, documented below.
@@ -949,13 +949,13 @@ func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 }
 
 // ARN of the cluster admin credentials secret
-func (o ClusterOutput) MasterPasswordSecretArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPasswordSecretArn }).(pulumi.StringOutput)
+func (o ClusterOutput) MasterPasswordSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPasswordSecretArn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the KMS key used to encrypt the cluster admin credentials secret.
-func (o ClusterOutput) MasterPasswordSecretKmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPasswordSecretKmsKeyId }).(pulumi.StringOutput)
+func (o ClusterOutput) MasterPasswordSecretKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPasswordSecretKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Username for the master DB user.
@@ -988,8 +988,8 @@ func (o ClusterOutput) Port() pulumi.IntPtrOutput {
 
 // The weekly time range (in UTC) during which automated cluster maintenance can occur.
 // Format: ddd:hh24:mi-ddd:hh24:mi
-func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // If true, the cluster can be accessed from a public network. Default is `true`.

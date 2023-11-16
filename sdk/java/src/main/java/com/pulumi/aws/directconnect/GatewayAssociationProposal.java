@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -75,14 +76,14 @@ public class GatewayAssociationProposal extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="allowedPrefixes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> allowedPrefixes;
+    private Output</* @Nullable */ List<String>> allowedPrefixes;
 
     /**
      * @return VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
      */
-    public Output<List<String>> allowedPrefixes() {
-        return this.allowedPrefixes;
+    public Output<Optional<List<String>>> allowedPrefixes() {
+        return Codegen.optional(this.allowedPrefixes);
     }
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
@@ -103,28 +104,28 @@ public class GatewayAssociationProposal extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="associatedGatewayOwnerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> associatedGatewayOwnerAccountId;
+    private Output</* @Nullable */ String> associatedGatewayOwnerAccountId;
 
     /**
      * @return The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      * 
      */
-    public Output<String> associatedGatewayOwnerAccountId() {
-        return this.associatedGatewayOwnerAccountId;
+    public Output<Optional<String>> associatedGatewayOwnerAccountId() {
+        return Codegen.optional(this.associatedGatewayOwnerAccountId);
     }
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      * 
      */
     @Export(name="associatedGatewayType", refs={String.class}, tree="[0]")
-    private Output<String> associatedGatewayType;
+    private Output</* @Nullable */ String> associatedGatewayType;
 
     /**
      * @return The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      * 
      */
-    public Output<String> associatedGatewayType() {
-        return this.associatedGatewayType;
+    public Output<Optional<String>> associatedGatewayType() {
+        return Codegen.optional(this.associatedGatewayType);
     }
     /**
      * Direct Connect Gateway identifier.

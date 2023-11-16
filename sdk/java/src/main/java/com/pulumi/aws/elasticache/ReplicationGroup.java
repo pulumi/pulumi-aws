@@ -294,42 +294,42 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * ARN of the created ElastiCache Replication Group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the created ElastiCache Replication Group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Whether to enable encryption at rest.
      * 
      */
     @Export(name="atRestEncryptionEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> atRestEncryptionEnabled;
+    private Output</* @Nullable */ Boolean> atRestEncryptionEnabled;
 
     /**
      * @return Whether to enable encryption at rest.
      * 
      */
-    public Output<Boolean> atRestEncryptionEnabled() {
-        return this.atRestEncryptionEnabled;
+    public Output<Optional<Boolean>> atRestEncryptionEnabled() {
+        return Codegen.optional(this.atRestEncryptionEnabled);
     }
     /**
      * Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -352,7 +352,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> autoMinorVersionUpgrade;
+    private Output</* @Nullable */ Boolean> autoMinorVersionUpgrade;
 
     /**
      * @return Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -360,8 +360,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * Defaults to `true`.
      * 
      */
-    public Output<Boolean> autoMinorVersionUpgrade() {
-        return this.autoMinorVersionUpgrade;
+    public Output<Optional<Boolean>> autoMinorVersionUpgrade() {
+        return Codegen.optional(this.autoMinorVersionUpgrade);
     }
     /**
      * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
@@ -382,56 +382,56 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clusterEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> clusterEnabled;
+    private Output</* @Nullable */ Boolean> clusterEnabled;
 
     /**
      * @return Indicates if cluster mode is enabled.
      * 
      */
-    public Output<Boolean> clusterEnabled() {
-        return this.clusterEnabled;
+    public Output<Optional<Boolean>> clusterEnabled() {
+        return Codegen.optional(this.clusterEnabled);
     }
     /**
      * Address of the replication group configuration endpoint when cluster mode is enabled.
      * 
      */
     @Export(name="configurationEndpointAddress", refs={String.class}, tree="[0]")
-    private Output<String> configurationEndpointAddress;
+    private Output</* @Nullable */ String> configurationEndpointAddress;
 
     /**
      * @return Address of the replication group configuration endpoint when cluster mode is enabled.
      * 
      */
-    public Output<String> configurationEndpointAddress() {
-        return this.configurationEndpointAddress;
+    public Output<Optional<String>> configurationEndpointAddress() {
+        return Codegen.optional(this.configurationEndpointAddress);
     }
     /**
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      * 
      */
     @Export(name="dataTieringEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> dataTieringEnabled;
+    private Output</* @Nullable */ Boolean> dataTieringEnabled;
 
     /**
      * @return Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      * 
      */
-    public Output<Boolean> dataTieringEnabled() {
-        return this.dataTieringEnabled;
+    public Output<Optional<Boolean>> dataTieringEnabled() {
+        return Codegen.optional(this.dataTieringEnabled);
     }
     /**
      * User-created description for the replication group. Must not be empty.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return User-created description for the replication group. Must not be empty.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
@@ -457,7 +457,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Version number of the cache engine to be used for the cache clusters in this replication group.
@@ -468,22 +468,22 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      * 
      */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
-    private Output<String> engineVersionActual;
+    private Output</* @Nullable */ String> engineVersionActual;
 
     /**
      * @return Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      * 
      */
-    public Output<String> engineVersionActual() {
-        return this.engineVersionActual;
+    public Output<Optional<String>> engineVersionActual() {
+        return Codegen.optional(this.engineVersionActual);
     }
     /**
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
@@ -504,28 +504,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="globalReplicationGroupId", refs={String.class}, tree="[0]")
-    private Output<String> globalReplicationGroupId;
+    private Output</* @Nullable */ String> globalReplicationGroupId;
 
     /**
      * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
      * 
      */
-    public Output<String> globalReplicationGroupId() {
-        return this.globalReplicationGroupId;
+    public Output<Optional<String>> globalReplicationGroupId() {
+        return Codegen.optional(this.globalReplicationGroupId);
     }
     /**
      * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      * 
      */
     @Export(name="ipDiscovery", refs={String.class}, tree="[0]")
-    private Output<String> ipDiscovery;
+    private Output</* @Nullable */ String> ipDiscovery;
 
     /**
      * @return The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      * 
      */
-    public Output<String> ipDiscovery() {
-        return this.ipDiscovery;
+    public Output<Optional<String>> ipDiscovery() {
+        return Codegen.optional(this.ipDiscovery);
     }
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
@@ -560,28 +560,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> maintenanceWindow;
+    private Output</* @Nullable */ String> maintenanceWindow;
 
     /**
      * @return Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      * 
      */
-    public Output<String> maintenanceWindow() {
-        return this.maintenanceWindow;
+    public Output<Optional<String>> maintenanceWindow() {
+        return Codegen.optional(this.maintenanceWindow);
     }
     /**
      * Identifiers of all the nodes that are part of this replication group.
      * 
      */
     @Export(name="memberClusters", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> memberClusters;
+    private Output</* @Nullable */ List<String>> memberClusters;
 
     /**
      * @return Identifiers of all the nodes that are part of this replication group.
      * 
      */
-    public Output<List<String>> memberClusters() {
-        return this.memberClusters;
+    public Output<Optional<List<String>>> memberClusters() {
+        return Codegen.optional(this.memberClusters);
     }
     /**
      * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
@@ -602,28 +602,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
-    private Output<String> networkType;
+    private Output</* @Nullable */ String> networkType;
 
     /**
      * @return The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
      * 
      */
-    public Output<String> networkType() {
-        return this.networkType;
+    public Output<Optional<String>> networkType() {
+        return Codegen.optional(this.networkType);
     }
     /**
      * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
      * 
      */
     @Export(name="nodeType", refs={String.class}, tree="[0]")
-    private Output<String> nodeType;
+    private Output</* @Nullable */ String> nodeType;
 
     /**
      * @return Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
      * 
      */
-    public Output<String> nodeType() {
-        return this.nodeType;
+    public Output<Optional<String>> nodeType() {
+        return Codegen.optional(this.nodeType);
     }
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -644,14 +644,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="numCacheClusters", refs={Integer.class}, tree="[0]")
-    private Output<Integer> numCacheClusters;
+    private Output</* @Nullable */ Integer> numCacheClusters;
 
     /**
      * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
      * 
      */
-    public Output<Integer> numCacheClusters() {
-        return this.numCacheClusters;
+    public Output<Optional<Integer>> numCacheClusters() {
+        return Codegen.optional(this.numCacheClusters);
     }
     /**
      * Number of node groups (shards) for this Redis replication group.
@@ -659,29 +659,29 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="numNodeGroups", refs={Integer.class}, tree="[0]")
-    private Output<Integer> numNodeGroups;
+    private Output</* @Nullable */ Integer> numNodeGroups;
 
     /**
      * @return Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * 
      */
-    public Output<Integer> numNodeGroups() {
-        return this.numNodeGroups;
+    public Output<Optional<Integer>> numNodeGroups() {
+        return Codegen.optional(this.numNodeGroups);
     }
     /**
      * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable &#34;cluster mode&#34;, i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
-    private Output<String> parameterGroupName;
+    private Output</* @Nullable */ String> parameterGroupName;
 
     /**
      * @return Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable &#34;cluster mode&#34;, i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      * 
      */
-    public Output<String> parameterGroupName() {
-        return this.parameterGroupName;
+    public Output<Optional<String>> parameterGroupName() {
+        return Codegen.optional(this.parameterGroupName);
     }
     /**
      * Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
@@ -716,28 +716,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="primaryEndpointAddress", refs={String.class}, tree="[0]")
-    private Output<String> primaryEndpointAddress;
+    private Output</* @Nullable */ String> primaryEndpointAddress;
 
     /**
      * @return (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
      * 
      */
-    public Output<String> primaryEndpointAddress() {
-        return this.primaryEndpointAddress;
+    public Output<Optional<String>> primaryEndpointAddress() {
+        return Codegen.optional(this.primaryEndpointAddress);
     }
     /**
      * (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
      * 
      */
     @Export(name="readerEndpointAddress", refs={String.class}, tree="[0]")
-    private Output<String> readerEndpointAddress;
+    private Output</* @Nullable */ String> readerEndpointAddress;
 
     /**
      * @return (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
      * 
      */
-    public Output<String> readerEndpointAddress() {
-        return this.readerEndpointAddress;
+    public Output<Optional<String>> readerEndpointAddress() {
+        return Codegen.optional(this.readerEndpointAddress);
     }
     /**
      * Number of replica nodes in each node group.
@@ -746,7 +746,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="replicasPerNodeGroup", refs={Integer.class}, tree="[0]")
-    private Output<Integer> replicasPerNodeGroup;
+    private Output</* @Nullable */ Integer> replicasPerNodeGroup;
 
     /**
      * @return Number of replica nodes in each node group.
@@ -754,8 +754,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * Valid values are 0 to 5.
      * 
      */
-    public Output<Integer> replicasPerNodeGroup() {
-        return this.replicasPerNodeGroup;
+    public Output<Optional<Integer>> replicasPerNodeGroup() {
+        return Codegen.optional(this.replicasPerNodeGroup);
     }
     /**
      * Replication group identifier. This parameter is stored as a lowercase string.
@@ -780,28 +780,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupIds;
+    private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
      * @return IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
-    public Output<List<String>> securityGroupIds() {
-        return this.securityGroupIds;
+    public Output<Optional<List<String>>> securityGroupIds() {
+        return Codegen.optional(this.securityGroupIds);
     }
     /**
      * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
     @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupNames;
+    private Output</* @Nullable */ List<String>> securityGroupNames;
 
     /**
      * @return Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
-    public Output<List<String>> securityGroupNames() {
-        return this.securityGroupNames;
+    public Output<Optional<List<String>>> securityGroupNames() {
+        return Codegen.optional(this.securityGroupNames);
     }
     /**
      * List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
@@ -850,28 +850,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="snapshotWindow", refs={String.class}, tree="[0]")
-    private Output<String> snapshotWindow;
+    private Output</* @Nullable */ String> snapshotWindow;
 
     /**
      * @return Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
      * 
      */
-    public Output<String> snapshotWindow() {
-        return this.snapshotWindow;
+    public Output<Optional<String>> snapshotWindow() {
+        return Codegen.optional(this.snapshotWindow);
     }
     /**
      * Name of the cache subnet group to be used for the replication group.
      * 
      */
     @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> subnetGroupName;
+    private Output</* @Nullable */ String> subnetGroupName;
 
     /**
      * @return Name of the cache subnet group to be used for the replication group.
      * 
      */
-    public Output<String> subnetGroupName() {
-        return this.subnetGroupName;
+    public Output<Optional<String>> subnetGroupName() {
+        return Codegen.optional(this.subnetGroupName);
     }
     /**
      * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -910,14 +910,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> transitEncryptionEnabled;
+    private Output</* @Nullable */ Boolean> transitEncryptionEnabled;
 
     /**
      * @return Whether to enable encryption in transit.
      * 
      */
-    public Output<Boolean> transitEncryptionEnabled() {
-        return this.transitEncryptionEnabled;
+    public Output<Optional<Boolean>> transitEncryptionEnabled() {
+        return Codegen.optional(this.transitEncryptionEnabled);
     }
     /**
      * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.

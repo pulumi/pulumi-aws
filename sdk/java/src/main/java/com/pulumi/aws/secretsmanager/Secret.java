@@ -66,14 +66,14 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the secret.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of the secret.
@@ -136,28 +136,28 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = &#34;&#34;`) _will not_ delete the policy since it could have been set by `aws.secretsmanager.SecretPolicy`. To delete the `policy`, set it to `&#34;{}&#34;` (an empty JSON document).
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = &#34;&#34;`) _will not_ delete the policy since it could have been set by `aws.secretsmanager.SecretPolicy`. To delete the `policy`, set it to `&#34;{}&#34;` (an empty JSON document).
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
@@ -178,14 +178,14 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="replicas", refs={List.class,SecretReplica.class}, tree="[0,1]")
-    private Output<List<SecretReplica>> replicas;
+    private Output</* @Nullable */ List<SecretReplica>> replicas;
 
     /**
      * @return Configuration block to support secret replication. See details below.
      * 
      */
-    public Output<List<SecretReplica>> replicas() {
-        return this.replicas;
+    public Output<Optional<List<SecretReplica>>> replicas() {
+        return Codegen.optional(this.replicas);
     }
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -64,14 +64,14 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN (Amazon Resource Name) of the rule group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A name that lets you identify the rule group, to manage and use it.
@@ -92,28 +92,28 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
      * 
      */
     @Export(name="shareStatus", refs={String.class}, tree="[0]")
-    private Output<String> shareStatus;
+    private Output</* @Nullable */ String> shareStatus;
 
     /**
      * @return Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
      * 
      */
-    public Output<String> shareStatus() {
-        return this.shareStatus;
+    public Output<Optional<String>> shareStatus() {
+        return Codegen.optional(this.shareStatus);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

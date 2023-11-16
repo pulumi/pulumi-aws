@@ -85,28 +85,28 @@ public class InstanceProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN assigned by AWS to the instance profile.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Creation timestamp of the instance profile.
      * 
      */
     @Export(name="createDate", refs={String.class}, tree="[0]")
-    private Output<String> createDate;
+    private Output</* @Nullable */ String> createDate;
 
     /**
      * @return Creation timestamp of the instance profile.
      * 
      */
-    public Output<String> createDate() {
-        return this.createDate;
+    public Output<Optional<String>> createDate() {
+        return Codegen.optional(this.createDate);
     }
     /**
      * Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
@@ -127,14 +127,14 @@ public class InstanceProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
@@ -201,14 +201,14 @@ public class InstanceProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
-    private Output<String> uniqueId;
+    private Output</* @Nullable */ String> uniqueId;
 
     /**
      * @return [Unique ID][1] assigned by AWS.
      * 
      */
-    public Output<String> uniqueId() {
-        return this.uniqueId;
+    public Output<Optional<String>> uniqueId() {
+        return Codegen.optional(this.uniqueId);
     }
 
     /**

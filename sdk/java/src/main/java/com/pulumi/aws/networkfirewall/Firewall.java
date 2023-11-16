@@ -78,14 +78,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) that identifies the firewall.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
@@ -162,14 +162,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="firewallStatuses", refs={List.class,FirewallFirewallStatus.class}, tree="[0,1]")
-    private Output<List<FirewallFirewallStatus>> firewallStatuses;
+    private Output</* @Nullable */ List<FirewallFirewallStatus>> firewallStatuses;
 
     /**
      * @return Nested list of information about the current status of the firewall.
      * 
      */
-    public Output<List<FirewallFirewallStatus>> firewallStatuses() {
-        return this.firewallStatuses;
+    public Output<Optional<List<FirewallFirewallStatus>>> firewallStatuses() {
+        return Codegen.optional(this.firewallStatuses);
     }
     /**
      * A friendly name of the firewall.
@@ -250,14 +250,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateToken", refs={String.class}, tree="[0]")
-    private Output<String> updateToken;
+    private Output</* @Nullable */ String> updateToken;
 
     /**
      * @return A string token used when updating a firewall.
      * 
      */
-    public Output<String> updateToken() {
-        return this.updateToken;
+    public Output<Optional<String>> updateToken() {
+        return Codegen.optional(this.updateToken);
     }
     /**
      * The unique identifier of the VPC where AWS Network Firewall should create the firewall.

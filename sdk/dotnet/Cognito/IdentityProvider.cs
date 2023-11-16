@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Cognito
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         /// </summary>
         [Output("attributeMapping")]
-        public Output<ImmutableDictionary<string, string>> AttributeMapping { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> AttributeMapping { get; private set; } = null!;
 
         /// <summary>
         /// The list of identity providers.

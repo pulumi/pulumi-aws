@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessPointsResult {
@@ -14,18 +16,18 @@ public final class GetAccessPointsResult {
      * @return Set of Amazon Resource Names (ARNs).
      * 
      */
-    private List<String> arns;
+    private @Nullable List<String> arns;
     private String fileSystemId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set of identifiers.
      * 
      */
-    private List<String> ids;
+    private @Nullable List<String> ids;
 
     private GetAccessPointsResult() {}
     /**
@@ -33,7 +35,7 @@ public final class GetAccessPointsResult {
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
     public String fileSystemId() {
         return this.fileSystemId;
@@ -42,15 +44,15 @@ public final class GetAccessPointsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set of identifiers.
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
 
     public static Builder builder() {
@@ -62,10 +64,10 @@ public final class GetAccessPointsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> arns;
+        private @Nullable List<String> arns;
         private String fileSystemId;
-        private String id;
-        private List<String> ids;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
         public Builder() {}
         public Builder(GetAccessPointsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,8 +78,8 @@ public final class GetAccessPointsResult {
         }
 
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -89,13 +91,13 @@ public final class GetAccessPointsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {

@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Auditmanager
         /// * `control_sets[*].id` - Unique identifier for the framework control set.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Framework type, such as a custom framework or a standard framework.
         /// </summary>
         [Output("frameworkType")]
-        public Output<string> FrameworkType { get; private set; } = null!;
+        public Output<string?> FrameworkType { get; private set; } = null!;
 
         /// <summary>
         /// Name of the framework.

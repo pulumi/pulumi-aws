@@ -82,14 +82,14 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Document Classifier version.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
@@ -199,15 +199,15 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="outputDataConfig", refs={DocumentClassifierOutputDataConfig.class}, tree="[0]")
-    private Output<DocumentClassifierOutputDataConfig> outputDataConfig;
+    private Output</* @Nullable */ DocumentClassifierOutputDataConfig> outputDataConfig;
 
     /**
      * @return Configuration for the output results of training.
      * See the `output_data_config` Configuration Block section below.
      * 
      */
-    public Output<DocumentClassifierOutputDataConfig> outputDataConfig() {
-        return this.outputDataConfig;
+    public Output<Optional<DocumentClassifierOutputDataConfig>> outputDataConfig() {
+        return Codegen.optional(this.outputDataConfig);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -252,7 +252,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionName", refs={String.class}, tree="[0]")
-    private Output<String> versionName;
+    private Output</* @Nullable */ String> versionName;
 
     /**
      * @return Name for the version of the Document Classifier.
@@ -264,8 +264,8 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * Conflicts with `version_name_prefix`.
      * 
      */
-    public Output<String> versionName() {
-        return this.versionName;
+    public Output<Optional<String>> versionName() {
+        return Codegen.optional(this.versionName);
     }
     /**
      * Creates a unique version name beginning with the specified prefix.
@@ -275,7 +275,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionNamePrefix", refs={String.class}, tree="[0]")
-    private Output<String> versionNamePrefix;
+    private Output</* @Nullable */ String> versionNamePrefix;
 
     /**
      * @return Creates a unique version name beginning with the specified prefix.
@@ -284,8 +284,8 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * Conflicts with `version_name`.
      * 
      */
-    public Output<String> versionNamePrefix() {
-        return this.versionNamePrefix;
+    public Output<Optional<String>> versionNamePrefix() {
+        return Codegen.optional(this.versionNamePrefix);
     }
     /**
      * KMS Key used to encrypt storage volumes during job processing.

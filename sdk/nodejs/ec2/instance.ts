@@ -211,41 +211,41 @@ export class Instance extends pulumi.CustomResource {
     /**
      * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      */
-    public readonly ami!: pulumi.Output<string>;
+    public readonly ami!: pulumi.Output<string | undefined>;
     /**
      * ARN of the instance.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      */
-    public readonly associatePublicIpAddress!: pulumi.Output<boolean>;
+    public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
     /**
      * AZ to start the instance in.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      *
      * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
-    public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.InstanceCapacityReservationSpecification>;
+    public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.InstanceCapacityReservationSpecification | undefined>;
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      *
      * @deprecated use 'cpu_options' argument instead
      */
-    public readonly cpuCoreCount!: pulumi.Output<number>;
+    public readonly cpuCoreCount!: pulumi.Output<number | undefined>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    public readonly cpuOptions!: pulumi.Output<outputs.ec2.InstanceCpuOptions>;
+    public readonly cpuOptions!: pulumi.Output<outputs.ec2.InstanceCpuOptions | undefined>;
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      *
      * @deprecated use 'cpu_options' argument instead
      */
-    public readonly cpuThreadsPerCore!: pulumi.Output<number>;
+    public readonly cpuThreadsPerCore!: pulumi.Output<number | undefined>;
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
@@ -253,27 +253,27 @@ export class Instance extends pulumi.CustomResource {
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      */
-    public readonly disableApiStop!: pulumi.Output<boolean>;
+    public readonly disableApiStop!: pulumi.Output<boolean | undefined>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      */
-    public readonly disableApiTermination!: pulumi.Output<boolean>;
+    public readonly disableApiTermination!: pulumi.Output<boolean | undefined>;
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.InstanceEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.InstanceEbsBlockDevice[] | undefined>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
-    public readonly ebsOptimized!: pulumi.Output<boolean>;
+    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.InstanceEnclaveOptions>;
+    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.InstanceEnclaveOptions | undefined>;
     /**
      * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.InstanceEphemeralBlockDevice[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.InstanceEphemeralBlockDevice[] | undefined>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -285,47 +285,47 @@ export class Instance extends pulumi.CustomResource {
     /**
      * ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      */
-    public readonly hostId!: pulumi.Output<string>;
+    public readonly hostId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      */
-    public readonly hostResourceGroupArn!: pulumi.Output<string>;
+    public readonly hostResourceGroupArn!: pulumi.Output<string | undefined>;
     /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      */
-    public readonly iamInstanceProfile!: pulumi.Output<string>;
+    public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
-    public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string>;
+    public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this is a Spot Instance or a Scheduled Instance.
      */
-    public /*out*/ readonly instanceLifecycle!: pulumi.Output<string>;
+    public /*out*/ readonly instanceLifecycle!: pulumi.Output<string | undefined>;
     /**
      * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
      */
-    public readonly instanceMarketOptions!: pulumi.Output<outputs.ec2.InstanceInstanceMarketOptions>;
+    public readonly instanceMarketOptions!: pulumi.Output<outputs.ec2.InstanceInstanceMarketOptions | undefined>;
     /**
      * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
-    public /*out*/ readonly instanceState!: pulumi.Output<string>;
+    public /*out*/ readonly instanceState!: pulumi.Output<string | undefined>;
     /**
      * Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string | undefined>;
     /**
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
-    public readonly ipv6AddressCount!: pulumi.Output<number>;
+    public readonly ipv6AddressCount!: pulumi.Output<number | undefined>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      */
-    public readonly ipv6Addresses!: pulumi.Output<string[]>;
+    public readonly ipv6Addresses!: pulumi.Output<string[] | undefined>;
     /**
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      */
-    public readonly keyName!: pulumi.Output<string>;
+    public readonly keyName!: pulumi.Output<string | undefined>;
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
@@ -333,67 +333,67 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
-    public readonly maintenanceOptions!: pulumi.Output<outputs.ec2.InstanceMaintenanceOptions>;
+    public readonly maintenanceOptions!: pulumi.Output<outputs.ec2.InstanceMaintenanceOptions | undefined>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
-    public readonly metadataOptions!: pulumi.Output<outputs.ec2.InstanceMetadataOptions>;
+    public readonly metadataOptions!: pulumi.Output<outputs.ec2.InstanceMetadataOptions | undefined>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
-    public readonly monitoring!: pulumi.Output<boolean>;
+    public readonly monitoring!: pulumi.Output<boolean | undefined>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.ec2.InstanceNetworkInterface[]>;
+    public readonly networkInterfaces!: pulumi.Output<outputs.ec2.InstanceNetworkInterface[] | undefined>;
     /**
      * ARN of the Outpost the instance is assigned to.
      */
-    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    public /*out*/ readonly passwordData!: pulumi.Output<string>;
+    public /*out*/ readonly passwordData!: pulumi.Output<string | undefined>;
     /**
      * Placement Group to start the instance in.
      */
-    public readonly placementGroup!: pulumi.Output<string>;
+    public readonly placementGroup!: pulumi.Output<string | undefined>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
-    public readonly placementPartitionNumber!: pulumi.Output<number>;
+    public readonly placementPartitionNumber!: pulumi.Output<number | undefined>;
     /**
      * ID of the instance's primary network interface.
      */
-    public /*out*/ readonly primaryNetworkInterfaceId!: pulumi.Output<string>;
+    public /*out*/ readonly primaryNetworkInterfaceId!: pulumi.Output<string | undefined>;
     /**
      * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
      */
-    public /*out*/ readonly privateDns!: pulumi.Output<string>;
+    public /*out*/ readonly privateDns!: pulumi.Output<string | undefined>;
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions>;
+    public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions | undefined>;
     /**
      * Private IP address to associate with the instance in a VPC.
      */
-    public readonly privateIp!: pulumi.Output<string>;
+    public readonly privateIp!: pulumi.Output<string | undefined>;
     /**
      * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
      */
-    public /*out*/ readonly publicDns!: pulumi.Output<string>;
+    public /*out*/ readonly publicDns!: pulumi.Output<string | undefined>;
     /**
      * Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp` as this field will change after the EIP is attached.
      */
-    public /*out*/ readonly publicIp!: pulumi.Output<string>;
+    public /*out*/ readonly publicIp!: pulumi.Output<string | undefined>;
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
-    public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.InstanceRootBlockDevice>;
+    public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.InstanceRootBlockDevice | undefined>;
     /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
-    public readonly secondaryPrivateIps!: pulumi.Output<string[]>;
+    public readonly secondaryPrivateIps!: pulumi.Output<string[] | undefined>;
     /**
      * List of security group names to associate with.
      *
@@ -401,7 +401,7 @@ export class Instance extends pulumi.CustomResource {
      *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      */
@@ -409,11 +409,11 @@ export class Instance extends pulumi.CustomResource {
     /**
      * If the request is a Spot Instance request, the ID of the request.
      */
-    public /*out*/ readonly spotInstanceRequestId!: pulumi.Output<string>;
+    public /*out*/ readonly spotInstanceRequestId!: pulumi.Output<string | undefined>;
     /**
      * VPC Subnet ID to launch in.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -427,15 +427,15 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      */
-    public readonly tenancy!: pulumi.Output<string>;
+    public readonly tenancy!: pulumi.Output<string | undefined>;
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
      */
-    public readonly userData!: pulumi.Output<string>;
+    public readonly userData!: pulumi.Output<string | undefined>;
     /**
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
      */
-    public readonly userDataBase64!: pulumi.Output<string>;
+    public readonly userDataBase64!: pulumi.Output<string | undefined>;
     /**
      * When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
      */
@@ -449,7 +449,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * List of security group IDs to associate with.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.

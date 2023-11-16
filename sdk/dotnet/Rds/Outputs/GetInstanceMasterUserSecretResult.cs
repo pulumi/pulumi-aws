@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Rds.Outputs
         /// <summary>
         /// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the secret.
         /// </summary>
-        public readonly string SecretArn;
+        public readonly string? SecretArn;
         /// <summary>
         /// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         /// </summary>
-        public readonly string SecretStatus;
+        public readonly string? SecretStatus;
 
         [OutputConstructor]
         private GetInstanceMasterUserSecretResult(
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string secretArn,
+            string? secretArn,
 
-            string secretStatus)
+            string? secretStatus)
         {
             KmsKeyId = kmsKeyId;
             SecretArn = secretArn;

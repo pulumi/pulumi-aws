@@ -60,11 +60,11 @@ export class StreamConsumer extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the stream consumer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      */
-    public /*out*/ readonly creationTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly creationTimestamp!: pulumi.Output<string | undefined>;
     /**
      * Name of the stream consumer.
      */

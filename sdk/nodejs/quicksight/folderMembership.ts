@@ -60,7 +60,7 @@ export class FolderMembership extends pulumi.CustomResource {
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * Identifier for the folder.
      */

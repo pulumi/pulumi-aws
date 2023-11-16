@@ -7,51 +7,53 @@ import com.pulumi.aws.elasticbeanstalk.outputs.GetApplicationAppversionLifecycle
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationResult {
-    private GetApplicationAppversionLifecycle appversionLifecycle;
+    private @Nullable GetApplicationAppversionLifecycle appversionLifecycle;
     /**
      * @return ARN of the application.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Short description of the application
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
 
     private GetApplicationResult() {}
-    public GetApplicationAppversionLifecycle appversionLifecycle() {
-        return this.appversionLifecycle;
+    public Optional<GetApplicationAppversionLifecycle> appversionLifecycle() {
+        return Optional.ofNullable(this.appversionLifecycle);
     }
     /**
      * @return ARN of the application.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Short description of the application
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -66,10 +68,10 @@ public final class GetApplicationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private GetApplicationAppversionLifecycle appversionLifecycle;
-        private String arn;
-        private String description;
-        private String id;
+        private @Nullable GetApplicationAppversionLifecycle appversionLifecycle;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
         public Builder() {}
         public Builder(GetApplicationResult defaults) {
@@ -82,23 +84,23 @@ public final class GetApplicationResult {
         }
 
         @CustomType.Setter
-        public Builder appversionLifecycle(GetApplicationAppversionLifecycle appversionLifecycle) {
-            this.appversionLifecycle = Objects.requireNonNull(appversionLifecycle);
+        public Builder appversionLifecycle(@Nullable GetApplicationAppversionLifecycle appversionLifecycle) {
+            this.appversionLifecycle = appversionLifecycle;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

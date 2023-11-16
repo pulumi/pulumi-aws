@@ -120,15 +120,15 @@ type Broker struct {
 	// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// ARN of the broker.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
-	AuthenticationStrategy pulumi.StringOutput `pulumi:"authenticationStrategy"`
+	AuthenticationStrategy pulumi.StringPtrOutput `pulumi:"authenticationStrategy"`
 	// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// Name of the broker.
 	BrokerName pulumi.StringOutput `pulumi:"brokerName"`
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
-	Configuration BrokerConfigurationOutput `pulumi:"configuration"`
+	Configuration BrokerConfigurationPtrOutput `pulumi:"configuration"`
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode pulumi.StringPtrOutput `pulumi:"deploymentMode"`
 	// Configuration block containing encryption options. Detailed below.
@@ -157,13 +157,13 @@ type Broker struct {
 	// Configuration block for the logging configuration of the broker. Detailed below.
 	Logs BrokerLogsPtrOutput `pulumi:"logs"`
 	// Configuration block for the maintenance window start time. Detailed below.
-	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimeOutput `pulumi:"maintenanceWindowStartTime"`
+	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimePtrOutput `pulumi:"maintenanceWindowStartTime"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
-	StorageType pulumi.StringOutput `pulumi:"storageType"`
+	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -531,13 +531,13 @@ func (o BrokerOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 }
 
 // ARN of the broker.
-func (o BrokerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BrokerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
-func (o BrokerOutput) AuthenticationStrategy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.AuthenticationStrategy }).(pulumi.StringOutput)
+func (o BrokerOutput) AuthenticationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringPtrOutput { return v.AuthenticationStrategy }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
@@ -551,8 +551,8 @@ func (o BrokerOutput) BrokerName() pulumi.StringOutput {
 }
 
 // Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
-func (o BrokerOutput) Configuration() BrokerConfigurationOutput {
-	return o.ApplyT(func(v *Broker) BrokerConfigurationOutput { return v.Configuration }).(BrokerConfigurationOutput)
+func (o BrokerOutput) Configuration() BrokerConfigurationPtrOutput {
+	return o.ApplyT(func(v *Broker) BrokerConfigurationPtrOutput { return v.Configuration }).(BrokerConfigurationPtrOutput)
 }
 
 // Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
@@ -607,8 +607,8 @@ func (o BrokerOutput) Logs() BrokerLogsPtrOutput {
 }
 
 // Configuration block for the maintenance window start time. Detailed below.
-func (o BrokerOutput) MaintenanceWindowStartTime() BrokerMaintenanceWindowStartTimeOutput {
-	return o.ApplyT(func(v *Broker) BrokerMaintenanceWindowStartTimeOutput { return v.MaintenanceWindowStartTime }).(BrokerMaintenanceWindowStartTimeOutput)
+func (o BrokerOutput) MaintenanceWindowStartTime() BrokerMaintenanceWindowStartTimePtrOutput {
+	return o.ApplyT(func(v *Broker) BrokerMaintenanceWindowStartTimePtrOutput { return v.MaintenanceWindowStartTime }).(BrokerMaintenanceWindowStartTimePtrOutput)
 }
 
 // Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
@@ -622,8 +622,8 @@ func (o BrokerOutput) SecurityGroups() pulumi.StringArrayOutput {
 }
 
 // Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
-func (o BrokerOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
+func (o BrokerOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 // List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.

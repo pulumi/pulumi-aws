@@ -65,7 +65,7 @@ type EndpointConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	AsyncInferenceConfig EndpointConfigurationAsyncInferenceConfigPtrOutput `pulumi:"asyncInferenceConfig"`
 	// Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
@@ -75,7 +75,7 @@ type EndpointConfiguration struct {
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayOutput `pulumi:"productionVariants"`
 	// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
@@ -305,8 +305,8 @@ func (o EndpointConfigurationOutput) ToEndpointConfigurationOutputWithContext(ct
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
-func (o EndpointConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EndpointConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies configuration for how an endpoint performs asynchronous inference.
@@ -334,8 +334,8 @@ func (o EndpointConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-func (o EndpointConfigurationOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o EndpointConfigurationOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.

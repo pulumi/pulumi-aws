@@ -8,6 +8,7 @@ import com.pulumi.aws.fsx.outputs.GetOntapFileSystemEndpointManagement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOntapFileSystemEndpoint {
@@ -15,12 +16,12 @@ public final class GetOntapFileSystemEndpoint {
      * @return A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
      * 
      */
-    private List<GetOntapFileSystemEndpointIntercluster> interclusters;
+    private @Nullable List<GetOntapFileSystemEndpointIntercluster> interclusters;
     /**
      * @return A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
      * 
      */
-    private List<GetOntapFileSystemEndpointManagement> managements;
+    private @Nullable List<GetOntapFileSystemEndpointManagement> managements;
 
     private GetOntapFileSystemEndpoint() {}
     /**
@@ -28,14 +29,14 @@ public final class GetOntapFileSystemEndpoint {
      * 
      */
     public List<GetOntapFileSystemEndpointIntercluster> interclusters() {
-        return this.interclusters;
+        return this.interclusters == null ? List.of() : this.interclusters;
     }
     /**
      * @return A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
      * 
      */
     public List<GetOntapFileSystemEndpointManagement> managements() {
-        return this.managements;
+        return this.managements == null ? List.of() : this.managements;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetOntapFileSystemEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetOntapFileSystemEndpointIntercluster> interclusters;
-        private List<GetOntapFileSystemEndpointManagement> managements;
+        private @Nullable List<GetOntapFileSystemEndpointIntercluster> interclusters;
+        private @Nullable List<GetOntapFileSystemEndpointManagement> managements;
         public Builder() {}
         public Builder(GetOntapFileSystemEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetOntapFileSystemEndpoint {
         }
 
         @CustomType.Setter
-        public Builder interclusters(List<GetOntapFileSystemEndpointIntercluster> interclusters) {
-            this.interclusters = Objects.requireNonNull(interclusters);
+        public Builder interclusters(@Nullable List<GetOntapFileSystemEndpointIntercluster> interclusters) {
+            this.interclusters = interclusters;
             return this;
         }
         public Builder interclusters(GetOntapFileSystemEndpointIntercluster... interclusters) {
             return interclusters(List.of(interclusters));
         }
         @CustomType.Setter
-        public Builder managements(List<GetOntapFileSystemEndpointManagement> managements) {
-            this.managements = Objects.requireNonNull(managements);
+        public Builder managements(@Nullable List<GetOntapFileSystemEndpointManagement> managements) {
+            this.managements = managements;
             return this;
         }
         public Builder managements(GetOntapFileSystemEndpointManagement... managements) {

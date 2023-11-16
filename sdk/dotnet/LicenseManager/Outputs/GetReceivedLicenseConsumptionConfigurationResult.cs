@@ -21,7 +21,7 @@ namespace Pulumi.Aws.LicenseManager.Outputs
         /// Details about a provisional configuration. Detailed below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult> ProvisionalConfigurations;
-        public readonly string RenewType;
+        public readonly string? RenewType;
 
         [OutputConstructor]
         private GetReceivedLicenseConsumptionConfigurationResult(
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.LicenseManager.Outputs
 
             ImmutableArray<Outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult> provisionalConfigurations,
 
-            string renewType)
+            string? renewType)
         {
             BorrowConfigurations = borrowConfigurations;
             ProvisionalConfigurations = provisionalConfigurations;

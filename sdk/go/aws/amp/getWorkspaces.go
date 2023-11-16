@@ -89,7 +89,7 @@ type GetWorkspacesResult struct {
 	// List of ARNs of the matched Prometheus workspaces.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of workspace IDs of the matched Prometheus workspaces.
 	WorkspaceIds []string `pulumi:"workspaceIds"`
 }
@@ -147,8 +147,8 @@ func (o GetWorkspacesResultOutput) Arns() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetWorkspacesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkspacesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetWorkspacesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkspacesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of workspace IDs of the matched Prometheus workspaces.

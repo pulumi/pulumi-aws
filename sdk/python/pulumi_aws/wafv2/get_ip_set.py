@@ -46,7 +46,7 @@ class GetIpSetResult:
 
     @property
     @pulumi.getter
-    def addresses(self) -> Sequence[str]:
+    def addresses(self) -> Optional[Sequence[str]]:
         """
         An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
         """
@@ -54,7 +54,7 @@ class GetIpSetResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the entity.
         """
@@ -62,7 +62,7 @@ class GetIpSetResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the set that helps with identification.
         """
@@ -70,7 +70,7 @@ class GetIpSetResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -78,7 +78,7 @@ class GetIpSetResult:
 
     @property
     @pulumi.getter(name="ipAddressVersion")
-    def ip_address_version(self) -> str:
+    def ip_address_version(self) -> Optional[str]:
         """
         IP address version of the set.
         """

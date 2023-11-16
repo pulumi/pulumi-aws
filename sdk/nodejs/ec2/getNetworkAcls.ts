@@ -94,12 +94,12 @@ export interface GetNetworkAclsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of all the network ACL ids found.
      */
-    readonly ids: string[];
-    readonly tags: {[key: string]: string};
+    readonly ids?: string[];
+    readonly tags?: {[key: string]: string};
     readonly vpcId?: string;
 }
 /**

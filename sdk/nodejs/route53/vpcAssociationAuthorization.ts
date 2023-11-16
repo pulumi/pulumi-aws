@@ -84,7 +84,7 @@ export class VpcAssociationAuthorization extends pulumi.CustomResource {
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    public readonly vpcRegion!: pulumi.Output<string>;
+    public readonly vpcRegion!: pulumi.Output<string | undefined>;
     /**
      * The ID of the private hosted zone that you want to authorize associating a VPC with.
      */

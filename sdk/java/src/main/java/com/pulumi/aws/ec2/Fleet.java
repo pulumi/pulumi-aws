@@ -84,14 +84,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the fleet
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Reserved.
@@ -126,56 +126,56 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="fleetInstanceSets", refs={List.class,FleetFleetInstanceSet.class}, tree="[0,1]")
-    private Output<List<FleetFleetInstanceSet>> fleetInstanceSets;
+    private Output</* @Nullable */ List<FleetFleetInstanceSet>> fleetInstanceSets;
 
     /**
      * @return Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
      * 
      */
-    public Output<List<FleetFleetInstanceSet>> fleetInstanceSets() {
-        return this.fleetInstanceSets;
+    public Output<Optional<List<FleetFleetInstanceSet>>> fleetInstanceSets() {
+        return Codegen.optional(this.fleetInstanceSets);
     }
     /**
      * The state of the EC2 Fleet.
      * 
      */
     @Export(name="fleetState", refs={String.class}, tree="[0]")
-    private Output<String> fleetState;
+    private Output</* @Nullable */ String> fleetState;
 
     /**
      * @return The state of the EC2 Fleet.
      * 
      */
-    public Output<String> fleetState() {
-        return this.fleetState;
+    public Output<Optional<String>> fleetState() {
+        return Codegen.optional(this.fleetState);
     }
     /**
      * The number of units fulfilled by this request compared to the set target capacity.
      * 
      */
     @Export(name="fulfilledCapacity", refs={Double.class}, tree="[0]")
-    private Output<Double> fulfilledCapacity;
+    private Output</* @Nullable */ Double> fulfilledCapacity;
 
     /**
      * @return The number of units fulfilled by this request compared to the set target capacity.
      * 
      */
-    public Output<Double> fulfilledCapacity() {
-        return this.fulfilledCapacity;
+    public Output<Optional<Double>> fulfilledCapacity() {
+        return Codegen.optional(this.fulfilledCapacity);
     }
     /**
      * The number of units fulfilled by this request compared to the set target On-Demand capacity.
      * 
      */
     @Export(name="fulfilledOnDemandCapacity", refs={Double.class}, tree="[0]")
-    private Output<Double> fulfilledOnDemandCapacity;
+    private Output</* @Nullable */ Double> fulfilledOnDemandCapacity;
 
     /**
      * @return The number of units fulfilled by this request compared to the set target On-Demand capacity.
      * 
      */
-    public Output<Double> fulfilledOnDemandCapacity() {
-        return this.fulfilledOnDemandCapacity;
+    public Output<Optional<Double>> fulfilledOnDemandCapacity() {
+        return Codegen.optional(this.fulfilledOnDemandCapacity);
     }
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.

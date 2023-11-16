@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity {
@@ -14,51 +16,51 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportS
      * @return A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    private Integer accessControlMaxAgeSec;
+    private @Nullable Integer accessControlMaxAgeSec;
     /**
      * @return Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    private Boolean includeSubdomains;
+    private @Nullable Boolean includeSubdomains;
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private Boolean override;
+    private @Nullable Boolean override;
     /**
      * @return Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    private Boolean preload;
+    private @Nullable Boolean preload;
 
     private GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity() {}
     /**
      * @return A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    public Integer accessControlMaxAgeSec() {
-        return this.accessControlMaxAgeSec;
+    public Optional<Integer> accessControlMaxAgeSec() {
+        return Optional.ofNullable(this.accessControlMaxAgeSec);
     }
     /**
      * @return Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    public Boolean includeSubdomains() {
-        return this.includeSubdomains;
+    public Optional<Boolean> includeSubdomains() {
+        return Optional.ofNullable(this.includeSubdomains);
     }
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    public Boolean override() {
-        return this.override;
+    public Optional<Boolean> override() {
+        return Optional.ofNullable(this.override);
     }
     /**
      * @return Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    public Boolean preload() {
-        return this.preload;
+    public Optional<Boolean> preload() {
+        return Optional.ofNullable(this.preload);
     }
 
     public static Builder builder() {
@@ -70,10 +72,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportS
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer accessControlMaxAgeSec;
-        private Boolean includeSubdomains;
-        private Boolean override;
-        private Boolean preload;
+        private @Nullable Integer accessControlMaxAgeSec;
+        private @Nullable Boolean includeSubdomains;
+        private @Nullable Boolean override;
+        private @Nullable Boolean preload;
         public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,23 +86,23 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportS
         }
 
         @CustomType.Setter
-        public Builder accessControlMaxAgeSec(Integer accessControlMaxAgeSec) {
-            this.accessControlMaxAgeSec = Objects.requireNonNull(accessControlMaxAgeSec);
+        public Builder accessControlMaxAgeSec(@Nullable Integer accessControlMaxAgeSec) {
+            this.accessControlMaxAgeSec = accessControlMaxAgeSec;
             return this;
         }
         @CustomType.Setter
-        public Builder includeSubdomains(Boolean includeSubdomains) {
-            this.includeSubdomains = Objects.requireNonNull(includeSubdomains);
+        public Builder includeSubdomains(@Nullable Boolean includeSubdomains) {
+            this.includeSubdomains = includeSubdomains;
             return this;
         }
         @CustomType.Setter
-        public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+        public Builder override(@Nullable Boolean override) {
+            this.override = override;
             return this;
         }
         @CustomType.Setter
-        public Builder preload(Boolean preload) {
-            this.preload = Objects.requireNonNull(preload);
+        public Builder preload(@Nullable Boolean preload) {
+            this.preload = preload;
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity build() {

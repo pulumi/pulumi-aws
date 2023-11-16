@@ -276,10 +276,10 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// `true` if all of the simulation results have decision "allowed", or `false` otherwise.
         /// </summary>
-        public readonly bool AllAllowed;
+        public readonly bool? AllAllowed;
         public readonly string? CallerArn;
         public readonly ImmutableArray<Outputs.GetPrincipalPolicySimulationContextResult> Contexts;
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<string> PermissionsBoundaryPoliciesJsons;
         public readonly string PolicySourceArn;
         public readonly ImmutableArray<string> ResourceArns;
@@ -297,13 +297,13 @@ namespace Pulumi.Aws.Iam
 
             ImmutableArray<string> additionalPoliciesJsons,
 
-            bool allAllowed,
+            bool? allAllowed,
 
             string? callerArn,
 
             ImmutableArray<Outputs.GetPrincipalPolicySimulationContextResult> contexts,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> permissionsBoundaryPoliciesJsons,
 

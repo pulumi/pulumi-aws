@@ -61,7 +61,7 @@ export class VpcConnection extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the VPC connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      */

@@ -94,24 +94,24 @@ type LookupVpcAttachmentArgs struct {
 // A collection of values returned by getVpcAttachment.
 type LookupVpcAttachmentResult struct {
 	// Whether Appliance Mode support is enabled.
-	ApplianceModeSupport string `pulumi:"applianceModeSupport"`
+	ApplianceModeSupport *string `pulumi:"applianceModeSupport"`
 	// Whether DNS support is enabled.
-	DnsSupport string                   `pulumi:"dnsSupport"`
+	DnsSupport *string                  `pulumi:"dnsSupport"`
 	Filters    []GetVpcAttachmentFilter `pulumi:"filters"`
 	// EC2 Transit Gateway VPC Attachment identifier
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Whether IPv6 support is enabled.
-	Ipv6Support string `pulumi:"ipv6Support"`
+	Ipv6Support *string `pulumi:"ipv6Support"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment
 	Tags map[string]string `pulumi:"tags"`
 	// EC2 Transit Gateway identifier
-	TransitGatewayId string `pulumi:"transitGatewayId"`
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// Identifier of EC2 VPC.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 	// Identifier of the AWS account that owns the EC2 VPC.
-	VpcOwnerId string `pulumi:"vpcOwnerId"`
+	VpcOwnerId *string `pulumi:"vpcOwnerId"`
 }
 
 func LookupVpcAttachmentOutput(ctx *pulumi.Context, args LookupVpcAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupVpcAttachmentResultOutput {
@@ -157,13 +157,13 @@ func (o LookupVpcAttachmentResultOutput) ToLookupVpcAttachmentResultOutputWithCo
 }
 
 // Whether Appliance Mode support is enabled.
-func (o LookupVpcAttachmentResultOutput) ApplianceModeSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.ApplianceModeSupport }).(pulumi.StringOutput)
+func (o LookupVpcAttachmentResultOutput) ApplianceModeSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.ApplianceModeSupport }).(pulumi.StringPtrOutput)
 }
 
 // Whether DNS support is enabled.
-func (o LookupVpcAttachmentResultOutput) DnsSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.DnsSupport }).(pulumi.StringOutput)
+func (o LookupVpcAttachmentResultOutput) DnsSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.DnsSupport }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVpcAttachmentResultOutput) Filters() GetVpcAttachmentFilterArrayOutput {
@@ -171,13 +171,13 @@ func (o LookupVpcAttachmentResultOutput) Filters() GetVpcAttachmentFilterArrayOu
 }
 
 // EC2 Transit Gateway VPC Attachment identifier
-func (o LookupVpcAttachmentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVpcAttachmentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Whether IPv6 support is enabled.
-func (o LookupVpcAttachmentResultOutput) Ipv6Support() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.Ipv6Support }).(pulumi.StringOutput)
+func (o LookupVpcAttachmentResultOutput) Ipv6Support() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.Ipv6Support }).(pulumi.StringPtrOutput)
 }
 
 // Identifiers of EC2 Subnets.
@@ -191,18 +191,18 @@ func (o LookupVpcAttachmentResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // EC2 Transit Gateway identifier
-func (o LookupVpcAttachmentResultOutput) TransitGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+func (o LookupVpcAttachmentResultOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of EC2 VPC.
-func (o LookupVpcAttachmentResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupVpcAttachmentResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the AWS account that owns the EC2 VPC.
-func (o LookupVpcAttachmentResultOutput) VpcOwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.VpcOwnerId }).(pulumi.StringOutput)
+func (o LookupVpcAttachmentResultOutput) VpcOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.VpcOwnerId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

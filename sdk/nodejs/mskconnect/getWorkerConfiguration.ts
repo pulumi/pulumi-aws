@@ -43,24 +43,24 @@ export interface GetWorkerConfigurationResult {
     /**
      * the ARN of the worker configuration.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * a summary description of the worker configuration.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * an ID of the latest successfully created revision of the worker configuration.
      */
-    readonly latestRevision: number;
+    readonly latestRevision?: number;
     readonly name: string;
     /**
      * contents of connect-distributed.properties file.
      */
-    readonly propertiesFileContent: string;
+    readonly propertiesFileContent?: string;
 }
 /**
  * Get information on an Amazon MSK Connect Worker Configuration.

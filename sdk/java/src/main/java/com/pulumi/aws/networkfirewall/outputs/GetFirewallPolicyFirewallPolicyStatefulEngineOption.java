@@ -6,18 +6,20 @@ package com.pulumi.aws.networkfirewall.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
-    private String ruleOrder;
-    private String streamExceptionPolicy;
+    private @Nullable String ruleOrder;
+    private @Nullable String streamExceptionPolicy;
 
     private GetFirewallPolicyFirewallPolicyStatefulEngineOption() {}
-    public String ruleOrder() {
-        return this.ruleOrder;
+    public Optional<String> ruleOrder() {
+        return Optional.ofNullable(this.ruleOrder);
     }
-    public String streamExceptionPolicy() {
-        return this.streamExceptionPolicy;
+    public Optional<String> streamExceptionPolicy() {
+        return Optional.ofNullable(this.streamExceptionPolicy);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String ruleOrder;
-        private String streamExceptionPolicy;
+        private @Nullable String ruleOrder;
+        private @Nullable String streamExceptionPolicy;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatefulEngineOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
         }
 
         @CustomType.Setter
-        public Builder ruleOrder(String ruleOrder) {
-            this.ruleOrder = Objects.requireNonNull(ruleOrder);
+        public Builder ruleOrder(@Nullable String ruleOrder) {
+            this.ruleOrder = ruleOrder;
             return this;
         }
         @CustomType.Setter
-        public Builder streamExceptionPolicy(String streamExceptionPolicy) {
-            this.streamExceptionPolicy = Objects.requireNonNull(streamExceptionPolicy);
+        public Builder streamExceptionPolicy(@Nullable String streamExceptionPolicy) {
+            this.streamExceptionPolicy = streamExceptionPolicy;
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatefulEngineOption build() {

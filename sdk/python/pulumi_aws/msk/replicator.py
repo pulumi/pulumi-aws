@@ -406,7 +406,7 @@ class Replicator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         """
@@ -414,7 +414,7 @@ class Replicator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> pulumi.Output[str]:
+    def current_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "current_version")
 
     @property

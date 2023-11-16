@@ -68,7 +68,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
      */
@@ -92,7 +92,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * Nested list of information about the current status of the firewall.
      */
-    public /*out*/ readonly firewallStatuses!: pulumi.Output<outputs.networkfirewall.FirewallFirewallStatus[]>;
+    public /*out*/ readonly firewallStatuses!: pulumi.Output<outputs.networkfirewall.FirewallFirewallStatus[] | undefined>;
     /**
      * A friendly name of the firewall.
      */
@@ -118,7 +118,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * A string token used when updating a firewall.
      */
-    public /*out*/ readonly updateToken!: pulumi.Output<string>;
+    public /*out*/ readonly updateToken!: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      */

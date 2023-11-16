@@ -87,14 +87,14 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="callerReference", refs={String.class}, tree="[0]")
-    private Output<String> callerReference;
+    private Output</* @Nullable */ String> callerReference;
 
     /**
      * @return Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
      * 
      */
-    public Output<String> callerReference() {
-        return this.callerReference;
+    public Output<Optional<String>> callerReference() {
+        return Codegen.optional(this.callerReference);
     }
     /**
      * An optional comment about the Field Level Encryption Config.
@@ -129,14 +129,14 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.

@@ -17,47 +17,48 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetResult {
-    private String arn;
-    private String awsAccountId;
-    private List<GetDataSetColumnGroup> columnGroups;
+    private @Nullable String arn;
+    private @Nullable String awsAccountId;
+    private @Nullable List<GetDataSetColumnGroup> columnGroups;
     private @Nullable List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules;
     private String dataSetId;
-    private List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations;
-    private List<GetDataSetFieldFolder> fieldFolders;
+    private @Nullable List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations;
+    private @Nullable List<GetDataSetFieldFolder> fieldFolders;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String importMode;
-    private List<GetDataSetLogicalTableMap> logicalTableMaps;
-    private String name;
-    private List<GetDataSetPermission> permissions;
-    private List<GetDataSetPhysicalTableMap> physicalTableMaps;
-    private List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets;
-    private List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations;
-    private Map<String,String> tags;
+    private @Nullable String id;
+    private @Nullable String importMode;
+    private @Nullable List<GetDataSetLogicalTableMap> logicalTableMaps;
+    private @Nullable String name;
+    private @Nullable List<GetDataSetPermission> permissions;
+    private @Nullable List<GetDataSetPhysicalTableMap> physicalTableMaps;
+    private @Nullable List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets;
+    private @Nullable List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations;
+    private @Nullable Map<String,String> tags;
     /**
      * @deprecated
      * this attribute has been deprecated
      * 
      */
     @Deprecated /* this attribute has been deprecated */
-    private Map<String,String> tagsAll;
+    private @Nullable Map<String,String> tagsAll;
 
     private GetDataSetResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String awsAccountId() {
-        return this.awsAccountId;
+    public Optional<String> awsAccountId() {
+        return Optional.ofNullable(this.awsAccountId);
     }
     public List<GetDataSetColumnGroup> columnGroups() {
-        return this.columnGroups;
+        return this.columnGroups == null ? List.of() : this.columnGroups;
     }
     public List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules() {
         return this.columnLevelPermissionRules == null ? List.of() : this.columnLevelPermissionRules;
@@ -66,41 +67,41 @@ public final class GetDataSetResult {
         return this.dataSetId;
     }
     public List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations() {
-        return this.dataSetUsageConfigurations;
+        return this.dataSetUsageConfigurations == null ? List.of() : this.dataSetUsageConfigurations;
     }
     public List<GetDataSetFieldFolder> fieldFolders() {
-        return this.fieldFolders;
+        return this.fieldFolders == null ? List.of() : this.fieldFolders;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String importMode() {
-        return this.importMode;
+    public Optional<String> importMode() {
+        return Optional.ofNullable(this.importMode);
     }
     public List<GetDataSetLogicalTableMap> logicalTableMaps() {
-        return this.logicalTableMaps;
+        return this.logicalTableMaps == null ? List.of() : this.logicalTableMaps;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public List<GetDataSetPermission> permissions() {
-        return this.permissions;
+        return this.permissions == null ? List.of() : this.permissions;
     }
     public List<GetDataSetPhysicalTableMap> physicalTableMaps() {
-        return this.physicalTableMaps;
+        return this.physicalTableMaps == null ? List.of() : this.physicalTableMaps;
     }
     public List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets() {
-        return this.rowLevelPermissionDataSets;
+        return this.rowLevelPermissionDataSets == null ? List.of() : this.rowLevelPermissionDataSets;
     }
     public List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations() {
-        return this.rowLevelPermissionTagConfigurations;
+        return this.rowLevelPermissionTagConfigurations == null ? List.of() : this.rowLevelPermissionTagConfigurations;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @deprecated
@@ -109,7 +110,7 @@ public final class GetDataSetResult {
      */
     @Deprecated /* this attribute has been deprecated */
     public Map<String,String> tagsAll() {
-        return this.tagsAll;
+        return this.tagsAll == null ? Map.of() : this.tagsAll;
     }
 
     public static Builder builder() {
@@ -121,23 +122,23 @@ public final class GetDataSetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String awsAccountId;
-        private List<GetDataSetColumnGroup> columnGroups;
+        private @Nullable String arn;
+        private @Nullable String awsAccountId;
+        private @Nullable List<GetDataSetColumnGroup> columnGroups;
         private @Nullable List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules;
         private String dataSetId;
-        private List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations;
-        private List<GetDataSetFieldFolder> fieldFolders;
-        private String id;
-        private String importMode;
-        private List<GetDataSetLogicalTableMap> logicalTableMaps;
-        private String name;
-        private List<GetDataSetPermission> permissions;
-        private List<GetDataSetPhysicalTableMap> physicalTableMaps;
-        private List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets;
-        private List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations;
-        private Map<String,String> tags;
-        private Map<String,String> tagsAll;
+        private @Nullable List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations;
+        private @Nullable List<GetDataSetFieldFolder> fieldFolders;
+        private @Nullable String id;
+        private @Nullable String importMode;
+        private @Nullable List<GetDataSetLogicalTableMap> logicalTableMaps;
+        private @Nullable String name;
+        private @Nullable List<GetDataSetPermission> permissions;
+        private @Nullable List<GetDataSetPhysicalTableMap> physicalTableMaps;
+        private @Nullable List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets;
+        private @Nullable List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Map<String,String> tagsAll;
         public Builder() {}
         public Builder(GetDataSetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -161,18 +162,18 @@ public final class GetDataSetResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
+        public Builder awsAccountId(@Nullable String awsAccountId) {
+            this.awsAccountId = awsAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder columnGroups(List<GetDataSetColumnGroup> columnGroups) {
-            this.columnGroups = Objects.requireNonNull(columnGroups);
+        public Builder columnGroups(@Nullable List<GetDataSetColumnGroup> columnGroups) {
+            this.columnGroups = columnGroups;
             return this;
         }
         public Builder columnGroups(GetDataSetColumnGroup... columnGroups) {
@@ -192,84 +193,84 @@ public final class GetDataSetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dataSetUsageConfigurations(List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations) {
-            this.dataSetUsageConfigurations = Objects.requireNonNull(dataSetUsageConfigurations);
+        public Builder dataSetUsageConfigurations(@Nullable List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations) {
+            this.dataSetUsageConfigurations = dataSetUsageConfigurations;
             return this;
         }
         public Builder dataSetUsageConfigurations(GetDataSetDataSetUsageConfiguration... dataSetUsageConfigurations) {
             return dataSetUsageConfigurations(List.of(dataSetUsageConfigurations));
         }
         @CustomType.Setter
-        public Builder fieldFolders(List<GetDataSetFieldFolder> fieldFolders) {
-            this.fieldFolders = Objects.requireNonNull(fieldFolders);
+        public Builder fieldFolders(@Nullable List<GetDataSetFieldFolder> fieldFolders) {
+            this.fieldFolders = fieldFolders;
             return this;
         }
         public Builder fieldFolders(GetDataSetFieldFolder... fieldFolders) {
             return fieldFolders(List.of(fieldFolders));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder importMode(String importMode) {
-            this.importMode = Objects.requireNonNull(importMode);
+        public Builder importMode(@Nullable String importMode) {
+            this.importMode = importMode;
             return this;
         }
         @CustomType.Setter
-        public Builder logicalTableMaps(List<GetDataSetLogicalTableMap> logicalTableMaps) {
-            this.logicalTableMaps = Objects.requireNonNull(logicalTableMaps);
+        public Builder logicalTableMaps(@Nullable List<GetDataSetLogicalTableMap> logicalTableMaps) {
+            this.logicalTableMaps = logicalTableMaps;
             return this;
         }
         public Builder logicalTableMaps(GetDataSetLogicalTableMap... logicalTableMaps) {
             return logicalTableMaps(List.of(logicalTableMaps));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder permissions(List<GetDataSetPermission> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+        public Builder permissions(@Nullable List<GetDataSetPermission> permissions) {
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(GetDataSetPermission... permissions) {
             return permissions(List.of(permissions));
         }
         @CustomType.Setter
-        public Builder physicalTableMaps(List<GetDataSetPhysicalTableMap> physicalTableMaps) {
-            this.physicalTableMaps = Objects.requireNonNull(physicalTableMaps);
+        public Builder physicalTableMaps(@Nullable List<GetDataSetPhysicalTableMap> physicalTableMaps) {
+            this.physicalTableMaps = physicalTableMaps;
             return this;
         }
         public Builder physicalTableMaps(GetDataSetPhysicalTableMap... physicalTableMaps) {
             return physicalTableMaps(List.of(physicalTableMaps));
         }
         @CustomType.Setter
-        public Builder rowLevelPermissionDataSets(List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets) {
-            this.rowLevelPermissionDataSets = Objects.requireNonNull(rowLevelPermissionDataSets);
+        public Builder rowLevelPermissionDataSets(@Nullable List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets) {
+            this.rowLevelPermissionDataSets = rowLevelPermissionDataSets;
             return this;
         }
         public Builder rowLevelPermissionDataSets(GetDataSetRowLevelPermissionDataSet... rowLevelPermissionDataSets) {
             return rowLevelPermissionDataSets(List.of(rowLevelPermissionDataSets));
         }
         @CustomType.Setter
-        public Builder rowLevelPermissionTagConfigurations(List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations) {
-            this.rowLevelPermissionTagConfigurations = Objects.requireNonNull(rowLevelPermissionTagConfigurations);
+        public Builder rowLevelPermissionTagConfigurations(@Nullable List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations) {
+            this.rowLevelPermissionTagConfigurations = rowLevelPermissionTagConfigurations;
             return this;
         }
         public Builder rowLevelPermissionTagConfigurations(GetDataSetRowLevelPermissionTagConfiguration... rowLevelPermissionTagConfigurations) {
             return rowLevelPermissionTagConfigurations(List.of(rowLevelPermissionTagConfigurations));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            this.tagsAll = Objects.requireNonNull(tagsAll);
+        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
+            this.tagsAll = tagsAll;
             return this;
         }
         public GetDataSetResult build() {

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.InvokeArgs {
@@ -18,15 +20,15 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    @Import(name="catalogId", required=true)
-    private String catalogId;
+    @Import(name="catalogId")
+    private @Nullable String catalogId;
 
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
 
     /**
@@ -95,7 +97,7 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
          * @return builder
          * 
          */
-        public Builder catalogId(String catalogId) {
+        public Builder catalogId(@Nullable String catalogId) {
             $.catalogId = catalogId;
             return this;
         }
@@ -137,7 +139,6 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
         }
 
         public GetPermissionsLfTagPolicy build() {
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
             $.expressions = Objects.requireNonNull($.expressions, "expected parameter 'expressions' to be non-null");
             $.resourceType = Objects.requireNonNull($.resourceType, "expected parameter 'resourceType' to be non-null");
             return $;

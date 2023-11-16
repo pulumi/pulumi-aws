@@ -56,12 +56,12 @@ type Cluster struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the DAX cluster
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// List of Availability Zones in which the
 	// nodes will be created
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The DNS name of the DAX cluster without the port appended
-	ClusterAddress pulumi.StringOutput `pulumi:"clusterAddress"`
+	ClusterAddress pulumi.StringPtrOutput `pulumi:"clusterAddress"`
 	// The type of encryption the
 	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
 	// Default value is `NONE`.
@@ -71,7 +71,7 @@ type Cluster struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// The configuration endpoint for this DAX cluster,
 	// consisting of a DNS name and a port number
-	ConfigurationEndpoint pulumi.StringOutput `pulumi:"configurationEndpoint"`
+	ConfigurationEndpoint pulumi.StringPtrOutput `pulumi:"configurationEndpoint"`
 	// Description for the cluster
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A valid Amazon Resource Name (ARN) that identifies
@@ -82,7 +82,7 @@ type Cluster struct {
 	// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
 	// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
 	// `sun:05:00-sun:09:00`
-	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
+	MaintenanceWindow pulumi.StringPtrOutput `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes. See
 	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
@@ -96,9 +96,9 @@ type Cluster struct {
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
 	// Name of the parameter group to associate
 	// with this DAX cluster
-	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
+	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
 	// The port used by the configuration endpoint
-	Port pulumi.IntOutput `pulumi:"port"`
+	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The number of nodes in the DAX cluster. A
 	// replication factor of 1 will create a single-node cluster, without any read
 	// replicas
@@ -110,7 +110,7 @@ type Cluster struct {
 	ServerSideEncryption ClusterServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
 	// Name of the subnet group to be used for the
 	// cluster
-	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
+	SubnetGroupName pulumi.StringPtrOutput `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -483,8 +483,8 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 }
 
 // The ARN of the DAX cluster
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // List of Availability Zones in which the
@@ -494,8 +494,8 @@ func (o ClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
 }
 
 // The DNS name of the DAX cluster without the port appended
-func (o ClusterOutput) ClusterAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterAddress }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterAddress }).(pulumi.StringPtrOutput)
 }
 
 // The type of encryption the
@@ -513,8 +513,8 @@ func (o ClusterOutput) ClusterName() pulumi.StringOutput {
 
 // The configuration endpoint for this DAX cluster,
 // consisting of a DNS name and a port number
-func (o ClusterOutput) ConfigurationEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ConfigurationEndpoint }).(pulumi.StringOutput)
+func (o ClusterOutput) ConfigurationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ConfigurationEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Description for the cluster
@@ -533,8 +533,8 @@ func (o ClusterOutput) IamRoleArn() pulumi.StringOutput {
 // maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
 // (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
 // `sun:05:00-sun:09:00`
-func (o ClusterOutput) MaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MaintenanceWindow }).(pulumi.StringOutput)
+func (o ClusterOutput) MaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // The compute and memory capacity of the nodes. See
@@ -559,13 +559,13 @@ func (o ClusterOutput) NotificationTopicArn() pulumi.StringPtrOutput {
 
 // Name of the parameter group to associate
 // with this DAX cluster
-func (o ClusterOutput) ParameterGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
+func (o ClusterOutput) ParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The port used by the configuration endpoint
-func (o ClusterOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+func (o ClusterOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The number of nodes in the DAX cluster. A
@@ -588,8 +588,8 @@ func (o ClusterOutput) ServerSideEncryption() ClusterServerSideEncryptionPtrOutp
 
 // Name of the subnet group to be used for the
 // cluster
-func (o ClusterOutput) SubnetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SubnetGroupName }).(pulumi.StringOutput)
+func (o ClusterOutput) SubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

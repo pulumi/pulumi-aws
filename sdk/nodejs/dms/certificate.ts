@@ -62,7 +62,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
-    public /*out*/ readonly certificateArn!: pulumi.Output<string>;
+    public /*out*/ readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
      * The certificate identifier.
      *

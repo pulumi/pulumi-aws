@@ -35,7 +35,7 @@ class GetUserHierarchyStructureResult:
 
     @property
     @pulumi.getter(name="hierarchyStructures")
-    def hierarchy_structures(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureResult']:
+    def hierarchy_structures(self) -> Optional[Sequence['outputs.GetUserHierarchyStructureHierarchyStructureResult']]:
         """
         Block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         """
@@ -43,7 +43,7 @@ class GetUserHierarchyStructureResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

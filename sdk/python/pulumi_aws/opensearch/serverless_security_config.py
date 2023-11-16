@@ -309,7 +309,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configVersion")
-    def config_version(self) -> pulumi.Output[str]:
+    def config_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of the configuration.
         """

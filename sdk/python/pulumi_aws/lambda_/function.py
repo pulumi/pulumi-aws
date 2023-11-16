@@ -1952,7 +1952,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def architectures(self) -> pulumi.Output[Sequence[str]]:
+    def architectures(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         """
@@ -1960,7 +1960,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         """
@@ -2008,7 +2008,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralStorage")
-    def ephemeral_storage(self) -> pulumi.Output['outputs.FunctionEphemeralStorage']:
+    def ephemeral_storage(self) -> pulumi.Output[Optional['outputs.FunctionEphemeralStorage']]:
         """
         The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
         """
@@ -2048,7 +2048,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invokeArn")
-    def invoke_arn(self) -> pulumi.Output[str]:
+    def invoke_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
         """
@@ -2064,7 +2064,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> pulumi.Output[str]:
+    def last_modified(self) -> pulumi.Output[Optional[str]]:
         """
         Date this resource was last modified.
         """
@@ -2112,7 +2112,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="qualifiedArn")
-    def qualified_arn(self) -> pulumi.Output[str]:
+    def qualified_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         """
@@ -2120,7 +2120,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="qualifiedInvokeArn")
-    def qualified_invoke_arn(self) -> pulumi.Output[str]:
+    def qualified_invoke_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
         """
@@ -2200,7 +2200,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signingJobArn")
-    def signing_job_arn(self) -> pulumi.Output[str]:
+    def signing_job_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the signing job.
         """
@@ -2208,7 +2208,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signingProfileVersionArn")
-    def signing_profile_version_arn(self) -> pulumi.Output[str]:
+    def signing_profile_version_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the signing profile version.
         * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
@@ -2233,7 +2233,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceCodeHash")
-    def source_code_hash(self) -> pulumi.Output[str]:
+    def source_code_hash(self) -> pulumi.Output[Optional[str]]:
         """
         Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         """
@@ -2241,7 +2241,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceCodeSize")
-    def source_code_size(self) -> pulumi.Output[int]:
+    def source_code_size(self) -> pulumi.Output[Optional[int]]:
         """
         Size in bytes of the function .zip file.
         """
@@ -2276,7 +2276,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tracingConfig")
-    def tracing_config(self) -> pulumi.Output['outputs.FunctionTracingConfig']:
+    def tracing_config(self) -> pulumi.Output[Optional['outputs.FunctionTracingConfig']]:
         """
         Configuration block. Detailed below.
         """
@@ -2284,7 +2284,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Latest published version of your Lambda Function.
         * `vpc_config.vpc_id` - ID of the VPC.

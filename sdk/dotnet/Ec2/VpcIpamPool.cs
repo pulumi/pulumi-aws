@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ec2
         /// Amazon Resource Name (ARN) of IPAM
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> IpamScopeId { get; private set; } = null!;
 
         [Output("ipamScopeType")]
-        public Output<string> IpamScopeType { get; private set; } = null!;
+        public Output<string?> IpamScopeType { get; private set; } = null!;
 
         /// <summary>
         /// The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Locale { get; private set; } = null!;
 
         [Output("poolDepth")]
-        public Output<int> PoolDepth { get; private set; } = null!;
+        public Output<int?> PoolDepth { get; private set; } = null!;
 
         /// <summary>
         /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the IPAM
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

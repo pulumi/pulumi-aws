@@ -60,11 +60,11 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     /**
      * The ARN of the Association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The account that created the association.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    public /*out*/ readonly createdBy!: pulumi.Output<string | undefined>;
     /**
      * The IDs of the security groups.
      */
@@ -77,7 +77,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     /**
      * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

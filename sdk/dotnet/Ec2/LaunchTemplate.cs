@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Ec2
         /// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specify volumes to attach to the instance besides the volumes specified by the AMI.
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Ec2
         /// Default Version of the launch template.
         /// </summary>
         [Output("defaultVersion")]
-        public Output<int> DefaultVersion { get; private set; } = null!;
+        public Output<int?> DefaultVersion { get; private set; } = null!;
 
         /// <summary>
         /// Description of the launch template.
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Ec2
         /// The latest version of the launch template.
         /// </summary>
         [Output("latestVersion")]
-        public Output<int> LatestVersion { get; private set; } = null!;
+        public Output<int?> LatestVersion { get; private set; } = null!;
 
         /// <summary>
         /// A list of license specifications to associate with. See License Specification below for more details.
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.Ec2
         /// Customize the metadata options for the instance. See Metadata Options below for more details.
         /// </summary>
         [Output("metadataOptions")]
-        public Output<Outputs.LaunchTemplateMetadataOptions> MetadataOptions { get; private set; } = null!;
+        public Output<Outputs.LaunchTemplateMetadataOptions?> MetadataOptions { get; private set; } = null!;
 
         /// <summary>
         /// The monitoring option for the instance. See Monitoring below for more details.
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Ec2
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network

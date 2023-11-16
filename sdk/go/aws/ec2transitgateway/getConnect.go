@@ -95,16 +95,16 @@ type LookupConnectArgs struct {
 type LookupConnectResult struct {
 	Filters []GetConnectFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Tunnel protocol
-	Protocol string `pulumi:"protocol"`
+	Protocol *string `pulumi:"protocol"`
 	// Key-value tags for the EC2 Transit Gateway Connect
 	Tags                    map[string]string `pulumi:"tags"`
-	TransitGatewayConnectId string            `pulumi:"transitGatewayConnectId"`
+	TransitGatewayConnectId *string           `pulumi:"transitGatewayConnectId"`
 	// EC2 Transit Gateway identifier
-	TransitGatewayId string `pulumi:"transitGatewayId"`
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The underlaying VPC attachment
-	TransportAttachmentId string `pulumi:"transportAttachmentId"`
+	TransportAttachmentId *string `pulumi:"transportAttachmentId"`
 }
 
 func LookupConnectOutput(ctx *pulumi.Context, args LookupConnectOutputArgs, opts ...pulumi.InvokeOption) LookupConnectResultOutput {
@@ -154,13 +154,13 @@ func (o LookupConnectResultOutput) Filters() GetConnectFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupConnectResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupConnectResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Tunnel protocol
-func (o LookupConnectResultOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectResult) string { return v.Protocol }).(pulumi.StringOutput)
+func (o LookupConnectResultOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectResult) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Connect
@@ -168,18 +168,18 @@ func (o LookupConnectResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupConnectResultOutput) TransitGatewayConnectId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectResult) string { return v.TransitGatewayConnectId }).(pulumi.StringOutput)
+func (o LookupConnectResultOutput) TransitGatewayConnectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectResult) *string { return v.TransitGatewayConnectId }).(pulumi.StringPtrOutput)
 }
 
 // EC2 Transit Gateway identifier
-func (o LookupConnectResultOutput) TransitGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+func (o LookupConnectResultOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectResult) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // The underlaying VPC attachment
-func (o LookupConnectResultOutput) TransportAttachmentId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectResult) string { return v.TransportAttachmentId }).(pulumi.StringOutput)
+func (o LookupConnectResultOutput) TransportAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectResult) *string { return v.TransportAttachmentId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Chime
         /// ARN of the Voice Profile Domain.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of Voice Profile Domain.

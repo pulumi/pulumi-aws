@@ -84,19 +84,19 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The domain's ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The service endpoint for updating documents in a search domain.
      */
-    public /*out*/ readonly documentServiceEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly documentServiceEndpoint!: pulumi.Output<string | undefined>;
     /**
      * An internally generated unique identifier for the domain.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    public /*out*/ readonly domainId!: pulumi.Output<string | undefined>;
     /**
      * Domain endpoint options. Documented below.
      */
-    public readonly endpointOptions!: pulumi.Output<outputs.cloudsearch.DomainEndpointOptions>;
+    public readonly endpointOptions!: pulumi.Output<outputs.cloudsearch.DomainEndpointOptions | undefined>;
     /**
      * The index fields for documents added to the domain. Documented below.
      */
@@ -104,7 +104,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      */
-    public readonly multiAz!: pulumi.Output<boolean>;
+    public readonly multiAz!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the CloudSearch domain.
      */
@@ -112,11 +112,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Domain scaling parameters. Documented below.
      */
-    public readonly scalingParameters!: pulumi.Output<outputs.cloudsearch.DomainScalingParameters>;
+    public readonly scalingParameters!: pulumi.Output<outputs.cloudsearch.DomainScalingParameters | undefined>;
     /**
      * The service endpoint for requesting search results from a search domain.
      */
-    public /*out*/ readonly searchServiceEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly searchServiceEndpoint!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.

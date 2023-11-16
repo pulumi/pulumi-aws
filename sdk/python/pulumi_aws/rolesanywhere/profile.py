@@ -529,7 +529,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Profile
         """
@@ -537,7 +537,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> pulumi.Output[int]:
+    def duration_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The number of seconds the vended session credentials are valid for. Defaults to 3600.
         """

@@ -200,11 +200,11 @@ export class Budget extends pulumi.CustomResource {
     /**
      * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the budget.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      */
@@ -216,19 +216,19 @@ export class Budget extends pulumi.CustomResource {
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */
-    public readonly costFilters!: pulumi.Output<outputs.budgets.BudgetCostFilter[]>;
+    public readonly costFilters!: pulumi.Output<outputs.budgets.BudgetCostFilter[] | undefined>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
-    public readonly costTypes!: pulumi.Output<outputs.budgets.BudgetCostTypes>;
+    public readonly costTypes!: pulumi.Output<outputs.budgets.BudgetCostTypes | undefined>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
-    public readonly limitAmount!: pulumi.Output<string>;
+    public readonly limitAmount!: pulumi.Output<string | undefined>;
     /**
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
-    public readonly limitUnit!: pulumi.Output<string>;
+    public readonly limitUnit!: pulumi.Output<string | undefined>;
     /**
      * The name of a budget. Unique within accounts.
      */
@@ -236,7 +236,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * The prefix of the name of a budget. Unique within accounts.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
@@ -252,7 +252,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      */
-    public readonly timePeriodStart!: pulumi.Output<string>;
+    public readonly timePeriodStart!: pulumi.Output<string | undefined>;
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      */

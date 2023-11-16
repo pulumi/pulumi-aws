@@ -6,6 +6,8 @@ package com.pulumi.aws.iam.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceProfileResult {
@@ -13,60 +15,60 @@ public final class GetInstanceProfileResult {
      * @return ARN.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return String representation of the date the instance profile was created.
      * 
      */
-    private String createDate;
+    private @Nullable String createDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Path to the instance profile.
      * 
      */
-    private String path;
+    private @Nullable String path;
     /**
      * @return Role ARN associated with this instance profile.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return Role ID associated with this instance profile.
      * 
      */
-    private String roleId;
+    private @Nullable String roleId;
     /**
      * @return Role name associated with this instance profile.
      * 
      */
-    private String roleName;
+    private @Nullable String roleName;
 
     private GetInstanceProfileResult() {}
     /**
      * @return ARN.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return String representation of the date the instance profile was created.
      * 
      */
-    public String createDate() {
-        return this.createDate;
+    public Optional<String> createDate() {
+        return Optional.ofNullable(this.createDate);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -75,29 +77,29 @@ public final class GetInstanceProfileResult {
      * @return Path to the instance profile.
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     /**
      * @return Role ARN associated with this instance profile.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return Role ID associated with this instance profile.
      * 
      */
-    public String roleId() {
-        return this.roleId;
+    public Optional<String> roleId() {
+        return Optional.ofNullable(this.roleId);
     }
     /**
      * @return Role name associated with this instance profile.
      * 
      */
-    public String roleName() {
-        return this.roleName;
+    public Optional<String> roleName() {
+        return Optional.ofNullable(this.roleName);
     }
 
     public static Builder builder() {
@@ -109,14 +111,14 @@ public final class GetInstanceProfileResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String createDate;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String createDate;
+        private @Nullable String id;
         private String name;
-        private String path;
-        private String roleArn;
-        private String roleId;
-        private String roleName;
+        private @Nullable String path;
+        private @Nullable String roleArn;
+        private @Nullable String roleId;
+        private @Nullable String roleName;
         public Builder() {}
         public Builder(GetInstanceProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -131,18 +133,18 @@ public final class GetInstanceProfileResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createDate(String createDate) {
-            this.createDate = Objects.requireNonNull(createDate);
+        public Builder createDate(@Nullable String createDate) {
+            this.createDate = createDate;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -151,23 +153,23 @@ public final class GetInstanceProfileResult {
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder roleId(String roleId) {
-            this.roleId = Objects.requireNonNull(roleId);
+        public Builder roleId(@Nullable String roleId) {
+            this.roleId = roleId;
             return this;
         }
         @CustomType.Setter
-        public Builder roleName(String roleName) {
-            this.roleName = Objects.requireNonNull(roleName);
+        public Builder roleName(@Nullable String roleName) {
+            this.roleName = roleName;
             return this;
         }
         public GetInstanceProfileResult build() {

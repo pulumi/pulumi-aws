@@ -57,14 +57,14 @@ type LookupHttpNamespaceArgs struct {
 // A collection of values returned by getHttpNamespace.
 type LookupHttpNamespaceResult struct {
 	// ARN that Amazon Route 53 assigns to the namespace when you create it.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description that you specify for the namespace when you create it.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Name of an HTTP namespace.
-	HttpName string `pulumi:"httpName"`
+	HttpName *string `pulumi:"httpName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -110,23 +110,23 @@ func (o LookupHttpNamespaceResultOutput) ToLookupHttpNamespaceResultOutputWithCo
 }
 
 // ARN that Amazon Route 53 assigns to the namespace when you create it.
-func (o LookupHttpNamespaceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupHttpNamespaceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHttpNamespaceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description that you specify for the namespace when you create it.
-func (o LookupHttpNamespaceResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupHttpNamespaceResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHttpNamespaceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Name of an HTTP namespace.
-func (o LookupHttpNamespaceResultOutput) HttpName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.HttpName }).(pulumi.StringOutput)
+func (o LookupHttpNamespaceResultOutput) HttpName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHttpNamespaceResult) *string { return v.HttpName }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupHttpNamespaceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupHttpNamespaceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHttpNamespaceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupHttpNamespaceResultOutput) Name() pulumi.StringOutput {

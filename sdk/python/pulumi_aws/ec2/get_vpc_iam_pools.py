@@ -43,7 +43,7 @@ class GetVpcIamPoolsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -51,7 +51,7 @@ class GetVpcIamPoolsResult:
 
     @property
     @pulumi.getter(name="ipamPools")
-    def ipam_pools(self) -> Sequence['outputs.GetVpcIamPoolsIpamPoolResult']:
+    def ipam_pools(self) -> Optional[Sequence['outputs.GetVpcIamPoolsIpamPoolResult']]:
         """
         List of IPAM pools and their attributes. See below for details
         """

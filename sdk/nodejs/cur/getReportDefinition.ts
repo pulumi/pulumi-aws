@@ -47,48 +47,48 @@ export interface GetReportDefinitionResult {
     /**
      * A list of additional artifacts.
      */
-    readonly additionalArtifacts: string[];
+    readonly additionalArtifacts?: string[];
     /**
      * A list of schema elements.
      */
-    readonly additionalSchemaElements: string[];
+    readonly additionalSchemaElements?: string[];
     /**
      * Preferred format for report.
      */
-    readonly compression: string;
+    readonly compression?: string;
     /**
      * Preferred compression format for report.
      */
-    readonly format: string;
+    readonly format?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * If true reports are updated after they have been finalized.
      */
-    readonly refreshClosedReports: boolean;
+    readonly refreshClosedReports?: boolean;
     readonly reportName: string;
     /**
      * Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
      */
-    readonly reportVersioning: string;
+    readonly reportVersioning?: string;
     /**
      * Name of customer S3 bucket.
      */
-    readonly s3Bucket: string;
+    readonly s3Bucket?: string;
     /**
      * Preferred report path prefix.
      */
-    readonly s3Prefix: string;
+    readonly s3Prefix?: string;
     /**
      * Region of customer S3 bucket.
      */
-    readonly s3Region: string;
+    readonly s3Region?: string;
     /**
      * Frequency on which report data are measured and displayed.
      */
-    readonly timeUnit: string;
+    readonly timeUnit?: string;
 }
 /**
  * Use this data source to get information on an AWS Cost and Usage Report Definition.

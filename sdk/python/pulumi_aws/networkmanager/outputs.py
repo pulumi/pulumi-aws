@@ -1059,18 +1059,20 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
 @pulumi.output_type
 class GetDeviceAwsLocationResult(dict):
     def __init__(__self__, *,
-                 subnet_arn: str,
-                 zone: str):
+                 subnet_arn: Optional[str] = None,
+                 zone: Optional[str] = None):
         """
         :param str subnet_arn: ARN of the subnet that the device is located in.
         :param str zone: Zone that the device is located in.
         """
-        pulumi.set(__self__, "subnet_arn", subnet_arn)
-        pulumi.set(__self__, "zone", zone)
+        if subnet_arn is not None:
+            pulumi.set(__self__, "subnet_arn", subnet_arn)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="subnetArn")
-    def subnet_arn(self) -> str:
+    def subnet_arn(self) -> Optional[str]:
         """
         ARN of the subnet that the device is located in.
         """
@@ -1078,7 +1080,7 @@ class GetDeviceAwsLocationResult(dict):
 
     @property
     @pulumi.getter
-    def zone(self) -> str:
+    def zone(self) -> Optional[str]:
         """
         Zone that the device is located in.
         """
@@ -1088,21 +1090,24 @@ class GetDeviceAwsLocationResult(dict):
 @pulumi.output_type
 class GetDeviceLocationResult(dict):
     def __init__(__self__, *,
-                 address: str,
-                 latitude: str,
-                 longitude: str):
+                 address: Optional[str] = None,
+                 latitude: Optional[str] = None,
+                 longitude: Optional[str] = None):
         """
         :param str address: Physical address.
         :param str latitude: Latitude.
         :param str longitude: Longitude.
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "latitude", latitude)
-        pulumi.set(__self__, "longitude", longitude)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if latitude is not None:
+            pulumi.set(__self__, "latitude", latitude)
+        if longitude is not None:
+            pulumi.set(__self__, "longitude", longitude)
 
     @property
     @pulumi.getter
-    def address(self) -> str:
+    def address(self) -> Optional[str]:
         """
         Physical address.
         """
@@ -1110,7 +1115,7 @@ class GetDeviceLocationResult(dict):
 
     @property
     @pulumi.getter
-    def latitude(self) -> str:
+    def latitude(self) -> Optional[str]:
         """
         Latitude.
         """
@@ -1118,7 +1123,7 @@ class GetDeviceLocationResult(dict):
 
     @property
     @pulumi.getter
-    def longitude(self) -> str:
+    def longitude(self) -> Optional[str]:
         """
         Longitude.
         """
@@ -1128,18 +1133,20 @@ class GetDeviceLocationResult(dict):
 @pulumi.output_type
 class GetLinkBandwidthResult(dict):
     def __init__(__self__, *,
-                 download_speed: int,
-                 upload_speed: int):
+                 download_speed: Optional[int] = None,
+                 upload_speed: Optional[int] = None):
         """
         :param int download_speed: Download speed in Mbps.
         :param int upload_speed: Upload speed in Mbps.
         """
-        pulumi.set(__self__, "download_speed", download_speed)
-        pulumi.set(__self__, "upload_speed", upload_speed)
+        if download_speed is not None:
+            pulumi.set(__self__, "download_speed", download_speed)
+        if upload_speed is not None:
+            pulumi.set(__self__, "upload_speed", upload_speed)
 
     @property
     @pulumi.getter(name="downloadSpeed")
-    def download_speed(self) -> int:
+    def download_speed(self) -> Optional[int]:
         """
         Download speed in Mbps.
         """
@@ -1147,7 +1154,7 @@ class GetLinkBandwidthResult(dict):
 
     @property
     @pulumi.getter(name="uploadSpeed")
-    def upload_speed(self) -> int:
+    def upload_speed(self) -> Optional[int]:
         """
         Upload speed in Mbps.
         """
@@ -1157,21 +1164,24 @@ class GetLinkBandwidthResult(dict):
 @pulumi.output_type
 class GetSiteLocationResult(dict):
     def __init__(__self__, *,
-                 address: str,
-                 latitude: str,
-                 longitude: str):
+                 address: Optional[str] = None,
+                 latitude: Optional[str] = None,
+                 longitude: Optional[str] = None):
         """
         :param str address: Address of the location.
         :param str latitude: Latitude of the location.
         :param str longitude: Longitude of the location.
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "latitude", latitude)
-        pulumi.set(__self__, "longitude", longitude)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if latitude is not None:
+            pulumi.set(__self__, "latitude", latitude)
+        if longitude is not None:
+            pulumi.set(__self__, "longitude", longitude)
 
     @property
     @pulumi.getter
-    def address(self) -> str:
+    def address(self) -> Optional[str]:
         """
         Address of the location.
         """
@@ -1179,7 +1189,7 @@ class GetSiteLocationResult(dict):
 
     @property
     @pulumi.getter
-    def latitude(self) -> str:
+    def latitude(self) -> Optional[str]:
         """
         Latitude of the location.
         """
@@ -1187,7 +1197,7 @@ class GetSiteLocationResult(dict):
 
     @property
     @pulumi.getter
-    def longitude(self) -> str:
+    def longitude(self) -> Optional[str]:
         """
         Longitude of the location.
         """

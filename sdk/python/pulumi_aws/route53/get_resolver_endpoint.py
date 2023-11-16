@@ -54,12 +54,12 @@ class GetResolverEndpointResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def direction(self) -> str:
+    def direction(self) -> Optional[str]:
         return pulumi.get(self, "direction")
 
     @property
@@ -69,7 +69,7 @@ class GetResolverEndpointResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -77,12 +77,12 @@ class GetResolverEndpointResult:
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Sequence[str]:
+    def ip_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "ip_addresses")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
@@ -92,12 +92,12 @@ class GetResolverEndpointResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
 

@@ -103,28 +103,28 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * Amazon Resource Name (ARN) of cluster instance
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of cluster instance
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
@@ -145,28 +145,28 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * Identifier of the CA certificate for the DB instance.
      * 
      */
     @Export(name="caCertIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> caCertIdentifier;
+    private Output</* @Nullable */ String> caCertIdentifier;
 
     /**
      * @return Identifier of the CA certificate for the DB instance.
      * 
      */
-    public Output<String> caCertIdentifier() {
-        return this.caCertIdentifier;
+    public Output<Optional<String>> caCertIdentifier() {
+        return Codegen.optional(this.caCertIdentifier);
     }
     /**
      * Identifier of the `aws.rds.Cluster` in which to launch this instance.
@@ -215,56 +215,56 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbParameterGroupName", refs={String.class}, tree="[0]")
-    private Output<String> dbParameterGroupName;
+    private Output</* @Nullable */ String> dbParameterGroupName;
 
     /**
      * @return Name of the DB parameter group to associate with this instance.
      * 
      */
-    public Output<String> dbParameterGroupName() {
-        return this.dbParameterGroupName;
+    public Output<Optional<String>> dbParameterGroupName() {
+        return Codegen.optional(this.dbParameterGroupName);
     }
     /**
      * DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> dbSubnetGroupName;
+    private Output</* @Nullable */ String> dbSubnetGroupName;
 
     /**
      * @return DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
      * 
      */
-    public Output<String> dbSubnetGroupName() {
-        return this.dbSubnetGroupName;
+    public Output<Optional<String>> dbSubnetGroupName() {
+        return Codegen.optional(this.dbSubnetGroupName);
     }
     /**
      * Region-unique, immutable identifier for the DB instance.
      * 
      */
     @Export(name="dbiResourceId", refs={String.class}, tree="[0]")
-    private Output<String> dbiResourceId;
+    private Output</* @Nullable */ String> dbiResourceId;
 
     /**
      * @return Region-unique, immutable identifier for the DB instance.
      * 
      */
-    public Output<String> dbiResourceId() {
-        return this.dbiResourceId;
+    public Output<Optional<String>> dbiResourceId() {
+        return Codegen.optional(this.dbiResourceId);
     }
     /**
      * DNS address for this instance. May not be writable
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return DNS address for this instance. May not be writable
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
@@ -285,56 +285,56 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Database engine version.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * Database engine version
      * 
      */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
-    private Output<String> engineVersionActual;
+    private Output</* @Nullable */ String> engineVersionActual;
 
     /**
      * @return Database engine version
      * 
      */
-    public Output<String> engineVersionActual() {
-        return this.engineVersionActual;
+    public Output<Optional<String>> engineVersionActual() {
+        return Codegen.optional(this.engineVersionActual);
     }
     /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      * 
      */
     @Export(name="identifier", refs={String.class}, tree="[0]")
-    private Output<String> identifier;
+    private Output</* @Nullable */ String> identifier;
 
     /**
      * @return Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      * 
      */
-    public Output<String> identifier() {
-        return this.identifier;
+    public Output<Optional<String>> identifier() {
+        return Codegen.optional(this.identifier);
     }
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     @Export(name="identifierPrefix", refs={String.class}, tree="[0]")
-    private Output<String> identifierPrefix;
+    private Output</* @Nullable */ String> identifierPrefix;
 
     /**
      * @return Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public Output<String> identifierPrefix() {
-        return this.identifierPrefix;
+    public Output<Optional<String>> identifierPrefix() {
+        return Codegen.optional(this.identifierPrefix);
     }
     /**
      * Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
@@ -355,14 +355,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return ARN for the KMS encryption key if one is set to the cluster.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
@@ -383,112 +383,112 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="monitoringRoleArn", refs={String.class}, tree="[0]")
-    private Output<String> monitoringRoleArn;
+    private Output</* @Nullable */ String> monitoringRoleArn;
 
     /**
      * @return ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      * 
      */
-    public Output<String> monitoringRoleArn() {
-        return this.monitoringRoleArn;
+    public Output<Optional<String>> monitoringRoleArn() {
+        return Codegen.optional(this.monitoringRoleArn);
     }
     /**
      * Network type of the DB instance.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
-    private Output<String> networkType;
+    private Output</* @Nullable */ String> networkType;
 
     /**
      * @return Network type of the DB instance.
      * 
      */
-    public Output<String> networkType() {
-        return this.networkType;
+    public Output<Optional<String>> networkType() {
+        return Codegen.optional(this.networkType);
     }
     /**
      * Specifies whether Performance Insights is enabled or not.
      * 
      */
     @Export(name="performanceInsightsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> performanceInsightsEnabled;
+    private Output</* @Nullable */ Boolean> performanceInsightsEnabled;
 
     /**
      * @return Specifies whether Performance Insights is enabled or not.
      * 
      */
-    public Output<Boolean> performanceInsightsEnabled() {
-        return this.performanceInsightsEnabled;
+    public Output<Optional<Boolean>> performanceInsightsEnabled() {
+        return Codegen.optional(this.performanceInsightsEnabled);
     }
     /**
      * ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
      * 
      */
     @Export(name="performanceInsightsKmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> performanceInsightsKmsKeyId;
+    private Output</* @Nullable */ String> performanceInsightsKmsKeyId;
 
     /**
      * @return ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
      * 
      */
-    public Output<String> performanceInsightsKmsKeyId() {
-        return this.performanceInsightsKmsKeyId;
+    public Output<Optional<String>> performanceInsightsKmsKeyId() {
+        return Codegen.optional(this.performanceInsightsKmsKeyId);
     }
     /**
      * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     @Export(name="performanceInsightsRetentionPeriod", refs={Integer.class}, tree="[0]")
-    private Output<Integer> performanceInsightsRetentionPeriod;
+    private Output</* @Nullable */ Integer> performanceInsightsRetentionPeriod;
 
     /**
      * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
-    public Output<Integer> performanceInsightsRetentionPeriod() {
-        return this.performanceInsightsRetentionPeriod;
+    public Output<Optional<Integer>> performanceInsightsRetentionPeriod() {
+        return Codegen.optional(this.performanceInsightsRetentionPeriod);
     }
     /**
      * Database port
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return Database port
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * Daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredBackupWindow;
+    private Output</* @Nullable */ String> preferredBackupWindow;
 
     /**
      * @return Daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
      * 
      */
-    public Output<String> preferredBackupWindow() {
-        return this.preferredBackupWindow;
+    public Output<Optional<String>> preferredBackupWindow() {
+        return Codegen.optional(this.preferredBackupWindow);
     }
     /**
      * Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredMaintenanceWindow;
+    private Output</* @Nullable */ String> preferredMaintenanceWindow;
 
     /**
      * @return Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
-    public Output<String> preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Output<Optional<String>> preferredMaintenanceWindow() {
+        return Codegen.optional(this.preferredMaintenanceWindow);
     }
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
@@ -523,14 +523,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> storageEncrypted;
+    private Output</* @Nullable */ Boolean> storageEncrypted;
 
     /**
      * @return Specifies whether the DB cluster is encrypted.
      * 
      */
-    public Output<Boolean> storageEncrypted() {
-        return this.storageEncrypted;
+    public Output<Optional<Boolean>> storageEncrypted() {
+        return Codegen.optional(this.storageEncrypted);
     }
     /**
      * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -569,14 +569,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="writer", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> writer;
+    private Output</* @Nullable */ Boolean> writer;
 
     /**
      * @return Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      * 
      */
-    public Output<Boolean> writer() {
-        return this.writer;
+    public Output<Optional<Boolean>> writer() {
+        return Codegen.optional(this.writer);
     }
 
     /**

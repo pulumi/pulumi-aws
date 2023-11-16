@@ -12,6 +12,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchConfigurationResult {
@@ -19,62 +21,62 @@ public final class GetLaunchConfigurationResult {
      * @return Amazon Resource Name of the launch configuration.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Whether a Public IP address is associated with the instance.
      * 
      */
-    private Boolean associatePublicIpAddress;
+    private @Nullable Boolean associatePublicIpAddress;
     /**
      * @return EBS Block Devices attached to the instance.
      * 
      */
-    private List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices;
+    private @Nullable List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices;
     /**
      * @return Whether the launched EC2 instance will be EBS-optimized.
      * 
      */
-    private Boolean ebsOptimized;
+    private @Nullable Boolean ebsOptimized;
     /**
      * @return Whether Detailed Monitoring is Enabled.
      * 
      */
-    private Boolean enableMonitoring;
+    private @Nullable Boolean enableMonitoring;
     /**
      * @return The Ephemeral volumes on the instance.
      * 
      */
-    private List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices;
+    private @Nullable List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices;
     /**
      * @return The IAM Instance Profile to associate with launched instances.
      * 
      */
-    private String iamInstanceProfile;
+    private @Nullable String iamInstanceProfile;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return EC2 Image ID of the instance.
      * 
      */
-    private String imageId;
+    private @Nullable String imageId;
     /**
      * @return Instance Type of the instance to launch.
      * 
      */
-    private String instanceType;
+    private @Nullable String instanceType;
     /**
      * @return Key Name that should be used for the instance.
      * 
      */
-    private String keyName;
+    private @Nullable String keyName;
     /**
      * @return Metadata options for the instance.
      * 
      */
-    private List<GetLaunchConfigurationMetadataOption> metadataOptions;
+    private @Nullable List<GetLaunchConfigurationMetadataOption> metadataOptions;
     /**
      * @return Name of the launch configuration.
      * 
@@ -84,112 +86,112 @@ public final class GetLaunchConfigurationResult {
      * @return Tenancy of the instance.
      * 
      */
-    private String placementTenancy;
+    private @Nullable String placementTenancy;
     /**
      * @return Root Block Device of the instance.
      * 
      */
-    private List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices;
+    private @Nullable List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices;
     /**
      * @return List of associated Security Group IDS.
      * 
      */
-    private List<String> securityGroups;
+    private @Nullable List<String> securityGroups;
     /**
      * @return Price to use for reserving Spot instances.
      * 
      */
-    private String spotPrice;
+    private @Nullable String spotPrice;
     /**
      * @return User Data of the instance.
      * 
      */
-    private String userData;
+    private @Nullable String userData;
 
     private GetLaunchConfigurationResult() {}
     /**
      * @return Amazon Resource Name of the launch configuration.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Whether a Public IP address is associated with the instance.
      * 
      */
-    public Boolean associatePublicIpAddress() {
-        return this.associatePublicIpAddress;
+    public Optional<Boolean> associatePublicIpAddress() {
+        return Optional.ofNullable(this.associatePublicIpAddress);
     }
     /**
      * @return EBS Block Devices attached to the instance.
      * 
      */
     public List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices() {
-        return this.ebsBlockDevices;
+        return this.ebsBlockDevices == null ? List.of() : this.ebsBlockDevices;
     }
     /**
      * @return Whether the launched EC2 instance will be EBS-optimized.
      * 
      */
-    public Boolean ebsOptimized() {
-        return this.ebsOptimized;
+    public Optional<Boolean> ebsOptimized() {
+        return Optional.ofNullable(this.ebsOptimized);
     }
     /**
      * @return Whether Detailed Monitoring is Enabled.
      * 
      */
-    public Boolean enableMonitoring() {
-        return this.enableMonitoring;
+    public Optional<Boolean> enableMonitoring() {
+        return Optional.ofNullable(this.enableMonitoring);
     }
     /**
      * @return The Ephemeral volumes on the instance.
      * 
      */
     public List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices() {
-        return this.ephemeralBlockDevices;
+        return this.ephemeralBlockDevices == null ? List.of() : this.ephemeralBlockDevices;
     }
     /**
      * @return The IAM Instance Profile to associate with launched instances.
      * 
      */
-    public String iamInstanceProfile() {
-        return this.iamInstanceProfile;
+    public Optional<String> iamInstanceProfile() {
+        return Optional.ofNullable(this.iamInstanceProfile);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return EC2 Image ID of the instance.
      * 
      */
-    public String imageId() {
-        return this.imageId;
+    public Optional<String> imageId() {
+        return Optional.ofNullable(this.imageId);
     }
     /**
      * @return Instance Type of the instance to launch.
      * 
      */
-    public String instanceType() {
-        return this.instanceType;
+    public Optional<String> instanceType() {
+        return Optional.ofNullable(this.instanceType);
     }
     /**
      * @return Key Name that should be used for the instance.
      * 
      */
-    public String keyName() {
-        return this.keyName;
+    public Optional<String> keyName() {
+        return Optional.ofNullable(this.keyName);
     }
     /**
      * @return Metadata options for the instance.
      * 
      */
     public List<GetLaunchConfigurationMetadataOption> metadataOptions() {
-        return this.metadataOptions;
+        return this.metadataOptions == null ? List.of() : this.metadataOptions;
     }
     /**
      * @return Name of the launch configuration.
@@ -202,36 +204,36 @@ public final class GetLaunchConfigurationResult {
      * @return Tenancy of the instance.
      * 
      */
-    public String placementTenancy() {
-        return this.placementTenancy;
+    public Optional<String> placementTenancy() {
+        return Optional.ofNullable(this.placementTenancy);
     }
     /**
      * @return Root Block Device of the instance.
      * 
      */
     public List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices() {
-        return this.rootBlockDevices;
+        return this.rootBlockDevices == null ? List.of() : this.rootBlockDevices;
     }
     /**
      * @return List of associated Security Group IDS.
      * 
      */
     public List<String> securityGroups() {
-        return this.securityGroups;
+        return this.securityGroups == null ? List.of() : this.securityGroups;
     }
     /**
      * @return Price to use for reserving Spot instances.
      * 
      */
-    public String spotPrice() {
-        return this.spotPrice;
+    public Optional<String> spotPrice() {
+        return Optional.ofNullable(this.spotPrice);
     }
     /**
      * @return User Data of the instance.
      * 
      */
-    public String userData() {
-        return this.userData;
+    public Optional<String> userData() {
+        return Optional.ofNullable(this.userData);
     }
 
     public static Builder builder() {
@@ -243,24 +245,24 @@ public final class GetLaunchConfigurationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Boolean associatePublicIpAddress;
-        private List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices;
-        private Boolean ebsOptimized;
-        private Boolean enableMonitoring;
-        private List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices;
-        private String iamInstanceProfile;
-        private String id;
-        private String imageId;
-        private String instanceType;
-        private String keyName;
-        private List<GetLaunchConfigurationMetadataOption> metadataOptions;
+        private @Nullable String arn;
+        private @Nullable Boolean associatePublicIpAddress;
+        private @Nullable List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices;
+        private @Nullable Boolean ebsOptimized;
+        private @Nullable Boolean enableMonitoring;
+        private @Nullable List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices;
+        private @Nullable String iamInstanceProfile;
+        private @Nullable String id;
+        private @Nullable String imageId;
+        private @Nullable String instanceType;
+        private @Nullable String keyName;
+        private @Nullable List<GetLaunchConfigurationMetadataOption> metadataOptions;
         private String name;
-        private String placementTenancy;
-        private List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices;
-        private List<String> securityGroups;
-        private String spotPrice;
-        private String userData;
+        private @Nullable String placementTenancy;
+        private @Nullable List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices;
+        private @Nullable List<String> securityGroups;
+        private @Nullable String spotPrice;
+        private @Nullable String userData;
         public Builder() {}
         public Builder(GetLaunchConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -285,69 +287,69 @@ public final class GetLaunchConfigurationResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder associatePublicIpAddress(Boolean associatePublicIpAddress) {
-            this.associatePublicIpAddress = Objects.requireNonNull(associatePublicIpAddress);
+        public Builder associatePublicIpAddress(@Nullable Boolean associatePublicIpAddress) {
+            this.associatePublicIpAddress = associatePublicIpAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsBlockDevices(List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices) {
-            this.ebsBlockDevices = Objects.requireNonNull(ebsBlockDevices);
+        public Builder ebsBlockDevices(@Nullable List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices) {
+            this.ebsBlockDevices = ebsBlockDevices;
             return this;
         }
         public Builder ebsBlockDevices(GetLaunchConfigurationEbsBlockDevice... ebsBlockDevices) {
             return ebsBlockDevices(List.of(ebsBlockDevices));
         }
         @CustomType.Setter
-        public Builder ebsOptimized(Boolean ebsOptimized) {
-            this.ebsOptimized = Objects.requireNonNull(ebsOptimized);
+        public Builder ebsOptimized(@Nullable Boolean ebsOptimized) {
+            this.ebsOptimized = ebsOptimized;
             return this;
         }
         @CustomType.Setter
-        public Builder enableMonitoring(Boolean enableMonitoring) {
-            this.enableMonitoring = Objects.requireNonNull(enableMonitoring);
+        public Builder enableMonitoring(@Nullable Boolean enableMonitoring) {
+            this.enableMonitoring = enableMonitoring;
             return this;
         }
         @CustomType.Setter
-        public Builder ephemeralBlockDevices(List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices) {
-            this.ephemeralBlockDevices = Objects.requireNonNull(ephemeralBlockDevices);
+        public Builder ephemeralBlockDevices(@Nullable List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices) {
+            this.ephemeralBlockDevices = ephemeralBlockDevices;
             return this;
         }
         public Builder ephemeralBlockDevices(GetLaunchConfigurationEphemeralBlockDevice... ephemeralBlockDevices) {
             return ephemeralBlockDevices(List.of(ephemeralBlockDevices));
         }
         @CustomType.Setter
-        public Builder iamInstanceProfile(String iamInstanceProfile) {
-            this.iamInstanceProfile = Objects.requireNonNull(iamInstanceProfile);
+        public Builder iamInstanceProfile(@Nullable String iamInstanceProfile) {
+            this.iamInstanceProfile = iamInstanceProfile;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder imageId(String imageId) {
-            this.imageId = Objects.requireNonNull(imageId);
+        public Builder imageId(@Nullable String imageId) {
+            this.imageId = imageId;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+        public Builder instanceType(@Nullable String instanceType) {
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
-        public Builder keyName(String keyName) {
-            this.keyName = Objects.requireNonNull(keyName);
+        public Builder keyName(@Nullable String keyName) {
+            this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
-        public Builder metadataOptions(List<GetLaunchConfigurationMetadataOption> metadataOptions) {
-            this.metadataOptions = Objects.requireNonNull(metadataOptions);
+        public Builder metadataOptions(@Nullable List<GetLaunchConfigurationMetadataOption> metadataOptions) {
+            this.metadataOptions = metadataOptions;
             return this;
         }
         public Builder metadataOptions(GetLaunchConfigurationMetadataOption... metadataOptions) {
@@ -359,34 +361,34 @@ public final class GetLaunchConfigurationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder placementTenancy(String placementTenancy) {
-            this.placementTenancy = Objects.requireNonNull(placementTenancy);
+        public Builder placementTenancy(@Nullable String placementTenancy) {
+            this.placementTenancy = placementTenancy;
             return this;
         }
         @CustomType.Setter
-        public Builder rootBlockDevices(List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices) {
-            this.rootBlockDevices = Objects.requireNonNull(rootBlockDevices);
+        public Builder rootBlockDevices(@Nullable List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices) {
+            this.rootBlockDevices = rootBlockDevices;
             return this;
         }
         public Builder rootBlockDevices(GetLaunchConfigurationRootBlockDevice... rootBlockDevices) {
             return rootBlockDevices(List.of(rootBlockDevices));
         }
         @CustomType.Setter
-        public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+        public Builder securityGroups(@Nullable List<String> securityGroups) {
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
         @CustomType.Setter
-        public Builder spotPrice(String spotPrice) {
-            this.spotPrice = Objects.requireNonNull(spotPrice);
+        public Builder spotPrice(@Nullable String spotPrice) {
+            this.spotPrice = spotPrice;
             return this;
         }
         @CustomType.Setter
-        public Builder userData(String userData) {
-            this.userData = Objects.requireNonNull(userData);
+        public Builder userData(@Nullable String userData) {
+            this.userData = userData;
             return this;
         }
         public GetLaunchConfigurationResult build() {

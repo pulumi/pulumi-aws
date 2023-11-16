@@ -108,14 +108,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of cluster instance
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
@@ -136,28 +136,28 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * (Optional) The identifier of the CA certificate for the DB instance.
      * 
      */
     @Export(name="caCertIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> caCertIdentifier;
+    private Output</* @Nullable */ String> caCertIdentifier;
 
     /**
      * @return (Optional) The identifier of the CA certificate for the DB instance.
      * 
      */
-    public Output<String> caCertIdentifier() {
-        return this.caCertIdentifier;
+    public Output<Optional<String>> caCertIdentifier() {
+        return Codegen.optional(this.caCertIdentifier);
     }
     /**
      * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
@@ -192,28 +192,28 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> dbSubnetGroupName;
+    private Output</* @Nullable */ String> dbSubnetGroupName;
 
     /**
      * @return The DB subnet group to associate with this DB instance.
      * 
      */
-    public Output<String> dbSubnetGroupName() {
-        return this.dbSubnetGroupName;
+    public Output<Optional<String>> dbSubnetGroupName() {
+        return Codegen.optional(this.dbSubnetGroupName);
     }
     /**
      * The region-unique, immutable identifier for the DB instance.
      * 
      */
     @Export(name="dbiResourceId", refs={String.class}, tree="[0]")
-    private Output<String> dbiResourceId;
+    private Output</* @Nullable */ String> dbiResourceId;
 
     /**
      * @return The region-unique, immutable identifier for the DB instance.
      * 
      */
-    public Output<String> dbiResourceId() {
-        return this.dbiResourceId;
+    public Output<Optional<String>> dbiResourceId() {
+        return Codegen.optional(this.dbiResourceId);
     }
     /**
      * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
@@ -234,14 +234,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The DNS address for this instance. May not be writable
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -262,42 +262,42 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return The database engine version
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      * 
      */
     @Export(name="identifier", refs={String.class}, tree="[0]")
-    private Output<String> identifier;
+    private Output</* @Nullable */ String> identifier;
 
     /**
      * @return The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      * 
      */
-    public Output<String> identifier() {
-        return this.identifier;
+    public Output<Optional<String>> identifier() {
+        return Codegen.optional(this.identifier);
     }
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     @Export(name="identifierPrefix", refs={String.class}, tree="[0]")
-    private Output<String> identifierPrefix;
+    private Output</* @Nullable */ String> identifierPrefix;
 
     /**
      * @return Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public Output<String> identifierPrefix() {
-        return this.identifierPrefix;
+    public Output<Optional<String>> identifierPrefix() {
+        return Codegen.optional(this.identifierPrefix);
     }
     /**
      * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
@@ -364,56 +364,56 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ARN for the KMS encryption key if one is set to the cluster.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      * 
      */
     @Export(name="performanceInsightsKmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> performanceInsightsKmsKeyId;
+    private Output</* @Nullable */ String> performanceInsightsKmsKeyId;
 
     /**
      * @return The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      * 
      */
-    public Output<String> performanceInsightsKmsKeyId() {
-        return this.performanceInsightsKmsKeyId;
+    public Output<Optional<String>> performanceInsightsKmsKeyId() {
+        return Codegen.optional(this.performanceInsightsKmsKeyId);
     }
     /**
      * The database port
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return The database port
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * The daily time range during which automated backups are created if automated backups are enabled.
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredBackupWindow;
+    private Output</* @Nullable */ String> preferredBackupWindow;
 
     /**
      * @return The daily time range during which automated backups are created if automated backups are enabled.
      * 
      */
-    public Output<String> preferredBackupWindow() {
-        return this.preferredBackupWindow;
+    public Output<Optional<String>> preferredBackupWindow() {
+        return Codegen.optional(this.preferredBackupWindow);
     }
     /**
      * The window to perform maintenance in.
@@ -421,15 +421,15 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredMaintenanceWindow;
+    private Output</* @Nullable */ String> preferredMaintenanceWindow;
 
     /**
      * @return The window to perform maintenance in.
      * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
-    public Output<String> preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Output<Optional<String>> preferredMaintenanceWindow() {
+        return Codegen.optional(this.preferredMaintenanceWindow);
     }
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
@@ -446,24 +446,24 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.promotionTier);
     }
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> publiclyAccessible;
+    private Output</* @Nullable */ Boolean> publiclyAccessible;
 
-    public Output<Boolean> publiclyAccessible() {
-        return this.publiclyAccessible;
+    public Output<Optional<Boolean>> publiclyAccessible() {
+        return Codegen.optional(this.publiclyAccessible);
     }
     /**
      * Specifies whether the DB cluster is encrypted.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> storageEncrypted;
+    private Output</* @Nullable */ Boolean> storageEncrypted;
 
     /**
      * @return Specifies whether the DB cluster is encrypted.
      * 
      */
-    public Output<Boolean> storageEncrypted() {
-        return this.storageEncrypted;
+    public Output<Optional<Boolean>> storageEncrypted() {
+        return Codegen.optional(this.storageEncrypted);
     }
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -502,14 +502,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="writer", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> writer;
+    private Output</* @Nullable */ Boolean> writer;
 
     /**
      * @return Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      * 
      */
-    public Output<Boolean> writer() {
-        return this.writer;
+    public Output<Optional<Boolean>> writer() {
+        return Codegen.optional(this.writer);
     }
 
     /**

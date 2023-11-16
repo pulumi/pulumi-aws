@@ -160,95 +160,95 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
         /// </summary>
-        public readonly string AvailabilityZoneId;
+        public readonly string? AvailabilityZoneId;
         /// <summary>
         /// The Availability Zone name in which the file system's One Zone storage classes exist.
         /// </summary>
-        public readonly string AvailabilityZoneName;
-        public readonly string CreationToken;
+        public readonly string? AvailabilityZoneName;
+        public readonly string? CreationToken;
         /// <summary>
         /// DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         /// </summary>
-        public readonly string DnsName;
+        public readonly string? DnsName;
         /// <summary>
         /// Whether EFS is encrypted.
         /// </summary>
-        public readonly bool Encrypted;
-        public readonly string FileSystemId;
+        public readonly bool? Encrypted;
+        public readonly string? FileSystemId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN for the KMS encryption key.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
         /// </summary>
-        public readonly Outputs.GetFileSystemLifecyclePolicyResult LifecyclePolicy;
+        public readonly Outputs.GetFileSystemLifecyclePolicyResult? LifecyclePolicy;
         /// <summary>
         /// The value of the file system's `Name` tag.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// File system performance mode.
         /// </summary>
-        public readonly string PerformanceMode;
+        public readonly string? PerformanceMode;
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system.
         /// </summary>
-        public readonly double ProvisionedThroughputInMibps;
+        public readonly double? ProvisionedThroughputInMibps;
         /// <summary>
         /// Current byte count used by the file system.
         /// </summary>
-        public readonly int SizeInBytes;
+        public readonly int? SizeInBytes;
         /// <summary>
         /// A map of tags to assign to the file system.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Throughput mode for the file system.
         /// </summary>
-        public readonly string ThroughputMode;
+        public readonly string? ThroughputMode;
 
         [OutputConstructor]
         private GetFileSystemResult(
-            string arn,
+            string? arn,
 
-            string availabilityZoneId,
+            string? availabilityZoneId,
 
-            string availabilityZoneName,
+            string? availabilityZoneName,
 
-            string creationToken,
+            string? creationToken,
 
-            string dnsName,
+            string? dnsName,
 
-            bool encrypted,
+            bool? encrypted,
 
-            string fileSystemId,
+            string? fileSystemId,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            Outputs.GetFileSystemLifecyclePolicyResult lifecyclePolicy,
+            Outputs.GetFileSystemLifecyclePolicyResult? lifecyclePolicy,
 
-            string name,
+            string? name,
 
-            string performanceMode,
+            string? performanceMode,
 
-            double provisionedThroughputInMibps,
+            double? provisionedThroughputInMibps,
 
-            int sizeInBytes,
+            int? sizeInBytes,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string throughputMode)
+            string? throughputMode)
         {
             Arn = arn;
             AvailabilityZoneId = availabilityZoneId;

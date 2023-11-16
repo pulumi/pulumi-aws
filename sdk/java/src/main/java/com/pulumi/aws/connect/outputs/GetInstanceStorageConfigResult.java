@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceStorageConfigResult {
@@ -16,14 +18,14 @@ public final class GetInstanceStorageConfigResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
     private String resourceType;
     /**
      * @return Specifies the storage configuration options for the Connect Instance. Documented below.
      * 
      */
-    private List<GetInstanceStorageConfigStorageConfig> storageConfigs;
+    private @Nullable List<GetInstanceStorageConfigStorageConfig> storageConfigs;
 
     private GetInstanceStorageConfigResult() {}
     public String associationId() {
@@ -33,8 +35,8 @@ public final class GetInstanceStorageConfigResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
@@ -47,7 +49,7 @@ public final class GetInstanceStorageConfigResult {
      * 
      */
     public List<GetInstanceStorageConfigStorageConfig> storageConfigs() {
-        return this.storageConfigs;
+        return this.storageConfigs == null ? List.of() : this.storageConfigs;
     }
 
     public static Builder builder() {
@@ -60,10 +62,10 @@ public final class GetInstanceStorageConfigResult {
     @CustomType.Builder
     public static final class Builder {
         private String associationId;
-        private String id;
+        private @Nullable String id;
         private String instanceId;
         private String resourceType;
-        private List<GetInstanceStorageConfigStorageConfig> storageConfigs;
+        private @Nullable List<GetInstanceStorageConfigStorageConfig> storageConfigs;
         public Builder() {}
         public Builder(GetInstanceStorageConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -80,8 +82,8 @@ public final class GetInstanceStorageConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -95,8 +97,8 @@ public final class GetInstanceStorageConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder storageConfigs(List<GetInstanceStorageConfigStorageConfig> storageConfigs) {
-            this.storageConfigs = Objects.requireNonNull(storageConfigs);
+        public Builder storageConfigs(@Nullable List<GetInstanceStorageConfigStorageConfig> storageConfigs) {
+            this.storageConfigs = storageConfigs;
             return this;
         }
         public Builder storageConfigs(GetInstanceStorageConfigStorageConfig... storageConfigs) {

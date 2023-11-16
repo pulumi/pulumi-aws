@@ -70,7 +70,7 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
     /**
      * A unique identifier for the Certificate Authority.
      */
-    public /*out*/ readonly websiteCaId!: pulumi.Output<string>;
+    public /*out*/ readonly websiteCaId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebsiteCertificateAuthorityAssociation resource with the given unique name, arguments, and options.

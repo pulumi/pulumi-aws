@@ -10,50 +10,51 @@ import com.pulumi.aws.fsx.outputs.GetOntapStorageVirtualMachineEndpointSmb;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineEndpoint {
-    private List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis;
+    private @Nullable List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis;
     /**
      * @return An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
      * 
      */
-    private List<GetOntapStorageVirtualMachineEndpointManagement> managements;
+    private @Nullable List<GetOntapStorageVirtualMachineEndpointManagement> managements;
     /**
      * @return An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
      * 
      */
-    private List<GetOntapStorageVirtualMachineEndpointNf> nfs;
+    private @Nullable List<GetOntapStorageVirtualMachineEndpointNf> nfs;
     /**
      * @return An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
      * 
      */
-    private List<GetOntapStorageVirtualMachineEndpointSmb> smbs;
+    private @Nullable List<GetOntapStorageVirtualMachineEndpointSmb> smbs;
 
     private GetOntapStorageVirtualMachineEndpoint() {}
     public List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis() {
-        return this.iscsis;
+        return this.iscsis == null ? List.of() : this.iscsis;
     }
     /**
      * @return An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
      * 
      */
     public List<GetOntapStorageVirtualMachineEndpointManagement> managements() {
-        return this.managements;
+        return this.managements == null ? List.of() : this.managements;
     }
     /**
      * @return An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
      * 
      */
     public List<GetOntapStorageVirtualMachineEndpointNf> nfs() {
-        return this.nfs;
+        return this.nfs == null ? List.of() : this.nfs;
     }
     /**
      * @return An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
      * 
      */
     public List<GetOntapStorageVirtualMachineEndpointSmb> smbs() {
-        return this.smbs;
+        return this.smbs == null ? List.of() : this.smbs;
     }
 
     public static Builder builder() {
@@ -65,10 +66,10 @@ public final class GetOntapStorageVirtualMachineEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis;
-        private List<GetOntapStorageVirtualMachineEndpointManagement> managements;
-        private List<GetOntapStorageVirtualMachineEndpointNf> nfs;
-        private List<GetOntapStorageVirtualMachineEndpointSmb> smbs;
+        private @Nullable List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis;
+        private @Nullable List<GetOntapStorageVirtualMachineEndpointManagement> managements;
+        private @Nullable List<GetOntapStorageVirtualMachineEndpointNf> nfs;
+        private @Nullable List<GetOntapStorageVirtualMachineEndpointSmb> smbs;
         public Builder() {}
         public Builder(GetOntapStorageVirtualMachineEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,32 +80,32 @@ public final class GetOntapStorageVirtualMachineEndpoint {
         }
 
         @CustomType.Setter
-        public Builder iscsis(List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis) {
-            this.iscsis = Objects.requireNonNull(iscsis);
+        public Builder iscsis(@Nullable List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis) {
+            this.iscsis = iscsis;
             return this;
         }
         public Builder iscsis(GetOntapStorageVirtualMachineEndpointIscsi... iscsis) {
             return iscsis(List.of(iscsis));
         }
         @CustomType.Setter
-        public Builder managements(List<GetOntapStorageVirtualMachineEndpointManagement> managements) {
-            this.managements = Objects.requireNonNull(managements);
+        public Builder managements(@Nullable List<GetOntapStorageVirtualMachineEndpointManagement> managements) {
+            this.managements = managements;
             return this;
         }
         public Builder managements(GetOntapStorageVirtualMachineEndpointManagement... managements) {
             return managements(List.of(managements));
         }
         @CustomType.Setter
-        public Builder nfs(List<GetOntapStorageVirtualMachineEndpointNf> nfs) {
-            this.nfs = Objects.requireNonNull(nfs);
+        public Builder nfs(@Nullable List<GetOntapStorageVirtualMachineEndpointNf> nfs) {
+            this.nfs = nfs;
             return this;
         }
         public Builder nfs(GetOntapStorageVirtualMachineEndpointNf... nfs) {
             return nfs(List.of(nfs));
         }
         @CustomType.Setter
-        public Builder smbs(List<GetOntapStorageVirtualMachineEndpointSmb> smbs) {
-            this.smbs = Objects.requireNonNull(smbs);
+        public Builder smbs(@Nullable List<GetOntapStorageVirtualMachineEndpointSmb> smbs) {
+            this.smbs = smbs;
             return this;
         }
         public Builder smbs(GetOntapStorageVirtualMachineEndpointSmb... smbs) {

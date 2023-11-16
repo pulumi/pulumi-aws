@@ -929,9 +929,9 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolP
 
 type GetRepositoryEncryptionConfiguration struct {
 	// Encryption type to use for the repository, either `AES256` or `KMS`.
-	EncryptionType string `pulumi:"encryptionType"`
+	EncryptionType *string `pulumi:"encryptionType"`
 	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
-	KmsKey string `pulumi:"kmsKey"`
+	KmsKey *string `pulumi:"kmsKey"`
 }
 
 // GetRepositoryEncryptionConfigurationInput is an input type that accepts GetRepositoryEncryptionConfigurationArgs and GetRepositoryEncryptionConfigurationOutput values.
@@ -947,9 +947,9 @@ type GetRepositoryEncryptionConfigurationInput interface {
 
 type GetRepositoryEncryptionConfigurationArgs struct {
 	// Encryption type to use for the repository, either `AES256` or `KMS`.
-	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
+	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
 	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
-	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (GetRepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -1004,13 +1004,13 @@ func (o GetRepositoryEncryptionConfigurationOutput) ToGetRepositoryEncryptionCon
 }
 
 // Encryption type to use for the repository, either `AES256` or `KMS`.
-func (o GetRepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryEncryptionConfiguration) string { return v.EncryptionType }).(pulumi.StringOutput)
+func (o GetRepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRepositoryEncryptionConfiguration) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }
 
 // If `encryptionType` is `KMS`, the ARN of the KMS key used.
-func (o GetRepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
+func (o GetRepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRepositoryEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
 
 type GetRepositoryEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -1035,7 +1035,7 @@ func (o GetRepositoryEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput
 
 type GetRepositoryImageScanningConfiguration struct {
 	// Whether images are scanned after being pushed to the repository.
-	ScanOnPush bool `pulumi:"scanOnPush"`
+	ScanOnPush *bool `pulumi:"scanOnPush"`
 }
 
 // GetRepositoryImageScanningConfigurationInput is an input type that accepts GetRepositoryImageScanningConfigurationArgs and GetRepositoryImageScanningConfigurationOutput values.
@@ -1051,7 +1051,7 @@ type GetRepositoryImageScanningConfigurationInput interface {
 
 type GetRepositoryImageScanningConfigurationArgs struct {
 	// Whether images are scanned after being pushed to the repository.
-	ScanOnPush pulumi.BoolInput `pulumi:"scanOnPush"`
+	ScanOnPush pulumi.BoolPtrInput `pulumi:"scanOnPush"`
 }
 
 func (GetRepositoryImageScanningConfigurationArgs) ElementType() reflect.Type {
@@ -1106,8 +1106,8 @@ func (o GetRepositoryImageScanningConfigurationOutput) ToGetRepositoryImageScann
 }
 
 // Whether images are scanned after being pushed to the repository.
-func (o GetRepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetRepositoryImageScanningConfiguration) bool { return v.ScanOnPush }).(pulumi.BoolOutput)
+func (o GetRepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRepositoryImageScanningConfiguration) *bool { return v.ScanOnPush }).(pulumi.BoolPtrOutput)
 }
 
 type GetRepositoryImageScanningConfigurationArrayOutput struct{ *pulumi.OutputState }

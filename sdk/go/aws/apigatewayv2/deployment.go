@@ -62,7 +62,7 @@ type Deployment struct {
 	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// Whether the deployment was automatically released.
-	AutoDeployed pulumi.BoolOutput `pulumi:"autoDeployed"`
+	AutoDeployed pulumi.BoolPtrOutput `pulumi:"autoDeployed"`
 	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -239,8 +239,8 @@ func (o DeploymentOutput) ApiId() pulumi.StringOutput {
 }
 
 // Whether the deployment was automatically released.
-func (o DeploymentOutput) AutoDeployed() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Deployment) pulumi.BoolOutput { return v.AutoDeployed }).(pulumi.BoolOutput)
+func (o DeploymentOutput) AutoDeployed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.AutoDeployed }).(pulumi.BoolPtrOutput)
 }
 
 // Description for the deployment resource. Must be less than or equal to 1024 characters in length.

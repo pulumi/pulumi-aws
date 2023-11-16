@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCostCategorySplitChargeRule {
@@ -15,51 +17,51 @@ public final class GetCostCategorySplitChargeRule {
      * @return Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
      * 
      */
-    private String method;
+    private @Nullable String method;
     /**
      * @return Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
      * 
      */
-    private List<GetCostCategorySplitChargeRuleParameter> parameters;
+    private @Nullable List<GetCostCategorySplitChargeRuleParameter> parameters;
     /**
      * @return Cost Category value that you want to split.
      * 
      */
-    private String source;
+    private @Nullable String source;
     /**
      * @return Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
      * 
      */
-    private List<String> targets;
+    private @Nullable List<String> targets;
 
     private GetCostCategorySplitChargeRule() {}
     /**
      * @return Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
      * 
      */
-    public String method() {
-        return this.method;
+    public Optional<String> method() {
+        return Optional.ofNullable(this.method);
     }
     /**
      * @return Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
      * 
      */
     public List<GetCostCategorySplitChargeRuleParameter> parameters() {
-        return this.parameters;
+        return this.parameters == null ? List.of() : this.parameters;
     }
     /**
      * @return Cost Category value that you want to split.
      * 
      */
-    public String source() {
-        return this.source;
+    public Optional<String> source() {
+        return Optional.ofNullable(this.source);
     }
     /**
      * @return Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
      * 
      */
     public List<String> targets() {
-        return this.targets;
+        return this.targets == null ? List.of() : this.targets;
     }
 
     public static Builder builder() {
@@ -71,10 +73,10 @@ public final class GetCostCategorySplitChargeRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String method;
-        private List<GetCostCategorySplitChargeRuleParameter> parameters;
-        private String source;
-        private List<String> targets;
+        private @Nullable String method;
+        private @Nullable List<GetCostCategorySplitChargeRuleParameter> parameters;
+        private @Nullable String source;
+        private @Nullable List<String> targets;
         public Builder() {}
         public Builder(GetCostCategorySplitChargeRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,26 +87,26 @@ public final class GetCostCategorySplitChargeRule {
         }
 
         @CustomType.Setter
-        public Builder method(String method) {
-            this.method = Objects.requireNonNull(method);
+        public Builder method(@Nullable String method) {
+            this.method = method;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(List<GetCostCategorySplitChargeRuleParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable List<GetCostCategorySplitChargeRuleParameter> parameters) {
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetCostCategorySplitChargeRuleParameter... parameters) {
             return parameters(List.of(parameters));
         }
         @CustomType.Setter
-        public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+        public Builder source(@Nullable String source) {
+            this.source = source;
             return this;
         }
         @CustomType.Setter
-        public Builder targets(List<String> targets) {
-            this.targets = Objects.requireNonNull(targets);
+        public Builder targets(@Nullable List<String> targets) {
+            this.targets = targets;
             return this;
         }
         public Builder targets(String... targets) {

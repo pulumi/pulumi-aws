@@ -274,110 +274,110 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// ARN of the EBS Snapshot.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
-        public readonly string DataEncryptionKeyId;
+        public readonly string? DataEncryptionKeyId;
         /// <summary>
         /// Description for the snapshot
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Whether the snapshot is encrypted.
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly bool? Encrypted;
         public readonly ImmutableArray<Outputs.GetSnapshotFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN for the KMS encryption key.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         public readonly bool? MostRecent;
         /// <summary>
         /// ARN of the Outpost on which the snapshot is stored.
         /// </summary>
-        public readonly string OutpostArn;
+        public readonly string? OutpostArn;
         /// <summary>
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
-        public readonly string OwnerAlias;
+        public readonly string? OwnerAlias;
         /// <summary>
         /// AWS account ID of the EBS snapshot owner.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         public readonly ImmutableArray<string> Owners;
         public readonly ImmutableArray<string> RestorableByUserIds;
         /// <summary>
         /// Snapshot ID (e.g., snap-59fcb34e).
         /// </summary>
-        public readonly string SnapshotId;
+        public readonly string? SnapshotId;
         public readonly ImmutableArray<string> SnapshotIds;
         /// <summary>
         /// Snapshot state.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// Storage tier in which the snapshot is stored.
         /// </summary>
-        public readonly string StorageTier;
+        public readonly string? StorageTier;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Volume ID (e.g., vol-59fcb34e).
         /// </summary>
-        public readonly string VolumeId;
+        public readonly string? VolumeId;
         /// <summary>
         /// Size of the drive in GiBs.
         /// </summary>
-        public readonly int VolumeSize;
+        public readonly int? VolumeSize;
 
         [OutputConstructor]
         private GetSnapshotResult(
-            string arn,
+            string? arn,
 
-            string dataEncryptionKeyId,
+            string? dataEncryptionKeyId,
 
-            string description,
+            string? description,
 
-            bool encrypted,
+            bool? encrypted,
 
             ImmutableArray<Outputs.GetSnapshotFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
             bool? mostRecent,
 
-            string outpostArn,
+            string? outpostArn,
 
-            string ownerAlias,
+            string? ownerAlias,
 
-            string ownerId,
+            string? ownerId,
 
             ImmutableArray<string> owners,
 
             ImmutableArray<string> restorableByUserIds,
 
-            string snapshotId,
+            string? snapshotId,
 
             ImmutableArray<string> snapshotIds,
 
-            string state,
+            string? state,
 
-            string storageTier,
+            string? storageTier,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string volumeId,
+            string? volumeId,
 
-            int volumeSize)
+            int? volumeSize)
         {
             Arn = arn;
             DataEncryptionKeyId = dataEncryptionKeyId;

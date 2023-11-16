@@ -29,7 +29,7 @@ namespace Pulumi.Aws.FinSpace
         /// Amazon Resource Name (ARN) identifier of the KX cluster.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.FinSpace
         /// Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Output("createdTimestamp")]
-        public Output<string> CreatedTimestamp { get; private set; } = null!;
+        public Output<string?> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// KX database that will be available for querying. Defined below.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.FinSpace
         /// Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Output("lastModifiedTimestamp")]
-        public Output<string> LastModifiedTimestamp { get; private set; } = null!;
+        public Output<string?> LastModifiedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for the cluster that you want to create.
@@ -136,10 +136,10 @@ namespace Pulumi.Aws.FinSpace
         public Output<Outputs.KxClusterSavedownStorageConfiguration?> SavedownStorageConfiguration { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         [Output("statusReason")]
-        public Output<string> StatusReason { get; private set; } = null!;
+        public Output<string?> StatusReason { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

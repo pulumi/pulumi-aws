@@ -58,7 +58,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name or description of the Regex Pattern Set.
      */

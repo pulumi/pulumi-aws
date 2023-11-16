@@ -184,35 +184,35 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the Internet Gateway.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly ImmutableArray<Outputs.GetInternetGatewayAttachmentResult> Attachments;
         public readonly ImmutableArray<Outputs.GetInternetGatewayFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string InternetGatewayId;
+        public readonly string? Id;
+        public readonly string? InternetGatewayId;
         /// <summary>
         /// ID of the AWS account that owns the internet gateway.
         /// </summary>
-        public readonly string OwnerId;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? OwnerId;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetInternetGatewayResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetInternetGatewayAttachmentResult> attachments,
 
             ImmutableArray<Outputs.GetInternetGatewayFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string internetGatewayId,
+            string? internetGatewayId,
 
-            string ownerId,
+            string? ownerId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Attachments = attachments;

@@ -129,7 +129,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the WAF Regional WebACL.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */

@@ -13,32 +13,32 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class GetControlControlMappingSourceResult
     {
-        public readonly string SourceDescription;
-        public readonly string SourceFrequency;
-        public readonly string SourceId;
+        public readonly string? SourceDescription;
+        public readonly string? SourceFrequency;
+        public readonly string? SourceId;
         public readonly Outputs.GetControlControlMappingSourceSourceKeywordResult? SourceKeyword;
-        public readonly string SourceName;
-        public readonly string SourceSetUpOption;
-        public readonly string SourceType;
-        public readonly string TroubleshootingText;
+        public readonly string? SourceName;
+        public readonly string? SourceSetUpOption;
+        public readonly string? SourceType;
+        public readonly string? TroubleshootingText;
 
         [OutputConstructor]
         private GetControlControlMappingSourceResult(
-            string sourceDescription,
+            string? sourceDescription,
 
-            string sourceFrequency,
+            string? sourceFrequency,
 
-            string sourceId,
+            string? sourceId,
 
             Outputs.GetControlControlMappingSourceSourceKeywordResult? sourceKeyword,
 
-            string sourceName,
+            string? sourceName,
 
-            string sourceSetUpOption,
+            string? sourceSetUpOption,
 
-            string sourceType,
+            string? sourceType,
 
-            string troubleshootingText)
+            string? troubleshootingText)
         {
             SourceDescription = sourceDescription;
             SourceFrequency = sourceFrequency;

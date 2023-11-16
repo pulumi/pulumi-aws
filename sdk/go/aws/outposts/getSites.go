@@ -49,7 +49,7 @@ func GetSites(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSitesResult
 // A collection of values returned by getSites.
 type GetSitesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of Outposts Site identifiers.
 	Ids []string `pulumi:"ids"`
 }
@@ -81,8 +81,8 @@ func (o GetSitesResultOutput) ToGetSitesResultOutputWithContext(ctx context.Cont
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSitesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSitesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSitesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSitesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of Outposts Site identifiers.

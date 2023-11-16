@@ -103,7 +103,7 @@ type AnomalyMonitor struct {
 	pulumi.CustomResourceState
 
 	// ARN of the anomaly monitor.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The dimensions to evaluate. Valid values: `SERVICE`.
 	MonitorDimension pulumi.StringPtrOutput `pulumi:"monitorDimension"`
 	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
@@ -313,8 +313,8 @@ func (o AnomalyMonitorOutput) ToAnomalyMonitorOutputWithContext(ctx context.Cont
 }
 
 // ARN of the anomaly monitor.
-func (o AnomalyMonitorOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AnomalyMonitorOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The dimensions to evaluate. Valid values: `SERVICE`.

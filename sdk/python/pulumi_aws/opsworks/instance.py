@@ -1722,7 +1722,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amiId")
-    def ami_id(self) -> pulumi.Output[str]:
+    def ami_id(self) -> pulumi.Output[Optional[str]]:
         """
         AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
         """
@@ -1746,7 +1746,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the availability zone where instances will be created by default.
         """
@@ -1754,7 +1754,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         Time that the instance was created.
         """
@@ -1778,7 +1778,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> pulumi.Output[Sequence['outputs.InstanceEbsBlockDevice']]:
+    def ebs_block_devices(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceEbsBlockDevice']]]:
         """
         Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
         """
@@ -1794,7 +1794,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ec2InstanceId")
-    def ec2_instance_id(self) -> pulumi.Output[str]:
+    def ec2_instance_id(self) -> pulumi.Output[Optional[str]]:
         """
         EC2 instance ID.
         """
@@ -1802,7 +1802,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ecsClusterArn")
-    def ecs_cluster_arn(self) -> pulumi.Output[str]:
+    def ecs_cluster_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ECS cluster's ARN for container instances.
         """
@@ -1810,7 +1810,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticIp")
-    def elastic_ip(self) -> pulumi.Output[str]:
+    def elastic_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Instance Elastic IP address.
         """
@@ -1818,7 +1818,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> pulumi.Output[Sequence['outputs.InstanceEphemeralBlockDevice']]:
+    def ephemeral_block_devices(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceEphemeralBlockDevice']]]:
         """
         Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
         """
@@ -1826,7 +1826,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hostname(self) -> pulumi.Output[str]:
+    def hostname(self) -> pulumi.Output[Optional[str]]:
         """
         Instance's host name.
         """
@@ -1834,7 +1834,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="infrastructureClass")
-    def infrastructure_class(self) -> pulumi.Output[str]:
+    def infrastructure_class(self) -> pulumi.Output[Optional[str]]:
         """
         For registered instances, infrastructure class: ec2 or on-premises.
         """
@@ -1850,7 +1850,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceProfileArn")
-    def instance_profile_arn(self) -> pulumi.Output[str]:
+    def instance_profile_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the instance's IAM profile.
         """
@@ -1866,7 +1866,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastServiceErrorId")
-    def last_service_error_id(self) -> pulumi.Output[str]:
+    def last_service_error_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the last service error.
         """
@@ -1882,7 +1882,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def os(self) -> pulumi.Output[str]:
+    def os(self) -> pulumi.Output[Optional[str]]:
         """
         Name of operating system that will be installed.
         """
@@ -1890,7 +1890,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output[str]:
+    def platform(self) -> pulumi.Output[Optional[str]]:
         """
         Instance's platform.
         """
@@ -1898,7 +1898,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDns")
-    def private_dns(self) -> pulumi.Output[str]:
+    def private_dns(self) -> pulumi.Output[Optional[str]]:
         """
         Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
         """
@@ -1906,7 +1906,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> pulumi.Output[str]:
+    def private_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Private IP address assigned to the instance.
         """
@@ -1914,7 +1914,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicDns")
-    def public_dns(self) -> pulumi.Output[str]:
+    def public_dns(self) -> pulumi.Output[Optional[str]]:
         """
         Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
         """
@@ -1922,7 +1922,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> pulumi.Output[str]:
+    def public_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Public IP address assigned to the instance, if applicable.
         """
@@ -1930,7 +1930,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registeredBy")
-    def registered_by(self) -> pulumi.Output[str]:
+    def registered_by(self) -> pulumi.Output[Optional[str]]:
         """
         For registered instances, who performed the registration.
         """
@@ -1938,7 +1938,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reportedAgentVersion")
-    def reported_agent_version(self) -> pulumi.Output[str]:
+    def reported_agent_version(self) -> pulumi.Output[Optional[str]]:
         """
         Instance's reported AWS OpsWorks Stacks agent version.
         """
@@ -1946,7 +1946,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reportedOsFamily")
-    def reported_os_family(self) -> pulumi.Output[str]:
+    def reported_os_family(self) -> pulumi.Output[Optional[str]]:
         """
         For registered instances, the reported operating system family.
         """
@@ -1954,7 +1954,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reportedOsName")
-    def reported_os_name(self) -> pulumi.Output[str]:
+    def reported_os_name(self) -> pulumi.Output[Optional[str]]:
         """
         For registered instances, the reported operating system name.
         """
@@ -1962,7 +1962,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reportedOsVersion")
-    def reported_os_version(self) -> pulumi.Output[str]:
+    def reported_os_version(self) -> pulumi.Output[Optional[str]]:
         """
         For registered instances, the reported operating system version.
         """
@@ -1970,7 +1970,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootBlockDevices")
-    def root_block_devices(self) -> pulumi.Output[Sequence['outputs.InstanceRootBlockDevice']]:
+    def root_block_devices(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceRootBlockDevice']]]:
         """
         Configuration block for the root block device of the instance. See Block Devices below.
         """
@@ -1978,7 +1978,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootDeviceType")
-    def root_device_type(self) -> pulumi.Output[str]:
+    def root_device_type(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
         """
@@ -1986,7 +1986,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootDeviceVolumeId")
-    def root_device_volume_id(self) -> pulumi.Output[str]:
+    def root_device_volume_id(self) -> pulumi.Output[Optional[str]]:
         """
         Root device volume ID.
         """
@@ -1994,7 +1994,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Associated security groups.
         """
@@ -2002,7 +2002,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshHostDsaKeyFingerprint")
-    def ssh_host_dsa_key_fingerprint(self) -> pulumi.Output[str]:
+    def ssh_host_dsa_key_fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         SSH key's Deep Security Agent (DSA) fingerprint.
         """
@@ -2010,7 +2010,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshHostRsaKeyFingerprint")
-    def ssh_host_rsa_key_fingerprint(self) -> pulumi.Output[str]:
+    def ssh_host_rsa_key_fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         SSH key's RSA fingerprint.
         """
@@ -2018,7 +2018,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshKeyName")
-    def ssh_key_name(self) -> pulumi.Output[str]:
+    def ssh_key_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the SSH keypair that instances will have by default.
         """
@@ -2044,7 +2044,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
         """
@@ -2052,7 +2052,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Output[str]:
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         Subnet ID to attach to.
         """
@@ -2060,7 +2060,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tenancy(self) -> pulumi.Output[str]:
+    def tenancy(self) -> pulumi.Output[Optional[str]]:
         """
         Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
         """
@@ -2068,7 +2068,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualizationType")
-    def virtualization_type(self) -> pulumi.Output[str]:
+    def virtualization_type(self) -> pulumi.Output[Optional[str]]:
         """
         Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
         """

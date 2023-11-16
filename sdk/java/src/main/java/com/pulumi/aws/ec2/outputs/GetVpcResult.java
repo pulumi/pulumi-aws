@@ -11,6 +11,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,161 +20,161 @@ public final class GetVpcResult {
      * @return ARN of VPC
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return CIDR block for the association.
      * 
      */
-    private String cidrBlock;
-    private List<GetVpcCidrBlockAssociation> cidrBlockAssociations;
-    private Boolean default_;
-    private String dhcpOptionsId;
+    private @Nullable String cidrBlock;
+    private @Nullable List<GetVpcCidrBlockAssociation> cidrBlockAssociations;
+    private @Nullable Boolean default_;
+    private @Nullable String dhcpOptionsId;
     /**
      * @return Whether or not the VPC has DNS hostname support
      * 
      */
-    private Boolean enableDnsHostnames;
+    private @Nullable Boolean enableDnsHostnames;
     /**
      * @return Whether or not the VPC has DNS support
      * 
      */
-    private Boolean enableDnsSupport;
+    private @Nullable Boolean enableDnsSupport;
     /**
      * @return Whether Network Address Usage metrics are enabled for your VPC
      * 
      */
-    private Boolean enableNetworkAddressUsageMetrics;
+    private @Nullable Boolean enableNetworkAddressUsageMetrics;
     private @Nullable List<GetVpcFilter> filters;
-    private String id;
+    private @Nullable String id;
     /**
      * @return Allowed tenancy of instances launched into the
      * selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
      * 
      */
-    private String instanceTenancy;
+    private @Nullable String instanceTenancy;
     /**
      * @return Association ID for the IPv6 CIDR block.
      * 
      */
-    private String ipv6AssociationId;
+    private @Nullable String ipv6AssociationId;
     /**
      * @return IPv6 CIDR block.
      * 
      */
-    private String ipv6CidrBlock;
+    private @Nullable String ipv6CidrBlock;
     /**
      * @return ID of the main route table associated with this VPC.
      * 
      */
-    private String mainRouteTableId;
+    private @Nullable String mainRouteTableId;
     /**
      * @return ID of the AWS account that owns the VPC.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     /**
      * @return State of the association.
      * 
      */
-    private String state;
-    private Map<String,String> tags;
+    private @Nullable String state;
+    private @Nullable Map<String,String> tags;
 
     private GetVpcResult() {}
     /**
      * @return ARN of VPC
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return CIDR block for the association.
      * 
      */
-    public String cidrBlock() {
-        return this.cidrBlock;
+    public Optional<String> cidrBlock() {
+        return Optional.ofNullable(this.cidrBlock);
     }
     public List<GetVpcCidrBlockAssociation> cidrBlockAssociations() {
-        return this.cidrBlockAssociations;
+        return this.cidrBlockAssociations == null ? List.of() : this.cidrBlockAssociations;
     }
-    public Boolean default_() {
-        return this.default_;
+    public Optional<Boolean> default_() {
+        return Optional.ofNullable(this.default_);
     }
-    public String dhcpOptionsId() {
-        return this.dhcpOptionsId;
+    public Optional<String> dhcpOptionsId() {
+        return Optional.ofNullable(this.dhcpOptionsId);
     }
     /**
      * @return Whether or not the VPC has DNS hostname support
      * 
      */
-    public Boolean enableDnsHostnames() {
-        return this.enableDnsHostnames;
+    public Optional<Boolean> enableDnsHostnames() {
+        return Optional.ofNullable(this.enableDnsHostnames);
     }
     /**
      * @return Whether or not the VPC has DNS support
      * 
      */
-    public Boolean enableDnsSupport() {
-        return this.enableDnsSupport;
+    public Optional<Boolean> enableDnsSupport() {
+        return Optional.ofNullable(this.enableDnsSupport);
     }
     /**
      * @return Whether Network Address Usage metrics are enabled for your VPC
      * 
      */
-    public Boolean enableNetworkAddressUsageMetrics() {
-        return this.enableNetworkAddressUsageMetrics;
+    public Optional<Boolean> enableNetworkAddressUsageMetrics() {
+        return Optional.ofNullable(this.enableNetworkAddressUsageMetrics);
     }
     public List<GetVpcFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Allowed tenancy of instances launched into the
      * selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
      * 
      */
-    public String instanceTenancy() {
-        return this.instanceTenancy;
+    public Optional<String> instanceTenancy() {
+        return Optional.ofNullable(this.instanceTenancy);
     }
     /**
      * @return Association ID for the IPv6 CIDR block.
      * 
      */
-    public String ipv6AssociationId() {
-        return this.ipv6AssociationId;
+    public Optional<String> ipv6AssociationId() {
+        return Optional.ofNullable(this.ipv6AssociationId);
     }
     /**
      * @return IPv6 CIDR block.
      * 
      */
-    public String ipv6CidrBlock() {
-        return this.ipv6CidrBlock;
+    public Optional<String> ipv6CidrBlock() {
+        return Optional.ofNullable(this.ipv6CidrBlock);
     }
     /**
      * @return ID of the main route table associated with this VPC.
      * 
      */
-    public String mainRouteTableId() {
-        return this.mainRouteTableId;
+    public Optional<String> mainRouteTableId() {
+        return Optional.ofNullable(this.mainRouteTableId);
     }
     /**
      * @return ID of the AWS account that owns the VPC.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
      * @return State of the association.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -185,23 +186,23 @@ public final class GetVpcResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String cidrBlock;
-        private List<GetVpcCidrBlockAssociation> cidrBlockAssociations;
-        private Boolean default_;
-        private String dhcpOptionsId;
-        private Boolean enableDnsHostnames;
-        private Boolean enableDnsSupport;
-        private Boolean enableNetworkAddressUsageMetrics;
+        private @Nullable String arn;
+        private @Nullable String cidrBlock;
+        private @Nullable List<GetVpcCidrBlockAssociation> cidrBlockAssociations;
+        private @Nullable Boolean default_;
+        private @Nullable String dhcpOptionsId;
+        private @Nullable Boolean enableDnsHostnames;
+        private @Nullable Boolean enableDnsSupport;
+        private @Nullable Boolean enableNetworkAddressUsageMetrics;
         private @Nullable List<GetVpcFilter> filters;
-        private String id;
-        private String instanceTenancy;
-        private String ipv6AssociationId;
-        private String ipv6CidrBlock;
-        private String mainRouteTableId;
-        private String ownerId;
-        private String state;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable String instanceTenancy;
+        private @Nullable String ipv6AssociationId;
+        private @Nullable String ipv6CidrBlock;
+        private @Nullable String mainRouteTableId;
+        private @Nullable String ownerId;
+        private @Nullable String state;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetVpcResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -225,46 +226,46 @@ public final class GetVpcResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+        public Builder cidrBlock(@Nullable String cidrBlock) {
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder cidrBlockAssociations(List<GetVpcCidrBlockAssociation> cidrBlockAssociations) {
-            this.cidrBlockAssociations = Objects.requireNonNull(cidrBlockAssociations);
+        public Builder cidrBlockAssociations(@Nullable List<GetVpcCidrBlockAssociation> cidrBlockAssociations) {
+            this.cidrBlockAssociations = cidrBlockAssociations;
             return this;
         }
         public Builder cidrBlockAssociations(GetVpcCidrBlockAssociation... cidrBlockAssociations) {
             return cidrBlockAssociations(List.of(cidrBlockAssociations));
         }
         @CustomType.Setter("default")
-        public Builder default_(Boolean default_) {
-            this.default_ = Objects.requireNonNull(default_);
+        public Builder default_(@Nullable Boolean default_) {
+            this.default_ = default_;
             return this;
         }
         @CustomType.Setter
-        public Builder dhcpOptionsId(String dhcpOptionsId) {
-            this.dhcpOptionsId = Objects.requireNonNull(dhcpOptionsId);
+        public Builder dhcpOptionsId(@Nullable String dhcpOptionsId) {
+            this.dhcpOptionsId = dhcpOptionsId;
             return this;
         }
         @CustomType.Setter
-        public Builder enableDnsHostnames(Boolean enableDnsHostnames) {
-            this.enableDnsHostnames = Objects.requireNonNull(enableDnsHostnames);
+        public Builder enableDnsHostnames(@Nullable Boolean enableDnsHostnames) {
+            this.enableDnsHostnames = enableDnsHostnames;
             return this;
         }
         @CustomType.Setter
-        public Builder enableDnsSupport(Boolean enableDnsSupport) {
-            this.enableDnsSupport = Objects.requireNonNull(enableDnsSupport);
+        public Builder enableDnsSupport(@Nullable Boolean enableDnsSupport) {
+            this.enableDnsSupport = enableDnsSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder enableNetworkAddressUsageMetrics(Boolean enableNetworkAddressUsageMetrics) {
-            this.enableNetworkAddressUsageMetrics = Objects.requireNonNull(enableNetworkAddressUsageMetrics);
+        public Builder enableNetworkAddressUsageMetrics(@Nullable Boolean enableNetworkAddressUsageMetrics) {
+            this.enableNetworkAddressUsageMetrics = enableNetworkAddressUsageMetrics;
             return this;
         }
         @CustomType.Setter
@@ -276,43 +277,43 @@ public final class GetVpcResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceTenancy(String instanceTenancy) {
-            this.instanceTenancy = Objects.requireNonNull(instanceTenancy);
+        public Builder instanceTenancy(@Nullable String instanceTenancy) {
+            this.instanceTenancy = instanceTenancy;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6AssociationId(String ipv6AssociationId) {
-            this.ipv6AssociationId = Objects.requireNonNull(ipv6AssociationId);
+        public Builder ipv6AssociationId(@Nullable String ipv6AssociationId) {
+            this.ipv6AssociationId = ipv6AssociationId;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6CidrBlock(String ipv6CidrBlock) {
-            this.ipv6CidrBlock = Objects.requireNonNull(ipv6CidrBlock);
+        public Builder ipv6CidrBlock(@Nullable String ipv6CidrBlock) {
+            this.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder mainRouteTableId(String mainRouteTableId) {
-            this.mainRouteTableId = Objects.requireNonNull(mainRouteTableId);
+        public Builder mainRouteTableId(@Nullable String mainRouteTableId) {
+            this.mainRouteTableId = mainRouteTableId;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetVpcResult build() {

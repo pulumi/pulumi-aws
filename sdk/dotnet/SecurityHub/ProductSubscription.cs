@@ -55,7 +55,7 @@ namespace Pulumi.Aws.SecurityHub
         /// The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the product that generates findings that you want to import into Security Hub - see below.

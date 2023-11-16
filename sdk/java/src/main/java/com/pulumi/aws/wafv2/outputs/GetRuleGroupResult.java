@@ -6,6 +6,8 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRuleGroupResult {
@@ -13,17 +15,17 @@ public final class GetRuleGroupResult {
      * @return ARN of the entity.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the rule group that helps with identification.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     private String scope;
 
@@ -32,22 +34,22 @@ public final class GetRuleGroupResult {
      * @return ARN of the entity.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the rule group that helps with identification.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -65,9 +67,9 @@ public final class GetRuleGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
         private String scope;
         public Builder() {}
@@ -81,18 +83,18 @@ public final class GetRuleGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

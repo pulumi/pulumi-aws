@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Route53
         /// The Amazon Resource Name (ARN) of the Hosted Zone.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Route53
         /// The Route 53 name server that created the SOA record.
         /// </summary>
         [Output("primaryNameServer")]
-        public Output<string> PrimaryNameServer { get; private set; } = null!;
+        public Output<string?> PrimaryNameServer { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Route53
         /// The Hosted Zone ID. This can be referenced by zone records.
         /// </summary>
         [Output("zoneId")]
-        public Output<string> ZoneId { get; private set; } = null!;
+        public Output<string?> ZoneId { get; private set; } = null!;
 
 
         /// <summary>

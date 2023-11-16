@@ -137,14 +137,14 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="emailAssertion", refs={String.class}, tree="[0]")
-    private Output<String> emailAssertion;
+    private Output</* @Nullable */ String> emailAssertion;
 
     /**
      * @return The email assertion.
      * 
      */
-    public Output<String> emailAssertion() {
-        return this.emailAssertion;
+    public Output<Optional<String>> emailAssertion() {
+        return Codegen.optional(this.emailAssertion);
     }
     /**
      * The groups assertion.
@@ -193,42 +193,42 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="loginAssertion", refs={String.class}, tree="[0]")
-    private Output<String> loginAssertion;
+    private Output</* @Nullable */ String> loginAssertion;
 
     /**
      * @return The login assertion.
      * 
      */
-    public Output<String> loginAssertion() {
-        return this.loginAssertion;
+    public Output<Optional<String>> loginAssertion() {
+        return Codegen.optional(this.loginAssertion);
     }
     /**
      * The login validity duration.
      * 
      */
     @Export(name="loginValidityDuration", refs={Integer.class}, tree="[0]")
-    private Output<Integer> loginValidityDuration;
+    private Output</* @Nullable */ Integer> loginValidityDuration;
 
     /**
      * @return The login validity duration.
      * 
      */
-    public Output<Integer> loginValidityDuration() {
-        return this.loginValidityDuration;
+    public Output<Optional<Integer>> loginValidityDuration() {
+        return Codegen.optional(this.loginValidityDuration);
     }
     /**
      * The name assertion.
      * 
      */
     @Export(name="nameAssertion", refs={String.class}, tree="[0]")
-    private Output<String> nameAssertion;
+    private Output</* @Nullable */ String> nameAssertion;
 
     /**
      * @return The name assertion.
      * 
      */
-    public Output<String> nameAssertion() {
-        return this.nameAssertion;
+    public Output<Optional<String>> nameAssertion() {
+        return Codegen.optional(this.nameAssertion);
     }
     /**
      * The org assertion.
@@ -263,14 +263,14 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the SAML configuration.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * The workspace id.

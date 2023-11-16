@@ -16,53 +16,53 @@ namespace Pulumi.Aws.Organizations.Outputs
         /// <summary>
         /// The ARN of the delegated administrator's account.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The date when the account was made a delegated administrator.
         /// </summary>
-        public readonly string DelegationEnabledDate;
+        public readonly string? DelegationEnabledDate;
         /// <summary>
         /// The email address that is associated with the delegated administrator's AWS account.
         /// </summary>
-        public readonly string Email;
+        public readonly string? Email;
         /// <summary>
         /// The unique identifier (ID) of the delegated administrator's account.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The method by which the delegated administrator's account joined the organization.
         /// </summary>
-        public readonly string JoinedMethod;
+        public readonly string? JoinedMethod;
         /// <summary>
         /// The date when the delegated administrator's account became a part of the organization.
         /// </summary>
-        public readonly string JoinedTimestamp;
+        public readonly string? JoinedTimestamp;
         /// <summary>
         /// The friendly name of the delegated administrator's account.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The status of the delegated administrator's account in the organization.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetDelegatedAdministratorsDelegatedAdministratorResult(
-            string arn,
+            string? arn,
 
-            string delegationEnabledDate,
+            string? delegationEnabledDate,
 
-            string email,
+            string? email,
 
-            string id,
+            string? id,
 
-            string joinedMethod,
+            string? joinedMethod,
 
-            string joinedTimestamp,
+            string? joinedTimestamp,
 
-            string name,
+            string? name,
 
-            string status)
+            string? status)
         {
             Arn = arn;
             DelegationEnabledDate = delegationEnabledDate;

@@ -50,12 +50,12 @@ export class Intent extends pulumi.CustomResource {
     /**
      * The ARN of the Lex intent.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Checksum identifying the version of the intent that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the intent.
      */
-    public /*out*/ readonly checksum!: pulumi.Output<string>;
+    public /*out*/ readonly checksum!: pulumi.Output<string | undefined>;
     /**
      * The statement that you want Amazon Lex to convey to the user
      * after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
@@ -78,7 +78,7 @@ export class Intent extends pulumi.CustomResource {
     /**
      * The date when the intent version was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * A description of the intent. Must be less than or equal to 200 characters in length.
      */
@@ -104,7 +104,7 @@ export class Intent extends pulumi.CustomResource {
     /**
      * The date when the $LATEST version of this intent was updated.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string | undefined>;
     /**
      * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      */
@@ -137,7 +137,7 @@ export class Intent extends pulumi.CustomResource {
     /**
      * The version of the bot.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Intent resource with the given unique name, arguments, and options.

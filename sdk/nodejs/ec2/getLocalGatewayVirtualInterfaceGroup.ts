@@ -60,13 +60,13 @@ export interface GetLocalGatewayVirtualInterfaceGroupArgs {
  */
 export interface GetLocalGatewayVirtualInterfaceGroupResult {
     readonly filters?: outputs.ec2.GetLocalGatewayVirtualInterfaceGroupFilter[];
-    readonly id: string;
-    readonly localGatewayId: string;
+    readonly id?: string;
+    readonly localGatewayId?: string;
     /**
      * Set of EC2 Local Gateway Virtual Interface identifiers.
      */
-    readonly localGatewayVirtualInterfaceIds: string[];
-    readonly tags: {[key: string]: string};
+    readonly localGatewayVirtualInterfaceIds?: string[];
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).

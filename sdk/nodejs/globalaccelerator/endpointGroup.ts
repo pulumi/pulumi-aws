@@ -64,7 +64,7 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the endpoint group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
@@ -72,7 +72,7 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * The name of the AWS Region where the endpoint group is located.
      */
-    public readonly endpointGroupRegion!: pulumi.Output<string>;
+    public readonly endpointGroupRegion!: pulumi.Output<string | undefined>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      */
@@ -80,12 +80,12 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
      */
-    public readonly healthCheckPath!: pulumi.Output<string>;
+    public readonly healthCheckPath!: pulumi.Output<string | undefined>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
      * the provider will only perform drift detection of its value when present in a configuration.
      */
-    public readonly healthCheckPort!: pulumi.Output<number>;
+    public readonly healthCheckPort!: pulumi.Output<number | undefined>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      */

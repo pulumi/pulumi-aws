@@ -58,7 +58,7 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
     /**
      * The data aggregation time for the subscription.
      */
-    public /*out*/ readonly period!: pulumi.Output<string>;
+    public /*out*/ readonly period!: pulumi.Output<string | undefined>;
     /**
      * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      */

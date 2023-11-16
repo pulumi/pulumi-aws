@@ -84,7 +84,7 @@ export class SinkPolicy extends pulumi.CustomResource {
     /**
      * ARN of the Sink.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
      */
@@ -92,7 +92,7 @@ export class SinkPolicy extends pulumi.CustomResource {
     /**
      * ID string that AWS generated as part of the sink ARN.
      */
-    public /*out*/ readonly sinkId!: pulumi.Output<string>;
+    public /*out*/ readonly sinkId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the sink to attach this policy to.
      */

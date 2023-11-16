@@ -7,18 +7,19 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRestApiEndpointConfiguration {
-    private List<String> types;
-    private List<String> vpcEndpointIds;
+    private @Nullable List<String> types;
+    private @Nullable List<String> vpcEndpointIds;
 
     private GetRestApiEndpointConfiguration() {}
     public List<String> types() {
-        return this.types;
+        return this.types == null ? List.of() : this.types;
     }
     public List<String> vpcEndpointIds() {
-        return this.vpcEndpointIds;
+        return this.vpcEndpointIds == null ? List.of() : this.vpcEndpointIds;
     }
 
     public static Builder builder() {
@@ -30,8 +31,8 @@ public final class GetRestApiEndpointConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> types;
-        private List<String> vpcEndpointIds;
+        private @Nullable List<String> types;
+        private @Nullable List<String> vpcEndpointIds;
         public Builder() {}
         public Builder(GetRestApiEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,16 +41,16 @@ public final class GetRestApiEndpointConfiguration {
         }
 
         @CustomType.Setter
-        public Builder types(List<String> types) {
-            this.types = Objects.requireNonNull(types);
+        public Builder types(@Nullable List<String> types) {
+            this.types = types;
             return this;
         }
         public Builder types(String... types) {
             return types(List.of(types));
         }
         @CustomType.Setter
-        public Builder vpcEndpointIds(List<String> vpcEndpointIds) {
-            this.vpcEndpointIds = Objects.requireNonNull(vpcEndpointIds);
+        public Builder vpcEndpointIds(@Nullable List<String> vpcEndpointIds) {
+            this.vpcEndpointIds = vpcEndpointIds;
             return this;
         }
         public Builder vpcEndpointIds(String... vpcEndpointIds) {

@@ -66,7 +66,7 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Security Profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the Security Profile.
      */
@@ -82,7 +82,7 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * The organization resource identifier for the security profile.
      */
-    public /*out*/ readonly organizationResourceId!: pulumi.Output<string>;
+    public /*out*/ readonly organizationResourceId!: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of permissions assigned to the security profile.
      */
@@ -90,7 +90,7 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * The identifier for the Security Profile.
      */
-    public /*out*/ readonly securityProfileId!: pulumi.Output<string>;
+    public /*out*/ readonly securityProfileId!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the Security Profile. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

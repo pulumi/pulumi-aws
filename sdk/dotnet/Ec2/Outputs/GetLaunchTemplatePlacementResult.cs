@@ -13,32 +13,32 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplatePlacementResult
     {
-        public readonly string Affinity;
-        public readonly string AvailabilityZone;
-        public readonly string GroupName;
-        public readonly string HostId;
-        public readonly string HostResourceGroupArn;
-        public readonly int PartitionNumber;
-        public readonly string SpreadDomain;
-        public readonly string Tenancy;
+        public readonly string? Affinity;
+        public readonly string? AvailabilityZone;
+        public readonly string? GroupName;
+        public readonly string? HostId;
+        public readonly string? HostResourceGroupArn;
+        public readonly int? PartitionNumber;
+        public readonly string? SpreadDomain;
+        public readonly string? Tenancy;
 
         [OutputConstructor]
         private GetLaunchTemplatePlacementResult(
-            string affinity,
+            string? affinity,
 
-            string availabilityZone,
+            string? availabilityZone,
 
-            string groupName,
+            string? groupName,
 
-            string hostId,
+            string? hostId,
 
-            string hostResourceGroupArn,
+            string? hostResourceGroupArn,
 
-            int partitionNumber,
+            int? partitionNumber,
 
-            string spreadDomain,
+            string? spreadDomain,
 
-            string tenancy)
+            string? tenancy)
         {
             Affinity = affinity;
             AvailabilityZone = availabilityZone;

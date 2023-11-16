@@ -228,15 +228,15 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the DHCP Options Set.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// EC2 DHCP Options ID
         /// </summary>
-        public readonly string DhcpOptionsId;
+        public readonly string? DhcpOptionsId;
         /// <summary>
         /// Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
         /// </summary>
-        public readonly string DomainName;
+        public readonly string? DomainName;
         /// <summary>
         /// List of name servers.
         /// </summary>
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of NETBIOS name servers.
         /// </summary>
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         /// </summary>
-        public readonly string NetbiosNodeType;
+        public readonly string? NetbiosNodeType;
         /// <summary>
         /// List of NTP servers.
         /// </summary>
@@ -261,35 +261,35 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the AWS account that owns the DHCP options set.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetVpcDhcpOptionsResult(
-            string arn,
+            string? arn,
 
-            string dhcpOptionsId,
+            string? dhcpOptionsId,
 
-            string domainName,
+            string? domainName,
 
             ImmutableArray<string> domainNameServers,
 
             ImmutableArray<Outputs.GetVpcDhcpOptionsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> netbiosNameServers,
 
-            string netbiosNodeType,
+            string? netbiosNodeType,
 
             ImmutableArray<string> ntpServers,
 
-            string ownerId,
+            string? ownerId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             DhcpOptionsId = dhcpOptionsId;

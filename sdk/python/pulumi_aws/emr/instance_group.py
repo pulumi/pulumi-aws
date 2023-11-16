@@ -729,7 +729,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsConfigs")
-    def ebs_configs(self) -> pulumi.Output[Sequence['outputs.InstanceGroupEbsConfig']]:
+    def ebs_configs(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceGroupEbsConfig']]]:
         """
         One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         """
@@ -745,7 +745,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> pulumi.Output[int]:
+    def instance_count(self) -> pulumi.Output[Optional[int]]:
         """
         target number of instances for the instance group. defaults to 0.
         """
@@ -769,7 +769,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runningInstanceCount")
-    def running_instance_count(self) -> pulumi.Output[int]:
+    def running_instance_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of instances currently running in this instance group.
         """
@@ -777,7 +777,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of the instance group.
         """

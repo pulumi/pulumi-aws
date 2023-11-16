@@ -65,28 +65,28 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Date when the client certificate was created.
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
-    private Output<String> createdDate;
+    private Output</* @Nullable */ String> createdDate;
 
     /**
      * @return Date when the client certificate was created.
      * 
      */
-    public Output<String> createdDate() {
-        return this.createdDate;
+    public Output<Optional<String>> createdDate() {
+        return Codegen.optional(this.createdDate);
     }
     /**
      * Description of the client certificate.
@@ -107,28 +107,28 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
-    private Output<String> expirationDate;
+    private Output</* @Nullable */ String> expirationDate;
 
     /**
      * @return Date when the client certificate will expire.
      * 
      */
-    public Output<String> expirationDate() {
-        return this.expirationDate;
+    public Output<Optional<String>> expirationDate() {
+        return Codegen.optional(this.expirationDate);
     }
     /**
      * The PEM-encoded public key of the client certificate.
      * 
      */
     @Export(name="pemEncodedCertificate", refs={String.class}, tree="[0]")
-    private Output<String> pemEncodedCertificate;
+    private Output</* @Nullable */ String> pemEncodedCertificate;
 
     /**
      * @return The PEM-encoded public key of the client certificate.
      * 
      */
-    public Output<String> pemEncodedCertificate() {
-        return this.pemEncodedCertificate;
+    public Output<Optional<String>> pemEncodedCertificate() {
+        return Codegen.optional(this.pemEncodedCertificate);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

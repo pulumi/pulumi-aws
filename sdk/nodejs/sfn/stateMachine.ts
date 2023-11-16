@@ -153,20 +153,20 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * The ARN of the state machine.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date the state machine was created.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
     public readonly definition!: pulumi.Output<string>;
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.sfn.StateMachineLoggingConfiguration>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.sfn.StateMachineLoggingConfiguration | undefined>;
     /**
      * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
      */
@@ -174,21 +174,21 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Set to true to publish a version of the state machine during creation. Default: false.
      */
     public readonly publish!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly revisionId!: pulumi.Output<string>;
+    public /*out*/ readonly revisionId!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     public readonly roleArn!: pulumi.Output<string>;
-    public /*out*/ readonly stateMachineVersionArn!: pulumi.Output<string>;
+    public /*out*/ readonly stateMachineVersionArn!: pulumi.Output<string | undefined>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -202,12 +202,12 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
-    public readonly tracingConfiguration!: pulumi.Output<outputs.sfn.StateMachineTracingConfiguration>;
+    public readonly tracingConfiguration!: pulumi.Output<outputs.sfn.StateMachineTracingConfiguration | undefined>;
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly versionDescription!: pulumi.Output<string>;
+    public /*out*/ readonly versionDescription!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StateMachine resource with the given unique name, arguments, and options.

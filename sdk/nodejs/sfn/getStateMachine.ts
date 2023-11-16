@@ -45,33 +45,33 @@ export interface GetStateMachineResult {
     /**
      * Set to the arn of the state function.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Date the state machine was created.
      */
-    readonly creationDate: string;
+    readonly creationDate?: string;
     /**
      * Set to the state machine definition.
      */
-    readonly definition: string;
-    readonly description: string;
+    readonly definition?: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * The revision identifier for the state machine.
      */
-    readonly revisionId: string;
+    readonly revisionId?: string;
     /**
      * Set to the roleArn used by the state function.
      */
-    readonly roleArn: string;
+    readonly roleArn?: string;
     /**
      * Set to the current status of the state machine.
      */
-    readonly status: string;
+    readonly status?: string;
 }
 /**
  * Use this data source to get the ARN of a State Machine in AWS Step

@@ -68,11 +68,11 @@ export interface GetInstanceTypeOfferingResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * EC2 Instance Type.
      */
-    readonly instanceType: string;
+    readonly instanceType?: string;
     readonly locationType?: string;
     readonly preferredInstanceTypes?: string[];
 }

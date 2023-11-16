@@ -20,11 +20,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
         /// </summary>
-        public readonly bool EnableAcceptEncodingBrotli;
+        public readonly bool? EnableAcceptEncodingBrotli;
         /// <summary>
         /// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
         /// </summary>
-        public readonly bool EnableAcceptEncodingGzip;
+        public readonly bool? EnableAcceptEncodingGzip;
         /// <summary>
         /// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         /// </summary>
@@ -38,9 +38,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
         private GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult(
             ImmutableArray<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult> cookiesConfigs,
 
-            bool enableAcceptEncodingBrotli,
+            bool? enableAcceptEncodingBrotli,
 
-            bool enableAcceptEncodingGzip,
+            bool? enableAcceptEncodingGzip,
 
             ImmutableArray<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult> headersConfigs,
 

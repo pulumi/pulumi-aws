@@ -155,7 +155,7 @@ type ResponsePlan struct {
 	// The actions that the response plan starts at the beginning of an incident.
 	Action ResponsePlanActionPtrOutput `pulumi:"action"`
 	// The ARN of the response plan.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Chatbot chat channel used for collaboration during an incident.
 	ChatChannels pulumi.StringArrayOutput `pulumi:"chatChannels"`
 	// The long format of the response plan name. This field can contain spaces.
@@ -393,8 +393,8 @@ func (o ResponsePlanOutput) Action() ResponsePlanActionPtrOutput {
 }
 
 // The ARN of the response plan.
-func (o ResponsePlanOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResponsePlanOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlan) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Chatbot chat channel used for collaboration during an incident.

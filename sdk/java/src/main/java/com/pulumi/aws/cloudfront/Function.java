@@ -72,14 +72,14 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) identifying your CloudFront Function.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Source code of the function
@@ -114,28 +114,28 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * ETag hash of any `LIVE` stage of the function.
      * 
      */
     @Export(name="liveStageEtag", refs={String.class}, tree="[0]")
-    private Output<String> liveStageEtag;
+    private Output</* @Nullable */ String> liveStageEtag;
 
     /**
      * @return ETag hash of any `LIVE` stage of the function.
      * 
      */
-    public Output<String> liveStageEtag() {
-        return this.liveStageEtag;
+    public Output<Optional<String>> liveStageEtag() {
+        return Codegen.optional(this.liveStageEtag);
     }
     /**
      * Unique name for your CloudFront Function.
@@ -188,14 +188,14 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

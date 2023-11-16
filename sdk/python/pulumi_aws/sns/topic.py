@@ -1405,7 +1405,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the SNS topic, as a more obvious property (clone of id)
         """
@@ -1413,7 +1413,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="beginningArchiveTime")
-    def beginning_archive_time(self) -> pulumi.Output[str]:
+    def beginning_archive_time(self) -> pulumi.Output[Optional[str]]:
         """
         The oldest timestamp at which a FIFO topic subscriber can start a replay.
         """
@@ -1541,7 +1541,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`
         """
@@ -1549,7 +1549,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS Account ID of the SNS topic owner
         """
@@ -1557,7 +1557,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         The fully-formed AWS policy as JSON.
         """
@@ -1565,7 +1565,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signatureVersion")
-    def signature_version(self) -> pulumi.Output[int]:
+    def signature_version(self) -> pulumi.Output[Optional[int]]:
         """
         If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         """
@@ -1616,7 +1616,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tracingConfig")
-    def tracing_config(self) -> pulumi.Output[str]:
+    def tracing_config(self) -> pulumi.Output[Optional[str]]:
         """
         Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         """

@@ -6,6 +6,8 @@ package com.pulumi.aws.vpclattice.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResourcePolicyResult {
@@ -13,12 +15,12 @@ public final class GetResourcePolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return JSON-encoded string representation of the applied resource policy.
      * 
      */
-    private String policy;
+    private @Nullable String policy;
     private String resourceArn;
 
     private GetResourcePolicyResult() {}
@@ -26,15 +28,15 @@ public final class GetResourcePolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return JSON-encoded string representation of the applied resource policy.
      * 
      */
-    public String policy() {
-        return this.policy;
+    public Optional<String> policy() {
+        return Optional.ofNullable(this.policy);
     }
     public String resourceArn() {
         return this.resourceArn;
@@ -49,8 +51,8 @@ public final class GetResourcePolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String policy;
+        private @Nullable String id;
+        private @Nullable String policy;
         private String resourceArn;
         public Builder() {}
         public Builder(GetResourcePolicyResult defaults) {
@@ -61,13 +63,13 @@ public final class GetResourcePolicyResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+        public Builder policy(@Nullable String policy) {
+            this.policy = policy;
             return this;
         }
         @CustomType.Setter

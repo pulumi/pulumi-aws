@@ -91,14 +91,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="address", refs={String.class}, tree="[0]")
-    private Output<String> address;
+    private Output</* @Nullable */ String> address;
 
     /**
      * @return The hostname of the instance. See also `endpoint` and `port`.
      * 
      */
-    public Output<String> address() {
-        return this.address;
+    public Output<Optional<String>> address() {
+        return Codegen.optional(this.address);
     }
     /**
      * Specifies whether any instance modifications
@@ -106,29 +106,29 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return Specifies whether any instance modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * Amazon Resource Name (ARN) of neptune instance
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of neptune instance
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
@@ -149,14 +149,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The EC2 Availability Zone that the neptune instance is created in.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * The identifier of the `aws.neptune.Cluster` in which to launch this instance.
@@ -177,28 +177,28 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbiResourceId", refs={String.class}, tree="[0]")
-    private Output<String> dbiResourceId;
+    private Output</* @Nullable */ String> dbiResourceId;
 
     /**
      * @return The region-unique, immutable identifier for the neptune instance.
      * 
      */
-    public Output<String> dbiResourceId() {
-        return this.dbiResourceId;
+    public Output<Optional<String>> dbiResourceId() {
+        return Codegen.optional(this.dbiResourceId);
     }
     /**
      * The connection endpoint in `address:port` format.
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The connection endpoint in `address:port` format.
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
@@ -219,42 +219,42 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return The neptune engine version. Currently configuring this argumnet has no effect.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
      * 
      */
     @Export(name="identifier", refs={String.class}, tree="[0]")
-    private Output<String> identifier;
+    private Output</* @Nullable */ String> identifier;
 
     /**
      * @return The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
      * 
      */
-    public Output<String> identifier() {
-        return this.identifier;
+    public Output<Optional<String>> identifier() {
+        return Codegen.optional(this.identifier);
     }
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     @Export(name="identifierPrefix", refs={String.class}, tree="[0]")
-    private Output<String> identifierPrefix;
+    private Output</* @Nullable */ String> identifierPrefix;
 
     /**
      * @return Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public Output<String> identifierPrefix() {
-        return this.identifierPrefix;
+    public Output<Optional<String>> identifierPrefix() {
+        return Codegen.optional(this.identifierPrefix);
     }
     /**
      * The instance class to use.
@@ -275,14 +275,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyArn;
+    private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
      * @return The ARN for the KMS encryption key if one is set to the neptune cluster.
      * 
      */
-    public Output<String> kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * The name of the neptune parameter group to associate with this instance.
@@ -303,14 +303,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="neptuneSubnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> neptuneSubnetGroupName;
+    private Output</* @Nullable */ String> neptuneSubnetGroupName;
 
     /**
      * @return A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
      * 
      */
-    public Output<String> neptuneSubnetGroupName() {
-        return this.neptuneSubnetGroupName;
+    public Output<Optional<String>> neptuneSubnetGroupName() {
+        return Codegen.optional(this.neptuneSubnetGroupName);
     }
     /**
      * The port on which the DB accepts connections. Defaults to `8182`.
@@ -331,14 +331,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredBackupWindow;
+    private Output</* @Nullable */ String> preferredBackupWindow;
 
     /**
      * @return The daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;
      * 
      */
-    public Output<String> preferredBackupWindow() {
-        return this.preferredBackupWindow;
+    public Output<Optional<String>> preferredBackupWindow() {
+        return Codegen.optional(this.preferredBackupWindow);
     }
     /**
      * The window to perform maintenance in.
@@ -346,15 +346,15 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredMaintenanceWindow;
+    private Output</* @Nullable */ String> preferredMaintenanceWindow;
 
     /**
      * @return The window to perform maintenance in.
      * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
-    public Output<String> preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Output<Optional<String>> preferredMaintenanceWindow() {
+        return Codegen.optional(this.preferredMaintenanceWindow);
     }
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
@@ -389,14 +389,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> storageEncrypted;
+    private Output</* @Nullable */ Boolean> storageEncrypted;
 
     /**
      * @return Specifies whether the neptune cluster is encrypted.
      * 
      */
-    public Output<Boolean> storageEncrypted() {
-        return this.storageEncrypted;
+    public Output<Optional<Boolean>> storageEncrypted() {
+        return Codegen.optional(this.storageEncrypted);
     }
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -435,14 +435,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="writer", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> writer;
+    private Output</* @Nullable */ Boolean> writer;
 
     /**
      * @return Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      * 
      */
-    public Output<Boolean> writer() {
-        return this.writer;
+    public Output<Optional<Boolean>> writer() {
+        return Codegen.optional(this.writer);
     }
 
     /**

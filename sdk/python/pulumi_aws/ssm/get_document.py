@@ -46,7 +46,7 @@ class GetDocumentResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
         """
@@ -54,7 +54,7 @@ class GetDocumentResult:
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> Optional[str]:
         """
         Contents of the document.
         """
@@ -67,7 +67,7 @@ class GetDocumentResult:
 
     @property
     @pulumi.getter(name="documentType")
-    def document_type(self) -> str:
+    def document_type(self) -> Optional[str]:
         """
         Type of the document.
         """
@@ -80,7 +80,7 @@ class GetDocumentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

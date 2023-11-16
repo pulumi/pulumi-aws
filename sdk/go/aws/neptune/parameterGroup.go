@@ -59,7 +59,7 @@ type ParameterGroup struct {
 	pulumi.CustomResourceState
 
 	// The Neptune parameter group Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The family of the Neptune parameter group.
@@ -269,8 +269,8 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 }
 
 // The Neptune parameter group Amazon Resource Name (ARN).
-func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ParameterGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the Neptune parameter group. Defaults to "Managed by Pulumi".

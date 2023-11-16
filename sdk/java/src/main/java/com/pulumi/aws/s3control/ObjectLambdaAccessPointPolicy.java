@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -101,28 +102,28 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
+    private Output</* @Nullable */ String> accountId;
 
     /**
      * @return The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
     }
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      * 
      */
     @Export(name="hasPublicAccessPolicy", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> hasPublicAccessPolicy;
+    private Output</* @Nullable */ Boolean> hasPublicAccessPolicy;
 
     /**
      * @return Indicates whether this access point currently has a policy that allows public access.
      * 
      */
-    public Output<Boolean> hasPublicAccessPolicy() {
-        return this.hasPublicAccessPolicy;
+    public Output<Optional<Boolean>> hasPublicAccessPolicy() {
+        return Codegen.optional(this.hasPublicAccessPolicy);
     }
     /**
      * The name of the Object Lambda Access Point.

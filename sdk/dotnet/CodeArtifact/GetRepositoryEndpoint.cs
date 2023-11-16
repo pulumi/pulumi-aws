@@ -142,31 +142,31 @@ namespace Pulumi.Aws.CodeArtifact
     public sealed class GetRepositoryEndpointResult
     {
         public readonly string Domain;
-        public readonly string DomainOwner;
+        public readonly string? DomainOwner;
         public readonly string Format;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Repository;
         /// <summary>
         /// URL of the returned endpoint.
         /// </summary>
-        public readonly string RepositoryEndpoint;
+        public readonly string? RepositoryEndpoint;
 
         [OutputConstructor]
         private GetRepositoryEndpointResult(
             string domain,
 
-            string domainOwner,
+            string? domainOwner,
 
             string format,
 
-            string id,
+            string? id,
 
             string repository,
 
-            string repositoryEndpoint)
+            string? repositoryEndpoint)
         {
             Domain = domain;
             DomainOwner = domainOwner;

@@ -57,14 +57,14 @@ type LookupConnectorArgs struct {
 // A collection of values returned by getConnector.
 type LookupConnectorResult struct {
 	// ARN of the connector.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Summary description of the connector.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Current version of the connector.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
@@ -106,18 +106,18 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ct
 }
 
 // ARN of the connector.
-func (o LookupConnectorResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectorResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupConnectorResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Summary description of the connector.
-func (o LookupConnectorResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectorResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupConnectorResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupConnectorResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectorResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupConnectorResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupConnectorResultOutput) Name() pulumi.StringOutput {
@@ -125,8 +125,8 @@ func (o LookupConnectorResultOutput) Name() pulumi.StringOutput {
 }
 
 // Current version of the connector.
-func (o LookupConnectorResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectorResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupConnectorResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

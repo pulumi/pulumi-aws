@@ -49,51 +49,51 @@ export interface GetBotResult {
     /**
      * ARN of the bot.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
      */
-    readonly checksum: string;
+    readonly checksum?: string;
     /**
      * If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
      */
-    readonly childDirected: boolean;
+    readonly childDirected?: boolean;
     /**
      * Date that the bot was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Description of the bot.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
      */
-    readonly detectSentiment: boolean;
+    readonly detectSentiment?: boolean;
     /**
      * Set to true if natural language understanding improvements are enabled.
      */
-    readonly enableModelImprovements: boolean;
+    readonly enableModelImprovements?: boolean;
     /**
      * If the `status` is `FAILED`, the reason why the bot failed to build.
      */
-    readonly failureReason: string;
+    readonly failureReason?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
      */
-    readonly idleSessionTtlInSeconds: number;
+    readonly idleSessionTtlInSeconds?: number;
     /**
      * Date that the bot was updated.
      */
-    readonly lastUpdatedDate: string;
+    readonly lastUpdatedDate?: string;
     /**
      * Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
      */
-    readonly locale: string;
+    readonly locale?: string;
     /**
      * Name of the bot, case sensitive.
      */
@@ -101,11 +101,11 @@ export interface GetBotResult {
     /**
      * The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
      */
-    readonly nluIntentConfidenceThreshold: number;
+    readonly nluIntentConfidenceThreshold?: number;
     /**
      * Status of the bot.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Version of the bot. For a new bot, the version is always `$LATEST`.
      */
@@ -113,7 +113,7 @@ export interface GetBotResult {
     /**
      * Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
      */
-    readonly voiceId: string;
+    readonly voiceId?: string;
 }
 /**
  * Provides details about a specific Amazon Lex Bot.

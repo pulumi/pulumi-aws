@@ -54,7 +54,7 @@ namespace Pulumi.Aws.SecurityHub
         /// Amazon Resource Name (ARN) of the Security Hub custom action target.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the custom action target.

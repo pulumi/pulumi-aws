@@ -2794,9 +2794,9 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) Tokens() pulumi.StringArray
 
 type GetConfigurationSetDeliveryOption struct {
 	// The name of the dedicated IP pool to associate with the configuration set.
-	SendingPoolName string `pulumi:"sendingPoolName"`
+	SendingPoolName *string `pulumi:"sendingPoolName"`
 	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
-	TlsPolicy string `pulumi:"tlsPolicy"`
+	TlsPolicy *string `pulumi:"tlsPolicy"`
 }
 
 // GetConfigurationSetDeliveryOptionInput is an input type that accepts GetConfigurationSetDeliveryOptionArgs and GetConfigurationSetDeliveryOptionOutput values.
@@ -2812,9 +2812,9 @@ type GetConfigurationSetDeliveryOptionInput interface {
 
 type GetConfigurationSetDeliveryOptionArgs struct {
 	// The name of the dedicated IP pool to associate with the configuration set.
-	SendingPoolName pulumi.StringInput `pulumi:"sendingPoolName"`
+	SendingPoolName pulumi.StringPtrInput `pulumi:"sendingPoolName"`
 	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
-	TlsPolicy pulumi.StringInput `pulumi:"tlsPolicy"`
+	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
 }
 
 func (GetConfigurationSetDeliveryOptionArgs) ElementType() reflect.Type {
@@ -2869,13 +2869,13 @@ func (o GetConfigurationSetDeliveryOptionOutput) ToGetConfigurationSetDeliveryOp
 }
 
 // The name of the dedicated IP pool to associate with the configuration set.
-func (o GetConfigurationSetDeliveryOptionOutput) SendingPoolName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) string { return v.SendingPoolName }).(pulumi.StringOutput)
+func (o GetConfigurationSetDeliveryOptionOutput) SendingPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) *string { return v.SendingPoolName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
-func (o GetConfigurationSetDeliveryOptionOutput) TlsPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) string { return v.TlsPolicy }).(pulumi.StringOutput)
+func (o GetConfigurationSetDeliveryOptionOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
 }
 
 type GetConfigurationSetDeliveryOptionArrayOutput struct{ *pulumi.OutputState }
@@ -2900,9 +2900,9 @@ func (o GetConfigurationSetDeliveryOptionArrayOutput) Index(i pulumi.IntInput) G
 
 type GetConfigurationSetReputationOption struct {
 	// The date and time (in Unix time) when the reputation metrics were last given a fresh start.
-	LastFreshStart string `pulumi:"lastFreshStart"`
+	LastFreshStart *string `pulumi:"lastFreshStart"`
 	// Specifies whether tracking of reputation metrics is enabled.
-	ReputationMetricsEnabled bool `pulumi:"reputationMetricsEnabled"`
+	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
 }
 
 // GetConfigurationSetReputationOptionInput is an input type that accepts GetConfigurationSetReputationOptionArgs and GetConfigurationSetReputationOptionOutput values.
@@ -2918,9 +2918,9 @@ type GetConfigurationSetReputationOptionInput interface {
 
 type GetConfigurationSetReputationOptionArgs struct {
 	// The date and time (in Unix time) when the reputation metrics were last given a fresh start.
-	LastFreshStart pulumi.StringInput `pulumi:"lastFreshStart"`
+	LastFreshStart pulumi.StringPtrInput `pulumi:"lastFreshStart"`
 	// Specifies whether tracking of reputation metrics is enabled.
-	ReputationMetricsEnabled pulumi.BoolInput `pulumi:"reputationMetricsEnabled"`
+	ReputationMetricsEnabled pulumi.BoolPtrInput `pulumi:"reputationMetricsEnabled"`
 }
 
 func (GetConfigurationSetReputationOptionArgs) ElementType() reflect.Type {
@@ -2975,13 +2975,13 @@ func (o GetConfigurationSetReputationOptionOutput) ToGetConfigurationSetReputati
 }
 
 // The date and time (in Unix time) when the reputation metrics were last given a fresh start.
-func (o GetConfigurationSetReputationOptionOutput) LastFreshStart() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationSetReputationOption) string { return v.LastFreshStart }).(pulumi.StringOutput)
+func (o GetConfigurationSetReputationOptionOutput) LastFreshStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConfigurationSetReputationOption) *string { return v.LastFreshStart }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether tracking of reputation metrics is enabled.
-func (o GetConfigurationSetReputationOptionOutput) ReputationMetricsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetConfigurationSetReputationOption) bool { return v.ReputationMetricsEnabled }).(pulumi.BoolOutput)
+func (o GetConfigurationSetReputationOptionOutput) ReputationMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetConfigurationSetReputationOption) *bool { return v.ReputationMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetConfigurationSetReputationOptionArrayOutput struct{ *pulumi.OutputState }
@@ -3006,7 +3006,7 @@ func (o GetConfigurationSetReputationOptionArrayOutput) Index(i pulumi.IntInput)
 
 type GetConfigurationSetSendingOption struct {
 	// Specifies whether email sending is enabled.
-	SendingEnabled bool `pulumi:"sendingEnabled"`
+	SendingEnabled *bool `pulumi:"sendingEnabled"`
 }
 
 // GetConfigurationSetSendingOptionInput is an input type that accepts GetConfigurationSetSendingOptionArgs and GetConfigurationSetSendingOptionOutput values.
@@ -3022,7 +3022,7 @@ type GetConfigurationSetSendingOptionInput interface {
 
 type GetConfigurationSetSendingOptionArgs struct {
 	// Specifies whether email sending is enabled.
-	SendingEnabled pulumi.BoolInput `pulumi:"sendingEnabled"`
+	SendingEnabled pulumi.BoolPtrInput `pulumi:"sendingEnabled"`
 }
 
 func (GetConfigurationSetSendingOptionArgs) ElementType() reflect.Type {
@@ -3077,8 +3077,8 @@ func (o GetConfigurationSetSendingOptionOutput) ToGetConfigurationSetSendingOpti
 }
 
 // Specifies whether email sending is enabled.
-func (o GetConfigurationSetSendingOptionOutput) SendingEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetConfigurationSetSendingOption) bool { return v.SendingEnabled }).(pulumi.BoolOutput)
+func (o GetConfigurationSetSendingOptionOutput) SendingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetConfigurationSetSendingOption) *bool { return v.SendingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetConfigurationSetSendingOptionArrayOutput struct{ *pulumi.OutputState }
@@ -3200,7 +3200,7 @@ func (o GetConfigurationSetSuppressionOptionArrayOutput) Index(i pulumi.IntInput
 
 type GetConfigurationSetTrackingOption struct {
 	// The domain to use for tracking open and click events.
-	CustomRedirectDomain string `pulumi:"customRedirectDomain"`
+	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
 }
 
 // GetConfigurationSetTrackingOptionInput is an input type that accepts GetConfigurationSetTrackingOptionArgs and GetConfigurationSetTrackingOptionOutput values.
@@ -3216,7 +3216,7 @@ type GetConfigurationSetTrackingOptionInput interface {
 
 type GetConfigurationSetTrackingOptionArgs struct {
 	// The domain to use for tracking open and click events.
-	CustomRedirectDomain pulumi.StringInput `pulumi:"customRedirectDomain"`
+	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
 }
 
 func (GetConfigurationSetTrackingOptionArgs) ElementType() reflect.Type {
@@ -3271,8 +3271,8 @@ func (o GetConfigurationSetTrackingOptionOutput) ToGetConfigurationSetTrackingOp
 }
 
 // The domain to use for tracking open and click events.
-func (o GetConfigurationSetTrackingOptionOutput) CustomRedirectDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationSetTrackingOption) string { return v.CustomRedirectDomain }).(pulumi.StringOutput)
+func (o GetConfigurationSetTrackingOptionOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConfigurationSetTrackingOption) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
 }
 
 type GetConfigurationSetTrackingOptionArrayOutput struct{ *pulumi.OutputState }
@@ -3407,7 +3407,7 @@ func (o GetConfigurationSetVdmOptionArrayOutput) Index(i pulumi.IntInput) GetCon
 
 type GetConfigurationSetVdmOptionDashboardOption struct {
 	// Specifies the status of your VDM engagement metrics collection.
-	EngagementMetrics string `pulumi:"engagementMetrics"`
+	EngagementMetrics *string `pulumi:"engagementMetrics"`
 }
 
 // GetConfigurationSetVdmOptionDashboardOptionInput is an input type that accepts GetConfigurationSetVdmOptionDashboardOptionArgs and GetConfigurationSetVdmOptionDashboardOptionOutput values.
@@ -3423,7 +3423,7 @@ type GetConfigurationSetVdmOptionDashboardOptionInput interface {
 
 type GetConfigurationSetVdmOptionDashboardOptionArgs struct {
 	// Specifies the status of your VDM engagement metrics collection.
-	EngagementMetrics pulumi.StringInput `pulumi:"engagementMetrics"`
+	EngagementMetrics pulumi.StringPtrInput `pulumi:"engagementMetrics"`
 }
 
 func (GetConfigurationSetVdmOptionDashboardOptionArgs) ElementType() reflect.Type {
@@ -3478,8 +3478,8 @@ func (o GetConfigurationSetVdmOptionDashboardOptionOutput) ToGetConfigurationSet
 }
 
 // Specifies the status of your VDM engagement metrics collection.
-func (o GetConfigurationSetVdmOptionDashboardOptionOutput) EngagementMetrics() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationSetVdmOptionDashboardOption) string { return v.EngagementMetrics }).(pulumi.StringOutput)
+func (o GetConfigurationSetVdmOptionDashboardOptionOutput) EngagementMetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConfigurationSetVdmOptionDashboardOption) *string { return v.EngagementMetrics }).(pulumi.StringPtrOutput)
 }
 
 type GetConfigurationSetVdmOptionDashboardOptionArrayOutput struct{ *pulumi.OutputState }
@@ -3504,7 +3504,7 @@ func (o GetConfigurationSetVdmOptionDashboardOptionArrayOutput) Index(i pulumi.I
 
 type GetConfigurationSetVdmOptionGuardianOption struct {
 	// Specifies the status of your VDM optimized shared delivery.
-	OptimizedSharedDelivery string `pulumi:"optimizedSharedDelivery"`
+	OptimizedSharedDelivery *string `pulumi:"optimizedSharedDelivery"`
 }
 
 // GetConfigurationSetVdmOptionGuardianOptionInput is an input type that accepts GetConfigurationSetVdmOptionGuardianOptionArgs and GetConfigurationSetVdmOptionGuardianOptionOutput values.
@@ -3520,7 +3520,7 @@ type GetConfigurationSetVdmOptionGuardianOptionInput interface {
 
 type GetConfigurationSetVdmOptionGuardianOptionArgs struct {
 	// Specifies the status of your VDM optimized shared delivery.
-	OptimizedSharedDelivery pulumi.StringInput `pulumi:"optimizedSharedDelivery"`
+	OptimizedSharedDelivery pulumi.StringPtrInput `pulumi:"optimizedSharedDelivery"`
 }
 
 func (GetConfigurationSetVdmOptionGuardianOptionArgs) ElementType() reflect.Type {
@@ -3575,8 +3575,8 @@ func (o GetConfigurationSetVdmOptionGuardianOptionOutput) ToGetConfigurationSetV
 }
 
 // Specifies the status of your VDM optimized shared delivery.
-func (o GetConfigurationSetVdmOptionGuardianOptionOutput) OptimizedSharedDelivery() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationSetVdmOptionGuardianOption) string { return v.OptimizedSharedDelivery }).(pulumi.StringOutput)
+func (o GetConfigurationSetVdmOptionGuardianOptionOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConfigurationSetVdmOptionGuardianOption) *string { return v.OptimizedSharedDelivery }).(pulumi.StringPtrOutput)
 }
 
 type GetConfigurationSetVdmOptionGuardianOptionArrayOutput struct{ *pulumi.OutputState }
@@ -3601,11 +3601,11 @@ func (o GetConfigurationSetVdmOptionGuardianOptionArrayOutput) Index(i pulumi.In
 
 type GetDedicatedIpPoolDedicatedIp struct {
 	// IPv4 address.
-	Ip string `pulumi:"ip"`
+	Ip *string `pulumi:"ip"`
 	// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
-	WarmupPercentage int `pulumi:"warmupPercentage"`
+	WarmupPercentage *int `pulumi:"warmupPercentage"`
 	// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
-	WarmupStatus string `pulumi:"warmupStatus"`
+	WarmupStatus *string `pulumi:"warmupStatus"`
 }
 
 // GetDedicatedIpPoolDedicatedIpInput is an input type that accepts GetDedicatedIpPoolDedicatedIpArgs and GetDedicatedIpPoolDedicatedIpOutput values.
@@ -3621,11 +3621,11 @@ type GetDedicatedIpPoolDedicatedIpInput interface {
 
 type GetDedicatedIpPoolDedicatedIpArgs struct {
 	// IPv4 address.
-	Ip pulumi.StringInput `pulumi:"ip"`
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
 	// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
-	WarmupPercentage pulumi.IntInput `pulumi:"warmupPercentage"`
+	WarmupPercentage pulumi.IntPtrInput `pulumi:"warmupPercentage"`
 	// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
-	WarmupStatus pulumi.StringInput `pulumi:"warmupStatus"`
+	WarmupStatus pulumi.StringPtrInput `pulumi:"warmupStatus"`
 }
 
 func (GetDedicatedIpPoolDedicatedIpArgs) ElementType() reflect.Type {
@@ -3680,18 +3680,18 @@ func (o GetDedicatedIpPoolDedicatedIpOutput) ToGetDedicatedIpPoolDedicatedIpOutp
 }
 
 // IPv4 address.
-func (o GetDedicatedIpPoolDedicatedIpOutput) Ip() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) string { return v.Ip }).(pulumi.StringOutput)
+func (o GetDedicatedIpPoolDedicatedIpOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
 // Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
-func (o GetDedicatedIpPoolDedicatedIpOutput) WarmupPercentage() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) int { return v.WarmupPercentage }).(pulumi.IntOutput)
+func (o GetDedicatedIpPoolDedicatedIpOutput) WarmupPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) *int { return v.WarmupPercentage }).(pulumi.IntPtrOutput)
 }
 
 // The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
-func (o GetDedicatedIpPoolDedicatedIpOutput) WarmupStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) string { return v.WarmupStatus }).(pulumi.StringOutput)
+func (o GetDedicatedIpPoolDedicatedIpOutput) WarmupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) *string { return v.WarmupStatus }).(pulumi.StringPtrOutput)
 }
 
 type GetDedicatedIpPoolDedicatedIpArrayOutput struct{ *pulumi.OutputState }
@@ -3716,17 +3716,17 @@ func (o GetDedicatedIpPoolDedicatedIpArrayOutput) Index(i pulumi.IntInput) GetDe
 
 type GetEmailIdentityDkimSigningAttribute struct {
 	// [Easy DKIM] The key length of the DKIM key pair in use.
-	CurrentSigningKeyLength string `pulumi:"currentSigningKeyLength"`
-	DomainSigningPrivateKey string `pulumi:"domainSigningPrivateKey"`
-	DomainSigningSelector   string `pulumi:"domainSigningSelector"`
+	CurrentSigningKeyLength *string `pulumi:"currentSigningKeyLength"`
+	DomainSigningPrivateKey *string `pulumi:"domainSigningPrivateKey"`
+	DomainSigningSelector   *string `pulumi:"domainSigningSelector"`
 	// [Easy DKIM] The last time a key pair was generated for this identity.
-	LastKeyGenerationTimestamp string `pulumi:"lastKeyGenerationTimestamp"`
+	LastKeyGenerationTimestamp *string `pulumi:"lastKeyGenerationTimestamp"`
 	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
-	NextSigningKeyLength string `pulumi:"nextSigningKeyLength"`
+	NextSigningKeyLength *string `pulumi:"nextSigningKeyLength"`
 	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
-	SigningAttributesOrigin string `pulumi:"signingAttributesOrigin"`
+	SigningAttributesOrigin *string `pulumi:"signingAttributesOrigin"`
 	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
 	Tokens []string `pulumi:"tokens"`
 }
@@ -3744,17 +3744,17 @@ type GetEmailIdentityDkimSigningAttributeInput interface {
 
 type GetEmailIdentityDkimSigningAttributeArgs struct {
 	// [Easy DKIM] The key length of the DKIM key pair in use.
-	CurrentSigningKeyLength pulumi.StringInput `pulumi:"currentSigningKeyLength"`
-	DomainSigningPrivateKey pulumi.StringInput `pulumi:"domainSigningPrivateKey"`
-	DomainSigningSelector   pulumi.StringInput `pulumi:"domainSigningSelector"`
+	CurrentSigningKeyLength pulumi.StringPtrInput `pulumi:"currentSigningKeyLength"`
+	DomainSigningPrivateKey pulumi.StringPtrInput `pulumi:"domainSigningPrivateKey"`
+	DomainSigningSelector   pulumi.StringPtrInput `pulumi:"domainSigningSelector"`
 	// [Easy DKIM] The last time a key pair was generated for this identity.
-	LastKeyGenerationTimestamp pulumi.StringInput `pulumi:"lastKeyGenerationTimestamp"`
+	LastKeyGenerationTimestamp pulumi.StringPtrInput `pulumi:"lastKeyGenerationTimestamp"`
 	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
-	NextSigningKeyLength pulumi.StringInput `pulumi:"nextSigningKeyLength"`
+	NextSigningKeyLength pulumi.StringPtrInput `pulumi:"nextSigningKeyLength"`
 	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
-	SigningAttributesOrigin pulumi.StringInput `pulumi:"signingAttributesOrigin"`
+	SigningAttributesOrigin pulumi.StringPtrInput `pulumi:"signingAttributesOrigin"`
 	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status pulumi.StringPtrInput `pulumi:"status"`
 	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
 	Tokens pulumi.StringArrayInput `pulumi:"tokens"`
 }
@@ -3811,36 +3811,36 @@ func (o GetEmailIdentityDkimSigningAttributeOutput) ToGetEmailIdentityDkimSignin
 }
 
 // [Easy DKIM] The key length of the DKIM key pair in use.
-func (o GetEmailIdentityDkimSigningAttributeOutput) CurrentSigningKeyLength() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.CurrentSigningKeyLength }).(pulumi.StringOutput)
+func (o GetEmailIdentityDkimSigningAttributeOutput) CurrentSigningKeyLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) *string { return v.CurrentSigningKeyLength }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEmailIdentityDkimSigningAttributeOutput) DomainSigningPrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.DomainSigningPrivateKey }).(pulumi.StringOutput)
+func (o GetEmailIdentityDkimSigningAttributeOutput) DomainSigningPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) *string { return v.DomainSigningPrivateKey }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEmailIdentityDkimSigningAttributeOutput) DomainSigningSelector() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.DomainSigningSelector }).(pulumi.StringOutput)
+func (o GetEmailIdentityDkimSigningAttributeOutput) DomainSigningSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) *string { return v.DomainSigningSelector }).(pulumi.StringPtrOutput)
 }
 
 // [Easy DKIM] The last time a key pair was generated for this identity.
-func (o GetEmailIdentityDkimSigningAttributeOutput) LastKeyGenerationTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.LastKeyGenerationTimestamp }).(pulumi.StringOutput)
+func (o GetEmailIdentityDkimSigningAttributeOutput) LastKeyGenerationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) *string { return v.LastKeyGenerationTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
-func (o GetEmailIdentityDkimSigningAttributeOutput) NextSigningKeyLength() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.NextSigningKeyLength }).(pulumi.StringOutput)
+func (o GetEmailIdentityDkimSigningAttributeOutput) NextSigningKeyLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) *string { return v.NextSigningKeyLength }).(pulumi.StringPtrOutput)
 }
 
 // A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
-func (o GetEmailIdentityDkimSigningAttributeOutput) SigningAttributesOrigin() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.SigningAttributesOrigin }).(pulumi.StringOutput)
+func (o GetEmailIdentityDkimSigningAttributeOutput) SigningAttributesOrigin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) *string { return v.SigningAttributesOrigin }).(pulumi.StringPtrOutput)
 }
 
 // Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
-func (o GetEmailIdentityDkimSigningAttributeOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.Status }).(pulumi.StringOutput)
+func (o GetEmailIdentityDkimSigningAttributeOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.

@@ -61,7 +61,7 @@ type Discoverer struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the discoverer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the event bus to discover event schemas on.
@@ -251,8 +251,8 @@ func (o DiscovererOutput) ToDiscovererOutputWithContext(ctx context.Context) Dis
 }
 
 // The Amazon Resource Name (ARN) of the discoverer.
-func (o DiscovererOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DiscovererOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Discoverer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the discoverer. Maximum of 256 characters.

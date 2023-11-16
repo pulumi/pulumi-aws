@@ -97,14 +97,14 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return SES configuration set ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Whether messages that use the configuration set are required to use TLS. See below.
@@ -125,14 +125,14 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastFreshStart", refs={String.class}, tree="[0]")
-    private Output<String> lastFreshStart;
+    private Output</* @Nullable */ String> lastFreshStart;
 
     /**
      * @return Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      * 
      */
-    public Output<String> lastFreshStart() {
-        return this.lastFreshStart;
+    public Output<Optional<String>> lastFreshStart() {
+        return Codegen.optional(this.lastFreshStart);
     }
     /**
      * Name of the configuration set.

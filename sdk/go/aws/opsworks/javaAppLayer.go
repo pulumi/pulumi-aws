@@ -47,7 +47,7 @@ type JavaAppLayer struct {
 	// Version of the selected application container to use. Defaults to "7".
 	AppServerVersion pulumi.StringPtrOutput `pulumi:"appServerVersion"`
 	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -81,8 +81,8 @@ type JavaAppLayer struct {
 	// Keyword for the type of JVM to use. Defaults to `openjdk`.
 	JvmType pulumi.StringPtrOutput `pulumi:"jvmType"`
 	// Version of JVM to use. Defaults to "7".
-	JvmVersion           pulumi.StringPtrOutput                 `pulumi:"jvmVersion"`
-	LoadBasedAutoScaling JavaAppLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	JvmVersion           pulumi.StringPtrOutput                    `pulumi:"jvmVersion"`
+	LoadBasedAutoScaling JavaAppLayerLoadBasedAutoScalingPtrOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -478,8 +478,8 @@ func (o JavaAppLayerOutput) AppServerVersion() pulumi.StringPtrOutput {
 }
 
 // The Amazon Resource Name(ARN) of the layer.
-func (o JavaAppLayerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o JavaAppLayerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
@@ -576,8 +576,8 @@ func (o JavaAppLayerOutput) JvmVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.JvmVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o JavaAppLayerOutput) LoadBasedAutoScaling() JavaAppLayerLoadBasedAutoScalingOutput {
-	return o.ApplyT(func(v *JavaAppLayer) JavaAppLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(JavaAppLayerLoadBasedAutoScalingOutput)
+func (o JavaAppLayerOutput) LoadBasedAutoScaling() JavaAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayer) JavaAppLayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(JavaAppLayerLoadBasedAutoScalingPtrOutput)
 }
 
 // A human-readable name for the layer.

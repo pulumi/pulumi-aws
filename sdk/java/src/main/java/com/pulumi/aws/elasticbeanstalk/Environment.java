@@ -141,7 +141,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allSettings", refs={List.class,EnvironmentAllSetting.class}, tree="[0,1]")
-    private Output<List<EnvironmentAllSetting>> allSettings;
+    private Output</* @Nullable */ List<EnvironmentAllSetting>> allSettings;
 
     /**
      * @return List of all option settings configured in this Environment. These
@@ -149,8 +149,8 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * the configuration.
      * 
      */
-    public Output<List<EnvironmentAllSetting>> allSettings() {
-        return this.allSettings;
+    public Output<Optional<List<EnvironmentAllSetting>>> allSettings() {
+        return Codegen.optional(this.allSettings);
     }
     /**
      * Name of the application that contains the version
@@ -169,38 +169,38 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.application;
     }
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The autoscaling groups used by this Environment.
      * 
      */
     @Export(name="autoscalingGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> autoscalingGroups;
+    private Output</* @Nullable */ List<String>> autoscalingGroups;
 
     /**
      * @return The autoscaling groups used by this Environment.
      * 
      */
-    public Output<List<String>> autoscalingGroups() {
-        return this.autoscalingGroups;
+    public Output<Optional<List<String>>> autoscalingGroups() {
+        return Codegen.optional(this.autoscalingGroups);
     }
     /**
      * Fully qualified DNS name for this Environment.
      * 
      */
     @Export(name="cname", refs={String.class}, tree="[0]")
-    private Output<String> cname;
+    private Output</* @Nullable */ String> cname;
 
     /**
      * @return Fully qualified DNS name for this Environment.
      * 
      */
-    public Output<String> cname() {
-        return this.cname;
+    public Output<Optional<String>> cname() {
+        return Codegen.optional(this.cname);
     }
     /**
      * Prefix to use for the fully qualified DNS name of
@@ -208,15 +208,15 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cnamePrefix", refs={String.class}, tree="[0]")
-    private Output<String> cnamePrefix;
+    private Output</* @Nullable */ String> cnamePrefix;
 
     /**
      * @return Prefix to use for the fully qualified DNS name of
      * the Environment.
      * 
      */
-    public Output<String> cnamePrefix() {
-        return this.cnamePrefix;
+    public Output<Optional<String>> cnamePrefix() {
+        return Codegen.optional(this.cnamePrefix);
     }
     /**
      * Short description of the Environment
@@ -237,56 +237,56 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointUrl", refs={String.class}, tree="[0]")
-    private Output<String> endpointUrl;
+    private Output</* @Nullable */ String> endpointUrl;
 
     /**
      * @return The URL to the Load Balancer for this Environment
      * 
      */
-    public Output<String> endpointUrl() {
-        return this.endpointUrl;
+    public Output<Optional<String>> endpointUrl() {
+        return Codegen.optional(this.endpointUrl);
     }
     /**
      * Instances used by this Environment.
      * 
      */
     @Export(name="instances", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> instances;
+    private Output</* @Nullable */ List<String>> instances;
 
     /**
      * @return Instances used by this Environment.
      * 
      */
-    public Output<List<String>> instances() {
-        return this.instances;
+    public Output<Optional<List<String>>> instances() {
+        return Codegen.optional(this.instances);
     }
     /**
      * Launch configurations in use by this Environment.
      * 
      */
     @Export(name="launchConfigurations", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> launchConfigurations;
+    private Output</* @Nullable */ List<String>> launchConfigurations;
 
     /**
      * @return Launch configurations in use by this Environment.
      * 
      */
-    public Output<List<String>> launchConfigurations() {
-        return this.launchConfigurations;
+    public Output<Optional<List<String>>> launchConfigurations() {
+        return Codegen.optional(this.launchConfigurations);
     }
     /**
      * Elastic load balancers in use by this Environment.
      * 
      */
     @Export(name="loadBalancers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> loadBalancers;
+    private Output</* @Nullable */ List<String>> loadBalancers;
 
     /**
      * @return Elastic load balancers in use by this Environment.
      * 
      */
-    public Output<List<String>> loadBalancers() {
-        return this.loadBalancers;
+    public Output<Optional<List<String>>> loadBalancers() {
+        return Codegen.optional(this.loadBalancers);
     }
     /**
      * A unique name for this Environment. This name is used
@@ -310,15 +310,15 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="platformArn", refs={String.class}, tree="[0]")
-    private Output<String> platformArn;
+    private Output</* @Nullable */ String> platformArn;
 
     /**
      * @return The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      * 
      */
-    public Output<String> platformArn() {
-        return this.platformArn;
+    public Output<Optional<String>> platformArn() {
+        return Codegen.optional(this.platformArn);
     }
     /**
      * The time between polling the AWS API to
@@ -345,14 +345,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="queues", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> queues;
+    private Output</* @Nullable */ List<String>> queues;
 
     /**
      * @return SQS queues in use by this Environment.
      * 
      */
-    public Output<List<String>> queues() {
-        return this.queues;
+    public Output<Optional<List<String>>> queues() {
+        return Codegen.optional(this.queues);
     }
     /**
      * Option settings to configure the new Environment. These
@@ -378,15 +378,15 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="solutionStackName", refs={String.class}, tree="[0]")
-    private Output<String> solutionStackName;
+    private Output</* @Nullable */ String> solutionStackName;
 
     /**
      * @return A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      * 
      */
-    public Output<String> solutionStackName() {
-        return this.solutionStackName;
+    public Output<Optional<String>> solutionStackName() {
+        return Codegen.optional(this.solutionStackName);
     }
     /**
      * A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -457,14 +457,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="triggers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> triggers;
+    private Output</* @Nullable */ List<String>> triggers;
 
     /**
      * @return Autoscaling triggers in use by this Environment.
      * 
      */
-    public Output<List<String>> triggers() {
-        return this.triggers;
+    public Output<Optional<List<String>>> triggers() {
+        return Codegen.optional(this.triggers);
     }
     /**
      * The name of the Elastic Beanstalk Application Version
@@ -472,15 +472,15 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
     /**
      * The maximum

@@ -644,7 +644,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedPrincipals")
-    def allowed_principals(self) -> pulumi.Output[Sequence[str]]:
+    def allowed_principals(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The ARNs of one or more principals allowed to discover the endpoint service.
         """
@@ -652,7 +652,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the VPC endpoint service.
         """
@@ -660,7 +660,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A set of Availability Zones in which the service is available.
         """
@@ -668,7 +668,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="baseEndpointDnsNames")
-    def base_endpoint_dns_names(self) -> pulumi.Output[Sequence[str]]:
+    def base_endpoint_dns_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A set of DNS names for the service.
         """
@@ -684,7 +684,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managesVpcEndpoints")
-    def manages_vpc_endpoints(self) -> pulumi.Output[bool]:
+    def manages_vpc_endpoints(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not the service manages its VPC endpoints - `true` or `false`.
         """
@@ -700,7 +700,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsName")
-    def private_dns_name(self) -> pulumi.Output[str]:
+    def private_dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The private DNS name for the service.
         """
@@ -708,7 +708,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsNameConfigurations")
-    def private_dns_name_configurations(self) -> pulumi.Output[Sequence['outputs.VpcEndpointServicePrivateDnsNameConfiguration']]:
+    def private_dns_name_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.VpcEndpointServicePrivateDnsNameConfiguration']]]:
         """
         List of objects containing information about the endpoint service private DNS name configuration.
         """
@@ -716,7 +716,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Output[str]:
+    def service_name(self) -> pulumi.Output[Optional[str]]:
         """
         The service name.
         """
@@ -724,7 +724,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceType")
-    def service_type(self) -> pulumi.Output[str]:
+    def service_type(self) -> pulumi.Output[Optional[str]]:
         """
         The service type, `Gateway` or `Interface`.
         """
@@ -732,7 +732,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
         """
@@ -740,7 +740,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportedIpAddressTypes")
-    def supported_ip_address_types(self) -> pulumi.Output[Sequence[str]]:
+    def supported_ip_address_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The supported IP address types. The possible values are `ipv4` and `ipv6`.
         """

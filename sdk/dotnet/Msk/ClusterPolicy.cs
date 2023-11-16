@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> ClusterArn { get; private set; } = null!;
 
         [Output("currentVersion")]
-        public Output<string> CurrentVersion { get; private set; } = null!;
+        public Output<string?> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
         /// Resource policy for cluster.

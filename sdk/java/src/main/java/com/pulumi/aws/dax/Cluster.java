@@ -71,14 +71,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the DAX cluster
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * List of Availability Zones in which the
@@ -101,14 +101,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clusterAddress", refs={String.class}, tree="[0]")
-    private Output<String> clusterAddress;
+    private Output</* @Nullable */ String> clusterAddress;
 
     /**
      * @return The DNS name of the DAX cluster without the port appended
      * 
      */
-    public Output<String> clusterAddress() {
-        return this.clusterAddress;
+    public Output<Optional<String>> clusterAddress() {
+        return Codegen.optional(this.clusterAddress);
     }
     /**
      * The type of encryption the
@@ -150,15 +150,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configurationEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> configurationEndpoint;
+    private Output</* @Nullable */ String> configurationEndpoint;
 
     /**
      * @return The configuration endpoint for this DAX cluster,
      * consisting of a DNS name and a port number
      * 
      */
-    public Output<String> configurationEndpoint() {
-        return this.configurationEndpoint;
+    public Output<Optional<String>> configurationEndpoint() {
+        return Codegen.optional(this.configurationEndpoint);
     }
     /**
      * Description for the cluster
@@ -200,7 +200,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> maintenanceWindow;
+    private Output</* @Nullable */ String> maintenanceWindow;
 
     /**
      * @return Specifies the weekly time range for when
@@ -209,8 +209,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * `sun:05:00-sun:09:00`
      * 
      */
-    public Output<String> maintenanceWindow() {
-        return this.maintenanceWindow;
+    public Output<Optional<String>> maintenanceWindow() {
+        return Codegen.optional(this.maintenanceWindow);
     }
     /**
      * The compute and memory capacity of the nodes. See
@@ -235,7 +235,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="nodes", refs={List.class,ClusterNode.class}, tree="[0,1]")
-    private Output<List<ClusterNode>> nodes;
+    private Output</* @Nullable */ List<ClusterNode>> nodes;
 
     /**
      * @return List of node objects including `id`, `address`, `port` and
@@ -243,8 +243,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * `${aws_dax_cluster.test.nodes.0.address}`
      * 
      */
-    public Output<List<ClusterNode>> nodes() {
-        return this.nodes;
+    public Output<Optional<List<ClusterNode>>> nodes() {
+        return Codegen.optional(this.nodes);
     }
     /**
      * An Amazon Resource Name (ARN) of an
@@ -270,29 +270,29 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
-    private Output<String> parameterGroupName;
+    private Output</* @Nullable */ String> parameterGroupName;
 
     /**
      * @return Name of the parameter group to associate
      * with this DAX cluster
      * 
      */
-    public Output<String> parameterGroupName() {
-        return this.parameterGroupName;
+    public Output<Optional<String>> parameterGroupName() {
+        return Codegen.optional(this.parameterGroupName);
     }
     /**
      * The port used by the configuration endpoint
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return The port used by the configuration endpoint
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * The number of nodes in the DAX cluster. A
@@ -318,15 +318,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupIds;
+    private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
      * @return One or more VPC security groups associated
      * with the cluster
      * 
      */
-    public Output<List<String>> securityGroupIds() {
-        return this.securityGroupIds;
+    public Output<Optional<List<String>>> securityGroupIds() {
+        return Codegen.optional(this.securityGroupIds);
     }
     /**
      * Encrypt at rest options
@@ -348,15 +348,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> subnetGroupName;
+    private Output</* @Nullable */ String> subnetGroupName;
 
     /**
      * @return Name of the subnet group to be used for the
      * cluster
      * 
      */
-    public Output<String> subnetGroupName() {
-        return this.subnetGroupName;
+    public Output<Optional<String>> subnetGroupName() {
+        return Codegen.optional(this.subnetGroupName);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

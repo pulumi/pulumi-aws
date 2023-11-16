@@ -516,7 +516,7 @@ class LifecycleHook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultResult")
-    def default_result(self) -> pulumi.Output[str]:
+    def default_result(self) -> pulumi.Output[Optional[str]]:
         """
         Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
         """

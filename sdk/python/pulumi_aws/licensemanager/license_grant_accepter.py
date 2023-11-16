@@ -332,7 +332,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOperations")
-    def allowed_operations(self) -> pulumi.Output[Sequence[str]]:
+    def allowed_operations(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of the allowed operations for the grant.
         """
@@ -348,7 +348,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="homeRegion")
-    def home_region(self) -> pulumi.Output[str]:
+    def home_region(self) -> pulumi.Output[Optional[str]]:
         """
         The home region for the license.
         """
@@ -356,7 +356,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseArn")
-    def license_arn(self) -> pulumi.Output[str]:
+    def license_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the license for the grant.
         """
@@ -364,7 +364,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The Name of the grant.
         """
@@ -372,7 +372,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parentArn")
-    def parent_arn(self) -> pulumi.Output[str]:
+    def parent_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The parent ARN.
         """
@@ -380,7 +380,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def principal(self) -> pulumi.Output[str]:
+    def principal(self) -> pulumi.Output[Optional[str]]:
         """
         The target account for the grant.
         """
@@ -388,7 +388,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The grant status.
         """
@@ -396,7 +396,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The grant version.
         """

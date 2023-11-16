@@ -69,7 +69,7 @@ type Authorizer struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the authorizer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN of the authorizer's Lambda function.
 	AuthorizerFunctionArn pulumi.StringOutput `pulumi:"authorizerFunctionArn"`
 	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
@@ -290,8 +290,8 @@ func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) Aut
 }
 
 // The ARN of the authorizer.
-func (o AuthorizerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AuthorizerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the authorizer's Lambda function.

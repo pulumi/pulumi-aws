@@ -5196,10 +5196,10 @@ type GetListenerDefaultAction struct {
 	AuthenticateOidcs    []GetListenerDefaultActionAuthenticateOidc    `pulumi:"authenticateOidcs"`
 	FixedResponses       []GetListenerDefaultActionFixedResponse       `pulumi:"fixedResponses"`
 	Forwards             []GetListenerDefaultActionForward             `pulumi:"forwards"`
-	Order                int                                           `pulumi:"order"`
+	Order                *int                                          `pulumi:"order"`
 	Redirects            []GetListenerDefaultActionRedirect            `pulumi:"redirects"`
-	TargetGroupArn       string                                        `pulumi:"targetGroupArn"`
-	Type                 string                                        `pulumi:"type"`
+	TargetGroupArn       *string                                       `pulumi:"targetGroupArn"`
+	Type                 *string                                       `pulumi:"type"`
 }
 
 // GetListenerDefaultActionInput is an input type that accepts GetListenerDefaultActionArgs and GetListenerDefaultActionOutput values.
@@ -5218,10 +5218,10 @@ type GetListenerDefaultActionArgs struct {
 	AuthenticateOidcs    GetListenerDefaultActionAuthenticateOidcArrayInput    `pulumi:"authenticateOidcs"`
 	FixedResponses       GetListenerDefaultActionFixedResponseArrayInput       `pulumi:"fixedResponses"`
 	Forwards             GetListenerDefaultActionForwardArrayInput             `pulumi:"forwards"`
-	Order                pulumi.IntInput                                       `pulumi:"order"`
+	Order                pulumi.IntPtrInput                                    `pulumi:"order"`
 	Redirects            GetListenerDefaultActionRedirectArrayInput            `pulumi:"redirects"`
-	TargetGroupArn       pulumi.StringInput                                    `pulumi:"targetGroupArn"`
-	Type                 pulumi.StringInput                                    `pulumi:"type"`
+	TargetGroupArn       pulumi.StringPtrInput                                 `pulumi:"targetGroupArn"`
+	Type                 pulumi.StringPtrInput                                 `pulumi:"type"`
 }
 
 func (GetListenerDefaultActionArgs) ElementType() reflect.Type {
@@ -5295,20 +5295,20 @@ func (o GetListenerDefaultActionOutput) Forwards() GetListenerDefaultActionForwa
 	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionForward { return v.Forwards }).(GetListenerDefaultActionForwardArrayOutput)
 }
 
-func (o GetListenerDefaultActionOutput) Order() pulumi.IntOutput {
-	return o.ApplyT(func(v GetListenerDefaultAction) int { return v.Order }).(pulumi.IntOutput)
+func (o GetListenerDefaultActionOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
 func (o GetListenerDefaultActionOutput) Redirects() GetListenerDefaultActionRedirectArrayOutput {
 	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionRedirect { return v.Redirects }).(GetListenerDefaultActionRedirectArrayOutput)
 }
 
-func (o GetListenerDefaultActionOutput) TargetGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultAction) string { return v.TargetGroupArn }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultAction) string { return v.Type }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultAction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetListenerDefaultActionArrayOutput struct{ *pulumi.OutputState }
@@ -5333,13 +5333,13 @@ func (o GetListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) GetListene
 
 type GetListenerDefaultActionAuthenticateCognito struct {
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         string            `pulumi:"onUnauthenticatedRequest"`
-	Scope                            string            `pulumi:"scope"`
-	SessionCookieName                string            `pulumi:"sessionCookieName"`
-	SessionTimeout                   int               `pulumi:"sessionTimeout"`
-	UserPoolArn                      string            `pulumi:"userPoolArn"`
-	UserPoolClientId                 string            `pulumi:"userPoolClientId"`
-	UserPoolDomain                   string            `pulumi:"userPoolDomain"`
+	OnUnauthenticatedRequest         *string           `pulumi:"onUnauthenticatedRequest"`
+	Scope                            *string           `pulumi:"scope"`
+	SessionCookieName                *string           `pulumi:"sessionCookieName"`
+	SessionTimeout                   *int              `pulumi:"sessionTimeout"`
+	UserPoolArn                      *string           `pulumi:"userPoolArn"`
+	UserPoolClientId                 *string           `pulumi:"userPoolClientId"`
+	UserPoolDomain                   *string           `pulumi:"userPoolDomain"`
 }
 
 // GetListenerDefaultActionAuthenticateCognitoInput is an input type that accepts GetListenerDefaultActionAuthenticateCognitoArgs and GetListenerDefaultActionAuthenticateCognitoOutput values.
@@ -5355,13 +5355,13 @@ type GetListenerDefaultActionAuthenticateCognitoInput interface {
 
 type GetListenerDefaultActionAuthenticateCognitoArgs struct {
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         pulumi.StringInput    `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringInput    `pulumi:"scope"`
-	SessionCookieName                pulumi.StringInput    `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.IntInput       `pulumi:"sessionTimeout"`
-	UserPoolArn                      pulumi.StringInput    `pulumi:"userPoolArn"`
-	UserPoolClientId                 pulumi.StringInput    `pulumi:"userPoolClientId"`
-	UserPoolDomain                   pulumi.StringInput    `pulumi:"userPoolDomain"`
+	OnUnauthenticatedRequest         pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
+	Scope                            pulumi.StringPtrInput `pulumi:"scope"`
+	SessionCookieName                pulumi.StringPtrInput `pulumi:"sessionCookieName"`
+	SessionTimeout                   pulumi.IntPtrInput    `pulumi:"sessionTimeout"`
+	UserPoolArn                      pulumi.StringPtrInput `pulumi:"userPoolArn"`
+	UserPoolClientId                 pulumi.StringPtrInput `pulumi:"userPoolClientId"`
+	UserPoolDomain                   pulumi.StringPtrInput `pulumi:"userPoolDomain"`
 }
 
 func (GetListenerDefaultActionAuthenticateCognitoArgs) ElementType() reflect.Type {
@@ -5421,32 +5421,32 @@ func (o GetListenerDefaultActionAuthenticateCognitoOutput) AuthenticationRequest
 	}).(pulumi.StringMapOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateCognitoOutput) OnUnauthenticatedRequest() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) string { return v.OnUnauthenticatedRequest }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateCognitoOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateCognitoOutput) Scope() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) string { return v.Scope }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateCognitoOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateCognitoOutput) SessionCookieName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) string { return v.SessionCookieName }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateCognitoOutput) SessionCookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) *string { return v.SessionCookieName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateCognitoOutput) SessionTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) int { return v.SessionTimeout }).(pulumi.IntOutput)
+func (o GetListenerDefaultActionAuthenticateCognitoOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateCognitoOutput) UserPoolArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) string { return v.UserPoolArn }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateCognitoOutput) UserPoolArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) *string { return v.UserPoolArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateCognitoOutput) UserPoolClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) string { return v.UserPoolClientId }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateCognitoOutput) UserPoolClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) *string { return v.UserPoolClientId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateCognitoOutput) UserPoolDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) string { return v.UserPoolDomain }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateCognitoOutput) UserPoolDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) *string { return v.UserPoolDomain }).(pulumi.StringPtrOutput)
 }
 
 type GetListenerDefaultActionAuthenticateCognitoArrayOutput struct{ *pulumi.OutputState }
@@ -5471,16 +5471,16 @@ func (o GetListenerDefaultActionAuthenticateCognitoArrayOutput) Index(i pulumi.I
 
 type GetListenerDefaultActionAuthenticateOidc struct {
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            string            `pulumi:"authorizationEndpoint"`
-	ClientId                         string            `pulumi:"clientId"`
-	ClientSecret                     string            `pulumi:"clientSecret"`
-	Issuer                           string            `pulumi:"issuer"`
-	OnUnauthenticatedRequest         string            `pulumi:"onUnauthenticatedRequest"`
-	Scope                            string            `pulumi:"scope"`
-	SessionCookieName                string            `pulumi:"sessionCookieName"`
-	SessionTimeout                   int               `pulumi:"sessionTimeout"`
-	TokenEndpoint                    string            `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint                 string            `pulumi:"userInfoEndpoint"`
+	AuthorizationEndpoint            *string           `pulumi:"authorizationEndpoint"`
+	ClientId                         *string           `pulumi:"clientId"`
+	ClientSecret                     *string           `pulumi:"clientSecret"`
+	Issuer                           *string           `pulumi:"issuer"`
+	OnUnauthenticatedRequest         *string           `pulumi:"onUnauthenticatedRequest"`
+	Scope                            *string           `pulumi:"scope"`
+	SessionCookieName                *string           `pulumi:"sessionCookieName"`
+	SessionTimeout                   *int              `pulumi:"sessionTimeout"`
+	TokenEndpoint                    *string           `pulumi:"tokenEndpoint"`
+	UserInfoEndpoint                 *string           `pulumi:"userInfoEndpoint"`
 }
 
 // GetListenerDefaultActionAuthenticateOidcInput is an input type that accepts GetListenerDefaultActionAuthenticateOidcArgs and GetListenerDefaultActionAuthenticateOidcOutput values.
@@ -5496,16 +5496,16 @@ type GetListenerDefaultActionAuthenticateOidcInput interface {
 
 type GetListenerDefaultActionAuthenticateOidcArgs struct {
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            pulumi.StringInput    `pulumi:"authorizationEndpoint"`
-	ClientId                         pulumi.StringInput    `pulumi:"clientId"`
-	ClientSecret                     pulumi.StringInput    `pulumi:"clientSecret"`
-	Issuer                           pulumi.StringInput    `pulumi:"issuer"`
-	OnUnauthenticatedRequest         pulumi.StringInput    `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringInput    `pulumi:"scope"`
-	SessionCookieName                pulumi.StringInput    `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.IntInput       `pulumi:"sessionTimeout"`
-	TokenEndpoint                    pulumi.StringInput    `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint                 pulumi.StringInput    `pulumi:"userInfoEndpoint"`
+	AuthorizationEndpoint            pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
+	ClientId                         pulumi.StringPtrInput `pulumi:"clientId"`
+	ClientSecret                     pulumi.StringPtrInput `pulumi:"clientSecret"`
+	Issuer                           pulumi.StringPtrInput `pulumi:"issuer"`
+	OnUnauthenticatedRequest         pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
+	Scope                            pulumi.StringPtrInput `pulumi:"scope"`
+	SessionCookieName                pulumi.StringPtrInput `pulumi:"sessionCookieName"`
+	SessionTimeout                   pulumi.IntPtrInput    `pulumi:"sessionTimeout"`
+	TokenEndpoint                    pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
+	UserInfoEndpoint                 pulumi.StringPtrInput `pulumi:"userInfoEndpoint"`
 }
 
 func (GetListenerDefaultActionAuthenticateOidcArgs) ElementType() reflect.Type {
@@ -5565,44 +5565,44 @@ func (o GetListenerDefaultActionAuthenticateOidcOutput) AuthenticationRequestExt
 	}).(pulumi.StringMapOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) AuthorizationEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *string { return v.AuthorizationEndpoint }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) string { return v.ClientId }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) Issuer() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) string { return v.Issuer }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) OnUnauthenticatedRequest() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) string { return v.OnUnauthenticatedRequest }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) Scope() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) string { return v.Scope }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) SessionCookieName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) string { return v.SessionCookieName }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) SessionCookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *string { return v.SessionCookieName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) SessionTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) int { return v.SessionTimeout }).(pulumi.IntOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) TokenEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *string { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) UserInfoEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionAuthenticateOidcOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) *string { return v.UserInfoEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type GetListenerDefaultActionAuthenticateOidcArrayOutput struct{ *pulumi.OutputState }
@@ -5626,9 +5626,9 @@ func (o GetListenerDefaultActionAuthenticateOidcArrayOutput) Index(i pulumi.IntI
 }
 
 type GetListenerDefaultActionFixedResponse struct {
-	ContentType string `pulumi:"contentType"`
-	MessageBody string `pulumi:"messageBody"`
-	StatusCode  string `pulumi:"statusCode"`
+	ContentType *string `pulumi:"contentType"`
+	MessageBody *string `pulumi:"messageBody"`
+	StatusCode  *string `pulumi:"statusCode"`
 }
 
 // GetListenerDefaultActionFixedResponseInput is an input type that accepts GetListenerDefaultActionFixedResponseArgs and GetListenerDefaultActionFixedResponseOutput values.
@@ -5643,9 +5643,9 @@ type GetListenerDefaultActionFixedResponseInput interface {
 }
 
 type GetListenerDefaultActionFixedResponseArgs struct {
-	ContentType pulumi.StringInput `pulumi:"contentType"`
-	MessageBody pulumi.StringInput `pulumi:"messageBody"`
-	StatusCode  pulumi.StringInput `pulumi:"statusCode"`
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	MessageBody pulumi.StringPtrInput `pulumi:"messageBody"`
+	StatusCode  pulumi.StringPtrInput `pulumi:"statusCode"`
 }
 
 func (GetListenerDefaultActionFixedResponseArgs) ElementType() reflect.Type {
@@ -5699,16 +5699,16 @@ func (o GetListenerDefaultActionFixedResponseOutput) ToGetListenerDefaultActionF
 	return o
 }
 
-func (o GetListenerDefaultActionFixedResponseOutput) ContentType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) string { return v.ContentType }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionFixedResponseOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionFixedResponseOutput) MessageBody() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) string { return v.MessageBody }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionFixedResponseOutput) MessageBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) *string { return v.MessageBody }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) string { return v.StatusCode }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
 
 type GetListenerDefaultActionFixedResponseArrayOutput struct{ *pulumi.OutputState }
@@ -5836,8 +5836,8 @@ func (o GetListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetListenerDefaultActionForwardStickiness struct {
-	Duration int  `pulumi:"duration"`
-	Enabled  bool `pulumi:"enabled"`
+	Duration *int  `pulumi:"duration"`
+	Enabled  *bool `pulumi:"enabled"`
 }
 
 // GetListenerDefaultActionForwardStickinessInput is an input type that accepts GetListenerDefaultActionForwardStickinessArgs and GetListenerDefaultActionForwardStickinessOutput values.
@@ -5852,8 +5852,8 @@ type GetListenerDefaultActionForwardStickinessInput interface {
 }
 
 type GetListenerDefaultActionForwardStickinessArgs struct {
-	Duration pulumi.IntInput  `pulumi:"duration"`
-	Enabled  pulumi.BoolInput `pulumi:"enabled"`
+	Duration pulumi.IntPtrInput  `pulumi:"duration"`
+	Enabled  pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
 func (GetListenerDefaultActionForwardStickinessArgs) ElementType() reflect.Type {
@@ -5907,12 +5907,12 @@ func (o GetListenerDefaultActionForwardStickinessOutput) ToGetListenerDefaultAct
 	return o
 }
 
-func (o GetListenerDefaultActionForwardStickinessOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionForwardStickiness) int { return v.Duration }).(pulumi.IntOutput)
+func (o GetListenerDefaultActionForwardStickinessOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardStickiness) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-func (o GetListenerDefaultActionForwardStickinessOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionForwardStickiness) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetListenerDefaultActionForwardStickinessOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardStickiness) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetListenerDefaultActionForwardStickinessArrayOutput struct{ *pulumi.OutputState }
@@ -5937,8 +5937,8 @@ func (o GetListenerDefaultActionForwardStickinessArrayOutput) Index(i pulumi.Int
 
 type GetListenerDefaultActionForwardTargetGroup struct {
 	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-	Arn    string `pulumi:"arn"`
-	Weight int    `pulumi:"weight"`
+	Arn    *string `pulumi:"arn"`
+	Weight *int    `pulumi:"weight"`
 }
 
 // GetListenerDefaultActionForwardTargetGroupInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArgs and GetListenerDefaultActionForwardTargetGroupOutput values.
@@ -5954,8 +5954,8 @@ type GetListenerDefaultActionForwardTargetGroupInput interface {
 
 type GetListenerDefaultActionForwardTargetGroupArgs struct {
 	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-	Arn    pulumi.StringInput `pulumi:"arn"`
-	Weight pulumi.IntInput    `pulumi:"weight"`
+	Arn    pulumi.StringPtrInput `pulumi:"arn"`
+	Weight pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (GetListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
@@ -6010,12 +6010,12 @@ func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultAc
 }
 
 // ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-func (o GetListenerDefaultActionForwardTargetGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionForwardTargetGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) int { return v.Weight }).(pulumi.IntOutput)
+func (o GetListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 type GetListenerDefaultActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }
@@ -6039,13 +6039,13 @@ func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.In
 }
 
 type GetListenerDefaultActionRedirect struct {
-	Host string `pulumi:"host"`
-	Path string `pulumi:"path"`
+	Host *string `pulumi:"host"`
+	Path *string `pulumi:"path"`
 	// Port of the listener. Required if `arn` is not set.
-	Port       string `pulumi:"port"`
-	Protocol   string `pulumi:"protocol"`
-	Query      string `pulumi:"query"`
-	StatusCode string `pulumi:"statusCode"`
+	Port       *string `pulumi:"port"`
+	Protocol   *string `pulumi:"protocol"`
+	Query      *string `pulumi:"query"`
+	StatusCode *string `pulumi:"statusCode"`
 }
 
 // GetListenerDefaultActionRedirectInput is an input type that accepts GetListenerDefaultActionRedirectArgs and GetListenerDefaultActionRedirectOutput values.
@@ -6060,13 +6060,13 @@ type GetListenerDefaultActionRedirectInput interface {
 }
 
 type GetListenerDefaultActionRedirectArgs struct {
-	Host pulumi.StringInput `pulumi:"host"`
-	Path pulumi.StringInput `pulumi:"path"`
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Port of the listener. Required if `arn` is not set.
-	Port       pulumi.StringInput `pulumi:"port"`
-	Protocol   pulumi.StringInput `pulumi:"protocol"`
-	Query      pulumi.StringInput `pulumi:"query"`
-	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+	Port       pulumi.StringPtrInput `pulumi:"port"`
+	Protocol   pulumi.StringPtrInput `pulumi:"protocol"`
+	Query      pulumi.StringPtrInput `pulumi:"query"`
+	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
 }
 
 func (GetListenerDefaultActionRedirectArgs) ElementType() reflect.Type {
@@ -6120,29 +6120,29 @@ func (o GetListenerDefaultActionRedirectOutput) ToGetListenerDefaultActionRedire
 	return o
 }
 
-func (o GetListenerDefaultActionRedirectOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionRedirect) string { return v.Host }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionRedirectOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionRedirect) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionRedirectOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionRedirect) string { return v.Path }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionRedirectOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionRedirect) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Port of the listener. Required if `arn` is not set.
-func (o GetListenerDefaultActionRedirectOutput) Port() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionRedirect) string { return v.Port }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionRedirectOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionRedirect) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionRedirectOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionRedirect) string { return v.Protocol }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionRedirectOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionRedirect) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionRedirectOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionRedirect) string { return v.Query }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionRedirectOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionRedirect) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionRedirectOutput) StatusCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionRedirect) string { return v.StatusCode }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionRedirectOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionRedirect) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
 
 type GetListenerDefaultActionRedirectArrayOutput struct{ *pulumi.OutputState }
@@ -6166,9 +6166,9 @@ func (o GetListenerDefaultActionRedirectArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetLoadBalancerAccessLogs struct {
-	Bucket  string `pulumi:"bucket"`
-	Enabled bool   `pulumi:"enabled"`
-	Prefix  string `pulumi:"prefix"`
+	Bucket  *string `pulumi:"bucket"`
+	Enabled *bool   `pulumi:"enabled"`
+	Prefix  *string `pulumi:"prefix"`
 }
 
 // GetLoadBalancerAccessLogsInput is an input type that accepts GetLoadBalancerAccessLogsArgs and GetLoadBalancerAccessLogsOutput values.
@@ -6183,9 +6183,9 @@ type GetLoadBalancerAccessLogsInput interface {
 }
 
 type GetLoadBalancerAccessLogsArgs struct {
-	Bucket  pulumi.StringInput `pulumi:"bucket"`
-	Enabled pulumi.BoolInput   `pulumi:"enabled"`
-	Prefix  pulumi.StringInput `pulumi:"prefix"`
+	Bucket  pulumi.StringPtrInput `pulumi:"bucket"`
+	Enabled pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Prefix  pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (GetLoadBalancerAccessLogsArgs) ElementType() reflect.Type {
@@ -6198,6 +6198,47 @@ func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsOutput() GetLo
 
 func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogsOutput)
+}
+
+func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsPtrOutput() GetLoadBalancerAccessLogsPtrOutput {
+	return i.ToGetLoadBalancerAccessLogsPtrOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsPtrOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogsOutput).ToGetLoadBalancerAccessLogsPtrOutputWithContext(ctx)
+}
+
+// GetLoadBalancerAccessLogsPtrInput is an input type that accepts GetLoadBalancerAccessLogsArgs, GetLoadBalancerAccessLogsPtr and GetLoadBalancerAccessLogsPtrOutput values.
+// You can construct a concrete instance of `GetLoadBalancerAccessLogsPtrInput` via:
+//
+//	        GetLoadBalancerAccessLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLoadBalancerAccessLogsPtrInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerAccessLogsPtrOutput() GetLoadBalancerAccessLogsPtrOutput
+	ToGetLoadBalancerAccessLogsPtrOutputWithContext(context.Context) GetLoadBalancerAccessLogsPtrOutput
+}
+
+type getLoadBalancerAccessLogsPtrType GetLoadBalancerAccessLogsArgs
+
+func GetLoadBalancerAccessLogsPtr(v *GetLoadBalancerAccessLogsArgs) GetLoadBalancerAccessLogsPtrInput {
+	return (*getLoadBalancerAccessLogsPtrType)(v)
+}
+
+func (*getLoadBalancerAccessLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLoadBalancerAccessLogs)(nil)).Elem()
+}
+
+func (i *getLoadBalancerAccessLogsPtrType) ToGetLoadBalancerAccessLogsPtrOutput() GetLoadBalancerAccessLogsPtrOutput {
+	return i.ToGetLoadBalancerAccessLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *getLoadBalancerAccessLogsPtrType) ToGetLoadBalancerAccessLogsPtrOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogsPtrOutput)
 }
 
 type GetLoadBalancerAccessLogsOutput struct{ *pulumi.OutputState }
@@ -6214,24 +6255,85 @@ func (o GetLoadBalancerAccessLogsOutput) ToGetLoadBalancerAccessLogsOutputWithCo
 	return o
 }
 
-func (o GetLoadBalancerAccessLogsOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) string { return v.Bucket }).(pulumi.StringOutput)
+func (o GetLoadBalancerAccessLogsOutput) ToGetLoadBalancerAccessLogsPtrOutput() GetLoadBalancerAccessLogsPtrOutput {
+	return o.ToGetLoadBalancerAccessLogsPtrOutputWithContext(context.Background())
 }
 
-func (o GetLoadBalancerAccessLogsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetLoadBalancerAccessLogsOutput) ToGetLoadBalancerAccessLogsPtrOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLoadBalancerAccessLogs) *GetLoadBalancerAccessLogs {
+		return &v
+	}).(GetLoadBalancerAccessLogsPtrOutput)
 }
 
-func (o GetLoadBalancerAccessLogsOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetLoadBalancerAccessLogsOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLogs) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+func (o GetLoadBalancerAccessLogsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetLoadBalancerAccessLogsOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLogs) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type GetLoadBalancerAccessLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerAccessLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLoadBalancerAccessLogs)(nil)).Elem()
+}
+
+func (o GetLoadBalancerAccessLogsPtrOutput) ToGetLoadBalancerAccessLogsPtrOutput() GetLoadBalancerAccessLogsPtrOutput {
+	return o
+}
+
+func (o GetLoadBalancerAccessLogsPtrOutput) ToGetLoadBalancerAccessLogsPtrOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsPtrOutput {
+	return o
+}
+
+func (o GetLoadBalancerAccessLogsPtrOutput) Elem() GetLoadBalancerAccessLogsOutput {
+	return o.ApplyT(func(v *GetLoadBalancerAccessLogs) GetLoadBalancerAccessLogs {
+		if v != nil {
+			return *v
+		}
+		var ret GetLoadBalancerAccessLogs
+		return ret
+	}).(GetLoadBalancerAccessLogsOutput)
+}
+
+func (o GetLoadBalancerAccessLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLoadBalancerAccessLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetLoadBalancerAccessLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetLoadBalancerAccessLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetLoadBalancerAccessLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLoadBalancerAccessLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetLoadBalancerSubnetMapping struct {
-	AllocationId       string `pulumi:"allocationId"`
-	Ipv6Address        string `pulumi:"ipv6Address"`
-	OutpostId          string `pulumi:"outpostId"`
-	PrivateIpv4Address string `pulumi:"privateIpv4Address"`
-	SubnetId           string `pulumi:"subnetId"`
+	AllocationId       *string `pulumi:"allocationId"`
+	Ipv6Address        *string `pulumi:"ipv6Address"`
+	OutpostId          *string `pulumi:"outpostId"`
+	PrivateIpv4Address *string `pulumi:"privateIpv4Address"`
+	SubnetId           *string `pulumi:"subnetId"`
 }
 
 // GetLoadBalancerSubnetMappingInput is an input type that accepts GetLoadBalancerSubnetMappingArgs and GetLoadBalancerSubnetMappingOutput values.
@@ -6246,11 +6348,11 @@ type GetLoadBalancerSubnetMappingInput interface {
 }
 
 type GetLoadBalancerSubnetMappingArgs struct {
-	AllocationId       pulumi.StringInput `pulumi:"allocationId"`
-	Ipv6Address        pulumi.StringInput `pulumi:"ipv6Address"`
-	OutpostId          pulumi.StringInput `pulumi:"outpostId"`
-	PrivateIpv4Address pulumi.StringInput `pulumi:"privateIpv4Address"`
-	SubnetId           pulumi.StringInput `pulumi:"subnetId"`
+	AllocationId       pulumi.StringPtrInput `pulumi:"allocationId"`
+	Ipv6Address        pulumi.StringPtrInput `pulumi:"ipv6Address"`
+	OutpostId          pulumi.StringPtrInput `pulumi:"outpostId"`
+	PrivateIpv4Address pulumi.StringPtrInput `pulumi:"privateIpv4Address"`
+	SubnetId           pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (GetLoadBalancerSubnetMappingArgs) ElementType() reflect.Type {
@@ -6304,24 +6406,24 @@ func (o GetLoadBalancerSubnetMappingOutput) ToGetLoadBalancerSubnetMappingOutput
 	return o
 }
 
-func (o GetLoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) string { return v.AllocationId }).(pulumi.StringOutput)
+func (o GetLoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLoadBalancerSubnetMappingOutput) Ipv6Address() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) string { return v.Ipv6Address }).(pulumi.StringOutput)
+func (o GetLoadBalancerSubnetMappingOutput) Ipv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLoadBalancerSubnetMappingOutput) OutpostId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) string { return v.OutpostId }).(pulumi.StringOutput)
+func (o GetLoadBalancerSubnetMappingOutput) OutpostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) *string { return v.OutpostId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLoadBalancerSubnetMappingOutput) PrivateIpv4Address() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) string { return v.PrivateIpv4Address }).(pulumi.StringOutput)
+func (o GetLoadBalancerSubnetMappingOutput) PrivateIpv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) *string { return v.PrivateIpv4Address }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLoadBalancerSubnetMappingOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o GetLoadBalancerSubnetMappingOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 type GetLoadBalancerSubnetMappingArrayOutput struct{ *pulumi.OutputState }
@@ -6345,15 +6447,15 @@ func (o GetLoadBalancerSubnetMappingArrayOutput) Index(i pulumi.IntInput) GetLoa
 }
 
 type GetTargetGroupHealthCheck struct {
-	Enabled            bool   `pulumi:"enabled"`
-	HealthyThreshold   int    `pulumi:"healthyThreshold"`
-	Interval           int    `pulumi:"interval"`
-	Matcher            string `pulumi:"matcher"`
-	Path               string `pulumi:"path"`
-	Port               string `pulumi:"port"`
-	Protocol           string `pulumi:"protocol"`
-	Timeout            int    `pulumi:"timeout"`
-	UnhealthyThreshold int    `pulumi:"unhealthyThreshold"`
+	Enabled            *bool   `pulumi:"enabled"`
+	HealthyThreshold   *int    `pulumi:"healthyThreshold"`
+	Interval           *int    `pulumi:"interval"`
+	Matcher            *string `pulumi:"matcher"`
+	Path               *string `pulumi:"path"`
+	Port               *string `pulumi:"port"`
+	Protocol           *string `pulumi:"protocol"`
+	Timeout            *int    `pulumi:"timeout"`
+	UnhealthyThreshold *int    `pulumi:"unhealthyThreshold"`
 }
 
 // GetTargetGroupHealthCheckInput is an input type that accepts GetTargetGroupHealthCheckArgs and GetTargetGroupHealthCheckOutput values.
@@ -6368,15 +6470,15 @@ type GetTargetGroupHealthCheckInput interface {
 }
 
 type GetTargetGroupHealthCheckArgs struct {
-	Enabled            pulumi.BoolInput   `pulumi:"enabled"`
-	HealthyThreshold   pulumi.IntInput    `pulumi:"healthyThreshold"`
-	Interval           pulumi.IntInput    `pulumi:"interval"`
-	Matcher            pulumi.StringInput `pulumi:"matcher"`
-	Path               pulumi.StringInput `pulumi:"path"`
-	Port               pulumi.StringInput `pulumi:"port"`
-	Protocol           pulumi.StringInput `pulumi:"protocol"`
-	Timeout            pulumi.IntInput    `pulumi:"timeout"`
-	UnhealthyThreshold pulumi.IntInput    `pulumi:"unhealthyThreshold"`
+	Enabled            pulumi.BoolPtrInput   `pulumi:"enabled"`
+	HealthyThreshold   pulumi.IntPtrInput    `pulumi:"healthyThreshold"`
+	Interval           pulumi.IntPtrInput    `pulumi:"interval"`
+	Matcher            pulumi.StringPtrInput `pulumi:"matcher"`
+	Path               pulumi.StringPtrInput `pulumi:"path"`
+	Port               pulumi.StringPtrInput `pulumi:"port"`
+	Protocol           pulumi.StringPtrInput `pulumi:"protocol"`
+	Timeout            pulumi.IntPtrInput    `pulumi:"timeout"`
+	UnhealthyThreshold pulumi.IntPtrInput    `pulumi:"unhealthyThreshold"`
 }
 
 func (GetTargetGroupHealthCheckArgs) ElementType() reflect.Type {
@@ -6389,6 +6491,47 @@ func (i GetTargetGroupHealthCheckArgs) ToGetTargetGroupHealthCheckOutput() GetTa
 
 func (i GetTargetGroupHealthCheckArgs) ToGetTargetGroupHealthCheckOutputWithContext(ctx context.Context) GetTargetGroupHealthCheckOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupHealthCheckOutput)
+}
+
+func (i GetTargetGroupHealthCheckArgs) ToGetTargetGroupHealthCheckPtrOutput() GetTargetGroupHealthCheckPtrOutput {
+	return i.ToGetTargetGroupHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i GetTargetGroupHealthCheckArgs) ToGetTargetGroupHealthCheckPtrOutputWithContext(ctx context.Context) GetTargetGroupHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupHealthCheckOutput).ToGetTargetGroupHealthCheckPtrOutputWithContext(ctx)
+}
+
+// GetTargetGroupHealthCheckPtrInput is an input type that accepts GetTargetGroupHealthCheckArgs, GetTargetGroupHealthCheckPtr and GetTargetGroupHealthCheckPtrOutput values.
+// You can construct a concrete instance of `GetTargetGroupHealthCheckPtrInput` via:
+//
+//	        GetTargetGroupHealthCheckArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTargetGroupHealthCheckPtrInput interface {
+	pulumi.Input
+
+	ToGetTargetGroupHealthCheckPtrOutput() GetTargetGroupHealthCheckPtrOutput
+	ToGetTargetGroupHealthCheckPtrOutputWithContext(context.Context) GetTargetGroupHealthCheckPtrOutput
+}
+
+type getTargetGroupHealthCheckPtrType GetTargetGroupHealthCheckArgs
+
+func GetTargetGroupHealthCheckPtr(v *GetTargetGroupHealthCheckArgs) GetTargetGroupHealthCheckPtrInput {
+	return (*getTargetGroupHealthCheckPtrType)(v)
+}
+
+func (*getTargetGroupHealthCheckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTargetGroupHealthCheck)(nil)).Elem()
+}
+
+func (i *getTargetGroupHealthCheckPtrType) ToGetTargetGroupHealthCheckPtrOutput() GetTargetGroupHealthCheckPtrOutput {
+	return i.ToGetTargetGroupHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i *getTargetGroupHealthCheckPtrType) ToGetTargetGroupHealthCheckPtrOutputWithContext(ctx context.Context) GetTargetGroupHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupHealthCheckPtrOutput)
 }
 
 type GetTargetGroupHealthCheckOutput struct{ *pulumi.OutputState }
@@ -6405,47 +6548,162 @@ func (o GetTargetGroupHealthCheckOutput) ToGetTargetGroupHealthCheckOutputWithCo
 	return o
 }
 
-func (o GetTargetGroupHealthCheckOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTargetGroupHealthCheck) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetTargetGroupHealthCheckOutput) ToGetTargetGroupHealthCheckPtrOutput() GetTargetGroupHealthCheckPtrOutput {
+	return o.ToGetTargetGroupHealthCheckPtrOutputWithContext(context.Background())
 }
 
-func (o GetTargetGroupHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTargetGroupHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+func (o GetTargetGroupHealthCheckOutput) ToGetTargetGroupHealthCheckPtrOutputWithContext(ctx context.Context) GetTargetGroupHealthCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTargetGroupHealthCheck) *GetTargetGroupHealthCheck {
+		return &v
+	}).(GetTargetGroupHealthCheckPtrOutput)
 }
 
-func (o GetTargetGroupHealthCheckOutput) Interval() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTargetGroupHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
+func (o GetTargetGroupHealthCheckOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupHealthCheck) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetTargetGroupHealthCheckOutput) Matcher() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTargetGroupHealthCheck) string { return v.Matcher }).(pulumi.StringOutput)
+func (o GetTargetGroupHealthCheckOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupHealthCheck) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-func (o GetTargetGroupHealthCheckOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTargetGroupHealthCheck) string { return v.Path }).(pulumi.StringOutput)
+func (o GetTargetGroupHealthCheckOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-func (o GetTargetGroupHealthCheckOutput) Port() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTargetGroupHealthCheck) string { return v.Port }).(pulumi.StringOutput)
+func (o GetTargetGroupHealthCheckOutput) Matcher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupHealthCheck) *string { return v.Matcher }).(pulumi.StringPtrOutput)
 }
 
-func (o GetTargetGroupHealthCheckOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTargetGroupHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
+func (o GetTargetGroupHealthCheckOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-func (o GetTargetGroupHealthCheckOutput) Timeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTargetGroupHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
+func (o GetTargetGroupHealthCheckOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupHealthCheck) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-func (o GetTargetGroupHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTargetGroupHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+func (o GetTargetGroupHealthCheckOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupHealthCheck) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupHealthCheck) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
+}
+
+type GetTargetGroupHealthCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTargetGroupHealthCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTargetGroupHealthCheck)(nil)).Elem()
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) ToGetTargetGroupHealthCheckPtrOutput() GetTargetGroupHealthCheckPtrOutput {
+	return o
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) ToGetTargetGroupHealthCheckPtrOutputWithContext(ctx context.Context) GetTargetGroupHealthCheckPtrOutput {
+	return o
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) Elem() GetTargetGroupHealthCheckOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) GetTargetGroupHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret GetTargetGroupHealthCheck
+		return ret
+	}).(GetTargetGroupHealthCheckOutput)
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Matcher
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetTargetGroupHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyThreshold
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetTargetGroupStickiness struct {
-	CookieDuration int    `pulumi:"cookieDuration"`
-	CookieName     string `pulumi:"cookieName"`
-	Enabled        bool   `pulumi:"enabled"`
-	Type           string `pulumi:"type"`
+	CookieDuration *int    `pulumi:"cookieDuration"`
+	CookieName     *string `pulumi:"cookieName"`
+	Enabled        *bool   `pulumi:"enabled"`
+	Type           *string `pulumi:"type"`
 }
 
 // GetTargetGroupStickinessInput is an input type that accepts GetTargetGroupStickinessArgs and GetTargetGroupStickinessOutput values.
@@ -6460,10 +6718,10 @@ type GetTargetGroupStickinessInput interface {
 }
 
 type GetTargetGroupStickinessArgs struct {
-	CookieDuration pulumi.IntInput    `pulumi:"cookieDuration"`
-	CookieName     pulumi.StringInput `pulumi:"cookieName"`
-	Enabled        pulumi.BoolInput   `pulumi:"enabled"`
-	Type           pulumi.StringInput `pulumi:"type"`
+	CookieDuration pulumi.IntPtrInput    `pulumi:"cookieDuration"`
+	CookieName     pulumi.StringPtrInput `pulumi:"cookieName"`
+	Enabled        pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Type           pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetTargetGroupStickinessArgs) ElementType() reflect.Type {
@@ -6476,6 +6734,47 @@ func (i GetTargetGroupStickinessArgs) ToGetTargetGroupStickinessOutput() GetTarg
 
 func (i GetTargetGroupStickinessArgs) ToGetTargetGroupStickinessOutputWithContext(ctx context.Context) GetTargetGroupStickinessOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupStickinessOutput)
+}
+
+func (i GetTargetGroupStickinessArgs) ToGetTargetGroupStickinessPtrOutput() GetTargetGroupStickinessPtrOutput {
+	return i.ToGetTargetGroupStickinessPtrOutputWithContext(context.Background())
+}
+
+func (i GetTargetGroupStickinessArgs) ToGetTargetGroupStickinessPtrOutputWithContext(ctx context.Context) GetTargetGroupStickinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupStickinessOutput).ToGetTargetGroupStickinessPtrOutputWithContext(ctx)
+}
+
+// GetTargetGroupStickinessPtrInput is an input type that accepts GetTargetGroupStickinessArgs, GetTargetGroupStickinessPtr and GetTargetGroupStickinessPtrOutput values.
+// You can construct a concrete instance of `GetTargetGroupStickinessPtrInput` via:
+//
+//	        GetTargetGroupStickinessArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTargetGroupStickinessPtrInput interface {
+	pulumi.Input
+
+	ToGetTargetGroupStickinessPtrOutput() GetTargetGroupStickinessPtrOutput
+	ToGetTargetGroupStickinessPtrOutputWithContext(context.Context) GetTargetGroupStickinessPtrOutput
+}
+
+type getTargetGroupStickinessPtrType GetTargetGroupStickinessArgs
+
+func GetTargetGroupStickinessPtr(v *GetTargetGroupStickinessArgs) GetTargetGroupStickinessPtrInput {
+	return (*getTargetGroupStickinessPtrType)(v)
+}
+
+func (*getTargetGroupStickinessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTargetGroupStickiness)(nil)).Elem()
+}
+
+func (i *getTargetGroupStickinessPtrType) ToGetTargetGroupStickinessPtrOutput() GetTargetGroupStickinessPtrOutput {
+	return i.ToGetTargetGroupStickinessPtrOutputWithContext(context.Background())
+}
+
+func (i *getTargetGroupStickinessPtrType) ToGetTargetGroupStickinessPtrOutputWithContext(ctx context.Context) GetTargetGroupStickinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupStickinessPtrOutput)
 }
 
 type GetTargetGroupStickinessOutput struct{ *pulumi.OutputState }
@@ -6492,20 +6791,90 @@ func (o GetTargetGroupStickinessOutput) ToGetTargetGroupStickinessOutputWithCont
 	return o
 }
 
-func (o GetTargetGroupStickinessOutput) CookieDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTargetGroupStickiness) int { return v.CookieDuration }).(pulumi.IntOutput)
+func (o GetTargetGroupStickinessOutput) ToGetTargetGroupStickinessPtrOutput() GetTargetGroupStickinessPtrOutput {
+	return o.ToGetTargetGroupStickinessPtrOutputWithContext(context.Background())
 }
 
-func (o GetTargetGroupStickinessOutput) CookieName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTargetGroupStickiness) string { return v.CookieName }).(pulumi.StringOutput)
+func (o GetTargetGroupStickinessOutput) ToGetTargetGroupStickinessPtrOutputWithContext(ctx context.Context) GetTargetGroupStickinessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTargetGroupStickiness) *GetTargetGroupStickiness {
+		return &v
+	}).(GetTargetGroupStickinessPtrOutput)
 }
 
-func (o GetTargetGroupStickinessOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTargetGroupStickiness) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetTargetGroupStickinessOutput) CookieDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupStickiness) *int { return v.CookieDuration }).(pulumi.IntPtrOutput)
 }
 
-func (o GetTargetGroupStickinessOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTargetGroupStickiness) string { return v.Type }).(pulumi.StringOutput)
+func (o GetTargetGroupStickinessOutput) CookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupStickiness) *string { return v.CookieName }).(pulumi.StringPtrOutput)
+}
+
+func (o GetTargetGroupStickinessOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupStickiness) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetTargetGroupStickinessOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTargetGroupStickiness) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type GetTargetGroupStickinessPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTargetGroupStickinessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTargetGroupStickiness)(nil)).Elem()
+}
+
+func (o GetTargetGroupStickinessPtrOutput) ToGetTargetGroupStickinessPtrOutput() GetTargetGroupStickinessPtrOutput {
+	return o
+}
+
+func (o GetTargetGroupStickinessPtrOutput) ToGetTargetGroupStickinessPtrOutputWithContext(ctx context.Context) GetTargetGroupStickinessPtrOutput {
+	return o
+}
+
+func (o GetTargetGroupStickinessPtrOutput) Elem() GetTargetGroupStickinessOutput {
+	return o.ApplyT(func(v *GetTargetGroupStickiness) GetTargetGroupStickiness {
+		if v != nil {
+			return *v
+		}
+		var ret GetTargetGroupStickiness
+		return ret
+	}).(GetTargetGroupStickinessOutput)
+}
+
+func (o GetTargetGroupStickinessPtrOutput) CookieDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupStickiness) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CookieDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetTargetGroupStickinessPtrOutput) CookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupStickiness) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CookieName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetTargetGroupStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupStickiness) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetTargetGroupStickinessPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTargetGroupStickiness) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -6584,10 +6953,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectInput)(nil)).Elem(), GetListenerDefaultActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectArrayInput)(nil)).Elem(), GetListenerDefaultActionRedirectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsPtrInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingArrayInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupHealthCheckInput)(nil)).Elem(), GetTargetGroupHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupHealthCheckPtrInput)(nil)).Elem(), GetTargetGroupHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupStickinessInput)(nil)).Elem(), GetTargetGroupStickinessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupStickinessPtrInput)(nil)).Elem(), GetTargetGroupStickinessArgs{})
 	pulumi.RegisterOutputType(ListenerDefaultActionOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionArrayOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionAuthenticateCognitoOutput{})
@@ -6663,8 +7035,11 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsPtrOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetTargetGroupHealthCheckOutput{})
+	pulumi.RegisterOutputType(GetTargetGroupHealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(GetTargetGroupStickinessOutput{})
+	pulumi.RegisterOutputType(GetTargetGroupStickinessPtrOutput{})
 }

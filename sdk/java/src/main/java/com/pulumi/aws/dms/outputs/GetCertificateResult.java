@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCertificateResult {
@@ -15,69 +17,69 @@ public final class GetCertificateResult {
      * @return The Amazon Resource Name (ARN) for the certificate.
      * 
      */
-    private String certificateArn;
+    private @Nullable String certificateArn;
     /**
      * @return The date that the certificate was created.
      * 
      */
-    private String certificateCreationDate;
+    private @Nullable String certificateCreationDate;
     private String certificateId;
     /**
      * @return The owner of the certificate.
      * 
      */
-    private String certificateOwner;
+    private @Nullable String certificateOwner;
     /**
      * @return The contents of a .pem file, which contains an X.509 certificate.
      * 
      */
-    private String certificatePem;
+    private @Nullable String certificatePem;
     /**
      * @return The owner of the certificate.
      * 
      */
-    private String certificateWallet;
+    private @Nullable String certificateWallet;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The key length of the cryptographic algorithm being used.
      * 
      */
-    private Integer keyLength;
+    private @Nullable Integer keyLength;
     /**
      * @return The algorithm for the certificate.
      * 
      */
-    private String signingAlgorithm;
-    private Map<String,String> tags;
+    private @Nullable String signingAlgorithm;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The beginning date that the certificate is valid.
      * 
      */
-    private String validFromDate;
+    private @Nullable String validFromDate;
     /**
      * @return The final date that the certificate is valid.
      * 
      */
-    private String validToDate;
+    private @Nullable String validToDate;
 
     private GetCertificateResult() {}
     /**
      * @return The Amazon Resource Name (ARN) for the certificate.
      * 
      */
-    public String certificateArn() {
-        return this.certificateArn;
+    public Optional<String> certificateArn() {
+        return Optional.ofNullable(this.certificateArn);
     }
     /**
      * @return The date that the certificate was created.
      * 
      */
-    public String certificateCreationDate() {
-        return this.certificateCreationDate;
+    public Optional<String> certificateCreationDate() {
+        return Optional.ofNullable(this.certificateCreationDate);
     }
     public String certificateId() {
         return this.certificateId;
@@ -86,60 +88,60 @@ public final class GetCertificateResult {
      * @return The owner of the certificate.
      * 
      */
-    public String certificateOwner() {
-        return this.certificateOwner;
+    public Optional<String> certificateOwner() {
+        return Optional.ofNullable(this.certificateOwner);
     }
     /**
      * @return The contents of a .pem file, which contains an X.509 certificate.
      * 
      */
-    public String certificatePem() {
-        return this.certificatePem;
+    public Optional<String> certificatePem() {
+        return Optional.ofNullable(this.certificatePem);
     }
     /**
      * @return The owner of the certificate.
      * 
      */
-    public String certificateWallet() {
-        return this.certificateWallet;
+    public Optional<String> certificateWallet() {
+        return Optional.ofNullable(this.certificateWallet);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The key length of the cryptographic algorithm being used.
      * 
      */
-    public Integer keyLength() {
-        return this.keyLength;
+    public Optional<Integer> keyLength() {
+        return Optional.ofNullable(this.keyLength);
     }
     /**
      * @return The algorithm for the certificate.
      * 
      */
-    public String signingAlgorithm() {
-        return this.signingAlgorithm;
+    public Optional<String> signingAlgorithm() {
+        return Optional.ofNullable(this.signingAlgorithm);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The beginning date that the certificate is valid.
      * 
      */
-    public String validFromDate() {
-        return this.validFromDate;
+    public Optional<String> validFromDate() {
+        return Optional.ofNullable(this.validFromDate);
     }
     /**
      * @return The final date that the certificate is valid.
      * 
      */
-    public String validToDate() {
-        return this.validToDate;
+    public Optional<String> validToDate() {
+        return Optional.ofNullable(this.validToDate);
     }
 
     public static Builder builder() {
@@ -151,18 +153,18 @@ public final class GetCertificateResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String certificateArn;
-        private String certificateCreationDate;
+        private @Nullable String certificateArn;
+        private @Nullable String certificateCreationDate;
         private String certificateId;
-        private String certificateOwner;
-        private String certificatePem;
-        private String certificateWallet;
-        private String id;
-        private Integer keyLength;
-        private String signingAlgorithm;
-        private Map<String,String> tags;
-        private String validFromDate;
-        private String validToDate;
+        private @Nullable String certificateOwner;
+        private @Nullable String certificatePem;
+        private @Nullable String certificateWallet;
+        private @Nullable String id;
+        private @Nullable Integer keyLength;
+        private @Nullable String signingAlgorithm;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String validFromDate;
+        private @Nullable String validToDate;
         public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -181,13 +183,13 @@ public final class GetCertificateResult {
         }
 
         @CustomType.Setter
-        public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+        public Builder certificateArn(@Nullable String certificateArn) {
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateCreationDate(String certificateCreationDate) {
-            this.certificateCreationDate = Objects.requireNonNull(certificateCreationDate);
+        public Builder certificateCreationDate(@Nullable String certificateCreationDate) {
+            this.certificateCreationDate = certificateCreationDate;
             return this;
         }
         @CustomType.Setter
@@ -196,48 +198,48 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder certificateOwner(String certificateOwner) {
-            this.certificateOwner = Objects.requireNonNull(certificateOwner);
+        public Builder certificateOwner(@Nullable String certificateOwner) {
+            this.certificateOwner = certificateOwner;
             return this;
         }
         @CustomType.Setter
-        public Builder certificatePem(String certificatePem) {
-            this.certificatePem = Objects.requireNonNull(certificatePem);
+        public Builder certificatePem(@Nullable String certificatePem) {
+            this.certificatePem = certificatePem;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateWallet(String certificateWallet) {
-            this.certificateWallet = Objects.requireNonNull(certificateWallet);
+        public Builder certificateWallet(@Nullable String certificateWallet) {
+            this.certificateWallet = certificateWallet;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder keyLength(Integer keyLength) {
-            this.keyLength = Objects.requireNonNull(keyLength);
+        public Builder keyLength(@Nullable Integer keyLength) {
+            this.keyLength = keyLength;
             return this;
         }
         @CustomType.Setter
-        public Builder signingAlgorithm(String signingAlgorithm) {
-            this.signingAlgorithm = Objects.requireNonNull(signingAlgorithm);
+        public Builder signingAlgorithm(@Nullable String signingAlgorithm) {
+            this.signingAlgorithm = signingAlgorithm;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder validFromDate(String validFromDate) {
-            this.validFromDate = Objects.requireNonNull(validFromDate);
+        public Builder validFromDate(@Nullable String validFromDate) {
+            this.validFromDate = validFromDate;
             return this;
         }
         @CustomType.Setter
-        public Builder validToDate(String validToDate) {
-            this.validToDate = Objects.requireNonNull(validToDate);
+        public Builder validToDate(@Nullable String validToDate) {
+            this.validToDate = validToDate;
             return this;
         }
         public GetCertificateResult build() {

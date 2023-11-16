@@ -40,7 +40,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The Direct Connect endpoint on which the physical connection terminates.
         /// </summary>
         [Output("awsDevice")]
-        public Output<string> AwsDevice { get; private set; } = null!;
+        public Output<string?> AwsDevice { get; private set; } = null!;
 
         /// <summary>
         /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
@@ -58,31 +58,31 @@ namespace Pulumi.Aws.DirectConnect
         /// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
         [Output("hasLogicalRedundancy")]
-        public Output<string> HasLogicalRedundancy { get; private set; } = null!;
+        public Output<string?> HasLogicalRedundancy { get; private set; } = null!;
 
         /// <summary>
         /// Boolean value representing if jumbo frames have been enabled for this connection.
         /// </summary>
         [Output("jumboFrameCapable")]
-        public Output<bool> JumboFrameCapable { get; private set; } = null!;
+        public Output<bool?> JumboFrameCapable { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the LAG.
         /// </summary>
         [Output("lagId")]
-        public Output<string> LagId { get; private set; } = null!;
+        public Output<string?> LagId { get; private set; } = null!;
 
         /// <summary>
         /// The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
         /// </summary>
         [Output("loaIssueTime")]
-        public Output<string> LoaIssueTime { get; private set; } = null!;
+        public Output<string?> LoaIssueTime { get; private set; } = null!;
 
         /// <summary>
         /// The location of the connection.
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the connection.
@@ -100,25 +100,25 @@ namespace Pulumi.Aws.DirectConnect
         /// The name of the AWS Direct Connect service provider associated with the connection.
         /// </summary>
         [Output("partnerName")]
-        public Output<string> PartnerName { get; private set; } = null!;
+        public Output<string?> PartnerName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the service provider associated with the connection.
         /// </summary>
         [Output("providerName")]
-        public Output<string> ProviderName { get; private set; } = null!;
+        public Output<string?> ProviderName { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Region where the connection is located.
         /// </summary>
         [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
+        public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
         /// The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The dedicated VLAN provisioned to the hosted connection.

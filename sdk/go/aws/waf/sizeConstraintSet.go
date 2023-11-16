@@ -61,7 +61,7 @@ type SizeConstraintSet struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name or description of the Size Constraint Set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the parts of web requests that you want to inspect the size of.
@@ -222,8 +222,8 @@ func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx contex
 }
 
 // Amazon Resource Name (ARN)
-func (o SizeConstraintSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SizeConstraintSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name or description of the Size Constraint Set.

@@ -426,7 +426,7 @@ class RefreshSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the refresh schedule.
         """
@@ -434,7 +434,7 @@ class RefreshSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """

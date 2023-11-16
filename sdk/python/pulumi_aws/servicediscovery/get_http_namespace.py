@@ -43,7 +43,7 @@ class GetHttpNamespaceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN that Amazon Route 53 assigns to the namespace when you create it.
         """
@@ -51,7 +51,7 @@ class GetHttpNamespaceResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description that you specify for the namespace when you create it.
         """
@@ -59,7 +59,7 @@ class GetHttpNamespaceResult:
 
     @property
     @pulumi.getter(name="httpName")
-    def http_name(self) -> str:
+    def http_name(self) -> Optional[str]:
         """
         Name of an HTTP namespace.
         """
@@ -67,7 +67,7 @@ class GetHttpNamespaceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -80,7 +80,7 @@ class GetHttpNamespaceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags for the resource.
         """

@@ -60,7 +60,7 @@ export class ProxyEndpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the proxy endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
@@ -72,11 +72,11 @@ export class ProxyEndpoint extends pulumi.CustomResource {
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    public /*out*/ readonly isDefault!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -92,11 +92,11 @@ export class ProxyEndpoint extends pulumi.CustomResource {
     /**
      * The VPC ID of the DB proxy endpoint.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */

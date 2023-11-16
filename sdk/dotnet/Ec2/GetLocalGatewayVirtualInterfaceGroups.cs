@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of EC2 Local Gateway Virtual Interface Group identifiers.
         /// </summary>
@@ -144,19 +144,19 @@ namespace Pulumi.Aws.Ec2
         /// Set of EC2 Local Gateway Virtual Interface identifiers.
         /// </summary>
         public readonly ImmutableArray<string> LocalGatewayVirtualInterfaceIds;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLocalGatewayVirtualInterfaceGroupsResult(
             ImmutableArray<Outputs.GetLocalGatewayVirtualInterfaceGroupsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 
             ImmutableArray<string> localGatewayVirtualInterfaceIds,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;

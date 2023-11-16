@@ -116,13 +116,13 @@ namespace Pulumi.Aws.CodeArtifact
         /// The account number of the AWS account that manages the repository.
         /// </summary>
         [Output("administratorAccount")]
-        public Output<string> AdministratorAccount { get; private set; } = null!;
+        public Output<string?> AdministratorAccount { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the repository.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the repository.
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// The account number of the AWS account that owns the domain.
         /// </summary>
         [Output("domainOwner")]
-        public Output<string> DomainOwner { get; private set; } = null!;
+        public Output<string?> DomainOwner { get; private set; } = null!;
 
         /// <summary>
         /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.

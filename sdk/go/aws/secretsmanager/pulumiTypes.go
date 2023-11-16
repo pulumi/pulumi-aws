@@ -322,9 +322,9 @@ func (o SecretRotationRotationRulesPtrOutput) ScheduleExpression() pulumi.String
 }
 
 type GetSecretRotationRotationRule struct {
-	AutomaticallyAfterDays int    `pulumi:"automaticallyAfterDays"`
-	Duration               string `pulumi:"duration"`
-	ScheduleExpression     string `pulumi:"scheduleExpression"`
+	AutomaticallyAfterDays *int    `pulumi:"automaticallyAfterDays"`
+	Duration               *string `pulumi:"duration"`
+	ScheduleExpression     *string `pulumi:"scheduleExpression"`
 }
 
 // GetSecretRotationRotationRuleInput is an input type that accepts GetSecretRotationRotationRuleArgs and GetSecretRotationRotationRuleOutput values.
@@ -339,9 +339,9 @@ type GetSecretRotationRotationRuleInput interface {
 }
 
 type GetSecretRotationRotationRuleArgs struct {
-	AutomaticallyAfterDays pulumi.IntInput    `pulumi:"automaticallyAfterDays"`
-	Duration               pulumi.StringInput `pulumi:"duration"`
-	ScheduleExpression     pulumi.StringInput `pulumi:"scheduleExpression"`
+	AutomaticallyAfterDays pulumi.IntPtrInput    `pulumi:"automaticallyAfterDays"`
+	Duration               pulumi.StringPtrInput `pulumi:"duration"`
+	ScheduleExpression     pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 }
 
 func (GetSecretRotationRotationRuleArgs) ElementType() reflect.Type {
@@ -395,16 +395,16 @@ func (o GetSecretRotationRotationRuleOutput) ToGetSecretRotationRotationRuleOutp
 	return o
 }
 
-func (o GetSecretRotationRotationRuleOutput) AutomaticallyAfterDays() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSecretRotationRotationRule) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+func (o GetSecretRotationRotationRuleOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetSecretRotationRotationRule) *int { return v.AutomaticallyAfterDays }).(pulumi.IntPtrOutput)
 }
 
-func (o GetSecretRotationRotationRuleOutput) Duration() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretRotationRotationRule) string { return v.Duration }).(pulumi.StringOutput)
+func (o GetSecretRotationRotationRuleOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecretRotationRotationRule) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
 
-func (o GetSecretRotationRotationRuleOutput) ScheduleExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretRotationRotationRule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+func (o GetSecretRotationRotationRuleOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecretRotationRotationRule) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
 type GetSecretRotationRotationRuleArrayOutput struct{ *pulumi.OutputState }

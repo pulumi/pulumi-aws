@@ -720,7 +720,7 @@ class Trust(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> pulumi.Output[str]:
+    def created_date_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time when the Trust was created.
         """
@@ -728,7 +728,7 @@ class Trust(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deleteAssociatedConditionalForwarder")
-    def delete_associated_conditional_forwarder(self) -> pulumi.Output[bool]:
+    def delete_associated_conditional_forwarder(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to delete the conditional forwarder when deleting the Trust relationship.
         """
@@ -744,7 +744,7 @@ class Trust(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDateTime")
-    def last_updated_date_time(self) -> pulumi.Output[str]:
+    def last_updated_date_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time when the Trust was last updated.
         """
@@ -760,7 +760,7 @@ class Trust(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selectiveAuth")
-    def selective_auth(self) -> pulumi.Output[str]:
+    def selective_auth(self) -> pulumi.Output[Optional[str]]:
         """
         Whether to enable selective authentication.
         Valid values are `Enabled` and `Disabled`.
@@ -770,7 +770,7 @@ class Trust(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stateLastUpdatedDateTime")
-    def state_last_updated_date_time(self) -> pulumi.Output[str]:
+    def state_last_updated_date_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time when the Trust state in `trust_state` was last updated.
         """
@@ -798,7 +798,7 @@ class Trust(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustState")
-    def trust_state(self) -> pulumi.Output[str]:
+    def trust_state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the Trust relationship.
         One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
@@ -807,7 +807,7 @@ class Trust(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustStateReason")
-    def trust_state_reason(self) -> pulumi.Output[str]:
+    def trust_state_reason(self) -> pulumi.Output[Optional[str]]:
         """
         Reason for the Trust state set in `trust_state`.
         """
@@ -815,7 +815,7 @@ class Trust(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustType")
-    def trust_type(self) -> pulumi.Output[str]:
+    def trust_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of the Trust relationship.
         Valid values are `Forest` and `External`.

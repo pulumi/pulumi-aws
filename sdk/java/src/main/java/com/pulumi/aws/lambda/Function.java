@@ -369,28 +369,28 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="architectures", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> architectures;
+    private Output</* @Nullable */ List<String>> architectures;
 
     /**
      * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
      * 
      */
-    public Output<List<String>> architectures() {
-        return this.architectures;
+    public Output<Optional<List<String>>> architectures() {
+        return Codegen.optional(this.architectures);
     }
     /**
      * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
@@ -467,14 +467,14 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ephemeralStorage", refs={FunctionEphemeralStorage.class}, tree="[0]")
-    private Output<FunctionEphemeralStorage> ephemeralStorage;
+    private Output</* @Nullable */ FunctionEphemeralStorage> ephemeralStorage;
 
     /**
      * @return The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
      * 
      */
-    public Output<FunctionEphemeralStorage> ephemeralStorage() {
-        return this.ephemeralStorage;
+    public Output<Optional<FunctionEphemeralStorage>> ephemeralStorage() {
+        return Codegen.optional(this.ephemeralStorage);
     }
     /**
      * Configuration block. Detailed below.
@@ -537,14 +537,14 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="invokeArn", refs={String.class}, tree="[0]")
-    private Output<String> invokeArn;
+    private Output</* @Nullable */ String> invokeArn;
 
     /**
      * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
-    public Output<String> invokeArn() {
-        return this.invokeArn;
+    public Output<Optional<String>> invokeArn() {
+        return Codegen.optional(this.invokeArn);
     }
     /**
      * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
@@ -565,14 +565,14 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
-    private Output<String> lastModified;
+    private Output</* @Nullable */ String> lastModified;
 
     /**
      * @return Date this resource was last modified.
      * 
      */
-    public Output<String> lastModified() {
-        return this.lastModified;
+    public Output<Optional<String>> lastModified() {
+        return Codegen.optional(this.lastModified);
     }
     /**
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
@@ -649,28 +649,28 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="qualifiedArn", refs={String.class}, tree="[0]")
-    private Output<String> qualifiedArn;
+    private Output</* @Nullable */ String> qualifiedArn;
 
     /**
      * @return ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
      * 
      */
-    public Output<String> qualifiedArn() {
-        return this.qualifiedArn;
+    public Output<Optional<String>> qualifiedArn() {
+        return Codegen.optional(this.qualifiedArn);
     }
     /**
      * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     @Export(name="qualifiedInvokeArn", refs={String.class}, tree="[0]")
-    private Output<String> qualifiedInvokeArn;
+    private Output</* @Nullable */ String> qualifiedInvokeArn;
 
     /**
      * @return Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
-    public Output<String> qualifiedInvokeArn() {
-        return this.qualifiedInvokeArn;
+    public Output<Optional<String>> qualifiedInvokeArn() {
+        return Codegen.optional(this.qualifiedInvokeArn);
     }
     /**
      * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
@@ -801,14 +801,14 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="signingJobArn", refs={String.class}, tree="[0]")
-    private Output<String> signingJobArn;
+    private Output</* @Nullable */ String> signingJobArn;
 
     /**
      * @return ARN of the signing job.
      * 
      */
-    public Output<String> signingJobArn() {
-        return this.signingJobArn;
+    public Output<Optional<String>> signingJobArn() {
+        return Codegen.optional(this.signingJobArn);
     }
     /**
      * ARN of the signing profile version.
@@ -816,15 +816,15 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="signingProfileVersionArn", refs={String.class}, tree="[0]")
-    private Output<String> signingProfileVersionArn;
+    private Output</* @Nullable */ String> signingProfileVersionArn;
 
     /**
      * @return ARN of the signing profile version.
      * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
-    public Output<String> signingProfileVersionArn() {
-        return this.signingProfileVersionArn;
+    public Output<Optional<String>> signingProfileVersionArn() {
+        return Codegen.optional(this.signingProfileVersionArn);
     }
     /**
      * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
@@ -859,28 +859,28 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
-    private Output<String> sourceCodeHash;
+    private Output</* @Nullable */ String> sourceCodeHash;
 
     /**
      * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
-    public Output<String> sourceCodeHash() {
-        return this.sourceCodeHash;
+    public Output<Optional<String>> sourceCodeHash() {
+        return Codegen.optional(this.sourceCodeHash);
     }
     /**
      * Size in bytes of the function .zip file.
      * 
      */
     @Export(name="sourceCodeSize", refs={Integer.class}, tree="[0]")
-    private Output<Integer> sourceCodeSize;
+    private Output</* @Nullable */ Integer> sourceCodeSize;
 
     /**
      * @return Size in bytes of the function .zip file.
      * 
      */
-    public Output<Integer> sourceCodeSize() {
-        return this.sourceCodeSize;
+    public Output<Optional<Integer>> sourceCodeSize() {
+        return Codegen.optional(this.sourceCodeSize);
     }
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -933,14 +933,14 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tracingConfig", refs={FunctionTracingConfig.class}, tree="[0]")
-    private Output<FunctionTracingConfig> tracingConfig;
+    private Output</* @Nullable */ FunctionTracingConfig> tracingConfig;
 
     /**
      * @return Configuration block. Detailed below.
      * 
      */
-    public Output<FunctionTracingConfig> tracingConfig() {
-        return this.tracingConfig;
+    public Output<Optional<FunctionTracingConfig>> tracingConfig() {
+        return Codegen.optional(this.tracingConfig);
     }
     /**
      * Latest published version of your Lambda Function.
@@ -948,15 +948,15 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return Latest published version of your Lambda Function.
      * * `vpc_config.vpc_id` - ID of the VPC.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
     /**
      * Configuration block. Detailed below.

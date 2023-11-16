@@ -480,7 +480,7 @@ class ProxyEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the proxy endpoint.
         """
@@ -504,7 +504,7 @@ class ProxyEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         """
@@ -512,7 +512,7 @@ class ProxyEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> pulumi.Output[bool]:
+    def is_default(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this endpoint is the default endpoint for the associated DB proxy.
         """
@@ -544,7 +544,7 @@ class ProxyEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The VPC ID of the DB proxy endpoint.
         """
@@ -552,7 +552,7 @@ class ProxyEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         One or more VPC security group IDs to associate with the new proxy.
         """

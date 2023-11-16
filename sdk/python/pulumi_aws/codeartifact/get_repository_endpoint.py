@@ -48,7 +48,7 @@ class GetRepositoryEndpointResult:
 
     @property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> str:
+    def domain_owner(self) -> Optional[str]:
         return pulumi.get(self, "domain_owner")
 
     @property
@@ -58,7 +58,7 @@ class GetRepositoryEndpointResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -71,7 +71,7 @@ class GetRepositoryEndpointResult:
 
     @property
     @pulumi.getter(name="repositoryEndpoint")
-    def repository_endpoint(self) -> str:
+    def repository_endpoint(self) -> Optional[str]:
         """
         URL of the returned endpoint.
         """

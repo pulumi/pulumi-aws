@@ -55,7 +55,7 @@ type OrganizationalUnit struct {
 	// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
 	Accounts OrganizationalUnitAccountArrayOutput `pulumi:"accounts"`
 	// ARN of the organizational unit
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name for the organizational unit
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the parent organizational unit, which may be the root
@@ -254,8 +254,8 @@ func (o OrganizationalUnitOutput) Accounts() OrganizationalUnitAccountArrayOutpu
 }
 
 // ARN of the organizational unit
-func (o OrganizationalUnitOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OrganizationalUnitOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name for the organizational unit

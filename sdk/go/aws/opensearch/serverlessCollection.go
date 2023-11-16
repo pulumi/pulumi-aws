@@ -81,15 +81,15 @@ type ServerlessCollection struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the collection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
-	CollectionEndpoint pulumi.StringOutput `pulumi:"collectionEndpoint"`
+	CollectionEndpoint pulumi.StringPtrOutput `pulumi:"collectionEndpoint"`
 	// Collection-specific endpoint used to access OpenSearch Dashboards.
-	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
+	DashboardEndpoint pulumi.StringPtrOutput `pulumi:"dashboardEndpoint"`
 	// Description of the collection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
-	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Name of the collection.
 	//
 	// The following arguments are optional:
@@ -100,7 +100,7 @@ type ServerlessCollection struct {
 	TagsAll  pulumi.StringMapOutput                `pulumi:"tagsAll"`
 	Timeouts ServerlessCollectionTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewServerlessCollection registers a new resource with the given unique name, arguments, and options.
@@ -305,18 +305,18 @@ func (o ServerlessCollectionOutput) ToServerlessCollectionOutputWithContext(ctx 
 }
 
 // Amazon Resource Name (ARN) of the collection.
-func (o ServerlessCollectionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServerlessCollectionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
-func (o ServerlessCollectionOutput) CollectionEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.CollectionEndpoint }).(pulumi.StringOutput)
+func (o ServerlessCollectionOutput) CollectionEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringPtrOutput { return v.CollectionEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Collection-specific endpoint used to access OpenSearch Dashboards.
-func (o ServerlessCollectionOutput) DashboardEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.DashboardEndpoint }).(pulumi.StringOutput)
+func (o ServerlessCollectionOutput) DashboardEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringPtrOutput { return v.DashboardEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Description of the collection.
@@ -325,8 +325,8 @@ func (o ServerlessCollectionOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The ARN of the Amazon Web Services KMS key used to encrypt the collection.
-func (o ServerlessCollectionOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o ServerlessCollectionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the collection.
@@ -351,8 +351,8 @@ func (o ServerlessCollectionOutput) Timeouts() ServerlessCollectionTimeoutsPtrOu
 }
 
 // Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
-func (o ServerlessCollectionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o ServerlessCollectionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ServerlessCollectionArrayOutput struct{ *pulumi.OutputState }

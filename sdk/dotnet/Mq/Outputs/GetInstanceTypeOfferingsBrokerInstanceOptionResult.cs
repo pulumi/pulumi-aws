@@ -20,15 +20,15 @@ namespace Pulumi.Aws.Mq.Outputs
         /// <summary>
         /// Filter response by engine type.
         /// </summary>
-        public readonly string EngineType;
+        public readonly string? EngineType;
         /// <summary>
         /// Filter response by host instance type.
         /// </summary>
-        public readonly string HostInstanceType;
+        public readonly string? HostInstanceType;
         /// <summary>
         /// Filter response by storage type.
         /// </summary>
-        public readonly string StorageType;
+        public readonly string? StorageType;
         /// <summary>
         /// The list of supported deployment modes.
         /// </summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Mq.Outputs
         private GetInstanceTypeOfferingsBrokerInstanceOptionResult(
             ImmutableArray<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult> availabilityZones,
 
-            string engineType,
+            string? engineType,
 
-            string hostInstanceType,
+            string? hostInstanceType,
 
-            string storageType,
+            string? storageType,
 
             ImmutableArray<string> supportedDeploymentModes,
 

@@ -57,15 +57,15 @@ type TagOptionResourceAssociation struct {
 	pulumi.CustomResourceState
 
 	// ARN of the resource.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
 	// Creation time of the resource.
-	ResourceCreatedTime pulumi.StringOutput `pulumi:"resourceCreatedTime"`
+	ResourceCreatedTime pulumi.StringPtrOutput `pulumi:"resourceCreatedTime"`
 	// Description of the resource.
-	ResourceDescription pulumi.StringOutput `pulumi:"resourceDescription"`
+	ResourceDescription pulumi.StringPtrOutput `pulumi:"resourceDescription"`
 	// Resource identifier.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// Description of the resource.
-	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
+	ResourceName pulumi.StringPtrOutput `pulumi:"resourceName"`
 	// Tag Option identifier.
 	TagOptionId pulumi.StringOutput `pulumi:"tagOptionId"`
 }
@@ -242,18 +242,18 @@ func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationOutput
 }
 
 // ARN of the resource.
-func (o TagOptionResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+func (o TagOptionResourceAssociationOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 // Creation time of the resource.
-func (o TagOptionResourceAssociationOutput) ResourceCreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceCreatedTime }).(pulumi.StringOutput)
+func (o TagOptionResourceAssociationOutput) ResourceCreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringPtrOutput { return v.ResourceCreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Description of the resource.
-func (o TagOptionResourceAssociationOutput) ResourceDescription() pulumi.StringOutput {
-	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceDescription }).(pulumi.StringOutput)
+func (o TagOptionResourceAssociationOutput) ResourceDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringPtrOutput { return v.ResourceDescription }).(pulumi.StringPtrOutput)
 }
 
 // Resource identifier.
@@ -262,8 +262,8 @@ func (o TagOptionResourceAssociationOutput) ResourceId() pulumi.StringOutput {
 }
 
 // Description of the resource.
-func (o TagOptionResourceAssociationOutput) ResourceName() pulumi.StringOutput {
-	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceName }).(pulumi.StringOutput)
+func (o TagOptionResourceAssociationOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringPtrOutput { return v.ResourceName }).(pulumi.StringPtrOutput)
 }
 
 // Tag Option identifier.

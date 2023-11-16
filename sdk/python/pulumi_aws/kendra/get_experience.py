@@ -65,7 +65,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Experience.
         """
@@ -73,7 +73,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter
-    def configurations(self) -> Sequence['outputs.GetExperienceConfigurationResult']:
+    def configurations(self) -> Optional[Sequence['outputs.GetExperienceConfigurationResult']]:
         """
         Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
         """
@@ -81,7 +81,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Unix datetime that the Experience was created.
         """
@@ -89,7 +89,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Experience.
         """
@@ -97,7 +97,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Sequence['outputs.GetExperienceEndpointResult']:
+    def endpoints(self) -> Optional[Sequence['outputs.GetExperienceEndpointResult']]:
         """
         Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
         """
@@ -105,7 +105,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> str:
+    def error_message(self) -> Optional[str]:
         """
         Reason your Amazon Kendra Experience could not properly process.
         """
@@ -118,7 +118,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -131,7 +131,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the Experience.
         """
@@ -139,7 +139,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
         """
@@ -147,7 +147,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
         """
@@ -155,7 +155,7 @@ class GetExperienceResult:
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> Optional[str]:
         """
         Date and time that the Experience was last updated.
         """

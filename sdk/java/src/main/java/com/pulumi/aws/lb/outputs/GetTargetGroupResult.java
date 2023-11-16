@@ -11,98 +11,100 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTargetGroupResult {
-    private String arn;
-    private String arnSuffix;
-    private Boolean connectionTermination;
-    private Integer deregistrationDelay;
-    private GetTargetGroupHealthCheck healthCheck;
+    private @Nullable String arn;
+    private @Nullable String arnSuffix;
+    private @Nullable Boolean connectionTermination;
+    private @Nullable Integer deregistrationDelay;
+    private @Nullable GetTargetGroupHealthCheck healthCheck;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private Boolean lambdaMultiValueHeadersEnabled;
-    private String loadBalancingAlgorithmType;
-    private String loadBalancingCrossZoneEnabled;
-    private String name;
-    private Integer port;
-    private String preserveClientIp;
-    private String protocol;
-    private String protocolVersion;
-    private Boolean proxyProtocolV2;
-    private Integer slowStart;
-    private GetTargetGroupStickiness stickiness;
-    private Map<String,String> tags;
-    private String targetType;
-    private String vpcId;
+    private @Nullable String id;
+    private @Nullable Boolean lambdaMultiValueHeadersEnabled;
+    private @Nullable String loadBalancingAlgorithmType;
+    private @Nullable String loadBalancingCrossZoneEnabled;
+    private @Nullable String name;
+    private @Nullable Integer port;
+    private @Nullable String preserveClientIp;
+    private @Nullable String protocol;
+    private @Nullable String protocolVersion;
+    private @Nullable Boolean proxyProtocolV2;
+    private @Nullable Integer slowStart;
+    private @Nullable GetTargetGroupStickiness stickiness;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String targetType;
+    private @Nullable String vpcId;
 
     private GetTargetGroupResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String arnSuffix() {
-        return this.arnSuffix;
+    public Optional<String> arnSuffix() {
+        return Optional.ofNullable(this.arnSuffix);
     }
-    public Boolean connectionTermination() {
-        return this.connectionTermination;
+    public Optional<Boolean> connectionTermination() {
+        return Optional.ofNullable(this.connectionTermination);
     }
-    public Integer deregistrationDelay() {
-        return this.deregistrationDelay;
+    public Optional<Integer> deregistrationDelay() {
+        return Optional.ofNullable(this.deregistrationDelay);
     }
-    public GetTargetGroupHealthCheck healthCheck() {
-        return this.healthCheck;
+    public Optional<GetTargetGroupHealthCheck> healthCheck() {
+        return Optional.ofNullable(this.healthCheck);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public Boolean lambdaMultiValueHeadersEnabled() {
-        return this.lambdaMultiValueHeadersEnabled;
+    public Optional<Boolean> lambdaMultiValueHeadersEnabled() {
+        return Optional.ofNullable(this.lambdaMultiValueHeadersEnabled);
     }
-    public String loadBalancingAlgorithmType() {
-        return this.loadBalancingAlgorithmType;
+    public Optional<String> loadBalancingAlgorithmType() {
+        return Optional.ofNullable(this.loadBalancingAlgorithmType);
     }
-    public String loadBalancingCrossZoneEnabled() {
-        return this.loadBalancingCrossZoneEnabled;
+    public Optional<String> loadBalancingCrossZoneEnabled() {
+        return Optional.ofNullable(this.loadBalancingCrossZoneEnabled);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String preserveClientIp() {
-        return this.preserveClientIp;
+    public Optional<String> preserveClientIp() {
+        return Optional.ofNullable(this.preserveClientIp);
     }
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
-    public String protocolVersion() {
-        return this.protocolVersion;
+    public Optional<String> protocolVersion() {
+        return Optional.ofNullable(this.protocolVersion);
     }
-    public Boolean proxyProtocolV2() {
-        return this.proxyProtocolV2;
+    public Optional<Boolean> proxyProtocolV2() {
+        return Optional.ofNullable(this.proxyProtocolV2);
     }
-    public Integer slowStart() {
-        return this.slowStart;
+    public Optional<Integer> slowStart() {
+        return Optional.ofNullable(this.slowStart);
     }
-    public GetTargetGroupStickiness stickiness() {
-        return this.stickiness;
+    public Optional<GetTargetGroupStickiness> stickiness() {
+        return Optional.ofNullable(this.stickiness);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String targetType() {
-        return this.targetType;
+    public Optional<String> targetType() {
+        return Optional.ofNullable(this.targetType);
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -114,26 +116,26 @@ public final class GetTargetGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String arnSuffix;
-        private Boolean connectionTermination;
-        private Integer deregistrationDelay;
-        private GetTargetGroupHealthCheck healthCheck;
-        private String id;
-        private Boolean lambdaMultiValueHeadersEnabled;
-        private String loadBalancingAlgorithmType;
-        private String loadBalancingCrossZoneEnabled;
-        private String name;
-        private Integer port;
-        private String preserveClientIp;
-        private String protocol;
-        private String protocolVersion;
-        private Boolean proxyProtocolV2;
-        private Integer slowStart;
-        private GetTargetGroupStickiness stickiness;
-        private Map<String,String> tags;
-        private String targetType;
-        private String vpcId;
+        private @Nullable String arn;
+        private @Nullable String arnSuffix;
+        private @Nullable Boolean connectionTermination;
+        private @Nullable Integer deregistrationDelay;
+        private @Nullable GetTargetGroupHealthCheck healthCheck;
+        private @Nullable String id;
+        private @Nullable Boolean lambdaMultiValueHeadersEnabled;
+        private @Nullable String loadBalancingAlgorithmType;
+        private @Nullable String loadBalancingCrossZoneEnabled;
+        private @Nullable String name;
+        private @Nullable Integer port;
+        private @Nullable String preserveClientIp;
+        private @Nullable String protocol;
+        private @Nullable String protocolVersion;
+        private @Nullable Boolean proxyProtocolV2;
+        private @Nullable Integer slowStart;
+        private @Nullable GetTargetGroupStickiness stickiness;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String targetType;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetTargetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -160,103 +162,103 @@ public final class GetTargetGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder arnSuffix(String arnSuffix) {
-            this.arnSuffix = Objects.requireNonNull(arnSuffix);
+        public Builder arnSuffix(@Nullable String arnSuffix) {
+            this.arnSuffix = arnSuffix;
             return this;
         }
         @CustomType.Setter
-        public Builder connectionTermination(Boolean connectionTermination) {
-            this.connectionTermination = Objects.requireNonNull(connectionTermination);
+        public Builder connectionTermination(@Nullable Boolean connectionTermination) {
+            this.connectionTermination = connectionTermination;
             return this;
         }
         @CustomType.Setter
-        public Builder deregistrationDelay(Integer deregistrationDelay) {
-            this.deregistrationDelay = Objects.requireNonNull(deregistrationDelay);
+        public Builder deregistrationDelay(@Nullable Integer deregistrationDelay) {
+            this.deregistrationDelay = deregistrationDelay;
             return this;
         }
         @CustomType.Setter
-        public Builder healthCheck(GetTargetGroupHealthCheck healthCheck) {
-            this.healthCheck = Objects.requireNonNull(healthCheck);
+        public Builder healthCheck(@Nullable GetTargetGroupHealthCheck healthCheck) {
+            this.healthCheck = healthCheck;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lambdaMultiValueHeadersEnabled(Boolean lambdaMultiValueHeadersEnabled) {
-            this.lambdaMultiValueHeadersEnabled = Objects.requireNonNull(lambdaMultiValueHeadersEnabled);
+        public Builder lambdaMultiValueHeadersEnabled(@Nullable Boolean lambdaMultiValueHeadersEnabled) {
+            this.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder loadBalancingAlgorithmType(String loadBalancingAlgorithmType) {
-            this.loadBalancingAlgorithmType = Objects.requireNonNull(loadBalancingAlgorithmType);
+        public Builder loadBalancingAlgorithmType(@Nullable String loadBalancingAlgorithmType) {
+            this.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
             return this;
         }
         @CustomType.Setter
-        public Builder loadBalancingCrossZoneEnabled(String loadBalancingCrossZoneEnabled) {
-            this.loadBalancingCrossZoneEnabled = Objects.requireNonNull(loadBalancingCrossZoneEnabled);
+        public Builder loadBalancingCrossZoneEnabled(@Nullable String loadBalancingCrossZoneEnabled) {
+            this.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder preserveClientIp(String preserveClientIp) {
-            this.preserveClientIp = Objects.requireNonNull(preserveClientIp);
+        public Builder preserveClientIp(@Nullable String preserveClientIp) {
+            this.preserveClientIp = preserveClientIp;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder protocolVersion(String protocolVersion) {
-            this.protocolVersion = Objects.requireNonNull(protocolVersion);
+        public Builder protocolVersion(@Nullable String protocolVersion) {
+            this.protocolVersion = protocolVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder proxyProtocolV2(Boolean proxyProtocolV2) {
-            this.proxyProtocolV2 = Objects.requireNonNull(proxyProtocolV2);
+        public Builder proxyProtocolV2(@Nullable Boolean proxyProtocolV2) {
+            this.proxyProtocolV2 = proxyProtocolV2;
             return this;
         }
         @CustomType.Setter
-        public Builder slowStart(Integer slowStart) {
-            this.slowStart = Objects.requireNonNull(slowStart);
+        public Builder slowStart(@Nullable Integer slowStart) {
+            this.slowStart = slowStart;
             return this;
         }
         @CustomType.Setter
-        public Builder stickiness(GetTargetGroupStickiness stickiness) {
-            this.stickiness = Objects.requireNonNull(stickiness);
+        public Builder stickiness(@Nullable GetTargetGroupStickiness stickiness) {
+            this.stickiness = stickiness;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder targetType(String targetType) {
-            this.targetType = Objects.requireNonNull(targetType);
+        public Builder targetType(@Nullable String targetType) {
+            this.targetType = targetType;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetTargetGroupResult build() {

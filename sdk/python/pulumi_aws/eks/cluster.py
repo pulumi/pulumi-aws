@@ -900,7 +900,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the cluster.
         """
@@ -908,12 +908,12 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateAuthorities")
-    def certificate_authorities(self) -> pulumi.Output[Sequence['outputs.ClusterCertificateAuthority']]:
+    def certificate_authorities(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterCertificateAuthority']]]:
         return pulumi.get(self, "certificate_authorities")
 
     @property
     @pulumi.getter(name="certificateAuthority")
-    def certificate_authority(self) -> pulumi.Output['outputs.ClusterCertificateAuthority']:
+    def certificate_authority(self) -> pulumi.Output[Optional['outputs.ClusterCertificateAuthority']]:
         """
         Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         """
@@ -921,7 +921,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Output[str]:
+    def cluster_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         """
@@ -929,7 +929,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         Unix epoch timestamp in seconds for when the cluster was created.
         """
@@ -958,7 +958,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Endpoint for your Kubernetes API server.
         """
@@ -966,7 +966,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identities(self) -> pulumi.Output[Sequence['outputs.ClusterIdentity']]:
+    def identities(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterIdentity']]]:
         """
         Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         * `kubernetes_network_config.service_ipv6_cidr` - The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
@@ -975,7 +975,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubernetesNetworkConfig")
-    def kubernetes_network_config(self) -> pulumi.Output['outputs.ClusterKubernetesNetworkConfig']:
+    def kubernetes_network_config(self) -> pulumi.Output[Optional['outputs.ClusterKubernetesNetworkConfig']]:
         """
         Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         """
@@ -999,7 +999,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> pulumi.Output[str]:
+    def platform_version(self) -> pulumi.Output[Optional[str]]:
         """
         Platform version for the cluster.
         """
@@ -1015,7 +1015,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         """
@@ -1042,7 +1042,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         """

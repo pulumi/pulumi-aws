@@ -6,18 +6,20 @@ package com.pulumi.aws.efs.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFileSystemLifecyclePolicy {
-    private String transitionToIa;
-    private String transitionToPrimaryStorageClass;
+    private @Nullable String transitionToIa;
+    private @Nullable String transitionToPrimaryStorageClass;
 
     private GetFileSystemLifecyclePolicy() {}
-    public String transitionToIa() {
-        return this.transitionToIa;
+    public Optional<String> transitionToIa() {
+        return Optional.ofNullable(this.transitionToIa);
     }
-    public String transitionToPrimaryStorageClass() {
-        return this.transitionToPrimaryStorageClass;
+    public Optional<String> transitionToPrimaryStorageClass() {
+        return Optional.ofNullable(this.transitionToPrimaryStorageClass);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetFileSystemLifecyclePolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String transitionToIa;
-        private String transitionToPrimaryStorageClass;
+        private @Nullable String transitionToIa;
+        private @Nullable String transitionToPrimaryStorageClass;
         public Builder() {}
         public Builder(GetFileSystemLifecyclePolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetFileSystemLifecyclePolicy {
         }
 
         @CustomType.Setter
-        public Builder transitionToIa(String transitionToIa) {
-            this.transitionToIa = Objects.requireNonNull(transitionToIa);
+        public Builder transitionToIa(@Nullable String transitionToIa) {
+            this.transitionToIa = transitionToIa;
             return this;
         }
         @CustomType.Setter
-        public Builder transitionToPrimaryStorageClass(String transitionToPrimaryStorageClass) {
-            this.transitionToPrimaryStorageClass = Objects.requireNonNull(transitionToPrimaryStorageClass);
+        public Builder transitionToPrimaryStorageClass(@Nullable String transitionToPrimaryStorageClass) {
+            this.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
             return this;
         }
         public GetFileSystemLifecyclePolicy build() {

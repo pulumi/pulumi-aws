@@ -66,7 +66,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The query definition ID.
         /// </summary>
         [Output("queryDefinitionId")]
-        public Output<string> QueryDefinitionId { get; private set; } = null!;
+        public Output<string?> QueryDefinitionId { get; private set; } = null!;
 
         /// <summary>
         /// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).

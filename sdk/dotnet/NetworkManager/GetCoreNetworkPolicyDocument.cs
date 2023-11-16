@@ -418,11 +418,11 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Standard JSON policy document rendered based on the arguments above.
         /// </summary>
-        public readonly string Json;
+        public readonly string? Json;
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentActionResult> SegmentActions;
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentResult> Segments;
         public readonly string? Version;
@@ -433,9 +433,9 @@ namespace Pulumi.Aws.NetworkManager
 
             ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult> coreNetworkConfigurations,
 
-            string id,
+            string? id,
 
-            string json,
+            string? json,
 
             ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentActionResult> segmentActions,
 

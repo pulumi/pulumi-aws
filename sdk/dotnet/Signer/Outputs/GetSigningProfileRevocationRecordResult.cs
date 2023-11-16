@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Signer.Outputs
     [OutputType]
     public sealed class GetSigningProfileRevocationRecordResult
     {
-        public readonly string RevocationEffectiveFrom;
-        public readonly string RevokedAt;
-        public readonly string RevokedBy;
+        public readonly string? RevocationEffectiveFrom;
+        public readonly string? RevokedAt;
+        public readonly string? RevokedBy;
 
         [OutputConstructor]
         private GetSigningProfileRevocationRecordResult(
-            string revocationEffectiveFrom,
+            string? revocationEffectiveFrom,
 
-            string revokedAt,
+            string? revokedAt,
 
-            string revokedBy)
+            string? revokedBy)
         {
             RevocationEffectiveFrom = revocationEffectiveFrom;
             RevokedAt = revokedAt;

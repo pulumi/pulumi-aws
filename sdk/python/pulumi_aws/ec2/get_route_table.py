@@ -60,7 +60,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the route table.
         """
@@ -68,7 +68,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def associations(self) -> Sequence['outputs.GetRouteTableAssociationResult']:
+    def associations(self) -> Optional[Sequence['outputs.GetRouteTableAssociationResult']]:
         """
         List of associations with attributes detailed below.
         """
@@ -81,7 +81,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> str:
+    def gateway_id(self) -> Optional[str]:
         """
         Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
         """
@@ -89,7 +89,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -97,7 +97,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         ID of the AWS account that owns the route table.
         """
@@ -105,7 +105,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter(name="routeTableId")
-    def route_table_id(self) -> str:
+    def route_table_id(self) -> Optional[str]:
         """
         Route Table ID.
         """
@@ -113,7 +113,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def routes(self) -> Sequence['outputs.GetRouteTableRouteResult']:
+    def routes(self) -> Optional[Sequence['outputs.GetRouteTableRouteResult']]:
         """
         List of routes with attributes detailed below.
         """
@@ -121,7 +121,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> Optional[str]:
         """
         Subnet ID. Only set when associated with a subnet.
         """
@@ -129,12 +129,12 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
 

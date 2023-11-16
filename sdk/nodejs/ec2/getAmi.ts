@@ -110,154 +110,154 @@ export interface GetAmiResult {
     /**
      * OS architecture of the AMI (ie: `i386` or `x8664`).
      */
-    readonly architecture: string;
+    readonly architecture?: string;
     /**
      * ARN of the AMI.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Set of objects with block device mappings of the AMI.
      */
-    readonly blockDeviceMappings: outputs.ec2.GetAmiBlockDeviceMapping[];
+    readonly blockDeviceMappings?: outputs.ec2.GetAmiBlockDeviceMapping[];
     /**
      * Boot mode of the image.
      */
-    readonly bootMode: string;
+    readonly bootMode?: string;
     /**
      * Date and time the image was created.
      */
-    readonly creationDate: string;
+    readonly creationDate?: string;
     /**
      * Date and time when the image will be deprecated.
      */
-    readonly deprecationTime: string;
+    readonly deprecationTime?: string;
     /**
      * Description of the AMI that was provided during image
      * creation.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Whether enhanced networking with ENA is enabled.
      */
-    readonly enaSupport: boolean;
+    readonly enaSupport?: boolean;
     readonly executableUsers?: string[];
     readonly filters?: outputs.ec2.GetAmiFilter[];
     /**
      * Hypervisor type of the image.
      */
-    readonly hypervisor: string;
+    readonly hypervisor?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ID of the AMI. Should be the same as the resource `id`.
      */
-    readonly imageId: string;
+    readonly imageId?: string;
     /**
      * Location of the AMI.
      */
-    readonly imageLocation: string;
+    readonly imageLocation?: string;
     /**
      * AWS account alias (for example, `amazon`, `self`) or
      * the AWS account ID of the AMI owner.
      */
-    readonly imageOwnerAlias: string;
+    readonly imageOwnerAlias?: string;
     /**
      * Type of image.
      */
-    readonly imageType: string;
+    readonly imageType?: string;
     /**
      * Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
      */
-    readonly imdsSupport: string;
+    readonly imdsSupport?: string;
     readonly includeDeprecated?: boolean;
     /**
      * Kernel associated with the image, if any. Only applicable
      * for machine images.
      */
-    readonly kernelId: string;
+    readonly kernelId?: string;
     readonly mostRecent?: boolean;
     /**
      * Name of the AMI that was provided during image creation.
      */
-    readonly name: string;
+    readonly name?: string;
     readonly nameRegex?: string;
     /**
      * AWS account ID of the image owner.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     readonly owners?: string[];
     /**
      * Value is Windows for `Windows` AMIs; otherwise blank.
      */
-    readonly platform: string;
+    readonly platform?: string;
     /**
      * Platform details associated with the billing code of the AMI.
      */
-    readonly platformDetails: string;
+    readonly platformDetails?: string;
     /**
      * Any product codes associated with the AMI.
      * * `product_codes.#.product_code_id` - The product code.
      * * `product_codes.#.product_code_type` - The type of product code.
      */
-    readonly productCodes: outputs.ec2.GetAmiProductCode[];
+    readonly productCodes?: outputs.ec2.GetAmiProductCode[];
     /**
      * `true` if the image has public launch permissions.
      */
-    readonly public: boolean;
+    readonly public?: boolean;
     /**
      * RAM disk associated with the image, if any. Only applicable
      * for machine images.
      */
-    readonly ramdiskId: string;
+    readonly ramdiskId?: string;
     /**
      * Device name of the root device.
      */
-    readonly rootDeviceName: string;
+    readonly rootDeviceName?: string;
     /**
      * Type of root device (ie: `ebs` or `instance-store`).
      */
-    readonly rootDeviceType: string;
+    readonly rootDeviceType?: string;
     /**
      * Snapshot id associated with the root device, if any
      * (only applies to `ebs` root devices).
      */
-    readonly rootSnapshotId: string;
+    readonly rootSnapshotId?: string;
     /**
      * Whether enhanced networking is enabled.
      */
-    readonly sriovNetSupport: string;
+    readonly sriovNetSupport?: string;
     /**
      * Current state of the AMI. If the state is `available`, the image
      * is successfully registered and can be used to launch an instance.
      */
-    readonly state: string;
+    readonly state?: string;
     /**
      * Describes a state change. Fields are `UNSET` if not available.
      * * `state_reason.code` - The reason code for the state change.
      * * `state_reason.message` - The message for the state change.
      */
-    readonly stateReason: {[key: string]: string};
+    readonly stateReason?: {[key: string]: string};
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - Key name of the tag.
      * * `tags.#.value` - Value of the tag.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`.
      */
-    readonly tpmSupport: string;
+    readonly tpmSupport?: string;
     /**
      * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
-    readonly usageOperation: string;
+    readonly usageOperation?: string;
     /**
      * Type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).
      */
-    readonly virtualizationType: string;
+    readonly virtualizationType?: string;
 }
 /**
  * Use this data source to get the ID of a registered AMI for use in other

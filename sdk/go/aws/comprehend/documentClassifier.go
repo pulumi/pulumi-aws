@@ -73,7 +73,7 @@ type DocumentClassifier struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Document Classifier version.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
 	DataAccessRoleArn pulumi.StringOutput `pulumi:"dataAccessRoleArn"`
 	// Configuration for the training and testing data.
@@ -97,7 +97,7 @@ type DocumentClassifier struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
-	OutputDataConfig DocumentClassifierOutputDataConfigOutput `pulumi:"outputDataConfig"`
+	OutputDataConfig DocumentClassifierOutputDataConfigPtrOutput `pulumi:"outputDataConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -111,12 +111,12 @@ type DocumentClassifier struct {
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
 	// Conflicts with `versionNamePrefix`.
-	VersionName pulumi.StringOutput `pulumi:"versionName"`
+	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
 	// Conflicts with `versionName`.
-	VersionNamePrefix pulumi.StringOutput `pulumi:"versionNamePrefix"`
+	VersionNamePrefix pulumi.StringPtrOutput `pulumi:"versionNamePrefix"`
 	// KMS Key used to encrypt storage volumes during job processing.
 	// Can be a KMS Key ID or a KMS Key ARN.
 	VolumeKmsKeyId pulumi.StringPtrOutput `pulumi:"volumeKmsKeyId"`
@@ -464,8 +464,8 @@ func (o DocumentClassifierOutput) ToDocumentClassifierOutputWithContext(ctx cont
 }
 
 // ARN of the Document Classifier version.
-func (o DocumentClassifierOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DocumentClassifierOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN for an IAM Role which allows Comprehend to read the training and testing data.
@@ -509,8 +509,8 @@ func (o DocumentClassifierOutput) Name() pulumi.StringOutput {
 
 // Configuration for the output results of training.
 // See the `outputDataConfig` Configuration Block section below.
-func (o DocumentClassifierOutput) OutputDataConfig() DocumentClassifierOutputDataConfigOutput {
-	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierOutputDataConfigOutput { return v.OutputDataConfig }).(DocumentClassifierOutputDataConfigOutput)
+func (o DocumentClassifierOutput) OutputDataConfig() DocumentClassifierOutputDataConfigPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierOutputDataConfigPtrOutput { return v.OutputDataConfig }).(DocumentClassifierOutputDataConfigPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -532,16 +532,16 @@ func (o DocumentClassifierOutput) TagsAll() pulumi.StringMapOutput {
 // Has a maximum length of 63 characters.
 // Can contain upper- and lower-case letters, numbers, and hypen (`-`).
 // Conflicts with `versionNamePrefix`.
-func (o DocumentClassifierOutput) VersionName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.VersionName }).(pulumi.StringOutput)
+func (o DocumentClassifierOutput) VersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.VersionName }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique version name beginning with the specified prefix.
 // Has a maximum length of 37 characters.
 // Can contain upper- and lower-case letters, numbers, and hypen (`-`).
 // Conflicts with `versionName`.
-func (o DocumentClassifierOutput) VersionNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.VersionNamePrefix }).(pulumi.StringOutput)
+func (o DocumentClassifierOutput) VersionNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.VersionNamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // KMS Key used to encrypt storage volumes during job processing.

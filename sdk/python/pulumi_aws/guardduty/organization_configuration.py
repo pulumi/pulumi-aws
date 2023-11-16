@@ -347,7 +347,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoEnable")
-    def auto_enable(self) -> pulumi.Output[bool]:
+    def auto_enable(self) -> pulumi.Output[Optional[bool]]:
         """
         *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
@@ -358,7 +358,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoEnableOrganizationMembers")
-    def auto_enable_organization_members(self) -> pulumi.Output[str]:
+    def auto_enable_organization_members(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         """
@@ -366,7 +366,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def datasources(self) -> pulumi.Output['outputs.OrganizationConfigurationDatasources']:
+    def datasources(self) -> pulumi.Output[Optional['outputs.OrganizationConfigurationDatasources']]:
         """
         Configuration for the collected datasources.
         """

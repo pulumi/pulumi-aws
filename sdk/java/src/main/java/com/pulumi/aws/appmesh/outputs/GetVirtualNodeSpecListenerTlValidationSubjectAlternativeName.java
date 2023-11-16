@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlValidationSubj
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName {
-    private List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch> matches;
+    private @Nullable List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch> matches;
 
     private GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName() {}
     public List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName 
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch> matches;
+        private @Nullable List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch> matches;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName 
         }
 
         @CustomType.Setter
-        public Builder matches(List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch... matches) {

@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPrincipalPolicySimulationResult {
@@ -17,87 +19,87 @@ public final class GetPrincipalPolicySimulationResult {
      * @return The name of the single IAM action used for this particular request.
      * 
      */
-    private String actionName;
+    private @Nullable String actionName;
     /**
      * @return `true` if `decision` is &#34;allowed&#34;, and `false` otherwise.
      * 
      */
-    private Boolean allowed;
+    private @Nullable Boolean allowed;
     /**
      * @return The raw decision determined from all of the policies in scope; either &#34;allowed&#34;, &#34;explicitDeny&#34;, or &#34;implicitDeny&#34;.
      * 
      */
-    private String decision;
+    private @Nullable String decision;
     /**
      * @return A map of arbitrary metadata entries returned by the policy simulator for this request.
      * 
      */
-    private Map<String,String> decisionDetails;
+    private @Nullable Map<String,String> decisionDetails;
     /**
      * @return A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
      * 
      */
-    private List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements;
+    private @Nullable List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements;
     /**
      * @return A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
      * 
      */
-    private List<String> missingContextKeys;
+    private @Nullable List<String> missingContextKeys;
     /**
      * @return ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
      * 
      */
-    private String resourceArn;
+    private @Nullable String resourceArn;
 
     private GetPrincipalPolicySimulationResult() {}
     /**
      * @return The name of the single IAM action used for this particular request.
      * 
      */
-    public String actionName() {
-        return this.actionName;
+    public Optional<String> actionName() {
+        return Optional.ofNullable(this.actionName);
     }
     /**
      * @return `true` if `decision` is &#34;allowed&#34;, and `false` otherwise.
      * 
      */
-    public Boolean allowed() {
-        return this.allowed;
+    public Optional<Boolean> allowed() {
+        return Optional.ofNullable(this.allowed);
     }
     /**
      * @return The raw decision determined from all of the policies in scope; either &#34;allowed&#34;, &#34;explicitDeny&#34;, or &#34;implicitDeny&#34;.
      * 
      */
-    public String decision() {
-        return this.decision;
+    public Optional<String> decision() {
+        return Optional.ofNullable(this.decision);
     }
     /**
      * @return A map of arbitrary metadata entries returned by the policy simulator for this request.
      * 
      */
     public Map<String,String> decisionDetails() {
-        return this.decisionDetails;
+        return this.decisionDetails == null ? Map.of() : this.decisionDetails;
     }
     /**
      * @return A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
      * 
      */
     public List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements() {
-        return this.matchedStatements;
+        return this.matchedStatements == null ? List.of() : this.matchedStatements;
     }
     /**
      * @return A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
      * 
      */
     public List<String> missingContextKeys() {
-        return this.missingContextKeys;
+        return this.missingContextKeys == null ? List.of() : this.missingContextKeys;
     }
     /**
      * @return ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
      * 
      */
-    public String resourceArn() {
-        return this.resourceArn;
+    public Optional<String> resourceArn() {
+        return Optional.ofNullable(this.resourceArn);
     }
 
     public static Builder builder() {
@@ -109,13 +111,13 @@ public final class GetPrincipalPolicySimulationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String actionName;
-        private Boolean allowed;
-        private String decision;
-        private Map<String,String> decisionDetails;
-        private List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements;
-        private List<String> missingContextKeys;
-        private String resourceArn;
+        private @Nullable String actionName;
+        private @Nullable Boolean allowed;
+        private @Nullable String decision;
+        private @Nullable Map<String,String> decisionDetails;
+        private @Nullable List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements;
+        private @Nullable List<String> missingContextKeys;
+        private @Nullable String resourceArn;
         public Builder() {}
         public Builder(GetPrincipalPolicySimulationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -129,44 +131,44 @@ public final class GetPrincipalPolicySimulationResult {
         }
 
         @CustomType.Setter
-        public Builder actionName(String actionName) {
-            this.actionName = Objects.requireNonNull(actionName);
+        public Builder actionName(@Nullable String actionName) {
+            this.actionName = actionName;
             return this;
         }
         @CustomType.Setter
-        public Builder allowed(Boolean allowed) {
-            this.allowed = Objects.requireNonNull(allowed);
+        public Builder allowed(@Nullable Boolean allowed) {
+            this.allowed = allowed;
             return this;
         }
         @CustomType.Setter
-        public Builder decision(String decision) {
-            this.decision = Objects.requireNonNull(decision);
+        public Builder decision(@Nullable String decision) {
+            this.decision = decision;
             return this;
         }
         @CustomType.Setter
-        public Builder decisionDetails(Map<String,String> decisionDetails) {
-            this.decisionDetails = Objects.requireNonNull(decisionDetails);
+        public Builder decisionDetails(@Nullable Map<String,String> decisionDetails) {
+            this.decisionDetails = decisionDetails;
             return this;
         }
         @CustomType.Setter
-        public Builder matchedStatements(List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements) {
-            this.matchedStatements = Objects.requireNonNull(matchedStatements);
+        public Builder matchedStatements(@Nullable List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements) {
+            this.matchedStatements = matchedStatements;
             return this;
         }
         public Builder matchedStatements(GetPrincipalPolicySimulationResultMatchedStatement... matchedStatements) {
             return matchedStatements(List.of(matchedStatements));
         }
         @CustomType.Setter
-        public Builder missingContextKeys(List<String> missingContextKeys) {
-            this.missingContextKeys = Objects.requireNonNull(missingContextKeys);
+        public Builder missingContextKeys(@Nullable List<String> missingContextKeys) {
+            this.missingContextKeys = missingContextKeys;
             return this;
         }
         public Builder missingContextKeys(String... missingContextKeys) {
             return missingContextKeys(List.of(missingContextKeys));
         }
         @CustomType.Setter
-        public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+        public Builder resourceArn(@Nullable String resourceArn) {
+            this.resourceArn = resourceArn;
             return this;
         }
         public GetPrincipalPolicySimulationResult build() {

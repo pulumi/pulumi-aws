@@ -590,7 +590,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         Creation date of the deployment
         """
@@ -606,7 +606,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> pulumi.Output[str]:
+    def execution_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Execution ARN to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
@@ -616,7 +616,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invokeUrl")
-    def invoke_url(self) -> pulumi.Output[str]:
+    def invoke_url(self) -> pulumi.Output[Optional[str]]:
         """
         URL to invoke the API pointing to the stage,
         e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`

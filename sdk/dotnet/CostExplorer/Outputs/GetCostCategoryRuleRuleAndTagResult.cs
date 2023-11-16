@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// <summary>
         /// Key for the tag.
         /// </summary>
-        public readonly string Key;
+        public readonly string? Key;
         /// <summary>
         /// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
 
         [OutputConstructor]
         private GetCostCategoryRuleRuleAndTagResult(
-            string key,
+            string? key,
 
             ImmutableArray<string> matchOptions,
 

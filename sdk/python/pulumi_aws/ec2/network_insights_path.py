@@ -514,7 +514,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Network Insights Path.
         """
@@ -530,7 +530,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> pulumi.Output[str]:
+    def destination_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the destination.
         """
@@ -572,7 +572,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceArn")
-    def source_arn(self) -> pulumi.Output[str]:
+    def source_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the source.
         """

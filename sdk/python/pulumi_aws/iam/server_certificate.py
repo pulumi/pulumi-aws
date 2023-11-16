@@ -677,7 +677,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) specifying the server certificate.
         """
@@ -704,7 +704,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def expiration(self) -> pulumi.Output[str]:
+    def expiration(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
         """
@@ -721,7 +721,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -770,7 +770,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uploadDate")
-    def upload_date(self) -> pulumi.Output[str]:
+    def upload_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
         """

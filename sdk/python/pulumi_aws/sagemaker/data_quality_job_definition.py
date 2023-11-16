@@ -627,7 +627,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
         """
@@ -699,7 +699,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stoppingCondition")
-    def stopping_condition(self) -> pulumi.Output['outputs.DataQualityJobDefinitionStoppingCondition']:
+    def stopping_condition(self) -> pulumi.Output[Optional['outputs.DataQualityJobDefinitionStoppingCondition']]:
         """
         A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
         """

@@ -77,7 +77,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Full ARN of the repository.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Catalog data configuration for the repository. See below for schema.
      */
@@ -86,7 +86,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The registry ID where the repository was created.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string | undefined>;
     /**
      * Name of the repository.
      */
@@ -94,7 +94,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The URI of the repository.
      */
-    public /*out*/ readonly repositoryUri!: pulumi.Output<string>;
+    public /*out*/ readonly repositoryUri!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

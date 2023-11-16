@@ -6,6 +6,8 @@ package com.pulumi.aws.lakeformation.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPermissionsDataLocation extends com.pulumi.resources.InvokeArgs {
@@ -35,15 +37,15 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
      * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
      * 
      */
-    @Import(name="catalogId", required=true)
-    private String catalogId;
+    @Import(name="catalogId")
+    private @Nullable String catalogId;
 
     /**
      * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
 
     private GetPermissionsDataLocation() {}
@@ -90,14 +92,13 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
          * @return builder
          * 
          */
-        public Builder catalogId(String catalogId) {
+        public Builder catalogId(@Nullable String catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
         public GetPermissionsDataLocation build() {
             $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
             return $;
         }
     }

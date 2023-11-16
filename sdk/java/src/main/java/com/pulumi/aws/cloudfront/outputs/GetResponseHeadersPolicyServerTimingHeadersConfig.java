@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicyServerTimingHeadersConfig {
@@ -14,27 +16,27 @@ public final class GetResponseHeadersPolicyServerTimingHeadersConfig {
      * @return Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
      * 
      */
-    private Double samplingRate;
+    private @Nullable Double samplingRate;
 
     private GetResponseHeadersPolicyServerTimingHeadersConfig() {}
     /**
      * @return Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return Number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
      * 
      */
-    public Double samplingRate() {
-        return this.samplingRate;
+    public Optional<Double> samplingRate() {
+        return Optional.ofNullable(this.samplingRate);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetResponseHeadersPolicyServerTimingHeadersConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private Double samplingRate;
+        private @Nullable Boolean enabled;
+        private @Nullable Double samplingRate;
         public Builder() {}
         public Builder(GetResponseHeadersPolicyServerTimingHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetResponseHeadersPolicyServerTimingHeadersConfig {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder samplingRate(Double samplingRate) {
-            this.samplingRate = Objects.requireNonNull(samplingRate);
+        public Builder samplingRate(@Nullable Double samplingRate) {
+            this.samplingRate = samplingRate;
             return this;
         }
         public GetResponseHeadersPolicyServerTimingHeadersConfig build() {

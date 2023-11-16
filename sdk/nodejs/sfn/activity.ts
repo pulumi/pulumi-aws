@@ -55,7 +55,7 @@ export class Activity extends pulumi.CustomResource {
     /**
      * The date the activity was created.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * The name of the activity to create.
      */

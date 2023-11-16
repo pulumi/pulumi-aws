@@ -486,7 +486,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the block list.
         """
@@ -518,7 +518,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="querySuggestionsBlockListId")
-    def query_suggestions_block_list_id(self) -> pulumi.Output[str]:
+    def query_suggestions_block_list_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique identifier of the block list.
         """
@@ -544,7 +544,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property

@@ -156,7 +156,7 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Comment to describe the origin request policy.
         /// </summary>
-        public readonly string Comment;
+        public readonly string? Comment;
         /// <summary>
         /// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Current version of the origin request policy.
         /// </summary>
-        public readonly string Etag;
+        public readonly string? Etag;
         /// <summary>
         /// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         /// </summary>
@@ -178,11 +178,11 @@ namespace Pulumi.Aws.CloudFront
 
         [OutputConstructor]
         private GetOriginRequestPolicyResult(
-            string comment,
+            string? comment,
 
             ImmutableArray<Outputs.GetOriginRequestPolicyCookiesConfigResult> cookiesConfigs,
 
-            string etag,
+            string? etag,
 
             ImmutableArray<Outputs.GetOriginRequestPolicyHeadersConfigResult> headersConfigs,
 

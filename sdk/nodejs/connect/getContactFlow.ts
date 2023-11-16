@@ -78,26 +78,26 @@ export interface GetContactFlowResult {
     /**
      * ARN of the Contact Flow.
      */
-    readonly arn: string;
-    readonly contactFlowId: string;
+    readonly arn?: string;
+    readonly contactFlowId?: string;
     /**
      * Logic of the Contact Flow.
      */
-    readonly content: string;
+    readonly content?: string;
     /**
      * Description of the Contact Flow.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
-    readonly name: string;
+    readonly name?: string;
     /**
      * Tags to assign to the Contact Flow.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Type of Contact Flow.
      */

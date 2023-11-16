@@ -62,27 +62,27 @@ export class DelegatedAdministrator extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator's account.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date when the account was made a delegated administrator.
      */
-    public /*out*/ readonly delegationEnabledDate!: pulumi.Output<string>;
+    public /*out*/ readonly delegationEnabledDate!: pulumi.Output<string | undefined>;
     /**
      * The email address that is associated with the delegated administrator's AWS account.
      */
-    public /*out*/ readonly email!: pulumi.Output<string>;
+    public /*out*/ readonly email!: pulumi.Output<string | undefined>;
     /**
      * The method by which the delegated administrator's account joined the organization.
      */
-    public /*out*/ readonly joinedMethod!: pulumi.Output<string>;
+    public /*out*/ readonly joinedMethod!: pulumi.Output<string | undefined>;
     /**
      * The date when the delegated administrator's account became a part of the organization.
      */
-    public /*out*/ readonly joinedTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly joinedTimestamp!: pulumi.Output<string | undefined>;
     /**
      * The friendly name of the delegated administrator's account.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
      */
@@ -90,7 +90,7 @@ export class DelegatedAdministrator extends pulumi.CustomResource {
     /**
      * The status of the delegated administrator's account in the organization.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DelegatedAdministrator resource with the given unique name, arguments, and options.

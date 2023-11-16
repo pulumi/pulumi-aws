@@ -70,7 +70,7 @@ type GetImageRecipesResult struct {
 	Arns    []string                `pulumi:"arns"`
 	Filters []GetImageRecipesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of names of the matched Image Builder Image Recipes.
 	Names []string `pulumi:"names"`
 	Owner *string  `pulumi:"owner"`
@@ -126,8 +126,8 @@ func (o GetImageRecipesResultOutput) Filters() GetImageRecipesFilterArrayOutput 
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetImageRecipesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageRecipesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetImageRecipesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageRecipesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of names of the matched Image Builder Image Recipes.

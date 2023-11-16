@@ -162,22 +162,22 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Previewed CIDR from the pool.
         /// </summary>
-        public readonly string Cidr;
+        public readonly string? Cidr;
         public readonly ImmutableArray<string> DisallowedCidrs;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string IpamPoolId;
         public readonly int? NetmaskLength;
 
         [OutputConstructor]
         private GetIpamPreviewNextCidrResult(
-            string cidr,
+            string? cidr,
 
             ImmutableArray<string> disallowedCidrs,
 
-            string id,
+            string? id,
 
             string ipamPoolId,
 

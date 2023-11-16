@@ -22,23 +22,23 @@ public final class GetAvailabilityZonesResult {
      * @return A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
      * 
      */
-    private List<String> groupNames;
+    private @Nullable List<String> groupNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of the Availability Zone names available to the account.
      * 
      */
-    private List<String> names;
+    private @Nullable List<String> names;
     private @Nullable String state;
     /**
      * @return List of the Availability Zone IDs available to the account.
      * 
      */
-    private List<String> zoneIds;
+    private @Nullable List<String> zoneIds;
 
     private GetAvailabilityZonesResult() {}
     public Optional<Boolean> allAvailabilityZones() {
@@ -58,21 +58,21 @@ public final class GetAvailabilityZonesResult {
      * 
      */
     public List<String> groupNames() {
-        return this.groupNames;
+        return this.groupNames == null ? List.of() : this.groupNames;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of the Availability Zone names available to the account.
      * 
      */
     public List<String> names() {
-        return this.names;
+        return this.names == null ? List.of() : this.names;
     }
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
@@ -82,7 +82,7 @@ public final class GetAvailabilityZonesResult {
      * 
      */
     public List<String> zoneIds() {
-        return this.zoneIds;
+        return this.zoneIds == null ? List.of() : this.zoneIds;
     }
 
     public static Builder builder() {
@@ -98,11 +98,11 @@ public final class GetAvailabilityZonesResult {
         private @Nullable List<String> excludeNames;
         private @Nullable List<String> excludeZoneIds;
         private @Nullable List<GetAvailabilityZonesFilter> filters;
-        private List<String> groupNames;
-        private String id;
-        private List<String> names;
+        private @Nullable List<String> groupNames;
+        private @Nullable String id;
+        private @Nullable List<String> names;
         private @Nullable String state;
-        private List<String> zoneIds;
+        private @Nullable List<String> zoneIds;
         public Builder() {}
         public Builder(GetAvailabilityZonesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -147,21 +147,21 @@ public final class GetAvailabilityZonesResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder groupNames(List<String> groupNames) {
-            this.groupNames = Objects.requireNonNull(groupNames);
+        public Builder groupNames(@Nullable List<String> groupNames) {
+            this.groupNames = groupNames;
             return this;
         }
         public Builder groupNames(String... groupNames) {
             return groupNames(List.of(groupNames));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+        public Builder names(@Nullable List<String> names) {
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
@@ -173,8 +173,8 @@ public final class GetAvailabilityZonesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder zoneIds(List<String> zoneIds) {
-            this.zoneIds = Objects.requireNonNull(zoneIds);
+        public Builder zoneIds(@Nullable List<String> zoneIds) {
+            this.zoneIds = zoneIds;
             return this;
         }
         public Builder zoneIds(String... zoneIds) {

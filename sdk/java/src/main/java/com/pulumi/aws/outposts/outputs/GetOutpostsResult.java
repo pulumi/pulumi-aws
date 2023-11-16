@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOutpostsResult {
@@ -14,21 +16,21 @@ public final class GetOutpostsResult {
      * @return Set of Amazon Resource Names (ARNs).
      * 
      */
-    private List<String> arns;
-    private String availabilityZone;
-    private String availabilityZoneId;
+    private @Nullable List<String> arns;
+    private @Nullable String availabilityZone;
+    private @Nullable String availabilityZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set of identifiers.
      * 
      */
-    private List<String> ids;
-    private String ownerId;
-    private String siteId;
+    private @Nullable List<String> ids;
+    private @Nullable String ownerId;
+    private @Nullable String siteId;
 
     private GetOutpostsResult() {}
     /**
@@ -36,33 +38,33 @@ public final class GetOutpostsResult {
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
-    public String availabilityZoneId() {
-        return this.availabilityZoneId;
+    public Optional<String> availabilityZoneId() {
+        return Optional.ofNullable(this.availabilityZoneId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set of identifiers.
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
-    public String siteId() {
-        return this.siteId;
+    public Optional<String> siteId() {
+        return Optional.ofNullable(this.siteId);
     }
 
     public static Builder builder() {
@@ -74,13 +76,13 @@ public final class GetOutpostsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> arns;
-        private String availabilityZone;
-        private String availabilityZoneId;
-        private String id;
-        private List<String> ids;
-        private String ownerId;
-        private String siteId;
+        private @Nullable List<String> arns;
+        private @Nullable String availabilityZone;
+        private @Nullable String availabilityZoneId;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
+        private @Nullable String ownerId;
+        private @Nullable String siteId;
         public Builder() {}
         public Builder(GetOutpostsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -94,44 +96,44 @@ public final class GetOutpostsResult {
         }
 
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZoneId(String availabilityZoneId) {
-            this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
+        public Builder availabilityZoneId(@Nullable String availabilityZoneId) {
+            this.availabilityZoneId = availabilityZoneId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder siteId(String siteId) {
-            this.siteId = Objects.requireNonNull(siteId);
+        public Builder siteId(@Nullable String siteId) {
+            this.siteId = siteId;
             return this;
         }
         public GetOutpostsResult build() {

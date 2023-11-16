@@ -145,75 +145,75 @@ namespace Pulumi.Aws.Mq
     [OutputType]
     public sealed class GetBrokerResult
     {
-        public readonly string Arn;
-        public readonly string AuthenticationStrategy;
-        public readonly bool AutoMinorVersionUpgrade;
-        public readonly string BrokerId;
-        public readonly string BrokerName;
-        public readonly Outputs.GetBrokerConfigurationResult Configuration;
-        public readonly string DeploymentMode;
+        public readonly string? Arn;
+        public readonly string? AuthenticationStrategy;
+        public readonly bool? AutoMinorVersionUpgrade;
+        public readonly string? BrokerId;
+        public readonly string? BrokerName;
+        public readonly Outputs.GetBrokerConfigurationResult? Configuration;
+        public readonly string? DeploymentMode;
         public readonly ImmutableArray<Outputs.GetBrokerEncryptionOptionResult> EncryptionOptions;
-        public readonly string EngineType;
-        public readonly string EngineVersion;
-        public readonly string HostInstanceType;
+        public readonly string? EngineType;
+        public readonly string? EngineVersion;
+        public readonly string? HostInstanceType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<Outputs.GetBrokerInstanceResult> Instances;
         public readonly ImmutableArray<Outputs.GetBrokerLdapServerMetadataResult> LdapServerMetadatas;
-        public readonly Outputs.GetBrokerLogsResult Logs;
-        public readonly Outputs.GetBrokerMaintenanceWindowStartTimeResult MaintenanceWindowStartTime;
-        public readonly bool PubliclyAccessible;
+        public readonly Outputs.GetBrokerLogsResult? Logs;
+        public readonly Outputs.GetBrokerMaintenanceWindowStartTimeResult? MaintenanceWindowStartTime;
+        public readonly bool? PubliclyAccessible;
         public readonly ImmutableArray<string> SecurityGroups;
-        public readonly string StorageType;
+        public readonly string? StorageType;
         public readonly ImmutableArray<string> SubnetIds;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly ImmutableArray<Outputs.GetBrokerUserResult> Users;
 
         [OutputConstructor]
         private GetBrokerResult(
-            string arn,
+            string? arn,
 
-            string authenticationStrategy,
+            string? authenticationStrategy,
 
-            bool autoMinorVersionUpgrade,
+            bool? autoMinorVersionUpgrade,
 
-            string brokerId,
+            string? brokerId,
 
-            string brokerName,
+            string? brokerName,
 
-            Outputs.GetBrokerConfigurationResult configuration,
+            Outputs.GetBrokerConfigurationResult? configuration,
 
-            string deploymentMode,
+            string? deploymentMode,
 
             ImmutableArray<Outputs.GetBrokerEncryptionOptionResult> encryptionOptions,
 
-            string engineType,
+            string? engineType,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string hostInstanceType,
+            string? hostInstanceType,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetBrokerInstanceResult> instances,
 
             ImmutableArray<Outputs.GetBrokerLdapServerMetadataResult> ldapServerMetadatas,
 
-            Outputs.GetBrokerLogsResult logs,
+            Outputs.GetBrokerLogsResult? logs,
 
-            Outputs.GetBrokerMaintenanceWindowStartTimeResult maintenanceWindowStartTime,
+            Outputs.GetBrokerMaintenanceWindowStartTimeResult? maintenanceWindowStartTime,
 
-            bool publiclyAccessible,
+            bool? publiclyAccessible,
 
             ImmutableArray<string> securityGroups,
 
-            string storageType,
+            string? storageType,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.GetBrokerUserResult> users)
         {

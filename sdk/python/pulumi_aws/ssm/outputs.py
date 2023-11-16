@@ -1190,11 +1190,11 @@ class GetMaintenanceWindowsFilterResult(dict):
 @pulumi.output_type
 class GetPatchBaselineApprovalRuleResult(dict):
     def __init__(__self__, *,
-                 approve_after_days: int,
-                 approve_until_date: str,
-                 compliance_level: str,
-                 enable_non_security: bool,
-                 patch_filters: Sequence['outputs.GetPatchBaselineApprovalRulePatchFilterResult']):
+                 approve_after_days: Optional[int] = None,
+                 approve_until_date: Optional[str] = None,
+                 compliance_level: Optional[str] = None,
+                 enable_non_security: Optional[bool] = None,
+                 patch_filters: Optional[Sequence['outputs.GetPatchBaselineApprovalRulePatchFilterResult']] = None):
         """
         :param int approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
         :param str approve_until_date: The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
@@ -1202,15 +1202,20 @@ class GetPatchBaselineApprovalRuleResult(dict):
         :param bool enable_non_security: Boolean enabling the application of non-security updates.
         :param Sequence['GetPatchBaselineApprovalRulePatchFilterArgs'] patch_filters: The patch filter group that defines the criteria for the rule.
         """
-        pulumi.set(__self__, "approve_after_days", approve_after_days)
-        pulumi.set(__self__, "approve_until_date", approve_until_date)
-        pulumi.set(__self__, "compliance_level", compliance_level)
-        pulumi.set(__self__, "enable_non_security", enable_non_security)
-        pulumi.set(__self__, "patch_filters", patch_filters)
+        if approve_after_days is not None:
+            pulumi.set(__self__, "approve_after_days", approve_after_days)
+        if approve_until_date is not None:
+            pulumi.set(__self__, "approve_until_date", approve_until_date)
+        if compliance_level is not None:
+            pulumi.set(__self__, "compliance_level", compliance_level)
+        if enable_non_security is not None:
+            pulumi.set(__self__, "enable_non_security", enable_non_security)
+        if patch_filters is not None:
+            pulumi.set(__self__, "patch_filters", patch_filters)
 
     @property
     @pulumi.getter(name="approveAfterDays")
-    def approve_after_days(self) -> int:
+    def approve_after_days(self) -> Optional[int]:
         """
         The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
         """
@@ -1218,7 +1223,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
 
     @property
     @pulumi.getter(name="approveUntilDate")
-    def approve_until_date(self) -> str:
+    def approve_until_date(self) -> Optional[str]:
         """
         The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         """
@@ -1226,7 +1231,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
 
     @property
     @pulumi.getter(name="complianceLevel")
-    def compliance_level(self) -> str:
+    def compliance_level(self) -> Optional[str]:
         """
         The compliance level for patches approved by this rule.
         """
@@ -1234,7 +1239,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
 
     @property
     @pulumi.getter(name="enableNonSecurity")
-    def enable_non_security(self) -> bool:
+    def enable_non_security(self) -> Optional[bool]:
         """
         Boolean enabling the application of non-security updates.
         """
@@ -1242,7 +1247,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
 
     @property
     @pulumi.getter(name="patchFilters")
-    def patch_filters(self) -> Sequence['outputs.GetPatchBaselineApprovalRulePatchFilterResult']:
+    def patch_filters(self) -> Optional[Sequence['outputs.GetPatchBaselineApprovalRulePatchFilterResult']]:
         """
         The patch filter group that defines the criteria for the rule.
         """
@@ -1252,18 +1257,20 @@ class GetPatchBaselineApprovalRuleResult(dict):
 @pulumi.output_type
 class GetPatchBaselineApprovalRulePatchFilterResult(dict):
     def __init__(__self__, *,
-                 key: str,
-                 values: Sequence[str]):
+                 key: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
         """
         :param str key: The key for the filter.
         :param Sequence[str] values: The value for the filter.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         """
         The key for the filter.
         """
@@ -1271,7 +1278,7 @@ class GetPatchBaselineApprovalRulePatchFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Sequence[str]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         The value for the filter.
         """
@@ -1281,18 +1288,20 @@ class GetPatchBaselineApprovalRulePatchFilterResult(dict):
 @pulumi.output_type
 class GetPatchBaselineGlobalFilterResult(dict):
     def __init__(__self__, *,
-                 key: str,
-                 values: Sequence[str]):
+                 key: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
         """
         :param str key: The key for the filter.
         :param Sequence[str] values: The value for the filter.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         """
         The key for the filter.
         """
@@ -1300,7 +1309,7 @@ class GetPatchBaselineGlobalFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Sequence[str]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         The value for the filter.
         """
@@ -1310,21 +1319,24 @@ class GetPatchBaselineGlobalFilterResult(dict):
 @pulumi.output_type
 class GetPatchBaselineSourceResult(dict):
     def __init__(__self__, *,
-                 configuration: str,
-                 name: str,
-                 products: Sequence[str]):
+                 configuration: Optional[str] = None,
+                 name: Optional[str] = None,
+                 products: Optional[Sequence[str]] = None):
         """
         :param str configuration: The value of the yum repo configuration.
         :param str name: The name specified to identify the patch source.
         :param Sequence[str] products: The specific operating system versions a patch repository applies to.
         """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "products", products)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if products is not None:
+            pulumi.set(__self__, "products", products)
 
     @property
     @pulumi.getter
-    def configuration(self) -> str:
+    def configuration(self) -> Optional[str]:
         """
         The value of the yum repo configuration.
         """
@@ -1332,7 +1344,7 @@ class GetPatchBaselineSourceResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name specified to identify the patch source.
         """
@@ -1340,7 +1352,7 @@ class GetPatchBaselineSourceResult(dict):
 
     @property
     @pulumi.getter
-    def products(self) -> Sequence[str]:
+    def products(self) -> Optional[Sequence[str]]:
         """
         The specific operating system versions a patch repository applies to.
         """

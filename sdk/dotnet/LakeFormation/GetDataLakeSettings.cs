@@ -108,7 +108,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         /// </summary>
-        public readonly bool AllowExternalDataFiltering;
+        public readonly bool? AllowExternalDataFiltering;
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         /// </summary>
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.LakeFormation
         private GetDataLakeSettingsResult(
             ImmutableArray<string> admins,
 
-            bool allowExternalDataFiltering,
+            bool? allowExternalDataFiltering,
 
             ImmutableArray<string> authorizedSessionTagValueLists,
 
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.LakeFormation
 
             ImmutableArray<string> externalDataFilteringAllowLists,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> readOnlyAdmins,
 

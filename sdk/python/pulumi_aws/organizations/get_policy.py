@@ -49,7 +49,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name of the policy.
         """
@@ -57,7 +57,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="awsManaged")
-    def aws_managed(self) -> bool:
+    def aws_managed(self) -> Optional[bool]:
         """
         Indicates if a policy is an AWS managed policy.
         """
@@ -65,7 +65,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> Optional[str]:
         """
         The text content of the policy.
         """
@@ -73,7 +73,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The description of the policy.
         """
@@ -81,7 +81,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -89,7 +89,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The friendly name of the policy.
         """
@@ -102,7 +102,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The type of policy values can be `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
         """

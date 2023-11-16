@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Ecs
         /// ARN that identifies the cluster.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The execute command configuration for the cluster. Detailed below.

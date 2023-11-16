@@ -760,7 +760,7 @@ class FileCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the resource.
         """
@@ -776,7 +776,7 @@ class FileCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataRepositoryAssociationIds")
-    def data_repository_association_ids(self) -> pulumi.Output[Sequence[str]]:
+    def data_repository_association_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IDs of data repository associations that are associated with this cache.
         """
@@ -793,7 +793,7 @@ class FileCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The Domain Name System (DNS) name for the cache.
         """
@@ -801,7 +801,7 @@ class FileCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileCacheId")
-    def file_cache_id(self) -> pulumi.Output[str]:
+    def file_cache_id(self) -> pulumi.Output[Optional[str]]:
         """
         The system-generated, unique ID of the cache.
         """
@@ -825,7 +825,7 @@ class FileCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         """
@@ -841,7 +841,7 @@ class FileCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
+    def network_interface_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of network interface IDs.
         """
@@ -849,7 +849,7 @@ class FileCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "owner_id")
 
     @property
@@ -896,7 +896,7 @@ class FileCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of your virtual private cloud (VPC).
         """

@@ -85,7 +85,7 @@ import (
 // if err != nil {
 // return err
 // }
-// iamPolicyForLambdaPolicyDocument := mytopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// iamPolicyForLambdaPolicyDocument := mytopic.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -127,7 +127,7 @@ type TopicRule struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the topic rule
-	Arn               pulumi.StringOutput                  `pulumi:"arn"`
+	Arn               pulumi.StringPtrOutput               `pulumi:"arn"`
 	CloudwatchAlarms  TopicRuleCloudwatchAlarmArrayOutput  `pulumi:"cloudwatchAlarms"`
 	CloudwatchLogs    TopicRuleCloudwatchLogArrayOutput    `pulumi:"cloudwatchLogs"`
 	CloudwatchMetrics TopicRuleCloudwatchMetricArrayOutput `pulumi:"cloudwatchMetrics"`
@@ -458,8 +458,8 @@ func (o TopicRuleOutput) ToTopicRuleOutputWithContext(ctx context.Context) Topic
 }
 
 // The ARN of the topic rule
-func (o TopicRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TopicRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o TopicRuleOutput) CloudwatchAlarms() TopicRuleCloudwatchAlarmArrayOutput {

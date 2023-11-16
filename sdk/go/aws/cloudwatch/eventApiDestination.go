@@ -59,7 +59,7 @@ type EventApiDestination struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the event API Destination.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN of the EventBridge Connection to use for the API Destination.
 	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
 	// The description of the new API Destination. Maximum of 512 characters.
@@ -269,8 +269,8 @@ func (o EventApiDestinationOutput) ToEventApiDestinationOutputWithContext(ctx co
 }
 
 // The Amazon Resource Name (ARN) of the event API Destination.
-func (o EventApiDestinationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventApiDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EventApiDestinationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventApiDestination) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the EventBridge Connection to use for the API Destination.

@@ -60,12 +60,12 @@ type LookupSelectionArgs struct {
 // A collection of values returned by getSelection.
 type LookupSelectionResult struct {
 	// ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-	IamRoleArn string `pulumi:"iamRoleArn"`
+	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Display name of a resource selection document.
-	Name   string `pulumi:"name"`
-	PlanId string `pulumi:"planId"`
+	Name   *string `pulumi:"name"`
+	PlanId string  `pulumi:"planId"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
 	Resources   []string `pulumi:"resources"`
 	SelectionId string   `pulumi:"selectionId"`
@@ -112,18 +112,18 @@ func (o LookupSelectionResultOutput) ToLookupSelectionResultOutputWithContext(ct
 }
 
 // ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-func (o LookupSelectionResultOutput) IamRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSelectionResult) string { return v.IamRoleArn }).(pulumi.StringOutput)
+func (o LookupSelectionResultOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSelectionResult) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSelectionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSelectionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSelectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSelectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Display name of a resource selection document.
-func (o LookupSelectionResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSelectionResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupSelectionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSelectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSelectionResultOutput) PlanId() pulumi.StringOutput {

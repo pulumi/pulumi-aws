@@ -46,13 +46,13 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The DNS address of the VPC endpoint.
         /// </summary>
         [Output("address")]
-        public Output<string> Address { get; private set; } = null!;
+        public Output<string?> Address { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the endpoint.
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The port that Amazon Redshift Serverless listens on.
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// An array of VPC subnet IDs to associate with the endpoint.

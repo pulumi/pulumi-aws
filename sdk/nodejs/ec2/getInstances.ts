@@ -83,25 +83,25 @@ export interface GetInstancesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IDs of instances found through the filter
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly instanceStateNames?: string[];
-    readonly instanceTags: {[key: string]: string};
+    readonly instanceTags?: {[key: string]: string};
     /**
      * IPv6 addresses of instances found through the filter
      */
-    readonly ipv6Addresses: string[];
+    readonly ipv6Addresses?: string[];
     /**
      * Private IP addresses of instances found through the filter
      */
-    readonly privateIps: string[];
+    readonly privateIps?: string[];
     /**
      * Public IP addresses of instances found through the filter
      */
-    readonly publicIps: string[];
+    readonly publicIps?: string[];
 }
 /**
  * Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,

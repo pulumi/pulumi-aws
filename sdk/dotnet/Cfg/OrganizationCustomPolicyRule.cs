@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Cfg
         /// Amazon Resource Name (ARN) of the rule
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// List of AWS account identifiers to exclude from the rule

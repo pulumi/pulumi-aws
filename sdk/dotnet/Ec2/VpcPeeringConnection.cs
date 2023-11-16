@@ -166,14 +166,14 @@ namespace Pulumi.Aws.Ec2
         /// The status of the VPC Peering Connection request.
         /// </summary>
         [Output("acceptStatus")]
-        public Output<string> AcceptStatus { get; private set; } = null!;
+        public Output<string?> AcceptStatus { get; private set; } = null!;
 
         /// <summary>
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
         /// the peering connection (a maximum of one).
         /// </summary>
         [Output("accepter")]
-        public Output<Outputs.VpcPeeringConnectionAccepter> Accepter { get; private set; } = null!;
+        public Output<Outputs.VpcPeeringConnectionAccepter?> Accepter { get; private set; } = null!;
 
         /// <summary>
         /// Accept the peering (both VPCs need to be in the same AWS account and region).
@@ -186,14 +186,14 @@ namespace Pulumi.Aws.Ec2
         /// Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
         [Output("peerOwnerId")]
-        public Output<string> PeerOwnerId { get; private set; } = null!;
+        public Output<string?> PeerOwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
         /// and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         /// </summary>
         [Output("peerRegion")]
-        public Output<string> PeerRegion { get; private set; } = null!;
+        public Output<string?> PeerRegion { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the VPC with which you are creating the VPC Peering Connection.
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Ec2
         /// the peering connection (a maximum of one).
         /// </summary>
         [Output("requester")]
-        public Output<Outputs.VpcPeeringConnectionRequester> Requester { get; private set; } = null!;
+        public Output<Outputs.VpcPeeringConnectionRequester?> Requester { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

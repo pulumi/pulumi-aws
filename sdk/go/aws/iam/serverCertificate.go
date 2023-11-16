@@ -166,7 +166,7 @@ type ServerCertificate struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) specifying the server certificate.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The contents of the public key certificate in
 	// PEM-encoded format.
 	CertificateBody pulumi.StringOutput `pulumi:"certificateBody"`
@@ -175,13 +175,13 @@ type ServerCertificate struct {
 	// of the chain.
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-	Expiration pulumi.StringOutput `pulumi:"expiration"`
+	Expiration pulumi.StringPtrOutput `pulumi:"expiration"`
 	// The name of the Server Certificate. Do not include the
 	// path in this value. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The IAM path for the server certificate.  If it is not
 	// included, it defaults to a slash (/). If this certificate is for use with
 	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
@@ -198,7 +198,7 @@ type ServerCertificate struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
-	UploadDate pulumi.StringOutput `pulumi:"uploadDate"`
+	UploadDate pulumi.StringPtrOutput `pulumi:"uploadDate"`
 }
 
 // NewServerCertificate registers a new resource with the given unique name, arguments, and options.
@@ -465,8 +465,8 @@ func (o ServerCertificateOutput) ToServerCertificateOutputWithContext(ctx contex
 }
 
 // The Amazon Resource Name (ARN) specifying the server certificate.
-func (o ServerCertificateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServerCertificateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The contents of the public key certificate in
@@ -483,8 +483,8 @@ func (o ServerCertificateOutput) CertificateChain() pulumi.StringPtrOutput {
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-func (o ServerCertificateOutput) Expiration() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.Expiration }).(pulumi.StringOutput)
+func (o ServerCertificateOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Server Certificate. Do not include the
@@ -495,8 +495,8 @@ func (o ServerCertificateOutput) Name() pulumi.StringOutput {
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (o ServerCertificateOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o ServerCertificateOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The IAM path for the server certificate.  If it is not
@@ -527,8 +527,8 @@ func (o ServerCertificateOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
-func (o ServerCertificateOutput) UploadDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.UploadDate }).(pulumi.StringOutput)
+func (o ServerCertificateOutput) UploadDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.UploadDate }).(pulumi.StringPtrOutput)
 }
 
 type ServerCertificateArrayOutput struct{ *pulumi.OutputState }

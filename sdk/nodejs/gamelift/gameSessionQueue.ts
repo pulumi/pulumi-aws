@@ -74,7 +74,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
     /**
      * Game Session Queue ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Information to be added to all events that are related to this game session queue.
      */

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Iam.Outputs
     [OutputType]
     public sealed class GetPrincipalPolicySimulationResultMatchedStatementResult
     {
-        public readonly string SourcePolicyId;
-        public readonly string SourcePolicyType;
+        public readonly string? SourcePolicyId;
+        public readonly string? SourcePolicyType;
 
         [OutputConstructor]
         private GetPrincipalPolicySimulationResultMatchedStatementResult(
-            string sourcePolicyId,
+            string? sourcePolicyId,
 
-            string sourcePolicyType)
+            string? sourcePolicyType)
         {
             SourcePolicyId = sourcePolicyId;
             SourcePolicyType = sourcePolicyType;

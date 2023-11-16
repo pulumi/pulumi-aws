@@ -137,17 +137,17 @@ type DataQualityRuleset struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Glue Data Quality Ruleset.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The time and date that this data quality ruleset was created.
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
+	CreatedOn pulumi.StringPtrOutput `pulumi:"createdOn"`
 	// Description of the data quality ruleset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The time and date that this data quality ruleset was created.
-	LastModifiedOn pulumi.StringOutput `pulumi:"lastModifiedOn"`
+	LastModifiedOn pulumi.StringPtrOutput `pulumi:"lastModifiedOn"`
 	// Name of the data quality ruleset.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
-	RecommendationRunId pulumi.StringOutput `pulumi:"recommendationRunId"`
+	RecommendationRunId pulumi.StringPtrOutput `pulumi:"recommendationRunId"`
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringOutput `pulumi:"ruleset"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -365,13 +365,13 @@ func (o DataQualityRulesetOutput) ToDataQualityRulesetOutputWithContext(ctx cont
 }
 
 // ARN of the Glue Data Quality Ruleset.
-func (o DataQualityRulesetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DataQualityRulesetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The time and date that this data quality ruleset was created.
-func (o DataQualityRulesetOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+func (o DataQualityRulesetOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringPtrOutput { return v.CreatedOn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the data quality ruleset.
@@ -380,8 +380,8 @@ func (o DataQualityRulesetOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The time and date that this data quality ruleset was created.
-func (o DataQualityRulesetOutput) LastModifiedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.LastModifiedOn }).(pulumi.StringOutput)
+func (o DataQualityRulesetOutput) LastModifiedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringPtrOutput { return v.LastModifiedOn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the data quality ruleset.
@@ -390,8 +390,8 @@ func (o DataQualityRulesetOutput) Name() pulumi.StringOutput {
 }
 
 // When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
-func (o DataQualityRulesetOutput) RecommendationRunId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.RecommendationRunId }).(pulumi.StringOutput)
+func (o DataQualityRulesetOutput) RecommendationRunId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringPtrOutput { return v.RecommendationRunId }).(pulumi.StringPtrOutput)
 }
 
 // A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.

@@ -56,7 +56,7 @@ type FolderMembership struct {
 	pulumi.CustomResourceState
 
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// Identifier for the folder.
 	FolderId pulumi.StringOutput `pulumi:"folderId"`
 	// ID of the asset (the dashboard, analysis, or dataset).
@@ -250,8 +250,8 @@ func (o FolderMembershipOutput) ToFolderMembershipOutputWithContext(ctx context.
 }
 
 // AWS account ID.
-func (o FolderMembershipOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o FolderMembershipOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FolderMembership) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier for the folder.

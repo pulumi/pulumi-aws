@@ -59,11 +59,11 @@ export interface GetRouterConfigurationResult {
     /**
      * Instructions for configuring your router
      */
-    readonly customerRouterConfig: string;
+    readonly customerRouterConfig?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Router type identifier
      */
@@ -71,9 +71,9 @@ export interface GetRouterConfigurationResult {
     /**
      * Block of the router type details
      */
-    readonly routers: outputs.directconnect.GetRouterConfigurationRouter[];
+    readonly routers?: outputs.directconnect.GetRouterConfigurationRouter[];
     readonly virtualInterfaceId: string;
-    readonly virtualInterfaceName: string;
+    readonly virtualInterfaceName?: string;
 }
 /**
  * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.

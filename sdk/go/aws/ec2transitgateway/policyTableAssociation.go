@@ -54,9 +54,9 @@ type PolicyTableAssociation struct {
 	pulumi.CustomResourceState
 
 	// Identifier of the resource
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// Type of the resource
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Policy Table.
@@ -227,13 +227,13 @@ func (o PolicyTableAssociationOutput) ToPolicyTableAssociationOutputWithContext(
 }
 
 // Identifier of the resource
-func (o PolicyTableAssociationOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+func (o PolicyTableAssociationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Type of the resource
-func (o PolicyTableAssociationOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+func (o PolicyTableAssociationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of EC2 Transit Gateway Attachment.

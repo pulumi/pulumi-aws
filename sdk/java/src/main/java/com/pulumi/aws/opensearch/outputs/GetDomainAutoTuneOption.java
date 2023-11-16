@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainAutoTuneOption {
@@ -15,39 +17,39 @@ public final class GetDomainAutoTuneOption {
      * @return Auto-Tune desired state for the domain.
      * 
      */
-    private String desiredState;
+    private @Nullable String desiredState;
     /**
      * @return A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
      * 
      */
-    private List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules;
+    private @Nullable List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules;
     /**
      * @return Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
      * 
      */
-    private String rollbackOnDisable;
+    private @Nullable String rollbackOnDisable;
 
     private GetDomainAutoTuneOption() {}
     /**
      * @return Auto-Tune desired state for the domain.
      * 
      */
-    public String desiredState() {
-        return this.desiredState;
+    public Optional<String> desiredState() {
+        return Optional.ofNullable(this.desiredState);
     }
     /**
      * @return A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
      * 
      */
     public List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules() {
-        return this.maintenanceSchedules;
+        return this.maintenanceSchedules == null ? List.of() : this.maintenanceSchedules;
     }
     /**
      * @return Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
      * 
      */
-    public String rollbackOnDisable() {
-        return this.rollbackOnDisable;
+    public Optional<String> rollbackOnDisable() {
+        return Optional.ofNullable(this.rollbackOnDisable);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetDomainAutoTuneOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String desiredState;
-        private List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules;
-        private String rollbackOnDisable;
+        private @Nullable String desiredState;
+        private @Nullable List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules;
+        private @Nullable String rollbackOnDisable;
         public Builder() {}
         public Builder(GetDomainAutoTuneOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetDomainAutoTuneOption {
         }
 
         @CustomType.Setter
-        public Builder desiredState(String desiredState) {
-            this.desiredState = Objects.requireNonNull(desiredState);
+        public Builder desiredState(@Nullable String desiredState) {
+            this.desiredState = desiredState;
             return this;
         }
         @CustomType.Setter
-        public Builder maintenanceSchedules(List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules) {
-            this.maintenanceSchedules = Objects.requireNonNull(maintenanceSchedules);
+        public Builder maintenanceSchedules(@Nullable List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules) {
+            this.maintenanceSchedules = maintenanceSchedules;
             return this;
         }
         public Builder maintenanceSchedules(GetDomainAutoTuneOptionMaintenanceSchedule... maintenanceSchedules) {
             return maintenanceSchedules(List.of(maintenanceSchedules));
         }
         @CustomType.Setter
-        public Builder rollbackOnDisable(String rollbackOnDisable) {
-            this.rollbackOnDisable = Objects.requireNonNull(rollbackOnDisable);
+        public Builder rollbackOnDisable(@Nullable String rollbackOnDisable) {
+            this.rollbackOnDisable = rollbackOnDisable;
             return this;
         }
         public GetDomainAutoTuneOption build() {

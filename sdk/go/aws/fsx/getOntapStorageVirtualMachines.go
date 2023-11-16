@@ -67,7 +67,7 @@ type GetOntapStorageVirtualMachinesArgs struct {
 type GetOntapStorageVirtualMachinesResult struct {
 	Filters []GetOntapStorageVirtualMachinesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all SVM IDs found.
 	Ids []string `pulumi:"ids"`
 }
@@ -115,8 +115,8 @@ func (o GetOntapStorageVirtualMachinesResultOutput) Filters() GetOntapStorageVir
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetOntapStorageVirtualMachinesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachinesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetOntapStorageVirtualMachinesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachinesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all SVM IDs found.

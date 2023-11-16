@@ -18,12 +18,12 @@ public final class GetLogDataProtectionPolicyDocumentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Standard JSON policy document rendered based on the arguments above.
      * 
      */
-    private String json;
+    private @Nullable String json;
     private String name;
     private List<GetLogDataProtectionPolicyDocumentStatement> statements;
     private @Nullable String version;
@@ -36,15 +36,15 @@ public final class GetLogDataProtectionPolicyDocumentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Standard JSON policy document rendered based on the arguments above.
      * 
      */
-    public String json() {
-        return this.json;
+    public Optional<String> json() {
+        return Optional.ofNullable(this.json);
     }
     public String name() {
         return this.name;
@@ -66,8 +66,8 @@ public final class GetLogDataProtectionPolicyDocumentResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
-        private String id;
-        private String json;
+        private @Nullable String id;
+        private @Nullable String json;
         private String name;
         private List<GetLogDataProtectionPolicyDocumentStatement> statements;
         private @Nullable String version;
@@ -88,13 +88,13 @@ public final class GetLogDataProtectionPolicyDocumentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+        public Builder json(@Nullable String json) {
+            this.json = json;
             return this;
         }
         @CustomType.Setter

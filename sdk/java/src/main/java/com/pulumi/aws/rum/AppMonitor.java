@@ -68,56 +68,56 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="appMonitorConfiguration", refs={AppMonitorAppMonitorConfiguration.class}, tree="[0]")
-    private Output<AppMonitorAppMonitorConfiguration> appMonitorConfiguration;
+    private Output</* @Nullable */ AppMonitorAppMonitorConfiguration> appMonitorConfiguration;
 
     /**
      * @return configuration data for the app monitor. See app_monitor_configuration below.
      * 
      */
-    public Output<AppMonitorAppMonitorConfiguration> appMonitorConfiguration() {
-        return this.appMonitorConfiguration;
+    public Output<Optional<AppMonitorAppMonitorConfiguration>> appMonitorConfiguration() {
+        return Codegen.optional(this.appMonitorConfiguration);
     }
     /**
      * The unique ID of the app monitor. Useful for JS templates.
      * 
      */
     @Export(name="appMonitorId", refs={String.class}, tree="[0]")
-    private Output<String> appMonitorId;
+    private Output</* @Nullable */ String> appMonitorId;
 
     /**
      * @return The unique ID of the app monitor. Useful for JS templates.
      * 
      */
-    public Output<String> appMonitorId() {
-        return this.appMonitorId;
+    public Output<Optional<String>> appMonitorId() {
+        return Codegen.optional(this.appMonitorId);
     }
     /**
      * The Amazon Resource Name (ARN) specifying the app monitor.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) specifying the app monitor.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
      * 
      */
     @Export(name="customEvents", refs={AppMonitorCustomEvents.class}, tree="[0]")
-    private Output<AppMonitorCustomEvents> customEvents;
+    private Output</* @Nullable */ AppMonitorCustomEvents> customEvents;
 
     /**
      * @return Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
      * 
      */
-    public Output<AppMonitorCustomEvents> customEvents() {
-        return this.customEvents;
+    public Output<Optional<AppMonitorCustomEvents>> customEvents() {
+        return Codegen.optional(this.customEvents);
     }
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
@@ -138,14 +138,14 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cwLogGroup", refs={String.class}, tree="[0]")
-    private Output<String> cwLogGroup;
+    private Output</* @Nullable */ String> cwLogGroup;
 
     /**
      * @return The name of the log group where the copies are stored.
      * 
      */
-    public Output<String> cwLogGroup() {
-        return this.cwLogGroup;
+    public Output<Optional<String>> cwLogGroup() {
+        return Codegen.optional(this.cwLogGroup);
     }
     /**
      * The top-level internet domain name for which your application has administrative authority.

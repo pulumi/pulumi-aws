@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecGrpcRouteResult> GrpcRoutes;
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteResult> Http2Routes;
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecHttpRouteResult> HttpRoutes;
-        public readonly int Priority;
+        public readonly int? Priority;
 
         [OutputConstructor]
         private GetGatewayRouteSpecResult(
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             ImmutableArray<Outputs.GetGatewayRouteSpecHttpRouteResult> httpRoutes,
 
-            int priority)
+            int? priority)
         {
             GrpcRoutes = grpcRoutes;
             Http2Routes = http2Routes;

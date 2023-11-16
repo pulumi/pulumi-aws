@@ -66,7 +66,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * The ARN of the parameter group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description for the parameter group.
      */
@@ -84,7 +84,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
      */

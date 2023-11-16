@@ -66,28 +66,28 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
-    private Output<String> amazonSideAsn;
+    private Output</* @Nullable */ String> amazonSideAsn;
 
     /**
      * @return The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
      * 
      */
-    public Output<String> amazonSideAsn() {
-        return this.amazonSideAsn;
+    public Output<Optional<String>> amazonSideAsn() {
+        return Codegen.optional(this.amazonSideAsn);
     }
     /**
      * Amazon Resource Name (ARN) of the VPN Gateway.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the VPN Gateway.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Availability Zone for the virtual private gateway.
@@ -140,14 +140,14 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The VPC ID to create in.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

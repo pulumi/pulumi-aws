@@ -118,45 +118,45 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// The date the security policy was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Description of the security policy.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The date the security policy was last modified.
         /// </summary>
-        public readonly string LastModifiedDate;
+        public readonly string? LastModifiedDate;
         public readonly string Name;
         /// <summary>
         /// The JSON policy document without any whitespaces.
         /// </summary>
-        public readonly string Policy;
+        public readonly string? Policy;
         /// <summary>
         /// Version of the policy.
         /// </summary>
-        public readonly string PolicyVersion;
+        public readonly string? PolicyVersion;
         public readonly string Type;
 
         [OutputConstructor]
         private GetServerlessSecurityPolicyResult(
-            string createdDate,
+            string? createdDate,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string lastModifiedDate,
+            string? lastModifiedDate,
 
             string name,
 
-            string policy,
+            string? policy,
 
-            string policyVersion,
+            string? policyVersion,
 
             string type)
         {

@@ -90,23 +90,23 @@ type LookupInstanceArgs struct {
 // A collection of values returned by getInstance.
 type LookupInstanceResult struct {
 	// ID of the AMI used to launch the instance.
-	Ami string `pulumi:"ami"`
+	Ami *string `pulumi:"ami"`
 	// ARN of the instance.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Whether or not the Instance is associated with a public IP address or not (Boolean).
-	AssociatePublicIpAddress bool `pulumi:"associatePublicIpAddress"`
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
 	// Availability zone of the Instance.
-	AvailabilityZone string `pulumi:"availabilityZone"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Credit specification of the Instance.
 	CreditSpecifications []GetInstanceCreditSpecification `pulumi:"creditSpecifications"`
 	// Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
-	DisableApiStop bool `pulumi:"disableApiStop"`
+	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
-	DisableApiTermination bool `pulumi:"disableApiTermination"`
+	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// EBS block device mappings of the Instance.
 	EbsBlockDevices []GetInstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// Whether the Instance is EBS optimized or not (Boolean).
-	EbsOptimized bool `pulumi:"ebsOptimized"`
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
 	// Enclave options of the instance.
 	EnclaveOptions []GetInstanceEnclaveOption `pulumi:"enclaveOptions"`
 	// Ephemeral block device mappings of the Instance.
@@ -115,49 +115,49 @@ type LookupInstanceResult struct {
 	GetPasswordData       *bool                             `pulumi:"getPasswordData"`
 	GetUserData           *bool                             `pulumi:"getUserData"`
 	// ID of the dedicated host the instance will be assigned to.
-	HostId string `pulumi:"hostId"`
+	HostId *string `pulumi:"hostId"`
 	// ARN of the host resource group the instance is associated with.
-	HostResourceGroupArn string `pulumi:"hostResourceGroupArn"`
+	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
 	// Name of the instance profile associated with the Instance.
-	IamInstanceProfile string `pulumi:"iamInstanceProfile"`
+	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string  `pulumi:"id"`
+	Id         *string `pulumi:"id"`
 	InstanceId *string `pulumi:"instanceId"`
 	// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-	InstanceState string            `pulumi:"instanceState"`
+	InstanceState *string           `pulumi:"instanceState"`
 	InstanceTags  map[string]string `pulumi:"instanceTags"`
 	// Type of the Instance.
-	InstanceType string `pulumi:"instanceType"`
+	InstanceType *string `pulumi:"instanceType"`
 	// IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Key name of the Instance.
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// Maintenance and recovery options for the instance.
 	MaintenanceOptions []GetInstanceMaintenanceOption `pulumi:"maintenanceOptions"`
 	// Metadata options of the Instance.
 	MetadataOptions []GetInstanceMetadataOption `pulumi:"metadataOptions"`
 	// Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
-	Monitoring bool `pulumi:"monitoring"`
+	Monitoring *bool `pulumi:"monitoring"`
 	// ID of the network interface that was created with the Instance.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// ARN of the Outpost.
-	OutpostArn string `pulumi:"outpostArn"`
+	OutpostArn *string `pulumi:"outpostArn"`
 	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-	PasswordData string `pulumi:"passwordData"`
+	PasswordData *string `pulumi:"passwordData"`
 	// Placement group of the Instance.
-	PlacementGroup string `pulumi:"placementGroup"`
+	PlacementGroup *string `pulumi:"placementGroup"`
 	// Number of the partition the instance is in.
-	PlacementPartitionNumber int `pulumi:"placementPartitionNumber"`
+	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
 	// Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
-	PrivateDns string `pulumi:"privateDns"`
+	PrivateDns *string `pulumi:"privateDns"`
 	// Options for the instance hostname.
 	PrivateDnsNameOptions []GetInstancePrivateDnsNameOption `pulumi:"privateDnsNameOptions"`
 	// Private IP address assigned to the Instance.
-	PrivateIp string `pulumi:"privateIp"`
+	PrivateIp *string `pulumi:"privateIp"`
 	// Public DNS name assigned to the Instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
-	PublicDns string `pulumi:"publicDns"`
+	PublicDns *string `pulumi:"publicDns"`
 	// Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
-	PublicIp string `pulumi:"publicIp"`
+	PublicIp *string `pulumi:"publicIp"`
 	// Root block device mappings of the Instance
 	RootBlockDevices []GetInstanceRootBlockDevice `pulumi:"rootBlockDevices"`
 	// Secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
@@ -165,17 +165,17 @@ type LookupInstanceResult struct {
 	// Associated security groups.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether the network interface performs source/destination checking (Boolean).
-	SourceDestCheck bool `pulumi:"sourceDestCheck"`
+	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// VPC subnet ID.
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 	// Map of tags assigned to the Instance.
 	Tags map[string]string `pulumi:"tags"`
 	// Tenancy of the instance: `dedicated`, `default`, `host`.
-	Tenancy string `pulumi:"tenancy"`
+	Tenancy *string `pulumi:"tenancy"`
 	// SHA-1 hash of User Data supplied to the Instance.
-	UserData string `pulumi:"userData"`
+	UserData *string `pulumi:"userData"`
 	// Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `getUserData` is true.
-	UserDataBase64 string `pulumi:"userDataBase64"`
+	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// Associated security groups in a non-default VPC.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -238,23 +238,23 @@ func (o LookupInstanceResultOutput) ToLookupInstanceResultOutputWithContext(ctx 
 }
 
 // ID of the AMI used to launch the instance.
-func (o LookupInstanceResultOutput) Ami() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.Ami }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) Ami() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Ami }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the instance.
-func (o LookupInstanceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether or not the Instance is associated with a public IP address or not (Boolean).
-func (o LookupInstanceResultOutput) AssociatePublicIpAddress() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.AssociatePublicIpAddress }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
 // Availability zone of the Instance.
-func (o LookupInstanceResultOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // Credit specification of the Instance.
@@ -263,13 +263,13 @@ func (o LookupInstanceResultOutput) CreditSpecifications() GetInstanceCreditSpec
 }
 
 // Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
-func (o LookupInstanceResultOutput) DisableApiStop() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.DisableApiStop }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) DisableApiStop() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
 // Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
-func (o LookupInstanceResultOutput) DisableApiTermination() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.DisableApiTermination }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
 }
 
 // EBS block device mappings of the Instance.
@@ -278,8 +278,8 @@ func (o LookupInstanceResultOutput) EbsBlockDevices() GetInstanceEbsBlockDeviceA
 }
 
 // Whether the Instance is EBS optimized or not (Boolean).
-func (o LookupInstanceResultOutput) EbsOptimized() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.EbsOptimized }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
 // Enclave options of the instance.
@@ -305,23 +305,23 @@ func (o LookupInstanceResultOutput) GetUserData() pulumi.BoolPtrOutput {
 }
 
 // ID of the dedicated host the instance will be assigned to.
-func (o LookupInstanceResultOutput) HostId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.HostId }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the host resource group the instance is associated with.
-func (o LookupInstanceResultOutput) HostResourceGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.HostResourceGroupArn }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the instance profile associated with the Instance.
-func (o LookupInstanceResultOutput) IamInstanceProfile() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.IamInstanceProfile }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) IamInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.IamInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupInstanceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupInstanceResultOutput) InstanceId() pulumi.StringPtrOutput {
@@ -329,8 +329,8 @@ func (o LookupInstanceResultOutput) InstanceId() pulumi.StringPtrOutput {
 }
 
 // State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-func (o LookupInstanceResultOutput) InstanceState() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.InstanceState }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) InstanceState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceState }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupInstanceResultOutput) InstanceTags() pulumi.StringMapOutput {
@@ -338,8 +338,8 @@ func (o LookupInstanceResultOutput) InstanceTags() pulumi.StringMapOutput {
 }
 
 // Type of the Instance.
-func (o LookupInstanceResultOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
@@ -348,8 +348,8 @@ func (o LookupInstanceResultOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 }
 
 // Key name of the Instance.
-func (o LookupInstanceResultOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.KeyName }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
 // Maintenance and recovery options for the instance.
@@ -363,38 +363,38 @@ func (o LookupInstanceResultOutput) MetadataOptions() GetInstanceMetadataOptionA
 }
 
 // Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
-func (o LookupInstanceResultOutput) Monitoring() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.Monitoring }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) Monitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.Monitoring }).(pulumi.BoolPtrOutput)
 }
 
 // ID of the network interface that was created with the Instance.
-func (o LookupInstanceResultOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Outpost.
-func (o LookupInstanceResultOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-func (o LookupInstanceResultOutput) PasswordData() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.PasswordData }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) PasswordData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PasswordData }).(pulumi.StringPtrOutput)
 }
 
 // Placement group of the Instance.
-func (o LookupInstanceResultOutput) PlacementGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.PlacementGroup }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) PlacementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PlacementGroup }).(pulumi.StringPtrOutput)
 }
 
 // Number of the partition the instance is in.
-func (o LookupInstanceResultOutput) PlacementPartitionNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupInstanceResult) int { return v.PlacementPartitionNumber }).(pulumi.IntOutput)
+func (o LookupInstanceResultOutput) PlacementPartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *int { return v.PlacementPartitionNumber }).(pulumi.IntPtrOutput)
 }
 
 // Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
-func (o LookupInstanceResultOutput) PrivateDns() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.PrivateDns }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) PrivateDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PrivateDns }).(pulumi.StringPtrOutput)
 }
 
 // Options for the instance hostname.
@@ -403,18 +403,18 @@ func (o LookupInstanceResultOutput) PrivateDnsNameOptions() GetInstancePrivateDn
 }
 
 // Private IP address assigned to the Instance.
-func (o LookupInstanceResultOutput) PrivateIp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.PrivateIp }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) PrivateIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PrivateIp }).(pulumi.StringPtrOutput)
 }
 
 // Public DNS name assigned to the Instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
-func (o LookupInstanceResultOutput) PublicDns() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.PublicDns }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) PublicDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PublicDns }).(pulumi.StringPtrOutput)
 }
 
 // Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
-func (o LookupInstanceResultOutput) PublicIp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.PublicIp }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) PublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PublicIp }).(pulumi.StringPtrOutput)
 }
 
 // Root block device mappings of the Instance
@@ -433,13 +433,13 @@ func (o LookupInstanceResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 }
 
 // Whether the network interface performs source/destination checking (Boolean).
-func (o LookupInstanceResultOutput) SourceDestCheck() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.SourceDestCheck }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) SourceDestCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.SourceDestCheck }).(pulumi.BoolPtrOutput)
 }
 
 // VPC subnet ID.
-func (o LookupInstanceResultOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the Instance.
@@ -448,18 +448,18 @@ func (o LookupInstanceResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Tenancy of the instance: `dedicated`, `default`, `host`.
-func (o LookupInstanceResultOutput) Tenancy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.Tenancy }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
 
 // SHA-1 hash of User Data supplied to the Instance.
-func (o LookupInstanceResultOutput) UserData() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.UserData }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `getUserData` is true.
-func (o LookupInstanceResultOutput) UserDataBase64() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.UserDataBase64 }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) UserDataBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.UserDataBase64 }).(pulumi.StringPtrOutput)
 }
 
 // Associated security groups in a non-default VPC.

@@ -6,6 +6,8 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
@@ -13,27 +15,27 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
      * @return Starting hour of the 10-hour window for updates
      * 
      */
-    private Integer hours;
+    private @Nullable Integer hours;
     /**
      * @return Starting minute of the 10-hour window for updates
      * 
      */
-    private Integer minutes;
+    private @Nullable Integer minutes;
 
     private GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime() {}
     /**
      * @return Starting hour of the 10-hour window for updates
      * 
      */
-    public Integer hours() {
-        return this.hours;
+    public Optional<Integer> hours() {
+        return Optional.ofNullable(this.hours);
     }
     /**
      * @return Starting minute of the 10-hour window for updates
      * 
      */
-    public Integer minutes() {
-        return this.minutes;
+    public Optional<Integer> minutes() {
+        return Optional.ofNullable(this.minutes);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer hours;
-        private Integer minutes;
+        private @Nullable Integer hours;
+        private @Nullable Integer minutes;
         public Builder() {}
         public Builder(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
         }
 
         @CustomType.Setter
-        public Builder hours(Integer hours) {
-            this.hours = Objects.requireNonNull(hours);
+        public Builder hours(@Nullable Integer hours) {
+            this.hours = hours;
             return this;
         }
         @CustomType.Setter
-        public Builder minutes(Integer minutes) {
-            this.minutes = Objects.requireNonNull(minutes);
+        public Builder minutes(@Nullable Integer minutes) {
+            this.minutes = minutes;
             return this;
         }
         public GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime build() {

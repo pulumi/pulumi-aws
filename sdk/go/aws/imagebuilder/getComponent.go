@@ -60,33 +60,33 @@ type LookupComponentArgs struct {
 type LookupComponentResult struct {
 	Arn string `pulumi:"arn"`
 	// Change description of the component.
-	ChangeDescription string `pulumi:"changeDescription"`
+	ChangeDescription *string `pulumi:"changeDescription"`
 	// Data of the component.
-	Data string `pulumi:"data"`
+	Data *string `pulumi:"data"`
 	// Date the component was created.
-	DateCreated string `pulumi:"dateCreated"`
+	DateCreated *string `pulumi:"dateCreated"`
 	// Description of the component.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Encryption status of the component.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted *bool `pulumi:"encrypted"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN of the Key Management Service (KMS) Key used to encrypt the component.
-	KmsKeyId string `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the component.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Owner of the component.
-	Owner string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
 	// Platform of the component.
-	Platform string `pulumi:"platform"`
+	Platform *string `pulumi:"platform"`
 	// Operating Systems (OSes) supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
 	// Key-value map of resource tags for the component.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the component.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// Version of the component.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, opts ...pulumi.InvokeOption) LookupComponentResultOutput {
@@ -134,53 +134,53 @@ func (o LookupComponentResultOutput) Arn() pulumi.StringOutput {
 }
 
 // Change description of the component.
-func (o LookupComponentResultOutput) ChangeDescription() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.ChangeDescription }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) ChangeDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.ChangeDescription }).(pulumi.StringPtrOutput)
 }
 
 // Data of the component.
-func (o LookupComponentResultOutput) Data() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.Data }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
 // Date the component was created.
-func (o LookupComponentResultOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.DateCreated }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Description of the component.
-func (o LookupComponentResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Encryption status of the component.
-func (o LookupComponentResultOutput) Encrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupComponentResult) bool { return v.Encrypted }).(pulumi.BoolOutput)
+func (o LookupComponentResultOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupComponentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Key Management Service (KMS) Key used to encrypt the component.
-func (o LookupComponentResultOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the component.
-func (o LookupComponentResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Owner of the component.
-func (o LookupComponentResultOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.Owner }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // Platform of the component.
-func (o LookupComponentResultOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.Platform }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // Operating Systems (OSes) supported by the component.
@@ -194,13 +194,13 @@ func (o LookupComponentResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Type of the component.
-func (o LookupComponentResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Version of the component.
-func (o LookupComponentResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupComponentResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupComponentResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

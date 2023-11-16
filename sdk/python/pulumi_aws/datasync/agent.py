@@ -496,7 +496,7 @@ class Agent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> pulumi.Output[str]:
+    def activation_key(self) -> pulumi.Output[Optional[str]]:
         """
         DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
         """
@@ -504,7 +504,7 @@ class Agent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the DataSync Agent.
         """
@@ -512,7 +512,7 @@ class Agent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> pulumi.Output[str]:
+    def ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         """
@@ -528,7 +528,7 @@ class Agent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkEndpoint")
-    def private_link_endpoint(self) -> pulumi.Output[str]:
+    def private_link_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         """

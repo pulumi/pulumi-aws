@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResourceTagsResult {
@@ -14,21 +16,21 @@ public final class GetResourceTagsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String resourceId;
     /**
      * @return Map of key=value pairs for each tag set on the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetResourceTagsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String resourceId() {
         return this.resourceId;
@@ -38,7 +40,7 @@ public final class GetResourceTagsResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -50,9 +52,9 @@ public final class GetResourceTagsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private String resourceId;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetResourceTagsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -62,8 +64,8 @@ public final class GetResourceTagsResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -72,8 +74,8 @@ public final class GetResourceTagsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetResourceTagsResult build() {

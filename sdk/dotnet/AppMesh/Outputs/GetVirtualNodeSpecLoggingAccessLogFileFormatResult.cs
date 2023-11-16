@@ -14,13 +14,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualNodeSpecLoggingAccessLogFileFormatResult
     {
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult> Jsons;
-        public readonly string Text;
+        public readonly string? Text;
 
         [OutputConstructor]
         private GetVirtualNodeSpecLoggingAccessLogFileFormatResult(
             ImmutableArray<Outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult> jsons,
 
-            string text)
+            string? text)
         {
             Jsons = jsons;
             Text = text;

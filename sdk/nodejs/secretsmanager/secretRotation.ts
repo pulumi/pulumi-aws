@@ -72,7 +72,7 @@ export class SecretRotation extends pulumi.CustomResource {
     /**
      * Specifies whether automatic rotation is enabled for this secret.
      */
-    public /*out*/ readonly rotationEnabled!: pulumi.Output<boolean>;
+    public /*out*/ readonly rotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      */

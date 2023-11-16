@@ -62,7 +62,7 @@ namespace Pulumi.Aws.WafV2
         /// The Amazon Resource Name (ARN) that identifies the cluster.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A friendly description of the regular expression pattern set.
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("lockToken")]
-        public Output<string> LockToken { get; private set; } = null!;
+        public Output<string?> LockToken { get; private set; } = null!;
 
         /// <summary>
         /// A friendly name of the regular expression pattern set.

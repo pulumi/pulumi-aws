@@ -13,14 +13,14 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GetTableServerSideEncryptionResult
     {
-        public readonly bool Enabled;
-        public readonly string KmsKeyArn;
+        public readonly bool? Enabled;
+        public readonly string? KmsKeyArn;
 
         [OutputConstructor]
         private GetTableServerSideEncryptionResult(
-            bool enabled,
+            bool? enabled,
 
-            string kmsKeyArn)
+            string? kmsKeyArn)
         {
             Enabled = enabled;
             KmsKeyArn = kmsKeyArn;

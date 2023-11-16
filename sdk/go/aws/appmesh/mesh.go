@@ -80,17 +80,17 @@ type Mesh struct {
 	pulumi.CustomResourceState
 
 	// ARN of the service mesh.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Creation date of the service mesh.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// Last update date of the service mesh.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate pulumi.StringPtrOutput `pulumi:"lastUpdatedDate"`
 	// AWS account ID of the service mesh's owner.
-	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
+	MeshOwner pulumi.StringPtrOutput `pulumi:"meshOwner"`
 	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource owner's AWS account ID.
-	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
+	ResourceOwner pulumi.StringPtrOutput `pulumi:"resourceOwner"`
 	// Service mesh specification to apply.
 	Spec MeshSpecPtrOutput `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -291,23 +291,23 @@ func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 }
 
 // ARN of the service mesh.
-func (o MeshOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MeshOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Creation date of the service mesh.
-func (o MeshOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o MeshOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Last update date of the service mesh.
-func (o MeshOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o MeshOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringPtrOutput { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID of the service mesh's owner.
-func (o MeshOutput) MeshOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
+func (o MeshOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringPtrOutput { return v.MeshOwner }).(pulumi.StringPtrOutput)
 }
 
 // Name to use for the service mesh. Must be between 1 and 255 characters in length.
@@ -316,8 +316,8 @@ func (o MeshOutput) Name() pulumi.StringOutput {
 }
 
 // Resource owner's AWS account ID.
-func (o MeshOutput) ResourceOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+func (o MeshOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringPtrOutput { return v.ResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // Service mesh specification to apply.

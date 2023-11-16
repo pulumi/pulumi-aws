@@ -13,12 +13,12 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetLogicalTableMapDataTransformTagColumnOperationResult
     {
-        public readonly string ColumnName;
+        public readonly string? ColumnName;
         public readonly ImmutableArray<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult> Tags;
 
         [OutputConstructor]
         private GetDataSetLogicalTableMapDataTransformTagColumnOperationResult(
-            string columnName,
+            string? columnName,
 
             ImmutableArray<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult> tags)
         {

@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecHttpRouteActionRewriteHostname {
-    private String defaultTargetHostname;
+    private @Nullable String defaultTargetHostname;
 
     private GetGatewayRouteSpecHttpRouteActionRewriteHostname() {}
-    public String defaultTargetHostname() {
-        return this.defaultTargetHostname;
+    public Optional<String> defaultTargetHostname() {
+        return Optional.ofNullable(this.defaultTargetHostname);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetGatewayRouteSpecHttpRouteActionRewriteHostname {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String defaultTargetHostname;
+        private @Nullable String defaultTargetHostname;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttpRouteActionRewriteHostname defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetGatewayRouteSpecHttpRouteActionRewriteHostname {
         }
 
         @CustomType.Setter
-        public Builder defaultTargetHostname(String defaultTargetHostname) {
-            this.defaultTargetHostname = Objects.requireNonNull(defaultTargetHostname);
+        public Builder defaultTargetHostname(@Nullable String defaultTargetHostname) {
+            this.defaultTargetHostname = defaultTargetHostname;
             return this;
         }
         public GetGatewayRouteSpecHttpRouteActionRewriteHostname build() {

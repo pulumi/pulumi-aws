@@ -50,9 +50,9 @@ type Container struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the container.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The DNS endpoint of the container.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -233,13 +233,13 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 }
 
 // The ARN of the container.
-func (o ContainerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ContainerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The DNS endpoint of the container.
-func (o ContainerOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ContainerOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The name of the container. Must contain alphanumeric characters or underscores.

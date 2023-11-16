@@ -20,138 +20,138 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBudgetResult {
-    private String accountId;
-    private String arn;
+    private @Nullable String accountId;
+    private @Nullable String arn;
     /**
      * @return Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      * 
      */
-    private List<GetBudgetAutoAdjustData> autoAdjustDatas;
+    private @Nullable List<GetBudgetAutoAdjustData> autoAdjustDatas;
     /**
      * @return Boolean indicating whether this budget has been exceeded.
      * 
      */
-    private Boolean budgetExceeded;
+    private @Nullable Boolean budgetExceeded;
     /**
      * @return The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
      * 
      */
-    private List<GetBudgetBudgetLimit> budgetLimits;
+    private @Nullable List<GetBudgetBudgetLimit> budgetLimits;
     /**
      * @return Whether this budget tracks monetary cost or usage.
      * 
      */
-    private String budgetType;
+    private @Nullable String budgetType;
     /**
      * @return The spend objects that are associated with this budget. The actualSpend tracks how much you&#39;ve used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you&#39;re predicted to spend based on your historical usage profile.
      * 
      */
-    private List<GetBudgetCalculatedSpend> calculatedSpends;
+    private @Nullable List<GetBudgetCalculatedSpend> calculatedSpends;
     /**
      * @return A list of CostFilter name/values pair to apply to budget.
      * 
      */
-    private List<GetBudgetCostFilter> costFilters;
+    private @Nullable List<GetBudgetCostFilter> costFilters;
     /**
      * @return Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      * 
      */
-    private List<GetBudgetCostType> costTypes;
+    private @Nullable List<GetBudgetCostType> costTypes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     private @Nullable String namePrefix;
     /**
      * @return Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      * 
      */
-    private List<GetBudgetNotification> notifications;
+    private @Nullable List<GetBudgetNotification> notifications;
     /**
      * @return Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
-    private List<GetBudgetPlannedLimit> plannedLimits;
+    private @Nullable List<GetBudgetPlannedLimit> plannedLimits;
     /**
      * @return The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    private String timePeriodEnd;
+    private @Nullable String timePeriodEnd;
     /**
      * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    private String timePeriodStart;
+    private @Nullable String timePeriodStart;
     /**
      * @return The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      * 
      */
-    private String timeUnit;
+    private @Nullable String timeUnit;
 
     private GetBudgetResult() {}
-    public String accountId() {
-        return this.accountId;
+    public Optional<String> accountId() {
+        return Optional.ofNullable(this.accountId);
     }
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      * 
      */
     public List<GetBudgetAutoAdjustData> autoAdjustDatas() {
-        return this.autoAdjustDatas;
+        return this.autoAdjustDatas == null ? List.of() : this.autoAdjustDatas;
     }
     /**
      * @return Boolean indicating whether this budget has been exceeded.
      * 
      */
-    public Boolean budgetExceeded() {
-        return this.budgetExceeded;
+    public Optional<Boolean> budgetExceeded() {
+        return Optional.ofNullable(this.budgetExceeded);
     }
     /**
      * @return The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
      * 
      */
     public List<GetBudgetBudgetLimit> budgetLimits() {
-        return this.budgetLimits;
+        return this.budgetLimits == null ? List.of() : this.budgetLimits;
     }
     /**
      * @return Whether this budget tracks monetary cost or usage.
      * 
      */
-    public String budgetType() {
-        return this.budgetType;
+    public Optional<String> budgetType() {
+        return Optional.ofNullable(this.budgetType);
     }
     /**
      * @return The spend objects that are associated with this budget. The actualSpend tracks how much you&#39;ve used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you&#39;re predicted to spend based on your historical usage profile.
      * 
      */
     public List<GetBudgetCalculatedSpend> calculatedSpends() {
-        return this.calculatedSpends;
+        return this.calculatedSpends == null ? List.of() : this.calculatedSpends;
     }
     /**
      * @return A list of CostFilter name/values pair to apply to budget.
      * 
      */
     public List<GetBudgetCostFilter> costFilters() {
-        return this.costFilters;
+        return this.costFilters == null ? List.of() : this.costFilters;
     }
     /**
      * @return Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      * 
      */
     public List<GetBudgetCostType> costTypes() {
-        return this.costTypes;
+        return this.costTypes == null ? List.of() : this.costTypes;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -164,35 +164,35 @@ public final class GetBudgetResult {
      * 
      */
     public List<GetBudgetNotification> notifications() {
-        return this.notifications;
+        return this.notifications == null ? List.of() : this.notifications;
     }
     /**
      * @return Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
     public List<GetBudgetPlannedLimit> plannedLimits() {
-        return this.plannedLimits;
+        return this.plannedLimits == null ? List.of() : this.plannedLimits;
     }
     /**
      * @return The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    public String timePeriodEnd() {
-        return this.timePeriodEnd;
+    public Optional<String> timePeriodEnd() {
+        return Optional.ofNullable(this.timePeriodEnd);
     }
     /**
      * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    public String timePeriodStart() {
-        return this.timePeriodStart;
+    public Optional<String> timePeriodStart() {
+        return Optional.ofNullable(this.timePeriodStart);
     }
     /**
      * @return The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      * 
      */
-    public String timeUnit() {
-        return this.timeUnit;
+    public Optional<String> timeUnit() {
+        return Optional.ofNullable(this.timeUnit);
     }
 
     public static Builder builder() {
@@ -204,23 +204,23 @@ public final class GetBudgetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountId;
-        private String arn;
-        private List<GetBudgetAutoAdjustData> autoAdjustDatas;
-        private Boolean budgetExceeded;
-        private List<GetBudgetBudgetLimit> budgetLimits;
-        private String budgetType;
-        private List<GetBudgetCalculatedSpend> calculatedSpends;
-        private List<GetBudgetCostFilter> costFilters;
-        private List<GetBudgetCostType> costTypes;
-        private String id;
+        private @Nullable String accountId;
+        private @Nullable String arn;
+        private @Nullable List<GetBudgetAutoAdjustData> autoAdjustDatas;
+        private @Nullable Boolean budgetExceeded;
+        private @Nullable List<GetBudgetBudgetLimit> budgetLimits;
+        private @Nullable String budgetType;
+        private @Nullable List<GetBudgetCalculatedSpend> calculatedSpends;
+        private @Nullable List<GetBudgetCostFilter> costFilters;
+        private @Nullable List<GetBudgetCostType> costTypes;
+        private @Nullable String id;
         private String name;
         private @Nullable String namePrefix;
-        private List<GetBudgetNotification> notifications;
-        private List<GetBudgetPlannedLimit> plannedLimits;
-        private String timePeriodEnd;
-        private String timePeriodStart;
-        private String timeUnit;
+        private @Nullable List<GetBudgetNotification> notifications;
+        private @Nullable List<GetBudgetPlannedLimit> plannedLimits;
+        private @Nullable String timePeriodEnd;
+        private @Nullable String timePeriodStart;
+        private @Nullable String timeUnit;
         public Builder() {}
         public Builder(GetBudgetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -244,68 +244,68 @@ public final class GetBudgetResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+        public Builder accountId(@Nullable String accountId) {
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder autoAdjustDatas(List<GetBudgetAutoAdjustData> autoAdjustDatas) {
-            this.autoAdjustDatas = Objects.requireNonNull(autoAdjustDatas);
+        public Builder autoAdjustDatas(@Nullable List<GetBudgetAutoAdjustData> autoAdjustDatas) {
+            this.autoAdjustDatas = autoAdjustDatas;
             return this;
         }
         public Builder autoAdjustDatas(GetBudgetAutoAdjustData... autoAdjustDatas) {
             return autoAdjustDatas(List.of(autoAdjustDatas));
         }
         @CustomType.Setter
-        public Builder budgetExceeded(Boolean budgetExceeded) {
-            this.budgetExceeded = Objects.requireNonNull(budgetExceeded);
+        public Builder budgetExceeded(@Nullable Boolean budgetExceeded) {
+            this.budgetExceeded = budgetExceeded;
             return this;
         }
         @CustomType.Setter
-        public Builder budgetLimits(List<GetBudgetBudgetLimit> budgetLimits) {
-            this.budgetLimits = Objects.requireNonNull(budgetLimits);
+        public Builder budgetLimits(@Nullable List<GetBudgetBudgetLimit> budgetLimits) {
+            this.budgetLimits = budgetLimits;
             return this;
         }
         public Builder budgetLimits(GetBudgetBudgetLimit... budgetLimits) {
             return budgetLimits(List.of(budgetLimits));
         }
         @CustomType.Setter
-        public Builder budgetType(String budgetType) {
-            this.budgetType = Objects.requireNonNull(budgetType);
+        public Builder budgetType(@Nullable String budgetType) {
+            this.budgetType = budgetType;
             return this;
         }
         @CustomType.Setter
-        public Builder calculatedSpends(List<GetBudgetCalculatedSpend> calculatedSpends) {
-            this.calculatedSpends = Objects.requireNonNull(calculatedSpends);
+        public Builder calculatedSpends(@Nullable List<GetBudgetCalculatedSpend> calculatedSpends) {
+            this.calculatedSpends = calculatedSpends;
             return this;
         }
         public Builder calculatedSpends(GetBudgetCalculatedSpend... calculatedSpends) {
             return calculatedSpends(List.of(calculatedSpends));
         }
         @CustomType.Setter
-        public Builder costFilters(List<GetBudgetCostFilter> costFilters) {
-            this.costFilters = Objects.requireNonNull(costFilters);
+        public Builder costFilters(@Nullable List<GetBudgetCostFilter> costFilters) {
+            this.costFilters = costFilters;
             return this;
         }
         public Builder costFilters(GetBudgetCostFilter... costFilters) {
             return costFilters(List.of(costFilters));
         }
         @CustomType.Setter
-        public Builder costTypes(List<GetBudgetCostType> costTypes) {
-            this.costTypes = Objects.requireNonNull(costTypes);
+        public Builder costTypes(@Nullable List<GetBudgetCostType> costTypes) {
+            this.costTypes = costTypes;
             return this;
         }
         public Builder costTypes(GetBudgetCostType... costTypes) {
             return costTypes(List.of(costTypes));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -319,34 +319,34 @@ public final class GetBudgetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder notifications(List<GetBudgetNotification> notifications) {
-            this.notifications = Objects.requireNonNull(notifications);
+        public Builder notifications(@Nullable List<GetBudgetNotification> notifications) {
+            this.notifications = notifications;
             return this;
         }
         public Builder notifications(GetBudgetNotification... notifications) {
             return notifications(List.of(notifications));
         }
         @CustomType.Setter
-        public Builder plannedLimits(List<GetBudgetPlannedLimit> plannedLimits) {
-            this.plannedLimits = Objects.requireNonNull(plannedLimits);
+        public Builder plannedLimits(@Nullable List<GetBudgetPlannedLimit> plannedLimits) {
+            this.plannedLimits = plannedLimits;
             return this;
         }
         public Builder plannedLimits(GetBudgetPlannedLimit... plannedLimits) {
             return plannedLimits(List.of(plannedLimits));
         }
         @CustomType.Setter
-        public Builder timePeriodEnd(String timePeriodEnd) {
-            this.timePeriodEnd = Objects.requireNonNull(timePeriodEnd);
+        public Builder timePeriodEnd(@Nullable String timePeriodEnd) {
+            this.timePeriodEnd = timePeriodEnd;
             return this;
         }
         @CustomType.Setter
-        public Builder timePeriodStart(String timePeriodStart) {
-            this.timePeriodStart = Objects.requireNonNull(timePeriodStart);
+        public Builder timePeriodStart(@Nullable String timePeriodStart) {
+            this.timePeriodStart = timePeriodStart;
             return this;
         }
         @CustomType.Setter
-        public Builder timeUnit(String timeUnit) {
-            this.timeUnit = Objects.requireNonNull(timeUnit);
+        public Builder timeUnit(@Nullable String timeUnit) {
+            this.timeUnit = timeUnit;
             return this;
         }
         public GetBudgetResult build() {

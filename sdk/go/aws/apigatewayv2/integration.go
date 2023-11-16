@@ -201,7 +201,7 @@ type Integration struct {
 	// Integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod pulumi.StringPtrOutput `pulumi:"integrationMethod"`
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
-	IntegrationResponseSelectionExpression pulumi.StringOutput `pulumi:"integrationResponseSelectionExpression"`
+	IntegrationResponseSelectionExpression pulumi.StringPtrOutput `pulumi:"integrationResponseSelectionExpression"`
 	// AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrOutput `pulumi:"integrationSubtype"`
 	// Integration type of an integration.
@@ -229,7 +229,7 @@ type Integration struct {
 	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
 	// this provider will only perform drift detection of its value when present in a configuration.
-	TimeoutMilliseconds pulumi.IntOutput `pulumi:"timeoutMilliseconds"`
+	TimeoutMilliseconds pulumi.IntPtrOutput `pulumi:"timeoutMilliseconds"`
 	// TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig IntegrationTlsConfigPtrOutput `pulumi:"tlsConfig"`
 }
@@ -589,8 +589,8 @@ func (o IntegrationOutput) IntegrationMethod() pulumi.StringPtrOutput {
 }
 
 // The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
-func (o IntegrationOutput) IntegrationResponseSelectionExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.IntegrationResponseSelectionExpression }).(pulumi.StringOutput)
+func (o IntegrationOutput) IntegrationResponseSelectionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationResponseSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
 // AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
@@ -647,8 +647,8 @@ func (o IntegrationOutput) TemplateSelectionExpression() pulumi.StringPtrOutput 
 // Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
 // The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
 // this provider will only perform drift detection of its value when present in a configuration.
-func (o IntegrationOutput) TimeoutMilliseconds() pulumi.IntOutput {
-	return o.ApplyT(func(v *Integration) pulumi.IntOutput { return v.TimeoutMilliseconds }).(pulumi.IntOutput)
+func (o IntegrationOutput) TimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.IntPtrOutput { return v.TimeoutMilliseconds }).(pulumi.IntPtrOutput)
 }
 
 // TLS configuration for a private integration. Supported only for HTTP APIs.

@@ -124,11 +124,11 @@ export class Topic extends pulumi.CustomResource {
     /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      */
-    public /*out*/ readonly arn!: pulumi.Output<ARN>;
+    public /*out*/ readonly arn!: pulumi.Output<ARN | undefined>;
     /**
      * The oldest timestamp at which a FIFO topic subscriber can start a replay.
      */
-    public /*out*/ readonly beginningArchiveTime!: pulumi.Output<string>;
+    public /*out*/ readonly beginningArchiveTime!: pulumi.Output<string | undefined>;
     /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      */
@@ -192,19 +192,19 @@ export class Topic extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The AWS Account ID of the SNS topic owner
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * The fully-formed AWS policy as JSON.
      */
-    public readonly policy!: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
      */
-    public readonly signatureVersion!: pulumi.Output<number>;
+    public readonly signatureVersion!: pulumi.Output<number | undefined>;
     /**
      * IAM role for failure feedback
      */
@@ -230,7 +230,7 @@ export class Topic extends pulumi.CustomResource {
     /**
      * Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
      */
-    public readonly tracingConfig!: pulumi.Output<string>;
+    public readonly tracingConfig!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.

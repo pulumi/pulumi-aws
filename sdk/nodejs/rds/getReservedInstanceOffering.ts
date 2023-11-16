@@ -67,22 +67,22 @@ export interface GetReservedInstanceOfferingResult {
     /**
      * Currency code for the reserved DB instance.
      */
-    readonly currencyCode: string;
+    readonly currencyCode?: string;
     readonly dbInstanceClass: string;
     readonly duration: number;
     /**
      * Fixed price charged for this reserved DB instance.
      */
-    readonly fixedPrice: number;
+    readonly fixedPrice?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly multiAz: boolean;
     /**
      * Unique identifier for the reservation.
      */
-    readonly offeringId: string;
+    readonly offeringId?: string;
     readonly offeringType: string;
     readonly productDescription: string;
 }

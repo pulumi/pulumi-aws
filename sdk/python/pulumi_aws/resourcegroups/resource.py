@@ -264,7 +264,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Output[str]:
+    def resource_type(self) -> pulumi.Output[Optional[str]]:
         """
         The resource type of a resource, such as `AWS::EC2::Instance`.
         """

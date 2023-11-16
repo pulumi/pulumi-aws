@@ -58,7 +58,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
         """
@@ -66,7 +66,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def certificate(self) -> str:
+    def certificate(self) -> Optional[str]:
         """
         ACM-issued certificate.
         """
@@ -74,7 +74,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         """
         Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
         """
@@ -87,7 +87,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -105,7 +105,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the found certificate.
         """
@@ -118,7 +118,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Mapping of tags for the resource.
         """

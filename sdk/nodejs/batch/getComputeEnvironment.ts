@@ -49,40 +49,40 @@ export interface GetComputeEnvironmentResult {
     /**
      * ARN of the compute environment.
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly computeEnvironmentName: string;
     /**
      * ARN of the underlying Amazon ECS cluster used by the compute environment.
      */
-    readonly ecsClusterArn: string;
+    readonly ecsClusterArn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
-    readonly serviceRole: string;
+    readonly serviceRole?: string;
     /**
      * State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
      */
-    readonly state: string;
+    readonly state?: string;
     /**
      * Current status of the compute environment (for example, `CREATING` or `VALID`).
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Short, human-readable string to provide additional details about the current status of the compute environment.
      */
-    readonly statusReason: string;
+    readonly statusReason?: string;
     /**
      * Key-value map of resource tags
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * The Batch Compute Environment data source allows access to details of a specific

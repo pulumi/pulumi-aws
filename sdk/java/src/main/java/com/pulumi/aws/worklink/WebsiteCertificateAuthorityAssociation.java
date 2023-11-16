@@ -107,14 +107,14 @@ public class WebsiteCertificateAuthorityAssociation extends com.pulumi.resources
      * 
      */
     @Export(name="websiteCaId", refs={String.class}, tree="[0]")
-    private Output<String> websiteCaId;
+    private Output</* @Nullable */ String> websiteCaId;
 
     /**
      * @return A unique identifier for the Certificate Authority.
      * 
      */
-    public Output<String> websiteCaId() {
-        return this.websiteCaId;
+    public Output<Optional<String>> websiteCaId() {
+        return Codegen.optional(this.websiteCaId);
     }
 
     /**

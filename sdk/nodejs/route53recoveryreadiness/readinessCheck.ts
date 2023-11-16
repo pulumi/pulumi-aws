@@ -58,7 +58,7 @@ export class ReadinessCheck extends pulumi.CustomResource {
     /**
      * ARN of the readiness_check
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Unique name describing the readiness check.
      */

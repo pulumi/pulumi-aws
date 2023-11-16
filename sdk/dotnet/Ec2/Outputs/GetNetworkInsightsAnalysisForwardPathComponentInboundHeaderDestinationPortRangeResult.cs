@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult
     {
-        public readonly int From;
-        public readonly int To;
+        public readonly int? From;
+        public readonly int? To;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult(
-            int from,
+            int? from,
 
-            int to)
+            int? to)
         {
             From = from;
             To = to;

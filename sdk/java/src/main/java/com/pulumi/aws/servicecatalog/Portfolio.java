@@ -62,30 +62,30 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:servicecatalog/portfolio:Portfolio")
 public class Portfolio extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Description of the portfolio
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description of the portfolio
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * The name of the portfolio.

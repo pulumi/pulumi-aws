@@ -28,7 +28,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// VPC used by the domain.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetDomainVpcOptionResult(
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
             ImmutableArray<string> subnetIds,
 
-            string vpcId)
+            string? vpcId)
         {
             AvailabilityZones = availabilityZones;
             SecurityGroupIds = securityGroupIds;

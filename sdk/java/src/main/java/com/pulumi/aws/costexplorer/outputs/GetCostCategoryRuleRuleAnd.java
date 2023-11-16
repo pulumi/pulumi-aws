@@ -9,6 +9,7 @@ import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleAndTag;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCostCategoryRuleRuleAnd {
@@ -16,17 +17,17 @@ public final class GetCostCategoryRuleRuleAnd {
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
      */
-    private List<GetCostCategoryRuleRuleAndCostCategory> costCategories;
+    private @Nullable List<GetCostCategoryRuleRuleAndCostCategory> costCategories;
     /**
      * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
-    private List<GetCostCategoryRuleRuleAndDimension> dimensions;
+    private @Nullable List<GetCostCategoryRuleRuleAndDimension> dimensions;
     /**
      * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
-    private List<GetCostCategoryRuleRuleAndTag> tags;
+    private @Nullable List<GetCostCategoryRuleRuleAndTag> tags;
 
     private GetCostCategoryRuleRuleAnd() {}
     /**
@@ -34,21 +35,21 @@ public final class GetCostCategoryRuleRuleAnd {
      * 
      */
     public List<GetCostCategoryRuleRuleAndCostCategory> costCategories() {
-        return this.costCategories;
+        return this.costCategories == null ? List.of() : this.costCategories;
     }
     /**
      * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
     public List<GetCostCategoryRuleRuleAndDimension> dimensions() {
-        return this.dimensions;
+        return this.dimensions == null ? List.of() : this.dimensions;
     }
     /**
      * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     public List<GetCostCategoryRuleRuleAndTag> tags() {
-        return this.tags;
+        return this.tags == null ? List.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -60,9 +61,9 @@ public final class GetCostCategoryRuleRuleAnd {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetCostCategoryRuleRuleAndCostCategory> costCategories;
-        private List<GetCostCategoryRuleRuleAndDimension> dimensions;
-        private List<GetCostCategoryRuleRuleAndTag> tags;
+        private @Nullable List<GetCostCategoryRuleRuleAndCostCategory> costCategories;
+        private @Nullable List<GetCostCategoryRuleRuleAndDimension> dimensions;
+        private @Nullable List<GetCostCategoryRuleRuleAndTag> tags;
         public Builder() {}
         public Builder(GetCostCategoryRuleRuleAnd defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,24 +73,24 @@ public final class GetCostCategoryRuleRuleAnd {
         }
 
         @CustomType.Setter
-        public Builder costCategories(List<GetCostCategoryRuleRuleAndCostCategory> costCategories) {
-            this.costCategories = Objects.requireNonNull(costCategories);
+        public Builder costCategories(@Nullable List<GetCostCategoryRuleRuleAndCostCategory> costCategories) {
+            this.costCategories = costCategories;
             return this;
         }
         public Builder costCategories(GetCostCategoryRuleRuleAndCostCategory... costCategories) {
             return costCategories(List.of(costCategories));
         }
         @CustomType.Setter
-        public Builder dimensions(List<GetCostCategoryRuleRuleAndDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+        public Builder dimensions(@Nullable List<GetCostCategoryRuleRuleAndDimension> dimensions) {
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(GetCostCategoryRuleRuleAndDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
         @CustomType.Setter
-        public Builder tags(List<GetCostCategoryRuleRuleAndTag> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable List<GetCostCategoryRuleRuleAndTag> tags) {
+            this.tags = tags;
             return this;
         }
         public Builder tags(GetCostCategoryRuleRuleAndTag... tags) {

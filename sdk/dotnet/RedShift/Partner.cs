@@ -72,13 +72,13 @@ namespace Pulumi.Aws.RedShift
         /// (Optional) The partner integration status.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// (Optional) The status message provided by the partner.
         /// </summary>
         [Output("statusMessage")]
-        public Output<string> StatusMessage { get; private set; } = null!;
+        public Output<string?> StatusMessage { get; private set; } = null!;
 
 
         /// <summary>

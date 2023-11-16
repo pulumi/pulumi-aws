@@ -479,7 +479,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messagesPerSecond")
-    def messages_per_second(self) -> pulumi.Output[int]:
+    def messages_per_second(self) -> pulumi.Output[Optional[int]]:
         """
         Messages per second that can be sent.
         """

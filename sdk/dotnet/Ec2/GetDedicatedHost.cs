@@ -166,92 +166,92 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the Dedicated Host.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
         /// </summary>
-        public readonly string AssetId;
+        public readonly string? AssetId;
         /// <summary>
         /// Whether auto-placement is on or off.
         /// </summary>
-        public readonly string AutoPlacement;
+        public readonly string? AutoPlacement;
         /// <summary>
         /// Availability Zone of the Dedicated Host.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// Number of cores on the Dedicated Host.
         /// </summary>
-        public readonly int Cores;
+        public readonly int? Cores;
         public readonly ImmutableArray<Outputs.GetDedicatedHostFilterResult> Filters;
-        public readonly string HostId;
+        public readonly string? HostId;
         /// <summary>
         /// Whether host recovery is enabled or disabled for the Dedicated Host.
         /// </summary>
-        public readonly string HostRecovery;
+        public readonly string? HostRecovery;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Instance family supported by the Dedicated Host. For example, "m5".
         /// </summary>
-        public readonly string InstanceFamily;
+        public readonly string? InstanceFamily;
         /// <summary>
         /// Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
         /// </summary>
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         /// <summary>
         /// ARN of the AWS Outpost on which the Dedicated Host is allocated.
         /// </summary>
-        public readonly string OutpostArn;
+        public readonly string? OutpostArn;
         /// <summary>
         /// ID of the AWS account that owns the Dedicated Host.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// Number of sockets on the Dedicated Host.
         /// </summary>
-        public readonly int Sockets;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly int? Sockets;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Total number of vCPUs on the Dedicated Host.
         /// </summary>
-        public readonly int TotalVcpus;
+        public readonly int? TotalVcpus;
 
         [OutputConstructor]
         private GetDedicatedHostResult(
-            string arn,
+            string? arn,
 
-            string assetId,
+            string? assetId,
 
-            string autoPlacement,
+            string? autoPlacement,
 
-            string availabilityZone,
+            string? availabilityZone,
 
-            int cores,
+            int? cores,
 
             ImmutableArray<Outputs.GetDedicatedHostFilterResult> filters,
 
-            string hostId,
+            string? hostId,
 
-            string hostRecovery,
+            string? hostRecovery,
 
-            string id,
+            string? id,
 
-            string instanceFamily,
+            string? instanceFamily,
 
-            string instanceType,
+            string? instanceType,
 
-            string outpostArn,
+            string? outpostArn,
 
-            string ownerId,
+            string? ownerId,
 
-            int sockets,
+            int? sockets,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int totalVcpus)
+            int? totalVcpus)
         {
             Arn = arn;
             AssetId = assetId;

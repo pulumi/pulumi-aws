@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the DataSync Task.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.

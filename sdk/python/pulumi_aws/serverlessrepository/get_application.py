@@ -54,7 +54,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -62,7 +62,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the application.
         """
@@ -70,7 +70,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="requiredCapabilities")
-    def required_capabilities(self) -> Sequence[str]:
+    def required_capabilities(self) -> Optional[Sequence[str]]:
         """
         A list of capabilities describing the permissions needed to deploy the application.
         """
@@ -78,12 +78,12 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="semanticVersion")
-    def semantic_version(self) -> str:
+    def semantic_version(self) -> Optional[str]:
         return pulumi.get(self, "semantic_version")
 
     @property
     @pulumi.getter(name="sourceCodeUrl")
-    def source_code_url(self) -> str:
+    def source_code_url(self) -> Optional[str]:
         """
         URL pointing to the source code of the application version.
         """
@@ -91,7 +91,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="templateUrl")
-    def template_url(self) -> str:
+    def template_url(self) -> Optional[str]:
         """
         URL pointing to the Cloud Formation template for the application version.
         """

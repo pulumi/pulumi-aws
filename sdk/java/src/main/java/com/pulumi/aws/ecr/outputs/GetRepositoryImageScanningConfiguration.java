@@ -6,6 +6,8 @@ package com.pulumi.aws.ecr.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryImageScanningConfiguration {
@@ -13,15 +15,15 @@ public final class GetRepositoryImageScanningConfiguration {
      * @return Whether images are scanned after being pushed to the repository.
      * 
      */
-    private Boolean scanOnPush;
+    private @Nullable Boolean scanOnPush;
 
     private GetRepositoryImageScanningConfiguration() {}
     /**
      * @return Whether images are scanned after being pushed to the repository.
      * 
      */
-    public Boolean scanOnPush() {
-        return this.scanOnPush;
+    public Optional<Boolean> scanOnPush() {
+        return Optional.ofNullable(this.scanOnPush);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetRepositoryImageScanningConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean scanOnPush;
+        private @Nullable Boolean scanOnPush;
         public Builder() {}
         public Builder(GetRepositoryImageScanningConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetRepositoryImageScanningConfiguration {
         }
 
         @CustomType.Setter
-        public Builder scanOnPush(Boolean scanOnPush) {
-            this.scanOnPush = Objects.requireNonNull(scanOnPush);
+        public Builder scanOnPush(@Nullable Boolean scanOnPush) {
+            this.scanOnPush = scanOnPush;
             return this;
         }
         public GetRepositoryImageScanningConfiguration build() {

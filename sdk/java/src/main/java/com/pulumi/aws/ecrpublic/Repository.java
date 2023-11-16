@@ -88,14 +88,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Full ARN of the repository.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Catalog data configuration for the repository. See below for schema.
@@ -122,14 +122,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="registryId", refs={String.class}, tree="[0]")
-    private Output<String> registryId;
+    private Output</* @Nullable */ String> registryId;
 
     /**
      * @return The registry ID where the repository was created.
      * 
      */
-    public Output<String> registryId() {
-        return this.registryId;
+    public Output<Optional<String>> registryId() {
+        return Codegen.optional(this.registryId);
     }
     /**
      * Name of the repository.
@@ -150,14 +150,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="repositoryUri", refs={String.class}, tree="[0]")
-    private Output<String> repositoryUri;
+    private Output</* @Nullable */ String> repositoryUri;
 
     /**
      * @return The URI of the repository.
      * 
      */
-    public Output<String> repositoryUri() {
-        return this.repositoryUri;
+    public Output<Optional<String>> repositoryUri() {
+        return Codegen.optional(this.repositoryUri);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

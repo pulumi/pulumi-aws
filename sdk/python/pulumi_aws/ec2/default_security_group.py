@@ -532,7 +532,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the security group.
         """
@@ -540,7 +540,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of this rule.
         """
@@ -548,7 +548,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def egress(self) -> pulumi.Output[Sequence['outputs.DefaultSecurityGroupEgress']]:
+    def egress(self) -> pulumi.Output[Optional[Sequence['outputs.DefaultSecurityGroupEgress']]]:
         """
         Configuration block. Detailed below.
         """
@@ -556,7 +556,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ingress(self) -> pulumi.Output[Sequence['outputs.DefaultSecurityGroupIngress']]:
+    def ingress(self) -> pulumi.Output[Optional[Sequence['outputs.DefaultSecurityGroupIngress']]]:
         """
         Configuration block. Detailed below.
         """
@@ -564,7 +564,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the security group.
         """
@@ -572,12 +572,12 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         Owner ID.
         """
@@ -609,7 +609,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         """

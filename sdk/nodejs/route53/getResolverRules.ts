@@ -92,14 +92,14 @@ export interface GetResolverRulesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly nameRegex?: string;
     readonly ownerId?: string;
     readonly resolverEndpointId?: string;
     /**
      * IDs of the matched resolver rules.
      */
-    readonly resolverRuleIds: string[];
+    readonly resolverRuleIds?: string[];
     readonly ruleType?: string;
     readonly shareStatus?: string;
 }

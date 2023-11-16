@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,30 +19,30 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs
      * Starting hour of the 10-hour window for updates
      * 
      */
-    @Import(name="hours", required=true)
-    private Output<Integer> hours;
+    @Import(name="hours")
+    private @Nullable Output<Integer> hours;
 
     /**
      * @return Starting hour of the 10-hour window for updates
      * 
      */
-    public Output<Integer> hours() {
-        return this.hours;
+    public Optional<Output<Integer>> hours() {
+        return Optional.ofNullable(this.hours);
     }
 
     /**
      * Starting minute of the 10-hour window for updates
      * 
      */
-    @Import(name="minutes", required=true)
-    private Output<Integer> minutes;
+    @Import(name="minutes")
+    private @Nullable Output<Integer> minutes;
 
     /**
      * @return Starting minute of the 10-hour window for updates
      * 
      */
-    public Output<Integer> minutes() {
-        return this.minutes;
+    public Optional<Output<Integer>> minutes() {
+        return Optional.ofNullable(this.minutes);
     }
 
     private GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs() {}
@@ -74,7 +76,7 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs
          * @return builder
          * 
          */
-        public Builder hours(Output<Integer> hours) {
+        public Builder hours(@Nullable Output<Integer> hours) {
             $.hours = hours;
             return this;
         }
@@ -95,7 +97,7 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs
          * @return builder
          * 
          */
-        public Builder minutes(Output<Integer> minutes) {
+        public Builder minutes(@Nullable Output<Integer> minutes) {
             $.minutes = minutes;
             return this;
         }
@@ -111,8 +113,6 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs
         }
 
         public GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs build() {
-            $.hours = Objects.requireNonNull($.hours, "expected parameter 'hours' to be non-null");
-            $.minutes = Objects.requireNonNull($.minutes, "expected parameter 'minutes' to be non-null");
             return $;
         }
     }

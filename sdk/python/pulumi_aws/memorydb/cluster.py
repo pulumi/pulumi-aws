@@ -1211,7 +1211,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the cluster.
         """
@@ -1227,7 +1227,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterEndpoints")
-    def cluster_endpoints(self) -> pulumi.Output[Sequence['outputs.ClusterClusterEndpoint']]:
+    def cluster_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterClusterEndpoint']]]:
         return pulumi.get(self, "cluster_endpoints")
 
     @property
@@ -1248,7 +1248,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enginePatchVersion")
-    def engine_patch_version(self) -> pulumi.Output[str]:
+    def engine_patch_version(self) -> pulumi.Output[Optional[str]]:
         """
         Patch version number of the Redis engine used by the cluster.
         """
@@ -1256,7 +1256,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
         """
@@ -1280,7 +1280,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> pulumi.Output[str]:
+    def maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         """
@@ -1296,7 +1296,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -1330,7 +1330,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> pulumi.Output[str]:
+    def parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the parameter group associated with the cluster.
         """
@@ -1338,7 +1338,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port number on which each of the nodes accepts connections. Defaults to `6379`.
         """
@@ -1354,7 +1354,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def shards(self) -> pulumi.Output[Sequence['outputs.ClusterShard']]:
+    def shards(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterShard']]]:
         """
         Set of shards in this cluster.
         """
@@ -1378,7 +1378,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> pulumi.Output[int]:
+    def snapshot_retention_limit(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         """
@@ -1386,7 +1386,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotWindow")
-    def snapshot_window(self) -> pulumi.Output[str]:
+    def snapshot_window(self) -> pulumi.Output[Optional[str]]:
         """
         The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         """
@@ -1402,7 +1402,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> pulumi.Output[str]:
+    def subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
         """

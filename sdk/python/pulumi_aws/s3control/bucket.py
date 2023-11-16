@@ -347,7 +347,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the bucket.
         """
@@ -363,7 +363,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -379,7 +379,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicAccessBlockEnabled")
-    def public_access_block_enabled(self) -> pulumi.Output[bool]:
+    def public_access_block_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether Public Access Block is enabled.
         """

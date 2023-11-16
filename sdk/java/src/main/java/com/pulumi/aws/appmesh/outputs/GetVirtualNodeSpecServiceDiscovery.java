@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecServiceDiscoveryDn;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecServiceDiscovery {
-    private List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps;
-    private List<GetVirtualNodeSpecServiceDiscoveryDn> dns;
+    private @Nullable List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps;
+    private @Nullable List<GetVirtualNodeSpecServiceDiscoveryDn> dns;
 
     private GetVirtualNodeSpecServiceDiscovery() {}
     public List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps() {
-        return this.awsCloudMaps;
+        return this.awsCloudMaps == null ? List.of() : this.awsCloudMaps;
     }
     public List<GetVirtualNodeSpecServiceDiscoveryDn> dns() {
-        return this.dns;
+        return this.dns == null ? List.of() : this.dns;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualNodeSpecServiceDiscovery {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps;
-        private List<GetVirtualNodeSpecServiceDiscoveryDn> dns;
+        private @Nullable List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps;
+        private @Nullable List<GetVirtualNodeSpecServiceDiscoveryDn> dns;
         public Builder() {}
         public Builder(GetVirtualNodeSpecServiceDiscovery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualNodeSpecServiceDiscovery {
         }
 
         @CustomType.Setter
-        public Builder awsCloudMaps(List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps) {
-            this.awsCloudMaps = Objects.requireNonNull(awsCloudMaps);
+        public Builder awsCloudMaps(@Nullable List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps) {
+            this.awsCloudMaps = awsCloudMaps;
             return this;
         }
         public Builder awsCloudMaps(GetVirtualNodeSpecServiceDiscoveryAwsCloudMap... awsCloudMaps) {
             return awsCloudMaps(List.of(awsCloudMaps));
         }
         @CustomType.Setter
-        public Builder dns(List<GetVirtualNodeSpecServiceDiscoveryDn> dns) {
-            this.dns = Objects.requireNonNull(dns);
+        public Builder dns(@Nullable List<GetVirtualNodeSpecServiceDiscoveryDn> dns) {
+            this.dns = dns;
             return this;
         }
         public Builder dns(GetVirtualNodeSpecServiceDiscoveryDn... dns) {

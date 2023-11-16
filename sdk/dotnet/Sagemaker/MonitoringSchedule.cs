@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.

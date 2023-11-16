@@ -65,11 +65,11 @@ export class BackendEnvironment extends pulumi.CustomResource {
     /**
      * ARN for a backend environment that is part of an Amplify app.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of deployment artifacts.
      */
-    public readonly deploymentArtifacts!: pulumi.Output<string>;
+    public readonly deploymentArtifacts!: pulumi.Output<string | undefined>;
     /**
      * Name for the backend environment.
      */
@@ -77,7 +77,7 @@ export class BackendEnvironment extends pulumi.CustomResource {
     /**
      * AWS CloudFormation stack name of a backend environment.
      */
-    public readonly stackName!: pulumi.Output<string>;
+    public readonly stackName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BackendEnvironment resource with the given unique name, arguments, and options.

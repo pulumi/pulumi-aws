@@ -46,21 +46,21 @@ export interface GetResolverFirewallRuleGroupArgs {
  * A collection of values returned by getResolverFirewallRuleGroup.
  */
 export interface GetResolverFirewallRuleGroupResult {
-    readonly arn: string;
-    readonly creationTime: string;
-    readonly creatorRequestId: string;
+    readonly arn?: string;
+    readonly creationTime?: string;
+    readonly creatorRequestId?: string;
     readonly firewallRuleGroupId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly modificationTime: string;
-    readonly name: string;
-    readonly ownerId: string;
-    readonly ruleCount: number;
-    readonly shareStatus: string;
-    readonly status: string;
-    readonly statusMessage: string;
+    readonly id?: string;
+    readonly modificationTime?: string;
+    readonly name?: string;
+    readonly ownerId?: string;
+    readonly ruleCount?: number;
+    readonly shareStatus?: string;
+    readonly status?: string;
+    readonly statusMessage?: string;
 }
 /**
  * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.

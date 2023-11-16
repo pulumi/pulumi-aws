@@ -16,47 +16,47 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
         /// <summary>
         /// Indicates whether the product version is active.
         /// </summary>
-        public readonly bool Active;
+        public readonly bool? Active;
         /// <summary>
         /// The UTC time stamp of the creation time.
         /// </summary>
-        public readonly string CreatedTime;
+        public readonly string? CreatedTime;
         /// <summary>
         /// The description of the provisioning artifact.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
         /// </summary>
-        public readonly string Guidance;
+        public readonly string? Guidance;
         /// <summary>
         /// The identifier of the provisioning artifact.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The name of the provisioning artifact.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The type of provisioning artifact.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetProvisioningArtifactsProvisioningArtifactDetailResult(
-            bool active,
+            bool? active,
 
-            string createdTime,
+            string? createdTime,
 
-            string description,
+            string? description,
 
-            string guidance,
+            string? guidance,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string type)
+            string? type)
         {
             Active = active;
             CreatedTime = createdTime;

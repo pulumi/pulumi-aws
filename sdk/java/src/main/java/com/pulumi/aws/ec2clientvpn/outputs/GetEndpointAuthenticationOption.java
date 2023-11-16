@@ -6,30 +6,32 @@ package com.pulumi.aws.ec2clientvpn.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointAuthenticationOption {
-    private String activeDirectoryId;
-    private String rootCertificateChainArn;
-    private String samlProviderArn;
-    private String selfServiceSamlProviderArn;
-    private String type;
+    private @Nullable String activeDirectoryId;
+    private @Nullable String rootCertificateChainArn;
+    private @Nullable String samlProviderArn;
+    private @Nullable String selfServiceSamlProviderArn;
+    private @Nullable String type;
 
     private GetEndpointAuthenticationOption() {}
-    public String activeDirectoryId() {
-        return this.activeDirectoryId;
+    public Optional<String> activeDirectoryId() {
+        return Optional.ofNullable(this.activeDirectoryId);
     }
-    public String rootCertificateChainArn() {
-        return this.rootCertificateChainArn;
+    public Optional<String> rootCertificateChainArn() {
+        return Optional.ofNullable(this.rootCertificateChainArn);
     }
-    public String samlProviderArn() {
-        return this.samlProviderArn;
+    public Optional<String> samlProviderArn() {
+        return Optional.ofNullable(this.samlProviderArn);
     }
-    public String selfServiceSamlProviderArn() {
-        return this.selfServiceSamlProviderArn;
+    public Optional<String> selfServiceSamlProviderArn() {
+        return Optional.ofNullable(this.selfServiceSamlProviderArn);
     }
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -41,11 +43,11 @@ public final class GetEndpointAuthenticationOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String activeDirectoryId;
-        private String rootCertificateChainArn;
-        private String samlProviderArn;
-        private String selfServiceSamlProviderArn;
-        private String type;
+        private @Nullable String activeDirectoryId;
+        private @Nullable String rootCertificateChainArn;
+        private @Nullable String samlProviderArn;
+        private @Nullable String selfServiceSamlProviderArn;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetEndpointAuthenticationOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,28 +59,28 @@ public final class GetEndpointAuthenticationOption {
         }
 
         @CustomType.Setter
-        public Builder activeDirectoryId(String activeDirectoryId) {
-            this.activeDirectoryId = Objects.requireNonNull(activeDirectoryId);
+        public Builder activeDirectoryId(@Nullable String activeDirectoryId) {
+            this.activeDirectoryId = activeDirectoryId;
             return this;
         }
         @CustomType.Setter
-        public Builder rootCertificateChainArn(String rootCertificateChainArn) {
-            this.rootCertificateChainArn = Objects.requireNonNull(rootCertificateChainArn);
+        public Builder rootCertificateChainArn(@Nullable String rootCertificateChainArn) {
+            this.rootCertificateChainArn = rootCertificateChainArn;
             return this;
         }
         @CustomType.Setter
-        public Builder samlProviderArn(String samlProviderArn) {
-            this.samlProviderArn = Objects.requireNonNull(samlProviderArn);
+        public Builder samlProviderArn(@Nullable String samlProviderArn) {
+            this.samlProviderArn = samlProviderArn;
             return this;
         }
         @CustomType.Setter
-        public Builder selfServiceSamlProviderArn(String selfServiceSamlProviderArn) {
-            this.selfServiceSamlProviderArn = Objects.requireNonNull(selfServiceSamlProviderArn);
+        public Builder selfServiceSamlProviderArn(@Nullable String selfServiceSamlProviderArn) {
+            this.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetEndpointAuthenticationOption build() {

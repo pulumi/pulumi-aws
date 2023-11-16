@@ -82,14 +82,14 @@ public class Canary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Canary.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
@@ -138,14 +138,14 @@ public class Canary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineArn", refs={String.class}, tree="[0]")
-    private Output<String> engineArn;
+    private Output</* @Nullable */ String> engineArn;
 
     /**
      * @return ARN of the Lambda function that is used as your canary&#39;s engine.
      * 
      */
-    public Output<String> engineArn() {
-        return this.engineArn;
+    public Output<Optional<String>> engineArn() {
+        return Codegen.optional(this.engineArn);
     }
     /**
      * ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
@@ -208,14 +208,14 @@ public class Canary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="runConfig", refs={CanaryRunConfig.class}, tree="[0]")
-    private Output<CanaryRunConfig> runConfig;
+    private Output</* @Nullable */ CanaryRunConfig> runConfig;
 
     /**
      * @return Configuration block for individual canary runs. Detailed below.
      * 
      */
-    public Output<CanaryRunConfig> runConfig() {
-        return this.runConfig;
+    public Output<Optional<CanaryRunConfig>> runConfig() {
+        return Codegen.optional(this.runConfig);
     }
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
@@ -296,14 +296,14 @@ public class Canary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceLocationArn", refs={String.class}, tree="[0]")
-    private Output<String> sourceLocationArn;
+    private Output</* @Nullable */ String> sourceLocationArn;
 
     /**
      * @return ARN of the Lambda layer where Synthetics stores the canary script code.
      * 
      */
-    public Output<String> sourceLocationArn() {
-        return this.sourceLocationArn;
+    public Output<Optional<String>> sourceLocationArn() {
+        return Codegen.optional(this.sourceLocationArn);
     }
     /**
      * Whether to run or stop the canary.
@@ -324,14 +324,14 @@ public class Canary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Canary status.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
@@ -384,14 +384,14 @@ public class Canary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="timelines", refs={List.class,CanaryTimeline.class}, tree="[0,1]")
-    private Output<List<CanaryTimeline>> timelines;
+    private Output</* @Nullable */ List<CanaryTimeline>> timelines;
 
     /**
      * @return Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      * 
      */
-    public Output<List<CanaryTimeline>> timelines() {
-        return this.timelines;
+    public Output<Optional<List<CanaryTimeline>>> timelines() {
+        return Codegen.optional(this.timelines);
     }
     /**
      * Configuration block. Detailed below.

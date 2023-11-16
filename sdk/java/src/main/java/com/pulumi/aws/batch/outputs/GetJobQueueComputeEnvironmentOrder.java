@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetJobQueueComputeEnvironmentOrder {
-    private String computeEnvironment;
-    private Integer order;
+    private @Nullable String computeEnvironment;
+    private @Nullable Integer order;
 
     private GetJobQueueComputeEnvironmentOrder() {}
-    public String computeEnvironment() {
-        return this.computeEnvironment;
+    public Optional<String> computeEnvironment() {
+        return Optional.ofNullable(this.computeEnvironment);
     }
-    public Integer order() {
-        return this.order;
+    public Optional<Integer> order() {
+        return Optional.ofNullable(this.order);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetJobQueueComputeEnvironmentOrder {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String computeEnvironment;
-        private Integer order;
+        private @Nullable String computeEnvironment;
+        private @Nullable Integer order;
         public Builder() {}
         public Builder(GetJobQueueComputeEnvironmentOrder defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetJobQueueComputeEnvironmentOrder {
         }
 
         @CustomType.Setter
-        public Builder computeEnvironment(String computeEnvironment) {
-            this.computeEnvironment = Objects.requireNonNull(computeEnvironment);
+        public Builder computeEnvironment(@Nullable String computeEnvironment) {
+            this.computeEnvironment = computeEnvironment;
             return this;
         }
         @CustomType.Setter
-        public Builder order(Integer order) {
-            this.order = Objects.requireNonNull(order);
+        public Builder order(@Nullable Integer order) {
+            this.order = order;
             return this;
         }
         public GetJobQueueComputeEnvironmentOrder build() {

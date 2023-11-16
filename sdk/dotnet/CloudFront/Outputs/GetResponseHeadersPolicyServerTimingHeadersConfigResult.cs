@@ -16,17 +16,17 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// Number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
         /// </summary>
-        public readonly double SamplingRate;
+        public readonly double? SamplingRate;
 
         [OutputConstructor]
         private GetResponseHeadersPolicyServerTimingHeadersConfigResult(
-            bool enabled,
+            bool? enabled,
 
-            double samplingRate)
+            double? samplingRate)
         {
             Enabled = enabled;
             SamplingRate = samplingRate;

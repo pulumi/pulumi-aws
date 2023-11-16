@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReplicationInstanceResult {
@@ -17,169 +19,169 @@ public final class GetReplicationInstanceResult {
      * @return The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      * 
      */
-    private Integer allocatedStorage;
+    private @Nullable Integer allocatedStorage;
     /**
      * @return Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      * 
      */
-    private Boolean autoMinorVersionUpgrade;
+    private @Nullable Boolean autoMinorVersionUpgrade;
     /**
      * @return The EC2 Availability Zone that the replication instance will be created in.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return The engine version number of the replication instance.
      * 
      */
-    private String engineVersion;
+    private @Nullable String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
      * 
      */
-    private String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     /**
      * @return Specifies if the replication instance is a multi-az deployment.
      * 
      */
-    private Boolean multiAz;
+    private @Nullable Boolean multiAz;
     /**
      * @return The type of IP address protocol used by the replication instance.
      * 
      */
-    private String networkType;
+    private @Nullable String networkType;
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
      */
-    private String preferredMaintenanceWindow;
+    private @Nullable String preferredMaintenanceWindow;
     /**
      * @return Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      * 
      */
-    private Boolean publiclyAccessible;
+    private @Nullable Boolean publiclyAccessible;
     /**
      * @return The Amazon Resource Name (ARN) of the replication instance.
      * 
      */
-    private String replicationInstanceArn;
+    private @Nullable String replicationInstanceArn;
     /**
      * @return The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
      * 
      */
-    private String replicationInstanceClass;
+    private @Nullable String replicationInstanceClass;
     private String replicationInstanceId;
     /**
      * @return A list of the private IP addresses of the replication instance.
      * 
      */
-    private List<String> replicationInstancePrivateIps;
+    private @Nullable List<String> replicationInstancePrivateIps;
     /**
      * @return A list of the public IP addresses of the replication instance.
      * 
      */
-    private List<String> replicationInstancePublicIps;
+    private @Nullable List<String> replicationInstancePublicIps;
     /**
      * @return A subnet group to associate with the replication instance.
      * 
      */
-    private String replicationSubnetGroupId;
-    private Map<String,String> tags;
+    private @Nullable String replicationSubnetGroupId;
+    private @Nullable Map<String,String> tags;
     /**
      * @return A set of VPC security group IDs that are used with the replication instance.
      * 
      */
-    private List<String> vpcSecurityGroupIds;
+    private @Nullable List<String> vpcSecurityGroupIds;
 
     private GetReplicationInstanceResult() {}
     /**
      * @return The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      * 
      */
-    public Integer allocatedStorage() {
-        return this.allocatedStorage;
+    public Optional<Integer> allocatedStorage() {
+        return Optional.ofNullable(this.allocatedStorage);
     }
     /**
      * @return Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      * 
      */
-    public Boolean autoMinorVersionUpgrade() {
-        return this.autoMinorVersionUpgrade;
+    public Optional<Boolean> autoMinorVersionUpgrade() {
+        return Optional.ofNullable(this.autoMinorVersionUpgrade);
     }
     /**
      * @return The EC2 Availability Zone that the replication instance will be created in.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     /**
      * @return The engine version number of the replication instance.
      * 
      */
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
      * 
      */
-    public String kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<String> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
     /**
      * @return Specifies if the replication instance is a multi-az deployment.
      * 
      */
-    public Boolean multiAz() {
-        return this.multiAz;
+    public Optional<Boolean> multiAz() {
+        return Optional.ofNullable(this.multiAz);
     }
     /**
      * @return The type of IP address protocol used by the replication instance.
      * 
      */
-    public String networkType() {
-        return this.networkType;
+    public Optional<String> networkType() {
+        return Optional.ofNullable(this.networkType);
     }
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
      */
-    public String preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Optional<String> preferredMaintenanceWindow() {
+        return Optional.ofNullable(this.preferredMaintenanceWindow);
     }
     /**
      * @return Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      * 
      */
-    public Boolean publiclyAccessible() {
-        return this.publiclyAccessible;
+    public Optional<Boolean> publiclyAccessible() {
+        return Optional.ofNullable(this.publiclyAccessible);
     }
     /**
      * @return The Amazon Resource Name (ARN) of the replication instance.
      * 
      */
-    public String replicationInstanceArn() {
-        return this.replicationInstanceArn;
+    public Optional<String> replicationInstanceArn() {
+        return Optional.ofNullable(this.replicationInstanceArn);
     }
     /**
      * @return The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
      * 
      */
-    public String replicationInstanceClass() {
-        return this.replicationInstanceClass;
+    public Optional<String> replicationInstanceClass() {
+        return Optional.ofNullable(this.replicationInstanceClass);
     }
     public String replicationInstanceId() {
         return this.replicationInstanceId;
@@ -189,31 +191,31 @@ public final class GetReplicationInstanceResult {
      * 
      */
     public List<String> replicationInstancePrivateIps() {
-        return this.replicationInstancePrivateIps;
+        return this.replicationInstancePrivateIps == null ? List.of() : this.replicationInstancePrivateIps;
     }
     /**
      * @return A list of the public IP addresses of the replication instance.
      * 
      */
     public List<String> replicationInstancePublicIps() {
-        return this.replicationInstancePublicIps;
+        return this.replicationInstancePublicIps == null ? List.of() : this.replicationInstancePublicIps;
     }
     /**
      * @return A subnet group to associate with the replication instance.
      * 
      */
-    public String replicationSubnetGroupId() {
-        return this.replicationSubnetGroupId;
+    public Optional<String> replicationSubnetGroupId() {
+        return Optional.ofNullable(this.replicationSubnetGroupId);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return A set of VPC security group IDs that are used with the replication instance.
      * 
      */
     public List<String> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+        return this.vpcSecurityGroupIds == null ? List.of() : this.vpcSecurityGroupIds;
     }
 
     public static Builder builder() {
@@ -225,24 +227,24 @@ public final class GetReplicationInstanceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer allocatedStorage;
-        private Boolean autoMinorVersionUpgrade;
-        private String availabilityZone;
-        private String engineVersion;
-        private String id;
-        private String kmsKeyArn;
-        private Boolean multiAz;
-        private String networkType;
-        private String preferredMaintenanceWindow;
-        private Boolean publiclyAccessible;
-        private String replicationInstanceArn;
-        private String replicationInstanceClass;
+        private @Nullable Integer allocatedStorage;
+        private @Nullable Boolean autoMinorVersionUpgrade;
+        private @Nullable String availabilityZone;
+        private @Nullable String engineVersion;
+        private @Nullable String id;
+        private @Nullable String kmsKeyArn;
+        private @Nullable Boolean multiAz;
+        private @Nullable String networkType;
+        private @Nullable String preferredMaintenanceWindow;
+        private @Nullable Boolean publiclyAccessible;
+        private @Nullable String replicationInstanceArn;
+        private @Nullable String replicationInstanceClass;
         private String replicationInstanceId;
-        private List<String> replicationInstancePrivateIps;
-        private List<String> replicationInstancePublicIps;
-        private String replicationSubnetGroupId;
-        private Map<String,String> tags;
-        private List<String> vpcSecurityGroupIds;
+        private @Nullable List<String> replicationInstancePrivateIps;
+        private @Nullable List<String> replicationInstancePublicIps;
+        private @Nullable String replicationSubnetGroupId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable List<String> vpcSecurityGroupIds;
         public Builder() {}
         public Builder(GetReplicationInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -267,63 +269,63 @@ public final class GetReplicationInstanceResult {
         }
 
         @CustomType.Setter
-        public Builder allocatedStorage(Integer allocatedStorage) {
-            this.allocatedStorage = Objects.requireNonNull(allocatedStorage);
+        public Builder allocatedStorage(@Nullable Integer allocatedStorage) {
+            this.allocatedStorage = allocatedStorage;
             return this;
         }
         @CustomType.Setter
-        public Builder autoMinorVersionUpgrade(Boolean autoMinorVersionUpgrade) {
-            this.autoMinorVersionUpgrade = Objects.requireNonNull(autoMinorVersionUpgrade);
+        public Builder autoMinorVersionUpgrade(@Nullable Boolean autoMinorVersionUpgrade) {
+            this.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+        public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder multiAz(Boolean multiAz) {
-            this.multiAz = Objects.requireNonNull(multiAz);
+        public Builder multiAz(@Nullable Boolean multiAz) {
+            this.multiAz = multiAz;
             return this;
         }
         @CustomType.Setter
-        public Builder networkType(String networkType) {
-            this.networkType = Objects.requireNonNull(networkType);
+        public Builder networkType(@Nullable String networkType) {
+            this.networkType = networkType;
             return this;
         }
         @CustomType.Setter
-        public Builder preferredMaintenanceWindow(String preferredMaintenanceWindow) {
-            this.preferredMaintenanceWindow = Objects.requireNonNull(preferredMaintenanceWindow);
+        public Builder preferredMaintenanceWindow(@Nullable String preferredMaintenanceWindow) {
+            this.preferredMaintenanceWindow = preferredMaintenanceWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder publiclyAccessible(Boolean publiclyAccessible) {
-            this.publiclyAccessible = Objects.requireNonNull(publiclyAccessible);
+        public Builder publiclyAccessible(@Nullable Boolean publiclyAccessible) {
+            this.publiclyAccessible = publiclyAccessible;
             return this;
         }
         @CustomType.Setter
-        public Builder replicationInstanceArn(String replicationInstanceArn) {
-            this.replicationInstanceArn = Objects.requireNonNull(replicationInstanceArn);
+        public Builder replicationInstanceArn(@Nullable String replicationInstanceArn) {
+            this.replicationInstanceArn = replicationInstanceArn;
             return this;
         }
         @CustomType.Setter
-        public Builder replicationInstanceClass(String replicationInstanceClass) {
-            this.replicationInstanceClass = Objects.requireNonNull(replicationInstanceClass);
+        public Builder replicationInstanceClass(@Nullable String replicationInstanceClass) {
+            this.replicationInstanceClass = replicationInstanceClass;
             return this;
         }
         @CustomType.Setter
@@ -332,34 +334,34 @@ public final class GetReplicationInstanceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder replicationInstancePrivateIps(List<String> replicationInstancePrivateIps) {
-            this.replicationInstancePrivateIps = Objects.requireNonNull(replicationInstancePrivateIps);
+        public Builder replicationInstancePrivateIps(@Nullable List<String> replicationInstancePrivateIps) {
+            this.replicationInstancePrivateIps = replicationInstancePrivateIps;
             return this;
         }
         public Builder replicationInstancePrivateIps(String... replicationInstancePrivateIps) {
             return replicationInstancePrivateIps(List.of(replicationInstancePrivateIps));
         }
         @CustomType.Setter
-        public Builder replicationInstancePublicIps(List<String> replicationInstancePublicIps) {
-            this.replicationInstancePublicIps = Objects.requireNonNull(replicationInstancePublicIps);
+        public Builder replicationInstancePublicIps(@Nullable List<String> replicationInstancePublicIps) {
+            this.replicationInstancePublicIps = replicationInstancePublicIps;
             return this;
         }
         public Builder replicationInstancePublicIps(String... replicationInstancePublicIps) {
             return replicationInstancePublicIps(List.of(replicationInstancePublicIps));
         }
         @CustomType.Setter
-        public Builder replicationSubnetGroupId(String replicationSubnetGroupId) {
-            this.replicationSubnetGroupId = Objects.requireNonNull(replicationSubnetGroupId);
+        public Builder replicationSubnetGroupId(@Nullable String replicationSubnetGroupId) {
+            this.replicationSubnetGroupId = replicationSubnetGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
-            this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
+        public Builder vpcSecurityGroupIds(@Nullable List<String> vpcSecurityGroupIds) {
+            this.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {

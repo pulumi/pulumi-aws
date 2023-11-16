@@ -77,7 +77,7 @@ type OrganizationConfiguration struct {
 	// Whether to automatically enable Security Hub for new accounts in the organization.
 	AutoEnable pulumi.BoolOutput `pulumi:"autoEnable"`
 	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-	AutoEnableStandards pulumi.StringOutput `pulumi:"autoEnableStandards"`
+	AutoEnableStandards pulumi.StringPtrOutput `pulumi:"autoEnableStandards"`
 }
 
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -238,8 +238,8 @@ func (o OrganizationConfigurationOutput) AutoEnable() pulumi.BoolOutput {
 }
 
 // Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-func (o OrganizationConfigurationOutput) AutoEnableStandards() pulumi.StringOutput {
-	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.AutoEnableStandards }).(pulumi.StringOutput)
+func (o OrganizationConfigurationOutput) AutoEnableStandards() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringPtrOutput { return v.AutoEnableStandards }).(pulumi.StringPtrOutput)
 }
 
 type OrganizationConfigurationArrayOutput struct{ *pulumi.OutputState }

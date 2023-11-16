@@ -75,21 +75,21 @@ type ContainerRecipe struct {
 	pulumi.CustomResourceState
 
 	// (Required) Amazon Resource Name (ARN) of the container recipe.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Ordered configuration block(s) with components for the container recipe. Detailed below.
 	Components ContainerRecipeComponentArrayOutput `pulumi:"components"`
 	// The type of the container to create. Valid values: `DOCKER`.
 	ContainerType pulumi.StringOutput `pulumi:"containerType"`
 	// Date the container recipe was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
+	DateCreated pulumi.StringPtrOutput `pulumi:"dateCreated"`
 	// The description of the container recipe.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Dockerfile template used to build the image as an inline data blob.
-	DockerfileTemplateData pulumi.StringOutput `pulumi:"dockerfileTemplateData"`
+	DockerfileTemplateData pulumi.StringPtrOutput `pulumi:"dockerfileTemplateData"`
 	// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
 	DockerfileTemplateUri pulumi.StringPtrOutput `pulumi:"dockerfileTemplateUri"`
 	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// Configuration block used to configure an instance for building and testing container images. Detailed below.
 	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
 	// The KMS key used to encrypt the container image.
@@ -97,11 +97,11 @@ type ContainerRecipe struct {
 	// The name of the container recipe.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the container recipe.
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// The base image for the container recipe.
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// Platform of the container recipe.
-	Platform pulumi.StringOutput `pulumi:"platform"`
+	Platform pulumi.StringPtrOutput `pulumi:"platform"`
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride pulumi.StringPtrOutput `pulumi:"platformOverride"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -421,8 +421,8 @@ func (o ContainerRecipeOutput) ToContainerRecipeOutputWithContext(ctx context.Co
 }
 
 // (Required) Amazon Resource Name (ARN) of the container recipe.
-func (o ContainerRecipeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ContainerRecipeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Ordered configuration block(s) with components for the container recipe. Detailed below.
@@ -436,8 +436,8 @@ func (o ContainerRecipeOutput) ContainerType() pulumi.StringOutput {
 }
 
 // Date the container recipe was created.
-func (o ContainerRecipeOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
+func (o ContainerRecipeOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // The description of the container recipe.
@@ -446,8 +446,8 @@ func (o ContainerRecipeOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The Dockerfile template used to build the image as an inline data blob.
-func (o ContainerRecipeOutput) DockerfileTemplateData() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.DockerfileTemplateData }).(pulumi.StringOutput)
+func (o ContainerRecipeOutput) DockerfileTemplateData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.DockerfileTemplateData }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon S3 URI for the Dockerfile that will be used to build the container image.
@@ -456,8 +456,8 @@ func (o ContainerRecipeOutput) DockerfileTemplateUri() pulumi.StringPtrOutput {
 }
 
 // Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-func (o ContainerRecipeOutput) Encrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ContainerRecipe) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
+func (o ContainerRecipeOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // Configuration block used to configure an instance for building and testing container images. Detailed below.
@@ -476,8 +476,8 @@ func (o ContainerRecipeOutput) Name() pulumi.StringOutput {
 }
 
 // Owner of the container recipe.
-func (o ContainerRecipeOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o ContainerRecipeOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // The base image for the container recipe.
@@ -486,8 +486,8 @@ func (o ContainerRecipeOutput) ParentImage() pulumi.StringOutput {
 }
 
 // Platform of the container recipe.
-func (o ContainerRecipeOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+func (o ContainerRecipeOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the operating system platform when you use a custom base image.

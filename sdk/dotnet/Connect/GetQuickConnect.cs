@@ -196,17 +196,17 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the Quick Connect.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the Quick Connect.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         /// </summary>
@@ -214,29 +214,29 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Identifier for the Quick Connect.
         /// </summary>
-        public readonly string QuickConnectId;
+        public readonly string? QuickConnectId;
         /// <summary>
         /// Map of tags to assign to the Quick Connect.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetQuickConnectResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string instanceId,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetQuickConnectQuickConnectConfigResult> quickConnectConfigs,
 
-            string quickConnectId,
+            string? quickConnectId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

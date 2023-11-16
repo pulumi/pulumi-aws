@@ -16,53 +16,53 @@ namespace Pulumi.Aws.ServiceQuotas.Outputs
         /// <summary>
         /// Indicates whether the quota is global.
         /// </summary>
-        public readonly bool GlobalQuota;
+        public readonly bool? GlobalQuota;
         /// <summary>
         /// Quota identifier.
         /// </summary>
-        public readonly string QuotaCode;
+        public readonly string? QuotaCode;
         /// <summary>
         /// Quota name.
         /// </summary>
-        public readonly string QuotaName;
+        public readonly string? QuotaName;
         /// <summary>
         /// AWS Region to which the quota increases apply.
         /// </summary>
-        public readonly string Region;
+        public readonly string? Region;
         /// <summary>
         /// (Required) Service identifier.
         /// </summary>
-        public readonly string ServiceCode;
+        public readonly string? ServiceCode;
         /// <summary>
         /// Service name.
         /// </summary>
-        public readonly string ServiceName;
+        public readonly string? ServiceName;
         /// <summary>
         /// Unit of measurement.
         /// </summary>
-        public readonly string Unit;
+        public readonly string? Unit;
         /// <summary>
         /// (Required) The new, increased value for the quota.
         /// </summary>
-        public readonly double Value;
+        public readonly double? Value;
 
         [OutputConstructor]
         private GetTemplatesTemplateResult(
-            bool globalQuota,
+            bool? globalQuota,
 
-            string quotaCode,
+            string? quotaCode,
 
-            string quotaName,
+            string? quotaName,
 
-            string region,
+            string? region,
 
-            string serviceCode,
+            string? serviceCode,
 
-            string serviceName,
+            string? serviceName,
 
-            string unit,
+            string? unit,
 
-            double value)
+            double? value)
         {
             GlobalQuota = globalQuota;
             QuotaCode = quotaCode;

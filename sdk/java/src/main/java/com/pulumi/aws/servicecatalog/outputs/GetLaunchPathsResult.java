@@ -18,13 +18,13 @@ public final class GetLaunchPathsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String productId;
     /**
      * @return Block with information about the launch path. See details below.
      * 
      */
-    private List<GetLaunchPathsSummary> summaries;
+    private @Nullable List<GetLaunchPathsSummary> summaries;
 
     private GetLaunchPathsResult() {}
     public Optional<String> acceptLanguage() {
@@ -34,8 +34,8 @@ public final class GetLaunchPathsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String productId() {
         return this.productId;
@@ -45,7 +45,7 @@ public final class GetLaunchPathsResult {
      * 
      */
     public List<GetLaunchPathsSummary> summaries() {
-        return this.summaries;
+        return this.summaries == null ? List.of() : this.summaries;
     }
 
     public static Builder builder() {
@@ -58,9 +58,9 @@ public final class GetLaunchPathsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
-        private String id;
+        private @Nullable String id;
         private String productId;
-        private List<GetLaunchPathsSummary> summaries;
+        private @Nullable List<GetLaunchPathsSummary> summaries;
         public Builder() {}
         public Builder(GetLaunchPathsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,8 +76,8 @@ public final class GetLaunchPathsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -86,8 +86,8 @@ public final class GetLaunchPathsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder summaries(List<GetLaunchPathsSummary> summaries) {
-            this.summaries = Objects.requireNonNull(summaries);
+        public Builder summaries(@Nullable List<GetLaunchPathsSummary> summaries) {
+            this.summaries = summaries;
             return this;
         }
         public Builder summaries(GetLaunchPathsSummary... summaries) {

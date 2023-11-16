@@ -126,7 +126,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// The Amazon Resource Name (ARN) that identifies the firewall policy.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A friendly description of the firewall policy.
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// A string token used when updating a firewall policy.
         /// </summary>
         [Output("updateToken")]
-        public Output<string> UpdateToken { get; private set; } = null!;
+        public Output<string?> UpdateToken { get; private set; } = null!;
 
 
         /// <summary>

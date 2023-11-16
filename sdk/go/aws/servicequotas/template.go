@@ -59,19 +59,19 @@ type Template struct {
 	pulumi.CustomResourceState
 
 	// Indicates whether the quota is global.
-	GlobalQuota pulumi.BoolOutput `pulumi:"globalQuota"`
+	GlobalQuota pulumi.BoolPtrOutput `pulumi:"globalQuota"`
 	// Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
 	QuotaCode pulumi.StringOutput `pulumi:"quotaCode"`
 	// Quota name.
-	QuotaName pulumi.StringOutput `pulumi:"quotaName"`
+	QuotaName pulumi.StringPtrOutput `pulumi:"quotaName"`
 	// AWS Region to which the template applies.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Service identifier. To find the service code value for an AWS service, use the servicequotas.getService data source.
 	ServiceCode pulumi.StringOutput `pulumi:"serviceCode"`
 	// Service name.
-	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	ServiceName pulumi.StringPtrOutput `pulumi:"serviceName"`
 	// Unit of measurement.
-	Unit pulumi.StringOutput `pulumi:"unit"`
+	Unit pulumi.StringPtrOutput `pulumi:"unit"`
 	// The new, increased value for the quota.
 	Value pulumi.Float64Output `pulumi:"value"`
 }
@@ -270,8 +270,8 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 }
 
 // Indicates whether the quota is global.
-func (o TemplateOutput) GlobalQuota() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Template) pulumi.BoolOutput { return v.GlobalQuota }).(pulumi.BoolOutput)
+func (o TemplateOutput) GlobalQuota() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.BoolPtrOutput { return v.GlobalQuota }).(pulumi.BoolPtrOutput)
 }
 
 // Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
@@ -280,8 +280,8 @@ func (o TemplateOutput) QuotaCode() pulumi.StringOutput {
 }
 
 // Quota name.
-func (o TemplateOutput) QuotaName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.QuotaName }).(pulumi.StringOutput)
+func (o TemplateOutput) QuotaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.QuotaName }).(pulumi.StringPtrOutput)
 }
 
 // AWS Region to which the template applies.
@@ -295,13 +295,13 @@ func (o TemplateOutput) ServiceCode() pulumi.StringOutput {
 }
 
 // Service name.
-func (o TemplateOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
+func (o TemplateOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 // Unit of measurement.
-func (o TemplateOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Unit }).(pulumi.StringOutput)
+func (o TemplateOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
 // The new, increased value for the quota.

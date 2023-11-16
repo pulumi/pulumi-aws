@@ -129,42 +129,42 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
+    private Output</* @Nullable */ String> accountId;
 
     /**
      * @return AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
     }
     /**
      * Alias of the S3 Access Point.
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
-    private Output<String> alias;
+    private Output</* @Nullable */ String> alias;
 
     /**
      * @return Alias of the S3 Access Point.
      * 
      */
-    public Output<String> alias() {
-        return this.alias;
+    public Output<Optional<String>> alias() {
+        return Codegen.optional(this.alias);
     }
     /**
      * ARN of the S3 Access Point.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the S3 Access Point.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
@@ -185,14 +185,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bucketAccountId", refs={String.class}, tree="[0]")
-    private Output<String> bucketAccountId;
+    private Output</* @Nullable */ String> bucketAccountId;
 
     /**
      * @return AWS account ID associated with the S3 bucket associated with this access point.
      * 
      */
-    public Output<String> bucketAccountId() {
-        return this.bucketAccountId;
+    public Output<Optional<String>> bucketAccountId() {
+        return Codegen.optional(this.bucketAccountId);
     }
     /**
      * DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
@@ -200,43 +200,43 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
-    private Output<String> domainName;
+    private Output</* @Nullable */ String> domainName;
 
     /**
      * @return DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 
      */
-    public Output<String> domainName() {
-        return this.domainName;
+    public Output<Optional<String>> domainName() {
+        return Codegen.optional(this.domainName);
     }
     /**
      * VPC endpoints for the S3 Access Point.
      * 
      */
     @Export(name="endpoints", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> endpoints;
+    private Output</* @Nullable */ Map<String,String>> endpoints;
 
     /**
      * @return VPC endpoints for the S3 Access Point.
      * 
      */
-    public Output<Map<String,String>> endpoints() {
-        return this.endpoints;
+    public Output<Optional<Map<String,String>>> endpoints() {
+        return Codegen.optional(this.endpoints);
     }
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      * 
      */
     @Export(name="hasPublicAccessPolicy", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> hasPublicAccessPolicy;
+    private Output</* @Nullable */ Boolean> hasPublicAccessPolicy;
 
     /**
      * @return Indicates whether this access point currently has a policy that allows public access.
      * 
      */
-    public Output<Boolean> hasPublicAccessPolicy() {
-        return this.hasPublicAccessPolicy;
+    public Output<Optional<Boolean>> hasPublicAccessPolicy() {
+        return Codegen.optional(this.hasPublicAccessPolicy);
     }
     /**
      * Name you want to assign to this access point.
@@ -261,28 +261,28 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkOrigin", refs={String.class}, tree="[0]")
-    private Output<String> networkOrigin;
+    private Output</* @Nullable */ String> networkOrigin;
 
     /**
      * @return Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn&#39;t allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
      * 
      */
-    public Output<String> networkOrigin() {
-        return this.networkOrigin;
+    public Output<Optional<String>> networkOrigin() {
+        return Codegen.optional(this.networkOrigin);
     }
     /**
      * Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = &#34;&#34;`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `&#34;{}&#34;` (an empty JSON document).
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = &#34;&#34;`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `&#34;{}&#34;` (an empty JSON document).
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.

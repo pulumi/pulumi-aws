@@ -55,7 +55,7 @@ class GetScriptResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -68,7 +68,7 @@ class GetScriptResult:
 
     @property
     @pulumi.getter(name="pythonScript")
-    def python_script(self) -> str:
+    def python_script(self) -> Optional[str]:
         """
         Python script generated from the DAG when the `language` argument is set to `PYTHON`.
         """
@@ -76,7 +76,7 @@ class GetScriptResult:
 
     @property
     @pulumi.getter(name="scalaCode")
-    def scala_code(self) -> str:
+    def scala_code(self) -> Optional[str]:
         """
         Scala code generated from the DAG when the `language` argument is set to `SCALA`.
         """

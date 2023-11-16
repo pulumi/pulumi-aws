@@ -346,125 +346,125 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the subnet.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Whether an IPv6 address is assigned on creation.
         /// </summary>
-        public readonly bool AssignIpv6AddressOnCreation;
-        public readonly string AvailabilityZone;
-        public readonly string AvailabilityZoneId;
+        public readonly bool? AssignIpv6AddressOnCreation;
+        public readonly string? AvailabilityZone;
+        public readonly string? AvailabilityZoneId;
         /// <summary>
         /// Available IP addresses of the subnet.
         /// </summary>
-        public readonly int AvailableIpAddressCount;
-        public readonly string CidrBlock;
+        public readonly int? AvailableIpAddressCount;
+        public readonly string? CidrBlock;
         /// <summary>
         /// Identifier of customer owned IPv4 address pool.
         /// </summary>
-        public readonly string CustomerOwnedIpv4Pool;
-        public readonly bool DefaultForAz;
+        public readonly string? CustomerOwnedIpv4Pool;
+        public readonly bool? DefaultForAz;
         /// <summary>
         /// Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
         /// </summary>
-        public readonly bool EnableDns64;
+        public readonly bool? EnableDns64;
         /// <summary>
         /// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         /// </summary>
-        public readonly int EnableLniAtDeviceIndex;
+        public readonly int? EnableLniAtDeviceIndex;
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         /// </summary>
-        public readonly bool EnableResourceNameDnsARecordOnLaunch;
+        public readonly bool? EnableResourceNameDnsARecordOnLaunch;
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         /// </summary>
-        public readonly bool EnableResourceNameDnsAaaaRecordOnLaunch;
+        public readonly bool? EnableResourceNameDnsAaaaRecordOnLaunch;
         public readonly ImmutableArray<Outputs.GetSubnetFilterResult> Filters;
-        public readonly string Id;
-        public readonly string Ipv6CidrBlock;
+        public readonly string? Id;
+        public readonly string? Ipv6CidrBlock;
         /// <summary>
         /// Association ID of the IPv6 CIDR block.
         /// </summary>
-        public readonly string Ipv6CidrBlockAssociationId;
+        public readonly string? Ipv6CidrBlockAssociationId;
         /// <summary>
         /// Whether this is an IPv6-only subnet.
         /// </summary>
-        public readonly bool Ipv6Native;
+        public readonly bool? Ipv6Native;
         /// <summary>
         /// Whether customer owned IP addresses are assigned on network interface creation.
         /// </summary>
-        public readonly bool MapCustomerOwnedIpOnLaunch;
+        public readonly bool? MapCustomerOwnedIpOnLaunch;
         /// <summary>
         /// Whether public IP addresses are assigned on instance launch.
         /// </summary>
-        public readonly bool MapPublicIpOnLaunch;
+        public readonly bool? MapPublicIpOnLaunch;
         /// <summary>
         /// ARN of the Outpost.
         /// </summary>
-        public readonly string OutpostArn;
+        public readonly string? OutpostArn;
         /// <summary>
         /// ID of the AWS account that owns the subnet.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// The type of hostnames assigned to instances in the subnet at launch.
         /// </summary>
-        public readonly string PrivateDnsHostnameTypeOnLaunch;
-        public readonly string State;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string VpcId;
+        public readonly string? PrivateDnsHostnameTypeOnLaunch;
+        public readonly string? State;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetSubnetResult(
-            string arn,
+            string? arn,
 
-            bool assignIpv6AddressOnCreation,
+            bool? assignIpv6AddressOnCreation,
 
-            string availabilityZone,
+            string? availabilityZone,
 
-            string availabilityZoneId,
+            string? availabilityZoneId,
 
-            int availableIpAddressCount,
+            int? availableIpAddressCount,
 
-            string cidrBlock,
+            string? cidrBlock,
 
-            string customerOwnedIpv4Pool,
+            string? customerOwnedIpv4Pool,
 
-            bool defaultForAz,
+            bool? defaultForAz,
 
-            bool enableDns64,
+            bool? enableDns64,
 
-            int enableLniAtDeviceIndex,
+            int? enableLniAtDeviceIndex,
 
-            bool enableResourceNameDnsARecordOnLaunch,
+            bool? enableResourceNameDnsARecordOnLaunch,
 
-            bool enableResourceNameDnsAaaaRecordOnLaunch,
+            bool? enableResourceNameDnsAaaaRecordOnLaunch,
 
             ImmutableArray<Outputs.GetSubnetFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string ipv6CidrBlock,
+            string? ipv6CidrBlock,
 
-            string ipv6CidrBlockAssociationId,
+            string? ipv6CidrBlockAssociationId,
 
-            bool ipv6Native,
+            bool? ipv6Native,
 
-            bool mapCustomerOwnedIpOnLaunch,
+            bool? mapCustomerOwnedIpOnLaunch,
 
-            bool mapPublicIpOnLaunch,
+            bool? mapPublicIpOnLaunch,
 
-            string outpostArn,
+            string? outpostArn,
 
-            string ownerId,
+            string? ownerId,
 
-            string privateDnsHostnameTypeOnLaunch,
+            string? privateDnsHostnameTypeOnLaunch,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             AssignIpv6AddressOnCreation = assignIpv6AddressOnCreation;

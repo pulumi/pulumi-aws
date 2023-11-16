@@ -373,7 +373,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[str]:
+    def properties(self) -> pulumi.Output[Optional[str]]:
         """
         JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
         """
@@ -389,7 +389,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schema(self) -> pulumi.Output[str]:
+    def schema(self) -> pulumi.Output[Optional[str]]:
         """
         JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         """

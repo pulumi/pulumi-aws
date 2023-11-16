@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
@@ -15,51 +17,51 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
      * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
      * 
      */
-    private String deviceName;
+    private @Nullable String deviceName;
     /**
      * @return Single list of object with Elastic Block Storage (EBS) block device mapping settings.
      * 
      */
-    private List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs;
+    private @Nullable List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs;
     /**
      * @return Whether to remove a mapping from the parent image.
      * 
      */
-    private String noDevice;
+    private @Nullable String noDevice;
     /**
      * @return Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
      * 
      */
-    private String virtualName;
+    private @Nullable String virtualName;
 
     private GetContainerRecipeInstanceConfigurationBlockDeviceMapping() {}
     /**
      * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
      * 
      */
-    public String deviceName() {
-        return this.deviceName;
+    public Optional<String> deviceName() {
+        return Optional.ofNullable(this.deviceName);
     }
     /**
      * @return Single list of object with Elastic Block Storage (EBS) block device mapping settings.
      * 
      */
     public List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs() {
-        return this.ebs;
+        return this.ebs == null ? List.of() : this.ebs;
     }
     /**
      * @return Whether to remove a mapping from the parent image.
      * 
      */
-    public String noDevice() {
-        return this.noDevice;
+    public Optional<String> noDevice() {
+        return Optional.ofNullable(this.noDevice);
     }
     /**
      * @return Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
      * 
      */
-    public String virtualName() {
-        return this.virtualName;
+    public Optional<String> virtualName() {
+        return Optional.ofNullable(this.virtualName);
     }
 
     public static Builder builder() {
@@ -71,10 +73,10 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String deviceName;
-        private List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs;
-        private String noDevice;
-        private String virtualName;
+        private @Nullable String deviceName;
+        private @Nullable List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs;
+        private @Nullable String noDevice;
+        private @Nullable String virtualName;
         public Builder() {}
         public Builder(GetContainerRecipeInstanceConfigurationBlockDeviceMapping defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,26 +87,26 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
         }
 
         @CustomType.Setter
-        public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+        public Builder deviceName(@Nullable String deviceName) {
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder ebs(List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs) {
-            this.ebs = Objects.requireNonNull(ebs);
+        public Builder ebs(@Nullable List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs) {
+            this.ebs = ebs;
             return this;
         }
         public Builder ebs(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb... ebs) {
             return ebs(List.of(ebs));
         }
         @CustomType.Setter
-        public Builder noDevice(String noDevice) {
-            this.noDevice = Objects.requireNonNull(noDevice);
+        public Builder noDevice(@Nullable String noDevice) {
+            this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
-        public Builder virtualName(String virtualName) {
-            this.virtualName = Objects.requireNonNull(virtualName);
+        public Builder virtualName(@Nullable String virtualName) {
+            this.virtualName = virtualName;
             return this;
         }
         public GetContainerRecipeInstanceConfigurationBlockDeviceMapping build() {

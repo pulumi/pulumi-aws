@@ -132,83 +132,83 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// (Conflicts with `cdc_start_time`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         /// </summary>
-        public readonly string CdcStartPosition;
+        public readonly string? CdcStartPosition;
         /// <summary>
         /// (Conflicts with `cdc_start_position`) The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         /// </summary>
-        public readonly string CdcStartTime;
+        public readonly string? CdcStartTime;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         /// </summary>
-        public readonly string MigrationType;
+        public readonly string? MigrationType;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replication instance.
         /// </summary>
-        public readonly string ReplicationInstanceArn;
+        public readonly string? ReplicationInstanceArn;
         /// <summary>
         /// The Amazon Resource Name (ARN) for the replication task.
         /// </summary>
-        public readonly string ReplicationTaskArn;
+        public readonly string? ReplicationTaskArn;
         public readonly string ReplicationTaskId;
         /// <summary>
         /// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         /// </summary>
-        public readonly string ReplicationTaskSettings;
+        public readonly string? ReplicationTaskSettings;
         /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         /// </summary>
-        public readonly string SourceEndpointArn;
+        public readonly string? SourceEndpointArn;
         /// <summary>
         /// Whether to run or stop the replication task.
         /// </summary>
-        public readonly bool StartReplicationTask;
+        public readonly bool? StartReplicationTask;
         /// <summary>
         /// Replication Task status.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         /// </summary>
-        public readonly string TableMappings;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? TableMappings;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         /// </summary>
-        public readonly string TargetEndpointArn;
+        public readonly string? TargetEndpointArn;
 
         [OutputConstructor]
         private GetReplicationTaskResult(
-            string cdcStartPosition,
+            string? cdcStartPosition,
 
-            string cdcStartTime,
+            string? cdcStartTime,
 
-            string id,
+            string? id,
 
-            string migrationType,
+            string? migrationType,
 
-            string replicationInstanceArn,
+            string? replicationInstanceArn,
 
-            string replicationTaskArn,
+            string? replicationTaskArn,
 
             string replicationTaskId,
 
-            string replicationTaskSettings,
+            string? replicationTaskSettings,
 
-            string sourceEndpointArn,
+            string? sourceEndpointArn,
 
-            bool startReplicationTask,
+            bool? startReplicationTask,
 
-            string status,
+            string? status,
 
-            string tableMappings,
+            string? tableMappings,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string targetEndpointArn)
+            string? targetEndpointArn)
         {
             CdcStartPosition = cdcStartPosition;
             CdcStartTime = cdcStartTime;

@@ -576,7 +576,7 @@ class ReplicaKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
         """
@@ -620,7 +620,7 @@ class ReplicaKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> pulumi.Output[str]:
+    def key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The key ID of the replica key. Related multi-Region keys have the same key ID.
         """
@@ -628,7 +628,7 @@ class ReplicaKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyRotationEnabled")
-    def key_rotation_enabled(self) -> pulumi.Output[bool]:
+    def key_rotation_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
         """
@@ -636,7 +636,7 @@ class ReplicaKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keySpec")
-    def key_spec(self) -> pulumi.Output[str]:
+    def key_spec(self) -> pulumi.Output[Optional[str]]:
         """
         The type of key material in the KMS key. This is a shared property of multi-Region keys.
         """
@@ -644,7 +644,7 @@ class ReplicaKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> pulumi.Output[str]:
+    def key_usage(self) -> pulumi.Output[Optional[str]]:
         """
         The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
         """
@@ -652,7 +652,7 @@ class ReplicaKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         """

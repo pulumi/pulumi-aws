@@ -144,11 +144,11 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
      */
-    public readonly accepter!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsAccepter>;
+    public readonly accepter!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsAccepter | undefined>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
      */
-    public readonly requester!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsRequester>;
+    public readonly requester!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsRequester | undefined>;
     /**
      * The ID of the requester VPC peering connection.
      */

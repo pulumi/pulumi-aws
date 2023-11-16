@@ -67,28 +67,28 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the access point.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN of the file system.
      * 
      */
     @Export(name="fileSystemArn", refs={String.class}, tree="[0]")
-    private Output<String> fileSystemArn;
+    private Output</* @Nullable */ String> fileSystemArn;
 
     /**
      * @return ARN of the file system.
      * 
      */
-    public Output<String> fileSystemArn() {
-        return this.fileSystemArn;
+    public Output<Optional<String>> fileSystemArn() {
+        return Codegen.optional(this.fileSystemArn);
     }
     /**
      * ID of the file system for which the access point is intended.
@@ -105,10 +105,10 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.fileSystemId;
     }
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
@@ -129,14 +129,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="rootDirectory", refs={AccessPointRootDirectory.class}, tree="[0]")
-    private Output<AccessPointRootDirectory> rootDirectory;
+    private Output</* @Nullable */ AccessPointRootDirectory> rootDirectory;
 
     /**
      * @return Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      * 
      */
-    public Output<AccessPointRootDirectory> rootDirectory() {
-        return this.rootDirectory;
+    public Output<Optional<AccessPointRootDirectory>> rootDirectory() {
+        return Codegen.optional(this.rootDirectory);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

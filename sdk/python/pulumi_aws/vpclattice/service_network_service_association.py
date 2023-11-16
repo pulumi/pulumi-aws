@@ -393,7 +393,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Association.
         """
@@ -401,7 +401,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[str]:
+    def created_by(self) -> pulumi.Output[Optional[str]]:
         """
         The account that created the association.
         """
@@ -409,7 +409,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDomainName")
-    def custom_domain_name(self) -> pulumi.Output[str]:
+    def custom_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The custom domain name of the service.
         """
@@ -417,7 +417,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsEntries")
-    def dns_entries(self) -> pulumi.Output[Sequence['outputs.ServiceNetworkServiceAssociationDnsEntry']]:
+    def dns_entries(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceNetworkServiceAssociationDnsEntry']]]:
         """
         The DNS name of the service.
         """
@@ -442,7 +442,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         """

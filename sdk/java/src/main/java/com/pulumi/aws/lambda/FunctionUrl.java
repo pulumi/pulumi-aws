@@ -114,14 +114,14 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="functionArn", refs={String.class}, tree="[0]")
-    private Output<String> functionArn;
+    private Output</* @Nullable */ String> functionArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the function.
      * 
      */
-    public Output<String> functionArn() {
-        return this.functionArn;
+    public Output<Optional<String>> functionArn() {
+        return Codegen.optional(this.functionArn);
     }
     /**
      * The name (or ARN) of the Lambda function.
@@ -142,14 +142,14 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="functionUrl", refs={String.class}, tree="[0]")
-    private Output<String> functionUrl;
+    private Output</* @Nullable */ String> functionUrl;
 
     /**
      * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
      * 
      */
-    public Output<String> functionUrl() {
-        return this.functionUrl;
+    public Output<Optional<String>> functionUrl() {
+        return Codegen.optional(this.functionUrl);
     }
     /**
      * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
@@ -184,14 +184,14 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="urlId", refs={String.class}, tree="[0]")
-    private Output<String> urlId;
+    private Output</* @Nullable */ String> urlId;
 
     /**
      * @return A generated ID for the endpoint.
      * 
      */
-    public Output<String> urlId() {
-        return this.urlId;
+    public Output<Optional<String>> urlId() {
+        return Codegen.optional(this.urlId);
     }
 
     /**

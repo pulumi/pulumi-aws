@@ -65,7 +65,7 @@ export class Build extends pulumi.CustomResource {
     /**
      * GameLift Build ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the build
      */

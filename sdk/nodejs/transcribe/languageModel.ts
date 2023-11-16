@@ -102,7 +102,7 @@ export class LanguageModel extends pulumi.CustomResource {
     /**
      * ARN of the LanguageModel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of reference base model.
      */

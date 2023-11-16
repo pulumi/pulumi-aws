@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -91,14 +92,14 @@ public class CostAllocationTag extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return The type of cost allocation tag.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

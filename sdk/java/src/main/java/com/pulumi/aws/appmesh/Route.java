@@ -245,42 +245,42 @@ public class Route extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the route.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Creation date of the route.
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
-    private Output<String> createdDate;
+    private Output</* @Nullable */ String> createdDate;
 
     /**
      * @return Creation date of the route.
      * 
      */
-    public Output<String> createdDate() {
-        return this.createdDate;
+    public Output<Optional<String>> createdDate() {
+        return Codegen.optional(this.createdDate);
     }
     /**
      * Last update date of the route.
      * 
      */
     @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedDate;
+    private Output</* @Nullable */ String> lastUpdatedDate;
 
     /**
      * @return Last update date of the route.
      * 
      */
-    public Output<String> lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Output<Optional<String>> lastUpdatedDate() {
+        return Codegen.optional(this.lastUpdatedDate);
     }
     /**
      * Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
@@ -301,14 +301,14 @@ public class Route extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="meshOwner", refs={String.class}, tree="[0]")
-    private Output<String> meshOwner;
+    private Output</* @Nullable */ String> meshOwner;
 
     /**
      * @return AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    public Output<String> meshOwner() {
-        return this.meshOwner;
+    public Output<Optional<String>> meshOwner() {
+        return Codegen.optional(this.meshOwner);
     }
     /**
      * Name to use for the route. Must be between 1 and 255 characters in length.
@@ -329,14 +329,14 @@ public class Route extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceOwner", refs={String.class}, tree="[0]")
-    private Output<String> resourceOwner;
+    private Output</* @Nullable */ String> resourceOwner;
 
     /**
      * @return Resource owner&#39;s AWS account ID.
      * 
      */
-    public Output<String> resourceOwner() {
-        return this.resourceOwner;
+    public Output<Optional<String>> resourceOwner() {
+        return Codegen.optional(this.resourceOwner);
     }
     /**
      * Route specification to apply.

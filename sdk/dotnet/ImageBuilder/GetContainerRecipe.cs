@@ -133,27 +133,27 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Type of the container.
         /// </summary>
-        public readonly string ContainerType;
+        public readonly string? ContainerType;
         /// <summary>
         /// Date the container recipe was created.
         /// </summary>
-        public readonly string DateCreated;
+        public readonly string? DateCreated;
         /// <summary>
         /// Description of the container recipe.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Dockerfile template used to build the image.
         /// </summary>
-        public readonly string DockerfileTemplateData;
+        public readonly string? DockerfileTemplateData;
         /// <summary>
         /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly bool? Encrypted;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of objects with instance configurations for building and testing container images.
         /// </summary>
@@ -161,23 +161,23 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// KMS key used to encrypt the container image.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// Name of the container recipe.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Owner of the container recipe.
         /// </summary>
-        public readonly string Owner;
+        public readonly string? Owner;
         /// <summary>
         /// Base image for the container recipe.
         /// </summary>
-        public readonly string ParentImage;
+        public readonly string? ParentImage;
         /// <summary>
         /// Platform of the container recipe.
         /// </summary>
-        public readonly string Platform;
+        public readonly string? Platform;
         /// <summary>
         /// Key-value map of resource tags for the container recipe.
         /// </summary>
@@ -189,11 +189,11 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Version of the container recipe.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
         /// <summary>
         /// Working directory used during build and test workflows.
         /// </summary>
-        public readonly string WorkingDirectory;
+        public readonly string? WorkingDirectory;
 
         [OutputConstructor]
         private GetContainerRecipeResult(
@@ -201,37 +201,37 @@ namespace Pulumi.Aws.ImageBuilder
 
             ImmutableArray<Outputs.GetContainerRecipeComponentResult> components,
 
-            string containerType,
+            string? containerType,
 
-            string dateCreated,
+            string? dateCreated,
 
-            string description,
+            string? description,
 
-            string dockerfileTemplateData,
+            string? dockerfileTemplateData,
 
-            bool encrypted,
+            bool? encrypted,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetContainerRecipeInstanceConfigurationResult> instanceConfigurations,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string name,
+            string? name,
 
-            string owner,
+            string? owner,
 
-            string parentImage,
+            string? parentImage,
 
-            string platform,
+            string? platform,
 
             ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.GetContainerRecipeTargetRepositoryResult> targetRepositories,
 
-            string version,
+            string? version,
 
-            string workingDirectory)
+            string? workingDirectory)
         {
             Arn = arn;
             Components = components;

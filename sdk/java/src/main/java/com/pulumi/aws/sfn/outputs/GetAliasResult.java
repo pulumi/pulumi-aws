@@ -17,12 +17,12 @@ public final class GetAliasResult {
      * @return ARN identifying the State Machine alias.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Date the state machine Alias was created.
      * 
      */
-    private String creationDate;
+    private @Nullable String creationDate;
     /**
      * @return Description of state machine alias.
      * 
@@ -32,13 +32,13 @@ public final class GetAliasResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Routing Configuration of state machine alias
      * 
      */
-    private List<GetAliasRoutingConfiguration> routingConfigurations;
+    private @Nullable List<GetAliasRoutingConfiguration> routingConfigurations;
     private String statemachineArn;
 
     private GetAliasResult() {}
@@ -46,15 +46,15 @@ public final class GetAliasResult {
      * @return ARN identifying the State Machine alias.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Date the state machine Alias was created.
      * 
      */
-    public String creationDate() {
-        return this.creationDate;
+    public Optional<String> creationDate() {
+        return Optional.ofNullable(this.creationDate);
     }
     /**
      * @return Description of state machine alias.
@@ -67,8 +67,8 @@ public final class GetAliasResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -78,7 +78,7 @@ public final class GetAliasResult {
      * 
      */
     public List<GetAliasRoutingConfiguration> routingConfigurations() {
-        return this.routingConfigurations;
+        return this.routingConfigurations == null ? List.of() : this.routingConfigurations;
     }
     public String statemachineArn() {
         return this.statemachineArn;
@@ -93,12 +93,12 @@ public final class GetAliasResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String creationDate;
+        private @Nullable String arn;
+        private @Nullable String creationDate;
         private @Nullable String description;
-        private String id;
+        private @Nullable String id;
         private String name;
-        private List<GetAliasRoutingConfiguration> routingConfigurations;
+        private @Nullable List<GetAliasRoutingConfiguration> routingConfigurations;
         private String statemachineArn;
         public Builder() {}
         public Builder(GetAliasResult defaults) {
@@ -113,13 +113,13 @@ public final class GetAliasResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+        public Builder creationDate(@Nullable String creationDate) {
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
@@ -128,8 +128,8 @@ public final class GetAliasResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -138,8 +138,8 @@ public final class GetAliasResult {
             return this;
         }
         @CustomType.Setter
-        public Builder routingConfigurations(List<GetAliasRoutingConfiguration> routingConfigurations) {
-            this.routingConfigurations = Objects.requireNonNull(routingConfigurations);
+        public Builder routingConfigurations(@Nullable List<GetAliasRoutingConfiguration> routingConfigurations) {
+            this.routingConfigurations = routingConfigurations;
             return this;
         }
         public Builder routingConfigurations(GetAliasRoutingConfiguration... routingConfigurations) {

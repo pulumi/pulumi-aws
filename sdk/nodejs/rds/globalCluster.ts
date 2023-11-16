@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     databaseName: "example_db",
  * });
  * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
- *     engine: example.engine,
+ *     engine: example.engine.apply((x) => aws.rds.enginetype.EngineType[x]),
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
  *     masterUsername: "username",
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     provider: aws.primary,
  * });
  * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
- *     engine: example.engine,
+ *     engine: example.engine.apply((x) => aws.rds.enginetype.EngineType[x]),
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
  *     globalClusterIdentifier: example.id,
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *     databaseName: "example_db",
  * });
  * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
- *     engine: example.engine,
+ *     engine: example.engine.apply((x) => aws.rds.enginetype.EngineType[x]),
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
  *     masterUsername: "username",
@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  *     provider: aws.primary,
  * });
  * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
- *     engine: example.engine,
+ *     engine: example.engine.apply((x) => aws.rds.enginetype.EngineType[x]),
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
  *     globalClusterIdentifier: example.id,
@@ -158,7 +158,7 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     clusterIdentifier: "odessadnipro",
  *     databaseName: "totoro",
- *     engine: example.engine,
+ *     engine: example.engine.apply((x) => aws.rds.enginetype.EngineType[x]),
  *     engineVersion: example.engineVersion,
  *     globalClusterIdentifier: example.id,
  *     masterPassword: "satsukimae",
@@ -217,7 +217,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * RDS Global Cluster Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name for an automatically created database on cluster creation.
      */
@@ -229,12 +229,12 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
      */
-    public readonly engine!: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
-    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string | undefined>;
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
      */
@@ -246,19 +246,19 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * Set of objects containing Global Cluster members.
      */
-    public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.rds.GlobalClusterGlobalClusterMember[]>;
+    public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.rds.GlobalClusterGlobalClusterMember[] | undefined>;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
      */
-    public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
+    public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
      */
-    public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
+    public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly storageEncrypted!: pulumi.Output<boolean>;
+    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.

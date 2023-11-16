@@ -63,21 +63,21 @@ type LookupServiceArgs struct {
 // A collection of values returned by getService.
 type LookupServiceResult struct {
 	// ARN of the ECS Service
-	Arn        string `pulumi:"arn"`
-	ClusterArn string `pulumi:"clusterArn"`
+	Arn        *string `pulumi:"arn"`
+	ClusterArn string  `pulumi:"clusterArn"`
 	// Number of tasks for the ECS Service
-	DesiredCount int `pulumi:"desiredCount"`
+	DesiredCount *int `pulumi:"desiredCount"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Launch type for the ECS Service
-	LaunchType string `pulumi:"launchType"`
+	LaunchType *string `pulumi:"launchType"`
 	// Scheduling strategy for the ECS Service
-	SchedulingStrategy string `pulumi:"schedulingStrategy"`
-	ServiceName        string `pulumi:"serviceName"`
+	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
+	ServiceName        string  `pulumi:"serviceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Family for the latest ACTIVE revision or full ARN of the task definition.
-	TaskDefinition string `pulumi:"taskDefinition"`
+	TaskDefinition *string `pulumi:"taskDefinition"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -123,8 +123,8 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 }
 
 // ARN of the ECS Service
-func (o LookupServiceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServiceResultOutput) ClusterArn() pulumi.StringOutput {
@@ -132,23 +132,23 @@ func (o LookupServiceResultOutput) ClusterArn() pulumi.StringOutput {
 }
 
 // Number of tasks for the ECS Service
-func (o LookupServiceResultOutput) DesiredCount() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupServiceResult) int { return v.DesiredCount }).(pulumi.IntOutput)
+func (o LookupServiceResultOutput) DesiredCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *int { return v.DesiredCount }).(pulumi.IntPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Launch type for the ECS Service
-func (o LookupServiceResultOutput) LaunchType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.LaunchType }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) LaunchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.LaunchType }).(pulumi.StringPtrOutput)
 }
 
 // Scheduling strategy for the ECS Service
-func (o LookupServiceResultOutput) SchedulingStrategy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.SchedulingStrategy }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) SchedulingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.SchedulingStrategy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServiceResultOutput) ServiceName() pulumi.StringOutput {
@@ -161,8 +161,8 @@ func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Family for the latest ACTIVE revision or full ARN of the task definition.
-func (o LookupServiceResultOutput) TaskDefinition() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServiceResult) string { return v.TaskDefinition }).(pulumi.StringOutput)
+func (o LookupServiceResultOutput) TaskDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.TaskDefinition }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -62,7 +62,7 @@ type LookupAuthPolicyArgs struct {
 // A collection of values returned by getAuthPolicy.
 type LookupAuthPolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy             *string `pulumi:"policy"`
 	ResourceIdentifier string  `pulumi:"resourceIdentifier"`
@@ -113,8 +113,8 @@ func (o LookupAuthPolicyResultOutput) ToLookupAuthPolicyResultOutputWithContext(
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAuthPolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAuthPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The auth policy. The policy string in JSON must not contain newlines or blank lines.

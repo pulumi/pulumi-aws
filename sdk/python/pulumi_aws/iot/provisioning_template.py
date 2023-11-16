@@ -608,7 +608,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN that identifies the provisioning template.
         """
@@ -616,7 +616,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVersionId")
-    def default_version_id(self) -> pulumi.Output[int]:
+    def default_version_id(self) -> pulumi.Output[Optional[int]]:
         """
         The default version of the fleet provisioning template.
         """
@@ -691,7 +691,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type you define in a provisioning template.
         """

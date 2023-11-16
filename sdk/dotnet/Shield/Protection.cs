@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Shield
         /// The ARN of the Protection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A friendly name for the Protection you are creating.

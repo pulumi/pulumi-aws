@@ -6,6 +6,8 @@ package com.pulumi.aws.servicecatalog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPortfolioConstraintsDetail {
@@ -13,48 +15,48 @@ public final class GetPortfolioConstraintsDetail {
      * @return Identifier of the constraint.
      * 
      */
-    private String constraintId;
+    private @Nullable String constraintId;
     /**
      * @return Description of the constraint.
      * 
      */
-    private String description;
-    private String owner;
+    private @Nullable String description;
+    private @Nullable String owner;
     /**
      * @return Portfolio identifier.
      * 
      * The following arguments are optional:
      * 
      */
-    private String portfolioId;
+    private @Nullable String portfolioId;
     /**
      * @return Product identifier.
      * 
      */
-    private String productId;
+    private @Nullable String productId;
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetPortfolioConstraintsDetail() {}
     /**
      * @return Identifier of the constraint.
      * 
      */
-    public String constraintId() {
-        return this.constraintId;
+    public Optional<String> constraintId() {
+        return Optional.ofNullable(this.constraintId);
     }
     /**
      * @return Description of the constraint.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
-    public String owner() {
-        return this.owner;
+    public Optional<String> owner() {
+        return Optional.ofNullable(this.owner);
     }
     /**
      * @return Portfolio identifier.
@@ -62,22 +64,22 @@ public final class GetPortfolioConstraintsDetail {
      * The following arguments are optional:
      * 
      */
-    public String portfolioId() {
-        return this.portfolioId;
+    public Optional<String> portfolioId() {
+        return Optional.ofNullable(this.portfolioId);
     }
     /**
      * @return Product identifier.
      * 
      */
-    public String productId() {
-        return this.productId;
+    public Optional<String> productId() {
+        return Optional.ofNullable(this.productId);
     }
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -89,12 +91,12 @@ public final class GetPortfolioConstraintsDetail {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String constraintId;
-        private String description;
-        private String owner;
-        private String portfolioId;
-        private String productId;
-        private String type;
+        private @Nullable String constraintId;
+        private @Nullable String description;
+        private @Nullable String owner;
+        private @Nullable String portfolioId;
+        private @Nullable String productId;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetPortfolioConstraintsDetail defaults) {
     	      Objects.requireNonNull(defaults);
@@ -107,33 +109,33 @@ public final class GetPortfolioConstraintsDetail {
         }
 
         @CustomType.Setter
-        public Builder constraintId(String constraintId) {
-            this.constraintId = Objects.requireNonNull(constraintId);
+        public Builder constraintId(@Nullable String constraintId) {
+            this.constraintId = constraintId;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+        public Builder owner(@Nullable String owner) {
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
-        public Builder portfolioId(String portfolioId) {
-            this.portfolioId = Objects.requireNonNull(portfolioId);
+        public Builder portfolioId(@Nullable String portfolioId) {
+            this.portfolioId = portfolioId;
             return this;
         }
         @CustomType.Setter
-        public Builder productId(String productId) {
-            this.productId = Objects.requireNonNull(productId);
+        public Builder productId(@Nullable String productId) {
+            this.productId = productId;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetPortfolioConstraintsDetail build() {

@@ -98,7 +98,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * The ARN that uniquely identifies this table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the Timestream database.
      */
@@ -106,15 +106,15 @@ export class Table extends pulumi.CustomResource {
     /**
      * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      */
-    public readonly magneticStoreWriteProperties!: pulumi.Output<outputs.timestreamwrite.TableMagneticStoreWriteProperties>;
+    public readonly magneticStoreWriteProperties!: pulumi.Output<outputs.timestreamwrite.TableMagneticStoreWriteProperties | undefined>;
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
-    public readonly retentionProperties!: pulumi.Output<outputs.timestreamwrite.TableRetentionProperties>;
+    public readonly retentionProperties!: pulumi.Output<outputs.timestreamwrite.TableRetentionProperties | undefined>;
     /**
      * The schema of the table. See Schema below for more details.
      */
-    public readonly schema!: pulumi.Output<outputs.timestreamwrite.TableSchema>;
+    public readonly schema!: pulumi.Output<outputs.timestreamwrite.TableSchema | undefined>;
     /**
      * The name of the Timestream table.
      */

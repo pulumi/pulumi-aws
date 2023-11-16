@@ -419,7 +419,7 @@ class DistributionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         (Required) Amazon Resource Name (ARN) of the distribution configuration.
         """
@@ -427,7 +427,7 @@ class DistributionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> pulumi.Output[str]:
+    def date_created(self) -> pulumi.Output[Optional[str]]:
         """
         Date the distribution configuration was created.
         """
@@ -435,7 +435,7 @@ class DistributionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateUpdated")
-    def date_updated(self) -> pulumi.Output[str]:
+    def date_updated(self) -> pulumi.Output[Optional[str]]:
         """
         Date the distribution configuration was updated.
         """

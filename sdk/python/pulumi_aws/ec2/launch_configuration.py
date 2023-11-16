@@ -1152,7 +1152,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name of the launch configuration.
         """
@@ -1168,7 +1168,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> pulumi.Output[Sequence['outputs.LaunchConfigurationEbsBlockDevice']]:
+    def ebs_block_devices(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchConfigurationEbsBlockDevice']]]:
         """
         Additional EBS block devices to attach to the instance. See Block Devices below for details.
         """
@@ -1176,7 +1176,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> pulumi.Output[bool]:
+    def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the launched EC2 instance will be EBS-optimized.
         """
@@ -1226,7 +1226,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Output[str]:
+    def key_name(self) -> pulumi.Output[Optional[str]]:
         """
         The key name that should be used for the instance.
         """
@@ -1234,7 +1234,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> pulumi.Output['outputs.LaunchConfigurationMetadataOptions']:
+    def metadata_options(self) -> pulumi.Output[Optional['outputs.LaunchConfigurationMetadataOptions']]:
         """
         The metadata options for the instance.
         """
@@ -1250,7 +1250,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -1266,7 +1266,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootBlockDevice")
-    def root_block_device(self) -> pulumi.Output['outputs.LaunchConfigurationRootBlockDevice']:
+    def root_block_device(self) -> pulumi.Output[Optional['outputs.LaunchConfigurationRootBlockDevice']]:
         """
         Customize details about the root block device of the instance. See Block Devices below for details.
         """

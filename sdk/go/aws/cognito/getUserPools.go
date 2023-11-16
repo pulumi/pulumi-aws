@@ -74,7 +74,7 @@ type GetUserPoolsResult struct {
 	// Set of cognito user pool Amazon Resource Names (ARNs).
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of cognito user pool ids.
 	Ids  []string `pulumi:"ids"`
 	Name string   `pulumi:"name"`
@@ -124,8 +124,8 @@ func (o GetUserPoolsResultOutput) Arns() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetUserPoolsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserPoolsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of cognito user pool ids.

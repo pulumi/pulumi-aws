@@ -24,11 +24,11 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// <summary>
         /// Parameter type.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// Default value for the cost category.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetCostCategoryRuleResult(
@@ -36,9 +36,9 @@ namespace Pulumi.Aws.CostExplorer.Outputs
 
             ImmutableArray<Outputs.GetCostCategoryRuleRuleResult> rules,
 
-            string type,
+            string? type,
 
-            string value)
+            string? value)
         {
             InheritedValues = inheritedValues;
             Rules = rules;

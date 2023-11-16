@@ -8,30 +8,32 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
-    private String customCname;
-    private Boolean enabled;
-    private Integer expirationInDays;
-    private String s3BucketName;
-    private String s3ObjectAcl;
+    private @Nullable String customCname;
+    private @Nullable Boolean enabled;
+    private @Nullable Integer expirationInDays;
+    private @Nullable String s3BucketName;
+    private @Nullable String s3ObjectAcl;
 
     private GetCertificateAuthorityRevocationConfigurationCrlConfiguration() {}
-    public String customCname() {
-        return this.customCname;
+    public Optional<String> customCname() {
+        return Optional.ofNullable(this.customCname);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
-    public Integer expirationInDays() {
-        return this.expirationInDays;
+    public Optional<Integer> expirationInDays() {
+        return Optional.ofNullable(this.expirationInDays);
     }
-    public String s3BucketName() {
-        return this.s3BucketName;
+    public Optional<String> s3BucketName() {
+        return Optional.ofNullable(this.s3BucketName);
     }
-    public String s3ObjectAcl() {
-        return this.s3ObjectAcl;
+    public Optional<String> s3ObjectAcl() {
+        return Optional.ofNullable(this.s3ObjectAcl);
     }
 
     public static Builder builder() {
@@ -43,11 +45,11 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
     }
     @CustomType.Builder
     public static final class Builder {
-        private String customCname;
-        private Boolean enabled;
-        private Integer expirationInDays;
-        private String s3BucketName;
-        private String s3ObjectAcl;
+        private @Nullable String customCname;
+        private @Nullable Boolean enabled;
+        private @Nullable Integer expirationInDays;
+        private @Nullable String s3BucketName;
+        private @Nullable String s3ObjectAcl;
         public Builder() {}
         public Builder(GetCertificateAuthorityRevocationConfigurationCrlConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,28 +61,28 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
         }
 
         @CustomType.Setter
-        public Builder customCname(String customCname) {
-            this.customCname = Objects.requireNonNull(customCname);
+        public Builder customCname(@Nullable String customCname) {
+            this.customCname = customCname;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder expirationInDays(Integer expirationInDays) {
-            this.expirationInDays = Objects.requireNonNull(expirationInDays);
+        public Builder expirationInDays(@Nullable Integer expirationInDays) {
+            this.expirationInDays = expirationInDays;
             return this;
         }
         @CustomType.Setter
-        public Builder s3BucketName(String s3BucketName) {
-            this.s3BucketName = Objects.requireNonNull(s3BucketName);
+        public Builder s3BucketName(@Nullable String s3BucketName) {
+            this.s3BucketName = s3BucketName;
             return this;
         }
         @CustomType.Setter
-        public Builder s3ObjectAcl(String s3ObjectAcl) {
-            this.s3ObjectAcl = Objects.requireNonNull(s3ObjectAcl);
+        public Builder s3ObjectAcl(@Nullable String s3ObjectAcl) {
+            this.s3ObjectAcl = s3ObjectAcl;
             return this;
         }
         public GetCertificateAuthorityRevocationConfigurationCrlConfiguration build() {

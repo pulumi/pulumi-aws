@@ -67,11 +67,11 @@ export class VpcIngressConnection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the VPC Ingress Connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The domain name associated with the VPC Ingress Connection resource.
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    public /*out*/ readonly domainName!: pulumi.Output<string | undefined>;
     /**
      * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
      */
@@ -87,7 +87,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
     /**
      * The current status of the VPC Ingress Connection.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

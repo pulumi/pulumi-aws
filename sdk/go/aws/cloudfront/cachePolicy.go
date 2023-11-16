@@ -86,7 +86,7 @@ type CachePolicy struct {
 	// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
 	DefaultTtl pulumi.IntPtrOutput `pulumi:"defaultTtl"`
 	// Current version of the cache policy.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MaxTtl pulumi.IntPtrOutput `pulumi:"maxTtl"`
 	// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
@@ -296,8 +296,8 @@ func (o CachePolicyOutput) DefaultTtl() pulumi.IntPtrOutput {
 }
 
 // Current version of the cache policy.
-func (o CachePolicyOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *CachePolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o CachePolicyOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicy) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.

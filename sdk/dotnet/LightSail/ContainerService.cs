@@ -108,7 +108,7 @@ namespace Pulumi.Aws.LightSail
     ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             defaultContainerService.PrivateRegistryAccess.EcrImagePullerRole?.PrincipalArn,
+    ///                             defaultContainerService.PrivateRegistryAccess?.EcrImagePullerRole?.PrincipalArn,
     ///                         },
     ///                     },
     ///                 },
@@ -145,16 +145,16 @@ namespace Pulumi.Aws.LightSail
         /// The Amazon Resource Name (ARN) of the container service.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Availability Zone. Follows the format us-east-2a (case-sensitive).
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// A Boolean value indicating whether the container service is disabled. Defaults to `false`.
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.LightSail
         /// The ID of the power of the container service.
         /// </summary>
         [Output("powerId")]
-        public Output<string> PowerId { get; private set; } = null!;
+        public Output<string?> PowerId { get; private set; } = null!;
 
         /// <summary>
         /// The principal ARN of the container service. The principal ARN can be used to create a trust
@@ -189,20 +189,20 @@ namespace Pulumi.Aws.LightSail
         /// service permission to access resources in your standard AWS account.
         /// </summary>
         [Output("principalArn")]
-        public Output<string> PrincipalArn { get; private set; } = null!;
+        public Output<string?> PrincipalArn { get; private set; } = null!;
 
         /// <summary>
         /// The private domain name of the container service. The private domain name is accessible only
         /// by other resources within the default virtual private cloud (VPC) of your Lightsail account.
         /// </summary>
         [Output("privateDomainName")]
-        public Output<string> PrivateDomainName { get; private set; } = null!;
+        public Output<string?> PrivateDomainName { get; private set; } = null!;
 
         /// <summary>
         /// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
         /// </summary>
         [Output("privateRegistryAccess")]
-        public Output<Outputs.ContainerServicePrivateRegistryAccess> PrivateRegistryAccess { get; private set; } = null!;
+        public Output<Outputs.ContainerServicePrivateRegistryAccess?> PrivateRegistryAccess { get; private set; } = null!;
 
         /// <summary>
         /// The public domain names to use with the container service, such as example.com
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.LightSail
         /// The Lightsail resource type of the container service (i.e., ContainerService).
         /// </summary>
         [Output("resourceType")]
-        public Output<string> ResourceType { get; private set; } = null!;
+        public Output<string?> ResourceType { get; private set; } = null!;
 
         /// <summary>
         /// The scale specification for the container service. The scale specifies the allocated compute
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.LightSail
         /// The current state of the container service.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.LightSail
         /// currentDeployment, this URL returns a 404 response.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>

@@ -457,7 +457,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy group.
         """
@@ -465,7 +465,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hierarchyGroupId")
-    def hierarchy_group_id(self) -> pulumi.Output[str]:
+    def hierarchy_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for the hierarchy group.
         """
@@ -473,7 +473,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hierarchyPaths")
-    def hierarchy_paths(self) -> pulumi.Output[Sequence['outputs.UserHierarchyGroupHierarchyPath']]:
+    def hierarchy_paths(self) -> pulumi.Output[Optional[Sequence['outputs.UserHierarchyGroupHierarchyPath']]]:
         """
         A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         """
@@ -489,7 +489,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="levelId")
-    def level_id(self) -> pulumi.Output[str]:
+    def level_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the level in the hierarchy group.
         """

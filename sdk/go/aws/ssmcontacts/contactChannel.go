@@ -94,9 +94,9 @@ type ContactChannel struct {
 	pulumi.CustomResourceState
 
 	// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-	ActivationStatus pulumi.StringOutput `pulumi:"activationStatus"`
+	ActivationStatus pulumi.StringPtrOutput `pulumi:"activationStatus"`
 	// Amazon Resource Name (ARN) of the contact channel.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
 	ContactId pulumi.StringOutput `pulumi:"contactId"`
 	// Block that contains contact engagement details. See details below.
@@ -290,13 +290,13 @@ func (o ContactChannelOutput) ToContactChannelOutputWithContext(ctx context.Cont
 }
 
 // Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-func (o ContactChannelOutput) ActivationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.ActivationStatus }).(pulumi.StringOutput)
+func (o ContactChannelOutput) ActivationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactChannel) pulumi.StringPtrOutput { return v.ActivationStatus }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the contact channel.
-func (o ContactChannelOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ContactChannelOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactChannel) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.

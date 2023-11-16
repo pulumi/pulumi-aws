@@ -118,36 +118,36 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// ARN of the API Gateway Authorizer.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Credentials required for the authorizer.
         /// </summary>
-        public readonly string AuthorizerCredentials;
+        public readonly string? AuthorizerCredentials;
         public readonly string AuthorizerId;
         /// <summary>
         /// TTL of cached authorizer results in seconds.
         /// </summary>
-        public readonly int AuthorizerResultTtlInSeconds;
+        public readonly int? AuthorizerResultTtlInSeconds;
         /// <summary>
         /// Authorizer's Uniform Resource Identifier (URI).
         /// </summary>
-        public readonly string AuthorizerUri;
+        public readonly string? AuthorizerUri;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Source of the identity in an incoming request.
         /// </summary>
-        public readonly string IdentitySource;
+        public readonly string? IdentitySource;
         /// <summary>
         /// Validation expression for the incoming identity.
         /// </summary>
-        public readonly string IdentityValidationExpression;
+        public readonly string? IdentityValidationExpression;
         /// <summary>
         /// Name of the authorizer.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// List of the Amazon Cognito user pool ARNs.
         /// </summary>
@@ -156,33 +156,33 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Type of the authorizer.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetAuthorizerResult(
-            string arn,
+            string? arn,
 
-            string authorizerCredentials,
+            string? authorizerCredentials,
 
             string authorizerId,
 
-            int authorizerResultTtlInSeconds,
+            int? authorizerResultTtlInSeconds,
 
-            string authorizerUri,
+            string? authorizerUri,
 
-            string id,
+            string? id,
 
-            string identitySource,
+            string? identitySource,
 
-            string identityValidationExpression,
+            string? identityValidationExpression,
 
-            string name,
+            string? name,
 
             ImmutableArray<string> providerArns,
 
             string restApiId,
 
-            string type)
+            string? type)
         {
             Arn = arn;
             AuthorizerCredentials = authorizerCredentials;

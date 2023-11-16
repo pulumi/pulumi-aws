@@ -61,37 +61,37 @@ type LookupImageArgs struct {
 type LookupImageResult struct {
 	Arn string `pulumi:"arn"`
 	// Build version ARN of the image. This will always have the `#.#.#/#` suffix.
-	BuildVersionArn string `pulumi:"buildVersionArn"`
+	BuildVersionArn *string `pulumi:"buildVersionArn"`
 	// ARN of the container recipe.
-	ContainerRecipeArn string `pulumi:"containerRecipeArn"`
+	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// Date the image was created.
-	DateCreated string `pulumi:"dateCreated"`
+	DateCreated *string `pulumi:"dateCreated"`
 	// ARN of the Image Builder Distribution Configuration.
-	DistributionConfigurationArn string `pulumi:"distributionConfigurationArn"`
+	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected.
-	EnhancedImageMetadataEnabled bool `pulumi:"enhancedImageMetadataEnabled"`
+	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN of the image recipe.
-	ImageRecipeArn string `pulumi:"imageRecipeArn"`
+	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// List of an object with image scanning configuration fields.
 	ImageScanningConfigurations []GetImageImageScanningConfiguration `pulumi:"imageScanningConfigurations"`
 	// List of an object with image tests configuration.
 	ImageTestsConfigurations []GetImageImageTestsConfiguration `pulumi:"imageTestsConfigurations"`
 	// ARN of the Image Builder Infrastructure Configuration.
-	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
+	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
 	// Name of the AMI.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Operating System version of the image.
-	OsVersion string `pulumi:"osVersion"`
+	OsVersion *string `pulumi:"osVersion"`
 	// List of objects with resources created by the image.
 	OutputResources []GetImageOutputResource `pulumi:"outputResources"`
 	// Platform of the image.
-	Platform string `pulumi:"platform"`
+	Platform *string `pulumi:"platform"`
 	// Key-value map of resource tags for the image.
 	Tags map[string]string `pulumi:"tags"`
 	// Version of the image.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...pulumi.InvokeOption) LookupImageResultOutput {
@@ -139,38 +139,38 @@ func (o LookupImageResultOutput) Arn() pulumi.StringOutput {
 }
 
 // Build version ARN of the image. This will always have the `#.#.#/#` suffix.
-func (o LookupImageResultOutput) BuildVersionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.BuildVersionArn }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) BuildVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.BuildVersionArn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the container recipe.
-func (o LookupImageResultOutput) ContainerRecipeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.ContainerRecipeArn }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
 }
 
 // Date the image was created.
-func (o LookupImageResultOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.DateCreated }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Image Builder Distribution Configuration.
-func (o LookupImageResultOutput) DistributionConfigurationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.DistributionConfigurationArn }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) DistributionConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.DistributionConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
 // Whether additional information about the image being created is collected.
-func (o LookupImageResultOutput) EnhancedImageMetadataEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupImageResult) bool { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolOutput)
+func (o LookupImageResultOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *bool { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupImageResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the image recipe.
-func (o LookupImageResultOutput) ImageRecipeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) ImageRecipeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
 }
 
 // List of an object with image scanning configuration fields.
@@ -184,18 +184,18 @@ func (o LookupImageResultOutput) ImageTestsConfigurations() GetImageImageTestsCo
 }
 
 // ARN of the Image Builder Infrastructure Configuration.
-func (o LookupImageResultOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) InfrastructureConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.InfrastructureConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the AMI.
-func (o LookupImageResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Operating System version of the image.
-func (o LookupImageResultOutput) OsVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.OsVersion }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) OsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
 
 // List of objects with resources created by the image.
@@ -204,8 +204,8 @@ func (o LookupImageResultOutput) OutputResources() GetImageOutputResourceArrayOu
 }
 
 // Platform of the image.
-func (o LookupImageResultOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.Platform }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags for the image.
@@ -214,8 +214,8 @@ func (o LookupImageResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Version of the image.
-func (o LookupImageResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupImageResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

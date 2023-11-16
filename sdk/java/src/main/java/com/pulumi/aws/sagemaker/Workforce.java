@@ -130,14 +130,14 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
@@ -172,14 +172,14 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceIpConfig", refs={WorkforceSourceIpConfig.class}, tree="[0]")
-    private Output<WorkforceSourceIpConfig> sourceIpConfig;
+    private Output</* @Nullable */ WorkforceSourceIpConfig> sourceIpConfig;
 
     /**
      * @return A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
      * 
      */
-    public Output<WorkforceSourceIpConfig> sourceIpConfig() {
-        return this.sourceIpConfig;
+    public Output<Optional<WorkforceSourceIpConfig>> sourceIpConfig() {
+        return Codegen.optional(this.sourceIpConfig);
     }
     /**
      * The subdomain for your OIDC Identity Provider.
@@ -187,15 +187,15 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subdomain", refs={String.class}, tree="[0]")
-    private Output<String> subdomain;
+    private Output</* @Nullable */ String> subdomain;
 
     /**
      * @return The subdomain for your OIDC Identity Provider.
      * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
-    public Output<String> subdomain() {
-        return this.subdomain;
+    public Output<Optional<String>> subdomain() {
+        return Codegen.optional(this.subdomain);
     }
     /**
      * The name of the Workforce (must be unique).

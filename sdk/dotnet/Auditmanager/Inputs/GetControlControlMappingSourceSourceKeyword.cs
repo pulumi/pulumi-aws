@@ -12,11 +12,11 @@ namespace Pulumi.Aws.Auditmanager.Inputs
 
     public sealed class GetControlControlMappingSourceSourceKeywordArgs : global::Pulumi.InvokeArgs
     {
-        [Input("keywordInputType", required: true)]
-        public string KeywordInputType { get; set; } = null!;
+        [Input("keywordInputType")]
+        public string? KeywordInputType { get; set; }
 
-        [Input("keywordValue", required: true)]
-        public string KeywordValue { get; set; } = null!;
+        [Input("keywordValue")]
+        public string? KeywordValue { get; set; }
 
         public GetControlControlMappingSourceSourceKeywordArgs()
         {

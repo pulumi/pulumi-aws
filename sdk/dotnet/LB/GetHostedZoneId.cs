@@ -144,13 +144,13 @@ namespace Pulumi.Aws.LB
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? LoadBalancerType;
         public readonly string? Region;
 
         [OutputConstructor]
         private GetHostedZoneIdResult(
-            string id,
+            string? id,
 
             string? loadBalancerType,
 

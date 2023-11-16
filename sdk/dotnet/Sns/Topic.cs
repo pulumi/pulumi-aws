@@ -142,13 +142,13 @@ namespace Pulumi.Aws.Sns
         /// The ARN of the SNS topic, as a more obvious property (clone of id)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The oldest timestamp at which a FIFO topic subscriber can start a replay.
         /// </summary>
         [Output("beginningArchiveTime")]
-        public Output<string> BeginningArchiveTime { get; private set; } = null!;
+        public Output<string?> BeginningArchiveTime { get; private set; } = null!;
 
         /// <summary>
         /// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -244,25 +244,25 @@ namespace Pulumi.Aws.Sns
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Account ID of the SNS topic owner
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         /// </summary>
         [Output("signatureVersion")]
-        public Output<int> SignatureVersion { get; private set; } = null!;
+        public Output<int?> SignatureVersion { get; private set; } = null!;
 
         /// <summary>
         /// IAM role for failure feedback
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Sns
         /// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         /// </summary>
         [Output("tracingConfig")]
-        public Output<string> TracingConfig { get; private set; } = null!;
+        public Output<string?> TracingConfig { get; private set; } = null!;
 
 
         /// <summary>

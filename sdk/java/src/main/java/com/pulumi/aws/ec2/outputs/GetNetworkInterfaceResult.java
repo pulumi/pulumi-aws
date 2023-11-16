@@ -11,6 +11,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,219 +20,219 @@ public final class GetNetworkInterfaceResult {
      * @return ARN of the network interface.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
      * 
      */
-    private List<GetNetworkInterfaceAssociation> associations;
-    private List<GetNetworkInterfaceAttachment> attachments;
+    private @Nullable List<GetNetworkInterfaceAssociation> associations;
+    private @Nullable List<GetNetworkInterfaceAttachment> attachments;
     /**
      * @return Availability Zone.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return Description of the network interface.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private @Nullable List<GetNetworkInterfaceFilter> filters;
-    private String id;
+    private @Nullable String id;
     /**
      * @return Type of interface.
      * 
      */
-    private String interfaceType;
+    private @Nullable String interfaceType;
     /**
      * @return List of IPv6 addresses to assign to the ENI.
      * 
      */
-    private List<String> ipv6Addresses;
+    private @Nullable List<String> ipv6Addresses;
     /**
      * @return MAC address.
      * 
      */
-    private String macAddress;
+    private @Nullable String macAddress;
     /**
      * @return ARN of the Outpost.
      * 
      */
-    private String outpostArn;
+    private @Nullable String outpostArn;
     /**
      * @return AWS account ID of the owner of the network interface.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     /**
      * @return Private DNS name.
      * 
      */
-    private String privateDnsName;
+    private @Nullable String privateDnsName;
     /**
      * @return Private IPv4 address of the network interface within the subnet.
      * 
      */
-    private String privateIp;
+    private @Nullable String privateIp;
     /**
      * @return Private IPv4 addresses associated with the network interface.
      * 
      */
-    private List<String> privateIps;
+    private @Nullable List<String> privateIps;
     /**
      * @return ID of the entity that launched the instance on your behalf.
      * 
      */
-    private String requesterId;
+    private @Nullable String requesterId;
     /**
      * @return List of security groups for the network interface.
      * 
      */
-    private List<String> securityGroups;
+    private @Nullable List<String> securityGroups;
     /**
      * @return ID of the subnet.
      * 
      */
-    private String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return Any tags assigned to the network interface.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return ID of the VPC.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetNetworkInterfaceResult() {}
     /**
      * @return ARN of the network interface.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
      * 
      */
     public List<GetNetworkInterfaceAssociation> associations() {
-        return this.associations;
+        return this.associations == null ? List.of() : this.associations;
     }
     public List<GetNetworkInterfaceAttachment> attachments() {
-        return this.attachments;
+        return this.attachments == null ? List.of() : this.attachments;
     }
     /**
      * @return Availability Zone.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     /**
      * @return Description of the network interface.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public List<GetNetworkInterfaceFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Type of interface.
      * 
      */
-    public String interfaceType() {
-        return this.interfaceType;
+    public Optional<String> interfaceType() {
+        return Optional.ofNullable(this.interfaceType);
     }
     /**
      * @return List of IPv6 addresses to assign to the ENI.
      * 
      */
     public List<String> ipv6Addresses() {
-        return this.ipv6Addresses;
+        return this.ipv6Addresses == null ? List.of() : this.ipv6Addresses;
     }
     /**
      * @return MAC address.
      * 
      */
-    public String macAddress() {
-        return this.macAddress;
+    public Optional<String> macAddress() {
+        return Optional.ofNullable(this.macAddress);
     }
     /**
      * @return ARN of the Outpost.
      * 
      */
-    public String outpostArn() {
-        return this.outpostArn;
+    public Optional<String> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
     }
     /**
      * @return AWS account ID of the owner of the network interface.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
      * @return Private DNS name.
      * 
      */
-    public String privateDnsName() {
-        return this.privateDnsName;
+    public Optional<String> privateDnsName() {
+        return Optional.ofNullable(this.privateDnsName);
     }
     /**
      * @return Private IPv4 address of the network interface within the subnet.
      * 
      */
-    public String privateIp() {
-        return this.privateIp;
+    public Optional<String> privateIp() {
+        return Optional.ofNullable(this.privateIp);
     }
     /**
      * @return Private IPv4 addresses associated with the network interface.
      * 
      */
     public List<String> privateIps() {
-        return this.privateIps;
+        return this.privateIps == null ? List.of() : this.privateIps;
     }
     /**
      * @return ID of the entity that launched the instance on your behalf.
      * 
      */
-    public String requesterId() {
-        return this.requesterId;
+    public Optional<String> requesterId() {
+        return Optional.ofNullable(this.requesterId);
     }
     /**
      * @return List of security groups for the network interface.
      * 
      */
     public List<String> securityGroups() {
-        return this.securityGroups;
+        return this.securityGroups == null ? List.of() : this.securityGroups;
     }
     /**
      * @return ID of the subnet.
      * 
      */
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
     /**
      * @return Any tags assigned to the network interface.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return ID of the VPC.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -243,26 +244,26 @@ public final class GetNetworkInterfaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetNetworkInterfaceAssociation> associations;
-        private List<GetNetworkInterfaceAttachment> attachments;
-        private String availabilityZone;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable List<GetNetworkInterfaceAssociation> associations;
+        private @Nullable List<GetNetworkInterfaceAttachment> attachments;
+        private @Nullable String availabilityZone;
+        private @Nullable String description;
         private @Nullable List<GetNetworkInterfaceFilter> filters;
-        private String id;
-        private String interfaceType;
-        private List<String> ipv6Addresses;
-        private String macAddress;
-        private String outpostArn;
-        private String ownerId;
-        private String privateDnsName;
-        private String privateIp;
-        private List<String> privateIps;
-        private String requesterId;
-        private List<String> securityGroups;
-        private String subnetId;
-        private Map<String,String> tags;
-        private String vpcId;
+        private @Nullable String id;
+        private @Nullable String interfaceType;
+        private @Nullable List<String> ipv6Addresses;
+        private @Nullable String macAddress;
+        private @Nullable String outpostArn;
+        private @Nullable String ownerId;
+        private @Nullable String privateDnsName;
+        private @Nullable String privateIp;
+        private @Nullable List<String> privateIps;
+        private @Nullable String requesterId;
+        private @Nullable List<String> securityGroups;
+        private @Nullable String subnetId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetNetworkInterfaceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -289,34 +290,34 @@ public final class GetNetworkInterfaceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder associations(List<GetNetworkInterfaceAssociation> associations) {
-            this.associations = Objects.requireNonNull(associations);
+        public Builder associations(@Nullable List<GetNetworkInterfaceAssociation> associations) {
+            this.associations = associations;
             return this;
         }
         public Builder associations(GetNetworkInterfaceAssociation... associations) {
             return associations(List.of(associations));
         }
         @CustomType.Setter
-        public Builder attachments(List<GetNetworkInterfaceAttachment> attachments) {
-            this.attachments = Objects.requireNonNull(attachments);
+        public Builder attachments(@Nullable List<GetNetworkInterfaceAttachment> attachments) {
+            this.attachments = attachments;
             return this;
         }
         public Builder attachments(GetNetworkInterfaceAttachment... attachments) {
             return attachments(List.of(attachments));
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -328,82 +329,82 @@ public final class GetNetworkInterfaceResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder interfaceType(String interfaceType) {
-            this.interfaceType = Objects.requireNonNull(interfaceType);
+        public Builder interfaceType(@Nullable String interfaceType) {
+            this.interfaceType = interfaceType;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6Addresses(List<String> ipv6Addresses) {
-            this.ipv6Addresses = Objects.requireNonNull(ipv6Addresses);
+        public Builder ipv6Addresses(@Nullable List<String> ipv6Addresses) {
+            this.ipv6Addresses = ipv6Addresses;
             return this;
         }
         public Builder ipv6Addresses(String... ipv6Addresses) {
             return ipv6Addresses(List.of(ipv6Addresses));
         }
         @CustomType.Setter
-        public Builder macAddress(String macAddress) {
-            this.macAddress = Objects.requireNonNull(macAddress);
+        public Builder macAddress(@Nullable String macAddress) {
+            this.macAddress = macAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+        public Builder outpostArn(@Nullable String outpostArn) {
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder privateDnsName(String privateDnsName) {
-            this.privateDnsName = Objects.requireNonNull(privateDnsName);
+        public Builder privateDnsName(@Nullable String privateDnsName) {
+            this.privateDnsName = privateDnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder privateIp(String privateIp) {
-            this.privateIp = Objects.requireNonNull(privateIp);
+        public Builder privateIp(@Nullable String privateIp) {
+            this.privateIp = privateIp;
             return this;
         }
         @CustomType.Setter
-        public Builder privateIps(List<String> privateIps) {
-            this.privateIps = Objects.requireNonNull(privateIps);
+        public Builder privateIps(@Nullable List<String> privateIps) {
+            this.privateIps = privateIps;
             return this;
         }
         public Builder privateIps(String... privateIps) {
             return privateIps(List.of(privateIps));
         }
         @CustomType.Setter
-        public Builder requesterId(String requesterId) {
-            this.requesterId = Objects.requireNonNull(requesterId);
+        public Builder requesterId(@Nullable String requesterId) {
+            this.requesterId = requesterId;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+        public Builder securityGroups(@Nullable List<String> securityGroups) {
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetNetworkInterfaceResult build() {

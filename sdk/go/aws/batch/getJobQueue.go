@@ -60,27 +60,27 @@ type LookupJobQueueArgs struct {
 // A collection of values returned by getJobQueue.
 type LookupJobQueueResult struct {
 	// ARN of the job queue.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The compute environments that are attached to the job queue and the order in
 	// which job placement is preferred. Compute environments are selected for job placement in ascending order.
 	// * `compute_environment_order.#.order` - The order of the compute environment.
 	// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
 	ComputeEnvironmentOrders []GetJobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Priority of the job queue. Job queues with a higher priority are evaluated first when
 	// associated with the same compute environment.
-	Priority int `pulumi:"priority"`
+	Priority *int `pulumi:"priority"`
 	// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
-	SchedulingPolicyArn string `pulumi:"schedulingPolicyArn"`
+	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
 	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-	State string `pulumi:"state"`
+	State *string `pulumi:"state"`
 	// Current status of the job queue (for example, `CREATING` or `VALID`).
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Short, human-readable string to provide additional details about the current status
 	// of the job queue.
-	StatusReason string `pulumi:"statusReason"`
+	StatusReason *string `pulumi:"statusReason"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -126,8 +126,8 @@ func (o LookupJobQueueResultOutput) ToLookupJobQueueResultOutputWithContext(ctx 
 }
 
 // ARN of the job queue.
-func (o LookupJobQueueResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupJobQueueResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The compute environments that are attached to the job queue and the order in
@@ -139,8 +139,8 @@ func (o LookupJobQueueResultOutput) ComputeEnvironmentOrders() GetJobQueueComput
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupJobQueueResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupJobQueueResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {
@@ -149,29 +149,29 @@ func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {
 
 // Priority of the job queue. Job queues with a higher priority are evaluated first when
 // associated with the same compute environment.
-func (o LookupJobQueueResultOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) int { return v.Priority }).(pulumi.IntOutput)
+func (o LookupJobQueueResultOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
-func (o LookupJobQueueResultOutput) SchedulingPolicyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) string { return v.SchedulingPolicyArn }).(pulumi.StringOutput)
+func (o LookupJobQueueResultOutput) SchedulingPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.SchedulingPolicyArn }).(pulumi.StringPtrOutput)
 }
 
 // Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-func (o LookupJobQueueResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) string { return v.State }).(pulumi.StringOutput)
+func (o LookupJobQueueResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Current status of the job queue (for example, `CREATING` or `VALID`).
-func (o LookupJobQueueResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupJobQueueResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Short, human-readable string to provide additional details about the current status
 // of the job queue.
-func (o LookupJobQueueResultOutput) StatusReason() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) string { return v.StatusReason }).(pulumi.StringOutput)
+func (o LookupJobQueueResultOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags

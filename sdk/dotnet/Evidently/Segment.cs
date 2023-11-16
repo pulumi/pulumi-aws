@@ -97,13 +97,13 @@ namespace Pulumi.Aws.Evidently
         /// The ARN of the segment.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that the segment is created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the description of the segment.
@@ -115,19 +115,19 @@ namespace Pulumi.Aws.Evidently
         /// The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
         /// </summary>
         [Output("experimentCount")]
-        public Output<int> ExperimentCount { get; private set; } = null!;
+        public Output<int?> ExperimentCount { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that this segment was most recently updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
         /// </summary>
         [Output("launchCount")]
-        public Output<int> LaunchCount { get; private set; } = null!;
+        public Output<int?> LaunchCount { get; private set; } = null!;
 
         /// <summary>
         /// A name for the segment.

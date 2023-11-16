@@ -123,14 +123,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN that identifies the cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The execute command configuration for the cluster. Detailed below.
@@ -179,14 +179,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="settings", refs={List.class,ClusterSetting.class}, tree="[0,1]")
-    private Output<List<ClusterSetting>> settings;
+    private Output</* @Nullable */ List<ClusterSetting>> settings;
 
     /**
      * @return Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      * 
      */
-    public Output<List<ClusterSetting>> settings() {
-        return this.settings;
+    public Output<Optional<List<ClusterSetting>>> settings() {
+        return Codegen.optional(this.settings);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

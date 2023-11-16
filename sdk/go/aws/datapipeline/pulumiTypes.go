@@ -566,7 +566,7 @@ func (o PipelineDefinitionPipelineObjectFieldArrayOutput) Index(i pulumi.IntInpu
 type GetPipelineDefinitionParameterObject struct {
 	Attributes []GetPipelineDefinitionParameterObjectAttribute `pulumi:"attributes"`
 	// ID of the object.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 // GetPipelineDefinitionParameterObjectInput is an input type that accepts GetPipelineDefinitionParameterObjectArgs and GetPipelineDefinitionParameterObjectOutput values.
@@ -583,7 +583,7 @@ type GetPipelineDefinitionParameterObjectInput interface {
 type GetPipelineDefinitionParameterObjectArgs struct {
 	Attributes GetPipelineDefinitionParameterObjectAttributeArrayInput `pulumi:"attributes"`
 	// ID of the object.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (GetPipelineDefinitionParameterObjectArgs) ElementType() reflect.Type {
@@ -644,8 +644,8 @@ func (o GetPipelineDefinitionParameterObjectOutput) Attributes() GetPipelineDefi
 }
 
 // ID of the object.
-func (o GetPipelineDefinitionParameterObjectOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionParameterObject) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionParameterObjectOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionParameterObject) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 type GetPipelineDefinitionParameterObjectArrayOutput struct{ *pulumi.OutputState }
@@ -670,9 +670,9 @@ func (o GetPipelineDefinitionParameterObjectArrayOutput) Index(i pulumi.IntInput
 
 type GetPipelineDefinitionParameterObjectAttribute struct {
 	// Field identifier.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Field value, expressed as a String.
-	StringValue string `pulumi:"stringValue"`
+	StringValue *string `pulumi:"stringValue"`
 }
 
 // GetPipelineDefinitionParameterObjectAttributeInput is an input type that accepts GetPipelineDefinitionParameterObjectAttributeArgs and GetPipelineDefinitionParameterObjectAttributeOutput values.
@@ -688,9 +688,9 @@ type GetPipelineDefinitionParameterObjectAttributeInput interface {
 
 type GetPipelineDefinitionParameterObjectAttributeArgs struct {
 	// Field identifier.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Field value, expressed as a String.
-	StringValue pulumi.StringInput `pulumi:"stringValue"`
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
 func (GetPipelineDefinitionParameterObjectAttributeArgs) ElementType() reflect.Type {
@@ -745,13 +745,13 @@ func (o GetPipelineDefinitionParameterObjectAttributeOutput) ToGetPipelineDefini
 }
 
 // Field identifier.
-func (o GetPipelineDefinitionParameterObjectAttributeOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionParameterObjectAttribute) string { return v.Key }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionParameterObjectAttributeOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionParameterObjectAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Field value, expressed as a String.
-func (o GetPipelineDefinitionParameterObjectAttributeOutput) StringValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionParameterObjectAttribute) string { return v.StringValue }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionParameterObjectAttributeOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionParameterObjectAttribute) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
 type GetPipelineDefinitionParameterObjectAttributeArrayOutput struct{ *pulumi.OutputState }
@@ -776,9 +776,9 @@ func (o GetPipelineDefinitionParameterObjectAttributeArrayOutput) Index(i pulumi
 
 type GetPipelineDefinitionParameterValue struct {
 	// ID of the object.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Field value, expressed as a String.
-	StringValue string `pulumi:"stringValue"`
+	StringValue *string `pulumi:"stringValue"`
 }
 
 // GetPipelineDefinitionParameterValueInput is an input type that accepts GetPipelineDefinitionParameterValueArgs and GetPipelineDefinitionParameterValueOutput values.
@@ -794,9 +794,9 @@ type GetPipelineDefinitionParameterValueInput interface {
 
 type GetPipelineDefinitionParameterValueArgs struct {
 	// ID of the object.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Field value, expressed as a String.
-	StringValue pulumi.StringInput `pulumi:"stringValue"`
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
 func (GetPipelineDefinitionParameterValueArgs) ElementType() reflect.Type {
@@ -851,13 +851,13 @@ func (o GetPipelineDefinitionParameterValueOutput) ToGetPipelineDefinitionParame
 }
 
 // ID of the object.
-func (o GetPipelineDefinitionParameterValueOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionParameterValue) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionParameterValueOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionParameterValue) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Field value, expressed as a String.
-func (o GetPipelineDefinitionParameterValueOutput) StringValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionParameterValue) string { return v.StringValue }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionParameterValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionParameterValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
 type GetPipelineDefinitionParameterValueArrayOutput struct{ *pulumi.OutputState }
@@ -884,9 +884,9 @@ type GetPipelineDefinitionPipelineObject struct {
 	// Key-value pairs that define the properties of the object. See below
 	Fields []GetPipelineDefinitionPipelineObjectField `pulumi:"fields"`
 	// ID of the object.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN of the storage connector.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetPipelineDefinitionPipelineObjectInput is an input type that accepts GetPipelineDefinitionPipelineObjectArgs and GetPipelineDefinitionPipelineObjectOutput values.
@@ -904,9 +904,9 @@ type GetPipelineDefinitionPipelineObjectArgs struct {
 	// Key-value pairs that define the properties of the object. See below
 	Fields GetPipelineDefinitionPipelineObjectFieldArrayInput `pulumi:"fields"`
 	// ID of the object.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// ARN of the storage connector.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetPipelineDefinitionPipelineObjectArgs) ElementType() reflect.Type {
@@ -968,13 +968,13 @@ func (o GetPipelineDefinitionPipelineObjectOutput) Fields() GetPipelineDefinitio
 }
 
 // ID of the object.
-func (o GetPipelineDefinitionPipelineObjectOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionPipelineObject) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionPipelineObjectOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionPipelineObject) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the storage connector.
-func (o GetPipelineDefinitionPipelineObjectOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionPipelineObject) string { return v.Name }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionPipelineObjectOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionPipelineObject) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetPipelineDefinitionPipelineObjectArrayOutput struct{ *pulumi.OutputState }
@@ -999,11 +999,11 @@ func (o GetPipelineDefinitionPipelineObjectArrayOutput) Index(i pulumi.IntInput)
 
 type GetPipelineDefinitionPipelineObjectField struct {
 	// Field identifier.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Field value, expressed as the identifier of another object
-	RefValue string `pulumi:"refValue"`
+	RefValue *string `pulumi:"refValue"`
 	// Field value, expressed as a String.
-	StringValue string `pulumi:"stringValue"`
+	StringValue *string `pulumi:"stringValue"`
 }
 
 // GetPipelineDefinitionPipelineObjectFieldInput is an input type that accepts GetPipelineDefinitionPipelineObjectFieldArgs and GetPipelineDefinitionPipelineObjectFieldOutput values.
@@ -1019,11 +1019,11 @@ type GetPipelineDefinitionPipelineObjectFieldInput interface {
 
 type GetPipelineDefinitionPipelineObjectFieldArgs struct {
 	// Field identifier.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Field value, expressed as the identifier of another object
-	RefValue pulumi.StringInput `pulumi:"refValue"`
+	RefValue pulumi.StringPtrInput `pulumi:"refValue"`
 	// Field value, expressed as a String.
-	StringValue pulumi.StringInput `pulumi:"stringValue"`
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
 func (GetPipelineDefinitionPipelineObjectFieldArgs) ElementType() reflect.Type {
@@ -1078,18 +1078,18 @@ func (o GetPipelineDefinitionPipelineObjectFieldOutput) ToGetPipelineDefinitionP
 }
 
 // Field identifier.
-func (o GetPipelineDefinitionPipelineObjectFieldOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionPipelineObjectField) string { return v.Key }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionPipelineObjectFieldOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionPipelineObjectField) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Field value, expressed as the identifier of another object
-func (o GetPipelineDefinitionPipelineObjectFieldOutput) RefValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionPipelineObjectField) string { return v.RefValue }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionPipelineObjectFieldOutput) RefValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionPipelineObjectField) *string { return v.RefValue }).(pulumi.StringPtrOutput)
 }
 
 // Field value, expressed as a String.
-func (o GetPipelineDefinitionPipelineObjectFieldOutput) StringValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPipelineDefinitionPipelineObjectField) string { return v.StringValue }).(pulumi.StringOutput)
+func (o GetPipelineDefinitionPipelineObjectFieldOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPipelineDefinitionPipelineObjectField) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
 type GetPipelineDefinitionPipelineObjectFieldArrayOutput struct{ *pulumi.OutputState }

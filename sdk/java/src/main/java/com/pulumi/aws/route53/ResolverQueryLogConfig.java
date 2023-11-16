@@ -68,14 +68,14 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ARN of the resource that you want Route 53 Resolver to send query logs.
@@ -112,14 +112,14 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The AWS account ID of the account that created the query logging configuration.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
@@ -128,7 +128,7 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="shareStatus", refs={String.class}, tree="[0]")
-    private Output<String> shareStatus;
+    private Output</* @Nullable */ String> shareStatus;
 
     /**
      * @return An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
@@ -136,8 +136,8 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    public Output<String> shareStatus() {
-        return this.shareStatus;
+    public Output<Optional<String>> shareStatus() {
+        return Codegen.optional(this.shareStatus);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

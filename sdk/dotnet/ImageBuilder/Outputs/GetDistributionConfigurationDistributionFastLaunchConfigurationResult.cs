@@ -16,11 +16,11 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// The account ID that this configuration applies to.
         /// </summary>
-        public readonly string AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// A Boolean that represents the current state of faster launching for the Windows AMI.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// The maximum number of parallel instances that are launched for creating resources.
         /// </summary>
-        public readonly int MaxParallelLaunches;
+        public readonly int? MaxParallelLaunches;
         /// <summary>
         /// Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
         /// </summary>
@@ -36,13 +36,13 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
         [OutputConstructor]
         private GetDistributionConfigurationDistributionFastLaunchConfigurationResult(
-            string accountId,
+            string? accountId,
 
-            bool enabled,
+            bool? enabled,
 
             ImmutableArray<Outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult> launchTemplates,
 
-            int maxParallelLaunches,
+            int? maxParallelLaunches,
 
             ImmutableArray<Outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult> snapshotConfigurations)
         {

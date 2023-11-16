@@ -138,14 +138,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Channel.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
@@ -180,14 +180,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="channelId", refs={String.class}, tree="[0]")
-    private Output<String> channelId;
+    private Output</* @Nullable */ String> channelId;
 
     /**
      * @return ID of the channel in MediaPackage that is the destination for this output group.
      * 
      */
-    public Output<String> channelId() {
-        return this.channelId;
+    public Output<Optional<String>> channelId() {
+        return Codegen.optional(this.channelId);
     }
     /**
      * Destinations for channel. See Destinations for more details.
@@ -250,28 +250,28 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="logLevel", refs={String.class}, tree="[0]")
-    private Output<String> logLevel;
+    private Output</* @Nullable */ String> logLevel;
 
     /**
      * @return The log level to write to Cloudwatch logs.
      * 
      */
-    public Output<String> logLevel() {
-        return this.logLevel;
+    public Output<Optional<String>> logLevel() {
+        return Codegen.optional(this.logLevel);
     }
     /**
      * Maintenance settings for this channel. See Maintenance for more details.
      * 
      */
     @Export(name="maintenance", refs={ChannelMaintenance.class}, tree="[0]")
-    private Output<ChannelMaintenance> maintenance;
+    private Output</* @Nullable */ ChannelMaintenance> maintenance;
 
     /**
      * @return Maintenance settings for this channel. See Maintenance for more details.
      * 
      */
-    public Output<ChannelMaintenance> maintenance() {
-        return this.maintenance;
+    public Output<Optional<ChannelMaintenance>> maintenance() {
+        return Codegen.optional(this.maintenance);
     }
     /**
      * Name of the Channel.

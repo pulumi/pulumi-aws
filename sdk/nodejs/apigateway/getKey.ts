@@ -49,19 +49,19 @@ export interface GetKeyResult {
     /**
      * Date and time when the API Key was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      */
-    readonly customerId: string;
+    readonly customerId?: string;
     /**
      * Description of the API Key.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Whether the API Key is enabled.
      */
-    readonly enabled: boolean;
+    readonly enabled?: boolean;
     /**
      * Set to the ID of the API Key.
      */
@@ -69,19 +69,19 @@ export interface GetKeyResult {
     /**
      * Date and time when the API Key was last updated.
      */
-    readonly lastUpdatedDate: string;
+    readonly lastUpdatedDate?: string;
     /**
      * Set to the name of the API Key.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Set to the value of the API Key.
      */
-    readonly value: string;
+    readonly value?: string;
 }
 /**
  * Use this data source to get the name and value of a pre-existing API Key, for

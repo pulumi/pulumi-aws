@@ -83,7 +83,7 @@ export class EventEndpoint extends pulumi.CustomResource {
     /**
      * The ARN of the endpoint that was created.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description of the global endpoint.
      */
@@ -91,7 +91,7 @@ export class EventEndpoint extends pulumi.CustomResource {
     /**
      * The URL of the endpoint that was created.
      */
-    public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
+    public /*out*/ readonly endpointUrl!: pulumi.Output<string | undefined>;
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
      */

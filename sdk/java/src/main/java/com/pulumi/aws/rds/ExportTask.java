@@ -229,14 +229,14 @@ public class ExportTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="failureCause", refs={String.class}, tree="[0]")
-    private Output<String> failureCause;
+    private Output</* @Nullable */ String> failureCause;
 
     /**
      * @return Reason the export failed, if it failed.
      * 
      */
-    public Output<String> failureCause() {
-        return this.failureCause;
+    public Output<Optional<String>> failureCause() {
+        return Codegen.optional(this.failureCause);
     }
     /**
      * ARN of the IAM role to use for writing to the Amazon S3 bucket.
@@ -271,14 +271,14 @@ public class ExportTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="percentProgress", refs={Integer.class}, tree="[0]")
-    private Output<Integer> percentProgress;
+    private Output</* @Nullable */ Integer> percentProgress;
 
     /**
      * @return Progress of the snapshot export task as a percentage.
      * 
      */
-    public Output<Integer> percentProgress() {
-        return this.percentProgress;
+    public Output<Optional<Integer>> percentProgress() {
+        return Codegen.optional(this.percentProgress);
     }
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
@@ -299,28 +299,28 @@ public class ExportTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="s3Prefix", refs={String.class}, tree="[0]")
-    private Output<String> s3Prefix;
+    private Output</* @Nullable */ String> s3Prefix;
 
     /**
      * @return Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      * 
      */
-    public Output<String> s3Prefix() {
-        return this.s3Prefix;
+    public Output<Optional<String>> s3Prefix() {
+        return Codegen.optional(this.s3Prefix);
     }
     /**
      * Time that the snapshot was created.
      * 
      */
     @Export(name="snapshotTime", refs={String.class}, tree="[0]")
-    private Output<String> snapshotTime;
+    private Output</* @Nullable */ String> snapshotTime;
 
     /**
      * @return Time that the snapshot was created.
      * 
      */
-    public Output<String> snapshotTime() {
-        return this.snapshotTime;
+    public Output<Optional<String>> snapshotTime() {
+        return Codegen.optional(this.snapshotTime);
     }
     /**
      * Amazon Resource Name (ARN) of the snapshot to export.
@@ -345,56 +345,56 @@ public class ExportTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceType", refs={String.class}, tree="[0]")
-    private Output<String> sourceType;
+    private Output</* @Nullable */ String> sourceType;
 
     /**
      * @return Type of source for the export.
      * 
      */
-    public Output<String> sourceType() {
-        return this.sourceType;
+    public Output<Optional<String>> sourceType() {
+        return Codegen.optional(this.sourceType);
     }
     /**
      * Status of the export task.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the export task.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Time that the snapshot export task completed.
      * 
      */
     @Export(name="taskEndTime", refs={String.class}, tree="[0]")
-    private Output<String> taskEndTime;
+    private Output</* @Nullable */ String> taskEndTime;
 
     /**
      * @return Time that the snapshot export task completed.
      * 
      */
-    public Output<String> taskEndTime() {
-        return this.taskEndTime;
+    public Output<Optional<String>> taskEndTime() {
+        return Codegen.optional(this.taskEndTime);
     }
     /**
      * Time that the snapshot export task started.
      * 
      */
     @Export(name="taskStartTime", refs={String.class}, tree="[0]")
-    private Output<String> taskStartTime;
+    private Output</* @Nullable */ String> taskStartTime;
 
     /**
      * @return Time that the snapshot export task started.
      * 
      */
-    public Output<String> taskStartTime() {
-        return this.taskStartTime;
+    public Output<Optional<String>> taskStartTime() {
+        return Codegen.optional(this.taskStartTime);
     }
     @Export(name="timeouts", refs={ExportTaskTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ ExportTaskTimeouts> timeouts;
@@ -407,14 +407,14 @@ public class ExportTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="warningMessage", refs={String.class}, tree="[0]")
-    private Output<String> warningMessage;
+    private Output</* @Nullable */ String> warningMessage;
 
     /**
      * @return Warning about the snapshot export task, if any.
      * 
      */
-    public Output<String> warningMessage() {
-        return this.warningMessage;
+    public Output<Optional<String>> warningMessage() {
+        return Codegen.optional(this.warningMessage);
     }
 
     /**

@@ -142,59 +142,59 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// ARN of the connection.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// ID of the second device in the connection.
         /// </summary>
-        public readonly string ConnectedDeviceId;
+        public readonly string? ConnectedDeviceId;
         /// <summary>
         /// ID of the link for the second device.
         /// </summary>
-        public readonly string ConnectedLinkId;
+        public readonly string? ConnectedLinkId;
         public readonly string ConnectionId;
         /// <summary>
         /// Description of the connection.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// ID of the first device in the connection.
         /// </summary>
-        public readonly string DeviceId;
+        public readonly string? DeviceId;
         public readonly string GlobalNetworkId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ID of the link for the first device.
         /// </summary>
-        public readonly string LinkId;
+        public readonly string? LinkId;
         /// <summary>
         /// Key-value tags for the connection.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetConnectionResult(
-            string arn,
+            string? arn,
 
-            string connectedDeviceId,
+            string? connectedDeviceId,
 
-            string connectedLinkId,
+            string? connectedLinkId,
 
             string connectionId,
 
-            string description,
+            string? description,
 
-            string deviceId,
+            string? deviceId,
 
             string globalNetworkId,
 
-            string id,
+            string? id,
 
-            string linkId,
+            string? linkId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ConnectedDeviceId = connectedDeviceId;

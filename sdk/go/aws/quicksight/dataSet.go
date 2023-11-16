@@ -286,9 +286,9 @@ type DataSet struct {
 	pulumi.CustomResourceState
 
 	// ARN of the dataset that contains permissions for RLS.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
 	ColumnGroups DataSetColumnGroupArrayOutput `pulumi:"columnGroups"`
 	// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
@@ -296,7 +296,7 @@ type DataSet struct {
 	// Identifier for the data set.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
 	// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-	DataSetUsageConfiguration DataSetDataSetUsageConfigurationOutput `pulumi:"dataSetUsageConfiguration"`
+	DataSetUsageConfiguration DataSetDataSetUsageConfigurationPtrOutput `pulumi:"dataSetUsageConfiguration"`
 	// The folder that contains fields and nested subfolders for your dataset. See field_folders.
 	FieldFolders DataSetFieldFolderArrayOutput `pulumi:"fieldFolders"`
 	// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
@@ -612,13 +612,13 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 }
 
 // ARN of the dataset that contains permissions for RLS.
-func (o DataSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DataSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o DataSetOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o DataSetOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
@@ -637,8 +637,8 @@ func (o DataSetOutput) DataSetId() pulumi.StringOutput {
 }
 
 // The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-func (o DataSetOutput) DataSetUsageConfiguration() DataSetDataSetUsageConfigurationOutput {
-	return o.ApplyT(func(v *DataSet) DataSetDataSetUsageConfigurationOutput { return v.DataSetUsageConfiguration }).(DataSetDataSetUsageConfigurationOutput)
+func (o DataSetOutput) DataSetUsageConfiguration() DataSetDataSetUsageConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetDataSetUsageConfigurationPtrOutput { return v.DataSetUsageConfiguration }).(DataSetDataSetUsageConfigurationPtrOutput)
 }
 
 // The folder that contains fields and nested subfolders for your dataset. See field_folders.

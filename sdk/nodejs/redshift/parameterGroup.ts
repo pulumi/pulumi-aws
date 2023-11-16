@@ -74,7 +74,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of parameter group
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
      */

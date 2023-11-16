@@ -63,11 +63,11 @@ export class TransitGateway extends pulumi.CustomResource {
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<ARN>;
+    public /*out*/ readonly arn!: pulumi.Output<ARN | undefined>;
     /**
      * Identifier of the default association route table
      */
-    public /*out*/ readonly associationDefaultRouteTableId!: pulumi.Output<string>;
+    public /*out*/ readonly associationDefaultRouteTableId!: pulumi.Output<string | undefined>;
     /**
      * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
      */
@@ -95,11 +95,11 @@ export class TransitGateway extends pulumi.CustomResource {
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the default propagation route table
      */
-    public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string>;
+    public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

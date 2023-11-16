@@ -471,7 +471,7 @@ class UserDefinedFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Glue User Defined Function.
         """
@@ -495,7 +495,7 @@ class UserDefinedFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[str]:
+    def create_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time at which the function was created.
         """

@@ -104,7 +104,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string | undefined>;
     /**
      * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      */
@@ -112,15 +112,15 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The ID of the network interface associated with the NAT Gateway.
      */
-    public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfaceId!: pulumi.Output<string | undefined>;
     /**
      * The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
      */
-    public readonly privateIp!: pulumi.Output<string>;
+    public readonly privateIp!: pulumi.Output<string | undefined>;
     /**
      * The Elastic IP address associated with the NAT Gateway.
      */
-    public /*out*/ readonly publicIp!: pulumi.Output<string>;
+    public /*out*/ readonly publicIp!: pulumi.Output<string | undefined>;
     /**
      * A list of secondary allocation EIP IDs for this NAT Gateway.
      */
@@ -128,11 +128,11 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
      */
-    public readonly secondaryPrivateIpAddressCount!: pulumi.Output<number>;
+    public readonly secondaryPrivateIpAddressCount!: pulumi.Output<number | undefined>;
     /**
      * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
      */
-    public readonly secondaryPrivateIpAddresses!: pulumi.Output<string[]>;
+    public readonly secondaryPrivateIpAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * The Subnet ID of the subnet in which to place the NAT Gateway.
      */

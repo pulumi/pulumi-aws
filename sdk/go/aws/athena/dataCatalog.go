@@ -152,7 +152,7 @@ type DataCatalog struct {
 	pulumi.CustomResourceState
 
 	// ARN of the data catalog.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the data catalog.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
@@ -368,8 +368,8 @@ func (o DataCatalogOutput) ToDataCatalogOutputWithContext(ctx context.Context) D
 }
 
 // ARN of the data catalog.
-func (o DataCatalogOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataCatalog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DataCatalogOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalog) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the data catalog.

@@ -217,7 +217,7 @@ type GetReceivedLicenseConsumptionConfiguration struct {
 	BorrowConfigurations []GetReceivedLicenseConsumptionConfigurationBorrowConfiguration `pulumi:"borrowConfigurations"`
 	// Details about a provisional configuration. Detailed below
 	ProvisionalConfigurations []GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration `pulumi:"provisionalConfigurations"`
-	RenewType                 string                                                               `pulumi:"renewType"`
+	RenewType                 *string                                                              `pulumi:"renewType"`
 }
 
 // GetReceivedLicenseConsumptionConfigurationInput is an input type that accepts GetReceivedLicenseConsumptionConfigurationArgs and GetReceivedLicenseConsumptionConfigurationOutput values.
@@ -236,7 +236,7 @@ type GetReceivedLicenseConsumptionConfigurationArgs struct {
 	BorrowConfigurations GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayInput `pulumi:"borrowConfigurations"`
 	// Details about a provisional configuration. Detailed below
 	ProvisionalConfigurations GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayInput `pulumi:"provisionalConfigurations"`
-	RenewType                 pulumi.StringInput                                                           `pulumi:"renewType"`
+	RenewType                 pulumi.StringPtrInput                                                        `pulumi:"renewType"`
 }
 
 func (GetReceivedLicenseConsumptionConfigurationArgs) ElementType() reflect.Type {
@@ -304,8 +304,8 @@ func (o GetReceivedLicenseConsumptionConfigurationOutput) ProvisionalConfigurati
 	}).(GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutput)
 }
 
-func (o GetReceivedLicenseConsumptionConfigurationOutput) RenewType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfiguration) string { return v.RenewType }).(pulumi.StringOutput)
+func (o GetReceivedLicenseConsumptionConfigurationOutput) RenewType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfiguration) *string { return v.RenewType }).(pulumi.StringPtrOutput)
 }
 
 type GetReceivedLicenseConsumptionConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -330,9 +330,9 @@ func (o GetReceivedLicenseConsumptionConfigurationArrayOutput) Index(i pulumi.In
 
 type GetReceivedLicenseConsumptionConfigurationBorrowConfiguration struct {
 	// Indicates whether early check-ins are allowed.
-	AllowEarlyCheckIn bool `pulumi:"allowEarlyCheckIn"`
+	AllowEarlyCheckIn *bool `pulumi:"allowEarlyCheckIn"`
 	// Maximum time for the provisional configuration, in minutes.
-	MaxTimeToLiveInMinutes int `pulumi:"maxTimeToLiveInMinutes"`
+	MaxTimeToLiveInMinutes *int `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 // GetReceivedLicenseConsumptionConfigurationBorrowConfigurationInput is an input type that accepts GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs and GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput values.
@@ -348,9 +348,9 @@ type GetReceivedLicenseConsumptionConfigurationBorrowConfigurationInput interfac
 
 type GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs struct {
 	// Indicates whether early check-ins are allowed.
-	AllowEarlyCheckIn pulumi.BoolInput `pulumi:"allowEarlyCheckIn"`
+	AllowEarlyCheckIn pulumi.BoolPtrInput `pulumi:"allowEarlyCheckIn"`
 	// Maximum time for the provisional configuration, in minutes.
-	MaxTimeToLiveInMinutes pulumi.IntInput `pulumi:"maxTimeToLiveInMinutes"`
+	MaxTimeToLiveInMinutes pulumi.IntPtrInput `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 func (GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs) ElementType() reflect.Type {
@@ -405,15 +405,17 @@ func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) ToG
 }
 
 // Indicates whether early check-ins are allowed.
-func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) AllowEarlyCheckIn() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfigurationBorrowConfiguration) bool { return v.AllowEarlyCheckIn }).(pulumi.BoolOutput)
+func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) AllowEarlyCheckIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfigurationBorrowConfiguration) *bool {
+		return v.AllowEarlyCheckIn
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Maximum time for the provisional configuration, in minutes.
-func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfigurationBorrowConfiguration) int {
+func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfigurationBorrowConfiguration) *int {
 		return v.MaxTimeToLiveInMinutes
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -438,7 +440,7 @@ func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput
 
 type GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration struct {
 	// Maximum time for the provisional configuration, in minutes.
-	MaxTimeToLiveInMinutes int `pulumi:"maxTimeToLiveInMinutes"`
+	MaxTimeToLiveInMinutes *int `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 // GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationInput is an input type that accepts GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs and GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput values.
@@ -454,7 +456,7 @@ type GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationInput int
 
 type GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs struct {
 	// Maximum time for the provisional configuration, in minutes.
-	MaxTimeToLiveInMinutes pulumi.IntInput `pulumi:"maxTimeToLiveInMinutes"`
+	MaxTimeToLiveInMinutes pulumi.IntPtrInput `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 func (GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs) ElementType() reflect.Type {
@@ -509,10 +511,10 @@ func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput
 }
 
 // Maximum time for the provisional configuration, in minutes.
-func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration) int {
+func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration) *int {
 		return v.MaxTimeToLiveInMinutes
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -537,15 +539,15 @@ func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayO
 
 type GetReceivedLicenseEntitlement struct {
 	// Indicates whether check-ins are allowed.
-	AllowCheckIn bool `pulumi:"allowCheckIn"`
+	AllowCheckIn *bool `pulumi:"allowCheckIn"`
 	// Maximum entitlement count. Use if the unit is not None.
-	MaxCount int `pulumi:"maxCount"`
+	MaxCount *int `pulumi:"maxCount"`
 	// The key name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Entitlement unit.
-	Unit string `pulumi:"unit"`
+	Unit *string `pulumi:"unit"`
 	// The value.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetReceivedLicenseEntitlementInput is an input type that accepts GetReceivedLicenseEntitlementArgs and GetReceivedLicenseEntitlementOutput values.
@@ -561,15 +563,15 @@ type GetReceivedLicenseEntitlementInput interface {
 
 type GetReceivedLicenseEntitlementArgs struct {
 	// Indicates whether check-ins are allowed.
-	AllowCheckIn pulumi.BoolInput `pulumi:"allowCheckIn"`
+	AllowCheckIn pulumi.BoolPtrInput `pulumi:"allowCheckIn"`
 	// Maximum entitlement count. Use if the unit is not None.
-	MaxCount pulumi.IntInput `pulumi:"maxCount"`
+	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 	// The key name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Entitlement unit.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 	// The value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetReceivedLicenseEntitlementArgs) ElementType() reflect.Type {
@@ -624,28 +626,28 @@ func (o GetReceivedLicenseEntitlementOutput) ToGetReceivedLicenseEntitlementOutp
 }
 
 // Indicates whether check-ins are allowed.
-func (o GetReceivedLicenseEntitlementOutput) AllowCheckIn() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetReceivedLicenseEntitlement) bool { return v.AllowCheckIn }).(pulumi.BoolOutput)
+func (o GetReceivedLicenseEntitlementOutput) AllowCheckIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseEntitlement) *bool { return v.AllowCheckIn }).(pulumi.BoolPtrOutput)
 }
 
 // Maximum entitlement count. Use if the unit is not None.
-func (o GetReceivedLicenseEntitlementOutput) MaxCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetReceivedLicenseEntitlement) int { return v.MaxCount }).(pulumi.IntOutput)
+func (o GetReceivedLicenseEntitlementOutput) MaxCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseEntitlement) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
 // The key name.
-func (o GetReceivedLicenseEntitlementOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseEntitlement) string { return v.Name }).(pulumi.StringOutput)
+func (o GetReceivedLicenseEntitlementOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseEntitlement) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Entitlement unit.
-func (o GetReceivedLicenseEntitlementOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseEntitlement) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetReceivedLicenseEntitlementOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseEntitlement) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
 // The value.
-func (o GetReceivedLicenseEntitlementOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseEntitlement) string { return v.Value }).(pulumi.StringOutput)
+func (o GetReceivedLicenseEntitlementOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseEntitlement) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetReceivedLicenseEntitlementArrayOutput struct{ *pulumi.OutputState }
@@ -670,11 +672,11 @@ func (o GetReceivedLicenseEntitlementArrayOutput) Index(i pulumi.IntInput) GetRe
 
 type GetReceivedLicenseIssuer struct {
 	// Issuer key fingerprint.
-	KeyFingerprint string `pulumi:"keyFingerprint"`
+	KeyFingerprint *string `pulumi:"keyFingerprint"`
 	// The key name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-	SignKey string `pulumi:"signKey"`
+	SignKey *string `pulumi:"signKey"`
 }
 
 // GetReceivedLicenseIssuerInput is an input type that accepts GetReceivedLicenseIssuerArgs and GetReceivedLicenseIssuerOutput values.
@@ -690,11 +692,11 @@ type GetReceivedLicenseIssuerInput interface {
 
 type GetReceivedLicenseIssuerArgs struct {
 	// Issuer key fingerprint.
-	KeyFingerprint pulumi.StringInput `pulumi:"keyFingerprint"`
+	KeyFingerprint pulumi.StringPtrInput `pulumi:"keyFingerprint"`
 	// The key name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-	SignKey pulumi.StringInput `pulumi:"signKey"`
+	SignKey pulumi.StringPtrInput `pulumi:"signKey"`
 }
 
 func (GetReceivedLicenseIssuerArgs) ElementType() reflect.Type {
@@ -749,18 +751,18 @@ func (o GetReceivedLicenseIssuerOutput) ToGetReceivedLicenseIssuerOutputWithCont
 }
 
 // Issuer key fingerprint.
-func (o GetReceivedLicenseIssuerOutput) KeyFingerprint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseIssuer) string { return v.KeyFingerprint }).(pulumi.StringOutput)
+func (o GetReceivedLicenseIssuerOutput) KeyFingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseIssuer) *string { return v.KeyFingerprint }).(pulumi.StringPtrOutput)
 }
 
 // The key name.
-func (o GetReceivedLicenseIssuerOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseIssuer) string { return v.Name }).(pulumi.StringOutput)
+func (o GetReceivedLicenseIssuerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseIssuer) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-func (o GetReceivedLicenseIssuerOutput) SignKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseIssuer) string { return v.SignKey }).(pulumi.StringOutput)
+func (o GetReceivedLicenseIssuerOutput) SignKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseIssuer) *string { return v.SignKey }).(pulumi.StringPtrOutput)
 }
 
 type GetReceivedLicenseIssuerArrayOutput struct{ *pulumi.OutputState }
@@ -785,9 +787,9 @@ func (o GetReceivedLicenseIssuerArrayOutput) Index(i pulumi.IntInput) GetReceive
 
 type GetReceivedLicenseLicenseMetadata struct {
 	// The key name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The value.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetReceivedLicenseLicenseMetadataInput is an input type that accepts GetReceivedLicenseLicenseMetadataArgs and GetReceivedLicenseLicenseMetadataOutput values.
@@ -803,9 +805,9 @@ type GetReceivedLicenseLicenseMetadataInput interface {
 
 type GetReceivedLicenseLicenseMetadataArgs struct {
 	// The key name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetReceivedLicenseLicenseMetadataArgs) ElementType() reflect.Type {
@@ -860,13 +862,13 @@ func (o GetReceivedLicenseLicenseMetadataOutput) ToGetReceivedLicenseLicenseMeta
 }
 
 // The key name.
-func (o GetReceivedLicenseLicenseMetadataOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseLicenseMetadata) string { return v.Name }).(pulumi.StringOutput)
+func (o GetReceivedLicenseLicenseMetadataOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseLicenseMetadata) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The value.
-func (o GetReceivedLicenseLicenseMetadataOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseLicenseMetadata) string { return v.Value }).(pulumi.StringOutput)
+func (o GetReceivedLicenseLicenseMetadataOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseLicenseMetadata) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetReceivedLicenseLicenseMetadataArrayOutput struct{ *pulumi.OutputState }
@@ -893,9 +895,9 @@ type GetReceivedLicenseReceivedMetadata struct {
 	// A list of allowed operations.
 	AllowedOperations []string `pulumi:"allowedOperations"`
 	// Received status.
-	ReceivedStatus string `pulumi:"receivedStatus"`
+	ReceivedStatus *string `pulumi:"receivedStatus"`
 	// Received status reason.
-	ReceivedStatusReason string `pulumi:"receivedStatusReason"`
+	ReceivedStatusReason *string `pulumi:"receivedStatusReason"`
 }
 
 // GetReceivedLicenseReceivedMetadataInput is an input type that accepts GetReceivedLicenseReceivedMetadataArgs and GetReceivedLicenseReceivedMetadataOutput values.
@@ -913,9 +915,9 @@ type GetReceivedLicenseReceivedMetadataArgs struct {
 	// A list of allowed operations.
 	AllowedOperations pulumi.StringArrayInput `pulumi:"allowedOperations"`
 	// Received status.
-	ReceivedStatus pulumi.StringInput `pulumi:"receivedStatus"`
+	ReceivedStatus pulumi.StringPtrInput `pulumi:"receivedStatus"`
 	// Received status reason.
-	ReceivedStatusReason pulumi.StringInput `pulumi:"receivedStatusReason"`
+	ReceivedStatusReason pulumi.StringPtrInput `pulumi:"receivedStatusReason"`
 }
 
 func (GetReceivedLicenseReceivedMetadataArgs) ElementType() reflect.Type {
@@ -975,13 +977,13 @@ func (o GetReceivedLicenseReceivedMetadataOutput) AllowedOperations() pulumi.Str
 }
 
 // Received status.
-func (o GetReceivedLicenseReceivedMetadataOutput) ReceivedStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseReceivedMetadata) string { return v.ReceivedStatus }).(pulumi.StringOutput)
+func (o GetReceivedLicenseReceivedMetadataOutput) ReceivedStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseReceivedMetadata) *string { return v.ReceivedStatus }).(pulumi.StringPtrOutput)
 }
 
 // Received status reason.
-func (o GetReceivedLicenseReceivedMetadataOutput) ReceivedStatusReason() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseReceivedMetadata) string { return v.ReceivedStatusReason }).(pulumi.StringOutput)
+func (o GetReceivedLicenseReceivedMetadataOutput) ReceivedStatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseReceivedMetadata) *string { return v.ReceivedStatusReason }).(pulumi.StringPtrOutput)
 }
 
 type GetReceivedLicenseReceivedMetadataArrayOutput struct{ *pulumi.OutputState }
@@ -1006,9 +1008,9 @@ func (o GetReceivedLicenseReceivedMetadataArrayOutput) Index(i pulumi.IntInput) 
 
 type GetReceivedLicenseValidity struct {
 	// Start of the validity time range.
-	Begin string `pulumi:"begin"`
+	Begin *string `pulumi:"begin"`
 	// End of the validity time range.
-	End string `pulumi:"end"`
+	End *string `pulumi:"end"`
 }
 
 // GetReceivedLicenseValidityInput is an input type that accepts GetReceivedLicenseValidityArgs and GetReceivedLicenseValidityOutput values.
@@ -1024,9 +1026,9 @@ type GetReceivedLicenseValidityInput interface {
 
 type GetReceivedLicenseValidityArgs struct {
 	// Start of the validity time range.
-	Begin pulumi.StringInput `pulumi:"begin"`
+	Begin pulumi.StringPtrInput `pulumi:"begin"`
 	// End of the validity time range.
-	End pulumi.StringInput `pulumi:"end"`
+	End pulumi.StringPtrInput `pulumi:"end"`
 }
 
 func (GetReceivedLicenseValidityArgs) ElementType() reflect.Type {
@@ -1081,13 +1083,13 @@ func (o GetReceivedLicenseValidityOutput) ToGetReceivedLicenseValidityOutputWith
 }
 
 // Start of the validity time range.
-func (o GetReceivedLicenseValidityOutput) Begin() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseValidity) string { return v.Begin }).(pulumi.StringOutput)
+func (o GetReceivedLicenseValidityOutput) Begin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseValidity) *string { return v.Begin }).(pulumi.StringPtrOutput)
 }
 
 // End of the validity time range.
-func (o GetReceivedLicenseValidityOutput) End() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicenseValidity) string { return v.End }).(pulumi.StringOutput)
+func (o GetReceivedLicenseValidityOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicenseValidity) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
 type GetReceivedLicenseValidityArrayOutput struct{ *pulumi.OutputState }

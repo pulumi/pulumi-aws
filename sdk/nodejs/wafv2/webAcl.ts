@@ -38,7 +38,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the IP Set that this statement references.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      */
@@ -46,7 +46,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
-    public /*out*/ readonly capacity!: pulumi.Output<number>;
+    public /*out*/ readonly capacity!: pulumi.Output<number | undefined>;
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      */
@@ -63,7 +63,7 @@ export class WebAcl extends pulumi.CustomResource {
      * Friendly description of the WebACL.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lockToken!: pulumi.Output<string>;
+    public /*out*/ readonly lockToken!: pulumi.Output<string | undefined>;
     /**
      * Friendly name of the WebACL.
      */

@@ -55,13 +55,13 @@ type NetworkAssociation struct {
 	pulumi.CustomResourceState
 
 	// The unique ID of the target network association.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
+	AssociationId pulumi.StringPtrOutput `pulumi:"associationId"`
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// The ID of the VPC in which the target subnet is located.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewNetworkAssociation registers a new resource with the given unique name, arguments, and options.
@@ -228,8 +228,8 @@ func (o NetworkAssociationOutput) ToNetworkAssociationOutputWithContext(ctx cont
 }
 
 // The unique ID of the target network association.
-func (o NetworkAssociationOutput) AssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+func (o NetworkAssociationOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringPtrOutput { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Client VPN endpoint.
@@ -243,8 +243,8 @@ func (o NetworkAssociationOutput) SubnetId() pulumi.StringOutput {
 }
 
 // The ID of the VPC in which the target subnet is located.
-func (o NetworkAssociationOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o NetworkAssociationOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type NetworkAssociationArrayOutput struct{ *pulumi.OutputState }

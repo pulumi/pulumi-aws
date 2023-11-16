@@ -68,14 +68,14 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the key.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies whether to disable the policy lockout check performed when creating or updating the key&#39;s policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
@@ -124,28 +124,28 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enabled;
+    private Output</* @Nullable */ Boolean> enabled;
 
     /**
      * @return Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
-    public Output<Boolean> enabled() {
-        return this.enabled;
+    public Output<Optional<Boolean>> enabled() {
+        return Codegen.optional(this.enabled);
     }
     /**
      * Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
      * 
      */
     @Export(name="expirationModel", refs={String.class}, tree="[0]")
-    private Output<String> expirationModel;
+    private Output</* @Nullable */ String> expirationModel;
 
     /**
      * @return Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
      * 
      */
-    public Output<String> expirationModel() {
-        return this.expirationModel;
+    public Output<Optional<String>> expirationModel() {
+        return Codegen.optional(this.expirationModel);
     }
     /**
      * Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
@@ -166,56 +166,56 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyState", refs={String.class}, tree="[0]")
-    private Output<String> keyState;
+    private Output</* @Nullable */ String> keyState;
 
     /**
      * @return The state of the CMK.
      * 
      */
-    public Output<String> keyState() {
-        return this.keyState;
+    public Output<Optional<String>> keyState() {
+        return Codegen.optional(this.keyState);
     }
     /**
      * The cryptographic operations for which you can use the CMK.
      * 
      */
     @Export(name="keyUsage", refs={String.class}, tree="[0]")
-    private Output<String> keyUsage;
+    private Output</* @Nullable */ String> keyUsage;
 
     /**
      * @return The cryptographic operations for which you can use the CMK.
      * 
      */
-    public Output<String> keyUsage() {
-        return this.keyUsage;
+    public Output<Optional<String>> keyUsage() {
+        return Codegen.optional(this.keyUsage);
     }
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
     @Export(name="multiRegion", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> multiRegion;
+    private Output</* @Nullable */ Boolean> multiRegion;
 
     /**
      * @return Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
-    public Output<Boolean> multiRegion() {
-        return this.multiRegion;
+    public Output<Optional<Boolean>> multiRegion() {
+        return Codegen.optional(this.multiRegion);
     }
     /**
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

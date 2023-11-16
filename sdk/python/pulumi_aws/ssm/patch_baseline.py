@@ -1159,7 +1159,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the patch baseline.
         """
@@ -1226,7 +1226,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rejectedPatchesAction")
-    def rejected_patches_action(self) -> pulumi.Output[str]:
+    def rejected_patches_action(self) -> pulumi.Output[Optional[str]]:
         """
         The action for Patch Manager to take on patches included in the `rejected_patches` list.
         Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.

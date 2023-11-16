@@ -53,7 +53,7 @@ type GetObjectsResult struct {
 	EncodingType   *string  `pulumi:"encodingType"`
 	FetchOwner     *bool    `pulumi:"fetchOwner"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of strings representing object keys
 	Keys    []string `pulumi:"keys"`
 	MaxKeys *int     `pulumi:"maxKeys"`
@@ -61,7 +61,7 @@ type GetObjectsResult struct {
 	Owners []string `pulumi:"owners"`
 	Prefix *string  `pulumi:"prefix"`
 	// If present, indicates that the requester was successfully charged for the request.
-	RequestCharged string  `pulumi:"requestCharged"`
+	RequestCharged *string `pulumi:"requestCharged"`
 	RequestPayer   *string `pulumi:"requestPayer"`
 	StartAfter     *string `pulumi:"startAfter"`
 }
@@ -140,8 +140,8 @@ func (o GetObjectsResultOutput) FetchOwner() pulumi.BoolPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetObjectsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetObjectsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetObjectsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetObjectsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of strings representing object keys
@@ -163,8 +163,8 @@ func (o GetObjectsResultOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 // If present, indicates that the requester was successfully charged for the request.
-func (o GetObjectsResultOutput) RequestCharged() pulumi.StringOutput {
-	return o.ApplyT(func(v GetObjectsResult) string { return v.RequestCharged }).(pulumi.StringOutput)
+func (o GetObjectsResultOutput) RequestCharged() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetObjectsResult) *string { return v.RequestCharged }).(pulumi.StringPtrOutput)
 }
 
 func (o GetObjectsResultOutput) RequestPayer() pulumi.StringPtrOutput {

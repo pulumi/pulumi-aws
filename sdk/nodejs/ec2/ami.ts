@@ -81,7 +81,7 @@ export class Ami extends pulumi.CustomResource {
     /**
      * ARN of the AMI.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      */
@@ -98,7 +98,7 @@ export class Ami extends pulumi.CustomResource {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.AmiEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.AmiEbsBlockDevice[] | undefined>;
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
@@ -107,24 +107,24 @@ export class Ami extends pulumi.CustomResource {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiEphemeralBlockDevice[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiEphemeralBlockDevice[] | undefined>;
     /**
      * Hypervisor type of the image.
      */
-    public /*out*/ readonly hypervisor!: pulumi.Output<string>;
+    public /*out*/ readonly hypervisor!: pulumi.Output<string | undefined>;
     /**
      * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
-    public readonly imageLocation!: pulumi.Output<string>;
+    public readonly imageLocation!: pulumi.Output<string | undefined>;
     /**
      * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      */
-    public /*out*/ readonly imageOwnerAlias!: pulumi.Output<string>;
+    public /*out*/ readonly imageOwnerAlias!: pulumi.Output<string | undefined>;
     /**
      * Type of image.
      */
-    public /*out*/ readonly imageType!: pulumi.Output<string>;
+    public /*out*/ readonly imageType!: pulumi.Output<string | undefined>;
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      */
@@ -134,7 +134,7 @@ export class Ami extends pulumi.CustomResource {
      * kernel in created instances.
      */
     public readonly kernelId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean>;
+    public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean | undefined>;
     /**
      * Region-unique name for the AMI.
      */
@@ -142,19 +142,19 @@ export class Ami extends pulumi.CustomResource {
     /**
      * AWS account ID of the image owner.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * This value is set to windows for Windows AMIs; otherwise, it is blank.
      */
-    public /*out*/ readonly platform!: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string | undefined>;
     /**
      * Platform details associated with the billing code of the AMI.
      */
-    public /*out*/ readonly platformDetails!: pulumi.Output<string>;
+    public /*out*/ readonly platformDetails!: pulumi.Output<string | undefined>;
     /**
      * Whether the image has public launch permissions.
      */
-    public /*out*/ readonly public!: pulumi.Output<boolean>;
+    public /*out*/ readonly public!: pulumi.Output<boolean | undefined>;
     /**
      * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
@@ -167,7 +167,7 @@ export class Ami extends pulumi.CustomResource {
     /**
      * Snapshot ID for the root volume (for EBS-backed AMIs)
      */
-    public /*out*/ readonly rootSnapshotId!: pulumi.Output<string>;
+    public /*out*/ readonly rootSnapshotId!: pulumi.Output<string | undefined>;
     /**
      * When set to "simple" (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
@@ -190,7 +190,7 @@ export class Ami extends pulumi.CustomResource {
     /**
      * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
-    public /*out*/ readonly usageOperation!: pulumi.Output<string>;
+    public /*out*/ readonly usageOperation!: pulumi.Output<string | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

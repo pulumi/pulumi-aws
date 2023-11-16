@@ -705,7 +705,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the compute environment.
         """
@@ -713,7 +713,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeEnvironmentName")
-    def compute_environment_name(self) -> pulumi.Output[str]:
+    def compute_environment_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         """
@@ -721,7 +721,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeEnvironmentNamePrefix")
-    def compute_environment_name_prefix(self) -> pulumi.Output[str]:
+    def compute_environment_name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         """
@@ -737,7 +737,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ecsClusterArn")
-    def ecs_cluster_arn(self) -> pulumi.Output[str]:
+    def ecs_cluster_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
         """
@@ -753,7 +753,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> pulumi.Output[str]:
+    def service_role(self) -> pulumi.Output[Optional[str]]:
         """
         The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         """
@@ -769,7 +769,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of the compute environment (for example, CREATING or VALID).
         """
@@ -777,7 +777,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> pulumi.Output[str]:
+    def status_reason(self) -> pulumi.Output[Optional[str]]:
         """
         A short, human-readable string to provide additional details about the current status of the compute environment.
         """

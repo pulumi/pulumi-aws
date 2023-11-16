@@ -85,7 +85,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     /**
      * The ARN of the environment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The number of minutes until the running instance is shut down after the environment has last been used.
      */
@@ -121,7 +121,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     /**
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
      */
-    public readonly ownerArn!: pulumi.Output<string>;
+    public readonly ownerArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
@@ -139,7 +139,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     /**
      * The type of the environment (e.g., `ssh` or `ec2`)
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EnvironmentEC2 resource with the given unique name, arguments, and options.

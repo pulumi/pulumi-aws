@@ -306,7 +306,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> pulumi.Output[str]:
+    def key(self) -> pulumi.Output[Optional[str]]:
         """
         The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         """

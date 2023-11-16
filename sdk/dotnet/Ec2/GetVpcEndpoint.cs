@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the VPC endpoint.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         /// </summary>
@@ -226,8 +226,8 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsOptionResult> DnsOptions;
         public readonly ImmutableArray<Outputs.GetVpcEndpointFilterResult> Filters;
-        public readonly string Id;
-        public readonly string IpAddressType;
+        public readonly string? Id;
+        public readonly string? IpAddressType;
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         /// </summary>
@@ -235,23 +235,23 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the AWS account that owns the VPC endpoint.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
         /// </summary>
-        public readonly string Policy;
+        public readonly string? Policy;
         /// <summary>
         /// Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         /// </summary>
-        public readonly string PrefixListId;
+        public readonly string? PrefixListId;
         /// <summary>
         /// Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
         /// </summary>
-        public readonly bool PrivateDnsEnabled;
+        public readonly bool? PrivateDnsEnabled;
         /// <summary>
         /// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         /// </summary>
-        public readonly bool RequesterManaged;
+        public readonly bool? RequesterManaged;
         /// <summary>
         /// One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
         /// </summary>
@@ -260,22 +260,22 @@ namespace Pulumi.Aws.Ec2
         /// One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        public readonly string ServiceName;
-        public readonly string State;
+        public readonly string? ServiceName;
+        public readonly string? State;
         /// <summary>
         /// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// VPC Endpoint type, `Gateway` or `Interface`.
         /// </summary>
-        public readonly string VpcEndpointType;
-        public readonly string VpcId;
+        public readonly string? VpcEndpointType;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetVpcEndpointResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<string> cidrBlocks,
 
@@ -285,37 +285,37 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetVpcEndpointFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string ipAddressType,
+            string? ipAddressType,
 
             ImmutableArray<string> networkInterfaceIds,
 
-            string ownerId,
+            string? ownerId,
 
-            string policy,
+            string? policy,
 
-            string prefixListId,
+            string? prefixListId,
 
-            bool privateDnsEnabled,
+            bool? privateDnsEnabled,
 
-            bool requesterManaged,
+            bool? requesterManaged,
 
             ImmutableArray<string> routeTableIds,
 
             ImmutableArray<string> securityGroupIds,
 
-            string serviceName,
+            string? serviceName,
 
-            string state,
+            string? state,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcEndpointType,
+            string? vpcEndpointType,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             CidrBlocks = cidrBlocks;

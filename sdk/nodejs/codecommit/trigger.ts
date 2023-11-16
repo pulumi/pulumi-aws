@@ -58,7 +58,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * System-generated unique identifier.
      */
-    public /*out*/ readonly configurationId!: pulumi.Output<string>;
+    public /*out*/ readonly configurationId!: pulumi.Output<string | undefined>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */

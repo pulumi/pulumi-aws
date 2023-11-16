@@ -6,6 +6,8 @@ package com.pulumi.aws.budgets.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBudgetAutoAdjustDataHistoricalOption {
@@ -13,27 +15,27 @@ public final class GetBudgetAutoAdjustDataHistoricalOption {
      * @return (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
      * 
      */
-    private Integer budgetAdjustmentPeriod;
+    private @Nullable Integer budgetAdjustmentPeriod;
     /**
      * @return (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
      * 
      */
-    private Integer lookbackAvailablePeriods;
+    private @Nullable Integer lookbackAvailablePeriods;
 
     private GetBudgetAutoAdjustDataHistoricalOption() {}
     /**
      * @return (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
      * 
      */
-    public Integer budgetAdjustmentPeriod() {
-        return this.budgetAdjustmentPeriod;
+    public Optional<Integer> budgetAdjustmentPeriod() {
+        return Optional.ofNullable(this.budgetAdjustmentPeriod);
     }
     /**
      * @return (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
      * 
      */
-    public Integer lookbackAvailablePeriods() {
-        return this.lookbackAvailablePeriods;
+    public Optional<Integer> lookbackAvailablePeriods() {
+        return Optional.ofNullable(this.lookbackAvailablePeriods);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetBudgetAutoAdjustDataHistoricalOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer budgetAdjustmentPeriod;
-        private Integer lookbackAvailablePeriods;
+        private @Nullable Integer budgetAdjustmentPeriod;
+        private @Nullable Integer lookbackAvailablePeriods;
         public Builder() {}
         public Builder(GetBudgetAutoAdjustDataHistoricalOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetBudgetAutoAdjustDataHistoricalOption {
         }
 
         @CustomType.Setter
-        public Builder budgetAdjustmentPeriod(Integer budgetAdjustmentPeriod) {
-            this.budgetAdjustmentPeriod = Objects.requireNonNull(budgetAdjustmentPeriod);
+        public Builder budgetAdjustmentPeriod(@Nullable Integer budgetAdjustmentPeriod) {
+            this.budgetAdjustmentPeriod = budgetAdjustmentPeriod;
             return this;
         }
         @CustomType.Setter
-        public Builder lookbackAvailablePeriods(Integer lookbackAvailablePeriods) {
-            this.lookbackAvailablePeriods = Objects.requireNonNull(lookbackAvailablePeriods);
+        public Builder lookbackAvailablePeriods(@Nullable Integer lookbackAvailablePeriods) {
+            this.lookbackAvailablePeriods = lookbackAvailablePeriods;
             return this;
         }
         public GetBudgetAutoAdjustDataHistoricalOption build() {

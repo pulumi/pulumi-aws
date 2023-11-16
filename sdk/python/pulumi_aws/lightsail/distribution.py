@@ -959,7 +959,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alternativeDomainNames")
-    def alternative_domain_names(self) -> pulumi.Output[Sequence[str]]:
+    def alternative_domain_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The alternate domain names of the distribution.
         """
@@ -967,7 +967,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the distribution.
         """
@@ -1009,7 +1009,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the distribution was created.
         """
@@ -1025,7 +1025,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The domain name of the distribution.
         """
@@ -1049,7 +1049,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> pulumi.Output[Sequence['outputs.DistributionLocation']]:
+    def locations(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionLocation']]]:
         """
         An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
         """
@@ -1073,7 +1073,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originPublicDns")
-    def origin_public_dns(self) -> pulumi.Output[str]:
+    def origin_public_dns(self) -> pulumi.Output[Optional[str]]:
         """
         The public DNS of the origin.
         """
@@ -1081,7 +1081,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Output[str]:
+    def resource_type(self) -> pulumi.Output[Optional[str]]:
         """
         The resource type of the origin resource (e.g., Instance).
         """
@@ -1089,7 +1089,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the distribution.
         """
@@ -1097,7 +1097,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportCode")
-    def support_code(self) -> pulumi.Output[str]:
+    def support_code(self) -> pulumi.Output[Optional[str]]:
         """
         The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
         """

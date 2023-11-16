@@ -84,7 +84,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def addresses(self) -> Sequence['outputs.GetUserAddressResult']:
+    def addresses(self) -> Optional[Sequence['outputs.GetUserAddressResult']]:
         """
         List of details about the user's address.
         """
@@ -97,7 +97,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> Optional[str]:
         """
         The name that is typically displayed when the user is referenced.
         """
@@ -105,7 +105,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def emails(self) -> Sequence['outputs.GetUserEmailResult']:
+    def emails(self) -> Optional[Sequence['outputs.GetUserEmailResult']]:
         """
         List of details about the user's email.
         """
@@ -113,7 +113,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="externalIds")
-    def external_ids(self) -> Sequence['outputs.GetUserExternalIdResult']:
+    def external_ids(self) -> Optional[Sequence['outputs.GetUserExternalIdResult']]:
         """
         List of identifiers issued to this resource by an external identity provider.
         """
@@ -129,7 +129,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -142,7 +142,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def locale(self) -> str:
+    def locale(self) -> Optional[str]:
         """
         The user's geographical region or location.
         """
@@ -150,7 +150,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence['outputs.GetUserNameResult']:
+    def names(self) -> Optional[Sequence['outputs.GetUserNameResult']]:
         """
         Details about the user's full name.
         """
@@ -158,7 +158,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def nickname(self) -> str:
+    def nickname(self) -> Optional[str]:
         """
         An alternate name for the user.
         """
@@ -166,7 +166,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="phoneNumbers")
-    def phone_numbers(self) -> Sequence['outputs.GetUserPhoneNumberResult']:
+    def phone_numbers(self) -> Optional[Sequence['outputs.GetUserPhoneNumberResult']]:
         """
         List of details about the user's phone number.
         """
@@ -174,7 +174,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="preferredLanguage")
-    def preferred_language(self) -> str:
+    def preferred_language(self) -> Optional[str]:
         """
         The preferred language of the user.
         """
@@ -182,7 +182,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="profileUrl")
-    def profile_url(self) -> str:
+    def profile_url(self) -> Optional[str]:
         """
         An URL that may be associated with the user.
         """
@@ -190,7 +190,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def timezone(self) -> str:
+    def timezone(self) -> Optional[str]:
         """
         The user's time zone.
         """
@@ -198,7 +198,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> Optional[str]:
         """
         The user's title.
         """
@@ -206,12 +206,12 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> Optional[str]:
         return pulumi.get(self, "user_id")
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> Optional[str]:
         """
         User's user name value.
         """
@@ -219,7 +219,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="userType")
-    def user_type(self) -> str:
+    def user_type(self) -> Optional[str]:
         """
         The user type.
         """

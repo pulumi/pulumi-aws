@@ -38,31 +38,31 @@ namespace Pulumi.Aws.VerifiedAccess
         /// Timestamp when the access group was created.
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// Timestamp when the access group was deleted.
         /// </summary>
         [Output("deletionTime")]
-        public Output<string> DeletionTime { get; private set; } = null!;
+        public Output<string?> DeletionTime { get; private set; } = null!;
 
         /// <summary>
         /// Description of the verified access group.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Timestamp when the access group was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// AWS account number owning this resource.
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         [Output("policyDocument")]
         public Output<string?> PolicyDocument { get; private set; } = null!;
@@ -80,13 +80,13 @@ namespace Pulumi.Aws.VerifiedAccess
         /// ARN of this verified acess group.
         /// </summary>
         [Output("verifiedaccessGroupArn")]
-        public Output<string> VerifiedaccessGroupArn { get; private set; } = null!;
+        public Output<string?> VerifiedaccessGroupArn { get; private set; } = null!;
 
         /// <summary>
         /// ID of this verified access group.
         /// </summary>
         [Output("verifiedaccessGroupId")]
-        public Output<string> VerifiedaccessGroupId { get; private set; } = null!;
+        public Output<string?> VerifiedaccessGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The id of the verified access instance this group is associated with.

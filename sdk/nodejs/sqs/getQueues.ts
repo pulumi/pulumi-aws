@@ -45,12 +45,12 @@ export interface GetQueuesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly queueNamePrefix?: string;
     /**
      * A list of queue URLs.
      */
-    readonly queueUrls: string[];
+    readonly queueUrls?: string[];
 }
 /**
  * Data source for managing an AWS SQS (Simple Queue) Queues.

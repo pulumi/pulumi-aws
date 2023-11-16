@@ -58,9 +58,9 @@ type TemplateAlias struct {
 	// Display name of the template alias.
 	AliasName pulumi.StringOutput `pulumi:"aliasName"`
 	// Amazon Resource Name (ARN) of the template alias.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// ID of the template.
 	TemplateId pulumi.StringOutput `pulumi:"templateId"`
 	// Version number of the template.
@@ -261,13 +261,13 @@ func (o TemplateAliasOutput) AliasName() pulumi.StringOutput {
 }
 
 // Amazon Resource Name (ARN) of the template alias.
-func (o TemplateAliasOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TemplateAliasOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateAlias) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o TemplateAliasOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o TemplateAliasOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateAlias) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // ID of the template.

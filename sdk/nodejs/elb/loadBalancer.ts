@@ -120,11 +120,11 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The ARN of the ELB
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The AZ's to serve traffic in.
      */
-    public readonly availabilityZones!: pulumi.Output<string[]>;
+    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
      * Boolean to enable connection draining. Default: `false`
      */
@@ -144,11 +144,11 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The DNS name of the ELB
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * A healthCheck block. Health Check documented below.
      */
-    public readonly healthCheck!: pulumi.Output<outputs.elb.LoadBalancerHealthCheck>;
+    public readonly healthCheck!: pulumi.Output<outputs.elb.LoadBalancerHealthCheck | undefined>;
     /**
      * The time in seconds that the connection is allowed to be idle. Default: `60`
      */
@@ -156,11 +156,11 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * A list of instance ids to place in the ELB pool.
      */
-    public readonly instances!: pulumi.Output<string[]>;
+    public readonly instances!: pulumi.Output<string[] | undefined>;
     /**
      * If true, ELB will be an internal ELB.
      */
-    public readonly internal!: pulumi.Output<boolean>;
+    public readonly internal!: pulumi.Output<boolean | undefined>;
     /**
      * A list of listener blocks. Listeners documented below.
      */
@@ -173,28 +173,28 @@ export class LoadBalancer extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * A list of security group IDs to assign to the ELB.
      * Only valid if creating an ELB within a VPC
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the security group that you can use as
      * part of your inbound rules for your load balancer's back-end application
      * instances. Use this for Classic or Default VPC only.
      */
-    public readonly sourceSecurityGroup!: pulumi.Output<string>;
+    public readonly sourceSecurityGroup!: pulumi.Output<string | undefined>;
     /**
      * The ID of the security group that you can use as
      * part of your inbound rules for your load balancer's back-end application
      * instances. Only available on ELBs launched in a VPC.
      */
-    public /*out*/ readonly sourceSecurityGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly sourceSecurityGroupId!: pulumi.Output<string | undefined>;
     /**
      * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      */
-    public readonly subnets!: pulumi.Output<string[]>;
+    public readonly subnets!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -211,7 +211,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      */
-    public /*out*/ readonly zoneId!: pulumi.Output<string>;
+    public /*out*/ readonly zoneId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.

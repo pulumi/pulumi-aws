@@ -119,11 +119,11 @@ export class ResourceLfTags extends pulumi.CustomResource {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for a database resource. See below.
      */
-    public readonly database!: pulumi.Output<outputs.lakeformation.ResourceLfTagsDatabase>;
+    public readonly database!: pulumi.Output<outputs.lakeformation.ResourceLfTagsDatabase | undefined>;
     /**
      * Set of LF-tags to attach to the resource. See below.
      *
@@ -133,13 +133,13 @@ export class ResourceLfTags extends pulumi.CustomResource {
     /**
      * Configuration block for a table resource. See below.
      */
-    public readonly table!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTable>;
+    public readonly table!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTable | undefined>;
     /**
      * Configuration block for a table with columns resource. See below.
      *
      * The following arguments are optional:
      */
-    public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTableWithColumns>;
+    public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTableWithColumns | undefined>;
 
     /**
      * Create a ResourceLfTags resource with the given unique name, arguments, and options.

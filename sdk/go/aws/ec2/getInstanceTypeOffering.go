@@ -74,9 +74,9 @@ type GetInstanceTypeOfferingArgs struct {
 type GetInstanceTypeOfferingResult struct {
 	Filters []GetInstanceTypeOfferingFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// EC2 Instance Type.
-	InstanceType           string   `pulumi:"instanceType"`
+	InstanceType           *string  `pulumi:"instanceType"`
 	LocationType           *string  `pulumi:"locationType"`
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
 }
@@ -128,13 +128,13 @@ func (o GetInstanceTypeOfferingResultOutput) Filters() GetInstanceTypeOfferingFi
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetInstanceTypeOfferingResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetInstanceTypeOfferingResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // EC2 Instance Type.
-func (o GetInstanceTypeOfferingResultOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o GetInstanceTypeOfferingResultOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 func (o GetInstanceTypeOfferingResultOutput) LocationType() pulumi.StringPtrOutput {

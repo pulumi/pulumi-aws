@@ -55,33 +55,33 @@ export interface GetServiceResult {
     /**
      * ARN of the ECS Service
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly clusterArn: string;
     /**
      * Number of tasks for the ECS Service
      */
-    readonly desiredCount: number;
+    readonly desiredCount?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Launch type for the ECS Service
      */
-    readonly launchType: string;
+    readonly launchType?: string;
     /**
      * Scheduling strategy for the ECS Service
      */
-    readonly schedulingStrategy: string;
+    readonly schedulingStrategy?: string;
     readonly serviceName: string;
     /**
      * Resource tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Family for the latest ACTIVE revision or full ARN of the task definition.
      */
-    readonly taskDefinition: string;
+    readonly taskDefinition?: string;
 }
 /**
  * The ECS Service data source allows access to details of a specific

@@ -459,7 +459,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the route table.
         """
@@ -477,7 +477,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the AWS account that owns the route table.
         """
@@ -493,7 +493,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Output[Sequence['outputs.DefaultRouteTableRoute']]:
+    def routes(self) -> pulumi.Output[Optional[Sequence['outputs.DefaultRouteTableRoute']]]:
         """
         Set of objects. Detailed below
         """
@@ -520,7 +520,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the VPC.
         """

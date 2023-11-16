@@ -58,13 +58,13 @@ type IdentityProviderConfig struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the EKS Cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcOutput `pulumi:"oidc"`
 	// Status of the EKS Identity Provider Configuration.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -257,8 +257,8 @@ func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutputWithContext(
 }
 
 // Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
-func (o IdentityProviderConfigOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o IdentityProviderConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the EKS Cluster.
@@ -272,8 +272,8 @@ func (o IdentityProviderConfigOutput) Oidc() IdentityProviderConfigOidcOutput {
 }
 
 // Status of the EKS Identity Provider Configuration.
-func (o IdentityProviderConfigOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o IdentityProviderConfigOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

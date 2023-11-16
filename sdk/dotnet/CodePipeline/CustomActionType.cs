@@ -57,7 +57,7 @@ namespace Pulumi.Aws.CodePipeline
         /// The action ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.CodePipeline
         /// The creator of the action being called.
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// The provider of the service used in the custom action

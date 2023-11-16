@@ -67,7 +67,7 @@ export class Vocabulary extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the vocabulary.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
      */
@@ -75,7 +75,7 @@ export class Vocabulary extends pulumi.CustomResource {
     /**
      * The reason why the custom vocabulary was not created.
      */
-    public /*out*/ readonly failureReason!: pulumi.Output<string>;
+    public /*out*/ readonly failureReason!: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
@@ -87,7 +87,7 @@ export class Vocabulary extends pulumi.CustomResource {
     /**
      * The timestamp when the custom vocabulary was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
     /**
      * A unique name of the custom vocabulary. Must not be more than 140 characters.
      */
@@ -95,7 +95,7 @@ export class Vocabulary extends pulumi.CustomResource {
     /**
      * The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the vocabulary. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -110,7 +110,7 @@ export class Vocabulary extends pulumi.CustomResource {
     /**
      * The identifier of the custom vocabulary.
      */
-    public /*out*/ readonly vocabularyId!: pulumi.Output<string>;
+    public /*out*/ readonly vocabularyId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Vocabulary resource with the given unique name, arguments, and options.

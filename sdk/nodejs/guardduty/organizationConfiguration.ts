@@ -83,15 +83,15 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      *
      * @deprecated Use auto_enable_organization_members instead
      */
-    public readonly autoEnable!: pulumi.Output<boolean>;
+    public readonly autoEnable!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      */
-    public readonly autoEnableOrganizationMembers!: pulumi.Output<string>;
+    public readonly autoEnableOrganizationMembers!: pulumi.Output<string | undefined>;
     /**
      * Configuration for the collected datasources.
      */
-    public readonly datasources!: pulumi.Output<outputs.guardduty.OrganizationConfigurationDatasources>;
+    public readonly datasources!: pulumi.Output<outputs.guardduty.OrganizationConfigurationDatasources | undefined>;
     /**
      * The detector ID of the GuardDuty account.
      */

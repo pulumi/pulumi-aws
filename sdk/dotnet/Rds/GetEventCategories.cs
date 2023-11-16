@@ -154,14 +154,14 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? SourceType;
 
         [OutputConstructor]
         private GetEventCategoriesResult(
             ImmutableArray<string> eventCategories,
 
-            string id,
+            string? id,
 
             string? sourceType)
         {

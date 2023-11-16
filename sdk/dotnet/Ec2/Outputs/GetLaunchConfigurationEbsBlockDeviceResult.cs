@@ -16,59 +16,59 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Whether the EBS Volume will be deleted on instance termination.
         /// </summary>
-        public readonly bool DeleteOnTermination;
+        public readonly bool? DeleteOnTermination;
         /// <summary>
         /// Name of the device.
         /// </summary>
-        public readonly string DeviceName;
+        public readonly string? DeviceName;
         /// <summary>
         /// Whether the volume is Encrypted.
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly bool? Encrypted;
         /// <summary>
         /// Provisioned IOPs of the volume.
         /// </summary>
-        public readonly int Iops;
+        public readonly int? Iops;
         /// <summary>
         /// Whether the device in the block device mapping of the AMI is suppressed.
         /// </summary>
-        public readonly bool NoDevice;
+        public readonly bool? NoDevice;
         /// <summary>
         /// Snapshot ID of the mount.
         /// </summary>
-        public readonly string SnapshotId;
+        public readonly string? SnapshotId;
         /// <summary>
         /// Throughput of the volume.
         /// </summary>
-        public readonly int Throughput;
+        public readonly int? Throughput;
         /// <summary>
         /// Size of the volume.
         /// </summary>
-        public readonly int VolumeSize;
+        public readonly int? VolumeSize;
         /// <summary>
         /// Type of the volume.
         /// </summary>
-        public readonly string VolumeType;
+        public readonly string? VolumeType;
 
         [OutputConstructor]
         private GetLaunchConfigurationEbsBlockDeviceResult(
-            bool deleteOnTermination,
+            bool? deleteOnTermination,
 
-            string deviceName,
+            string? deviceName,
 
-            bool encrypted,
+            bool? encrypted,
 
-            int iops,
+            int? iops,
 
-            bool noDevice,
+            bool? noDevice,
 
-            string snapshotId,
+            string? snapshotId,
 
-            int throughput,
+            int? throughput,
 
-            int volumeSize,
+            int? volumeSize,
 
-            string volumeType)
+            string? volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
             DeviceName = deviceName;

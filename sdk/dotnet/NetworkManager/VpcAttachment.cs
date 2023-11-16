@@ -51,25 +51,25 @@ namespace Pulumi.Aws.NetworkManager
         /// The ARN of the attachment.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The policy rule number associated with the attachment.
         /// </summary>
         [Output("attachmentPolicyRuleNumber")]
-        public Output<int> AttachmentPolicyRuleNumber { get; private set; } = null!;
+        public Output<int?> AttachmentPolicyRuleNumber { get; private set; } = null!;
 
         /// <summary>
         /// The type of attachment.
         /// </summary>
         [Output("attachmentType")]
-        public Output<string> AttachmentType { get; private set; } = null!;
+        public Output<string?> AttachmentType { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of a core network.
         /// </summary>
         [Output("coreNetworkArn")]
-        public Output<string> CoreNetworkArn { get; private set; } = null!;
+        public Output<string?> CoreNetworkArn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of a core network for the VPC attachment.
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.NetworkManager
         /// The Region where the edge is located.
         /// </summary>
         [Output("edgeLocation")]
-        public Output<string> EdgeLocation { get; private set; } = null!;
+        public Output<string?> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
         /// Options for the VPC attachment.
@@ -93,25 +93,25 @@ namespace Pulumi.Aws.NetworkManager
         /// The ID of the attachment account owner.
         /// </summary>
         [Output("ownerAccountId")]
-        public Output<string> OwnerAccountId { get; private set; } = null!;
+        public Output<string?> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The attachment resource ARN.
         /// </summary>
         [Output("resourceArn")]
-        public Output<string> ResourceArn { get; private set; } = null!;
+        public Output<string?> ResourceArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the segment attachment.
         /// </summary>
         [Output("segmentName")]
-        public Output<string> SegmentName { get; private set; } = null!;
+        public Output<string?> SegmentName { get; private set; } = null!;
 
         /// <summary>
         /// The state of the attachment.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The subnet ARN of the VPC attachment.

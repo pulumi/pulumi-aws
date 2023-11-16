@@ -84,7 +84,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * When the replication configuration was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * A destination configuration block (documented below).
      */
@@ -92,11 +92,11 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
      */
-    public /*out*/ readonly originalSourceFileSystemArn!: pulumi.Output<string>;
+    public /*out*/ readonly originalSourceFileSystemArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      */
-    public /*out*/ readonly sourceFileSystemArn!: pulumi.Output<string>;
+    public /*out*/ readonly sourceFileSystemArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the file system that is to be replicated.
      */
@@ -106,7 +106,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
      * * `destination[0].file_system_id` - The fs ID of the replica.
      * * `destination[0].status` - The status of the replication.
      */
-    public /*out*/ readonly sourceFileSystemRegion!: pulumi.Output<string>;
+    public /*out*/ readonly sourceFileSystemRegion!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ReplicationConfiguration resource with the given unique name, arguments, and options.

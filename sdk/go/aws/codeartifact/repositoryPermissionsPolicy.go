@@ -27,64 +27,64 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description: pulumi.String("domain key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
-//				Domain:        pulumi.String("example"),
-//				EncryptionKey: exampleKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRepository, err := codeartifact.NewRepository(ctx, "exampleRepository", &codeartifact.RepositoryArgs{
-//				Repository: pulumi.String("example"),
-//				Domain:     exampleDomain.Domain,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("*"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("codeartifact:ReadFromRepository"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleRepository.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = codeartifact.NewRepositoryPermissionsPolicy(ctx, "exampleRepositoryPermissionsPolicy", &codeartifact.RepositoryPermissionsPolicyArgs{
-//				Repository: exampleRepository.Repository,
-//				Domain:     exampleDomain.Domain,
-//				PolicyDocument: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+// Description: pulumi.String("domain key"),
+// })
+// if err != nil {
+// return err
+// }
+// exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
+// Domain: pulumi.String("example"),
+// EncryptionKey: exampleKey.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// exampleRepository, err := codeartifact.NewRepository(ctx, "exampleRepository", &codeartifact.RepositoryArgs{
+// Repository: pulumi.String("example"),
+// Domain: exampleDomain.Domain,
+// })
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument := exampleRepository.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "*",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Actions: []string{
+// "codeartifact:ReadFromRepository",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = codeartifact.NewRepositoryPermissionsPolicy(ctx, "exampleRepositoryPermissionsPolicy", &codeartifact.RepositoryPermissionsPolicyArgs{
+// Repository: exampleRepository.Repository,
+// Domain: exampleDomain.Domain,
+// PolicyDocument: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &examplePolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -102,15 +102,15 @@ type RepositoryPermissionsPolicy struct {
 	// The name of the domain on which to set the resource policy.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// The account number of the AWS account that owns the domain.
-	DomainOwner pulumi.StringOutput `pulumi:"domainOwner"`
+	DomainOwner pulumi.StringPtrOutput `pulumi:"domainOwner"`
 	// A JSON policy string to be set as the access control resource policy on the provided domain.
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
 	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-	PolicyRevision pulumi.StringOutput `pulumi:"policyRevision"`
+	PolicyRevision pulumi.StringPtrOutput `pulumi:"policyRevision"`
 	// The name of the repository to set the resource policy on.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The ARN of the resource associated with the resource policy.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
 }
 
 // NewRepositoryPermissionsPolicy registers a new resource with the given unique name, arguments, and options.
@@ -305,8 +305,8 @@ func (o RepositoryPermissionsPolicyOutput) Domain() pulumi.StringOutput {
 }
 
 // The account number of the AWS account that owns the domain.
-func (o RepositoryPermissionsPolicyOutput) DomainOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.DomainOwner }).(pulumi.StringOutput)
+func (o RepositoryPermissionsPolicyOutput) DomainOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringPtrOutput { return v.DomainOwner }).(pulumi.StringPtrOutput)
 }
 
 // A JSON policy string to be set as the access control resource policy on the provided domain.
@@ -315,8 +315,8 @@ func (o RepositoryPermissionsPolicyOutput) PolicyDocument() pulumi.StringOutput 
 }
 
 // The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-func (o RepositoryPermissionsPolicyOutput) PolicyRevision() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.PolicyRevision }).(pulumi.StringOutput)
+func (o RepositoryPermissionsPolicyOutput) PolicyRevision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringPtrOutput { return v.PolicyRevision }).(pulumi.StringPtrOutput)
 }
 
 // The name of the repository to set the resource policy on.
@@ -325,8 +325,8 @@ func (o RepositoryPermissionsPolicyOutput) Repository() pulumi.StringOutput {
 }
 
 // The ARN of the resource associated with the resource policy.
-func (o RepositoryPermissionsPolicyOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+func (o RepositoryPermissionsPolicyOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 type RepositoryPermissionsPolicyArrayOutput struct{ *pulumi.OutputState }

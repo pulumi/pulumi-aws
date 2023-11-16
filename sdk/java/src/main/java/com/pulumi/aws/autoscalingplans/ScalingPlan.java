@@ -15,6 +15,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -85,14 +86,14 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="scalingPlanVersion", refs={Integer.class}, tree="[0]")
-    private Output<Integer> scalingPlanVersion;
+    private Output</* @Nullable */ Integer> scalingPlanVersion;
 
     /**
      * @return The version number of the scaling plan. This value is always 1.
      * 
      */
-    public Output<Integer> scalingPlanVersion() {
-        return this.scalingPlanVersion;
+    public Output<Optional<Integer>> scalingPlanVersion() {
+        return Codegen.optional(this.scalingPlanVersion);
     }
 
     /**

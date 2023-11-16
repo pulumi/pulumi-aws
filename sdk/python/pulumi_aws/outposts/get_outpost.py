@@ -61,12 +61,12 @@ class GetOutpostResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         """
         Availability Zone name.
         """
@@ -74,7 +74,7 @@ class GetOutpostResult:
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> str:
+    def availability_zone_id(self) -> Optional[str]:
         """
         Availability Zone identifier.
         """
@@ -82,7 +82,7 @@ class GetOutpostResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The description of the Outpost.
         """
@@ -90,12 +90,12 @@ class GetOutpostResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lifecycleStatus")
-    def lifecycle_status(self) -> str:
+    def lifecycle_status(self) -> Optional[str]:
         """
         The life cycle status.
         """
@@ -103,7 +103,7 @@ class GetOutpostResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
@@ -113,7 +113,7 @@ class GetOutpostResult:
 
     @property
     @pulumi.getter(name="siteArn")
-    def site_arn(self) -> str:
+    def site_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the site.
         """
@@ -121,7 +121,7 @@ class GetOutpostResult:
 
     @property
     @pulumi.getter(name="siteId")
-    def site_id(self) -> str:
+    def site_id(self) -> Optional[str]:
         """
         The ID of the site.
         """
@@ -129,7 +129,7 @@ class GetOutpostResult:
 
     @property
     @pulumi.getter(name="supportedHardwareType")
-    def supported_hardware_type(self) -> str:
+    def supported_hardware_type(self) -> Optional[str]:
         """
         The hardware type.
         """
@@ -137,7 +137,7 @@ class GetOutpostResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The Outpost tags.
         """

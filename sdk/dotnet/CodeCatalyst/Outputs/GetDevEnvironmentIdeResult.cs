@@ -13,14 +13,14 @@ namespace Pulumi.Aws.CodeCatalyst.Outputs
     [OutputType]
     public sealed class GetDevEnvironmentIdeResult
     {
-        public readonly string Name;
-        public readonly string Runtime;
+        public readonly string? Name;
+        public readonly string? Runtime;
 
         [OutputConstructor]
         private GetDevEnvironmentIdeResult(
-            string name,
+            string? name,
 
-            string runtime)
+            string? runtime)
         {
             Name = name;
             Runtime = runtime;

@@ -652,7 +652,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         EC2 Transit Gateway Amazon Resource Name (ARN)
         """
@@ -660,7 +660,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationDefaultRouteTableId")
-    def association_default_route_table_id(self) -> pulumi.Output[str]:
+    def association_default_route_table_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the default association route table
         """
@@ -716,7 +716,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the AWS account that owns the EC2 Transit Gateway
         """
@@ -724,7 +724,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propagationDefaultRouteTableId")
-    def propagation_default_route_table_id(self) -> pulumi.Output[str]:
+    def propagation_default_route_table_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the default propagation route table
         """

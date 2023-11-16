@@ -53,7 +53,7 @@ class GetTagsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -76,7 +76,7 @@ class GetTagsResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Sequence[str]:
+    def tags(self) -> Optional[Sequence[str]]:
         """
         Tags that match your request.
         """

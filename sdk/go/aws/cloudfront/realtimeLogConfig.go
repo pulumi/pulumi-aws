@@ -118,7 +118,7 @@ type RealtimeLogConfig struct {
 	pulumi.CustomResourceState
 
 	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint RealtimeLogConfigEndpointOutput `pulumi:"endpoint"`
 	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
@@ -308,8 +308,8 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutputWithContext(ctx contex
 }
 
 // The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-func (o RealtimeLogConfigOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RealtimeLogConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Kinesis data streams where real-time log data is sent.

@@ -87,7 +87,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> str:
+    def address_family(self) -> Optional[str]:
         """
         IP protocol assigned to this pool.
         """
@@ -95,7 +95,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="allocationDefaultNetmaskLength")
-    def allocation_default_netmask_length(self) -> int:
+    def allocation_default_netmask_length(self) -> Optional[int]:
         """
         A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
         """
@@ -103,7 +103,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="allocationMaxNetmaskLength")
-    def allocation_max_netmask_length(self) -> int:
+    def allocation_max_netmask_length(self) -> Optional[int]:
         """
         The maximum netmask length that will be required for CIDR allocations in this pool.
         """
@@ -111,7 +111,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="allocationMinNetmaskLength")
-    def allocation_min_netmask_length(self) -> int:
+    def allocation_min_netmask_length(self) -> Optional[int]:
         """
         The minimum netmask length that will be required for CIDR allocations in this pool.
         """
@@ -119,7 +119,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="allocationResourceTags")
-    def allocation_resource_tags(self) -> Mapping[str, str]:
+    def allocation_resource_tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags that are required to create resources in using this pool.
         """
@@ -127,7 +127,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the pool
         """
@@ -135,7 +135,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="autoImport")
-    def auto_import(self) -> bool:
+    def auto_import(self) -> Optional[bool]:
         """
         If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
         """
@@ -143,7 +143,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="awsService")
-    def aws_service(self) -> str:
+    def aws_service(self) -> Optional[str]:
         """
         Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         """
@@ -151,7 +151,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description for the IPAM pool.
         """
@@ -177,7 +177,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="ipamScopeId")
-    def ipam_scope_id(self) -> str:
+    def ipam_scope_id(self) -> Optional[str]:
         """
         ID of the scope the pool belongs to.
         """
@@ -185,12 +185,12 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> str:
+    def ipam_scope_type(self) -> Optional[str]:
         return pulumi.get(self, "ipam_scope_type")
 
     @property
     @pulumi.getter
-    def locale(self) -> str:
+    def locale(self) -> Optional[str]:
         """
         Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
         """
@@ -198,12 +198,12 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="poolDepth")
-    def pool_depth(self) -> int:
+    def pool_depth(self) -> Optional[int]:
         return pulumi.get(self, "pool_depth")
 
     @property
     @pulumi.getter(name="publiclyAdvertisable")
-    def publicly_advertisable(self) -> bool:
+    def publicly_advertisable(self) -> Optional[bool]:
         """
         Defines whether or not IPv6 pool space is publicly advertisable over the internet.
         """
@@ -211,7 +211,7 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter(name="sourceIpamPoolId")
-    def source_ipam_pool_id(self) -> str:
+    def source_ipam_pool_id(self) -> Optional[str]:
         """
         ID of the source IPAM pool.
         """
@@ -219,12 +219,12 @@ class GetVpcIpamPoolResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assigned to the resource.
         """

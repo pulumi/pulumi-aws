@@ -6,18 +6,20 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetPhysicalTableMapS3SourceInputColumn {
-    private String name;
-    private String type;
+    private @Nullable String name;
+    private @Nullable String type;
 
     private GetDataSetPhysicalTableMapS3SourceInputColumn() {}
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetDataSetPhysicalTableMapS3SourceInputColumn {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String name;
-        private String type;
+        private @Nullable String name;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetDataSetPhysicalTableMapS3SourceInputColumn defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetDataSetPhysicalTableMapS3SourceInputColumn {
         }
 
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetDataSetPhysicalTableMapS3SourceInputColumn build() {

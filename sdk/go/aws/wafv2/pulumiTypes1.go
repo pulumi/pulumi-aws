@@ -44251,7 +44251,7 @@ func (o WebAclVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtr
 
 type GetRegexPatternSetRegularExpression struct {
 	// (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
-	RegexString string `pulumi:"regexString"`
+	RegexString *string `pulumi:"regexString"`
 }
 
 // GetRegexPatternSetRegularExpressionInput is an input type that accepts GetRegexPatternSetRegularExpressionArgs and GetRegexPatternSetRegularExpressionOutput values.
@@ -44267,7 +44267,7 @@ type GetRegexPatternSetRegularExpressionInput interface {
 
 type GetRegexPatternSetRegularExpressionArgs struct {
 	// (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
-	RegexString pulumi.StringInput `pulumi:"regexString"`
+	RegexString pulumi.StringPtrInput `pulumi:"regexString"`
 }
 
 func (GetRegexPatternSetRegularExpressionArgs) ElementType() reflect.Type {
@@ -44322,8 +44322,8 @@ func (o GetRegexPatternSetRegularExpressionOutput) ToGetRegexPatternSetRegularEx
 }
 
 // (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
-func (o GetRegexPatternSetRegularExpressionOutput) RegexString() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRegexPatternSetRegularExpression) string { return v.RegexString }).(pulumi.StringOutput)
+func (o GetRegexPatternSetRegularExpressionOutput) RegexString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegexPatternSetRegularExpression) *string { return v.RegexString }).(pulumi.StringPtrOutput)
 }
 
 type GetRegexPatternSetRegularExpressionArrayOutput struct{ *pulumi.OutputState }

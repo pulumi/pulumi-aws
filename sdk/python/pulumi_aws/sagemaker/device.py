@@ -259,12 +259,12 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> pulumi.Output[str]:
+    def agent_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "agent_version")
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Device.
         """

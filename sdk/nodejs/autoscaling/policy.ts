@@ -220,7 +220,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * ARN assigned by AWS to the scaling policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the autoscaling group.
      */
@@ -242,7 +242,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
-    public readonly metricAggregationType!: pulumi.Output<string>;
+    public readonly metricAggregationType!: pulumi.Output<string | undefined>;
     /**
      * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
      *

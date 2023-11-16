@@ -511,7 +511,7 @@ class Control(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the control.
         * `control_mapping_sources.*.source_id` - Unique identifier for the source.
@@ -570,7 +570,7 @@ class Control(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of control, such as a custom control or a standard control.
         """

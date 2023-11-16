@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
         /// </summary>
-        public readonly string UserGroupResolutionMode;
+        public readonly string? UserGroupResolutionMode;
 
         [OutputConstructor]
-        private GetIndexUserGroupResolutionConfigurationResult(string userGroupResolutionMode)
+        private GetIndexUserGroupResolutionConfigurationResult(string? userGroupResolutionMode)
         {
             UserGroupResolutionMode = userGroupResolutionMode;
         }

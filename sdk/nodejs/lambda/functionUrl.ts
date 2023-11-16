@@ -90,7 +90,7 @@ export class FunctionUrl extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the function.
      */
-    public /*out*/ readonly functionArn!: pulumi.Output<string>;
+    public /*out*/ readonly functionArn!: pulumi.Output<string | undefined>;
     /**
      * The name (or ARN) of the Lambda function.
      */
@@ -98,7 +98,7 @@ export class FunctionUrl extends pulumi.CustomResource {
     /**
      * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
      */
-    public /*out*/ readonly functionUrl!: pulumi.Output<string>;
+    public /*out*/ readonly functionUrl!: pulumi.Output<string | undefined>;
     /**
      * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
      */
@@ -110,7 +110,7 @@ export class FunctionUrl extends pulumi.CustomResource {
     /**
      * A generated ID for the endpoint.
      */
-    public /*out*/ readonly urlId!: pulumi.Output<string>;
+    public /*out*/ readonly urlId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FunctionUrl resource with the given unique name, arguments, and options.

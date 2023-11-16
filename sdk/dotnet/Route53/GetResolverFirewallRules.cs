@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly int? Priority;
 
         [OutputConstructor]
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Route53
 
             ImmutableArray<Outputs.GetResolverFirewallRulesFirewallRuleResult> firewallRules,
 
-            string id,
+            string? id,
 
             int? priority)
         {

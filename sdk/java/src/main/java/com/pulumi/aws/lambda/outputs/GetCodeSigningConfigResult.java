@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCodeSigningConfigResult {
@@ -16,33 +18,33 @@ public final class GetCodeSigningConfigResult {
      * @return List of allowed publishers as signing profiles for this code signing configuration.
      * 
      */
-    private List<GetCodeSigningConfigAllowedPublisher> allowedPublishers;
+    private @Nullable List<GetCodeSigningConfigAllowedPublisher> allowedPublishers;
     private String arn;
     /**
      * @return Unique identifier for the code signing configuration.
      * 
      */
-    private String configId;
+    private @Nullable String configId;
     /**
      * @return Code signing configuration description.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Date and time that the code signing configuration was last modified.
      * 
      */
-    private String lastModified;
+    private @Nullable String lastModified;
     /**
      * @return List of code signing policies that control the validation failure action for signature mismatch or expiry.
      * 
      */
-    private List<GetCodeSigningConfigPolicy> policies;
+    private @Nullable List<GetCodeSigningConfigPolicy> policies;
 
     private GetCodeSigningConfigResult() {}
     /**
@@ -50,7 +52,7 @@ public final class GetCodeSigningConfigResult {
      * 
      */
     public List<GetCodeSigningConfigAllowedPublisher> allowedPublishers() {
-        return this.allowedPublishers;
+        return this.allowedPublishers == null ? List.of() : this.allowedPublishers;
     }
     public String arn() {
         return this.arn;
@@ -59,36 +61,36 @@ public final class GetCodeSigningConfigResult {
      * @return Unique identifier for the code signing configuration.
      * 
      */
-    public String configId() {
-        return this.configId;
+    public Optional<String> configId() {
+        return Optional.ofNullable(this.configId);
     }
     /**
      * @return Code signing configuration description.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Date and time that the code signing configuration was last modified.
      * 
      */
-    public String lastModified() {
-        return this.lastModified;
+    public Optional<String> lastModified() {
+        return Optional.ofNullable(this.lastModified);
     }
     /**
      * @return List of code signing policies that control the validation failure action for signature mismatch or expiry.
      * 
      */
     public List<GetCodeSigningConfigPolicy> policies() {
-        return this.policies;
+        return this.policies == null ? List.of() : this.policies;
     }
 
     public static Builder builder() {
@@ -100,13 +102,13 @@ public final class GetCodeSigningConfigResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetCodeSigningConfigAllowedPublisher> allowedPublishers;
+        private @Nullable List<GetCodeSigningConfigAllowedPublisher> allowedPublishers;
         private String arn;
-        private String configId;
-        private String description;
-        private String id;
-        private String lastModified;
-        private List<GetCodeSigningConfigPolicy> policies;
+        private @Nullable String configId;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String lastModified;
+        private @Nullable List<GetCodeSigningConfigPolicy> policies;
         public Builder() {}
         public Builder(GetCodeSigningConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -120,8 +122,8 @@ public final class GetCodeSigningConfigResult {
         }
 
         @CustomType.Setter
-        public Builder allowedPublishers(List<GetCodeSigningConfigAllowedPublisher> allowedPublishers) {
-            this.allowedPublishers = Objects.requireNonNull(allowedPublishers);
+        public Builder allowedPublishers(@Nullable List<GetCodeSigningConfigAllowedPublisher> allowedPublishers) {
+            this.allowedPublishers = allowedPublishers;
             return this;
         }
         public Builder allowedPublishers(GetCodeSigningConfigAllowedPublisher... allowedPublishers) {
@@ -133,28 +135,28 @@ public final class GetCodeSigningConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder configId(String configId) {
-            this.configId = Objects.requireNonNull(configId);
+        public Builder configId(@Nullable String configId) {
+            this.configId = configId;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+        public Builder lastModified(@Nullable String lastModified) {
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
-        public Builder policies(List<GetCodeSigningConfigPolicy> policies) {
-            this.policies = Objects.requireNonNull(policies);
+        public Builder policies(@Nullable List<GetCodeSigningConfigPolicy> policies) {
+            this.policies = policies;
             return this;
         }
         public Builder policies(GetCodeSigningConfigPolicy... policies) {

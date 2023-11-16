@@ -63,8 +63,8 @@ type GetOrganizationalUnitsResult struct {
 	// List of child organizational units, which have the following attributes:
 	Children []GetOrganizationalUnitsChild `pulumi:"children"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
-	ParentId string `pulumi:"parentId"`
+	Id       *string `pulumi:"id"`
+	ParentId string  `pulumi:"parentId"`
 }
 
 func GetOrganizationalUnitsOutput(ctx *pulumi.Context, args GetOrganizationalUnitsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationalUnitsResultOutput {
@@ -111,8 +111,8 @@ func (o GetOrganizationalUnitsResultOutput) Children() GetOrganizationalUnitsChi
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetOrganizationalUnitsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrganizationalUnitsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetOrganizationalUnitsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOrganizationalUnitsResultOutput) ParentId() pulumi.StringOutput {

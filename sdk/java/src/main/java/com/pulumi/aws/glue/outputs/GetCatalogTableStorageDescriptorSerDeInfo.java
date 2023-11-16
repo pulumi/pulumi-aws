@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorSerDeInfo {
@@ -14,39 +16,39 @@ public final class GetCatalogTableStorageDescriptorSerDeInfo {
      * @return Name of the table.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
      * 
      */
-    private String serializationLibrary;
+    private @Nullable String serializationLibrary;
 
     private GetCatalogTableStorageDescriptorSerDeInfo() {}
     /**
      * @return Name of the table.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
     public Map<String,String> parameters() {
-        return this.parameters;
+        return this.parameters == null ? Map.of() : this.parameters;
     }
     /**
      * @return Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
      * 
      */
-    public String serializationLibrary() {
-        return this.serializationLibrary;
+    public Optional<String> serializationLibrary() {
+        return Optional.ofNullable(this.serializationLibrary);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetCatalogTableStorageDescriptorSerDeInfo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String name;
-        private Map<String,String> parameters;
-        private String serializationLibrary;
+        private @Nullable String name;
+        private @Nullable Map<String,String> parameters;
+        private @Nullable String serializationLibrary;
         public Builder() {}
         public Builder(GetCatalogTableStorageDescriptorSerDeInfo defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetCatalogTableStorageDescriptorSerDeInfo {
         }
 
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable Map<String,String> parameters) {
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
-        public Builder serializationLibrary(String serializationLibrary) {
-            this.serializationLibrary = Objects.requireNonNull(serializationLibrary);
+        public Builder serializationLibrary(@Nullable String serializationLibrary) {
+            this.serializationLibrary = serializationLibrary;
             return this;
         }
         public GetCatalogTableStorageDescriptorSerDeInfo build() {

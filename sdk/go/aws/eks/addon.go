@@ -163,19 +163,19 @@ type Addon struct {
 	AddonName pulumi.StringOutput `pulumi:"addonName"`
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-	AddonVersion pulumi.StringOutput `pulumi:"addonVersion"`
+	AddonVersion pulumi.StringPtrOutput `pulumi:"addonVersion"`
 	// Amazon Resource Name (ARN) of the EKS add-on.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	//
 	// The following arguments are optional:
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-	ConfigurationValues pulumi.StringOutput `pulumi:"configurationValues"`
+	ConfigurationValues pulumi.StringPtrOutput `pulumi:"configurationValues"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	ModifiedAt pulumi.StringPtrOutput `pulumi:"modifiedAt"`
 	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
 	Preserve pulumi.BoolPtrOutput `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
@@ -521,13 +521,13 @@ func (o AddonOutput) AddonName() pulumi.StringOutput {
 
 // The version of the EKS add-on. The version must
 // match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-func (o AddonOutput) AddonVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.AddonVersion }).(pulumi.StringOutput)
+func (o AddonOutput) AddonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.AddonVersion }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the EKS add-on.
-func (o AddonOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AddonOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -538,18 +538,18 @@ func (o AddonOutput) ClusterName() pulumi.StringOutput {
 }
 
 // custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-func (o AddonOutput) ConfigurationValues() pulumi.StringOutput {
-	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.ConfigurationValues }).(pulumi.StringOutput)
+func (o AddonOutput) ConfigurationValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ConfigurationValues }).(pulumi.StringPtrOutput)
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-func (o AddonOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o AddonOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-func (o AddonOutput) ModifiedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
+func (o AddonOutput) ModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
 // Indicates if you want to preserve the created resources when deleting the EKS add-on.

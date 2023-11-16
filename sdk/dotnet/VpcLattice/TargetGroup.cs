@@ -138,7 +138,7 @@ namespace Pulumi.Aws.VpcLattice
         /// ARN of the target group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The target group configuration.
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.VpcLattice
         /// Status of the target group.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

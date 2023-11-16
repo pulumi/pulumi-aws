@@ -65,14 +65,14 @@ public class SnapshotSchedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
@@ -121,14 +121,14 @@ public class SnapshotSchedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identifier", refs={String.class}, tree="[0]")
-    private Output<String> identifier;
+    private Output</* @Nullable */ String> identifier;
 
     /**
      * @return The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
-    public Output<String> identifier() {
-        return this.identifier;
+    public Output<Optional<String>> identifier() {
+        return Codegen.optional(this.identifier);
     }
     /**
      * Creates a unique
@@ -136,15 +136,15 @@ public class SnapshotSchedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identifierPrefix", refs={String.class}, tree="[0]")
-    private Output<String> identifierPrefix;
+    private Output</* @Nullable */ String> identifierPrefix;
 
     /**
      * @return Creates a unique
      * identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public Output<String> identifierPrefix() {
-        return this.identifierPrefix;
+    public Output<Optional<String>> identifierPrefix() {
+        return Codegen.optional(this.identifierPrefix);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

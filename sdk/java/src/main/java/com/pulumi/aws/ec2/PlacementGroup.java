@@ -67,14 +67,14 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the placement group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the placement group.
@@ -97,7 +97,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> partitionCount;
+    private Output</* @Nullable */ Integer> partitionCount;
 
     /**
      * @return The number of partitions to create in the
@@ -105,22 +105,22 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * `partition`.  Valid values are 1 - 7 (default is `2`).
      * 
      */
-    public Output<Integer> partitionCount() {
-        return this.partitionCount;
+    public Output<Optional<Integer>> partitionCount() {
+        return Codegen.optional(this.partitionCount);
     }
     /**
      * The ID of the placement group.
      * 
      */
     @Export(name="placementGroupId", refs={String.class}, tree="[0]")
-    private Output<String> placementGroupId;
+    private Output</* @Nullable */ String> placementGroupId;
 
     /**
      * @return The ID of the placement group.
      * 
      */
-    public Output<String> placementGroupId() {
-        return this.placementGroupId;
+    public Output<Optional<String>> placementGroupId() {
+        return Codegen.optional(this.placementGroupId);
     }
     /**
      * Determines how placement groups spread instances. Can only be used
@@ -128,15 +128,15 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="spreadLevel", refs={String.class}, tree="[0]")
-    private Output<String> spreadLevel;
+    private Output</* @Nullable */ String> spreadLevel;
 
     /**
      * @return Determines how placement groups spread instances. Can only be used
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
-    public Output<String> spreadLevel() {
-        return this.spreadLevel;
+    public Output<Optional<String>> spreadLevel() {
+        return Codegen.optional(this.spreadLevel);
     }
     /**
      * The placement strategy. Can be `cluster`, `partition` or `spread`.

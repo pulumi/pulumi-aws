@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecHttpRouteMatchQueryParameterMatchResult
     {
-        public readonly string Exact;
+        public readonly string? Exact;
 
         [OutputConstructor]
-        private GetRouteSpecHttpRouteMatchQueryParameterMatchResult(string exact)
+        private GetRouteSpecHttpRouteMatchQueryParameterMatchResult(string? exact)
         {
             Exact = exact;
         }

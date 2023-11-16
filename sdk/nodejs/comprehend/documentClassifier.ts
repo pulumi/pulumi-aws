@@ -71,7 +71,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
     /**
      * ARN of the Document Classifier version.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
      */
@@ -109,7 +109,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
      * Configuration for the output results of training.
      * See the `outputDataConfig` Configuration Block section below.
      */
-    public readonly outputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig>;
+    public readonly outputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -129,14 +129,14 @@ export class DocumentClassifier extends pulumi.CustomResource {
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionNamePrefix`.
      */
-    public readonly versionName!: pulumi.Output<string>;
+    public readonly versionName!: pulumi.Output<string | undefined>;
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionName`.
      */
-    public readonly versionNamePrefix!: pulumi.Output<string>;
+    public readonly versionNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * KMS Key used to encrypt storage volumes during job processing.
      * Can be a KMS Key ID or a KMS Key ARN.

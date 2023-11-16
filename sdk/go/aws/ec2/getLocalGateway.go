@@ -73,13 +73,13 @@ type GetLocalGatewayArgs struct {
 // A collection of values returned by getLocalGateway.
 type GetLocalGatewayResult struct {
 	Filters []GetLocalGatewayFilter `pulumi:"filters"`
-	Id      string                  `pulumi:"id"`
+	Id      *string                 `pulumi:"id"`
 	// ARN of Outpost
-	OutpostArn string `pulumi:"outpostArn"`
+	OutpostArn *string `pulumi:"outpostArn"`
 	// AWS account identifier that owns the Local Gateway.
-	OwnerId string `pulumi:"ownerId"`
+	OwnerId *string `pulumi:"ownerId"`
 	// State of the local gateway.
-	State string            `pulumi:"state"`
+	State *string           `pulumi:"state"`
 	Tags  map[string]string `pulumi:"tags"`
 }
 
@@ -136,23 +136,23 @@ func (o GetLocalGatewayResultOutput) Filters() GetLocalGatewayFilterArrayOutput 
 	return o.ApplyT(func(v GetLocalGatewayResult) []GetLocalGatewayFilter { return v.Filters }).(GetLocalGatewayFilterArrayOutput)
 }
 
-func (o GetLocalGatewayResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocalGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN of Outpost
-func (o GetLocalGatewayResultOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+func (o GetLocalGatewayResultOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayResult) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account identifier that owns the Local Gateway.
-func (o GetLocalGatewayResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o GetLocalGatewayResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // State of the local gateway.
-func (o GetLocalGatewayResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.State }).(pulumi.StringOutput)
+func (o GetLocalGatewayResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLocalGatewayResultOutput) Tags() pulumi.StringMapOutput {

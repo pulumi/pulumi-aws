@@ -426,7 +426,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
         """
@@ -442,7 +442,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbClusterSnapshotArn")
-    def db_cluster_snapshot_arn(self) -> pulumi.Output[str]:
+    def db_cluster_snapshot_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
         """
@@ -458,7 +458,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[str]:
+    def engine(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the name of the database engine.
         """
@@ -466,7 +466,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of the database engine for this DocumentDB cluster snapshot.
         """
@@ -474,7 +474,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         """
@@ -482,7 +482,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         Port that the DocumentDB cluster was listening on at the time of the snapshot.
         """
@@ -490,17 +490,17 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotType")
-    def snapshot_type(self) -> pulumi.Output[str]:
+    def snapshot_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "snapshot_type")
 
     @property
     @pulumi.getter(name="sourceDbClusterSnapshotArn")
-    def source_db_cluster_snapshot_arn(self) -> pulumi.Output[str]:
+    def source_db_cluster_snapshot_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "source_db_cluster_snapshot_arn")
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of this DocumentDB Cluster Snapshot.
         """
@@ -508,7 +508,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> pulumi.Output[bool]:
+    def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the DocumentDB cluster snapshot is encrypted.
         """
@@ -516,7 +516,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The VPC ID associated with the DocumentDB cluster snapshot.
         """

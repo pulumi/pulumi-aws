@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Lambda
         /// ARN of the Lambda Layer with version.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Lambda
         /// Date this resource was created.
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// Description of what your Lambda Layer does.
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Lambda
         /// ARN of the Lambda Layer without version.
         /// </summary>
         [Output("layerArn")]
-        public Output<string> LayerArn { get; private set; } = null!;
+        public Output<string?> LayerArn { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for your Lambda Layer
@@ -138,13 +138,13 @@ namespace Pulumi.Aws.Lambda
         /// ARN of a signing job.
         /// </summary>
         [Output("signingJobArn")]
-        public Output<string> SigningJobArn { get; private set; } = null!;
+        public Output<string?> SigningJobArn { get; private set; } = null!;
 
         /// <summary>
         /// ARN for a signing profile version.
         /// </summary>
         [Output("signingProfileVersionArn")]
-        public Output<string> SigningProfileVersionArn { get; private set; } = null!;
+        public Output<string?> SigningProfileVersionArn { get; private set; } = null!;
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
@@ -156,19 +156,19 @@ namespace Pulumi.Aws.Lambda
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         /// </summary>
         [Output("sourceCodeHash")]
-        public Output<string> SourceCodeHash { get; private set; } = null!;
+        public Output<string?> SourceCodeHash { get; private set; } = null!;
 
         /// <summary>
         /// Size in bytes of the function .zip file.
         /// </summary>
         [Output("sourceCodeSize")]
-        public Output<int> SourceCodeSize { get; private set; } = null!;
+        public Output<int?> SourceCodeSize { get; private set; } = null!;
 
         /// <summary>
         /// Lambda Layer version.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

@@ -102,7 +102,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the Logging Configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
      */
@@ -114,7 +114,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * State of the Logging Configuration.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

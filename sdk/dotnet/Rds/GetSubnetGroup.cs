@@ -104,20 +104,20 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// ARN for the DB subnet group.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Provides the description of the DB subnet group.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Provides the status of the DB subnet group.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Contains a list of subnet identifiers.
         /// </summary>
@@ -129,25 +129,25 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Provides the VPC ID of the DB subnet group.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetSubnetGroupResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
-            string status,
+            string? status,
 
             ImmutableArray<string> subnetIds,
 
             ImmutableArray<string> supportedNetworkTypes,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             Description = description;

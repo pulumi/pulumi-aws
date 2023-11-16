@@ -16,10 +16,10 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Whether node to node encryption is enabled.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
-        private GetDomainClusterConfigColdStorageOptionResult(bool enabled)
+        private GetDomainClusterConfigColdStorageOptionResult(bool? enabled)
         {
             Enabled = enabled;
         }

@@ -66,7 +66,7 @@ type LocationAzureBlob struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
@@ -76,14 +76,14 @@ type LocationAzureBlob struct {
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrOutput `pulumi:"sasConfiguration"`
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
-	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
+	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Uri     pulumi.StringOutput    `pulumi:"uri"`
+	Uri     pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewLocationAzureBlob registers a new resource with the given unique name, arguments, and options.
@@ -321,8 +321,8 @@ func (o LocationAzureBlobOutput) AgentArns() pulumi.StringArrayOutput {
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (o LocationAzureBlobOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LocationAzureBlobOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
@@ -346,8 +346,8 @@ func (o LocationAzureBlobOutput) SasConfiguration() LocationAzureBlobSasConfigur
 }
 
 // Path segments if you want to limit your transfer to a virtual directory in the container.
-func (o LocationAzureBlobOutput) Subdirectory() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
+func (o LocationAzureBlobOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -362,8 +362,8 @@ func (o LocationAzureBlobOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-func (o LocationAzureBlobOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+func (o LocationAzureBlobOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 type LocationAzureBlobArrayOutput struct{ *pulumi.OutputState }

@@ -86,13 +86,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
         [Output("transitGatewayDefaultRouteTableAssociation")]
-        public Output<bool> TransitGatewayDefaultRouteTableAssociation { get; private set; } = null!;
+        public Output<bool?> TransitGatewayDefaultRouteTableAssociation { get; private set; } = null!;
 
         /// <summary>
         /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
         [Output("transitGatewayDefaultRouteTablePropagation")]
-        public Output<bool> TransitGatewayDefaultRouteTablePropagation { get; private set; } = null!;
+        public Output<bool?> TransitGatewayDefaultRouteTablePropagation { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the AWS account that owns the EC2 VPC.
         /// </summary>
         [Output("vpcOwnerId")]
-        public Output<string> VpcOwnerId { get; private set; } = null!;
+        public Output<string?> VpcOwnerId { get; private set; } = null!;
 
 
         /// <summary>

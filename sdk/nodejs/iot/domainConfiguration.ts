@@ -62,7 +62,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     /**
      * The ARN of the domain configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * An object that specifies the authorization service for a domain. See below.
      */
@@ -74,7 +74,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     /**
      * The type of the domain.
      */
-    public /*out*/ readonly domainType!: pulumi.Output<string>;
+    public /*out*/ readonly domainType!: pulumi.Output<string | undefined>;
     /**
      * The name of the domain configuration. This value must be unique to a region.
      */
@@ -101,7 +101,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     /**
      * An object that specifies the TLS configuration for a domain. See below.
      */
-    public readonly tlsConfig!: pulumi.Output<outputs.iot.DomainConfigurationTlsConfig>;
+    public readonly tlsConfig!: pulumi.Output<outputs.iot.DomainConfigurationTlsConfig | undefined>;
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
      */

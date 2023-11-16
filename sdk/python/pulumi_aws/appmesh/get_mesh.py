@@ -53,7 +53,7 @@ class GetMeshResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the service mesh.
         """
@@ -61,7 +61,7 @@ class GetMeshResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Creation date of the service mesh.
         """
@@ -69,7 +69,7 @@ class GetMeshResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -77,7 +77,7 @@ class GetMeshResult:
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> Optional[str]:
         """
         Last update date of the service mesh.
         """
@@ -85,7 +85,7 @@ class GetMeshResult:
 
     @property
     @pulumi.getter(name="meshOwner")
-    def mesh_owner(self) -> str:
+    def mesh_owner(self) -> Optional[str]:
         return pulumi.get(self, "mesh_owner")
 
     @property
@@ -95,7 +95,7 @@ class GetMeshResult:
 
     @property
     @pulumi.getter(name="resourceOwner")
-    def resource_owner(self) -> str:
+    def resource_owner(self) -> Optional[str]:
         """
         Resource owner's AWS account ID.
         """
@@ -103,7 +103,7 @@ class GetMeshResult:
 
     @property
     @pulumi.getter
-    def specs(self) -> Sequence['outputs.GetMeshSpecResult']:
+    def specs(self) -> Optional[Sequence['outputs.GetMeshSpecResult']]:
         """
         Service mesh specification. See the `appmesh.Mesh` resource for details.
         """
@@ -111,7 +111,7 @@ class GetMeshResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags.
         """

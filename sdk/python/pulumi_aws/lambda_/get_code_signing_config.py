@@ -47,7 +47,7 @@ class GetCodeSigningConfigResult:
 
     @property
     @pulumi.getter(name="allowedPublishers")
-    def allowed_publishers(self) -> Sequence['outputs.GetCodeSigningConfigAllowedPublisherResult']:
+    def allowed_publishers(self) -> Optional[Sequence['outputs.GetCodeSigningConfigAllowedPublisherResult']]:
         """
         List of allowed publishers as signing profiles for this code signing configuration.
         """
@@ -60,7 +60,7 @@ class GetCodeSigningConfigResult:
 
     @property
     @pulumi.getter(name="configId")
-    def config_id(self) -> str:
+    def config_id(self) -> Optional[str]:
         """
         Unique identifier for the code signing configuration.
         """
@@ -68,7 +68,7 @@ class GetCodeSigningConfigResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Code signing configuration description.
         """
@@ -76,7 +76,7 @@ class GetCodeSigningConfigResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -84,7 +84,7 @@ class GetCodeSigningConfigResult:
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> Optional[str]:
         """
         Date and time that the code signing configuration was last modified.
         """
@@ -92,7 +92,7 @@ class GetCodeSigningConfigResult:
 
     @property
     @pulumi.getter
-    def policies(self) -> Sequence['outputs.GetCodeSigningConfigPolicyResult']:
+    def policies(self) -> Optional[Sequence['outputs.GetCodeSigningConfigPolicyResult']]:
         """
         List of code signing policies that control the validation failure action for signature mismatch or expiry.
         """

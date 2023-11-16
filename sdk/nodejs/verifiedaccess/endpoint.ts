@@ -110,7 +110,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Returned if endpoint has a device trust provider attached.
      */
-    public /*out*/ readonly deviceValidationDomain!: pulumi.Output<string>;
+    public /*out*/ readonly deviceValidationDomain!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
      */
@@ -118,7 +118,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * A DNS name that is generated for the endpoint.
      */
-    public /*out*/ readonly endpointDomain!: pulumi.Output<string>;
+    public /*out*/ readonly endpointDomain!: pulumi.Output<string | undefined>;
     /**
      * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
      */
@@ -142,7 +142,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The options in use for server side encryption.
      */
-    public readonly sseSpecification!: pulumi.Output<outputs.verifiedaccess.EndpointSseSpecification>;
+    public readonly sseSpecification!: pulumi.Output<outputs.verifiedaccess.EndpointSseSpecification | undefined>;
     /**
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -157,7 +157,7 @@ export class Endpoint extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly verifiedAccessGroupId!: pulumi.Output<string>;
-    public /*out*/ readonly verifiedAccessInstanceId!: pulumi.Output<string>;
+    public /*out*/ readonly verifiedAccessInstanceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.

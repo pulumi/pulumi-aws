@@ -117,7 +117,7 @@ namespace Pulumi.Aws.DynamoDB
         /// The ARN of the DynamoDB Global Table
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the global table. Must match underlying DynamoDB Table names in all regions.

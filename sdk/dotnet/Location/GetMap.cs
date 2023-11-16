@@ -132,46 +132,46 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Timestamp for when the map resource was created in ISO 8601 format.
         /// </summary>
-        public readonly string CreateTime;
+        public readonly string? CreateTime;
         /// <summary>
         /// Optional description for the map resource.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN for the map resource.
         /// </summary>
-        public readonly string MapArn;
+        public readonly string? MapArn;
         public readonly string MapName;
         /// <summary>
         /// Key-value map of resource tags for the map.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Timestamp for when the map resource was last updated in ISO 8601 format.
         /// </summary>
-        public readonly string UpdateTime;
+        public readonly string? UpdateTime;
 
         [OutputConstructor]
         private GetMapResult(
             ImmutableArray<Outputs.GetMapConfigurationResult> configurations,
 
-            string createTime,
+            string? createTime,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string mapArn,
+            string? mapArn,
 
             string mapName,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string updateTime)
+            string? updateTime)
         {
             Configurations = configurations;
             CreateTime = createTime;

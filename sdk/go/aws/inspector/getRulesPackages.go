@@ -75,7 +75,7 @@ type GetRulesPackagesResult struct {
 	// List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetRulesPackagesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetRulesPackagesResultOutput {
@@ -110,8 +110,8 @@ func (o GetRulesPackagesResultOutput) Arns() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetRulesPackagesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRulesPackagesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetRulesPackagesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRulesPackagesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

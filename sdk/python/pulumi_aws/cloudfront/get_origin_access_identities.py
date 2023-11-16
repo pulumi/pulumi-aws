@@ -45,7 +45,7 @@ class GetOriginAccessIdentitiesResult:
 
     @property
     @pulumi.getter(name="iamArns")
-    def iam_arns(self) -> Sequence[str]:
+    def iam_arns(self) -> Optional[Sequence[str]]:
         """
         Set of ARNs of the matched origin access identities.
         """
@@ -53,7 +53,7 @@ class GetOriginAccessIdentitiesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -61,7 +61,7 @@ class GetOriginAccessIdentitiesResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> Sequence[str]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         Set of ids of the matched origin access identities.
         """
@@ -69,7 +69,7 @@ class GetOriginAccessIdentitiesResult:
 
     @property
     @pulumi.getter(name="s3CanonicalUserIds")
-    def s3_canonical_user_ids(self) -> Sequence[str]:
+    def s3_canonical_user_ids(self) -> Optional[Sequence[str]]:
         """
         Set of S3 canonical user IDs of the matched origin access identities.
         """

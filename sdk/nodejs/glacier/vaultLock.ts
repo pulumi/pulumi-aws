@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleVault = new aws.glacier.Vault("exampleVault", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const examplePolicyDocument = exampleVault.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["glacier:DeleteArchive"],
  *         effect: "Deny",
- *         resources: [exampleVault.arn],
+ *         resources: [arn],
  *         conditions: [{
  *             test: "NumericLessThanEquals",
  *             variable: "glacier:ArchiveAgeinDays",
  *             values: ["365"],
  *         }],
  *     }],
- * });
+ * }));
  * const exampleVaultLock = new aws.glacier.VaultLock("exampleVaultLock", {
  *     completeLock: false,
  *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),

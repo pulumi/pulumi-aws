@@ -6,6 +6,8 @@ package com.pulumi.aws.lakeformation.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResourceResult {
@@ -14,17 +16,17 @@ public final class GetResourceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private String lastModified;
+    private @Nullable String lastModified;
     /**
      * @return Role that the resource was registered with.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
 
     private GetResourceResult() {}
     public String arn() {
@@ -34,22 +36,22 @@ public final class GetResourceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String lastModified() {
-        return this.lastModified;
+    public Optional<String> lastModified() {
+        return Optional.ofNullable(this.lastModified);
     }
     /**
      * @return Role that the resource was registered with.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
 
     public static Builder builder() {
@@ -62,9 +64,9 @@ public final class GetResourceResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String id;
-        private String lastModified;
-        private String roleArn;
+        private @Nullable String id;
+        private @Nullable String lastModified;
+        private @Nullable String roleArn;
         public Builder() {}
         public Builder(GetResourceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -80,18 +82,18 @@ public final class GetResourceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+        public Builder lastModified(@Nullable String lastModified) {
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         public GetResourceResult build() {

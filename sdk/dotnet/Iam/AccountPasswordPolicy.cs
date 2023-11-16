@@ -60,19 +60,19 @@ namespace Pulumi.Aws.Iam
         /// Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
         /// </summary>
         [Output("expirePasswords")]
-        public Output<bool> ExpirePasswords { get; private set; } = null!;
+        public Output<bool?> ExpirePasswords { get; private set; } = null!;
 
         /// <summary>
         /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         /// </summary>
         [Output("hardExpiry")]
-        public Output<bool> HardExpiry { get; private set; } = null!;
+        public Output<bool?> HardExpiry { get; private set; } = null!;
 
         /// <summary>
         /// The number of days that an user password is valid.
         /// </summary>
         [Output("maxPasswordAge")]
-        public Output<int> MaxPasswordAge { get; private set; } = null!;
+        public Output<int?> MaxPasswordAge { get; private set; } = null!;
 
         /// <summary>
         /// Minimum length to require for user passwords.
@@ -84,31 +84,31 @@ namespace Pulumi.Aws.Iam
         /// The number of previous passwords that users are prevented from reusing.
         /// </summary>
         [Output("passwordReusePrevention")]
-        public Output<int> PasswordReusePrevention { get; private set; } = null!;
+        public Output<int?> PasswordReusePrevention { get; private set; } = null!;
 
         /// <summary>
         /// Whether to require lowercase characters for user passwords.
         /// </summary>
         [Output("requireLowercaseCharacters")]
-        public Output<bool> RequireLowercaseCharacters { get; private set; } = null!;
+        public Output<bool?> RequireLowercaseCharacters { get; private set; } = null!;
 
         /// <summary>
         /// Whether to require numbers for user passwords.
         /// </summary>
         [Output("requireNumbers")]
-        public Output<bool> RequireNumbers { get; private set; } = null!;
+        public Output<bool?> RequireNumbers { get; private set; } = null!;
 
         /// <summary>
         /// Whether to require symbols for user passwords.
         /// </summary>
         [Output("requireSymbols")]
-        public Output<bool> RequireSymbols { get; private set; } = null!;
+        public Output<bool?> RequireSymbols { get; private set; } = null!;
 
         /// <summary>
         /// Whether to require uppercase characters for user passwords.
         /// </summary>
         [Output("requireUppercaseCharacters")]
-        public Output<bool> RequireUppercaseCharacters { get; private set; } = null!;
+        public Output<bool?> RequireUppercaseCharacters { get; private set; } = null!;
 
 
         /// <summary>

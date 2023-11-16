@@ -66,14 +66,14 @@ public class Sink extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Sink.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name for the sink.
@@ -98,14 +98,14 @@ public class Sink extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sinkId", refs={String.class}, tree="[0]")
-    private Output<String> sinkId;
+    private Output</* @Nullable */ String> sinkId;
 
     /**
      * @return ID string that AWS generated as part of the sink ARN.
      * 
      */
-    public Output<String> sinkId() {
-        return this.sinkId;
+    public Output<Optional<String>> sinkId() {
+        return Codegen.optional(this.sinkId);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

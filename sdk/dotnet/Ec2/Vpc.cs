@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ec2
         /// Amazon Resource Name (ARN) of VPC
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
@@ -133,34 +133,34 @@ namespace Pulumi.Aws.Ec2
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         /// </summary>
         [Output("cidrBlock")]
-        public Output<string> CidrBlock { get; private set; } = null!;
+        public Output<string?> CidrBlock { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the network ACL created by default on VPC creation
         /// </summary>
         [Output("defaultNetworkAclId")]
-        public Output<string> DefaultNetworkAclId { get; private set; } = null!;
+        public Output<string?> DefaultNetworkAclId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the route table created by default on VPC creation
         /// </summary>
         [Output("defaultRouteTableId")]
-        public Output<string> DefaultRouteTableId { get; private set; } = null!;
+        public Output<string?> DefaultRouteTableId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the security group created by default on VPC creation
         /// </summary>
         [Output("defaultSecurityGroupId")]
-        public Output<string> DefaultSecurityGroupId { get; private set; } = null!;
+        public Output<string?> DefaultSecurityGroupId { get; private set; } = null!;
 
         [Output("dhcpOptionsId")]
-        public Output<string> DhcpOptionsId { get; private set; } = null!;
+        public Output<string?> DhcpOptionsId { get; private set; } = null!;
 
         /// <summary>
         /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         /// </summary>
         [Output("enableDnsHostnames")]
-        public Output<bool> EnableDnsHostnames { get; private set; } = null!;
+        public Output<bool?> EnableDnsHostnames { get; private set; } = null!;
 
         /// <summary>
         /// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Ec2
         /// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
         /// </summary>
         [Output("enableNetworkAddressUsageMetrics")]
-        public Output<bool> EnableNetworkAddressUsageMetrics { get; private set; } = null!;
+        public Output<bool?> EnableNetworkAddressUsageMetrics { get; private set; } = null!;
 
         /// <summary>
         /// A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
@@ -196,19 +196,19 @@ namespace Pulumi.Aws.Ec2
         /// The association ID for the IPv6 CIDR block.
         /// </summary>
         [Output("ipv6AssociationId")]
-        public Output<string> Ipv6AssociationId { get; private set; } = null!;
+        public Output<string?> Ipv6AssociationId { get; private set; } = null!;
 
         /// <summary>
         /// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         /// </summary>
         [Output("ipv6CidrBlock")]
-        public Output<string> Ipv6CidrBlock { get; private set; } = null!;
+        public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
         /// <summary>
         /// By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         /// </summary>
         [Output("ipv6CidrBlockNetworkBorderGroup")]
-        public Output<string> Ipv6CidrBlockNetworkBorderGroup { get; private set; } = null!;
+        public Output<string?> Ipv6CidrBlockNetworkBorderGroup { get; private set; } = null!;
 
         /// <summary>
         /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
@@ -228,13 +228,13 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.MainRouteTableAssociation`.
         /// </summary>
         [Output("mainRouteTableId")]
-        public Output<string> MainRouteTableId { get; private set; } = null!;
+        public Output<string?> MainRouteTableId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the AWS account that owns the VPC.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

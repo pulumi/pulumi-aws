@@ -54,48 +54,48 @@ export interface GetRestApiResult {
     /**
      * Source of the API key for requests.
      */
-    readonly apiKeySource: string;
+    readonly apiKeySource?: string;
     /**
      * ARN of the REST API.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * List of binary media types supported by the REST API.
      */
-    readonly binaryMediaTypes: string[];
+    readonly binaryMediaTypes?: string[];
     /**
      * Description of the REST API.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The endpoint configuration of this RestApi showing the endpoint types of the API.
      */
-    readonly endpointConfigurations: outputs.apigateway.GetRestApiEndpointConfiguration[];
+    readonly endpointConfigurations?: outputs.apigateway.GetRestApiEndpointConfiguration[];
     /**
      * Execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      */
-    readonly executionArn: string;
+    readonly executionArn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Minimum response size to compress for the REST API.
      */
-    readonly minimumCompressionSize: string;
+    readonly minimumCompressionSize?: string;
     readonly name: string;
     /**
      * JSON formatted policy document that controls access to the API Gateway.
      */
-    readonly policy: string;
+    readonly policy?: string;
     /**
      * Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
      */
-    readonly rootResourceId: string;
+    readonly rootResourceId?: string;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get the id and rootResourceId of a REST API in

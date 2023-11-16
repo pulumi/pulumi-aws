@@ -129,7 +129,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Glue Job
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The command of the job. Defined below.
      */
@@ -153,15 +153,15 @@ export class Job extends pulumi.CustomResource {
     /**
      * Execution property of the job. Defined below.
      */
-    public readonly executionProperty!: pulumi.Output<outputs.glue.JobExecutionProperty>;
+    public readonly executionProperty!: pulumi.Output<outputs.glue.JobExecutionProperty | undefined>;
     /**
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
-    public readonly glueVersion!: pulumi.Output<string>;
+    public readonly glueVersion!: pulumi.Output<string | undefined>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
-    public readonly maxCapacity!: pulumi.Output<number>;
+    public readonly maxCapacity!: pulumi.Output<number | undefined>;
     /**
      * The maximum number of times to retry this job if it fails.
      */
@@ -177,7 +177,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Notification property of the job. Defined below.
      */
-    public readonly notificationProperty!: pulumi.Output<outputs.glue.JobNotificationProperty>;
+    public readonly notificationProperty!: pulumi.Output<outputs.glue.JobNotificationProperty | undefined>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
@@ -203,7 +203,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
      */
-    public readonly timeout!: pulumi.Output<number>;
+    public readonly timeout!: pulumi.Output<number | undefined>;
     /**
      * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
      * * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.

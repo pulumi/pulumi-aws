@@ -373,7 +373,7 @@ class VoiceConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
         """
@@ -397,7 +397,7 @@ class VoiceConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outboundHostName")
-    def outbound_host_name(self) -> pulumi.Output[str]:
+    def outbound_host_name(self) -> pulumi.Output[Optional[str]]:
         """
         The outbound host name for the Amazon Chime Voice Connector.
         """

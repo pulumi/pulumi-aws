@@ -71,7 +71,7 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
@@ -81,7 +81,7 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
      * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
      * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
-    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string | undefined>;
     /**
      * The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
      */
@@ -93,7 +93,7 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
     /**
      * IP address set associated with the accelerator.
      */
-    public /*out*/ readonly ipSets!: pulumi.Output<outputs.globalaccelerator.CustomRoutingAcceleratorIpSet[]>;
+    public /*out*/ readonly ipSets!: pulumi.Output<outputs.globalaccelerator.CustomRoutingAcceleratorIpSet[] | undefined>;
     /**
      * The name of a custom routing accelerator.
      */

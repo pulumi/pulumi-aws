@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCustomRoutingAcceleratorAttribute {
-    private Boolean flowLogsEnabled;
-    private String flowLogsS3Bucket;
-    private String flowLogsS3Prefix;
+    private @Nullable Boolean flowLogsEnabled;
+    private @Nullable String flowLogsS3Bucket;
+    private @Nullable String flowLogsS3Prefix;
 
     private GetCustomRoutingAcceleratorAttribute() {}
-    public Boolean flowLogsEnabled() {
-        return this.flowLogsEnabled;
+    public Optional<Boolean> flowLogsEnabled() {
+        return Optional.ofNullable(this.flowLogsEnabled);
     }
-    public String flowLogsS3Bucket() {
-        return this.flowLogsS3Bucket;
+    public Optional<String> flowLogsS3Bucket() {
+        return Optional.ofNullable(this.flowLogsS3Bucket);
     }
-    public String flowLogsS3Prefix() {
-        return this.flowLogsS3Prefix;
+    public Optional<String> flowLogsS3Prefix() {
+        return Optional.ofNullable(this.flowLogsS3Prefix);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetCustomRoutingAcceleratorAttribute {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean flowLogsEnabled;
-        private String flowLogsS3Bucket;
-        private String flowLogsS3Prefix;
+        private @Nullable Boolean flowLogsEnabled;
+        private @Nullable String flowLogsS3Bucket;
+        private @Nullable String flowLogsS3Prefix;
         public Builder() {}
         public Builder(GetCustomRoutingAcceleratorAttribute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetCustomRoutingAcceleratorAttribute {
         }
 
         @CustomType.Setter
-        public Builder flowLogsEnabled(Boolean flowLogsEnabled) {
-            this.flowLogsEnabled = Objects.requireNonNull(flowLogsEnabled);
+        public Builder flowLogsEnabled(@Nullable Boolean flowLogsEnabled) {
+            this.flowLogsEnabled = flowLogsEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder flowLogsS3Bucket(String flowLogsS3Bucket) {
-            this.flowLogsS3Bucket = Objects.requireNonNull(flowLogsS3Bucket);
+        public Builder flowLogsS3Bucket(@Nullable String flowLogsS3Bucket) {
+            this.flowLogsS3Bucket = flowLogsS3Bucket;
             return this;
         }
         @CustomType.Setter
-        public Builder flowLogsS3Prefix(String flowLogsS3Prefix) {
-            this.flowLogsS3Prefix = Objects.requireNonNull(flowLogsS3Prefix);
+        public Builder flowLogsS3Prefix(@Nullable String flowLogsS3Prefix) {
+            this.flowLogsS3Prefix = flowLogsS3Prefix;
             return this;
         }
         public GetCustomRoutingAcceleratorAttribute build() {

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultActionForwardTargetGroup {
@@ -14,19 +16,19 @@ public final class GetListenerDefaultActionForwardTargetGroup {
      * @return ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
      * 
      */
-    private String arn;
-    private Integer weight;
+    private @Nullable String arn;
+    private @Nullable Integer weight;
 
     private GetListenerDefaultActionForwardTargetGroup() {}
     /**
      * @return ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public Integer weight() {
-        return this.weight;
+    public Optional<Integer> weight() {
+        return Optional.ofNullable(this.weight);
     }
 
     public static Builder builder() {
@@ -38,8 +40,8 @@ public final class GetListenerDefaultActionForwardTargetGroup {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Integer weight;
+        private @Nullable String arn;
+        private @Nullable Integer weight;
         public Builder() {}
         public Builder(GetListenerDefaultActionForwardTargetGroup defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,13 +50,13 @@ public final class GetListenerDefaultActionForwardTargetGroup {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder weight(Integer weight) {
-            this.weight = Objects.requireNonNull(weight);
+        public Builder weight(@Nullable Integer weight) {
+            this.weight = weight;
             return this;
         }
         public GetListenerDefaultActionForwardTargetGroup build() {

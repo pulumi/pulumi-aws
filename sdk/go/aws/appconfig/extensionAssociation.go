@@ -111,11 +111,11 @@ type ExtensionAssociation struct {
 	pulumi.CustomResourceState
 
 	// ARN of the AppConfig Extension Association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN of the extension defined in the association.
 	ExtensionArn pulumi.StringOutput `pulumi:"extensionArn"`
 	// The version number for the extension defined in the association.
-	ExtensionVersion pulumi.IntOutput `pulumi:"extensionVersion"`
+	ExtensionVersion pulumi.IntPtrOutput `pulumi:"extensionVersion"`
 	// The parameter names and values defined for the association.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The ARN of the application, configuration profile, or environment to associate with the extension.
@@ -294,8 +294,8 @@ func (o ExtensionAssociationOutput) ToExtensionAssociationOutputWithContext(ctx 
 }
 
 // ARN of the AppConfig Extension Association.
-func (o ExtensionAssociationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ExtensionAssociationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the extension defined in the association.
@@ -304,8 +304,8 @@ func (o ExtensionAssociationOutput) ExtensionArn() pulumi.StringOutput {
 }
 
 // The version number for the extension defined in the association.
-func (o ExtensionAssociationOutput) ExtensionVersion() pulumi.IntOutput {
-	return o.ApplyT(func(v *ExtensionAssociation) pulumi.IntOutput { return v.ExtensionVersion }).(pulumi.IntOutput)
+func (o ExtensionAssociationOutput) ExtensionVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExtensionAssociation) pulumi.IntPtrOutput { return v.ExtensionVersion }).(pulumi.IntPtrOutput)
 }
 
 // The parameter names and values defined for the association.

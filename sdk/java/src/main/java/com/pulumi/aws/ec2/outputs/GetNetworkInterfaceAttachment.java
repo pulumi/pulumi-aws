@@ -7,26 +7,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInterfaceAttachment {
-    private String attachmentId;
-    private Integer deviceIndex;
-    private String instanceId;
-    private String instanceOwnerId;
+    private @Nullable String attachmentId;
+    private @Nullable Integer deviceIndex;
+    private @Nullable String instanceId;
+    private @Nullable String instanceOwnerId;
 
     private GetNetworkInterfaceAttachment() {}
-    public String attachmentId() {
-        return this.attachmentId;
+    public Optional<String> attachmentId() {
+        return Optional.ofNullable(this.attachmentId);
     }
-    public Integer deviceIndex() {
-        return this.deviceIndex;
+    public Optional<Integer> deviceIndex() {
+        return Optional.ofNullable(this.deviceIndex);
     }
-    public String instanceId() {
-        return this.instanceId;
+    public Optional<String> instanceId() {
+        return Optional.ofNullable(this.instanceId);
     }
-    public String instanceOwnerId() {
-        return this.instanceOwnerId;
+    public Optional<String> instanceOwnerId() {
+        return Optional.ofNullable(this.instanceOwnerId);
     }
 
     public static Builder builder() {
@@ -38,10 +40,10 @@ public final class GetNetworkInterfaceAttachment {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String attachmentId;
-        private Integer deviceIndex;
-        private String instanceId;
-        private String instanceOwnerId;
+        private @Nullable String attachmentId;
+        private @Nullable Integer deviceIndex;
+        private @Nullable String instanceId;
+        private @Nullable String instanceOwnerId;
         public Builder() {}
         public Builder(GetNetworkInterfaceAttachment defaults) {
     	      Objects.requireNonNull(defaults);
@@ -52,23 +54,23 @@ public final class GetNetworkInterfaceAttachment {
         }
 
         @CustomType.Setter
-        public Builder attachmentId(String attachmentId) {
-            this.attachmentId = Objects.requireNonNull(attachmentId);
+        public Builder attachmentId(@Nullable String attachmentId) {
+            this.attachmentId = attachmentId;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceIndex(Integer deviceIndex) {
-            this.deviceIndex = Objects.requireNonNull(deviceIndex);
+        public Builder deviceIndex(@Nullable Integer deviceIndex) {
+            this.deviceIndex = deviceIndex;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+        public Builder instanceId(@Nullable String instanceId) {
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceOwnerId(String instanceOwnerId) {
-            this.instanceOwnerId = Objects.requireNonNull(instanceOwnerId);
+        public Builder instanceOwnerId(@Nullable String instanceOwnerId) {
+            this.instanceOwnerId = instanceOwnerId;
             return this;
         }
         public GetNetworkInterfaceAttachment build() {

@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -112,14 +113,14 @@ public class VpcEndpointConnectionAccepter extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="vpcEndpointState", refs={String.class}, tree="[0]")
-    private Output<String> vpcEndpointState;
+    private Output</* @Nullable */ String> vpcEndpointState;
 
     /**
      * @return State of the VPC Endpoint.
      * 
      */
-    public Output<String> vpcEndpointState() {
-        return this.vpcEndpointState;
+    public Output<Optional<String>> vpcEndpointState() {
+        return Codegen.optional(this.vpcEndpointState);
     }
 
     /**

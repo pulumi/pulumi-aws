@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Organizations
         /// ARN of the root
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
@@ -84,19 +84,19 @@ namespace Pulumi.Aws.Organizations
         /// ARN of the master account
         /// </summary>
         [Output("masterAccountArn")]
-        public Output<string> MasterAccountArn { get; private set; } = null!;
+        public Output<string?> MasterAccountArn { get; private set; } = null!;
 
         /// <summary>
         /// Email address of the master account
         /// </summary>
         [Output("masterAccountEmail")]
-        public Output<string> MasterAccountEmail { get; private set; } = null!;
+        public Output<string?> MasterAccountEmail { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the master account
         /// </summary>
         [Output("masterAccountId")]
-        public Output<string> MasterAccountId { get; private set; } = null!;
+        public Output<string?> MasterAccountId { get; private set; } = null!;
 
         /// <summary>
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:

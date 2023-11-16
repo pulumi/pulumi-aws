@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -108,14 +109,14 @@ public class AccessPointPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hasPublicAccessPolicy", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> hasPublicAccessPolicy;
+    private Output</* @Nullable */ Boolean> hasPublicAccessPolicy;
 
     /**
      * @return Indicates whether this access point currently has a policy that allows public access.
      * 
      */
-    public Output<Boolean> hasPublicAccessPolicy() {
-        return this.hasPublicAccessPolicy;
+    public Output<Optional<Boolean>> hasPublicAccessPolicy() {
+        return Codegen.optional(this.hasPublicAccessPolicy);
     }
     /**
      * The policy that you want to apply to the specified access point.

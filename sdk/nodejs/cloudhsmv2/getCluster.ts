@@ -57,25 +57,25 @@ export interface GetClusterResult {
      * * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
      * The number of available cluster certificates may vary depending on state of the cluster.
      */
-    readonly clusterCertificates: outputs.cloudhsmv2.GetClusterClusterCertificate[];
+    readonly clusterCertificates?: outputs.cloudhsmv2.GetClusterClusterCertificate[];
     readonly clusterId: string;
-    readonly clusterState: string;
+    readonly clusterState?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ID of the security group associated with the CloudHSM cluster.
      */
-    readonly securityGroupId: string;
+    readonly securityGroupId?: string;
     /**
      * IDs of subnets in which cluster operates.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * ID of the VPC that the CloudHSM cluster resides in.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Use this data source to get information about a CloudHSM v2 cluster

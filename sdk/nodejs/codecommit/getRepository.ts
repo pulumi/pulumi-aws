@@ -43,23 +43,23 @@ export interface GetRepositoryResult {
     /**
      * ARN of the repository
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * URL to use for cloning the repository over HTTPS.
      */
-    readonly cloneUrlHttp: string;
+    readonly cloneUrlHttp?: string;
     /**
      * URL to use for cloning the repository over SSH.
      */
-    readonly cloneUrlSsh: string;
+    readonly cloneUrlSsh?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ID of the repository
      */
-    readonly repositoryId: string;
+    readonly repositoryId?: string;
     readonly repositoryName: string;
 }
 /**

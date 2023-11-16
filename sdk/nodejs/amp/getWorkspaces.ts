@@ -57,19 +57,19 @@ export interface GetWorkspacesResult {
     /**
      * List of aliases of the matched Prometheus workspaces.
      */
-    readonly aliases: string[];
+    readonly aliases?: string[];
     /**
      * List of ARNs of the matched Prometheus workspaces.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of workspace IDs of the matched Prometheus workspaces.
      */
-    readonly workspaceIds: string[];
+    readonly workspaceIds?: string[];
 }
 /**
  * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.

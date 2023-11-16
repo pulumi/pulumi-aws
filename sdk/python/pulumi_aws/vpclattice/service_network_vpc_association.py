@@ -392,7 +392,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Association.
         """
@@ -400,7 +400,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[str]:
+    def created_by(self) -> pulumi.Output[Optional[str]]:
         """
         The account that created the association.
         """
@@ -425,7 +425,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         """

@@ -400,7 +400,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> pulumi.Output[str]:
+    def notification_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of notification.
         """
@@ -408,7 +408,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the notification.
         """

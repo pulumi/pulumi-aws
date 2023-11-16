@@ -77,19 +77,19 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
      */
-    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean>;
+    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    public readonly applyImmediately!: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * The Neptune Cluster Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      */
-    public readonly availabilityZones!: pulumi.Output<string[]>;
+    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
      * The days to retain backups for. Default `1`
      */
@@ -97,19 +97,19 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
-    public readonly clusterIdentifierPrefix!: pulumi.Output<string>;
+    public readonly clusterIdentifierPrefix!: pulumi.Output<string | undefined>;
     /**
      * List of Neptune Instances that are a part of this cluster
      */
-    public /*out*/ readonly clusterMembers!: pulumi.Output<string[]>;
+    public /*out*/ readonly clusterMembers!: pulumi.Output<string[] | undefined>;
     /**
      * The Neptune Cluster Resource ID
      */
-    public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
+    public /*out*/ readonly clusterResourceId!: pulumi.Output<string | undefined>;
     /**
      * If set to true, tags are copied to any snapshot of the DB cluster that is created.
      */
@@ -125,7 +125,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The DNS address of the Neptune instance
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      */
@@ -133,7 +133,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The database engine version.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      */
@@ -145,7 +145,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
-    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
@@ -157,7 +157,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * A cluster parameter group to associate with the cluster.
      */
@@ -169,7 +169,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A Neptune subnet group to associate with this Neptune instance.
      */
-    public readonly neptuneSubnetGroupName!: pulumi.Output<string>;
+    public readonly neptuneSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * The port on which the Neptune accepts connections. Default is `8182`.
      */
@@ -177,15 +177,15 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
-    public readonly preferredBackupWindow!: pulumi.Output<string>;
+    public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      */
-    public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly readerEndpoint!: pulumi.Output<string | undefined>;
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */
@@ -219,7 +219,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of VPC security groups to associate with the Cluster
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.

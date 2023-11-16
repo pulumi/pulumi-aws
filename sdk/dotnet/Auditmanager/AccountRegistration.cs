@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Status of the account registration request.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

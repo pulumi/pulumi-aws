@@ -364,7 +364,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the delegated administrator's account.
         """
@@ -372,7 +372,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="delegationEnabledDate")
-    def delegation_enabled_date(self) -> pulumi.Output[str]:
+    def delegation_enabled_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the account was made a delegated administrator.
         """
@@ -380,7 +380,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> pulumi.Output[str]:
+    def email(self) -> pulumi.Output[Optional[str]]:
         """
         The email address that is associated with the delegated administrator's AWS account.
         """
@@ -388,7 +388,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="joinedMethod")
-    def joined_method(self) -> pulumi.Output[str]:
+    def joined_method(self) -> pulumi.Output[Optional[str]]:
         """
         The method by which the delegated administrator's account joined the organization.
         """
@@ -396,7 +396,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="joinedTimestamp")
-    def joined_timestamp(self) -> pulumi.Output[str]:
+    def joined_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the delegated administrator's account became a part of the organization.
         """
@@ -404,7 +404,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The friendly name of the delegated administrator's account.
         """
@@ -420,7 +420,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the delegated administrator's account in the organization.
         """

@@ -49,24 +49,24 @@ export interface GetSinkResult {
     /**
      * ARN of the sink.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the sink.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Random ID string that AWS generated as part of the sink ARN.
      */
-    readonly sinkId: string;
+    readonly sinkId?: string;
     readonly sinkIdentifier: string;
     /**
      * Tags assigned to the sink.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS CloudWatch Observability Access Manager Sink.

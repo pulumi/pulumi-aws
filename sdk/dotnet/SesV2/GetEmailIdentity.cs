@@ -130,8 +130,8 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// ARN of the Email Identity.
         /// </summary>
-        public readonly string Arn;
-        public readonly string ConfigurationSetName;
+        public readonly string? Arn;
+        public readonly string? ConfigurationSetName;
         /// <summary>
         /// A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
         /// </summary>
@@ -140,37 +140,37 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         /// </summary>
-        public readonly string IdentityType;
+        public readonly string? IdentityType;
         /// <summary>
         /// Key-value mapping of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Specifies whether or not the identity is verified.
         /// </summary>
-        public readonly bool VerifiedForSendingStatus;
+        public readonly bool? VerifiedForSendingStatus;
 
         [OutputConstructor]
         private GetEmailIdentityResult(
-            string arn,
+            string? arn,
 
-            string configurationSetName,
+            string? configurationSetName,
 
             ImmutableArray<Outputs.GetEmailIdentityDkimSigningAttributeResult> dkimSigningAttributes,
 
             string emailIdentity,
 
-            string id,
+            string? id,
 
-            string identityType,
+            string? identityType,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            bool verifiedForSendingStatus)
+            bool? verifiedForSendingStatus)
         {
             Arn = arn;
             ConfigurationSetName = configurationSetName;

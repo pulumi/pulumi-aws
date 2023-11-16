@@ -419,7 +419,7 @@ class Framework(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the framework.
         * `control_sets[*].id` - Unique identifier for the framework control set.
@@ -454,7 +454,7 @@ class Framework(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frameworkType")
-    def framework_type(self) -> pulumi.Output[str]:
+    def framework_type(self) -> pulumi.Output[Optional[str]]:
         """
         Framework type, such as a custom framework or a standard framework.
         """

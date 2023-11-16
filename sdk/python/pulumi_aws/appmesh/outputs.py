@@ -8710,328 +8710,363 @@ class VirtualServiceSpecProviderVirtualRouter(dict):
 @pulumi.output_type
 class GetGatewayRouteSpecResult(dict):
     def __init__(__self__, *,
-                 grpc_routes: Sequence['outputs.GetGatewayRouteSpecGrpcRouteResult'],
-                 http2_routes: Sequence['outputs.GetGatewayRouteSpecHttp2RouteResult'],
-                 http_routes: Sequence['outputs.GetGatewayRouteSpecHttpRouteResult'],
-                 priority: int):
-        pulumi.set(__self__, "grpc_routes", grpc_routes)
-        pulumi.set(__self__, "http2_routes", http2_routes)
-        pulumi.set(__self__, "http_routes", http_routes)
-        pulumi.set(__self__, "priority", priority)
+                 grpc_routes: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteResult']] = None,
+                 http2_routes: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteResult']] = None,
+                 http_routes: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteResult']] = None,
+                 priority: Optional[int] = None):
+        if grpc_routes is not None:
+            pulumi.set(__self__, "grpc_routes", grpc_routes)
+        if http2_routes is not None:
+            pulumi.set(__self__, "http2_routes", http2_routes)
+        if http_routes is not None:
+            pulumi.set(__self__, "http_routes", http_routes)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter(name="grpcRoutes")
-    def grpc_routes(self) -> Sequence['outputs.GetGatewayRouteSpecGrpcRouteResult']:
+    def grpc_routes(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteResult']]:
         return pulumi.get(self, "grpc_routes")
 
     @property
     @pulumi.getter(name="http2Routes")
-    def http2_routes(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteResult']:
+    def http2_routes(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteResult']]:
         return pulumi.get(self, "http2_routes")
 
     @property
     @pulumi.getter(name="httpRoutes")
-    def http_routes(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteResult']:
+    def http_routes(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteResult']]:
         return pulumi.get(self, "http_routes")
 
     @property
     @pulumi.getter
-    def priority(self) -> int:
+    def priority(self) -> Optional[int]:
         return pulumi.get(self, "priority")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecGrpcRouteResult(dict):
     def __init__(__self__, *,
-                 actions: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionResult'],
-                 matches: Sequence['outputs.GetGatewayRouteSpecGrpcRouteMatchResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
+                 actions: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionResult']] = None,
+                 matches: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteMatchResult']] = None):
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionResult']:
+    def actions(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionResult']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetGatewayRouteSpecGrpcRouteMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteMatchResult']]:
         return pulumi.get(self, "matches")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecGrpcRouteActionResult(dict):
     def __init__(__self__, *,
-                 targets: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult']):
-        pulumi.set(__self__, "targets", targets)
+                 targets: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult']] = None):
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
-    def targets(self) -> Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult']:
+    def targets(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult']]:
         return pulumi.get(self, "targets")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecGrpcRouteActionTargetResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 virtual_services: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult']):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_services", virtual_services)
+                 port: Optional[int] = None,
+                 virtual_services: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult']] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if virtual_services is not None:
+            pulumi.set(__self__, "virtual_services", virtual_services)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="virtualServices")
-    def virtual_services(self) -> Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult']:
+    def virtual_services(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult']]:
         return pulumi.get(self, "virtual_services")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
-                 virtual_service_name: str):
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+                 virtual_service_name: Optional[str] = None):
+        if virtual_service_name is not None:
+            pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
-    def virtual_service_name(self) -> str:
+    def virtual_service_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_service_name")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecGrpcRouteMatchResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 service_name: str):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "service_name", service_name)
+                 port: Optional[int] = None,
+                 service_name: Optional[str] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> Optional[str]:
         return pulumi.get(self, "service_name")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteResult(dict):
     def __init__(__self__, *,
-                 actions: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionResult'],
-                 matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
+                 actions: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionResult']] = None,
+                 matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchResult']] = None):
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionResult']:
+    def actions(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionResult']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchResult']]:
         return pulumi.get(self, "matches")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteActionResult(dict):
     def __init__(__self__, *,
-                 rewrites: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteResult'],
-                 targets: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetResult']):
-        pulumi.set(__self__, "rewrites", rewrites)
-        pulumi.set(__self__, "targets", targets)
+                 rewrites: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteResult']] = None,
+                 targets: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetResult']] = None):
+        if rewrites is not None:
+            pulumi.set(__self__, "rewrites", rewrites)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
-    def rewrites(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteResult']:
+    def rewrites(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteResult']]:
         return pulumi.get(self, "rewrites")
 
     @property
     @pulumi.getter
-    def targets(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetResult']:
+    def targets(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetResult']]:
         return pulumi.get(self, "targets")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteActionRewriteResult(dict):
     def __init__(__self__, *,
-                 hostnames: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult'],
-                 paths: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult'],
-                 prefixes: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult']):
-        pulumi.set(__self__, "hostnames", hostnames)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "prefixes", prefixes)
+                 hostnames: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult']] = None,
+                 paths: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult']] = None,
+                 prefixes: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult']] = None):
+        if hostnames is not None:
+            pulumi.set(__self__, "hostnames", hostnames)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if prefixes is not None:
+            pulumi.set(__self__, "prefixes", prefixes)
 
     @property
     @pulumi.getter
-    def hostnames(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult']:
+    def hostnames(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult']]:
         return pulumi.get(self, "hostnames")
 
     @property
     @pulumi.getter
-    def paths(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult']:
+    def paths(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult']]:
         return pulumi.get(self, "paths")
 
     @property
     @pulumi.getter
-    def prefixes(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult']:
+    def prefixes(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult']]:
         return pulumi.get(self, "prefixes")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult(dict):
     def __init__(__self__, *,
-                 default_target_hostname: str):
-        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
+                 default_target_hostname: Optional[str] = None):
+        if default_target_hostname is not None:
+            pulumi.set(__self__, "default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
-    def default_target_hostname(self) -> str:
+    def default_target_hostname(self) -> Optional[str]:
         return pulumi.get(self, "default_target_hostname")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteActionRewritePathResult(dict):
     def __init__(__self__, *,
-                 exact: str):
-        pulumi.set(__self__, "exact", exact)
+                 exact: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult(dict):
     def __init__(__self__, *,
-                 default_prefix: str,
-                 value: str):
-        pulumi.set(__self__, "default_prefix", default_prefix)
-        pulumi.set(__self__, "value", value)
+                 default_prefix: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default_prefix is not None:
+            pulumi.set(__self__, "default_prefix", default_prefix)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
-    def default_prefix(self) -> str:
+    def default_prefix(self) -> Optional[str]:
         return pulumi.get(self, "default_prefix")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteActionTargetResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 virtual_services: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult']):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_services", virtual_services)
+                 port: Optional[int] = None,
+                 virtual_services: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult']] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if virtual_services is not None:
+            pulumi.set(__self__, "virtual_services", virtual_services)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="virtualServices")
-    def virtual_services(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult']:
+    def virtual_services(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult']]:
         return pulumi.get(self, "virtual_services")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
-                 virtual_service_name: str):
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+                 virtual_service_name: Optional[str] = None):
+        if virtual_service_name is not None:
+            pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
-    def virtual_service_name(self) -> str:
+    def virtual_service_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_service_name")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteMatchResult(dict):
     def __init__(__self__, *,
-                 headers: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderResult'],
-                 hostnames: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHostnameResult'],
-                 paths: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchPathResult'],
-                 port: int,
-                 prefix: str,
-                 query_parameters: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult']):
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "hostnames", hostnames)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "query_parameters", query_parameters)
+                 headers: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderResult']] = None,
+                 hostnames: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHostnameResult']] = None,
+                 paths: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchPathResult']] = None,
+                 port: Optional[int] = None,
+                 prefix: Optional[str] = None,
+                 query_parameters: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult']] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if hostnames is not None:
+            pulumi.set(__self__, "hostnames", hostnames)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
 
     @property
     @pulumi.getter
-    def headers(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderResult']:
+    def headers(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderResult']]:
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter
-    def hostnames(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHostnameResult']:
+    def hostnames(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHostnameResult']]:
         return pulumi.get(self, "hostnames")
 
     @property
     @pulumi.getter
-    def paths(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchPathResult']:
+    def paths(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchPathResult']]:
         return pulumi.get(self, "paths")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult']:
+    def query_parameters(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult']]:
         return pulumi.get(self, "query_parameters")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteMatchHeaderResult(dict):
     def __init__(__self__, *,
-                 invert: bool,
-                 matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult'],
-                 name: str):
+                 invert: Optional[bool] = None,
+                 matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult']] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the gateway route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        if invert is not None:
+            pulumi.set(__self__, "invert", invert)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def invert(self) -> bool:
+    def invert(self) -> Optional[bool]:
         return pulumi.get(self, "invert")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the gateway route.
         """
@@ -9041,119 +9076,132 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderResult(dict):
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 prefix: str,
-                 ranges: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult'],
-                 regex: str,
-                 suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 ranges: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult']] = None,
+                 regex: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if ranges is not None:
+            pulumi.set(__self__, "ranges", ranges)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
-    def ranges(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult']:
+    def ranges(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult']]:
         return pulumi.get(self, "ranges")
 
     @property
     @pulumi.getter
-    def regex(self) -> str:
+    def regex(self) -> Optional[str]:
         return pulumi.get(self, "regex")
 
     @property
     @pulumi.getter
-    def suffix(self) -> str:
+    def suffix(self) -> Optional[str]:
         return pulumi.get(self, "suffix")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
-                 end: int,
-                 start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+                 end: Optional[int] = None,
+                 start: Optional[int] = None):
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
-    def end(self) -> int:
+    def end(self) -> Optional[int]:
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
-    def start(self) -> int:
+    def start(self) -> Optional[int]:
         return pulumi.get(self, "start")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteMatchHostnameResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "suffix", suffix)
+                 exact: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def suffix(self) -> str:
+    def suffix(self) -> Optional[str]:
         return pulumi.get(self, "suffix")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteMatchPathResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 regex: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "regex", regex)
+                 exact: Optional[str] = None,
+                 regex: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def regex(self) -> str:
+    def regex(self) -> Optional[str]:
         return pulumi.get(self, "regex")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult(dict):
     def __init__(__self__, *,
-                 matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult'],
-                 name: str):
+                 matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult']] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the gateway route.
         """
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the gateway route.
         """
@@ -9163,226 +9211,250 @@ class GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult(dict):
 @pulumi.output_type
 class GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
-                 exact: str):
-        pulumi.set(__self__, "exact", exact)
+                 exact: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteResult(dict):
     def __init__(__self__, *,
-                 actions: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionResult'],
-                 matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
+                 actions: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionResult']] = None,
+                 matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchResult']] = None):
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteActionResult']:
+    def actions(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionResult']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchResult']]:
         return pulumi.get(self, "matches")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteActionResult(dict):
     def __init__(__self__, *,
-                 rewrites: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteResult'],
-                 targets: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetResult']):
-        pulumi.set(__self__, "rewrites", rewrites)
-        pulumi.set(__self__, "targets", targets)
+                 rewrites: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteResult']] = None,
+                 targets: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetResult']] = None):
+        if rewrites is not None:
+            pulumi.set(__self__, "rewrites", rewrites)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
-    def rewrites(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteResult']:
+    def rewrites(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteResult']]:
         return pulumi.get(self, "rewrites")
 
     @property
     @pulumi.getter
-    def targets(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetResult']:
+    def targets(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetResult']]:
         return pulumi.get(self, "targets")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteActionRewriteResult(dict):
     def __init__(__self__, *,
-                 hostnames: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult'],
-                 paths: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePathResult'],
-                 prefixes: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePrefixResult']):
-        pulumi.set(__self__, "hostnames", hostnames)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "prefixes", prefixes)
+                 hostnames: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult']] = None,
+                 paths: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePathResult']] = None,
+                 prefixes: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePrefixResult']] = None):
+        if hostnames is not None:
+            pulumi.set(__self__, "hostnames", hostnames)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if prefixes is not None:
+            pulumi.set(__self__, "prefixes", prefixes)
 
     @property
     @pulumi.getter
-    def hostnames(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult']:
+    def hostnames(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult']]:
         return pulumi.get(self, "hostnames")
 
     @property
     @pulumi.getter
-    def paths(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePathResult']:
+    def paths(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePathResult']]:
         return pulumi.get(self, "paths")
 
     @property
     @pulumi.getter
-    def prefixes(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePrefixResult']:
+    def prefixes(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePrefixResult']]:
         return pulumi.get(self, "prefixes")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(dict):
     def __init__(__self__, *,
-                 default_target_hostname: str):
-        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
+                 default_target_hostname: Optional[str] = None):
+        if default_target_hostname is not None:
+            pulumi.set(__self__, "default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
-    def default_target_hostname(self) -> str:
+    def default_target_hostname(self) -> Optional[str]:
         return pulumi.get(self, "default_target_hostname")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteActionRewritePathResult(dict):
     def __init__(__self__, *,
-                 exact: str):
-        pulumi.set(__self__, "exact", exact)
+                 exact: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteActionRewritePrefixResult(dict):
     def __init__(__self__, *,
-                 default_prefix: str,
-                 value: str):
-        pulumi.set(__self__, "default_prefix", default_prefix)
-        pulumi.set(__self__, "value", value)
+                 default_prefix: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default_prefix is not None:
+            pulumi.set(__self__, "default_prefix", default_prefix)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
-    def default_prefix(self) -> str:
+    def default_prefix(self) -> Optional[str]:
         return pulumi.get(self, "default_prefix")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteActionTargetResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 virtual_services: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult']):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_services", virtual_services)
+                 port: Optional[int] = None,
+                 virtual_services: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult']] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if virtual_services is not None:
+            pulumi.set(__self__, "virtual_services", virtual_services)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="virtualServices")
-    def virtual_services(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult']:
+    def virtual_services(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult']]:
         return pulumi.get(self, "virtual_services")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
-                 virtual_service_name: str):
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+                 virtual_service_name: Optional[str] = None):
+        if virtual_service_name is not None:
+            pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
-    def virtual_service_name(self) -> str:
+    def virtual_service_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_service_name")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteMatchResult(dict):
     def __init__(__self__, *,
-                 headers: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult'],
-                 hostnames: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult'],
-                 paths: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchPathResult'],
-                 port: int,
-                 prefix: str,
-                 query_parameters: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult']):
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "hostnames", hostnames)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "query_parameters", query_parameters)
+                 headers: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult']] = None,
+                 hostnames: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult']] = None,
+                 paths: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchPathResult']] = None,
+                 port: Optional[int] = None,
+                 prefix: Optional[str] = None,
+                 query_parameters: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult']] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if hostnames is not None:
+            pulumi.set(__self__, "hostnames", hostnames)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
 
     @property
     @pulumi.getter
-    def headers(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult']:
+    def headers(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult']]:
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter
-    def hostnames(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult']:
+    def hostnames(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult']]:
         return pulumi.get(self, "hostnames")
 
     @property
     @pulumi.getter
-    def paths(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchPathResult']:
+    def paths(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchPathResult']]:
         return pulumi.get(self, "paths")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult']:
+    def query_parameters(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult']]:
         return pulumi.get(self, "query_parameters")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteMatchHeaderResult(dict):
     def __init__(__self__, *,
-                 invert: bool,
-                 matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult'],
-                 name: str):
+                 invert: Optional[bool] = None,
+                 matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult']] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the gateway route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        if invert is not None:
+            pulumi.set(__self__, "invert", invert)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def invert(self) -> bool:
+    def invert(self) -> Optional[bool]:
         return pulumi.get(self, "invert")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the gateway route.
         """
@@ -9392,119 +9464,132 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderResult(dict):
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 prefix: str,
-                 ranges: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult'],
-                 regex: str,
-                 suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 ranges: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult']] = None,
+                 regex: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if ranges is not None:
+            pulumi.set(__self__, "ranges", ranges)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
-    def ranges(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult']:
+    def ranges(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult']]:
         return pulumi.get(self, "ranges")
 
     @property
     @pulumi.getter
-    def regex(self) -> str:
+    def regex(self) -> Optional[str]:
         return pulumi.get(self, "regex")
 
     @property
     @pulumi.getter
-    def suffix(self) -> str:
+    def suffix(self) -> Optional[str]:
         return pulumi.get(self, "suffix")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
-                 end: int,
-                 start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+                 end: Optional[int] = None,
+                 start: Optional[int] = None):
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
-    def end(self) -> int:
+    def end(self) -> Optional[int]:
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
-    def start(self) -> int:
+    def start(self) -> Optional[int]:
         return pulumi.get(self, "start")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteMatchHostnameResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "suffix", suffix)
+                 exact: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def suffix(self) -> str:
+    def suffix(self) -> Optional[str]:
         return pulumi.get(self, "suffix")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteMatchPathResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 regex: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "regex", regex)
+                 exact: Optional[str] = None,
+                 regex: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def regex(self) -> str:
+    def regex(self) -> Optional[str]:
         return pulumi.get(self, "regex")
 
 
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(dict):
     def __init__(__self__, *,
-                 matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult'],
-                 name: str):
+                 matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult']] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the gateway route.
         """
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the gateway route.
         """
@@ -9514,216 +9599,240 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(dict):
 @pulumi.output_type
 class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
-                 exact: str):
-        pulumi.set(__self__, "exact", exact)
+                 exact: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
 
 @pulumi.output_type
 class GetMeshSpecResult(dict):
     def __init__(__self__, *,
-                 egress_filters: Sequence['outputs.GetMeshSpecEgressFilterResult']):
-        pulumi.set(__self__, "egress_filters", egress_filters)
+                 egress_filters: Optional[Sequence['outputs.GetMeshSpecEgressFilterResult']] = None):
+        if egress_filters is not None:
+            pulumi.set(__self__, "egress_filters", egress_filters)
 
     @property
     @pulumi.getter(name="egressFilters")
-    def egress_filters(self) -> Sequence['outputs.GetMeshSpecEgressFilterResult']:
+    def egress_filters(self) -> Optional[Sequence['outputs.GetMeshSpecEgressFilterResult']]:
         return pulumi.get(self, "egress_filters")
 
 
 @pulumi.output_type
 class GetMeshSpecEgressFilterResult(dict):
     def __init__(__self__, *,
-                 type: str):
-        pulumi.set(__self__, "type", type)
+                 type: Optional[str] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetRouteSpecResult(dict):
     def __init__(__self__, *,
-                 grpc_routes: Sequence['outputs.GetRouteSpecGrpcRouteResult'],
-                 http2_routes: Sequence['outputs.GetRouteSpecHttp2RouteResult'],
-                 http_routes: Sequence['outputs.GetRouteSpecHttpRouteResult'],
-                 priority: int,
-                 tcp_routes: Sequence['outputs.GetRouteSpecTcpRouteResult']):
-        pulumi.set(__self__, "grpc_routes", grpc_routes)
-        pulumi.set(__self__, "http2_routes", http2_routes)
-        pulumi.set(__self__, "http_routes", http_routes)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "tcp_routes", tcp_routes)
+                 grpc_routes: Optional[Sequence['outputs.GetRouteSpecGrpcRouteResult']] = None,
+                 http2_routes: Optional[Sequence['outputs.GetRouteSpecHttp2RouteResult']] = None,
+                 http_routes: Optional[Sequence['outputs.GetRouteSpecHttpRouteResult']] = None,
+                 priority: Optional[int] = None,
+                 tcp_routes: Optional[Sequence['outputs.GetRouteSpecTcpRouteResult']] = None):
+        if grpc_routes is not None:
+            pulumi.set(__self__, "grpc_routes", grpc_routes)
+        if http2_routes is not None:
+            pulumi.set(__self__, "http2_routes", http2_routes)
+        if http_routes is not None:
+            pulumi.set(__self__, "http_routes", http_routes)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if tcp_routes is not None:
+            pulumi.set(__self__, "tcp_routes", tcp_routes)
 
     @property
     @pulumi.getter(name="grpcRoutes")
-    def grpc_routes(self) -> Sequence['outputs.GetRouteSpecGrpcRouteResult']:
+    def grpc_routes(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteResult']]:
         return pulumi.get(self, "grpc_routes")
 
     @property
     @pulumi.getter(name="http2Routes")
-    def http2_routes(self) -> Sequence['outputs.GetRouteSpecHttp2RouteResult']:
+    def http2_routes(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteResult']]:
         return pulumi.get(self, "http2_routes")
 
     @property
     @pulumi.getter(name="httpRoutes")
-    def http_routes(self) -> Sequence['outputs.GetRouteSpecHttpRouteResult']:
+    def http_routes(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteResult']]:
         return pulumi.get(self, "http_routes")
 
     @property
     @pulumi.getter
-    def priority(self) -> int:
+    def priority(self) -> Optional[int]:
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="tcpRoutes")
-    def tcp_routes(self) -> Sequence['outputs.GetRouteSpecTcpRouteResult']:
+    def tcp_routes(self) -> Optional[Sequence['outputs.GetRouteSpecTcpRouteResult']]:
         return pulumi.get(self, "tcp_routes")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteResult(dict):
     def __init__(__self__, *,
-                 actions: Sequence['outputs.GetRouteSpecGrpcRouteActionResult'],
-                 matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchResult'],
-                 retry_policies: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult'],
-                 timeouts: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "retry_policies", retry_policies)
-        pulumi.set(__self__, "timeouts", timeouts)
+                 actions: Optional[Sequence['outputs.GetRouteSpecGrpcRouteActionResult']] = None,
+                 matches: Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchResult']] = None,
+                 retry_policies: Optional[Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult']] = None,
+                 timeouts: Optional[Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult']] = None):
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if retry_policies is not None:
+            pulumi.set(__self__, "retry_policies", retry_policies)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence['outputs.GetRouteSpecGrpcRouteActionResult']:
+    def actions(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteActionResult']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetRouteSpecGrpcRouteMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter(name="retryPolicies")
-    def retry_policies(self) -> Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult']:
+    def retry_policies(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult']]:
         return pulumi.get(self, "retry_policies")
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult']:
+    def timeouts(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult']]:
         return pulumi.get(self, "timeouts")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteActionResult(dict):
     def __init__(__self__, *,
-                 weighted_targets: Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']):
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+                 weighted_targets: Optional[Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']] = None):
+        if weighted_targets is not None:
+            pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
-    def weighted_targets(self) -> Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']:
+    def weighted_targets(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']]:
         return pulumi.get(self, "weighted_targets")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteActionWeightedTargetResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 virtual_node: str,
-                 weight: int):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+                 port: Optional[int] = None,
+                 virtual_node: Optional[str] = None,
+                 weight: Optional[int] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if virtual_node is not None:
+            pulumi.set(__self__, "virtual_node", virtual_node)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="virtualNode")
-    def virtual_node(self) -> str:
+    def virtual_node(self) -> Optional[str]:
         return pulumi.get(self, "virtual_node")
 
     @property
     @pulumi.getter
-    def weight(self) -> int:
+    def weight(self) -> Optional[int]:
         return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteMatchResult(dict):
     def __init__(__self__, *,
-                 metadatas: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataResult'],
-                 method_name: str,
-                 port: int,
-                 prefix: str,
-                 service_name: str):
-        pulumi.set(__self__, "metadatas", metadatas)
-        pulumi.set(__self__, "method_name", method_name)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "service_name", service_name)
+                 metadatas: Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataResult']] = None,
+                 method_name: Optional[str] = None,
+                 port: Optional[int] = None,
+                 prefix: Optional[str] = None,
+                 service_name: Optional[str] = None):
+        if metadatas is not None:
+            pulumi.set(__self__, "metadatas", metadatas)
+        if method_name is not None:
+            pulumi.set(__self__, "method_name", method_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter
-    def metadatas(self) -> Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataResult']:
+    def metadatas(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataResult']]:
         return pulumi.get(self, "metadatas")
 
     @property
     @pulumi.getter(name="methodName")
-    def method_name(self) -> str:
+    def method_name(self) -> Optional[str]:
         return pulumi.get(self, "method_name")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> Optional[str]:
         return pulumi.get(self, "service_name")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteMatchMetadataResult(dict):
     def __init__(__self__, *,
-                 invert: bool,
-                 matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult'],
-                 name: str):
+                 invert: Optional[bool] = None,
+                 matches: Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult']] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        if invert is not None:
+            pulumi.set(__self__, "invert", invert)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def invert(self) -> bool:
+    def invert(self) -> Optional[bool]:
         return pulumi.get(self, "invert")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the route.
         """
@@ -9733,329 +9842,367 @@ class GetRouteSpecGrpcRouteMatchMetadataResult(dict):
 @pulumi.output_type
 class GetRouteSpecGrpcRouteMatchMetadataMatchResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 prefix: str,
-                 ranges: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult'],
-                 regex: str,
-                 suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 ranges: Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult']] = None,
+                 regex: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if ranges is not None:
+            pulumi.set(__self__, "ranges", ranges)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
-    def ranges(self) -> Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult']:
+    def ranges(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult']]:
         return pulumi.get(self, "ranges")
 
     @property
     @pulumi.getter
-    def regex(self) -> str:
+    def regex(self) -> Optional[str]:
         return pulumi.get(self, "regex")
 
     @property
     @pulumi.getter
-    def suffix(self) -> str:
+    def suffix(self) -> Optional[str]:
         return pulumi.get(self, "suffix")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult(dict):
     def __init__(__self__, *,
-                 end: int,
-                 start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+                 end: Optional[int] = None,
+                 start: Optional[int] = None):
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
-    def end(self) -> int:
+    def end(self) -> Optional[int]:
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
-    def start(self) -> int:
+    def start(self) -> Optional[int]:
         return pulumi.get(self, "start")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteRetryPolicyResult(dict):
     def __init__(__self__, *,
-                 grpc_retry_events: Sequence[str],
-                 http_retry_events: Sequence[str],
-                 max_retries: int,
-                 per_retry_timeouts: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult'],
-                 tcp_retry_events: Sequence[str]):
-        pulumi.set(__self__, "grpc_retry_events", grpc_retry_events)
-        pulumi.set(__self__, "http_retry_events", http_retry_events)
-        pulumi.set(__self__, "max_retries", max_retries)
-        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
-        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+                 grpc_retry_events: Optional[Sequence[str]] = None,
+                 http_retry_events: Optional[Sequence[str]] = None,
+                 max_retries: Optional[int] = None,
+                 per_retry_timeouts: Optional[Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult']] = None,
+                 tcp_retry_events: Optional[Sequence[str]] = None):
+        if grpc_retry_events is not None:
+            pulumi.set(__self__, "grpc_retry_events", grpc_retry_events)
+        if http_retry_events is not None:
+            pulumi.set(__self__, "http_retry_events", http_retry_events)
+        if max_retries is not None:
+            pulumi.set(__self__, "max_retries", max_retries)
+        if per_retry_timeouts is not None:
+            pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
+        if tcp_retry_events is not None:
+            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="grpcRetryEvents")
-    def grpc_retry_events(self) -> Sequence[str]:
+    def grpc_retry_events(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "grpc_retry_events")
 
     @property
     @pulumi.getter(name="httpRetryEvents")
-    def http_retry_events(self) -> Sequence[str]:
+    def http_retry_events(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "http_retry_events")
 
     @property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> int:
+    def max_retries(self) -> Optional[int]:
         return pulumi.get(self, "max_retries")
 
     @property
     @pulumi.getter(name="perRetryTimeouts")
-    def per_retry_timeouts(self) -> Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult']:
+    def per_retry_timeouts(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult']]:
         return pulumi.get(self, "per_retry_timeouts")
 
     @property
     @pulumi.getter(name="tcpRetryEvents")
-    def tcp_retry_events(self) -> Sequence[str]:
+    def tcp_retry_events(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "tcp_retry_events")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteTimeoutResult(dict):
     def __init__(__self__, *,
-                 idles: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult'],
-                 per_requests: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+                 idles: Optional[Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult']] = None,
+                 per_requests: Optional[Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']] = None):
+        if idles is not None:
+            pulumi.set(__self__, "idles", idles)
+        if per_requests is not None:
+            pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
-    def idles(self) -> Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult']:
+    def idles(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult']]:
         return pulumi.get(self, "idles")
 
     @property
     @pulumi.getter(name="perRequests")
-    def per_requests(self) -> Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']:
+    def per_requests(self) -> Optional[Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']]:
         return pulumi.get(self, "per_requests")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetRouteSpecGrpcRouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteResult(dict):
     def __init__(__self__, *,
-                 actions: Sequence['outputs.GetRouteSpecHttp2RouteActionResult'],
-                 matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchResult'],
-                 retry_policies: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult'],
-                 timeouts: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "retry_policies", retry_policies)
-        pulumi.set(__self__, "timeouts", timeouts)
+                 actions: Optional[Sequence['outputs.GetRouteSpecHttp2RouteActionResult']] = None,
+                 matches: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchResult']] = None,
+                 retry_policies: Optional[Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult']] = None,
+                 timeouts: Optional[Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult']] = None):
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if retry_policies is not None:
+            pulumi.set(__self__, "retry_policies", retry_policies)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence['outputs.GetRouteSpecHttp2RouteActionResult']:
+    def actions(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteActionResult']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter(name="retryPolicies")
-    def retry_policies(self) -> Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult']:
+    def retry_policies(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult']]:
         return pulumi.get(self, "retry_policies")
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult']:
+    def timeouts(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult']]:
         return pulumi.get(self, "timeouts")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteActionResult(dict):
     def __init__(__self__, *,
-                 weighted_targets: Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']):
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+                 weighted_targets: Optional[Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']] = None):
+        if weighted_targets is not None:
+            pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
-    def weighted_targets(self) -> Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']:
+    def weighted_targets(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']]:
         return pulumi.get(self, "weighted_targets")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteActionWeightedTargetResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 virtual_node: str,
-                 weight: int):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+                 port: Optional[int] = None,
+                 virtual_node: Optional[str] = None,
+                 weight: Optional[int] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if virtual_node is not None:
+            pulumi.set(__self__, "virtual_node", virtual_node)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="virtualNode")
-    def virtual_node(self) -> str:
+    def virtual_node(self) -> Optional[str]:
         return pulumi.get(self, "virtual_node")
 
     @property
     @pulumi.getter
-    def weight(self) -> int:
+    def weight(self) -> Optional[int]:
         return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteMatchResult(dict):
     def __init__(__self__, *,
-                 headers: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderResult'],
-                 method: str,
-                 paths: Sequence['outputs.GetRouteSpecHttp2RouteMatchPathResult'],
-                 port: int,
-                 prefix: str,
-                 query_parameters: Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult'],
-                 scheme: str):
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "query_parameters", query_parameters)
-        pulumi.set(__self__, "scheme", scheme)
+                 headers: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderResult']] = None,
+                 method: Optional[str] = None,
+                 paths: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchPathResult']] = None,
+                 port: Optional[int] = None,
+                 prefix: Optional[str] = None,
+                 query_parameters: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult']] = None,
+                 scheme: Optional[str] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
-    def headers(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderResult']:
+    def headers(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderResult']]:
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter
-    def method(self) -> str:
+    def method(self) -> Optional[str]:
         return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
-    def paths(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchPathResult']:
+    def paths(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchPathResult']]:
         return pulumi.get(self, "paths")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult']:
+    def query_parameters(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult']]:
         return pulumi.get(self, "query_parameters")
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteMatchHeaderResult(dict):
     def __init__(__self__, *,
-                 invert: bool,
-                 matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult'],
-                 name: str):
+                 invert: Optional[bool] = None,
+                 matches: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult']] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        if invert is not None:
+            pulumi.set(__self__, "invert", invert)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def invert(self) -> bool:
+    def invert(self) -> Optional[bool]:
         return pulumi.get(self, "invert")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the route.
         """
@@ -10065,100 +10212,111 @@ class GetRouteSpecHttp2RouteMatchHeaderResult(dict):
 @pulumi.output_type
 class GetRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 prefix: str,
-                 ranges: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult'],
-                 regex: str,
-                 suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 ranges: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult']] = None,
+                 regex: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if ranges is not None:
+            pulumi.set(__self__, "ranges", ranges)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
-    def ranges(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult']:
+    def ranges(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult']]:
         return pulumi.get(self, "ranges")
 
     @property
     @pulumi.getter
-    def regex(self) -> str:
+    def regex(self) -> Optional[str]:
         return pulumi.get(self, "regex")
 
     @property
     @pulumi.getter
-    def suffix(self) -> str:
+    def suffix(self) -> Optional[str]:
         return pulumi.get(self, "suffix")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
-                 end: int,
-                 start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+                 end: Optional[int] = None,
+                 start: Optional[int] = None):
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
-    def end(self) -> int:
+    def end(self) -> Optional[int]:
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
-    def start(self) -> int:
+    def start(self) -> Optional[int]:
         return pulumi.get(self, "start")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteMatchPathResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 regex: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "regex", regex)
+                 exact: Optional[str] = None,
+                 regex: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def regex(self) -> str:
+    def regex(self) -> Optional[str]:
         return pulumi.get(self, "regex")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteMatchQueryParameterResult(dict):
     def __init__(__self__, *,
-                 matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterMatchResult'],
-                 name: str):
+                 matches: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterMatchResult']] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the route.
         """
@@ -10168,275 +10326,306 @@ class GetRouteSpecHttp2RouteMatchQueryParameterResult(dict):
 @pulumi.output_type
 class GetRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
-                 exact: str):
-        pulumi.set(__self__, "exact", exact)
+                 exact: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteRetryPolicyResult(dict):
     def __init__(__self__, *,
-                 http_retry_events: Sequence[str],
-                 max_retries: int,
-                 per_retry_timeouts: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult'],
-                 tcp_retry_events: Sequence[str]):
-        pulumi.set(__self__, "http_retry_events", http_retry_events)
-        pulumi.set(__self__, "max_retries", max_retries)
-        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
-        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+                 http_retry_events: Optional[Sequence[str]] = None,
+                 max_retries: Optional[int] = None,
+                 per_retry_timeouts: Optional[Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult']] = None,
+                 tcp_retry_events: Optional[Sequence[str]] = None):
+        if http_retry_events is not None:
+            pulumi.set(__self__, "http_retry_events", http_retry_events)
+        if max_retries is not None:
+            pulumi.set(__self__, "max_retries", max_retries)
+        if per_retry_timeouts is not None:
+            pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
+        if tcp_retry_events is not None:
+            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="httpRetryEvents")
-    def http_retry_events(self) -> Sequence[str]:
+    def http_retry_events(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "http_retry_events")
 
     @property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> int:
+    def max_retries(self) -> Optional[int]:
         return pulumi.get(self, "max_retries")
 
     @property
     @pulumi.getter(name="perRetryTimeouts")
-    def per_retry_timeouts(self) -> Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult']:
+    def per_retry_timeouts(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult']]:
         return pulumi.get(self, "per_retry_timeouts")
 
     @property
     @pulumi.getter(name="tcpRetryEvents")
-    def tcp_retry_events(self) -> Sequence[str]:
+    def tcp_retry_events(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "tcp_retry_events")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteTimeoutResult(dict):
     def __init__(__self__, *,
-                 idles: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult'],
-                 per_requests: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+                 idles: Optional[Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult']] = None,
+                 per_requests: Optional[Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']] = None):
+        if idles is not None:
+            pulumi.set(__self__, "idles", idles)
+        if per_requests is not None:
+            pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
-    def idles(self) -> Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult']:
+    def idles(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult']]:
         return pulumi.get(self, "idles")
 
     @property
     @pulumi.getter(name="perRequests")
-    def per_requests(self) -> Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']:
+    def per_requests(self) -> Optional[Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']]:
         return pulumi.get(self, "per_requests")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetRouteSpecHttp2RouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteResult(dict):
     def __init__(__self__, *,
-                 actions: Sequence['outputs.GetRouteSpecHttpRouteActionResult'],
-                 matches: Sequence['outputs.GetRouteSpecHttpRouteMatchResult'],
-                 retry_policies: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult'],
-                 timeouts: Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "retry_policies", retry_policies)
-        pulumi.set(__self__, "timeouts", timeouts)
+                 actions: Optional[Sequence['outputs.GetRouteSpecHttpRouteActionResult']] = None,
+                 matches: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchResult']] = None,
+                 retry_policies: Optional[Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult']] = None,
+                 timeouts: Optional[Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult']] = None):
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if retry_policies is not None:
+            pulumi.set(__self__, "retry_policies", retry_policies)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence['outputs.GetRouteSpecHttpRouteActionResult']:
+    def actions(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteActionResult']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter(name="retryPolicies")
-    def retry_policies(self) -> Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult']:
+    def retry_policies(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult']]:
         return pulumi.get(self, "retry_policies")
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult']:
+    def timeouts(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult']]:
         return pulumi.get(self, "timeouts")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteActionResult(dict):
     def __init__(__self__, *,
-                 weighted_targets: Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']):
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+                 weighted_targets: Optional[Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']] = None):
+        if weighted_targets is not None:
+            pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
-    def weighted_targets(self) -> Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']:
+    def weighted_targets(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']]:
         return pulumi.get(self, "weighted_targets")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteActionWeightedTargetResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 virtual_node: str,
-                 weight: int):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+                 port: Optional[int] = None,
+                 virtual_node: Optional[str] = None,
+                 weight: Optional[int] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if virtual_node is not None:
+            pulumi.set(__self__, "virtual_node", virtual_node)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="virtualNode")
-    def virtual_node(self) -> str:
+    def virtual_node(self) -> Optional[str]:
         return pulumi.get(self, "virtual_node")
 
     @property
     @pulumi.getter
-    def weight(self) -> int:
+    def weight(self) -> Optional[int]:
         return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteMatchResult(dict):
     def __init__(__self__, *,
-                 headers: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderResult'],
-                 method: str,
-                 paths: Sequence['outputs.GetRouteSpecHttpRouteMatchPathResult'],
-                 port: int,
-                 prefix: str,
-                 query_parameters: Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterResult'],
-                 scheme: str):
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "query_parameters", query_parameters)
-        pulumi.set(__self__, "scheme", scheme)
+                 headers: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderResult']] = None,
+                 method: Optional[str] = None,
+                 paths: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchPathResult']] = None,
+                 port: Optional[int] = None,
+                 prefix: Optional[str] = None,
+                 query_parameters: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterResult']] = None,
+                 scheme: Optional[str] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
-    def headers(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderResult']:
+    def headers(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderResult']]:
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter
-    def method(self) -> str:
+    def method(self) -> Optional[str]:
         return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
-    def paths(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchPathResult']:
+    def paths(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchPathResult']]:
         return pulumi.get(self, "paths")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterResult']:
+    def query_parameters(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterResult']]:
         return pulumi.get(self, "query_parameters")
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteMatchHeaderResult(dict):
     def __init__(__self__, *,
-                 invert: bool,
-                 matches: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult'],
-                 name: str):
+                 invert: Optional[bool] = None,
+                 matches: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult']] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        if invert is not None:
+            pulumi.set(__self__, "invert", invert)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def invert(self) -> bool:
+    def invert(self) -> Optional[bool]:
         return pulumi.get(self, "invert")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the route.
         """
@@ -10446,100 +10635,111 @@ class GetRouteSpecHttpRouteMatchHeaderResult(dict):
 @pulumi.output_type
 class GetRouteSpecHttpRouteMatchHeaderMatchResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 prefix: str,
-                 ranges: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult'],
-                 regex: str,
-                 suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 ranges: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult']] = None,
+                 regex: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if ranges is not None:
+            pulumi.set(__self__, "ranges", ranges)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
-    def ranges(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult']:
+    def ranges(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult']]:
         return pulumi.get(self, "ranges")
 
     @property
     @pulumi.getter
-    def regex(self) -> str:
+    def regex(self) -> Optional[str]:
         return pulumi.get(self, "regex")
 
     @property
     @pulumi.getter
-    def suffix(self) -> str:
+    def suffix(self) -> Optional[str]:
         return pulumi.get(self, "suffix")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
-                 end: int,
-                 start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+                 end: Optional[int] = None,
+                 start: Optional[int] = None):
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
-    def end(self) -> int:
+    def end(self) -> Optional[int]:
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
-    def start(self) -> int:
+    def start(self) -> Optional[int]:
         return pulumi.get(self, "start")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteMatchPathResult(dict):
     def __init__(__self__, *,
-                 exact: str,
-                 regex: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "regex", regex)
+                 exact: Optional[str] = None,
+                 regex: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
     @property
     @pulumi.getter
-    def regex(self) -> str:
+    def regex(self) -> Optional[str]:
         return pulumi.get(self, "regex")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteMatchQueryParameterResult(dict):
     def __init__(__self__, *,
-                 matches: Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterMatchResult'],
-                 name: str):
+                 matches: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterMatchResult']] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the route.
         """
@@ -10549,2331 +10749,2574 @@ class GetRouteSpecHttpRouteMatchQueryParameterResult(dict):
 @pulumi.output_type
 class GetRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
-                 exact: str):
-        pulumi.set(__self__, "exact", exact)
+                 exact: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
-    def exact(self) -> str:
+    def exact(self) -> Optional[str]:
         return pulumi.get(self, "exact")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteRetryPolicyResult(dict):
     def __init__(__self__, *,
-                 http_retry_events: Sequence[str],
-                 max_retries: int,
-                 per_retry_timeouts: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult'],
-                 tcp_retry_events: Sequence[str]):
-        pulumi.set(__self__, "http_retry_events", http_retry_events)
-        pulumi.set(__self__, "max_retries", max_retries)
-        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
-        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+                 http_retry_events: Optional[Sequence[str]] = None,
+                 max_retries: Optional[int] = None,
+                 per_retry_timeouts: Optional[Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult']] = None,
+                 tcp_retry_events: Optional[Sequence[str]] = None):
+        if http_retry_events is not None:
+            pulumi.set(__self__, "http_retry_events", http_retry_events)
+        if max_retries is not None:
+            pulumi.set(__self__, "max_retries", max_retries)
+        if per_retry_timeouts is not None:
+            pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
+        if tcp_retry_events is not None:
+            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="httpRetryEvents")
-    def http_retry_events(self) -> Sequence[str]:
+    def http_retry_events(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "http_retry_events")
 
     @property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> int:
+    def max_retries(self) -> Optional[int]:
         return pulumi.get(self, "max_retries")
 
     @property
     @pulumi.getter(name="perRetryTimeouts")
-    def per_retry_timeouts(self) -> Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult']:
+    def per_retry_timeouts(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult']]:
         return pulumi.get(self, "per_retry_timeouts")
 
     @property
     @pulumi.getter(name="tcpRetryEvents")
-    def tcp_retry_events(self) -> Sequence[str]:
+    def tcp_retry_events(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "tcp_retry_events")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteTimeoutResult(dict):
     def __init__(__self__, *,
-                 idles: Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult'],
-                 per_requests: Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+                 idles: Optional[Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult']] = None,
+                 per_requests: Optional[Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']] = None):
+        if idles is not None:
+            pulumi.set(__self__, "idles", idles)
+        if per_requests is not None:
+            pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
-    def idles(self) -> Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult']:
+    def idles(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult']]:
         return pulumi.get(self, "idles")
 
     @property
     @pulumi.getter(name="perRequests")
-    def per_requests(self) -> Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']:
+    def per_requests(self) -> Optional[Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']]:
         return pulumi.get(self, "per_requests")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetRouteSpecHttpRouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetRouteSpecTcpRouteResult(dict):
     def __init__(__self__, *,
-                 actions: Sequence['outputs.GetRouteSpecTcpRouteActionResult'],
-                 matches: Sequence['outputs.GetRouteSpecTcpRouteMatchResult'],
-                 timeouts: Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "timeouts", timeouts)
+                 actions: Optional[Sequence['outputs.GetRouteSpecTcpRouteActionResult']] = None,
+                 matches: Optional[Sequence['outputs.GetRouteSpecTcpRouteMatchResult']] = None,
+                 timeouts: Optional[Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult']] = None):
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence['outputs.GetRouteSpecTcpRouteActionResult']:
+    def actions(self) -> Optional[Sequence['outputs.GetRouteSpecTcpRouteActionResult']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetRouteSpecTcpRouteMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetRouteSpecTcpRouteMatchResult']]:
         return pulumi.get(self, "matches")
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult']:
+    def timeouts(self) -> Optional[Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult']]:
         return pulumi.get(self, "timeouts")
 
 
 @pulumi.output_type
 class GetRouteSpecTcpRouteActionResult(dict):
     def __init__(__self__, *,
-                 weighted_targets: Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']):
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+                 weighted_targets: Optional[Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']] = None):
+        if weighted_targets is not None:
+            pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
-    def weighted_targets(self) -> Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']:
+    def weighted_targets(self) -> Optional[Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']]:
         return pulumi.get(self, "weighted_targets")
 
 
 @pulumi.output_type
 class GetRouteSpecTcpRouteActionWeightedTargetResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 virtual_node: str,
-                 weight: int):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+                 port: Optional[int] = None,
+                 virtual_node: Optional[str] = None,
+                 weight: Optional[int] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if virtual_node is not None:
+            pulumi.set(__self__, "virtual_node", virtual_node)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="virtualNode")
-    def virtual_node(self) -> str:
+    def virtual_node(self) -> Optional[str]:
         return pulumi.get(self, "virtual_node")
 
     @property
     @pulumi.getter
-    def weight(self) -> int:
+    def weight(self) -> Optional[int]:
         return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
 class GetRouteSpecTcpRouteMatchResult(dict):
     def __init__(__self__, *,
-                 port: int):
-        pulumi.set(__self__, "port", port)
+                 port: Optional[int] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
 
 @pulumi.output_type
 class GetRouteSpecTcpRouteTimeoutResult(dict):
     def __init__(__self__, *,
-                 idles: Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']):
-        pulumi.set(__self__, "idles", idles)
+                 idles: Optional[Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']] = None):
+        if idles is not None:
+            pulumi.set(__self__, "idles", idles)
 
     @property
     @pulumi.getter
-    def idles(self) -> Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']:
+    def idles(self) -> Optional[Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']]:
         return pulumi.get(self, "idles")
 
 
 @pulumi.output_type
 class GetRouteSpecTcpRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecResult(dict):
     def __init__(__self__, *,
-                 backend_defaults: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult'],
-                 listeners: Sequence['outputs.GetVirtualGatewaySpecListenerResult'],
-                 loggings: Sequence['outputs.GetVirtualGatewaySpecLoggingResult']):
-        pulumi.set(__self__, "backend_defaults", backend_defaults)
-        pulumi.set(__self__, "listeners", listeners)
-        pulumi.set(__self__, "loggings", loggings)
+                 backend_defaults: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult']] = None,
+                 listeners: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerResult']] = None,
+                 loggings: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingResult']] = None):
+        if backend_defaults is not None:
+            pulumi.set(__self__, "backend_defaults", backend_defaults)
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
+        if loggings is not None:
+            pulumi.set(__self__, "loggings", loggings)
 
     @property
     @pulumi.getter(name="backendDefaults")
-    def backend_defaults(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult']:
+    def backend_defaults(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult']]:
         return pulumi.get(self, "backend_defaults")
 
     @property
     @pulumi.getter
-    def listeners(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerResult']:
+    def listeners(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerResult']]:
         return pulumi.get(self, "listeners")
 
     @property
     @pulumi.getter
-    def loggings(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingResult']:
+    def loggings(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingResult']]:
         return pulumi.get(self, "loggings")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultResult(dict):
     def __init__(__self__, *,
-                 client_policies: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']):
-        pulumi.set(__self__, "client_policies", client_policies)
+                 client_policies: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']] = None):
+        if client_policies is not None:
+            pulumi.set(__self__, "client_policies", client_policies)
 
     @property
     @pulumi.getter(name="clientPolicies")
-    def client_policies(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']:
+    def client_policies(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']]:
         return pulumi.get(self, "client_policies")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyResult(dict):
     def __init__(__self__, *,
-                 tls: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']):
-        pulumi.set(__self__, "tls", tls)
+                 tls: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']] = None):
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
-    def tls(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']:
+    def tls(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']]:
         return pulumi.get(self, "tls")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult(dict):
     def __init__(__self__, *,
-                 certificates: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult'],
-                 enforce: bool,
-                 ports: Sequence[int],
-                 validations: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "enforce", enforce)
-        pulumi.set(__self__, "ports", ports)
-        pulumi.set(__self__, "validations", validations)
+                 certificates: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult']] = None,
+                 enforce: Optional[bool] = None,
+                 ports: Optional[Sequence[int]] = None,
+                 validations: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult']] = None):
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if enforce is not None:
+            pulumi.set(__self__, "enforce", enforce)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if validations is not None:
+            pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
-    def certificates(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult']:
+    def certificates(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult']]:
         return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter
-    def enforce(self) -> bool:
+    def enforce(self) -> Optional[bool]:
         return pulumi.get(self, "enforce")
 
     @property
     @pulumi.getter
-    def ports(self) -> Sequence[int]:
+    def ports(self) -> Optional[Sequence[int]]:
         return pulumi.get(self, "ports")
 
     @property
     @pulumi.getter
-    def validations(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult']:
+    def validations(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult']]:
         return pulumi.get(self, "validations")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
-                 files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult'],
-                 sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 files: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']] = None):
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str,
-                 private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+                 certificate_chain: Optional[str] = None,
+                 private_key: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> str:
+    def private_key(self) -> Optional[str]:
         return pulumi.get(self, "private_key")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
-                 subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
-                 trusts: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+                 subject_alternative_names: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']] = None,
+                 trusts: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']] = None):
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        if trusts is not None:
+            pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']:
+    def subject_alternative_names(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']]:
         return pulumi.get(self, "subject_alternative_names")
 
     @property
     @pulumi.getter
-    def trusts(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']:
+    def trusts(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']]:
         return pulumi.get(self, "trusts")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
-                 matches: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+                 matches: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']] = None):
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']]:
         return pulumi.get(self, "matches")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
-                 exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+                 exacts: Optional[Sequence[str]] = None):
+        if exacts is not None:
+            pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
-    def exacts(self) -> Sequence[str]:
+    def exacts(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "exacts")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
     def __init__(__self__, *,
-                 acms: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
-                 files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
-                 sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 acms: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult']] = None,
+                 files: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult']] = None):
+        if acms is not None:
+            pulumi.set(__self__, "acms", acms)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def acms(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult']:
+    def acms(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult']]:
         return pulumi.get(self, "acms")
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
-                 certificate_authority_arns: Sequence[str]):
-        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+                 certificate_authority_arns: Optional[Sequence[str]] = None):
+        if certificate_authority_arns is not None:
+            pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
-    def certificate_authority_arns(self) -> Sequence[str]:
+    def certificate_authority_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "certificate_authority_arns")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+                 certificate_chain: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerResult(dict):
     def __init__(__self__, *,
-                 connection_pools: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolResult'],
-                 health_checks: Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult'],
-                 port_mappings: Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult'],
-                 tls: Sequence['outputs.GetVirtualGatewaySpecListenerTlResult']):
-        pulumi.set(__self__, "connection_pools", connection_pools)
-        pulumi.set(__self__, "health_checks", health_checks)
-        pulumi.set(__self__, "port_mappings", port_mappings)
-        pulumi.set(__self__, "tls", tls)
+                 connection_pools: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolResult']] = None,
+                 health_checks: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult']] = None,
+                 port_mappings: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult']] = None,
+                 tls: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlResult']] = None):
+        if connection_pools is not None:
+            pulumi.set(__self__, "connection_pools", connection_pools)
+        if health_checks is not None:
+            pulumi.set(__self__, "health_checks", health_checks)
+        if port_mappings is not None:
+            pulumi.set(__self__, "port_mappings", port_mappings)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="connectionPools")
-    def connection_pools(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolResult']:
+    def connection_pools(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolResult']]:
         return pulumi.get(self, "connection_pools")
 
     @property
     @pulumi.getter(name="healthChecks")
-    def health_checks(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult']:
+    def health_checks(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult']]:
         return pulumi.get(self, "health_checks")
 
     @property
     @pulumi.getter(name="portMappings")
-    def port_mappings(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult']:
+    def port_mappings(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult']]:
         return pulumi.get(self, "port_mappings")
 
     @property
     @pulumi.getter
-    def tls(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlResult']:
+    def tls(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlResult']]:
         return pulumi.get(self, "tls")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerConnectionPoolResult(dict):
     def __init__(__self__, *,
-                 grpcs: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult'],
-                 http2s: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result'],
-                 https: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult']):
-        pulumi.set(__self__, "grpcs", grpcs)
-        pulumi.set(__self__, "http2s", http2s)
-        pulumi.set(__self__, "https", https)
+                 grpcs: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult']] = None,
+                 http2s: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result']] = None,
+                 https: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult']] = None):
+        if grpcs is not None:
+            pulumi.set(__self__, "grpcs", grpcs)
+        if http2s is not None:
+            pulumi.set(__self__, "http2s", http2s)
+        if https is not None:
+            pulumi.set(__self__, "https", https)
 
     @property
     @pulumi.getter
-    def grpcs(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult']:
+    def grpcs(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult']]:
         return pulumi.get(self, "grpcs")
 
     @property
     @pulumi.getter
-    def http2s(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result']:
+    def http2s(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result']]:
         return pulumi.get(self, "http2s")
 
     @property
     @pulumi.getter
-    def https(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult']:
+    def https(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult']]:
         return pulumi.get(self, "https")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerConnectionPoolGrpcResult(dict):
     def __init__(__self__, *,
-                 max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
+                 max_requests: Optional[int] = None):
+        if max_requests is not None:
+            pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
-    def max_requests(self) -> int:
+    def max_requests(self) -> Optional[int]:
         return pulumi.get(self, "max_requests")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerConnectionPoolHttp2Result(dict):
     def __init__(__self__, *,
-                 max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
+                 max_requests: Optional[int] = None):
+        if max_requests is not None:
+            pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
-    def max_requests(self) -> int:
+    def max_requests(self) -> Optional[int]:
         return pulumi.get(self, "max_requests")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerConnectionPoolHttpResult(dict):
     def __init__(__self__, *,
-                 max_connections: int,
-                 max_pending_requests: int):
-        pulumi.set(__self__, "max_connections", max_connections)
-        pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+                 max_connections: Optional[int] = None,
+                 max_pending_requests: Optional[int] = None):
+        if max_connections is not None:
+            pulumi.set(__self__, "max_connections", max_connections)
+        if max_pending_requests is not None:
+            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
-    def max_connections(self) -> int:
+    def max_connections(self) -> Optional[int]:
         return pulumi.get(self, "max_connections")
 
     @property
     @pulumi.getter(name="maxPendingRequests")
-    def max_pending_requests(self) -> int:
+    def max_pending_requests(self) -> Optional[int]:
         return pulumi.get(self, "max_pending_requests")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerHealthCheckResult(dict):
     def __init__(__self__, *,
-                 healthy_threshold: int,
-                 interval_millis: int,
-                 path: str,
-                 port: int,
-                 protocol: str,
-                 timeout_millis: int,
-                 unhealthy_threshold: int):
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval_millis", interval_millis)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "timeout_millis", timeout_millis)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+                 healthy_threshold: Optional[int] = None,
+                 interval_millis: Optional[int] = None,
+                 path: Optional[str] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 timeout_millis: Optional[int] = None,
+                 unhealthy_threshold: Optional[int] = None):
+        if healthy_threshold is not None:
+            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        if interval_millis is not None:
+            pulumi.set(__self__, "interval_millis", interval_millis)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if timeout_millis is not None:
+            pulumi.set(__self__, "timeout_millis", timeout_millis)
+        if unhealthy_threshold is not None:
+            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> int:
+    def healthy_threshold(self) -> Optional[int]:
         return pulumi.get(self, "healthy_threshold")
 
     @property
     @pulumi.getter(name="intervalMillis")
-    def interval_millis(self) -> int:
+    def interval_millis(self) -> Optional[int]:
         return pulumi.get(self, "interval_millis")
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="timeoutMillis")
-    def timeout_millis(self) -> int:
+    def timeout_millis(self) -> Optional[int]:
         return pulumi.get(self, "timeout_millis")
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> int:
+    def unhealthy_threshold(self) -> Optional[int]:
         return pulumi.get(self, "unhealthy_threshold")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 protocol: str):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlResult(dict):
     def __init__(__self__, *,
-                 certificates: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult'],
-                 mode: str,
-                 validations: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "validations", validations)
+                 certificates: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult']] = None,
+                 mode: Optional[str] = None,
+                 validations: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult']] = None):
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if validations is not None:
+            pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
-    def certificates(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult']:
+    def certificates(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult']]:
         return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter
-    def mode(self) -> str:
+    def mode(self) -> Optional[str]:
         return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter
-    def validations(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult']:
+    def validations(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult']]:
         return pulumi.get(self, "validations")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlCertificateResult(dict):
     def __init__(__self__, *,
-                 acms: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult'],
-                 files: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult'],
-                 sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 acms: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult']] = None,
+                 files: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult']] = None):
+        if acms is not None:
+            pulumi.set(__self__, "acms", acms)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def acms(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult']:
+    def acms(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult']]:
         return pulumi.get(self, "acms")
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlCertificateAcmResult(dict):
     def __init__(__self__, *,
-                 certificate_arn: str):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
+                 certificate_arn: Optional[str] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> Optional[str]:
         return pulumi.get(self, "certificate_arn")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlCertificateFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str,
-                 private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+                 certificate_chain: Optional[str] = None,
+                 private_key: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> str:
+    def private_key(self) -> Optional[str]:
         return pulumi.get(self, "private_key")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlCertificateSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlValidationResult(dict):
     def __init__(__self__, *,
-                 subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult'],
-                 trusts: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+                 subject_alternative_names: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult']] = None,
+                 trusts: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']] = None):
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        if trusts is not None:
+            pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult']:
+    def subject_alternative_names(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult']]:
         return pulumi.get(self, "subject_alternative_names")
 
     @property
     @pulumi.getter
-    def trusts(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']:
+    def trusts(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']]:
         return pulumi.get(self, "trusts")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
-                 matches: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+                 matches: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']] = None):
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']]:
         return pulumi.get(self, "matches")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
-                 exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+                 exacts: Optional[Sequence[str]] = None):
+        if exacts is not None:
+            pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
-    def exacts(self) -> Sequence[str]:
+    def exacts(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "exacts")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlValidationTrustResult(dict):
     def __init__(__self__, *,
-                 files: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult'],
-                 sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 files: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']] = None):
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+                 certificate_chain: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecListenerTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecLoggingResult(dict):
     def __init__(__self__, *,
-                 access_logs: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']):
-        pulumi.set(__self__, "access_logs", access_logs)
+                 access_logs: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']] = None):
+        if access_logs is not None:
+            pulumi.set(__self__, "access_logs", access_logs)
 
     @property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']:
+    def access_logs(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']]:
         return pulumi.get(self, "access_logs")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecLoggingAccessLogResult(dict):
     def __init__(__self__, *,
-                 files: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']):
-        pulumi.set(__self__, "files", files)
+                 files: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']] = None):
+        if files is not None:
+            pulumi.set(__self__, "files", files)
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']]:
         return pulumi.get(self, "files")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecLoggingAccessLogFileResult(dict):
     def __init__(__self__, *,
-                 formats: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult'],
-                 path: str):
-        pulumi.set(__self__, "formats", formats)
-        pulumi.set(__self__, "path", path)
+                 formats: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult']] = None,
+                 path: Optional[str] = None):
+        if formats is not None:
+            pulumi.set(__self__, "formats", formats)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
-    def formats(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult']:
+    def formats(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult']]:
         return pulumi.get(self, "formats")
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecLoggingAccessLogFileFormatResult(dict):
     def __init__(__self__, *,
-                 jsons: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult'],
-                 text: str):
-        pulumi.set(__self__, "jsons", jsons)
-        pulumi.set(__self__, "text", text)
+                 jsons: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult']] = None,
+                 text: Optional[str] = None):
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
-    def jsons(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult']:
+    def jsons(self) -> Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult']]:
         return pulumi.get(self, "jsons")
 
     @property
     @pulumi.getter
-    def text(self) -> str:
+    def text(self) -> Optional[str]:
         return pulumi.get(self, "text")
 
 
 @pulumi.output_type
 class GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult(dict):
     def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecResult(dict):
     def __init__(__self__, *,
-                 backend_defaults: Sequence['outputs.GetVirtualNodeSpecBackendDefaultResult'],
-                 backends: Sequence['outputs.GetVirtualNodeSpecBackendResult'],
-                 listeners: Sequence['outputs.GetVirtualNodeSpecListenerResult'],
-                 loggings: Sequence['outputs.GetVirtualNodeSpecLoggingResult'],
-                 service_discoveries: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult']):
-        pulumi.set(__self__, "backend_defaults", backend_defaults)
-        pulumi.set(__self__, "backends", backends)
-        pulumi.set(__self__, "listeners", listeners)
-        pulumi.set(__self__, "loggings", loggings)
-        pulumi.set(__self__, "service_discoveries", service_discoveries)
+                 backend_defaults: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultResult']] = None,
+                 backends: Optional[Sequence['outputs.GetVirtualNodeSpecBackendResult']] = None,
+                 listeners: Optional[Sequence['outputs.GetVirtualNodeSpecListenerResult']] = None,
+                 loggings: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingResult']] = None,
+                 service_discoveries: Optional[Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult']] = None):
+        if backend_defaults is not None:
+            pulumi.set(__self__, "backend_defaults", backend_defaults)
+        if backends is not None:
+            pulumi.set(__self__, "backends", backends)
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
+        if loggings is not None:
+            pulumi.set(__self__, "loggings", loggings)
+        if service_discoveries is not None:
+            pulumi.set(__self__, "service_discoveries", service_discoveries)
 
     @property
     @pulumi.getter(name="backendDefaults")
-    def backend_defaults(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultResult']:
+    def backend_defaults(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultResult']]:
         return pulumi.get(self, "backend_defaults")
 
     @property
     @pulumi.getter
-    def backends(self) -> Sequence['outputs.GetVirtualNodeSpecBackendResult']:
+    def backends(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendResult']]:
         return pulumi.get(self, "backends")
 
     @property
     @pulumi.getter
-    def listeners(self) -> Sequence['outputs.GetVirtualNodeSpecListenerResult']:
+    def listeners(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerResult']]:
         return pulumi.get(self, "listeners")
 
     @property
     @pulumi.getter
-    def loggings(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingResult']:
+    def loggings(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecLoggingResult']]:
         return pulumi.get(self, "loggings")
 
     @property
     @pulumi.getter(name="serviceDiscoveries")
-    def service_discoveries(self) -> Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult']:
+    def service_discoveries(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult']]:
         return pulumi.get(self, "service_discoveries")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendResult(dict):
     def __init__(__self__, *,
-                 virtual_services: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']):
-        pulumi.set(__self__, "virtual_services", virtual_services)
+                 virtual_services: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']] = None):
+        if virtual_services is not None:
+            pulumi.set(__self__, "virtual_services", virtual_services)
 
     @property
     @pulumi.getter(name="virtualServices")
-    def virtual_services(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']:
+    def virtual_services(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']]:
         return pulumi.get(self, "virtual_services")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultResult(dict):
     def __init__(__self__, *,
-                 client_policies: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']):
-        pulumi.set(__self__, "client_policies", client_policies)
+                 client_policies: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']] = None):
+        if client_policies is not None:
+            pulumi.set(__self__, "client_policies", client_policies)
 
     @property
     @pulumi.getter(name="clientPolicies")
-    def client_policies(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']:
+    def client_policies(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']]:
         return pulumi.get(self, "client_policies")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyResult(dict):
     def __init__(__self__, *,
-                 tls: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']):
-        pulumi.set(__self__, "tls", tls)
+                 tls: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']] = None):
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
-    def tls(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']:
+    def tls(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']]:
         return pulumi.get(self, "tls")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlResult(dict):
     def __init__(__self__, *,
-                 certificates: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult'],
-                 enforce: bool,
-                 ports: Sequence[int],
-                 validations: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "enforce", enforce)
-        pulumi.set(__self__, "ports", ports)
-        pulumi.set(__self__, "validations", validations)
+                 certificates: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult']] = None,
+                 enforce: Optional[bool] = None,
+                 ports: Optional[Sequence[int]] = None,
+                 validations: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult']] = None):
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if enforce is not None:
+            pulumi.set(__self__, "enforce", enforce)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if validations is not None:
+            pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
-    def certificates(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult']:
+    def certificates(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult']]:
         return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter
-    def enforce(self) -> bool:
+    def enforce(self) -> Optional[bool]:
         return pulumi.get(self, "enforce")
 
     @property
     @pulumi.getter
-    def ports(self) -> Sequence[int]:
+    def ports(self) -> Optional[Sequence[int]]:
         return pulumi.get(self, "ports")
 
     @property
     @pulumi.getter
-    def validations(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult']:
+    def validations(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult']]:
         return pulumi.get(self, "validations")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
-                 files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult'],
-                 sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 files: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']] = None):
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str,
-                 private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+                 certificate_chain: Optional[str] = None,
+                 private_key: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> str:
+    def private_key(self) -> Optional[str]:
         return pulumi.get(self, "private_key")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
-                 subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
-                 trusts: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+                 subject_alternative_names: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']] = None,
+                 trusts: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']] = None):
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        if trusts is not None:
+            pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']:
+    def subject_alternative_names(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']]:
         return pulumi.get(self, "subject_alternative_names")
 
     @property
     @pulumi.getter
-    def trusts(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']:
+    def trusts(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']]:
         return pulumi.get(self, "trusts")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
-                 matches: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+                 matches: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']] = None):
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']]:
         return pulumi.get(self, "matches")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
-                 exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+                 exacts: Optional[Sequence[str]] = None):
+        if exacts is not None:
+            pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
-    def exacts(self) -> Sequence[str]:
+    def exacts(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "exacts")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
     def __init__(__self__, *,
-                 acms: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
-                 files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
-                 sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 acms: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult']] = None,
+                 files: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult']] = None):
+        if acms is not None:
+            pulumi.set(__self__, "acms", acms)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def acms(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult']:
+    def acms(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult']]:
         return pulumi.get(self, "acms")
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
-                 certificate_authority_arns: Sequence[str]):
-        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+                 certificate_authority_arns: Optional[Sequence[str]] = None):
+        if certificate_authority_arns is not None:
+            pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
-    def certificate_authority_arns(self) -> Sequence[str]:
+    def certificate_authority_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "certificate_authority_arns")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+                 certificate_chain: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceResult(dict):
     def __init__(__self__, *,
-                 client_policies: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult'],
-                 virtual_service_name: str):
-        pulumi.set(__self__, "client_policies", client_policies)
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+                 client_policies: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult']] = None,
+                 virtual_service_name: Optional[str] = None):
+        if client_policies is not None:
+            pulumi.set(__self__, "client_policies", client_policies)
+        if virtual_service_name is not None:
+            pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="clientPolicies")
-    def client_policies(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult']:
+    def client_policies(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult']]:
         return pulumi.get(self, "client_policies")
 
     @property
     @pulumi.getter(name="virtualServiceName")
-    def virtual_service_name(self) -> str:
+    def virtual_service_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_service_name")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult(dict):
     def __init__(__self__, *,
-                 tls: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']):
-        pulumi.set(__self__, "tls", tls)
+                 tls: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']] = None):
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
-    def tls(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']:
+    def tls(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']]:
         return pulumi.get(self, "tls")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult(dict):
     def __init__(__self__, *,
-                 certificates: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult'],
-                 enforce: bool,
-                 ports: Sequence[int],
-                 validations: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "enforce", enforce)
-        pulumi.set(__self__, "ports", ports)
-        pulumi.set(__self__, "validations", validations)
+                 certificates: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult']] = None,
+                 enforce: Optional[bool] = None,
+                 ports: Optional[Sequence[int]] = None,
+                 validations: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult']] = None):
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if enforce is not None:
+            pulumi.set(__self__, "enforce", enforce)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if validations is not None:
+            pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
-    def certificates(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult']:
+    def certificates(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult']]:
         return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter
-    def enforce(self) -> bool:
+    def enforce(self) -> Optional[bool]:
         return pulumi.get(self, "enforce")
 
     @property
     @pulumi.getter
-    def ports(self) -> Sequence[int]:
+    def ports(self) -> Optional[Sequence[int]]:
         return pulumi.get(self, "ports")
 
     @property
     @pulumi.getter
-    def validations(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult']:
+    def validations(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult']]:
         return pulumi.get(self, "validations")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
-                 files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult'],
-                 sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 files: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']] = None):
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str,
-                 private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+                 certificate_chain: Optional[str] = None,
+                 private_key: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> str:
+    def private_key(self) -> Optional[str]:
         return pulumi.get(self, "private_key")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
-                 subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult'],
-                 trusts: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+                 subject_alternative_names: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult']] = None,
+                 trusts: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']] = None):
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        if trusts is not None:
+            pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult']:
+    def subject_alternative_names(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult']]:
         return pulumi.get(self, "subject_alternative_names")
 
     @property
     @pulumi.getter
-    def trusts(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']:
+    def trusts(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']]:
         return pulumi.get(self, "trusts")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
-                 matches: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+                 matches: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']] = None):
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']]:
         return pulumi.get(self, "matches")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
-                 exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+                 exacts: Optional[Sequence[str]] = None):
+        if exacts is not None:
+            pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
-    def exacts(self) -> Sequence[str]:
+    def exacts(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "exacts")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult(dict):
     def __init__(__self__, *,
-                 acms: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult'],
-                 files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult'],
-                 sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 acms: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult']] = None,
+                 files: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult']] = None):
+        if acms is not None:
+            pulumi.set(__self__, "acms", acms)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def acms(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult']:
+    def acms(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult']]:
         return pulumi.get(self, "acms")
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
-                 certificate_authority_arns: Sequence[str]):
-        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+                 certificate_authority_arns: Optional[Sequence[str]] = None):
+        if certificate_authority_arns is not None:
+            pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
-    def certificate_authority_arns(self) -> Sequence[str]:
+    def certificate_authority_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "certificate_authority_arns")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+                 certificate_chain: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerResult(dict):
     def __init__(__self__, *,
-                 connection_pools: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolResult'],
-                 health_checks: Sequence['outputs.GetVirtualNodeSpecListenerHealthCheckResult'],
-                 outlier_detections: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionResult'],
-                 port_mappings: Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult'],
-                 timeouts: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult'],
-                 tls: Sequence['outputs.GetVirtualNodeSpecListenerTlResult']):
-        pulumi.set(__self__, "connection_pools", connection_pools)
-        pulumi.set(__self__, "health_checks", health_checks)
-        pulumi.set(__self__, "outlier_detections", outlier_detections)
-        pulumi.set(__self__, "port_mappings", port_mappings)
-        pulumi.set(__self__, "timeouts", timeouts)
-        pulumi.set(__self__, "tls", tls)
+                 connection_pools: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolResult']] = None,
+                 health_checks: Optional[Sequence['outputs.GetVirtualNodeSpecListenerHealthCheckResult']] = None,
+                 outlier_detections: Optional[Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionResult']] = None,
+                 port_mappings: Optional[Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult']] = None,
+                 timeouts: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult']] = None,
+                 tls: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlResult']] = None):
+        if connection_pools is not None:
+            pulumi.set(__self__, "connection_pools", connection_pools)
+        if health_checks is not None:
+            pulumi.set(__self__, "health_checks", health_checks)
+        if outlier_detections is not None:
+            pulumi.set(__self__, "outlier_detections", outlier_detections)
+        if port_mappings is not None:
+            pulumi.set(__self__, "port_mappings", port_mappings)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="connectionPools")
-    def connection_pools(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolResult']:
+    def connection_pools(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolResult']]:
         return pulumi.get(self, "connection_pools")
 
     @property
     @pulumi.getter(name="healthChecks")
-    def health_checks(self) -> Sequence['outputs.GetVirtualNodeSpecListenerHealthCheckResult']:
+    def health_checks(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerHealthCheckResult']]:
         return pulumi.get(self, "health_checks")
 
     @property
     @pulumi.getter(name="outlierDetections")
-    def outlier_detections(self) -> Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionResult']:
+    def outlier_detections(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionResult']]:
         return pulumi.get(self, "outlier_detections")
 
     @property
     @pulumi.getter(name="portMappings")
-    def port_mappings(self) -> Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult']:
+    def port_mappings(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult']]:
         return pulumi.get(self, "port_mappings")
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult']:
+    def timeouts(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult']]:
         return pulumi.get(self, "timeouts")
 
     @property
     @pulumi.getter
-    def tls(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlResult']:
+    def tls(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlResult']]:
         return pulumi.get(self, "tls")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
     def __init__(__self__, *,
-                 grpcs: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolGrpcResult'],
-                 http2s: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result'],
-                 https: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult'],
-                 tcps: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult']):
-        pulumi.set(__self__, "grpcs", grpcs)
-        pulumi.set(__self__, "http2s", http2s)
-        pulumi.set(__self__, "https", https)
-        pulumi.set(__self__, "tcps", tcps)
+                 grpcs: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolGrpcResult']] = None,
+                 http2s: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result']] = None,
+                 https: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult']] = None,
+                 tcps: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult']] = None):
+        if grpcs is not None:
+            pulumi.set(__self__, "grpcs", grpcs)
+        if http2s is not None:
+            pulumi.set(__self__, "http2s", http2s)
+        if https is not None:
+            pulumi.set(__self__, "https", https)
+        if tcps is not None:
+            pulumi.set(__self__, "tcps", tcps)
 
     @property
     @pulumi.getter
-    def grpcs(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolGrpcResult']:
+    def grpcs(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolGrpcResult']]:
         return pulumi.get(self, "grpcs")
 
     @property
     @pulumi.getter
-    def http2s(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result']:
+    def http2s(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result']]:
         return pulumi.get(self, "http2s")
 
     @property
     @pulumi.getter
-    def https(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult']:
+    def https(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult']]:
         return pulumi.get(self, "https")
 
     @property
     @pulumi.getter
-    def tcps(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult']:
+    def tcps(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult']]:
         return pulumi.get(self, "tcps")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
     def __init__(__self__, *,
-                 max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
+                 max_requests: Optional[int] = None):
+        if max_requests is not None:
+            pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
-    def max_requests(self) -> int:
+    def max_requests(self) -> Optional[int]:
         return pulumi.get(self, "max_requests")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerConnectionPoolHttp2Result(dict):
     def __init__(__self__, *,
-                 max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
+                 max_requests: Optional[int] = None):
+        if max_requests is not None:
+            pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
-    def max_requests(self) -> int:
+    def max_requests(self) -> Optional[int]:
         return pulumi.get(self, "max_requests")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
     def __init__(__self__, *,
-                 max_connections: int,
-                 max_pending_requests: int):
-        pulumi.set(__self__, "max_connections", max_connections)
-        pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+                 max_connections: Optional[int] = None,
+                 max_pending_requests: Optional[int] = None):
+        if max_connections is not None:
+            pulumi.set(__self__, "max_connections", max_connections)
+        if max_pending_requests is not None:
+            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
-    def max_connections(self) -> int:
+    def max_connections(self) -> Optional[int]:
         return pulumi.get(self, "max_connections")
 
     @property
     @pulumi.getter(name="maxPendingRequests")
-    def max_pending_requests(self) -> int:
+    def max_pending_requests(self) -> Optional[int]:
         return pulumi.get(self, "max_pending_requests")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerConnectionPoolTcpResult(dict):
     def __init__(__self__, *,
-                 max_connections: int):
-        pulumi.set(__self__, "max_connections", max_connections)
+                 max_connections: Optional[int] = None):
+        if max_connections is not None:
+            pulumi.set(__self__, "max_connections", max_connections)
 
     @property
     @pulumi.getter(name="maxConnections")
-    def max_connections(self) -> int:
+    def max_connections(self) -> Optional[int]:
         return pulumi.get(self, "max_connections")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerHealthCheckResult(dict):
     def __init__(__self__, *,
-                 healthy_threshold: int,
-                 interval_millis: int,
-                 path: str,
-                 port: int,
-                 protocol: str,
-                 timeout_millis: int,
-                 unhealthy_threshold: int):
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval_millis", interval_millis)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "timeout_millis", timeout_millis)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+                 healthy_threshold: Optional[int] = None,
+                 interval_millis: Optional[int] = None,
+                 path: Optional[str] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 timeout_millis: Optional[int] = None,
+                 unhealthy_threshold: Optional[int] = None):
+        if healthy_threshold is not None:
+            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        if interval_millis is not None:
+            pulumi.set(__self__, "interval_millis", interval_millis)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if timeout_millis is not None:
+            pulumi.set(__self__, "timeout_millis", timeout_millis)
+        if unhealthy_threshold is not None:
+            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> int:
+    def healthy_threshold(self) -> Optional[int]:
         return pulumi.get(self, "healthy_threshold")
 
     @property
     @pulumi.getter(name="intervalMillis")
-    def interval_millis(self) -> int:
+    def interval_millis(self) -> Optional[int]:
         return pulumi.get(self, "interval_millis")
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="timeoutMillis")
-    def timeout_millis(self) -> int:
+    def timeout_millis(self) -> Optional[int]:
         return pulumi.get(self, "timeout_millis")
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> int:
+    def unhealthy_threshold(self) -> Optional[int]:
         return pulumi.get(self, "unhealthy_threshold")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerOutlierDetectionResult(dict):
     def __init__(__self__, *,
-                 base_ejection_durations: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult'],
-                 intervals: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult'],
-                 max_ejection_percent: int,
-                 max_server_errors: int):
-        pulumi.set(__self__, "base_ejection_durations", base_ejection_durations)
-        pulumi.set(__self__, "intervals", intervals)
-        pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
-        pulumi.set(__self__, "max_server_errors", max_server_errors)
+                 base_ejection_durations: Optional[Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult']] = None,
+                 intervals: Optional[Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult']] = None,
+                 max_ejection_percent: Optional[int] = None,
+                 max_server_errors: Optional[int] = None):
+        if base_ejection_durations is not None:
+            pulumi.set(__self__, "base_ejection_durations", base_ejection_durations)
+        if intervals is not None:
+            pulumi.set(__self__, "intervals", intervals)
+        if max_ejection_percent is not None:
+            pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+        if max_server_errors is not None:
+            pulumi.set(__self__, "max_server_errors", max_server_errors)
 
     @property
     @pulumi.getter(name="baseEjectionDurations")
-    def base_ejection_durations(self) -> Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult']:
+    def base_ejection_durations(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult']]:
         return pulumi.get(self, "base_ejection_durations")
 
     @property
     @pulumi.getter
-    def intervals(self) -> Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult']:
+    def intervals(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult']]:
         return pulumi.get(self, "intervals")
 
     @property
     @pulumi.getter(name="maxEjectionPercent")
-    def max_ejection_percent(self) -> int:
+    def max_ejection_percent(self) -> Optional[int]:
         return pulumi.get(self, "max_ejection_percent")
 
     @property
     @pulumi.getter(name="maxServerErrors")
-    def max_server_errors(self) -> int:
+    def max_server_errors(self) -> Optional[int]:
         return pulumi.get(self, "max_server_errors")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerOutlierDetectionIntervalResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 protocol: str):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutResult(dict):
     def __init__(__self__, *,
-                 grpcs: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcResult'],
-                 http2s: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result'],
-                 https: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult'],
-                 tcps: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult']):
-        pulumi.set(__self__, "grpcs", grpcs)
-        pulumi.set(__self__, "http2s", http2s)
-        pulumi.set(__self__, "https", https)
-        pulumi.set(__self__, "tcps", tcps)
+                 grpcs: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcResult']] = None,
+                 http2s: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result']] = None,
+                 https: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult']] = None,
+                 tcps: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult']] = None):
+        if grpcs is not None:
+            pulumi.set(__self__, "grpcs", grpcs)
+        if http2s is not None:
+            pulumi.set(__self__, "http2s", http2s)
+        if https is not None:
+            pulumi.set(__self__, "https", https)
+        if tcps is not None:
+            pulumi.set(__self__, "tcps", tcps)
 
     @property
     @pulumi.getter
-    def grpcs(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcResult']:
+    def grpcs(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcResult']]:
         return pulumi.get(self, "grpcs")
 
     @property
     @pulumi.getter
-    def http2s(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result']:
+    def http2s(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result']]:
         return pulumi.get(self, "http2s")
 
     @property
     @pulumi.getter
-    def https(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult']:
+    def https(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult']]:
         return pulumi.get(self, "https")
 
     @property
     @pulumi.getter
-    def tcps(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult']:
+    def tcps(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult']]:
         return pulumi.get(self, "tcps")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutGrpcResult(dict):
     def __init__(__self__, *,
-                 idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult'],
-                 per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+                 idles: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult']] = None,
+                 per_requests: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']] = None):
+        if idles is not None:
+            pulumi.set(__self__, "idles", idles)
+        if per_requests is not None:
+            pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
-    def idles(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult']:
+    def idles(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult']]:
         return pulumi.get(self, "idles")
 
     @property
     @pulumi.getter(name="perRequests")
-    def per_requests(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']:
+    def per_requests(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']]:
         return pulumi.get(self, "per_requests")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutGrpcIdleResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutHttp2Result(dict):
     def __init__(__self__, *,
-                 idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult'],
-                 per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+                 idles: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult']] = None,
+                 per_requests: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']] = None):
+        if idles is not None:
+            pulumi.set(__self__, "idles", idles)
+        if per_requests is not None:
+            pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
-    def idles(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult']:
+    def idles(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult']]:
         return pulumi.get(self, "idles")
 
     @property
     @pulumi.getter(name="perRequests")
-    def per_requests(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']:
+    def per_requests(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']]:
         return pulumi.get(self, "per_requests")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutHttp2IdleResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutHttpResult(dict):
     def __init__(__self__, *,
-                 idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult'],
-                 per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+                 idles: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult']] = None,
+                 per_requests: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']] = None):
+        if idles is not None:
+            pulumi.set(__self__, "idles", idles)
+        if per_requests is not None:
+            pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
-    def idles(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult']:
+    def idles(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult']]:
         return pulumi.get(self, "idles")
 
     @property
     @pulumi.getter(name="perRequests")
-    def per_requests(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']:
+    def per_requests(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']]:
         return pulumi.get(self, "per_requests")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutHttpIdleResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutTcpResult(dict):
     def __init__(__self__, *,
-                 idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']):
-        pulumi.set(__self__, "idles", idles)
+                 idles: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']] = None):
+        if idles is not None:
+            pulumi.set(__self__, "idles", idles)
 
     @property
     @pulumi.getter
-    def idles(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']:
+    def idles(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']]:
         return pulumi.get(self, "idles")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTimeoutTcpIdleResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlResult(dict):
     def __init__(__self__, *,
-                 certificates: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult'],
-                 mode: str,
-                 validations: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "validations", validations)
+                 certificates: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult']] = None,
+                 mode: Optional[str] = None,
+                 validations: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult']] = None):
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if validations is not None:
+            pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
-    def certificates(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult']:
+    def certificates(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult']]:
         return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter
-    def mode(self) -> str:
+    def mode(self) -> Optional[str]:
         return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter
-    def validations(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult']:
+    def validations(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult']]:
         return pulumi.get(self, "validations")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlCertificateResult(dict):
     def __init__(__self__, *,
-                 acms: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult'],
-                 files: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult'],
-                 sds: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 acms: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult']] = None,
+                 files: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult']] = None):
+        if acms is not None:
+            pulumi.set(__self__, "acms", acms)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def acms(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult']:
+    def acms(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult']]:
         return pulumi.get(self, "acms")
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlCertificateAcmResult(dict):
     def __init__(__self__, *,
-                 certificate_arn: str):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
+                 certificate_arn: Optional[str] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> Optional[str]:
         return pulumi.get(self, "certificate_arn")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str,
-                 private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+                 certificate_chain: Optional[str] = None,
+                 private_key: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> str:
+    def private_key(self) -> Optional[str]:
         return pulumi.get(self, "private_key")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlCertificateSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlValidationResult(dict):
     def __init__(__self__, *,
-                 subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult'],
-                 trusts: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+                 subject_alternative_names: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult']] = None,
+                 trusts: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']] = None):
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        if trusts is not None:
+            pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult']:
+    def subject_alternative_names(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult']]:
         return pulumi.get(self, "subject_alternative_names")
 
     @property
     @pulumi.getter
-    def trusts(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']:
+    def trusts(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']]:
         return pulumi.get(self, "trusts")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
-                 matches: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+                 matches: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']] = None):
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
-    def matches(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']:
+    def matches(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']]:
         return pulumi.get(self, "matches")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
-                 exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+                 exacts: Optional[Sequence[str]] = None):
+        if exacts is not None:
+            pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
-    def exacts(self) -> Sequence[str]:
+    def exacts(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "exacts")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
     def __init__(__self__, *,
-                 files: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult'],
-                 sds: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+                 files: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult']] = None,
+                 sds: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']] = None):
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult']]:
         return pulumi.get(self, "files")
 
     @property
     @pulumi.getter
-    def sds(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']:
+    def sds(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']]:
         return pulumi.get(self, "sds")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
-                 certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+                 certificate_chain: Optional[str] = None):
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         return pulumi.get(self, "certificate_chain")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
-                 secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+                 secret_name: Optional[str] = None):
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> str:
+    def secret_name(self) -> Optional[str]:
         return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecLoggingResult(dict):
     def __init__(__self__, *,
-                 access_logs: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']):
-        pulumi.set(__self__, "access_logs", access_logs)
+                 access_logs: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']] = None):
+        if access_logs is not None:
+            pulumi.set(__self__, "access_logs", access_logs)
 
     @property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']:
+    def access_logs(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']]:
         return pulumi.get(self, "access_logs")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecLoggingAccessLogResult(dict):
     def __init__(__self__, *,
-                 files: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']):
-        pulumi.set(__self__, "files", files)
+                 files: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']] = None):
+        if files is not None:
+            pulumi.set(__self__, "files", files)
 
     @property
     @pulumi.getter
-    def files(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']:
+    def files(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']]:
         return pulumi.get(self, "files")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecLoggingAccessLogFileResult(dict):
     def __init__(__self__, *,
-                 formats: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult'],
-                 path: str):
-        pulumi.set(__self__, "formats", formats)
-        pulumi.set(__self__, "path", path)
+                 formats: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult']] = None,
+                 path: Optional[str] = None):
+        if formats is not None:
+            pulumi.set(__self__, "formats", formats)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
-    def formats(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult']:
+    def formats(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult']]:
         return pulumi.get(self, "formats")
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecLoggingAccessLogFileFormatResult(dict):
     def __init__(__self__, *,
-                 jsons: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult'],
-                 text: str):
-        pulumi.set(__self__, "jsons", jsons)
-        pulumi.set(__self__, "text", text)
+                 jsons: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult']] = None,
+                 text: Optional[str] = None):
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
-    def jsons(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult']:
+    def jsons(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult']]:
         return pulumi.get(self, "jsons")
 
     @property
     @pulumi.getter
-    def text(self) -> str:
+    def text(self) -> Optional[str]:
         return pulumi.get(self, "text")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult(dict):
     def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecServiceDiscoveryResult(dict):
     def __init__(__self__, *,
-                 aws_cloud_maps: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult'],
-                 dns: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']):
-        pulumi.set(__self__, "aws_cloud_maps", aws_cloud_maps)
-        pulumi.set(__self__, "dns", dns)
+                 aws_cloud_maps: Optional[Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult']] = None,
+                 dns: Optional[Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']] = None):
+        if aws_cloud_maps is not None:
+            pulumi.set(__self__, "aws_cloud_maps", aws_cloud_maps)
+        if dns is not None:
+            pulumi.set(__self__, "dns", dns)
 
     @property
     @pulumi.getter(name="awsCloudMaps")
-    def aws_cloud_maps(self) -> Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult']:
+    def aws_cloud_maps(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult']]:
         return pulumi.get(self, "aws_cloud_maps")
 
     @property
     @pulumi.getter
-    def dns(self) -> Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']:
+    def dns(self) -> Optional[Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']]:
         return pulumi.get(self, "dns")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult(dict):
     def __init__(__self__, *,
-                 attributes: Mapping[str, str],
-                 namespace_name: str,
-                 service_name: str):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "service_name", service_name)
+                 attributes: Optional[Mapping[str, str]] = None,
+                 namespace_name: Optional[str] = None,
+                 service_name: Optional[str] = None):
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Mapping[str, str]:
+    def attributes(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> Optional[str]:
         return pulumi.get(self, "namespace_name")
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> Optional[str]:
         return pulumi.get(self, "service_name")
 
 
 @pulumi.output_type
 class GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
     def __init__(__self__, *,
-                 hostname: str,
-                 ip_preference: str,
-                 response_type: str):
-        pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "ip_preference", ip_preference)
-        pulumi.set(__self__, "response_type", response_type)
+                 hostname: Optional[str] = None,
+                 ip_preference: Optional[str] = None,
+                 response_type: Optional[str] = None):
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if ip_preference is not None:
+            pulumi.set(__self__, "ip_preference", ip_preference)
+        if response_type is not None:
+            pulumi.set(__self__, "response_type", response_type)
 
     @property
     @pulumi.getter
-    def hostname(self) -> str:
+    def hostname(self) -> Optional[str]:
         return pulumi.get(self, "hostname")
 
     @property
     @pulumi.getter(name="ipPreference")
-    def ip_preference(self) -> str:
+    def ip_preference(self) -> Optional[str]:
         return pulumi.get(self, "ip_preference")
 
     @property
     @pulumi.getter(name="responseType")
-    def response_type(self) -> str:
+    def response_type(self) -> Optional[str]:
         return pulumi.get(self, "response_type")
 
 
 @pulumi.output_type
 class GetVirtualRouterSpecResult(dict):
     def __init__(__self__, *,
-                 listeners: Sequence['outputs.GetVirtualRouterSpecListenerResult']):
-        pulumi.set(__self__, "listeners", listeners)
+                 listeners: Optional[Sequence['outputs.GetVirtualRouterSpecListenerResult']] = None):
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
 
     @property
     @pulumi.getter
-    def listeners(self) -> Sequence['outputs.GetVirtualRouterSpecListenerResult']:
+    def listeners(self) -> Optional[Sequence['outputs.GetVirtualRouterSpecListenerResult']]:
         return pulumi.get(self, "listeners")
 
 
 @pulumi.output_type
 class GetVirtualRouterSpecListenerResult(dict):
     def __init__(__self__, *,
-                 port_mappings: Sequence['outputs.GetVirtualRouterSpecListenerPortMappingResult']):
-        pulumi.set(__self__, "port_mappings", port_mappings)
+                 port_mappings: Optional[Sequence['outputs.GetVirtualRouterSpecListenerPortMappingResult']] = None):
+        if port_mappings is not None:
+            pulumi.set(__self__, "port_mappings", port_mappings)
 
     @property
     @pulumi.getter(name="portMappings")
-    def port_mappings(self) -> Sequence['outputs.GetVirtualRouterSpecListenerPortMappingResult']:
+    def port_mappings(self) -> Optional[Sequence['outputs.GetVirtualRouterSpecListenerPortMappingResult']]:
         return pulumi.get(self, "port_mappings")
 
 
 @pulumi.output_type
 class GetVirtualRouterSpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
-                 port: int,
-                 protocol: str):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type
 class GetVirtualServiceSpecResult(dict):
     def __init__(__self__, *,
-                 providers: Sequence['outputs.GetVirtualServiceSpecProviderResult']):
-        pulumi.set(__self__, "providers", providers)
+                 providers: Optional[Sequence['outputs.GetVirtualServiceSpecProviderResult']] = None):
+        if providers is not None:
+            pulumi.set(__self__, "providers", providers)
 
     @property
     @pulumi.getter
-    def providers(self) -> Sequence['outputs.GetVirtualServiceSpecProviderResult']:
+    def providers(self) -> Optional[Sequence['outputs.GetVirtualServiceSpecProviderResult']]:
         return pulumi.get(self, "providers")
 
 
 @pulumi.output_type
 class GetVirtualServiceSpecProviderResult(dict):
     def __init__(__self__, *,
-                 virtual_nodes: Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult'],
-                 virtual_routers: Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']):
-        pulumi.set(__self__, "virtual_nodes", virtual_nodes)
-        pulumi.set(__self__, "virtual_routers", virtual_routers)
+                 virtual_nodes: Optional[Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult']] = None,
+                 virtual_routers: Optional[Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']] = None):
+        if virtual_nodes is not None:
+            pulumi.set(__self__, "virtual_nodes", virtual_nodes)
+        if virtual_routers is not None:
+            pulumi.set(__self__, "virtual_routers", virtual_routers)
 
     @property
     @pulumi.getter(name="virtualNodes")
-    def virtual_nodes(self) -> Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult']:
+    def virtual_nodes(self) -> Optional[Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult']]:
         return pulumi.get(self, "virtual_nodes")
 
     @property
     @pulumi.getter(name="virtualRouters")
-    def virtual_routers(self) -> Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']:
+    def virtual_routers(self) -> Optional[Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']]:
         return pulumi.get(self, "virtual_routers")
 
 
 @pulumi.output_type
 class GetVirtualServiceSpecProviderVirtualNodeResult(dict):
     def __init__(__self__, *,
-                 virtual_node_name: str):
-        pulumi.set(__self__, "virtual_node_name", virtual_node_name)
+                 virtual_node_name: Optional[str] = None):
+        if virtual_node_name is not None:
+            pulumi.set(__self__, "virtual_node_name", virtual_node_name)
 
     @property
     @pulumi.getter(name="virtualNodeName")
-    def virtual_node_name(self) -> str:
+    def virtual_node_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_node_name")
 
 
 @pulumi.output_type
 class GetVirtualServiceSpecProviderVirtualRouterResult(dict):
     def __init__(__self__, *,
-                 virtual_router_name: str):
-        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+                 virtual_router_name: Optional[str] = None):
+        if virtual_router_name is not None:
+            pulumi.set(__self__, "virtual_router_name", virtual_router_name)
 
     @property
     @pulumi.getter(name="virtualRouterName")
-    def virtual_router_name(self) -> str:
+    def virtual_router_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_router_name")
 
 

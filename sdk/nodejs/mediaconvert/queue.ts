@@ -58,7 +58,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The Arn of the queue
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description of the queue
      */
@@ -74,7 +74,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * A detail pricing plan of the  reserved queue. See below.
      */
-    public readonly reservationPlanSettings!: pulumi.Output<outputs.mediaconvert.QueueReservationPlanSettings>;
+    public readonly reservationPlanSettings!: pulumi.Output<outputs.mediaconvert.QueueReservationPlanSettings | undefined>;
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      */

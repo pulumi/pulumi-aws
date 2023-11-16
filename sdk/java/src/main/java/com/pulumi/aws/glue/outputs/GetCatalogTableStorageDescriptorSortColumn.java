@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorSortColumn {
@@ -14,27 +16,27 @@ public final class GetCatalogTableStorageDescriptorSortColumn {
      * @return Name of the column.
      * 
      */
-    private String column;
+    private @Nullable String column;
     /**
      * @return Whether the column is sorted in ascending (`1`) or descending order (`0`).
      * 
      */
-    private Integer sortOrder;
+    private @Nullable Integer sortOrder;
 
     private GetCatalogTableStorageDescriptorSortColumn() {}
     /**
      * @return Name of the column.
      * 
      */
-    public String column() {
-        return this.column;
+    public Optional<String> column() {
+        return Optional.ofNullable(this.column);
     }
     /**
      * @return Whether the column is sorted in ascending (`1`) or descending order (`0`).
      * 
      */
-    public Integer sortOrder() {
-        return this.sortOrder;
+    public Optional<Integer> sortOrder() {
+        return Optional.ofNullable(this.sortOrder);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetCatalogTableStorageDescriptorSortColumn {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String column;
-        private Integer sortOrder;
+        private @Nullable String column;
+        private @Nullable Integer sortOrder;
         public Builder() {}
         public Builder(GetCatalogTableStorageDescriptorSortColumn defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetCatalogTableStorageDescriptorSortColumn {
         }
 
         @CustomType.Setter
-        public Builder column(String column) {
-            this.column = Objects.requireNonNull(column);
+        public Builder column(@Nullable String column) {
+            this.column = column;
             return this;
         }
         @CustomType.Setter
-        public Builder sortOrder(Integer sortOrder) {
-            this.sortOrder = Objects.requireNonNull(sortOrder);
+        public Builder sortOrder(@Nullable Integer sortOrder) {
+            this.sortOrder = sortOrder;
             return this;
         }
         public GetCatalogTableStorageDescriptorSortColumn build() {

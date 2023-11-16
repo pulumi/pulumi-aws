@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetColumnGroupGeoSpatialColumnGroup {
-    private List<String> columns;
-    private String countryCode;
-    private String name;
+    private @Nullable List<String> columns;
+    private @Nullable String countryCode;
+    private @Nullable String name;
 
     private GetDataSetColumnGroupGeoSpatialColumnGroup() {}
     public List<String> columns() {
-        return this.columns;
+        return this.columns == null ? List.of() : this.columns;
     }
-    public String countryCode() {
-        return this.countryCode;
+    public Optional<String> countryCode() {
+        return Optional.ofNullable(this.countryCode);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetDataSetColumnGroupGeoSpatialColumnGroup {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> columns;
-        private String countryCode;
-        private String name;
+        private @Nullable List<String> columns;
+        private @Nullable String countryCode;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetDataSetColumnGroupGeoSpatialColumnGroup defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,21 +48,21 @@ public final class GetDataSetColumnGroupGeoSpatialColumnGroup {
         }
 
         @CustomType.Setter
-        public Builder columns(List<String> columns) {
-            this.columns = Objects.requireNonNull(columns);
+        public Builder columns(@Nullable List<String> columns) {
+            this.columns = columns;
             return this;
         }
         public Builder columns(String... columns) {
             return columns(List.of(columns));
         }
         @CustomType.Setter
-        public Builder countryCode(String countryCode) {
-            this.countryCode = Objects.requireNonNull(countryCode);
+        public Builder countryCode(@Nullable String countryCode) {
+            this.countryCode = countryCode;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetDataSetColumnGroupGeoSpatialColumnGroup build() {

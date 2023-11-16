@@ -450,7 +450,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of this auto scaling configuration version.
         """
@@ -466,7 +466,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoScalingConfigurationRevision")
-    def auto_scaling_configuration_revision(self) -> pulumi.Output[int]:
+    def auto_scaling_configuration_revision(self) -> pulumi.Output[Optional[int]]:
         """
         The revision of this auto scaling configuration.
         """
@@ -474,7 +474,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def latest(self) -> pulumi.Output[bool]:
+    def latest(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
         """
@@ -506,7 +506,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         """

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageRecipeComponent {
@@ -15,27 +17,27 @@ public final class GetImageRecipeComponent {
      * @return ARN of the Image Builder Component.
      * 
      */
-    private String componentArn;
+    private @Nullable String componentArn;
     /**
      * @return Set of parameters that are used to configure the component.
      * 
      */
-    private List<GetImageRecipeComponentParameter> parameters;
+    private @Nullable List<GetImageRecipeComponentParameter> parameters;
 
     private GetImageRecipeComponent() {}
     /**
      * @return ARN of the Image Builder Component.
      * 
      */
-    public String componentArn() {
-        return this.componentArn;
+    public Optional<String> componentArn() {
+        return Optional.ofNullable(this.componentArn);
     }
     /**
      * @return Set of parameters that are used to configure the component.
      * 
      */
     public List<GetImageRecipeComponentParameter> parameters() {
-        return this.parameters;
+        return this.parameters == null ? List.of() : this.parameters;
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetImageRecipeComponent {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String componentArn;
-        private List<GetImageRecipeComponentParameter> parameters;
+        private @Nullable String componentArn;
+        private @Nullable List<GetImageRecipeComponentParameter> parameters;
         public Builder() {}
         public Builder(GetImageRecipeComponent defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,13 +59,13 @@ public final class GetImageRecipeComponent {
         }
 
         @CustomType.Setter
-        public Builder componentArn(String componentArn) {
-            this.componentArn = Objects.requireNonNull(componentArn);
+        public Builder componentArn(@Nullable String componentArn) {
+            this.componentArn = componentArn;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(List<GetImageRecipeComponentParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable List<GetImageRecipeComponentParameter> parameters) {
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetImageRecipeComponentParameter... parameters) {

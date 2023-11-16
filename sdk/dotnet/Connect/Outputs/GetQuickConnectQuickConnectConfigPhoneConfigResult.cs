@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// Phone number in in E.164 format.
         /// </summary>
-        public readonly string PhoneNumber;
+        public readonly string? PhoneNumber;
 
         [OutputConstructor]
-        private GetQuickConnectQuickConnectConfigPhoneConfigResult(string phoneNumber)
+        private GetQuickConnectQuickConnectConfigPhoneConfigResult(string? phoneNumber)
         {
             PhoneNumber = phoneNumber;
         }

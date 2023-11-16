@@ -97,142 +97,143 @@ import (
 //
 //	"encoding/json"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ssmLifecycleTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"events.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"schemaVersion": "1.2",
-//				"description":   "Stop an instance",
-//				"parameters":    nil,
-//				"runtimeConfig": map[string]interface{}{
-//					"aws:runShellScript": map[string]interface{}{
-//						"properties": []map[string]interface{}{
-//							map[string]interface{}{
-//								"id": "0.aws:runShellScript",
-//								"runCommand": []string{
-//									"halt",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			stopInstance, err := ssm.NewDocument(ctx, "stopInstance", &ssm.DocumentArgs{
-//				DocumentType: pulumi.String("Command"),
-//				Content:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ssmLifecyclePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("ssm:SendCommand"),
-//						},
-//						Resources: pulumi.StringArray{
-//							pulumi.String("arn:aws:ec2:eu-west-1:1234567890:instance/*"),
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("ec2:ResourceTag/Terminate"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("ssm:SendCommand"),
-//						},
-//						Resources: pulumi.StringArray{
-//							stopInstance.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			ssmLifecycleRole, err := iam.NewRole(ctx, "ssmLifecycleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(ssmLifecycleTrust.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ssmLifecyclePolicy, err := iam.NewPolicy(ctx, "ssmLifecyclePolicy", &iam.PolicyArgs{
-//				Policy: ssmLifecyclePolicyDocument.ApplyT(func(ssmLifecyclePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &ssmLifecyclePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "ssmLifecycleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: ssmLifecyclePolicy.Arn,
-//				Role:      ssmLifecycleRole.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			stopInstancesEventRule, err := cloudwatch.NewEventRule(ctx, "stopInstancesEventRule", &cloudwatch.EventRuleArgs{
-//				Description:        pulumi.String("Stop instances nightly"),
-//				ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
-//				Arn:     stopInstance.Arn,
-//				Rule:    stopInstancesEventRule.Name,
-//				RoleArn: ssmLifecycleRole.Arn,
-//				RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
-//					&cloudwatch.EventTargetRunCommandTargetArgs{
-//						Key: pulumi.String("tag:Terminate"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("midnight"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// ssmLifecycleTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "events.amazonaws.com",
+// },
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "schemaVersion": "1.2",
+// "description": "Stop an instance",
+// "parameters": nil,
+// "runtimeConfig": map[string]interface{}{
+// "aws:runShellScript": map[string]interface{}{
+// "properties": []map[string]interface{}{
+// map[string]interface{}{
+// "id": "0.aws:runShellScript",
+// "runCommand": []string{
+// "halt",
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// stopInstance, err := ssm.NewDocument(ctx, "stopInstance", &ssm.DocumentArgs{
+// DocumentType: pulumi.String("Command"),
+// Content: pulumi.String(json0),
+// })
+// if err != nil {
+// return err
+// }
+// ssmLifecyclePolicyDocument := stopInstance.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "ssm:SendCommand",
+// },
+// Resources: []string{
+// "arn:aws:ec2:eu-west-1:1234567890:instance/*",
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "ec2:ResourceTag/Terminate",
+// Values: []string{
+// "*",
+// },
+// },
+// },
+// },
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "ssm:SendCommand",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// ssmLifecycleRole, err := iam.NewRole(ctx, "ssmLifecycleRole", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(ssmLifecycleTrust.Json),
+// })
+// if err != nil {
+// return err
+// }
+// ssmLifecyclePolicy, err := iam.NewPolicy(ctx, "ssmLifecyclePolicy", &iam.PolicyArgs{
+// Policy: ssmLifecyclePolicyDocument.ApplyT(func(ssmLifecyclePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &ssmLifecyclePolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicyAttachment(ctx, "ssmLifecycleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+// PolicyArn: ssmLifecyclePolicy.Arn,
+// Role: ssmLifecycleRole.Name,
+// })
+// if err != nil {
+// return err
+// }
+// stopInstancesEventRule, err := cloudwatch.NewEventRule(ctx, "stopInstancesEventRule", &cloudwatch.EventRuleArgs{
+// Description: pulumi.String("Stop instances nightly"),
+// ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
+// Arn: stopInstance.Arn,
+// Rule: stopInstancesEventRule.Name,
+// RoleArn: ssmLifecycleRole.Arn,
+// RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
+// &cloudwatch.EventTargetRunCommandTargetArgs{
+// Key: pulumi.String("tag:Terminate"),
+// Values: pulumi.StringArray{
+// pulumi.String("midnight"),
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### RunCommand Usage
 //
@@ -314,7 +315,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
-//				Arn: exampleStage.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
+//				Arn: exampleStage.ExecutionArn.ApplyT(func(executionArn *string) (string, error) {
 //					return fmt.Sprintf("%v/GET", executionArn), nil
 //				}).(pulumi.StringOutput),
 //				Rule: exampleEventRule.ID(),
@@ -342,6 +343,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -515,107 +517,106 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
-//				RetentionInDays: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"source": []string{
-//					"aws.guardduty",
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", &cloudwatch.EventRuleArgs{
-//				Description:  pulumi.String("GuardDuty Findings"),
-//				EventPattern: pulumi.String(json0),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("logs:CreateLogStream"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v:*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("events.amazonaws.com"),
-//									pulumi.String("delivery.logs.amazonaws.com"),
-//								},
-//							},
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("logs:PutLogEvents"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v:*:*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("events.amazonaws.com"),
-//									pulumi.String("delivery.logs.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test: pulumi.String("ArnEquals"),
-//								Values: pulumi.StringArray{
-//									exampleEventRule.Arn,
-//								},
-//								Variable: pulumi.String("aws:SourceArn"),
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: exampleLogPolicy.ApplyT(func(exampleLogPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &exampleLogPolicy.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//				PolicyName: pulumi.String("guardduty-log-publishing-policy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
-//				Rule: exampleEventRule.Name,
-//				Arn:  exampleLogGroup.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+// RetentionInDays: pulumi.Int(1),
+// })
+// if err != nil {
+// return err
+// }
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "source": []string{
+// "aws.guardduty",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", &cloudwatch.EventRuleArgs{
+// Description: pulumi.String("GuardDuty Findings"),
+// EventPattern: pulumi.String(json0),
+// Tags: pulumi.StringMap{
+// "Environment": pulumi.String("example"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleLogPolicy := pulumi.All(exampleLogGroup.Arn,exampleLogGroup.Arn,exampleEventRule.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// exampleLogGroupArn := _args[0].(*string)
+// exampleLogGroupArn1 := _args[1].(*string)
+// exampleEventRuleArn := _args[2].(*string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "logs:CreateLogStream",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v:*", exampleLogGroupArn),
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "events.amazonaws.com",
+// "delivery.logs.amazonaws.com",
+// },
+// },
+// },
+// },
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "logs:PutLogEvents",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v:*:*", exampleLogGroupArn1),
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "events.amazonaws.com",
+// "delivery.logs.amazonaws.com",
+// },
+// },
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "ArnEquals",
+// Values: interface{}{
+// exampleEventRuleArn,
+// },
+// Variable: "aws:SourceArn",
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+// PolicyDocument: exampleLogPolicy.ApplyT(func(exampleLogPolicy iam.GetPolicyDocumentResult) (*string, error) {
+// return &exampleLogPolicy.Json, nil
+// }).(pulumi.StringPtrOutput),
+// PolicyName: pulumi.String("guardduty-log-publishing-policy"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
+// Rule: exampleEventRule.Name,
+// Arn: exampleLogGroup.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

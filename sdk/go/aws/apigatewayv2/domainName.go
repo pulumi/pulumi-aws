@@ -113,9 +113,9 @@ type DomainName struct {
 	pulumi.CustomResourceState
 
 	// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-	ApiMappingSelectionExpression pulumi.StringOutput `pulumi:"apiMappingSelectionExpression"`
+	ApiMappingSelectionExpression pulumi.StringPtrOutput `pulumi:"apiMappingSelectionExpression"`
 	// ARN of the domain name.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Domain name. Must be between 1 and 512 characters in length.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Domain name configuration. See below.
@@ -322,13 +322,13 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 }
 
 // [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-func (o DomainNameOutput) ApiMappingSelectionExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.ApiMappingSelectionExpression }).(pulumi.StringOutput)
+func (o DomainNameOutput) ApiMappingSelectionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.ApiMappingSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the domain name.
-func (o DomainNameOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DomainNameOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Domain name. Must be between 1 and 512 characters in length.

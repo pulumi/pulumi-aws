@@ -263,7 +263,7 @@ class LfTag(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> pulumi.Output[str]:
+    def catalog_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
         """

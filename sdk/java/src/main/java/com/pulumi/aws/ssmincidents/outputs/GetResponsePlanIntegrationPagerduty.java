@@ -6,6 +6,8 @@ package com.pulumi.aws.ssmincidents.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponsePlanIntegrationPagerduty {
@@ -13,39 +15,39 @@ public final class GetResponsePlanIntegrationPagerduty {
      * @return The name of the PagerDuty configuration.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The ID of the AWS Secrets Manager secret that stores your PagerDuty key &amp;mdash; either a General Access REST API Key or User Token REST API Key &amp;mdash; and other user credentials.
      * 
      */
-    private String secretId;
+    private @Nullable String secretId;
     /**
      * @return The ID of the PagerDuty service that the response plan associates with an incident when it launches.
      * 
      */
-    private String serviceId;
+    private @Nullable String serviceId;
 
     private GetResponsePlanIntegrationPagerduty() {}
     /**
      * @return The name of the PagerDuty configuration.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The ID of the AWS Secrets Manager secret that stores your PagerDuty key &amp;mdash; either a General Access REST API Key or User Token REST API Key &amp;mdash; and other user credentials.
      * 
      */
-    public String secretId() {
-        return this.secretId;
+    public Optional<String> secretId() {
+        return Optional.ofNullable(this.secretId);
     }
     /**
      * @return The ID of the PagerDuty service that the response plan associates with an incident when it launches.
      * 
      */
-    public String serviceId() {
-        return this.serviceId;
+    public Optional<String> serviceId() {
+        return Optional.ofNullable(this.serviceId);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetResponsePlanIntegrationPagerduty {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String name;
-        private String secretId;
-        private String serviceId;
+        private @Nullable String name;
+        private @Nullable String secretId;
+        private @Nullable String serviceId;
         public Builder() {}
         public Builder(GetResponsePlanIntegrationPagerduty defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetResponsePlanIntegrationPagerduty {
         }
 
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder secretId(String secretId) {
-            this.secretId = Objects.requireNonNull(secretId);
+        public Builder secretId(@Nullable String secretId) {
+            this.secretId = secretId;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceId(String serviceId) {
-            this.serviceId = Objects.requireNonNull(serviceId);
+        public Builder serviceId(@Nullable String serviceId) {
+            this.serviceId = serviceId;
             return this;
         }
         public GetResponsePlanIntegrationPagerduty build() {

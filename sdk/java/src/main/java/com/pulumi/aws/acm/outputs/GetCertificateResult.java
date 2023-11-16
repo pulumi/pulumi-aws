@@ -18,36 +18,36 @@ public final class GetCertificateResult {
      * @return ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return ACM-issued certificate.
      * 
      */
-    private String certificate;
+    private @Nullable String certificate;
     /**
      * @return Certificates forming the requested ACM-issued certificate&#39;s chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
      * 
      */
-    private String certificateChain;
+    private @Nullable String certificateChain;
     private String domain;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable List<String> keyTypes;
     private @Nullable Boolean mostRecent;
     /**
      * @return Status of the found certificate.
      * 
      */
-    private String status;
+    private @Nullable String status;
     private @Nullable List<String> statuses;
     /**
      * @return Mapping of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     private @Nullable List<String> types;
 
     private GetCertificateResult() {}
@@ -55,22 +55,22 @@ public final class GetCertificateResult {
      * @return ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return ACM-issued certificate.
      * 
      */
-    public String certificate() {
-        return this.certificate;
+    public Optional<String> certificate() {
+        return Optional.ofNullable(this.certificate);
     }
     /**
      * @return Certificates forming the requested ACM-issued certificate&#39;s chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
      * 
      */
-    public String certificateChain() {
-        return this.certificateChain;
+    public Optional<String> certificateChain() {
+        return Optional.ofNullable(this.certificateChain);
     }
     public String domain() {
         return this.domain;
@@ -79,8 +79,8 @@ public final class GetCertificateResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<String> keyTypes() {
         return this.keyTypes == null ? List.of() : this.keyTypes;
@@ -92,8 +92,8 @@ public final class GetCertificateResult {
      * @return Status of the found certificate.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     public List<String> statuses() {
         return this.statuses == null ? List.of() : this.statuses;
@@ -103,7 +103,7 @@ public final class GetCertificateResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public List<String> types() {
         return this.types == null ? List.of() : this.types;
@@ -118,16 +118,16 @@ public final class GetCertificateResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String certificate;
-        private String certificateChain;
+        private @Nullable String arn;
+        private @Nullable String certificate;
+        private @Nullable String certificateChain;
         private String domain;
-        private String id;
+        private @Nullable String id;
         private @Nullable List<String> keyTypes;
         private @Nullable Boolean mostRecent;
-        private String status;
+        private @Nullable String status;
         private @Nullable List<String> statuses;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         private @Nullable List<String> types;
         public Builder() {}
         public Builder(GetCertificateResult defaults) {
@@ -146,18 +146,18 @@ public final class GetCertificateResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder certificate(String certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+        public Builder certificate(@Nullable String certificate) {
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+        public Builder certificateChain(@Nullable String certificateChain) {
+            this.certificateChain = certificateChain;
             return this;
         }
         @CustomType.Setter
@@ -166,8 +166,8 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -184,8 +184,8 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
@@ -197,8 +197,8 @@ public final class GetCertificateResult {
             return statuses(List.of(statuses));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

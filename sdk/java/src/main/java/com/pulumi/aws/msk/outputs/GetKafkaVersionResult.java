@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -15,22 +16,22 @@ public final class GetKafkaVersionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable List<String> preferredVersions;
     /**
      * @return Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
      * 
      */
-    private String status;
-    private String version;
+    private @Nullable String status;
+    private @Nullable String version;
 
     private GetKafkaVersionResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<String> preferredVersions() {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
@@ -39,11 +40,11 @@ public final class GetKafkaVersionResult {
      * @return Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -55,10 +56,10 @@ public final class GetKafkaVersionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private @Nullable List<String> preferredVersions;
-        private String status;
-        private String version;
+        private @Nullable String status;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetKafkaVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,8 +70,8 @@ public final class GetKafkaVersionResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -82,13 +83,13 @@ public final class GetKafkaVersionResult {
             return preferredVersions(List.of(preferredVersions));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetKafkaVersionResult build() {

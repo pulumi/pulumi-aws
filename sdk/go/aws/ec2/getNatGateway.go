@@ -99,29 +99,29 @@ type LookupNatGatewayArgs struct {
 // A collection of values returned by getNatGateway.
 type LookupNatGatewayResult struct {
 	// ID of the EIP allocated to the selected NAT Gateway.
-	AllocationId string `pulumi:"allocationId"`
+	AllocationId *string `pulumi:"allocationId"`
 	// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
-	AssociationId string `pulumi:"associationId"`
+	AssociationId *string `pulumi:"associationId"`
 	// Connectivity type of the NAT Gateway.
-	ConnectivityType string                `pulumi:"connectivityType"`
+	ConnectivityType *string               `pulumi:"connectivityType"`
 	Filters          []GetNatGatewayFilter `pulumi:"filters"`
-	Id               string                `pulumi:"id"`
+	Id               *string               `pulumi:"id"`
 	// The ID of the ENI allocated to the selected NAT Gateway.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// Private IP address of the selected NAT Gateway.
-	PrivateIp string `pulumi:"privateIp"`
+	PrivateIp *string `pulumi:"privateIp"`
 	// Public IP (EIP) address of the selected NAT Gateway.
-	PublicIp string `pulumi:"publicIp"`
+	PublicIp *string `pulumi:"publicIp"`
 	// Secondary allocation EIP IDs for the selected NAT Gateway.
 	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
 	// The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
-	SecondaryPrivateIpAddressCount int `pulumi:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
 	// Secondary private IPv4 addresses assigned to the selected NAT Gateway.
 	SecondaryPrivateIpAddresses []string          `pulumi:"secondaryPrivateIpAddresses"`
-	State                       string            `pulumi:"state"`
-	SubnetId                    string            `pulumi:"subnetId"`
+	State                       *string           `pulumi:"state"`
+	SubnetId                    *string           `pulumi:"subnetId"`
 	Tags                        map[string]string `pulumi:"tags"`
-	VpcId                       string            `pulumi:"vpcId"`
+	VpcId                       *string           `pulumi:"vpcId"`
 }
 
 func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupNatGatewayResultOutput {
@@ -177,41 +177,41 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(
 }
 
 // ID of the EIP allocated to the selected NAT Gateway.
-func (o LookupNatGatewayResultOutput) AllocationId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.AllocationId }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
 // The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
-func (o LookupNatGatewayResultOutput) AssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.AssociationId }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
 // Connectivity type of the NAT Gateway.
-func (o LookupNatGatewayResultOutput) ConnectivityType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.ConnectivityType }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) ConnectivityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.ConnectivityType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNatGatewayResultOutput) Filters() GetNatGatewayFilterArrayOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) []GetNatGatewayFilter { return v.Filters }).(GetNatGatewayFilterArrayOutput)
 }
 
-func (o LookupNatGatewayResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the ENI allocated to the selected NAT Gateway.
-func (o LookupNatGatewayResultOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // Private IP address of the selected NAT Gateway.
-func (o LookupNatGatewayResultOutput) PrivateIp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.PrivateIp }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) PrivateIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.PrivateIp }).(pulumi.StringPtrOutput)
 }
 
 // Public IP (EIP) address of the selected NAT Gateway.
-func (o LookupNatGatewayResultOutput) PublicIp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.PublicIp }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) PublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.PublicIp }).(pulumi.StringPtrOutput)
 }
 
 // Secondary allocation EIP IDs for the selected NAT Gateway.
@@ -220,8 +220,8 @@ func (o LookupNatGatewayResultOutput) SecondaryAllocationIds() pulumi.StringArra
 }
 
 // The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
-func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddressCount() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntOutput)
+func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
 }
 
 // Secondary private IPv4 addresses assigned to the selected NAT Gateway.
@@ -229,20 +229,20 @@ func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddresses() pulumi.Strin
 	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.SecondaryPrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupNatGatewayResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.State }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupNatGatewayResultOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNatGatewayResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupNatGatewayResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupNatGatewayResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

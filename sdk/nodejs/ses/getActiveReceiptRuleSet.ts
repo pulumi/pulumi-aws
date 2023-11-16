@@ -30,15 +30,15 @@ export interface GetActiveReceiptRuleSetResult {
     /**
      * SES receipt rule set ARN.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the rule set
      */
-    readonly ruleSetName: string;
+    readonly ruleSetName?: string;
 }
 /**
  * Retrieve the active SES receipt rule set

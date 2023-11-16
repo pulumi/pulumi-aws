@@ -108,15 +108,15 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// ARN (Amazon Resource Name) for the connection.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         /// </summary>
-        public readonly string AuthorizationType;
+        public readonly string? AuthorizationType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the connection.
         /// </summary>
@@ -124,19 +124,19 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
         /// </summary>
-        public readonly string SecretArn;
+        public readonly string? SecretArn;
 
         [OutputConstructor]
         private GetEventConnectionResult(
-            string arn,
+            string? arn,
 
-            string authorizationType,
+            string? authorizationType,
 
-            string id,
+            string? id,
 
             string name,
 
-            string secretArn)
+            string? secretArn)
         {
             Arn = arn;
             AuthorizationType = authorizationType;

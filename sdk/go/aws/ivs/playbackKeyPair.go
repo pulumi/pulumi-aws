@@ -64,9 +64,9 @@ type PlaybackKeyPair struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Playback Key Pair.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Key-pair identifier.
-	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
+	Fingerprint pulumi.StringPtrOutput `pulumi:"fingerprint"`
 	// Playback Key Pair name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
@@ -270,13 +270,13 @@ func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutputWithContext(ctx context.Co
 }
 
 // ARN of the Playback Key Pair.
-func (o PlaybackKeyPairOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PlaybackKeyPairOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Key-pair identifier.
-func (o PlaybackKeyPairOutput) Fingerprint() pulumi.StringOutput {
-	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
+func (o PlaybackKeyPairOutput) Fingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringPtrOutput { return v.Fingerprint }).(pulumi.StringPtrOutput)
 }
 
 // Playback Key Pair name.

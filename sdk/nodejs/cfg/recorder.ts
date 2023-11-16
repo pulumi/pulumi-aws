@@ -95,7 +95,7 @@ export class Recorder extends pulumi.CustomResource {
     /**
      * Recording group - see below.
      */
-    public readonly recordingGroup!: pulumi.Output<outputs.cfg.RecorderRecordingGroup>;
+    public readonly recordingGroup!: pulumi.Output<outputs.cfg.RecorderRecordingGroup | undefined>;
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */

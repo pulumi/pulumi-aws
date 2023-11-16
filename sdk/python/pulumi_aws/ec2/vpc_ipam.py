@@ -424,7 +424,7 @@ class VpcIpam(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of IPAM
         """
@@ -440,7 +440,7 @@ class VpcIpam(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultResourceDiscoveryAssociationId")
-    def default_resource_discovery_association_id(self) -> pulumi.Output[str]:
+    def default_resource_discovery_association_id(self) -> pulumi.Output[Optional[str]]:
         """
         The IPAM's default resource discovery association ID.
         """
@@ -448,7 +448,7 @@ class VpcIpam(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultResourceDiscoveryId")
-    def default_resource_discovery_id(self) -> pulumi.Output[str]:
+    def default_resource_discovery_id(self) -> pulumi.Output[Optional[str]]:
         """
         The IPAM's default resource discovery ID.
         """
@@ -472,7 +472,7 @@ class VpcIpam(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDefaultScopeId")
-    def private_default_scope_id(self) -> pulumi.Output[str]:
+    def private_default_scope_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         """
@@ -480,7 +480,7 @@ class VpcIpam(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicDefaultScopeId")
-    def public_default_scope_id(self) -> pulumi.Output[str]:
+    def public_default_scope_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
         IP space. The public scope is intended for all internet-routable IP space.
@@ -489,7 +489,7 @@ class VpcIpam(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scopeCount")
-    def scope_count(self) -> pulumi.Output[int]:
+    def scope_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of scopes in the IPAM.
         """

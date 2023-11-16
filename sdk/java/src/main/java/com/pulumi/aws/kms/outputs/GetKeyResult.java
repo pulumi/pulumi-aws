@@ -11,6 +11,7 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,180 +20,180 @@ public final class GetKeyResult {
      * @return The key ARN of a primary or replica key of a multi-Region key.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The twelve-digit account ID of the AWS account that owns the key
      * 
      */
-    private String awsAccountId;
+    private @Nullable String awsAccountId;
     /**
      * @return The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
      * 
      */
-    private String cloudHsmClusterId;
+    private @Nullable String cloudHsmClusterId;
     /**
      * @return The date and time when the key was created
      * 
      */
-    private String creationDate;
+    private @Nullable String creationDate;
     /**
      * @return A unique identifier for the custom key store that contains the KMS key.
      * 
      */
-    private String customKeyStoreId;
+    private @Nullable String customKeyStoreId;
     /**
      * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
      * 
      */
-    private String customerMasterKeySpec;
+    private @Nullable String customerMasterKeySpec;
     /**
      * @return The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
      * 
      */
-    private String deletionDate;
+    private @Nullable String deletionDate;
     /**
      * @return The description of the key.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Specifies whether the Key&#39;s key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
      * 
      */
-    private String expirationModel;
+    private @Nullable String expirationModel;
     private @Nullable List<String> grantTokens;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String keyId;
     /**
      * @return The key&#39;s manager
      * 
      */
-    private String keyManager;
+    private @Nullable String keyManager;
     /**
      * @return Describes the type of key material in the KMS key.
      * 
      */
-    private String keySpec;
+    private @Nullable String keySpec;
     /**
      * @return The state of the key
      * 
      */
-    private String keyState;
+    private @Nullable String keyState;
     /**
      * @return Specifies the intended use of the key
      * 
      */
-    private String keyUsage;
+    private @Nullable String keyUsage;
     /**
      * @return Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
      * 
      */
-    private Boolean multiRegion;
+    private @Nullable Boolean multiRegion;
     /**
      * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
      * 
      */
-    private List<GetKeyMultiRegionConfiguration> multiRegionConfigurations;
+    private @Nullable List<GetKeyMultiRegionConfiguration> multiRegionConfigurations;
     /**
      * @return When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
      * 
      */
-    private String origin;
+    private @Nullable String origin;
     /**
      * @return The waiting period before the primary key in a multi-Region key is deleted.
      * 
      */
-    private Integer pendingDeletionWindowInDays;
+    private @Nullable Integer pendingDeletionWindowInDays;
     /**
      * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      * 
      */
-    private String validTo;
+    private @Nullable String validTo;
     /**
      * @return Information about the external key that is associated with a KMS key in an external key store.
      * 
      */
-    private List<GetKeyXksKeyConfiguration> xksKeyConfigurations;
+    private @Nullable List<GetKeyXksKeyConfiguration> xksKeyConfigurations;
 
     private GetKeyResult() {}
     /**
      * @return The key ARN of a primary or replica key of a multi-Region key.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The twelve-digit account ID of the AWS account that owns the key
      * 
      */
-    public String awsAccountId() {
-        return this.awsAccountId;
+    public Optional<String> awsAccountId() {
+        return Optional.ofNullable(this.awsAccountId);
     }
     /**
      * @return The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
      * 
      */
-    public String cloudHsmClusterId() {
-        return this.cloudHsmClusterId;
+    public Optional<String> cloudHsmClusterId() {
+        return Optional.ofNullable(this.cloudHsmClusterId);
     }
     /**
      * @return The date and time when the key was created
      * 
      */
-    public String creationDate() {
-        return this.creationDate;
+    public Optional<String> creationDate() {
+        return Optional.ofNullable(this.creationDate);
     }
     /**
      * @return A unique identifier for the custom key store that contains the KMS key.
      * 
      */
-    public String customKeyStoreId() {
-        return this.customKeyStoreId;
+    public Optional<String> customKeyStoreId() {
+        return Optional.ofNullable(this.customKeyStoreId);
     }
     /**
      * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
      * 
      */
-    public String customerMasterKeySpec() {
-        return this.customerMasterKeySpec;
+    public Optional<String> customerMasterKeySpec() {
+        return Optional.ofNullable(this.customerMasterKeySpec);
     }
     /**
      * @return The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
      * 
      */
-    public String deletionDate() {
-        return this.deletionDate;
+    public Optional<String> deletionDate() {
+        return Optional.ofNullable(this.deletionDate);
     }
     /**
      * @return The description of the key.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return Specifies whether the Key&#39;s key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
      * 
      */
-    public String expirationModel() {
-        return this.expirationModel;
+    public Optional<String> expirationModel() {
+        return Optional.ofNullable(this.expirationModel);
     }
     public List<String> grantTokens() {
         return this.grantTokens == null ? List.of() : this.grantTokens;
@@ -201,8 +202,8 @@ public final class GetKeyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String keyId() {
         return this.keyId;
@@ -211,71 +212,71 @@ public final class GetKeyResult {
      * @return The key&#39;s manager
      * 
      */
-    public String keyManager() {
-        return this.keyManager;
+    public Optional<String> keyManager() {
+        return Optional.ofNullable(this.keyManager);
     }
     /**
      * @return Describes the type of key material in the KMS key.
      * 
      */
-    public String keySpec() {
-        return this.keySpec;
+    public Optional<String> keySpec() {
+        return Optional.ofNullable(this.keySpec);
     }
     /**
      * @return The state of the key
      * 
      */
-    public String keyState() {
-        return this.keyState;
+    public Optional<String> keyState() {
+        return Optional.ofNullable(this.keyState);
     }
     /**
      * @return Specifies the intended use of the key
      * 
      */
-    public String keyUsage() {
-        return this.keyUsage;
+    public Optional<String> keyUsage() {
+        return Optional.ofNullable(this.keyUsage);
     }
     /**
      * @return Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
      * 
      */
-    public Boolean multiRegion() {
-        return this.multiRegion;
+    public Optional<Boolean> multiRegion() {
+        return Optional.ofNullable(this.multiRegion);
     }
     /**
      * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
      * 
      */
     public List<GetKeyMultiRegionConfiguration> multiRegionConfigurations() {
-        return this.multiRegionConfigurations;
+        return this.multiRegionConfigurations == null ? List.of() : this.multiRegionConfigurations;
     }
     /**
      * @return When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
      * 
      */
-    public String origin() {
-        return this.origin;
+    public Optional<String> origin() {
+        return Optional.ofNullable(this.origin);
     }
     /**
      * @return The waiting period before the primary key in a multi-Region key is deleted.
      * 
      */
-    public Integer pendingDeletionWindowInDays() {
-        return this.pendingDeletionWindowInDays;
+    public Optional<Integer> pendingDeletionWindowInDays() {
+        return Optional.ofNullable(this.pendingDeletionWindowInDays);
     }
     /**
      * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      * 
      */
-    public String validTo() {
-        return this.validTo;
+    public Optional<String> validTo() {
+        return Optional.ofNullable(this.validTo);
     }
     /**
      * @return Information about the external key that is associated with a KMS key in an external key store.
      * 
      */
     public List<GetKeyXksKeyConfiguration> xksKeyConfigurations() {
-        return this.xksKeyConfigurations;
+        return this.xksKeyConfigurations == null ? List.of() : this.xksKeyConfigurations;
     }
 
     public static Builder builder() {
@@ -287,29 +288,29 @@ public final class GetKeyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String awsAccountId;
-        private String cloudHsmClusterId;
-        private String creationDate;
-        private String customKeyStoreId;
-        private String customerMasterKeySpec;
-        private String deletionDate;
-        private String description;
-        private Boolean enabled;
-        private String expirationModel;
+        private @Nullable String arn;
+        private @Nullable String awsAccountId;
+        private @Nullable String cloudHsmClusterId;
+        private @Nullable String creationDate;
+        private @Nullable String customKeyStoreId;
+        private @Nullable String customerMasterKeySpec;
+        private @Nullable String deletionDate;
+        private @Nullable String description;
+        private @Nullable Boolean enabled;
+        private @Nullable String expirationModel;
         private @Nullable List<String> grantTokens;
-        private String id;
+        private @Nullable String id;
         private String keyId;
-        private String keyManager;
-        private String keySpec;
-        private String keyState;
-        private String keyUsage;
-        private Boolean multiRegion;
-        private List<GetKeyMultiRegionConfiguration> multiRegionConfigurations;
-        private String origin;
-        private Integer pendingDeletionWindowInDays;
-        private String validTo;
-        private List<GetKeyXksKeyConfiguration> xksKeyConfigurations;
+        private @Nullable String keyManager;
+        private @Nullable String keySpec;
+        private @Nullable String keyState;
+        private @Nullable String keyUsage;
+        private @Nullable Boolean multiRegion;
+        private @Nullable List<GetKeyMultiRegionConfiguration> multiRegionConfigurations;
+        private @Nullable String origin;
+        private @Nullable Integer pendingDeletionWindowInDays;
+        private @Nullable String validTo;
+        private @Nullable List<GetKeyXksKeyConfiguration> xksKeyConfigurations;
         public Builder() {}
         public Builder(GetKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -339,53 +340,53 @@ public final class GetKeyResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
+        public Builder awsAccountId(@Nullable String awsAccountId) {
+            this.awsAccountId = awsAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder cloudHsmClusterId(String cloudHsmClusterId) {
-            this.cloudHsmClusterId = Objects.requireNonNull(cloudHsmClusterId);
+        public Builder cloudHsmClusterId(@Nullable String cloudHsmClusterId) {
+            this.cloudHsmClusterId = cloudHsmClusterId;
             return this;
         }
         @CustomType.Setter
-        public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+        public Builder creationDate(@Nullable String creationDate) {
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
-        public Builder customKeyStoreId(String customKeyStoreId) {
-            this.customKeyStoreId = Objects.requireNonNull(customKeyStoreId);
+        public Builder customKeyStoreId(@Nullable String customKeyStoreId) {
+            this.customKeyStoreId = customKeyStoreId;
             return this;
         }
         @CustomType.Setter
-        public Builder customerMasterKeySpec(String customerMasterKeySpec) {
-            this.customerMasterKeySpec = Objects.requireNonNull(customerMasterKeySpec);
+        public Builder customerMasterKeySpec(@Nullable String customerMasterKeySpec) {
+            this.customerMasterKeySpec = customerMasterKeySpec;
             return this;
         }
         @CustomType.Setter
-        public Builder deletionDate(String deletionDate) {
-            this.deletionDate = Objects.requireNonNull(deletionDate);
+        public Builder deletionDate(@Nullable String deletionDate) {
+            this.deletionDate = deletionDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder expirationModel(String expirationModel) {
-            this.expirationModel = Objects.requireNonNull(expirationModel);
+        public Builder expirationModel(@Nullable String expirationModel) {
+            this.expirationModel = expirationModel;
             return this;
         }
         @CustomType.Setter
@@ -397,8 +398,8 @@ public final class GetKeyResult {
             return grantTokens(List.of(grantTokens));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -407,56 +408,56 @@ public final class GetKeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder keyManager(String keyManager) {
-            this.keyManager = Objects.requireNonNull(keyManager);
+        public Builder keyManager(@Nullable String keyManager) {
+            this.keyManager = keyManager;
             return this;
         }
         @CustomType.Setter
-        public Builder keySpec(String keySpec) {
-            this.keySpec = Objects.requireNonNull(keySpec);
+        public Builder keySpec(@Nullable String keySpec) {
+            this.keySpec = keySpec;
             return this;
         }
         @CustomType.Setter
-        public Builder keyState(String keyState) {
-            this.keyState = Objects.requireNonNull(keyState);
+        public Builder keyState(@Nullable String keyState) {
+            this.keyState = keyState;
             return this;
         }
         @CustomType.Setter
-        public Builder keyUsage(String keyUsage) {
-            this.keyUsage = Objects.requireNonNull(keyUsage);
+        public Builder keyUsage(@Nullable String keyUsage) {
+            this.keyUsage = keyUsage;
             return this;
         }
         @CustomType.Setter
-        public Builder multiRegion(Boolean multiRegion) {
-            this.multiRegion = Objects.requireNonNull(multiRegion);
+        public Builder multiRegion(@Nullable Boolean multiRegion) {
+            this.multiRegion = multiRegion;
             return this;
         }
         @CustomType.Setter
-        public Builder multiRegionConfigurations(List<GetKeyMultiRegionConfiguration> multiRegionConfigurations) {
-            this.multiRegionConfigurations = Objects.requireNonNull(multiRegionConfigurations);
+        public Builder multiRegionConfigurations(@Nullable List<GetKeyMultiRegionConfiguration> multiRegionConfigurations) {
+            this.multiRegionConfigurations = multiRegionConfigurations;
             return this;
         }
         public Builder multiRegionConfigurations(GetKeyMultiRegionConfiguration... multiRegionConfigurations) {
             return multiRegionConfigurations(List.of(multiRegionConfigurations));
         }
         @CustomType.Setter
-        public Builder origin(String origin) {
-            this.origin = Objects.requireNonNull(origin);
+        public Builder origin(@Nullable String origin) {
+            this.origin = origin;
             return this;
         }
         @CustomType.Setter
-        public Builder pendingDeletionWindowInDays(Integer pendingDeletionWindowInDays) {
-            this.pendingDeletionWindowInDays = Objects.requireNonNull(pendingDeletionWindowInDays);
+        public Builder pendingDeletionWindowInDays(@Nullable Integer pendingDeletionWindowInDays) {
+            this.pendingDeletionWindowInDays = pendingDeletionWindowInDays;
             return this;
         }
         @CustomType.Setter
-        public Builder validTo(String validTo) {
-            this.validTo = Objects.requireNonNull(validTo);
+        public Builder validTo(@Nullable String validTo) {
+            this.validTo = validTo;
             return this;
         }
         @CustomType.Setter
-        public Builder xksKeyConfigurations(List<GetKeyXksKeyConfiguration> xksKeyConfigurations) {
-            this.xksKeyConfigurations = Objects.requireNonNull(xksKeyConfigurations);
+        public Builder xksKeyConfigurations(@Nullable List<GetKeyXksKeyConfiguration> xksKeyConfigurations) {
+            this.xksKeyConfigurations = xksKeyConfigurations;
             return this;
         }
         public Builder xksKeyConfigurations(GetKeyXksKeyConfiguration... xksKeyConfigurations) {

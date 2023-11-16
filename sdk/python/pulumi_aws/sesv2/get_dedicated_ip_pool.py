@@ -44,7 +44,7 @@ class GetDedicatedIpPoolResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Dedicated IP Pool.
         """
@@ -52,7 +52,7 @@ class GetDedicatedIpPoolResult:
 
     @property
     @pulumi.getter(name="dedicatedIps")
-    def dedicated_ips(self) -> Sequence['outputs.GetDedicatedIpPoolDedicatedIpResult']:
+    def dedicated_ips(self) -> Optional[Sequence['outputs.GetDedicatedIpPoolDedicatedIpResult']]:
         """
         A list of objects describing the pool's dedicated IP's. See `dedicated_ips`.
         """
@@ -60,7 +60,7 @@ class GetDedicatedIpPoolResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -73,7 +73,7 @@ class GetDedicatedIpPoolResult:
 
     @property
     @pulumi.getter(name="scalingMode")
-    def scaling_mode(self) -> str:
+    def scaling_mode(self) -> Optional[str]:
         """
         (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
         """
@@ -81,7 +81,7 @@ class GetDedicatedIpPoolResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags attached to the pool.
         """

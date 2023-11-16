@@ -234,7 +234,7 @@ class BucketAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> pulumi.Output[str]:
+    def access_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the access key.
         """
@@ -250,7 +250,7 @@ class BucketAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the access key was created.
         """
@@ -258,7 +258,7 @@ class BucketAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secretAccessKey")
-    def secret_access_key(self) -> pulumi.Output[str]:
+    def secret_access_key(self) -> pulumi.Output[Optional[str]]:
         """
         The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         """
@@ -266,7 +266,7 @@ class BucketAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the access key.
         """

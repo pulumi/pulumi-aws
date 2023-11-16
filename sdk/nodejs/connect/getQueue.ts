@@ -76,41 +76,41 @@ export interface GetQueueResult {
     /**
      * ARN of the Queue.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the Queue.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Specifies the identifier of the Hours of Operation.
      */
-    readonly hoursOfOperationId: string;
+    readonly hoursOfOperationId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
     /**
      * Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      */
-    readonly maxContacts: number;
-    readonly name: string;
+    readonly maxContacts?: number;
+    readonly name?: string;
     /**
      * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      */
-    readonly outboundCallerConfigs: outputs.connect.GetQueueOutboundCallerConfig[];
+    readonly outboundCallerConfigs?: outputs.connect.GetQueueOutboundCallerConfig[];
     /**
      * Identifier for the Queue.
      */
-    readonly queueId: string;
+    readonly queueId?: string;
     /**
      * Description of the Queue. Values are `ENABLED` or `DISABLED`.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Map of tags assigned to the Queue.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific Amazon Connect Queue.

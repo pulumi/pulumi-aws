@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.BucketV2("bucket", {});
- * const topicPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const topicPolicyDocument = bucket.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -32,10 +32,10 @@ import * as utilities from "../utilities";
  *         conditions: [{
  *             test: "ArnLike",
  *             variable: "aws:SourceArn",
- *             values: [bucket.arn],
+ *             values: [arn],
  *         }],
  *     }],
- * });
+ * }));
  * const topicTopic = new aws.sns.Topic("topicTopic", {policy: topicPolicyDocument.apply(topicPolicyDocument => topicPolicyDocument.json)});
  * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.BucketV2("bucket", {});
- * const queuePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const queuePolicyDocument = bucket.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -65,10 +65,10 @@ import * as utilities from "../utilities";
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
- *             values: [bucket.arn],
+ *             values: [arn],
  *         }],
  *     }],
- * });
+ * }));
  * const queueQueue = new aws.sqs.Queue("queueQueue", {policy: queuePolicyDocument.apply(queuePolicyDocument => queuePolicyDocument.json)});
  * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
@@ -128,7 +128,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.BucketV2("bucket", {});
- * const queuePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const queuePolicyDocument = bucket.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -140,10 +140,10 @@ import * as utilities from "../utilities";
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
- *             values: [bucket.arn],
+ *             values: [arn],
  *         }],
  *     }],
- * });
+ * }));
  * const queueQueue = new aws.sqs.Queue("queueQueue", {policy: queuePolicyDocument.apply(queuePolicyDocument => queuePolicyDocument.json)});
  * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,

@@ -149,14 +149,14 @@ public class MatchmakingConfiguration extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Matchmaking Configuration ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The method used to backfill game sessions that are created with this matchmaking configuration.
@@ -177,14 +177,14 @@ public class MatchmakingConfiguration extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
     /**
      * @return The time when the Matchmaking Configuration was created.
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * Information to be added to all events related to this matchmaking configuration.
@@ -219,14 +219,14 @@ public class MatchmakingConfiguration extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="flexMatchMode", refs={String.class}, tree="[0]")
-    private Output<String> flexMatchMode;
+    private Output</* @Nullable */ String> flexMatchMode;
 
     /**
      * @return Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
      * 
      */
-    public Output<String> flexMatchMode() {
-        return this.flexMatchMode;
+    public Output<Optional<String>> flexMatchMode() {
+        return Codegen.optional(this.flexMatchMode);
     }
     /**
      * One or more custom game properties. See below.
@@ -313,10 +313,10 @@ public class MatchmakingConfiguration extends com.pulumi.resources.CustomResourc
         return this.requestTimeoutSeconds;
     }
     @Export(name="ruleSetArn", refs={String.class}, tree="[0]")
-    private Output<String> ruleSetArn;
+    private Output</* @Nullable */ String> ruleSetArn;
 
-    public Output<String> ruleSetArn() {
-        return this.ruleSetArn;
+    public Output<Optional<String>> ruleSetArn() {
+        return Codegen.optional(this.ruleSetArn);
     }
     /**
      * A rule set names for the matchmaking rule set to use with this configuration.

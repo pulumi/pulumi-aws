@@ -55,11 +55,11 @@ type Space struct {
 	pulumi.CustomResourceState
 
 	// The space's Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the associated Domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The ID of the space's profile in the Amazon Elastic File System volume.
-	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
+	HomeEfsFileSystemUid pulumi.StringPtrOutput `pulumi:"homeEfsFileSystemUid"`
 	// The name of the space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
@@ -264,8 +264,8 @@ func (o SpaceOutput) ToSpaceOutputWithContext(ctx context.Context) SpaceOutput {
 }
 
 // The space's Amazon Resource Name (ARN).
-func (o SpaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SpaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Space) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the associated Domain.
@@ -274,8 +274,8 @@ func (o SpaceOutput) DomainId() pulumi.StringOutput {
 }
 
 // The ID of the space's profile in the Amazon Elastic File System volume.
-func (o SpaceOutput) HomeEfsFileSystemUid() pulumi.StringOutput {
-	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringOutput)
+func (o SpaceOutput) HomeEfsFileSystemUid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Space) pulumi.StringPtrOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringPtrOutput)
 }
 
 // The name of the space.

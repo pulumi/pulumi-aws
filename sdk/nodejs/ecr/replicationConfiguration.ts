@@ -112,7 +112,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * The account ID of the destination registry to replicate to.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string | undefined>;
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */

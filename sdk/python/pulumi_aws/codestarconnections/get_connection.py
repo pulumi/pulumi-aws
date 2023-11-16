@@ -46,12 +46,12 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> str:
+    def connection_status(self) -> Optional[str]:
         """
         CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         """
@@ -59,7 +59,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="hostArn")
-    def host_arn(self) -> str:
+    def host_arn(self) -> Optional[str]:
         """
         ARN of the host associated with the connection.
         """
@@ -67,7 +67,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -75,7 +75,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the CodeStar Connection. The name is unique in the calling AWS account.
         """
@@ -83,7 +83,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> str:
+    def provider_type(self) -> Optional[str]:
         """
         Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `host_arn` instead.
         """
@@ -91,7 +91,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of key-value resource tags to associate with the resource.
         """

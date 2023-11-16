@@ -132,7 +132,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="settings", refs={List.class,ConfigurationTemplateSetting.class}, tree="[0,1]")
-    private Output<List<ConfigurationTemplateSetting>> settings;
+    private Output</* @Nullable */ List<ConfigurationTemplateSetting>> settings;
 
     /**
      * @return Option settings to configure the new Environment. These
@@ -140,8 +140,8 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
      * below in Option Settings
      * 
      */
-    public Output<List<ConfigurationTemplateSetting>> settings() {
-        return this.settings;
+    public Output<Optional<List<ConfigurationTemplateSetting>>> settings() {
+        return Codegen.optional(this.settings);
     }
     /**
      * A solution stack to base your Template

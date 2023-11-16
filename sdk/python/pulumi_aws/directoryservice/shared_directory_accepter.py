@@ -270,7 +270,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def method(self) -> pulumi.Output[str]:
+    def method(self) -> pulumi.Output[Optional[str]]:
         """
         Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
         """
@@ -278,7 +278,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> pulumi.Output[str]:
+    def notes(self) -> pulumi.Output[Optional[str]]:
         """
         Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         """
@@ -286,7 +286,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> pulumi.Output[str]:
+    def owner_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Account identifier of the directory owner.
         """
@@ -294,7 +294,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerDirectoryId")
-    def owner_directory_id(self) -> pulumi.Output[str]:
+    def owner_directory_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
         """

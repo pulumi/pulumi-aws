@@ -93,13 +93,13 @@ export interface GetResourcesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly includeComplianceDetails?: boolean;
     readonly resourceArnLists?: string[];
     /**
      * List of objects matching the search criteria.
      */
-    readonly resourceTagMappingLists: outputs.resourcegroupstaggingapi.GetResourcesResourceTagMappingList[];
+    readonly resourceTagMappingLists?: outputs.resourcegroupstaggingapi.GetResourcesResourceTagMappingList[];
     readonly resourceTypeFilters?: string[];
     readonly tagFilters?: outputs.resourcegroupstaggingapi.GetResourcesTagFilter[];
 }

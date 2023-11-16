@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -65,14 +66,14 @@ public class FolderMembership extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * Identifier for the folder.

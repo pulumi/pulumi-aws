@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Alb.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionFixedResponseResult
     {
-        public readonly string ContentType;
-        public readonly string MessageBody;
-        public readonly string StatusCode;
+        public readonly string? ContentType;
+        public readonly string? MessageBody;
+        public readonly string? StatusCode;
 
         [OutputConstructor]
         private GetListenerDefaultActionFixedResponseResult(
-            string contentType,
+            string? contentType,
 
-            string messageBody,
+            string? messageBody,
 
-            string statusCode)
+            string? statusCode)
         {
             ContentType = contentType;
             MessageBody = messageBody;

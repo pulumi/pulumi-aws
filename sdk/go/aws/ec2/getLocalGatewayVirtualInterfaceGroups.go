@@ -58,7 +58,7 @@ type GetLocalGatewayVirtualInterfaceGroupsArgs struct {
 type GetLocalGatewayVirtualInterfaceGroupsResult struct {
 	Filters []GetLocalGatewayVirtualInterfaceGroupsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of EC2 Local Gateway Virtual Interface Group identifiers.
 	Ids []string `pulumi:"ids"`
 	// Set of EC2 Local Gateway Virtual Interface identifiers.
@@ -113,8 +113,8 @@ func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Filters() GetLocalGat
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of EC2 Local Gateway Virtual Interface Group identifiers.

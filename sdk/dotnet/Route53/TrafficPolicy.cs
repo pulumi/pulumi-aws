@@ -78,13 +78,13 @@ namespace Pulumi.Aws.Route53
         /// DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>

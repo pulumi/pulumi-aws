@@ -71,12 +71,12 @@ export interface GetExportResult {
     /**
      * ID of the API.
      */
-    readonly body: string;
+    readonly body?: string;
     readonly exportVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly includeExtensions?: boolean;
     readonly outputType: string;
     readonly specification: string;

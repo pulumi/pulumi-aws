@@ -58,11 +58,11 @@ export class LocationFsxLustre extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The time that the FSx for Lustre location was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      */
@@ -74,7 +74,7 @@ export class LocationFsxLustre extends pulumi.CustomResource {
     /**
      * Subdirectory to perform actions as source or destination.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -88,7 +88,7 @@ export class LocationFsxLustre extends pulumi.CustomResource {
     /**
      * The URL of the FSx for Lustre location that was described.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LocationFsxLustre resource with the given unique name, arguments, and options.

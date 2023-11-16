@@ -80,28 +80,28 @@ public class KxDatabase extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) identifier of the KX database.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
     @Export(name="createdTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> createdTimestamp;
+    private Output</* @Nullable */ String> createdTimestamp;
 
     /**
      * @return Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public Output<String> createdTimestamp() {
-        return this.createdTimestamp;
+    public Output<Optional<String>> createdTimestamp() {
+        return Codegen.optional(this.createdTimestamp);
     }
     /**
      * Description of the KX database.
@@ -136,14 +136,14 @@ public class KxDatabase extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModifiedTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedTimestamp;
+    private Output</* @Nullable */ String> lastModifiedTimestamp;
 
     /**
      * @return Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public Output<String> lastModifiedTimestamp() {
-        return this.lastModifiedTimestamp;
+    public Output<Optional<String>> lastModifiedTimestamp() {
+        return Codegen.optional(this.lastModifiedTimestamp);
     }
     /**
      * Name of the KX database.

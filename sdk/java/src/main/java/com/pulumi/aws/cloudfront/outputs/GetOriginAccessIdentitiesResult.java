@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,22 +17,22 @@ public final class GetOriginAccessIdentitiesResult {
      * @return Set of ARNs of the matched origin access identities.
      * 
      */
-    private List<String> iamArns;
+    private @Nullable List<String> iamArns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set of ids of the matched origin access identities.
      * 
      */
-    private List<String> ids;
+    private @Nullable List<String> ids;
     /**
      * @return Set of S3 canonical user IDs of the matched origin access identities.
      * 
      */
-    private List<String> s3CanonicalUserIds;
+    private @Nullable List<String> s3CanonicalUserIds;
 
     private GetOriginAccessIdentitiesResult() {}
     public List<String> comments() {
@@ -42,28 +43,28 @@ public final class GetOriginAccessIdentitiesResult {
      * 
      */
     public List<String> iamArns() {
-        return this.iamArns;
+        return this.iamArns == null ? List.of() : this.iamArns;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set of ids of the matched origin access identities.
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     /**
      * @return Set of S3 canonical user IDs of the matched origin access identities.
      * 
      */
     public List<String> s3CanonicalUserIds() {
-        return this.s3CanonicalUserIds;
+        return this.s3CanonicalUserIds == null ? List.of() : this.s3CanonicalUserIds;
     }
 
     public static Builder builder() {
@@ -76,10 +77,10 @@ public final class GetOriginAccessIdentitiesResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> comments;
-        private List<String> iamArns;
-        private String id;
-        private List<String> ids;
-        private List<String> s3CanonicalUserIds;
+        private @Nullable List<String> iamArns;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
+        private @Nullable List<String> s3CanonicalUserIds;
         public Builder() {}
         public Builder(GetOriginAccessIdentitiesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -99,29 +100,29 @@ public final class GetOriginAccessIdentitiesResult {
             return comments(List.of(comments));
         }
         @CustomType.Setter
-        public Builder iamArns(List<String> iamArns) {
-            this.iamArns = Objects.requireNonNull(iamArns);
+        public Builder iamArns(@Nullable List<String> iamArns) {
+            this.iamArns = iamArns;
             return this;
         }
         public Builder iamArns(String... iamArns) {
             return iamArns(List.of(iamArns));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
         @CustomType.Setter
-        public Builder s3CanonicalUserIds(List<String> s3CanonicalUserIds) {
-            this.s3CanonicalUserIds = Objects.requireNonNull(s3CanonicalUserIds);
+        public Builder s3CanonicalUserIds(@Nullable List<String> s3CanonicalUserIds) {
+            this.s3CanonicalUserIds = s3CanonicalUserIds;
             return this;
         }
         public Builder s3CanonicalUserIds(String... s3CanonicalUserIds) {

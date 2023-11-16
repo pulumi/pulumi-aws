@@ -69,14 +69,14 @@ public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the proxy endpoint.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
@@ -111,28 +111,28 @@ public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> isDefault;
+    private Output</* @Nullable */ Boolean> isDefault;
 
     /**
      * @return Indicates whether this endpoint is the default endpoint for the associated DB proxy.
      * 
      */
-    public Output<Boolean> isDefault() {
-        return this.isDefault;
+    public Output<Optional<Boolean>> isDefault() {
+        return Codegen.optional(this.isDefault);
     }
     /**
      * A mapping of tags to assign to the resource.
@@ -179,28 +179,28 @@ public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The VPC ID of the DB proxy endpoint.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return One or more VPC security group IDs to associate with the new proxy.
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
     /**
      * One or more VPC subnet IDs to associate with the new proxy.

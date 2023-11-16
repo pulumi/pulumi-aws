@@ -62,7 +62,7 @@ export class EndpointAuthorization extends pulumi.CustomResource {
     /**
      * Indicates whether all VPCs in the grantee account are allowed access to the cluster.
      */
-    public /*out*/ readonly allowedAllVpcs!: pulumi.Output<boolean>;
+    public /*out*/ readonly allowedAllVpcs!: pulumi.Output<boolean | undefined>;
     /**
      * The cluster identifier of the cluster to grant access to.
      */
@@ -70,7 +70,7 @@ export class EndpointAuthorization extends pulumi.CustomResource {
     /**
      * The number of Redshift-managed VPC endpoints created for the authorization.
      */
-    public /*out*/ readonly endpointCount!: pulumi.Output<number>;
+    public /*out*/ readonly endpointCount!: pulumi.Output<number | undefined>;
     /**
      * Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
      */
@@ -78,11 +78,11 @@ export class EndpointAuthorization extends pulumi.CustomResource {
     /**
      * The Amazon Web Services account ID of the grantee of the cluster.
      */
-    public /*out*/ readonly grantee!: pulumi.Output<string>;
+    public /*out*/ readonly grantee!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Web Services account ID of the cluster owner.
      */
-    public /*out*/ readonly grantor!: pulumi.Output<string>;
+    public /*out*/ readonly grantor!: pulumi.Output<string | undefined>;
     /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      */

@@ -11,158 +11,160 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterResult {
-    private String arn;
-    private List<String> availabilityZones;
-    private Integer backtrackWindow;
-    private Integer backupRetentionPeriod;
+    private @Nullable String arn;
+    private @Nullable List<String> availabilityZones;
+    private @Nullable Integer backtrackWindow;
+    private @Nullable Integer backupRetentionPeriod;
     private String clusterIdentifier;
-    private List<String> clusterMembers;
-    private String clusterResourceId;
-    private String databaseName;
-    private String dbClusterParameterGroupName;
-    private String dbSubnetGroupName;
-    private String dbSystemId;
-    private List<String> enabledCloudwatchLogsExports;
-    private String endpoint;
-    private String engine;
-    private String engineMode;
-    private String engineVersion;
-    private String finalSnapshotIdentifier;
-    private String hostedZoneId;
-    private Boolean iamDatabaseAuthenticationEnabled;
-    private List<String> iamRoles;
+    private @Nullable List<String> clusterMembers;
+    private @Nullable String clusterResourceId;
+    private @Nullable String databaseName;
+    private @Nullable String dbClusterParameterGroupName;
+    private @Nullable String dbSubnetGroupName;
+    private @Nullable String dbSystemId;
+    private @Nullable List<String> enabledCloudwatchLogsExports;
+    private @Nullable String endpoint;
+    private @Nullable String engine;
+    private @Nullable String engineMode;
+    private @Nullable String engineVersion;
+    private @Nullable String finalSnapshotIdentifier;
+    private @Nullable String hostedZoneId;
+    private @Nullable Boolean iamDatabaseAuthenticationEnabled;
+    private @Nullable List<String> iamRoles;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String kmsKeyId;
-    private List<GetClusterMasterUserSecret> masterUserSecrets;
-    private String masterUsername;
-    private String networkType;
-    private Integer port;
-    private String preferredBackupWindow;
-    private String preferredMaintenanceWindow;
-    private String readerEndpoint;
-    private String replicationSourceIdentifier;
-    private Boolean storageEncrypted;
+    private @Nullable String id;
+    private @Nullable String kmsKeyId;
+    private @Nullable List<GetClusterMasterUserSecret> masterUserSecrets;
+    private @Nullable String masterUsername;
+    private @Nullable String networkType;
+    private @Nullable Integer port;
+    private @Nullable String preferredBackupWindow;
+    private @Nullable String preferredMaintenanceWindow;
+    private @Nullable String readerEndpoint;
+    private @Nullable String replicationSourceIdentifier;
+    private @Nullable Boolean storageEncrypted;
     /**
      * @return A map of tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
-    private List<String> vpcSecurityGroupIds;
+    private @Nullable Map<String,String> tags;
+    private @Nullable List<String> vpcSecurityGroupIds;
 
     private GetClusterResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public List<String> availabilityZones() {
-        return this.availabilityZones;
+        return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
-    public Integer backtrackWindow() {
-        return this.backtrackWindow;
+    public Optional<Integer> backtrackWindow() {
+        return Optional.ofNullable(this.backtrackWindow);
     }
-    public Integer backupRetentionPeriod() {
-        return this.backupRetentionPeriod;
+    public Optional<Integer> backupRetentionPeriod() {
+        return Optional.ofNullable(this.backupRetentionPeriod);
     }
     public String clusterIdentifier() {
         return this.clusterIdentifier;
     }
     public List<String> clusterMembers() {
-        return this.clusterMembers;
+        return this.clusterMembers == null ? List.of() : this.clusterMembers;
     }
-    public String clusterResourceId() {
-        return this.clusterResourceId;
+    public Optional<String> clusterResourceId() {
+        return Optional.ofNullable(this.clusterResourceId);
     }
-    public String databaseName() {
-        return this.databaseName;
+    public Optional<String> databaseName() {
+        return Optional.ofNullable(this.databaseName);
     }
-    public String dbClusterParameterGroupName() {
-        return this.dbClusterParameterGroupName;
+    public Optional<String> dbClusterParameterGroupName() {
+        return Optional.ofNullable(this.dbClusterParameterGroupName);
     }
-    public String dbSubnetGroupName() {
-        return this.dbSubnetGroupName;
+    public Optional<String> dbSubnetGroupName() {
+        return Optional.ofNullable(this.dbSubnetGroupName);
     }
-    public String dbSystemId() {
-        return this.dbSystemId;
+    public Optional<String> dbSystemId() {
+        return Optional.ofNullable(this.dbSystemId);
     }
     public List<String> enabledCloudwatchLogsExports() {
-        return this.enabledCloudwatchLogsExports;
+        return this.enabledCloudwatchLogsExports == null ? List.of() : this.enabledCloudwatchLogsExports;
     }
-    public String endpoint() {
-        return this.endpoint;
+    public Optional<String> endpoint() {
+        return Optional.ofNullable(this.endpoint);
     }
-    public String engine() {
-        return this.engine;
+    public Optional<String> engine() {
+        return Optional.ofNullable(this.engine);
     }
-    public String engineMode() {
-        return this.engineMode;
+    public Optional<String> engineMode() {
+        return Optional.ofNullable(this.engineMode);
     }
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
-    public String finalSnapshotIdentifier() {
-        return this.finalSnapshotIdentifier;
+    public Optional<String> finalSnapshotIdentifier() {
+        return Optional.ofNullable(this.finalSnapshotIdentifier);
     }
-    public String hostedZoneId() {
-        return this.hostedZoneId;
+    public Optional<String> hostedZoneId() {
+        return Optional.ofNullable(this.hostedZoneId);
     }
-    public Boolean iamDatabaseAuthenticationEnabled() {
-        return this.iamDatabaseAuthenticationEnabled;
+    public Optional<Boolean> iamDatabaseAuthenticationEnabled() {
+        return Optional.ofNullable(this.iamDatabaseAuthenticationEnabled);
     }
     public List<String> iamRoles() {
-        return this.iamRoles;
+        return this.iamRoles == null ? List.of() : this.iamRoles;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     public List<GetClusterMasterUserSecret> masterUserSecrets() {
-        return this.masterUserSecrets;
+        return this.masterUserSecrets == null ? List.of() : this.masterUserSecrets;
     }
-    public String masterUsername() {
-        return this.masterUsername;
+    public Optional<String> masterUsername() {
+        return Optional.ofNullable(this.masterUsername);
     }
-    public String networkType() {
-        return this.networkType;
+    public Optional<String> networkType() {
+        return Optional.ofNullable(this.networkType);
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String preferredBackupWindow() {
-        return this.preferredBackupWindow;
+    public Optional<String> preferredBackupWindow() {
+        return Optional.ofNullable(this.preferredBackupWindow);
     }
-    public String preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Optional<String> preferredMaintenanceWindow() {
+        return Optional.ofNullable(this.preferredMaintenanceWindow);
     }
-    public String readerEndpoint() {
-        return this.readerEndpoint;
+    public Optional<String> readerEndpoint() {
+        return Optional.ofNullable(this.readerEndpoint);
     }
-    public String replicationSourceIdentifier() {
-        return this.replicationSourceIdentifier;
+    public Optional<String> replicationSourceIdentifier() {
+        return Optional.ofNullable(this.replicationSourceIdentifier);
     }
-    public Boolean storageEncrypted() {
-        return this.storageEncrypted;
+    public Optional<Boolean> storageEncrypted() {
+        return Optional.ofNullable(this.storageEncrypted);
     }
     /**
      * @return A map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public List<String> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+        return this.vpcSecurityGroupIds == null ? List.of() : this.vpcSecurityGroupIds;
     }
 
     public static Builder builder() {
@@ -174,39 +176,39 @@ public final class GetClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<String> availabilityZones;
-        private Integer backtrackWindow;
-        private Integer backupRetentionPeriod;
+        private @Nullable String arn;
+        private @Nullable List<String> availabilityZones;
+        private @Nullable Integer backtrackWindow;
+        private @Nullable Integer backupRetentionPeriod;
         private String clusterIdentifier;
-        private List<String> clusterMembers;
-        private String clusterResourceId;
-        private String databaseName;
-        private String dbClusterParameterGroupName;
-        private String dbSubnetGroupName;
-        private String dbSystemId;
-        private List<String> enabledCloudwatchLogsExports;
-        private String endpoint;
-        private String engine;
-        private String engineMode;
-        private String engineVersion;
-        private String finalSnapshotIdentifier;
-        private String hostedZoneId;
-        private Boolean iamDatabaseAuthenticationEnabled;
-        private List<String> iamRoles;
-        private String id;
-        private String kmsKeyId;
-        private List<GetClusterMasterUserSecret> masterUserSecrets;
-        private String masterUsername;
-        private String networkType;
-        private Integer port;
-        private String preferredBackupWindow;
-        private String preferredMaintenanceWindow;
-        private String readerEndpoint;
-        private String replicationSourceIdentifier;
-        private Boolean storageEncrypted;
-        private Map<String,String> tags;
-        private List<String> vpcSecurityGroupIds;
+        private @Nullable List<String> clusterMembers;
+        private @Nullable String clusterResourceId;
+        private @Nullable String databaseName;
+        private @Nullable String dbClusterParameterGroupName;
+        private @Nullable String dbSubnetGroupName;
+        private @Nullable String dbSystemId;
+        private @Nullable List<String> enabledCloudwatchLogsExports;
+        private @Nullable String endpoint;
+        private @Nullable String engine;
+        private @Nullable String engineMode;
+        private @Nullable String engineVersion;
+        private @Nullable String finalSnapshotIdentifier;
+        private @Nullable String hostedZoneId;
+        private @Nullable Boolean iamDatabaseAuthenticationEnabled;
+        private @Nullable List<String> iamRoles;
+        private @Nullable String id;
+        private @Nullable String kmsKeyId;
+        private @Nullable List<GetClusterMasterUserSecret> masterUserSecrets;
+        private @Nullable String masterUsername;
+        private @Nullable String networkType;
+        private @Nullable Integer port;
+        private @Nullable String preferredBackupWindow;
+        private @Nullable String preferredMaintenanceWindow;
+        private @Nullable String readerEndpoint;
+        private @Nullable String replicationSourceIdentifier;
+        private @Nullable Boolean storageEncrypted;
+        private @Nullable Map<String,String> tags;
+        private @Nullable List<String> vpcSecurityGroupIds;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -246,26 +248,26 @@ public final class GetClusterResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+        public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
         @CustomType.Setter
-        public Builder backtrackWindow(Integer backtrackWindow) {
-            this.backtrackWindow = Objects.requireNonNull(backtrackWindow);
+        public Builder backtrackWindow(@Nullable Integer backtrackWindow) {
+            this.backtrackWindow = backtrackWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder backupRetentionPeriod(Integer backupRetentionPeriod) {
-            this.backupRetentionPeriod = Objects.requireNonNull(backupRetentionPeriod);
+        public Builder backupRetentionPeriod(@Nullable Integer backupRetentionPeriod) {
+            this.backupRetentionPeriod = backupRetentionPeriod;
             return this;
         }
         @CustomType.Setter
@@ -274,155 +276,155 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder clusterMembers(List<String> clusterMembers) {
-            this.clusterMembers = Objects.requireNonNull(clusterMembers);
+        public Builder clusterMembers(@Nullable List<String> clusterMembers) {
+            this.clusterMembers = clusterMembers;
             return this;
         }
         public Builder clusterMembers(String... clusterMembers) {
             return clusterMembers(List.of(clusterMembers));
         }
         @CustomType.Setter
-        public Builder clusterResourceId(String clusterResourceId) {
-            this.clusterResourceId = Objects.requireNonNull(clusterResourceId);
+        public Builder clusterResourceId(@Nullable String clusterResourceId) {
+            this.clusterResourceId = clusterResourceId;
             return this;
         }
         @CustomType.Setter
-        public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+        public Builder databaseName(@Nullable String databaseName) {
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
-        public Builder dbClusterParameterGroupName(String dbClusterParameterGroupName) {
-            this.dbClusterParameterGroupName = Objects.requireNonNull(dbClusterParameterGroupName);
+        public Builder dbClusterParameterGroupName(@Nullable String dbClusterParameterGroupName) {
+            this.dbClusterParameterGroupName = dbClusterParameterGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder dbSubnetGroupName(String dbSubnetGroupName) {
-            this.dbSubnetGroupName = Objects.requireNonNull(dbSubnetGroupName);
+        public Builder dbSubnetGroupName(@Nullable String dbSubnetGroupName) {
+            this.dbSubnetGroupName = dbSubnetGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder dbSystemId(String dbSystemId) {
-            this.dbSystemId = Objects.requireNonNull(dbSystemId);
+        public Builder dbSystemId(@Nullable String dbSystemId) {
+            this.dbSystemId = dbSystemId;
             return this;
         }
         @CustomType.Setter
-        public Builder enabledCloudwatchLogsExports(List<String> enabledCloudwatchLogsExports) {
-            this.enabledCloudwatchLogsExports = Objects.requireNonNull(enabledCloudwatchLogsExports);
+        public Builder enabledCloudwatchLogsExports(@Nullable List<String> enabledCloudwatchLogsExports) {
+            this.enabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             return this;
         }
         public Builder enabledCloudwatchLogsExports(String... enabledCloudwatchLogsExports) {
             return enabledCloudwatchLogsExports(List.of(enabledCloudwatchLogsExports));
         }
         @CustomType.Setter
-        public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+        public Builder endpoint(@Nullable String endpoint) {
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder engine(String engine) {
-            this.engine = Objects.requireNonNull(engine);
+        public Builder engine(@Nullable String engine) {
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
-        public Builder engineMode(String engineMode) {
-            this.engineMode = Objects.requireNonNull(engineMode);
+        public Builder engineMode(@Nullable String engineMode) {
+            this.engineMode = engineMode;
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder finalSnapshotIdentifier(String finalSnapshotIdentifier) {
-            this.finalSnapshotIdentifier = Objects.requireNonNull(finalSnapshotIdentifier);
+        public Builder finalSnapshotIdentifier(@Nullable String finalSnapshotIdentifier) {
+            this.finalSnapshotIdentifier = finalSnapshotIdentifier;
             return this;
         }
         @CustomType.Setter
-        public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+        public Builder hostedZoneId(@Nullable String hostedZoneId) {
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
-        public Builder iamDatabaseAuthenticationEnabled(Boolean iamDatabaseAuthenticationEnabled) {
-            this.iamDatabaseAuthenticationEnabled = Objects.requireNonNull(iamDatabaseAuthenticationEnabled);
+        public Builder iamDatabaseAuthenticationEnabled(@Nullable Boolean iamDatabaseAuthenticationEnabled) {
+            this.iamDatabaseAuthenticationEnabled = iamDatabaseAuthenticationEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder iamRoles(List<String> iamRoles) {
-            this.iamRoles = Objects.requireNonNull(iamRoles);
+        public Builder iamRoles(@Nullable List<String> iamRoles) {
+            this.iamRoles = iamRoles;
             return this;
         }
         public Builder iamRoles(String... iamRoles) {
             return iamRoles(List.of(iamRoles));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder masterUserSecrets(List<GetClusterMasterUserSecret> masterUserSecrets) {
-            this.masterUserSecrets = Objects.requireNonNull(masterUserSecrets);
+        public Builder masterUserSecrets(@Nullable List<GetClusterMasterUserSecret> masterUserSecrets) {
+            this.masterUserSecrets = masterUserSecrets;
             return this;
         }
         public Builder masterUserSecrets(GetClusterMasterUserSecret... masterUserSecrets) {
             return masterUserSecrets(List.of(masterUserSecrets));
         }
         @CustomType.Setter
-        public Builder masterUsername(String masterUsername) {
-            this.masterUsername = Objects.requireNonNull(masterUsername);
+        public Builder masterUsername(@Nullable String masterUsername) {
+            this.masterUsername = masterUsername;
             return this;
         }
         @CustomType.Setter
-        public Builder networkType(String networkType) {
-            this.networkType = Objects.requireNonNull(networkType);
+        public Builder networkType(@Nullable String networkType) {
+            this.networkType = networkType;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder preferredBackupWindow(String preferredBackupWindow) {
-            this.preferredBackupWindow = Objects.requireNonNull(preferredBackupWindow);
+        public Builder preferredBackupWindow(@Nullable String preferredBackupWindow) {
+            this.preferredBackupWindow = preferredBackupWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder preferredMaintenanceWindow(String preferredMaintenanceWindow) {
-            this.preferredMaintenanceWindow = Objects.requireNonNull(preferredMaintenanceWindow);
+        public Builder preferredMaintenanceWindow(@Nullable String preferredMaintenanceWindow) {
+            this.preferredMaintenanceWindow = preferredMaintenanceWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder readerEndpoint(String readerEndpoint) {
-            this.readerEndpoint = Objects.requireNonNull(readerEndpoint);
+        public Builder readerEndpoint(@Nullable String readerEndpoint) {
+            this.readerEndpoint = readerEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder replicationSourceIdentifier(String replicationSourceIdentifier) {
-            this.replicationSourceIdentifier = Objects.requireNonNull(replicationSourceIdentifier);
+        public Builder replicationSourceIdentifier(@Nullable String replicationSourceIdentifier) {
+            this.replicationSourceIdentifier = replicationSourceIdentifier;
             return this;
         }
         @CustomType.Setter
-        public Builder storageEncrypted(Boolean storageEncrypted) {
-            this.storageEncrypted = Objects.requireNonNull(storageEncrypted);
+        public Builder storageEncrypted(@Nullable Boolean storageEncrypted) {
+            this.storageEncrypted = storageEncrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
-            this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
+        public Builder vpcSecurityGroupIds(@Nullable List<String> vpcSecurityGroupIds) {
+            this.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {

@@ -59,8 +59,8 @@ type Stack struct {
 	pulumi.CustomResourceState
 
 	// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
-	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	AgentVersion pulumi.StringPtrOutput `pulumi:"agentVersion"`
+	Arn          pulumi.StringPtrOutput `pulumi:"arn"`
 	// If `manageBerkshelf` is enabled, the version of Berkshelf to use.
 	BerkshelfVersion pulumi.StringPtrOutput `pulumi:"berkshelfVersion"`
 	// Color to paint next to the stack's resources in the OpsWorks console.
@@ -75,7 +75,7 @@ type Stack struct {
 	CustomJson pulumi.StringPtrOutput `pulumi:"customJson"`
 	// Name of the availability zone where instances will be created by default.
 	// Cannot be set when `vpcId` is set.
-	DefaultAvailabilityZone pulumi.StringOutput `pulumi:"defaultAvailabilityZone"`
+	DefaultAvailabilityZone pulumi.StringPtrOutput `pulumi:"defaultAvailabilityZone"`
 	// The ARN of an IAM Instance Profile that created instances will have by default.
 	DefaultInstanceProfileArn pulumi.StringOutput `pulumi:"defaultInstanceProfileArn"`
 	// Name of OS that will be installed on instances by default.
@@ -86,7 +86,7 @@ type Stack struct {
 	DefaultSshKeyName pulumi.StringPtrOutput `pulumi:"defaultSshKeyName"`
 	// ID of the subnet in which instances will be created by default.
 	// Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
-	DefaultSubnetId pulumi.StringOutput `pulumi:"defaultSubnetId"`
+	DefaultSubnetId pulumi.StringPtrOutput `pulumi:"defaultSubnetId"`
 	// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
 	HostnameTheme pulumi.StringPtrOutput `pulumi:"hostnameTheme"`
 	// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
@@ -96,8 +96,8 @@ type Stack struct {
 	// The name of the region where the stack will exist.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of an IAM role that the OpsWorks service will act as.
-	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
-	StackEndpoint  pulumi.StringOutput `pulumi:"stackEndpoint"`
+	ServiceRoleArn pulumi.StringOutput    `pulumi:"serviceRoleArn"`
+	StackEndpoint  pulumi.StringPtrOutput `pulumi:"stackEndpoint"`
 	// A map of tags to assign to the resource.
 	// If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -111,7 +111,7 @@ type Stack struct {
 	UseOpsworksSecurityGroups pulumi.BoolPtrOutput `pulumi:"useOpsworksSecurityGroups"`
 	// ID of the VPC that this stack belongs to.
 	// Defaults to the region's default VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewStack registers a new resource with the given unique name, arguments, and options.
@@ -465,12 +465,12 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 }
 
 // If set to `"LATEST"`, OpsWorks will automatically install the latest version.
-func (o StackOutput) AgentVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
+func (o StackOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o StackOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StackOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // If `manageBerkshelf` is enabled, the version of Berkshelf to use.
@@ -505,8 +505,8 @@ func (o StackOutput) CustomJson() pulumi.StringPtrOutput {
 
 // Name of the availability zone where instances will be created by default.
 // Cannot be set when `vpcId` is set.
-func (o StackOutput) DefaultAvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.DefaultAvailabilityZone }).(pulumi.StringOutput)
+func (o StackOutput) DefaultAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DefaultAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of an IAM Instance Profile that created instances will have by default.
@@ -531,8 +531,8 @@ func (o StackOutput) DefaultSshKeyName() pulumi.StringPtrOutput {
 
 // ID of the subnet in which instances will be created by default.
 // Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
-func (o StackOutput) DefaultSubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.DefaultSubnetId }).(pulumi.StringOutput)
+func (o StackOutput) DefaultSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DefaultSubnetId }).(pulumi.StringPtrOutput)
 }
 
 // Keyword representing the naming scheme that will be used for instance hostnames within this stack.
@@ -560,8 +560,8 @@ func (o StackOutput) ServiceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
 }
 
-func (o StackOutput) StackEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.StackEndpoint }).(pulumi.StringOutput)
+func (o StackOutput) StackEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.StackEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource.
@@ -589,8 +589,8 @@ func (o StackOutput) UseOpsworksSecurityGroups() pulumi.BoolPtrOutput {
 
 // ID of the VPC that this stack belongs to.
 // Defaults to the region's default VPC.
-func (o StackOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o StackOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type StackArrayOutput struct{ *pulumi.OutputState }

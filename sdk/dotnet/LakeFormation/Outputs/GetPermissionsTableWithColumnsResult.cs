@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        public readonly string CatalogId;
+        public readonly string? CatalogId;
         /// <summary>
         /// Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
 
         [OutputConstructor]
         private GetPermissionsTableWithColumnsResult(
-            string catalogId,
+            string? catalogId,
 
             ImmutableArray<string> columnNames,
 

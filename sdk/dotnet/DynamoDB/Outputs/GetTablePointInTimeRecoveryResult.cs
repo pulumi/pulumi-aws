@@ -13,10 +13,10 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GetTablePointInTimeRecoveryResult
     {
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
-        private GetTablePointInTimeRecoveryResult(bool enabled)
+        private GetTablePointInTimeRecoveryResult(bool? enabled)
         {
             Enabled = enabled;
         }

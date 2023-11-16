@@ -630,7 +630,7 @@ class Proxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the proxy.
         """
@@ -654,7 +654,7 @@ class Proxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         """
@@ -670,7 +670,7 @@ class Proxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleClientTimeout")
-    def idle_client_timeout(self) -> pulumi.Output[int]:
+    def idle_client_timeout(self) -> pulumi.Output[Optional[int]]:
         """
         The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         """
@@ -721,7 +721,7 @@ class Proxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         One or more VPC security group IDs to associate with the new proxy.
         """

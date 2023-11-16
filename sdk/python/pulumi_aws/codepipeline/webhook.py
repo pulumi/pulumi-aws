@@ -607,7 +607,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The CodePipeline webhook's ARN.
         """
@@ -682,7 +682,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
         """

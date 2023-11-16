@@ -49,7 +49,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN for the DB subnet group.
         """
@@ -57,7 +57,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Provides the description of the DB subnet group.
         """
@@ -65,7 +65,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -78,7 +78,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Provides the status of the DB subnet group.
         """
@@ -86,7 +86,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Contains a list of subnet identifiers.
         """
@@ -94,7 +94,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter(name="supportedNetworkTypes")
-    def supported_network_types(self) -> Sequence[str]:
+    def supported_network_types(self) -> Optional[Sequence[str]]:
         """
         The network type of the DB subnet group.
         """
@@ -102,7 +102,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         Provides the VPC ID of the DB subnet group.
         """

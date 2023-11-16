@@ -73,14 +73,14 @@ type LookupInternetGatewayArgs struct {
 // A collection of values returned by getInternetGateway.
 type LookupInternetGatewayResult struct {
 	// ARN of the Internet Gateway.
-	Arn         string                             `pulumi:"arn"`
+	Arn         *string                            `pulumi:"arn"`
 	Attachments []GetInternetGatewayAttachmentType `pulumi:"attachments"`
 	Filters     []GetInternetGatewayFilter         `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
-	InternetGatewayId string `pulumi:"internetGatewayId"`
+	Id                *string `pulumi:"id"`
+	InternetGatewayId *string `pulumi:"internetGatewayId"`
 	// ID of the AWS account that owns the internet gateway.
-	OwnerId string            `pulumi:"ownerId"`
+	OwnerId *string           `pulumi:"ownerId"`
 	Tags    map[string]string `pulumi:"tags"`
 }
 
@@ -131,8 +131,8 @@ func (o LookupInternetGatewayResultOutput) ToLookupInternetGatewayResultOutputWi
 }
 
 // ARN of the Internet Gateway.
-func (o LookupInternetGatewayResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupInternetGatewayResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInternetGatewayResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupInternetGatewayResultOutput) Attachments() GetInternetGatewayAttachmentTypeArrayOutput {
@@ -144,17 +144,17 @@ func (o LookupInternetGatewayResultOutput) Filters() GetInternetGatewayFilterArr
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupInternetGatewayResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupInternetGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInternetGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupInternetGatewayResultOutput) InternetGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.InternetGatewayId }).(pulumi.StringOutput)
+func (o LookupInternetGatewayResultOutput) InternetGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInternetGatewayResult) *string { return v.InternetGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // ID of the AWS account that owns the internet gateway.
-func (o LookupInternetGatewayResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupInternetGatewayResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInternetGatewayResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupInternetGatewayResultOutput) Tags() pulumi.StringMapOutput {

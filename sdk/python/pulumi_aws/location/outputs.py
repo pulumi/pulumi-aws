@@ -73,15 +73,16 @@ class PlaceIndexDataSourceConfiguration(dict):
 @pulumi.output_type
 class GetMapConfigurationResult(dict):
     def __init__(__self__, *,
-                 style: str):
+                 style: Optional[str] = None):
         """
         :param str style: The map style selected from an available data provider.
         """
-        pulumi.set(__self__, "style", style)
+        if style is not None:
+            pulumi.set(__self__, "style", style)
 
     @property
     @pulumi.getter
-    def style(self) -> str:
+    def style(self) -> Optional[str]:
         """
         The map style selected from an available data provider.
         """
@@ -91,12 +92,13 @@ class GetMapConfigurationResult(dict):
 @pulumi.output_type
 class GetPlaceIndexDataSourceConfigurationResult(dict):
     def __init__(__self__, *,
-                 intended_use: str):
-        pulumi.set(__self__, "intended_use", intended_use)
+                 intended_use: Optional[str] = None):
+        if intended_use is not None:
+            pulumi.set(__self__, "intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")
-    def intended_use(self) -> str:
+    def intended_use(self) -> Optional[str]:
         return pulumi.get(self, "intended_use")
 
 

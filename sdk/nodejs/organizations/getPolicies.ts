@@ -35,11 +35,11 @@ export interface GetPoliciesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of all the policy ids found.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
 }
 /**
  * Data source for managing an AWS Organizations Policies.

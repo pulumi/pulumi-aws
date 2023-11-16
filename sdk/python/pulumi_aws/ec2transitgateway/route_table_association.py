@@ -303,7 +303,7 @@ class RouteTableAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> pulumi.Output[str]:
+    def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the resource
         """
@@ -311,7 +311,7 @@ class RouteTableAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Output[str]:
+    def resource_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of the resource
         """

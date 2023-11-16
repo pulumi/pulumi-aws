@@ -14,22 +14,22 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetRouteSpecGrpcRouteMatchResult
     {
         public readonly ImmutableArray<Outputs.GetRouteSpecGrpcRouteMatchMetadataResult> Metadatas;
-        public readonly string MethodName;
-        public readonly int Port;
-        public readonly string Prefix;
-        public readonly string ServiceName;
+        public readonly string? MethodName;
+        public readonly int? Port;
+        public readonly string? Prefix;
+        public readonly string? ServiceName;
 
         [OutputConstructor]
         private GetRouteSpecGrpcRouteMatchResult(
             ImmutableArray<Outputs.GetRouteSpecGrpcRouteMatchMetadataResult> metadatas,
 
-            string methodName,
+            string? methodName,
 
-            int port,
+            int? port,
 
-            string prefix,
+            string? prefix,
 
-            string serviceName)
+            string? serviceName)
         {
             Metadatas = metadatas;
             MethodName = methodName;

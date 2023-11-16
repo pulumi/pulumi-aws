@@ -42,9 +42,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			privateS3PrefixList := ec2.GetPrefixListOutput(ctx, ec2.GetPrefixListOutputArgs{
-//				PrefixListId: privateS3VpcEndpoint.PrefixListId,
-//			}, nil)
+//			privateS3PrefixList := privateS3VpcEndpoint.PrefixListId.ApplyT(func(prefixListId *string) (ec2.GetPrefixListResult, error) {
+//				return ec2.GetPrefixListOutput(ctx, ec2.GetPrefixListOutputArgs{
+//					PrefixListId: prefixListId,
+//				}, nil), nil
+//			}).(ec2.GetPrefixListResultOutput)
 //			bar, err := ec2.NewNetworkAcl(ctx, "bar", &ec2.NetworkAclArgs{
 //				VpcId: pulumi.Any(aws_vpc.Foo.Id),
 //			})
@@ -129,9 +131,9 @@ type GetPrefixListResult struct {
 	CidrBlocks []string              `pulumi:"cidrBlocks"`
 	Filters    []GetPrefixListFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the selected prefix list.
-	Name         string  `pulumi:"name"`
+	Name         *string `pulumi:"name"`
 	PrefixListId *string `pulumi:"prefixListId"`
 }
 
@@ -187,13 +189,13 @@ func (o GetPrefixListResultOutput) Filters() GetPrefixListFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetPrefixListResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrefixListResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPrefixListResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrefixListResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the selected prefix list.
-func (o GetPrefixListResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrefixListResult) string { return v.Name }).(pulumi.StringOutput)
+func (o GetPrefixListResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrefixListResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o GetPrefixListResultOutput) PrefixListId() pulumi.StringPtrOutput {

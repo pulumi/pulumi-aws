@@ -50,13 +50,13 @@ type Cluster struct {
 	pulumi.CustomResourceState
 
 	// ARN of the cluster
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
 	ClusterEndpoints ClusterClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
 	// Unique name describing the cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -213,8 +213,8 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 }
 
 // ARN of the cluster
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
@@ -228,8 +228,8 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 }
 
 // Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-func (o ClusterOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ClusterOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type ClusterArrayOutput struct{ *pulumi.OutputState }

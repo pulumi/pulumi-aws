@@ -601,7 +601,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         """
@@ -609,7 +609,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alias(self) -> pulumi.Output[str]:
+    def alias(self) -> pulumi.Output[Optional[str]]:
         """
         Alias of the S3 Access Point.
         """
@@ -617,7 +617,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the S3 Access Point.
         """
@@ -633,7 +633,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketAccountId")
-    def bucket_account_id(self) -> pulumi.Output[str]:
+    def bucket_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID associated with the S3 bucket associated with this access point.
         """
@@ -641,7 +641,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
         Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
@@ -650,7 +650,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> pulumi.Output[Mapping[str, str]]:
+    def endpoints(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         VPC endpoints for the S3 Access Point.
         """
@@ -658,7 +658,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasPublicAccessPolicy")
-    def has_public_access_policy(self) -> pulumi.Output[bool]:
+    def has_public_access_policy(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this access point currently has a policy that allows public access.
         """
@@ -676,7 +676,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkOrigin")
-    def network_origin(self) -> pulumi.Output[str]:
+    def network_origin(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
         """
@@ -684,7 +684,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         """

@@ -101,11 +101,11 @@ export class Faq extends pulumi.CustomResource {
     /**
      * ARN of the FAQ.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Unix datetime that the FAQ was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The description for a FAQ.
      */
@@ -113,11 +113,11 @@ export class Faq extends pulumi.CustomResource {
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    public /*out*/ readonly errorMessage!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the FAQ.
      */
-    public /*out*/ readonly faqId!: pulumi.Output<string>;
+    public /*out*/ readonly faqId!: pulumi.Output<string | undefined>;
     /**
      * The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
      */
@@ -129,7 +129,7 @@ export class Faq extends pulumi.CustomResource {
     /**
      * The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      */
-    public readonly languageCode!: pulumi.Output<string>;
+    public readonly languageCode!: pulumi.Output<string | undefined>;
     /**
      * The name that should be associated with the FAQ.
      */
@@ -147,7 +147,7 @@ export class Faq extends pulumi.CustomResource {
     /**
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -161,7 +161,7 @@ export class Faq extends pulumi.CustomResource {
     /**
      * The date and time that the FAQ was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Faq resource with the given unique name, arguments, and options.

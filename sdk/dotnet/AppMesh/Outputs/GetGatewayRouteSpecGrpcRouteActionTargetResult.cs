@@ -13,12 +13,12 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetGatewayRouteSpecGrpcRouteActionTargetResult
     {
-        public readonly int Port;
+        public readonly int? Port;
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult> VirtualServices;
 
         [OutputConstructor]
         private GetGatewayRouteSpecGrpcRouteActionTargetResult(
-            int port,
+            int? port,
 
             ImmutableArray<Outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult> virtualServices)
         {

@@ -153,7 +153,7 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// Description of the database engine.
         /// </summary>
-        public readonly string EngineDescription;
+        public readonly string? EngineDescription;
         /// <summary>
         /// Set of log types that the database engine has available for export to CloudWatch Logs.
         /// </summary>
@@ -161,44 +161,44 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string ParameterGroupFamily;
+        public readonly string? Id;
+        public readonly string? ParameterGroupFamily;
         public readonly ImmutableArray<string> PreferredVersions;
         /// <summary>
         /// Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
         /// </summary>
-        public readonly bool SupportsLogExportsToCloudwatch;
+        public readonly bool? SupportsLogExportsToCloudwatch;
         /// <summary>
         /// A set of engine versions that this database engine version can be upgraded to.
         /// </summary>
         public readonly ImmutableArray<string> ValidUpgradeTargets;
-        public readonly string Version;
+        public readonly string? Version;
         /// <summary>
         /// Description of the database engine version.
         /// </summary>
-        public readonly string VersionDescription;
+        public readonly string? VersionDescription;
 
         [OutputConstructor]
         private GetEngineVersionResult(
             string? engine,
 
-            string engineDescription,
+            string? engineDescription,
 
             ImmutableArray<string> exportableLogTypes,
 
-            string id,
+            string? id,
 
-            string parameterGroupFamily,
+            string? parameterGroupFamily,
 
             ImmutableArray<string> preferredVersions,
 
-            bool supportsLogExportsToCloudwatch,
+            bool? supportsLogExportsToCloudwatch,
 
             ImmutableArray<string> validUpgradeTargets,
 
-            string version,
+            string? version,
 
-            string versionDescription)
+            string? versionDescription)
         {
             Engine = engine;
             EngineDescription = engineDescription;

@@ -58,7 +58,7 @@ type Endpoint struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
 	DeploymentConfig EndpointDeploymentConfigPtrOutput `pulumi:"deploymentConfig"`
 	// The name of the endpoint configuration to use.
@@ -258,8 +258,8 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-func (o EndpointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EndpointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.

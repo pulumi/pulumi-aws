@@ -873,7 +873,7 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         (Required) Amazon Resource Name (ARN) of the container recipe.
         """
@@ -897,7 +897,7 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> pulumi.Output[str]:
+    def date_created(self) -> pulumi.Output[Optional[str]]:
         """
         Date the container recipe was created.
         """
@@ -913,7 +913,7 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dockerfileTemplateData")
-    def dockerfile_template_data(self) -> pulumi.Output[str]:
+    def dockerfile_template_data(self) -> pulumi.Output[Optional[str]]:
         """
         The Dockerfile template used to build the image as an inline data blob.
         """
@@ -929,7 +929,7 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> pulumi.Output[bool]:
+    def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         """
@@ -961,7 +961,7 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         Owner of the container recipe.
         """
@@ -977,7 +977,7 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output[str]:
+    def platform(self) -> pulumi.Output[Optional[str]]:
         """
         Platform of the container recipe.
         """

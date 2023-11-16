@@ -130,13 +130,13 @@ namespace Pulumi.Aws.DirectoryService
         /// Date and time when the Trust was created.
         /// </summary>
         [Output("createdDateTime")]
-        public Output<string> CreatedDateTime { get; private set; } = null!;
+        public Output<string?> CreatedDateTime { get; private set; } = null!;
 
         /// <summary>
         /// Whether to delete the conditional forwarder when deleting the Trust relationship.
         /// </summary>
         [Output("deleteAssociatedConditionalForwarder")]
-        public Output<bool> DeleteAssociatedConditionalForwarder { get; private set; } = null!;
+        public Output<bool?> DeleteAssociatedConditionalForwarder { get; private set; } = null!;
 
         /// <summary>
         /// ID of the Directory.
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.DirectoryService
         /// Date and time when the Trust was last updated.
         /// </summary>
         [Output("lastUpdatedDateTime")]
-        public Output<string> LastUpdatedDateTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedDateTime { get; private set; } = null!;
 
         /// <summary>
         /// Fully qualified domain name of the remote Directory.
@@ -162,13 +162,13 @@ namespace Pulumi.Aws.DirectoryService
         /// Default value is `Disabled`.
         /// </summary>
         [Output("selectiveAuth")]
-        public Output<string> SelectiveAuth { get; private set; } = null!;
+        public Output<string?> SelectiveAuth { get; private set; } = null!;
 
         /// <summary>
         /// Date and time when the Trust state in `trust_state` was last updated.
         /// </summary>
         [Output("stateLastUpdatedDateTime")]
-        public Output<string> StateLastUpdatedDateTime { get; private set; } = null!;
+        public Output<string?> StateLastUpdatedDateTime { get; private set; } = null!;
 
         /// <summary>
         /// The direction of the Trust relationship.
@@ -191,13 +191,13 @@ namespace Pulumi.Aws.DirectoryService
         /// One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
         /// </summary>
         [Output("trustState")]
-        public Output<string> Truststate { get; private set; } = null!;
+        public Output<string?> Truststate { get; private set; } = null!;
 
         /// <summary>
         /// Reason for the Trust state set in `trust_state`.
         /// </summary>
         [Output("trustStateReason")]
-        public Output<string> TrustStateReason { get; private set; } = null!;
+        public Output<string?> TrustStateReason { get; private set; } = null!;
 
         /// <summary>
         /// Type of the Trust relationship.
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.DirectoryService
         /// Default value is `Forest`.
         /// </summary>
         [Output("trustType")]
-        public Output<string> TrustType { get; private set; } = null!;
+        public Output<string?> TrustType { get; private set; } = null!;
 
 
         /// <summary>

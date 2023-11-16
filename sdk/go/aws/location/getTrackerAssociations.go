@@ -60,8 +60,8 @@ type GetTrackerAssociationsResult struct {
 	// List of geofence collection ARNs associated to the tracker resource.
 	ConsumerArns []string `pulumi:"consumerArns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string `pulumi:"id"`
-	TrackerName string `pulumi:"trackerName"`
+	Id          *string `pulumi:"id"`
+	TrackerName string  `pulumi:"trackerName"`
 }
 
 func GetTrackerAssociationsOutput(ctx *pulumi.Context, args GetTrackerAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetTrackerAssociationsResultOutput {
@@ -108,8 +108,8 @@ func (o GetTrackerAssociationsResultOutput) ConsumerArns() pulumi.StringArrayOut
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetTrackerAssociationsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTrackerAssociationsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetTrackerAssociationsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrackerAssociationsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetTrackerAssociationsResultOutput) TrackerName() pulumi.StringOutput {

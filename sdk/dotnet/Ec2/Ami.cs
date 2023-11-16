@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
         /// ARN of the AMI.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -116,26 +116,26 @@ namespace Pulumi.Aws.Ec2
         /// Hypervisor type of the image.
         /// </summary>
         [Output("hypervisor")]
-        public Output<string> Hypervisor { get; private set; } = null!;
+        public Output<string?> Hypervisor { get; private set; } = null!;
 
         /// <summary>
         /// Path to an S3 object containing an image manifest, e.g., created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Output("imageLocation")]
-        public Output<string> ImageLocation { get; private set; } = null!;
+        public Output<string?> ImageLocation { get; private set; } = null!;
 
         /// <summary>
         /// AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
         /// </summary>
         [Output("imageOwnerAlias")]
-        public Output<string> ImageOwnerAlias { get; private set; } = null!;
+        public Output<string?> ImageOwnerAlias { get; private set; } = null!;
 
         /// <summary>
         /// Type of image.
         /// </summary>
         [Output("imageType")]
-        public Output<string> ImageType { get; private set; } = null!;
+        public Output<string?> ImageType { get; private set; } = null!;
 
         /// <summary>
         /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> KernelId { get; private set; } = null!;
 
         [Output("manageEbsSnapshots")]
-        public Output<bool> ManageEbsSnapshots { get; private set; } = null!;
+        public Output<bool?> ManageEbsSnapshots { get; private set; } = null!;
 
         /// <summary>
         /// Region-unique name for the AMI.
@@ -163,25 +163,25 @@ namespace Pulumi.Aws.Ec2
         /// AWS account ID of the image owner.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// This value is set to windows for Windows AMIs; otherwise, it is blank.
         /// </summary>
         [Output("platform")]
-        public Output<string> Platform { get; private set; } = null!;
+        public Output<string?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// Platform details associated with the billing code of the AMI.
         /// </summary>
         [Output("platformDetails")]
-        public Output<string> PlatformDetails { get; private set; } = null!;
+        public Output<string?> PlatformDetails { get; private set; } = null!;
 
         /// <summary>
         /// Whether the image has public launch permissions.
         /// </summary>
         [Output("public")]
-        public Output<bool> Public { get; private set; } = null!;
+        public Output<bool?> Public { get; private set; } = null!;
 
         /// <summary>
         /// ID of an initrd image (ARI) that will be used when booting the
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ec2
         /// Snapshot ID for the root volume (for EBS-backed AMIs)
         /// </summary>
         [Output("rootSnapshotId")]
-        public Output<string> RootSnapshotId { get; private set; } = null!;
+        public Output<string?> RootSnapshotId { get; private set; } = null!;
 
         /// <summary>
         /// When set to "simple" (the default), enables enhanced networking
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Ec2
         /// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         /// </summary>
         [Output("usageOperation")]
-        public Output<string> UsageOperation { get; private set; } = null!;
+        public Output<string?> UsageOperation { get; private set; } = null!;
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances

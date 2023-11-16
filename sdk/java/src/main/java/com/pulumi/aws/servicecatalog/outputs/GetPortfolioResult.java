@@ -17,33 +17,33 @@ public final class GetPortfolioResult {
      * @return Portfolio ARN.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Time the portfolio was created.
      * 
      */
-    private String createdTime;
+    private @Nullable String createdTime;
     /**
      * @return Description of the portfolio
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String id;
     /**
      * @return Portfolio name.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Name of the person or organization who owns the portfolio.
      * 
      */
-    private String providerName;
+    private @Nullable String providerName;
     /**
      * @return Tags applied to the portfolio.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetPortfolioResult() {}
     public Optional<String> acceptLanguage() {
@@ -53,22 +53,22 @@ public final class GetPortfolioResult {
      * @return Portfolio ARN.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Time the portfolio was created.
      * 
      */
-    public String createdTime() {
-        return this.createdTime;
+    public Optional<String> createdTime() {
+        return Optional.ofNullable(this.createdTime);
     }
     /**
      * @return Description of the portfolio
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String id() {
         return this.id;
@@ -77,22 +77,22 @@ public final class GetPortfolioResult {
      * @return Portfolio name.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Name of the person or organization who owns the portfolio.
      * 
      */
-    public String providerName() {
-        return this.providerName;
+    public Optional<String> providerName() {
+        return Optional.ofNullable(this.providerName);
     }
     /**
      * @return Tags applied to the portfolio.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -105,13 +105,13 @@ public final class GetPortfolioResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
-        private String arn;
-        private String createdTime;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable String createdTime;
+        private @Nullable String description;
         private String id;
-        private String name;
-        private String providerName;
-        private Map<String,String> tags;
+        private @Nullable String name;
+        private @Nullable String providerName;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetPortfolioResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -131,18 +131,18 @@ public final class GetPortfolioResult {
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+        public Builder createdTime(@Nullable String createdTime) {
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -151,18 +151,18 @@ public final class GetPortfolioResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+        public Builder providerName(@Nullable String providerName) {
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetPortfolioResult build() {

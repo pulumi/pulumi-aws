@@ -59,7 +59,7 @@ type NetworkProfile struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of this network profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the network profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
@@ -349,8 +349,8 @@ func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name of this network profile.
-func (o NetworkProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NetworkProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the network profile.

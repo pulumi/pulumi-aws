@@ -40,31 +40,31 @@ export interface GetClusterResult {
     /**
      * Whether major version upgrades can be applied during maintenance period
      */
-    readonly allowVersionUpgrade: boolean;
+    readonly allowVersionUpgrade?: boolean;
     /**
      * The value represents how the cluster is configured to use AQUA.
      */
-    readonly aquaConfigurationStatus: string;
+    readonly aquaConfigurationStatus?: string;
     /**
      * ARN of cluster.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The backup retention period
      */
-    readonly automatedSnapshotRetentionPeriod: number;
+    readonly automatedSnapshotRetentionPeriod?: number;
     /**
      * Availability zone of the cluster
      */
-    readonly availabilityZone: string;
+    readonly availabilityZone?: string;
     /**
      * Indicates whether the cluster is able to be relocated to another availability zone.
      */
-    readonly availabilityZoneRelocationEnabled: boolean;
+    readonly availabilityZoneRelocationEnabled?: boolean;
     /**
      * Name of the S3 bucket where the log files are to be stored
      */
-    readonly bucketName: string;
+    readonly bucketName?: string;
     /**
      * Cluster identifier
      */
@@ -72,116 +72,116 @@ export interface GetClusterResult {
     /**
      * The namespace Amazon Resource Name (ARN) of the cluster
      */
-    readonly clusterNamespaceArn: string;
+    readonly clusterNamespaceArn?: string;
     /**
      * Nodes in the cluster. Cluster node blocks are documented below
      */
-    readonly clusterNodes: outputs.redshift.GetClusterClusterNode[];
+    readonly clusterNodes?: outputs.redshift.GetClusterClusterNode[];
     /**
      * The name of the parameter group to be associated with this cluster
      */
-    readonly clusterParameterGroupName: string;
+    readonly clusterParameterGroupName?: string;
     /**
      * Public key for the cluster
      */
-    readonly clusterPublicKey: string;
+    readonly clusterPublicKey?: string;
     /**
      * The cluster revision number
      */
-    readonly clusterRevisionNumber: string;
+    readonly clusterRevisionNumber?: string;
     /**
      * The name of a cluster subnet group to be associated with this cluster
      */
-    readonly clusterSubnetGroupName: string;
+    readonly clusterSubnetGroupName?: string;
     /**
      * Cluster type
      */
-    readonly clusterType: string;
-    readonly clusterVersion: string;
+    readonly clusterType?: string;
+    readonly clusterVersion?: string;
     /**
      * Name of the default database in the cluster
      */
-    readonly databaseName: string;
+    readonly databaseName?: string;
     /**
      * The ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
-    readonly defaultIamRoleArn: string;
+    readonly defaultIamRoleArn?: string;
     /**
      * Elastic IP of the cluster
      */
-    readonly elasticIp: string;
+    readonly elasticIp?: string;
     /**
      * Whether cluster logging is enabled
      */
-    readonly enableLogging: boolean;
+    readonly enableLogging?: boolean;
     /**
      * Whether the cluster data is encrypted
      */
-    readonly encrypted: boolean;
+    readonly encrypted?: boolean;
     /**
      * Cluster endpoint
      */
-    readonly endpoint: string;
+    readonly endpoint?: string;
     /**
      * Whether enhanced VPC routing is enabled
      */
-    readonly enhancedVpcRouting: boolean;
+    readonly enhancedVpcRouting?: boolean;
     /**
      * IAM roles associated to the cluster
      */
-    readonly iamRoles: string[];
+    readonly iamRoles?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * KMS encryption key associated to the cluster
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     /**
      * The log destination type.
      */
-    readonly logDestinationType: string;
+    readonly logDestinationType?: string;
     /**
      * Collection of exported log types. Log types include the connection log, user log and user activity log.
      */
-    readonly logExports: string[];
+    readonly logExports?: string[];
     /**
      * The name of the maintenance track for the restored cluster.
      */
-    readonly maintenanceTrackName: string;
+    readonly maintenanceTrackName?: string;
     /**
      * (Optional)  The default number of days to retain a manual snapshot.
      */
-    readonly manualSnapshotRetentionPeriod: number;
+    readonly manualSnapshotRetentionPeriod?: number;
     /**
      * Username for the master DB user
      */
-    readonly masterUsername: string;
+    readonly masterUsername?: string;
     /**
      * Cluster node type
      */
-    readonly nodeType: string;
+    readonly nodeType?: string;
     /**
      * Number of nodes in the cluster
      */
-    readonly numberOfNodes: number;
+    readonly numberOfNodes?: number;
     /**
      * Port the cluster responds on
      */
-    readonly port: number;
+    readonly port?: number;
     /**
      * The maintenance window
      */
-    readonly preferredMaintenanceWindow: string;
+    readonly preferredMaintenanceWindow?: string;
     /**
      * Whether the cluster is publicly accessible
      */
-    readonly publiclyAccessible: boolean;
+    readonly publiclyAccessible?: boolean;
     /**
      * Folder inside the S3 bucket where the log files are stored
      */
-    readonly s3KeyPrefix: string;
+    readonly s3KeyPrefix?: string;
     /**
      * Tags associated to the cluster
      */
@@ -189,11 +189,11 @@ export interface GetClusterResult {
     /**
      * VPC Id associated with the cluster
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
     /**
      * The VPC security group Ids associated with the cluster
      */
-    readonly vpcSecurityGroupIds: string[];
+    readonly vpcSecurityGroupIds?: string[];
 }
 /**
  * Provides details about a specific redshift cluster.

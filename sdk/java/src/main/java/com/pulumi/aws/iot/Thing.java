@@ -65,14 +65,14 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the thing.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Map of attributes of the thing.
@@ -93,14 +93,14 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultClientId", refs={String.class}, tree="[0]")
-    private Output<String> defaultClientId;
+    private Output</* @Nullable */ String> defaultClientId;
 
     /**
      * @return The default client ID.
      * 
      */
-    public Output<String> defaultClientId() {
-        return this.defaultClientId;
+    public Output<Optional<String>> defaultClientId() {
+        return Codegen.optional(this.defaultClientId);
     }
     /**
      * The name of the thing.
@@ -135,14 +135,14 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
-    private Output<Integer> version;
+    private Output</* @Nullable */ Integer> version;
 
     /**
      * @return The current version of the thing record in the registry.
      * 
      */
-    public Output<Integer> version() {
-        return this.version;
+    public Output<Optional<Integer>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

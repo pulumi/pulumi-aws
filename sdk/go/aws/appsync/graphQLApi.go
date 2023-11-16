@@ -18,7 +18,7 @@ type GraphQLApi struct {
 	// One or more additional authentication providers for the GraphqlApi. Defined below.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayOutput `pulumi:"additionalAuthenticationProviders"`
 	// ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// Nested argument containing Lambda authorizer configuration. Defined below.
@@ -299,8 +299,8 @@ func (o GraphQLApiOutput) AdditionalAuthenticationProviders() GraphQLApiAddition
 }
 
 // ARN
-func (o GraphQLApiOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GraphQLApiOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`

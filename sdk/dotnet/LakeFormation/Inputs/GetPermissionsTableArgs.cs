@@ -15,8 +15,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        [Input("catalogId", required: true)]
-        public Input<string> CatalogId { get; set; } = null!;
+        [Input("catalogId")]
+        public Input<string>? CatalogId { get; set; }
 
         /// <summary>
         /// Name of the database for the table. Unique to a Data Catalog.
@@ -29,8 +29,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         /// <summary>
         /// Name of the table. At least one of `name` or `wildcard` is required.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.

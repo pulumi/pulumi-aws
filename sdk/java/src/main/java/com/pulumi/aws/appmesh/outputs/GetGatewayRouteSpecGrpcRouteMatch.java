@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecGrpcRouteMatch {
-    private Integer port;
-    private String serviceName;
+    private @Nullable Integer port;
+    private @Nullable String serviceName;
 
     private GetGatewayRouteSpecGrpcRouteMatch() {}
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String serviceName() {
-        return this.serviceName;
+    public Optional<String> serviceName() {
+        return Optional.ofNullable(this.serviceName);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetGatewayRouteSpecGrpcRouteMatch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer port;
-        private String serviceName;
+        private @Nullable Integer port;
+        private @Nullable String serviceName;
         public Builder() {}
         public Builder(GetGatewayRouteSpecGrpcRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetGatewayRouteSpecGrpcRouteMatch {
         }
 
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+        public Builder serviceName(@Nullable String serviceName) {
+            this.serviceName = serviceName;
             return this;
         }
         public GetGatewayRouteSpecGrpcRouteMatch build() {

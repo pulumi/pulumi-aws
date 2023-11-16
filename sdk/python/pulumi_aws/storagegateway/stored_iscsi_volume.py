@@ -760,7 +760,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
@@ -768,7 +768,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="chapEnabled")
-    def chap_enabled(self) -> pulumi.Output[bool]:
+    def chap_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether mutual CHAP is enabled for the iSCSI target.
         """
@@ -808,7 +808,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lunNumber")
-    def lun_number(self) -> pulumi.Output[int]:
+    def lun_number(self) -> pulumi.Output[Optional[int]]:
         """
         Logical disk number.
         """
@@ -824,7 +824,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfacePort")
-    def network_interface_port(self) -> pulumi.Output[int]:
+    def network_interface_port(self) -> pulumi.Output[Optional[int]]:
         """
         The port used to communicate with iSCSI targets.
         """
@@ -867,7 +867,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> pulumi.Output[str]:
+    def target_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
@@ -883,7 +883,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeAttachmentStatus")
-    def volume_attachment_status(self) -> pulumi.Output[str]:
+    def volume_attachment_status(self) -> pulumi.Output[Optional[str]]:
         """
         A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
         """
@@ -891,7 +891,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> pulumi.Output[str]:
+    def volume_id(self) -> pulumi.Output[Optional[str]]:
         """
         Volume ID, e.g., `vol-12345678`.
         """
@@ -899,7 +899,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeSizeInBytes")
-    def volume_size_in_bytes(self) -> pulumi.Output[int]:
+    def volume_size_in_bytes(self) -> pulumi.Output[Optional[int]]:
         """
         The size of the data stored on the volume in bytes.
         """
@@ -907,7 +907,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeStatus")
-    def volume_status(self) -> pulumi.Output[str]:
+    def volume_status(self) -> pulumi.Output[Optional[str]]:
         """
         indicates the state of the storage volume.
         """
@@ -915,7 +915,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> pulumi.Output[str]:
+    def volume_type(self) -> pulumi.Output[Optional[str]]:
         """
         indicates the type of the volume.
         """

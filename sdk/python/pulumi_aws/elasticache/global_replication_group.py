@@ -815,7 +815,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the ElastiCache Global Replication Group.
         """
@@ -823,7 +823,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="atRestEncryptionEnabled")
-    def at_rest_encryption_enabled(self) -> pulumi.Output[bool]:
+    def at_rest_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         A flag that indicate whether the encryption at rest is enabled.
         """
@@ -831,7 +831,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authTokenEnabled")
-    def auth_token_enabled(self) -> pulumi.Output[bool]:
+    def auth_token_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         A flag that indicate whether AuthToken (password) is enabled.
         """
@@ -839,7 +839,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> pulumi.Output[bool]:
+    def automatic_failover_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
@@ -848,7 +848,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheNodeType")
-    def cache_node_type(self) -> pulumi.Output[str]:
+    def cache_node_type(self) -> pulumi.Output[Optional[str]]:
         """
         The instance class used.
         See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
@@ -859,7 +859,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterEnabled")
-    def cluster_enabled(self) -> pulumi.Output[bool]:
+    def cluster_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the Global Datastore is cluster enabled.
         """
@@ -867,7 +867,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[str]:
+    def engine(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the cache engine to be used for the clusters in this global replication group.
         """
@@ -875,7 +875,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         Redis version to use for the Global Replication Group.
         When creating, by default the Global Replication Group inherits the version of the primary replication group.
@@ -890,7 +890,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersionActual")
-    def engine_version_actual(self) -> pulumi.Output[str]:
+    def engine_version_actual(self) -> pulumi.Output[Optional[str]]:
         """
         The full version number of the cache engine running on the members of this global replication group.
         """
@@ -898,7 +898,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalNodeGroups")
-    def global_node_groups(self) -> pulumi.Output[Sequence['outputs.GlobalReplicationGroupGlobalNodeGroup']]:
+    def global_node_groups(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalReplicationGroupGlobalNodeGroup']]]:
         """
         Set of node groups (shards) on the global replication group.
         Has the values:
@@ -915,7 +915,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalReplicationGroupId")
-    def global_replication_group_id(self) -> pulumi.Output[str]:
+    def global_replication_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The full ID of the global replication group.
         """
@@ -931,7 +931,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numNodeGroups")
-    def num_node_groups(self) -> pulumi.Output[int]:
+    def num_node_groups(self) -> pulumi.Output[Optional[int]]:
         """
         The number of node groups (shards) on the global replication group.
         """
@@ -958,7 +958,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
-    def transit_encryption_enabled(self) -> pulumi.Output[bool]:
+    def transit_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         A flag that indicates whether the encryption in transit is enabled.
         """

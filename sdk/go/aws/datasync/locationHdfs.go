@@ -67,7 +67,7 @@ type LocationHdfs struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
 	AuthenticationType pulumi.StringPtrOutput `pulumi:"authenticationType"`
 	// The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
@@ -96,7 +96,7 @@ type LocationHdfs struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Uri     pulumi.StringOutput    `pulumi:"uri"`
+	Uri     pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewLocationHdfs registers a new resource with the given unique name, arguments, and options.
@@ -366,8 +366,8 @@ func (o LocationHdfsOutput) AgentArns() pulumi.StringArrayOutput {
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (o LocationHdfsOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationHdfs) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LocationHdfsOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHdfs) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
@@ -437,8 +437,8 @@ func (o LocationHdfsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-func (o LocationHdfsOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationHdfs) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+func (o LocationHdfsOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHdfs) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 type LocationHdfsArrayOutput struct{ *pulumi.OutputState }

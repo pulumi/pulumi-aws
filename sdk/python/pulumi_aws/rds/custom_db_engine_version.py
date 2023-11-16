@@ -890,7 +890,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the custom engine version.
         """
@@ -898,7 +898,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[str]:
+    def create_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the CEV was created.
         """
@@ -922,7 +922,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbParameterGroupFamily")
-    def db_parameter_group_family(self) -> pulumi.Output[str]:
+    def db_parameter_group_family(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the DB parameter group family for the CEV.
         """
@@ -962,7 +962,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> pulumi.Output[str]:
+    def image_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AMI that was created with the CEV.
         """
@@ -970,7 +970,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         """
@@ -978,7 +978,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="majorEngineVersion")
-    def major_engine_version(self) -> pulumi.Output[str]:
+    def major_engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         The major version of the database engine.
         """
@@ -994,7 +994,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="manifestComputed")
-    def manifest_computed(self) -> pulumi.Output[str]:
+    def manifest_computed(self) -> pulumi.Output[Optional[str]]:
         """
         The returned manifest file, in JSON format, service generated and often different from input `manifest`.
         """
@@ -1018,7 +1018,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         """

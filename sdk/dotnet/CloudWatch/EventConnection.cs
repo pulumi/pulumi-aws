@@ -82,7 +82,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The Amazon Resource Name (ARN) of the connection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         /// </summary>
         [Output("secretArn")]
-        public Output<string> SecretArn { get; private set; } = null!;
+        public Output<string?> SecretArn { get; private set; } = null!;
 
 
         /// <summary>

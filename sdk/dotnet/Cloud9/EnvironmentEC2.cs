@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Cloud9
         /// The ARN of the environment.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The number of minutes until the running instance is shut down after the environment has last been used.
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Cloud9
         /// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         /// </summary>
         [Output("ownerArn")]
-        public Output<string> OwnerArn { get; private set; } = null!;
+        public Output<string?> OwnerArn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Cloud9
         /// The type of the environment (e.g., `ssh` or `ec2`)
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

@@ -6,18 +6,20 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAmiProductCode {
-    private String productCodeId;
-    private String productCodeType;
+    private @Nullable String productCodeId;
+    private @Nullable String productCodeType;
 
     private GetAmiProductCode() {}
-    public String productCodeId() {
-        return this.productCodeId;
+    public Optional<String> productCodeId() {
+        return Optional.ofNullable(this.productCodeId);
     }
-    public String productCodeType() {
-        return this.productCodeType;
+    public Optional<String> productCodeType() {
+        return Optional.ofNullable(this.productCodeType);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetAmiProductCode {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String productCodeId;
-        private String productCodeType;
+        private @Nullable String productCodeId;
+        private @Nullable String productCodeType;
         public Builder() {}
         public Builder(GetAmiProductCode defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetAmiProductCode {
         }
 
         @CustomType.Setter
-        public Builder productCodeId(String productCodeId) {
-            this.productCodeId = Objects.requireNonNull(productCodeId);
+        public Builder productCodeId(@Nullable String productCodeId) {
+            this.productCodeId = productCodeId;
             return this;
         }
         @CustomType.Setter
-        public Builder productCodeType(String productCodeType) {
-            this.productCodeType = Objects.requireNonNull(productCodeType);
+        public Builder productCodeType(@Nullable String productCodeType) {
+            this.productCodeType = productCodeType;
             return this;
         }
         public GetAmiProductCode build() {

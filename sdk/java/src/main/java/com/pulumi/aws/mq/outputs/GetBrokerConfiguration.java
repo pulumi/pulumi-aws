@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBrokerConfiguration {
-    private String id;
-    private Integer revision;
+    private @Nullable String id;
+    private @Nullable Integer revision;
 
     private GetBrokerConfiguration() {}
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public Integer revision() {
-        return this.revision;
+    public Optional<Integer> revision() {
+        return Optional.ofNullable(this.revision);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetBrokerConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private Integer revision;
+        private @Nullable String id;
+        private @Nullable Integer revision;
         public Builder() {}
         public Builder(GetBrokerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetBrokerConfiguration {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder revision(Integer revision) {
-            this.revision = Objects.requireNonNull(revision);
+        public Builder revision(@Nullable Integer revision) {
+            this.revision = revision;
             return this;
         }
         public GetBrokerConfiguration build() {

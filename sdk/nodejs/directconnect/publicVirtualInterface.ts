@@ -70,16 +70,16 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    public readonly amazonAddress!: pulumi.Output<string>;
-    public /*out*/ readonly amazonSideAsn!: pulumi.Output<string>;
+    public readonly amazonAddress!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly amazonSideAsn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the virtual interface.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      */
-    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice!: pulumi.Output<string | undefined>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
@@ -87,7 +87,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
     /**
      * The authentication key for BGP configuration.
      */
-    public readonly bgpAuthKey!: pulumi.Output<string>;
+    public readonly bgpAuthKey!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
@@ -95,7 +95,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    public readonly customerAddress!: pulumi.Output<string>;
+    public readonly customerAddress!: pulumi.Output<string | undefined>;
     /**
      * The name for the virtual interface.
      */

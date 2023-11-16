@@ -10,58 +10,60 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerResult {
-    private String alpnPolicy;
-    private String arn;
-    private String certificateArn;
-    private List<GetListenerDefaultAction> defaultActions;
+    private @Nullable String alpnPolicy;
+    private @Nullable String arn;
+    private @Nullable String certificateArn;
+    private @Nullable List<GetListenerDefaultAction> defaultActions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String loadBalancerArn;
-    private Integer port;
-    private String protocol;
-    private String sslPolicy;
-    private Map<String,String> tags;
+    private @Nullable String id;
+    private @Nullable String loadBalancerArn;
+    private @Nullable Integer port;
+    private @Nullable String protocol;
+    private @Nullable String sslPolicy;
+    private @Nullable Map<String,String> tags;
 
     private GetListenerResult() {}
-    public String alpnPolicy() {
-        return this.alpnPolicy;
+    public Optional<String> alpnPolicy() {
+        return Optional.ofNullable(this.alpnPolicy);
     }
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String certificateArn() {
-        return this.certificateArn;
+    public Optional<String> certificateArn() {
+        return Optional.ofNullable(this.certificateArn);
     }
     public List<GetListenerDefaultAction> defaultActions() {
-        return this.defaultActions;
+        return this.defaultActions == null ? List.of() : this.defaultActions;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String loadBalancerArn() {
-        return this.loadBalancerArn;
+    public Optional<String> loadBalancerArn() {
+        return Optional.ofNullable(this.loadBalancerArn);
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
-    public String sslPolicy() {
-        return this.sslPolicy;
+    public Optional<String> sslPolicy() {
+        return Optional.ofNullable(this.sslPolicy);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -73,16 +75,16 @@ public final class GetListenerResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String alpnPolicy;
-        private String arn;
-        private String certificateArn;
-        private List<GetListenerDefaultAction> defaultActions;
-        private String id;
-        private String loadBalancerArn;
-        private Integer port;
-        private String protocol;
-        private String sslPolicy;
-        private Map<String,String> tags;
+        private @Nullable String alpnPolicy;
+        private @Nullable String arn;
+        private @Nullable String certificateArn;
+        private @Nullable List<GetListenerDefaultAction> defaultActions;
+        private @Nullable String id;
+        private @Nullable String loadBalancerArn;
+        private @Nullable Integer port;
+        private @Nullable String protocol;
+        private @Nullable String sslPolicy;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetListenerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -99,56 +101,56 @@ public final class GetListenerResult {
         }
 
         @CustomType.Setter
-        public Builder alpnPolicy(String alpnPolicy) {
-            this.alpnPolicy = Objects.requireNonNull(alpnPolicy);
+        public Builder alpnPolicy(@Nullable String alpnPolicy) {
+            this.alpnPolicy = alpnPolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+        public Builder certificateArn(@Nullable String certificateArn) {
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultActions(List<GetListenerDefaultAction> defaultActions) {
-            this.defaultActions = Objects.requireNonNull(defaultActions);
+        public Builder defaultActions(@Nullable List<GetListenerDefaultAction> defaultActions) {
+            this.defaultActions = defaultActions;
             return this;
         }
         public Builder defaultActions(GetListenerDefaultAction... defaultActions) {
             return defaultActions(List.of(defaultActions));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder loadBalancerArn(String loadBalancerArn) {
-            this.loadBalancerArn = Objects.requireNonNull(loadBalancerArn);
+        public Builder loadBalancerArn(@Nullable String loadBalancerArn) {
+            this.loadBalancerArn = loadBalancerArn;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder sslPolicy(String sslPolicy) {
-            this.sslPolicy = Objects.requireNonNull(sslPolicy);
+        public Builder sslPolicy(@Nullable String sslPolicy) {
+            this.sslPolicy = sslPolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetListenerResult build() {

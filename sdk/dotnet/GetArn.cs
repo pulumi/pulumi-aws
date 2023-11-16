@@ -110,43 +110,43 @@ namespace Pulumi.Aws
         /// <summary>
         /// The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
         /// </summary>
-        public readonly string Account;
+        public readonly string? Account;
         public readonly string Arn;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Partition that the resource is in.
         /// </summary>
-        public readonly string Partition;
+        public readonly string? Partition;
         /// <summary>
         /// Region the resource resides in.
         /// Note that the ARNs for some resources do not require a region, so this component might be omitted.
         /// </summary>
-        public readonly string Region;
+        public readonly string? Region;
         /// <summary>
         /// Content of this part of the ARN varies by service.
         /// It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
         /// </summary>
-        public readonly string Resource;
+        public readonly string? Resource;
         /// <summary>
         /// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
         /// </summary>
-        public readonly string Service;
+        public readonly string? Service;
 
         [OutputConstructor]
         private GetArnResult(
-            string account,
+            string? account,
 
             string arn,
 
-            string id,
+            string? id,
 
-            string partition,
+            string? partition,
 
-            string region,
+            string? region,
 
-            string resource,
+            string? resource,
 
-            string service)
+            string? service)
         {
             Account = account;
             Arn = arn;

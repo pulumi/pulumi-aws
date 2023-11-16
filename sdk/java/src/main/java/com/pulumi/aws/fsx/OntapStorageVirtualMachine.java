@@ -128,28 +128,28 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name of the storage virtual machine.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
     @Export(name="endpoints", refs={List.class,OntapStorageVirtualMachineEndpoint.class}, tree="[0,1]")
-    private Output<List<OntapStorageVirtualMachineEndpoint>> endpoints;
+    private Output</* @Nullable */ List<OntapStorageVirtualMachineEndpoint>> endpoints;
 
     /**
      * @return The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
-    public Output<List<OntapStorageVirtualMachineEndpoint>> endpoints() {
-        return this.endpoints;
+    public Output<Optional<List<OntapStorageVirtualMachineEndpoint>>> endpoints() {
+        return Codegen.optional(this.endpoints);
     }
     /**
      * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
@@ -198,14 +198,14 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="subtype", refs={String.class}, tree="[0]")
-    private Output<String> subtype;
+    private Output</* @Nullable */ String> subtype;
 
     /**
      * @return Describes the SVM&#39;s subtype, e.g. `DEFAULT`
      * 
      */
-    public Output<String> subtype() {
-        return this.subtype;
+    public Output<Optional<String>> subtype() {
+        return Codegen.optional(this.subtype);
     }
     @Export(name="svmAdminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> svmAdminPassword;
@@ -250,14 +250,14 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="uuid", refs={String.class}, tree="[0]")
-    private Output<String> uuid;
+    private Output</* @Nullable */ String> uuid;
 
     /**
      * @return The SVM&#39;s UUID (universally unique identifier).
      * 
      */
-    public Output<String> uuid() {
-        return this.uuid;
+    public Output<Optional<String>> uuid() {
+        return Codegen.optional(this.uuid);
     }
 
     /**

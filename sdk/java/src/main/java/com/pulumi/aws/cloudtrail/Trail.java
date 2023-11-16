@@ -479,14 +479,14 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the trail.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
@@ -563,14 +563,14 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="homeRegion", refs={String.class}, tree="[0]")
-    private Output<String> homeRegion;
+    private Output</* @Nullable */ String> homeRegion;
 
     /**
      * @return Region in which the trail was created.
      * 
      */
-    public Output<String> homeRegion() {
-        return this.homeRegion;
+    public Output<Optional<String>> homeRegion() {
+        return Codegen.optional(this.homeRegion);
     }
     /**
      * Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.

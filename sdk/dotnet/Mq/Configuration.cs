@@ -83,13 +83,13 @@ namespace Pulumi.Aws.Mq
         /// ARN of the configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         /// </summary>
         [Output("authenticationStrategy")]
-        public Output<string> AuthenticationStrategy { get; private set; } = null!;
+        public Output<string?> AuthenticationStrategy { get; private set; } = null!;
 
         /// <summary>
         /// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Mq
         /// Latest revision of the configuration.
         /// </summary>
         [Output("latestRevision")]
-        public Output<int> LatestRevision { get; private set; } = null!;
+        public Output<int?> LatestRevision { get; private set; } = null!;
 
         /// <summary>
         /// Name of the configuration.

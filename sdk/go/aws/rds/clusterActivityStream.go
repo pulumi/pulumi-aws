@@ -99,7 +99,7 @@ type ClusterActivityStream struct {
 	// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
 	EngineNativeAuditFieldsIncluded pulumi.BoolPtrOutput `pulumi:"engineNativeAuditFieldsIncluded"`
 	// The name of the Amazon Kinesis data stream to be used for the database activity stream.
-	KinesisStreamName pulumi.StringOutput `pulumi:"kinesisStreamName"`
+	KinesisStreamName pulumi.StringPtrOutput `pulumi:"kinesisStreamName"`
 	// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
@@ -292,8 +292,8 @@ func (o ClusterActivityStreamOutput) EngineNativeAuditFieldsIncluded() pulumi.Bo
 }
 
 // The name of the Amazon Kinesis data stream to be used for the database activity stream.
-func (o ClusterActivityStreamOutput) KinesisStreamName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterActivityStream) pulumi.StringOutput { return v.KinesisStreamName }).(pulumi.StringOutput)
+func (o ClusterActivityStreamOutput) KinesisStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterActivityStream) pulumi.StringPtrOutput { return v.KinesisStreamName }).(pulumi.StringPtrOutput)
 }
 
 // The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.

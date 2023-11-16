@@ -56,19 +56,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// EC2 Transit Gateway Connect Peer ARN
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
         /// </summary>
         [Output("bgpAsn")]
-        public Output<string> BgpAsn { get; private set; } = null!;
+        public Output<string?> BgpAsn { get; private set; } = null!;
 
         /// <summary>
         /// The IP address assigned to customer device, which is used as BGP IP address.
         /// </summary>
         [Output("bgpPeerAddress")]
-        public Output<string> BgpPeerAddress { get; private set; } = null!;
+        public Output<string?> BgpPeerAddress { get; private set; } = null!;
 
         /// <summary>
         /// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
         /// </summary>
         [Output("transitGatewayAddress")]
-        public Output<string> TransitGatewayAddress { get; private set; } = null!;
+        public Output<string?> TransitGatewayAddress { get; private set; } = null!;
 
         /// <summary>
         /// The Transit Gateway Connect

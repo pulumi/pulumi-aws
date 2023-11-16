@@ -190,47 +190,47 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokers!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokers!: pulumi.Output<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersPublicSaslIam!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokersPublicSaslIam!: pulumi.Output<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersPublicSaslScram!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokersPublicSaslScram!: pulumi.Output<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersPublicTls!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokersPublicTls!: pulumi.Output<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersSaslIam!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokersSaslIam!: pulumi.Output<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersSaslScram!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokersSaslScram!: pulumi.Output<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersTls!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokersTls!: pulumi.Output<string | undefined>;
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslIam!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslIam!: pulumi.Output<string | undefined>;
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslScram!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslScram!: pulumi.Output<string | undefined>;
     /**
      * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersVpcConnectivityTls!: pulumi.Output<string>;
+    public /*out*/ readonly bootstrapBrokersVpcConnectivityTls!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
@@ -246,7 +246,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * UUID of the MSK cluster, for use in IAM policies.
      */
-    public /*out*/ readonly clusterUuid!: pulumi.Output<string>;
+    public /*out*/ readonly clusterUuid!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
@@ -255,7 +255,7 @@ export class Cluster extends pulumi.CustomResource {
      * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      */
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    public /*out*/ readonly currentVersion!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for specifying encryption. See below.
      */
@@ -283,7 +283,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
-    public readonly storageMode!: pulumi.Output<string>;
+    public readonly storageMode!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -297,11 +297,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    public /*out*/ readonly zookeeperConnectString!: pulumi.Output<string>;
+    public /*out*/ readonly zookeeperConnectString!: pulumi.Output<string | undefined>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    public /*out*/ readonly zookeeperConnectStringTls!: pulumi.Output<string>;
+    public /*out*/ readonly zookeeperConnectStringTls!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.

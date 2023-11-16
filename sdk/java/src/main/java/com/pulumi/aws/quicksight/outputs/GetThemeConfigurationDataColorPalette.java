@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeConfigurationDataColorPalette {
@@ -14,17 +16,17 @@ public final class GetThemeConfigurationDataColorPalette {
      * @return List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
      * 
      */
-    private List<String> colors;
+    private @Nullable List<String> colors;
     /**
      * @return The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
      * 
      */
-    private String emptyFillColor;
+    private @Nullable String emptyFillColor;
     /**
      * @return The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
      * 
      */
-    private List<String> minMaxGradients;
+    private @Nullable List<String> minMaxGradients;
 
     private GetThemeConfigurationDataColorPalette() {}
     /**
@@ -32,21 +34,21 @@ public final class GetThemeConfigurationDataColorPalette {
      * 
      */
     public List<String> colors() {
-        return this.colors;
+        return this.colors == null ? List.of() : this.colors;
     }
     /**
      * @return The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
      * 
      */
-    public String emptyFillColor() {
-        return this.emptyFillColor;
+    public Optional<String> emptyFillColor() {
+        return Optional.ofNullable(this.emptyFillColor);
     }
     /**
      * @return The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
      * 
      */
     public List<String> minMaxGradients() {
-        return this.minMaxGradients;
+        return this.minMaxGradients == null ? List.of() : this.minMaxGradients;
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetThemeConfigurationDataColorPalette {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> colors;
-        private String emptyFillColor;
-        private List<String> minMaxGradients;
+        private @Nullable List<String> colors;
+        private @Nullable String emptyFillColor;
+        private @Nullable List<String> minMaxGradients;
         public Builder() {}
         public Builder(GetThemeConfigurationDataColorPalette defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,21 +72,21 @@ public final class GetThemeConfigurationDataColorPalette {
         }
 
         @CustomType.Setter
-        public Builder colors(List<String> colors) {
-            this.colors = Objects.requireNonNull(colors);
+        public Builder colors(@Nullable List<String> colors) {
+            this.colors = colors;
             return this;
         }
         public Builder colors(String... colors) {
             return colors(List.of(colors));
         }
         @CustomType.Setter
-        public Builder emptyFillColor(String emptyFillColor) {
-            this.emptyFillColor = Objects.requireNonNull(emptyFillColor);
+        public Builder emptyFillColor(@Nullable String emptyFillColor) {
+            this.emptyFillColor = emptyFillColor;
             return this;
         }
         @CustomType.Setter
-        public Builder minMaxGradients(List<String> minMaxGradients) {
-            this.minMaxGradients = Objects.requireNonNull(minMaxGradients);
+        public Builder minMaxGradients(@Nullable List<String> minMaxGradients) {
+            this.minMaxGradients = minMaxGradients;
             return this;
         }
         public Builder minMaxGradients(String... minMaxGradients) {

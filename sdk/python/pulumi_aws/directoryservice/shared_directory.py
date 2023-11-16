@@ -378,7 +378,7 @@ class SharedDirectory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedDirectoryId")
-    def shared_directory_id(self) -> pulumi.Output[str]:
+    def shared_directory_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """

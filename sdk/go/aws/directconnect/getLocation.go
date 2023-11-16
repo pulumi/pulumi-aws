@@ -66,10 +66,10 @@ type GetLocationResult struct {
 	// Names of the service providers for the location.
 	AvailableProviders []string `pulumi:"availableProviders"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string `pulumi:"id"`
-	LocationCode string `pulumi:"locationCode"`
+	Id           *string `pulumi:"id"`
+	LocationCode string  `pulumi:"locationCode"`
 	// Name of the location. This includes the name of the colocation partner and the physical site of the building.
-	LocationName string `pulumi:"locationName"`
+	LocationName *string `pulumi:"locationName"`
 }
 
 func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...pulumi.InvokeOption) GetLocationResultOutput {
@@ -126,8 +126,8 @@ func (o GetLocationResultOutput) AvailableProviders() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLocationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLocationResultOutput) LocationCode() pulumi.StringOutput {
@@ -135,8 +135,8 @@ func (o GetLocationResultOutput) LocationCode() pulumi.StringOutput {
 }
 
 // Name of the location. This includes the name of the colocation partner and the physical site of the building.
-func (o GetLocationResultOutput) LocationName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationResult) string { return v.LocationName }).(pulumi.StringOutput)
+func (o GetLocationResultOutput) LocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocationResult) *string { return v.LocationName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

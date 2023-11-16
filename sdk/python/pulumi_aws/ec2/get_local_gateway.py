@@ -50,12 +50,12 @@ class GetLocalGatewayResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> str:
+    def outpost_arn(self) -> Optional[str]:
         """
         ARN of Outpost
         """
@@ -63,7 +63,7 @@ class GetLocalGatewayResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         AWS account identifier that owns the Local Gateway.
         """
@@ -71,7 +71,7 @@ class GetLocalGatewayResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         State of the local gateway.
         """
@@ -79,7 +79,7 @@ class GetLocalGatewayResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

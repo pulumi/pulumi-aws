@@ -94,28 +94,28 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Vocabulary.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Generated download URI.
      * 
      */
     @Export(name="downloadUri", refs={String.class}, tree="[0]")
-    private Output<String> downloadUri;
+    private Output</* @Nullable */ String> downloadUri;
 
     /**
      * @return Generated download URI.
      * 
      */
-    public Output<String> downloadUri() {
-        return this.downloadUri;
+    public Output<Optional<String>> downloadUri() {
+        return Codegen.optional(this.downloadUri);
     }
     /**
      * The language code you selected for your vocabulary.
@@ -176,14 +176,14 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vocabularyFileUri", refs={String.class}, tree="[0]")
-    private Output<String> vocabularyFileUri;
+    private Output</* @Nullable */ String> vocabularyFileUri;
 
     /**
      * @return The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      * 
      */
-    public Output<String> vocabularyFileUri() {
-        return this.vocabularyFileUri;
+    public Output<Optional<String>> vocabularyFileUri() {
+        return Codegen.optional(this.vocabularyFileUri);
     }
     /**
      * The name of the Vocabulary.

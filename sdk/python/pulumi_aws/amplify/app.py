@@ -1193,7 +1193,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Amplify app.
         """
@@ -1201,7 +1201,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoBranchCreationConfig")
-    def auto_branch_creation_config(self) -> pulumi.Output['outputs.AppAutoBranchCreationConfig']:
+    def auto_branch_creation_config(self) -> pulumi.Output[Optional['outputs.AppAutoBranchCreationConfig']]:
         """
         Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
         """
@@ -1225,7 +1225,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="buildSpec")
-    def build_spec(self) -> pulumi.Output[str]:
+    def build_spec(self) -> pulumi.Output[Optional[str]]:
         """
         The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         """
@@ -1233,7 +1233,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> pulumi.Output[str]:
+    def custom_headers(self) -> pulumi.Output[Optional[str]]:
         """
         The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         """
@@ -1249,7 +1249,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultDomain")
-    def default_domain(self) -> pulumi.Output[str]:
+    def default_domain(self) -> pulumi.Output[Optional[str]]:
         """
         Default domain for the Amplify app.
         """
@@ -1337,7 +1337,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productionBranches")
-    def production_branches(self) -> pulumi.Output[Sequence['outputs.AppProductionBranch']]:
+    def production_branches(self) -> pulumi.Output[Optional[Sequence['outputs.AppProductionBranch']]]:
         """
         Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
         """

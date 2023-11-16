@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Location
         /// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         [Output("collectionArn")]
-        public Output<string> CollectionArn { get; private set; } = null!;
+        public Output<string?> CollectionArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the geofence collection.
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the geofence collection resource was created in ISO 8601 format.
         /// </summary>
         [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        public Output<string?> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// The optional description for the geofence collection.
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         /// </summary>
         [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        public Output<string?> UpdateTime { get; private set; } = null!;
 
 
         /// <summary>

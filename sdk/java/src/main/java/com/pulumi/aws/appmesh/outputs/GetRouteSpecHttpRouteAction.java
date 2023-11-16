@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteActionWeightedTarget;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecHttpRouteAction {
-    private List<GetRouteSpecHttpRouteActionWeightedTarget> weightedTargets;
+    private @Nullable List<GetRouteSpecHttpRouteActionWeightedTarget> weightedTargets;
 
     private GetRouteSpecHttpRouteAction() {}
     public List<GetRouteSpecHttpRouteActionWeightedTarget> weightedTargets() {
-        return this.weightedTargets;
+        return this.weightedTargets == null ? List.of() : this.weightedTargets;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetRouteSpecHttpRouteAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecHttpRouteActionWeightedTarget> weightedTargets;
+        private @Nullable List<GetRouteSpecHttpRouteActionWeightedTarget> weightedTargets;
         public Builder() {}
         public Builder(GetRouteSpecHttpRouteAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetRouteSpecHttpRouteAction {
         }
 
         @CustomType.Setter
-        public Builder weightedTargets(List<GetRouteSpecHttpRouteActionWeightedTarget> weightedTargets) {
-            this.weightedTargets = Objects.requireNonNull(weightedTargets);
+        public Builder weightedTargets(@Nullable List<GetRouteSpecHttpRouteActionWeightedTarget> weightedTargets) {
+            this.weightedTargets = weightedTargets;
             return this;
         }
         public Builder weightedTargets(GetRouteSpecHttpRouteActionWeightedTarget... weightedTargets) {

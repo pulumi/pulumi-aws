@@ -21,244 +21,244 @@ public final class GetAmiResult {
      * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
      */
-    private String architecture;
+    private @Nullable String architecture;
     /**
      * @return ARN of the AMI.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Set of objects with block device mappings of the AMI.
      * 
      */
-    private List<GetAmiBlockDeviceMapping> blockDeviceMappings;
+    private @Nullable List<GetAmiBlockDeviceMapping> blockDeviceMappings;
     /**
      * @return Boot mode of the image.
      * 
      */
-    private String bootMode;
+    private @Nullable String bootMode;
     /**
      * @return Date and time the image was created.
      * 
      */
-    private String creationDate;
+    private @Nullable String creationDate;
     /**
      * @return Date and time when the image will be deprecated.
      * 
      */
-    private String deprecationTime;
+    private @Nullable String deprecationTime;
     /**
      * @return Description of the AMI that was provided during image
      * creation.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Whether enhanced networking with ENA is enabled.
      * 
      */
-    private Boolean enaSupport;
+    private @Nullable Boolean enaSupport;
     private @Nullable List<String> executableUsers;
     private @Nullable List<GetAmiFilter> filters;
     /**
      * @return Hypervisor type of the image.
      * 
      */
-    private String hypervisor;
+    private @Nullable String hypervisor;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ID of the AMI. Should be the same as the resource `id`.
      * 
      */
-    private String imageId;
+    private @Nullable String imageId;
     /**
      * @return Location of the AMI.
      * 
      */
-    private String imageLocation;
+    private @Nullable String imageLocation;
     /**
      * @return AWS account alias (for example, `amazon`, `self`) or
      * the AWS account ID of the AMI owner.
      * 
      */
-    private String imageOwnerAlias;
+    private @Nullable String imageOwnerAlias;
     /**
      * @return Type of image.
      * 
      */
-    private String imageType;
+    private @Nullable String imageType;
     /**
      * @return Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
      * 
      */
-    private String imdsSupport;
+    private @Nullable String imdsSupport;
     private @Nullable Boolean includeDeprecated;
     /**
      * @return Kernel associated with the image, if any. Only applicable
      * for machine images.
      * 
      */
-    private String kernelId;
+    private @Nullable String kernelId;
     private @Nullable Boolean mostRecent;
     /**
      * @return Name of the AMI that was provided during image creation.
      * 
      */
-    private String name;
+    private @Nullable String name;
     private @Nullable String nameRegex;
     /**
      * @return AWS account ID of the image owner.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     private @Nullable List<String> owners;
     /**
      * @return Value is Windows for `Windows` AMIs; otherwise blank.
      * 
      */
-    private String platform;
+    private @Nullable String platform;
     /**
      * @return Platform details associated with the billing code of the AMI.
      * 
      */
-    private String platformDetails;
+    private @Nullable String platformDetails;
     /**
      * @return Any product codes associated with the AMI.
      * * `product_codes.#.product_code_id` - The product code.
      * * `product_codes.#.product_code_type` - The type of product code.
      * 
      */
-    private List<GetAmiProductCode> productCodes;
+    private @Nullable List<GetAmiProductCode> productCodes;
     /**
      * @return `true` if the image has public launch permissions.
      * 
      */
-    private Boolean public_;
+    private @Nullable Boolean public_;
     /**
      * @return RAM disk associated with the image, if any. Only applicable
      * for machine images.
      * 
      */
-    private String ramdiskId;
+    private @Nullable String ramdiskId;
     /**
      * @return Device name of the root device.
      * 
      */
-    private String rootDeviceName;
+    private @Nullable String rootDeviceName;
     /**
      * @return Type of root device (ie: `ebs` or `instance-store`).
      * 
      */
-    private String rootDeviceType;
+    private @Nullable String rootDeviceType;
     /**
      * @return Snapshot id associated with the root device, if any
      * (only applies to `ebs` root devices).
      * 
      */
-    private String rootSnapshotId;
+    private @Nullable String rootSnapshotId;
     /**
      * @return Whether enhanced networking is enabled.
      * 
      */
-    private String sriovNetSupport;
+    private @Nullable String sriovNetSupport;
     /**
      * @return Current state of the AMI. If the state is `available`, the image
      * is successfully registered and can be used to launch an instance.
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return Describes a state change. Fields are `UNSET` if not available.
      * * `state_reason.code` - The reason code for the state change.
      * * `state_reason.message` - The message for the state change.
      * 
      */
-    private Map<String,String> stateReason;
+    private @Nullable Map<String,String> stateReason;
     /**
      * @return Any tags assigned to the image.
      * * `tags.#.key` - Key name of the tag.
      * * `tags.#.value` - Value of the tag.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return If the image is configured for NitroTPM support, the value is `v2.0`.
      * 
      */
-    private String tpmSupport;
+    private @Nullable String tpmSupport;
     /**
      * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
-    private String usageOperation;
+    private @Nullable String usageOperation;
     /**
      * @return Type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).
      * 
      */
-    private String virtualizationType;
+    private @Nullable String virtualizationType;
 
     private GetAmiResult() {}
     /**
      * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
      */
-    public String architecture() {
-        return this.architecture;
+    public Optional<String> architecture() {
+        return Optional.ofNullable(this.architecture);
     }
     /**
      * @return ARN of the AMI.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Set of objects with block device mappings of the AMI.
      * 
      */
     public List<GetAmiBlockDeviceMapping> blockDeviceMappings() {
-        return this.blockDeviceMappings;
+        return this.blockDeviceMappings == null ? List.of() : this.blockDeviceMappings;
     }
     /**
      * @return Boot mode of the image.
      * 
      */
-    public String bootMode() {
-        return this.bootMode;
+    public Optional<String> bootMode() {
+        return Optional.ofNullable(this.bootMode);
     }
     /**
      * @return Date and time the image was created.
      * 
      */
-    public String creationDate() {
-        return this.creationDate;
+    public Optional<String> creationDate() {
+        return Optional.ofNullable(this.creationDate);
     }
     /**
      * @return Date and time when the image will be deprecated.
      * 
      */
-    public String deprecationTime() {
-        return this.deprecationTime;
+    public Optional<String> deprecationTime() {
+        return Optional.ofNullable(this.deprecationTime);
     }
     /**
      * @return Description of the AMI that was provided during image
      * creation.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Whether enhanced networking with ENA is enabled.
      * 
      */
-    public Boolean enaSupport() {
-        return this.enaSupport;
+    public Optional<Boolean> enaSupport() {
+        return Optional.ofNullable(this.enaSupport);
     }
     public List<String> executableUsers() {
         return this.executableUsers == null ? List.of() : this.executableUsers;
@@ -270,51 +270,51 @@ public final class GetAmiResult {
      * @return Hypervisor type of the image.
      * 
      */
-    public String hypervisor() {
-        return this.hypervisor;
+    public Optional<String> hypervisor() {
+        return Optional.ofNullable(this.hypervisor);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ID of the AMI. Should be the same as the resource `id`.
      * 
      */
-    public String imageId() {
-        return this.imageId;
+    public Optional<String> imageId() {
+        return Optional.ofNullable(this.imageId);
     }
     /**
      * @return Location of the AMI.
      * 
      */
-    public String imageLocation() {
-        return this.imageLocation;
+    public Optional<String> imageLocation() {
+        return Optional.ofNullable(this.imageLocation);
     }
     /**
      * @return AWS account alias (for example, `amazon`, `self`) or
      * the AWS account ID of the AMI owner.
      * 
      */
-    public String imageOwnerAlias() {
-        return this.imageOwnerAlias;
+    public Optional<String> imageOwnerAlias() {
+        return Optional.ofNullable(this.imageOwnerAlias);
     }
     /**
      * @return Type of image.
      * 
      */
-    public String imageType() {
-        return this.imageType;
+    public Optional<String> imageType() {
+        return Optional.ofNullable(this.imageType);
     }
     /**
      * @return Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
      * 
      */
-    public String imdsSupport() {
-        return this.imdsSupport;
+    public Optional<String> imdsSupport() {
+        return Optional.ofNullable(this.imdsSupport);
     }
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
@@ -324,8 +324,8 @@ public final class GetAmiResult {
      * for machine images.
      * 
      */
-    public String kernelId() {
-        return this.kernelId;
+    public Optional<String> kernelId() {
+        return Optional.ofNullable(this.kernelId);
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
@@ -334,8 +334,8 @@ public final class GetAmiResult {
      * @return Name of the AMI that was provided during image creation.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
@@ -344,8 +344,8 @@ public final class GetAmiResult {
      * @return AWS account ID of the image owner.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     public List<String> owners() {
         return this.owners == null ? List.of() : this.owners;
@@ -354,15 +354,15 @@ public final class GetAmiResult {
      * @return Value is Windows for `Windows` AMIs; otherwise blank.
      * 
      */
-    public String platform() {
-        return this.platform;
+    public Optional<String> platform() {
+        return Optional.ofNullable(this.platform);
     }
     /**
      * @return Platform details associated with the billing code of the AMI.
      * 
      */
-    public String platformDetails() {
-        return this.platformDetails;
+    public Optional<String> platformDetails() {
+        return Optional.ofNullable(this.platformDetails);
     }
     /**
      * @return Any product codes associated with the AMI.
@@ -371,59 +371,59 @@ public final class GetAmiResult {
      * 
      */
     public List<GetAmiProductCode> productCodes() {
-        return this.productCodes;
+        return this.productCodes == null ? List.of() : this.productCodes;
     }
     /**
      * @return `true` if the image has public launch permissions.
      * 
      */
-    public Boolean public_() {
-        return this.public_;
+    public Optional<Boolean> public_() {
+        return Optional.ofNullable(this.public_);
     }
     /**
      * @return RAM disk associated with the image, if any. Only applicable
      * for machine images.
      * 
      */
-    public String ramdiskId() {
-        return this.ramdiskId;
+    public Optional<String> ramdiskId() {
+        return Optional.ofNullable(this.ramdiskId);
     }
     /**
      * @return Device name of the root device.
      * 
      */
-    public String rootDeviceName() {
-        return this.rootDeviceName;
+    public Optional<String> rootDeviceName() {
+        return Optional.ofNullable(this.rootDeviceName);
     }
     /**
      * @return Type of root device (ie: `ebs` or `instance-store`).
      * 
      */
-    public String rootDeviceType() {
-        return this.rootDeviceType;
+    public Optional<String> rootDeviceType() {
+        return Optional.ofNullable(this.rootDeviceType);
     }
     /**
      * @return Snapshot id associated with the root device, if any
      * (only applies to `ebs` root devices).
      * 
      */
-    public String rootSnapshotId() {
-        return this.rootSnapshotId;
+    public Optional<String> rootSnapshotId() {
+        return Optional.ofNullable(this.rootSnapshotId);
     }
     /**
      * @return Whether enhanced networking is enabled.
      * 
      */
-    public String sriovNetSupport() {
-        return this.sriovNetSupport;
+    public Optional<String> sriovNetSupport() {
+        return Optional.ofNullable(this.sriovNetSupport);
     }
     /**
      * @return Current state of the AMI. If the state is `available`, the image
      * is successfully registered and can be used to launch an instance.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return Describes a state change. Fields are `UNSET` if not available.
@@ -432,7 +432,7 @@ public final class GetAmiResult {
      * 
      */
     public Map<String,String> stateReason() {
-        return this.stateReason;
+        return this.stateReason == null ? Map.of() : this.stateReason;
     }
     /**
      * @return Any tags assigned to the image.
@@ -441,29 +441,29 @@ public final class GetAmiResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return If the image is configured for NitroTPM support, the value is `v2.0`.
      * 
      */
-    public String tpmSupport() {
-        return this.tpmSupport;
+    public Optional<String> tpmSupport() {
+        return Optional.ofNullable(this.tpmSupport);
     }
     /**
      * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
-    public String usageOperation() {
-        return this.usageOperation;
+    public Optional<String> usageOperation() {
+        return Optional.ofNullable(this.usageOperation);
     }
     /**
      * @return Type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).
      * 
      */
-    public String virtualizationType() {
-        return this.virtualizationType;
+    public Optional<String> virtualizationType() {
+        return Optional.ofNullable(this.virtualizationType);
     }
 
     public static Builder builder() {
@@ -475,45 +475,45 @@ public final class GetAmiResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String architecture;
-        private String arn;
-        private List<GetAmiBlockDeviceMapping> blockDeviceMappings;
-        private String bootMode;
-        private String creationDate;
-        private String deprecationTime;
-        private String description;
-        private Boolean enaSupport;
+        private @Nullable String architecture;
+        private @Nullable String arn;
+        private @Nullable List<GetAmiBlockDeviceMapping> blockDeviceMappings;
+        private @Nullable String bootMode;
+        private @Nullable String creationDate;
+        private @Nullable String deprecationTime;
+        private @Nullable String description;
+        private @Nullable Boolean enaSupport;
         private @Nullable List<String> executableUsers;
         private @Nullable List<GetAmiFilter> filters;
-        private String hypervisor;
-        private String id;
-        private String imageId;
-        private String imageLocation;
-        private String imageOwnerAlias;
-        private String imageType;
-        private String imdsSupport;
+        private @Nullable String hypervisor;
+        private @Nullable String id;
+        private @Nullable String imageId;
+        private @Nullable String imageLocation;
+        private @Nullable String imageOwnerAlias;
+        private @Nullable String imageType;
+        private @Nullable String imdsSupport;
         private @Nullable Boolean includeDeprecated;
-        private String kernelId;
+        private @Nullable String kernelId;
         private @Nullable Boolean mostRecent;
-        private String name;
+        private @Nullable String name;
         private @Nullable String nameRegex;
-        private String ownerId;
+        private @Nullable String ownerId;
         private @Nullable List<String> owners;
-        private String platform;
-        private String platformDetails;
-        private List<GetAmiProductCode> productCodes;
-        private Boolean public_;
-        private String ramdiskId;
-        private String rootDeviceName;
-        private String rootDeviceType;
-        private String rootSnapshotId;
-        private String sriovNetSupport;
-        private String state;
-        private Map<String,String> stateReason;
-        private Map<String,String> tags;
-        private String tpmSupport;
-        private String usageOperation;
-        private String virtualizationType;
+        private @Nullable String platform;
+        private @Nullable String platformDetails;
+        private @Nullable List<GetAmiProductCode> productCodes;
+        private @Nullable Boolean public_;
+        private @Nullable String ramdiskId;
+        private @Nullable String rootDeviceName;
+        private @Nullable String rootDeviceType;
+        private @Nullable String rootSnapshotId;
+        private @Nullable String sriovNetSupport;
+        private @Nullable String state;
+        private @Nullable Map<String,String> stateReason;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String tpmSupport;
+        private @Nullable String usageOperation;
+        private @Nullable String virtualizationType;
         public Builder() {}
         public Builder(GetAmiResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -559,46 +559,46 @@ public final class GetAmiResult {
         }
 
         @CustomType.Setter
-        public Builder architecture(String architecture) {
-            this.architecture = Objects.requireNonNull(architecture);
+        public Builder architecture(@Nullable String architecture) {
+            this.architecture = architecture;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder blockDeviceMappings(List<GetAmiBlockDeviceMapping> blockDeviceMappings) {
-            this.blockDeviceMappings = Objects.requireNonNull(blockDeviceMappings);
+        public Builder blockDeviceMappings(@Nullable List<GetAmiBlockDeviceMapping> blockDeviceMappings) {
+            this.blockDeviceMappings = blockDeviceMappings;
             return this;
         }
         public Builder blockDeviceMappings(GetAmiBlockDeviceMapping... blockDeviceMappings) {
             return blockDeviceMappings(List.of(blockDeviceMappings));
         }
         @CustomType.Setter
-        public Builder bootMode(String bootMode) {
-            this.bootMode = Objects.requireNonNull(bootMode);
+        public Builder bootMode(@Nullable String bootMode) {
+            this.bootMode = bootMode;
             return this;
         }
         @CustomType.Setter
-        public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+        public Builder creationDate(@Nullable String creationDate) {
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
-        public Builder deprecationTime(String deprecationTime) {
-            this.deprecationTime = Objects.requireNonNull(deprecationTime);
+        public Builder deprecationTime(@Nullable String deprecationTime) {
+            this.deprecationTime = deprecationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder enaSupport(Boolean enaSupport) {
-            this.enaSupport = Objects.requireNonNull(enaSupport);
+        public Builder enaSupport(@Nullable Boolean enaSupport) {
+            this.enaSupport = enaSupport;
             return this;
         }
         @CustomType.Setter
@@ -618,38 +618,38 @@ public final class GetAmiResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder hypervisor(String hypervisor) {
-            this.hypervisor = Objects.requireNonNull(hypervisor);
+        public Builder hypervisor(@Nullable String hypervisor) {
+            this.hypervisor = hypervisor;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder imageId(String imageId) {
-            this.imageId = Objects.requireNonNull(imageId);
+        public Builder imageId(@Nullable String imageId) {
+            this.imageId = imageId;
             return this;
         }
         @CustomType.Setter
-        public Builder imageLocation(String imageLocation) {
-            this.imageLocation = Objects.requireNonNull(imageLocation);
+        public Builder imageLocation(@Nullable String imageLocation) {
+            this.imageLocation = imageLocation;
             return this;
         }
         @CustomType.Setter
-        public Builder imageOwnerAlias(String imageOwnerAlias) {
-            this.imageOwnerAlias = Objects.requireNonNull(imageOwnerAlias);
+        public Builder imageOwnerAlias(@Nullable String imageOwnerAlias) {
+            this.imageOwnerAlias = imageOwnerAlias;
             return this;
         }
         @CustomType.Setter
-        public Builder imageType(String imageType) {
-            this.imageType = Objects.requireNonNull(imageType);
+        public Builder imageType(@Nullable String imageType) {
+            this.imageType = imageType;
             return this;
         }
         @CustomType.Setter
-        public Builder imdsSupport(String imdsSupport) {
-            this.imdsSupport = Objects.requireNonNull(imdsSupport);
+        public Builder imdsSupport(@Nullable String imdsSupport) {
+            this.imdsSupport = imdsSupport;
             return this;
         }
         @CustomType.Setter
@@ -658,8 +658,8 @@ public final class GetAmiResult {
             return this;
         }
         @CustomType.Setter
-        public Builder kernelId(String kernelId) {
-            this.kernelId = Objects.requireNonNull(kernelId);
+        public Builder kernelId(@Nullable String kernelId) {
+            this.kernelId = kernelId;
             return this;
         }
         @CustomType.Setter
@@ -668,8 +668,8 @@ public final class GetAmiResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -678,8 +678,8 @@ public final class GetAmiResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
@@ -691,81 +691,81 @@ public final class GetAmiResult {
             return owners(List.of(owners));
         }
         @CustomType.Setter
-        public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+        public Builder platform(@Nullable String platform) {
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
-        public Builder platformDetails(String platformDetails) {
-            this.platformDetails = Objects.requireNonNull(platformDetails);
+        public Builder platformDetails(@Nullable String platformDetails) {
+            this.platformDetails = platformDetails;
             return this;
         }
         @CustomType.Setter
-        public Builder productCodes(List<GetAmiProductCode> productCodes) {
-            this.productCodes = Objects.requireNonNull(productCodes);
+        public Builder productCodes(@Nullable List<GetAmiProductCode> productCodes) {
+            this.productCodes = productCodes;
             return this;
         }
         public Builder productCodes(GetAmiProductCode... productCodes) {
             return productCodes(List.of(productCodes));
         }
         @CustomType.Setter("public")
-        public Builder public_(Boolean public_) {
-            this.public_ = Objects.requireNonNull(public_);
+        public Builder public_(@Nullable Boolean public_) {
+            this.public_ = public_;
             return this;
         }
         @CustomType.Setter
-        public Builder ramdiskId(String ramdiskId) {
-            this.ramdiskId = Objects.requireNonNull(ramdiskId);
+        public Builder ramdiskId(@Nullable String ramdiskId) {
+            this.ramdiskId = ramdiskId;
             return this;
         }
         @CustomType.Setter
-        public Builder rootDeviceName(String rootDeviceName) {
-            this.rootDeviceName = Objects.requireNonNull(rootDeviceName);
+        public Builder rootDeviceName(@Nullable String rootDeviceName) {
+            this.rootDeviceName = rootDeviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder rootDeviceType(String rootDeviceType) {
-            this.rootDeviceType = Objects.requireNonNull(rootDeviceType);
+        public Builder rootDeviceType(@Nullable String rootDeviceType) {
+            this.rootDeviceType = rootDeviceType;
             return this;
         }
         @CustomType.Setter
-        public Builder rootSnapshotId(String rootSnapshotId) {
-            this.rootSnapshotId = Objects.requireNonNull(rootSnapshotId);
+        public Builder rootSnapshotId(@Nullable String rootSnapshotId) {
+            this.rootSnapshotId = rootSnapshotId;
             return this;
         }
         @CustomType.Setter
-        public Builder sriovNetSupport(String sriovNetSupport) {
-            this.sriovNetSupport = Objects.requireNonNull(sriovNetSupport);
+        public Builder sriovNetSupport(@Nullable String sriovNetSupport) {
+            this.sriovNetSupport = sriovNetSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder stateReason(Map<String,String> stateReason) {
-            this.stateReason = Objects.requireNonNull(stateReason);
+        public Builder stateReason(@Nullable Map<String,String> stateReason) {
+            this.stateReason = stateReason;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder tpmSupport(String tpmSupport) {
-            this.tpmSupport = Objects.requireNonNull(tpmSupport);
+        public Builder tpmSupport(@Nullable String tpmSupport) {
+            this.tpmSupport = tpmSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder usageOperation(String usageOperation) {
-            this.usageOperation = Objects.requireNonNull(usageOperation);
+        public Builder usageOperation(@Nullable String usageOperation) {
+            this.usageOperation = usageOperation;
             return this;
         }
         @CustomType.Setter
-        public Builder virtualizationType(String virtualizationType) {
-            this.virtualizationType = Objects.requireNonNull(virtualizationType);
+        public Builder virtualizationType(@Nullable String virtualizationType) {
+            this.virtualizationType = virtualizationType;
             return this;
         }
         public GetAmiResult build() {

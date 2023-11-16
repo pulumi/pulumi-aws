@@ -279,7 +279,7 @@ class ClusterPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> pulumi.Output[str]:
+    def current_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "current_version")
 
     @property

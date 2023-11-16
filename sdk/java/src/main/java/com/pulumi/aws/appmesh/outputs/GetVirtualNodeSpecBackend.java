@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendVirtualService;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackend {
-    private List<GetVirtualNodeSpecBackendVirtualService> virtualServices;
+    private @Nullable List<GetVirtualNodeSpecBackendVirtualService> virtualServices;
 
     private GetVirtualNodeSpecBackend() {}
     public List<GetVirtualNodeSpecBackendVirtualService> virtualServices() {
-        return this.virtualServices;
+        return this.virtualServices == null ? List.of() : this.virtualServices;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualNodeSpecBackend {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendVirtualService> virtualServices;
+        private @Nullable List<GetVirtualNodeSpecBackendVirtualService> virtualServices;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackend defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualNodeSpecBackend {
         }
 
         @CustomType.Setter
-        public Builder virtualServices(List<GetVirtualNodeSpecBackendVirtualService> virtualServices) {
-            this.virtualServices = Objects.requireNonNull(virtualServices);
+        public Builder virtualServices(@Nullable List<GetVirtualNodeSpecBackendVirtualService> virtualServices) {
+            this.virtualServices = virtualServices;
             return this;
         }
         public Builder virtualServices(GetVirtualNodeSpecBackendVirtualService... virtualServices) {

@@ -89,52 +89,52 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> 'outputs.GetLoadBalancerAccessLogsResult':
+    def access_logs(self) -> Optional['outputs.GetLoadBalancerAccessLogsResult']:
         return pulumi.get(self, "access_logs")
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="connectionDraining")
-    def connection_draining(self) -> bool:
+    def connection_draining(self) -> Optional[bool]:
         return pulumi.get(self, "connection_draining")
 
     @property
     @pulumi.getter(name="connectionDrainingTimeout")
-    def connection_draining_timeout(self) -> int:
+    def connection_draining_timeout(self) -> Optional[int]:
         return pulumi.get(self, "connection_draining_timeout")
 
     @property
     @pulumi.getter(name="crossZoneLoadBalancing")
-    def cross_zone_load_balancing(self) -> bool:
+    def cross_zone_load_balancing(self) -> Optional[bool]:
         return pulumi.get(self, "cross_zone_load_balancing")
 
     @property
     @pulumi.getter(name="desyncMitigationMode")
-    def desync_mitigation_mode(self) -> str:
+    def desync_mitigation_mode(self) -> Optional[str]:
         return pulumi.get(self, "desync_mitigation_mode")
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> Optional[str]:
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> 'outputs.GetLoadBalancerHealthCheckResult':
+    def health_check(self) -> Optional['outputs.GetLoadBalancerHealthCheckResult']:
         return pulumi.get(self, "health_check")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -142,22 +142,22 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> int:
+    def idle_timeout(self) -> Optional[int]:
         return pulumi.get(self, "idle_timeout")
 
     @property
     @pulumi.getter
-    def instances(self) -> Sequence[str]:
+    def instances(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "instances")
 
     @property
     @pulumi.getter
-    def internal(self) -> bool:
+    def internal(self) -> Optional[bool]:
         return pulumi.get(self, "internal")
 
     @property
     @pulumi.getter
-    def listeners(self) -> Sequence['outputs.GetLoadBalancerListenerResult']:
+    def listeners(self) -> Optional[Sequence['outputs.GetLoadBalancerListenerResult']]:
         return pulumi.get(self, "listeners")
 
     @property
@@ -167,32 +167,32 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Sequence[str]:
+    def security_groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="sourceSecurityGroup")
-    def source_security_group(self) -> str:
+    def source_security_group(self) -> Optional[str]:
         return pulumi.get(self, "source_security_group")
 
     @property
     @pulumi.getter(name="sourceSecurityGroupId")
-    def source_security_group_id(self) -> str:
+    def source_security_group_id(self) -> Optional[str]:
         return pulumi.get(self, "source_security_group_id")
 
     @property
     @pulumi.getter
-    def subnets(self) -> Sequence[str]:
+    def subnets(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> str:
+    def zone_id(self) -> Optional[str]:
         return pulumi.get(self, "zone_id")
 
 

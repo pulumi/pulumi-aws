@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,12 +19,12 @@ public final class GetLocalGatewayRouteTableResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String localGatewayId;
-    private String localGatewayRouteTableId;
-    private String outpostArn;
-    private String state;
-    private Map<String,String> tags;
+    private @Nullable String id;
+    private @Nullable String localGatewayId;
+    private @Nullable String localGatewayRouteTableId;
+    private @Nullable String outpostArn;
+    private @Nullable String state;
+    private @Nullable Map<String,String> tags;
 
     private GetLocalGatewayRouteTableResult() {}
     public List<GetLocalGatewayRouteTableFilter> filters() {
@@ -33,23 +34,23 @@ public final class GetLocalGatewayRouteTableResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String localGatewayId() {
-        return this.localGatewayId;
+    public Optional<String> localGatewayId() {
+        return Optional.ofNullable(this.localGatewayId);
     }
-    public String localGatewayRouteTableId() {
-        return this.localGatewayRouteTableId;
+    public Optional<String> localGatewayRouteTableId() {
+        return Optional.ofNullable(this.localGatewayRouteTableId);
     }
-    public String outpostArn() {
-        return this.outpostArn;
+    public Optional<String> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
     }
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -62,12 +63,12 @@ public final class GetLocalGatewayRouteTableResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetLocalGatewayRouteTableFilter> filters;
-        private String id;
-        private String localGatewayId;
-        private String localGatewayRouteTableId;
-        private String outpostArn;
-        private String state;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable String localGatewayId;
+        private @Nullable String localGatewayRouteTableId;
+        private @Nullable String outpostArn;
+        private @Nullable String state;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLocalGatewayRouteTableResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -89,33 +90,33 @@ public final class GetLocalGatewayRouteTableResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder localGatewayId(String localGatewayId) {
-            this.localGatewayId = Objects.requireNonNull(localGatewayId);
+        public Builder localGatewayId(@Nullable String localGatewayId) {
+            this.localGatewayId = localGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder localGatewayRouteTableId(String localGatewayRouteTableId) {
-            this.localGatewayRouteTableId = Objects.requireNonNull(localGatewayRouteTableId);
+        public Builder localGatewayRouteTableId(@Nullable String localGatewayRouteTableId) {
+            this.localGatewayRouteTableId = localGatewayRouteTableId;
             return this;
         }
         @CustomType.Setter
-        public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+        public Builder outpostArn(@Nullable String outpostArn) {
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetLocalGatewayRouteTableResult build() {

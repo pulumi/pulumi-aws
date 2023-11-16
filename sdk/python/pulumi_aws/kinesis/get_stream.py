@@ -59,7 +59,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Kinesis Stream (same as id).
         """
@@ -67,7 +67,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter(name="closedShards")
-    def closed_shards(self) -> Sequence[str]:
+    def closed_shards(self) -> Optional[Sequence[str]]:
         """
         List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         """
@@ -75,7 +75,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter(name="creationTimestamp")
-    def creation_timestamp(self) -> int:
+    def creation_timestamp(self) -> Optional[int]:
         """
         Approximate UNIX timestamp that the stream was created.
         """
@@ -83,7 +83,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -99,7 +99,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter(name="openShards")
-    def open_shards(self) -> Sequence[str]:
+    def open_shards(self) -> Optional[Sequence[str]]:
         """
         List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         """
@@ -107,7 +107,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> int:
+    def retention_period(self) -> Optional[int]:
         """
         Length of time (in hours) data records are accessible after they are added to the stream.
         """
@@ -115,7 +115,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter(name="shardLevelMetrics")
-    def shard_level_metrics(self) -> Sequence[str]:
+    def shard_level_metrics(self) -> Optional[Sequence[str]]:
         """
         List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
         """
@@ -123,7 +123,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
         """
@@ -131,7 +131,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter(name="streamModeDetails")
-    def stream_mode_details(self) -> Sequence['outputs.GetStreamStreamModeDetailResult']:
+    def stream_mode_details(self) -> Optional[Sequence['outputs.GetStreamStreamModeDetailResult']]:
         """
         [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         """
@@ -139,7 +139,7 @@ class GetStreamResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assigned to the stream.
         """

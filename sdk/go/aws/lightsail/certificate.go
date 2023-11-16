@@ -55,11 +55,11 @@ type Certificate struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the lightsail certificate.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The timestamp when the instance was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// A domain name for which the certificate should be issued.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
 	// The name of the Lightsail load balancer.
@@ -264,18 +264,18 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 }
 
 // The ARN of the lightsail certificate.
-func (o CertificateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CertificateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp when the instance was created.
-func (o CertificateOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o CertificateOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // A domain name for which the certificate should be issued.
-func (o CertificateOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+func (o CertificateOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.

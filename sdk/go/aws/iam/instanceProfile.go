@@ -80,13 +80,13 @@ type InstanceProfile struct {
 	pulumi.CustomResourceState
 
 	// ARN assigned by AWS to the instance profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Creation timestamp of the instance profile.
-	CreateDate pulumi.StringOutput `pulumi:"createDate"`
+	CreateDate pulumi.StringPtrOutput `pulumi:"createDate"`
 	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// Name of the role to add to the profile.
@@ -98,7 +98,7 @@ type InstanceProfile struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// [Unique ID][1] assigned by AWS.
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	UniqueId pulumi.StringPtrOutput `pulumi:"uniqueId"`
 }
 
 // NewInstanceProfile registers a new resource with the given unique name, arguments, and options.
@@ -299,13 +299,13 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 }
 
 // ARN assigned by AWS to the instance profile.
-func (o InstanceProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InstanceProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Creation timestamp of the instance profile.
-func (o InstanceProfileOutput) CreateDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
+func (o InstanceProfileOutput) CreateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.CreateDate }).(pulumi.StringPtrOutput)
 }
 
 // Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
@@ -314,8 +314,8 @@ func (o InstanceProfileOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o InstanceProfileOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o InstanceProfileOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
@@ -341,8 +341,8 @@ func (o InstanceProfileOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // [Unique ID][1] assigned by AWS.
-func (o InstanceProfileOutput) UniqueId() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
+func (o InstanceProfileOutput) UniqueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.UniqueId }).(pulumi.StringPtrOutput)
 }
 
 type InstanceProfileArrayOutput struct{ *pulumi.OutputState }

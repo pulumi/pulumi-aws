@@ -662,7 +662,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
-    def authorizer_result_ttl_in_seconds(self) -> pulumi.Output[int]:
+    def authorizer_result_ttl_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
         If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.

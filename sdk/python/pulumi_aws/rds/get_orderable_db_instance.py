@@ -115,12 +115,12 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="availabilityZoneGroup")
-    def availability_zone_group(self) -> str:
+    def availability_zone_group(self) -> Optional[str]:
         return pulumi.get(self, "availability_zone_group")
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         Availability zones where the instance is available.
         """
@@ -133,12 +133,12 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> Optional[str]:
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -146,17 +146,17 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="instanceClass")
-    def instance_class(self) -> str:
+    def instance_class(self) -> Optional[str]:
         return pulumi.get(self, "instance_class")
 
     @property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> str:
+    def license_model(self) -> Optional[str]:
         return pulumi.get(self, "license_model")
 
     @property
     @pulumi.getter(name="maxIopsPerDbInstance")
-    def max_iops_per_db_instance(self) -> int:
+    def max_iops_per_db_instance(self) -> Optional[int]:
         """
         Maximum total provisioned IOPS for a DB instance.
         """
@@ -164,7 +164,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="maxIopsPerGib")
-    def max_iops_per_gib(self) -> float:
+    def max_iops_per_gib(self) -> Optional[float]:
         """
         Maximum provisioned IOPS per GiB for a DB instance.
         """
@@ -172,7 +172,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="maxStorageSize")
-    def max_storage_size(self) -> int:
+    def max_storage_size(self) -> Optional[int]:
         """
         Maximum storage size for a DB instance.
         """
@@ -180,7 +180,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="minIopsPerDbInstance")
-    def min_iops_per_db_instance(self) -> int:
+    def min_iops_per_db_instance(self) -> Optional[int]:
         """
         Minimum total provisioned IOPS for a DB instance.
         """
@@ -188,7 +188,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="minIopsPerGib")
-    def min_iops_per_gib(self) -> float:
+    def min_iops_per_gib(self) -> Optional[float]:
         """
         Minimum provisioned IOPS per GiB for a DB instance.
         """
@@ -196,7 +196,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="minStorageSize")
-    def min_storage_size(self) -> int:
+    def min_storage_size(self) -> Optional[int]:
         """
         Minimum storage size for a DB instance.
         """
@@ -204,7 +204,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="multiAzCapable")
-    def multi_az_capable(self) -> bool:
+    def multi_az_capable(self) -> Optional[bool]:
         """
         Whether a DB instance is Multi-AZ capable.
         """
@@ -212,7 +212,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="outpostCapable")
-    def outpost_capable(self) -> bool:
+    def outpost_capable(self) -> Optional[bool]:
         """
         Whether a DB instance supports RDS on Outposts.
         """
@@ -230,7 +230,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="readReplicaCapable")
-    def read_replica_capable(self) -> bool:
+    def read_replica_capable(self) -> Optional[bool]:
         """
         Whether a DB instance can have a read replica.
         """
@@ -238,12 +238,12 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> str:
+    def storage_type(self) -> Optional[str]:
         return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter(name="supportedEngineModes")
-    def supported_engine_modes(self) -> Sequence[str]:
+    def supported_engine_modes(self) -> Optional[Sequence[str]]:
         """
         A list of the supported DB engine modes.
         """
@@ -251,7 +251,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="supportedNetworkTypes")
-    def supported_network_types(self) -> Sequence[str]:
+    def supported_network_types(self) -> Optional[Sequence[str]]:
         """
         The network types supported by the DB instance (`IPV4` or `DUAL`).
         """
@@ -259,47 +259,47 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="supportsEnhancedMonitoring")
-    def supports_enhanced_monitoring(self) -> bool:
+    def supports_enhanced_monitoring(self) -> Optional[bool]:
         return pulumi.get(self, "supports_enhanced_monitoring")
 
     @property
     @pulumi.getter(name="supportsGlobalDatabases")
-    def supports_global_databases(self) -> bool:
+    def supports_global_databases(self) -> Optional[bool]:
         return pulumi.get(self, "supports_global_databases")
 
     @property
     @pulumi.getter(name="supportsIamDatabaseAuthentication")
-    def supports_iam_database_authentication(self) -> bool:
+    def supports_iam_database_authentication(self) -> Optional[bool]:
         return pulumi.get(self, "supports_iam_database_authentication")
 
     @property
     @pulumi.getter(name="supportsIops")
-    def supports_iops(self) -> bool:
+    def supports_iops(self) -> Optional[bool]:
         return pulumi.get(self, "supports_iops")
 
     @property
     @pulumi.getter(name="supportsKerberosAuthentication")
-    def supports_kerberos_authentication(self) -> bool:
+    def supports_kerberos_authentication(self) -> Optional[bool]:
         return pulumi.get(self, "supports_kerberos_authentication")
 
     @property
     @pulumi.getter(name="supportsPerformanceInsights")
-    def supports_performance_insights(self) -> bool:
+    def supports_performance_insights(self) -> Optional[bool]:
         return pulumi.get(self, "supports_performance_insights")
 
     @property
     @pulumi.getter(name="supportsStorageAutoscaling")
-    def supports_storage_autoscaling(self) -> bool:
+    def supports_storage_autoscaling(self) -> Optional[bool]:
         return pulumi.get(self, "supports_storage_autoscaling")
 
     @property
     @pulumi.getter(name="supportsStorageEncryption")
-    def supports_storage_encryption(self) -> bool:
+    def supports_storage_encryption(self) -> Optional[bool]:
         return pulumi.get(self, "supports_storage_encryption")
 
     @property
     @pulumi.getter
-    def vpc(self) -> bool:
+    def vpc(self) -> Optional[bool]:
         return pulumi.get(self, "vpc")
 
 

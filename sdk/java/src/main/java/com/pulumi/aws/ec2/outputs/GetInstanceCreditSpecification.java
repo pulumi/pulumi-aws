@@ -6,14 +6,16 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceCreditSpecification {
-    private String cpuCredits;
+    private @Nullable String cpuCredits;
 
     private GetInstanceCreditSpecification() {}
-    public String cpuCredits() {
-        return this.cpuCredits;
+    public Optional<String> cpuCredits() {
+        return Optional.ofNullable(this.cpuCredits);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetInstanceCreditSpecification {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cpuCredits;
+        private @Nullable String cpuCredits;
         public Builder() {}
         public Builder(GetInstanceCreditSpecification defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetInstanceCreditSpecification {
         }
 
         @CustomType.Setter
-        public Builder cpuCredits(String cpuCredits) {
-            this.cpuCredits = Objects.requireNonNull(cpuCredits);
+        public Builder cpuCredits(@Nullable String cpuCredits) {
+            this.cpuCredits = cpuCredits;
             return this;
         }
         public GetInstanceCreditSpecification build() {

@@ -101,19 +101,19 @@ export class Project extends pulumi.CustomResource {
     /**
      * The number of ongoing experiments currently in the project.
      */
-    public /*out*/ readonly activeExperimentCount!: pulumi.Output<number>;
+    public /*out*/ readonly activeExperimentCount!: pulumi.Output<number | undefined>;
     /**
      * The number of ongoing launches currently in the project.
      */
-    public /*out*/ readonly activeLaunchCount!: pulumi.Output<number>;
+    public /*out*/ readonly activeLaunchCount!: pulumi.Output<number | undefined>;
     /**
      * The ARN of the project.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time that the project is created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
      */
@@ -125,19 +125,19 @@ export class Project extends pulumi.CustomResource {
     /**
      * The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
      */
-    public /*out*/ readonly experimentCount!: pulumi.Output<number>;
+    public /*out*/ readonly experimentCount!: pulumi.Output<number | undefined>;
     /**
      * The number of features currently in the project.
      */
-    public /*out*/ readonly featureCount!: pulumi.Output<number>;
+    public /*out*/ readonly featureCount!: pulumi.Output<number | undefined>;
     /**
      * The date and time that the project was most recently updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
      */
-    public /*out*/ readonly launchCount!: pulumi.Output<number>;
+    public /*out*/ readonly launchCount!: pulumi.Output<number | undefined>;
     /**
      * A name for the project.
      */
@@ -145,7 +145,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

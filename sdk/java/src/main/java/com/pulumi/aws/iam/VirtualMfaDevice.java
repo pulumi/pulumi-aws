@@ -72,42 +72,42 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) specifying the virtual mfa device.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
      * 
      */
     @Export(name="base32StringSeed", refs={String.class}, tree="[0]")
-    private Output<String> base32StringSeed;
+    private Output</* @Nullable */ String> base32StringSeed;
 
     /**
      * @return The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
      * 
      */
-    public Output<String> base32StringSeed() {
-        return this.base32StringSeed;
+    public Output<Optional<String>> base32StringSeed() {
+        return Codegen.optional(this.base32StringSeed);
     }
     /**
      * The date and time when the virtual MFA device was enabled.
      * 
      */
     @Export(name="enableDate", refs={String.class}, tree="[0]")
-    private Output<String> enableDate;
+    private Output</* @Nullable */ String> enableDate;
 
     /**
      * @return The date and time when the virtual MFA device was enabled.
      * 
      */
-    public Output<String> enableDate() {
-        return this.enableDate;
+    public Output<Optional<String>> enableDate() {
+        return Codegen.optional(this.enableDate);
     }
     /**
      * The path for the virtual MFA device.
@@ -128,14 +128,14 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="qrCodePng", refs={String.class}, tree="[0]")
-    private Output<String> qrCodePng;
+    private Output</* @Nullable */ String> qrCodePng;
 
     /**
      * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
-    public Output<String> qrCodePng() {
-        return this.qrCodePng;
+    public Output<Optional<String>> qrCodePng() {
+        return Codegen.optional(this.qrCodePng);
     }
     /**
      * Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -174,14 +174,14 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
-    private Output<String> userName;
+    private Output</* @Nullable */ String> userName;
 
     /**
      * @return The associated IAM User name if the virtual MFA device is enabled.
      * 
      */
-    public Output<String> userName() {
-        return this.userName;
+    public Output<Optional<String>> userName() {
+        return Codegen.optional(this.userName);
     }
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.

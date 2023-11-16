@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -73,28 +74,28 @@ public class AccountVdmAttributes extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dashboardAttributes", refs={AccountVdmAttributesDashboardAttributes.class}, tree="[0]")
-    private Output<AccountVdmAttributesDashboardAttributes> dashboardAttributes;
+    private Output</* @Nullable */ AccountVdmAttributesDashboardAttributes> dashboardAttributes;
 
     /**
      * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      * 
      */
-    public Output<AccountVdmAttributesDashboardAttributes> dashboardAttributes() {
-        return this.dashboardAttributes;
+    public Output<Optional<AccountVdmAttributesDashboardAttributes>> dashboardAttributes() {
+        return Codegen.optional(this.dashboardAttributes);
     }
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
     @Export(name="guardianAttributes", refs={AccountVdmAttributesGuardianAttributes.class}, tree="[0]")
-    private Output<AccountVdmAttributesGuardianAttributes> guardianAttributes;
+    private Output</* @Nullable */ AccountVdmAttributesGuardianAttributes> guardianAttributes;
 
     /**
      * @return Specifies additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
-    public Output<AccountVdmAttributesGuardianAttributes> guardianAttributes() {
-        return this.guardianAttributes;
+    public Output<Optional<AccountVdmAttributesGuardianAttributes>> guardianAttributes() {
+        return Codegen.optional(this.guardianAttributes);
     }
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.

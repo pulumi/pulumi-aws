@@ -11,6 +11,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,94 +20,94 @@ public final class GetSecurityGroupRuleResult {
      * @return The Amazon Resource Name (ARN) of the security group rule.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The destination IPv4 CIDR range.
      * 
      */
-    private String cidrIpv4;
+    private @Nullable String cidrIpv4;
     /**
      * @return The destination IPv6 CIDR range.
      * 
      */
-    private String cidrIpv6;
+    private @Nullable String cidrIpv6;
     /**
      * @return The security group rule description.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private @Nullable List<GetSecurityGroupRuleFilter> filters;
     /**
      * @return The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
-    private Integer fromPort;
-    private String id;
+    private @Nullable Integer fromPort;
+    private @Nullable String id;
     /**
      * @return The IP protocol name or number. Use `-1` to specify all protocols.
      * 
      */
-    private String ipProtocol;
+    private @Nullable String ipProtocol;
     /**
      * @return Indicates whether the security group rule is an outbound rule.
      * 
      */
-    private Boolean isEgress;
+    private @Nullable Boolean isEgress;
     /**
      * @return The ID of the destination prefix list.
      * 
      */
-    private String prefixListId;
+    private @Nullable String prefixListId;
     /**
      * @return The destination security group that is referenced in the rule.
      * 
      */
-    private String referencedSecurityGroupId;
+    private @Nullable String referencedSecurityGroupId;
     /**
      * @return The ID of the security group.
      * 
      */
-    private String securityGroupId;
-    private String securityGroupRuleId;
+    private @Nullable String securityGroupId;
+    private @Nullable String securityGroupRuleId;
     /**
      * @return A map of tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      */
-    private Integer toPort;
+    private @Nullable Integer toPort;
 
     private GetSecurityGroupRuleResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the security group rule.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The destination IPv4 CIDR range.
      * 
      */
-    public String cidrIpv4() {
-        return this.cidrIpv4;
+    public Optional<String> cidrIpv4() {
+        return Optional.ofNullable(this.cidrIpv4);
     }
     /**
      * @return The destination IPv6 CIDR range.
      * 
      */
-    public String cidrIpv6() {
-        return this.cidrIpv6;
+    public Optional<String> cidrIpv6() {
+        return Optional.ofNullable(this.cidrIpv6);
     }
     /**
      * @return The security group rule description.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public List<GetSecurityGroupRuleFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -115,63 +116,63 @@ public final class GetSecurityGroupRuleResult {
      * @return The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
-    public Integer fromPort() {
-        return this.fromPort;
+    public Optional<Integer> fromPort() {
+        return Optional.ofNullable(this.fromPort);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The IP protocol name or number. Use `-1` to specify all protocols.
      * 
      */
-    public String ipProtocol() {
-        return this.ipProtocol;
+    public Optional<String> ipProtocol() {
+        return Optional.ofNullable(this.ipProtocol);
     }
     /**
      * @return Indicates whether the security group rule is an outbound rule.
      * 
      */
-    public Boolean isEgress() {
-        return this.isEgress;
+    public Optional<Boolean> isEgress() {
+        return Optional.ofNullable(this.isEgress);
     }
     /**
      * @return The ID of the destination prefix list.
      * 
      */
-    public String prefixListId() {
-        return this.prefixListId;
+    public Optional<String> prefixListId() {
+        return Optional.ofNullable(this.prefixListId);
     }
     /**
      * @return The destination security group that is referenced in the rule.
      * 
      */
-    public String referencedSecurityGroupId() {
-        return this.referencedSecurityGroupId;
+    public Optional<String> referencedSecurityGroupId() {
+        return Optional.ofNullable(this.referencedSecurityGroupId);
     }
     /**
      * @return The ID of the security group.
      * 
      */
-    public String securityGroupId() {
-        return this.securityGroupId;
+    public Optional<String> securityGroupId() {
+        return Optional.ofNullable(this.securityGroupId);
     }
-    public String securityGroupRuleId() {
-        return this.securityGroupRuleId;
+    public Optional<String> securityGroupRuleId() {
+        return Optional.ofNullable(this.securityGroupRuleId);
     }
     /**
      * @return A map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      */
-    public Integer toPort() {
-        return this.toPort;
+    public Optional<Integer> toPort() {
+        return Optional.ofNullable(this.toPort);
     }
 
     public static Builder builder() {
@@ -183,21 +184,21 @@ public final class GetSecurityGroupRuleResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String cidrIpv4;
-        private String cidrIpv6;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable String cidrIpv4;
+        private @Nullable String cidrIpv6;
+        private @Nullable String description;
         private @Nullable List<GetSecurityGroupRuleFilter> filters;
-        private Integer fromPort;
-        private String id;
-        private String ipProtocol;
-        private Boolean isEgress;
-        private String prefixListId;
-        private String referencedSecurityGroupId;
-        private String securityGroupId;
-        private String securityGroupRuleId;
-        private Map<String,String> tags;
-        private Integer toPort;
+        private @Nullable Integer fromPort;
+        private @Nullable String id;
+        private @Nullable String ipProtocol;
+        private @Nullable Boolean isEgress;
+        private @Nullable String prefixListId;
+        private @Nullable String referencedSecurityGroupId;
+        private @Nullable String securityGroupId;
+        private @Nullable String securityGroupRuleId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Integer toPort;
         public Builder() {}
         public Builder(GetSecurityGroupRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -219,23 +220,23 @@ public final class GetSecurityGroupRuleResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder cidrIpv4(String cidrIpv4) {
-            this.cidrIpv4 = Objects.requireNonNull(cidrIpv4);
+        public Builder cidrIpv4(@Nullable String cidrIpv4) {
+            this.cidrIpv4 = cidrIpv4;
             return this;
         }
         @CustomType.Setter
-        public Builder cidrIpv6(String cidrIpv6) {
-            this.cidrIpv6 = Objects.requireNonNull(cidrIpv6);
+        public Builder cidrIpv6(@Nullable String cidrIpv6) {
+            this.cidrIpv6 = cidrIpv6;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -247,53 +248,53 @@ public final class GetSecurityGroupRuleResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder fromPort(Integer fromPort) {
-            this.fromPort = Objects.requireNonNull(fromPort);
+        public Builder fromPort(@Nullable Integer fromPort) {
+            this.fromPort = fromPort;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipProtocol(String ipProtocol) {
-            this.ipProtocol = Objects.requireNonNull(ipProtocol);
+        public Builder ipProtocol(@Nullable String ipProtocol) {
+            this.ipProtocol = ipProtocol;
             return this;
         }
         @CustomType.Setter
-        public Builder isEgress(Boolean isEgress) {
-            this.isEgress = Objects.requireNonNull(isEgress);
+        public Builder isEgress(@Nullable Boolean isEgress) {
+            this.isEgress = isEgress;
             return this;
         }
         @CustomType.Setter
-        public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+        public Builder prefixListId(@Nullable String prefixListId) {
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
-        public Builder referencedSecurityGroupId(String referencedSecurityGroupId) {
-            this.referencedSecurityGroupId = Objects.requireNonNull(referencedSecurityGroupId);
+        public Builder referencedSecurityGroupId(@Nullable String referencedSecurityGroupId) {
+            this.referencedSecurityGroupId = referencedSecurityGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = Objects.requireNonNull(securityGroupId);
+        public Builder securityGroupId(@Nullable String securityGroupId) {
+            this.securityGroupId = securityGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupRuleId(String securityGroupRuleId) {
-            this.securityGroupRuleId = Objects.requireNonNull(securityGroupRuleId);
+        public Builder securityGroupRuleId(@Nullable String securityGroupRuleId) {
+            this.securityGroupRuleId = securityGroupRuleId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder toPort(Integer toPort) {
-            this.toPort = Objects.requireNonNull(toPort);
+        public Builder toPort(@Nullable Integer toPort) {
+            this.toPort = toPort;
             return this;
         }
         public GetSecurityGroupRuleResult build() {

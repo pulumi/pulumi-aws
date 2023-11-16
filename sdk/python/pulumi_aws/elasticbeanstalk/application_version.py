@@ -500,7 +500,7 @@ class ApplicationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN assigned by AWS for this Elastic Beanstalk Application.
         """

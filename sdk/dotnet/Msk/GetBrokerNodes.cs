@@ -105,14 +105,14 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<Outputs.GetBrokerNodesNodeInfoListResult> NodeInfoLists;
 
         [OutputConstructor]
         private GetBrokerNodesResult(
             string clusterArn,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetBrokerNodesNodeInfoListResult> nodeInfoLists)
         {

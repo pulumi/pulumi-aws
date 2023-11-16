@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,13 +19,13 @@ public final class GetLocalGatewayRouteTablesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set of Local Gateway Route Table identifiers
      * 
      */
-    private List<String> ids;
-    private Map<String,String> tags;
+    private @Nullable List<String> ids;
+    private @Nullable Map<String,String> tags;
 
     private GetLocalGatewayRouteTablesResult() {}
     public List<GetLocalGatewayRouteTablesFilter> filters() {
@@ -34,18 +35,18 @@ public final class GetLocalGatewayRouteTablesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set of Local Gateway Route Table identifiers
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -58,9 +59,9 @@ public final class GetLocalGatewayRouteTablesResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetLocalGatewayRouteTablesFilter> filters;
-        private String id;
-        private List<String> ids;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLocalGatewayRouteTablesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,21 +80,21 @@ public final class GetLocalGatewayRouteTablesResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetLocalGatewayRouteTablesResult build() {

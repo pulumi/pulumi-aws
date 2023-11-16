@@ -92,7 +92,7 @@ type IPSet struct {
 	// Specifies whether GuardDuty is to start using the uploaded IPSet.
 	Activate pulumi.BoolOutput `pulumi:"activate"`
 	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
@@ -324,8 +324,8 @@ func (o IPSetOutput) Activate() pulumi.BoolOutput {
 }
 
 // Amazon Resource Name (ARN) of the GuardDuty IPSet.
-func (o IPSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o IPSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The detector ID of the GuardDuty.

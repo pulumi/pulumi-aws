@@ -65,7 +65,7 @@ type GetInstancesArgs struct {
 type GetInstancesResult struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of instance IDs of the matched SSM managed instances.
 	Ids []string `pulumi:"ids"`
 }
@@ -113,8 +113,8 @@ func (o GetInstancesResultOutput) Filters() GetInstancesFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetInstancesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstancesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetInstancesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstancesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of instance IDs of the matched SSM managed instances.

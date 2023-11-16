@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -68,14 +69,14 @@ public class Trigger extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configurationId", refs={String.class}, tree="[0]")
-    private Output<String> configurationId;
+    private Output</* @Nullable */ String> configurationId;
 
     /**
      * @return System-generated unique identifier.
      * 
      */
-    public Output<String> configurationId() {
-        return this.configurationId;
+    public Output<Optional<String>> configurationId() {
+        return Codegen.optional(this.configurationId);
     }
     /**
      * The name for the repository. This needs to be less than 100 characters.

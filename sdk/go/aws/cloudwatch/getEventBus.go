@@ -59,10 +59,10 @@ type LookupEventBusArgs struct {
 // A collection of values returned by getEventBus.
 type LookupEventBusResult struct {
 	// ARN.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
@@ -104,13 +104,13 @@ func (o LookupEventBusResultOutput) ToLookupEventBusResultOutputWithContext(ctx 
 }
 
 // ARN.
-func (o LookupEventBusResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEventBusResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupEventBusResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventBusResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupEventBusResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEventBusResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupEventBusResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventBusResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupEventBusResultOutput) Name() pulumi.StringOutput {

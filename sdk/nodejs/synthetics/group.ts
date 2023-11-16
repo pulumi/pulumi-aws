@@ -56,11 +56,11 @@ export class Group extends pulumi.CustomResource {
     /**
      * ARN of the Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ID of the Group.
      */
-    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    public /*out*/ readonly groupId!: pulumi.Output<string | undefined>;
     /**
      * Name of the group.
      *

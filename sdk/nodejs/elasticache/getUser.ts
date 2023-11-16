@@ -70,7 +70,7 @@ export interface GetUserResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly noPasswordRequired?: boolean;
     readonly passwords?: string[];
     /**

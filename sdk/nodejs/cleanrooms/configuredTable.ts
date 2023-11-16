@@ -82,11 +82,11 @@ export class ConfiguredTable extends pulumi.CustomResource {
     /**
      * The ARN of the configured table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time the configured table was created.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string | undefined>;
     /**
      * A description for the configured table.
      */
@@ -112,7 +112,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
     /**
      * The date and time the configured table was last updated.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConfiguredTable resource with the given unique name, arguments, and options.

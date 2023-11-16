@@ -86,7 +86,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * SCM configuration of the app as described below.
      */
-    public readonly appSources!: pulumi.Output<outputs.opsworks.ApplicationAppSource[]>;
+    public readonly appSources!: pulumi.Output<outputs.opsworks.ApplicationAppSource[] | undefined>;
     /**
      * Run bundle install when deploying for application of type `rails`.
      */
@@ -138,7 +138,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
      */
-    public readonly shortName!: pulumi.Output<string>;
+    public readonly shortName!: pulumi.Output<string | undefined>;
     /**
      * The SSL configuration of the app. Object is described below.
      */

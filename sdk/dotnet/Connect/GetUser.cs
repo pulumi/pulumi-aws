@@ -196,19 +196,19 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the User.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The identifier of the user account in the directory used for identity management.
         /// </summary>
-        public readonly string DirectoryUserId;
+        public readonly string? DirectoryUserId;
         /// <summary>
         /// The identifier of the hierarchy group for the user.
         /// </summary>
-        public readonly string HierarchyGroupId;
+        public readonly string? HierarchyGroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// A block that contains information about the identity of the user. Documented below.
         /// </summary>
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Connect
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
         public readonly string InstanceId;
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// A block that contains information about the phone settings for the user. Documented below.
         /// </summary>
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// The identifier of the routing profile for the user.
         /// </summary>
-        public readonly string RoutingProfileId;
+        public readonly string? RoutingProfileId;
         /// <summary>
         /// A list of identifiers for the security profiles for the user.
         /// </summary>
@@ -233,34 +233,34 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// A map of tags to assign to the User.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string UserId;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? UserId;
 
         [OutputConstructor]
         private GetUserResult(
-            string arn,
+            string? arn,
 
-            string directoryUserId,
+            string? directoryUserId,
 
-            string hierarchyGroupId,
+            string? hierarchyGroupId,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetUserIdentityInfoResult> identityInfos,
 
             string instanceId,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetUserPhoneConfigResult> phoneConfigs,
 
-            string routingProfileId,
+            string? routingProfileId,
 
             ImmutableArray<string> securityProfileIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string userId)
+            string? userId)
         {
             Arn = arn;
             DirectoryUserId = directoryUserId;

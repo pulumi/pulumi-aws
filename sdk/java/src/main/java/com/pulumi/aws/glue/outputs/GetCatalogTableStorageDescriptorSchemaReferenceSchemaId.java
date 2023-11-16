@@ -6,6 +6,8 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorSchemaReferenceSchemaId {
@@ -13,39 +15,39 @@ public final class GetCatalogTableStorageDescriptorSchemaReferenceSchemaId {
      * @return Name of the schema registry that contains the schema.
      * 
      */
-    private String registryName;
+    private @Nullable String registryName;
     /**
      * @return ARN of the schema.
      * 
      */
-    private String schemaArn;
+    private @Nullable String schemaArn;
     /**
      * @return Name of the schema.
      * 
      */
-    private String schemaName;
+    private @Nullable String schemaName;
 
     private GetCatalogTableStorageDescriptorSchemaReferenceSchemaId() {}
     /**
      * @return Name of the schema registry that contains the schema.
      * 
      */
-    public String registryName() {
-        return this.registryName;
+    public Optional<String> registryName() {
+        return Optional.ofNullable(this.registryName);
     }
     /**
      * @return ARN of the schema.
      * 
      */
-    public String schemaArn() {
-        return this.schemaArn;
+    public Optional<String> schemaArn() {
+        return Optional.ofNullable(this.schemaArn);
     }
     /**
      * @return Name of the schema.
      * 
      */
-    public String schemaName() {
-        return this.schemaName;
+    public Optional<String> schemaName() {
+        return Optional.ofNullable(this.schemaName);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetCatalogTableStorageDescriptorSchemaReferenceSchemaId {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String registryName;
-        private String schemaArn;
-        private String schemaName;
+        private @Nullable String registryName;
+        private @Nullable String schemaArn;
+        private @Nullable String schemaName;
         public Builder() {}
         public Builder(GetCatalogTableStorageDescriptorSchemaReferenceSchemaId defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetCatalogTableStorageDescriptorSchemaReferenceSchemaId {
         }
 
         @CustomType.Setter
-        public Builder registryName(String registryName) {
-            this.registryName = Objects.requireNonNull(registryName);
+        public Builder registryName(@Nullable String registryName) {
+            this.registryName = registryName;
             return this;
         }
         @CustomType.Setter
-        public Builder schemaArn(String schemaArn) {
-            this.schemaArn = Objects.requireNonNull(schemaArn);
+        public Builder schemaArn(@Nullable String schemaArn) {
+            this.schemaArn = schemaArn;
             return this;
         }
         @CustomType.Setter
-        public Builder schemaName(String schemaName) {
-            this.schemaName = Objects.requireNonNull(schemaName);
+        public Builder schemaName(@Nullable String schemaName) {
+            this.schemaName = schemaName;
             return this;
         }
         public GetCatalogTableStorageDescriptorSchemaReferenceSchemaId build() {

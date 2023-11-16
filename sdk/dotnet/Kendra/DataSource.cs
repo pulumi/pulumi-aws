@@ -511,7 +511,7 @@ namespace Pulumi.Aws.Kendra
         /// ARN of the Data Source.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
@@ -523,7 +523,7 @@ namespace Pulumi.Aws.Kendra
         /// The Unix timestamp of when the Data Source was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
@@ -535,7 +535,7 @@ namespace Pulumi.Aws.Kendra
         /// The unique identifiers of the Data Source.
         /// </summary>
         [Output("dataSourceId")]
-        public Output<string> DataSourceId { get; private set; } = null!;
+        public Output<string?> DataSourceId { get; private set; } = null!;
 
         /// <summary>
         /// A description for the Data Source connector.
@@ -547,7 +547,7 @@ namespace Pulumi.Aws.Kendra
         /// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
         /// </summary>
         [Output("errorMessage")]
-        public Output<string> ErrorMessage { get; private set; } = null!;
+        public Output<string?> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the index for your Amazon Kendra data source.
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.Kendra
         /// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         /// </summary>
         [Output("languageCode")]
-        public Output<string> LanguageCode { get; private set; } = null!;
+        public Output<string?> LanguageCode { get; private set; } = null!;
 
         /// <summary>
         /// A name for your data source connector.
@@ -583,7 +583,7 @@ namespace Pulumi.Aws.Kendra
         /// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -609,7 +609,7 @@ namespace Pulumi.Aws.Kendra
         /// The Unix timestamp of when the Data Source was last updated.
         /// </summary>
         [Output("updatedAt")]
-        public Output<string> UpdatedAt { get; private set; } = null!;
+        public Output<string?> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

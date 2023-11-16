@@ -114,11 +114,11 @@ type ContactFlowModule struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Contact Flow Module.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The identifier of the Contact Flow Module.
-	ContactFlowModuleId pulumi.StringOutput `pulumi:"contactFlowModuleId"`
+	ContactFlowModuleId pulumi.StringPtrOutput `pulumi:"contactFlowModuleId"`
 	// Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content pulumi.StringOutput `pulumi:"content"`
+	Content pulumi.StringPtrOutput `pulumi:"content"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
 	ContentHash pulumi.StringPtrOutput `pulumi:"contentHash"`
 	// Specifies the description of the Contact Flow Module.
@@ -350,18 +350,18 @@ func (o ContactFlowModuleOutput) ToContactFlowModuleOutputWithContext(ctx contex
 }
 
 // The Amazon Resource Name (ARN) of the Contact Flow Module.
-func (o ContactFlowModuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ContactFlowModuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the Contact Flow Module.
-func (o ContactFlowModuleOutput) ContactFlowModuleId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.ContactFlowModuleId }).(pulumi.StringOutput)
+func (o ContactFlowModuleOutput) ContactFlowModuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.ContactFlowModuleId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-func (o ContactFlowModuleOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+func (o ContactFlowModuleOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.

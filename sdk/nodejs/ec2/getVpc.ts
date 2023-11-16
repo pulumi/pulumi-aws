@@ -76,54 +76,54 @@ export interface GetVpcResult {
     /**
      * ARN of VPC
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * CIDR block for the association.
      */
-    readonly cidrBlock: string;
-    readonly cidrBlockAssociations: outputs.ec2.GetVpcCidrBlockAssociation[];
-    readonly default: boolean;
-    readonly dhcpOptionsId: string;
+    readonly cidrBlock?: string;
+    readonly cidrBlockAssociations?: outputs.ec2.GetVpcCidrBlockAssociation[];
+    readonly default?: boolean;
+    readonly dhcpOptionsId?: string;
     /**
      * Whether or not the VPC has DNS hostname support
      */
-    readonly enableDnsHostnames: boolean;
+    readonly enableDnsHostnames?: boolean;
     /**
      * Whether or not the VPC has DNS support
      */
-    readonly enableDnsSupport: boolean;
+    readonly enableDnsSupport?: boolean;
     /**
      * Whether Network Address Usage metrics are enabled for your VPC
      */
-    readonly enableNetworkAddressUsageMetrics: boolean;
+    readonly enableNetworkAddressUsageMetrics?: boolean;
     readonly filters?: outputs.ec2.GetVpcFilter[];
-    readonly id: string;
+    readonly id?: string;
     /**
      * Allowed tenancy of instances launched into the
      * selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
      */
-    readonly instanceTenancy: string;
+    readonly instanceTenancy?: string;
     /**
      * Association ID for the IPv6 CIDR block.
      */
-    readonly ipv6AssociationId: string;
+    readonly ipv6AssociationId?: string;
     /**
      * IPv6 CIDR block.
      */
-    readonly ipv6CidrBlock: string;
+    readonly ipv6CidrBlock?: string;
     /**
      * ID of the main route table associated with this VPC.
      */
-    readonly mainRouteTableId: string;
+    readonly mainRouteTableId?: string;
     /**
      * ID of the AWS account that owns the VPC.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * State of the association.
      */
-    readonly state: string;
-    readonly tags: {[key: string]: string};
+    readonly state?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * `aws.ec2.Vpc` provides details about a specific VPC.

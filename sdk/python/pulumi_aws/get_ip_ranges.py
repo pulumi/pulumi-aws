@@ -49,7 +49,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter(name="cidrBlocks")
-    def cidr_blocks(self) -> Sequence[str]:
+    def cidr_blocks(self) -> Optional[Sequence[str]]:
         """
         Lexically ordered list of CIDR blocks.
         """
@@ -57,7 +57,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> str:
+    def create_date(self) -> Optional[str]:
         """
         Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
         """
@@ -65,12 +65,12 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
-    def ipv6_cidr_blocks(self) -> Sequence[str]:
+    def ipv6_cidr_blocks(self) -> Optional[Sequence[str]]:
         """
         Lexically ordered list of IPv6 CIDR blocks.
         """
@@ -88,7 +88,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter(name="syncToken")
-    def sync_token(self) -> int:
+    def sync_token(self) -> Optional[int]:
         """
         Publication time of the IP ranges, in Unix epoch time format
         (e.g., `1470267965`).

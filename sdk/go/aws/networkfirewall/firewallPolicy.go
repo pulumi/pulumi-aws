@@ -125,7 +125,7 @@ type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) that identifies the firewall policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A friendly description of the firewall policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
@@ -141,7 +141,7 @@ type FirewallPolicy struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A string token used when updating a firewall policy.
-	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
+	UpdateToken pulumi.StringPtrOutput `pulumi:"updateToken"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -341,8 +341,8 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name (ARN) that identifies the firewall policy.
-func (o FirewallPolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FirewallPolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A friendly description of the firewall policy.
@@ -380,8 +380,8 @@ func (o FirewallPolicyOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // A string token used when updating a firewall policy.
-func (o FirewallPolicyOutput) UpdateToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.UpdateToken }).(pulumi.StringOutput)
+func (o FirewallPolicyOutput) UpdateToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.UpdateToken }).(pulumi.StringPtrOutput)
 }
 
 type FirewallPolicyArrayOutput struct{ *pulumi.OutputState }

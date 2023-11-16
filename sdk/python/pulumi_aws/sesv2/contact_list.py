@@ -415,7 +415,7 @@ class ContactList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "arn")
 
     @property
@@ -430,7 +430,7 @@ class ContactList(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTimestamp")
-    def created_timestamp(self) -> pulumi.Output[str]:
+    def created_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         A timestamp noting when the contact list was created in ISO 8601 format.
         """
@@ -446,7 +446,7 @@ class ContactList(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTimestamp")
-    def last_updated_timestamp(self) -> pulumi.Output[str]:
+    def last_updated_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         A timestamp noting the last time the contact list was updated in ISO 8601 format.
         """

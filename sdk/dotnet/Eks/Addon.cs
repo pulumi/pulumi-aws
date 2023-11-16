@@ -134,13 +134,13 @@ namespace Pulumi.Aws.Eks
         /// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         /// </summary>
         [Output("addonVersion")]
-        public Output<string> AddonVersion { get; private set; } = null!;
+        public Output<string?> AddonVersion { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS add-on.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -154,19 +154,19 @@ namespace Pulumi.Aws.Eks
         /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         /// </summary>
         [Output("configurationValues")]
-        public Output<string> ConfigurationValues { get; private set; } = null!;
+        public Output<string?> ConfigurationValues { get; private set; } = null!;
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         /// </summary>
         [Output("modifiedAt")]
-        public Output<string> ModifiedAt { get; private set; } = null!;
+        public Output<string?> ModifiedAt { get; private set; } = null!;
 
         /// <summary>
         /// Indicates if you want to preserve the created resources when deleting the EKS add-on.

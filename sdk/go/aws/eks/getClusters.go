@@ -25,7 +25,7 @@ func GetClusters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClusters
 // A collection of values returned by getClusters.
 type GetClustersResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of EKS clusters names
 	Names []string `pulumi:"names"`
 }
@@ -57,8 +57,8 @@ func (o GetClustersResultOutput) ToGetClustersResultOutputWithContext(ctx contex
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetClustersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClustersResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetClustersResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClustersResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of EKS clusters names

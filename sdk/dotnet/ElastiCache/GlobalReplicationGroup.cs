@@ -118,26 +118,26 @@ namespace Pulumi.Aws.ElastiCache
         /// The ARN of the ElastiCache Global Replication Group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A flag that indicate whether the encryption at rest is enabled.
         /// </summary>
         [Output("atRestEncryptionEnabled")]
-        public Output<bool> AtRestEncryptionEnabled { get; private set; } = null!;
+        public Output<bool?> AtRestEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A flag that indicate whether AuthToken (password) is enabled.
         /// </summary>
         [Output("authTokenEnabled")]
-        public Output<bool> AuthTokenEnabled { get; private set; } = null!;
+        public Output<bool?> AuthTokenEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         /// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
         /// </summary>
         [Output("automaticFailoverEnabled")]
-        public Output<bool> AutomaticFailoverEnabled { get; private set; } = null!;
+        public Output<bool?> AutomaticFailoverEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The instance class used.
@@ -146,19 +146,19 @@ namespace Pulumi.Aws.ElastiCache
         /// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         /// </summary>
         [Output("cacheNodeType")]
-        public Output<string> CacheNodeType { get; private set; } = null!;
+        public Output<string?> CacheNodeType { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the Global Datastore is cluster enabled.
         /// </summary>
         [Output("clusterEnabled")]
-        public Output<bool> ClusterEnabled { get; private set; } = null!;
+        public Output<bool?> ClusterEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the cache engine to be used for the clusters in this global replication group.
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Redis version to use for the Global Replication Group.
@@ -171,13 +171,13 @@ namespace Pulumi.Aws.ElastiCache
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The full version number of the cache engine running on the members of this global replication group.
         /// </summary>
         [Output("engineVersionActual")]
-        public Output<string> EngineVersionActual { get; private set; } = null!;
+        public Output<string?> EngineVersionActual { get; private set; } = null!;
 
         /// <summary>
         /// Set of node groups (shards) on the global replication group.
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.ElastiCache
         /// The full ID of the global replication group.
         /// </summary>
         [Output("globalReplicationGroupId")]
-        public Output<string> GlobalReplicationGroupId { get; private set; } = null!;
+        public Output<string?> GlobalReplicationGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.ElastiCache
         /// The number of node groups (shards) on the global replication group.
         /// </summary>
         [Output("numNodeGroups")]
-        public Output<int> NumNodeGroups { get; private set; } = null!;
+        public Output<int?> NumNodeGroups { get; private set; } = null!;
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.ElastiCache
         /// A flag that indicates whether the encryption in transit is enabled.
         /// </summary>
         [Output("transitEncryptionEnabled")]
-        public Output<bool> TransitEncryptionEnabled { get; private set; } = null!;
+        public Output<bool?> TransitEncryptionEnabled { get; private set; } = null!;
 
 
         /// <summary>

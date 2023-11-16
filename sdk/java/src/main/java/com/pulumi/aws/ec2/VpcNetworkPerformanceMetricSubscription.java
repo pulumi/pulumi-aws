@@ -84,14 +84,14 @@ public class VpcNetworkPerformanceMetricSubscription extends com.pulumi.resource
      * 
      */
     @Export(name="period", refs={String.class}, tree="[0]")
-    private Output<String> period;
+    private Output</* @Nullable */ String> period;
 
     /**
      * @return The data aggregation time for the subscription.
      * 
      */
-    public Output<String> period() {
-        return this.period;
+    public Output<Optional<String>> period() {
+        return Codegen.optional(this.period);
     }
     /**
      * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.

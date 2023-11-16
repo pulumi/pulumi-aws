@@ -423,7 +423,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Peering Amazon Resource Name (ARN).
         """
@@ -431,7 +431,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreNetworkArn")
-    def core_network_arn(self) -> pulumi.Output[str]:
+    def core_network_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the core network.
         """
@@ -447,7 +447,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="edgeLocation")
-    def edge_location(self) -> pulumi.Output[str]:
+    def edge_location(self) -> pulumi.Output[Optional[str]]:
         """
         The edge location for the peer.
         """
@@ -455,7 +455,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> pulumi.Output[str]:
+    def owner_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the account owner.
         """
@@ -463,7 +463,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringType")
-    def peering_type(self) -> pulumi.Output[str]:
+    def peering_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of peering. This will be `TRANSIT_GATEWAY`.
         """
@@ -471,7 +471,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Output[str]:
+    def resource_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ARN of the peer.
         """
@@ -506,7 +506,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayPeeringAttachmentId")
-    def transit_gateway_peering_attachment_id(self) -> pulumi.Output[str]:
+    def transit_gateway_peering_attachment_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the transit gateway peering attachment.
         """

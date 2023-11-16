@@ -64,24 +64,24 @@ type GetOutpostArgs struct {
 
 // A collection of values returned by getOutpost.
 type GetOutpostResult struct {
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Availability Zone name.
-	AvailabilityZone string `pulumi:"availabilityZone"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Availability Zone identifier.
-	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The description of the Outpost.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
+	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
 	// The life cycle status.
-	LifecycleStatus string  `pulumi:"lifecycleStatus"`
-	Name            string  `pulumi:"name"`
+	LifecycleStatus *string `pulumi:"lifecycleStatus"`
+	Name            *string `pulumi:"name"`
 	OwnerId         *string `pulumi:"ownerId"`
 	// The Amazon Resource Name (ARN) of the site.
-	SiteArn string `pulumi:"siteArn"`
+	SiteArn *string `pulumi:"siteArn"`
 	// The ID of the site.
-	SiteId string `pulumi:"siteId"`
+	SiteId *string `pulumi:"siteId"`
 	// The hardware type.
-	SupportedHardwareType string `pulumi:"supportedHardwareType"`
+	SupportedHardwareType *string `pulumi:"supportedHardwareType"`
 	// The Outpost tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -132,36 +132,36 @@ func (o GetOutpostResultOutput) ToGetOutpostResultOutputWithContext(ctx context.
 	return o
 }
 
-func (o GetOutpostResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Availability Zone name.
-func (o GetOutpostResultOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // Availability Zone identifier.
-func (o GetOutpostResultOutput) AvailabilityZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The description of the Outpost.
-func (o GetOutpostResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOutpostResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The life cycle status.
-func (o GetOutpostResultOutput) LifecycleStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.LifecycleStatus }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) LifecycleStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.LifecycleStatus }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOutpostResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.Name }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOutpostResultOutput) OwnerId() pulumi.StringPtrOutput {
@@ -169,18 +169,18 @@ func (o GetOutpostResultOutput) OwnerId() pulumi.StringPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) of the site.
-func (o GetOutpostResultOutput) SiteArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.SiteArn }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) SiteArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.SiteArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the site.
-func (o GetOutpostResultOutput) SiteId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.SiteId }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) SiteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.SiteId }).(pulumi.StringPtrOutput)
 }
 
 // The hardware type.
-func (o GetOutpostResultOutput) SupportedHardwareType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.SupportedHardwareType }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) SupportedHardwareType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.SupportedHardwareType }).(pulumi.StringPtrOutput)
 }
 
 // The Outpost tags.

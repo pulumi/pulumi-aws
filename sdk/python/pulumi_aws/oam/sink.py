@@ -291,7 +291,7 @@ class Sink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Sink.
         """
@@ -309,7 +309,7 @@ class Sink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sinkId")
-    def sink_id(self) -> pulumi.Output[str]:
+    def sink_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID string that AWS generated as part of the sink ARN.
         """

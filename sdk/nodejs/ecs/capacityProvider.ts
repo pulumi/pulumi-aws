@@ -75,7 +75,7 @@ export class CapacityProvider extends pulumi.CustomResource {
     /**
      * ARN that identifies the capacity provider.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      */

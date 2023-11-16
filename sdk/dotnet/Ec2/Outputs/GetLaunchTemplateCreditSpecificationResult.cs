@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateCreditSpecificationResult
     {
-        public readonly string CpuCredits;
+        public readonly string? CpuCredits;
 
         [OutputConstructor]
-        private GetLaunchTemplateCreditSpecificationResult(string cpuCredits)
+        private GetLaunchTemplateCreditSpecificationResult(string? cpuCredits)
         {
             CpuCredits = cpuCredits;
         }

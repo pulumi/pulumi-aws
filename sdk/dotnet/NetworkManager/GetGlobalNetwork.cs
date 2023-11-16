@@ -128,32 +128,32 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// ARN of the global network.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the global network.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string GlobalNetworkId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Map of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetGlobalNetworkResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
             string globalNetworkId,
 
-            string id,
+            string? id,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

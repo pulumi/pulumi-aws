@@ -917,7 +917,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Flow Log.
         """
@@ -957,7 +957,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logDestination")
-    def log_destination(self) -> pulumi.Output[str]:
+    def log_destination(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         """
@@ -973,7 +973,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logFormat")
-    def log_format(self) -> pulumi.Output[str]:
+    def log_format(self) -> pulumi.Output[Optional[str]]:
         """
         The fields to include in the flow log record, in the order in which they should appear.
         """
@@ -981,7 +981,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> pulumi.Output[str]:
+    def log_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """

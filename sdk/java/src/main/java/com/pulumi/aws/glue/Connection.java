@@ -112,28 +112,28 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Glue Connection.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
-    private Output<String> catalogId;
+    private Output</* @Nullable */ String> catalogId;
 
     /**
      * @return The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Output<Optional<String>> catalogId() {
+        return Codegen.optional(this.catalogId);
     }
     /**
      * A map of key-value pairs used as parameters for this connection.

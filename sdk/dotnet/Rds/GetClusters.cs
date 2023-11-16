@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetClustersResult(
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<Outputs.GetClustersFilterResult> filters,
 
-            string id)
+            string? id)
         {
             ClusterArns = clusterArns;
             ClusterIdentifiers = clusterIdentifiers;

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPatchBaselineApprovalRulePatchFilter {
@@ -14,27 +16,27 @@ public final class GetPatchBaselineApprovalRulePatchFilter {
      * @return The key for the filter.
      * 
      */
-    private String key;
+    private @Nullable String key;
     /**
      * @return The value for the filter.
      * 
      */
-    private List<String> values;
+    private @Nullable List<String> values;
 
     private GetPatchBaselineApprovalRulePatchFilter() {}
     /**
      * @return The key for the filter.
      * 
      */
-    public String key() {
-        return this.key;
+    public Optional<String> key() {
+        return Optional.ofNullable(this.key);
     }
     /**
      * @return The value for the filter.
      * 
      */
     public List<String> values() {
-        return this.values;
+        return this.values == null ? List.of() : this.values;
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetPatchBaselineApprovalRulePatchFilter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String key;
-        private List<String> values;
+        private @Nullable String key;
+        private @Nullable List<String> values;
         public Builder() {}
         public Builder(GetPatchBaselineApprovalRulePatchFilter defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetPatchBaselineApprovalRulePatchFilter {
         }
 
         @CustomType.Setter
-        public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+        public Builder key(@Nullable String key) {
+            this.key = key;
             return this;
         }
         @CustomType.Setter
-        public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+        public Builder values(@Nullable List<String> values) {
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {

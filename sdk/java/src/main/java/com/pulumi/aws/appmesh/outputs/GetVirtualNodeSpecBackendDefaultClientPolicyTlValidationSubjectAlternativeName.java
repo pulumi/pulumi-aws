@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPoli
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName {
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches;
 
     private GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName() {}
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubje
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubje
         }
 
         @CustomType.Setter
-        public Builder matches(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch... matches) {

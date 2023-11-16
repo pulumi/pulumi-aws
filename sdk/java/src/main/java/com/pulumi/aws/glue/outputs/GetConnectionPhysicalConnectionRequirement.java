@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConnectionPhysicalConnectionRequirement {
-    private String availabilityZone;
-    private List<String> securityGroupIdLists;
-    private String subnetId;
+    private @Nullable String availabilityZone;
+    private @Nullable List<String> securityGroupIdLists;
+    private @Nullable String subnetId;
 
     private GetConnectionPhysicalConnectionRequirement() {}
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     public List<String> securityGroupIdLists() {
-        return this.securityGroupIdLists;
+        return this.securityGroupIdLists == null ? List.of() : this.securityGroupIdLists;
     }
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetConnectionPhysicalConnectionRequirement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String availabilityZone;
-        private List<String> securityGroupIdLists;
-        private String subnetId;
+        private @Nullable String availabilityZone;
+        private @Nullable List<String> securityGroupIdLists;
+        private @Nullable String subnetId;
         public Builder() {}
         public Builder(GetConnectionPhysicalConnectionRequirement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,21 +48,21 @@ public final class GetConnectionPhysicalConnectionRequirement {
         }
 
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIdLists(List<String> securityGroupIdLists) {
-            this.securityGroupIdLists = Objects.requireNonNull(securityGroupIdLists);
+        public Builder securityGroupIdLists(@Nullable List<String> securityGroupIdLists) {
+            this.securityGroupIdLists = securityGroupIdLists;
             return this;
         }
         public Builder securityGroupIdLists(String... securityGroupIdLists) {
             return securityGroupIdLists(List.of(securityGroupIdLists));
         }
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         public GetConnectionPhysicalConnectionRequirement build() {

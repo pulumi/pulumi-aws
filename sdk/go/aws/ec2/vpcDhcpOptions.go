@@ -104,7 +104,7 @@ type VpcDhcpOptions struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the DHCP Options Set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
@@ -116,7 +116,7 @@ type VpcDhcpOptions struct {
 	// List of NTP servers to configure.
 	NtpServers pulumi.StringArrayOutput `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -327,8 +327,8 @@ func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutputWithContext(ctx context.Cont
 }
 
 // The ARN of the DHCP Options Set.
-func (o VpcDhcpOptionsOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpcDhcpOptionsOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
@@ -357,8 +357,8 @@ func (o VpcDhcpOptionsOutput) NtpServers() pulumi.StringArrayOutput {
 }
 
 // The ID of the AWS account that owns the DHCP options set.
-func (o VpcDhcpOptionsOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o VpcDhcpOptionsOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

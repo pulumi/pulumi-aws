@@ -7,14 +7,15 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransformProjectOperation {
-    private List<String> projectedColumns;
+    private @Nullable List<String> projectedColumns;
 
     private GetDataSetLogicalTableMapDataTransformProjectOperation() {}
     public List<String> projectedColumns() {
-        return this.projectedColumns;
+        return this.projectedColumns == null ? List.of() : this.projectedColumns;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetDataSetLogicalTableMapDataTransformProjectOperation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> projectedColumns;
+        private @Nullable List<String> projectedColumns;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransformProjectOperation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetDataSetLogicalTableMapDataTransformProjectOperation {
         }
 
         @CustomType.Setter
-        public Builder projectedColumns(List<String> projectedColumns) {
-            this.projectedColumns = Objects.requireNonNull(projectedColumns);
+        public Builder projectedColumns(@Nullable List<String> projectedColumns) {
+            this.projectedColumns = projectedColumns;
             return this;
         }
         public Builder projectedColumns(String... projectedColumns) {

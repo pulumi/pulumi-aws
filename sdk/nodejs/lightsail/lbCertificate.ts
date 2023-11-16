@@ -68,16 +68,16 @@ export class LbCertificate extends pulumi.CustomResource {
     /**
      * The ARN of the lightsail certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The timestamp when the instance was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The domain name (e.g., example.com) for your SSL/TLS certificate.
      */
-    public readonly domainName!: pulumi.Output<string>;
-    public /*out*/ readonly domainValidationRecords!: pulumi.Output<outputs.lightsail.LbCertificateDomainValidationRecord[]>;
+    public readonly domainName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly domainValidationRecords!: pulumi.Output<outputs.lightsail.LbCertificateDomainValidationRecord[] | undefined>;
     /**
      * The load balancer name where you want to create the SSL/TLS certificate.
      */
@@ -89,8 +89,8 @@ export class LbCertificate extends pulumi.CustomResource {
     /**
      * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      */
-    public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    public readonly subjectAlternativeNames!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LbCertificate resource with the given unique name, arguments, and options.

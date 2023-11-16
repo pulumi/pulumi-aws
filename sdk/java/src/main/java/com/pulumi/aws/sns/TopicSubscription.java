@@ -265,14 +265,14 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the subscription.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
@@ -293,14 +293,14 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="confirmationWasAuthenticated", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> confirmationWasAuthenticated;
+    private Output</* @Nullable */ Boolean> confirmationWasAuthenticated;
 
     /**
      * @return Whether the subscription confirmation request was authenticated.
      * 
      */
-    public Output<Boolean> confirmationWasAuthenticated() {
-        return this.confirmationWasAuthenticated;
+    public Output<Optional<Boolean>> confirmationWasAuthenticated() {
+        return Codegen.optional(this.confirmationWasAuthenticated);
     }
     /**
      * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
@@ -363,42 +363,42 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="filterPolicyScope", refs={String.class}, tree="[0]")
-    private Output<String> filterPolicyScope;
+    private Output</* @Nullable */ String> filterPolicyScope;
 
     /**
      * @return Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
      * 
      */
-    public Output<String> filterPolicyScope() {
-        return this.filterPolicyScope;
+    public Output<Optional<String>> filterPolicyScope() {
+        return Codegen.optional(this.filterPolicyScope);
     }
     /**
      * AWS account ID of the subscription&#39;s owner.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return AWS account ID of the subscription&#39;s owner.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Whether the subscription has not been confirmed.
      * 
      */
     @Export(name="pendingConfirmation", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> pendingConfirmation;
+    private Output</* @Nullable */ Boolean> pendingConfirmation;
 
     /**
      * @return Whether the subscription has not been confirmed.
      * 
      */
-    public Output<Boolean> pendingConfirmation() {
-        return this.pendingConfirmation;
+    public Output<Optional<Boolean>> pendingConfirmation() {
+        return Codegen.optional(this.pendingConfirmation);
     }
     /**
      * Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.

@@ -16,71 +16,71 @@ public final class GetCertificateResult {
      * @return ARN of the certificate.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Type of certificate. For example, `CA`.
      * 
      */
-    private String certificateType;
+    private @Nullable String certificateType;
     /**
      * @return Boolean whether there is an override for the default certificate identifier.
      * 
      */
-    private Boolean customerOverride;
+    private @Nullable Boolean customerOverride;
     /**
      * @return If there is an override for the default certificate identifier, when the override expires.
      * 
      */
-    private String customerOverrideValidTill;
-    private String id;
+    private @Nullable String customerOverrideValidTill;
+    private @Nullable String id;
     private @Nullable Boolean latestValidTill;
     /**
      * @return Thumbprint of the certificate.
      * 
      */
-    private String thumbprint;
+    private @Nullable String thumbprint;
     /**
      * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
      * 
      */
-    private String validFrom;
+    private @Nullable String validFrom;
     /**
      * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
      * 
      */
-    private String validTill;
+    private @Nullable String validTill;
 
     private GetCertificateResult() {}
     /**
      * @return ARN of the certificate.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Type of certificate. For example, `CA`.
      * 
      */
-    public String certificateType() {
-        return this.certificateType;
+    public Optional<String> certificateType() {
+        return Optional.ofNullable(this.certificateType);
     }
     /**
      * @return Boolean whether there is an override for the default certificate identifier.
      * 
      */
-    public Boolean customerOverride() {
-        return this.customerOverride;
+    public Optional<Boolean> customerOverride() {
+        return Optional.ofNullable(this.customerOverride);
     }
     /**
      * @return If there is an override for the default certificate identifier, when the override expires.
      * 
      */
-    public String customerOverrideValidTill() {
-        return this.customerOverrideValidTill;
+    public Optional<String> customerOverrideValidTill() {
+        return Optional.ofNullable(this.customerOverrideValidTill);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> latestValidTill() {
         return Optional.ofNullable(this.latestValidTill);
@@ -89,22 +89,22 @@ public final class GetCertificateResult {
      * @return Thumbprint of the certificate.
      * 
      */
-    public String thumbprint() {
-        return this.thumbprint;
+    public Optional<String> thumbprint() {
+        return Optional.ofNullable(this.thumbprint);
     }
     /**
      * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
      * 
      */
-    public String validFrom() {
-        return this.validFrom;
+    public Optional<String> validFrom() {
+        return Optional.ofNullable(this.validFrom);
     }
     /**
      * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
      * 
      */
-    public String validTill() {
-        return this.validTill;
+    public Optional<String> validTill() {
+        return Optional.ofNullable(this.validTill);
     }
 
     public static Builder builder() {
@@ -116,15 +116,15 @@ public final class GetCertificateResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String certificateType;
-        private Boolean customerOverride;
-        private String customerOverrideValidTill;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String certificateType;
+        private @Nullable Boolean customerOverride;
+        private @Nullable String customerOverrideValidTill;
+        private @Nullable String id;
         private @Nullable Boolean latestValidTill;
-        private String thumbprint;
-        private String validFrom;
-        private String validTill;
+        private @Nullable String thumbprint;
+        private @Nullable String validFrom;
+        private @Nullable String validTill;
         public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -140,28 +140,28 @@ public final class GetCertificateResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateType(String certificateType) {
-            this.certificateType = Objects.requireNonNull(certificateType);
+        public Builder certificateType(@Nullable String certificateType) {
+            this.certificateType = certificateType;
             return this;
         }
         @CustomType.Setter
-        public Builder customerOverride(Boolean customerOverride) {
-            this.customerOverride = Objects.requireNonNull(customerOverride);
+        public Builder customerOverride(@Nullable Boolean customerOverride) {
+            this.customerOverride = customerOverride;
             return this;
         }
         @CustomType.Setter
-        public Builder customerOverrideValidTill(String customerOverrideValidTill) {
-            this.customerOverrideValidTill = Objects.requireNonNull(customerOverrideValidTill);
+        public Builder customerOverrideValidTill(@Nullable String customerOverrideValidTill) {
+            this.customerOverrideValidTill = customerOverrideValidTill;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -170,18 +170,18 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder thumbprint(String thumbprint) {
-            this.thumbprint = Objects.requireNonNull(thumbprint);
+        public Builder thumbprint(@Nullable String thumbprint) {
+            this.thumbprint = thumbprint;
             return this;
         }
         @CustomType.Setter
-        public Builder validFrom(String validFrom) {
-            this.validFrom = Objects.requireNonNull(validFrom);
+        public Builder validFrom(@Nullable String validFrom) {
+            this.validFrom = validFrom;
             return this;
         }
         @CustomType.Setter
-        public Builder validTill(String validTill) {
-            this.validTill = Objects.requireNonNull(validTill);
+        public Builder validTill(@Nullable String validTill) {
+            this.validTill = validTill;
             return this;
         }
         public GetCertificateResult build() {

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceMetadataOption {
@@ -14,63 +16,63 @@ public final class GetInstanceMetadataOption {
      * @return State of the metadata service: `enabled`, `disabled`.
      * 
      */
-    private String httpEndpoint;
+    private @Nullable String httpEndpoint;
     /**
      * @return Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
      * 
      */
-    private String httpProtocolIpv6;
+    private @Nullable String httpProtocolIpv6;
     /**
      * @return Desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
-    private Integer httpPutResponseHopLimit;
+    private @Nullable Integer httpPutResponseHopLimit;
     /**
      * @return If session tokens are required: `optional`, `required`.
      * 
      */
-    private String httpTokens;
+    private @Nullable String httpTokens;
     /**
      * @return If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
      * 
      */
-    private String instanceMetadataTags;
+    private @Nullable String instanceMetadataTags;
 
     private GetInstanceMetadataOption() {}
     /**
      * @return State of the metadata service: `enabled`, `disabled`.
      * 
      */
-    public String httpEndpoint() {
-        return this.httpEndpoint;
+    public Optional<String> httpEndpoint() {
+        return Optional.ofNullable(this.httpEndpoint);
     }
     /**
      * @return Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
      * 
      */
-    public String httpProtocolIpv6() {
-        return this.httpProtocolIpv6;
+    public Optional<String> httpProtocolIpv6() {
+        return Optional.ofNullable(this.httpProtocolIpv6);
     }
     /**
      * @return Desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
-    public Integer httpPutResponseHopLimit() {
-        return this.httpPutResponseHopLimit;
+    public Optional<Integer> httpPutResponseHopLimit() {
+        return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
     /**
      * @return If session tokens are required: `optional`, `required`.
      * 
      */
-    public String httpTokens() {
-        return this.httpTokens;
+    public Optional<String> httpTokens() {
+        return Optional.ofNullable(this.httpTokens);
     }
     /**
      * @return If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
      * 
      */
-    public String instanceMetadataTags() {
-        return this.instanceMetadataTags;
+    public Optional<String> instanceMetadataTags() {
+        return Optional.ofNullable(this.instanceMetadataTags);
     }
 
     public static Builder builder() {
@@ -82,11 +84,11 @@ public final class GetInstanceMetadataOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String httpEndpoint;
-        private String httpProtocolIpv6;
-        private Integer httpPutResponseHopLimit;
-        private String httpTokens;
-        private String instanceMetadataTags;
+        private @Nullable String httpEndpoint;
+        private @Nullable String httpProtocolIpv6;
+        private @Nullable Integer httpPutResponseHopLimit;
+        private @Nullable String httpTokens;
+        private @Nullable String instanceMetadataTags;
         public Builder() {}
         public Builder(GetInstanceMetadataOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -98,28 +100,28 @@ public final class GetInstanceMetadataOption {
         }
 
         @CustomType.Setter
-        public Builder httpEndpoint(String httpEndpoint) {
-            this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
+        public Builder httpEndpoint(@Nullable String httpEndpoint) {
+            this.httpEndpoint = httpEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder httpProtocolIpv6(String httpProtocolIpv6) {
-            this.httpProtocolIpv6 = Objects.requireNonNull(httpProtocolIpv6);
+        public Builder httpProtocolIpv6(@Nullable String httpProtocolIpv6) {
+            this.httpProtocolIpv6 = httpProtocolIpv6;
             return this;
         }
         @CustomType.Setter
-        public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
-            this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
+        public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
+            this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder httpTokens(String httpTokens) {
-            this.httpTokens = Objects.requireNonNull(httpTokens);
+        public Builder httpTokens(@Nullable String httpTokens) {
+            this.httpTokens = httpTokens;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceMetadataTags(String instanceMetadataTags) {
-            this.instanceMetadataTags = Objects.requireNonNull(instanceMetadataTags);
+        public Builder instanceMetadataTags(@Nullable String instanceMetadataTags) {
+            this.instanceMetadataTags = instanceMetadataTags;
             return this;
         }
         public GetInstanceMetadataOption build() {

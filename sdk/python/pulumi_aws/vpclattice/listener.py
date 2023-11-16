@@ -627,7 +627,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the listener.
         """
@@ -635,7 +635,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time that the listener was created, specified in ISO-8601 format.
         """
@@ -651,12 +651,12 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
-    def last_updated_at(self) -> pulumi.Output[str]:
+    def last_updated_at(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "last_updated_at")
 
     @property
     @pulumi.getter(name="listenerId")
-    def listener_id(self) -> pulumi.Output[str]:
+    def listener_id(self) -> pulumi.Output[Optional[str]]:
         """
         Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
         """
@@ -672,7 +672,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         """
@@ -688,7 +688,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceArn")
-    def service_arn(self) -> pulumi.Output[str]:
+    def service_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         """
@@ -696,7 +696,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceIdentifier")
-    def service_identifier(self) -> pulumi.Output[str]:
+    def service_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.

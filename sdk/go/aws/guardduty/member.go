@@ -81,7 +81,7 @@ type Member struct {
 	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
 	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
 	// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
-	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
+	RelationshipStatus pulumi.StringPtrOutput `pulumi:"relationshipStatus"`
 }
 
 // NewMember registers a new resource with the given unique name, arguments, and options.
@@ -309,8 +309,8 @@ func (o MemberOutput) Invite() pulumi.BoolPtrOutput {
 }
 
 // The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
-func (o MemberOutput) RelationshipStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
+func (o MemberOutput) RelationshipStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.RelationshipStatus }).(pulumi.StringPtrOutput)
 }
 
 type MemberArrayOutput struct{ *pulumi.OutputState }

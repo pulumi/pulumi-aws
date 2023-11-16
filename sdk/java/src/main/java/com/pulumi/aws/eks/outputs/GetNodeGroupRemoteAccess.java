@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNodeGroupRemoteAccess {
@@ -14,27 +16,27 @@ public final class GetNodeGroupRemoteAccess {
      * @return EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
      * 
      */
-    private String ec2SshKey;
+    private @Nullable String ec2SshKey;
     /**
      * @return Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
      * 
      */
-    private List<String> sourceSecurityGroupIds;
+    private @Nullable List<String> sourceSecurityGroupIds;
 
     private GetNodeGroupRemoteAccess() {}
     /**
      * @return EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
      * 
      */
-    public String ec2SshKey() {
-        return this.ec2SshKey;
+    public Optional<String> ec2SshKey() {
+        return Optional.ofNullable(this.ec2SshKey);
     }
     /**
      * @return Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
      * 
      */
     public List<String> sourceSecurityGroupIds() {
-        return this.sourceSecurityGroupIds;
+        return this.sourceSecurityGroupIds == null ? List.of() : this.sourceSecurityGroupIds;
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetNodeGroupRemoteAccess {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String ec2SshKey;
-        private List<String> sourceSecurityGroupIds;
+        private @Nullable String ec2SshKey;
+        private @Nullable List<String> sourceSecurityGroupIds;
         public Builder() {}
         public Builder(GetNodeGroupRemoteAccess defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetNodeGroupRemoteAccess {
         }
 
         @CustomType.Setter
-        public Builder ec2SshKey(String ec2SshKey) {
-            this.ec2SshKey = Objects.requireNonNull(ec2SshKey);
+        public Builder ec2SshKey(@Nullable String ec2SshKey) {
+            this.ec2SshKey = ec2SshKey;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceSecurityGroupIds(List<String> sourceSecurityGroupIds) {
-            this.sourceSecurityGroupIds = Objects.requireNonNull(sourceSecurityGroupIds);
+        public Builder sourceSecurityGroupIds(@Nullable List<String> sourceSecurityGroupIds) {
+            this.sourceSecurityGroupIds = sourceSecurityGroupIds;
             return this;
         }
         public Builder sourceSecurityGroupIds(String... sourceSecurityGroupIds) {

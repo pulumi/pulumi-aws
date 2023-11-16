@@ -64,23 +64,23 @@ export interface GetImageResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly imageDigest: string;
+    readonly id?: string;
+    readonly imageDigest?: string;
     /**
      * Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
      */
-    readonly imagePushedAt: number;
+    readonly imagePushedAt?: number;
     /**
      * Size, in bytes, of the image in the repository.
      */
-    readonly imageSizeInBytes: number;
+    readonly imageSizeInBytes?: number;
     readonly imageTag?: string;
     /**
      * List of tags associated with this image.
      */
-    readonly imageTags: string[];
+    readonly imageTags?: string[];
     readonly mostRecent?: boolean;
-    readonly registryId: string;
+    readonly registryId?: string;
     readonly repositoryName: string;
 }
 /**

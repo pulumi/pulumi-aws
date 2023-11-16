@@ -302,7 +302,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Output[str]:
+    def resource_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the resource.
         """
@@ -310,7 +310,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceCreatedTime")
-    def resource_created_time(self) -> pulumi.Output[str]:
+    def resource_created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Creation time of the resource.
         """
@@ -318,7 +318,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceDescription")
-    def resource_description(self) -> pulumi.Output[str]:
+    def resource_description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the resource.
         """
@@ -334,7 +334,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Output[str]:
+    def resource_name(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the resource.
         """

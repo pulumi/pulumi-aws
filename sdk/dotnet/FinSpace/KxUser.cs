@@ -80,7 +80,7 @@ namespace Pulumi.Aws.FinSpace
         /// Amazon Resource Name (ARN) identifier of the KX user.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier for the KX environment.

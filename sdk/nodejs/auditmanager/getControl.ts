@@ -81,15 +81,15 @@ export interface GetControlArgs {
  * A collection of values returned by getControl.
  */
 export interface GetControlResult {
-    readonly actionPlanInstructions: string;
-    readonly actionPlanTitle: string;
-    readonly arn: string;
+    readonly actionPlanInstructions?: string;
+    readonly actionPlanTitle?: string;
+    readonly arn?: string;
     readonly controlMappingSources?: outputs.auditmanager.GetControlControlMappingSource[];
-    readonly description: string;
-    readonly id: string;
+    readonly description?: string;
+    readonly id?: string;
     readonly name: string;
-    readonly tags: {[key: string]: string};
-    readonly testingInformation: string;
+    readonly tags?: {[key: string]: string};
+    readonly testingInformation?: string;
     readonly type: string;
 }
 /**

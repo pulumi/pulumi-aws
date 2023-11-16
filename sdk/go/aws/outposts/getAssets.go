@@ -122,7 +122,7 @@ type GetAssetsResult struct {
 	AssetIds      []string `pulumi:"assetIds"`
 	HostIdFilters []string `pulumi:"hostIdFilters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string   `pulumi:"id"`
+	Id              *string  `pulumi:"id"`
 	StatusIdFilters []string `pulumi:"statusIdFilters"`
 }
 
@@ -182,8 +182,8 @@ func (o GetAssetsResultOutput) HostIdFilters() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAssetsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAssetsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetAssetsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAssetsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAssetsResultOutput) StatusIdFilters() pulumi.StringArrayOutput {

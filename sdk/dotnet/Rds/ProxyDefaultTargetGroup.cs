@@ -90,13 +90,13 @@ namespace Pulumi.Aws.Rds
         /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The settings that determine the size and behavior of the connection pool for the target group.
         /// </summary>
         [Output("connectionPoolConfig")]
-        public Output<Outputs.ProxyDefaultTargetGroupConnectionPoolConfig> ConnectionPoolConfig { get; private set; } = null!;
+        public Output<Outputs.ProxyDefaultTargetGroupConnectionPoolConfig?> ConnectionPoolConfig { get; private set; } = null!;
 
         /// <summary>
         /// Name of the RDS DB Proxy.
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Rds
         /// The name of the default target group.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
 
         /// <summary>

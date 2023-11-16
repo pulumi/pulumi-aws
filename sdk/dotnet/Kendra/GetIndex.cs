@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// ARN of the Index.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
         /// </summary>
@@ -136,11 +136,11 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Unix datetime that the index was created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// Description of the Index.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
         /// </summary>
@@ -148,11 +148,11 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Amazon Kendra edition for the index.
         /// </summary>
-        public readonly string Edition;
+        public readonly string? Edition;
         /// <summary>
         /// When the Status field value is `FAILED`, this contains a message that explains why.
         /// </summary>
-        public readonly string ErrorMessage;
+        public readonly string? ErrorMessage;
         /// <summary>
         /// Identifier of the Index.
         /// </summary>
@@ -164,11 +164,11 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Name of the index field. Minimum length of 1. Maximum length of 30.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
         /// </summary>
@@ -176,19 +176,19 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Metadata that helps organize the Indices you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Unix datetime that the index was last updated.
         /// </summary>
-        public readonly string UpdatedAt;
+        public readonly string? UpdatedAt;
         /// <summary>
         /// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
         /// </summary>
-        public readonly string UserContextPolicy;
+        public readonly string? UserContextPolicy;
         /// <summary>
         /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
         /// </summary>
@@ -200,37 +200,37 @@ namespace Pulumi.Aws.Kendra
 
         [OutputConstructor]
         private GetIndexResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetIndexCapacityUnitResult> capacityUnits,
 
-            string createdAt,
+            string? createdAt,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetIndexDocumentMetadataConfigurationUpdateResult> documentMetadataConfigurationUpdates,
 
-            string edition,
+            string? edition,
 
-            string errorMessage,
+            string? errorMessage,
 
             string id,
 
             ImmutableArray<Outputs.GetIndexIndexStatisticResult> indexStatistics,
 
-            string name,
+            string? name,
 
-            string roleArn,
+            string? roleArn,
 
             ImmutableArray<Outputs.GetIndexServerSideEncryptionConfigurationResult> serverSideEncryptionConfigurations,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string updatedAt,
+            string? updatedAt,
 
-            string userContextPolicy,
+            string? userContextPolicy,
 
             ImmutableArray<Outputs.GetIndexUserGroupResolutionConfigurationResult> userGroupResolutionConfigurations,
 

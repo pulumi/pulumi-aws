@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetInstanceTypeGpusResult
     {
-        public readonly int Count;
-        public readonly string Manufacturer;
+        public readonly int? Count;
+        public readonly string? Manufacturer;
         /// <summary>
         /// Size of the instance memory, in MiB.
         /// </summary>
-        public readonly int MemorySize;
-        public readonly string Name;
+        public readonly int? MemorySize;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetInstanceTypeGpusResult(
-            int count,
+            int? count,
 
-            string manufacturer,
+            string? manufacturer,
 
-            int memorySize,
+            int? memorySize,
 
-            string name)
+            string? name)
         {
             Count = count;
             Manufacturer = manufacturer;

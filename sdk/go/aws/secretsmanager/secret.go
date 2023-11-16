@@ -51,7 +51,7 @@ type Secret struct {
 	pulumi.CustomResourceState
 
 	// ARN of the secret.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the secret.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
@@ -61,9 +61,9 @@ type Secret struct {
 	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays pulumi.IntPtrOutput `pulumi:"recoveryWindowInDays"`
 	// Configuration block to support secret replication. See details below.
@@ -298,8 +298,8 @@ func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutpu
 }
 
 // ARN of the secret.
-func (o SecretOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SecretOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the secret.
@@ -323,13 +323,13 @@ func (o SecretOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o SecretOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o SecretOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
-func (o SecretOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o SecretOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.

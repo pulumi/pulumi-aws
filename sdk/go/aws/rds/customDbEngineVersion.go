@@ -188,15 +188,15 @@ type CustomDbEngineVersion struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the custom engine version.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date and time that the CEV was created.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	CreateTime pulumi.StringPtrOutput `pulumi:"createTime"`
 	// The name of the Amazon S3 bucket that contains the database installation files.
 	DatabaseInstallationFilesS3BucketName pulumi.StringPtrOutput `pulumi:"databaseInstallationFilesS3BucketName"`
 	// The prefix for the Amazon S3 bucket that contains the database installation files.
 	DatabaseInstallationFilesS3Prefix pulumi.StringPtrOutput `pulumi:"databaseInstallationFilesS3Prefix"`
 	// The name of the DB parameter group family for the CEV.
-	DbParameterGroupFamily pulumi.StringOutput `pulumi:"dbParameterGroupFamily"`
+	DbParameterGroupFamily pulumi.StringPtrOutput `pulumi:"dbParameterGroupFamily"`
 	// The description of the CEV.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
@@ -206,21 +206,21 @@ type CustomDbEngineVersion struct {
 	// The name of the manifest file within the local filesystem. Conflicts with `manifest`.
 	Filename pulumi.StringPtrOutput `pulumi:"filename"`
 	// The ID of the AMI that was created with the CEV.
-	ImageId pulumi.StringOutput `pulumi:"imageId"`
+	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
 	// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The major version of the database engine.
-	MajorEngineVersion pulumi.StringOutput `pulumi:"majorEngineVersion"`
+	MajorEngineVersion pulumi.StringPtrOutput `pulumi:"majorEngineVersion"`
 	// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
 	Manifest pulumi.StringPtrOutput `pulumi:"manifest"`
 	// The returned manifest file, in JSON format, service generated and often different from input `manifest`.
-	ManifestComputed pulumi.StringOutput `pulumi:"manifestComputed"`
+	ManifestComputed pulumi.StringPtrOutput `pulumi:"manifestComputed"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
 	ManifestHash pulumi.StringPtrOutput `pulumi:"manifestHash"`
 	// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -501,13 +501,13 @@ func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutputWithContext(ct
 }
 
 // The Amazon Resource Name (ARN) for the custom engine version.
-func (o CustomDbEngineVersionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that the CEV was created.
-func (o CustomDbEngineVersionOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Amazon S3 bucket that contains the database installation files.
@@ -521,8 +521,8 @@ func (o CustomDbEngineVersionOutput) DatabaseInstallationFilesS3Prefix() pulumi.
 }
 
 // The name of the DB parameter group family for the CEV.
-func (o CustomDbEngineVersionOutput) DbParameterGroupFamily() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.DbParameterGroupFamily }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionOutput) DbParameterGroupFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.DbParameterGroupFamily }).(pulumi.StringPtrOutput)
 }
 
 // The description of the CEV.
@@ -546,18 +546,18 @@ func (o CustomDbEngineVersionOutput) Filename() pulumi.StringPtrOutput {
 }
 
 // The ID of the AMI that was created with the CEV.
-func (o CustomDbEngineVersionOutput) ImageId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.ImageId }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-func (o CustomDbEngineVersionOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The major version of the database engine.
-func (o CustomDbEngineVersionOutput) MajorEngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.MajorEngineVersion }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionOutput) MajorEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.MajorEngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
@@ -566,8 +566,8 @@ func (o CustomDbEngineVersionOutput) Manifest() pulumi.StringPtrOutput {
 }
 
 // The returned manifest file, in JSON format, service generated and often different from input `manifest`.
-func (o CustomDbEngineVersionOutput) ManifestComputed() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.ManifestComputed }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionOutput) ManifestComputed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.ManifestComputed }).(pulumi.StringPtrOutput)
 }
 
 // Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
@@ -581,8 +581,8 @@ func (o CustomDbEngineVersionOutput) SourceImageId() pulumi.StringPtrOutput {
 }
 
 // The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-func (o CustomDbEngineVersionOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

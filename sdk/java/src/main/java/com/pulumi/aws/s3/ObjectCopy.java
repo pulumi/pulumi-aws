@@ -67,14 +67,14 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="acl", refs={String.class}, tree="[0]")
-    private Output<String> acl;
+    private Output</* @Nullable */ String> acl;
 
     /**
      * @return [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
      * 
      */
-    public Output<String> acl() {
-        return this.acl;
+    public Output<Optional<String>> acl() {
+        return Codegen.optional(this.acl);
     }
     /**
      * Name of the bucket to put the file in.
@@ -91,24 +91,24 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
         return this.bucket;
     }
     @Export(name="bucketKeyEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> bucketKeyEnabled;
+    private Output</* @Nullable */ Boolean> bucketKeyEnabled;
 
-    public Output<Boolean> bucketKeyEnabled() {
-        return this.bucketKeyEnabled;
+    public Output<Optional<Boolean>> bucketKeyEnabled() {
+        return Codegen.optional(this.bucketKeyEnabled);
     }
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
     @Export(name="cacheControl", refs={String.class}, tree="[0]")
-    private Output<String> cacheControl;
+    private Output</* @Nullable */ String> cacheControl;
 
     /**
      * @return Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
-    public Output<String> cacheControl() {
-        return this.cacheControl;
+    public Output<Optional<String>> cacheControl() {
+        return Codegen.optional(this.cacheControl);
     }
     /**
      * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
@@ -129,112 +129,112 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="checksumCrc32", refs={String.class}, tree="[0]")
-    private Output<String> checksumCrc32;
+    private Output</* @Nullable */ String> checksumCrc32;
 
     /**
      * @return The base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
-    public Output<String> checksumCrc32() {
-        return this.checksumCrc32;
+    public Output<Optional<String>> checksumCrc32() {
+        return Codegen.optional(this.checksumCrc32);
     }
     /**
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     @Export(name="checksumCrc32c", refs={String.class}, tree="[0]")
-    private Output<String> checksumCrc32c;
+    private Output</* @Nullable */ String> checksumCrc32c;
 
     /**
      * @return The base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
-    public Output<String> checksumCrc32c() {
-        return this.checksumCrc32c;
+    public Output<Optional<String>> checksumCrc32c() {
+        return Codegen.optional(this.checksumCrc32c);
     }
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     @Export(name="checksumSha1", refs={String.class}, tree="[0]")
-    private Output<String> checksumSha1;
+    private Output</* @Nullable */ String> checksumSha1;
 
     /**
      * @return The base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
-    public Output<String> checksumSha1() {
-        return this.checksumSha1;
+    public Output<Optional<String>> checksumSha1() {
+        return Codegen.optional(this.checksumSha1);
     }
     /**
      * The base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     @Export(name="checksumSha256", refs={String.class}, tree="[0]")
-    private Output<String> checksumSha256;
+    private Output</* @Nullable */ String> checksumSha256;
 
     /**
      * @return The base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
-    public Output<String> checksumSha256() {
-        return this.checksumSha256;
+    public Output<Optional<String>> checksumSha256() {
+        return Codegen.optional(this.checksumSha256);
     }
     /**
      * Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
     @Export(name="contentDisposition", refs={String.class}, tree="[0]")
-    private Output<String> contentDisposition;
+    private Output</* @Nullable */ String> contentDisposition;
 
     /**
      * @return Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
-    public Output<String> contentDisposition() {
-        return this.contentDisposition;
+    public Output<Optional<String>> contentDisposition() {
+        return Codegen.optional(this.contentDisposition);
     }
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      * 
      */
     @Export(name="contentEncoding", refs={String.class}, tree="[0]")
-    private Output<String> contentEncoding;
+    private Output</* @Nullable */ String> contentEncoding;
 
     /**
      * @return Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      * 
      */
-    public Output<String> contentEncoding() {
-        return this.contentEncoding;
+    public Output<Optional<String>> contentEncoding() {
+        return Codegen.optional(this.contentEncoding);
     }
     /**
      * Language the content is in e.g., en-US or en-GB.
      * 
      */
     @Export(name="contentLanguage", refs={String.class}, tree="[0]")
-    private Output<String> contentLanguage;
+    private Output</* @Nullable */ String> contentLanguage;
 
     /**
      * @return Language the content is in e.g., en-US or en-GB.
      * 
      */
-    public Output<String> contentLanguage() {
-        return this.contentLanguage;
+    public Output<Optional<String>> contentLanguage() {
+        return Codegen.optional(this.contentLanguage);
     }
     /**
      * Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
      * 
      */
     @Export(name="contentType", refs={String.class}, tree="[0]")
-    private Output<String> contentType;
+    private Output</* @Nullable */ String> contentType;
 
     /**
      * @return Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
      * 
      */
-    public Output<String> contentType() {
-        return this.contentType;
+    public Output<Optional<String>> contentType() {
+        return Codegen.optional(this.contentType);
     }
     /**
      * Copies the object if its entity tag (ETag) matches the specified tag.
@@ -297,14 +297,14 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="customerAlgorithm", refs={String.class}, tree="[0]")
-    private Output<String> customerAlgorithm;
+    private Output</* @Nullable */ String> customerAlgorithm;
 
     /**
      * @return Specifies the algorithm to use to when encrypting the object (for example, AES256).
      * 
      */
-    public Output<String> customerAlgorithm() {
-        return this.customerAlgorithm;
+    public Output<Optional<String>> customerAlgorithm() {
+        return Codegen.optional(this.customerAlgorithm);
     }
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
@@ -325,28 +325,28 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="customerKeyMd5", refs={String.class}, tree="[0]")
-    private Output<String> customerKeyMd5;
+    private Output</* @Nullable */ String> customerKeyMd5;
 
     /**
      * @return Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      * 
      */
-    public Output<String> customerKeyMd5() {
-        return this.customerKeyMd5;
+    public Output<Optional<String>> customerKeyMd5() {
+        return Codegen.optional(this.customerKeyMd5);
     }
     /**
      * ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
@@ -381,14 +381,14 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="expiration", refs={String.class}, tree="[0]")
-    private Output<String> expiration;
+    private Output</* @Nullable */ String> expiration;
 
     /**
      * @return If the object expiration is configured, this attribute will be set.
      * 
      */
-    public Output<String> expiration() {
-        return this.expiration;
+    public Output<Optional<String>> expiration() {
+        return Codegen.optional(this.expiration);
     }
     /**
      * Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
@@ -451,56 +451,56 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsEncryptionContext", refs={String.class}, tree="[0]")
-    private Output<String> kmsEncryptionContext;
+    private Output</* @Nullable */ String> kmsEncryptionContext;
 
     /**
      * @return Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      * 
      */
-    public Output<String> kmsEncryptionContext() {
-        return this.kmsEncryptionContext;
+    public Output<Optional<String>> kmsEncryptionContext() {
+        return Codegen.optional(this.kmsEncryptionContext);
     }
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
-    private Output<String> lastModified;
+    private Output</* @Nullable */ String> lastModified;
 
     /**
      * @return Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public Output<String> lastModified() {
-        return this.lastModified;
+    public Output<Optional<String>> lastModified() {
+        return Codegen.optional(this.lastModified);
     }
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      * 
      */
     @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> metadata;
+    private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
      * @return Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      * 
      */
-    public Output<Map<String,String>> metadata() {
-        return this.metadata;
+    public Output<Optional<Map<String,String>>> metadata() {
+        return Codegen.optional(this.metadata);
     }
     /**
      * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
@@ -521,56 +521,56 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="objectLockLegalHoldStatus", refs={String.class}, tree="[0]")
-    private Output<String> objectLockLegalHoldStatus;
+    private Output</* @Nullable */ String> objectLockLegalHoldStatus;
 
     /**
      * @return The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      * 
      */
-    public Output<String> objectLockLegalHoldStatus() {
-        return this.objectLockLegalHoldStatus;
+    public Output<Optional<String>> objectLockLegalHoldStatus() {
+        return Codegen.optional(this.objectLockLegalHoldStatus);
     }
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
     @Export(name="objectLockMode", refs={String.class}, tree="[0]")
-    private Output<String> objectLockMode;
+    private Output</* @Nullable */ String> objectLockMode;
 
     /**
      * @return Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
-    public Output<String> objectLockMode() {
-        return this.objectLockMode;
+    public Output<Optional<String>> objectLockMode() {
+        return Codegen.optional(this.objectLockMode);
     }
     /**
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object&#39;s object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      * 
      */
     @Export(name="objectLockRetainUntilDate", refs={String.class}, tree="[0]")
-    private Output<String> objectLockRetainUntilDate;
+    private Output</* @Nullable */ String> objectLockRetainUntilDate;
 
     /**
      * @return Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object&#39;s object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      * 
      */
-    public Output<String> objectLockRetainUntilDate() {
-        return this.objectLockRetainUntilDate;
+    public Output<Optional<String>> objectLockRetainUntilDate() {
+        return Codegen.optional(this.objectLockRetainUntilDate);
     }
     /**
      * If present, indicates that the requester was successfully charged for the request.
      * 
      */
     @Export(name="requestCharged", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> requestCharged;
+    private Output</* @Nullable */ Boolean> requestCharged;
 
     /**
      * @return If present, indicates that the requester was successfully charged for the request.
      * 
      */
-    public Output<Boolean> requestCharged() {
-        return this.requestCharged;
+    public Output<Optional<Boolean>> requestCharged() {
+        return Codegen.optional(this.requestCharged);
     }
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
@@ -591,14 +591,14 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serverSideEncryption", refs={String.class}, tree="[0]")
-    private Output<String> serverSideEncryption;
+    private Output</* @Nullable */ String> serverSideEncryption;
 
     /**
      * @return Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      * 
      */
-    public Output<String> serverSideEncryption() {
-        return this.serverSideEncryption;
+    public Output<Optional<String>> serverSideEncryption() {
+        return Codegen.optional(this.serverSideEncryption);
     }
     /**
      * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
@@ -665,28 +665,28 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceVersionId", refs={String.class}, tree="[0]")
-    private Output<String> sourceVersionId;
+    private Output</* @Nullable */ String> sourceVersionId;
 
     /**
      * @return Version of the copied object in the source bucket.
      * 
      */
-    public Output<String> sourceVersionId() {
-        return this.sourceVersionId;
+    public Output<Optional<String>> sourceVersionId() {
+        return Codegen.optional(this.sourceVersionId);
     }
     /**
      * Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      * 
      */
     @Export(name="storageClass", refs={String.class}, tree="[0]")
-    private Output<String> storageClass;
+    private Output</* @Nullable */ String> storageClass;
 
     /**
      * @return Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      * 
      */
-    public Output<String> storageClass() {
-        return this.storageClass;
+    public Output<Optional<String>> storageClass() {
+        return Codegen.optional(this.storageClass);
     }
     /**
      * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
@@ -739,28 +739,28 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionId", refs={String.class}, tree="[0]")
-    private Output<String> versionId;
+    private Output</* @Nullable */ String> versionId;
 
     /**
      * @return Version ID of the newly created copy.
      * 
      */
-    public Output<String> versionId() {
-        return this.versionId;
+    public Output<Optional<String>> versionId() {
+        return Codegen.optional(this.versionId);
     }
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
      */
     @Export(name="websiteRedirect", refs={String.class}, tree="[0]")
-    private Output<String> websiteRedirect;
+    private Output</* @Nullable */ String> websiteRedirect;
 
     /**
      * @return Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
      */
-    public Output<String> websiteRedirect() {
-        return this.websiteRedirect;
+    public Output<Optional<String>> websiteRedirect() {
+        return Codegen.optional(this.websiteRedirect);
     }
 
     /**

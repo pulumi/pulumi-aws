@@ -62,7 +62,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the device.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The AWS location of the device. Documented below.
      */

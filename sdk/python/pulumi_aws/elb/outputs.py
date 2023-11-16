@@ -321,113 +321,127 @@ class SslNegotiationPolicyAttribute(dict):
 @pulumi.output_type
 class GetLoadBalancerAccessLogsResult(dict):
     def __init__(__self__, *,
-                 bucket: str,
-                 bucket_prefix: str,
-                 enabled: bool,
-                 interval: int):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "bucket_prefix", bucket_prefix)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "interval", interval)
+                 bucket: Optional[str] = None,
+                 bucket_prefix: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 interval: Optional[int] = None):
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if bucket_prefix is not None:
+            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> Optional[str]:
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> str:
+    def bucket_prefix(self) -> Optional[str]:
         return pulumi.get(self, "bucket_prefix")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
-    def interval(self) -> int:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
 class GetLoadBalancerHealthCheckResult(dict):
     def __init__(__self__, *,
-                 healthy_threshold: int,
-                 interval: int,
-                 target: str,
-                 timeout: int,
-                 unhealthy_threshold: int):
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "target", target)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+                 healthy_threshold: Optional[int] = None,
+                 interval: Optional[int] = None,
+                 target: Optional[str] = None,
+                 timeout: Optional[int] = None,
+                 unhealthy_threshold: Optional[int] = None):
+        if healthy_threshold is not None:
+            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if unhealthy_threshold is not None:
+            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> int:
+    def healthy_threshold(self) -> Optional[int]:
         return pulumi.get(self, "healthy_threshold")
 
     @property
     @pulumi.getter
-    def interval(self) -> int:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter
-    def target(self) -> str:
+    def target(self) -> Optional[str]:
         return pulumi.get(self, "target")
 
     @property
     @pulumi.getter
-    def timeout(self) -> int:
+    def timeout(self) -> Optional[int]:
         return pulumi.get(self, "timeout")
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> int:
+    def unhealthy_threshold(self) -> Optional[int]:
         return pulumi.get(self, "unhealthy_threshold")
 
 
 @pulumi.output_type
 class GetLoadBalancerListenerResult(dict):
     def __init__(__self__, *,
-                 instance_port: int,
-                 instance_protocol: str,
-                 lb_port: int,
-                 lb_protocol: str,
-                 ssl_certificate_id: str):
-        pulumi.set(__self__, "instance_port", instance_port)
-        pulumi.set(__self__, "instance_protocol", instance_protocol)
-        pulumi.set(__self__, "lb_port", lb_port)
-        pulumi.set(__self__, "lb_protocol", lb_protocol)
-        pulumi.set(__self__, "ssl_certificate_id", ssl_certificate_id)
+                 instance_port: Optional[int] = None,
+                 instance_protocol: Optional[str] = None,
+                 lb_port: Optional[int] = None,
+                 lb_protocol: Optional[str] = None,
+                 ssl_certificate_id: Optional[str] = None):
+        if instance_port is not None:
+            pulumi.set(__self__, "instance_port", instance_port)
+        if instance_protocol is not None:
+            pulumi.set(__self__, "instance_protocol", instance_protocol)
+        if lb_port is not None:
+            pulumi.set(__self__, "lb_port", lb_port)
+        if lb_protocol is not None:
+            pulumi.set(__self__, "lb_protocol", lb_protocol)
+        if ssl_certificate_id is not None:
+            pulumi.set(__self__, "ssl_certificate_id", ssl_certificate_id)
 
     @property
     @pulumi.getter(name="instancePort")
-    def instance_port(self) -> int:
+    def instance_port(self) -> Optional[int]:
         return pulumi.get(self, "instance_port")
 
     @property
     @pulumi.getter(name="instanceProtocol")
-    def instance_protocol(self) -> str:
+    def instance_protocol(self) -> Optional[str]:
         return pulumi.get(self, "instance_protocol")
 
     @property
     @pulumi.getter(name="lbPort")
-    def lb_port(self) -> int:
+    def lb_port(self) -> Optional[int]:
         return pulumi.get(self, "lb_port")
 
     @property
     @pulumi.getter(name="lbProtocol")
-    def lb_protocol(self) -> str:
+    def lb_protocol(self) -> Optional[str]:
         return pulumi.get(self, "lb_protocol")
 
     @property
     @pulumi.getter(name="sslCertificateId")
-    def ssl_certificate_id(self) -> str:
+    def ssl_certificate_id(self) -> Optional[str]:
         return pulumi.get(self, "ssl_certificate_id")
 
 

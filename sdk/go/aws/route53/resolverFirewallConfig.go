@@ -63,9 +63,9 @@ type ResolverFirewallConfig struct {
 	pulumi.CustomResourceState
 
 	// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
-	FirewallFailOpen pulumi.StringOutput `pulumi:"firewallFailOpen"`
+	FirewallFailOpen pulumi.StringPtrOutput `pulumi:"firewallFailOpen"`
 	// The AWS account ID of the owner of the VPC that this firewall configuration applies to.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// The ID of the VPC that the configuration is for.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
@@ -227,13 +227,13 @@ func (o ResolverFirewallConfigOutput) ToResolverFirewallConfigOutputWithContext(
 }
 
 // Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
-func (o ResolverFirewallConfigOutput) FirewallFailOpen() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringOutput { return v.FirewallFailOpen }).(pulumi.StringOutput)
+func (o ResolverFirewallConfigOutput) FirewallFailOpen() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringPtrOutput { return v.FirewallFailOpen }).(pulumi.StringPtrOutput)
 }
 
 // The AWS account ID of the owner of the VPC that this firewall configuration applies to.
-func (o ResolverFirewallConfigOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o ResolverFirewallConfigOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the VPC that the configuration is for.

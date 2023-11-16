@@ -620,7 +620,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the listener rule.
         """
@@ -662,7 +662,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> pulumi.Output[str]:
+    def rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique identifier for the listener rule.
         """

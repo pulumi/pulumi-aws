@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,18 +17,18 @@ public final class GetClustersResult {
      * @return Set of cluster ARNs of the matched RDS clusters.
      * 
      */
-    private List<String> clusterArns;
+    private @Nullable List<String> clusterArns;
     /**
      * @return Set of ARNs of cluster identifiers of the matched RDS clusters.
      * 
      */
-    private List<String> clusterIdentifiers;
+    private @Nullable List<String> clusterIdentifiers;
     private @Nullable List<GetClustersFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetClustersResult() {}
     /**
@@ -35,14 +36,14 @@ public final class GetClustersResult {
      * 
      */
     public List<String> clusterArns() {
-        return this.clusterArns;
+        return this.clusterArns == null ? List.of() : this.clusterArns;
     }
     /**
      * @return Set of ARNs of cluster identifiers of the matched RDS clusters.
      * 
      */
     public List<String> clusterIdentifiers() {
-        return this.clusterIdentifiers;
+        return this.clusterIdentifiers == null ? List.of() : this.clusterIdentifiers;
     }
     public List<GetClustersFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -51,8 +52,8 @@ public final class GetClustersResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -64,10 +65,10 @@ public final class GetClustersResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> clusterArns;
-        private List<String> clusterIdentifiers;
+        private @Nullable List<String> clusterArns;
+        private @Nullable List<String> clusterIdentifiers;
         private @Nullable List<GetClustersFilter> filters;
-        private String id;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetClustersResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -78,16 +79,16 @@ public final class GetClustersResult {
         }
 
         @CustomType.Setter
-        public Builder clusterArns(List<String> clusterArns) {
-            this.clusterArns = Objects.requireNonNull(clusterArns);
+        public Builder clusterArns(@Nullable List<String> clusterArns) {
+            this.clusterArns = clusterArns;
             return this;
         }
         public Builder clusterArns(String... clusterArns) {
             return clusterArns(List.of(clusterArns));
         }
         @CustomType.Setter
-        public Builder clusterIdentifiers(List<String> clusterIdentifiers) {
-            this.clusterIdentifiers = Objects.requireNonNull(clusterIdentifiers);
+        public Builder clusterIdentifiers(@Nullable List<String> clusterIdentifiers) {
+            this.clusterIdentifiers = clusterIdentifiers;
             return this;
         }
         public Builder clusterIdentifiers(String... clusterIdentifiers) {
@@ -102,8 +103,8 @@ public final class GetClustersResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetClustersResult build() {

@@ -30,7 +30,7 @@ public final class GetTaskExecutionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String launchType;
     private @Nullable GetTaskExecutionNetworkConfiguration networkConfiguration;
     private @Nullable GetTaskExecutionOverrides overrides;
@@ -45,7 +45,7 @@ public final class GetTaskExecutionResult {
      * @return A list of the provisioned task ARNs.
      * 
      */
-    private List<String> taskArns;
+    private @Nullable List<String> taskArns;
     private String taskDefinition;
 
     private GetTaskExecutionResult() {}
@@ -71,8 +71,8 @@ public final class GetTaskExecutionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> launchType() {
         return Optional.ofNullable(this.launchType);
@@ -109,7 +109,7 @@ public final class GetTaskExecutionResult {
      * 
      */
     public List<String> taskArns() {
-        return this.taskArns;
+        return this.taskArns == null ? List.of() : this.taskArns;
     }
     public String taskDefinition() {
         return this.taskDefinition;
@@ -130,7 +130,7 @@ public final class GetTaskExecutionResult {
         private @Nullable Boolean enableEcsManagedTags;
         private @Nullable Boolean enableExecuteCommand;
         private @Nullable String group;
-        private String id;
+        private @Nullable String id;
         private @Nullable String launchType;
         private @Nullable GetTaskExecutionNetworkConfiguration networkConfiguration;
         private @Nullable GetTaskExecutionOverrides overrides;
@@ -141,7 +141,7 @@ public final class GetTaskExecutionResult {
         private @Nullable String referenceId;
         private @Nullable String startedBy;
         private @Nullable Map<String,String> tags;
-        private List<String> taskArns;
+        private @Nullable List<String> taskArns;
         private String taskDefinition;
         public Builder() {}
         public Builder(GetTaskExecutionResult defaults) {
@@ -201,8 +201,8 @@ public final class GetTaskExecutionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -262,8 +262,8 @@ public final class GetTaskExecutionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder taskArns(List<String> taskArns) {
-            this.taskArns = Objects.requireNonNull(taskArns);
+        public Builder taskArns(@Nullable List<String> taskArns) {
+            this.taskArns = taskArns;
             return this;
         }
         public Builder taskArns(String... taskArns) {

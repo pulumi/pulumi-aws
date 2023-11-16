@@ -114,28 +114,28 @@ public class Member extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="masterId", refs={String.class}, tree="[0]")
-    private Output<String> masterId;
+    private Output</* @Nullable */ String> masterId;
 
     /**
      * @return The ID of the master Security Hub AWS account.
      * 
      */
-    public Output<String> masterId() {
-        return this.masterId;
+    public Output<Optional<String>> masterId() {
+        return Codegen.optional(this.masterId);
     }
     /**
      * The status of the member account relationship.
      * 
      */
     @Export(name="memberStatus", refs={String.class}, tree="[0]")
-    private Output<String> memberStatus;
+    private Output</* @Nullable */ String> memberStatus;
 
     /**
      * @return The status of the member account relationship.
      * 
      */
-    public Output<String> memberStatus() {
-        return this.memberStatus;
+    public Output<Optional<String>> memberStatus() {
+        return Codegen.optional(this.memberStatus);
     }
 
     /**

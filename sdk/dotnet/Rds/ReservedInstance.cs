@@ -60,31 +60,31 @@ namespace Pulumi.Aws.Rds
         /// ARN for the reserved DB instance.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Currency code for the reserved DB instance.
         /// </summary>
         [Output("currencyCode")]
-        public Output<string> CurrencyCode { get; private set; } = null!;
+        public Output<string?> CurrencyCode { get; private set; } = null!;
 
         /// <summary>
         /// DB instance class for the reserved DB instance.
         /// </summary>
         [Output("dbInstanceClass")]
-        public Output<string> DbInstanceClass { get; private set; } = null!;
+        public Output<string?> DbInstanceClass { get; private set; } = null!;
 
         /// <summary>
         /// Duration of the reservation in seconds.
         /// </summary>
         [Output("duration")]
-        public Output<int> Duration { get; private set; } = null!;
+        public Output<int?> Duration { get; private set; } = null!;
 
         /// <summary>
         /// Fixed price charged for this reserved DB instance.
         /// </summary>
         [Output("fixedPrice")]
-        public Output<double> FixedPrice { get; private set; } = null!;
+        public Output<double?> FixedPrice { get; private set; } = null!;
 
         /// <summary>
         /// Number of instances to reserve. Default value is `1`.
@@ -96,13 +96,13 @@ namespace Pulumi.Aws.Rds
         /// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
         /// </summary>
         [Output("leaseId")]
-        public Output<string> LeaseId { get; private set; } = null!;
+        public Output<string?> LeaseId { get; private set; } = null!;
 
         /// <summary>
         /// Whether the reservation applies to Multi-AZ deployments.
         /// </summary>
         [Output("multiAz")]
-        public Output<bool> MultiAz { get; private set; } = null!;
+        public Output<bool?> MultiAz { get; private set; } = null!;
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
@@ -116,13 +116,13 @@ namespace Pulumi.Aws.Rds
         /// Offering type of this reserved DB instance.
         /// </summary>
         [Output("offeringType")]
-        public Output<string> OfferingType { get; private set; } = null!;
+        public Output<string?> OfferingType { get; private set; } = null!;
 
         /// <summary>
         /// Description of the reserved DB instance.
         /// </summary>
         [Output("productDescription")]
-        public Output<string> ProductDescription { get; private set; } = null!;
+        public Output<string?> ProductDescription { get; private set; } = null!;
 
         /// <summary>
         /// Recurring price charged to run this reserved DB instance.
@@ -140,13 +140,13 @@ namespace Pulumi.Aws.Rds
         /// Time the reservation started.
         /// </summary>
         [Output("startTime")]
-        public Output<string> StartTime { get; private set; } = null!;
+        public Output<string?> StartTime { get; private set; } = null!;
 
         /// <summary>
         /// State of the reserved DB instance.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Rds
         /// Hourly price charged for this reserved DB instance.
         /// </summary>
         [Output("usagePrice")]
-        public Output<double> UsagePrice { get; private set; } = null!;
+        public Output<double?> UsagePrice { get; private set; } = null!;
 
 
         /// <summary>

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Neptune
         /// Specifies the allocated storage size in gigabytes (GB).
         /// </summary>
         [Output("allocatedStorage")]
-        public Output<int> AllocatedStorage { get; private set; } = null!;
+        public Output<int?> AllocatedStorage { get; private set; } = null!;
 
         /// <summary>
         /// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Neptune
         /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
         /// </summary>
         [Output("dbClusterSnapshotArn")]
-        public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
+        public Output<string?> DbClusterSnapshotArn { get; private set; } = null!;
 
         /// <summary>
         /// The Identifier for the snapshot.
@@ -76,55 +76,55 @@ namespace Pulumi.Aws.Neptune
         /// Specifies the name of the database engine.
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Version of the database engine for this DB cluster snapshot.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// License model information for the restored DB cluster.
         /// </summary>
         [Output("licenseModel")]
-        public Output<string> LicenseModel { get; private set; } = null!;
+        public Output<string?> LicenseModel { get; private set; } = null!;
 
         /// <summary>
         /// Port that the DB cluster was listening on at the time of the snapshot.
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         [Output("snapshotType")]
-        public Output<string> SnapshotType { get; private set; } = null!;
+        public Output<string?> SnapshotType { get; private set; } = null!;
 
         [Output("sourceDbClusterSnapshotArn")]
-        public Output<string> SourceDbClusterSnapshotArn { get; private set; } = null!;
+        public Output<string?> SourceDbClusterSnapshotArn { get; private set; } = null!;
 
         /// <summary>
         /// The status of this DB Cluster Snapshot.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the DB cluster snapshot is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
-        public Output<bool> StorageEncrypted { get; private set; } = null!;
+        public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
         /// The VPC ID associated with the DB cluster snapshot.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

@@ -7,86 +7,88 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConnectionResult {
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
-    private String connectionStatus;
+    private @Nullable String connectionStatus;
     /**
      * @return ARN of the host associated with the connection.
      * 
      */
-    private String hostArn;
+    private @Nullable String hostArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the CodeStar Connection. The name is unique in the calling AWS account.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
      * 
      */
-    private String providerType;
+    private @Nullable String providerType;
     /**
      * @return Map of key-value resource tags to associate with the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetConnectionResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
-    public String connectionStatus() {
-        return this.connectionStatus;
+    public Optional<String> connectionStatus() {
+        return Optional.ofNullable(this.connectionStatus);
     }
     /**
      * @return ARN of the host associated with the connection.
      * 
      */
-    public String hostArn() {
-        return this.hostArn;
+    public Optional<String> hostArn() {
+        return Optional.ofNullable(this.hostArn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the CodeStar Connection. The name is unique in the calling AWS account.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
      * 
      */
-    public String providerType() {
-        return this.providerType;
+    public Optional<String> providerType() {
+        return Optional.ofNullable(this.providerType);
     }
     /**
      * @return Map of key-value resource tags to associate with the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -98,13 +100,13 @@ public final class GetConnectionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String connectionStatus;
-        private String hostArn;
-        private String id;
-        private String name;
-        private String providerType;
-        private Map<String,String> tags;
+        private @Nullable String arn;
+        private @Nullable String connectionStatus;
+        private @Nullable String hostArn;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String providerType;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -118,38 +120,38 @@ public final class GetConnectionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder connectionStatus(String connectionStatus) {
-            this.connectionStatus = Objects.requireNonNull(connectionStatus);
+        public Builder connectionStatus(@Nullable String connectionStatus) {
+            this.connectionStatus = connectionStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder hostArn(String hostArn) {
-            this.hostArn = Objects.requireNonNull(hostArn);
+        public Builder hostArn(@Nullable String hostArn) {
+            this.hostArn = hostArn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder providerType(String providerType) {
-            this.providerType = Objects.requireNonNull(providerType);
+        public Builder providerType(@Nullable String providerType) {
+            this.providerType = providerType;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetConnectionResult build() {

@@ -76,7 +76,7 @@ class GetPrincipalPolicySimulationResult:
 
     @property
     @pulumi.getter(name="allAllowed")
-    def all_allowed(self) -> bool:
+    def all_allowed(self) -> Optional[bool]:
         """
         `true` if all of the simulation results have decision "allowed", or `false` otherwise.
         """
@@ -94,7 +94,7 @@ class GetPrincipalPolicySimulationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
@@ -129,7 +129,7 @@ class GetPrincipalPolicySimulationResult:
 
     @property
     @pulumi.getter
-    def results(self) -> Sequence['outputs.GetPrincipalPolicySimulationResultResult']:
+    def results(self) -> Optional[Sequence['outputs.GetPrincipalPolicySimulationResultResult']]:
         """
         A set of result objects, one for each of the simulated requests, with the following nested attributes:
         """

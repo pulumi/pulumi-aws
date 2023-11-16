@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlanResult {
@@ -16,12 +18,12 @@ public final class GetPlanResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
      * 
      */
-    private List<GetPlanStage> stages;
+    private @Nullable List<GetPlanStage> stages;
 
     private GetPlanResult() {}
     public String contactId() {
@@ -31,15 +33,15 @@ public final class GetPlanResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
      * 
      */
     public List<GetPlanStage> stages() {
-        return this.stages;
+        return this.stages == null ? List.of() : this.stages;
     }
 
     public static Builder builder() {
@@ -52,8 +54,8 @@ public final class GetPlanResult {
     @CustomType.Builder
     public static final class Builder {
         private String contactId;
-        private String id;
-        private List<GetPlanStage> stages;
+        private @Nullable String id;
+        private @Nullable List<GetPlanStage> stages;
         public Builder() {}
         public Builder(GetPlanResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -68,13 +70,13 @@ public final class GetPlanResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder stages(List<GetPlanStage> stages) {
-            this.stages = Objects.requireNonNull(stages);
+        public Builder stages(@Nullable List<GetPlanStage> stages) {
+            this.stages = stages;
             return this;
         }
         public Builder stages(GetPlanStage... stages) {

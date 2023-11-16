@@ -365,7 +365,7 @@ namespace Pulumi.Aws.Lambda
         /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
         /// </summary>
         [Output("statementIdPrefix")]
-        public Output<string> StatementIdPrefix { get; private set; } = null!;
+        public Output<string?> StatementIdPrefix { get; private set; } = null!;
 
 
         /// <summary>

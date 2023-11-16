@@ -147,14 +147,14 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the environment.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The number of minutes until the running instance is shut down after the environment has last been used.
@@ -261,14 +261,14 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerArn", refs={String.class}, tree="[0]")
-    private Output<String> ownerArn;
+    private Output</* @Nullable */ String> ownerArn;
 
     /**
      * @return The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment&#39;s creator.
      * 
      */
-    public Output<String> ownerArn() {
-        return this.ownerArn;
+    public Output<Optional<String>> ownerArn() {
+        return Codegen.optional(this.ownerArn);
     }
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
@@ -321,14 +321,14 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return The type of the environment (e.g., `ssh` or `ec2`)
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

@@ -41,7 +41,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// The name of the IAM Managed Policy.
         /// </summary>
         [Output("managedPolicyName")]
-        public Output<string> ManagedPolicyName { get; private set; } = null!;
+        public Output<string?> ManagedPolicyName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.

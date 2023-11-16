@@ -722,7 +722,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the connection.
         """
@@ -730,7 +730,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsDevice")
-    def aws_device(self) -> pulumi.Output[str]:
+    def aws_device(self) -> pulumi.Output[Optional[str]]:
         """
         The Direct Connect endpoint on which the physical connection terminates.
         """
@@ -746,7 +746,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionMode")
-    def encryption_mode(self) -> pulumi.Output[str]:
+    def encryption_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
         """
@@ -754,7 +754,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasLogicalRedundancy")
-    def has_logical_redundancy(self) -> pulumi.Output[str]:
+    def has_logical_redundancy(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         """
@@ -762,7 +762,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jumboFrameCapable")
-    def jumbo_frame_capable(self) -> pulumi.Output[bool]:
+    def jumbo_frame_capable(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean value representing if jumbo frames have been enabled for this connection.
         """
@@ -778,7 +778,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="macsecCapable")
-    def macsec_capable(self) -> pulumi.Output[bool]:
+    def macsec_capable(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean value indicating whether the connection supports MAC Security (MACsec).
         """
@@ -794,7 +794,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> pulumi.Output[str]:
+    def owner_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that owns the connection.
         """
@@ -802,7 +802,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerName")
-    def partner_name(self) -> pulumi.Output[str]:
+    def partner_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the AWS Direct Connect service provider associated with the connection.
         """
@@ -810,7 +810,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="portEncryptionStatus")
-    def port_encryption_status(self) -> pulumi.Output[str]:
+    def port_encryption_status(self) -> pulumi.Output[Optional[str]]:
         """
         The MAC Security (MACsec) port link status of the connection.
         """
@@ -818,7 +818,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> pulumi.Output[str]:
+    def provider_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the service provider associated with the connection.
         """
@@ -863,7 +863,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> pulumi.Output[int]:
+    def vlan_id(self) -> pulumi.Output[Optional[int]]:
         """
         The VLAN ID.
         """

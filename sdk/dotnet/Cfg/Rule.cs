@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Cfg
         /// The ARN of the config rule
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the rule
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Cfg
         /// The ID of the config rule
         /// </summary>
         [Output("ruleId")]
-        public Output<string> RuleId { get; private set; } = null!;
+        public Output<string?> RuleId { get; private set; } = null!;
 
         /// <summary>
         /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.

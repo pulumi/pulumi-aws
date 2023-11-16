@@ -56,7 +56,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the specified group.
         """
@@ -64,7 +64,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> Optional[str]:
         """
         Group's display name value.
         """
@@ -72,7 +72,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="externalIds")
-    def external_ids(self) -> Sequence['outputs.GetGroupExternalIdResult']:
+    def external_ids(self) -> Optional[Sequence['outputs.GetGroupExternalIdResult']]:
         """
         List of identifiers issued to this resource by an external identity provider.
         """
@@ -88,12 +88,12 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> str:
+    def group_id(self) -> Optional[str]:
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

@@ -27,15 +27,15 @@ type BucketAccessKey struct {
 	pulumi.CustomResourceState
 
 	// The ID of the access key.
-	AccessKeyId pulumi.StringOutput `pulumi:"accessKeyId"`
+	AccessKeyId pulumi.StringPtrOutput `pulumi:"accessKeyId"`
 	// The name of the bucket that the new access key will belong to, and grant access to.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
 	// The timestamp when the access key was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
-	SecretAccessKey pulumi.StringOutput `pulumi:"secretAccessKey"`
+	SecretAccessKey pulumi.StringPtrOutput `pulumi:"secretAccessKey"`
 	// The status of the access key.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewBucketAccessKey registers a new resource with the given unique name, arguments, and options.
@@ -199,8 +199,8 @@ func (o BucketAccessKeyOutput) ToBucketAccessKeyOutputWithContext(ctx context.Co
 }
 
 // The ID of the access key.
-func (o BucketAccessKeyOutput) AccessKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.AccessKeyId }).(pulumi.StringOutput)
+func (o BucketAccessKeyOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringPtrOutput { return v.AccessKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the bucket that the new access key will belong to, and grant access to.
@@ -209,18 +209,18 @@ func (o BucketAccessKeyOutput) BucketName() pulumi.StringOutput {
 }
 
 // The timestamp when the access key was created.
-func (o BucketAccessKeyOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o BucketAccessKeyOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
-func (o BucketAccessKeyOutput) SecretAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.SecretAccessKey }).(pulumi.StringOutput)
+func (o BucketAccessKeyOutput) SecretAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringPtrOutput { return v.SecretAccessKey }).(pulumi.StringPtrOutput)
 }
 
 // The status of the access key.
-func (o BucketAccessKeyOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o BucketAccessKeyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type BucketAccessKeyArrayOutput struct{ *pulumi.OutputState }

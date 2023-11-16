@@ -102,11 +102,11 @@ export interface GetLogDataProtectionPolicyDocumentResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Standard JSON policy document rendered based on the arguments above.
      */
-    readonly json: string;
+    readonly json?: string;
     readonly name: string;
     readonly statements: outputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatement[];
     readonly version?: string;

@@ -71,7 +71,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter(name="approvalRules")
-    def approval_rules(self) -> Sequence['outputs.GetPatchBaselineApprovalRuleResult']:
+    def approval_rules(self) -> Optional[Sequence['outputs.GetPatchBaselineApprovalRuleResult']]:
         """
         List of rules used to include patches in the baseline.
         """
@@ -79,7 +79,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter(name="approvedPatches")
-    def approved_patches(self) -> Sequence[str]:
+    def approved_patches(self) -> Optional[Sequence[str]]:
         """
         List of explicitly approved patches for the baseline.
         """
@@ -87,7 +87,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter(name="approvedPatchesComplianceLevel")
-    def approved_patches_compliance_level(self) -> str:
+    def approved_patches_compliance_level(self) -> Optional[str]:
         """
         The compliance level for approved patches.
         """
@@ -95,7 +95,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter(name="approvedPatchesEnableNonSecurity")
-    def approved_patches_enable_non_security(self) -> bool:
+    def approved_patches_enable_non_security(self) -> Optional[bool]:
         """
         Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
         """
@@ -108,7 +108,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the baseline.
         """
@@ -116,7 +116,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter(name="globalFilters")
-    def global_filters(self) -> Sequence['outputs.GetPatchBaselineGlobalFilterResult']:
+    def global_filters(self) -> Optional[Sequence['outputs.GetPatchBaselineGlobalFilterResult']]:
         """
         Set of global filters used to exclude patches from the baseline.
         """
@@ -124,7 +124,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -132,7 +132,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name specified to identify the patch source.
         """
@@ -155,7 +155,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter(name="rejectedPatches")
-    def rejected_patches(self) -> Sequence[str]:
+    def rejected_patches(self) -> Optional[Sequence[str]]:
         """
         List of rejected patches.
         """
@@ -163,7 +163,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter(name="rejectedPatchesAction")
-    def rejected_patches_action(self) -> str:
+    def rejected_patches_action(self) -> Optional[str]:
         """
         The action specified to take on patches included in the `rejected_patches` list.
         """
@@ -171,7 +171,7 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> Sequence['outputs.GetPatchBaselineSourceResult']:
+    def sources(self) -> Optional[Sequence['outputs.GetPatchBaselineSourceResult']]:
         """
         Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
         """

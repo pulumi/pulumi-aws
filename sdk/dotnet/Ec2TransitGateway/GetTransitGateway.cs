@@ -212,56 +212,56 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session
         /// </summary>
-        public readonly int AmazonSideAsn;
+        public readonly int? AmazonSideAsn;
         /// <summary>
         /// EC2 Transit Gateway ARN
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Identifier of the default association route table
         /// </summary>
-        public readonly string AssociationDefaultRouteTableId;
+        public readonly string? AssociationDefaultRouteTableId;
         /// <summary>
         /// Whether resource attachment requests are automatically accepted
         /// </summary>
-        public readonly string AutoAcceptSharedAttachments;
+        public readonly string? AutoAcceptSharedAttachments;
         /// <summary>
         /// Whether resource attachments are automatically associated with the default association route table
         /// </summary>
-        public readonly string DefaultRouteTableAssociation;
+        public readonly string? DefaultRouteTableAssociation;
         /// <summary>
         /// Whether resource attachments automatically propagate routes to the default propagation route table
         /// </summary>
-        public readonly string DefaultRouteTablePropagation;
+        public readonly string? DefaultRouteTablePropagation;
         /// <summary>
         /// Description of the EC2 Transit Gateway
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Whether DNS support is enabled
         /// </summary>
-        public readonly string DnsSupport;
+        public readonly string? DnsSupport;
         public readonly ImmutableArray<Outputs.GetTransitGatewayFilterResult> Filters;
         /// <summary>
         /// EC2 Transit Gateway identifier
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Whether Multicast support is enabled
         /// </summary>
-        public readonly string MulticastSupport;
+        public readonly string? MulticastSupport;
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 Transit Gateway
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// Identifier of the default propagation route table
         /// </summary>
-        public readonly string PropagationDefaultRouteTableId;
+        public readonly string? PropagationDefaultRouteTableId;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The list of associated CIDR blocks
         /// </summary>
@@ -269,41 +269,41 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Whether VPN Equal Cost Multipath Protocol support is enabled
         /// </summary>
-        public readonly string VpnEcmpSupport;
+        public readonly string? VpnEcmpSupport;
 
         [OutputConstructor]
         private GetTransitGatewayResult(
-            int amazonSideAsn,
+            int? amazonSideAsn,
 
-            string arn,
+            string? arn,
 
-            string associationDefaultRouteTableId,
+            string? associationDefaultRouteTableId,
 
-            string autoAcceptSharedAttachments,
+            string? autoAcceptSharedAttachments,
 
-            string defaultRouteTableAssociation,
+            string? defaultRouteTableAssociation,
 
-            string defaultRouteTablePropagation,
+            string? defaultRouteTablePropagation,
 
-            string description,
+            string? description,
 
-            string dnsSupport,
+            string? dnsSupport,
 
             ImmutableArray<Outputs.GetTransitGatewayFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string multicastSupport,
+            string? multicastSupport,
 
-            string ownerId,
+            string? ownerId,
 
-            string propagationDefaultRouteTableId,
+            string? propagationDefaultRouteTableId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<string> transitGatewayCidrBlocks,
 
-            string vpnEcmpSupport)
+            string? vpnEcmpSupport)
         {
             AmazonSideAsn = amazonSideAsn;
             Arn = arn;

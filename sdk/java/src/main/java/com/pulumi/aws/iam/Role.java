@@ -317,14 +317,14 @@ public class Role extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) specifying the role.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Policy that grants an entity permission to assume the role.
@@ -353,14 +353,14 @@ public class Role extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createDate", refs={String.class}, tree="[0]")
-    private Output<String> createDate;
+    private Output</* @Nullable */ String> createDate;
 
     /**
      * @return Creation date of the IAM role.
      * 
      */
-    public Output<String> createDate() {
-        return this.createDate;
+    public Output<Optional<String>> createDate() {
+        return Codegen.optional(this.createDate);
     }
     /**
      * Description of the role.
@@ -395,20 +395,20 @@ public class Role extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="inlinePolicies", refs={List.class,RoleInlinePolicy.class}, tree="[0,1]")
-    private Output<List<RoleInlinePolicy>> inlinePolicies;
+    private Output</* @Nullable */ List<RoleInlinePolicy>> inlinePolicies;
 
     /**
      * @return Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
      * 
      */
-    public Output<List<RoleInlinePolicy>> inlinePolicies() {
-        return this.inlinePolicies;
+    public Output<Optional<List<RoleInlinePolicy>>> inlinePolicies() {
+        return Codegen.optional(this.inlinePolicies);
     }
     @Export(name="managedPolicyArns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> managedPolicyArns;
+    private Output</* @Nullable */ List<String>> managedPolicyArns;
 
-    public Output<List<String>> managedPolicyArns() {
-        return this.managedPolicyArns;
+    public Output<Optional<List<String>>> managedPolicyArns() {
+        return Codegen.optional(this.managedPolicyArns);
     }
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
@@ -443,14 +443,14 @@ public class Role extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -517,14 +517,14 @@ public class Role extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
-    private Output<String> uniqueId;
+    private Output</* @Nullable */ String> uniqueId;
 
     /**
      * @return Stable and unique string identifying the role.
      * 
      */
-    public Output<String> uniqueId() {
-        return this.uniqueId;
+    public Output<Optional<String>> uniqueId() {
+        return Codegen.optional(this.uniqueId);
     }
 
     /**

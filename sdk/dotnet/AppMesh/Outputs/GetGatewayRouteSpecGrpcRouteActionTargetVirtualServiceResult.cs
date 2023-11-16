@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult
     {
-        public readonly string VirtualServiceName;
+        public readonly string? VirtualServiceName;
 
         [OutputConstructor]
-        private GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult(string virtualServiceName)
+        private GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult(string? virtualServiceName)
         {
             VirtualServiceName = virtualServiceName;
         }

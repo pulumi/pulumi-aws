@@ -57,8 +57,8 @@ type LookupWebAclArgs struct {
 // A collection of values returned by getWebAcl.
 type LookupWebAclResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts ...pulumi.InvokeOption) LookupWebAclResultOutput {
@@ -100,8 +100,8 @@ func (o LookupWebAclResultOutput) ToLookupWebAclResultOutputWithContext(ctx cont
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupWebAclResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWebAclResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupWebAclResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAclResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupWebAclResultOutput) Name() pulumi.StringOutput {

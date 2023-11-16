@@ -483,7 +483,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cidr(self) -> pulumi.Output[str]:
+    def cidr(self) -> pulumi.Output[Optional[str]]:
         """
         The CIDR you want to assign to the pool.
         """
@@ -507,7 +507,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipamPoolAllocationId")
-    def ipam_pool_allocation_id(self) -> pulumi.Output[str]:
+    def ipam_pool_allocation_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipam_pool_allocation_id")
 
     @property
@@ -528,7 +528,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> pulumi.Output[str]:
+    def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the resource.
         """
@@ -536,7 +536,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceOwner")
-    def resource_owner(self) -> pulumi.Output[str]:
+    def resource_owner(self) -> pulumi.Output[Optional[str]]:
         """
         The owner of the resource.
         """
@@ -544,7 +544,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Output[str]:
+    def resource_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the resource.
         """

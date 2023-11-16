@@ -52,15 +52,15 @@ type ClientCertificate struct {
 	pulumi.CustomResourceState
 
 	// ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Date when the client certificate was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// Description of the client certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Date when the client certificate will expire.
-	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
+	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
-	PemEncodedCertificate pulumi.StringOutput `pulumi:"pemEncodedCertificate"`
+	PemEncodedCertificate pulumi.StringPtrOutput `pulumi:"pemEncodedCertificate"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -247,13 +247,13 @@ func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx contex
 }
 
 // ARN
-func (o ClientCertificateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClientCertificateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCertificate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date when the client certificate was created.
-func (o ClientCertificateOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o ClientCertificateOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCertificate) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of the client certificate.
@@ -262,13 +262,13 @@ func (o ClientCertificateOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Date when the client certificate will expire.
-func (o ClientCertificateOutput) ExpirationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
+func (o ClientCertificateOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCertificate) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
 // The PEM-encoded public key of the client certificate.
-func (o ClientCertificateOutput) PemEncodedCertificate() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.PemEncodedCertificate }).(pulumi.StringOutput)
+func (o ClientCertificateOutput) PemEncodedCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientCertificate) pulumi.StringPtrOutput { return v.PemEncodedCertificate }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

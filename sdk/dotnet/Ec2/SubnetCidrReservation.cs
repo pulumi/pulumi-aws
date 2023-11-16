@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns this CIDR reservation.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The type of reservation to create. Valid values: `explicit`, `prefix`

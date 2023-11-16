@@ -15,14 +15,14 @@ namespace Pulumi.Aws.DataPipeline.Inputs
         /// <summary>
         /// ID of the object.
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("id")]
+        public string? Id { get; set; }
 
         /// <summary>
         /// Field value, expressed as a String.
         /// </summary>
-        [Input("stringValue", required: true)]
-        public string StringValue { get; set; } = null!;
+        [Input("stringValue")]
+        public string? StringValue { get; set; }
 
         public GetPipelineDefinitionParameterValueArgs()
         {

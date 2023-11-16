@@ -111,7 +111,7 @@ export class Preset extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Audio parameters object (documented below).
      */
@@ -119,7 +119,7 @@ export class Preset extends pulumi.CustomResource {
     /**
      * Codec options for the audio parameters (documented below)
      */
-    public readonly audioCodecOptions!: pulumi.Output<outputs.elastictranscoder.PresetAudioCodecOptions>;
+    public readonly audioCodecOptions!: pulumi.Output<outputs.elastictranscoder.PresetAudioCodecOptions | undefined>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
@@ -136,7 +136,7 @@ export class Preset extends pulumi.CustomResource {
      * Thumbnail parameters object (documented below)
      */
     public readonly thumbnails!: pulumi.Output<outputs.elastictranscoder.PresetThumbnails | undefined>;
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * Video parameters object (documented below)
      */

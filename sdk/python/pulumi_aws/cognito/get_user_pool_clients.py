@@ -37,7 +37,7 @@ class GetUserPoolClientsResult:
 
     @property
     @pulumi.getter(name="clientIds")
-    def client_ids(self) -> Sequence[str]:
+    def client_ids(self) -> Optional[Sequence[str]]:
         """
         List of Cognito user pool client IDs.
         """
@@ -45,7 +45,7 @@ class GetUserPoolClientsResult:
 
     @property
     @pulumi.getter(name="clientNames")
-    def client_names(self) -> Sequence[str]:
+    def client_names(self) -> Optional[Sequence[str]]:
         """
         List of Cognito user pool client names.
         """
@@ -53,7 +53,7 @@ class GetUserPoolClientsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

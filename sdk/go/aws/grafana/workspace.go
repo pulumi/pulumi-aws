@@ -87,19 +87,19 @@ type Workspace struct {
 	// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType pulumi.StringOutput `pulumi:"accountAccessType"`
 	// The Amazon Resource Name (ARN) of the Grafana workspace.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders pulumi.StringArrayOutput `pulumi:"authenticationProviders"`
 	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-	Configuration pulumi.StringOutput `pulumi:"configuration"`
+	Configuration pulumi.StringPtrOutput `pulumi:"configuration"`
 	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
 	DataSources pulumi.StringArrayOutput `pulumi:"dataSources"`
 	// The workspace description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The endpoint of the Grafana workspace.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
-	GrafanaVersion pulumi.StringOutput `pulumi:"grafanaVersion"`
+	GrafanaVersion pulumi.StringPtrOutput `pulumi:"grafanaVersion"`
 	// The Grafana workspace name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration for network access to your workspace.See Network Access Control below.
@@ -116,7 +116,7 @@ type Workspace struct {
 	PermissionType pulumi.StringOutput `pulumi:"permissionType"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 pulumi.StringPtrOutput `pulumi:"roleArn"`
-	SamlConfigurationStatus pulumi.StringOutput    `pulumi:"samlConfigurationStatus"`
+	SamlConfigurationStatus pulumi.StringPtrOutput `pulumi:"samlConfigurationStatus"`
 	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName pulumi.StringPtrOutput `pulumi:"stackSetName"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -435,8 +435,8 @@ func (o WorkspaceOutput) AccountAccessType() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of the Grafana workspace.
-func (o WorkspaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WorkspaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
@@ -445,8 +445,8 @@ func (o WorkspaceOutput) AuthenticationProviders() pulumi.StringArrayOutput {
 }
 
 // The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-func (o WorkspaceOutput) Configuration() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Configuration }).(pulumi.StringOutput)
+func (o WorkspaceOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
 // The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
@@ -460,13 +460,13 @@ func (o WorkspaceOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The endpoint of the Grafana workspace.
-func (o WorkspaceOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o WorkspaceOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
-func (o WorkspaceOutput) GrafanaVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.GrafanaVersion }).(pulumi.StringOutput)
+func (o WorkspaceOutput) GrafanaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.GrafanaVersion }).(pulumi.StringPtrOutput)
 }
 
 // The Grafana workspace name.
@@ -506,8 +506,8 @@ func (o WorkspaceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o WorkspaceOutput) SamlConfigurationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.SamlConfigurationStatus }).(pulumi.StringOutput)
+func (o WorkspaceOutput) SamlConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.SamlConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
 // The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.

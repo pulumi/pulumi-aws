@@ -70,7 +70,7 @@ namespace Pulumi.Aws.MemoryDb
         /// The ARN of the user.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Denotes the user's authentication properties. Detailed below.
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.MemoryDb
         /// The minimum engine version supported for the user.
         /// </summary>
         [Output("minimumEngineVersion")]
-        public Output<string> MinimumEngineVersion { get; private set; } = null!;
+        public Output<string?> MinimumEngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -416,7 +416,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Arn of the queue
         """
@@ -448,7 +448,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reservationPlanSettings")
-    def reservation_plan_settings(self) -> pulumi.Output['outputs.QueueReservationPlanSettings']:
+    def reservation_plan_settings(self) -> pulumi.Output[Optional['outputs.QueueReservationPlanSettings']]:
         """
         A detail pricing plan of the  reserved queue. See below.
         """

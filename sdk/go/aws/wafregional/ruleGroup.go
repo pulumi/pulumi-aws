@@ -70,7 +70,7 @@ type RuleGroup struct {
 	// A list of activated rules, see below
 	ActivatedRules RuleGroupActivatedRuleArrayOutput `pulumi:"activatedRules"`
 	// The ARN of the WAF Regional Rule Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A friendly name for the metrics from the rule group
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
 	// A friendly name of the rule group
@@ -273,8 +273,8 @@ func (o RuleGroupOutput) ActivatedRules() RuleGroupActivatedRuleArrayOutput {
 }
 
 // The ARN of the WAF Regional Rule Group.
-func (o RuleGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RuleGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A friendly name for the metrics from the rule group

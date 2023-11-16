@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -103,14 +104,14 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return IAM policy that is associated with the permission.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
@@ -131,14 +132,14 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceAccount", refs={String.class}, tree="[0]")
-    private Output<String> sourceAccount;
+    private Output</* @Nullable */ String> sourceAccount;
 
     /**
      * @return ID of the calling account
      * 
      */
-    public Output<String> sourceAccount() {
-        return this.sourceAccount;
+    public Output<Optional<String>> sourceAccount() {
+        return Codegen.optional(this.sourceAccount);
     }
 
     /**

@@ -868,7 +868,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the StackSet.
         """
@@ -908,7 +908,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionRoleName")
-    def execution_role_name(self) -> pulumi.Output[str]:
+    def execution_role_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         """
@@ -956,7 +956,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackSetId")
-    def stack_set_id(self) -> pulumi.Output[str]:
+    def stack_set_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique identifier of the StackSet.
         """
@@ -983,7 +983,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> pulumi.Output[str]:
+    def template_body(self) -> pulumi.Output[Optional[str]]:
         """
         String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         """

@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -59,42 +60,42 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allowSsh", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> allowSsh;
+    private Output</* @Nullable */ Boolean> allowSsh;
 
     /**
      * @return Whether the user is allowed to use SSH to communicate with the instance
      * 
      */
-    public Output<Boolean> allowSsh() {
-        return this.allowSsh;
+    public Output<Optional<Boolean>> allowSsh() {
+        return Codegen.optional(this.allowSsh);
     }
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      * 
      */
     @Export(name="allowSudo", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> allowSudo;
+    private Output</* @Nullable */ Boolean> allowSudo;
 
     /**
      * @return Whether the user is allowed to use sudo to elevate privileges
      * 
      */
-    public Output<Boolean> allowSudo() {
-        return this.allowSudo;
+    public Output<Optional<Boolean>> allowSudo() {
+        return Codegen.optional(this.allowSudo);
     }
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
      * 
      */
     @Export(name="level", refs={String.class}, tree="[0]")
-    private Output<String> level;
+    private Output</* @Nullable */ String> level;
 
     /**
      * @return The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
      * 
      */
-    public Output<String> level() {
-        return this.level;
+    public Output<Optional<String>> level() {
+        return Codegen.optional(this.level);
     }
     /**
      * The stack to set the permissions for

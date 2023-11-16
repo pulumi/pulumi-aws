@@ -45,7 +45,7 @@ class GetDevicesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -53,7 +53,7 @@ class GetDevicesResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> Sequence[str]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         IDs of the devices.
         """

@@ -66,20 +66,20 @@ export class DefaultVpc extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultVpc.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     public readonly assignGeneratedIpv6CidrBlock!: pulumi.Output<boolean | undefined>;
     /**
      * The primary IPv4 CIDR block for the VPC
      */
-    public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
-    public /*out*/ readonly defaultNetworkAclId!: pulumi.Output<string>;
-    public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string>;
-    public /*out*/ readonly defaultSecurityGroupId!: pulumi.Output<string>;
-    public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
+    public /*out*/ readonly cidrBlock!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly defaultNetworkAclId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly defaultSecurityGroupId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string | undefined>;
     public readonly enableDnsHostnames!: pulumi.Output<boolean | undefined>;
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
-    public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean>;
-    public /*out*/ readonly existingDefaultVpc!: pulumi.Output<boolean>;
+    public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly existingDefaultVpc!: pulumi.Output<boolean | undefined>;
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
      */
@@ -87,14 +87,14 @@ export class DefaultVpc extends pulumi.CustomResource {
     /**
      * The allowed tenancy of instances launched into the VPC
      */
-    public /*out*/ readonly instanceTenancy!: pulumi.Output<string>;
-    public /*out*/ readonly ipv6AssociationId!: pulumi.Output<string>;
-    public readonly ipv6CidrBlock!: pulumi.Output<string>;
-    public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string>;
+    public /*out*/ readonly instanceTenancy!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ipv6AssociationId!: pulumi.Output<string | undefined>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
+    public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string | undefined>;
     public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly mainRouteTableId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.

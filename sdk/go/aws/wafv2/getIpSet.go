@@ -62,15 +62,15 @@ type LookupIpSetResult struct {
 	// An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
 	Addresses []string `pulumi:"addresses"`
 	// ARN of the entity.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the set that helps with identification.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// IP address version of the set.
-	IpAddressVersion string `pulumi:"ipAddressVersion"`
-	Name             string `pulumi:"name"`
-	Scope            string `pulumi:"scope"`
+	IpAddressVersion *string `pulumi:"ipAddressVersion"`
+	Name             string  `pulumi:"name"`
+	Scope            string  `pulumi:"scope"`
 }
 
 func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...pulumi.InvokeOption) LookupIpSetResultOutput {
@@ -119,23 +119,23 @@ func (o LookupIpSetResultOutput) Addresses() pulumi.StringArrayOutput {
 }
 
 // ARN of the entity.
-func (o LookupIpSetResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIpSetResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupIpSetResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the set that helps with identification.
-func (o LookupIpSetResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIpSetResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupIpSetResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupIpSetResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIpSetResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupIpSetResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // IP address version of the set.
-func (o LookupIpSetResultOutput) IpAddressVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIpSetResult) string { return v.IpAddressVersion }).(pulumi.StringOutput)
+func (o LookupIpSetResultOutput) IpAddressVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIpSetResult) *string { return v.IpAddressVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupIpSetResultOutput) Name() pulumi.StringOutput {

@@ -8,46 +8,48 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTableGlobalSecondaryIndex {
-    private String hashKey;
+    private @Nullable String hashKey;
     /**
      * @return Name of the DynamoDB table.
      * 
      */
-    private String name;
-    private List<String> nonKeyAttributes;
-    private String projectionType;
-    private String rangeKey;
-    private Integer readCapacity;
-    private Integer writeCapacity;
+    private @Nullable String name;
+    private @Nullable List<String> nonKeyAttributes;
+    private @Nullable String projectionType;
+    private @Nullable String rangeKey;
+    private @Nullable Integer readCapacity;
+    private @Nullable Integer writeCapacity;
 
     private GetTableGlobalSecondaryIndex() {}
-    public String hashKey() {
-        return this.hashKey;
+    public Optional<String> hashKey() {
+        return Optional.ofNullable(this.hashKey);
     }
     /**
      * @return Name of the DynamoDB table.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public List<String> nonKeyAttributes() {
-        return this.nonKeyAttributes;
+        return this.nonKeyAttributes == null ? List.of() : this.nonKeyAttributes;
     }
-    public String projectionType() {
-        return this.projectionType;
+    public Optional<String> projectionType() {
+        return Optional.ofNullable(this.projectionType);
     }
-    public String rangeKey() {
-        return this.rangeKey;
+    public Optional<String> rangeKey() {
+        return Optional.ofNullable(this.rangeKey);
     }
-    public Integer readCapacity() {
-        return this.readCapacity;
+    public Optional<Integer> readCapacity() {
+        return Optional.ofNullable(this.readCapacity);
     }
-    public Integer writeCapacity() {
-        return this.writeCapacity;
+    public Optional<Integer> writeCapacity() {
+        return Optional.ofNullable(this.writeCapacity);
     }
 
     public static Builder builder() {
@@ -59,13 +61,13 @@ public final class GetTableGlobalSecondaryIndex {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String hashKey;
-        private String name;
-        private List<String> nonKeyAttributes;
-        private String projectionType;
-        private String rangeKey;
-        private Integer readCapacity;
-        private Integer writeCapacity;
+        private @Nullable String hashKey;
+        private @Nullable String name;
+        private @Nullable List<String> nonKeyAttributes;
+        private @Nullable String projectionType;
+        private @Nullable String rangeKey;
+        private @Nullable Integer readCapacity;
+        private @Nullable Integer writeCapacity;
         public Builder() {}
         public Builder(GetTableGlobalSecondaryIndex defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,41 +81,41 @@ public final class GetTableGlobalSecondaryIndex {
         }
 
         @CustomType.Setter
-        public Builder hashKey(String hashKey) {
-            this.hashKey = Objects.requireNonNull(hashKey);
+        public Builder hashKey(@Nullable String hashKey) {
+            this.hashKey = hashKey;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder nonKeyAttributes(List<String> nonKeyAttributes) {
-            this.nonKeyAttributes = Objects.requireNonNull(nonKeyAttributes);
+        public Builder nonKeyAttributes(@Nullable List<String> nonKeyAttributes) {
+            this.nonKeyAttributes = nonKeyAttributes;
             return this;
         }
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
             return nonKeyAttributes(List.of(nonKeyAttributes));
         }
         @CustomType.Setter
-        public Builder projectionType(String projectionType) {
-            this.projectionType = Objects.requireNonNull(projectionType);
+        public Builder projectionType(@Nullable String projectionType) {
+            this.projectionType = projectionType;
             return this;
         }
         @CustomType.Setter
-        public Builder rangeKey(String rangeKey) {
-            this.rangeKey = Objects.requireNonNull(rangeKey);
+        public Builder rangeKey(@Nullable String rangeKey) {
+            this.rangeKey = rangeKey;
             return this;
         }
         @CustomType.Setter
-        public Builder readCapacity(Integer readCapacity) {
-            this.readCapacity = Objects.requireNonNull(readCapacity);
+        public Builder readCapacity(@Nullable Integer readCapacity) {
+            this.readCapacity = readCapacity;
             return this;
         }
         @CustomType.Setter
-        public Builder writeCapacity(Integer writeCapacity) {
-            this.writeCapacity = Objects.requireNonNull(writeCapacity);
+        public Builder writeCapacity(@Nullable Integer writeCapacity) {
+            this.writeCapacity = writeCapacity;
             return this;
         }
         public GetTableGlobalSecondaryIndex build() {

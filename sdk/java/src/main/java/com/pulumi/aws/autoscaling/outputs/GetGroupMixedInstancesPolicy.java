@@ -8,6 +8,7 @@ import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemp
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicy {
@@ -15,12 +16,12 @@ public final class GetGroupMixedInstancesPolicy {
      * @return List of instances distribution objects.
      * 
      */
-    private List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions;
+    private @Nullable List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions;
     /**
      * @return List of launch templates along with the overrides.
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates;
 
     private GetGroupMixedInstancesPolicy() {}
     /**
@@ -28,14 +29,14 @@ public final class GetGroupMixedInstancesPolicy {
      * 
      */
     public List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions() {
-        return this.instancesDistributions;
+        return this.instancesDistributions == null ? List.of() : this.instancesDistributions;
     }
     /**
      * @return List of launch templates along with the overrides.
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates() {
-        return this.launchTemplates;
+        return this.launchTemplates == null ? List.of() : this.launchTemplates;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetGroupMixedInstancesPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates;
+        private @Nullable List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates;
         public Builder() {}
         public Builder(GetGroupMixedInstancesPolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetGroupMixedInstancesPolicy {
         }
 
         @CustomType.Setter
-        public Builder instancesDistributions(List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions) {
-            this.instancesDistributions = Objects.requireNonNull(instancesDistributions);
+        public Builder instancesDistributions(@Nullable List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions) {
+            this.instancesDistributions = instancesDistributions;
             return this;
         }
         public Builder instancesDistributions(GetGroupMixedInstancesPolicyInstancesDistribution... instancesDistributions) {
             return instancesDistributions(List.of(instancesDistributions));
         }
         @CustomType.Setter
-        public Builder launchTemplates(List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates) {
-            this.launchTemplates = Objects.requireNonNull(launchTemplates);
+        public Builder launchTemplates(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates) {
+            this.launchTemplates = launchTemplates;
             return this;
         }
         public Builder launchTemplates(GetGroupMixedInstancesPolicyLaunchTemplate... launchTemplates) {

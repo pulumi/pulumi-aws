@@ -894,7 +894,7 @@ class VpcIpamPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of IPAM
         """
@@ -935,7 +935,7 @@ class VpcIpamPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> pulumi.Output[str]:
+    def ipam_scope_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipam_scope_type")
 
     @property
@@ -948,7 +948,7 @@ class VpcIpamPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolDepth")
-    def pool_depth(self) -> pulumi.Output[int]:
+    def pool_depth(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "pool_depth")
 
     @property
@@ -977,7 +977,7 @@ class VpcIpamPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the IPAM
         """

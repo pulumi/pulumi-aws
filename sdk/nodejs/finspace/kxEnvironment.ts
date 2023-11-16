@@ -125,15 +125,15 @@ export class KxEnvironment extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX environment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
      */
-    public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
+    public /*out*/ readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
      * Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string | undefined>;
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      */
@@ -145,7 +145,7 @@ export class KxEnvironment extends pulumi.CustomResource {
     /**
      * Unique identifier for the AWS environment infrastructure account.
      */
-    public /*out*/ readonly infrastructureAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly infrastructureAccountId!: pulumi.Output<string | undefined>;
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
      *
@@ -155,7 +155,7 @@ export class KxEnvironment extends pulumi.CustomResource {
     /**
      * Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string | undefined>;
     /**
      * Name of the KX environment that you want to create.
      */
@@ -163,7 +163,7 @@ export class KxEnvironment extends pulumi.CustomResource {
     /**
      * Status of environment creation
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -122,7 +122,7 @@ export class ServerCertificate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the server certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
@@ -137,7 +137,7 @@ export class ServerCertificate extends pulumi.CustomResource {
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
      */
-    public /*out*/ readonly expiration!: pulumi.Output<string>;
+    public /*out*/ readonly expiration!: pulumi.Output<string | undefined>;
     /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, the provider will assign a random, unique name.
@@ -147,7 +147,7 @@ export class ServerCertificate extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
@@ -174,7 +174,7 @@ export class ServerCertificate extends pulumi.CustomResource {
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
      */
-    public /*out*/ readonly uploadDate!: pulumi.Output<string>;
+    public /*out*/ readonly uploadDate!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerCertificate resource with the given unique name, arguments, and options.

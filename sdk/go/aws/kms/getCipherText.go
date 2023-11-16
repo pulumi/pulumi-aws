@@ -37,10 +37,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_ = kms.GetCipherTextOutput(ctx, kms.GetCipherTextOutputArgs{
-//				KeyId:     oauthConfig.KeyId,
-//				Plaintext: pulumi.String("{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n"),
-//			}, nil)
+//			_ = oauthConfig.KeyId.ApplyT(func(keyId *string) (kms.GetCipherTextResult, error) {
+//				return kms.GetCipherTextOutput(ctx, kms.GetCipherTextOutputArgs{
+//					KeyId:     keyId,
+//					Plaintext: "{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n",
+//				}, nil), nil
+//			}).(kms.GetCipherTextResultOutput)
 //			return nil
 //		})
 //	}
@@ -69,12 +71,12 @@ type GetCipherTextArgs struct {
 // A collection of values returned by getCipherText.
 type GetCipherTextResult struct {
 	// Base64 encoded ciphertext
-	CiphertextBlob string            `pulumi:"ciphertextBlob"`
+	CiphertextBlob *string           `pulumi:"ciphertextBlob"`
 	Context        map[string]string `pulumi:"context"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	KeyId     string `pulumi:"keyId"`
-	Plaintext string `pulumi:"plaintext"`
+	Id        *string `pulumi:"id"`
+	KeyId     string  `pulumi:"keyId"`
+	Plaintext string  `pulumi:"plaintext"`
 }
 
 func GetCipherTextOutput(ctx *pulumi.Context, args GetCipherTextOutputArgs, opts ...pulumi.InvokeOption) GetCipherTextResultOutput {
@@ -120,8 +122,8 @@ func (o GetCipherTextResultOutput) ToGetCipherTextResultOutputWithContext(ctx co
 }
 
 // Base64 encoded ciphertext
-func (o GetCipherTextResultOutput) CiphertextBlob() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCipherTextResult) string { return v.CiphertextBlob }).(pulumi.StringOutput)
+func (o GetCipherTextResultOutput) CiphertextBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCipherTextResult) *string { return v.CiphertextBlob }).(pulumi.StringPtrOutput)
 }
 
 func (o GetCipherTextResultOutput) Context() pulumi.StringMapOutput {
@@ -129,8 +131,8 @@ func (o GetCipherTextResultOutput) Context() pulumi.StringMapOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetCipherTextResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCipherTextResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetCipherTextResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCipherTextResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetCipherTextResultOutput) KeyId() pulumi.StringOutput {

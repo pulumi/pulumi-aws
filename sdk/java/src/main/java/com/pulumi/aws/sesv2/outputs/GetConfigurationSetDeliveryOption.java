@@ -6,6 +6,8 @@ package com.pulumi.aws.sesv2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationSetDeliveryOption {
@@ -13,27 +15,27 @@ public final class GetConfigurationSetDeliveryOption {
      * @return The name of the dedicated IP pool to associate with the configuration set.
      * 
      */
-    private String sendingPoolName;
+    private @Nullable String sendingPoolName;
     /**
      * @return Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      * 
      */
-    private String tlsPolicy;
+    private @Nullable String tlsPolicy;
 
     private GetConfigurationSetDeliveryOption() {}
     /**
      * @return The name of the dedicated IP pool to associate with the configuration set.
      * 
      */
-    public String sendingPoolName() {
-        return this.sendingPoolName;
+    public Optional<String> sendingPoolName() {
+        return Optional.ofNullable(this.sendingPoolName);
     }
     /**
      * @return Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      * 
      */
-    public String tlsPolicy() {
-        return this.tlsPolicy;
+    public Optional<String> tlsPolicy() {
+        return Optional.ofNullable(this.tlsPolicy);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetConfigurationSetDeliveryOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String sendingPoolName;
-        private String tlsPolicy;
+        private @Nullable String sendingPoolName;
+        private @Nullable String tlsPolicy;
         public Builder() {}
         public Builder(GetConfigurationSetDeliveryOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetConfigurationSetDeliveryOption {
         }
 
         @CustomType.Setter
-        public Builder sendingPoolName(String sendingPoolName) {
-            this.sendingPoolName = Objects.requireNonNull(sendingPoolName);
+        public Builder sendingPoolName(@Nullable String sendingPoolName) {
+            this.sendingPoolName = sendingPoolName;
             return this;
         }
         @CustomType.Setter
-        public Builder tlsPolicy(String tlsPolicy) {
-            this.tlsPolicy = Objects.requireNonNull(tlsPolicy);
+        public Builder tlsPolicy(@Nullable String tlsPolicy) {
+            this.tlsPolicy = tlsPolicy;
             return this;
         }
         public GetConfigurationSetDeliveryOption build() {

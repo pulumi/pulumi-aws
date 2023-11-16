@@ -85,6 +85,7 @@ import (
 //
 //	"fmt"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
@@ -173,7 +174,7 @@ import (
 //				SourceArn: pulumi.All(api.ID(), method.HttpMethod, resource.Path).ApplyT(func(_args []interface{}) (string, error) {
 //					id := _args[0].(string)
 //					httpMethod := _args[1].(string)
-//					path := _args[2].(string)
+//					path := _args[2].(*string)
 //					return fmt.Sprintf("arn:aws:execute-api:%v:%v:%v/*/%v%v", myregion, accountId, id, httpMethod, path), nil
 //				}).(pulumi.StringOutput),
 //			})
@@ -201,7 +202,7 @@ type Integration struct {
 	// List of cache key parameters for the integration.
 	CacheKeyParameters pulumi.StringArrayOutput `pulumi:"cacheKeyParameters"`
 	// Integration's cache namespace.
-	CacheNamespace pulumi.StringOutput `pulumi:"cacheNamespace"`
+	CacheNamespace pulumi.StringPtrOutput `pulumi:"cacheNamespace"`
 	// ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
 	ConnectionId pulumi.StringPtrOutput `pulumi:"connectionId"`
 	// Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
@@ -220,7 +221,7 @@ type Integration struct {
 	// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
 	IntegrationHttpMethod pulumi.StringPtrOutput `pulumi:"integrationHttpMethod"`
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
-	PassthroughBehavior pulumi.StringOutput `pulumi:"passthroughBehavior"`
+	PassthroughBehavior pulumi.StringPtrOutput `pulumi:"passthroughBehavior"`
 	// Map of request query string parameters and headers that should be passed to the backend responder.
 	// For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
 	RequestParameters pulumi.StringMapOutput `pulumi:"requestParameters"`
@@ -561,8 +562,8 @@ func (o IntegrationOutput) CacheKeyParameters() pulumi.StringArrayOutput {
 }
 
 // Integration's cache namespace.
-func (o IntegrationOutput) CacheNamespace() pulumi.StringOutput {
-	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.CacheNamespace }).(pulumi.StringOutput)
+func (o IntegrationOutput) CacheNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.CacheNamespace }).(pulumi.StringPtrOutput)
 }
 
 // ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
@@ -601,8 +602,8 @@ func (o IntegrationOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
 }
 
 // Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
-func (o IntegrationOutput) PassthroughBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.PassthroughBehavior }).(pulumi.StringOutput)
+func (o IntegrationOutput) PassthroughBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.PassthroughBehavior }).(pulumi.StringPtrOutput)
 }
 
 // Map of request query string parameters and headers that should be passed to the backend responder.

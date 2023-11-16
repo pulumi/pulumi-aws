@@ -70,7 +70,7 @@ export class SamplingRule extends pulumi.CustomResource {
     /**
      * The ARN of the sampling rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Matches attributes derived from the request.
      */

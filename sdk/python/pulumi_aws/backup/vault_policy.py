@@ -123,7 +123,7 @@ class VaultPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -139,8 +139,8 @@ class VaultPolicy(pulumi.CustomResource):
                 "backup:GetBackupVaultNotifications",
                 "backup:PutBackupVaultNotifications",
             ],
-            resources=[example_vault.arn],
-        )])
+            resources=[arn],
+        )]))
         example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
             backup_vault_name=example_vault.name,
             policy=example_policy_document.json)
@@ -175,7 +175,7 @@ class VaultPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -191,8 +191,8 @@ class VaultPolicy(pulumi.CustomResource):
                 "backup:GetBackupVaultNotifications",
                 "backup:PutBackupVaultNotifications",
             ],
-            resources=[example_vault.arn],
-        )])
+            resources=[arn],
+        )]))
         example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
             backup_vault_name=example_vault.name,
             policy=example_policy_document.json)
@@ -274,7 +274,7 @@ class VaultPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupVaultArn")
-    def backup_vault_arn(self) -> pulumi.Output[str]:
+    def backup_vault_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the vault.
         """

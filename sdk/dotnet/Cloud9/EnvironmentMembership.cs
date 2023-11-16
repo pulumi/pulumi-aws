@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Cloud9
         /// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         /// </summary>
         [Output("userId")]
-        public Output<string> UserId { get; private set; } = null!;
+        public Output<string?> UserId { get; private set; } = null!;
 
 
         /// <summary>

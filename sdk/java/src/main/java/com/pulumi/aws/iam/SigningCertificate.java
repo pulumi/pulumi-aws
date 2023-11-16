@@ -117,14 +117,14 @@ public class SigningCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
-    private Output<String> certificateId;
+    private Output</* @Nullable */ String> certificateId;
 
     /**
      * @return The ID for the signing certificate.
      * 
      */
-    public Output<String> certificateId() {
-        return this.certificateId;
+    public Output<Optional<String>> certificateId() {
+        return Codegen.optional(this.certificateId);
     }
     /**
      * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.

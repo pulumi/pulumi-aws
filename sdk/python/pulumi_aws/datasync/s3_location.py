@@ -452,7 +452,7 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -476,7 +476,7 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3StorageClass")
-    def s3_storage_class(self) -> pulumi.Output[str]:
+    def s3_storage_class(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         """
@@ -511,6 +511,6 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> pulumi.Output[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "uri")
 

@@ -38,7 +38,7 @@ type GetSubnetsArgs struct {
 type GetSubnetsResult struct {
 	Filters []GetSubnetsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all the subnet ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -93,8 +93,8 @@ func (o GetSubnetsResultOutput) Filters() GetSubnetsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSubnetsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSubnetsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSubnetsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSubnetsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the subnet ids found.

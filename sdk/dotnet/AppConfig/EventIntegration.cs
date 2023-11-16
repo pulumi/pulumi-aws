@@ -54,7 +54,7 @@ namespace Pulumi.Aws.AppConfig
         /// ARN of the Event Integration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the Event Integration.

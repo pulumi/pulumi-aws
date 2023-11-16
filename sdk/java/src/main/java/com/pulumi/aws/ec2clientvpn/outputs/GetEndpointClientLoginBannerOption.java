@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointClientLoginBannerOption {
-    private String bannerText;
-    private Boolean enabled;
+    private @Nullable String bannerText;
+    private @Nullable Boolean enabled;
 
     private GetEndpointClientLoginBannerOption() {}
-    public String bannerText() {
-        return this.bannerText;
+    public Optional<String> bannerText() {
+        return Optional.ofNullable(this.bannerText);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetEndpointClientLoginBannerOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bannerText;
-        private Boolean enabled;
+        private @Nullable String bannerText;
+        private @Nullable Boolean enabled;
         public Builder() {}
         public Builder(GetEndpointClientLoginBannerOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetEndpointClientLoginBannerOption {
         }
 
         @CustomType.Setter
-        public Builder bannerText(String bannerText) {
-            this.bannerText = Objects.requireNonNull(bannerText);
+        public Builder bannerText(@Nullable String bannerText) {
+            this.bannerText = bannerText;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         public GetEndpointClientLoginBannerOption build() {

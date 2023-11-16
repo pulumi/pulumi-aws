@@ -48,13 +48,13 @@ namespace Pulumi.Aws.Emr
         /// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
         /// </summary>
         [Output("identityId")]
-        public Output<string> IdentityId { get; private set; } = null!;
+        public Output<string?> IdentityId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the user or group from the Amazon Web Services SSO Identity Store.
         /// </summary>
         [Output("identityName")]
-        public Output<string> IdentityName { get; private set; } = null!;
+        public Output<string?> IdentityName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.

@@ -60,39 +60,39 @@ type LookupBotArgs struct {
 // A collection of values returned by getBot.
 type LookupBotResult struct {
 	// ARN of the bot.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
-	Checksum string `pulumi:"checksum"`
+	Checksum *string `pulumi:"checksum"`
 	// If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
-	ChildDirected bool `pulumi:"childDirected"`
+	ChildDirected *bool `pulumi:"childDirected"`
 	// Date that the bot was created.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the bot.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
-	DetectSentiment bool `pulumi:"detectSentiment"`
+	DetectSentiment *bool `pulumi:"detectSentiment"`
 	// Set to true if natural language understanding improvements are enabled.
-	EnableModelImprovements bool `pulumi:"enableModelImprovements"`
+	EnableModelImprovements *bool `pulumi:"enableModelImprovements"`
 	// If the `status` is `FAILED`, the reason why the bot failed to build.
-	FailureReason string `pulumi:"failureReason"`
+	FailureReason *string `pulumi:"failureReason"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
-	IdleSessionTtlInSeconds int `pulumi:"idleSessionTtlInSeconds"`
+	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// Date that the bot was updated.
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
-	Locale string `pulumi:"locale"`
+	Locale *string `pulumi:"locale"`
 	// Name of the bot, case sensitive.
 	Name string `pulumi:"name"`
 	// The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
-	NluIntentConfidenceThreshold float64 `pulumi:"nluIntentConfidenceThreshold"`
+	NluIntentConfidenceThreshold *float64 `pulumi:"nluIntentConfidenceThreshold"`
 	// Status of the bot.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Version of the bot. For a new bot, the version is always `$LATEST`.
 	Version *string `pulumi:"version"`
 	// Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
-	VoiceId string `pulumi:"voiceId"`
+	VoiceId *string `pulumi:"voiceId"`
 }
 
 func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulumi.InvokeOption) LookupBotResultOutput {
@@ -136,63 +136,63 @@ func (o LookupBotResultOutput) ToLookupBotResultOutputWithContext(ctx context.Co
 }
 
 // ARN of the bot.
-func (o LookupBotResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
-func (o LookupBotResultOutput) Checksum() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.Checksum }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) Checksum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.Checksum }).(pulumi.StringPtrOutput)
 }
 
 // If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
-func (o LookupBotResultOutput) ChildDirected() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupBotResult) bool { return v.ChildDirected }).(pulumi.BoolOutput)
+func (o LookupBotResultOutput) ChildDirected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *bool { return v.ChildDirected }).(pulumi.BoolPtrOutput)
 }
 
 // Date that the bot was created.
-func (o LookupBotResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of the bot.
-func (o LookupBotResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
-func (o LookupBotResultOutput) DetectSentiment() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupBotResult) bool { return v.DetectSentiment }).(pulumi.BoolOutput)
+func (o LookupBotResultOutput) DetectSentiment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *bool { return v.DetectSentiment }).(pulumi.BoolPtrOutput)
 }
 
 // Set to true if natural language understanding improvements are enabled.
-func (o LookupBotResultOutput) EnableModelImprovements() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupBotResult) bool { return v.EnableModelImprovements }).(pulumi.BoolOutput)
+func (o LookupBotResultOutput) EnableModelImprovements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *bool { return v.EnableModelImprovements }).(pulumi.BoolPtrOutput)
 }
 
 // If the `status` is `FAILED`, the reason why the bot failed to build.
-func (o LookupBotResultOutput) FailureReason() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.FailureReason }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupBotResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
-func (o LookupBotResultOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupBotResult) int { return v.IdleSessionTtlInSeconds }).(pulumi.IntOutput)
+func (o LookupBotResultOutput) IdleSessionTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *int { return v.IdleSessionTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Date that the bot was updated.
-func (o LookupBotResultOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
-func (o LookupBotResultOutput) Locale() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.Locale }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 // Name of the bot, case sensitive.
@@ -201,13 +201,13 @@ func (o LookupBotResultOutput) Name() pulumi.StringOutput {
 }
 
 // The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
-func (o LookupBotResultOutput) NluIntentConfidenceThreshold() pulumi.Float64Output {
-	return o.ApplyT(func(v LookupBotResult) float64 { return v.NluIntentConfidenceThreshold }).(pulumi.Float64Output)
+func (o LookupBotResultOutput) NluIntentConfidenceThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *float64 { return v.NluIntentConfidenceThreshold }).(pulumi.Float64PtrOutput)
 }
 
 // Status of the bot.
-func (o LookupBotResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Version of the bot. For a new bot, the version is always `$LATEST`.
@@ -216,8 +216,8 @@ func (o LookupBotResultOutput) Version() pulumi.StringPtrOutput {
 }
 
 // Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
-func (o LookupBotResultOutput) VoiceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotResult) string { return v.VoiceId }).(pulumi.StringOutput)
+func (o LookupBotResultOutput) VoiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *string { return v.VoiceId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

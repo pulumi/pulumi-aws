@@ -45,24 +45,24 @@ namespace Pulumi.Aws.Ecr
     [OutputType]
     public sealed class GetCredentialsResult
     {
-        public readonly string AuthorizationToken;
-        public readonly string ExpiresAt;
+        public readonly string? AuthorizationToken;
+        public readonly string? ExpiresAt;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string ProxyEndpoint;
+        public readonly string? Id;
+        public readonly string? ProxyEndpoint;
         public readonly string RegistryId;
 
         [OutputConstructor]
         private GetCredentialsResult(
-            string authorizationToken,
+            string? authorizationToken,
 
-            string expiresAt,
+            string? expiresAt,
 
-            string id,
+            string? id,
 
-            string proxyEndpoint,
+            string? proxyEndpoint,
 
             string registryId)
         {

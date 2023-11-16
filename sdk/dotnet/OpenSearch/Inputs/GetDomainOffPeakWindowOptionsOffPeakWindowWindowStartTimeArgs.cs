@@ -15,14 +15,14 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         /// <summary>
         /// Starting hour of the 10-hour window for updates
         /// </summary>
-        [Input("hours", required: true)]
-        public Input<int> Hours { get; set; } = null!;
+        [Input("hours")]
+        public Input<int>? Hours { get; set; }
 
         /// <summary>
         /// Starting minute of the 10-hour window for updates
         /// </summary>
-        [Input("minutes", required: true)]
-        public Input<int> Minutes { get; set; } = null!;
+        [Input("minutes")]
+        public Input<int>? Minutes { get; set; }
 
         public GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInputArgs()
         {

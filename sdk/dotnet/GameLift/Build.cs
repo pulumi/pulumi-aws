@@ -51,7 +51,7 @@ namespace Pulumi.Aws.GameLift
         /// GameLift Build ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the build

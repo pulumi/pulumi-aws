@@ -173,7 +173,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      */
-    public readonly acl!: pulumi.Output<string>;
+    public readonly acl!: pulumi.Output<string | undefined>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
@@ -181,7 +181,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
-    public readonly bucketKeyEnabled!: pulumi.Output<boolean>;
+    public readonly bucketKeyEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
@@ -193,19 +193,19 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * The base64-encoded, 32-bit CRC32 checksum of the object.
      */
-    public /*out*/ readonly checksumCrc32!: pulumi.Output<string>;
+    public /*out*/ readonly checksumCrc32!: pulumi.Output<string | undefined>;
     /**
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      */
-    public /*out*/ readonly checksumCrc32c!: pulumi.Output<string>;
+    public /*out*/ readonly checksumCrc32c!: pulumi.Output<string | undefined>;
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      */
-    public /*out*/ readonly checksumSha1!: pulumi.Output<string>;
+    public /*out*/ readonly checksumSha1!: pulumi.Output<string | undefined>;
     /**
      * The base64-encoded, 256-bit SHA-256 digest of the object.
      */
-    public /*out*/ readonly checksumSha256!: pulumi.Output<string>;
+    public /*out*/ readonly checksumSha256!: pulumi.Output<string | undefined>;
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      */
@@ -229,11 +229,11 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      */
-    public readonly contentType!: pulumi.Output<string>;
+    public readonly contentType!: pulumi.Output<string | undefined>;
     /**
      * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      */
@@ -247,7 +247,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
@@ -271,7 +271,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
-    public readonly serverSideEncryption!: pulumi.Output<string>;
+    public readonly serverSideEncryption!: pulumi.Output<string | undefined>;
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
      */
@@ -283,7 +283,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
      */
-    public readonly storageClass!: pulumi.Output<string>;
+    public readonly storageClass!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -297,7 +297,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * Unique version ID value for the object, if bucket versioning is enabled.
      */
-    public /*out*/ readonly versionId!: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string | undefined>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *

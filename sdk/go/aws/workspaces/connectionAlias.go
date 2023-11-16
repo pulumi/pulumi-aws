@@ -56,9 +56,9 @@ type ConnectionAlias struct {
 	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
 	// The identifier of the Amazon Web Services account that owns the connection alias.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerAccountId pulumi.StringPtrOutput `pulumi:"ownerAccountId"`
 	// The current state of the connection alias.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -250,13 +250,13 @@ func (o ConnectionAliasOutput) ConnectionString() pulumi.StringOutput {
 }
 
 // The identifier of the Amazon Web Services account that owns the connection alias.
-func (o ConnectionAliasOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o ConnectionAliasOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringPtrOutput { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The current state of the connection alias.
-func (o ConnectionAliasOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o ConnectionAliasOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

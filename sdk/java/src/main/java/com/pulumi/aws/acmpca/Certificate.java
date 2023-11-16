@@ -116,28 +116,28 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the certificate.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * PEM-encoded certificate value.
      * 
      */
     @Export(name="certificate", refs={String.class}, tree="[0]")
-    private Output<String> certificate;
+    private Output</* @Nullable */ String> certificate;
 
     /**
      * @return PEM-encoded certificate value.
      * 
      */
-    public Output<String> certificate() {
-        return this.certificate;
+    public Output<Optional<String>> certificate() {
+        return Codegen.optional(this.certificate);
     }
     /**
      * ARN of the certificate authority.
@@ -158,14 +158,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
-    private Output<String> certificateChain;
+    private Output</* @Nullable */ String> certificateChain;
 
     /**
      * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
-    public Output<String> certificateChain() {
-        return this.certificateChain;
+    public Output<Optional<String>> certificateChain() {
+        return Codegen.optional(this.certificateChain);
     }
     /**
      * Certificate Signing Request in PEM format.

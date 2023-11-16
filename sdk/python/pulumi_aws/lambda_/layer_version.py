@@ -748,7 +748,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Lambda Layer with version.
         """
@@ -780,7 +780,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date this resource was created.
         """
@@ -796,7 +796,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="layerArn")
-    def layer_arn(self) -> pulumi.Output[str]:
+    def layer_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Lambda Layer without version.
         """
@@ -846,7 +846,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signingJobArn")
-    def signing_job_arn(self) -> pulumi.Output[str]:
+    def signing_job_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of a signing job.
         """
@@ -854,7 +854,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signingProfileVersionArn")
-    def signing_profile_version_arn(self) -> pulumi.Output[str]:
+    def signing_profile_version_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for a signing profile version.
         """
@@ -870,7 +870,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceCodeHash")
-    def source_code_hash(self) -> pulumi.Output[str]:
+    def source_code_hash(self) -> pulumi.Output[Optional[str]]:
         """
         Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         """
@@ -878,7 +878,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceCodeSize")
-    def source_code_size(self) -> pulumi.Output[int]:
+    def source_code_size(self) -> pulumi.Output[Optional[int]]:
         """
         Size in bytes of the function .zip file.
         """
@@ -886,7 +886,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Lambda Layer version.
         """

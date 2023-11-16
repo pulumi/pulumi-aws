@@ -125,17 +125,17 @@ type Application struct {
 	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
 	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
 	// ARN of the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The configuration for an application to automatically start on job submission.
-	AutoStartConfiguration ApplicationAutoStartConfigurationOutput `pulumi:"autoStartConfiguration"`
+	AutoStartConfiguration ApplicationAutoStartConfigurationPtrOutput `pulumi:"autoStartConfiguration"`
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration ApplicationAutoStopConfigurationOutput `pulumi:"autoStopConfiguration"`
+	AutoStopConfiguration ApplicationAutoStopConfigurationPtrOutput `pulumi:"autoStopConfiguration"`
 	// The image configuration applied to all worker types.
-	ImageConfiguration ApplicationImageConfigurationOutput `pulumi:"imageConfiguration"`
+	ImageConfiguration ApplicationImageConfigurationPtrOutput `pulumi:"imageConfiguration"`
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayOutput `pulumi:"initialCapacities"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity ApplicationMaximumCapacityOutput `pulumi:"maximumCapacity"`
+	MaximumCapacity ApplicationMaximumCapacityPtrOutput `pulumi:"maximumCapacity"`
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The network configuration for customer VPC connectivity.
@@ -401,23 +401,23 @@ func (o ApplicationOutput) Architecture() pulumi.StringPtrOutput {
 }
 
 // ARN of the cluster.
-func (o ApplicationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ApplicationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The configuration for an application to automatically start on job submission.
-func (o ApplicationOutput) AutoStartConfiguration() ApplicationAutoStartConfigurationOutput {
-	return o.ApplyT(func(v *Application) ApplicationAutoStartConfigurationOutput { return v.AutoStartConfiguration }).(ApplicationAutoStartConfigurationOutput)
+func (o ApplicationOutput) AutoStartConfiguration() ApplicationAutoStartConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationAutoStartConfigurationPtrOutput { return v.AutoStartConfiguration }).(ApplicationAutoStartConfigurationPtrOutput)
 }
 
 // The configuration for an application to automatically stop after a certain amount of time being idle.
-func (o ApplicationOutput) AutoStopConfiguration() ApplicationAutoStopConfigurationOutput {
-	return o.ApplyT(func(v *Application) ApplicationAutoStopConfigurationOutput { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationOutput)
+func (o ApplicationOutput) AutoStopConfiguration() ApplicationAutoStopConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationAutoStopConfigurationPtrOutput { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
 // The image configuration applied to all worker types.
-func (o ApplicationOutput) ImageConfiguration() ApplicationImageConfigurationOutput {
-	return o.ApplyT(func(v *Application) ApplicationImageConfigurationOutput { return v.ImageConfiguration }).(ApplicationImageConfigurationOutput)
+func (o ApplicationOutput) ImageConfiguration() ApplicationImageConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationImageConfigurationPtrOutput { return v.ImageConfiguration }).(ApplicationImageConfigurationPtrOutput)
 }
 
 // The capacity to initialize when the application is created.
@@ -426,8 +426,8 @@ func (o ApplicationOutput) InitialCapacities() ApplicationInitialCapacityArrayOu
 }
 
 // The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-func (o ApplicationOutput) MaximumCapacity() ApplicationMaximumCapacityOutput {
-	return o.ApplyT(func(v *Application) ApplicationMaximumCapacityOutput { return v.MaximumCapacity }).(ApplicationMaximumCapacityOutput)
+func (o ApplicationOutput) MaximumCapacity() ApplicationMaximumCapacityPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationMaximumCapacityPtrOutput { return v.MaximumCapacity }).(ApplicationMaximumCapacityPtrOutput)
 }
 
 // The name of the application.

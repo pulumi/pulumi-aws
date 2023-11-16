@@ -98,7 +98,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="accessTokenValidity")
-    def access_token_validity(self) -> int:
+    def access_token_validity(self) -> Optional[int]:
         """
         (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
         """
@@ -106,7 +106,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="allowedOauthFlows")
-    def allowed_oauth_flows(self) -> Sequence[str]:
+    def allowed_oauth_flows(self) -> Optional[Sequence[str]]:
         """
         (Optional) List of allowed OAuth flows (code, implicit, client_credentials).
         """
@@ -114,7 +114,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
-    def allowed_oauth_flows_user_pool_client(self) -> bool:
+    def allowed_oauth_flows_user_pool_client(self) -> Optional[bool]:
         """
         (Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         """
@@ -122,7 +122,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="allowedOauthScopes")
-    def allowed_oauth_scopes(self) -> Sequence[str]:
+    def allowed_oauth_scopes(self) -> Optional[Sequence[str]]:
         """
         (Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         """
@@ -130,7 +130,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="analyticsConfigurations")
-    def analytics_configurations(self) -> Sequence['outputs.GetUserPoolClientAnalyticsConfigurationResult']:
+    def analytics_configurations(self) -> Optional[Sequence['outputs.GetUserPoolClientAnalyticsConfigurationResult']]:
         """
         (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
         """
@@ -138,7 +138,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="callbackUrls")
-    def callback_urls(self) -> Sequence[str]:
+    def callback_urls(self) -> Optional[Sequence[str]]:
         """
         (Optional) List of allowed callback URLs for the identity providers.
         """
@@ -151,7 +151,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> Optional[str]:
         """
         Client secret of the user pool client.
         """
@@ -159,7 +159,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="defaultRedirectUri")
-    def default_redirect_uri(self) -> str:
+    def default_redirect_uri(self) -> Optional[str]:
         """
         (Optional) Default redirect URI. Must be in the list of callback URLs.
         """
@@ -167,12 +167,12 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="enablePropagateAdditionalUserContextData")
-    def enable_propagate_additional_user_context_data(self) -> bool:
+    def enable_propagate_additional_user_context_data(self) -> Optional[bool]:
         return pulumi.get(self, "enable_propagate_additional_user_context_data")
 
     @property
     @pulumi.getter(name="enableTokenRevocation")
-    def enable_token_revocation(self) -> bool:
+    def enable_token_revocation(self) -> Optional[bool]:
         """
         (Optional) Enables or disables token revocation.
         """
@@ -180,7 +180,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="explicitAuthFlows")
-    def explicit_auth_flows(self) -> Sequence[str]:
+    def explicit_auth_flows(self) -> Optional[Sequence[str]]:
         """
         (Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         """
@@ -188,7 +188,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="generateSecret")
-    def generate_secret(self) -> bool:
+    def generate_secret(self) -> Optional[bool]:
         """
         (Optional) Should an application secret be generated.
         """
@@ -196,7 +196,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -204,7 +204,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="idTokenValidity")
-    def id_token_validity(self) -> int:
+    def id_token_validity(self) -> Optional[int]:
         """
         (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
         """
@@ -212,7 +212,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="logoutUrls")
-    def logout_urls(self) -> Sequence[str]:
+    def logout_urls(self) -> Optional[Sequence[str]]:
         """
         (Optional) List of allowed logout URLs for the identity providers.
         """
@@ -220,12 +220,12 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="preventUserExistenceErrors")
-    def prevent_user_existence_errors(self) -> str:
+    def prevent_user_existence_errors(self) -> Optional[str]:
         """
         (Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
         """
@@ -233,7 +233,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="readAttributes")
-    def read_attributes(self) -> Sequence[str]:
+    def read_attributes(self) -> Optional[Sequence[str]]:
         """
         (Optional) List of user pool attributes the application client can read from.
         """
@@ -241,7 +241,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="refreshTokenValidity")
-    def refresh_token_validity(self) -> int:
+    def refresh_token_validity(self) -> Optional[int]:
         """
         (Optional) Time limit in days refresh tokens are valid for.
         """
@@ -249,7 +249,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="supportedIdentityProviders")
-    def supported_identity_providers(self) -> Sequence[str]:
+    def supported_identity_providers(self) -> Optional[Sequence[str]]:
         """
         (Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         """
@@ -257,7 +257,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="tokenValidityUnits")
-    def token_validity_units(self) -> Sequence['outputs.GetUserPoolClientTokenValidityUnitResult']:
+    def token_validity_units(self) -> Optional[Sequence['outputs.GetUserPoolClientTokenValidityUnitResult']]:
         """
         (Optional) Configuration block for units in which the validity times are represented in. Detailed below.
         """
@@ -270,7 +270,7 @@ class GetUserPoolClientResult:
 
     @property
     @pulumi.getter(name="writeAttributes")
-    def write_attributes(self) -> Sequence[str]:
+    def write_attributes(self) -> Optional[Sequence[str]]:
         """
         (Optional) List of user pool attributes the application client can write to.
         """

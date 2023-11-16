@@ -78,7 +78,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of VPC
         """
@@ -86,7 +86,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> Optional[str]:
         """
         CIDR block for the association.
         """
@@ -94,22 +94,22 @@ class GetVpcResult:
 
     @property
     @pulumi.getter(name="cidrBlockAssociations")
-    def cidr_block_associations(self) -> Sequence['outputs.GetVpcCidrBlockAssociationResult']:
+    def cidr_block_associations(self) -> Optional[Sequence['outputs.GetVpcCidrBlockAssociationResult']]:
         return pulumi.get(self, "cidr_block_associations")
 
     @property
     @pulumi.getter
-    def default(self) -> bool:
+    def default(self) -> Optional[bool]:
         return pulumi.get(self, "default")
 
     @property
     @pulumi.getter(name="dhcpOptionsId")
-    def dhcp_options_id(self) -> str:
+    def dhcp_options_id(self) -> Optional[str]:
         return pulumi.get(self, "dhcp_options_id")
 
     @property
     @pulumi.getter(name="enableDnsHostnames")
-    def enable_dns_hostnames(self) -> bool:
+    def enable_dns_hostnames(self) -> Optional[bool]:
         """
         Whether or not the VPC has DNS hostname support
         """
@@ -117,7 +117,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter(name="enableDnsSupport")
-    def enable_dns_support(self) -> bool:
+    def enable_dns_support(self) -> Optional[bool]:
         """
         Whether or not the VPC has DNS support
         """
@@ -125,7 +125,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
-    def enable_network_address_usage_metrics(self) -> bool:
+    def enable_network_address_usage_metrics(self) -> Optional[bool]:
         """
         Whether Network Address Usage metrics are enabled for your VPC
         """
@@ -138,12 +138,12 @@ class GetVpcResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instanceTenancy")
-    def instance_tenancy(self) -> str:
+    def instance_tenancy(self) -> Optional[str]:
         """
         Allowed tenancy of instances launched into the
         selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
@@ -152,7 +152,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter(name="ipv6AssociationId")
-    def ipv6_association_id(self) -> str:
+    def ipv6_association_id(self) -> Optional[str]:
         """
         Association ID for the IPv6 CIDR block.
         """
@@ -160,7 +160,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> str:
+    def ipv6_cidr_block(self) -> Optional[str]:
         """
         IPv6 CIDR block.
         """
@@ -168,7 +168,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter(name="mainRouteTableId")
-    def main_route_table_id(self) -> str:
+    def main_route_table_id(self) -> Optional[str]:
         """
         ID of the main route table associated with this VPC.
         """
@@ -176,7 +176,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         ID of the AWS account that owns the VPC.
         """
@@ -184,7 +184,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         State of the association.
         """
@@ -192,7 +192,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

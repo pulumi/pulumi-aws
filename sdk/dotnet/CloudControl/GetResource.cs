@@ -146,23 +146,23 @@ namespace Pulumi.Aws.CloudControl
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Identifier;
         /// <summary>
         /// JSON string matching the CloudFormation resource type schema with current configuration.
         /// </summary>
-        public readonly string Properties;
+        public readonly string? Properties;
         public readonly string? RoleArn;
         public readonly string TypeName;
         public readonly string? TypeVersionId;
 
         [OutputConstructor]
         private GetResourceResult(
-            string id,
+            string? id,
 
             string identifier,
 
-            string properties,
+            string? properties,
 
             string? roleArn,
 

@@ -48,12 +48,12 @@ export interface GetResourceTagsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly resourceId: string;
     /**
      * Map of key=value pairs for each tag set on the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Get tags attached to the specified AWS Organizations resource.

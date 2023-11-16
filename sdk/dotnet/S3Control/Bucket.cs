@@ -48,7 +48,7 @@ namespace Pulumi.Aws.S3Control
         /// Amazon Resource Name (ARN) of the bucket.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the bucket.
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.S3Control
         /// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the Outpost to contain this bucket.
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.S3Control
         /// Boolean whether Public Access Block is enabled.
         /// </summary>
         [Output("publicAccessBlockEnabled")]
-        public Output<bool> PublicAccessBlockEnabled { get; private set; } = null!;
+        public Output<bool?> PublicAccessBlockEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

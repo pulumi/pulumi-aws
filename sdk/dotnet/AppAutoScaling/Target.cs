@@ -159,7 +159,7 @@ namespace Pulumi.Aws.AppAutoScaling
         /// The ARN of the scalable target.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Max capacity of the scalable target.
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.AppAutoScaling
         /// ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         /// </summary>
         [Output("roleArn")]
-        public Output<string> RoleArn { get; private set; } = null!;
+        public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)

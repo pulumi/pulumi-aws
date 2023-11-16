@@ -86,28 +86,28 @@ public class LocationSmb extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the Windows domain the SMB server belongs to.
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
-    private Output<String> domain;
+    private Output</* @Nullable */ String> domain;
 
     /**
      * @return The name of the Windows domain the SMB server belongs to.
      * 
      */
-    public Output<String> domain() {
-        return this.domain;
+    public Output<Optional<String>> domain() {
+        return Codegen.optional(this.domain);
     }
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
@@ -198,10 +198,10 @@ public class LocationSmb extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     @Export(name="uri", refs={String.class}, tree="[0]")
-    private Output<String> uri;
+    private Output</* @Nullable */ String> uri;
 
-    public Output<String> uri() {
-        return this.uri;
+    public Output<Optional<String>> uri() {
+        return Codegen.optional(this.uri);
     }
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.

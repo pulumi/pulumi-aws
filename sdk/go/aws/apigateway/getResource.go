@@ -67,13 +67,13 @@ type LookupResourceArgs struct {
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set to the ID of the parent Resource.
-	ParentId string `pulumi:"parentId"`
-	Path     string `pulumi:"path"`
+	ParentId *string `pulumi:"parentId"`
+	Path     string  `pulumi:"path"`
 	// Set to the path relative to the parent Resource.
-	PathPart  string `pulumi:"pathPart"`
-	RestApiId string `pulumi:"restApiId"`
+	PathPart  *string `pulumi:"pathPart"`
+	RestApiId string  `pulumi:"restApiId"`
 }
 
 func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceResultOutput {
@@ -117,13 +117,13 @@ func (o LookupResourceResultOutput) ToLookupResourceResultOutputWithContext(ctx 
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResourceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set to the ID of the parent Resource.
-func (o LookupResourceResultOutput) ParentId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceResult) string { return v.ParentId }).(pulumi.StringOutput)
+func (o LookupResourceResultOutput) ParentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *string { return v.ParentId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResourceResultOutput) Path() pulumi.StringOutput {
@@ -131,8 +131,8 @@ func (o LookupResourceResultOutput) Path() pulumi.StringOutput {
 }
 
 // Set to the path relative to the parent Resource.
-func (o LookupResourceResultOutput) PathPart() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceResult) string { return v.PathPart }).(pulumi.StringOutput)
+func (o LookupResourceResultOutput) PathPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *string { return v.PathPart }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResourceResultOutput) RestApiId() pulumi.StringOutput {

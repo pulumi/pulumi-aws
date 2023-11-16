@@ -62,7 +62,7 @@ type GetEnvironmentsResult struct {
 	// Set of Environment IDs associated with this AppConfig Application.
 	EnvironmentIds []string `pulumi:"environmentIds"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetEnvironmentsOutput(ctx *pulumi.Context, args GetEnvironmentsOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentsResultOutput {
@@ -113,8 +113,8 @@ func (o GetEnvironmentsResultOutput) EnvironmentIds() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetEnvironmentsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEnvironmentsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetEnvironmentsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEnvironmentsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

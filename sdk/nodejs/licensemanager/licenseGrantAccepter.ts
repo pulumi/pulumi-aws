@@ -55,7 +55,7 @@ export class LicenseGrantAccepter extends pulumi.CustomResource {
     /**
      * A list of the allowed operations for the grant.
      */
-    public /*out*/ readonly allowedOperations!: pulumi.Output<string[]>;
+    public /*out*/ readonly allowedOperations!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN of the grant to accept.
      */
@@ -63,31 +63,31 @@ export class LicenseGrantAccepter extends pulumi.CustomResource {
     /**
      * The home region for the license.
      */
-    public /*out*/ readonly homeRegion!: pulumi.Output<string>;
+    public /*out*/ readonly homeRegion!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the license for the grant.
      */
-    public /*out*/ readonly licenseArn!: pulumi.Output<string>;
+    public /*out*/ readonly licenseArn!: pulumi.Output<string | undefined>;
     /**
      * The Name of the grant.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * The parent ARN.
      */
-    public /*out*/ readonly parentArn!: pulumi.Output<string>;
+    public /*out*/ readonly parentArn!: pulumi.Output<string | undefined>;
     /**
      * The target account for the grant.
      */
-    public /*out*/ readonly principal!: pulumi.Output<string>;
+    public /*out*/ readonly principal!: pulumi.Output<string | undefined>;
     /**
      * The grant status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * The grant version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LicenseGrantAccepter resource with the given unique name, arguments, and options.

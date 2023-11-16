@@ -58,34 +58,34 @@ export interface GetQuicksightUserResult {
     /**
      * The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
      */
-    readonly active: boolean;
+    readonly active?: boolean;
     /**
      * The Amazon Resource Name (ARN) for the user.
      */
-    readonly arn: string;
-    readonly awsAccountId: string;
+    readonly arn?: string;
+    readonly awsAccountId?: string;
     /**
      * The user's email address.
      */
-    readonly email: string;
+    readonly email?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The type of identity authentication used by the user.
      */
-    readonly identityType: string;
+    readonly identityType?: string;
     readonly namespace?: string;
     /**
      * The principal ID of the user.
      */
-    readonly principalId: string;
+    readonly principalId?: string;
     readonly userName: string;
     /**
      * The Amazon QuickSight role for the user. The user role can be one of the following:.
      */
-    readonly userRole: string;
+    readonly userRole?: string;
 }
 /**
  * This data source can be used to fetch information about a specific

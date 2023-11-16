@@ -83,9 +83,9 @@ type Vocabulary struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Vocabulary.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Generated download URI.
-	DownloadUri pulumi.StringOutput `pulumi:"downloadUri"`
+	DownloadUri pulumi.StringPtrOutput `pulumi:"downloadUri"`
 	// The language code you selected for your vocabulary.
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
@@ -95,7 +95,7 @@ type Vocabulary struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
-	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
+	VocabularyFileUri pulumi.StringPtrOutput `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
 	//
 	// The following arguments are optional:
@@ -306,13 +306,13 @@ func (o VocabularyOutput) ToVocabularyOutputWithContext(ctx context.Context) Voc
 }
 
 // ARN of the Vocabulary.
-func (o VocabularyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VocabularyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vocabulary) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Generated download URI.
-func (o VocabularyOutput) DownloadUri() pulumi.StringOutput {
-	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.DownloadUri }).(pulumi.StringOutput)
+func (o VocabularyOutput) DownloadUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vocabulary) pulumi.StringPtrOutput { return v.DownloadUri }).(pulumi.StringPtrOutput)
 }
 
 // The language code you selected for your vocabulary.
@@ -336,8 +336,8 @@ func (o VocabularyOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
-func (o VocabularyOutput) VocabularyFileUri() pulumi.StringOutput {
-	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.VocabularyFileUri }).(pulumi.StringOutput)
+func (o VocabularyOutput) VocabularyFileUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vocabulary) pulumi.StringPtrOutput { return v.VocabularyFileUri }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Vocabulary.

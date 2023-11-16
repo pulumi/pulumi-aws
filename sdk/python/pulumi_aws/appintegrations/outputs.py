@@ -76,15 +76,16 @@ class DataIntegrationScheduleConfig(dict):
 @pulumi.output_type
 class GetEventIntegrationEventFilterResult(dict):
     def __init__(__self__, *,
-                 source: str):
+                 source: Optional[str] = None):
         """
         :param str source: The source of the events.
         """
-        pulumi.set(__self__, "source", source)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter
-    def source(self) -> str:
+    def source(self) -> Optional[str]:
         """
         The source of the events.
         """

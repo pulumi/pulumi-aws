@@ -71,54 +71,54 @@ export interface GetMulticastDomainResult {
     /**
      * EC2 Transit Gateway Multicast Domain ARN.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * EC2 Transit Gateway Multicast Domain Associations
      */
-    readonly associations: outputs.ec2transitgateway.GetMulticastDomainAssociation[];
+    readonly associations?: outputs.ec2transitgateway.GetMulticastDomainAssociation[];
     /**
      * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.
      */
-    readonly autoAcceptSharedAssociations: string;
+    readonly autoAcceptSharedAssociations?: string;
     readonly filters?: outputs.ec2transitgateway.GetMulticastDomainFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.
      */
-    readonly igmpv2Support: string;
+    readonly igmpv2Support?: string;
     /**
      * EC2 Multicast Domain Group Members
      */
-    readonly members: outputs.ec2transitgateway.GetMulticastDomainMember[];
+    readonly members?: outputs.ec2transitgateway.GetMulticastDomainMember[];
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * EC2 Multicast Domain Group Sources
      */
-    readonly sources: outputs.ec2transitgateway.GetMulticastDomainSource[];
-    readonly state: string;
+    readonly sources?: outputs.ec2transitgateway.GetMulticastDomainSource[];
+    readonly state?: string;
     /**
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.
      */
-    readonly staticSourcesSupport: string;
+    readonly staticSourcesSupport?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Multicast Domain.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The ID of the transit gateway attachment.
      */
-    readonly transitGatewayAttachmentId: string;
+    readonly transitGatewayAttachmentId?: string;
     /**
      * EC2 Transit Gateway identifier.
      */
-    readonly transitGatewayId: string;
-    readonly transitGatewayMulticastDomainId: string;
+    readonly transitGatewayId?: string;
+    readonly transitGatewayMulticastDomainId?: string;
 }
 /**
  * Get information on an EC2 Transit Gateway Multicast Domain.

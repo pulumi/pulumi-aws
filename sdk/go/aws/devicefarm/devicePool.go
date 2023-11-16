@@ -60,7 +60,7 @@ type DevicePool struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of this Device Pool
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The device pool's description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The number of devices that Device Farm can add to your device pool.
@@ -77,7 +77,7 @@ type DevicePool struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Type    pulumi.StringOutput    `pulumi:"type"`
+	Type    pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewDevicePool registers a new resource with the given unique name, arguments, and options.
@@ -286,8 +286,8 @@ func (o DevicePoolOutput) ToDevicePoolOutputWithContext(ctx context.Context) Dev
 }
 
 // The Amazon Resource Name of this Device Pool
-func (o DevicePoolOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DevicePoolOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevicePool) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The device pool's description.
@@ -327,8 +327,8 @@ func (o DevicePoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-func (o DevicePoolOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o DevicePoolOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevicePool) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type DevicePoolArrayOutput struct{ *pulumi.OutputState }

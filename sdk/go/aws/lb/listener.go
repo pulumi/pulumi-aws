@@ -364,7 +364,7 @@ type Listener struct {
 	// ARN of the target group.
 	//
 	// The following arguments are optional:
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// Configuration block for default actions. Detailed below.
@@ -376,9 +376,9 @@ type Listener struct {
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
-	SslPolicy pulumi.StringOutput `pulumi:"sslPolicy"`
+	SslPolicy pulumi.StringPtrOutput `pulumi:"sslPolicy"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
@@ -642,8 +642,8 @@ func (o ListenerOutput) AlpnPolicy() pulumi.StringPtrOutput {
 // ARN of the target group.
 //
 // The following arguments are optional:
-func (o ListenerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ListenerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
@@ -669,13 +669,13 @@ func (o ListenerOutput) Port() pulumi.IntPtrOutput {
 }
 
 // Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-func (o ListenerOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+func (o ListenerOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 // Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
-func (o ListenerOutput) SslPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.SslPolicy }).(pulumi.StringOutput)
+func (o ListenerOutput) SslPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.SslPolicy }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

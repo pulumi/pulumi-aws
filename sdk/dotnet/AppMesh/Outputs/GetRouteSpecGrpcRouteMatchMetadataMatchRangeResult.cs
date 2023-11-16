@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult
     {
-        public readonly int End;
-        public readonly int Start;
+        public readonly int? End;
+        public readonly int? Start;
 
         [OutputConstructor]
         private GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult(
-            int end,
+            int? end,
 
-            int start)
+            int? start)
         {
             End = end;
             Start = start;

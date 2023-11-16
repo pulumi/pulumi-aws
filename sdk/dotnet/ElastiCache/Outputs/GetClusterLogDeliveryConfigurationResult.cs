@@ -13,20 +13,20 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     [OutputType]
     public sealed class GetClusterLogDeliveryConfigurationResult
     {
-        public readonly string Destination;
-        public readonly string DestinationType;
-        public readonly string LogFormat;
-        public readonly string LogType;
+        public readonly string? Destination;
+        public readonly string? DestinationType;
+        public readonly string? LogFormat;
+        public readonly string? LogType;
 
         [OutputConstructor]
         private GetClusterLogDeliveryConfigurationResult(
-            string destination,
+            string? destination,
 
-            string destinationType,
+            string? destinationType,
 
-            string logFormat,
+            string? logFormat,
 
-            string logType)
+            string? logType)
         {
             Destination = destination;
             DestinationType = destinationType;

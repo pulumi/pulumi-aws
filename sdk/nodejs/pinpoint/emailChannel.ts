@@ -106,7 +106,7 @@ export class EmailChannel extends pulumi.CustomResource {
     /**
      * Messages per second that can be sent.
      */
-    public /*out*/ readonly messagesPerSecond!: pulumi.Output<number>;
+    public /*out*/ readonly messagesPerSecond!: pulumi.Output<number | undefined>;
     /**
      * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */

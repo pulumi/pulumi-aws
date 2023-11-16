@@ -53,7 +53,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * ARN of the connector profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
      */
@@ -73,11 +73,11 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * ARN of the connector profile credentials.
      */
-    public /*out*/ readonly credentialsArn!: pulumi.Output<string>;
+    public /*out*/ readonly credentialsArn!: pulumi.Output<string | undefined>;
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
-    public readonly kmsArn!: pulumi.Output<string>;
+    public readonly kmsArn!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
 
     /**

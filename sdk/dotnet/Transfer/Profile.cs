@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Transfer
         /// The ARN of the profile.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Transfer
         /// The unique identifier for the AS2 profile.
         /// </summary>
         [Output("profileId")]
-        public Output<string> ProfileId { get; private set; } = null!;
+        public Output<string?> ProfileId { get; private set; } = null!;
 
         /// <summary>
         /// The profile type should be LOCAL or PARTNER.

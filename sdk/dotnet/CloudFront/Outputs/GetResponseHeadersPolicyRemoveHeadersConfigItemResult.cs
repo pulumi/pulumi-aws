@@ -16,10 +16,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// The HTTP header name.
         /// </summary>
-        public readonly string Header;
+        public readonly string? Header;
 
         [OutputConstructor]
-        private GetResponseHeadersPolicyRemoveHeadersConfigItemResult(string header)
+        private GetResponseHeadersPolicyRemoveHeadersConfigItemResult(string? header)
         {
             Header = header;
         }

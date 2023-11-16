@@ -171,7 +171,7 @@ class AdminAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         """

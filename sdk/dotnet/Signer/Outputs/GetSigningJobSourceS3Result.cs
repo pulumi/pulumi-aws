@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Signer.Outputs
     [OutputType]
     public sealed class GetSigningJobSourceS3Result
     {
-        public readonly string Bucket;
-        public readonly string Key;
-        public readonly string Version;
+        public readonly string? Bucket;
+        public readonly string? Key;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetSigningJobSourceS3Result(
-            string bucket,
+            string? bucket,
 
-            string key,
+            string? key,
 
-            string version)
+            string? version)
         {
             Bucket = bucket;
             Key = key;

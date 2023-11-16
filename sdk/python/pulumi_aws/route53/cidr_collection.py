@@ -211,7 +211,7 @@ class CidrCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the CIDR collection.
         """
@@ -227,7 +227,7 @@ class CidrCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         The lastest version of the CIDR collection.
         """

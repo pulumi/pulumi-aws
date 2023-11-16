@@ -124,21 +124,21 @@ type Faq struct {
 	pulumi.CustomResourceState
 
 	// ARN of the FAQ.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Unix datetime that the FAQ was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The description for a FAQ.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When the Status field value is `FAILED`, this contains a message that explains why.
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
+	ErrorMessage pulumi.StringPtrOutput `pulumi:"errorMessage"`
 	// The identifier of the FAQ.
-	FaqId pulumi.StringOutput `pulumi:"faqId"`
+	FaqId pulumi.StringPtrOutput `pulumi:"faqId"`
 	// The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
 	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
 	// The identifier of the index for a FAQ.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
+	LanguageCode pulumi.StringPtrOutput `pulumi:"languageCode"`
 	// The name that should be associated with the FAQ.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
@@ -148,7 +148,7 @@ type Faq struct {
 	// The `s3Path` configuration block supports the following arguments:
 	S3Path FaqS3PathOutput `pulumi:"s3Path"`
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -156,7 +156,7 @@ type Faq struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	UpdatedAt pulumi.StringPtrOutput `pulumi:"updatedAt"`
 }
 
 // NewFaq registers a new resource with the given unique name, arguments, and options.
@@ -410,13 +410,13 @@ func (o FaqOutput) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 }
 
 // ARN of the FAQ.
-func (o FaqOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FaqOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Unix datetime that the FAQ was created.
-func (o FaqOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o FaqOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The description for a FAQ.
@@ -425,13 +425,13 @@ func (o FaqOutput) Description() pulumi.StringPtrOutput {
 }
 
 // When the Status field value is `FAILED`, this contains a message that explains why.
-func (o FaqOutput) ErrorMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+func (o FaqOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the FAQ.
-func (o FaqOutput) FaqId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.FaqId }).(pulumi.StringOutput)
+func (o FaqOutput) FaqId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.FaqId }).(pulumi.StringPtrOutput)
 }
 
 // The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
@@ -445,8 +445,8 @@ func (o FaqOutput) IndexId() pulumi.StringOutput {
 }
 
 // The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-func (o FaqOutput) LanguageCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
+func (o FaqOutput) LanguageCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
 
 // The name that should be associated with the FAQ.
@@ -467,8 +467,8 @@ func (o FaqOutput) S3Path() FaqS3PathOutput {
 }
 
 // The status of the FAQ. It is ready to use when the status is ACTIVE.
-func (o FaqOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o FaqOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -484,8 +484,8 @@ func (o FaqOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The date and time that the FAQ was last updated.
-func (o FaqOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o FaqOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 type FaqArrayOutput struct{ *pulumi.OutputState }

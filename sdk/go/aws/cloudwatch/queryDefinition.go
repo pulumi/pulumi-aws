@@ -61,7 +61,7 @@ type QueryDefinition struct {
 	// The name of the query.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The query definition ID.
-	QueryDefinitionId pulumi.StringOutput `pulumi:"queryDefinitionId"`
+	QueryDefinitionId pulumi.StringPtrOutput `pulumi:"queryDefinitionId"`
 	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
 }
@@ -241,8 +241,8 @@ func (o QueryDefinitionOutput) Name() pulumi.StringOutput {
 }
 
 // The query definition ID.
-func (o QueryDefinitionOutput) QueryDefinitionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.QueryDefinitionId }).(pulumi.StringOutput)
+func (o QueryDefinitionOutput) QueryDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueryDefinition) pulumi.StringPtrOutput { return v.QueryDefinitionId }).(pulumi.StringPtrOutput)
 }
 
 // The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).

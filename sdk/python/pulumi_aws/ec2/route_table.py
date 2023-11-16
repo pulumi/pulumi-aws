@@ -539,7 +539,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the route table.
         """
@@ -547,7 +547,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that owns the route table.
         """
@@ -555,7 +555,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propagatingVgws")
-    def propagating_vgws(self) -> pulumi.Output[Sequence[str]]:
+    def propagating_vgws(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of virtual gateways for propagation.
         """
@@ -563,7 +563,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Output[Sequence['outputs.RouteTableRoute']]:
+    def routes(self) -> pulumi.Output[Optional[Sequence['outputs.RouteTableRoute']]]:
         """
         A list of route objects. Their keys are documented below.
         This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.

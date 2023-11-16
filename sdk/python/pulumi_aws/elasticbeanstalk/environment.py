@@ -1053,7 +1053,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allSettings")
-    def all_settings(self) -> pulumi.Output[Sequence['outputs.EnvironmentAllSetting']]:
+    def all_settings(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentAllSetting']]]:
         """
         List of all option settings configured in this Environment. These
         are a combination of default settings and their overrides from `setting` in
@@ -1072,12 +1072,12 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoscalingGroups")
-    def autoscaling_groups(self) -> pulumi.Output[Sequence[str]]:
+    def autoscaling_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The autoscaling groups used by this Environment.
         """
@@ -1085,7 +1085,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cname(self) -> pulumi.Output[str]:
+    def cname(self) -> pulumi.Output[Optional[str]]:
         """
         Fully qualified DNS name for this Environment.
         """
@@ -1093,7 +1093,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cnamePrefix")
-    def cname_prefix(self) -> pulumi.Output[str]:
+    def cname_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Prefix to use for the fully qualified DNS name of
         the Environment.
@@ -1110,7 +1110,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointUrl")
-    def endpoint_url(self) -> pulumi.Output[str]:
+    def endpoint_url(self) -> pulumi.Output[Optional[str]]:
         """
         The URL to the Load Balancer for this Environment
         """
@@ -1118,7 +1118,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> pulumi.Output[Sequence[str]]:
+    def instances(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Instances used by this Environment.
         """
@@ -1126,7 +1126,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchConfigurations")
-    def launch_configurations(self) -> pulumi.Output[Sequence[str]]:
+    def launch_configurations(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Launch configurations in use by this Environment.
         """
@@ -1134,7 +1134,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> pulumi.Output[Sequence[str]]:
+    def load_balancers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Elastic load balancers in use by this Environment.
         """
@@ -1151,7 +1151,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformArn")
-    def platform_arn(self) -> pulumi.Output[str]:
+    def platform_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         to use in deployment
@@ -1171,7 +1171,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def queues(self) -> pulumi.Output[Sequence[str]]:
+    def queues(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         SQS queues in use by this Environment.
         """
@@ -1189,7 +1189,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="solutionStackName")
-    def solution_stack_name(self) -> pulumi.Output[str]:
+    def solution_stack_name(self) -> pulumi.Output[Optional[str]]:
         """
         A solution stack to base your environment
         off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
@@ -1235,7 +1235,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> pulumi.Output[Sequence[str]]:
+    def triggers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Autoscaling triggers in use by this Environment.
         """
@@ -1243,7 +1243,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Elastic Beanstalk Application Version
         to use in deployment.

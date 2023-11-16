@@ -48,33 +48,33 @@ export interface GetReplicationSetResult {
     /**
      * The Amazon Resouce Name (ARN) of the replication set.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The ARN of the user who created the replication set.
      */
-    readonly createdBy: string;
+    readonly createdBy?: string;
     /**
      * If `true`, the last remaining Region in a replication set can’t be deleted.
      */
-    readonly deletionProtected: boolean;
+    readonly deletionProtected?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The ARN of the user who last modified the replication set.
      */
-    readonly lastModifiedBy: string;
-    readonly regions: outputs.ssmincidents.GetReplicationSetRegion[];
+    readonly lastModifiedBy?: string;
+    readonly regions?: outputs.ssmincidents.GetReplicationSetRegion[];
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * All tags applied to the replication set.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * > **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.

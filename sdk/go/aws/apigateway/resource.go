@@ -63,7 +63,7 @@ type Resource struct {
 	// ID of the parent API resource
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
 	// Complete path for this API resource, including all parent paths.
-	Path pulumi.StringOutput `pulumi:"path"`
+	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// Last path segment of this API resource.
 	PathPart pulumi.StringOutput `pulumi:"pathPart"`
 	// ID of the associated REST API
@@ -246,8 +246,8 @@ func (o ResourceOutput) ParentId() pulumi.StringOutput {
 }
 
 // Complete path for this API resource, including all parent paths.
-func (o ResourceOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
+func (o ResourceOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Last path segment of this API resource.

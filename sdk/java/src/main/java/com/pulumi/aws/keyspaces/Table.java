@@ -86,28 +86,28 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the table.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies the read/write throughput capacity mode for the table.
      * 
      */
     @Export(name="capacitySpecification", refs={TableCapacitySpecification.class}, tree="[0]")
-    private Output<TableCapacitySpecification> capacitySpecification;
+    private Output</* @Nullable */ TableCapacitySpecification> capacitySpecification;
 
     /**
      * @return Specifies the read/write throughput capacity mode for the table.
      * 
      */
-    public Output<TableCapacitySpecification> capacitySpecification() {
-        return this.capacitySpecification;
+    public Output<Optional<TableCapacitySpecification>> capacitySpecification() {
+        return Codegen.optional(this.capacitySpecification);
     }
     /**
      * Enables client-side timestamps for the table. By default, the setting is disabled.
@@ -128,14 +128,14 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="comment", refs={TableComment.class}, tree="[0]")
-    private Output<TableComment> comment;
+    private Output</* @Nullable */ TableComment> comment;
 
     /**
      * @return A description of the table.
      * 
      */
-    public Output<TableComment> comment() {
-        return this.comment;
+    public Output<Optional<TableComment>> comment() {
+        return Codegen.optional(this.comment);
     }
     /**
      * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -156,14 +156,14 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encryptionSpecification", refs={TableEncryptionSpecification.class}, tree="[0]")
-    private Output<TableEncryptionSpecification> encryptionSpecification;
+    private Output</* @Nullable */ TableEncryptionSpecification> encryptionSpecification;
 
     /**
      * @return Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
      * 
      */
-    public Output<TableEncryptionSpecification> encryptionSpecification() {
-        return this.encryptionSpecification;
+    public Output<Optional<TableEncryptionSpecification>> encryptionSpecification() {
+        return Codegen.optional(this.encryptionSpecification);
     }
     /**
      * The name of the keyspace that the table is going to be created in.
@@ -184,14 +184,14 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="pointInTimeRecovery", refs={TablePointInTimeRecovery.class}, tree="[0]")
-    private Output<TablePointInTimeRecovery> pointInTimeRecovery;
+    private Output</* @Nullable */ TablePointInTimeRecovery> pointInTimeRecovery;
 
     /**
      * @return Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
      * 
      */
-    public Output<TablePointInTimeRecovery> pointInTimeRecovery() {
-        return this.pointInTimeRecovery;
+    public Output<Optional<TablePointInTimeRecovery>> pointInTimeRecovery() {
+        return Codegen.optional(this.pointInTimeRecovery);
     }
     /**
      * Describes the schema of the table.

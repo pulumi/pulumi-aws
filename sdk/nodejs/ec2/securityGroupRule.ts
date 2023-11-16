@@ -198,7 +198,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     /**
      * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
      */
-    public /*out*/ readonly securityGroupRuleId!: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupRuleId!: pulumi.Output<string | undefined>;
     /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      */
@@ -206,7 +206,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     /**
      * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
-    public readonly sourceSecurityGroupId!: pulumi.Output<string>;
+    public readonly sourceSecurityGroupId!: pulumi.Output<string | undefined>;
     /**
      * End port (or ICMP code if protocol is "icmp").
      */

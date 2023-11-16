@@ -382,7 +382,7 @@ class EndpointAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedAllVpcs")
-    def allowed_all_vpcs(self) -> pulumi.Output[bool]:
+    def allowed_all_vpcs(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether all VPCs in the grantee account are allowed access to the cluster.
         """
@@ -398,7 +398,7 @@ class EndpointAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointCount")
-    def endpoint_count(self) -> pulumi.Output[int]:
+    def endpoint_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of Redshift-managed VPC endpoints created for the authorization.
         """
@@ -414,7 +414,7 @@ class EndpointAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def grantee(self) -> pulumi.Output[str]:
+    def grantee(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Web Services account ID of the grantee of the cluster.
         """
@@ -422,7 +422,7 @@ class EndpointAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def grantor(self) -> pulumi.Output[str]:
+    def grantor(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Web Services account ID of the cluster owner.
         """

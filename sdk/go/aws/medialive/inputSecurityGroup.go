@@ -61,7 +61,7 @@ type InputSecurityGroup struct {
 	pulumi.CustomResourceState
 
 	// ARN of the InputSecurityGroup.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The list of inputs currently using this InputSecurityGroup.
 	Inputs pulumi.StringArrayOutput `pulumi:"inputs"`
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -251,8 +251,8 @@ func (o InputSecurityGroupOutput) ToInputSecurityGroupOutputWithContext(ctx cont
 }
 
 // ARN of the InputSecurityGroup.
-func (o InputSecurityGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InputSecurityGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The list of inputs currently using this InputSecurityGroup.

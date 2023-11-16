@@ -147,13 +147,13 @@ type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Logging Configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
 	DestinationConfiguration LoggingConfigurationDestinationConfigurationPtrOutput `pulumi:"destinationConfiguration"`
 	// Logging Configuration name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the Logging Configuration.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -340,8 +340,8 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationOutputWithContext(ctx 
 }
 
 // ARN of the Logging Configuration.
-func (o LoggingConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LoggingConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
@@ -357,8 +357,8 @@ func (o LoggingConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // State of the Logging Configuration.
-func (o LoggingConfigurationOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o LoggingConfigurationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

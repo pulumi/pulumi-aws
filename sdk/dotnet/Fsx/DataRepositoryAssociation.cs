@@ -89,10 +89,10 @@ namespace Pulumi.Aws.Fsx
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("associationId")]
-        public Output<string> AssociationId { get; private set; } = null!;
+        public Output<string?> AssociationId { get; private set; } = null!;
 
         /// <summary>
         /// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
@@ -128,14 +128,14 @@ namespace Pulumi.Aws.Fsx
         /// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
         /// </summary>
         [Output("importedFileChunkSize")]
-        public Output<int> ImportedFileChunkSize { get; private set; } = null!;
+        public Output<int?> ImportedFileChunkSize { get; private set; } = null!;
 
         /// <summary>
         /// See the `s3` configuration block. Max of 1.
         /// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         /// </summary>
         [Output("s3")]
-        public Output<Outputs.DataRepositoryAssociationS3> S3 { get; private set; } = null!;
+        public Output<Outputs.DataRepositoryAssociationS3?> S3 { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -79,7 +79,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> int:
+    def allocated_storage(self) -> Optional[int]:
         """
         The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         """
@@ -87,7 +87,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> bool:
+    def auto_minor_version_upgrade(self) -> Optional[bool]:
         """
         Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         """
@@ -95,7 +95,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         """
         The EC2 Availability Zone that the replication instance will be created in.
         """
@@ -103,7 +103,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> Optional[str]:
         """
         The engine version number of the replication instance.
         """
@@ -111,7 +111,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -119,7 +119,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
         """
@@ -127,7 +127,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> bool:
+    def multi_az(self) -> Optional[bool]:
         """
         Specifies if the replication instance is a multi-az deployment.
         """
@@ -135,7 +135,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> str:
+    def network_type(self) -> Optional[str]:
         """
         The type of IP address protocol used by the replication instance.
         """
@@ -143,7 +143,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> str:
+    def preferred_maintenance_window(self) -> Optional[str]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         """
@@ -151,7 +151,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> bool:
+    def publicly_accessible(self) -> Optional[bool]:
         """
         Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         """
@@ -159,7 +159,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="replicationInstanceArn")
-    def replication_instance_arn(self) -> str:
+    def replication_instance_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the replication instance.
         """
@@ -167,7 +167,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="replicationInstanceClass")
-    def replication_instance_class(self) -> str:
+    def replication_instance_class(self) -> Optional[str]:
         """
         The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
         """
@@ -180,7 +180,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="replicationInstancePrivateIps")
-    def replication_instance_private_ips(self) -> Sequence[str]:
+    def replication_instance_private_ips(self) -> Optional[Sequence[str]]:
         """
         A list of the private IP addresses of the replication instance.
         """
@@ -188,7 +188,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="replicationInstancePublicIps")
-    def replication_instance_public_ips(self) -> Sequence[str]:
+    def replication_instance_public_ips(self) -> Optional[Sequence[str]]:
         """
         A list of the public IP addresses of the replication instance.
         """
@@ -196,7 +196,7 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="replicationSubnetGroupId")
-    def replication_subnet_group_id(self) -> str:
+    def replication_subnet_group_id(self) -> Optional[str]:
         """
         A subnet group to associate with the replication instance.
         """
@@ -204,12 +204,12 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Sequence[str]:
+    def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         A set of VPC security group IDs that are used with the replication instance.
         """

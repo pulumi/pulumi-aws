@@ -76,15 +76,15 @@ type LookupDevEnvironmentResult struct {
 	CreatorId *string `pulumi:"creatorId"`
 	EnvId     string  `pulumi:"envId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Information about the integrated development environment (IDE) configured for a Dev Environment.
 	Ides []GetDevEnvironmentIde `pulumi:"ides"`
 	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-	InactivityTimeoutMinutes int `pulumi:"inactivityTimeoutMinutes"`
+	InactivityTimeoutMinutes *int `pulumi:"inactivityTimeoutMinutes"`
 	// The Amazon EC2 instace type to use for the Dev Environment.
-	InstanceType string `pulumi:"instanceType"`
+	InstanceType *string `pulumi:"instanceType"`
 	// The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
-	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Information about the amount of storage allocated to the Dev Environment.
 	PersistentStorages []GetDevEnvironmentPersistentStorage `pulumi:"persistentStorages"`
 	ProjectName        string                               `pulumi:"projectName"`
@@ -92,9 +92,9 @@ type LookupDevEnvironmentResult struct {
 	Repositories []GetDevEnvironmentRepository `pulumi:"repositories"`
 	SpaceName    string                        `pulumi:"spaceName"`
 	// The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// The reason for the status.
-	StatusReason string            `pulumi:"statusReason"`
+	StatusReason *string           `pulumi:"statusReason"`
 	Tags         map[string]string `pulumi:"tags"`
 }
 
@@ -162,8 +162,8 @@ func (o LookupDevEnvironmentResultOutput) EnvId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDevEnvironmentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDevEnvironmentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDevEnvironmentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDevEnvironmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Information about the integrated development environment (IDE) configured for a Dev Environment.
@@ -172,18 +172,18 @@ func (o LookupDevEnvironmentResultOutput) Ides() GetDevEnvironmentIdeArrayOutput
 }
 
 // The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-func (o LookupDevEnvironmentResultOutput) InactivityTimeoutMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupDevEnvironmentResult) int { return v.InactivityTimeoutMinutes }).(pulumi.IntOutput)
+func (o LookupDevEnvironmentResultOutput) InactivityTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDevEnvironmentResult) *int { return v.InactivityTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
 // The Amazon EC2 instace type to use for the Dev Environment.
-func (o LookupDevEnvironmentResultOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDevEnvironmentResult) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o LookupDevEnvironmentResultOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDevEnvironmentResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
-func (o LookupDevEnvironmentResultOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDevEnvironmentResult) string { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o LookupDevEnvironmentResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDevEnvironmentResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Information about the amount of storage allocated to the Dev Environment.
@@ -205,13 +205,13 @@ func (o LookupDevEnvironmentResultOutput) SpaceName() pulumi.StringOutput {
 }
 
 // The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
-func (o LookupDevEnvironmentResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDevEnvironmentResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupDevEnvironmentResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDevEnvironmentResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The reason for the status.
-func (o LookupDevEnvironmentResultOutput) StatusReason() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDevEnvironmentResult) string { return v.StatusReason }).(pulumi.StringOutput)
+func (o LookupDevEnvironmentResultOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDevEnvironmentResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDevEnvironmentResultOutput) Tags() pulumi.StringMapOutput {

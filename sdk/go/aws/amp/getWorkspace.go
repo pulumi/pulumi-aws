@@ -60,17 +60,17 @@ type LookupWorkspaceArgs struct {
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
 	// Prometheus workspace alias.
-	Alias string `pulumi:"alias"`
+	Alias *string `pulumi:"alias"`
 	// ARN of the Prometheus workspace.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Creation date of the Prometheus workspace.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Endpoint of the Prometheus workspace.
-	PrometheusEndpoint string `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
 	// Status of the Prometheus workspace.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Tags assigned to the resource.
 	Tags        map[string]string `pulumi:"tags"`
 	WorkspaceId string            `pulumi:"workspaceId"`
@@ -117,33 +117,33 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 }
 
 // Prometheus workspace alias.
-func (o LookupWorkspaceResultOutput) Alias() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Alias }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Prometheus workspace.
-func (o LookupWorkspaceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Creation date of the Prometheus workspace.
-func (o LookupWorkspaceResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Endpoint of the Prometheus workspace.
-func (o LookupWorkspaceResultOutput) PrometheusEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.PrometheusEndpoint }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.PrometheusEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Status of the Prometheus workspace.
-func (o LookupWorkspaceResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupWorkspaceResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Tags assigned to the resource.

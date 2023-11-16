@@ -57,18 +57,18 @@ type LookupServerlessVpcEndpointArgs struct {
 // A collection of values returned by getServerlessVpcEndpoint.
 type LookupServerlessVpcEndpointResult struct {
 	// The date the endpoint was created.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The name of the endpoint.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The IDs of the subnets from which you access OpenSearch Serverless.
 	SubnetIds     []string `pulumi:"subnetIds"`
 	VpcEndpointId string   `pulumi:"vpcEndpointId"`
 	// The ID of the VPC from which you access OpenSearch Serverless.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupServerlessVpcEndpointOutput(ctx *pulumi.Context, args LookupServerlessVpcEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessVpcEndpointResultOutput {
@@ -110,18 +110,18 @@ func (o LookupServerlessVpcEndpointResultOutput) ToLookupServerlessVpcEndpointRe
 }
 
 // The date the endpoint was created.
-func (o LookupServerlessVpcEndpointResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupServerlessVpcEndpointResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupServerlessVpcEndpointResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServerlessVpcEndpointResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The name of the endpoint.
-func (o LookupServerlessVpcEndpointResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupServerlessVpcEndpointResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
@@ -139,8 +139,8 @@ func (o LookupServerlessVpcEndpointResultOutput) VpcEndpointId() pulumi.StringOu
 }
 
 // The ID of the VPC from which you access OpenSearch Serverless.
-func (o LookupServerlessVpcEndpointResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupServerlessVpcEndpointResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

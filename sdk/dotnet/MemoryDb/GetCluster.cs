@@ -128,48 +128,48 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// Name of the Access Control List associated with the cluster.
         /// </summary>
-        public readonly string AclName;
+        public readonly string? AclName;
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// True when the cluster allows automatic minor version upgrades.
         /// </summary>
-        public readonly bool AutoMinorVersionUpgrade;
+        public readonly bool? AutoMinorVersionUpgrade;
         public readonly ImmutableArray<Outputs.GetClusterClusterEndpointResult> ClusterEndpoints;
         /// <summary>
         /// True when data tiering is enabled.
         /// </summary>
-        public readonly bool DataTiering;
+        public readonly bool? DataTiering;
         /// <summary>
         /// Description for the cluster.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Patch version number of the Redis engine used by the cluster.
         /// </summary>
-        public readonly string EnginePatchVersion;
+        public readonly string? EnginePatchVersion;
         /// <summary>
         /// Version number of the Redis engine used by the cluster.
         /// </summary>
-        public readonly string EngineVersion;
+        public readonly string? EngineVersion;
         /// <summary>
         /// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         /// </summary>
-        public readonly string FinalSnapshotName;
+        public readonly string? FinalSnapshotName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the KMS key used to encrypt the cluster at rest.
         /// </summary>
-        public readonly string KmsKeyArn;
+        public readonly string? KmsKeyArn;
         /// <summary>
         /// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
         /// </summary>
-        public readonly string MaintenanceWindow;
+        public readonly string? MaintenanceWindow;
         /// <summary>
         /// Name of this node.
         /// </summary>
@@ -177,23 +177,23 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// Compute and memory capacity of the nodes in the cluster.
         /// </summary>
-        public readonly string NodeType;
+        public readonly string? NodeType;
         /// <summary>
         /// The number of replicas to apply to each shard.
         /// </summary>
-        public readonly int NumReplicasPerShard;
+        public readonly int? NumReplicasPerShard;
         /// <summary>
         /// Number of shards in the cluster.
         /// </summary>
-        public readonly int NumShards;
+        public readonly int? NumShards;
         /// <summary>
         /// The name of the parameter group associated with the cluster.
         /// </summary>
-        public readonly string ParameterGroupName;
+        public readonly string? ParameterGroupName;
         /// <summary>
         /// Port number that this node is listening on.
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
         /// Set of VPC Security Group ID-s associated with this cluster.
         /// </summary>
@@ -205,81 +205,81 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
         /// </summary>
-        public readonly int SnapshotRetentionLimit;
+        public readonly int? SnapshotRetentionLimit;
         /// <summary>
         /// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         /// </summary>
-        public readonly string SnapshotWindow;
+        public readonly string? SnapshotWindow;
         /// <summary>
         /// ARN of the SNS topic to which cluster notifications are sent.
         /// </summary>
-        public readonly string SnsTopicArn;
+        public readonly string? SnsTopicArn;
         /// <summary>
         /// The name of the subnet group used for the cluster.
         /// </summary>
-        public readonly string SubnetGroupName;
+        public readonly string? SubnetGroupName;
         /// <summary>
         /// Map of tags assigned to the cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// When true, in-transit encryption is enabled for the cluster.
         /// </summary>
-        public readonly bool TlsEnabled;
+        public readonly bool? TlsEnabled;
 
         [OutputConstructor]
         private GetClusterResult(
-            string aclName,
+            string? aclName,
 
-            string arn,
+            string? arn,
 
-            bool autoMinorVersionUpgrade,
+            bool? autoMinorVersionUpgrade,
 
             ImmutableArray<Outputs.GetClusterClusterEndpointResult> clusterEndpoints,
 
-            bool dataTiering,
+            bool? dataTiering,
 
-            string description,
+            string? description,
 
-            string enginePatchVersion,
+            string? enginePatchVersion,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string finalSnapshotName,
+            string? finalSnapshotName,
 
-            string id,
+            string? id,
 
-            string kmsKeyArn,
+            string? kmsKeyArn,
 
-            string maintenanceWindow,
+            string? maintenanceWindow,
 
             string name,
 
-            string nodeType,
+            string? nodeType,
 
-            int numReplicasPerShard,
+            int? numReplicasPerShard,
 
-            int numShards,
+            int? numShards,
 
-            string parameterGroupName,
+            string? parameterGroupName,
 
-            int port,
+            int? port,
 
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<Outputs.GetClusterShardResult> shards,
 
-            int snapshotRetentionLimit,
+            int? snapshotRetentionLimit,
 
-            string snapshotWindow,
+            string? snapshotWindow,
 
-            string snsTopicArn,
+            string? snsTopicArn,
 
-            string subnetGroupName,
+            string? subnetGroupName,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            bool tlsEnabled)
+            bool? tlsEnabled)
         {
             AclName = aclName;
             Arn = arn;

@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponsePlanIncidentTemplate {
@@ -17,75 +19,75 @@ public final class GetResponsePlanIncidentTemplate {
      * @return A string used to stop Incident Manager from creating multiple incident records for the same incident.
      * 
      */
-    private String dedupeString;
+    private @Nullable String dedupeString;
     /**
      * @return The impact value of a generated incident. The following values are supported:
      * 
      */
-    private Integer impact;
+    private @Nullable Integer impact;
     /**
      * @return The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
      * 
      */
-    private Map<String,String> incidentTags;
+    private @Nullable Map<String,String> incidentTags;
     /**
      * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
      * 
      */
-    private List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets;
+    private @Nullable List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets;
     /**
      * @return The summary of an incident.
      * 
      */
-    private String summary;
+    private @Nullable String summary;
     /**
      * @return The title of a generated incident.
      * 
      */
-    private String title;
+    private @Nullable String title;
 
     private GetResponsePlanIncidentTemplate() {}
     /**
      * @return A string used to stop Incident Manager from creating multiple incident records for the same incident.
      * 
      */
-    public String dedupeString() {
-        return this.dedupeString;
+    public Optional<String> dedupeString() {
+        return Optional.ofNullable(this.dedupeString);
     }
     /**
      * @return The impact value of a generated incident. The following values are supported:
      * 
      */
-    public Integer impact() {
-        return this.impact;
+    public Optional<Integer> impact() {
+        return Optional.ofNullable(this.impact);
     }
     /**
      * @return The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
      * 
      */
     public Map<String,String> incidentTags() {
-        return this.incidentTags;
+        return this.incidentTags == null ? Map.of() : this.incidentTags;
     }
     /**
      * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
      * 
      */
     public List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets() {
-        return this.notificationTargets;
+        return this.notificationTargets == null ? List.of() : this.notificationTargets;
     }
     /**
      * @return The summary of an incident.
      * 
      */
-    public String summary() {
-        return this.summary;
+    public Optional<String> summary() {
+        return Optional.ofNullable(this.summary);
     }
     /**
      * @return The title of a generated incident.
      * 
      */
-    public String title() {
-        return this.title;
+    public Optional<String> title() {
+        return Optional.ofNullable(this.title);
     }
 
     public static Builder builder() {
@@ -97,12 +99,12 @@ public final class GetResponsePlanIncidentTemplate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dedupeString;
-        private Integer impact;
-        private Map<String,String> incidentTags;
-        private List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets;
-        private String summary;
-        private String title;
+        private @Nullable String dedupeString;
+        private @Nullable Integer impact;
+        private @Nullable Map<String,String> incidentTags;
+        private @Nullable List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets;
+        private @Nullable String summary;
+        private @Nullable String title;
         public Builder() {}
         public Builder(GetResponsePlanIncidentTemplate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -115,36 +117,36 @@ public final class GetResponsePlanIncidentTemplate {
         }
 
         @CustomType.Setter
-        public Builder dedupeString(String dedupeString) {
-            this.dedupeString = Objects.requireNonNull(dedupeString);
+        public Builder dedupeString(@Nullable String dedupeString) {
+            this.dedupeString = dedupeString;
             return this;
         }
         @CustomType.Setter
-        public Builder impact(Integer impact) {
-            this.impact = Objects.requireNonNull(impact);
+        public Builder impact(@Nullable Integer impact) {
+            this.impact = impact;
             return this;
         }
         @CustomType.Setter
-        public Builder incidentTags(Map<String,String> incidentTags) {
-            this.incidentTags = Objects.requireNonNull(incidentTags);
+        public Builder incidentTags(@Nullable Map<String,String> incidentTags) {
+            this.incidentTags = incidentTags;
             return this;
         }
         @CustomType.Setter
-        public Builder notificationTargets(List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets) {
-            this.notificationTargets = Objects.requireNonNull(notificationTargets);
+        public Builder notificationTargets(@Nullable List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets) {
+            this.notificationTargets = notificationTargets;
             return this;
         }
         public Builder notificationTargets(GetResponsePlanIncidentTemplateNotificationTarget... notificationTargets) {
             return notificationTargets(List.of(notificationTargets));
         }
         @CustomType.Setter
-        public Builder summary(String summary) {
-            this.summary = Objects.requireNonNull(summary);
+        public Builder summary(@Nullable String summary) {
+            this.summary = summary;
             return this;
         }
         @CustomType.Setter
-        public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+        public Builder title(@Nullable String title) {
+            this.title = title;
             return this;
         }
         public GetResponsePlanIncidentTemplate build() {

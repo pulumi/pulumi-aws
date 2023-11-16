@@ -82,13 +82,13 @@ namespace Pulumi.Aws.Rds
         /// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
         /// </summary>
         [Output("applyImmediately")]
-        public Output<bool> ApplyImmediately { get; private set; } = null!;
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster instance
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
@@ -100,13 +100,13 @@ namespace Pulumi.Aws.Rds
         /// EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the CA certificate for the DB instance.
         /// </summary>
         [Output("caCertIdentifier")]
-        public Output<string> CaCertIdentifier { get; private set; } = null!;
+        public Output<string?> CaCertIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the `aws.rds.Cluster` in which to launch this instance.
@@ -130,25 +130,25 @@ namespace Pulumi.Aws.Rds
         /// Name of the DB parameter group to associate with this instance.
         /// </summary>
         [Output("dbParameterGroupName")]
-        public Output<string> DbParameterGroupName { get; private set; } = null!;
+        public Output<string?> DbParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
         /// </summary>
         [Output("dbSubnetGroupName")]
-        public Output<string> DbSubnetGroupName { get; private set; } = null!;
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Region-unique, immutable identifier for the DB instance.
         /// </summary>
         [Output("dbiResourceId")]
-        public Output<string> DbiResourceId { get; private set; } = null!;
+        public Output<string?> DbiResourceId { get; private set; } = null!;
 
         /// <summary>
         /// DNS address for this instance. May not be writable
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
@@ -160,25 +160,25 @@ namespace Pulumi.Aws.Rds
         /// Database engine version.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// Database engine version
         /// </summary>
         [Output("engineVersionActual")]
-        public Output<string> EngineVersionActual { get; private set; } = null!;
+        public Output<string?> EngineVersionActual { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
         /// </summary>
         [Output("identifier")]
-        public Output<string> Identifier { get; private set; } = null!;
+        public Output<string?> Identifier { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Output("identifierPrefix")]
-        public Output<string> IdentifierPrefix { get; private set; } = null!;
+        public Output<string?> IdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
         /// Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Rds
         /// ARN for the KMS encryption key if one is set to the cluster.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
@@ -202,49 +202,49 @@ namespace Pulumi.Aws.Rds
         /// ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         /// </summary>
         [Output("monitoringRoleArn")]
-        public Output<string> MonitoringRoleArn { get; private set; } = null!;
+        public Output<string?> MonitoringRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// Network type of the DB instance.
         /// </summary>
         [Output("networkType")]
-        public Output<string> NetworkType { get; private set; } = null!;
+        public Output<string?> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether Performance Insights is enabled or not.
         /// </summary>
         [Output("performanceInsightsEnabled")]
-        public Output<bool> PerformanceInsightsEnabled { get; private set; } = null!;
+        public Output<bool?> PerformanceInsightsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         /// </summary>
         [Output("performanceInsightsKmsKeyId")]
-        public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
+        public Output<string?> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Output("performanceInsightsRetentionPeriod")]
-        public Output<int> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
+        public Output<int?> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
         /// Database port
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         /// </summary>
         [Output("preferredBackupWindow")]
-        public Output<string> PreferredBackupWindow { get; private set; } = null!;
+        public Output<string?> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         /// </summary>
         [Output("preferredMaintenanceWindow")]
-        public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+        public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Rds
         /// Specifies whether the DB cluster is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
-        public Output<bool> StorageEncrypted { get; private set; } = null!;
+        public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Rds
         /// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         /// </summary>
         [Output("writer")]
-        public Output<bool> Writer { get; private set; } = null!;
+        public Output<bool?> Writer { get; private set; } = null!;
 
 
         /// <summary>

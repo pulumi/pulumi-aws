@@ -132,14 +132,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the created WorkLink Fleet.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `&#34;AmazonWorkLink-&#34;`.
@@ -160,28 +160,28 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="companyCode", refs={String.class}, tree="[0]")
-    private Output<String> companyCode;
+    private Output</* @Nullable */ String> companyCode;
 
     /**
      * @return The identifier used by users to sign in to the Amazon WorkLink app.
      * 
      */
-    public Output<String> companyCode() {
-        return this.companyCode;
+    public Output<Optional<String>> companyCode() {
+        return Codegen.optional(this.companyCode);
     }
     /**
      * The time that the fleet was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return The time that the fleet was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
@@ -230,14 +230,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
+    private Output</* @Nullable */ String> lastUpdatedTime;
 
     /**
      * @return The time that the fleet was last updated.
      * 
      */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Output<Optional<String>> lastUpdatedTime() {
+        return Codegen.optional(this.lastUpdatedTime);
     }
     /**
      * A region-unique name for the AMI.

@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecGrpcRouteActionTargetVirtualService {
-    private String virtualServiceName;
+    private @Nullable String virtualServiceName;
 
     private GetGatewayRouteSpecGrpcRouteActionTargetVirtualService() {}
-    public String virtualServiceName() {
-        return this.virtualServiceName;
+    public Optional<String> virtualServiceName() {
+        return Optional.ofNullable(this.virtualServiceName);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetGatewayRouteSpecGrpcRouteActionTargetVirtualService {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String virtualServiceName;
+        private @Nullable String virtualServiceName;
         public Builder() {}
         public Builder(GetGatewayRouteSpecGrpcRouteActionTargetVirtualService defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetGatewayRouteSpecGrpcRouteActionTargetVirtualService {
         }
 
         @CustomType.Setter
-        public Builder virtualServiceName(String virtualServiceName) {
-            this.virtualServiceName = Objects.requireNonNull(virtualServiceName);
+        public Builder virtualServiceName(@Nullable String virtualServiceName) {
+            this.virtualServiceName = virtualServiceName;
             return this;
         }
         public GetGatewayRouteSpecGrpcRouteActionTargetVirtualService build() {

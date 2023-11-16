@@ -693,7 +693,7 @@ class ImageRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         (Required) Amazon Resource Name (ARN) of the image recipe.
         """
@@ -717,7 +717,7 @@ class ImageRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> pulumi.Output[str]:
+    def date_created(self) -> pulumi.Output[Optional[str]]:
         """
         Date the image recipe was created.
         """
@@ -741,7 +741,7 @@ class ImageRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         Owner of the image recipe.
         """
@@ -757,7 +757,7 @@ class ImageRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output[str]:
+    def platform(self) -> pulumi.Output[Optional[str]]:
         """
         Platform of the image recipe.
         """
@@ -765,7 +765,7 @@ class ImageRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemsManagerAgent")
-    def systems_manager_agent(self) -> pulumi.Output['outputs.ImageRecipeSystemsManagerAgent']:
+    def systems_manager_agent(self) -> pulumi.Output[Optional['outputs.ImageRecipeSystemsManagerAgent']]:
         """
         Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         """
@@ -792,7 +792,7 @@ class ImageRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDataBase64")
-    def user_data_base64(self) -> pulumi.Output[str]:
+    def user_data_base64(self) -> pulumi.Output[Optional[str]]:
         """
         Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         """

@@ -57,11 +57,11 @@ export interface GetSecurityGroupRulesArgs {
  */
 export interface GetSecurityGroupRulesResult {
     readonly filters?: outputs.vpc.GetSecurityGroupRulesFilter[];
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of all the security group rule IDs found.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly tags?: {[key: string]: string};
 }
 /**

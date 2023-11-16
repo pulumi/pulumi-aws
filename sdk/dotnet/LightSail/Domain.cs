@@ -43,7 +43,7 @@ namespace Pulumi.Aws.LightSail
         /// The ARN of the Lightsail domain
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Lightsail domain to manage

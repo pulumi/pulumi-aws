@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Iot
         /// The ARN of the created AWS IoT Thing Type.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether the thing type is deprecated. If true, no new things could be associated with this type.

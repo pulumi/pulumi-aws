@@ -115,14 +115,14 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the route table.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ID of the default route table.
@@ -147,14 +147,14 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return ID of the AWS account that owns the route table.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * List of virtual gateways for propagation.
@@ -175,14 +175,14 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="routes", refs={List.class,DefaultRouteTableRoute.class}, tree="[0,1]")
-    private Output<List<DefaultRouteTableRoute>> routes;
+    private Output</* @Nullable */ List<DefaultRouteTableRoute>> routes;
 
     /**
      * @return Set of objects. Detailed below
      * 
      */
-    public Output<List<DefaultRouteTableRoute>> routes() {
-        return this.routes;
+    public Output<Optional<List<DefaultRouteTableRoute>>> routes() {
+        return Codegen.optional(this.routes);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -221,14 +221,14 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return ID of the VPC.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

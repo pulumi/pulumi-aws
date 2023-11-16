@@ -84,28 +84,28 @@ public class View extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Resource Explorer view.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
      * 
      */
     @Export(name="defaultView", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> defaultView;
+    private Output</* @Nullable */ Boolean> defaultView;
 
     /**
      * @return Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
      * 
      */
-    public Output<Boolean> defaultView() {
-        return this.defaultView;
+    public Output<Optional<Boolean>> defaultView() {
+        return Codegen.optional(this.defaultView);
     }
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.

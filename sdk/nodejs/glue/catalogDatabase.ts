@@ -74,15 +74,15 @@ export class CatalogDatabase extends pulumi.CustomResource {
     /**
      * ARN of the Glue Catalog Database.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string | undefined>;
     /**
      * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
      */
-    public readonly createTableDefaultPermissions!: pulumi.Output<outputs.glue.CatalogDatabaseCreateTableDefaultPermission[]>;
+    public readonly createTableDefaultPermissions!: pulumi.Output<outputs.glue.CatalogDatabaseCreateTableDefaultPermission[] | undefined>;
     /**
      * Description of the database.
      */
@@ -90,7 +90,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
     /**
      * Location of the database (for example, an HDFS path).
      */
-    public readonly locationUri!: pulumi.Output<string>;
+    public readonly locationUri!: pulumi.Output<string | undefined>;
     /**
      * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */

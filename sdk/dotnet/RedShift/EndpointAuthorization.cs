@@ -52,7 +52,7 @@ namespace Pulumi.Aws.RedShift
         /// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
         /// </summary>
         [Output("allowedAllVpcs")]
-        public Output<bool> AllowedAllVpcs { get; private set; } = null!;
+        public Output<bool?> AllowedAllVpcs { get; private set; } = null!;
 
         /// <summary>
         /// The cluster identifier of the cluster to grant access to.
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.RedShift
         /// The number of Redshift-managed VPC endpoints created for the authorization.
         /// </summary>
         [Output("endpointCount")]
-        public Output<int> EndpointCount { get; private set; } = null!;
+        public Output<int?> EndpointCount { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
@@ -76,13 +76,13 @@ namespace Pulumi.Aws.RedShift
         /// The Amazon Web Services account ID of the grantee of the cluster.
         /// </summary>
         [Output("grantee")]
-        public Output<string> Grantee { get; private set; } = null!;
+        public Output<string?> Grantee { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Web Services account ID of the cluster owner.
         /// </summary>
         [Output("grantor")]
-        public Output<string> Grantor { get; private set; } = null!;
+        public Output<string?> Grantor { get; private set; } = null!;
 
         /// <summary>
         /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.

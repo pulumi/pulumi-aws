@@ -49,16 +49,16 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the AWS account that owns the EC2 TGW peering.
         /// </summary>
         [Output("peerAccountId")]
-        public Output<string> PeerAccountId { get; private set; } = null!;
+        public Output<string?> PeerAccountId { get; private set; } = null!;
 
         [Output("peerRegion")]
-        public Output<string> PeerRegion { get; private set; } = null!;
+        public Output<string?> PeerRegion { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway to peer with.
         /// </summary>
         [Output("peerTransitGatewayId")]
-        public Output<string> PeerTransitGatewayId { get; private set; } = null!;
+        public Output<string?> PeerTransitGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
         [Output("transitGatewayId")]
-        public Output<string> TransitGatewayId { get; private set; } = null!;
+        public Output<string?> TransitGatewayId { get; private set; } = null!;
 
 
         /// <summary>

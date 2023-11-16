@@ -113,7 +113,7 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetEnvironmentsResult(
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.AppConfig
 
             ImmutableArray<string> environmentIds,
 
-            string id)
+            string? id)
         {
             ApplicationId = applicationId;
             EnvironmentIds = environmentIds;

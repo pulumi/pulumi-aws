@@ -16,10 +16,10 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Enabled or disabled.
         /// </summary>
-        public readonly bool AutoSoftwareUpdateEnabled;
+        public readonly bool? AutoSoftwareUpdateEnabled;
 
         [OutputConstructor]
-        private GetDomainSoftwareUpdateOptionResult(bool autoSoftwareUpdateEnabled)
+        private GetDomainSoftwareUpdateOptionResult(bool? autoSoftwareUpdateEnabled)
         {
             AutoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
         }

@@ -6,22 +6,24 @@ package com.pulumi.aws.mq.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBrokerMaintenanceWindowStartTime {
-    private String dayOfWeek;
-    private String timeOfDay;
-    private String timeZone;
+    private @Nullable String dayOfWeek;
+    private @Nullable String timeOfDay;
+    private @Nullable String timeZone;
 
     private GetBrokerMaintenanceWindowStartTime() {}
-    public String dayOfWeek() {
-        return this.dayOfWeek;
+    public Optional<String> dayOfWeek() {
+        return Optional.ofNullable(this.dayOfWeek);
     }
-    public String timeOfDay() {
-        return this.timeOfDay;
+    public Optional<String> timeOfDay() {
+        return Optional.ofNullable(this.timeOfDay);
     }
-    public String timeZone() {
-        return this.timeZone;
+    public Optional<String> timeZone() {
+        return Optional.ofNullable(this.timeZone);
     }
 
     public static Builder builder() {
@@ -33,9 +35,9 @@ public final class GetBrokerMaintenanceWindowStartTime {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dayOfWeek;
-        private String timeOfDay;
-        private String timeZone;
+        private @Nullable String dayOfWeek;
+        private @Nullable String timeOfDay;
+        private @Nullable String timeZone;
         public Builder() {}
         public Builder(GetBrokerMaintenanceWindowStartTime defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,18 +47,18 @@ public final class GetBrokerMaintenanceWindowStartTime {
         }
 
         @CustomType.Setter
-        public Builder dayOfWeek(String dayOfWeek) {
-            this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
+        public Builder dayOfWeek(@Nullable String dayOfWeek) {
+            this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
-        public Builder timeOfDay(String timeOfDay) {
-            this.timeOfDay = Objects.requireNonNull(timeOfDay);
+        public Builder timeOfDay(@Nullable String timeOfDay) {
+            this.timeOfDay = timeOfDay;
             return this;
         }
         @CustomType.Setter
-        public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+        public Builder timeZone(@Nullable String timeZone) {
+            this.timeZone = timeZone;
             return this;
         }
         public GetBrokerMaintenanceWindowStartTime build() {

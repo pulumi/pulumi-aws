@@ -93,23 +93,23 @@ type LookupQueueArgs struct {
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
 	// ARN of the Queue.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the Queue.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Specifies the identifier of the Hours of Operation.
-	HoursOfOperationId string `pulumi:"hoursOfOperationId"`
+	HoursOfOperationId *string `pulumi:"hoursOfOperationId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
+	Id         *string `pulumi:"id"`
+	InstanceId string  `pulumi:"instanceId"`
 	// Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-	MaxContacts int    `pulumi:"maxContacts"`
-	Name        string `pulumi:"name"`
+	MaxContacts *int    `pulumi:"maxContacts"`
+	Name        *string `pulumi:"name"`
 	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
 	OutboundCallerConfigs []GetQueueOutboundCallerConfig `pulumi:"outboundCallerConfigs"`
 	// Identifier for the Queue.
-	QueueId string `pulumi:"queueId"`
+	QueueId *string `pulumi:"queueId"`
 	// Description of the Queue. Values are `ENABLED` or `DISABLED`.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Map of tags assigned to the Queue.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -159,23 +159,23 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 }
 
 // ARN of the Queue.
-func (o LookupQueueResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Queue.
-func (o LookupQueueResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identifier of the Hours of Operation.
-func (o LookupQueueResultOutput) HoursOfOperationId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.HoursOfOperationId }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) HoursOfOperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.HoursOfOperationId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupQueueResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupQueueResultOutput) InstanceId() pulumi.StringOutput {
@@ -183,12 +183,12 @@ func (o LookupQueueResultOutput) InstanceId() pulumi.StringOutput {
 }
 
 // Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-func (o LookupQueueResultOutput) MaxContacts() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupQueueResult) int { return v.MaxContacts }).(pulumi.IntOutput)
+func (o LookupQueueResultOutput) MaxContacts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *int { return v.MaxContacts }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
@@ -197,13 +197,13 @@ func (o LookupQueueResultOutput) OutboundCallerConfigs() GetQueueOutboundCallerC
 }
 
 // Identifier for the Queue.
-func (o LookupQueueResultOutput) QueueId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.QueueId }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) QueueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.QueueId }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Queue. Values are `ENABLED` or `DISABLED`.
-func (o LookupQueueResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the Queue.

@@ -192,42 +192,42 @@ public class RestApi extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="apiKeySource", refs={String.class}, tree="[0]")
-    private Output<String> apiKeySource;
+    private Output</* @Nullable */ String> apiKeySource;
 
     /**
      * @return Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    public Output<String> apiKeySource() {
-        return this.apiKeySource;
+    public Output<Optional<String>> apiKeySource() {
+        return Codegen.optional(this.apiKeySource);
     }
     /**
      * ARN
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     @Export(name="binaryMediaTypes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> binaryMediaTypes;
+    private Output</* @Nullable */ List<String>> binaryMediaTypes;
 
     /**
      * @return List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    public Output<List<String>> binaryMediaTypes() {
-        return this.binaryMediaTypes;
+    public Output<Optional<List<String>>> binaryMediaTypes() {
+        return Codegen.optional(this.binaryMediaTypes);
     }
     /**
      * OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `aws.apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -248,56 +248,56 @@ public class RestApi extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
-    private Output<String> createdDate;
+    private Output</* @Nullable */ String> createdDate;
 
     /**
      * @return Creation date of the REST API
      * 
      */
-    public Output<String> createdDate() {
-        return this.createdDate;
+    public Output<Optional<String>> createdDate() {
+        return Codegen.optional(this.createdDate);
     }
     /**
      * Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     @Export(name="disableExecuteApiEndpoint", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> disableExecuteApiEndpoint;
+    private Output</* @Nullable */ Boolean> disableExecuteApiEndpoint;
 
     /**
      * @return Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    public Output<Boolean> disableExecuteApiEndpoint() {
-        return this.disableExecuteApiEndpoint;
+    public Output<Optional<Boolean>> disableExecuteApiEndpoint() {
+        return Codegen.optional(this.disableExecuteApiEndpoint);
     }
     /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      * 
      */
     @Export(name="endpointConfiguration", refs={RestApiEndpointConfiguration.class}, tree="[0]")
-    private Output<RestApiEndpointConfiguration> endpointConfiguration;
+    private Output</* @Nullable */ RestApiEndpointConfiguration> endpointConfiguration;
 
     /**
      * @return Configuration block defining API endpoint configuration including endpoint type. Defined below.
      * 
      */
-    public Output<RestApiEndpointConfiguration> endpointConfiguration() {
-        return this.endpointConfiguration;
+    public Output<Optional<RestApiEndpointConfiguration>> endpointConfiguration() {
+        return Codegen.optional(this.endpointConfiguration);
     }
     /**
      * Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
@@ -306,7 +306,7 @@ public class RestApi extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="executionArn", refs={String.class}, tree="[0]")
-    private Output<String> executionArn;
+    private Output</* @Nullable */ String> executionArn;
 
     /**
      * @return Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
@@ -314,8 +314,8 @@ public class RestApi extends com.pulumi.resources.CustomResource {
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
      */
-    public Output<String> executionArn() {
-        return this.executionArn;
+    public Output<Optional<String>> executionArn() {
+        return Codegen.optional(this.executionArn);
     }
     /**
      * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
@@ -336,14 +336,14 @@ public class RestApi extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="minimumCompressionSize", refs={String.class}, tree="[0]")
-    private Output<String> minimumCompressionSize;
+    private Output</* @Nullable */ String> minimumCompressionSize;
 
     /**
      * @return Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    public Output<String> minimumCompressionSize() {
-        return this.minimumCompressionSize;
+    public Output<Optional<String>> minimumCompressionSize() {
+        return Codegen.optional(this.minimumCompressionSize);
     }
     /**
      * Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -378,14 +378,14 @@ public class RestApi extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -406,14 +406,14 @@ public class RestApi extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="rootResourceId", refs={String.class}, tree="[0]")
-    private Output<String> rootResourceId;
+    private Output</* @Nullable */ String> rootResourceId;
 
     /**
      * @return Resource ID of the REST API&#39;s root
      * 
      */
-    public Output<String> rootResourceId() {
-        return this.rootResourceId;
+    public Output<Optional<String>> rootResourceId() {
+        return Codegen.optional(this.rootResourceId);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

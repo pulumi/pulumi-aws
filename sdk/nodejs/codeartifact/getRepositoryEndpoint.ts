@@ -58,17 +58,17 @@ export interface GetRepositoryEndpointArgs {
  */
 export interface GetRepositoryEndpointResult {
     readonly domain: string;
-    readonly domainOwner: string;
+    readonly domainOwner?: string;
     readonly format: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly repository: string;
     /**
      * URL of the returned endpoint.
      */
-    readonly repositoryEndpoint: string;
+    readonly repositoryEndpoint?: string;
 }
 /**
  * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.

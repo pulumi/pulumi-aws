@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// <summary>
         /// The key for the filter.
         /// </summary>
-        public readonly string Key;
+        public readonly string? Key;
         /// <summary>
         /// The value for the filter.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ssm.Outputs
 
         [OutputConstructor]
         private GetPatchBaselineGlobalFilterResult(
-            string key,
+            string? key,
 
             ImmutableArray<string> values)
         {

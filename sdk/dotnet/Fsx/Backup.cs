@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Fsx
         /// Amazon Resource Name of the backup.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
@@ -153,13 +153,13 @@ namespace Pulumi.Aws.Fsx
         /// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Fsx
         /// The type of the file system backup.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the volume to back up. Required if backing up a ONTAP Volume.

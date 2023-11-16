@@ -378,7 +378,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Domain.
         """
@@ -386,7 +386,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assetSizeBytes")
-    def asset_size_bytes(self) -> pulumi.Output[str]:
+    def asset_size_bytes(self) -> pulumi.Output[Optional[str]]:
         """
         The total size of all assets in the domain.
         """
@@ -394,7 +394,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -410,7 +410,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> pulumi.Output[str]:
+    def encryption_key(self) -> pulumi.Output[Optional[str]]:
         """
         The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         """
@@ -418,7 +418,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID that owns the domain.
         """
@@ -426,7 +426,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repositoryCount")
-    def repository_count(self) -> pulumi.Output[int]:
+    def repository_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of repositories in the domain.
         """

@@ -8,22 +8,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapSource {
-    private String dataSetArn;
-    private List<GetDataSetLogicalTableMapSourceJoinInstruction> joinInstructions;
-    private String physicalTableId;
+    private @Nullable String dataSetArn;
+    private @Nullable List<GetDataSetLogicalTableMapSourceJoinInstruction> joinInstructions;
+    private @Nullable String physicalTableId;
 
     private GetDataSetLogicalTableMapSource() {}
-    public String dataSetArn() {
-        return this.dataSetArn;
+    public Optional<String> dataSetArn() {
+        return Optional.ofNullable(this.dataSetArn);
     }
     public List<GetDataSetLogicalTableMapSourceJoinInstruction> joinInstructions() {
-        return this.joinInstructions;
+        return this.joinInstructions == null ? List.of() : this.joinInstructions;
     }
-    public String physicalTableId() {
-        return this.physicalTableId;
+    public Optional<String> physicalTableId() {
+        return Optional.ofNullable(this.physicalTableId);
     }
 
     public static Builder builder() {
@@ -35,9 +37,9 @@ public final class GetDataSetLogicalTableMapSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dataSetArn;
-        private List<GetDataSetLogicalTableMapSourceJoinInstruction> joinInstructions;
-        private String physicalTableId;
+        private @Nullable String dataSetArn;
+        private @Nullable List<GetDataSetLogicalTableMapSourceJoinInstruction> joinInstructions;
+        private @Nullable String physicalTableId;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapSource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -47,21 +49,21 @@ public final class GetDataSetLogicalTableMapSource {
         }
 
         @CustomType.Setter
-        public Builder dataSetArn(String dataSetArn) {
-            this.dataSetArn = Objects.requireNonNull(dataSetArn);
+        public Builder dataSetArn(@Nullable String dataSetArn) {
+            this.dataSetArn = dataSetArn;
             return this;
         }
         @CustomType.Setter
-        public Builder joinInstructions(List<GetDataSetLogicalTableMapSourceJoinInstruction> joinInstructions) {
-            this.joinInstructions = Objects.requireNonNull(joinInstructions);
+        public Builder joinInstructions(@Nullable List<GetDataSetLogicalTableMapSourceJoinInstruction> joinInstructions) {
+            this.joinInstructions = joinInstructions;
             return this;
         }
         public Builder joinInstructions(GetDataSetLogicalTableMapSourceJoinInstruction... joinInstructions) {
             return joinInstructions(List.of(joinInstructions));
         }
         @CustomType.Setter
-        public Builder physicalTableId(String physicalTableId) {
-            this.physicalTableId = Objects.requireNonNull(physicalTableId);
+        public Builder physicalTableId(@Nullable String physicalTableId) {
+            this.physicalTableId = physicalTableId;
             return this;
         }
         public GetDataSetLogicalTableMapSource build() {

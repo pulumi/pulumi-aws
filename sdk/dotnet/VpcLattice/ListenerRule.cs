@@ -138,7 +138,7 @@ namespace Pulumi.Aws.VpcLattice
         /// The ARN for the listener rule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the listener.
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.VpcLattice
         /// Unique identifier for the listener rule.
         /// </summary>
         [Output("ruleId")]
-        public Output<string> RuleId { get; private set; } = null!;
+        public Output<string?> RuleId { get; private set; } = null!;
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.

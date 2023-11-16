@@ -35,7 +35,7 @@ class GetDelegatedAdministratorsResult:
 
     @property
     @pulumi.getter(name="delegatedAdministrators")
-    def delegated_administrators(self) -> Sequence['outputs.GetDelegatedAdministratorsDelegatedAdministratorResult']:
+    def delegated_administrators(self) -> Optional[Sequence['outputs.GetDelegatedAdministratorsDelegatedAdministratorResult']]:
         """
         The list of delegated administrators in your organization, which have the following attributes:
         """
@@ -43,7 +43,7 @@ class GetDelegatedAdministratorsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

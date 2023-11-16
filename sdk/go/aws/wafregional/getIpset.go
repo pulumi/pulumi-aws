@@ -57,8 +57,8 @@ type GetIpsetArgs struct {
 // A collection of values returned by getIpset.
 type GetIpsetResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func GetIpsetOutput(ctx *pulumi.Context, args GetIpsetOutputArgs, opts ...pulumi.InvokeOption) GetIpsetResultOutput {
@@ -100,8 +100,8 @@ func (o GetIpsetResultOutput) ToGetIpsetResultOutputWithContext(ctx context.Cont
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetIpsetResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIpsetResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetIpsetResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetIpsetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetIpsetResultOutput) Name() pulumi.StringOutput {

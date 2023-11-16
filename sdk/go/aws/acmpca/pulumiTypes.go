@@ -1355,11 +1355,11 @@ func (o GetCertificateAuthorityRevocationConfigurationArrayOutput) Index(i pulum
 }
 
 type GetCertificateAuthorityRevocationConfigurationCrlConfiguration struct {
-	CustomCname      string `pulumi:"customCname"`
-	Enabled          bool   `pulumi:"enabled"`
-	ExpirationInDays int    `pulumi:"expirationInDays"`
-	S3BucketName     string `pulumi:"s3BucketName"`
-	S3ObjectAcl      string `pulumi:"s3ObjectAcl"`
+	CustomCname      *string `pulumi:"customCname"`
+	Enabled          *bool   `pulumi:"enabled"`
+	ExpirationInDays *int    `pulumi:"expirationInDays"`
+	S3BucketName     *string `pulumi:"s3BucketName"`
+	S3ObjectAcl      *string `pulumi:"s3ObjectAcl"`
 }
 
 // GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs and GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput values.
@@ -1374,11 +1374,11 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput interfa
 }
 
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
-	CustomCname      pulumi.StringInput `pulumi:"customCname"`
-	Enabled          pulumi.BoolInput   `pulumi:"enabled"`
-	ExpirationInDays pulumi.IntInput    `pulumi:"expirationInDays"`
-	S3BucketName     pulumi.StringInput `pulumi:"s3BucketName"`
-	S3ObjectAcl      pulumi.StringInput `pulumi:"s3ObjectAcl"`
+	CustomCname      pulumi.StringPtrInput `pulumi:"customCname"`
+	Enabled          pulumi.BoolPtrInput   `pulumi:"enabled"`
+	ExpirationInDays pulumi.IntPtrInput    `pulumi:"expirationInDays"`
+	S3BucketName     pulumi.StringPtrInput `pulumi:"s3BucketName"`
+	S3ObjectAcl      pulumi.StringPtrInput `pulumi:"s3ObjectAcl"`
 }
 
 func (GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ElementType() reflect.Type {
@@ -1432,24 +1432,24 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) To
 	return o
 }
 
-func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomCname() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.CustomCname }).(pulumi.StringOutput)
+func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomCname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
 
-func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ExpirationInDays() pulumi.IntOutput {
-	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
+func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ExpirationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) *int { return v.ExpirationInDays }).(pulumi.IntPtrOutput)
 }
 
-func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.S3BucketName }).(pulumi.StringOutput)
+func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3ObjectAcl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.S3ObjectAcl }).(pulumi.StringOutput)
+func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3ObjectAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3ObjectAcl }).(pulumi.StringPtrOutput)
 }
 
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -1473,8 +1473,8 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutpu
 }
 
 type GetCertificateAuthorityRevocationConfigurationOcspConfiguration struct {
-	Enabled         bool   `pulumi:"enabled"`
-	OcspCustomCname string `pulumi:"ocspCustomCname"`
+	Enabled         *bool   `pulumi:"enabled"`
+	OcspCustomCname *string `pulumi:"ocspCustomCname"`
 }
 
 // GetCertificateAuthorityRevocationConfigurationOcspConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs and GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput values.
@@ -1489,8 +1489,8 @@ type GetCertificateAuthorityRevocationConfigurationOcspConfigurationInput interf
 }
 
 type GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs struct {
-	Enabled         pulumi.BoolInput   `pulumi:"enabled"`
-	OcspCustomCname pulumi.StringInput `pulumi:"ocspCustomCname"`
+	Enabled         pulumi.BoolPtrInput   `pulumi:"enabled"`
+	OcspCustomCname pulumi.StringPtrInput `pulumi:"ocspCustomCname"`
 }
 
 func (GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ElementType() reflect.Type {
@@ -1544,14 +1544,14 @@ func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) T
 	return o
 }
 
-func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationOcspConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationOcspConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) OcspCustomCname() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationOcspConfiguration) string {
+func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) OcspCustomCname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationOcspConfiguration) *string {
 		return v.OcspCustomCname
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput struct{ *pulumi.OutputState }

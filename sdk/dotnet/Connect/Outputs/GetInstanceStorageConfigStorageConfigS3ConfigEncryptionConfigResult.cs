@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// The type of encryption. Valid Values: `KMS`.
         /// </summary>
-        public readonly string EncryptionType;
+        public readonly string? EncryptionType;
         /// <summary>
         /// The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
         /// </summary>
-        public readonly string KeyId;
+        public readonly string? KeyId;
 
         [OutputConstructor]
         private GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult(
-            string encryptionType,
+            string? encryptionType,
 
-            string keyId)
+            string? keyId)
         {
             EncryptionType = encryptionType;
             KeyId = keyId;

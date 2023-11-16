@@ -54,34 +54,34 @@ export interface GetAddonResult {
     /**
      * Version of EKS add-on.
      */
-    readonly addonVersion: string;
+    readonly addonVersion?: string;
     /**
      * ARN of the EKS add-on.
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly clusterName: string;
     /**
      * Configuration values for the addon with a single JSON string.
      */
-    readonly configurationValues: string;
+    readonly configurationValues?: string;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
-    readonly modifiedAt: string;
+    readonly modifiedAt?: string;
     /**
      * ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.
      */
-    readonly serviceAccountRoleArn: string;
-    readonly tags: {[key: string]: string};
+    readonly serviceAccountRoleArn?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Retrieve information about an EKS add-on.

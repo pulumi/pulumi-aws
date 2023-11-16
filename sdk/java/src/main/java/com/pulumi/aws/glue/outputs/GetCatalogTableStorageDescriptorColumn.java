@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorColumn {
@@ -14,51 +16,51 @@ public final class GetCatalogTableStorageDescriptorColumn {
      * @return Free-form text comment.
      * 
      */
-    private String comment;
+    private @Nullable String comment;
     /**
      * @return Name of the table.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Datatype of data in the Column.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetCatalogTableStorageDescriptorColumn() {}
     /**
      * @return Free-form text comment.
      * 
      */
-    public String comment() {
-        return this.comment;
+    public Optional<String> comment() {
+        return Optional.ofNullable(this.comment);
     }
     /**
      * @return Name of the table.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
     public Map<String,String> parameters() {
-        return this.parameters;
+        return this.parameters == null ? Map.of() : this.parameters;
     }
     /**
      * @return Datatype of data in the Column.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -70,10 +72,10 @@ public final class GetCatalogTableStorageDescriptorColumn {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String name;
-        private Map<String,String> parameters;
-        private String type;
+        private @Nullable String comment;
+        private @Nullable String name;
+        private @Nullable Map<String,String> parameters;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetCatalogTableStorageDescriptorColumn defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,23 +86,23 @@ public final class GetCatalogTableStorageDescriptorColumn {
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+        public Builder comment(@Nullable String comment) {
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable Map<String,String> parameters) {
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetCatalogTableStorageDescriptorColumn build() {

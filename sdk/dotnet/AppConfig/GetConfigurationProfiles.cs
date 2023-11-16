@@ -131,7 +131,7 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetConfigurationProfilesResult(
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.AppConfig
 
             ImmutableArray<string> configurationProfileIds,
 
-            string id)
+            string? id)
         {
             ApplicationId = applicationId;
             ConfigurationProfileIds = configurationProfileIds;

@@ -801,7 +801,7 @@ class DocumentClassifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Document Classifier version.
         """
@@ -866,7 +866,7 @@ class DocumentClassifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputDataConfig")
-    def output_data_config(self) -> pulumi.Output['outputs.DocumentClassifierOutputDataConfig']:
+    def output_data_config(self) -> pulumi.Output[Optional['outputs.DocumentClassifierOutputDataConfig']]:
         """
         Configuration for the output results of training.
         See the `output_data_config` Configuration Block section below.
@@ -894,7 +894,7 @@ class DocumentClassifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> pulumi.Output[str]:
+    def version_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name for the version of the Document Classifier.
         Each version must have a unique name within the Document Classifier.
@@ -908,7 +908,7 @@ class DocumentClassifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionNamePrefix")
-    def version_name_prefix(self) -> pulumi.Output[str]:
+    def version_name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique version name beginning with the specified prefix.
         Has a maximum length of 37 characters.

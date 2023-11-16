@@ -66,7 +66,7 @@ type HumanTaskUI struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringOutput `pulumi:"humanTaskUiName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -259,8 +259,8 @@ func (o HumanTaskUIOutput) ToHumanTaskUIOutputWithContext(ctx context.Context) H
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-func (o HumanTaskUIOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HumanTaskUIOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Human Task UI.

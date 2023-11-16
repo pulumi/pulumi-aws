@@ -17,13 +17,13 @@ namespace Pulumi.Aws.DataPipeline.Outputs
         /// <summary>
         /// ID of the object.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetPipelineDefinitionParameterObjectResult(
             ImmutableArray<Outputs.GetPipelineDefinitionParameterObjectAttributeResult> attributes,
 
-            string id)
+            string? id)
         {
             Attributes = attributes;
             Id = id;

@@ -102,9 +102,9 @@ type Extension struct {
 	// The action points defined in the extension. Detailed below.
 	ActionPoints ExtensionActionPointArrayOutput `pulumi:"actionPoints"`
 	// ARN of the AppConfig Extension.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Information about the extension.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
@@ -114,7 +114,7 @@ type Extension struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The version number for the extension.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
@@ -315,13 +315,13 @@ func (o ExtensionOutput) ActionPoints() ExtensionActionPointArrayOutput {
 }
 
 // ARN of the AppConfig Extension.
-func (o ExtensionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ExtensionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Information about the extension.
-func (o ExtensionOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o ExtensionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
@@ -345,8 +345,8 @@ func (o ExtensionOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The version number for the extension.
-func (o ExtensionOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *Extension) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o ExtensionOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type ExtensionArrayOutput struct{ *pulumi.OutputState }

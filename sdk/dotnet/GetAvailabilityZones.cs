@@ -364,7 +364,7 @@ namespace Pulumi.Aws
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of the Availability Zone names available to the account.
         /// </summary>
@@ -387,7 +387,7 @@ namespace Pulumi.Aws
 
             ImmutableArray<string> groupNames,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> names,
 

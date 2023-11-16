@@ -46,45 +46,45 @@ export interface GetCertificateResult {
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
-    readonly certificateArn: string;
+    readonly certificateArn?: string;
     /**
      * The date that the certificate was created.
      */
-    readonly certificateCreationDate: string;
+    readonly certificateCreationDate?: string;
     readonly certificateId: string;
     /**
      * The owner of the certificate.
      */
-    readonly certificateOwner: string;
+    readonly certificateOwner?: string;
     /**
      * The contents of a .pem file, which contains an X.509 certificate.
      */
-    readonly certificatePem: string;
+    readonly certificatePem?: string;
     /**
      * The owner of the certificate.
      */
-    readonly certificateWallet: string;
+    readonly certificateWallet?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The key length of the cryptographic algorithm being used.
      */
-    readonly keyLength: number;
+    readonly keyLength?: number;
     /**
      * The algorithm for the certificate.
      */
-    readonly signingAlgorithm: string;
-    readonly tags: {[key: string]: string};
+    readonly signingAlgorithm?: string;
+    readonly tags?: {[key: string]: string};
     /**
      * The beginning date that the certificate is valid.
      */
-    readonly validFromDate: string;
+    readonly validFromDate?: string;
     /**
      * The final date that the certificate is valid.
      */
-    readonly validToDate: string;
+    readonly validToDate?: string;
 }
 /**
  * Data source for managing an AWS DMS (Database Migration) Certificate.

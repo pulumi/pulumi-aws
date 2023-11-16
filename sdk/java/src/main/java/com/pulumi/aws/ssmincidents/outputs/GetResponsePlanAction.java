@@ -7,6 +7,7 @@ import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanActionSsmAutomation;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponsePlanAction {
@@ -14,7 +15,7 @@ public final class GetResponsePlanAction {
      * @return The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
      * 
      */
-    private List<GetResponsePlanActionSsmAutomation> ssmAutomations;
+    private @Nullable List<GetResponsePlanActionSsmAutomation> ssmAutomations;
 
     private GetResponsePlanAction() {}
     /**
@@ -22,7 +23,7 @@ public final class GetResponsePlanAction {
      * 
      */
     public List<GetResponsePlanActionSsmAutomation> ssmAutomations() {
-        return this.ssmAutomations;
+        return this.ssmAutomations == null ? List.of() : this.ssmAutomations;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetResponsePlanAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetResponsePlanActionSsmAutomation> ssmAutomations;
+        private @Nullable List<GetResponsePlanActionSsmAutomation> ssmAutomations;
         public Builder() {}
         public Builder(GetResponsePlanAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetResponsePlanAction {
         }
 
         @CustomType.Setter
-        public Builder ssmAutomations(List<GetResponsePlanActionSsmAutomation> ssmAutomations) {
-            this.ssmAutomations = Objects.requireNonNull(ssmAutomations);
+        public Builder ssmAutomations(@Nullable List<GetResponsePlanActionSsmAutomation> ssmAutomations) {
+            this.ssmAutomations = ssmAutomations;
             return this;
         }
         public Builder ssmAutomations(GetResponsePlanActionSsmAutomation... ssmAutomations) {

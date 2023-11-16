@@ -44,7 +44,7 @@ type GangliaLayer struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -72,8 +72,8 @@ type GangliaLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput                    `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    GangliaLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                       `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    GangliaLayerLoadBasedAutoScalingPtrOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The password to use for Ganglia.
@@ -452,8 +452,8 @@ func (o GangliaLayerOutput) ToGangliaLayerOutputWithContext(ctx context.Context)
 }
 
 // The Amazon Resource Name(ARN) of the layer.
-func (o GangliaLayerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GangliaLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GangliaLayerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GangliaLayer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
@@ -535,8 +535,8 @@ func (o GangliaLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GangliaLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o GangliaLayerOutput) LoadBasedAutoScaling() GangliaLayerLoadBasedAutoScalingOutput {
-	return o.ApplyT(func(v *GangliaLayer) GangliaLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(GangliaLayerLoadBasedAutoScalingOutput)
+func (o GangliaLayerOutput) LoadBasedAutoScaling() GangliaLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *GangliaLayer) GangliaLayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(GangliaLayerLoadBasedAutoScalingPtrOutput)
 }
 
 // A human-readable name for the layer.

@@ -15,50 +15,50 @@ namespace Pulumi.Aws.ServiceQuotas.Inputs
         /// <summary>
         /// Indicates whether the quota is global.
         /// </summary>
-        [Input("globalQuota", required: true)]
-        public Input<bool> GlobalQuota { get; set; } = null!;
+        [Input("globalQuota")]
+        public Input<bool>? GlobalQuota { get; set; }
 
         /// <summary>
         /// Quota identifier.
         /// </summary>
-        [Input("quotaCode", required: true)]
-        public Input<string> QuotaCode { get; set; } = null!;
+        [Input("quotaCode")]
+        public Input<string>? QuotaCode { get; set; }
 
         /// <summary>
         /// Quota name.
         /// </summary>
-        [Input("quotaName", required: true)]
-        public Input<string> QuotaName { get; set; } = null!;
+        [Input("quotaName")]
+        public Input<string>? QuotaName { get; set; }
 
         /// <summary>
         /// AWS Region to which the quota increases apply.
         /// </summary>
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// (Required) Service identifier.
         /// </summary>
-        [Input("serviceCode", required: true)]
-        public Input<string> ServiceCode { get; set; } = null!;
+        [Input("serviceCode")]
+        public Input<string>? ServiceCode { get; set; }
 
         /// <summary>
         /// Service name.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         /// <summary>
         /// Unit of measurement.
         /// </summary>
-        [Input("unit", required: true)]
-        public Input<string> Unit { get; set; } = null!;
+        [Input("unit")]
+        public Input<string>? Unit { get; set; }
 
         /// <summary>
         /// (Required) The new, increased value for the quota.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<double> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<double>? Value { get; set; }
 
         public GetTemplatesTemplateInputArgs()
         {

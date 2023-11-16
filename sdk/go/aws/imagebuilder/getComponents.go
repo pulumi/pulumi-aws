@@ -70,7 +70,7 @@ type GetComponentsResult struct {
 	Arns    []string              `pulumi:"arns"`
 	Filters []GetComponentsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of names of the matched Image Builder Components.
 	Names []string `pulumi:"names"`
 	Owner *string  `pulumi:"owner"`
@@ -126,8 +126,8 @@ func (o GetComponentsResultOutput) Filters() GetComponentsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetComponentsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComponentsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetComponentsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetComponentsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of names of the matched Image Builder Components.

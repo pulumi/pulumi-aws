@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTablePartitionIndex {
@@ -14,31 +16,31 @@ public final class GetCatalogTablePartitionIndex {
      * @return Name of the partition index.
      * 
      */
-    private String indexName;
-    private String indexStatus;
+    private @Nullable String indexName;
+    private @Nullable String indexStatus;
     /**
      * @return Keys for the partition index.
      * 
      */
-    private List<String> keys;
+    private @Nullable List<String> keys;
 
     private GetCatalogTablePartitionIndex() {}
     /**
      * @return Name of the partition index.
      * 
      */
-    public String indexName() {
-        return this.indexName;
+    public Optional<String> indexName() {
+        return Optional.ofNullable(this.indexName);
     }
-    public String indexStatus() {
-        return this.indexStatus;
+    public Optional<String> indexStatus() {
+        return Optional.ofNullable(this.indexStatus);
     }
     /**
      * @return Keys for the partition index.
      * 
      */
     public List<String> keys() {
-        return this.keys;
+        return this.keys == null ? List.of() : this.keys;
     }
 
     public static Builder builder() {
@@ -50,9 +52,9 @@ public final class GetCatalogTablePartitionIndex {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String indexName;
-        private String indexStatus;
-        private List<String> keys;
+        private @Nullable String indexName;
+        private @Nullable String indexStatus;
+        private @Nullable List<String> keys;
         public Builder() {}
         public Builder(GetCatalogTablePartitionIndex defaults) {
     	      Objects.requireNonNull(defaults);
@@ -62,18 +64,18 @@ public final class GetCatalogTablePartitionIndex {
         }
 
         @CustomType.Setter
-        public Builder indexName(String indexName) {
-            this.indexName = Objects.requireNonNull(indexName);
+        public Builder indexName(@Nullable String indexName) {
+            this.indexName = indexName;
             return this;
         }
         @CustomType.Setter
-        public Builder indexStatus(String indexStatus) {
-            this.indexStatus = Objects.requireNonNull(indexStatus);
+        public Builder indexStatus(@Nullable String indexStatus) {
+            this.indexStatus = indexStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder keys(List<String> keys) {
-            this.keys = Objects.requireNonNull(keys);
+        public Builder keys(@Nullable List<String> keys) {
+            this.keys = keys;
             return this;
         }
         public Builder keys(String... keys) {

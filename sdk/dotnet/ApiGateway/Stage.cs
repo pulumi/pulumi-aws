@@ -149,7 +149,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ARN
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether a cache cluster is enabled for the stage
@@ -199,14 +199,14 @@ namespace Pulumi.Aws.ApiGateway
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
         [Output("executionArn")]
-        public Output<string> ExecutionArn { get; private set; } = null!;
+        public Output<string?> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
         /// URL to invoke the API pointing to the stage,
         /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         /// </summary>
         [Output("invokeUrl")]
-        public Output<string> InvokeUrl { get; private set; } = null!;
+        public Output<string?> InvokeUrl { get; private set; } = null!;
 
         /// <summary>
         /// ID of the associated REST API
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ARN of the WebAcl associated with the Stage.
         /// </summary>
         [Output("webAclArn")]
-        public Output<string> WebAclArn { get; private set; } = null!;
+        public Output<string?> WebAclArn { get; private set; } = null!;
 
         /// <summary>
         /// Whether active tracing with X-ray is enabled. Defaults to `false`.

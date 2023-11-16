@@ -28,14 +28,14 @@ namespace Pulumi.Aws.Lex
         /// The ARN of the Lex intent.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Checksum identifying the version of the intent that was created. The checksum is not
         /// included as an argument because the resource will add it automatically when updating the intent.
         /// </summary>
         [Output("checksum")]
-        public Output<string> Checksum { get; private set; } = null!;
+        public Output<string?> Checksum { get; private set; } = null!;
 
         /// <summary>
         /// The statement that you want Amazon Lex to convey to the user
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Lex
         /// The date when the intent version was created.
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// A description of the intent. Must be less than or equal to 200 characters in length.
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Lex
         /// The date when the $LATEST version of this intent was updated.
         /// </summary>
         [Output("lastUpdatedDate")]
-        public Output<string> LastUpdatedDate { get; private set; } = null!;
+        public Output<string?> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Lex
         /// The version of the bot.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

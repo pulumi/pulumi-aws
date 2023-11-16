@@ -70,7 +70,7 @@ type RegexMatchSet struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name or description of the Regex Match Set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
@@ -231,8 +231,8 @@ func (o RegexMatchSetOutput) ToRegexMatchSetOutputWithContext(ctx context.Contex
 }
 
 // Amazon Resource Name (ARN)
-func (o RegexMatchSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegexMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RegexMatchSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegexMatchSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name or description of the Regex Match Set.

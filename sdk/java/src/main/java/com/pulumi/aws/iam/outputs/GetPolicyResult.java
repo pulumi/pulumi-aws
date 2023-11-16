@@ -16,71 +16,71 @@ public final class GetPolicyResult {
      * @return ARN of the policy.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the policy.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String name;
+    private @Nullable String id;
+    private @Nullable String name;
     /**
      * @return Path to the policy.
      * 
      */
-    private String path;
+    private @Nullable String path;
     private @Nullable String pathPrefix;
     /**
      * @return Policy document of the policy.
      * 
      */
-    private String policy;
+    private @Nullable String policy;
     /**
      * @return Policy&#39;s ID.
      * 
      */
-    private String policyId;
+    private @Nullable String policyId;
     /**
      * @return Key-value mapping of tags for the IAM Policy.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetPolicyResult() {}
     /**
      * @return ARN of the policy.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the policy.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Path to the policy.
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
@@ -89,22 +89,22 @@ public final class GetPolicyResult {
      * @return Policy document of the policy.
      * 
      */
-    public String policy() {
-        return this.policy;
+    public Optional<String> policy() {
+        return Optional.ofNullable(this.policy);
     }
     /**
      * @return Policy&#39;s ID.
      * 
      */
-    public String policyId() {
-        return this.policyId;
+    public Optional<String> policyId() {
+        return Optional.ofNullable(this.policyId);
     }
     /**
      * @return Key-value mapping of tags for the IAM Policy.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -116,15 +116,15 @@ public final class GetPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String id;
-        private String name;
-        private String path;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String path;
         private @Nullable String pathPrefix;
-        private String policy;
-        private String policyId;
-        private Map<String,String> tags;
+        private @Nullable String policy;
+        private @Nullable String policyId;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -140,28 +140,28 @@ public final class GetPolicyResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
@@ -170,18 +170,18 @@ public final class GetPolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+        public Builder policy(@Nullable String policy) {
+            this.policy = policy;
             return this;
         }
         @CustomType.Setter
-        public Builder policyId(String policyId) {
-            this.policyId = Objects.requireNonNull(policyId);
+        public Builder policyId(@Nullable String policyId) {
+            this.policyId = policyId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetPolicyResult build() {

@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Transfer
         /// Amazon Resource Name (ARN) of Transfer Server
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Transfer
         /// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Transfer
         /// This value contains the message-digest algorithm (MD5) hash of the server's host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
         /// </summary>
         [Output("hostKeyFingerprint")]
-        public Output<string> HostKeyFingerprint { get; private set; } = null!;
+        public Output<string?> HostKeyFingerprint { get; private set; } = null!;
 
         /// <summary>
         /// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.Transfer
         /// The protocol settings that are configured for your server.
         /// </summary>
         [Output("protocolDetails")]
-        public Output<Outputs.ServerProtocolDetails> ProtocolDetails { get; private set; } = null!;
+        public Output<Outputs.ServerProtocolDetails?> ProtocolDetails { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:

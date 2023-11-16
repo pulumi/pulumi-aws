@@ -76,28 +76,28 @@ public class App extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
-    private Output<String> applicationId;
+    private Output</* @Nullable */ String> applicationId;
 
     /**
      * @return The Application ID of the Pinpoint App.
      * 
      */
-    public Output<String> applicationId() {
-        return this.applicationId;
+    public Output<Optional<String>> applicationId() {
+        return Codegen.optional(this.applicationId);
     }
     /**
      * Amazon Resource Name (ARN) of the PinPoint Application
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the PinPoint Application
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
@@ -146,14 +146,14 @@ public class App extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return The name of the Pinpoint application. Conflicts with `name`
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own

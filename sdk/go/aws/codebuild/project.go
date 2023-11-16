@@ -70,8 +70,8 @@ import (
 // return err
 // }
 // examplePolicyDocument := pulumi.All(exampleBucketV2.Arn,exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// exampleBucketV2Arn := _args[0].(string)
-// exampleBucketV2Arn1 := _args[1].(string)
+// exampleBucketV2Arn := _args[0].(*string)
+// exampleBucketV2Arn1 := _args[1].(*string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -131,7 +131,7 @@ import (
 // Actions: []string{
 // "s3:*",
 // },
-// Resources: []string{
+// Resources: interface{}{
 // exampleBucketV2Arn,
 // fmt.Sprintf("%v/*", exampleBucketV2Arn1),
 // },
@@ -272,13 +272,13 @@ type Project struct {
 	pulumi.CustomResourceState
 
 	// ARN of the CodeBuild project.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block. Detailed below.
 	Artifacts ProjectArtifactsOutput `pulumi:"artifacts"`
 	// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
 	BadgeEnabled pulumi.BoolPtrOutput `pulumi:"badgeEnabled"`
 	// URL of the build badge when `badgeEnabled` is enabled.
-	BadgeUrl pulumi.StringOutput `pulumi:"badgeUrl"`
+	BadgeUrl pulumi.StringPtrOutput `pulumi:"badgeUrl"`
 	// Defines the batch build options for the project.
 	BuildBatchConfig ProjectBuildBatchConfigPtrOutput `pulumi:"buildBatchConfig"`
 	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
@@ -288,9 +288,9 @@ type Project struct {
 	// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
 	ConcurrentBuildLimit pulumi.IntPtrOutput `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
+	EncryptionKey pulumi.StringPtrOutput `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
 	Environment ProjectEnvironmentOutput `pulumi:"environment"`
 	// A set of file system locations to mount inside the build. File system locations are documented below.
@@ -302,7 +302,7 @@ type Project struct {
 	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
 	ProjectVisibility pulumi.StringPtrOutput `pulumi:"projectVisibility"`
 	// The project identifier used with the public build APIs.
-	PublicProjectAlias pulumi.StringOutput `pulumi:"publicProjectAlias"`
+	PublicProjectAlias pulumi.StringPtrOutput `pulumi:"publicProjectAlias"`
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout pulumi.IntPtrOutput `pulumi:"queuedTimeout"`
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
@@ -693,8 +693,8 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 }
 
 // ARN of the CodeBuild project.
-func (o ProjectOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProjectOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block. Detailed below.
@@ -708,8 +708,8 @@ func (o ProjectOutput) BadgeEnabled() pulumi.BoolPtrOutput {
 }
 
 // URL of the build badge when `badgeEnabled` is enabled.
-func (o ProjectOutput) BadgeUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.BadgeUrl }).(pulumi.StringOutput)
+func (o ProjectOutput) BadgeUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.BadgeUrl }).(pulumi.StringPtrOutput)
 }
 
 // Defines the batch build options for the project.
@@ -733,13 +733,13 @@ func (o ProjectOutput) ConcurrentBuildLimit() pulumi.IntPtrOutput {
 }
 
 // Short description of the project.
-func (o ProjectOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o ProjectOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-func (o ProjectOutput) EncryptionKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.EncryptionKey }).(pulumi.StringOutput)
+func (o ProjectOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.EncryptionKey }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block. Detailed below.
@@ -768,8 +768,8 @@ func (o ProjectOutput) ProjectVisibility() pulumi.StringPtrOutput {
 }
 
 // The project identifier used with the public build APIs.
-func (o ProjectOutput) PublicProjectAlias() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.PublicProjectAlias }).(pulumi.StringOutput)
+func (o ProjectOutput) PublicProjectAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.PublicProjectAlias }).(pulumi.StringPtrOutput)
 }
 
 // Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.

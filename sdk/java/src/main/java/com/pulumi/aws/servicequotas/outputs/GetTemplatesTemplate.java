@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTemplatesTemplate {
@@ -15,99 +17,99 @@ public final class GetTemplatesTemplate {
      * @return Indicates whether the quota is global.
      * 
      */
-    private Boolean globalQuota;
+    private @Nullable Boolean globalQuota;
     /**
      * @return Quota identifier.
      * 
      */
-    private String quotaCode;
+    private @Nullable String quotaCode;
     /**
      * @return Quota name.
      * 
      */
-    private String quotaName;
+    private @Nullable String quotaName;
     /**
      * @return AWS Region to which the quota increases apply.
      * 
      */
-    private String region;
+    private @Nullable String region;
     /**
      * @return (Required) Service identifier.
      * 
      */
-    private String serviceCode;
+    private @Nullable String serviceCode;
     /**
      * @return Service name.
      * 
      */
-    private String serviceName;
+    private @Nullable String serviceName;
     /**
      * @return Unit of measurement.
      * 
      */
-    private String unit;
+    private @Nullable String unit;
     /**
      * @return (Required) The new, increased value for the quota.
      * 
      */
-    private Double value;
+    private @Nullable Double value;
 
     private GetTemplatesTemplate() {}
     /**
      * @return Indicates whether the quota is global.
      * 
      */
-    public Boolean globalQuota() {
-        return this.globalQuota;
+    public Optional<Boolean> globalQuota() {
+        return Optional.ofNullable(this.globalQuota);
     }
     /**
      * @return Quota identifier.
      * 
      */
-    public String quotaCode() {
-        return this.quotaCode;
+    public Optional<String> quotaCode() {
+        return Optional.ofNullable(this.quotaCode);
     }
     /**
      * @return Quota name.
      * 
      */
-    public String quotaName() {
-        return this.quotaName;
+    public Optional<String> quotaName() {
+        return Optional.ofNullable(this.quotaName);
     }
     /**
      * @return AWS Region to which the quota increases apply.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
     /**
      * @return (Required) Service identifier.
      * 
      */
-    public String serviceCode() {
-        return this.serviceCode;
+    public Optional<String> serviceCode() {
+        return Optional.ofNullable(this.serviceCode);
     }
     /**
      * @return Service name.
      * 
      */
-    public String serviceName() {
-        return this.serviceName;
+    public Optional<String> serviceName() {
+        return Optional.ofNullable(this.serviceName);
     }
     /**
      * @return Unit of measurement.
      * 
      */
-    public String unit() {
-        return this.unit;
+    public Optional<String> unit() {
+        return Optional.ofNullable(this.unit);
     }
     /**
      * @return (Required) The new, increased value for the quota.
      * 
      */
-    public Double value() {
-        return this.value;
+    public Optional<Double> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -119,14 +121,14 @@ public final class GetTemplatesTemplate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean globalQuota;
-        private String quotaCode;
-        private String quotaName;
-        private String region;
-        private String serviceCode;
-        private String serviceName;
-        private String unit;
-        private Double value;
+        private @Nullable Boolean globalQuota;
+        private @Nullable String quotaCode;
+        private @Nullable String quotaName;
+        private @Nullable String region;
+        private @Nullable String serviceCode;
+        private @Nullable String serviceName;
+        private @Nullable String unit;
+        private @Nullable Double value;
         public Builder() {}
         public Builder(GetTemplatesTemplate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -141,43 +143,43 @@ public final class GetTemplatesTemplate {
         }
 
         @CustomType.Setter
-        public Builder globalQuota(Boolean globalQuota) {
-            this.globalQuota = Objects.requireNonNull(globalQuota);
+        public Builder globalQuota(@Nullable Boolean globalQuota) {
+            this.globalQuota = globalQuota;
             return this;
         }
         @CustomType.Setter
-        public Builder quotaCode(String quotaCode) {
-            this.quotaCode = Objects.requireNonNull(quotaCode);
+        public Builder quotaCode(@Nullable String quotaCode) {
+            this.quotaCode = quotaCode;
             return this;
         }
         @CustomType.Setter
-        public Builder quotaName(String quotaName) {
-            this.quotaName = Objects.requireNonNull(quotaName);
+        public Builder quotaName(@Nullable String quotaName) {
+            this.quotaName = quotaName;
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceCode(String serviceCode) {
-            this.serviceCode = Objects.requireNonNull(serviceCode);
+        public Builder serviceCode(@Nullable String serviceCode) {
+            this.serviceCode = serviceCode;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+        public Builder serviceName(@Nullable String serviceName) {
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+        public Builder unit(@Nullable String unit) {
+            this.unit = unit;
             return this;
         }
         @CustomType.Setter
-        public Builder value(Double value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable Double value) {
+            this.value = value;
             return this;
         }
         public GetTemplatesTemplate build() {

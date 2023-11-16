@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARNs of the matched RDS instances.
         /// </summary>
@@ -216,19 +216,19 @@ namespace Pulumi.Aws.Rds
         /// Identifiers of the matched RDS instances.
         /// </summary>
         public readonly ImmutableArray<string> InstanceIdentifiers;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetInstancesResult(
             ImmutableArray<Outputs.GetInstancesFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> instanceArns,
 
             ImmutableArray<string> instanceIdentifiers,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;

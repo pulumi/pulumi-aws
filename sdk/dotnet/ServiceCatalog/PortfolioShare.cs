@@ -62,7 +62,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
         /// </summary>
         [Output("accepted")]
-        public Output<bool> Accepted { get; private set; } = null!;
+        public Output<bool?> Accepted { get; private set; } = null!;
 
         /// <summary>
         /// Portfolio identifier.

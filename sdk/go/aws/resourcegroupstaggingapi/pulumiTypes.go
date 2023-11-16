@@ -17,7 +17,7 @@ type GetResourcesResourceTagMappingList struct {
 	// List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
 	ComplianceDetails []GetResourcesResourceTagMappingListComplianceDetail `pulumi:"complianceDetails"`
 	// ARN of the resource.
-	ResourceArn string `pulumi:"resourceArn"`
+	ResourceArn *string `pulumi:"resourceArn"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -37,7 +37,7 @@ type GetResourcesResourceTagMappingListArgs struct {
 	// List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
 	ComplianceDetails GetResourcesResourceTagMappingListComplianceDetailArrayInput `pulumi:"complianceDetails"`
 	// ARN of the resource.
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -101,8 +101,8 @@ func (o GetResourcesResourceTagMappingListOutput) ComplianceDetails() GetResourc
 }
 
 // ARN of the resource.
-func (o GetResourcesResourceTagMappingListOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResourcesResourceTagMappingList) string { return v.ResourceArn }).(pulumi.StringOutput)
+func (o GetResourcesResourceTagMappingListOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResourcesResourceTagMappingList) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the resource.
@@ -134,7 +134,7 @@ type GetResourcesResourceTagMappingListComplianceDetail struct {
 	// Whether the resource is compliant.
 	// * ` keysWithNoncompliantValues  ` - Set of tag keys with non-compliant tag values.
 	// * ` nonCompliantKeys  ` - Set of non-compliant tag keys.
-	ComplianceStatus           bool     `pulumi:"complianceStatus"`
+	ComplianceStatus           *bool    `pulumi:"complianceStatus"`
 	KeysWithNoncompliantValues []string `pulumi:"keysWithNoncompliantValues"`
 	NonCompliantKeys           []string `pulumi:"nonCompliantKeys"`
 }
@@ -154,7 +154,7 @@ type GetResourcesResourceTagMappingListComplianceDetailArgs struct {
 	// Whether the resource is compliant.
 	// * ` keysWithNoncompliantValues  ` - Set of tag keys with non-compliant tag values.
 	// * ` nonCompliantKeys  ` - Set of non-compliant tag keys.
-	ComplianceStatus           pulumi.BoolInput        `pulumi:"complianceStatus"`
+	ComplianceStatus           pulumi.BoolPtrInput     `pulumi:"complianceStatus"`
 	KeysWithNoncompliantValues pulumi.StringArrayInput `pulumi:"keysWithNoncompliantValues"`
 	NonCompliantKeys           pulumi.StringArrayInput `pulumi:"nonCompliantKeys"`
 }
@@ -213,8 +213,8 @@ func (o GetResourcesResourceTagMappingListComplianceDetailOutput) ToGetResources
 // Whether the resource is compliant.
 // * ` keysWithNoncompliantValues  ` - Set of tag keys with non-compliant tag values.
 // * ` nonCompliantKeys  ` - Set of non-compliant tag keys.
-func (o GetResourcesResourceTagMappingListComplianceDetailOutput) ComplianceStatus() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetResourcesResourceTagMappingListComplianceDetail) bool { return v.ComplianceStatus }).(pulumi.BoolOutput)
+func (o GetResourcesResourceTagMappingListComplianceDetailOutput) ComplianceStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetResourcesResourceTagMappingListComplianceDetail) *bool { return v.ComplianceStatus }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetResourcesResourceTagMappingListComplianceDetailOutput) KeysWithNoncompliantValues() pulumi.StringArrayOutput {

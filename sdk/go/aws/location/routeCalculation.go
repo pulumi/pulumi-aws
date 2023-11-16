@@ -54,11 +54,11 @@ type RouteCalculation struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-	CalculatorArn pulumi.StringOutput `pulumi:"calculatorArn"`
+	CalculatorArn pulumi.StringPtrOutput `pulumi:"calculatorArn"`
 	// The name of the route calculator resource.
 	CalculatorName pulumi.StringOutput `pulumi:"calculatorName"`
 	// The timestamp for when the route calculator resource was created in ISO 8601 format.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	CreateTime pulumi.StringPtrOutput `pulumi:"createTime"`
 	// Specifies the data provider of traffic and road network data.
 	//
 	// The following arguments are optional:
@@ -72,7 +72,7 @@ type RouteCalculation struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	UpdateTime pulumi.StringPtrOutput `pulumi:"updateTime"`
 }
 
 // NewRouteCalculation registers a new resource with the given unique name, arguments, and options.
@@ -279,8 +279,8 @@ func (o RouteCalculationOutput) ToRouteCalculationOutputWithContext(ctx context.
 }
 
 // The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-func (o RouteCalculationOutput) CalculatorArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.CalculatorArn }).(pulumi.StringOutput)
+func (o RouteCalculationOutput) CalculatorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteCalculation) pulumi.StringPtrOutput { return v.CalculatorArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the route calculator resource.
@@ -289,8 +289,8 @@ func (o RouteCalculationOutput) CalculatorName() pulumi.StringOutput {
 }
 
 // The timestamp for when the route calculator resource was created in ISO 8601 format.
-func (o RouteCalculationOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+func (o RouteCalculationOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteCalculation) pulumi.StringPtrOutput { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the data provider of traffic and road network data.
@@ -318,8 +318,8 @@ func (o RouteCalculationOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The timestamp for when the route calculator resource was last update in ISO 8601.
-func (o RouteCalculationOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o RouteCalculationOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteCalculation) pulumi.StringPtrOutput { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 type RouteCalculationArrayOutput struct{ *pulumi.OutputState }

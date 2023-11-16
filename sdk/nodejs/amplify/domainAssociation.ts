@@ -84,11 +84,11 @@ export class DomainAssociation extends pulumi.CustomResource {
     /**
      * ARN for the domain association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The DNS record for certificate verification.
      */
-    public /*out*/ readonly certificateVerificationDnsRecord!: pulumi.Output<string>;
+    public /*out*/ readonly certificateVerificationDnsRecord!: pulumi.Output<string | undefined>;
     /**
      * Domain name for the domain association.
      */

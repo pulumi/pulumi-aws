@@ -62,11 +62,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Type of IAM policy. Either `NONE` or `AWS_IAM`.
      */
-    public readonly authType!: pulumi.Output<string>;
+    public readonly authType!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the certificate.
      */
@@ -78,7 +78,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
      */
-    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceDnsEntry[]>;
+    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceDnsEntry[] | undefined>;
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
      *
@@ -88,7 +88,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Status of the service.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

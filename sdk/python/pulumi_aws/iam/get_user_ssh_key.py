@@ -51,7 +51,7 @@ class GetUserSshKeyResult:
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> str:
+    def fingerprint(self) -> Optional[str]:
         """
         MD5 message digest of the SSH public key.
         """
@@ -59,7 +59,7 @@ class GetUserSshKeyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -67,7 +67,7 @@ class GetUserSshKeyResult:
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> str:
+    def public_key(self) -> Optional[str]:
         """
         SSH public key.
         """
@@ -80,7 +80,7 @@ class GetUserSshKeyResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
         """

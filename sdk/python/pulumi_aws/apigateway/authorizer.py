@@ -387,11 +387,11 @@ class Authorizer(pulumi.CustomResource):
             rest_api=demo_rest_api.id,
             authorizer_uri=authorizer.invoke_arn,
             authorizer_credentials=invocation_role.arn)
-        invocation_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        invocation_policy_policy_document = authorizer.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["lambda:InvokeFunction"],
-            resources=[authorizer.arn],
-        )])
+            resources=[arn],
+        )]))
         invocation_policy_role_policy = aws.iam.RolePolicy("invocationPolicyRolePolicy",
             role=invocation_role.id,
             policy=invocation_policy_policy_document.json)
@@ -462,11 +462,11 @@ class Authorizer(pulumi.CustomResource):
             rest_api=demo_rest_api.id,
             authorizer_uri=authorizer.invoke_arn,
             authorizer_credentials=invocation_role.arn)
-        invocation_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        invocation_policy_policy_document = authorizer.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["lambda:InvokeFunction"],
-            resources=[authorizer.arn],
-        )])
+            resources=[arn],
+        )]))
         invocation_policy_role_policy = aws.iam.RolePolicy("invocationPolicyRolePolicy",
             role=invocation_role.id,
             policy=invocation_policy_policy_document.json)
@@ -582,7 +582,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the API Gateway Authorizer
         """

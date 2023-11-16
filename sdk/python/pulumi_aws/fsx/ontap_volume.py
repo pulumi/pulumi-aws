@@ -877,7 +877,7 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the volune.
         """
@@ -901,7 +901,7 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> pulumi.Output[str]:
+    def file_system_id(self) -> pulumi.Output[Optional[str]]:
         """
         Describes the file system for the volume, e.g. `fs-12345679`
         """
@@ -909,7 +909,7 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="flexcacheEndpointType")
-    def flexcache_endpoint_type(self) -> pulumi.Output[str]:
+    def flexcache_endpoint_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
         """
@@ -933,7 +933,7 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ontapVolumeType")
-    def ontap_volume_type(self) -> pulumi.Output[str]:
+    def ontap_volume_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         """
@@ -941,7 +941,7 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityStyle")
-    def security_style(self) -> pulumi.Output[str]:
+    def security_style(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         """
@@ -973,7 +973,7 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotPolicy")
-    def snapshot_policy(self) -> pulumi.Output[str]:
+    def snapshot_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         """
@@ -1024,7 +1024,7 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uuid(self) -> pulumi.Output[str]:
+    def uuid(self) -> pulumi.Output[Optional[str]]:
         """
         The Volume's UUID (universally unique identifier).
         """

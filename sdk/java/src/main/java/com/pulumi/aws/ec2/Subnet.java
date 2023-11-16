@@ -112,14 +112,14 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the subnet.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specify true to indicate
@@ -144,28 +144,28 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return AZ for the subnet.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
      * 
      */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZoneId;
+    private Output</* @Nullable */ String> availabilityZoneId;
 
     /**
      * @return AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
      * 
      */
-    public Output<String> availabilityZoneId() {
-        return this.availabilityZoneId;
+    public Output<Optional<String>> availabilityZoneId() {
+        return Codegen.optional(this.availabilityZoneId);
     }
     /**
      * The IPv4 CIDR block for the subnet.
@@ -272,14 +272,14 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipv6CidrBlockAssociationId", refs={String.class}, tree="[0]")
-    private Output<String> ipv6CidrBlockAssociationId;
+    private Output</* @Nullable */ String> ipv6CidrBlockAssociationId;
 
     /**
      * @return The association ID for the IPv6 CIDR block.
      * 
      */
-    public Output<String> ipv6CidrBlockAssociationId() {
-        return this.ipv6CidrBlockAssociationId;
+    public Output<Optional<String>> ipv6CidrBlockAssociationId() {
+        return Codegen.optional(this.ipv6CidrBlockAssociationId);
     }
     /**
      * Indicates whether to create an IPv6-only subnet. Default: `false`.
@@ -346,28 +346,28 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The ID of the AWS account that owns the subnet.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
      * 
      */
     @Export(name="privateDnsHostnameTypeOnLaunch", refs={String.class}, tree="[0]")
-    private Output<String> privateDnsHostnameTypeOnLaunch;
+    private Output</* @Nullable */ String> privateDnsHostnameTypeOnLaunch;
 
     /**
      * @return The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
      * 
      */
-    public Output<String> privateDnsHostnameTypeOnLaunch() {
-        return this.privateDnsHostnameTypeOnLaunch;
+    public Output<Optional<String>> privateDnsHostnameTypeOnLaunch() {
+        return Codegen.optional(this.privateDnsHostnameTypeOnLaunch);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

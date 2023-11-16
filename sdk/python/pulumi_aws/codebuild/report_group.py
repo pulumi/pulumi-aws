@@ -453,7 +453,7 @@ class ReportGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of Report Group.
         """
@@ -461,7 +461,7 @@ class ReportGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> pulumi.Output[str]:
+    def created(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time this Report Group was created.
         """

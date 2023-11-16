@@ -255,13 +255,13 @@ namespace Pulumi.Aws.CloudWatch
         /// ARN of the metric stream.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
         /// </summary>
         [Output("lastUpdateDate")]
-        public Output<string> LastUpdateDate { get; private set; } = null!;
+        public Output<string?> LastUpdateDate { get; private set; } = null!;
 
         /// <summary>
         /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.CloudWatch
         /// State of the metric stream. Possible values are `running` and `stopped`.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.

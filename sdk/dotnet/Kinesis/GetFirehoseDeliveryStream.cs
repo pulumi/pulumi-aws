@@ -108,18 +108,18 @@ namespace Pulumi.Aws.Kinesis
         /// <summary>
         /// ARN of the Kinesis Stream (same as id).
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
 
         [OutputConstructor]
         private GetFirehoseDeliveryStreamResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
             string name)
         {

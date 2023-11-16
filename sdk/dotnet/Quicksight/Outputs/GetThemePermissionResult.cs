@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// <summary>
         /// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         /// </summary>
-        public readonly string Principal;
+        public readonly string? Principal;
 
         [OutputConstructor]
         private GetThemePermissionResult(
             ImmutableArray<string> actions,
 
-            string principal)
+            string? principal)
         {
             Actions = actions;
             Principal = principal;

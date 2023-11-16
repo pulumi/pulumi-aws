@@ -190,15 +190,15 @@ export class Database extends pulumi.CustomResource {
     /**
      * When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
      */
-    public readonly applyImmediately!: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the Lightsail instance (matches `id`).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
      */
@@ -214,27 +214,27 @@ export class Database extends pulumi.CustomResource {
     /**
      * The certificate associated with the database.
      */
-    public /*out*/ readonly caCertificateIdentifier!: pulumi.Output<string>;
+    public /*out*/ readonly caCertificateIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The number of vCPUs for the database.
      */
-    public /*out*/ readonly cpuCount!: pulumi.Output<number>;
+    public /*out*/ readonly cpuCount!: pulumi.Output<number | undefined>;
     /**
      * The timestamp when the instance was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The size of the disk for the database.
      */
-    public /*out*/ readonly diskSize!: pulumi.Output<number>;
+    public /*out*/ readonly diskSize!: pulumi.Output<number | undefined>;
     /**
      * The database software (for example, MySQL).
      */
-    public /*out*/ readonly engine!: pulumi.Output<string>;
+    public /*out*/ readonly engine!: pulumi.Output<string | undefined>;
     /**
      * The database engine version (for example, 5.7.23).
      */
-    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
      */
@@ -246,11 +246,11 @@ export class Database extends pulumi.CustomResource {
     /**
      * The master endpoint fqdn for the database.
      */
-    public /*out*/ readonly masterEndpointAddress!: pulumi.Output<string>;
+    public /*out*/ readonly masterEndpointAddress!: pulumi.Output<string | undefined>;
     /**
      * The master endpoint network port for the database.
      */
-    public /*out*/ readonly masterEndpointPort!: pulumi.Output<number>;
+    public /*out*/ readonly masterEndpointPort!: pulumi.Output<number | undefined>;
     /**
      * The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
      */
@@ -262,11 +262,11 @@ export class Database extends pulumi.CustomResource {
     /**
      * The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
      */
-    public readonly preferredBackupWindow!: pulumi.Output<string>;
+    public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
     /**
      * The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
      */
@@ -274,7 +274,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The amount of RAM in GB for the database.
      */
-    public /*out*/ readonly ramSize!: pulumi.Output<number>;
+    public /*out*/ readonly ramSize!: pulumi.Output<number | undefined>;
     /**
      * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
      */
@@ -282,7 +282,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
      */
-    public /*out*/ readonly secondaryAvailabilityZone!: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAvailabilityZone!: pulumi.Output<string | undefined>;
     /**
      * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
      */
@@ -290,7 +290,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      */

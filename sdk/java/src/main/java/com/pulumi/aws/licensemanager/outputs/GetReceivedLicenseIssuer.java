@@ -6,6 +6,8 @@ package com.pulumi.aws.licensemanager.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReceivedLicenseIssuer {
@@ -13,39 +15,39 @@ public final class GetReceivedLicenseIssuer {
      * @return Issuer key fingerprint.
      * 
      */
-    private String keyFingerprint;
+    private @Nullable String keyFingerprint;
     /**
      * @return The key name.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
      * 
      */
-    private String signKey;
+    private @Nullable String signKey;
 
     private GetReceivedLicenseIssuer() {}
     /**
      * @return Issuer key fingerprint.
      * 
      */
-    public String keyFingerprint() {
-        return this.keyFingerprint;
+    public Optional<String> keyFingerprint() {
+        return Optional.ofNullable(this.keyFingerprint);
     }
     /**
      * @return The key name.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
      * 
      */
-    public String signKey() {
-        return this.signKey;
+    public Optional<String> signKey() {
+        return Optional.ofNullable(this.signKey);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetReceivedLicenseIssuer {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String keyFingerprint;
-        private String name;
-        private String signKey;
+        private @Nullable String keyFingerprint;
+        private @Nullable String name;
+        private @Nullable String signKey;
         public Builder() {}
         public Builder(GetReceivedLicenseIssuer defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetReceivedLicenseIssuer {
         }
 
         @CustomType.Setter
-        public Builder keyFingerprint(String keyFingerprint) {
-            this.keyFingerprint = Objects.requireNonNull(keyFingerprint);
+        public Builder keyFingerprint(@Nullable String keyFingerprint) {
+            this.keyFingerprint = keyFingerprint;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder signKey(String signKey) {
-            this.signKey = Objects.requireNonNull(signKey);
+        public Builder signKey(@Nullable String signKey) {
+            this.signKey = signKey;
             return this;
         }
         public GetReceivedLicenseIssuer build() {

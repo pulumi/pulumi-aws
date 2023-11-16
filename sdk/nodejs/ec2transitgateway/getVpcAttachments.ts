@@ -55,11 +55,11 @@ export interface GetVpcAttachmentsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
 }
 /**
  * Get information on EC2 Transit Gateway VPC Attachments.

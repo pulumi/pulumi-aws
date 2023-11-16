@@ -47,7 +47,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -55,7 +55,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter(name="instanceArns")
-    def instance_arns(self) -> Sequence[str]:
+    def instance_arns(self) -> Optional[Sequence[str]]:
         """
         ARNs of the matched RDS instances.
         """
@@ -63,7 +63,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter(name="instanceIdentifiers")
-    def instance_identifiers(self) -> Sequence[str]:
+    def instance_identifiers(self) -> Optional[Sequence[str]]:
         """
         Identifiers of the matched RDS instances.
         """
@@ -71,7 +71,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

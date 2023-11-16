@@ -69,7 +69,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      */
@@ -77,7 +77,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      */
-    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
+    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string | undefined>;
     /**
      * The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      */
@@ -85,19 +85,19 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      */
-    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OntapFileSystemDiskIopsConfiguration>;
+    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OntapFileSystemDiskIopsConfiguration | undefined>;
     /**
      * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
      */
-    public readonly endpointIpAddressRange!: pulumi.Output<string>;
+    public readonly endpointIpAddressRange!: pulumi.Output<string | undefined>;
     /**
      * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.fsx.OntapFileSystemEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.fsx.OntapFileSystemEndpoint[] | undefined>;
     /**
      * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
      */
@@ -105,15 +105,15 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[] | undefined>;
     /**
      * AWS account identifier that created the file system.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      */
@@ -121,7 +121,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */
-    public readonly routeTableIds!: pulumi.Output<string[]>;
+    public readonly routeTableIds!: pulumi.Output<string[] | undefined>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -155,11 +155,11 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string>;
+    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OntapFileSystem resource with the given unique name, arguments, and options.

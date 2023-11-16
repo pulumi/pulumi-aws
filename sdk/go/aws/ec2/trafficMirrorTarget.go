@@ -70,7 +70,7 @@ type TrafficMirrorTarget struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the traffic mirror target.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the traffic mirror session.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
@@ -80,7 +80,7 @@ type TrafficMirrorTarget struct {
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrOutput `pulumi:"networkLoadBalancerArn"`
 	// The ID of the AWS account that owns the traffic mirror target.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
@@ -293,8 +293,8 @@ func (o TrafficMirrorTargetOutput) ToTrafficMirrorTargetOutputWithContext(ctx co
 }
 
 // The ARN of the traffic mirror target.
-func (o TrafficMirrorTargetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TrafficMirrorTarget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TrafficMirrorTargetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorTarget) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the traffic mirror session.
@@ -318,8 +318,8 @@ func (o TrafficMirrorTargetOutput) NetworkLoadBalancerArn() pulumi.StringPtrOutp
 }
 
 // The ID of the AWS account that owns the traffic mirror target.
-func (o TrafficMirrorTargetOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TrafficMirrorTarget) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o TrafficMirrorTargetOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorTarget) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

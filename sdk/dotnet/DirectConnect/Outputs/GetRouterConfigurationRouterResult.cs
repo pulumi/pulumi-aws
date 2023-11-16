@@ -16,7 +16,7 @@ namespace Pulumi.Aws.DirectConnect.Outputs
         /// <summary>
         /// Router platform
         /// </summary>
-        public readonly string Platform;
+        public readonly string? Platform;
         /// <summary>
         /// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
         /// 
@@ -32,34 +32,34 @@ namespace Pulumi.Aws.DirectConnect.Outputs
         /// });
         /// ```
         /// </summary>
-        public readonly string RouterTypeIdentifier;
+        public readonly string? RouterTypeIdentifier;
         /// <summary>
         /// Router operating system
         /// </summary>
-        public readonly string Software;
+        public readonly string? Software;
         /// <summary>
         /// Router vendor
         /// </summary>
-        public readonly string Vendor;
+        public readonly string? Vendor;
         /// <summary>
         /// Router XSLT Template Name
         /// </summary>
-        public readonly string XsltTemplateName;
-        public readonly string XsltTemplateNameForMacSec;
+        public readonly string? XsltTemplateName;
+        public readonly string? XsltTemplateNameForMacSec;
 
         [OutputConstructor]
         private GetRouterConfigurationRouterResult(
-            string platform,
+            string? platform,
 
-            string routerTypeIdentifier,
+            string? routerTypeIdentifier,
 
-            string software,
+            string? software,
 
-            string vendor,
+            string? vendor,
 
-            string xsltTemplateName,
+            string? xsltTemplateName,
 
-            string xsltTemplateNameForMacSec)
+            string? xsltTemplateNameForMacSec)
         {
             Platform = platform;
             RouterTypeIdentifier = routerTypeIdentifier;

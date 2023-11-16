@@ -62,8 +62,8 @@ import (
 type DefaultSubnet struct {
 	pulumi.CustomResourceState
 
-	Arn                         pulumi.StringOutput  `pulumi:"arn"`
-	AssignIpv6AddressOnCreation pulumi.BoolPtrOutput `pulumi:"assignIpv6AddressOnCreation"`
+	Arn                         pulumi.StringPtrOutput `pulumi:"arn"`
+	AssignIpv6AddressOnCreation pulumi.BoolPtrOutput   `pulumi:"assignIpv6AddressOnCreation"`
 	// is required
 	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
 	// * The default value for `mapPublicIpOnLaunch` is `true`
@@ -71,30 +71,30 @@ type DefaultSubnet struct {
 	// This resource supports the following additional arguments:
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// The AZ ID of the subnet
-	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
+	AvailabilityZoneId pulumi.StringPtrOutput `pulumi:"availabilityZoneId"`
 	// The IPv4 CIDR block assigned to the subnet
-	CidrBlock                               pulumi.StringOutput    `pulumi:"cidrBlock"`
+	CidrBlock                               pulumi.StringPtrOutput `pulumi:"cidrBlock"`
 	CustomerOwnedIpv4Pool                   pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	EnableDns64                             pulumi.BoolPtrOutput   `pulumi:"enableDns64"`
-	EnableLniAtDeviceIndex                  pulumi.IntOutput       `pulumi:"enableLniAtDeviceIndex"`
+	EnableLniAtDeviceIndex                  pulumi.IntPtrOutput    `pulumi:"enableLniAtDeviceIndex"`
 	EnableResourceNameDnsARecordOnLaunch    pulumi.BoolPtrOutput   `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrOutput   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
-	ExistingDefaultSubnet                   pulumi.BoolOutput      `pulumi:"existingDefaultSubnet"`
+	ExistingDefaultSubnet                   pulumi.BoolPtrOutput   `pulumi:"existingDefaultSubnet"`
 	// Whether destroying the resource deletes the default subnet. Default: `false`
 	ForceDestroy                   pulumi.BoolPtrOutput   `pulumi:"forceDestroy"`
-	Ipv6CidrBlock                  pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId     pulumi.StringOutput    `pulumi:"ipv6CidrBlockAssociationId"`
+	Ipv6CidrBlock                  pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId     pulumi.StringPtrOutput `pulumi:"ipv6CidrBlockAssociationId"`
 	Ipv6Native                     pulumi.BoolPtrOutput   `pulumi:"ipv6Native"`
 	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrOutput   `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	MapPublicIpOnLaunch            pulumi.BoolPtrOutput   `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn                     pulumi.StringOutput    `pulumi:"outpostArn"`
-	OwnerId                        pulumi.StringOutput    `pulumi:"ownerId"`
-	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput    `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	OutpostArn                     pulumi.StringPtrOutput `pulumi:"outpostArn"`
+	OwnerId                        pulumi.StringPtrOutput `pulumi:"ownerId"`
+	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrOutput `pulumi:"privateDnsHostnameTypeOnLaunch"`
 	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet is in
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewDefaultSubnet registers a new resource with the given unique name, arguments, and options.
@@ -341,8 +341,8 @@ func (o DefaultSubnetOutput) ToDefaultSubnetOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o DefaultSubnetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DefaultSubnetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o DefaultSubnetOutput) AssignIpv6AddressOnCreation() pulumi.BoolPtrOutput {
@@ -359,13 +359,13 @@ func (o DefaultSubnetOutput) AvailabilityZone() pulumi.StringOutput {
 }
 
 // The AZ ID of the subnet
-func (o DefaultSubnetOutput) AvailabilityZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+func (o DefaultSubnetOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringPtrOutput { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The IPv4 CIDR block assigned to the subnet
-func (o DefaultSubnetOutput) CidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
+func (o DefaultSubnetOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
 func (o DefaultSubnetOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
@@ -376,8 +376,8 @@ func (o DefaultSubnetOutput) EnableDns64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.BoolPtrOutput { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
 }
 
-func (o DefaultSubnetOutput) EnableLniAtDeviceIndex() pulumi.IntOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.IntOutput { return v.EnableLniAtDeviceIndex }).(pulumi.IntOutput)
+func (o DefaultSubnetOutput) EnableLniAtDeviceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.IntPtrOutput { return v.EnableLniAtDeviceIndex }).(pulumi.IntPtrOutput)
 }
 
 func (o DefaultSubnetOutput) EnableResourceNameDnsARecordOnLaunch() pulumi.BoolPtrOutput {
@@ -388,8 +388,8 @@ func (o DefaultSubnetOutput) EnableResourceNameDnsAaaaRecordOnLaunch() pulumi.Bo
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.BoolPtrOutput { return v.EnableResourceNameDnsAaaaRecordOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
-func (o DefaultSubnetOutput) ExistingDefaultSubnet() pulumi.BoolOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.BoolOutput { return v.ExistingDefaultSubnet }).(pulumi.BoolOutput)
+func (o DefaultSubnetOutput) ExistingDefaultSubnet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.BoolPtrOutput { return v.ExistingDefaultSubnet }).(pulumi.BoolPtrOutput)
 }
 
 // Whether destroying the resource deletes the default subnet. Default: `false`
@@ -397,12 +397,12 @@ func (o DefaultSubnetOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
-func (o DefaultSubnetOutput) Ipv6CidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+func (o DefaultSubnetOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultSubnetOutput) Ipv6CidrBlockAssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.Ipv6CidrBlockAssociationId }).(pulumi.StringOutput)
+func (o DefaultSubnetOutput) Ipv6CidrBlockAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringPtrOutput { return v.Ipv6CidrBlockAssociationId }).(pulumi.StringPtrOutput)
 }
 
 func (o DefaultSubnetOutput) Ipv6Native() pulumi.BoolPtrOutput {
@@ -417,16 +417,16 @@ func (o DefaultSubnetOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.BoolPtrOutput { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
-func (o DefaultSubnetOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.OutpostArn }).(pulumi.StringOutput)
+func (o DefaultSubnetOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultSubnetOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o DefaultSubnetOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultSubnetOutput) PrivateDnsHostnameTypeOnLaunch() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.PrivateDnsHostnameTypeOnLaunch }).(pulumi.StringOutput)
+func (o DefaultSubnetOutput) PrivateDnsHostnameTypeOnLaunch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringPtrOutput { return v.PrivateDnsHostnameTypeOnLaunch }).(pulumi.StringPtrOutput)
 }
 
 func (o DefaultSubnetOutput) Tags() pulumi.StringMapOutput {
@@ -439,8 +439,8 @@ func (o DefaultSubnetOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The ID of the VPC the subnet is in
-func (o DefaultSubnetOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o DefaultSubnetOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type DefaultSubnetArrayOutput struct{ *pulumi.OutputState }

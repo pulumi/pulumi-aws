@@ -554,7 +554,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Global Cluster Amazon Resource Name (ARN)
         """
@@ -570,7 +570,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[str]:
+    def engine(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
         """
@@ -578,7 +578,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
         * **NOTE:** Upgrading major versions is not supported.
@@ -595,7 +595,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalClusterMembers")
-    def global_cluster_members(self) -> pulumi.Output[Sequence['outputs.GlobalClusterGlobalClusterMember']]:
+    def global_cluster_members(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalClusterGlobalClusterMember']]]:
         """
         Set of objects containing Global Cluster members.
         """
@@ -603,7 +603,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalClusterResourceId")
-    def global_cluster_resource_id(self) -> pulumi.Output[str]:
+    def global_cluster_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         """
@@ -611,7 +611,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
-    def source_db_cluster_identifier(self) -> pulumi.Output[str]:
+    def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         """
@@ -619,12 +619,12 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> pulumi.Output[bool]:
+    def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """

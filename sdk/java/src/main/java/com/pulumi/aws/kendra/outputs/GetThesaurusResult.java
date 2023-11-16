@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThesaurusResult {
@@ -17,117 +19,117 @@ public final class GetThesaurusResult {
      * @return ARN of the Thesaurus.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Unix datetime that the Thesaurus was created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return Description of the Thesaurus.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return When the `status` field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    private String errorMessage;
+    private @Nullable String errorMessage;
     /**
      * @return Size of the Thesaurus file in bytes.
      * 
      */
-    private Integer fileSizeBytes;
+    private @Nullable Integer fileSizeBytes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String indexId;
     /**
      * @return Name of the Thesaurus.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return S3 location of the Thesaurus input data. Detailed below.
      * 
      */
-    private List<GetThesaurusSourceS3Path> sourceS3Paths;
+    private @Nullable List<GetThesaurusSourceS3Path> sourceS3Paths;
     /**
      * @return Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Number of synonym rules in the Thesaurus file.
      * 
      */
-    private Integer synonymRuleCount;
+    private @Nullable Integer synonymRuleCount;
     /**
      * @return Metadata that helps organize the Thesaurus you create.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
      * 
      */
-    private Integer termCount;
+    private @Nullable Integer termCount;
     private String thesaurusId;
     /**
      * @return Date and time that the Thesaurus was last updated.
      * 
      */
-    private String updatedAt;
+    private @Nullable String updatedAt;
 
     private GetThesaurusResult() {}
     /**
      * @return ARN of the Thesaurus.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Unix datetime that the Thesaurus was created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return Description of the Thesaurus.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return When the `status` field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    public String errorMessage() {
-        return this.errorMessage;
+    public Optional<String> errorMessage() {
+        return Optional.ofNullable(this.errorMessage);
     }
     /**
      * @return Size of the Thesaurus file in bytes.
      * 
      */
-    public Integer fileSizeBytes() {
-        return this.fileSizeBytes;
+    public Optional<Integer> fileSizeBytes() {
+        return Optional.ofNullable(this.fileSizeBytes);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String indexId() {
         return this.indexId;
@@ -136,50 +138,50 @@ public final class GetThesaurusResult {
      * @return Name of the Thesaurus.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return S3 location of the Thesaurus input data. Detailed below.
      * 
      */
     public List<GetThesaurusSourceS3Path> sourceS3Paths() {
-        return this.sourceS3Paths;
+        return this.sourceS3Paths == null ? List.of() : this.sourceS3Paths;
     }
     /**
      * @return Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Number of synonym rules in the Thesaurus file.
      * 
      */
-    public Integer synonymRuleCount() {
-        return this.synonymRuleCount;
+    public Optional<Integer> synonymRuleCount() {
+        return Optional.ofNullable(this.synonymRuleCount);
     }
     /**
      * @return Metadata that helps organize the Thesaurus you create.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
      * 
      */
-    public Integer termCount() {
-        return this.termCount;
+    public Optional<Integer> termCount() {
+        return Optional.ofNullable(this.termCount);
     }
     public String thesaurusId() {
         return this.thesaurusId;
@@ -188,8 +190,8 @@ public final class GetThesaurusResult {
      * @return Date and time that the Thesaurus was last updated.
      * 
      */
-    public String updatedAt() {
-        return this.updatedAt;
+    public Optional<String> updatedAt() {
+        return Optional.ofNullable(this.updatedAt);
     }
 
     public static Builder builder() {
@@ -201,22 +203,22 @@ public final class GetThesaurusResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String createdAt;
-        private String description;
-        private String errorMessage;
-        private Integer fileSizeBytes;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String createdAt;
+        private @Nullable String description;
+        private @Nullable String errorMessage;
+        private @Nullable Integer fileSizeBytes;
+        private @Nullable String id;
         private String indexId;
-        private String name;
-        private String roleArn;
-        private List<GetThesaurusSourceS3Path> sourceS3Paths;
-        private String status;
-        private Integer synonymRuleCount;
-        private Map<String,String> tags;
-        private Integer termCount;
+        private @Nullable String name;
+        private @Nullable String roleArn;
+        private @Nullable List<GetThesaurusSourceS3Path> sourceS3Paths;
+        private @Nullable String status;
+        private @Nullable Integer synonymRuleCount;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Integer termCount;
         private String thesaurusId;
-        private String updatedAt;
+        private @Nullable String updatedAt;
         public Builder() {}
         public Builder(GetThesaurusResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -239,33 +241,33 @@ public final class GetThesaurusResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder errorMessage(String errorMessage) {
-            this.errorMessage = Objects.requireNonNull(errorMessage);
+        public Builder errorMessage(@Nullable String errorMessage) {
+            this.errorMessage = errorMessage;
             return this;
         }
         @CustomType.Setter
-        public Builder fileSizeBytes(Integer fileSizeBytes) {
-            this.fileSizeBytes = Objects.requireNonNull(fileSizeBytes);
+        public Builder fileSizeBytes(@Nullable Integer fileSizeBytes) {
+            this.fileSizeBytes = fileSizeBytes;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -274,41 +276,41 @@ public final class GetThesaurusResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceS3Paths(List<GetThesaurusSourceS3Path> sourceS3Paths) {
-            this.sourceS3Paths = Objects.requireNonNull(sourceS3Paths);
+        public Builder sourceS3Paths(@Nullable List<GetThesaurusSourceS3Path> sourceS3Paths) {
+            this.sourceS3Paths = sourceS3Paths;
             return this;
         }
         public Builder sourceS3Paths(GetThesaurusSourceS3Path... sourceS3Paths) {
             return sourceS3Paths(List.of(sourceS3Paths));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder synonymRuleCount(Integer synonymRuleCount) {
-            this.synonymRuleCount = Objects.requireNonNull(synonymRuleCount);
+        public Builder synonymRuleCount(@Nullable Integer synonymRuleCount) {
+            this.synonymRuleCount = synonymRuleCount;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder termCount(Integer termCount) {
-            this.termCount = Objects.requireNonNull(termCount);
+        public Builder termCount(@Nullable Integer termCount) {
+            this.termCount = termCount;
             return this;
         }
         @CustomType.Setter
@@ -317,8 +319,8 @@ public final class GetThesaurusResult {
             return this;
         }
         @CustomType.Setter
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+        public Builder updatedAt(@Nullable String updatedAt) {
+            this.updatedAt = updatedAt;
             return this;
         }
         public GetThesaurusResult build() {

@@ -55,7 +55,7 @@ type MainRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
 	// Used internally, see **Notes** below
-	OriginalRouteTableId pulumi.StringOutput `pulumi:"originalRouteTableId"`
+	OriginalRouteTableId pulumi.StringPtrOutput `pulumi:"originalRouteTableId"`
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
@@ -227,8 +227,8 @@ func (o MainRouteTableAssociationOutput) ToMainRouteTableAssociationOutputWithCo
 }
 
 // Used internally, see **Notes** below
-func (o MainRouteTableAssociationOutput) OriginalRouteTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v *MainRouteTableAssociation) pulumi.StringOutput { return v.OriginalRouteTableId }).(pulumi.StringOutput)
+func (o MainRouteTableAssociationOutput) OriginalRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MainRouteTableAssociation) pulumi.StringPtrOutput { return v.OriginalRouteTableId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Route Table to set as the new

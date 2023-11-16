@@ -100,19 +100,19 @@ namespace Pulumi.Aws.Connect
         /// The Amazon Resource Name (ARN) of the Contact Flow.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the Contact Flow.
         /// </summary>
         [Output("contactFlowId")]
-        public Output<string> ContactFlowId { get; private set; } = null!;
+        public Output<string?> ContactFlowId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
         /// </summary>
         [Output("content")]
-        public Output<string> Content { get; private set; } = null!;
+        public Output<string?> Content { get; private set; } = null!;
 
         /// <summary>
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.

@@ -72,16 +72,16 @@ export interface GetAmiIdsResult {
     /**
      * List of the Autoscaling Groups Arns in the current region.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     readonly filters?: outputs.autoscaling.GetAmiIdsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of the Autoscaling Groups in the current region.
      */
-    readonly names: string[];
+    readonly names?: string[];
 }
 /**
  * The Autoscaling Groups data source allows access to the list of AWS

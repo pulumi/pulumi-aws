@@ -61,17 +61,17 @@ type LookupUserArgs struct {
 // A collection of values returned by getUser.
 type LookupUserResult struct {
 	// ARN assigned by AWS for this user.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Path in which this user was created.
-	Path string `pulumi:"path"`
+	Path *string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
-	PermissionsBoundary string `pulumi:"permissionsBoundary"`
+	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
 	// Map of key-value pairs associated with the user.
 	Tags map[string]string `pulumi:"tags"`
 	// Unique ID assigned by AWS for this user.
-	UserId string `pulumi:"userId"`
+	UserId *string `pulumi:"userId"`
 	// Name associated to this User
 	UserName string `pulumi:"userName"`
 }
@@ -117,23 +117,23 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 }
 
 // ARN assigned by AWS for this user.
-func (o LookupUserResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupUserResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Path in which this user was created.
-func (o LookupUserResultOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Path }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the policy that is used to set the permissions boundary for the user.
-func (o LookupUserResultOutput) PermissionsBoundary() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.PermissionsBoundary }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) PermissionsBoundary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
 }
 
 // Map of key-value pairs associated with the user.
@@ -142,8 +142,8 @@ func (o LookupUserResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Unique ID assigned by AWS for this user.
-func (o LookupUserResultOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.UserId }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 // Name associated to this User

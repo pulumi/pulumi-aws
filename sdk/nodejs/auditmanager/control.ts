@@ -72,7 +72,7 @@ export class Control extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the control.
      * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Data mapping sources. See `controlMappingSources` below.
      *
@@ -102,7 +102,7 @@ export class Control extends pulumi.CustomResource {
     /**
      * Type of control, such as a custom control or a standard control.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Control resource with the given unique name, arguments, and options.

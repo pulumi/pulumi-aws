@@ -71,14 +71,14 @@ public class SdkvoiceSipMediaApplication extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.

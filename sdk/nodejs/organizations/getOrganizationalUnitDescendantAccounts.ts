@@ -47,11 +47,11 @@ export interface GetOrganizationalUnitDescendantAccountsResult {
     /**
      * List of child accounts, which have the following attributes:
      */
-    readonly accounts: outputs.organizations.GetOrganizationalUnitDescendantAccountsAccount[];
+    readonly accounts?: outputs.organizations.GetOrganizationalUnitDescendantAccountsAccount[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly parentId: string;
 }
 /**

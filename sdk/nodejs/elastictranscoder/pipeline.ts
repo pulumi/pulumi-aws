@@ -69,7 +69,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The ARN of the Elastictranscoder pipeline.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
      */
@@ -77,7 +77,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      */
-    public readonly contentConfig!: pulumi.Output<outputs.elastictranscoder.PipelineContentConfig>;
+    public readonly contentConfig!: pulumi.Output<outputs.elastictranscoder.PipelineContentConfig | undefined>;
     /**
      * The permissions for the `contentConfig` object. (documented below)
      */
@@ -97,7 +97,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
-    public readonly outputBucket!: pulumi.Output<string>;
+    public readonly outputBucket!: pulumi.Output<string | undefined>;
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
@@ -105,7 +105,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      */
-    public readonly thumbnailConfig!: pulumi.Output<outputs.elastictranscoder.PipelineThumbnailConfig>;
+    public readonly thumbnailConfig!: pulumi.Output<outputs.elastictranscoder.PipelineThumbnailConfig | undefined>;
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
      *

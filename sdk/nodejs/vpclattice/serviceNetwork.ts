@@ -56,11 +56,11 @@ export class ServiceNetwork extends pulumi.CustomResource {
     /**
      * ARN of the Service Network.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Type of IAM policy. Either `NONE` or `AWS_IAM`.
      */
-    public readonly authType!: pulumi.Output<string>;
+    public readonly authType!: pulumi.Output<string | undefined>;
     /**
      * Name of the service network
      *

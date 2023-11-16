@@ -6,6 +6,8 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContainerRecipeTargetRepository {
@@ -13,27 +15,27 @@ public final class GetContainerRecipeTargetRepository {
      * @return Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
      * 
      */
-    private String repositoryName;
+    private @Nullable String repositoryName;
     /**
      * @return Service in which this image is registered.
      * 
      */
-    private String service;
+    private @Nullable String service;
 
     private GetContainerRecipeTargetRepository() {}
     /**
      * @return Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
      * 
      */
-    public String repositoryName() {
-        return this.repositoryName;
+    public Optional<String> repositoryName() {
+        return Optional.ofNullable(this.repositoryName);
     }
     /**
      * @return Service in which this image is registered.
      * 
      */
-    public String service() {
-        return this.service;
+    public Optional<String> service() {
+        return Optional.ofNullable(this.service);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetContainerRecipeTargetRepository {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String repositoryName;
-        private String service;
+        private @Nullable String repositoryName;
+        private @Nullable String service;
         public Builder() {}
         public Builder(GetContainerRecipeTargetRepository defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetContainerRecipeTargetRepository {
         }
 
         @CustomType.Setter
-        public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+        public Builder repositoryName(@Nullable String repositoryName) {
+            this.repositoryName = repositoryName;
             return this;
         }
         @CustomType.Setter
-        public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+        public Builder service(@Nullable String service) {
+            this.service = service;
             return this;
         }
         public GetContainerRecipeTargetRepository build() {

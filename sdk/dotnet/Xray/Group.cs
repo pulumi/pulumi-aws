@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Xray
         /// The ARN of the Group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Xray
         /// Configuration options for enabling insights.
         /// </summary>
         [Output("insightsConfiguration")]
-        public Output<Outputs.GroupInsightsConfiguration> InsightsConfiguration { get; private set; } = null!;
+        public Output<Outputs.GroupInsightsConfiguration?> InsightsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

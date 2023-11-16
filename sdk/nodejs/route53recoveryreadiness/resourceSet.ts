@@ -64,7 +64,7 @@ export class ResourceSet extends pulumi.CustomResource {
     /**
      * NLB resource ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Unique name describing the resource set.
      */

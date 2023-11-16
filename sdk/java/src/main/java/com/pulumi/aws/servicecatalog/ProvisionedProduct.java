@@ -99,42 +99,42 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the provisioned product.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Set of CloudWatch dashboards that were created when provisioning the product.
      * 
      */
     @Export(name="cloudwatchDashboardNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> cloudwatchDashboardNames;
+    private Output</* @Nullable */ List<String>> cloudwatchDashboardNames;
 
     /**
      * @return Set of CloudWatch dashboards that were created when provisioning the product.
      * 
      */
-    public Output<List<String>> cloudwatchDashboardNames() {
-        return this.cloudwatchDashboardNames;
+    public Output<Optional<List<String>>> cloudwatchDashboardNames() {
+        return Codegen.optional(this.cloudwatchDashboardNames);
     }
     /**
      * Time when the provisioned product was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return Time when the provisioned product was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
@@ -155,56 +155,56 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastProvisioningRecordId", refs={String.class}, tree="[0]")
-    private Output<String> lastProvisioningRecordId;
+    private Output</* @Nullable */ String> lastProvisioningRecordId;
 
     /**
      * @return Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      * 
      */
-    public Output<String> lastProvisioningRecordId() {
-        return this.lastProvisioningRecordId;
+    public Output<Optional<String>> lastProvisioningRecordId() {
+        return Codegen.optional(this.lastProvisioningRecordId);
     }
     /**
      * Record identifier of the last request performed on this provisioned product.
      * 
      */
     @Export(name="lastRecordId", refs={String.class}, tree="[0]")
-    private Output<String> lastRecordId;
+    private Output</* @Nullable */ String> lastRecordId;
 
     /**
      * @return Record identifier of the last request performed on this provisioned product.
      * 
      */
-    public Output<String> lastRecordId() {
-        return this.lastRecordId;
+    public Output<Optional<String>> lastRecordId() {
+        return Codegen.optional(this.lastRecordId);
     }
     /**
      * Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      * 
      */
     @Export(name="lastSuccessfulProvisioningRecordId", refs={String.class}, tree="[0]")
-    private Output<String> lastSuccessfulProvisioningRecordId;
+    private Output</* @Nullable */ String> lastSuccessfulProvisioningRecordId;
 
     /**
      * @return Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      * 
      */
-    public Output<String> lastSuccessfulProvisioningRecordId() {
-        return this.lastSuccessfulProvisioningRecordId;
+    public Output<Optional<String>> lastSuccessfulProvisioningRecordId() {
+        return Codegen.optional(this.lastSuccessfulProvisioningRecordId);
     }
     /**
      * ARN of the launch role associated with the provisioned product.
      * 
      */
     @Export(name="launchRoleArn", refs={String.class}, tree="[0]")
-    private Output<String> launchRoleArn;
+    private Output</* @Nullable */ String> launchRoleArn;
 
     /**
      * @return ARN of the launch role associated with the provisioned product.
      * 
      */
-    public Output<String> launchRoleArn() {
-        return this.launchRoleArn;
+    public Output<Optional<String>> launchRoleArn() {
+        return Codegen.optional(this.launchRoleArn);
     }
     /**
      * User-friendly name of the provisioned product.
@@ -243,28 +243,28 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="outputs", refs={List.class,ProvisionedProductOutput.class}, tree="[0,1]")
-    private Output<List<ProvisionedProductOutput>> outputs;
+    private Output</* @Nullable */ List<ProvisionedProductOutput>> outputs;
 
     /**
      * @return The set of outputs for the product created.
      * 
      */
-    public Output<List<ProvisionedProductOutput>> outputs() {
-        return this.outputs;
+    public Output<Optional<List<ProvisionedProductOutput>>> outputs() {
+        return Codegen.optional(this.outputs);
     }
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
      * 
      */
     @Export(name="pathId", refs={String.class}, tree="[0]")
-    private Output<String> pathId;
+    private Output</* @Nullable */ String> pathId;
 
     /**
      * @return Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
      * 
      */
-    public Output<String> pathId() {
-        return this.pathId;
+    public Output<Optional<String>> pathId() {
+        return Codegen.optional(this.pathId);
     }
     /**
      * Name of the path. You must provide `path_id` or `path_name`, but not both.
@@ -285,14 +285,14 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="productId", refs={String.class}, tree="[0]")
-    private Output<String> productId;
+    private Output</* @Nullable */ String> productId;
 
     /**
      * @return Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
      * 
      */
-    public Output<String> productId() {
-        return this.productId;
+    public Output<Optional<String>> productId() {
+        return Codegen.optional(this.productId);
     }
     /**
      * Name of the product. You must provide `product_id` or `product_name`, but not both.
@@ -313,14 +313,14 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="provisioningArtifactId", refs={String.class}, tree="[0]")
-    private Output<String> provisioningArtifactId;
+    private Output</* @Nullable */ String> provisioningArtifactId;
 
     /**
      * @return Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
      * 
      */
-    public Output<String> provisioningArtifactId() {
-        return this.provisioningArtifactId;
+    public Output<Optional<String>> provisioningArtifactId() {
+        return Codegen.optional(this.provisioningArtifactId);
     }
     /**
      * Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
@@ -383,28 +383,28 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Current status of the provisioned product. See meanings below.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Current status message of the provisioned product.
      * 
      */
     @Export(name="statusMessage", refs={String.class}, tree="[0]")
-    private Output<String> statusMessage;
+    private Output</* @Nullable */ String> statusMessage;
 
     /**
      * @return Current status message of the provisioned product.
      * 
      */
-    public Output<String> statusMessage() {
-        return this.statusMessage;
+    public Output<Optional<String>> statusMessage() {
+        return Codegen.optional(this.statusMessage);
     }
     /**
      * Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -443,14 +443,14 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

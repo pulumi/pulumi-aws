@@ -154,7 +154,7 @@ export class MulticastDomain extends pulumi.CustomResource {
     /**
      * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
@@ -166,7 +166,7 @@ export class MulticastDomain extends pulumi.CustomResource {
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */

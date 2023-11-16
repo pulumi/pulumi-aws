@@ -82,7 +82,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the discoverer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The schema specification. Must be a valid Open API 3.0 spec.
      */
@@ -94,7 +94,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The last modified date of the schema.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string | undefined>;
     /**
      * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
      */
@@ -120,11 +120,11 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The version of the schema.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
     /**
      * The created date of the version of the schema.
      */
-    public /*out*/ readonly versionCreatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly versionCreatedDate!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.

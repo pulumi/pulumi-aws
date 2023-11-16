@@ -382,7 +382,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the lightsail certificate.
         """
@@ -390,7 +390,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the instance was created.
         """
@@ -398,7 +398,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         A domain name for which the certificate should be issued.
         """
@@ -406,7 +406,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainValidationOptions")
-    def domain_validation_options(self) -> pulumi.Output[Sequence['outputs.CertificateDomainValidationOption']]:
+    def domain_validation_options(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateDomainValidationOption']]]:
         """
         Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
         """
@@ -422,7 +422,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> pulumi.Output[Sequence[str]]:
+    def subject_alternative_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """

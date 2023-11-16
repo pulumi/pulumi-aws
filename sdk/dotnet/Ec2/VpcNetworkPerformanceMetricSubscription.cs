@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ec2
         /// The data aggregation time for the subscription.
         /// </summary>
         [Output("period")]
-        public Output<string> Period { get; private set; } = null!;
+        public Output<string?> Period { get; private set; } = null!;
 
         /// <summary>
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.

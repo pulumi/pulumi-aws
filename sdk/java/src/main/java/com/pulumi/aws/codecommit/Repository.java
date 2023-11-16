@@ -66,42 +66,42 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the repository
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The URL to use for cloning the repository over HTTPS.
      * 
      */
     @Export(name="cloneUrlHttp", refs={String.class}, tree="[0]")
-    private Output<String> cloneUrlHttp;
+    private Output</* @Nullable */ String> cloneUrlHttp;
 
     /**
      * @return The URL to use for cloning the repository over HTTPS.
      * 
      */
-    public Output<String> cloneUrlHttp() {
-        return this.cloneUrlHttp;
+    public Output<Optional<String>> cloneUrlHttp() {
+        return Codegen.optional(this.cloneUrlHttp);
     }
     /**
      * The URL to use for cloning the repository over SSH.
      * 
      */
     @Export(name="cloneUrlSsh", refs={String.class}, tree="[0]")
-    private Output<String> cloneUrlSsh;
+    private Output</* @Nullable */ String> cloneUrlSsh;
 
     /**
      * @return The URL to use for cloning the repository over SSH.
      * 
      */
-    public Output<String> cloneUrlSsh() {
-        return this.cloneUrlSsh;
+    public Output<Optional<String>> cloneUrlSsh() {
+        return Codegen.optional(this.cloneUrlSsh);
     }
     /**
      * The default branch of the repository. The branch specified here needs to exist.
@@ -136,14 +136,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="repositoryId", refs={String.class}, tree="[0]")
-    private Output<String> repositoryId;
+    private Output</* @Nullable */ String> repositoryId;
 
     /**
      * @return The ID of the repository
      * 
      */
-    public Output<String> repositoryId() {
-        return this.repositoryId;
+    public Output<Optional<String>> repositoryId() {
+        return Codegen.optional(this.repositoryId);
     }
     /**
      * The name for the repository. This needs to be less than 100 characters.

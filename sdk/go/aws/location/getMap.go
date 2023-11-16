@@ -61,18 +61,18 @@ type LookupMapResult struct {
 	// List of configurations that specify the map tile style selected from a partner data provider.
 	Configurations []GetMapConfiguration `pulumi:"configurations"`
 	// Timestamp for when the map resource was created in ISO 8601 format.
-	CreateTime string `pulumi:"createTime"`
+	CreateTime *string `pulumi:"createTime"`
 	// Optional description for the map resource.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN for the map resource.
-	MapArn  string `pulumi:"mapArn"`
-	MapName string `pulumi:"mapName"`
+	MapArn  *string `pulumi:"mapArn"`
+	MapName string  `pulumi:"mapName"`
 	// Key-value map of resource tags for the map.
 	Tags map[string]string `pulumi:"tags"`
 	// Timestamp for when the map resource was last updated in ISO 8601 format.
-	UpdateTime string `pulumi:"updateTime"`
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulumi.InvokeOption) LookupMapResultOutput {
@@ -121,23 +121,23 @@ func (o LookupMapResultOutput) Configurations() GetMapConfigurationArrayOutput {
 }
 
 // Timestamp for when the map resource was created in ISO 8601 format.
-func (o LookupMapResultOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMapResult) string { return v.CreateTime }).(pulumi.StringOutput)
+func (o LookupMapResultOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // Optional description for the map resource.
-func (o LookupMapResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMapResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupMapResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupMapResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMapResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupMapResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN for the map resource.
-func (o LookupMapResultOutput) MapArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMapResult) string { return v.MapArn }).(pulumi.StringOutput)
+func (o LookupMapResultOutput) MapArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *string { return v.MapArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupMapResultOutput) MapName() pulumi.StringOutput {
@@ -150,8 +150,8 @@ func (o LookupMapResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Timestamp for when the map resource was last updated in ISO 8601 format.
-func (o LookupMapResultOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMapResult) string { return v.UpdateTime }).(pulumi.StringOutput)
+func (o LookupMapResultOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 func init() {

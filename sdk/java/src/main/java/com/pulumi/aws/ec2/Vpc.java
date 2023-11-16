@@ -163,14 +163,14 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of VPC
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
@@ -191,76 +191,76 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
-    private Output<String> cidrBlock;
+    private Output</* @Nullable */ String> cidrBlock;
 
     /**
      * @return The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
      * 
      */
-    public Output<String> cidrBlock() {
-        return this.cidrBlock;
+    public Output<Optional<String>> cidrBlock() {
+        return Codegen.optional(this.cidrBlock);
     }
     /**
      * The ID of the network ACL created by default on VPC creation
      * 
      */
     @Export(name="defaultNetworkAclId", refs={String.class}, tree="[0]")
-    private Output<String> defaultNetworkAclId;
+    private Output</* @Nullable */ String> defaultNetworkAclId;
 
     /**
      * @return The ID of the network ACL created by default on VPC creation
      * 
      */
-    public Output<String> defaultNetworkAclId() {
-        return this.defaultNetworkAclId;
+    public Output<Optional<String>> defaultNetworkAclId() {
+        return Codegen.optional(this.defaultNetworkAclId);
     }
     /**
      * The ID of the route table created by default on VPC creation
      * 
      */
     @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
-    private Output<String> defaultRouteTableId;
+    private Output</* @Nullable */ String> defaultRouteTableId;
 
     /**
      * @return The ID of the route table created by default on VPC creation
      * 
      */
-    public Output<String> defaultRouteTableId() {
-        return this.defaultRouteTableId;
+    public Output<Optional<String>> defaultRouteTableId() {
+        return Codegen.optional(this.defaultRouteTableId);
     }
     /**
      * The ID of the security group created by default on VPC creation
      * 
      */
     @Export(name="defaultSecurityGroupId", refs={String.class}, tree="[0]")
-    private Output<String> defaultSecurityGroupId;
+    private Output</* @Nullable */ String> defaultSecurityGroupId;
 
     /**
      * @return The ID of the security group created by default on VPC creation
      * 
      */
-    public Output<String> defaultSecurityGroupId() {
-        return this.defaultSecurityGroupId;
+    public Output<Optional<String>> defaultSecurityGroupId() {
+        return Codegen.optional(this.defaultSecurityGroupId);
     }
     @Export(name="dhcpOptionsId", refs={String.class}, tree="[0]")
-    private Output<String> dhcpOptionsId;
+    private Output</* @Nullable */ String> dhcpOptionsId;
 
-    public Output<String> dhcpOptionsId() {
-        return this.dhcpOptionsId;
+    public Output<Optional<String>> dhcpOptionsId() {
+        return Codegen.optional(this.dhcpOptionsId);
     }
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      * 
      */
     @Export(name="enableDnsHostnames", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableDnsHostnames;
+    private Output</* @Nullable */ Boolean> enableDnsHostnames;
 
     /**
      * @return A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      * 
      */
-    public Output<Boolean> enableDnsHostnames() {
-        return this.enableDnsHostnames;
+    public Output<Optional<Boolean>> enableDnsHostnames() {
+        return Codegen.optional(this.enableDnsHostnames);
     }
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
@@ -281,14 +281,14 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enableNetworkAddressUsageMetrics", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableNetworkAddressUsageMetrics;
+    private Output</* @Nullable */ Boolean> enableNetworkAddressUsageMetrics;
 
     /**
      * @return Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
      * 
      */
-    public Output<Boolean> enableNetworkAddressUsageMetrics() {
-        return this.enableNetworkAddressUsageMetrics;
+    public Output<Optional<Boolean>> enableNetworkAddressUsageMetrics() {
+        return Codegen.optional(this.enableNetworkAddressUsageMetrics);
     }
     /**
      * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
@@ -337,42 +337,42 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipv6AssociationId", refs={String.class}, tree="[0]")
-    private Output<String> ipv6AssociationId;
+    private Output</* @Nullable */ String> ipv6AssociationId;
 
     /**
      * @return The association ID for the IPv6 CIDR block.
      * 
      */
-    public Output<String> ipv6AssociationId() {
-        return this.ipv6AssociationId;
+    public Output<Optional<String>> ipv6AssociationId() {
+        return Codegen.optional(this.ipv6AssociationId);
     }
     /**
      * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
      * 
      */
     @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
-    private Output<String> ipv6CidrBlock;
+    private Output</* @Nullable */ String> ipv6CidrBlock;
 
     /**
      * @return IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
      * 
      */
-    public Output<String> ipv6CidrBlock() {
-        return this.ipv6CidrBlock;
+    public Output<Optional<String>> ipv6CidrBlock() {
+        return Codegen.optional(this.ipv6CidrBlock);
     }
     /**
      * By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
      * 
      */
     @Export(name="ipv6CidrBlockNetworkBorderGroup", refs={String.class}, tree="[0]")
-    private Output<String> ipv6CidrBlockNetworkBorderGroup;
+    private Output</* @Nullable */ String> ipv6CidrBlockNetworkBorderGroup;
 
     /**
      * @return By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
      * 
      */
-    public Output<String> ipv6CidrBlockNetworkBorderGroup() {
-        return this.ipv6CidrBlockNetworkBorderGroup;
+    public Output<Optional<String>> ipv6CidrBlockNetworkBorderGroup() {
+        return Codegen.optional(this.ipv6CidrBlockNetworkBorderGroup);
     }
     /**
      * IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
@@ -409,7 +409,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="mainRouteTableId", refs={String.class}, tree="[0]")
-    private Output<String> mainRouteTableId;
+    private Output</* @Nullable */ String> mainRouteTableId;
 
     /**
      * @return The ID of the main route table associated with
@@ -417,22 +417,22 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * `aws.ec2.MainRouteTableAssociation`.
      * 
      */
-    public Output<String> mainRouteTableId() {
-        return this.mainRouteTableId;
+    public Output<Optional<String>> mainRouteTableId() {
+        return Codegen.optional(this.mainRouteTableId);
     }
     /**
      * The ID of the AWS account that owns the VPC.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The ID of the AWS account that owns the VPC.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

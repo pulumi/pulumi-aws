@@ -95,11 +95,11 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    public readonly applyImmediately!: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of cluster instance
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
@@ -107,11 +107,11 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the CA certificate for the DB instance.
      */
-    public readonly caCertIdentifier!: pulumi.Output<string>;
+    public readonly caCertIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the `aws.rds.Cluster` in which to launch this instance.
      */
@@ -127,19 +127,19 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Name of the DB parameter group to associate with this instance.
      */
-    public readonly dbParameterGroupName!: pulumi.Output<string>;
+    public readonly dbParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
-    public readonly dbSubnetGroupName!: pulumi.Output<string>;
+    public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * Region-unique, immutable identifier for the DB instance.
      */
-    public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
+    public /*out*/ readonly dbiResourceId!: pulumi.Output<string | undefined>;
     /**
      * DNS address for this instance. May not be writable
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
      */
@@ -147,19 +147,19 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Database engine version.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * Database engine version
      */
-    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string | undefined>;
     /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      */
-    public readonly identifier!: pulumi.Output<string>;
+    public readonly identifier!: pulumi.Output<string | undefined>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    public readonly identifierPrefix!: pulumi.Output<string>;
+    public readonly identifierPrefix!: pulumi.Output<string | undefined>;
     /**
      * Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
      */
@@ -167,7 +167,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * ARN for the KMS encryption key if one is set to the cluster.
      */
-    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      */
@@ -175,35 +175,35 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      */
-    public readonly monitoringRoleArn!: pulumi.Output<string>;
+    public readonly monitoringRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Network type of the DB instance.
      */
-    public /*out*/ readonly networkType!: pulumi.Output<string>;
+    public /*out*/ readonly networkType!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether Performance Insights is enabled or not.
      */
-    public readonly performanceInsightsEnabled!: pulumi.Output<boolean>;
+    public readonly performanceInsightsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
      */
-    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
+    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
-    public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number>;
+    public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * Database port
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
     /**
      * Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
      */
-    public readonly preferredBackupWindow!: pulumi.Output<string>;
+    public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
     /**
      * Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
      */
@@ -215,7 +215,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Specifies whether the DB cluster is encrypted.
      */
-    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
+    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -229,7 +229,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
-    public /*out*/ readonly writer!: pulumi.Output<boolean>;
+    public /*out*/ readonly writer!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ClusterInstance resource with the given unique name, arguments, and options.

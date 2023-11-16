@@ -48,13 +48,13 @@ namespace Pulumi.Aws.Quicksight
         /// ARN of the Ingestion.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// ID of the dataset used in the ingestion.
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Quicksight
         /// Ingestion status.
         /// </summary>
         [Output("ingestionStatus")]
-        public Output<string> IngestionStatus { get; private set; } = null!;
+        public Output<string?> IngestionStatus { get; private set; } = null!;
 
         /// <summary>
         /// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.

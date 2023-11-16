@@ -55,7 +55,7 @@ type OrganizationConfiguration struct {
 	// Configuration block for auto enabling. See below.
 	AutoEnable OrganizationConfigurationAutoEnableOutput `pulumi:"autoEnable"`
 	// Whether your configuration reached the max account limit.
-	MaxAccountLimitReached pulumi.BoolOutput `pulumi:"maxAccountLimitReached"`
+	MaxAccountLimitReached pulumi.BoolPtrOutput `pulumi:"maxAccountLimitReached"`
 }
 
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -212,8 +212,8 @@ func (o OrganizationConfigurationOutput) AutoEnable() OrganizationConfigurationA
 }
 
 // Whether your configuration reached the max account limit.
-func (o OrganizationConfigurationOutput) MaxAccountLimitReached() pulumi.BoolOutput {
-	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolOutput { return v.MaxAccountLimitReached }).(pulumi.BoolOutput)
+func (o OrganizationConfigurationOutput) MaxAccountLimitReached() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolPtrOutput { return v.MaxAccountLimitReached }).(pulumi.BoolPtrOutput)
 }
 
 type OrganizationConfigurationArrayOutput struct{ *pulumi.OutputState }

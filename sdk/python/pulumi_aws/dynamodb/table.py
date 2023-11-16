@@ -1264,7 +1264,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the table
         """
@@ -1272,7 +1272,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Output[Sequence['outputs.TableAttribute']]:
+    def attributes(self) -> pulumi.Output[Optional[Sequence['outputs.TableAttribute']]]:
         """
         Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         """
@@ -1304,7 +1304,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hashKey")
-    def hash_key(self) -> pulumi.Output[str]:
+    def hash_key(self) -> pulumi.Output[Optional[str]]:
         """
         Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         """
@@ -1338,7 +1338,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pointInTimeRecovery")
-    def point_in_time_recovery(self) -> pulumi.Output['outputs.TablePointInTimeRecovery']:
+    def point_in_time_recovery(self) -> pulumi.Output[Optional['outputs.TablePointInTimeRecovery']]:
         """
         Enable point-in-time recovery options. See below.
         """
@@ -1354,7 +1354,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readCapacity")
-    def read_capacity(self) -> pulumi.Output[int]:
+    def read_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
@@ -1394,7 +1394,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> pulumi.Output['outputs.TableServerSideEncryption']:
+    def server_side_encryption(self) -> pulumi.Output[Optional['outputs.TableServerSideEncryption']]:
         """
         Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
         """
@@ -1402,7 +1402,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamArn")
-    def stream_arn(self) -> pulumi.Output[str]:
+    def stream_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Table Stream. Only available when `stream_enabled = true`
         """
@@ -1418,7 +1418,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamLabel")
-    def stream_label(self) -> pulumi.Output[str]:
+    def stream_label(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
@@ -1426,7 +1426,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamViewType")
-    def stream_view_type(self) -> pulumi.Output[str]:
+    def stream_view_type(self) -> pulumi.Output[Optional[str]]:
         """
         When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         """
@@ -1463,7 +1463,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Output['outputs.TableTtl']:
+    def ttl(self) -> pulumi.Output[Optional['outputs.TableTtl']]:
         """
         Configuration block for TTL. See below.
         """
@@ -1471,7 +1471,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeCapacity")
-    def write_capacity(self) -> pulumi.Output[int]:
+    def write_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """

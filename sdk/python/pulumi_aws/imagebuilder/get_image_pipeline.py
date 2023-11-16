@@ -88,7 +88,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="containerRecipeArn")
-    def container_recipe_arn(self) -> str:
+    def container_recipe_arn(self) -> Optional[str]:
         """
         ARN of the container recipe.
         """
@@ -96,7 +96,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> str:
+    def date_created(self) -> Optional[str]:
         """
         Date the image pipeline was created.
         """
@@ -104,7 +104,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="dateLastRun")
-    def date_last_run(self) -> str:
+    def date_last_run(self) -> Optional[str]:
         """
         Date the image pipeline was last run.
         """
@@ -112,7 +112,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="dateNextRun")
-    def date_next_run(self) -> str:
+    def date_next_run(self) -> Optional[str]:
         """
         Date the image pipeline will run next.
         """
@@ -120,7 +120,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="dateUpdated")
-    def date_updated(self) -> str:
+    def date_updated(self) -> Optional[str]:
         """
         Date the image pipeline was updated.
         """
@@ -128,7 +128,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the image pipeline.
         """
@@ -136,7 +136,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="distributionConfigurationArn")
-    def distribution_configuration_arn(self) -> str:
+    def distribution_configuration_arn(self) -> Optional[str]:
         """
         ARN of the Image Builder Distribution Configuration.
         """
@@ -144,7 +144,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
-    def enhanced_image_metadata_enabled(self) -> bool:
+    def enhanced_image_metadata_enabled(self) -> Optional[bool]:
         """
         Whether additional information about the image being created is collected.
         """
@@ -152,7 +152,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -160,7 +160,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="imageRecipeArn")
-    def image_recipe_arn(self) -> str:
+    def image_recipe_arn(self) -> Optional[str]:
         """
         ARN of the image recipe.
         """
@@ -168,12 +168,12 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="imageScanningConfigurations")
-    def image_scanning_configurations(self) -> Sequence['outputs.GetImagePipelineImageScanningConfigurationResult']:
+    def image_scanning_configurations(self) -> Optional[Sequence['outputs.GetImagePipelineImageScanningConfigurationResult']]:
         return pulumi.get(self, "image_scanning_configurations")
 
     @property
     @pulumi.getter(name="imageTestsConfigurations")
-    def image_tests_configurations(self) -> Sequence['outputs.GetImagePipelineImageTestsConfigurationResult']:
+    def image_tests_configurations(self) -> Optional[Sequence['outputs.GetImagePipelineImageTestsConfigurationResult']]:
         """
         List of an object with image tests configuration.
         """
@@ -181,7 +181,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter(name="infrastructureConfigurationArn")
-    def infrastructure_configuration_arn(self) -> str:
+    def infrastructure_configuration_arn(self) -> Optional[str]:
         """
         ARN of the Image Builder Infrastructure Configuration.
         """
@@ -189,7 +189,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the image pipeline.
         """
@@ -197,7 +197,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> str:
+    def platform(self) -> Optional[str]:
         """
         Platform of the image pipeline.
         """
@@ -205,7 +205,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter
-    def schedules(self) -> Sequence['outputs.GetImagePipelineScheduleResult']:
+    def schedules(self) -> Optional[Sequence['outputs.GetImagePipelineScheduleResult']]:
         """
         List of an object with schedule settings.
         """
@@ -213,7 +213,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the image pipeline.
         """
@@ -221,7 +221,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the image pipeline.
         """

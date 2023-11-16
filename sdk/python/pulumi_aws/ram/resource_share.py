@@ -352,7 +352,7 @@ class ResourceShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the resource share.
         """
@@ -368,7 +368,7 @@ class ResourceShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="permissionArns")
-    def permission_arns(self) -> pulumi.Output[Sequence[str]]:
+    def permission_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         """

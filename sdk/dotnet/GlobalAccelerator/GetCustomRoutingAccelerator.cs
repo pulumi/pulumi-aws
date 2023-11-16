@@ -141,41 +141,41 @@ namespace Pulumi.Aws.GlobalAccelerator
     [OutputType]
     public sealed class GetCustomRoutingAcceleratorResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly ImmutableArray<Outputs.GetCustomRoutingAcceleratorAttributeResult> Attributes;
-        public readonly string DnsName;
-        public readonly bool Enabled;
-        public readonly string HostedZoneId;
+        public readonly string? DnsName;
+        public readonly bool? Enabled;
+        public readonly string? HostedZoneId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string IpAddressType;
+        public readonly string? Id;
+        public readonly string? IpAddressType;
         public readonly ImmutableArray<Outputs.GetCustomRoutingAcceleratorIpSetResult> IpSets;
-        public readonly string Name;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? Name;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetCustomRoutingAcceleratorResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetCustomRoutingAcceleratorAttributeResult> attributes,
 
-            string dnsName,
+            string? dnsName,
 
-            bool enabled,
+            bool? enabled,
 
-            string hostedZoneId,
+            string? hostedZoneId,
 
-            string id,
+            string? id,
 
-            string ipAddressType,
+            string? ipAddressType,
 
             ImmutableArray<Outputs.GetCustomRoutingAcceleratorIpSetResult> ipSets,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Attributes = attributes;

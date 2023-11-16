@@ -560,7 +560,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> pulumi.Output[str]:
+    def admin_username(self) -> pulumi.Output[Optional[str]]:
         """
         The username of the administrator for the first database created in the namespace.
         """
@@ -568,7 +568,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
         """
@@ -576,7 +576,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbName")
-    def db_name(self) -> pulumi.Output[str]:
+    def db_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the first database created in the namespace.
         """
@@ -592,7 +592,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> pulumi.Output[Sequence[str]]:
+    def iam_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IAM roles to associate with the namespace.
         """
@@ -600,7 +600,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         """
@@ -616,7 +616,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> pulumi.Output[str]:
+    def namespace_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Redshift Namespace ID.
         """

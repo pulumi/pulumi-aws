@@ -489,7 +489,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationCode")
-    def activation_code(self) -> pulumi.Output[str]:
+    def activation_code(self) -> pulumi.Output[Optional[str]]:
         """
         The code the system generates when it processes the activation.
         """
@@ -505,7 +505,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> pulumi.Output[str]:
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
         """
         UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         """
@@ -513,7 +513,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def expired(self) -> pulumi.Output[bool]:
+    def expired(self) -> pulumi.Output[Optional[bool]]:
         """
         If the current activation has expired.
         """
@@ -537,7 +537,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationCount")
-    def registration_count(self) -> pulumi.Output[int]:
+    def registration_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of managed instances that are currently registered using this activation.
         """

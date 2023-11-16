@@ -67,7 +67,7 @@ export class Map extends pulumi.CustomResource {
     /**
      * The timestamp for when the map resource was created in ISO 8601 format.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string | undefined>;
     /**
      * An optional description for the map resource.
      */
@@ -75,7 +75,7 @@ export class Map extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
      */
-    public /*out*/ readonly mapArn!: pulumi.Output<string>;
+    public /*out*/ readonly mapArn!: pulumi.Output<string | undefined>;
     /**
      * The name for the map resource.
      *
@@ -95,7 +95,7 @@ export class Map extends pulumi.CustomResource {
     /**
      * The timestamp for when the map resource was last updated in ISO 8601 format.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Map resource with the given unique name, arguments, and options.

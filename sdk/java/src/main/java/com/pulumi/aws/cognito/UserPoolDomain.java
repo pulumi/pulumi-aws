@@ -122,14 +122,14 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return The AWS account ID for the user pool owner.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
@@ -150,42 +150,42 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cloudfrontDistribution", refs={String.class}, tree="[0]")
-    private Output<String> cloudfrontDistribution;
+    private Output</* @Nullable */ String> cloudfrontDistribution;
 
     /**
      * @return The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
      * 
      */
-    public Output<String> cloudfrontDistribution() {
-        return this.cloudfrontDistribution;
+    public Output<Optional<String>> cloudfrontDistribution() {
+        return Codegen.optional(this.cloudfrontDistribution);
     }
     /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      * 
      */
     @Export(name="cloudfrontDistributionArn", refs={String.class}, tree="[0]")
-    private Output<String> cloudfrontDistributionArn;
+    private Output</* @Nullable */ String> cloudfrontDistributionArn;
 
     /**
      * @return The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      * 
      */
-    public Output<String> cloudfrontDistributionArn() {
-        return this.cloudfrontDistributionArn;
+    public Output<Optional<String>> cloudfrontDistributionArn() {
+        return Codegen.optional(this.cloudfrontDistributionArn);
     }
     /**
      * The Route 53 hosted zone ID of the CloudFront distribution.
      * 
      */
     @Export(name="cloudfrontDistributionZoneId", refs={String.class}, tree="[0]")
-    private Output<String> cloudfrontDistributionZoneId;
+    private Output</* @Nullable */ String> cloudfrontDistributionZoneId;
 
     /**
      * @return The Route 53 hosted zone ID of the CloudFront distribution.
      * 
      */
-    public Output<String> cloudfrontDistributionZoneId() {
-        return this.cloudfrontDistributionZoneId;
+    public Output<Optional<String>> cloudfrontDistributionZoneId() {
+        return Codegen.optional(this.cloudfrontDistributionZoneId);
     }
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
@@ -206,14 +206,14 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="s3Bucket", refs={String.class}, tree="[0]")
-    private Output<String> s3Bucket;
+    private Output</* @Nullable */ String> s3Bucket;
 
     /**
      * @return The S3 bucket where the static files for this domain are stored.
      * 
      */
-    public Output<String> s3Bucket() {
-        return this.s3Bucket;
+    public Output<Optional<String>> s3Bucket() {
+        return Codegen.optional(this.s3Bucket);
     }
     /**
      * The user pool ID.
@@ -234,14 +234,14 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return The app version.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

@@ -77,10 +77,10 @@ type Collaboration struct {
 	pulumi.CustomResourceState
 
 	// The arn of the collaboration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date and time the collaboration was created.
 	// * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	CreateTime pulumi.StringPtrOutput `pulumi:"createTime"`
 	// The name for the member record for the collaboration creator.
 	CreatorDisplayName pulumi.StringOutput `pulumi:"creatorDisplayName"`
 	// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
@@ -111,7 +111,7 @@ type Collaboration struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
-	UpdateTime pulumi.StringOutput    `pulumi:"updateTime"`
+	UpdateTime pulumi.StringPtrOutput `pulumi:"updateTime"`
 }
 
 // NewCollaboration registers a new resource with the given unique name, arguments, and options.
@@ -392,14 +392,14 @@ func (o CollaborationOutput) ToCollaborationOutputWithContext(ctx context.Contex
 }
 
 // The arn of the collaboration.
-func (o CollaborationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CollaborationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Collaboration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time the collaboration was created.
 // * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
-func (o CollaborationOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+func (o CollaborationOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Collaboration) pulumi.StringPtrOutput { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // The name for the member record for the collaboration creator.
@@ -459,8 +459,8 @@ func (o CollaborationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-func (o CollaborationOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o CollaborationOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Collaboration) pulumi.StringPtrOutput { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 type CollaborationArrayOutput struct{ *pulumi.OutputState }

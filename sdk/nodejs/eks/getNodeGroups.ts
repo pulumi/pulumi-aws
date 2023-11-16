@@ -48,11 +48,11 @@ export interface GetNodeGroupsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of all node group names in an EKS Cluster.
      */
-    readonly names: string[];
+    readonly names?: string[];
 }
 /**
  * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.

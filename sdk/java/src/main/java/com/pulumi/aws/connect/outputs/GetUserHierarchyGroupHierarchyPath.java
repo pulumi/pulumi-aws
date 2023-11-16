@@ -11,6 +11,7 @@ import com.pulumi.aws.connect.outputs.GetUserHierarchyGroupHierarchyPathLevelTwo
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserHierarchyGroupHierarchyPath {
@@ -18,27 +19,27 @@ public final class GetUserHierarchyGroupHierarchyPath {
      * @return Details of level five. See below.
      * 
      */
-    private List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives;
+    private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives;
     /**
      * @return Details of level four. See below.
      * 
      */
-    private List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours;
+    private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours;
     /**
      * @return Details of level one. See below.
      * 
      */
-    private List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes;
+    private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes;
     /**
      * @return Details of level three. See below.
      * 
      */
-    private List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees;
+    private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees;
     /**
      * @return Details of level two. See below.
      * 
      */
-    private List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
+    private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
 
     private GetUserHierarchyGroupHierarchyPath() {}
     /**
@@ -46,35 +47,35 @@ public final class GetUserHierarchyGroupHierarchyPath {
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives() {
-        return this.levelFives;
+        return this.levelFives == null ? List.of() : this.levelFives;
     }
     /**
      * @return Details of level four. See below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours() {
-        return this.levelFours;
+        return this.levelFours == null ? List.of() : this.levelFours;
     }
     /**
      * @return Details of level one. See below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes() {
-        return this.levelOnes;
+        return this.levelOnes == null ? List.of() : this.levelOnes;
     }
     /**
      * @return Details of level three. See below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees() {
-        return this.levelThrees;
+        return this.levelThrees == null ? List.of() : this.levelThrees;
     }
     /**
      * @return Details of level two. See below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos() {
-        return this.levelTwos;
+        return this.levelTwos == null ? List.of() : this.levelTwos;
     }
 
     public static Builder builder() {
@@ -86,11 +87,11 @@ public final class GetUserHierarchyGroupHierarchyPath {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives;
-        private List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours;
-        private List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes;
-        private List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees;
-        private List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
+        private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives;
+        private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours;
+        private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes;
+        private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees;
+        private @Nullable List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
         public Builder() {}
         public Builder(GetUserHierarchyGroupHierarchyPath defaults) {
     	      Objects.requireNonNull(defaults);
@@ -102,40 +103,40 @@ public final class GetUserHierarchyGroupHierarchyPath {
         }
 
         @CustomType.Setter
-        public Builder levelFives(List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives) {
-            this.levelFives = Objects.requireNonNull(levelFives);
+        public Builder levelFives(@Nullable List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives) {
+            this.levelFives = levelFives;
             return this;
         }
         public Builder levelFives(GetUserHierarchyGroupHierarchyPathLevelFife... levelFives) {
             return levelFives(List.of(levelFives));
         }
         @CustomType.Setter
-        public Builder levelFours(List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours) {
-            this.levelFours = Objects.requireNonNull(levelFours);
+        public Builder levelFours(@Nullable List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours) {
+            this.levelFours = levelFours;
             return this;
         }
         public Builder levelFours(GetUserHierarchyGroupHierarchyPathLevelFour... levelFours) {
             return levelFours(List.of(levelFours));
         }
         @CustomType.Setter
-        public Builder levelOnes(List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes) {
-            this.levelOnes = Objects.requireNonNull(levelOnes);
+        public Builder levelOnes(@Nullable List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes) {
+            this.levelOnes = levelOnes;
             return this;
         }
         public Builder levelOnes(GetUserHierarchyGroupHierarchyPathLevelOne... levelOnes) {
             return levelOnes(List.of(levelOnes));
         }
         @CustomType.Setter
-        public Builder levelThrees(List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees) {
-            this.levelThrees = Objects.requireNonNull(levelThrees);
+        public Builder levelThrees(@Nullable List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees) {
+            this.levelThrees = levelThrees;
             return this;
         }
         public Builder levelThrees(GetUserHierarchyGroupHierarchyPathLevelThree... levelThrees) {
             return levelThrees(List.of(levelThrees));
         }
         @CustomType.Setter
-        public Builder levelTwos(List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos) {
-            this.levelTwos = Objects.requireNonNull(levelTwos);
+        public Builder levelTwos(@Nullable List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos) {
+            this.levelTwos = levelTwos;
             return this;
         }
         public Builder levelTwos(GetUserHierarchyGroupHierarchyPathLevelTwo... levelTwos) {

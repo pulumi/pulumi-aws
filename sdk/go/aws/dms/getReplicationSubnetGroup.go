@@ -59,17 +59,17 @@ type LookupReplicationSubnetGroupArgs struct {
 // A collection of values returned by getReplicationSubnetGroup.
 type LookupReplicationSubnetGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id                        string `pulumi:"id"`
-	ReplicationSubnetGroupArn string `pulumi:"replicationSubnetGroupArn"`
+	Id                        *string `pulumi:"id"`
+	ReplicationSubnetGroupArn *string `pulumi:"replicationSubnetGroupArn"`
 	// Description for the subnet group.
-	ReplicationSubnetGroupDescription string `pulumi:"replicationSubnetGroupDescription"`
-	ReplicationSubnetGroupId          string `pulumi:"replicationSubnetGroupId"`
-	SubnetGroupStatus                 string `pulumi:"subnetGroupStatus"`
+	ReplicationSubnetGroupDescription *string `pulumi:"replicationSubnetGroupDescription"`
+	ReplicationSubnetGroupId          string  `pulumi:"replicationSubnetGroupId"`
+	SubnetGroupStatus                 *string `pulumi:"subnetGroupStatus"`
 	// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
 	SubnetIds []string          `pulumi:"subnetIds"`
 	Tags      map[string]string `pulumi:"tags"`
 	// The ID of the VPC the subnet group is in.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupReplicationSubnetGroupOutput(ctx *pulumi.Context, args LookupReplicationSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSubnetGroupResultOutput {
@@ -112,25 +112,25 @@ func (o LookupReplicationSubnetGroupResultOutput) ToLookupReplicationSubnetGroup
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupReplicationSubnetGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupReplicationSubnetGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupReplicationSubnetGroupResultOutput) ReplicationSubnetGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) string { return v.ReplicationSubnetGroupArn }).(pulumi.StringOutput)
+func (o LookupReplicationSubnetGroupResultOutput) ReplicationSubnetGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) *string { return v.ReplicationSubnetGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // Description for the subnet group.
-func (o LookupReplicationSubnetGroupResultOutput) ReplicationSubnetGroupDescription() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) string { return v.ReplicationSubnetGroupDescription }).(pulumi.StringOutput)
+func (o LookupReplicationSubnetGroupResultOutput) ReplicationSubnetGroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) *string { return v.ReplicationSubnetGroupDescription }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupReplicationSubnetGroupResultOutput) ReplicationSubnetGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) string { return v.ReplicationSubnetGroupId }).(pulumi.StringOutput)
 }
 
-func (o LookupReplicationSubnetGroupResultOutput) SubnetGroupStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) string { return v.SubnetGroupStatus }).(pulumi.StringOutput)
+func (o LookupReplicationSubnetGroupResultOutput) SubnetGroupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) *string { return v.SubnetGroupStatus }).(pulumi.StringPtrOutput)
 }
 
 // List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
@@ -143,8 +143,8 @@ func (o LookupReplicationSubnetGroupResultOutput) Tags() pulumi.StringMapOutput 
 }
 
 // The ID of the VPC the subnet group is in.
-func (o LookupReplicationSubnetGroupResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupReplicationSubnetGroupResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

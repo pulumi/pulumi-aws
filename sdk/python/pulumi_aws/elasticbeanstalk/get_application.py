@@ -41,12 +41,12 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="appversionLifecycle")
-    def appversion_lifecycle(self) -> 'outputs.GetApplicationAppversionLifecycleResult':
+    def appversion_lifecycle(self) -> Optional['outputs.GetApplicationAppversionLifecycleResult']:
         return pulumi.get(self, "appversion_lifecycle")
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the application.
         """
@@ -54,7 +54,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Short description of the application
         """
@@ -62,7 +62,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

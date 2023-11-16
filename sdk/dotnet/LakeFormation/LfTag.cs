@@ -51,7 +51,7 @@ namespace Pulumi.Aws.LakeFormation
         /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
         [Output("catalogId")]
-        public Output<string> CatalogId { get; private set; } = null!;
+        public Output<string?> CatalogId { get; private set; } = null!;
 
         /// <summary>
         /// Key-name for the tag.

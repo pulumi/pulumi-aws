@@ -54,7 +54,7 @@ type Registry struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the discoverer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
@@ -241,8 +241,8 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 }
 
 // The Amazon Resource Name (ARN) of the discoverer.
-func (o RegistryOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RegistryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the discoverer. Maximum of 256 characters.

@@ -62,8 +62,8 @@ type LookupDelegationSetArgs struct {
 
 // A collection of values returned by getDelegationSet.
 type LookupDelegationSetResult struct {
-	Arn             string   `pulumi:"arn"`
-	CallerReference string   `pulumi:"callerReference"`
+	Arn             *string  `pulumi:"arn"`
+	CallerReference *string  `pulumi:"callerReference"`
 	Id              string   `pulumi:"id"`
 	NameServers     []string `pulumi:"nameServers"`
 }
@@ -108,12 +108,12 @@ func (o LookupDelegationSetResultOutput) ToLookupDelegationSetResultOutputWithCo
 	return o
 }
 
-func (o LookupDelegationSetResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDelegationSetResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupDelegationSetResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDelegationSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDelegationSetResultOutput) CallerReference() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDelegationSetResult) string { return v.CallerReference }).(pulumi.StringOutput)
+func (o LookupDelegationSetResultOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDelegationSetResult) *string { return v.CallerReference }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDelegationSetResultOutput) Id() pulumi.StringOutput {

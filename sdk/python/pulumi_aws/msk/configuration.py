@@ -339,7 +339,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the configuration.
         """
@@ -363,7 +363,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> pulumi.Output[int]:
+    def latest_revision(self) -> pulumi.Output[Optional[int]]:
         """
         Latest revision of the configuration.
         """

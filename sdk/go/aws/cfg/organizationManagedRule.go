@@ -69,7 +69,7 @@ type OrganizationManagedRule struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the rule
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the rule
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of AWS account identifiers to exclude from the rule
@@ -313,8 +313,8 @@ func (o OrganizationManagedRuleOutput) ToOrganizationManagedRuleOutputWithContex
 }
 
 // Amazon Resource Name (ARN) of the rule
-func (o OrganizationManagedRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OrganizationManagedRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OrganizationManagedRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationManagedRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the rule

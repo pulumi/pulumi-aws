@@ -221,12 +221,12 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// IDs of the matches security groups.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
         /// </summary>
@@ -238,11 +238,11 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetSecurityGroupsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<string> vpcIds)
         {

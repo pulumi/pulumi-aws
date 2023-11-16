@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserPoolClientAnalyticsConfiguration {
@@ -14,63 +16,63 @@ public final class GetUserPoolClientAnalyticsConfiguration {
      * @return (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
      * 
      */
-    private String applicationArn;
+    private @Nullable String applicationArn;
     /**
      * @return (Optional) Application ID for an Amazon Pinpoint application.
      * 
      */
-    private String applicationId;
+    private @Nullable String applicationId;
     /**
      * @return (Optional) ID for the Analytics Configuration. Conflicts with `application_arn`.
      * 
      */
-    private String externalId;
+    private @Nullable String externalId;
     /**
      * @return (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
-    private Boolean userDataShared;
+    private @Nullable Boolean userDataShared;
 
     private GetUserPoolClientAnalyticsConfiguration() {}
     /**
      * @return (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
      * 
      */
-    public String applicationArn() {
-        return this.applicationArn;
+    public Optional<String> applicationArn() {
+        return Optional.ofNullable(this.applicationArn);
     }
     /**
      * @return (Optional) Application ID for an Amazon Pinpoint application.
      * 
      */
-    public String applicationId() {
-        return this.applicationId;
+    public Optional<String> applicationId() {
+        return Optional.ofNullable(this.applicationId);
     }
     /**
      * @return (Optional) ID for the Analytics Configuration. Conflicts with `application_arn`.
      * 
      */
-    public String externalId() {
-        return this.externalId;
+    public Optional<String> externalId() {
+        return Optional.ofNullable(this.externalId);
     }
     /**
      * @return (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
-    public Boolean userDataShared() {
-        return this.userDataShared;
+    public Optional<Boolean> userDataShared() {
+        return Optional.ofNullable(this.userDataShared);
     }
 
     public static Builder builder() {
@@ -82,11 +84,11 @@ public final class GetUserPoolClientAnalyticsConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String applicationArn;
-        private String applicationId;
-        private String externalId;
-        private String roleArn;
-        private Boolean userDataShared;
+        private @Nullable String applicationArn;
+        private @Nullable String applicationId;
+        private @Nullable String externalId;
+        private @Nullable String roleArn;
+        private @Nullable Boolean userDataShared;
         public Builder() {}
         public Builder(GetUserPoolClientAnalyticsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -98,28 +100,28 @@ public final class GetUserPoolClientAnalyticsConfiguration {
         }
 
         @CustomType.Setter
-        public Builder applicationArn(String applicationArn) {
-            this.applicationArn = Objects.requireNonNull(applicationArn);
+        public Builder applicationArn(@Nullable String applicationArn) {
+            this.applicationArn = applicationArn;
             return this;
         }
         @CustomType.Setter
-        public Builder applicationId(String applicationId) {
-            this.applicationId = Objects.requireNonNull(applicationId);
+        public Builder applicationId(@Nullable String applicationId) {
+            this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
-        public Builder externalId(String externalId) {
-            this.externalId = Objects.requireNonNull(externalId);
+        public Builder externalId(@Nullable String externalId) {
+            this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder userDataShared(Boolean userDataShared) {
-            this.userDataShared = Objects.requireNonNull(userDataShared);
+        public Builder userDataShared(@Nullable Boolean userDataShared) {
+            this.userDataShared = userDataShared;
             return this;
         }
         public GetUserPoolClientAnalyticsConfiguration build() {

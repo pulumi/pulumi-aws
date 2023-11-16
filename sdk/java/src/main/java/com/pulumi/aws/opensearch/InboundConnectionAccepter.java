@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -102,14 +103,14 @@ public class InboundConnectionAccepter extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="connectionStatus", refs={String.class}, tree="[0]")
-    private Output<String> connectionStatus;
+    private Output</* @Nullable */ String> connectionStatus;
 
     /**
      * @return Status of the connection request.
      * 
      */
-    public Output<String> connectionStatus() {
-        return this.connectionStatus;
+    public Output<Optional<String>> connectionStatus() {
+        return Codegen.optional(this.connectionStatus);
     }
 
     /**

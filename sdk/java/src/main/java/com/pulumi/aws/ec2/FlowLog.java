@@ -281,14 +281,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Flow Log.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
@@ -351,14 +351,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="logDestination", refs={String.class}, tree="[0]")
-    private Output<String> logDestination;
+    private Output</* @Nullable */ String> logDestination;
 
     /**
      * @return The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
      * 
      */
-    public Output<String> logDestination() {
-        return this.logDestination;
+    public Output<Optional<String>> logDestination() {
+        return Codegen.optional(this.logDestination);
     }
     /**
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
@@ -379,14 +379,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="logFormat", refs={String.class}, tree="[0]")
-    private Output<String> logFormat;
+    private Output</* @Nullable */ String> logFormat;
 
     /**
      * @return The fields to include in the flow log record, in the order in which they should appear.
      * 
      */
-    public Output<String> logFormat() {
-        return this.logFormat;
+    public Output<Optional<String>> logFormat() {
+        return Codegen.optional(this.logFormat);
     }
     /**
      * **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
@@ -397,14 +397,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* use 'log_destination' argument instead */
     @Export(name="logGroupName", refs={String.class}, tree="[0]")
-    private Output<String> logGroupName;
+    private Output</* @Nullable */ String> logGroupName;
 
     /**
      * @return **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      */
-    public Output<String> logGroupName() {
-        return this.logGroupName;
+    public Output<Optional<String>> logGroupName() {
+        return Codegen.optional(this.logGroupName);
     }
     /**
      * The maximum interval of time

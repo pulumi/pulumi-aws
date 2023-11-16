@@ -33,20 +33,20 @@ type LookupPolicyArgs struct {
 // A collection of values returned by getPolicy.
 type LookupPolicyResult struct {
 	// The Amazon Resource Name of the policy.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Indicates if a policy is an AWS managed policy.
-	AwsManaged bool `pulumi:"awsManaged"`
+	AwsManaged *bool `pulumi:"awsManaged"`
 	// The text content of the policy.
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// The description of the policy.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The friendly name of the policy.
-	Name     string `pulumi:"name"`
-	PolicyId string `pulumi:"policyId"`
+	Name     *string `pulumi:"name"`
+	PolicyId string  `pulumi:"policyId"`
 	// The type of policy values can be `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
@@ -88,33 +88,33 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 }
 
 // The Amazon Resource Name of the policy.
-func (o LookupPolicyResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupPolicyResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Indicates if a policy is an AWS managed policy.
-func (o LookupPolicyResultOutput) AwsManaged() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupPolicyResult) bool { return v.AwsManaged }).(pulumi.BoolOutput)
+func (o LookupPolicyResultOutput) AwsManaged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *bool { return v.AwsManaged }).(pulumi.BoolPtrOutput)
 }
 
 // The text content of the policy.
-func (o LookupPolicyResultOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPolicyResult) string { return v.Content }).(pulumi.StringOutput)
+func (o LookupPolicyResultOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // The description of the policy.
-func (o LookupPolicyResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPolicyResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupPolicyResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupPolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The friendly name of the policy.
-func (o LookupPolicyResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupPolicyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupPolicyResultOutput) PolicyId() pulumi.StringOutput {
@@ -122,8 +122,8 @@ func (o LookupPolicyResultOutput) PolicyId() pulumi.StringOutput {
 }
 
 // The type of policy values can be `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
-func (o LookupPolicyResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupPolicyResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

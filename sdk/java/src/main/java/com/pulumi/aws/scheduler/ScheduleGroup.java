@@ -66,42 +66,42 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the schedule group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Time at which the schedule group was created.
      * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
-    private Output<String> creationDate;
+    private Output</* @Nullable */ String> creationDate;
 
     /**
      * @return Time at which the schedule group was created.
      * 
      */
-    public Output<String> creationDate() {
-        return this.creationDate;
+    public Output<Optional<String>> creationDate() {
+        return Codegen.optional(this.creationDate);
     }
     /**
      * Time at which the schedule group was last modified.
      * 
      */
     @Export(name="lastModificationDate", refs={String.class}, tree="[0]")
-    private Output<String> lastModificationDate;
+    private Output</* @Nullable */ String> lastModificationDate;
 
     /**
      * @return Time at which the schedule group was last modified.
      * 
      */
-    public Output<String> lastModificationDate() {
-        return this.lastModificationDate;
+    public Output<Optional<String>> lastModificationDate() {
+        return Codegen.optional(this.lastModificationDate);
     }
     /**
      * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -122,28 +122,28 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * State of the schedule group. Can be `ACTIVE` or `DELETING`.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return State of the schedule group. Can be `ACTIVE` or `DELETING`.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

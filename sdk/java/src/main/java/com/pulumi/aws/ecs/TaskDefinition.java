@@ -412,28 +412,28 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Full ARN of the Task Definition (including both `family` and `revision`).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      * 
      */
     @Export(name="arnWithoutRevision", refs={String.class}, tree="[0]")
-    private Output<String> arnWithoutRevision;
+    private Output</* @Nullable */ String> arnWithoutRevision;
 
     /**
      * @return ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      * 
      */
-    public Output<String> arnWithoutRevision() {
-        return this.arnWithoutRevision;
+    public Output<Optional<String>> arnWithoutRevision() {
+        return Codegen.optional(this.arnWithoutRevision);
     }
     /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
@@ -556,14 +556,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkMode", refs={String.class}, tree="[0]")
-    private Output<String> networkMode;
+    private Output</* @Nullable */ String> networkMode;
 
     /**
      * @return Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      * 
      */
-    public Output<String> networkMode() {
-        return this.networkMode;
+    public Output<Optional<String>> networkMode() {
+        return Codegen.optional(this.networkMode);
     }
     /**
      * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
@@ -626,14 +626,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="revision", refs={Integer.class}, tree="[0]")
-    private Output<Integer> revision;
+    private Output</* @Nullable */ Integer> revision;
 
     /**
      * @return Revision of the task in a particular family.
      * 
      */
-    public Output<Integer> revision() {
-        return this.revision;
+    public Output<Optional<Integer>> revision() {
+        return Codegen.optional(this.revision);
     }
     /**
      * Configuration block for runtime_platform that containers in your task may use.

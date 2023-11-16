@@ -86,14 +86,14 @@ public class KeyGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return The identifier for this version of the key group.
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * A list of the identifiers of the public keys in the key group.

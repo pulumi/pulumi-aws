@@ -71,12 +71,12 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The ARN of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.memorydb.ClusterClusterEndpoint[]>;
+    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.memorydb.ClusterClusterEndpoint[] | undefined>;
     /**
      * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
      */
@@ -88,11 +88,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Patch version number of the Redis engine used by the cluster.
      */
-    public /*out*/ readonly enginePatchVersion!: pulumi.Output<string>;
+    public /*out*/ readonly enginePatchVersion!: pulumi.Output<string | undefined>;
     /**
      * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
      */
@@ -104,7 +104,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      */
-    public readonly maintenanceWindow!: pulumi.Output<string>;
+    public readonly maintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -112,7 +112,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      *
@@ -130,11 +130,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The name of the parameter group associated with the cluster.
      */
-    public readonly parameterGroupName!: pulumi.Output<string>;
+    public readonly parameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * The port number on which each of the nodes accepts connections. Defaults to `6379`.
      */
-    public readonly port!: pulumi.Output<number>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * Set of VPC Security Group ID-s to associate with this cluster.
      */
@@ -142,7 +142,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Set of shards in this cluster.
      */
-    public /*out*/ readonly shards!: pulumi.Output<outputs.memorydb.ClusterShard[]>;
+    public /*out*/ readonly shards!: pulumi.Output<outputs.memorydb.ClusterShard[] | undefined>;
     /**
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      */
@@ -154,11 +154,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      */
-    public readonly snapshotRetentionLimit!: pulumi.Output<number>;
+    public readonly snapshotRetentionLimit!: pulumi.Output<number | undefined>;
     /**
      * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      */
-    public readonly snapshotWindow!: pulumi.Output<string>;
+    public readonly snapshotWindow!: pulumi.Output<string | undefined>;
     /**
      * ARN of the SNS topic to which cluster notifications are sent.
      */
@@ -166,7 +166,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      */
-    public readonly subnetGroupName!: pulumi.Output<string>;
+    public readonly subnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

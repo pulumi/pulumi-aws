@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     [OutputType]
     public sealed class GetEndpointClientLoginBannerOptionResult
     {
-        public readonly string BannerText;
-        public readonly bool Enabled;
+        public readonly string? BannerText;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
         private GetEndpointClientLoginBannerOptionResult(
-            string bannerText,
+            string? bannerText,
 
-            bool enabled)
+            bool? enabled)
         {
             BannerText = bannerText;
             Enabled = enabled;

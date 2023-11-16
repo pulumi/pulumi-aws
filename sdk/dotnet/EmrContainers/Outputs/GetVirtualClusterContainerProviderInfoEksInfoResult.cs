@@ -16,10 +16,10 @@ namespace Pulumi.Aws.EmrContainers.Outputs
         /// <summary>
         /// The namespace where the EMR Containers cluster is running
         /// </summary>
-        public readonly string Namespace;
+        public readonly string? Namespace;
 
         [OutputConstructor]
-        private GetVirtualClusterContainerProviderInfoEksInfoResult(string @namespace)
+        private GetVirtualClusterContainerProviderInfoEksInfoResult(string? @namespace)
         {
             Namespace = @namespace;
         }

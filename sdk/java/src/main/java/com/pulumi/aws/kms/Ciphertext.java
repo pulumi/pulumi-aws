@@ -73,14 +73,14 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ciphertextBlob", refs={String.class}, tree="[0]")
-    private Output<String> ciphertextBlob;
+    private Output</* @Nullable */ String> ciphertextBlob;
 
     /**
      * @return Base64 encoded ciphertext
      * 
      */
-    public Output<String> ciphertextBlob() {
-        return this.ciphertextBlob;
+    public Output<Optional<String>> ciphertextBlob() {
+        return Codegen.optional(this.ciphertextBlob);
     }
     /**
      * An optional mapping that makes up the encryption context.

@@ -31,7 +31,7 @@ type GetSecretsArgs struct {
 // A collection of values returned by getSecrets.
 type GetSecretsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Map containing each `secret` `name` as the key with its decrypted plaintext value
 	Plaintext map[string]string  `pulumi:"plaintext"`
 	Secrets   []GetSecretsSecret `pulumi:"secrets"`
@@ -76,8 +76,8 @@ func (o GetSecretsResultOutput) ToGetSecretsResultOutputWithContext(ctx context.
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSecretsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSecretsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecretsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Map containing each `secret` `name` as the key with its decrypted plaintext value

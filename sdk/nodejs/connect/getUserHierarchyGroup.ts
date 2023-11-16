@@ -76,29 +76,29 @@ export interface GetUserHierarchyGroupResult {
     /**
      * ARN of the hierarchy group.
      */
-    readonly arn: string;
-    readonly hierarchyGroupId: string;
+    readonly arn?: string;
+    readonly hierarchyGroupId?: string;
     /**
      * Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      */
-    readonly hierarchyPaths: outputs.connect.GetUserHierarchyGroupHierarchyPath[];
+    readonly hierarchyPaths?: outputs.connect.GetUserHierarchyGroupHierarchyPath[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
     /**
      * Identifier of the level in the hierarchy group.
      */
-    readonly levelId: string;
+    readonly levelId?: string;
     /**
      * Name of the hierarchy group.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Map of tags to assign to the hierarchy group.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific Amazon Connect User Hierarchy Group.

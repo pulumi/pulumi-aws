@@ -63,7 +63,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         EC2 Transit Gateway Connect Peer ARN
         """
@@ -71,7 +71,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> str:
+    def bgp_asn(self) -> Optional[str]:
         """
         BGP ASN number assigned customer device
         """
@@ -79,7 +79,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter(name="bgpPeerAddress")
-    def bgp_peer_address(self) -> str:
+    def bgp_peer_address(self) -> Optional[str]:
         """
         The IP address assigned to customer device, which is used as BGP IP address.
         """
@@ -87,7 +87,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter(name="bgpTransitGatewayAddresses")
-    def bgp_transit_gateway_addresses(self) -> Sequence[str]:
+    def bgp_transit_gateway_addresses(self) -> Optional[Sequence[str]]:
         """
         The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
         """
@@ -100,7 +100,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -108,7 +108,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter(name="insideCidrBlocks")
-    def inside_cidr_blocks(self) -> Sequence[str]:
+    def inside_cidr_blocks(self) -> Optional[Sequence[str]]:
         """
         CIDR blocks that will be used for addressing within the tunnel.
         """
@@ -116,7 +116,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter(name="peerAddress")
-    def peer_address(self) -> str:
+    def peer_address(self) -> Optional[str]:
         """
         IP addressed assigned to customer device, which is used as tunnel endpoint
         """
@@ -124,7 +124,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the EC2 Transit Gateway Connect Peer
         """
@@ -132,7 +132,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter(name="transitGatewayAddress")
-    def transit_gateway_address(self) -> str:
+    def transit_gateway_address(self) -> Optional[str]:
         """
         The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
         """
@@ -140,7 +140,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> str:
+    def transit_gateway_attachment_id(self) -> Optional[str]:
         """
         The Transit Gateway Connect
         """
@@ -148,7 +148,7 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter(name="transitGatewayConnectPeerId")
-    def transit_gateway_connect_peer_id(self) -> str:
+    def transit_gateway_connect_peer_id(self) -> Optional[str]:
         return pulumi.get(self, "transit_gateway_connect_peer_id")
 
 

@@ -8,6 +8,7 @@ import com.pulumi.aws.kendra.outputs.GetIndexUserTokenConfigurationJwtTokenTypeC
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexUserTokenConfiguration {
@@ -15,12 +16,12 @@ public final class GetIndexUserTokenConfiguration {
      * @return A block that specifies the information about the JSON token type configuration.
      * 
      */
-    private List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations;
+    private @Nullable List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations;
     /**
      * @return A block that specifies the information about the JWT token type configuration.
      * 
      */
-    private List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations;
+    private @Nullable List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations;
 
     private GetIndexUserTokenConfiguration() {}
     /**
@@ -28,14 +29,14 @@ public final class GetIndexUserTokenConfiguration {
      * 
      */
     public List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations() {
-        return this.jsonTokenTypeConfigurations;
+        return this.jsonTokenTypeConfigurations == null ? List.of() : this.jsonTokenTypeConfigurations;
     }
     /**
      * @return A block that specifies the information about the JWT token type configuration.
      * 
      */
     public List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations() {
-        return this.jwtTokenTypeConfigurations;
+        return this.jwtTokenTypeConfigurations == null ? List.of() : this.jwtTokenTypeConfigurations;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetIndexUserTokenConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations;
-        private List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations;
+        private @Nullable List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations;
+        private @Nullable List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations;
         public Builder() {}
         public Builder(GetIndexUserTokenConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetIndexUserTokenConfiguration {
         }
 
         @CustomType.Setter
-        public Builder jsonTokenTypeConfigurations(List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations) {
-            this.jsonTokenTypeConfigurations = Objects.requireNonNull(jsonTokenTypeConfigurations);
+        public Builder jsonTokenTypeConfigurations(@Nullable List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations) {
+            this.jsonTokenTypeConfigurations = jsonTokenTypeConfigurations;
             return this;
         }
         public Builder jsonTokenTypeConfigurations(GetIndexUserTokenConfigurationJsonTokenTypeConfiguration... jsonTokenTypeConfigurations) {
             return jsonTokenTypeConfigurations(List.of(jsonTokenTypeConfigurations));
         }
         @CustomType.Setter
-        public Builder jwtTokenTypeConfigurations(List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations) {
-            this.jwtTokenTypeConfigurations = Objects.requireNonNull(jwtTokenTypeConfigurations);
+        public Builder jwtTokenTypeConfigurations(@Nullable List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations) {
+            this.jwtTokenTypeConfigurations = jwtTokenTypeConfigurations;
             return this;
         }
         public Builder jwtTokenTypeConfigurations(GetIndexUserTokenConfigurationJwtTokenTypeConfiguration... jwtTokenTypeConfigurations) {

@@ -57,64 +57,64 @@ export interface GetInfrastructureConfigurationResult {
     /**
      * Date the infrastructure configuration was updated.
      */
-    readonly dateCreated: string;
-    readonly dateUpdated: string;
+    readonly dateCreated?: string;
+    readonly dateUpdated?: string;
     /**
      * Description of the infrastructure configuration.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
      */
-    readonly instanceMetadataOptions: outputs.imagebuilder.GetInfrastructureConfigurationInstanceMetadataOption[];
+    readonly instanceMetadataOptions?: outputs.imagebuilder.GetInfrastructureConfigurationInstanceMetadataOption[];
     /**
      * Name of the IAM Instance Profile associated with the configuration.
      */
-    readonly instanceProfileName: string;
+    readonly instanceProfileName?: string;
     /**
      * Set of EC2 Instance Types associated with the configuration.
      */
-    readonly instanceTypes: string[];
+    readonly instanceTypes?: string[];
     /**
      * Name of the EC2 Key Pair associated with the configuration.
      */
-    readonly keyPair: string;
+    readonly keyPair?: string;
     /**
      * Nested list of logging settings.
      */
-    readonly loggings: outputs.imagebuilder.GetInfrastructureConfigurationLogging[];
+    readonly loggings?: outputs.imagebuilder.GetInfrastructureConfigurationLogging[];
     /**
      * Name of the infrastructure configuration.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      */
-    readonly resourceTags: {[key: string]: string};
+    readonly resourceTags?: {[key: string]: string};
     /**
      * Set of EC2 Security Group identifiers associated with the configuration.
      */
-    readonly securityGroupIds: string[];
+    readonly securityGroupIds?: string[];
     /**
      * ARN of the SNS Topic associated with the configuration.
      */
-    readonly snsTopicArn: string;
+    readonly snsTopicArn?: string;
     /**
      * Identifier of the EC2 Subnet associated with the configuration.
      */
-    readonly subnetId: string;
+    readonly subnetId?: string;
     /**
      * Key-value map of resource tags for the infrastructure configuration.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Whether instances are terminated on failure.
      */
-    readonly terminateInstanceOnFailure: boolean;
+    readonly terminateInstanceOnFailure?: boolean;
 }
 /**
  * Provides details about an Image Builder Infrastructure Configuration.

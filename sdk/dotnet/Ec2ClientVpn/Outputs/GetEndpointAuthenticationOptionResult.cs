@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     [OutputType]
     public sealed class GetEndpointAuthenticationOptionResult
     {
-        public readonly string ActiveDirectoryId;
-        public readonly string RootCertificateChainArn;
-        public readonly string SamlProviderArn;
-        public readonly string SelfServiceSamlProviderArn;
-        public readonly string Type;
+        public readonly string? ActiveDirectoryId;
+        public readonly string? RootCertificateChainArn;
+        public readonly string? SamlProviderArn;
+        public readonly string? SelfServiceSamlProviderArn;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetEndpointAuthenticationOptionResult(
-            string activeDirectoryId,
+            string? activeDirectoryId,
 
-            string rootCertificateChainArn,
+            string? rootCertificateChainArn,
 
-            string samlProviderArn,
+            string? samlProviderArn,
 
-            string selfServiceSamlProviderArn,
+            string? selfServiceSamlProviderArn,
 
-            string type)
+            string? type)
         {
             ActiveDirectoryId = activeDirectoryId;
             RootCertificateChainArn = rootCertificateChainArn;

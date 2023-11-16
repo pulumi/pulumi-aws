@@ -98,19 +98,19 @@ type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
 	// When the replication configuration was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestinationOutput `pulumi:"destination"`
 	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
-	OriginalSourceFileSystemArn pulumi.StringOutput `pulumi:"originalSourceFileSystemArn"`
+	OriginalSourceFileSystemArn pulumi.StringPtrOutput `pulumi:"originalSourceFileSystemArn"`
 	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
-	SourceFileSystemArn pulumi.StringOutput `pulumi:"sourceFileSystemArn"`
+	SourceFileSystemArn pulumi.StringPtrOutput `pulumi:"sourceFileSystemArn"`
 	// The ID of the file system that is to be replicated.
 	SourceFileSystemId pulumi.StringOutput `pulumi:"sourceFileSystemId"`
 	// The AWS Region in which the source Amazon EFS file system is located.
 	// * `destination[0].file_system_id` - The fs ID of the replica.
 	// * `destination[0].status` - The status of the replication.
-	SourceFileSystemRegion pulumi.StringOutput `pulumi:"sourceFileSystemRegion"`
+	SourceFileSystemRegion pulumi.StringPtrOutput `pulumi:"sourceFileSystemRegion"`
 }
 
 // NewReplicationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -289,8 +289,8 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithCont
 }
 
 // When the replication configuration was created.
-func (o ReplicationConfigurationOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o ReplicationConfigurationOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // A destination configuration block (documented below).
@@ -299,13 +299,13 @@ func (o ReplicationConfigurationOutput) Destination() ReplicationConfigurationDe
 }
 
 // The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
-func (o ReplicationConfigurationOutput) OriginalSourceFileSystemArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.OriginalSourceFileSystemArn }).(pulumi.StringOutput)
+func (o ReplicationConfigurationOutput) OriginalSourceFileSystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringPtrOutput { return v.OriginalSourceFileSystemArn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
-func (o ReplicationConfigurationOutput) SourceFileSystemArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.SourceFileSystemArn }).(pulumi.StringOutput)
+func (o ReplicationConfigurationOutput) SourceFileSystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringPtrOutput { return v.SourceFileSystemArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the file system that is to be replicated.
@@ -316,8 +316,8 @@ func (o ReplicationConfigurationOutput) SourceFileSystemId() pulumi.StringOutput
 // The AWS Region in which the source Amazon EFS file system is located.
 // * `destination[0].file_system_id` - The fs ID of the replica.
 // * `destination[0].status` - The status of the replication.
-func (o ReplicationConfigurationOutput) SourceFileSystemRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.SourceFileSystemRegion }).(pulumi.StringOutput)
+func (o ReplicationConfigurationOutput) SourceFileSystemRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringPtrOutput { return v.SourceFileSystemRegion }).(pulumi.StringPtrOutput)
 }
 
 type ReplicationConfigurationArrayOutput struct{ *pulumi.OutputState }

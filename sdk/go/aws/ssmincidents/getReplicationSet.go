@@ -58,19 +58,19 @@ type LookupReplicationSetArgs struct {
 // A collection of values returned by getReplicationSet.
 type LookupReplicationSetResult struct {
 	// The Amazon Resouce Name (ARN) of the replication set.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The ARN of the user who created the replication set.
-	CreatedBy string `pulumi:"createdBy"`
+	CreatedBy *string `pulumi:"createdBy"`
 	// If `true`, the last remaining Region in a replication set can’t be deleted.
-	DeletionProtected bool `pulumi:"deletionProtected"`
+	DeletionProtected *bool `pulumi:"deletionProtected"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The ARN of the user who last modified the replication set.
-	LastModifiedBy string                    `pulumi:"lastModifiedBy"`
+	LastModifiedBy *string                   `pulumi:"lastModifiedBy"`
 	Regions        []GetReplicationSetRegion `pulumi:"regions"`
 	// The current status of the Region.
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// All tags applied to the replication set.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -114,28 +114,28 @@ func (o LookupReplicationSetResultOutput) ToLookupReplicationSetResultOutputWith
 }
 
 // The Amazon Resouce Name (ARN) of the replication set.
-func (o LookupReplicationSetResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupReplicationSetResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the user who created the replication set.
-func (o LookupReplicationSetResultOutput) CreatedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.CreatedBy }).(pulumi.StringOutput)
+func (o LookupReplicationSetResultOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSetResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
 // If `true`, the last remaining Region in a replication set can’t be deleted.
-func (o LookupReplicationSetResultOutput) DeletionProtected() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupReplicationSetResult) bool { return v.DeletionProtected }).(pulumi.BoolOutput)
+func (o LookupReplicationSetResultOutput) DeletionProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSetResult) *bool { return v.DeletionProtected }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupReplicationSetResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupReplicationSetResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the user who last modified the replication set.
-func (o LookupReplicationSetResultOutput) LastModifiedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.LastModifiedBy }).(pulumi.StringOutput)
+func (o LookupReplicationSetResultOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSetResult) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupReplicationSetResultOutput) Regions() GetReplicationSetRegionArrayOutput {
@@ -144,8 +144,8 @@ func (o LookupReplicationSetResultOutput) Regions() GetReplicationSetRegionArray
 
 // The current status of the Region.
 // * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-func (o LookupReplicationSetResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupReplicationSetResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationSetResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // All tags applied to the replication set.

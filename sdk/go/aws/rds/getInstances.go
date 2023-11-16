@@ -95,7 +95,7 @@ type GetInstancesArgs struct {
 type GetInstancesResult struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARNs of the matched RDS instances.
 	InstanceArns []string `pulumi:"instanceArns"`
 	// Identifiers of the matched RDS instances.
@@ -148,8 +148,8 @@ func (o GetInstancesResultOutput) Filters() GetInstancesFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetInstancesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstancesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetInstancesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstancesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARNs of the matched RDS instances.

@@ -44,15 +44,15 @@ export interface GetResourceResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly lastModified: string;
+    readonly lastModified?: string;
     /**
      * Role that the resource was registered with.
      */
-    readonly roleArn: string;
+    readonly roleArn?: string;
 }
 /**
  * Provides details about a Lake Formation resource.

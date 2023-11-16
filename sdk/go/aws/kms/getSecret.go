@@ -29,7 +29,7 @@ type GetSecretArgs struct {
 // A collection of values returned by getSecret.
 type GetSecretResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id      string            `pulumi:"id"`
+	Id      *string           `pulumi:"id"`
 	Secrets []GetSecretSecret `pulumi:"secrets"`
 }
 
@@ -71,8 +71,8 @@ func (o GetSecretResultOutput) ToGetSecretResultOutputWithContext(ctx context.Co
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSecretResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSecretResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecretResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSecretResultOutput) Secrets() GetSecretSecretArrayOutput {

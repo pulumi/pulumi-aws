@@ -83,13 +83,13 @@ type HoursOfOperation struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Hours of Operation.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
 	Configs HoursOfOperationConfigArrayOutput `pulumi:"configs"`
 	// Specifies the description of the Hours of Operation.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The identifier for the hours of operation.
-	HoursOfOperationId pulumi.StringOutput `pulumi:"hoursOfOperationId"`
+	HoursOfOperationId pulumi.StringPtrOutput `pulumi:"hoursOfOperationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// Specifies the name of the Hours of Operation.
@@ -315,8 +315,8 @@ func (o HoursOfOperationOutput) ToHoursOfOperationOutputWithContext(ctx context.
 }
 
 // The Amazon Resource Name (ARN) of the Hours of Operation.
-func (o HoursOfOperationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HoursOfOperationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
@@ -330,8 +330,8 @@ func (o HoursOfOperationOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The identifier for the hours of operation.
-func (o HoursOfOperationOutput) HoursOfOperationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.HoursOfOperationId }).(pulumi.StringOutput)
+func (o HoursOfOperationOutput) HoursOfOperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringPtrOutput { return v.HoursOfOperationId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identifier of the hosting Amazon Connect Instance.

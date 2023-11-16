@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ecr
         /// Full ARN of the repository.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Encryption configuration for the repository. See below for schema.
@@ -86,13 +86,13 @@ namespace Pulumi.Aws.Ecr
         /// The registry ID where the repository was created.
         /// </summary>
         [Output("registryId")]
-        public Output<string> RegistryId { get; private set; } = null!;
+        public Output<string?> RegistryId { get; private set; } = null!;
 
         /// <summary>
         /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         /// </summary>
         [Output("repositoryUrl")]
-        public Output<string> RepositoryUrl { get; private set; } = null!;
+        public Output<string?> RepositoryUrl { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

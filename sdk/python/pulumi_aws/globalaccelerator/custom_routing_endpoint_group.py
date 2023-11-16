@@ -330,7 +330,7 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the custom routing endpoint group.
         """
@@ -354,7 +354,7 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointGroupRegion")
-    def endpoint_group_region(self) -> pulumi.Output[str]:
+    def endpoint_group_region(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the AWS Region where the custom routing endpoint group is located.
         """

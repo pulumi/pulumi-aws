@@ -6,6 +6,8 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerlessSecurityPolicyResult {
@@ -13,33 +15,33 @@ public final class GetServerlessSecurityPolicyResult {
      * @return The date the security policy was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return Description of the security policy.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The date the security policy was last modified.
      * 
      */
-    private String lastModifiedDate;
+    private @Nullable String lastModifiedDate;
     private String name;
     /**
      * @return The JSON policy document without any whitespaces.
      * 
      */
-    private String policy;
+    private @Nullable String policy;
     /**
      * @return Version of the policy.
      * 
      */
-    private String policyVersion;
+    private @Nullable String policyVersion;
     private String type;
 
     private GetServerlessSecurityPolicyResult() {}
@@ -47,29 +49,29 @@ public final class GetServerlessSecurityPolicyResult {
      * @return The date the security policy was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Description of the security policy.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The date the security policy was last modified.
      * 
      */
-    public String lastModifiedDate() {
-        return this.lastModifiedDate;
+    public Optional<String> lastModifiedDate() {
+        return Optional.ofNullable(this.lastModifiedDate);
     }
     public String name() {
         return this.name;
@@ -78,15 +80,15 @@ public final class GetServerlessSecurityPolicyResult {
      * @return The JSON policy document without any whitespaces.
      * 
      */
-    public String policy() {
-        return this.policy;
+    public Optional<String> policy() {
+        return Optional.ofNullable(this.policy);
     }
     /**
      * @return Version of the policy.
      * 
      */
-    public String policyVersion() {
-        return this.policyVersion;
+    public Optional<String> policyVersion() {
+        return Optional.ofNullable(this.policyVersion);
     }
     public String type() {
         return this.type;
@@ -101,13 +103,13 @@ public final class GetServerlessSecurityPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String createdDate;
-        private String description;
-        private String id;
-        private String lastModifiedDate;
+        private @Nullable String createdDate;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String lastModifiedDate;
         private String name;
-        private String policy;
-        private String policyVersion;
+        private @Nullable String policy;
+        private @Nullable String policyVersion;
         private String type;
         public Builder() {}
         public Builder(GetServerlessSecurityPolicyResult defaults) {
@@ -123,23 +125,23 @@ public final class GetServerlessSecurityPolicyResult {
         }
 
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedDate(String lastModifiedDate) {
-            this.lastModifiedDate = Objects.requireNonNull(lastModifiedDate);
+        public Builder lastModifiedDate(@Nullable String lastModifiedDate) {
+            this.lastModifiedDate = lastModifiedDate;
             return this;
         }
         @CustomType.Setter
@@ -148,13 +150,13 @@ public final class GetServerlessSecurityPolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+        public Builder policy(@Nullable String policy) {
+            this.policy = policy;
             return this;
         }
         @CustomType.Setter
-        public Builder policyVersion(String policyVersion) {
-            this.policyVersion = Objects.requireNonNull(policyVersion);
+        public Builder policyVersion(@Nullable String policyVersion) {
+            this.policyVersion = policyVersion;
             return this;
         }
         @CustomType.Setter

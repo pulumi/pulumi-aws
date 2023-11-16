@@ -51,53 +51,53 @@ export interface GetReplicationTaskResult {
     /**
      * (Conflicts with `cdcStartTime`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      */
-    readonly cdcStartPosition: string;
+    readonly cdcStartPosition?: string;
     /**
      * (Conflicts with `cdcStartPosition`) The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */
-    readonly cdcStartTime: string;
+    readonly cdcStartTime?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
-    readonly migrationType: string;
+    readonly migrationType?: string;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
-    readonly replicationInstanceArn: string;
+    readonly replicationInstanceArn?: string;
     /**
      * The Amazon Resource Name (ARN) for the replication task.
      */
-    readonly replicationTaskArn: string;
+    readonly replicationTaskArn?: string;
     readonly replicationTaskId: string;
     /**
      * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
      */
-    readonly replicationTaskSettings: string;
+    readonly replicationTaskSettings?: string;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */
-    readonly sourceEndpointArn: string;
+    readonly sourceEndpointArn?: string;
     /**
      * Whether to run or stop the replication task.
      */
-    readonly startReplicationTask: boolean;
+    readonly startReplicationTask?: boolean;
     /**
      * Replication Task status.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      */
-    readonly tableMappings: string;
-    readonly tags: {[key: string]: string};
+    readonly tableMappings?: string;
+    readonly tags?: {[key: string]: string};
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      */
-    readonly targetEndpointArn: string;
+    readonly targetEndpointArn?: string;
 }
 /**
  * Data source for managing an AWS DMS (Database Migration) Replication Task.

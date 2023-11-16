@@ -51,11 +51,11 @@ export interface GetMaintenanceWindowsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of window IDs of the matched SSM maintenance windows.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
 }
 /**
  * Use this data source to get the window IDs of SSM maintenance windows.

@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Fsx
         /// The Amazon Resource Name (ARN) for the resource.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
@@ -118,13 +118,13 @@ namespace Pulumi.Aws.Fsx
         /// The Domain Name System (DNS) name for the cache.
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// The system-generated, unique ID of the cache.
         /// </summary>
         [Output("fileCacheId")]
-        public Output<string> FileCacheId { get; private set; } = null!;
+        public Output<string?> FileCacheId { get; private set; } = null!;
 
         /// <summary>
         /// The type of cache that you're creating. The only supported value is `LUSTRE`.
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Fsx
         /// Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Fsx
         /// The ID of your virtual private cloud (VPC).
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

@@ -285,7 +285,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Sequence['outputs.ParameterGroupParameter']]:
+    def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ParameterGroupParameter']]]:
         """
         The parameters of the parameter group.
         """

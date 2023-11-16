@@ -6,50 +6,52 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute {
-    private String destinationCidr;
-    private String destinationPrefixListId;
-    private String egressOnlyInternetGatewayId;
-    private String gatewayId;
-    private String instanceId;
-    private String natGatewayId;
-    private String networkInterfaceId;
-    private String origin;
-    private String transitGatewayId;
-    private String vpcPeeringConnectionId;
+    private @Nullable String destinationCidr;
+    private @Nullable String destinationPrefixListId;
+    private @Nullable String egressOnlyInternetGatewayId;
+    private @Nullable String gatewayId;
+    private @Nullable String instanceId;
+    private @Nullable String natGatewayId;
+    private @Nullable String networkInterfaceId;
+    private @Nullable String origin;
+    private @Nullable String transitGatewayId;
+    private @Nullable String vpcPeeringConnectionId;
 
     private GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute() {}
-    public String destinationCidr() {
-        return this.destinationCidr;
+    public Optional<String> destinationCidr() {
+        return Optional.ofNullable(this.destinationCidr);
     }
-    public String destinationPrefixListId() {
-        return this.destinationPrefixListId;
+    public Optional<String> destinationPrefixListId() {
+        return Optional.ofNullable(this.destinationPrefixListId);
     }
-    public String egressOnlyInternetGatewayId() {
-        return this.egressOnlyInternetGatewayId;
+    public Optional<String> egressOnlyInternetGatewayId() {
+        return Optional.ofNullable(this.egressOnlyInternetGatewayId);
     }
-    public String gatewayId() {
-        return this.gatewayId;
+    public Optional<String> gatewayId() {
+        return Optional.ofNullable(this.gatewayId);
     }
-    public String instanceId() {
-        return this.instanceId;
+    public Optional<String> instanceId() {
+        return Optional.ofNullable(this.instanceId);
     }
-    public String natGatewayId() {
-        return this.natGatewayId;
+    public Optional<String> natGatewayId() {
+        return Optional.ofNullable(this.natGatewayId);
     }
-    public String networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Optional<String> networkInterfaceId() {
+        return Optional.ofNullable(this.networkInterfaceId);
     }
-    public String origin() {
-        return this.origin;
+    public Optional<String> origin() {
+        return Optional.ofNullable(this.origin);
     }
-    public String transitGatewayId() {
-        return this.transitGatewayId;
+    public Optional<String> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
     }
-    public String vpcPeeringConnectionId() {
-        return this.vpcPeeringConnectionId;
+    public Optional<String> vpcPeeringConnectionId() {
+        return Optional.ofNullable(this.vpcPeeringConnectionId);
     }
 
     public static Builder builder() {
@@ -61,16 +63,16 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute 
     }
     @CustomType.Builder
     public static final class Builder {
-        private String destinationCidr;
-        private String destinationPrefixListId;
-        private String egressOnlyInternetGatewayId;
-        private String gatewayId;
-        private String instanceId;
-        private String natGatewayId;
-        private String networkInterfaceId;
-        private String origin;
-        private String transitGatewayId;
-        private String vpcPeeringConnectionId;
+        private @Nullable String destinationCidr;
+        private @Nullable String destinationPrefixListId;
+        private @Nullable String egressOnlyInternetGatewayId;
+        private @Nullable String gatewayId;
+        private @Nullable String instanceId;
+        private @Nullable String natGatewayId;
+        private @Nullable String networkInterfaceId;
+        private @Nullable String origin;
+        private @Nullable String transitGatewayId;
+        private @Nullable String vpcPeeringConnectionId;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -87,53 +89,53 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute 
         }
 
         @CustomType.Setter
-        public Builder destinationCidr(String destinationCidr) {
-            this.destinationCidr = Objects.requireNonNull(destinationCidr);
+        public Builder destinationCidr(@Nullable String destinationCidr) {
+            this.destinationCidr = destinationCidr;
             return this;
         }
         @CustomType.Setter
-        public Builder destinationPrefixListId(String destinationPrefixListId) {
-            this.destinationPrefixListId = Objects.requireNonNull(destinationPrefixListId);
+        public Builder destinationPrefixListId(@Nullable String destinationPrefixListId) {
+            this.destinationPrefixListId = destinationPrefixListId;
             return this;
         }
         @CustomType.Setter
-        public Builder egressOnlyInternetGatewayId(String egressOnlyInternetGatewayId) {
-            this.egressOnlyInternetGatewayId = Objects.requireNonNull(egressOnlyInternetGatewayId);
+        public Builder egressOnlyInternetGatewayId(@Nullable String egressOnlyInternetGatewayId) {
+            this.egressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder gatewayId(String gatewayId) {
-            this.gatewayId = Objects.requireNonNull(gatewayId);
+        public Builder gatewayId(@Nullable String gatewayId) {
+            this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+        public Builder instanceId(@Nullable String instanceId) {
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
-        public Builder natGatewayId(String natGatewayId) {
-            this.natGatewayId = Objects.requireNonNull(natGatewayId);
+        public Builder natGatewayId(@Nullable String natGatewayId) {
+            this.natGatewayId = natGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+        public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder origin(String origin) {
-            this.origin = Objects.requireNonNull(origin);
+        public Builder origin(@Nullable String origin) {
+            this.origin = origin;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+        public Builder transitGatewayId(@Nullable String transitGatewayId) {
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcPeeringConnectionId(String vpcPeeringConnectionId) {
-            this.vpcPeeringConnectionId = Objects.requireNonNull(vpcPeeringConnectionId);
+        public Builder vpcPeeringConnectionId(@Nullable String vpcPeeringConnectionId) {
+            this.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
         }
         public GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute build() {

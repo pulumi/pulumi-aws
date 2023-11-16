@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// <summary>
         /// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
         /// </summary>
-        public readonly string EmptyFillColor;
+        public readonly string? EmptyFillColor;
         /// <summary>
         /// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         private GetThemeConfigurationDataColorPaletteResult(
             ImmutableArray<string> colors,
 
-            string emptyFillColor,
+            string? emptyFillColor,
 
             ImmutableArray<string> minMaxGradients)
         {

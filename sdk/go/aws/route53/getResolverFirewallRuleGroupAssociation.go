@@ -62,21 +62,21 @@ type LookupResolverFirewallRuleGroupAssociationArgs struct {
 
 // A collection of values returned by getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationResult struct {
-	Arn                            string `pulumi:"arn"`
-	CreationTime                   string `pulumi:"creationTime"`
-	CreatorRequestId               string `pulumi:"creatorRequestId"`
-	FirewallRuleGroupAssociationId string `pulumi:"firewallRuleGroupAssociationId"`
-	FirewallRuleGroupId            string `pulumi:"firewallRuleGroupId"`
+	Arn                            *string `pulumi:"arn"`
+	CreationTime                   *string `pulumi:"creationTime"`
+	CreatorRequestId               *string `pulumi:"creatorRequestId"`
+	FirewallRuleGroupAssociationId string  `pulumi:"firewallRuleGroupAssociationId"`
+	FirewallRuleGroupId            *string `pulumi:"firewallRuleGroupId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string `pulumi:"id"`
-	ManagedOwnerName   string `pulumi:"managedOwnerName"`
-	ModificationTime   string `pulumi:"modificationTime"`
-	MutationProtection string `pulumi:"mutationProtection"`
-	Name               string `pulumi:"name"`
-	Priority           int    `pulumi:"priority"`
-	Status             string `pulumi:"status"`
-	StatusMessage      string `pulumi:"statusMessage"`
-	VpcId              string `pulumi:"vpcId"`
+	Id                 *string `pulumi:"id"`
+	ManagedOwnerName   *string `pulumi:"managedOwnerName"`
+	ModificationTime   *string `pulumi:"modificationTime"`
+	MutationProtection *string `pulumi:"mutationProtection"`
+	Name               *string `pulumi:"name"`
+	Priority           *int    `pulumi:"priority"`
+	Status             *string `pulumi:"status"`
+	StatusMessage      *string `pulumi:"statusMessage"`
+	VpcId              *string `pulumi:"vpcId"`
 }
 
 func LookupResolverFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args LookupResolverFirewallRuleGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallRuleGroupAssociationResultOutput {
@@ -119,16 +119,16 @@ func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ToLookupResolver
 	return o
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) CreatorRequestId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.CreatorRequestId }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) CreatorRequestId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.CreatorRequestId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) FirewallRuleGroupAssociationId() pulumi.StringOutput {
@@ -137,45 +137,45 @@ func (o LookupResolverFirewallRuleGroupAssociationResultOutput) FirewallRuleGrou
 	}).(pulumi.StringOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) FirewallRuleGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) FirewallRuleGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.FirewallRuleGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ManagedOwnerName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.ManagedOwnerName }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ManagedOwnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.ManagedOwnerName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ModificationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.ModificationTime }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ModificationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.ModificationTime }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) MutationProtection() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.MutationProtection }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) MutationProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.MutationProtection }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) int { return v.Priority }).(pulumi.IntOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) StatusMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.StatusMessage }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallRuleGroupAssociationResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

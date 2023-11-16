@@ -93,7 +93,7 @@ export class TopicPolicy extends pulumi.CustomResource {
     /**
      * The AWS Account ID of the SNS topic owner
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * The fully-formed AWS policy as JSON.
      */

@@ -236,17 +236,17 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// ARN of the resource share.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly ImmutableArray<Outputs.GetResourceShareFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// ID of the AWS account that owns the resource share.
         /// </summary>
-        public readonly string OwningAccountId;
+        public readonly string? OwningAccountId;
         /// <summary>
         /// A list of resource ARNs associated with the resource share.
         /// </summary>
@@ -256,23 +256,23 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// Status of the resource share.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Tags attached to the resource share.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetResourceShareResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetResourceShareFilterResult> filters,
 
-            string id,
+            string? id,
 
             string name,
 
-            string owningAccountId,
+            string? owningAccountId,
 
             ImmutableArray<string> resourceArns,
 
@@ -280,9 +280,9 @@ namespace Pulumi.Aws.Ram
 
             string? resourceShareStatus,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Filters = filters;

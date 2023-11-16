@@ -33,7 +33,7 @@ import (
 // if err != nil {
 // return err
 // }
-// testPolicyDocument := queue.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// testPolicyDocument := queue.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -50,7 +50,7 @@ import (
 // Actions: []string{
 // "sqs:SendMessage",
 // },
-// Resources: []string{
+// Resources: interface{}{
 // arn,
 // },
 // Conditions: []iam.GetPolicyDocumentStatementCondition{

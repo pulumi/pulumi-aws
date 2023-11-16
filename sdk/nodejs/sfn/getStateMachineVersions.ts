@@ -44,12 +44,12 @@ export interface GetStateMachineVersionsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly statemachineArn: string;
     /**
      * ARN List identifying the statemachine versions.
      */
-    readonly statemachineVersions: string[];
+    readonly statemachineVersions?: string[];
 }
 /**
  * Data source for managing an AWS SFN (Step Functions) State Machine Versions.

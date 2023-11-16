@@ -98,7 +98,7 @@ type IdentityPool struct {
 	// Whether the identity pool supports unauthenticated logins or not.
 	AllowUnauthenticatedIdentities pulumi.BoolPtrOutput `pulumi:"allowUnauthenticatedIdentities"`
 	// The ARN of the identity pool.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// An array of Amazon Cognito Identity user pools and their client IDs.
 	CognitoIdentityProviders IdentityPoolCognitoIdentityProviderArrayOutput `pulumi:"cognitoIdentityProviders"`
 	// The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
@@ -359,8 +359,8 @@ func (o IdentityPoolOutput) AllowUnauthenticatedIdentities() pulumi.BoolPtrOutpu
 }
 
 // The ARN of the identity pool.
-func (o IdentityPoolOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *IdentityPool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o IdentityPoolOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // An array of Amazon Cognito Identity user pools and their client IDs.

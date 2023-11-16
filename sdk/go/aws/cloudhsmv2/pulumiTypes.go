@@ -132,11 +132,11 @@ func (o ClusterClusterCertificateArrayOutput) Index(i pulumi.IntInput) ClusterCl
 }
 
 type GetClusterClusterCertificate struct {
-	AwsHardwareCertificate          string `pulumi:"awsHardwareCertificate"`
-	ClusterCertificate              string `pulumi:"clusterCertificate"`
-	ClusterCsr                      string `pulumi:"clusterCsr"`
-	HsmCertificate                  string `pulumi:"hsmCertificate"`
-	ManufacturerHardwareCertificate string `pulumi:"manufacturerHardwareCertificate"`
+	AwsHardwareCertificate          *string `pulumi:"awsHardwareCertificate"`
+	ClusterCertificate              *string `pulumi:"clusterCertificate"`
+	ClusterCsr                      *string `pulumi:"clusterCsr"`
+	HsmCertificate                  *string `pulumi:"hsmCertificate"`
+	ManufacturerHardwareCertificate *string `pulumi:"manufacturerHardwareCertificate"`
 }
 
 // GetClusterClusterCertificateInput is an input type that accepts GetClusterClusterCertificateArgs and GetClusterClusterCertificateOutput values.
@@ -151,11 +151,11 @@ type GetClusterClusterCertificateInput interface {
 }
 
 type GetClusterClusterCertificateArgs struct {
-	AwsHardwareCertificate          pulumi.StringInput `pulumi:"awsHardwareCertificate"`
-	ClusterCertificate              pulumi.StringInput `pulumi:"clusterCertificate"`
-	ClusterCsr                      pulumi.StringInput `pulumi:"clusterCsr"`
-	HsmCertificate                  pulumi.StringInput `pulumi:"hsmCertificate"`
-	ManufacturerHardwareCertificate pulumi.StringInput `pulumi:"manufacturerHardwareCertificate"`
+	AwsHardwareCertificate          pulumi.StringPtrInput `pulumi:"awsHardwareCertificate"`
+	ClusterCertificate              pulumi.StringPtrInput `pulumi:"clusterCertificate"`
+	ClusterCsr                      pulumi.StringPtrInput `pulumi:"clusterCsr"`
+	HsmCertificate                  pulumi.StringPtrInput `pulumi:"hsmCertificate"`
+	ManufacturerHardwareCertificate pulumi.StringPtrInput `pulumi:"manufacturerHardwareCertificate"`
 }
 
 func (GetClusterClusterCertificateArgs) ElementType() reflect.Type {
@@ -209,24 +209,24 @@ func (o GetClusterClusterCertificateOutput) ToGetClusterClusterCertificateOutput
 	return o
 }
 
-func (o GetClusterClusterCertificateOutput) AwsHardwareCertificate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.AwsHardwareCertificate }).(pulumi.StringOutput)
+func (o GetClusterClusterCertificateOutput) AwsHardwareCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterClusterCertificate) *string { return v.AwsHardwareCertificate }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterClusterCertificateOutput) ClusterCertificate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.ClusterCertificate }).(pulumi.StringOutput)
+func (o GetClusterClusterCertificateOutput) ClusterCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterClusterCertificate) *string { return v.ClusterCertificate }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterClusterCertificateOutput) ClusterCsr() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.ClusterCsr }).(pulumi.StringOutput)
+func (o GetClusterClusterCertificateOutput) ClusterCsr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterClusterCertificate) *string { return v.ClusterCsr }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterClusterCertificateOutput) HsmCertificate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.HsmCertificate }).(pulumi.StringOutput)
+func (o GetClusterClusterCertificateOutput) HsmCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterClusterCertificate) *string { return v.HsmCertificate }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterClusterCertificateOutput) ManufacturerHardwareCertificate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.ManufacturerHardwareCertificate }).(pulumi.StringOutput)
+func (o GetClusterClusterCertificateOutput) ManufacturerHardwareCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterClusterCertificate) *string { return v.ManufacturerHardwareCertificate }).(pulumi.StringPtrOutput)
 }
 
 type GetClusterClusterCertificateArrayOutput struct{ *pulumi.OutputState }

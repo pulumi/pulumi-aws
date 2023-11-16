@@ -29,7 +29,7 @@ type KxCluster struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) identifier of the KX cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
 	AutoScalingConfiguration KxClusterAutoScalingConfigurationPtrOutput `pulumi:"autoScalingConfiguration"`
 	// The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
@@ -47,7 +47,7 @@ type KxCluster struct {
 	// List of key-value pairs to make available inside the cluster.
 	CommandLineArguments pulumi.StringMapOutput `pulumi:"commandLineArguments"`
 	// Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
+	CreatedTimestamp pulumi.StringPtrOutput `pulumi:"createdTimestamp"`
 	// KX database that will be available for querying. Defined below.
 	Databases KxClusterDatabaseArrayOutput `pulumi:"databases"`
 	// Description of the cluster.
@@ -59,15 +59,15 @@ type KxCluster struct {
 	// Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
 	InitializationScript pulumi.StringPtrOutput `pulumi:"initializationScript"`
 	// Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
+	LastModifiedTimestamp pulumi.StringPtrOutput `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the cluster that you want to create.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
 	// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
 	SavedownStorageConfiguration KxClusterSavedownStorageConfigurationPtrOutput `pulumi:"savedownStorageConfiguration"`
-	Status                       pulumi.StringOutput                            `pulumi:"status"`
-	StatusReason                 pulumi.StringOutput                            `pulumi:"statusReason"`
+	Status                       pulumi.StringPtrOutput                         `pulumi:"status"`
+	StatusReason                 pulumi.StringPtrOutput                         `pulumi:"statusReason"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -437,8 +437,8 @@ func (o KxClusterOutput) ToKxClusterOutputWithContext(ctx context.Context) KxClu
 }
 
 // Amazon Resource Name (ARN) identifier of the KX cluster.
-func (o KxClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o KxClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxCluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
@@ -479,8 +479,8 @@ func (o KxClusterOutput) CommandLineArguments() pulumi.StringMapOutput {
 }
 
 // Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-func (o KxClusterOutput) CreatedTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
+func (o KxClusterOutput) CreatedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxCluster) pulumi.StringPtrOutput { return v.CreatedTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // KX database that will be available for querying. Defined below.
@@ -509,8 +509,8 @@ func (o KxClusterOutput) InitializationScript() pulumi.StringPtrOutput {
 }
 
 // Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-func (o KxClusterOutput) LastModifiedTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.LastModifiedTimestamp }).(pulumi.StringOutput)
+func (o KxClusterOutput) LastModifiedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxCluster) pulumi.StringPtrOutput { return v.LastModifiedTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // Unique name for the cluster that you want to create.
@@ -530,12 +530,12 @@ func (o KxClusterOutput) SavedownStorageConfiguration() KxClusterSavedownStorage
 	}).(KxClusterSavedownStorageConfigurationPtrOutput)
 }
 
-func (o KxClusterOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o KxClusterOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxCluster) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-func (o KxClusterOutput) StatusReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
+func (o KxClusterOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxCluster) pulumi.StringPtrOutput { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

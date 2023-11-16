@@ -13,38 +13,38 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult
     {
-        public readonly string DestinationCidr;
-        public readonly string DestinationPrefixListId;
-        public readonly string EgressOnlyInternetGatewayId;
-        public readonly string GatewayId;
-        public readonly string InstanceId;
-        public readonly string NatGatewayId;
-        public readonly string NetworkInterfaceId;
-        public readonly string Origin;
-        public readonly string TransitGatewayId;
-        public readonly string VpcPeeringConnectionId;
+        public readonly string? DestinationCidr;
+        public readonly string? DestinationPrefixListId;
+        public readonly string? EgressOnlyInternetGatewayId;
+        public readonly string? GatewayId;
+        public readonly string? InstanceId;
+        public readonly string? NatGatewayId;
+        public readonly string? NetworkInterfaceId;
+        public readonly string? Origin;
+        public readonly string? TransitGatewayId;
+        public readonly string? VpcPeeringConnectionId;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult(
-            string destinationCidr,
+            string? destinationCidr,
 
-            string destinationPrefixListId,
+            string? destinationPrefixListId,
 
-            string egressOnlyInternetGatewayId,
+            string? egressOnlyInternetGatewayId,
 
-            string gatewayId,
+            string? gatewayId,
 
-            string instanceId,
+            string? instanceId,
 
-            string natGatewayId,
+            string? natGatewayId,
 
-            string networkInterfaceId,
+            string? networkInterfaceId,
 
-            string origin,
+            string? origin,
 
-            string transitGatewayId,
+            string? transitGatewayId,
 
-            string vpcPeeringConnectionId)
+            string? vpcPeeringConnectionId)
         {
             DestinationCidr = destinationCidr;
             DestinationPrefixListId = destinationPrefixListId;

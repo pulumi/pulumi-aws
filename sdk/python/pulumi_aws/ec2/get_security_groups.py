@@ -45,7 +45,7 @@ class GetSecurityGroupsResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         ARNs of the matched security groups.
         """
@@ -58,7 +58,7 @@ class GetSecurityGroupsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -66,7 +66,7 @@ class GetSecurityGroupsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> Sequence[str]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         IDs of the matches security groups.
         """
@@ -74,12 +74,12 @@ class GetSecurityGroupsResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcIds")
-    def vpc_ids(self) -> Sequence[str]:
+    def vpc_ids(self) -> Optional[Sequence[str]]:
         """
         VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
         """

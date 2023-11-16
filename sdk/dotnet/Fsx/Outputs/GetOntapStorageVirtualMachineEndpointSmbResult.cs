@@ -13,12 +13,12 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class GetOntapStorageVirtualMachineEndpointSmbResult
     {
-        public readonly string DnsName;
+        public readonly string? DnsName;
         public readonly ImmutableArray<string> IpAddresses;
 
         [OutputConstructor]
         private GetOntapStorageVirtualMachineEndpointSmbResult(
-            string dnsName,
+            string? dnsName,
 
             ImmutableArray<string> ipAddresses)
         {

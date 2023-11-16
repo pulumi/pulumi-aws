@@ -16,23 +16,23 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// <summary>
         /// The name of the PagerDuty configuration.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &amp;mdash; either a General Access REST API Key or User Token REST API Key &amp;mdash; and other user credentials.
         /// </summary>
-        public readonly string SecretId;
+        public readonly string? SecretId;
         /// <summary>
         /// The ID of the PagerDuty service that the response plan associates with an incident when it launches.
         /// </summary>
-        public readonly string ServiceId;
+        public readonly string? ServiceId;
 
         [OutputConstructor]
         private GetResponsePlanIntegrationPagerdutyResult(
-            string name,
+            string? name,
 
-            string secretId,
+            string? secretId,
 
-            string serviceId)
+            string? serviceId)
         {
             Name = name;
             SecretId = secretId;

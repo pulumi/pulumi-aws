@@ -48,45 +48,45 @@ export interface GetClusterArgs {
  * A collection of values returned by getCluster.
  */
 export interface GetClusterResult {
-    readonly arn: string;
-    readonly availabilityZones: string[];
-    readonly backtrackWindow: number;
-    readonly backupRetentionPeriod: number;
+    readonly arn?: string;
+    readonly availabilityZones?: string[];
+    readonly backtrackWindow?: number;
+    readonly backupRetentionPeriod?: number;
     readonly clusterIdentifier: string;
-    readonly clusterMembers: string[];
-    readonly clusterResourceId: string;
-    readonly databaseName: string;
-    readonly dbClusterParameterGroupName: string;
-    readonly dbSubnetGroupName: string;
-    readonly dbSystemId: string;
-    readonly enabledCloudwatchLogsExports: string[];
-    readonly endpoint: string;
-    readonly engine: string;
-    readonly engineMode: string;
-    readonly engineVersion: string;
-    readonly finalSnapshotIdentifier: string;
-    readonly hostedZoneId: string;
-    readonly iamDatabaseAuthenticationEnabled: boolean;
-    readonly iamRoles: string[];
+    readonly clusterMembers?: string[];
+    readonly clusterResourceId?: string;
+    readonly databaseName?: string;
+    readonly dbClusterParameterGroupName?: string;
+    readonly dbSubnetGroupName?: string;
+    readonly dbSystemId?: string;
+    readonly enabledCloudwatchLogsExports?: string[];
+    readonly endpoint?: string;
+    readonly engine?: string;
+    readonly engineMode?: string;
+    readonly engineVersion?: string;
+    readonly finalSnapshotIdentifier?: string;
+    readonly hostedZoneId?: string;
+    readonly iamDatabaseAuthenticationEnabled?: boolean;
+    readonly iamRoles?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly kmsKeyId: string;
-    readonly masterUserSecrets: outputs.rds.GetClusterMasterUserSecret[];
-    readonly masterUsername: string;
-    readonly networkType: string;
-    readonly port: number;
-    readonly preferredBackupWindow: string;
-    readonly preferredMaintenanceWindow: string;
-    readonly readerEndpoint: string;
-    readonly replicationSourceIdentifier: string;
-    readonly storageEncrypted: boolean;
+    readonly id?: string;
+    readonly kmsKeyId?: string;
+    readonly masterUserSecrets?: outputs.rds.GetClusterMasterUserSecret[];
+    readonly masterUsername?: string;
+    readonly networkType?: string;
+    readonly port?: number;
+    readonly preferredBackupWindow?: string;
+    readonly preferredMaintenanceWindow?: string;
+    readonly readerEndpoint?: string;
+    readonly replicationSourceIdentifier?: string;
+    readonly storageEncrypted?: boolean;
     /**
      * A map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
-    readonly vpcSecurityGroupIds: string[];
+    readonly tags?: {[key: string]: string};
+    readonly vpcSecurityGroupIds?: string[];
 }
 /**
  * Provides information about an RDS cluster.

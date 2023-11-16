@@ -63,7 +63,7 @@ namespace Pulumi.Aws.RedShift
         /// Amazon Resource Name (ARN) of parameter group
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Redshift parameter group. Defaults to "Managed by Pulumi".

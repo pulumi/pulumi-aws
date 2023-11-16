@@ -697,7 +697,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the file system.
         """
@@ -705,7 +705,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> pulumi.Output[str]:
+    def availability_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
         """
@@ -713,7 +713,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZoneName")
-    def availability_zone_name(self) -> pulumi.Output[str]:
+    def availability_zone_name(self) -> pulumi.Output[Optional[str]]:
         """
         the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
         """
@@ -732,7 +732,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         """
@@ -740,7 +740,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> pulumi.Output[bool]:
+    def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the disk will be encrypted.
         """
@@ -748,7 +748,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
         """
@@ -764,7 +764,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The value of the file system's `Name` tag.
         """
@@ -772,7 +772,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfMountTargets")
-    def number_of_mount_targets(self) -> pulumi.Output[int]:
+    def number_of_mount_targets(self) -> pulumi.Output[Optional[int]]:
         """
         The current number of mount targets that the file system has.
         """
@@ -780,7 +780,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         """
@@ -788,7 +788,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceMode")
-    def performance_mode(self) -> pulumi.Output[str]:
+    def performance_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         """
@@ -804,7 +804,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[Sequence['outputs.FileSystemSizeInByte']]:
+    def size_in_bytes(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemSizeInByte']]]:
         """
         The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
         """

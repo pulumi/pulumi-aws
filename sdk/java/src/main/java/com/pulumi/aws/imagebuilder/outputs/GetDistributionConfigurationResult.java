@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionConfigurationResult {
@@ -17,37 +19,37 @@ public final class GetDistributionConfigurationResult {
      * @return Date the distribution configuration was created.
      * 
      */
-    private String dateCreated;
+    private @Nullable String dateCreated;
     /**
      * @return Date the distribution configuration was updated.
      * 
      */
-    private String dateUpdated;
+    private @Nullable String dateUpdated;
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Set of distributions.
      * 
      */
-    private List<GetDistributionConfigurationDistribution> distributions;
+    private @Nullable List<GetDistributionConfigurationDistribution> distributions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the distribution configuration.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Key-value map of resource tags for the distribution configuration.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetDistributionConfigurationResult() {}
     public String arn() {
@@ -57,50 +59,50 @@ public final class GetDistributionConfigurationResult {
      * @return Date the distribution configuration was created.
      * 
      */
-    public String dateCreated() {
-        return this.dateCreated;
+    public Optional<String> dateCreated() {
+        return Optional.ofNullable(this.dateCreated);
     }
     /**
      * @return Date the distribution configuration was updated.
      * 
      */
-    public String dateUpdated() {
-        return this.dateUpdated;
+    public Optional<String> dateUpdated() {
+        return Optional.ofNullable(this.dateUpdated);
     }
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Set of distributions.
      * 
      */
     public List<GetDistributionConfigurationDistribution> distributions() {
-        return this.distributions;
+        return this.distributions == null ? List.of() : this.distributions;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the distribution configuration.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Key-value map of resource tags for the distribution configuration.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -113,13 +115,13 @@ public final class GetDistributionConfigurationResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String dateCreated;
-        private String dateUpdated;
-        private String description;
-        private List<GetDistributionConfigurationDistribution> distributions;
-        private String id;
-        private String name;
-        private Map<String,String> tags;
+        private @Nullable String dateCreated;
+        private @Nullable String dateUpdated;
+        private @Nullable String description;
+        private @Nullable List<GetDistributionConfigurationDistribution> distributions;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetDistributionConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -139,41 +141,41 @@ public final class GetDistributionConfigurationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+        public Builder dateCreated(@Nullable String dateCreated) {
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
-        public Builder dateUpdated(String dateUpdated) {
-            this.dateUpdated = Objects.requireNonNull(dateUpdated);
+        public Builder dateUpdated(@Nullable String dateUpdated) {
+            this.dateUpdated = dateUpdated;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder distributions(List<GetDistributionConfigurationDistribution> distributions) {
-            this.distributions = Objects.requireNonNull(distributions);
+        public Builder distributions(@Nullable List<GetDistributionConfigurationDistribution> distributions) {
+            this.distributions = distributions;
             return this;
         }
         public Builder distributions(GetDistributionConfigurationDistribution... distributions) {
             return distributions(List.of(distributions));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetDistributionConfigurationResult build() {

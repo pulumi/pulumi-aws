@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecLoggingAccessLogFile {
-    private List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats;
-    private String path;
+    private @Nullable List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats;
+    private @Nullable String path;
 
     private GetVirtualGatewaySpecLoggingAccessLogFile() {}
     public List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats() {
-        return this.formats;
+        return this.formats == null ? List.of() : this.formats;
     }
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetVirtualGatewaySpecLoggingAccessLogFile {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats;
-        private String path;
+        private @Nullable List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats;
+        private @Nullable String path;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecLoggingAccessLogFile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +43,16 @@ public final class GetVirtualGatewaySpecLoggingAccessLogFile {
         }
 
         @CustomType.Setter
-        public Builder formats(List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats) {
-            this.formats = Objects.requireNonNull(formats);
+        public Builder formats(@Nullable List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats) {
+            this.formats = formats;
             return this;
         }
         public Builder formats(GetVirtualGatewaySpecLoggingAccessLogFileFormat... formats) {
             return formats(List.of(formats));
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         public GetVirtualGatewaySpecLoggingAccessLogFile build() {

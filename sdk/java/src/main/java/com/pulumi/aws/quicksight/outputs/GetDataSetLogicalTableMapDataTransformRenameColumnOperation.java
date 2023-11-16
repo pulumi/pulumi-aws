@@ -6,18 +6,20 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransformRenameColumnOperation {
-    private String columnName;
-    private String newColumnName;
+    private @Nullable String columnName;
+    private @Nullable String newColumnName;
 
     private GetDataSetLogicalTableMapDataTransformRenameColumnOperation() {}
-    public String columnName() {
-        return this.columnName;
+    public Optional<String> columnName() {
+        return Optional.ofNullable(this.columnName);
     }
-    public String newColumnName() {
-        return this.newColumnName;
+    public Optional<String> newColumnName() {
+        return Optional.ofNullable(this.newColumnName);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetDataSetLogicalTableMapDataTransformRenameColumnOperation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String columnName;
-        private String newColumnName;
+        private @Nullable String columnName;
+        private @Nullable String newColumnName;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransformRenameColumnOperation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetDataSetLogicalTableMapDataTransformRenameColumnOperation {
         }
 
         @CustomType.Setter
-        public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+        public Builder columnName(@Nullable String columnName) {
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
-        public Builder newColumnName(String newColumnName) {
-            this.newColumnName = Objects.requireNonNull(newColumnName);
+        public Builder newColumnName(@Nullable String newColumnName) {
+            this.newColumnName = newColumnName;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformRenameColumnOperation build() {

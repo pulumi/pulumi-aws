@@ -35,7 +35,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of identifiers of the identity stores connected to the SSO Instances.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.SsoAdmin
         private GetInstancesResult(
             ImmutableArray<string> arns,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> identityStoreIds)
         {

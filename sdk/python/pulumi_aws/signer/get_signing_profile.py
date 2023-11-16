@@ -59,7 +59,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN for the signing profile.
         """
@@ -67,7 +67,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -80,7 +80,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter(name="platformDisplayName")
-    def platform_display_name(self) -> str:
+    def platform_display_name(self) -> Optional[str]:
         """
         A human-readable name for the signing platform associated with the signing profile.
         """
@@ -88,7 +88,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter(name="platformId")
-    def platform_id(self) -> str:
+    def platform_id(self) -> Optional[str]:
         """
         ID of the platform that is used by the target signing profile.
         """
@@ -96,7 +96,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter(name="revocationRecords")
-    def revocation_records(self) -> Sequence['outputs.GetSigningProfileRevocationRecordResult']:
+    def revocation_records(self) -> Optional[Sequence['outputs.GetSigningProfileRevocationRecordResult']]:
         """
         Revocation information for a signing profile.
         """
@@ -104,7 +104,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter(name="signatureValidityPeriods")
-    def signature_validity_periods(self) -> Sequence['outputs.GetSigningProfileSignatureValidityPeriodResult']:
+    def signature_validity_periods(self) -> Optional[Sequence['outputs.GetSigningProfileSignatureValidityPeriodResult']]:
         """
         The validity period for a signing job.
         """
@@ -112,7 +112,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the target signing profile.
         """
@@ -120,7 +120,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         List of tags associated with the signing profile.
         """
@@ -128,7 +128,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Current version of the signing profile.
         """
@@ -136,7 +136,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter(name="versionArn")
-    def version_arn(self) -> str:
+    def version_arn(self) -> Optional[str]:
         """
         Signing profile ARN, including the profile version.
         """

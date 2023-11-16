@@ -447,7 +447,7 @@ class Constraint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the constraint.
         """
@@ -455,7 +455,7 @@ class Constraint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         Owner of the constraint.
         """
@@ -487,7 +487,7 @@ class Constraint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property

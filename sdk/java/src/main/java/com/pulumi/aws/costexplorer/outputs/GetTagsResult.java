@@ -20,7 +20,7 @@ public final class GetTagsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String searchString;
     private @Nullable List<GetTagsSortBy> sortBies;
     private @Nullable String tagKey;
@@ -28,7 +28,7 @@ public final class GetTagsResult {
      * @return Tags that match your request.
      * 
      */
-    private List<String> tags;
+    private @Nullable List<String> tags;
     private GetTagsTimePeriod timePeriod;
 
     private GetTagsResult() {}
@@ -39,8 +39,8 @@ public final class GetTagsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> searchString() {
         return Optional.ofNullable(this.searchString);
@@ -56,7 +56,7 @@ public final class GetTagsResult {
      * 
      */
     public List<String> tags() {
-        return this.tags;
+        return this.tags == null ? List.of() : this.tags;
     }
     public GetTagsTimePeriod timePeriod() {
         return this.timePeriod;
@@ -72,11 +72,11 @@ public final class GetTagsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable GetTagsFilter filter;
-        private String id;
+        private @Nullable String id;
         private @Nullable String searchString;
         private @Nullable List<GetTagsSortBy> sortBies;
         private @Nullable String tagKey;
-        private List<String> tags;
+        private @Nullable List<String> tags;
         private GetTagsTimePeriod timePeriod;
         public Builder() {}
         public Builder(GetTagsResult defaults) {
@@ -96,8 +96,8 @@ public final class GetTagsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -119,8 +119,8 @@ public final class GetTagsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(List<String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable List<String> tags) {
+            this.tags = tags;
             return this;
         }
         public Builder tags(String... tags) {

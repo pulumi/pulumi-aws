@@ -129,15 +129,15 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Date the distribution configuration was created.
         /// </summary>
-        public readonly string DateCreated;
+        public readonly string? DateCreated;
         /// <summary>
         /// Date the distribution configuration was updated.
         /// </summary>
-        public readonly string DateUpdated;
+        public readonly string? DateUpdated;
         /// <summary>
         /// Description of the container distribution configuration.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Set of distributions.
         /// </summary>
@@ -145,33 +145,33 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the distribution configuration.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Key-value map of resource tags for the distribution configuration.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetDistributionConfigurationResult(
             string arn,
 
-            string dateCreated,
+            string? dateCreated,
 
-            string dateUpdated,
+            string? dateUpdated,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetDistributionConfigurationDistributionResult> distributions,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             DateCreated = dateCreated;

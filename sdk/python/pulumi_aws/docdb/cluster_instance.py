@@ -1163,7 +1163,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of cluster instance
         """
@@ -1179,7 +1179,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         """
@@ -1187,7 +1187,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caCertIdentifier")
-    def ca_cert_identifier(self) -> pulumi.Output[str]:
+    def ca_cert_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         (Optional) The identifier of the CA certificate for the DB instance.
         """
@@ -1211,7 +1211,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
-    def db_subnet_group_name(self) -> pulumi.Output[str]:
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DB subnet group to associate with this DB instance.
         """
@@ -1219,7 +1219,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbiResourceId")
-    def dbi_resource_id(self) -> pulumi.Output[str]:
+    def dbi_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The region-unique, immutable identifier for the DB instance.
         """
@@ -1235,7 +1235,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS address for this instance. May not be writable
         """
@@ -1251,7 +1251,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         The database engine version
         """
@@ -1259,7 +1259,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identifier(self) -> pulumi.Output[str]:
+    def identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         """
@@ -1267,7 +1267,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identifierPrefix")
-    def identifier_prefix(self) -> pulumi.Output[str]:
+    def identifier_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         """
@@ -1306,7 +1306,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the KMS encryption key if one is set to the cluster.
         """
@@ -1314,7 +1314,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
-    def performance_insights_kms_key_id(self) -> pulumi.Output[str]:
+    def performance_insights_kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         """
@@ -1322,7 +1322,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The database port
         """
@@ -1330,7 +1330,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> pulumi.Output[str]:
+    def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
         """
         The daily time range during which automated backups are created if automated backups are enabled.
         """
@@ -1338,7 +1338,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> pulumi.Output[str]:
+    def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         The window to perform maintenance in.
         Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
@@ -1355,12 +1355,12 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> pulumi.Output[bool]:
+    def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "publicly_accessible")
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> pulumi.Output[bool]:
+    def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the DB cluster is encrypted.
         """
@@ -1387,7 +1387,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def writer(self) -> pulumi.Output[bool]:
+    def writer(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """

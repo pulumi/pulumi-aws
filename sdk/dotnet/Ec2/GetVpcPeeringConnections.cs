@@ -181,22 +181,22 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// IDs of the VPC Peering Connections.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetVpcPeeringConnectionsResult(
             ImmutableArray<Outputs.GetVpcPeeringConnectionsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;

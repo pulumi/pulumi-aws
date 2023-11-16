@@ -62,7 +62,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Self-service action description.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Self-service action name.

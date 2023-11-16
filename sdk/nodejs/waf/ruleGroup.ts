@@ -72,7 +72,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * The ARN of the WAF rule group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A friendly name for the metrics from the rule group
      */

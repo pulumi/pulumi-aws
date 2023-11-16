@@ -95,7 +95,7 @@ type VpcAssociationAuthorization struct {
 	// The VPC to authorize for association with the private hosted zone.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The VPC's region. Defaults to the region of the AWS provider.
-	VpcRegion pulumi.StringOutput `pulumi:"vpcRegion"`
+	VpcRegion pulumi.StringPtrOutput `pulumi:"vpcRegion"`
 	// The ID of the private hosted zone that you want to authorize associating a VPC with.
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
@@ -269,8 +269,8 @@ func (o VpcAssociationAuthorizationOutput) VpcId() pulumi.StringOutput {
 }
 
 // The VPC's region. Defaults to the region of the AWS provider.
-func (o VpcAssociationAuthorizationOutput) VpcRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAssociationAuthorization) pulumi.StringOutput { return v.VpcRegion }).(pulumi.StringOutput)
+func (o VpcAssociationAuthorizationOutput) VpcRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAssociationAuthorization) pulumi.StringPtrOutput { return v.VpcRegion }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the private hosted zone that you want to authorize associating a VPC with.

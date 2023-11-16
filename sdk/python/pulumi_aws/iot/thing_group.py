@@ -396,7 +396,7 @@ class ThingGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Thing Group.
         """
@@ -404,7 +404,7 @@ class ThingGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadatas(self) -> pulumi.Output[Sequence['outputs.ThingGroupMetadata']]:
+    def metadatas(self) -> pulumi.Output[Optional[Sequence['outputs.ThingGroupMetadata']]]:
         return pulumi.get(self, "metadatas")
 
     @property
@@ -449,7 +449,7 @@ class ThingGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         The current version of the Thing Group record in the registry.
         """

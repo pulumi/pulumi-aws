@@ -108,18 +108,18 @@ namespace Pulumi.Aws.Sns
         /// <summary>
         /// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
 
         [OutputConstructor]
         private GetTopicResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
             string name)
         {

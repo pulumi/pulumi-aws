@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Connect
         /// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
         /// </summary>
         [Output("associationId")]
-        public Output<string> AssociationId { get; private set; } = null!;
+        public Output<string?> AssociationId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.

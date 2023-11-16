@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult
     {
-        public readonly double Max;
-        public readonly double Min;
+        public readonly double? Max;
+        public readonly double? Min;
 
         [OutputConstructor]
         private GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult(
-            double max,
+            double? max,
 
-            double min)
+            double? min)
         {
             Max = max;
             Min = min;

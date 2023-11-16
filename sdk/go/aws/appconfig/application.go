@@ -55,7 +55,7 @@ type Application struct {
 	pulumi.CustomResourceState
 
 	// ARN of the AppConfig Application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the application. Can be at most 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name for the application. Must be between 1 and 64 characters in length.
@@ -242,8 +242,8 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 }
 
 // ARN of the AppConfig Application.
-func (o ApplicationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ApplicationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the application. Can be at most 1024 characters.

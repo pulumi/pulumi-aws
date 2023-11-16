@@ -67,11 +67,11 @@ export interface GetCatalogTableResult {
     /**
      * The ARN of the Glue Table.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * ID of the Data Catalog in which the table resides.
      */
-    readonly catalogId: string;
+    readonly catalogId?: string;
     /**
      * Name of the catalog database that contains the target table.
      */
@@ -79,11 +79,11 @@ export interface GetCatalogTableResult {
     /**
      * Description of the table.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the target table.
      */
@@ -91,45 +91,45 @@ export interface GetCatalogTableResult {
     /**
      * Owner of the table.
      */
-    readonly owner: string;
+    readonly owner?: string;
     /**
      * Map of initialization parameters for the SerDe, in key-value form.
      */
-    readonly parameters: {[key: string]: string};
+    readonly parameters?: {[key: string]: string};
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    readonly partitionIndices: outputs.glue.GetCatalogTablePartitionIndex[];
+    readonly partitionIndices?: outputs.glue.GetCatalogTablePartitionIndex[];
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    readonly partitionKeys: outputs.glue.GetCatalogTablePartitionKey[];
+    readonly partitionKeys?: outputs.glue.GetCatalogTablePartitionKey[];
     readonly queryAsOfTime?: string;
     /**
      * Retention time for this table.
      */
-    readonly retention: number;
+    readonly retention?: number;
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    readonly storageDescriptors: outputs.glue.GetCatalogTableStorageDescriptor[];
+    readonly storageDescriptors?: outputs.glue.GetCatalogTableStorageDescriptor[];
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
-    readonly tableType: string;
+    readonly tableType?: string;
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    readonly targetTables: outputs.glue.GetCatalogTableTargetTable[];
+    readonly targetTables?: outputs.glue.GetCatalogTableTargetTable[];
     readonly transactionId?: number;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
-    readonly viewExpandedText: string;
+    readonly viewExpandedText?: string;
     /**
      * If the table is a view, the original text of the view; otherwise null.
      */
-    readonly viewOriginalText: string;
+    readonly viewOriginalText?: string;
 }
 /**
  * This data source can be used to fetch information about an AWS Glue Data Catalog Table.

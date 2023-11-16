@@ -327,10 +327,10 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allocationStrategy);
     }
     @Export(name="clientToken", refs={String.class}, tree="[0]")
-    private Output<String> clientToken;
+    private Output</* @Nullable */ String> clientToken;
 
-    public Output<String> clientToken() {
-        return this.clientToken;
+    public Output<Optional<String>> clientToken() {
+        return Codegen.optional(this.clientToken);
     }
     /**
      * Reserved.
@@ -487,14 +487,14 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="loadBalancers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> loadBalancers;
+    private Output</* @Nullable */ List<String>> loadBalancers;
 
     /**
      * @return A list of elastic load balancer names to add to the Spot fleet.
      * 
      */
-    public Output<List<String>> loadBalancers() {
-        return this.loadBalancers;
+    public Output<Optional<List<String>>> loadBalancers() {
+        return Codegen.optional(this.loadBalancers);
     }
     /**
      * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
@@ -585,14 +585,14 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="spotRequestState", refs={String.class}, tree="[0]")
-    private Output<String> spotRequestState;
+    private Output</* @Nullable */ String> spotRequestState;
 
     /**
      * @return The state of the Spot fleet request.
      * 
      */
-    public Output<String> spotRequestState() {
-        return this.spotRequestState;
+    public Output<Optional<String>> spotRequestState() {
+        return Codegen.optional(this.spotRequestState);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -663,14 +663,14 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="targetGroupArns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> targetGroupArns;
+    private Output</* @Nullable */ List<String>> targetGroupArns;
 
     /**
      * @return A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      * 
      */
-    public Output<List<String>> targetGroupArns() {
-        return this.targetGroupArns;
+    public Output<Optional<List<String>>> targetGroupArns() {
+        return Codegen.optional(this.targetGroupArns);
     }
     /**
      * Indicates whether running Spot

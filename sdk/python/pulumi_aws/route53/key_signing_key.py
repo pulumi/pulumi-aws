@@ -622,7 +622,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="digestAlgorithmMnemonic")
-    def digest_algorithm_mnemonic(self) -> pulumi.Output[str]:
+    def digest_algorithm_mnemonic(self) -> pulumi.Output[Optional[str]]:
         """
         A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         """
@@ -630,7 +630,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="digestAlgorithmType")
-    def digest_algorithm_type(self) -> pulumi.Output[int]:
+    def digest_algorithm_type(self) -> pulumi.Output[Optional[int]]:
         """
         An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         """
@@ -638,7 +638,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="digestValue")
-    def digest_value(self) -> pulumi.Output[str]:
+    def digest_value(self) -> pulumi.Output[Optional[str]]:
         """
         A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
         """
@@ -646,7 +646,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnskeyRecord")
-    def dnskey_record(self) -> pulumi.Output[str]:
+    def dnskey_record(self) -> pulumi.Output[Optional[str]]:
         """
         A string that represents a DNSKEY record.
         """
@@ -654,7 +654,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dsRecord")
-    def ds_record(self) -> pulumi.Output[str]:
+    def ds_record(self) -> pulumi.Output[Optional[str]]:
         """
         A string that represents a delegation signer (DS) record.
         """
@@ -662,7 +662,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def flag(self) -> pulumi.Output[int]:
+    def flag(self) -> pulumi.Output[Optional[int]]:
         """
         An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
         """
@@ -686,7 +686,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyTag")
-    def key_tag(self) -> pulumi.Output[int]:
+    def key_tag(self) -> pulumi.Output[Optional[int]]:
         """
         An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
         """
@@ -704,7 +704,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> pulumi.Output[str]:
+    def public_key(self) -> pulumi.Output[Optional[str]]:
         """
         The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
         """
@@ -712,7 +712,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signingAlgorithmMnemonic")
-    def signing_algorithm_mnemonic(self) -> pulumi.Output[str]:
+    def signing_algorithm_mnemonic(self) -> pulumi.Output[Optional[str]]:
         """
         A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         """
@@ -720,7 +720,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signingAlgorithmType")
-    def signing_algorithm_type(self) -> pulumi.Output[int]:
+    def signing_algorithm_type(self) -> pulumi.Output[Optional[int]]:
         """
         An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         """

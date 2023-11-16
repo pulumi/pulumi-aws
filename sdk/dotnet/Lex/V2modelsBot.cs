@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Lex
     public partial class V2modelsBot : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Lex
         public Output<Outputs.V2modelsBotTimeouts?> Timeouts { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

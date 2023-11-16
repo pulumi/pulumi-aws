@@ -138,7 +138,7 @@ type LaunchTemplate struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See Block Devices below for details.
 	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
@@ -150,7 +150,7 @@ type LaunchTemplate struct {
 	// Specification below for more details.
 	CreditSpecification LaunchTemplateCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
 	// Default Version of the launch template.
-	DefaultVersion pulumi.IntOutput `pulumi:"defaultVersion"`
+	DefaultVersion pulumi.IntPtrOutput `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
@@ -189,19 +189,19 @@ type LaunchTemplate struct {
 	// The key name to use for the instance.
 	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
 	// The latest version of the launch template.
-	LatestVersion pulumi.IntOutput `pulumi:"latestVersion"`
+	LatestVersion pulumi.IntPtrOutput `pulumi:"latestVersion"`
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayOutput `pulumi:"licenseSpecifications"`
 	// The maintenance options for the instance. See Maintenance Options below for more details.
 	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrOutput `pulumi:"maintenanceOptions"`
 	// Customize the metadata options for the instance. See Metadata Options below for more details.
-	MetadataOptions LaunchTemplateMetadataOptionsOutput `pulumi:"metadataOptions"`
+	MetadataOptions LaunchTemplateMetadataOptionsPtrOutput `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrOutput `pulumi:"monitoring"`
 	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
 	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
@@ -716,8 +716,8 @@ func (o LaunchTemplateOutput) ToLaunchTemplateOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
-func (o LaunchTemplateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LaunchTemplateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specify volumes to attach to the instance besides the volumes specified by the AMI.
@@ -745,8 +745,8 @@ func (o LaunchTemplateOutput) CreditSpecification() LaunchTemplateCreditSpecific
 }
 
 // Default Version of the launch template.
-func (o LaunchTemplateOutput) DefaultVersion() pulumi.IntOutput {
-	return o.ApplyT(func(v *LaunchTemplate) pulumi.IntOutput { return v.DefaultVersion }).(pulumi.IntOutput)
+func (o LaunchTemplateOutput) DefaultVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.IntPtrOutput { return v.DefaultVersion }).(pulumi.IntPtrOutput)
 }
 
 // Description of the launch template.
@@ -839,8 +839,8 @@ func (o LaunchTemplateOutput) KeyName() pulumi.StringPtrOutput {
 }
 
 // The latest version of the launch template.
-func (o LaunchTemplateOutput) LatestVersion() pulumi.IntOutput {
-	return o.ApplyT(func(v *LaunchTemplate) pulumi.IntOutput { return v.LatestVersion }).(pulumi.IntOutput)
+func (o LaunchTemplateOutput) LatestVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.IntPtrOutput { return v.LatestVersion }).(pulumi.IntPtrOutput)
 }
 
 // A list of license specifications to associate with. See License Specification below for more details.
@@ -854,8 +854,8 @@ func (o LaunchTemplateOutput) MaintenanceOptions() LaunchTemplateMaintenanceOpti
 }
 
 // Customize the metadata options for the instance. See Metadata Options below for more details.
-func (o LaunchTemplateOutput) MetadataOptions() LaunchTemplateMetadataOptionsOutput {
-	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateMetadataOptionsOutput { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsOutput)
+func (o LaunchTemplateOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateMetadataOptionsPtrOutput { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsPtrOutput)
 }
 
 // The monitoring option for the instance. See Monitoring below for more details.
@@ -869,8 +869,8 @@ func (o LaunchTemplateOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o LaunchTemplateOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o LaunchTemplateOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Customize network interfaces to be attached at instance boot time. See Network

@@ -426,9 +426,9 @@ type TaskDefinition struct {
 	pulumi.CustomResourceState
 
 	// Full ARN of the Task Definition (including both `family` and `revision`).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
-	ArnWithoutRevision pulumi.StringOutput `pulumi:"arnWithoutRevision"`
+	ArnWithoutRevision pulumi.StringPtrOutput `pulumi:"arnWithoutRevision"`
 	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringOutput `pulumi:"containerDefinitions"`
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -448,7 +448,7 @@ type TaskDefinition struct {
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Memory pulumi.StringPtrOutput `pulumi:"memory"`
 	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-	NetworkMode pulumi.StringOutput `pulumi:"networkMode"`
+	NetworkMode pulumi.StringPtrOutput `pulumi:"networkMode"`
 	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
 	PidMode pulumi.StringPtrOutput `pulumi:"pidMode"`
 	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
@@ -458,7 +458,7 @@ type TaskDefinition struct {
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
 	// Revision of the task in a particular family.
-	Revision pulumi.IntOutput `pulumi:"revision"`
+	Revision pulumi.IntPtrOutput `pulumi:"revision"`
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrOutput `pulumi:"runtimePlatform"`
 	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
@@ -791,13 +791,13 @@ func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Cont
 }
 
 // Full ARN of the Task Definition (including both `family` and `revision`).
-func (o TaskDefinitionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TaskDefinitionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
-func (o TaskDefinitionOutput) ArnWithoutRevision() pulumi.StringOutput {
-	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.ArnWithoutRevision }).(pulumi.StringOutput)
+func (o TaskDefinitionOutput) ArnWithoutRevision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.ArnWithoutRevision }).(pulumi.StringPtrOutput)
 }
 
 // A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
@@ -843,8 +843,8 @@ func (o TaskDefinitionOutput) Memory() pulumi.StringPtrOutput {
 }
 
 // Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-func (o TaskDefinitionOutput) NetworkMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.NetworkMode }).(pulumi.StringOutput)
+func (o TaskDefinitionOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.NetworkMode }).(pulumi.StringPtrOutput)
 }
 
 // Process namespace to use for the containers in the task. The valid values are `host` and `task`.
@@ -868,8 +868,8 @@ func (o TaskDefinitionOutput) RequiresCompatibilities() pulumi.StringArrayOutput
 }
 
 // Revision of the task in a particular family.
-func (o TaskDefinitionOutput) Revision() pulumi.IntOutput {
-	return o.ApplyT(func(v *TaskDefinition) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
+func (o TaskDefinitionOutput) Revision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.IntPtrOutput { return v.Revision }).(pulumi.IntPtrOutput)
 }
 
 // Configuration block for runtimePlatform that containers in your task may use.

@@ -15,10 +15,10 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         /// <summary>
         /// Enabled disabled toggle for off-peak update window
         /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
-        [Input("offPeakWindows", required: true)]
+        [Input("offPeakWindows")]
         private InputList<Inputs.GetDomainOffPeakWindowOptionsOffPeakWindowInputArgs>? _offPeakWindows;
         public InputList<Inputs.GetDomainOffPeakWindowOptionsOffPeakWindowInputArgs> OffPeakWindows
         {

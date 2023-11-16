@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Ssm
         /// ARN of the parameter.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Output("dataType")]
-        public Output<string> DataType { get; private set; } = null!;
+        public Output<string?> DataType { get; private set; } = null!;
 
         /// <summary>
         /// Description of the parameter.
@@ -110,13 +110,13 @@ namespace Pulumi.Aws.Ssm
         /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         /// </summary>
         [Output("insecureValue")]
-        public Output<string> InsecureValue { get; private set; } = null!;
+        public Output<string?> InsecureValue { get; private set; } = null!;
 
         /// <summary>
         /// KMS key ID or ARN for encrypting a SecureString.
         /// </summary>
         [Output("keyId")]
-        public Output<string> KeyId { get; private set; } = null!;
+        public Output<string?> KeyId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
@@ -162,13 +162,13 @@ namespace Pulumi.Aws.Ssm
         /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         /// </summary>
         [Output("value")]
-        public Output<string> Value { get; private set; } = null!;
+        public Output<string?> Value { get; private set; } = null!;
 
         /// <summary>
         /// Version of the parameter.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>

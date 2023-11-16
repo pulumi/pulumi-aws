@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfigS3Config {
@@ -15,39 +17,39 @@ public final class GetInstanceStorageConfigStorageConfigS3Config {
      * @return The S3 bucket name.
      * 
      */
-    private String bucketName;
+    private @Nullable String bucketName;
     /**
      * @return The S3 bucket prefix.
      * 
      */
-    private String bucketPrefix;
+    private @Nullable String bucketPrefix;
     /**
      * @return The encryption configuration. Documented below.
      * 
      */
-    private List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs;
+    private @Nullable List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs;
 
     private GetInstanceStorageConfigStorageConfigS3Config() {}
     /**
      * @return The S3 bucket name.
      * 
      */
-    public String bucketName() {
-        return this.bucketName;
+    public Optional<String> bucketName() {
+        return Optional.ofNullable(this.bucketName);
     }
     /**
      * @return The S3 bucket prefix.
      * 
      */
-    public String bucketPrefix() {
-        return this.bucketPrefix;
+    public Optional<String> bucketPrefix() {
+        return Optional.ofNullable(this.bucketPrefix);
     }
     /**
      * @return The encryption configuration. Documented below.
      * 
      */
     public List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs() {
-        return this.encryptionConfigs;
+        return this.encryptionConfigs == null ? List.of() : this.encryptionConfigs;
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetInstanceStorageConfigStorageConfigS3Config {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bucketName;
-        private String bucketPrefix;
-        private List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs;
+        private @Nullable String bucketName;
+        private @Nullable String bucketPrefix;
+        private @Nullable List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs;
         public Builder() {}
         public Builder(GetInstanceStorageConfigStorageConfigS3Config defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,18 +73,18 @@ public final class GetInstanceStorageConfigStorageConfigS3Config {
         }
 
         @CustomType.Setter
-        public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+        public Builder bucketName(@Nullable String bucketName) {
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
-        public Builder bucketPrefix(String bucketPrefix) {
-            this.bucketPrefix = Objects.requireNonNull(bucketPrefix);
+        public Builder bucketPrefix(@Nullable String bucketPrefix) {
+            this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
-        public Builder encryptionConfigs(List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs) {
-            this.encryptionConfigs = Objects.requireNonNull(encryptionConfigs);
+        public Builder encryptionConfigs(@Nullable List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs) {
+            this.encryptionConfigs = encryptionConfigs;
             return this;
         }
         public Builder encryptionConfigs(GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig... encryptionConfigs) {

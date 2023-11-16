@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAuthorizersResult {
@@ -14,12 +16,12 @@ public final class GetAuthorizersResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of Authorizer identifiers.
      * 
      */
-    private List<String> ids;
+    private @Nullable List<String> ids;
     private String restApiId;
 
     private GetAuthorizersResult() {}
@@ -27,15 +29,15 @@ public final class GetAuthorizersResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of Authorizer identifiers.
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     public String restApiId() {
         return this.restApiId;
@@ -50,8 +52,8 @@ public final class GetAuthorizersResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private List<String> ids;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
         private String restApiId;
         public Builder() {}
         public Builder(GetAuthorizersResult defaults) {
@@ -62,13 +64,13 @@ public final class GetAuthorizersResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {

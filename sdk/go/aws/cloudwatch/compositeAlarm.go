@@ -78,7 +78,7 @@ type CompositeAlarm struct {
 	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
 	AlarmRule pulumi.StringOutput `pulumi:"alarmRule"`
 	// The ARN of the composite alarm.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	InsufficientDataActions pulumi.StringArrayOutput `pulumi:"insufficientDataActions"`
 	// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
@@ -349,8 +349,8 @@ func (o CompositeAlarmOutput) AlarmRule() pulumi.StringOutput {
 }
 
 // The ARN of the composite alarm.
-func (o CompositeAlarmOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CompositeAlarmOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.

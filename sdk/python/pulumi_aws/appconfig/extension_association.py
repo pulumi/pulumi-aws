@@ -341,7 +341,7 @@ class ExtensionAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the AppConfig Extension Association.
         """
@@ -357,7 +357,7 @@ class ExtensionAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extensionVersion")
-    def extension_version(self) -> pulumi.Output[int]:
+    def extension_version(self) -> pulumi.Output[Optional[int]]:
         """
         The version number for the extension defined in the association.
         """

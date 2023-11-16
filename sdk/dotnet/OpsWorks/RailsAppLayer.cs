@@ -43,7 +43,7 @@ namespace Pulumi.Aws.OpsWorks
         /// The Amazon Resource Name(ARN) of the layer.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<int?> InstanceShutdownTimeout { get; private set; } = null!;
 
         [Output("loadBasedAutoScaling")]
-        public Output<Outputs.RailsAppLayerLoadBasedAutoScaling> LoadBasedAutoScaling { get; private set; } = null!;
+        public Output<Outputs.RailsAppLayerLoadBasedAutoScaling?> LoadBasedAutoScaling { get; private set; } = null!;
 
         /// <summary>
         /// Whether OpsWorks should manage bundler. On by default.

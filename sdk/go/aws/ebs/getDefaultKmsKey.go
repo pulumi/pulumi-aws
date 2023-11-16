@@ -57,9 +57,9 @@ func LookupDefaultKmsKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Loo
 // A collection of values returned by getDefaultKmsKey.
 type LookupDefaultKmsKeyResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
-	KeyArn string `pulumi:"keyArn"`
+	KeyArn *string `pulumi:"keyArn"`
 }
 
 func LookupDefaultKmsKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupDefaultKmsKeyResultOutput {
@@ -89,13 +89,13 @@ func (o LookupDefaultKmsKeyResultOutput) ToLookupDefaultKmsKeyResultOutputWithCo
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDefaultKmsKeyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDefaultKmsKeyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDefaultKmsKeyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDefaultKmsKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
-func (o LookupDefaultKmsKeyResultOutput) KeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDefaultKmsKeyResult) string { return v.KeyArn }).(pulumi.StringOutput)
+func (o LookupDefaultKmsKeyResultOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDefaultKmsKeyResult) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

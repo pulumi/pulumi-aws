@@ -63,7 +63,7 @@ type Alias struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) identifying your Lambda function alias.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the alias.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Lambda Function name or ARN.
@@ -71,7 +71,7 @@ type Alias struct {
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
-	InvokeArn pulumi.StringOutput `pulumi:"invokeArn"`
+	InvokeArn pulumi.StringPtrOutput `pulumi:"invokeArn"`
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Lambda alias' route configuration settings. Fields documented below
@@ -266,8 +266,8 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 }
 
 // The Amazon Resource Name (ARN) identifying your Lambda function alias.
-func (o AliasOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AliasOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the alias.
@@ -286,8 +286,8 @@ func (o AliasOutput) FunctionVersion() pulumi.StringOutput {
 }
 
 // The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
-func (o AliasOutput) InvokeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.InvokeArn }).(pulumi.StringOutput)
+func (o AliasOutput) InvokeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.InvokeArn }).(pulumi.StringPtrOutput)
 }
 
 // Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`

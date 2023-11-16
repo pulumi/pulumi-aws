@@ -47,11 +47,11 @@ export interface GetDelegatedServicesResult {
     /**
      * Services for which the account is a delegated administrator, which have the following attributes:
      */
-    readonly delegatedServices: outputs.organizations.GetDelegatedServicesDelegatedService[];
+    readonly delegatedServices?: outputs.organizations.GetDelegatedServicesDelegatedService[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Get a list the AWS services for which the specified account is a delegated administrator

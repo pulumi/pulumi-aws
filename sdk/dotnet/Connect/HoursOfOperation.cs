@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Connect
         /// The Amazon Resource Name (ARN) of the Hours of Operation.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Connect
         /// The identifier for the hours of operation.
         /// </summary>
         [Output("hoursOfOperationId")]
-        public Output<string> HoursOfOperationId { get; private set; } = null!;
+        public Output<string?> HoursOfOperationId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.

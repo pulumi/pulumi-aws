@@ -50,7 +50,7 @@ class GetPublicIpv4PoolResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the pool, if any.
         """
@@ -58,7 +58,7 @@ class GetPublicIpv4PoolResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -66,7 +66,7 @@ class GetPublicIpv4PoolResult:
 
     @property
     @pulumi.getter(name="networkBorderGroup")
-    def network_border_group(self) -> str:
+    def network_border_group(self) -> Optional[str]:
         """
         Name of the location from which the address pool is advertised.
         * pool_address_ranges` - List of Address Ranges in the Pool; each address range record contains:
@@ -75,7 +75,7 @@ class GetPublicIpv4PoolResult:
 
     @property
     @pulumi.getter(name="poolAddressRanges")
-    def pool_address_ranges(self) -> Sequence['outputs.GetPublicIpv4PoolPoolAddressRangeResult']:
+    def pool_address_ranges(self) -> Optional[Sequence['outputs.GetPublicIpv4PoolPoolAddressRangeResult']]:
         return pulumi.get(self, "pool_address_ranges")
 
     @property
@@ -85,7 +85,7 @@ class GetPublicIpv4PoolResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Any tags for the address pool.
         """
@@ -93,7 +93,7 @@ class GetPublicIpv4PoolResult:
 
     @property
     @pulumi.getter(name="totalAddressCount")
-    def total_address_count(self) -> int:
+    def total_address_count(self) -> Optional[int]:
         """
         Total number of addresses in the pool.
         """
@@ -101,7 +101,7 @@ class GetPublicIpv4PoolResult:
 
     @property
     @pulumi.getter(name="totalAvailableAddressCount")
-    def total_available_address_count(self) -> int:
+    def total_available_address_count(self) -> Optional[int]:
         """
         Total number of available addresses in the pool.
         """

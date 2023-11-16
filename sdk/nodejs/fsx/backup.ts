@@ -107,7 +107,7 @@ export class Backup extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the backup.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      */
@@ -115,11 +115,11 @@ export class Backup extends pulumi.CustomResource {
     /**
      * The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
      */
-    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * AWS account identifier that created the file system.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
@@ -133,7 +133,7 @@ export class Backup extends pulumi.CustomResource {
     /**
      * The type of the file system backup.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
     /**
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.
      */

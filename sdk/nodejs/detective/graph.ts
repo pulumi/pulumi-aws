@@ -57,11 +57,11 @@ export class Graph extends pulumi.CustomResource {
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * ARN of the Detective Graph.
      */
-    public /*out*/ readonly graphArn!: pulumi.Output<string>;
+    public /*out*/ readonly graphArn!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

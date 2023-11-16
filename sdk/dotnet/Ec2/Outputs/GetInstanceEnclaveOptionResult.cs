@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Whether Nitro Enclaves are enabled.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
-        private GetInstanceEnclaveOptionResult(bool enabled)
+        private GetInstanceEnclaveOptionResult(bool? enabled)
         {
             Enabled = enabled;
         }

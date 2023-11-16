@@ -75,7 +75,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         """
@@ -83,7 +83,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         """
         AZ where the EBS volume exists.
         """
@@ -91,7 +91,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> Optional[bool]:
         """
         Whether the disk is encrypted.
         """
@@ -104,7 +104,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -112,7 +112,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def iops(self) -> int:
+    def iops(self) -> Optional[int]:
         """
         Amount of IOPS for the disk.
         """
@@ -120,7 +120,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         ARN for the KMS encryption key.
         """
@@ -133,7 +133,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="multiAttachEnabled")
-    def multi_attach_enabled(self) -> bool:
+    def multi_attach_enabled(self) -> Optional[bool]:
         """
         (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
         """
@@ -141,7 +141,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> str:
+    def outpost_arn(self) -> Optional[str]:
         """
         ARN of the Outpost.
         """
@@ -149,7 +149,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def size(self) -> int:
+    def size(self) -> Optional[int]:
         """
         Size of the drive in GiBs.
         """
@@ -157,7 +157,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> str:
+    def snapshot_id(self) -> Optional[str]:
         """
         Snapshot_id the EBS volume is based off.
         """
@@ -165,7 +165,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags for the resource.
         """
@@ -173,7 +173,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def throughput(self) -> int:
+    def throughput(self) -> Optional[int]:
         """
         Throughput that the volume supports, in MiB/s.
         """
@@ -181,7 +181,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> str:
+    def volume_id(self) -> Optional[str]:
         """
         Volume ID (e.g., vol-59fcb34e).
         """
@@ -189,7 +189,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> str:
+    def volume_type(self) -> Optional[str]:
         """
         Type of EBS volume.
         """

@@ -84,31 +84,31 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Whether major version upgrades can be applied during maintenance period
         /// </summary>
-        public readonly bool AllowVersionUpgrade;
+        public readonly bool? AllowVersionUpgrade;
         /// <summary>
         /// The value represents how the cluster is configured to use AQUA.
         /// </summary>
-        public readonly string AquaConfigurationStatus;
+        public readonly string? AquaConfigurationStatus;
         /// <summary>
         /// ARN of cluster.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The backup retention period
         /// </summary>
-        public readonly int AutomatedSnapshotRetentionPeriod;
+        public readonly int? AutomatedSnapshotRetentionPeriod;
         /// <summary>
         /// Availability zone of the cluster
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// Indicates whether the cluster is able to be relocated to another availability zone.
         /// </summary>
-        public readonly bool AvailabilityZoneRelocationEnabled;
+        public readonly bool? AvailabilityZoneRelocationEnabled;
         /// <summary>
         /// Name of the S3 bucket where the log files are to be stored
         /// </summary>
-        public readonly string BucketName;
+        public readonly string? BucketName;
         /// <summary>
         /// Cluster identifier
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// The namespace Amazon Resource Name (ARN) of the cluster
         /// </summary>
-        public readonly string ClusterNamespaceArn;
+        public readonly string? ClusterNamespaceArn;
         /// <summary>
         /// Nodes in the cluster. Cluster node blocks are documented below
         /// </summary>
@@ -124,52 +124,52 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// The name of the parameter group to be associated with this cluster
         /// </summary>
-        public readonly string ClusterParameterGroupName;
+        public readonly string? ClusterParameterGroupName;
         /// <summary>
         /// Public key for the cluster
         /// </summary>
-        public readonly string ClusterPublicKey;
+        public readonly string? ClusterPublicKey;
         /// <summary>
         /// The cluster revision number
         /// </summary>
-        public readonly string ClusterRevisionNumber;
+        public readonly string? ClusterRevisionNumber;
         /// <summary>
         /// The name of a cluster subnet group to be associated with this cluster
         /// </summary>
-        public readonly string ClusterSubnetGroupName;
+        public readonly string? ClusterSubnetGroupName;
         /// <summary>
         /// Cluster type
         /// </summary>
-        public readonly string ClusterType;
-        public readonly string ClusterVersion;
+        public readonly string? ClusterType;
+        public readonly string? ClusterVersion;
         /// <summary>
         /// Name of the default database in the cluster
         /// </summary>
-        public readonly string DatabaseName;
+        public readonly string? DatabaseName;
         /// <summary>
         /// The ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
-        public readonly string DefaultIamRoleArn;
+        public readonly string? DefaultIamRoleArn;
         /// <summary>
         /// Elastic IP of the cluster
         /// </summary>
-        public readonly string ElasticIp;
+        public readonly string? ElasticIp;
         /// <summary>
         /// Whether cluster logging is enabled
         /// </summary>
-        public readonly bool EnableLogging;
+        public readonly bool? EnableLogging;
         /// <summary>
         /// Whether the cluster data is encrypted
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly bool? Encrypted;
         /// <summary>
         /// Cluster endpoint
         /// </summary>
-        public readonly string Endpoint;
+        public readonly string? Endpoint;
         /// <summary>
         /// Whether enhanced VPC routing is enabled
         /// </summary>
-        public readonly bool EnhancedVpcRouting;
+        public readonly bool? EnhancedVpcRouting;
         /// <summary>
         /// IAM roles associated to the cluster
         /// </summary>
@@ -177,15 +177,15 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// KMS encryption key associated to the cluster
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// The log destination type.
         /// </summary>
-        public readonly string LogDestinationType;
+        public readonly string? LogDestinationType;
         /// <summary>
         /// Collection of exported log types. Log types include the connection log, user log and user activity log.
         /// </summary>
@@ -193,39 +193,39 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// The name of the maintenance track for the restored cluster.
         /// </summary>
-        public readonly string MaintenanceTrackName;
+        public readonly string? MaintenanceTrackName;
         /// <summary>
         /// (Optional)  The default number of days to retain a manual snapshot.
         /// </summary>
-        public readonly int ManualSnapshotRetentionPeriod;
+        public readonly int? ManualSnapshotRetentionPeriod;
         /// <summary>
         /// Username for the master DB user
         /// </summary>
-        public readonly string MasterUsername;
+        public readonly string? MasterUsername;
         /// <summary>
         /// Cluster node type
         /// </summary>
-        public readonly string NodeType;
+        public readonly string? NodeType;
         /// <summary>
         /// Number of nodes in the cluster
         /// </summary>
-        public readonly int NumberOfNodes;
+        public readonly int? NumberOfNodes;
         /// <summary>
         /// Port the cluster responds on
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
         /// The maintenance window
         /// </summary>
-        public readonly string PreferredMaintenanceWindow;
+        public readonly string? PreferredMaintenanceWindow;
         /// <summary>
         /// Whether the cluster is publicly accessible
         /// </summary>
-        public readonly bool PubliclyAccessible;
+        public readonly bool? PubliclyAccessible;
         /// <summary>
         /// Folder inside the S3 bucket where the log files are stored
         /// </summary>
-        public readonly string S3KeyPrefix;
+        public readonly string? S3KeyPrefix;
         /// <summary>
         /// Tags associated to the cluster
         /// </summary>
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// VPC Id associated with the cluster
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
         /// <summary>
         /// The VPC security group Ids associated with the cluster
         /// </summary>
@@ -241,83 +241,83 @@ namespace Pulumi.Aws.RedShift
 
         [OutputConstructor]
         private GetClusterResult(
-            bool allowVersionUpgrade,
+            bool? allowVersionUpgrade,
 
-            string aquaConfigurationStatus,
+            string? aquaConfigurationStatus,
 
-            string arn,
+            string? arn,
 
-            int automatedSnapshotRetentionPeriod,
+            int? automatedSnapshotRetentionPeriod,
 
-            string availabilityZone,
+            string? availabilityZone,
 
-            bool availabilityZoneRelocationEnabled,
+            bool? availabilityZoneRelocationEnabled,
 
-            string bucketName,
+            string? bucketName,
 
             string clusterIdentifier,
 
-            string clusterNamespaceArn,
+            string? clusterNamespaceArn,
 
             ImmutableArray<Outputs.GetClusterClusterNodeResult> clusterNodes,
 
-            string clusterParameterGroupName,
+            string? clusterParameterGroupName,
 
-            string clusterPublicKey,
+            string? clusterPublicKey,
 
-            string clusterRevisionNumber,
+            string? clusterRevisionNumber,
 
-            string clusterSubnetGroupName,
+            string? clusterSubnetGroupName,
 
-            string clusterType,
+            string? clusterType,
 
-            string clusterVersion,
+            string? clusterVersion,
 
-            string databaseName,
+            string? databaseName,
 
-            string defaultIamRoleArn,
+            string? defaultIamRoleArn,
 
-            string elasticIp,
+            string? elasticIp,
 
-            bool enableLogging,
+            bool? enableLogging,
 
-            bool encrypted,
+            bool? encrypted,
 
-            string endpoint,
+            string? endpoint,
 
-            bool enhancedVpcRouting,
+            bool? enhancedVpcRouting,
 
             ImmutableArray<string> iamRoles,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string logDestinationType,
+            string? logDestinationType,
 
             ImmutableArray<string> logExports,
 
-            string maintenanceTrackName,
+            string? maintenanceTrackName,
 
-            int manualSnapshotRetentionPeriod,
+            int? manualSnapshotRetentionPeriod,
 
-            string masterUsername,
+            string? masterUsername,
 
-            string nodeType,
+            string? nodeType,
 
-            int numberOfNodes,
+            int? numberOfNodes,
 
-            int port,
+            int? port,
 
-            string preferredMaintenanceWindow,
+            string? preferredMaintenanceWindow,
 
-            bool publiclyAccessible,
+            bool? publiclyAccessible,
 
-            string s3KeyPrefix,
+            string? s3KeyPrefix,
 
             ImmutableDictionary<string, string>? tags,
 
-            string vpcId,
+            string? vpcId,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

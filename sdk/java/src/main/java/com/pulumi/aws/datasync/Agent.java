@@ -67,42 +67,42 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="activationKey", refs={String.class}, tree="[0]")
-    private Output<String> activationKey;
+    private Output</* @Nullable */ String> activationKey;
 
     /**
      * @return DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
      * 
      */
-    public Output<String> activationKey() {
-        return this.activationKey;
+    public Output<Optional<String>> activationKey() {
+        return Codegen.optional(this.activationKey);
     }
     /**
      * Amazon Resource Name (ARN) of the DataSync Agent.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the DataSync Agent.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
-    private Output<String> ipAddress;
+    private Output</* @Nullable */ String> ipAddress;
 
     /**
      * @return DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Output<Optional<String>> ipAddress() {
+        return Codegen.optional(this.ipAddress);
     }
     /**
      * Name of the DataSync Agent.
@@ -123,14 +123,14 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateLinkEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> privateLinkEndpoint;
+    private Output</* @Nullable */ String> privateLinkEndpoint;
 
     /**
      * @return The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
      * 
      */
-    public Output<String> privateLinkEndpoint() {
-        return this.privateLinkEndpoint;
+    public Output<Optional<String>> privateLinkEndpoint() {
+        return Codegen.optional(this.privateLinkEndpoint);
     }
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.

@@ -330,7 +330,7 @@ class Cell(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the cell
         """
@@ -356,7 +356,7 @@ class Cell(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parentReadinessScopes")
-    def parent_readiness_scopes(self) -> pulumi.Output[Sequence[str]]:
+    def parent_readiness_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of readiness scopes (recovery groups or cells) that contain this cell.
         """

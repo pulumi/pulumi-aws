@@ -64,14 +64,14 @@ public class ResolverFirewallDomainList extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN (Amazon Resource Name) of the domain list.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A array of domains for the firewall domain list.

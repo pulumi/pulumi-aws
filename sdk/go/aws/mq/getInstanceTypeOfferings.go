@@ -91,7 +91,7 @@ type GetInstanceTypeOfferingsResult struct {
 	// Broker's instance type.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Broker's storage type.
 	StorageType *string `pulumi:"storageType"`
 }
@@ -156,8 +156,8 @@ func (o GetInstanceTypeOfferingsResultOutput) HostInstanceType() pulumi.StringPt
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetInstanceTypeOfferingsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetInstanceTypeOfferingsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Broker's storage type.

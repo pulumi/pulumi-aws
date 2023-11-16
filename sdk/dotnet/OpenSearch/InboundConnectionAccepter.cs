@@ -73,7 +73,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Status of the connection request.
         /// </summary>
         [Output("connectionStatus")]
-        public Output<string> ConnectionStatus { get; private set; } = null!;
+        public Output<string?> ConnectionStatus { get; private set; } = null!;
 
 
         /// <summary>

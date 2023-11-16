@@ -92,140 +92,140 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="appstreamAgentVersion", refs={String.class}, tree="[0]")
-    private Output<String> appstreamAgentVersion;
+    private Output</* @Nullable */ String> appstreamAgentVersion;
 
     /**
      * @return Version of the AppStream 2.0 agent to use for this image builder.
      * 
      */
-    public Output<String> appstreamAgentVersion() {
-        return this.appstreamAgentVersion;
+    public Output<Optional<String>> appstreamAgentVersion() {
+        return Codegen.optional(this.appstreamAgentVersion);
     }
     /**
      * ARN of the appstream image builder.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the appstream image builder.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Description to display.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description to display.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Human-readable friendly name for the AppStream image builder.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
-    private Output<String> displayName;
+    private Output</* @Nullable */ String> displayName;
 
     /**
      * @return Human-readable friendly name for the AppStream image builder.
      * 
      */
-    public Output<String> displayName() {
-        return this.displayName;
+    public Output<Optional<String>> displayName() {
+        return Codegen.optional(this.displayName);
     }
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      * 
      */
     @Export(name="domainJoinInfo", refs={ImageBuilderDomainJoinInfo.class}, tree="[0]")
-    private Output<ImageBuilderDomainJoinInfo> domainJoinInfo;
+    private Output</* @Nullable */ ImageBuilderDomainJoinInfo> domainJoinInfo;
 
     /**
      * @return Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      * 
      */
-    public Output<ImageBuilderDomainJoinInfo> domainJoinInfo() {
-        return this.domainJoinInfo;
+    public Output<Optional<ImageBuilderDomainJoinInfo>> domainJoinInfo() {
+        return Codegen.optional(this.domainJoinInfo);
     }
     /**
      * Enables or disables default internet access for the image builder.
      * 
      */
     @Export(name="enableDefaultInternetAccess", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableDefaultInternetAccess;
+    private Output</* @Nullable */ Boolean> enableDefaultInternetAccess;
 
     /**
      * @return Enables or disables default internet access for the image builder.
      * 
      */
-    public Output<Boolean> enableDefaultInternetAccess() {
-        return this.enableDefaultInternetAccess;
+    public Output<Optional<Boolean>> enableDefaultInternetAccess() {
+        return Codegen.optional(this.enableDefaultInternetAccess);
     }
     /**
      * ARN of the IAM role to apply to the image builder.
      * 
      */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
-    private Output<String> iamRoleArn;
+    private Output</* @Nullable */ String> iamRoleArn;
 
     /**
      * @return ARN of the IAM role to apply to the image builder.
      * 
      */
-    public Output<String> iamRoleArn() {
-        return this.iamRoleArn;
+    public Output<Optional<String>> iamRoleArn() {
+        return Codegen.optional(this.iamRoleArn);
     }
     /**
      * ARN of the public, private, or shared image to use.
      * 
      */
     @Export(name="imageArn", refs={String.class}, tree="[0]")
-    private Output<String> imageArn;
+    private Output</* @Nullable */ String> imageArn;
 
     /**
      * @return ARN of the public, private, or shared image to use.
      * 
      */
-    public Output<String> imageArn() {
-        return this.imageArn;
+    public Output<Optional<String>> imageArn() {
+        return Codegen.optional(this.imageArn);
     }
     /**
      * Name of the image used to create the image builder.
      * 
      */
     @Export(name="imageName", refs={String.class}, tree="[0]")
-    private Output<String> imageName;
+    private Output</* @Nullable */ String> imageName;
 
     /**
      * @return Name of the image used to create the image builder.
      * 
      */
-    public Output<String> imageName() {
-        return this.imageName;
+    public Output<Optional<String>> imageName() {
+        return Codegen.optional(this.imageName);
     }
     /**
      * Instance type to use when launching the image builder.
@@ -264,14 +264,14 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -310,14 +310,14 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcConfig", refs={ImageBuilderVpcConfig.class}, tree="[0]")
-    private Output<ImageBuilderVpcConfig> vpcConfig;
+    private Output</* @Nullable */ ImageBuilderVpcConfig> vpcConfig;
 
     /**
      * @return Configuration block for the VPC configuration for the image builder. See below.
      * 
      */
-    public Output<ImageBuilderVpcConfig> vpcConfig() {
-        return this.vpcConfig;
+    public Output<Optional<ImageBuilderVpcConfig>> vpcConfig() {
+        return Codegen.optional(this.vpcConfig);
     }
 
     /**

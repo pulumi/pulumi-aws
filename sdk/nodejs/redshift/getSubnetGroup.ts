@@ -48,24 +48,24 @@ export interface GetSubnetGroupResult {
     /**
      * ARN of the Redshift Subnet Group name.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the Redshift Subnet group.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * An array of VPC subnet IDs.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * Tags associated to the Subnet Group
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific redshift subnet group.

@@ -16,17 +16,17 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
         /// <summary>
         /// Description of the constraint.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetLaunchPathsSummaryConstraintSummaryResult(
-            string description,
+            string? description,
 
-            string type)
+            string? type)
         {
             Description = description;
             Type = type;

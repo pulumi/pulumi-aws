@@ -87,16 +87,16 @@ type LookupCachePolicyArgs struct {
 // A collection of values returned by getCachePolicy.
 type LookupCachePolicyResult struct {
 	// Comment to describe the cache policy.
-	Comment string `pulumi:"comment"`
+	Comment *string `pulumi:"comment"`
 	// Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-	DefaultTtl int `pulumi:"defaultTtl"`
+	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Current version of the cache policy.
-	Etag string  `pulumi:"etag"`
+	Etag *string `pulumi:"etag"`
 	Id   *string `pulumi:"id"`
 	// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-	MaxTtl int `pulumi:"maxTtl"`
+	MaxTtl *int `pulumi:"maxTtl"`
 	// Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-	MinTtl int     `pulumi:"minTtl"`
+	MinTtl *int    `pulumi:"minTtl"`
 	Name   *string `pulumi:"name"`
 	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
 	ParametersInCacheKeyAndForwardedToOrigins []GetCachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigins"`
@@ -143,18 +143,18 @@ func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutputWithContex
 }
 
 // Comment to describe the cache policy.
-func (o LookupCachePolicyResultOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCachePolicyResult) string { return v.Comment }).(pulumi.StringOutput)
+func (o LookupCachePolicyResultOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-func (o LookupCachePolicyResultOutput) DefaultTtl() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupCachePolicyResult) int { return v.DefaultTtl }).(pulumi.IntOutput)
+func (o LookupCachePolicyResultOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
 // Current version of the cache policy.
-func (o LookupCachePolicyResultOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCachePolicyResult) string { return v.Etag }).(pulumi.StringOutput)
+func (o LookupCachePolicyResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCachePolicyResultOutput) Id() pulumi.StringPtrOutput {
@@ -162,13 +162,13 @@ func (o LookupCachePolicyResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-func (o LookupCachePolicyResultOutput) MaxTtl() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupCachePolicyResult) int { return v.MaxTtl }).(pulumi.IntOutput)
+func (o LookupCachePolicyResultOutput) MaxTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
 }
 
 // Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-func (o LookupCachePolicyResultOutput) MinTtl() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupCachePolicyResult) int { return v.MinTtl }).(pulumi.IntOutput)
+func (o LookupCachePolicyResultOutput) MinTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupCachePolicyResultOutput) Name() pulumi.StringPtrOutput {

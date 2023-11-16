@@ -60,11 +60,11 @@ export class GroupAssociation extends pulumi.CustomResource {
      * ARN of the canary.
      */
     public readonly canaryArn!: pulumi.Output<string>;
-    public /*out*/ readonly groupArn!: pulumi.Output<string>;
+    public /*out*/ readonly groupArn!: pulumi.Output<string | undefined>;
     /**
      * ID of the Group.
      */
-    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    public /*out*/ readonly groupId!: pulumi.Output<string | undefined>;
     /**
      * Name of the group that the canary will be associated with.
      */

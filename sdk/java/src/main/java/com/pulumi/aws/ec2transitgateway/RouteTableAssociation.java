@@ -79,28 +79,28 @@ public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
-    private Output<String> resourceId;
+    private Output</* @Nullable */ String> resourceId;
 
     /**
      * @return Identifier of the resource
      * 
      */
-    public Output<String> resourceId() {
-        return this.resourceId;
+    public Output<Optional<String>> resourceId() {
+        return Codegen.optional(this.resourceId);
     }
     /**
      * Type of the resource
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
-    private Output<String> resourceType;
+    private Output</* @Nullable */ String> resourceType;
 
     /**
      * @return Type of the resource
      * 
      */
-    public Output<String> resourceType() {
-        return this.resourceType;
+    public Output<Optional<String>> resourceType() {
+        return Codegen.optional(this.resourceType);
     }
     /**
      * Identifier of EC2 Transit Gateway Attachment.

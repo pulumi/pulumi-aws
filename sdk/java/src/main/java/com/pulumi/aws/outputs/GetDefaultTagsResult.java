@@ -7,26 +7,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDefaultTagsResult {
-    private String id;
+    private @Nullable String id;
     /**
      * @return Blocks of default tags set on the provider. See details below.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetDefaultTagsResult() {}
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Blocks of default tags set on the provider. See details below.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -38,8 +40,8 @@ public final class GetDefaultTagsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetDefaultTagsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,13 +50,13 @@ public final class GetDefaultTagsResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetDefaultTagsResult build() {

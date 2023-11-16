@@ -72,7 +72,7 @@ export class PortfolioShare extends pulumi.CustomResource {
     /**
      * Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
      */
-    public /*out*/ readonly accepted!: pulumi.Output<boolean>;
+    public /*out*/ readonly accepted!: pulumi.Output<boolean | undefined>;
     /**
      * Portfolio identifier.
      */

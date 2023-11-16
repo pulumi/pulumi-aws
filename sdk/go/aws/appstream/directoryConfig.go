@@ -60,7 +60,7 @@ type DirectoryConfig struct {
 	pulumi.CustomResourceState
 
 	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Fully qualified name of the directory.
 	DirectoryName pulumi.StringOutput `pulumi:"directoryName"`
 	// Distinguished names of the organizational units for computer accounts.
@@ -240,8 +240,8 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Co
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-func (o DirectoryConfigOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o DirectoryConfigOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Fully qualified name of the directory.

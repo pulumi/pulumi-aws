@@ -126,7 +126,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      */
@@ -147,7 +147,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
-    public /*out*/ readonly homeEfsFileSystemId!: pulumi.Output<string>;
+    public /*out*/ readonly homeEfsFileSystemId!: pulumi.Output<string | undefined>;
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      */
@@ -159,11 +159,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      */
-    public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string | undefined>;
     /**
      * The SSO managed application instance ID.
      */
-    public /*out*/ readonly singleSignOnManagedApplicationInstanceId!: pulumi.Output<string>;
+    public /*out*/ readonly singleSignOnManagedApplicationInstanceId!: pulumi.Output<string | undefined>;
     /**
      * The VPC subnets that Studio uses for communication.
      */
@@ -181,7 +181,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The domain's URL.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      *

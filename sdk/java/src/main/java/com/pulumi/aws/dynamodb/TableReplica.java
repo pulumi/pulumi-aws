@@ -106,14 +106,14 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the table replica.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN of the _main_ or global table which this resource will replicate.
@@ -138,14 +138,14 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyArn;
+    private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
      * @return ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
-    public Output<String> kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * Whether to enable Point In Time Recovery for the replica. Default is `false`.

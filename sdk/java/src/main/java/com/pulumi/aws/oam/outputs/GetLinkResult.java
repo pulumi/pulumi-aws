@@ -8,6 +8,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLinkResult {
@@ -15,75 +17,75 @@ public final class GetLinkResult {
      * @return ARN of the link.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Label that is assigned to this link.
      * 
      */
-    private String label;
+    private @Nullable String label;
     /**
      * @return Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
      * 
      */
-    private String labelTemplate;
+    private @Nullable String labelTemplate;
     /**
      * @return ID string that AWS generated as part of the link ARN.
      * 
      */
-    private String linkId;
+    private @Nullable String linkId;
     private String linkIdentifier;
     /**
      * @return Types of data that the source account shares with the monitoring account.
      * 
      */
-    private List<String> resourceTypes;
+    private @Nullable List<String> resourceTypes;
     /**
      * @return ARN of the sink that is used for this link.
      * 
      */
-    private String sinkArn;
-    private Map<String,String> tags;
+    private @Nullable String sinkArn;
+    private @Nullable Map<String,String> tags;
 
     private GetLinkResult() {}
     /**
      * @return ARN of the link.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Label that is assigned to this link.
      * 
      */
-    public String label() {
-        return this.label;
+    public Optional<String> label() {
+        return Optional.ofNullable(this.label);
     }
     /**
      * @return Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
      * 
      */
-    public String labelTemplate() {
-        return this.labelTemplate;
+    public Optional<String> labelTemplate() {
+        return Optional.ofNullable(this.labelTemplate);
     }
     /**
      * @return ID string that AWS generated as part of the link ARN.
      * 
      */
-    public String linkId() {
-        return this.linkId;
+    public Optional<String> linkId() {
+        return Optional.ofNullable(this.linkId);
     }
     public String linkIdentifier() {
         return this.linkIdentifier;
@@ -93,17 +95,17 @@ public final class GetLinkResult {
      * 
      */
     public List<String> resourceTypes() {
-        return this.resourceTypes;
+        return this.resourceTypes == null ? List.of() : this.resourceTypes;
     }
     /**
      * @return ARN of the sink that is used for this link.
      * 
      */
-    public String sinkArn() {
-        return this.sinkArn;
+    public Optional<String> sinkArn() {
+        return Optional.ofNullable(this.sinkArn);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -115,15 +117,15 @@ public final class GetLinkResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String label;
-        private String labelTemplate;
-        private String linkId;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String label;
+        private @Nullable String labelTemplate;
+        private @Nullable String linkId;
         private String linkIdentifier;
-        private List<String> resourceTypes;
-        private String sinkArn;
-        private Map<String,String> tags;
+        private @Nullable List<String> resourceTypes;
+        private @Nullable String sinkArn;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLinkResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -139,28 +141,28 @@ public final class GetLinkResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder label(String label) {
-            this.label = Objects.requireNonNull(label);
+        public Builder label(@Nullable String label) {
+            this.label = label;
             return this;
         }
         @CustomType.Setter
-        public Builder labelTemplate(String labelTemplate) {
-            this.labelTemplate = Objects.requireNonNull(labelTemplate);
+        public Builder labelTemplate(@Nullable String labelTemplate) {
+            this.labelTemplate = labelTemplate;
             return this;
         }
         @CustomType.Setter
-        public Builder linkId(String linkId) {
-            this.linkId = Objects.requireNonNull(linkId);
+        public Builder linkId(@Nullable String linkId) {
+            this.linkId = linkId;
             return this;
         }
         @CustomType.Setter
@@ -169,21 +171,21 @@ public final class GetLinkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceTypes(List<String> resourceTypes) {
-            this.resourceTypes = Objects.requireNonNull(resourceTypes);
+        public Builder resourceTypes(@Nullable List<String> resourceTypes) {
+            this.resourceTypes = resourceTypes;
             return this;
         }
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }
         @CustomType.Setter
-        public Builder sinkArn(String sinkArn) {
-            this.sinkArn = Objects.requireNonNull(sinkArn);
+        public Builder sinkArn(@Nullable String sinkArn) {
+            this.sinkArn = sinkArn;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetLinkResult build() {

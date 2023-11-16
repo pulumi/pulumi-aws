@@ -26,7 +26,7 @@ type NotebookInstanceLifecycleConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
@@ -197,8 +197,8 @@ func (o NotebookInstanceLifecycleConfigurationOutput) ToNotebookInstanceLifecycl
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
-func (o NotebookInstanceLifecycleConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NotebookInstanceLifecycleConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.

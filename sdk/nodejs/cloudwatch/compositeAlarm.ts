@@ -97,7 +97,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
     /**
      * The ARN of the composite alarm.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */

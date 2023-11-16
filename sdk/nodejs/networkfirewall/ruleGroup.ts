@@ -174,7 +174,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that identifies the rule group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
      */
@@ -194,7 +194,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      */
-    public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroupRuleGroup>;
+    public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroupRuleGroup | undefined>;
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
      */
@@ -216,7 +216,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * A string token used when updating the rule group.
      */
-    public /*out*/ readonly updateToken!: pulumi.Output<string>;
+    public /*out*/ readonly updateToken!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.

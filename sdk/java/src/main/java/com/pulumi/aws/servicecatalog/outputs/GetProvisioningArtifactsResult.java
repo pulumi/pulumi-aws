@@ -18,13 +18,13 @@ public final class GetProvisioningArtifactsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String productId;
     /**
      * @return List with information about the provisioning artifacts. See details below.
      * 
      */
-    private List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails;
+    private @Nullable List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails;
 
     private GetProvisioningArtifactsResult() {}
     public Optional<String> acceptLanguage() {
@@ -34,8 +34,8 @@ public final class GetProvisioningArtifactsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String productId() {
         return this.productId;
@@ -45,7 +45,7 @@ public final class GetProvisioningArtifactsResult {
      * 
      */
     public List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails() {
-        return this.provisioningArtifactDetails;
+        return this.provisioningArtifactDetails == null ? List.of() : this.provisioningArtifactDetails;
     }
 
     public static Builder builder() {
@@ -58,9 +58,9 @@ public final class GetProvisioningArtifactsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
-        private String id;
+        private @Nullable String id;
         private String productId;
-        private List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails;
+        private @Nullable List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails;
         public Builder() {}
         public Builder(GetProvisioningArtifactsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,8 +76,8 @@ public final class GetProvisioningArtifactsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -86,8 +86,8 @@ public final class GetProvisioningArtifactsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder provisioningArtifactDetails(List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails) {
-            this.provisioningArtifactDetails = Objects.requireNonNull(provisioningArtifactDetails);
+        public Builder provisioningArtifactDetails(@Nullable List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails) {
+            this.provisioningArtifactDetails = provisioningArtifactDetails;
             return this;
         }
         public Builder provisioningArtifactDetails(GetProvisioningArtifactsProvisioningArtifactDetail... provisioningArtifactDetails) {

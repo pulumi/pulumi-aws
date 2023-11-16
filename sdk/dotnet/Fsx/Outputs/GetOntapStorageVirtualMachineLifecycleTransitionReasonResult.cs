@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// <summary>
         /// A detailed message.
         /// </summary>
-        public readonly string Message;
+        public readonly string? Message;
 
         [OutputConstructor]
-        private GetOntapStorageVirtualMachineLifecycleTransitionReasonResult(string message)
+        private GetOntapStorageVirtualMachineLifecycleTransitionReasonResult(string? message)
         {
             Message = message;
         }

@@ -420,7 +420,7 @@ class DomainAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the domain association.
         """
@@ -428,7 +428,7 @@ class DomainAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateVerificationDnsRecord")
-    def certificate_verification_dns_record(self) -> pulumi.Output[str]:
+    def certificate_verification_dns_record(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS record for certificate verification.
         """

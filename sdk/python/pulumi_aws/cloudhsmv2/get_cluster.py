@@ -47,7 +47,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterCertificates")
-    def cluster_certificates(self) -> Sequence['outputs.GetClusterClusterCertificateResult']:
+    def cluster_certificates(self) -> Optional[Sequence['outputs.GetClusterClusterCertificateResult']]:
         """
         The list of cluster certificates.
         * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
@@ -66,12 +66,12 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterState")
-    def cluster_state(self) -> str:
+    def cluster_state(self) -> Optional[str]:
         return pulumi.get(self, "cluster_state")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -79,7 +79,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> str:
+    def security_group_id(self) -> Optional[str]:
         """
         ID of the security group associated with the CloudHSM cluster.
         """
@@ -87,7 +87,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         IDs of subnets in which cluster operates.
         """
@@ -95,7 +95,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         ID of the VPC that the CloudHSM cluster resides in.
         """

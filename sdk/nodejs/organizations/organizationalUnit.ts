@@ -58,11 +58,11 @@ export class OrganizationalUnit extends pulumi.CustomResource {
     /**
      * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
      */
-    public /*out*/ readonly accounts!: pulumi.Output<outputs.organizations.OrganizationalUnitAccount[]>;
+    public /*out*/ readonly accounts!: pulumi.Output<outputs.organizations.OrganizationalUnitAccount[] | undefined>;
     /**
      * ARN of the organizational unit
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name for the organizational unit
      */

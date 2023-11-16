@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// List of values that appear so frequently as to be considered skewed.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> SkewedColumnValueLocationMaps;
+        public readonly ImmutableDictionary<string, string>? SkewedColumnValueLocationMaps;
         /// <summary>
         /// Map of skewed values to the columns that contain them.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Glue.Outputs
         private GetCatalogTableStorageDescriptorSkewedInfoResult(
             ImmutableArray<string> skewedColumnNames,
 
-            ImmutableDictionary<string, string> skewedColumnValueLocationMaps,
+            ImmutableDictionary<string, string>? skewedColumnValueLocationMaps,
 
             ImmutableArray<string> skewedColumnValues)
         {

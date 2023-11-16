@@ -1888,7 +1888,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def acl(self) -> pulumi.Output[str]:
+    def acl(self) -> pulumi.Output[Optional[str]]:
         """
         [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         """
@@ -1904,12 +1904,12 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketKeyEnabled")
-    def bucket_key_enabled(self) -> pulumi.Output[bool]:
+    def bucket_key_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "bucket_key_enabled")
 
     @property
     @pulumi.getter(name="cacheControl")
-    def cache_control(self) -> pulumi.Output[str]:
+    def cache_control(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         """
@@ -1925,7 +1925,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="checksumCrc32")
-    def checksum_crc32(self) -> pulumi.Output[str]:
+    def checksum_crc32(self) -> pulumi.Output[Optional[str]]:
         """
         The base64-encoded, 32-bit CRC32 checksum of the object.
         """
@@ -1933,7 +1933,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="checksumCrc32c")
-    def checksum_crc32c(self) -> pulumi.Output[str]:
+    def checksum_crc32c(self) -> pulumi.Output[Optional[str]]:
         """
         The base64-encoded, 32-bit CRC32C checksum of the object.
         """
@@ -1941,7 +1941,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="checksumSha1")
-    def checksum_sha1(self) -> pulumi.Output[str]:
+    def checksum_sha1(self) -> pulumi.Output[Optional[str]]:
         """
         The base64-encoded, 160-bit SHA-1 digest of the object.
         """
@@ -1949,7 +1949,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="checksumSha256")
-    def checksum_sha256(self) -> pulumi.Output[str]:
+    def checksum_sha256(self) -> pulumi.Output[Optional[str]]:
         """
         The base64-encoded, 256-bit SHA-256 digest of the object.
         """
@@ -1957,7 +1957,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentDisposition")
-    def content_disposition(self) -> pulumi.Output[str]:
+    def content_disposition(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         """
@@ -1965,7 +1965,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentEncoding")
-    def content_encoding(self) -> pulumi.Output[str]:
+    def content_encoding(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         """
@@ -1973,7 +1973,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentLanguage")
-    def content_language(self) -> pulumi.Output[str]:
+    def content_language(self) -> pulumi.Output[Optional[str]]:
         """
         Language the content is in e.g., en-US or en-GB.
         """
@@ -1981,7 +1981,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> pulumi.Output[str]:
+    def content_type(self) -> pulumi.Output[Optional[str]]:
         """
         Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         """
@@ -2021,7 +2021,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerAlgorithm")
-    def customer_algorithm(self) -> pulumi.Output[str]:
+    def customer_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the algorithm to use to when encrypting the object (for example, AES256).
         """
@@ -2037,7 +2037,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerKeyMd5")
-    def customer_key_md5(self) -> pulumi.Output[str]:
+    def customer_key_md5(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
@@ -2045,7 +2045,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
         """
@@ -2069,7 +2069,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def expiration(self) -> pulumi.Output[str]:
+    def expiration(self) -> pulumi.Output[Optional[str]]:
         """
         If the object expiration is configured, this attribute will be set.
         """
@@ -2109,7 +2109,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsEncryptionContext")
-    def kms_encryption_context(self) -> pulumi.Output[str]:
+    def kms_encryption_context(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         """
@@ -2117,7 +2117,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         """
@@ -2125,7 +2125,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> pulumi.Output[str]:
+    def last_modified(self) -> pulumi.Output[Optional[str]]:
         """
         Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -2133,7 +2133,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         """
@@ -2149,7 +2149,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLockLegalHoldStatus")
-    def object_lock_legal_hold_status(self) -> pulumi.Output[str]:
+    def object_lock_legal_hold_status(self) -> pulumi.Output[Optional[str]]:
         """
         The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         """
@@ -2157,7 +2157,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLockMode")
-    def object_lock_mode(self) -> pulumi.Output[str]:
+    def object_lock_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         """
@@ -2165,7 +2165,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLockRetainUntilDate")
-    def object_lock_retain_until_date(self) -> pulumi.Output[str]:
+    def object_lock_retain_until_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         """
@@ -2173,7 +2173,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestCharged")
-    def request_charged(self) -> pulumi.Output[bool]:
+    def request_charged(self) -> pulumi.Output[Optional[bool]]:
         """
         If present, indicates that the requester was successfully charged for the request.
         """
@@ -2189,7 +2189,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> pulumi.Output[str]:
+    def server_side_encryption(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         """
@@ -2231,7 +2231,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceVersionId")
-    def source_version_id(self) -> pulumi.Output[str]:
+    def source_version_id(self) -> pulumi.Output[Optional[str]]:
         """
         Version of the copied object in the source bucket.
         """
@@ -2239,7 +2239,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> pulumi.Output[str]:
+    def storage_class(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         """
@@ -2274,7 +2274,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> pulumi.Output[str]:
+    def version_id(self) -> pulumi.Output[Optional[str]]:
         """
         Version ID of the newly created copy.
         """
@@ -2282,7 +2282,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteRedirect")
-    def website_redirect(self) -> pulumi.Output[str]:
+    def website_redirect(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """

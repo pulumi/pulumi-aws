@@ -157,7 +157,7 @@ export class Resolver extends pulumi.CustomResource {
     /**
      * ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Caching Config. See Caching Config.
      */

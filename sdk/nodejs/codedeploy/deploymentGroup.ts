@@ -201,7 +201,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * The ARN of the CodeDeploy deployment group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      */
@@ -213,11 +213,11 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Configuration block of the blue/green deployment options for a deployment group (documented below).
      */
-    public readonly blueGreenDeploymentConfig!: pulumi.Output<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfig>;
+    public readonly blueGreenDeploymentConfig!: pulumi.Output<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfig | undefined>;
     /**
      * The destination platform type for the deployment.
      */
-    public /*out*/ readonly computePlatform!: pulumi.Output<string>;
+    public /*out*/ readonly computePlatform!: pulumi.Output<string | undefined>;
     /**
      * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
      */
@@ -225,7 +225,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * The ID of the CodeDeploy deployment group.
      */
-    public /*out*/ readonly deploymentGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly deploymentGroupId!: pulumi.Output<string | undefined>;
     /**
      * The name of the deployment group.
      */

@@ -63,7 +63,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * The ARN of the subnet group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description for the subnet group.
      */
@@ -75,7 +75,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
      *
@@ -95,7 +95,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * The VPC in which the subnet group exists.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.

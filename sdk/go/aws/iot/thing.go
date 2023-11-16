@@ -54,17 +54,17 @@ type Thing struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the thing.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Map of attributes of the thing.
 	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
 	// The default client ID.
-	DefaultClientId pulumi.StringOutput `pulumi:"defaultClientId"`
+	DefaultClientId pulumi.StringPtrOutput `pulumi:"defaultClientId"`
 	// The name of the thing.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The thing type name.
 	ThingTypeName pulumi.StringPtrOutput `pulumi:"thingTypeName"`
 	// The current version of the thing record in the registry.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewThing registers a new resource with the given unique name, arguments, and options.
@@ -237,8 +237,8 @@ func (o ThingOutput) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 }
 
 // The ARN of the thing.
-func (o ThingOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ThingOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Thing) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Map of attributes of the thing.
@@ -247,8 +247,8 @@ func (o ThingOutput) Attributes() pulumi.StringMapOutput {
 }
 
 // The default client ID.
-func (o ThingOutput) DefaultClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.DefaultClientId }).(pulumi.StringOutput)
+func (o ThingOutput) DefaultClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Thing) pulumi.StringPtrOutput { return v.DefaultClientId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the thing.
@@ -262,8 +262,8 @@ func (o ThingOutput) ThingTypeName() pulumi.StringPtrOutput {
 }
 
 // The current version of the thing record in the registry.
-func (o ThingOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *Thing) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o ThingOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Thing) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type ThingArrayOutput struct{ *pulumi.OutputState }

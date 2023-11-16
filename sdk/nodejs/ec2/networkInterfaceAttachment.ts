@@ -59,7 +59,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**
      * The ENI Attachment ID.
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    public /*out*/ readonly attachmentId!: pulumi.Output<string | undefined>;
     /**
      * Network interface index (int).
      */
@@ -75,7 +75,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**
      * The status of the Network Interface Attachment.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NetworkInterfaceAttachment resource with the given unique name, arguments, and options.

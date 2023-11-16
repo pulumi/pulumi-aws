@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,13 +17,13 @@ public final class GetAssetsResult {
      * @return List of all the asset ids found. This data source will fail if none are found.
      * 
      */
-    private List<String> assetIds;
+    private @Nullable List<String> assetIds;
     private @Nullable List<String> hostIdFilters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable List<String> statusIdFilters;
 
     private GetAssetsResult() {}
@@ -34,7 +35,7 @@ public final class GetAssetsResult {
      * 
      */
     public List<String> assetIds() {
-        return this.assetIds;
+        return this.assetIds == null ? List.of() : this.assetIds;
     }
     public List<String> hostIdFilters() {
         return this.hostIdFilters == null ? List.of() : this.hostIdFilters;
@@ -43,8 +44,8 @@ public final class GetAssetsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<String> statusIdFilters() {
         return this.statusIdFilters == null ? List.of() : this.statusIdFilters;
@@ -60,9 +61,9 @@ public final class GetAssetsResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private List<String> assetIds;
+        private @Nullable List<String> assetIds;
         private @Nullable List<String> hostIdFilters;
-        private String id;
+        private @Nullable String id;
         private @Nullable List<String> statusIdFilters;
         public Builder() {}
         public Builder(GetAssetsResult defaults) {
@@ -80,8 +81,8 @@ public final class GetAssetsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder assetIds(List<String> assetIds) {
-            this.assetIds = Objects.requireNonNull(assetIds);
+        public Builder assetIds(@Nullable List<String> assetIds) {
+            this.assetIds = assetIds;
             return this;
         }
         public Builder assetIds(String... assetIds) {
@@ -96,8 +97,8 @@ public final class GetAssetsResult {
             return hostIdFilters(List.of(hostIdFilters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

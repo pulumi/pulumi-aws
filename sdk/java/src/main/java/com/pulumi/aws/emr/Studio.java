@@ -72,14 +72,14 @@ public class Studio extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the studio.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
@@ -238,14 +238,14 @@ public class Studio extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
      * @return The unique access URL of the Amazon EMR Studio.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
     /**
      * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.

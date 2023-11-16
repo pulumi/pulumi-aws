@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Dlm
         /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description for the DLM lifecycle policy.

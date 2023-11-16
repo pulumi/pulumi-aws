@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Ram
         /// The Amazon Resource Name (ARN) of the resource share.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource share.

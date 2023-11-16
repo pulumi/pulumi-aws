@@ -86,14 +86,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the appstream fleet.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block for the desired capacity of the fleet. See below.
@@ -114,112 +114,112 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Description to display.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description to display.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Amount of time that a streaming session remains active after users disconnect.
      * 
      */
     @Export(name="disconnectTimeoutInSeconds", refs={Integer.class}, tree="[0]")
-    private Output<Integer> disconnectTimeoutInSeconds;
+    private Output</* @Nullable */ Integer> disconnectTimeoutInSeconds;
 
     /**
      * @return Amount of time that a streaming session remains active after users disconnect.
      * 
      */
-    public Output<Integer> disconnectTimeoutInSeconds() {
-        return this.disconnectTimeoutInSeconds;
+    public Output<Optional<Integer>> disconnectTimeoutInSeconds() {
+        return Codegen.optional(this.disconnectTimeoutInSeconds);
     }
     /**
      * Human-readable friendly name for the AppStream fleet.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
-    private Output<String> displayName;
+    private Output</* @Nullable */ String> displayName;
 
     /**
      * @return Human-readable friendly name for the AppStream fleet.
      * 
      */
-    public Output<String> displayName() {
-        return this.displayName;
+    public Output<Optional<String>> displayName() {
+        return Codegen.optional(this.displayName);
     }
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
      * 
      */
     @Export(name="domainJoinInfo", refs={FleetDomainJoinInfo.class}, tree="[0]")
-    private Output<FleetDomainJoinInfo> domainJoinInfo;
+    private Output</* @Nullable */ FleetDomainJoinInfo> domainJoinInfo;
 
     /**
      * @return Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
      * 
      */
-    public Output<FleetDomainJoinInfo> domainJoinInfo() {
-        return this.domainJoinInfo;
+    public Output<Optional<FleetDomainJoinInfo>> domainJoinInfo() {
+        return Codegen.optional(this.domainJoinInfo);
     }
     /**
      * Enables or disables default internet access for the fleet.
      * 
      */
     @Export(name="enableDefaultInternetAccess", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableDefaultInternetAccess;
+    private Output</* @Nullable */ Boolean> enableDefaultInternetAccess;
 
     /**
      * @return Enables or disables default internet access for the fleet.
      * 
      */
-    public Output<Boolean> enableDefaultInternetAccess() {
-        return this.enableDefaultInternetAccess;
+    public Output<Optional<Boolean>> enableDefaultInternetAccess() {
+        return Codegen.optional(this.enableDefaultInternetAccess);
     }
     /**
      * Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
      * 
      */
     @Export(name="fleetType", refs={String.class}, tree="[0]")
-    private Output<String> fleetType;
+    private Output</* @Nullable */ String> fleetType;
 
     /**
      * @return Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
      * 
      */
-    public Output<String> fleetType() {
-        return this.fleetType;
+    public Output<Optional<String>> fleetType() {
+        return Codegen.optional(this.fleetType);
     }
     /**
      * ARN of the IAM role to apply to the fleet.
      * 
      */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
-    private Output<String> iamRoleArn;
+    private Output</* @Nullable */ String> iamRoleArn;
 
     /**
      * @return ARN of the IAM role to apply to the fleet.
      * 
      */
-    public Output<String> iamRoleArn() {
-        return this.iamRoleArn;
+    public Output<Optional<String>> iamRoleArn() {
+        return Codegen.optional(this.iamRoleArn);
     }
     /**
      * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
@@ -240,28 +240,28 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="imageArn", refs={String.class}, tree="[0]")
-    private Output<String> imageArn;
+    private Output</* @Nullable */ String> imageArn;
 
     /**
      * @return ARN of the public, private, or shared image to use.
      * 
      */
-    public Output<String> imageArn() {
-        return this.imageArn;
+    public Output<Optional<String>> imageArn() {
+        return Codegen.optional(this.imageArn);
     }
     /**
      * Name of the image used to create the fleet.
      * 
      */
     @Export(name="imageName", refs={String.class}, tree="[0]")
-    private Output<String> imageName;
+    private Output</* @Nullable */ String> imageName;
 
     /**
      * @return Name of the image used to create the fleet.
      * 
      */
-    public Output<String> imageName() {
-        return this.imageName;
+    public Output<Optional<String>> imageName() {
+        return Codegen.optional(this.imageName);
     }
     /**
      * Instance type to use when launching fleet instances.
@@ -282,14 +282,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maxUserDurationInSeconds", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maxUserDurationInSeconds;
+    private Output</* @Nullable */ Integer> maxUserDurationInSeconds;
 
     /**
      * @return Maximum amount of time that a streaming session can remain active, in seconds.
      * 
      */
-    public Output<Integer> maxUserDurationInSeconds() {
-        return this.maxUserDurationInSeconds;
+    public Output<Optional<Integer>> maxUserDurationInSeconds() {
+        return Codegen.optional(this.maxUserDurationInSeconds);
     }
     /**
      * Unique name for the fleet.
@@ -314,28 +314,28 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
      * 
      */
     @Export(name="streamView", refs={String.class}, tree="[0]")
-    private Output<String> streamView;
+    private Output</* @Nullable */ String> streamView;
 
     /**
      * @return AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
      * 
      */
-    public Output<String> streamView() {
-        return this.streamView;
+    public Output<Optional<String>> streamView() {
+        return Codegen.optional(this.streamView);
     }
     /**
      * Map of tags to attach to AppStream instances.
@@ -368,14 +368,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcConfig", refs={FleetVpcConfig.class}, tree="[0]")
-    private Output<FleetVpcConfig> vpcConfig;
+    private Output</* @Nullable */ FleetVpcConfig> vpcConfig;
 
     /**
      * @return Configuration block for the VPC configuration for the image builder. See below.
      * 
      */
-    public Output<FleetVpcConfig> vpcConfig() {
-        return this.vpcConfig;
+    public Output<Optional<FleetVpcConfig>> vpcConfig() {
+        return Codegen.optional(this.vpcConfig);
     }
 
     /**

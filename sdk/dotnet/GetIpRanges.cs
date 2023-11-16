@@ -236,8 +236,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
         /// </summary>
-        public readonly string CreateDate;
-        public readonly string Id;
+        public readonly string? CreateDate;
+        public readonly string? Id;
         /// <summary>
         /// Lexically ordered list of IPv6 CIDR blocks.
         /// </summary>
@@ -248,16 +248,16 @@ namespace Pulumi.Aws
         /// Publication time of the IP ranges, in Unix epoch time format
         /// (e.g., `1470267965`).
         /// </summary>
-        public readonly int SyncToken;
+        public readonly int? SyncToken;
         public readonly string? Url;
 
         [OutputConstructor]
         private GetIpRangesResult(
             ImmutableArray<string> cidrBlocks,
 
-            string createDate,
+            string? createDate,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ipv6CidrBlocks,
 
@@ -265,7 +265,7 @@ namespace Pulumi.Aws
 
             ImmutableArray<string> services,
 
-            int syncToken,
+            int? syncToken,
 
             string? url)
         {

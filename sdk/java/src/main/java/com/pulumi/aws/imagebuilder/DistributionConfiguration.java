@@ -81,42 +81,42 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return (Required) Amazon Resource Name (ARN) of the distribution configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Date the distribution configuration was created.
      * 
      */
     @Export(name="dateCreated", refs={String.class}, tree="[0]")
-    private Output<String> dateCreated;
+    private Output</* @Nullable */ String> dateCreated;
 
     /**
      * @return Date the distribution configuration was created.
      * 
      */
-    public Output<String> dateCreated() {
-        return this.dateCreated;
+    public Output<Optional<String>> dateCreated() {
+        return Codegen.optional(this.dateCreated);
     }
     /**
      * Date the distribution configuration was updated.
      * 
      */
     @Export(name="dateUpdated", refs={String.class}, tree="[0]")
-    private Output<String> dateUpdated;
+    private Output</* @Nullable */ String> dateUpdated;
 
     /**
      * @return Date the distribution configuration was updated.
      * 
      */
-    public Output<String> dateUpdated() {
-        return this.dateUpdated;
+    public Output<Optional<String>> dateUpdated() {
+        return Codegen.optional(this.dateUpdated);
     }
     /**
      * Description of the distribution configuration.

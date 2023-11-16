@@ -105,28 +105,28 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
     /**
      * ARN of the security group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of this rule.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    public readonly egress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupEgress[]>;
+    public readonly egress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupEgress[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    public readonly ingress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupIngress[]>;
+    public readonly ingress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupIngress[] | undefined>;
     /**
      * Name of the security group.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly namePrefix!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Owner ID.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -141,7 +141,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
     /**
      * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DefaultSecurityGroup resource with the given unique name, arguments, and options.

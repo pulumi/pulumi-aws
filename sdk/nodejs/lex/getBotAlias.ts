@@ -49,7 +49,7 @@ export interface GetBotAliasResult {
     /**
      * ARN of the bot alias.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Name of the bot.
      */
@@ -57,27 +57,27 @@ export interface GetBotAliasResult {
     /**
      * Version of the bot that the alias points to.
      */
-    readonly botVersion: string;
+    readonly botVersion?: string;
     /**
      * Checksum of the bot alias.
      */
-    readonly checksum: string;
+    readonly checksum?: string;
     /**
      * Date that the bot alias was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Description of the alias.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      */
-    readonly lastUpdatedDate: string;
+    readonly lastUpdatedDate?: string;
     /**
      * Name of the alias. The name is not case sensitive.
      */

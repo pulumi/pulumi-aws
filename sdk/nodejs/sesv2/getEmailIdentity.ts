@@ -52,29 +52,29 @@ export interface GetEmailIdentityResult {
     /**
      * ARN of the Email Identity.
      */
-    readonly arn: string;
-    readonly configurationSetName: string;
+    readonly arn?: string;
+    readonly configurationSetName?: string;
     /**
      * A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
      */
-    readonly dkimSigningAttributes: outputs.sesv2.GetEmailIdentityDkimSigningAttribute[];
+    readonly dkimSigningAttributes?: outputs.sesv2.GetEmailIdentityDkimSigningAttribute[];
     readonly emailIdentity: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
-    readonly identityType: string;
+    readonly identityType?: string;
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Specifies whether or not the identity is verified.
      */
-    readonly verifiedForSendingStatus: boolean;
+    readonly verifiedForSendingStatus?: boolean;
 }
 /**
  * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.

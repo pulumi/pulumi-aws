@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteResult {
@@ -16,40 +18,40 @@ public final class GetRouteResult {
      * @return ARN of the route.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Creation date of the route.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Last update date of the route.
      * 
      */
-    private String lastUpdatedDate;
+    private @Nullable String lastUpdatedDate;
     private String meshName;
-    private String meshOwner;
+    private @Nullable String meshOwner;
     private String name;
     /**
      * @return Resource owner&#39;s AWS account ID.
      * 
      */
-    private String resourceOwner;
+    private @Nullable String resourceOwner;
     /**
      * @return Route specification. See the `aws.appmesh.Route` resource for details.
      * 
      */
-    private List<GetRouteSpec> specs;
+    private @Nullable List<GetRouteSpec> specs;
     /**
      * @return Map of tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     private String virtualRouterName;
 
     private GetRouteResult() {}
@@ -57,35 +59,35 @@ public final class GetRouteResult {
      * @return ARN of the route.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Creation date of the route.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Last update date of the route.
      * 
      */
-    public String lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Optional<String> lastUpdatedDate() {
+        return Optional.ofNullable(this.lastUpdatedDate);
     }
     public String meshName() {
         return this.meshName;
     }
-    public String meshOwner() {
-        return this.meshOwner;
+    public Optional<String> meshOwner() {
+        return Optional.ofNullable(this.meshOwner);
     }
     public String name() {
         return this.name;
@@ -94,22 +96,22 @@ public final class GetRouteResult {
      * @return Resource owner&#39;s AWS account ID.
      * 
      */
-    public String resourceOwner() {
-        return this.resourceOwner;
+    public Optional<String> resourceOwner() {
+        return Optional.ofNullable(this.resourceOwner);
     }
     /**
      * @return Route specification. See the `aws.appmesh.Route` resource for details.
      * 
      */
     public List<GetRouteSpec> specs() {
-        return this.specs;
+        return this.specs == null ? List.of() : this.specs;
     }
     /**
      * @return Map of tags.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public String virtualRouterName() {
         return this.virtualRouterName;
@@ -124,16 +126,16 @@ public final class GetRouteResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String createdDate;
-        private String id;
-        private String lastUpdatedDate;
+        private @Nullable String arn;
+        private @Nullable String createdDate;
+        private @Nullable String id;
+        private @Nullable String lastUpdatedDate;
         private String meshName;
-        private String meshOwner;
+        private @Nullable String meshOwner;
         private String name;
-        private String resourceOwner;
-        private List<GetRouteSpec> specs;
-        private Map<String,String> tags;
+        private @Nullable String resourceOwner;
+        private @Nullable List<GetRouteSpec> specs;
+        private @Nullable Map<String,String> tags;
         private String virtualRouterName;
         public Builder() {}
         public Builder(GetRouteResult defaults) {
@@ -152,23 +154,23 @@ public final class GetRouteResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+        public Builder lastUpdatedDate(@Nullable String lastUpdatedDate) {
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
@@ -177,8 +179,8 @@ public final class GetRouteResult {
             return this;
         }
         @CustomType.Setter
-        public Builder meshOwner(String meshOwner) {
-            this.meshOwner = Objects.requireNonNull(meshOwner);
+        public Builder meshOwner(@Nullable String meshOwner) {
+            this.meshOwner = meshOwner;
             return this;
         }
         @CustomType.Setter
@@ -187,21 +189,21 @@ public final class GetRouteResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceOwner(String resourceOwner) {
-            this.resourceOwner = Objects.requireNonNull(resourceOwner);
+        public Builder resourceOwner(@Nullable String resourceOwner) {
+            this.resourceOwner = resourceOwner;
             return this;
         }
         @CustomType.Setter
-        public Builder specs(List<GetRouteSpec> specs) {
-            this.specs = Objects.requireNonNull(specs);
+        public Builder specs(@Nullable List<GetRouteSpec> specs) {
+            this.specs = specs;
             return this;
         }
         public Builder specs(GetRouteSpec... specs) {
             return specs(List.of(specs));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

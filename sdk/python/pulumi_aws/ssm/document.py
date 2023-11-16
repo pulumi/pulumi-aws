@@ -882,7 +882,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "arn")
 
     @property
@@ -903,7 +903,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date the document was created.
         """
@@ -911,7 +911,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> pulumi.Output[str]:
+    def default_version(self) -> pulumi.Output[Optional[str]]:
         """
         The default version of the document.
         """
@@ -919,7 +919,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the document.
         """
@@ -943,7 +943,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentVersion")
-    def document_version(self) -> pulumi.Output[str]:
+    def document_version(self) -> pulumi.Output[Optional[str]]:
         """
         The document version.
         """
@@ -951,7 +951,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hash(self) -> pulumi.Output[str]:
+    def hash(self) -> pulumi.Output[Optional[str]]:
         """
         The sha1 or sha256 of the document content
         """
@@ -959,7 +959,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hashType")
-    def hash_type(self) -> pulumi.Output[str]:
+    def hash_type(self) -> pulumi.Output[Optional[str]]:
         """
         "Sha1" "Sha256". The hashing algorithm used when hashing the content.
         """
@@ -967,7 +967,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestVersion")
-    def latest_version(self) -> pulumi.Output[str]:
+    def latest_version(self) -> pulumi.Output[Optional[str]]:
         """
         The latest version of the document.
         """
@@ -983,7 +983,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS user account of the person who created the document.
         """
@@ -991,7 +991,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Sequence['outputs.DocumentParameter']]:
+    def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.DocumentParameter']]]:
         """
         The parameters that are available to this document.
         """
@@ -1007,7 +1007,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformTypes")
-    def platform_types(self) -> pulumi.Output[Sequence[str]]:
+    def platform_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
         """
@@ -1015,7 +1015,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaVersion")
-    def schema_version(self) -> pulumi.Output[str]:
+    def schema_version(self) -> pulumi.Output[Optional[str]]:
         """
         The schema version of the document.
         """
@@ -1023,7 +1023,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         "Creating", "Active" or "Deleting". The current status of the document.
         """

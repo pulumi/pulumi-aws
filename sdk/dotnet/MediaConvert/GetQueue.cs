@@ -128,32 +128,32 @@ namespace Pulumi.Aws.MediaConvert
         /// <summary>
         /// The Arn of the queue.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string Id;
         /// <summary>
         /// The same as `id`.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The status of the queue.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetQueueResult(
-            string arn,
+            string? arn,
 
             string id,
 
-            string name,
+            string? name,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Id = id;

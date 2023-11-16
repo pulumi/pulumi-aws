@@ -45,20 +45,20 @@ export interface GetAliasResult {
     /**
      * Amazon Resource Name(ARN) of the key alias.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * ARN pointed to by the alias.
      */
-    readonly targetKeyArn: string;
+    readonly targetKeyArn?: string;
     /**
      * Key identifier pointed to by the alias.
      */
-    readonly targetKeyId: string;
+    readonly targetKeyId?: string;
 }
 /**
  * Use this data source to get the ARN of a KMS key alias.

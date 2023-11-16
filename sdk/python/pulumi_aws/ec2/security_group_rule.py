@@ -887,7 +887,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupRuleId")
-    def security_group_rule_id(self) -> pulumi.Output[str]:
+    def security_group_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
         """
@@ -903,7 +903,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceSecurityGroupId")
-    def source_security_group_id(self) -> pulumi.Output[str]:
+    def source_security_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         """

@@ -18,26 +18,26 @@ public final class GetImageResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String imageDigest;
+    private @Nullable String id;
+    private @Nullable String imageDigest;
     /**
      * @return Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
      * 
      */
-    private Integer imagePushedAt;
+    private @Nullable Integer imagePushedAt;
     /**
      * @return Size, in bytes, of the image in the repository.
      * 
      */
-    private Integer imageSizeInBytes;
+    private @Nullable Integer imageSizeInBytes;
     private @Nullable String imageTag;
     /**
      * @return List of tags associated with this image.
      * 
      */
-    private List<String> imageTags;
+    private @Nullable List<String> imageTags;
     private @Nullable Boolean mostRecent;
-    private String registryId;
+    private @Nullable String registryId;
     private String repositoryName;
 
     private GetImageResult() {}
@@ -45,25 +45,25 @@ public final class GetImageResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String imageDigest() {
-        return this.imageDigest;
+    public Optional<String> imageDigest() {
+        return Optional.ofNullable(this.imageDigest);
     }
     /**
      * @return Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
      * 
      */
-    public Integer imagePushedAt() {
-        return this.imagePushedAt;
+    public Optional<Integer> imagePushedAt() {
+        return Optional.ofNullable(this.imagePushedAt);
     }
     /**
      * @return Size, in bytes, of the image in the repository.
      * 
      */
-    public Integer imageSizeInBytes() {
-        return this.imageSizeInBytes;
+    public Optional<Integer> imageSizeInBytes() {
+        return Optional.ofNullable(this.imageSizeInBytes);
     }
     public Optional<String> imageTag() {
         return Optional.ofNullable(this.imageTag);
@@ -73,13 +73,13 @@ public final class GetImageResult {
      * 
      */
     public List<String> imageTags() {
-        return this.imageTags;
+        return this.imageTags == null ? List.of() : this.imageTags;
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
-    public String registryId() {
-        return this.registryId;
+    public Optional<String> registryId() {
+        return Optional.ofNullable(this.registryId);
     }
     public String repositoryName() {
         return this.repositoryName;
@@ -94,14 +94,14 @@ public final class GetImageResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String imageDigest;
-        private Integer imagePushedAt;
-        private Integer imageSizeInBytes;
+        private @Nullable String id;
+        private @Nullable String imageDigest;
+        private @Nullable Integer imagePushedAt;
+        private @Nullable Integer imageSizeInBytes;
         private @Nullable String imageTag;
-        private List<String> imageTags;
+        private @Nullable List<String> imageTags;
         private @Nullable Boolean mostRecent;
-        private String registryId;
+        private @Nullable String registryId;
         private String repositoryName;
         public Builder() {}
         public Builder(GetImageResult defaults) {
@@ -118,23 +118,23 @@ public final class GetImageResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder imageDigest(String imageDigest) {
-            this.imageDigest = Objects.requireNonNull(imageDigest);
+        public Builder imageDigest(@Nullable String imageDigest) {
+            this.imageDigest = imageDigest;
             return this;
         }
         @CustomType.Setter
-        public Builder imagePushedAt(Integer imagePushedAt) {
-            this.imagePushedAt = Objects.requireNonNull(imagePushedAt);
+        public Builder imagePushedAt(@Nullable Integer imagePushedAt) {
+            this.imagePushedAt = imagePushedAt;
             return this;
         }
         @CustomType.Setter
-        public Builder imageSizeInBytes(Integer imageSizeInBytes) {
-            this.imageSizeInBytes = Objects.requireNonNull(imageSizeInBytes);
+        public Builder imageSizeInBytes(@Nullable Integer imageSizeInBytes) {
+            this.imageSizeInBytes = imageSizeInBytes;
             return this;
         }
         @CustomType.Setter
@@ -143,8 +143,8 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder imageTags(List<String> imageTags) {
-            this.imageTags = Objects.requireNonNull(imageTags);
+        public Builder imageTags(@Nullable List<String> imageTags) {
+            this.imageTags = imageTags;
             return this;
         }
         public Builder imageTags(String... imageTags) {
@@ -156,8 +156,8 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+        public Builder registryId(@Nullable String registryId) {
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter

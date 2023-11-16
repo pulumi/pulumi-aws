@@ -17,18 +17,18 @@ public final class GetComponentsResult {
      * @return Set of ARNs of the matched Image Builder Components.
      * 
      */
-    private List<String> arns;
+    private @Nullable List<String> arns;
     private @Nullable List<GetComponentsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set of names of the matched Image Builder Components.
      * 
      */
-    private List<String> names;
+    private @Nullable List<String> names;
     private @Nullable String owner;
 
     private GetComponentsResult() {}
@@ -37,7 +37,7 @@ public final class GetComponentsResult {
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
     public List<GetComponentsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -46,15 +46,15 @@ public final class GetComponentsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set of names of the matched Image Builder Components.
      * 
      */
     public List<String> names() {
-        return this.names;
+        return this.names == null ? List.of() : this.names;
     }
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
@@ -69,10 +69,10 @@ public final class GetComponentsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> arns;
+        private @Nullable List<String> arns;
         private @Nullable List<GetComponentsFilter> filters;
-        private String id;
-        private List<String> names;
+        private @Nullable String id;
+        private @Nullable List<String> names;
         private @Nullable String owner;
         public Builder() {}
         public Builder(GetComponentsResult defaults) {
@@ -85,8 +85,8 @@ public final class GetComponentsResult {
         }
 
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -101,13 +101,13 @@ public final class GetComponentsResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+        public Builder names(@Nullable List<String> names) {
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {

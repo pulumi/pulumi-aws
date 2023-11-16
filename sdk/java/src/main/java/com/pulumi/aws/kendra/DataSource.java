@@ -622,14 +622,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Data Source.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
@@ -650,14 +650,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The Unix timestamp of when the Data Source was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
@@ -678,14 +678,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataSourceId", refs={String.class}, tree="[0]")
-    private Output<String> dataSourceId;
+    private Output</* @Nullable */ String> dataSourceId;
 
     /**
      * @return The unique identifiers of the Data Source.
      * 
      */
-    public Output<String> dataSourceId() {
-        return this.dataSourceId;
+    public Output<Optional<String>> dataSourceId() {
+        return Codegen.optional(this.dataSourceId);
     }
     /**
      * A description for the Data Source connector.
@@ -706,14 +706,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="errorMessage", refs={String.class}, tree="[0]")
-    private Output<String> errorMessage;
+    private Output</* @Nullable */ String> errorMessage;
 
     /**
      * @return When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
      * 
      */
-    public Output<String> errorMessage() {
-        return this.errorMessage;
+    public Output<Optional<String>> errorMessage() {
+        return Codegen.optional(this.errorMessage);
     }
     /**
      * The identifier of the index for your Amazon Kendra data source.
@@ -734,14 +734,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
-    private Output<String> languageCode;
+    private Output</* @Nullable */ String> languageCode;
 
     /**
      * @return The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
-    public Output<String> languageCode() {
-        return this.languageCode;
+    public Output<Optional<String>> languageCode() {
+        return Codegen.optional(this.languageCode);
     }
     /**
      * A name for your data source connector.
@@ -790,14 +790,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -854,14 +854,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
-    private Output<String> updatedAt;
+    private Output</* @Nullable */ String> updatedAt;
 
     /**
      * @return The Unix timestamp of when the Data Source was last updated.
      * 
      */
-    public Output<String> updatedAt() {
-        return this.updatedAt;
+    public Output<Optional<String>> updatedAt() {
+        return Codegen.optional(this.updatedAt);
     }
 
     /**

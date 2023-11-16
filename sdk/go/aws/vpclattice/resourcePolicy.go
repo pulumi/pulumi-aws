@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = vpclattice.NewResourcePolicy(ctx, "exampleResourcePolicy", &vpclattice.ResourcePolicyArgs{
 //				ResourceArn: exampleServiceNetwork.Arn,
-//				Policy: exampleServiceNetwork.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				Policy: exampleServiceNetwork.Arn.ApplyT(func(arn *string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",

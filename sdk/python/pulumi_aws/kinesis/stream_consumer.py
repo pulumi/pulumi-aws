@@ -261,7 +261,7 @@ class StreamConsumer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the stream consumer.
         """
@@ -269,7 +269,7 @@ class StreamConsumer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTimestamp")
-    def creation_timestamp(self) -> pulumi.Output[str]:
+    def creation_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         """

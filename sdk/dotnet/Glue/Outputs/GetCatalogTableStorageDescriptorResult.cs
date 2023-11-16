@@ -24,27 +24,27 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// Whether the data in the table is compressed.
         /// </summary>
-        public readonly bool Compressed;
+        public readonly bool? Compressed;
         /// <summary>
         /// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         /// </summary>
-        public readonly string InputFormat;
+        public readonly string? InputFormat;
         /// <summary>
         /// Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
         /// <summary>
         /// Is if the table contains any dimension columns.
         /// </summary>
-        public readonly int NumberOfBuckets;
+        public readonly int? NumberOfBuckets;
         /// <summary>
         /// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         /// </summary>
-        public readonly string OutputFormat;
+        public readonly string? OutputFormat;
         /// <summary>
         /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
         /// Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// Whether the table data is stored in subdirectories.
         /// </summary>
-        public readonly bool StoredAsSubDirectories;
+        public readonly bool? StoredAsSubDirectories;
 
         [OutputConstructor]
         private GetCatalogTableStorageDescriptorResult(
@@ -72,17 +72,17 @@ namespace Pulumi.Aws.Glue.Outputs
 
             ImmutableArray<Outputs.GetCatalogTableStorageDescriptorColumnResult> columns,
 
-            bool compressed,
+            bool? compressed,
 
-            string inputFormat,
+            string? inputFormat,
 
-            string location,
+            string? location,
 
-            int numberOfBuckets,
+            int? numberOfBuckets,
 
-            string outputFormat,
+            string? outputFormat,
 
-            ImmutableDictionary<string, string> parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult> schemaReferences,
 
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Glue.Outputs
 
             ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSortColumnResult> sortColumns,
 
-            bool storedAsSubDirectories)
+            bool? storedAsSubDirectories)
         {
             BucketColumns = bucketColumns;
             Columns = columns;

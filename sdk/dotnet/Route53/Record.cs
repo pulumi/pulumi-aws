@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Route53
         /// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         /// </summary>
         [Output("allowOverwrite")]
-        public Output<bool> AllowOverwrite { get; private set; } = null!;
+        public Output<bool?> AllowOverwrite { get; private set; } = null!;
 
         /// <summary>
         /// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Route53
         /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
         /// </summary>
         [Output("fqdn")]
-        public Output<string> Fqdn { get; private set; } = null!;
+        public Output<string?> Fqdn { get; private set; } = null!;
 
         /// <summary>
         /// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.

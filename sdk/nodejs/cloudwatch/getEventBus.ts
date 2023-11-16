@@ -45,11 +45,11 @@ export interface GetEventBusResult {
     /**
      * ARN.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
 }
 /**

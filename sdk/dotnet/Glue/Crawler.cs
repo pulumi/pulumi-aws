@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Glue
         /// The ARN of the crawler
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.

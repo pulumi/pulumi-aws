@@ -15,6 +15,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptor {
@@ -22,67 +24,67 @@ public final class GetCatalogTableStorageDescriptor {
      * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
-    private List<String> bucketColumns;
+    private @Nullable List<String> bucketColumns;
     /**
      * @return Configuration block for columns in the table. See `columns` below.
      * 
      */
-    private List<GetCatalogTableStorageDescriptorColumn> columns;
+    private @Nullable List<GetCatalogTableStorageDescriptorColumn> columns;
     /**
      * @return Whether the data in the table is compressed.
      * 
      */
-    private Boolean compressed;
+    private @Nullable Boolean compressed;
     /**
      * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
-    private String inputFormat;
+    private @Nullable String inputFormat;
     /**
      * @return Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
-    private String location;
+    private @Nullable String location;
     /**
      * @return Is if the table contains any dimension columns.
      * 
      */
-    private Integer numberOfBuckets;
+    private @Nullable Integer numberOfBuckets;
     /**
      * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
-    private String outputFormat;
+    private @Nullable String outputFormat;
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
      * 
      */
-    private List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences;
+    private @Nullable List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences;
     /**
      * @return Configuration block for serialization and deserialization (&#34;SerDe&#34;) information. See `ser_de_info` below.
      * 
      */
-    private List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos;
+    private @Nullable List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos;
     /**
      * @return Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
      * 
      */
-    private List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos;
+    private @Nullable List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos;
     /**
      * @return Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
      * 
      */
-    private List<GetCatalogTableStorageDescriptorSortColumn> sortColumns;
+    private @Nullable List<GetCatalogTableStorageDescriptorSortColumn> sortColumns;
     /**
      * @return Whether the table data is stored in subdirectories.
      * 
      */
-    private Boolean storedAsSubDirectories;
+    private @Nullable Boolean storedAsSubDirectories;
 
     private GetCatalogTableStorageDescriptor() {}
     /**
@@ -90,91 +92,91 @@ public final class GetCatalogTableStorageDescriptor {
      * 
      */
     public List<String> bucketColumns() {
-        return this.bucketColumns;
+        return this.bucketColumns == null ? List.of() : this.bucketColumns;
     }
     /**
      * @return Configuration block for columns in the table. See `columns` below.
      * 
      */
     public List<GetCatalogTableStorageDescriptorColumn> columns() {
-        return this.columns;
+        return this.columns == null ? List.of() : this.columns;
     }
     /**
      * @return Whether the data in the table is compressed.
      * 
      */
-    public Boolean compressed() {
-        return this.compressed;
+    public Optional<Boolean> compressed() {
+        return Optional.ofNullable(this.compressed);
     }
     /**
      * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
-    public String inputFormat() {
-        return this.inputFormat;
+    public Optional<String> inputFormat() {
+        return Optional.ofNullable(this.inputFormat);
     }
     /**
      * @return Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
-    public String location() {
-        return this.location;
+    public Optional<String> location() {
+        return Optional.ofNullable(this.location);
     }
     /**
      * @return Is if the table contains any dimension columns.
      * 
      */
-    public Integer numberOfBuckets() {
-        return this.numberOfBuckets;
+    public Optional<Integer> numberOfBuckets() {
+        return Optional.ofNullable(this.numberOfBuckets);
     }
     /**
      * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
-    public String outputFormat() {
-        return this.outputFormat;
+    public Optional<String> outputFormat() {
+        return Optional.ofNullable(this.outputFormat);
     }
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
     public Map<String,String> parameters() {
-        return this.parameters;
+        return this.parameters == null ? Map.of() : this.parameters;
     }
     /**
      * @return Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
      * 
      */
     public List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences() {
-        return this.schemaReferences;
+        return this.schemaReferences == null ? List.of() : this.schemaReferences;
     }
     /**
      * @return Configuration block for serialization and deserialization (&#34;SerDe&#34;) information. See `ser_de_info` below.
      * 
      */
     public List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos() {
-        return this.serDeInfos;
+        return this.serDeInfos == null ? List.of() : this.serDeInfos;
     }
     /**
      * @return Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
      * 
      */
     public List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos() {
-        return this.skewedInfos;
+        return this.skewedInfos == null ? List.of() : this.skewedInfos;
     }
     /**
      * @return Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
      * 
      */
     public List<GetCatalogTableStorageDescriptorSortColumn> sortColumns() {
-        return this.sortColumns;
+        return this.sortColumns == null ? List.of() : this.sortColumns;
     }
     /**
      * @return Whether the table data is stored in subdirectories.
      * 
      */
-    public Boolean storedAsSubDirectories() {
-        return this.storedAsSubDirectories;
+    public Optional<Boolean> storedAsSubDirectories() {
+        return Optional.ofNullable(this.storedAsSubDirectories);
     }
 
     public static Builder builder() {
@@ -186,19 +188,19 @@ public final class GetCatalogTableStorageDescriptor {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> bucketColumns;
-        private List<GetCatalogTableStorageDescriptorColumn> columns;
-        private Boolean compressed;
-        private String inputFormat;
-        private String location;
-        private Integer numberOfBuckets;
-        private String outputFormat;
-        private Map<String,String> parameters;
-        private List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences;
-        private List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos;
-        private List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos;
-        private List<GetCatalogTableStorageDescriptorSortColumn> sortColumns;
-        private Boolean storedAsSubDirectories;
+        private @Nullable List<String> bucketColumns;
+        private @Nullable List<GetCatalogTableStorageDescriptorColumn> columns;
+        private @Nullable Boolean compressed;
+        private @Nullable String inputFormat;
+        private @Nullable String location;
+        private @Nullable Integer numberOfBuckets;
+        private @Nullable String outputFormat;
+        private @Nullable Map<String,String> parameters;
+        private @Nullable List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences;
+        private @Nullable List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos;
+        private @Nullable List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos;
+        private @Nullable List<GetCatalogTableStorageDescriptorSortColumn> sortColumns;
+        private @Nullable Boolean storedAsSubDirectories;
         public Builder() {}
         public Builder(GetCatalogTableStorageDescriptor defaults) {
     	      Objects.requireNonNull(defaults);
@@ -218,86 +220,86 @@ public final class GetCatalogTableStorageDescriptor {
         }
 
         @CustomType.Setter
-        public Builder bucketColumns(List<String> bucketColumns) {
-            this.bucketColumns = Objects.requireNonNull(bucketColumns);
+        public Builder bucketColumns(@Nullable List<String> bucketColumns) {
+            this.bucketColumns = bucketColumns;
             return this;
         }
         public Builder bucketColumns(String... bucketColumns) {
             return bucketColumns(List.of(bucketColumns));
         }
         @CustomType.Setter
-        public Builder columns(List<GetCatalogTableStorageDescriptorColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+        public Builder columns(@Nullable List<GetCatalogTableStorageDescriptorColumn> columns) {
+            this.columns = columns;
             return this;
         }
         public Builder columns(GetCatalogTableStorageDescriptorColumn... columns) {
             return columns(List.of(columns));
         }
         @CustomType.Setter
-        public Builder compressed(Boolean compressed) {
-            this.compressed = Objects.requireNonNull(compressed);
+        public Builder compressed(@Nullable Boolean compressed) {
+            this.compressed = compressed;
             return this;
         }
         @CustomType.Setter
-        public Builder inputFormat(String inputFormat) {
-            this.inputFormat = Objects.requireNonNull(inputFormat);
+        public Builder inputFormat(@Nullable String inputFormat) {
+            this.inputFormat = inputFormat;
             return this;
         }
         @CustomType.Setter
-        public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+        public Builder location(@Nullable String location) {
+            this.location = location;
             return this;
         }
         @CustomType.Setter
-        public Builder numberOfBuckets(Integer numberOfBuckets) {
-            this.numberOfBuckets = Objects.requireNonNull(numberOfBuckets);
+        public Builder numberOfBuckets(@Nullable Integer numberOfBuckets) {
+            this.numberOfBuckets = numberOfBuckets;
             return this;
         }
         @CustomType.Setter
-        public Builder outputFormat(String outputFormat) {
-            this.outputFormat = Objects.requireNonNull(outputFormat);
+        public Builder outputFormat(@Nullable String outputFormat) {
+            this.outputFormat = outputFormat;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable Map<String,String> parameters) {
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
-        public Builder schemaReferences(List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences) {
-            this.schemaReferences = Objects.requireNonNull(schemaReferences);
+        public Builder schemaReferences(@Nullable List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences) {
+            this.schemaReferences = schemaReferences;
             return this;
         }
         public Builder schemaReferences(GetCatalogTableStorageDescriptorSchemaReference... schemaReferences) {
             return schemaReferences(List.of(schemaReferences));
         }
         @CustomType.Setter
-        public Builder serDeInfos(List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos) {
-            this.serDeInfos = Objects.requireNonNull(serDeInfos);
+        public Builder serDeInfos(@Nullable List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos) {
+            this.serDeInfos = serDeInfos;
             return this;
         }
         public Builder serDeInfos(GetCatalogTableStorageDescriptorSerDeInfo... serDeInfos) {
             return serDeInfos(List.of(serDeInfos));
         }
         @CustomType.Setter
-        public Builder skewedInfos(List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos) {
-            this.skewedInfos = Objects.requireNonNull(skewedInfos);
+        public Builder skewedInfos(@Nullable List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos) {
+            this.skewedInfos = skewedInfos;
             return this;
         }
         public Builder skewedInfos(GetCatalogTableStorageDescriptorSkewedInfo... skewedInfos) {
             return skewedInfos(List.of(skewedInfos));
         }
         @CustomType.Setter
-        public Builder sortColumns(List<GetCatalogTableStorageDescriptorSortColumn> sortColumns) {
-            this.sortColumns = Objects.requireNonNull(sortColumns);
+        public Builder sortColumns(@Nullable List<GetCatalogTableStorageDescriptorSortColumn> sortColumns) {
+            this.sortColumns = sortColumns;
             return this;
         }
         public Builder sortColumns(GetCatalogTableStorageDescriptorSortColumn... sortColumns) {
             return sortColumns(List.of(sortColumns));
         }
         @CustomType.Setter
-        public Builder storedAsSubDirectories(Boolean storedAsSubDirectories) {
-            this.storedAsSubDirectories = Objects.requireNonNull(storedAsSubDirectories);
+        public Builder storedAsSubDirectories(@Nullable Boolean storedAsSubDirectories) {
+            this.storedAsSubDirectories = storedAsSubDirectories;
             return this;
         }
         public GetCatalogTableStorageDescriptor build() {

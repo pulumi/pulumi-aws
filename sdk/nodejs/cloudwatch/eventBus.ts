@@ -67,7 +67,7 @@ export class EventBus extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the event bus.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The partner event source that the new event bus will be matched with. Must match `name`.
      */

@@ -46,23 +46,23 @@ export interface GetReplicationSubnetGroupResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly replicationSubnetGroupArn: string;
+    readonly id?: string;
+    readonly replicationSubnetGroupArn?: string;
     /**
      * Description for the subnet group.
      */
-    readonly replicationSubnetGroupDescription: string;
+    readonly replicationSubnetGroupDescription?: string;
     readonly replicationSubnetGroupId: string;
-    readonly subnetGroupStatus: string;
+    readonly subnetGroupStatus?: string;
     /**
      * List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
      */
-    readonly subnetIds: string[];
-    readonly tags: {[key: string]: string};
+    readonly subnetIds?: string[];
+    readonly tags?: {[key: string]: string};
     /**
      * The ID of the VPC the subnet group is in.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.

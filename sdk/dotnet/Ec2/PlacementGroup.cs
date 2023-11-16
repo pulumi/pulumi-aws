@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2
         /// Amazon Resource Name (ARN) of the placement group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the placement group.
@@ -60,20 +60,20 @@ namespace Pulumi.Aws.Ec2
         /// `partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
         [Output("partitionCount")]
-        public Output<int> PartitionCount { get; private set; } = null!;
+        public Output<int?> PartitionCount { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the placement group.
         /// </summary>
         [Output("placementGroupId")]
-        public Output<string> PlacementGroupId { get; private set; } = null!;
+        public Output<string?> PlacementGroupId { get; private set; } = null!;
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
         /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         /// </summary>
         [Output("spreadLevel")]
-        public Output<string> SpreadLevel { get; private set; } = null!;
+        public Output<string?> SpreadLevel { get; private set; } = null!;
 
         /// <summary>
         /// The placement strategy. Can be `cluster`, `partition` or `spread`.

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult
     {
-        public readonly string RuleOrder;
-        public readonly string StreamExceptionPolicy;
+        public readonly string? RuleOrder;
+        public readonly string? StreamExceptionPolicy;
 
         [OutputConstructor]
         private GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult(
-            string ruleOrder,
+            string? ruleOrder,
 
-            string streamExceptionPolicy)
+            string? streamExceptionPolicy)
         {
             RuleOrder = ruleOrder;
             StreamExceptionPolicy = streamExceptionPolicy;

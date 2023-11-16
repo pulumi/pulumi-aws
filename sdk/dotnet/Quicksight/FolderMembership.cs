@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Quicksight
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for the folder.

@@ -74,7 +74,7 @@ type FindingsFilter struct {
 	// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
 	Action pulumi.StringOutput `pulumi:"action"`
 	// The Amazon Resource Name (ARN) of the Findings Filter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A custom description of the filter. The description can contain as many as 512 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The criteria to use to filter findings.
@@ -82,9 +82,9 @@ type FindingsFilter struct {
 	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
-	Position pulumi.IntOutput `pulumi:"position"`
+	Position pulumi.IntPtrOutput `pulumi:"position"`
 	// A map of key-value pairs that specifies the tags to associate with the filter.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -304,8 +304,8 @@ func (o FindingsFilterOutput) Action() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of the Findings Filter.
-func (o FindingsFilterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FindingsFilterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FindingsFilter) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A custom description of the filter. The description can contain as many as 512 characters.
@@ -324,13 +324,13 @@ func (o FindingsFilterOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o FindingsFilterOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o FindingsFilterOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FindingsFilter) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
-func (o FindingsFilterOutput) Position() pulumi.IntOutput {
-	return o.ApplyT(func(v *FindingsFilter) pulumi.IntOutput { return v.Position }).(pulumi.IntOutput)
+func (o FindingsFilterOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FindingsFilter) pulumi.IntPtrOutput { return v.Position }).(pulumi.IntPtrOutput)
 }
 
 // A map of key-value pairs that specifies the tags to associate with the filter.

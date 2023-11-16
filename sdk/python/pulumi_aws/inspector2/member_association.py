@@ -242,7 +242,7 @@ class MemberAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="delegatedAdminAccountId")
-    def delegated_admin_account_id(self) -> pulumi.Output[str]:
+    def delegated_admin_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Account ID of the delegated administrator account
         """
@@ -250,7 +250,7 @@ class MemberAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relationshipStatus")
-    def relationship_status(self) -> pulumi.Output[str]:
+    def relationship_status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the member relationship
         """
@@ -258,7 +258,7 @@ class MemberAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> pulumi.Output[str]:
+    def updated_at(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time of the last update of the relationship
         """

@@ -6,18 +6,20 @@ package com.pulumi.aws.iam.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPrincipalPolicySimulationResultMatchedStatement {
-    private String sourcePolicyId;
-    private String sourcePolicyType;
+    private @Nullable String sourcePolicyId;
+    private @Nullable String sourcePolicyType;
 
     private GetPrincipalPolicySimulationResultMatchedStatement() {}
-    public String sourcePolicyId() {
-        return this.sourcePolicyId;
+    public Optional<String> sourcePolicyId() {
+        return Optional.ofNullable(this.sourcePolicyId);
     }
-    public String sourcePolicyType() {
-        return this.sourcePolicyType;
+    public Optional<String> sourcePolicyType() {
+        return Optional.ofNullable(this.sourcePolicyType);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetPrincipalPolicySimulationResultMatchedStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String sourcePolicyId;
-        private String sourcePolicyType;
+        private @Nullable String sourcePolicyId;
+        private @Nullable String sourcePolicyType;
         public Builder() {}
         public Builder(GetPrincipalPolicySimulationResultMatchedStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetPrincipalPolicySimulationResultMatchedStatement {
         }
 
         @CustomType.Setter
-        public Builder sourcePolicyId(String sourcePolicyId) {
-            this.sourcePolicyId = Objects.requireNonNull(sourcePolicyId);
+        public Builder sourcePolicyId(@Nullable String sourcePolicyId) {
+            this.sourcePolicyId = sourcePolicyId;
             return this;
         }
         @CustomType.Setter
-        public Builder sourcePolicyType(String sourcePolicyType) {
-            this.sourcePolicyType = Objects.requireNonNull(sourcePolicyType);
+        public Builder sourcePolicyType(@Nullable String sourcePolicyType) {
+            this.sourcePolicyType = sourcePolicyType;
             return this;
         }
         public GetPrincipalPolicySimulationResultMatchedStatement build() {

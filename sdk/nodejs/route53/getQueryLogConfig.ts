@@ -83,18 +83,18 @@ export interface GetQueryLogConfigArgs {
  * A collection of values returned by getQueryLogConfig.
  */
 export interface GetQueryLogConfigResult {
-    readonly arn: string;
-    readonly destinationArn: string;
+    readonly arn?: string;
+    readonly destinationArn?: string;
     readonly filters?: outputs.route53.GetQueryLogConfigFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name?: string;
-    readonly ownerId: string;
+    readonly ownerId?: string;
     readonly resolverQueryLogConfigId?: string;
-    readonly shareStatus: string;
-    readonly tags: {[key: string]: string};
+    readonly shareStatus?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.

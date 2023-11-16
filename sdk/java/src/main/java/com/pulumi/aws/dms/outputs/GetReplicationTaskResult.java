@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReplicationTaskResult {
@@ -15,107 +17,107 @@ public final class GetReplicationTaskResult {
      * @return (Conflicts with `cdc_start_time`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
-    private String cdcStartPosition;
+    private @Nullable String cdcStartPosition;
     /**
      * @return (Conflicts with `cdc_start_position`) The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      * 
      */
-    private String cdcStartTime;
+    private @Nullable String cdcStartTime;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      * 
      */
-    private String migrationType;
+    private @Nullable String migrationType;
     /**
      * @return The Amazon Resource Name (ARN) of the replication instance.
      * 
      */
-    private String replicationInstanceArn;
+    private @Nullable String replicationInstanceArn;
     /**
      * @return The Amazon Resource Name (ARN) for the replication task.
      * 
      */
-    private String replicationTaskArn;
+    private @Nullable String replicationTaskArn;
     private String replicationTaskId;
     /**
      * @return An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
      * 
      */
-    private String replicationTaskSettings;
+    private @Nullable String replicationTaskSettings;
     /**
      * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      * 
      */
-    private String sourceEndpointArn;
+    private @Nullable String sourceEndpointArn;
     /**
      * @return Whether to run or stop the replication task.
      * 
      */
-    private Boolean startReplicationTask;
+    private @Nullable Boolean startReplicationTask;
     /**
      * @return Replication Task status.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      * 
      */
-    private String tableMappings;
-    private Map<String,String> tags;
+    private @Nullable String tableMappings;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      * 
      */
-    private String targetEndpointArn;
+    private @Nullable String targetEndpointArn;
 
     private GetReplicationTaskResult() {}
     /**
      * @return (Conflicts with `cdc_start_time`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
-    public String cdcStartPosition() {
-        return this.cdcStartPosition;
+    public Optional<String> cdcStartPosition() {
+        return Optional.ofNullable(this.cdcStartPosition);
     }
     /**
      * @return (Conflicts with `cdc_start_position`) The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      * 
      */
-    public String cdcStartTime() {
-        return this.cdcStartTime;
+    public Optional<String> cdcStartTime() {
+        return Optional.ofNullable(this.cdcStartTime);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      * 
      */
-    public String migrationType() {
-        return this.migrationType;
+    public Optional<String> migrationType() {
+        return Optional.ofNullable(this.migrationType);
     }
     /**
      * @return The Amazon Resource Name (ARN) of the replication instance.
      * 
      */
-    public String replicationInstanceArn() {
-        return this.replicationInstanceArn;
+    public Optional<String> replicationInstanceArn() {
+        return Optional.ofNullable(this.replicationInstanceArn);
     }
     /**
      * @return The Amazon Resource Name (ARN) for the replication task.
      * 
      */
-    public String replicationTaskArn() {
-        return this.replicationTaskArn;
+    public Optional<String> replicationTaskArn() {
+        return Optional.ofNullable(this.replicationTaskArn);
     }
     public String replicationTaskId() {
         return this.replicationTaskId;
@@ -124,46 +126,46 @@ public final class GetReplicationTaskResult {
      * @return An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
      * 
      */
-    public String replicationTaskSettings() {
-        return this.replicationTaskSettings;
+    public Optional<String> replicationTaskSettings() {
+        return Optional.ofNullable(this.replicationTaskSettings);
     }
     /**
      * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      * 
      */
-    public String sourceEndpointArn() {
-        return this.sourceEndpointArn;
+    public Optional<String> sourceEndpointArn() {
+        return Optional.ofNullable(this.sourceEndpointArn);
     }
     /**
      * @return Whether to run or stop the replication task.
      * 
      */
-    public Boolean startReplicationTask() {
-        return this.startReplicationTask;
+    public Optional<Boolean> startReplicationTask() {
+        return Optional.ofNullable(this.startReplicationTask);
     }
     /**
      * @return Replication Task status.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      * 
      */
-    public String tableMappings() {
-        return this.tableMappings;
+    public Optional<String> tableMappings() {
+        return Optional.ofNullable(this.tableMappings);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      * 
      */
-    public String targetEndpointArn() {
-        return this.targetEndpointArn;
+    public Optional<String> targetEndpointArn() {
+        return Optional.ofNullable(this.targetEndpointArn);
     }
 
     public static Builder builder() {
@@ -175,20 +177,20 @@ public final class GetReplicationTaskResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cdcStartPosition;
-        private String cdcStartTime;
-        private String id;
-        private String migrationType;
-        private String replicationInstanceArn;
-        private String replicationTaskArn;
+        private @Nullable String cdcStartPosition;
+        private @Nullable String cdcStartTime;
+        private @Nullable String id;
+        private @Nullable String migrationType;
+        private @Nullable String replicationInstanceArn;
+        private @Nullable String replicationTaskArn;
         private String replicationTaskId;
-        private String replicationTaskSettings;
-        private String sourceEndpointArn;
-        private Boolean startReplicationTask;
-        private String status;
-        private String tableMappings;
-        private Map<String,String> tags;
-        private String targetEndpointArn;
+        private @Nullable String replicationTaskSettings;
+        private @Nullable String sourceEndpointArn;
+        private @Nullable Boolean startReplicationTask;
+        private @Nullable String status;
+        private @Nullable String tableMappings;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String targetEndpointArn;
         public Builder() {}
         public Builder(GetReplicationTaskResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -209,33 +211,33 @@ public final class GetReplicationTaskResult {
         }
 
         @CustomType.Setter
-        public Builder cdcStartPosition(String cdcStartPosition) {
-            this.cdcStartPosition = Objects.requireNonNull(cdcStartPosition);
+        public Builder cdcStartPosition(@Nullable String cdcStartPosition) {
+            this.cdcStartPosition = cdcStartPosition;
             return this;
         }
         @CustomType.Setter
-        public Builder cdcStartTime(String cdcStartTime) {
-            this.cdcStartTime = Objects.requireNonNull(cdcStartTime);
+        public Builder cdcStartTime(@Nullable String cdcStartTime) {
+            this.cdcStartTime = cdcStartTime;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder migrationType(String migrationType) {
-            this.migrationType = Objects.requireNonNull(migrationType);
+        public Builder migrationType(@Nullable String migrationType) {
+            this.migrationType = migrationType;
             return this;
         }
         @CustomType.Setter
-        public Builder replicationInstanceArn(String replicationInstanceArn) {
-            this.replicationInstanceArn = Objects.requireNonNull(replicationInstanceArn);
+        public Builder replicationInstanceArn(@Nullable String replicationInstanceArn) {
+            this.replicationInstanceArn = replicationInstanceArn;
             return this;
         }
         @CustomType.Setter
-        public Builder replicationTaskArn(String replicationTaskArn) {
-            this.replicationTaskArn = Objects.requireNonNull(replicationTaskArn);
+        public Builder replicationTaskArn(@Nullable String replicationTaskArn) {
+            this.replicationTaskArn = replicationTaskArn;
             return this;
         }
         @CustomType.Setter
@@ -244,38 +246,38 @@ public final class GetReplicationTaskResult {
             return this;
         }
         @CustomType.Setter
-        public Builder replicationTaskSettings(String replicationTaskSettings) {
-            this.replicationTaskSettings = Objects.requireNonNull(replicationTaskSettings);
+        public Builder replicationTaskSettings(@Nullable String replicationTaskSettings) {
+            this.replicationTaskSettings = replicationTaskSettings;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceEndpointArn(String sourceEndpointArn) {
-            this.sourceEndpointArn = Objects.requireNonNull(sourceEndpointArn);
+        public Builder sourceEndpointArn(@Nullable String sourceEndpointArn) {
+            this.sourceEndpointArn = sourceEndpointArn;
             return this;
         }
         @CustomType.Setter
-        public Builder startReplicationTask(Boolean startReplicationTask) {
-            this.startReplicationTask = Objects.requireNonNull(startReplicationTask);
+        public Builder startReplicationTask(@Nullable Boolean startReplicationTask) {
+            this.startReplicationTask = startReplicationTask;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tableMappings(String tableMappings) {
-            this.tableMappings = Objects.requireNonNull(tableMappings);
+        public Builder tableMappings(@Nullable String tableMappings) {
+            this.tableMappings = tableMappings;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder targetEndpointArn(String targetEndpointArn) {
-            this.targetEndpointArn = Objects.requireNonNull(targetEndpointArn);
+        public Builder targetEndpointArn(@Nullable String targetEndpointArn) {
+            this.targetEndpointArn = targetEndpointArn;
             return this;
         }
         public GetReplicationTaskResult build() {

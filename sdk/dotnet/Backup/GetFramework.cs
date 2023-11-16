@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// ARN of the backup framework.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         /// </summary>
@@ -136,19 +136,19 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
-        public readonly string CreationTime;
+        public readonly string? CreationTime;
         /// <summary>
         /// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
         /// </summary>
-        public readonly string DeploymentStatus;
+        public readonly string? DeploymentStatus;
         /// <summary>
         /// Description of the framework.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of a parameter, for example, BackupPlanFrequency.
         /// </summary>
@@ -156,31 +156,31 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetFrameworkResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetFrameworkControlResult> controls,
 
-            string creationTime,
+            string? creationTime,
 
-            string deploymentStatus,
+            string? deploymentStatus,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Controls = controls;

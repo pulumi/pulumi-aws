@@ -49,7 +49,7 @@ class GetRouteCalculatorResult:
 
     @property
     @pulumi.getter(name="calculatorArn")
-    def calculator_arn(self) -> str:
+    def calculator_arn(self) -> Optional[str]:
         """
         ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         """
@@ -62,7 +62,7 @@ class GetRouteCalculatorResult:
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> str:
+    def create_time(self) -> Optional[str]:
         """
         Timestamp for when the route calculator resource was created in ISO 8601 format.
         """
@@ -70,7 +70,7 @@ class GetRouteCalculatorResult:
 
     @property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> str:
+    def data_source(self) -> Optional[str]:
         """
         Data provider of traffic and road network data.
         """
@@ -78,7 +78,7 @@ class GetRouteCalculatorResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Optional description of the route calculator resource.
         """
@@ -86,7 +86,7 @@ class GetRouteCalculatorResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -94,7 +94,7 @@ class GetRouteCalculatorResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the route calculator.
         """
@@ -102,7 +102,7 @@ class GetRouteCalculatorResult:
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> str:
+    def update_time(self) -> Optional[str]:
         """
         Timestamp for when the route calculator resource was last updated in ISO 8601 format.
         """

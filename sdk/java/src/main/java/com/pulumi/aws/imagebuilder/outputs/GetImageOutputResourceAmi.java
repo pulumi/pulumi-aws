@@ -6,6 +6,8 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageOutputResourceAmi {
@@ -13,63 +15,63 @@ public final class GetImageOutputResourceAmi {
      * @return Account identifier of the AMI.
      * 
      */
-    private String accountId;
+    private @Nullable String accountId;
     /**
      * @return Description of the AMI.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Identifier of the AMI.
      * 
      */
-    private String image;
+    private @Nullable String image;
     /**
      * @return Name of the AMI.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Region of the container image.
      * 
      */
-    private String region;
+    private @Nullable String region;
 
     private GetImageOutputResourceAmi() {}
     /**
      * @return Account identifier of the AMI.
      * 
      */
-    public String accountId() {
-        return this.accountId;
+    public Optional<String> accountId() {
+        return Optional.ofNullable(this.accountId);
     }
     /**
      * @return Description of the AMI.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Identifier of the AMI.
      * 
      */
-    public String image() {
-        return this.image;
+    public Optional<String> image() {
+        return Optional.ofNullable(this.image);
     }
     /**
      * @return Name of the AMI.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Region of the container image.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     public static Builder builder() {
@@ -81,11 +83,11 @@ public final class GetImageOutputResourceAmi {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountId;
-        private String description;
-        private String image;
-        private String name;
-        private String region;
+        private @Nullable String accountId;
+        private @Nullable String description;
+        private @Nullable String image;
+        private @Nullable String name;
+        private @Nullable String region;
         public Builder() {}
         public Builder(GetImageOutputResourceAmi defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,28 +99,28 @@ public final class GetImageOutputResourceAmi {
         }
 
         @CustomType.Setter
-        public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+        public Builder accountId(@Nullable String accountId) {
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+        public Builder image(@Nullable String image) {
+            this.image = image;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         public GetImageOutputResourceAmi build() {

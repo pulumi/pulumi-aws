@@ -80,7 +80,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name of the launch configuration.
         """
@@ -88,7 +88,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
-    def associate_public_ip_address(self) -> bool:
+    def associate_public_ip_address(self) -> Optional[bool]:
         """
         Whether a Public IP address is associated with the instance.
         """
@@ -96,7 +96,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationEbsBlockDeviceResult']:
+    def ebs_block_devices(self) -> Optional[Sequence['outputs.GetLaunchConfigurationEbsBlockDeviceResult']]:
         """
         EBS Block Devices attached to the instance.
         """
@@ -104,7 +104,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> bool:
+    def ebs_optimized(self) -> Optional[bool]:
         """
         Whether the launched EC2 instance will be EBS-optimized.
         """
@@ -112,7 +112,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="enableMonitoring")
-    def enable_monitoring(self) -> bool:
+    def enable_monitoring(self) -> Optional[bool]:
         """
         Whether Detailed Monitoring is Enabled.
         """
@@ -120,7 +120,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationEphemeralBlockDeviceResult']:
+    def ephemeral_block_devices(self) -> Optional[Sequence['outputs.GetLaunchConfigurationEphemeralBlockDeviceResult']]:
         """
         The Ephemeral volumes on the instance.
         """
@@ -128,7 +128,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> str:
+    def iam_instance_profile(self) -> Optional[str]:
         """
         The IAM Instance Profile to associate with launched instances.
         """
@@ -136,7 +136,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -144,7 +144,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> str:
+    def image_id(self) -> Optional[str]:
         """
         EC2 Image ID of the instance.
         """
@@ -152,7 +152,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> Optional[str]:
         """
         Instance Type of the instance to launch.
         """
@@ -160,7 +160,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
+    def key_name(self) -> Optional[str]:
         """
         Key Name that should be used for the instance.
         """
@@ -168,7 +168,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> Sequence['outputs.GetLaunchConfigurationMetadataOptionResult']:
+    def metadata_options(self) -> Optional[Sequence['outputs.GetLaunchConfigurationMetadataOptionResult']]:
         """
         Metadata options for the instance.
         """
@@ -184,7 +184,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="placementTenancy")
-    def placement_tenancy(self) -> str:
+    def placement_tenancy(self) -> Optional[str]:
         """
         Tenancy of the instance.
         """
@@ -192,7 +192,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="rootBlockDevices")
-    def root_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationRootBlockDeviceResult']:
+    def root_block_devices(self) -> Optional[Sequence['outputs.GetLaunchConfigurationRootBlockDeviceResult']]:
         """
         Root Block Device of the instance.
         """
@@ -200,7 +200,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Sequence[str]:
+    def security_groups(self) -> Optional[Sequence[str]]:
         """
         List of associated Security Group IDS.
         """
@@ -208,7 +208,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="spotPrice")
-    def spot_price(self) -> str:
+    def spot_price(self) -> Optional[str]:
         """
         Price to use for reserving Spot instances.
         """
@@ -216,7 +216,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> str:
+    def user_data(self) -> Optional[str]:
         """
         User Data of the instance.
         """

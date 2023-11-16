@@ -51,12 +51,12 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
     /**
      * ARN of the DataSync Location for the FSx Ontap File System.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * ARN of the FSx Ontap File System.
      */
-    public /*out*/ readonly fsxFilesystemArn!: pulumi.Output<string>;
+    public /*out*/ readonly fsxFilesystemArn!: pulumi.Output<string | undefined>;
     /**
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
      */
@@ -76,7 +76,7 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
     /**
      * Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -88,7 +88,7 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
     /**
      * URI of the FSx ONTAP file system location
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LocationFsxOntapFileSystem resource with the given unique name, arguments, and options.

@@ -525,7 +525,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the LAG.
         """
@@ -557,7 +557,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasLogicalRedundancy")
-    def has_logical_redundancy(self) -> pulumi.Output[str]:
+    def has_logical_redundancy(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
         """
@@ -565,7 +565,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jumboFrameCapable")
-    def jumbo_frame_capable(self) -> pulumi.Output[bool]:
+    def jumbo_frame_capable(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether jumbo frames (9001 MTU) are supported.
         """
@@ -589,7 +589,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> pulumi.Output[str]:
+    def owner_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that owns the LAG.
         """
@@ -597,7 +597,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> pulumi.Output[str]:
+    def provider_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the service provider associated with the LAG.
         """

@@ -482,7 +482,7 @@ class FindingsFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Findings Filter.
         """
@@ -514,7 +514,7 @@ class FindingsFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -522,7 +522,7 @@ class FindingsFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Output[int]:
+    def position(self) -> pulumi.Output[Optional[int]]:
         """
         The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
         """

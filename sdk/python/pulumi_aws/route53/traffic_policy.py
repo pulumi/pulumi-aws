@@ -356,7 +356,7 @@ class TrafficPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
         """
@@ -364,7 +364,7 @@ class TrafficPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
         """

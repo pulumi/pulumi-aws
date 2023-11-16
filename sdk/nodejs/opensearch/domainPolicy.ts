@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["es:*"],
- *         resources: [pulumi.interpolate`${example.arn}/*`],
+ *         resources: [example.arn.apply(arn => `${arn}/*`)],
  *         conditions: [{
  *             test: "IpAddress",
  *             variable: "aws:SourceIp",

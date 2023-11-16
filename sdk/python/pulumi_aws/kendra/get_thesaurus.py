@@ -74,7 +74,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Thesaurus.
         """
@@ -82,7 +82,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Unix datetime that the Thesaurus was created.
         """
@@ -90,7 +90,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Thesaurus.
         """
@@ -98,7 +98,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> str:
+    def error_message(self) -> Optional[str]:
         """
         When the `status` field value is `FAILED`, this contains a message that explains why.
         """
@@ -106,7 +106,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter(name="fileSizeBytes")
-    def file_size_bytes(self) -> int:
+    def file_size_bytes(self) -> Optional[int]:
         """
         Size of the Thesaurus file in bytes.
         """
@@ -114,7 +114,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -127,7 +127,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the Thesaurus.
         """
@@ -135,7 +135,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
@@ -143,7 +143,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter(name="sourceS3Paths")
-    def source_s3_paths(self) -> Sequence['outputs.GetThesaurusSourceS3PathResult']:
+    def source_s3_paths(self) -> Optional[Sequence['outputs.GetThesaurusSourceS3PathResult']]:
         """
         S3 location of the Thesaurus input data. Detailed below.
         """
@@ -151,7 +151,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
         """
@@ -159,7 +159,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter(name="synonymRuleCount")
-    def synonym_rule_count(self) -> int:
+    def synonym_rule_count(self) -> Optional[int]:
         """
         Number of synonym rules in the Thesaurus file.
         """
@@ -167,7 +167,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Metadata that helps organize the Thesaurus you create.
         """
@@ -175,7 +175,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter(name="termCount")
-    def term_count(self) -> int:
+    def term_count(self) -> Optional[int]:
         """
         Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4.
         """
@@ -188,7 +188,7 @@ class GetThesaurusResult:
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> Optional[str]:
         """
         Date and time that the Thesaurus was last updated.
         """

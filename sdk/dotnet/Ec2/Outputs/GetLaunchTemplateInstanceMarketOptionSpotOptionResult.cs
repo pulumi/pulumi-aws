@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateInstanceMarketOptionSpotOptionResult
     {
-        public readonly int BlockDurationMinutes;
-        public readonly string InstanceInterruptionBehavior;
-        public readonly string MaxPrice;
-        public readonly string SpotInstanceType;
-        public readonly string ValidUntil;
+        public readonly int? BlockDurationMinutes;
+        public readonly string? InstanceInterruptionBehavior;
+        public readonly string? MaxPrice;
+        public readonly string? SpotInstanceType;
+        public readonly string? ValidUntil;
 
         [OutputConstructor]
         private GetLaunchTemplateInstanceMarketOptionSpotOptionResult(
-            int blockDurationMinutes,
+            int? blockDurationMinutes,
 
-            string instanceInterruptionBehavior,
+            string? instanceInterruptionBehavior,
 
-            string maxPrice,
+            string? maxPrice,
 
-            string spotInstanceType,
+            string? spotInstanceType,
 
-            string validUntil)
+            string? validUntil)
         {
             BlockDurationMinutes = blockDurationMinutes;
             InstanceInterruptionBehavior = instanceInterruptionBehavior;

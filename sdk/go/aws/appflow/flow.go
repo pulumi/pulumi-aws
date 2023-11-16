@@ -183,13 +183,13 @@ type Flow struct {
 	pulumi.CustomResourceState
 
 	// Flow's ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the flow you want to create.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayOutput `pulumi:"destinationFlowConfigs"`
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
+	KmsArn pulumi.StringPtrOutput `pulumi:"kmsArn"`
 	// Name of the flow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
@@ -432,8 +432,8 @@ func (o FlowOutput) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 }
 
 // Flow's ARN.
-func (o FlowOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FlowOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the flow you want to create.
@@ -447,8 +447,8 @@ func (o FlowOutput) DestinationFlowConfigs() FlowDestinationFlowConfigArrayOutpu
 }
 
 // ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-func (o FlowOutput) KmsArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.KmsArn }).(pulumi.StringOutput)
+func (o FlowOutput) KmsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.KmsArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the flow.

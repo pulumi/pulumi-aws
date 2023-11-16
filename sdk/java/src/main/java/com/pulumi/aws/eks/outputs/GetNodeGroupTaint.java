@@ -6,6 +6,8 @@ package com.pulumi.aws.eks.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNodeGroupTaint {
@@ -13,39 +15,39 @@ public final class GetNodeGroupTaint {
      * @return The effect of the taint.
      * 
      */
-    private String effect;
+    private @Nullable String effect;
     /**
      * @return The key of the taint.
      * 
      */
-    private String key;
+    private @Nullable String key;
     /**
      * @return The value of the taint.
      * 
      */
-    private String value;
+    private @Nullable String value;
 
     private GetNodeGroupTaint() {}
     /**
      * @return The effect of the taint.
      * 
      */
-    public String effect() {
-        return this.effect;
+    public Optional<String> effect() {
+        return Optional.ofNullable(this.effect);
     }
     /**
      * @return The key of the taint.
      * 
      */
-    public String key() {
-        return this.key;
+    public Optional<String> key() {
+        return Optional.ofNullable(this.key);
     }
     /**
      * @return The value of the taint.
      * 
      */
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetNodeGroupTaint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String effect;
-        private String key;
-        private String value;
+        private @Nullable String effect;
+        private @Nullable String key;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetNodeGroupTaint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetNodeGroupTaint {
         }
 
         @CustomType.Setter
-        public Builder effect(String effect) {
-            this.effect = Objects.requireNonNull(effect);
+        public Builder effect(@Nullable String effect) {
+            this.effect = effect;
             return this;
         }
         @CustomType.Setter
-        public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+        public Builder key(@Nullable String key) {
+            this.key = key;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetNodeGroupTaint build() {

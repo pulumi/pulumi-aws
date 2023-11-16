@@ -443,7 +443,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the AppConfig Extension.
         """
@@ -451,7 +451,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Information about the extension.
         """
@@ -467,7 +467,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Sequence['outputs.ExtensionParameter']]:
+    def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ExtensionParameter']]]:
         """
         The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
         """
@@ -491,7 +491,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         The version number for the extension.
         """

@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualRouterSpecListener;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualRouterSpec {
-    private List<GetVirtualRouterSpecListener> listeners;
+    private @Nullable List<GetVirtualRouterSpecListener> listeners;
 
     private GetVirtualRouterSpec() {}
     public List<GetVirtualRouterSpecListener> listeners() {
-        return this.listeners;
+        return this.listeners == null ? List.of() : this.listeners;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualRouterSpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualRouterSpecListener> listeners;
+        private @Nullable List<GetVirtualRouterSpecListener> listeners;
         public Builder() {}
         public Builder(GetVirtualRouterSpec defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualRouterSpec {
         }
 
         @CustomType.Setter
-        public Builder listeners(List<GetVirtualRouterSpecListener> listeners) {
-            this.listeners = Objects.requireNonNull(listeners);
+        public Builder listeners(@Nullable List<GetVirtualRouterSpecListener> listeners) {
+            this.listeners = listeners;
             return this;
         }
         public Builder listeners(GetVirtualRouterSpecListener... listeners) {

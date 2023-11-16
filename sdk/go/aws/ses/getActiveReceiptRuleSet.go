@@ -49,11 +49,11 @@ func LookupActiveReceiptRuleSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption
 // A collection of values returned by getActiveReceiptRuleSet.
 type LookupActiveReceiptRuleSetResult struct {
 	// SES receipt rule set ARN.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the rule set
-	RuleSetName string `pulumi:"ruleSetName"`
+	RuleSetName *string `pulumi:"ruleSetName"`
 }
 
 func LookupActiveReceiptRuleSetOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupActiveReceiptRuleSetResultOutput {
@@ -83,18 +83,18 @@ func (o LookupActiveReceiptRuleSetResultOutput) ToLookupActiveReceiptRuleSetResu
 }
 
 // SES receipt rule set ARN.
-func (o LookupActiveReceiptRuleSetResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupActiveReceiptRuleSetResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupActiveReceiptRuleSetResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupActiveReceiptRuleSetResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the rule set
-func (o LookupActiveReceiptRuleSetResultOutput) RuleSetName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.RuleSetName }).(pulumi.StringOutput)
+func (o LookupActiveReceiptRuleSetResultOutput) RuleSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) *string { return v.RuleSetName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

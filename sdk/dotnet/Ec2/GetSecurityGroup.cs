@@ -216,32 +216,32 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Computed ARN of the security group.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the security group.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly ImmutableArray<Outputs.GetSecurityGroupFilterResult> Filters;
-        public readonly string Id;
-        public readonly string Name;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string VpcId;
+        public readonly string? Id;
+        public readonly string? Name;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetSecurityGroupResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetSecurityGroupFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             Description = description;

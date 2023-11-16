@@ -645,7 +645,7 @@ class Trail(pulumi.CustomResource):
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
         current_region = aws.get_region()
-        example_policy_document = aws.iam.get_policy_document_output(statements=[
+        example_policy_document = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="AWSCloudTrailAclCheck",
                 effect="Allow",
@@ -654,7 +654,7 @@ class Trail(pulumi.CustomResource):
                     identifiers=["cloudtrail.amazonaws.com"],
                 )],
                 actions=["s3:GetBucketAcl"],
-                resources=[example_bucket_v2.arn],
+                resources=[example_bucket_v2_arn],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="aws:SourceArn",
@@ -669,7 +669,7 @@ class Trail(pulumi.CustomResource):
                     identifiers=["cloudtrail.amazonaws.com"],
                 )],
                 actions=["s3:PutObject"],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current_caller_identity.account_id}/*")],
+                resources=[f"{example_bucket_v2_arn1}/prefix/AWSLogs/{current_caller_identity.account_id}/*"],
                 conditions=[
                     aws.iam.GetPolicyDocumentStatementConditionArgs(
                         test="StringEquals",
@@ -683,7 +683,7 @@ class Trail(pulumi.CustomResource):
                     ),
                 ],
             ),
-        ])
+        ]))
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket_v2.id,
             policy=example_policy_document.json)
@@ -812,7 +812,7 @@ class Trail(pulumi.CustomResource):
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
         current_region = aws.get_region()
-        example_policy_document = aws.iam.get_policy_document_output(statements=[
+        example_policy_document = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="AWSCloudTrailAclCheck",
                 effect="Allow",
@@ -821,7 +821,7 @@ class Trail(pulumi.CustomResource):
                     identifiers=["cloudtrail.amazonaws.com"],
                 )],
                 actions=["s3:GetBucketAcl"],
-                resources=[example_bucket_v2.arn],
+                resources=[example_bucket_v2_arn],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="aws:SourceArn",
@@ -836,7 +836,7 @@ class Trail(pulumi.CustomResource):
                     identifiers=["cloudtrail.amazonaws.com"],
                 )],
                 actions=["s3:PutObject"],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current_caller_identity.account_id}/*")],
+                resources=[f"{example_bucket_v2_arn1}/prefix/AWSLogs/{current_caller_identity.account_id}/*"],
                 conditions=[
                     aws.iam.GetPolicyDocumentStatementConditionArgs(
                         test="StringEquals",
@@ -850,7 +850,7 @@ class Trail(pulumi.CustomResource):
                     ),
                 ],
             ),
-        ])
+        ]))
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket_v2.id,
             policy=example_policy_document.json)
@@ -1087,7 +1087,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the trail.
         """
@@ -1135,7 +1135,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="homeRegion")
-    def home_region(self) -> pulumi.Output[str]:
+    def home_region(self) -> pulumi.Output[Optional[str]]:
         """
         Region in which the trail was created.
         """

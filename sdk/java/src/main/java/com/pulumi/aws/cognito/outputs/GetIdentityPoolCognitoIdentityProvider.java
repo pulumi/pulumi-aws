@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIdentityPoolCognitoIdentityProvider {
-    private String clientId;
-    private String providerName;
-    private Boolean serverSideTokenCheck;
+    private @Nullable String clientId;
+    private @Nullable String providerName;
+    private @Nullable Boolean serverSideTokenCheck;
 
     private GetIdentityPoolCognitoIdentityProvider() {}
-    public String clientId() {
-        return this.clientId;
+    public Optional<String> clientId() {
+        return Optional.ofNullable(this.clientId);
     }
-    public String providerName() {
-        return this.providerName;
+    public Optional<String> providerName() {
+        return Optional.ofNullable(this.providerName);
     }
-    public Boolean serverSideTokenCheck() {
-        return this.serverSideTokenCheck;
+    public Optional<Boolean> serverSideTokenCheck() {
+        return Optional.ofNullable(this.serverSideTokenCheck);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetIdentityPoolCognitoIdentityProvider {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String clientId;
-        private String providerName;
-        private Boolean serverSideTokenCheck;
+        private @Nullable String clientId;
+        private @Nullable String providerName;
+        private @Nullable Boolean serverSideTokenCheck;
         public Builder() {}
         public Builder(GetIdentityPoolCognitoIdentityProvider defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetIdentityPoolCognitoIdentityProvider {
         }
 
         @CustomType.Setter
-        public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+        public Builder clientId(@Nullable String clientId) {
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
-        public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+        public Builder providerName(@Nullable String providerName) {
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
-        public Builder serverSideTokenCheck(Boolean serverSideTokenCheck) {
-            this.serverSideTokenCheck = Objects.requireNonNull(serverSideTokenCheck);
+        public Builder serverSideTokenCheck(@Nullable Boolean serverSideTokenCheck) {
+            this.serverSideTokenCheck = serverSideTokenCheck;
             return this;
         }
         public GetIdentityPoolCognitoIdentityProvider build() {

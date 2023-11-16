@@ -7,34 +7,36 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceTypeFpga {
-    private Integer count;
-    private String manufacturer;
+    private @Nullable Integer count;
+    private @Nullable String manufacturer;
     /**
      * @return Size of the instance memory, in MiB.
      * 
      */
-    private Integer memorySize;
-    private String name;
+    private @Nullable Integer memorySize;
+    private @Nullable String name;
 
     private GetInstanceTypeFpga() {}
-    public Integer count() {
-        return this.count;
+    public Optional<Integer> count() {
+        return Optional.ofNullable(this.count);
     }
-    public String manufacturer() {
-        return this.manufacturer;
+    public Optional<String> manufacturer() {
+        return Optional.ofNullable(this.manufacturer);
     }
     /**
      * @return Size of the instance memory, in MiB.
      * 
      */
-    public Integer memorySize() {
-        return this.memorySize;
+    public Optional<Integer> memorySize() {
+        return Optional.ofNullable(this.memorySize);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -46,10 +48,10 @@ public final class GetInstanceTypeFpga {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer count;
-        private String manufacturer;
-        private Integer memorySize;
-        private String name;
+        private @Nullable Integer count;
+        private @Nullable String manufacturer;
+        private @Nullable Integer memorySize;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetInstanceTypeFpga defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,23 +62,23 @@ public final class GetInstanceTypeFpga {
         }
 
         @CustomType.Setter
-        public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+        public Builder count(@Nullable Integer count) {
+            this.count = count;
             return this;
         }
         @CustomType.Setter
-        public Builder manufacturer(String manufacturer) {
-            this.manufacturer = Objects.requireNonNull(manufacturer);
+        public Builder manufacturer(@Nullable String manufacturer) {
+            this.manufacturer = manufacturer;
             return this;
         }
         @CustomType.Setter
-        public Builder memorySize(Integer memorySize) {
-            this.memorySize = Objects.requireNonNull(memorySize);
+        public Builder memorySize(@Nullable Integer memorySize) {
+            this.memorySize = memorySize;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetInstanceTypeFpga build() {

@@ -55,11 +55,11 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The ARN of the lightsail bucket.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
      */
-    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
      */
@@ -67,7 +67,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The timestamp when the bucket was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
      */
@@ -79,11 +79,11 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The Amazon Web Services Region name.
      */
-    public /*out*/ readonly region!: pulumi.Output<string>;
+    public /*out*/ readonly region!: pulumi.Output<string | undefined>;
     /**
      * The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -94,7 +94,7 @@ export class Bucket extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.

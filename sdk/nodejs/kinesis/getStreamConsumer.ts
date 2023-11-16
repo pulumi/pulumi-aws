@@ -53,20 +53,20 @@ export interface GetStreamConsumerArgs {
  * A collection of values returned by getStreamConsumer.
  */
 export interface GetStreamConsumerResult {
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      */
-    readonly creationTimestamp: string;
+    readonly creationTimestamp?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly name: string;
+    readonly id?: string;
+    readonly name?: string;
     /**
      * Current status of the stream consumer.
      */
-    readonly status: string;
+    readonly status?: string;
     readonly streamArn: string;
 }
 /**

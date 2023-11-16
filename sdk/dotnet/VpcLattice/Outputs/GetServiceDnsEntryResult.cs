@@ -13,14 +13,14 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class GetServiceDnsEntryResult
     {
-        public readonly string DomainName;
-        public readonly string HostedZoneId;
+        public readonly string? DomainName;
+        public readonly string? HostedZoneId;
 
         [OutputConstructor]
         private GetServiceDnsEntryResult(
-            string domainName,
+            string? domainName,
 
-            string hostedZoneId)
+            string? hostedZoneId)
         {
             DomainName = domainName;
             HostedZoneId = hostedZoneId;

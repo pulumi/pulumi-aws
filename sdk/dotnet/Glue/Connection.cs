@@ -84,13 +84,13 @@ namespace Pulumi.Aws.Glue
         /// The ARN of the Glue Connection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Output("catalogId")]
-        public Output<string> CatalogId { get; private set; } = null!;
+        public Output<string?> CatalogId { get; private set; } = null!;
 
         /// <summary>
         /// A map of key-value pairs used as parameters for this connection.

@@ -105,7 +105,7 @@ export class InstanceGroup extends pulumi.CustomResource {
     /**
      * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ebsConfigs!: pulumi.Output<outputs.emr.InstanceGroupEbsConfig[]>;
+    public readonly ebsConfigs!: pulumi.Output<outputs.emr.InstanceGroupEbsConfig[] | undefined>;
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */
@@ -113,7 +113,7 @@ export class InstanceGroup extends pulumi.CustomResource {
     /**
      * target number of instances for the instance group. defaults to 0.
      */
-    public readonly instanceCount!: pulumi.Output<number>;
+    public readonly instanceCount!: pulumi.Output<number | undefined>;
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      */
@@ -125,11 +125,11 @@ export class InstanceGroup extends pulumi.CustomResource {
     /**
      * The number of instances currently running in this instance group.
      */
-    public /*out*/ readonly runningInstanceCount!: pulumi.Output<number>;
+    public /*out*/ readonly runningInstanceCount!: pulumi.Output<number | undefined>;
     /**
      * The current status of the instance group.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a InstanceGroup resource with the given unique name, arguments, and options.

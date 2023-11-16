@@ -19,12 +19,12 @@ public final class GetClusterSnapshotResult {
      * @return Allocated storage size in gigabytes (GB).
      * 
      */
-    private Integer allocatedStorage;
+    private @Nullable Integer allocatedStorage;
     /**
      * @return List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      * 
      */
-    private List<String> availabilityZones;
+    private @Nullable List<String> availabilityZones;
     /**
      * @return Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
      * 
@@ -34,83 +34,83 @@ public final class GetClusterSnapshotResult {
      * @return The ARN for the DB Cluster Snapshot.
      * 
      */
-    private String dbClusterSnapshotArn;
+    private @Nullable String dbClusterSnapshotArn;
     private @Nullable String dbClusterSnapshotIdentifier;
     /**
      * @return Name of the database engine.
      * 
      */
-    private String engine;
+    private @Nullable String engine;
     /**
      * @return Version of the database engine for this DB cluster snapshot.
      * 
      */
-    private String engineVersion;
+    private @Nullable String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean includePublic;
     private @Nullable Boolean includeShared;
     /**
      * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return License model information for the restored DB cluster.
      * 
      */
-    private String licenseModel;
+    private @Nullable String licenseModel;
     private @Nullable Boolean mostRecent;
     /**
      * @return Port that the DB cluster was listening on at the time of the snapshot.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
     /**
      * @return Time when the snapshot was taken, in Universal Coordinated Time (UTC).
      * 
      */
-    private String snapshotCreateTime;
+    private @Nullable String snapshotCreateTime;
     private @Nullable String snapshotType;
-    private String sourceDbClusterSnapshotArn;
+    private @Nullable String sourceDbClusterSnapshotArn;
     /**
      * @return Status of this DB Cluster Snapshot.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Whether the DB cluster snapshot is encrypted.
      * 
      */
-    private Boolean storageEncrypted;
+    private @Nullable Boolean storageEncrypted;
     /**
      * @return Map of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return VPC ID associated with the DB cluster snapshot.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetClusterSnapshotResult() {}
     /**
      * @return Allocated storage size in gigabytes (GB).
      * 
      */
-    public Integer allocatedStorage() {
-        return this.allocatedStorage;
+    public Optional<Integer> allocatedStorage() {
+        return Optional.ofNullable(this.allocatedStorage);
     }
     /**
      * @return List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      * 
      */
     public List<String> availabilityZones() {
-        return this.availabilityZones;
+        return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
     /**
      * @return Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
@@ -123,8 +123,8 @@ public final class GetClusterSnapshotResult {
      * @return The ARN for the DB Cluster Snapshot.
      * 
      */
-    public String dbClusterSnapshotArn() {
-        return this.dbClusterSnapshotArn;
+    public Optional<String> dbClusterSnapshotArn() {
+        return Optional.ofNullable(this.dbClusterSnapshotArn);
     }
     public Optional<String> dbClusterSnapshotIdentifier() {
         return Optional.ofNullable(this.dbClusterSnapshotIdentifier);
@@ -133,22 +133,22 @@ public final class GetClusterSnapshotResult {
      * @return Name of the database engine.
      * 
      */
-    public String engine() {
-        return this.engine;
+    public Optional<String> engine() {
+        return Optional.ofNullable(this.engine);
     }
     /**
      * @return Version of the database engine for this DB cluster snapshot.
      * 
      */
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> includePublic() {
         return Optional.ofNullable(this.includePublic);
@@ -160,15 +160,15 @@ public final class GetClusterSnapshotResult {
      * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return License model information for the restored DB cluster.
      * 
      */
-    public String licenseModel() {
-        return this.licenseModel;
+    public Optional<String> licenseModel() {
+        return Optional.ofNullable(this.licenseModel);
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
@@ -177,49 +177,49 @@ public final class GetClusterSnapshotResult {
      * @return Port that the DB cluster was listening on at the time of the snapshot.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return Time when the snapshot was taken, in Universal Coordinated Time (UTC).
      * 
      */
-    public String snapshotCreateTime() {
-        return this.snapshotCreateTime;
+    public Optional<String> snapshotCreateTime() {
+        return Optional.ofNullable(this.snapshotCreateTime);
     }
     public Optional<String> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
     }
-    public String sourceDbClusterSnapshotArn() {
-        return this.sourceDbClusterSnapshotArn;
+    public Optional<String> sourceDbClusterSnapshotArn() {
+        return Optional.ofNullable(this.sourceDbClusterSnapshotArn);
     }
     /**
      * @return Status of this DB Cluster Snapshot.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Whether the DB cluster snapshot is encrypted.
      * 
      */
-    public Boolean storageEncrypted() {
-        return this.storageEncrypted;
+    public Optional<Boolean> storageEncrypted() {
+        return Optional.ofNullable(this.storageEncrypted);
     }
     /**
      * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return VPC ID associated with the DB cluster snapshot.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -231,27 +231,27 @@ public final class GetClusterSnapshotResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer allocatedStorage;
-        private List<String> availabilityZones;
+        private @Nullable Integer allocatedStorage;
+        private @Nullable List<String> availabilityZones;
         private @Nullable String dbClusterIdentifier;
-        private String dbClusterSnapshotArn;
+        private @Nullable String dbClusterSnapshotArn;
         private @Nullable String dbClusterSnapshotIdentifier;
-        private String engine;
-        private String engineVersion;
-        private String id;
+        private @Nullable String engine;
+        private @Nullable String engineVersion;
+        private @Nullable String id;
         private @Nullable Boolean includePublic;
         private @Nullable Boolean includeShared;
-        private String kmsKeyId;
-        private String licenseModel;
+        private @Nullable String kmsKeyId;
+        private @Nullable String licenseModel;
         private @Nullable Boolean mostRecent;
-        private Integer port;
-        private String snapshotCreateTime;
+        private @Nullable Integer port;
+        private @Nullable String snapshotCreateTime;
         private @Nullable String snapshotType;
-        private String sourceDbClusterSnapshotArn;
-        private String status;
-        private Boolean storageEncrypted;
-        private Map<String,String> tags;
-        private String vpcId;
+        private @Nullable String sourceDbClusterSnapshotArn;
+        private @Nullable String status;
+        private @Nullable Boolean storageEncrypted;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetClusterSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -279,13 +279,13 @@ public final class GetClusterSnapshotResult {
         }
 
         @CustomType.Setter
-        public Builder allocatedStorage(Integer allocatedStorage) {
-            this.allocatedStorage = Objects.requireNonNull(allocatedStorage);
+        public Builder allocatedStorage(@Nullable Integer allocatedStorage) {
+            this.allocatedStorage = allocatedStorage;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+        public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -297,8 +297,8 @@ public final class GetClusterSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dbClusterSnapshotArn(String dbClusterSnapshotArn) {
-            this.dbClusterSnapshotArn = Objects.requireNonNull(dbClusterSnapshotArn);
+        public Builder dbClusterSnapshotArn(@Nullable String dbClusterSnapshotArn) {
+            this.dbClusterSnapshotArn = dbClusterSnapshotArn;
             return this;
         }
         @CustomType.Setter
@@ -307,18 +307,18 @@ public final class GetClusterSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder engine(String engine) {
-            this.engine = Objects.requireNonNull(engine);
+        public Builder engine(@Nullable String engine) {
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -332,13 +332,13 @@ public final class GetClusterSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder licenseModel(String licenseModel) {
-            this.licenseModel = Objects.requireNonNull(licenseModel);
+        public Builder licenseModel(@Nullable String licenseModel) {
+            this.licenseModel = licenseModel;
             return this;
         }
         @CustomType.Setter
@@ -347,13 +347,13 @@ public final class GetClusterSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotCreateTime(String snapshotCreateTime) {
-            this.snapshotCreateTime = Objects.requireNonNull(snapshotCreateTime);
+        public Builder snapshotCreateTime(@Nullable String snapshotCreateTime) {
+            this.snapshotCreateTime = snapshotCreateTime;
             return this;
         }
         @CustomType.Setter
@@ -362,28 +362,28 @@ public final class GetClusterSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceDbClusterSnapshotArn(String sourceDbClusterSnapshotArn) {
-            this.sourceDbClusterSnapshotArn = Objects.requireNonNull(sourceDbClusterSnapshotArn);
+        public Builder sourceDbClusterSnapshotArn(@Nullable String sourceDbClusterSnapshotArn) {
+            this.sourceDbClusterSnapshotArn = sourceDbClusterSnapshotArn;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder storageEncrypted(Boolean storageEncrypted) {
-            this.storageEncrypted = Objects.requireNonNull(storageEncrypted);
+        public Builder storageEncrypted(@Nullable Boolean storageEncrypted) {
+            this.storageEncrypted = storageEncrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetClusterSnapshotResult build() {

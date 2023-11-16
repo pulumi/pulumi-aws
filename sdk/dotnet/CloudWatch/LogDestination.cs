@@ -46,7 +46,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The Amazon Resource Name (ARN) specifying the log destination.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A name for the log destination.

@@ -49,7 +49,7 @@ export class VpcIpam extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of IPAM
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      */
@@ -57,11 +57,11 @@ export class VpcIpam extends pulumi.CustomResource {
     /**
      * The IPAM's default resource discovery association ID.
      */
-    public /*out*/ readonly defaultResourceDiscoveryAssociationId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultResourceDiscoveryAssociationId!: pulumi.Output<string | undefined>;
     /**
      * The IPAM's default resource discovery ID.
      */
-    public /*out*/ readonly defaultResourceDiscoveryId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultResourceDiscoveryId!: pulumi.Output<string | undefined>;
     /**
      * A description for the IPAM.
      */
@@ -73,16 +73,16 @@ export class VpcIpam extends pulumi.CustomResource {
     /**
      * The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      */
-    public /*out*/ readonly privateDefaultScopeId!: pulumi.Output<string>;
+    public /*out*/ readonly privateDefaultScopeId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
      * IP space. The public scope is intended for all internet-routable IP space.
      */
-    public /*out*/ readonly publicDefaultScopeId!: pulumi.Output<string>;
+    public /*out*/ readonly publicDefaultScopeId!: pulumi.Output<string | undefined>;
     /**
      * The number of scopes in the IPAM.
      */
-    public /*out*/ readonly scopeCount!: pulumi.Output<number>;
+    public /*out*/ readonly scopeCount!: pulumi.Output<number | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -72,7 +72,7 @@ type GetReceivedLicensesResult struct {
 	Arns    []string                    `pulumi:"arns"`
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutputArgs, opts ...pulumi.InvokeOption) GetReceivedLicensesResultOutput {
@@ -126,8 +126,8 @@ func (o GetReceivedLicensesResultOutput) Filters() GetReceivedLicensesFilterArra
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetReceivedLicensesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReceivedLicensesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetReceivedLicensesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReceivedLicensesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

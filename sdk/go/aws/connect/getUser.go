@@ -93,27 +93,27 @@ type LookupUserArgs struct {
 // A collection of values returned by getUser.
 type LookupUserResult struct {
 	// The Amazon Resource Name (ARN) of the User.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The identifier of the user account in the directory used for identity management.
-	DirectoryUserId string `pulumi:"directoryUserId"`
+	DirectoryUserId *string `pulumi:"directoryUserId"`
 	// The identifier of the hierarchy group for the user.
-	HierarchyGroupId string `pulumi:"hierarchyGroupId"`
+	HierarchyGroupId *string `pulumi:"hierarchyGroupId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// A block that contains information about the identity of the user. Documented below.
 	IdentityInfos []GetUserIdentityInfo `pulumi:"identityInfos"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	Name       string `pulumi:"name"`
+	InstanceId string  `pulumi:"instanceId"`
+	Name       *string `pulumi:"name"`
 	// A block that contains information about the phone settings for the user. Documented below.
 	PhoneConfigs []GetUserPhoneConfig `pulumi:"phoneConfigs"`
 	// The identifier of the routing profile for the user.
-	RoutingProfileId string `pulumi:"routingProfileId"`
+	RoutingProfileId *string `pulumi:"routingProfileId"`
 	// A list of identifiers for the security profiles for the user.
 	SecurityProfileIds []string `pulumi:"securityProfileIds"`
 	// A map of tags to assign to the User.
 	Tags   map[string]string `pulumi:"tags"`
-	UserId string            `pulumi:"userId"`
+	UserId *string           `pulumi:"userId"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -161,23 +161,23 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 }
 
 // The Amazon Resource Name (ARN) of the User.
-func (o LookupUserResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the user account in the directory used for identity management.
-func (o LookupUserResultOutput) DirectoryUserId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.DirectoryUserId }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) DirectoryUserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.DirectoryUserId }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy group for the user.
-func (o LookupUserResultOutput) HierarchyGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.HierarchyGroupId }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) HierarchyGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.HierarchyGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupUserResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // A block that contains information about the identity of the user. Documented below.
@@ -190,8 +190,8 @@ func (o LookupUserResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-func (o LookupUserResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A block that contains information about the phone settings for the user. Documented below.
@@ -200,8 +200,8 @@ func (o LookupUserResultOutput) PhoneConfigs() GetUserPhoneConfigArrayOutput {
 }
 
 // The identifier of the routing profile for the user.
-func (o LookupUserResultOutput) RoutingProfileId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.RoutingProfileId }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) RoutingProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.RoutingProfileId }).(pulumi.StringPtrOutput)
 }
 
 // A list of identifiers for the security profiles for the user.
@@ -214,8 +214,8 @@ func (o LookupUserResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupUserResultOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.UserId }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

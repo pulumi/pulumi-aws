@@ -76,7 +76,7 @@ export class AccountRegistration extends pulumi.CustomResource {
     /**
      * Status of the account registration request.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AccountRegistration resource with the given unique name, arguments, and options.

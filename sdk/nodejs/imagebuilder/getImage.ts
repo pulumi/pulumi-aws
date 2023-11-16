@@ -53,67 +53,67 @@ export interface GetImageResult {
     /**
      * Build version ARN of the image. This will always have the `#.#.#/#` suffix.
      */
-    readonly buildVersionArn: string;
+    readonly buildVersionArn?: string;
     /**
      * ARN of the container recipe.
      */
-    readonly containerRecipeArn: string;
+    readonly containerRecipeArn?: string;
     /**
      * Date the image was created.
      */
-    readonly dateCreated: string;
+    readonly dateCreated?: string;
     /**
      * ARN of the Image Builder Distribution Configuration.
      */
-    readonly distributionConfigurationArn: string;
+    readonly distributionConfigurationArn?: string;
     /**
      * Whether additional information about the image being created is collected.
      */
-    readonly enhancedImageMetadataEnabled: boolean;
+    readonly enhancedImageMetadataEnabled?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the image recipe.
      */
-    readonly imageRecipeArn: string;
+    readonly imageRecipeArn?: string;
     /**
      * List of an object with image scanning configuration fields.
      */
-    readonly imageScanningConfigurations: outputs.imagebuilder.GetImageImageScanningConfiguration[];
+    readonly imageScanningConfigurations?: outputs.imagebuilder.GetImageImageScanningConfiguration[];
     /**
      * List of an object with image tests configuration.
      */
-    readonly imageTestsConfigurations: outputs.imagebuilder.GetImageImageTestsConfiguration[];
+    readonly imageTestsConfigurations?: outputs.imagebuilder.GetImageImageTestsConfiguration[];
     /**
      * ARN of the Image Builder Infrastructure Configuration.
      */
-    readonly infrastructureConfigurationArn: string;
+    readonly infrastructureConfigurationArn?: string;
     /**
      * Name of the AMI.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Operating System version of the image.
      */
-    readonly osVersion: string;
+    readonly osVersion?: string;
     /**
      * List of objects with resources created by the image.
      */
-    readonly outputResources: outputs.imagebuilder.GetImageOutputResource[];
+    readonly outputResources?: outputs.imagebuilder.GetImageOutputResource[];
     /**
      * Platform of the image.
      */
-    readonly platform: string;
+    readonly platform?: string;
     /**
      * Key-value map of resource tags for the image.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Version of the image.
      */
-    readonly version: string;
+    readonly version?: string;
 }
 /**
  * Provides details about an Image Builder Image.

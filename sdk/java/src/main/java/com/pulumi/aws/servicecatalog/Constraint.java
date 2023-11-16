@@ -88,28 +88,28 @@ public class Constraint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description of the constraint.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Owner of the constraint.
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return Owner of the constraint.
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
@@ -154,10 +154,10 @@ public class Constraint extends com.pulumi.resources.CustomResource {
         return this.productId;
     }
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.

@@ -68,7 +68,7 @@ type GetSecurityGroupRulesArgs struct {
 // A collection of values returned by getSecurityGroupRules.
 type GetSecurityGroupRulesResult struct {
 	Filters []GetSecurityGroupRulesFilter `pulumi:"filters"`
-	Id      string                        `pulumi:"id"`
+	Id      *string                       `pulumi:"id"`
 	// List of all the security group rule IDs found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -122,8 +122,8 @@ func (o GetSecurityGroupRulesResultOutput) Filters() GetSecurityGroupRulesFilter
 	return o.ApplyT(func(v GetSecurityGroupRulesResult) []GetSecurityGroupRulesFilter { return v.Filters }).(GetSecurityGroupRulesFilterArrayOutput)
 }
 
-func (o GetSecurityGroupRulesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupRulesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSecurityGroupRulesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupRulesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the security group rule IDs found.

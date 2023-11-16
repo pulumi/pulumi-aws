@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ecs
         /// ARN of an ECS cluster.
         /// </summary>
         [Output("cluster")]
-        public Output<string> Cluster { get; private set; } = null!;
+        public Output<string?> Cluster { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for deployment circuit breaker. See below.
@@ -241,13 +241,13 @@ namespace Pulumi.Aws.Ecs
         /// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         /// </summary>
         [Output("iamRole")]
-        public Output<string> IamRole { get; private set; } = null!;
+        public Output<string?> IamRole { get; private set; } = null!;
 
         /// <summary>
         /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
         [Output("launchType")]
-        public Output<string> LaunchType { get; private set; } = null!;
+        public Output<string?> LaunchType { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for load balancers. See below.
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.Ecs
         /// Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Output("platformVersion")]
-        public Output<string> PlatformVersion { get; private set; } = null!;
+        public Output<string?> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Ecs
         /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         /// </summary>
         [Output("triggers")]
-        public Output<ImmutableDictionary<string, string>> Triggers { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.

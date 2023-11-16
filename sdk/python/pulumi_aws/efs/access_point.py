@@ -374,7 +374,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the access point.
         """
@@ -382,7 +382,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemArn")
-    def file_system_arn(self) -> pulumi.Output[str]:
+    def file_system_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the file system.
         """
@@ -398,7 +398,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "owner_id")
 
     @property
@@ -411,7 +411,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootDirectory")
-    def root_directory(self) -> pulumi.Output['outputs.AccessPointRootDirectory']:
+    def root_directory(self) -> pulumi.Output[Optional['outputs.AccessPointRootDirectory']]:
         """
         Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         """

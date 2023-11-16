@@ -34,7 +34,7 @@ class GetTrackerAssociationsResult:
 
     @property
     @pulumi.getter(name="consumerArns")
-    def consumer_arns(self) -> Sequence[str]:
+    def consumer_arns(self) -> Optional[Sequence[str]]:
         """
         List of geofence collection ARNs associated to the tracker resource.
         """
@@ -42,7 +42,7 @@ class GetTrackerAssociationsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

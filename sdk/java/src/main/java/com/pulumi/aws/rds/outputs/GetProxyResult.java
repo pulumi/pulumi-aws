@@ -10,6 +10,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetProxyResult {
@@ -17,113 +19,113 @@ public final class GetProxyResult {
      * @return ARN of the DB Proxy.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
      * 
      */
-    private List<GetProxyAuth> auths;
+    private @Nullable List<GetProxyAuth> auths;
     /**
      * @return Whether the proxy includes detailed information about SQL statements in its logs.
      * 
      */
-    private Boolean debugLogging;
+    private @Nullable Boolean debugLogging;
     /**
      * @return Endpoint that you can use to connect to the DB proxy.
      * 
      */
-    private String endpoint;
+    private @Nullable String endpoint;
     /**
      * @return Kinds of databases that the proxy can connect to.
      * 
      */
-    private String engineFamily;
+    private @Nullable String engineFamily;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
      * 
      */
-    private Integer idleClientTimeout;
+    private @Nullable Integer idleClientTimeout;
     private String name;
     /**
      * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      * 
      */
-    private Boolean requireTls;
+    private @Nullable Boolean requireTls;
     /**
      * @return ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return Provides the VPC ID of the DB proxy.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
     /**
      * @return Provides a list of VPC security groups that the proxy belongs to.
      * 
      */
-    private List<String> vpcSecurityGroupIds;
+    private @Nullable List<String> vpcSecurityGroupIds;
     /**
      * @return EC2 subnet IDs for the proxy.
      * 
      */
-    private List<String> vpcSubnetIds;
+    private @Nullable List<String> vpcSubnetIds;
 
     private GetProxyResult() {}
     /**
      * @return ARN of the DB Proxy.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
      * 
      */
     public List<GetProxyAuth> auths() {
-        return this.auths;
+        return this.auths == null ? List.of() : this.auths;
     }
     /**
      * @return Whether the proxy includes detailed information about SQL statements in its logs.
      * 
      */
-    public Boolean debugLogging() {
-        return this.debugLogging;
+    public Optional<Boolean> debugLogging() {
+        return Optional.ofNullable(this.debugLogging);
     }
     /**
      * @return Endpoint that you can use to connect to the DB proxy.
      * 
      */
-    public String endpoint() {
-        return this.endpoint;
+    public Optional<String> endpoint() {
+        return Optional.ofNullable(this.endpoint);
     }
     /**
      * @return Kinds of databases that the proxy can connect to.
      * 
      */
-    public String engineFamily() {
-        return this.engineFamily;
+    public Optional<String> engineFamily() {
+        return Optional.ofNullable(this.engineFamily);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
      * 
      */
-    public Integer idleClientTimeout() {
-        return this.idleClientTimeout;
+    public Optional<Integer> idleClientTimeout() {
+        return Optional.ofNullable(this.idleClientTimeout);
     }
     public String name() {
         return this.name;
@@ -132,36 +134,36 @@ public final class GetProxyResult {
      * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      * 
      */
-    public Boolean requireTls() {
-        return this.requireTls;
+    public Optional<Boolean> requireTls() {
+        return Optional.ofNullable(this.requireTls);
     }
     /**
      * @return ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return Provides the VPC ID of the DB proxy.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
     /**
      * @return Provides a list of VPC security groups that the proxy belongs to.
      * 
      */
     public List<String> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+        return this.vpcSecurityGroupIds == null ? List.of() : this.vpcSecurityGroupIds;
     }
     /**
      * @return EC2 subnet IDs for the proxy.
      * 
      */
     public List<String> vpcSubnetIds() {
-        return this.vpcSubnetIds;
+        return this.vpcSubnetIds == null ? List.of() : this.vpcSubnetIds;
     }
 
     public static Builder builder() {
@@ -173,19 +175,19 @@ public final class GetProxyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetProxyAuth> auths;
-        private Boolean debugLogging;
-        private String endpoint;
-        private String engineFamily;
-        private String id;
-        private Integer idleClientTimeout;
+        private @Nullable String arn;
+        private @Nullable List<GetProxyAuth> auths;
+        private @Nullable Boolean debugLogging;
+        private @Nullable String endpoint;
+        private @Nullable String engineFamily;
+        private @Nullable String id;
+        private @Nullable Integer idleClientTimeout;
         private String name;
-        private Boolean requireTls;
-        private String roleArn;
-        private String vpcId;
-        private List<String> vpcSecurityGroupIds;
-        private List<String> vpcSubnetIds;
+        private @Nullable Boolean requireTls;
+        private @Nullable String roleArn;
+        private @Nullable String vpcId;
+        private @Nullable List<String> vpcSecurityGroupIds;
+        private @Nullable List<String> vpcSubnetIds;
         public Builder() {}
         public Builder(GetProxyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -205,41 +207,41 @@ public final class GetProxyResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder auths(List<GetProxyAuth> auths) {
-            this.auths = Objects.requireNonNull(auths);
+        public Builder auths(@Nullable List<GetProxyAuth> auths) {
+            this.auths = auths;
             return this;
         }
         public Builder auths(GetProxyAuth... auths) {
             return auths(List.of(auths));
         }
         @CustomType.Setter
-        public Builder debugLogging(Boolean debugLogging) {
-            this.debugLogging = Objects.requireNonNull(debugLogging);
+        public Builder debugLogging(@Nullable Boolean debugLogging) {
+            this.debugLogging = debugLogging;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+        public Builder endpoint(@Nullable String endpoint) {
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder engineFamily(String engineFamily) {
-            this.engineFamily = Objects.requireNonNull(engineFamily);
+        public Builder engineFamily(@Nullable String engineFamily) {
+            this.engineFamily = engineFamily;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder idleClientTimeout(Integer idleClientTimeout) {
-            this.idleClientTimeout = Objects.requireNonNull(idleClientTimeout);
+        public Builder idleClientTimeout(@Nullable Integer idleClientTimeout) {
+            this.idleClientTimeout = idleClientTimeout;
             return this;
         }
         @CustomType.Setter
@@ -248,31 +250,31 @@ public final class GetProxyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder requireTls(Boolean requireTls) {
-            this.requireTls = Objects.requireNonNull(requireTls);
+        public Builder requireTls(@Nullable Boolean requireTls) {
+            this.requireTls = requireTls;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
-            this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
+        public Builder vpcSecurityGroupIds(@Nullable List<String> vpcSecurityGroupIds) {
+            this.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }
         @CustomType.Setter
-        public Builder vpcSubnetIds(List<String> vpcSubnetIds) {
-            this.vpcSubnetIds = Objects.requireNonNull(vpcSubnetIds);
+        public Builder vpcSubnetIds(@Nullable List<String> vpcSubnetIds) {
+            this.vpcSubnetIds = vpcSubnetIds;
             return this;
         }
         public Builder vpcSubnetIds(String... vpcSubnetIds) {

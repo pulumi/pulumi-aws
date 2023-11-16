@@ -133,7 +133,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
     /**
      * The current version of the response headers policy.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A unique name to identify the response headers policy.
      */

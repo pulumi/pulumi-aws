@@ -47,7 +47,7 @@ namespace Pulumi.Aws.VpcLattice
         /// Amazon Resource Name (ARN) of the access log subscription.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the log destination.
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.VpcLattice
         /// Amazon Resource Name (ARN) of the service network or service.
         /// </summary>
         [Output("resourceArn")]
-        public Output<string> ResourceArn { get; private set; } = null!;
+        public Output<string?> ResourceArn { get; private set; } = null!;
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.

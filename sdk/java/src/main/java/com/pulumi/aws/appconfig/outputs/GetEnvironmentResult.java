@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEnvironmentResult {
@@ -17,39 +19,39 @@ public final class GetEnvironmentResult {
      * @return ARN of the environment.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Name of the environment.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String environmentId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set of Amazon CloudWatch alarms to monitor during the deployment process.
      * 
      */
-    private List<GetEnvironmentMonitor> monitors;
+    private @Nullable List<GetEnvironmentMonitor> monitors;
     /**
      * @return Name of the environment.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
      * or `ROLLED_BACK`.
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return Map of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetEnvironmentResult() {}
     public String applicationId() {
@@ -59,15 +61,15 @@ public final class GetEnvironmentResult {
      * @return ARN of the environment.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Name of the environment.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String environmentId() {
         return this.environmentId;
@@ -76,37 +78,37 @@ public final class GetEnvironmentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set of Amazon CloudWatch alarms to monitor during the deployment process.
      * 
      */
     public List<GetEnvironmentMonitor> monitors() {
-        return this.monitors;
+        return this.monitors == null ? List.of() : this.monitors;
     }
     /**
      * @return Name of the environment.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
      * or `ROLLED_BACK`.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -119,14 +121,14 @@ public final class GetEnvironmentResult {
     @CustomType.Builder
     public static final class Builder {
         private String applicationId;
-        private String arn;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable String description;
         private String environmentId;
-        private String id;
-        private List<GetEnvironmentMonitor> monitors;
-        private String name;
-        private String state;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable List<GetEnvironmentMonitor> monitors;
+        private @Nullable String name;
+        private @Nullable String state;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -147,13 +149,13 @@ public final class GetEnvironmentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -162,31 +164,31 @@ public final class GetEnvironmentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder monitors(List<GetEnvironmentMonitor> monitors) {
-            this.monitors = Objects.requireNonNull(monitors);
+        public Builder monitors(@Nullable List<GetEnvironmentMonitor> monitors) {
+            this.monitors = monitors;
             return this;
         }
         public Builder monitors(GetEnvironmentMonitor... monitors) {
             return monitors(List.of(monitors));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetEnvironmentResult build() {

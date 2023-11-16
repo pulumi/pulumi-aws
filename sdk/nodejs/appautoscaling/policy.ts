@@ -243,11 +243,11 @@ export class Policy extends pulumi.CustomResource {
     /**
      * List of CloudWatch alarm ARNs associated with the scaling policy.
      */
-    public /*out*/ readonly alarmArns!: pulumi.Output<string[]>;
+    public /*out*/ readonly alarmArns!: pulumi.Output<string[] | undefined>;
     /**
      * ARN assigned by AWS to the scaling policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the policy. Must be between 1 and 255 characters in length.
      */

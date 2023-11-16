@@ -28,12 +28,12 @@ type GetCredentialsArgs struct {
 
 // A collection of values returned by getCredentials.
 type GetCredentialsResult struct {
-	AuthorizationToken string `pulumi:"authorizationToken"`
-	ExpiresAt          string `pulumi:"expiresAt"`
+	AuthorizationToken *string `pulumi:"authorizationToken"`
+	ExpiresAt          *string `pulumi:"expiresAt"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	ProxyEndpoint string `pulumi:"proxyEndpoint"`
-	RegistryId    string `pulumi:"registryId"`
+	Id            *string `pulumi:"id"`
+	ProxyEndpoint *string `pulumi:"proxyEndpoint"`
+	RegistryId    string  `pulumi:"registryId"`
 }
 
 func GetCredentialsOutput(ctx *pulumi.Context, args GetCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetCredentialsResultOutput {
@@ -73,21 +73,21 @@ func (o GetCredentialsResultOutput) ToGetCredentialsResultOutputWithContext(ctx 
 	return o
 }
 
-func (o GetCredentialsResultOutput) AuthorizationToken() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCredentialsResult) string { return v.AuthorizationToken }).(pulumi.StringOutput)
+func (o GetCredentialsResultOutput) AuthorizationToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCredentialsResult) *string { return v.AuthorizationToken }).(pulumi.StringPtrOutput)
 }
 
-func (o GetCredentialsResultOutput) ExpiresAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCredentialsResult) string { return v.ExpiresAt }).(pulumi.StringOutput)
+func (o GetCredentialsResultOutput) ExpiresAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCredentialsResult) *string { return v.ExpiresAt }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetCredentialsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetCredentialsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCredentialsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetCredentialsResultOutput) ProxyEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCredentialsResult) string { return v.ProxyEndpoint }).(pulumi.StringOutput)
+func (o GetCredentialsResultOutput) ProxyEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCredentialsResult) *string { return v.ProxyEndpoint }).(pulumi.StringPtrOutput)
 }
 
 func (o GetCredentialsResultOutput) RegistryId() pulumi.StringOutput {

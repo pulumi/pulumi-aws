@@ -58,16 +58,16 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * ARN of the access point.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the file system.
      */
-    public /*out*/ readonly fileSystemArn!: pulumi.Output<string>;
+    public /*out*/ readonly fileSystemArn!: pulumi.Output<string | undefined>;
     /**
      * ID of the file system for which the access point is intended.
      */
     public readonly fileSystemId!: pulumi.Output<string>;
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      */
@@ -75,7 +75,7 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */
-    public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory>;
+    public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */

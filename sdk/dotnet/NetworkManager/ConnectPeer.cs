@@ -29,7 +29,7 @@ namespace Pulumi.Aws.NetworkManager
         /// The ARN of the attachment.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Connect peer BGP options.
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string> ConnectAttachmentId { get; private set; } = null!;
 
         [Output("connectPeerId")]
-        public Output<string> ConnectPeerId { get; private set; } = null!;
+        public Output<string?> ConnectPeerId { get; private set; } = null!;
 
         /// <summary>
         /// A Connect peer core network address.
@@ -62,16 +62,16 @@ namespace Pulumi.Aws.NetworkManager
         /// The ID of a core network.
         /// </summary>
         [Output("coreNetworkId")]
-        public Output<string> CoreNetworkId { get; private set; } = null!;
+        public Output<string?> CoreNetworkId { get; private set; } = null!;
 
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The Region where the peer is located.
         /// </summary>
         [Output("edgeLocation")]
-        public Output<string> EdgeLocation { get; private set; } = null!;
+        public Output<string?> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
         /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.NetworkManager
         /// The state of the Connect peer.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.

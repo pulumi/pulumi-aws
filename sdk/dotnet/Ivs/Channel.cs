@@ -43,25 +43,25 @@ namespace Pulumi.Aws.Ivs
         /// ARN of the Channel.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// If `true`, channel is private (enabled for playback authorization).
         /// </summary>
         [Output("authorized")]
-        public Output<bool> Authorized { get; private set; } = null!;
+        public Output<bool?> Authorized { get; private set; } = null!;
 
         /// <summary>
         /// Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
         /// </summary>
         [Output("ingestEndpoint")]
-        public Output<string> IngestEndpoint { get; private set; } = null!;
+        public Output<string?> IngestEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Channel latency mode. Valid values: `NORMAL`, `LOW`.
         /// </summary>
         [Output("latencyMode")]
-        public Output<string> LatencyMode { get; private set; } = null!;
+        public Output<string?> LatencyMode { get; private set; } = null!;
 
         /// <summary>
         /// Channel name.
@@ -73,13 +73,13 @@ namespace Pulumi.Aws.Ivs
         /// Channel playback URL.
         /// </summary>
         [Output("playbackUrl")]
-        public Output<string> PlaybackUrl { get; private set; } = null!;
+        public Output<string?> PlaybackUrl { get; private set; } = null!;
 
         /// <summary>
         /// Recording configuration ARN.
         /// </summary>
         [Output("recordingConfigurationArn")]
-        public Output<string> RecordingConfigurationArn { get; private set; } = null!;
+        public Output<string?> RecordingConfigurationArn { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Ivs
         /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

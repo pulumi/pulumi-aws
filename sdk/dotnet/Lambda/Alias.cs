@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Lambda
         /// The Amazon Resource Name (ARN) identifying your Lambda function alias.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the alias.
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Lambda
         /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
         /// </summary>
         [Output("invokeArn")]
-        public Output<string> InvokeArn { get; private set; } = null!;
+        public Output<string?> InvokeArn { get; private set; } = null!;
 
         /// <summary>
         /// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`

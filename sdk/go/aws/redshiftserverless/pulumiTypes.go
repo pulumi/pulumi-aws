@@ -718,9 +718,9 @@ func (o WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.
 
 type GetWorkgroupEndpoint struct {
 	// The DNS address of the VPC endpoint.
-	Address string `pulumi:"address"`
+	Address *string `pulumi:"address"`
 	// The port that Amazon Redshift Serverless listens on.
-	Port int `pulumi:"port"`
+	Port *int `pulumi:"port"`
 	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
 	VpcEndpoints []GetWorkgroupEndpointVpcEndpoint `pulumi:"vpcEndpoints"`
 }
@@ -738,9 +738,9 @@ type GetWorkgroupEndpointInput interface {
 
 type GetWorkgroupEndpointArgs struct {
 	// The DNS address of the VPC endpoint.
-	Address pulumi.StringInput `pulumi:"address"`
+	Address pulumi.StringPtrInput `pulumi:"address"`
 	// The port that Amazon Redshift Serverless listens on.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
 	VpcEndpoints GetWorkgroupEndpointVpcEndpointArrayInput `pulumi:"vpcEndpoints"`
 }
@@ -797,13 +797,13 @@ func (o GetWorkgroupEndpointOutput) ToGetWorkgroupEndpointOutputWithContext(ctx 
 }
 
 // The DNS address of the VPC endpoint.
-func (o GetWorkgroupEndpointOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkgroupEndpoint) string { return v.Address }).(pulumi.StringOutput)
+func (o GetWorkgroupEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // The port that Amazon Redshift Serverless listens on.
-func (o GetWorkgroupEndpointOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetWorkgroupEndpoint) int { return v.Port }).(pulumi.IntOutput)
+func (o GetWorkgroupEndpointOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
@@ -835,9 +835,9 @@ type GetWorkgroupEndpointVpcEndpoint struct {
 	// The network interfaces of the endpoint.. See `Network Interface` below.
 	NetworkInterfaces []GetWorkgroupEndpointVpcEndpointNetworkInterface `pulumi:"networkInterfaces"`
 	// The DNS address of the VPC endpoint.
-	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// The port that Amazon Redshift Serverless listens on.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // GetWorkgroupEndpointVpcEndpointInput is an input type that accepts GetWorkgroupEndpointVpcEndpointArgs and GetWorkgroupEndpointVpcEndpointOutput values.
@@ -855,9 +855,9 @@ type GetWorkgroupEndpointVpcEndpointArgs struct {
 	// The network interfaces of the endpoint.. See `Network Interface` below.
 	NetworkInterfaces GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
 	// The DNS address of the VPC endpoint.
-	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
 	// The port that Amazon Redshift Serverless listens on.
-	VpcId pulumi.StringInput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (GetWorkgroupEndpointVpcEndpointArgs) ElementType() reflect.Type {
@@ -919,13 +919,13 @@ func (o GetWorkgroupEndpointVpcEndpointOutput) NetworkInterfaces() GetWorkgroupE
 }
 
 // The DNS address of the VPC endpoint.
-func (o GetWorkgroupEndpointVpcEndpointOutput) VpcEndpointId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpoint) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+func (o GetWorkgroupEndpointVpcEndpointOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpoint) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
 // The port that Amazon Redshift Serverless listens on.
-func (o GetWorkgroupEndpointVpcEndpointOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpoint) string { return v.VpcId }).(pulumi.StringOutput)
+func (o GetWorkgroupEndpointVpcEndpointOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpoint) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type GetWorkgroupEndpointVpcEndpointArrayOutput struct{ *pulumi.OutputState }
@@ -950,13 +950,13 @@ func (o GetWorkgroupEndpointVpcEndpointArrayOutput) Index(i pulumi.IntInput) Get
 
 type GetWorkgroupEndpointVpcEndpointNetworkInterface struct {
 	// The availability Zone.
-	AvailabilityZone string `pulumi:"availabilityZone"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The unique identifier of the network interface.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The IPv4 address of the network interface within the subnet.
-	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The unique identifier of the subnet.
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // GetWorkgroupEndpointVpcEndpointNetworkInterfaceInput is an input type that accepts GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs and GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput values.
@@ -972,13 +972,13 @@ type GetWorkgroupEndpointVpcEndpointNetworkInterfaceInput interface {
 
 type GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs struct {
 	// The availability Zone.
-	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// The unique identifier of the network interface.
-	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// The IPv4 address of the network interface within the subnet.
-	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// The unique identifier of the subnet.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -1033,23 +1033,23 @@ func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ToGetWorkgroupEnd
 }
 
 // The availability Zone.
-func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of the network interface.
-func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // The IPv4 address of the network interface within the subnet.
-func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of the subnet.
-func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 type GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }

@@ -58,27 +58,27 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
      */
-    public /*out*/ readonly accountsWithProvisionedRestoreAccesses!: pulumi.Output<string[]>;
+    public /*out*/ readonly accountsWithProvisionedRestoreAccesses!: pulumi.Output<string[] | undefined>;
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
      */
-    public /*out*/ readonly accountsWithRestoreAccesses!: pulumi.Output<string[]>;
+    public /*out*/ readonly accountsWithRestoreAccesses!: pulumi.Output<string[] | undefined>;
     /**
      * The username of the database within a snapshot.
      */
-    public /*out*/ readonly adminUsername!: pulumi.Output<string>;
+    public /*out*/ readonly adminUsername!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the snapshot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the KMS key used to encrypt the snapshot.
      */
-    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
      */
-    public /*out*/ readonly namespaceArn!: pulumi.Output<string>;
+    public /*out*/ readonly namespaceArn!: pulumi.Output<string | undefined>;
     /**
      * The namespace to create a snapshot for.
      */
@@ -86,7 +86,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The owner Amazon Web Services; account of the snapshot.
      */
-    public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccount!: pulumi.Output<string | undefined>;
     /**
      * How long to retain the created snapshot. Default value is `-1`.
      */

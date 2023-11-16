@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessKeysResult {
@@ -15,12 +17,12 @@ public final class GetAccessKeysResult {
      * @return List of the IAM access keys associated with the specified user. See below.
      * 
      */
-    private List<GetAccessKeysAccessKey> accessKeys;
+    private @Nullable List<GetAccessKeysAccessKey> accessKeys;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String user;
 
     private GetAccessKeysResult() {}
@@ -29,14 +31,14 @@ public final class GetAccessKeysResult {
      * 
      */
     public List<GetAccessKeysAccessKey> accessKeys() {
-        return this.accessKeys;
+        return this.accessKeys == null ? List.of() : this.accessKeys;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String user() {
         return this.user;
@@ -51,8 +53,8 @@ public final class GetAccessKeysResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetAccessKeysAccessKey> accessKeys;
-        private String id;
+        private @Nullable List<GetAccessKeysAccessKey> accessKeys;
+        private @Nullable String id;
         private String user;
         public Builder() {}
         public Builder(GetAccessKeysResult defaults) {
@@ -63,16 +65,16 @@ public final class GetAccessKeysResult {
         }
 
         @CustomType.Setter
-        public Builder accessKeys(List<GetAccessKeysAccessKey> accessKeys) {
-            this.accessKeys = Objects.requireNonNull(accessKeys);
+        public Builder accessKeys(@Nullable List<GetAccessKeysAccessKey> accessKeys) {
+            this.accessKeys = accessKeys;
             return this;
         }
         public Builder accessKeys(GetAccessKeysAccessKey... accessKeys) {
             return accessKeys(List.of(accessKeys));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

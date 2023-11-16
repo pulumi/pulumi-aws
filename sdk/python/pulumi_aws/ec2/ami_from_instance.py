@@ -924,7 +924,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def architecture(self) -> pulumi.Output[str]:
+    def architecture(self) -> pulumi.Output[Optional[str]]:
         """
         Machine architecture for created instances. Defaults to "x86_64".
         """
@@ -932,7 +932,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the AMI.
         """
@@ -940,7 +940,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootMode")
-    def boot_mode(self) -> pulumi.Output[str]:
+    def boot_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         """
@@ -964,7 +964,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> pulumi.Output[Sequence['outputs.AmiFromInstanceEbsBlockDevice']]:
+    def ebs_block_devices(self) -> pulumi.Output[Optional[Sequence['outputs.AmiFromInstanceEbsBlockDevice']]]:
         """
         Nested block describing an EBS block device that should be
         attached to created instances. The structure of this block is described below.
@@ -973,7 +973,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enaSupport")
-    def ena_support(self) -> pulumi.Output[bool]:
+    def ena_support(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether enhanced networking with ENA is enabled. Defaults to `false`.
         """
@@ -981,7 +981,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> pulumi.Output[Sequence['outputs.AmiFromInstanceEphemeralBlockDevice']]:
+    def ephemeral_block_devices(self) -> pulumi.Output[Optional[Sequence['outputs.AmiFromInstanceEphemeralBlockDevice']]]:
         """
         Nested block describing an ephemeral block device that
         should be attached to created instances. The structure of this block is described below.
@@ -990,12 +990,12 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hypervisor(self) -> pulumi.Output[str]:
+    def hypervisor(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "hypervisor")
 
     @property
     @pulumi.getter(name="imageLocation")
-    def image_location(self) -> pulumi.Output[str]:
+    def image_location(self) -> pulumi.Output[Optional[str]]:
         """
         Path to an S3 object containing an image manifest, e.g., created
         by the `ec2-upload-bundle` command in the EC2 command line tools.
@@ -1004,17 +1004,17 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageOwnerAlias")
-    def image_owner_alias(self) -> pulumi.Output[str]:
+    def image_owner_alias(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "image_owner_alias")
 
     @property
     @pulumi.getter(name="imageType")
-    def image_type(self) -> pulumi.Output[str]:
+    def image_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "image_type")
 
     @property
     @pulumi.getter(name="imdsSupport")
-    def imds_support(self) -> pulumi.Output[str]:
+    def imds_support(self) -> pulumi.Output[Optional[str]]:
         """
         If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         """
@@ -1022,7 +1022,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> pulumi.Output[str]:
+    def kernel_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the kernel image (AKI) that will be used as the paravirtual
         kernel in created instances.
@@ -1031,7 +1031,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="manageEbsSnapshots")
-    def manage_ebs_snapshots(self) -> pulumi.Output[bool]:
+    def manage_ebs_snapshots(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "manage_ebs_snapshots")
 
     @property
@@ -1044,27 +1044,27 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output[str]:
+    def platform(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="platformDetails")
-    def platform_details(self) -> pulumi.Output[str]:
+    def platform_details(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "platform_details")
 
     @property
     @pulumi.getter
-    def public(self) -> pulumi.Output[bool]:
+    def public(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "public")
 
     @property
     @pulumi.getter(name="ramdiskId")
-    def ramdisk_id(self) -> pulumi.Output[str]:
+    def ramdisk_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of an initrd image (ARI) that will be used when booting the
         created instances.
@@ -1073,7 +1073,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootDeviceName")
-    def root_device_name(self) -> pulumi.Output[str]:
+    def root_device_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         """
@@ -1081,7 +1081,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootSnapshotId")
-    def root_snapshot_id(self) -> pulumi.Output[str]:
+    def root_snapshot_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "root_snapshot_id")
 
     @property
@@ -1105,7 +1105,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sriovNetSupport")
-    def sriov_net_support(self) -> pulumi.Output[str]:
+    def sriov_net_support(self) -> pulumi.Output[Optional[str]]:
         """
         When set to "simple" (the default), enables enhanced networking
         for created instances. No other value is supported at this time.
@@ -1130,7 +1130,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tpmSupport")
-    def tpm_support(self) -> pulumi.Output[str]:
+    def tpm_support(self) -> pulumi.Output[Optional[str]]:
         """
         If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         """
@@ -1138,12 +1138,12 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageOperation")
-    def usage_operation(self) -> pulumi.Output[str]:
+    def usage_operation(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "usage_operation")
 
     @property
     @pulumi.getter(name="virtualizationType")
-    def virtualization_type(self) -> pulumi.Output[str]:
+    def virtualization_type(self) -> pulumi.Output[Optional[str]]:
         """
         Keyword to choose what virtualization mode created instances
         will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

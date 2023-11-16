@@ -60,7 +60,7 @@ export class AccountSettingDefault extends pulumi.CustomResource {
      * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly principalArn!: pulumi.Output<string>;
+    public /*out*/ readonly principalArn!: pulumi.Output<string | undefined>;
     /**
      * State of the setting. Valid values are `enabled` and `disabled`.
      */

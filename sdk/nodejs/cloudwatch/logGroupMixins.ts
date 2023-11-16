@@ -100,7 +100,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
         }, parentOpts);
 
         this.logSubscriptionFilter = new logSubscriptionFilter.LogSubscriptionFilter(name, {
-            destinationArn: this.func.arn,
+            destinationArn: this.func.arn.apply(x => x!),
             filterPattern: args.filterPattern || "",
             logGroup: logGroup,
         }, parentOpts);
@@ -120,7 +120,7 @@ declare module "./logGroup" {
          * The events will be produced in raw (gzipped + base64 encoded) form.
          */
         onEvent(name: string, handler: LogGroupEventHandler,
-                args?: LogGroupEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): LogGroupEventSubscription;
+            args?: LogGroupEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): LogGroupEventSubscription;
 
         /**
          * Creates a new subscription to events fired from this LogGroup to the callback provided,
@@ -135,11 +135,11 @@ declare module "./logGroup" {
     }
 }
 
-logGroup.LogGroup.prototype.onEvent = function(this: logGroup.LogGroup, name, handler, args, opts) {
+logGroup.LogGroup.prototype.onEvent = function (this: logGroup.LogGroup, name, handler, args, opts) {
     return new LogGroupEventSubscription(name, this, handler, args, opts);
 }
 
-logGroup.LogGroup.prototype.onDecodedEvent = function(this: logGroup.LogGroup, name, handler, args, opts) {
+logGroup.LogGroup.prototype.onDecodedEvent = function (this: logGroup.LogGroup, name, handler, args, opts) {
     return this.onEvent(name, async (event, context, callback) => {
         const decoded = await decodeLogGroupEvent(event);
         await handler(decoded, context, callback);
@@ -151,7 +151,7 @@ async function decodeLogGroupEvent(event: LogGroupEvent): Promise<DecodedLogGrou
     const payload = Buffer.from(event.awslogs.data, "base64");
 
     return new Promise<DecodedLogGroupEvent>((resolve, reject) => {
-        zlib.gunzip(payload, function(err, result) {
+        zlib.gunzip(payload, function (err, result) {
             if (err) {
                 reject(err);
             } else {

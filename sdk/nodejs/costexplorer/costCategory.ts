@@ -92,7 +92,7 @@ export class CostCategory extends pulumi.CustomResource {
     /**
      * ARN of the cost category.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Default value for the cost category.
      */
@@ -100,13 +100,13 @@ export class CostCategory extends pulumi.CustomResource {
     /**
      * Effective end data of your Cost Category.
      */
-    public /*out*/ readonly effectiveEnd!: pulumi.Output<string>;
+    public /*out*/ readonly effectiveEnd!: pulumi.Output<string | undefined>;
     /**
      * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      *
      * The following arguments are optional:
      */
-    public readonly effectiveStart!: pulumi.Output<string>;
+    public readonly effectiveStart!: pulumi.Output<string | undefined>;
     /**
      * Unique name for the Cost Category.
      */

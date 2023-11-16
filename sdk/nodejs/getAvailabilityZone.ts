@@ -68,44 +68,44 @@ export interface GetAvailabilityZoneResult {
     /**
      * For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
      */
-    readonly groupName: string;
+    readonly groupName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly name: string;
+    readonly id?: string;
+    readonly name?: string;
     /**
      * Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
      * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
      * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
      */
-    readonly nameSuffix: string;
+    readonly nameSuffix?: string;
     /**
      * The name of the location from which the address is advertised.
      */
-    readonly networkBorderGroup: string;
+    readonly networkBorderGroup?: string;
     /**
      * For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
      */
-    readonly optInStatus: string;
+    readonly optInStatus?: string;
     /**
      * ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      */
-    readonly parentZoneId: string;
+    readonly parentZoneId?: string;
     /**
      * Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      */
-    readonly parentZoneName: string;
+    readonly parentZoneName?: string;
     /**
      * Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
      */
-    readonly region: string;
-    readonly state: string;
-    readonly zoneId: string;
+    readonly region?: string;
+    readonly state?: string;
+    readonly zoneId?: string;
     /**
      * Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
      */
-    readonly zoneType: string;
+    readonly zoneType?: string;
 }
 /**
  * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)

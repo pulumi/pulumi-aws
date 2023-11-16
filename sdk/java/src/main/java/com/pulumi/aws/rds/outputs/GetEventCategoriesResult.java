@@ -16,12 +16,12 @@ public final class GetEventCategoriesResult {
      * @return List of the event categories.
      * 
      */
-    private List<String> eventCategories;
+    private @Nullable List<String> eventCategories;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String sourceType;
 
     private GetEventCategoriesResult() {}
@@ -30,14 +30,14 @@ public final class GetEventCategoriesResult {
      * 
      */
     public List<String> eventCategories() {
-        return this.eventCategories;
+        return this.eventCategories == null ? List.of() : this.eventCategories;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> sourceType() {
         return Optional.ofNullable(this.sourceType);
@@ -52,8 +52,8 @@ public final class GetEventCategoriesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> eventCategories;
-        private String id;
+        private @Nullable List<String> eventCategories;
+        private @Nullable String id;
         private @Nullable String sourceType;
         public Builder() {}
         public Builder(GetEventCategoriesResult defaults) {
@@ -64,16 +64,16 @@ public final class GetEventCategoriesResult {
         }
 
         @CustomType.Setter
-        public Builder eventCategories(List<String> eventCategories) {
-            this.eventCategories = Objects.requireNonNull(eventCategories);
+        public Builder eventCategories(@Nullable List<String> eventCategories) {
+            this.eventCategories = eventCategories;
             return this;
         }
         public Builder eventCategories(String... eventCategories) {
             return eventCategories(List.of(eventCategories));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

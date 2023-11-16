@@ -59,7 +59,7 @@ type ResourceSet struct {
 	pulumi.CustomResourceState
 
 	// NLB resource ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Unique name describing the resource set.
 	ResourceSetName pulumi.StringOutput `pulumi:"resourceSetName"`
 	// Type of the resources in the resource set.
@@ -275,8 +275,8 @@ func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) R
 }
 
 // NLB resource ARN.
-func (o ResourceSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResourceSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Unique name describing the resource set.

@@ -197,14 +197,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the certificate
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN of an ACM PCA
@@ -255,14 +255,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
-    private Output<String> domainName;
+    private Output</* @Nullable */ String> domainName;
 
     /**
      * @return Fully qualified domain name (FQDN) in the certificate.
      * 
      */
-    public Output<String> domainName() {
-        return this.domainName;
+    public Output<Optional<String>> domainName() {
+        return Codegen.optional(this.domainName);
     }
     /**
      * Set of domain validation objects which can be used to complete certificate validation.
@@ -271,7 +271,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domainValidationOptions", refs={List.class,CertificateDomainValidationOption.class}, tree="[0,1]")
-    private Output<List<CertificateDomainValidationOption>> domainValidationOptions;
+    private Output</* @Nullable */ List<CertificateDomainValidationOption>> domainValidationOptions;
 
     /**
      * @return Set of domain validation objects which can be used to complete certificate validation.
@@ -279,8 +279,8 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Only set if `DNS`-validation was used.
      * 
      */
-    public Output<List<CertificateDomainValidationOption>> domainValidationOptions() {
-        return this.domainValidationOptions;
+    public Output<Optional<List<CertificateDomainValidationOption>>> domainValidationOptions() {
+        return Codegen.optional(this.domainValidationOptions);
     }
     /**
      * Amount of time to start automatic renewal process before expiration.
@@ -309,70 +309,70 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyAlgorithm", refs={String.class}, tree="[0]")
-    private Output<String> keyAlgorithm;
+    private Output</* @Nullable */ String> keyAlgorithm;
 
     /**
      * @return Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
      * 
      */
-    public Output<String> keyAlgorithm() {
-        return this.keyAlgorithm;
+    public Output<Optional<String>> keyAlgorithm() {
+        return Codegen.optional(this.keyAlgorithm);
     }
     /**
      * Expiration date and time of the certificate.
      * 
      */
     @Export(name="notAfter", refs={String.class}, tree="[0]")
-    private Output<String> notAfter;
+    private Output</* @Nullable */ String> notAfter;
 
     /**
      * @return Expiration date and time of the certificate.
      * 
      */
-    public Output<String> notAfter() {
-        return this.notAfter;
+    public Output<Optional<String>> notAfter() {
+        return Codegen.optional(this.notAfter);
     }
     /**
      * Start of the validity period of the certificate.
      * 
      */
     @Export(name="notBefore", refs={String.class}, tree="[0]")
-    private Output<String> notBefore;
+    private Output</* @Nullable */ String> notBefore;
 
     /**
      * @return Start of the validity period of the certificate.
      * 
      */
-    public Output<String> notBefore() {
-        return this.notBefore;
+    public Output<Optional<String>> notBefore() {
+        return Codegen.optional(this.notBefore);
     }
     /**
      * Configuration block used to set certificate options. Detailed below.
      * 
      */
     @Export(name="options", refs={CertificateOptions.class}, tree="[0]")
-    private Output<CertificateOptions> options;
+    private Output</* @Nullable */ CertificateOptions> options;
 
     /**
      * @return Configuration block used to set certificate options. Detailed below.
      * 
      */
-    public Output<CertificateOptions> options() {
-        return this.options;
+    public Output<Optional<CertificateOptions>> options() {
+        return Codegen.optional(this.options);
     }
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
      * 
      */
     @Export(name="pendingRenewal", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> pendingRenewal;
+    private Output</* @Nullable */ Boolean> pendingRenewal;
 
     /**
      * @return `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
      * 
      */
-    public Output<Boolean> pendingRenewal() {
-        return this.pendingRenewal;
+    public Output<Optional<Boolean>> pendingRenewal() {
+        return Codegen.optional(this.pendingRenewal);
     }
     /**
      * Certificate&#39;s PEM-formatted private key
@@ -393,42 +393,42 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="renewalEligibility", refs={String.class}, tree="[0]")
-    private Output<String> renewalEligibility;
+    private Output</* @Nullable */ String> renewalEligibility;
 
     /**
      * @return Whether the certificate is eligible for managed renewal.
      * 
      */
-    public Output<String> renewalEligibility() {
-        return this.renewalEligibility;
+    public Output<Optional<String>> renewalEligibility() {
+        return Codegen.optional(this.renewalEligibility);
     }
     /**
      * Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
      * 
      */
     @Export(name="renewalSummaries", refs={List.class,CertificateRenewalSummary.class}, tree="[0,1]")
-    private Output<List<CertificateRenewalSummary>> renewalSummaries;
+    private Output</* @Nullable */ List<CertificateRenewalSummary>> renewalSummaries;
 
     /**
      * @return Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
      * 
      */
-    public Output<List<CertificateRenewalSummary>> renewalSummaries() {
-        return this.renewalSummaries;
+    public Output<Optional<List<CertificateRenewalSummary>>> renewalSummaries() {
+        return Codegen.optional(this.renewalSummaries);
     }
     /**
      * Status of the certificate.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the certificate.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Set of domains that should be SANs in the issued certificate.
@@ -436,15 +436,15 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subjectAlternativeNames;
+    private Output</* @Nullable */ List<String>> subjectAlternativeNames;
 
     /**
      * @return Set of domains that should be SANs in the issued certificate.
      * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      * 
      */
-    public Output<List<String>> subjectAlternativeNames() {
-        return this.subjectAlternativeNames;
+    public Output<Optional<List<String>>> subjectAlternativeNames() {
+        return Codegen.optional(this.subjectAlternativeNames);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -483,42 +483,42 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return Source of the certificate.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
     /**
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      * 
      */
     @Export(name="validationEmails", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> validationEmails;
+    private Output</* @Nullable */ List<String>> validationEmails;
 
     /**
      * @return List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      * 
      */
-    public Output<List<String>> validationEmails() {
-        return this.validationEmails;
+    public Output<Optional<List<String>>> validationEmails() {
+        return Codegen.optional(this.validationEmails);
     }
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      * 
      */
     @Export(name="validationMethod", refs={String.class}, tree="[0]")
-    private Output<String> validationMethod;
+    private Output</* @Nullable */ String> validationMethod;
 
     /**
      * @return Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      * 
      */
-    public Output<String> validationMethod() {
-        return this.validationMethod;
+    public Output<Optional<String>> validationMethod() {
+        return Codegen.optional(this.validationMethod);
     }
     /**
      * Configuration block used to specify information about the initial validation of each domain name. Detailed below.

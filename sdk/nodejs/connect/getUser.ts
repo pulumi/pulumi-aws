@@ -76,45 +76,45 @@ export interface GetUserResult {
     /**
      * The Amazon Resource Name (ARN) of the User.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The identifier of the user account in the directory used for identity management.
      */
-    readonly directoryUserId: string;
+    readonly directoryUserId?: string;
     /**
      * The identifier of the hierarchy group for the user.
      */
-    readonly hierarchyGroupId: string;
+    readonly hierarchyGroupId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * A block that contains information about the identity of the user. Documented below.
      */
-    readonly identityInfos: outputs.connect.GetUserIdentityInfo[];
+    readonly identityInfos?: outputs.connect.GetUserIdentityInfo[];
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
     readonly instanceId: string;
-    readonly name: string;
+    readonly name?: string;
     /**
      * A block that contains information about the phone settings for the user. Documented below.
      */
-    readonly phoneConfigs: outputs.connect.GetUserPhoneConfig[];
+    readonly phoneConfigs?: outputs.connect.GetUserPhoneConfig[];
     /**
      * The identifier of the routing profile for the user.
      */
-    readonly routingProfileId: string;
+    readonly routingProfileId?: string;
     /**
      * A list of identifiers for the security profiles for the user.
      */
-    readonly securityProfileIds: string[];
+    readonly securityProfileIds?: string[];
     /**
      * A map of tags to assign to the User.
      */
-    readonly tags: {[key: string]: string};
-    readonly userId: string;
+    readonly tags?: {[key: string]: string};
+    readonly userId?: string;
 }
 /**
  * Provides details about a specific Amazon Connect User.

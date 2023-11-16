@@ -72,7 +72,7 @@ type ReportDefinition struct {
 	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements pulumi.StringArrayOutput `pulumi:"additionalSchemaElements"`
 	// The Amazon Resource Name (ARN) specifying the cur report.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
 	Compression pulumi.StringOutput `pulumi:"compression"`
 	// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
@@ -350,8 +350,8 @@ func (o ReportDefinitionOutput) AdditionalSchemaElements() pulumi.StringArrayOut
 }
 
 // The Amazon Resource Name (ARN) specifying the cur report.
-func (o ReportDefinitionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReportDefinitionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDefinition) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.

@@ -6,6 +6,8 @@ package com.pulumi.aws.budgets.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBudgetCalculatedSpendActualSpend {
@@ -13,27 +15,27 @@ public final class GetBudgetCalculatedSpendActualSpend {
      * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
      * 
      */
-    private String amount;
+    private @Nullable String amount;
     /**
      * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
      * 
      */
-    private String unit;
+    private @Nullable String unit;
 
     private GetBudgetCalculatedSpendActualSpend() {}
     /**
      * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
      * 
      */
-    public String amount() {
-        return this.amount;
+    public Optional<String> amount() {
+        return Optional.ofNullable(this.amount);
     }
     /**
      * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
      * 
      */
-    public String unit() {
-        return this.unit;
+    public Optional<String> unit() {
+        return Optional.ofNullable(this.unit);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetBudgetCalculatedSpendActualSpend {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String amount;
-        private String unit;
+        private @Nullable String amount;
+        private @Nullable String unit;
         public Builder() {}
         public Builder(GetBudgetCalculatedSpendActualSpend defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetBudgetCalculatedSpendActualSpend {
         }
 
         @CustomType.Setter
-        public Builder amount(String amount) {
-            this.amount = Objects.requireNonNull(amount);
+        public Builder amount(@Nullable String amount) {
+            this.amount = amount;
             return this;
         }
         @CustomType.Setter
-        public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+        public Builder unit(@Nullable String unit) {
+            this.unit = unit;
             return this;
         }
         public GetBudgetCalculatedSpendActualSpend build() {

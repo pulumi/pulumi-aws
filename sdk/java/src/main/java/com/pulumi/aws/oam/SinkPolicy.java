@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -93,14 +94,14 @@ public class SinkPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Sink.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
@@ -121,14 +122,14 @@ public class SinkPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sinkId", refs={String.class}, tree="[0]")
-    private Output<String> sinkId;
+    private Output</* @Nullable */ String> sinkId;
 
     /**
      * @return ID string that AWS generated as part of the sink ARN.
      * 
      */
-    public Output<String> sinkId() {
-        return this.sinkId;
+    public Output<Optional<String>> sinkId() {
+        return Codegen.optional(this.sinkId);
     }
     /**
      * ARN of the sink to attach this policy to.

@@ -48,7 +48,7 @@ class GetAccountPublicAccessBlockResult:
 
     @property
     @pulumi.getter(name="blockPublicAcls")
-    def block_public_acls(self) -> bool:
+    def block_public_acls(self) -> Optional[bool]:
         """
         Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
         """
@@ -56,7 +56,7 @@ class GetAccountPublicAccessBlockResult:
 
     @property
     @pulumi.getter(name="blockPublicPolicy")
-    def block_public_policy(self) -> bool:
+    def block_public_policy(self) -> Optional[bool]:
         """
         Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
         """
@@ -64,7 +64,7 @@ class GetAccountPublicAccessBlockResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -72,7 +72,7 @@ class GetAccountPublicAccessBlockResult:
 
     @property
     @pulumi.getter(name="ignorePublicAcls")
-    def ignore_public_acls(self) -> bool:
+    def ignore_public_acls(self) -> Optional[bool]:
         """
         Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
         """
@@ -80,7 +80,7 @@ class GetAccountPublicAccessBlockResult:
 
     @property
     @pulumi.getter(name="restrictPublicBuckets")
-    def restrict_public_buckets(self) -> bool:
+    def restrict_public_buckets(self) -> Optional[bool]:
         """
         Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
         """

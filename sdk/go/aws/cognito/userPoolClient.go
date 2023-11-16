@@ -159,7 +159,7 @@ import (
 //							pulumi.String("mobiletargeting:PutEvents"),
 //						},
 //						Resources: pulumi.StringArray{
-//							testApp.ApplicationId.ApplyT(func(applicationId string) (string, error) {
+//							testApp.ApplicationId.ApplyT(func(applicationId *string) (string, error) {
 //								return fmt.Sprintf("arn:aws:mobiletargeting:*:%v:apps/%v*", current.AccountId, applicationId), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -240,27 +240,27 @@ type UserPoolClient struct {
 	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
 	// By default, the unit is hours.
 	// The unit can be overridden by a value in `token_validity_units.access_token`.
-	AccessTokenValidity pulumi.IntOutput `pulumi:"accessTokenValidity"`
+	AccessTokenValidity pulumi.IntPtrOutput `pulumi:"accessTokenValidity"`
 	// List of allowed OAuth flows (code, implicit, client_credentials).
 	AllowedOauthFlows pulumi.StringArrayOutput `pulumi:"allowedOauthFlows"`
 	// Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-	AllowedOauthFlowsUserPoolClient pulumi.BoolOutput `pulumi:"allowedOauthFlowsUserPoolClient"`
+	AllowedOauthFlowsUserPoolClient pulumi.BoolPtrOutput `pulumi:"allowedOauthFlowsUserPoolClient"`
 	// List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
 	AllowedOauthScopes pulumi.StringArrayOutput `pulumi:"allowedOauthScopes"`
 	// Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
 	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrOutput `pulumi:"analyticsConfiguration"`
 	// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
-	AuthSessionValidity pulumi.IntOutput `pulumi:"authSessionValidity"`
+	AuthSessionValidity pulumi.IntPtrOutput `pulumi:"authSessionValidity"`
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls pulumi.StringArrayOutput `pulumi:"callbackUrls"`
 	// Client secret of the user pool client.
-	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
+	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
 	// Default redirect URI. Must be in the list of callback URLs.
-	DefaultRedirectUri pulumi.StringOutput `pulumi:"defaultRedirectUri"`
+	DefaultRedirectUri pulumi.StringPtrOutput `pulumi:"defaultRedirectUri"`
 	// Activates the propagation of additional user context data.
-	EnablePropagateAdditionalUserContextData pulumi.BoolOutput `pulumi:"enablePropagateAdditionalUserContextData"`
+	EnablePropagateAdditionalUserContextData pulumi.BoolPtrOutput `pulumi:"enablePropagateAdditionalUserContextData"`
 	// Enables or disables token revocation.
-	EnableTokenRevocation pulumi.BoolOutput `pulumi:"enableTokenRevocation"`
+	EnableTokenRevocation pulumi.BoolPtrOutput `pulumi:"enableTokenRevocation"`
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 	ExplicitAuthFlows pulumi.StringArrayOutput `pulumi:"explicitAuthFlows"`
 	// Should an application secret be generated.
@@ -268,19 +268,19 @@ type UserPoolClient struct {
 	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
 	// By default, the unit is hours.
 	// The unit can be overridden by a value in `token_validity_units.id_token`.
-	IdTokenValidity pulumi.IntOutput `pulumi:"idTokenValidity"`
+	IdTokenValidity pulumi.IntPtrOutput `pulumi:"idTokenValidity"`
 	// List of allowed logout URLs for the identity providers.
 	LogoutUrls pulumi.StringArrayOutput `pulumi:"logoutUrls"`
 	// Name of the application client.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-	PreventUserExistenceErrors pulumi.StringOutput `pulumi:"preventUserExistenceErrors"`
+	PreventUserExistenceErrors pulumi.StringPtrOutput `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes the application client can read from.
 	ReadAttributes pulumi.StringArrayOutput `pulumi:"readAttributes"`
 	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
 	// By default, the unit is days.
 	// The unit can be overridden by a value in `token_validity_units.refresh_token`.
-	RefreshTokenValidity pulumi.IntOutput `pulumi:"refreshTokenValidity"`
+	RefreshTokenValidity pulumi.IntPtrOutput `pulumi:"refreshTokenValidity"`
 	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders pulumi.StringArrayOutput `pulumi:"supportedIdentityProviders"`
 	// Configuration block for units in which the validity times are represented in. Detailed below.
@@ -648,8 +648,8 @@ func (o UserPoolClientOutput) ToUserPoolClientOutputWithContext(ctx context.Cont
 // Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
 // By default, the unit is hours.
 // The unit can be overridden by a value in `token_validity_units.access_token`.
-func (o UserPoolClientOutput) AccessTokenValidity() pulumi.IntOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.IntOutput { return v.AccessTokenValidity }).(pulumi.IntOutput)
+func (o UserPoolClientOutput) AccessTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.AccessTokenValidity }).(pulumi.IntPtrOutput)
 }
 
 // List of allowed OAuth flows (code, implicit, client_credentials).
@@ -658,8 +658,8 @@ func (o UserPoolClientOutput) AllowedOauthFlows() pulumi.StringArrayOutput {
 }
 
 // Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-func (o UserPoolClientOutput) AllowedOauthFlowsUserPoolClient() pulumi.BoolOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolOutput { return v.AllowedOauthFlowsUserPoolClient }).(pulumi.BoolOutput)
+func (o UserPoolClientOutput) AllowedOauthFlowsUserPoolClient() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolPtrOutput { return v.AllowedOauthFlowsUserPoolClient }).(pulumi.BoolPtrOutput)
 }
 
 // List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
@@ -673,8 +673,8 @@ func (o UserPoolClientOutput) AnalyticsConfiguration() UserPoolClientAnalyticsCo
 }
 
 // Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
-func (o UserPoolClientOutput) AuthSessionValidity() pulumi.IntOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.IntOutput { return v.AuthSessionValidity }).(pulumi.IntOutput)
+func (o UserPoolClientOutput) AuthSessionValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.AuthSessionValidity }).(pulumi.IntPtrOutput)
 }
 
 // List of allowed callback URLs for the identity providers.
@@ -683,23 +683,23 @@ func (o UserPoolClientOutput) CallbackUrls() pulumi.StringArrayOutput {
 }
 
 // Client secret of the user pool client.
-func (o UserPoolClientOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+func (o UserPoolClientOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 // Default redirect URI. Must be in the list of callback URLs.
-func (o UserPoolClientOutput) DefaultRedirectUri() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.DefaultRedirectUri }).(pulumi.StringOutput)
+func (o UserPoolClientOutput) DefaultRedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringPtrOutput { return v.DefaultRedirectUri }).(pulumi.StringPtrOutput)
 }
 
 // Activates the propagation of additional user context data.
-func (o UserPoolClientOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolOutput { return v.EnablePropagateAdditionalUserContextData }).(pulumi.BoolOutput)
+func (o UserPoolClientOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolPtrOutput { return v.EnablePropagateAdditionalUserContextData }).(pulumi.BoolPtrOutput)
 }
 
 // Enables or disables token revocation.
-func (o UserPoolClientOutput) EnableTokenRevocation() pulumi.BoolOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolOutput { return v.EnableTokenRevocation }).(pulumi.BoolOutput)
+func (o UserPoolClientOutput) EnableTokenRevocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolPtrOutput { return v.EnableTokenRevocation }).(pulumi.BoolPtrOutput)
 }
 
 // List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
@@ -715,8 +715,8 @@ func (o UserPoolClientOutput) GenerateSecret() pulumi.BoolPtrOutput {
 // Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
 // By default, the unit is hours.
 // The unit can be overridden by a value in `token_validity_units.id_token`.
-func (o UserPoolClientOutput) IdTokenValidity() pulumi.IntOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.IntOutput { return v.IdTokenValidity }).(pulumi.IntOutput)
+func (o UserPoolClientOutput) IdTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.IdTokenValidity }).(pulumi.IntPtrOutput)
 }
 
 // List of allowed logout URLs for the identity providers.
@@ -730,8 +730,8 @@ func (o UserPoolClientOutput) Name() pulumi.StringOutput {
 }
 
 // Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-func (o UserPoolClientOutput) PreventUserExistenceErrors() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.PreventUserExistenceErrors }).(pulumi.StringOutput)
+func (o UserPoolClientOutput) PreventUserExistenceErrors() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringPtrOutput { return v.PreventUserExistenceErrors }).(pulumi.StringPtrOutput)
 }
 
 // List of user pool attributes the application client can read from.
@@ -742,8 +742,8 @@ func (o UserPoolClientOutput) ReadAttributes() pulumi.StringArrayOutput {
 // Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
 // By default, the unit is days.
 // The unit can be overridden by a value in `token_validity_units.refresh_token`.
-func (o UserPoolClientOutput) RefreshTokenValidity() pulumi.IntOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.IntOutput { return v.RefreshTokenValidity }).(pulumi.IntOutput)
+func (o UserPoolClientOutput) RefreshTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.RefreshTokenValidity }).(pulumi.IntPtrOutput)
 }
 
 // List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).

@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFindingIdsResult {
@@ -16,13 +18,13 @@ public final class GetFindingIdsResult {
      * @return A list of finding IDs for the specified detector.
      * 
      */
-    private List<String> findingIds;
+    private @Nullable List<String> findingIds;
     /**
      * @return Indicates whether findings are present for the specified detector.
      * 
      */
-    private Boolean hasFindings;
-    private String id;
+    private @Nullable Boolean hasFindings;
+    private @Nullable String id;
 
     private GetFindingIdsResult() {}
     public String detectorId() {
@@ -33,17 +35,17 @@ public final class GetFindingIdsResult {
      * 
      */
     public List<String> findingIds() {
-        return this.findingIds;
+        return this.findingIds == null ? List.of() : this.findingIds;
     }
     /**
      * @return Indicates whether findings are present for the specified detector.
      * 
      */
-    public Boolean hasFindings() {
-        return this.hasFindings;
+    public Optional<Boolean> hasFindings() {
+        return Optional.ofNullable(this.hasFindings);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -56,9 +58,9 @@ public final class GetFindingIdsResult {
     @CustomType.Builder
     public static final class Builder {
         private String detectorId;
-        private List<String> findingIds;
-        private Boolean hasFindings;
-        private String id;
+        private @Nullable List<String> findingIds;
+        private @Nullable Boolean hasFindings;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetFindingIdsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -74,21 +76,21 @@ public final class GetFindingIdsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder findingIds(List<String> findingIds) {
-            this.findingIds = Objects.requireNonNull(findingIds);
+        public Builder findingIds(@Nullable List<String> findingIds) {
+            this.findingIds = findingIds;
             return this;
         }
         public Builder findingIds(String... findingIds) {
             return findingIds(List.of(findingIds));
         }
         @CustomType.Setter
-        public Builder hasFindings(Boolean hasFindings) {
-            this.hasFindings = Objects.requireNonNull(hasFindings);
+        public Builder hasFindings(@Nullable Boolean hasFindings) {
+            this.hasFindings = hasFindings;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetFindingIdsResult build() {

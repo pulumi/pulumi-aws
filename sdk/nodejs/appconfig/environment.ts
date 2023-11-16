@@ -78,15 +78,15 @@ export class Environment extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig Environment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the environment. Can be at most 1024 characters.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * AppConfig environment ID.
      */
-    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    public /*out*/ readonly environmentId!: pulumi.Output<string | undefined>;
     /**
      * Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
      */
@@ -99,7 +99,7 @@ export class Environment extends pulumi.CustomResource {
      * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
      * or `ROLLED_BACK`.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

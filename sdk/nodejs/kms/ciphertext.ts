@@ -61,7 +61,7 @@ export class Ciphertext extends pulumi.CustomResource {
     /**
      * Base64 encoded ciphertext
      */
-    public /*out*/ readonly ciphertextBlob!: pulumi.Output<string>;
+    public /*out*/ readonly ciphertextBlob!: pulumi.Output<string | undefined>;
     /**
      * An optional mapping that makes up the encryption context.
      */

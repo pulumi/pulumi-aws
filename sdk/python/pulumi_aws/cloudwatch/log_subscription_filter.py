@@ -419,7 +419,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Output[str]:
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         """

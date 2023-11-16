@@ -116,35 +116,35 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     /**
      * The ARN of the ElastiCache Global Replication Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A flag that indicate whether the encryption at rest is enabled.
      */
-    public /*out*/ readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
+    public /*out*/ readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A flag that indicate whether AuthToken (password) is enabled.
      */
-    public /*out*/ readonly authTokenEnabled!: pulumi.Output<boolean>;
+    public /*out*/ readonly authTokenEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
      * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
      */
-    public readonly automaticFailoverEnabled!: pulumi.Output<boolean>;
+    public readonly automaticFailoverEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The instance class used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
      * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
      * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      */
-    public readonly cacheNodeType!: pulumi.Output<string>;
+    public readonly cacheNodeType!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the Global Datastore is cluster enabled.
      */
-    public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
+    public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the cache engine to be used for the clusters in this global replication group.
      */
-    public /*out*/ readonly engine!: pulumi.Output<string>;
+    public /*out*/ readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Redis version to use for the Global Replication Group.
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
@@ -155,16 +155,16 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * The full version number of the cache engine running on the members of this global replication group.
      */
-    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string | undefined>;
     /**
      * Set of node groups (shards) on the global replication group.
      * Has the values:
      */
-    public /*out*/ readonly globalNodeGroups!: pulumi.Output<outputs.elasticache.GlobalReplicationGroupGlobalNodeGroup[]>;
+    public /*out*/ readonly globalNodeGroups!: pulumi.Output<outputs.elasticache.GlobalReplicationGroupGlobalNodeGroup[] | undefined>;
     /**
      * A user-created description for the global replication group.
      */
@@ -172,7 +172,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     /**
      * The full ID of the global replication group.
      */
-    public /*out*/ readonly globalReplicationGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly globalReplicationGroupId!: pulumi.Output<string | undefined>;
     /**
      * The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
      */
@@ -180,7 +180,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     /**
      * The number of node groups (shards) on the global replication group.
      */
-    public readonly numNodeGroups!: pulumi.Output<number>;
+    public readonly numNodeGroups!: pulumi.Output<number | undefined>;
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
      * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
@@ -195,7 +195,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     /**
      * A flag that indicates whether the encryption in transit is enabled.
      */
-    public /*out*/ readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
+    public /*out*/ readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GlobalReplicationGroup resource with the given unique name, arguments, and options.

@@ -45,20 +45,20 @@ export interface GetDetectorResult {
     /**
      * Current configuration of the detector features.
      */
-    readonly features: outputs.guardduty.GetDetectorFeature[];
+    readonly features?: outputs.guardduty.GetDetectorFeature[];
     /**
      * The frequency of notifications sent about subsequent finding occurrences.
      */
-    readonly findingPublishingFrequency: string;
-    readonly id: string;
+    readonly findingPublishingFrequency?: string;
+    readonly id?: string;
     /**
      * Service-linked role that grants GuardDuty access to the resources in the AWS account.
      */
-    readonly serviceRoleArn: string;
+    readonly serviceRoleArn?: string;
     /**
      * Current status of the detector.
      */
-    readonly status: string;
+    readonly status?: string;
 }
 /**
  * Retrieve information about a GuardDuty detector.

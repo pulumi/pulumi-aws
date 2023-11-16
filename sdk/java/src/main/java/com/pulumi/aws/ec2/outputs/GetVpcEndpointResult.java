@@ -12,6 +12,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -20,199 +21,199 @@ public final class GetVpcEndpointResult {
      * @return ARN of the VPC endpoint.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    private List<String> cidrBlocks;
+    private @Nullable List<String> cidrBlocks;
     /**
      * @return DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
      * 
      */
-    private List<GetVpcEndpointDnsEntry> dnsEntries;
+    private @Nullable List<GetVpcEndpointDnsEntry> dnsEntries;
     /**
      * @return DNS options for the VPC Endpoint. DNS options blocks are documented below.
      * 
      */
-    private List<GetVpcEndpointDnsOption> dnsOptions;
+    private @Nullable List<GetVpcEndpointDnsOption> dnsOptions;
     private @Nullable List<GetVpcEndpointFilter> filters;
-    private String id;
-    private String ipAddressType;
+    private @Nullable String id;
+    private @Nullable String ipAddressType;
     /**
      * @return One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      * 
      */
-    private List<String> networkInterfaceIds;
+    private @Nullable List<String> networkInterfaceIds;
     /**
      * @return ID of the AWS account that owns the VPC endpoint.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     /**
      * @return Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      * 
      */
-    private String policy;
+    private @Nullable String policy;
     /**
      * @return Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    private String prefixListId;
+    private @Nullable String prefixListId;
     /**
      * @return Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
      * 
      */
-    private Boolean privateDnsEnabled;
+    private @Nullable Boolean privateDnsEnabled;
     /**
      * @return Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      * 
      */
-    private Boolean requesterManaged;
+    private @Nullable Boolean requesterManaged;
     /**
      * @return One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      * 
      */
-    private List<String> routeTableIds;
+    private @Nullable List<String> routeTableIds;
     /**
      * @return One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
      * 
      */
-    private List<String> securityGroupIds;
-    private String serviceName;
-    private String state;
+    private @Nullable List<String> securityGroupIds;
+    private @Nullable String serviceName;
+    private @Nullable String state;
     /**
      * @return One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
      * 
      */
-    private List<String> subnetIds;
-    private Map<String,String> tags;
+    private @Nullable List<String> subnetIds;
+    private @Nullable Map<String,String> tags;
     /**
      * @return VPC Endpoint type, `Gateway` or `Interface`.
      * 
      */
-    private String vpcEndpointType;
-    private String vpcId;
+    private @Nullable String vpcEndpointType;
+    private @Nullable String vpcId;
 
     private GetVpcEndpointResult() {}
     /**
      * @return ARN of the VPC endpoint.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     public List<String> cidrBlocks() {
-        return this.cidrBlocks;
+        return this.cidrBlocks == null ? List.of() : this.cidrBlocks;
     }
     /**
      * @return DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
      * 
      */
     public List<GetVpcEndpointDnsEntry> dnsEntries() {
-        return this.dnsEntries;
+        return this.dnsEntries == null ? List.of() : this.dnsEntries;
     }
     /**
      * @return DNS options for the VPC Endpoint. DNS options blocks are documented below.
      * 
      */
     public List<GetVpcEndpointDnsOption> dnsOptions() {
-        return this.dnsOptions;
+        return this.dnsOptions == null ? List.of() : this.dnsOptions;
     }
     public List<GetVpcEndpointFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String ipAddressType() {
-        return this.ipAddressType;
+    public Optional<String> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
     }
     /**
      * @return One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      * 
      */
     public List<String> networkInterfaceIds() {
-        return this.networkInterfaceIds;
+        return this.networkInterfaceIds == null ? List.of() : this.networkInterfaceIds;
     }
     /**
      * @return ID of the AWS account that owns the VPC endpoint.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
      * @return Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      * 
      */
-    public String policy() {
-        return this.policy;
+    public Optional<String> policy() {
+        return Optional.ofNullable(this.policy);
     }
     /**
      * @return Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    public String prefixListId() {
-        return this.prefixListId;
+    public Optional<String> prefixListId() {
+        return Optional.ofNullable(this.prefixListId);
     }
     /**
      * @return Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
      * 
      */
-    public Boolean privateDnsEnabled() {
-        return this.privateDnsEnabled;
+    public Optional<Boolean> privateDnsEnabled() {
+        return Optional.ofNullable(this.privateDnsEnabled);
     }
     /**
      * @return Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      * 
      */
-    public Boolean requesterManaged() {
-        return this.requesterManaged;
+    public Optional<Boolean> requesterManaged() {
+        return Optional.ofNullable(this.requesterManaged);
     }
     /**
      * @return One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      * 
      */
     public List<String> routeTableIds() {
-        return this.routeTableIds;
+        return this.routeTableIds == null ? List.of() : this.routeTableIds;
     }
     /**
      * @return One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
      * 
      */
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    public String serviceName() {
-        return this.serviceName;
+    public Optional<String> serviceName() {
+        return Optional.ofNullable(this.serviceName);
     }
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return VPC Endpoint type, `Gateway` or `Interface`.
      * 
      */
-    public String vpcEndpointType() {
-        return this.vpcEndpointType;
+    public Optional<String> vpcEndpointType() {
+        return Optional.ofNullable(this.vpcEndpointType);
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -224,27 +225,27 @@ public final class GetVpcEndpointResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<String> cidrBlocks;
-        private List<GetVpcEndpointDnsEntry> dnsEntries;
-        private List<GetVpcEndpointDnsOption> dnsOptions;
+        private @Nullable String arn;
+        private @Nullable List<String> cidrBlocks;
+        private @Nullable List<GetVpcEndpointDnsEntry> dnsEntries;
+        private @Nullable List<GetVpcEndpointDnsOption> dnsOptions;
         private @Nullable List<GetVpcEndpointFilter> filters;
-        private String id;
-        private String ipAddressType;
-        private List<String> networkInterfaceIds;
-        private String ownerId;
-        private String policy;
-        private String prefixListId;
-        private Boolean privateDnsEnabled;
-        private Boolean requesterManaged;
-        private List<String> routeTableIds;
-        private List<String> securityGroupIds;
-        private String serviceName;
-        private String state;
-        private List<String> subnetIds;
-        private Map<String,String> tags;
-        private String vpcEndpointType;
-        private String vpcId;
+        private @Nullable String id;
+        private @Nullable String ipAddressType;
+        private @Nullable List<String> networkInterfaceIds;
+        private @Nullable String ownerId;
+        private @Nullable String policy;
+        private @Nullable String prefixListId;
+        private @Nullable Boolean privateDnsEnabled;
+        private @Nullable Boolean requesterManaged;
+        private @Nullable List<String> routeTableIds;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable String serviceName;
+        private @Nullable String state;
+        private @Nullable List<String> subnetIds;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vpcEndpointType;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetVpcEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -272,29 +273,29 @@ public final class GetVpcEndpointResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder cidrBlocks(List<String> cidrBlocks) {
-            this.cidrBlocks = Objects.requireNonNull(cidrBlocks);
+        public Builder cidrBlocks(@Nullable List<String> cidrBlocks) {
+            this.cidrBlocks = cidrBlocks;
             return this;
         }
         public Builder cidrBlocks(String... cidrBlocks) {
             return cidrBlocks(List.of(cidrBlocks));
         }
         @CustomType.Setter
-        public Builder dnsEntries(List<GetVpcEndpointDnsEntry> dnsEntries) {
-            this.dnsEntries = Objects.requireNonNull(dnsEntries);
+        public Builder dnsEntries(@Nullable List<GetVpcEndpointDnsEntry> dnsEntries) {
+            this.dnsEntries = dnsEntries;
             return this;
         }
         public Builder dnsEntries(GetVpcEndpointDnsEntry... dnsEntries) {
             return dnsEntries(List.of(dnsEntries));
         }
         @CustomType.Setter
-        public Builder dnsOptions(List<GetVpcEndpointDnsOption> dnsOptions) {
-            this.dnsOptions = Objects.requireNonNull(dnsOptions);
+        public Builder dnsOptions(@Nullable List<GetVpcEndpointDnsOption> dnsOptions) {
+            this.dnsOptions = dnsOptions;
             return this;
         }
         public Builder dnsOptions(GetVpcEndpointDnsOption... dnsOptions) {
@@ -309,95 +310,95 @@ public final class GetVpcEndpointResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddressType(String ipAddressType) {
-            this.ipAddressType = Objects.requireNonNull(ipAddressType);
+        public Builder ipAddressType(@Nullable String ipAddressType) {
+            this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceIds(List<String> networkInterfaceIds) {
-            this.networkInterfaceIds = Objects.requireNonNull(networkInterfaceIds);
+        public Builder networkInterfaceIds(@Nullable List<String> networkInterfaceIds) {
+            this.networkInterfaceIds = networkInterfaceIds;
             return this;
         }
         public Builder networkInterfaceIds(String... networkInterfaceIds) {
             return networkInterfaceIds(List.of(networkInterfaceIds));
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+        public Builder policy(@Nullable String policy) {
+            this.policy = policy;
             return this;
         }
         @CustomType.Setter
-        public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+        public Builder prefixListId(@Nullable String prefixListId) {
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
-        public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
-            this.privateDnsEnabled = Objects.requireNonNull(privateDnsEnabled);
+        public Builder privateDnsEnabled(@Nullable Boolean privateDnsEnabled) {
+            this.privateDnsEnabled = privateDnsEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder requesterManaged(Boolean requesterManaged) {
-            this.requesterManaged = Objects.requireNonNull(requesterManaged);
+        public Builder requesterManaged(@Nullable Boolean requesterManaged) {
+            this.requesterManaged = requesterManaged;
             return this;
         }
         @CustomType.Setter
-        public Builder routeTableIds(List<String> routeTableIds) {
-            this.routeTableIds = Objects.requireNonNull(routeTableIds);
+        public Builder routeTableIds(@Nullable List<String> routeTableIds) {
+            this.routeTableIds = routeTableIds;
             return this;
         }
         public Builder routeTableIds(String... routeTableIds) {
             return routeTableIds(List.of(routeTableIds));
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+        public Builder serviceName(@Nullable String serviceName) {
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcEndpointType(String vpcEndpointType) {
-            this.vpcEndpointType = Objects.requireNonNull(vpcEndpointType);
+        public Builder vpcEndpointType(@Nullable String vpcEndpointType) {
+            this.vpcEndpointType = vpcEndpointType;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetVpcEndpointResult build() {

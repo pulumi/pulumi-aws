@@ -56,20 +56,20 @@ export interface GetUserResult {
     /**
      * List of details about the user's address.
      */
-    readonly addresses: outputs.identitystore.GetUserAddress[];
+    readonly addresses?: outputs.identitystore.GetUserAddress[];
     readonly alternateIdentifier?: outputs.identitystore.GetUserAlternateIdentifier;
     /**
      * The name that is typically displayed when the user is referenced.
      */
-    readonly displayName: string;
+    readonly displayName?: string;
     /**
      * List of details about the user's email.
      */
-    readonly emails: outputs.identitystore.GetUserEmail[];
+    readonly emails?: outputs.identitystore.GetUserEmail[];
     /**
      * List of identifiers issued to this resource by an external identity provider.
      */
-    readonly externalIds: outputs.identitystore.GetUserExternalId[];
+    readonly externalIds?: outputs.identitystore.GetUserExternalId[];
     /**
      * @deprecated Use the alternate_identifier attribute instead.
      */
@@ -77,49 +77,49 @@ export interface GetUserResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly identityStoreId: string;
     /**
      * The user's geographical region or location.
      */
-    readonly locale: string;
+    readonly locale?: string;
     /**
      * Details about the user's full name.
      */
-    readonly names: outputs.identitystore.GetUserName[];
+    readonly names?: outputs.identitystore.GetUserName[];
     /**
      * An alternate name for the user.
      */
-    readonly nickname: string;
+    readonly nickname?: string;
     /**
      * List of details about the user's phone number.
      */
-    readonly phoneNumbers: outputs.identitystore.GetUserPhoneNumber[];
+    readonly phoneNumbers?: outputs.identitystore.GetUserPhoneNumber[];
     /**
      * The preferred language of the user.
      */
-    readonly preferredLanguage: string;
+    readonly preferredLanguage?: string;
     /**
      * An URL that may be associated with the user.
      */
-    readonly profileUrl: string;
+    readonly profileUrl?: string;
     /**
      * The user's time zone.
      */
-    readonly timezone: string;
+    readonly timezone?: string;
     /**
      * The user's title.
      */
-    readonly title: string;
-    readonly userId: string;
+    readonly title?: string;
+    readonly userId?: string;
     /**
      * User's user name value.
      */
-    readonly userName: string;
+    readonly userName?: string;
     /**
      * The user type.
      */
-    readonly userType: string;
+    readonly userType?: string;
 }
 /**
  * Use this data source to get an Identity Store User.

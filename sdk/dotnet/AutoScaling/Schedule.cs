@@ -68,7 +68,7 @@ namespace Pulumi.Aws.AutoScaling
         /// ARN assigned by AWS to the autoscaling schedule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Auto Scaling group.
@@ -80,31 +80,31 @@ namespace Pulumi.Aws.AutoScaling
         /// The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
         /// </summary>
         [Output("desiredCapacity")]
-        public Output<int> DesiredCapacity { get; private set; } = null!;
+        public Output<int?> DesiredCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         /// </summary>
         [Output("endTime")]
-        public Output<string> EndTime { get; private set; } = null!;
+        public Output<string?> EndTime { get; private set; } = null!;
 
         /// <summary>
         /// The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
         /// </summary>
         [Output("maxSize")]
-        public Output<int> MaxSize { get; private set; } = null!;
+        public Output<int?> MaxSize { get; private set; } = null!;
 
         /// <summary>
         /// The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         /// </summary>
         [Output("minSize")]
-        public Output<int> MinSize { get; private set; } = null!;
+        public Output<int?> MinSize { get; private set; } = null!;
 
         /// <summary>
         /// The recurring schedule for this action specified using the Unix cron syntax format.
         /// </summary>
         [Output("recurrence")]
-        public Output<string> Recurrence { get; private set; } = null!;
+        public Output<string?> Recurrence { get; private set; } = null!;
 
         /// <summary>
         /// The name of this scaling action.
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.AutoScaling
         /// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         /// </summary>
         [Output("startTime")]
-        public Output<string> StartTime { get; private set; } = null!;
+        public Output<string?> StartTime { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.AutoScaling
         /// &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         /// </summary>
         [Output("timeZone")]
-        public Output<string> TimeZone { get; private set; } = null!;
+        public Output<string?> TimeZone { get; private set; } = null!;
 
 
         /// <summary>

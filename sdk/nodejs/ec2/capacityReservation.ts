@@ -63,7 +63,7 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The ARN of the Capacity Reservation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
@@ -107,7 +107,7 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the Capacity Reservation.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
      */

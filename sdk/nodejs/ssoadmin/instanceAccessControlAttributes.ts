@@ -54,8 +54,8 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
     public readonly instanceArn!: pulumi.Output<string>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string | undefined>;
 
     /**
      * Create a InstanceAccessControlAttributes resource with the given unique name, arguments, and options.

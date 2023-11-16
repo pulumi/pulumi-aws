@@ -559,7 +559,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN assigned by AWS to the autoscaling schedule.
         """
@@ -575,7 +575,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="desiredCapacity")
-    def desired_capacity(self) -> pulumi.Output[int]:
+    def desired_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
         """
@@ -583,7 +583,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> pulumi.Output[str]:
+    def end_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         """
@@ -591,7 +591,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> pulumi.Output[int]:
+    def max_size(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
         """
@@ -599,7 +599,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> pulumi.Output[int]:
+    def min_size(self) -> pulumi.Output[Optional[int]]:
         """
         The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         """
@@ -607,7 +607,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def recurrence(self) -> pulumi.Output[str]:
+    def recurrence(self) -> pulumi.Output[Optional[str]]:
         """
         The recurring schedule for this action specified using the Unix cron syntax format.
         """
@@ -625,7 +625,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> pulumi.Output[str]:
+    def start_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         """
@@ -633,7 +633,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> pulumi.Output[str]:
+    def time_zone(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
 

@@ -53,7 +53,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The ID of Cloud HSM v2 cluster to which HSM will be added.
@@ -65,31 +65,31 @@ namespace Pulumi.Aws.CloudHsmV2
         /// The id of the ENI interface allocated for HSM module.
         /// </summary>
         [Output("hsmEniId")]
-        public Output<string> HsmEniId { get; private set; } = null!;
+        public Output<string?> HsmEniId { get; private set; } = null!;
 
         /// <summary>
         /// The id of the HSM module.
         /// </summary>
         [Output("hsmId")]
-        public Output<string> HsmId { get; private set; } = null!;
+        public Output<string?> HsmId { get; private set; } = null!;
 
         /// <summary>
         /// The state of the HSM module.
         /// </summary>
         [Output("hsmState")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
         /// </summary>
         [Output("ipAddress")]
-        public Output<string> IpAddress { get; private set; } = null!;
+        public Output<string?> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         /// </summary>
         [Output("subnetId")]
-        public Output<string> SubnetId { get; private set; } = null!;
+        public Output<string?> SubnetId { get; private set; } = null!;
 
 
         /// <summary>

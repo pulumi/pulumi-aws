@@ -63,7 +63,7 @@ namespace Pulumi.Aws.MskConnect
         /// the Amazon Resource Name (ARN) of the custom plugin.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.MskConnect
         /// an ID of the latest successfully created revision of the custom plugin.
         /// </summary>
         [Output("latestRevision")]
-        public Output<int> LatestRevision { get; private set; } = null!;
+        public Output<int?> LatestRevision { get; private set; } = null!;
 
         /// <summary>
         /// Information about the location of a custom plugin. See below.
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.MskConnect
         /// the state of the custom plugin.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
 
         /// <summary>

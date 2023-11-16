@@ -84,7 +84,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The ARN of the created WorkLink Fleet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
      */
@@ -92,11 +92,11 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The identifier used by users to sign in to the Amazon WorkLink app.
      */
-    public /*out*/ readonly companyCode!: pulumi.Output<string>;
+    public /*out*/ readonly companyCode!: pulumi.Output<string | undefined>;
     /**
      * The time that the fleet was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
      */
@@ -112,7 +112,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The time that the fleet was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * A region-unique name for the AMI.
      */

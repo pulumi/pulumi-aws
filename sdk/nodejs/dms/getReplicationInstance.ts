@@ -45,69 +45,69 @@ export interface GetReplicationInstanceResult {
     /**
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
-    readonly allocatedStorage: number;
+    readonly allocatedStorage?: number;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      */
-    readonly autoMinorVersionUpgrade: boolean;
+    readonly autoMinorVersionUpgrade?: boolean;
     /**
      * The EC2 Availability Zone that the replication instance will be created in.
      */
-    readonly availabilityZone: string;
+    readonly availabilityZone?: string;
     /**
      * The engine version number of the replication instance.
      */
-    readonly engineVersion: string;
+    readonly engineVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
      */
-    readonly kmsKeyArn: string;
+    readonly kmsKeyArn?: string;
     /**
      * Specifies if the replication instance is a multi-az deployment.
      */
-    readonly multiAz: boolean;
+    readonly multiAz?: boolean;
     /**
      * The type of IP address protocol used by the replication instance.
      */
-    readonly networkType: string;
+    readonly networkType?: string;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
-    readonly preferredMaintenanceWindow: string;
+    readonly preferredMaintenanceWindow?: string;
     /**
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      */
-    readonly publiclyAccessible: boolean;
+    readonly publiclyAccessible?: boolean;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
-    readonly replicationInstanceArn: string;
+    readonly replicationInstanceArn?: string;
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
      */
-    readonly replicationInstanceClass: string;
+    readonly replicationInstanceClass?: string;
     readonly replicationInstanceId: string;
     /**
      * A list of the private IP addresses of the replication instance.
      */
-    readonly replicationInstancePrivateIps: string[];
+    readonly replicationInstancePrivateIps?: string[];
     /**
      * A list of the public IP addresses of the replication instance.
      */
-    readonly replicationInstancePublicIps: string[];
+    readonly replicationInstancePublicIps?: string[];
     /**
      * A subnet group to associate with the replication instance.
      */
-    readonly replicationSubnetGroupId: string;
-    readonly tags: {[key: string]: string};
+    readonly replicationSubnetGroupId?: string;
+    readonly tags?: {[key: string]: string};
     /**
      * A set of VPC security group IDs that are used with the replication instance.
      */
-    readonly vpcSecurityGroupIds: string[];
+    readonly vpcSecurityGroupIds?: string[];
 }
 /**
  * Data source for managing an AWS DMS (Database Migration) Replication Instance.

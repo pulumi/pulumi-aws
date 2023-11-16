@@ -49,7 +49,7 @@ namespace Pulumi.Aws.MskConnect
         /// the Amazon Resource Name (ARN) of the worker configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A summary description of the worker configuration.
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.MskConnect
         /// an ID of the latest successfully created revision of the worker configuration.
         /// </summary>
         [Output("latestRevision")]
-        public Output<int> LatestRevision { get; private set; } = null!;
+        public Output<int?> LatestRevision { get; private set; } = null!;
 
         /// <summary>
         /// The name of the worker configuration.

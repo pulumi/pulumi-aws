@@ -71,19 +71,19 @@ namespace Pulumi.Aws.ImageBuilder
         /// Amazon Resource Name (ARN) of the configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Date when the configuration was created.
         /// </summary>
         [Output("dateCreated")]
-        public Output<string> DateCreated { get; private set; } = null!;
+        public Output<string?> DateCreated { get; private set; } = null!;
 
         /// <summary>
         /// Date when the configuration was updated.
         /// </summary>
         [Output("dateUpdated")]
-        public Output<string> DateUpdated { get; private set; } = null!;
+        public Output<string?> DateUpdated { get; private set; } = null!;
 
         /// <summary>
         /// Description for the configuration.

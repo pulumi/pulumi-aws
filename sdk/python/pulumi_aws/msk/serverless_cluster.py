@@ -346,7 +346,7 @@ class ServerlessCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the serverless cluster.
         """
@@ -370,7 +370,7 @@ class ServerlessCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterUuid")
-    def cluster_uuid(self) -> pulumi.Output[str]:
+    def cluster_uuid(self) -> pulumi.Output[Optional[str]]:
         """
         UUID of the serverless cluster, for use in IAM policies.
         """

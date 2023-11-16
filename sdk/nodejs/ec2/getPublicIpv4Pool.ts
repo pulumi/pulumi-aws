@@ -52,30 +52,30 @@ export interface GetPublicIpv4PoolResult {
     /**
      * Description of the pool, if any.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the location from which the address pool is advertised.
      * * poolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
      */
-    readonly networkBorderGroup: string;
-    readonly poolAddressRanges: outputs.ec2.GetPublicIpv4PoolPoolAddressRange[];
+    readonly networkBorderGroup?: string;
+    readonly poolAddressRanges?: outputs.ec2.GetPublicIpv4PoolPoolAddressRange[];
     readonly poolId: string;
     /**
      * Any tags for the address pool.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Total number of addresses in the pool.
      */
-    readonly totalAddressCount: number;
+    readonly totalAddressCount?: number;
     /**
      * Total number of available addresses in the pool.
      */
-    readonly totalAvailableAddressCount: number;
+    readonly totalAvailableAddressCount?: number;
 }
 /**
  * Provides details about a specific AWS EC2 Public IPv4 Pool.

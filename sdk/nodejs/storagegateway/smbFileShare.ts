@@ -89,7 +89,7 @@ export class SmbFileShare extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the SMB File Share.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
      */
@@ -117,11 +117,11 @@ export class SmbFileShare extends pulumi.CustomResource {
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
      */
-    public readonly fileShareName!: pulumi.Output<string>;
+    public readonly fileShareName!: pulumi.Output<string | undefined>;
     /**
      * ID of the SMB File Share.
      */
-    public /*out*/ readonly fileshareId!: pulumi.Output<string>;
+    public /*out*/ readonly fileshareId!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */
@@ -157,11 +157,11 @@ export class SmbFileShare extends pulumi.CustomResource {
     /**
      * Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
      */
-    public readonly oplocksEnabled!: pulumi.Output<boolean>;
+    public readonly oplocksEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * File share path used by the NFS client to identify the mount point.
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    public /*out*/ readonly path!: pulumi.Output<string | undefined>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */

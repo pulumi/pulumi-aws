@@ -206,19 +206,19 @@ namespace Pulumi.Aws.LightSail
         /// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
         /// </summary>
         [Output("applyImmediately")]
-        public Output<bool> ApplyImmediately { get; private set; } = null!;
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Lightsail instance (matches `id`).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
@@ -242,37 +242,37 @@ namespace Pulumi.Aws.LightSail
         /// The certificate associated with the database.
         /// </summary>
         [Output("caCertificateIdentifier")]
-        public Output<string> CaCertificateIdentifier { get; private set; } = null!;
+        public Output<string?> CaCertificateIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The number of vCPUs for the database.
         /// </summary>
         [Output("cpuCount")]
-        public Output<int> CpuCount { get; private set; } = null!;
+        public Output<int?> CpuCount { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The size of the disk for the database.
         /// </summary>
         [Output("diskSize")]
-        public Output<double> DiskSize { get; private set; } = null!;
+        public Output<double?> DiskSize { get; private set; } = null!;
 
         /// <summary>
         /// The database software (for example, MySQL).
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// The database engine version (for example, 5.7.23).
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
@@ -290,13 +290,13 @@ namespace Pulumi.Aws.LightSail
         /// The master endpoint fqdn for the database.
         /// </summary>
         [Output("masterEndpointAddress")]
-        public Output<string> MasterEndpointAddress { get; private set; } = null!;
+        public Output<string?> MasterEndpointAddress { get; private set; } = null!;
 
         /// <summary>
         /// The master endpoint network port for the database.
         /// </summary>
         [Output("masterEndpointPort")]
-        public Output<int> MasterEndpointPort { get; private set; } = null!;
+        public Output<int?> MasterEndpointPort { get; private set; } = null!;
 
         /// <summary>
         /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
@@ -314,13 +314,13 @@ namespace Pulumi.Aws.LightSail
         /// The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         /// </summary>
         [Output("preferredBackupWindow")]
-        public Output<string> PreferredBackupWindow { get; private set; } = null!;
+        public Output<string?> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         /// </summary>
         [Output("preferredMaintenanceWindow")]
-        public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+        public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.LightSail
         /// The amount of RAM in GB for the database.
         /// </summary>
         [Output("ramSize")]
-        public Output<double> RamSize { get; private set; } = null!;
+        public Output<double?> RamSize { get; private set; } = null!;
 
         /// <summary>
         /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.LightSail
         /// Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
         /// </summary>
         [Output("secondaryAvailabilityZone")]
-        public Output<string> SecondaryAvailabilityZone { get; private set; } = null!;
+        public Output<string?> SecondaryAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.LightSail
         /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Output("supportCode")]
-        public Output<string> SupportCode { get; private set; } = null!;
+        public Output<string?> SupportCode { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.

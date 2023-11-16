@@ -116,7 +116,7 @@ type Instance struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the instance.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
 	AutoResolveBestVoicesEnabled pulumi.BoolPtrOutput `pulumi:"autoResolveBestVoicesEnabled"`
 	// Specifies whether contact flow logs are enabled. Defaults to `false`.
@@ -124,7 +124,7 @@ type Instance struct {
 	// Specifies whether contact lens is enabled. Defaults to `true`.
 	ContactLensEnabled pulumi.BoolPtrOutput `pulumi:"contactLensEnabled"`
 	// When the instance was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
 	DirectoryId pulumi.StringPtrOutput `pulumi:"directoryId"`
 	// Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
@@ -141,9 +141,9 @@ type Instance struct {
 	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolOutput `pulumi:"outboundCallsEnabled"`
 	// The service role of the instance.
-	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
+	ServiceRole pulumi.StringPtrOutput `pulumi:"serviceRole"`
 	// The state of the instance.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -389,8 +389,8 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 }
 
 // Amazon Resource Name (ARN) of the instance.
-func (o InstanceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InstanceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether auto resolve best voices is enabled. Defaults to `true`.
@@ -409,8 +409,8 @@ func (o InstanceOutput) ContactLensEnabled() pulumi.BoolPtrOutput {
 }
 
 // When the instance was created.
-func (o InstanceOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o InstanceOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
@@ -450,13 +450,13 @@ func (o InstanceOutput) OutboundCallsEnabled() pulumi.BoolOutput {
 }
 
 // The service role of the instance.
-func (o InstanceOutput) ServiceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
+func (o InstanceOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.ServiceRole }).(pulumi.StringPtrOutput)
 }
 
 // The state of the instance.
-func (o InstanceOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o InstanceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type InstanceArrayOutput struct{ *pulumi.OutputState }

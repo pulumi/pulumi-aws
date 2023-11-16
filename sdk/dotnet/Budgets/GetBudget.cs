@@ -131,8 +131,8 @@ namespace Pulumi.Aws.Budgets
     [OutputType]
     public sealed class GetBudgetResult
     {
-        public readonly string AccountId;
-        public readonly string Arn;
+        public readonly string? AccountId;
+        public readonly string? Arn;
         /// <summary>
         /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// Boolean indicating whether this budget has been exceeded.
         /// </summary>
-        public readonly bool BudgetExceeded;
+        public readonly bool? BudgetExceeded;
         /// <summary>
         /// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
-        public readonly string BudgetType;
+        public readonly string? BudgetType;
         /// <summary>
         /// The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         public readonly string? NamePrefix;
         /// <summary>
@@ -178,29 +178,29 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         /// </summary>
-        public readonly string TimePeriodEnd;
+        public readonly string? TimePeriodEnd;
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         /// </summary>
-        public readonly string TimePeriodStart;
+        public readonly string? TimePeriodStart;
         /// <summary>
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         /// </summary>
-        public readonly string TimeUnit;
+        public readonly string? TimeUnit;
 
         [OutputConstructor]
         private GetBudgetResult(
-            string accountId,
+            string? accountId,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetBudgetAutoAdjustDataResult> autoAdjustDatas,
 
-            bool budgetExceeded,
+            bool? budgetExceeded,
 
             ImmutableArray<Outputs.GetBudgetBudgetLimitResult> budgetLimits,
 
-            string budgetType,
+            string? budgetType,
 
             ImmutableArray<Outputs.GetBudgetCalculatedSpendResult> calculatedSpends,
 
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Budgets
 
             ImmutableArray<Outputs.GetBudgetCostTypeResult> costTypes,
 
-            string id,
+            string? id,
 
             string name,
 
@@ -218,11 +218,11 @@ namespace Pulumi.Aws.Budgets
 
             ImmutableArray<Outputs.GetBudgetPlannedLimitResult> plannedLimits,
 
-            string timePeriodEnd,
+            string? timePeriodEnd,
 
-            string timePeriodStart,
+            string? timePeriodStart,
 
-            string timeUnit)
+            string? timeUnit)
         {
             AccountId = accountId;
             Arn = arn;

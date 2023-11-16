@@ -71,14 +71,14 @@ public class SnapshotImport extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the EBS Snapshot.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The client-specific data. Detailed below.
@@ -99,28 +99,28 @@ public class SnapshotImport extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataEncryptionKeyId", refs={String.class}, tree="[0]")
-    private Output<String> dataEncryptionKeyId;
+    private Output</* @Nullable */ String> dataEncryptionKeyId;
 
     /**
      * @return The data encryption key identifier for the snapshot.
      * 
      */
-    public Output<String> dataEncryptionKeyId() {
-        return this.dataEncryptionKeyId;
+    public Output<Optional<String>> dataEncryptionKeyId() {
+        return Codegen.optional(this.dataEncryptionKeyId);
     }
     /**
      * The description string for the import snapshot task.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return The description string for the import snapshot task.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Information about the disk container. Detailed below.
@@ -165,38 +165,38 @@ public class SnapshotImport extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
-    private Output<String> outpostArn;
+    private Output</* @Nullable */ String> outpostArn;
 
-    public Output<String> outpostArn() {
-        return this.outpostArn;
+    public Output<Optional<String>> outpostArn() {
+        return Codegen.optional(this.outpostArn);
     }
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      * 
      */
     @Export(name="ownerAlias", refs={String.class}, tree="[0]")
-    private Output<String> ownerAlias;
+    private Output</* @Nullable */ String> ownerAlias;
 
     /**
      * @return Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      * 
      */
-    public Output<String> ownerAlias() {
-        return this.ownerAlias;
+    public Output<Optional<String>> ownerAlias() {
+        return Codegen.optional(this.ownerAlias);
     }
     /**
      * The AWS account ID of the EBS snapshot owner.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The AWS account ID of the EBS snapshot owner.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Indicates whether to permanently restore an archived snapshot.
@@ -231,14 +231,14 @@ public class SnapshotImport extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageTier", refs={String.class}, tree="[0]")
-    private Output<String> storageTier;
+    private Output</* @Nullable */ String> storageTier;
 
     /**
      * @return The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      * 
      */
-    public Output<String> storageTier() {
-        return this.storageTier;
+    public Output<Optional<String>> storageTier() {
+        return Codegen.optional(this.storageTier);
     }
     /**
      * A map of tags to assign to the snapshot.
@@ -287,24 +287,24 @@ public class SnapshotImport extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.temporaryRestoreDays);
     }
     @Export(name="volumeId", refs={String.class}, tree="[0]")
-    private Output<String> volumeId;
+    private Output</* @Nullable */ String> volumeId;
 
-    public Output<String> volumeId() {
-        return this.volumeId;
+    public Output<Optional<String>> volumeId() {
+        return Codegen.optional(this.volumeId);
     }
     /**
      * The size of the drive in GiBs.
      * 
      */
     @Export(name="volumeSize", refs={Integer.class}, tree="[0]")
-    private Output<Integer> volumeSize;
+    private Output</* @Nullable */ Integer> volumeSize;
 
     /**
      * @return The size of the drive in GiBs.
      * 
      */
-    public Output<Integer> volumeSize() {
-        return this.volumeSize;
+    public Output<Optional<Integer>> volumeSize() {
+        return Codegen.optional(this.volumeSize);
     }
 
     /**

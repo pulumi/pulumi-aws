@@ -57,24 +57,24 @@ export interface GetGroupResult {
     /**
      * Description of the specified group.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Group's display name value.
      */
-    readonly displayName: string;
+    readonly displayName?: string;
     /**
      * List of identifiers issued to this resource by an external identity provider.
      */
-    readonly externalIds: outputs.identitystore.GetGroupExternalId[];
+    readonly externalIds?: outputs.identitystore.GetGroupExternalId[];
     /**
      * @deprecated Use the alternate_identifier attribute instead.
      */
     readonly filter?: outputs.identitystore.GetGroupFilter;
-    readonly groupId: string;
+    readonly groupId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly identityStoreId: string;
 }
 /**

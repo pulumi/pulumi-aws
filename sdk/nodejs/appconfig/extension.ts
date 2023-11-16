@@ -86,11 +86,11 @@ export class Extension extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig Extension.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Information about the extension.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      */
@@ -98,7 +98,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      */
-    public readonly parameters!: pulumi.Output<outputs.appconfig.ExtensionParameter[]>;
+    public readonly parameters!: pulumi.Output<outputs.appconfig.ExtensionParameter[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -110,7 +110,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The version number for the extension.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Extension resource with the given unique name, arguments, and options.

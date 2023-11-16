@@ -1068,7 +1068,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the dataset that contains permissions for RLS.
         """
@@ -1076,7 +1076,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """
@@ -1108,7 +1108,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSetUsageConfiguration")
-    def data_set_usage_configuration(self) -> pulumi.Output['outputs.DataSetDataSetUsageConfiguration']:
+    def data_set_usage_configuration(self) -> pulumi.Output[Optional['outputs.DataSetDataSetUsageConfiguration']]:
         """
         The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
         """
@@ -1132,7 +1132,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logicalTableMaps")
-    def logical_table_maps(self) -> pulumi.Output[Sequence['outputs.DataSetLogicalTableMap']]:
+    def logical_table_maps(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetLogicalTableMap']]]:
         """
         Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
         """
@@ -1148,7 +1148,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputColumns")
-    def output_columns(self) -> pulumi.Output[Sequence['outputs.DataSetOutputColumn']]:
+    def output_columns(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetOutputColumn']]]:
         return pulumi.get(self, "output_columns")
 
     @property

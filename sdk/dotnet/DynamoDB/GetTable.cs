@@ -123,77 +123,77 @@ namespace Pulumi.Aws.DynamoDB
     [OutputType]
     public sealed class GetTableResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly ImmutableArray<Outputs.GetTableAttributeResult> Attributes;
-        public readonly string BillingMode;
-        public readonly bool DeletionProtectionEnabled;
+        public readonly string? BillingMode;
+        public readonly bool? DeletionProtectionEnabled;
         public readonly ImmutableArray<Outputs.GetTableGlobalSecondaryIndexResult> GlobalSecondaryIndexes;
-        public readonly string HashKey;
+        public readonly string? HashKey;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<Outputs.GetTableLocalSecondaryIndexResult> LocalSecondaryIndexes;
         public readonly string Name;
-        public readonly Outputs.GetTablePointInTimeRecoveryResult PointInTimeRecovery;
-        public readonly string RangeKey;
-        public readonly int ReadCapacity;
+        public readonly Outputs.GetTablePointInTimeRecoveryResult? PointInTimeRecovery;
+        public readonly string? RangeKey;
+        public readonly int? ReadCapacity;
         public readonly ImmutableArray<Outputs.GetTableReplicaResult> Replicas;
-        public readonly Outputs.GetTableServerSideEncryptionResult ServerSideEncryption;
-        public readonly string StreamArn;
-        public readonly bool StreamEnabled;
-        public readonly string StreamLabel;
-        public readonly string StreamViewType;
-        public readonly string TableClass;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly Outputs.GetTableTtlResult Ttl;
-        public readonly int WriteCapacity;
+        public readonly Outputs.GetTableServerSideEncryptionResult? ServerSideEncryption;
+        public readonly string? StreamArn;
+        public readonly bool? StreamEnabled;
+        public readonly string? StreamLabel;
+        public readonly string? StreamViewType;
+        public readonly string? TableClass;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly Outputs.GetTableTtlResult? Ttl;
+        public readonly int? WriteCapacity;
 
         [OutputConstructor]
         private GetTableResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetTableAttributeResult> attributes,
 
-            string billingMode,
+            string? billingMode,
 
-            bool deletionProtectionEnabled,
+            bool? deletionProtectionEnabled,
 
             ImmutableArray<Outputs.GetTableGlobalSecondaryIndexResult> globalSecondaryIndexes,
 
-            string hashKey,
+            string? hashKey,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetTableLocalSecondaryIndexResult> localSecondaryIndexes,
 
             string name,
 
-            Outputs.GetTablePointInTimeRecoveryResult pointInTimeRecovery,
+            Outputs.GetTablePointInTimeRecoveryResult? pointInTimeRecovery,
 
-            string rangeKey,
+            string? rangeKey,
 
-            int readCapacity,
+            int? readCapacity,
 
             ImmutableArray<Outputs.GetTableReplicaResult> replicas,
 
-            Outputs.GetTableServerSideEncryptionResult serverSideEncryption,
+            Outputs.GetTableServerSideEncryptionResult? serverSideEncryption,
 
-            string streamArn,
+            string? streamArn,
 
-            bool streamEnabled,
+            bool? streamEnabled,
 
-            string streamLabel,
+            string? streamLabel,
 
-            string streamViewType,
+            string? streamViewType,
 
-            string tableClass,
+            string? tableClass,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            Outputs.GetTableTtlResult ttl,
+            Outputs.GetTableTtlResult? ttl,
 
-            int writeCapacity)
+            int? writeCapacity)
         {
             Arn = arn;
             Attributes = attributes;

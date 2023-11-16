@@ -867,7 +867,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the fleet
         """
@@ -891,7 +891,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fleetInstanceSets")
-    def fleet_instance_sets(self) -> pulumi.Output[Sequence['outputs.FleetFleetInstanceSet']]:
+    def fleet_instance_sets(self) -> pulumi.Output[Optional[Sequence['outputs.FleetFleetInstanceSet']]]:
         """
         Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
         """
@@ -899,7 +899,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fleetState")
-    def fleet_state(self) -> pulumi.Output[str]:
+    def fleet_state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the EC2 Fleet.
         """
@@ -907,7 +907,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fulfilledCapacity")
-    def fulfilled_capacity(self) -> pulumi.Output[float]:
+    def fulfilled_capacity(self) -> pulumi.Output[Optional[float]]:
         """
         The number of units fulfilled by this request compared to the set target capacity.
         """
@@ -915,7 +915,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fulfilledOnDemandCapacity")
-    def fulfilled_on_demand_capacity(self) -> pulumi.Output[float]:
+    def fulfilled_on_demand_capacity(self) -> pulumi.Output[Optional[float]]:
         """
         The number of units fulfilled by this request compared to the set target On-Demand capacity.
         """

@@ -8,18 +8,19 @@ import com.pulumi.aws.ssmcontacts.outputs.GetPlanStageTargetContactTargetInfo;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlanStageTarget {
-    private List<GetPlanStageTargetChannelTargetInfo> channelTargetInfos;
-    private List<GetPlanStageTargetContactTargetInfo> contactTargetInfos;
+    private @Nullable List<GetPlanStageTargetChannelTargetInfo> channelTargetInfos;
+    private @Nullable List<GetPlanStageTargetContactTargetInfo> contactTargetInfos;
 
     private GetPlanStageTarget() {}
     public List<GetPlanStageTargetChannelTargetInfo> channelTargetInfos() {
-        return this.channelTargetInfos;
+        return this.channelTargetInfos == null ? List.of() : this.channelTargetInfos;
     }
     public List<GetPlanStageTargetContactTargetInfo> contactTargetInfos() {
-        return this.contactTargetInfos;
+        return this.contactTargetInfos == null ? List.of() : this.contactTargetInfos;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetPlanStageTarget {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetPlanStageTargetChannelTargetInfo> channelTargetInfos;
-        private List<GetPlanStageTargetContactTargetInfo> contactTargetInfos;
+        private @Nullable List<GetPlanStageTargetChannelTargetInfo> channelTargetInfos;
+        private @Nullable List<GetPlanStageTargetContactTargetInfo> contactTargetInfos;
         public Builder() {}
         public Builder(GetPlanStageTarget defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetPlanStageTarget {
         }
 
         @CustomType.Setter
-        public Builder channelTargetInfos(List<GetPlanStageTargetChannelTargetInfo> channelTargetInfos) {
-            this.channelTargetInfos = Objects.requireNonNull(channelTargetInfos);
+        public Builder channelTargetInfos(@Nullable List<GetPlanStageTargetChannelTargetInfo> channelTargetInfos) {
+            this.channelTargetInfos = channelTargetInfos;
             return this;
         }
         public Builder channelTargetInfos(GetPlanStageTargetChannelTargetInfo... channelTargetInfos) {
             return channelTargetInfos(List.of(channelTargetInfos));
         }
         @CustomType.Setter
-        public Builder contactTargetInfos(List<GetPlanStageTargetContactTargetInfo> contactTargetInfos) {
-            this.contactTargetInfos = Objects.requireNonNull(contactTargetInfos);
+        public Builder contactTargetInfos(@Nullable List<GetPlanStageTargetContactTargetInfo> contactTargetInfos) {
+            this.contactTargetInfos = contactTargetInfos;
             return this;
         }
         public Builder contactTargetInfos(GetPlanStageTargetContactTargetInfo... contactTargetInfos) {

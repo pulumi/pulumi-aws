@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -100,14 +101,14 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
-    private Output<String> resourceType;
+    private Output</* @Nullable */ String> resourceType;
 
     /**
      * @return The resource type of a resource, such as `AWS::EC2::Instance`.
      * 
      */
-    public Output<String> resourceType() {
-        return this.resourceType;
+    public Output<Optional<String>> resourceType() {
+        return Codegen.optional(this.resourceType);
     }
 
     /**

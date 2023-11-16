@@ -755,7 +755,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalIds")
-    def external_ids(self) -> pulumi.Output[Sequence['outputs.UserExternalId']]:
+    def external_ids(self) -> pulumi.Output[Optional[Sequence['outputs.UserExternalId']]]:
         """
         A list of identifiers issued to this resource by an external identity provider.
         """
@@ -835,7 +835,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> pulumi.Output[str]:
+    def user_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for this user in the identity store.
         """

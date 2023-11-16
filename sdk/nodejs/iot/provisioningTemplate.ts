@@ -110,11 +110,11 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     /**
      * The ARN that identifies the provisioning template.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The default version of the fleet provisioning template.
      */
-    public /*out*/ readonly defaultVersionId!: pulumi.Output<number>;
+    public /*out*/ readonly defaultVersionId!: pulumi.Output<number | undefined>;
     /**
      * The description of the fleet provisioning template.
      */
@@ -152,7 +152,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     /**
      * The type you define in a provisioning template.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProvisioningTemplate resource with the given unique name, arguments, and options.

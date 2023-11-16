@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the delivery stream.
         /// </summary>
-        public readonly string FirehoseArn;
+        public readonly string? FirehoseArn;
 
         [OutputConstructor]
-        private GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult(string firehoseArn)
+        private GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult(string? firehoseArn)
         {
             FirehoseArn = firehoseArn;
         }

@@ -70,19 +70,19 @@ type LookupResolverRuleArgs struct {
 // A collection of values returned by getResolverRule.
 type LookupResolverRuleResult struct {
 	// ARN (Amazon Resource Name) for the resolver rule.
-	Arn        string `pulumi:"arn"`
-	DomainName string `pulumi:"domainName"`
+	Arn        *string `pulumi:"arn"`
+	DomainName *string `pulumi:"domainName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-	OwnerId            string `pulumi:"ownerId"`
-	ResolverEndpointId string `pulumi:"resolverEndpointId"`
-	ResolverRuleId     string `pulumi:"resolverRuleId"`
-	RuleType           string `pulumi:"ruleType"`
+	OwnerId            *string `pulumi:"ownerId"`
+	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
+	ResolverRuleId     *string `pulumi:"resolverRuleId"`
+	RuleType           *string `pulumi:"ruleType"`
 	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-	ShareStatus string `pulumi:"shareStatus"`
+	ShareStatus *string `pulumi:"shareStatus"`
 	// Map of tags assigned to the resolver rule.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -136,44 +136,44 @@ func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutputWithCont
 }
 
 // ARN (Amazon Resource Name) for the resolver rule.
-func (o LookupResolverRuleResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupResolverRuleResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverRuleResultOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.DomainName }).(pulumi.StringOutput)
+func (o LookupResolverRuleResultOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResolverRuleResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResolverRuleResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverRuleResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupResolverRuleResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-func (o LookupResolverRuleResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupResolverRuleResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverRuleResultOutput) ResolverEndpointId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.ResolverEndpointId }).(pulumi.StringOutput)
+func (o LookupResolverRuleResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverRuleResultOutput) ResolverRuleId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.ResolverRuleId }).(pulumi.StringOutput)
+func (o LookupResolverRuleResultOutput) ResolverRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.ResolverRuleId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverRuleResultOutput) RuleType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.RuleType }).(pulumi.StringOutput)
+func (o LookupResolverRuleResultOutput) RuleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.RuleType }).(pulumi.StringPtrOutput)
 }
 
 // Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 // Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-func (o LookupResolverRuleResultOutput) ShareStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.ShareStatus }).(pulumi.StringOutput)
+func (o LookupResolverRuleResultOutput) ShareStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.ShareStatus }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the resolver rule.

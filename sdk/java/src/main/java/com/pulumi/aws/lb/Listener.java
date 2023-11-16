@@ -402,7 +402,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the target group.
@@ -410,8 +410,8 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
@@ -478,28 +478,28 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
-    private Output<String> protocol;
+    private Output</* @Nullable */ String> protocol;
 
     /**
      * @return Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      * 
      */
-    public Output<String> protocol() {
-        return this.protocol;
+    public Output<Optional<String>> protocol() {
+        return Codegen.optional(this.protocol);
     }
     /**
      * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      * 
      */
     @Export(name="sslPolicy", refs={String.class}, tree="[0]")
-    private Output<String> sslPolicy;
+    private Output</* @Nullable */ String> sslPolicy;
 
     /**
      * @return Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      * 
      */
-    public Output<String> sslPolicy() {
-        return this.sslPolicy;
+    public Output<Optional<String>> sslPolicy() {
+        return Codegen.optional(this.sslPolicy);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

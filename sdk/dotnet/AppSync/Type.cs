@@ -64,7 +64,7 @@ namespace Pulumi.Aws.AppSync
         /// The ARN of the type.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The type definition.
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.AppSync
         /// The type description.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// The type format: `SDL` or `JSON`.
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.AppSync
         /// The type name.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
 
         /// <summary>

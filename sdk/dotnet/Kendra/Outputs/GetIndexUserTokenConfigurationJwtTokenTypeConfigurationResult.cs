@@ -16,47 +16,47 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// Regular expression that identifies the claim.
         /// </summary>
-        public readonly string ClaimRegex;
+        public readonly string? ClaimRegex;
         /// <summary>
         /// The group attribute field.
         /// </summary>
-        public readonly string GroupAttributeField;
+        public readonly string? GroupAttributeField;
         /// <summary>
         /// Issuer of the token.
         /// </summary>
-        public readonly string Issuer;
+        public readonly string? Issuer;
         /// <summary>
         /// Location of the key. Valid values are `URL` or `SECRET_MANAGER`
         /// </summary>
-        public readonly string KeyLocation;
+        public readonly string? KeyLocation;
         /// <summary>
         /// ARN of the secret.
         /// </summary>
-        public readonly string SecretsManagerArn;
+        public readonly string? SecretsManagerArn;
         /// <summary>
         /// Signing key URL.
         /// </summary>
-        public readonly string Url;
+        public readonly string? Url;
         /// <summary>
         /// The user name attribute field.
         /// </summary>
-        public readonly string UserNameAttributeField;
+        public readonly string? UserNameAttributeField;
 
         [OutputConstructor]
         private GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(
-            string claimRegex,
+            string? claimRegex,
 
-            string groupAttributeField,
+            string? groupAttributeField,
 
-            string issuer,
+            string? issuer,
 
-            string keyLocation,
+            string? keyLocation,
 
-            string secretsManagerArn,
+            string? secretsManagerArn,
 
-            string url,
+            string? url,
 
-            string userNameAttributeField)
+            string? userNameAttributeField)
         {
             ClaimRegex = claimRegex;
             GroupAttributeField = groupAttributeField;

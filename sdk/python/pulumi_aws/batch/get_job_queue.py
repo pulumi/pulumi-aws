@@ -56,7 +56,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the job queue.
         """
@@ -64,7 +64,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter(name="computeEnvironmentOrders")
-    def compute_environment_orders(self) -> Sequence['outputs.GetJobQueueComputeEnvironmentOrderResult']:
+    def compute_environment_orders(self) -> Optional[Sequence['outputs.GetJobQueueComputeEnvironmentOrderResult']]:
         """
         The compute environments that are attached to the job queue and the order in
         which job placement is preferred. Compute environments are selected for job placement in ascending order.
@@ -75,7 +75,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -88,7 +88,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> int:
+    def priority(self) -> Optional[int]:
         """
         Priority of the job queue. Job queues with a higher priority are evaluated first when
         associated with the same compute environment.
@@ -97,7 +97,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter(name="schedulingPolicyArn")
-    def scheduling_policy_arn(self) -> str:
+    def scheduling_policy_arn(self) -> Optional[str]:
         """
         The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
         """
@@ -105,7 +105,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
         """
@@ -113,7 +113,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current status of the job queue (for example, `CREATING` or `VALID`).
         """
@@ -121,7 +121,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> str:
+    def status_reason(self) -> Optional[str]:
         """
         Short, human-readable string to provide additional details about the current status
         of the job queue.
@@ -130,7 +130,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags
         """

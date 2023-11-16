@@ -88,14 +88,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
-    private Output<String> certificateArn;
+    private Output</* @Nullable */ String> certificateArn;
 
     /**
      * @return ARN for the certificate.
      * 
      */
-    public Output<String> certificateArn() {
-        return this.certificateArn;
+    public Output<Optional<String>> certificateArn() {
+        return Codegen.optional(this.certificateArn);
     }
     /**
      * Name of the endpoint database.
@@ -130,14 +130,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointArn", refs={String.class}, tree="[0]")
-    private Output<String> endpointArn;
+    private Output</* @Nullable */ String> endpointArn;
 
     /**
      * @return ARN for the endpoint.
      * 
      */
-    public Output<String> endpointArn() {
-        return this.endpointArn;
+    public Output<Optional<String>> endpointArn() {
+        return Codegen.optional(this.endpointArn);
     }
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -186,14 +186,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="extraConnectionAttributes", refs={String.class}, tree="[0]")
-    private Output<String> extraConnectionAttributes;
+    private Output</* @Nullable */ String> extraConnectionAttributes;
 
     /**
      * @return Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      * 
      */
-    public Output<String> extraConnectionAttributes() {
-        return this.extraConnectionAttributes;
+    public Output<Optional<String>> extraConnectionAttributes() {
+        return Codegen.optional(this.extraConnectionAttributes);
     }
     /**
      * Configuration block for Kafka settings. See below.
@@ -230,7 +230,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyArn;
+    private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
      * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
@@ -238,8 +238,8 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<String> kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * Configuration block for MongoDB settings. See below.
@@ -300,14 +300,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="redshiftSettings", refs={EndpointRedshiftSettings.class}, tree="[0]")
-    private Output<EndpointRedshiftSettings> redshiftSettings;
+    private Output</* @Nullable */ EndpointRedshiftSettings> redshiftSettings;
 
     /**
      * @return Configuration block for Redshift settings. See below.
      * 
      */
-    public Output<EndpointRedshiftSettings> redshiftSettings() {
-        return this.redshiftSettings;
+    public Output<Optional<EndpointRedshiftSettings>> redshiftSettings() {
+        return Codegen.optional(this.redshiftSettings);
     }
     /**
      * (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
@@ -384,14 +384,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sslMode", refs={String.class}, tree="[0]")
-    private Output<String> sslMode;
+    private Output</* @Nullable */ String> sslMode;
 
     /**
      * @return SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      * 
      */
-    public Output<String> sslMode() {
-        return this.sslMode;
+    public Output<Optional<String>> sslMode() {
+        return Codegen.optional(this.sslMode);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

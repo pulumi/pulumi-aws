@@ -7,6 +7,7 @@ import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationTypographyFontFami
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeConfigurationTypography {
@@ -14,7 +15,7 @@ public final class GetThemeConfigurationTypography {
      * @return Determines the list of font families. Maximum number of 5 items. See font_families.
      * 
      */
-    private List<GetThemeConfigurationTypographyFontFamily> fontFamilies;
+    private @Nullable List<GetThemeConfigurationTypographyFontFamily> fontFamilies;
 
     private GetThemeConfigurationTypography() {}
     /**
@@ -22,7 +23,7 @@ public final class GetThemeConfigurationTypography {
      * 
      */
     public List<GetThemeConfigurationTypographyFontFamily> fontFamilies() {
-        return this.fontFamilies;
+        return this.fontFamilies == null ? List.of() : this.fontFamilies;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetThemeConfigurationTypography {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetThemeConfigurationTypographyFontFamily> fontFamilies;
+        private @Nullable List<GetThemeConfigurationTypographyFontFamily> fontFamilies;
         public Builder() {}
         public Builder(GetThemeConfigurationTypography defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetThemeConfigurationTypography {
         }
 
         @CustomType.Setter
-        public Builder fontFamilies(List<GetThemeConfigurationTypographyFontFamily> fontFamilies) {
-            this.fontFamilies = Objects.requireNonNull(fontFamilies);
+        public Builder fontFamilies(@Nullable List<GetThemeConfigurationTypographyFontFamily> fontFamilies) {
+            this.fontFamilies = fontFamilies;
             return this;
         }
         public Builder fontFamilies(GetThemeConfigurationTypographyFontFamily... fontFamilies) {

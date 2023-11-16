@@ -826,7 +826,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the GameLift Game Server Group.
         """
@@ -834,7 +834,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoScalingGroupArn")
-    def auto_scaling_group_arn(self) -> pulumi.Output[str]:
+    def auto_scaling_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the created EC2 Auto Scaling group.
         """
@@ -847,7 +847,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="balancingStrategy")
-    def balancing_strategy(self) -> pulumi.Output[str]:
+    def balancing_strategy(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
         Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
@@ -865,7 +865,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gameServerProtectionPolicy")
-    def game_server_protection_policy(self) -> pulumi.Output[str]:
+    def game_server_protection_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether instances in the game server group are protected from early termination.
         Unprotected instances that have active game servers running might be terminated during a scale-down event,

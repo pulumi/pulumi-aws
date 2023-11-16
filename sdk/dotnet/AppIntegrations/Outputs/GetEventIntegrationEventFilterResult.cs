@@ -16,10 +16,10 @@ namespace Pulumi.Aws.AppIntegrations.Outputs
         /// <summary>
         /// The source of the events.
         /// </summary>
-        public readonly string Source;
+        public readonly string? Source;
 
         [OutputConstructor]
-        private GetEventIntegrationEventFilterResult(string source)
+        private GetEventIntegrationEventFilterResult(string? source)
         {
             Source = source;
         }

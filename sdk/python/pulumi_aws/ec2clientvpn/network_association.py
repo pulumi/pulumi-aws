@@ -258,7 +258,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> pulumi.Output[str]:
+    def association_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique ID of the target network association.
         """
@@ -282,7 +282,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the VPC in which the target subnet is located.
         """

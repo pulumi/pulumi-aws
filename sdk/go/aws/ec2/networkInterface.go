@@ -81,19 +81,19 @@ type NetworkInterface struct {
 	pulumi.CustomResourceState
 
 	// ARN of the network interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments NetworkInterfaceAttachmentTypeArrayOutput `pulumi:"attachments"`
 	// Description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
-	InterfaceType pulumi.StringOutput `pulumi:"interfaceType"`
+	InterfaceType pulumi.StringPtrOutput `pulumi:"interfaceType"`
 	// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
-	Ipv4PrefixCount pulumi.IntOutput `pulumi:"ipv4PrefixCount"`
+	Ipv4PrefixCount pulumi.IntPtrOutput `pulumi:"ipv4PrefixCount"`
 	// One or more IPv4 prefixes assigned to the network interface.
 	Ipv4Prefixes pulumi.StringArrayOutput `pulumi:"ipv4Prefixes"`
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
-	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
+	Ipv6AddressCount pulumi.IntPtrOutput `pulumi:"ipv6AddressCount"`
 	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
 	Ipv6AddressListEnabled pulumi.BoolPtrOutput `pulumi:"ipv6AddressListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order.
@@ -101,17 +101,17 @@ type NetworkInterface struct {
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6AddressCount`.
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
-	Ipv6PrefixCount pulumi.IntOutput `pulumi:"ipv6PrefixCount"`
+	Ipv6PrefixCount pulumi.IntPtrOutput `pulumi:"ipv6PrefixCount"`
 	// One or more IPv6 prefixes assigned to the network interface.
 	Ipv6Prefixes pulumi.StringArrayOutput `pulumi:"ipv6Prefixes"`
 	// MAC address of the network interface.
-	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
-	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
+	MacAddress pulumi.StringPtrOutput `pulumi:"macAddress"`
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// AWS account ID of the owner of the network interface.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Private DNS name of the network interface (IPv4).
-	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
-	PrivateIp      pulumi.StringOutput `pulumi:"privateIp"`
+	PrivateDnsName pulumi.StringPtrOutput `pulumi:"privateDnsName"`
+	PrivateIp      pulumi.StringPtrOutput `pulumi:"privateIp"`
 	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
 	PrivateIpListEnabled pulumi.BoolPtrOutput `pulumi:"privateIpListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
@@ -119,7 +119,7 @@ type NetworkInterface struct {
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps pulumi.StringArrayOutput `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
-	PrivateIpsCount pulumi.IntOutput `pulumi:"privateIpsCount"`
+	PrivateIpsCount pulumi.IntPtrOutput `pulumi:"privateIpsCount"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Whether to enable source destination checking for the ENI. Default true.
@@ -467,8 +467,8 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.
 }
 
 // ARN of the network interface.
-func (o NetworkInterfaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NetworkInterfaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block to define the attachment of the ENI. See Attachment below for more details!
@@ -482,13 +482,13 @@ func (o NetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
-func (o NetworkInterfaceOutput) InterfaceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.InterfaceType }).(pulumi.StringOutput)
+func (o NetworkInterfaceOutput) InterfaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.InterfaceType }).(pulumi.StringPtrOutput)
 }
 
 // Number of IPv4 prefixes that AWS automatically assigns to the network interface.
-func (o NetworkInterfaceOutput) Ipv4PrefixCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.IntOutput { return v.Ipv4PrefixCount }).(pulumi.IntOutput)
+func (o NetworkInterfaceOutput) Ipv4PrefixCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.IntPtrOutput { return v.Ipv4PrefixCount }).(pulumi.IntPtrOutput)
 }
 
 // One or more IPv4 prefixes assigned to the network interface.
@@ -497,8 +497,8 @@ func (o NetworkInterfaceOutput) Ipv4Prefixes() pulumi.StringArrayOutput {
 }
 
 // Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
-func (o NetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.IntOutput { return v.Ipv6AddressCount }).(pulumi.IntOutput)
+func (o NetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.IntPtrOutput { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
 // Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
@@ -517,8 +517,8 @@ func (o NetworkInterfaceOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 }
 
 // Number of IPv6 prefixes that AWS automatically assigns to the network interface.
-func (o NetworkInterfaceOutput) Ipv6PrefixCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.IntOutput { return v.Ipv6PrefixCount }).(pulumi.IntOutput)
+func (o NetworkInterfaceOutput) Ipv6PrefixCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.IntPtrOutput { return v.Ipv6PrefixCount }).(pulumi.IntPtrOutput)
 }
 
 // One or more IPv6 prefixes assigned to the network interface.
@@ -527,26 +527,26 @@ func (o NetworkInterfaceOutput) Ipv6Prefixes() pulumi.StringArrayOutput {
 }
 
 // MAC address of the network interface.
-func (o NetworkInterfaceOutput) MacAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.MacAddress }).(pulumi.StringOutput)
+func (o NetworkInterfaceOutput) MacAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o NetworkInterfaceOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.OutpostArn }).(pulumi.StringOutput)
+func (o NetworkInterfaceOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID of the owner of the network interface.
-func (o NetworkInterfaceOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o NetworkInterfaceOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Private DNS name of the network interface (IPv4).
-func (o NetworkInterfaceOutput) PrivateDnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.PrivateDnsName }).(pulumi.StringOutput)
+func (o NetworkInterfaceOutput) PrivateDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.PrivateDnsName }).(pulumi.StringPtrOutput)
 }
 
-func (o NetworkInterfaceOutput) PrivateIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
+func (o NetworkInterfaceOutput) PrivateIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.PrivateIp }).(pulumi.StringPtrOutput)
 }
 
 // Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
@@ -565,8 +565,8 @@ func (o NetworkInterfaceOutput) PrivateIps() pulumi.StringArrayOutput {
 }
 
 // Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
-func (o NetworkInterfaceOutput) PrivateIpsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.IntOutput { return v.PrivateIpsCount }).(pulumi.IntOutput)
+func (o NetworkInterfaceOutput) PrivateIpsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.IntPtrOutput { return v.PrivateIpsCount }).(pulumi.IntPtrOutput)
 }
 
 // List of security group IDs to assign to the ENI.

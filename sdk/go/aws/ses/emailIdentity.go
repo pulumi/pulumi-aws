@@ -53,7 +53,7 @@ type EmailIdentity struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the email identity.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The email address to assign to SES.
 	Email pulumi.StringOutput `pulumi:"email"`
 }
@@ -207,8 +207,8 @@ func (o EmailIdentityOutput) ToEmailIdentityOutputWithContext(ctx context.Contex
 }
 
 // The ARN of the email identity.
-func (o EmailIdentityOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EmailIdentityOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The email address to assign to SES.

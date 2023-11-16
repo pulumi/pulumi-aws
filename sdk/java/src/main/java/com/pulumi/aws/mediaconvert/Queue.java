@@ -63,14 +63,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Arn of the queue
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A description of the queue
@@ -119,14 +119,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="reservationPlanSettings", refs={QueueReservationPlanSettings.class}, tree="[0]")
-    private Output<QueueReservationPlanSettings> reservationPlanSettings;
+    private Output</* @Nullable */ QueueReservationPlanSettings> reservationPlanSettings;
 
     /**
      * @return A detail pricing plan of the  reserved queue. See below.
      * 
      */
-    public Output<QueueReservationPlanSettings> reservationPlanSettings() {
-        return this.reservationPlanSettings;
+    public Output<Optional<QueueReservationPlanSettings>> reservationPlanSettings() {
+        return Codegen.optional(this.reservationPlanSettings);
     }
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.

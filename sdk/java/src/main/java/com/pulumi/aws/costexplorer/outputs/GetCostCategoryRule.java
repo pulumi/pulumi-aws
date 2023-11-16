@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCostCategoryRule {
@@ -16,22 +18,22 @@ public final class GetCostCategoryRule {
      * @return Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
      * 
      */
-    private List<GetCostCategoryRuleInheritedValue> inheritedValues;
+    private @Nullable List<GetCostCategoryRuleInheritedValue> inheritedValues;
     /**
      * @return Configuration block for the `Expression` object used to categorize costs. See below.
      * 
      */
-    private List<GetCostCategoryRuleRule> rules;
+    private @Nullable List<GetCostCategoryRuleRule> rules;
     /**
      * @return Parameter type.
      * 
      */
-    private String type;
+    private @Nullable String type;
     /**
      * @return Default value for the cost category.
      * 
      */
-    private String value;
+    private @Nullable String value;
 
     private GetCostCategoryRule() {}
     /**
@@ -39,28 +41,28 @@ public final class GetCostCategoryRule {
      * 
      */
     public List<GetCostCategoryRuleInheritedValue> inheritedValues() {
-        return this.inheritedValues;
+        return this.inheritedValues == null ? List.of() : this.inheritedValues;
     }
     /**
      * @return Configuration block for the `Expression` object used to categorize costs. See below.
      * 
      */
     public List<GetCostCategoryRuleRule> rules() {
-        return this.rules;
+        return this.rules == null ? List.of() : this.rules;
     }
     /**
      * @return Parameter type.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
     /**
      * @return Default value for the cost category.
      * 
      */
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -72,10 +74,10 @@ public final class GetCostCategoryRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetCostCategoryRuleInheritedValue> inheritedValues;
-        private List<GetCostCategoryRuleRule> rules;
-        private String type;
-        private String value;
+        private @Nullable List<GetCostCategoryRuleInheritedValue> inheritedValues;
+        private @Nullable List<GetCostCategoryRuleRule> rules;
+        private @Nullable String type;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetCostCategoryRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,29 +88,29 @@ public final class GetCostCategoryRule {
         }
 
         @CustomType.Setter
-        public Builder inheritedValues(List<GetCostCategoryRuleInheritedValue> inheritedValues) {
-            this.inheritedValues = Objects.requireNonNull(inheritedValues);
+        public Builder inheritedValues(@Nullable List<GetCostCategoryRuleInheritedValue> inheritedValues) {
+            this.inheritedValues = inheritedValues;
             return this;
         }
         public Builder inheritedValues(GetCostCategoryRuleInheritedValue... inheritedValues) {
             return inheritedValues(List.of(inheritedValues));
         }
         @CustomType.Setter
-        public Builder rules(List<GetCostCategoryRuleRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+        public Builder rules(@Nullable List<GetCostCategoryRuleRule> rules) {
+            this.rules = rules;
             return this;
         }
         public Builder rules(GetCostCategoryRuleRule... rules) {
             return rules(List.of(rules));
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetCostCategoryRule build() {

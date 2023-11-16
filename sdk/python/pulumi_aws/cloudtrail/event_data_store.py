@@ -578,7 +578,7 @@ class EventDataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advancedEventSelectors")
-    def advanced_event_selectors(self) -> pulumi.Output[Sequence['outputs.EventDataStoreAdvancedEventSelector']]:
+    def advanced_event_selectors(self) -> pulumi.Output[Optional[Sequence['outputs.EventDataStoreAdvancedEventSelector']]]:
         """
         The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         """
@@ -586,7 +586,7 @@ class EventDataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the event data store.
         """

@@ -7,46 +7,48 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointKinesisSetting {
-    private Boolean includeControlDetails;
-    private Boolean includeNullAndEmpty;
-    private Boolean includePartitionValue;
-    private Boolean includeTableAlterOperations;
-    private Boolean includeTransactionDetails;
-    private String messageFormat;
-    private Boolean partitionIncludeSchemaTable;
-    private String serviceAccessRoleArn;
-    private String streamArn;
+    private @Nullable Boolean includeControlDetails;
+    private @Nullable Boolean includeNullAndEmpty;
+    private @Nullable Boolean includePartitionValue;
+    private @Nullable Boolean includeTableAlterOperations;
+    private @Nullable Boolean includeTransactionDetails;
+    private @Nullable String messageFormat;
+    private @Nullable Boolean partitionIncludeSchemaTable;
+    private @Nullable String serviceAccessRoleArn;
+    private @Nullable String streamArn;
 
     private GetEndpointKinesisSetting() {}
-    public Boolean includeControlDetails() {
-        return this.includeControlDetails;
+    public Optional<Boolean> includeControlDetails() {
+        return Optional.ofNullable(this.includeControlDetails);
     }
-    public Boolean includeNullAndEmpty() {
-        return this.includeNullAndEmpty;
+    public Optional<Boolean> includeNullAndEmpty() {
+        return Optional.ofNullable(this.includeNullAndEmpty);
     }
-    public Boolean includePartitionValue() {
-        return this.includePartitionValue;
+    public Optional<Boolean> includePartitionValue() {
+        return Optional.ofNullable(this.includePartitionValue);
     }
-    public Boolean includeTableAlterOperations() {
-        return this.includeTableAlterOperations;
+    public Optional<Boolean> includeTableAlterOperations() {
+        return Optional.ofNullable(this.includeTableAlterOperations);
     }
-    public Boolean includeTransactionDetails() {
-        return this.includeTransactionDetails;
+    public Optional<Boolean> includeTransactionDetails() {
+        return Optional.ofNullable(this.includeTransactionDetails);
     }
-    public String messageFormat() {
-        return this.messageFormat;
+    public Optional<String> messageFormat() {
+        return Optional.ofNullable(this.messageFormat);
     }
-    public Boolean partitionIncludeSchemaTable() {
-        return this.partitionIncludeSchemaTable;
+    public Optional<Boolean> partitionIncludeSchemaTable() {
+        return Optional.ofNullable(this.partitionIncludeSchemaTable);
     }
-    public String serviceAccessRoleArn() {
-        return this.serviceAccessRoleArn;
+    public Optional<String> serviceAccessRoleArn() {
+        return Optional.ofNullable(this.serviceAccessRoleArn);
     }
-    public String streamArn() {
-        return this.streamArn;
+    public Optional<String> streamArn() {
+        return Optional.ofNullable(this.streamArn);
     }
 
     public static Builder builder() {
@@ -58,15 +60,15 @@ public final class GetEndpointKinesisSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean includeControlDetails;
-        private Boolean includeNullAndEmpty;
-        private Boolean includePartitionValue;
-        private Boolean includeTableAlterOperations;
-        private Boolean includeTransactionDetails;
-        private String messageFormat;
-        private Boolean partitionIncludeSchemaTable;
-        private String serviceAccessRoleArn;
-        private String streamArn;
+        private @Nullable Boolean includeControlDetails;
+        private @Nullable Boolean includeNullAndEmpty;
+        private @Nullable Boolean includePartitionValue;
+        private @Nullable Boolean includeTableAlterOperations;
+        private @Nullable Boolean includeTransactionDetails;
+        private @Nullable String messageFormat;
+        private @Nullable Boolean partitionIncludeSchemaTable;
+        private @Nullable String serviceAccessRoleArn;
+        private @Nullable String streamArn;
         public Builder() {}
         public Builder(GetEndpointKinesisSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -82,48 +84,48 @@ public final class GetEndpointKinesisSetting {
         }
 
         @CustomType.Setter
-        public Builder includeControlDetails(Boolean includeControlDetails) {
-            this.includeControlDetails = Objects.requireNonNull(includeControlDetails);
+        public Builder includeControlDetails(@Nullable Boolean includeControlDetails) {
+            this.includeControlDetails = includeControlDetails;
             return this;
         }
         @CustomType.Setter
-        public Builder includeNullAndEmpty(Boolean includeNullAndEmpty) {
-            this.includeNullAndEmpty = Objects.requireNonNull(includeNullAndEmpty);
+        public Builder includeNullAndEmpty(@Nullable Boolean includeNullAndEmpty) {
+            this.includeNullAndEmpty = includeNullAndEmpty;
             return this;
         }
         @CustomType.Setter
-        public Builder includePartitionValue(Boolean includePartitionValue) {
-            this.includePartitionValue = Objects.requireNonNull(includePartitionValue);
+        public Builder includePartitionValue(@Nullable Boolean includePartitionValue) {
+            this.includePartitionValue = includePartitionValue;
             return this;
         }
         @CustomType.Setter
-        public Builder includeTableAlterOperations(Boolean includeTableAlterOperations) {
-            this.includeTableAlterOperations = Objects.requireNonNull(includeTableAlterOperations);
+        public Builder includeTableAlterOperations(@Nullable Boolean includeTableAlterOperations) {
+            this.includeTableAlterOperations = includeTableAlterOperations;
             return this;
         }
         @CustomType.Setter
-        public Builder includeTransactionDetails(Boolean includeTransactionDetails) {
-            this.includeTransactionDetails = Objects.requireNonNull(includeTransactionDetails);
+        public Builder includeTransactionDetails(@Nullable Boolean includeTransactionDetails) {
+            this.includeTransactionDetails = includeTransactionDetails;
             return this;
         }
         @CustomType.Setter
-        public Builder messageFormat(String messageFormat) {
-            this.messageFormat = Objects.requireNonNull(messageFormat);
+        public Builder messageFormat(@Nullable String messageFormat) {
+            this.messageFormat = messageFormat;
             return this;
         }
         @CustomType.Setter
-        public Builder partitionIncludeSchemaTable(Boolean partitionIncludeSchemaTable) {
-            this.partitionIncludeSchemaTable = Objects.requireNonNull(partitionIncludeSchemaTable);
+        public Builder partitionIncludeSchemaTable(@Nullable Boolean partitionIncludeSchemaTable) {
+            this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
-            this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
+        public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder streamArn(String streamArn) {
-            this.streamArn = Objects.requireNonNull(streamArn);
+        public Builder streamArn(@Nullable String streamArn) {
+            this.streamArn = streamArn;
             return this;
         }
         public GetEndpointKinesisSetting build() {

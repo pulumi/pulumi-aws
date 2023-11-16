@@ -92,70 +92,70 @@ public class Product extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the product.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Time when the product was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return Time when the product was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Description of the product.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description of the product.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Distributor (i.e., vendor) of the product.
      * 
      */
     @Export(name="distributor", refs={String.class}, tree="[0]")
-    private Output<String> distributor;
+    private Output</* @Nullable */ String> distributor;
 
     /**
      * @return Distributor (i.e., vendor) of the product.
      * 
      */
-    public Output<String> distributor() {
-        return this.distributor;
+    public Output<Optional<String>> distributor() {
+        return Codegen.optional(this.distributor);
     }
     /**
      * Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
      * 
      */
     @Export(name="hasDefaultPath", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> hasDefaultPath;
+    private Output</* @Nullable */ Boolean> hasDefaultPath;
 
     /**
      * @return Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
      * 
      */
-    public Output<Boolean> hasDefaultPath() {
-        return this.hasDefaultPath;
+    public Output<Optional<Boolean>> hasDefaultPath() {
+        return Codegen.optional(this.hasDefaultPath);
     }
     /**
      * Name of the product.
@@ -204,56 +204,56 @@ public class Product extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the product.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Support information about the product.
      * 
      */
     @Export(name="supportDescription", refs={String.class}, tree="[0]")
-    private Output<String> supportDescription;
+    private Output</* @Nullable */ String> supportDescription;
 
     /**
      * @return Support information about the product.
      * 
      */
-    public Output<String> supportDescription() {
-        return this.supportDescription;
+    public Output<Optional<String>> supportDescription() {
+        return Codegen.optional(this.supportDescription);
     }
     /**
      * Contact email for product support.
      * 
      */
     @Export(name="supportEmail", refs={String.class}, tree="[0]")
-    private Output<String> supportEmail;
+    private Output</* @Nullable */ String> supportEmail;
 
     /**
      * @return Contact email for product support.
      * 
      */
-    public Output<String> supportEmail() {
-        return this.supportEmail;
+    public Output<Optional<String>> supportEmail() {
+        return Codegen.optional(this.supportEmail);
     }
     /**
      * Contact URL for product support.
      * 
      */
     @Export(name="supportUrl", refs={String.class}, tree="[0]")
-    private Output<String> supportUrl;
+    private Output</* @Nullable */ String> supportUrl;
 
     /**
      * @return Contact URL for product support.
      * 
      */
-    public Output<String> supportUrl() {
-        return this.supportUrl;
+    public Output<Optional<String>> supportUrl() {
+        return Codegen.optional(this.supportUrl);
     }
     /**
      * Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

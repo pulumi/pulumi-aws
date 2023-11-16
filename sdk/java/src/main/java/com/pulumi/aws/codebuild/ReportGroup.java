@@ -109,28 +109,28 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of Report Group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date and time this Report Group was created.
      * 
      */
     @Export(name="created", refs={String.class}, tree="[0]")
-    private Output<String> created;
+    private Output</* @Nullable */ String> created;
 
     /**
      * @return The date and time this Report Group was created.
      * 
      */
-    public Output<String> created() {
-        return this.created;
+    public Output<Optional<String>> created() {
+        return Codegen.optional(this.created);
     }
     /**
      * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.

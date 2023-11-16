@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Signer.Outputs
     [OutputType]
     public sealed class GetSigningJobRevocationRecordResult
     {
-        public readonly string Reason;
-        public readonly string RevokedAt;
-        public readonly string RevokedBy;
+        public readonly string? Reason;
+        public readonly string? RevokedAt;
+        public readonly string? RevokedBy;
 
         [OutputConstructor]
         private GetSigningJobRevocationRecordResult(
-            string reason,
+            string? reason,
 
-            string revokedAt,
+            string? revokedAt,
 
-            string revokedBy)
+            string? revokedBy)
         {
             Reason = reason;
             RevokedAt = revokedAt;

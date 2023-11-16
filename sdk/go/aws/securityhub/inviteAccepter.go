@@ -73,7 +73,7 @@ type InviteAccepter struct {
 	pulumi.CustomResourceState
 
 	// The ID of the invitation.
-	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
+	InvitationId pulumi.StringPtrOutput `pulumi:"invitationId"`
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId pulumi.StringOutput `pulumi:"masterId"`
 }
@@ -227,8 +227,8 @@ func (o InviteAccepterOutput) ToInviteAccepterOutputWithContext(ctx context.Cont
 }
 
 // The ID of the invitation.
-func (o InviteAccepterOutput) InvitationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
+func (o InviteAccepterOutput) InvitationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InviteAccepter) pulumi.StringPtrOutput { return v.InvitationId }).(pulumi.StringPtrOutput)
 }
 
 // The account ID of the master Security Hub account whose invitation you're accepting.

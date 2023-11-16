@@ -338,7 +338,7 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * Core Network Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
      */
@@ -364,7 +364,7 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * Timestamp when a core network was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * Description of the Core Network.
      */
@@ -372,7 +372,7 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * One or more blocks detailing the edges within a core network. Detailed below.
      */
-    public /*out*/ readonly edges!: pulumi.Output<outputs.networkmanager.CoreNetworkEdge[]>;
+    public /*out*/ readonly edges!: pulumi.Output<outputs.networkmanager.CoreNetworkEdge[] | undefined>;
     /**
      * The ID of the global network that a core network will be a part of.
      */
@@ -380,11 +380,11 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * One or more blocks detailing the segments within a core network. Detailed below.
      */
-    public /*out*/ readonly segments!: pulumi.Output<outputs.networkmanager.CoreNetworkSegment[]>;
+    public /*out*/ readonly segments!: pulumi.Output<outputs.networkmanager.CoreNetworkSegment[] | undefined>;
     /**
      * Current state of a core network.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -44,24 +44,24 @@ type Group struct {
 	pulumi.CustomResourceState
 
 	// Timestamp when the access group was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// Timestamp when the access group was deleted.
-	DeletionTime pulumi.StringOutput `pulumi:"deletionTime"`
+	DeletionTime pulumi.StringPtrOutput `pulumi:"deletionTime"`
 	// Description of the verified access group.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Timestamp when the access group was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// AWS account number owning this resource.
-	Owner          pulumi.StringOutput    `pulumi:"owner"`
+	Owner          pulumi.StringPtrOutput `pulumi:"owner"`
 	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN of this verified acess group.
-	VerifiedaccessGroupArn pulumi.StringOutput `pulumi:"verifiedaccessGroupArn"`
+	VerifiedaccessGroupArn pulumi.StringPtrOutput `pulumi:"verifiedaccessGroupArn"`
 	// ID of this verified access group.
-	VerifiedaccessGroupId pulumi.StringOutput `pulumi:"verifiedaccessGroupId"`
+	VerifiedaccessGroupId pulumi.StringPtrOutput `pulumi:"verifiedaccessGroupId"`
 	// The id of the verified access instance this group is associated with.
 	//
 	// The following arguments are optional:
@@ -273,28 +273,28 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 }
 
 // Timestamp when the access group was created.
-func (o GroupOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o GroupOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // Timestamp when the access group was deleted.
-func (o GroupOutput) DeletionTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.DeletionTime }).(pulumi.StringOutput)
+func (o GroupOutput) DeletionTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DeletionTime }).(pulumi.StringPtrOutput)
 }
 
 // Description of the verified access group.
-func (o GroupOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o GroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Timestamp when the access group was last updated.
-func (o GroupOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o GroupOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // AWS account number owning this resource.
-func (o GroupOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o GroupOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 func (o GroupOutput) PolicyDocument() pulumi.StringPtrOutput {
@@ -312,13 +312,13 @@ func (o GroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // ARN of this verified acess group.
-func (o GroupOutput) VerifiedaccessGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.VerifiedaccessGroupArn }).(pulumi.StringOutput)
+func (o GroupOutput) VerifiedaccessGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.VerifiedaccessGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // ID of this verified access group.
-func (o GroupOutput) VerifiedaccessGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.VerifiedaccessGroupId }).(pulumi.StringOutput)
+func (o GroupOutput) VerifiedaccessGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.VerifiedaccessGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The id of the verified access instance this group is associated with.

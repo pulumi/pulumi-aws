@@ -59,7 +59,7 @@ type LookupPipelineDefinitionArgs struct {
 // A collection of values returned by getPipelineDefinition.
 type LookupPipelineDefinitionResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Parameter objects used in the pipeline definition. See below
 	ParameterObjects []GetPipelineDefinitionParameterObject `pulumi:"parameterObjects"`
 	// Parameter values used in the pipeline definition. See below
@@ -110,8 +110,8 @@ func (o LookupPipelineDefinitionResultOutput) ToLookupPipelineDefinitionResultOu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupPipelineDefinitionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPipelineDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupPipelineDefinitionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineDefinitionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Parameter objects used in the pipeline definition. See below

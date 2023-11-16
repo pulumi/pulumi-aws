@@ -1150,7 +1150,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> pulumi.Output[str]:
+    def access_policies(self) -> pulumi.Output[Optional[str]]:
         """
         IAM policy document specifying the access policies for the domain.
         """
@@ -1158,7 +1158,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advancedOptions")
-    def advanced_options(self) -> pulumi.Output[Mapping[str, str]]:
+    def advanced_options(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         """
@@ -1166,7 +1166,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advancedSecurityOptions")
-    def advanced_security_options(self) -> pulumi.Output['outputs.DomainAdvancedSecurityOptions']:
+    def advanced_security_options(self) -> pulumi.Output[Optional['outputs.DomainAdvancedSecurityOptions']]:
         """
         Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         """
@@ -1174,7 +1174,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the domain.
         """
@@ -1182,7 +1182,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoTuneOptions")
-    def auto_tune_options(self) -> pulumi.Output['outputs.DomainAutoTuneOptions']:
+    def auto_tune_options(self) -> pulumi.Output[Optional['outputs.DomainAutoTuneOptions']]:
         """
         Configuration block for the Auto-Tune options of the domain. Detailed below.
         """
@@ -1190,7 +1190,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterConfig")
-    def cluster_config(self) -> pulumi.Output['outputs.DomainClusterConfig']:
+    def cluster_config(self) -> pulumi.Output[Optional['outputs.DomainClusterConfig']]:
         """
         Configuration block for the cluster of the domain. Detailed below.
         """
@@ -1206,7 +1206,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainEndpointOptions")
-    def domain_endpoint_options(self) -> pulumi.Output['outputs.DomainDomainEndpointOptions']:
+    def domain_endpoint_options(self) -> pulumi.Output[Optional['outputs.DomainDomainEndpointOptions']]:
         """
         Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         """
@@ -1214,7 +1214,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> pulumi.Output[str]:
+    def domain_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique identifier for the domain.
         """
@@ -1232,7 +1232,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptions")
-    def ebs_options(self) -> pulumi.Output['outputs.DomainEbsOptions']:
+    def ebs_options(self) -> pulumi.Output[Optional['outputs.DomainEbsOptions']]:
         """
         Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         """
@@ -1248,7 +1248,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptAtRest")
-    def encrypt_at_rest(self) -> pulumi.Output['outputs.DomainEncryptAtRest']:
+    def encrypt_at_rest(self) -> pulumi.Output[Optional['outputs.DomainEncryptAtRest']]:
         """
         Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         """
@@ -1256,7 +1256,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Domain-specific endpoint used to submit index, search, and data upload requests.
         """
@@ -1264,7 +1264,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kibanaEndpoint")
-    def kibana_endpoint(self) -> pulumi.Output[str]:
+    def kibana_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Domain-specific endpoint for kibana without https scheme.
         """
@@ -1280,7 +1280,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeToNodeEncryption")
-    def node_to_node_encryption(self) -> pulumi.Output['outputs.DomainNodeToNodeEncryption']:
+    def node_to_node_encryption(self) -> pulumi.Output[Optional['outputs.DomainNodeToNodeEncryption']]:
         """
         Configuration block for node-to-node encryption options. Detailed below.
         """

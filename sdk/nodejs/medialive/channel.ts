@@ -121,7 +121,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * ARN of the Channel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
      */
@@ -133,7 +133,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * ID of the channel in MediaPackage that is the destination for this output group.
      */
-    public /*out*/ readonly channelId!: pulumi.Output<string>;
+    public /*out*/ readonly channelId!: pulumi.Output<string | undefined>;
     /**
      * Destinations for channel. See Destinations for more details.
      */
@@ -153,11 +153,11 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The log level to write to Cloudwatch logs.
      */
-    public readonly logLevel!: pulumi.Output<string>;
+    public readonly logLevel!: pulumi.Output<string | undefined>;
     /**
      * Maintenance settings for this channel. See Maintenance for more details.
      */
-    public readonly maintenance!: pulumi.Output<outputs.medialive.ChannelMaintenance>;
+    public readonly maintenance!: pulumi.Output<outputs.medialive.ChannelMaintenance | undefined>;
     /**
      * Name of the Channel.
      *

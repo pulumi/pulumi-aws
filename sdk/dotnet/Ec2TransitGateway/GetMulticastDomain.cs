@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// EC2 Transit Gateway Multicast Domain ARN.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// EC2 Transit Gateway Multicast Domain Associations
         /// </summary>
@@ -220,16 +220,16 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.
         /// </summary>
-        public readonly string AutoAcceptSharedAssociations;
+        public readonly string? AutoAcceptSharedAssociations;
         public readonly ImmutableArray<Outputs.GetMulticastDomainFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.
         /// </summary>
-        public readonly string Igmpv2Support;
+        public readonly string? Igmpv2Support;
         /// <summary>
         /// EC2 Multicast Domain Group Members
         /// </summary>
@@ -237,61 +237,61 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// EC2 Multicast Domain Group Sources
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMulticastDomainSourceResult> Sources;
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.
         /// </summary>
-        public readonly string StaticSourcesSupport;
+        public readonly string? StaticSourcesSupport;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Multicast Domain.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The ID of the transit gateway attachment.
         /// </summary>
-        public readonly string TransitGatewayAttachmentId;
+        public readonly string? TransitGatewayAttachmentId;
         /// <summary>
         /// EC2 Transit Gateway identifier.
         /// </summary>
-        public readonly string TransitGatewayId;
-        public readonly string TransitGatewayMulticastDomainId;
+        public readonly string? TransitGatewayId;
+        public readonly string? TransitGatewayMulticastDomainId;
 
         [OutputConstructor]
         private GetMulticastDomainResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetMulticastDomainAssociationResult> associations,
 
-            string autoAcceptSharedAssociations,
+            string? autoAcceptSharedAssociations,
 
             ImmutableArray<Outputs.GetMulticastDomainFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string igmpv2Support,
+            string? igmpv2Support,
 
             ImmutableArray<Outputs.GetMulticastDomainMemberResult> members,
 
-            string ownerId,
+            string? ownerId,
 
             ImmutableArray<Outputs.GetMulticastDomainSourceResult> sources,
 
-            string state,
+            string? state,
 
-            string staticSourcesSupport,
+            string? staticSourcesSupport,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string transitGatewayAttachmentId,
+            string? transitGatewayAttachmentId,
 
-            string transitGatewayId,
+            string? transitGatewayId,
 
-            string transitGatewayMulticastDomainId)
+            string? transitGatewayMulticastDomainId)
         {
             Arn = arn;
             Associations = associations;

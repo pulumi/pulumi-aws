@@ -160,7 +160,7 @@ type S3Endpoint struct {
 	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
 	CdcPath pulumi.StringPtrOutput `pulumi:"cdcPath"`
 	// ARN for the certificate.
-	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
+	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
 	CompressionType pulumi.StringPtrOutput `pulumi:"compressionType"`
 	// Delimiter used to separate columns in the source files. Default is `,`.
@@ -194,17 +194,17 @@ type S3Endpoint struct {
 	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
 	EncryptionMode pulumi.StringPtrOutput `pulumi:"encryptionMode"`
 	// ARN for the endpoint.
-	EndpointArn pulumi.StringOutput `pulumi:"endpointArn"`
+	EndpointArn pulumi.StringPtrOutput `pulumi:"endpointArn"`
 	// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
 	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
 	// Expanded name for the engine name.
-	EngineDisplayName pulumi.StringOutput `pulumi:"engineDisplayName"`
+	EngineDisplayName pulumi.StringPtrOutput `pulumi:"engineDisplayName"`
 	// Bucket owner to prevent sniping. Value is an AWS account ID.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
-	ExternalId pulumi.StringOutput `pulumi:"externalId"`
+	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrOutput `pulumi:"externalTableDefinition"`
 	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
@@ -214,7 +214,7 @@ type S3Endpoint struct {
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrOutput `pulumi:"includeOpForFullLoad"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize pulumi.IntPtrOutput `pulumi:"maxFileSize"`
 	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
@@ -234,9 +234,9 @@ type S3Endpoint struct {
 	// The following arguments are optional:
 	ServiceAccessRoleArn pulumi.StringOutput `pulumi:"serviceAccessRoleArn"`
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
-	SslMode pulumi.StringOutput `pulumi:"sslMode"`
+	SslMode pulumi.StringPtrOutput `pulumi:"sslMode"`
 	// Status of the endpoint.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -867,8 +867,8 @@ func (o S3EndpointOutput) CdcPath() pulumi.StringPtrOutput {
 }
 
 // ARN for the certificate.
-func (o S3EndpointOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
+func (o S3EndpointOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
@@ -952,8 +952,8 @@ func (o S3EndpointOutput) EncryptionMode() pulumi.StringPtrOutput {
 }
 
 // ARN for the endpoint.
-func (o S3EndpointOutput) EndpointArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.EndpointArn }).(pulumi.StringOutput)
+func (o S3EndpointOutput) EndpointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.EndpointArn }).(pulumi.StringPtrOutput)
 }
 
 // Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -967,8 +967,8 @@ func (o S3EndpointOutput) EndpointType() pulumi.StringOutput {
 }
 
 // Expanded name for the engine name.
-func (o S3EndpointOutput) EngineDisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.EngineDisplayName }).(pulumi.StringOutput)
+func (o S3EndpointOutput) EngineDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.EngineDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Bucket owner to prevent sniping. Value is an AWS account ID.
@@ -977,8 +977,8 @@ func (o S3EndpointOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 }
 
 // Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
-func (o S3EndpointOutput) ExternalId() pulumi.StringOutput {
-	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.ExternalId }).(pulumi.StringOutput)
+func (o S3EndpointOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
 // JSON document that describes how AWS DMS should interpret the data.
@@ -1002,8 +1002,8 @@ func (o S3EndpointOutput) IncludeOpForFullLoad() pulumi.BoolPtrOutput {
 }
 
 // ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-func (o S3EndpointOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o S3EndpointOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
@@ -1049,13 +1049,13 @@ func (o S3EndpointOutput) ServiceAccessRoleArn() pulumi.StringOutput {
 }
 
 // SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
-func (o S3EndpointOutput) SslMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.SslMode }).(pulumi.StringOutput)
+func (o S3EndpointOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.SslMode }).(pulumi.StringPtrOutput)
 }
 
 // Status of the endpoint.
-func (o S3EndpointOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o S3EndpointOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

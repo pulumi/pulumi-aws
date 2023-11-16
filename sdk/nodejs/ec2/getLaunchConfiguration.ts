@@ -46,51 +46,51 @@ export interface GetLaunchConfigurationResult {
     /**
      * Amazon Resource Name of the launch configuration.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Whether a Public IP address is associated with the instance.
      */
-    readonly associatePublicIpAddress: boolean;
+    readonly associatePublicIpAddress?: boolean;
     /**
      * EBS Block Devices attached to the instance.
      */
-    readonly ebsBlockDevices: outputs.ec2.GetLaunchConfigurationEbsBlockDevice[];
+    readonly ebsBlockDevices?: outputs.ec2.GetLaunchConfigurationEbsBlockDevice[];
     /**
      * Whether the launched EC2 instance will be EBS-optimized.
      */
-    readonly ebsOptimized: boolean;
+    readonly ebsOptimized?: boolean;
     /**
      * Whether Detailed Monitoring is Enabled.
      */
-    readonly enableMonitoring: boolean;
+    readonly enableMonitoring?: boolean;
     /**
      * The Ephemeral volumes on the instance.
      */
-    readonly ephemeralBlockDevices: outputs.ec2.GetLaunchConfigurationEphemeralBlockDevice[];
+    readonly ephemeralBlockDevices?: outputs.ec2.GetLaunchConfigurationEphemeralBlockDevice[];
     /**
      * The IAM Instance Profile to associate with launched instances.
      */
-    readonly iamInstanceProfile: string;
+    readonly iamInstanceProfile?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * EC2 Image ID of the instance.
      */
-    readonly imageId: string;
+    readonly imageId?: string;
     /**
      * Instance Type of the instance to launch.
      */
-    readonly instanceType: string;
+    readonly instanceType?: string;
     /**
      * Key Name that should be used for the instance.
      */
-    readonly keyName: string;
+    readonly keyName?: string;
     /**
      * Metadata options for the instance.
      */
-    readonly metadataOptions: outputs.ec2.GetLaunchConfigurationMetadataOption[];
+    readonly metadataOptions?: outputs.ec2.GetLaunchConfigurationMetadataOption[];
     /**
      * Name of the launch configuration.
      */
@@ -98,23 +98,23 @@ export interface GetLaunchConfigurationResult {
     /**
      * Tenancy of the instance.
      */
-    readonly placementTenancy: string;
+    readonly placementTenancy?: string;
     /**
      * Root Block Device of the instance.
      */
-    readonly rootBlockDevices: outputs.ec2.GetLaunchConfigurationRootBlockDevice[];
+    readonly rootBlockDevices?: outputs.ec2.GetLaunchConfigurationRootBlockDevice[];
     /**
      * List of associated Security Group IDS.
      */
-    readonly securityGroups: string[];
+    readonly securityGroups?: string[];
     /**
      * Price to use for reserving Spot instances.
      */
-    readonly spotPrice: string;
+    readonly spotPrice?: string;
     /**
      * User Data of the instance.
      */
-    readonly userData: string;
+    readonly userData?: string;
 }
 /**
  * Provides information about a Launch Configuration.

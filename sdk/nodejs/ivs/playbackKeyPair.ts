@@ -57,11 +57,11 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
     /**
      * ARN of the Playback Key Pair.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Key-pair identifier.
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    public /*out*/ readonly fingerprint!: pulumi.Output<string | undefined>;
     /**
      * Playback Key Pair name.
      */

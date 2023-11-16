@@ -93,24 +93,24 @@ type LookupTaskDefinitionArgs struct {
 // A collection of values returned by getTaskDefinition.
 type LookupTaskDefinitionResult struct {
 	// ARN of the task definition.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
-	ArnWithoutRevision string `pulumi:"arnWithoutRevision"`
+	ArnWithoutRevision *string `pulumi:"arnWithoutRevision"`
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker.
-	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Family of this task definition.
-	Family string `pulumi:"family"`
+	Family *string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Docker networking mode to use for the containers in this task.
-	NetworkMode string `pulumi:"networkMode"`
+	NetworkMode *string `pulumi:"networkMode"`
 	// Revision of this task definition.
-	Revision int `pulumi:"revision"`
+	Revision *int `pulumi:"revision"`
 	// Status of this task definition.
-	Status         string `pulumi:"status"`
-	TaskDefinition string `pulumi:"taskDefinition"`
+	Status         *string `pulumi:"status"`
+	TaskDefinition string  `pulumi:"taskDefinition"`
 	// ARN of the IAM role that containers in this task can assume.
-	TaskRoleArn string `pulumi:"taskRoleArn"`
+	TaskRoleArn *string `pulumi:"taskRoleArn"`
 }
 
 func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupTaskDefinitionResultOutput {
@@ -152,43 +152,43 @@ func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutputWith
 }
 
 // ARN of the task definition.
-func (o LookupTaskDefinitionResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupTaskDefinitionResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
-func (o LookupTaskDefinitionResultOutput) ArnWithoutRevision() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.ArnWithoutRevision }).(pulumi.StringOutput)
+func (o LookupTaskDefinitionResultOutput) ArnWithoutRevision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) *string { return v.ArnWithoutRevision }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the task execution role that the Amazon ECS container agent and the Docker.
-func (o LookupTaskDefinitionResultOutput) ExecutionRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+func (o LookupTaskDefinitionResultOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Family of this task definition.
-func (o LookupTaskDefinitionResultOutput) Family() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Family }).(pulumi.StringOutput)
+func (o LookupTaskDefinitionResultOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupTaskDefinitionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupTaskDefinitionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Docker networking mode to use for the containers in this task.
-func (o LookupTaskDefinitionResultOutput) NetworkMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.NetworkMode }).(pulumi.StringOutput)
+func (o LookupTaskDefinitionResultOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
 }
 
 // Revision of this task definition.
-func (o LookupTaskDefinitionResultOutput) Revision() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) int { return v.Revision }).(pulumi.IntOutput)
+func (o LookupTaskDefinitionResultOutput) Revision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) *int { return v.Revision }).(pulumi.IntPtrOutput)
 }
 
 // Status of this task definition.
-func (o LookupTaskDefinitionResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupTaskDefinitionResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupTaskDefinitionResultOutput) TaskDefinition() pulumi.StringOutput {
@@ -196,8 +196,8 @@ func (o LookupTaskDefinitionResultOutput) TaskDefinition() pulumi.StringOutput {
 }
 
 // ARN of the IAM role that containers in this task can assume.
-func (o LookupTaskDefinitionResultOutput) TaskRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.TaskRoleArn }).(pulumi.StringOutput)
+func (o LookupTaskDefinitionResultOutput) TaskRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) *string { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

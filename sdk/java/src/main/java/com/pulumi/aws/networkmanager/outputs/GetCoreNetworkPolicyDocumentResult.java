@@ -22,12 +22,12 @@ public final class GetCoreNetworkPolicyDocumentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Standard JSON policy document rendered based on the arguments above.
      * 
      */
-    private String json;
+    private @Nullable String json;
     private @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
     private List<GetCoreNetworkPolicyDocumentSegment> segments;
     private @Nullable String version;
@@ -43,15 +43,15 @@ public final class GetCoreNetworkPolicyDocumentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Standard JSON policy document rendered based on the arguments above.
      * 
      */
-    public String json() {
-        return this.json;
+    public Optional<String> json() {
+        return Optional.ofNullable(this.json);
     }
     public List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions() {
         return this.segmentActions == null ? List.of() : this.segmentActions;
@@ -74,8 +74,8 @@ public final class GetCoreNetworkPolicyDocumentResult {
     public static final class Builder {
         private @Nullable List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies;
         private List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations;
-        private String id;
-        private String json;
+        private @Nullable String id;
+        private @Nullable String json;
         private @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
         private List<GetCoreNetworkPolicyDocumentSegment> segments;
         private @Nullable String version;
@@ -108,13 +108,13 @@ public final class GetCoreNetworkPolicyDocumentResult {
             return coreNetworkConfigurations(List.of(coreNetworkConfigurations));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+        public Builder json(@Nullable String json) {
+            this.json = json;
             return this;
         }
         @CustomType.Setter

@@ -93,28 +93,28 @@ public class SigningJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="completedAt", refs={String.class}, tree="[0]")
-    private Output<String> completedAt;
+    private Output</* @Nullable */ String> completedAt;
 
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
      * 
      */
-    public Output<String> completedAt() {
-        return this.completedAt;
+    public Output<Optional<String>> completedAt() {
+        return Codegen.optional(this.completedAt);
     }
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The S3 bucket in which to save your signed object. See Destination below for details.
@@ -149,70 +149,70 @@ public class SigningJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="jobId", refs={String.class}, tree="[0]")
-    private Output<String> jobId;
+    private Output</* @Nullable */ String> jobId;
 
     /**
      * @return The ID of the signing job on output.
      * 
      */
-    public Output<String> jobId() {
-        return this.jobId;
+    public Output<Optional<String>> jobId() {
+        return Codegen.optional(this.jobId);
     }
     /**
      * The IAM entity that initiated the signing job.
      * 
      */
     @Export(name="jobInvoker", refs={String.class}, tree="[0]")
-    private Output<String> jobInvoker;
+    private Output</* @Nullable */ String> jobInvoker;
 
     /**
      * @return The IAM entity that initiated the signing job.
      * 
      */
-    public Output<String> jobInvoker() {
-        return this.jobInvoker;
+    public Output<Optional<String>> jobInvoker() {
+        return Codegen.optional(this.jobInvoker);
     }
     /**
      * The AWS account ID of the job owner.
      * 
      */
     @Export(name="jobOwner", refs={String.class}, tree="[0]")
-    private Output<String> jobOwner;
+    private Output</* @Nullable */ String> jobOwner;
 
     /**
      * @return The AWS account ID of the job owner.
      * 
      */
-    public Output<String> jobOwner() {
-        return this.jobOwner;
+    public Output<Optional<String>> jobOwner() {
+        return Codegen.optional(this.jobOwner);
     }
     /**
      * A human-readable name for the signing platform associated with the signing job.
      * 
      */
     @Export(name="platformDisplayName", refs={String.class}, tree="[0]")
-    private Output<String> platformDisplayName;
+    private Output</* @Nullable */ String> platformDisplayName;
 
     /**
      * @return A human-readable name for the signing platform associated with the signing job.
      * 
      */
-    public Output<String> platformDisplayName() {
-        return this.platformDisplayName;
+    public Output<Optional<String>> platformDisplayName() {
+        return Codegen.optional(this.platformDisplayName);
     }
     /**
      * The platform to which your signed code image will be distributed.
      * 
      */
     @Export(name="platformId", refs={String.class}, tree="[0]")
-    private Output<String> platformId;
+    private Output</* @Nullable */ String> platformId;
 
     /**
      * @return The platform to which your signed code image will be distributed.
      * 
      */
-    public Output<String> platformId() {
-        return this.platformId;
+    public Output<Optional<String>> platformId() {
+        return Codegen.optional(this.platformId);
     }
     /**
      * The name of the profile to initiate the signing operation.
@@ -233,70 +233,70 @@ public class SigningJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="profileVersion", refs={String.class}, tree="[0]")
-    private Output<String> profileVersion;
+    private Output</* @Nullable */ String> profileVersion;
 
     /**
      * @return The version of the signing profile used to initiate the signing job.
      * 
      */
-    public Output<String> profileVersion() {
-        return this.profileVersion;
+    public Output<Optional<String>> profileVersion() {
+        return Codegen.optional(this.profileVersion);
     }
     /**
      * The IAM principal that requested the signing job.
      * 
      */
     @Export(name="requestedBy", refs={String.class}, tree="[0]")
-    private Output<String> requestedBy;
+    private Output</* @Nullable */ String> requestedBy;
 
     /**
      * @return The IAM principal that requested the signing job.
      * 
      */
-    public Output<String> requestedBy() {
-        return this.requestedBy;
+    public Output<Optional<String>> requestedBy() {
+        return Codegen.optional(this.requestedBy);
     }
     /**
      * A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
      * 
      */
     @Export(name="revocationRecords", refs={List.class,SigningJobRevocationRecord.class}, tree="[0,1]")
-    private Output<List<SigningJobRevocationRecord>> revocationRecords;
+    private Output</* @Nullable */ List<SigningJobRevocationRecord>> revocationRecords;
 
     /**
      * @return A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
      * 
      */
-    public Output<List<SigningJobRevocationRecord>> revocationRecords() {
-        return this.revocationRecords;
+    public Output<Optional<List<SigningJobRevocationRecord>>> revocationRecords() {
+        return Codegen.optional(this.revocationRecords);
     }
     /**
      * The time when the signature of a signing job expires.
      * 
      */
     @Export(name="signatureExpiresAt", refs={String.class}, tree="[0]")
-    private Output<String> signatureExpiresAt;
+    private Output</* @Nullable */ String> signatureExpiresAt;
 
     /**
      * @return The time when the signature of a signing job expires.
      * 
      */
-    public Output<String> signatureExpiresAt() {
-        return this.signatureExpiresAt;
+    public Output<Optional<String>> signatureExpiresAt() {
+        return Codegen.optional(this.signatureExpiresAt);
     }
     /**
      * Name of the S3 bucket where the signed code image is saved by code signing.
      * 
      */
     @Export(name="signedObjects", refs={List.class,SigningJobSignedObject.class}, tree="[0,1]")
-    private Output<List<SigningJobSignedObject>> signedObjects;
+    private Output</* @Nullable */ List<SigningJobSignedObject>> signedObjects;
 
     /**
      * @return Name of the S3 bucket where the signed code image is saved by code signing.
      * 
      */
-    public Output<List<SigningJobSignedObject>> signedObjects() {
-        return this.signedObjects;
+    public Output<Optional<List<SigningJobSignedObject>>> signedObjects() {
+        return Codegen.optional(this.signedObjects);
     }
     /**
      * The S3 bucket that contains the object to sign. See Source below for details.
@@ -317,28 +317,28 @@ public class SigningJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the signing job.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * String value that contains the status reason.
      * 
      */
     @Export(name="statusReason", refs={String.class}, tree="[0]")
-    private Output<String> statusReason;
+    private Output</* @Nullable */ String> statusReason;
 
     /**
      * @return String value that contains the status reason.
      * 
      */
-    public Output<String> statusReason() {
-        return this.statusReason;
+    public Output<Optional<String>> statusReason() {
+        return Codegen.optional(this.statusReason);
     }
 
     /**

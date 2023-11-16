@@ -70,7 +70,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * ARN of the stage.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      */
@@ -87,7 +87,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      */
-    public readonly deploymentId!: pulumi.Output<string>;
+    public readonly deploymentId!: pulumi.Output<string | undefined>;
     /**
      * Description for the stage. Must be less than or equal to 1024 characters in length.
      */
@@ -97,12 +97,12 @@ export class Stage extends pulumi.CustomResource {
      * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
-    public /*out*/ readonly executionArn!: pulumi.Output<string>;
+    public /*out*/ readonly executionArn!: pulumi.Output<string | undefined>;
     /**
      * URL to invoke the API pointing to the stage,
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      */
-    public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
+    public /*out*/ readonly invokeUrl!: pulumi.Output<string | undefined>;
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.
      *

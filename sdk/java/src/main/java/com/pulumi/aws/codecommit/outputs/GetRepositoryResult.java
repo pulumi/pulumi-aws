@@ -6,6 +6,8 @@ package com.pulumi.aws.codecommit.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryResult {
@@ -13,27 +15,27 @@ public final class GetRepositoryResult {
      * @return ARN of the repository
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return URL to use for cloning the repository over HTTPS.
      * 
      */
-    private String cloneUrlHttp;
+    private @Nullable String cloneUrlHttp;
     /**
      * @return URL to use for cloning the repository over SSH.
      * 
      */
-    private String cloneUrlSsh;
+    private @Nullable String cloneUrlSsh;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ID of the repository
      * 
      */
-    private String repositoryId;
+    private @Nullable String repositoryId;
     private String repositoryName;
 
     private GetRepositoryResult() {}
@@ -41,36 +43,36 @@ public final class GetRepositoryResult {
      * @return ARN of the repository
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return URL to use for cloning the repository over HTTPS.
      * 
      */
-    public String cloneUrlHttp() {
-        return this.cloneUrlHttp;
+    public Optional<String> cloneUrlHttp() {
+        return Optional.ofNullable(this.cloneUrlHttp);
     }
     /**
      * @return URL to use for cloning the repository over SSH.
      * 
      */
-    public String cloneUrlSsh() {
-        return this.cloneUrlSsh;
+    public Optional<String> cloneUrlSsh() {
+        return Optional.ofNullable(this.cloneUrlSsh);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ID of the repository
      * 
      */
-    public String repositoryId() {
-        return this.repositoryId;
+    public Optional<String> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
     }
     public String repositoryName() {
         return this.repositoryName;
@@ -85,11 +87,11 @@ public final class GetRepositoryResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String cloneUrlHttp;
-        private String cloneUrlSsh;
-        private String id;
-        private String repositoryId;
+        private @Nullable String arn;
+        private @Nullable String cloneUrlHttp;
+        private @Nullable String cloneUrlSsh;
+        private @Nullable String id;
+        private @Nullable String repositoryId;
         private String repositoryName;
         public Builder() {}
         public Builder(GetRepositoryResult defaults) {
@@ -103,28 +105,28 @@ public final class GetRepositoryResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder cloneUrlHttp(String cloneUrlHttp) {
-            this.cloneUrlHttp = Objects.requireNonNull(cloneUrlHttp);
+        public Builder cloneUrlHttp(@Nullable String cloneUrlHttp) {
+            this.cloneUrlHttp = cloneUrlHttp;
             return this;
         }
         @CustomType.Setter
-        public Builder cloneUrlSsh(String cloneUrlSsh) {
-            this.cloneUrlSsh = Objects.requireNonNull(cloneUrlSsh);
+        public Builder cloneUrlSsh(@Nullable String cloneUrlSsh) {
+            this.cloneUrlSsh = cloneUrlSsh;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder repositoryId(String repositoryId) {
-            this.repositoryId = Objects.requireNonNull(repositoryId);
+        public Builder repositoryId(@Nullable String repositoryId) {
+            this.repositoryId = repositoryId;
             return this;
         }
         @CustomType.Setter

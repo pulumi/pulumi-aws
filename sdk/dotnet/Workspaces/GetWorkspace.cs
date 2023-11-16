@@ -191,57 +191,57 @@ namespace Pulumi.Aws.Workspaces
     [OutputType]
     public sealed class GetWorkspaceResult
     {
-        public readonly string BundleId;
+        public readonly string? BundleId;
         /// <summary>
         /// Name of the WorkSpace, as seen by the operating system.
         /// </summary>
-        public readonly string ComputerName;
-        public readonly string DirectoryId;
+        public readonly string? ComputerName;
+        public readonly string? DirectoryId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// IP address of the WorkSpace.
         /// </summary>
-        public readonly string IpAddress;
-        public readonly bool RootVolumeEncryptionEnabled;
+        public readonly string? IpAddress;
+        public readonly bool? RootVolumeEncryptionEnabled;
         /// <summary>
         /// Operational state of the WorkSpace.
         /// </summary>
-        public readonly string State;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string UserName;
-        public readonly bool UserVolumeEncryptionEnabled;
-        public readonly string VolumeEncryptionKey;
-        public readonly string WorkspaceId;
+        public readonly string? State;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? UserName;
+        public readonly bool? UserVolumeEncryptionEnabled;
+        public readonly string? VolumeEncryptionKey;
+        public readonly string? WorkspaceId;
         public readonly ImmutableArray<Outputs.GetWorkspaceWorkspacePropertyResult> WorkspaceProperties;
 
         [OutputConstructor]
         private GetWorkspaceResult(
-            string bundleId,
+            string? bundleId,
 
-            string computerName,
+            string? computerName,
 
-            string directoryId,
+            string? directoryId,
 
-            string id,
+            string? id,
 
-            string ipAddress,
+            string? ipAddress,
 
-            bool rootVolumeEncryptionEnabled,
+            bool? rootVolumeEncryptionEnabled,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string userName,
+            string? userName,
 
-            bool userVolumeEncryptionEnabled,
+            bool? userVolumeEncryptionEnabled,
 
-            string volumeEncryptionKey,
+            string? volumeEncryptionKey,
 
-            string workspaceId,
+            string? workspaceId,
 
             ImmutableArray<Outputs.GetWorkspaceWorkspacePropertyResult> workspaceProperties)
         {

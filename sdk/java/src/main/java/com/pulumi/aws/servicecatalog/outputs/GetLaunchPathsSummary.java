@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchPathsSummary {
@@ -16,22 +18,22 @@ public final class GetLaunchPathsSummary {
      * @return Block for constraints on the portfolio-product relationship. See details below.
      * 
      */
-    private List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries;
+    private @Nullable List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries;
     /**
      * @return Name of the portfolio to which the path was assigned.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Identifier of the product path.
      * 
      */
-    private String pathId;
+    private @Nullable String pathId;
     /**
      * @return Tags associated with this product path.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetLaunchPathsSummary() {}
     /**
@@ -39,28 +41,28 @@ public final class GetLaunchPathsSummary {
      * 
      */
     public List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries() {
-        return this.constraintSummaries;
+        return this.constraintSummaries == null ? List.of() : this.constraintSummaries;
     }
     /**
      * @return Name of the portfolio to which the path was assigned.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Identifier of the product path.
      * 
      */
-    public String pathId() {
-        return this.pathId;
+    public Optional<String> pathId() {
+        return Optional.ofNullable(this.pathId);
     }
     /**
      * @return Tags associated with this product path.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -72,10 +74,10 @@ public final class GetLaunchPathsSummary {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries;
-        private String name;
-        private String pathId;
-        private Map<String,String> tags;
+        private @Nullable List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries;
+        private @Nullable String name;
+        private @Nullable String pathId;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLaunchPathsSummary defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,26 +88,26 @@ public final class GetLaunchPathsSummary {
         }
 
         @CustomType.Setter
-        public Builder constraintSummaries(List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries) {
-            this.constraintSummaries = Objects.requireNonNull(constraintSummaries);
+        public Builder constraintSummaries(@Nullable List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries) {
+            this.constraintSummaries = constraintSummaries;
             return this;
         }
         public Builder constraintSummaries(GetLaunchPathsSummaryConstraintSummary... constraintSummaries) {
             return constraintSummaries(List.of(constraintSummaries));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder pathId(String pathId) {
-            this.pathId = Objects.requireNonNull(pathId);
+        public Builder pathId(@Nullable String pathId) {
+            this.pathId = pathId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetLaunchPathsSummary build() {

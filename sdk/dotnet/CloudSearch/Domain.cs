@@ -73,25 +73,25 @@ namespace Pulumi.Aws.CloudSearch
         /// The domain's ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The service endpoint for updating documents in a search domain.
         /// </summary>
         [Output("documentServiceEndpoint")]
-        public Output<string> DocumentServiceEndpoint { get; private set; } = null!;
+        public Output<string?> DocumentServiceEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// An internally generated unique identifier for the domain.
         /// </summary>
         [Output("domainId")]
-        public Output<string> DomainId { get; private set; } = null!;
+        public Output<string?> DomainId { get; private set; } = null!;
 
         /// <summary>
         /// Domain endpoint options. Documented below.
         /// </summary>
         [Output("endpointOptions")]
-        public Output<Outputs.DomainEndpointOptions> EndpointOptions { get; private set; } = null!;
+        public Output<Outputs.DomainEndpointOptions?> EndpointOptions { get; private set; } = null!;
 
         /// <summary>
         /// The index fields for documents added to the domain. Documented below.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.CloudSearch
         /// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         /// </summary>
         [Output("multiAz")]
-        public Output<bool> MultiAz { get; private set; } = null!;
+        public Output<bool?> MultiAz { get; private set; } = null!;
 
         /// <summary>
         /// The name of the CloudSearch domain.
@@ -115,13 +115,13 @@ namespace Pulumi.Aws.CloudSearch
         /// Domain scaling parameters. Documented below.
         /// </summary>
         [Output("scalingParameters")]
-        public Output<Outputs.DomainScalingParameters> ScalingParameters { get; private set; } = null!;
+        public Output<Outputs.DomainScalingParameters?> ScalingParameters { get; private set; } = null!;
 
         /// <summary>
         /// The service endpoint for requesting search results from a search domain.
         /// </summary>
         [Output("searchServiceEndpoint")]
-        public Output<string> SearchServiceEndpoint { get; private set; } = null!;
+        public Output<string?> SearchServiceEndpoint { get; private set; } = null!;
 
 
         /// <summary>

@@ -16,23 +16,23 @@ public final class GetServerlessSecurityConfigResult {
      * @return The version of the security configuration.
      * 
      */
-    private String configVersion;
+    private @Nullable String configVersion;
     /**
      * @return The date the configuration was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return The description of the security configuration.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String id;
     /**
      * @return The date the configuration was last modified.
      * 
      */
-    private String lastModifiedDate;
+    private @Nullable String lastModifiedDate;
     /**
      * @return SAML options for the security configuration.
      * 
@@ -42,29 +42,29 @@ public final class GetServerlessSecurityConfigResult {
      * @return The type of security configuration.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetServerlessSecurityConfigResult() {}
     /**
      * @return The version of the security configuration.
      * 
      */
-    public String configVersion() {
-        return this.configVersion;
+    public Optional<String> configVersion() {
+        return Optional.ofNullable(this.configVersion);
     }
     /**
      * @return The date the configuration was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return The description of the security configuration.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String id() {
         return this.id;
@@ -73,8 +73,8 @@ public final class GetServerlessSecurityConfigResult {
      * @return The date the configuration was last modified.
      * 
      */
-    public String lastModifiedDate() {
-        return this.lastModifiedDate;
+    public Optional<String> lastModifiedDate() {
+        return Optional.ofNullable(this.lastModifiedDate);
     }
     /**
      * @return SAML options for the security configuration.
@@ -87,8 +87,8 @@ public final class GetServerlessSecurityConfigResult {
      * @return The type of security configuration.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -100,13 +100,13 @@ public final class GetServerlessSecurityConfigResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String configVersion;
-        private String createdDate;
-        private String description;
+        private @Nullable String configVersion;
+        private @Nullable String createdDate;
+        private @Nullable String description;
         private String id;
-        private String lastModifiedDate;
+        private @Nullable String lastModifiedDate;
         private @Nullable GetServerlessSecurityConfigSamlOptions samlOptions;
-        private String type;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetServerlessSecurityConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -120,18 +120,18 @@ public final class GetServerlessSecurityConfigResult {
         }
 
         @CustomType.Setter
-        public Builder configVersion(String configVersion) {
-            this.configVersion = Objects.requireNonNull(configVersion);
+        public Builder configVersion(@Nullable String configVersion) {
+            this.configVersion = configVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -140,8 +140,8 @@ public final class GetServerlessSecurityConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedDate(String lastModifiedDate) {
-            this.lastModifiedDate = Objects.requireNonNull(lastModifiedDate);
+        public Builder lastModifiedDate(@Nullable String lastModifiedDate) {
+            this.lastModifiedDate = lastModifiedDate;
             return this;
         }
         @CustomType.Setter
@@ -150,8 +150,8 @@ public final class GetServerlessSecurityConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetServerlessSecurityConfigResult build() {

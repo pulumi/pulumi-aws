@@ -71,7 +71,7 @@ export class QuickConnect extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Quick Connect.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the Quick Connect.
      */
@@ -91,7 +91,7 @@ export class QuickConnect extends pulumi.CustomResource {
     /**
      * The identifier for the Quick Connect.
      */
-    public /*out*/ readonly quickConnectId!: pulumi.Output<string>;
+    public /*out*/ readonly quickConnectId!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

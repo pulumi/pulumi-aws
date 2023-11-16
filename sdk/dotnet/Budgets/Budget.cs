@@ -280,13 +280,13 @@ namespace Pulumi.Aws.Budgets
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the budget.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
@@ -310,19 +310,19 @@ namespace Pulumi.Aws.Budgets
         /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         /// </summary>
         [Output("costTypes")]
-        public Output<Outputs.BudgetCostTypes> CostTypes { get; private set; } = null!;
+        public Output<Outputs.BudgetCostTypes?> CostTypes { get; private set; } = null!;
 
         /// <summary>
         /// The amount of cost or usage being measured for a budget.
         /// </summary>
         [Output("limitAmount")]
-        public Output<string> LimitAmount { get; private set; } = null!;
+        public Output<string?> LimitAmount { get; private set; } = null!;
 
         /// <summary>
         /// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         /// </summary>
         [Output("limitUnit")]
-        public Output<string> LimitUnit { get; private set; } = null!;
+        public Output<string?> LimitUnit { get; private set; } = null!;
 
         /// <summary>
         /// The name of a budget. Unique within accounts.
@@ -334,7 +334,7 @@ namespace Pulumi.Aws.Budgets
         /// The prefix of the name of a budget. Unique within accounts.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.Budgets
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         /// </summary>
         [Output("timePeriodStart")]
-        public Output<string> TimePeriodStart { get; private set; } = null!;
+        public Output<string?> TimePeriodStart { get; private set; } = null!;
 
         /// <summary>
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.

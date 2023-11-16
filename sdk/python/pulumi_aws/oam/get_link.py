@@ -52,7 +52,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the link.
         """
@@ -60,7 +60,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -68,7 +68,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         """
         Label that is assigned to this link.
         """
@@ -76,7 +76,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter(name="labelTemplate")
-    def label_template(self) -> str:
+    def label_template(self) -> Optional[str]:
         """
         Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
         """
@@ -84,7 +84,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter(name="linkId")
-    def link_id(self) -> str:
+    def link_id(self) -> Optional[str]:
         """
         ID string that AWS generated as part of the link ARN.
         """
@@ -97,7 +97,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Sequence[str]:
+    def resource_types(self) -> Optional[Sequence[str]]:
         """
         Types of data that the source account shares with the monitoring account.
         """
@@ -105,7 +105,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter(name="sinkArn")
-    def sink_arn(self) -> str:
+    def sink_arn(self) -> Optional[str]:
         """
         ARN of the sink that is used for this link.
         """
@@ -113,7 +113,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

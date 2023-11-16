@@ -109,7 +109,7 @@ namespace Pulumi.Aws.ApiGateway
         /// The version of the API keys used for the account.
         /// </summary>
         [Output("apiKeyVersion")]
-        public Output<string> ApiKeyVersion { get; private set; } = null!;
+        public Output<string?> ApiKeyVersion { get; private set; } = null!;
 
         /// <summary>
         /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.

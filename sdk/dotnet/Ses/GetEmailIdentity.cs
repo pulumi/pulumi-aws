@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ses
         /// <summary>
         /// The ARN of the email identity.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Email identity.
         /// </summary>
@@ -112,15 +112,15 @@ namespace Pulumi.Aws.Ses
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetEmailIdentityResult(
-            string arn,
+            string? arn,
 
             string email,
 
-            string id)
+            string? id)
         {
             Arn = arn;
             Email = email;

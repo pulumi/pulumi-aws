@@ -319,14 +319,14 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the security group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
@@ -347,28 +347,28 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="egress", refs={List.class,SecurityGroupEgress.class}, tree="[0,1]")
-    private Output<List<SecurityGroupEgress>> egress;
+    private Output</* @Nullable */ List<SecurityGroupEgress>> egress;
 
     /**
      * @return Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
-    public Output<List<SecurityGroupEgress>> egress() {
-        return this.egress;
+    public Output<Optional<List<SecurityGroupEgress>>> egress() {
+        return Codegen.optional(this.egress);
     }
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
     @Export(name="ingress", refs={List.class,SecurityGroupIngress.class}, tree="[0,1]")
-    private Output<List<SecurityGroupIngress>> ingress;
+    private Output</* @Nullable */ List<SecurityGroupIngress>> ingress;
 
     /**
      * @return Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
-    public Output<List<SecurityGroupIngress>> ingress() {
-        return this.ingress;
+    public Output<Optional<List<SecurityGroupIngress>>> ingress() {
+        return Codegen.optional(this.ingress);
     }
     /**
      * Name of the security group. If omitted, the provider will assign a random, unique name.
@@ -389,28 +389,28 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Owner ID.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return Owner ID.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
@@ -463,14 +463,14 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return VPC ID. Defaults to the region&#39;s default VPC.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

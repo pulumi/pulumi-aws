@@ -63,7 +63,7 @@ type AssessmentDelegation struct {
 	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
 	ControlSetId pulumi.StringOutput `pulumi:"controlSetId"`
 	// Unique identifier for the delegation.
-	DelegationId pulumi.StringOutput `pulumi:"delegationId"`
+	DelegationId pulumi.StringPtrOutput `pulumi:"delegationId"`
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -71,7 +71,7 @@ type AssessmentDelegation struct {
 	// The following arguments are optional:
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
 	// Status of the delegation.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewAssessmentDelegation registers a new resource with the given unique name, arguments, and options.
@@ -291,8 +291,8 @@ func (o AssessmentDelegationOutput) ControlSetId() pulumi.StringOutput {
 }
 
 // Unique identifier for the delegation.
-func (o AssessmentDelegationOutput) DelegationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.DelegationId }).(pulumi.StringOutput)
+func (o AssessmentDelegationOutput) DelegationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringPtrOutput { return v.DelegationId }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the IAM role.
@@ -308,8 +308,8 @@ func (o AssessmentDelegationOutput) RoleType() pulumi.StringOutput {
 }
 
 // Status of the delegation.
-func (o AssessmentDelegationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o AssessmentDelegationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type AssessmentDelegationArrayOutput struct{ *pulumi.OutputState }

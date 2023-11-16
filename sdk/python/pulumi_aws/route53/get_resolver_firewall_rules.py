@@ -51,7 +51,7 @@ class GetResolverFirewallRulesResult:
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Sequence['outputs.GetResolverFirewallRulesFirewallRuleResult']:
+    def firewall_rules(self) -> Optional[Sequence['outputs.GetResolverFirewallRulesFirewallRuleResult']]:
         """
         List with information about the firewall rules. See details below.
         """
@@ -59,7 +59,7 @@ class GetResolverFirewallRulesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

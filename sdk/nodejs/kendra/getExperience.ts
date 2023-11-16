@@ -52,49 +52,49 @@ export interface GetExperienceResult {
     /**
      * ARN of the Experience.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
      */
-    readonly configurations: outputs.kendra.GetExperienceConfiguration[];
+    readonly configurations?: outputs.kendra.GetExperienceConfiguration[];
     /**
      * Unix datetime that the Experience was created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * Description of the Experience.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
      */
-    readonly endpoints: outputs.kendra.GetExperienceEndpoint[];
+    readonly endpoints?: outputs.kendra.GetExperienceEndpoint[];
     /**
      * Reason your Amazon Kendra Experience could not properly process.
      */
-    readonly errorMessage: string;
+    readonly errorMessage?: string;
     readonly experienceId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly indexId: string;
     /**
      * Name of the Experience.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      */
-    readonly roleArn: string;
+    readonly roleArn?: string;
     /**
      * Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that this failed.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Date and time that the Experience was last updated.
      */
-    readonly updatedAt: string;
+    readonly updatedAt?: string;
 }
 /**
  * Provides details about a specific Amazon Kendra Experience.

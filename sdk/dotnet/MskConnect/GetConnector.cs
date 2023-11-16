@@ -104,32 +104,32 @@ namespace Pulumi.Aws.MskConnect
         /// <summary>
         /// ARN of the connector.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Summary description of the connector.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Current version of the connector.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetConnectorResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
-            string version)
+            string? version)
         {
             Arn = arn;
             Description = description;

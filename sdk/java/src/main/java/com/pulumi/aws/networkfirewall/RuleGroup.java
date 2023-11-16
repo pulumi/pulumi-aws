@@ -377,14 +377,14 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) that identifies the rule group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
@@ -447,14 +447,14 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ruleGroup", refs={RuleGroupRuleGroup.class}, tree="[0]")
-    private Output<RuleGroupRuleGroup> ruleGroup;
+    private Output</* @Nullable */ RuleGroupRuleGroup> ruleGroup;
 
     /**
      * @return A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      * 
      */
-    public Output<RuleGroupRuleGroup> ruleGroup() {
-        return this.ruleGroup;
+    public Output<Optional<RuleGroupRuleGroup>> ruleGroup() {
+        return Codegen.optional(this.ruleGroup);
     }
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
@@ -521,14 +521,14 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateToken", refs={String.class}, tree="[0]")
-    private Output<String> updateToken;
+    private Output</* @Nullable */ String> updateToken;
 
     /**
      * @return A string token used when updating the rule group.
      * 
      */
-    public Output<String> updateToken() {
-        return this.updateToken;
+    public Output<Optional<String>> updateToken() {
+        return Codegen.optional(this.updateToken);
     }
 
     /**

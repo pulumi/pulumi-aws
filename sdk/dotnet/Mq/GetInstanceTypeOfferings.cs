@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Mq
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Broker's storage type.
         /// </summary>
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Mq
 
             string? hostInstanceType,
 
-            string id,
+            string? id,
 
             string? storageType)
         {

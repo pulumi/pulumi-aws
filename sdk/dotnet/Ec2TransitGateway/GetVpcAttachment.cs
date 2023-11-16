@@ -212,20 +212,20 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Whether Appliance Mode support is enabled.
         /// </summary>
-        public readonly string ApplianceModeSupport;
+        public readonly string? ApplianceModeSupport;
         /// <summary>
         /// Whether DNS support is enabled.
         /// </summary>
-        public readonly string DnsSupport;
+        public readonly string? DnsSupport;
         public readonly ImmutableArray<Outputs.GetVpcAttachmentFilterResult> Filters;
         /// <summary>
         /// EC2 Transit Gateway VPC Attachment identifier
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Whether IPv6 support is enabled.
         /// </summary>
-        public readonly string Ipv6Support;
+        public readonly string? Ipv6Support;
         /// <summary>
         /// Identifiers of EC2 Subnets.
         /// </summary>
@@ -233,41 +233,41 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway VPC Attachment
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// EC2 Transit Gateway identifier
         /// </summary>
-        public readonly string TransitGatewayId;
+        public readonly string? TransitGatewayId;
         /// <summary>
         /// Identifier of EC2 VPC.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 VPC.
         /// </summary>
-        public readonly string VpcOwnerId;
+        public readonly string? VpcOwnerId;
 
         [OutputConstructor]
         private GetVpcAttachmentResult(
-            string applianceModeSupport,
+            string? applianceModeSupport,
 
-            string dnsSupport,
+            string? dnsSupport,
 
             ImmutableArray<Outputs.GetVpcAttachmentFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string ipv6Support,
+            string? ipv6Support,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string transitGatewayId,
+            string? transitGatewayId,
 
-            string vpcId,
+            string? vpcId,
 
-            string vpcOwnerId)
+            string? vpcOwnerId)
         {
             ApplianceModeSupport = applianceModeSupport;
             DnsSupport = dnsSupport;

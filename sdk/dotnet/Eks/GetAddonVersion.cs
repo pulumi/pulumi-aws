@@ -171,25 +171,25 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string KubernetesVersion;
         public readonly bool? MostRecent;
         /// <summary>
         /// Version of the EKS add-on.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetAddonVersionResult(
             string addonName,
 
-            string id,
+            string? id,
 
             string kubernetesVersion,
 
             bool? mostRecent,
 
-            string version)
+            string? version)
         {
             AddonName = addonName;
             Id = id;

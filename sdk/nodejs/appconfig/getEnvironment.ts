@@ -59,33 +59,33 @@ export interface GetEnvironmentResult {
     /**
      * ARN of the environment.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Name of the environment.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly environmentId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of Amazon CloudWatch alarms to monitor during the deployment process.
      */
-    readonly monitors: outputs.appconfig.GetEnvironmentMonitor[];
+    readonly monitors?: outputs.appconfig.GetEnvironmentMonitor[];
     /**
      * Name of the environment.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
      * or `ROLLED_BACK`.
      */
-    readonly state: string;
+    readonly state?: string;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides access to an AppConfig Environment.

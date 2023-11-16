@@ -93,7 +93,7 @@ import {Function} from "./index";
  *     action: "lambda:InvokeFunction",
  *     "function": "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",
- *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*`,
+ *     sourceArn: myDemoAPI.executionArn.apply(executionArn => `${executionArn}/*`),
  * });
  * ```
  * ### With CloudWatch Log Group
@@ -124,7 +124,7 @@ import {Function} from "./index";
  *     action: "lambda:InvokeFunction",
  *     "function": loggingFunction.name,
  *     principal: "logs.eu-west-1.amazonaws.com",
- *     sourceArn: pulumi.interpolate`${defaultLogGroup.arn}:*`,
+ *     sourceArn: defaultLogGroup.arn.apply(arn => `${arn}:*`),
  * });
  * const loggingLogSubscriptionFilter = new aws.cloudwatch.LogSubscriptionFilter("loggingLogSubscriptionFilter", {
  *     destinationArn: loggingFunction.arn,
@@ -258,7 +258,7 @@ export class Permission extends pulumi.CustomResource {
     /**
      * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
      */
-    public readonly statementIdPrefix!: pulumi.Output<string>;
+    public readonly statementIdPrefix!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Permission resource with the given unique name, arguments, and options.

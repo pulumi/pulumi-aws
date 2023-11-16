@@ -29,14 +29,14 @@ type ConnectAttachment struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the attachment.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
+	Arn          pulumi.StringPtrOutput `pulumi:"arn"`
+	AttachmentId pulumi.StringPtrOutput `pulumi:"attachmentId"`
 	// The policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentPolicyRuleNumber pulumi.IntPtrOutput `pulumi:"attachmentPolicyRuleNumber"`
 	// The type of attachment.
-	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
+	AttachmentType pulumi.StringPtrOutput `pulumi:"attachmentType"`
 	// The ARN of a core network.
-	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
+	CoreNetworkArn pulumi.StringPtrOutput `pulumi:"coreNetworkArn"`
 	// The ID of a core network where you want to create the attachment.
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
 	// The Region where the edge is located.
@@ -46,13 +46,13 @@ type ConnectAttachment struct {
 	// The following arguments are optional:
 	Options ConnectAttachmentOptionsOutput `pulumi:"options"`
 	// The ID of the attachment account owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerAccountId pulumi.StringPtrOutput `pulumi:"ownerAccountId"`
 	// The attachment resource ARN.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
 	// The name of the segment attachment.
-	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
+	SegmentName pulumi.StringPtrOutput `pulumi:"segmentName"`
 	// The state of the attachment.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -303,27 +303,27 @@ func (o ConnectAttachmentOutput) ToConnectAttachmentOutputWithContext(ctx contex
 }
 
 // The ARN of the attachment.
-func (o ConnectAttachmentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConnectAttachmentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectAttachmentOutput) AttachmentId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.AttachmentId }).(pulumi.StringOutput)
+func (o ConnectAttachmentOutput) AttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.AttachmentId }).(pulumi.StringPtrOutput)
 }
 
 // The policy rule number associated with the attachment.
-func (o ConnectAttachmentOutput) AttachmentPolicyRuleNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.IntOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntOutput)
+func (o ConnectAttachmentOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.IntPtrOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntPtrOutput)
 }
 
 // The type of attachment.
-func (o ConnectAttachmentOutput) AttachmentType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
+func (o ConnectAttachmentOutput) AttachmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.AttachmentType }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of a core network.
-func (o ConnectAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
+func (o ConnectAttachmentOutput) CoreNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a core network where you want to create the attachment.
@@ -344,23 +344,23 @@ func (o ConnectAttachmentOutput) Options() ConnectAttachmentOptionsOutput {
 }
 
 // The ID of the attachment account owner.
-func (o ConnectAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o ConnectAttachmentOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The attachment resource ARN.
-func (o ConnectAttachmentOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+func (o ConnectAttachmentOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the segment attachment.
-func (o ConnectAttachmentOutput) SegmentName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.SegmentName }).(pulumi.StringOutput)
+func (o ConnectAttachmentOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.SegmentName }).(pulumi.StringPtrOutput)
 }
 
 // The state of the attachment.
-func (o ConnectAttachmentOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o ConnectAttachmentOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

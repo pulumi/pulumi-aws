@@ -421,7 +421,7 @@ class PermissionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Permission Set.
         """
@@ -429,7 +429,7 @@ class PermissionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """

@@ -63,7 +63,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * The ARN of the neptune subnet group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the neptune subnet group. Defaults to "Managed by Pulumi".
      */
@@ -75,7 +75,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * A list of VPC subnet IDs.
      */

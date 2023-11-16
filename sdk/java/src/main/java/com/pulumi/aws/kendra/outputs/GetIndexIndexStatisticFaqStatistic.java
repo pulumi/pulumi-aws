@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexIndexStatisticFaqStatistic {
@@ -13,15 +15,15 @@ public final class GetIndexIndexStatisticFaqStatistic {
      * @return The total number of FAQ questions and answers contained in the index.
      * 
      */
-    private Integer indexedQuestionAnswersCount;
+    private @Nullable Integer indexedQuestionAnswersCount;
 
     private GetIndexIndexStatisticFaqStatistic() {}
     /**
      * @return The total number of FAQ questions and answers contained in the index.
      * 
      */
-    public Integer indexedQuestionAnswersCount() {
-        return this.indexedQuestionAnswersCount;
+    public Optional<Integer> indexedQuestionAnswersCount() {
+        return Optional.ofNullable(this.indexedQuestionAnswersCount);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetIndexIndexStatisticFaqStatistic {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer indexedQuestionAnswersCount;
+        private @Nullable Integer indexedQuestionAnswersCount;
         public Builder() {}
         public Builder(GetIndexIndexStatisticFaqStatistic defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetIndexIndexStatisticFaqStatistic {
         }
 
         @CustomType.Setter
-        public Builder indexedQuestionAnswersCount(Integer indexedQuestionAnswersCount) {
-            this.indexedQuestionAnswersCount = Objects.requireNonNull(indexedQuestionAnswersCount);
+        public Builder indexedQuestionAnswersCount(@Nullable Integer indexedQuestionAnswersCount) {
+            this.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
             return this;
         }
         public GetIndexIndexStatisticFaqStatistic build() {

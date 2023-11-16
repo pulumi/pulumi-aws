@@ -56,7 +56,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Full ARN of the repository.
         """
@@ -64,7 +64,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> Sequence['outputs.GetRepositoryEncryptionConfigurationResult']:
+    def encryption_configurations(self) -> Optional[Sequence['outputs.GetRepositoryEncryptionConfigurationResult']]:
         """
         Encryption configuration for the repository. See Encryption Configuration below.
         """
@@ -72,7 +72,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -80,7 +80,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="imageScanningConfigurations")
-    def image_scanning_configurations(self) -> Sequence['outputs.GetRepositoryImageScanningConfigurationResult']:
+    def image_scanning_configurations(self) -> Optional[Sequence['outputs.GetRepositoryImageScanningConfigurationResult']]:
         """
         Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
         """
@@ -88,7 +88,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="imageTagMutability")
-    def image_tag_mutability(self) -> str:
+    def image_tag_mutability(self) -> Optional[str]:
         """
         The tag mutability setting for the repository.
         """
@@ -96,7 +96,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="mostRecentImageTags")
-    def most_recent_image_tags(self) -> Sequence[str]:
+    def most_recent_image_tags(self) -> Optional[Sequence[str]]:
         """
         List of image tags associated with the most recently pushed image in the repository.
         """
@@ -109,12 +109,12 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> str:
+    def registry_id(self) -> Optional[str]:
         return pulumi.get(self, "registry_id")
 
     @property
     @pulumi.getter(name="repositoryUrl")
-    def repository_url(self) -> str:
+    def repository_url(self) -> Optional[str]:
         """
         URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         """
@@ -122,7 +122,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the resource.
         """

@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecGrpcRouteActionTarget;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecGrpcRouteAction {
-    private List<GetGatewayRouteSpecGrpcRouteActionTarget> targets;
+    private @Nullable List<GetGatewayRouteSpecGrpcRouteActionTarget> targets;
 
     private GetGatewayRouteSpecGrpcRouteAction() {}
     public List<GetGatewayRouteSpecGrpcRouteActionTarget> targets() {
-        return this.targets;
+        return this.targets == null ? List.of() : this.targets;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetGatewayRouteSpecGrpcRouteAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGatewayRouteSpecGrpcRouteActionTarget> targets;
+        private @Nullable List<GetGatewayRouteSpecGrpcRouteActionTarget> targets;
         public Builder() {}
         public Builder(GetGatewayRouteSpecGrpcRouteAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetGatewayRouteSpecGrpcRouteAction {
         }
 
         @CustomType.Setter
-        public Builder targets(List<GetGatewayRouteSpecGrpcRouteActionTarget> targets) {
-            this.targets = Objects.requireNonNull(targets);
+        public Builder targets(@Nullable List<GetGatewayRouteSpecGrpcRouteActionTarget> targets) {
+            this.targets = targets;
             return this;
         }
         public Builder targets(GetGatewayRouteSpecGrpcRouteActionTarget... targets) {

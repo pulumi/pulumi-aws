@@ -526,7 +526,7 @@ class ProxyTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
         """
@@ -534,7 +534,7 @@ class ProxyTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         Port for the target RDS DB Instance or Aurora DB Cluster.
         """
@@ -542,7 +542,7 @@ class ProxyTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rdsResourceId")
-    def rds_resource_id(self) -> pulumi.Output[str]:
+    def rds_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier representing the DB Instance or DB Cluster target.
         """
@@ -550,7 +550,7 @@ class ProxyTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> pulumi.Output[str]:
+    def target_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         """
@@ -566,7 +566,7 @@ class ProxyTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trackedClusterId")
-    def tracked_cluster_id(self) -> pulumi.Output[str]:
+    def tracked_cluster_id(self) -> pulumi.Output[Optional[str]]:
         """
         DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         """
@@ -574,7 +574,7 @@ class ProxyTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """

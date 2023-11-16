@@ -96,7 +96,7 @@ export class OptionGroup extends pulumi.CustomResource {
     /**
      * ARN of the DB option group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
@@ -112,7 +112,7 @@ export class OptionGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Description of the option group.
      */

@@ -675,7 +675,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the instance.
         """
@@ -707,7 +707,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         When the instance was created.
         """
@@ -772,7 +772,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> pulumi.Output[str]:
+    def service_role(self) -> pulumi.Output[Optional[str]]:
         """
         The service role of the instance.
         """
@@ -780,7 +780,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the instance.
         """

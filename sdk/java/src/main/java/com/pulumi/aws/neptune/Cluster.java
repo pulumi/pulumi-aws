@@ -85,56 +85,56 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allowMajorVersionUpgrade", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> allowMajorVersionUpgrade;
+    private Output</* @Nullable */ Boolean> allowMajorVersionUpgrade;
 
     /**
      * @return Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
      * 
      */
-    public Output<Boolean> allowMajorVersionUpgrade() {
-        return this.allowMajorVersionUpgrade;
+    public Output<Optional<Boolean>> allowMajorVersionUpgrade() {
+        return Codegen.optional(this.allowMajorVersionUpgrade);
     }
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * The Neptune Cluster Amazon Resource Name (ARN)
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Neptune Cluster Amazon Resource Name (ARN)
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> availabilityZones;
+    private Output</* @Nullable */ List<String>> availabilityZones;
 
     /**
      * @return A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      * 
      */
-    public Output<List<String>> availabilityZones() {
-        return this.availabilityZones;
+    public Output<Optional<List<String>>> availabilityZones() {
+        return Codegen.optional(this.availabilityZones);
     }
     /**
      * The days to retain backups for. Default `1`
@@ -155,56 +155,56 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> clusterIdentifier;
+    private Output</* @Nullable */ String> clusterIdentifier;
 
     /**
      * @return The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
-    public Output<String> clusterIdentifier() {
-        return this.clusterIdentifier;
+    public Output<Optional<String>> clusterIdentifier() {
+        return Codegen.optional(this.clusterIdentifier);
     }
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
     @Export(name="clusterIdentifierPrefix", refs={String.class}, tree="[0]")
-    private Output<String> clusterIdentifierPrefix;
+    private Output</* @Nullable */ String> clusterIdentifierPrefix;
 
     /**
      * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    public Output<String> clusterIdentifierPrefix() {
-        return this.clusterIdentifierPrefix;
+    public Output<Optional<String>> clusterIdentifierPrefix() {
+        return Codegen.optional(this.clusterIdentifierPrefix);
     }
     /**
      * List of Neptune Instances that are a part of this cluster
      * 
      */
     @Export(name="clusterMembers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> clusterMembers;
+    private Output</* @Nullable */ List<String>> clusterMembers;
 
     /**
      * @return List of Neptune Instances that are a part of this cluster
      * 
      */
-    public Output<List<String>> clusterMembers() {
-        return this.clusterMembers;
+    public Output<Optional<List<String>>> clusterMembers() {
+        return Codegen.optional(this.clusterMembers);
     }
     /**
      * The Neptune Cluster Resource ID
      * 
      */
     @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
-    private Output<String> clusterResourceId;
+    private Output</* @Nullable */ String> clusterResourceId;
 
     /**
      * @return The Neptune Cluster Resource ID
      * 
      */
-    public Output<String> clusterResourceId() {
-        return this.clusterResourceId;
+    public Output<Optional<String>> clusterResourceId() {
+        return Codegen.optional(this.clusterResourceId);
     }
     /**
      * If set to true, tags are copied to any snapshot of the DB cluster that is created.
@@ -253,14 +253,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The DNS address of the Neptune instance
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -281,14 +281,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return The database engine version.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
@@ -323,14 +323,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
-    private Output<String> hostedZoneId;
+    private Output</* @Nullable */ String> hostedZoneId;
 
     /**
      * @return The Route53 Hosted Zone ID of the endpoint
      * 
      */
-    public Output<String> hostedZoneId() {
-        return this.hostedZoneId;
+    public Output<Optional<String>> hostedZoneId() {
+        return Codegen.optional(this.hostedZoneId);
     }
     /**
      * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
@@ -365,14 +365,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyArn;
+    private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
      * @return The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
      * 
      */
-    public Output<String> kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * A cluster parameter group to associate with the cluster.
@@ -407,14 +407,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="neptuneSubnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> neptuneSubnetGroupName;
+    private Output</* @Nullable */ String> neptuneSubnetGroupName;
 
     /**
      * @return A Neptune subnet group to associate with this Neptune instance.
      * 
      */
-    public Output<String> neptuneSubnetGroupName() {
-        return this.neptuneSubnetGroupName;
+    public Output<Optional<String>> neptuneSubnetGroupName() {
+        return Codegen.optional(this.neptuneSubnetGroupName);
     }
     /**
      * The port on which the Neptune accepts connections. Default is `8182`.
@@ -435,42 +435,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredBackupWindow;
+    private Output</* @Nullable */ String> preferredBackupWindow;
 
     /**
      * @return The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
-    public Output<String> preferredBackupWindow() {
-        return this.preferredBackupWindow;
+    public Output<Optional<String>> preferredBackupWindow() {
+        return Codegen.optional(this.preferredBackupWindow);
     }
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredMaintenanceWindow;
+    private Output</* @Nullable */ String> preferredMaintenanceWindow;
 
     /**
      * @return The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
-    public Output<String> preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Output<Optional<String>> preferredMaintenanceWindow() {
+        return Codegen.optional(this.preferredMaintenanceWindow);
     }
     /**
      * A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      * 
      */
     @Export(name="readerEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> readerEndpoint;
+    private Output</* @Nullable */ String> readerEndpoint;
 
     /**
      * @return A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      * 
      */
-    public Output<String> readerEndpoint() {
-        return this.readerEndpoint;
+    public Output<Optional<String>> readerEndpoint() {
+        return Codegen.optional(this.readerEndpoint);
     }
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
@@ -579,14 +579,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return List of VPC security groups to associate with the Cluster
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
 
     /**

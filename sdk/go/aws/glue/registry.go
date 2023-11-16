@@ -53,7 +53,7 @@ type Registry struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of Glue Registry.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the registry.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Name of the registry.
@@ -243,8 +243,8 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 }
 
 // Amazon Resource Name (ARN) of Glue Registry.
-func (o RegistryOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RegistryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the registry.

@@ -173,31 +173,31 @@ type Service struct {
 	pulumi.CustomResourceState
 
 	// ARN of the App Runner service.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-	AutoScalingConfigurationArn pulumi.StringOutput `pulumi:"autoScalingConfigurationArn"`
+	AutoScalingConfigurationArn pulumi.StringPtrOutput `pulumi:"autoScalingConfigurationArn"`
 	// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
 	EncryptionConfiguration ServiceEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
-	HealthCheckConfiguration ServiceHealthCheckConfigurationOutput `pulumi:"healthCheckConfiguration"`
+	HealthCheckConfiguration ServiceHealthCheckConfigurationPtrOutput `pulumi:"healthCheckConfiguration"`
 	// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-	InstanceConfiguration ServiceInstanceConfigurationOutput `pulumi:"instanceConfiguration"`
+	InstanceConfiguration ServiceInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
 	// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
-	NetworkConfiguration ServiceNetworkConfigurationOutput `pulumi:"networkConfiguration"`
+	NetworkConfiguration ServiceNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration ServiceObservabilityConfigurationPtrOutput `pulumi:"observabilityConfiguration"`
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
-	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
+	ServiceId pulumi.StringPtrOutput `pulumi:"serviceId"`
 	// Name of the service.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
-	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
+	ServiceUrl pulumi.StringPtrOutput `pulumi:"serviceUrl"`
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
 	//
 	// The following arguments are optional:
 	SourceConfiguration ServiceSourceConfigurationOutput `pulumi:"sourceConfiguration"`
 	// Current state of the App Runner service.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -454,13 +454,13 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 }
 
 // ARN of the App Runner service.
-func (o ServiceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServiceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-func (o ServiceOutput) AutoScalingConfigurationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AutoScalingConfigurationArn }).(pulumi.StringOutput)
+func (o ServiceOutput) AutoScalingConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AutoScalingConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
 // An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
@@ -469,18 +469,18 @@ func (o ServiceOutput) EncryptionConfiguration() ServiceEncryptionConfigurationP
 }
 
 // Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
-func (o ServiceOutput) HealthCheckConfiguration() ServiceHealthCheckConfigurationOutput {
-	return o.ApplyT(func(v *Service) ServiceHealthCheckConfigurationOutput { return v.HealthCheckConfiguration }).(ServiceHealthCheckConfigurationOutput)
+func (o ServiceOutput) HealthCheckConfiguration() ServiceHealthCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceHealthCheckConfigurationPtrOutput { return v.HealthCheckConfiguration }).(ServiceHealthCheckConfigurationPtrOutput)
 }
 
 // The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-func (o ServiceOutput) InstanceConfiguration() ServiceInstanceConfigurationOutput {
-	return o.ApplyT(func(v *Service) ServiceInstanceConfigurationOutput { return v.InstanceConfiguration }).(ServiceInstanceConfigurationOutput)
+func (o ServiceOutput) InstanceConfiguration() ServiceInstanceConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceInstanceConfigurationPtrOutput { return v.InstanceConfiguration }).(ServiceInstanceConfigurationPtrOutput)
 }
 
 // Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
-func (o ServiceOutput) NetworkConfiguration() ServiceNetworkConfigurationOutput {
-	return o.ApplyT(func(v *Service) ServiceNetworkConfigurationOutput { return v.NetworkConfiguration }).(ServiceNetworkConfigurationOutput)
+func (o ServiceOutput) NetworkConfiguration() ServiceNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(ServiceNetworkConfigurationPtrOutput)
 }
 
 // The observability configuration of your service. See Observability Configuration below for more details.
@@ -489,8 +489,8 @@ func (o ServiceOutput) ObservabilityConfiguration() ServiceObservabilityConfigur
 }
 
 // An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
-func (o ServiceOutput) ServiceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
+func (o ServiceOutput) ServiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the service.
@@ -499,8 +499,8 @@ func (o ServiceOutput) ServiceName() pulumi.StringOutput {
 }
 
 // Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
-func (o ServiceOutput) ServiceUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceUrl }).(pulumi.StringOutput)
+func (o ServiceOutput) ServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
 
 // The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
@@ -511,8 +511,8 @@ func (o ServiceOutput) SourceConfiguration() ServiceSourceConfigurationOutput {
 }
 
 // Current state of the App Runner service.
-func (o ServiceOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ServiceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

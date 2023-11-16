@@ -60,7 +60,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the second device in the connection.
      */

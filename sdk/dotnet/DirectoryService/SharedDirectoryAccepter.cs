@@ -60,25 +60,25 @@ namespace Pulumi.Aws.DirectoryService
         /// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
         /// </summary>
         [Output("method")]
-        public Output<string> Method { get; private set; } = null!;
+        public Output<string?> Method { get; private set; } = null!;
 
         /// <summary>
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         /// </summary>
         [Output("notes")]
-        public Output<string> Notes { get; private set; } = null!;
+        public Output<string?> Notes { get; private set; } = null!;
 
         /// <summary>
         /// Account identifier of the directory owner.
         /// </summary>
         [Output("ownerAccountId")]
-        public Output<string> OwnerAccountId { get; private set; } = null!;
+        public Output<string?> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
         /// </summary>
         [Output("ownerDirectoryId")]
-        public Output<string> OwnerDirectoryId { get; private set; } = null!;
+        public Output<string?> OwnerDirectoryId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.

@@ -153,14 +153,14 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the StackSet.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
@@ -223,14 +223,14 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="executionRoleName", refs={String.class}, tree="[0]")
-    private Output<String> executionRoleName;
+    private Output</* @Nullable */ String> executionRoleName;
 
     /**
      * @return Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      * 
      */
-    public Output<String> executionRoleName() {
-        return this.executionRoleName;
+    public Output<Optional<String>> executionRoleName() {
+        return Codegen.optional(this.executionRoleName);
     }
     /**
      * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
@@ -307,14 +307,14 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="stackSetId", refs={String.class}, tree="[0]")
-    private Output<String> stackSetId;
+    private Output</* @Nullable */ String> stackSetId;
 
     /**
      * @return Unique identifier of the StackSet.
      * 
      */
-    public Output<String> stackSetId() {
-        return this.stackSetId;
+    public Output<Optional<String>> stackSetId() {
+        return Codegen.optional(this.stackSetId);
     }
     /**
      * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -353,14 +353,14 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="templateBody", refs={String.class}, tree="[0]")
-    private Output<String> templateBody;
+    private Output</* @Nullable */ String> templateBody;
 
     /**
      * @return String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
      * 
      */
-    public Output<String> templateBody() {
-        return this.templateBody;
+    public Output<Optional<String>> templateBody() {
+        return Codegen.optional(this.templateBody);
     }
     /**
      * String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.

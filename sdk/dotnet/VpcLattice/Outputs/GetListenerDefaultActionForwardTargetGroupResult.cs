@@ -13,14 +13,14 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionForwardTargetGroupResult
     {
-        public readonly string TargetGroupIdentifier;
-        public readonly int Weight;
+        public readonly string? TargetGroupIdentifier;
+        public readonly int? Weight;
 
         [OutputConstructor]
         private GetListenerDefaultActionForwardTargetGroupResult(
-            string targetGroupIdentifier,
+            string? targetGroupIdentifier,
 
-            int weight)
+            int? weight)
         {
             TargetGroupIdentifier = targetGroupIdentifier;
             Weight = weight;

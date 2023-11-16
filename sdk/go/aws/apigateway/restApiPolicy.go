@@ -29,56 +29,56 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("execute-api:Invoke"),
-//						},
-//						Resources: pulumi.StringArray{
-//							testRestApi.ExecutionArn,
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("IpAddress"),
-//								Variable: pulumi.String("aws:SourceIp"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("123.123.123.123/32"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
-//				RestApiId: testRestApi.ID(),
-//				Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &testPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
+// if err != nil {
+// return err
+// }
+// testPolicyDocument := testRestApi.ExecutionArn.ApplyT(func(executionArn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Actions: []string{
+// "execute-api:Invoke",
+// },
+// Resources: interface{}{
+// executionArn,
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "IpAddress",
+// Variable: "aws:SourceIp",
+// Values: []string{
+// "123.123.123.123/32",
+// },
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
+// RestApiId: testRestApi.ID(),
+// Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &testPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

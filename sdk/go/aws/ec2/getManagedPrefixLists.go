@@ -38,7 +38,7 @@ type GetManagedPrefixListsArgs struct {
 type GetManagedPrefixListsResult struct {
 	Filters []GetManagedPrefixListsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all the managed prefix list ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -93,8 +93,8 @@ func (o GetManagedPrefixListsResultOutput) Filters() GetManagedPrefixListsFilter
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetManagedPrefixListsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetManagedPrefixListsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetManagedPrefixListsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetManagedPrefixListsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the managed prefix list ids found.

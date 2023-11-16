@@ -53,11 +53,11 @@ export interface GetOntapStorageVirtualMachinesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of all SVM IDs found.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
 }
 /**
  * This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.

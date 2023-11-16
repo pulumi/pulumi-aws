@@ -65,28 +65,28 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="externalIds", refs={List.class,GroupExternalId.class}, tree="[0,1]")
-    private Output<List<GroupExternalId>> externalIds;
+    private Output</* @Nullable */ List<GroupExternalId>> externalIds;
 
     /**
      * @return A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
      * 
      */
-    public Output<List<GroupExternalId>> externalIds() {
-        return this.externalIds;
+    public Output<Optional<List<GroupExternalId>>> externalIds() {
+        return Codegen.optional(this.externalIds);
     }
     /**
      * The identifier of the newly created group in the identity store.
      * 
      */
     @Export(name="groupId", refs={String.class}, tree="[0]")
-    private Output<String> groupId;
+    private Output</* @Nullable */ String> groupId;
 
     /**
      * @return The identifier of the newly created group in the identity store.
      * 
      */
-    public Output<String> groupId() {
-        return this.groupId;
+    public Output<Optional<String>> groupId() {
+        return Codegen.optional(this.groupId);
     }
     /**
      * The globally unique identifier for the identity store.

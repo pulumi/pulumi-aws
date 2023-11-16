@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateElasticInferenceAcceleratorResult
     {
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
-        private GetLaunchTemplateElasticInferenceAcceleratorResult(string type)
+        private GetLaunchTemplateElasticInferenceAcceleratorResult(string? type)
         {
             Type = type;
         }

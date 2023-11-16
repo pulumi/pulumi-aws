@@ -93,7 +93,7 @@ type PeeringAttachment struct {
 	pulumi.CustomResourceState
 
 	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-	PeerAccountId pulumi.StringOutput `pulumi:"peerAccountId"`
+	PeerAccountId pulumi.StringPtrOutput `pulumi:"peerAccountId"`
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
@@ -303,8 +303,8 @@ func (o PeeringAttachmentOutput) ToPeeringAttachmentOutputWithContext(ctx contex
 }
 
 // Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-func (o PeeringAttachmentOutput) PeerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.PeerAccountId }).(pulumi.StringOutput)
+func (o PeeringAttachmentOutput) PeerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringPtrOutput { return v.PeerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Region of EC2 Transit Gateway to peer with.

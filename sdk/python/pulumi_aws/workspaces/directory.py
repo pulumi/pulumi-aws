@@ -778,7 +778,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alias(self) -> pulumi.Output[str]:
+    def alias(self) -> pulumi.Output[Optional[str]]:
         """
         The directory alias.
         """
@@ -786,7 +786,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerUserName")
-    def customer_user_name(self) -> pulumi.Output[str]:
+    def customer_user_name(self) -> pulumi.Output[Optional[str]]:
         """
         The user name for the service account.
         """
@@ -802,7 +802,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> pulumi.Output[str]:
+    def directory_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the directory.
         """
@@ -810,7 +810,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="directoryType")
-    def directory_type(self) -> pulumi.Output[str]:
+    def directory_type(self) -> pulumi.Output[Optional[str]]:
         """
         The directory type.
         """
@@ -818,7 +818,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+    def dns_ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The IP addresses of the DNS servers for the directory.
         """
@@ -826,7 +826,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoleId")
-    def iam_role_id(self) -> pulumi.Output[str]:
+    def iam_role_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         """
@@ -834,7 +834,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipGroupIds")
-    def ip_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def ip_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The identifiers of the IP access control groups associated with the directory.
         """
@@ -842,7 +842,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationCode")
-    def registration_code(self) -> pulumi.Output[str]:
+    def registration_code(self) -> pulumi.Output[Optional[str]]:
         """
         The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         """
@@ -850,7 +850,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selfServicePermissions")
-    def self_service_permissions(self) -> pulumi.Output['outputs.DirectorySelfServicePermissions']:
+    def self_service_permissions(self) -> pulumi.Output[Optional['outputs.DirectorySelfServicePermissions']]:
         """
         Permissions to enable or disable self-service capabilities. Defined below.
         """
@@ -858,7 +858,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+    def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The identifiers of the subnets where the directory resides.
         """
@@ -885,7 +885,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceAccessProperties")
-    def workspace_access_properties(self) -> pulumi.Output['outputs.DirectoryWorkspaceAccessProperties']:
+    def workspace_access_properties(self) -> pulumi.Output[Optional['outputs.DirectoryWorkspaceAccessProperties']]:
         """
         Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         """
@@ -893,7 +893,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceCreationProperties")
-    def workspace_creation_properties(self) -> pulumi.Output['outputs.DirectoryWorkspaceCreationProperties']:
+    def workspace_creation_properties(self) -> pulumi.Output[Optional['outputs.DirectoryWorkspaceCreationProperties']]:
         """
         Default properties that are used for creating WorkSpaces. Defined below.
         """
@@ -901,7 +901,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceSecurityGroupId")
-    def workspace_security_group_id(self) -> pulumi.Output[str]:
+    def workspace_security_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the security group that is assigned to new WorkSpaces.
         """

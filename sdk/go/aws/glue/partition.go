@@ -27,15 +27,15 @@ type Partition struct {
 	pulumi.CustomResourceState
 
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// The time at which the partition was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The last time at which the partition was accessed.
-	LastAccessedTime pulumi.StringOutput `pulumi:"lastAccessedTime"`
+	LastAccessedTime pulumi.StringPtrOutput `pulumi:"lastAccessedTime"`
 	// The last time at which column statistics were computed for this partition.
-	LastAnalyzedTime pulumi.StringOutput `pulumi:"lastAnalyzedTime"`
+	LastAnalyzedTime pulumi.StringPtrOutput `pulumi:"lastAnalyzedTime"`
 	// Properties associated with this table, as a list of key-value pairs.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The values that define the partition.
@@ -244,13 +244,13 @@ func (o PartitionOutput) ToPartitionOutputWithContext(ctx context.Context) Parti
 }
 
 // ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-func (o PartitionOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+func (o PartitionOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partition) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // The time at which the partition was created.
-func (o PartitionOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o PartitionOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partition) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -259,13 +259,13 @@ func (o PartitionOutput) DatabaseName() pulumi.StringOutput {
 }
 
 // The last time at which the partition was accessed.
-func (o PartitionOutput) LastAccessedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.LastAccessedTime }).(pulumi.StringOutput)
+func (o PartitionOutput) LastAccessedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partition) pulumi.StringPtrOutput { return v.LastAccessedTime }).(pulumi.StringPtrOutput)
 }
 
 // The last time at which column statistics were computed for this partition.
-func (o PartitionOutput) LastAnalyzedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.LastAnalyzedTime }).(pulumi.StringOutput)
+func (o PartitionOutput) LastAnalyzedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partition) pulumi.StringPtrOutput { return v.LastAnalyzedTime }).(pulumi.StringPtrOutput)
 }
 
 // Properties associated with this table, as a list of key-value pairs.

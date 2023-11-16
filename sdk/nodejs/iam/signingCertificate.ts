@@ -82,7 +82,7 @@ export class SigningCertificate extends pulumi.CustomResource {
     /**
      * The ID for the signing certificate.
      */
-    public /*out*/ readonly certificateId!: pulumi.Output<string>;
+    public /*out*/ readonly certificateId!: pulumi.Output<string | undefined>;
     /**
      * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
      */

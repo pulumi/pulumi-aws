@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResolverRuleResult {
@@ -14,85 +16,85 @@ public final class GetResolverRuleResult {
      * @return ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
-    private String arn;
-    private String domainName;
+    private @Nullable String arn;
+    private @Nullable String domainName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String name;
+    private @Nullable String id;
+    private @Nullable String name;
     /**
      * @return When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      * 
      */
-    private String ownerId;
-    private String resolverEndpointId;
-    private String resolverRuleId;
-    private String ruleType;
+    private @Nullable String ownerId;
+    private @Nullable String resolverEndpointId;
+    private @Nullable String resolverRuleId;
+    private @Nullable String ruleType;
     /**
      * @return Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    private String shareStatus;
+    private @Nullable String shareStatus;
     /**
      * @return Map of tags assigned to the resolver rule.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetResolverRuleResult() {}
     /**
      * @return ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String domainName() {
-        return this.domainName;
+    public Optional<String> domainName() {
+        return Optional.ofNullable(this.domainName);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
-    public String resolverEndpointId() {
-        return this.resolverEndpointId;
+    public Optional<String> resolverEndpointId() {
+        return Optional.ofNullable(this.resolverEndpointId);
     }
-    public String resolverRuleId() {
-        return this.resolverRuleId;
+    public Optional<String> resolverRuleId() {
+        return Optional.ofNullable(this.resolverRuleId);
     }
-    public String ruleType() {
-        return this.ruleType;
+    public Optional<String> ruleType() {
+        return Optional.ofNullable(this.ruleType);
     }
     /**
      * @return Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    public String shareStatus() {
-        return this.shareStatus;
+    public Optional<String> shareStatus() {
+        return Optional.ofNullable(this.shareStatus);
     }
     /**
      * @return Map of tags assigned to the resolver rule.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -104,16 +106,16 @@ public final class GetResolverRuleResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String domainName;
-        private String id;
-        private String name;
-        private String ownerId;
-        private String resolverEndpointId;
-        private String resolverRuleId;
-        private String ruleType;
-        private String shareStatus;
-        private Map<String,String> tags;
+        private @Nullable String arn;
+        private @Nullable String domainName;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String ownerId;
+        private @Nullable String resolverEndpointId;
+        private @Nullable String resolverRuleId;
+        private @Nullable String ruleType;
+        private @Nullable String shareStatus;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetResolverRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -130,53 +132,53 @@ public final class GetResolverRuleResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+        public Builder domainName(@Nullable String domainName) {
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder resolverEndpointId(String resolverEndpointId) {
-            this.resolverEndpointId = Objects.requireNonNull(resolverEndpointId);
+        public Builder resolverEndpointId(@Nullable String resolverEndpointId) {
+            this.resolverEndpointId = resolverEndpointId;
             return this;
         }
         @CustomType.Setter
-        public Builder resolverRuleId(String resolverRuleId) {
-            this.resolverRuleId = Objects.requireNonNull(resolverRuleId);
+        public Builder resolverRuleId(@Nullable String resolverRuleId) {
+            this.resolverRuleId = resolverRuleId;
             return this;
         }
         @CustomType.Setter
-        public Builder ruleType(String ruleType) {
-            this.ruleType = Objects.requireNonNull(ruleType);
+        public Builder ruleType(@Nullable String ruleType) {
+            this.ruleType = ruleType;
             return this;
         }
         @CustomType.Setter
-        public Builder shareStatus(String shareStatus) {
-            this.shareStatus = Objects.requireNonNull(shareStatus);
+        public Builder shareStatus(@Nullable String shareStatus) {
+            this.shareStatus = shareStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetResolverRuleResult build() {

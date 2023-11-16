@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPoli
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendDefault {
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicy> clientPolicies;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicy> clientPolicies;
 
     private GetVirtualNodeSpecBackendDefault() {}
     public List<GetVirtualNodeSpecBackendDefaultClientPolicy> clientPolicies() {
-        return this.clientPolicies;
+        return this.clientPolicies == null ? List.of() : this.clientPolicies;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualNodeSpecBackendDefault {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicy> clientPolicies;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicy> clientPolicies;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendDefault defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualNodeSpecBackendDefault {
         }
 
         @CustomType.Setter
-        public Builder clientPolicies(List<GetVirtualNodeSpecBackendDefaultClientPolicy> clientPolicies) {
-            this.clientPolicies = Objects.requireNonNull(clientPolicies);
+        public Builder clientPolicies(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicy> clientPolicies) {
+            this.clientPolicies = clientPolicies;
             return this;
         }
         public Builder clientPolicies(GetVirtualNodeSpecBackendDefaultClientPolicy... clientPolicies) {

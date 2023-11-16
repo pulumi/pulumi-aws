@@ -87,14 +87,14 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
@@ -199,10 +199,10 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     @Export(name="uri", refs={String.class}, tree="[0]")
-    private Output<String> uri;
+    private Output</* @Nullable */ String> uri;
 
-    public Output<String> uri() {
-        return this.uri;
+    public Output<Optional<String>> uri() {
+        return Codegen.optional(this.uri);
     }
 
     /**

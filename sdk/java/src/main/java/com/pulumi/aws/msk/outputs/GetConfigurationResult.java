@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationResult {
@@ -15,69 +17,69 @@ public final class GetConfigurationResult {
      * @return ARN of the configuration.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the configuration.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of Apache Kafka versions which can use this configuration.
      * 
      */
-    private List<String> kafkaVersions;
+    private @Nullable List<String> kafkaVersions;
     /**
      * @return Latest revision of the configuration.
      * 
      */
-    private Integer latestRevision;
+    private @Nullable Integer latestRevision;
     private String name;
     /**
      * @return Contents of the server.properties file.
      * 
      */
-    private String serverProperties;
+    private @Nullable String serverProperties;
 
     private GetConfigurationResult() {}
     /**
      * @return ARN of the configuration.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the configuration.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of Apache Kafka versions which can use this configuration.
      * 
      */
     public List<String> kafkaVersions() {
-        return this.kafkaVersions;
+        return this.kafkaVersions == null ? List.of() : this.kafkaVersions;
     }
     /**
      * @return Latest revision of the configuration.
      * 
      */
-    public Integer latestRevision() {
-        return this.latestRevision;
+    public Optional<Integer> latestRevision() {
+        return Optional.ofNullable(this.latestRevision);
     }
     public String name() {
         return this.name;
@@ -86,8 +88,8 @@ public final class GetConfigurationResult {
      * @return Contents of the server.properties file.
      * 
      */
-    public String serverProperties() {
-        return this.serverProperties;
+    public Optional<String> serverProperties() {
+        return Optional.ofNullable(this.serverProperties);
     }
 
     public static Builder builder() {
@@ -99,13 +101,13 @@ public final class GetConfigurationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String id;
-        private List<String> kafkaVersions;
-        private Integer latestRevision;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable List<String> kafkaVersions;
+        private @Nullable Integer latestRevision;
         private String name;
-        private String serverProperties;
+        private @Nullable String serverProperties;
         public Builder() {}
         public Builder(GetConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -119,31 +121,31 @@ public final class GetConfigurationResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kafkaVersions(List<String> kafkaVersions) {
-            this.kafkaVersions = Objects.requireNonNull(kafkaVersions);
+        public Builder kafkaVersions(@Nullable List<String> kafkaVersions) {
+            this.kafkaVersions = kafkaVersions;
             return this;
         }
         public Builder kafkaVersions(String... kafkaVersions) {
             return kafkaVersions(List.of(kafkaVersions));
         }
         @CustomType.Setter
-        public Builder latestRevision(Integer latestRevision) {
-            this.latestRevision = Objects.requireNonNull(latestRevision);
+        public Builder latestRevision(@Nullable Integer latestRevision) {
+            this.latestRevision = latestRevision;
             return this;
         }
         @CustomType.Setter
@@ -152,8 +154,8 @@ public final class GetConfigurationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder serverProperties(String serverProperties) {
-            this.serverProperties = Objects.requireNonNull(serverProperties);
+        public Builder serverProperties(@Nullable String serverProperties) {
+            this.serverProperties = serverProperties;
             return this;
         }
         public GetConfigurationResult build() {

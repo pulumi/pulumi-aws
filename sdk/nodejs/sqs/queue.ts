@@ -124,7 +124,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The ARN of the SQS queue
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
      */
@@ -132,7 +132,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
      */
-    public readonly deduplicationScope!: pulumi.Output<string>;
+    public readonly deduplicationScope!: pulumi.Output<string | undefined>;
     /**
      * The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
      */
@@ -144,11 +144,11 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
      */
-    public readonly fifoThroughputLimit!: pulumi.Output<string>;
+    public readonly fifoThroughputLimit!: pulumi.Output<string | undefined>;
     /**
      * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      */
-    public readonly kmsDataKeyReusePeriodSeconds!: pulumi.Output<number>;
+    public readonly kmsDataKeyReusePeriodSeconds!: pulumi.Output<number | undefined>;
     /**
      * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
      */
@@ -168,11 +168,11 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The JSON policy for the SQS queue.
      */
-    public readonly policy!: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
      */
@@ -180,15 +180,15 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
      */
-    public readonly redriveAllowPolicy!: pulumi.Output<string>;
+    public readonly redriveAllowPolicy!: pulumi.Output<string | undefined>;
     /**
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
-    public readonly redrivePolicy!: pulumi.Output<string>;
+    public readonly redrivePolicy!: pulumi.Output<string | undefined>;
     /**
      * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
      */
-    public readonly sqsManagedSseEnabled!: pulumi.Output<boolean>;
+    public readonly sqsManagedSseEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -202,7 +202,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Same as `id`: The URL for the created Amazon SQS queue.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string | undefined>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */

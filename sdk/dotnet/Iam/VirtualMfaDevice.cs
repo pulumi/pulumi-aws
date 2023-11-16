@@ -52,19 +52,19 @@ namespace Pulumi.Aws.Iam
         /// The Amazon Resource Name (ARN) specifying the virtual mfa device.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
         /// </summary>
         [Output("base32StringSeed")]
-        public Output<string> Base32StringSeed { get; private set; } = null!;
+        public Output<string?> Base32StringSeed { get; private set; } = null!;
 
         /// <summary>
         /// The date and time when the virtual MFA device was enabled.
         /// </summary>
         [Output("enableDate")]
-        public Output<string> EnableDate { get; private set; } = null!;
+        public Output<string?> EnableDate { get; private set; } = null!;
 
         /// <summary>
         /// The path for the virtual MFA device.
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Iam
         /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
         /// </summary>
         [Output("qrCodePng")]
-        public Output<string> QrCodePng { get; private set; } = null!;
+        public Output<string?> QrCodePng { get; private set; } = null!;
 
         /// <summary>
         /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Iam
         /// The associated IAM User name if the virtual MFA device is enabled.
         /// </summary>
         [Output("userName")]
-        public Output<string> UserName { get; private set; } = null!;
+        public Output<string?> UserName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.

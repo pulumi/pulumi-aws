@@ -63,7 +63,7 @@ namespace Pulumi.Aws.GameLift
         /// Game Session Queue ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Information to be added to all events that are related to this game session queue.

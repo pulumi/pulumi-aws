@@ -132,21 +132,21 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? MostRecent;
         /// <summary>
         /// Name of the solution stack.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string NameRegex;
 
         [OutputConstructor]
         private GetSolutionStackResult(
-            string id,
+            string? id,
 
             bool? mostRecent,
 
-            string name,
+            string? name,
 
             string nameRegex)
         {

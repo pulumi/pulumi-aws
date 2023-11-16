@@ -38,14 +38,14 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the connector profile.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
@@ -108,28 +108,28 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="credentialsArn", refs={String.class}, tree="[0]")
-    private Output<String> credentialsArn;
+    private Output</* @Nullable */ String> credentialsArn;
 
     /**
      * @return ARN of the connector profile credentials.
      * 
      */
-    public Output<String> credentialsArn() {
-        return this.credentialsArn;
+    public Output<Optional<String>> credentialsArn() {
+        return Codegen.optional(this.credentialsArn);
     }
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
     @Export(name="kmsArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsArn;
+    private Output</* @Nullable */ String> kmsArn;
 
     /**
      * @return ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
-    public Output<String> kmsArn() {
-        return this.kmsArn;
+    public Output<Optional<String>> kmsArn() {
+        return Codegen.optional(this.kmsArn);
     }
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;

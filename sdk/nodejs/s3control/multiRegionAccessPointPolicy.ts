@@ -85,7 +85,7 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     /**
      * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      */
@@ -93,11 +93,11 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     /**
      * The last established policy for the Multi-Region Access Point.
      */
-    public /*out*/ readonly established!: pulumi.Output<string>;
+    public /*out*/ readonly established!: pulumi.Output<string | undefined>;
     /**
      * The proposed policy for the Multi-Region Access Point.
      */
-    public /*out*/ readonly proposed!: pulumi.Output<string>;
+    public /*out*/ readonly proposed!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MultiRegionAccessPointPolicy resource with the given unique name, arguments, and options.

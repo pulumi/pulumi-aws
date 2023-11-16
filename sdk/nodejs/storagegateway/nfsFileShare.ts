@@ -63,7 +63,7 @@ export class NfsFileShare extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the NFS File Share.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the storage used for audit logs.
      */
@@ -87,11 +87,11 @@ export class NfsFileShare extends pulumi.CustomResource {
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
      */
-    public readonly fileShareName!: pulumi.Output<string>;
+    public readonly fileShareName!: pulumi.Output<string | undefined>;
     /**
      * ID of the NFS File Share.
      */
-    public /*out*/ readonly fileshareId!: pulumi.Output<string>;
+    public /*out*/ readonly fileshareId!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */
@@ -127,7 +127,7 @@ export class NfsFileShare extends pulumi.CustomResource {
     /**
      * File share path used by the NFS client to identify the mount point.
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    public /*out*/ readonly path!: pulumi.Output<string | undefined>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */

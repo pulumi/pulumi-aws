@@ -73,7 +73,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Lambda Layer with version.
         """
@@ -86,7 +86,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter(name="compatibleArchitectures")
-    def compatible_architectures(self) -> Sequence[str]:
+    def compatible_architectures(self) -> Optional[Sequence[str]]:
         """
         A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
         """
@@ -99,7 +99,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter(name="compatibleRuntimes")
-    def compatible_runtimes(self) -> Sequence[str]:
+    def compatible_runtimes(self) -> Optional[Sequence[str]]:
         """
         List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
         """
@@ -107,7 +107,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Date this resource was created.
         """
@@ -115,7 +115,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the specific Lambda Layer version.
         """
@@ -123,7 +123,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -131,7 +131,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter(name="layerArn")
-    def layer_arn(self) -> str:
+    def layer_arn(self) -> Optional[str]:
         """
         ARN of the Lambda Layer without version.
         """
@@ -144,7 +144,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter(name="licenseInfo")
-    def license_info(self) -> str:
+    def license_info(self) -> Optional[str]:
         """
         License info associated with the specific Lambda Layer version.
         """
@@ -152,7 +152,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter(name="signingJobArn")
-    def signing_job_arn(self) -> str:
+    def signing_job_arn(self) -> Optional[str]:
         """
         ARN of a signing job.
         """
@@ -160,7 +160,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter(name="signingProfileVersionArn")
-    def signing_profile_version_arn(self) -> str:
+    def signing_profile_version_arn(self) -> Optional[str]:
         """
         The ARN for a signing profile version.
         """
@@ -168,7 +168,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter(name="sourceCodeHash")
-    def source_code_hash(self) -> str:
+    def source_code_hash(self) -> Optional[str]:
         """
         Base64-encoded representation of raw SHA-256 sum of the zip file.
         """
@@ -176,7 +176,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter(name="sourceCodeSize")
-    def source_code_size(self) -> int:
+    def source_code_size(self) -> Optional[int]:
         """
         Size in bytes of the function .zip file.
         """
@@ -184,7 +184,7 @@ class GetLayerVersionResult:
 
     @property
     @pulumi.getter
-    def version(self) -> int:
+    def version(self) -> Optional[int]:
         """
         This Lamba Layer version.
         """

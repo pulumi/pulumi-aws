@@ -76,7 +76,7 @@ type InvitationAccepter struct {
 	// The AWS account ID for the account that sent the invitation.
 	AdministratorAccountId pulumi.StringOutput `pulumi:"administratorAccountId"`
 	// The unique identifier for the invitation.
-	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
+	InvitationId pulumi.StringPtrOutput `pulumi:"invitationId"`
 }
 
 // NewInvitationAccepter registers a new resource with the given unique name, arguments, and options.
@@ -233,8 +233,8 @@ func (o InvitationAccepterOutput) AdministratorAccountId() pulumi.StringOutput {
 }
 
 // The unique identifier for the invitation.
-func (o InvitationAccepterOutput) InvitationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
+func (o InvitationAccepterOutput) InvitationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringPtrOutput { return v.InvitationId }).(pulumi.StringPtrOutput)
 }
 
 type InvitationAccepterArrayOutput struct{ *pulumi.OutputState }

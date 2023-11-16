@@ -207,28 +207,28 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the GameLift Game Server Group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ARN of the created EC2 Auto Scaling group.
      * 
      */
     @Export(name="autoScalingGroupArn", refs={String.class}, tree="[0]")
-    private Output<String> autoScalingGroupArn;
+    private Output</* @Nullable */ String> autoScalingGroupArn;
 
     /**
      * @return The ARN of the created EC2 Auto Scaling group.
      * 
      */
-    public Output<String> autoScalingGroupArn() {
-        return this.autoScalingGroupArn;
+    public Output<Optional<String>> autoScalingGroupArn() {
+        return Codegen.optional(this.autoScalingGroupArn);
     }
     @Export(name="autoScalingPolicy", refs={GameServerGroupAutoScalingPolicy.class}, tree="[0]")
     private Output</* @Nullable */ GameServerGroupAutoScalingPolicy> autoScalingPolicy;
@@ -242,15 +242,15 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="balancingStrategy", refs={String.class}, tree="[0]")
-    private Output<String> balancingStrategy;
+    private Output</* @Nullable */ String> balancingStrategy;
 
     /**
      * @return Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      * 
      */
-    public Output<String> balancingStrategy() {
-        return this.balancingStrategy;
+    public Output<Optional<String>> balancingStrategy() {
+        return Codegen.optional(this.balancingStrategy);
     }
     /**
      * Name of the game server group.
@@ -278,7 +278,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="gameServerProtectionPolicy", refs={String.class}, tree="[0]")
-    private Output<String> gameServerProtectionPolicy;
+    private Output</* @Nullable */ String> gameServerProtectionPolicy;
 
     /**
      * @return Indicates whether instances in the game server group are protected from early termination.
@@ -289,8 +289,8 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      * 
      */
-    public Output<String> gameServerProtectionPolicy() {
-        return this.gameServerProtectionPolicy;
+    public Output<Optional<String>> gameServerProtectionPolicy() {
+        return Codegen.optional(this.gameServerProtectionPolicy);
     }
     @Export(name="instanceDefinitions", refs={List.class,GameServerGroupInstanceDefinition.class}, tree="[0,1]")
     private Output<List<GameServerGroupInstanceDefinition>> instanceDefinitions;

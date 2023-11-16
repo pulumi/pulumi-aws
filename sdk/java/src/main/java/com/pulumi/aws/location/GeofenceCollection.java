@@ -65,14 +65,14 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="collectionArn", refs={String.class}, tree="[0]")
-    private Output<String> collectionArn;
+    private Output</* @Nullable */ String> collectionArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    public Output<String> collectionArn() {
-        return this.collectionArn;
+    public Output<Optional<String>> collectionArn() {
+        return Codegen.optional(this.collectionArn);
     }
     /**
      * The name of the geofence collection.
@@ -97,14 +97,14 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    private Output</* @Nullable */ String> createTime;
 
     /**
      * @return The timestamp for when the geofence collection resource was created in ISO 8601 format.
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<Optional<String>> createTime() {
+        return Codegen.optional(this.createTime);
     }
     /**
      * The optional description for the geofence collection.
@@ -165,14 +165,14 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    private Output</* @Nullable */ String> updateTime;
 
     /**
      * @return The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<Optional<String>> updateTime() {
+        return Codegen.optional(this.updateTime);
     }
 
     /**

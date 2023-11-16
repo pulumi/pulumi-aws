@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Location.Outputs
     [OutputType]
     public sealed class GetPlaceIndexDataSourceConfigurationResult
     {
-        public readonly string IntendedUse;
+        public readonly string? IntendedUse;
 
         [OutputConstructor]
-        private GetPlaceIndexDataSourceConfigurationResult(string intendedUse)
+        private GetPlaceIndexDataSourceConfigurationResult(string? intendedUse)
         {
             IntendedUse = intendedUse;
         }

@@ -17,78 +17,78 @@ public final class GetFunctionUrlResult {
      * @return Type of authentication that the function URL uses.
      * 
      */
-    private String authorizationType;
+    private @Nullable String authorizationType;
     /**
      * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
      * 
      */
-    private List<GetFunctionUrlCor> cors;
+    private @Nullable List<GetFunctionUrlCor> cors;
     /**
      * @return When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      * 
      */
-    private String creationTime;
+    private @Nullable String creationTime;
     /**
      * @return ARN of the function.
      * 
      */
-    private String functionArn;
+    private @Nullable String functionArn;
     private String functionName;
     /**
      * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
      * 
      */
-    private String functionUrl;
+    private @Nullable String functionUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
      * 
      */
-    private String invokeMode;
+    private @Nullable String invokeMode;
     /**
      * @return When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      * 
      */
-    private String lastModifiedTime;
+    private @Nullable String lastModifiedTime;
     private @Nullable String qualifier;
     /**
      * @return Generated ID for the endpoint.
      * 
      */
-    private String urlId;
+    private @Nullable String urlId;
 
     private GetFunctionUrlResult() {}
     /**
      * @return Type of authentication that the function URL uses.
      * 
      */
-    public String authorizationType() {
-        return this.authorizationType;
+    public Optional<String> authorizationType() {
+        return Optional.ofNullable(this.authorizationType);
     }
     /**
      * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
      * 
      */
     public List<GetFunctionUrlCor> cors() {
-        return this.cors;
+        return this.cors == null ? List.of() : this.cors;
     }
     /**
      * @return When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      * 
      */
-    public String creationTime() {
-        return this.creationTime;
+    public Optional<String> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
     /**
      * @return ARN of the function.
      * 
      */
-    public String functionArn() {
-        return this.functionArn;
+    public Optional<String> functionArn() {
+        return Optional.ofNullable(this.functionArn);
     }
     public String functionName() {
         return this.functionName;
@@ -97,29 +97,29 @@ public final class GetFunctionUrlResult {
      * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
      * 
      */
-    public String functionUrl() {
-        return this.functionUrl;
+    public Optional<String> functionUrl() {
+        return Optional.ofNullable(this.functionUrl);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
      * 
      */
-    public String invokeMode() {
-        return this.invokeMode;
+    public Optional<String> invokeMode() {
+        return Optional.ofNullable(this.invokeMode);
     }
     /**
      * @return When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      * 
      */
-    public String lastModifiedTime() {
-        return this.lastModifiedTime;
+    public Optional<String> lastModifiedTime() {
+        return Optional.ofNullable(this.lastModifiedTime);
     }
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
@@ -128,8 +128,8 @@ public final class GetFunctionUrlResult {
      * @return Generated ID for the endpoint.
      * 
      */
-    public String urlId() {
-        return this.urlId;
+    public Optional<String> urlId() {
+        return Optional.ofNullable(this.urlId);
     }
 
     public static Builder builder() {
@@ -141,17 +141,17 @@ public final class GetFunctionUrlResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String authorizationType;
-        private List<GetFunctionUrlCor> cors;
-        private String creationTime;
-        private String functionArn;
+        private @Nullable String authorizationType;
+        private @Nullable List<GetFunctionUrlCor> cors;
+        private @Nullable String creationTime;
+        private @Nullable String functionArn;
         private String functionName;
-        private String functionUrl;
-        private String id;
-        private String invokeMode;
-        private String lastModifiedTime;
+        private @Nullable String functionUrl;
+        private @Nullable String id;
+        private @Nullable String invokeMode;
+        private @Nullable String lastModifiedTime;
         private @Nullable String qualifier;
-        private String urlId;
+        private @Nullable String urlId;
         public Builder() {}
         public Builder(GetFunctionUrlResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -169,26 +169,26 @@ public final class GetFunctionUrlResult {
         }
 
         @CustomType.Setter
-        public Builder authorizationType(String authorizationType) {
-            this.authorizationType = Objects.requireNonNull(authorizationType);
+        public Builder authorizationType(@Nullable String authorizationType) {
+            this.authorizationType = authorizationType;
             return this;
         }
         @CustomType.Setter
-        public Builder cors(List<GetFunctionUrlCor> cors) {
-            this.cors = Objects.requireNonNull(cors);
+        public Builder cors(@Nullable List<GetFunctionUrlCor> cors) {
+            this.cors = cors;
             return this;
         }
         public Builder cors(GetFunctionUrlCor... cors) {
             return cors(List.of(cors));
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable String creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder functionArn(String functionArn) {
-            this.functionArn = Objects.requireNonNull(functionArn);
+        public Builder functionArn(@Nullable String functionArn) {
+            this.functionArn = functionArn;
             return this;
         }
         @CustomType.Setter
@@ -197,23 +197,23 @@ public final class GetFunctionUrlResult {
             return this;
         }
         @CustomType.Setter
-        public Builder functionUrl(String functionUrl) {
-            this.functionUrl = Objects.requireNonNull(functionUrl);
+        public Builder functionUrl(@Nullable String functionUrl) {
+            this.functionUrl = functionUrl;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder invokeMode(String invokeMode) {
-            this.invokeMode = Objects.requireNonNull(invokeMode);
+        public Builder invokeMode(@Nullable String invokeMode) {
+            this.invokeMode = invokeMode;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedTime(String lastModifiedTime) {
-            this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
+        public Builder lastModifiedTime(@Nullable String lastModifiedTime) {
+            this.lastModifiedTime = lastModifiedTime;
             return this;
         }
         @CustomType.Setter
@@ -222,8 +222,8 @@ public final class GetFunctionUrlResult {
             return this;
         }
         @CustomType.Setter
-        public Builder urlId(String urlId) {
-            this.urlId = Objects.requireNonNull(urlId);
+        public Builder urlId(@Nullable String urlId) {
+            this.urlId = urlId;
             return this;
         }
         public GetFunctionUrlResult build() {

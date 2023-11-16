@@ -13,23 +13,23 @@ namespace Pulumi.Aws.CloudHsmV2.Outputs
     [OutputType]
     public sealed class GetClusterClusterCertificateResult
     {
-        public readonly string AwsHardwareCertificate;
-        public readonly string ClusterCertificate;
-        public readonly string ClusterCsr;
-        public readonly string HsmCertificate;
-        public readonly string ManufacturerHardwareCertificate;
+        public readonly string? AwsHardwareCertificate;
+        public readonly string? ClusterCertificate;
+        public readonly string? ClusterCsr;
+        public readonly string? HsmCertificate;
+        public readonly string? ManufacturerHardwareCertificate;
 
         [OutputConstructor]
         private GetClusterClusterCertificateResult(
-            string awsHardwareCertificate,
+            string? awsHardwareCertificate,
 
-            string clusterCertificate,
+            string? clusterCertificate,
 
-            string clusterCsr,
+            string? clusterCsr,
 
-            string hsmCertificate,
+            string? hsmCertificate,
 
-            string manufacturerHardwareCertificate)
+            string? manufacturerHardwareCertificate)
         {
             AwsHardwareCertificate = awsHardwareCertificate;
             ClusterCertificate = clusterCertificate;

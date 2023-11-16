@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetPhysicalTableMapS3SourceInputColumnResult
     {
-        public readonly string Name;
-        public readonly string Type;
+        public readonly string? Name;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetDataSetPhysicalTableMapS3SourceInputColumnResult(
-            string name,
+            string? name,
 
-            string type)
+            string? type)
         {
             Name = name;
             Type = type;

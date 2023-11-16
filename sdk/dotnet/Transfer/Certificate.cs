@@ -51,13 +51,13 @@ namespace Pulumi.Aws.Transfer
         /// An date when the certificate becomes active
         /// </summary>
         [Output("activeDate")]
-        public Output<string> ActiveDate { get; private set; } = null!;
+        public Output<string?> ActiveDate { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the certificate
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The valid certificate file required for the transfer.
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Transfer
         /// The unique identifier for the AS2 certificate
         /// </summary>
         [Output("certificateId")]
-        public Output<string> CertificateId { get; private set; } = null!;
+        public Output<string?> CertificateId { get; private set; } = null!;
 
         /// <summary>
         /// A short description that helps identify the certificate.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Transfer
         /// An date when the certificate becomes inactive
         /// </summary>
         [Output("inactiveDate")]
-        public Output<string> InactiveDate { get; private set; } = null!;
+        public Output<string?> InactiveDate { get; private set; } = null!;
 
         /// <summary>
         /// The private key associated with the certificate being imported.

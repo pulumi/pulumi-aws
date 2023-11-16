@@ -68,50 +68,50 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// The Amazon Resource Name of the policy.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Indicates if a policy is an AWS managed policy.
         /// </summary>
-        public readonly bool AwsManaged;
+        public readonly bool? AwsManaged;
         /// <summary>
         /// The text content of the policy.
         /// </summary>
-        public readonly string Content;
+        public readonly string? Content;
         /// <summary>
         /// The description of the policy.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The friendly name of the policy.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string PolicyId;
         /// <summary>
         /// The type of policy values can be `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetPolicyResult(
-            string arn,
+            string? arn,
 
-            bool awsManaged,
+            bool? awsManaged,
 
-            string content,
+            string? content,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             string policyId,
 
-            string type)
+            string? type)
         {
             Arn = arn;
             AwsManaged = awsManaged;

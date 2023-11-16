@@ -64,7 +64,7 @@ type Control struct {
 	ActionPlanTitle pulumi.StringPtrOutput `pulumi:"actionPlanTitle"`
 	// Amazon Resource Name (ARN) of the control.
 	// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Data mapping sources. See `controlMappingSources` below.
 	//
 	// The following arguments are optional:
@@ -80,7 +80,7 @@ type Control struct {
 	// Steps to follow to determine if the control is satisfied.
 	TestingInformation pulumi.StringPtrOutput `pulumi:"testingInformation"`
 	// Type of control, such as a custom control or a standard control.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewControl registers a new resource with the given unique name, arguments, and options.
@@ -310,8 +310,8 @@ func (o ControlOutput) ActionPlanTitle() pulumi.StringPtrOutput {
 
 // Amazon Resource Name (ARN) of the control.
 // * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-func (o ControlOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Control) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ControlOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Control) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Data mapping sources. See `controlMappingSources` below.
@@ -347,8 +347,8 @@ func (o ControlOutput) TestingInformation() pulumi.StringPtrOutput {
 }
 
 // Type of control, such as a custom control or a standard control.
-func (o ControlOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Control) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o ControlOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Control) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ControlArrayOutput struct{ *pulumi.OutputState }

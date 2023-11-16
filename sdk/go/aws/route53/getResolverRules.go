@@ -123,7 +123,7 @@ type GetResolverRulesArgs struct {
 // A collection of values returned by getResolverRules.
 type GetResolverRulesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string  `pulumi:"id"`
+	Id                 *string `pulumi:"id"`
 	NameRegex          *string `pulumi:"nameRegex"`
 	OwnerId            *string `pulumi:"ownerId"`
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
@@ -182,8 +182,8 @@ func (o GetResolverRulesResultOutput) ToGetResolverRulesResultOutputWithContext(
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetResolverRulesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverRulesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetResolverRulesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetResolverRulesResultOutput) NameRegex() pulumi.StringPtrOutput {

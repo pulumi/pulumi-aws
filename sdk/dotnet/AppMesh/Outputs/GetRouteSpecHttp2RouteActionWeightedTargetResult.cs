@@ -13,17 +13,17 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecHttp2RouteActionWeightedTargetResult
     {
-        public readonly int Port;
-        public readonly string VirtualNode;
-        public readonly int Weight;
+        public readonly int? Port;
+        public readonly string? VirtualNode;
+        public readonly int? Weight;
 
         [OutputConstructor]
         private GetRouteSpecHttp2RouteActionWeightedTargetResult(
-            int port,
+            int? port,
 
-            string virtualNode,
+            string? virtualNode,
 
-            int weight)
+            int? weight)
         {
             Port = port;
             VirtualNode = virtualNode;

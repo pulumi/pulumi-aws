@@ -16,29 +16,29 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// Free-form text comment.
         /// </summary>
-        public readonly string Comment;
+        public readonly string? Comment;
         /// <summary>
         /// Name of the table.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
         /// Datatype of data in the Column.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetCatalogTableStorageDescriptorColumnResult(
-            string comment,
+            string? comment,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> parameters,
+            ImmutableDictionary<string, string>? parameters,
 
-            string type)
+            string? type)
         {
             Comment = comment;
             Name = name;

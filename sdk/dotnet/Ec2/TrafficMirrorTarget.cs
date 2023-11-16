@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the traffic mirror target.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the traffic mirror session.
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the AWS account that owns the traffic mirror target.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

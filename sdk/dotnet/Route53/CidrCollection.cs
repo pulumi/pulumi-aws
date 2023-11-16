@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Route53
         /// The Amazon Resource Name (ARN) of the CIDR collection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for the CIDR collection.
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Route53
         /// The lastest version of the CIDR collection.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>

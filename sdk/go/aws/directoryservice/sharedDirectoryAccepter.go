@@ -65,13 +65,13 @@ type SharedDirectoryAccepter struct {
 	pulumi.CustomResourceState
 
 	// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-	Method pulumi.StringOutput `pulumi:"method"`
+	Method pulumi.StringPtrOutput `pulumi:"method"`
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-	Notes pulumi.StringOutput `pulumi:"notes"`
+	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// Account identifier of the directory owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerAccountId pulumi.StringPtrOutput `pulumi:"ownerAccountId"`
 	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-	OwnerDirectoryId pulumi.StringOutput `pulumi:"ownerDirectoryId"`
+	OwnerDirectoryId pulumi.StringPtrOutput `pulumi:"ownerDirectoryId"`
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringOutput `pulumi:"sharedDirectoryId"`
 }
@@ -237,23 +237,23 @@ func (o SharedDirectoryAccepterOutput) ToSharedDirectoryAccepterOutputWithContex
 }
 
 // Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-func (o SharedDirectoryAccepterOutput) Method() pulumi.StringOutput {
-	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.Method }).(pulumi.StringOutput)
+func (o SharedDirectoryAccepterOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringPtrOutput { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-func (o SharedDirectoryAccepterOutput) Notes() pulumi.StringOutput {
-	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.Notes }).(pulumi.StringOutput)
+func (o SharedDirectoryAccepterOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
 // Account identifier of the directory owner.
-func (o SharedDirectoryAccepterOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o SharedDirectoryAccepterOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringPtrOutput { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-func (o SharedDirectoryAccepterOutput) OwnerDirectoryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.OwnerDirectoryId }).(pulumi.StringOutput)
+func (o SharedDirectoryAccepterOutput) OwnerDirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringPtrOutput { return v.OwnerDirectoryId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.

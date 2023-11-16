@@ -589,7 +589,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the created ElastiCache User.
         """
@@ -597,7 +597,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> pulumi.Output['outputs.UserAuthenticationMode']:
+    def authentication_mode(self) -> pulumi.Output[Optional['outputs.UserAuthenticationMode']]:
         """
         Denotes the user's authentication properties. Detailed below.
         """

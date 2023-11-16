@@ -6,6 +6,8 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeConfigurationSheetTileBorder {
@@ -13,15 +15,15 @@ public final class GetThemeConfigurationSheetTileBorder {
      * @return This Boolean value controls whether to display sheet margins.
      * 
      */
-    private Boolean show;
+    private @Nullable Boolean show;
 
     private GetThemeConfigurationSheetTileBorder() {}
     /**
      * @return This Boolean value controls whether to display sheet margins.
      * 
      */
-    public Boolean show() {
-        return this.show;
+    public Optional<Boolean> show() {
+        return Optional.ofNullable(this.show);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetThemeConfigurationSheetTileBorder {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean show;
+        private @Nullable Boolean show;
         public Builder() {}
         public Builder(GetThemeConfigurationSheetTileBorder defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetThemeConfigurationSheetTileBorder {
         }
 
         @CustomType.Setter
-        public Builder show(Boolean show) {
-            this.show = Objects.requireNonNull(show);
+        public Builder show(@Nullable Boolean show) {
+            this.show = show;
             return this;
         }
         public GetThemeConfigurationSheetTileBorder build() {

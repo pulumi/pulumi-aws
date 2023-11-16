@@ -173,11 +173,11 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
         /// </summary>
-        public readonly string Item;
+        public readonly string? Item;
         public readonly string Key;
         public readonly string? ProjectionExpression;
         public readonly string TableName;
@@ -186,9 +186,9 @@ namespace Pulumi.Aws.DynamoDB
         private GetTableItemResult(
             ImmutableDictionary<string, string>? expressionAttributeNames,
 
-            string id,
+            string? id,
 
-            string item,
+            string? item,
 
             string key,
 

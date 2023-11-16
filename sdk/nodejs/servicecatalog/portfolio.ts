@@ -55,12 +55,12 @@ export class Portfolio extends pulumi.CustomResource {
         return obj['__pulumiType'] === Portfolio.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Description of the portfolio
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the portfolio.
      */

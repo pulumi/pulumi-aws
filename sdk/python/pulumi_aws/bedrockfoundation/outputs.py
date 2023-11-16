@@ -16,15 +16,15 @@ __all__ = [
 @pulumi.output_type
 class GetModelsModelSummaryResult(dict):
     def __init__(__self__, *,
-                 customizations_supporteds: Sequence[str],
-                 inference_types_supporteds: Sequence[str],
-                 input_modalities: Sequence[str],
-                 model_arn: str,
-                 model_id: str,
-                 model_name: str,
-                 output_modalities: Sequence[str],
-                 provider_name: str,
-                 response_streaming_supported: bool):
+                 customizations_supporteds: Optional[Sequence[str]] = None,
+                 inference_types_supporteds: Optional[Sequence[str]] = None,
+                 input_modalities: Optional[Sequence[str]] = None,
+                 model_arn: Optional[str] = None,
+                 model_id: Optional[str] = None,
+                 model_name: Optional[str] = None,
+                 output_modalities: Optional[Sequence[str]] = None,
+                 provider_name: Optional[str] = None,
+                 response_streaming_supported: Optional[bool] = None):
         """
         :param Sequence[str] customizations_supporteds: Customizations that the model supports.
         :param Sequence[str] inference_types_supporteds: Inference types that the model supports.
@@ -36,19 +36,28 @@ class GetModelsModelSummaryResult(dict):
         :param str provider_name: Model provider name.
         :param bool response_streaming_supported: Indicates whether the model supports streaming.
         """
-        pulumi.set(__self__, "customizations_supporteds", customizations_supporteds)
-        pulumi.set(__self__, "inference_types_supporteds", inference_types_supporteds)
-        pulumi.set(__self__, "input_modalities", input_modalities)
-        pulumi.set(__self__, "model_arn", model_arn)
-        pulumi.set(__self__, "model_id", model_id)
-        pulumi.set(__self__, "model_name", model_name)
-        pulumi.set(__self__, "output_modalities", output_modalities)
-        pulumi.set(__self__, "provider_name", provider_name)
-        pulumi.set(__self__, "response_streaming_supported", response_streaming_supported)
+        if customizations_supporteds is not None:
+            pulumi.set(__self__, "customizations_supporteds", customizations_supporteds)
+        if inference_types_supporteds is not None:
+            pulumi.set(__self__, "inference_types_supporteds", inference_types_supporteds)
+        if input_modalities is not None:
+            pulumi.set(__self__, "input_modalities", input_modalities)
+        if model_arn is not None:
+            pulumi.set(__self__, "model_arn", model_arn)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if output_modalities is not None:
+            pulumi.set(__self__, "output_modalities", output_modalities)
+        if provider_name is not None:
+            pulumi.set(__self__, "provider_name", provider_name)
+        if response_streaming_supported is not None:
+            pulumi.set(__self__, "response_streaming_supported", response_streaming_supported)
 
     @property
     @pulumi.getter(name="customizationsSupporteds")
-    def customizations_supporteds(self) -> Sequence[str]:
+    def customizations_supporteds(self) -> Optional[Sequence[str]]:
         """
         Customizations that the model supports.
         """
@@ -56,7 +65,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="inferenceTypesSupporteds")
-    def inference_types_supporteds(self) -> Sequence[str]:
+    def inference_types_supporteds(self) -> Optional[Sequence[str]]:
         """
         Inference types that the model supports.
         """
@@ -64,7 +73,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="inputModalities")
-    def input_modalities(self) -> Sequence[str]:
+    def input_modalities(self) -> Optional[Sequence[str]]:
         """
         Input modalities that the model supports.
         """
@@ -72,7 +81,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="modelArn")
-    def model_arn(self) -> str:
+    def model_arn(self) -> Optional[str]:
         """
         Model ARN.
         """
@@ -80,7 +89,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="modelId")
-    def model_id(self) -> str:
+    def model_id(self) -> Optional[str]:
         """
         Model identifier.
         """
@@ -88,7 +97,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="modelName")
-    def model_name(self) -> str:
+    def model_name(self) -> Optional[str]:
         """
         Model name.
         """
@@ -96,7 +105,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="outputModalities")
-    def output_modalities(self) -> Sequence[str]:
+    def output_modalities(self) -> Optional[Sequence[str]]:
         """
         Output modalities that the model supports.
         """
@@ -104,7 +113,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> str:
+    def provider_name(self) -> Optional[str]:
         """
         Model provider name.
         """
@@ -112,7 +121,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="responseStreamingSupported")
-    def response_streaming_supported(self) -> bool:
+    def response_streaming_supported(self) -> Optional[bool]:
         """
         Indicates whether the model supports streaming.
         """

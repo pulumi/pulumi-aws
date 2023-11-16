@@ -50,7 +50,7 @@ type Activity struct {
 	pulumi.CustomResourceState
 
 	// The date the activity was created.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// The name of the activity to create.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -227,8 +227,8 @@ func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) Activit
 }
 
 // The date the activity was created.
-func (o ActivityOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o ActivityOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Activity) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // The name of the activity to create.

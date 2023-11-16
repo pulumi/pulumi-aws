@@ -16,17 +16,17 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Whether image tests are enabled.
         /// </summary>
-        public readonly bool ImageTestsEnabled;
+        public readonly bool? ImageTestsEnabled;
         /// <summary>
         /// Number of minutes before image tests time out.
         /// </summary>
-        public readonly int TimeoutMinutes;
+        public readonly int? TimeoutMinutes;
 
         [OutputConstructor]
         private GetImagePipelineImageTestsConfigurationResult(
-            bool imageTestsEnabled,
+            bool? imageTestsEnabled,
 
-            int timeoutMinutes)
+            int? timeoutMinutes)
         {
             ImageTestsEnabled = imageTestsEnabled;
             TimeoutMinutes = timeoutMinutes;

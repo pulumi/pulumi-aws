@@ -120,7 +120,7 @@ type Application struct {
 	// The name of the Rails environment for application of type `rails`.
 	RailsEnv pulumi.StringPtrOutput `pulumi:"railsEnv"`
 	// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-	ShortName pulumi.StringOutput `pulumi:"shortName"`
+	ShortName pulumi.StringPtrOutput `pulumi:"shortName"`
 	// The SSL configuration of the app. Object is described below.
 	SslConfigurations ApplicationSslConfigurationArrayOutput `pulumi:"sslConfigurations"`
 	// ID of the stack the application will belong to.
@@ -470,8 +470,8 @@ func (o ApplicationOutput) RailsEnv() pulumi.StringPtrOutput {
 }
 
 // A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-func (o ApplicationOutput) ShortName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ShortName }).(pulumi.StringOutput)
+func (o ApplicationOutput) ShortName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ShortName }).(pulumi.StringPtrOutput)
 }
 
 // The SSL configuration of the app. Object is described below.

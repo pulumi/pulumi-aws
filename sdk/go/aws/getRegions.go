@@ -123,7 +123,7 @@ type GetRegionsResult struct {
 	AllRegions *bool              `pulumi:"allRegions"`
 	Filters    []GetRegionsFilter `pulumi:"filters"`
 	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Names of regions that meets the criteria.
 	Names []string `pulumi:"names"`
 }
@@ -179,8 +179,8 @@ func (o GetRegionsResultOutput) Filters() GetRegionsFilterArrayOutput {
 }
 
 // Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-func (o GetRegionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRegionsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetRegionsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegionsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Names of regions that meets the criteria.

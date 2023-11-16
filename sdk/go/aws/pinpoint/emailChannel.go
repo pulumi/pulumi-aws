@@ -128,7 +128,7 @@ type EmailChannel struct {
 	// The ARN of an identity verified with SES.
 	Identity pulumi.StringOutput `pulumi:"identity"`
 	// Messages per second that can be sent.
-	MessagesPerSecond pulumi.IntOutput `pulumi:"messagesPerSecond"`
+	MessagesPerSecond pulumi.IntPtrOutput `pulumi:"messagesPerSecond"`
 	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 }
@@ -353,8 +353,8 @@ func (o EmailChannelOutput) Identity() pulumi.StringOutput {
 }
 
 // Messages per second that can be sent.
-func (o EmailChannelOutput) MessagesPerSecond() pulumi.IntOutput {
-	return o.ApplyT(func(v *EmailChannel) pulumi.IntOutput { return v.MessagesPerSecond }).(pulumi.IntOutput)
+func (o EmailChannelOutput) MessagesPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EmailChannel) pulumi.IntPtrOutput { return v.MessagesPerSecond }).(pulumi.IntPtrOutput)
 }
 
 // The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.

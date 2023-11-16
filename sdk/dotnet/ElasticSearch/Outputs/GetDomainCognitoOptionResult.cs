@@ -16,29 +16,29 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Whether node to node encryption is enabled.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// The Cognito Identity pool used by the domain.
         /// </summary>
-        public readonly string IdentityPoolId;
+        public readonly string? IdentityPoolId;
         /// <summary>
         /// The IAM Role with the AmazonESCognitoAccess policy attached.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// The Cognito User pool used by the domain.
         /// </summary>
-        public readonly string UserPoolId;
+        public readonly string? UserPoolId;
 
         [OutputConstructor]
         private GetDomainCognitoOptionResult(
-            bool enabled,
+            bool? enabled,
 
-            string identityPoolId,
+            string? identityPoolId,
 
-            string roleArn,
+            string? roleArn,
 
-            string userPoolId)
+            string? userPoolId)
         {
             Enabled = enabled;
             IdentityPoolId = identityPoolId;

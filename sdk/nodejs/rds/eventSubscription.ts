@@ -83,11 +83,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the RDS event notification subscription
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The AWS customer account associated with the RDS event notification subscription
      */
-    public /*out*/ readonly customerAwsId!: pulumi.Output<string>;
+    public /*out*/ readonly customerAwsId!: pulumi.Output<string | undefined>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.
      */
@@ -103,7 +103,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The name of the DB event subscription. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The SNS topic to send events to.
      */

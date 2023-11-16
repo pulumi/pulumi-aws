@@ -70,7 +70,7 @@ type ReplicaKey struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A flag to indicate whether to bypass the key policy lockout safety check.
 	// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
 	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
@@ -84,15 +84,15 @@ type ReplicaKey struct {
 	// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The key ID of the replica key. Related multi-Region keys have the same key ID.
-	KeyId pulumi.StringOutput `pulumi:"keyId"`
+	KeyId pulumi.StringPtrOutput `pulumi:"keyId"`
 	// A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
-	KeyRotationEnabled pulumi.BoolOutput `pulumi:"keyRotationEnabled"`
+	KeyRotationEnabled pulumi.BoolPtrOutput `pulumi:"keyRotationEnabled"`
 	// The type of key material in the KMS key. This is a shared property of multi-Region keys.
-	KeySpec pulumi.StringOutput `pulumi:"keySpec"`
+	KeySpec pulumi.StringPtrOutput `pulumi:"keySpec"`
 	// The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
-	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
+	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
 	PrimaryKeyArn pulumi.StringOutput `pulumi:"primaryKeyArn"`
 	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -344,8 +344,8 @@ func (o ReplicaKeyOutput) ToReplicaKeyOutputWithContext(ctx context.Context) Rep
 }
 
 // The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
-func (o ReplicaKeyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReplicaKeyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A flag to indicate whether to bypass the key policy lockout safety check.
@@ -373,28 +373,28 @@ func (o ReplicaKeyOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The key ID of the replica key. Related multi-Region keys have the same key ID.
-func (o ReplicaKeyOutput) KeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+func (o ReplicaKeyOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.StringPtrOutput { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
 // A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
-func (o ReplicaKeyOutput) KeyRotationEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicaKey) pulumi.BoolOutput { return v.KeyRotationEnabled }).(pulumi.BoolOutput)
+func (o ReplicaKeyOutput) KeyRotationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.BoolPtrOutput { return v.KeyRotationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The type of key material in the KMS key. This is a shared property of multi-Region keys.
-func (o ReplicaKeyOutput) KeySpec() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.KeySpec }).(pulumi.StringOutput)
+func (o ReplicaKeyOutput) KeySpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.StringPtrOutput { return v.KeySpec }).(pulumi.StringPtrOutput)
 }
 
 // The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
-func (o ReplicaKeyOutput) KeyUsage() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.KeyUsage }).(pulumi.StringOutput)
+func (o ReplicaKeyOutput) KeyUsage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.StringPtrOutput { return v.KeyUsage }).(pulumi.StringPtrOutput)
 }
 
 // The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-func (o ReplicaKeyOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o ReplicaKeyOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.

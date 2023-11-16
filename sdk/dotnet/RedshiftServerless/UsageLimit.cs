@@ -59,7 +59,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.

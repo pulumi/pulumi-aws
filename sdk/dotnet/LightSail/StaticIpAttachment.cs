@@ -56,7 +56,7 @@ namespace Pulumi.Aws.LightSail
         /// The allocated static IP address
         /// </summary>
         [Output("ipAddress")]
-        public Output<string> IpAddress { get; private set; } = null!;
+        public Output<string?> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The name of the allocated static IP

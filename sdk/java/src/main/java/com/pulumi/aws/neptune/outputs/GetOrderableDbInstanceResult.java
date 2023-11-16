@@ -19,88 +19,88 @@ public final class GetOrderableDbInstanceResult {
      * @return Availability zones where the instance is available.
      * 
      */
-    private List<String> availabilityZones;
+    private @Nullable List<String> availabilityZones;
     private @Nullable String engine;
-    private String engineVersion;
+    private @Nullable String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String instanceClass;
+    private @Nullable String id;
+    private @Nullable String instanceClass;
     private @Nullable String licenseModel;
     /**
      * @return Maximum total provisioned IOPS for a DB instance.
      * 
      */
-    private Integer maxIopsPerDbInstance;
+    private @Nullable Integer maxIopsPerDbInstance;
     /**
      * @return Maximum provisioned IOPS per GiB for a DB instance.
      * 
      */
-    private Double maxIopsPerGib;
+    private @Nullable Double maxIopsPerGib;
     /**
      * @return Maximum storage size for a DB instance.
      * 
      */
-    private Integer maxStorageSize;
+    private @Nullable Integer maxStorageSize;
     /**
      * @return Minimum total provisioned IOPS for a DB instance.
      * 
      */
-    private Integer minIopsPerDbInstance;
+    private @Nullable Integer minIopsPerDbInstance;
     /**
      * @return Minimum provisioned IOPS per GiB for a DB instance.
      * 
      */
-    private Double minIopsPerGib;
+    private @Nullable Double minIopsPerGib;
     /**
      * @return Minimum storage size for a DB instance.
      * 
      */
-    private Integer minStorageSize;
+    private @Nullable Integer minStorageSize;
     /**
      * @return Whether a DB instance is Multi-AZ capable.
      * 
      */
-    private Boolean multiAzCapable;
+    private @Nullable Boolean multiAzCapable;
     private @Nullable List<String> preferredInstanceClasses;
     /**
      * @return Whether a DB instance can have a read replica.
      * 
      */
-    private Boolean readReplicaCapable;
+    private @Nullable Boolean readReplicaCapable;
     /**
      * @return Storage type for a DB instance.
      * 
      */
-    private String storageType;
+    private @Nullable String storageType;
     /**
      * @return Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
      * 
      */
-    private Boolean supportsEnhancedMonitoring;
+    private @Nullable Boolean supportsEnhancedMonitoring;
     /**
      * @return Whether a DB instance supports IAM database authentication.
      * 
      */
-    private Boolean supportsIamDatabaseAuthentication;
+    private @Nullable Boolean supportsIamDatabaseAuthentication;
     /**
      * @return Whether a DB instance supports provisioned IOPS.
      * 
      */
-    private Boolean supportsIops;
+    private @Nullable Boolean supportsIops;
     /**
      * @return Whether a DB instance supports Performance Insights.
      * 
      */
-    private Boolean supportsPerformanceInsights;
+    private @Nullable Boolean supportsPerformanceInsights;
     /**
      * @return Whether a DB instance supports encrypted storage.
      * 
      */
-    private Boolean supportsStorageEncryption;
-    private Boolean vpc;
+    private @Nullable Boolean supportsStorageEncryption;
+    private @Nullable Boolean vpc;
 
     private GetOrderableDbInstanceResult() {}
     /**
@@ -108,23 +108,23 @@ public final class GetOrderableDbInstanceResult {
      * 
      */
     public List<String> availabilityZones() {
-        return this.availabilityZones;
+        return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String instanceClass() {
-        return this.instanceClass;
+    public Optional<String> instanceClass() {
+        return Optional.ofNullable(this.instanceClass);
     }
     public Optional<String> licenseModel() {
         return Optional.ofNullable(this.licenseModel);
@@ -133,50 +133,50 @@ public final class GetOrderableDbInstanceResult {
      * @return Maximum total provisioned IOPS for a DB instance.
      * 
      */
-    public Integer maxIopsPerDbInstance() {
-        return this.maxIopsPerDbInstance;
+    public Optional<Integer> maxIopsPerDbInstance() {
+        return Optional.ofNullable(this.maxIopsPerDbInstance);
     }
     /**
      * @return Maximum provisioned IOPS per GiB for a DB instance.
      * 
      */
-    public Double maxIopsPerGib() {
-        return this.maxIopsPerGib;
+    public Optional<Double> maxIopsPerGib() {
+        return Optional.ofNullable(this.maxIopsPerGib);
     }
     /**
      * @return Maximum storage size for a DB instance.
      * 
      */
-    public Integer maxStorageSize() {
-        return this.maxStorageSize;
+    public Optional<Integer> maxStorageSize() {
+        return Optional.ofNullable(this.maxStorageSize);
     }
     /**
      * @return Minimum total provisioned IOPS for a DB instance.
      * 
      */
-    public Integer minIopsPerDbInstance() {
-        return this.minIopsPerDbInstance;
+    public Optional<Integer> minIopsPerDbInstance() {
+        return Optional.ofNullable(this.minIopsPerDbInstance);
     }
     /**
      * @return Minimum provisioned IOPS per GiB for a DB instance.
      * 
      */
-    public Double minIopsPerGib() {
-        return this.minIopsPerGib;
+    public Optional<Double> minIopsPerGib() {
+        return Optional.ofNullable(this.minIopsPerGib);
     }
     /**
      * @return Minimum storage size for a DB instance.
      * 
      */
-    public Integer minStorageSize() {
-        return this.minStorageSize;
+    public Optional<Integer> minStorageSize() {
+        return Optional.ofNullable(this.minStorageSize);
     }
     /**
      * @return Whether a DB instance is Multi-AZ capable.
      * 
      */
-    public Boolean multiAzCapable() {
-        return this.multiAzCapable;
+    public Optional<Boolean> multiAzCapable() {
+        return Optional.ofNullable(this.multiAzCapable);
     }
     public List<String> preferredInstanceClasses() {
         return this.preferredInstanceClasses == null ? List.of() : this.preferredInstanceClasses;
@@ -185,53 +185,53 @@ public final class GetOrderableDbInstanceResult {
      * @return Whether a DB instance can have a read replica.
      * 
      */
-    public Boolean readReplicaCapable() {
-        return this.readReplicaCapable;
+    public Optional<Boolean> readReplicaCapable() {
+        return Optional.ofNullable(this.readReplicaCapable);
     }
     /**
      * @return Storage type for a DB instance.
      * 
      */
-    public String storageType() {
-        return this.storageType;
+    public Optional<String> storageType() {
+        return Optional.ofNullable(this.storageType);
     }
     /**
      * @return Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
      * 
      */
-    public Boolean supportsEnhancedMonitoring() {
-        return this.supportsEnhancedMonitoring;
+    public Optional<Boolean> supportsEnhancedMonitoring() {
+        return Optional.ofNullable(this.supportsEnhancedMonitoring);
     }
     /**
      * @return Whether a DB instance supports IAM database authentication.
      * 
      */
-    public Boolean supportsIamDatabaseAuthentication() {
-        return this.supportsIamDatabaseAuthentication;
+    public Optional<Boolean> supportsIamDatabaseAuthentication() {
+        return Optional.ofNullable(this.supportsIamDatabaseAuthentication);
     }
     /**
      * @return Whether a DB instance supports provisioned IOPS.
      * 
      */
-    public Boolean supportsIops() {
-        return this.supportsIops;
+    public Optional<Boolean> supportsIops() {
+        return Optional.ofNullable(this.supportsIops);
     }
     /**
      * @return Whether a DB instance supports Performance Insights.
      * 
      */
-    public Boolean supportsPerformanceInsights() {
-        return this.supportsPerformanceInsights;
+    public Optional<Boolean> supportsPerformanceInsights() {
+        return Optional.ofNullable(this.supportsPerformanceInsights);
     }
     /**
      * @return Whether a DB instance supports encrypted storage.
      * 
      */
-    public Boolean supportsStorageEncryption() {
-        return this.supportsStorageEncryption;
+    public Optional<Boolean> supportsStorageEncryption() {
+        return Optional.ofNullable(this.supportsStorageEncryption);
     }
-    public Boolean vpc() {
-        return this.vpc;
+    public Optional<Boolean> vpc() {
+        return Optional.ofNullable(this.vpc);
     }
 
     public static Builder builder() {
@@ -243,28 +243,28 @@ public final class GetOrderableDbInstanceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> availabilityZones;
+        private @Nullable List<String> availabilityZones;
         private @Nullable String engine;
-        private String engineVersion;
-        private String id;
-        private String instanceClass;
+        private @Nullable String engineVersion;
+        private @Nullable String id;
+        private @Nullable String instanceClass;
         private @Nullable String licenseModel;
-        private Integer maxIopsPerDbInstance;
-        private Double maxIopsPerGib;
-        private Integer maxStorageSize;
-        private Integer minIopsPerDbInstance;
-        private Double minIopsPerGib;
-        private Integer minStorageSize;
-        private Boolean multiAzCapable;
+        private @Nullable Integer maxIopsPerDbInstance;
+        private @Nullable Double maxIopsPerGib;
+        private @Nullable Integer maxStorageSize;
+        private @Nullable Integer minIopsPerDbInstance;
+        private @Nullable Double minIopsPerGib;
+        private @Nullable Integer minStorageSize;
+        private @Nullable Boolean multiAzCapable;
         private @Nullable List<String> preferredInstanceClasses;
-        private Boolean readReplicaCapable;
-        private String storageType;
-        private Boolean supportsEnhancedMonitoring;
-        private Boolean supportsIamDatabaseAuthentication;
-        private Boolean supportsIops;
-        private Boolean supportsPerformanceInsights;
-        private Boolean supportsStorageEncryption;
-        private Boolean vpc;
+        private @Nullable Boolean readReplicaCapable;
+        private @Nullable String storageType;
+        private @Nullable Boolean supportsEnhancedMonitoring;
+        private @Nullable Boolean supportsIamDatabaseAuthentication;
+        private @Nullable Boolean supportsIops;
+        private @Nullable Boolean supportsPerformanceInsights;
+        private @Nullable Boolean supportsStorageEncryption;
+        private @Nullable Boolean vpc;
         public Builder() {}
         public Builder(GetOrderableDbInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -293,8 +293,8 @@ public final class GetOrderableDbInstanceResult {
         }
 
         @CustomType.Setter
-        public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+        public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -306,18 +306,18 @@ public final class GetOrderableDbInstanceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceClass(String instanceClass) {
-            this.instanceClass = Objects.requireNonNull(instanceClass);
+        public Builder instanceClass(@Nullable String instanceClass) {
+            this.instanceClass = instanceClass;
             return this;
         }
         @CustomType.Setter
@@ -326,38 +326,38 @@ public final class GetOrderableDbInstanceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder maxIopsPerDbInstance(Integer maxIopsPerDbInstance) {
-            this.maxIopsPerDbInstance = Objects.requireNonNull(maxIopsPerDbInstance);
+        public Builder maxIopsPerDbInstance(@Nullable Integer maxIopsPerDbInstance) {
+            this.maxIopsPerDbInstance = maxIopsPerDbInstance;
             return this;
         }
         @CustomType.Setter
-        public Builder maxIopsPerGib(Double maxIopsPerGib) {
-            this.maxIopsPerGib = Objects.requireNonNull(maxIopsPerGib);
+        public Builder maxIopsPerGib(@Nullable Double maxIopsPerGib) {
+            this.maxIopsPerGib = maxIopsPerGib;
             return this;
         }
         @CustomType.Setter
-        public Builder maxStorageSize(Integer maxStorageSize) {
-            this.maxStorageSize = Objects.requireNonNull(maxStorageSize);
+        public Builder maxStorageSize(@Nullable Integer maxStorageSize) {
+            this.maxStorageSize = maxStorageSize;
             return this;
         }
         @CustomType.Setter
-        public Builder minIopsPerDbInstance(Integer minIopsPerDbInstance) {
-            this.minIopsPerDbInstance = Objects.requireNonNull(minIopsPerDbInstance);
+        public Builder minIopsPerDbInstance(@Nullable Integer minIopsPerDbInstance) {
+            this.minIopsPerDbInstance = minIopsPerDbInstance;
             return this;
         }
         @CustomType.Setter
-        public Builder minIopsPerGib(Double minIopsPerGib) {
-            this.minIopsPerGib = Objects.requireNonNull(minIopsPerGib);
+        public Builder minIopsPerGib(@Nullable Double minIopsPerGib) {
+            this.minIopsPerGib = minIopsPerGib;
             return this;
         }
         @CustomType.Setter
-        public Builder minStorageSize(Integer minStorageSize) {
-            this.minStorageSize = Objects.requireNonNull(minStorageSize);
+        public Builder minStorageSize(@Nullable Integer minStorageSize) {
+            this.minStorageSize = minStorageSize;
             return this;
         }
         @CustomType.Setter
-        public Builder multiAzCapable(Boolean multiAzCapable) {
-            this.multiAzCapable = Objects.requireNonNull(multiAzCapable);
+        public Builder multiAzCapable(@Nullable Boolean multiAzCapable) {
+            this.multiAzCapable = multiAzCapable;
             return this;
         }
         @CustomType.Setter
@@ -369,43 +369,43 @@ public final class GetOrderableDbInstanceResult {
             return preferredInstanceClasses(List.of(preferredInstanceClasses));
         }
         @CustomType.Setter
-        public Builder readReplicaCapable(Boolean readReplicaCapable) {
-            this.readReplicaCapable = Objects.requireNonNull(readReplicaCapable);
+        public Builder readReplicaCapable(@Nullable Boolean readReplicaCapable) {
+            this.readReplicaCapable = readReplicaCapable;
             return this;
         }
         @CustomType.Setter
-        public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+        public Builder storageType(@Nullable String storageType) {
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
-        public Builder supportsEnhancedMonitoring(Boolean supportsEnhancedMonitoring) {
-            this.supportsEnhancedMonitoring = Objects.requireNonNull(supportsEnhancedMonitoring);
+        public Builder supportsEnhancedMonitoring(@Nullable Boolean supportsEnhancedMonitoring) {
+            this.supportsEnhancedMonitoring = supportsEnhancedMonitoring;
             return this;
         }
         @CustomType.Setter
-        public Builder supportsIamDatabaseAuthentication(Boolean supportsIamDatabaseAuthentication) {
-            this.supportsIamDatabaseAuthentication = Objects.requireNonNull(supportsIamDatabaseAuthentication);
+        public Builder supportsIamDatabaseAuthentication(@Nullable Boolean supportsIamDatabaseAuthentication) {
+            this.supportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;
             return this;
         }
         @CustomType.Setter
-        public Builder supportsIops(Boolean supportsIops) {
-            this.supportsIops = Objects.requireNonNull(supportsIops);
+        public Builder supportsIops(@Nullable Boolean supportsIops) {
+            this.supportsIops = supportsIops;
             return this;
         }
         @CustomType.Setter
-        public Builder supportsPerformanceInsights(Boolean supportsPerformanceInsights) {
-            this.supportsPerformanceInsights = Objects.requireNonNull(supportsPerformanceInsights);
+        public Builder supportsPerformanceInsights(@Nullable Boolean supportsPerformanceInsights) {
+            this.supportsPerformanceInsights = supportsPerformanceInsights;
             return this;
         }
         @CustomType.Setter
-        public Builder supportsStorageEncryption(Boolean supportsStorageEncryption) {
-            this.supportsStorageEncryption = Objects.requireNonNull(supportsStorageEncryption);
+        public Builder supportsStorageEncryption(@Nullable Boolean supportsStorageEncryption) {
+            this.supportsStorageEncryption = supportsStorageEncryption;
             return this;
         }
         @CustomType.Setter
-        public Builder vpc(Boolean vpc) {
-            this.vpc = Objects.requireNonNull(vpc);
+        public Builder vpc(@Nullable Boolean vpc) {
+            this.vpc = vpc;
             return this;
         }
         public GetOrderableDbInstanceResult build() {

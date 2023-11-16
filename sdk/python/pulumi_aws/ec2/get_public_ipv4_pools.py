@@ -44,7 +44,7 @@ class GetPublicIpv4PoolsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -52,7 +52,7 @@ class GetPublicIpv4PoolsResult:
 
     @property
     @pulumi.getter(name="poolIds")
-    def pool_ids(self) -> Sequence[str]:
+    def pool_ids(self) -> Optional[Sequence[str]]:
         """
         List of all the pool IDs found.
         """
@@ -60,7 +60,7 @@ class GetPublicIpv4PoolsResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

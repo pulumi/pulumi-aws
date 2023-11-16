@@ -154,11 +154,11 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// The ARN of the Glue Table.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// ID of the Data Catalog in which the table resides.
         /// </summary>
-        public readonly string CatalogId;
+        public readonly string? CatalogId;
         /// <summary>
         /// Name of the catalog database that contains the target table.
         /// </summary>
@@ -166,11 +166,11 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// Description of the table.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the target table.
         /// </summary>
@@ -178,11 +178,11 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// Owner of the table.
         /// </summary>
-        public readonly string Owner;
+        public readonly string? Owner;
         /// <summary>
         /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
         /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         /// </summary>
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// Retention time for this table.
         /// </summary>
-        public readonly int Retention;
+        public readonly int? Retention;
         /// <summary>
         /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
-        public readonly string TableType;
+        public readonly string? TableType;
         /// <summary>
         /// Configuration block of a target table for resource linking. See `target_table` below.
         /// </summary>
@@ -212,29 +212,29 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.
         /// </summary>
-        public readonly string ViewExpandedText;
+        public readonly string? ViewExpandedText;
         /// <summary>
         /// If the table is a view, the original text of the view; otherwise null.
         /// </summary>
-        public readonly string ViewOriginalText;
+        public readonly string? ViewOriginalText;
 
         [OutputConstructor]
         private GetCatalogTableResult(
-            string arn,
+            string? arn,
 
-            string catalogId,
+            string? catalogId,
 
             string databaseName,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
-            string owner,
+            string? owner,
 
-            ImmutableDictionary<string, string> parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             ImmutableArray<Outputs.GetCatalogTablePartitionIndexResult> partitionIndices,
 
@@ -242,19 +242,19 @@ namespace Pulumi.Aws.Glue
 
             string? queryAsOfTime,
 
-            int retention,
+            int? retention,
 
             ImmutableArray<Outputs.GetCatalogTableStorageDescriptorResult> storageDescriptors,
 
-            string tableType,
+            string? tableType,
 
             ImmutableArray<Outputs.GetCatalogTableTargetTableResult> targetTables,
 
             int? transactionId,
 
-            string viewExpandedText,
+            string? viewExpandedText,
 
-            string viewOriginalText)
+            string? viewOriginalText)
         {
             Arn = arn;
             CatalogId = catalogId;

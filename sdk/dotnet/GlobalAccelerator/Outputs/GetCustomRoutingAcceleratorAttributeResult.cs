@@ -13,17 +13,17 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     [OutputType]
     public sealed class GetCustomRoutingAcceleratorAttributeResult
     {
-        public readonly bool FlowLogsEnabled;
-        public readonly string FlowLogsS3Bucket;
-        public readonly string FlowLogsS3Prefix;
+        public readonly bool? FlowLogsEnabled;
+        public readonly string? FlowLogsS3Bucket;
+        public readonly string? FlowLogsS3Prefix;
 
         [OutputConstructor]
         private GetCustomRoutingAcceleratorAttributeResult(
-            bool flowLogsEnabled,
+            bool? flowLogsEnabled,
 
-            string flowLogsS3Bucket,
+            string? flowLogsS3Bucket,
 
-            string flowLogsS3Prefix)
+            string? flowLogsS3Prefix)
         {
             FlowLogsEnabled = flowLogsEnabled;
             FlowLogsS3Bucket = flowLogsS3Bucket;

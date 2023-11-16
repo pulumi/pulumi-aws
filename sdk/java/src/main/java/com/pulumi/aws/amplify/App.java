@@ -295,28 +295,28 @@ public class App extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Amplify app.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
      * 
      */
     @Export(name="autoBranchCreationConfig", refs={AppAutoBranchCreationConfig.class}, tree="[0]")
-    private Output<AppAutoBranchCreationConfig> autoBranchCreationConfig;
+    private Output</* @Nullable */ AppAutoBranchCreationConfig> autoBranchCreationConfig;
 
     /**
      * @return Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
      * 
      */
-    public Output<AppAutoBranchCreationConfig> autoBranchCreationConfig() {
-        return this.autoBranchCreationConfig;
+    public Output<Optional<AppAutoBranchCreationConfig>> autoBranchCreationConfig() {
+        return Codegen.optional(this.autoBranchCreationConfig);
     }
     /**
      * Automated branch creation glob patterns for an Amplify app.
@@ -351,28 +351,28 @@ public class App extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="buildSpec", refs={String.class}, tree="[0]")
-    private Output<String> buildSpec;
+    private Output</* @Nullable */ String> buildSpec;
 
     /**
      * @return The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
      * 
      */
-    public Output<String> buildSpec() {
-        return this.buildSpec;
+    public Output<Optional<String>> buildSpec() {
+        return Codegen.optional(this.buildSpec);
     }
     /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      * 
      */
     @Export(name="customHeaders", refs={String.class}, tree="[0]")
-    private Output<String> customHeaders;
+    private Output</* @Nullable */ String> customHeaders;
 
     /**
      * @return The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      * 
      */
-    public Output<String> customHeaders() {
-        return this.customHeaders;
+    public Output<Optional<String>> customHeaders() {
+        return Codegen.optional(this.customHeaders);
     }
     /**
      * Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
@@ -393,14 +393,14 @@ public class App extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultDomain", refs={String.class}, tree="[0]")
-    private Output<String> defaultDomain;
+    private Output</* @Nullable */ String> defaultDomain;
 
     /**
      * @return Default domain for the Amplify app.
      * 
      */
-    public Output<String> defaultDomain() {
-        return this.defaultDomain;
+    public Output<Optional<String>> defaultDomain() {
+        return Codegen.optional(this.defaultDomain);
     }
     /**
      * Description for an Amplify app.
@@ -547,14 +547,14 @@ public class App extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="productionBranches", refs={List.class,AppProductionBranch.class}, tree="[0,1]")
-    private Output<List<AppProductionBranch>> productionBranches;
+    private Output</* @Nullable */ List<AppProductionBranch>> productionBranches;
 
     /**
      * @return Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
      * 
      */
-    public Output<List<AppProductionBranch>> productionBranches() {
-        return this.productionBranches;
+    public Output<Optional<List<AppProductionBranch>>> productionBranches() {
+        return Codegen.optional(this.productionBranches);
     }
     /**
      * Repository for an Amplify app.

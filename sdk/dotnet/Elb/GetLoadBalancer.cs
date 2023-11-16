@@ -133,58 +133,58 @@ namespace Pulumi.Aws.Elb
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
-        public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
-        public readonly string Arn;
+        public readonly Outputs.GetLoadBalancerAccessLogsResult? AccessLogs;
+        public readonly string? Arn;
         public readonly ImmutableArray<string> AvailabilityZones;
-        public readonly bool ConnectionDraining;
-        public readonly int ConnectionDrainingTimeout;
-        public readonly bool CrossZoneLoadBalancing;
-        public readonly string DesyncMitigationMode;
-        public readonly string DnsName;
-        public readonly Outputs.GetLoadBalancerHealthCheckResult HealthCheck;
+        public readonly bool? ConnectionDraining;
+        public readonly int? ConnectionDrainingTimeout;
+        public readonly bool? CrossZoneLoadBalancing;
+        public readonly string? DesyncMitigationMode;
+        public readonly string? DnsName;
+        public readonly Outputs.GetLoadBalancerHealthCheckResult? HealthCheck;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly int IdleTimeout;
+        public readonly string? Id;
+        public readonly int? IdleTimeout;
         public readonly ImmutableArray<string> Instances;
-        public readonly bool Internal;
+        public readonly bool? Internal;
         public readonly ImmutableArray<Outputs.GetLoadBalancerListenerResult> Listeners;
         public readonly string Name;
         public readonly ImmutableArray<string> SecurityGroups;
-        public readonly string SourceSecurityGroup;
-        public readonly string SourceSecurityGroupId;
+        public readonly string? SourceSecurityGroup;
+        public readonly string? SourceSecurityGroupId;
         public readonly ImmutableArray<string> Subnets;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string ZoneId;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? ZoneId;
 
         [OutputConstructor]
         private GetLoadBalancerResult(
-            Outputs.GetLoadBalancerAccessLogsResult accessLogs,
+            Outputs.GetLoadBalancerAccessLogsResult? accessLogs,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<string> availabilityZones,
 
-            bool connectionDraining,
+            bool? connectionDraining,
 
-            int connectionDrainingTimeout,
+            int? connectionDrainingTimeout,
 
-            bool crossZoneLoadBalancing,
+            bool? crossZoneLoadBalancing,
 
-            string desyncMitigationMode,
+            string? desyncMitigationMode,
 
-            string dnsName,
+            string? dnsName,
 
-            Outputs.GetLoadBalancerHealthCheckResult healthCheck,
+            Outputs.GetLoadBalancerHealthCheckResult? healthCheck,
 
-            string id,
+            string? id,
 
-            int idleTimeout,
+            int? idleTimeout,
 
             ImmutableArray<string> instances,
 
-            bool @internal,
+            bool? @internal,
 
             ImmutableArray<Outputs.GetLoadBalancerListenerResult> listeners,
 
@@ -192,15 +192,15 @@ namespace Pulumi.Aws.Elb
 
             ImmutableArray<string> securityGroups,
 
-            string sourceSecurityGroup,
+            string? sourceSecurityGroup,
 
-            string sourceSecurityGroupId,
+            string? sourceSecurityGroupId,
 
             ImmutableArray<string> subnets,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string zoneId)
+            string? zoneId)
         {
             AccessLogs = accessLogs;
             Arn = arn;

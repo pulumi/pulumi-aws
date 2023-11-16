@@ -6,6 +6,8 @@ package com.pulumi.aws.ses.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActiveReceiptRuleSetResult {
@@ -13,39 +15,39 @@ public final class GetActiveReceiptRuleSetResult {
      * @return SES receipt rule set ARN.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the rule set
      * 
      */
-    private String ruleSetName;
+    private @Nullable String ruleSetName;
 
     private GetActiveReceiptRuleSetResult() {}
     /**
      * @return SES receipt rule set ARN.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the rule set
      * 
      */
-    public String ruleSetName() {
-        return this.ruleSetName;
+    public Optional<String> ruleSetName() {
+        return Optional.ofNullable(this.ruleSetName);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetActiveReceiptRuleSetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String ruleSetName;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String ruleSetName;
         public Builder() {}
         public Builder(GetActiveReceiptRuleSetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetActiveReceiptRuleSetResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ruleSetName(String ruleSetName) {
-            this.ruleSetName = Objects.requireNonNull(ruleSetName);
+        public Builder ruleSetName(@Nullable String ruleSetName) {
+            this.ruleSetName = ruleSetName;
             return this;
         }
         public GetActiveReceiptRuleSetResult build() {

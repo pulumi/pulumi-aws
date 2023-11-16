@@ -863,7 +863,7 @@ class Permissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataLocation")
-    def data_location(self) -> pulumi.Output['outputs.PermissionsDataLocation']:
+    def data_location(self) -> pulumi.Output[Optional['outputs.PermissionsDataLocation']]:
         """
         Configuration block for a data location resource. Detailed below.
         """
@@ -871,7 +871,7 @@ class Permissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def database(self) -> pulumi.Output['outputs.PermissionsDatabase']:
+    def database(self) -> pulumi.Output[Optional['outputs.PermissionsDatabase']]:
         """
         Configuration block for a database resource. Detailed below.
         """
@@ -879,7 +879,7 @@ class Permissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lfTag")
-    def lf_tag(self) -> pulumi.Output['outputs.PermissionsLfTag']:
+    def lf_tag(self) -> pulumi.Output[Optional['outputs.PermissionsLfTag']]:
         """
         Configuration block for an LF-tag resource. Detailed below.
         """
@@ -887,7 +887,7 @@ class Permissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lfTagPolicy")
-    def lf_tag_policy(self) -> pulumi.Output['outputs.PermissionsLfTagPolicy']:
+    def lf_tag_policy(self) -> pulumi.Output[Optional['outputs.PermissionsLfTagPolicy']]:
         """
         Configuration block for an LF-tag policy resource. Detailed below.
         """
@@ -903,7 +903,7 @@ class Permissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="permissionsWithGrantOptions")
-    def permissions_with_grant_options(self) -> pulumi.Output[Sequence[str]]:
+    def permissions_with_grant_options(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Subset of `permissions` which the principal can pass.
         """
@@ -923,7 +923,7 @@ class Permissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def table(self) -> pulumi.Output['outputs.PermissionsTable']:
+    def table(self) -> pulumi.Output[Optional['outputs.PermissionsTable']]:
         """
         Configuration block for a table resource. Detailed below.
         """
@@ -931,7 +931,7 @@ class Permissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableWithColumns")
-    def table_with_columns(self) -> pulumi.Output['outputs.PermissionsTableWithColumns']:
+    def table_with_columns(self) -> pulumi.Output[Optional['outputs.PermissionsTableWithColumns']]:
         """
         Configuration block for a table with columns resource. Detailed below.
 

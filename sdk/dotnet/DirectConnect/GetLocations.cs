@@ -75,7 +75,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Code for the locations.
         /// </summary>
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.DirectConnect
 
         [OutputConstructor]
         private GetLocationsResult(
-            string id,
+            string? id,
 
             ImmutableArray<string> locationCodes)
         {

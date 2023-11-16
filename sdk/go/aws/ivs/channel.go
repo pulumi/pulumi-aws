@@ -51,19 +51,19 @@ type Channel struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Channel.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// If `true`, channel is private (enabled for playback authorization).
-	Authorized pulumi.BoolOutput `pulumi:"authorized"`
+	Authorized pulumi.BoolPtrOutput `pulumi:"authorized"`
 	// Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-	IngestEndpoint pulumi.StringOutput `pulumi:"ingestEndpoint"`
+	IngestEndpoint pulumi.StringPtrOutput `pulumi:"ingestEndpoint"`
 	// Channel latency mode. Valid values: `NORMAL`, `LOW`.
-	LatencyMode pulumi.StringOutput `pulumi:"latencyMode"`
+	LatencyMode pulumi.StringPtrOutput `pulumi:"latencyMode"`
 	// Channel name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Channel playback URL.
-	PlaybackUrl pulumi.StringOutput `pulumi:"playbackUrl"`
+	PlaybackUrl pulumi.StringPtrOutput `pulumi:"playbackUrl"`
 	// Recording configuration ARN.
-	RecordingConfigurationArn pulumi.StringOutput `pulumi:"recordingConfigurationArn"`
+	RecordingConfigurationArn pulumi.StringPtrOutput `pulumi:"recordingConfigurationArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -71,7 +71,7 @@ type Channel struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -280,23 +280,23 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 }
 
 // ARN of the Channel.
-func (o ChannelOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ChannelOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // If `true`, channel is private (enabled for playback authorization).
-func (o ChannelOutput) Authorized() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Channel) pulumi.BoolOutput { return v.Authorized }).(pulumi.BoolOutput)
+func (o ChannelOutput) Authorized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.BoolPtrOutput { return v.Authorized }).(pulumi.BoolPtrOutput)
 }
 
 // Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-func (o ChannelOutput) IngestEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.IngestEndpoint }).(pulumi.StringOutput)
+func (o ChannelOutput) IngestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.IngestEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Channel latency mode. Valid values: `NORMAL`, `LOW`.
-func (o ChannelOutput) LatencyMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.LatencyMode }).(pulumi.StringOutput)
+func (o ChannelOutput) LatencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.LatencyMode }).(pulumi.StringPtrOutput)
 }
 
 // Channel name.
@@ -305,13 +305,13 @@ func (o ChannelOutput) Name() pulumi.StringOutput {
 }
 
 // Channel playback URL.
-func (o ChannelOutput) PlaybackUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.PlaybackUrl }).(pulumi.StringOutput)
+func (o ChannelOutput) PlaybackUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.PlaybackUrl }).(pulumi.StringPtrOutput)
 }
 
 // Recording configuration ARN.
-func (o ChannelOutput) RecordingConfigurationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.RecordingConfigurationArn }).(pulumi.StringOutput)
+func (o ChannelOutput) RecordingConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.RecordingConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -327,8 +327,8 @@ func (o ChannelOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-func (o ChannelOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o ChannelOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ChannelArrayOutput struct{ *pulumi.OutputState }

@@ -45,11 +45,11 @@ export interface GetServiceResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Code of the service.
      */
-    readonly serviceCode: string;
+    readonly serviceCode?: string;
     readonly serviceName: string;
 }
 /**

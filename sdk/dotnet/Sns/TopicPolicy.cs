@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Sns
         /// The AWS Account ID of the SNS topic owner
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// The fully-formed AWS policy as JSON.

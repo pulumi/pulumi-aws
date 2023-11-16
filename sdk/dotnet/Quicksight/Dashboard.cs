@@ -62,19 +62,19 @@ namespace Pulumi.Aws.Quicksight
         /// The Amazon Resource Name (ARN) of the resource.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The time that the dashboard was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for the dashboard.
@@ -86,16 +86,16 @@ namespace Pulumi.Aws.Quicksight
         /// Options for publishing the dashboard. See dashboard_publish_options.
         /// </summary>
         [Output("dashboardPublishOptions")]
-        public Output<Outputs.DashboardDashboardPublishOptions> DashboardPublishOptions { get; private set; } = null!;
+        public Output<Outputs.DashboardDashboardPublishOptions?> DashboardPublishOptions { get; private set; } = null!;
 
         [Output("lastPublishedTime")]
-        public Output<string> LastPublishedTime { get; private set; } = null!;
+        public Output<string?> LastPublishedTime { get; private set; } = null!;
 
         /// <summary>
         /// The time that the dashboard was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Display name for the dashboard.
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Quicksight
         /// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
         [Output("parameters")]
-        public Output<Outputs.DashboardParameters> Parameters { get; private set; } = null!;
+        public Output<Outputs.DashboardParameters?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
@@ -125,13 +125,13 @@ namespace Pulumi.Aws.Quicksight
         /// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
         /// </summary>
         [Output("sourceEntityArn")]
-        public Output<string> SourceEntityArn { get; private set; } = null!;
+        public Output<string?> SourceEntityArn { get; private set; } = null!;
 
         /// <summary>
         /// The dashboard creation status.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Quicksight
         /// The version number of the dashboard version.
         /// </summary>
         [Output("versionNumber")]
-        public Output<int> VersionNumber { get; private set; } = null!;
+        public Output<int?> VersionNumber { get; private set; } = null!;
 
 
         /// <summary>

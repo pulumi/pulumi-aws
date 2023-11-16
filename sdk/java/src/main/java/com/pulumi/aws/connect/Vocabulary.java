@@ -74,14 +74,14 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the vocabulary.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
@@ -102,14 +102,14 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="failureReason", refs={String.class}, tree="[0]")
-    private Output<String> failureReason;
+    private Output</* @Nullable */ String> failureReason;
 
     /**
      * @return The reason why the custom vocabulary was not created.
      * 
      */
-    public Output<String> failureReason() {
-        return this.failureReason;
+    public Output<Optional<String>> failureReason() {
+        return Codegen.optional(this.failureReason);
     }
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
@@ -144,14 +144,14 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModifiedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedTime;
+    private Output</* @Nullable */ String> lastModifiedTime;
 
     /**
      * @return The timestamp when the custom vocabulary was last modified.
      * 
      */
-    public Output<String> lastModifiedTime() {
-        return this.lastModifiedTime;
+    public Output<Optional<String>> lastModifiedTime() {
+        return Codegen.optional(this.lastModifiedTime);
     }
     /**
      * A unique name of the custom vocabulary. Must not be more than 140 characters.
@@ -172,14 +172,14 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Tags to apply to the vocabulary. If configured with a provider
@@ -220,14 +220,14 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vocabularyId", refs={String.class}, tree="[0]")
-    private Output<String> vocabularyId;
+    private Output</* @Nullable */ String> vocabularyId;
 
     /**
      * @return The identifier of the custom vocabulary.
      * 
      */
-    public Output<String> vocabularyId() {
-        return this.vocabularyId;
+    public Output<Optional<String>> vocabularyId() {
+        return Codegen.optional(this.vocabularyId);
     }
 
     /**

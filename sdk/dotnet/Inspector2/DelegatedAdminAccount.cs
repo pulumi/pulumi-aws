@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Inspector2
         /// Status of this delegated admin account.
         /// </summary>
         [Output("relationshipStatus")]
-        public Output<string> RelationshipStatus { get; private set; } = null!;
+        public Output<string?> RelationshipStatus { get; private set; } = null!;
 
 
         /// <summary>

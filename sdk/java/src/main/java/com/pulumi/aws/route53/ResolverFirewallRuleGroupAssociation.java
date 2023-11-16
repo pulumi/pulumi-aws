@@ -71,14 +71,14 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN (Amazon Resource Name) of the firewall rule group association.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The unique identifier of the firewall rule group.
@@ -99,14 +99,14 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * 
      */
     @Export(name="mutationProtection", refs={String.class}, tree="[0]")
-    private Output<String> mutationProtection;
+    private Output</* @Nullable */ String> mutationProtection;
 
     /**
      * @return If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    public Output<String> mutationProtection() {
-        return this.mutationProtection;
+    public Output<Optional<String>> mutationProtection() {
+        return Codegen.optional(this.mutationProtection);
     }
     /**
      * A name that lets you identify the rule group association, to manage and use it.

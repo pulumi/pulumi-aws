@@ -73,7 +73,7 @@ export class AssessmentDelegation extends pulumi.CustomResource {
     /**
      * Unique identifier for the delegation.
      */
-    public /*out*/ readonly delegationId!: pulumi.Output<string>;
+    public /*out*/ readonly delegationId!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      */
@@ -87,7 +87,7 @@ export class AssessmentDelegation extends pulumi.CustomResource {
     /**
      * Status of the delegation.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AssessmentDelegation resource with the given unique name, arguments, and options.

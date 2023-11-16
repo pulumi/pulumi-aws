@@ -11,6 +11,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,32 +20,32 @@ public final class GetServiceResult {
      * @return ARN of the service.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the service.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      * 
      */
-    private List<GetServiceDnsConfig> dnsConfigs;
+    private @Nullable List<GetServiceDnsConfig> dnsConfigs;
     /**
      * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      * 
      */
-    private List<GetServiceHealthCheckConfig> healthCheckConfigs;
+    private @Nullable List<GetServiceHealthCheckConfig> healthCheckConfigs;
     /**
      * @return A complex type that contains settings for ECS managed health checks.
      * 
      */
-    private List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs;
+    private @Nullable List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return ID of the namespace to use for DNS configuration.
@@ -64,50 +65,50 @@ public final class GetServiceResult {
      * 
      */
     @Deprecated /* this attribute has been deprecated */
-    private Map<String,String> tagsAll;
+    private @Nullable Map<String,String> tagsAll;
 
     private GetServiceResult() {}
     /**
      * @return ARN of the service.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the service.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      * 
      */
     public List<GetServiceDnsConfig> dnsConfigs() {
-        return this.dnsConfigs;
+        return this.dnsConfigs == null ? List.of() : this.dnsConfigs;
     }
     /**
      * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      * 
      */
     public List<GetServiceHealthCheckConfig> healthCheckConfigs() {
-        return this.healthCheckConfigs;
+        return this.healthCheckConfigs == null ? List.of() : this.healthCheckConfigs;
     }
     /**
      * @return A complex type that contains settings for ECS managed health checks.
      * 
      */
     public List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs() {
-        return this.healthCheckCustomConfigs;
+        return this.healthCheckCustomConfigs == null ? List.of() : this.healthCheckCustomConfigs;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -135,7 +136,7 @@ public final class GetServiceResult {
      */
     @Deprecated /* this attribute has been deprecated */
     public Map<String,String> tagsAll() {
-        return this.tagsAll;
+        return this.tagsAll == null ? Map.of() : this.tagsAll;
     }
 
     public static Builder builder() {
@@ -147,16 +148,16 @@ public final class GetServiceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private List<GetServiceDnsConfig> dnsConfigs;
-        private List<GetServiceHealthCheckConfig> healthCheckConfigs;
-        private List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable List<GetServiceDnsConfig> dnsConfigs;
+        private @Nullable List<GetServiceHealthCheckConfig> healthCheckConfigs;
+        private @Nullable List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs;
+        private @Nullable String id;
         private String name;
         private String namespaceId;
         private @Nullable Map<String,String> tags;
-        private Map<String,String> tagsAll;
+        private @Nullable Map<String,String> tagsAll;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -173,42 +174,42 @@ public final class GetServiceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder dnsConfigs(List<GetServiceDnsConfig> dnsConfigs) {
-            this.dnsConfigs = Objects.requireNonNull(dnsConfigs);
+        public Builder dnsConfigs(@Nullable List<GetServiceDnsConfig> dnsConfigs) {
+            this.dnsConfigs = dnsConfigs;
             return this;
         }
         public Builder dnsConfigs(GetServiceDnsConfig... dnsConfigs) {
             return dnsConfigs(List.of(dnsConfigs));
         }
         @CustomType.Setter
-        public Builder healthCheckConfigs(List<GetServiceHealthCheckConfig> healthCheckConfigs) {
-            this.healthCheckConfigs = Objects.requireNonNull(healthCheckConfigs);
+        public Builder healthCheckConfigs(@Nullable List<GetServiceHealthCheckConfig> healthCheckConfigs) {
+            this.healthCheckConfigs = healthCheckConfigs;
             return this;
         }
         public Builder healthCheckConfigs(GetServiceHealthCheckConfig... healthCheckConfigs) {
             return healthCheckConfigs(List.of(healthCheckConfigs));
         }
         @CustomType.Setter
-        public Builder healthCheckCustomConfigs(List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs) {
-            this.healthCheckCustomConfigs = Objects.requireNonNull(healthCheckCustomConfigs);
+        public Builder healthCheckCustomConfigs(@Nullable List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs) {
+            this.healthCheckCustomConfigs = healthCheckCustomConfigs;
             return this;
         }
         public Builder healthCheckCustomConfigs(GetServiceHealthCheckCustomConfig... healthCheckCustomConfigs) {
             return healthCheckCustomConfigs(List.of(healthCheckCustomConfigs));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -227,8 +228,8 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            this.tagsAll = Objects.requireNonNull(tagsAll);
+        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
+            this.tagsAll = tagsAll;
             return this;
         }
         public GetServiceResult build() {

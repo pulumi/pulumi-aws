@@ -109,17 +109,17 @@ type MatchmakingConfiguration struct {
 	// The number of player slots in a match to keep open for future players.
 	AdditionalPlayerCount pulumi.IntPtrOutput `pulumi:"additionalPlayerCount"`
 	// Matchmaking Configuration ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The method used to backfill game sessions that are created with this matchmaking configuration.
 	BackfillMode pulumi.StringPtrOutput `pulumi:"backfillMode"`
 	// The time when the Matchmaking Configuration was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// Information to be added to all events related to this matchmaking configuration.
 	CustomEventData pulumi.StringPtrOutput `pulumi:"customEventData"`
 	// A human-readable description of the matchmaking configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
-	FlexMatchMode pulumi.StringOutput `pulumi:"flexMatchMode"`
+	FlexMatchMode pulumi.StringPtrOutput `pulumi:"flexMatchMode"`
 	// One or more custom game properties. See below.
 	GameProperties MatchmakingConfigurationGamePropertyArrayOutput `pulumi:"gameProperties"`
 	// A set of custom game session properties.
@@ -131,8 +131,8 @@ type MatchmakingConfiguration struct {
 	// An SNS topic ARN that is set up to receive matchmaking notifications.
 	NotificationTarget pulumi.StringPtrOutput `pulumi:"notificationTarget"`
 	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
-	RequestTimeoutSeconds pulumi.IntOutput    `pulumi:"requestTimeoutSeconds"`
-	RuleSetArn            pulumi.StringOutput `pulumi:"ruleSetArn"`
+	RequestTimeoutSeconds pulumi.IntOutput       `pulumi:"requestTimeoutSeconds"`
+	RuleSetArn            pulumi.StringPtrOutput `pulumi:"ruleSetArn"`
 	// A rule set names for the matchmaking rule set to use with this configuration.
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -440,8 +440,8 @@ func (o MatchmakingConfigurationOutput) AdditionalPlayerCount() pulumi.IntPtrOut
 }
 
 // Matchmaking Configuration ARN.
-func (o MatchmakingConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MatchmakingConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The method used to backfill game sessions that are created with this matchmaking configuration.
@@ -450,8 +450,8 @@ func (o MatchmakingConfigurationOutput) BackfillMode() pulumi.StringPtrOutput {
 }
 
 // The time when the Matchmaking Configuration was created.
-func (o MatchmakingConfigurationOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o MatchmakingConfigurationOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // Information to be added to all events related to this matchmaking configuration.
@@ -465,8 +465,8 @@ func (o MatchmakingConfigurationOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
-func (o MatchmakingConfigurationOutput) FlexMatchMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.FlexMatchMode }).(pulumi.StringOutput)
+func (o MatchmakingConfigurationOutput) FlexMatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.FlexMatchMode }).(pulumi.StringPtrOutput)
 }
 
 // One or more custom game properties. See below.
@@ -501,8 +501,8 @@ func (o MatchmakingConfigurationOutput) RequestTimeoutSeconds() pulumi.IntOutput
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntOutput { return v.RequestTimeoutSeconds }).(pulumi.IntOutput)
 }
 
-func (o MatchmakingConfigurationOutput) RuleSetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.RuleSetArn }).(pulumi.StringOutput)
+func (o MatchmakingConfigurationOutput) RuleSetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.RuleSetArn }).(pulumi.StringPtrOutput)
 }
 
 // A rule set names for the matchmaking rule set to use with this configuration.

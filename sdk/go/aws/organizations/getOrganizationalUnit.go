@@ -65,11 +65,11 @@ type LookupOrganizationalUnitArgs struct {
 // A collection of values returned by getOrganizationalUnit.
 type LookupOrganizationalUnitResult struct {
 	// ARN of the organizational unit
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
-	Name     string `pulumi:"name"`
-	ParentId string `pulumi:"parentId"`
+	Id       *string `pulumi:"id"`
+	Name     string  `pulumi:"name"`
+	ParentId string  `pulumi:"parentId"`
 }
 
 func LookupOrganizationalUnitOutput(ctx *pulumi.Context, args LookupOrganizationalUnitOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationalUnitResultOutput {
@@ -113,13 +113,13 @@ func (o LookupOrganizationalUnitResultOutput) ToLookupOrganizationalUnitResultOu
 }
 
 // ARN of the organizational unit
-func (o LookupOrganizationalUnitResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOrganizationalUnitResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupOrganizationalUnitResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationalUnitResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupOrganizationalUnitResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOrganizationalUnitResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupOrganizationalUnitResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationalUnitResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupOrganizationalUnitResultOutput) Name() pulumi.StringOutput {

@@ -62,7 +62,7 @@ type VpcLink struct {
 	pulumi.CustomResourceState
 
 	// VPC Link ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Security group IDs for the VPC Link.
@@ -265,8 +265,8 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 }
 
 // VPC Link ARN.
-func (o VpcLinkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpcLinkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the VPC Link. Must be between 1 and 128 characters in length.

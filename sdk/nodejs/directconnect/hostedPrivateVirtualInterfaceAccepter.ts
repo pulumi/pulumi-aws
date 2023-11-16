@@ -81,7 +81,7 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
     /**
      * The ARN of the virtual interface.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */

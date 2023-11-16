@@ -392,7 +392,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) specifying the virtual mfa device.
         """
@@ -400,7 +400,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="base32StringSeed")
-    def base32_string_seed(self) -> pulumi.Output[str]:
+    def base32_string_seed(self) -> pulumi.Output[Optional[str]]:
         """
         The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
         """
@@ -408,7 +408,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableDate")
-    def enable_date(self) -> pulumi.Output[str]:
+    def enable_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time when the virtual MFA device was enabled.
         """
@@ -424,7 +424,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="qrCodePng")
-    def qr_code_png(self) -> pulumi.Output[str]:
+    def qr_code_png(self) -> pulumi.Output[Optional[str]]:
         """
         A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
         """
@@ -451,7 +451,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Output[str]:
+    def user_name(self) -> pulumi.Output[Optional[str]]:
         """
         The associated IAM User name if the virtual MFA device is enabled.
         """

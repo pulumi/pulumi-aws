@@ -85,28 +85,28 @@ public class Agreement extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="agreementId", refs={String.class}, tree="[0]")
-    private Output<String> agreementId;
+    private Output</* @Nullable */ String> agreementId;
 
     /**
      * @return The unique identifier for the AS2 agreement.
      * 
      */
-    public Output<String> agreementId() {
-        return this.agreementId;
+    public Output<Optional<String>> agreementId() {
+        return Codegen.optional(this.agreementId);
     }
     /**
      * The ARN of the agreement.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the agreement.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The landing directory for the files transferred by using the AS2 protocol.
@@ -179,10 +179,10 @@ public class Agreement extends com.pulumi.resources.CustomResource {
         return this.serverId;
     }
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

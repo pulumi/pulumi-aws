@@ -73,11 +73,11 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Profile
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      */
-    public readonly durationSeconds!: pulumi.Output<number>;
+    public readonly durationSeconds!: pulumi.Output<number | undefined>;
     /**
      * Whether or not the Profile is enabled.
      */

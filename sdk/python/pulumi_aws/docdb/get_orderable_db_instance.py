@@ -49,7 +49,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         Availability zones where the instance is available.
         """
@@ -62,12 +62,12 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> Optional[str]:
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -75,7 +75,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="instanceClass")
-    def instance_class(self) -> str:
+    def instance_class(self) -> Optional[str]:
         return pulumi.get(self, "instance_class")
 
     @property
@@ -90,7 +90,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter
-    def vpc(self) -> bool:
+    def vpc(self) -> Optional[bool]:
         return pulumi.get(self, "vpc")
 
 

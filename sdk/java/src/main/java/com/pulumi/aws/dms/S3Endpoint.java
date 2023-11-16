@@ -300,14 +300,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
-    private Output<String> certificateArn;
+    private Output</* @Nullable */ String> certificateArn;
 
     /**
      * @return ARN for the certificate.
      * 
      */
-    public Output<String> certificateArn() {
-        return this.certificateArn;
+    public Output<Optional<String>> certificateArn() {
+        return Codegen.optional(this.certificateArn);
     }
     /**
      * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
@@ -538,14 +538,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointArn", refs={String.class}, tree="[0]")
-    private Output<String> endpointArn;
+    private Output</* @Nullable */ String> endpointArn;
 
     /**
      * @return ARN for the endpoint.
      * 
      */
-    public Output<String> endpointArn() {
-        return this.endpointArn;
+    public Output<Optional<String>> endpointArn() {
+        return Codegen.optional(this.endpointArn);
     }
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -580,14 +580,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineDisplayName", refs={String.class}, tree="[0]")
-    private Output<String> engineDisplayName;
+    private Output</* @Nullable */ String> engineDisplayName;
 
     /**
      * @return Expanded name for the engine name.
      * 
      */
-    public Output<String> engineDisplayName() {
-        return this.engineDisplayName;
+    public Output<Optional<String>> engineDisplayName() {
+        return Codegen.optional(this.engineDisplayName);
     }
     /**
      * Bucket owner to prevent sniping. Value is an AWS account ID.
@@ -608,14 +608,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="externalId", refs={String.class}, tree="[0]")
-    private Output<String> externalId;
+    private Output</* @Nullable */ String> externalId;
 
     /**
      * @return Can be used for cross-account validation. Use it in another account with `aws.dms.S3Endpoint` to create the endpoint cross-account.
      * 
      */
-    public Output<String> externalId() {
-        return this.externalId;
+    public Output<Optional<String>> externalId() {
+        return Codegen.optional(this.externalId);
     }
     /**
      * JSON document that describes how AWS DMS should interpret the data.
@@ -678,14 +678,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyArn;
+    private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
      * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
-    public Output<String> kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
@@ -808,28 +808,28 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sslMode", refs={String.class}, tree="[0]")
-    private Output<String> sslMode;
+    private Output</* @Nullable */ String> sslMode;
 
     /**
      * @return SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
      * 
      */
-    public Output<String> sslMode() {
-        return this.sslMode;
+    public Output<Optional<String>> sslMode() {
+        return Codegen.optional(this.sslMode);
     }
     /**
      * Status of the endpoint.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the endpoint.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

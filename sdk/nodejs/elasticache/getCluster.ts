@@ -48,106 +48,106 @@ export interface GetClusterArgs {
  * A collection of values returned by getCluster.
  */
 export interface GetClusterResult {
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Availability Zone for the cache cluster.
      */
-    readonly availabilityZone: string;
+    readonly availabilityZone?: string;
     /**
      * List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
      * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      */
-    readonly cacheNodes: outputs.elasticache.GetClusterCacheNode[];
+    readonly cacheNodes?: outputs.elasticache.GetClusterCacheNode[];
     /**
      * (Memcached only) DNS name of the cache cluster without the port appended.
      */
-    readonly clusterAddress: string;
+    readonly clusterAddress?: string;
     readonly clusterId: string;
     /**
      * (Memcached only) Configuration endpoint to allow host discovery.
      */
-    readonly configurationEndpoint: string;
+    readonly configurationEndpoint?: string;
     /**
      * Name of the cache engine.
      */
-    readonly engine: string;
+    readonly engine?: string;
     /**
      * Version number of the cache engine.
      */
-    readonly engineVersion: string;
+    readonly engineVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The IP version advertised in the discovery protocol.
      */
-    readonly ipDiscovery: string;
+    readonly ipDiscovery?: string;
     /**
      * Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
      */
-    readonly logDeliveryConfigurations: outputs.elasticache.GetClusterLogDeliveryConfiguration[];
+    readonly logDeliveryConfigurations?: outputs.elasticache.GetClusterLogDeliveryConfiguration[];
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed.
      */
-    readonly maintenanceWindow: string;
+    readonly maintenanceWindow?: string;
     /**
      * The IP versions for cache cluster connections.
      */
-    readonly networkType: string;
+    readonly networkType?: string;
     /**
      * The cluster node type.
      */
-    readonly nodeType: string;
+    readonly nodeType?: string;
     /**
      * An ARN of an
      * SNS topic that ElastiCache notifications get sent to.
      */
-    readonly notificationTopicArn: string;
+    readonly notificationTopicArn?: string;
     /**
      * The number of cache nodes that the cache cluster has.
      */
-    readonly numCacheNodes: number;
+    readonly numCacheNodes?: number;
     /**
      * Name of the parameter group associated with this cache cluster.
      */
-    readonly parameterGroupName: string;
+    readonly parameterGroupName?: string;
     /**
      * The port number on which each of the cache nodes will
      * accept connections.
      */
-    readonly port: number;
+    readonly port?: number;
     /**
      * The outpost ARN in which the cache cluster was created if created in outpost.
      */
-    readonly preferredOutpostArn: string;
+    readonly preferredOutpostArn?: string;
     /**
      * The replication group to which this cache cluster belongs.
      */
-    readonly replicationGroupId: string;
+    readonly replicationGroupId?: string;
     /**
      * List VPC security groups associated with the cache cluster.
      */
-    readonly securityGroupIds: string[];
+    readonly securityGroupIds?: string[];
     /**
      * The number of days for which ElastiCache will
      * retain automatic cache cluster snapshots before deleting them.
      */
-    readonly snapshotRetentionLimit: number;
+    readonly snapshotRetentionLimit?: number;
     /**
      * Daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of the cache cluster.
      */
-    readonly snapshotWindow: string;
+    readonly snapshotWindow?: string;
     /**
      * Name of the subnet group associated to the cache cluster.
      */
-    readonly subnetGroupName: string;
+    readonly subnetGroupName?: string;
     /**
      * Tags assigned to the resource
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get information about an ElastiCache Cluster

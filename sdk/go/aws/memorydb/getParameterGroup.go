@@ -59,13 +59,13 @@ type LookupParameterGroupArgs struct {
 // A collection of values returned by getParameterGroup.
 type LookupParameterGroupResult struct {
 	// ARN of the parameter group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the parameter group.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Engine version that the parameter group can be used with.
-	Family string `pulumi:"family"`
+	Family *string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the parameter.
 	Name string `pulumi:"name"`
 	// Set of user-defined MemoryDB parameters applied by the parameter group.
@@ -115,23 +115,23 @@ func (o LookupParameterGroupResultOutput) ToLookupParameterGroupResultOutputWith
 }
 
 // ARN of the parameter group.
-func (o LookupParameterGroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupParameterGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the parameter group.
-func (o LookupParameterGroupResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupParameterGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Engine version that the parameter group can be used with.
-func (o LookupParameterGroupResultOutput) Family() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Family }).(pulumi.StringOutput)
+func (o LookupParameterGroupResultOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupParameterGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupParameterGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the parameter.

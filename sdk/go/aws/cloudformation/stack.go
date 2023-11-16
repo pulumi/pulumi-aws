@@ -106,7 +106,7 @@ type Stack struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Structure containing the stack policy body.
 	// Conflicts w/ `policyUrl`.
-	PolicyBody pulumi.StringOutput `pulumi:"policyBody"`
+	PolicyBody pulumi.StringPtrOutput `pulumi:"policyBody"`
 	// Location of a file containing the stack policy.
 	// Conflicts w/ `policyBody`.
 	PolicyUrl pulumi.StringPtrOutput `pulumi:"policyUrl"`
@@ -117,7 +117,7 @@ type Stack struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Structure containing the template body (max size: 51,200 bytes).
-	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
+	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
 	// Location of a file containing the template body (max size: 460,800 bytes).
 	TemplateUrl pulumi.StringPtrOutput `pulumi:"templateUrl"`
 	// The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
@@ -442,8 +442,8 @@ func (o StackOutput) Parameters() pulumi.StringMapOutput {
 
 // Structure containing the stack policy body.
 // Conflicts w/ `policyUrl`.
-func (o StackOutput) PolicyBody() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.PolicyBody }).(pulumi.StringOutput)
+func (o StackOutput) PolicyBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.PolicyBody }).(pulumi.StringPtrOutput)
 }
 
 // Location of a file containing the stack policy.
@@ -465,8 +465,8 @@ func (o StackOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Structure containing the template body (max size: 51,200 bytes).
-func (o StackOutput) TemplateBody() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.TemplateBody }).(pulumi.StringOutput)
+func (o StackOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.TemplateBody }).(pulumi.StringPtrOutput)
 }
 
 // Location of a file containing the template body (max size: 460,800 bytes).

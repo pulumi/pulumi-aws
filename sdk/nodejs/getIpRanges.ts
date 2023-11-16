@@ -81,23 +81,23 @@ export interface GetIpRangesResult {
     /**
      * Lexically ordered list of CIDR blocks.
      */
-    readonly cidrBlocks: string[];
+    readonly cidrBlocks?: string[];
     /**
      * Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
      */
-    readonly createDate: string;
-    readonly id: string;
+    readonly createDate?: string;
+    readonly id?: string;
     /**
      * Lexically ordered list of IPv6 CIDR blocks.
      */
-    readonly ipv6CidrBlocks: string[];
+    readonly ipv6CidrBlocks?: string[];
     readonly regions?: string[];
     readonly services: string[];
     /**
      * Publication time of the IP ranges, in Unix epoch time format
      * (e.g., `1470267965`).
      */
-    readonly syncToken: number;
+    readonly syncToken?: number;
     readonly url?: string;
 }
 /**

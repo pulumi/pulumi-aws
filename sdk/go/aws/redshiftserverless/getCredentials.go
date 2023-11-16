@@ -62,15 +62,15 @@ type GetCredentialsArgs struct {
 type GetCredentialsResult struct {
 	DbName *string `pulumi:"dbName"`
 	// Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
-	DbPassword string `pulumi:"dbPassword"`
+	DbPassword *string `pulumi:"dbPassword"`
 	// A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
-	DbUser          string `pulumi:"dbUser"`
-	DurationSeconds *int   `pulumi:"durationSeconds"`
+	DbUser          *string `pulumi:"dbUser"`
+	DurationSeconds *int    `pulumi:"durationSeconds"`
 	// Date and time the password in `dbPassword` expires.
-	Expiration string `pulumi:"expiration"`
+	Expiration *string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	WorkgroupName string `pulumi:"workgroupName"`
+	Id            *string `pulumi:"id"`
+	WorkgroupName string  `pulumi:"workgroupName"`
 }
 
 func GetCredentialsOutput(ctx *pulumi.Context, args GetCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetCredentialsResultOutput {
@@ -120,13 +120,13 @@ func (o GetCredentialsResultOutput) DbName() pulumi.StringPtrOutput {
 }
 
 // Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
-func (o GetCredentialsResultOutput) DbPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCredentialsResult) string { return v.DbPassword }).(pulumi.StringOutput)
+func (o GetCredentialsResultOutput) DbPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCredentialsResult) *string { return v.DbPassword }).(pulumi.StringPtrOutput)
 }
 
 // A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
-func (o GetCredentialsResultOutput) DbUser() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCredentialsResult) string { return v.DbUser }).(pulumi.StringOutput)
+func (o GetCredentialsResultOutput) DbUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCredentialsResult) *string { return v.DbUser }).(pulumi.StringPtrOutput)
 }
 
 func (o GetCredentialsResultOutput) DurationSeconds() pulumi.IntPtrOutput {
@@ -134,13 +134,13 @@ func (o GetCredentialsResultOutput) DurationSeconds() pulumi.IntPtrOutput {
 }
 
 // Date and time the password in `dbPassword` expires.
-func (o GetCredentialsResultOutput) Expiration() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCredentialsResult) string { return v.Expiration }).(pulumi.StringOutput)
+func (o GetCredentialsResultOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCredentialsResult) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetCredentialsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetCredentialsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCredentialsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetCredentialsResultOutput) WorkgroupName() pulumi.StringOutput {

@@ -77,24 +77,24 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rbin/rule:Rule")
 public class Rule extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The retention rule description.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return The retention rule description.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Information about the retention rule lock configuration. See `lock_configuration` below.
@@ -115,42 +115,42 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lockEndTime", refs={String.class}, tree="[0]")
-    private Output<String> lockEndTime;
+    private Output</* @Nullable */ String> lockEndTime;
 
     /**
      * @return (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
      * 
      */
-    public Output<String> lockEndTime() {
-        return this.lockEndTime;
+    public Output<Optional<String>> lockEndTime() {
+        return Codegen.optional(this.lockEndTime);
     }
     /**
      * (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
      * 
      */
     @Export(name="lockState", refs={String.class}, tree="[0]")
-    private Output<String> lockState;
+    private Output</* @Nullable */ String> lockState;
 
     /**
      * @return (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
      * 
      */
-    public Output<String> lockState() {
-        return this.lockState;
+    public Output<Optional<String>> lockState() {
+        return Codegen.optional(this.lockState);
     }
     /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
      * 
      */
     @Export(name="resourceTags", refs={List.class,RuleResourceTag.class}, tree="[0,1]")
-    private Output<List<RuleResourceTag>> resourceTags;
+    private Output</* @Nullable */ List<RuleResourceTag>> resourceTags;
 
     /**
      * @return Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
      * 
      */
-    public Output<List<RuleResourceTag>> resourceTags() {
-        return this.resourceTags;
+    public Output<Optional<List<RuleResourceTag>>> resourceTags() {
+        return Codegen.optional(this.resourceTags);
     }
     /**
      * The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
@@ -189,14 +189,14 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;

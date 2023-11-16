@@ -68,14 +68,14 @@ public class BotAlias extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the bot alias.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the bot.
@@ -110,14 +110,14 @@ public class BotAlias extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="checksum", refs={String.class}, tree="[0]")
-    private Output<String> checksum;
+    private Output</* @Nullable */ String> checksum;
 
     /**
      * @return Checksum of the bot alias.
      * 
      */
-    public Output<String> checksum() {
-        return this.checksum;
+    public Output<Optional<String>> checksum() {
+        return Codegen.optional(this.checksum);
     }
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
@@ -138,14 +138,14 @@ public class BotAlias extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
-    private Output<String> createdDate;
+    private Output</* @Nullable */ String> createdDate;
 
     /**
      * @return The date that the bot alias was created.
      * 
      */
-    public Output<String> createdDate() {
-        return this.createdDate;
+    public Output<Optional<String>> createdDate() {
+        return Codegen.optional(this.createdDate);
     }
     /**
      * A description of the alias. Must be less than or equal to 200 characters in length.
@@ -166,14 +166,14 @@ public class BotAlias extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedDate;
+    private Output</* @Nullable */ String> lastUpdatedDate;
 
     /**
      * @return The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      * 
      */
-    public Output<String> lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Output<Optional<String>> lastUpdatedDate() {
+        return Codegen.optional(this.lastUpdatedDate);
     }
     /**
      * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.

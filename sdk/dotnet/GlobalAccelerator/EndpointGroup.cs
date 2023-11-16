@@ -53,7 +53,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// The Amazon Resource Name (ARN) of the endpoint group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The list of endpoint objects. Fields documented below.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// The name of the AWS Region where the endpoint group is located.
         /// </summary>
         [Output("endpointGroupRegion")]
-        public Output<string> EndpointGroupRegion { get; private set; } = null!;
+        public Output<string?> EndpointGroupRegion { get; private set; } = null!;
 
         /// <summary>
         /// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
@@ -77,14 +77,14 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Output("healthCheckPath")]
-        public Output<string> HealthCheckPath { get; private set; } = null!;
+        public Output<string?> HealthCheckPath { get; private set; } = null!;
 
         /// <summary>
         /// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
         /// the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Output("healthCheckPort")]
-        public Output<int> HealthCheckPort { get; private set; } = null!;
+        public Output<int?> HealthCheckPort { get; private set; } = null!;
 
         /// <summary>
         /// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.

@@ -72,11 +72,11 @@ export class Experience extends pulumi.CustomResource {
     /**
      * ARN of the Experience.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      */
-    public readonly configuration!: pulumi.Output<outputs.kendra.ExperienceConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.kendra.ExperienceConfiguration | undefined>;
     /**
      * A description for your Amazon Kendra experience.
      */
@@ -84,11 +84,11 @@ export class Experience extends pulumi.CustomResource {
     /**
      * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.kendra.ExperienceEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.kendra.ExperienceEndpoint[] | undefined>;
     /**
      * The unique identifier of the experience.
      */
-    public /*out*/ readonly experienceId!: pulumi.Output<string>;
+    public /*out*/ readonly experienceId!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the index for your Amazon Kendra experience.
      */
@@ -106,7 +106,7 @@ export class Experience extends pulumi.CustomResource {
     /**
      * The current processing status of your Amazon Kendra experience.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Experience resource with the given unique name, arguments, and options.

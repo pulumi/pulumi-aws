@@ -380,7 +380,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             code: code,
             handler: serializedFileNameNoExtension + "." + handlerName,
             runtime: args.runtime || Runtime.NodeJS16dX,
-            role: iam.Role.isInstance(role) ? role.arn : role,
+            role: iam.Role.isInstance(role) ? role.arn.apply(x => x!) : role,
             timeout: args.timeout === undefined ? 180 : args.timeout,
         };
 

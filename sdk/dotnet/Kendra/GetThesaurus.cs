@@ -142,36 +142,36 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// ARN of the Thesaurus.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Unix datetime that the Thesaurus was created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// Description of the Thesaurus.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// When the `status` field value is `FAILED`, this contains a message that explains why.
         /// </summary>
-        public readonly string ErrorMessage;
+        public readonly string? ErrorMessage;
         /// <summary>
         /// Size of the Thesaurus file in bytes.
         /// </summary>
-        public readonly int FileSizeBytes;
+        public readonly int? FileSizeBytes;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string IndexId;
         /// <summary>
         /// Name of the Thesaurus.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// S3 location of the Thesaurus input data. Detailed below.
         /// </summary>
@@ -179,58 +179,58 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Number of synonym rules in the Thesaurus file.
         /// </summary>
-        public readonly int SynonymRuleCount;
+        public readonly int? SynonymRuleCount;
         /// <summary>
         /// Metadata that helps organize the Thesaurus you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
         /// </summary>
-        public readonly int TermCount;
+        public readonly int? TermCount;
         public readonly string ThesaurusId;
         /// <summary>
         /// Date and time that the Thesaurus was last updated.
         /// </summary>
-        public readonly string UpdatedAt;
+        public readonly string? UpdatedAt;
 
         [OutputConstructor]
         private GetThesaurusResult(
-            string arn,
+            string? arn,
 
-            string createdAt,
+            string? createdAt,
 
-            string description,
+            string? description,
 
-            string errorMessage,
+            string? errorMessage,
 
-            int fileSizeBytes,
+            int? fileSizeBytes,
 
-            string id,
+            string? id,
 
             string indexId,
 
-            string name,
+            string? name,
 
-            string roleArn,
+            string? roleArn,
 
             ImmutableArray<Outputs.GetThesaurusSourceS3PathResult> sourceS3Paths,
 
-            string status,
+            string? status,
 
-            int synonymRuleCount,
+            int? synonymRuleCount,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int termCount,
+            int? termCount,
 
             string thesaurusId,
 
-            string updatedAt)
+            string? updatedAt)
         {
             Arn = arn;
             CreatedAt = createdAt;

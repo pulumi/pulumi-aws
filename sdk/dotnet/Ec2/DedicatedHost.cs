@@ -50,13 +50,13 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the Dedicated Host.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
         /// </summary>
         [Output("assetId")]
-        public Output<string> AssetId { get; private set; } = null!;
+        public Output<string?> AssetId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the AWS account that owns the Dedicated Host.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

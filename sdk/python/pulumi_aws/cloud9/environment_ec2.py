@@ -650,7 +650,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the environment.
         """
@@ -714,7 +714,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerArn")
-    def owner_arn(self) -> pulumi.Output[str]:
+    def owner_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         """
@@ -749,7 +749,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the environment (e.g., `ssh` or `ec2`)
         """

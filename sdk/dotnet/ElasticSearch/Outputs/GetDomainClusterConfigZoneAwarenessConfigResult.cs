@@ -16,10 +16,10 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Number of availability zones used.
         /// </summary>
-        public readonly int AvailabilityZoneCount;
+        public readonly int? AvailabilityZoneCount;
 
         [OutputConstructor]
-        private GetDomainClusterConfigZoneAwarenessConfigResult(int availabilityZoneCount)
+        private GetDomainClusterConfigZoneAwarenessConfigResult(int? availabilityZoneCount)
         {
             AvailabilityZoneCount = availabilityZoneCount;
         }

@@ -67,18 +67,18 @@ export interface GetResolverEndpointArgs {
  * A collection of values returned by getResolverEndpoint.
  */
 export interface GetResolverEndpointResult {
-    readonly arn: string;
-    readonly direction: string;
+    readonly arn?: string;
+    readonly direction?: string;
     readonly filters?: outputs.route53.GetResolverEndpointFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly ipAddresses: string[];
-    readonly name: string;
+    readonly id?: string;
+    readonly ipAddresses?: string[];
+    readonly name?: string;
     readonly resolverEndpointId?: string;
-    readonly status: string;
-    readonly vpcId: string;
+    readonly status?: string;
+    readonly vpcId?: string;
 }
 /**
  * `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.

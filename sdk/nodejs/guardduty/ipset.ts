@@ -78,7 +78,7 @@ export class IPSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the GuardDuty IPSet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The detector ID of the GuardDuty.
      */

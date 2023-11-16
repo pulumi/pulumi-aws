@@ -16,7 +16,7 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// <summary>
         /// The name of the PagerDuty configuration.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The values for the associated parameter name.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
 
         [OutputConstructor]
         private GetResponsePlanActionSsmAutomationParameterResult(
-            string name,
+            string? name,
 
             ImmutableArray<string> values)
         {

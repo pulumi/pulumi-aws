@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSnapshotClusterConfiguration {
@@ -14,159 +16,159 @@ public final class GetSnapshotClusterConfiguration {
      * @return Description for the cluster.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Version number of the Redis engine used by the cluster.
      * 
      */
-    private String engineVersion;
+    private @Nullable String engineVersion;
     /**
      * @return The weekly time range during which maintenance on the cluster is performed.
      * 
      */
-    private String maintenanceWindow;
+    private @Nullable String maintenanceWindow;
     /**
      * @return Name of the snapshot.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Compute and memory capacity of the nodes in the cluster.
      * 
      */
-    private String nodeType;
+    private @Nullable String nodeType;
     /**
      * @return Number of shards in the cluster.
      * 
      */
-    private Integer numShards;
+    private @Nullable Integer numShards;
     /**
      * @return Name of the parameter group associated with the cluster.
      * 
      */
-    private String parameterGroupName;
+    private @Nullable String parameterGroupName;
     /**
      * @return Port number on which the cluster accepts connections.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
     /**
      * @return Number of days for which MemoryDB retains automatic snapshots before deleting them.
      * 
      */
-    private Integer snapshotRetentionLimit;
+    private @Nullable Integer snapshotRetentionLimit;
     /**
      * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
      * 
      */
-    private String snapshotWindow;
+    private @Nullable String snapshotWindow;
     /**
      * @return Name of the subnet group used by the cluster.
      * 
      */
-    private String subnetGroupName;
+    private @Nullable String subnetGroupName;
     /**
      * @return ARN of the SNS topic to which cluster notifications are sent.
      * 
      */
-    private String topicArn;
+    private @Nullable String topicArn;
     /**
      * @return The VPC in which the cluster exists.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetSnapshotClusterConfiguration() {}
     /**
      * @return Description for the cluster.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Version number of the Redis engine used by the cluster.
      * 
      */
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
     /**
      * @return The weekly time range during which maintenance on the cluster is performed.
      * 
      */
-    public String maintenanceWindow() {
-        return this.maintenanceWindow;
+    public Optional<String> maintenanceWindow() {
+        return Optional.ofNullable(this.maintenanceWindow);
     }
     /**
      * @return Name of the snapshot.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Compute and memory capacity of the nodes in the cluster.
      * 
      */
-    public String nodeType() {
-        return this.nodeType;
+    public Optional<String> nodeType() {
+        return Optional.ofNullable(this.nodeType);
     }
     /**
      * @return Number of shards in the cluster.
      * 
      */
-    public Integer numShards() {
-        return this.numShards;
+    public Optional<Integer> numShards() {
+        return Optional.ofNullable(this.numShards);
     }
     /**
      * @return Name of the parameter group associated with the cluster.
      * 
      */
-    public String parameterGroupName() {
-        return this.parameterGroupName;
+    public Optional<String> parameterGroupName() {
+        return Optional.ofNullable(this.parameterGroupName);
     }
     /**
      * @return Port number on which the cluster accepts connections.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return Number of days for which MemoryDB retains automatic snapshots before deleting them.
      * 
      */
-    public Integer snapshotRetentionLimit() {
-        return this.snapshotRetentionLimit;
+    public Optional<Integer> snapshotRetentionLimit() {
+        return Optional.ofNullable(this.snapshotRetentionLimit);
     }
     /**
      * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
      * 
      */
-    public String snapshotWindow() {
-        return this.snapshotWindow;
+    public Optional<String> snapshotWindow() {
+        return Optional.ofNullable(this.snapshotWindow);
     }
     /**
      * @return Name of the subnet group used by the cluster.
      * 
      */
-    public String subnetGroupName() {
-        return this.subnetGroupName;
+    public Optional<String> subnetGroupName() {
+        return Optional.ofNullable(this.subnetGroupName);
     }
     /**
      * @return ARN of the SNS topic to which cluster notifications are sent.
      * 
      */
-    public String topicArn() {
-        return this.topicArn;
+    public Optional<String> topicArn() {
+        return Optional.ofNullable(this.topicArn);
     }
     /**
      * @return The VPC in which the cluster exists.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -178,19 +180,19 @@ public final class GetSnapshotClusterConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String description;
-        private String engineVersion;
-        private String maintenanceWindow;
-        private String name;
-        private String nodeType;
-        private Integer numShards;
-        private String parameterGroupName;
-        private Integer port;
-        private Integer snapshotRetentionLimit;
-        private String snapshotWindow;
-        private String subnetGroupName;
-        private String topicArn;
-        private String vpcId;
+        private @Nullable String description;
+        private @Nullable String engineVersion;
+        private @Nullable String maintenanceWindow;
+        private @Nullable String name;
+        private @Nullable String nodeType;
+        private @Nullable Integer numShards;
+        private @Nullable String parameterGroupName;
+        private @Nullable Integer port;
+        private @Nullable Integer snapshotRetentionLimit;
+        private @Nullable String snapshotWindow;
+        private @Nullable String subnetGroupName;
+        private @Nullable String topicArn;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetSnapshotClusterConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -210,68 +212,68 @@ public final class GetSnapshotClusterConfiguration {
         }
 
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder maintenanceWindow(String maintenanceWindow) {
-            this.maintenanceWindow = Objects.requireNonNull(maintenanceWindow);
+        public Builder maintenanceWindow(@Nullable String maintenanceWindow) {
+            this.maintenanceWindow = maintenanceWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+        public Builder nodeType(@Nullable String nodeType) {
+            this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
-        public Builder numShards(Integer numShards) {
-            this.numShards = Objects.requireNonNull(numShards);
+        public Builder numShards(@Nullable Integer numShards) {
+            this.numShards = numShards;
             return this;
         }
         @CustomType.Setter
-        public Builder parameterGroupName(String parameterGroupName) {
-            this.parameterGroupName = Objects.requireNonNull(parameterGroupName);
+        public Builder parameterGroupName(@Nullable String parameterGroupName) {
+            this.parameterGroupName = parameterGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotRetentionLimit(Integer snapshotRetentionLimit) {
-            this.snapshotRetentionLimit = Objects.requireNonNull(snapshotRetentionLimit);
+        public Builder snapshotRetentionLimit(@Nullable Integer snapshotRetentionLimit) {
+            this.snapshotRetentionLimit = snapshotRetentionLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotWindow(String snapshotWindow) {
-            this.snapshotWindow = Objects.requireNonNull(snapshotWindow);
+        public Builder snapshotWindow(@Nullable String snapshotWindow) {
+            this.snapshotWindow = snapshotWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetGroupName(String subnetGroupName) {
-            this.subnetGroupName = Objects.requireNonNull(subnetGroupName);
+        public Builder subnetGroupName(@Nullable String subnetGroupName) {
+            this.subnetGroupName = subnetGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder topicArn(String topicArn) {
-            this.topicArn = Objects.requireNonNull(topicArn);
+        public Builder topicArn(@Nullable String topicArn) {
+            this.topicArn = topicArn;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetSnapshotClusterConfiguration build() {

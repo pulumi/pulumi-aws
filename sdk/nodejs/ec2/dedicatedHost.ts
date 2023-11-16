@@ -62,11 +62,11 @@ export class DedicatedHost extends pulumi.CustomResource {
     /**
      * The ARN of the Dedicated Host.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
      */
-    public readonly assetId!: pulumi.Output<string>;
+    public readonly assetId!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      */
@@ -94,7 +94,7 @@ export class DedicatedHost extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the Dedicated Host.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -607,15 +607,15 @@ export class Index extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Index.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      */
-    public readonly capacityUnits!: pulumi.Output<outputs.kendra.IndexCapacityUnits>;
+    public readonly capacityUnits!: pulumi.Output<outputs.kendra.IndexCapacityUnits | undefined>;
     /**
      * The Unix datetime that the index was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The description of the Index.
      */
@@ -623,7 +623,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      */
-    public readonly documentMetadataConfigurationUpdates!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfigurationUpdate[]>;
+    public readonly documentMetadataConfigurationUpdates!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfigurationUpdate[] | undefined>;
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
      */
@@ -631,11 +631,11 @@ export class Index extends pulumi.CustomResource {
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    public /*out*/ readonly errorMessage!: pulumi.Output<string | undefined>;
     /**
      * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      */
-    public /*out*/ readonly indexStatistics!: pulumi.Output<outputs.kendra.IndexIndexStatistic[]>;
+    public /*out*/ readonly indexStatistics!: pulumi.Output<outputs.kendra.IndexIndexStatistic[] | undefined>;
     /**
      * Specifies the name of the Index.
      */
@@ -651,7 +651,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the Index. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -666,7 +666,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * The Unix datetime that the index was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string | undefined>;
     /**
      * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
      */

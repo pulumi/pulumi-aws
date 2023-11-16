@@ -686,7 +686,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Input.
         """
@@ -694,7 +694,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attachedChannels")
-    def attached_channels(self) -> pulumi.Output[Sequence[str]]:
+    def attached_channels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Channels attached to Input.
         """
@@ -710,7 +710,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputClass")
-    def input_class(self) -> pulumi.Output[str]:
+    def input_class(self) -> pulumi.Output[Optional[str]]:
         """
         The input class.
         """
@@ -718,7 +718,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputDevices")
-    def input_devices(self) -> pulumi.Output[Sequence['outputs.InputInputDevice']]:
+    def input_devices(self) -> pulumi.Output[Optional[Sequence['outputs.InputInputDevice']]]:
         """
         Settings for the devices. See Input Devices for more details.
         """
@@ -726,7 +726,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputPartnerIds")
-    def input_partner_ids(self) -> pulumi.Output[Sequence[str]]:
+    def input_partner_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IDs for all Inputs which are partners of this one.
         """
@@ -742,7 +742,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputSourceType")
-    def input_source_type(self) -> pulumi.Output[str]:
+    def input_source_type(self) -> pulumi.Output[Optional[str]]:
         """
         Source type of the input.
         """
@@ -750,7 +750,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mediaConnectFlows")
-    def media_connect_flows(self) -> pulumi.Output[Sequence['outputs.InputMediaConnectFlow']]:
+    def media_connect_flows(self) -> pulumi.Output[Optional[Sequence['outputs.InputMediaConnectFlow']]]:
         """
         A list of the MediaConnect Flows. See Media Connect Flows for more details.
         """
@@ -766,7 +766,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Output[str]:
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the role this input assumes during and after creation.
         """
@@ -774,7 +774,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sources(self) -> pulumi.Output[Sequence['outputs.InputSource']]:
+    def sources(self) -> pulumi.Output[Optional[Sequence['outputs.InputSource']]]:
         """
         The source URLs for a PULL-type input. See Sources for more details.
         """

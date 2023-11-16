@@ -67,11 +67,11 @@ export class VocabularyFilter extends pulumi.CustomResource {
     /**
      * ARN of the VocabularyFilter.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Generated download URI.
      */
-    public /*out*/ readonly downloadUri!: pulumi.Output<string>;
+    public /*out*/ readonly downloadUri!: pulumi.Output<string | undefined>;
     /**
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */

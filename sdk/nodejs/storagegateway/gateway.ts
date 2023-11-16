@@ -146,11 +146,11 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    public readonly activationKey!: pulumi.Output<string>;
+    public readonly activationKey!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the gateway.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      */
@@ -166,19 +166,19 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * The ID of the Amazon EC2 instance that was used to launch the gateway.
      */
-    public /*out*/ readonly ec2InstanceId!: pulumi.Output<string>;
+    public /*out*/ readonly ec2InstanceId!: pulumi.Output<string | undefined>;
     /**
      * The type of endpoint for your gateway.
      */
-    public /*out*/ readonly endpointType!: pulumi.Output<string>;
+    public /*out*/ readonly endpointType!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the gateway.
      */
-    public /*out*/ readonly gatewayId!: pulumi.Output<string>;
+    public /*out*/ readonly gatewayId!: pulumi.Output<string | undefined>;
     /**
      * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    public readonly gatewayIpAddress!: pulumi.Output<string>;
+    public readonly gatewayIpAddress!: pulumi.Output<string | undefined>;
     /**
      * Name of the gateway.
      */
@@ -186,7 +186,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
      */
-    public /*out*/ readonly gatewayNetworkInterfaces!: pulumi.Output<outputs.storagegateway.GatewayGatewayNetworkInterface[]>;
+    public /*out*/ readonly gatewayNetworkInterfaces!: pulumi.Output<outputs.storagegateway.GatewayGatewayNetworkInterface[] | undefined>;
     /**
      * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
      */
@@ -202,11 +202,11 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * The type of hypervisor environment used by the host.
      */
-    public /*out*/ readonly hostEnvironment!: pulumi.Output<string>;
+    public /*out*/ readonly hostEnvironment!: pulumi.Output<string | undefined>;
     /**
      * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
      */
-    public readonly maintenanceStartTime!: pulumi.Output<outputs.storagegateway.GatewayMaintenanceStartTime>;
+    public readonly maintenanceStartTime!: pulumi.Output<outputs.storagegateway.GatewayMaintenanceStartTime | undefined>;
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
@@ -226,7 +226,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
      */
-    public readonly smbSecurityStrategy!: pulumi.Output<string>;
+    public readonly smbSecurityStrategy!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

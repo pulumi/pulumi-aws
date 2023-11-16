@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// Total size, in bytes, of the indexed documents.
         /// </summary>
-        public readonly int IndexedTextBytes;
+        public readonly int? IndexedTextBytes;
         /// <summary>
         /// The number of text documents indexed.
         /// </summary>
-        public readonly int IndexedTextDocumentsCount;
+        public readonly int? IndexedTextDocumentsCount;
 
         [OutputConstructor]
         private GetIndexIndexStatisticTextDocumentStatisticResult(
-            int indexedTextBytes,
+            int? indexedTextBytes,
 
-            int indexedTextDocumentsCount)
+            int? indexedTextDocumentsCount)
         {
             IndexedTextBytes = indexedTextBytes;
             IndexedTextDocumentsCount = indexedTextDocumentsCount;

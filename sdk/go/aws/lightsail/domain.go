@@ -49,7 +49,7 @@ type Domain struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Lightsail domain
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the Lightsail domain to manage
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 }
@@ -203,8 +203,8 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 }
 
 // The ARN of the Lightsail domain
-func (o DomainOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DomainOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Lightsail domain to manage

@@ -314,7 +314,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def period(self) -> pulumi.Output[str]:
+    def period(self) -> pulumi.Output[Optional[str]]:
         """
         The data aggregation time for the subscription.
         """

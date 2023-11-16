@@ -59,10 +59,10 @@ type GetServiceArgs struct {
 // A collection of values returned by getService.
 type GetServiceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Code of the service.
-	ServiceCode string `pulumi:"serviceCode"`
-	ServiceName string `pulumi:"serviceName"`
+	ServiceCode *string `pulumi:"serviceCode"`
+	ServiceName string  `pulumi:"serviceName"`
 }
 
 func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pulumi.InvokeOption) GetServiceResultOutput {
@@ -104,13 +104,13 @@ func (o GetServiceResultOutput) ToGetServiceResultOutputWithContext(ctx context.
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetServiceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetServiceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Code of the service.
-func (o GetServiceResultOutput) ServiceCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceResult) string { return v.ServiceCode }).(pulumi.StringOutput)
+func (o GetServiceResultOutput) ServiceCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *string { return v.ServiceCode }).(pulumi.StringPtrOutput)
 }
 
 func (o GetServiceResultOutput) ServiceName() pulumi.StringOutput {

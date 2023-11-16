@@ -18,110 +18,110 @@ public final class GetSnapshotResult {
      * @return Allocated storage size in gigabytes (GB).
      * 
      */
-    private Integer allocatedStorage;
+    private @Nullable Integer allocatedStorage;
     /**
      * @return Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
     private @Nullable String dbInstanceIdentifier;
     /**
      * @return ARN for the DB snapshot.
      * 
      */
-    private String dbSnapshotArn;
+    private @Nullable String dbSnapshotArn;
     private @Nullable String dbSnapshotIdentifier;
     /**
      * @return Whether the DB snapshot is encrypted.
      * 
      */
-    private Boolean encrypted;
+    private @Nullable Boolean encrypted;
     /**
      * @return Name of the database engine.
      * 
      */
-    private String engine;
+    private @Nullable String engine;
     /**
      * @return Version of the database engine.
      * 
      */
-    private String engineVersion;
+    private @Nullable String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean includePublic;
     private @Nullable Boolean includeShared;
     /**
      * @return Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
-    private Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return ARN for the KMS encryption key.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return License model information for the restored DB instance.
      * 
      */
-    private String licenseModel;
+    private @Nullable String licenseModel;
     private @Nullable Boolean mostRecent;
     /**
      * @return Provides the option group name for the DB snapshot.
      * 
      */
-    private String optionGroupName;
-    private Integer port;
+    private @Nullable String optionGroupName;
+    private @Nullable Integer port;
     /**
      * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
      * 
      */
-    private String snapshotCreateTime;
+    private @Nullable String snapshotCreateTime;
     private @Nullable String snapshotType;
     /**
      * @return DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      * 
      */
-    private String sourceDbSnapshotIdentifier;
+    private @Nullable String sourceDbSnapshotIdentifier;
     /**
      * @return Region that the DB snapshot was created in or copied from.
      * 
      */
-    private String sourceRegion;
+    private @Nullable String sourceRegion;
     /**
      * @return Status of this DB snapshot.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Storage type associated with DB snapshot.
      * 
      */
-    private String storageType;
-    private Map<String,String> tags;
+    private @Nullable String storageType;
+    private @Nullable Map<String,String> tags;
     /**
      * @return ID of the VPC associated with the DB snapshot.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetSnapshotResult() {}
     /**
      * @return Allocated storage size in gigabytes (GB).
      * 
      */
-    public Integer allocatedStorage() {
-        return this.allocatedStorage;
+    public Optional<Integer> allocatedStorage() {
+        return Optional.ofNullable(this.allocatedStorage);
     }
     /**
      * @return Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     public Optional<String> dbInstanceIdentifier() {
         return Optional.ofNullable(this.dbInstanceIdentifier);
@@ -130,8 +130,8 @@ public final class GetSnapshotResult {
      * @return ARN for the DB snapshot.
      * 
      */
-    public String dbSnapshotArn() {
-        return this.dbSnapshotArn;
+    public Optional<String> dbSnapshotArn() {
+        return Optional.ofNullable(this.dbSnapshotArn);
     }
     public Optional<String> dbSnapshotIdentifier() {
         return Optional.ofNullable(this.dbSnapshotIdentifier);
@@ -140,29 +140,29 @@ public final class GetSnapshotResult {
      * @return Whether the DB snapshot is encrypted.
      * 
      */
-    public Boolean encrypted() {
-        return this.encrypted;
+    public Optional<Boolean> encrypted() {
+        return Optional.ofNullable(this.encrypted);
     }
     /**
      * @return Name of the database engine.
      * 
      */
-    public String engine() {
-        return this.engine;
+    public Optional<String> engine() {
+        return Optional.ofNullable(this.engine);
     }
     /**
      * @return Version of the database engine.
      * 
      */
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> includePublic() {
         return Optional.ofNullable(this.includePublic);
@@ -174,22 +174,22 @@ public final class GetSnapshotResult {
      * @return Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
-    public Integer iops() {
-        return this.iops;
+    public Optional<Integer> iops() {
+        return Optional.ofNullable(this.iops);
     }
     /**
      * @return ARN for the KMS encryption key.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return License model information for the restored DB instance.
      * 
      */
-    public String licenseModel() {
-        return this.licenseModel;
+    public Optional<String> licenseModel() {
+        return Optional.ofNullable(this.licenseModel);
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
@@ -198,18 +198,18 @@ public final class GetSnapshotResult {
      * @return Provides the option group name for the DB snapshot.
      * 
      */
-    public String optionGroupName() {
-        return this.optionGroupName;
+    public Optional<String> optionGroupName() {
+        return Optional.ofNullable(this.optionGroupName);
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
      * 
      */
-    public String snapshotCreateTime() {
-        return this.snapshotCreateTime;
+    public Optional<String> snapshotCreateTime() {
+        return Optional.ofNullable(this.snapshotCreateTime);
     }
     public Optional<String> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
@@ -218,39 +218,39 @@ public final class GetSnapshotResult {
      * @return DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      * 
      */
-    public String sourceDbSnapshotIdentifier() {
-        return this.sourceDbSnapshotIdentifier;
+    public Optional<String> sourceDbSnapshotIdentifier() {
+        return Optional.ofNullable(this.sourceDbSnapshotIdentifier);
     }
     /**
      * @return Region that the DB snapshot was created in or copied from.
      * 
      */
-    public String sourceRegion() {
-        return this.sourceRegion;
+    public Optional<String> sourceRegion() {
+        return Optional.ofNullable(this.sourceRegion);
     }
     /**
      * @return Status of this DB snapshot.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Storage type associated with DB snapshot.
      * 
      */
-    public String storageType() {
-        return this.storageType;
+    public Optional<String> storageType() {
+        return Optional.ofNullable(this.storageType);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return ID of the VPC associated with the DB snapshot.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -262,31 +262,31 @@ public final class GetSnapshotResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer allocatedStorage;
-        private String availabilityZone;
+        private @Nullable Integer allocatedStorage;
+        private @Nullable String availabilityZone;
         private @Nullable String dbInstanceIdentifier;
-        private String dbSnapshotArn;
+        private @Nullable String dbSnapshotArn;
         private @Nullable String dbSnapshotIdentifier;
-        private Boolean encrypted;
-        private String engine;
-        private String engineVersion;
-        private String id;
+        private @Nullable Boolean encrypted;
+        private @Nullable String engine;
+        private @Nullable String engineVersion;
+        private @Nullable String id;
         private @Nullable Boolean includePublic;
         private @Nullable Boolean includeShared;
-        private Integer iops;
-        private String kmsKeyId;
-        private String licenseModel;
+        private @Nullable Integer iops;
+        private @Nullable String kmsKeyId;
+        private @Nullable String licenseModel;
         private @Nullable Boolean mostRecent;
-        private String optionGroupName;
-        private Integer port;
-        private String snapshotCreateTime;
+        private @Nullable String optionGroupName;
+        private @Nullable Integer port;
+        private @Nullable String snapshotCreateTime;
         private @Nullable String snapshotType;
-        private String sourceDbSnapshotIdentifier;
-        private String sourceRegion;
-        private String status;
-        private String storageType;
-        private Map<String,String> tags;
-        private String vpcId;
+        private @Nullable String sourceDbSnapshotIdentifier;
+        private @Nullable String sourceRegion;
+        private @Nullable String status;
+        private @Nullable String storageType;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -318,13 +318,13 @@ public final class GetSnapshotResult {
         }
 
         @CustomType.Setter
-        public Builder allocatedStorage(Integer allocatedStorage) {
-            this.allocatedStorage = Objects.requireNonNull(allocatedStorage);
+        public Builder allocatedStorage(@Nullable Integer allocatedStorage) {
+            this.allocatedStorage = allocatedStorage;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
@@ -333,8 +333,8 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dbSnapshotArn(String dbSnapshotArn) {
-            this.dbSnapshotArn = Objects.requireNonNull(dbSnapshotArn);
+        public Builder dbSnapshotArn(@Nullable String dbSnapshotArn) {
+            this.dbSnapshotArn = dbSnapshotArn;
             return this;
         }
         @CustomType.Setter
@@ -343,23 +343,23 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+        public Builder encrypted(@Nullable Boolean encrypted) {
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder engine(String engine) {
-            this.engine = Objects.requireNonNull(engine);
+        public Builder engine(@Nullable String engine) {
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -373,18 +373,18 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+        public Builder iops(@Nullable Integer iops) {
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder licenseModel(String licenseModel) {
-            this.licenseModel = Objects.requireNonNull(licenseModel);
+        public Builder licenseModel(@Nullable String licenseModel) {
+            this.licenseModel = licenseModel;
             return this;
         }
         @CustomType.Setter
@@ -393,18 +393,18 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder optionGroupName(String optionGroupName) {
-            this.optionGroupName = Objects.requireNonNull(optionGroupName);
+        public Builder optionGroupName(@Nullable String optionGroupName) {
+            this.optionGroupName = optionGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotCreateTime(String snapshotCreateTime) {
-            this.snapshotCreateTime = Objects.requireNonNull(snapshotCreateTime);
+        public Builder snapshotCreateTime(@Nullable String snapshotCreateTime) {
+            this.snapshotCreateTime = snapshotCreateTime;
             return this;
         }
         @CustomType.Setter
@@ -413,33 +413,33 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceDbSnapshotIdentifier(String sourceDbSnapshotIdentifier) {
-            this.sourceDbSnapshotIdentifier = Objects.requireNonNull(sourceDbSnapshotIdentifier);
+        public Builder sourceDbSnapshotIdentifier(@Nullable String sourceDbSnapshotIdentifier) {
+            this.sourceDbSnapshotIdentifier = sourceDbSnapshotIdentifier;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceRegion(String sourceRegion) {
-            this.sourceRegion = Objects.requireNonNull(sourceRegion);
+        public Builder sourceRegion(@Nullable String sourceRegion) {
+            this.sourceRegion = sourceRegion;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+        public Builder storageType(@Nullable String storageType) {
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetSnapshotResult build() {

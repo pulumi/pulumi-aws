@@ -14,6 +14,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceTypeResult {
@@ -21,102 +23,102 @@ public final class GetInstanceTypeResult {
      * @return `true` if auto recovery is supported.
      * 
      */
-    private Boolean autoRecoverySupported;
+    private @Nullable Boolean autoRecoverySupported;
     /**
      * @return `true` if it is a bare metal instance type.
      * 
      */
-    private Boolean bareMetal;
+    private @Nullable Boolean bareMetal;
     /**
      * @return `true` if the instance type is a burstable performance instance type.
      * 
      */
-    private Boolean burstablePerformanceSupported;
+    private @Nullable Boolean burstablePerformanceSupported;
     /**
      * @return `true`  if the instance type is a current generation.
      * 
      */
-    private Boolean currentGeneration;
+    private @Nullable Boolean currentGeneration;
     /**
      * @return `true` if Dedicated Hosts are supported on the instance type.
      * 
      */
-    private Boolean dedicatedHostsSupported;
+    private @Nullable Boolean dedicatedHostsSupported;
     /**
      * @return Default number of cores for the instance type.
      * 
      */
-    private Integer defaultCores;
+    private @Nullable Integer defaultCores;
     /**
      * @return The  default  number of threads per core for the instance type.
      * 
      */
-    private Integer defaultThreadsPerCore;
+    private @Nullable Integer defaultThreadsPerCore;
     /**
      * @return Default number of vCPUs for the instance type.
      * 
      */
-    private Integer defaultVcpus;
+    private @Nullable Integer defaultVcpus;
     /**
      * @return Indicates whether Amazon EBS encryption is supported.
      * 
      */
-    private String ebsEncryptionSupport;
+    private @Nullable String ebsEncryptionSupport;
     /**
      * @return Whether non-volatile memory express (NVMe) is supported.
      * 
      */
-    private String ebsNvmeSupport;
+    private @Nullable String ebsNvmeSupport;
     /**
      * @return Indicates that the instance type is Amazon EBS-optimized.
      * 
      */
-    private String ebsOptimizedSupport;
+    private @Nullable String ebsOptimizedSupport;
     /**
      * @return The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
      * 
      */
-    private Integer ebsPerformanceBaselineBandwidth;
+    private @Nullable Integer ebsPerformanceBaselineBandwidth;
     /**
      * @return The baseline input/output storage operations per seconds for an EBS-optimized instance type.
      * 
      */
-    private Integer ebsPerformanceBaselineIops;
+    private @Nullable Integer ebsPerformanceBaselineIops;
     /**
      * @return The baseline throughput performance for an EBS-optimized instance type, in MBps.
      * 
      */
-    private Double ebsPerformanceBaselineThroughput;
+    private @Nullable Double ebsPerformanceBaselineThroughput;
     /**
      * @return The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
      * 
      */
-    private Integer ebsPerformanceMaximumBandwidth;
+    private @Nullable Integer ebsPerformanceMaximumBandwidth;
     /**
      * @return The maximum input/output storage operations per second for an EBS-optimized instance type.
      * 
      */
-    private Integer ebsPerformanceMaximumIops;
+    private @Nullable Integer ebsPerformanceMaximumIops;
     /**
      * @return The maximum throughput performance for an EBS-optimized instance type, in MBps.
      * 
      */
-    private Double ebsPerformanceMaximumThroughput;
+    private @Nullable Double ebsPerformanceMaximumThroughput;
     /**
      * @return Whether Elastic Fabric Adapter (EFA) is supported.
      * 
      */
-    private Boolean efaSupported;
+    private @Nullable Boolean efaSupported;
     /**
      * @return Whether Elastic Network Adapter (ENA) is supported.
      * 
      */
-    private String enaSupport;
+    private @Nullable String enaSupport;
     /**
      * @return Indicates whether encryption in-transit between instances is supported.
      * 
      */
-    private Boolean encryptionInTransitSupported;
+    private @Nullable Boolean encryptionInTransitSupported;
     /**
      * @return Describes the FPGA accelerator settings for the instance type.
      * * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
@@ -125,12 +127,12 @@ public final class GetInstanceTypeResult {
      * * `fpgas.#.name` - The name of the FPGA accelerator.
      * 
      */
-    private List<GetInstanceTypeFpga> fpgas;
+    private @Nullable List<GetInstanceTypeFpga> fpgas;
     /**
      * @return `true` if the instance type is eligible for the free tier.
      * 
      */
-    private Boolean freeTierEligible;
+    private @Nullable Boolean freeTierEligible;
     /**
      * @return Describes the GPU accelerators for the instance type.
      * * `gpus.#.count` - The number of GPUs for the instance type.
@@ -139,22 +141,22 @@ public final class GetInstanceTypeResult {
      * * `gpus.#.name` - The name of the GPU accelerator.
      * 
      */
-    private List<GetInstanceTypeGpus> gpuses;
+    private @Nullable List<GetInstanceTypeGpus> gpuses;
     /**
      * @return `true` if On-Demand hibernation is supported.
      * 
      */
-    private Boolean hibernationSupported;
+    private @Nullable Boolean hibernationSupported;
     /**
      * @return Hypervisor used for the instance type.
      * 
      */
-    private String hypervisor;
+    private @Nullable String hypervisor;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Describes the Inference accelerators for the instance type.
      * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
@@ -162,7 +164,7 @@ public final class GetInstanceTypeResult {
      * * `inference_accelerators.#.name` - The name of the Inference accelerator.
      * 
      */
-    private List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators;
+    private @Nullable List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators;
     /**
      * @return Describes the disks for the instance type.
      * * `instance_disks.#.count` - The number of disks with this configuration.
@@ -170,239 +172,239 @@ public final class GetInstanceTypeResult {
      * * `instance_disks.#.type` - The type of disk.
      * 
      */
-    private List<GetInstanceTypeInstanceDisk> instanceDisks;
+    private @Nullable List<GetInstanceTypeInstanceDisk> instanceDisks;
     /**
      * @return `true` if instance storage is supported.
      * 
      */
-    private Boolean instanceStorageSupported;
+    private @Nullable Boolean instanceStorageSupported;
     private String instanceType;
     /**
      * @return `true` if IPv6 is supported.
      * 
      */
-    private Boolean ipv6Supported;
+    private @Nullable Boolean ipv6Supported;
     /**
      * @return The maximum number of IPv4 addresses per network interface.
      * 
      */
-    private Integer maximumIpv4AddressesPerInterface;
+    private @Nullable Integer maximumIpv4AddressesPerInterface;
     /**
      * @return The maximum number of IPv6 addresses per network interface.
      * 
      */
-    private Integer maximumIpv6AddressesPerInterface;
+    private @Nullable Integer maximumIpv6AddressesPerInterface;
     /**
      * @return The maximum number of network interfaces for the instance type.
      * 
      */
-    private Integer maximumNetworkInterfaces;
+    private @Nullable Integer maximumNetworkInterfaces;
     /**
      * @return Size of the instance memory, in MiB.
      * 
      */
-    private Integer memorySize;
+    private @Nullable Integer memorySize;
     /**
      * @return Describes the network performance.
      * 
      */
-    private String networkPerformance;
+    private @Nullable String networkPerformance;
     /**
      * @return A list of architectures supported by the instance type.
      * 
      */
-    private List<String> supportedArchitectures;
+    private @Nullable List<String> supportedArchitectures;
     /**
      * @return A list of supported placement groups types.
      * 
      */
-    private List<String> supportedPlacementStrategies;
+    private @Nullable List<String> supportedPlacementStrategies;
     /**
      * @return Indicates the supported root device types.
      * 
      */
-    private List<String> supportedRootDeviceTypes;
+    private @Nullable List<String> supportedRootDeviceTypes;
     /**
      * @return Indicates whether the instance type is offered for spot or On-Demand.
      * 
      */
-    private List<String> supportedUsagesClasses;
+    private @Nullable List<String> supportedUsagesClasses;
     /**
      * @return The supported virtualization types.
      * 
      */
-    private List<String> supportedVirtualizationTypes;
+    private @Nullable List<String> supportedVirtualizationTypes;
     /**
      * @return The speed of the processor, in GHz.
      * 
      */
-    private Double sustainedClockSpeed;
+    private @Nullable Double sustainedClockSpeed;
     /**
      * @return Total memory of all FPGA accelerators for the instance type (in MiB).
      * 
      */
-    private Integer totalFpgaMemory;
+    private @Nullable Integer totalFpgaMemory;
     /**
      * @return Total size of the memory for the GPU accelerators for the instance type (in MiB).
      * 
      */
-    private Integer totalGpuMemory;
+    private @Nullable Integer totalGpuMemory;
     /**
      * @return The total size of the instance disks, in GB.
      * 
      */
-    private Integer totalInstanceStorage;
+    private @Nullable Integer totalInstanceStorage;
     /**
      * @return List of the valid number of cores that can be configured for the instance type.
      * 
      */
-    private List<Integer> validCores;
+    private @Nullable List<Integer> validCores;
     /**
      * @return List of the valid number of threads per core that can be configured for the instance type.
      * 
      */
-    private List<Integer> validThreadsPerCores;
+    private @Nullable List<Integer> validThreadsPerCores;
 
     private GetInstanceTypeResult() {}
     /**
      * @return `true` if auto recovery is supported.
      * 
      */
-    public Boolean autoRecoverySupported() {
-        return this.autoRecoverySupported;
+    public Optional<Boolean> autoRecoverySupported() {
+        return Optional.ofNullable(this.autoRecoverySupported);
     }
     /**
      * @return `true` if it is a bare metal instance type.
      * 
      */
-    public Boolean bareMetal() {
-        return this.bareMetal;
+    public Optional<Boolean> bareMetal() {
+        return Optional.ofNullable(this.bareMetal);
     }
     /**
      * @return `true` if the instance type is a burstable performance instance type.
      * 
      */
-    public Boolean burstablePerformanceSupported() {
-        return this.burstablePerformanceSupported;
+    public Optional<Boolean> burstablePerformanceSupported() {
+        return Optional.ofNullable(this.burstablePerformanceSupported);
     }
     /**
      * @return `true`  if the instance type is a current generation.
      * 
      */
-    public Boolean currentGeneration() {
-        return this.currentGeneration;
+    public Optional<Boolean> currentGeneration() {
+        return Optional.ofNullable(this.currentGeneration);
     }
     /**
      * @return `true` if Dedicated Hosts are supported on the instance type.
      * 
      */
-    public Boolean dedicatedHostsSupported() {
-        return this.dedicatedHostsSupported;
+    public Optional<Boolean> dedicatedHostsSupported() {
+        return Optional.ofNullable(this.dedicatedHostsSupported);
     }
     /**
      * @return Default number of cores for the instance type.
      * 
      */
-    public Integer defaultCores() {
-        return this.defaultCores;
+    public Optional<Integer> defaultCores() {
+        return Optional.ofNullable(this.defaultCores);
     }
     /**
      * @return The  default  number of threads per core for the instance type.
      * 
      */
-    public Integer defaultThreadsPerCore() {
-        return this.defaultThreadsPerCore;
+    public Optional<Integer> defaultThreadsPerCore() {
+        return Optional.ofNullable(this.defaultThreadsPerCore);
     }
     /**
      * @return Default number of vCPUs for the instance type.
      * 
      */
-    public Integer defaultVcpus() {
-        return this.defaultVcpus;
+    public Optional<Integer> defaultVcpus() {
+        return Optional.ofNullable(this.defaultVcpus);
     }
     /**
      * @return Indicates whether Amazon EBS encryption is supported.
      * 
      */
-    public String ebsEncryptionSupport() {
-        return this.ebsEncryptionSupport;
+    public Optional<String> ebsEncryptionSupport() {
+        return Optional.ofNullable(this.ebsEncryptionSupport);
     }
     /**
      * @return Whether non-volatile memory express (NVMe) is supported.
      * 
      */
-    public String ebsNvmeSupport() {
-        return this.ebsNvmeSupport;
+    public Optional<String> ebsNvmeSupport() {
+        return Optional.ofNullable(this.ebsNvmeSupport);
     }
     /**
      * @return Indicates that the instance type is Amazon EBS-optimized.
      * 
      */
-    public String ebsOptimizedSupport() {
-        return this.ebsOptimizedSupport;
+    public Optional<String> ebsOptimizedSupport() {
+        return Optional.ofNullable(this.ebsOptimizedSupport);
     }
     /**
      * @return The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
      * 
      */
-    public Integer ebsPerformanceBaselineBandwidth() {
-        return this.ebsPerformanceBaselineBandwidth;
+    public Optional<Integer> ebsPerformanceBaselineBandwidth() {
+        return Optional.ofNullable(this.ebsPerformanceBaselineBandwidth);
     }
     /**
      * @return The baseline input/output storage operations per seconds for an EBS-optimized instance type.
      * 
      */
-    public Integer ebsPerformanceBaselineIops() {
-        return this.ebsPerformanceBaselineIops;
+    public Optional<Integer> ebsPerformanceBaselineIops() {
+        return Optional.ofNullable(this.ebsPerformanceBaselineIops);
     }
     /**
      * @return The baseline throughput performance for an EBS-optimized instance type, in MBps.
      * 
      */
-    public Double ebsPerformanceBaselineThroughput() {
-        return this.ebsPerformanceBaselineThroughput;
+    public Optional<Double> ebsPerformanceBaselineThroughput() {
+        return Optional.ofNullable(this.ebsPerformanceBaselineThroughput);
     }
     /**
      * @return The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
      * 
      */
-    public Integer ebsPerformanceMaximumBandwidth() {
-        return this.ebsPerformanceMaximumBandwidth;
+    public Optional<Integer> ebsPerformanceMaximumBandwidth() {
+        return Optional.ofNullable(this.ebsPerformanceMaximumBandwidth);
     }
     /**
      * @return The maximum input/output storage operations per second for an EBS-optimized instance type.
      * 
      */
-    public Integer ebsPerformanceMaximumIops() {
-        return this.ebsPerformanceMaximumIops;
+    public Optional<Integer> ebsPerformanceMaximumIops() {
+        return Optional.ofNullable(this.ebsPerformanceMaximumIops);
     }
     /**
      * @return The maximum throughput performance for an EBS-optimized instance type, in MBps.
      * 
      */
-    public Double ebsPerformanceMaximumThroughput() {
-        return this.ebsPerformanceMaximumThroughput;
+    public Optional<Double> ebsPerformanceMaximumThroughput() {
+        return Optional.ofNullable(this.ebsPerformanceMaximumThroughput);
     }
     /**
      * @return Whether Elastic Fabric Adapter (EFA) is supported.
      * 
      */
-    public Boolean efaSupported() {
-        return this.efaSupported;
+    public Optional<Boolean> efaSupported() {
+        return Optional.ofNullable(this.efaSupported);
     }
     /**
      * @return Whether Elastic Network Adapter (ENA) is supported.
      * 
      */
-    public String enaSupport() {
-        return this.enaSupport;
+    public Optional<String> enaSupport() {
+        return Optional.ofNullable(this.enaSupport);
     }
     /**
      * @return Indicates whether encryption in-transit between instances is supported.
      * 
      */
-    public Boolean encryptionInTransitSupported() {
-        return this.encryptionInTransitSupported;
+    public Optional<Boolean> encryptionInTransitSupported() {
+        return Optional.ofNullable(this.encryptionInTransitSupported);
     }
     /**
      * @return Describes the FPGA accelerator settings for the instance type.
@@ -413,14 +415,14 @@ public final class GetInstanceTypeResult {
      * 
      */
     public List<GetInstanceTypeFpga> fpgas() {
-        return this.fpgas;
+        return this.fpgas == null ? List.of() : this.fpgas;
     }
     /**
      * @return `true` if the instance type is eligible for the free tier.
      * 
      */
-    public Boolean freeTierEligible() {
-        return this.freeTierEligible;
+    public Optional<Boolean> freeTierEligible() {
+        return Optional.ofNullable(this.freeTierEligible);
     }
     /**
      * @return Describes the GPU accelerators for the instance type.
@@ -431,28 +433,28 @@ public final class GetInstanceTypeResult {
      * 
      */
     public List<GetInstanceTypeGpus> gpuses() {
-        return this.gpuses;
+        return this.gpuses == null ? List.of() : this.gpuses;
     }
     /**
      * @return `true` if On-Demand hibernation is supported.
      * 
      */
-    public Boolean hibernationSupported() {
-        return this.hibernationSupported;
+    public Optional<Boolean> hibernationSupported() {
+        return Optional.ofNullable(this.hibernationSupported);
     }
     /**
      * @return Hypervisor used for the instance type.
      * 
      */
-    public String hypervisor() {
-        return this.hypervisor;
+    public Optional<String> hypervisor() {
+        return Optional.ofNullable(this.hypervisor);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Describes the Inference accelerators for the instance type.
@@ -462,7 +464,7 @@ public final class GetInstanceTypeResult {
      * 
      */
     public List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators() {
-        return this.inferenceAccelerators;
+        return this.inferenceAccelerators == null ? List.of() : this.inferenceAccelerators;
     }
     /**
      * @return Describes the disks for the instance type.
@@ -472,14 +474,14 @@ public final class GetInstanceTypeResult {
      * 
      */
     public List<GetInstanceTypeInstanceDisk> instanceDisks() {
-        return this.instanceDisks;
+        return this.instanceDisks == null ? List.of() : this.instanceDisks;
     }
     /**
      * @return `true` if instance storage is supported.
      * 
      */
-    public Boolean instanceStorageSupported() {
-        return this.instanceStorageSupported;
+    public Optional<Boolean> instanceStorageSupported() {
+        return Optional.ofNullable(this.instanceStorageSupported);
     }
     public String instanceType() {
         return this.instanceType;
@@ -488,120 +490,120 @@ public final class GetInstanceTypeResult {
      * @return `true` if IPv6 is supported.
      * 
      */
-    public Boolean ipv6Supported() {
-        return this.ipv6Supported;
+    public Optional<Boolean> ipv6Supported() {
+        return Optional.ofNullable(this.ipv6Supported);
     }
     /**
      * @return The maximum number of IPv4 addresses per network interface.
      * 
      */
-    public Integer maximumIpv4AddressesPerInterface() {
-        return this.maximumIpv4AddressesPerInterface;
+    public Optional<Integer> maximumIpv4AddressesPerInterface() {
+        return Optional.ofNullable(this.maximumIpv4AddressesPerInterface);
     }
     /**
      * @return The maximum number of IPv6 addresses per network interface.
      * 
      */
-    public Integer maximumIpv6AddressesPerInterface() {
-        return this.maximumIpv6AddressesPerInterface;
+    public Optional<Integer> maximumIpv6AddressesPerInterface() {
+        return Optional.ofNullable(this.maximumIpv6AddressesPerInterface);
     }
     /**
      * @return The maximum number of network interfaces for the instance type.
      * 
      */
-    public Integer maximumNetworkInterfaces() {
-        return this.maximumNetworkInterfaces;
+    public Optional<Integer> maximumNetworkInterfaces() {
+        return Optional.ofNullable(this.maximumNetworkInterfaces);
     }
     /**
      * @return Size of the instance memory, in MiB.
      * 
      */
-    public Integer memorySize() {
-        return this.memorySize;
+    public Optional<Integer> memorySize() {
+        return Optional.ofNullable(this.memorySize);
     }
     /**
      * @return Describes the network performance.
      * 
      */
-    public String networkPerformance() {
-        return this.networkPerformance;
+    public Optional<String> networkPerformance() {
+        return Optional.ofNullable(this.networkPerformance);
     }
     /**
      * @return A list of architectures supported by the instance type.
      * 
      */
     public List<String> supportedArchitectures() {
-        return this.supportedArchitectures;
+        return this.supportedArchitectures == null ? List.of() : this.supportedArchitectures;
     }
     /**
      * @return A list of supported placement groups types.
      * 
      */
     public List<String> supportedPlacementStrategies() {
-        return this.supportedPlacementStrategies;
+        return this.supportedPlacementStrategies == null ? List.of() : this.supportedPlacementStrategies;
     }
     /**
      * @return Indicates the supported root device types.
      * 
      */
     public List<String> supportedRootDeviceTypes() {
-        return this.supportedRootDeviceTypes;
+        return this.supportedRootDeviceTypes == null ? List.of() : this.supportedRootDeviceTypes;
     }
     /**
      * @return Indicates whether the instance type is offered for spot or On-Demand.
      * 
      */
     public List<String> supportedUsagesClasses() {
-        return this.supportedUsagesClasses;
+        return this.supportedUsagesClasses == null ? List.of() : this.supportedUsagesClasses;
     }
     /**
      * @return The supported virtualization types.
      * 
      */
     public List<String> supportedVirtualizationTypes() {
-        return this.supportedVirtualizationTypes;
+        return this.supportedVirtualizationTypes == null ? List.of() : this.supportedVirtualizationTypes;
     }
     /**
      * @return The speed of the processor, in GHz.
      * 
      */
-    public Double sustainedClockSpeed() {
-        return this.sustainedClockSpeed;
+    public Optional<Double> sustainedClockSpeed() {
+        return Optional.ofNullable(this.sustainedClockSpeed);
     }
     /**
      * @return Total memory of all FPGA accelerators for the instance type (in MiB).
      * 
      */
-    public Integer totalFpgaMemory() {
-        return this.totalFpgaMemory;
+    public Optional<Integer> totalFpgaMemory() {
+        return Optional.ofNullable(this.totalFpgaMemory);
     }
     /**
      * @return Total size of the memory for the GPU accelerators for the instance type (in MiB).
      * 
      */
-    public Integer totalGpuMemory() {
-        return this.totalGpuMemory;
+    public Optional<Integer> totalGpuMemory() {
+        return Optional.ofNullable(this.totalGpuMemory);
     }
     /**
      * @return The total size of the instance disks, in GB.
      * 
      */
-    public Integer totalInstanceStorage() {
-        return this.totalInstanceStorage;
+    public Optional<Integer> totalInstanceStorage() {
+        return Optional.ofNullable(this.totalInstanceStorage);
     }
     /**
      * @return List of the valid number of cores that can be configured for the instance type.
      * 
      */
     public List<Integer> validCores() {
-        return this.validCores;
+        return this.validCores == null ? List.of() : this.validCores;
     }
     /**
      * @return List of the valid number of threads per core that can be configured for the instance type.
      * 
      */
     public List<Integer> validThreadsPerCores() {
-        return this.validThreadsPerCores;
+        return this.validThreadsPerCores == null ? List.of() : this.validThreadsPerCores;
     }
 
     public static Builder builder() {
@@ -613,53 +615,53 @@ public final class GetInstanceTypeResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean autoRecoverySupported;
-        private Boolean bareMetal;
-        private Boolean burstablePerformanceSupported;
-        private Boolean currentGeneration;
-        private Boolean dedicatedHostsSupported;
-        private Integer defaultCores;
-        private Integer defaultThreadsPerCore;
-        private Integer defaultVcpus;
-        private String ebsEncryptionSupport;
-        private String ebsNvmeSupport;
-        private String ebsOptimizedSupport;
-        private Integer ebsPerformanceBaselineBandwidth;
-        private Integer ebsPerformanceBaselineIops;
-        private Double ebsPerformanceBaselineThroughput;
-        private Integer ebsPerformanceMaximumBandwidth;
-        private Integer ebsPerformanceMaximumIops;
-        private Double ebsPerformanceMaximumThroughput;
-        private Boolean efaSupported;
-        private String enaSupport;
-        private Boolean encryptionInTransitSupported;
-        private List<GetInstanceTypeFpga> fpgas;
-        private Boolean freeTierEligible;
-        private List<GetInstanceTypeGpus> gpuses;
-        private Boolean hibernationSupported;
-        private String hypervisor;
-        private String id;
-        private List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators;
-        private List<GetInstanceTypeInstanceDisk> instanceDisks;
-        private Boolean instanceStorageSupported;
+        private @Nullable Boolean autoRecoverySupported;
+        private @Nullable Boolean bareMetal;
+        private @Nullable Boolean burstablePerformanceSupported;
+        private @Nullable Boolean currentGeneration;
+        private @Nullable Boolean dedicatedHostsSupported;
+        private @Nullable Integer defaultCores;
+        private @Nullable Integer defaultThreadsPerCore;
+        private @Nullable Integer defaultVcpus;
+        private @Nullable String ebsEncryptionSupport;
+        private @Nullable String ebsNvmeSupport;
+        private @Nullable String ebsOptimizedSupport;
+        private @Nullable Integer ebsPerformanceBaselineBandwidth;
+        private @Nullable Integer ebsPerformanceBaselineIops;
+        private @Nullable Double ebsPerformanceBaselineThroughput;
+        private @Nullable Integer ebsPerformanceMaximumBandwidth;
+        private @Nullable Integer ebsPerformanceMaximumIops;
+        private @Nullable Double ebsPerformanceMaximumThroughput;
+        private @Nullable Boolean efaSupported;
+        private @Nullable String enaSupport;
+        private @Nullable Boolean encryptionInTransitSupported;
+        private @Nullable List<GetInstanceTypeFpga> fpgas;
+        private @Nullable Boolean freeTierEligible;
+        private @Nullable List<GetInstanceTypeGpus> gpuses;
+        private @Nullable Boolean hibernationSupported;
+        private @Nullable String hypervisor;
+        private @Nullable String id;
+        private @Nullable List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators;
+        private @Nullable List<GetInstanceTypeInstanceDisk> instanceDisks;
+        private @Nullable Boolean instanceStorageSupported;
         private String instanceType;
-        private Boolean ipv6Supported;
-        private Integer maximumIpv4AddressesPerInterface;
-        private Integer maximumIpv6AddressesPerInterface;
-        private Integer maximumNetworkInterfaces;
-        private Integer memorySize;
-        private String networkPerformance;
-        private List<String> supportedArchitectures;
-        private List<String> supportedPlacementStrategies;
-        private List<String> supportedRootDeviceTypes;
-        private List<String> supportedUsagesClasses;
-        private List<String> supportedVirtualizationTypes;
-        private Double sustainedClockSpeed;
-        private Integer totalFpgaMemory;
-        private Integer totalGpuMemory;
-        private Integer totalInstanceStorage;
-        private List<Integer> validCores;
-        private List<Integer> validThreadsPerCores;
+        private @Nullable Boolean ipv6Supported;
+        private @Nullable Integer maximumIpv4AddressesPerInterface;
+        private @Nullable Integer maximumIpv6AddressesPerInterface;
+        private @Nullable Integer maximumNetworkInterfaces;
+        private @Nullable Integer memorySize;
+        private @Nullable String networkPerformance;
+        private @Nullable List<String> supportedArchitectures;
+        private @Nullable List<String> supportedPlacementStrategies;
+        private @Nullable List<String> supportedRootDeviceTypes;
+        private @Nullable List<String> supportedUsagesClasses;
+        private @Nullable List<String> supportedVirtualizationTypes;
+        private @Nullable Double sustainedClockSpeed;
+        private @Nullable Integer totalFpgaMemory;
+        private @Nullable Integer totalGpuMemory;
+        private @Nullable Integer totalInstanceStorage;
+        private @Nullable List<Integer> validCores;
+        private @Nullable List<Integer> validThreadsPerCores;
         public Builder() {}
         public Builder(GetInstanceTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -713,160 +715,160 @@ public final class GetInstanceTypeResult {
         }
 
         @CustomType.Setter
-        public Builder autoRecoverySupported(Boolean autoRecoverySupported) {
-            this.autoRecoverySupported = Objects.requireNonNull(autoRecoverySupported);
+        public Builder autoRecoverySupported(@Nullable Boolean autoRecoverySupported) {
+            this.autoRecoverySupported = autoRecoverySupported;
             return this;
         }
         @CustomType.Setter
-        public Builder bareMetal(Boolean bareMetal) {
-            this.bareMetal = Objects.requireNonNull(bareMetal);
+        public Builder bareMetal(@Nullable Boolean bareMetal) {
+            this.bareMetal = bareMetal;
             return this;
         }
         @CustomType.Setter
-        public Builder burstablePerformanceSupported(Boolean burstablePerformanceSupported) {
-            this.burstablePerformanceSupported = Objects.requireNonNull(burstablePerformanceSupported);
+        public Builder burstablePerformanceSupported(@Nullable Boolean burstablePerformanceSupported) {
+            this.burstablePerformanceSupported = burstablePerformanceSupported;
             return this;
         }
         @CustomType.Setter
-        public Builder currentGeneration(Boolean currentGeneration) {
-            this.currentGeneration = Objects.requireNonNull(currentGeneration);
+        public Builder currentGeneration(@Nullable Boolean currentGeneration) {
+            this.currentGeneration = currentGeneration;
             return this;
         }
         @CustomType.Setter
-        public Builder dedicatedHostsSupported(Boolean dedicatedHostsSupported) {
-            this.dedicatedHostsSupported = Objects.requireNonNull(dedicatedHostsSupported);
+        public Builder dedicatedHostsSupported(@Nullable Boolean dedicatedHostsSupported) {
+            this.dedicatedHostsSupported = dedicatedHostsSupported;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultCores(Integer defaultCores) {
-            this.defaultCores = Objects.requireNonNull(defaultCores);
+        public Builder defaultCores(@Nullable Integer defaultCores) {
+            this.defaultCores = defaultCores;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultThreadsPerCore(Integer defaultThreadsPerCore) {
-            this.defaultThreadsPerCore = Objects.requireNonNull(defaultThreadsPerCore);
+        public Builder defaultThreadsPerCore(@Nullable Integer defaultThreadsPerCore) {
+            this.defaultThreadsPerCore = defaultThreadsPerCore;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultVcpus(Integer defaultVcpus) {
-            this.defaultVcpus = Objects.requireNonNull(defaultVcpus);
+        public Builder defaultVcpus(@Nullable Integer defaultVcpus) {
+            this.defaultVcpus = defaultVcpus;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsEncryptionSupport(String ebsEncryptionSupport) {
-            this.ebsEncryptionSupport = Objects.requireNonNull(ebsEncryptionSupport);
+        public Builder ebsEncryptionSupport(@Nullable String ebsEncryptionSupport) {
+            this.ebsEncryptionSupport = ebsEncryptionSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsNvmeSupport(String ebsNvmeSupport) {
-            this.ebsNvmeSupport = Objects.requireNonNull(ebsNvmeSupport);
+        public Builder ebsNvmeSupport(@Nullable String ebsNvmeSupport) {
+            this.ebsNvmeSupport = ebsNvmeSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsOptimizedSupport(String ebsOptimizedSupport) {
-            this.ebsOptimizedSupport = Objects.requireNonNull(ebsOptimizedSupport);
+        public Builder ebsOptimizedSupport(@Nullable String ebsOptimizedSupport) {
+            this.ebsOptimizedSupport = ebsOptimizedSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsPerformanceBaselineBandwidth(Integer ebsPerformanceBaselineBandwidth) {
-            this.ebsPerformanceBaselineBandwidth = Objects.requireNonNull(ebsPerformanceBaselineBandwidth);
+        public Builder ebsPerformanceBaselineBandwidth(@Nullable Integer ebsPerformanceBaselineBandwidth) {
+            this.ebsPerformanceBaselineBandwidth = ebsPerformanceBaselineBandwidth;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsPerformanceBaselineIops(Integer ebsPerformanceBaselineIops) {
-            this.ebsPerformanceBaselineIops = Objects.requireNonNull(ebsPerformanceBaselineIops);
+        public Builder ebsPerformanceBaselineIops(@Nullable Integer ebsPerformanceBaselineIops) {
+            this.ebsPerformanceBaselineIops = ebsPerformanceBaselineIops;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsPerformanceBaselineThroughput(Double ebsPerformanceBaselineThroughput) {
-            this.ebsPerformanceBaselineThroughput = Objects.requireNonNull(ebsPerformanceBaselineThroughput);
+        public Builder ebsPerformanceBaselineThroughput(@Nullable Double ebsPerformanceBaselineThroughput) {
+            this.ebsPerformanceBaselineThroughput = ebsPerformanceBaselineThroughput;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsPerformanceMaximumBandwidth(Integer ebsPerformanceMaximumBandwidth) {
-            this.ebsPerformanceMaximumBandwidth = Objects.requireNonNull(ebsPerformanceMaximumBandwidth);
+        public Builder ebsPerformanceMaximumBandwidth(@Nullable Integer ebsPerformanceMaximumBandwidth) {
+            this.ebsPerformanceMaximumBandwidth = ebsPerformanceMaximumBandwidth;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsPerformanceMaximumIops(Integer ebsPerformanceMaximumIops) {
-            this.ebsPerformanceMaximumIops = Objects.requireNonNull(ebsPerformanceMaximumIops);
+        public Builder ebsPerformanceMaximumIops(@Nullable Integer ebsPerformanceMaximumIops) {
+            this.ebsPerformanceMaximumIops = ebsPerformanceMaximumIops;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsPerformanceMaximumThroughput(Double ebsPerformanceMaximumThroughput) {
-            this.ebsPerformanceMaximumThroughput = Objects.requireNonNull(ebsPerformanceMaximumThroughput);
+        public Builder ebsPerformanceMaximumThroughput(@Nullable Double ebsPerformanceMaximumThroughput) {
+            this.ebsPerformanceMaximumThroughput = ebsPerformanceMaximumThroughput;
             return this;
         }
         @CustomType.Setter
-        public Builder efaSupported(Boolean efaSupported) {
-            this.efaSupported = Objects.requireNonNull(efaSupported);
+        public Builder efaSupported(@Nullable Boolean efaSupported) {
+            this.efaSupported = efaSupported;
             return this;
         }
         @CustomType.Setter
-        public Builder enaSupport(String enaSupport) {
-            this.enaSupport = Objects.requireNonNull(enaSupport);
+        public Builder enaSupport(@Nullable String enaSupport) {
+            this.enaSupport = enaSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder encryptionInTransitSupported(Boolean encryptionInTransitSupported) {
-            this.encryptionInTransitSupported = Objects.requireNonNull(encryptionInTransitSupported);
+        public Builder encryptionInTransitSupported(@Nullable Boolean encryptionInTransitSupported) {
+            this.encryptionInTransitSupported = encryptionInTransitSupported;
             return this;
         }
         @CustomType.Setter
-        public Builder fpgas(List<GetInstanceTypeFpga> fpgas) {
-            this.fpgas = Objects.requireNonNull(fpgas);
+        public Builder fpgas(@Nullable List<GetInstanceTypeFpga> fpgas) {
+            this.fpgas = fpgas;
             return this;
         }
         public Builder fpgas(GetInstanceTypeFpga... fpgas) {
             return fpgas(List.of(fpgas));
         }
         @CustomType.Setter
-        public Builder freeTierEligible(Boolean freeTierEligible) {
-            this.freeTierEligible = Objects.requireNonNull(freeTierEligible);
+        public Builder freeTierEligible(@Nullable Boolean freeTierEligible) {
+            this.freeTierEligible = freeTierEligible;
             return this;
         }
         @CustomType.Setter
-        public Builder gpuses(List<GetInstanceTypeGpus> gpuses) {
-            this.gpuses = Objects.requireNonNull(gpuses);
+        public Builder gpuses(@Nullable List<GetInstanceTypeGpus> gpuses) {
+            this.gpuses = gpuses;
             return this;
         }
         public Builder gpuses(GetInstanceTypeGpus... gpuses) {
             return gpuses(List.of(gpuses));
         }
         @CustomType.Setter
-        public Builder hibernationSupported(Boolean hibernationSupported) {
-            this.hibernationSupported = Objects.requireNonNull(hibernationSupported);
+        public Builder hibernationSupported(@Nullable Boolean hibernationSupported) {
+            this.hibernationSupported = hibernationSupported;
             return this;
         }
         @CustomType.Setter
-        public Builder hypervisor(String hypervisor) {
-            this.hypervisor = Objects.requireNonNull(hypervisor);
+        public Builder hypervisor(@Nullable String hypervisor) {
+            this.hypervisor = hypervisor;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder inferenceAccelerators(List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators) {
-            this.inferenceAccelerators = Objects.requireNonNull(inferenceAccelerators);
+        public Builder inferenceAccelerators(@Nullable List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators) {
+            this.inferenceAccelerators = inferenceAccelerators;
             return this;
         }
         public Builder inferenceAccelerators(GetInstanceTypeInferenceAccelerator... inferenceAccelerators) {
             return inferenceAccelerators(List.of(inferenceAccelerators));
         }
         @CustomType.Setter
-        public Builder instanceDisks(List<GetInstanceTypeInstanceDisk> instanceDisks) {
-            this.instanceDisks = Objects.requireNonNull(instanceDisks);
+        public Builder instanceDisks(@Nullable List<GetInstanceTypeInstanceDisk> instanceDisks) {
+            this.instanceDisks = instanceDisks;
             return this;
         }
         public Builder instanceDisks(GetInstanceTypeInstanceDisk... instanceDisks) {
             return instanceDisks(List.of(instanceDisks));
         }
         @CustomType.Setter
-        public Builder instanceStorageSupported(Boolean instanceStorageSupported) {
-            this.instanceStorageSupported = Objects.requireNonNull(instanceStorageSupported);
+        public Builder instanceStorageSupported(@Nullable Boolean instanceStorageSupported) {
+            this.instanceStorageSupported = instanceStorageSupported;
             return this;
         }
         @CustomType.Setter
@@ -875,106 +877,106 @@ public final class GetInstanceTypeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6Supported(Boolean ipv6Supported) {
-            this.ipv6Supported = Objects.requireNonNull(ipv6Supported);
+        public Builder ipv6Supported(@Nullable Boolean ipv6Supported) {
+            this.ipv6Supported = ipv6Supported;
             return this;
         }
         @CustomType.Setter
-        public Builder maximumIpv4AddressesPerInterface(Integer maximumIpv4AddressesPerInterface) {
-            this.maximumIpv4AddressesPerInterface = Objects.requireNonNull(maximumIpv4AddressesPerInterface);
+        public Builder maximumIpv4AddressesPerInterface(@Nullable Integer maximumIpv4AddressesPerInterface) {
+            this.maximumIpv4AddressesPerInterface = maximumIpv4AddressesPerInterface;
             return this;
         }
         @CustomType.Setter
-        public Builder maximumIpv6AddressesPerInterface(Integer maximumIpv6AddressesPerInterface) {
-            this.maximumIpv6AddressesPerInterface = Objects.requireNonNull(maximumIpv6AddressesPerInterface);
+        public Builder maximumIpv6AddressesPerInterface(@Nullable Integer maximumIpv6AddressesPerInterface) {
+            this.maximumIpv6AddressesPerInterface = maximumIpv6AddressesPerInterface;
             return this;
         }
         @CustomType.Setter
-        public Builder maximumNetworkInterfaces(Integer maximumNetworkInterfaces) {
-            this.maximumNetworkInterfaces = Objects.requireNonNull(maximumNetworkInterfaces);
+        public Builder maximumNetworkInterfaces(@Nullable Integer maximumNetworkInterfaces) {
+            this.maximumNetworkInterfaces = maximumNetworkInterfaces;
             return this;
         }
         @CustomType.Setter
-        public Builder memorySize(Integer memorySize) {
-            this.memorySize = Objects.requireNonNull(memorySize);
+        public Builder memorySize(@Nullable Integer memorySize) {
+            this.memorySize = memorySize;
             return this;
         }
         @CustomType.Setter
-        public Builder networkPerformance(String networkPerformance) {
-            this.networkPerformance = Objects.requireNonNull(networkPerformance);
+        public Builder networkPerformance(@Nullable String networkPerformance) {
+            this.networkPerformance = networkPerformance;
             return this;
         }
         @CustomType.Setter
-        public Builder supportedArchitectures(List<String> supportedArchitectures) {
-            this.supportedArchitectures = Objects.requireNonNull(supportedArchitectures);
+        public Builder supportedArchitectures(@Nullable List<String> supportedArchitectures) {
+            this.supportedArchitectures = supportedArchitectures;
             return this;
         }
         public Builder supportedArchitectures(String... supportedArchitectures) {
             return supportedArchitectures(List.of(supportedArchitectures));
         }
         @CustomType.Setter
-        public Builder supportedPlacementStrategies(List<String> supportedPlacementStrategies) {
-            this.supportedPlacementStrategies = Objects.requireNonNull(supportedPlacementStrategies);
+        public Builder supportedPlacementStrategies(@Nullable List<String> supportedPlacementStrategies) {
+            this.supportedPlacementStrategies = supportedPlacementStrategies;
             return this;
         }
         public Builder supportedPlacementStrategies(String... supportedPlacementStrategies) {
             return supportedPlacementStrategies(List.of(supportedPlacementStrategies));
         }
         @CustomType.Setter
-        public Builder supportedRootDeviceTypes(List<String> supportedRootDeviceTypes) {
-            this.supportedRootDeviceTypes = Objects.requireNonNull(supportedRootDeviceTypes);
+        public Builder supportedRootDeviceTypes(@Nullable List<String> supportedRootDeviceTypes) {
+            this.supportedRootDeviceTypes = supportedRootDeviceTypes;
             return this;
         }
         public Builder supportedRootDeviceTypes(String... supportedRootDeviceTypes) {
             return supportedRootDeviceTypes(List.of(supportedRootDeviceTypes));
         }
         @CustomType.Setter
-        public Builder supportedUsagesClasses(List<String> supportedUsagesClasses) {
-            this.supportedUsagesClasses = Objects.requireNonNull(supportedUsagesClasses);
+        public Builder supportedUsagesClasses(@Nullable List<String> supportedUsagesClasses) {
+            this.supportedUsagesClasses = supportedUsagesClasses;
             return this;
         }
         public Builder supportedUsagesClasses(String... supportedUsagesClasses) {
             return supportedUsagesClasses(List.of(supportedUsagesClasses));
         }
         @CustomType.Setter
-        public Builder supportedVirtualizationTypes(List<String> supportedVirtualizationTypes) {
-            this.supportedVirtualizationTypes = Objects.requireNonNull(supportedVirtualizationTypes);
+        public Builder supportedVirtualizationTypes(@Nullable List<String> supportedVirtualizationTypes) {
+            this.supportedVirtualizationTypes = supportedVirtualizationTypes;
             return this;
         }
         public Builder supportedVirtualizationTypes(String... supportedVirtualizationTypes) {
             return supportedVirtualizationTypes(List.of(supportedVirtualizationTypes));
         }
         @CustomType.Setter
-        public Builder sustainedClockSpeed(Double sustainedClockSpeed) {
-            this.sustainedClockSpeed = Objects.requireNonNull(sustainedClockSpeed);
+        public Builder sustainedClockSpeed(@Nullable Double sustainedClockSpeed) {
+            this.sustainedClockSpeed = sustainedClockSpeed;
             return this;
         }
         @CustomType.Setter
-        public Builder totalFpgaMemory(Integer totalFpgaMemory) {
-            this.totalFpgaMemory = Objects.requireNonNull(totalFpgaMemory);
+        public Builder totalFpgaMemory(@Nullable Integer totalFpgaMemory) {
+            this.totalFpgaMemory = totalFpgaMemory;
             return this;
         }
         @CustomType.Setter
-        public Builder totalGpuMemory(Integer totalGpuMemory) {
-            this.totalGpuMemory = Objects.requireNonNull(totalGpuMemory);
+        public Builder totalGpuMemory(@Nullable Integer totalGpuMemory) {
+            this.totalGpuMemory = totalGpuMemory;
             return this;
         }
         @CustomType.Setter
-        public Builder totalInstanceStorage(Integer totalInstanceStorage) {
-            this.totalInstanceStorage = Objects.requireNonNull(totalInstanceStorage);
+        public Builder totalInstanceStorage(@Nullable Integer totalInstanceStorage) {
+            this.totalInstanceStorage = totalInstanceStorage;
             return this;
         }
         @CustomType.Setter
-        public Builder validCores(List<Integer> validCores) {
-            this.validCores = Objects.requireNonNull(validCores);
+        public Builder validCores(@Nullable List<Integer> validCores) {
+            this.validCores = validCores;
             return this;
         }
         public Builder validCores(Integer... validCores) {
             return validCores(List.of(validCores));
         }
         @CustomType.Setter
-        public Builder validThreadsPerCores(List<Integer> validThreadsPerCores) {
-            this.validThreadsPerCores = Objects.requireNonNull(validThreadsPerCores);
+        public Builder validThreadsPerCores(@Nullable List<Integer> validThreadsPerCores) {
+            this.validThreadsPerCores = validThreadsPerCores;
             return this;
         }
         public Builder validThreadsPerCores(Integer... validThreadsPerCores) {

@@ -56,7 +56,7 @@ export class SamlProvider extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this provider.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the provider to create.
      */
@@ -78,7 +78,7 @@ export class SamlProvider extends pulumi.CustomResource {
     /**
      * The expiration date and time for the SAML provider in RFC1123 format, e.g., `Mon, 02 Jan 2006 15:04:05 MST`.
      */
-    public /*out*/ readonly validUntil!: pulumi.Output<string>;
+    public /*out*/ readonly validUntil!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SamlProvider resource with the given unique name, arguments, and options.

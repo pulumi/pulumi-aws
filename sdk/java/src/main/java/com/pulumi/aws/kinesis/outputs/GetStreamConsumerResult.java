@@ -6,55 +6,57 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStreamConsumerResult {
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      * 
      */
-    private String creationTimestamp;
+    private @Nullable String creationTimestamp;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String name;
+    private @Nullable String id;
+    private @Nullable String name;
     /**
      * @return Current status of the stream consumer.
      * 
      */
-    private String status;
+    private @Nullable String status;
     private String streamArn;
 
     private GetStreamConsumerResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      * 
      */
-    public String creationTimestamp() {
-        return this.creationTimestamp;
+    public Optional<String> creationTimestamp() {
+        return Optional.ofNullable(this.creationTimestamp);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Current status of the stream consumer.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     public String streamArn() {
         return this.streamArn;
@@ -69,11 +71,11 @@ public final class GetStreamConsumerResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String creationTimestamp;
-        private String id;
-        private String name;
-        private String status;
+        private @Nullable String arn;
+        private @Nullable String creationTimestamp;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String status;
         private String streamArn;
         public Builder() {}
         public Builder(GetStreamConsumerResult defaults) {
@@ -87,28 +89,28 @@ public final class GetStreamConsumerResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationTimestamp(String creationTimestamp) {
-            this.creationTimestamp = Objects.requireNonNull(creationTimestamp);
+        public Builder creationTimestamp(@Nullable String creationTimestamp) {
+            this.creationTimestamp = creationTimestamp;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter

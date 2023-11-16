@@ -39,7 +39,7 @@ import (
 //			}
 //			_, err = elasticsearch.NewDomainPolicy(ctx, "main", &elasticsearch.DomainPolicyArgs{
 //				DomainName: example.DomainName,
-//				AccessPolicies: example.Arn.ApplyT(func(arn string) (string, error) {
+//				AccessPolicies: example.Arn.ApplyT(func(arn *string) (string, error) {
 //					return fmt.Sprintf(`{
 //	    "Version": "2012-10-17",
 //	    "Statement": [

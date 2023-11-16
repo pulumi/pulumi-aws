@@ -976,7 +976,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the target account for budget. Will use current user's account_id by default if omitted.
         """
@@ -984,7 +984,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the budget.
         """
@@ -1008,7 +1008,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> pulumi.Output[Sequence['outputs.BudgetCostFilter']]:
+    def cost_filters(self) -> pulumi.Output[Optional[Sequence['outputs.BudgetCostFilter']]]:
         """
         A list of CostFilter name/values pair to apply to budget.
         """
@@ -1016,7 +1016,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="costTypes")
-    def cost_types(self) -> pulumi.Output['outputs.BudgetCostTypes']:
+    def cost_types(self) -> pulumi.Output[Optional['outputs.BudgetCostTypes']]:
         """
         Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         """
@@ -1024,7 +1024,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="limitAmount")
-    def limit_amount(self) -> pulumi.Output[str]:
+    def limit_amount(self) -> pulumi.Output[Optional[str]]:
         """
         The amount of cost or usage being measured for a budget.
         """
@@ -1032,7 +1032,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="limitUnit")
-    def limit_unit(self) -> pulumi.Output[str]:
+    def limit_unit(self) -> pulumi.Output[Optional[str]]:
         """
         The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         """
@@ -1048,7 +1048,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The prefix of the name of a budget. Unique within accounts.
         """
@@ -1080,7 +1080,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timePeriodStart")
-    def time_period_start(self) -> pulumi.Output[str]:
+    def time_period_start(self) -> pulumi.Output[Optional[str]]:
         """
         The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         """

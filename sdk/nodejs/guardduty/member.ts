@@ -89,7 +89,7 @@ export class Member extends pulumi.CustomResource {
     /**
      * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
-    public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
+    public /*out*/ readonly relationshipStatus!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Member resource with the given unique name, arguments, and options.

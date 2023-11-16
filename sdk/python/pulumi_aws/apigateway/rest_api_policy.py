@@ -110,20 +110,20 @@ class RestApiPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = test_rest_api.execution_arn.apply(lambda execution_arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
                 identifiers=["*"],
             )],
             actions=["execute-api:Invoke"],
-            resources=[test_rest_api.execution_arn],
+            resources=[execution_arn],
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="IpAddress",
                 variable="aws:SourceIp",
                 values=["123.123.123.123/32"],
             )],
-        )])
+        )]))
         test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
             rest_api_id=test_rest_api.id,
             policy=test_policy_document.json)
@@ -161,20 +161,20 @@ class RestApiPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = test_rest_api.execution_arn.apply(lambda execution_arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
                 identifiers=["*"],
             )],
             actions=["execute-api:Invoke"],
-            resources=[test_rest_api.execution_arn],
+            resources=[execution_arn],
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="IpAddress",
                 variable="aws:SourceIp",
                 values=["123.123.123.123/32"],
             )],
-        )])
+        )]))
         test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
             rest_api_id=test_rest_api.id,
             policy=test_policy_document.json)

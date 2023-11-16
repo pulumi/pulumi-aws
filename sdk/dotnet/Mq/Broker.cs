@@ -116,13 +116,13 @@ namespace Pulumi.Aws.Mq
         /// ARN of the broker.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         /// </summary>
         [Output("authenticationStrategy")]
-        public Output<string> AuthenticationStrategy { get; private set; } = null!;
+        public Output<string?> AuthenticationStrategy { get; private set; } = null!;
 
         /// <summary>
         /// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Mq
         /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.BrokerConfiguration> Configuration { get; private set; } = null!;
+        public Output<Outputs.BrokerConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Mq
         /// Configuration block for the maintenance window start time. Detailed below.
         /// </summary>
         [Output("maintenanceWindowStartTime")]
-        public Output<Outputs.BrokerMaintenanceWindowStartTime> MaintenanceWindowStartTime { get; private set; } = null!;
+        public Output<Outputs.BrokerMaintenanceWindowStartTime?> MaintenanceWindowStartTime { get; private set; } = null!;
 
         /// <summary>
         /// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Mq
         /// Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         /// </summary>
         [Output("storageType")]
-        public Output<string> StorageType { get; private set; } = null!;
+        public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.

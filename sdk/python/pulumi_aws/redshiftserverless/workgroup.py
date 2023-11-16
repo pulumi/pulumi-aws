@@ -591,7 +591,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
         """
@@ -599,7 +599,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="baseCapacity")
-    def base_capacity(self) -> pulumi.Output[int]:
+    def base_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         """
@@ -607,7 +607,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configParameters")
-    def config_parameters(self) -> pulumi.Output[Sequence['outputs.WorkgroupConfigParameter']]:
+    def config_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.WorkgroupConfigParameter']]]:
         """
         An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         """
@@ -615,7 +615,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> pulumi.Output[Sequence['outputs.WorkgroupEndpoint']]:
+    def endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.WorkgroupEndpoint']]]:
         """
         The endpoint that is created from the workgroup. See `Endpoint` below.
         """
@@ -647,7 +647,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An array of security group IDs to associate with the workgroup.
         """
@@ -655,7 +655,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+    def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         """
@@ -682,7 +682,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workgroupId")
-    def workgroup_id(self) -> pulumi.Output[str]:
+    def workgroup_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Redshift Workgroup ID.
         """

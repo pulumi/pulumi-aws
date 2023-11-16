@@ -333,7 +333,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
         """
@@ -357,7 +357,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the EKS Identity Provider Configuration.
         """

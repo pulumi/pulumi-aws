@@ -146,28 +146,28 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the FAQ.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Unix datetime that the FAQ was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The Unix datetime that the FAQ was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The description for a FAQ.
@@ -188,28 +188,28 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="errorMessage", refs={String.class}, tree="[0]")
-    private Output<String> errorMessage;
+    private Output</* @Nullable */ String> errorMessage;
 
     /**
      * @return When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    public Output<String> errorMessage() {
-        return this.errorMessage;
+    public Output<Optional<String>> errorMessage() {
+        return Codegen.optional(this.errorMessage);
     }
     /**
      * The identifier of the FAQ.
      * 
      */
     @Export(name="faqId", refs={String.class}, tree="[0]")
-    private Output<String> faqId;
+    private Output</* @Nullable */ String> faqId;
 
     /**
      * @return The identifier of the FAQ.
      * 
      */
-    public Output<String> faqId() {
-        return this.faqId;
+    public Output<Optional<String>> faqId() {
+        return Codegen.optional(this.faqId);
     }
     /**
      * The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
@@ -244,14 +244,14 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
-    private Output<String> languageCode;
+    private Output</* @Nullable */ String> languageCode;
 
     /**
      * @return The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
-    public Output<String> languageCode() {
-        return this.languageCode;
+    public Output<Optional<String>> languageCode() {
+        return Codegen.optional(this.languageCode);
     }
     /**
      * The name that should be associated with the FAQ.
@@ -304,14 +304,14 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -350,14 +350,14 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
-    private Output<String> updatedAt;
+    private Output</* @Nullable */ String> updatedAt;
 
     /**
      * @return The date and time that the FAQ was last updated.
      * 
      */
-    public Output<String> updatedAt() {
-        return this.updatedAt;
+    public Output<Optional<String>> updatedAt() {
+        return Codegen.optional(this.updatedAt);
     }
 
     /**

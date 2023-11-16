@@ -324,7 +324,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerAccountId")
-    def peer_account_id(self) -> pulumi.Output[str]:
+    def peer_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the AWS account that owns the EC2 TGW peering.
         """
@@ -332,12 +332,12 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerRegion")
-    def peer_region(self) -> pulumi.Output[str]:
+    def peer_region(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "peer_region")
 
     @property
     @pulumi.getter(name="peerTransitGatewayId")
-    def peer_transit_gateway_id(self) -> pulumi.Output[str]:
+    def peer_transit_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of EC2 Transit Gateway to peer with.
         """
@@ -372,7 +372,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> pulumi.Output[str]:
+    def transit_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of EC2 Transit Gateway.
         """

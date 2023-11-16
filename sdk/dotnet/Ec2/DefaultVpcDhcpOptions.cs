@@ -59,34 +59,34 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the DHCP Options Set.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
+        public Output<string?> DomainName { get; private set; } = null!;
 
         [Output("domainNameServers")]
-        public Output<string> DomainNameServers { get; private set; } = null!;
+        public Output<string?> DomainNameServers { get; private set; } = null!;
 
         /// <summary>
         /// List of NETBIOS name servers.
         /// </summary>
         [Output("netbiosNameServers")]
-        public Output<string> NetbiosNameServers { get; private set; } = null!;
+        public Output<string?> NetbiosNameServers { get; private set; } = null!;
 
         /// <summary>
         /// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         /// </summary>
         [Output("netbiosNodeType")]
-        public Output<string> NetbiosNodeType { get; private set; } = null!;
+        public Output<string?> NetbiosNodeType { get; private set; } = null!;
 
         [Output("ntpServers")]
-        public Output<string> NtpServers { get; private set; } = null!;
+        public Output<string?> NtpServers { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the AWS account that owns the DHCP options set.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource.

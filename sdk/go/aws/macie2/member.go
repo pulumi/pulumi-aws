@@ -65,9 +65,9 @@ type Member struct {
 	// The AWS account ID for the account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The AWS account ID for the administrator account.
-	AdministratorAccountId pulumi.StringOutput `pulumi:"administratorAccountId"`
+	AdministratorAccountId pulumi.StringPtrOutput `pulumi:"administratorAccountId"`
 	// The Amazon Resource Name (ARN) of the account.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The email address for the account.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
@@ -75,20 +75,20 @@ type Member struct {
 	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
 	InvitationMessage pulumi.StringPtrOutput `pulumi:"invitationMessage"`
 	// Send an invitation to a member
-	Invite pulumi.BoolOutput `pulumi:"invite"`
+	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
 	// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
-	InvitedAt       pulumi.StringOutput `pulumi:"invitedAt"`
-	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
+	InvitedAt       pulumi.StringPtrOutput `pulumi:"invitedAt"`
+	MasterAccountId pulumi.StringPtrOutput `pulumi:"masterAccountId"`
 	// The current status of the relationship between the account and the administrator account.
-	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
+	RelationshipStatus pulumi.StringPtrOutput `pulumi:"relationshipStatus"`
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	UpdatedAt pulumi.StringPtrOutput `pulumi:"updatedAt"`
 }
 
 // NewMember registers a new resource with the given unique name, arguments, and options.
@@ -322,13 +322,13 @@ func (o MemberOutput) AccountId() pulumi.StringOutput {
 }
 
 // The AWS account ID for the administrator account.
-func (o MemberOutput) AdministratorAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.AdministratorAccountId }).(pulumi.StringOutput)
+func (o MemberOutput) AdministratorAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.AdministratorAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the account.
-func (o MemberOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MemberOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The email address for the account.
@@ -347,27 +347,27 @@ func (o MemberOutput) InvitationMessage() pulumi.StringPtrOutput {
 }
 
 // Send an invitation to a member
-func (o MemberOutput) Invite() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Member) pulumi.BoolOutput { return v.Invite }).(pulumi.BoolOutput)
+func (o MemberOutput) Invite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.BoolPtrOutput { return v.Invite }).(pulumi.BoolPtrOutput)
 }
 
 // The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
-func (o MemberOutput) InvitedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.InvitedAt }).(pulumi.StringOutput)
+func (o MemberOutput) InvitedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.InvitedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o MemberOutput) MasterAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MasterAccountId }).(pulumi.StringOutput)
+func (o MemberOutput) MasterAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.MasterAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The current status of the relationship between the account and the administrator account.
-func (o MemberOutput) RelationshipStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
+func (o MemberOutput) RelationshipStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.RelationshipStatus }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-func (o MemberOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o MemberOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
@@ -381,8 +381,8 @@ func (o MemberOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
-func (o MemberOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o MemberOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 type MemberArrayOutput struct{ *pulumi.OutputState }

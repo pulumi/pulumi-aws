@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Iot
         /// The ARN of the topic rule
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("cloudwatchAlarms")]
         public Output<ImmutableArray<Outputs.TopicRuleCloudwatchAlarm>> CloudwatchAlarms { get; private set; } = null!;

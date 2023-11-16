@@ -169,15 +169,15 @@ type NodeGroup struct {
 	pulumi.CustomResourceState
 
 	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-	AmiType pulumi.StringOutput `pulumi:"amiType"`
+	AmiType pulumi.StringPtrOutput `pulumi:"amiType"`
 	// Amazon Resource Name (ARN) of the EKS Node Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
-	CapacityType pulumi.StringOutput `pulumi:"capacityType"`
+	CapacityType pulumi.StringPtrOutput `pulumi:"capacityType"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
-	DiskSize pulumi.IntOutput `pulumi:"diskSize"`
+	DiskSize pulumi.IntPtrOutput `pulumi:"diskSize"`
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion pulumi.BoolPtrOutput `pulumi:"forceUpdateVersion"`
 	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
@@ -189,11 +189,11 @@ type NodeGroup struct {
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringOutput `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
-	NodeGroupNamePrefix pulumi.StringOutput `pulumi:"nodeGroupNamePrefix"`
+	NodeGroupNamePrefix pulumi.StringPtrOutput `pulumi:"nodeGroupNamePrefix"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringOutput `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-	ReleaseVersion pulumi.StringOutput `pulumi:"releaseVersion"`
+	ReleaseVersion pulumi.StringPtrOutput `pulumi:"releaseVersion"`
 	// Configuration block with remote access settings. See `remoteAccess` below for details.
 	RemoteAccess NodeGroupRemoteAccessPtrOutput `pulumi:"remoteAccess"`
 	// List of objects containing information about underlying resources.
@@ -201,7 +201,7 @@ type NodeGroup struct {
 	// Configuration block with scaling settings. See `scalingConfig` below for details.
 	ScalingConfig NodeGroupScalingConfigOutput `pulumi:"scalingConfig"`
 	// Status of the EKS Node Group.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group.
 	//
 	// The following arguments are optional:
@@ -215,9 +215,9 @@ type NodeGroup struct {
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
 	Taints NodeGroupTaintArrayOutput `pulumi:"taints"`
 	// Configuration block with update settings. See `updateConfig` below for details.
-	UpdateConfig NodeGroupUpdateConfigOutput `pulumi:"updateConfig"`
+	UpdateConfig NodeGroupUpdateConfigPtrOutput `pulumi:"updateConfig"`
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewNodeGroup registers a new resource with the given unique name, arguments, and options.
@@ -550,18 +550,18 @@ func (o NodeGroupOutput) ToNodeGroupOutputWithContext(ctx context.Context) NodeG
 }
 
 // Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-func (o NodeGroupOutput) AmiType() pulumi.StringOutput {
-	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.AmiType }).(pulumi.StringOutput)
+func (o NodeGroupOutput) AmiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) pulumi.StringPtrOutput { return v.AmiType }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the EKS Node Group.
-func (o NodeGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NodeGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
-func (o NodeGroupOutput) CapacityType() pulumi.StringOutput {
-	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.CapacityType }).(pulumi.StringOutput)
+func (o NodeGroupOutput) CapacityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) pulumi.StringPtrOutput { return v.CapacityType }).(pulumi.StringPtrOutput)
 }
 
 // Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -570,8 +570,8 @@ func (o NodeGroupOutput) ClusterName() pulumi.StringOutput {
 }
 
 // Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
-func (o NodeGroupOutput) DiskSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *NodeGroup) pulumi.IntOutput { return v.DiskSize }).(pulumi.IntOutput)
+func (o NodeGroupOutput) DiskSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) pulumi.IntPtrOutput { return v.DiskSize }).(pulumi.IntPtrOutput)
 }
 
 // Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
@@ -600,8 +600,8 @@ func (o NodeGroupOutput) NodeGroupName() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
-func (o NodeGroupOutput) NodeGroupNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.NodeGroupNamePrefix }).(pulumi.StringOutput)
+func (o NodeGroupOutput) NodeGroupNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) pulumi.StringPtrOutput { return v.NodeGroupNamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
@@ -610,8 +610,8 @@ func (o NodeGroupOutput) NodeRoleArn() pulumi.StringOutput {
 }
 
 // AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-func (o NodeGroupOutput) ReleaseVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.ReleaseVersion }).(pulumi.StringOutput)
+func (o NodeGroupOutput) ReleaseVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) pulumi.StringPtrOutput { return v.ReleaseVersion }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block with remote access settings. See `remoteAccess` below for details.
@@ -630,8 +630,8 @@ func (o NodeGroupOutput) ScalingConfig() NodeGroupScalingConfigOutput {
 }
 
 // Status of the EKS Node Group.
-func (o NodeGroupOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o NodeGroupOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Identifiers of EC2 Subnets to associate with the EKS Node Group.
@@ -659,13 +659,13 @@ func (o NodeGroupOutput) Taints() NodeGroupTaintArrayOutput {
 }
 
 // Configuration block with update settings. See `updateConfig` below for details.
-func (o NodeGroupOutput) UpdateConfig() NodeGroupUpdateConfigOutput {
-	return o.ApplyT(func(v *NodeGroup) NodeGroupUpdateConfigOutput { return v.UpdateConfig }).(NodeGroupUpdateConfigOutput)
+func (o NodeGroupOutput) UpdateConfig() NodeGroupUpdateConfigPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) NodeGroupUpdateConfigPtrOutput { return v.UpdateConfig }).(NodeGroupUpdateConfigPtrOutput)
 }
 
 // Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
-func (o NodeGroupOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o NodeGroupOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type NodeGroupArrayOutput struct{ *pulumi.OutputState }

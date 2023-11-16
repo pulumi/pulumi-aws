@@ -43,7 +43,7 @@ class GetContactResult:
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> Optional[str]:
         """
         A unique and identifiable alias of the contact or escalation plan.
         """
@@ -56,7 +56,7 @@ class GetContactResult:
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> Optional[str]:
         """
         Full friendly name of the contact or escalation plan.
         """
@@ -64,7 +64,7 @@ class GetContactResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -72,7 +72,7 @@ class GetContactResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assign to the resource.
         """
@@ -80,7 +80,7 @@ class GetContactResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
         """

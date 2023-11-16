@@ -228,44 +228,44 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// EC2 Transit Gateway Route Table ARN.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Boolean whether this is the default association route table for the EC2 Transit Gateway
         /// </summary>
-        public readonly bool DefaultAssociationRouteTable;
+        public readonly bool? DefaultAssociationRouteTable;
         /// <summary>
         /// Boolean whether this is the default propagation route table for the EC2 Transit Gateway
         /// </summary>
-        public readonly bool DefaultPropagationRouteTable;
+        public readonly bool? DefaultPropagationRouteTable;
         public readonly ImmutableArray<Outputs.GetRouteTableFilterResult> Filters;
         /// <summary>
         /// EC2 Transit Gateway Route Table identifier
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Route Table
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// EC2 Transit Gateway identifier
         /// </summary>
-        public readonly string TransitGatewayId;
+        public readonly string? TransitGatewayId;
 
         [OutputConstructor]
         private GetRouteTableResult(
-            string arn,
+            string? arn,
 
-            bool defaultAssociationRouteTable,
+            bool? defaultAssociationRouteTable,
 
-            bool defaultPropagationRouteTable,
+            bool? defaultPropagationRouteTable,
 
             ImmutableArray<Outputs.GetRouteTableFilterResult> filters,
 
-            string id,
+            string? id,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string transitGatewayId)
+            string? transitGatewayId)
         {
             Arn = arn;
             DefaultAssociationRouteTable = defaultAssociationRouteTable;

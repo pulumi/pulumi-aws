@@ -90,8 +90,8 @@ type ClusterPolicy struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-	ClusterArn     pulumi.StringOutput `pulumi:"clusterArn"`
-	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
+	ClusterArn     pulumi.StringOutput    `pulumi:"clusterArn"`
+	CurrentVersion pulumi.StringPtrOutput `pulumi:"currentVersion"`
 	// Resource policy for cluster.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
@@ -258,8 +258,8 @@ func (o ClusterPolicyOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
-func (o ClusterPolicyOutput) CurrentVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
+func (o ClusterPolicyOutput) CurrentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringPtrOutput { return v.CurrentVersion }).(pulumi.StringPtrOutput)
 }
 
 // Resource policy for cluster.

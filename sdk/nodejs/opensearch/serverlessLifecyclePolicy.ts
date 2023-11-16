@@ -84,7 +84,7 @@ export class ServerlessLifecyclePolicy extends pulumi.CustomResource {
     /**
      * Version of the policy.
      */
-    public /*out*/ readonly policyVersion!: pulumi.Output<string>;
+    public /*out*/ readonly policyVersion!: pulumi.Output<string | undefined>;
     /**
      * Type of lifecycle policy. Must be `retention`.
      *

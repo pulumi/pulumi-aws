@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobQueueComputeEnvironmentOrderResult
     {
-        public readonly string ComputeEnvironment;
-        public readonly int Order;
+        public readonly string? ComputeEnvironment;
+        public readonly int? Order;
 
         [OutputConstructor]
         private GetJobQueueComputeEnvironmentOrderResult(
-            string computeEnvironment,
+            string? computeEnvironment,
 
-            int order)
+            int? order)
         {
             ComputeEnvironment = computeEnvironment;
             Order = order;

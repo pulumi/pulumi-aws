@@ -107,28 +107,28 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the prefix list.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      * 
      */
     @Export(name="entries", refs={List.class,ManagedPrefixListEntry.class}, tree="[0,1]")
-    private Output<List<ManagedPrefixListEntry>> entries;
+    private Output</* @Nullable */ List<ManagedPrefixListEntry>> entries;
 
     /**
      * @return Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      * 
      */
-    public Output<List<ManagedPrefixListEntry>> entries() {
-        return this.entries;
+    public Output<Optional<List<ManagedPrefixListEntry>>> entries() {
+        return Codegen.optional(this.entries);
     }
     /**
      * Maximum number of entries that this prefix list can contain.
@@ -163,14 +163,14 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return ID of the AWS account that owns this prefix list.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -209,14 +209,14 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
-    private Output<Integer> version;
+    private Output</* @Nullable */ Integer> version;
 
     /**
      * @return Latest version of this prefix list.
      * 
      */
-    public Output<Integer> version() {
-        return this.version;
+    public Output<Optional<Integer>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

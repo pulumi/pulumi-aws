@@ -13,32 +13,32 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateBlockDeviceMappingEbResult
     {
-        public readonly string DeleteOnTermination;
-        public readonly string Encrypted;
-        public readonly int Iops;
-        public readonly string KmsKeyId;
-        public readonly string SnapshotId;
-        public readonly int Throughput;
-        public readonly int VolumeSize;
-        public readonly string VolumeType;
+        public readonly string? DeleteOnTermination;
+        public readonly string? Encrypted;
+        public readonly int? Iops;
+        public readonly string? KmsKeyId;
+        public readonly string? SnapshotId;
+        public readonly int? Throughput;
+        public readonly int? VolumeSize;
+        public readonly string? VolumeType;
 
         [OutputConstructor]
         private GetLaunchTemplateBlockDeviceMappingEbResult(
-            string deleteOnTermination,
+            string? deleteOnTermination,
 
-            string encrypted,
+            string? encrypted,
 
-            int iops,
+            int? iops,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string snapshotId,
+            string? snapshotId,
 
-            int throughput,
+            int? throughput,
 
-            int volumeSize,
+            int? volumeSize,
 
-            string volumeType)
+            string? volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
             Encrypted = encrypted;

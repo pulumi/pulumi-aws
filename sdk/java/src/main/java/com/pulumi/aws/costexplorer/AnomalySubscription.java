@@ -275,28 +275,28 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
+    private Output</* @Nullable */ String> accountId;
 
     /**
      * @return The unique identifier for the AWS account in which the anomaly subscription ought to be created.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
     }
     /**
      * ARN of the anomaly subscription.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the anomaly subscription.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
@@ -391,14 +391,14 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="thresholdExpression", refs={AnomalySubscriptionThresholdExpression.class}, tree="[0]")
-    private Output<AnomalySubscriptionThresholdExpression> thresholdExpression;
+    private Output</* @Nullable */ AnomalySubscriptionThresholdExpression> thresholdExpression;
 
     /**
      * @return An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      * 
      */
-    public Output<AnomalySubscriptionThresholdExpression> thresholdExpression() {
-        return this.thresholdExpression;
+    public Output<Optional<AnomalySubscriptionThresholdExpression>> thresholdExpression() {
+        return Codegen.optional(this.thresholdExpression);
     }
 
     /**

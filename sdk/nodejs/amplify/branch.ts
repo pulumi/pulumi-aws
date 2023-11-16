@@ -137,11 +137,11 @@ export class Branch extends pulumi.CustomResource {
     /**
      * ARN for the branch.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A list of custom resources that are linked to this branch.
      */
-    public /*out*/ readonly associatedResources!: pulumi.Output<string[]>;
+    public /*out*/ readonly associatedResources!: pulumi.Output<string[] | undefined>;
     /**
      * ARN for a backend environment that is part of an Amplify app.
      */
@@ -157,7 +157,7 @@ export class Branch extends pulumi.CustomResource {
     /**
      * Custom domains for the branch.
      */
-    public /*out*/ readonly customDomains!: pulumi.Output<string[]>;
+    public /*out*/ readonly customDomains!: pulumi.Output<string[] | undefined>;
     /**
      * Description for the branch.
      */
@@ -165,11 +165,11 @@ export class Branch extends pulumi.CustomResource {
     /**
      * Destination branch if the branch is a pull request branch.
      */
-    public /*out*/ readonly destinationBranch!: pulumi.Output<string>;
+    public /*out*/ readonly destinationBranch!: pulumi.Output<string | undefined>;
     /**
      * Display name for a branch. This is used as the default domain prefix.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * Enables auto building for the branch.
      */
@@ -205,7 +205,7 @@ export class Branch extends pulumi.CustomResource {
     /**
      * Source branch if the branch is a pull request branch.
      */
-    public /*out*/ readonly sourceBranch!: pulumi.Output<string>;
+    public /*out*/ readonly sourceBranch!: pulumi.Output<string | undefined>;
     /**
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      */

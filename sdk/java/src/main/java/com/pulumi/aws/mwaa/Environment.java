@@ -239,28 +239,28 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="airflowVersion", refs={String.class}, tree="[0]")
-    private Output<String> airflowVersion;
+    private Output</* @Nullable */ String> airflowVersion;
 
     /**
      * @return Airflow version of your environment, will be set by default to the latest version that MWAA supports.
      * 
      */
-    public Output<String> airflowVersion() {
-        return this.airflowVersion;
+    public Output<Optional<String>> airflowVersion() {
+        return Codegen.optional(this.airflowVersion);
     }
     /**
      * The ARN of the MWAA Environment
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the MWAA Environment
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Created At date of the MWAA Environment
@@ -268,15 +268,15 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The Created At date of the MWAA Environment
      * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -297,14 +297,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="environmentClass", refs={String.class}, tree="[0]")
-    private Output<String> environmentClass;
+    private Output</* @Nullable */ String> environmentClass;
 
     /**
      * @return Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 
      */
-    public Output<String> environmentClass() {
-        return this.environmentClass;
+    public Output<Optional<String>> environmentClass() {
+        return Codegen.optional(this.environmentClass);
     }
     /**
      * The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -335,52 +335,52 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKey);
     }
     @Export(name="lastUpdateds", refs={List.class,EnvironmentLastUpdated.class}, tree="[0,1]")
-    private Output<List<EnvironmentLastUpdated>> lastUpdateds;
+    private Output</* @Nullable */ List<EnvironmentLastUpdated>> lastUpdateds;
 
-    public Output<List<EnvironmentLastUpdated>> lastUpdateds() {
-        return this.lastUpdateds;
+    public Output<Optional<List<EnvironmentLastUpdated>>> lastUpdateds() {
+        return Codegen.optional(this.lastUpdateds);
     }
     /**
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
      * 
      */
     @Export(name="loggingConfiguration", refs={EnvironmentLoggingConfiguration.class}, tree="[0]")
-    private Output<EnvironmentLoggingConfiguration> loggingConfiguration;
+    private Output</* @Nullable */ EnvironmentLoggingConfiguration> loggingConfiguration;
 
     /**
      * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
      * 
      */
-    public Output<EnvironmentLoggingConfiguration> loggingConfiguration() {
-        return this.loggingConfiguration;
+    public Output<Optional<EnvironmentLoggingConfiguration>> loggingConfiguration() {
+        return Codegen.optional(this.loggingConfiguration);
     }
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      * 
      */
     @Export(name="maxWorkers", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maxWorkers;
+    private Output</* @Nullable */ Integer> maxWorkers;
 
     /**
      * @return The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      * 
      */
-    public Output<Integer> maxWorkers() {
-        return this.maxWorkers;
+    public Output<Optional<Integer>> maxWorkers() {
+        return Codegen.optional(this.maxWorkers);
     }
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      * 
      */
     @Export(name="minWorkers", refs={Integer.class}, tree="[0]")
-    private Output<Integer> minWorkers;
+    private Output</* @Nullable */ Integer> minWorkers;
 
     /**
      * @return The minimum number of workers that you want to run in your environment. Will be `1` by default.
      * 
      */
-    public Output<Integer> minWorkers() {
-        return this.minWorkers;
+    public Output<Optional<Integer>> minWorkers() {
+        return Codegen.optional(this.minWorkers);
     }
     /**
      * The name of the Apache Airflow Environment
@@ -415,14 +415,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="pluginsS3ObjectVersion", refs={String.class}, tree="[0]")
-    private Output<String> pluginsS3ObjectVersion;
+    private Output</* @Nullable */ String> pluginsS3ObjectVersion;
 
     /**
      * @return The plugins.zip file version you want to use.
      * 
      */
-    public Output<String> pluginsS3ObjectVersion() {
-        return this.pluginsS3ObjectVersion;
+    public Output<Optional<String>> pluginsS3ObjectVersion() {
+        return Codegen.optional(this.pluginsS3ObjectVersion);
     }
     /**
      * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -443,14 +443,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="requirementsS3ObjectVersion", refs={String.class}, tree="[0]")
-    private Output<String> requirementsS3ObjectVersion;
+    private Output</* @Nullable */ String> requirementsS3ObjectVersion;
 
     /**
      * @return The requirements.txt file version you want to use.
      * 
      */
-    public Output<String> requirementsS3ObjectVersion() {
-        return this.requirementsS3ObjectVersion;
+    public Output<Optional<String>> requirementsS3ObjectVersion() {
+        return Codegen.optional(this.requirementsS3ObjectVersion);
     }
     /**
      * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -471,28 +471,28 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="schedulers", refs={Integer.class}, tree="[0]")
-    private Output<Integer> schedulers;
+    private Output</* @Nullable */ Integer> schedulers;
 
     /**
      * @return The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
      * 
      */
-    public Output<Integer> schedulers() {
-        return this.schedulers;
+    public Output<Optional<Integer>> schedulers() {
+        return Codegen.optional(this.schedulers);
     }
     /**
      * The Service Role ARN of the Amazon MWAA Environment
      * 
      */
     @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
-    private Output<String> serviceRoleArn;
+    private Output</* @Nullable */ String> serviceRoleArn;
 
     /**
      * @return The Service Role ARN of the Amazon MWAA Environment
      * 
      */
-    public Output<String> serviceRoleArn() {
-        return this.serviceRoleArn;
+    public Output<Optional<String>> serviceRoleArn() {
+        return Codegen.optional(this.serviceRoleArn);
     }
     /**
      * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
@@ -513,14 +513,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="startupScriptS3ObjectVersion", refs={String.class}, tree="[0]")
-    private Output<String> startupScriptS3ObjectVersion;
+    private Output</* @Nullable */ String> startupScriptS3ObjectVersion;
 
     /**
      * @return The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
      * 
      */
-    public Output<String> startupScriptS3ObjectVersion() {
-        return this.startupScriptS3ObjectVersion;
+    public Output<Optional<String>> startupScriptS3ObjectVersion() {
+        return Codegen.optional(this.startupScriptS3ObjectVersion);
     }
     /**
      * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
@@ -541,14 +541,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the Amazon MWAA Environment
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -587,42 +587,42 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="webserverAccessMode", refs={String.class}, tree="[0]")
-    private Output<String> webserverAccessMode;
+    private Output</* @Nullable */ String> webserverAccessMode;
 
     /**
      * @return Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      * 
      */
-    public Output<String> webserverAccessMode() {
-        return this.webserverAccessMode;
+    public Output<Optional<String>> webserverAccessMode() {
+        return Codegen.optional(this.webserverAccessMode);
     }
     /**
      * The webserver URL of the MWAA Environment
      * 
      */
     @Export(name="webserverUrl", refs={String.class}, tree="[0]")
-    private Output<String> webserverUrl;
+    private Output</* @Nullable */ String> webserverUrl;
 
     /**
      * @return The webserver URL of the MWAA Environment
      * 
      */
-    public Output<String> webserverUrl() {
-        return this.webserverUrl;
+    public Output<Optional<String>> webserverUrl() {
+        return Codegen.optional(this.webserverUrl);
     }
     /**
      * Specifies the start date for the weekly maintenance window.
      * 
      */
     @Export(name="weeklyMaintenanceWindowStart", refs={String.class}, tree="[0]")
-    private Output<String> weeklyMaintenanceWindowStart;
+    private Output</* @Nullable */ String> weeklyMaintenanceWindowStart;
 
     /**
      * @return Specifies the start date for the weekly maintenance window.
      * 
      */
-    public Output<String> weeklyMaintenanceWindowStart() {
-        return this.weeklyMaintenanceWindowStart;
+    public Output<Optional<String>> weeklyMaintenanceWindowStart() {
+        return Codegen.optional(this.weeklyMaintenanceWindowStart);
     }
 
     /**

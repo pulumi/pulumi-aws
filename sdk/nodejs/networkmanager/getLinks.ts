@@ -67,11 +67,11 @@ export interface GetLinksResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IDs of the links.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly providerName?: string;
     readonly siteId?: string;
     readonly tags?: {[key: string]: string};

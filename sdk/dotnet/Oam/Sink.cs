@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Oam
         /// ARN of the Sink.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name for the sink.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Oam
         /// ID string that AWS generated as part of the sink ARN.
         /// </summary>
         [Output("sinkId")]
-        public Output<string> SinkId { get; private set; } = null!;
+        public Output<string?> SinkId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

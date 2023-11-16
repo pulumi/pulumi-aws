@@ -70,7 +70,7 @@ namespace Pulumi.Aws.SecurityHub
         /// The ID of the invitation.
         /// </summary>
         [Output("invitationId")]
-        public Output<string> InvitationId { get; private set; } = null!;
+        public Output<string?> InvitationId { get; private set; } = null!;
 
         /// <summary>
         /// The account ID of the master Security Hub account whose invitation you're accepting.

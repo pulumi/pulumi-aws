@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -71,28 +72,28 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN assigned by AWS to this policy.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The default version of this policy.
      * 
      */
     @Export(name="defaultVersionId", refs={String.class}, tree="[0]")
-    private Output<String> defaultVersionId;
+    private Output</* @Nullable */ String> defaultVersionId;
 
     /**
      * @return The default version of this policy.
      * 
      */
-    public Output<String> defaultVersionId() {
-        return this.defaultVersionId;
+    public Output<Optional<String>> defaultVersionId() {
+        return Codegen.optional(this.defaultVersionId);
     }
     /**
      * The name of the policy.

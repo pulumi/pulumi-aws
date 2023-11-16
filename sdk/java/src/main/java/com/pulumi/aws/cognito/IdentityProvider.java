@@ -82,14 +82,14 @@ public class IdentityProvider extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="attributeMapping", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> attributeMapping;
+    private Output</* @Nullable */ Map<String,String>> attributeMapping;
 
     /**
      * @return The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      * 
      */
-    public Output<Map<String,String>> attributeMapping() {
-        return this.attributeMapping;
+    public Output<Optional<Map<String,String>>> attributeMapping() {
+        return Codegen.optional(this.attributeMapping);
     }
     /**
      * The list of identity providers.

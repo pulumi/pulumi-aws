@@ -147,13 +147,13 @@ namespace Pulumi.Aws.Ec2
         /// Identifier of an EC2 instance.
         /// </summary>
         [Output("instanceId")]
-        public Output<string> InstanceId { get; private set; } = null!;
+        public Output<string?> InstanceId { get; private set; } = null!;
 
         /// <summary>
         /// The AWS account ID of the owner of the EC2 instance.
         /// </summary>
         [Output("instanceOwnerId")]
-        public Output<string> InstanceOwnerId { get; private set; } = null!;
+        public Output<string?> InstanceOwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of a Outpost local gateway.
@@ -171,13 +171,13 @@ namespace Pulumi.Aws.Ec2
         /// Identifier of an EC2 network interface.
         /// </summary>
         [Output("networkInterfaceId")]
-        public Output<string> NetworkInterfaceId { get; private set; } = null!;
+        public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
         /// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         /// </summary>
         [Output("origin")]
-        public Output<string> Origin { get; private set; } = null!;
+        public Output<string?> Origin { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the routing table.
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Ec2
         /// The state of the route - `active` or `blackhole`.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of an EC2 Transit Gateway.

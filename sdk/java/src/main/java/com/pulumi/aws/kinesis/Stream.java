@@ -80,14 +80,14 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
@@ -194,14 +194,14 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="streamModeDetails", refs={StreamStreamModeDetails.class}, tree="[0]")
-    private Output<StreamStreamModeDetails> streamModeDetails;
+    private Output</* @Nullable */ StreamStreamModeDetails> streamModeDetails;
 
     /**
      * @return Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
-    public Output<StreamStreamModeDetails> streamModeDetails() {
-        return this.streamModeDetails;
+    public Output<Optional<StreamStreamModeDetails>> streamModeDetails() {
+        return Codegen.optional(this.streamModeDetails);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

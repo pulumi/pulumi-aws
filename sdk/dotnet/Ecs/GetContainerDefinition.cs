@@ -121,62 +121,62 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// CPU limit for this container definition
         /// </summary>
-        public readonly int Cpu;
+        public readonly int? Cpu;
         /// <summary>
         /// Indicator if networking is disabled
         /// </summary>
-        public readonly bool DisableNetworking;
+        public readonly bool? DisableNetworking;
         /// <summary>
         /// Set docker labels
         /// </summary>
-        public readonly ImmutableDictionary<string, string> DockerLabels;
+        public readonly ImmutableDictionary<string, string>? DockerLabels;
         /// <summary>
         /// Environment in use
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Environment;
+        public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Docker image in use, including the digest
         /// </summary>
-        public readonly string Image;
+        public readonly string? Image;
         /// <summary>
         /// Digest of the docker image in use
         /// </summary>
-        public readonly string ImageDigest;
+        public readonly string? ImageDigest;
         /// <summary>
         /// Memory limit for this container definition
         /// </summary>
-        public readonly int Memory;
+        public readonly int? Memory;
         /// <summary>
         /// Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
         /// </summary>
-        public readonly int MemoryReservation;
+        public readonly int? MemoryReservation;
         public readonly string TaskDefinition;
 
         [OutputConstructor]
         private GetContainerDefinitionResult(
             string containerName,
 
-            int cpu,
+            int? cpu,
 
-            bool disableNetworking,
+            bool? disableNetworking,
 
-            ImmutableDictionary<string, string> dockerLabels,
+            ImmutableDictionary<string, string>? dockerLabels,
 
-            ImmutableDictionary<string, string> environment,
+            ImmutableDictionary<string, string>? environment,
 
-            string id,
+            string? id,
 
-            string image,
+            string? image,
 
-            string imageDigest,
+            string? imageDigest,
 
-            int memory,
+            int? memory,
 
-            int memoryReservation,
+            int? memoryReservation,
 
             string taskDefinition)
         {

@@ -182,8 +182,8 @@ import (
 // return err
 // }
 // snsTopicPolicy := pulumi.All(costAnomalyUpdates.Arn,costAnomalyUpdates.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// costAnomalyUpdatesArn := _args[0].(string)
-// costAnomalyUpdatesArn1 := _args[1].(string)
+// costAnomalyUpdatesArn := _args[0].(*string)
+// costAnomalyUpdatesArn1 := _args[1].(*string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // PolicyId: "__default_policy_ID",
 // Statements: []iam.GetPolicyDocumentStatement{
@@ -294,9 +294,9 @@ type AnomalySubscription struct {
 	pulumi.CustomResourceState
 
 	// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// ARN of the anomaly subscription.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
 	Frequency pulumi.StringOutput `pulumi:"frequency"`
 	// A list of cost anomaly monitors.
@@ -312,7 +312,7 @@ type AnomalySubscription struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
-	ThresholdExpression AnomalySubscriptionThresholdExpressionOutput `pulumi:"thresholdExpression"`
+	ThresholdExpression AnomalySubscriptionThresholdExpressionPtrOutput `pulumi:"thresholdExpression"`
 }
 
 // NewAnomalySubscription registers a new resource with the given unique name, arguments, and options.
@@ -530,13 +530,13 @@ func (o AnomalySubscriptionOutput) ToAnomalySubscriptionOutputWithContext(ctx co
 }
 
 // The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-func (o AnomalySubscriptionOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+func (o AnomalySubscriptionOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the anomaly subscription.
-func (o AnomalySubscriptionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AnomalySubscriptionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
@@ -572,10 +572,10 @@ func (o AnomalySubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
-func (o AnomalySubscriptionOutput) ThresholdExpression() AnomalySubscriptionThresholdExpressionOutput {
-	return o.ApplyT(func(v *AnomalySubscription) AnomalySubscriptionThresholdExpressionOutput {
+func (o AnomalySubscriptionOutput) ThresholdExpression() AnomalySubscriptionThresholdExpressionPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscription) AnomalySubscriptionThresholdExpressionPtrOutput {
 		return v.ThresholdExpression
-	}).(AnomalySubscriptionThresholdExpressionOutput)
+	}).(AnomalySubscriptionThresholdExpressionPtrOutput)
 }
 
 type AnomalySubscriptionArrayOutput struct{ *pulumi.OutputState }

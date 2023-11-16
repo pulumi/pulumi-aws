@@ -82,11 +82,11 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * ARN of the network interface.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
-    public readonly attachments!: pulumi.Output<outputs.ec2.NetworkInterfaceAttachment[]>;
+    public readonly attachments!: pulumi.Output<outputs.ec2.NetworkInterfaceAttachment[] | undefined>;
     /**
      * Description for the network interface.
      */
@@ -94,19 +94,19 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      */
-    public readonly interfaceType!: pulumi.Output<string>;
+    public readonly interfaceType!: pulumi.Output<string | undefined>;
     /**
      * Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      */
-    public readonly ipv4PrefixCount!: pulumi.Output<number>;
+    public readonly ipv4PrefixCount!: pulumi.Output<number | undefined>;
     /**
      * One or more IPv4 prefixes assigned to the network interface.
      */
-    public readonly ipv4Prefixes!: pulumi.Output<string[]>;
+    public readonly ipv4Prefixes!: pulumi.Output<string[] | undefined>;
     /**
      * Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
-    public readonly ipv6AddressCount!: pulumi.Output<number>;
+    public readonly ipv6AddressCount!: pulumi.Output<number | undefined>;
     /**
      * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
      */
@@ -114,33 +114,33 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * List of private IPs to assign to the ENI in sequential order.
      */
-    public readonly ipv6AddressLists!: pulumi.Output<string[]>;
+    public readonly ipv6AddressLists!: pulumi.Output<string[] | undefined>;
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6AddressCount`.
      */
-    public readonly ipv6Addresses!: pulumi.Output<string[]>;
+    public readonly ipv6Addresses!: pulumi.Output<string[] | undefined>;
     /**
      * Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      */
-    public readonly ipv6PrefixCount!: pulumi.Output<number>;
+    public readonly ipv6PrefixCount!: pulumi.Output<number | undefined>;
     /**
      * One or more IPv6 prefixes assigned to the network interface.
      */
-    public readonly ipv6Prefixes!: pulumi.Output<string[]>;
+    public readonly ipv6Prefixes!: pulumi.Output<string[] | undefined>;
     /**
      * MAC address of the network interface.
      */
-    public /*out*/ readonly macAddress!: pulumi.Output<string>;
-    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
+    public /*out*/ readonly macAddress!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID of the owner of the network interface.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Private DNS name of the network interface (IPv4).
      */
-    public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
-    public readonly privateIp!: pulumi.Output<string>;
+    public /*out*/ readonly privateDnsName!: pulumi.Output<string | undefined>;
+    public readonly privateIp!: pulumi.Output<string | undefined>;
     /**
      * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
      */
@@ -148,19 +148,19 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
      */
-    public readonly privateIpLists!: pulumi.Output<string[]>;
+    public readonly privateIpLists!: pulumi.Output<string[] | undefined>;
     /**
      * List of private IPs to assign to the ENI without regard to order.
      */
-    public readonly privateIps!: pulumi.Output<string[]>;
+    public readonly privateIps!: pulumi.Output<string[] | undefined>;
     /**
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
      */
-    public readonly privateIpsCount!: pulumi.Output<number>;
+    public readonly privateIpsCount!: pulumi.Output<number | undefined>;
     /**
      * List of security group IDs to assign to the ENI.
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      */

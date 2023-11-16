@@ -492,7 +492,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN that uniquely identifies this table.
         """
@@ -508,7 +508,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="magneticStoreWriteProperties")
-    def magnetic_store_write_properties(self) -> pulumi.Output['outputs.TableMagneticStoreWriteProperties']:
+    def magnetic_store_write_properties(self) -> pulumi.Output[Optional['outputs.TableMagneticStoreWriteProperties']]:
         """
         Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
         """
@@ -516,7 +516,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionProperties")
-    def retention_properties(self) -> pulumi.Output['outputs.TableRetentionProperties']:
+    def retention_properties(self) -> pulumi.Output[Optional['outputs.TableRetentionProperties']]:
         """
         The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         """
@@ -524,7 +524,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schema(self) -> pulumi.Output['outputs.TableSchema']:
+    def schema(self) -> pulumi.Output[Optional['outputs.TableSchema']]:
         """
         The schema of the table. See Schema below for more details.
         """

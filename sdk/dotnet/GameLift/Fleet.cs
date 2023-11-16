@@ -58,13 +58,13 @@ namespace Pulumi.Aws.GameLift
         /// Fleet ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Build ARN.
         /// </summary>
         [Output("buildArn")]
-        public Output<string> BuildArn { get; private set; } = null!;
+        public Output<string?> BuildArn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the GameLift Build to be deployed on the fleet.
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.GameLift
         /// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         /// </summary>
         [Output("certificateConfiguration")]
-        public Output<Outputs.FleetCertificateConfiguration> CertificateConfiguration { get; private set; } = null!;
+        public Output<Outputs.FleetCertificateConfiguration?> CertificateConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Human-readable description of the fleet.
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.GameLift
         /// Operating system of the fleet's computing resources.
         /// </summary>
         [Output("operatingSystem")]
-        public Output<string> OperatingSystem { get; private set; } = null!;
+        public Output<string?> OperatingSystem { get; private set; } = null!;
 
         /// <summary>
         /// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.GameLift
         /// Script ARN.
         /// </summary>
         [Output("scriptArn")]
-        public Output<string> ScriptArn { get; private set; } = null!;
+        public Output<string?> ScriptArn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the GameLift Script to be deployed on the fleet.

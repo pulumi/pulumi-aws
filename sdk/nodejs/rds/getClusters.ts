@@ -51,16 +51,16 @@ export interface GetClustersResult {
     /**
      * Set of cluster ARNs of the matched RDS clusters.
      */
-    readonly clusterArns: string[];
+    readonly clusterArns?: string[];
     /**
      * Set of ARNs of cluster identifiers of the matched RDS clusters.
      */
-    readonly clusterIdentifiers: string[];
+    readonly clusterIdentifiers?: string[];
     readonly filters?: outputs.rds.GetClustersFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Data source for managing an AWS RDS (Relational Database) Clusters.

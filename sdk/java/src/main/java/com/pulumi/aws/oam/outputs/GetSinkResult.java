@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSinkResult {
@@ -14,57 +16,57 @@ public final class GetSinkResult {
      * @return ARN of the sink.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the sink.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Random ID string that AWS generated as part of the sink ARN.
      * 
      */
-    private String sinkId;
+    private @Nullable String sinkId;
     private String sinkIdentifier;
     /**
      * @return Tags assigned to the sink.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetSinkResult() {}
     /**
      * @return ARN of the sink.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the sink.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Random ID string that AWS generated as part of the sink ARN.
      * 
      */
-    public String sinkId() {
-        return this.sinkId;
+    public Optional<String> sinkId() {
+        return Optional.ofNullable(this.sinkId);
     }
     public String sinkIdentifier() {
         return this.sinkIdentifier;
@@ -74,7 +76,7 @@ public final class GetSinkResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -86,12 +88,12 @@ public final class GetSinkResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String name;
-        private String sinkId;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String sinkId;
         private String sinkIdentifier;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetSinkResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,23 +106,23 @@ public final class GetSinkResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder sinkId(String sinkId) {
-            this.sinkId = Objects.requireNonNull(sinkId);
+        public Builder sinkId(@Nullable String sinkId) {
+            this.sinkId = sinkId;
             return this;
         }
         @CustomType.Setter
@@ -129,8 +131,8 @@ public final class GetSinkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetSinkResult build() {

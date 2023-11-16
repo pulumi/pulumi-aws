@@ -212,19 +212,19 @@ type Directory struct {
 	pulumi.CustomResourceState
 
 	// The access URL for the directory, such as `http://alias.awsapps.com`.
-	AccessUrl pulumi.StringOutput `pulumi:"accessUrl"`
+	AccessUrl pulumi.StringPtrOutput `pulumi:"accessUrl"`
 	// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
-	Alias pulumi.StringOutput `pulumi:"alias"`
+	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// Connector related information about the directory. Fields documented below.
 	ConnectSettings DirectoryConnectSettingsPtrOutput `pulumi:"connectSettings"`
 	// A textual description for the directory.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-	DesiredNumberOfDomainControllers pulumi.IntOutput `pulumi:"desiredNumberOfDomainControllers"`
+	DesiredNumberOfDomainControllers pulumi.IntPtrOutput `pulumi:"desiredNumberOfDomainControllers"`
 	// A list of IP addresses of the DNS servers for the directory or connector.
 	DnsIpAddresses pulumi.StringArrayOutput `pulumi:"dnsIpAddresses"`
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-	Edition pulumi.StringOutput `pulumi:"edition"`
+	Edition pulumi.StringPtrOutput `pulumi:"edition"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso pulumi.BoolPtrOutput `pulumi:"enableSso"`
 	// The fully qualified name for the directory, such as `corp.example.com`
@@ -232,11 +232,11 @@ type Directory struct {
 	// The password for the directory administrator or connector user.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The ID of the security group created by the directory.
-	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
+	SecurityGroupId pulumi.StringPtrOutput `pulumi:"securityGroupId"`
 	// The short name of the directory, such as `CORP`.
-	ShortName pulumi.StringOutput `pulumi:"shortName"`
+	ShortName pulumi.StringPtrOutput `pulumi:"shortName"`
 	// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-	Size pulumi.StringOutput `pulumi:"size"`
+	Size pulumi.StringPtrOutput `pulumi:"size"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -521,13 +521,13 @@ func (o DirectoryOutput) ToDirectoryOutputWithContext(ctx context.Context) Direc
 }
 
 // The access URL for the directory, such as `http://alias.awsapps.com`.
-func (o DirectoryOutput) AccessUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.AccessUrl }).(pulumi.StringOutput)
+func (o DirectoryOutput) AccessUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Directory) pulumi.StringPtrOutput { return v.AccessUrl }).(pulumi.StringPtrOutput)
 }
 
 // The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
-func (o DirectoryOutput) Alias() pulumi.StringOutput {
-	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+func (o DirectoryOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Directory) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
 // Connector related information about the directory. Fields documented below.
@@ -541,8 +541,8 @@ func (o DirectoryOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-func (o DirectoryOutput) DesiredNumberOfDomainControllers() pulumi.IntOutput {
-	return o.ApplyT(func(v *Directory) pulumi.IntOutput { return v.DesiredNumberOfDomainControllers }).(pulumi.IntOutput)
+func (o DirectoryOutput) DesiredNumberOfDomainControllers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Directory) pulumi.IntPtrOutput { return v.DesiredNumberOfDomainControllers }).(pulumi.IntPtrOutput)
 }
 
 // A list of IP addresses of the DNS servers for the directory or connector.
@@ -551,8 +551,8 @@ func (o DirectoryOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 }
 
 // The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-func (o DirectoryOutput) Edition() pulumi.StringOutput {
-	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Edition }).(pulumi.StringOutput)
+func (o DirectoryOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Directory) pulumi.StringPtrOutput { return v.Edition }).(pulumi.StringPtrOutput)
 }
 
 // Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
@@ -571,18 +571,18 @@ func (o DirectoryOutput) Password() pulumi.StringOutput {
 }
 
 // The ID of the security group created by the directory.
-func (o DirectoryOutput) SecurityGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
+func (o DirectoryOutput) SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Directory) pulumi.StringPtrOutput { return v.SecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The short name of the directory, such as `CORP`.
-func (o DirectoryOutput) ShortName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.ShortName }).(pulumi.StringOutput)
+func (o DirectoryOutput) ShortName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Directory) pulumi.StringPtrOutput { return v.ShortName }).(pulumi.StringPtrOutput)
 }
 
 // (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-func (o DirectoryOutput) Size() pulumi.StringOutput {
-	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
+func (o DirectoryOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Directory) pulumi.StringPtrOutput { return v.Size }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

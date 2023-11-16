@@ -65,64 +65,64 @@ type LookupFunctionResult struct {
 	// Instruction set architecture for the Lambda function.
 	Architectures []string `pulumi:"architectures"`
 	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// ARN for a Code Signing Configuration.
-	CodeSigningConfigArn string `pulumi:"codeSigningConfigArn"`
+	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
 	// Configure the function's *dead letter queue*.
-	DeadLetterConfig GetFunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
+	DeadLetterConfig *GetFunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Description of what your Lambda Function does.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Lambda environment's configuration settings.
-	Environment GetFunctionEnvironment `pulumi:"environment"`
+	Environment *GetFunctionEnvironment `pulumi:"environment"`
 	// Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
 	EphemeralStorages []GetFunctionEphemeralStorage `pulumi:"ephemeralStorages"`
 	// Connection settings for an Amazon EFS file system.
 	FileSystemConfigs []GetFunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	FunctionName      string                        `pulumi:"functionName"`
 	// Function entrypoint in your code.
-	Handler string `pulumi:"handler"`
+	Handler *string `pulumi:"handler"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// URI of the container image.
-	ImageUri string `pulumi:"imageUri"`
+	ImageUri *string `pulumi:"imageUri"`
 	// ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
-	InvokeArn string `pulumi:"invokeArn"`
+	InvokeArn *string `pulumi:"invokeArn"`
 	// ARN for the KMS encryption key.
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Date this resource was last modified.
-	LastModified string `pulumi:"lastModified"`
+	LastModified *string `pulumi:"lastModified"`
 	// List of Lambda Layer ARNs attached to your Lambda Function.
 	Layers []string `pulumi:"layers"`
 	// Amount of memory in MB your Lambda Function can use at runtime.
-	MemorySize int `pulumi:"memorySize"`
+	MemorySize *int `pulumi:"memorySize"`
 	// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
-	QualifiedArn string `pulumi:"qualifiedArn"`
+	QualifiedArn *string `pulumi:"qualifiedArn"`
 	// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invokeArn`.
-	QualifiedInvokeArn string  `pulumi:"qualifiedInvokeArn"`
+	QualifiedInvokeArn *string `pulumi:"qualifiedInvokeArn"`
 	Qualifier          *string `pulumi:"qualifier"`
 	// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
-	ReservedConcurrentExecutions int `pulumi:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
 	// IAM role attached to the Lambda Function.
-	Role string `pulumi:"role"`
+	Role *string `pulumi:"role"`
 	// Runtime environment for the Lambda function.
-	Runtime string `pulumi:"runtime"`
+	Runtime *string `pulumi:"runtime"`
 	// ARN of a signing job.
-	SigningJobArn string `pulumi:"signingJobArn"`
+	SigningJobArn *string `pulumi:"signingJobArn"`
 	// The ARN for a signing profile version.
-	SigningProfileVersionArn string `pulumi:"signingProfileVersionArn"`
+	SigningProfileVersionArn *string `pulumi:"signingProfileVersionArn"`
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
-	SourceCodeHash string `pulumi:"sourceCodeHash"`
+	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
-	SourceCodeSize int               `pulumi:"sourceCodeSize"`
+	SourceCodeSize *int              `pulumi:"sourceCodeSize"`
 	Tags           map[string]string `pulumi:"tags"`
 	// Function execution time at which Lambda should terminate the function.
-	Timeout int `pulumi:"timeout"`
+	Timeout *int `pulumi:"timeout"`
 	// Tracing settings of the function.
-	TracingConfig GetFunctionTracingConfig `pulumi:"tracingConfig"`
+	TracingConfig *GetFunctionTracingConfig `pulumi:"tracingConfig"`
 	// The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 	// VPC configuration associated with your Lambda function.
-	VpcConfig GetFunctionVpcConfig `pulumi:"vpcConfig"`
+	VpcConfig *GetFunctionVpcConfig `pulumi:"vpcConfig"`
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
@@ -172,28 +172,28 @@ func (o LookupFunctionResultOutput) Architectures() pulumi.StringArrayOutput {
 }
 
 // Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
-func (o LookupFunctionResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN for a Code Signing Configuration.
-func (o LookupFunctionResultOutput) CodeSigningConfigArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.CodeSigningConfigArn }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) CodeSigningConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.CodeSigningConfigArn }).(pulumi.StringPtrOutput)
 }
 
 // Configure the function's *dead letter queue*.
-func (o LookupFunctionResultOutput) DeadLetterConfig() GetFunctionDeadLetterConfigOutput {
-	return o.ApplyT(func(v LookupFunctionResult) GetFunctionDeadLetterConfig { return v.DeadLetterConfig }).(GetFunctionDeadLetterConfigOutput)
+func (o LookupFunctionResultOutput) DeadLetterConfig() GetFunctionDeadLetterConfigPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *GetFunctionDeadLetterConfig { return v.DeadLetterConfig }).(GetFunctionDeadLetterConfigPtrOutput)
 }
 
 // Description of what your Lambda Function does.
-func (o LookupFunctionResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Lambda environment's configuration settings.
-func (o LookupFunctionResultOutput) Environment() GetFunctionEnvironmentOutput {
-	return o.ApplyT(func(v LookupFunctionResult) GetFunctionEnvironment { return v.Environment }).(GetFunctionEnvironmentOutput)
+func (o LookupFunctionResultOutput) Environment() GetFunctionEnvironmentPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *GetFunctionEnvironment { return v.Environment }).(GetFunctionEnvironmentPtrOutput)
 }
 
 // Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
@@ -211,33 +211,33 @@ func (o LookupFunctionResultOutput) FunctionName() pulumi.StringOutput {
 }
 
 // Function entrypoint in your code.
-func (o LookupFunctionResultOutput) Handler() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Handler }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Handler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Handler }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupFunctionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // URI of the container image.
-func (o LookupFunctionResultOutput) ImageUri() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.ImageUri }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
 
 // ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
-func (o LookupFunctionResultOutput) InvokeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.InvokeArn }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) InvokeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.InvokeArn }).(pulumi.StringPtrOutput)
 }
 
 // ARN for the KMS encryption key.
-func (o LookupFunctionResultOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Date this resource was last modified.
-func (o LookupFunctionResultOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.LastModified }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
 // List of Lambda Layer ARNs attached to your Lambda Function.
@@ -246,18 +246,18 @@ func (o LookupFunctionResultOutput) Layers() pulumi.StringArrayOutput {
 }
 
 // Amount of memory in MB your Lambda Function can use at runtime.
-func (o LookupFunctionResultOutput) MemorySize() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupFunctionResult) int { return v.MemorySize }).(pulumi.IntOutput)
+func (o LookupFunctionResultOutput) MemorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *int { return v.MemorySize }).(pulumi.IntPtrOutput)
 }
 
 // Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
-func (o LookupFunctionResultOutput) QualifiedArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.QualifiedArn }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) QualifiedArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.QualifiedArn }).(pulumi.StringPtrOutput)
 }
 
 // Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invokeArn`.
-func (o LookupFunctionResultOutput) QualifiedInvokeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.QualifiedInvokeArn }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) QualifiedInvokeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.QualifiedInvokeArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFunctionResultOutput) Qualifier() pulumi.StringPtrOutput {
@@ -265,38 +265,38 @@ func (o LookupFunctionResultOutput) Qualifier() pulumi.StringPtrOutput {
 }
 
 // The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
-func (o LookupFunctionResultOutput) ReservedConcurrentExecutions() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupFunctionResult) int { return v.ReservedConcurrentExecutions }).(pulumi.IntOutput)
+func (o LookupFunctionResultOutput) ReservedConcurrentExecutions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *int { return v.ReservedConcurrentExecutions }).(pulumi.IntPtrOutput)
 }
 
 // IAM role attached to the Lambda Function.
-func (o LookupFunctionResultOutput) Role() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Role }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
 // Runtime environment for the Lambda function.
-func (o LookupFunctionResultOutput) Runtime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Runtime }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
 // ARN of a signing job.
-func (o LookupFunctionResultOutput) SigningJobArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.SigningJobArn }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) SigningJobArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.SigningJobArn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN for a signing profile version.
-func (o LookupFunctionResultOutput) SigningProfileVersionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) SigningProfileVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.SigningProfileVersionArn }).(pulumi.StringPtrOutput)
 }
 
 // Base64-encoded representation of raw SHA-256 sum of the zip file.
-func (o LookupFunctionResultOutput) SourceCodeHash() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.SourceCodeHash }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) SourceCodeHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.SourceCodeHash }).(pulumi.StringPtrOutput)
 }
 
 // Size in bytes of the function .zip file.
-func (o LookupFunctionResultOutput) SourceCodeSize() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupFunctionResult) int { return v.SourceCodeSize }).(pulumi.IntOutput)
+func (o LookupFunctionResultOutput) SourceCodeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *int { return v.SourceCodeSize }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupFunctionResultOutput) Tags() pulumi.StringMapOutput {
@@ -304,23 +304,23 @@ func (o LookupFunctionResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Function execution time at which Lambda should terminate the function.
-func (o LookupFunctionResultOutput) Timeout() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupFunctionResult) int { return v.Timeout }).(pulumi.IntOutput)
+func (o LookupFunctionResultOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
 // Tracing settings of the function.
-func (o LookupFunctionResultOutput) TracingConfig() GetFunctionTracingConfigOutput {
-	return o.ApplyT(func(v LookupFunctionResult) GetFunctionTracingConfig { return v.TracingConfig }).(GetFunctionTracingConfigOutput)
+func (o LookupFunctionResultOutput) TracingConfig() GetFunctionTracingConfigPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *GetFunctionTracingConfig { return v.TracingConfig }).(GetFunctionTracingConfigPtrOutput)
 }
 
 // The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
-func (o LookupFunctionResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // VPC configuration associated with your Lambda function.
-func (o LookupFunctionResultOutput) VpcConfig() GetFunctionVpcConfigOutput {
-	return o.ApplyT(func(v LookupFunctionResult) GetFunctionVpcConfig { return v.VpcConfig }).(GetFunctionVpcConfigOutput)
+func (o LookupFunctionResultOutput) VpcConfig() GetFunctionVpcConfigPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *GetFunctionVpcConfig { return v.VpcConfig }).(GetFunctionVpcConfigPtrOutput)
 }
 
 func init() {

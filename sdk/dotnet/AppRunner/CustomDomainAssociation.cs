@@ -54,7 +54,7 @@ namespace Pulumi.Aws.AppRunner
         /// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         /// </summary>
         [Output("dnsTarget")]
-        public Output<string> DnsTarget { get; private set; } = null!;
+        public Output<string?> DnsTarget { get; private set; } = null!;
 
         /// <summary>
         /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.AppRunner
         /// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

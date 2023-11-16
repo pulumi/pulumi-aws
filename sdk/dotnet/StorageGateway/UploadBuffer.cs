@@ -79,13 +79,13 @@ namespace Pulumi.Aws.StorageGateway
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         /// </summary>
         [Output("diskId")]
-        public Output<string> DiskId { get; private set; } = null!;
+        public Output<string?> DiskId { get; private set; } = null!;
 
         /// <summary>
         /// Local disk path. For example, `/dev/nvme1n1`.
         /// </summary>
         [Output("diskPath")]
-        public Output<string> DiskPath { get; private set; } = null!;
+        public Output<string?> DiskPath { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceDnsConfig {
@@ -15,17 +17,17 @@ public final class GetServiceDnsConfig {
      * @return An array that contains one DnsRecord object for each resource record set.
      * 
      */
-    private List<GetServiceDnsConfigDnsRecord> dnsRecords;
+    private @Nullable List<GetServiceDnsConfigDnsRecord> dnsRecords;
     /**
      * @return ID of the namespace that the service belongs to.
      * 
      */
-    private String namespaceId;
+    private @Nullable String namespaceId;
     /**
      * @return Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
      * 
      */
-    private String routingPolicy;
+    private @Nullable String routingPolicy;
 
     private GetServiceDnsConfig() {}
     /**
@@ -33,21 +35,21 @@ public final class GetServiceDnsConfig {
      * 
      */
     public List<GetServiceDnsConfigDnsRecord> dnsRecords() {
-        return this.dnsRecords;
+        return this.dnsRecords == null ? List.of() : this.dnsRecords;
     }
     /**
      * @return ID of the namespace that the service belongs to.
      * 
      */
-    public String namespaceId() {
-        return this.namespaceId;
+    public Optional<String> namespaceId() {
+        return Optional.ofNullable(this.namespaceId);
     }
     /**
      * @return Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
      * 
      */
-    public String routingPolicy() {
-        return this.routingPolicy;
+    public Optional<String> routingPolicy() {
+        return Optional.ofNullable(this.routingPolicy);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetServiceDnsConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetServiceDnsConfigDnsRecord> dnsRecords;
-        private String namespaceId;
-        private String routingPolicy;
+        private @Nullable List<GetServiceDnsConfigDnsRecord> dnsRecords;
+        private @Nullable String namespaceId;
+        private @Nullable String routingPolicy;
         public Builder() {}
         public Builder(GetServiceDnsConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetServiceDnsConfig {
         }
 
         @CustomType.Setter
-        public Builder dnsRecords(List<GetServiceDnsConfigDnsRecord> dnsRecords) {
-            this.dnsRecords = Objects.requireNonNull(dnsRecords);
+        public Builder dnsRecords(@Nullable List<GetServiceDnsConfigDnsRecord> dnsRecords) {
+            this.dnsRecords = dnsRecords;
             return this;
         }
         public Builder dnsRecords(GetServiceDnsConfigDnsRecord... dnsRecords) {
             return dnsRecords(List.of(dnsRecords));
         }
         @CustomType.Setter
-        public Builder namespaceId(String namespaceId) {
-            this.namespaceId = Objects.requireNonNull(namespaceId);
+        public Builder namespaceId(@Nullable String namespaceId) {
+            this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder routingPolicy(String routingPolicy) {
-            this.routingPolicy = Objects.requireNonNull(routingPolicy);
+        public Builder routingPolicy(@Nullable String routingPolicy) {
+            this.routingPolicy = routingPolicy;
             return this;
         }
         public GetServiceDnsConfig build() {

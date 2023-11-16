@@ -217,9 +217,9 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-	DirectoryUserId pulumi.StringOutput `pulumi:"directoryUserId"`
+	DirectoryUserId pulumi.StringPtrOutput `pulumi:"directoryUserId"`
 	// The identifier of the hierarchy group for the user.
 	HierarchyGroupId pulumi.StringPtrOutput `pulumi:"hierarchyGroupId"`
 	// A block that contains information about the identity of the user. Documented below.
@@ -244,7 +244,7 @@ type User struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The identifier for the user.
-	UserId pulumi.StringOutput `pulumi:"userId"`
+	UserId pulumi.StringPtrOutput `pulumi:"userId"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -501,13 +501,13 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 }
 
 // The Amazon Resource Name (ARN) of the user.
-func (o UserOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-func (o UserOutput) DirectoryUserId() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.DirectoryUserId }).(pulumi.StringOutput)
+func (o UserOutput) DirectoryUserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.DirectoryUserId }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the hierarchy group for the user.
@@ -564,8 +564,8 @@ func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The identifier for the user.
-func (o UserOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+func (o UserOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 type UserArrayOutput struct{ *pulumi.OutputState }

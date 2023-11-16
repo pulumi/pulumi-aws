@@ -412,7 +412,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         """
@@ -420,7 +420,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon Web Services organization.
         """

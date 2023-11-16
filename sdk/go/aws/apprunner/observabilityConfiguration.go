@@ -59,15 +59,15 @@ type ObservabilityConfiguration struct {
 	pulumi.CustomResourceState
 
 	// ARN of this observability configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether the observability configuration has the highest `observabilityConfigurationRevision` among all configurations that share the same `observabilityConfigurationName`.
-	Latest pulumi.BoolOutput `pulumi:"latest"`
+	Latest pulumi.BoolPtrOutput `pulumi:"latest"`
 	// Name of the observability configuration.
 	ObservabilityConfigurationName pulumi.StringOutput `pulumi:"observabilityConfigurationName"`
 	// The revision of this observability configuration.
-	ObservabilityConfigurationRevision pulumi.IntOutput `pulumi:"observabilityConfigurationRevision"`
+	ObservabilityConfigurationRevision pulumi.IntPtrOutput `pulumi:"observabilityConfigurationRevision"`
 	// Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -267,13 +267,13 @@ func (o ObservabilityConfigurationOutput) ToObservabilityConfigurationOutputWith
 }
 
 // ARN of this observability configuration.
-func (o ObservabilityConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ObservabilityConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether the observability configuration has the highest `observabilityConfigurationRevision` among all configurations that share the same `observabilityConfigurationName`.
-func (o ObservabilityConfigurationOutput) Latest() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.BoolOutput { return v.Latest }).(pulumi.BoolOutput)
+func (o ObservabilityConfigurationOutput) Latest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.BoolPtrOutput { return v.Latest }).(pulumi.BoolPtrOutput)
 }
 
 // Name of the observability configuration.
@@ -282,13 +282,13 @@ func (o ObservabilityConfigurationOutput) ObservabilityConfigurationName() pulum
 }
 
 // The revision of this observability configuration.
-func (o ObservabilityConfigurationOutput) ObservabilityConfigurationRevision() pulumi.IntOutput {
-	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.IntOutput { return v.ObservabilityConfigurationRevision }).(pulumi.IntOutput)
+func (o ObservabilityConfigurationOutput) ObservabilityConfigurationRevision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.IntPtrOutput { return v.ObservabilityConfigurationRevision }).(pulumi.IntPtrOutput)
 }
 
 // Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-func (o ObservabilityConfigurationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ObservabilityConfigurationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

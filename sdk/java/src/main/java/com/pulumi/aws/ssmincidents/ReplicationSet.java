@@ -185,56 +185,56 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the replication set.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ARN of the user who created the replication set.
      * 
      */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
-    private Output<String> createdBy;
+    private Output</* @Nullable */ String> createdBy;
 
     /**
      * @return The ARN of the user who created the replication set.
      * 
      */
-    public Output<String> createdBy() {
-        return this.createdBy;
+    public Output<Optional<String>> createdBy() {
+        return Codegen.optional(this.createdBy);
     }
     /**
      * If `true`, the last region in a replication set cannot be deleted.
      * 
      */
     @Export(name="deletionProtected", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> deletionProtected;
+    private Output</* @Nullable */ Boolean> deletionProtected;
 
     /**
      * @return If `true`, the last region in a replication set cannot be deleted.
      * 
      */
-    public Output<Boolean> deletionProtected() {
-        return this.deletionProtected;
+    public Output<Optional<Boolean>> deletionProtected() {
+        return Codegen.optional(this.deletionProtected);
     }
     /**
      * A timestamp showing when the replication set was last modified.
      * 
      */
     @Export(name="lastModifiedBy", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedBy;
+    private Output</* @Nullable */ String> lastModifiedBy;
 
     /**
      * @return A timestamp showing when the replication set was last modified.
      * 
      */
-    public Output<String> lastModifiedBy() {
-        return this.lastModifiedBy;
+    public Output<Optional<String>> lastModifiedBy() {
+        return Codegen.optional(this.lastModifiedBy);
     }
     @Export(name="regions", refs={List.class,ReplicationSetRegion.class}, tree="[0,1]")
     private Output<List<ReplicationSetRegion>> regions;
@@ -248,15 +248,15 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Tags applied to the replication set.

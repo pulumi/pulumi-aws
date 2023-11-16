@@ -81,7 +81,7 @@ type Application struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
 	AutoConfigEnabled pulumi.BoolPtrOutput `pulumi:"autoConfigEnabled"`
 	// Configures all of the resources in the resource group by applying the recommended configurations.
@@ -331,8 +331,8 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 }
 
 // ARN of the Application.
-func (o ApplicationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ApplicationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether Application Insights automatically configures unmonitored resources in the resource group.

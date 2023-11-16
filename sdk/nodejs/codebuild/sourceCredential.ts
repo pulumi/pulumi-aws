@@ -75,7 +75,7 @@ export class SourceCredential extends pulumi.CustomResource {
     /**
      * The ARN of Source Credential.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
      */

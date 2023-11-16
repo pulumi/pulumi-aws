@@ -6,6 +6,8 @@ package com.pulumi.aws.iam.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserSshKeyResult {
@@ -14,23 +16,23 @@ public final class GetUserSshKeyResult {
      * @return MD5 message digest of the SSH public key.
      * 
      */
-    private String fingerprint;
+    private @Nullable String fingerprint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return SSH public key.
      * 
      */
-    private String publicKey;
+    private @Nullable String publicKey;
     private String sshPublicKeyId;
     /**
      * @return Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
      * 
      */
-    private String status;
+    private @Nullable String status;
     private String username;
 
     private GetUserSshKeyResult() {}
@@ -41,22 +43,22 @@ public final class GetUserSshKeyResult {
      * @return MD5 message digest of the SSH public key.
      * 
      */
-    public String fingerprint() {
-        return this.fingerprint;
+    public Optional<String> fingerprint() {
+        return Optional.ofNullable(this.fingerprint);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return SSH public key.
      * 
      */
-    public String publicKey() {
-        return this.publicKey;
+    public Optional<String> publicKey() {
+        return Optional.ofNullable(this.publicKey);
     }
     public String sshPublicKeyId() {
         return this.sshPublicKeyId;
@@ -65,8 +67,8 @@ public final class GetUserSshKeyResult {
      * @return Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     public String username() {
         return this.username;
@@ -82,11 +84,11 @@ public final class GetUserSshKeyResult {
     @CustomType.Builder
     public static final class Builder {
         private String encoding;
-        private String fingerprint;
-        private String id;
-        private String publicKey;
+        private @Nullable String fingerprint;
+        private @Nullable String id;
+        private @Nullable String publicKey;
         private String sshPublicKeyId;
-        private String status;
+        private @Nullable String status;
         private String username;
         public Builder() {}
         public Builder(GetUserSshKeyResult defaults) {
@@ -106,18 +108,18 @@ public final class GetUserSshKeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder fingerprint(String fingerprint) {
-            this.fingerprint = Objects.requireNonNull(fingerprint);
+        public Builder fingerprint(@Nullable String fingerprint) {
+            this.fingerprint = fingerprint;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder publicKey(String publicKey) {
-            this.publicKey = Objects.requireNonNull(publicKey);
+        public Builder publicKey(@Nullable String publicKey) {
+            this.publicKey = publicKey;
             return this;
         }
         @CustomType.Setter
@@ -126,8 +128,8 @@ public final class GetUserSshKeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter

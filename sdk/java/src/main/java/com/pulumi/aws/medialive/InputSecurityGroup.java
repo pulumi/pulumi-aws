@@ -71,28 +71,28 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the InputSecurityGroup.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The list of inputs currently using this InputSecurityGroup.
      * 
      */
     @Export(name="inputs", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> inputs;
+    private Output</* @Nullable */ List<String>> inputs;
 
     /**
      * @return The list of inputs currently using this InputSecurityGroup.
      * 
      */
-    public Output<List<String>> inputs() {
-        return this.inputs;
+    public Output<Optional<List<String>>> inputs() {
+        return Codegen.optional(this.inputs);
     }
     /**
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -57,22 +57,22 @@ type LookupApprovalRuleTemplateArgs struct {
 // A collection of values returned by getApprovalRuleTemplate.
 type LookupApprovalRuleTemplateResult struct {
 	// The ID of the approval rule template.
-	ApprovalRuleTemplateId string `pulumi:"approvalRuleTemplateId"`
+	ApprovalRuleTemplateId *string `pulumi:"approvalRuleTemplateId"`
 	// Content of the approval rule template.
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationDate string `pulumi:"creationDate"`
+	CreationDate *string `pulumi:"creationDate"`
 	// Description of the approval rule template.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	LastModifiedDate string `pulumi:"lastModifiedDate"`
+	LastModifiedDate *string `pulumi:"lastModifiedDate"`
 	// ARN of the user who made the most recent changes to the approval rule template.
-	LastModifiedUser string `pulumi:"lastModifiedUser"`
-	Name             string `pulumi:"name"`
+	LastModifiedUser *string `pulumi:"lastModifiedUser"`
+	Name             string  `pulumi:"name"`
 	// SHA-256 hash signature for the content of the approval rule template.
-	RuleContentSha256 string `pulumi:"ruleContentSha256"`
+	RuleContentSha256 *string `pulumi:"ruleContentSha256"`
 }
 
 func LookupApprovalRuleTemplateOutput(ctx *pulumi.Context, args LookupApprovalRuleTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupApprovalRuleTemplateResultOutput {
@@ -114,38 +114,38 @@ func (o LookupApprovalRuleTemplateResultOutput) ToLookupApprovalRuleTemplateResu
 }
 
 // The ID of the approval rule template.
-func (o LookupApprovalRuleTemplateResultOutput) ApprovalRuleTemplateId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.ApprovalRuleTemplateId }).(pulumi.StringOutput)
+func (o LookupApprovalRuleTemplateResultOutput) ApprovalRuleTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) *string { return v.ApprovalRuleTemplateId }).(pulumi.StringPtrOutput)
 }
 
 // Content of the approval rule template.
-func (o LookupApprovalRuleTemplateResultOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.Content }).(pulumi.StringOutput)
+func (o LookupApprovalRuleTemplateResultOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o LookupApprovalRuleTemplateResultOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.CreationDate }).(pulumi.StringOutput)
+func (o LookupApprovalRuleTemplateResultOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of the approval rule template.
-func (o LookupApprovalRuleTemplateResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupApprovalRuleTemplateResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupApprovalRuleTemplateResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupApprovalRuleTemplateResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o LookupApprovalRuleTemplateResultOutput) LastModifiedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
+func (o LookupApprovalRuleTemplateResultOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) *string { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the user who made the most recent changes to the approval rule template.
-func (o LookupApprovalRuleTemplateResultOutput) LastModifiedUser() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.LastModifiedUser }).(pulumi.StringOutput)
+func (o LookupApprovalRuleTemplateResultOutput) LastModifiedUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) *string { return v.LastModifiedUser }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupApprovalRuleTemplateResultOutput) Name() pulumi.StringOutput {
@@ -153,8 +153,8 @@ func (o LookupApprovalRuleTemplateResultOutput) Name() pulumi.StringOutput {
 }
 
 // SHA-256 hash signature for the content of the approval rule template.
-func (o LookupApprovalRuleTemplateResultOutput) RuleContentSha256() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.RuleContentSha256 }).(pulumi.StringOutput)
+func (o LookupApprovalRuleTemplateResultOutput) RuleContentSha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) *string { return v.RuleContentSha256 }).(pulumi.StringPtrOutput)
 }
 
 func init() {

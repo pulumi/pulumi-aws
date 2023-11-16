@@ -63,7 +63,7 @@ type CustomActionType struct {
 	pulumi.CustomResourceState
 
 	// The action ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
 	Category pulumi.StringOutput `pulumi:"category"`
 	// The configuration properties for the custom action. Max 10 items.
@@ -73,7 +73,7 @@ type CustomActionType struct {
 	// The details of the output artifact of the action.
 	OutputArtifactDetails CustomActionTypeOutputArtifactDetailsOutput `pulumi:"outputArtifactDetails"`
 	// The creator of the action being called.
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// The provider of the service used in the custom action
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
 	// The settings for an action type.
@@ -321,8 +321,8 @@ func (o CustomActionTypeOutput) ToCustomActionTypeOutputWithContext(ctx context.
 }
 
 // The action ARN.
-func (o CustomActionTypeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CustomActionTypeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomActionType) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
@@ -348,8 +348,8 @@ func (o CustomActionTypeOutput) OutputArtifactDetails() CustomActionTypeOutputAr
 }
 
 // The creator of the action being called.
-func (o CustomActionTypeOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o CustomActionTypeOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomActionType) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // The provider of the service used in the custom action

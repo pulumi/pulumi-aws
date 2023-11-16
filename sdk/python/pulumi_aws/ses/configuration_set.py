@@ -403,7 +403,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         SES configuration set ARN.
         """
@@ -419,7 +419,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastFreshStart")
-    def last_fresh_start(self) -> pulumi.Output[str]:
+    def last_fresh_start(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         """

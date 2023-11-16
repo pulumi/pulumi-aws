@@ -21,15 +21,15 @@ public final class GetPermissionsTableWithColumnsArgs extends com.pulumi.resourc
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    @Import(name="catalogId", required=true)
-    private Output<String> catalogId;
+    @Import(name="catalogId")
+    private @Nullable Output<String> catalogId;
 
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Optional<Output<String>> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
 
     /**
@@ -146,7 +146,7 @@ public final class GetPermissionsTableWithColumnsArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder catalogId(Output<String> catalogId) {
+        public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
@@ -291,7 +291,6 @@ public final class GetPermissionsTableWithColumnsArgs extends com.pulumi.resourc
         }
 
         public GetPermissionsTableWithColumnsArgs build() {
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
             $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;

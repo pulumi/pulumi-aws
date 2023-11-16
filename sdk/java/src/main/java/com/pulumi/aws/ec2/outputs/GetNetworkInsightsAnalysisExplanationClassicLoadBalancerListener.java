@@ -6,18 +6,20 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener {
-    private Integer instancePort;
-    private Integer loadBalancerPort;
+    private @Nullable Integer instancePort;
+    private @Nullable Integer loadBalancerPort;
 
     private GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener() {}
-    public Integer instancePort() {
-        return this.instancePort;
+    public Optional<Integer> instancePort() {
+        return Optional.ofNullable(this.instancePort);
     }
-    public Integer loadBalancerPort() {
-        return this.loadBalancerPort;
+    public Optional<Integer> loadBalancerPort() {
+        return Optional.ofNullable(this.loadBalancerPort);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListe
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer instancePort;
-        private Integer loadBalancerPort;
+        private @Nullable Integer instancePort;
+        private @Nullable Integer loadBalancerPort;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListe
         }
 
         @CustomType.Setter
-        public Builder instancePort(Integer instancePort) {
-            this.instancePort = Objects.requireNonNull(instancePort);
+        public Builder instancePort(@Nullable Integer instancePort) {
+            this.instancePort = instancePort;
             return this;
         }
         @CustomType.Setter
-        public Builder loadBalancerPort(Integer loadBalancerPort) {
-            this.loadBalancerPort = Objects.requireNonNull(loadBalancerPort);
+        public Builder loadBalancerPort(@Nullable Integer loadBalancerPort) {
+            this.loadBalancerPort = loadBalancerPort;
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener build() {

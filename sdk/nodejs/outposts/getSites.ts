@@ -30,11 +30,11 @@ export interface GetSitesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of Outposts Site identifiers.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
 }
 /**
  * Provides details about multiple Outposts Sites.

@@ -48,12 +48,12 @@ export interface GetVpcsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of all the VPC Ids found.
      */
-    readonly ids: string[];
-    readonly tags: {[key: string]: string};
+    readonly ids?: string[];
+    readonly tags?: {[key: string]: string};
 }
 /**
  * This resource can be useful for getting back a list of VPC Ids for a region.

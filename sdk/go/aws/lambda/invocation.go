@@ -187,7 +187,7 @@ type Invocation struct {
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
 	// String result of the lambda function invocation.
-	Result       pulumi.StringOutput    `pulumi:"result"`
+	Result       pulumi.StringPtrOutput `pulumi:"result"`
 	TerraformKey pulumi.StringPtrOutput `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
@@ -411,8 +411,8 @@ func (o InvocationOutput) Qualifier() pulumi.StringPtrOutput {
 }
 
 // String result of the lambda function invocation.
-func (o InvocationOutput) Result() pulumi.StringOutput {
-	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Result }).(pulumi.StringOutput)
+func (o InvocationOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Invocation) pulumi.StringPtrOutput { return v.Result }).(pulumi.StringPtrOutput)
 }
 
 func (o InvocationOutput) TerraformKey() pulumi.StringPtrOutput {

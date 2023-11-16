@@ -6,6 +6,8 @@ package com.pulumi.aws.acmpca.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCertificateResult {
@@ -14,18 +16,18 @@ public final class GetCertificateResult {
      * @return PEM-encoded certificate value.
      * 
      */
-    private String certificate;
+    private @Nullable String certificate;
     private String certificateAuthorityArn;
     /**
      * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
-    private String certificateChain;
+    private @Nullable String certificateChain;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetCertificateResult() {}
     public String arn() {
@@ -35,8 +37,8 @@ public final class GetCertificateResult {
      * @return PEM-encoded certificate value.
      * 
      */
-    public String certificate() {
-        return this.certificate;
+    public Optional<String> certificate() {
+        return Optional.ofNullable(this.certificate);
     }
     public String certificateAuthorityArn() {
         return this.certificateAuthorityArn;
@@ -45,15 +47,15 @@ public final class GetCertificateResult {
      * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
-    public String certificateChain() {
-        return this.certificateChain;
+    public Optional<String> certificateChain() {
+        return Optional.ofNullable(this.certificateChain);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -66,10 +68,10 @@ public final class GetCertificateResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String certificate;
+        private @Nullable String certificate;
         private String certificateAuthorityArn;
-        private String certificateChain;
-        private String id;
+        private @Nullable String certificateChain;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,8 +88,8 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder certificate(String certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+        public Builder certificate(@Nullable String certificate) {
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
@@ -96,13 +98,13 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+        public Builder certificateChain(@Nullable String certificateChain) {
+            this.certificateChain = certificateChain;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetCertificateResult build() {

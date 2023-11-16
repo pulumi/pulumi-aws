@@ -112,7 +112,7 @@ type GetUsersResult struct {
 	// Set of ARNs of the matched IAM users.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string  `pulumi:"id"`
+	Id        *string `pulumi:"id"`
 	NameRegex *string `pulumi:"nameRegex"`
 	// Set of Names of the matched IAM users.
 	Names      []string `pulumi:"names"`
@@ -165,8 +165,8 @@ func (o GetUsersResultOutput) Arns() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetUsersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUsersResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetUsersResultOutput) NameRegex() pulumi.StringPtrOutput {

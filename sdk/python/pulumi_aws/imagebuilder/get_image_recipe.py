@@ -73,7 +73,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Sequence['outputs.GetImageRecipeBlockDeviceMappingResult']:
+    def block_device_mappings(self) -> Optional[Sequence['outputs.GetImageRecipeBlockDeviceMappingResult']]:
         """
         Set of objects with block device mappings for the image recipe.
         """
@@ -81,7 +81,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter
-    def components(self) -> Sequence['outputs.GetImageRecipeComponentResult']:
+    def components(self) -> Optional[Sequence['outputs.GetImageRecipeComponentResult']]:
         """
         List of objects with components for the image recipe.
         """
@@ -89,7 +89,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> str:
+    def date_created(self) -> Optional[str]:
         """
         Date the image recipe was created.
         """
@@ -97,7 +97,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the image recipe.
         """
@@ -105,7 +105,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -113,7 +113,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the image recipe.
         """
@@ -121,7 +121,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter
-    def owner(self) -> str:
+    def owner(self) -> Optional[str]:
         """
         Owner of the image recipe.
         """
@@ -129,7 +129,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter(name="parentImage")
-    def parent_image(self) -> str:
+    def parent_image(self) -> Optional[str]:
         """
         Base image of the image recipe.
         """
@@ -137,7 +137,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> str:
+    def platform(self) -> Optional[str]:
         """
         Platform of the image recipe.
         """
@@ -153,7 +153,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter(name="userDataBase64")
-    def user_data_base64(self) -> str:
+    def user_data_base64(self) -> Optional[str]:
         """
         Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
         """
@@ -161,7 +161,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Version of the image recipe.
         """
@@ -169,7 +169,7 @@ class GetImageRecipeResult:
 
     @property
     @pulumi.getter(name="workingDirectory")
-    def working_directory(self) -> str:
+    def working_directory(self) -> Optional[str]:
         """
         Working directory used during build and test workflows.
         """

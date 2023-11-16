@@ -436,7 +436,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the db subnet group.
         """
@@ -460,7 +460,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -476,7 +476,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportedNetworkTypes")
-    def supported_network_types(self) -> pulumi.Output[Sequence[str]]:
+    def supported_network_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The network type of the db subnet group.
         """
@@ -503,7 +503,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         Provides the VPC ID of the DB subnet group.
         """

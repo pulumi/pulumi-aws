@@ -124,24 +124,24 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Domain name corresponding to the distribution. For
         /// example: `d604721fxaaqy9.cloudfront.net`.
         /// </summary>
-        public readonly string DomainName;
-        public readonly bool Enabled;
+        public readonly string? DomainName;
+        public readonly bool? Enabled;
         /// <summary>
         /// Current version of the distribution's information. For example:
         /// `E2QWRUHAPOMQZL`.
         /// </summary>
-        public readonly string Etag;
+        public readonly string? Etag;
         /// <summary>
         /// CloudFront Route 53 zone ID that can be used to
         /// route an [Alias Resource Record Set][7] to. This attribute is simply an
         /// alias for the zone ID `Z2FDTNDATAQYW2`.
         /// </summary>
-        public readonly string HostedZoneId;
+        public readonly string? HostedZoneId;
         /// <summary>
         /// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
         /// </summary>
@@ -150,48 +150,48 @@ namespace Pulumi.Aws.CloudFront
         /// The number of invalidation batches
         /// currently in progress.
         /// </summary>
-        public readonly int InProgressValidationBatches;
+        public readonly int? InProgressValidationBatches;
         /// <summary>
         /// Date and time the distribution was last modified.
         /// </summary>
-        public readonly string LastModifiedTime;
+        public readonly string? LastModifiedTime;
         /// <summary>
         /// Current status of the distribution. `Deployed` if the
         /// distribution's information is fully propagated throughout the Amazon
         /// CloudFront system.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// AWS WAF web ACL associated with this distribution.
         /// </summary>
-        public readonly string WebAclId;
+        public readonly string? WebAclId;
 
         [OutputConstructor]
         private GetDistributionResult(
             ImmutableArray<string> aliases,
 
-            string arn,
+            string? arn,
 
-            string domainName,
+            string? domainName,
 
-            bool enabled,
+            bool? enabled,
 
-            string etag,
+            string? etag,
 
-            string hostedZoneId,
+            string? hostedZoneId,
 
             string id,
 
-            int inProgressValidationBatches,
+            int? inProgressValidationBatches,
 
-            string lastModifiedTime,
+            string? lastModifiedTime,
 
-            string status,
+            string? status,
 
             ImmutableDictionary<string, string>? tags,
 
-            string webAclId)
+            string? webAclId)
         {
             Aliases = aliases;
             Arn = arn;

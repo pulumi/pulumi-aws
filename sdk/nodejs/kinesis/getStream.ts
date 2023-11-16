@@ -54,19 +54,19 @@ export interface GetStreamResult {
     /**
      * ARN of the Kinesis Stream (same as id).
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
-    readonly closedShards: string[];
+    readonly closedShards?: string[];
     /**
      * Approximate UNIX timestamp that the stream was created.
      */
-    readonly creationTimestamp: number;
+    readonly creationTimestamp?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the Kinesis Stream.
      */
@@ -74,27 +74,27 @@ export interface GetStreamResult {
     /**
      * List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
-    readonly openShards: string[];
+    readonly openShards?: string[];
     /**
      * Length of time (in hours) data records are accessible after they are added to the stream.
      */
-    readonly retentionPeriod: number;
+    readonly retentionPeriod?: number;
     /**
      * List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
      */
-    readonly shardLevelMetrics: string[];
+    readonly shardLevelMetrics?: string[];
     /**
      * Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      */
-    readonly streamModeDetails: outputs.kinesis.GetStreamStreamModeDetail[];
+    readonly streamModeDetails?: outputs.kinesis.GetStreamStreamModeDetail[];
     /**
      * Map of tags to assigned to the stream.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get information about a Kinesis Stream for use in other

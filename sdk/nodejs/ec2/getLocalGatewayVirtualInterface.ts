@@ -55,33 +55,33 @@ export interface GetLocalGatewayVirtualInterfaceArgs {
  */
 export interface GetLocalGatewayVirtualInterfaceResult {
     readonly filters?: outputs.ec2.GetLocalGatewayVirtualInterfaceFilter[];
-    readonly id: string;
+    readonly id?: string;
     /**
      * Local address.
      */
-    readonly localAddress: string;
+    readonly localAddress?: string;
     /**
      * Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
      */
-    readonly localBgpAsn: number;
+    readonly localBgpAsn?: number;
     /**
      * Identifier of the EC2 Local Gateway.
      */
-    readonly localGatewayId: string;
-    readonly localGatewayVirtualInterfaceIds: string[];
+    readonly localGatewayId?: string;
+    readonly localGatewayVirtualInterfaceIds?: string[];
     /**
      * Peer address.
      */
-    readonly peerAddress: string;
+    readonly peerAddress?: string;
     /**
      * Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
      */
-    readonly peerBgpAsn: number;
-    readonly tags: {[key: string]: string};
+    readonly peerBgpAsn?: number;
+    readonly tags?: {[key: string]: string};
     /**
      * Virtual Local Area Network.
      */
-    readonly vlan: number;
+    readonly vlan?: number;
 }
 /**
  * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).

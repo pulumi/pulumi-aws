@@ -654,16 +654,16 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? Language;
         /// <summary>
         /// Python script generated from the DAG when the `language` argument is set to `PYTHON`.
         /// </summary>
-        public readonly string PythonScript;
+        public readonly string? PythonScript;
         /// <summary>
         /// Scala code generated from the DAG when the `language` argument is set to `SCALA`.
         /// </summary>
-        public readonly string ScalaCode;
+        public readonly string? ScalaCode;
 
         [OutputConstructor]
         private GetScriptResult(
@@ -671,13 +671,13 @@ namespace Pulumi.Aws.Glue
 
             ImmutableArray<Outputs.GetScriptDagNodeResult> dagNodes,
 
-            string id,
+            string? id,
 
             string? language,
 
-            string pythonScript,
+            string? pythonScript,
 
-            string scalaCode)
+            string? scalaCode)
         {
             DagEdges = dagEdges;
             DagNodes = dagNodes;

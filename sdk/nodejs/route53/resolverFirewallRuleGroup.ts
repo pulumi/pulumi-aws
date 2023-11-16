@@ -57,7 +57,7 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) of the rule group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A name that lets you identify the rule group, to manage and use it.
      */
@@ -65,11 +65,11 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
     /**
      * The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
      */
-    public /*out*/ readonly shareStatus!: pulumi.Output<string>;
+    public /*out*/ readonly shareStatus!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

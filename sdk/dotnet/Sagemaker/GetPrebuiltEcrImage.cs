@@ -151,32 +151,32 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? ImageTag;
         public readonly string? Region;
         /// <summary>
         /// Account ID containing the image. For example, `469771592824`.
         /// </summary>
-        public readonly string RegistryId;
+        public readonly string? RegistryId;
         /// <summary>
         /// Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
         /// </summary>
-        public readonly string RegistryPath;
+        public readonly string? RegistryPath;
         public readonly string RepositoryName;
 
         [OutputConstructor]
         private GetPrebuiltEcrImageResult(
             string? dnsSuffix,
 
-            string id,
+            string? id,
 
             string? imageTag,
 
             string? region,
 
-            string registryId,
+            string? registryId,
 
-            string registryPath,
+            string? registryPath,
 
             string repositoryName)
         {

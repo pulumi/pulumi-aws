@@ -7,42 +7,44 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateBlockDeviceMappingEb {
-    private String deleteOnTermination;
-    private String encrypted;
-    private Integer iops;
-    private String kmsKeyId;
-    private String snapshotId;
-    private Integer throughput;
-    private Integer volumeSize;
-    private String volumeType;
+    private @Nullable String deleteOnTermination;
+    private @Nullable String encrypted;
+    private @Nullable Integer iops;
+    private @Nullable String kmsKeyId;
+    private @Nullable String snapshotId;
+    private @Nullable Integer throughput;
+    private @Nullable Integer volumeSize;
+    private @Nullable String volumeType;
 
     private GetLaunchTemplateBlockDeviceMappingEb() {}
-    public String deleteOnTermination() {
-        return this.deleteOnTermination;
+    public Optional<String> deleteOnTermination() {
+        return Optional.ofNullable(this.deleteOnTermination);
     }
-    public String encrypted() {
-        return this.encrypted;
+    public Optional<String> encrypted() {
+        return Optional.ofNullable(this.encrypted);
     }
-    public Integer iops() {
-        return this.iops;
+    public Optional<Integer> iops() {
+        return Optional.ofNullable(this.iops);
     }
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
-    public String snapshotId() {
-        return this.snapshotId;
+    public Optional<String> snapshotId() {
+        return Optional.ofNullable(this.snapshotId);
     }
-    public Integer throughput() {
-        return this.throughput;
+    public Optional<Integer> throughput() {
+        return Optional.ofNullable(this.throughput);
     }
-    public Integer volumeSize() {
-        return this.volumeSize;
+    public Optional<Integer> volumeSize() {
+        return Optional.ofNullable(this.volumeSize);
     }
-    public String volumeType() {
-        return this.volumeType;
+    public Optional<String> volumeType() {
+        return Optional.ofNullable(this.volumeType);
     }
 
     public static Builder builder() {
@@ -54,14 +56,14 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String deleteOnTermination;
-        private String encrypted;
-        private Integer iops;
-        private String kmsKeyId;
-        private String snapshotId;
-        private Integer throughput;
-        private Integer volumeSize;
-        private String volumeType;
+        private @Nullable String deleteOnTermination;
+        private @Nullable String encrypted;
+        private @Nullable Integer iops;
+        private @Nullable String kmsKeyId;
+        private @Nullable String snapshotId;
+        private @Nullable Integer throughput;
+        private @Nullable Integer volumeSize;
+        private @Nullable String volumeType;
         public Builder() {}
         public Builder(GetLaunchTemplateBlockDeviceMappingEb defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,43 +78,43 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
         }
 
         @CustomType.Setter
-        public Builder deleteOnTermination(String deleteOnTermination) {
-            this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
+        public Builder deleteOnTermination(@Nullable String deleteOnTermination) {
+            this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(String encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+        public Builder encrypted(@Nullable String encrypted) {
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+        public Builder iops(@Nullable Integer iops) {
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotId(String snapshotId) {
-            this.snapshotId = Objects.requireNonNull(snapshotId);
+        public Builder snapshotId(@Nullable String snapshotId) {
+            this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
-        public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+        public Builder throughput(@Nullable Integer throughput) {
+            this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+        public Builder volumeSize(@Nullable Integer volumeSize) {
+            this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeType(String volumeType) {
-            this.volumeType = Objects.requireNonNull(volumeType);
+        public Builder volumeType(@Nullable String volumeType) {
+            this.volumeType = volumeType;
             return this;
         }
         public GetLaunchTemplateBlockDeviceMappingEb build() {

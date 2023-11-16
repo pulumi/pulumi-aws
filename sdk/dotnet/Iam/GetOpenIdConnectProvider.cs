@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetOpenIdConnectProviderResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
         /// </summary>
@@ -181,30 +181,30 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Map of resource tags for the IAM OIDC provider.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         /// </summary>
         public readonly ImmutableArray<string> ThumbprintLists;
-        public readonly string Url;
+        public readonly string? Url;
 
         [OutputConstructor]
         private GetOpenIdConnectProviderResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<string> clientIdLists,
 
-            string id,
+            string? id,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<string> thumbprintLists,
 
-            string url)
+            string? url)
         {
             Arn = arn;
             ClientIdLists = clientIdLists;

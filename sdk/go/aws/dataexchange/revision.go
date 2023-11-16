@@ -53,13 +53,13 @@ type Revision struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of this data set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// An optional comment about the revision.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The dataset id.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
 	// The Id of the revision.
-	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
+	RevisionId pulumi.StringPtrOutput `pulumi:"revisionId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -249,8 +249,8 @@ func (o RevisionOutput) ToRevisionOutputWithContext(ctx context.Context) Revisio
 }
 
 // The Amazon Resource Name of this data set.
-func (o RevisionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RevisionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Revision) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // An optional comment about the revision.
@@ -264,8 +264,8 @@ func (o RevisionOutput) DataSetId() pulumi.StringOutput {
 }
 
 // The Id of the revision.
-func (o RevisionOutput) RevisionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
+func (o RevisionOutput) RevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Revision) pulumi.StringPtrOutput { return v.RevisionId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -100,19 +100,19 @@ type LookupResourceShareArgs struct {
 // A collection of values returned by getResourceShare.
 type LookupResourceShareResult struct {
 	// ARN of the resource share.
-	Arn     string                   `pulumi:"arn"`
+	Arn     *string                  `pulumi:"arn"`
 	Filters []GetResourceShareFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// ID of the AWS account that owns the resource share.
-	OwningAccountId string `pulumi:"owningAccountId"`
+	OwningAccountId *string `pulumi:"owningAccountId"`
 	// A list of resource ARNs associated with the resource share.
 	ResourceArns        []string `pulumi:"resourceArns"`
 	ResourceOwner       string   `pulumi:"resourceOwner"`
 	ResourceShareStatus *string  `pulumi:"resourceShareStatus"`
 	// Status of the resource share.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Tags attached to the resource share.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -164,8 +164,8 @@ func (o LookupResourceShareResultOutput) ToLookupResourceShareResultOutputWithCo
 }
 
 // ARN of the resource share.
-func (o LookupResourceShareResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceShareResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupResourceShareResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResourceShareResultOutput) Filters() GetResourceShareFilterArrayOutput {
@@ -173,8 +173,8 @@ func (o LookupResourceShareResultOutput) Filters() GetResourceShareFilterArrayOu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResourceShareResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceShareResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResourceShareResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResourceShareResultOutput) Name() pulumi.StringOutput {
@@ -182,8 +182,8 @@ func (o LookupResourceShareResultOutput) Name() pulumi.StringOutput {
 }
 
 // ID of the AWS account that owns the resource share.
-func (o LookupResourceShareResultOutput) OwningAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceShareResult) string { return v.OwningAccountId }).(pulumi.StringOutput)
+func (o LookupResourceShareResultOutput) OwningAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.OwningAccountId }).(pulumi.StringPtrOutput)
 }
 
 // A list of resource ARNs associated with the resource share.
@@ -200,8 +200,8 @@ func (o LookupResourceShareResultOutput) ResourceShareStatus() pulumi.StringPtrO
 }
 
 // Status of the resource share.
-func (o LookupResourceShareResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceShareResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupResourceShareResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Tags attached to the resource share.

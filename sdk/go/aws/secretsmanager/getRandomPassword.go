@@ -79,12 +79,12 @@ type GetRandomPasswordResult struct {
 	ExcludePunctuation *bool   `pulumi:"excludePunctuation"`
 	ExcludeUppercase   *bool   `pulumi:"excludeUppercase"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string `pulumi:"id"`
-	IncludeSpace   *bool  `pulumi:"includeSpace"`
-	PasswordLength *int   `pulumi:"passwordLength"`
+	Id             *string `pulumi:"id"`
+	IncludeSpace   *bool   `pulumi:"includeSpace"`
+	PasswordLength *int    `pulumi:"passwordLength"`
 	// Random password.
-	RandomPassword          string `pulumi:"randomPassword"`
-	RequireEachIncludedType *bool  `pulumi:"requireEachIncludedType"`
+	RandomPassword          *string `pulumi:"randomPassword"`
+	RequireEachIncludedType *bool   `pulumi:"requireEachIncludedType"`
 }
 
 func GetRandomPasswordOutput(ctx *pulumi.Context, args GetRandomPasswordOutputArgs, opts ...pulumi.InvokeOption) GetRandomPasswordResultOutput {
@@ -162,8 +162,8 @@ func (o GetRandomPasswordResultOutput) ExcludeUppercase() pulumi.BoolPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetRandomPasswordResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRandomPasswordResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetRandomPasswordResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRandomPasswordResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRandomPasswordResultOutput) IncludeSpace() pulumi.BoolPtrOutput {
@@ -175,8 +175,8 @@ func (o GetRandomPasswordResultOutput) PasswordLength() pulumi.IntPtrOutput {
 }
 
 // Random password.
-func (o GetRandomPasswordResultOutput) RandomPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRandomPasswordResult) string { return v.RandomPassword }).(pulumi.StringOutput)
+func (o GetRandomPasswordResultOutput) RandomPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRandomPasswordResult) *string { return v.RandomPassword }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRandomPasswordResultOutput) RequireEachIncludedType() pulumi.BoolPtrOutput {

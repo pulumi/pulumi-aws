@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultActionForwardStickiness {
-    private Integer duration;
-    private Boolean enabled;
+    private @Nullable Integer duration;
+    private @Nullable Boolean enabled;
 
     private GetListenerDefaultActionForwardStickiness() {}
-    public Integer duration() {
-        return this.duration;
+    public Optional<Integer> duration() {
+        return Optional.ofNullable(this.duration);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetListenerDefaultActionForwardStickiness {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer duration;
-        private Boolean enabled;
+        private @Nullable Integer duration;
+        private @Nullable Boolean enabled;
         public Builder() {}
         public Builder(GetListenerDefaultActionForwardStickiness defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetListenerDefaultActionForwardStickiness {
         }
 
         @CustomType.Setter
-        public Builder duration(Integer duration) {
-            this.duration = Objects.requireNonNull(duration);
+        public Builder duration(@Nullable Integer duration) {
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         public GetListenerDefaultActionForwardStickiness build() {

@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexDocumentMetadataConfigurationUpdateRelevance {
@@ -16,63 +18,63 @@ public final class GetIndexDocumentMetadataConfigurationUpdateRelevance {
      * @return Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
      * 
      */
-    private String duration;
+    private @Nullable String duration;
     /**
      * @return How &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
      * 
      */
-    private Boolean freshness;
+    private @Nullable Boolean freshness;
     /**
      * @return Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
      * 
      */
-    private Integer importance;
+    private @Nullable Integer importance;
     /**
      * @return Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
      * 
      */
-    private String rankOrder;
+    private @Nullable String rankOrder;
     /**
      * @return A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
      * 
      */
-    private Map<String,Integer> valuesImportanceMap;
+    private @Nullable Map<String,Integer> valuesImportanceMap;
 
     private GetIndexDocumentMetadataConfigurationUpdateRelevance() {}
     /**
      * @return Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
      * 
      */
-    public String duration() {
-        return this.duration;
+    public Optional<String> duration() {
+        return Optional.ofNullable(this.duration);
     }
     /**
      * @return How &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
      * 
      */
-    public Boolean freshness() {
-        return this.freshness;
+    public Optional<Boolean> freshness() {
+        return Optional.ofNullable(this.freshness);
     }
     /**
      * @return Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
      * 
      */
-    public Integer importance() {
-        return this.importance;
+    public Optional<Integer> importance() {
+        return Optional.ofNullable(this.importance);
     }
     /**
      * @return Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
      * 
      */
-    public String rankOrder() {
-        return this.rankOrder;
+    public Optional<String> rankOrder() {
+        return Optional.ofNullable(this.rankOrder);
     }
     /**
      * @return A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
      * 
      */
     public Map<String,Integer> valuesImportanceMap() {
-        return this.valuesImportanceMap;
+        return this.valuesImportanceMap == null ? Map.of() : this.valuesImportanceMap;
     }
 
     public static Builder builder() {
@@ -84,11 +86,11 @@ public final class GetIndexDocumentMetadataConfigurationUpdateRelevance {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String duration;
-        private Boolean freshness;
-        private Integer importance;
-        private String rankOrder;
-        private Map<String,Integer> valuesImportanceMap;
+        private @Nullable String duration;
+        private @Nullable Boolean freshness;
+        private @Nullable Integer importance;
+        private @Nullable String rankOrder;
+        private @Nullable Map<String,Integer> valuesImportanceMap;
         public Builder() {}
         public Builder(GetIndexDocumentMetadataConfigurationUpdateRelevance defaults) {
     	      Objects.requireNonNull(defaults);
@@ -100,28 +102,28 @@ public final class GetIndexDocumentMetadataConfigurationUpdateRelevance {
         }
 
         @CustomType.Setter
-        public Builder duration(String duration) {
-            this.duration = Objects.requireNonNull(duration);
+        public Builder duration(@Nullable String duration) {
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
-        public Builder freshness(Boolean freshness) {
-            this.freshness = Objects.requireNonNull(freshness);
+        public Builder freshness(@Nullable Boolean freshness) {
+            this.freshness = freshness;
             return this;
         }
         @CustomType.Setter
-        public Builder importance(Integer importance) {
-            this.importance = Objects.requireNonNull(importance);
+        public Builder importance(@Nullable Integer importance) {
+            this.importance = importance;
             return this;
         }
         @CustomType.Setter
-        public Builder rankOrder(String rankOrder) {
-            this.rankOrder = Objects.requireNonNull(rankOrder);
+        public Builder rankOrder(@Nullable String rankOrder) {
+            this.rankOrder = rankOrder;
             return this;
         }
         @CustomType.Setter
-        public Builder valuesImportanceMap(Map<String,Integer> valuesImportanceMap) {
-            this.valuesImportanceMap = Objects.requireNonNull(valuesImportanceMap);
+        public Builder valuesImportanceMap(@Nullable Map<String,Integer> valuesImportanceMap) {
+            this.valuesImportanceMap = valuesImportanceMap;
             return this;
         }
         public GetIndexDocumentMetadataConfigurationUpdateRelevance build() {

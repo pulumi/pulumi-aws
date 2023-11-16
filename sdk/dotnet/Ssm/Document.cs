@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Ssm
     public partial class Document : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
@@ -123,19 +123,19 @@ namespace Pulumi.Aws.Ssm
         /// The date the document was created.
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// The default version of the document.
         /// </summary>
         [Output("defaultVersion")]
-        public Output<string> DefaultVersion { get; private set; } = null!;
+        public Output<string?> DefaultVersion { get; private set; } = null!;
 
         /// <summary>
         /// The description of the document.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// The format of the document. Valid document types include: `JSON` and `YAML`
@@ -153,25 +153,25 @@ namespace Pulumi.Aws.Ssm
         /// The document version.
         /// </summary>
         [Output("documentVersion")]
-        public Output<string> DocumentVersion { get; private set; } = null!;
+        public Output<string?> DocumentVersion { get; private set; } = null!;
 
         /// <summary>
         /// The sha1 or sha256 of the document content
         /// </summary>
         [Output("hash")]
-        public Output<string> Hash { get; private set; } = null!;
+        public Output<string?> Hash { get; private set; } = null!;
 
         /// <summary>
         /// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
         /// </summary>
         [Output("hashType")]
-        public Output<string> HashType { get; private set; } = null!;
+        public Output<string?> HashType { get; private set; } = null!;
 
         /// <summary>
         /// The latest version of the document.
         /// </summary>
         [Output("latestVersion")]
-        public Output<string> LatestVersion { get; private set; } = null!;
+        public Output<string?> LatestVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the document.
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Ssm
         /// The AWS user account of the person who created the document.
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// The parameters that are available to this document.
@@ -207,13 +207,13 @@ namespace Pulumi.Aws.Ssm
         /// The schema version of the document.
         /// </summary>
         [Output("schemaVersion")]
-        public Output<string> SchemaVersion { get; private set; } = null!;
+        public Output<string?> SchemaVersion { get; private set; } = null!;
 
         /// <summary>
         /// "Creating", "Active" or "Deleting". The current status of the document.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

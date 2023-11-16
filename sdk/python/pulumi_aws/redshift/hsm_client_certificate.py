@@ -279,7 +279,7 @@ class HsmClientCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Hsm Client Certificate.
         """
@@ -295,7 +295,7 @@ class HsmClientCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hsmClientCertificatePublicKey")
-    def hsm_client_certificate_public_key(self) -> pulumi.Output[str]:
+    def hsm_client_certificate_public_key(self) -> pulumi.Output[Optional[str]]:
         """
         The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
         """

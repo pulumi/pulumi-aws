@@ -18,12 +18,12 @@ public final class GetPortfolioConstraintsResult {
      * @return List of information about the constraints. See details below.
      * 
      */
-    private List<GetPortfolioConstraintsDetail> details;
+    private @Nullable List<GetPortfolioConstraintsDetail> details;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
      * 
@@ -44,14 +44,14 @@ public final class GetPortfolioConstraintsResult {
      * 
      */
     public List<GetPortfolioConstraintsDetail> details() {
-        return this.details;
+        return this.details == null ? List.of() : this.details;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
@@ -78,8 +78,8 @@ public final class GetPortfolioConstraintsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
-        private List<GetPortfolioConstraintsDetail> details;
-        private String id;
+        private @Nullable List<GetPortfolioConstraintsDetail> details;
+        private @Nullable String id;
         private String portfolioId;
         private @Nullable String productId;
         public Builder() {}
@@ -98,16 +98,16 @@ public final class GetPortfolioConstraintsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder details(List<GetPortfolioConstraintsDetail> details) {
-            this.details = Objects.requireNonNull(details);
+        public Builder details(@Nullable List<GetPortfolioConstraintsDetail> details) {
+            this.details = details;
             return this;
         }
         public Builder details(GetPortfolioConstraintsDetail... details) {
             return details(List.of(details));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

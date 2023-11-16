@@ -65,13 +65,13 @@ namespace Pulumi.Aws.Lambda
         /// The Amazon Resource Name (ARN) of the code signing configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier for the code signing configuration.
         /// </summary>
         [Output("configId")]
-        public Output<string> ConfigId { get; private set; } = null!;
+        public Output<string?> ConfigId { get; private set; } = null!;
 
         /// <summary>
         /// Descriptive name for this code signing configuration.
@@ -83,13 +83,13 @@ namespace Pulumi.Aws.Lambda
         /// The date and time that the code signing configuration was last modified.
         /// </summary>
         [Output("lastModified")]
-        public Output<string> LastModified { get; private set; } = null!;
+        public Output<string?> LastModified { get; private set; } = null!;
 
         /// <summary>
         /// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         /// </summary>
         [Output("policies")]
-        public Output<Outputs.CodeSigningConfigPolicies> Policies { get; private set; } = null!;
+        public Output<Outputs.CodeSigningConfigPolicies?> Policies { get; private set; } = null!;
 
 
         /// <summary>

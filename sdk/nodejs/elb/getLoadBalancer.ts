@@ -53,30 +53,30 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: outputs.elb.GetLoadBalancerAccessLogs;
-    readonly arn: string;
-    readonly availabilityZones: string[];
-    readonly connectionDraining: boolean;
-    readonly connectionDrainingTimeout: number;
-    readonly crossZoneLoadBalancing: boolean;
-    readonly desyncMitigationMode: string;
-    readonly dnsName: string;
-    readonly healthCheck: outputs.elb.GetLoadBalancerHealthCheck;
+    readonly accessLogs?: outputs.elb.GetLoadBalancerAccessLogs;
+    readonly arn?: string;
+    readonly availabilityZones?: string[];
+    readonly connectionDraining?: boolean;
+    readonly connectionDrainingTimeout?: number;
+    readonly crossZoneLoadBalancing?: boolean;
+    readonly desyncMitigationMode?: string;
+    readonly dnsName?: string;
+    readonly healthCheck?: outputs.elb.GetLoadBalancerHealthCheck;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly idleTimeout: number;
-    readonly instances: string[];
-    readonly internal: boolean;
-    readonly listeners: outputs.elb.GetLoadBalancerListener[];
+    readonly id?: string;
+    readonly idleTimeout?: number;
+    readonly instances?: string[];
+    readonly internal?: boolean;
+    readonly listeners?: outputs.elb.GetLoadBalancerListener[];
     readonly name: string;
-    readonly securityGroups: string[];
-    readonly sourceSecurityGroup: string;
-    readonly sourceSecurityGroupId: string;
-    readonly subnets: string[];
-    readonly tags: {[key: string]: string};
-    readonly zoneId: string;
+    readonly securityGroups?: string[];
+    readonly sourceSecurityGroup?: string;
+    readonly sourceSecurityGroupId?: string;
+    readonly subnets?: string[];
+    readonly tags?: {[key: string]: string};
+    readonly zoneId?: string;
 }
 /**
  * Provides information about a "classic" Elastic Load Balancer (ELB).

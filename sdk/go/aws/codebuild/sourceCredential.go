@@ -86,7 +86,7 @@ type SourceCredential struct {
 	pulumi.CustomResourceState
 
 	// The ARN of Source Credential.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringOutput `pulumi:"authType"`
 	// The source provider used for this project.
@@ -283,8 +283,8 @@ func (o SourceCredentialOutput) ToSourceCredentialOutputWithContext(ctx context.
 }
 
 // The ARN of Source Credential.
-func (o SourceCredentialOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SourceCredentialOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceCredential) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.

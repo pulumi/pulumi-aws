@@ -56,7 +56,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the link.
         """
@@ -64,7 +64,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def bandwidths(self) -> Sequence['outputs.GetLinkBandwidthResult']:
+    def bandwidths(self) -> Optional[Sequence['outputs.GetLinkBandwidthResult']]:
         """
         Upload speed and download speed of the link as documented below
         """
@@ -72,7 +72,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the link.
         """
@@ -85,7 +85,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -98,7 +98,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> str:
+    def provider_name(self) -> Optional[str]:
         """
         Provider of the link.
         """
@@ -106,7 +106,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter(name="siteId")
-    def site_id(self) -> str:
+    def site_id(self) -> Optional[str]:
         """
         ID of the site.
         """
@@ -114,7 +114,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the link.
         """
@@ -122,7 +122,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of the link.
         """

@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference {
-    private Integer priority;
-    private String resourceArn;
+    private @Nullable Integer priority;
+    private @Nullable String resourceArn;
 
     private GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference() {}
-    public Integer priority() {
-        return this.priority;
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
     }
-    public String resourceArn() {
-        return this.resourceArn;
+    public Optional<String> resourceArn() {
+        return Optional.ofNullable(this.resourceArn);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer priority;
-        private String resourceArn;
+        private @Nullable Integer priority;
+        private @Nullable String resourceArn;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference {
         }
 
         @CustomType.Setter
-        public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
-        public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+        public Builder resourceArn(@Nullable String resourceArn) {
+            this.resourceArn = resourceArn;
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference build() {

@@ -45,7 +45,7 @@ class GetAddonVersionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -63,7 +63,7 @@ class GetAddonVersionResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Version of the EKS add-on.
         """

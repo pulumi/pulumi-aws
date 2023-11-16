@@ -7,6 +7,7 @@ import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationSheetTileBorder;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeConfigurationSheetTile {
@@ -14,7 +15,7 @@ public final class GetThemeConfigurationSheetTile {
      * @return The border around a tile. See border.
      * 
      */
-    private List<GetThemeConfigurationSheetTileBorder> borders;
+    private @Nullable List<GetThemeConfigurationSheetTileBorder> borders;
 
     private GetThemeConfigurationSheetTile() {}
     /**
@@ -22,7 +23,7 @@ public final class GetThemeConfigurationSheetTile {
      * 
      */
     public List<GetThemeConfigurationSheetTileBorder> borders() {
-        return this.borders;
+        return this.borders == null ? List.of() : this.borders;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetThemeConfigurationSheetTile {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetThemeConfigurationSheetTileBorder> borders;
+        private @Nullable List<GetThemeConfigurationSheetTileBorder> borders;
         public Builder() {}
         public Builder(GetThemeConfigurationSheetTile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetThemeConfigurationSheetTile {
         }
 
         @CustomType.Setter
-        public Builder borders(List<GetThemeConfigurationSheetTileBorder> borders) {
-            this.borders = Objects.requireNonNull(borders);
+        public Builder borders(@Nullable List<GetThemeConfigurationSheetTileBorder> borders) {
+            this.borders = borders;
             return this;
         }
         public Builder borders(GetThemeConfigurationSheetTileBorder... borders) {

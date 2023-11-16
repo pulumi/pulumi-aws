@@ -6,6 +6,8 @@ package com.pulumi.aws.codecommit.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApprovalRuleTemplateResult {
@@ -13,93 +15,93 @@ public final class GetApprovalRuleTemplateResult {
      * @return The ID of the approval rule template.
      * 
      */
-    private String approvalRuleTemplateId;
+    private @Nullable String approvalRuleTemplateId;
     /**
      * @return Content of the approval rule template.
      * 
      */
-    private String content;
+    private @Nullable String content;
     /**
      * @return Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private String creationDate;
+    private @Nullable String creationDate;
     /**
      * @return Description of the approval rule template.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private String lastModifiedDate;
+    private @Nullable String lastModifiedDate;
     /**
      * @return ARN of the user who made the most recent changes to the approval rule template.
      * 
      */
-    private String lastModifiedUser;
+    private @Nullable String lastModifiedUser;
     private String name;
     /**
      * @return SHA-256 hash signature for the content of the approval rule template.
      * 
      */
-    private String ruleContentSha256;
+    private @Nullable String ruleContentSha256;
 
     private GetApprovalRuleTemplateResult() {}
     /**
      * @return The ID of the approval rule template.
      * 
      */
-    public String approvalRuleTemplateId() {
-        return this.approvalRuleTemplateId;
+    public Optional<String> approvalRuleTemplateId() {
+        return Optional.ofNullable(this.approvalRuleTemplateId);
     }
     /**
      * @return Content of the approval rule template.
      * 
      */
-    public String content() {
-        return this.content;
+    public Optional<String> content() {
+        return Optional.ofNullable(this.content);
     }
     /**
      * @return Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String creationDate() {
-        return this.creationDate;
+    public Optional<String> creationDate() {
+        return Optional.ofNullable(this.creationDate);
     }
     /**
      * @return Description of the approval rule template.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String lastModifiedDate() {
-        return this.lastModifiedDate;
+    public Optional<String> lastModifiedDate() {
+        return Optional.ofNullable(this.lastModifiedDate);
     }
     /**
      * @return ARN of the user who made the most recent changes to the approval rule template.
      * 
      */
-    public String lastModifiedUser() {
-        return this.lastModifiedUser;
+    public Optional<String> lastModifiedUser() {
+        return Optional.ofNullable(this.lastModifiedUser);
     }
     public String name() {
         return this.name;
@@ -108,8 +110,8 @@ public final class GetApprovalRuleTemplateResult {
      * @return SHA-256 hash signature for the content of the approval rule template.
      * 
      */
-    public String ruleContentSha256() {
-        return this.ruleContentSha256;
+    public Optional<String> ruleContentSha256() {
+        return Optional.ofNullable(this.ruleContentSha256);
     }
 
     public static Builder builder() {
@@ -121,15 +123,15 @@ public final class GetApprovalRuleTemplateResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String approvalRuleTemplateId;
-        private String content;
-        private String creationDate;
-        private String description;
-        private String id;
-        private String lastModifiedDate;
-        private String lastModifiedUser;
+        private @Nullable String approvalRuleTemplateId;
+        private @Nullable String content;
+        private @Nullable String creationDate;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String lastModifiedDate;
+        private @Nullable String lastModifiedUser;
         private String name;
-        private String ruleContentSha256;
+        private @Nullable String ruleContentSha256;
         public Builder() {}
         public Builder(GetApprovalRuleTemplateResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -145,38 +147,38 @@ public final class GetApprovalRuleTemplateResult {
         }
 
         @CustomType.Setter
-        public Builder approvalRuleTemplateId(String approvalRuleTemplateId) {
-            this.approvalRuleTemplateId = Objects.requireNonNull(approvalRuleTemplateId);
+        public Builder approvalRuleTemplateId(@Nullable String approvalRuleTemplateId) {
+            this.approvalRuleTemplateId = approvalRuleTemplateId;
             return this;
         }
         @CustomType.Setter
-        public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+        public Builder content(@Nullable String content) {
+            this.content = content;
             return this;
         }
         @CustomType.Setter
-        public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+        public Builder creationDate(@Nullable String creationDate) {
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedDate(String lastModifiedDate) {
-            this.lastModifiedDate = Objects.requireNonNull(lastModifiedDate);
+        public Builder lastModifiedDate(@Nullable String lastModifiedDate) {
+            this.lastModifiedDate = lastModifiedDate;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedUser(String lastModifiedUser) {
-            this.lastModifiedUser = Objects.requireNonNull(lastModifiedUser);
+        public Builder lastModifiedUser(@Nullable String lastModifiedUser) {
+            this.lastModifiedUser = lastModifiedUser;
             return this;
         }
         @CustomType.Setter
@@ -185,8 +187,8 @@ public final class GetApprovalRuleTemplateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ruleContentSha256(String ruleContentSha256) {
-            this.ruleContentSha256 = Objects.requireNonNull(ruleContentSha256);
+        public Builder ruleContentSha256(@Nullable String ruleContentSha256) {
+            this.ruleContentSha256 = ruleContentSha256;
             return this;
         }
         public GetApprovalRuleTemplateResult build() {

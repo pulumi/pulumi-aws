@@ -59,7 +59,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
     /**
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description that you specify for the namespace when you create it.
      */
@@ -67,7 +67,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
     /**
      * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      */
-    public /*out*/ readonly hostedZone!: pulumi.Output<string>;
+    public /*out*/ readonly hostedZone!: pulumi.Output<string | undefined>;
     /**
      * The name of the namespace.
      */

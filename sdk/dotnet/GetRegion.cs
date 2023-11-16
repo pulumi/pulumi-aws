@@ -132,26 +132,26 @@ namespace Pulumi.Aws
         /// <summary>
         /// Region's description in this format: "Location (Region name)".
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// EC2 endpoint for the selected region.
         /// </summary>
-        public readonly string Endpoint;
-        public readonly string Id;
+        public readonly string? Endpoint;
+        public readonly string? Id;
         /// <summary>
         /// Name of the selected region.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetRegionResult(
-            string description,
+            string? description,
 
-            string endpoint,
+            string? endpoint,
 
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             Description = description;
             Endpoint = endpoint;

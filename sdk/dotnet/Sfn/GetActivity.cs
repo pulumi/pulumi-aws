@@ -113,26 +113,26 @@ namespace Pulumi.Aws.Sfn
     [OutputType]
     public sealed class GetActivityResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Date the activity was created.
         /// </summary>
-        public readonly string CreationDate;
+        public readonly string? CreationDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string Name;
+        public readonly string? Id;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetActivityResult(
-            string arn,
+            string? arn,
 
-            string creationDate,
+            string? creationDate,
 
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             Arn = arn;
             CreationDate = creationDate;

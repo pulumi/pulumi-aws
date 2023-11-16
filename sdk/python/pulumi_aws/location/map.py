@@ -408,7 +408,7 @@ class Map(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[str]:
+    def create_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the map resource was created in ISO 8601 format.
         """
@@ -424,7 +424,7 @@ class Map(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mapArn")
-    def map_arn(self) -> pulumi.Output[str]:
+    def map_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
         """
@@ -461,7 +461,7 @@ class Map(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[str]:
+    def update_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the map resource was last updated in ISO 8601 format.
         """

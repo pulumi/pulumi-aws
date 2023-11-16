@@ -82,66 +82,66 @@ export interface GetVpcEndpointResult {
     /**
      * ARN of the VPC endpoint.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
-    readonly cidrBlocks: string[];
+    readonly cidrBlocks?: string[];
     /**
      * DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
      */
-    readonly dnsEntries: outputs.ec2.GetVpcEndpointDnsEntry[];
+    readonly dnsEntries?: outputs.ec2.GetVpcEndpointDnsEntry[];
     /**
      * DNS options for the VPC Endpoint. DNS options blocks are documented below.
      */
-    readonly dnsOptions: outputs.ec2.GetVpcEndpointDnsOption[];
+    readonly dnsOptions?: outputs.ec2.GetVpcEndpointDnsOption[];
     readonly filters?: outputs.ec2.GetVpcEndpointFilter[];
-    readonly id: string;
-    readonly ipAddressType: string;
+    readonly id?: string;
+    readonly ipAddressType?: string;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */
-    readonly networkInterfaceIds: string[];
+    readonly networkInterfaceIds?: string[];
     /**
      * ID of the AWS account that owns the VPC endpoint.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      */
-    readonly policy: string;
+    readonly policy?: string;
     /**
      * Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
-    readonly prefixListId: string;
+    readonly prefixListId?: string;
     /**
      * Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
      */
-    readonly privateDnsEnabled: boolean;
+    readonly privateDnsEnabled?: boolean;
     /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */
-    readonly requesterManaged: boolean;
+    readonly requesterManaged?: boolean;
     /**
      * One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      */
-    readonly routeTableIds: string[];
+    readonly routeTableIds?: string[];
     /**
      * One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
      */
-    readonly securityGroupIds: string[];
-    readonly serviceName: string;
-    readonly state: string;
+    readonly securityGroupIds?: string[];
+    readonly serviceName?: string;
+    readonly state?: string;
     /**
      * One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
      */
-    readonly subnetIds: string[];
-    readonly tags: {[key: string]: string};
+    readonly subnetIds?: string[];
+    readonly tags?: {[key: string]: string};
     /**
      * VPC Endpoint type, `Gateway` or `Interface`.
      */
-    readonly vpcEndpointType: string;
-    readonly vpcId: string;
+    readonly vpcEndpointType?: string;
+    readonly vpcId?: string;
 }
 /**
  * The VPC Endpoint data source provides details about

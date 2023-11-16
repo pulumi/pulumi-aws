@@ -44,11 +44,11 @@ export interface GetTrackerAssociationsResult {
     /**
      * List of geofence collection ARNs associated to the tracker resource.
      */
-    readonly consumerArns: string[];
+    readonly consumerArns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly trackerName: string;
 }
 /**

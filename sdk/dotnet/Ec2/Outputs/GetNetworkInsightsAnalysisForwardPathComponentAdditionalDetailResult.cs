@@ -13,12 +13,12 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult
     {
-        public readonly string AdditionalDetailType;
+        public readonly string? AdditionalDetailType;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult> Components;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult(
-            string additionalDetailType,
+            string? additionalDetailType,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult> components)
         {

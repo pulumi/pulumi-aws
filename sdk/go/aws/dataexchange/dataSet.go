@@ -54,7 +54,7 @@ type DataSet struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of this data set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
 	AssetType pulumi.StringOutput `pulumi:"assetType"`
 	// A description for the data set.
@@ -257,8 +257,8 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 }
 
 // The Amazon Resource Name of this data set.
-func (o DataSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DataSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.

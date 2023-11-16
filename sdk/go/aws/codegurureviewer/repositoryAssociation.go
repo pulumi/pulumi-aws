@@ -63,28 +63,28 @@ type RepositoryAssociation struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) identifying the repository association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the repository association.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
+	AssociationId pulumi.StringPtrOutput `pulumi:"associationId"`
 	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
+	ConnectionArn pulumi.StringPtrOutput `pulumi:"connectionArn"`
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrOutput `pulumi:"kmsKeyDetails"`
 	// The name of the third party source repository.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The username for the account that owns the repository.
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// The provider type of the repository association.
-	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	ProviderType pulumi.StringPtrOutput `pulumi:"providerType"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
 	//
 	// The following arguments are optional:
 	Repository          RepositoryAssociationRepositoryOutput              `pulumi:"repository"`
 	S3RepositoryDetails RepositoryAssociationS3RepositoryDetailArrayOutput `pulumi:"s3RepositoryDetails"`
 	// The state of the repository association.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// A description of why the repository association is in the current state.
-	StateReason pulumi.StringOutput    `pulumi:"stateReason"`
+	StateReason pulumi.StringPtrOutput `pulumi:"stateReason"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -297,18 +297,18 @@ func (o RepositoryAssociationOutput) ToRepositoryAssociationOutputWithContext(ct
 }
 
 // The Amazon Resource Name (ARN) identifying the repository association.
-func (o RepositoryAssociationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RepositoryAssociationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the repository association.
-func (o RepositoryAssociationOutput) AssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+func (o RepositoryAssociationOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-func (o RepositoryAssociationOutput) ConnectionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.ConnectionArn }).(pulumi.StringOutput)
+func (o RepositoryAssociationOutput) ConnectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.ConnectionArn }).(pulumi.StringPtrOutput)
 }
 
 // An object describing the KMS key to asssociate. Block is documented below.
@@ -317,18 +317,18 @@ func (o RepositoryAssociationOutput) KmsKeyDetails() RepositoryAssociationKmsKey
 }
 
 // The name of the third party source repository.
-func (o RepositoryAssociationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o RepositoryAssociationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The username for the account that owns the repository.
-func (o RepositoryAssociationOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o RepositoryAssociationOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // The provider type of the repository association.
-func (o RepositoryAssociationOutput) ProviderType() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
+func (o RepositoryAssociationOutput) ProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.ProviderType }).(pulumi.StringPtrOutput)
 }
 
 // An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
@@ -345,13 +345,13 @@ func (o RepositoryAssociationOutput) S3RepositoryDetails() RepositoryAssociation
 }
 
 // The state of the repository association.
-func (o RepositoryAssociationOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o RepositoryAssociationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // A description of why the repository association is in the current state.
-func (o RepositoryAssociationOutput) StateReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.StateReason }).(pulumi.StringOutput)
+func (o RepositoryAssociationOutput) StateReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.StateReason }).(pulumi.StringPtrOutput)
 }
 
 func (o RepositoryAssociationOutput) Tags() pulumi.StringMapOutput {

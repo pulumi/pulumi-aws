@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerResult {
@@ -17,107 +19,107 @@ public final class GetListenerResult {
      * @return ARN of the listener.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The date and time that the listener was created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return The actions for the default listener rule.
      * 
      */
-    private List<GetListenerDefaultAction> defaultActions;
+    private @Nullable List<GetListenerDefaultAction> defaultActions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The date and time the listener was last updated.
      * 
      */
-    private String lastUpdatedAt;
+    private @Nullable String lastUpdatedAt;
     /**
      * @return The ID of the listener.
      * 
      */
-    private String listenerId;
+    private @Nullable String listenerId;
     private String listenerIdentifier;
     /**
      * @return The name of the listener.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The listener port.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
     /**
      * @return The listener protocol. Either `HTTPS` or `HTTP`.
      * 
      */
-    private String protocol;
+    private @Nullable String protocol;
     /**
      * @return The ARN of the service.
      * 
      */
-    private String serviceArn;
+    private @Nullable String serviceArn;
     /**
      * @return The ID of the service.
      * 
      */
-    private String serviceId;
+    private @Nullable String serviceId;
     private String serviceIdentifier;
     /**
      * @return List of tags associated with the listener.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetListenerResult() {}
     /**
      * @return ARN of the listener.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The date and time that the listener was created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return The actions for the default listener rule.
      * 
      */
     public List<GetListenerDefaultAction> defaultActions() {
-        return this.defaultActions;
+        return this.defaultActions == null ? List.of() : this.defaultActions;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The date and time the listener was last updated.
      * 
      */
-    public String lastUpdatedAt() {
-        return this.lastUpdatedAt;
+    public Optional<String> lastUpdatedAt() {
+        return Optional.ofNullable(this.lastUpdatedAt);
     }
     /**
      * @return The ID of the listener.
      * 
      */
-    public String listenerId() {
-        return this.listenerId;
+    public Optional<String> listenerId() {
+        return Optional.ofNullable(this.listenerId);
     }
     public String listenerIdentifier() {
         return this.listenerIdentifier;
@@ -126,36 +128,36 @@ public final class GetListenerResult {
      * @return The name of the listener.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The listener port.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return The listener protocol. Either `HTTPS` or `HTTP`.
      * 
      */
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
     /**
      * @return The ARN of the service.
      * 
      */
-    public String serviceArn() {
-        return this.serviceArn;
+    public Optional<String> serviceArn() {
+        return Optional.ofNullable(this.serviceArn);
     }
     /**
      * @return The ID of the service.
      * 
      */
-    public String serviceId() {
-        return this.serviceId;
+    public Optional<String> serviceId() {
+        return Optional.ofNullable(this.serviceId);
     }
     public String serviceIdentifier() {
         return this.serviceIdentifier;
@@ -165,7 +167,7 @@ public final class GetListenerResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -177,20 +179,20 @@ public final class GetListenerResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String createdAt;
-        private List<GetListenerDefaultAction> defaultActions;
-        private String id;
-        private String lastUpdatedAt;
-        private String listenerId;
+        private @Nullable String arn;
+        private @Nullable String createdAt;
+        private @Nullable List<GetListenerDefaultAction> defaultActions;
+        private @Nullable String id;
+        private @Nullable String lastUpdatedAt;
+        private @Nullable String listenerId;
         private String listenerIdentifier;
-        private String name;
-        private Integer port;
-        private String protocol;
-        private String serviceArn;
-        private String serviceId;
+        private @Nullable String name;
+        private @Nullable Integer port;
+        private @Nullable String protocol;
+        private @Nullable String serviceArn;
+        private @Nullable String serviceId;
         private String serviceIdentifier;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetListenerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -211,36 +213,36 @@ public final class GetListenerResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultActions(List<GetListenerDefaultAction> defaultActions) {
-            this.defaultActions = Objects.requireNonNull(defaultActions);
+        public Builder defaultActions(@Nullable List<GetListenerDefaultAction> defaultActions) {
+            this.defaultActions = defaultActions;
             return this;
         }
         public Builder defaultActions(GetListenerDefaultAction... defaultActions) {
             return defaultActions(List.of(defaultActions));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedAt(String lastUpdatedAt) {
-            this.lastUpdatedAt = Objects.requireNonNull(lastUpdatedAt);
+        public Builder lastUpdatedAt(@Nullable String lastUpdatedAt) {
+            this.lastUpdatedAt = lastUpdatedAt;
             return this;
         }
         @CustomType.Setter
-        public Builder listenerId(String listenerId) {
-            this.listenerId = Objects.requireNonNull(listenerId);
+        public Builder listenerId(@Nullable String listenerId) {
+            this.listenerId = listenerId;
             return this;
         }
         @CustomType.Setter
@@ -249,28 +251,28 @@ public final class GetListenerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceArn(String serviceArn) {
-            this.serviceArn = Objects.requireNonNull(serviceArn);
+        public Builder serviceArn(@Nullable String serviceArn) {
+            this.serviceArn = serviceArn;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceId(String serviceId) {
-            this.serviceId = Objects.requireNonNull(serviceId);
+        public Builder serviceId(@Nullable String serviceId) {
+            this.serviceId = serviceId;
             return this;
         }
         @CustomType.Setter
@@ -279,8 +281,8 @@ public final class GetListenerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetListenerResult build() {

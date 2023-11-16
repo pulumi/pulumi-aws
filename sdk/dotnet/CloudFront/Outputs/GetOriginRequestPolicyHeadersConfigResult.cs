@@ -13,12 +13,12 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class GetOriginRequestPolicyHeadersConfigResult
     {
-        public readonly string HeaderBehavior;
+        public readonly string? HeaderBehavior;
         public readonly ImmutableArray<Outputs.GetOriginRequestPolicyHeadersConfigHeaderResult> Headers;
 
         [OutputConstructor]
         private GetOriginRequestPolicyHeadersConfigResult(
-            string headerBehavior,
+            string? headerBehavior,
 
             ImmutableArray<Outputs.GetOriginRequestPolicyHeadersConfigHeaderResult> headers)
         {

@@ -16,14 +16,14 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// <summary>
         /// Name of the DynamoDB table.
         /// </summary>
-        public readonly string Name;
-        public readonly string Type;
+        public readonly string? Name;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetTableAttributeResult(
-            string name,
+            string? name,
 
-            string type)
+            string? type)
         {
             Name = name;
             Type = type;

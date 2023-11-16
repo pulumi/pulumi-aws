@@ -20,13 +20,13 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// The Availability Zone where the subnet is configured.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
 
         [OutputConstructor]
         private GetFirewallFirewallStatusSyncStateResult(
             ImmutableArray<Outputs.GetFirewallFirewallStatusSyncStateAttachmentResult> attachments,
 
-            string availabilityZone)
+            string? availabilityZone)
         {
             Attachments = attachments;
             AvailabilityZone = availabilityZone;

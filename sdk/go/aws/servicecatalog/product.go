@@ -67,15 +67,15 @@ type Product struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
 	// ARN of the product.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Time when the product was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Description of the product.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Distributor (i.e., vendor) of the product.
-	Distributor pulumi.StringOutput `pulumi:"distributor"`
+	Distributor pulumi.StringPtrOutput `pulumi:"distributor"`
 	// Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-	HasDefaultPath pulumi.BoolOutput `pulumi:"hasDefaultPath"`
+	HasDefaultPath pulumi.BoolPtrOutput `pulumi:"hasDefaultPath"`
 	// Name of the product.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the product.
@@ -83,13 +83,13 @@ type Product struct {
 	// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersOutput `pulumi:"provisioningArtifactParameters"`
 	// Status of the product.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Support information about the product.
-	SupportDescription pulumi.StringOutput `pulumi:"supportDescription"`
+	SupportDescription pulumi.StringPtrOutput `pulumi:"supportDescription"`
 	// Contact email for product support.
-	SupportEmail pulumi.StringOutput `pulumi:"supportEmail"`
+	SupportEmail pulumi.StringPtrOutput `pulumi:"supportEmail"`
 	// Contact URL for product support.
-	SupportUrl pulumi.StringOutput `pulumi:"supportUrl"`
+	SupportUrl pulumi.StringPtrOutput `pulumi:"supportUrl"`
 	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -374,28 +374,28 @@ func (o ProductOutput) AcceptLanguage() pulumi.StringPtrOutput {
 }
 
 // ARN of the product.
-func (o ProductOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProductOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Time when the product was created.
-func (o ProductOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o ProductOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Description of the product.
-func (o ProductOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o ProductOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Distributor (i.e., vendor) of the product.
-func (o ProductOutput) Distributor() pulumi.StringOutput {
-	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Distributor }).(pulumi.StringOutput)
+func (o ProductOutput) Distributor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringPtrOutput { return v.Distributor }).(pulumi.StringPtrOutput)
 }
 
 // Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-func (o ProductOutput) HasDefaultPath() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Product) pulumi.BoolOutput { return v.HasDefaultPath }).(pulumi.BoolOutput)
+func (o ProductOutput) HasDefaultPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Product) pulumi.BoolPtrOutput { return v.HasDefaultPath }).(pulumi.BoolPtrOutput)
 }
 
 // Name of the product.
@@ -414,23 +414,23 @@ func (o ProductOutput) ProvisioningArtifactParameters() ProductProvisioningArtif
 }
 
 // Status of the product.
-func (o ProductOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ProductOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Support information about the product.
-func (o ProductOutput) SupportDescription() pulumi.StringOutput {
-	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.SupportDescription }).(pulumi.StringOutput)
+func (o ProductOutput) SupportDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringPtrOutput { return v.SupportDescription }).(pulumi.StringPtrOutput)
 }
 
 // Contact email for product support.
-func (o ProductOutput) SupportEmail() pulumi.StringOutput {
-	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.SupportEmail }).(pulumi.StringOutput)
+func (o ProductOutput) SupportEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringPtrOutput { return v.SupportEmail }).(pulumi.StringPtrOutput)
 }
 
 // Contact URL for product support.
-func (o ProductOutput) SupportUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.SupportUrl }).(pulumi.StringOutput)
+func (o ProductOutput) SupportUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringPtrOutput { return v.SupportUrl }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

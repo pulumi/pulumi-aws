@@ -67,14 +67,14 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    private Output</* @Nullable */ String> createTime;
 
     /**
      * @return The timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<Optional<String>> createTime() {
+        return Codegen.optional(this.createTime);
     }
     /**
      * Specifies the geospatial data provider for the new place index.
@@ -95,14 +95,14 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataSourceConfiguration", refs={PlaceIndexDataSourceConfiguration.class}, tree="[0]")
-    private Output<PlaceIndexDataSourceConfiguration> dataSourceConfiguration;
+    private Output</* @Nullable */ PlaceIndexDataSourceConfiguration> dataSourceConfiguration;
 
     /**
      * @return Configuration block with the data storage option chosen for requesting Places. Detailed below.
      * 
      */
-    public Output<PlaceIndexDataSourceConfiguration> dataSourceConfiguration() {
-        return this.dataSourceConfiguration;
+    public Output<Optional<PlaceIndexDataSourceConfiguration>> dataSourceConfiguration() {
+        return Codegen.optional(this.dataSourceConfiguration);
     }
     /**
      * The optional description for the place index resource.
@@ -123,14 +123,14 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="indexArn", refs={String.class}, tree="[0]")
-    private Output<String> indexArn;
+    private Output</* @Nullable */ String> indexArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      * 
      */
-    public Output<String> indexArn() {
-        return this.indexArn;
+    public Output<Optional<String>> indexArn() {
+        return Codegen.optional(this.indexArn);
     }
     /**
      * The name of the place index resource.
@@ -187,14 +187,14 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    private Output</* @Nullable */ String> updateTime;
 
     /**
      * @return The timestamp for when the place index resource was last update in ISO 8601.
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<Optional<String>> updateTime() {
+        return Codegen.optional(this.updateTime);
     }
 
     /**

@@ -12,88 +12,88 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOutpostResult {
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Availability Zone name.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return Availability Zone identifier.
      * 
      */
-    private String availabilityZoneId;
+    private @Nullable String availabilityZoneId;
     /**
      * @return The description of the Outpost.
      * 
      */
-    private String description;
-    private String id;
+    private @Nullable String description;
+    private @Nullable String id;
     /**
      * @return The life cycle status.
      * 
      */
-    private String lifecycleStatus;
-    private String name;
+    private @Nullable String lifecycleStatus;
+    private @Nullable String name;
     private @Nullable String ownerId;
     /**
      * @return The Amazon Resource Name (ARN) of the site.
      * 
      */
-    private String siteArn;
+    private @Nullable String siteArn;
     /**
      * @return The ID of the site.
      * 
      */
-    private String siteId;
+    private @Nullable String siteId;
     /**
      * @return The hardware type.
      * 
      */
-    private String supportedHardwareType;
+    private @Nullable String supportedHardwareType;
     /**
      * @return The Outpost tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetOutpostResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Availability Zone name.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     /**
      * @return Availability Zone identifier.
      * 
      */
-    public String availabilityZoneId() {
-        return this.availabilityZoneId;
+    public Optional<String> availabilityZoneId() {
+        return Optional.ofNullable(this.availabilityZoneId);
     }
     /**
      * @return The description of the Outpost.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The life cycle status.
      * 
      */
-    public String lifecycleStatus() {
-        return this.lifecycleStatus;
+    public Optional<String> lifecycleStatus() {
+        return Optional.ofNullable(this.lifecycleStatus);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public Optional<String> ownerId() {
         return Optional.ofNullable(this.ownerId);
@@ -102,29 +102,29 @@ public final class GetOutpostResult {
      * @return The Amazon Resource Name (ARN) of the site.
      * 
      */
-    public String siteArn() {
-        return this.siteArn;
+    public Optional<String> siteArn() {
+        return Optional.ofNullable(this.siteArn);
     }
     /**
      * @return The ID of the site.
      * 
      */
-    public String siteId() {
-        return this.siteId;
+    public Optional<String> siteId() {
+        return Optional.ofNullable(this.siteId);
     }
     /**
      * @return The hardware type.
      * 
      */
-    public String supportedHardwareType() {
-        return this.supportedHardwareType;
+    public Optional<String> supportedHardwareType() {
+        return Optional.ofNullable(this.supportedHardwareType);
     }
     /**
      * @return The Outpost tags.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -136,18 +136,18 @@ public final class GetOutpostResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String availabilityZone;
-        private String availabilityZoneId;
-        private String description;
-        private String id;
-        private String lifecycleStatus;
-        private String name;
+        private @Nullable String arn;
+        private @Nullable String availabilityZone;
+        private @Nullable String availabilityZoneId;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String lifecycleStatus;
+        private @Nullable String name;
         private @Nullable String ownerId;
-        private String siteArn;
-        private String siteId;
-        private String supportedHardwareType;
-        private Map<String,String> tags;
+        private @Nullable String siteArn;
+        private @Nullable String siteId;
+        private @Nullable String supportedHardwareType;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetOutpostResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -166,38 +166,38 @@ public final class GetOutpostResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZoneId(String availabilityZoneId) {
-            this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
+        public Builder availabilityZoneId(@Nullable String availabilityZoneId) {
+            this.availabilityZoneId = availabilityZoneId;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lifecycleStatus(String lifecycleStatus) {
-            this.lifecycleStatus = Objects.requireNonNull(lifecycleStatus);
+        public Builder lifecycleStatus(@Nullable String lifecycleStatus) {
+            this.lifecycleStatus = lifecycleStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -206,23 +206,23 @@ public final class GetOutpostResult {
             return this;
         }
         @CustomType.Setter
-        public Builder siteArn(String siteArn) {
-            this.siteArn = Objects.requireNonNull(siteArn);
+        public Builder siteArn(@Nullable String siteArn) {
+            this.siteArn = siteArn;
             return this;
         }
         @CustomType.Setter
-        public Builder siteId(String siteId) {
-            this.siteId = Objects.requireNonNull(siteId);
+        public Builder siteId(@Nullable String siteId) {
+            this.siteId = siteId;
             return this;
         }
         @CustomType.Setter
-        public Builder supportedHardwareType(String supportedHardwareType) {
-            this.supportedHardwareType = Objects.requireNonNull(supportedHardwareType);
+        public Builder supportedHardwareType(@Nullable String supportedHardwareType) {
+            this.supportedHardwareType = supportedHardwareType;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetOutpostResult build() {

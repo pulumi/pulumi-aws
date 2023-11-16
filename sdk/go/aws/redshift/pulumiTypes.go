@@ -1531,11 +1531,11 @@ func (o ScheduledActionTargetActionResumeClusterPtrOutput) ClusterIdentifier() p
 
 type GetClusterClusterNode struct {
 	// Whether the node is a leader node or a compute node
-	NodeRole string `pulumi:"nodeRole"`
+	NodeRole *string `pulumi:"nodeRole"`
 	// Private IP address of a node within a cluster
-	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// Public IP address of a node within a cluster
-	PublicIpAddress string `pulumi:"publicIpAddress"`
+	PublicIpAddress *string `pulumi:"publicIpAddress"`
 }
 
 // GetClusterClusterNodeInput is an input type that accepts GetClusterClusterNodeArgs and GetClusterClusterNodeOutput values.
@@ -1551,11 +1551,11 @@ type GetClusterClusterNodeInput interface {
 
 type GetClusterClusterNodeArgs struct {
 	// Whether the node is a leader node or a compute node
-	NodeRole pulumi.StringInput `pulumi:"nodeRole"`
+	NodeRole pulumi.StringPtrInput `pulumi:"nodeRole"`
 	// Private IP address of a node within a cluster
-	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// Public IP address of a node within a cluster
-	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
 }
 
 func (GetClusterClusterNodeArgs) ElementType() reflect.Type {
@@ -1610,18 +1610,18 @@ func (o GetClusterClusterNodeOutput) ToGetClusterClusterNodeOutputWithContext(ct
 }
 
 // Whether the node is a leader node or a compute node
-func (o GetClusterClusterNodeOutput) NodeRole() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterClusterNode) string { return v.NodeRole }).(pulumi.StringOutput)
+func (o GetClusterClusterNodeOutput) NodeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterClusterNode) *string { return v.NodeRole }).(pulumi.StringPtrOutput)
 }
 
 // Private IP address of a node within a cluster
-func (o GetClusterClusterNodeOutput) PrivateIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterClusterNode) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+func (o GetClusterClusterNodeOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterClusterNode) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // Public IP address of a node within a cluster
-func (o GetClusterClusterNodeOutput) PublicIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterClusterNode) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+func (o GetClusterClusterNodeOutput) PublicIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterClusterNode) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
 }
 
 type GetClusterClusterNodeArrayOutput struct{ *pulumi.OutputState }

@@ -59,26 +59,26 @@ type LookupSigningProfileArgs struct {
 // A collection of values returned by getSigningProfile.
 type LookupSigningProfileResult struct {
 	// ARN for the signing profile.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// A human-readable name for the signing platform associated with the signing profile.
-	PlatformDisplayName string `pulumi:"platformDisplayName"`
+	PlatformDisplayName *string `pulumi:"platformDisplayName"`
 	// ID of the platform that is used by the target signing profile.
-	PlatformId string `pulumi:"platformId"`
+	PlatformId *string `pulumi:"platformId"`
 	// Revocation information for a signing profile.
 	RevocationRecords []GetSigningProfileRevocationRecord `pulumi:"revocationRecords"`
 	// The validity period for a signing job.
 	SignatureValidityPeriods []GetSigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriods"`
 	// Status of the target signing profile.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// List of tags associated with the signing profile.
 	Tags map[string]string `pulumi:"tags"`
 	// Current version of the signing profile.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 	// Signing profile ARN, including the profile version.
-	VersionArn string `pulumi:"versionArn"`
+	VersionArn *string `pulumi:"versionArn"`
 }
 
 func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSigningProfileResultOutput {
@@ -122,13 +122,13 @@ func (o LookupSigningProfileResultOutput) ToLookupSigningProfileResultOutputWith
 }
 
 // ARN for the signing profile.
-func (o LookupSigningProfileResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSigningProfileResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSigningProfileResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSigningProfileResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSigningProfileResultOutput) Name() pulumi.StringOutput {
@@ -136,13 +136,13 @@ func (o LookupSigningProfileResultOutput) Name() pulumi.StringOutput {
 }
 
 // A human-readable name for the signing platform associated with the signing profile.
-func (o LookupSigningProfileResultOutput) PlatformDisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.PlatformDisplayName }).(pulumi.StringOutput)
+func (o LookupSigningProfileResultOutput) PlatformDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) *string { return v.PlatformDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // ID of the platform that is used by the target signing profile.
-func (o LookupSigningProfileResultOutput) PlatformId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.PlatformId }).(pulumi.StringOutput)
+func (o LookupSigningProfileResultOutput) PlatformId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) *string { return v.PlatformId }).(pulumi.StringPtrOutput)
 }
 
 // Revocation information for a signing profile.
@@ -158,8 +158,8 @@ func (o LookupSigningProfileResultOutput) SignatureValidityPeriods() GetSigningP
 }
 
 // Status of the target signing profile.
-func (o LookupSigningProfileResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupSigningProfileResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // List of tags associated with the signing profile.
@@ -168,13 +168,13 @@ func (o LookupSigningProfileResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Current version of the signing profile.
-func (o LookupSigningProfileResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupSigningProfileResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // Signing profile ARN, including the profile version.
-func (o LookupSigningProfileResultOutput) VersionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.VersionArn }).(pulumi.StringOutput)
+func (o LookupSigningProfileResultOutput) VersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) *string { return v.VersionArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

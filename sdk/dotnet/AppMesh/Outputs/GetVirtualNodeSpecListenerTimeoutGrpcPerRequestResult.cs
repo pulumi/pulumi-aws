@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult
     {
-        public readonly string Unit;
-        public readonly int Value;
+        public readonly string? Unit;
+        public readonly int? Value;
 
         [OutputConstructor]
         private GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult(
-            string unit,
+            string? unit,
 
-            int value)
+            int? value)
         {
             Unit = unit;
             Value = value;

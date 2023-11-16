@@ -102,21 +102,21 @@ type VpcPeeringConnectionAccepter struct {
 	pulumi.CustomResourceState
 
 	// The status of the VPC Peering Connection request.
-	AcceptStatus pulumi.StringOutput `pulumi:"acceptStatus"`
+	AcceptStatus pulumi.StringPtrOutput `pulumi:"acceptStatus"`
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
-	Accepter VpcPeeringConnectionAccepterAccepterOutput `pulumi:"accepter"`
+	Accepter VpcPeeringConnectionAccepterAccepterPtrOutput `pulumi:"accepter"`
 	// Whether or not to accept the peering request. Defaults to `false`.
 	AutoAccept pulumi.BoolPtrOutput `pulumi:"autoAccept"`
 	// The AWS account ID of the owner of the requester VPC.
-	PeerOwnerId pulumi.StringOutput `pulumi:"peerOwnerId"`
+	PeerOwnerId pulumi.StringPtrOutput `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC.
-	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
+	PeerRegion pulumi.StringPtrOutput `pulumi:"peerRegion"`
 	// The ID of the requester VPC.
-	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
+	PeerVpcId pulumi.StringPtrOutput `pulumi:"peerVpcId"`
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
-	Requester VpcPeeringConnectionAccepterRequesterOutput `pulumi:"requester"`
+	Requester VpcPeeringConnectionAccepterRequesterPtrOutput `pulumi:"requester"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -124,7 +124,7 @@ type VpcPeeringConnectionAccepter struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the accepter VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 	// The VPC Peering Connection ID to manage.
 	VpcPeeringConnectionId pulumi.StringOutput `pulumi:"vpcPeeringConnectionId"`
 }
@@ -346,14 +346,14 @@ func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutput
 }
 
 // The status of the VPC Peering Connection request.
-func (o VpcPeeringConnectionAccepterOutput) AcceptStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringOutput { return v.AcceptStatus }).(pulumi.StringOutput)
+func (o VpcPeeringConnectionAccepterOutput) AcceptStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringPtrOutput { return v.AcceptStatus }).(pulumi.StringPtrOutput)
 }
 
 // A configuration block that describes [VPC Peering Connection]
 // (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
-func (o VpcPeeringConnectionAccepterOutput) Accepter() VpcPeeringConnectionAccepterAccepterOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) VpcPeeringConnectionAccepterAccepterOutput { return v.Accepter }).(VpcPeeringConnectionAccepterAccepterOutput)
+func (o VpcPeeringConnectionAccepterOutput) Accepter() VpcPeeringConnectionAccepterAccepterPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) VpcPeeringConnectionAccepterAccepterPtrOutput { return v.Accepter }).(VpcPeeringConnectionAccepterAccepterPtrOutput)
 }
 
 // Whether or not to accept the peering request. Defaults to `false`.
@@ -362,24 +362,26 @@ func (o VpcPeeringConnectionAccepterOutput) AutoAccept() pulumi.BoolPtrOutput {
 }
 
 // The AWS account ID of the owner of the requester VPC.
-func (o VpcPeeringConnectionAccepterOutput) PeerOwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringOutput { return v.PeerOwnerId }).(pulumi.StringOutput)
+func (o VpcPeeringConnectionAccepterOutput) PeerOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringPtrOutput { return v.PeerOwnerId }).(pulumi.StringPtrOutput)
 }
 
 // The region of the accepter VPC.
-func (o VpcPeeringConnectionAccepterOutput) PeerRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringOutput { return v.PeerRegion }).(pulumi.StringOutput)
+func (o VpcPeeringConnectionAccepterOutput) PeerRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringPtrOutput { return v.PeerRegion }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the requester VPC.
-func (o VpcPeeringConnectionAccepterOutput) PeerVpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
+func (o VpcPeeringConnectionAccepterOutput) PeerVpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringPtrOutput { return v.PeerVpcId }).(pulumi.StringPtrOutput)
 }
 
 // A configuration block that describes [VPC Peering Connection]
 // (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
-func (o VpcPeeringConnectionAccepterOutput) Requester() VpcPeeringConnectionAccepterRequesterOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) VpcPeeringConnectionAccepterRequesterOutput { return v.Requester }).(VpcPeeringConnectionAccepterRequesterOutput)
+func (o VpcPeeringConnectionAccepterOutput) Requester() VpcPeeringConnectionAccepterRequesterPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) VpcPeeringConnectionAccepterRequesterPtrOutput {
+		return v.Requester
+	}).(VpcPeeringConnectionAccepterRequesterPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -395,8 +397,8 @@ func (o VpcPeeringConnectionAccepterOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The ID of the accepter VPC.
-func (o VpcPeeringConnectionAccepterOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o VpcPeeringConnectionAccepterOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // The VPC Peering Connection ID to manage.

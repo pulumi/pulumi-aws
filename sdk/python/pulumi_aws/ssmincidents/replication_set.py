@@ -458,7 +458,7 @@ class ReplicationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the replication set.
         """
@@ -466,7 +466,7 @@ class ReplicationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[str]:
+    def created_by(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the user who created the replication set.
         """
@@ -474,7 +474,7 @@ class ReplicationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deletionProtected")
-    def deletion_protected(self) -> pulumi.Output[bool]:
+    def deletion_protected(self) -> pulumi.Output[Optional[bool]]:
         """
         If `true`, the last region in a replication set cannot be deleted.
         """
@@ -482,7 +482,7 @@ class ReplicationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output[str]:
+    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
         """
         A timestamp showing when the replication set was last modified.
         """
@@ -495,7 +495,7 @@ class ReplicationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of the Region.
         * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`

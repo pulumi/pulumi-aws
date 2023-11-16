@@ -106,28 +106,28 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the configured table.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date and time the configured table was created.
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    private Output</* @Nullable */ String> createTime;
 
     /**
      * @return The date and time the configured table was created.
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<Optional<String>> createTime() {
+        return Codegen.optional(this.createTime);
     }
     /**
      * A description for the configured table.
@@ -206,14 +206,14 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    private Output</* @Nullable */ String> updateTime;
 
     /**
      * @return The date and time the configured table was last updated.
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<Optional<String>> updateTime() {
+        return Codegen.optional(this.updateTime);
     }
 
     /**

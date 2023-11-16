@@ -113,27 +113,27 @@ namespace Pulumi.Aws.S3Control
     [OutputType]
     public sealed class GetMultiRegionAccessPointResult
     {
-        public readonly string AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// The alias for the Multi-Region Access Point.
         /// </summary>
-        public readonly string Alias;
+        public readonly string? Alias;
         /// <summary>
         /// Amazon Resource Name (ARN) of the Multi-Region Access Point.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Timestamp when the resource has been created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         /// </summary>
-        public readonly string DomainName;
+        public readonly string? DomainName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Public Access Block of the Multi-Region Access Point. Detailed below.
@@ -146,21 +146,21 @@ namespace Pulumi.Aws.S3Control
         /// <summary>
         /// The current status of the Multi-Region Access Point.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetMultiRegionAccessPointResult(
-            string accountId,
+            string? accountId,
 
-            string alias,
+            string? alias,
 
-            string arn,
+            string? arn,
 
-            string createdAt,
+            string? createdAt,
 
-            string domainName,
+            string? domainName,
 
-            string id,
+            string? id,
 
             string name,
 
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.S3Control
 
             ImmutableArray<Outputs.GetMultiRegionAccessPointRegionResult> regions,
 
-            string status)
+            string? status)
         {
             AccountId = accountId;
             Alias = alias;

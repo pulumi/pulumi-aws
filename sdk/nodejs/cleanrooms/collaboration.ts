@@ -82,12 +82,12 @@ export class Collaboration extends pulumi.CustomResource {
     /**
      * The arn of the collaboration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time the collaboration was created.
      * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string | undefined>;
     /**
      * The name for the member record for the collaboration creator.
      */
@@ -136,7 +136,7 @@ export class Collaboration extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Collaboration resource with the given unique name, arguments, and options.

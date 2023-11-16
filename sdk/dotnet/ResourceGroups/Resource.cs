@@ -63,7 +63,7 @@ namespace Pulumi.Aws.ResourceGroups
         /// The resource type of a resource, such as `AWS::EC2::Instance`.
         /// </summary>
         [Output("resourceType")]
-        public Output<string> ResourceType { get; private set; } = null!;
+        public Output<string?> ResourceType { get; private set; } = null!;
 
 
         /// <summary>

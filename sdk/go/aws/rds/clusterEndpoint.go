@@ -121,7 +121,7 @@ type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of cluster
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier pulumi.StringOutput `pulumi:"clusterEndpointIdentifier"`
 	// The cluster identifier.
@@ -129,7 +129,7 @@ type ClusterEndpoint struct {
 	// The type of the endpoint. One of: READER , ANY .
 	CustomEndpointType pulumi.StringOutput `pulumi:"customEndpointType"`
 	// A custom endpoint for the Aurora cluster
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
 	ExcludedMembers pulumi.StringArrayOutput `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
@@ -353,8 +353,8 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Co
 }
 
 // Amazon Resource Name (ARN) of cluster
-func (o ClusterEndpointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterEndpointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
@@ -373,8 +373,8 @@ func (o ClusterEndpointOutput) CustomEndpointType() pulumi.StringOutput {
 }
 
 // A custom endpoint for the Aurora cluster
-func (o ClusterEndpointOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ClusterEndpointOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.

@@ -88,17 +88,17 @@ type LookupConnectionArgs struct {
 
 // A collection of values returned by getConnection.
 type LookupConnectionResult struct {
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-	ConnectionStatus string `pulumi:"connectionStatus"`
+	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// ARN of the host associated with the connection.
-	HostArn string `pulumi:"hostArn"`
+	HostArn *string `pulumi:"hostArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the CodeStar Connection. The name is unique in the calling AWS account.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `hostArn` instead.
-	ProviderType string `pulumi:"providerType"`
+	ProviderType *string `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -147,33 +147,33 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(
 	return o
 }
 
-func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-func (o LookupConnectionResultOutput) ConnectionStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.ConnectionStatus }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) ConnectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the host associated with the connection.
-func (o LookupConnectionResultOutput) HostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.HostArn }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) HostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.HostArn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupConnectionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the CodeStar Connection. The name is unique in the calling AWS account.
-func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `hostArn` instead.
-func (o LookupConnectionResultOutput) ProviderType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderType }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) ProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.ProviderType }).(pulumi.StringPtrOutput)
 }
 
 // Map of key-value resource tags to associate with the resource.

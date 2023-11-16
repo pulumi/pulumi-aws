@@ -65,20 +65,20 @@ type HostedPublicVirtualInterface struct {
 	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
-	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
+	AmazonAddress pulumi.StringPtrOutput `pulumi:"amazonAddress"`
+	AmazonSideAsn pulumi.StringPtrOutput `pulumi:"amazonSideAsn"`
 	// The ARN of the virtual interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
+	AwsDevice pulumi.StringPtrOutput `pulumi:"awsDevice"`
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
 	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
+	BgpAuthKey pulumi.StringPtrOutput `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
+	CustomerAddress pulumi.StringPtrOutput `pulumi:"customerAddress"`
 	// The name for the virtual interface.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
@@ -336,22 +336,22 @@ func (o HostedPublicVirtualInterfaceOutput) AddressFamily() pulumi.StringOutput 
 }
 
 // The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-func (o HostedPublicVirtualInterfaceOutput) AmazonAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.AmazonAddress }).(pulumi.StringOutput)
+func (o HostedPublicVirtualInterfaceOutput) AmazonAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringPtrOutput { return v.AmazonAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o HostedPublicVirtualInterfaceOutput) AmazonSideAsn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
+func (o HostedPublicVirtualInterfaceOutput) AmazonSideAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringPtrOutput { return v.AmazonSideAsn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the virtual interface.
-func (o HostedPublicVirtualInterfaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HostedPublicVirtualInterfaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Direct Connect endpoint on which the virtual interface terminates.
-func (o HostedPublicVirtualInterfaceOutput) AwsDevice() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
+func (o HostedPublicVirtualInterfaceOutput) AwsDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringPtrOutput { return v.AwsDevice }).(pulumi.StringPtrOutput)
 }
 
 // The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -360,8 +360,8 @@ func (o HostedPublicVirtualInterfaceOutput) BgpAsn() pulumi.IntOutput {
 }
 
 // The authentication key for BGP configuration.
-func (o HostedPublicVirtualInterfaceOutput) BgpAuthKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.BgpAuthKey }).(pulumi.StringOutput)
+func (o HostedPublicVirtualInterfaceOutput) BgpAuthKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringPtrOutput { return v.BgpAuthKey }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -370,8 +370,8 @@ func (o HostedPublicVirtualInterfaceOutput) ConnectionId() pulumi.StringOutput {
 }
 
 // The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-func (o HostedPublicVirtualInterfaceOutput) CustomerAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.CustomerAddress }).(pulumi.StringOutput)
+func (o HostedPublicVirtualInterfaceOutput) CustomerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringPtrOutput { return v.CustomerAddress }).(pulumi.StringPtrOutput)
 }
 
 // The name for the virtual interface.

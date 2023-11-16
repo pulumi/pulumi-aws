@@ -57,7 +57,7 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this instance profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the instance profile.
      */

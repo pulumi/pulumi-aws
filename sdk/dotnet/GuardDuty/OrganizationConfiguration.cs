@@ -77,19 +77,19 @@ namespace Pulumi.Aws.GuardDuty
         /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         /// </summary>
         [Output("autoEnable")]
-        public Output<bool> AutoEnable { get; private set; } = null!;
+        public Output<bool?> AutoEnable { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
         [Output("autoEnableOrganizationMembers")]
-        public Output<string> AutoEnableOrganizationMembers { get; private set; } = null!;
+        public Output<string?> AutoEnableOrganizationMembers { get; private set; } = null!;
 
         /// <summary>
         /// Configuration for the collected datasources.
         /// </summary>
         [Output("datasources")]
-        public Output<Outputs.OrganizationConfigurationDatasources> Datasources { get; private set; } = null!;
+        public Output<Outputs.OrganizationConfigurationDatasources?> Datasources { get; private set; } = null!;
 
         /// <summary>
         /// The detector ID of the GuardDuty account.

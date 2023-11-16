@@ -60,14 +60,14 @@ type LookupSinkArgs struct {
 // A collection of values returned by getSink.
 type LookupSinkResult struct {
 	// ARN of the sink.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the sink.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Random ID string that AWS generated as part of the sink ARN.
-	SinkId         string `pulumi:"sinkId"`
-	SinkIdentifier string `pulumi:"sinkIdentifier"`
+	SinkId         *string `pulumi:"sinkId"`
+	SinkIdentifier string  `pulumi:"sinkIdentifier"`
 	// Tags assigned to the sink.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -113,23 +113,23 @@ func (o LookupSinkResultOutput) ToLookupSinkResultOutputWithContext(ctx context.
 }
 
 // ARN of the sink.
-func (o LookupSinkResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSinkResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSinkResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSinkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSinkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSinkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSinkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSinkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the sink.
-func (o LookupSinkResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSinkResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupSinkResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSinkResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Random ID string that AWS generated as part of the sink ARN.
-func (o LookupSinkResultOutput) SinkId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSinkResult) string { return v.SinkId }).(pulumi.StringOutput)
+func (o LookupSinkResultOutput) SinkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSinkResult) *string { return v.SinkId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSinkResultOutput) SinkIdentifier() pulumi.StringOutput {

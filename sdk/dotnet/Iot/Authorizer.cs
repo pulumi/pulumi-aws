@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Iot
         /// The ARN of the authorizer.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the authorizer's Lambda function.

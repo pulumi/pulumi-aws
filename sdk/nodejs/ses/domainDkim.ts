@@ -73,7 +73,7 @@ export class DomainDkim extends pulumi.CustomResource {
      * Find out more about verifying domains in Amazon SES
      * in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
      */
-    public /*out*/ readonly dkimTokens!: pulumi.Output<string[]>;
+    public /*out*/ readonly dkimTokens!: pulumi.Output<string[] | undefined>;
     /**
      * Verified domain name to generate DKIM tokens for.
      */

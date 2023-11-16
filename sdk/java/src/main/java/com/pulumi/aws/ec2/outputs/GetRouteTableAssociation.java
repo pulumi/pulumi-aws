@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteTableAssociation {
@@ -14,63 +16,63 @@ public final class GetRouteTableAssociation {
      * @return ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      * 
      */
-    private String gatewayId;
+    private @Nullable String gatewayId;
     /**
      * @return Whether the association is due to the main route table.
      * 
      */
-    private Boolean main;
+    private @Nullable Boolean main;
     /**
      * @return Association ID.
      * 
      */
-    private String routeTableAssociationId;
+    private @Nullable String routeTableAssociationId;
     /**
      * @return ID of the specific Route Table to retrieve.
      * 
      */
-    private String routeTableId;
+    private @Nullable String routeTableId;
     /**
      * @return ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
      * 
      */
-    private String subnetId;
+    private @Nullable String subnetId;
 
     private GetRouteTableAssociation() {}
     /**
      * @return ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      * 
      */
-    public String gatewayId() {
-        return this.gatewayId;
+    public Optional<String> gatewayId() {
+        return Optional.ofNullable(this.gatewayId);
     }
     /**
      * @return Whether the association is due to the main route table.
      * 
      */
-    public Boolean main() {
-        return this.main;
+    public Optional<Boolean> main() {
+        return Optional.ofNullable(this.main);
     }
     /**
      * @return Association ID.
      * 
      */
-    public String routeTableAssociationId() {
-        return this.routeTableAssociationId;
+    public Optional<String> routeTableAssociationId() {
+        return Optional.ofNullable(this.routeTableAssociationId);
     }
     /**
      * @return ID of the specific Route Table to retrieve.
      * 
      */
-    public String routeTableId() {
-        return this.routeTableId;
+    public Optional<String> routeTableId() {
+        return Optional.ofNullable(this.routeTableId);
     }
     /**
      * @return ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
      * 
      */
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
     public static Builder builder() {
@@ -82,11 +84,11 @@ public final class GetRouteTableAssociation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String gatewayId;
-        private Boolean main;
-        private String routeTableAssociationId;
-        private String routeTableId;
-        private String subnetId;
+        private @Nullable String gatewayId;
+        private @Nullable Boolean main;
+        private @Nullable String routeTableAssociationId;
+        private @Nullable String routeTableId;
+        private @Nullable String subnetId;
         public Builder() {}
         public Builder(GetRouteTableAssociation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -98,28 +100,28 @@ public final class GetRouteTableAssociation {
         }
 
         @CustomType.Setter
-        public Builder gatewayId(String gatewayId) {
-            this.gatewayId = Objects.requireNonNull(gatewayId);
+        public Builder gatewayId(@Nullable String gatewayId) {
+            this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder main(Boolean main) {
-            this.main = Objects.requireNonNull(main);
+        public Builder main(@Nullable Boolean main) {
+            this.main = main;
             return this;
         }
         @CustomType.Setter
-        public Builder routeTableAssociationId(String routeTableAssociationId) {
-            this.routeTableAssociationId = Objects.requireNonNull(routeTableAssociationId);
+        public Builder routeTableAssociationId(@Nullable String routeTableAssociationId) {
+            this.routeTableAssociationId = routeTableAssociationId;
             return this;
         }
         @CustomType.Setter
-        public Builder routeTableId(String routeTableId) {
-            this.routeTableId = Objects.requireNonNull(routeTableId);
+        public Builder routeTableId(@Nullable String routeTableId) {
+            this.routeTableId = routeTableId;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         public GetRouteTableAssociation build() {

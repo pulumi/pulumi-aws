@@ -16,52 +16,52 @@ public final class GetSecretVersionResult {
      * @return ARN of the secret.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Decrypted part of the protected secret information that was originally provided as a binary.
      * 
      */
-    private String secretBinary;
+    private @Nullable String secretBinary;
     private String secretId;
     /**
      * @return Decrypted part of the protected secret information that was originally provided as a string.
      * 
      */
-    private String secretString;
+    private @Nullable String secretString;
     /**
      * @return Unique identifier of this version of the secret.
      * 
      */
-    private String versionId;
+    private @Nullable String versionId;
     private @Nullable String versionStage;
-    private List<String> versionStages;
+    private @Nullable List<String> versionStages;
 
     private GetSecretVersionResult() {}
     /**
      * @return ARN of the secret.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Decrypted part of the protected secret information that was originally provided as a binary.
      * 
      */
-    public String secretBinary() {
-        return this.secretBinary;
+    public Optional<String> secretBinary() {
+        return Optional.ofNullable(this.secretBinary);
     }
     public String secretId() {
         return this.secretId;
@@ -70,21 +70,21 @@ public final class GetSecretVersionResult {
      * @return Decrypted part of the protected secret information that was originally provided as a string.
      * 
      */
-    public String secretString() {
-        return this.secretString;
+    public Optional<String> secretString() {
+        return Optional.ofNullable(this.secretString);
     }
     /**
      * @return Unique identifier of this version of the secret.
      * 
      */
-    public String versionId() {
-        return this.versionId;
+    public Optional<String> versionId() {
+        return Optional.ofNullable(this.versionId);
     }
     public Optional<String> versionStage() {
         return Optional.ofNullable(this.versionStage);
     }
     public List<String> versionStages() {
-        return this.versionStages;
+        return this.versionStages == null ? List.of() : this.versionStages;
     }
 
     public static Builder builder() {
@@ -96,14 +96,14 @@ public final class GetSecretVersionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String secretBinary;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String secretBinary;
         private String secretId;
-        private String secretString;
-        private String versionId;
+        private @Nullable String secretString;
+        private @Nullable String versionId;
         private @Nullable String versionStage;
-        private List<String> versionStages;
+        private @Nullable List<String> versionStages;
         public Builder() {}
         public Builder(GetSecretVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -118,18 +118,18 @@ public final class GetSecretVersionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder secretBinary(String secretBinary) {
-            this.secretBinary = Objects.requireNonNull(secretBinary);
+        public Builder secretBinary(@Nullable String secretBinary) {
+            this.secretBinary = secretBinary;
             return this;
         }
         @CustomType.Setter
@@ -138,13 +138,13 @@ public final class GetSecretVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder secretString(String secretString) {
-            this.secretString = Objects.requireNonNull(secretString);
+        public Builder secretString(@Nullable String secretString) {
+            this.secretString = secretString;
             return this;
         }
         @CustomType.Setter
-        public Builder versionId(String versionId) {
-            this.versionId = Objects.requireNonNull(versionId);
+        public Builder versionId(@Nullable String versionId) {
+            this.versionId = versionId;
             return this;
         }
         @CustomType.Setter
@@ -153,8 +153,8 @@ public final class GetSecretVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder versionStages(List<String> versionStages) {
-            this.versionStages = Objects.requireNonNull(versionStages);
+        public Builder versionStages(@Nullable List<String> versionStages) {
+            this.versionStages = versionStages;
             return this;
         }
         public Builder versionStages(String... versionStages) {

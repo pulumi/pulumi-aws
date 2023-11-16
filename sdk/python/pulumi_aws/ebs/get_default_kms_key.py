@@ -31,7 +31,7 @@ class GetDefaultKmsKeyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -39,7 +39,7 @@ class GetDefaultKmsKeyResult:
 
     @property
     @pulumi.getter(name="keyArn")
-    def key_arn(self) -> str:
+    def key_arn(self) -> Optional[str]:
         """
         ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
         """

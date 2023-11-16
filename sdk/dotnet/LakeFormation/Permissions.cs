@@ -254,25 +254,25 @@ namespace Pulumi.Aws.LakeFormation
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
         [Output("dataLocation")]
-        public Output<Outputs.PermissionsDataLocation> DataLocation { get; private set; } = null!;
+        public Output<Outputs.PermissionsDataLocation?> DataLocation { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for a database resource. Detailed below.
         /// </summary>
         [Output("database")]
-        public Output<Outputs.PermissionsDatabase> Database { get; private set; } = null!;
+        public Output<Outputs.PermissionsDatabase?> Database { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for an LF-tag resource. Detailed below.
         /// </summary>
         [Output("lfTag")]
-        public Output<Outputs.PermissionsLfTag> LfTag { get; private set; } = null!;
+        public Output<Outputs.PermissionsLfTag?> LfTag { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for an LF-tag policy resource. Detailed below.
         /// </summary>
         [Output("lfTagPolicy")]
-        public Output<Outputs.PermissionsLfTagPolicy> LfTagPolicy { get; private set; } = null!;
+        public Output<Outputs.PermissionsLfTagPolicy?> LfTagPolicy { get; private set; } = null!;
 
         /// <summary>
         /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.LakeFormation
         /// Configuration block for a table resource. Detailed below.
         /// </summary>
         [Output("table")]
-        public Output<Outputs.PermissionsTable> Table { get; private set; } = null!;
+        public Output<Outputs.PermissionsTable?> Table { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for a table with columns resource. Detailed below.
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.LakeFormation
         /// The following arguments are optional:
         /// </summary>
         [Output("tableWithColumns")]
-        public Output<Outputs.PermissionsTableWithColumns> TableWithColumns { get; private set; } = null!;
+        public Output<Outputs.PermissionsTableWithColumns?> TableWithColumns { get; private set; } = null!;
 
 
         /// <summary>

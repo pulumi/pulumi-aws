@@ -63,7 +63,7 @@ export class MonitoringSchedule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
      */

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult
     {
-        public readonly int Priority;
-        public readonly string ResourceArn;
+        public readonly int? Priority;
+        public readonly string? ResourceArn;
 
         [OutputConstructor]
         private GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult(
-            int priority,
+            int? priority,
 
-            string resourceArn)
+            string? resourceArn)
         {
             Priority = priority;
             ResourceArn = resourceArn;

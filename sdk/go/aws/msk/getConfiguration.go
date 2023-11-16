@@ -57,18 +57,18 @@ type LookupConfigurationArgs struct {
 // A collection of values returned by getConfiguration.
 type LookupConfigurationResult struct {
 	// ARN of the configuration.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the configuration.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of Apache Kafka versions which can use this configuration.
 	KafkaVersions []string `pulumi:"kafkaVersions"`
 	// Latest revision of the configuration.
-	LatestRevision int    `pulumi:"latestRevision"`
+	LatestRevision *int   `pulumi:"latestRevision"`
 	Name           string `pulumi:"name"`
 	// Contents of the server.properties file.
-	ServerProperties string `pulumi:"serverProperties"`
+	ServerProperties *string `pulumi:"serverProperties"`
 }
 
 func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
@@ -110,18 +110,18 @@ func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithCo
 }
 
 // ARN of the configuration.
-func (o LookupConfigurationResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the configuration.
-func (o LookupConfigurationResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupConfigurationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupConfigurationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupConfigurationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of Apache Kafka versions which can use this configuration.
@@ -130,8 +130,8 @@ func (o LookupConfigurationResultOutput) KafkaVersions() pulumi.StringArrayOutpu
 }
 
 // Latest revision of the configuration.
-func (o LookupConfigurationResultOutput) LatestRevision() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupConfigurationResult) int { return v.LatestRevision }).(pulumi.IntOutput)
+func (o LookupConfigurationResultOutput) LatestRevision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) *int { return v.LatestRevision }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupConfigurationResultOutput) Name() pulumi.StringOutput {
@@ -139,8 +139,8 @@ func (o LookupConfigurationResultOutput) Name() pulumi.StringOutput {
 }
 
 // Contents of the server.properties file.
-func (o LookupConfigurationResultOutput) ServerProperties() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConfigurationResult) string { return v.ServerProperties }).(pulumi.StringOutput)
+func (o LookupConfigurationResultOutput) ServerProperties() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.ServerProperties }).(pulumi.StringPtrOutput)
 }
 
 func init() {

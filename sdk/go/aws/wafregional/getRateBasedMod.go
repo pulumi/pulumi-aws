@@ -57,8 +57,8 @@ type GetRateBasedModArgs struct {
 // A collection of values returned by getRateBasedMod.
 type GetRateBasedModResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func GetRateBasedModOutput(ctx *pulumi.Context, args GetRateBasedModOutputArgs, opts ...pulumi.InvokeOption) GetRateBasedModResultOutput {
@@ -100,8 +100,8 @@ func (o GetRateBasedModResultOutput) ToGetRateBasedModResultOutputWithContext(ct
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetRateBasedModResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRateBasedModResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetRateBasedModResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRateBasedModResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRateBasedModResultOutput) Name() pulumi.StringOutput {

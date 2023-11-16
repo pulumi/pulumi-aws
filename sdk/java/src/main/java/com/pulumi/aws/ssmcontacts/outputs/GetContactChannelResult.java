@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContactChannelResult {
@@ -15,41 +17,41 @@ public final class GetContactChannelResult {
      * @return Whether the contact channel is activated.
      * 
      */
-    private String activationStatus;
+    private @Nullable String activationStatus;
     private String arn;
     /**
      * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
-    private String contactId;
+    private @Nullable String contactId;
     /**
      * @return Details used to engage the contact channel.
      * 
      */
-    private List<GetContactChannelDeliveryAddress> deliveryAddresses;
+    private @Nullable List<GetContactChannelDeliveryAddress> deliveryAddresses;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the contact channel.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Type of the contact channel.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetContactChannelResult() {}
     /**
      * @return Whether the contact channel is activated.
      * 
      */
-    public String activationStatus() {
-        return this.activationStatus;
+    public Optional<String> activationStatus() {
+        return Optional.ofNullable(this.activationStatus);
     }
     public String arn() {
         return this.arn;
@@ -58,36 +60,36 @@ public final class GetContactChannelResult {
      * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
-    public String contactId() {
-        return this.contactId;
+    public Optional<String> contactId() {
+        return Optional.ofNullable(this.contactId);
     }
     /**
      * @return Details used to engage the contact channel.
      * 
      */
     public List<GetContactChannelDeliveryAddress> deliveryAddresses() {
-        return this.deliveryAddresses;
+        return this.deliveryAddresses == null ? List.of() : this.deliveryAddresses;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the contact channel.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Type of the contact channel.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -99,13 +101,13 @@ public final class GetContactChannelResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String activationStatus;
+        private @Nullable String activationStatus;
         private String arn;
-        private String contactId;
-        private List<GetContactChannelDeliveryAddress> deliveryAddresses;
-        private String id;
-        private String name;
-        private String type;
+        private @Nullable String contactId;
+        private @Nullable List<GetContactChannelDeliveryAddress> deliveryAddresses;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetContactChannelResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -119,8 +121,8 @@ public final class GetContactChannelResult {
         }
 
         @CustomType.Setter
-        public Builder activationStatus(String activationStatus) {
-            this.activationStatus = Objects.requireNonNull(activationStatus);
+        public Builder activationStatus(@Nullable String activationStatus) {
+            this.activationStatus = activationStatus;
             return this;
         }
         @CustomType.Setter
@@ -129,31 +131,31 @@ public final class GetContactChannelResult {
             return this;
         }
         @CustomType.Setter
-        public Builder contactId(String contactId) {
-            this.contactId = Objects.requireNonNull(contactId);
+        public Builder contactId(@Nullable String contactId) {
+            this.contactId = contactId;
             return this;
         }
         @CustomType.Setter
-        public Builder deliveryAddresses(List<GetContactChannelDeliveryAddress> deliveryAddresses) {
-            this.deliveryAddresses = Objects.requireNonNull(deliveryAddresses);
+        public Builder deliveryAddresses(@Nullable List<GetContactChannelDeliveryAddress> deliveryAddresses) {
+            this.deliveryAddresses = deliveryAddresses;
             return this;
         }
         public Builder deliveryAddresses(GetContactChannelDeliveryAddress... deliveryAddresses) {
             return deliveryAddresses(List.of(deliveryAddresses));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetContactChannelResult build() {

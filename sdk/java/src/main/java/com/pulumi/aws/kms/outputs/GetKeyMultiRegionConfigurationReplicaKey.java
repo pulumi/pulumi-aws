@@ -6,6 +6,8 @@ package com.pulumi.aws.kms.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetKeyMultiRegionConfigurationReplicaKey {
@@ -13,27 +15,27 @@ public final class GetKeyMultiRegionConfigurationReplicaKey {
      * @return The key ARN of a primary or replica key of a multi-Region key.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The AWS Region of a primary or replica key in a multi-Region key.
      * 
      */
-    private String region;
+    private @Nullable String region;
 
     private GetKeyMultiRegionConfigurationReplicaKey() {}
     /**
      * @return The key ARN of a primary or replica key of a multi-Region key.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The AWS Region of a primary or replica key in a multi-Region key.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetKeyMultiRegionConfigurationReplicaKey {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String region;
+        private @Nullable String arn;
+        private @Nullable String region;
         public Builder() {}
         public Builder(GetKeyMultiRegionConfigurationReplicaKey defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetKeyMultiRegionConfigurationReplicaKey {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         public GetKeyMultiRegionConfigurationReplicaKey build() {

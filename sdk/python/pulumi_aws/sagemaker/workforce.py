@@ -437,7 +437,7 @@ class Workforce(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
         """
@@ -461,7 +461,7 @@ class Workforce(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceIpConfig")
-    def source_ip_config(self) -> pulumi.Output['outputs.WorkforceSourceIpConfig']:
+    def source_ip_config(self) -> pulumi.Output[Optional['outputs.WorkforceSourceIpConfig']]:
         """
         A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         """
@@ -469,7 +469,7 @@ class Workforce(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdomain(self) -> pulumi.Output[str]:
+    def subdomain(self) -> pulumi.Output[Optional[str]]:
         """
         The subdomain for your OIDC Identity Provider.
         * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.

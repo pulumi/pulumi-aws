@@ -56,12 +56,12 @@ export interface GetSolutionStackResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly mostRecent?: boolean;
     /**
      * Name of the solution stack.
      */
-    readonly name: string;
+    readonly name?: string;
     readonly nameRegex: string;
 }
 /**

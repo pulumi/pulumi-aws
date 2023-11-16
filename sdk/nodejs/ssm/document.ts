@@ -113,7 +113,7 @@ export class Document extends pulumi.CustomResource {
         return obj['__pulumiType'] === Document.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
      */
@@ -125,15 +125,15 @@ export class Document extends pulumi.CustomResource {
     /**
      * The date the document was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * The default version of the document.
      */
-    public /*out*/ readonly defaultVersion!: pulumi.Output<string>;
+    public /*out*/ readonly defaultVersion!: pulumi.Output<string | undefined>;
     /**
      * The description of the document.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * The format of the document. Valid document types include: `JSON` and `YAML`
      */
@@ -145,19 +145,19 @@ export class Document extends pulumi.CustomResource {
     /**
      * The document version.
      */
-    public /*out*/ readonly documentVersion!: pulumi.Output<string>;
+    public /*out*/ readonly documentVersion!: pulumi.Output<string | undefined>;
     /**
      * The sha1 or sha256 of the document content
      */
-    public /*out*/ readonly hash!: pulumi.Output<string>;
+    public /*out*/ readonly hash!: pulumi.Output<string | undefined>;
     /**
      * "Sha1" "Sha256". The hashing algorithm used when hashing the content.
      */
-    public /*out*/ readonly hashType!: pulumi.Output<string>;
+    public /*out*/ readonly hashType!: pulumi.Output<string | undefined>;
     /**
      * The latest version of the document.
      */
-    public /*out*/ readonly latestVersion!: pulumi.Output<string>;
+    public /*out*/ readonly latestVersion!: pulumi.Output<string | undefined>;
     /**
      * The name of the document.
      */
@@ -165,11 +165,11 @@ export class Document extends pulumi.CustomResource {
     /**
      * The AWS user account of the person who created the document.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * The parameters that are available to this document.
      */
-    public /*out*/ readonly parameters!: pulumi.Output<outputs.ssm.DocumentParameter[]>;
+    public /*out*/ readonly parameters!: pulumi.Output<outputs.ssm.DocumentParameter[] | undefined>;
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
@@ -177,15 +177,15 @@ export class Document extends pulumi.CustomResource {
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
-    public /*out*/ readonly platformTypes!: pulumi.Output<string[]>;
+    public /*out*/ readonly platformTypes!: pulumi.Output<string[] | undefined>;
     /**
      * The schema version of the document.
      */
-    public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
+    public /*out*/ readonly schemaVersion!: pulumi.Output<string | undefined>;
     /**
      * "Creating", "Active" or "Deleting". The current status of the document.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

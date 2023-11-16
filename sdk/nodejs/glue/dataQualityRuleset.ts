@@ -97,11 +97,11 @@ export class DataQualityRuleset extends pulumi.CustomResource {
     /**
      * ARN of the Glue Data Quality Ruleset.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The time and date that this data quality ruleset was created.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    public /*out*/ readonly createdOn!: pulumi.Output<string | undefined>;
     /**
      * Description of the data quality ruleset.
      */
@@ -109,7 +109,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
     /**
      * The time and date that this data quality ruleset was created.
      */
-    public /*out*/ readonly lastModifiedOn!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedOn!: pulumi.Output<string | undefined>;
     /**
      * Name of the data quality ruleset.
      */
@@ -117,7 +117,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
     /**
      * When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
      */
-    public /*out*/ readonly recommendationRunId!: pulumi.Output<string>;
+    public /*out*/ readonly recommendationRunId!: pulumi.Output<string | undefined>;
     /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */

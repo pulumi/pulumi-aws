@@ -22,14 +22,14 @@ public final class GetRandomPasswordResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean includeSpace;
     private @Nullable Integer passwordLength;
     /**
      * @return Random password.
      * 
      */
-    private String randomPassword;
+    private @Nullable String randomPassword;
     private @Nullable Boolean requireEachIncludedType;
 
     private GetRandomPasswordResult() {}
@@ -52,8 +52,8 @@ public final class GetRandomPasswordResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> includeSpace() {
         return Optional.ofNullable(this.includeSpace);
@@ -65,8 +65,8 @@ public final class GetRandomPasswordResult {
      * @return Random password.
      * 
      */
-    public String randomPassword() {
-        return this.randomPassword;
+    public Optional<String> randomPassword() {
+        return Optional.ofNullable(this.randomPassword);
     }
     public Optional<Boolean> requireEachIncludedType() {
         return Optional.ofNullable(this.requireEachIncludedType);
@@ -86,10 +86,10 @@ public final class GetRandomPasswordResult {
         private @Nullable Boolean excludeNumbers;
         private @Nullable Boolean excludePunctuation;
         private @Nullable Boolean excludeUppercase;
-        private String id;
+        private @Nullable String id;
         private @Nullable Boolean includeSpace;
         private @Nullable Integer passwordLength;
-        private String randomPassword;
+        private @Nullable String randomPassword;
         private @Nullable Boolean requireEachIncludedType;
         public Builder() {}
         public Builder(GetRandomPasswordResult defaults) {
@@ -132,8 +132,8 @@ public final class GetRandomPasswordResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -147,8 +147,8 @@ public final class GetRandomPasswordResult {
             return this;
         }
         @CustomType.Setter
-        public Builder randomPassword(String randomPassword) {
-            this.randomPassword = Objects.requireNonNull(randomPassword);
+        public Builder randomPassword(@Nullable String randomPassword) {
+            this.randomPassword = randomPassword;
             return this;
         }
         @CustomType.Setter

@@ -172,19 +172,19 @@ namespace Pulumi.Aws.Evidently
         /// The ARN of the feature.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that the feature is created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
         /// </summary>
         [Output("defaultVariation")]
-        public Output<string> DefaultVariation { get; private set; } = null!;
+        public Output<string?> DefaultVariation { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the description of the feature.
@@ -208,13 +208,13 @@ namespace Pulumi.Aws.Evidently
         /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         /// </summary>
         [Output("evaluationStrategy")]
-        public Output<string> EvaluationStrategy { get; private set; } = null!;
+        public Output<string?> EvaluationStrategy { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that the feature was most recently updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Evidently
         /// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Evidently
         /// Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
         /// </summary>
         [Output("valueType")]
-        public Output<string> ValueType { get; private set; } = null!;
+        public Output<string?> ValueType { get; private set; } = null!;
 
         /// <summary>
         /// One or more blocks that contain the configuration of the feature's different variations. Detailed below

@@ -68,34 +68,34 @@ export interface GetGatewayRouteResult {
     /**
      * ARN of the gateway route.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Creation date of the gateway route.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Last update date of the gateway route.
      */
-    readonly lastUpdatedDate: string;
+    readonly lastUpdatedDate?: string;
     readonly meshName: string;
-    readonly meshOwner: string;
+    readonly meshOwner?: string;
     readonly name: string;
     /**
      * Resource owner's AWS account ID.
      */
-    readonly resourceOwner: string;
+    readonly resourceOwner?: string;
     /**
      * Gateway route specification. See the `aws.appmesh.GatewayRoute` resource for details.
      */
-    readonly specs: outputs.appmesh.GetGatewayRouteSpec[];
+    readonly specs?: outputs.appmesh.GetGatewayRouteSpec[];
     /**
      * Map of tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly virtualGatewayName: string;
 }
 /**

@@ -70,14 +70,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of the configuration.
@@ -112,14 +112,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="latestRevision", refs={Integer.class}, tree="[0]")
-    private Output<Integer> latestRevision;
+    private Output</* @Nullable */ Integer> latestRevision;
 
     /**
      * @return Latest revision of the configuration.
      * 
      */
-    public Output<Integer> latestRevision() {
-        return this.latestRevision;
+    public Output<Optional<Integer>> latestRevision() {
+        return Codegen.optional(this.latestRevision);
     }
     /**
      * Name of the configuration.

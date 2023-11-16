@@ -1001,7 +1001,7 @@ class Canary(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Canary.
         """
@@ -1033,7 +1033,7 @@ class Canary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineArn")
-    def engine_arn(self) -> pulumi.Output[str]:
+    def engine_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Lambda function that is used as your canary's engine.
         """
@@ -1073,7 +1073,7 @@ class Canary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runConfig")
-    def run_config(self) -> pulumi.Output['outputs.CanaryRunConfig']:
+    def run_config(self) -> pulumi.Output[Optional['outputs.CanaryRunConfig']]:
         """
         Configuration block for individual canary runs. Detailed below.
         """
@@ -1123,7 +1123,7 @@ class Canary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceLocationArn")
-    def source_location_arn(self) -> pulumi.Output[str]:
+    def source_location_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Lambda layer where Synthetics stores the canary script code.
         """
@@ -1139,7 +1139,7 @@ class Canary(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Canary status.
         """
@@ -1174,7 +1174,7 @@ class Canary(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timelines(self) -> pulumi.Output[Sequence['outputs.CanaryTimeline']]:
+    def timelines(self) -> pulumi.Output[Optional[Sequence['outputs.CanaryTimeline']]]:
         """
         Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
         """

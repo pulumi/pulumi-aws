@@ -29,10 +29,10 @@ namespace Pulumi.Aws.Msk
         /// ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("currentVersion")]
-        public Output<string> CurrentVersion { get; private set; } = null!;
+        public Output<string?> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
         /// A summary description of the replicator.

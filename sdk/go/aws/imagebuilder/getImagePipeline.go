@@ -60,38 +60,38 @@ type LookupImagePipelineArgs struct {
 type LookupImagePipelineResult struct {
 	Arn string `pulumi:"arn"`
 	// ARN of the container recipe.
-	ContainerRecipeArn string `pulumi:"containerRecipeArn"`
+	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// Date the image pipeline was created.
-	DateCreated string `pulumi:"dateCreated"`
+	DateCreated *string `pulumi:"dateCreated"`
 	// Date the image pipeline was last run.
-	DateLastRun string `pulumi:"dateLastRun"`
+	DateLastRun *string `pulumi:"dateLastRun"`
 	// Date the image pipeline will run next.
-	DateNextRun string `pulumi:"dateNextRun"`
+	DateNextRun *string `pulumi:"dateNextRun"`
 	// Date the image pipeline was updated.
-	DateUpdated string `pulumi:"dateUpdated"`
+	DateUpdated *string `pulumi:"dateUpdated"`
 	// Description of the image pipeline.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// ARN of the Image Builder Distribution Configuration.
-	DistributionConfigurationArn string `pulumi:"distributionConfigurationArn"`
+	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected.
-	EnhancedImageMetadataEnabled bool `pulumi:"enhancedImageMetadataEnabled"`
+	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN of the image recipe.
-	ImageRecipeArn              string                                       `pulumi:"imageRecipeArn"`
+	ImageRecipeArn              *string                                      `pulumi:"imageRecipeArn"`
 	ImageScanningConfigurations []GetImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfigurations"`
 	// List of an object with image tests configuration.
 	ImageTestsConfigurations []GetImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfigurations"`
 	// ARN of the Image Builder Infrastructure Configuration.
-	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
+	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
 	// Name of the image pipeline.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Platform of the image pipeline.
-	Platform string `pulumi:"platform"`
+	Platform *string `pulumi:"platform"`
 	// List of an object with schedule settings.
 	Schedules []GetImagePipelineSchedule `pulumi:"schedules"`
 	// Status of the image pipeline.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Key-value map of resource tags for the image pipeline.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -141,53 +141,53 @@ func (o LookupImagePipelineResultOutput) Arn() pulumi.StringOutput {
 }
 
 // ARN of the container recipe.
-func (o LookupImagePipelineResultOutput) ContainerRecipeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.ContainerRecipeArn }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
 }
 
 // Date the image pipeline was created.
-func (o LookupImagePipelineResultOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.DateCreated }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Date the image pipeline was last run.
-func (o LookupImagePipelineResultOutput) DateLastRun() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.DateLastRun }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) DateLastRun() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.DateLastRun }).(pulumi.StringPtrOutput)
 }
 
 // Date the image pipeline will run next.
-func (o LookupImagePipelineResultOutput) DateNextRun() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.DateNextRun }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) DateNextRun() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.DateNextRun }).(pulumi.StringPtrOutput)
 }
 
 // Date the image pipeline was updated.
-func (o LookupImagePipelineResultOutput) DateUpdated() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.DateUpdated }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) DateUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.DateUpdated }).(pulumi.StringPtrOutput)
 }
 
 // Description of the image pipeline.
-func (o LookupImagePipelineResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Image Builder Distribution Configuration.
-func (o LookupImagePipelineResultOutput) DistributionConfigurationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.DistributionConfigurationArn }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) DistributionConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.DistributionConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
 // Whether additional information about the image being created is collected.
-func (o LookupImagePipelineResultOutput) EnhancedImageMetadataEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) bool { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolOutput)
+func (o LookupImagePipelineResultOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *bool { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupImagePipelineResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the image recipe.
-func (o LookupImagePipelineResultOutput) ImageRecipeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) ImageRecipeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupImagePipelineResultOutput) ImageScanningConfigurations() GetImagePipelineImageScanningConfigurationArrayOutput {
@@ -204,18 +204,18 @@ func (o LookupImagePipelineResultOutput) ImageTestsConfigurations() GetImagePipe
 }
 
 // ARN of the Image Builder Infrastructure Configuration.
-func (o LookupImagePipelineResultOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) InfrastructureConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.InfrastructureConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the image pipeline.
-func (o LookupImagePipelineResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Platform of the image pipeline.
-func (o LookupImagePipelineResultOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Platform }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // List of an object with schedule settings.
@@ -224,8 +224,8 @@ func (o LookupImagePipelineResultOutput) Schedules() GetImagePipelineScheduleArr
 }
 
 // Status of the image pipeline.
-func (o LookupImagePipelineResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupImagePipelineResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags for the image pipeline.

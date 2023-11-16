@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReportPlanResult {
@@ -17,79 +19,79 @@ public final class GetReportPlanResult {
      * @return ARN of the backup report plan.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    private String creationTime;
+    private @Nullable String creationTime;
     /**
      * @return Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
-    private String deploymentStatus;
+    private @Nullable String deploymentStatus;
     /**
      * @return Description of the report plan.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
-    private List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
+    private @Nullable List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
     /**
      * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
-    private List<GetReportPlanReportSetting> reportSettings;
+    private @Nullable List<GetReportPlanReportSetting> reportSettings;
     /**
      * @return Metadata that you can assign to help organize the report plans you create.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetReportPlanResult() {}
     /**
      * @return ARN of the backup report plan.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    public String creationTime() {
-        return this.creationTime;
+    public Optional<String> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
     /**
      * @return Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
-    public String deploymentStatus() {
-        return this.deploymentStatus;
+    public Optional<String> deploymentStatus() {
+        return Optional.ofNullable(this.deploymentStatus);
     }
     /**
      * @return Description of the report plan.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -99,21 +101,21 @@ public final class GetReportPlanResult {
      * 
      */
     public List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels() {
-        return this.reportDeliveryChannels;
+        return this.reportDeliveryChannels == null ? List.of() : this.reportDeliveryChannels;
     }
     /**
      * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
     public List<GetReportPlanReportSetting> reportSettings() {
-        return this.reportSettings;
+        return this.reportSettings == null ? List.of() : this.reportSettings;
     }
     /**
      * @return Metadata that you can assign to help organize the report plans you create.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -125,15 +127,15 @@ public final class GetReportPlanResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String creationTime;
-        private String deploymentStatus;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String creationTime;
+        private @Nullable String deploymentStatus;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
-        private List<GetReportPlanReportSetting> reportSettings;
-        private Map<String,String> tags;
+        private @Nullable List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
+        private @Nullable List<GetReportPlanReportSetting> reportSettings;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetReportPlanResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -149,28 +151,28 @@ public final class GetReportPlanResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable String creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder deploymentStatus(String deploymentStatus) {
-            this.deploymentStatus = Objects.requireNonNull(deploymentStatus);
+        public Builder deploymentStatus(@Nullable String deploymentStatus) {
+            this.deploymentStatus = deploymentStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -179,24 +181,24 @@ public final class GetReportPlanResult {
             return this;
         }
         @CustomType.Setter
-        public Builder reportDeliveryChannels(List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels) {
-            this.reportDeliveryChannels = Objects.requireNonNull(reportDeliveryChannels);
+        public Builder reportDeliveryChannels(@Nullable List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels) {
+            this.reportDeliveryChannels = reportDeliveryChannels;
             return this;
         }
         public Builder reportDeliveryChannels(GetReportPlanReportDeliveryChannel... reportDeliveryChannels) {
             return reportDeliveryChannels(List.of(reportDeliveryChannels));
         }
         @CustomType.Setter
-        public Builder reportSettings(List<GetReportPlanReportSetting> reportSettings) {
-            this.reportSettings = Objects.requireNonNull(reportSettings);
+        public Builder reportSettings(@Nullable List<GetReportPlanReportSetting> reportSettings) {
+            this.reportSettings = reportSettings;
             return this;
         }
         public Builder reportSettings(GetReportPlanReportSetting... reportSettings) {
             return reportSettings(List.of(reportSettings));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetReportPlanResult build() {

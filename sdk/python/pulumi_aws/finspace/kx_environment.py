@@ -653,7 +653,7 @@ class KxEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) identifier of the KX environment.
         """
@@ -661,7 +661,7 @@ class KxEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
         """
@@ -669,7 +669,7 @@ class KxEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTimestamp")
-    def created_timestamp(self) -> pulumi.Output[str]:
+    def created_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """
@@ -693,7 +693,7 @@ class KxEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="infrastructureAccountId")
-    def infrastructure_account_id(self) -> pulumi.Output[str]:
+    def infrastructure_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique identifier for the AWS environment infrastructure account.
         """
@@ -711,7 +711,7 @@ class KxEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTimestamp")
-    def last_modified_timestamp(self) -> pulumi.Output[str]:
+    def last_modified_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """
@@ -727,7 +727,7 @@ class KxEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of environment creation
         """

@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -96,56 +97,56 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="invitationArn", refs={String.class}, tree="[0]")
-    private Output<String> invitationArn;
+    private Output</* @Nullable */ String> invitationArn;
 
     /**
      * @return The ARN of the resource share invitation.
      * 
      */
-    public Output<String> invitationArn() {
-        return this.invitationArn;
+    public Output<Optional<String>> invitationArn() {
+        return Codegen.optional(this.invitationArn);
     }
     /**
      * The account ID of the receiver account which accepts the invitation.
      * 
      */
     @Export(name="receiverAccountId", refs={String.class}, tree="[0]")
-    private Output<String> receiverAccountId;
+    private Output</* @Nullable */ String> receiverAccountId;
 
     /**
      * @return The account ID of the receiver account which accepts the invitation.
      * 
      */
-    public Output<String> receiverAccountId() {
-        return this.receiverAccountId;
+    public Output<Optional<String>> receiverAccountId() {
+        return Codegen.optional(this.receiverAccountId);
     }
     /**
      * A list of the resource ARNs shared via the resource share.
      * 
      */
     @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> resources;
+    private Output</* @Nullable */ List<String>> resources;
 
     /**
      * @return A list of the resource ARNs shared via the resource share.
      * 
      */
-    public Output<List<String>> resources() {
-        return this.resources;
+    public Output<Optional<List<String>>> resources() {
+        return Codegen.optional(this.resources);
     }
     /**
      * The account ID of the sender account which submits the invitation.
      * 
      */
     @Export(name="senderAccountId", refs={String.class}, tree="[0]")
-    private Output<String> senderAccountId;
+    private Output</* @Nullable */ String> senderAccountId;
 
     /**
      * @return The account ID of the sender account which submits the invitation.
      * 
      */
-    public Output<String> senderAccountId() {
-        return this.senderAccountId;
+    public Output<Optional<String>> senderAccountId() {
+        return Codegen.optional(this.senderAccountId);
     }
     /**
      * The ARN of the resource share.
@@ -166,42 +167,42 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="shareId", refs={String.class}, tree="[0]")
-    private Output<String> shareId;
+    private Output</* @Nullable */ String> shareId;
 
     /**
      * @return The ID of the resource share as displayed in the console.
      * 
      */
-    public Output<String> shareId() {
-        return this.shareId;
+    public Output<Optional<String>> shareId() {
+        return Codegen.optional(this.shareId);
     }
     /**
      * The name of the resource share.
      * 
      */
     @Export(name="shareName", refs={String.class}, tree="[0]")
-    private Output<String> shareName;
+    private Output</* @Nullable */ String> shareName;
 
     /**
      * @return The name of the resource share.
      * 
      */
-    public Output<String> shareName() {
-        return this.shareName;
+    public Output<Optional<String>> shareName() {
+        return Codegen.optional(this.shareName);
     }
     /**
      * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

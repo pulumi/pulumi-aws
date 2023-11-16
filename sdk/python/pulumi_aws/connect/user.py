@@ -788,7 +788,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the user.
         """
@@ -796,7 +796,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="directoryUserId")
-    def directory_user_id(self) -> pulumi.Output[str]:
+    def directory_user_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         """
@@ -888,7 +888,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> pulumi.Output[str]:
+    def user_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for the user.
         """

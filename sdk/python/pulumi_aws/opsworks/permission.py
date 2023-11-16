@@ -323,7 +323,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowSsh")
-    def allow_ssh(self) -> pulumi.Output[bool]:
+    def allow_ssh(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the user is allowed to use SSH to communicate with the instance
         """
@@ -331,7 +331,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowSudo")
-    def allow_sudo(self) -> pulumi.Output[bool]:
+    def allow_sudo(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the user is allowed to use sudo to elevate privileges
         """
@@ -339,7 +339,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def level(self) -> pulumi.Output[str]:
+    def level(self) -> pulumi.Output[Optional[str]]:
         """
         The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
         """

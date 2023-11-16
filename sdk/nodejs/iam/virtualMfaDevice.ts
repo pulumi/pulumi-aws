@@ -62,15 +62,15 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the virtual mfa device.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
      */
-    public /*out*/ readonly base32StringSeed!: pulumi.Output<string>;
+    public /*out*/ readonly base32StringSeed!: pulumi.Output<string | undefined>;
     /**
      * The date and time when the virtual MFA device was enabled.
      */
-    public /*out*/ readonly enableDate!: pulumi.Output<string>;
+    public /*out*/ readonly enableDate!: pulumi.Output<string | undefined>;
     /**
      * The path for the virtual MFA device.
      */
@@ -78,7 +78,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
     /**
      * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      */
-    public /*out*/ readonly qrCodePng!: pulumi.Output<string>;
+    public /*out*/ readonly qrCodePng!: pulumi.Output<string | undefined>;
     /**
      * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -92,7 +92,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
     /**
      * The associated IAM User name if the virtual MFA device is enabled.
      */
-    public /*out*/ readonly userName!: pulumi.Output<string>;
+    public /*out*/ readonly userName!: pulumi.Output<string | undefined>;
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      */

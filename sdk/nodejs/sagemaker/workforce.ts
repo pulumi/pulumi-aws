@@ -94,7 +94,7 @@ export class Workforce extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
      */
@@ -106,12 +106,12 @@ export class Workforce extends pulumi.CustomResource {
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
      */
-    public readonly sourceIpConfig!: pulumi.Output<outputs.sagemaker.WorkforceSourceIpConfig>;
+    public readonly sourceIpConfig!: pulumi.Output<outputs.sagemaker.WorkforceSourceIpConfig | undefined>;
     /**
      * The subdomain for your OIDC Identity Provider.
      * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      */
-    public /*out*/ readonly subdomain!: pulumi.Output<string>;
+    public /*out*/ readonly subdomain!: pulumi.Output<string | undefined>;
     /**
      * The name of the Workforce (must be unique).
      */

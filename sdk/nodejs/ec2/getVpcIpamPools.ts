@@ -61,11 +61,11 @@ export interface GetVpcIpamPoolsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of IPAM pools and their attributes. See below for details
      */
-    readonly ipamPools: outputs.ec2.GetVpcIpamPoolsIpamPool[];
+    readonly ipamPools?: outputs.ec2.GetVpcIpamPoolsIpamPool[];
 }
 /**
  * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.

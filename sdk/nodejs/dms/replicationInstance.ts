@@ -105,7 +105,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
     /**
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
-    public readonly allocatedStorage!: pulumi.Output<number>;
+    public readonly allocatedStorage!: pulumi.Output<number | undefined>;
     /**
      * Indicates that major version upgrades are allowed.
      */
@@ -117,27 +117,27 @@ export class ReplicationInstance extends pulumi.CustomResource {
     /**
      * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      */
-    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
+    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * The EC2 Availability Zone that the replication instance will be created in.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * The engine version number of the replication instance.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      */
-    public readonly multiAz!: pulumi.Output<boolean>;
+    public readonly multiAz!: pulumi.Output<boolean | undefined>;
     /**
      * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
      */
-    public readonly networkType!: pulumi.Output<string>;
+    public readonly networkType!: pulumi.Output<string | undefined>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      *
@@ -146,15 +146,15 @@ export class ReplicationInstance extends pulumi.CustomResource {
      * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
      * - Constraints: Minimum 30-minute window.
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
-    public /*out*/ readonly replicationInstanceArn!: pulumi.Output<string>;
+    public /*out*/ readonly replicationInstanceArn!: pulumi.Output<string | undefined>;
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      */
@@ -171,15 +171,15 @@ export class ReplicationInstance extends pulumi.CustomResource {
     /**
      * A list of the private IP addresses of the replication instance.
      */
-    public /*out*/ readonly replicationInstancePrivateIps!: pulumi.Output<string[]>;
+    public /*out*/ readonly replicationInstancePrivateIps!: pulumi.Output<string[] | undefined>;
     /**
      * A list of the public IP addresses of the replication instance.
      */
-    public /*out*/ readonly replicationInstancePublicIps!: pulumi.Output<string[]>;
+    public /*out*/ readonly replicationInstancePublicIps!: pulumi.Output<string[] | undefined>;
     /**
      * A subnet group to associate with the replication instance.
      */
-    public readonly replicationSubnetGroupId!: pulumi.Output<string>;
+    public readonly replicationSubnetGroupId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -193,7 +193,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ReplicationInstance resource with the given unique name, arguments, and options.

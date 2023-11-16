@@ -118,20 +118,20 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// The version of the security configuration.
         /// </summary>
-        public readonly string ConfigVersion;
+        public readonly string? ConfigVersion;
         /// <summary>
         /// The date the configuration was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// The description of the security configuration.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string Id;
         /// <summary>
         /// The date the configuration was last modified.
         /// </summary>
-        public readonly string LastModifiedDate;
+        public readonly string? LastModifiedDate;
         /// <summary>
         /// SAML options for the security configuration.
         /// </summary>
@@ -139,23 +139,23 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// The type of security configuration.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetServerlessSecurityConfigResult(
-            string configVersion,
+            string? configVersion,
 
-            string createdDate,
+            string? createdDate,
 
-            string description,
+            string? description,
 
             string id,
 
-            string lastModifiedDate,
+            string? lastModifiedDate,
 
             Outputs.GetServerlessSecurityConfigSamlOptionsResult? samlOptions,
 
-            string type)
+            string? type)
         {
             ConfigVersion = configVersion;
             CreatedDate = createdDate;

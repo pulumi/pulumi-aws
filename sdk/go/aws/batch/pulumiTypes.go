@@ -1757,8 +1757,8 @@ func (o SchedulingPolicyFairSharePolicyShareDistributionArrayOutput) Index(i pul
 }
 
 type GetJobQueueComputeEnvironmentOrder struct {
-	ComputeEnvironment string `pulumi:"computeEnvironment"`
-	Order              int    `pulumi:"order"`
+	ComputeEnvironment *string `pulumi:"computeEnvironment"`
+	Order              *int    `pulumi:"order"`
 }
 
 // GetJobQueueComputeEnvironmentOrderInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArgs and GetJobQueueComputeEnvironmentOrderOutput values.
@@ -1773,8 +1773,8 @@ type GetJobQueueComputeEnvironmentOrderInput interface {
 }
 
 type GetJobQueueComputeEnvironmentOrderArgs struct {
-	ComputeEnvironment pulumi.StringInput `pulumi:"computeEnvironment"`
-	Order              pulumi.IntInput    `pulumi:"order"`
+	ComputeEnvironment pulumi.StringPtrInput `pulumi:"computeEnvironment"`
+	Order              pulumi.IntPtrInput    `pulumi:"order"`
 }
 
 func (GetJobQueueComputeEnvironmentOrderArgs) ElementType() reflect.Type {
@@ -1828,12 +1828,12 @@ func (o GetJobQueueComputeEnvironmentOrderOutput) ToGetJobQueueComputeEnvironmen
 	return o
 }
 
-func (o GetJobQueueComputeEnvironmentOrderOutput) ComputeEnvironment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetJobQueueComputeEnvironmentOrder) string { return v.ComputeEnvironment }).(pulumi.StringOutput)
+func (o GetJobQueueComputeEnvironmentOrderOutput) ComputeEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetJobQueueComputeEnvironmentOrder) *string { return v.ComputeEnvironment }).(pulumi.StringPtrOutput)
 }
 
-func (o GetJobQueueComputeEnvironmentOrderOutput) Order() pulumi.IntOutput {
-	return o.ApplyT(func(v GetJobQueueComputeEnvironmentOrder) int { return v.Order }).(pulumi.IntOutput)
+func (o GetJobQueueComputeEnvironmentOrderOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetJobQueueComputeEnvironmentOrder) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
 type GetJobQueueComputeEnvironmentOrderArrayOutput struct{ *pulumi.OutputState }
@@ -1858,8 +1858,8 @@ func (o GetJobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) 
 
 type GetSchedulingPolicyFairSharePolicy struct {
 	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-	ComputeReservation int `pulumi:"computeReservation"`
-	ShareDecaySeconds  int `pulumi:"shareDecaySeconds"`
+	ComputeReservation *int `pulumi:"computeReservation"`
+	ShareDecaySeconds  *int `pulumi:"shareDecaySeconds"`
 	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 	ShareDistributions []GetSchedulingPolicyFairSharePolicyShareDistribution `pulumi:"shareDistributions"`
 }
@@ -1877,8 +1877,8 @@ type GetSchedulingPolicyFairSharePolicyInput interface {
 
 type GetSchedulingPolicyFairSharePolicyArgs struct {
 	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-	ComputeReservation pulumi.IntInput `pulumi:"computeReservation"`
-	ShareDecaySeconds  pulumi.IntInput `pulumi:"shareDecaySeconds"`
+	ComputeReservation pulumi.IntPtrInput `pulumi:"computeReservation"`
+	ShareDecaySeconds  pulumi.IntPtrInput `pulumi:"shareDecaySeconds"`
 	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 	ShareDistributions GetSchedulingPolicyFairSharePolicyShareDistributionArrayInput `pulumi:"shareDistributions"`
 }
@@ -1935,12 +1935,12 @@ func (o GetSchedulingPolicyFairSharePolicyOutput) ToGetSchedulingPolicyFairShare
 }
 
 // Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-func (o GetSchedulingPolicyFairSharePolicyOutput) ComputeReservation() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) int { return v.ComputeReservation }).(pulumi.IntOutput)
+func (o GetSchedulingPolicyFairSharePolicyOutput) ComputeReservation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) *int { return v.ComputeReservation }).(pulumi.IntPtrOutput)
 }
 
-func (o GetSchedulingPolicyFairSharePolicyOutput) ShareDecaySeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) int { return v.ShareDecaySeconds }).(pulumi.IntOutput)
+func (o GetSchedulingPolicyFairSharePolicyOutput) ShareDecaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) *int { return v.ShareDecaySeconds }).(pulumi.IntPtrOutput)
 }
 
 // One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
@@ -1972,9 +1972,9 @@ func (o GetSchedulingPolicyFairSharePolicyArrayOutput) Index(i pulumi.IntInput) 
 
 type GetSchedulingPolicyFairSharePolicyShareDistribution struct {
 	// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	ShareIdentifier string `pulumi:"shareIdentifier"`
+	ShareIdentifier *string `pulumi:"shareIdentifier"`
 	// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	WeightFactor float64 `pulumi:"weightFactor"`
+	WeightFactor *float64 `pulumi:"weightFactor"`
 }
 
 // GetSchedulingPolicyFairSharePolicyShareDistributionInput is an input type that accepts GetSchedulingPolicyFairSharePolicyShareDistributionArgs and GetSchedulingPolicyFairSharePolicyShareDistributionOutput values.
@@ -1990,9 +1990,9 @@ type GetSchedulingPolicyFairSharePolicyShareDistributionInput interface {
 
 type GetSchedulingPolicyFairSharePolicyShareDistributionArgs struct {
 	// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	ShareIdentifier pulumi.StringInput `pulumi:"shareIdentifier"`
+	ShareIdentifier pulumi.StringPtrInput `pulumi:"shareIdentifier"`
 	// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	WeightFactor pulumi.Float64Input `pulumi:"weightFactor"`
+	WeightFactor pulumi.Float64PtrInput `pulumi:"weightFactor"`
 }
 
 func (GetSchedulingPolicyFairSharePolicyShareDistributionArgs) ElementType() reflect.Type {
@@ -2047,13 +2047,13 @@ func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ToGetScheduli
 }
 
 // Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ShareIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicyShareDistribution) string { return v.ShareIdentifier }).(pulumi.StringOutput)
+func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ShareIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicyShareDistribution) *string { return v.ShareIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) WeightFactor() pulumi.Float64Output {
-	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicyShareDistribution) float64 { return v.WeightFactor }).(pulumi.Float64Output)
+func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) WeightFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicyShareDistribution) *float64 { return v.WeightFactor }).(pulumi.Float64PtrOutput)
 }
 
 type GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput struct{ *pulumi.OutputState }

@@ -20,111 +20,111 @@ public final class GetSnapshotResult {
      * @return ARN of the EBS Snapshot.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The data encryption key identifier for the snapshot.
      * 
      */
-    private String dataEncryptionKeyId;
+    private @Nullable String dataEncryptionKeyId;
     /**
      * @return Description for the snapshot
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Whether the snapshot is encrypted.
      * 
      */
-    private Boolean encrypted;
+    private @Nullable Boolean encrypted;
     private @Nullable List<GetSnapshotFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN for the KMS encryption key.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     private @Nullable Boolean mostRecent;
     /**
      * @return ARN of the Outpost on which the snapshot is stored.
      * 
      */
-    private String outpostArn;
+    private @Nullable String outpostArn;
     /**
      * @return Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      * 
      */
-    private String ownerAlias;
+    private @Nullable String ownerAlias;
     /**
      * @return AWS account ID of the EBS snapshot owner.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     private @Nullable List<String> owners;
     private @Nullable List<String> restorableByUserIds;
     /**
      * @return Snapshot ID (e.g., snap-59fcb34e).
      * 
      */
-    private String snapshotId;
+    private @Nullable String snapshotId;
     private @Nullable List<String> snapshotIds;
     /**
      * @return Snapshot state.
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return Storage tier in which the snapshot is stored.
      * 
      */
-    private String storageTier;
+    private @Nullable String storageTier;
     /**
      * @return Map of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Volume ID (e.g., vol-59fcb34e).
      * 
      */
-    private String volumeId;
+    private @Nullable String volumeId;
     /**
      * @return Size of the drive in GiBs.
      * 
      */
-    private Integer volumeSize;
+    private @Nullable Integer volumeSize;
 
     private GetSnapshotResult() {}
     /**
      * @return ARN of the EBS Snapshot.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The data encryption key identifier for the snapshot.
      * 
      */
-    public String dataEncryptionKeyId() {
-        return this.dataEncryptionKeyId;
+    public Optional<String> dataEncryptionKeyId() {
+        return Optional.ofNullable(this.dataEncryptionKeyId);
     }
     /**
      * @return Description for the snapshot
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Whether the snapshot is encrypted.
      * 
      */
-    public Boolean encrypted() {
-        return this.encrypted;
+    public Optional<Boolean> encrypted() {
+        return Optional.ofNullable(this.encrypted);
     }
     public List<GetSnapshotFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -133,15 +133,15 @@ public final class GetSnapshotResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN for the KMS encryption key.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
@@ -150,22 +150,22 @@ public final class GetSnapshotResult {
      * @return ARN of the Outpost on which the snapshot is stored.
      * 
      */
-    public String outpostArn() {
-        return this.outpostArn;
+    public Optional<String> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
     }
     /**
      * @return Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      * 
      */
-    public String ownerAlias() {
-        return this.ownerAlias;
+    public Optional<String> ownerAlias() {
+        return Optional.ofNullable(this.ownerAlias);
     }
     /**
      * @return AWS account ID of the EBS snapshot owner.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     public List<String> owners() {
         return this.owners == null ? List.of() : this.owners;
@@ -177,8 +177,8 @@ public final class GetSnapshotResult {
      * @return Snapshot ID (e.g., snap-59fcb34e).
      * 
      */
-    public String snapshotId() {
-        return this.snapshotId;
+    public Optional<String> snapshotId() {
+        return Optional.ofNullable(this.snapshotId);
     }
     public List<String> snapshotIds() {
         return this.snapshotIds == null ? List.of() : this.snapshotIds;
@@ -187,36 +187,36 @@ public final class GetSnapshotResult {
      * @return Snapshot state.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return Storage tier in which the snapshot is stored.
      * 
      */
-    public String storageTier() {
-        return this.storageTier;
+    public Optional<String> storageTier() {
+        return Optional.ofNullable(this.storageTier);
     }
     /**
      * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Volume ID (e.g., vol-59fcb34e).
      * 
      */
-    public String volumeId() {
-        return this.volumeId;
+    public Optional<String> volumeId() {
+        return Optional.ofNullable(this.volumeId);
     }
     /**
      * @return Size of the drive in GiBs.
      * 
      */
-    public Integer volumeSize() {
-        return this.volumeSize;
+    public Optional<Integer> volumeSize() {
+        return Optional.ofNullable(this.volumeSize);
     }
 
     public static Builder builder() {
@@ -228,26 +228,26 @@ public final class GetSnapshotResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String dataEncryptionKeyId;
-        private String description;
-        private Boolean encrypted;
+        private @Nullable String arn;
+        private @Nullable String dataEncryptionKeyId;
+        private @Nullable String description;
+        private @Nullable Boolean encrypted;
         private @Nullable List<GetSnapshotFilter> filters;
-        private String id;
-        private String kmsKeyId;
+        private @Nullable String id;
+        private @Nullable String kmsKeyId;
         private @Nullable Boolean mostRecent;
-        private String outpostArn;
-        private String ownerAlias;
-        private String ownerId;
+        private @Nullable String outpostArn;
+        private @Nullable String ownerAlias;
+        private @Nullable String ownerId;
         private @Nullable List<String> owners;
         private @Nullable List<String> restorableByUserIds;
-        private String snapshotId;
+        private @Nullable String snapshotId;
         private @Nullable List<String> snapshotIds;
-        private String state;
-        private String storageTier;
-        private Map<String,String> tags;
-        private String volumeId;
-        private Integer volumeSize;
+        private @Nullable String state;
+        private @Nullable String storageTier;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String volumeId;
+        private @Nullable Integer volumeSize;
         public Builder() {}
         public Builder(GetSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -274,23 +274,23 @@ public final class GetSnapshotResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder dataEncryptionKeyId(String dataEncryptionKeyId) {
-            this.dataEncryptionKeyId = Objects.requireNonNull(dataEncryptionKeyId);
+        public Builder dataEncryptionKeyId(@Nullable String dataEncryptionKeyId) {
+            this.dataEncryptionKeyId = dataEncryptionKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+        public Builder encrypted(@Nullable Boolean encrypted) {
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
@@ -302,13 +302,13 @@ public final class GetSnapshotResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
@@ -317,18 +317,18 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+        public Builder outpostArn(@Nullable String outpostArn) {
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerAlias(String ownerAlias) {
-            this.ownerAlias = Objects.requireNonNull(ownerAlias);
+        public Builder ownerAlias(@Nullable String ownerAlias) {
+            this.ownerAlias = ownerAlias;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
@@ -348,8 +348,8 @@ public final class GetSnapshotResult {
             return restorableByUserIds(List.of(restorableByUserIds));
         }
         @CustomType.Setter
-        public Builder snapshotId(String snapshotId) {
-            this.snapshotId = Objects.requireNonNull(snapshotId);
+        public Builder snapshotId(@Nullable String snapshotId) {
+            this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
@@ -361,28 +361,28 @@ public final class GetSnapshotResult {
             return snapshotIds(List.of(snapshotIds));
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder storageTier(String storageTier) {
-            this.storageTier = Objects.requireNonNull(storageTier);
+        public Builder storageTier(@Nullable String storageTier) {
+            this.storageTier = storageTier;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeId(String volumeId) {
-            this.volumeId = Objects.requireNonNull(volumeId);
+        public Builder volumeId(@Nullable String volumeId) {
+            this.volumeId = volumeId;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+        public Builder volumeSize(@Nullable Integer volumeSize) {
+            this.volumeSize = volumeSize;
             return this;
         }
         public GetSnapshotResult build() {

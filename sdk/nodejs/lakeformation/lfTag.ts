@@ -62,7 +62,7 @@ export class LfTag extends pulumi.CustomResource {
     /**
      * ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string | undefined>;
     /**
      * Key-name for the tag.
      */

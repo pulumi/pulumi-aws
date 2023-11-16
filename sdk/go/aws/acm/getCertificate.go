@@ -93,18 +93,18 @@ type LookupCertificateArgs struct {
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
 	// ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// ACM-issued certificate.
-	Certificate string `pulumi:"certificate"`
+	Certificate *string `pulumi:"certificate"`
 	// Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
-	CertificateChain string `pulumi:"certificateChain"`
-	Domain           string `pulumi:"domain"`
+	CertificateChain *string `pulumi:"certificateChain"`
+	Domain           string  `pulumi:"domain"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string   `pulumi:"id"`
+	Id         *string  `pulumi:"id"`
 	KeyTypes   []string `pulumi:"keyTypes"`
 	MostRecent *bool    `pulumi:"mostRecent"`
 	// Status of the found certificate.
-	Status   string   `pulumi:"status"`
+	Status   *string  `pulumi:"status"`
 	Statuses []string `pulumi:"statuses"`
 	// Mapping of tags for the resource.
 	Tags  map[string]string `pulumi:"tags"`
@@ -162,18 +162,18 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 }
 
 // ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
-func (o LookupCertificateResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ACM-issued certificate.
-func (o LookupCertificateResultOutput) Certificate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
 // Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
-func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateChain }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCertificateResultOutput) Domain() pulumi.StringOutput {
@@ -181,8 +181,8 @@ func (o LookupCertificateResultOutput) Domain() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCertificateResultOutput) KeyTypes() pulumi.StringArrayOutput {
@@ -194,8 +194,8 @@ func (o LookupCertificateResultOutput) MostRecent() pulumi.BoolPtrOutput {
 }
 
 // Status of the found certificate.
-func (o LookupCertificateResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCertificateResultOutput) Statuses() pulumi.StringArrayOutput {

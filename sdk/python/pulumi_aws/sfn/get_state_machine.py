@@ -52,7 +52,7 @@ class GetStateMachineResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Set to the arn of the state function.
         """
@@ -60,7 +60,7 @@ class GetStateMachineResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> Optional[str]:
         """
         Date the state machine was created.
         """
@@ -68,7 +68,7 @@ class GetStateMachineResult:
 
     @property
     @pulumi.getter
-    def definition(self) -> str:
+    def definition(self) -> Optional[str]:
         """
         Set to the state machine definition.
         """
@@ -76,12 +76,12 @@ class GetStateMachineResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -94,7 +94,7 @@ class GetStateMachineResult:
 
     @property
     @pulumi.getter(name="revisionId")
-    def revision_id(self) -> str:
+    def revision_id(self) -> Optional[str]:
         """
         The revision identifier for the state machine.
         """
@@ -102,7 +102,7 @@ class GetStateMachineResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         Set to the role_arn used by the state function.
         """
@@ -110,7 +110,7 @@ class GetStateMachineResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Set to the current status of the state machine.
         """

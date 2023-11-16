@@ -7,14 +7,15 @@ import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicySta
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction {
-    private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
+    private @Nullable List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
 
     private GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction() {}
     public List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions() {
-        return this.dimensions;
+        return this.dimensions == null ? List.of() : this.dimensions;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDef
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
+        private @Nullable List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDef
         }
 
         @CustomType.Setter
-        public Builder dimensions(List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+        public Builder dimensions(@Nullable List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions) {
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension... dimensions) {

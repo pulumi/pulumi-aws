@@ -67,14 +67,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
-    private Output<String> certificateArn;
+    private Output</* @Nullable */ String> certificateArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the certificate.
      * 
      */
-    public Output<String> certificateArn() {
-        return this.certificateArn;
+    public Output<Optional<String>> certificateArn() {
+        return Codegen.optional(this.certificateArn);
     }
     /**
      * The certificate identifier.

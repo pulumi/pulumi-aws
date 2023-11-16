@@ -66,11 +66,11 @@ export class App extends pulumi.CustomResource {
     /**
      * The Application ID of the Pinpoint App.
      */
-    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly applicationId!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the PinPoint Application
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
      */
@@ -86,7 +86,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The name of the Pinpoint application. Conflicts with `name`
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
      */

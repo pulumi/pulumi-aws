@@ -59,7 +59,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      */
@@ -91,7 +91,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
     /**
      * specifies whether the volume is read-only. Default is false.
      */
-    public readonly readOnly!: pulumi.Output<boolean>;
+    public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
      * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      */
@@ -99,11 +99,11 @@ export class OpenZfsVolume extends pulumi.CustomResource {
     /**
      * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      */
-    public readonly storageCapacityQuotaGib!: pulumi.Output<number>;
+    public readonly storageCapacityQuotaGib!: pulumi.Output<number | undefined>;
     /**
      * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
      */
-    public readonly storageCapacityReservationGib!: pulumi.Output<number>;
+    public readonly storageCapacityReservationGib!: pulumi.Output<number | undefined>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -117,7 +117,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
     /**
      * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      */
-    public readonly userAndGroupQuotas!: pulumi.Output<outputs.fsx.OpenZfsVolumeUserAndGroupQuota[]>;
+    public readonly userAndGroupQuotas!: pulumi.Output<outputs.fsx.OpenZfsVolumeUserAndGroupQuota[] | undefined>;
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
     /**

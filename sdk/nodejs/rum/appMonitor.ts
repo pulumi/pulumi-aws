@@ -58,19 +58,19 @@ export class AppMonitor extends pulumi.CustomResource {
     /**
      * configuration data for the app monitor. See appMonitorConfiguration below.
      */
-    public readonly appMonitorConfiguration!: pulumi.Output<outputs.rum.AppMonitorAppMonitorConfiguration>;
+    public readonly appMonitorConfiguration!: pulumi.Output<outputs.rum.AppMonitorAppMonitorConfiguration | undefined>;
     /**
      * The unique ID of the app monitor. Useful for JS templates.
      */
-    public /*out*/ readonly appMonitorId!: pulumi.Output<string>;
+    public /*out*/ readonly appMonitorId!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) specifying the app monitor.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
      */
-    public readonly customEvents!: pulumi.Output<outputs.rum.AppMonitorCustomEvents>;
+    public readonly customEvents!: pulumi.Output<outputs.rum.AppMonitorCustomEvents | undefined>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      */
@@ -78,7 +78,7 @@ export class AppMonitor extends pulumi.CustomResource {
     /**
      * The name of the log group where the copies are stored.
      */
-    public /*out*/ readonly cwLogGroup!: pulumi.Output<string>;
+    public /*out*/ readonly cwLogGroup!: pulumi.Output<string | undefined>;
     /**
      * The top-level internet domain name for which your application has administrative authority.
      */

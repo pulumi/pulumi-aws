@@ -81,7 +81,7 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
      */
@@ -113,7 +113,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A unique identifier for each update to the policy.
      */
-    public /*out*/ readonly policyUpdateToken!: pulumi.Output<string>;
+    public /*out*/ readonly policyUpdateToken!: pulumi.Output<string | undefined>;
     /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
@@ -125,11 +125,11 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      */
-    public readonly resourceType!: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
      */
-    public readonly resourceTypeLists!: pulumi.Output<string[]>;
+    public readonly resourceTypeLists!: pulumi.Output<string[] | undefined>;
     /**
      * The objects to include in Security Service Policy Data. Documented below.
      */

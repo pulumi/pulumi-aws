@@ -300,7 +300,7 @@ class TagOption(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "owner")
 
     @property

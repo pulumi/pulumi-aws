@@ -94,7 +94,7 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
     /**
      * The registry ID the scanning configuration applies to.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string | undefined>;
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      */

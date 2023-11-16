@@ -62,11 +62,11 @@ type LookupResolverFirewallConfigArgs struct {
 
 // A collection of values returned by getResolverFirewallConfig.
 type LookupResolverFirewallConfigResult struct {
-	FirewallFailOpen string `pulumi:"firewallFailOpen"`
+	FirewallFailOpen *string `pulumi:"firewallFailOpen"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	OwnerId    string `pulumi:"ownerId"`
-	ResourceId string `pulumi:"resourceId"`
+	Id         *string `pulumi:"id"`
+	OwnerId    *string `pulumi:"ownerId"`
+	ResourceId string  `pulumi:"resourceId"`
 }
 
 func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolverFirewallConfigOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallConfigResultOutput {
@@ -109,17 +109,17 @@ func (o LookupResolverFirewallConfigResultOutput) ToLookupResolverFirewallConfig
 	return o
 }
 
-func (o LookupResolverFirewallConfigResultOutput) FirewallFailOpen() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.FirewallFailOpen }).(pulumi.StringOutput)
+func (o LookupResolverFirewallConfigResultOutput) FirewallFailOpen() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallConfigResult) *string { return v.FirewallFailOpen }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResolverFirewallConfigResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResolverFirewallConfigResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallConfigResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverFirewallConfigResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupResolverFirewallConfigResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverFirewallConfigResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResolverFirewallConfigResultOutput) ResourceId() pulumi.StringOutput {

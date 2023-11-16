@@ -232,7 +232,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * The ARN of the patch baseline.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the patch baseline.
      */
@@ -276,7 +276,7 @@ export class PatchBaseline extends pulumi.CustomResource {
      * The action for Patch Manager to take on patches included in the `rejectedPatches` list.
      * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      */
-    public readonly rejectedPatchesAction!: pulumi.Output<string>;
+    public readonly rejectedPatchesAction!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with alternate sources for patches.
      * Applies to Linux instances only.

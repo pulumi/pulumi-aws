@@ -16,19 +16,19 @@ namespace Pulumi.Aws.DirectoryService.Outputs
         /// <summary>
         /// The protocol specified for your RADIUS endpoints.
         /// </summary>
-        public readonly string AuthenticationProtocol;
+        public readonly string? AuthenticationProtocol;
         /// <summary>
         /// Display label.
         /// </summary>
-        public readonly string DisplayLabel;
+        public readonly string? DisplayLabel;
         /// <summary>
         /// Port that your RADIUS server is using for communications.
         /// </summary>
-        public readonly int RadiusPort;
+        public readonly int? RadiusPort;
         /// <summary>
         /// Maximum number of times that communication with the RADIUS server is attempted.
         /// </summary>
-        public readonly int RadiusRetries;
+        public readonly int? RadiusRetries;
         /// <summary>
         /// Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         /// </summary>
@@ -36,27 +36,27 @@ namespace Pulumi.Aws.DirectoryService.Outputs
         /// <summary>
         /// Amount of time, in seconds, to wait for the RADIUS server to respond.
         /// </summary>
-        public readonly int RadiusTimeout;
+        public readonly int? RadiusTimeout;
         /// <summary>
         /// Not currently used.
         /// </summary>
-        public readonly bool UseSameUsername;
+        public readonly bool? UseSameUsername;
 
         [OutputConstructor]
         private GetDirectoryRadiusSettingResult(
-            string authenticationProtocol,
+            string? authenticationProtocol,
 
-            string displayLabel,
+            string? displayLabel,
 
-            int radiusPort,
+            int? radiusPort,
 
-            int radiusRetries,
+            int? radiusRetries,
 
             ImmutableArray<string> radiusServers,
 
-            int radiusTimeout,
+            int? radiusTimeout,
 
-            bool useSameUsername)
+            bool? useSameUsername)
         {
             AuthenticationProtocol = authenticationProtocol;
             DisplayLabel = displayLabel;

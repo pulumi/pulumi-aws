@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPipelineDefinitionParameterValueArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,30 +19,30 @@ public final class GetPipelineDefinitionParameterValueArgs extends com.pulumi.re
      * ID of the object.
      * 
      */
-    @Import(name="id", required=true)
-    private Output<String> id;
+    @Import(name="id")
+    private @Nullable Output<String> id;
 
     /**
      * @return ID of the object.
      * 
      */
-    public Output<String> id() {
-        return this.id;
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
      * Field value, expressed as a String.
      * 
      */
-    @Import(name="stringValue", required=true)
-    private Output<String> stringValue;
+    @Import(name="stringValue")
+    private @Nullable Output<String> stringValue;
 
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    public Output<String> stringValue() {
-        return this.stringValue;
+    public Optional<Output<String>> stringValue() {
+        return Optional.ofNullable(this.stringValue);
     }
 
     private GetPipelineDefinitionParameterValueArgs() {}
@@ -74,7 +76,7 @@ public final class GetPipelineDefinitionParameterValueArgs extends com.pulumi.re
          * @return builder
          * 
          */
-        public Builder id(Output<String> id) {
+        public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
@@ -95,7 +97,7 @@ public final class GetPipelineDefinitionParameterValueArgs extends com.pulumi.re
          * @return builder
          * 
          */
-        public Builder stringValue(Output<String> stringValue) {
+        public Builder stringValue(@Nullable Output<String> stringValue) {
             $.stringValue = stringValue;
             return this;
         }
@@ -111,8 +113,6 @@ public final class GetPipelineDefinitionParameterValueArgs extends com.pulumi.re
         }
 
         public GetPipelineDefinitionParameterValueArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.stringValue = Objects.requireNonNull($.stringValue, "expected parameter 'stringValue' to be non-null");
             return $;
         }
     }

@@ -111,9 +111,9 @@ type WindowsFileSystem struct {
 	// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
 	// Amazon Resource Name of the file system.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
-	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationOutput `pulumi:"auditLogConfiguration"`
+	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationPtrOutput `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
 	// The ID of the source backup to create the filesystem from.
@@ -121,25 +121,25 @@ type WindowsFileSystem struct {
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
 	CopyTagsToBackups pulumi.BoolPtrOutput `pulumi:"copyTagsToBackups"`
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
-	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
+	DailyAutomaticBackupStartTime pulumi.StringPtrOutput `pulumi:"dailyAutomaticBackupStartTime"`
 	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrOutput `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
-	DiskIopsConfiguration WindowsFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
+	DiskIopsConfiguration WindowsFileSystemDiskIopsConfigurationPtrOutput `pulumi:"diskIopsConfiguration"`
 	// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// The IP address of the primary, or preferred, file server.
-	PreferredFileServerIp pulumi.StringOutput `pulumi:"preferredFileServerIp"`
+	PreferredFileServerIp pulumi.StringPtrOutput `pulumi:"preferredFileServerIp"`
 	// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
-	PreferredSubnetId pulumi.StringOutput `pulumi:"preferredSubnetId"`
+	PreferredSubnetId pulumi.StringPtrOutput `pulumi:"preferredSubnetId"`
 	// For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
-	RemoteAdministrationEndpoint pulumi.StringOutput `pulumi:"remoteAdministrationEndpoint"`
+	RemoteAdministrationEndpoint pulumi.StringPtrOutput `pulumi:"remoteAdministrationEndpoint"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
@@ -147,7 +147,7 @@ type WindowsFileSystem struct {
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
 	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
-	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
+	StorageCapacity pulumi.IntPtrOutput `pulumi:"storageCapacity"`
 	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
@@ -163,9 +163,9 @@ type WindowsFileSystem struct {
 	// The following arguments are optional:
 	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
 	// Identifier of the Virtual Private Cloud for the file system.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime pulumi.StringOutput `pulumi:"weeklyMaintenanceStartTime"`
+	WeeklyMaintenanceStartTime pulumi.StringPtrOutput `pulumi:"weeklyMaintenanceStartTime"`
 }
 
 // NewWindowsFileSystem registers a new resource with the given unique name, arguments, and options.
@@ -526,15 +526,15 @@ func (o WindowsFileSystemOutput) Aliases() pulumi.StringArrayOutput {
 }
 
 // Amazon Resource Name of the file system.
-func (o WindowsFileSystemOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
-func (o WindowsFileSystemOutput) AuditLogConfiguration() WindowsFileSystemAuditLogConfigurationOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) WindowsFileSystemAuditLogConfigurationOutput {
+func (o WindowsFileSystemOutput) AuditLogConfiguration() WindowsFileSystemAuditLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) WindowsFileSystemAuditLogConfigurationPtrOutput {
 		return v.AuditLogConfiguration
-	}).(WindowsFileSystemAuditLogConfigurationOutput)
+	}).(WindowsFileSystemAuditLogConfigurationPtrOutput)
 }
 
 // The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
@@ -553,8 +553,8 @@ func (o WindowsFileSystemOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
 }
 
 // The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
-func (o WindowsFileSystemOutput) DailyAutomaticBackupStartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.DailyAutomaticBackupStartTime }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.DailyAutomaticBackupStartTime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
@@ -563,20 +563,20 @@ func (o WindowsFileSystemOutput) DeploymentType() pulumi.StringPtrOutput {
 }
 
 // The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
-func (o WindowsFileSystemOutput) DiskIopsConfiguration() WindowsFileSystemDiskIopsConfigurationOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) WindowsFileSystemDiskIopsConfigurationOutput {
+func (o WindowsFileSystemOutput) DiskIopsConfiguration() WindowsFileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) WindowsFileSystemDiskIopsConfigurationPtrOutput {
 		return v.DiskIopsConfiguration
-	}).(WindowsFileSystemDiskIopsConfigurationOutput)
+	}).(WindowsFileSystemDiskIopsConfigurationPtrOutput)
 }
 
 // DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
-func (o WindowsFileSystemOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
-func (o WindowsFileSystemOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Set of Elastic Network Interface identifiers from which the file system is accessible.
@@ -585,23 +585,23 @@ func (o WindowsFileSystemOutput) NetworkInterfaceIds() pulumi.StringArrayOutput 
 }
 
 // AWS account identifier that created the file system.
-func (o WindowsFileSystemOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // The IP address of the primary, or preferred, file server.
-func (o WindowsFileSystemOutput) PreferredFileServerIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.PreferredFileServerIp }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) PreferredFileServerIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.PreferredFileServerIp }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
-func (o WindowsFileSystemOutput) PreferredSubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.PreferredSubnetId }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) PreferredSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.PreferredSubnetId }).(pulumi.StringPtrOutput)
 }
 
 // For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
-func (o WindowsFileSystemOutput) RemoteAdministrationEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.RemoteAdministrationEndpoint }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) RemoteAdministrationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.RemoteAdministrationEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -622,8 +622,8 @@ func (o WindowsFileSystemOutput) SkipFinalBackup() pulumi.BoolPtrOutput {
 }
 
 // Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
-func (o WindowsFileSystemOutput) StorageCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.IntOutput { return v.StorageCapacity }).(pulumi.IntOutput)
+func (o WindowsFileSystemOutput) StorageCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.IntPtrOutput { return v.StorageCapacity }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
@@ -656,13 +656,13 @@ func (o WindowsFileSystemOutput) ThroughputCapacity() pulumi.IntOutput {
 }
 
 // Identifier of the Virtual Private Cloud for the file system.
-func (o WindowsFileSystemOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-func (o WindowsFileSystemOutput) WeeklyMaintenanceStartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.WeeklyMaintenanceStartTime }).(pulumi.StringOutput)
+func (o WindowsFileSystemOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
 }
 
 type WindowsFileSystemArrayOutput struct{ *pulumi.OutputState }

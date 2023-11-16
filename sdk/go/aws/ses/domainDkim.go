@@ -51,13 +51,13 @@ import (
 //				val0 := index
 //				__res, err := route53.NewRecord(ctx, fmt.Sprintf("exampleAmazonsesDkimRecord-%v", key0), &route53.RecordArgs{
 //					ZoneId: pulumi.String("ABCDEFGHIJ123"),
-//					Name: exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
+//					Name: exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens interface{}) (string, error) {
 //						return fmt.Sprintf("%v._domainkey", dkimTokens[val0]), nil
 //					}).(pulumi.StringOutput),
 //					Type: pulumi.String("CNAME"),
 //					Ttl:  pulumi.Int(600),
 //					Records: pulumi.StringArray{
-//						exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
+//						exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens interface{}) (string, error) {
 //							return fmt.Sprintf("%v.dkim.amazonses.com", dkimTokens[val0]), nil
 //						}).(pulumi.StringOutput),
 //					},

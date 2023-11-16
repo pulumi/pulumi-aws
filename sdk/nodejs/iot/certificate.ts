@@ -76,7 +76,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The ARN of the created certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      */
@@ -88,7 +88,7 @@ export class Certificate extends pulumi.CustomResource {
      * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
      * for more information on registering a certificate.
      */
-    public readonly certificatePem!: pulumi.Output<string>;
+    public readonly certificatePem!: pulumi.Output<string | undefined>;
     /**
      * The certificate signing request. Review
      * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
@@ -100,11 +100,11 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * When neither CSR nor certificate is provided, the private key.
      */
-    public /*out*/ readonly privateKey!: pulumi.Output<string>;
+    public /*out*/ readonly privateKey!: pulumi.Output<string | undefined>;
     /**
      * When neither CSR nor certificate is provided, the public key.
      */
-    public /*out*/ readonly publicKey!: pulumi.Output<string>;
+    public /*out*/ readonly publicKey!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.

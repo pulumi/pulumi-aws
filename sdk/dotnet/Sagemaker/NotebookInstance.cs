@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
@@ -144,13 +144,13 @@ namespace Pulumi.Aws.Sagemaker
         /// The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
         /// </summary>
         [Output("networkInterfaceId")]
-        public Output<string> NetworkInterfaceId { get; private set; } = null!;
+        public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
         /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         /// </summary>
         [Output("platformIdentifier")]
-        public Output<string> PlatformIdentifier { get; private set; } = null!;
+        public Output<string?> PlatformIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
         /// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.

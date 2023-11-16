@@ -136,14 +136,14 @@ public class ResourceServer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="scopeIdentifiers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> scopeIdentifiers;
+    private Output</* @Nullable */ List<String>> scopeIdentifiers;
 
     /**
      * @return A list of all scopes configured for this resource server in the format identifier/scope_name.
      * 
      */
-    public Output<List<String>> scopeIdentifiers() {
-        return this.scopeIdentifiers;
+    public Output<Optional<List<String>>> scopeIdentifiers() {
+        return Codegen.optional(this.scopeIdentifiers);
     }
     /**
      * A list of Authorization Scope.

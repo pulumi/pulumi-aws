@@ -140,56 +140,56 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accessTokenValidity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accessTokenValidity;
+    private Output</* @Nullable */ Integer> accessTokenValidity;
 
     /**
      * @return Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
      * 
      */
-    public Output<Integer> accessTokenValidity() {
-        return this.accessTokenValidity;
+    public Output<Optional<Integer>> accessTokenValidity() {
+        return Codegen.optional(this.accessTokenValidity);
     }
     /**
      * List of allowed OAuth flows, including code, implicit, and client_credentials.
      * 
      */
     @Export(name="allowedOauthFlows", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> allowedOauthFlows;
+    private Output</* @Nullable */ List<String>> allowedOauthFlows;
 
     /**
      * @return List of allowed OAuth flows, including code, implicit, and client_credentials.
      * 
      */
-    public Output<List<String>> allowedOauthFlows() {
-        return this.allowedOauthFlows;
+    public Output<Optional<List<String>>> allowedOauthFlows() {
+        return Codegen.optional(this.allowedOauthFlows);
     }
     /**
      * Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
      * 
      */
     @Export(name="allowedOauthFlowsUserPoolClient", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> allowedOauthFlowsUserPoolClient;
+    private Output</* @Nullable */ Boolean> allowedOauthFlowsUserPoolClient;
 
     /**
      * @return Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
      * 
      */
-    public Output<Boolean> allowedOauthFlowsUserPoolClient() {
-        return this.allowedOauthFlowsUserPoolClient;
+    public Output<Optional<Boolean>> allowedOauthFlowsUserPoolClient() {
+        return Codegen.optional(this.allowedOauthFlowsUserPoolClient);
     }
     /**
      * List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
      * 
      */
     @Export(name="allowedOauthScopes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> allowedOauthScopes;
+    private Output</* @Nullable */ List<String>> allowedOauthScopes;
 
     /**
      * @return List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
      * 
      */
-    public Output<List<String>> allowedOauthScopes() {
-        return this.allowedOauthScopes;
+    public Output<Optional<List<String>>> allowedOauthScopes() {
+        return Codegen.optional(this.allowedOauthScopes);
     }
     /**
      * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
@@ -210,140 +210,140 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="authSessionValidity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> authSessionValidity;
+    private Output</* @Nullable */ Integer> authSessionValidity;
 
     /**
      * @return Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
      * 
      */
-    public Output<Integer> authSessionValidity() {
-        return this.authSessionValidity;
+    public Output<Optional<Integer>> authSessionValidity() {
+        return Codegen.optional(this.authSessionValidity);
     }
     /**
      * List of allowed callback URLs for the identity providers.
      * 
      */
     @Export(name="callbackUrls", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> callbackUrls;
+    private Output</* @Nullable */ List<String>> callbackUrls;
 
     /**
      * @return List of allowed callback URLs for the identity providers.
      * 
      */
-    public Output<List<String>> callbackUrls() {
-        return this.callbackUrls;
+    public Output<Optional<List<String>>> callbackUrls() {
+        return Codegen.optional(this.callbackUrls);
     }
     /**
      * Client secret of the user pool client.
      * 
      */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
-    private Output<String> clientSecret;
+    private Output</* @Nullable */ String> clientSecret;
 
     /**
      * @return Client secret of the user pool client.
      * 
      */
-    public Output<String> clientSecret() {
-        return this.clientSecret;
+    public Output<Optional<String>> clientSecret() {
+        return Codegen.optional(this.clientSecret);
     }
     /**
      * Default redirect URI and must be included in the list of callback URLs.
      * 
      */
     @Export(name="defaultRedirectUri", refs={String.class}, tree="[0]")
-    private Output<String> defaultRedirectUri;
+    private Output</* @Nullable */ String> defaultRedirectUri;
 
     /**
      * @return Default redirect URI and must be included in the list of callback URLs.
      * 
      */
-    public Output<String> defaultRedirectUri() {
-        return this.defaultRedirectUri;
+    public Output<Optional<String>> defaultRedirectUri() {
+        return Codegen.optional(this.defaultRedirectUri);
     }
     /**
      * Enables the propagation of additional user context data.
      * 
      */
     @Export(name="enablePropagateAdditionalUserContextData", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enablePropagateAdditionalUserContextData;
+    private Output</* @Nullable */ Boolean> enablePropagateAdditionalUserContextData;
 
     /**
      * @return Enables the propagation of additional user context data.
      * 
      */
-    public Output<Boolean> enablePropagateAdditionalUserContextData() {
-        return this.enablePropagateAdditionalUserContextData;
+    public Output<Optional<Boolean>> enablePropagateAdditionalUserContextData() {
+        return Codegen.optional(this.enablePropagateAdditionalUserContextData);
     }
     /**
      * Enables or disables token revocation.
      * 
      */
     @Export(name="enableTokenRevocation", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableTokenRevocation;
+    private Output</* @Nullable */ Boolean> enableTokenRevocation;
 
     /**
      * @return Enables or disables token revocation.
      * 
      */
-    public Output<Boolean> enableTokenRevocation() {
-        return this.enableTokenRevocation;
+    public Output<Optional<Boolean>> enableTokenRevocation() {
+        return Codegen.optional(this.enableTokenRevocation);
     }
     /**
      * List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
      * 
      */
     @Export(name="explicitAuthFlows", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> explicitAuthFlows;
+    private Output</* @Nullable */ List<String>> explicitAuthFlows;
 
     /**
      * @return List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
      * 
      */
-    public Output<List<String>> explicitAuthFlows() {
-        return this.explicitAuthFlows;
+    public Output<Optional<List<String>>> explicitAuthFlows() {
+        return Codegen.optional(this.explicitAuthFlows);
     }
     /**
      * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
      * 
      */
     @Export(name="idTokenValidity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> idTokenValidity;
+    private Output</* @Nullable */ Integer> idTokenValidity;
 
     /**
      * @return Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
      * 
      */
-    public Output<Integer> idTokenValidity() {
-        return this.idTokenValidity;
+    public Output<Optional<Integer>> idTokenValidity() {
+        return Codegen.optional(this.idTokenValidity);
     }
     /**
      * List of allowed logout URLs for the identity providers.
      * 
      */
     @Export(name="logoutUrls", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> logoutUrls;
+    private Output</* @Nullable */ List<String>> logoutUrls;
 
     /**
      * @return List of allowed logout URLs for the identity providers.
      * 
      */
-    public Output<List<String>> logoutUrls() {
-        return this.logoutUrls;
+    public Output<Optional<List<String>>> logoutUrls() {
+        return Codegen.optional(this.logoutUrls);
     }
     /**
      * Name of the user pool client.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return Name of the user pool client.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
@@ -382,56 +382,56 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preventUserExistenceErrors", refs={String.class}, tree="[0]")
-    private Output<String> preventUserExistenceErrors;
+    private Output</* @Nullable */ String> preventUserExistenceErrors;
 
     /**
      * @return Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
      * 
      */
-    public Output<String> preventUserExistenceErrors() {
-        return this.preventUserExistenceErrors;
+    public Output<Optional<String>> preventUserExistenceErrors() {
+        return Codegen.optional(this.preventUserExistenceErrors);
     }
     /**
      * List of user pool attributes that the application client can read from.
      * 
      */
     @Export(name="readAttributes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> readAttributes;
+    private Output</* @Nullable */ List<String>> readAttributes;
 
     /**
      * @return List of user pool attributes that the application client can read from.
      * 
      */
-    public Output<List<String>> readAttributes() {
-        return this.readAttributes;
+    public Output<Optional<List<String>>> readAttributes() {
+        return Codegen.optional(this.readAttributes);
     }
     /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
     @Export(name="refreshTokenValidity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> refreshTokenValidity;
+    private Output</* @Nullable */ Integer> refreshTokenValidity;
 
     /**
      * @return Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
-    public Output<Integer> refreshTokenValidity() {
-        return this.refreshTokenValidity;
+    public Output<Optional<Integer>> refreshTokenValidity() {
+        return Codegen.optional(this.refreshTokenValidity);
     }
     /**
      * List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
     @Export(name="supportedIdentityProviders", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> supportedIdentityProviders;
+    private Output</* @Nullable */ List<String>> supportedIdentityProviders;
 
     /**
      * @return List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
-    public Output<List<String>> supportedIdentityProviders() {
-        return this.supportedIdentityProviders;
+    public Output<Optional<List<String>>> supportedIdentityProviders() {
+        return Codegen.optional(this.supportedIdentityProviders);
     }
     /**
      * Configuration block for representing the validity times in units. See details below. Detailed below.
@@ -466,14 +466,14 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="writeAttributes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> writeAttributes;
+    private Output</* @Nullable */ List<String>> writeAttributes;
 
     /**
      * @return List of user pool attributes that the application client can write to.
      * 
      */
-    public Output<List<String>> writeAttributes() {
-        return this.writeAttributes;
+    public Output<Optional<List<String>>> writeAttributes() {
+        return Codegen.optional(this.writeAttributes);
     }
 
     /**

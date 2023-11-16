@@ -366,28 +366,28 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Internal value used by CloudFront to allow future updates to the distribution configuration.
      * 
      */
     @Export(name="callerReference", refs={String.class}, tree="[0]")
-    private Output<String> callerReference;
+    private Output</* @Nullable */ String> callerReference;
 
     /**
      * @return Internal value used by CloudFront to allow future updates to the distribution configuration.
      * 
      */
-    public Output<String> callerReference() {
-        return this.callerReference;
+    public Output<Optional<String>> callerReference() {
+        return Codegen.optional(this.callerReference);
     }
     /**
      * Any comments you want to include about the distribution.
@@ -408,14 +408,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="continuousDeploymentPolicyId", refs={String.class}, tree="[0]")
-    private Output<String> continuousDeploymentPolicyId;
+    private Output</* @Nullable */ String> continuousDeploymentPolicyId;
 
     /**
      * @return Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
      * 
      */
-    public Output<String> continuousDeploymentPolicyId() {
-        return this.continuousDeploymentPolicyId;
+    public Output<Optional<String>> continuousDeploymentPolicyId() {
+        return Codegen.optional(this.continuousDeploymentPolicyId);
     }
     /**
      * One or more custom error response elements (multiples allowed).
@@ -464,14 +464,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
-    private Output<String> domainName;
+    private Output</* @Nullable */ String> domainName;
 
     /**
      * @return DNS domain name of either the S3 bucket, or web site of your custom origin.
      * 
      */
-    public Output<String> domainName() {
-        return this.domainName;
+    public Output<Optional<String>> domainName() {
+        return Codegen.optional(this.domainName);
     }
     /**
      * Whether Origin Shield is enabled.
@@ -492,28 +492,28 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return Current version of the distribution&#39;s information. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
-    private Output<String> hostedZoneId;
+    private Output</* @Nullable */ String> hostedZoneId;
 
     /**
      * @return CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
-    public Output<String> hostedZoneId() {
-        return this.hostedZoneId;
+    public Output<Optional<String>> hostedZoneId() {
+        return Codegen.optional(this.hostedZoneId);
     }
     /**
      * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
@@ -534,14 +534,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="inProgressValidationBatches", refs={Integer.class}, tree="[0]")
-    private Output<Integer> inProgressValidationBatches;
+    private Output</* @Nullable */ Integer> inProgressValidationBatches;
 
     /**
      * @return Number of invalidation batches currently in progress.
      * 
      */
-    public Output<Integer> inProgressValidationBatches() {
-        return this.inProgressValidationBatches;
+    public Output<Optional<Integer>> inProgressValidationBatches() {
+        return Codegen.optional(this.inProgressValidationBatches);
     }
     /**
      * Whether the IPv6 is enabled for the distribution.
@@ -562,14 +562,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModifiedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedTime;
+    private Output</* @Nullable */ String> lastModifiedTime;
 
     /**
      * @return Date and time the distribution was last modified.
      * 
      */
-    public Output<String> lastModifiedTime() {
-        return this.lastModifiedTime;
+    public Output<Optional<String>> lastModifiedTime() {
+        return Codegen.optional(this.lastModifiedTime);
     }
     /**
      * The logging configuration that controls how logs are written to your distribution (maximum one).
@@ -688,14 +688,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Current status of the distribution. `Deployed` if the distribution&#39;s information is fully propagated throughout the Amazon CloudFront system.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -734,28 +734,28 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="trustedKeyGroups", refs={List.class,DistributionTrustedKeyGroup.class}, tree="[0,1]")
-    private Output<List<DistributionTrustedKeyGroup>> trustedKeyGroups;
+    private Output</* @Nullable */ List<DistributionTrustedKeyGroup>> trustedKeyGroups;
 
     /**
      * @return List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
-    public Output<List<DistributionTrustedKeyGroup>> trustedKeyGroups() {
-        return this.trustedKeyGroups;
+    public Output<Optional<List<DistributionTrustedKeyGroup>>> trustedKeyGroups() {
+        return Codegen.optional(this.trustedKeyGroups);
     }
     /**
      * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
     @Export(name="trustedSigners", refs={List.class,DistributionTrustedSigner.class}, tree="[0,1]")
-    private Output<List<DistributionTrustedSigner>> trustedSigners;
+    private Output</* @Nullable */ List<DistributionTrustedSigner>> trustedSigners;
 
     /**
      * @return List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
-    public Output<List<DistributionTrustedSigner>> trustedSigners() {
-        return this.trustedSigners;
+    public Output<Optional<List<DistributionTrustedSigner>>> trustedSigners() {
+        return Codegen.optional(this.trustedSigners);
     }
     /**
      * The SSL configuration for this distribution (maximum one).

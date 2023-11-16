@@ -115,11 +115,11 @@ type VpcConnection struct {
 	pulumi.CustomResourceState
 
 	// ARN of the VPC connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-	AvailabilityStatus pulumi.StringOutput `pulumi:"availabilityStatus"`
+	AvailabilityStatus pulumi.StringPtrOutput `pulumi:"availabilityStatus"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayOutput `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
@@ -385,18 +385,18 @@ func (o VpcConnectionOutput) ToVpcConnectionOutputWithContext(ctx context.Contex
 }
 
 // ARN of the VPC connection.
-func (o VpcConnectionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpcConnectionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-func (o VpcConnectionOutput) AvailabilityStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.AvailabilityStatus }).(pulumi.StringOutput)
+func (o VpcConnectionOutput) AvailabilityStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.AvailabilityStatus }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o VpcConnectionOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o VpcConnectionOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // A list of IP addresses of DNS resolver endpoints for the VPC connection.

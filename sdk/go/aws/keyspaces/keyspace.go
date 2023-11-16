@@ -52,7 +52,7 @@ type Keyspace struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the keyspace.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the keyspace to be created.
 	//
 	// The following arguments are optional:
@@ -239,8 +239,8 @@ func (o KeyspaceOutput) ToKeyspaceOutputWithContext(ctx context.Context) Keyspac
 }
 
 // The ARN of the keyspace.
-func (o KeyspaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o KeyspaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Keyspace) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the keyspace to be created.

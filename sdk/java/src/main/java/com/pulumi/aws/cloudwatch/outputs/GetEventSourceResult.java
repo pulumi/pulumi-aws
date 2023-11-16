@@ -15,57 +15,57 @@ public final class GetEventSourceResult {
      * @return ARN of the partner event source
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Name of the SaaS partner that created the event source
      * 
      */
-    private String createdBy;
+    private @Nullable String createdBy;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the event source
      * 
      */
-    private String name;
+    private @Nullable String name;
     private @Nullable String namePrefix;
     /**
      * @return State of the event source (`ACTIVE` or `PENDING`)
      * 
      */
-    private String state;
+    private @Nullable String state;
 
     private GetEventSourceResult() {}
     /**
      * @return ARN of the partner event source
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Name of the SaaS partner that created the event source
      * 
      */
-    public String createdBy() {
-        return this.createdBy;
+    public Optional<String> createdBy() {
+        return Optional.ofNullable(this.createdBy);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the event source
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
@@ -74,8 +74,8 @@ public final class GetEventSourceResult {
      * @return State of the event source (`ACTIVE` or `PENDING`)
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
 
     public static Builder builder() {
@@ -87,12 +87,12 @@ public final class GetEventSourceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String createdBy;
-        private String id;
-        private String name;
+        private @Nullable String arn;
+        private @Nullable String createdBy;
+        private @Nullable String id;
+        private @Nullable String name;
         private @Nullable String namePrefix;
-        private String state;
+        private @Nullable String state;
         public Builder() {}
         public Builder(GetEventSourceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -105,23 +105,23 @@ public final class GetEventSourceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdBy(String createdBy) {
-            this.createdBy = Objects.requireNonNull(createdBy);
+        public Builder createdBy(@Nullable String createdBy) {
+            this.createdBy = createdBy;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -130,8 +130,8 @@ public final class GetEventSourceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         public GetEventSourceResult build() {

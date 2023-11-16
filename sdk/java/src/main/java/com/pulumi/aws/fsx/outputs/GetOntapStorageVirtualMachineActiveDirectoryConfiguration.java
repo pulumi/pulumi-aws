@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
@@ -15,19 +17,19 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
      * @return The NetBIOS name of the AD computer object to which the SVM is joined.
      * 
      */
-    private String netbiosName;
-    private List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations;
+    private @Nullable String netbiosName;
+    private @Nullable List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations;
 
     private GetOntapStorageVirtualMachineActiveDirectoryConfiguration() {}
     /**
      * @return The NetBIOS name of the AD computer object to which the SVM is joined.
      * 
      */
-    public String netbiosName() {
-        return this.netbiosName;
+    public Optional<String> netbiosName() {
+        return Optional.ofNullable(this.netbiosName);
     }
     public List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations() {
-        return this.selfManagedActiveDirectoryConfigurations;
+        return this.selfManagedActiveDirectoryConfigurations == null ? List.of() : this.selfManagedActiveDirectoryConfigurations;
     }
 
     public static Builder builder() {
@@ -39,8 +41,8 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String netbiosName;
-        private List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations;
+        private @Nullable String netbiosName;
+        private @Nullable List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations;
         public Builder() {}
         public Builder(GetOntapStorageVirtualMachineActiveDirectoryConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -49,13 +51,13 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
         }
 
         @CustomType.Setter
-        public Builder netbiosName(String netbiosName) {
-            this.netbiosName = Objects.requireNonNull(netbiosName);
+        public Builder netbiosName(@Nullable String netbiosName) {
+            this.netbiosName = netbiosName;
             return this;
         }
         @CustomType.Setter
-        public Builder selfManagedActiveDirectoryConfigurations(List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations) {
-            this.selfManagedActiveDirectoryConfigurations = Objects.requireNonNull(selfManagedActiveDirectoryConfigurations);
+        public Builder selfManagedActiveDirectoryConfigurations(@Nullable List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations) {
+            this.selfManagedActiveDirectoryConfigurations = selfManagedActiveDirectoryConfigurations;
             return this;
         }
         public Builder selfManagedActiveDirectoryConfigurations(GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration... selfManagedActiveDirectoryConfigurations) {

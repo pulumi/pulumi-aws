@@ -462,7 +462,7 @@ class CloudFormationStack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[Mapping[str, str]]:
+    def outputs(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of outputs from the stack.
         """
@@ -470,7 +470,7 @@ class CloudFormationStack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of Parameter structures that specify input parameters for the stack.
         """
@@ -478,7 +478,7 @@ class CloudFormationStack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="semanticVersion")
-    def semantic_version(self) -> pulumi.Output[str]:
+    def semantic_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the application to deploy. If not supplied, deploys the latest version.
         """

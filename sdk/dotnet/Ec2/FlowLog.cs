@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the Flow Log.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         /// </summary>
         [Output("logDestination")]
-        public Output<string> LogDestination { get; private set; } = null!;
+        public Output<string?> LogDestination { get; private set; } = null!;
 
         /// <summary>
         /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
@@ -203,13 +203,13 @@ namespace Pulumi.Aws.Ec2
         /// The fields to include in the flow log record, in the order in which they should appear.
         /// </summary>
         [Output("logFormat")]
-        public Output<string> LogFormat { get; private set; } = null!;
+        public Output<string?> LogFormat { get; private set; } = null!;
 
         /// <summary>
         /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
         [Output("logGroupName")]
-        public Output<string> LogGroupName { get; private set; } = null!;
+        public Output<string?> LogGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The maximum interval of time

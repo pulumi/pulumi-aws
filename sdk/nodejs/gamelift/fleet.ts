@@ -68,11 +68,11 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Fleet ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Build ARN.
      */
-    public /*out*/ readonly buildArn!: pulumi.Output<string>;
+    public /*out*/ readonly buildArn!: pulumi.Output<string | undefined>;
     /**
      * ID of the GameLift Build to be deployed on the fleet.
      */
@@ -80,7 +80,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
      */
-    public readonly certificateConfiguration!: pulumi.Output<outputs.gamelift.FleetCertificateConfiguration>;
+    public readonly certificateConfiguration!: pulumi.Output<outputs.gamelift.FleetCertificateConfiguration | undefined>;
     /**
      * Human-readable description of the fleet.
      */
@@ -88,7 +88,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    public readonly ec2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetEc2InboundPermission[]>;
+    public readonly ec2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetEc2InboundPermission[] | undefined>;
     /**
      * Name of an EC2 instance typeE.g., `t2.micro`
      */
@@ -101,11 +101,11 @@ export class Fleet extends pulumi.CustomResource {
      * ARN of an IAM role that instances in the fleet can assume.
      */
     public readonly instanceRoleArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly logPaths!: pulumi.Output<string[]>;
+    public /*out*/ readonly logPaths!: pulumi.Output<string[] | undefined>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */
-    public readonly metricGroups!: pulumi.Output<string[]>;
+    public readonly metricGroups!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the fleet.
      */
@@ -117,7 +117,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Operating system of the fleet's computing resources.
      */
-    public /*out*/ readonly operatingSystem!: pulumi.Output<string>;
+    public /*out*/ readonly operatingSystem!: pulumi.Output<string | undefined>;
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
@@ -129,7 +129,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Script ARN.
      */
-    public /*out*/ readonly scriptArn!: pulumi.Output<string>;
+    public /*out*/ readonly scriptArn!: pulumi.Output<string | undefined>;
     /**
      * ID of the GameLift Script to be deployed on the fleet.
      */

@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Returned release labels.
         /// </summary>
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Emr
         private GetReleaseLabelsResult(
             Outputs.GetReleaseLabelsFiltersResult? filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> releaseLabels)
         {

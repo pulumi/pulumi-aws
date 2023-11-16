@@ -56,12 +56,12 @@ class GetMultiRegionAccessPointResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> Optional[str]:
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> Optional[str]:
         """
         The alias for the Multi-Region Access Point.
         """
@@ -69,7 +69,7 @@ class GetMultiRegionAccessPointResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name (ARN) of the Multi-Region Access Point.
         """
@@ -77,7 +77,7 @@ class GetMultiRegionAccessPointResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Timestamp when the resource has been created.
         """
@@ -85,7 +85,7 @@ class GetMultiRegionAccessPointResult:
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> Optional[str]:
         """
         The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         """
@@ -93,7 +93,7 @@ class GetMultiRegionAccessPointResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -106,7 +106,7 @@ class GetMultiRegionAccessPointResult:
 
     @property
     @pulumi.getter(name="publicAccessBlocks")
-    def public_access_blocks(self) -> Sequence['outputs.GetMultiRegionAccessPointPublicAccessBlockResult']:
+    def public_access_blocks(self) -> Optional[Sequence['outputs.GetMultiRegionAccessPointPublicAccessBlockResult']]:
         """
         Public Access Block of the Multi-Region Access Point. Detailed below.
         """
@@ -114,7 +114,7 @@ class GetMultiRegionAccessPointResult:
 
     @property
     @pulumi.getter
-    def regions(self) -> Sequence['outputs.GetMultiRegionAccessPointRegionResult']:
+    def regions(self) -> Optional[Sequence['outputs.GetMultiRegionAccessPointRegionResult']]:
         """
         A collection of the regions and buckets associated with the Multi-Region Access Point.
         """
@@ -122,7 +122,7 @@ class GetMultiRegionAccessPointResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The current status of the Multi-Region Access Point.
         """

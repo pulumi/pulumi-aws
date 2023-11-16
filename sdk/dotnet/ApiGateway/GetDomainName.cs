@@ -128,27 +128,27 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// ARN of the found custom domain name.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
         /// </summary>
-        public readonly string CertificateArn;
+        public readonly string? CertificateArn;
         /// <summary>
         /// Name of the certificate that is used by edge-optimized endpoint for this domain name.
         /// </summary>
-        public readonly string CertificateName;
+        public readonly string? CertificateName;
         /// <summary>
         /// Upload date associated with the domain certificate.
         /// </summary>
-        public readonly string CertificateUploadDate;
+        public readonly string? CertificateUploadDate;
         /// <summary>
         /// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         /// </summary>
-        public readonly string CloudfrontDomainName;
+        public readonly string? CloudfrontDomainName;
         /// <summary>
         /// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         /// </summary>
-        public readonly string CloudfrontZoneId;
+        public readonly string? CloudfrontZoneId;
         public readonly string DomainName;
         /// <summary>
         /// List of objects with the endpoint configuration of this domain name.
@@ -157,27 +157,27 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN for an AWS-managed certificate that is used for validating the regional domain name.
         /// </summary>
-        public readonly string RegionalCertificateArn;
+        public readonly string? RegionalCertificateArn;
         /// <summary>
         /// User-friendly name of the certificate that is used by regional endpoint for this domain name.
         /// </summary>
-        public readonly string RegionalCertificateName;
+        public readonly string? RegionalCertificateName;
         /// <summary>
         /// Hostname for the custom domain's regional endpoint.
         /// </summary>
-        public readonly string RegionalDomainName;
+        public readonly string? RegionalDomainName;
         /// <summary>
         /// Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         /// </summary>
-        public readonly string RegionalZoneId;
+        public readonly string? RegionalZoneId;
         /// <summary>
         /// Security policy for the domain name.
         /// </summary>
-        public readonly string SecurityPolicy;
+        public readonly string? SecurityPolicy;
         /// <summary>
         /// Key-value map of tags for the resource.
         /// </summary>
@@ -185,33 +185,33 @@ namespace Pulumi.Aws.ApiGateway
 
         [OutputConstructor]
         private GetDomainNameResult(
-            string arn,
+            string? arn,
 
-            string certificateArn,
+            string? certificateArn,
 
-            string certificateName,
+            string? certificateName,
 
-            string certificateUploadDate,
+            string? certificateUploadDate,
 
-            string cloudfrontDomainName,
+            string? cloudfrontDomainName,
 
-            string cloudfrontZoneId,
+            string? cloudfrontZoneId,
 
             string domainName,
 
             ImmutableArray<Outputs.GetDomainNameEndpointConfigurationResult> endpointConfigurations,
 
-            string id,
+            string? id,
 
-            string regionalCertificateArn,
+            string? regionalCertificateArn,
 
-            string regionalCertificateName,
+            string? regionalCertificateName,
 
-            string regionalDomainName,
+            string? regionalDomainName,
 
-            string regionalZoneId,
+            string? regionalZoneId,
 
-            string securityPolicy,
+            string? securityPolicy,
 
             ImmutableDictionary<string, string>? tags)
         {

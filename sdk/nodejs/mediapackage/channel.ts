@@ -61,7 +61,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The ARN of the channel
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A unique identifier describing the channel
      */
@@ -73,7 +73,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * A single item list of HLS ingest information
      */
-    public /*out*/ readonly hlsIngests!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest[]>;
+    public /*out*/ readonly hlsIngests!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest[] | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -87,32 +87,32 @@ type LookupInstanceArgs struct {
 // A collection of values returned by getInstance.
 type LookupInstanceResult struct {
 	// ARN of the instance.
-	Arn                          string `pulumi:"arn"`
-	AutoResolveBestVoicesEnabled bool   `pulumi:"autoResolveBestVoicesEnabled"`
+	Arn                          *string `pulumi:"arn"`
+	AutoResolveBestVoicesEnabled *bool   `pulumi:"autoResolveBestVoicesEnabled"`
 	// Whether contact flow logs are enabled.
-	ContactFlowLogsEnabled bool `pulumi:"contactFlowLogsEnabled"`
+	ContactFlowLogsEnabled *bool `pulumi:"contactFlowLogsEnabled"`
 	// Whether contact lens is enabled.
-	ContactLensEnabled bool `pulumi:"contactLensEnabled"`
+	ContactLensEnabled *bool `pulumi:"contactLensEnabled"`
 	// When the instance was created.
-	CreatedTime string `pulumi:"createdTime"`
+	CreatedTime *string `pulumi:"createdTime"`
 	// Whether early media for outbound calls is enabled .
-	EarlyMediaEnabled bool `pulumi:"earlyMediaEnabled"`
+	EarlyMediaEnabled *bool `pulumi:"earlyMediaEnabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Specifies The identity management type attached to the instance.
-	IdentityManagementType string `pulumi:"identityManagementType"`
+	IdentityManagementType *string `pulumi:"identityManagementType"`
 	// Whether inbound calls are enabled.
-	InboundCallsEnabled bool   `pulumi:"inboundCallsEnabled"`
-	InstanceAlias       string `pulumi:"instanceAlias"`
-	InstanceId          string `pulumi:"instanceId"`
+	InboundCallsEnabled *bool   `pulumi:"inboundCallsEnabled"`
+	InstanceAlias       *string `pulumi:"instanceAlias"`
+	InstanceId          *string `pulumi:"instanceId"`
 	// Whether multi-party calls/conference is enabled.
-	MultiPartyConferenceEnabled bool `pulumi:"multiPartyConferenceEnabled"`
+	MultiPartyConferenceEnabled *bool `pulumi:"multiPartyConferenceEnabled"`
 	// Whether outbound calls are enabled.
-	OutboundCallsEnabled bool `pulumi:"outboundCallsEnabled"`
+	OutboundCallsEnabled *bool `pulumi:"outboundCallsEnabled"`
 	// Service role of the instance.
-	ServiceRole string `pulumi:"serviceRole"`
+	ServiceRole *string `pulumi:"serviceRole"`
 	// State of the instance.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
@@ -156,75 +156,75 @@ func (o LookupInstanceResultOutput) ToLookupInstanceResultOutputWithContext(ctx 
 }
 
 // ARN of the instance.
-func (o LookupInstanceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupInstanceResultOutput) AutoResolveBestVoicesEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.AutoResolveBestVoicesEnabled }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) AutoResolveBestVoicesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.AutoResolveBestVoicesEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether contact flow logs are enabled.
-func (o LookupInstanceResultOutput) ContactFlowLogsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.ContactFlowLogsEnabled }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) ContactFlowLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.ContactFlowLogsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether contact lens is enabled.
-func (o LookupInstanceResultOutput) ContactLensEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.ContactLensEnabled }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) ContactLensEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.ContactLensEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // When the instance was created.
-func (o LookupInstanceResultOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Whether early media for outbound calls is enabled .
-func (o LookupInstanceResultOutput) EarlyMediaEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.EarlyMediaEnabled }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) EarlyMediaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.EarlyMediaEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupInstanceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies The identity management type attached to the instance.
-func (o LookupInstanceResultOutput) IdentityManagementType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.IdentityManagementType }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) IdentityManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.IdentityManagementType }).(pulumi.StringPtrOutput)
 }
 
 // Whether inbound calls are enabled.
-func (o LookupInstanceResultOutput) InboundCallsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.InboundCallsEnabled }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) InboundCallsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.InboundCallsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupInstanceResultOutput) InstanceAlias() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.InstanceAlias }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) InstanceAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceAlias }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupInstanceResultOutput) InstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.InstanceId }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
 // Whether multi-party calls/conference is enabled.
-func (o LookupInstanceResultOutput) MultiPartyConferenceEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.MultiPartyConferenceEnabled }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) MultiPartyConferenceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.MultiPartyConferenceEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether outbound calls are enabled.
-func (o LookupInstanceResultOutput) OutboundCallsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupInstanceResult) bool { return v.OutboundCallsEnabled }).(pulumi.BoolOutput)
+func (o LookupInstanceResultOutput) OutboundCallsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.OutboundCallsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Service role of the instance.
-func (o LookupInstanceResultOutput) ServiceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.ServiceRole }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
 }
 
 // State of the instance.
-func (o LookupInstanceResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupInstanceResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func init() {

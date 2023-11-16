@@ -145,9 +145,9 @@ type ProvisioningTemplate struct {
 	pulumi.CustomResourceState
 
 	// The ARN that identifies the provisioning template.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The default version of the fleet provisioning template.
-	DefaultVersionId pulumi.IntOutput `pulumi:"defaultVersionId"`
+	DefaultVersionId pulumi.IntPtrOutput `pulumi:"defaultVersionId"`
 	// The description of the fleet provisioning template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// True to enable the fleet provisioning template, otherwise false.
@@ -167,7 +167,7 @@ type ProvisioningTemplate struct {
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
 	// The type you define in a provisioning template.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewProvisioningTemplate registers a new resource with the given unique name, arguments, and options.
@@ -394,13 +394,13 @@ func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutputWithContext(ctx 
 }
 
 // The ARN that identifies the provisioning template.
-func (o ProvisioningTemplateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProvisioningTemplateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The default version of the fleet provisioning template.
-func (o ProvisioningTemplateOutput) DefaultVersionId() pulumi.IntOutput {
-	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.IntOutput { return v.DefaultVersionId }).(pulumi.IntOutput)
+func (o ProvisioningTemplateOutput) DefaultVersionId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.IntPtrOutput { return v.DefaultVersionId }).(pulumi.IntPtrOutput)
 }
 
 // The description of the fleet provisioning template.
@@ -448,8 +448,8 @@ func (o ProvisioningTemplateOutput) TemplateBody() pulumi.StringOutput {
 }
 
 // The type you define in a provisioning template.
-func (o ProvisioningTemplateOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o ProvisioningTemplateOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ProvisioningTemplateArrayOutput struct{ *pulumi.OutputState }

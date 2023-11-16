@@ -167,13 +167,13 @@ namespace Pulumi.Aws.AppRunner
         /// ARN of the App Runner service.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
         /// </summary>
         [Output("autoScalingConfigurationArn")]
-        public Output<string> AutoScalingConfigurationArn { get; private set; } = null!;
+        public Output<string?> AutoScalingConfigurationArn { get; private set; } = null!;
 
         /// <summary>
         /// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
@@ -185,19 +185,19 @@ namespace Pulumi.Aws.AppRunner
         /// Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         /// </summary>
         [Output("healthCheckConfiguration")]
-        public Output<Outputs.ServiceHealthCheckConfiguration> HealthCheckConfiguration { get; private set; } = null!;
+        public Output<Outputs.ServiceHealthCheckConfiguration?> HealthCheckConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         /// </summary>
         [Output("instanceConfiguration")]
-        public Output<Outputs.ServiceInstanceConfiguration> InstanceConfiguration { get; private set; } = null!;
+        public Output<Outputs.ServiceInstanceConfiguration?> InstanceConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         /// </summary>
         [Output("networkConfiguration")]
-        public Output<Outputs.ServiceNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.ServiceNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The observability configuration of your service. See Observability Configuration below for more details.
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.AppRunner
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         /// </summary>
         [Output("serviceId")]
-        public Output<string> ServiceId { get; private set; } = null!;
+        public Output<string?> ServiceId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the service.
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.AppRunner
         /// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         /// </summary>
         [Output("serviceUrl")]
-        public Output<string> ServiceUrl { get; private set; } = null!;
+        public Output<string?> ServiceUrl { get; private set; } = null!;
 
         /// <summary>
         /// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.AppRunner
         /// Current state of the App Runner service.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

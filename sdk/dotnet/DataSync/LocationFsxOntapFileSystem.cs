@@ -29,16 +29,16 @@ namespace Pulumi.Aws.DataSync
         /// ARN of the DataSync Location for the FSx Ontap File System.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the FSx Ontap File System.
         /// </summary>
         [Output("fsxFilesystemArn")]
-        public Output<string> FsxFilesystemArn { get; private set; } = null!;
+        public Output<string?> FsxFilesystemArn { get; private set; } = null!;
 
         /// <summary>
         /// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.DataSync
         /// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
         /// </summary>
         [Output("subdirectory")]
-        public Output<string> Subdirectory { get; private set; } = null!;
+        public Output<string?> Subdirectory { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.DataSync
         /// URI of the FSx ONTAP file system location
         /// </summary>
         [Output("uri")]
-        public Output<string> Uri { get; private set; } = null!;
+        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

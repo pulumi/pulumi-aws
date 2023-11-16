@@ -73,42 +73,42 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="architecture", refs={String.class}, tree="[0]")
-    private Output<String> architecture;
+    private Output</* @Nullable */ String> architecture;
 
     /**
      * @return Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
      * 
      */
-    public Output<String> architecture() {
-        return this.architecture;
+    public Output<Optional<String>> architecture() {
+        return Codegen.optional(this.architecture);
     }
     /**
      * ARN of the AMI.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the AMI.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     @Export(name="bootMode", refs={String.class}, tree="[0]")
-    private Output<String> bootMode;
+    private Output</* @Nullable */ String> bootMode;
 
     /**
      * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    public Output<String> bootMode() {
-        return this.bootMode;
+    public Output<Optional<String>> bootMode() {
+        return Codegen.optional(this.bootMode);
     }
     /**
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -160,29 +160,29 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsBlockDevices", refs={List.class,AmiCopyEbsBlockDevice.class}, tree="[0,1]")
-    private Output<List<AmiCopyEbsBlockDevice>> ebsBlockDevices;
+    private Output</* @Nullable */ List<AmiCopyEbsBlockDevice>> ebsBlockDevices;
 
     /**
      * @return Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      * 
      */
-    public Output<List<AmiCopyEbsBlockDevice>> ebsBlockDevices() {
-        return this.ebsBlockDevices;
+    public Output<Optional<List<AmiCopyEbsBlockDevice>>> ebsBlockDevices() {
+        return Codegen.optional(this.ebsBlockDevices);
     }
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     @Export(name="enaSupport", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enaSupport;
+    private Output</* @Nullable */ Boolean> enaSupport;
 
     /**
      * @return Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
-    public Output<Boolean> enaSupport() {
-        return this.enaSupport;
+    public Output<Optional<Boolean>> enaSupport() {
+        return Codegen.optional(this.enaSupport);
     }
     /**
      * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
@@ -204,21 +204,21 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ephemeralBlockDevices", refs={List.class,AmiCopyEphemeralBlockDevice.class}, tree="[0,1]")
-    private Output<List<AmiCopyEphemeralBlockDevice>> ephemeralBlockDevices;
+    private Output</* @Nullable */ List<AmiCopyEphemeralBlockDevice>> ephemeralBlockDevices;
 
     /**
      * @return Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      * 
      */
-    public Output<List<AmiCopyEphemeralBlockDevice>> ephemeralBlockDevices() {
-        return this.ephemeralBlockDevices;
+    public Output<Optional<List<AmiCopyEphemeralBlockDevice>>> ephemeralBlockDevices() {
+        return Codegen.optional(this.ephemeralBlockDevices);
     }
     @Export(name="hypervisor", refs={String.class}, tree="[0]")
-    private Output<String> hypervisor;
+    private Output</* @Nullable */ String> hypervisor;
 
-    public Output<String> hypervisor() {
-        return this.hypervisor;
+    public Output<Optional<String>> hypervisor() {
+        return Codegen.optional(this.hypervisor);
     }
     /**
      * Path to an S3 object containing an image manifest, e.g., created
@@ -226,41 +226,41 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="imageLocation", refs={String.class}, tree="[0]")
-    private Output<String> imageLocation;
+    private Output</* @Nullable */ String> imageLocation;
 
     /**
      * @return Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      * 
      */
-    public Output<String> imageLocation() {
-        return this.imageLocation;
+    public Output<Optional<String>> imageLocation() {
+        return Codegen.optional(this.imageLocation);
     }
     @Export(name="imageOwnerAlias", refs={String.class}, tree="[0]")
-    private Output<String> imageOwnerAlias;
+    private Output</* @Nullable */ String> imageOwnerAlias;
 
-    public Output<String> imageOwnerAlias() {
-        return this.imageOwnerAlias;
+    public Output<Optional<String>> imageOwnerAlias() {
+        return Codegen.optional(this.imageOwnerAlias);
     }
     @Export(name="imageType", refs={String.class}, tree="[0]")
-    private Output<String> imageType;
+    private Output</* @Nullable */ String> imageType;
 
-    public Output<String> imageType() {
-        return this.imageType;
+    public Output<Optional<String>> imageType() {
+        return Codegen.optional(this.imageType);
     }
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      * 
      */
     @Export(name="imdsSupport", refs={String.class}, tree="[0]")
-    private Output<String> imdsSupport;
+    private Output</* @Nullable */ String> imdsSupport;
 
     /**
      * @return If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      * 
      */
-    public Output<String> imdsSupport() {
-        return this.imdsSupport;
+    public Output<Optional<String>> imdsSupport() {
+        return Codegen.optional(this.imdsSupport);
     }
     /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
@@ -268,35 +268,35 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kernelId", refs={String.class}, tree="[0]")
-    private Output<String> kernelId;
+    private Output</* @Nullable */ String> kernelId;
 
     /**
      * @return ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
-    public Output<String> kernelId() {
-        return this.kernelId;
+    public Output<Optional<String>> kernelId() {
+        return Codegen.optional(this.kernelId);
     }
     /**
      * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     @Export(name="manageEbsSnapshots", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> manageEbsSnapshots;
+    private Output</* @Nullable */ Boolean> manageEbsSnapshots;
 
-    public Output<Boolean> manageEbsSnapshots() {
-        return this.manageEbsSnapshots;
+    public Output<Optional<Boolean>> manageEbsSnapshots() {
+        return Codegen.optional(this.manageEbsSnapshots);
     }
     /**
      * Region-unique name for the AMI.
@@ -313,28 +313,28 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     @Export(name="platform", refs={String.class}, tree="[0]")
-    private Output<String> platform;
+    private Output</* @Nullable */ String> platform;
 
-    public Output<String> platform() {
-        return this.platform;
+    public Output<Optional<String>> platform() {
+        return Codegen.optional(this.platform);
     }
     @Export(name="platformDetails", refs={String.class}, tree="[0]")
-    private Output<String> platformDetails;
+    private Output</* @Nullable */ String> platformDetails;
 
-    public Output<String> platformDetails() {
-        return this.platformDetails;
+    public Output<Optional<String>> platformDetails() {
+        return Codegen.optional(this.platformDetails);
     }
     @Export(name="public", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> public_;
+    private Output</* @Nullable */ Boolean> public_;
 
-    public Output<Boolean> public_() {
-        return this.public_;
+    public Output<Optional<Boolean>> public_() {
+        return Codegen.optional(this.public_);
     }
     /**
      * ID of an initrd image (ARI) that will be used when booting the
@@ -342,35 +342,35 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ramdiskId", refs={String.class}, tree="[0]")
-    private Output<String> ramdiskId;
+    private Output</* @Nullable */ String> ramdiskId;
 
     /**
      * @return ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
-    public Output<String> ramdiskId() {
-        return this.ramdiskId;
+    public Output<Optional<String>> ramdiskId() {
+        return Codegen.optional(this.ramdiskId);
     }
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     @Export(name="rootDeviceName", refs={String.class}, tree="[0]")
-    private Output<String> rootDeviceName;
+    private Output</* @Nullable */ String> rootDeviceName;
 
     /**
      * @return Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
-    public Output<String> rootDeviceName() {
-        return this.rootDeviceName;
+    public Output<Optional<String>> rootDeviceName() {
+        return Codegen.optional(this.rootDeviceName);
     }
     @Export(name="rootSnapshotId", refs={String.class}, tree="[0]")
-    private Output<String> rootSnapshotId;
+    private Output</* @Nullable */ String> rootSnapshotId;
 
-    public Output<String> rootSnapshotId() {
-        return this.rootSnapshotId;
+    public Output<Optional<String>> rootSnapshotId() {
+        return Codegen.optional(this.rootSnapshotId);
     }
     /**
      * Id of the AMI to copy. This id must be valid in the region
@@ -410,15 +410,15 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sriovNetSupport", refs={String.class}, tree="[0]")
-    private Output<String> sriovNetSupport;
+    private Output</* @Nullable */ String> sriovNetSupport;
 
     /**
      * @return When set to &#34;simple&#34; (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
      * 
      */
-    public Output<String> sriovNetSupport() {
-        return this.sriovNetSupport;
+    public Output<Optional<String>> sriovNetSupport() {
+        return Codegen.optional(this.sriovNetSupport);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -451,20 +451,20 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tpmSupport", refs={String.class}, tree="[0]")
-    private Output<String> tpmSupport;
+    private Output</* @Nullable */ String> tpmSupport;
 
     /**
      * @return If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    public Output<String> tpmSupport() {
-        return this.tpmSupport;
+    public Output<Optional<String>> tpmSupport() {
+        return Codegen.optional(this.tpmSupport);
     }
     @Export(name="usageOperation", refs={String.class}, tree="[0]")
-    private Output<String> usageOperation;
+    private Output</* @Nullable */ String> usageOperation;
 
-    public Output<String> usageOperation() {
-        return this.usageOperation;
+    public Output<Optional<String>> usageOperation() {
+        return Codegen.optional(this.usageOperation);
     }
     /**
      * Keyword to choose what virtualization mode created instances
@@ -473,7 +473,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="virtualizationType", refs={String.class}, tree="[0]")
-    private Output<String> virtualizationType;
+    private Output</* @Nullable */ String> virtualizationType;
 
     /**
      * @return Keyword to choose what virtualization mode created instances
@@ -481,8 +481,8 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
      * changes the set of further arguments that are required, as described below.
      * 
      */
-    public Output<String> virtualizationType() {
-        return this.virtualizationType;
+    public Output<Optional<String>> virtualizationType() {
+        return Codegen.optional(this.virtualizationType);
     }
 
     /**

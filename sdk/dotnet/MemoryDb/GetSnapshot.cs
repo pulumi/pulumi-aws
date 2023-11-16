@@ -128,7 +128,7 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// ARN of the snapshot.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The configuration of the cluster from which the snapshot was taken.
         /// </summary>
@@ -136,15 +136,15 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// Name of the MemoryDB cluster that this snapshot was taken from.
         /// </summary>
-        public readonly string ClusterName;
+        public readonly string? ClusterName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the KMS key used to encrypt the snapshot at rest.
         /// </summary>
-        public readonly string KmsKeyArn;
+        public readonly string? KmsKeyArn;
         /// <summary>
         /// Name of the cluster.
         /// </summary>
@@ -152,29 +152,29 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         /// </summary>
-        public readonly string Source;
+        public readonly string? Source;
         /// <summary>
         /// Map of tags assigned to the snapshot.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSnapshotResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetSnapshotClusterConfigurationResult> clusterConfigurations,
 
-            string clusterName,
+            string? clusterName,
 
-            string id,
+            string? id,
 
-            string kmsKeyArn,
+            string? kmsKeyArn,
 
             string name,
 
-            string source,
+            string? source,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ClusterConfigurations = clusterConfigurations;

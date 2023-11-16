@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualRouterSpecListenerPortMapping;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualRouterSpecListener {
-    private List<GetVirtualRouterSpecListenerPortMapping> portMappings;
+    private @Nullable List<GetVirtualRouterSpecListenerPortMapping> portMappings;
 
     private GetVirtualRouterSpecListener() {}
     public List<GetVirtualRouterSpecListenerPortMapping> portMappings() {
-        return this.portMappings;
+        return this.portMappings == null ? List.of() : this.portMappings;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualRouterSpecListener {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualRouterSpecListenerPortMapping> portMappings;
+        private @Nullable List<GetVirtualRouterSpecListenerPortMapping> portMappings;
         public Builder() {}
         public Builder(GetVirtualRouterSpecListener defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualRouterSpecListener {
         }
 
         @CustomType.Setter
-        public Builder portMappings(List<GetVirtualRouterSpecListenerPortMapping> portMappings) {
-            this.portMappings = Objects.requireNonNull(portMappings);
+        public Builder portMappings(@Nullable List<GetVirtualRouterSpecListenerPortMapping> portMappings) {
+            this.portMappings = portMappings;
             return this;
         }
         public Builder portMappings(GetVirtualRouterSpecListenerPortMapping... portMappings) {

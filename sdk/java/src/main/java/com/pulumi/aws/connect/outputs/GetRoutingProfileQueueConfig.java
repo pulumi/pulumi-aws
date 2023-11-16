@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRoutingProfileQueueConfig {
@@ -14,75 +16,75 @@ public final class GetRoutingProfileQueueConfig {
      * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
-    private String channel;
+    private @Nullable String channel;
     /**
      * @return Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
      * 
      */
-    private Integer delay;
+    private @Nullable Integer delay;
     /**
      * @return Order in which contacts are to be handled for the queue.
      * 
      */
-    private Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return ARN for the queue.
      * 
      */
-    private String queueArn;
+    private @Nullable String queueArn;
     /**
      * @return Identifier for the queue.
      * 
      */
-    private String queueId;
+    private @Nullable String queueId;
     /**
      * @return Name for the queue.
      * 
      */
-    private String queueName;
+    private @Nullable String queueName;
 
     private GetRoutingProfileQueueConfig() {}
     /**
      * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
-    public String channel() {
-        return this.channel;
+    public Optional<String> channel() {
+        return Optional.ofNullable(this.channel);
     }
     /**
      * @return Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
      * 
      */
-    public Integer delay() {
-        return this.delay;
+    public Optional<Integer> delay() {
+        return Optional.ofNullable(this.delay);
     }
     /**
      * @return Order in which contacts are to be handled for the queue.
      * 
      */
-    public Integer priority() {
-        return this.priority;
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
     }
     /**
      * @return ARN for the queue.
      * 
      */
-    public String queueArn() {
-        return this.queueArn;
+    public Optional<String> queueArn() {
+        return Optional.ofNullable(this.queueArn);
     }
     /**
      * @return Identifier for the queue.
      * 
      */
-    public String queueId() {
-        return this.queueId;
+    public Optional<String> queueId() {
+        return Optional.ofNullable(this.queueId);
     }
     /**
      * @return Name for the queue.
      * 
      */
-    public String queueName() {
-        return this.queueName;
+    public Optional<String> queueName() {
+        return Optional.ofNullable(this.queueName);
     }
 
     public static Builder builder() {
@@ -94,12 +96,12 @@ public final class GetRoutingProfileQueueConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String channel;
-        private Integer delay;
-        private Integer priority;
-        private String queueArn;
-        private String queueId;
-        private String queueName;
+        private @Nullable String channel;
+        private @Nullable Integer delay;
+        private @Nullable Integer priority;
+        private @Nullable String queueArn;
+        private @Nullable String queueId;
+        private @Nullable String queueName;
         public Builder() {}
         public Builder(GetRoutingProfileQueueConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -112,33 +114,33 @@ public final class GetRoutingProfileQueueConfig {
         }
 
         @CustomType.Setter
-        public Builder channel(String channel) {
-            this.channel = Objects.requireNonNull(channel);
+        public Builder channel(@Nullable String channel) {
+            this.channel = channel;
             return this;
         }
         @CustomType.Setter
-        public Builder delay(Integer delay) {
-            this.delay = Objects.requireNonNull(delay);
+        public Builder delay(@Nullable Integer delay) {
+            this.delay = delay;
             return this;
         }
         @CustomType.Setter
-        public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
-        public Builder queueArn(String queueArn) {
-            this.queueArn = Objects.requireNonNull(queueArn);
+        public Builder queueArn(@Nullable String queueArn) {
+            this.queueArn = queueArn;
             return this;
         }
         @CustomType.Setter
-        public Builder queueId(String queueId) {
-            this.queueId = Objects.requireNonNull(queueId);
+        public Builder queueId(@Nullable String queueId) {
+            this.queueId = queueId;
             return this;
         }
         @CustomType.Setter
-        public Builder queueName(String queueName) {
-            this.queueName = Objects.requireNonNull(queueName);
+        public Builder queueName(@Nullable String queueName) {
+            this.queueName = queueName;
             return this;
         }
         public GetRoutingProfileQueueConfig build() {

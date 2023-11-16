@@ -58,7 +58,7 @@ export class ServiceSetting extends pulumi.CustomResource {
     /**
      * ARN of the service setting.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ID of the service setting.
      */
@@ -70,7 +70,7 @@ export class ServiceSetting extends pulumi.CustomResource {
     /**
      * Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServiceSetting resource with the given unique name, arguments, and options.

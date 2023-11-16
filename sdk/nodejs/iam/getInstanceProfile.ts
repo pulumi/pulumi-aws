@@ -45,32 +45,32 @@ export interface GetInstanceProfileResult {
     /**
      * ARN.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * String representation of the date the instance profile was created.
      */
-    readonly createDate: string;
+    readonly createDate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Path to the instance profile.
      */
-    readonly path: string;
+    readonly path?: string;
     /**
      * Role ARN associated with this instance profile.
      */
-    readonly roleArn: string;
+    readonly roleArn?: string;
     /**
      * Role ID associated with this instance profile.
      */
-    readonly roleId: string;
+    readonly roleId?: string;
     /**
      * Role name associated with this instance profile.
      */
-    readonly roleName: string;
+    readonly roleName?: string;
 }
 /**
  * This data source can be used to fetch information about a specific

@@ -117,35 +117,35 @@ export interface GetVpcPeeringConnectionResult {
      * Configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
-    readonly accepter: {[key: string]: boolean};
+    readonly accepter?: {[key: string]: boolean};
     /**
      * CIDR block associated to the VPC of the specific VPC Peering Connection.
      */
-    readonly cidrBlock: string;
+    readonly cidrBlock?: string;
     /**
      * List of objects with CIDR blocks of the requester VPC.
      */
-    readonly cidrBlockSets: outputs.ec2.GetVpcPeeringConnectionCidrBlockSet[];
+    readonly cidrBlockSets?: outputs.ec2.GetVpcPeeringConnectionCidrBlockSet[];
     readonly filters?: outputs.ec2.GetVpcPeeringConnectionFilter[];
-    readonly id: string;
-    readonly ownerId: string;
-    readonly peerCidrBlock: string;
+    readonly id?: string;
+    readonly ownerId?: string;
+    readonly peerCidrBlock?: string;
     /**
      * List of objects with CIDR blocks of the accepter VPC.
      */
-    readonly peerCidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerCidrBlockSet[];
-    readonly peerOwnerId: string;
-    readonly peerRegion: string;
-    readonly peerVpcId: string;
-    readonly region: string;
+    readonly peerCidrBlockSets?: outputs.ec2.GetVpcPeeringConnectionPeerCidrBlockSet[];
+    readonly peerOwnerId?: string;
+    readonly peerRegion?: string;
+    readonly peerVpcId?: string;
+    readonly region?: string;
     /**
      * Configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
-    readonly requester: {[key: string]: boolean};
-    readonly status: string;
-    readonly tags: {[key: string]: string};
-    readonly vpcId: string;
+    readonly requester?: {[key: string]: boolean};
+    readonly status?: string;
+    readonly tags?: {[key: string]: string};
+    readonly vpcId?: string;
 }
 /**
  * The VPC Peering Connection data source provides details about

@@ -44,7 +44,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         User ARN.
         """
@@ -52,7 +52,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> str:
+    def group_id(self) -> Optional[str]:
         """
         Stable and unique string identifying the group.
         """
@@ -65,7 +65,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -73,7 +73,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
         Path to the IAM user.
         """
@@ -81,7 +81,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def users(self) -> Sequence['outputs.GetGroupUserResult']:
+    def users(self) -> Optional[Sequence['outputs.GetGroupUserResult']]:
         """
         List of objects containing group member information. See below.
         """

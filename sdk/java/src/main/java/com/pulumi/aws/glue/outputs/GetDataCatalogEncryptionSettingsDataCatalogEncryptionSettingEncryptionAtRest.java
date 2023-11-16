@@ -6,6 +6,8 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest {
@@ -13,27 +15,27 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
      * @return The encryption-at-rest mode for encrypting Data Catalog data.
      * 
      */
-    private String catalogEncryptionMode;
+    private @Nullable String catalogEncryptionMode;
     /**
      * @return ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
-    private String sseAwsKmsKeyId;
+    private @Nullable String sseAwsKmsKeyId;
 
     private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest() {}
     /**
      * @return The encryption-at-rest mode for encrypting Data Catalog data.
      * 
      */
-    public String catalogEncryptionMode() {
-        return this.catalogEncryptionMode;
+    public Optional<String> catalogEncryptionMode() {
+        return Optional.ofNullable(this.catalogEncryptionMode);
     }
     /**
      * @return ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
-    public String sseAwsKmsKeyId() {
-        return this.sseAwsKmsKeyId;
+    public Optional<String> sseAwsKmsKeyId() {
+        return Optional.ofNullable(this.sseAwsKmsKeyId);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
     }
     @CustomType.Builder
     public static final class Builder {
-        private String catalogEncryptionMode;
-        private String sseAwsKmsKeyId;
+        private @Nullable String catalogEncryptionMode;
+        private @Nullable String sseAwsKmsKeyId;
         public Builder() {}
         public Builder(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
         }
 
         @CustomType.Setter
-        public Builder catalogEncryptionMode(String catalogEncryptionMode) {
-            this.catalogEncryptionMode = Objects.requireNonNull(catalogEncryptionMode);
+        public Builder catalogEncryptionMode(@Nullable String catalogEncryptionMode) {
+            this.catalogEncryptionMode = catalogEncryptionMode;
             return this;
         }
         @CustomType.Setter
-        public Builder sseAwsKmsKeyId(String sseAwsKmsKeyId) {
-            this.sseAwsKmsKeyId = Objects.requireNonNull(sseAwsKmsKeyId);
+        public Builder sseAwsKmsKeyId(@Nullable String sseAwsKmsKeyId) {
+            this.sseAwsKmsKeyId = sseAwsKmsKeyId;
             return this;
         }
         public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest build() {

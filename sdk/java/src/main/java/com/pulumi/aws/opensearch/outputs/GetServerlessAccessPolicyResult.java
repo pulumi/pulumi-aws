@@ -6,6 +6,8 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerlessAccessPolicyResult {
@@ -13,19 +15,19 @@ public final class GetServerlessAccessPolicyResult {
      * @return Description of the policy. Typically used to store information about the permissions defined in the policy.
      * 
      */
-    private String description;
-    private String id;
+    private @Nullable String description;
+    private @Nullable String id;
     private String name;
     /**
      * @return JSON policy document to use as the content for the new policy.
      * 
      */
-    private String policy;
+    private @Nullable String policy;
     /**
      * @return Version of the policy.
      * 
      */
-    private String policyVersion;
+    private @Nullable String policyVersion;
     private String type;
 
     private GetServerlessAccessPolicyResult() {}
@@ -33,11 +35,11 @@ public final class GetServerlessAccessPolicyResult {
      * @return Description of the policy. Typically used to store information about the permissions defined in the policy.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -46,15 +48,15 @@ public final class GetServerlessAccessPolicyResult {
      * @return JSON policy document to use as the content for the new policy.
      * 
      */
-    public String policy() {
-        return this.policy;
+    public Optional<String> policy() {
+        return Optional.ofNullable(this.policy);
     }
     /**
      * @return Version of the policy.
      * 
      */
-    public String policyVersion() {
-        return this.policyVersion;
+    public Optional<String> policyVersion() {
+        return Optional.ofNullable(this.policyVersion);
     }
     public String type() {
         return this.type;
@@ -69,11 +71,11 @@ public final class GetServerlessAccessPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String description;
-        private String id;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private String policy;
-        private String policyVersion;
+        private @Nullable String policy;
+        private @Nullable String policyVersion;
         private String type;
         public Builder() {}
         public Builder(GetServerlessAccessPolicyResult defaults) {
@@ -87,13 +89,13 @@ public final class GetServerlessAccessPolicyResult {
         }
 
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -102,13 +104,13 @@ public final class GetServerlessAccessPolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+        public Builder policy(@Nullable String policy) {
+            this.policy = policy;
             return this;
         }
         @CustomType.Setter
-        public Builder policyVersion(String policyVersion) {
-            this.policyVersion = Objects.requireNonNull(policyVersion);
+        public Builder policyVersion(@Nullable String policyVersion) {
+            this.policyVersion = policyVersion;
             return this;
         }
         @CustomType.Setter

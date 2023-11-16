@@ -16,17 +16,17 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Maximum.
         /// </summary>
-        public readonly int Max;
+        public readonly int? Max;
         /// <summary>
         /// Minimum.
         /// </summary>
-        public readonly int Min;
+        public readonly int? Min;
 
         [OutputConstructor]
         private GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult(
-            int max,
+            int? max,
 
-            int min)
+            int? min)
         {
             Max = max;
             Min = min;

@@ -74,28 +74,28 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The key pair ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * 
      */
     @Export(name="fingerprint", refs={String.class}, tree="[0]")
-    private Output<String> fingerprint;
+    private Output</* @Nullable */ String> fingerprint;
 
     /**
      * @return The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * 
      */
-    public Output<String> fingerprint() {
-        return this.fingerprint;
+    public Output<Optional<String>> fingerprint() {
+        return Codegen.optional(this.fingerprint);
     }
     /**
      * The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
@@ -116,42 +116,42 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyNamePrefix", refs={String.class}, tree="[0]")
-    private Output<String> keyNamePrefix;
+    private Output</* @Nullable */ String> keyNamePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
-    public Output<String> keyNamePrefix() {
-        return this.keyNamePrefix;
+    public Output<Optional<String>> keyNamePrefix() {
+        return Codegen.optional(this.keyNamePrefix);
     }
     /**
      * The key pair ID.
      * 
      */
     @Export(name="keyPairId", refs={String.class}, tree="[0]")
-    private Output<String> keyPairId;
+    private Output</* @Nullable */ String> keyPairId;
 
     /**
      * @return The key pair ID.
      * 
      */
-    public Output<String> keyPairId() {
-        return this.keyPairId;
+    public Output<Optional<String>> keyPairId() {
+        return Codegen.optional(this.keyPairId);
     }
     /**
      * The type of key pair.
      * 
      */
     @Export(name="keyType", refs={String.class}, tree="[0]")
-    private Output<String> keyType;
+    private Output</* @Nullable */ String> keyType;
 
     /**
      * @return The type of key pair.
      * 
      */
-    public Output<String> keyType() {
-        return this.keyType;
+    public Output<Optional<String>> keyType() {
+        return Codegen.optional(this.keyType);
     }
     /**
      * The public key material.

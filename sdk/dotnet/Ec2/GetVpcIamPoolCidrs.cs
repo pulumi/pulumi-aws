@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The CIDRs provisioned into the IPAM pool, described below.
         /// </summary>
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Ec2
         private GetVpcIamPoolCidrsResult(
             ImmutableArray<Outputs.GetVpcIamPoolCidrsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetVpcIamPoolCidrsIpamPoolCidrResult> ipamPoolCidrs,
 

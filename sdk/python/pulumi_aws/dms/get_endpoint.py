@@ -101,22 +101,22 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> Optional[str]:
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> Optional[str]:
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="elasticsearchSettings")
-    def elasticsearch_settings(self) -> Sequence['outputs.GetEndpointElasticsearchSettingResult']:
+    def elasticsearch_settings(self) -> Optional[Sequence['outputs.GetEndpointElasticsearchSettingResult']]:
         return pulumi.get(self, "elasticsearch_settings")
 
     @property
     @pulumi.getter(name="endpointArn")
-    def endpoint_arn(self) -> str:
+    def endpoint_arn(self) -> Optional[str]:
         return pulumi.get(self, "endpoint_arn")
 
     @property
@@ -126,22 +126,22 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> str:
+    def endpoint_type(self) -> Optional[str]:
         return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter(name="engineName")
-    def engine_name(self) -> str:
+    def engine_name(self) -> Optional[str]:
         return pulumi.get(self, "engine_name")
 
     @property
     @pulumi.getter(name="extraConnectionAttributes")
-    def extra_connection_attributes(self) -> str:
+    def extra_connection_attributes(self) -> Optional[str]:
         return pulumi.get(self, "extra_connection_attributes")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -149,82 +149,82 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="kafkaSettings")
-    def kafka_settings(self) -> Sequence['outputs.GetEndpointKafkaSettingResult']:
+    def kafka_settings(self) -> Optional[Sequence['outputs.GetEndpointKafkaSettingResult']]:
         return pulumi.get(self, "kafka_settings")
 
     @property
     @pulumi.getter(name="kinesisSettings")
-    def kinesis_settings(self) -> Sequence['outputs.GetEndpointKinesisSettingResult']:
+    def kinesis_settings(self) -> Optional[Sequence['outputs.GetEndpointKinesisSettingResult']]:
         return pulumi.get(self, "kinesis_settings")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="mongodbSettings")
-    def mongodb_settings(self) -> Sequence['outputs.GetEndpointMongodbSettingResult']:
+    def mongodb_settings(self) -> Optional[Sequence['outputs.GetEndpointMongodbSettingResult']]:
         return pulumi.get(self, "mongodb_settings")
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def password(self) -> Optional[str]:
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="redisSettings")
-    def redis_settings(self) -> Sequence['outputs.GetEndpointRedisSettingResult']:
+    def redis_settings(self) -> Optional[Sequence['outputs.GetEndpointRedisSettingResult']]:
         return pulumi.get(self, "redis_settings")
 
     @property
     @pulumi.getter(name="redshiftSettings")
-    def redshift_settings(self) -> Sequence['outputs.GetEndpointRedshiftSettingResult']:
+    def redshift_settings(self) -> Optional[Sequence['outputs.GetEndpointRedshiftSettingResult']]:
         return pulumi.get(self, "redshift_settings")
 
     @property
     @pulumi.getter(name="s3Settings")
-    def s3_settings(self) -> Sequence['outputs.GetEndpointS3SettingResult']:
+    def s3_settings(self) -> Optional[Sequence['outputs.GetEndpointS3SettingResult']]:
         return pulumi.get(self, "s3_settings")
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
-    def secrets_manager_access_role_arn(self) -> str:
+    def secrets_manager_access_role_arn(self) -> Optional[str]:
         return pulumi.get(self, "secrets_manager_access_role_arn")
 
     @property
     @pulumi.getter(name="secretsManagerArn")
-    def secrets_manager_arn(self) -> str:
+    def secrets_manager_arn(self) -> Optional[str]:
         return pulumi.get(self, "secrets_manager_arn")
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> Optional[str]:
         return pulumi.get(self, "server_name")
 
     @property
     @pulumi.getter(name="serviceAccessRole")
-    def service_access_role(self) -> str:
+    def service_access_role(self) -> Optional[str]:
         return pulumi.get(self, "service_access_role")
 
     @property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> str:
+    def ssl_mode(self) -> Optional[str]:
         return pulumi.get(self, "ssl_mode")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
 

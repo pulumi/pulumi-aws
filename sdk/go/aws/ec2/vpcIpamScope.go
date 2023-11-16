@@ -71,18 +71,18 @@ type VpcIpamScope struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the scope.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description for the scope you're creating.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the IPAM for which you're creating this scope.
-	IpamArn pulumi.StringOutput `pulumi:"ipamArn"`
+	IpamArn pulumi.StringPtrOutput `pulumi:"ipamArn"`
 	// The ID of the IPAM for which you're creating this scope.
-	IpamId        pulumi.StringOutput `pulumi:"ipamId"`
-	IpamScopeType pulumi.StringOutput `pulumi:"ipamScopeType"`
+	IpamId        pulumi.StringOutput    `pulumi:"ipamId"`
+	IpamScopeType pulumi.StringPtrOutput `pulumi:"ipamScopeType"`
 	// Defines if the scope is the default scope or not.
-	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
+	IsDefault pulumi.BoolPtrOutput `pulumi:"isDefault"`
 	// The number of pools in the scope.
-	PoolCount pulumi.IntOutput `pulumi:"poolCount"`
+	PoolCount pulumi.IntPtrOutput `pulumi:"poolCount"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -276,8 +276,8 @@ func (o VpcIpamScopeOutput) ToVpcIpamScopeOutputWithContext(ctx context.Context)
 }
 
 // The Amazon Resource Name (ARN) of the scope.
-func (o VpcIpamScopeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpcIpamScopeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description for the scope you're creating.
@@ -286,8 +286,8 @@ func (o VpcIpamScopeOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The ARN of the IPAM for which you're creating this scope.
-func (o VpcIpamScopeOutput) IpamArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.IpamArn }).(pulumi.StringOutput)
+func (o VpcIpamScopeOutput) IpamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringPtrOutput { return v.IpamArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the IPAM for which you're creating this scope.
@@ -295,18 +295,18 @@ func (o VpcIpamScopeOutput) IpamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.IpamId }).(pulumi.StringOutput)
 }
 
-func (o VpcIpamScopeOutput) IpamScopeType() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.IpamScopeType }).(pulumi.StringOutput)
+func (o VpcIpamScopeOutput) IpamScopeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringPtrOutput { return v.IpamScopeType }).(pulumi.StringPtrOutput)
 }
 
 // Defines if the scope is the default scope or not.
-func (o VpcIpamScopeOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VpcIpamScope) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
+func (o VpcIpamScopeOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcIpamScope) pulumi.BoolPtrOutput { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
 
 // The number of pools in the scope.
-func (o VpcIpamScopeOutput) PoolCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *VpcIpamScope) pulumi.IntOutput { return v.PoolCount }).(pulumi.IntOutput)
+func (o VpcIpamScopeOutput) PoolCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpcIpamScope) pulumi.IntPtrOutput { return v.PoolCount }).(pulumi.IntPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -40,7 +40,7 @@ class GetIpamPreviewNextCidrResult:
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         """
         Previewed CIDR from the pool.
         """
@@ -53,7 +53,7 @@ class GetIpamPreviewNextCidrResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

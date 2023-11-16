@@ -6,14 +6,16 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
-    private String text;
+    private @Nullable String text;
 
     private GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription() {}
-    public String text() {
-        return this.text;
+    public Optional<String> text() {
+        return Optional.ofNullable(this.text);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagCo
     }
     @CustomType.Builder
     public static final class Builder {
-        private String text;
+        private @Nullable String text;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagCo
         }
 
         @CustomType.Setter
-        public Builder text(String text) {
-            this.text = Objects.requireNonNull(text);
+        public Builder text(@Nullable String text) {
+            this.text = text;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription build() {

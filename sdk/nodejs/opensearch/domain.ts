@@ -294,27 +294,27 @@ export class Domain extends pulumi.CustomResource {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    public readonly accessPolicies!: pulumi.Output<string>;
+    public readonly accessPolicies!: pulumi.Output<string | undefined>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
      */
-    public readonly advancedOptions!: pulumi.Output<{[key: string]: string}>;
+    public readonly advancedOptions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
-    public readonly advancedSecurityOptions!: pulumi.Output<outputs.opensearch.DomainAdvancedSecurityOptions>;
+    public readonly advancedSecurityOptions!: pulumi.Output<outputs.opensearch.DomainAdvancedSecurityOptions | undefined>;
     /**
      * ARN of the domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */
-    public readonly autoTuneOptions!: pulumi.Output<outputs.opensearch.DomainAutoTuneOptions>;
+    public readonly autoTuneOptions!: pulumi.Output<outputs.opensearch.DomainAutoTuneOptions | undefined>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
-    public readonly clusterConfig!: pulumi.Output<outputs.opensearch.DomainClusterConfig>;
+    public readonly clusterConfig!: pulumi.Output<outputs.opensearch.DomainClusterConfig | undefined>;
     /**
      * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
@@ -322,15 +322,15 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Domain-specific endpoint for Dashboard without https scheme.
      */
-    public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
-    public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearch.DomainDomainEndpointOptions>;
+    public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearch.DomainDomainEndpointOptions | undefined>;
     /**
      * Unique identifier for the domain.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    public /*out*/ readonly domainId!: pulumi.Output<string | undefined>;
     /**
      * Name of the domain.
      *
@@ -340,27 +340,27 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      */
-    public readonly ebsOptions!: pulumi.Output<outputs.opensearch.DomainEbsOptions>;
+    public readonly ebsOptions!: pulumi.Output<outputs.opensearch.DomainEbsOptions | undefined>;
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      */
-    public readonly encryptAtRest!: pulumi.Output<outputs.opensearch.DomainEncryptAtRest>;
+    public readonly encryptAtRest!: pulumi.Output<outputs.opensearch.DomainEncryptAtRest | undefined>;
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
      * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
      * Defaults to the lastest version of OpenSearch.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
      *
      * @deprecated use 'dashboard_endpoint' attribute instead
      */
-    public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
@@ -368,11 +368,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      */
-    public readonly nodeToNodeEncryption!: pulumi.Output<outputs.opensearch.DomainNodeToNodeEncryption>;
+    public readonly nodeToNodeEncryption!: pulumi.Output<outputs.opensearch.DomainNodeToNodeEncryption | undefined>;
     /**
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      */
-    public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearch.DomainOffPeakWindowOptions>;
+    public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearch.DomainOffPeakWindowOptions | undefined>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
@@ -380,7 +380,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Software update options for the domain. Detailed below.
      */
-    public readonly softwareUpdateOptions!: pulumi.Output<outputs.opensearch.DomainSoftwareUpdateOptions>;
+    public readonly softwareUpdateOptions!: pulumi.Output<outputs.opensearch.DomainSoftwareUpdateOptions | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

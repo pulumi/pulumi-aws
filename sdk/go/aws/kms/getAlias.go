@@ -59,14 +59,14 @@ type LookupAliasArgs struct {
 // A collection of values returned by getAlias.
 type LookupAliasResult struct {
 	// Amazon Resource Name(ARN) of the key alias.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// ARN pointed to by the alias.
-	TargetKeyArn string `pulumi:"targetKeyArn"`
+	TargetKeyArn *string `pulumi:"targetKeyArn"`
 	// Key identifier pointed to by the alias.
-	TargetKeyId string `pulumi:"targetKeyId"`
+	TargetKeyId *string `pulumi:"targetKeyId"`
 }
 
 func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
@@ -108,13 +108,13 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 }
 
 // Amazon Resource Name(ARN) of the key alias.
-func (o LookupAliasResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
@@ -122,13 +122,13 @@ func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
 }
 
 // ARN pointed to by the alias.
-func (o LookupAliasResultOutput) TargetKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.TargetKeyArn }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) TargetKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.TargetKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Key identifier pointed to by the alias.
-func (o LookupAliasResultOutput) TargetKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.TargetKeyId }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) TargetKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.TargetKeyId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

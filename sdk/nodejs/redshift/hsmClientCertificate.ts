@@ -55,7 +55,7 @@ export class HsmClientCertificate extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the HSM client certificate.
      */
@@ -63,7 +63,7 @@ export class HsmClientCertificate extends pulumi.CustomResource {
     /**
      * The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
      */
-    public /*out*/ readonly hsmClientCertificatePublicKey!: pulumi.Output<string>;
+    public /*out*/ readonly hsmClientCertificatePublicKey!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

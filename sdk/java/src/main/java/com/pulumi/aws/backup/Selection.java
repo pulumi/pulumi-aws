@@ -251,14 +251,14 @@ public class Selection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="conditions", refs={List.class,SelectionCondition.class}, tree="[0,1]")
-    private Output<List<SelectionCondition>> conditions;
+    private Output</* @Nullable */ List<SelectionCondition>> conditions;
 
     /**
      * @return A list of conditions that you define to assign resources to your backup plans using tags.
      * 
      */
-    public Output<List<SelectionCondition>> conditions() {
-        return this.conditions;
+    public Output<Optional<List<SelectionCondition>>> conditions() {
+        return Codegen.optional(this.conditions);
     }
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
@@ -293,14 +293,14 @@ public class Selection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="notResources", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> notResources;
+    private Output</* @Nullable */ List<String>> notResources;
 
     /**
      * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
      * 
      */
-    public Output<List<String>> notResources() {
-        return this.notResources;
+    public Output<Optional<List<String>>> notResources() {
+        return Codegen.optional(this.notResources);
     }
     /**
      * The backup plan ID to be associated with the selection of resources.

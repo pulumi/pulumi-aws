@@ -16,20 +16,20 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// <summary>
         /// Name of the DynamoDB table.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly ImmutableArray<string> NonKeyAttributes;
-        public readonly string ProjectionType;
-        public readonly string RangeKey;
+        public readonly string? ProjectionType;
+        public readonly string? RangeKey;
 
         [OutputConstructor]
         private GetTableLocalSecondaryIndexResult(
-            string name,
+            string? name,
 
             ImmutableArray<string> nonKeyAttributes,
 
-            string projectionType,
+            string? projectionType,
 
-            string rangeKey)
+            string? rangeKey)
         {
             Name = name;
             NonKeyAttributes = nonKeyAttributes;

@@ -15,13 +15,13 @@ public final class GetResourceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String identifier;
     /**
      * @return JSON string matching the CloudFormation resource type schema with current configuration.
      * 
      */
-    private String properties;
+    private @Nullable String properties;
     private @Nullable String roleArn;
     private String typeName;
     private @Nullable String typeVersionId;
@@ -31,8 +31,8 @@ public final class GetResourceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String identifier() {
         return this.identifier;
@@ -41,8 +41,8 @@ public final class GetResourceResult {
      * @return JSON string matching the CloudFormation resource type schema with current configuration.
      * 
      */
-    public String properties() {
-        return this.properties;
+    public Optional<String> properties() {
+        return Optional.ofNullable(this.properties);
     }
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
@@ -63,9 +63,9 @@ public final class GetResourceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private String identifier;
-        private String properties;
+        private @Nullable String properties;
         private @Nullable String roleArn;
         private String typeName;
         private @Nullable String typeVersionId;
@@ -81,8 +81,8 @@ public final class GetResourceResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -91,8 +91,8 @@ public final class GetResourceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder properties(String properties) {
-            this.properties = Objects.requireNonNull(properties);
+        public Builder properties(@Nullable String properties) {
+            this.properties = properties;
             return this;
         }
         @CustomType.Setter

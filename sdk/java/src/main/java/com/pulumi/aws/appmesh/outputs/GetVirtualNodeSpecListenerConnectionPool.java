@@ -10,26 +10,27 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerConnectionPoolTc
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerConnectionPool {
-    private List<GetVirtualNodeSpecListenerConnectionPoolGrpc> grpcs;
-    private List<GetVirtualNodeSpecListenerConnectionPoolHttp2> http2s;
-    private List<GetVirtualNodeSpecListenerConnectionPoolHttp> https;
-    private List<GetVirtualNodeSpecListenerConnectionPoolTcp> tcps;
+    private @Nullable List<GetVirtualNodeSpecListenerConnectionPoolGrpc> grpcs;
+    private @Nullable List<GetVirtualNodeSpecListenerConnectionPoolHttp2> http2s;
+    private @Nullable List<GetVirtualNodeSpecListenerConnectionPoolHttp> https;
+    private @Nullable List<GetVirtualNodeSpecListenerConnectionPoolTcp> tcps;
 
     private GetVirtualNodeSpecListenerConnectionPool() {}
     public List<GetVirtualNodeSpecListenerConnectionPoolGrpc> grpcs() {
-        return this.grpcs;
+        return this.grpcs == null ? List.of() : this.grpcs;
     }
     public List<GetVirtualNodeSpecListenerConnectionPoolHttp2> http2s() {
-        return this.http2s;
+        return this.http2s == null ? List.of() : this.http2s;
     }
     public List<GetVirtualNodeSpecListenerConnectionPoolHttp> https() {
-        return this.https;
+        return this.https == null ? List.of() : this.https;
     }
     public List<GetVirtualNodeSpecListenerConnectionPoolTcp> tcps() {
-        return this.tcps;
+        return this.tcps == null ? List.of() : this.tcps;
     }
 
     public static Builder builder() {
@@ -41,10 +42,10 @@ public final class GetVirtualNodeSpecListenerConnectionPool {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerConnectionPoolGrpc> grpcs;
-        private List<GetVirtualNodeSpecListenerConnectionPoolHttp2> http2s;
-        private List<GetVirtualNodeSpecListenerConnectionPoolHttp> https;
-        private List<GetVirtualNodeSpecListenerConnectionPoolTcp> tcps;
+        private @Nullable List<GetVirtualNodeSpecListenerConnectionPoolGrpc> grpcs;
+        private @Nullable List<GetVirtualNodeSpecListenerConnectionPoolHttp2> http2s;
+        private @Nullable List<GetVirtualNodeSpecListenerConnectionPoolHttp> https;
+        private @Nullable List<GetVirtualNodeSpecListenerConnectionPoolTcp> tcps;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerConnectionPool defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,32 +56,32 @@ public final class GetVirtualNodeSpecListenerConnectionPool {
         }
 
         @CustomType.Setter
-        public Builder grpcs(List<GetVirtualNodeSpecListenerConnectionPoolGrpc> grpcs) {
-            this.grpcs = Objects.requireNonNull(grpcs);
+        public Builder grpcs(@Nullable List<GetVirtualNodeSpecListenerConnectionPoolGrpc> grpcs) {
+            this.grpcs = grpcs;
             return this;
         }
         public Builder grpcs(GetVirtualNodeSpecListenerConnectionPoolGrpc... grpcs) {
             return grpcs(List.of(grpcs));
         }
         @CustomType.Setter
-        public Builder http2s(List<GetVirtualNodeSpecListenerConnectionPoolHttp2> http2s) {
-            this.http2s = Objects.requireNonNull(http2s);
+        public Builder http2s(@Nullable List<GetVirtualNodeSpecListenerConnectionPoolHttp2> http2s) {
+            this.http2s = http2s;
             return this;
         }
         public Builder http2s(GetVirtualNodeSpecListenerConnectionPoolHttp2... http2s) {
             return http2s(List.of(http2s));
         }
         @CustomType.Setter
-        public Builder https(List<GetVirtualNodeSpecListenerConnectionPoolHttp> https) {
-            this.https = Objects.requireNonNull(https);
+        public Builder https(@Nullable List<GetVirtualNodeSpecListenerConnectionPoolHttp> https) {
+            this.https = https;
             return this;
         }
         public Builder https(GetVirtualNodeSpecListenerConnectionPoolHttp... https) {
             return https(List.of(https));
         }
         @CustomType.Setter
-        public Builder tcps(List<GetVirtualNodeSpecListenerConnectionPoolTcp> tcps) {
-            this.tcps = Objects.requireNonNull(tcps);
+        public Builder tcps(@Nullable List<GetVirtualNodeSpecListenerConnectionPoolTcp> tcps) {
+            this.tcps = tcps;
             return this;
         }
         public Builder tcps(GetVirtualNodeSpecListenerConnectionPoolTcp... tcps) {

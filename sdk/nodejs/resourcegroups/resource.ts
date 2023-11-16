@@ -68,7 +68,7 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The resource type of a resource, such as `AWS::EC2::Instance`.
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.

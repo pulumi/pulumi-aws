@@ -150,13 +150,13 @@ namespace Pulumi.Aws.Ssm
         /// The ARN of the SSM association
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the SSM association.
         /// </summary>
         [Output("associationId")]
-        public Output<string> AssociationId { get; private set; } = null!;
+        public Output<string?> AssociationId { get; private set; } = null!;
 
         /// <summary>
         /// The descriptive name for the association.
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Ssm
         /// The document version you want to associate with the target(s). Can be a specific version or the default version.
         /// </summary>
         [Output("documentVersion")]
-        public Output<string> DocumentVersion { get; private set; } = null!;
+        public Output<string?> DocumentVersion { get; private set; } = null!;
 
         /// <summary>
         /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Ssm
         /// A block of arbitrary string parameters to pass to the SSM document.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.

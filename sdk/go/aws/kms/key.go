@@ -57,7 +57,7 @@ type Key struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the key.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A flag to indicate whether to bypass the key policy lockout safety check.
 	// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
 	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
@@ -73,22 +73,22 @@ type Key struct {
 	// If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
 	DeletionWindowInDays pulumi.IntPtrOutput `pulumi:"deletionWindowInDays"`
 	// The description of the key as viewed in AWS console.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
 	EnableKeyRotation pulumi.BoolPtrOutput `pulumi:"enableKeyRotation"`
 	// Specifies whether the key is enabled. Defaults to `true`.
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// The globally unique identifier for the key.
-	KeyId pulumi.StringOutput `pulumi:"keyId"`
+	KeyId pulumi.StringPtrOutput `pulumi:"keyId"`
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-	MultiRegion pulumi.BoolOutput `pulumi:"multiRegion"`
+	MultiRegion pulumi.BoolPtrOutput `pulumi:"multiRegion"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
 	//
 	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -375,8 +375,8 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 }
 
 // The Amazon Resource Name (ARN) of the key.
-func (o KeyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o KeyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A flag to indicate whether to bypass the key policy lockout safety check.
@@ -406,8 +406,8 @@ func (o KeyOutput) DeletionWindowInDays() pulumi.IntPtrOutput {
 }
 
 // The description of the key as viewed in AWS console.
-func (o KeyOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o KeyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
@@ -421,8 +421,8 @@ func (o KeyOutput) IsEnabled() pulumi.BoolPtrOutput {
 }
 
 // The globally unique identifier for the key.
-func (o KeyOutput) KeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+func (o KeyOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
@@ -432,15 +432,15 @@ func (o KeyOutput) KeyUsage() pulumi.StringPtrOutput {
 }
 
 // Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-func (o KeyOutput) MultiRegion() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Key) pulumi.BoolOutput { return v.MultiRegion }).(pulumi.BoolOutput)
+func (o KeyOutput) MultiRegion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.MultiRegion }).(pulumi.BoolPtrOutput)
 }
 
 // A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
 //
 // > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
-func (o KeyOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o KeyOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

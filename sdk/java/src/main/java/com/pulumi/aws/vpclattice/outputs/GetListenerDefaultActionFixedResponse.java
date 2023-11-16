@@ -6,14 +6,16 @@ package com.pulumi.aws.vpclattice.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultActionFixedResponse {
-    private Integer statusCode;
+    private @Nullable Integer statusCode;
 
     private GetListenerDefaultActionFixedResponse() {}
-    public Integer statusCode() {
-        return this.statusCode;
+    public Optional<Integer> statusCode() {
+        return Optional.ofNullable(this.statusCode);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetListenerDefaultActionFixedResponse {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer statusCode;
+        private @Nullable Integer statusCode;
         public Builder() {}
         public Builder(GetListenerDefaultActionFixedResponse defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetListenerDefaultActionFixedResponse {
         }
 
         @CustomType.Setter
-        public Builder statusCode(Integer statusCode) {
-            this.statusCode = Objects.requireNonNull(statusCode);
+        public Builder statusCode(@Nullable Integer statusCode) {
+            this.statusCode = statusCode;
             return this;
         }
         public GetListenerDefaultActionFixedResponse build() {

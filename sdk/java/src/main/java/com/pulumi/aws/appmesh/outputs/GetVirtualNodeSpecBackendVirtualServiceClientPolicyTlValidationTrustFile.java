@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile {
-    private String certificateChain;
+    private @Nullable String certificateChain;
 
     private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile() {}
-    public String certificateChain() {
-        return this.certificateChain;
+    public Optional<String> certificateChain() {
+        return Optional.ofNullable(this.certificateChain);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidati
     }
     @CustomType.Builder
     public static final class Builder {
-        private String certificateChain;
+        private @Nullable String certificateChain;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidati
         }
 
         @CustomType.Setter
-        public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+        public Builder certificateChain(@Nullable String certificateChain) {
+            this.certificateChain = certificateChain;
             return this;
         }
         public GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile build() {

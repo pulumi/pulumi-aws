@@ -64,14 +64,14 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="appsyncDomainName", refs={String.class}, tree="[0]")
-    private Output<String> appsyncDomainName;
+    private Output</* @Nullable */ String> appsyncDomainName;
 
     /**
      * @return Domain name that AppSync provides.
      * 
      */
-    public Output<String> appsyncDomainName() {
-        return this.appsyncDomainName;
+    public Output<Optional<String>> appsyncDomainName() {
+        return Codegen.optional(this.appsyncDomainName);
     }
     /**
      * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
@@ -120,14 +120,14 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
-    private Output<String> hostedZoneId;
+    private Output</* @Nullable */ String> hostedZoneId;
 
     /**
      * @return ID of your Amazon Route 53 hosted zone.
      * 
      */
-    public Output<String> hostedZoneId() {
-        return this.hostedZoneId;
+    public Output<Optional<String>> hostedZoneId() {
+        return Codegen.optional(this.hostedZoneId);
     }
 
     /**

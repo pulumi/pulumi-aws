@@ -165,28 +165,28 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdDateTime", refs={String.class}, tree="[0]")
-    private Output<String> createdDateTime;
+    private Output</* @Nullable */ String> createdDateTime;
 
     /**
      * @return Date and time when the Trust was created.
      * 
      */
-    public Output<String> createdDateTime() {
-        return this.createdDateTime;
+    public Output<Optional<String>> createdDateTime() {
+        return Codegen.optional(this.createdDateTime);
     }
     /**
      * Whether to delete the conditional forwarder when deleting the Trust relationship.
      * 
      */
     @Export(name="deleteAssociatedConditionalForwarder", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> deleteAssociatedConditionalForwarder;
+    private Output</* @Nullable */ Boolean> deleteAssociatedConditionalForwarder;
 
     /**
      * @return Whether to delete the conditional forwarder when deleting the Trust relationship.
      * 
      */
-    public Output<Boolean> deleteAssociatedConditionalForwarder() {
-        return this.deleteAssociatedConditionalForwarder;
+    public Output<Optional<Boolean>> deleteAssociatedConditionalForwarder() {
+        return Codegen.optional(this.deleteAssociatedConditionalForwarder);
     }
     /**
      * ID of the Directory.
@@ -207,14 +207,14 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdatedDateTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedDateTime;
+    private Output</* @Nullable */ String> lastUpdatedDateTime;
 
     /**
      * @return Date and time when the Trust was last updated.
      * 
      */
-    public Output<String> lastUpdatedDateTime() {
-        return this.lastUpdatedDateTime;
+    public Output<Optional<String>> lastUpdatedDateTime() {
+        return Codegen.optional(this.lastUpdatedDateTime);
     }
     /**
      * Fully qualified domain name of the remote Directory.
@@ -237,7 +237,7 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="selectiveAuth", refs={String.class}, tree="[0]")
-    private Output<String> selectiveAuth;
+    private Output</* @Nullable */ String> selectiveAuth;
 
     /**
      * @return Whether to enable selective authentication.
@@ -245,22 +245,22 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * Default value is `Disabled`.
      * 
      */
-    public Output<String> selectiveAuth() {
-        return this.selectiveAuth;
+    public Output<Optional<String>> selectiveAuth() {
+        return Codegen.optional(this.selectiveAuth);
     }
     /**
      * Date and time when the Trust state in `trust_state` was last updated.
      * 
      */
     @Export(name="stateLastUpdatedDateTime", refs={String.class}, tree="[0]")
-    private Output<String> stateLastUpdatedDateTime;
+    private Output</* @Nullable */ String> stateLastUpdatedDateTime;
 
     /**
      * @return Date and time when the Trust state in `trust_state` was last updated.
      * 
      */
-    public Output<String> stateLastUpdatedDateTime() {
-        return this.stateLastUpdatedDateTime;
+    public Output<Optional<String>> stateLastUpdatedDateTime() {
+        return Codegen.optional(this.stateLastUpdatedDateTime);
     }
     /**
      * The direction of the Trust relationship.
@@ -304,29 +304,29 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="trustState", refs={String.class}, tree="[0]")
-    private Output<String> trustState;
+    private Output</* @Nullable */ String> trustState;
 
     /**
      * @return State of the Trust relationship.
      * One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
      * 
      */
-    public Output<String> trustState() {
-        return this.trustState;
+    public Output<Optional<String>> trustState() {
+        return Codegen.optional(this.trustState);
     }
     /**
      * Reason for the Trust state set in `trust_state`.
      * 
      */
     @Export(name="trustStateReason", refs={String.class}, tree="[0]")
-    private Output<String> trustStateReason;
+    private Output</* @Nullable */ String> trustStateReason;
 
     /**
      * @return Reason for the Trust state set in `trust_state`.
      * 
      */
-    public Output<String> trustStateReason() {
-        return this.trustStateReason;
+    public Output<Optional<String>> trustStateReason() {
+        return Codegen.optional(this.trustStateReason);
     }
     /**
      * Type of the Trust relationship.
@@ -335,7 +335,7 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="trustType", refs={String.class}, tree="[0]")
-    private Output<String> trustType;
+    private Output</* @Nullable */ String> trustType;
 
     /**
      * @return Type of the Trust relationship.
@@ -343,8 +343,8 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * Default value is `Forest`.
      * 
      */
-    public Output<String> trustType() {
-        return this.trustType;
+    public Output<Optional<String>> trustType() {
+        return Codegen.optional(this.trustType);
     }
 
     /**

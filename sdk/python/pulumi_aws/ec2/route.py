@@ -931,7 +931,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> pulumi.Output[str]:
+    def instance_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of an EC2 instance.
         """
@@ -939,7 +939,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceOwnerId")
-    def instance_owner_id(self) -> pulumi.Output[str]:
+    def instance_owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID of the owner of the EC2 instance.
         """
@@ -963,7 +963,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> pulumi.Output[str]:
+    def network_interface_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of an EC2 network interface.
         """
@@ -971,7 +971,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origin(self) -> pulumi.Output[str]:
+    def origin(self) -> pulumi.Output[Optional[str]]:
         """
         How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         """
@@ -989,7 +989,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the route - `active` or `blackhole`.
         """

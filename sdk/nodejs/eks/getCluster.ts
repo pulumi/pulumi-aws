@@ -58,68 +58,68 @@ export interface GetClusterResult {
     /**
      * ARN of the cluster.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
-    readonly certificateAuthorities: outputs.eks.GetClusterCertificateAuthority[];
+    readonly certificateAuthorities?: outputs.eks.GetClusterCertificateAuthority[];
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
-    readonly clusterId: string;
+    readonly clusterId?: string;
     /**
      * Unix epoch time stamp in seconds for when the cluster was created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * The enabled control plane logs.
      */
-    readonly enabledClusterLogTypes: string[];
+    readonly enabledClusterLogTypes?: string[];
     /**
      * Endpoint for your Kubernetes API server.
      */
-    readonly endpoint: string;
+    readonly endpoint?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
      */
-    readonly identities: outputs.eks.GetClusterIdentity[];
+    readonly identities?: outputs.eks.GetClusterIdentity[];
     /**
      * Nested list containing Kubernetes Network Configuration.
      */
-    readonly kubernetesNetworkConfigs: outputs.eks.GetClusterKubernetesNetworkConfig[];
+    readonly kubernetesNetworkConfigs?: outputs.eks.GetClusterKubernetesNetworkConfig[];
     readonly name: string;
     /**
      * Contains Outpost Configuration.
      */
-    readonly outpostConfigs: outputs.eks.GetClusterOutpostConfig[];
+    readonly outpostConfigs?: outputs.eks.GetClusterOutpostConfig[];
     /**
      * Platform version for the cluster.
      */
-    readonly platformVersion: string;
+    readonly platformVersion?: string;
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
-    readonly roleArn: string;
+    readonly roleArn?: string;
     /**
      * Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Kubernetes server version for the cluster.
      */
-    readonly version: string;
+    readonly version?: string;
     /**
      * Nested list containing VPC configuration for the cluster.
      */
-    readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
+    readonly vpcConfig?: outputs.eks.GetClusterVpcConfig;
 }
 /**
  * Retrieve information about an EKS Cluster.

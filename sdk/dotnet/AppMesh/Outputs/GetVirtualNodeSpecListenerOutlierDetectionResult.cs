@@ -15,8 +15,8 @@ namespace Pulumi.Aws.AppMesh.Outputs
     {
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult> BaseEjectionDurations;
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult> Intervals;
-        public readonly int MaxEjectionPercent;
-        public readonly int MaxServerErrors;
+        public readonly int? MaxEjectionPercent;
+        public readonly int? MaxServerErrors;
 
         [OutputConstructor]
         private GetVirtualNodeSpecListenerOutlierDetectionResult(
@@ -24,9 +24,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             ImmutableArray<Outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult> intervals,
 
-            int maxEjectionPercent,
+            int? maxEjectionPercent,
 
-            int maxServerErrors)
+            int? maxServerErrors)
         {
             BaseEjectionDurations = baseEjectionDurations;
             Intervals = intervals;

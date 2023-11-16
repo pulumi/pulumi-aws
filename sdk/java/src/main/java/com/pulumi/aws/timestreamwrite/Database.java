@@ -98,14 +98,14 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN that uniquely identifies this database.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the Timestream database. Minimum length of 3. Maximum length of 64.
@@ -126,28 +126,28 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * The total number of tables found within the Timestream database.
      * 
      */
     @Export(name="tableCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> tableCount;
+    private Output</* @Nullable */ Integer> tableCount;
 
     /**
      * @return The total number of tables found within the Timestream database.
      * 
      */
-    public Output<Integer> tableCount() {
-        return this.tableCount;
+    public Output<Optional<Integer>> tableCount() {
+        return Codegen.optional(this.tableCount);
     }
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

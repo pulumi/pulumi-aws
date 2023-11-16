@@ -52,7 +52,7 @@ type GetLinksResult struct {
 	// Set of ARN of the Links.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetLinksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLinksResultOutput {
@@ -87,8 +87,8 @@ func (o GetLinksResultOutput) Arns() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLinksResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinksResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLinksResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLinksResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

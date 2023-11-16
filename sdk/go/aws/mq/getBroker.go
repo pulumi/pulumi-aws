@@ -75,29 +75,29 @@ type LookupBrokerArgs struct {
 
 // A collection of values returned by getBroker.
 type LookupBrokerResult struct {
-	Arn                     string                      `pulumi:"arn"`
-	AuthenticationStrategy  string                      `pulumi:"authenticationStrategy"`
-	AutoMinorVersionUpgrade bool                        `pulumi:"autoMinorVersionUpgrade"`
-	BrokerId                string                      `pulumi:"brokerId"`
-	BrokerName              string                      `pulumi:"brokerName"`
-	Configuration           GetBrokerConfiguration      `pulumi:"configuration"`
-	DeploymentMode          string                      `pulumi:"deploymentMode"`
+	Arn                     *string                     `pulumi:"arn"`
+	AuthenticationStrategy  *string                     `pulumi:"authenticationStrategy"`
+	AutoMinorVersionUpgrade *bool                       `pulumi:"autoMinorVersionUpgrade"`
+	BrokerId                *string                     `pulumi:"brokerId"`
+	BrokerName              *string                     `pulumi:"brokerName"`
+	Configuration           *GetBrokerConfiguration     `pulumi:"configuration"`
+	DeploymentMode          *string                     `pulumi:"deploymentMode"`
 	EncryptionOptions       []GetBrokerEncryptionOption `pulumi:"encryptionOptions"`
-	EngineType              string                      `pulumi:"engineType"`
-	EngineVersion           string                      `pulumi:"engineVersion"`
-	HostInstanceType        string                      `pulumi:"hostInstanceType"`
+	EngineType              *string                     `pulumi:"engineType"`
+	EngineVersion           *string                     `pulumi:"engineVersion"`
+	HostInstanceType        *string                     `pulumi:"hostInstanceType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                         string                              `pulumi:"id"`
-	Instances                  []GetBrokerInstance                 `pulumi:"instances"`
-	LdapServerMetadatas        []GetBrokerLdapServerMetadata       `pulumi:"ldapServerMetadatas"`
-	Logs                       GetBrokerLogs                       `pulumi:"logs"`
-	MaintenanceWindowStartTime GetBrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
-	PubliclyAccessible         bool                                `pulumi:"publiclyAccessible"`
-	SecurityGroups             []string                            `pulumi:"securityGroups"`
-	StorageType                string                              `pulumi:"storageType"`
-	SubnetIds                  []string                            `pulumi:"subnetIds"`
-	Tags                       map[string]string                   `pulumi:"tags"`
-	Users                      []GetBrokerUser                     `pulumi:"users"`
+	Id                         *string                              `pulumi:"id"`
+	Instances                  []GetBrokerInstance                  `pulumi:"instances"`
+	LdapServerMetadatas        []GetBrokerLdapServerMetadata        `pulumi:"ldapServerMetadatas"`
+	Logs                       *GetBrokerLogs                       `pulumi:"logs"`
+	MaintenanceWindowStartTime *GetBrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
+	PubliclyAccessible         *bool                                `pulumi:"publiclyAccessible"`
+	SecurityGroups             []string                             `pulumi:"securityGroups"`
+	StorageType                *string                              `pulumi:"storageType"`
+	SubnetIds                  []string                             `pulumi:"subnetIds"`
+	Tags                       map[string]string                    `pulumi:"tags"`
+	Users                      []GetBrokerUser                      `pulumi:"users"`
 }
 
 func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts ...pulumi.InvokeOption) LookupBrokerResultOutput {
@@ -141,53 +141,53 @@ func (o LookupBrokerResultOutput) ToLookupBrokerResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o LookupBrokerResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBrokerResultOutput) AuthenticationStrategy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.AuthenticationStrategy }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) AuthenticationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.AuthenticationStrategy }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBrokerResultOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupBrokerResult) bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
+func (o LookupBrokerResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupBrokerResultOutput) BrokerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.BrokerId }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) BrokerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.BrokerId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBrokerResultOutput) BrokerName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.BrokerName }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) BrokerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.BrokerName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBrokerResultOutput) Configuration() GetBrokerConfigurationOutput {
-	return o.ApplyT(func(v LookupBrokerResult) GetBrokerConfiguration { return v.Configuration }).(GetBrokerConfigurationOutput)
+func (o LookupBrokerResultOutput) Configuration() GetBrokerConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *GetBrokerConfiguration { return v.Configuration }).(GetBrokerConfigurationPtrOutput)
 }
 
-func (o LookupBrokerResultOutput) DeploymentMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.DeploymentMode }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) DeploymentMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.DeploymentMode }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupBrokerResultOutput) EncryptionOptions() GetBrokerEncryptionOptionArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerEncryptionOption { return v.EncryptionOptions }).(GetBrokerEncryptionOptionArrayOutput)
 }
 
-func (o LookupBrokerResultOutput) EngineType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.EngineType }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) EngineType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.EngineType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBrokerResultOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.EngineVersion }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBrokerResultOutput) HostInstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.HostInstanceType }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) HostInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.HostInstanceType }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupBrokerResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupBrokerResultOutput) Instances() GetBrokerInstanceArrayOutput {
@@ -198,24 +198,24 @@ func (o LookupBrokerResultOutput) LdapServerMetadatas() GetBrokerLdapServerMetad
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerLdapServerMetadata { return v.LdapServerMetadatas }).(GetBrokerLdapServerMetadataArrayOutput)
 }
 
-func (o LookupBrokerResultOutput) Logs() GetBrokerLogsOutput {
-	return o.ApplyT(func(v LookupBrokerResult) GetBrokerLogs { return v.Logs }).(GetBrokerLogsOutput)
+func (o LookupBrokerResultOutput) Logs() GetBrokerLogsPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *GetBrokerLogs { return v.Logs }).(GetBrokerLogsPtrOutput)
 }
 
-func (o LookupBrokerResultOutput) MaintenanceWindowStartTime() GetBrokerMaintenanceWindowStartTimeOutput {
-	return o.ApplyT(func(v LookupBrokerResult) GetBrokerMaintenanceWindowStartTime { return v.MaintenanceWindowStartTime }).(GetBrokerMaintenanceWindowStartTimeOutput)
+func (o LookupBrokerResultOutput) MaintenanceWindowStartTime() GetBrokerMaintenanceWindowStartTimePtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *GetBrokerMaintenanceWindowStartTime { return v.MaintenanceWindowStartTime }).(GetBrokerMaintenanceWindowStartTimePtrOutput)
 }
 
-func (o LookupBrokerResultOutput) PubliclyAccessible() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupBrokerResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+func (o LookupBrokerResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupBrokerResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupBrokerResultOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBrokerResult) string { return v.StorageType }).(pulumi.StringOutput)
+func (o LookupBrokerResultOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupBrokerResultOutput) SubnetIds() pulumi.StringArrayOutput {

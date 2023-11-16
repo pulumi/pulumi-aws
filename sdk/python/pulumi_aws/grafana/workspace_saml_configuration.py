@@ -739,7 +739,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailAssertion")
-    def email_assertion(self) -> pulumi.Output[str]:
+    def email_assertion(self) -> pulumi.Output[Optional[str]]:
         """
         The email assertion.
         """
@@ -771,7 +771,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loginAssertion")
-    def login_assertion(self) -> pulumi.Output[str]:
+    def login_assertion(self) -> pulumi.Output[Optional[str]]:
         """
         The login assertion.
         """
@@ -779,7 +779,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loginValidityDuration")
-    def login_validity_duration(self) -> pulumi.Output[int]:
+    def login_validity_duration(self) -> pulumi.Output[Optional[int]]:
         """
         The login validity duration.
         """
@@ -787,7 +787,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameAssertion")
-    def name_assertion(self) -> pulumi.Output[str]:
+    def name_assertion(self) -> pulumi.Output[Optional[str]]:
         """
         The name assertion.
         """
@@ -811,7 +811,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the SAML configuration.
         """

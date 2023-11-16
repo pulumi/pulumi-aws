@@ -196,56 +196,56 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the Contact Flow Module.
         /// </summary>
-        public readonly string Arn;
-        public readonly string ContactFlowModuleId;
+        public readonly string? Arn;
+        public readonly string? ContactFlowModuleId;
         /// <summary>
         /// Logic of the Contact Flow Module.
         /// </summary>
-        public readonly string Content;
+        public readonly string? Content;
         /// <summary>
         /// Description of the Contact Flow Module.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Map of tags to assign to the Contact Flow Module.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetContactFlowModuleResult(
-            string arn,
+            string? arn,
 
-            string contactFlowModuleId,
+            string? contactFlowModuleId,
 
-            string content,
+            string? content,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string instanceId,
 
-            string name,
+            string? name,
 
-            string state,
+            string? state,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ContactFlowModuleId = contactFlowModuleId;

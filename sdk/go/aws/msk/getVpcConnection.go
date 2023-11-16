@@ -60,19 +60,19 @@ type LookupVpcConnectionArgs struct {
 type LookupVpcConnectionResult struct {
 	Arn string `pulumi:"arn"`
 	// The authentication type for the client VPC Connection.
-	Authentication string `pulumi:"authentication"`
+	Authentication *string `pulumi:"authentication"`
 	// The list of subnets in the client VPC.
 	ClientSubnets []string `pulumi:"clientSubnets"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The security groups attached to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Map of key-value pairs assigned to the VPC Connection.
 	Tags map[string]string `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the cluster.
-	TargetClusterArn string `pulumi:"targetClusterArn"`
+	TargetClusterArn *string `pulumi:"targetClusterArn"`
 	// The VPC ID of the remote client.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupVpcConnectionOutput(ctx *pulumi.Context, args LookupVpcConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcConnectionResultOutput {
@@ -120,8 +120,8 @@ func (o LookupVpcConnectionResultOutput) Arn() pulumi.StringOutput {
 }
 
 // The authentication type for the client VPC Connection.
-func (o LookupVpcConnectionResultOutput) Authentication() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.Authentication }).(pulumi.StringOutput)
+func (o LookupVpcConnectionResultOutput) Authentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.Authentication }).(pulumi.StringPtrOutput)
 }
 
 // The list of subnets in the client VPC.
@@ -130,8 +130,8 @@ func (o LookupVpcConnectionResultOutput) ClientSubnets() pulumi.StringArrayOutpu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupVpcConnectionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVpcConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The security groups attached to the ENIs for the broker nodes.
@@ -145,13 +145,13 @@ func (o LookupVpcConnectionResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The Amazon Resource Name (ARN) of the cluster.
-func (o LookupVpcConnectionResultOutput) TargetClusterArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.TargetClusterArn }).(pulumi.StringOutput)
+func (o LookupVpcConnectionResultOutput) TargetClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.TargetClusterArn }).(pulumi.StringPtrOutput)
 }
 
 // The VPC ID of the remote client.
-func (o LookupVpcConnectionResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupVpcConnectionResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

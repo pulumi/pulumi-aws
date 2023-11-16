@@ -73,7 +73,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ARN of the provisioned product.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Set of CloudWatch dashboards that were created when provisioning the product.
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Time when the provisioned product was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
@@ -97,25 +97,25 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         /// </summary>
         [Output("lastProvisioningRecordId")]
-        public Output<string> LastProvisioningRecordId { get; private set; } = null!;
+        public Output<string?> LastProvisioningRecordId { get; private set; } = null!;
 
         /// <summary>
         /// Record identifier of the last request performed on this provisioned product.
         /// </summary>
         [Output("lastRecordId")]
-        public Output<string> LastRecordId { get; private set; } = null!;
+        public Output<string?> LastRecordId { get; private set; } = null!;
 
         /// <summary>
         /// Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         /// </summary>
         [Output("lastSuccessfulProvisioningRecordId")]
-        public Output<string> LastSuccessfulProvisioningRecordId { get; private set; } = null!;
+        public Output<string?> LastSuccessfulProvisioningRecordId { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the launch role associated with the provisioned product.
         /// </summary>
         [Output("launchRoleArn")]
-        public Output<string> LaunchRoleArn { get; private set; } = null!;
+        public Output<string?> LaunchRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// User-friendly name of the provisioned product.
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
         /// </summary>
         [Output("pathId")]
-        public Output<string> PathId { get; private set; } = null!;
+        public Output<string?> PathId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the path. You must provide `path_id` or `path_name`, but not both.
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         /// </summary>
         [Output("productId")]
-        public Output<string> ProductId { get; private set; } = null!;
+        public Output<string?> ProductId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the product. You must provide `product_id` or `product_name`, but not both.
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         /// </summary>
         [Output("provisioningArtifactId")]
-        public Output<string> ProvisioningArtifactId { get; private set; } = null!;
+        public Output<string?> ProvisioningArtifactId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
@@ -195,13 +195,13 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Current status of the provisioned product. See meanings below.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Current status message of the provisioned product.
         /// </summary>
         [Output("statusMessage")]
-        public Output<string> StatusMessage { get; private set; } = null!;
+        public Output<string?> StatusMessage { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

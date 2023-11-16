@@ -123,7 +123,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string ProductId;
         /// <summary>
         /// Block with information about the launch path. See details below.
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private GetLaunchPathsResult(
             string? acceptLanguage,
 
-            string id,
+            string? id,
 
             string productId,
 

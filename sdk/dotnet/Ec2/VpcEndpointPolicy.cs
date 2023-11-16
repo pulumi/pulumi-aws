@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ec2
         /// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// The VPC Endpoint ID.

@@ -23,8 +23,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         /// <summary>
         /// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
         /// </summary>
-        [Input("catalogId", required: true)]
-        public string CatalogId { get; set; } = null!;
+        [Input("catalogId")]
+        public string? CatalogId { get; set; }
 
         public GetPermissionsDataLocationArgs()
         {

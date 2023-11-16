@@ -58,15 +58,15 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The ARN of the repository
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The URL to use for cloning the repository over HTTPS.
      */
-    public /*out*/ readonly cloneUrlHttp!: pulumi.Output<string>;
+    public /*out*/ readonly cloneUrlHttp!: pulumi.Output<string | undefined>;
     /**
      * The URL to use for cloning the repository over SSH.
      */
-    public /*out*/ readonly cloneUrlSsh!: pulumi.Output<string>;
+    public /*out*/ readonly cloneUrlSsh!: pulumi.Output<string | undefined>;
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      */
@@ -78,7 +78,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The ID of the repository
      */
-    public /*out*/ readonly repositoryId!: pulumi.Output<string>;
+    public /*out*/ readonly repositoryId!: pulumi.Output<string | undefined>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */

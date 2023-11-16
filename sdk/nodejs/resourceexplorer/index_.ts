@@ -58,7 +58,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Resource Explorer index.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

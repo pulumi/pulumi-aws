@@ -46,7 +46,7 @@ namespace Pulumi.Aws.MediaPackage
         /// The ARN of the channel
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier describing the channel

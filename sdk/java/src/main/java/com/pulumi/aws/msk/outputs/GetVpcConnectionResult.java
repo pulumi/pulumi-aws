@@ -8,6 +8,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcConnectionResult {
@@ -16,37 +18,37 @@ public final class GetVpcConnectionResult {
      * @return The authentication type for the client VPC Connection.
      * 
      */
-    private String authentication;
+    private @Nullable String authentication;
     /**
      * @return The list of subnets in the client VPC.
      * 
      */
-    private List<String> clientSubnets;
+    private @Nullable List<String> clientSubnets;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The security groups attached to the ENIs for the broker nodes.
      * 
      */
-    private List<String> securityGroups;
+    private @Nullable List<String> securityGroups;
     /**
      * @return Map of key-value pairs assigned to the VPC Connection.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The Amazon Resource Name (ARN) of the cluster.
      * 
      */
-    private String targetClusterArn;
+    private @Nullable String targetClusterArn;
     /**
      * @return The VPC ID of the remote client.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetVpcConnectionResult() {}
     public String arn() {
@@ -56,50 +58,50 @@ public final class GetVpcConnectionResult {
      * @return The authentication type for the client VPC Connection.
      * 
      */
-    public String authentication() {
-        return this.authentication;
+    public Optional<String> authentication() {
+        return Optional.ofNullable(this.authentication);
     }
     /**
      * @return The list of subnets in the client VPC.
      * 
      */
     public List<String> clientSubnets() {
-        return this.clientSubnets;
+        return this.clientSubnets == null ? List.of() : this.clientSubnets;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The security groups attached to the ENIs for the broker nodes.
      * 
      */
     public List<String> securityGroups() {
-        return this.securityGroups;
+        return this.securityGroups == null ? List.of() : this.securityGroups;
     }
     /**
      * @return Map of key-value pairs assigned to the VPC Connection.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The Amazon Resource Name (ARN) of the cluster.
      * 
      */
-    public String targetClusterArn() {
-        return this.targetClusterArn;
+    public Optional<String> targetClusterArn() {
+        return Optional.ofNullable(this.targetClusterArn);
     }
     /**
      * @return The VPC ID of the remote client.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -112,13 +114,13 @@ public final class GetVpcConnectionResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String authentication;
-        private List<String> clientSubnets;
-        private String id;
-        private List<String> securityGroups;
-        private Map<String,String> tags;
-        private String targetClusterArn;
-        private String vpcId;
+        private @Nullable String authentication;
+        private @Nullable List<String> clientSubnets;
+        private @Nullable String id;
+        private @Nullable List<String> securityGroups;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String targetClusterArn;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetVpcConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -138,44 +140,44 @@ public final class GetVpcConnectionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder authentication(String authentication) {
-            this.authentication = Objects.requireNonNull(authentication);
+        public Builder authentication(@Nullable String authentication) {
+            this.authentication = authentication;
             return this;
         }
         @CustomType.Setter
-        public Builder clientSubnets(List<String> clientSubnets) {
-            this.clientSubnets = Objects.requireNonNull(clientSubnets);
+        public Builder clientSubnets(@Nullable List<String> clientSubnets) {
+            this.clientSubnets = clientSubnets;
             return this;
         }
         public Builder clientSubnets(String... clientSubnets) {
             return clientSubnets(List.of(clientSubnets));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+        public Builder securityGroups(@Nullable List<String> securityGroups) {
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder targetClusterArn(String targetClusterArn) {
-            this.targetClusterArn = Objects.requireNonNull(targetClusterArn);
+        public Builder targetClusterArn(@Nullable String targetClusterArn) {
+            this.targetClusterArn = targetClusterArn;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetVpcConnectionResult build() {

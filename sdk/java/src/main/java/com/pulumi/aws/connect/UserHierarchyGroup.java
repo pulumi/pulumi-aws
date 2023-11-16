@@ -107,42 +107,42 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the hierarchy group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The identifier for the hierarchy group.
      * 
      */
     @Export(name="hierarchyGroupId", refs={String.class}, tree="[0]")
-    private Output<String> hierarchyGroupId;
+    private Output</* @Nullable */ String> hierarchyGroupId;
 
     /**
      * @return The identifier for the hierarchy group.
      * 
      */
-    public Output<String> hierarchyGroupId() {
-        return this.hierarchyGroupId;
+    public Output<Optional<String>> hierarchyGroupId() {
+        return Codegen.optional(this.hierarchyGroupId);
     }
     /**
      * A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
     @Export(name="hierarchyPaths", refs={List.class,UserHierarchyGroupHierarchyPath.class}, tree="[0,1]")
-    private Output<List<UserHierarchyGroupHierarchyPath>> hierarchyPaths;
+    private Output</* @Nullable */ List<UserHierarchyGroupHierarchyPath>> hierarchyPaths;
 
     /**
      * @return A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
-    public Output<List<UserHierarchyGroupHierarchyPath>> hierarchyPaths() {
-        return this.hierarchyPaths;
+    public Output<Optional<List<UserHierarchyGroupHierarchyPath>>> hierarchyPaths() {
+        return Codegen.optional(this.hierarchyPaths);
     }
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
@@ -163,14 +163,14 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="levelId", refs={String.class}, tree="[0]")
-    private Output<String> levelId;
+    private Output</* @Nullable */ String> levelId;
 
     /**
      * @return The identifier of the level in the hierarchy group.
      * 
      */
-    public Output<String> levelId() {
-        return this.levelId;
+    public Output<Optional<String>> levelId() {
+        return Codegen.optional(this.levelId);
     }
     /**
      * The name of the user hierarchy group. Must not be more than 100 characters.

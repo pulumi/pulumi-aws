@@ -55,7 +55,7 @@ type Snapshot struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The configuration of the cluster from which the snapshot was taken.
 	ClusterConfigurations SnapshotClusterConfigurationArrayOutput `pulumi:"clusterConfigurations"`
 	// Name of the MemoryDB cluster to take a snapshot of.
@@ -65,9 +65,9 @@ type Snapshot struct {
 	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-	Source pulumi.StringOutput `pulumi:"source"`
+	Source pulumi.StringPtrOutput `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -277,8 +277,8 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 }
 
 // The ARN of the snapshot.
-func (o SnapshotOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SnapshotOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The configuration of the cluster from which the snapshot was taken.
@@ -302,13 +302,13 @@ func (o SnapshotOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o SnapshotOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o SnapshotOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-func (o SnapshotOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
+func (o SnapshotOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

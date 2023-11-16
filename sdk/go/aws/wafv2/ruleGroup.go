@@ -16,17 +16,17 @@ type RuleGroup struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
 	CustomResponseBodies RuleGroupCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
+	LockToken   pulumi.StringPtrOutput `pulumi:"lockToken"`
 	// A friendly name of the rule group.
-	Name       pulumi.StringOutput `pulumi:"name"`
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -270,8 +270,8 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 }
 
 // The Amazon Resource Name (ARN) of the IP Set that this statement references.
-func (o RuleGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RuleGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
@@ -289,8 +289,8 @@ func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o RuleGroupOutput) LockToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
+func (o RuleGroupOutput) LockToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.LockToken }).(pulumi.StringPtrOutput)
 }
 
 // A friendly name of the rule group.
@@ -298,8 +298,8 @@ func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o RuleGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o RuleGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.

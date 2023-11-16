@@ -63,7 +63,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * The ARN of the db subnet group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the DB subnet group. Defaults to "Managed by Pulumi".
      */
@@ -75,7 +75,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * A list of VPC subnet IDs.
      */
@@ -83,7 +83,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * The network type of the db subnet group.
      */
-    public /*out*/ readonly supportedNetworkTypes!: pulumi.Output<string[]>;
+    public /*out*/ readonly supportedNetworkTypes!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -97,7 +97,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Provides the VPC ID of the DB subnet group.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.

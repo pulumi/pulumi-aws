@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDeviceResult {
@@ -17,81 +19,81 @@ public final class GetDeviceResult {
      * @return ARN of the device.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return AWS location of the device. Documented below.
      * 
      */
-    private List<GetDeviceAwsLocation> awsLocations;
+    private @Nullable List<GetDeviceAwsLocation> awsLocations;
     /**
      * @return Description of the device.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String deviceId;
     private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Location of the device. Documented below.
      * 
      */
-    private List<GetDeviceLocation> locations;
+    private @Nullable List<GetDeviceLocation> locations;
     /**
      * @return Model of device.
      * 
      */
-    private String model;
+    private @Nullable String model;
     /**
      * @return Serial number of the device.
      * 
      */
-    private String serialNumber;
+    private @Nullable String serialNumber;
     /**
      * @return ID of the site.
      * 
      */
-    private String siteId;
+    private @Nullable String siteId;
     /**
      * @return Key-value tags for the device.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of device.
      * 
      */
-    private String type;
+    private @Nullable String type;
     /**
      * @return Vendor of the device.
      * 
      */
-    private String vendor;
+    private @Nullable String vendor;
 
     private GetDeviceResult() {}
     /**
      * @return ARN of the device.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return AWS location of the device. Documented below.
      * 
      */
     public List<GetDeviceAwsLocation> awsLocations() {
-        return this.awsLocations;
+        return this.awsLocations == null ? List.of() : this.awsLocations;
     }
     /**
      * @return Description of the device.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String deviceId() {
         return this.deviceId;
@@ -103,57 +105,57 @@ public final class GetDeviceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Location of the device. Documented below.
      * 
      */
     public List<GetDeviceLocation> locations() {
-        return this.locations;
+        return this.locations == null ? List.of() : this.locations;
     }
     /**
      * @return Model of device.
      * 
      */
-    public String model() {
-        return this.model;
+    public Optional<String> model() {
+        return Optional.ofNullable(this.model);
     }
     /**
      * @return Serial number of the device.
      * 
      */
-    public String serialNumber() {
-        return this.serialNumber;
+    public Optional<String> serialNumber() {
+        return Optional.ofNullable(this.serialNumber);
     }
     /**
      * @return ID of the site.
      * 
      */
-    public String siteId() {
-        return this.siteId;
+    public Optional<String> siteId() {
+        return Optional.ofNullable(this.siteId);
     }
     /**
      * @return Key-value tags for the device.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of device.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
     /**
      * @return Vendor of the device.
      * 
      */
-    public String vendor() {
-        return this.vendor;
+    public Optional<String> vendor() {
+        return Optional.ofNullable(this.vendor);
     }
 
     public static Builder builder() {
@@ -165,19 +167,19 @@ public final class GetDeviceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetDeviceAwsLocation> awsLocations;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable List<GetDeviceAwsLocation> awsLocations;
+        private @Nullable String description;
         private String deviceId;
         private String globalNetworkId;
-        private String id;
-        private List<GetDeviceLocation> locations;
-        private String model;
-        private String serialNumber;
-        private String siteId;
-        private Map<String,String> tags;
-        private String type;
-        private String vendor;
+        private @Nullable String id;
+        private @Nullable List<GetDeviceLocation> locations;
+        private @Nullable String model;
+        private @Nullable String serialNumber;
+        private @Nullable String siteId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
+        private @Nullable String vendor;
         public Builder() {}
         public Builder(GetDeviceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -197,21 +199,21 @@ public final class GetDeviceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder awsLocations(List<GetDeviceAwsLocation> awsLocations) {
-            this.awsLocations = Objects.requireNonNull(awsLocations);
+        public Builder awsLocations(@Nullable List<GetDeviceAwsLocation> awsLocations) {
+            this.awsLocations = awsLocations;
             return this;
         }
         public Builder awsLocations(GetDeviceAwsLocation... awsLocations) {
             return awsLocations(List.of(awsLocations));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -225,46 +227,46 @@ public final class GetDeviceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder locations(List<GetDeviceLocation> locations) {
-            this.locations = Objects.requireNonNull(locations);
+        public Builder locations(@Nullable List<GetDeviceLocation> locations) {
+            this.locations = locations;
             return this;
         }
         public Builder locations(GetDeviceLocation... locations) {
             return locations(List.of(locations));
         }
         @CustomType.Setter
-        public Builder model(String model) {
-            this.model = Objects.requireNonNull(model);
+        public Builder model(@Nullable String model) {
+            this.model = model;
             return this;
         }
         @CustomType.Setter
-        public Builder serialNumber(String serialNumber) {
-            this.serialNumber = Objects.requireNonNull(serialNumber);
+        public Builder serialNumber(@Nullable String serialNumber) {
+            this.serialNumber = serialNumber;
             return this;
         }
         @CustomType.Setter
-        public Builder siteId(String siteId) {
-            this.siteId = Objects.requireNonNull(siteId);
+        public Builder siteId(@Nullable String siteId) {
+            this.siteId = siteId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder vendor(String vendor) {
-            this.vendor = Objects.requireNonNull(vendor);
+        public Builder vendor(@Nullable String vendor) {
+            this.vendor = vendor;
             return this;
         }
         public GetDeviceResult build() {

@@ -59,19 +59,19 @@ export interface GetOriginAccessIdentitiesResult {
     /**
      * Set of ARNs of the matched origin access identities.
      */
-    readonly iamArns: string[];
+    readonly iamArns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of ids of the matched origin access identities.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     /**
      * Set of S3 canonical user IDs of the matched origin access identities.
      */
-    readonly s3CanonicalUserIds: string[];
+    readonly s3CanonicalUserIds?: string[];
 }
 /**
  * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.

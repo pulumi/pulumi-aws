@@ -76,17 +76,17 @@ export interface GetOrderableDbInstanceResult {
     /**
      * Availability zones where the instance is available.
      */
-    readonly availabilityZones: string[];
+    readonly availabilityZones?: string[];
     readonly engine?: string;
-    readonly engineVersion: string;
+    readonly engineVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly instanceClass: string;
+    readonly id?: string;
+    readonly instanceClass?: string;
     readonly licenseModel?: string;
     readonly preferredInstanceClasses?: string[];
-    readonly vpc: boolean;
+    readonly vpc?: boolean;
 }
 /**
  * Information about DocumentDB orderable DB instances.

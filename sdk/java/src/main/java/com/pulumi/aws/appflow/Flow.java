@@ -177,14 +177,14 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Flow&#39;s ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of the flow you want to create.
@@ -219,14 +219,14 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsArn;
+    private Output</* @Nullable */ String> kmsArn;
 
     /**
      * @return ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
-    public Output<String> kmsArn() {
-        return this.kmsArn;
+    public Output<Optional<String>> kmsArn() {
+        return Codegen.optional(this.kmsArn);
     }
     /**
      * Name of the flow.

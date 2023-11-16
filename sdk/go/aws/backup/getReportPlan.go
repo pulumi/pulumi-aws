@@ -59,16 +59,16 @@ type LookupReportPlanArgs struct {
 // A collection of values returned by getReportPlan.
 type LookupReportPlanResult struct {
 	// ARN of the backup report plan.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-	CreationTime string `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
 	// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-	DeploymentStatus string `pulumi:"deploymentStatus"`
+	DeploymentStatus *string `pulumi:"deploymentStatus"`
 	// Description of the report plan.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 	ReportDeliveryChannels []GetReportPlanReportDeliveryChannel `pulumi:"reportDeliveryChannels"`
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
@@ -118,28 +118,28 @@ func (o LookupReportPlanResultOutput) ToLookupReportPlanResultOutputWithContext(
 }
 
 // ARN of the backup report plan.
-func (o LookupReportPlanResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupReportPlanResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportPlanResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-func (o LookupReportPlanResultOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportPlanResult) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o LookupReportPlanResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportPlanResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-func (o LookupReportPlanResultOutput) DeploymentStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportPlanResult) string { return v.DeploymentStatus }).(pulumi.StringOutput)
+func (o LookupReportPlanResultOutput) DeploymentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportPlanResult) *string { return v.DeploymentStatus }).(pulumi.StringPtrOutput)
 }
 
 // Description of the report plan.
-func (o LookupReportPlanResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupReportPlanResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportPlanResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupReportPlanResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupReportPlanResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportPlanResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupReportPlanResultOutput) Name() pulumi.StringOutput {

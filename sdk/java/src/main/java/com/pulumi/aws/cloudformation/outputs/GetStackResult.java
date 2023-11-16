@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStackResult {
@@ -17,58 +19,58 @@ public final class GetStackResult {
      * @return List of capabilities
      * 
      */
-    private List<String> capabilities;
+    private @Nullable List<String> capabilities;
     /**
      * @return Description of the stack
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Whether the rollback of the stack is disabled when stack creation fails
      * 
      */
-    private Boolean disableRollback;
+    private @Nullable Boolean disableRollback;
     /**
      * @return ARN of the IAM role used to create the stack.
      * 
      */
-    private String iamRoleArn;
+    private @Nullable String iamRoleArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return List of SNS topic ARNs to publish stack related events
      * 
      */
-    private List<String> notificationArns;
+    private @Nullable List<String> notificationArns;
     /**
      * @return Map of outputs from the stack.
      * 
      */
-    private Map<String,String> outputs;
+    private @Nullable Map<String,String> outputs;
     /**
      * @return Map of parameters that specify input parameters for the stack.
      * 
      */
-    private Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Map of tags associated with this stack.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Structure containing the template body.
      * 
      */
-    private String templateBody;
+    private @Nullable String templateBody;
     /**
      * @return Amount of time that can pass before the stack status becomes `CREATE_FAILED`
      * 
      */
-    private Integer timeoutInMinutes;
+    private @Nullable Integer timeoutInMinutes;
 
     private GetStackResult() {}
     /**
@@ -76,35 +78,35 @@ public final class GetStackResult {
      * 
      */
     public List<String> capabilities() {
-        return this.capabilities;
+        return this.capabilities == null ? List.of() : this.capabilities;
     }
     /**
      * @return Description of the stack
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Whether the rollback of the stack is disabled when stack creation fails
      * 
      */
-    public Boolean disableRollback() {
-        return this.disableRollback;
+    public Optional<Boolean> disableRollback() {
+        return Optional.ofNullable(this.disableRollback);
     }
     /**
      * @return ARN of the IAM role used to create the stack.
      * 
      */
-    public String iamRoleArn() {
-        return this.iamRoleArn;
+    public Optional<String> iamRoleArn() {
+        return Optional.ofNullable(this.iamRoleArn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -114,42 +116,42 @@ public final class GetStackResult {
      * 
      */
     public List<String> notificationArns() {
-        return this.notificationArns;
+        return this.notificationArns == null ? List.of() : this.notificationArns;
     }
     /**
      * @return Map of outputs from the stack.
      * 
      */
     public Map<String,String> outputs() {
-        return this.outputs;
+        return this.outputs == null ? Map.of() : this.outputs;
     }
     /**
      * @return Map of parameters that specify input parameters for the stack.
      * 
      */
     public Map<String,String> parameters() {
-        return this.parameters;
+        return this.parameters == null ? Map.of() : this.parameters;
     }
     /**
      * @return Map of tags associated with this stack.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Structure containing the template body.
      * 
      */
-    public String templateBody() {
-        return this.templateBody;
+    public Optional<String> templateBody() {
+        return Optional.ofNullable(this.templateBody);
     }
     /**
      * @return Amount of time that can pass before the stack status becomes `CREATE_FAILED`
      * 
      */
-    public Integer timeoutInMinutes() {
-        return this.timeoutInMinutes;
+    public Optional<Integer> timeoutInMinutes() {
+        return Optional.ofNullable(this.timeoutInMinutes);
     }
 
     public static Builder builder() {
@@ -161,18 +163,18 @@ public final class GetStackResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> capabilities;
-        private String description;
-        private Boolean disableRollback;
-        private String iamRoleArn;
-        private String id;
+        private @Nullable List<String> capabilities;
+        private @Nullable String description;
+        private @Nullable Boolean disableRollback;
+        private @Nullable String iamRoleArn;
+        private @Nullable String id;
         private String name;
-        private List<String> notificationArns;
-        private Map<String,String> outputs;
-        private Map<String,String> parameters;
-        private Map<String,String> tags;
-        private String templateBody;
-        private Integer timeoutInMinutes;
+        private @Nullable List<String> notificationArns;
+        private @Nullable Map<String,String> outputs;
+        private @Nullable Map<String,String> parameters;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String templateBody;
+        private @Nullable Integer timeoutInMinutes;
         public Builder() {}
         public Builder(GetStackResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -191,31 +193,31 @@ public final class GetStackResult {
         }
 
         @CustomType.Setter
-        public Builder capabilities(List<String> capabilities) {
-            this.capabilities = Objects.requireNonNull(capabilities);
+        public Builder capabilities(@Nullable List<String> capabilities) {
+            this.capabilities = capabilities;
             return this;
         }
         public Builder capabilities(String... capabilities) {
             return capabilities(List.of(capabilities));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder disableRollback(Boolean disableRollback) {
-            this.disableRollback = Objects.requireNonNull(disableRollback);
+        public Builder disableRollback(@Nullable Boolean disableRollback) {
+            this.disableRollback = disableRollback;
             return this;
         }
         @CustomType.Setter
-        public Builder iamRoleArn(String iamRoleArn) {
-            this.iamRoleArn = Objects.requireNonNull(iamRoleArn);
+        public Builder iamRoleArn(@Nullable String iamRoleArn) {
+            this.iamRoleArn = iamRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -224,36 +226,36 @@ public final class GetStackResult {
             return this;
         }
         @CustomType.Setter
-        public Builder notificationArns(List<String> notificationArns) {
-            this.notificationArns = Objects.requireNonNull(notificationArns);
+        public Builder notificationArns(@Nullable List<String> notificationArns) {
+            this.notificationArns = notificationArns;
             return this;
         }
         public Builder notificationArns(String... notificationArns) {
             return notificationArns(List.of(notificationArns));
         }
         @CustomType.Setter
-        public Builder outputs(Map<String,String> outputs) {
-            this.outputs = Objects.requireNonNull(outputs);
+        public Builder outputs(@Nullable Map<String,String> outputs) {
+            this.outputs = outputs;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable Map<String,String> parameters) {
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder templateBody(String templateBody) {
-            this.templateBody = Objects.requireNonNull(templateBody);
+        public Builder templateBody(@Nullable String templateBody) {
+            this.templateBody = templateBody;
             return this;
         }
         @CustomType.Setter
-        public Builder timeoutInMinutes(Integer timeoutInMinutes) {
-            this.timeoutInMinutes = Objects.requireNonNull(timeoutInMinutes);
+        public Builder timeoutInMinutes(@Nullable Integer timeoutInMinutes) {
+            this.timeoutInMinutes = timeoutInMinutes;
             return this;
         }
         public GetStackResult build() {

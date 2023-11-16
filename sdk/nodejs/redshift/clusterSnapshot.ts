@@ -46,7 +46,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the snapshot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The cluster identifier for which you want a snapshot.
      */
@@ -54,7 +54,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
      */
-    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
      */
@@ -62,7 +62,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
      */
-    public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccount!: pulumi.Output<string | undefined>;
     /**
      * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
      */

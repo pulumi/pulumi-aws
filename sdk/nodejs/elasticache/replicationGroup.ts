@@ -201,15 +201,15 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    public readonly applyImmediately!: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * ARN of the created ElastiCache Replication Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether to enable encryption at rest.
      */
-    public readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
+    public readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
@@ -219,7 +219,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
      * Defaults to `true`.
      */
-    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
+    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      */
@@ -227,19 +227,19 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Indicates if cluster mode is enabled.
      */
-    public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
+    public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Address of the replication group configuration endpoint when cluster mode is enabled.
      */
-    public /*out*/ readonly configurationEndpointAddress!: pulumi.Output<string>;
+    public /*out*/ readonly configurationEndpointAddress!: pulumi.Output<string | undefined>;
     /**
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      */
-    public readonly dataTieringEnabled!: pulumi.Output<boolean>;
+    public readonly dataTieringEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * User-created description for the replication group. Must not be empty.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
@@ -252,11 +252,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
      * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      */
-    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string | undefined>;
     /**
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      */
@@ -264,11 +264,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
      */
-    public readonly globalReplicationGroupId!: pulumi.Output<string>;
+    public readonly globalReplicationGroupId!: pulumi.Output<string | undefined>;
     /**
      * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      */
-    public readonly ipDiscovery!: pulumi.Output<string>;
+    public readonly ipDiscovery!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
@@ -280,11 +280,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      */
-    public readonly maintenanceWindow!: pulumi.Output<string>;
+    public readonly maintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * Identifiers of all the nodes that are part of this replication group.
      */
-    public /*out*/ readonly memberClusters!: pulumi.Output<string[]>;
+    public /*out*/ readonly memberClusters!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
      */
@@ -292,11 +292,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
      */
-    public readonly networkType!: pulumi.Output<string>;
+    public readonly networkType!: pulumi.Output<string | undefined>;
     /**
      * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
      */
-    public readonly nodeType!: pulumi.Output<string>;
+    public readonly nodeType!: pulumi.Output<string | undefined>;
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
@@ -304,16 +304,16 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
      */
-    public readonly numCacheClusters!: pulumi.Output<number>;
+    public readonly numCacheClusters!: pulumi.Output<number | undefined>;
     /**
      * Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      */
-    public readonly numNodeGroups!: pulumi.Output<number>;
+    public readonly numNodeGroups!: pulumi.Output<number | undefined>;
     /**
      * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
-    public readonly parameterGroupName!: pulumi.Output<string>;
+    public readonly parameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
      */
@@ -325,17 +325,17 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
      */
-    public /*out*/ readonly primaryEndpointAddress!: pulumi.Output<string>;
+    public /*out*/ readonly primaryEndpointAddress!: pulumi.Output<string | undefined>;
     /**
      * (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
      */
-    public /*out*/ readonly readerEndpointAddress!: pulumi.Output<string>;
+    public /*out*/ readonly readerEndpointAddress!: pulumi.Output<string | undefined>;
     /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
      */
-    public readonly replicasPerNodeGroup!: pulumi.Output<number>;
+    public readonly replicasPerNodeGroup!: pulumi.Output<number | undefined>;
     /**
      * Replication group identifier. This parameter is stored as a lowercase string.
      *
@@ -345,11 +345,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      */
-    public readonly securityGroupNames!: pulumi.Output<string[]>;
+    public readonly securityGroupNames!: pulumi.Output<string[] | undefined>;
     /**
      * List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
      */
@@ -365,11 +365,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
      */
-    public readonly snapshotWindow!: pulumi.Output<string>;
+    public readonly snapshotWindow!: pulumi.Output<string | undefined>;
     /**
      * Name of the cache subnet group to be used for the replication group.
      */
-    public readonly subnetGroupName!: pulumi.Output<string>;
+    public readonly subnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -383,7 +383,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Whether to enable encryption in transit.
      */
-    public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
+    public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
      */

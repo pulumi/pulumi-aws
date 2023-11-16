@@ -693,9 +693,9 @@ func (o GetDirectConnectGatewayAttachmentFilterArrayOutput) Index(i pulumi.IntIn
 
 type GetMulticastDomainAssociationType struct {
 	// The ID of the subnet associated with the transit gateway multicast domain.
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 }
 
 // GetMulticastDomainAssociationTypeInput is an input type that accepts GetMulticastDomainAssociationTypeArgs and GetMulticastDomainAssociationTypeOutput values.
@@ -711,9 +711,9 @@ type GetMulticastDomainAssociationTypeInput interface {
 
 type GetMulticastDomainAssociationTypeArgs struct {
 	// The ID of the subnet associated with the transit gateway multicast domain.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId pulumi.StringInput `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId pulumi.StringPtrInput `pulumi:"transitGatewayAttachmentId"`
 }
 
 func (GetMulticastDomainAssociationTypeArgs) ElementType() reflect.Type {
@@ -768,13 +768,13 @@ func (o GetMulticastDomainAssociationTypeOutput) ToGetMulticastDomainAssociation
 }
 
 // The ID of the subnet associated with the transit gateway multicast domain.
-func (o GetMulticastDomainAssociationTypeOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMulticastDomainAssociationType) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o GetMulticastDomainAssociationTypeOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMulticastDomainAssociationType) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the transit gateway attachment.
-func (o GetMulticastDomainAssociationTypeOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMulticastDomainAssociationType) string { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+func (o GetMulticastDomainAssociationTypeOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMulticastDomainAssociationType) *string { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
 type GetMulticastDomainAssociationTypeArrayOutput struct{ *pulumi.OutputState }
@@ -905,9 +905,9 @@ func (o GetMulticastDomainFilterArrayOutput) Index(i pulumi.IntInput) GetMultica
 
 type GetMulticastDomainMember struct {
 	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress string `pulumi:"groupIpAddress"`
+	GroupIpAddress *string `pulumi:"groupIpAddress"`
 	// The group members' network interface ID.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 }
 
 // GetMulticastDomainMemberInput is an input type that accepts GetMulticastDomainMemberArgs and GetMulticastDomainMemberOutput values.
@@ -923,9 +923,9 @@ type GetMulticastDomainMemberInput interface {
 
 type GetMulticastDomainMemberArgs struct {
 	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress pulumi.StringInput `pulumi:"groupIpAddress"`
+	GroupIpAddress pulumi.StringPtrInput `pulumi:"groupIpAddress"`
 	// The group members' network interface ID.
-	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 }
 
 func (GetMulticastDomainMemberArgs) ElementType() reflect.Type {
@@ -980,13 +980,13 @@ func (o GetMulticastDomainMemberOutput) ToGetMulticastDomainMemberOutputWithCont
 }
 
 // The IP address assigned to the transit gateway multicast group.
-func (o GetMulticastDomainMemberOutput) GroupIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMulticastDomainMember) string { return v.GroupIpAddress }).(pulumi.StringOutput)
+func (o GetMulticastDomainMemberOutput) GroupIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMulticastDomainMember) *string { return v.GroupIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The group members' network interface ID.
-func (o GetMulticastDomainMemberOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMulticastDomainMember) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o GetMulticastDomainMemberOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMulticastDomainMember) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 type GetMulticastDomainMemberArrayOutput struct{ *pulumi.OutputState }
@@ -1011,9 +1011,9 @@ func (o GetMulticastDomainMemberArrayOutput) Index(i pulumi.IntInput) GetMultica
 
 type GetMulticastDomainSource struct {
 	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress string `pulumi:"groupIpAddress"`
+	GroupIpAddress *string `pulumi:"groupIpAddress"`
 	// The group members' network interface ID.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 }
 
 // GetMulticastDomainSourceInput is an input type that accepts GetMulticastDomainSourceArgs and GetMulticastDomainSourceOutput values.
@@ -1029,9 +1029,9 @@ type GetMulticastDomainSourceInput interface {
 
 type GetMulticastDomainSourceArgs struct {
 	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress pulumi.StringInput `pulumi:"groupIpAddress"`
+	GroupIpAddress pulumi.StringPtrInput `pulumi:"groupIpAddress"`
 	// The group members' network interface ID.
-	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 }
 
 func (GetMulticastDomainSourceArgs) ElementType() reflect.Type {
@@ -1086,13 +1086,13 @@ func (o GetMulticastDomainSourceOutput) ToGetMulticastDomainSourceOutputWithCont
 }
 
 // The IP address assigned to the transit gateway multicast group.
-func (o GetMulticastDomainSourceOutput) GroupIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMulticastDomainSource) string { return v.GroupIpAddress }).(pulumi.StringOutput)
+func (o GetMulticastDomainSourceOutput) GroupIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMulticastDomainSource) *string { return v.GroupIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The group members' network interface ID.
-func (o GetMulticastDomainSourceOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMulticastDomainSource) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o GetMulticastDomainSourceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMulticastDomainSource) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 type GetMulticastDomainSourceArrayOutput struct{ *pulumi.OutputState }
@@ -1668,15 +1668,15 @@ func (o GetRouteTableRoutesFilterArrayOutput) Index(i pulumi.IntInput) GetRouteT
 
 type GetRouteTableRoutesRoute struct {
 	// The CIDR used for route destination matches.
-	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// The ID of the prefix list used for destination matches.
-	PrefixListId string `pulumi:"prefixListId"`
+	PrefixListId *string `pulumi:"prefixListId"`
 	// The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
-	State string `pulumi:"state"`
+	State *string `pulumi:"state"`
 	// The id of the transit gateway route table announcement, most of the time it is an empty string.
-	TransitGatewayRouteTableAnnouncementId string `pulumi:"transitGatewayRouteTableAnnouncementId"`
+	TransitGatewayRouteTableAnnouncementId *string `pulumi:"transitGatewayRouteTableAnnouncementId"`
 	// The type of the route, can be `propagated` or `static`.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetRouteTableRoutesRouteInput is an input type that accepts GetRouteTableRoutesRouteArgs and GetRouteTableRoutesRouteOutput values.
@@ -1692,15 +1692,15 @@ type GetRouteTableRoutesRouteInput interface {
 
 type GetRouteTableRoutesRouteArgs struct {
 	// The CIDR used for route destination matches.
-	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
+	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
 	// The ID of the prefix list used for destination matches.
-	PrefixListId pulumi.StringInput `pulumi:"prefixListId"`
+	PrefixListId pulumi.StringPtrInput `pulumi:"prefixListId"`
 	// The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
-	State pulumi.StringInput `pulumi:"state"`
+	State pulumi.StringPtrInput `pulumi:"state"`
 	// The id of the transit gateway route table announcement, most of the time it is an empty string.
-	TransitGatewayRouteTableAnnouncementId pulumi.StringInput `pulumi:"transitGatewayRouteTableAnnouncementId"`
+	TransitGatewayRouteTableAnnouncementId pulumi.StringPtrInput `pulumi:"transitGatewayRouteTableAnnouncementId"`
 	// The type of the route, can be `propagated` or `static`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetRouteTableRoutesRouteArgs) ElementType() reflect.Type {
@@ -1755,28 +1755,28 @@ func (o GetRouteTableRoutesRouteOutput) ToGetRouteTableRoutesRouteOutputWithCont
 }
 
 // The CIDR used for route destination matches.
-func (o GetRouteTableRoutesRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+func (o GetRouteTableRoutesRouteOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) *string { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the prefix list used for destination matches.
-func (o GetRouteTableRoutesRouteOutput) PrefixListId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.PrefixListId }).(pulumi.StringOutput)
+func (o GetRouteTableRoutesRouteOutput) PrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) *string { return v.PrefixListId }).(pulumi.StringPtrOutput)
 }
 
 // The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
-func (o GetRouteTableRoutesRouteOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.State }).(pulumi.StringOutput)
+func (o GetRouteTableRoutesRouteOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The id of the transit gateway route table announcement, most of the time it is an empty string.
-func (o GetRouteTableRoutesRouteOutput) TransitGatewayRouteTableAnnouncementId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.TransitGatewayRouteTableAnnouncementId }).(pulumi.StringOutput)
+func (o GetRouteTableRoutesRouteOutput) TransitGatewayRouteTableAnnouncementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) *string { return v.TransitGatewayRouteTableAnnouncementId }).(pulumi.StringPtrOutput)
 }
 
 // The type of the route, can be `propagated` or `static`.
-func (o GetRouteTableRoutesRouteOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.Type }).(pulumi.StringOutput)
+func (o GetRouteTableRoutesRouteOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteTableRoutesRouteArrayOutput struct{ *pulumi.OutputState }

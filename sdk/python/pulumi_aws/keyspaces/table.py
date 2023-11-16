@@ -652,7 +652,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the table.
         """
@@ -660,7 +660,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="capacitySpecification")
-    def capacity_specification(self) -> pulumi.Output['outputs.TableCapacitySpecification']:
+    def capacity_specification(self) -> pulumi.Output[Optional['outputs.TableCapacitySpecification']]:
         """
         Specifies the read/write throughput capacity mode for the table.
         """
@@ -676,7 +676,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def comment(self) -> pulumi.Output['outputs.TableComment']:
+    def comment(self) -> pulumi.Output[Optional['outputs.TableComment']]:
         """
         A description of the table.
         """
@@ -692,7 +692,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionSpecification")
-    def encryption_specification(self) -> pulumi.Output['outputs.TableEncryptionSpecification']:
+    def encryption_specification(self) -> pulumi.Output[Optional['outputs.TableEncryptionSpecification']]:
         """
         Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         """
@@ -708,7 +708,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pointInTimeRecovery")
-    def point_in_time_recovery(self) -> pulumi.Output['outputs.TablePointInTimeRecovery']:
+    def point_in_time_recovery(self) -> pulumi.Output[Optional['outputs.TablePointInTimeRecovery']]:
         """
         Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         """

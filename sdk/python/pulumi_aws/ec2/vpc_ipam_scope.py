@@ -384,7 +384,7 @@ class VpcIpamScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the scope.
         """
@@ -400,7 +400,7 @@ class VpcIpamScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipamArn")
-    def ipam_arn(self) -> pulumi.Output[str]:
+    def ipam_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the IPAM for which you're creating this scope.
         """
@@ -416,12 +416,12 @@ class VpcIpamScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> pulumi.Output[str]:
+    def ipam_scope_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipam_scope_type")
 
     @property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> pulumi.Output[bool]:
+    def is_default(self) -> pulumi.Output[Optional[bool]]:
         """
         Defines if the scope is the default scope or not.
         """
@@ -429,7 +429,7 @@ class VpcIpamScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolCount")
-    def pool_count(self) -> pulumi.Output[int]:
+    def pool_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of pools in the scope.
         """

@@ -7,24 +7,26 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTableServerSideEncryption extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTableServerSideEncryption Empty = new GetTableServerSideEncryption();
 
-    @Import(name="enabled", required=true)
-    private Boolean enabled;
+    @Import(name="enabled")
+    private @Nullable Boolean enabled;
 
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
-    @Import(name="kmsKeyArn", required=true)
-    private String kmsKeyArn;
+    @Import(name="kmsKeyArn")
+    private @Nullable String kmsKeyArn;
 
-    public String kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<String> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
 
     private GetTableServerSideEncryption() {}
@@ -52,19 +54,17 @@ public final class GetTableServerSideEncryption extends com.pulumi.resources.Inv
             $ = new GetTableServerSideEncryption(Objects.requireNonNull(defaults));
         }
 
-        public Builder enabled(Boolean enabled) {
+        public Builder enabled(@Nullable Boolean enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        public Builder kmsKeyArn(String kmsKeyArn) {
+        public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
         public GetTableServerSideEncryption build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.kmsKeyArn = Objects.requireNonNull($.kmsKeyArn, "expected parameter 'kmsKeyArn' to be non-null");
             return $;
         }
     }

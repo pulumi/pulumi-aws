@@ -75,7 +75,7 @@ import (
 //			}
 //			sourceRolePolicy, err := iam.NewRolePolicy(ctx, "sourceRolePolicy", &iam.RolePolicyArgs{
 //				Role: exampleRole.ID(),
-//				Policy: sourceQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				Policy: sourceQueue.Arn.ApplyT(func(arn *string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",
@@ -87,7 +87,7 @@ import (
 //									"sqs:GetQueueAttributes",
 //									"sqs:ReceiveMessage",
 //								},
-//								"Resource": []string{
+//								"Resource": []*string{
 //									arn,
 //								},
 //							},
@@ -109,7 +109,7 @@ import (
 //			}
 //			targetRolePolicy, err := iam.NewRolePolicy(ctx, "targetRolePolicy", &iam.RolePolicyArgs{
 //				Role: exampleRole.ID(),
-//				Policy: targetQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				Policy: targetQueue.Arn.ApplyT(func(arn *string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON2, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",
@@ -119,7 +119,7 @@ import (
 //								"Action": []string{
 //									"sqs:SendMessage",
 //								},
-//								"Resource": []string{
+//								"Resource": []*string{
 //									arn,
 //								},
 //							},
@@ -212,7 +212,7 @@ type Pipe struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the pipe. At most 512 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
@@ -224,13 +224,13 @@ type Pipe struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Source resource of the pipe (typically an ARN).
 	Source pulumi.StringOutput `pulumi:"source"`
 	// Parameters to configure a source for the pipe. Detailed below.
-	SourceParameters PipeSourceParametersOutput `pulumi:"sourceParameters"`
+	SourceParameters PipeSourceParametersPtrOutput `pulumi:"sourceParameters"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -508,8 +508,8 @@ func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 }
 
 // The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
-func (o PipeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PipeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the pipe. At most 512 characters.
@@ -538,8 +538,8 @@ func (o PipeOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o PipeOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o PipeOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the role that allows the pipe to send data to the target.
@@ -553,8 +553,8 @@ func (o PipeOutput) Source() pulumi.StringOutput {
 }
 
 // Parameters to configure a source for the pipe. Detailed below.
-func (o PipeOutput) SourceParameters() PipeSourceParametersOutput {
-	return o.ApplyT(func(v *Pipe) PipeSourceParametersOutput { return v.SourceParameters }).(PipeSourceParametersOutput)
+func (o PipeOutput) SourceParameters() PipeSourceParametersPtrOutput {
+	return o.ApplyT(func(v *Pipe) PipeSourceParametersPtrOutput { return v.SourceParameters }).(PipeSourceParametersPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

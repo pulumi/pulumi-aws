@@ -46,7 +46,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the subnet group.
         """
@@ -54,7 +54,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the subnet group.
         """
@@ -62,7 +62,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -75,7 +75,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Set of VPC Subnet ID-s of the subnet group.
         """
@@ -83,7 +83,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the subnet group.
         """
@@ -91,7 +91,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         VPC in which the subnet group exists.
         """

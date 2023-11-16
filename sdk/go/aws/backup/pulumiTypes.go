@@ -2164,7 +2164,7 @@ type GetFrameworkControl struct {
 	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters []GetFrameworkControlInputParameter `pulumi:"inputParameters"`
 	// Backup framework name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
 	Scopes []GetFrameworkControlScope `pulumi:"scopes"`
 }
@@ -2184,7 +2184,7 @@ type GetFrameworkControlArgs struct {
 	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters GetFrameworkControlInputParameterArrayInput `pulumi:"inputParameters"`
 	// Backup framework name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
 	Scopes GetFrameworkControlScopeArrayInput `pulumi:"scopes"`
 }
@@ -2246,8 +2246,8 @@ func (o GetFrameworkControlOutput) InputParameters() GetFrameworkControlInputPar
 }
 
 // Backup framework name.
-func (o GetFrameworkControlOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFrameworkControl) string { return v.Name }).(pulumi.StringOutput)
+func (o GetFrameworkControlOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFrameworkControl) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
@@ -2277,9 +2277,9 @@ func (o GetFrameworkControlArrayOutput) Index(i pulumi.IntInput) GetFrameworkCon
 
 type GetFrameworkControlInputParameter struct {
 	// Backup framework name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Value of parameter, for example, hourly.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetFrameworkControlInputParameterInput is an input type that accepts GetFrameworkControlInputParameterArgs and GetFrameworkControlInputParameterOutput values.
@@ -2295,9 +2295,9 @@ type GetFrameworkControlInputParameterInput interface {
 
 type GetFrameworkControlInputParameterArgs struct {
 	// Backup framework name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Value of parameter, for example, hourly.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetFrameworkControlInputParameterArgs) ElementType() reflect.Type {
@@ -2352,13 +2352,13 @@ func (o GetFrameworkControlInputParameterOutput) ToGetFrameworkControlInputParam
 }
 
 // Backup framework name.
-func (o GetFrameworkControlInputParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFrameworkControlInputParameter) string { return v.Name }).(pulumi.StringOutput)
+func (o GetFrameworkControlInputParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFrameworkControlInputParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Value of parameter, for example, hourly.
-func (o GetFrameworkControlInputParameterOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFrameworkControlInputParameter) string { return v.Value }).(pulumi.StringOutput)
+func (o GetFrameworkControlInputParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFrameworkControlInputParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetFrameworkControlInputParameterArrayOutput struct{ *pulumi.OutputState }
@@ -2500,9 +2500,9 @@ type GetReportPlanReportDeliveryChannel struct {
 	// List of the format of your reports: CSV, JSON, or both.
 	Formats []string `pulumi:"formats"`
 	// Unique name of the S3 bucket that receives your reports.
-	S3BucketName string `pulumi:"s3BucketName"`
+	S3BucketName *string `pulumi:"s3BucketName"`
 	// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
-	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
+	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
 // GetReportPlanReportDeliveryChannelInput is an input type that accepts GetReportPlanReportDeliveryChannelArgs and GetReportPlanReportDeliveryChannelOutput values.
@@ -2520,9 +2520,9 @@ type GetReportPlanReportDeliveryChannelArgs struct {
 	// List of the format of your reports: CSV, JSON, or both.
 	Formats pulumi.StringArrayInput `pulumi:"formats"`
 	// Unique name of the S3 bucket that receives your reports.
-	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
+	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
 	// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
-	S3KeyPrefix pulumi.StringInput `pulumi:"s3KeyPrefix"`
+	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
 func (GetReportPlanReportDeliveryChannelArgs) ElementType() reflect.Type {
@@ -2582,13 +2582,13 @@ func (o GetReportPlanReportDeliveryChannelOutput) Formats() pulumi.StringArrayOu
 }
 
 // Unique name of the S3 bucket that receives your reports.
-func (o GetReportPlanReportDeliveryChannelOutput) S3BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) string { return v.S3BucketName }).(pulumi.StringOutput)
+func (o GetReportPlanReportDeliveryChannelOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
 // Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
-func (o GetReportPlanReportDeliveryChannelOutput) S3KeyPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) string { return v.S3KeyPrefix }).(pulumi.StringOutput)
+func (o GetReportPlanReportDeliveryChannelOutput) S3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
 type GetReportPlanReportDeliveryChannelArrayOutput struct{ *pulumi.OutputState }
@@ -2617,13 +2617,13 @@ type GetReportPlanReportSetting struct {
 	// ARNs of the frameworks a report covers.
 	FrameworkArns []string `pulumi:"frameworkArns"`
 	// Specifies the number of frameworks a report covers.
-	NumberOfFrameworks int `pulumi:"numberOfFrameworks"`
+	NumberOfFrameworks *int `pulumi:"numberOfFrameworks"`
 	// (Optional) Specifies the list of Organizational Units a report covers.
 	OrganizationUnits []string `pulumi:"organizationUnits"`
 	// (Optional) Specifies the list of regions a report covers.
 	Regions []string `pulumi:"regions"`
 	// Identifies the report template for the report. Reports are built using a report template.
-	ReportTemplate string `pulumi:"reportTemplate"`
+	ReportTemplate *string `pulumi:"reportTemplate"`
 }
 
 // GetReportPlanReportSettingInput is an input type that accepts GetReportPlanReportSettingArgs and GetReportPlanReportSettingOutput values.
@@ -2643,13 +2643,13 @@ type GetReportPlanReportSettingArgs struct {
 	// ARNs of the frameworks a report covers.
 	FrameworkArns pulumi.StringArrayInput `pulumi:"frameworkArns"`
 	// Specifies the number of frameworks a report covers.
-	NumberOfFrameworks pulumi.IntInput `pulumi:"numberOfFrameworks"`
+	NumberOfFrameworks pulumi.IntPtrInput `pulumi:"numberOfFrameworks"`
 	// (Optional) Specifies the list of Organizational Units a report covers.
 	OrganizationUnits pulumi.StringArrayInput `pulumi:"organizationUnits"`
 	// (Optional) Specifies the list of regions a report covers.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// Identifies the report template for the report. Reports are built using a report template.
-	ReportTemplate pulumi.StringInput `pulumi:"reportTemplate"`
+	ReportTemplate pulumi.StringPtrInput `pulumi:"reportTemplate"`
 }
 
 func (GetReportPlanReportSettingArgs) ElementType() reflect.Type {
@@ -2714,8 +2714,8 @@ func (o GetReportPlanReportSettingOutput) FrameworkArns() pulumi.StringArrayOutp
 }
 
 // Specifies the number of frameworks a report covers.
-func (o GetReportPlanReportSettingOutput) NumberOfFrameworks() pulumi.IntOutput {
-	return o.ApplyT(func(v GetReportPlanReportSetting) int { return v.NumberOfFrameworks }).(pulumi.IntOutput)
+func (o GetReportPlanReportSettingOutput) NumberOfFrameworks() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetReportPlanReportSetting) *int { return v.NumberOfFrameworks }).(pulumi.IntPtrOutput)
 }
 
 // (Optional) Specifies the list of Organizational Units a report covers.
@@ -2729,8 +2729,8 @@ func (o GetReportPlanReportSettingOutput) Regions() pulumi.StringArrayOutput {
 }
 
 // Identifies the report template for the report. Reports are built using a report template.
-func (o GetReportPlanReportSettingOutput) ReportTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReportPlanReportSetting) string { return v.ReportTemplate }).(pulumi.StringOutput)
+func (o GetReportPlanReportSettingOutput) ReportTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReportPlanReportSetting) *string { return v.ReportTemplate }).(pulumi.StringPtrOutput)
 }
 
 type GetReportPlanReportSettingArrayOutput struct{ *pulumi.OutputState }

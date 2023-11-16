@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientP
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefault {
-    private List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies;
 
     private GetVirtualGatewaySpecBackendDefault() {}
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies() {
-        return this.clientPolicies;
+        return this.clientPolicies == null ? List.of() : this.clientPolicies;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualGatewaySpecBackendDefault {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecBackendDefault defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualGatewaySpecBackendDefault {
         }
 
         @CustomType.Setter
-        public Builder clientPolicies(List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies) {
-            this.clientPolicies = Objects.requireNonNull(clientPolicies);
+        public Builder clientPolicies(@Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies) {
+            this.clientPolicies = clientPolicies;
             return this;
         }
         public Builder clientPolicies(GetVirtualGatewaySpecBackendDefaultClientPolicy... clientPolicies) {

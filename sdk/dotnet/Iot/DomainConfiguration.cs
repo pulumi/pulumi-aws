@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Iot
         /// The ARN of the domain configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// An object that specifies the authorization service for a domain. See below.
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Iot
         /// The type of the domain.
         /// </summary>
         [Output("domainType")]
-        public Output<string> DomainType { get; private set; } = null!;
+        public Output<string?> DomainType { get; private set; } = null!;
 
         /// <summary>
         /// The name of the domain configuration. This value must be unique to a region.
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Iot
         /// An object that specifies the TLS configuration for a domain. See below.
         /// </summary>
         [Output("tlsConfig")]
-        public Output<Outputs.DomainConfigurationTlsConfig> TlsConfig { get; private set; } = null!;
+        public Output<Outputs.DomainConfigurationTlsConfig?> TlsConfig { get; private set; } = null!;
 
         /// <summary>
         /// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.

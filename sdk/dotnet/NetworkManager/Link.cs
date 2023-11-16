@@ -52,7 +52,7 @@ namespace Pulumi.Aws.NetworkManager
         /// Link Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The upload speed and download speed in Mbps. Documented below.

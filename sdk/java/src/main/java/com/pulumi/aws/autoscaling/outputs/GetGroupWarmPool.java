@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupWarmPool {
@@ -16,18 +18,18 @@ public final class GetGroupWarmPool {
      * @return List of instance reuse policy objects.
      * 
      */
-    private List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies;
-    private Integer maxGroupPreparedCapacity;
+    private @Nullable List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies;
+    private @Nullable Integer maxGroupPreparedCapacity;
     /**
      * @return Minimum number of instances to maintain in the warm pool.
      * 
      */
-    private Integer minSize;
+    private @Nullable Integer minSize;
     /**
      * @return Instance state to transition to after the lifecycle actions are complete.
      * 
      */
-    private String poolState;
+    private @Nullable String poolState;
 
     private GetGroupWarmPool() {}
     /**
@@ -35,24 +37,24 @@ public final class GetGroupWarmPool {
      * 
      */
     public List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies() {
-        return this.instanceReusePolicies;
+        return this.instanceReusePolicies == null ? List.of() : this.instanceReusePolicies;
     }
-    public Integer maxGroupPreparedCapacity() {
-        return this.maxGroupPreparedCapacity;
+    public Optional<Integer> maxGroupPreparedCapacity() {
+        return Optional.ofNullable(this.maxGroupPreparedCapacity);
     }
     /**
      * @return Minimum number of instances to maintain in the warm pool.
      * 
      */
-    public Integer minSize() {
-        return this.minSize;
+    public Optional<Integer> minSize() {
+        return Optional.ofNullable(this.minSize);
     }
     /**
      * @return Instance state to transition to after the lifecycle actions are complete.
      * 
      */
-    public String poolState() {
-        return this.poolState;
+    public Optional<String> poolState() {
+        return Optional.ofNullable(this.poolState);
     }
 
     public static Builder builder() {
@@ -64,10 +66,10 @@ public final class GetGroupWarmPool {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies;
-        private Integer maxGroupPreparedCapacity;
-        private Integer minSize;
-        private String poolState;
+        private @Nullable List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies;
+        private @Nullable Integer maxGroupPreparedCapacity;
+        private @Nullable Integer minSize;
+        private @Nullable String poolState;
         public Builder() {}
         public Builder(GetGroupWarmPool defaults) {
     	      Objects.requireNonNull(defaults);
@@ -78,26 +80,26 @@ public final class GetGroupWarmPool {
         }
 
         @CustomType.Setter
-        public Builder instanceReusePolicies(List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies) {
-            this.instanceReusePolicies = Objects.requireNonNull(instanceReusePolicies);
+        public Builder instanceReusePolicies(@Nullable List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies) {
+            this.instanceReusePolicies = instanceReusePolicies;
             return this;
         }
         public Builder instanceReusePolicies(GetGroupWarmPoolInstanceReusePolicy... instanceReusePolicies) {
             return instanceReusePolicies(List.of(instanceReusePolicies));
         }
         @CustomType.Setter
-        public Builder maxGroupPreparedCapacity(Integer maxGroupPreparedCapacity) {
-            this.maxGroupPreparedCapacity = Objects.requireNonNull(maxGroupPreparedCapacity);
+        public Builder maxGroupPreparedCapacity(@Nullable Integer maxGroupPreparedCapacity) {
+            this.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
             return this;
         }
         @CustomType.Setter
-        public Builder minSize(Integer minSize) {
-            this.minSize = Objects.requireNonNull(minSize);
+        public Builder minSize(@Nullable Integer minSize) {
+            this.minSize = minSize;
             return this;
         }
         @CustomType.Setter
-        public Builder poolState(String poolState) {
-            this.poolState = Objects.requireNonNull(poolState);
+        public Builder poolState(@Nullable String poolState) {
+            this.poolState = poolState;
             return this;
         }
         public GetGroupWarmPool build() {

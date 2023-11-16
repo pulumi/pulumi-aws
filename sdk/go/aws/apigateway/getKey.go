@@ -60,23 +60,23 @@ type GetKeyArgs struct {
 // A collection of values returned by getKey.
 type GetKeyResult struct {
 	// Date and time when the API Key was created.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-	CustomerId string `pulumi:"customerId"`
+	CustomerId *string `pulumi:"customerId"`
 	// Description of the API Key.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Whether the API Key is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 	// Set to the ID of the API Key.
 	Id string `pulumi:"id"`
 	// Date and time when the API Key was last updated.
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// Set to the name of the API Key.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Set to the value of the API Key.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 func GetKeyOutput(ctx *pulumi.Context, args GetKeyOutputArgs, opts ...pulumi.InvokeOption) GetKeyResultOutput {
@@ -120,23 +120,23 @@ func (o GetKeyResultOutput) ToGetKeyResultOutputWithContext(ctx context.Context)
 }
 
 // Date and time when the API Key was created.
-func (o GetKeyResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o GetKeyResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-func (o GetKeyResultOutput) CustomerId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyResult) string { return v.CustomerId }).(pulumi.StringOutput)
+func (o GetKeyResultOutput) CustomerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyResult) *string { return v.CustomerId }).(pulumi.StringPtrOutput)
 }
 
 // Description of the API Key.
-func (o GetKeyResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetKeyResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Whether the API Key is enabled.
-func (o GetKeyResultOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKeyResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetKeyResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetKeyResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Set to the ID of the API Key.
@@ -145,13 +145,13 @@ func (o GetKeyResultOutput) Id() pulumi.StringOutput {
 }
 
 // Date and time when the API Key was last updated.
-func (o GetKeyResultOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o GetKeyResultOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyResult) *string { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Set to the name of the API Key.
-func (o GetKeyResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyResult) string { return v.Name }).(pulumi.StringOutput)
+func (o GetKeyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags for the resource.
@@ -160,8 +160,8 @@ func (o GetKeyResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Set to the value of the API Key.
-func (o GetKeyResultOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyResult) string { return v.Value }).(pulumi.StringOutput)
+func (o GetKeyResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyResult) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 func init() {

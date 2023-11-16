@@ -193,7 +193,7 @@ namespace Pulumi.Aws.AppFlow
         /// Flow's ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the flow you want to create.
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.AppFlow
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Output("kmsArn")]
-        public Output<string> KmsArn { get; private set; } = null!;
+        public Output<string?> KmsArn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the flow.

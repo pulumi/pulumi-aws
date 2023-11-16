@@ -43,7 +43,7 @@ export interface GetEmailIdentityResult {
     /**
      * The ARN of the email identity.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Email identity.
      */
@@ -51,7 +51,7 @@ export interface GetEmailIdentityResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Retrieve the active SES email identity

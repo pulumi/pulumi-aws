@@ -178,11 +178,11 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// The description of the bundle.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the compute type.
         /// </summary>
@@ -206,9 +206,9 @@ namespace Pulumi.Aws.Workspaces
 
             ImmutableArray<Outputs.GetBundleComputeTypeResult> computeTypes,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string? name,
 

@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Cognito
         /// The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Cognito
         /// The CSS version number.
         /// </summary>
         [Output("cssVersion")]
-        public Output<string> CssVersion { get; private set; } = null!;
+        public Output<string?> CssVersion { get; private set; } = null!;
 
         /// <summary>
         /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
@@ -133,13 +133,13 @@ namespace Pulumi.Aws.Cognito
         /// The logo image URL for the UI customization.
         /// </summary>
         [Output("imageUrl")]
-        public Output<string> ImageUrl { get; private set; } = null!;
+        public Output<string?> ImageUrl { get; private set; } = null!;
 
         /// <summary>
         /// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         /// </summary>
         [Output("lastModifiedDate")]
-        public Output<string> LastModifiedDate { get; private set; } = null!;
+        public Output<string?> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
         /// The user pool ID for the user pool.

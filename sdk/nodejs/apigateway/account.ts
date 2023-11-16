@@ -90,7 +90,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The version of the API keys used for the account.
      */
-    public /*out*/ readonly apiKeyVersion!: pulumi.Output<string>;
+    public /*out*/ readonly apiKeyVersion!: pulumi.Output<string | undefined>;
     /**
      * ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      */
@@ -98,11 +98,11 @@ export class Account extends pulumi.CustomResource {
     /**
      * A list of features supported for the account.
      */
-    public /*out*/ readonly features!: pulumi.Output<string[]>;
+    public /*out*/ readonly features!: pulumi.Output<string[] | undefined>;
     /**
      * Account-Level throttle settings. See exported fields below.
      */
-    public /*out*/ readonly throttleSettings!: pulumi.Output<outputs.apigateway.AccountThrottleSetting[]>;
+    public /*out*/ readonly throttleSettings!: pulumi.Output<outputs.apigateway.AccountThrottleSetting[] | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.

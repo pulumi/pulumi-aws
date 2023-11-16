@@ -70,7 +70,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * VPC ID of the subnet group.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.

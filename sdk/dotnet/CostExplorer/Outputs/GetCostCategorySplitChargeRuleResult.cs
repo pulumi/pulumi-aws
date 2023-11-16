@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// <summary>
         /// Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
         /// </summary>
-        public readonly string Method;
+        public readonly string? Method;
         /// <summary>
         /// Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// <summary>
         /// Cost Category value that you want to split.
         /// </summary>
-        public readonly string Source;
+        public readonly string? Source;
         /// <summary>
         /// Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.Aws.CostExplorer.Outputs
 
         [OutputConstructor]
         private GetCostCategorySplitChargeRuleResult(
-            string method,
+            string? method,
 
             ImmutableArray<Outputs.GetCostCategorySplitChargeRuleParameterResult> parameters,
 
-            string source,
+            string? source,
 
             ImmutableArray<string> targets)
         {

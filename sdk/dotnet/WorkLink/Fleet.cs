@@ -94,7 +94,7 @@ namespace Pulumi.Aws.WorkLink
         /// The ARN of the created WorkLink Fleet.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
@@ -106,13 +106,13 @@ namespace Pulumi.Aws.WorkLink
         /// The identifier used by users to sign in to the Amazon WorkLink app.
         /// </summary>
         [Output("companyCode")]
-        public Output<string> CompanyCode { get; private set; } = null!;
+        public Output<string?> CompanyCode { get; private set; } = null!;
 
         /// <summary>
         /// The time that the fleet was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.WorkLink
         /// The time that the fleet was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// A region-unique name for the AMI.

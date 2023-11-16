@@ -130,48 +130,48 @@ namespace Pulumi.Aws.Amp
         /// <summary>
         /// Prometheus workspace alias.
         /// </summary>
-        public readonly string Alias;
+        public readonly string? Alias;
         /// <summary>
         /// ARN of the Prometheus workspace.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Creation date of the Prometheus workspace.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Endpoint of the Prometheus workspace.
         /// </summary>
-        public readonly string PrometheusEndpoint;
+        public readonly string? PrometheusEndpoint;
         /// <summary>
         /// Status of the Prometheus workspace.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string WorkspaceId;
 
         [OutputConstructor]
         private GetWorkspaceResult(
-            string alias,
+            string? alias,
 
-            string arn,
+            string? arn,
 
-            string createdDate,
+            string? createdDate,
 
-            string id,
+            string? id,
 
-            string prometheusEndpoint,
+            string? prometheusEndpoint,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string workspaceId)
         {

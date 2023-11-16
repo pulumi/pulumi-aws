@@ -138,7 +138,7 @@ type LanguageModel struct {
 	pulumi.CustomResourceState
 
 	// ARN of the LanguageModel.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of reference base model.
 	BaseModelName pulumi.StringOutput `pulumi:"baseModelName"`
 	// The input data config for the LanguageModel. See Input Data Config for more details.
@@ -351,8 +351,8 @@ func (o LanguageModelOutput) ToLanguageModelOutputWithContext(ctx context.Contex
 }
 
 // ARN of the LanguageModel.
-func (o LanguageModelOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LanguageModelOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LanguageModel) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of reference base model.

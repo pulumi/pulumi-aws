@@ -67,35 +67,35 @@ export interface GetServerCertificateResult {
     /**
      * is set to the ARN of the IAM Server Certificate
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer
      */
-    readonly certificateBody: string;
+    readonly certificateBody?: string;
     /**
      * is the public key certificate chain (PEM-encoded) if exists, empty otherwise
      */
-    readonly certificateChain: string;
+    readonly certificateChain?: string;
     /**
      * is set to the expiration date of the IAM Server Certificate
      */
-    readonly expirationDate: string;
+    readonly expirationDate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly latest?: boolean;
-    readonly name: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     /**
      * is set to the path of the IAM Server Certificate
      */
-    readonly path: string;
+    readonly path?: string;
     readonly pathPrefix?: string;
     /**
      * is the date when the server certificate was uploaded
      */
-    readonly uploadDate: string;
+    readonly uploadDate?: string;
 }
 /**
  * Use this data source to lookup information about IAM Server Certificates.

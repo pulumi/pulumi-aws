@@ -11,6 +11,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserPoolClientResult {
@@ -18,149 +20,149 @@ public final class GetUserPoolClientResult {
      * @return (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
      * 
      */
-    private Integer accessTokenValidity;
+    private @Nullable Integer accessTokenValidity;
     /**
      * @return (Optional) List of allowed OAuth flows (code, implicit, client_credentials).
      * 
      */
-    private List<String> allowedOauthFlows;
+    private @Nullable List<String> allowedOauthFlows;
     /**
      * @return (Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
      * 
      */
-    private Boolean allowedOauthFlowsUserPoolClient;
+    private @Nullable Boolean allowedOauthFlowsUserPoolClient;
     /**
      * @return (Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
      * 
      */
-    private List<String> allowedOauthScopes;
+    private @Nullable List<String> allowedOauthScopes;
     /**
      * @return (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      * 
      */
-    private List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations;
+    private @Nullable List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations;
     /**
      * @return (Optional) List of allowed callback URLs for the identity providers.
      * 
      */
-    private List<String> callbackUrls;
+    private @Nullable List<String> callbackUrls;
     private String clientId;
     /**
      * @return Client secret of the user pool client.
      * 
      */
-    private String clientSecret;
+    private @Nullable String clientSecret;
     /**
      * @return (Optional) Default redirect URI. Must be in the list of callback URLs.
      * 
      */
-    private String defaultRedirectUri;
-    private Boolean enablePropagateAdditionalUserContextData;
+    private @Nullable String defaultRedirectUri;
+    private @Nullable Boolean enablePropagateAdditionalUserContextData;
     /**
      * @return (Optional) Enables or disables token revocation.
      * 
      */
-    private Boolean enableTokenRevocation;
+    private @Nullable Boolean enableTokenRevocation;
     /**
      * @return (Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      * 
      */
-    private List<String> explicitAuthFlows;
+    private @Nullable List<String> explicitAuthFlows;
     /**
      * @return (Optional) Should an application secret be generated.
      * 
      */
-    private Boolean generateSecret;
+    private @Nullable Boolean generateSecret;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
      * 
      */
-    private Integer idTokenValidity;
+    private @Nullable Integer idTokenValidity;
     /**
      * @return (Optional) List of allowed logout URLs for the identity providers.
      * 
      */
-    private List<String> logoutUrls;
-    private String name;
+    private @Nullable List<String> logoutUrls;
+    private @Nullable String name;
     /**
      * @return (Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
      * 
      */
-    private String preventUserExistenceErrors;
+    private @Nullable String preventUserExistenceErrors;
     /**
      * @return (Optional) List of user pool attributes the application client can read from.
      * 
      */
-    private List<String> readAttributes;
+    private @Nullable List<String> readAttributes;
     /**
      * @return (Optional) Time limit in days refresh tokens are valid for.
      * 
      */
-    private Integer refreshTokenValidity;
+    private @Nullable Integer refreshTokenValidity;
     /**
      * @return (Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
-    private List<String> supportedIdentityProviders;
+    private @Nullable List<String> supportedIdentityProviders;
     /**
      * @return (Optional) Configuration block for units in which the validity times are represented in. Detailed below.
      * 
      */
-    private List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits;
+    private @Nullable List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits;
     private String userPoolId;
     /**
      * @return (Optional) List of user pool attributes the application client can write to.
      * 
      */
-    private List<String> writeAttributes;
+    private @Nullable List<String> writeAttributes;
 
     private GetUserPoolClientResult() {}
     /**
      * @return (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
      * 
      */
-    public Integer accessTokenValidity() {
-        return this.accessTokenValidity;
+    public Optional<Integer> accessTokenValidity() {
+        return Optional.ofNullable(this.accessTokenValidity);
     }
     /**
      * @return (Optional) List of allowed OAuth flows (code, implicit, client_credentials).
      * 
      */
     public List<String> allowedOauthFlows() {
-        return this.allowedOauthFlows;
+        return this.allowedOauthFlows == null ? List.of() : this.allowedOauthFlows;
     }
     /**
      * @return (Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
      * 
      */
-    public Boolean allowedOauthFlowsUserPoolClient() {
-        return this.allowedOauthFlowsUserPoolClient;
+    public Optional<Boolean> allowedOauthFlowsUserPoolClient() {
+        return Optional.ofNullable(this.allowedOauthFlowsUserPoolClient);
     }
     /**
      * @return (Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
      * 
      */
     public List<String> allowedOauthScopes() {
-        return this.allowedOauthScopes;
+        return this.allowedOauthScopes == null ? List.of() : this.allowedOauthScopes;
     }
     /**
      * @return (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      * 
      */
     public List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations() {
-        return this.analyticsConfigurations;
+        return this.analyticsConfigurations == null ? List.of() : this.analyticsConfigurations;
     }
     /**
      * @return (Optional) List of allowed callback URLs for the identity providers.
      * 
      */
     public List<String> callbackUrls() {
-        return this.callbackUrls;
+        return this.callbackUrls == null ? List.of() : this.callbackUrls;
     }
     public String clientId() {
         return this.clientId;
@@ -169,98 +171,98 @@ public final class GetUserPoolClientResult {
      * @return Client secret of the user pool client.
      * 
      */
-    public String clientSecret() {
-        return this.clientSecret;
+    public Optional<String> clientSecret() {
+        return Optional.ofNullable(this.clientSecret);
     }
     /**
      * @return (Optional) Default redirect URI. Must be in the list of callback URLs.
      * 
      */
-    public String defaultRedirectUri() {
-        return this.defaultRedirectUri;
+    public Optional<String> defaultRedirectUri() {
+        return Optional.ofNullable(this.defaultRedirectUri);
     }
-    public Boolean enablePropagateAdditionalUserContextData() {
-        return this.enablePropagateAdditionalUserContextData;
+    public Optional<Boolean> enablePropagateAdditionalUserContextData() {
+        return Optional.ofNullable(this.enablePropagateAdditionalUserContextData);
     }
     /**
      * @return (Optional) Enables or disables token revocation.
      * 
      */
-    public Boolean enableTokenRevocation() {
-        return this.enableTokenRevocation;
+    public Optional<Boolean> enableTokenRevocation() {
+        return Optional.ofNullable(this.enableTokenRevocation);
     }
     /**
      * @return (Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      * 
      */
     public List<String> explicitAuthFlows() {
-        return this.explicitAuthFlows;
+        return this.explicitAuthFlows == null ? List.of() : this.explicitAuthFlows;
     }
     /**
      * @return (Optional) Should an application secret be generated.
      * 
      */
-    public Boolean generateSecret() {
-        return this.generateSecret;
+    public Optional<Boolean> generateSecret() {
+        return Optional.ofNullable(this.generateSecret);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
      * 
      */
-    public Integer idTokenValidity() {
-        return this.idTokenValidity;
+    public Optional<Integer> idTokenValidity() {
+        return Optional.ofNullable(this.idTokenValidity);
     }
     /**
      * @return (Optional) List of allowed logout URLs for the identity providers.
      * 
      */
     public List<String> logoutUrls() {
-        return this.logoutUrls;
+        return this.logoutUrls == null ? List.of() : this.logoutUrls;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return (Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
      * 
      */
-    public String preventUserExistenceErrors() {
-        return this.preventUserExistenceErrors;
+    public Optional<String> preventUserExistenceErrors() {
+        return Optional.ofNullable(this.preventUserExistenceErrors);
     }
     /**
      * @return (Optional) List of user pool attributes the application client can read from.
      * 
      */
     public List<String> readAttributes() {
-        return this.readAttributes;
+        return this.readAttributes == null ? List.of() : this.readAttributes;
     }
     /**
      * @return (Optional) Time limit in days refresh tokens are valid for.
      * 
      */
-    public Integer refreshTokenValidity() {
-        return this.refreshTokenValidity;
+    public Optional<Integer> refreshTokenValidity() {
+        return Optional.ofNullable(this.refreshTokenValidity);
     }
     /**
      * @return (Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
     public List<String> supportedIdentityProviders() {
-        return this.supportedIdentityProviders;
+        return this.supportedIdentityProviders == null ? List.of() : this.supportedIdentityProviders;
     }
     /**
      * @return (Optional) Configuration block for units in which the validity times are represented in. Detailed below.
      * 
      */
     public List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits() {
-        return this.tokenValidityUnits;
+        return this.tokenValidityUnits == null ? List.of() : this.tokenValidityUnits;
     }
     public String userPoolId() {
         return this.userPoolId;
@@ -270,7 +272,7 @@ public final class GetUserPoolClientResult {
      * 
      */
     public List<String> writeAttributes() {
-        return this.writeAttributes;
+        return this.writeAttributes == null ? List.of() : this.writeAttributes;
     }
 
     public static Builder builder() {
@@ -282,30 +284,30 @@ public final class GetUserPoolClientResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer accessTokenValidity;
-        private List<String> allowedOauthFlows;
-        private Boolean allowedOauthFlowsUserPoolClient;
-        private List<String> allowedOauthScopes;
-        private List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations;
-        private List<String> callbackUrls;
+        private @Nullable Integer accessTokenValidity;
+        private @Nullable List<String> allowedOauthFlows;
+        private @Nullable Boolean allowedOauthFlowsUserPoolClient;
+        private @Nullable List<String> allowedOauthScopes;
+        private @Nullable List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations;
+        private @Nullable List<String> callbackUrls;
         private String clientId;
-        private String clientSecret;
-        private String defaultRedirectUri;
-        private Boolean enablePropagateAdditionalUserContextData;
-        private Boolean enableTokenRevocation;
-        private List<String> explicitAuthFlows;
-        private Boolean generateSecret;
-        private String id;
-        private Integer idTokenValidity;
-        private List<String> logoutUrls;
-        private String name;
-        private String preventUserExistenceErrors;
-        private List<String> readAttributes;
-        private Integer refreshTokenValidity;
-        private List<String> supportedIdentityProviders;
-        private List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits;
+        private @Nullable String clientSecret;
+        private @Nullable String defaultRedirectUri;
+        private @Nullable Boolean enablePropagateAdditionalUserContextData;
+        private @Nullable Boolean enableTokenRevocation;
+        private @Nullable List<String> explicitAuthFlows;
+        private @Nullable Boolean generateSecret;
+        private @Nullable String id;
+        private @Nullable Integer idTokenValidity;
+        private @Nullable List<String> logoutUrls;
+        private @Nullable String name;
+        private @Nullable String preventUserExistenceErrors;
+        private @Nullable List<String> readAttributes;
+        private @Nullable Integer refreshTokenValidity;
+        private @Nullable List<String> supportedIdentityProviders;
+        private @Nullable List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits;
         private String userPoolId;
-        private List<String> writeAttributes;
+        private @Nullable List<String> writeAttributes;
         public Builder() {}
         public Builder(GetUserPoolClientResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -336,42 +338,42 @@ public final class GetUserPoolClientResult {
         }
 
         @CustomType.Setter
-        public Builder accessTokenValidity(Integer accessTokenValidity) {
-            this.accessTokenValidity = Objects.requireNonNull(accessTokenValidity);
+        public Builder accessTokenValidity(@Nullable Integer accessTokenValidity) {
+            this.accessTokenValidity = accessTokenValidity;
             return this;
         }
         @CustomType.Setter
-        public Builder allowedOauthFlows(List<String> allowedOauthFlows) {
-            this.allowedOauthFlows = Objects.requireNonNull(allowedOauthFlows);
+        public Builder allowedOauthFlows(@Nullable List<String> allowedOauthFlows) {
+            this.allowedOauthFlows = allowedOauthFlows;
             return this;
         }
         public Builder allowedOauthFlows(String... allowedOauthFlows) {
             return allowedOauthFlows(List.of(allowedOauthFlows));
         }
         @CustomType.Setter
-        public Builder allowedOauthFlowsUserPoolClient(Boolean allowedOauthFlowsUserPoolClient) {
-            this.allowedOauthFlowsUserPoolClient = Objects.requireNonNull(allowedOauthFlowsUserPoolClient);
+        public Builder allowedOauthFlowsUserPoolClient(@Nullable Boolean allowedOauthFlowsUserPoolClient) {
+            this.allowedOauthFlowsUserPoolClient = allowedOauthFlowsUserPoolClient;
             return this;
         }
         @CustomType.Setter
-        public Builder allowedOauthScopes(List<String> allowedOauthScopes) {
-            this.allowedOauthScopes = Objects.requireNonNull(allowedOauthScopes);
+        public Builder allowedOauthScopes(@Nullable List<String> allowedOauthScopes) {
+            this.allowedOauthScopes = allowedOauthScopes;
             return this;
         }
         public Builder allowedOauthScopes(String... allowedOauthScopes) {
             return allowedOauthScopes(List.of(allowedOauthScopes));
         }
         @CustomType.Setter
-        public Builder analyticsConfigurations(List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations) {
-            this.analyticsConfigurations = Objects.requireNonNull(analyticsConfigurations);
+        public Builder analyticsConfigurations(@Nullable List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations) {
+            this.analyticsConfigurations = analyticsConfigurations;
             return this;
         }
         public Builder analyticsConfigurations(GetUserPoolClientAnalyticsConfiguration... analyticsConfigurations) {
             return analyticsConfigurations(List.of(analyticsConfigurations));
         }
         @CustomType.Setter
-        public Builder callbackUrls(List<String> callbackUrls) {
-            this.callbackUrls = Objects.requireNonNull(callbackUrls);
+        public Builder callbackUrls(@Nullable List<String> callbackUrls) {
+            this.callbackUrls = callbackUrls;
             return this;
         }
         public Builder callbackUrls(String... callbackUrls) {
@@ -383,90 +385,90 @@ public final class GetUserPoolClientResult {
             return this;
         }
         @CustomType.Setter
-        public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+        public Builder clientSecret(@Nullable String clientSecret) {
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultRedirectUri(String defaultRedirectUri) {
-            this.defaultRedirectUri = Objects.requireNonNull(defaultRedirectUri);
+        public Builder defaultRedirectUri(@Nullable String defaultRedirectUri) {
+            this.defaultRedirectUri = defaultRedirectUri;
             return this;
         }
         @CustomType.Setter
-        public Builder enablePropagateAdditionalUserContextData(Boolean enablePropagateAdditionalUserContextData) {
-            this.enablePropagateAdditionalUserContextData = Objects.requireNonNull(enablePropagateAdditionalUserContextData);
+        public Builder enablePropagateAdditionalUserContextData(@Nullable Boolean enablePropagateAdditionalUserContextData) {
+            this.enablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
             return this;
         }
         @CustomType.Setter
-        public Builder enableTokenRevocation(Boolean enableTokenRevocation) {
-            this.enableTokenRevocation = Objects.requireNonNull(enableTokenRevocation);
+        public Builder enableTokenRevocation(@Nullable Boolean enableTokenRevocation) {
+            this.enableTokenRevocation = enableTokenRevocation;
             return this;
         }
         @CustomType.Setter
-        public Builder explicitAuthFlows(List<String> explicitAuthFlows) {
-            this.explicitAuthFlows = Objects.requireNonNull(explicitAuthFlows);
+        public Builder explicitAuthFlows(@Nullable List<String> explicitAuthFlows) {
+            this.explicitAuthFlows = explicitAuthFlows;
             return this;
         }
         public Builder explicitAuthFlows(String... explicitAuthFlows) {
             return explicitAuthFlows(List.of(explicitAuthFlows));
         }
         @CustomType.Setter
-        public Builder generateSecret(Boolean generateSecret) {
-            this.generateSecret = Objects.requireNonNull(generateSecret);
+        public Builder generateSecret(@Nullable Boolean generateSecret) {
+            this.generateSecret = generateSecret;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder idTokenValidity(Integer idTokenValidity) {
-            this.idTokenValidity = Objects.requireNonNull(idTokenValidity);
+        public Builder idTokenValidity(@Nullable Integer idTokenValidity) {
+            this.idTokenValidity = idTokenValidity;
             return this;
         }
         @CustomType.Setter
-        public Builder logoutUrls(List<String> logoutUrls) {
-            this.logoutUrls = Objects.requireNonNull(logoutUrls);
+        public Builder logoutUrls(@Nullable List<String> logoutUrls) {
+            this.logoutUrls = logoutUrls;
             return this;
         }
         public Builder logoutUrls(String... logoutUrls) {
             return logoutUrls(List.of(logoutUrls));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder preventUserExistenceErrors(String preventUserExistenceErrors) {
-            this.preventUserExistenceErrors = Objects.requireNonNull(preventUserExistenceErrors);
+        public Builder preventUserExistenceErrors(@Nullable String preventUserExistenceErrors) {
+            this.preventUserExistenceErrors = preventUserExistenceErrors;
             return this;
         }
         @CustomType.Setter
-        public Builder readAttributes(List<String> readAttributes) {
-            this.readAttributes = Objects.requireNonNull(readAttributes);
+        public Builder readAttributes(@Nullable List<String> readAttributes) {
+            this.readAttributes = readAttributes;
             return this;
         }
         public Builder readAttributes(String... readAttributes) {
             return readAttributes(List.of(readAttributes));
         }
         @CustomType.Setter
-        public Builder refreshTokenValidity(Integer refreshTokenValidity) {
-            this.refreshTokenValidity = Objects.requireNonNull(refreshTokenValidity);
+        public Builder refreshTokenValidity(@Nullable Integer refreshTokenValidity) {
+            this.refreshTokenValidity = refreshTokenValidity;
             return this;
         }
         @CustomType.Setter
-        public Builder supportedIdentityProviders(List<String> supportedIdentityProviders) {
-            this.supportedIdentityProviders = Objects.requireNonNull(supportedIdentityProviders);
+        public Builder supportedIdentityProviders(@Nullable List<String> supportedIdentityProviders) {
+            this.supportedIdentityProviders = supportedIdentityProviders;
             return this;
         }
         public Builder supportedIdentityProviders(String... supportedIdentityProviders) {
             return supportedIdentityProviders(List.of(supportedIdentityProviders));
         }
         @CustomType.Setter
-        public Builder tokenValidityUnits(List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits) {
-            this.tokenValidityUnits = Objects.requireNonNull(tokenValidityUnits);
+        public Builder tokenValidityUnits(@Nullable List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits) {
+            this.tokenValidityUnits = tokenValidityUnits;
             return this;
         }
         public Builder tokenValidityUnits(GetUserPoolClientTokenValidityUnit... tokenValidityUnits) {
@@ -478,8 +480,8 @@ public final class GetUserPoolClientResult {
             return this;
         }
         @CustomType.Setter
-        public Builder writeAttributes(List<String> writeAttributes) {
-            this.writeAttributes = Objects.requireNonNull(writeAttributes);
+        public Builder writeAttributes(@Nullable List<String> writeAttributes) {
+            this.writeAttributes = writeAttributes;
             return this;
         }
         public Builder writeAttributes(String... writeAttributes) {

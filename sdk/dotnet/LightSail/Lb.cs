@@ -50,19 +50,19 @@ namespace Pulumi.Aws.LightSail
         /// The ARN of the Lightsail load balancer.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp when the load balancer was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name of the load balancer.
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// The health check path of the load balancer. Default value "/".
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.LightSail
         /// The protocol of the load balancer.
         /// </summary>
         [Output("protocol")]
-        public Output<string> Protocol { get; private set; } = null!;
+        public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// The public ports of the load balancer.
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.LightSail
         /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Output("supportCode")]
-        public Output<string> SupportCode { get; private set; } = null!;
+        public Output<string?> SupportCode { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

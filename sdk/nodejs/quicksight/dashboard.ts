@@ -71,15 +71,15 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the resource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * The time that the dashboard was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Identifier for the dashboard.
      */
@@ -87,12 +87,12 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
-    public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions>;
-    public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
+    public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions | undefined>;
+    public /*out*/ readonly lastPublishedTime!: pulumi.Output<string | undefined>;
     /**
      * The time that the dashboard was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * Display name for the dashboard.
      */
@@ -100,7 +100,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters>;
+    public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters | undefined>;
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      */
@@ -112,11 +112,11 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
      */
-    public /*out*/ readonly sourceEntityArn!: pulumi.Output<string>;
+    public /*out*/ readonly sourceEntityArn!: pulumi.Output<string | undefined>;
     /**
      * The dashboard creation status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -140,7 +140,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The version number of the dashboard version.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    public /*out*/ readonly versionNumber!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.

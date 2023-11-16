@@ -128,50 +128,50 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         /// </summary>
-        public readonly string CalculatorArn;
+        public readonly string? CalculatorArn;
         public readonly string CalculatorName;
         /// <summary>
         /// Timestamp for when the route calculator resource was created in ISO 8601 format.
         /// </summary>
-        public readonly string CreateTime;
+        public readonly string? CreateTime;
         /// <summary>
         /// Data provider of traffic and road network data.
         /// </summary>
-        public readonly string DataSource;
+        public readonly string? DataSource;
         /// <summary>
         /// Optional description of the route calculator resource.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Key-value map of resource tags for the route calculator.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Timestamp for when the route calculator resource was last updated in ISO 8601 format.
         /// </summary>
-        public readonly string UpdateTime;
+        public readonly string? UpdateTime;
 
         [OutputConstructor]
         private GetRouteCalculatorResult(
-            string calculatorArn,
+            string? calculatorArn,
 
             string calculatorName,
 
-            string createTime,
+            string? createTime,
 
-            string dataSource,
+            string? dataSource,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string updateTime)
+            string? updateTime)
         {
             CalculatorArn = calculatorArn;
             CalculatorName = calculatorName;

@@ -106,13 +106,13 @@ namespace Pulumi.Aws.Fsx
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
         /// </summary>
         [Output("auditLogConfiguration")]
-        public Output<Outputs.WindowsFileSystemAuditLogConfiguration> AuditLogConfiguration { get; private set; } = null!;
+        public Output<Outputs.WindowsFileSystemAuditLogConfiguration?> AuditLogConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Fsx
         /// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         /// </summary>
         [Output("dailyAutomaticBackupStartTime")]
-        public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
+        public Output<string?> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
@@ -148,19 +148,19 @@ namespace Pulumi.Aws.Fsx
         /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
         /// </summary>
         [Output("diskIopsConfiguration")]
-        public Output<Outputs.WindowsFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
+        public Output<Outputs.WindowsFileSystemDiskIopsConfiguration?> DiskIopsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Set of Elastic Network Interface identifiers from which the file system is accessible.
@@ -172,25 +172,25 @@ namespace Pulumi.Aws.Fsx
         /// AWS account identifier that created the file system.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The IP address of the primary, or preferred, file server.
         /// </summary>
         [Output("preferredFileServerIp")]
-        public Output<string> PreferredFileServerIp { get; private set; } = null!;
+        public Output<string?> PreferredFileServerIp { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         /// </summary>
         [Output("preferredSubnetId")]
-        public Output<string> PreferredSubnetId { get; private set; } = null!;
+        public Output<string?> PreferredSubnetId { get; private set; } = null!;
 
         /// <summary>
         /// For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
         /// </summary>
         [Output("remoteAdministrationEndpoint")]
-        public Output<string> RemoteAdministrationEndpoint { get; private set; } = null!;
+        public Output<string?> RemoteAdministrationEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Fsx
         /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         /// </summary>
         [Output("storageCapacity")]
-        public Output<int> StorageCapacity { get; private set; } = null!;
+        public Output<int?> StorageCapacity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
@@ -252,13 +252,13 @@ namespace Pulumi.Aws.Fsx
         /// Identifier of the Virtual Private Cloud for the file system.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Output("weeklyMaintenanceStartTime")]
-        public Output<string> WeeklyMaintenanceStartTime { get; private set; } = null!;
+        public Output<string?> WeeklyMaintenanceStartTime { get; private set; } = null!;
 
 
         /// <summary>

@@ -48,17 +48,17 @@ export interface GetNamedQueryResult {
     /**
      * Database to which the query belongs.
      */
-    readonly database: string;
+    readonly database?: string;
     /**
      * Brief explanation of the query.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
-    readonly querystring: string;
+    readonly querystring?: string;
     readonly workgroup?: string;
 }
 /**

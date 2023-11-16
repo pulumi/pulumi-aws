@@ -46,7 +46,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the VPC Link.
         """
@@ -54,7 +54,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -62,7 +62,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         VPC Link Name.
         """
@@ -70,7 +70,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         List of security groups associated with the VPC Link.
         """
@@ -78,7 +78,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         List of subnets attached to the VPC Link.
         """

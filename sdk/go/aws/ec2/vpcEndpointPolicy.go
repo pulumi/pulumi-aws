@@ -95,7 +95,7 @@ type VpcEndpointPolicy struct {
 	pulumi.CustomResourceState
 
 	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// The VPC Endpoint ID.
 	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 }
@@ -253,8 +253,8 @@ func (o VpcEndpointPolicyOutput) ToVpcEndpointPolicyOutputWithContext(ctx contex
 }
 
 // A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-func (o VpcEndpointPolicyOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o VpcEndpointPolicyOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointPolicy) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // The VPC Endpoint ID.

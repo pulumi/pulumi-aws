@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientP
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate {
-    private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files;
-    private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds;
 
     private GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate() {}
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files() {
-        return this.files;
+        return this.files == null ? List.of() : this.files;
     }
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds() {
-        return this.sds;
+        return this.sds == null ? List.of() : this.sds;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate 
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files;
-        private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate 
         }
 
         @CustomType.Setter
-        public Builder files(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files) {
-            this.files = Objects.requireNonNull(files);
+        public Builder files(@Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files) {
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile... files) {
             return files(List.of(files));
         }
         @CustomType.Setter
-        public Builder sds(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+        public Builder sds(@Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds) {
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd... sds) {

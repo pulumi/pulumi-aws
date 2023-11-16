@@ -99,37 +99,37 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
         /// </summary>
-        public readonly bool BlockPublicAcls;
+        public readonly bool? BlockPublicAcls;
         /// <summary>
         /// Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
         /// </summary>
-        public readonly bool BlockPublicPolicy;
+        public readonly bool? BlockPublicPolicy;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
         /// </summary>
-        public readonly bool IgnorePublicAcls;
+        public readonly bool? IgnorePublicAcls;
         /// <summary>
         /// Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
         /// </summary>
-        public readonly bool RestrictPublicBuckets;
+        public readonly bool? RestrictPublicBuckets;
 
         [OutputConstructor]
         private GetAccountPublicAccessBlockResult(
             string? accountId,
 
-            bool blockPublicAcls,
+            bool? blockPublicAcls,
 
-            bool blockPublicPolicy,
+            bool? blockPublicPolicy,
 
-            string id,
+            string? id,
 
-            bool ignorePublicAcls,
+            bool? ignorePublicAcls,
 
-            bool restrictPublicBuckets)
+            bool? restrictPublicBuckets)
         {
             AccountId = accountId;
             BlockPublicAcls = blockPublicAcls;

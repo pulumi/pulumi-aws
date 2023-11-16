@@ -356,7 +356,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the vault.
         """
@@ -372,7 +372,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> pulumi.Output[str]:
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The server-side encryption key that is used to protect your backups.
         """
@@ -388,7 +388,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> pulumi.Output[int]:
+    def recovery_points(self) -> pulumi.Output[Optional[int]]:
         """
         The number of recovery points that are stored in a backup vault.
         """

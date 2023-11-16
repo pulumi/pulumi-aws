@@ -54,7 +54,7 @@ type DomainName struct {
 	pulumi.CustomResourceState
 
 	// Domain name that AppSync provides.
-	AppsyncDomainName pulumi.StringOutput `pulumi:"appsyncDomainName"`
+	AppsyncDomainName pulumi.StringPtrOutput `pulumi:"appsyncDomainName"`
 	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// A description of the Domain Name.
@@ -62,7 +62,7 @@ type DomainName struct {
 	// Domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// ID of your Amazon Route 53 hosted zone.
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringPtrOutput `pulumi:"hostedZoneId"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -237,8 +237,8 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 }
 
 // Domain name that AppSync provides.
-func (o DomainNameOutput) AppsyncDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.AppsyncDomainName }).(pulumi.StringOutput)
+func (o DomainNameOutput) AppsyncDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.AppsyncDomainName }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
@@ -257,8 +257,8 @@ func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 }
 
 // ID of your Amazon Route 53 hosted zone.
-func (o DomainNameOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o DomainNameOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 type DomainNameArrayOutput struct{ *pulumi.OutputState }

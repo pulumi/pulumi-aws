@@ -95,7 +95,7 @@ type KxUser struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) identifier of the KX user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Unique identifier for the KX environment.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// IAM role ARN to be associated with the user.
@@ -308,8 +308,8 @@ func (o KxUserOutput) ToKxUserOutputWithContext(ctx context.Context) KxUserOutpu
 }
 
 // Amazon Resource Name (ARN) identifier of the KX user.
-func (o KxUserOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxUser) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o KxUserOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxUser) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier for the KX environment.

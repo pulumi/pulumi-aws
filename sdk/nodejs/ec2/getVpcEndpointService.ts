@@ -102,55 +102,55 @@ export interface GetVpcEndpointServiceResult {
     /**
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      */
-    readonly acceptanceRequired: boolean;
+    readonly acceptanceRequired?: boolean;
     /**
      * ARN of the VPC endpoint service.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Availability Zones in which the service is available.
      */
-    readonly availabilityZones: string[];
+    readonly availabilityZones?: string[];
     /**
      * The DNS names for the service.
      */
-    readonly baseEndpointDnsNames: string[];
+    readonly baseEndpointDnsNames?: string[];
     readonly filters?: outputs.ec2.GetVpcEndpointServiceFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      */
-    readonly managesVpcEndpoints: boolean;
+    readonly managesVpcEndpoints?: boolean;
     /**
      * AWS account ID of the service owner or `amazon`.
      */
-    readonly owner: string;
+    readonly owner?: string;
     /**
      * Private DNS name for the service.
      */
-    readonly privateDnsName: string;
+    readonly privateDnsName?: string;
     readonly service?: string;
     /**
      * ID of the endpoint service.
      */
-    readonly serviceId: string;
-    readonly serviceName: string;
-    readonly serviceType: string;
+    readonly serviceId?: string;
+    readonly serviceName?: string;
+    readonly serviceType?: string;
     /**
      * The supported IP address types.
      */
-    readonly supportedIpAddressTypes: string[];
+    readonly supportedIpAddressTypes?: string[];
     /**
      * Map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Whether or not the service supports endpoint policies - `true` or `false`.
      */
-    readonly vpcEndpointPolicySupported: boolean;
+    readonly vpcEndpointPolicySupported?: boolean;
 }
 /**
  * The VPC Endpoint Service data source details about a specific service that

@@ -75,13 +75,13 @@ type GetPartitionArgs struct {
 // A collection of values returned by getPartition.
 type GetPartitionResult struct {
 	// Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-	DnsSuffix string `pulumi:"dnsSuffix"`
+	DnsSuffix *string `pulumi:"dnsSuffix"`
 	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-	Partition string `pulumi:"partition"`
+	Partition *string `pulumi:"partition"`
 	// Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-	ReverseDnsPrefix string `pulumi:"reverseDnsPrefix"`
+	ReverseDnsPrefix *string `pulumi:"reverseDnsPrefix"`
 }
 
 func GetPartitionOutput(ctx *pulumi.Context, args GetPartitionOutputArgs, opts ...pulumi.InvokeOption) GetPartitionResultOutput {
@@ -123,23 +123,23 @@ func (o GetPartitionResultOutput) ToGetPartitionResultOutputWithContext(ctx cont
 }
 
 // Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-func (o GetPartitionResultOutput) DnsSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPartitionResult) string { return v.DnsSuffix }).(pulumi.StringOutput)
+func (o GetPartitionResultOutput) DnsSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPartitionResult) *string { return v.DnsSuffix }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-func (o GetPartitionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPartitionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPartitionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPartitionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-func (o GetPartitionResultOutput) Partition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPartitionResult) string { return v.Partition }).(pulumi.StringOutput)
+func (o GetPartitionResultOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPartitionResult) *string { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
 // Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-func (o GetPartitionResultOutput) ReverseDnsPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPartitionResult) string { return v.ReverseDnsPrefix }).(pulumi.StringOutput)
+func (o GetPartitionResultOutput) ReverseDnsPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPartitionResult) *string { return v.ReverseDnsPrefix }).(pulumi.StringPtrOutput)
 }
 
 func init() {

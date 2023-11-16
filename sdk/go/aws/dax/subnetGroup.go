@@ -62,7 +62,7 @@ type SubnetGroup struct {
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// VPC ID of the subnet group.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -245,8 +245,8 @@ func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // VPC ID of the subnet group.
-func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o SubnetGroupOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type SubnetGroupArrayOutput struct{ *pulumi.OutputState }

@@ -49,7 +49,7 @@ class GetGeofenceCollectionResult:
 
     @property
     @pulumi.getter(name="collectionArn")
-    def collection_arn(self) -> str:
+    def collection_arn(self) -> Optional[str]:
         """
         ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
         """
@@ -62,7 +62,7 @@ class GetGeofenceCollectionResult:
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> str:
+    def create_time(self) -> Optional[str]:
         """
         Timestamp for when the geofence collection resource was created in ISO 8601 format.
         """
@@ -70,7 +70,7 @@ class GetGeofenceCollectionResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Optional description of the geofence collection resource.
         """
@@ -78,7 +78,7 @@ class GetGeofenceCollectionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -86,7 +86,7 @@ class GetGeofenceCollectionResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         """
@@ -94,7 +94,7 @@ class GetGeofenceCollectionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the geofence collection.
         """
@@ -102,7 +102,7 @@ class GetGeofenceCollectionResult:
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> str:
+    def update_time(self) -> Optional[str]:
         """
         Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         """

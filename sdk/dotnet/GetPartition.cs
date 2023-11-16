@@ -138,29 +138,29 @@ namespace Pulumi.Aws
         /// <summary>
         /// Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
         /// </summary>
-        public readonly string DnsSuffix;
+        public readonly string? DnsSuffix;
         /// <summary>
         /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
-        public readonly string Partition;
+        public readonly string? Partition;
         /// <summary>
         /// Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
         /// </summary>
-        public readonly string ReverseDnsPrefix;
+        public readonly string? ReverseDnsPrefix;
 
         [OutputConstructor]
         private GetPartitionResult(
-            string dnsSuffix,
+            string? dnsSuffix,
 
-            string id,
+            string? id,
 
-            string partition,
+            string? partition,
 
-            string reverseDnsPrefix)
+            string? reverseDnsPrefix)
         {
             DnsSuffix = dnsSuffix;
             Id = id;

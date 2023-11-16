@@ -458,7 +458,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) identifying the repository association.
         """
@@ -466,7 +466,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> pulumi.Output[str]:
+    def association_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the repository association.
         """
@@ -474,7 +474,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionArn")
-    def connection_arn(self) -> pulumi.Output[str]:
+    def connection_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         """
@@ -490,7 +490,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the third party source repository.
         """
@@ -498,7 +498,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         The username for the account that owns the repository.
         """
@@ -506,7 +506,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> pulumi.Output[str]:
+    def provider_type(self) -> pulumi.Output[Optional[str]]:
         """
         The provider type of the repository association.
         """
@@ -524,12 +524,12 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3RepositoryDetails")
-    def s3_repository_details(self) -> pulumi.Output[Sequence['outputs.RepositoryAssociationS3RepositoryDetail']]:
+    def s3_repository_details(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryAssociationS3RepositoryDetail']]]:
         return pulumi.get(self, "s3_repository_details")
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the repository association.
         """
@@ -537,7 +537,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stateReason")
-    def state_reason(self) -> pulumi.Output[str]:
+    def state_reason(self) -> pulumi.Output[Optional[str]]:
         """
         A description of why the repository association is in the current state.
         """

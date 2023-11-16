@@ -204,7 +204,7 @@ class DelegatedAdminAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relationshipStatus")
-    def relationship_status(self) -> pulumi.Output[str]:
+    def relationship_status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of this delegated admin account.
         """

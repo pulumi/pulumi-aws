@@ -57,7 +57,7 @@ namespace Pulumi.Aws.AppIntegrations
         /// The Amazon Resource Name (ARN) of the Data Integration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the description of the Data Integration.

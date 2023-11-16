@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecLoggingAccessLogFile {
-    private List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats;
-    private String path;
+    private @Nullable List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats;
+    private @Nullable String path;
 
     private GetVirtualNodeSpecLoggingAccessLogFile() {}
     public List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats() {
-        return this.formats;
+        return this.formats == null ? List.of() : this.formats;
     }
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetVirtualNodeSpecLoggingAccessLogFile {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats;
-        private String path;
+        private @Nullable List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats;
+        private @Nullable String path;
         public Builder() {}
         public Builder(GetVirtualNodeSpecLoggingAccessLogFile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +43,16 @@ public final class GetVirtualNodeSpecLoggingAccessLogFile {
         }
 
         @CustomType.Setter
-        public Builder formats(List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats) {
-            this.formats = Objects.requireNonNull(formats);
+        public Builder formats(@Nullable List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats) {
+            this.formats = formats;
             return this;
         }
         public Builder formats(GetVirtualNodeSpecLoggingAccessLogFileFormat... formats) {
             return formats(List.of(formats));
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         public GetVirtualNodeSpecLoggingAccessLogFile build() {

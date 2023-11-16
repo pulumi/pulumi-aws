@@ -64,11 +64,11 @@ export class KeyPair extends pulumi.CustomResource {
     /**
      * The key pair ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    public /*out*/ readonly fingerprint!: pulumi.Output<string | undefined>;
     /**
      * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
@@ -76,15 +76,15 @@ export class KeyPair extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
-    public readonly keyNamePrefix!: pulumi.Output<string>;
+    public readonly keyNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * The key pair ID.
      */
-    public /*out*/ readonly keyPairId!: pulumi.Output<string>;
+    public /*out*/ readonly keyPairId!: pulumi.Output<string | undefined>;
     /**
      * The type of key pair.
      */
-    public /*out*/ readonly keyType!: pulumi.Output<string>;
+    public /*out*/ readonly keyType!: pulumi.Output<string | undefined>;
     /**
      * The public key material.
      */

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult
     {
-        public readonly int End;
-        public readonly int Start;
+        public readonly int? End;
+        public readonly int? Start;
 
         [OutputConstructor]
         private GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult(
-            int end,
+            int? end,
 
-            int start)
+            int? start)
         {
             End = end;
             Start = start;

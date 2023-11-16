@@ -1326,7 +1326,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the load balancer (matches `id`).
         """
@@ -1334,7 +1334,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="arnSuffix")
-    def arn_suffix(self) -> pulumi.Output[str]:
+    def arn_suffix(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN suffix for use with CloudWatch Metrics.
         """
@@ -1358,7 +1358,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the load balancer.
         """
@@ -1438,7 +1438,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def internal(self) -> pulumi.Output[bool]:
+    def internal(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the LB will be internal. Defaults to `false`.
         """
@@ -1446,7 +1446,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> pulumi.Output[str]:
+    def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
         """
@@ -1472,7 +1472,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -1488,7 +1488,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> pulumi.Output[Sequence[str]]:
+    def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         """
@@ -1496,7 +1496,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetMappings")
-    def subnet_mappings(self) -> pulumi.Output[Sequence['outputs.LoadBalancerSubnetMapping']]:
+    def subnet_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerSubnetMapping']]]:
         """
         A subnet mapping block as documented below.
         """
@@ -1504,7 +1504,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Output[Sequence[str]]:
+    def subnets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of subnet IDs to attach to the LB. Subnets
         cannot be updated for Load Balancers of type `network`. Changing this value
@@ -1533,7 +1533,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "vpc_id")
 
     @property
@@ -1546,7 +1546,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> pulumi.Output[str]:
+    def zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
         """

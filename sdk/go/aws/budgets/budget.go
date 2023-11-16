@@ -324,9 +324,9 @@ type Budget struct {
 	pulumi.CustomResourceState
 
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// The ARN of the budget.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData BudgetAutoAdjustDataPtrOutput `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
@@ -334,15 +334,15 @@ type Budget struct {
 	// A list of CostFilter name/values pair to apply to budget.
 	CostFilters BudgetCostFilterArrayOutput `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-	CostTypes BudgetCostTypesOutput `pulumi:"costTypes"`
+	CostTypes BudgetCostTypesPtrOutput `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
-	LimitAmount pulumi.StringOutput `pulumi:"limitAmount"`
+	LimitAmount pulumi.StringPtrOutput `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-	LimitUnit pulumi.StringOutput `pulumi:"limitUnit"`
+	LimitUnit pulumi.StringPtrOutput `pulumi:"limitUnit"`
 	// The name of a budget. Unique within accounts.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
 	Notifications BudgetNotificationArrayOutput `pulumi:"notifications"`
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
@@ -350,7 +350,7 @@ type Budget struct {
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrOutput `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-	TimePeriodStart pulumi.StringOutput `pulumi:"timePeriodStart"`
+	TimePeriodStart pulumi.StringPtrOutput `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit pulumi.StringOutput `pulumi:"timeUnit"`
 }
@@ -611,13 +611,13 @@ func (o BudgetOutput) ToBudgetOutputWithContext(ctx context.Context) BudgetOutpu
 }
 
 // The ID of the target account for budget. Will use current user's accountId by default if omitted.
-func (o BudgetOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+func (o BudgetOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the budget.
-func (o BudgetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BudgetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
@@ -636,18 +636,18 @@ func (o BudgetOutput) CostFilters() BudgetCostFilterArrayOutput {
 }
 
 // Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-func (o BudgetOutput) CostTypes() BudgetCostTypesOutput {
-	return o.ApplyT(func(v *Budget) BudgetCostTypesOutput { return v.CostTypes }).(BudgetCostTypesOutput)
+func (o BudgetOutput) CostTypes() BudgetCostTypesPtrOutput {
+	return o.ApplyT(func(v *Budget) BudgetCostTypesPtrOutput { return v.CostTypes }).(BudgetCostTypesPtrOutput)
 }
 
 // The amount of cost or usage being measured for a budget.
-func (o BudgetOutput) LimitAmount() pulumi.StringOutput {
-	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.LimitAmount }).(pulumi.StringOutput)
+func (o BudgetOutput) LimitAmount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.LimitAmount }).(pulumi.StringPtrOutput)
 }
 
 // The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-func (o BudgetOutput) LimitUnit() pulumi.StringOutput {
-	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.LimitUnit }).(pulumi.StringOutput)
+func (o BudgetOutput) LimitUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.LimitUnit }).(pulumi.StringPtrOutput)
 }
 
 // The name of a budget. Unique within accounts.
@@ -656,8 +656,8 @@ func (o BudgetOutput) Name() pulumi.StringOutput {
 }
 
 // The prefix of the name of a budget. Unique within accounts.
-func (o BudgetOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o BudgetOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
@@ -676,8 +676,8 @@ func (o BudgetOutput) TimePeriodEnd() pulumi.StringPtrOutput {
 }
 
 // The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-func (o BudgetOutput) TimePeriodStart() pulumi.StringOutput {
-	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.TimePeriodStart }).(pulumi.StringOutput)
+func (o BudgetOutput) TimePeriodStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.TimePeriodStart }).(pulumi.StringPtrOutput)
 }
 
 // The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.

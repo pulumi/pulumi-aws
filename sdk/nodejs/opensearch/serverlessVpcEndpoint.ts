@@ -66,7 +66,7 @@ export class ServerlessVpcEndpoint extends pulumi.CustomResource {
     /**
      * One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
      */

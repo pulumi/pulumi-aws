@@ -72,7 +72,7 @@ type GetEbsVolumesArgs struct {
 type GetEbsVolumesResult struct {
 	Filters []GetEbsVolumesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of all the EBS Volume IDs found. This data source will fail if
 	// no volumes match the provided criteria.
 	Ids  []string          `pulumi:"ids"`
@@ -128,8 +128,8 @@ func (o GetEbsVolumesResultOutput) Filters() GetEbsVolumesFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetEbsVolumesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEbsVolumesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetEbsVolumesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEbsVolumesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of all the EBS Volume IDs found. This data source will fail if

@@ -70,11 +70,11 @@ export class LocationSmb extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the Windows domain the SMB server belongs to.
      */
-    public readonly domain!: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string | undefined>;
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      */
@@ -101,7 +101,7 @@ export class LocationSmb extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      */

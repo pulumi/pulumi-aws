@@ -344,7 +344,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> pulumi.Output[str]:
+    def amazon_side_asn(self) -> pulumi.Output[Optional[str]]:
         """
         The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
         """
@@ -352,7 +352,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the VPN Gateway.
         """
@@ -387,7 +387,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The VPC ID to create in.
         """

@@ -28,7 +28,7 @@ type ServiceRegion struct {
 	pulumi.CustomResourceState
 
 	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-	DesiredNumberOfDomainControllers pulumi.IntOutput `pulumi:"desiredNumberOfDomainControllers"`
+	DesiredNumberOfDomainControllers pulumi.IntPtrOutput `pulumi:"desiredNumberOfDomainControllers"`
 	// The identifier of the directory to which you want to add Region replication.
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// The name of the Region where you want to add domain controllers for replication.
@@ -238,8 +238,8 @@ func (o ServiceRegionOutput) ToServiceRegionOutputWithContext(ctx context.Contex
 }
 
 // The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-func (o ServiceRegionOutput) DesiredNumberOfDomainControllers() pulumi.IntOutput {
-	return o.ApplyT(func(v *ServiceRegion) pulumi.IntOutput { return v.DesiredNumberOfDomainControllers }).(pulumi.IntOutput)
+func (o ServiceRegionOutput) DesiredNumberOfDomainControllers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceRegion) pulumi.IntPtrOutput { return v.DesiredNumberOfDomainControllers }).(pulumi.IntPtrOutput)
 }
 
 // The identifier of the directory to which you want to add Region replication.

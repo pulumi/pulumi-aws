@@ -44,7 +44,7 @@ class GetRealtimeLogConfigResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
         """
@@ -52,7 +52,7 @@ class GetRealtimeLogConfigResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Sequence['outputs.GetRealtimeLogConfigEndpointResult']:
+    def endpoints(self) -> Optional[Sequence['outputs.GetRealtimeLogConfigEndpointResult']]:
         """
         (Required) Amazon Kinesis data streams where real-time log data is sent.
         """
@@ -60,7 +60,7 @@ class GetRealtimeLogConfigResult:
 
     @property
     @pulumi.getter
-    def fields(self) -> Sequence[str]:
+    def fields(self) -> Optional[Sequence[str]]:
         """
         (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         """
@@ -68,7 +68,7 @@ class GetRealtimeLogConfigResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -81,7 +81,7 @@ class GetRealtimeLogConfigResult:
 
     @property
     @pulumi.getter(name="samplingRate")
-    def sampling_rate(self) -> int:
+    def sampling_rate(self) -> Optional[int]:
         """
         (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         """

@@ -27,56 +27,56 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description: pulumi.String("domain key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
-//				Domain:        pulumi.String("example"),
-//				EncryptionKey: exampleKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("*"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("codeartifact:CreateRepository"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleDomain.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = codeartifact.NewDomainPermissions(ctx, "testDomainPermissions", &codeartifact.DomainPermissionsArgs{
-//				Domain: exampleDomain.Domain,
-//				PolicyDocument: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &testPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+// Description: pulumi.String("domain key"),
+// })
+// if err != nil {
+// return err
+// }
+// exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
+// Domain: pulumi.String("example"),
+// EncryptionKey: exampleKey.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// testPolicyDocument := exampleDomain.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "*",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Actions: []string{
+// "codeartifact:CreateRepository",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = codeartifact.NewDomainPermissions(ctx, "testDomainPermissions", &codeartifact.DomainPermissionsArgs{
+// Domain: exampleDomain.Domain,
+// PolicyDocument: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &testPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -94,13 +94,13 @@ type DomainPermissions struct {
 	// The name of the domain on which to set the resource policy.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// The account number of the AWS account that owns the domain.
-	DomainOwner pulumi.StringOutput `pulumi:"domainOwner"`
+	DomainOwner pulumi.StringPtrOutput `pulumi:"domainOwner"`
 	// A JSON policy string to be set as the access control resource policy on the provided domain.
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
 	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-	PolicyRevision pulumi.StringOutput `pulumi:"policyRevision"`
+	PolicyRevision pulumi.StringPtrOutput `pulumi:"policyRevision"`
 	// The ARN of the resource associated with the resource policy.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
 }
 
 // NewDomainPermissions registers a new resource with the given unique name, arguments, and options.
@@ -284,8 +284,8 @@ func (o DomainPermissionsOutput) Domain() pulumi.StringOutput {
 }
 
 // The account number of the AWS account that owns the domain.
-func (o DomainPermissionsOutput) DomainOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainPermissions) pulumi.StringOutput { return v.DomainOwner }).(pulumi.StringOutput)
+func (o DomainPermissionsOutput) DomainOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainPermissions) pulumi.StringPtrOutput { return v.DomainOwner }).(pulumi.StringPtrOutput)
 }
 
 // A JSON policy string to be set as the access control resource policy on the provided domain.
@@ -294,13 +294,13 @@ func (o DomainPermissionsOutput) PolicyDocument() pulumi.StringOutput {
 }
 
 // The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-func (o DomainPermissionsOutput) PolicyRevision() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainPermissions) pulumi.StringOutput { return v.PolicyRevision }).(pulumi.StringOutput)
+func (o DomainPermissionsOutput) PolicyRevision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainPermissions) pulumi.StringPtrOutput { return v.PolicyRevision }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the resource associated with the resource policy.
-func (o DomainPermissionsOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainPermissions) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+func (o DomainPermissionsOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainPermissions) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 type DomainPermissionsArrayOutput struct{ *pulumi.OutputState }

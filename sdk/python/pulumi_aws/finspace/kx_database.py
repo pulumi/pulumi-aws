@@ -403,7 +403,7 @@ class KxDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) identifier of the KX database.
         """
@@ -411,7 +411,7 @@ class KxDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTimestamp")
-    def created_timestamp(self) -> pulumi.Output[str]:
+    def created_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """
@@ -435,7 +435,7 @@ class KxDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTimestamp")
-    def last_modified_timestamp(self) -> pulumi.Output[str]:
+    def last_modified_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """

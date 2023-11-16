@@ -94,7 +94,7 @@ type Model struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this model.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers ModelContainerArrayOutput `pulumi:"containers"`
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
@@ -102,7 +102,7 @@ type Model struct {
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
-	InferenceExecutionConfig ModelInferenceExecutionConfigOutput `pulumi:"inferenceExecutionConfig"`
+	InferenceExecutionConfig ModelInferenceExecutionConfigPtrOutput `pulumi:"inferenceExecutionConfig"`
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
@@ -344,8 +344,8 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this model.
-func (o ModelOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ModelOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
@@ -364,8 +364,8 @@ func (o ModelOutput) ExecutionRoleArn() pulumi.StringOutput {
 }
 
 // Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
-func (o ModelOutput) InferenceExecutionConfig() ModelInferenceExecutionConfigOutput {
-	return o.ApplyT(func(v *Model) ModelInferenceExecutionConfigOutput { return v.InferenceExecutionConfig }).(ModelInferenceExecutionConfigOutput)
+func (o ModelOutput) InferenceExecutionConfig() ModelInferenceExecutionConfigPtrOutput {
+	return o.ApplyT(func(v *Model) ModelInferenceExecutionConfigPtrOutput { return v.InferenceExecutionConfig }).(ModelInferenceExecutionConfigPtrOutput)
 }
 
 // The name of the model (must be unique). If omitted, this provider will assign a random, unique name.

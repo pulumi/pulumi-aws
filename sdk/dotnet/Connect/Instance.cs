@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Connect
         /// Amazon Resource Name (ARN) of the instance.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Connect
         /// When the instance was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
@@ -165,13 +165,13 @@ namespace Pulumi.Aws.Connect
         /// The service role of the instance.
         /// </summary>
         [Output("serviceRole")]
-        public Output<string> ServiceRole { get; private set; } = null!;
+        public Output<string?> ServiceRole { get; private set; } = null!;
 
         /// <summary>
         /// The state of the instance.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

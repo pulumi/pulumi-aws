@@ -70,11 +70,11 @@ export class Rule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rule.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The retention rule description.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Information about the retention rule lock configuration. See `lockConfiguration` below.
      */
@@ -82,15 +82,15 @@ export class Rule extends pulumi.CustomResource {
     /**
      * (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
      */
-    public /*out*/ readonly lockEndTime!: pulumi.Output<string>;
+    public /*out*/ readonly lockEndTime!: pulumi.Output<string | undefined>;
     /**
      * (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
      */
-    public /*out*/ readonly lockState!: pulumi.Output<string>;
+    public /*out*/ readonly lockState!: pulumi.Output<string | undefined>;
     /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.rbin.RuleResourceTag[]>;
+    public readonly resourceTags!: pulumi.Output<outputs.rbin.RuleResourceTag[] | undefined>;
     /**
      * The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      */
@@ -104,7 +104,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.

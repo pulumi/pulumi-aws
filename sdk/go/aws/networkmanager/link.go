@@ -59,7 +59,7 @@ type Link struct {
 	pulumi.CustomResourceState
 
 	// Link Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The upload speed and download speed in Mbps. Documented below.
 	Bandwidth LinkBandwidthOutput `pulumi:"bandwidth"`
 	// A description of the link.
@@ -295,8 +295,8 @@ func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 }
 
 // Link Amazon Resource Name (ARN).
-func (o LinkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LinkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The upload speed and download speed in Mbps. Documented below.

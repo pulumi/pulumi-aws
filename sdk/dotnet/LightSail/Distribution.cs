@@ -226,7 +226,7 @@ namespace Pulumi.Aws.LightSail
         /// The Amazon Resource Name (ARN) of the distribution.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Bundle ID to use for the distribution.
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.LightSail
         /// The timestamp when the distribution was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Object that describes the default cache behavior of the distribution. Detailed below
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.LightSail
         /// The domain name of the distribution.
         /// </summary>
         [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
+        public Output<string?> DomainName { get; private set; } = null!;
 
         /// <summary>
         /// The IP address type of the distribution. Default: `dualstack`.
@@ -306,25 +306,25 @@ namespace Pulumi.Aws.LightSail
         /// The public DNS of the origin.
         /// </summary>
         [Output("originPublicDns")]
-        public Output<string> OriginPublicDns { get; private set; } = null!;
+        public Output<string?> OriginPublicDns { get; private set; } = null!;
 
         /// <summary>
         /// The resource type of the origin resource (e.g., Instance).
         /// </summary>
         [Output("resourceType")]
-        public Output<string> ResourceType { get; private set; } = null!;
+        public Output<string?> ResourceType { get; private set; } = null!;
 
         /// <summary>
         /// The status of the distribution.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Output("supportCode")]
-        public Output<string> SupportCode { get; private set; } = null!;
+        public Output<string?> SupportCode { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags for the Lightsail Distribution. If

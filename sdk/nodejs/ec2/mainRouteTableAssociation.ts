@@ -61,7 +61,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
     /**
      * Used internally, see **Notes** below
      */
-    public /*out*/ readonly originalRouteTableId!: pulumi.Output<string>;
+    public /*out*/ readonly originalRouteTableId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Route Table to set as the new
      * main route table for the target VPC

@@ -42,7 +42,7 @@ class GetFindingIdsResult:
 
     @property
     @pulumi.getter(name="findingIds")
-    def finding_ids(self) -> Sequence[str]:
+    def finding_ids(self) -> Optional[Sequence[str]]:
         """
         A list of finding IDs for the specified detector.
         """
@@ -50,7 +50,7 @@ class GetFindingIdsResult:
 
     @property
     @pulumi.getter(name="hasFindings")
-    def has_findings(self) -> bool:
+    def has_findings(self) -> Optional[bool]:
         """
         Indicates whether findings are present for the specified detector.
         """
@@ -58,7 +58,7 @@ class GetFindingIdsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
 

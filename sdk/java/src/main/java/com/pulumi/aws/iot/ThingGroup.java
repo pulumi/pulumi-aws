@@ -82,20 +82,20 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Thing Group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="metadatas", refs={List.class,ThingGroupMetadata.class}, tree="[0,1]")
-    private Output<List<ThingGroupMetadata>> metadatas;
+    private Output</* @Nullable */ List<ThingGroupMetadata>> metadatas;
 
-    public Output<List<ThingGroupMetadata>> metadatas() {
-        return this.metadatas;
+    public Output<Optional<List<ThingGroupMetadata>>> metadatas() {
+        return Codegen.optional(this.metadatas);
     }
     /**
      * The name of the Thing Group.
@@ -170,14 +170,14 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
-    private Output<Integer> version;
+    private Output</* @Nullable */ Integer> version;
 
     /**
      * @return The current version of the Thing Group record in the registry.
      * 
      */
-    public Output<Integer> version() {
-        return this.version;
+    public Output<Optional<Integer>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

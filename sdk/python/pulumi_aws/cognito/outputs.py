@@ -2530,37 +2530,40 @@ class UserPoolVerificationMessageTemplate(dict):
 @pulumi.output_type
 class GetIdentityPoolCognitoIdentityProviderResult(dict):
     def __init__(__self__, *,
-                 client_id: str,
-                 provider_name: str,
-                 server_side_token_check: bool):
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "provider_name", provider_name)
-        pulumi.set(__self__, "server_side_token_check", server_side_token_check)
+                 client_id: Optional[str] = None,
+                 provider_name: Optional[str] = None,
+                 server_side_token_check: Optional[bool] = None):
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if provider_name is not None:
+            pulumi.set(__self__, "provider_name", provider_name)
+        if server_side_token_check is not None:
+            pulumi.set(__self__, "server_side_token_check", server_side_token_check)
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> Optional[str]:
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> str:
+    def provider_name(self) -> Optional[str]:
         return pulumi.get(self, "provider_name")
 
     @property
     @pulumi.getter(name="serverSideTokenCheck")
-    def server_side_token_check(self) -> bool:
+    def server_side_token_check(self) -> Optional[bool]:
         return pulumi.get(self, "server_side_token_check")
 
 
 @pulumi.output_type
 class GetUserPoolClientAnalyticsConfigurationResult(dict):
     def __init__(__self__, *,
-                 application_arn: str,
-                 application_id: str,
-                 external_id: str,
-                 role_arn: str,
-                 user_data_shared: bool):
+                 application_arn: Optional[str] = None,
+                 application_id: Optional[str] = None,
+                 external_id: Optional[str] = None,
+                 role_arn: Optional[str] = None,
+                 user_data_shared: Optional[bool] = None):
         """
         :param str application_arn: (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
         :param str application_id: (Optional) Application ID for an Amazon Pinpoint application.
@@ -2568,15 +2571,20 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
         :param str role_arn: (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         :param bool user_data_shared: (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
-        pulumi.set(__self__, "application_arn", application_arn)
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "external_id", external_id)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "user_data_shared", user_data_shared)
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if user_data_shared is not None:
+            pulumi.set(__self__, "user_data_shared", user_data_shared)
 
     @property
     @pulumi.getter(name="applicationArn")
-    def application_arn(self) -> str:
+    def application_arn(self) -> Optional[str]:
         """
         (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
         """
@@ -2584,7 +2592,7 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> Optional[str]:
         """
         (Optional) Application ID for an Amazon Pinpoint application.
         """
@@ -2592,7 +2600,7 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> str:
+    def external_id(self) -> Optional[str]:
         """
         (Optional) ID for the Analytics Configuration. Conflicts with `application_arn`.
         """
@@ -2600,7 +2608,7 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         """
@@ -2608,7 +2616,7 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="userDataShared")
-    def user_data_shared(self) -> bool:
+    def user_data_shared(self) -> Optional[bool]:
         """
         (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
@@ -2618,21 +2626,24 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
 @pulumi.output_type
 class GetUserPoolClientTokenValidityUnitResult(dict):
     def __init__(__self__, *,
-                 access_token: str,
-                 id_token: str,
-                 refresh_token: str):
+                 access_token: Optional[str] = None,
+                 id_token: Optional[str] = None,
+                 refresh_token: Optional[str] = None):
         """
         :param str access_token: (Optional) Time unit in for the value in `access_token_validity`, defaults to `hours`.
         :param str id_token: (Optional) Time unit in for the value in `id_token_validity`, defaults to `hours`.
         :param str refresh_token: (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
         """
-        pulumi.set(__self__, "access_token", access_token)
-        pulumi.set(__self__, "id_token", id_token)
-        pulumi.set(__self__, "refresh_token", refresh_token)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if id_token is not None:
+            pulumi.set(__self__, "id_token", id_token)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> str:
+    def access_token(self) -> Optional[str]:
         """
         (Optional) Time unit in for the value in `access_token_validity`, defaults to `hours`.
         """
@@ -2640,7 +2651,7 @@ class GetUserPoolClientTokenValidityUnitResult(dict):
 
     @property
     @pulumi.getter(name="idToken")
-    def id_token(self) -> str:
+    def id_token(self) -> Optional[str]:
         """
         (Optional) Time unit in for the value in `id_token_validity`, defaults to `hours`.
         """
@@ -2648,7 +2659,7 @@ class GetUserPoolClientTokenValidityUnitResult(dict):
 
     @property
     @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> str:
+    def refresh_token(self) -> Optional[str]:
         """
         (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
         """

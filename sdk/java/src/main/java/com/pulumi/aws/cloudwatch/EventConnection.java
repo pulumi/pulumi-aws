@@ -210,14 +210,14 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the connection.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
@@ -280,14 +280,14 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
-    private Output<String> secretArn;
+    private Output</* @Nullable */ String> secretArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
      * 
      */
-    public Output<String> secretArn() {
-        return this.secretArn;
+    public Output<Optional<String>> secretArn() {
+        return Codegen.optional(this.secretArn);
     }
 
     /**

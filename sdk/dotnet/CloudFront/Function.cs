@@ -54,7 +54,7 @@ namespace Pulumi.Aws.CloudFront
         /// Amazon Resource Name (ARN) identifying your CloudFront Function.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Source code of the function
@@ -72,13 +72,13 @@ namespace Pulumi.Aws.CloudFront
         /// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// ETag hash of any `LIVE` stage of the function.
         /// </summary>
         [Output("liveStageEtag")]
-        public Output<string> LiveStageEtag { get; private set; } = null!;
+        public Output<string?> LiveStageEtag { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for your CloudFront Function.
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.CloudFront
         /// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

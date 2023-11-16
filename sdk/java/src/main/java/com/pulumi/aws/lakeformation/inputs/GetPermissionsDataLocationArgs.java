@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.ResourceArgs {
@@ -36,15 +38,15 @@ public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.R
      * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
      * 
      */
-    @Import(name="catalogId", required=true)
-    private Output<String> catalogId;
+    @Import(name="catalogId")
+    private @Nullable Output<String> catalogId;
 
     /**
      * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Optional<Output<String>> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
 
     private GetPermissionsDataLocationArgs() {}
@@ -103,7 +105,7 @@ public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder catalogId(Output<String> catalogId) {
+        public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
@@ -120,7 +122,6 @@ public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.R
 
         public GetPermissionsDataLocationArgs build() {
             $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
             return $;
         }
     }

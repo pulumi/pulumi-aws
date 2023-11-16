@@ -80,13 +80,13 @@ type DedicatedIpPool struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Dedicated IP Pool.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the dedicated IP pool.
 	//
 	// The following arguments are optional:
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-	ScalingMode pulumi.StringOutput `pulumi:"scalingMode"`
+	ScalingMode pulumi.StringPtrOutput `pulumi:"scalingMode"`
 	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -274,8 +274,8 @@ func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutputWithContext(ctx context.Co
 }
 
 // ARN of the Dedicated IP Pool.
-func (o DedicatedIpPoolOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DedicatedIpPoolOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the dedicated IP pool.
@@ -286,8 +286,8 @@ func (o DedicatedIpPoolOutput) PoolName() pulumi.StringOutput {
 }
 
 // IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-func (o DedicatedIpPoolOutput) ScalingMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringOutput { return v.ScalingMode }).(pulumi.StringOutput)
+func (o DedicatedIpPoolOutput) ScalingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringPtrOutput { return v.ScalingMode }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -1827,7 +1827,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
         """
@@ -1869,7 +1869,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> pulumi.Output[int]:
+    def default_version(self) -> pulumi.Output[Optional[int]]:
         """
         Default Version of the launch template.
         """
@@ -2010,7 +2010,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestVersion")
-    def latest_version(self) -> pulumi.Output[int]:
+    def latest_version(self) -> pulumi.Output[Optional[int]]:
         """
         The latest version of the launch template.
         """
@@ -2034,7 +2034,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> pulumi.Output['outputs.LaunchTemplateMetadataOptions']:
+    def metadata_options(self) -> pulumi.Output[Optional['outputs.LaunchTemplateMetadataOptions']]:
         """
         Customize the metadata options for the instance. See Metadata Options below for more details.
         """
@@ -2058,7 +2058,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """

@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMulticastDomainMember {
@@ -13,27 +15,27 @@ public final class GetMulticastDomainMember {
      * @return The IP address assigned to the transit gateway multicast group.
      * 
      */
-    private String groupIpAddress;
+    private @Nullable String groupIpAddress;
     /**
      * @return The group members&#39; network interface ID.
      * 
      */
-    private String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
 
     private GetMulticastDomainMember() {}
     /**
      * @return The IP address assigned to the transit gateway multicast group.
      * 
      */
-    public String groupIpAddress() {
-        return this.groupIpAddress;
+    public Optional<String> groupIpAddress() {
+        return Optional.ofNullable(this.groupIpAddress);
     }
     /**
      * @return The group members&#39; network interface ID.
      * 
      */
-    public String networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Optional<String> networkInterfaceId() {
+        return Optional.ofNullable(this.networkInterfaceId);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetMulticastDomainMember {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String groupIpAddress;
-        private String networkInterfaceId;
+        private @Nullable String groupIpAddress;
+        private @Nullable String networkInterfaceId;
         public Builder() {}
         public Builder(GetMulticastDomainMember defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetMulticastDomainMember {
         }
 
         @CustomType.Setter
-        public Builder groupIpAddress(String groupIpAddress) {
-            this.groupIpAddress = Objects.requireNonNull(groupIpAddress);
+        public Builder groupIpAddress(@Nullable String groupIpAddress) {
+            this.groupIpAddress = groupIpAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+        public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         public GetMulticastDomainMember build() {

@@ -150,75 +150,75 @@ export interface GetOrderableDbInstanceArgs {
  * A collection of values returned by getOrderableDbInstance.
  */
 export interface GetOrderableDbInstanceResult {
-    readonly availabilityZoneGroup: string;
+    readonly availabilityZoneGroup?: string;
     /**
      * Availability zones where the instance is available.
      */
-    readonly availabilityZones: string[];
+    readonly availabilityZones?: string[];
     readonly engine: string;
-    readonly engineVersion: string;
+    readonly engineVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly instanceClass: string;
-    readonly licenseModel: string;
+    readonly id?: string;
+    readonly instanceClass?: string;
+    readonly licenseModel?: string;
     /**
      * Maximum total provisioned IOPS for a DB instance.
      */
-    readonly maxIopsPerDbInstance: number;
+    readonly maxIopsPerDbInstance?: number;
     /**
      * Maximum provisioned IOPS per GiB for a DB instance.
      */
-    readonly maxIopsPerGib: number;
+    readonly maxIopsPerGib?: number;
     /**
      * Maximum storage size for a DB instance.
      */
-    readonly maxStorageSize: number;
+    readonly maxStorageSize?: number;
     /**
      * Minimum total provisioned IOPS for a DB instance.
      */
-    readonly minIopsPerDbInstance: number;
+    readonly minIopsPerDbInstance?: number;
     /**
      * Minimum provisioned IOPS per GiB for a DB instance.
      */
-    readonly minIopsPerGib: number;
+    readonly minIopsPerGib?: number;
     /**
      * Minimum storage size for a DB instance.
      */
-    readonly minStorageSize: number;
+    readonly minStorageSize?: number;
     /**
      * Whether a DB instance is Multi-AZ capable.
      */
-    readonly multiAzCapable: boolean;
+    readonly multiAzCapable?: boolean;
     /**
      * Whether a DB instance supports RDS on Outposts.
      */
-    readonly outpostCapable: boolean;
+    readonly outpostCapable?: boolean;
     readonly preferredEngineVersions?: string[];
     readonly preferredInstanceClasses?: string[];
     /**
      * Whether a DB instance can have a read replica.
      */
-    readonly readReplicaCapable: boolean;
-    readonly storageType: string;
+    readonly readReplicaCapable?: boolean;
+    readonly storageType?: string;
     /**
      * A list of the supported DB engine modes.
      */
-    readonly supportedEngineModes: string[];
+    readonly supportedEngineModes?: string[];
     /**
      * The network types supported by the DB instance (`IPV4` or `DUAL`).
      */
-    readonly supportedNetworkTypes: string[];
-    readonly supportsEnhancedMonitoring: boolean;
-    readonly supportsGlobalDatabases: boolean;
-    readonly supportsIamDatabaseAuthentication: boolean;
-    readonly supportsIops: boolean;
-    readonly supportsKerberosAuthentication: boolean;
-    readonly supportsPerformanceInsights: boolean;
-    readonly supportsStorageAutoscaling: boolean;
-    readonly supportsStorageEncryption: boolean;
-    readonly vpc: boolean;
+    readonly supportedNetworkTypes?: string[];
+    readonly supportsEnhancedMonitoring?: boolean;
+    readonly supportsGlobalDatabases?: boolean;
+    readonly supportsIamDatabaseAuthentication?: boolean;
+    readonly supportsIops?: boolean;
+    readonly supportsKerberosAuthentication?: boolean;
+    readonly supportsPerformanceInsights?: boolean;
+    readonly supportsStorageAutoscaling?: boolean;
+    readonly supportsStorageEncryption?: boolean;
+    readonly vpc?: boolean;
 }
 /**
  * Information about RDS orderable DB instances and valid parameter combinations.

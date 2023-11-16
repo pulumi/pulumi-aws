@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -112,14 +113,14 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
     /**
      * @return When the replication configuration was created.
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * A destination configuration block (documented below).
@@ -140,28 +141,28 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="originalSourceFileSystemArn", refs={String.class}, tree="[0]")
-    private Output<String> originalSourceFileSystemArn;
+    private Output</* @Nullable */ String> originalSourceFileSystemArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
      * 
      */
-    public Output<String> originalSourceFileSystemArn() {
-        return this.originalSourceFileSystemArn;
+    public Output<Optional<String>> originalSourceFileSystemArn() {
+        return Codegen.optional(this.originalSourceFileSystemArn);
     }
     /**
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      * 
      */
     @Export(name="sourceFileSystemArn", refs={String.class}, tree="[0]")
-    private Output<String> sourceFileSystemArn;
+    private Output</* @Nullable */ String> sourceFileSystemArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      * 
      */
-    public Output<String> sourceFileSystemArn() {
-        return this.sourceFileSystemArn;
+    public Output<Optional<String>> sourceFileSystemArn() {
+        return Codegen.optional(this.sourceFileSystemArn);
     }
     /**
      * The ID of the file system that is to be replicated.
@@ -184,7 +185,7 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="sourceFileSystemRegion", refs={String.class}, tree="[0]")
-    private Output<String> sourceFileSystemRegion;
+    private Output</* @Nullable */ String> sourceFileSystemRegion;
 
     /**
      * @return The AWS Region in which the source Amazon EFS file system is located.
@@ -192,8 +193,8 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * * `destination[0].status` - The status of the replication.
      * 
      */
-    public Output<String> sourceFileSystemRegion() {
-        return this.sourceFileSystemRegion;
+    public Output<Optional<String>> sourceFileSystemRegion() {
+        return Codegen.optional(this.sourceFileSystemRegion);
     }
 
     /**

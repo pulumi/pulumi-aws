@@ -113,14 +113,14 @@ public class Room extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Room.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * List of Logging Configuration
@@ -145,7 +145,7 @@ public class Room extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maximumMessageLength", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maximumMessageLength;
+    private Output</* @Nullable */ Integer> maximumMessageLength;
 
     /**
      * @return Maximum number of characters in a single
@@ -153,8 +153,8 @@ public class Room extends com.pulumi.resources.CustomResource {
      * specifically to rune/code-point count, not number of bytes.
      * 
      */
-    public Output<Integer> maximumMessageLength() {
-        return this.maximumMessageLength;
+    public Output<Optional<Integer>> maximumMessageLength() {
+        return Codegen.optional(this.maximumMessageLength);
     }
     /**
      * Maximum number of messages per
@@ -162,15 +162,15 @@ public class Room extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maximumMessageRatePerSecond", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maximumMessageRatePerSecond;
+    private Output</* @Nullable */ Integer> maximumMessageRatePerSecond;
 
     /**
      * @return Maximum number of messages per
      * second that can be sent to the room (by all clients).
      * 
      */
-    public Output<Integer> maximumMessageRatePerSecond() {
-        return this.maximumMessageRatePerSecond;
+    public Output<Optional<Integer>> maximumMessageRatePerSecond() {
+        return Codegen.optional(this.maximumMessageRatePerSecond);
     }
     /**
      * Configuration information for optional

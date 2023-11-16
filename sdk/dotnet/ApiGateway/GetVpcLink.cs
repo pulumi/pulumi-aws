@@ -136,24 +136,24 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Description of the VPC link.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Set to the ID of the found API Gateway VPC Link.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Status of the VPC link.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Status message of the VPC link.
         /// </summary>
-        public readonly string StatusMessage;
+        public readonly string? StatusMessage;
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         /// </summary>
@@ -161,17 +161,17 @@ namespace Pulumi.Aws.ApiGateway
 
         [OutputConstructor]
         private GetVpcLinkResult(
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
-            string status,
+            string? status,
 
-            string statusMessage,
+            string? statusMessage,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<string> targetArns)
         {

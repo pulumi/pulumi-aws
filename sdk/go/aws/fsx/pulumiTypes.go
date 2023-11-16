@@ -5821,9 +5821,9 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.
 
 type GetOntapFileSystemDiskIopsConfiguration struct {
 	// The total number of SSD IOPS provisioned for the file system.
-	Iops int `pulumi:"iops"`
+	Iops *int `pulumi:"iops"`
 	// Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
-	Mode string `pulumi:"mode"`
+	Mode *string `pulumi:"mode"`
 }
 
 // GetOntapFileSystemDiskIopsConfigurationInput is an input type that accepts GetOntapFileSystemDiskIopsConfigurationArgs and GetOntapFileSystemDiskIopsConfigurationOutput values.
@@ -5839,9 +5839,9 @@ type GetOntapFileSystemDiskIopsConfigurationInput interface {
 
 type GetOntapFileSystemDiskIopsConfigurationArgs struct {
 	// The total number of SSD IOPS provisioned for the file system.
-	Iops pulumi.IntInput `pulumi:"iops"`
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
-	Mode pulumi.StringInput `pulumi:"mode"`
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
 func (GetOntapFileSystemDiskIopsConfigurationArgs) ElementType() reflect.Type {
@@ -5896,13 +5896,13 @@ func (o GetOntapFileSystemDiskIopsConfigurationOutput) ToGetOntapFileSystemDiskI
 }
 
 // The total number of SSD IOPS provisioned for the file system.
-func (o GetOntapFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntOutput {
-	return o.ApplyT(func(v GetOntapFileSystemDiskIopsConfiguration) int { return v.Iops }).(pulumi.IntOutput)
+func (o GetOntapFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetOntapFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 // Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
-func (o GetOntapFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapFileSystemDiskIopsConfiguration) string { return v.Mode }).(pulumi.StringOutput)
+func (o GetOntapFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 type GetOntapFileSystemDiskIopsConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -6033,7 +6033,7 @@ func (o GetOntapFileSystemEndpointArrayOutput) Index(i pulumi.IntInput) GetOntap
 
 type GetOntapFileSystemEndpointIntercluster struct {
 	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
-	DnsName     string   `pulumi:"dnsName"`
+	DnsName     *string  `pulumi:"dnsName"`
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -6050,7 +6050,7 @@ type GetOntapFileSystemEndpointInterclusterInput interface {
 
 type GetOntapFileSystemEndpointInterclusterArgs struct {
 	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
-	DnsName     pulumi.StringInput      `pulumi:"dnsName"`
+	DnsName     pulumi.StringPtrInput   `pulumi:"dnsName"`
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -6106,8 +6106,8 @@ func (o GetOntapFileSystemEndpointInterclusterOutput) ToGetOntapFileSystemEndpoi
 }
 
 // DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
-func (o GetOntapFileSystemEndpointInterclusterOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapFileSystemEndpointIntercluster) string { return v.DnsName }).(pulumi.StringOutput)
+func (o GetOntapFileSystemEndpointInterclusterOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapFileSystemEndpointIntercluster) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOntapFileSystemEndpointInterclusterOutput) IpAddresses() pulumi.StringArrayOutput {
@@ -6136,7 +6136,7 @@ func (o GetOntapFileSystemEndpointInterclusterArrayOutput) Index(i pulumi.IntInp
 
 type GetOntapFileSystemEndpointManagement struct {
 	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
-	DnsName     string   `pulumi:"dnsName"`
+	DnsName     *string  `pulumi:"dnsName"`
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -6153,7 +6153,7 @@ type GetOntapFileSystemEndpointManagementInput interface {
 
 type GetOntapFileSystemEndpointManagementArgs struct {
 	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
-	DnsName     pulumi.StringInput      `pulumi:"dnsName"`
+	DnsName     pulumi.StringPtrInput   `pulumi:"dnsName"`
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -6209,8 +6209,8 @@ func (o GetOntapFileSystemEndpointManagementOutput) ToGetOntapFileSystemEndpoint
 }
 
 // DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
-func (o GetOntapFileSystemEndpointManagementOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapFileSystemEndpointManagement) string { return v.DnsName }).(pulumi.StringOutput)
+func (o GetOntapFileSystemEndpointManagementOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapFileSystemEndpointManagement) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOntapFileSystemEndpointManagementOutput) IpAddresses() pulumi.StringArrayOutput {
@@ -6239,7 +6239,7 @@ func (o GetOntapFileSystemEndpointManagementArrayOutput) Index(i pulumi.IntInput
 
 type GetOntapStorageVirtualMachineActiveDirectoryConfiguration struct {
 	// The NetBIOS name of the AD computer object to which the SVM is joined.
-	NetbiosName                              string                                                                                             `pulumi:"netbiosName"`
+	NetbiosName                              *string                                                                                            `pulumi:"netbiosName"`
 	SelfManagedActiveDirectoryConfigurations []GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration `pulumi:"selfManagedActiveDirectoryConfigurations"`
 }
 
@@ -6256,7 +6256,7 @@ type GetOntapStorageVirtualMachineActiveDirectoryConfigurationInput interface {
 
 type GetOntapStorageVirtualMachineActiveDirectoryConfigurationArgs struct {
 	// The NetBIOS name of the AD computer object to which the SVM is joined.
-	NetbiosName                              pulumi.StringInput                                                                                         `pulumi:"netbiosName"`
+	NetbiosName                              pulumi.StringPtrInput                                                                                      `pulumi:"netbiosName"`
 	SelfManagedActiveDirectoryConfigurations GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayInput `pulumi:"selfManagedActiveDirectoryConfigurations"`
 }
 
@@ -6312,8 +6312,8 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToGetOn
 }
 
 // The NetBIOS name of the AD computer object to which the SVM is joined.
-func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) NetbiosName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfiguration) string { return v.NetbiosName }).(pulumi.StringOutput)
+func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) NetbiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfiguration) *string { return v.NetbiosName }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) SelfManagedActiveDirectoryConfigurations() GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayOutput {
@@ -6346,13 +6346,13 @@ type GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 	DnsIps []string `pulumi:"dnsIps"`
 	// The fully qualified domain name of the self-managed AD directory.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// The name of the domain group whose members have administrative privileges for the FSx file system.
-	FileSystemAdministratorsGroup string `pulumi:"fileSystemAdministratorsGroup"`
+	FileSystemAdministratorsGroup *string `pulumi:"fileSystemAdministratorsGroup"`
 	// The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
-	OrganizationalUnitDistinguishedName string `pulumi:"organizationalUnitDistinguishedName"`
+	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
 	// The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationInput is an input type that accepts GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs and GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput values.
@@ -6370,13 +6370,13 @@ type GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
 	// The fully qualified domain name of the self-managed AD directory.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
+	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
 	// The name of the domain group whose members have administrative privileges for the FSx file system.
-	FileSystemAdministratorsGroup pulumi.StringInput `pulumi:"fileSystemAdministratorsGroup"`
+	FileSystemAdministratorsGroup pulumi.StringPtrInput `pulumi:"fileSystemAdministratorsGroup"`
 	// The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
-	OrganizationalUnitDistinguishedName pulumi.StringInput `pulumi:"organizationalUnitDistinguishedName"`
+	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
 	// The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
-	Username pulumi.StringInput `pulumi:"username"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
@@ -6438,31 +6438,31 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActi
 }
 
 // The fully qualified domain name of the self-managed AD directory.
-func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
+func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		return v.DomainName
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the domain group whose members have administrative privileges for the FSx file system.
-func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) FileSystemAdministratorsGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
+func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		return v.FileSystemAdministratorsGroup
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
-func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
+func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		return v.OrganizationalUnitDistinguishedName
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
-func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
+func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		return v.Username
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -6613,7 +6613,7 @@ func (o GetOntapStorageVirtualMachineEndpointArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetOntapStorageVirtualMachineEndpointIscsi struct {
-	DnsName     string   `pulumi:"dnsName"`
+	DnsName     *string  `pulumi:"dnsName"`
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -6629,7 +6629,7 @@ type GetOntapStorageVirtualMachineEndpointIscsiInput interface {
 }
 
 type GetOntapStorageVirtualMachineEndpointIscsiArgs struct {
-	DnsName     pulumi.StringInput      `pulumi:"dnsName"`
+	DnsName     pulumi.StringPtrInput   `pulumi:"dnsName"`
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -6684,8 +6684,8 @@ func (o GetOntapStorageVirtualMachineEndpointIscsiOutput) ToGetOntapStorageVirtu
 	return o
 }
 
-func (o GetOntapStorageVirtualMachineEndpointIscsiOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpointIscsi) string { return v.DnsName }).(pulumi.StringOutput)
+func (o GetOntapStorageVirtualMachineEndpointIscsiOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpointIscsi) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOntapStorageVirtualMachineEndpointIscsiOutput) IpAddresses() pulumi.StringArrayOutput {
@@ -6713,7 +6713,7 @@ func (o GetOntapStorageVirtualMachineEndpointIscsiArrayOutput) Index(i pulumi.In
 }
 
 type GetOntapStorageVirtualMachineEndpointManagement struct {
-	DnsName     string   `pulumi:"dnsName"`
+	DnsName     *string  `pulumi:"dnsName"`
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -6729,7 +6729,7 @@ type GetOntapStorageVirtualMachineEndpointManagementInput interface {
 }
 
 type GetOntapStorageVirtualMachineEndpointManagementArgs struct {
-	DnsName     pulumi.StringInput      `pulumi:"dnsName"`
+	DnsName     pulumi.StringPtrInput   `pulumi:"dnsName"`
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -6784,8 +6784,8 @@ func (o GetOntapStorageVirtualMachineEndpointManagementOutput) ToGetOntapStorage
 	return o
 }
 
-func (o GetOntapStorageVirtualMachineEndpointManagementOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpointManagement) string { return v.DnsName }).(pulumi.StringOutput)
+func (o GetOntapStorageVirtualMachineEndpointManagementOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpointManagement) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOntapStorageVirtualMachineEndpointManagementOutput) IpAddresses() pulumi.StringArrayOutput {
@@ -6813,7 +6813,7 @@ func (o GetOntapStorageVirtualMachineEndpointManagementArrayOutput) Index(i pulu
 }
 
 type GetOntapStorageVirtualMachineEndpointNf struct {
-	DnsName     string   `pulumi:"dnsName"`
+	DnsName     *string  `pulumi:"dnsName"`
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -6829,7 +6829,7 @@ type GetOntapStorageVirtualMachineEndpointNfInput interface {
 }
 
 type GetOntapStorageVirtualMachineEndpointNfArgs struct {
-	DnsName     pulumi.StringInput      `pulumi:"dnsName"`
+	DnsName     pulumi.StringPtrInput   `pulumi:"dnsName"`
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -6884,8 +6884,8 @@ func (o GetOntapStorageVirtualMachineEndpointNfOutput) ToGetOntapStorageVirtualM
 	return o
 }
 
-func (o GetOntapStorageVirtualMachineEndpointNfOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpointNf) string { return v.DnsName }).(pulumi.StringOutput)
+func (o GetOntapStorageVirtualMachineEndpointNfOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpointNf) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOntapStorageVirtualMachineEndpointNfOutput) IpAddresses() pulumi.StringArrayOutput {
@@ -6913,7 +6913,7 @@ func (o GetOntapStorageVirtualMachineEndpointNfArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetOntapStorageVirtualMachineEndpointSmb struct {
-	DnsName     string   `pulumi:"dnsName"`
+	DnsName     *string  `pulumi:"dnsName"`
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -6929,7 +6929,7 @@ type GetOntapStorageVirtualMachineEndpointSmbInput interface {
 }
 
 type GetOntapStorageVirtualMachineEndpointSmbArgs struct {
-	DnsName     pulumi.StringInput      `pulumi:"dnsName"`
+	DnsName     pulumi.StringPtrInput   `pulumi:"dnsName"`
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -6984,8 +6984,8 @@ func (o GetOntapStorageVirtualMachineEndpointSmbOutput) ToGetOntapStorageVirtual
 	return o
 }
 
-func (o GetOntapStorageVirtualMachineEndpointSmbOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpointSmb) string { return v.DnsName }).(pulumi.StringOutput)
+func (o GetOntapStorageVirtualMachineEndpointSmbOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpointSmb) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOntapStorageVirtualMachineEndpointSmbOutput) IpAddresses() pulumi.StringArrayOutput {
@@ -7120,7 +7120,7 @@ func (o GetOntapStorageVirtualMachineFilterArrayOutput) Index(i pulumi.IntInput)
 
 type GetOntapStorageVirtualMachineLifecycleTransitionReason struct {
 	// A detailed message.
-	Message string `pulumi:"message"`
+	Message *string `pulumi:"message"`
 }
 
 // GetOntapStorageVirtualMachineLifecycleTransitionReasonInput is an input type that accepts GetOntapStorageVirtualMachineLifecycleTransitionReasonArgs and GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput values.
@@ -7136,7 +7136,7 @@ type GetOntapStorageVirtualMachineLifecycleTransitionReasonInput interface {
 
 type GetOntapStorageVirtualMachineLifecycleTransitionReasonArgs struct {
 	// A detailed message.
-	Message pulumi.StringInput `pulumi:"message"`
+	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
 func (GetOntapStorageVirtualMachineLifecycleTransitionReasonArgs) ElementType() reflect.Type {
@@ -7191,8 +7191,8 @@ func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput) ToGetOntap
 }
 
 // A detailed message.
-func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOntapStorageVirtualMachineLifecycleTransitionReason) string { return v.Message }).(pulumi.StringOutput)
+func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOntapStorageVirtualMachineLifecycleTransitionReason) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
 type GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutput struct{ *pulumi.OutputState }
@@ -7425,9 +7425,9 @@ func (o GetOpenZfsSnapshotFilterArrayOutput) Index(i pulumi.IntInput) GetOpenZfs
 }
 
 type GetWindowsFileSystemAuditLogConfiguration struct {
-	AuditLogDestination          string `pulumi:"auditLogDestination"`
-	FileAccessAuditLogLevel      string `pulumi:"fileAccessAuditLogLevel"`
-	FileShareAccessAuditLogLevel string `pulumi:"fileShareAccessAuditLogLevel"`
+	AuditLogDestination          *string `pulumi:"auditLogDestination"`
+	FileAccessAuditLogLevel      *string `pulumi:"fileAccessAuditLogLevel"`
+	FileShareAccessAuditLogLevel *string `pulumi:"fileShareAccessAuditLogLevel"`
 }
 
 // GetWindowsFileSystemAuditLogConfigurationInput is an input type that accepts GetWindowsFileSystemAuditLogConfigurationArgs and GetWindowsFileSystemAuditLogConfigurationOutput values.
@@ -7442,9 +7442,9 @@ type GetWindowsFileSystemAuditLogConfigurationInput interface {
 }
 
 type GetWindowsFileSystemAuditLogConfigurationArgs struct {
-	AuditLogDestination          pulumi.StringInput `pulumi:"auditLogDestination"`
-	FileAccessAuditLogLevel      pulumi.StringInput `pulumi:"fileAccessAuditLogLevel"`
-	FileShareAccessAuditLogLevel pulumi.StringInput `pulumi:"fileShareAccessAuditLogLevel"`
+	AuditLogDestination          pulumi.StringPtrInput `pulumi:"auditLogDestination"`
+	FileAccessAuditLogLevel      pulumi.StringPtrInput `pulumi:"fileAccessAuditLogLevel"`
+	FileShareAccessAuditLogLevel pulumi.StringPtrInput `pulumi:"fileShareAccessAuditLogLevel"`
 }
 
 func (GetWindowsFileSystemAuditLogConfigurationArgs) ElementType() reflect.Type {
@@ -7498,16 +7498,16 @@ func (o GetWindowsFileSystemAuditLogConfigurationOutput) ToGetWindowsFileSystemA
 	return o
 }
 
-func (o GetWindowsFileSystemAuditLogConfigurationOutput) AuditLogDestination() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsFileSystemAuditLogConfiguration) string { return v.AuditLogDestination }).(pulumi.StringOutput)
+func (o GetWindowsFileSystemAuditLogConfigurationOutput) AuditLogDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemAuditLogConfiguration) *string { return v.AuditLogDestination }).(pulumi.StringPtrOutput)
 }
 
-func (o GetWindowsFileSystemAuditLogConfigurationOutput) FileAccessAuditLogLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsFileSystemAuditLogConfiguration) string { return v.FileAccessAuditLogLevel }).(pulumi.StringOutput)
+func (o GetWindowsFileSystemAuditLogConfigurationOutput) FileAccessAuditLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemAuditLogConfiguration) *string { return v.FileAccessAuditLogLevel }).(pulumi.StringPtrOutput)
 }
 
-func (o GetWindowsFileSystemAuditLogConfigurationOutput) FileShareAccessAuditLogLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsFileSystemAuditLogConfiguration) string { return v.FileShareAccessAuditLogLevel }).(pulumi.StringOutput)
+func (o GetWindowsFileSystemAuditLogConfigurationOutput) FileShareAccessAuditLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemAuditLogConfiguration) *string { return v.FileShareAccessAuditLogLevel }).(pulumi.StringPtrOutput)
 }
 
 type GetWindowsFileSystemAuditLogConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -7531,8 +7531,8 @@ func (o GetWindowsFileSystemAuditLogConfigurationArrayOutput) Index(i pulumi.Int
 }
 
 type GetWindowsFileSystemDiskIopsConfiguration struct {
-	Iops int    `pulumi:"iops"`
-	Mode string `pulumi:"mode"`
+	Iops *int    `pulumi:"iops"`
+	Mode *string `pulumi:"mode"`
 }
 
 // GetWindowsFileSystemDiskIopsConfigurationInput is an input type that accepts GetWindowsFileSystemDiskIopsConfigurationArgs and GetWindowsFileSystemDiskIopsConfigurationOutput values.
@@ -7547,8 +7547,8 @@ type GetWindowsFileSystemDiskIopsConfigurationInput interface {
 }
 
 type GetWindowsFileSystemDiskIopsConfigurationArgs struct {
-	Iops pulumi.IntInput    `pulumi:"iops"`
-	Mode pulumi.StringInput `pulumi:"mode"`
+	Iops pulumi.IntPtrInput    `pulumi:"iops"`
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
 func (GetWindowsFileSystemDiskIopsConfigurationArgs) ElementType() reflect.Type {
@@ -7602,12 +7602,12 @@ func (o GetWindowsFileSystemDiskIopsConfigurationOutput) ToGetWindowsFileSystemD
 	return o
 }
 
-func (o GetWindowsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntOutput {
-	return o.ApplyT(func(v GetWindowsFileSystemDiskIopsConfiguration) int { return v.Iops }).(pulumi.IntOutput)
+func (o GetWindowsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-func (o GetWindowsFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsFileSystemDiskIopsConfiguration) string { return v.Mode }).(pulumi.StringOutput)
+func (o GetWindowsFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 type GetWindowsFileSystemDiskIopsConfigurationArrayOutput struct{ *pulumi.OutputState }

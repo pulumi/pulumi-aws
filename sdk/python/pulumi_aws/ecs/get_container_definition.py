@@ -63,7 +63,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter
-    def cpu(self) -> int:
+    def cpu(self) -> Optional[int]:
         """
         CPU limit for this container definition
         """
@@ -71,7 +71,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter(name="disableNetworking")
-    def disable_networking(self) -> bool:
+    def disable_networking(self) -> Optional[bool]:
         """
         Indicator if networking is disabled
         """
@@ -79,7 +79,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter(name="dockerLabels")
-    def docker_labels(self) -> Mapping[str, str]:
+    def docker_labels(self) -> Optional[Mapping[str, str]]:
         """
         Set docker labels
         """
@@ -87,7 +87,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter
-    def environment(self) -> Mapping[str, str]:
+    def environment(self) -> Optional[Mapping[str, str]]:
         """
         Environment in use
         """
@@ -95,7 +95,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -103,7 +103,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter
-    def image(self) -> str:
+    def image(self) -> Optional[str]:
         """
         Docker image in use, including the digest
         """
@@ -111,7 +111,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter(name="imageDigest")
-    def image_digest(self) -> str:
+    def image_digest(self) -> Optional[str]:
         """
         Digest of the docker image in use
         """
@@ -119,7 +119,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter
-    def memory(self) -> int:
+    def memory(self) -> Optional[int]:
         """
         Memory limit for this container definition
         """
@@ -127,7 +127,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter(name="memoryReservation")
-    def memory_reservation(self) -> int:
+    def memory_reservation(self) -> Optional[int]:
         """
         Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
         """

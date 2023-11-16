@@ -153,24 +153,28 @@ class ServiceQuotaUsageMetricMetricDimension(dict):
 @pulumi.output_type
 class GetServiceQuotaUsageMetricResult(dict):
     def __init__(__self__, *,
-                 metric_dimensions: Sequence['outputs.GetServiceQuotaUsageMetricMetricDimensionResult'],
-                 metric_name: str,
-                 metric_namespace: str,
-                 metric_statistic_recommendation: str):
+                 metric_dimensions: Optional[Sequence['outputs.GetServiceQuotaUsageMetricMetricDimensionResult']] = None,
+                 metric_name: Optional[str] = None,
+                 metric_namespace: Optional[str] = None,
+                 metric_statistic_recommendation: Optional[str] = None):
         """
         :param Sequence['GetServiceQuotaUsageMetricMetricDimensionArgs'] metric_dimensions: The metric dimensions.
         :param str metric_name: The name of the metric.
         :param str metric_namespace: The namespace of the metric.
         :param str metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
         """
-        pulumi.set(__self__, "metric_dimensions", metric_dimensions)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_namespace", metric_namespace)
-        pulumi.set(__self__, "metric_statistic_recommendation", metric_statistic_recommendation)
+        if metric_dimensions is not None:
+            pulumi.set(__self__, "metric_dimensions", metric_dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if metric_namespace is not None:
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
+        if metric_statistic_recommendation is not None:
+            pulumi.set(__self__, "metric_statistic_recommendation", metric_statistic_recommendation)
 
     @property
     @pulumi.getter(name="metricDimensions")
-    def metric_dimensions(self) -> Sequence['outputs.GetServiceQuotaUsageMetricMetricDimensionResult']:
+    def metric_dimensions(self) -> Optional[Sequence['outputs.GetServiceQuotaUsageMetricMetricDimensionResult']]:
         """
         The metric dimensions.
         """
@@ -178,7 +182,7 @@ class GetServiceQuotaUsageMetricResult(dict):
 
     @property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> str:
+    def metric_name(self) -> Optional[str]:
         """
         The name of the metric.
         """
@@ -186,7 +190,7 @@ class GetServiceQuotaUsageMetricResult(dict):
 
     @property
     @pulumi.getter(name="metricNamespace")
-    def metric_namespace(self) -> str:
+    def metric_namespace(self) -> Optional[str]:
         """
         The namespace of the metric.
         """
@@ -194,7 +198,7 @@ class GetServiceQuotaUsageMetricResult(dict):
 
     @property
     @pulumi.getter(name="metricStatisticRecommendation")
-    def metric_statistic_recommendation(self) -> str:
+    def metric_statistic_recommendation(self) -> Optional[str]:
         """
         The metric statistic that AWS recommend you use when determining quota usage.
         """
@@ -204,47 +208,51 @@ class GetServiceQuotaUsageMetricResult(dict):
 @pulumi.output_type
 class GetServiceQuotaUsageMetricMetricDimensionResult(dict):
     def __init__(__self__, *,
-                 class_: str,
-                 resource: str,
-                 service: str,
-                 type: str):
-        pulumi.set(__self__, "class_", class_)
-        pulumi.set(__self__, "resource", resource)
-        pulumi.set(__self__, "service", service)
-        pulumi.set(__self__, "type", type)
+                 class_: Optional[str] = None,
+                 resource: Optional[str] = None,
+                 service: Optional[str] = None,
+                 type: Optional[str] = None):
+        if class_ is not None:
+            pulumi.set(__self__, "class_", class_)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="class")
-    def class_(self) -> str:
+    def class_(self) -> Optional[str]:
         return pulumi.get(self, "class_")
 
     @property
     @pulumi.getter
-    def resource(self) -> str:
+    def resource(self) -> Optional[str]:
         return pulumi.get(self, "resource")
 
     @property
     @pulumi.getter
-    def service(self) -> str:
+    def service(self) -> Optional[str]:
         return pulumi.get(self, "service")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetTemplatesTemplateResult(dict):
     def __init__(__self__, *,
-                 global_quota: bool,
-                 quota_code: str,
-                 quota_name: str,
-                 region: str,
-                 service_code: str,
-                 service_name: str,
-                 unit: str,
-                 value: float):
+                 global_quota: Optional[bool] = None,
+                 quota_code: Optional[str] = None,
+                 quota_name: Optional[str] = None,
+                 region: Optional[str] = None,
+                 service_code: Optional[str] = None,
+                 service_name: Optional[str] = None,
+                 unit: Optional[str] = None,
+                 value: Optional[float] = None):
         """
         :param bool global_quota: Indicates whether the quota is global.
         :param str quota_code: Quota identifier.
@@ -255,18 +263,26 @@ class GetTemplatesTemplateResult(dict):
         :param str unit: Unit of measurement.
         :param float value: (Required) The new, increased value for the quota.
         """
-        pulumi.set(__self__, "global_quota", global_quota)
-        pulumi.set(__self__, "quota_code", quota_code)
-        pulumi.set(__self__, "quota_name", quota_name)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "service_code", service_code)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        if global_quota is not None:
+            pulumi.set(__self__, "global_quota", global_quota)
+        if quota_code is not None:
+            pulumi.set(__self__, "quota_code", quota_code)
+        if quota_name is not None:
+            pulumi.set(__self__, "quota_name", quota_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if service_code is not None:
+            pulumi.set(__self__, "service_code", service_code)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="globalQuota")
-    def global_quota(self) -> bool:
+    def global_quota(self) -> Optional[bool]:
         """
         Indicates whether the quota is global.
         """
@@ -274,7 +290,7 @@ class GetTemplatesTemplateResult(dict):
 
     @property
     @pulumi.getter(name="quotaCode")
-    def quota_code(self) -> str:
+    def quota_code(self) -> Optional[str]:
         """
         Quota identifier.
         """
@@ -282,7 +298,7 @@ class GetTemplatesTemplateResult(dict):
 
     @property
     @pulumi.getter(name="quotaName")
-    def quota_name(self) -> str:
+    def quota_name(self) -> Optional[str]:
         """
         Quota name.
         """
@@ -290,7 +306,7 @@ class GetTemplatesTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def region(self) -> str:
+    def region(self) -> Optional[str]:
         """
         AWS Region to which the quota increases apply.
         """
@@ -298,7 +314,7 @@ class GetTemplatesTemplateResult(dict):
 
     @property
     @pulumi.getter(name="serviceCode")
-    def service_code(self) -> str:
+    def service_code(self) -> Optional[str]:
         """
         (Required) Service identifier.
         """
@@ -306,7 +322,7 @@ class GetTemplatesTemplateResult(dict):
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> Optional[str]:
         """
         Service name.
         """
@@ -314,7 +330,7 @@ class GetTemplatesTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         """
         Unit of measurement.
         """
@@ -322,7 +338,7 @@ class GetTemplatesTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> float:
+    def value(self) -> Optional[float]:
         """
         (Required) The new, increased value for the quota.
         """

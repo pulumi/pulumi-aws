@@ -113,47 +113,47 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallRuleGroupResult
     {
-        public readonly string Arn;
-        public readonly string CreationTime;
-        public readonly string CreatorRequestId;
+        public readonly string? Arn;
+        public readonly string? CreationTime;
+        public readonly string? CreatorRequestId;
         public readonly string FirewallRuleGroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string ModificationTime;
-        public readonly string Name;
-        public readonly string OwnerId;
-        public readonly int RuleCount;
-        public readonly string ShareStatus;
-        public readonly string Status;
-        public readonly string StatusMessage;
+        public readonly string? Id;
+        public readonly string? ModificationTime;
+        public readonly string? Name;
+        public readonly string? OwnerId;
+        public readonly int? RuleCount;
+        public readonly string? ShareStatus;
+        public readonly string? Status;
+        public readonly string? StatusMessage;
 
         [OutputConstructor]
         private GetResolverFirewallRuleGroupResult(
-            string arn,
+            string? arn,
 
-            string creationTime,
+            string? creationTime,
 
-            string creatorRequestId,
+            string? creatorRequestId,
 
             string firewallRuleGroupId,
 
-            string id,
+            string? id,
 
-            string modificationTime,
+            string? modificationTime,
 
-            string name,
+            string? name,
 
-            string ownerId,
+            string? ownerId,
 
-            int ruleCount,
+            int? ruleCount,
 
-            string shareStatus,
+            string? shareStatus,
 
-            string status,
+            string? status,
 
-            string statusMessage)
+            string? statusMessage)
         {
             Arn = arn;
             CreationTime = creationTime;

@@ -96,77 +96,77 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			acmpcaBucketAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetBucketAcl"),
-//							pulumi.String("s3:GetBucketLocation"),
-//							pulumi.String("s3:PutObject"),
-//							pulumi.String("s3:PutObjectAcl"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn,
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("acm-pca.amazonaws.com"),
-//								},
-//								Type: pulumi.String("Service"),
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.ID(),
-//				Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return &acmpcaBucketAccess.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//				RevocationConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationArgs{
-//					CrlConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{
-//						CustomCname:      pulumi.String("crl.example.com"),
-//						Enabled:          pulumi.Bool(true),
-//						ExpirationInDays: pulumi.Int(7),
-//						S3BucketName:     exampleBucketV2.ID(),
-//						S3ObjectAcl:      pulumi.String("BUCKET_OWNER_FULL_CONTROL"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// ForceDestroy: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// acmpcaBucketAccess := pulumi.All(exampleBucketV2.Arn,exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// exampleBucketV2Arn := _args[0].(*string)
+// exampleBucketV2Arn1 := _args[1].(*string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "s3:GetBucketAcl",
+// "s3:GetBucketLocation",
+// "s3:PutObject",
+// "s3:PutObjectAcl",
+// },
+// Resources: interface{}{
+// exampleBucketV2Arn,
+// fmt.Sprintf("%v/*", exampleBucketV2Arn1),
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Identifiers: []string{
+// "acm-pca.amazonaws.com",
+// },
+// Type: "Service",
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+// Bucket: exampleBucketV2.ID(),
+// Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (*string, error) {
+// return &acmpcaBucketAccess.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+// CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
+// KeyAlgorithm: pulumi.String("RSA_4096"),
+// SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
+// Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
+// CommonName: pulumi.String("example.com"),
+// },
+// },
+// RevocationConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationArgs{
+// CrlConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{
+// CustomCname: pulumi.String("crl.example.com"),
+// Enabled: pulumi.Bool(true),
+// ExpirationInDays: pulumi.Int(7),
+// S3BucketName: exampleBucketV2.ID(),
+// S3ObjectAcl: pulumi.String("BUCKET_OWNER_FULL_CONTROL"),
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleBucketPolicy,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -182,29 +182,29 @@ type CertificateAuthority struct {
 	pulumi.CustomResourceState
 
 	// ARN of the certificate authority.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-	Certificate pulumi.StringOutput `pulumi:"certificate"`
+	Certificate pulumi.StringPtrOutput `pulumi:"certificate"`
 	// Nested argument containing algorithms and certificate subject information. Defined below.
 	CertificateAuthorityConfiguration CertificateAuthorityCertificateAuthorityConfigurationOutput `pulumi:"certificateAuthorityConfiguration"`
 	// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
+	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
 	// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-	CertificateSigningRequest pulumi.StringOutput `pulumi:"certificateSigningRequest"`
+	CertificateSigningRequest pulumi.StringPtrOutput `pulumi:"certificateSigningRequest"`
 	// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
-	KeyStorageSecurityStandard pulumi.StringOutput `pulumi:"keyStorageSecurityStandard"`
+	KeyStorageSecurityStandard pulumi.StringPtrOutput `pulumi:"keyStorageSecurityStandard"`
 	// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotAfter pulumi.StringOutput `pulumi:"notAfter"`
+	NotAfter pulumi.StringPtrOutput `pulumi:"notAfter"`
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotBefore pulumi.StringOutput `pulumi:"notBefore"`
+	NotBefore pulumi.StringPtrOutput `pulumi:"notBefore"`
 	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
 	PermanentDeletionTimeInDays pulumi.IntPtrOutput `pulumi:"permanentDeletionTimeInDays"`
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrOutput `pulumi:"revocationConfiguration"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-	Serial pulumi.StringOutput `pulumi:"serial"`
+	Serial pulumi.StringPtrOutput `pulumi:"serial"`
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -214,7 +214,7 @@ type CertificateAuthority struct {
 	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-	UsageMode pulumi.StringOutput `pulumi:"usageMode"`
+	UsageMode pulumi.StringPtrOutput `pulumi:"usageMode"`
 }
 
 // NewCertificateAuthority registers a new resource with the given unique name, arguments, and options.
@@ -458,13 +458,13 @@ func (o CertificateAuthorityOutput) ToCertificateAuthorityOutputWithContext(ctx 
 }
 
 // ARN of the certificate authority.
-func (o CertificateAuthorityOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CertificateAuthorityOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-func (o CertificateAuthorityOutput) Certificate() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
+func (o CertificateAuthorityOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
 // Nested argument containing algorithms and certificate subject information. Defined below.
@@ -475,13 +475,13 @@ func (o CertificateAuthorityOutput) CertificateAuthorityConfiguration() Certific
 }
 
 // Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-func (o CertificateAuthorityOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.CertificateChain }).(pulumi.StringOutput)
+func (o CertificateAuthorityOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
 // The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-func (o CertificateAuthorityOutput) CertificateSigningRequest() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.CertificateSigningRequest }).(pulumi.StringOutput)
+func (o CertificateAuthorityOutput) CertificateSigningRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.CertificateSigningRequest }).(pulumi.StringPtrOutput)
 }
 
 // Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
@@ -490,18 +490,18 @@ func (o CertificateAuthorityOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
-func (o CertificateAuthorityOutput) KeyStorageSecurityStandard() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.KeyStorageSecurityStandard }).(pulumi.StringOutput)
+func (o CertificateAuthorityOutput) KeyStorageSecurityStandard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.KeyStorageSecurityStandard }).(pulumi.StringPtrOutput)
 }
 
 // Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-func (o CertificateAuthorityOutput) NotAfter() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.NotAfter }).(pulumi.StringOutput)
+func (o CertificateAuthorityOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.NotAfter }).(pulumi.StringPtrOutput)
 }
 
 // Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-func (o CertificateAuthorityOutput) NotBefore() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.NotBefore }).(pulumi.StringOutput)
+func (o CertificateAuthorityOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.NotBefore }).(pulumi.StringPtrOutput)
 }
 
 // Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
@@ -517,8 +517,8 @@ func (o CertificateAuthorityOutput) RevocationConfiguration() CertificateAuthori
 }
 
 // Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-func (o CertificateAuthorityOutput) Serial() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Serial }).(pulumi.StringOutput)
+func (o CertificateAuthorityOutput) Serial() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.Serial }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -539,8 +539,8 @@ func (o CertificateAuthorityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-func (o CertificateAuthorityOutput) UsageMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.UsageMode }).(pulumi.StringOutput)
+func (o CertificateAuthorityOutput) UsageMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.UsageMode }).(pulumi.StringPtrOutput)
 }
 
 type CertificateAuthorityArrayOutput struct{ *pulumi.OutputState }

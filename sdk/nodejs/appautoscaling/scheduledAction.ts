@@ -91,7 +91,7 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * ARN of the scheduled action.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      */

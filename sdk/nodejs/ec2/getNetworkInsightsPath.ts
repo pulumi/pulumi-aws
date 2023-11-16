@@ -57,49 +57,49 @@ export interface GetNetworkInsightsPathResult {
     /**
      * ARN of the selected Network Insights Path.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * AWS resource that is the destination of the path.
      */
-    readonly destination: string;
+    readonly destination?: string;
     /**
      * ARN of the destination.
      */
-    readonly destinationArn: string;
+    readonly destinationArn?: string;
     /**
      * IP address of the AWS resource that is the destination of the path.
      */
-    readonly destinationIp: string;
+    readonly destinationIp?: string;
     /**
      * Destination port.
      */
-    readonly destinationPort: number;
+    readonly destinationPort?: number;
     readonly filters?: outputs.ec2.GetNetworkInsightsPathFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly networkInsightsPathId: string;
+    readonly id?: string;
+    readonly networkInsightsPathId?: string;
     /**
      * Protocol.
      */
-    readonly protocol: string;
+    readonly protocol?: string;
     /**
      * AWS resource that is the source of the path.
      */
-    readonly source: string;
+    readonly source?: string;
     /**
      * ARN of the source.
      */
-    readonly sourceArn: string;
+    readonly sourceArn?: string;
     /**
      * IP address of the AWS resource that is the source of the path.
      */
-    readonly sourceIp: string;
+    readonly sourceIp?: string;
     /**
      * Map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.

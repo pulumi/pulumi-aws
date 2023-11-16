@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Rds
         /// ARN of the DB option group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the engine that this option group should be associated with.
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Rds
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Description of the option group.

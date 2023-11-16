@@ -42,7 +42,7 @@ class GetPullThroughCacheRuleResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -50,7 +50,7 @@ class GetPullThroughCacheRuleResult:
 
     @property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> str:
+    def registry_id(self) -> Optional[str]:
         """
         The registry ID where the repository was created.
         """
@@ -58,7 +58,7 @@ class GetPullThroughCacheRuleResult:
 
     @property
     @pulumi.getter(name="upstreamRegistryUrl")
-    def upstream_registry_url(self) -> str:
+    def upstream_registry_url(self) -> Optional[str]:
         """
         The registry URL of the upstream public registry to use as the source.
         """

@@ -56,7 +56,7 @@ type AggregateAuthorization struct {
 	// Account ID
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The ARN of the authorization
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Region
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -252,8 +252,8 @@ func (o AggregateAuthorizationOutput) AccountId() pulumi.StringOutput {
 }
 
 // The ARN of the authorization
-func (o AggregateAuthorizationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AggregateAuthorizationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Region

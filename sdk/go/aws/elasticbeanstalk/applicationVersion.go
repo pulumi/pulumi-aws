@@ -77,7 +77,7 @@ type ApplicationVersion struct {
 	// Name of the Beanstalk Application the version is associated with.
 	Application pulumi.StringOutput `pulumi:"application"`
 	// ARN assigned by AWS for this Elastic Beanstalk Application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// S3 bucket that contains the Application Version source bundle.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Short description of the Application Version.
@@ -326,8 +326,8 @@ func (o ApplicationVersionOutput) Application() pulumi.StringOutput {
 }
 
 // ARN assigned by AWS for this Elastic Beanstalk Application.
-func (o ApplicationVersionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ApplicationVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // S3 bucket that contains the Application Version source bundle.

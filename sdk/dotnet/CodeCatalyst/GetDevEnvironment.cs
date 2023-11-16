@@ -207,7 +207,7 @@ namespace Pulumi.Aws.CodeCatalyst
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Information about the integrated development environment (IDE) configured for a Dev Environment.
         /// </summary>
@@ -215,15 +215,15 @@ namespace Pulumi.Aws.CodeCatalyst
         /// <summary>
         /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         /// </summary>
-        public readonly int InactivityTimeoutMinutes;
+        public readonly int? InactivityTimeoutMinutes;
         /// <summary>
         /// The Amazon EC2 instace type to use for the Dev Environment.
         /// </summary>
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         /// <summary>
         /// The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
         /// </summary>
-        public readonly string LastUpdatedTime;
+        public readonly string? LastUpdatedTime;
         /// <summary>
         /// Information about the amount of storage allocated to the Dev Environment.
         /// </summary>
@@ -237,12 +237,12 @@ namespace Pulumi.Aws.CodeCatalyst
         /// <summary>
         /// The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// The reason for the status.
         /// </summary>
-        public readonly string StatusReason;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? StatusReason;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetDevEnvironmentResult(
@@ -252,15 +252,15 @@ namespace Pulumi.Aws.CodeCatalyst
 
             string envId,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetDevEnvironmentIdeResult> ides,
 
-            int inactivityTimeoutMinutes,
+            int? inactivityTimeoutMinutes,
 
-            string instanceType,
+            string? instanceType,
 
-            string lastUpdatedTime,
+            string? lastUpdatedTime,
 
             ImmutableArray<Outputs.GetDevEnvironmentPersistentStorageResult> persistentStorages,
 
@@ -270,11 +270,11 @@ namespace Pulumi.Aws.CodeCatalyst
 
             string spaceName,
 
-            string status,
+            string? status,
 
-            string statusReason,
+            string? statusReason,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Alias = alias;
             CreatorId = creatorId;

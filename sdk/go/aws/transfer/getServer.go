@@ -58,32 +58,32 @@ type LookupServerArgs struct {
 // A collection of values returned by getServer.
 type LookupServerResult struct {
 	// ARN of Transfer Server.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// ARN of any certificate.
-	Certificate string `pulumi:"certificate"`
+	Certificate *string `pulumi:"certificate"`
 	// The domain of the storage system that is used for file transfers.
-	Domain string `pulumi:"domain"`
+	Domain *string `pulumi:"domain"`
 	// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
-	Endpoint string `pulumi:"endpoint"`
+	Endpoint *string `pulumi:"endpoint"`
 	// Type of endpoint that the server is connected to.
-	EndpointType string `pulumi:"endpointType"`
+	EndpointType *string `pulumi:"endpointType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
-	IdentityProviderType string `pulumi:"identityProviderType"`
+	IdentityProviderType *string `pulumi:"identityProviderType"`
 	// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
-	InvocationRole string `pulumi:"invocationRole"`
+	InvocationRole *string `pulumi:"invocationRole"`
 	// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
-	LoggingRole string `pulumi:"loggingRole"`
+	LoggingRole *string `pulumi:"loggingRole"`
 	// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
 	Protocols []string `pulumi:"protocols"`
 	// The name of the security policy that is attached to the server.
-	SecurityPolicyName string `pulumi:"securityPolicyName"`
-	ServerId           string `pulumi:"serverId"`
+	SecurityPolicyName *string `pulumi:"securityPolicyName"`
+	ServerId           string  `pulumi:"serverId"`
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
-	Url string `pulumi:"url"`
+	Url *string `pulumi:"url"`
 }
 
 func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts ...pulumi.InvokeOption) LookupServerResultOutput {
@@ -125,48 +125,48 @@ func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx cont
 }
 
 // ARN of Transfer Server.
-func (o LookupServerResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of any certificate.
-func (o LookupServerResultOutput) Certificate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.Certificate }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
 // The domain of the storage system that is used for file transfers.
-func (o LookupServerResultOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.Domain }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
 // Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
-func (o LookupServerResultOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.Endpoint }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Type of endpoint that the server is connected to.
-func (o LookupServerResultOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.EndpointType }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupServerResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
-func (o LookupServerResultOutput) IdentityProviderType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.IdentityProviderType }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) IdentityProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.IdentityProviderType }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
-func (o LookupServerResultOutput) InvocationRole() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.InvocationRole }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) InvocationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.InvocationRole }).(pulumi.StringPtrOutput)
 }
 
 // ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
-func (o LookupServerResultOutput) LoggingRole() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.LoggingRole }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) LoggingRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.LoggingRole }).(pulumi.StringPtrOutput)
 }
 
 // File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
@@ -175,8 +175,8 @@ func (o LookupServerResultOutput) Protocols() pulumi.StringArrayOutput {
 }
 
 // The name of the security policy that is attached to the server.
-func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.SecurityPolicyName }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServerResultOutput) ServerId() pulumi.StringOutput {
@@ -189,8 +189,8 @@ func (o LookupServerResultOutput) StructuredLogDestinations() pulumi.StringArray
 }
 
 // URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
-func (o LookupServerResultOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.Url }).(pulumi.StringOutput)
+func (o LookupServerResultOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func init() {

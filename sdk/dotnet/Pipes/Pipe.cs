@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Pipes
         /// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the pipe. At most 512 characters.
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Pipes
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the role that allows the pipe to send data to the target.
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Pipes
         /// Parameters to configure a source for the pipe. Detailed below.
         /// </summary>
         [Output("sourceParameters")]
-        public Output<Outputs.PipeSourceParameters> SourceParameters { get; private set; } = null!;
+        public Output<Outputs.PipeSourceParameters?> SourceParameters { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

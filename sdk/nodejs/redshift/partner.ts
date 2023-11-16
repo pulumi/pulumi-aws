@@ -76,11 +76,11 @@ export class Partner extends pulumi.CustomResource {
     /**
      * (Optional) The partner integration status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * (Optional) The status message provided by the partner.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    public /*out*/ readonly statusMessage!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Partner resource with the given unique name, arguments, and options.

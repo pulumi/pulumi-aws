@@ -8,6 +8,7 @@ import com.pulumi.aws.kendra.outputs.GetIndexIndexStatisticTextDocumentStatistic
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexIndexStatistic {
@@ -15,12 +16,12 @@ public final class GetIndexIndexStatistic {
      * @return Block that specifies the number of question and answer topics in the index. Documented below.
      * 
      */
-    private List<GetIndexIndexStatisticFaqStatistic> faqStatistics;
+    private @Nullable List<GetIndexIndexStatisticFaqStatistic> faqStatistics;
     /**
      * @return A block that specifies the number of text documents indexed.
      * 
      */
-    private List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
+    private @Nullable List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
 
     private GetIndexIndexStatistic() {}
     /**
@@ -28,14 +29,14 @@ public final class GetIndexIndexStatistic {
      * 
      */
     public List<GetIndexIndexStatisticFaqStatistic> faqStatistics() {
-        return this.faqStatistics;
+        return this.faqStatistics == null ? List.of() : this.faqStatistics;
     }
     /**
      * @return A block that specifies the number of text documents indexed.
      * 
      */
     public List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics() {
-        return this.textDocumentStatistics;
+        return this.textDocumentStatistics == null ? List.of() : this.textDocumentStatistics;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetIndexIndexStatistic {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetIndexIndexStatisticFaqStatistic> faqStatistics;
-        private List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
+        private @Nullable List<GetIndexIndexStatisticFaqStatistic> faqStatistics;
+        private @Nullable List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
         public Builder() {}
         public Builder(GetIndexIndexStatistic defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetIndexIndexStatistic {
         }
 
         @CustomType.Setter
-        public Builder faqStatistics(List<GetIndexIndexStatisticFaqStatistic> faqStatistics) {
-            this.faqStatistics = Objects.requireNonNull(faqStatistics);
+        public Builder faqStatistics(@Nullable List<GetIndexIndexStatisticFaqStatistic> faqStatistics) {
+            this.faqStatistics = faqStatistics;
             return this;
         }
         public Builder faqStatistics(GetIndexIndexStatisticFaqStatistic... faqStatistics) {
             return faqStatistics(List.of(faqStatistics));
         }
         @CustomType.Setter
-        public Builder textDocumentStatistics(List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics) {
-            this.textDocumentStatistics = Objects.requireNonNull(textDocumentStatistics);
+        public Builder textDocumentStatistics(@Nullable List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics) {
+            this.textDocumentStatistics = textDocumentStatistics;
             return this;
         }
         public Builder textDocumentStatistics(GetIndexIndexStatisticTextDocumentStatistic... textDocumentStatistics) {

@@ -63,9 +63,9 @@ type LocationSmb struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the Windows domain the SMB server belongs to.
-	Domain pulumi.StringOutput `pulumi:"domain"`
+	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
 	MountOptions LocationSmbMountOptionsPtrOutput `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has file permissions in the SMB.
@@ -80,7 +80,7 @@ type LocationSmb struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Uri     pulumi.StringOutput    `pulumi:"uri"`
+	Uri     pulumi.StringPtrOutput `pulumi:"uri"`
 	// The user who can mount the share and has file and folder permissions in the SMB share.
 	User pulumi.StringOutput `pulumi:"user"`
 }
@@ -325,13 +325,13 @@ func (o LocationSmbOutput) AgentArns() pulumi.StringArrayOutput {
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (o LocationSmbOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationSmb) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LocationSmbOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSmb) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Windows domain the SMB server belongs to.
-func (o LocationSmbOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationSmb) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+func (o LocationSmbOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSmb) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
@@ -366,8 +366,8 @@ func (o LocationSmbOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationSmb) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-func (o LocationSmbOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationSmb) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+func (o LocationSmbOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSmb) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 // The user who can mount the share and has file and folder permissions in the SMB share.

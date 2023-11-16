@@ -92,14 +92,14 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return (Required) Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
@@ -134,14 +134,14 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dateCreated", refs={String.class}, tree="[0]")
-    private Output<String> dateCreated;
+    private Output</* @Nullable */ String> dateCreated;
 
     /**
      * @return Date the image recipe was created.
      * 
      */
-    public Output<String> dateCreated() {
-        return this.dateCreated;
+    public Output<Optional<String>> dateCreated() {
+        return Codegen.optional(this.dateCreated);
     }
     /**
      * Description of the image recipe.
@@ -176,14 +176,14 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return Owner of the image recipe.
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
@@ -204,28 +204,28 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="platform", refs={String.class}, tree="[0]")
-    private Output<String> platform;
+    private Output</* @Nullable */ String> platform;
 
     /**
      * @return Platform of the image recipe.
      * 
      */
-    public Output<String> platform() {
-        return this.platform;
+    public Output<Optional<String>> platform() {
+        return Codegen.optional(this.platform);
     }
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      * 
      */
     @Export(name="systemsManagerAgent", refs={ImageRecipeSystemsManagerAgent.class}, tree="[0]")
-    private Output<ImageRecipeSystemsManagerAgent> systemsManagerAgent;
+    private Output</* @Nullable */ ImageRecipeSystemsManagerAgent> systemsManagerAgent;
 
     /**
      * @return Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      * 
      */
-    public Output<ImageRecipeSystemsManagerAgent> systemsManagerAgent() {
-        return this.systemsManagerAgent;
+    public Output<Optional<ImageRecipeSystemsManagerAgent>> systemsManagerAgent() {
+        return Codegen.optional(this.systemsManagerAgent);
     }
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -264,14 +264,14 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userDataBase64", refs={String.class}, tree="[0]")
-    private Output<String> userDataBase64;
+    private Output</* @Nullable */ String> userDataBase64;
 
     /**
      * @return Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
      * 
      */
-    public Output<String> userDataBase64() {
-        return this.userDataBase64;
+    public Output<Optional<String>> userDataBase64() {
+        return Codegen.optional(this.userDataBase64);
     }
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.

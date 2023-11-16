@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the Hours of Operation.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
         /// </summary>
@@ -204,15 +204,15 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Description of the Hours of Operation.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The identifier for the hours of operation.
         /// </summary>
-        public readonly string HoursOfOperationId;
+        public readonly string? HoursOfOperationId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Identifier of the hosting Amazon Connect Instance.
         /// </summary>
@@ -220,35 +220,35 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Name of the Hours of Operation.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Map of tags to assign to the Hours of Operation.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Time zone of the Hours of Operation.
         /// </summary>
-        public readonly string TimeZone;
+        public readonly string? TimeZone;
 
         [OutputConstructor]
         private GetHoursOfOperationResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetHoursOfOperationConfigResult> configs,
 
-            string description,
+            string? description,
 
-            string hoursOfOperationId,
+            string? hoursOfOperationId,
 
-            string id,
+            string? id,
 
             string instanceId,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string timeZone)
+            string? timeZone)
         {
             Arn = arn;
             Configs = configs;

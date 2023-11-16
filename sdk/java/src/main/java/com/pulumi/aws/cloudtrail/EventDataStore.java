@@ -132,28 +132,28 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="advancedEventSelectors", refs={List.class,EventDataStoreAdvancedEventSelector.class}, tree="[0,1]")
-    private Output<List<EventDataStoreAdvancedEventSelector>> advancedEventSelectors;
+    private Output</* @Nullable */ List<EventDataStoreAdvancedEventSelector>> advancedEventSelectors;
 
     /**
      * @return The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      * 
      */
-    public Output<List<EventDataStoreAdvancedEventSelector>> advancedEventSelectors() {
-        return this.advancedEventSelectors;
+    public Output<Optional<List<EventDataStoreAdvancedEventSelector>>> advancedEventSelectors() {
+        return Codegen.optional(this.advancedEventSelectors);
     }
     /**
      * ARN of the event data store.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the event data store.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.

@@ -145,36 +145,36 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// ARN of the Configuration Profile.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string ConfigurationProfileId;
         /// <summary>
         /// Description of the Configuration Profile.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Location URI of the Configuration Profile.
         /// </summary>
-        public readonly string LocationUri;
+        public readonly string? LocationUri;
         /// <summary>
         /// Name of the Configuration Profile.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// ARN of an IAM role with permission to access the configuration at the specified location_uri.
         /// </summary>
-        public readonly string RetrievalRoleArn;
+        public readonly string? RetrievalRoleArn;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// Nested list of methods for validating the configuration.
         /// </summary>
@@ -184,23 +184,23 @@ namespace Pulumi.Aws.AppConfig
         private GetConfigurationProfileResult(
             string applicationId,
 
-            string arn,
+            string? arn,
 
             string configurationProfileId,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string locationUri,
+            string? locationUri,
 
-            string name,
+            string? name,
 
-            string retrievalRoleArn,
+            string? retrievalRoleArn,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type,
+            string? type,
 
             ImmutableArray<Outputs.GetConfigurationProfileValidatorResult> validators)
         {

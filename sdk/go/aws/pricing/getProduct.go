@@ -125,10 +125,10 @@ type GetProductArgs struct {
 type GetProductResult struct {
 	Filters []GetProductFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set to the product returned from the API.
-	Result      string `pulumi:"result"`
-	ServiceCode string `pulumi:"serviceCode"`
+	Result      *string `pulumi:"result"`
+	ServiceCode string  `pulumi:"serviceCode"`
 }
 
 func GetProductOutput(ctx *pulumi.Context, args GetProductOutputArgs, opts ...pulumi.InvokeOption) GetProductResultOutput {
@@ -176,13 +176,13 @@ func (o GetProductResultOutput) Filters() GetProductFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetProductResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProductResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetProductResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProductResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set to the product returned from the API.
-func (o GetProductResultOutput) Result() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProductResult) string { return v.Result }).(pulumi.StringOutput)
+func (o GetProductResultOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProductResult) *string { return v.Result }).(pulumi.StringPtrOutput)
 }
 
 func (o GetProductResultOutput) ServiceCode() pulumi.StringOutput {

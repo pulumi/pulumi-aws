@@ -59,53 +59,53 @@ export interface GetThemeResult {
     /**
      * ARN of the theme.
      */
-    readonly arn: string;
-    readonly awsAccountId: string;
+    readonly arn?: string;
+    readonly awsAccountId?: string;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
      */
-    readonly baseThemeId: string;
+    readonly baseThemeId?: string;
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
      */
-    readonly configurations: outputs.quicksight.GetThemeConfiguration[];
+    readonly configurations?: outputs.quicksight.GetThemeConfiguration[];
     /**
      * The time that the theme was created.
      */
-    readonly createdTime: string;
+    readonly createdTime?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The time that the theme was last updated.
      */
-    readonly lastUpdatedTime: string;
+    readonly lastUpdatedTime?: string;
     /**
      * Display name of the theme.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * A set of resource permissions on the theme. See permissions.
      */
-    readonly permissions: outputs.quicksight.GetThemePermission[];
+    readonly permissions?: outputs.quicksight.GetThemePermission[];
     /**
      * The theme creation status.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly themeId: string;
     /**
      * A description of the current theme version being created/updated.
      */
-    readonly versionDescription: string;
+    readonly versionDescription?: string;
     /**
      * The version number of the theme version.
      */
-    readonly versionNumber: number;
+    readonly versionNumber?: number;
 }
 /**
  * Data source for managing an AWS QuickSight Theme.

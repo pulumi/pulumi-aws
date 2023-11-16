@@ -142,50 +142,50 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
         /// </summary>
-        public readonly string CollectionArn;
+        public readonly string? CollectionArn;
         public readonly string CollectionName;
         /// <summary>
         /// Timestamp for when the geofence collection resource was created in ISO 8601 format.
         /// </summary>
-        public readonly string CreateTime;
+        public readonly string? CreateTime;
         /// <summary>
         /// Optional description of the geofence collection resource.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// Key-value map of resource tags for the geofence collection.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         /// </summary>
-        public readonly string UpdateTime;
+        public readonly string? UpdateTime;
 
         [OutputConstructor]
         private GetGeofenceCollectionResult(
-            string collectionArn,
+            string? collectionArn,
 
             string collectionName,
 
-            string createTime,
+            string? createTime,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string updateTime)
+            string? updateTime)
         {
             CollectionArn = collectionArn;
             CollectionName = collectionName;

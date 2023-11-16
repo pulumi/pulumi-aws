@@ -66,7 +66,7 @@ type Stream struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
@@ -83,7 +83,7 @@ type Stream struct {
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayOutput `pulumi:"shardLevelMetrics"`
 	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-	StreamModeDetails StreamStreamModeDetailsOutput `pulumi:"streamModeDetails"`
+	StreamModeDetails StreamStreamModeDetailsPtrOutput `pulumi:"streamModeDetails"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -322,8 +322,8 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 }
 
 // The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-func (o StreamOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StreamOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
@@ -363,8 +363,8 @@ func (o StreamOutput) ShardLevelMetrics() pulumi.StringArrayOutput {
 }
 
 // Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-func (o StreamOutput) StreamModeDetails() StreamStreamModeDetailsOutput {
-	return o.ApplyT(func(v *Stream) StreamStreamModeDetailsOutput { return v.StreamModeDetails }).(StreamStreamModeDetailsOutput)
+func (o StreamOutput) StreamModeDetails() StreamStreamModeDetailsPtrOutput {
+	return o.ApplyT(func(v *Stream) StreamStreamModeDetailsPtrOutput { return v.StreamModeDetails }).(StreamStreamModeDetailsPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

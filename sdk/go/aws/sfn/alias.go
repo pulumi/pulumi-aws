@@ -74,9 +74,9 @@ type Alias struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) identifying your state machine alias.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date the state machine alias was created.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// Description of the alias.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name for the alias you are creating.
@@ -254,13 +254,13 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 }
 
 // The Amazon Resource Name (ARN) identifying your state machine alias.
-func (o AliasOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AliasOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date the state machine alias was created.
-func (o AliasOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o AliasOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of the alias.

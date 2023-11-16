@@ -63,14 +63,14 @@ type LookupVpcLinkArgs struct {
 // A collection of values returned by getVpcLink.
 type LookupVpcLinkResult struct {
 	// Description of the VPC link.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Set to the ID of the found API Gateway VPC Link.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Status of the VPC link.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Status message of the VPC link.
-	StatusMessage string `pulumi:"statusMessage"`
+	StatusMessage *string `pulumi:"statusMessage"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
@@ -119,13 +119,13 @@ func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutputWithContext(ctx co
 }
 
 // Description of the VPC link.
-func (o LookupVpcLinkResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupVpcLinkResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Set to the ID of the found API Gateway VPC Link.
-func (o LookupVpcLinkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVpcLinkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVpcLinkResultOutput) Name() pulumi.StringOutput {
@@ -133,13 +133,13 @@ func (o LookupVpcLinkResultOutput) Name() pulumi.StringOutput {
 }
 
 // Status of the VPC link.
-func (o LookupVpcLinkResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupVpcLinkResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Status message of the VPC link.
-func (o LookupVpcLinkResultOutput) StatusMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.StatusMessage }).(pulumi.StringOutput)
+func (o LookupVpcLinkResultOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags

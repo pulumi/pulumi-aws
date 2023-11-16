@@ -40,7 +40,7 @@ class GetCipherTextResult:
 
     @property
     @pulumi.getter(name="ciphertextBlob")
-    def ciphertext_blob(self) -> str:
+    def ciphertext_blob(self) -> Optional[str]:
         """
         Base64 encoded ciphertext
         """
@@ -53,7 +53,7 @@ class GetCipherTextResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -102,12 +102,12 @@ def get_cipher_text(context: Optional[Mapping[str, str]] = None,
     oauth_config = aws.kms.Key("oauthConfig",
         description="oauth config",
         is_enabled=True)
-    oauth = aws.kms.get_cipher_text_output(key_id=oauth_config.key_id,
+    oauth = oauth_config.key_id.apply(lambda key_id: aws.kms.get_cipher_text_output(key_id=key_id,
         plaintext=\"\"\"{
       "client_id": "e587dbae22222f55da22",
       "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
     }
-    \"\"\")
+    \"\"\"))
     ```
 
 
@@ -150,12 +150,12 @@ def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, 
     oauth_config = aws.kms.Key("oauthConfig",
         description="oauth config",
         is_enabled=True)
-    oauth = aws.kms.get_cipher_text_output(key_id=oauth_config.key_id,
+    oauth = oauth_config.key_id.apply(lambda key_id: aws.kms.get_cipher_text_output(key_id=key_id,
         plaintext=\"\"\"{
       "client_id": "e587dbae22222f55da22",
       "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
     }
-    \"\"\")
+    \"\"\"))
     ```
 
 

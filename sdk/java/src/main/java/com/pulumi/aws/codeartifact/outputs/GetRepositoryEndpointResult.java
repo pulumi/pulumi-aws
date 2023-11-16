@@ -6,30 +6,32 @@ package com.pulumi.aws.codeartifact.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryEndpointResult {
     private String domain;
-    private String domainOwner;
+    private @Nullable String domainOwner;
     private String format;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String repository;
     /**
      * @return URL of the returned endpoint.
      * 
      */
-    private String repositoryEndpoint;
+    private @Nullable String repositoryEndpoint;
 
     private GetRepositoryEndpointResult() {}
     public String domain() {
         return this.domain;
     }
-    public String domainOwner() {
-        return this.domainOwner;
+    public Optional<String> domainOwner() {
+        return Optional.ofNullable(this.domainOwner);
     }
     public String format() {
         return this.format;
@@ -38,8 +40,8 @@ public final class GetRepositoryEndpointResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String repository() {
         return this.repository;
@@ -48,8 +50,8 @@ public final class GetRepositoryEndpointResult {
      * @return URL of the returned endpoint.
      * 
      */
-    public String repositoryEndpoint() {
-        return this.repositoryEndpoint;
+    public Optional<String> repositoryEndpoint() {
+        return Optional.ofNullable(this.repositoryEndpoint);
     }
 
     public static Builder builder() {
@@ -62,11 +64,11 @@ public final class GetRepositoryEndpointResult {
     @CustomType.Builder
     public static final class Builder {
         private String domain;
-        private String domainOwner;
+        private @Nullable String domainOwner;
         private String format;
-        private String id;
+        private @Nullable String id;
         private String repository;
-        private String repositoryEndpoint;
+        private @Nullable String repositoryEndpoint;
         public Builder() {}
         public Builder(GetRepositoryEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,8 +86,8 @@ public final class GetRepositoryEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder domainOwner(String domainOwner) {
-            this.domainOwner = Objects.requireNonNull(domainOwner);
+        public Builder domainOwner(@Nullable String domainOwner) {
+            this.domainOwner = domainOwner;
             return this;
         }
         @CustomType.Setter
@@ -94,8 +96,8 @@ public final class GetRepositoryEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -104,8 +106,8 @@ public final class GetRepositoryEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder repositoryEndpoint(String repositoryEndpoint) {
-            this.repositoryEndpoint = Objects.requireNonNull(repositoryEndpoint);
+        public Builder repositoryEndpoint(@Nullable String repositoryEndpoint) {
+            this.repositoryEndpoint = repositoryEndpoint;
             return this;
         }
         public GetRepositoryEndpointResult build() {

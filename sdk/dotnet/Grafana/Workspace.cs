@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Grafana
         /// The Amazon Resource Name (ARN) of the Grafana workspace.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Grafana
         /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         /// </summary>
         [Output("configuration")]
-        public Output<string> Configuration { get; private set; } = null!;
+        public Output<string?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
@@ -110,13 +110,13 @@ namespace Pulumi.Aws.Grafana
         /// The endpoint of the Grafana workspace.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
         /// </summary>
         [Output("grafanaVersion")]
-        public Output<string> GrafanaVersion { get; private set; } = null!;
+        public Output<string?> GrafanaVersion { get; private set; } = null!;
 
         /// <summary>
         /// The Grafana workspace name.
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Grafana
         public Output<string?> RoleArn { get; private set; } = null!;
 
         [Output("samlConfigurationStatus")]
-        public Output<string> SamlConfigurationStatus { get; private set; } = null!;
+        public Output<string?> SamlConfigurationStatus { get; private set; } = null!;
 
         /// <summary>
         /// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.

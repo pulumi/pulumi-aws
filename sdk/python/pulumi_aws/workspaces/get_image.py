@@ -46,7 +46,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The description of the image.
         """
@@ -54,7 +54,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -67,7 +67,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the image.
         """
@@ -75,12 +75,12 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="operatingSystemType")
-    def operating_system_type(self) -> str:
+    def operating_system_type(self) -> Optional[str]:
         return pulumi.get(self, "operating_system_type")
 
     @property
     @pulumi.getter(name="requiredTenancy")
-    def required_tenancy(self) -> str:
+    def required_tenancy(self) -> Optional[str]:
         """
         Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
         """
@@ -88,7 +88,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         The status of the image.
         """

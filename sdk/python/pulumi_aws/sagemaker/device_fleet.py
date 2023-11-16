@@ -446,7 +446,7 @@ class DeviceFleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
         """
@@ -478,7 +478,7 @@ class DeviceFleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iotRoleAlias")
-    def iot_role_alias(self) -> pulumi.Output[str]:
+    def iot_role_alias(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "iot_role_alias")
 
     @property

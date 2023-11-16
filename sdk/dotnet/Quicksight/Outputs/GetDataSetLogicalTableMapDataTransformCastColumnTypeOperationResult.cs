@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult
     {
-        public readonly string ColumnName;
-        public readonly string Format;
-        public readonly string NewColumnType;
+        public readonly string? ColumnName;
+        public readonly string? Format;
+        public readonly string? NewColumnType;
 
         [OutputConstructor]
         private GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult(
-            string columnName,
+            string? columnName,
 
-            string format,
+            string? format,
 
-            string newColumnType)
+            string? newColumnType)
         {
             ColumnName = columnName;
             Format = format;

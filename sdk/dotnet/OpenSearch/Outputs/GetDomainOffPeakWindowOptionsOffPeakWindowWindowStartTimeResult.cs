@@ -16,17 +16,17 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Starting hour of the 10-hour window for updates
         /// </summary>
-        public readonly int Hours;
+        public readonly int? Hours;
         /// <summary>
         /// Starting minute of the 10-hour window for updates
         /// </summary>
-        public readonly int Minutes;
+        public readonly int? Minutes;
 
         [OutputConstructor]
         private GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult(
-            int hours,
+            int? hours,
 
-            int minutes)
+            int? minutes)
         {
             Hours = hours;
             Minutes = minutes;

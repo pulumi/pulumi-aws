@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -138,14 +139,14 @@ public class PartitionIndex extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
-    private Output<String> catalogId;
+    private Output</* @Nullable */ String> catalogId;
 
     /**
      * @return The catalog ID where the table resides.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Output<Optional<String>> catalogId() {
+        return Codegen.optional(this.catalogId);
     }
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.

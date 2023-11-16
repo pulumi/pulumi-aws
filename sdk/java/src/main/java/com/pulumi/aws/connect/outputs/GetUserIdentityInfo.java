@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserIdentityInfo {
@@ -13,39 +15,39 @@ public final class GetUserIdentityInfo {
      * @return The email address.
      * 
      */
-    private String email;
+    private @Nullable String email;
     /**
      * @return The first name.
      * 
      */
-    private String firstName;
+    private @Nullable String firstName;
     /**
      * @return The last name.
      * 
      */
-    private String lastName;
+    private @Nullable String lastName;
 
     private GetUserIdentityInfo() {}
     /**
      * @return The email address.
      * 
      */
-    public String email() {
-        return this.email;
+    public Optional<String> email() {
+        return Optional.ofNullable(this.email);
     }
     /**
      * @return The first name.
      * 
      */
-    public String firstName() {
-        return this.firstName;
+    public Optional<String> firstName() {
+        return Optional.ofNullable(this.firstName);
     }
     /**
      * @return The last name.
      * 
      */
-    public String lastName() {
-        return this.lastName;
+    public Optional<String> lastName() {
+        return Optional.ofNullable(this.lastName);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetUserIdentityInfo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String email;
-        private String firstName;
-        private String lastName;
+        private @Nullable String email;
+        private @Nullable String firstName;
+        private @Nullable String lastName;
         public Builder() {}
         public Builder(GetUserIdentityInfo defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetUserIdentityInfo {
         }
 
         @CustomType.Setter
-        public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+        public Builder email(@Nullable String email) {
+            this.email = email;
             return this;
         }
         @CustomType.Setter
-        public Builder firstName(String firstName) {
-            this.firstName = Objects.requireNonNull(firstName);
+        public Builder firstName(@Nullable String firstName) {
+            this.firstName = firstName;
             return this;
         }
         @CustomType.Setter
-        public Builder lastName(String lastName) {
-            this.lastName = Objects.requireNonNull(lastName);
+        public Builder lastName(@Nullable String lastName) {
+            this.lastName = lastName;
             return this;
         }
         public GetUserIdentityInfo build() {

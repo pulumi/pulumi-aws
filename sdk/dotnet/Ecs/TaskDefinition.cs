@@ -346,13 +346,13 @@ namespace Pulumi.Aws.Ecs
         /// Full ARN of the Task Definition (including both `family` and `revision`).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         /// </summary>
         [Output("arnWithoutRevision")]
-        public Output<string> ArnWithoutRevision { get; private set; } = null!;
+        public Output<string?> ArnWithoutRevision { get; private set; } = null!;
 
         /// <summary>
         /// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
@@ -408,7 +408,7 @@ namespace Pulumi.Aws.Ecs
         /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         /// </summary>
         [Output("networkMode")]
-        public Output<string> NetworkMode { get; private set; } = null!;
+        public Output<string?> NetworkMode { get; private set; } = null!;
 
         /// <summary>
         /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
@@ -438,7 +438,7 @@ namespace Pulumi.Aws.Ecs
         /// Revision of the task in a particular family.
         /// </summary>
         [Output("revision")]
-        public Output<int> Revision { get; private set; } = null!;
+        public Output<int?> Revision { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for runtime_platform that containers in your task may use.

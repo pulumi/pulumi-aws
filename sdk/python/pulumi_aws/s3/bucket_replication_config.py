@@ -192,14 +192,14 @@ class BucketReplicationConfig(pulumi.CustomResource):
         replication_role = aws.iam.Role("replicationRole", assume_role_policy=assume_role.json)
         destination_bucket_v2 = aws.s3.BucketV2("destinationBucketV2")
         source_bucket_v2 = aws.s3.BucketV2("sourceBucketV2", opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy_document = aws.iam.get_policy_document_output(statements=[
+        replication_policy_document = pulumi.Output.all(source_bucket_v2.arn, source_bucket_v2.arn, destination_bucket_v2.arn).apply(lambda sourceBucketV2Arn, sourceBucketV2Arn1, destinationBucketV2Arn: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
                     "s3:GetReplicationConfiguration",
                     "s3:ListBucket",
                 ],
-                resources=[source_bucket_v2.arn],
+                resources=[source_bucket_v2_arn],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
@@ -208,7 +208,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     "s3:GetObjectVersionAcl",
                     "s3:GetObjectVersionTagging",
                 ],
-                resources=[source_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+                resources=[f"{source_bucket_v2_arn1}/*"],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
@@ -217,9 +217,9 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     "s3:ReplicateDelete",
                     "s3:ReplicateTags",
                 ],
-                resources=[destination_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+                resources=[f"{destination_bucket_v2_arn}/*"],
             ),
-        ])
+        ]))
         replication_policy = aws.iam.Policy("replicationPolicy", policy=replication_policy_document.json)
         replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
             role=replication_role.name,
@@ -355,14 +355,14 @@ class BucketReplicationConfig(pulumi.CustomResource):
         replication_role = aws.iam.Role("replicationRole", assume_role_policy=assume_role.json)
         destination_bucket_v2 = aws.s3.BucketV2("destinationBucketV2")
         source_bucket_v2 = aws.s3.BucketV2("sourceBucketV2", opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy_document = aws.iam.get_policy_document_output(statements=[
+        replication_policy_document = pulumi.Output.all(source_bucket_v2.arn, source_bucket_v2.arn, destination_bucket_v2.arn).apply(lambda sourceBucketV2Arn, sourceBucketV2Arn1, destinationBucketV2Arn: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
                     "s3:GetReplicationConfiguration",
                     "s3:ListBucket",
                 ],
-                resources=[source_bucket_v2.arn],
+                resources=[source_bucket_v2_arn],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
@@ -371,7 +371,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     "s3:GetObjectVersionAcl",
                     "s3:GetObjectVersionTagging",
                 ],
-                resources=[source_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+                resources=[f"{source_bucket_v2_arn1}/*"],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
@@ -380,9 +380,9 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     "s3:ReplicateDelete",
                     "s3:ReplicateTags",
                 ],
-                resources=[destination_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+                resources=[f"{destination_bucket_v2_arn}/*"],
             ),
-        ])
+        ]))
         replication_policy = aws.iam.Policy("replicationPolicy", policy=replication_policy_document.json)
         replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
             role=replication_role.name,

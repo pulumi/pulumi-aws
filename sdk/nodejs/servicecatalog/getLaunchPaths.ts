@@ -55,12 +55,12 @@ export interface GetLaunchPathsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly productId: string;
     /**
      * Block with information about the launch path. See details below.
      */
-    readonly summaries: outputs.servicecatalog.GetLaunchPathsSummary[];
+    readonly summaries?: outputs.servicecatalog.GetLaunchPathsSummary[];
 }
 /**
  * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.

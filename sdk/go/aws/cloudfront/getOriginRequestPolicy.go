@@ -85,11 +85,11 @@ type LookupOriginRequestPolicyArgs struct {
 // A collection of values returned by getOriginRequestPolicy.
 type LookupOriginRequestPolicyResult struct {
 	// Comment to describe the origin request policy.
-	Comment string `pulumi:"comment"`
+	Comment *string `pulumi:"comment"`
 	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 	CookiesConfigs []GetOriginRequestPolicyCookiesConfig `pulumi:"cookiesConfigs"`
 	// Current version of the origin request policy.
-	Etag string `pulumi:"etag"`
+	Etag *string `pulumi:"etag"`
 	// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
 	HeadersConfigs []GetOriginRequestPolicyHeadersConfig `pulumi:"headersConfigs"`
 	Id             *string                               `pulumi:"id"`
@@ -139,8 +139,8 @@ func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResult
 }
 
 // Comment to describe the origin request policy.
-func (o LookupOriginRequestPolicyResultOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOriginRequestPolicyResult) string { return v.Comment }).(pulumi.StringOutput)
+func (o LookupOriginRequestPolicyResultOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
@@ -149,8 +149,8 @@ func (o LookupOriginRequestPolicyResultOutput) CookiesConfigs() GetOriginRequest
 }
 
 // Current version of the origin request policy.
-func (o LookupOriginRequestPolicyResultOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOriginRequestPolicyResult) string { return v.Etag }).(pulumi.StringOutput)
+func (o LookupOriginRequestPolicyResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.

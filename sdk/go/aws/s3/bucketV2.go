@@ -107,21 +107,21 @@ type BucketV2 struct {
 	// Use the resource `s3.BucketAccelerateConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_accelerate_configuration resource instead
-	AccelerationStatus pulumi.StringOutput `pulumi:"accelerationStatus"`
+	AccelerationStatus pulumi.StringPtrOutput `pulumi:"accelerationStatus"`
 	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_acl resource instead
-	Acl pulumi.StringOutput `pulumi:"acl"`
+	Acl pulumi.StringPtrOutput `pulumi:"acl"`
 	// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-	BucketDomainName pulumi.StringOutput `pulumi:"bucketDomainName"`
+	BucketDomainName pulumi.StringPtrOutput `pulumi:"bucketDomainName"`
 	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-	BucketPrefix pulumi.StringOutput `pulumi:"bucketPrefix"`
+	BucketPrefix pulumi.StringPtrOutput `pulumi:"bucketPrefix"`
 	// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
-	BucketRegionalDomainName pulumi.StringOutput `pulumi:"bucketRegionalDomainName"`
+	BucketRegionalDomainName pulumi.StringPtrOutput `pulumi:"bucketRegionalDomainName"`
 	// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_cors_configuration resource instead
@@ -133,7 +133,7 @@ type BucketV2 struct {
 	// Deprecated: Use the aws_s3_bucket_acl resource instead
 	Grants BucketV2GrantArrayOutput `pulumi:"grants"`
 	// [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringPtrOutput `pulumi:"hostedZoneId"`
 	// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketLifecycleConfigurationV2` instead.
 	//
@@ -149,17 +149,17 @@ type BucketV2 struct {
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
 	//
 	// Deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
-	ObjectLockConfiguration BucketV2ObjectLockConfigurationOutput `pulumi:"objectLockConfiguration"`
+	ObjectLockConfiguration BucketV2ObjectLockConfigurationPtrOutput `pulumi:"objectLockConfiguration"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-	ObjectLockEnabled pulumi.BoolOutput `pulumi:"objectLockEnabled"`
+	ObjectLockEnabled pulumi.BoolPtrOutput `pulumi:"objectLockEnabled"`
 	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	// The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// AWS region this bucket resides in.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketReplicationConfig` instead.
 	//
@@ -172,7 +172,7 @@ type BucketV2 struct {
 	// Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead
-	RequestPayer pulumi.StringOutput `pulumi:"requestPayer"`
+	RequestPayer pulumi.StringPtrOutput `pulumi:"requestPayer"`
 	// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
 	// The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
@@ -194,11 +194,11 @@ type BucketV2 struct {
 	// (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_website_configuration resource
-	WebsiteDomain pulumi.StringOutput `pulumi:"websiteDomain"`
+	WebsiteDomain pulumi.StringPtrOutput `pulumi:"websiteDomain"`
 	// (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_website_configuration resource
-	WebsiteEndpoint pulumi.StringOutput `pulumi:"websiteEndpoint"`
+	WebsiteEndpoint pulumi.StringPtrOutput `pulumi:"websiteEndpoint"`
 	// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 	//
@@ -713,20 +713,20 @@ func (o BucketV2Output) ToBucketV2OutputWithContext(ctx context.Context) BucketV
 // Use the resource `s3.BucketAccelerateConfigurationV2` instead.
 //
 // Deprecated: Use the aws_s3_bucket_accelerate_configuration resource instead
-func (o BucketV2Output) AccelerationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.AccelerationStatus }).(pulumi.StringOutput)
+func (o BucketV2Output) AccelerationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.AccelerationStatus }).(pulumi.StringPtrOutput)
 }
 
 // The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
 //
 // Deprecated: Use the aws_s3_bucket_acl resource instead
-func (o BucketV2Output) Acl() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.Acl }).(pulumi.StringOutput)
+func (o BucketV2Output) Acl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-func (o BucketV2Output) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BucketV2Output) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -735,18 +735,18 @@ func (o BucketV2Output) Bucket() pulumi.StringOutput {
 }
 
 // Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-func (o BucketV2Output) BucketDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.BucketDomainName }).(pulumi.StringOutput)
+func (o BucketV2Output) BucketDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.BucketDomainName }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-func (o BucketV2Output) BucketPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.BucketPrefix }).(pulumi.StringOutput)
+func (o BucketV2Output) BucketPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
 // The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
-func (o BucketV2Output) BucketRegionalDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.BucketRegionalDomainName }).(pulumi.StringOutput)
+func (o BucketV2Output) BucketRegionalDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.BucketRegionalDomainName }).(pulumi.StringPtrOutput)
 }
 
 // Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
@@ -769,8 +769,8 @@ func (o BucketV2Output) Grants() BucketV2GrantArrayOutput {
 }
 
 // [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-func (o BucketV2Output) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o BucketV2Output) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -794,13 +794,13 @@ func (o BucketV2Output) Loggings() BucketV2LoggingArrayOutput {
 // Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
 //
 // Deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
-func (o BucketV2Output) ObjectLockConfiguration() BucketV2ObjectLockConfigurationOutput {
-	return o.ApplyT(func(v *BucketV2) BucketV2ObjectLockConfigurationOutput { return v.ObjectLockConfiguration }).(BucketV2ObjectLockConfigurationOutput)
+func (o BucketV2Output) ObjectLockConfiguration() BucketV2ObjectLockConfigurationPtrOutput {
+	return o.ApplyT(func(v *BucketV2) BucketV2ObjectLockConfigurationPtrOutput { return v.ObjectLockConfiguration }).(BucketV2ObjectLockConfigurationPtrOutput)
 }
 
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-func (o BucketV2Output) ObjectLockEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.BoolOutput { return v.ObjectLockEnabled }).(pulumi.BoolOutput)
+func (o BucketV2Output) ObjectLockEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.BoolPtrOutput { return v.ObjectLockEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
@@ -808,13 +808,13 @@ func (o BucketV2Output) ObjectLockEnabled() pulumi.BoolOutput {
 // Use the resource `s3.BucketPolicy` instead.
 //
 // Deprecated: Use the aws_s3_bucket_policy resource instead
-func (o BucketV2Output) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o BucketV2Output) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // AWS region this bucket resides in.
-func (o BucketV2Output) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+func (o BucketV2Output) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -832,8 +832,8 @@ func (o BucketV2Output) ReplicationConfigurations() BucketV2ReplicationConfigura
 // Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
 //
 // Deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead
-func (o BucketV2Output) RequestPayer() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.RequestPayer }).(pulumi.StringOutput)
+func (o BucketV2Output) RequestPayer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.RequestPayer }).(pulumi.StringPtrOutput)
 }
 
 // Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
@@ -871,15 +871,15 @@ func (o BucketV2Output) Versionings() BucketV2VersioningArrayOutput {
 // (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 //
 // Deprecated: Use the aws_s3_bucket_website_configuration resource
-func (o BucketV2Output) WebsiteDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.WebsiteDomain }).(pulumi.StringOutput)
+func (o BucketV2Output) WebsiteDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.WebsiteDomain }).(pulumi.StringPtrOutput)
 }
 
 // (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 //
 // Deprecated: Use the aws_s3_bucket_website_configuration resource
-func (o BucketV2Output) WebsiteEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.WebsiteEndpoint }).(pulumi.StringOutput)
+func (o BucketV2Output) WebsiteEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketV2) pulumi.StringPtrOutput { return v.WebsiteEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.

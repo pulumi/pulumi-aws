@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInterfaceAssociation {
@@ -13,87 +15,87 @@ public final class GetNetworkInterfaceAssociation {
      * @return Allocation ID.
      * 
      */
-    private String allocationId;
+    private @Nullable String allocationId;
     /**
      * @return Association ID.
      * 
      */
-    private String associationId;
+    private @Nullable String associationId;
     /**
      * @return Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
      * 
      */
-    private String carrierIp;
+    private @Nullable String carrierIp;
     /**
      * @return Customer-owned IP address.
      * 
      */
-    private String customerOwnedIp;
+    private @Nullable String customerOwnedIp;
     /**
      * @return ID of the Elastic IP address owner.
      * 
      */
-    private String ipOwnerId;
+    private @Nullable String ipOwnerId;
     /**
      * @return Public DNS name.
      * 
      */
-    private String publicDnsName;
+    private @Nullable String publicDnsName;
     /**
      * @return Address of the Elastic IP address bound to the network interface.
      * 
      */
-    private String publicIp;
+    private @Nullable String publicIp;
 
     private GetNetworkInterfaceAssociation() {}
     /**
      * @return Allocation ID.
      * 
      */
-    public String allocationId() {
-        return this.allocationId;
+    public Optional<String> allocationId() {
+        return Optional.ofNullable(this.allocationId);
     }
     /**
      * @return Association ID.
      * 
      */
-    public String associationId() {
-        return this.associationId;
+    public Optional<String> associationId() {
+        return Optional.ofNullable(this.associationId);
     }
     /**
      * @return Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
      * 
      */
-    public String carrierIp() {
-        return this.carrierIp;
+    public Optional<String> carrierIp() {
+        return Optional.ofNullable(this.carrierIp);
     }
     /**
      * @return Customer-owned IP address.
      * 
      */
-    public String customerOwnedIp() {
-        return this.customerOwnedIp;
+    public Optional<String> customerOwnedIp() {
+        return Optional.ofNullable(this.customerOwnedIp);
     }
     /**
      * @return ID of the Elastic IP address owner.
      * 
      */
-    public String ipOwnerId() {
-        return this.ipOwnerId;
+    public Optional<String> ipOwnerId() {
+        return Optional.ofNullable(this.ipOwnerId);
     }
     /**
      * @return Public DNS name.
      * 
      */
-    public String publicDnsName() {
-        return this.publicDnsName;
+    public Optional<String> publicDnsName() {
+        return Optional.ofNullable(this.publicDnsName);
     }
     /**
      * @return Address of the Elastic IP address bound to the network interface.
      * 
      */
-    public String publicIp() {
-        return this.publicIp;
+    public Optional<String> publicIp() {
+        return Optional.ofNullable(this.publicIp);
     }
 
     public static Builder builder() {
@@ -105,13 +107,13 @@ public final class GetNetworkInterfaceAssociation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String allocationId;
-        private String associationId;
-        private String carrierIp;
-        private String customerOwnedIp;
-        private String ipOwnerId;
-        private String publicDnsName;
-        private String publicIp;
+        private @Nullable String allocationId;
+        private @Nullable String associationId;
+        private @Nullable String carrierIp;
+        private @Nullable String customerOwnedIp;
+        private @Nullable String ipOwnerId;
+        private @Nullable String publicDnsName;
+        private @Nullable String publicIp;
         public Builder() {}
         public Builder(GetNetworkInterfaceAssociation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -125,38 +127,38 @@ public final class GetNetworkInterfaceAssociation {
         }
 
         @CustomType.Setter
-        public Builder allocationId(String allocationId) {
-            this.allocationId = Objects.requireNonNull(allocationId);
+        public Builder allocationId(@Nullable String allocationId) {
+            this.allocationId = allocationId;
             return this;
         }
         @CustomType.Setter
-        public Builder associationId(String associationId) {
-            this.associationId = Objects.requireNonNull(associationId);
+        public Builder associationId(@Nullable String associationId) {
+            this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
-        public Builder carrierIp(String carrierIp) {
-            this.carrierIp = Objects.requireNonNull(carrierIp);
+        public Builder carrierIp(@Nullable String carrierIp) {
+            this.carrierIp = carrierIp;
             return this;
         }
         @CustomType.Setter
-        public Builder customerOwnedIp(String customerOwnedIp) {
-            this.customerOwnedIp = Objects.requireNonNull(customerOwnedIp);
+        public Builder customerOwnedIp(@Nullable String customerOwnedIp) {
+            this.customerOwnedIp = customerOwnedIp;
             return this;
         }
         @CustomType.Setter
-        public Builder ipOwnerId(String ipOwnerId) {
-            this.ipOwnerId = Objects.requireNonNull(ipOwnerId);
+        public Builder ipOwnerId(@Nullable String ipOwnerId) {
+            this.ipOwnerId = ipOwnerId;
             return this;
         }
         @CustomType.Setter
-        public Builder publicDnsName(String publicDnsName) {
-            this.publicDnsName = Objects.requireNonNull(publicDnsName);
+        public Builder publicDnsName(@Nullable String publicDnsName) {
+            this.publicDnsName = publicDnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder publicIp(String publicIp) {
-            this.publicIp = Objects.requireNonNull(publicIp);
+        public Builder publicIp(@Nullable String publicIp) {
+            this.publicIp = publicIp;
             return this;
         }
         public GetNetworkInterfaceAssociation build() {

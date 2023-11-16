@@ -71,7 +71,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this Elastic Beanstalk Application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Short description of the application
      */

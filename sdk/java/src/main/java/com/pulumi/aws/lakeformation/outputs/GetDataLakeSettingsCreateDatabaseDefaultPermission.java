@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataLakeSettingsCreateDatabaseDefaultPermission {
@@ -14,12 +16,12 @@ public final class GetDataLakeSettingsCreateDatabaseDefaultPermission {
      * @return List of permissions granted to the principal.
      * 
      */
-    private List<String> permissions;
+    private @Nullable List<String> permissions;
     /**
      * @return Principal who is granted permissions.
      * 
      */
-    private String principal;
+    private @Nullable String principal;
 
     private GetDataLakeSettingsCreateDatabaseDefaultPermission() {}
     /**
@@ -27,14 +29,14 @@ public final class GetDataLakeSettingsCreateDatabaseDefaultPermission {
      * 
      */
     public List<String> permissions() {
-        return this.permissions;
+        return this.permissions == null ? List.of() : this.permissions;
     }
     /**
      * @return Principal who is granted permissions.
      * 
      */
-    public String principal() {
-        return this.principal;
+    public Optional<String> principal() {
+        return Optional.ofNullable(this.principal);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetDataLakeSettingsCreateDatabaseDefaultPermission {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> permissions;
-        private String principal;
+        private @Nullable List<String> permissions;
+        private @Nullable String principal;
         public Builder() {}
         public Builder(GetDataLakeSettingsCreateDatabaseDefaultPermission defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,16 +58,16 @@ public final class GetDataLakeSettingsCreateDatabaseDefaultPermission {
         }
 
         @CustomType.Setter
-        public Builder permissions(List<String> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+        public Builder permissions(@Nullable List<String> permissions) {
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
         @CustomType.Setter
-        public Builder principal(String principal) {
-            this.principal = Objects.requireNonNull(principal);
+        public Builder principal(@Nullable String principal) {
+            this.principal = principal;
             return this;
         }
         public GetDataLakeSettingsCreateDatabaseDefaultPermission build() {

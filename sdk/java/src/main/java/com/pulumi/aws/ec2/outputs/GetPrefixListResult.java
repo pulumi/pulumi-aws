@@ -17,18 +17,18 @@ public final class GetPrefixListResult {
      * @return List of CIDR blocks for the AWS service associated with the prefix list.
      * 
      */
-    private List<String> cidrBlocks;
+    private @Nullable List<String> cidrBlocks;
     private @Nullable List<GetPrefixListFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the selected prefix list.
      * 
      */
-    private String name;
+    private @Nullable String name;
     private @Nullable String prefixListId;
 
     private GetPrefixListResult() {}
@@ -37,7 +37,7 @@ public final class GetPrefixListResult {
      * 
      */
     public List<String> cidrBlocks() {
-        return this.cidrBlocks;
+        return this.cidrBlocks == null ? List.of() : this.cidrBlocks;
     }
     public List<GetPrefixListFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -46,15 +46,15 @@ public final class GetPrefixListResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the selected prefix list.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public Optional<String> prefixListId() {
         return Optional.ofNullable(this.prefixListId);
@@ -69,10 +69,10 @@ public final class GetPrefixListResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> cidrBlocks;
+        private @Nullable List<String> cidrBlocks;
         private @Nullable List<GetPrefixListFilter> filters;
-        private String id;
-        private String name;
+        private @Nullable String id;
+        private @Nullable String name;
         private @Nullable String prefixListId;
         public Builder() {}
         public Builder(GetPrefixListResult defaults) {
@@ -85,8 +85,8 @@ public final class GetPrefixListResult {
         }
 
         @CustomType.Setter
-        public Builder cidrBlocks(List<String> cidrBlocks) {
-            this.cidrBlocks = Objects.requireNonNull(cidrBlocks);
+        public Builder cidrBlocks(@Nullable List<String> cidrBlocks) {
+            this.cidrBlocks = cidrBlocks;
             return this;
         }
         public Builder cidrBlocks(String... cidrBlocks) {
@@ -101,13 +101,13 @@ public final class GetPrefixListResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter

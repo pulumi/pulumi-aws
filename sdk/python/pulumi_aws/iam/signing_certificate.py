@@ -319,7 +319,7 @@ class SigningCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> pulumi.Output[str]:
+    def certificate_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID for the signing certificate.
         """

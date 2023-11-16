@@ -58,11 +58,11 @@ type Project struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Project.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description for the project.
 	ProjectDescription pulumi.StringPtrOutput `pulumi:"projectDescription"`
 	// The ID of the project.
-	ProjectId pulumi.StringOutput `pulumi:"projectId"`
+	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
 	// The name of the Project.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
@@ -267,8 +267,8 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Project.
-func (o ProjectOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProjectOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description for the project.
@@ -277,8 +277,8 @@ func (o ProjectOutput) ProjectDescription() pulumi.StringPtrOutput {
 }
 
 // The ID of the project.
-func (o ProjectOutput) ProjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
+func (o ProjectOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Project.

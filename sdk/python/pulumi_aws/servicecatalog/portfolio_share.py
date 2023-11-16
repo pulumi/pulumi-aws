@@ -472,7 +472,7 @@ class PortfolioShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accepted(self) -> pulumi.Output[bool]:
+    def accepted(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
         """

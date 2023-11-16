@@ -109,7 +109,7 @@ namespace Pulumi.Aws.MskConnect
         /// The Amazon Resource Name (ARN) of the custom plugin.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Information about the capacity allocated to the connector. See below.
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.MskConnect
         /// The current version of the connector.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
         /// <summary>
         /// Specifies which worker configuration to use with the connector. See below.

@@ -54,7 +54,7 @@ namespace Pulumi.Aws.DeviceFarm
         /// The Amazon Resource Name of this Device Pool
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The device pool's description.
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.DeviceFarm
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

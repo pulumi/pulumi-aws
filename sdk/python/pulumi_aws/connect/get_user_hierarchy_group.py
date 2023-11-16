@@ -50,7 +50,7 @@ class GetUserHierarchyGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the hierarchy group.
         """
@@ -58,12 +58,12 @@ class GetUserHierarchyGroupResult:
 
     @property
     @pulumi.getter(name="hierarchyGroupId")
-    def hierarchy_group_id(self) -> str:
+    def hierarchy_group_id(self) -> Optional[str]:
         return pulumi.get(self, "hierarchy_group_id")
 
     @property
     @pulumi.getter(name="hierarchyPaths")
-    def hierarchy_paths(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathResult']:
+    def hierarchy_paths(self) -> Optional[Sequence['outputs.GetUserHierarchyGroupHierarchyPathResult']]:
         """
         Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         """
@@ -71,7 +71,7 @@ class GetUserHierarchyGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -84,7 +84,7 @@ class GetUserHierarchyGroupResult:
 
     @property
     @pulumi.getter(name="levelId")
-    def level_id(self) -> str:
+    def level_id(self) -> Optional[str]:
         """
         Identifier of the level in the hierarchy group.
         """
@@ -92,7 +92,7 @@ class GetUserHierarchyGroupResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the hierarchy group.
         """
@@ -100,7 +100,7 @@ class GetUserHierarchyGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assign to the hierarchy group.
         """

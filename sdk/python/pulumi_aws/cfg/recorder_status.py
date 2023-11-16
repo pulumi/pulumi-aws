@@ -126,14 +126,14 @@ class RecorderStatus(pulumi.CustomResource):
             role=role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_document = pulumi.Output.all(bucket_v2.arn, bucket_v2.arn).apply(lambda bucketV2Arn, bucketV2Arn1: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["s3:*"],
             resources=[
-                bucket_v2.arn,
-                bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                bucket_v2_arn,
+                f"{bucket_v2_arn1}/*",
             ],
-        )])
+        )]))
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
             policy=policy_document.json)
@@ -186,14 +186,14 @@ class RecorderStatus(pulumi.CustomResource):
             role=role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_document = pulumi.Output.all(bucket_v2.arn, bucket_v2.arn).apply(lambda bucketV2Arn, bucketV2Arn1: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["s3:*"],
             resources=[
-                bucket_v2.arn,
-                bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                bucket_v2_arn,
+                f"{bucket_v2_arn1}/*",
             ],
-        )])
+        )]))
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
             policy=policy_document.json)

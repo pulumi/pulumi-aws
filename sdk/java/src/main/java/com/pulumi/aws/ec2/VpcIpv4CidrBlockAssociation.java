@@ -74,14 +74,14 @@ public class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
-    private Output<String> cidrBlock;
+    private Output</* @Nullable */ String> cidrBlock;
 
     /**
      * @return The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
      * 
      */
-    public Output<String> cidrBlock() {
-        return this.cidrBlock;
+    public Output<Optional<String>> cidrBlock() {
+        return Codegen.optional(this.cidrBlock);
     }
     /**
      * The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.

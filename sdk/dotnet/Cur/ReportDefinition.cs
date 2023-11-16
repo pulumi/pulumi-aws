@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Cur
         /// The Amazon Resource Name (ARN) specifying the cur report.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.

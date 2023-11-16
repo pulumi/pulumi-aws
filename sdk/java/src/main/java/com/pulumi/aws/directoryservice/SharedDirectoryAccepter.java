@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -78,56 +79,56 @@ public class SharedDirectoryAccepter extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="method", refs={String.class}, tree="[0]")
-    private Output<String> method;
+    private Output</* @Nullable */ String> method;
 
     /**
      * @return Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
      * 
      */
-    public Output<String> method() {
-        return this.method;
+    public Output<Optional<String>> method() {
+        return Codegen.optional(this.method);
     }
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      * 
      */
     @Export(name="notes", refs={String.class}, tree="[0]")
-    private Output<String> notes;
+    private Output</* @Nullable */ String> notes;
 
     /**
      * @return Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      * 
      */
-    public Output<String> notes() {
-        return this.notes;
+    public Output<Optional<String>> notes() {
+        return Codegen.optional(this.notes);
     }
     /**
      * Account identifier of the directory owner.
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> ownerAccountId;
+    private Output</* @Nullable */ String> ownerAccountId;
 
     /**
      * @return Account identifier of the directory owner.
      * 
      */
-    public Output<String> ownerAccountId() {
-        return this.ownerAccountId;
+    public Output<Optional<String>> ownerAccountId() {
+        return Codegen.optional(this.ownerAccountId);
     }
     /**
      * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
      * 
      */
     @Export(name="ownerDirectoryId", refs={String.class}, tree="[0]")
-    private Output<String> ownerDirectoryId;
+    private Output</* @Nullable */ String> ownerDirectoryId;
 
     /**
      * @return Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
      * 
      */
-    public Output<String> ownerDirectoryId() {
-        return this.ownerDirectoryId;
+    public Output<Optional<String>> ownerDirectoryId() {
+        return Codegen.optional(this.ownerDirectoryId);
     }
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.

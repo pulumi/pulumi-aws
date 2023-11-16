@@ -795,7 +795,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessEndpoints")
-    def access_endpoints(self) -> pulumi.Output[Sequence['outputs.StackAccessEndpoint']]:
+    def access_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.StackAccessEndpoint']]]:
         """
         Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
         See `access_endpoints` below.
@@ -804,7 +804,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationSettings")
-    def application_settings(self) -> pulumi.Output['outputs.StackApplicationSettings']:
+    def application_settings(self) -> pulumi.Output[Optional['outputs.StackApplicationSettings']]:
         """
         Settings for application settings persistence.
         See `application_settings` below.
@@ -813,7 +813,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the appstream stack.
         """
@@ -821,7 +821,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when the stack was created.
         """
@@ -845,7 +845,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="embedHostDomains")
-    def embed_host_domains(self) -> pulumi.Output[Sequence[str]]:
+    def embed_host_domains(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
         """
@@ -853,7 +853,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="feedbackUrl")
-    def feedback_url(self) -> pulumi.Output[str]:
+    def feedback_url(self) -> pulumi.Output[Optional[str]]:
         """
         URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         """
@@ -871,7 +871,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redirectUrl")
-    def redirect_url(self) -> pulumi.Output[str]:
+    def redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
         URL that users are redirected to after their streaming session ends.
         """
@@ -879,7 +879,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageConnectors")
-    def storage_connectors(self) -> pulumi.Output[Sequence['outputs.StackStorageConnector']]:
+    def storage_connectors(self) -> pulumi.Output[Optional[Sequence['outputs.StackStorageConnector']]]:
         """
         Configuration block for the storage connectors to enable.
         See `storage_connectors` below.
@@ -888,7 +888,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamingExperienceSettings")
-    def streaming_experience_settings(self) -> pulumi.Output['outputs.StackStreamingExperienceSettings']:
+    def streaming_experience_settings(self) -> pulumi.Output[Optional['outputs.StackStreamingExperienceSettings']]:
         """
         The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
         See `streaming_experience_settings` below.
@@ -913,7 +913,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userSettings")
-    def user_settings(self) -> pulumi.Output[Sequence['outputs.StackUserSetting']]:
+    def user_settings(self) -> pulumi.Output[Optional[Sequence['outputs.StackUserSetting']]]:
         """
         Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
         See `user_settings` below.

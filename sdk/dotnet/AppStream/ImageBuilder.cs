@@ -66,61 +66,61 @@ namespace Pulumi.Aws.AppStream
         /// Version of the AppStream 2.0 agent to use for this image builder.
         /// </summary>
         [Output("appstreamAgentVersion")]
-        public Output<string> AppstreamAgentVersion { get; private set; } = null!;
+        public Output<string?> AppstreamAgentVersion { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the appstream image builder.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Description to display.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Human-readable friendly name for the AppStream image builder.
         /// </summary>
         [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
+        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         /// </summary>
         [Output("domainJoinInfo")]
-        public Output<Outputs.ImageBuilderDomainJoinInfo> DomainJoinInfo { get; private set; } = null!;
+        public Output<Outputs.ImageBuilderDomainJoinInfo?> DomainJoinInfo { get; private set; } = null!;
 
         /// <summary>
         /// Enables or disables default internet access for the image builder.
         /// </summary>
         [Output("enableDefaultInternetAccess")]
-        public Output<bool> EnableDefaultInternetAccess { get; private set; } = null!;
+        public Output<bool?> EnableDefaultInternetAccess { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the IAM role to apply to the image builder.
         /// </summary>
         [Output("iamRoleArn")]
-        public Output<string> IamRoleArn { get; private set; } = null!;
+        public Output<string?> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the public, private, or shared image to use.
         /// </summary>
         [Output("imageArn")]
-        public Output<string> ImageArn { get; private set; } = null!;
+        public Output<string?> ImageArn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the image used to create the image builder.
         /// </summary>
         [Output("imageName")]
-        public Output<string> ImageName { get; private set; } = null!;
+        public Output<string?> ImageName { get; private set; } = null!;
 
         /// <summary>
         /// Instance type to use when launching the image builder.
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.AppStream
         /// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.AppStream
         /// Configuration block for the VPC configuration for the image builder. See below.
         /// </summary>
         [Output("vpcConfig")]
-        public Output<Outputs.ImageBuilderVpcConfig> VpcConfig { get; private set; } = null!;
+        public Output<Outputs.ImageBuilderVpcConfig?> VpcConfig { get; private set; } = null!;
 
 
         /// <summary>

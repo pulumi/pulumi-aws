@@ -46,11 +46,11 @@ export interface GetEnvironmentsResult {
     /**
      * Set of Environment IDs associated with this AppConfig Application.
      */
-    readonly environmentIds: string[];
+    readonly environmentIds?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another

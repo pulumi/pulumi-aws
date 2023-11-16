@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCertificateAuthorityResult {
@@ -17,33 +19,33 @@ public final class GetCertificateAuthorityResult {
      * @return Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private String certificate;
+    private @Nullable String certificate;
     /**
      * @return Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private String certificateChain;
+    private @Nullable String certificateChain;
     /**
      * @return The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      * 
      */
-    private String certificateSigningRequest;
+    private @Nullable String certificateSigningRequest;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String keyStorageSecurityStandard;
+    private @Nullable String id;
+    private @Nullable String keyStorageSecurityStandard;
     /**
      * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private String notAfter;
+    private @Nullable String notAfter;
     /**
      * @return Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private String notBefore;
+    private @Nullable String notBefore;
     /**
      * @return Nested attribute containing revocation configuration.
      * * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -56,32 +58,32 @@ public final class GetCertificateAuthorityResult {
      * * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
      * 
      */
-    private List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
+    private @Nullable List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
     /**
      * @return Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private String serial;
+    private @Nullable String serial;
     /**
      * @return Status of the certificate authority.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Key-value map of user-defined tags that are attached to the certificate authority.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of the certificate authority.
      * 
      */
-    private String type;
+    private @Nullable String type;
     /**
      * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
      * 
      */
-    private String usageMode;
+    private @Nullable String usageMode;
 
     private GetCertificateAuthorityResult() {}
     public String arn() {
@@ -91,46 +93,46 @@ public final class GetCertificateAuthorityResult {
      * @return Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String certificate() {
-        return this.certificate;
+    public Optional<String> certificate() {
+        return Optional.ofNullable(this.certificate);
     }
     /**
      * @return Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String certificateChain() {
-        return this.certificateChain;
+    public Optional<String> certificateChain() {
+        return Optional.ofNullable(this.certificateChain);
     }
     /**
      * @return The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      * 
      */
-    public String certificateSigningRequest() {
-        return this.certificateSigningRequest;
+    public Optional<String> certificateSigningRequest() {
+        return Optional.ofNullable(this.certificateSigningRequest);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String keyStorageSecurityStandard() {
-        return this.keyStorageSecurityStandard;
+    public Optional<String> keyStorageSecurityStandard() {
+        return Optional.ofNullable(this.keyStorageSecurityStandard);
     }
     /**
      * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String notAfter() {
-        return this.notAfter;
+    public Optional<String> notAfter() {
+        return Optional.ofNullable(this.notAfter);
     }
     /**
      * @return Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String notBefore() {
-        return this.notBefore;
+    public Optional<String> notBefore() {
+        return Optional.ofNullable(this.notBefore);
     }
     /**
      * @return Nested attribute containing revocation configuration.
@@ -145,42 +147,42 @@ public final class GetCertificateAuthorityResult {
      * 
      */
     public List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations() {
-        return this.revocationConfigurations;
+        return this.revocationConfigurations == null ? List.of() : this.revocationConfigurations;
     }
     /**
      * @return Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String serial() {
-        return this.serial;
+    public Optional<String> serial() {
+        return Optional.ofNullable(this.serial);
     }
     /**
      * @return Status of the certificate authority.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Key-value map of user-defined tags that are attached to the certificate authority.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of the certificate authority.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
     /**
      * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
      * 
      */
-    public String usageMode() {
-        return this.usageMode;
+    public Optional<String> usageMode() {
+        return Optional.ofNullable(this.usageMode);
     }
 
     public static Builder builder() {
@@ -193,19 +195,19 @@ public final class GetCertificateAuthorityResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String certificate;
-        private String certificateChain;
-        private String certificateSigningRequest;
-        private String id;
-        private String keyStorageSecurityStandard;
-        private String notAfter;
-        private String notBefore;
-        private List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
-        private String serial;
-        private String status;
-        private Map<String,String> tags;
-        private String type;
-        private String usageMode;
+        private @Nullable String certificate;
+        private @Nullable String certificateChain;
+        private @Nullable String certificateSigningRequest;
+        private @Nullable String id;
+        private @Nullable String keyStorageSecurityStandard;
+        private @Nullable String notAfter;
+        private @Nullable String notBefore;
+        private @Nullable List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
+        private @Nullable String serial;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
+        private @Nullable String usageMode;
         public Builder() {}
         public Builder(GetCertificateAuthorityResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -231,71 +233,71 @@ public final class GetCertificateAuthorityResult {
             return this;
         }
         @CustomType.Setter
-        public Builder certificate(String certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+        public Builder certificate(@Nullable String certificate) {
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+        public Builder certificateChain(@Nullable String certificateChain) {
+            this.certificateChain = certificateChain;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateSigningRequest(String certificateSigningRequest) {
-            this.certificateSigningRequest = Objects.requireNonNull(certificateSigningRequest);
+        public Builder certificateSigningRequest(@Nullable String certificateSigningRequest) {
+            this.certificateSigningRequest = certificateSigningRequest;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder keyStorageSecurityStandard(String keyStorageSecurityStandard) {
-            this.keyStorageSecurityStandard = Objects.requireNonNull(keyStorageSecurityStandard);
+        public Builder keyStorageSecurityStandard(@Nullable String keyStorageSecurityStandard) {
+            this.keyStorageSecurityStandard = keyStorageSecurityStandard;
             return this;
         }
         @CustomType.Setter
-        public Builder notAfter(String notAfter) {
-            this.notAfter = Objects.requireNonNull(notAfter);
+        public Builder notAfter(@Nullable String notAfter) {
+            this.notAfter = notAfter;
             return this;
         }
         @CustomType.Setter
-        public Builder notBefore(String notBefore) {
-            this.notBefore = Objects.requireNonNull(notBefore);
+        public Builder notBefore(@Nullable String notBefore) {
+            this.notBefore = notBefore;
             return this;
         }
         @CustomType.Setter
-        public Builder revocationConfigurations(List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations) {
-            this.revocationConfigurations = Objects.requireNonNull(revocationConfigurations);
+        public Builder revocationConfigurations(@Nullable List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations) {
+            this.revocationConfigurations = revocationConfigurations;
             return this;
         }
         public Builder revocationConfigurations(GetCertificateAuthorityRevocationConfiguration... revocationConfigurations) {
             return revocationConfigurations(List.of(revocationConfigurations));
         }
         @CustomType.Setter
-        public Builder serial(String serial) {
-            this.serial = Objects.requireNonNull(serial);
+        public Builder serial(@Nullable String serial) {
+            this.serial = serial;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder usageMode(String usageMode) {
-            this.usageMode = Objects.requireNonNull(usageMode);
+        public Builder usageMode(@Nullable String usageMode) {
+            this.usageMode = usageMode;
             return this;
         }
         public GetCertificateAuthorityResult build() {

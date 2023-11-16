@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerlessSecurityConfigSamlOptions {
@@ -14,51 +16,51 @@ public final class GetServerlessSecurityConfigSamlOptions {
      * @return Group attribute for this SAML integration.
      * 
      */
-    private String groupAttribute;
+    private @Nullable String groupAttribute;
     /**
      * @return The XML IdP metadata file generated from your identity provider.
      * 
      */
-    private String metadata;
+    private @Nullable String metadata;
     /**
      * @return Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
      * 
      */
-    private Integer sessionTimeout;
+    private @Nullable Integer sessionTimeout;
     /**
      * @return User attribute for this SAML integration.
      * 
      */
-    private String userAttribute;
+    private @Nullable String userAttribute;
 
     private GetServerlessSecurityConfigSamlOptions() {}
     /**
      * @return Group attribute for this SAML integration.
      * 
      */
-    public String groupAttribute() {
-        return this.groupAttribute;
+    public Optional<String> groupAttribute() {
+        return Optional.ofNullable(this.groupAttribute);
     }
     /**
      * @return The XML IdP metadata file generated from your identity provider.
      * 
      */
-    public String metadata() {
-        return this.metadata;
+    public Optional<String> metadata() {
+        return Optional.ofNullable(this.metadata);
     }
     /**
      * @return Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
      * 
      */
-    public Integer sessionTimeout() {
-        return this.sessionTimeout;
+    public Optional<Integer> sessionTimeout() {
+        return Optional.ofNullable(this.sessionTimeout);
     }
     /**
      * @return User attribute for this SAML integration.
      * 
      */
-    public String userAttribute() {
-        return this.userAttribute;
+    public Optional<String> userAttribute() {
+        return Optional.ofNullable(this.userAttribute);
     }
 
     public static Builder builder() {
@@ -70,10 +72,10 @@ public final class GetServerlessSecurityConfigSamlOptions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String groupAttribute;
-        private String metadata;
-        private Integer sessionTimeout;
-        private String userAttribute;
+        private @Nullable String groupAttribute;
+        private @Nullable String metadata;
+        private @Nullable Integer sessionTimeout;
+        private @Nullable String userAttribute;
         public Builder() {}
         public Builder(GetServerlessSecurityConfigSamlOptions defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,23 +86,23 @@ public final class GetServerlessSecurityConfigSamlOptions {
         }
 
         @CustomType.Setter
-        public Builder groupAttribute(String groupAttribute) {
-            this.groupAttribute = Objects.requireNonNull(groupAttribute);
+        public Builder groupAttribute(@Nullable String groupAttribute) {
+            this.groupAttribute = groupAttribute;
             return this;
         }
         @CustomType.Setter
-        public Builder metadata(String metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+        public Builder metadata(@Nullable String metadata) {
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
-        public Builder sessionTimeout(Integer sessionTimeout) {
-            this.sessionTimeout = Objects.requireNonNull(sessionTimeout);
+        public Builder sessionTimeout(@Nullable Integer sessionTimeout) {
+            this.sessionTimeout = sessionTimeout;
             return this;
         }
         @CustomType.Setter
-        public Builder userAttribute(String userAttribute) {
-            this.userAttribute = Objects.requireNonNull(userAttribute);
+        public Builder userAttribute(@Nullable String userAttribute) {
+            this.userAttribute = userAttribute;
             return this;
         }
         public GetServerlessSecurityConfigSamlOptions build() {

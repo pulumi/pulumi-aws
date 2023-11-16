@@ -74,7 +74,7 @@ type GetVpcPeeringConnectionsArgs struct {
 type GetVpcPeeringConnectionsResult struct {
 	Filters []GetVpcPeeringConnectionsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// IDs of the VPC Peering Connections.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -129,8 +129,8 @@ func (o GetVpcPeeringConnectionsResultOutput) Filters() GetVpcPeeringConnections
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetVpcPeeringConnectionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcPeeringConnectionsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetVpcPeeringConnectionsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // IDs of the VPC Peering Connections.

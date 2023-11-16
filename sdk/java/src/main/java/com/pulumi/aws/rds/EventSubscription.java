@@ -96,28 +96,28 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name of the RDS event notification subscription
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The AWS customer account associated with the RDS event notification subscription
      * 
      */
     @Export(name="customerAwsId", refs={String.class}, tree="[0]")
-    private Output<String> customerAwsId;
+    private Output</* @Nullable */ String> customerAwsId;
 
     /**
      * @return The AWS customer account associated with the RDS event notification subscription
      * 
      */
-    public Output<String> customerAwsId() {
-        return this.customerAwsId;
+    public Output<Optional<String>> customerAwsId() {
+        return Codegen.optional(this.customerAwsId);
     }
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.
@@ -166,14 +166,14 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return The name of the DB event subscription. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The SNS topic to send events to.

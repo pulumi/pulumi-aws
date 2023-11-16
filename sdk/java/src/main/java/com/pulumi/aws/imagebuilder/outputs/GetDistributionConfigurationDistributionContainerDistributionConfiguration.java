@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionContainerDistributionConfiguration {
@@ -15,17 +17,17 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
      * @return Set of tags that are attached to the container distribution configuration.
      * 
      */
-    private List<String> containerTags;
+    private @Nullable List<String> containerTags;
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Set of destination repositories for the container distribution configuration.
      * 
      */
-    private List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories;
+    private @Nullable List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories;
 
     private GetDistributionConfigurationDistributionContainerDistributionConfiguration() {}
     /**
@@ -33,21 +35,21 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
      * 
      */
     public List<String> containerTags() {
-        return this.containerTags;
+        return this.containerTags == null ? List.of() : this.containerTags;
     }
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Set of destination repositories for the container distribution configuration.
      * 
      */
     public List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories() {
-        return this.targetRepositories;
+        return this.targetRepositories == null ? List.of() : this.targetRepositories;
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> containerTags;
-        private String description;
-        private List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories;
+        private @Nullable List<String> containerTags;
+        private @Nullable String description;
+        private @Nullable List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories;
         public Builder() {}
         public Builder(GetDistributionConfigurationDistributionContainerDistributionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
         }
 
         @CustomType.Setter
-        public Builder containerTags(List<String> containerTags) {
-            this.containerTags = Objects.requireNonNull(containerTags);
+        public Builder containerTags(@Nullable List<String> containerTags) {
+            this.containerTags = containerTags;
             return this;
         }
         public Builder containerTags(String... containerTags) {
             return containerTags(List.of(containerTags));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder targetRepositories(List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories) {
-            this.targetRepositories = Objects.requireNonNull(targetRepositories);
+        public Builder targetRepositories(@Nullable List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories) {
+            this.targetRepositories = targetRepositories;
             return this;
         }
         public Builder targetRepositories(GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository... targetRepositories) {

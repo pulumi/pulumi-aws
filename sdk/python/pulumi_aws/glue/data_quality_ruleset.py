@@ -510,7 +510,7 @@ class DataQualityRuleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Glue Data Quality Ruleset.
         """
@@ -518,7 +518,7 @@ class DataQualityRuleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> pulumi.Output[str]:
+    def created_on(self) -> pulumi.Output[Optional[str]]:
         """
         The time and date that this data quality ruleset was created.
         """
@@ -534,7 +534,7 @@ class DataQualityRuleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedOn")
-    def last_modified_on(self) -> pulumi.Output[str]:
+    def last_modified_on(self) -> pulumi.Output[Optional[str]]:
         """
         The time and date that this data quality ruleset was created.
         """
@@ -550,7 +550,7 @@ class DataQualityRuleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recommendationRunId")
-    def recommendation_run_id(self) -> pulumi.Output[str]:
+    def recommendation_run_id(self) -> pulumi.Output[Optional[str]]:
         """
         When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
         """

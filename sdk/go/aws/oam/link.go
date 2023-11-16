@@ -61,17 +61,17 @@ type Link struct {
 	pulumi.CustomResourceState
 
 	// ARN of the link.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Label that is assigned to this link.
-	Label pulumi.StringOutput `pulumi:"label"`
+	Label pulumi.StringPtrOutput `pulumi:"label"`
 	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate pulumi.StringOutput `pulumi:"labelTemplate"`
 	// ID string that AWS generated as part of the link ARN.
-	LinkId pulumi.StringOutput `pulumi:"linkId"`
+	LinkId pulumi.StringPtrOutput `pulumi:"linkId"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayOutput `pulumi:"resourceTypes"`
 	// ARN of the sink that is used for this link.
-	SinkArn pulumi.StringOutput `pulumi:"sinkArn"`
+	SinkArn pulumi.StringPtrOutput `pulumi:"sinkArn"`
 	// Identifier of the sink to use to create this link.
 	//
 	// The following arguments are optional:
@@ -289,13 +289,13 @@ func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 }
 
 // ARN of the link.
-func (o LinkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LinkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Label that is assigned to this link.
-func (o LinkOutput) Label() pulumi.StringOutput {
-	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+func (o LinkOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.Label }).(pulumi.StringPtrOutput)
 }
 
 // Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
@@ -304,8 +304,8 @@ func (o LinkOutput) LabelTemplate() pulumi.StringOutput {
 }
 
 // ID string that AWS generated as part of the link ARN.
-func (o LinkOutput) LinkId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LinkId }).(pulumi.StringOutput)
+func (o LinkOutput) LinkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.LinkId }).(pulumi.StringPtrOutput)
 }
 
 // Types of data that the source account shares with the monitoring account.
@@ -314,8 +314,8 @@ func (o LinkOutput) ResourceTypes() pulumi.StringArrayOutput {
 }
 
 // ARN of the sink that is used for this link.
-func (o LinkOutput) SinkArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SinkArn }).(pulumi.StringOutput)
+func (o LinkOutput) SinkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.SinkArn }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the sink to use to create this link.

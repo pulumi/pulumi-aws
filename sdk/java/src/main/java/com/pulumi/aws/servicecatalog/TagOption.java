@@ -90,10 +90,10 @@ public class TagOption extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * Tag option value.

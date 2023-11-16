@@ -55,12 +55,12 @@ export interface GetProvisioningArtifactsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly productId: string;
     /**
      * List with information about the provisioning artifacts. See details below.
      */
-    readonly provisioningArtifactDetails: outputs.servicecatalog.GetProvisioningArtifactsProvisioningArtifactDetail[];
+    readonly provisioningArtifactDetails?: outputs.servicecatalog.GetProvisioningArtifactsProvisioningArtifactDetail[];
 }
 /**
  * Lists the provisioning artifacts for the specified product.

@@ -21,7 +21,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Overriding instance type.
         /// </summary>
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         /// <summary>
         /// List of overriding launch template specification objects.
         /// </summary>
@@ -29,17 +29,17 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Number of capacity units, which gives the instance type a proportional weight to other instance types.
         /// </summary>
-        public readonly string WeightedCapacity;
+        public readonly string? WeightedCapacity;
 
         [OutputConstructor]
         private GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(
             ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult> instanceRequirements,
 
-            string instanceType,
+            string? instanceType,
 
             ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult> launchTemplateSpecifications,
 
-            string weightedCapacity)
+            string? weightedCapacity)
         {
             InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;

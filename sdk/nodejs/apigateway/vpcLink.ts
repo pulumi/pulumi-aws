@@ -46,7 +46,7 @@ export class VpcLink extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcLink.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the VPC link.
      */

@@ -77,15 +77,15 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
     /**
      * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * The alias for the Multi-Region Access Point.
      */
-    public /*out*/ readonly alias!: pulumi.Output<string>;
+    public /*out*/ readonly alias!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Multi-Region Access Point.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      */
@@ -93,11 +93,11 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
     /**
      * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    public /*out*/ readonly domainName!: pulumi.Output<string | undefined>;
     /**
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MultiRegionAccessPoint resource with the given unique name, arguments, and options.

@@ -112,14 +112,14 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string ParentId;
 
         [OutputConstructor]
         private GetOrganizationalUnitsResult(
             ImmutableArray<Outputs.GetOrganizationalUnitsChildResult> children,
 
-            string id,
+            string? id,
 
             string parentId)
         {

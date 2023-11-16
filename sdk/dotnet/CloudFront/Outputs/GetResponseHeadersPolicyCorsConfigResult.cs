@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
         /// </summary>
-        public readonly bool AccessControlAllowCredentials;
+        public readonly bool? AccessControlAllowCredentials;
         /// <summary>
         /// Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
         /// </summary>
@@ -36,12 +36,12 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
         /// </summary>
-        public readonly int AccessControlMaxAgeSec;
-        public readonly bool OriginOverride;
+        public readonly int? AccessControlMaxAgeSec;
+        public readonly bool? OriginOverride;
 
         [OutputConstructor]
         private GetResponseHeadersPolicyCorsConfigResult(
-            bool accessControlAllowCredentials,
+            bool? accessControlAllowCredentials,
 
             ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderResult> accessControlAllowHeaders,
 
@@ -51,9 +51,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderResult> accessControlExposeHeaders,
 
-            int accessControlMaxAgeSec,
+            int? accessControlMaxAgeSec,
 
-            bool originOverride)
+            bool? originOverride)
         {
             AccessControlAllowCredentials = accessControlAllowCredentials;
             AccessControlAllowHeaders = accessControlAllowHeaders;

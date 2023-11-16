@@ -58,7 +58,7 @@ export class Sink extends pulumi.CustomResource {
     /**
      * ARN of the Sink.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name for the sink.
      *
@@ -68,7 +68,7 @@ export class Sink extends pulumi.CustomResource {
     /**
      * ID string that AWS generated as part of the sink ARN.
      */
-    public /*out*/ readonly sinkId!: pulumi.Output<string>;
+    public /*out*/ readonly sinkId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

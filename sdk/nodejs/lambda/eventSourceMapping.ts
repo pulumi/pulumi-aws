@@ -161,7 +161,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
      */
-    public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig | undefined>;
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      */
@@ -193,7 +193,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
-    public /*out*/ readonly functionArn!: pulumi.Output<string>;
+    public /*out*/ readonly functionArn!: pulumi.Output<string | undefined>;
     /**
      * The name or the ARN of the Lambda function that will be subscribing to events.
      */
@@ -205,11 +205,11 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * The date this resource was last modified.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string | undefined>;
     /**
      * The result of the last AWS Lambda invocation of your Lambda function.
      */
-    public /*out*/ readonly lastProcessingResult!: pulumi.Output<string>;
+    public /*out*/ readonly lastProcessingResult!: pulumi.Output<string | undefined>;
     /**
      * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
      */
@@ -217,15 +217,15 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      */
-    public readonly maximumRecordAgeInSeconds!: pulumi.Output<number>;
+    public readonly maximumRecordAgeInSeconds!: pulumi.Output<number | undefined>;
     /**
      * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      */
-    public readonly maximumRetryAttempts!: pulumi.Output<number>;
+    public readonly maximumRetryAttempts!: pulumi.Output<number | undefined>;
     /**
      * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      */
-    public readonly parallelizationFactor!: pulumi.Output<number>;
+    public readonly parallelizationFactor!: pulumi.Output<number | undefined>;
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */
@@ -241,7 +241,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
      */
-    public readonly selfManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
+    public readonly selfManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig | undefined>;
     /**
      * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
      */
@@ -257,11 +257,11 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * The state of the event source mapping.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * The reason the event source mapping is in its current state.
      */
-    public /*out*/ readonly stateTransitionReason!: pulumi.Output<string>;
+    public /*out*/ readonly stateTransitionReason!: pulumi.Output<string | undefined>;
     /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      */
@@ -273,7 +273,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * The UUID of the created event source mapping.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    public /*out*/ readonly uuid!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventSourceMapping resource with the given unique name, arguments, and options.

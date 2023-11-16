@@ -295,7 +295,7 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the Media Insights Pipeline Configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Collection of processors and sinks to transform media and deliver data.
      */

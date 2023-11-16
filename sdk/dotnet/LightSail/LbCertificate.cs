@@ -56,19 +56,19 @@ namespace Pulumi.Aws.LightSail
         /// The ARN of the lightsail certificate.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The domain name (e.g., example.com) for your SSL/TLS certificate.
         /// </summary>
         [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
+        public Output<string?> DomainName { get; private set; } = null!;
 
         [Output("domainValidationRecords")]
         public Output<ImmutableArray<Outputs.LbCertificateDomainValidationRecord>> DomainValidationRecords { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.LightSail
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
         [Output("supportCode")]
-        public Output<string> SupportCode { get; private set; } = null!;
+        public Output<string?> SupportCode { get; private set; } = null!;
 
 
         /// <summary>

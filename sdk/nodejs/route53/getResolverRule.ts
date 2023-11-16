@@ -72,29 +72,29 @@ export interface GetResolverRuleResult {
     /**
      * ARN (Amazon Resource Name) for the resolver rule.
      */
-    readonly arn: string;
-    readonly domainName: string;
+    readonly arn?: string;
+    readonly domainName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly name: string;
+    readonly id?: string;
+    readonly name?: string;
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      */
-    readonly ownerId: string;
-    readonly resolverEndpointId: string;
-    readonly resolverRuleId: string;
-    readonly ruleType: string;
+    readonly ownerId?: string;
+    readonly resolverEndpointId?: string;
+    readonly resolverRuleId?: string;
+    readonly ruleType?: string;
     /**
      * Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
-    readonly shareStatus: string;
+    readonly shareStatus?: string;
     /**
      * Map of tags assigned to the resolver rule.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.

@@ -69,28 +69,28 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
-    private Output<String> catalogId;
+    private Output</* @Nullable */ String> catalogId;
 
     /**
      * @return ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Output<Optional<String>> catalogId() {
+        return Codegen.optional(this.catalogId);
     }
     /**
      * The time at which the partition was created.
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
     /**
      * @return The time at which the partition was created.
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -111,28 +111,28 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastAccessedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastAccessedTime;
+    private Output</* @Nullable */ String> lastAccessedTime;
 
     /**
      * @return The last time at which the partition was accessed.
      * 
      */
-    public Output<String> lastAccessedTime() {
-        return this.lastAccessedTime;
+    public Output<Optional<String>> lastAccessedTime() {
+        return Codegen.optional(this.lastAccessedTime);
     }
     /**
      * The last time at which column statistics were computed for this partition.
      * 
      */
     @Export(name="lastAnalyzedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastAnalyzedTime;
+    private Output</* @Nullable */ String> lastAnalyzedTime;
 
     /**
      * @return The last time at which column statistics were computed for this partition.
      * 
      */
-    public Output<String> lastAnalyzedTime() {
-        return this.lastAnalyzedTime;
+    public Output<Optional<String>> lastAnalyzedTime() {
+        return Codegen.optional(this.lastAnalyzedTime);
     }
     /**
      * Properties associated with this table, as a list of key-value pairs.

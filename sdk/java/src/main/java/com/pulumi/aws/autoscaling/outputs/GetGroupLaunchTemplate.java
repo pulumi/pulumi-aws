@@ -6,6 +6,8 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupLaunchTemplate {
@@ -13,39 +15,39 @@ public final class GetGroupLaunchTemplate {
      * @return ID of the launch template.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Specify the exact name of the desired autoscaling group.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Template version.
      * 
      */
-    private String version;
+    private @Nullable String version;
 
     private GetGroupLaunchTemplate() {}
     /**
      * @return ID of the launch template.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Specify the exact name of the desired autoscaling group.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Template version.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetGroupLaunchTemplate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String name;
-        private String version;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetGroupLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetGroupLaunchTemplate {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetGroupLaunchTemplate build() {

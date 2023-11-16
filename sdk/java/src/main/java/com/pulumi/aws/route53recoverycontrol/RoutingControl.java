@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -91,14 +92,14 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the routing control.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN of the cluster in which this routing control will reside.
@@ -119,14 +120,14 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="controlPanelArn", refs={String.class}, tree="[0]")
-    private Output<String> controlPanelArn;
+    private Output</* @Nullable */ String> controlPanelArn;
 
     /**
      * @return ARN of the control panel in which this routing control will reside.
      * 
      */
-    public Output<String> controlPanelArn() {
-        return this.controlPanelArn;
+    public Output<Optional<String>> controlPanelArn() {
+        return Codegen.optional(this.controlPanelArn);
     }
     /**
      * The name describing the routing control.
@@ -151,14 +152,14 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

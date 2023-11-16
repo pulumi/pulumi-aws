@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRoleResult {
@@ -17,101 +19,101 @@ public final class GetRoleResult {
      * @return ARN of the role.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Policy document associated with the role.
      * 
      */
-    private String assumeRolePolicy;
+    private @Nullable String assumeRolePolicy;
     /**
      * @return Creation date of the role in RFC 3339 format.
      * 
      */
-    private String createDate;
+    private @Nullable String createDate;
     /**
      * @return Description for the role.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Maximum session duration.
      * 
      */
-    private Integer maxSessionDuration;
+    private @Nullable Integer maxSessionDuration;
     private String name;
     /**
      * @return Path to the role.
      * 
      */
-    private String path;
+    private @Nullable String path;
     /**
      * @return The ARN of the policy that is used to set the permissions boundary for the role.
      * 
      */
-    private String permissionsBoundary;
+    private @Nullable String permissionsBoundary;
     /**
      * @return Contains information about the last time that an IAM role was used. See `role_last_used` for details.
      * 
      */
-    private List<GetRoleRoleLastUsed> roleLastUseds;
+    private @Nullable List<GetRoleRoleLastUsed> roleLastUseds;
     /**
      * @return Tags attached to the role.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Stable and unique string identifying the role.
      * 
      */
-    private String uniqueId;
+    private @Nullable String uniqueId;
 
     private GetRoleResult() {}
     /**
      * @return ARN of the role.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Policy document associated with the role.
      * 
      */
-    public String assumeRolePolicy() {
-        return this.assumeRolePolicy;
+    public Optional<String> assumeRolePolicy() {
+        return Optional.ofNullable(this.assumeRolePolicy);
     }
     /**
      * @return Creation date of the role in RFC 3339 format.
      * 
      */
-    public String createDate() {
-        return this.createDate;
+    public Optional<String> createDate() {
+        return Optional.ofNullable(this.createDate);
     }
     /**
      * @return Description for the role.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Maximum session duration.
      * 
      */
-    public Integer maxSessionDuration() {
-        return this.maxSessionDuration;
+    public Optional<Integer> maxSessionDuration() {
+        return Optional.ofNullable(this.maxSessionDuration);
     }
     public String name() {
         return this.name;
@@ -120,36 +122,36 @@ public final class GetRoleResult {
      * @return Path to the role.
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     /**
      * @return The ARN of the policy that is used to set the permissions boundary for the role.
      * 
      */
-    public String permissionsBoundary() {
-        return this.permissionsBoundary;
+    public Optional<String> permissionsBoundary() {
+        return Optional.ofNullable(this.permissionsBoundary);
     }
     /**
      * @return Contains information about the last time that an IAM role was used. See `role_last_used` for details.
      * 
      */
     public List<GetRoleRoleLastUsed> roleLastUseds() {
-        return this.roleLastUseds;
+        return this.roleLastUseds == null ? List.of() : this.roleLastUseds;
     }
     /**
      * @return Tags attached to the role.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Stable and unique string identifying the role.
      * 
      */
-    public String uniqueId() {
-        return this.uniqueId;
+    public Optional<String> uniqueId() {
+        return Optional.ofNullable(this.uniqueId);
     }
 
     public static Builder builder() {
@@ -161,18 +163,18 @@ public final class GetRoleResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String assumeRolePolicy;
-        private String createDate;
-        private String description;
-        private String id;
-        private Integer maxSessionDuration;
+        private @Nullable String arn;
+        private @Nullable String assumeRolePolicy;
+        private @Nullable String createDate;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable Integer maxSessionDuration;
         private String name;
-        private String path;
-        private String permissionsBoundary;
-        private List<GetRoleRoleLastUsed> roleLastUseds;
-        private Map<String,String> tags;
-        private String uniqueId;
+        private @Nullable String path;
+        private @Nullable String permissionsBoundary;
+        private @Nullable List<GetRoleRoleLastUsed> roleLastUseds;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String uniqueId;
         public Builder() {}
         public Builder(GetRoleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -191,33 +193,33 @@ public final class GetRoleResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder assumeRolePolicy(String assumeRolePolicy) {
-            this.assumeRolePolicy = Objects.requireNonNull(assumeRolePolicy);
+        public Builder assumeRolePolicy(@Nullable String assumeRolePolicy) {
+            this.assumeRolePolicy = assumeRolePolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder createDate(String createDate) {
-            this.createDate = Objects.requireNonNull(createDate);
+        public Builder createDate(@Nullable String createDate) {
+            this.createDate = createDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder maxSessionDuration(Integer maxSessionDuration) {
-            this.maxSessionDuration = Objects.requireNonNull(maxSessionDuration);
+        public Builder maxSessionDuration(@Nullable Integer maxSessionDuration) {
+            this.maxSessionDuration = maxSessionDuration;
             return this;
         }
         @CustomType.Setter
@@ -226,31 +228,31 @@ public final class GetRoleResult {
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
-        public Builder permissionsBoundary(String permissionsBoundary) {
-            this.permissionsBoundary = Objects.requireNonNull(permissionsBoundary);
+        public Builder permissionsBoundary(@Nullable String permissionsBoundary) {
+            this.permissionsBoundary = permissionsBoundary;
             return this;
         }
         @CustomType.Setter
-        public Builder roleLastUseds(List<GetRoleRoleLastUsed> roleLastUseds) {
-            this.roleLastUseds = Objects.requireNonNull(roleLastUseds);
+        public Builder roleLastUseds(@Nullable List<GetRoleRoleLastUsed> roleLastUseds) {
+            this.roleLastUseds = roleLastUseds;
             return this;
         }
         public Builder roleLastUseds(GetRoleRoleLastUsed... roleLastUseds) {
             return roleLastUseds(List.of(roleLastUseds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder uniqueId(String uniqueId) {
-            this.uniqueId = Objects.requireNonNull(uniqueId);
+        public Builder uniqueId(@Nullable String uniqueId) {
+            this.uniqueId = uniqueId;
             return this;
         }
         public GetRoleResult build() {

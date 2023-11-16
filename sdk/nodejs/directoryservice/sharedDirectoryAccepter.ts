@@ -66,19 +66,19 @@ export class SharedDirectoryAccepter extends pulumi.CustomResource {
     /**
      * Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
      */
-    public /*out*/ readonly method!: pulumi.Output<string>;
+    public /*out*/ readonly method!: pulumi.Output<string | undefined>;
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      */
-    public /*out*/ readonly notes!: pulumi.Output<string>;
+    public /*out*/ readonly notes!: pulumi.Output<string | undefined>;
     /**
      * Account identifier of the directory owner.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
      */
-    public /*out*/ readonly ownerDirectoryId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerDirectoryId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */

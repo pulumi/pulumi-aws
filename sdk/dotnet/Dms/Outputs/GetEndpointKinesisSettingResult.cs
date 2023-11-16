@@ -13,35 +13,35 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class GetEndpointKinesisSettingResult
     {
-        public readonly bool IncludeControlDetails;
-        public readonly bool IncludeNullAndEmpty;
-        public readonly bool IncludePartitionValue;
-        public readonly bool IncludeTableAlterOperations;
-        public readonly bool IncludeTransactionDetails;
-        public readonly string MessageFormat;
-        public readonly bool PartitionIncludeSchemaTable;
-        public readonly string ServiceAccessRoleArn;
-        public readonly string StreamArn;
+        public readonly bool? IncludeControlDetails;
+        public readonly bool? IncludeNullAndEmpty;
+        public readonly bool? IncludePartitionValue;
+        public readonly bool? IncludeTableAlterOperations;
+        public readonly bool? IncludeTransactionDetails;
+        public readonly string? MessageFormat;
+        public readonly bool? PartitionIncludeSchemaTable;
+        public readonly string? ServiceAccessRoleArn;
+        public readonly string? StreamArn;
 
         [OutputConstructor]
         private GetEndpointKinesisSettingResult(
-            bool includeControlDetails,
+            bool? includeControlDetails,
 
-            bool includeNullAndEmpty,
+            bool? includeNullAndEmpty,
 
-            bool includePartitionValue,
+            bool? includePartitionValue,
 
-            bool includeTableAlterOperations,
+            bool? includeTableAlterOperations,
 
-            bool includeTransactionDetails,
+            bool? includeTransactionDetails,
 
-            string messageFormat,
+            string? messageFormat,
 
-            bool partitionIncludeSchemaTable,
+            bool? partitionIncludeSchemaTable,
 
-            string serviceAccessRoleArn,
+            string? serviceAccessRoleArn,
 
-            string streamArn)
+            string? streamArn)
         {
             IncludeControlDetails = includeControlDetails;
             IncludeNullAndEmpty = includeNullAndEmpty;

@@ -55,7 +55,7 @@ class GetQuicksightUserResult:
 
     @property
     @pulumi.getter
-    def active(self) -> bool:
+    def active(self) -> Optional[bool]:
         """
         The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
         """
@@ -63,7 +63,7 @@ class GetQuicksightUserResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for the user.
         """
@@ -71,12 +71,12 @@ class GetQuicksightUserResult:
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> str:
+    def aws_account_id(self) -> Optional[str]:
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> Optional[str]:
         """
         The user's email address.
         """
@@ -84,7 +84,7 @@ class GetQuicksightUserResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -92,7 +92,7 @@ class GetQuicksightUserResult:
 
     @property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> str:
+    def identity_type(self) -> Optional[str]:
         """
         The type of identity authentication used by the user.
         """
@@ -105,7 +105,7 @@ class GetQuicksightUserResult:
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    def principal_id(self) -> Optional[str]:
         """
         The principal ID of the user.
         """
@@ -118,7 +118,7 @@ class GetQuicksightUserResult:
 
     @property
     @pulumi.getter(name="userRole")
-    def user_role(self) -> str:
+    def user_role(self) -> Optional[str]:
         """
         The Amazon QuickSight role for the user. The user role can be one of the following:.
         """

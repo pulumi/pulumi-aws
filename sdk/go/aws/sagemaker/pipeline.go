@@ -75,7 +75,7 @@ type Pipeline struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
 	ParallelismConfiguration PipelineParallelismConfigurationPtrOutput `pulumi:"parallelismConfiguration"`
 	// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
@@ -318,8 +318,8 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
-func (o PipelineOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PipelineOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.

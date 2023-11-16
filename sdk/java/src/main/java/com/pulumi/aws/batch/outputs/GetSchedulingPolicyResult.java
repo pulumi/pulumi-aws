@@ -9,54 +9,56 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSchedulingPolicyResult {
     private String arn;
-    private List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies;
+    private @Nullable List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the scheduling policy.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Key-value map of resource tags
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetSchedulingPolicyResult() {}
     public String arn() {
         return this.arn;
     }
     public List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies() {
-        return this.fairSharePolicies;
+        return this.fairSharePolicies == null ? List.of() : this.fairSharePolicies;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the scheduling policy.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Key-value map of resource tags
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -69,10 +71,10 @@ public final class GetSchedulingPolicyResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies;
-        private String id;
-        private String name;
-        private Map<String,String> tags;
+        private @Nullable List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetSchedulingPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -89,26 +91,26 @@ public final class GetSchedulingPolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder fairSharePolicies(List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies) {
-            this.fairSharePolicies = Objects.requireNonNull(fairSharePolicies);
+        public Builder fairSharePolicies(@Nullable List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies) {
+            this.fairSharePolicies = fairSharePolicies;
             return this;
         }
         public Builder fairSharePolicies(GetSchedulingPolicyFairSharePolicy... fairSharePolicies) {
             return fairSharePolicies(List.of(fairSharePolicies));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetSchedulingPolicyResult build() {

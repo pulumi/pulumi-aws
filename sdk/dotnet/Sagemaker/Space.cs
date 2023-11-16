@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The space's Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the associated Domain.
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The ID of the space's profile in the Amazon Elastic File System volume.
         /// </summary>
         [Output("homeEfsFileSystemUid")]
-        public Output<string> HomeEfsFileSystemUid { get; private set; } = null!;
+        public Output<string?> HomeEfsFileSystemUid { get; private set; } = null!;
 
         /// <summary>
         /// The name of the space.

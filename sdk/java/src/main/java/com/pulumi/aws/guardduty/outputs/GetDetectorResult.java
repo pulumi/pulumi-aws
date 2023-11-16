@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDetectorResult {
@@ -15,23 +17,23 @@ public final class GetDetectorResult {
      * @return Current configuration of the detector features.
      * 
      */
-    private List<GetDetectorFeature> features;
+    private @Nullable List<GetDetectorFeature> features;
     /**
      * @return The frequency of notifications sent about subsequent finding occurrences.
      * 
      */
-    private String findingPublishingFrequency;
-    private String id;
+    private @Nullable String findingPublishingFrequency;
+    private @Nullable String id;
     /**
      * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
      * 
      */
-    private String serviceRoleArn;
+    private @Nullable String serviceRoleArn;
     /**
      * @return Current status of the detector.
      * 
      */
-    private String status;
+    private @Nullable String status;
 
     private GetDetectorResult() {}
     /**
@@ -39,31 +41,31 @@ public final class GetDetectorResult {
      * 
      */
     public List<GetDetectorFeature> features() {
-        return this.features;
+        return this.features == null ? List.of() : this.features;
     }
     /**
      * @return The frequency of notifications sent about subsequent finding occurrences.
      * 
      */
-    public String findingPublishingFrequency() {
-        return this.findingPublishingFrequency;
+    public Optional<String> findingPublishingFrequency() {
+        return Optional.ofNullable(this.findingPublishingFrequency);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
      * 
      */
-    public String serviceRoleArn() {
-        return this.serviceRoleArn;
+    public Optional<String> serviceRoleArn() {
+        return Optional.ofNullable(this.serviceRoleArn);
     }
     /**
      * @return Current status of the detector.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -75,11 +77,11 @@ public final class GetDetectorResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDetectorFeature> features;
-        private String findingPublishingFrequency;
-        private String id;
-        private String serviceRoleArn;
-        private String status;
+        private @Nullable List<GetDetectorFeature> features;
+        private @Nullable String findingPublishingFrequency;
+        private @Nullable String id;
+        private @Nullable String serviceRoleArn;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetDetectorResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -91,31 +93,31 @@ public final class GetDetectorResult {
         }
 
         @CustomType.Setter
-        public Builder features(List<GetDetectorFeature> features) {
-            this.features = Objects.requireNonNull(features);
+        public Builder features(@Nullable List<GetDetectorFeature> features) {
+            this.features = features;
             return this;
         }
         public Builder features(GetDetectorFeature... features) {
             return features(List.of(features));
         }
         @CustomType.Setter
-        public Builder findingPublishingFrequency(String findingPublishingFrequency) {
-            this.findingPublishingFrequency = Objects.requireNonNull(findingPublishingFrequency);
+        public Builder findingPublishingFrequency(@Nullable String findingPublishingFrequency) {
+            this.findingPublishingFrequency = findingPublishingFrequency;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceRoleArn(String serviceRoleArn) {
-            this.serviceRoleArn = Objects.requireNonNull(serviceRoleArn);
+        public Builder serviceRoleArn(@Nullable String serviceRoleArn) {
+            this.serviceRoleArn = serviceRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetDetectorResult build() {

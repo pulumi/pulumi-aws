@@ -20,19 +20,19 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `&lt;prefix&gt;-connect-&lt;connect_instance_alias&gt;-contact-` since the API appends additional details to the `prefix`.
         /// </summary>
-        public readonly string Prefix;
+        public readonly string? Prefix;
         /// <summary>
         /// The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
         /// </summary>
-        public readonly int RetentionPeriodHours;
+        public readonly int? RetentionPeriodHours;
 
         [OutputConstructor]
         private GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult(
             ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult> encryptionConfigs,
 
-            string prefix,
+            string? prefix,
 
-            int retentionPeriodHours)
+            int? retentionPeriodHours)
         {
             EncryptionConfigs = encryptionConfigs;
             Prefix = prefix;

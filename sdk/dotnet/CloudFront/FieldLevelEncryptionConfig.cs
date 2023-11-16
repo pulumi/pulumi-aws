@@ -75,7 +75,7 @@ namespace Pulumi.Aws.CloudFront
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
         /// </summary>
         [Output("callerReference")]
-        public Output<string> CallerReference { get; private set; } = null!;
+        public Output<string?> CallerReference { get; private set; } = null!;
 
         /// <summary>
         /// An optional comment about the Field Level Encryption Config.
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.CloudFront
         /// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.

@@ -82,31 +82,31 @@ export interface GetResourceShareResult {
     /**
      * ARN of the resource share.
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly filters?: outputs.ram.GetResourceShareFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * ID of the AWS account that owns the resource share.
      */
-    readonly owningAccountId: string;
+    readonly owningAccountId?: string;
     /**
      * A list of resource ARNs associated with the resource share.
      */
-    readonly resourceArns: string[];
+    readonly resourceArns?: string[];
     readonly resourceOwner: string;
     readonly resourceShareStatus?: string;
     /**
      * Status of the resource share.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Tags attached to the resource share.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.

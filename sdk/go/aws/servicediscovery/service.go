@@ -123,7 +123,7 @@ type Service struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the service.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
@@ -137,7 +137,7 @@ type Service struct {
 	// The name of the service.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the namespace that you want to use to create the service.
-	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
+	NamespaceId pulumi.StringPtrOutput `pulumi:"namespaceId"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -145,7 +145,7 @@ type Service struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -370,8 +370,8 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 }
 
 // The ARN of the service.
-func (o ServiceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServiceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the service.
@@ -405,8 +405,8 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the namespace that you want to use to create the service.
-func (o ServiceOutput) NamespaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
+func (o ServiceOutput) NamespaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -422,8 +422,8 @@ func (o ServiceOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
-func (o ServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o ServiceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ServiceArrayOutput struct{ *pulumi.OutputState }

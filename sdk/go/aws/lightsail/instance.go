@@ -182,7 +182,7 @@ type Instance struct {
 	// The add on configuration for the instance. Detailed below.
 	AddOn InstanceAddOnPtrOutput `pulumi:"addOn"`
 	// The ARN of the Lightsail instance (matches `id`).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Availability Zone in which to create your
 	// instance (see list below)
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
@@ -191,26 +191,26 @@ type Instance struct {
 	// The bundle of specification information (see list below)
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// The number of vCPUs the instance has.
-	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
+	CpuCount pulumi.IntPtrOutput `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// A Boolean value indicating whether this instance has a static IP assigned to it.
-	IsStaticIp pulumi.BoolOutput `pulumi:"isStaticIp"`
+	IsStaticIp pulumi.BoolPtrOutput `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrOutput `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The private IP address of the instance.
-	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
+	PrivateIpAddress pulumi.StringPtrOutput `pulumi:"privateIpAddress"`
 	// The public IP address of the instance.
-	PublicIpAddress pulumi.StringOutput `pulumi:"publicIpAddress"`
+	PublicIpAddress pulumi.StringPtrOutput `pulumi:"publicIpAddress"`
 	// The amount of RAM in GB on the instance (e.g., 1.0).
-	RamSize pulumi.Float64Output `pulumi:"ramSize"`
+	RamSize pulumi.Float64PtrOutput `pulumi:"ramSize"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -220,7 +220,7 @@ type Instance struct {
 	// Single lined launch script as a string to configure server with additional user data
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// The user name for connecting to the instance (e.g., ec2-user).
-	Username pulumi.StringOutput `pulumi:"username"`
+	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -499,8 +499,8 @@ func (o InstanceOutput) AddOn() InstanceAddOnPtrOutput {
 }
 
 // The ARN of the Lightsail instance (matches `id`).
-func (o InstanceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InstanceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone in which to create your
@@ -520,13 +520,13 @@ func (o InstanceOutput) BundleId() pulumi.StringOutput {
 }
 
 // The number of vCPUs the instance has.
-func (o InstanceOutput) CpuCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.CpuCount }).(pulumi.IntOutput)
+func (o InstanceOutput) CpuCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.IntPtrOutput { return v.CpuCount }).(pulumi.IntPtrOutput)
 }
 
 // The timestamp when the instance was created.
-func (o InstanceOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o InstanceOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
@@ -540,8 +540,8 @@ func (o InstanceOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 }
 
 // A Boolean value indicating whether this instance has a static IP assigned to it.
-func (o InstanceOutput) IsStaticIp() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.IsStaticIp }).(pulumi.BoolOutput)
+func (o InstanceOutput) IsStaticIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.IsStaticIp }).(pulumi.BoolPtrOutput)
 }
 
 // The name of your key pair. Created in the
@@ -556,18 +556,18 @@ func (o InstanceOutput) Name() pulumi.StringOutput {
 }
 
 // The private IP address of the instance.
-func (o InstanceOutput) PrivateIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PrivateIpAddress }).(pulumi.StringOutput)
+func (o InstanceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The public IP address of the instance.
-func (o InstanceOutput) PublicIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PublicIpAddress }).(pulumi.StringOutput)
+func (o InstanceOutput) PublicIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The amount of RAM in GB on the instance (e.g., 1.0).
-func (o InstanceOutput) RamSize() pulumi.Float64Output {
-	return o.ApplyT(func(v *Instance) pulumi.Float64Output { return v.RamSize }).(pulumi.Float64Output)
+func (o InstanceOutput) RamSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.Float64PtrOutput { return v.RamSize }).(pulumi.Float64PtrOutput)
 }
 
 // A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -588,8 +588,8 @@ func (o InstanceOutput) UserData() pulumi.StringPtrOutput {
 }
 
 // The user name for connecting to the instance (e.g., ec2-user).
-func (o InstanceOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+func (o InstanceOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type InstanceArrayOutput struct{ *pulumi.OutputState }

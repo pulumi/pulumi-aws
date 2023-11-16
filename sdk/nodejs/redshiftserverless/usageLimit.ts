@@ -67,7 +67,7 @@ export class UsageLimit extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
      */

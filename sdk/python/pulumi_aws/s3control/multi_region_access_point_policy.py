@@ -309,7 +309,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
@@ -325,7 +325,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def established(self) -> pulumi.Output[str]:
+    def established(self) -> pulumi.Output[Optional[str]]:
         """
         The last established policy for the Multi-Region Access Point.
         """
@@ -333,7 +333,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def proposed(self) -> pulumi.Output[str]:
+    def proposed(self) -> pulumi.Output[Optional[str]]:
         """
         The proposed policy for the Multi-Region Access Point.
         """

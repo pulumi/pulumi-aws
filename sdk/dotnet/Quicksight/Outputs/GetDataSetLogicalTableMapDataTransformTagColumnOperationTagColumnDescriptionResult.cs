@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult
     {
-        public readonly string Text;
+        public readonly string? Text;
 
         [OutputConstructor]
-        private GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult(string text)
+        private GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult(string? text)
         {
             Text = text;
         }

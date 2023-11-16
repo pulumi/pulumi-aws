@@ -57,13 +57,13 @@ namespace Pulumi.Aws.Transfer
         /// The unique identifier for the AS2 agreement.
         /// </summary>
         [Output("agreementId")]
-        public Output<string> AgreementId { get; private set; } = null!;
+        public Output<string?> AgreementId { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the agreement.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The landing directory for the files transferred by using the AS2 protocol.
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> ServerId { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

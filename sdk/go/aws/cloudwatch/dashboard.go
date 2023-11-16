@@ -95,7 +95,7 @@ type Dashboard struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the dashboard.
-	DashboardArn pulumi.StringOutput `pulumi:"dashboardArn"`
+	DashboardArn pulumi.StringPtrOutput `pulumi:"dashboardArn"`
 	// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
 	DashboardBody pulumi.StringOutput `pulumi:"dashboardBody"`
 	// The name of the dashboard.
@@ -262,8 +262,8 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 }
 
 // The Amazon Resource Name (ARN) of the dashboard.
-func (o DashboardOutput) DashboardArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardArn }).(pulumi.StringOutput)
+func (o DashboardOutput) DashboardArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.DashboardArn }).(pulumi.StringPtrOutput)
 }
 
 // The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).

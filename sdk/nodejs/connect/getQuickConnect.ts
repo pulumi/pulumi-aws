@@ -76,29 +76,29 @@ export interface GetQuickConnectResult {
     /**
      * ARN of the Quick Connect.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the Quick Connect.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
-    readonly name: string;
+    readonly name?: string;
     /**
      * A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
      */
-    readonly quickConnectConfigs: outputs.connect.GetQuickConnectQuickConnectConfig[];
+    readonly quickConnectConfigs?: outputs.connect.GetQuickConnectQuickConnectConfig[];
     /**
      * Identifier for the Quick Connect.
      */
-    readonly quickConnectId: string;
+    readonly quickConnectId?: string;
     /**
      * Map of tags to assign to the Quick Connect.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific Amazon Connect Quick Connect.

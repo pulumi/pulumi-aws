@@ -126,7 +126,7 @@ export class StreamEventSubscription extends lambda.EventSubscription {
             function: this.func,
             action: "lambda:InvokeFunction",
             principal: "kinesis.amazonaws.com",
-            sourceArn: stream.arn,
+            sourceArn: stream.arn.apply(x => x!),
         }, parentOpts);
 
         const mappingArgs = {
@@ -134,7 +134,7 @@ export class StreamEventSubscription extends lambda.EventSubscription {
             bisectBatchOnFunctionError: args.bisectBatchOnFunctionError,
             destinationConfig: args.destinationConfig,
             enabled: true,
-            eventSourceArn: stream.arn,
+            eventSourceArn: stream.arn.apply(x => x!),
             functionName: this.func.name,
             maximumBatchingWindowInSeconds: args.maximumBatchingWindowInSeconds,
             maximumRecordAgeInSeconds: args.maximumRecordAgeInSeconds,

@@ -71,31 +71,31 @@ export interface GetWorkspaceArgs {
  * A collection of values returned by getWorkspace.
  */
 export interface GetWorkspaceResult {
-    readonly bundleId: string;
+    readonly bundleId?: string;
     /**
      * Name of the WorkSpace, as seen by the operating system.
      */
-    readonly computerName: string;
-    readonly directoryId: string;
+    readonly computerName?: string;
+    readonly directoryId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IP address of the WorkSpace.
      */
-    readonly ipAddress: string;
-    readonly rootVolumeEncryptionEnabled: boolean;
+    readonly ipAddress?: string;
+    readonly rootVolumeEncryptionEnabled?: boolean;
     /**
      * Operational state of the WorkSpace.
      */
-    readonly state: string;
-    readonly tags: {[key: string]: string};
-    readonly userName: string;
-    readonly userVolumeEncryptionEnabled: boolean;
-    readonly volumeEncryptionKey: string;
-    readonly workspaceId: string;
-    readonly workspaceProperties: outputs.workspaces.GetWorkspaceWorkspaceProperty[];
+    readonly state?: string;
+    readonly tags?: {[key: string]: string};
+    readonly userName?: string;
+    readonly userVolumeEncryptionEnabled?: boolean;
+    readonly volumeEncryptionKey?: string;
+    readonly workspaceId?: string;
+    readonly workspaceProperties?: outputs.workspaces.GetWorkspaceWorkspaceProperty[];
 }
 /**
  * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.

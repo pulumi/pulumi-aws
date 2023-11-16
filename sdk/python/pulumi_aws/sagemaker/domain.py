@@ -857,7 +857,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         """
@@ -902,7 +902,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="homeEfsFileSystemId")
-    def home_efs_file_system_id(self) -> pulumi.Output[str]:
+    def home_efs_file_system_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         """
@@ -926,7 +926,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIdForDomainBoundary")
-    def security_group_id_for_domain_boundary(self) -> pulumi.Output[str]:
+    def security_group_id_for_domain_boundary(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         """
@@ -934,7 +934,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
-    def single_sign_on_managed_application_instance_id(self) -> pulumi.Output[str]:
+    def single_sign_on_managed_application_instance_id(self) -> pulumi.Output[Optional[str]]:
         """
         The SSO managed application instance ID.
         """
@@ -969,7 +969,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         The domain's URL.
         """

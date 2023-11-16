@@ -249,13 +249,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// IDs of instances found through the filter
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableArray<string> InstanceStateNames;
-        public readonly ImmutableDictionary<string, string> InstanceTags;
+        public readonly ImmutableDictionary<string, string>? InstanceTags;
         /// <summary>
         /// IPv6 addresses of instances found through the filter
         /// </summary>
@@ -273,13 +273,13 @@ namespace Pulumi.Aws.Ec2
         private GetInstancesResult(
             ImmutableArray<Outputs.GetInstancesFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 
             ImmutableArray<string> instanceStateNames,
 
-            ImmutableDictionary<string, string> instanceTags,
+            ImmutableDictionary<string, string>? instanceTags,
 
             ImmutableArray<string> ipv6Addresses,
 

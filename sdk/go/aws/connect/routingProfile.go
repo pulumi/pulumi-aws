@@ -73,7 +73,7 @@ type RoutingProfile struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Routing Profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId pulumi.StringOutput `pulumi:"defaultOutboundQueueId"`
 	// Specifies the description of the Routing Profile.
@@ -87,7 +87,7 @@ type RoutingProfile struct {
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs RoutingProfileQueueConfigArrayOutput `pulumi:"queueConfigs"`
 	// The identifier for the Routing Profile.
-	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
+	RoutingProfileId pulumi.StringPtrOutput `pulumi:"routingProfileId"`
 	// Tags to apply to the Routing Profile. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -323,8 +323,8 @@ func (o RoutingProfileOutput) ToRoutingProfileOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name (ARN) of the Routing Profile.
-func (o RoutingProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RoutingProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingProfile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default outbound queue for the Routing Profile.
@@ -358,8 +358,8 @@ func (o RoutingProfileOutput) QueueConfigs() RoutingProfileQueueConfigArrayOutpu
 }
 
 // The identifier for the Routing Profile.
-func (o RoutingProfileOutput) RoutingProfileId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.RoutingProfileId }).(pulumi.StringOutput)
+func (o RoutingProfileOutput) RoutingProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingProfile) pulumi.StringPtrOutput { return v.RoutingProfileId }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the Routing Profile. If configured with a provider

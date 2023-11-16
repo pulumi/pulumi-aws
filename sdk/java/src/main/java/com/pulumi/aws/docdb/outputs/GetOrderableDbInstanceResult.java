@@ -17,18 +17,18 @@ public final class GetOrderableDbInstanceResult {
      * @return Availability zones where the instance is available.
      * 
      */
-    private List<String> availabilityZones;
+    private @Nullable List<String> availabilityZones;
     private @Nullable String engine;
-    private String engineVersion;
+    private @Nullable String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String instanceClass;
+    private @Nullable String id;
+    private @Nullable String instanceClass;
     private @Nullable String licenseModel;
     private @Nullable List<String> preferredInstanceClasses;
-    private Boolean vpc;
+    private @Nullable Boolean vpc;
 
     private GetOrderableDbInstanceResult() {}
     /**
@@ -36,23 +36,23 @@ public final class GetOrderableDbInstanceResult {
      * 
      */
     public List<String> availabilityZones() {
-        return this.availabilityZones;
+        return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String instanceClass() {
-        return this.instanceClass;
+    public Optional<String> instanceClass() {
+        return Optional.ofNullable(this.instanceClass);
     }
     public Optional<String> licenseModel() {
         return Optional.ofNullable(this.licenseModel);
@@ -60,8 +60,8 @@ public final class GetOrderableDbInstanceResult {
     public List<String> preferredInstanceClasses() {
         return this.preferredInstanceClasses == null ? List.of() : this.preferredInstanceClasses;
     }
-    public Boolean vpc() {
-        return this.vpc;
+    public Optional<Boolean> vpc() {
+        return Optional.ofNullable(this.vpc);
     }
 
     public static Builder builder() {
@@ -73,14 +73,14 @@ public final class GetOrderableDbInstanceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> availabilityZones;
+        private @Nullable List<String> availabilityZones;
         private @Nullable String engine;
-        private String engineVersion;
-        private String id;
-        private String instanceClass;
+        private @Nullable String engineVersion;
+        private @Nullable String id;
+        private @Nullable String instanceClass;
         private @Nullable String licenseModel;
         private @Nullable List<String> preferredInstanceClasses;
-        private Boolean vpc;
+        private @Nullable Boolean vpc;
         public Builder() {}
         public Builder(GetOrderableDbInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -95,8 +95,8 @@ public final class GetOrderableDbInstanceResult {
         }
 
         @CustomType.Setter
-        public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+        public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -108,18 +108,18 @@ public final class GetOrderableDbInstanceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceClass(String instanceClass) {
-            this.instanceClass = Objects.requireNonNull(instanceClass);
+        public Builder instanceClass(@Nullable String instanceClass) {
+            this.instanceClass = instanceClass;
             return this;
         }
         @CustomType.Setter
@@ -136,8 +136,8 @@ public final class GetOrderableDbInstanceResult {
             return preferredInstanceClasses(List.of(preferredInstanceClasses));
         }
         @CustomType.Setter
-        public Builder vpc(Boolean vpc) {
-            this.vpc = Objects.requireNonNull(vpc);
+        public Builder vpc(@Nullable Boolean vpc) {
+            this.vpc = vpc;
             return this;
         }
         public GetOrderableDbInstanceResult build() {

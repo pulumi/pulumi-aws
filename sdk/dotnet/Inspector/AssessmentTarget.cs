@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Inspector
         /// The target assessment ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the assessment target.

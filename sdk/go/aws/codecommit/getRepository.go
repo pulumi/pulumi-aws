@@ -57,16 +57,16 @@ type LookupRepositoryArgs struct {
 // A collection of values returned by getRepository.
 type LookupRepositoryResult struct {
 	// ARN of the repository
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// URL to use for cloning the repository over HTTPS.
-	CloneUrlHttp string `pulumi:"cloneUrlHttp"`
+	CloneUrlHttp *string `pulumi:"cloneUrlHttp"`
 	// URL to use for cloning the repository over SSH.
-	CloneUrlSsh string `pulumi:"cloneUrlSsh"`
+	CloneUrlSsh *string `pulumi:"cloneUrlSsh"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ID of the repository
-	RepositoryId   string `pulumi:"repositoryId"`
-	RepositoryName string `pulumi:"repositoryName"`
+	RepositoryId   *string `pulumi:"repositoryId"`
+	RepositoryName string  `pulumi:"repositoryName"`
 }
 
 func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryResultOutput {
@@ -108,28 +108,28 @@ func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutputWithContext(
 }
 
 // ARN of the repository
-func (o LookupRepositoryResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupRepositoryResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // URL to use for cloning the repository over HTTPS.
-func (o LookupRepositoryResultOutput) CloneUrlHttp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRepositoryResult) string { return v.CloneUrlHttp }).(pulumi.StringOutput)
+func (o LookupRepositoryResultOutput) CloneUrlHttp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.CloneUrlHttp }).(pulumi.StringPtrOutput)
 }
 
 // URL to use for cloning the repository over SSH.
-func (o LookupRepositoryResultOutput) CloneUrlSsh() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRepositoryResult) string { return v.CloneUrlSsh }).(pulumi.StringOutput)
+func (o LookupRepositoryResultOutput) CloneUrlSsh() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.CloneUrlSsh }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupRepositoryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupRepositoryResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ID of the repository
-func (o LookupRepositoryResultOutput) RepositoryId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRepositoryResult) string { return v.RepositoryId }).(pulumi.StringOutput)
+func (o LookupRepositoryResultOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRepositoryResultOutput) RepositoryName() pulumi.StringOutput {

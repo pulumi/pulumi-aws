@@ -744,21 +744,24 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
 @pulumi.output_type
 class GetDetectorFeatureResult(dict):
     def __init__(__self__, *,
-                 additional_configurations: Sequence['outputs.GetDetectorFeatureAdditionalConfigurationResult'],
-                 name: str,
-                 status: str):
+                 additional_configurations: Optional[Sequence['outputs.GetDetectorFeatureAdditionalConfigurationResult']] = None,
+                 name: Optional[str] = None,
+                 status: Optional[str] = None):
         """
         :param Sequence['GetDetectorFeatureAdditionalConfigurationArgs'] additional_configurations: Additional feature configuration.
         :param str name: The name of the detector feature.
         :param str status: Current status of the detector.
         """
-        pulumi.set(__self__, "additional_configurations", additional_configurations)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        if additional_configurations is not None:
+            pulumi.set(__self__, "additional_configurations", additional_configurations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="additionalConfigurations")
-    def additional_configurations(self) -> Sequence['outputs.GetDetectorFeatureAdditionalConfigurationResult']:
+    def additional_configurations(self) -> Optional[Sequence['outputs.GetDetectorFeatureAdditionalConfigurationResult']]:
         """
         Additional feature configuration.
         """
@@ -766,7 +769,7 @@ class GetDetectorFeatureResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the detector feature.
         """
@@ -774,7 +777,7 @@ class GetDetectorFeatureResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current status of the detector.
         """
@@ -784,18 +787,20 @@ class GetDetectorFeatureResult(dict):
 @pulumi.output_type
 class GetDetectorFeatureAdditionalConfigurationResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 status: str):
+                 name: Optional[str] = None,
+                 status: Optional[str] = None):
         """
         :param str name: The name of the detector feature.
         :param str status: Current status of the detector.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the detector feature.
         """
@@ -803,7 +808,7 @@ class GetDetectorFeatureAdditionalConfigurationResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current status of the detector.
         """

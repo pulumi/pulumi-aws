@@ -16,21 +16,21 @@ public final class GetQueuesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String queueNamePrefix;
     /**
      * @return A list of queue URLs.
      * 
      */
-    private List<String> queueUrls;
+    private @Nullable List<String> queueUrls;
 
     private GetQueuesResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> queueNamePrefix() {
         return Optional.ofNullable(this.queueNamePrefix);
@@ -40,7 +40,7 @@ public final class GetQueuesResult {
      * 
      */
     public List<String> queueUrls() {
-        return this.queueUrls;
+        return this.queueUrls == null ? List.of() : this.queueUrls;
     }
 
     public static Builder builder() {
@@ -52,9 +52,9 @@ public final class GetQueuesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private @Nullable String queueNamePrefix;
-        private List<String> queueUrls;
+        private @Nullable List<String> queueUrls;
         public Builder() {}
         public Builder(GetQueuesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,8 +64,8 @@ public final class GetQueuesResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -74,8 +74,8 @@ public final class GetQueuesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder queueUrls(List<String> queueUrls) {
-            this.queueUrls = Objects.requireNonNull(queueUrls);
+        public Builder queueUrls(@Nullable List<String> queueUrls) {
+            this.queueUrls = queueUrls;
             return this;
         }
         public Builder queueUrls(String... queueUrls) {

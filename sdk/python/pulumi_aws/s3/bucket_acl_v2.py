@@ -495,7 +495,7 @@ class BucketAclV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessControlPolicy")
-    def access_control_policy(self) -> pulumi.Output['outputs.BucketAclV2AccessControlPolicy']:
+    def access_control_policy(self) -> pulumi.Output[Optional['outputs.BucketAclV2AccessControlPolicy']]:
         """
         Configuration block that sets the ACL permissions for an object per grantee. See below.
         """

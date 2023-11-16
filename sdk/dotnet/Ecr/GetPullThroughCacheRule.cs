@@ -105,25 +105,25 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
-        public readonly string RegistryId;
+        public readonly string? RegistryId;
         /// <summary>
         /// The registry URL of the upstream public registry to use as the source.
         /// </summary>
-        public readonly string UpstreamRegistryUrl;
+        public readonly string? UpstreamRegistryUrl;
 
         [OutputConstructor]
         private GetPullThroughCacheRuleResult(
             string ecrRepositoryPrefix,
 
-            string id,
+            string? id,
 
-            string registryId,
+            string? registryId,
 
-            string upstreamRegistryUrl)
+            string? upstreamRegistryUrl)
         {
             EcrRepositoryPrefix = ecrRepositoryPrefix;
             Id = id;

@@ -196,50 +196,50 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the Security Profile.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the Security Profile.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The organization resource identifier for the security profile.
         /// </summary>
-        public readonly string OrganizationResourceId;
+        public readonly string? OrganizationResourceId;
         /// <summary>
         /// List of permissions assigned to the security profile.
         /// </summary>
         public readonly ImmutableArray<string> Permissions;
-        public readonly string SecurityProfileId;
+        public readonly string? SecurityProfileId;
         /// <summary>
         /// Map of tags to assign to the Security Profile.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSecurityProfileResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string instanceId,
 
-            string name,
+            string? name,
 
-            string organizationResourceId,
+            string? organizationResourceId,
 
             ImmutableArray<string> permissions,
 
-            string securityProfileId,
+            string? securityProfileId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

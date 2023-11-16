@@ -118,39 +118,39 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// ARN identifying the Lambda function alias.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of alias.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string FunctionName;
         /// <summary>
         /// Lambda function version which the alias uses.
         /// </summary>
-        public readonly string FunctionVersion;
+        public readonly string? FunctionVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
         /// </summary>
-        public readonly string InvokeArn;
+        public readonly string? InvokeArn;
         public readonly string Name;
 
         [OutputConstructor]
         private GetAliasResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
             string functionName,
 
-            string functionVersion,
+            string? functionVersion,
 
-            string id,
+            string? id,
 
-            string invokeArn,
+            string? invokeArn,
 
             string name)
         {

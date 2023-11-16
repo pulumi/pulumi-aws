@@ -7,14 +7,15 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFunctionEnvironment {
-    private Map<String,String> variables;
+    private @Nullable Map<String,String> variables;
 
     private GetFunctionEnvironment() {}
     public Map<String,String> variables() {
-        return this.variables;
+        return this.variables == null ? Map.of() : this.variables;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetFunctionEnvironment {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,String> variables;
+        private @Nullable Map<String,String> variables;
         public Builder() {}
         public Builder(GetFunctionEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetFunctionEnvironment {
         }
 
         @CustomType.Setter
-        public Builder variables(Map<String,String> variables) {
-            this.variables = Objects.requireNonNull(variables);
+        public Builder variables(@Nullable Map<String,String> variables) {
+            this.variables = variables;
             return this;
         }
         public GetFunctionEnvironment build() {

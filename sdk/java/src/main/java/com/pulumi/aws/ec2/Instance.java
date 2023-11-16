@@ -316,56 +316,56 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ami", refs={String.class}, tree="[0]")
-    private Output<String> ami;
+    private Output</* @Nullable */ String> ami;
 
     /**
      * @return AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
-    public Output<String> ami() {
-        return this.ami;
+    public Output<Optional<String>> ami() {
+        return Codegen.optional(this.ami);
     }
     /**
      * ARN of the instance.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the instance.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      * 
      */
     @Export(name="associatePublicIpAddress", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> associatePublicIpAddress;
+    private Output</* @Nullable */ Boolean> associatePublicIpAddress;
 
     /**
      * @return Whether to associate a public IP address with an instance in a VPC.
      * 
      */
-    public Output<Boolean> associatePublicIpAddress() {
-        return this.associatePublicIpAddress;
+    public Output<Optional<Boolean>> associatePublicIpAddress() {
+        return Codegen.optional(this.associatePublicIpAddress);
     }
     /**
      * AZ to start the instance in.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return AZ to start the instance in.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -374,7 +374,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="capacityReservationSpecification", refs={InstanceCapacityReservationSpecification.class}, tree="[0]")
-    private Output<InstanceCapacityReservationSpecification> capacityReservationSpecification;
+    private Output</* @Nullable */ InstanceCapacityReservationSpecification> capacityReservationSpecification;
 
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -382,8 +382,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
-    public Output<InstanceCapacityReservationSpecification> capacityReservationSpecification() {
-        return this.capacityReservationSpecification;
+    public Output<Optional<InstanceCapacityReservationSpecification>> capacityReservationSpecification() {
+        return Codegen.optional(this.capacityReservationSpecification);
     }
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
@@ -394,28 +394,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* use 'cpu_options' argument instead */
     @Export(name="cpuCoreCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> cpuCoreCount;
+    private Output</* @Nullable */ Integer> cpuCoreCount;
 
     /**
      * @return Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
      */
-    public Output<Integer> cpuCoreCount() {
-        return this.cpuCoreCount;
+    public Output<Optional<Integer>> cpuCoreCount() {
+        return Codegen.optional(this.cpuCoreCount);
     }
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
     @Export(name="cpuOptions", refs={InstanceCpuOptions.class}, tree="[0]")
-    private Output<InstanceCpuOptions> cpuOptions;
+    private Output</* @Nullable */ InstanceCpuOptions> cpuOptions;
 
     /**
      * @return The CPU options for the instance. See CPU Options below for more details.
      * 
      */
-    public Output<InstanceCpuOptions> cpuOptions() {
-        return this.cpuOptions;
+    public Output<Optional<InstanceCpuOptions>> cpuOptions() {
+        return Codegen.optional(this.cpuOptions);
     }
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -426,14 +426,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* use 'cpu_options' argument instead */
     @Export(name="cpuThreadsPerCore", refs={Integer.class}, tree="[0]")
-    private Output<Integer> cpuThreadsPerCore;
+    private Output</* @Nullable */ Integer> cpuThreadsPerCore;
 
     /**
      * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
      */
-    public Output<Integer> cpuThreadsPerCore() {
-        return this.cpuThreadsPerCore;
+    public Output<Optional<Integer>> cpuThreadsPerCore() {
+        return Codegen.optional(this.cpuThreadsPerCore);
     }
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -454,84 +454,84 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="disableApiStop", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> disableApiStop;
+    private Output</* @Nullable */ Boolean> disableApiStop;
 
     /**
      * @return If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      * 
      */
-    public Output<Boolean> disableApiStop() {
-        return this.disableApiStop;
+    public Output<Optional<Boolean>> disableApiStop() {
+        return Codegen.optional(this.disableApiStop);
     }
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      * 
      */
     @Export(name="disableApiTermination", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> disableApiTermination;
+    private Output</* @Nullable */ Boolean> disableApiTermination;
 
     /**
      * @return If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      * 
      */
-    public Output<Boolean> disableApiTermination() {
-        return this.disableApiTermination;
+    public Output<Optional<Boolean>> disableApiTermination() {
+        return Codegen.optional(this.disableApiTermination);
     }
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
     @Export(name="ebsBlockDevices", refs={List.class,InstanceEbsBlockDevice.class}, tree="[0,1]")
-    private Output<List<InstanceEbsBlockDevice>> ebsBlockDevices;
+    private Output</* @Nullable */ List<InstanceEbsBlockDevice>> ebsBlockDevices;
 
     /**
      * @return One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    public Output<List<InstanceEbsBlockDevice>> ebsBlockDevices() {
-        return this.ebsBlockDevices;
+    public Output<Optional<List<InstanceEbsBlockDevice>>> ebsBlockDevices() {
+        return Codegen.optional(this.ebsBlockDevices);
     }
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      * 
      */
     @Export(name="ebsOptimized", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> ebsOptimized;
+    private Output</* @Nullable */ Boolean> ebsOptimized;
 
     /**
      * @return If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      * 
      */
-    public Output<Boolean> ebsOptimized() {
-        return this.ebsOptimized;
+    public Output<Optional<Boolean>> ebsOptimized() {
+        return Codegen.optional(this.ebsOptimized);
     }
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
     @Export(name="enclaveOptions", refs={InstanceEnclaveOptions.class}, tree="[0]")
-    private Output<InstanceEnclaveOptions> enclaveOptions;
+    private Output</* @Nullable */ InstanceEnclaveOptions> enclaveOptions;
 
     /**
      * @return Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
-    public Output<InstanceEnclaveOptions> enclaveOptions() {
-        return this.enclaveOptions;
+    public Output<Optional<InstanceEnclaveOptions>> enclaveOptions() {
+        return Codegen.optional(this.enclaveOptions);
     }
     /**
      * One or more configuration blocks to customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
     @Export(name="ephemeralBlockDevices", refs={List.class,InstanceEphemeralBlockDevice.class}, tree="[0,1]")
-    private Output<List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices;
+    private Output</* @Nullable */ List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices;
 
     /**
      * @return One or more configuration blocks to customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    public Output<List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices() {
-        return this.ephemeralBlockDevices;
+    public Output<Optional<List<InstanceEphemeralBlockDevice>>> ephemeralBlockDevices() {
+        return Codegen.optional(this.ephemeralBlockDevices);
     }
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -566,154 +566,154 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostId", refs={String.class}, tree="[0]")
-    private Output<String> hostId;
+    private Output</* @Nullable */ String> hostId;
 
     /**
      * @return ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      * 
      */
-    public Output<String> hostId() {
-        return this.hostId;
+    public Output<Optional<String>> hostId() {
+        return Codegen.optional(this.hostId);
     }
     /**
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      * 
      */
     @Export(name="hostResourceGroupArn", refs={String.class}, tree="[0]")
-    private Output<String> hostResourceGroupArn;
+    private Output</* @Nullable */ String> hostResourceGroupArn;
 
     /**
      * @return ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      * 
      */
-    public Output<String> hostResourceGroupArn() {
-        return this.hostResourceGroupArn;
+    public Output<Optional<String>> hostResourceGroupArn() {
+        return Codegen.optional(this.hostResourceGroupArn);
     }
     /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
     @Export(name="iamInstanceProfile", refs={String.class}, tree="[0]")
-    private Output<String> iamInstanceProfile;
+    private Output</* @Nullable */ String> iamInstanceProfile;
 
     /**
      * @return IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
-    public Output<String> iamInstanceProfile() {
-        return this.iamInstanceProfile;
+    public Output<Optional<String>> iamInstanceProfile() {
+        return Codegen.optional(this.iamInstanceProfile);
     }
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      * 
      */
     @Export(name="instanceInitiatedShutdownBehavior", refs={String.class}, tree="[0]")
-    private Output<String> instanceInitiatedShutdownBehavior;
+    private Output</* @Nullable */ String> instanceInitiatedShutdownBehavior;
 
     /**
      * @return Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      * 
      */
-    public Output<String> instanceInitiatedShutdownBehavior() {
-        return this.instanceInitiatedShutdownBehavior;
+    public Output<Optional<String>> instanceInitiatedShutdownBehavior() {
+        return Codegen.optional(this.instanceInitiatedShutdownBehavior);
     }
     /**
      * Indicates whether this is a Spot Instance or a Scheduled Instance.
      * 
      */
     @Export(name="instanceLifecycle", refs={String.class}, tree="[0]")
-    private Output<String> instanceLifecycle;
+    private Output</* @Nullable */ String> instanceLifecycle;
 
     /**
      * @return Indicates whether this is a Spot Instance or a Scheduled Instance.
      * 
      */
-    public Output<String> instanceLifecycle() {
-        return this.instanceLifecycle;
+    public Output<Optional<String>> instanceLifecycle() {
+        return Codegen.optional(this.instanceLifecycle);
     }
     /**
      * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
      * 
      */
     @Export(name="instanceMarketOptions", refs={InstanceInstanceMarketOptions.class}, tree="[0]")
-    private Output<InstanceInstanceMarketOptions> instanceMarketOptions;
+    private Output</* @Nullable */ InstanceInstanceMarketOptions> instanceMarketOptions;
 
     /**
      * @return Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
      * 
      */
-    public Output<InstanceInstanceMarketOptions> instanceMarketOptions() {
-        return this.instanceMarketOptions;
+    public Output<Optional<InstanceInstanceMarketOptions>> instanceMarketOptions() {
+        return Codegen.optional(this.instanceMarketOptions);
     }
     /**
      * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
     @Export(name="instanceState", refs={String.class}, tree="[0]")
-    private Output<String> instanceState;
+    private Output</* @Nullable */ String> instanceState;
 
     /**
      * @return State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
-    public Output<String> instanceState() {
-        return this.instanceState;
+    public Output<Optional<String>> instanceState() {
+        return Codegen.optional(this.instanceState);
     }
     /**
      * Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
-    private Output<String> instanceType;
+    private Output</* @Nullable */ String> instanceType;
 
     /**
      * @return Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
-    public Output<String> instanceType() {
-        return this.instanceType;
+    public Output<Optional<String>> instanceType() {
+        return Codegen.optional(this.instanceType);
     }
     /**
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
     @Export(name="ipv6AddressCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> ipv6AddressCount;
+    private Output</* @Nullable */ Integer> ipv6AddressCount;
 
     /**
      * @return Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
-    public Output<Integer> ipv6AddressCount() {
-        return this.ipv6AddressCount;
+    public Output<Optional<Integer>> ipv6AddressCount() {
+        return Codegen.optional(this.ipv6AddressCount);
     }
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      * 
      */
     @Export(name="ipv6Addresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> ipv6Addresses;
+    private Output</* @Nullable */ List<String>> ipv6Addresses;
 
     /**
      * @return Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      * 
      */
-    public Output<List<String>> ipv6Addresses() {
-        return this.ipv6Addresses;
+    public Output<Optional<List<String>>> ipv6Addresses() {
+        return Codegen.optional(this.ipv6Addresses);
     }
     /**
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      * 
      */
     @Export(name="keyName", refs={String.class}, tree="[0]")
-    private Output<String> keyName;
+    private Output</* @Nullable */ String> keyName;
 
     /**
      * @return Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      * 
      */
-    public Output<String> keyName() {
-        return this.keyName;
+    public Output<Optional<String>> keyName() {
+        return Codegen.optional(this.keyName);
     }
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
@@ -734,224 +734,224 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maintenanceOptions", refs={InstanceMaintenanceOptions.class}, tree="[0]")
-    private Output<InstanceMaintenanceOptions> maintenanceOptions;
+    private Output</* @Nullable */ InstanceMaintenanceOptions> maintenanceOptions;
 
     /**
      * @return Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
-    public Output<InstanceMaintenanceOptions> maintenanceOptions() {
-        return this.maintenanceOptions;
+    public Output<Optional<InstanceMaintenanceOptions>> maintenanceOptions() {
+        return Codegen.optional(this.maintenanceOptions);
     }
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      * 
      */
     @Export(name="metadataOptions", refs={InstanceMetadataOptions.class}, tree="[0]")
-    private Output<InstanceMetadataOptions> metadataOptions;
+    private Output</* @Nullable */ InstanceMetadataOptions> metadataOptions;
 
     /**
      * @return Customize the metadata options of the instance. See Metadata Options below for more details.
      * 
      */
-    public Output<InstanceMetadataOptions> metadataOptions() {
-        return this.metadataOptions;
+    public Output<Optional<InstanceMetadataOptions>> metadataOptions() {
+        return Codegen.optional(this.metadataOptions);
     }
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      * 
      */
     @Export(name="monitoring", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> monitoring;
+    private Output</* @Nullable */ Boolean> monitoring;
 
     /**
      * @return If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      * 
      */
-    public Output<Boolean> monitoring() {
-        return this.monitoring;
+    public Output<Optional<Boolean>> monitoring() {
+        return Codegen.optional(this.monitoring);
     }
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,InstanceNetworkInterface.class}, tree="[0,1]")
-    private Output<List<InstanceNetworkInterface>> networkInterfaces;
+    private Output</* @Nullable */ List<InstanceNetworkInterface>> networkInterfaces;
 
     /**
      * @return Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
      */
-    public Output<List<InstanceNetworkInterface>> networkInterfaces() {
-        return this.networkInterfaces;
+    public Output<Optional<List<InstanceNetworkInterface>>> networkInterfaces() {
+        return Codegen.optional(this.networkInterfaces);
     }
     /**
      * ARN of the Outpost the instance is assigned to.
      * 
      */
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
-    private Output<String> outpostArn;
+    private Output</* @Nullable */ String> outpostArn;
 
     /**
      * @return ARN of the Outpost the instance is assigned to.
      * 
      */
-    public Output<String> outpostArn() {
-        return this.outpostArn;
+    public Output<Optional<String>> outpostArn() {
+        return Codegen.optional(this.outpostArn);
     }
     /**
      * Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
     @Export(name="passwordData", refs={String.class}, tree="[0]")
-    private Output<String> passwordData;
+    private Output</* @Nullable */ String> passwordData;
 
     /**
      * @return Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    public Output<String> passwordData() {
-        return this.passwordData;
+    public Output<Optional<String>> passwordData() {
+        return Codegen.optional(this.passwordData);
     }
     /**
      * Placement Group to start the instance in.
      * 
      */
     @Export(name="placementGroup", refs={String.class}, tree="[0]")
-    private Output<String> placementGroup;
+    private Output</* @Nullable */ String> placementGroup;
 
     /**
      * @return Placement Group to start the instance in.
      * 
      */
-    public Output<String> placementGroup() {
-        return this.placementGroup;
+    public Output<Optional<String>> placementGroup() {
+        return Codegen.optional(this.placementGroup);
     }
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
     @Export(name="placementPartitionNumber", refs={Integer.class}, tree="[0]")
-    private Output<Integer> placementPartitionNumber;
+    private Output</* @Nullable */ Integer> placementPartitionNumber;
 
     /**
      * @return Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
-    public Output<Integer> placementPartitionNumber() {
-        return this.placementPartitionNumber;
+    public Output<Optional<Integer>> placementPartitionNumber() {
+        return Codegen.optional(this.placementPartitionNumber);
     }
     /**
      * ID of the instance&#39;s primary network interface.
      * 
      */
     @Export(name="primaryNetworkInterfaceId", refs={String.class}, tree="[0]")
-    private Output<String> primaryNetworkInterfaceId;
+    private Output</* @Nullable */ String> primaryNetworkInterfaceId;
 
     /**
      * @return ID of the instance&#39;s primary network interface.
      * 
      */
-    public Output<String> primaryNetworkInterfaceId() {
-        return this.primaryNetworkInterfaceId;
+    public Output<Optional<String>> primaryNetworkInterfaceId() {
+        return Codegen.optional(this.primaryNetworkInterfaceId);
     }
     /**
      * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     @Export(name="privateDns", refs={String.class}, tree="[0]")
-    private Output<String> privateDns;
+    private Output</* @Nullable */ String> privateDns;
 
     /**
      * @return Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public Output<String> privateDns() {
-        return this.privateDns;
+    public Output<Optional<String>> privateDns() {
+        return Codegen.optional(this.privateDns);
     }
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
     @Export(name="privateDnsNameOptions", refs={InstancePrivateDnsNameOptions.class}, tree="[0]")
-    private Output<InstancePrivateDnsNameOptions> privateDnsNameOptions;
+    private Output</* @Nullable */ InstancePrivateDnsNameOptions> privateDnsNameOptions;
 
     /**
      * @return Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
-    public Output<InstancePrivateDnsNameOptions> privateDnsNameOptions() {
-        return this.privateDnsNameOptions;
+    public Output<Optional<InstancePrivateDnsNameOptions>> privateDnsNameOptions() {
+        return Codegen.optional(this.privateDnsNameOptions);
     }
     /**
      * Private IP address to associate with the instance in a VPC.
      * 
      */
     @Export(name="privateIp", refs={String.class}, tree="[0]")
-    private Output<String> privateIp;
+    private Output</* @Nullable */ String> privateIp;
 
     /**
      * @return Private IP address to associate with the instance in a VPC.
      * 
      */
-    public Output<String> privateIp() {
-        return this.privateIp;
+    public Output<Optional<String>> privateIp() {
+        return Codegen.optional(this.privateIp);
     }
     /**
      * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     @Export(name="publicDns", refs={String.class}, tree="[0]")
-    private Output<String> publicDns;
+    private Output</* @Nullable */ String> publicDns;
 
     /**
      * @return Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public Output<String> publicDns() {
-        return this.publicDns;
+    public Output<Optional<String>> publicDns() {
+        return Codegen.optional(this.publicDns);
     }
     /**
      * Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
      * 
      */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
-    private Output<String> publicIp;
+    private Output</* @Nullable */ String> publicIp;
 
     /**
      * @return Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
      * 
      */
-    public Output<String> publicIp() {
-        return this.publicIp;
+    public Output<Optional<String>> publicIp() {
+        return Codegen.optional(this.publicIp);
     }
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      * 
      */
     @Export(name="rootBlockDevice", refs={InstanceRootBlockDevice.class}, tree="[0]")
-    private Output<InstanceRootBlockDevice> rootBlockDevice;
+    private Output</* @Nullable */ InstanceRootBlockDevice> rootBlockDevice;
 
     /**
      * @return Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      * 
      */
-    public Output<InstanceRootBlockDevice> rootBlockDevice() {
-        return this.rootBlockDevice;
+    public Output<Optional<InstanceRootBlockDevice>> rootBlockDevice() {
+        return Codegen.optional(this.rootBlockDevice);
     }
     /**
      * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
     @Export(name="secondaryPrivateIps", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> secondaryPrivateIps;
+    private Output</* @Nullable */ List<String>> secondaryPrivateIps;
 
     /**
      * @return List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
-    public Output<List<String>> secondaryPrivateIps() {
-        return this.secondaryPrivateIps;
+    public Output<Optional<List<String>>> secondaryPrivateIps() {
+        return Codegen.optional(this.secondaryPrivateIps);
     }
     /**
      * List of security group names to associate with.
@@ -964,7 +964,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates. */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroups;
+    private Output</* @Nullable */ List<String>> securityGroups;
 
     /**
      * @return List of security group names to associate with.
@@ -972,8 +972,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      * 
      */
-    public Output<List<String>> securityGroups() {
-        return this.securityGroups;
+    public Output<Optional<List<String>>> securityGroups() {
+        return Codegen.optional(this.securityGroups);
     }
     /**
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -994,28 +994,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="spotInstanceRequestId", refs={String.class}, tree="[0]")
-    private Output<String> spotInstanceRequestId;
+    private Output</* @Nullable */ String> spotInstanceRequestId;
 
     /**
      * @return If the request is a Spot Instance request, the ID of the request.
      * 
      */
-    public Output<String> spotInstanceRequestId() {
-        return this.spotInstanceRequestId;
+    public Output<Optional<String>> spotInstanceRequestId() {
+        return Codegen.optional(this.spotInstanceRequestId);
     }
     /**
      * VPC Subnet ID to launch in.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
-    private Output<String> subnetId;
+    private Output</* @Nullable */ String> subnetId;
 
     /**
      * @return VPC Subnet ID to launch in.
      * 
      */
-    public Output<String> subnetId() {
-        return this.subnetId;
+    public Output<Optional<String>> subnetId() {
+        return Codegen.optional(this.subnetId);
     }
     /**
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1054,42 +1054,42 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tenancy", refs={String.class}, tree="[0]")
-    private Output<String> tenancy;
+    private Output</* @Nullable */ String> tenancy;
 
     /**
      * @return Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
-    public Output<String> tenancy() {
-        return this.tenancy;
+    public Output<Optional<String>> tenancy() {
+        return Codegen.optional(this.tenancy);
     }
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
      * 
      */
     @Export(name="userData", refs={String.class}, tree="[0]")
-    private Output<String> userData;
+    private Output</* @Nullable */ String> userData;
 
     /**
      * @return User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
      * 
      */
-    public Output<String> userData() {
-        return this.userData;
+    public Output<Optional<String>> userData() {
+        return Codegen.optional(this.userData);
     }
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
      * 
      */
     @Export(name="userDataBase64", refs={String.class}, tree="[0]")
-    private Output<String> userDataBase64;
+    private Output</* @Nullable */ String> userDataBase64;
 
     /**
      * @return Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
      * 
      */
-    public Output<String> userDataBase64() {
-        return this.userDataBase64;
+    public Output<Optional<String>> userDataBase64() {
+        return Codegen.optional(this.userDataBase64);
     }
     /**
      * When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
@@ -1128,14 +1128,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return List of security group IDs to associate with.
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
 
     /**

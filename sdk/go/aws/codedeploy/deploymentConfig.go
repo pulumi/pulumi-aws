@@ -150,7 +150,7 @@ type DeploymentConfig struct {
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
 	// The AWS Assigned deployment config id
-	DeploymentConfigId pulumi.StringOutput `pulumi:"deploymentConfigId"`
+	DeploymentConfigId pulumi.StringPtrOutput `pulumi:"deploymentConfigId"`
 	// The name of the deployment config.
 	DeploymentConfigName pulumi.StringOutput `pulumi:"deploymentConfigName"`
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
@@ -334,8 +334,8 @@ func (o DeploymentConfigOutput) ComputePlatform() pulumi.StringPtrOutput {
 }
 
 // The AWS Assigned deployment config id
-func (o DeploymentConfigOutput) DeploymentConfigId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.DeploymentConfigId }).(pulumi.StringOutput)
+func (o DeploymentConfigOutput) DeploymentConfigId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringPtrOutput { return v.DeploymentConfigId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the deployment config.

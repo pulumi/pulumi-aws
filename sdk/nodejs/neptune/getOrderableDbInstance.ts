@@ -74,73 +74,73 @@ export interface GetOrderableDbInstanceResult {
     /**
      * Availability zones where the instance is available.
      */
-    readonly availabilityZones: string[];
+    readonly availabilityZones?: string[];
     readonly engine?: string;
-    readonly engineVersion: string;
+    readonly engineVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly instanceClass: string;
+    readonly id?: string;
+    readonly instanceClass?: string;
     readonly licenseModel?: string;
     /**
      * Maximum total provisioned IOPS for a DB instance.
      */
-    readonly maxIopsPerDbInstance: number;
+    readonly maxIopsPerDbInstance?: number;
     /**
      * Maximum provisioned IOPS per GiB for a DB instance.
      */
-    readonly maxIopsPerGib: number;
+    readonly maxIopsPerGib?: number;
     /**
      * Maximum storage size for a DB instance.
      */
-    readonly maxStorageSize: number;
+    readonly maxStorageSize?: number;
     /**
      * Minimum total provisioned IOPS for a DB instance.
      */
-    readonly minIopsPerDbInstance: number;
+    readonly minIopsPerDbInstance?: number;
     /**
      * Minimum provisioned IOPS per GiB for a DB instance.
      */
-    readonly minIopsPerGib: number;
+    readonly minIopsPerGib?: number;
     /**
      * Minimum storage size for a DB instance.
      */
-    readonly minStorageSize: number;
+    readonly minStorageSize?: number;
     /**
      * Whether a DB instance is Multi-AZ capable.
      */
-    readonly multiAzCapable: boolean;
+    readonly multiAzCapable?: boolean;
     readonly preferredInstanceClasses?: string[];
     /**
      * Whether a DB instance can have a read replica.
      */
-    readonly readReplicaCapable: boolean;
+    readonly readReplicaCapable?: boolean;
     /**
      * Storage type for a DB instance.
      */
-    readonly storageType: string;
+    readonly storageType?: string;
     /**
      * Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
      */
-    readonly supportsEnhancedMonitoring: boolean;
+    readonly supportsEnhancedMonitoring?: boolean;
     /**
      * Whether a DB instance supports IAM database authentication.
      */
-    readonly supportsIamDatabaseAuthentication: boolean;
+    readonly supportsIamDatabaseAuthentication?: boolean;
     /**
      * Whether a DB instance supports provisioned IOPS.
      */
-    readonly supportsIops: boolean;
+    readonly supportsIops?: boolean;
     /**
      * Whether a DB instance supports Performance Insights.
      */
-    readonly supportsPerformanceInsights: boolean;
+    readonly supportsPerformanceInsights?: boolean;
     /**
      * Whether a DB instance supports encrypted storage.
      */
-    readonly supportsStorageEncryption: boolean;
-    readonly vpc: boolean;
+    readonly supportsStorageEncryption?: boolean;
+    readonly vpc?: boolean;
 }
 /**
  * Information about Neptune orderable DB instances.

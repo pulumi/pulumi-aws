@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Kms
         /// The Amazon Resource Name (ARN) of the key.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Kms
         /// The description of the key as viewed in AWS console.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Kms
         /// The globally unique identifier for the key.
         /// </summary>
         [Output("keyId")]
-        public Output<string> KeyId { get; private set; } = null!;
+        public Output<string?> KeyId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Kms
         /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         /// </summary>
         [Output("multiRegion")]
-        public Output<bool> MultiRegion { get; private set; } = null!;
+        public Output<bool?> MultiRegion { get; private set; } = null!;
 
         /// <summary>
         /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Kms
         /// &gt; **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

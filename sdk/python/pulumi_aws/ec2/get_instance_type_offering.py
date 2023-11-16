@@ -47,7 +47,7 @@ class GetInstanceTypeOfferingResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -55,7 +55,7 @@ class GetInstanceTypeOfferingResult:
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> Optional[str]:
         """
         EC2 Instance Type.
         """

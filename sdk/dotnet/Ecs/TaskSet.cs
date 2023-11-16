@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ecs
         /// The Amazon Resource Name (ARN) that identifies the task set.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Ecs
         /// The external ID associated with the task set.
         /// </summary>
         [Output("externalId")]
-        public Output<string> ExternalId { get; private set; } = null!;
+        public Output<string?> ExternalId { get; private set; } = null!;
 
         /// <summary>
         /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Ecs
         /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
         [Output("launchType")]
-        public Output<string> LaunchType { get; private set; } = null!;
+        public Output<string?> LaunchType { get; private set; } = null!;
 
         /// <summary>
         /// Details on load balancers that are used with a task set. Detailed below.
@@ -106,13 +106,13 @@ namespace Pulumi.Aws.Ecs
         /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Output("platformVersion")]
-        public Output<string> PlatformVersion { get; private set; } = null!;
+        public Output<string?> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Output("scale")]
-        public Output<Outputs.TaskSetScale> Scale { get; private set; } = null!;
+        public Output<Outputs.TaskSetScale?> Scale { get; private set; } = null!;
 
         /// <summary>
         /// The short name or ARN of the ECS service.
@@ -130,13 +130,13 @@ namespace Pulumi.Aws.Ecs
         /// The stability status. This indicates whether the task set has reached a steady state.
         /// </summary>
         [Output("stabilityStatus")]
-        public Output<string> StabilityStatus { get; private set; } = null!;
+        public Output<string?> StabilityStatus { get; private set; } = null!;
 
         /// <summary>
         /// The status of the task set.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ecs
         /// The ID of the task set.
         /// </summary>
         [Output("taskSetId")]
-        public Output<string> TaskSetId { get; private set; } = null!;
+        public Output<string?> TaskSetId { get; private set; } = null!;
 
         /// <summary>
         /// Whether the provider should wait until the task set has reached `STEADY_STATE`.

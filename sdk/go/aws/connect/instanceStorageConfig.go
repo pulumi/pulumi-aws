@@ -201,7 +201,7 @@ type InstanceStorageConfig struct {
 	pulumi.CustomResourceState
 
 	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
+	AssociationId pulumi.StringPtrOutput `pulumi:"associationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
@@ -381,8 +381,8 @@ func (o InstanceStorageConfigOutput) ToInstanceStorageConfigOutputWithContext(ct
 }
 
 // The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-func (o InstanceStorageConfigOutput) AssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+func (o InstanceStorageConfigOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringPtrOutput { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identifier of the hosting Amazon Connect Instance.

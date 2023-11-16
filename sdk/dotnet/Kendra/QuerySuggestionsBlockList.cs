@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Kendra
         /// ARN of the block list.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description for a block list.
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Kendra
         /// Unique identifier of the block list.
         /// </summary>
         [Output("querySuggestionsBlockListId")]
-        public Output<string> QuerySuggestionsBlockListId { get; private set; } = null!;
+        public Output<string?> QuerySuggestionsBlockListId { get; private set; } = null!;
 
         /// <summary>
         /// IAM (Identity and Access Management) role used to access the block list text file in S3.
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Kendra
         public Output<Outputs.QuerySuggestionsBlockListSourceS3Path> SourceS3Path { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.

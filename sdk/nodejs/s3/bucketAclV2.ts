@@ -170,7 +170,7 @@ export class BucketAclV2 extends pulumi.CustomResource {
     /**
      * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
-    public readonly accessControlPolicy!: pulumi.Output<outputs.s3.BucketAclV2AccessControlPolicy>;
+    public readonly accessControlPolicy!: pulumi.Output<outputs.s3.BucketAclV2AccessControlPolicy | undefined>;
     /**
      * Canned ACL to apply to the bucket.
      */

@@ -13,12 +13,12 @@ namespace Pulumi.Aws.SsmContacts.Outputs
     [OutputType]
     public sealed class GetPlanStageResult
     {
-        public readonly int DurationInMinutes;
+        public readonly int? DurationInMinutes;
         public readonly ImmutableArray<Outputs.GetPlanStageTargetResult> Targets;
 
         [OutputConstructor]
         private GetPlanStageResult(
-            int durationInMinutes,
+            int? durationInMinutes,
 
             ImmutableArray<Outputs.GetPlanStageTargetResult> targets)
         {

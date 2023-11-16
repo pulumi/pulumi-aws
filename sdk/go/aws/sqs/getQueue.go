@@ -61,14 +61,14 @@ type LookupQueueArgs struct {
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
 	// ARN of the queue.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// URL of the queue.
-	Url string `pulumi:"url"`
+	Url *string `pulumi:"url"`
 }
 
 func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...pulumi.InvokeOption) LookupQueueResultOutput {
@@ -112,13 +112,13 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 }
 
 // ARN of the queue.
-func (o LookupQueueResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupQueueResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
@@ -131,8 +131,8 @@ func (o LookupQueueResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // URL of the queue.
-func (o LookupQueueResultOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Url }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func init() {

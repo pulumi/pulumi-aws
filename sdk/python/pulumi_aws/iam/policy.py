@@ -463,7 +463,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN assigned by AWS to this policy.
         """
@@ -487,7 +487,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -512,7 +512,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[str]:
+    def policy_id(self) -> pulumi.Output[Optional[str]]:
         """
         The policy's ID.
         """

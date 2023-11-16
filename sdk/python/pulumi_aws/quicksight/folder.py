@@ -596,7 +596,7 @@ class Folder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the folder.
         """
@@ -604,7 +604,7 @@ class Folder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """
@@ -612,7 +612,7 @@ class Folder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the folder was created.
         """
@@ -628,7 +628,7 @@ class Folder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="folderPaths")
-    def folder_paths(self) -> pulumi.Output[Sequence[str]]:
+    def folder_paths(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An array of ancestor ARN strings for the folder. Empty for root-level folders.
         """
@@ -644,7 +644,7 @@ class Folder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the folder was last updated.
         """

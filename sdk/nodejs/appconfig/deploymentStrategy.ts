@@ -65,7 +65,7 @@ export class DeploymentStrategy extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig Deployment Strategy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
      */

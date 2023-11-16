@@ -81,7 +81,7 @@ import (
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//					Input: exampleQueue.Url.ApplyT(func(url string) (pulumi.String, error) {
+//					Input: exampleQueue.Url.ApplyT(func(url *string) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON0, err := json.Marshal(map[string]interface{}{
 //							"MessageBody": "Greetings, programs!",
@@ -117,7 +117,7 @@ type Schedule struct {
 	pulumi.CustomResourceState
 
 	// ARN of the SQS queue specified as the destination for the dead-letter queue.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Brief description of the schedule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
@@ -125,13 +125,13 @@ type Schedule struct {
 	// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
 	FlexibleTimeWindow ScheduleFlexibleTimeWindowOutput `pulumi:"flexibleTimeWindow"`
 	// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	GroupName pulumi.StringPtrOutput `pulumi:"groupName"`
 	// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
 	ScheduleExpression pulumi.StringOutput `pulumi:"scheduleExpression"`
 	// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
@@ -397,8 +397,8 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 }
 
 // ARN of the SQS queue specified as the destination for the dead-letter queue.
-func (o ScheduleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ScheduleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Brief description of the schedule.
@@ -417,8 +417,8 @@ func (o ScheduleOutput) FlexibleTimeWindow() ScheduleFlexibleTimeWindowOutput {
 }
 
 // Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-func (o ScheduleOutput) GroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
+func (o ScheduleOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
 // ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
@@ -432,8 +432,8 @@ func (o ScheduleOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o ScheduleOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o ScheduleOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).

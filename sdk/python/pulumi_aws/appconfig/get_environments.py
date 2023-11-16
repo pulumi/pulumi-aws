@@ -39,7 +39,7 @@ class GetEnvironmentsResult:
 
     @property
     @pulumi.getter(name="environmentIds")
-    def environment_ids(self) -> Sequence[str]:
+    def environment_ids(self) -> Optional[Sequence[str]]:
         """
         Set of Environment IDs associated with this AppConfig Application.
         """
@@ -47,7 +47,7 @@ class GetEnvironmentsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

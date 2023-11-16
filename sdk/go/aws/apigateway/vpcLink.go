@@ -29,7 +29,7 @@ import (
 type VpcLink struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the VPC link.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name used to label and identify the VPC link.
@@ -226,8 +226,8 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 	return o
 }
 
-func (o VpcLinkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpcLinkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the VPC link.

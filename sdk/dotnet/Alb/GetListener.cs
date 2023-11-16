@@ -175,41 +175,41 @@ namespace Pulumi.Aws.Alb
     [OutputType]
     public sealed class GetListenerResult
     {
-        public readonly string AlpnPolicy;
-        public readonly string Arn;
-        public readonly string CertificateArn;
+        public readonly string? AlpnPolicy;
+        public readonly string? Arn;
+        public readonly string? CertificateArn;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionResult> DefaultActions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string LoadBalancerArn;
-        public readonly int Port;
-        public readonly string Protocol;
-        public readonly string SslPolicy;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? Id;
+        public readonly string? LoadBalancerArn;
+        public readonly int? Port;
+        public readonly string? Protocol;
+        public readonly string? SslPolicy;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetListenerResult(
-            string alpnPolicy,
+            string? alpnPolicy,
 
-            string arn,
+            string? arn,
 
-            string certificateArn,
+            string? certificateArn,
 
             ImmutableArray<Outputs.GetListenerDefaultActionResult> defaultActions,
 
-            string id,
+            string? id,
 
-            string loadBalancerArn,
+            string? loadBalancerArn,
 
-            int port,
+            int? port,
 
-            string protocol,
+            string? protocol,
 
-            string sslPolicy,
+            string? sslPolicy,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AlpnPolicy = alpnPolicy;
             Arn = arn;

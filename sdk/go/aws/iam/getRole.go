@@ -61,28 +61,28 @@ type LookupRoleArgs struct {
 // A collection of values returned by getRole.
 type LookupRoleResult struct {
 	// ARN of the role.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Policy document associated with the role.
-	AssumeRolePolicy string `pulumi:"assumeRolePolicy"`
+	AssumeRolePolicy *string `pulumi:"assumeRolePolicy"`
 	// Creation date of the role in RFC 3339 format.
-	CreateDate string `pulumi:"createDate"`
+	CreateDate *string `pulumi:"createDate"`
 	// Description for the role.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Maximum session duration.
-	MaxSessionDuration int    `pulumi:"maxSessionDuration"`
+	MaxSessionDuration *int   `pulumi:"maxSessionDuration"`
 	Name               string `pulumi:"name"`
 	// Path to the role.
-	Path string `pulumi:"path"`
+	Path *string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
-	PermissionsBoundary string `pulumi:"permissionsBoundary"`
+	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
 	// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
 	RoleLastUseds []GetRoleRoleLastUsed `pulumi:"roleLastUseds"`
 	// Tags attached to the role.
 	Tags map[string]string `pulumi:"tags"`
 	// Stable and unique string identifying the role.
-	UniqueId string `pulumi:"uniqueId"`
+	UniqueId *string `pulumi:"uniqueId"`
 }
 
 func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pulumi.InvokeOption) LookupRoleResultOutput {
@@ -126,33 +126,33 @@ func (o LookupRoleResultOutput) ToLookupRoleResultOutputWithContext(ctx context.
 }
 
 // ARN of the role.
-func (o LookupRoleResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRoleResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupRoleResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Policy document associated with the role.
-func (o LookupRoleResultOutput) AssumeRolePolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRoleResult) string { return v.AssumeRolePolicy }).(pulumi.StringOutput)
+func (o LookupRoleResultOutput) AssumeRolePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleResult) *string { return v.AssumeRolePolicy }).(pulumi.StringPtrOutput)
 }
 
 // Creation date of the role in RFC 3339 format.
-func (o LookupRoleResultOutput) CreateDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRoleResult) string { return v.CreateDate }).(pulumi.StringOutput)
+func (o LookupRoleResultOutput) CreateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleResult) *string { return v.CreateDate }).(pulumi.StringPtrOutput)
 }
 
 // Description for the role.
-func (o LookupRoleResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRoleResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupRoleResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupRoleResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRoleResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupRoleResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Maximum session duration.
-func (o LookupRoleResultOutput) MaxSessionDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupRoleResult) int { return v.MaxSessionDuration }).(pulumi.IntOutput)
+func (o LookupRoleResultOutput) MaxSessionDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRoleResult) *int { return v.MaxSessionDuration }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupRoleResultOutput) Name() pulumi.StringOutput {
@@ -160,13 +160,13 @@ func (o LookupRoleResultOutput) Name() pulumi.StringOutput {
 }
 
 // Path to the role.
-func (o LookupRoleResultOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRoleResult) string { return v.Path }).(pulumi.StringOutput)
+func (o LookupRoleResultOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleResult) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the policy that is used to set the permissions boundary for the role.
-func (o LookupRoleResultOutput) PermissionsBoundary() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRoleResult) string { return v.PermissionsBoundary }).(pulumi.StringOutput)
+func (o LookupRoleResultOutput) PermissionsBoundary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleResult) *string { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
 }
 
 // Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
@@ -180,8 +180,8 @@ func (o LookupRoleResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Stable and unique string identifying the role.
-func (o LookupRoleResultOutput) UniqueId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRoleResult) string { return v.UniqueId }).(pulumi.StringOutput)
+func (o LookupRoleResultOutput) UniqueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleResult) *string { return v.UniqueId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

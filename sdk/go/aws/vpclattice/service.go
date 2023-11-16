@@ -54,9 +54,9 @@ type Service struct {
 	pulumi.CustomResourceState
 
 	// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType pulumi.StringOutput `pulumi:"authType"`
+	AuthType pulumi.StringPtrOutput `pulumi:"authType"`
 	// Amazon Resource Name (ARN) of the certificate.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// Custom domain name of the service.
@@ -68,7 +68,7 @@ type Service struct {
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the service.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -283,13 +283,13 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 }
 
 // ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-func (o ServiceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServiceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Type of IAM policy. Either `NONE` or `AWS_IAM`.
-func (o ServiceOutput) AuthType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
+func (o ServiceOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the certificate.
@@ -315,8 +315,8 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 }
 
 // Status of the service.
-func (o ServiceOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ServiceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

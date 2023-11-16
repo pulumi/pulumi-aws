@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -191,28 +192,28 @@ public class PeeringConnectionOptions extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="accepter", refs={PeeringConnectionOptionsAccepter.class}, tree="[0]")
-    private Output<PeeringConnectionOptionsAccepter> accepter;
+    private Output</* @Nullable */ PeeringConnectionOptionsAccepter> accepter;
 
     /**
      * @return An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
      * 
      */
-    public Output<PeeringConnectionOptionsAccepter> accepter() {
-        return this.accepter;
+    public Output<Optional<PeeringConnectionOptionsAccepter>> accepter() {
+        return Codegen.optional(this.accepter);
     }
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
      * 
      */
     @Export(name="requester", refs={PeeringConnectionOptionsRequester.class}, tree="[0]")
-    private Output<PeeringConnectionOptionsRequester> requester;
+    private Output</* @Nullable */ PeeringConnectionOptionsRequester> requester;
 
     /**
      * @return A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
      * 
      */
-    public Output<PeeringConnectionOptionsRequester> requester() {
-        return this.requester;
+    public Output<Optional<PeeringConnectionOptionsRequester>> requester() {
+        return Codegen.optional(this.requester);
     }
     /**
      * The ID of the requester VPC peering connection.

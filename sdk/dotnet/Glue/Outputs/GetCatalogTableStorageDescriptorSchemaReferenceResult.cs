@@ -20,19 +20,19 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// Unique ID assigned to a version of the schema.
         /// </summary>
-        public readonly string SchemaVersionId;
+        public readonly string? SchemaVersionId;
         /// <summary>
         /// Version number of the schema.
         /// </summary>
-        public readonly int SchemaVersionNumber;
+        public readonly int? SchemaVersionNumber;
 
         [OutputConstructor]
         private GetCatalogTableStorageDescriptorSchemaReferenceResult(
             ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult> schemaIds,
 
-            string schemaVersionId,
+            string? schemaVersionId,
 
-            int schemaVersionNumber)
+            int? schemaVersionNumber)
         {
             SchemaIds = schemaIds;
             SchemaVersionId = schemaVersionId;

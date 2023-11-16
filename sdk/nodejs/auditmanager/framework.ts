@@ -65,7 +65,7 @@ export class Framework extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
      */
@@ -83,7 +83,7 @@ export class Framework extends pulumi.CustomResource {
     /**
      * Framework type, such as a custom framework or a standard framework.
      */
-    public /*out*/ readonly frameworkType!: pulumi.Output<string>;
+    public /*out*/ readonly frameworkType!: pulumi.Output<string | undefined>;
     /**
      * Name of the framework.
      */

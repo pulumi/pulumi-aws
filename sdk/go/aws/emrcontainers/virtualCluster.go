@@ -62,7 +62,7 @@ type VirtualCluster struct {
 	pulumi.CustomResourceState
 
 	// ARN of the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block for the container provider associated with your cluster.
 	ContainerProvider VirtualClusterContainerProviderOutput `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
@@ -252,8 +252,8 @@ func (o VirtualClusterOutput) ToVirtualClusterOutputWithContext(ctx context.Cont
 }
 
 // ARN of the cluster.
-func (o VirtualClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VirtualClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualCluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the container provider associated with your cluster.

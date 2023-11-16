@@ -47,13 +47,13 @@ namespace Pulumi.Aws.Sagemaker
     public partial class Device : global::Pulumi.CustomResource
     {
         [Output("agentVersion")]
-        public Output<string> AgentVersion { get; private set; } = null!;
+        public Output<string?> AgentVersion { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Device.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The device to register with SageMaker Edge Manager. See Device details below.

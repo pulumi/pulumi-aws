@@ -51,39 +51,39 @@ export interface GetContainerDefinitionResult {
     /**
      * CPU limit for this container definition
      */
-    readonly cpu: number;
+    readonly cpu?: number;
     /**
      * Indicator if networking is disabled
      */
-    readonly disableNetworking: boolean;
+    readonly disableNetworking?: boolean;
     /**
      * Set docker labels
      */
-    readonly dockerLabels: {[key: string]: string};
+    readonly dockerLabels?: {[key: string]: string};
     /**
      * Environment in use
      */
-    readonly environment: {[key: string]: string};
+    readonly environment?: {[key: string]: string};
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Docker image in use, including the digest
      */
-    readonly image: string;
+    readonly image?: string;
     /**
      * Digest of the docker image in use
      */
-    readonly imageDigest: string;
+    readonly imageDigest?: string;
     /**
      * Memory limit for this container definition
      */
-    readonly memory: number;
+    readonly memory?: number;
     /**
      * Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
      */
-    readonly memoryReservation: number;
+    readonly memoryReservation?: number;
     readonly taskDefinition: string;
 }
 /**

@@ -73,17 +73,17 @@ class GetPermissionsResult:
 
     @property
     @pulumi.getter(name="dataLocation")
-    def data_location(self) -> 'outputs.GetPermissionsDataLocationResult':
+    def data_location(self) -> Optional['outputs.GetPermissionsDataLocationResult']:
         return pulumi.get(self, "data_location")
 
     @property
     @pulumi.getter
-    def database(self) -> 'outputs.GetPermissionsDatabaseResult':
+    def database(self) -> Optional['outputs.GetPermissionsDatabaseResult']:
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -91,17 +91,17 @@ class GetPermissionsResult:
 
     @property
     @pulumi.getter(name="lfTag")
-    def lf_tag(self) -> 'outputs.GetPermissionsLfTagResult':
+    def lf_tag(self) -> Optional['outputs.GetPermissionsLfTagResult']:
         return pulumi.get(self, "lf_tag")
 
     @property
     @pulumi.getter(name="lfTagPolicy")
-    def lf_tag_policy(self) -> 'outputs.GetPermissionsLfTagPolicyResult':
+    def lf_tag_policy(self) -> Optional['outputs.GetPermissionsLfTagPolicyResult']:
         return pulumi.get(self, "lf_tag_policy")
 
     @property
     @pulumi.getter
-    def permissions(self) -> Sequence[str]:
+    def permissions(self) -> Optional[Sequence[str]]:
         """
         List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         """
@@ -109,7 +109,7 @@ class GetPermissionsResult:
 
     @property
     @pulumi.getter(name="permissionsWithGrantOptions")
-    def permissions_with_grant_options(self) -> Sequence[str]:
+    def permissions_with_grant_options(self) -> Optional[Sequence[str]]:
         """
         Subset of `permissions` which the principal can pass.
         """
@@ -122,12 +122,12 @@ class GetPermissionsResult:
 
     @property
     @pulumi.getter
-    def table(self) -> 'outputs.GetPermissionsTableResult':
+    def table(self) -> Optional['outputs.GetPermissionsTableResult']:
         return pulumi.get(self, "table")
 
     @property
     @pulumi.getter(name="tableWithColumns")
-    def table_with_columns(self) -> 'outputs.GetPermissionsTableWithColumnsResult':
+    def table_with_columns(self) -> Optional['outputs.GetPermissionsTableWithColumnsResult']:
         return pulumi.get(self, "table_with_columns")
 
 

@@ -99,11 +99,11 @@ type ContactFlow struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Contact Flow.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The identifier of the Contact Flow.
-	ContactFlowId pulumi.StringOutput `pulumi:"contactFlowId"`
+	ContactFlowId pulumi.StringPtrOutput `pulumi:"contactFlowId"`
 	// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content pulumi.StringOutput `pulumi:"content"`
+	Content pulumi.StringPtrOutput `pulumi:"content"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
 	ContentHash pulumi.StringPtrOutput `pulumi:"contentHash"`
 	// Specifies the description of the Contact Flow.
@@ -345,18 +345,18 @@ func (o ContactFlowOutput) ToContactFlowOutputWithContext(ctx context.Context) C
 }
 
 // The Amazon Resource Name (ARN) of the Contact Flow.
-func (o ContactFlowOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContactFlow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ContactFlowOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlow) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the Contact Flow.
-func (o ContactFlowOutput) ContactFlowId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContactFlow) pulumi.StringOutput { return v.ContactFlowId }).(pulumi.StringOutput)
+func (o ContactFlowOutput) ContactFlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlow) pulumi.StringPtrOutput { return v.ContactFlowId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-func (o ContactFlowOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContactFlow) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+func (o ContactFlowOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlow) pulumi.StringPtrOutput { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.

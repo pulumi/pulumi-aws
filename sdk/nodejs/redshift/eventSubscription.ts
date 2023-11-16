@@ -75,11 +75,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Redshift event notification subscription
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The AWS customer account associated with the Redshift event notification subscription
      */
-    public /*out*/ readonly customerAwsId!: pulumi.Output<string>;
+    public /*out*/ readonly customerAwsId!: pulumi.Output<string | undefined>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to `true`.
      */
@@ -108,7 +108,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
      */
     public readonly sourceType!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

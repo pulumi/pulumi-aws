@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -63,70 +64,70 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
     @Export(name="findingPublishingFrequency", refs={String.class}, tree="[0]")
-    private Output<String> findingPublishingFrequency;
+    private Output</* @Nullable */ String> findingPublishingFrequency;
 
     /**
      * @return Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
-    public Output<String> findingPublishingFrequency() {
-        return this.findingPublishingFrequency;
+    public Output<Optional<String>> findingPublishingFrequency() {
+        return Codegen.optional(this.findingPublishingFrequency);
     }
     /**
      * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
-    private Output<String> serviceRole;
+    private Output</* @Nullable */ String> serviceRole;
 
     /**
      * @return The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      * 
      */
-    public Output<String> serviceRole() {
-        return this.serviceRole;
+    public Output<Optional<String>> serviceRole() {
+        return Codegen.optional(this.serviceRole);
     }
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
-    private Output<String> updatedAt;
+    private Output</* @Nullable */ String> updatedAt;
 
     /**
      * @return The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
      * 
      */
-    public Output<String> updatedAt() {
-        return this.updatedAt;
+    public Output<Optional<String>> updatedAt() {
+        return Codegen.optional(this.updatedAt);
     }
 
     /**

@@ -176,14 +176,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Whether a cache cluster is enabled for the stage
@@ -290,7 +290,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="executionArn", refs={String.class}, tree="[0]")
-    private Output<String> executionArn;
+    private Output</* @Nullable */ String> executionArn;
 
     /**
      * @return Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
@@ -298,8 +298,8 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
-    public Output<String> executionArn() {
-        return this.executionArn;
+    public Output<Optional<String>> executionArn() {
+        return Codegen.optional(this.executionArn);
     }
     /**
      * URL to invoke the API pointing to the stage,
@@ -307,15 +307,15 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="invokeUrl", refs={String.class}, tree="[0]")
-    private Output<String> invokeUrl;
+    private Output</* @Nullable */ String> invokeUrl;
 
     /**
      * @return URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
-    public Output<String> invokeUrl() {
-        return this.invokeUrl;
+    public Output<Optional<String>> invokeUrl() {
+        return Codegen.optional(this.invokeUrl);
     }
     /**
      * ID of the associated REST API
@@ -396,14 +396,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="webAclArn", refs={String.class}, tree="[0]")
-    private Output<String> webAclArn;
+    private Output</* @Nullable */ String> webAclArn;
 
     /**
      * @return ARN of the WebAcl associated with the Stage.
      * 
      */
-    public Output<String> webAclArn() {
-        return this.webAclArn;
+    public Output<Optional<String>> webAclArn() {
+        return Codegen.optional(this.webAclArn);
     }
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.

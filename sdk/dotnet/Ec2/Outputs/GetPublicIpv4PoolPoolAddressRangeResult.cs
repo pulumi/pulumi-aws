@@ -16,29 +16,29 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Number of addresses in the range.
         /// </summary>
-        public readonly int AddressCount;
+        public readonly int? AddressCount;
         /// <summary>
         /// Number of available addresses in the range.
         /// </summary>
-        public readonly int AvailableAddressCount;
+        public readonly int? AvailableAddressCount;
         /// <summary>
         /// First address in the range.
         /// </summary>
-        public readonly string FirstAddress;
+        public readonly string? FirstAddress;
         /// <summary>
         /// Last address in the range.
         /// </summary>
-        public readonly string LastAddress;
+        public readonly string? LastAddress;
 
         [OutputConstructor]
         private GetPublicIpv4PoolPoolAddressRangeResult(
-            int addressCount,
+            int? addressCount,
 
-            int availableAddressCount,
+            int? availableAddressCount,
 
-            string firstAddress,
+            string? firstAddress,
 
-            string lastAddress)
+            string? lastAddress)
         {
             AddressCount = addressCount;
             AvailableAddressCount = availableAddressCount;

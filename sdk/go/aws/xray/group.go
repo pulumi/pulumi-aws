@@ -58,13 +58,13 @@ type Group struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression pulumi.StringOutput `pulumi:"filterExpression"`
 	// The name of the group.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// Configuration options for enabling insights.
-	InsightsConfiguration GroupInsightsConfigurationOutput `pulumi:"insightsConfiguration"`
+	InsightsConfiguration GroupInsightsConfigurationPtrOutput `pulumi:"insightsConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -261,8 +261,8 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 }
 
 // The ARN of the Group.
-func (o GroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
@@ -276,8 +276,8 @@ func (o GroupOutput) GroupName() pulumi.StringOutput {
 }
 
 // Configuration options for enabling insights.
-func (o GroupOutput) InsightsConfiguration() GroupInsightsConfigurationOutput {
-	return o.ApplyT(func(v *Group) GroupInsightsConfigurationOutput { return v.InsightsConfiguration }).(GroupInsightsConfigurationOutput)
+func (o GroupOutput) InsightsConfiguration() GroupInsightsConfigurationPtrOutput {
+	return o.ApplyT(func(v *Group) GroupInsightsConfigurationPtrOutput { return v.InsightsConfiguration }).(GroupInsightsConfigurationPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

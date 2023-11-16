@@ -118,25 +118,25 @@ namespace Pulumi.Aws.WafV2
         /// <summary>
         /// ARN of the entity.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the rule group that helps with identification.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         public readonly string Scope;
 
         [OutputConstructor]
         private GetRuleGroupResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 

@@ -88,7 +88,7 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
             this.eventRule = new eventRule.EventRule(name, {
                 scheduleExpression: eventRuleOrSchedule
             },
-            parentOpts);
+                parentOpts);
         }
         else {
             this.eventRule = eventRuleOrSchedule;
@@ -100,12 +100,12 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
             action: "lambda:invokeFunction",
             function: this.func,
             principal: "events.amazonaws.com",
-            sourceArn: this.eventRule.arn,
+            sourceArn: this.eventRule.arn.apply(x => x!),
         }, parentOpts);
 
         this.target = new eventTarget.EventTarget(name, {
             rule: this.eventRule.name,
-            arn: this.func.arn,
+            arn: this.func.arn.apply(x => x!),
             targetId: name,
             eventBusName: this.eventRule.eventBusName.apply(x => x!),
         }, parentOpts);
@@ -123,10 +123,10 @@ declare module "./eventRule" {
          * with options to control the behavior of the subscription.
          */
         onEvent(name: string, handler: EventRuleEventHandler,
-                args?: EventRuleEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): EventRuleEventSubscription;
+            args?: EventRuleEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): EventRuleEventSubscription;
     }
 }
 
-eventRule.EventRule.prototype.onEvent = function(this: eventRule.EventRule, name, handler, args, opts) {
+eventRule.EventRule.prototype.onEvent = function (this: eventRule.EventRule, name, handler, args, opts) {
     return new EventRuleEventSubscription(name, this, handler, args, opts);
 }

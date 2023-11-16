@@ -100,7 +100,7 @@ namespace Pulumi.Aws.S3Control
         /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
@@ -112,13 +112,13 @@ namespace Pulumi.Aws.S3Control
         /// The last established policy for the Multi-Region Access Point.
         /// </summary>
         [Output("established")]
-        public Output<string> Established { get; private set; } = null!;
+        public Output<string?> Established { get; private set; } = null!;
 
         /// <summary>
         /// The proposed policy for the Multi-Region Access Point.
         /// </summary>
         [Output("proposed")]
-        public Output<string> Proposed { get; private set; } = null!;
+        public Output<string?> Proposed { get; private set; } = null!;
 
 
         /// <summary>

@@ -16,59 +16,59 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// If the root block device will be deleted on termination.
         /// </summary>
-        public readonly bool DeleteOnTermination;
+        public readonly bool? DeleteOnTermination;
         /// <summary>
         /// Physical name of the device.
         /// </summary>
-        public readonly string DeviceName;
+        public readonly string? DeviceName;
         /// <summary>
         /// If the EBS volume is encrypted.
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly bool? Encrypted;
         /// <summary>
         /// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
         /// </summary>
-        public readonly int Iops;
-        public readonly string KmsKeyId;
+        public readonly int? Iops;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// Map of tags assigned to the Instance.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Throughput of the volume, in MiB/s.
         /// </summary>
-        public readonly int Throughput;
-        public readonly string VolumeId;
+        public readonly int? Throughput;
+        public readonly string? VolumeId;
         /// <summary>
         /// Size of the volume, in GiB.
         /// </summary>
-        public readonly int VolumeSize;
+        public readonly int? VolumeSize;
         /// <summary>
         /// Type of the volume.
         /// </summary>
-        public readonly string VolumeType;
+        public readonly string? VolumeType;
 
         [OutputConstructor]
         private GetInstanceRootBlockDeviceResult(
-            bool deleteOnTermination,
+            bool? deleteOnTermination,
 
-            string deviceName,
+            string? deviceName,
 
-            bool encrypted,
+            bool? encrypted,
 
-            int iops,
+            int? iops,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int throughput,
+            int? throughput,
 
-            string volumeId,
+            string? volumeId,
 
-            int volumeSize,
+            int? volumeSize,
 
-            string volumeType)
+            string? volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
             DeviceName = deviceName;

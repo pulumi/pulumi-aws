@@ -49,15 +49,15 @@ export interface GetRuleGroupResult {
     /**
      * ARN of the entity.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the rule group that helps with identification.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     readonly scope: string;
 }

@@ -42,7 +42,7 @@ class GetPrefixListResult:
 
     @property
     @pulumi.getter(name="cidrBlocks")
-    def cidr_blocks(self) -> Sequence[str]:
+    def cidr_blocks(self) -> Optional[Sequence[str]]:
         """
         List of CIDR blocks for the AWS service associated with the prefix list.
         """
@@ -55,7 +55,7 @@ class GetPrefixListResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -63,7 +63,7 @@ class GetPrefixListResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the selected prefix list.
         """
@@ -112,7 +112,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
     private_s3_vpc_endpoint = aws.ec2.VpcEndpoint("privateS3VpcEndpoint",
         vpc_id=aws_vpc["foo"]["id"],
         service_name="com.amazonaws.us-west-2.s3")
-    private_s3_prefix_list = aws.ec2.get_prefix_list_output(prefix_list_id=private_s3_vpc_endpoint.prefix_list_id)
+    private_s3_prefix_list = private_s3_vpc_endpoint.prefix_list_id.apply(lambda prefix_list_id: aws.ec2.get_prefix_list_output(prefix_list_id=prefix_list_id))
     bar = aws.ec2.NetworkAcl("bar", vpc_id=aws_vpc["foo"]["id"])
     private_s3_network_acl_rule = aws.ec2.NetworkAclRule("privateS3NetworkAclRule",
         network_acl_id=bar.id,
@@ -181,7 +181,7 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     private_s3_vpc_endpoint = aws.ec2.VpcEndpoint("privateS3VpcEndpoint",
         vpc_id=aws_vpc["foo"]["id"],
         service_name="com.amazonaws.us-west-2.s3")
-    private_s3_prefix_list = aws.ec2.get_prefix_list_output(prefix_list_id=private_s3_vpc_endpoint.prefix_list_id)
+    private_s3_prefix_list = private_s3_vpc_endpoint.prefix_list_id.apply(lambda prefix_list_id: aws.ec2.get_prefix_list_output(prefix_list_id=prefix_list_id))
     bar = aws.ec2.NetworkAcl("bar", vpc_id=aws_vpc["foo"]["id"])
     private_s3_network_acl_rule = aws.ec2.NetworkAclRule("privateS3NetworkAclRule",
         network_acl_id=bar.id,

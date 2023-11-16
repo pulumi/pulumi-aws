@@ -122,12 +122,12 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string LocationCode;
         /// <summary>
         /// Name of the location. This includes the name of the colocation partner and the physical site of the building.
         /// </summary>
-        public readonly string LocationName;
+        public readonly string? LocationName;
 
         [OutputConstructor]
         private GetLocationResult(
@@ -137,11 +137,11 @@ namespace Pulumi.Aws.DirectConnect
 
             ImmutableArray<string> availableProviders,
 
-            string id,
+            string? id,
 
             string locationCode,
 
-            string locationName)
+            string? locationName)
         {
             AvailableMacsecPortSpeeds = availableMacsecPortSpeeds;
             AvailablePortSpeeds = availablePortSpeeds;

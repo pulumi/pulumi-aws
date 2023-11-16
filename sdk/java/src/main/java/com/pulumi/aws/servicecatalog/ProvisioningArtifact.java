@@ -101,28 +101,28 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return Time when the provisioning artifact was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
@@ -185,14 +185,14 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="provisioningArtifactId", refs={String.class}, tree="[0]")
-    private Output<String> provisioningArtifactId;
+    private Output</* @Nullable */ String> provisioningArtifactId;
 
     /**
      * @return Provisioning artifact identifier.
      * 
      */
-    public Output<String> provisioningArtifactId() {
-        return this.provisioningArtifactId;
+    public Output<Optional<String>> provisioningArtifactId() {
+        return Codegen.optional(this.provisioningArtifactId);
     }
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.

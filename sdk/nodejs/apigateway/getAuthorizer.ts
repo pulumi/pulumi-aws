@@ -49,45 +49,45 @@ export interface GetAuthorizerResult {
     /**
      * ARN of the API Gateway Authorizer.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Credentials required for the authorizer.
      */
-    readonly authorizerCredentials: string;
+    readonly authorizerCredentials?: string;
     readonly authorizerId: string;
     /**
      * TTL of cached authorizer results in seconds.
      */
-    readonly authorizerResultTtlInSeconds: number;
+    readonly authorizerResultTtlInSeconds?: number;
     /**
      * Authorizer's Uniform Resource Identifier (URI).
      */
-    readonly authorizerUri: string;
+    readonly authorizerUri?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Source of the identity in an incoming request.
      */
-    readonly identitySource: string;
+    readonly identitySource?: string;
     /**
      * Validation expression for the incoming identity.
      */
-    readonly identityValidationExpression: string;
+    readonly identityValidationExpression?: string;
     /**
      * Name of the authorizer.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * List of the Amazon Cognito user pool ARNs.
      */
-    readonly providerArns: string[];
+    readonly providerArns?: string[];
     readonly restApiId: string;
     /**
      * Type of the authorizer.
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * Provides details about a specific API Gateway Authorizer.

@@ -55,7 +55,7 @@ export class Cell extends pulumi.CustomResource {
     /**
      * ARN of the cell
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Unique name describing the cell.
      *
@@ -69,7 +69,7 @@ export class Cell extends pulumi.CustomResource {
     /**
      * List of readiness scopes (recovery groups or cells) that contain this cell.
      */
-    public /*out*/ readonly parentReadinessScopes!: pulumi.Output<string[]>;
+    public /*out*/ readonly parentReadinessScopes!: pulumi.Output<string[] | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */

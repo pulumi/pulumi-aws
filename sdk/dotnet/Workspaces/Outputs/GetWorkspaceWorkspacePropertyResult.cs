@@ -16,35 +16,35 @@ namespace Pulumi.Aws.Workspaces.Outputs
         /// <summary>
         /// Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
         /// </summary>
-        public readonly string ComputeTypeName;
+        public readonly string? ComputeTypeName;
         /// <summary>
         /// Size of the root volume.
         /// </summary>
-        public readonly int RootVolumeSizeGib;
+        public readonly int? RootVolumeSizeGib;
         /// <summary>
         /// Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
         /// </summary>
-        public readonly string RunningMode;
+        public readonly string? RunningMode;
         /// <summary>
         /// Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
         /// </summary>
-        public readonly int RunningModeAutoStopTimeoutInMinutes;
+        public readonly int? RunningModeAutoStopTimeoutInMinutes;
         /// <summary>
         /// Size of the user storage.
         /// </summary>
-        public readonly int UserVolumeSizeGib;
+        public readonly int? UserVolumeSizeGib;
 
         [OutputConstructor]
         private GetWorkspaceWorkspacePropertyResult(
-            string computeTypeName,
+            string? computeTypeName,
 
-            int rootVolumeSizeGib,
+            int? rootVolumeSizeGib,
 
-            string runningMode,
+            string? runningMode,
 
-            int runningModeAutoStopTimeoutInMinutes,
+            int? runningModeAutoStopTimeoutInMinutes,
 
-            int userVolumeSizeGib)
+            int? userVolumeSizeGib)
         {
             ComputeTypeName = computeTypeName;
             RootVolumeSizeGib = rootVolumeSizeGib;

@@ -205,7 +205,7 @@ export class ServerlessSecurityPolicy extends pulumi.CustomResource {
     /**
      * Version of the policy.
      */
-    public /*out*/ readonly policyVersion!: pulumi.Output<string>;
+    public /*out*/ readonly policyVersion!: pulumi.Output<string | undefined>;
     /**
      * Type of security policy. One of `encryption` or `network`.
      *

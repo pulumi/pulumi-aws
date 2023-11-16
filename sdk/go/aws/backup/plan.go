@@ -72,7 +72,7 @@ type Plan struct {
 	// An object that specifies backup options for each resource type.
 	AdvancedBackupSettings PlanAdvancedBackupSettingArrayOutput `pulumi:"advancedBackupSettings"`
 	// The ARN of the backup plan.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The display name of a backup plan.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
@@ -84,7 +84,7 @@ type Plan struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewPlan registers a new resource with the given unique name, arguments, and options.
@@ -281,8 +281,8 @@ func (o PlanOutput) AdvancedBackupSettings() PlanAdvancedBackupSettingArrayOutpu
 }
 
 // The ARN of the backup plan.
-func (o PlanOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PlanOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Plan) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The display name of a backup plan.
@@ -308,8 +308,8 @@ func (o PlanOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-func (o PlanOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o PlanOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Plan) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type PlanArrayOutput struct{ *pulumi.OutputState }

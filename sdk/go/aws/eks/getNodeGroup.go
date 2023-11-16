@@ -62,16 +62,16 @@ type LookupNodeGroupArgs struct {
 // A collection of values returned by getNodeGroup.
 type LookupNodeGroupResult struct {
 	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
-	AmiType string `pulumi:"amiType"`
+	AmiType *string `pulumi:"amiType"`
 	// ARN of the EKS Node Group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
-	CapacityType string `pulumi:"capacityType"`
-	ClusterName  string `pulumi:"clusterName"`
+	CapacityType *string `pulumi:"capacityType"`
+	ClusterName  string  `pulumi:"clusterName"`
 	// Disk size in GiB for worker nodes.
-	DiskSize int `pulumi:"diskSize"`
+	DiskSize *int `pulumi:"diskSize"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of instance types associated with the EKS Node Group.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
@@ -80,9 +80,9 @@ type LookupNodeGroupResult struct {
 	LaunchTemplates []GetNodeGroupLaunchTemplate `pulumi:"launchTemplates"`
 	NodeGroupName   string                       `pulumi:"nodeGroupName"`
 	// ARN of the IAM Role that provides permissions for the EKS Node Group.
-	NodeRoleArn string `pulumi:"nodeRoleArn"`
+	NodeRoleArn *string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group.
-	ReleaseVersion string `pulumi:"releaseVersion"`
+	ReleaseVersion *string `pulumi:"releaseVersion"`
 	// Configuration block with remote access settings.
 	RemoteAccesses []GetNodeGroupRemoteAccess `pulumi:"remoteAccesses"`
 	// List of objects containing information about underlying resources.
@@ -90,7 +90,7 @@ type LookupNodeGroupResult struct {
 	// Configuration block with scaling settings.
 	ScalingConfigs []GetNodeGroupScalingConfig `pulumi:"scalingConfigs"`
 	// Status of the EKS Node Group.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags.
@@ -98,7 +98,7 @@ type LookupNodeGroupResult struct {
 	// List of objects containing information about taints applied to the nodes in the EKS Node Group.
 	Taints []GetNodeGroupTaint `pulumi:"taints"`
 	// Kubernetes version.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 func LookupNodeGroupOutput(ctx *pulumi.Context, args LookupNodeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNodeGroupResultOutput {
@@ -144,18 +144,18 @@ func (o LookupNodeGroupResultOutput) ToLookupNodeGroupResultOutputWithContext(ct
 }
 
 // Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
-func (o LookupNodeGroupResultOutput) AmiType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.AmiType }).(pulumi.StringOutput)
+func (o LookupNodeGroupResultOutput) AmiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) *string { return v.AmiType }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the EKS Node Group.
-func (o LookupNodeGroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupNodeGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
-func (o LookupNodeGroupResultOutput) CapacityType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.CapacityType }).(pulumi.StringOutput)
+func (o LookupNodeGroupResultOutput) CapacityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) *string { return v.CapacityType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNodeGroupResultOutput) ClusterName() pulumi.StringOutput {
@@ -163,13 +163,13 @@ func (o LookupNodeGroupResultOutput) ClusterName() pulumi.StringOutput {
 }
 
 // Disk size in GiB for worker nodes.
-func (o LookupNodeGroupResultOutput) DiskSize() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupNodeGroupResult) int { return v.DiskSize }).(pulumi.IntOutput)
+func (o LookupNodeGroupResultOutput) DiskSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) *int { return v.DiskSize }).(pulumi.IntPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupNodeGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupNodeGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of instance types associated with the EKS Node Group.
@@ -192,13 +192,13 @@ func (o LookupNodeGroupResultOutput) NodeGroupName() pulumi.StringOutput {
 }
 
 // ARN of the IAM Role that provides permissions for the EKS Node Group.
-func (o LookupNodeGroupResultOutput) NodeRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.NodeRoleArn }).(pulumi.StringOutput)
+func (o LookupNodeGroupResultOutput) NodeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) *string { return v.NodeRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // AMI version of the EKS Node Group.
-func (o LookupNodeGroupResultOutput) ReleaseVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.ReleaseVersion }).(pulumi.StringOutput)
+func (o LookupNodeGroupResultOutput) ReleaseVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) *string { return v.ReleaseVersion }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block with remote access settings.
@@ -217,8 +217,8 @@ func (o LookupNodeGroupResultOutput) ScalingConfigs() GetNodeGroupScalingConfigA
 }
 
 // Status of the EKS Node Group.
-func (o LookupNodeGroupResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupNodeGroupResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Identifiers of EC2 Subnets to associate with the EKS Node Group.
@@ -237,8 +237,8 @@ func (o LookupNodeGroupResultOutput) Taints() GetNodeGroupTaintArrayOutput {
 }
 
 // Kubernetes version.
-func (o LookupNodeGroupResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupNodeGroupResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

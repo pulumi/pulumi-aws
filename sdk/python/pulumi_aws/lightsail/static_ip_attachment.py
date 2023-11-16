@@ -244,7 +244,7 @@ class StaticIpAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> pulumi.Output[str]:
+    def ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The allocated static IP address
         """

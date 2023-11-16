@@ -331,14 +331,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the CloudWatch Metric Alarm.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
@@ -390,7 +390,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="evaluateLowSampleCountPercentiles", refs={String.class}, tree="[0]")
-    private Output<String> evaluateLowSampleCountPercentiles;
+    private Output</* @Nullable */ String> evaluateLowSampleCountPercentiles;
 
     /**
      * @return Used only for alarms based on percentiles.
@@ -399,8 +399,8 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      * The following values are supported: `ignore`, and `evaluate`.
      * 
      */
-    public Output<String> evaluateLowSampleCountPercentiles() {
-        return this.evaluateLowSampleCountPercentiles;
+    public Output<Optional<String>> evaluateLowSampleCountPercentiles() {
+        return Codegen.optional(this.evaluateLowSampleCountPercentiles);
     }
     /**
      * The number of periods over which data is compared to the specified threshold.

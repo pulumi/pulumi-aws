@@ -71,7 +71,7 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the IP set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A friendly description of the IP set.
      */
@@ -80,7 +80,7 @@ export class IpSet extends pulumi.CustomResource {
      * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
      */
     public readonly ipAddressVersion!: pulumi.Output<string>;
-    public /*out*/ readonly lockToken!: pulumi.Output<string>;
+    public /*out*/ readonly lockToken!: pulumi.Output<string | undefined>;
     /**
      * A friendly name of the IP set.
      */

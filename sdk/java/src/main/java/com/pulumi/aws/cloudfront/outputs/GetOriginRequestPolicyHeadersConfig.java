@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOriginRequestPolicyHeadersConfig {
-    private String headerBehavior;
-    private List<GetOriginRequestPolicyHeadersConfigHeader> headers;
+    private @Nullable String headerBehavior;
+    private @Nullable List<GetOriginRequestPolicyHeadersConfigHeader> headers;
 
     private GetOriginRequestPolicyHeadersConfig() {}
-    public String headerBehavior() {
-        return this.headerBehavior;
+    public Optional<String> headerBehavior() {
+        return Optional.ofNullable(this.headerBehavior);
     }
     public List<GetOriginRequestPolicyHeadersConfigHeader> headers() {
-        return this.headers;
+        return this.headers == null ? List.of() : this.headers;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetOriginRequestPolicyHeadersConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String headerBehavior;
-        private List<GetOriginRequestPolicyHeadersConfigHeader> headers;
+        private @Nullable String headerBehavior;
+        private @Nullable List<GetOriginRequestPolicyHeadersConfigHeader> headers;
         public Builder() {}
         public Builder(GetOriginRequestPolicyHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetOriginRequestPolicyHeadersConfig {
         }
 
         @CustomType.Setter
-        public Builder headerBehavior(String headerBehavior) {
-            this.headerBehavior = Objects.requireNonNull(headerBehavior);
+        public Builder headerBehavior(@Nullable String headerBehavior) {
+            this.headerBehavior = headerBehavior;
             return this;
         }
         @CustomType.Setter
-        public Builder headers(List<GetOriginRequestPolicyHeadersConfigHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+        public Builder headers(@Nullable List<GetOriginRequestPolicyHeadersConfigHeader> headers) {
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetOriginRequestPolicyHeadersConfigHeader... headers) {

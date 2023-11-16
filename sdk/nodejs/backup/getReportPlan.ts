@@ -51,36 +51,36 @@ export interface GetReportPlanResult {
     /**
      * ARN of the backup report plan.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      */
-    readonly creationTime: string;
+    readonly creationTime?: string;
     /**
      * Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      */
-    readonly deploymentStatus: string;
+    readonly deploymentStatus?: string;
     /**
      * Description of the report plan.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
-    readonly reportDeliveryChannels: outputs.backup.GetReportPlanReportDeliveryChannel[];
+    readonly reportDeliveryChannels?: outputs.backup.GetReportPlanReportDeliveryChannel[];
     /**
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      */
-    readonly reportSettings: outputs.backup.GetReportPlanReportSetting[];
+    readonly reportSettings?: outputs.backup.GetReportPlanReportSetting[];
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get information on an existing backup report plan.

@@ -51,60 +51,60 @@ export interface GetApiResult {
     /**
      * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      */
-    readonly apiEndpoint: string;
+    readonly apiEndpoint?: string;
     readonly apiId: string;
     /**
      * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
      * Applicable for WebSocket APIs.
      */
-    readonly apiKeySelectionExpression: string;
+    readonly apiKeySelectionExpression?: string;
     /**
      * ARN of the API.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
      * Applicable for HTTP APIs.
      */
-    readonly corsConfigurations: outputs.apigatewayv2.GetApiCorsConfiguration[];
+    readonly corsConfigurations?: outputs.apigatewayv2.GetApiCorsConfiguration[];
     /**
      * Description of the API.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Whether clients can invoke the API by using the default `execute-api` endpoint.
      */
-    readonly disableExecuteApiEndpoint: boolean;
+    readonly disableExecuteApiEndpoint?: boolean;
     /**
      * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
-    readonly executionArn: string;
+    readonly executionArn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the API.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * API protocol.
      */
-    readonly protocolType: string;
+    readonly protocolType?: string;
     /**
      * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      */
-    readonly routeSelectionExpression: string;
+    readonly routeSelectionExpression?: string;
     /**
      * Map of resource tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Version identifier for the API.
      */
-    readonly version: string;
+    readonly version?: string;
 }
 /**
  * Provides details about a specific Amazon API Gateway Version 2 API.

@@ -16,12 +16,12 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Enabled disabled toggle for off-peak update window
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         public readonly ImmutableArray<Outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult> OffPeakWindows;
 
         [OutputConstructor]
         private GetDomainOffPeakWindowOptionsResult(
-            bool enabled,
+            bool? enabled,
 
             ImmutableArray<Outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult> offPeakWindows)
         {

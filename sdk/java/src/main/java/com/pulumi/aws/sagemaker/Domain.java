@@ -194,14 +194,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
@@ -270,14 +270,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="homeEfsFileSystemId", refs={String.class}, tree="[0]")
-    private Output<String> homeEfsFileSystemId;
+    private Output</* @Nullable */ String> homeEfsFileSystemId;
 
     /**
      * @return The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      * 
      */
-    public Output<String> homeEfsFileSystemId() {
-        return this.homeEfsFileSystemId;
+    public Output<Optional<String>> homeEfsFileSystemId() {
+        return Codegen.optional(this.homeEfsFileSystemId);
     }
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
@@ -312,28 +312,28 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroupIdForDomainBoundary", refs={String.class}, tree="[0]")
-    private Output<String> securityGroupIdForDomainBoundary;
+    private Output</* @Nullable */ String> securityGroupIdForDomainBoundary;
 
     /**
      * @return The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      * 
      */
-    public Output<String> securityGroupIdForDomainBoundary() {
-        return this.securityGroupIdForDomainBoundary;
+    public Output<Optional<String>> securityGroupIdForDomainBoundary() {
+        return Codegen.optional(this.securityGroupIdForDomainBoundary);
     }
     /**
      * The SSO managed application instance ID.
      * 
      */
     @Export(name="singleSignOnManagedApplicationInstanceId", refs={String.class}, tree="[0]")
-    private Output<String> singleSignOnManagedApplicationInstanceId;
+    private Output</* @Nullable */ String> singleSignOnManagedApplicationInstanceId;
 
     /**
      * @return The SSO managed application instance ID.
      * 
      */
-    public Output<String> singleSignOnManagedApplicationInstanceId() {
-        return this.singleSignOnManagedApplicationInstanceId;
+    public Output<Optional<String>> singleSignOnManagedApplicationInstanceId() {
+        return Codegen.optional(this.singleSignOnManagedApplicationInstanceId);
     }
     /**
      * The VPC subnets that Studio uses for communication.
@@ -386,14 +386,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
      * @return The domain&#39;s URL.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.

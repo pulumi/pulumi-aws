@@ -823,13 +823,13 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     aws_subnet["second"]["id"],
                 ],
             ))
-        firehose_elasticsearch_policy_document = aws.iam.get_policy_document_output(statements=[
+        firehose_elasticsearch_policy_document = pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["es:*"],
                 resources=[
-                    test_cluster.arn,
-                    test_cluster.arn.apply(lambda arn: f"{arn}/*"),
+                    test_cluster_arn,
+                    f"{test_cluster_arn1}/*",
                 ],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
@@ -846,7 +846,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ],
                 resources=["*"],
             ),
-        ])
+        ]))
         firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearchRolePolicy",
             role=aws_iam_role["firehose"]["id"],
             policy=firehose_elasticsearch_policy_document.json)
@@ -1350,13 +1350,13 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     aws_subnet["second"]["id"],
                 ],
             ))
-        firehose_elasticsearch_policy_document = aws.iam.get_policy_document_output(statements=[
+        firehose_elasticsearch_policy_document = pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["es:*"],
                 resources=[
-                    test_cluster.arn,
-                    test_cluster.arn.apply(lambda arn: f"{arn}/*"),
+                    test_cluster_arn,
+                    f"{test_cluster_arn1}/*",
                 ],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
@@ -1373,7 +1373,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ],
                 resources=["*"],
             ),
-        ])
+        ]))
         firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearchRolePolicy",
             role=aws_iam_role["firehose"]["id"],
             policy=firehose_elasticsearch_policy_document.json)
@@ -1751,7 +1751,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) specifying the Stream
         """
@@ -1768,7 +1768,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationId")
-    def destination_id(self) -> pulumi.Output[str]:
+    def destination_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "destination_id")
 
     @property
@@ -1881,7 +1881,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> pulumi.Output[str]:
+    def version_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the table version for the output data schema. Defaults to `LATEST`.
         """

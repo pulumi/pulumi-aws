@@ -138,17 +138,17 @@ type UserPoolUICustomization struct {
 	// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
 	Css pulumi.StringPtrOutput `pulumi:"css"`
 	// The CSS version number.
-	CssVersion pulumi.StringOutput `pulumi:"cssVersion"`
+	CssVersion pulumi.StringPtrOutput `pulumi:"cssVersion"`
 	// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
 	ImageFile pulumi.StringPtrOutput `pulumi:"imageFile"`
 	// The logo image URL for the UI customization.
-	ImageUrl pulumi.StringOutput `pulumi:"imageUrl"`
+	ImageUrl pulumi.StringPtrOutput `pulumi:"imageUrl"`
 	// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
+	LastModifiedDate pulumi.StringPtrOutput `pulumi:"lastModifiedDate"`
 	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
@@ -343,8 +343,8 @@ func (o UserPoolUICustomizationOutput) ClientId() pulumi.StringPtrOutput {
 }
 
 // The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-func (o UserPoolUICustomizationOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o UserPoolUICustomizationOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
@@ -353,8 +353,8 @@ func (o UserPoolUICustomizationOutput) Css() pulumi.StringPtrOutput {
 }
 
 // The CSS version number.
-func (o UserPoolUICustomizationOutput) CssVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.CssVersion }).(pulumi.StringOutput)
+func (o UserPoolUICustomizationOutput) CssVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringPtrOutput { return v.CssVersion }).(pulumi.StringPtrOutput)
 }
 
 // The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
@@ -363,13 +363,13 @@ func (o UserPoolUICustomizationOutput) ImageFile() pulumi.StringPtrOutput {
 }
 
 // The logo image URL for the UI customization.
-func (o UserPoolUICustomizationOutput) ImageUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.ImageUrl }).(pulumi.StringOutput)
+func (o UserPoolUICustomizationOutput) ImageUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringPtrOutput { return v.ImageUrl }).(pulumi.StringPtrOutput)
 }
 
 // The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-func (o UserPoolUICustomizationOutput) LastModifiedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
+func (o UserPoolUICustomizationOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringPtrOutput { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }
 
 // The user pool ID for the user pool.

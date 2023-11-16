@@ -61,27 +61,27 @@ type LookupNetworkInsightsPathArgs struct {
 // A collection of values returned by getNetworkInsightsPath.
 type LookupNetworkInsightsPathResult struct {
 	// ARN of the selected Network Insights Path.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// AWS resource that is the destination of the path.
-	Destination string `pulumi:"destination"`
+	Destination *string `pulumi:"destination"`
 	// ARN of the destination.
-	DestinationArn string `pulumi:"destinationArn"`
+	DestinationArn *string `pulumi:"destinationArn"`
 	// IP address of the AWS resource that is the destination of the path.
-	DestinationIp string `pulumi:"destinationIp"`
+	DestinationIp *string `pulumi:"destinationIp"`
 	// Destination port.
-	DestinationPort int                            `pulumi:"destinationPort"`
+	DestinationPort *int                           `pulumi:"destinationPort"`
 	Filters         []GetNetworkInsightsPathFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                    string `pulumi:"id"`
-	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
+	Id                    *string `pulumi:"id"`
+	NetworkInsightsPathId *string `pulumi:"networkInsightsPathId"`
 	// Protocol.
-	Protocol string `pulumi:"protocol"`
+	Protocol *string `pulumi:"protocol"`
 	// AWS resource that is the source of the path.
-	Source string `pulumi:"source"`
+	Source *string `pulumi:"source"`
 	// ARN of the source.
-	SourceArn string `pulumi:"sourceArn"`
+	SourceArn *string `pulumi:"sourceArn"`
 	// IP address of the AWS resource that is the source of the path.
-	SourceIp string `pulumi:"sourceIp"`
+	SourceIp *string `pulumi:"sourceIp"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -129,28 +129,28 @@ func (o LookupNetworkInsightsPathResultOutput) ToLookupNetworkInsightsPathResult
 }
 
 // ARN of the selected Network Insights Path.
-func (o LookupNetworkInsightsPathResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS resource that is the destination of the path.
-func (o LookupNetworkInsightsPathResultOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.Destination }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the destination.
-func (o LookupNetworkInsightsPathResultOutput) DestinationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.DestinationArn }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
 
 // IP address of the AWS resource that is the destination of the path.
-func (o LookupNetworkInsightsPathResultOutput) DestinationIp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.DestinationIp }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) DestinationIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.DestinationIp }).(pulumi.StringPtrOutput)
 }
 
 // Destination port.
-func (o LookupNetworkInsightsPathResultOutput) DestinationPort() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) int { return v.DestinationPort }).(pulumi.IntOutput)
+func (o LookupNetworkInsightsPathResultOutput) DestinationPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *int { return v.DestinationPort }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupNetworkInsightsPathResultOutput) Filters() GetNetworkInsightsPathFilterArrayOutput {
@@ -158,32 +158,32 @@ func (o LookupNetworkInsightsPathResultOutput) Filters() GetNetworkInsightsPathF
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupNetworkInsightsPathResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupNetworkInsightsPathResultOutput) NetworkInsightsPathId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) NetworkInsightsPathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.NetworkInsightsPathId }).(pulumi.StringPtrOutput)
 }
 
 // Protocol.
-func (o LookupNetworkInsightsPathResultOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.Protocol }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 // AWS resource that is the source of the path.
-func (o LookupNetworkInsightsPathResultOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.Source }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the source.
-func (o LookupNetworkInsightsPathResultOutput) SourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.SourceArn }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
 
 // IP address of the AWS resource that is the source of the path.
-func (o LookupNetworkInsightsPathResultOutput) SourceIp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.SourceIp }).(pulumi.StringOutput)
+func (o LookupNetworkInsightsPathResultOutput) SourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.SourceIp }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the resource.

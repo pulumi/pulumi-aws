@@ -48,31 +48,31 @@ export interface GetReceivedLicenseResult {
     /**
      * Granted license beneficiary. This is in the form of the ARN of the root user of the account.
      */
-    readonly beneficiary: string;
+    readonly beneficiary?: string;
     /**
      * Configuration for consumption of the license. Detailed below
      */
-    readonly consumptionConfigurations: outputs.licensemanager.GetReceivedLicenseConsumptionConfiguration[];
+    readonly consumptionConfigurations?: outputs.licensemanager.GetReceivedLicenseConsumptionConfiguration[];
     /**
      * Creation time of the granted license in RFC 3339 format.
      */
-    readonly createTime: string;
+    readonly createTime?: string;
     /**
      * License entitlements. Detailed below
      */
-    readonly entitlements: outputs.licensemanager.GetReceivedLicenseEntitlement[];
+    readonly entitlements?: outputs.licensemanager.GetReceivedLicenseEntitlement[];
     /**
      * Home Region of the granted license.
      */
-    readonly homeRegion: string;
+    readonly homeRegion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Granted license issuer. Detailed below
      */
-    readonly issuers: outputs.licensemanager.GetReceivedLicenseIssuer[];
+    readonly issuers?: outputs.licensemanager.GetReceivedLicenseIssuer[];
     /**
      * Amazon Resource Name (ARN) of the license.
      */
@@ -80,33 +80,33 @@ export interface GetReceivedLicenseResult {
     /**
      * Granted license metadata. This is in the form of a set of all meta data. Detailed below
      */
-    readonly licenseMetadatas: outputs.licensemanager.GetReceivedLicenseLicenseMetadata[];
+    readonly licenseMetadatas?: outputs.licensemanager.GetReceivedLicenseLicenseMetadata[];
     /**
      * License name.
      */
-    readonly licenseName: string;
+    readonly licenseName?: string;
     /**
      * Product name.
      * * `productSku ` - Product SKU.
      */
-    readonly productName: string;
-    readonly productSku: string;
+    readonly productName?: string;
+    readonly productSku?: string;
     /**
      * Granted license received metadata. Detailed below
      */
-    readonly receivedMetadatas: outputs.licensemanager.GetReceivedLicenseReceivedMetadata[];
+    readonly receivedMetadatas?: outputs.licensemanager.GetReceivedLicenseReceivedMetadata[];
     /**
      * Granted license status.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
      */
-    readonly validities: outputs.licensemanager.GetReceivedLicenseValidity[];
+    readonly validities?: outputs.licensemanager.GetReceivedLicenseValidity[];
     /**
      * Version of the granted license.
      */
-    readonly version: string;
+    readonly version?: string;
 }
 /**
  * This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.

@@ -15,24 +15,24 @@ public final class GetDocumentResult {
      * @return ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Contents of the document.
      * 
      */
-    private String content;
+    private @Nullable String content;
     private @Nullable String documentFormat;
     /**
      * @return Type of the document.
      * 
      */
-    private String documentType;
+    private @Nullable String documentType;
     private @Nullable String documentVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
 
     private GetDocumentResult() {}
@@ -40,15 +40,15 @@ public final class GetDocumentResult {
      * @return ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Contents of the document.
      * 
      */
-    public String content() {
-        return this.content;
+    public Optional<String> content() {
+        return Optional.ofNullable(this.content);
     }
     public Optional<String> documentFormat() {
         return Optional.ofNullable(this.documentFormat);
@@ -57,8 +57,8 @@ public final class GetDocumentResult {
      * @return Type of the document.
      * 
      */
-    public String documentType() {
-        return this.documentType;
+    public Optional<String> documentType() {
+        return Optional.ofNullable(this.documentType);
     }
     public Optional<String> documentVersion() {
         return Optional.ofNullable(this.documentVersion);
@@ -67,8 +67,8 @@ public final class GetDocumentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -83,12 +83,12 @@ public final class GetDocumentResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String content;
+        private @Nullable String arn;
+        private @Nullable String content;
         private @Nullable String documentFormat;
-        private String documentType;
+        private @Nullable String documentType;
         private @Nullable String documentVersion;
-        private String id;
+        private @Nullable String id;
         private String name;
         public Builder() {}
         public Builder(GetDocumentResult defaults) {
@@ -103,13 +103,13 @@ public final class GetDocumentResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+        public Builder content(@Nullable String content) {
+            this.content = content;
             return this;
         }
         @CustomType.Setter
@@ -118,8 +118,8 @@ public final class GetDocumentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder documentType(String documentType) {
-            this.documentType = Objects.requireNonNull(documentType);
+        public Builder documentType(@Nullable String documentType) {
+            this.documentType = documentType;
             return this;
         }
         @CustomType.Setter
@@ -128,8 +128,8 @@ public final class GetDocumentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

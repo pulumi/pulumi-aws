@@ -94,7 +94,7 @@ type EventConnection struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
 	AuthParameters EventConnectionAuthParametersOutput `pulumi:"authParameters"`
 	// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
@@ -104,7 +104,7 @@ type EventConnection struct {
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
+	SecretArn pulumi.StringPtrOutput `pulumi:"secretArn"`
 }
 
 // NewEventConnection registers a new resource with the given unique name, arguments, and options.
@@ -287,8 +287,8 @@ func (o EventConnectionOutput) ToEventConnectionOutputWithContext(ctx context.Co
 }
 
 // The Amazon Resource Name (ARN) of the connection.
-func (o EventConnectionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EventConnectionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnection) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Parameters used for authorization. A maximum of 1 are allowed. Documented below.
@@ -312,8 +312,8 @@ func (o EventConnectionOutput) Name() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-func (o EventConnectionOutput) SecretArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
+func (o EventConnectionOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnection) pulumi.StringPtrOutput { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
 type EventConnectionArrayOutput struct{ *pulumi.OutputState }

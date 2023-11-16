@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPublicIpv4PoolPoolAddressRange {
@@ -14,51 +16,51 @@ public final class GetPublicIpv4PoolPoolAddressRange {
      * @return Number of addresses in the range.
      * 
      */
-    private Integer addressCount;
+    private @Nullable Integer addressCount;
     /**
      * @return Number of available addresses in the range.
      * 
      */
-    private Integer availableAddressCount;
+    private @Nullable Integer availableAddressCount;
     /**
      * @return First address in the range.
      * 
      */
-    private String firstAddress;
+    private @Nullable String firstAddress;
     /**
      * @return Last address in the range.
      * 
      */
-    private String lastAddress;
+    private @Nullable String lastAddress;
 
     private GetPublicIpv4PoolPoolAddressRange() {}
     /**
      * @return Number of addresses in the range.
      * 
      */
-    public Integer addressCount() {
-        return this.addressCount;
+    public Optional<Integer> addressCount() {
+        return Optional.ofNullable(this.addressCount);
     }
     /**
      * @return Number of available addresses in the range.
      * 
      */
-    public Integer availableAddressCount() {
-        return this.availableAddressCount;
+    public Optional<Integer> availableAddressCount() {
+        return Optional.ofNullable(this.availableAddressCount);
     }
     /**
      * @return First address in the range.
      * 
      */
-    public String firstAddress() {
-        return this.firstAddress;
+    public Optional<String> firstAddress() {
+        return Optional.ofNullable(this.firstAddress);
     }
     /**
      * @return Last address in the range.
      * 
      */
-    public String lastAddress() {
-        return this.lastAddress;
+    public Optional<String> lastAddress() {
+        return Optional.ofNullable(this.lastAddress);
     }
 
     public static Builder builder() {
@@ -70,10 +72,10 @@ public final class GetPublicIpv4PoolPoolAddressRange {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer addressCount;
-        private Integer availableAddressCount;
-        private String firstAddress;
-        private String lastAddress;
+        private @Nullable Integer addressCount;
+        private @Nullable Integer availableAddressCount;
+        private @Nullable String firstAddress;
+        private @Nullable String lastAddress;
         public Builder() {}
         public Builder(GetPublicIpv4PoolPoolAddressRange defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,23 +86,23 @@ public final class GetPublicIpv4PoolPoolAddressRange {
         }
 
         @CustomType.Setter
-        public Builder addressCount(Integer addressCount) {
-            this.addressCount = Objects.requireNonNull(addressCount);
+        public Builder addressCount(@Nullable Integer addressCount) {
+            this.addressCount = addressCount;
             return this;
         }
         @CustomType.Setter
-        public Builder availableAddressCount(Integer availableAddressCount) {
-            this.availableAddressCount = Objects.requireNonNull(availableAddressCount);
+        public Builder availableAddressCount(@Nullable Integer availableAddressCount) {
+            this.availableAddressCount = availableAddressCount;
             return this;
         }
         @CustomType.Setter
-        public Builder firstAddress(String firstAddress) {
-            this.firstAddress = Objects.requireNonNull(firstAddress);
+        public Builder firstAddress(@Nullable String firstAddress) {
+            this.firstAddress = firstAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder lastAddress(String lastAddress) {
-            this.lastAddress = Objects.requireNonNull(lastAddress);
+        public Builder lastAddress(@Nullable String lastAddress) {
+            this.lastAddress = lastAddress;
             return this;
         }
         public GetPublicIpv4PoolPoolAddressRange build() {

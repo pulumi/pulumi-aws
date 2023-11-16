@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSiteResult {
@@ -16,44 +18,44 @@ public final class GetSiteResult {
      * @return ARN of the site.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the site.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Site location as documented below.
      * 
      */
-    private List<GetSiteLocation> locations;
+    private @Nullable List<GetSiteLocation> locations;
     private String siteId;
     /**
      * @return Key-value tags for the Site.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetSiteResult() {}
     /**
      * @return ARN of the site.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the site.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String globalNetworkId() {
         return this.globalNetworkId;
@@ -62,15 +64,15 @@ public final class GetSiteResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Site location as documented below.
      * 
      */
     public List<GetSiteLocation> locations() {
-        return this.locations;
+        return this.locations == null ? List.of() : this.locations;
     }
     public String siteId() {
         return this.siteId;
@@ -80,7 +82,7 @@ public final class GetSiteResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -92,13 +94,13 @@ public final class GetSiteResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable String description;
         private String globalNetworkId;
-        private String id;
-        private List<GetSiteLocation> locations;
+        private @Nullable String id;
+        private @Nullable List<GetSiteLocation> locations;
         private String siteId;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetSiteResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -112,13 +114,13 @@ public final class GetSiteResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -127,13 +129,13 @@ public final class GetSiteResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder locations(List<GetSiteLocation> locations) {
-            this.locations = Objects.requireNonNull(locations);
+        public Builder locations(@Nullable List<GetSiteLocation> locations) {
+            this.locations = locations;
             return this;
         }
         public Builder locations(GetSiteLocation... locations) {
@@ -145,8 +147,8 @@ public final class GetSiteResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetSiteResult build() {

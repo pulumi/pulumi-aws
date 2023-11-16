@@ -142,16 +142,16 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// ARN of the site.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the site.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string GlobalNetworkId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Site location as documented below.
         /// </summary>
@@ -160,23 +160,23 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Key-value tags for the Site.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSiteResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
             string globalNetworkId,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetSiteLocationResult> locations,
 
             string siteId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

@@ -69,14 +69,14 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the profile.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
@@ -111,14 +111,14 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="profileId", refs={String.class}, tree="[0]")
-    private Output<String> profileId;
+    private Output</* @Nullable */ String> profileId;
 
     /**
      * @return The unique identifier for the AS2 profile.
      * 
      */
-    public Output<String> profileId() {
-        return this.profileId;
+    public Output<Optional<String>> profileId() {
+        return Codegen.optional(this.profileId);
     }
     /**
      * The profile type should be LOCAL or PARTNER.

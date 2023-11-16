@@ -34,7 +34,7 @@ class GetFunctionsResult:
 
     @property
     @pulumi.getter(name="functionArns")
-    def function_arns(self) -> Sequence[str]:
+    def function_arns(self) -> Optional[Sequence[str]]:
         """
         A list of Lambda Function ARNs.
         """
@@ -42,7 +42,7 @@ class GetFunctionsResult:
 
     @property
     @pulumi.getter(name="functionNames")
-    def function_names(self) -> Sequence[str]:
+    def function_names(self) -> Optional[Sequence[str]]:
         """
         A list of Lambda Function names.
         """
@@ -50,7 +50,7 @@ class GetFunctionsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

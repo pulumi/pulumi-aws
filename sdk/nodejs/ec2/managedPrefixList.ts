@@ -92,11 +92,11 @@ export class ManagedPrefixList extends pulumi.CustomResource {
     /**
      * ARN of the prefix list.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
-    public readonly entries!: pulumi.Output<outputs.ec2.ManagedPrefixListEntry[]>;
+    public readonly entries!: pulumi.Output<outputs.ec2.ManagedPrefixListEntry[] | undefined>;
     /**
      * Maximum number of entries that this prefix list can contain.
      */
@@ -108,7 +108,7 @@ export class ManagedPrefixList extends pulumi.CustomResource {
     /**
      * ID of the AWS account that owns this prefix list.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -122,7 +122,7 @@ export class ManagedPrefixList extends pulumi.CustomResource {
     /**
      * Latest version of this prefix list.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ManagedPrefixList resource with the given unique name, arguments, and options.

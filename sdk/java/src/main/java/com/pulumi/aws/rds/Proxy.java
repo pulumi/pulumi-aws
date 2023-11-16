@@ -85,14 +85,14 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the proxy.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
@@ -127,14 +127,14 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
@@ -155,14 +155,14 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="idleClientTimeout", refs={Integer.class}, tree="[0]")
-    private Output<Integer> idleClientTimeout;
+    private Output</* @Nullable */ Integer> idleClientTimeout;
 
     /**
      * @return The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      * 
      */
-    public Output<Integer> idleClientTimeout() {
-        return this.idleClientTimeout;
+    public Output<Optional<Integer>> idleClientTimeout() {
+        return Codegen.optional(this.idleClientTimeout);
     }
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
@@ -243,14 +243,14 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return One or more VPC security group IDs to associate with the new proxy.
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
     /**
      * One or more VPC subnet IDs to associate with the new proxy.

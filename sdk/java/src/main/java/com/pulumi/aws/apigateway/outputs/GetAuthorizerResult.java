@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAuthorizerResult {
@@ -15,69 +17,69 @@ public final class GetAuthorizerResult {
      * @return ARN of the API Gateway Authorizer.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Credentials required for the authorizer.
      * 
      */
-    private String authorizerCredentials;
+    private @Nullable String authorizerCredentials;
     private String authorizerId;
     /**
      * @return TTL of cached authorizer results in seconds.
      * 
      */
-    private Integer authorizerResultTtlInSeconds;
+    private @Nullable Integer authorizerResultTtlInSeconds;
     /**
      * @return Authorizer&#39;s Uniform Resource Identifier (URI).
      * 
      */
-    private String authorizerUri;
+    private @Nullable String authorizerUri;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Source of the identity in an incoming request.
      * 
      */
-    private String identitySource;
+    private @Nullable String identitySource;
     /**
      * @return Validation expression for the incoming identity.
      * 
      */
-    private String identityValidationExpression;
+    private @Nullable String identityValidationExpression;
     /**
      * @return Name of the authorizer.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return List of the Amazon Cognito user pool ARNs.
      * 
      */
-    private List<String> providerArns;
+    private @Nullable List<String> providerArns;
     private String restApiId;
     /**
      * @return Type of the authorizer.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetAuthorizerResult() {}
     /**
      * @return ARN of the API Gateway Authorizer.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Credentials required for the authorizer.
      * 
      */
-    public String authorizerCredentials() {
-        return this.authorizerCredentials;
+    public Optional<String> authorizerCredentials() {
+        return Optional.ofNullable(this.authorizerCredentials);
     }
     public String authorizerId() {
         return this.authorizerId;
@@ -86,50 +88,50 @@ public final class GetAuthorizerResult {
      * @return TTL of cached authorizer results in seconds.
      * 
      */
-    public Integer authorizerResultTtlInSeconds() {
-        return this.authorizerResultTtlInSeconds;
+    public Optional<Integer> authorizerResultTtlInSeconds() {
+        return Optional.ofNullable(this.authorizerResultTtlInSeconds);
     }
     /**
      * @return Authorizer&#39;s Uniform Resource Identifier (URI).
      * 
      */
-    public String authorizerUri() {
-        return this.authorizerUri;
+    public Optional<String> authorizerUri() {
+        return Optional.ofNullable(this.authorizerUri);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Source of the identity in an incoming request.
      * 
      */
-    public String identitySource() {
-        return this.identitySource;
+    public Optional<String> identitySource() {
+        return Optional.ofNullable(this.identitySource);
     }
     /**
      * @return Validation expression for the incoming identity.
      * 
      */
-    public String identityValidationExpression() {
-        return this.identityValidationExpression;
+    public Optional<String> identityValidationExpression() {
+        return Optional.ofNullable(this.identityValidationExpression);
     }
     /**
      * @return Name of the authorizer.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return List of the Amazon Cognito user pool ARNs.
      * 
      */
     public List<String> providerArns() {
-        return this.providerArns;
+        return this.providerArns == null ? List.of() : this.providerArns;
     }
     public String restApiId() {
         return this.restApiId;
@@ -138,8 +140,8 @@ public final class GetAuthorizerResult {
      * @return Type of the authorizer.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -151,18 +153,18 @@ public final class GetAuthorizerResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String authorizerCredentials;
+        private @Nullable String arn;
+        private @Nullable String authorizerCredentials;
         private String authorizerId;
-        private Integer authorizerResultTtlInSeconds;
-        private String authorizerUri;
-        private String id;
-        private String identitySource;
-        private String identityValidationExpression;
-        private String name;
-        private List<String> providerArns;
+        private @Nullable Integer authorizerResultTtlInSeconds;
+        private @Nullable String authorizerUri;
+        private @Nullable String id;
+        private @Nullable String identitySource;
+        private @Nullable String identityValidationExpression;
+        private @Nullable String name;
+        private @Nullable List<String> providerArns;
         private String restApiId;
-        private String type;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetAuthorizerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -181,13 +183,13 @@ public final class GetAuthorizerResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder authorizerCredentials(String authorizerCredentials) {
-            this.authorizerCredentials = Objects.requireNonNull(authorizerCredentials);
+        public Builder authorizerCredentials(@Nullable String authorizerCredentials) {
+            this.authorizerCredentials = authorizerCredentials;
             return this;
         }
         @CustomType.Setter
@@ -196,38 +198,38 @@ public final class GetAuthorizerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder authorizerResultTtlInSeconds(Integer authorizerResultTtlInSeconds) {
-            this.authorizerResultTtlInSeconds = Objects.requireNonNull(authorizerResultTtlInSeconds);
+        public Builder authorizerResultTtlInSeconds(@Nullable Integer authorizerResultTtlInSeconds) {
+            this.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
             return this;
         }
         @CustomType.Setter
-        public Builder authorizerUri(String authorizerUri) {
-            this.authorizerUri = Objects.requireNonNull(authorizerUri);
+        public Builder authorizerUri(@Nullable String authorizerUri) {
+            this.authorizerUri = authorizerUri;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder identitySource(String identitySource) {
-            this.identitySource = Objects.requireNonNull(identitySource);
+        public Builder identitySource(@Nullable String identitySource) {
+            this.identitySource = identitySource;
             return this;
         }
         @CustomType.Setter
-        public Builder identityValidationExpression(String identityValidationExpression) {
-            this.identityValidationExpression = Objects.requireNonNull(identityValidationExpression);
+        public Builder identityValidationExpression(@Nullable String identityValidationExpression) {
+            this.identityValidationExpression = identityValidationExpression;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder providerArns(List<String> providerArns) {
-            this.providerArns = Objects.requireNonNull(providerArns);
+        public Builder providerArns(@Nullable List<String> providerArns) {
+            this.providerArns = providerArns;
             return this;
         }
         public Builder providerArns(String... providerArns) {
@@ -239,8 +241,8 @@ public final class GetAuthorizerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetAuthorizerResult build() {

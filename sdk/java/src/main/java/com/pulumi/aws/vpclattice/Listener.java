@@ -160,28 +160,28 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the listener.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Date and time that the listener was created, specified in ISO-8601 format.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return Date and time that the listener was created, specified in ISO-8601 format.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * Default action block for the default listener rule. Default action blocks are defined below.
@@ -198,24 +198,24 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.defaultAction;
     }
     @Export(name="lastUpdatedAt", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedAt;
+    private Output</* @Nullable */ String> lastUpdatedAt;
 
-    public Output<String> lastUpdatedAt() {
-        return this.lastUpdatedAt;
+    public Output<Optional<String>> lastUpdatedAt() {
+        return Codegen.optional(this.lastUpdatedAt);
     }
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
      * 
      */
     @Export(name="listenerId", refs={String.class}, tree="[0]")
-    private Output<String> listenerId;
+    private Output</* @Nullable */ String> listenerId;
 
     /**
      * @return Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
      * 
      */
-    public Output<String> listenerId() {
-        return this.listenerId;
+    public Output<Optional<String>> listenerId() {
+        return Codegen.optional(this.listenerId);
     }
     /**
      * Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
@@ -236,14 +236,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * Protocol for the listener. Supported values are `HTTP` or `HTTPS`
@@ -264,14 +264,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serviceArn", refs={String.class}, tree="[0]")
-    private Output<String> serviceArn;
+    private Output</* @Nullable */ String> serviceArn;
 
     /**
      * @return Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
      * 
      */
-    public Output<String> serviceArn() {
-        return this.serviceArn;
+    public Output<Optional<String>> serviceArn() {
+        return Codegen.optional(this.serviceArn);
     }
     /**
      * ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
@@ -279,15 +279,15 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serviceIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> serviceIdentifier;
+    private Output</* @Nullable */ String> serviceIdentifier;
 
     /**
      * @return ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
      * &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
      * 
      */
-    public Output<String> serviceIdentifier() {
-        return this.serviceIdentifier;
+    public Output<Optional<String>> serviceIdentifier() {
+        return Codegen.optional(this.serviceIdentifier);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

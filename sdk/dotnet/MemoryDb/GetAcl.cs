@@ -128,20 +128,20 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// ARN of the ACL.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The minimum engine version supported by the ACL.
         /// </summary>
-        public readonly string MinimumEngineVersion;
+        public readonly string? MinimumEngineVersion;
         public readonly string Name;
         /// <summary>
         /// Map of tags assigned to the ACL.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Set of MemoryDB user names included in this ACL.
         /// </summary>
@@ -149,15 +149,15 @@ namespace Pulumi.Aws.MemoryDb
 
         [OutputConstructor]
         private GetAclResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string minimumEngineVersion,
+            string? minimumEngineVersion,
 
             string name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<string> userNames)
         {

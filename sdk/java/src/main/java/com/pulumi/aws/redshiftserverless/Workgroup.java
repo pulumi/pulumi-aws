@@ -70,56 +70,56 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
      * 
      */
     @Export(name="baseCapacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> baseCapacity;
+    private Output</* @Nullable */ Integer> baseCapacity;
 
     /**
      * @return The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
      * 
      */
-    public Output<Integer> baseCapacity() {
-        return this.baseCapacity;
+    public Output<Optional<Integer>> baseCapacity() {
+        return Codegen.optional(this.baseCapacity);
     }
     /**
      * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      * 
      */
     @Export(name="configParameters", refs={List.class,WorkgroupConfigParameter.class}, tree="[0,1]")
-    private Output<List<WorkgroupConfigParameter>> configParameters;
+    private Output</* @Nullable */ List<WorkgroupConfigParameter>> configParameters;
 
     /**
      * @return An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      * 
      */
-    public Output<List<WorkgroupConfigParameter>> configParameters() {
-        return this.configParameters;
+    public Output<Optional<List<WorkgroupConfigParameter>>> configParameters() {
+        return Codegen.optional(this.configParameters);
     }
     /**
      * The endpoint that is created from the workgroup. See `Endpoint` below.
      * 
      */
     @Export(name="endpoints", refs={List.class,WorkgroupEndpoint.class}, tree="[0,1]")
-    private Output<List<WorkgroupEndpoint>> endpoints;
+    private Output</* @Nullable */ List<WorkgroupEndpoint>> endpoints;
 
     /**
      * @return The endpoint that is created from the workgroup. See `Endpoint` below.
      * 
      */
-    public Output<List<WorkgroupEndpoint>> endpoints() {
-        return this.endpoints;
+    public Output<Optional<List<WorkgroupEndpoint>>> endpoints() {
+        return Codegen.optional(this.endpoints);
     }
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
@@ -168,28 +168,28 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupIds;
+    private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
      * @return An array of security group IDs to associate with the workgroup.
      * 
      */
-    public Output<List<String>> securityGroupIds() {
-        return this.securityGroupIds;
+    public Output<Optional<List<String>>> securityGroupIds() {
+        return Codegen.optional(this.securityGroupIds);
     }
     /**
      * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subnetIds;
+    private Output</* @Nullable */ List<String>> subnetIds;
 
     /**
      * @return An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      * 
      */
-    public Output<List<String>> subnetIds() {
-        return this.subnetIds;
+    public Output<Optional<List<String>>> subnetIds() {
+        return Codegen.optional(this.subnetIds);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -228,14 +228,14 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="workgroupId", refs={String.class}, tree="[0]")
-    private Output<String> workgroupId;
+    private Output</* @Nullable */ String> workgroupId;
 
     /**
      * @return The Redshift Workgroup ID.
      * 
      */
-    public Output<String> workgroupId() {
-        return this.workgroupId;
+    public Output<Optional<String>> workgroupId() {
+        return Codegen.optional(this.workgroupId);
     }
     /**
      * The name of the workgroup.

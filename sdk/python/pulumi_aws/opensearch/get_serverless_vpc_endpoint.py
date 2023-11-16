@@ -46,7 +46,7 @@ class GetServerlessVpcEndpointResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         The date the endpoint was created.
         """
@@ -54,7 +54,7 @@ class GetServerlessVpcEndpointResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -62,7 +62,7 @@ class GetServerlessVpcEndpointResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the endpoint.
         """
@@ -70,7 +70,7 @@ class GetServerlessVpcEndpointResult:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
@@ -78,7 +78,7 @@ class GetServerlessVpcEndpointResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         The IDs of the subnets from which you access OpenSearch Serverless.
         """
@@ -91,7 +91,7 @@ class GetServerlessVpcEndpointResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         The ID of the VPC from which you access OpenSearch Serverless.
         """

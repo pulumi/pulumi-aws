@@ -73,56 +73,56 @@ public class VpcAttachmentAccepter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applianceModeSupport", refs={String.class}, tree="[0]")
-    private Output<String> applianceModeSupport;
+    private Output</* @Nullable */ String> applianceModeSupport;
 
     /**
      * @return Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
      * 
      */
-    public Output<String> applianceModeSupport() {
-        return this.applianceModeSupport;
+    public Output<Optional<String>> applianceModeSupport() {
+        return Codegen.optional(this.applianceModeSupport);
     }
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`.
      * 
      */
     @Export(name="dnsSupport", refs={String.class}, tree="[0]")
-    private Output<String> dnsSupport;
+    private Output</* @Nullable */ String> dnsSupport;
 
     /**
      * @return Whether DNS support is enabled. Valid values: `disable`, `enable`.
      * 
      */
-    public Output<String> dnsSupport() {
-        return this.dnsSupport;
+    public Output<Optional<String>> dnsSupport() {
+        return Codegen.optional(this.dnsSupport);
     }
     /**
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
      * 
      */
     @Export(name="ipv6Support", refs={String.class}, tree="[0]")
-    private Output<String> ipv6Support;
+    private Output</* @Nullable */ String> ipv6Support;
 
     /**
      * @return Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
      * 
      */
-    public Output<String> ipv6Support() {
-        return this.ipv6Support;
+    public Output<Optional<String>> ipv6Support() {
+        return Codegen.optional(this.ipv6Support);
     }
     /**
      * Identifiers of EC2 Subnets.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subnetIds;
+    private Output</* @Nullable */ List<String>> subnetIds;
 
     /**
      * @return Identifiers of EC2 Subnets.
      * 
      */
-    public Output<List<String>> subnetIds() {
-        return this.subnetIds;
+    public Output<Optional<List<String>>> subnetIds() {
+        return Codegen.optional(this.subnetIds);
     }
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -203,42 +203,42 @@ public class VpcAttachmentAccepter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
-    private Output<String> transitGatewayId;
+    private Output</* @Nullable */ String> transitGatewayId;
 
     /**
      * @return Identifier of EC2 Transit Gateway.
      * 
      */
-    public Output<String> transitGatewayId() {
-        return this.transitGatewayId;
+    public Output<Optional<String>> transitGatewayId() {
+        return Codegen.optional(this.transitGatewayId);
     }
     /**
      * Identifier of EC2 VPC.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return Identifier of EC2 VPC.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
     /**
      * Identifier of the AWS account that owns the EC2 VPC.
      * 
      */
     @Export(name="vpcOwnerId", refs={String.class}, tree="[0]")
-    private Output<String> vpcOwnerId;
+    private Output</* @Nullable */ String> vpcOwnerId;
 
     /**
      * @return Identifier of the AWS account that owns the EC2 VPC.
      * 
      */
-    public Output<String> vpcOwnerId() {
-        return this.vpcOwnerId;
+    public Output<Optional<String>> vpcOwnerId() {
+        return Codegen.optional(this.vpcOwnerId);
     }
 
     /**

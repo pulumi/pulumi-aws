@@ -7,14 +7,15 @@ import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyCustomHeadersCo
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicyCustomHeadersConfig {
-    private List<GetResponseHeadersPolicyCustomHeadersConfigItem> items;
+    private @Nullable List<GetResponseHeadersPolicyCustomHeadersConfigItem> items;
 
     private GetResponseHeadersPolicyCustomHeadersConfig() {}
     public List<GetResponseHeadersPolicyCustomHeadersConfigItem> items() {
-        return this.items;
+        return this.items == null ? List.of() : this.items;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetResponseHeadersPolicyCustomHeadersConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetResponseHeadersPolicyCustomHeadersConfigItem> items;
+        private @Nullable List<GetResponseHeadersPolicyCustomHeadersConfigItem> items;
         public Builder() {}
         public Builder(GetResponseHeadersPolicyCustomHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetResponseHeadersPolicyCustomHeadersConfig {
         }
 
         @CustomType.Setter
-        public Builder items(List<GetResponseHeadersPolicyCustomHeadersConfigItem> items) {
-            this.items = Objects.requireNonNull(items);
+        public Builder items(@Nullable List<GetResponseHeadersPolicyCustomHeadersConfigItem> items) {
+            this.items = items;
             return this;
         }
         public Builder items(GetResponseHeadersPolicyCustomHeadersConfigItem... items) {

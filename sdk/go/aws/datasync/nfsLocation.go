@@ -61,7 +61,7 @@ type NfsLocation struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block containing mount options used by DataSync to access the NFS Server.
 	MountOptions NfsLocationMountOptionsPtrOutput `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
@@ -76,7 +76,7 @@ type NfsLocation struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Uri     pulumi.StringOutput    `pulumi:"uri"`
+	Uri     pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewNfsLocation registers a new resource with the given unique name, arguments, and options.
@@ -280,8 +280,8 @@ func (o NfsLocationOutput) ToNfsLocationOutputWithContext(ctx context.Context) N
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (o NfsLocationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NfsLocation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NfsLocationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsLocation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing mount options used by DataSync to access the NFS Server.
@@ -316,8 +316,8 @@ func (o NfsLocationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NfsLocation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-func (o NfsLocationOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v *NfsLocation) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+func (o NfsLocationOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsLocation) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 type NfsLocationArrayOutput struct{ *pulumi.OutputState }

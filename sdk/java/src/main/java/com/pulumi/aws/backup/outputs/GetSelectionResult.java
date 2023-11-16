@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSelectionResult {
@@ -14,23 +16,23 @@ public final class GetSelectionResult {
      * @return ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
-    private String iamRoleArn;
+    private @Nullable String iamRoleArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Display name of a resource selection document.
      * 
      */
-    private String name;
+    private @Nullable String name;
     private String planId;
     /**
      * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
      * 
      */
-    private List<String> resources;
+    private @Nullable List<String> resources;
     private String selectionId;
 
     private GetSelectionResult() {}
@@ -38,22 +40,22 @@ public final class GetSelectionResult {
      * @return ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
-    public String iamRoleArn() {
-        return this.iamRoleArn;
+    public Optional<String> iamRoleArn() {
+        return Optional.ofNullable(this.iamRoleArn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Display name of a resource selection document.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public String planId() {
         return this.planId;
@@ -63,7 +65,7 @@ public final class GetSelectionResult {
      * 
      */
     public List<String> resources() {
-        return this.resources;
+        return this.resources == null ? List.of() : this.resources;
     }
     public String selectionId() {
         return this.selectionId;
@@ -78,11 +80,11 @@ public final class GetSelectionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String iamRoleArn;
-        private String id;
-        private String name;
+        private @Nullable String iamRoleArn;
+        private @Nullable String id;
+        private @Nullable String name;
         private String planId;
-        private List<String> resources;
+        private @Nullable List<String> resources;
         private String selectionId;
         public Builder() {}
         public Builder(GetSelectionResult defaults) {
@@ -96,18 +98,18 @@ public final class GetSelectionResult {
         }
 
         @CustomType.Setter
-        public Builder iamRoleArn(String iamRoleArn) {
-            this.iamRoleArn = Objects.requireNonNull(iamRoleArn);
+        public Builder iamRoleArn(@Nullable String iamRoleArn) {
+            this.iamRoleArn = iamRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -116,8 +118,8 @@ public final class GetSelectionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resources(List<String> resources) {
-            this.resources = Objects.requireNonNull(resources);
+        public Builder resources(@Nullable List<String> resources) {
+            this.resources = resources;
             return this;
         }
         public Builder resources(String... resources) {

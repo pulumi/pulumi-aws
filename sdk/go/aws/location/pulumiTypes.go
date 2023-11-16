@@ -289,7 +289,7 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() pulumi.StringP
 
 type GetMapConfiguration struct {
 	// The map style selected from an available data provider.
-	Style string `pulumi:"style"`
+	Style *string `pulumi:"style"`
 }
 
 // GetMapConfigurationInput is an input type that accepts GetMapConfigurationArgs and GetMapConfigurationOutput values.
@@ -305,7 +305,7 @@ type GetMapConfigurationInput interface {
 
 type GetMapConfigurationArgs struct {
 	// The map style selected from an available data provider.
-	Style pulumi.StringInput `pulumi:"style"`
+	Style pulumi.StringPtrInput `pulumi:"style"`
 }
 
 func (GetMapConfigurationArgs) ElementType() reflect.Type {
@@ -360,8 +360,8 @@ func (o GetMapConfigurationOutput) ToGetMapConfigurationOutputWithContext(ctx co
 }
 
 // The map style selected from an available data provider.
-func (o GetMapConfigurationOutput) Style() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMapConfiguration) string { return v.Style }).(pulumi.StringOutput)
+func (o GetMapConfigurationOutput) Style() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMapConfiguration) *string { return v.Style }).(pulumi.StringPtrOutput)
 }
 
 type GetMapConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -385,7 +385,7 @@ func (o GetMapConfigurationArrayOutput) Index(i pulumi.IntInput) GetMapConfigura
 }
 
 type GetPlaceIndexDataSourceConfiguration struct {
-	IntendedUse string `pulumi:"intendedUse"`
+	IntendedUse *string `pulumi:"intendedUse"`
 }
 
 // GetPlaceIndexDataSourceConfigurationInput is an input type that accepts GetPlaceIndexDataSourceConfigurationArgs and GetPlaceIndexDataSourceConfigurationOutput values.
@@ -400,7 +400,7 @@ type GetPlaceIndexDataSourceConfigurationInput interface {
 }
 
 type GetPlaceIndexDataSourceConfigurationArgs struct {
-	IntendedUse pulumi.StringInput `pulumi:"intendedUse"`
+	IntendedUse pulumi.StringPtrInput `pulumi:"intendedUse"`
 }
 
 func (GetPlaceIndexDataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -454,8 +454,8 @@ func (o GetPlaceIndexDataSourceConfigurationOutput) ToGetPlaceIndexDataSourceCon
 	return o
 }
 
-func (o GetPlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPlaceIndexDataSourceConfiguration) string { return v.IntendedUse }).(pulumi.StringOutput)
+func (o GetPlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPlaceIndexDataSourceConfiguration) *string { return v.IntendedUse }).(pulumi.StringPtrOutput)
 }
 
 type GetPlaceIndexDataSourceConfigurationArrayOutput struct{ *pulumi.OutputState }

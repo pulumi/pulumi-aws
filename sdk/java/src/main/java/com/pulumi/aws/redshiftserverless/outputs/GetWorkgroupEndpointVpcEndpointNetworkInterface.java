@@ -6,6 +6,8 @@ package com.pulumi.aws.redshiftserverless.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkgroupEndpointVpcEndpointNetworkInterface {
@@ -13,51 +15,51 @@ public final class GetWorkgroupEndpointVpcEndpointNetworkInterface {
      * @return The availability Zone.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return The unique identifier of the network interface.
      * 
      */
-    private String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
     /**
      * @return The IPv4 address of the network interface within the subnet.
      * 
      */
-    private String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The unique identifier of the subnet.
      * 
      */
-    private String subnetId;
+    private @Nullable String subnetId;
 
     private GetWorkgroupEndpointVpcEndpointNetworkInterface() {}
     /**
      * @return The availability Zone.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     /**
      * @return The unique identifier of the network interface.
      * 
      */
-    public String networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Optional<String> networkInterfaceId() {
+        return Optional.ofNullable(this.networkInterfaceId);
     }
     /**
      * @return The IPv4 address of the network interface within the subnet.
      * 
      */
-    public String privateIpAddress() {
-        return this.privateIpAddress;
+    public Optional<String> privateIpAddress() {
+        return Optional.ofNullable(this.privateIpAddress);
     }
     /**
      * @return The unique identifier of the subnet.
      * 
      */
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
     public static Builder builder() {
@@ -69,10 +71,10 @@ public final class GetWorkgroupEndpointVpcEndpointNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String availabilityZone;
-        private String networkInterfaceId;
-        private String privateIpAddress;
-        private String subnetId;
+        private @Nullable String availabilityZone;
+        private @Nullable String networkInterfaceId;
+        private @Nullable String privateIpAddress;
+        private @Nullable String subnetId;
         public Builder() {}
         public Builder(GetWorkgroupEndpointVpcEndpointNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,23 +85,23 @@ public final class GetWorkgroupEndpointVpcEndpointNetworkInterface {
         }
 
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+        public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+        public Builder privateIpAddress(@Nullable String privateIpAddress) {
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         public GetWorkgroupEndpointVpcEndpointNetworkInterface build() {

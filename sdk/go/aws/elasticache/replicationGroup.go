@@ -263,27 +263,27 @@ type ReplicationGroup struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// ARN of the created ElastiCache Replication Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to enable encryption at rest.
-	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrOutput `pulumi:"authToken"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
-	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
 	// Indicates if cluster mode is enabled.
-	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
+	ClusterEnabled pulumi.BoolPtrOutput `pulumi:"clusterEnabled"`
 	// Address of the replication group configuration endpoint when cluster mode is enabled.
-	ConfigurationEndpointAddress pulumi.StringOutput `pulumi:"configurationEndpointAddress"`
+	ConfigurationEndpointAddress pulumi.StringPtrOutput `pulumi:"configurationEndpointAddress"`
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-	DataTieringEnabled pulumi.BoolOutput `pulumi:"dataTieringEnabled"`
+	DataTieringEnabled pulumi.BoolPtrOutput `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
@@ -292,50 +292,50 @@ type ReplicationGroup struct {
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
 	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
-	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
+	EngineVersionActual pulumi.StringPtrOutput `pulumi:"engineVersionActual"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
-	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
+	GlobalReplicationGroupId pulumi.StringPtrOutput `pulumi:"globalReplicationGroupId"`
 	// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-	IpDiscovery pulumi.StringOutput `pulumi:"ipDiscovery"`
+	IpDiscovery pulumi.StringPtrOutput `pulumi:"ipDiscovery"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
 	LogDeliveryConfigurations ReplicationGroupLogDeliveryConfigurationArrayOutput `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
+	MaintenanceWindow pulumi.StringPtrOutput `pulumi:"maintenanceWindow"`
 	// Identifiers of all the nodes that are part of this replication group.
 	MemberClusters pulumi.StringArrayOutput `pulumi:"memberClusters"`
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrOutput `pulumi:"multiAzEnabled"`
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
-	NetworkType pulumi.StringOutput `pulumi:"networkType"`
+	NetworkType pulumi.StringPtrOutput `pulumi:"networkType"`
 	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
-	NodeType pulumi.StringOutput `pulumi:"nodeType"`
+	NodeType pulumi.StringPtrOutput `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
-	NumCacheClusters pulumi.IntOutput `pulumi:"numCacheClusters"`
+	NumCacheClusters pulumi.IntPtrOutput `pulumi:"numCacheClusters"`
 	// Number of node groups (shards) for this Redis replication group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
-	NumNodeGroups pulumi.IntOutput `pulumi:"numNodeGroups"`
+	NumNodeGroups pulumi.IntPtrOutput `pulumi:"numNodeGroups"`
 	// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
-	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
+	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
 	// Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
 	PreferredCacheClusterAzs pulumi.StringArrayOutput `pulumi:"preferredCacheClusterAzs"`
 	// (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-	PrimaryEndpointAddress pulumi.StringOutput `pulumi:"primaryEndpointAddress"`
+	PrimaryEndpointAddress pulumi.StringPtrOutput `pulumi:"primaryEndpointAddress"`
 	// (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
-	ReaderEndpointAddress pulumi.StringOutput `pulumi:"readerEndpointAddress"`
+	ReaderEndpointAddress pulumi.StringPtrOutput `pulumi:"readerEndpointAddress"`
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
 	// Valid values are 0 to 5.
-	ReplicasPerNodeGroup pulumi.IntOutput `pulumi:"replicasPerNodeGroup"`
+	ReplicasPerNodeGroup pulumi.IntPtrOutput `pulumi:"replicasPerNodeGroup"`
 	// Replication group identifier. This parameter is stored as a lowercase string.
 	//
 	// The following arguments are optional:
@@ -351,9 +351,9 @@ type ReplicationGroup struct {
 	// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit pulumi.IntPtrOutput `pulumi:"snapshotRetentionLimit"`
 	// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-	SnapshotWindow pulumi.StringOutput `pulumi:"snapshotWindow"`
+	SnapshotWindow pulumi.StringPtrOutput `pulumi:"snapshotWindow"`
 	// Name of the cache subnet group to be used for the replication group.
-	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
+	SubnetGroupName pulumi.StringPtrOutput `pulumi:"subnetGroupName"`
 	// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -361,7 +361,7 @@ type ReplicationGroup struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
-	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
+	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
 	// User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
 	UserGroupIds pulumi.StringArrayOutput `pulumi:"userGroupIds"`
 }
@@ -880,18 +880,18 @@ func (o ReplicationGroupOutput) ToReplicationGroupOutputWithContext(ctx context.
 }
 
 // Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-func (o ReplicationGroupOutput) ApplyImmediately() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.ApplyImmediately }).(pulumi.BoolOutput)
+func (o ReplicationGroupOutput) ApplyImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the created ElastiCache Replication Group.
-func (o ReplicationGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to enable encryption at rest.
-func (o ReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolOutput)
+func (o ReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
@@ -902,8 +902,8 @@ func (o ReplicationGroupOutput) AuthToken() pulumi.StringPtrOutput {
 // Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 // Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 // Defaults to `true`.
-func (o ReplicationGroupOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
+func (o ReplicationGroupOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
@@ -912,23 +912,23 @@ func (o ReplicationGroupOutput) AutomaticFailoverEnabled() pulumi.BoolPtrOutput 
 }
 
 // Indicates if cluster mode is enabled.
-func (o ReplicationGroupOutput) ClusterEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.ClusterEnabled }).(pulumi.BoolOutput)
+func (o ReplicationGroupOutput) ClusterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.ClusterEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Address of the replication group configuration endpoint when cluster mode is enabled.
-func (o ReplicationGroupOutput) ConfigurationEndpointAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ConfigurationEndpointAddress }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) ConfigurationEndpointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ConfigurationEndpointAddress }).(pulumi.StringPtrOutput)
 }
 
 // Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-func (o ReplicationGroupOutput) DataTieringEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.DataTieringEnabled }).(pulumi.BoolOutput)
+func (o ReplicationGroupOutput) DataTieringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.DataTieringEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // User-created description for the replication group. Must not be empty.
-func (o ReplicationGroupOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
@@ -942,13 +942,13 @@ func (o ReplicationGroupOutput) Engine() pulumi.StringPtrOutput {
 // or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 // Otherwise, specify the full version desired, e.g., `5.0.6`.
 // The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
-func (o ReplicationGroupOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
-func (o ReplicationGroupOutput) EngineVersionActual() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.EngineVersionActual }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) EngineVersionActual() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.EngineVersionActual }).(pulumi.StringPtrOutput)
 }
 
 // The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
@@ -957,13 +957,13 @@ func (o ReplicationGroupOutput) FinalSnapshotIdentifier() pulumi.StringPtrOutput
 }
 
 // The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
-func (o ReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.GlobalReplicationGroupId }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.GlobalReplicationGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-func (o ReplicationGroupOutput) IpDiscovery() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.IpDiscovery }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) IpDiscovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.IpDiscovery }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
@@ -979,8 +979,8 @@ func (o ReplicationGroupOutput) LogDeliveryConfigurations() ReplicationGroupLogD
 }
 
 // Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-func (o ReplicationGroupOutput) MaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.MaintenanceWindow }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) MaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // Identifiers of all the nodes that are part of this replication group.
@@ -994,13 +994,13 @@ func (o ReplicationGroupOutput) MultiAzEnabled() pulumi.BoolPtrOutput {
 }
 
 // The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
-func (o ReplicationGroupOutput) NetworkType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.NetworkType }).(pulumi.StringPtrOutput)
 }
 
 // Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
-func (o ReplicationGroupOutput) NodeType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.NodeType }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.NodeType }).(pulumi.StringPtrOutput)
 }
 
 // ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -1009,19 +1009,19 @@ func (o ReplicationGroupOutput) NotificationTopicArn() pulumi.StringPtrOutput {
 }
 
 // Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
-func (o ReplicationGroupOutput) NumCacheClusters() pulumi.IntOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntOutput { return v.NumCacheClusters }).(pulumi.IntOutput)
+func (o ReplicationGroupOutput) NumCacheClusters() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.NumCacheClusters }).(pulumi.IntPtrOutput)
 }
 
 // Number of node groups (shards) for this Redis replication group.
 // Changing this number will trigger a resizing operation before other settings modifications.
-func (o ReplicationGroupOutput) NumNodeGroups() pulumi.IntOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntOutput { return v.NumNodeGroups }).(pulumi.IntOutput)
+func (o ReplicationGroupOutput) NumNodeGroups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.NumNodeGroups }).(pulumi.IntPtrOutput)
 }
 
 // Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
-func (o ReplicationGroupOutput) ParameterGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) ParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
@@ -1035,20 +1035,20 @@ func (o ReplicationGroupOutput) PreferredCacheClusterAzs() pulumi.StringArrayOut
 }
 
 // (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-func (o ReplicationGroupOutput) PrimaryEndpointAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.PrimaryEndpointAddress }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) PrimaryEndpointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.PrimaryEndpointAddress }).(pulumi.StringPtrOutput)
 }
 
 // (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
-func (o ReplicationGroupOutput) ReaderEndpointAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ReaderEndpointAddress }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) ReaderEndpointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ReaderEndpointAddress }).(pulumi.StringPtrOutput)
 }
 
 // Number of replica nodes in each node group.
 // Changing this number will trigger a resizing operation before other settings modifications.
 // Valid values are 0 to 5.
-func (o ReplicationGroupOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntOutput { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
+func (o ReplicationGroupOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.ReplicasPerNodeGroup }).(pulumi.IntPtrOutput)
 }
 
 // Replication group identifier. This parameter is stored as a lowercase string.
@@ -1084,13 +1084,13 @@ func (o ReplicationGroupOutput) SnapshotRetentionLimit() pulumi.IntPtrOutput {
 }
 
 // Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-func (o ReplicationGroupOutput) SnapshotWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.SnapshotWindow }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) SnapshotWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.SnapshotWindow }).(pulumi.StringPtrOutput)
 }
 
 // Name of the cache subnet group to be used for the replication group.
-func (o ReplicationGroupOutput) SubnetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.SubnetGroupName }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) SubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1106,8 +1106,8 @@ func (o ReplicationGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Whether to enable encryption in transit.
-func (o ReplicationGroupOutput) TransitEncryptionEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolOutput)
+func (o ReplicationGroupOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.

@@ -146,12 +146,12 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// ARN of the theme.
         /// </summary>
-        public readonly string Arn;
-        public readonly string AwsAccountId;
+        public readonly string? Arn;
+        public readonly string? AwsAccountId;
         /// <summary>
         /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
         /// </summary>
-        public readonly string BaseThemeId;
+        public readonly string? BaseThemeId;
         /// <summary>
         /// The theme configuration, which contains the theme display properties. See configuration.
         /// </summary>
@@ -159,19 +159,19 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// The time that the theme was created.
         /// </summary>
-        public readonly string CreatedTime;
+        public readonly string? CreatedTime;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The time that the theme was last updated.
         /// </summary>
-        public readonly string LastUpdatedTime;
+        public readonly string? LastUpdatedTime;
         /// <summary>
         /// Display name of the theme.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// A set of resource permissions on the theme. See permissions.
         /// </summary>
@@ -179,50 +179,50 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// The theme creation status.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string ThemeId;
         /// <summary>
         /// A description of the current theme version being created/updated.
         /// </summary>
-        public readonly string VersionDescription;
+        public readonly string? VersionDescription;
         /// <summary>
         /// The version number of the theme version.
         /// </summary>
-        public readonly int VersionNumber;
+        public readonly int? VersionNumber;
 
         [OutputConstructor]
         private GetThemeResult(
-            string arn,
+            string? arn,
 
-            string awsAccountId,
+            string? awsAccountId,
 
-            string baseThemeId,
+            string? baseThemeId,
 
             ImmutableArray<Outputs.GetThemeConfigurationResult> configurations,
 
-            string createdTime,
+            string? createdTime,
 
-            string id,
+            string? id,
 
-            string lastUpdatedTime,
+            string? lastUpdatedTime,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetThemePermissionResult> permissions,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string themeId,
 
-            string versionDescription,
+            string? versionDescription,
 
-            int versionNumber)
+            int? versionNumber)
         {
             Arn = arn;
             AwsAccountId = awsAccountId;

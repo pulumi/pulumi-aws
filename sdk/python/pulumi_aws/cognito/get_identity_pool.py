@@ -59,7 +59,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter(name="allowClassicFlow")
-    def allow_classic_flow(self) -> bool:
+    def allow_classic_flow(self) -> Optional[bool]:
         """
         Whether the classic / basic authentication flow is enabled.
         """
@@ -67,7 +67,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter(name="allowUnauthenticatedIdentities")
-    def allow_unauthenticated_identities(self) -> bool:
+    def allow_unauthenticated_identities(self) -> Optional[bool]:
         """
         Whether the identity pool supports unauthenticated logins or not.
         """
@@ -75,7 +75,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Pool.
         """
@@ -83,7 +83,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter(name="cognitoIdentityProviders")
-    def cognito_identity_providers(self) -> Sequence['outputs.GetIdentityPoolCognitoIdentityProviderResult']:
+    def cognito_identity_providers(self) -> Optional[Sequence['outputs.GetIdentityPoolCognitoIdentityProviderResult']]:
         """
         An array of Amazon Cognito Identity user pools and their client IDs.
         """
@@ -91,7 +91,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter(name="developerProviderName")
-    def developer_provider_name(self) -> str:
+    def developer_provider_name(self) -> Optional[str]:
         """
         The "domain" by which Cognito will refer to your users.
         """
@@ -99,7 +99,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -112,7 +112,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter(name="openidConnectProviderArns")
-    def openid_connect_provider_arns(self) -> Sequence[str]:
+    def openid_connect_provider_arns(self) -> Optional[Sequence[str]]:
         """
         Set of OpendID Connect provider ARNs.
         """
@@ -120,7 +120,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter(name="samlProviderArns")
-    def saml_provider_arns(self) -> Sequence[str]:
+    def saml_provider_arns(self) -> Optional[Sequence[str]]:
         """
         An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         """
@@ -128,7 +128,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter(name="supportedLoginProviders")
-    def supported_login_providers(self) -> Mapping[str, str]:
+    def supported_login_providers(self) -> Optional[Mapping[str, str]]:
         """
         Key-Value pairs mapping provider names to provider app IDs.
         """
@@ -136,7 +136,7 @@ class GetIdentityPoolResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags to assigned to the Identity Pool.
         """

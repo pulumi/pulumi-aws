@@ -85,27 +85,27 @@ export interface GetDevEnvironmentResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Information about the integrated development environment (IDE) configured for a Dev Environment.
      */
-    readonly ides: outputs.codecatalyst.GetDevEnvironmentIde[];
+    readonly ides?: outputs.codecatalyst.GetDevEnvironmentIde[];
     /**
      * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      */
-    readonly inactivityTimeoutMinutes: number;
+    readonly inactivityTimeoutMinutes?: number;
     /**
      * The Amazon EC2 instace type to use for the Dev Environment.
      */
-    readonly instanceType: string;
+    readonly instanceType?: string;
     /**
      * The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
      */
-    readonly lastUpdatedTime: string;
+    readonly lastUpdatedTime?: string;
     /**
      * Information about the amount of storage allocated to the Dev Environment.
      */
-    readonly persistentStorages: outputs.codecatalyst.GetDevEnvironmentPersistentStorage[];
+    readonly persistentStorages?: outputs.codecatalyst.GetDevEnvironmentPersistentStorage[];
     readonly projectName: string;
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
@@ -115,12 +115,12 @@ export interface GetDevEnvironmentResult {
     /**
      * The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * The reason for the status.
      */
-    readonly statusReason: string;
-    readonly tags: {[key: string]: string};
+    readonly statusReason?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS CodeCatalyst Dev Environment.

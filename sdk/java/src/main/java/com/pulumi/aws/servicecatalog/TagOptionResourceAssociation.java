@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -66,42 +67,42 @@ public class TagOptionResourceAssociation extends com.pulumi.resources.CustomRes
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
-    private Output<String> resourceArn;
+    private Output</* @Nullable */ String> resourceArn;
 
     /**
      * @return ARN of the resource.
      * 
      */
-    public Output<String> resourceArn() {
-        return this.resourceArn;
+    public Output<Optional<String>> resourceArn() {
+        return Codegen.optional(this.resourceArn);
     }
     /**
      * Creation time of the resource.
      * 
      */
     @Export(name="resourceCreatedTime", refs={String.class}, tree="[0]")
-    private Output<String> resourceCreatedTime;
+    private Output</* @Nullable */ String> resourceCreatedTime;
 
     /**
      * @return Creation time of the resource.
      * 
      */
-    public Output<String> resourceCreatedTime() {
-        return this.resourceCreatedTime;
+    public Output<Optional<String>> resourceCreatedTime() {
+        return Codegen.optional(this.resourceCreatedTime);
     }
     /**
      * Description of the resource.
      * 
      */
     @Export(name="resourceDescription", refs={String.class}, tree="[0]")
-    private Output<String> resourceDescription;
+    private Output</* @Nullable */ String> resourceDescription;
 
     /**
      * @return Description of the resource.
      * 
      */
-    public Output<String> resourceDescription() {
-        return this.resourceDescription;
+    public Output<Optional<String>> resourceDescription() {
+        return Codegen.optional(this.resourceDescription);
     }
     /**
      * Resource identifier.
@@ -122,14 +123,14 @@ public class TagOptionResourceAssociation extends com.pulumi.resources.CustomRes
      * 
      */
     @Export(name="resourceName", refs={String.class}, tree="[0]")
-    private Output<String> resourceName;
+    private Output</* @Nullable */ String> resourceName;
 
     /**
      * @return Description of the resource.
      * 
      */
-    public Output<String> resourceName() {
-        return this.resourceName;
+    public Output<Optional<String>> resourceName() {
+        return Codegen.optional(this.resourceName);
     }
     /**
      * Tag Option identifier.

@@ -8,26 +8,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateBlockDeviceMapping {
-    private String deviceName;
-    private List<GetLaunchTemplateBlockDeviceMappingEb> ebs;
-    private String noDevice;
-    private String virtualName;
+    private @Nullable String deviceName;
+    private @Nullable List<GetLaunchTemplateBlockDeviceMappingEb> ebs;
+    private @Nullable String noDevice;
+    private @Nullable String virtualName;
 
     private GetLaunchTemplateBlockDeviceMapping() {}
-    public String deviceName() {
-        return this.deviceName;
+    public Optional<String> deviceName() {
+        return Optional.ofNullable(this.deviceName);
     }
     public List<GetLaunchTemplateBlockDeviceMappingEb> ebs() {
-        return this.ebs;
+        return this.ebs == null ? List.of() : this.ebs;
     }
-    public String noDevice() {
-        return this.noDevice;
+    public Optional<String> noDevice() {
+        return Optional.ofNullable(this.noDevice);
     }
-    public String virtualName() {
-        return this.virtualName;
+    public Optional<String> virtualName() {
+        return Optional.ofNullable(this.virtualName);
     }
 
     public static Builder builder() {
@@ -39,10 +41,10 @@ public final class GetLaunchTemplateBlockDeviceMapping {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String deviceName;
-        private List<GetLaunchTemplateBlockDeviceMappingEb> ebs;
-        private String noDevice;
-        private String virtualName;
+        private @Nullable String deviceName;
+        private @Nullable List<GetLaunchTemplateBlockDeviceMappingEb> ebs;
+        private @Nullable String noDevice;
+        private @Nullable String virtualName;
         public Builder() {}
         public Builder(GetLaunchTemplateBlockDeviceMapping defaults) {
     	      Objects.requireNonNull(defaults);
@@ -53,26 +55,26 @@ public final class GetLaunchTemplateBlockDeviceMapping {
         }
 
         @CustomType.Setter
-        public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+        public Builder deviceName(@Nullable String deviceName) {
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder ebs(List<GetLaunchTemplateBlockDeviceMappingEb> ebs) {
-            this.ebs = Objects.requireNonNull(ebs);
+        public Builder ebs(@Nullable List<GetLaunchTemplateBlockDeviceMappingEb> ebs) {
+            this.ebs = ebs;
             return this;
         }
         public Builder ebs(GetLaunchTemplateBlockDeviceMappingEb... ebs) {
             return ebs(List.of(ebs));
         }
         @CustomType.Setter
-        public Builder noDevice(String noDevice) {
-            this.noDevice = Objects.requireNonNull(noDevice);
+        public Builder noDevice(@Nullable String noDevice) {
+            this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
-        public Builder virtualName(String virtualName) {
-            this.virtualName = Objects.requireNonNull(virtualName);
+        public Builder virtualName(@Nullable String virtualName) {
+            this.virtualName = virtualName;
             return this;
         }
         public GetLaunchTemplateBlockDeviceMapping build() {

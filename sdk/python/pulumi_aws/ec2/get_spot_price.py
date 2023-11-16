@@ -55,7 +55,7 @@ class GetSpotPriceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -68,7 +68,7 @@ class GetSpotPriceResult:
 
     @property
     @pulumi.getter(name="spotPrice")
-    def spot_price(self) -> str:
+    def spot_price(self) -> Optional[str]:
         """
         Most recent Spot Price value for the given instance type and AZ.
         """
@@ -76,7 +76,7 @@ class GetSpotPriceResult:
 
     @property
     @pulumi.getter(name="spotPriceTimestamp")
-    def spot_price_timestamp(self) -> str:
+    def spot_price_timestamp(self) -> Optional[str]:
         """
         The timestamp at which the Spot Price value was published.
         """

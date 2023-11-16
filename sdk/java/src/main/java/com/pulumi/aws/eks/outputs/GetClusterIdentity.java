@@ -7,6 +7,7 @@ import com.pulumi.aws.eks.outputs.GetClusterIdentityOidc;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterIdentity {
@@ -14,7 +15,7 @@ public final class GetClusterIdentity {
      * @return Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
      * 
      */
-    private List<GetClusterIdentityOidc> oidcs;
+    private @Nullable List<GetClusterIdentityOidc> oidcs;
 
     private GetClusterIdentity() {}
     /**
@@ -22,7 +23,7 @@ public final class GetClusterIdentity {
      * 
      */
     public List<GetClusterIdentityOidc> oidcs() {
-        return this.oidcs;
+        return this.oidcs == null ? List.of() : this.oidcs;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetClusterIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetClusterIdentityOidc> oidcs;
+        private @Nullable List<GetClusterIdentityOidc> oidcs;
         public Builder() {}
         public Builder(GetClusterIdentity defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetClusterIdentity {
         }
 
         @CustomType.Setter
-        public Builder oidcs(List<GetClusterIdentityOidc> oidcs) {
-            this.oidcs = Objects.requireNonNull(oidcs);
+        public Builder oidcs(@Nullable List<GetClusterIdentityOidc> oidcs) {
+            this.oidcs = oidcs;
             return this;
         }
         public Builder oidcs(GetClusterIdentityOidc... oidcs) {

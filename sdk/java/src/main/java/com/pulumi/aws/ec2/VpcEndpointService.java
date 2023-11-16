@@ -120,56 +120,56 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allowedPrincipals", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> allowedPrincipals;
+    private Output</* @Nullable */ List<String>> allowedPrincipals;
 
     /**
      * @return The ARNs of one or more principals allowed to discover the endpoint service.
      * 
      */
-    public Output<List<String>> allowedPrincipals() {
-        return this.allowedPrincipals;
+    public Output<Optional<List<String>>> allowedPrincipals() {
+        return Codegen.optional(this.allowedPrincipals);
     }
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint service.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the VPC endpoint service.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A set of Availability Zones in which the service is available.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> availabilityZones;
+    private Output</* @Nullable */ List<String>> availabilityZones;
 
     /**
      * @return A set of Availability Zones in which the service is available.
      * 
      */
-    public Output<List<String>> availabilityZones() {
-        return this.availabilityZones;
+    public Output<Optional<List<String>>> availabilityZones() {
+        return Codegen.optional(this.availabilityZones);
     }
     /**
      * A set of DNS names for the service.
      * 
      */
     @Export(name="baseEndpointDnsNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> baseEndpointDnsNames;
+    private Output</* @Nullable */ List<String>> baseEndpointDnsNames;
 
     /**
      * @return A set of DNS names for the service.
      * 
      */
-    public Output<List<String>> baseEndpointDnsNames() {
-        return this.baseEndpointDnsNames;
+    public Output<Optional<List<String>>> baseEndpointDnsNames() {
+        return Codegen.optional(this.baseEndpointDnsNames);
     }
     /**
      * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
@@ -190,14 +190,14 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="managesVpcEndpoints", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> managesVpcEndpoints;
+    private Output</* @Nullable */ Boolean> managesVpcEndpoints;
 
     /**
      * @return Whether or not the service manages its VPC endpoints - `true` or `false`.
      * 
      */
-    public Output<Boolean> managesVpcEndpoints() {
-        return this.managesVpcEndpoints;
+    public Output<Optional<Boolean>> managesVpcEndpoints() {
+        return Codegen.optional(this.managesVpcEndpoints);
     }
     /**
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
@@ -218,84 +218,84 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateDnsName", refs={String.class}, tree="[0]")
-    private Output<String> privateDnsName;
+    private Output</* @Nullable */ String> privateDnsName;
 
     /**
      * @return The private DNS name for the service.
      * 
      */
-    public Output<String> privateDnsName() {
-        return this.privateDnsName;
+    public Output<Optional<String>> privateDnsName() {
+        return Codegen.optional(this.privateDnsName);
     }
     /**
      * List of objects containing information about the endpoint service private DNS name configuration.
      * 
      */
     @Export(name="privateDnsNameConfigurations", refs={List.class,VpcEndpointServicePrivateDnsNameConfiguration.class}, tree="[0,1]")
-    private Output<List<VpcEndpointServicePrivateDnsNameConfiguration>> privateDnsNameConfigurations;
+    private Output</* @Nullable */ List<VpcEndpointServicePrivateDnsNameConfiguration>> privateDnsNameConfigurations;
 
     /**
      * @return List of objects containing information about the endpoint service private DNS name configuration.
      * 
      */
-    public Output<List<VpcEndpointServicePrivateDnsNameConfiguration>> privateDnsNameConfigurations() {
-        return this.privateDnsNameConfigurations;
+    public Output<Optional<List<VpcEndpointServicePrivateDnsNameConfiguration>>> privateDnsNameConfigurations() {
+        return Codegen.optional(this.privateDnsNameConfigurations);
     }
     /**
      * The service name.
      * 
      */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
-    private Output<String> serviceName;
+    private Output</* @Nullable */ String> serviceName;
 
     /**
      * @return The service name.
      * 
      */
-    public Output<String> serviceName() {
-        return this.serviceName;
+    public Output<Optional<String>> serviceName() {
+        return Codegen.optional(this.serviceName);
     }
     /**
      * The service type, `Gateway` or `Interface`.
      * 
      */
     @Export(name="serviceType", refs={String.class}, tree="[0]")
-    private Output<String> serviceType;
+    private Output</* @Nullable */ String> serviceType;
 
     /**
      * @return The service type, `Gateway` or `Interface`.
      * 
      */
-    public Output<String> serviceType() {
-        return this.serviceType;
+    public Output<Optional<String>> serviceType() {
+        return Codegen.optional(this.serviceType);
     }
     /**
      * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * The supported IP address types. The possible values are `ipv4` and `ipv6`.
      * 
      */
     @Export(name="supportedIpAddressTypes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> supportedIpAddressTypes;
+    private Output</* @Nullable */ List<String>> supportedIpAddressTypes;
 
     /**
      * @return The supported IP address types. The possible values are `ipv4` and `ipv6`.
      * 
      */
-    public Output<List<String>> supportedIpAddressTypes() {
-        return this.supportedIpAddressTypes;
+    public Output<Optional<List<String>>> supportedIpAddressTypes() {
+        return Codegen.optional(this.supportedIpAddressTypes);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

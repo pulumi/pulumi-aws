@@ -59,7 +59,7 @@ export class WorkerConfiguration extends pulumi.CustomResource {
     /**
      * the Amazon Resource Name (ARN) of the worker configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A summary description of the worker configuration.
      */
@@ -67,7 +67,7 @@ export class WorkerConfiguration extends pulumi.CustomResource {
     /**
      * an ID of the latest successfully created revision of the worker configuration.
      */
-    public /*out*/ readonly latestRevision!: pulumi.Output<number>;
+    public /*out*/ readonly latestRevision!: pulumi.Output<number | undefined>;
     /**
      * The name of the worker configuration.
      */

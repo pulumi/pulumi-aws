@@ -60,23 +60,23 @@ type Component struct {
 	pulumi.CustomResourceState
 
 	// (Required) Amazon Resource Name (ARN) of the component.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Change description of the component.
 	ChangeDescription pulumi.StringPtrOutput `pulumi:"changeDescription"`
 	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-	Data pulumi.StringOutput `pulumi:"data"`
+	Data pulumi.StringPtrOutput `pulumi:"data"`
 	// Date the component was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
+	DateCreated pulumi.StringPtrOutput `pulumi:"dateCreated"`
 	// Description of the component.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Encryption status of the component.
-	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Name of the component.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the component.
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// Platform of the component.
 	Platform pulumi.StringOutput `pulumi:"platform"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
@@ -90,7 +90,7 @@ type Component struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of the component.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
 	//
 	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
@@ -377,8 +377,8 @@ func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) Compo
 }
 
 // (Required) Amazon Resource Name (ARN) of the component.
-func (o ComponentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ComponentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Change description of the component.
@@ -387,13 +387,13 @@ func (o ComponentOutput) ChangeDescription() pulumi.StringPtrOutput {
 }
 
 // Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-func (o ComponentOutput) Data() pulumi.StringOutput {
-	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
+func (o ComponentOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Data }).(pulumi.StringPtrOutput)
 }
 
 // Date the component was created.
-func (o ComponentOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
+func (o ComponentOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Description of the component.
@@ -402,8 +402,8 @@ func (o ComponentOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Encryption status of the component.
-func (o ComponentOutput) Encrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Component) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
+func (o ComponentOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
@@ -417,8 +417,8 @@ func (o ComponentOutput) Name() pulumi.StringOutput {
 }
 
 // Owner of the component.
-func (o ComponentOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o ComponentOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // Platform of the component.
@@ -449,8 +449,8 @@ func (o ComponentOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Type of the component.
-func (o ComponentOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o ComponentOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.

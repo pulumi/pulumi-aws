@@ -65,14 +65,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN assigned by AWS for this group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The group&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both &#34;ADMINS&#34; and &#34;admins&#34;.
@@ -107,14 +107,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
-    private Output<String> uniqueId;
+    private Output</* @Nullable */ String> uniqueId;
 
     /**
      * @return The [unique ID][1] assigned by AWS.
      * 
      */
-    public Output<String> uniqueId() {
-        return this.uniqueId;
+    public Output<Optional<String>> uniqueId() {
+        return Codegen.optional(this.uniqueId);
     }
 
     /**

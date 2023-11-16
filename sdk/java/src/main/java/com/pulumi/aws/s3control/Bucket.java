@@ -69,14 +69,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name of the bucket.
@@ -97,14 +97,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
-    private Output<String> creationDate;
+    private Output</* @Nullable */ String> creationDate;
 
     /**
      * @return UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public Output<String> creationDate() {
-        return this.creationDate;
+    public Output<Optional<String>> creationDate() {
+        return Codegen.optional(this.creationDate);
     }
     /**
      * Identifier of the Outpost to contain this bucket.
@@ -125,14 +125,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publicAccessBlockEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> publicAccessBlockEnabled;
+    private Output</* @Nullable */ Boolean> publicAccessBlockEnabled;
 
     /**
      * @return Boolean whether Public Access Block is enabled.
      * 
      */
-    public Output<Boolean> publicAccessBlockEnabled() {
-        return this.publicAccessBlockEnabled;
+    public Output<Optional<Boolean>> publicAccessBlockEnabled() {
+        return Codegen.optional(this.publicAccessBlockEnabled);
     }
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

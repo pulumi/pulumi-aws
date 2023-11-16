@@ -13,41 +13,41 @@ namespace Pulumi.Aws.Alb.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionAuthenticateOidcResult
     {
-        public readonly ImmutableDictionary<string, string> AuthenticationRequestExtraParams;
-        public readonly string AuthorizationEndpoint;
-        public readonly string ClientId;
-        public readonly string ClientSecret;
-        public readonly string Issuer;
-        public readonly string OnUnauthenticatedRequest;
-        public readonly string Scope;
-        public readonly string SessionCookieName;
-        public readonly int SessionTimeout;
-        public readonly string TokenEndpoint;
-        public readonly string UserInfoEndpoint;
+        public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
+        public readonly string? AuthorizationEndpoint;
+        public readonly string? ClientId;
+        public readonly string? ClientSecret;
+        public readonly string? Issuer;
+        public readonly string? OnUnauthenticatedRequest;
+        public readonly string? Scope;
+        public readonly string? SessionCookieName;
+        public readonly int? SessionTimeout;
+        public readonly string? TokenEndpoint;
+        public readonly string? UserInfoEndpoint;
 
         [OutputConstructor]
         private GetListenerDefaultActionAuthenticateOidcResult(
-            ImmutableDictionary<string, string> authenticationRequestExtraParams,
+            ImmutableDictionary<string, string>? authenticationRequestExtraParams,
 
-            string authorizationEndpoint,
+            string? authorizationEndpoint,
 
-            string clientId,
+            string? clientId,
 
-            string clientSecret,
+            string? clientSecret,
 
-            string issuer,
+            string? issuer,
 
-            string onUnauthenticatedRequest,
+            string? onUnauthenticatedRequest,
 
-            string scope,
+            string? scope,
 
-            string sessionCookieName,
+            string? sessionCookieName,
 
-            int sessionTimeout,
+            int? sessionTimeout,
 
-            string tokenEndpoint,
+            string? tokenEndpoint,
 
-            string userInfoEndpoint)
+            string? userInfoEndpoint)
         {
             AuthenticationRequestExtraParams = authenticationRequestExtraParams;
             AuthorizationEndpoint = authorizationEndpoint;

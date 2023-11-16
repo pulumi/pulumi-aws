@@ -70,7 +70,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies configuration for how an endpoint performs asynchronous inference.
      */
@@ -90,7 +90,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
     /**
      * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      */

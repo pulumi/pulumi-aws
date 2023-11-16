@@ -81,44 +81,44 @@ export interface GetZoneResult {
     /**
      * ARN of the Hosted Zone.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Caller Reference of the Hosted Zone.
      */
-    readonly callerReference: string;
+    readonly callerReference?: string;
     /**
      * Comment field of the Hosted Zone.
      */
-    readonly comment: string;
+    readonly comment?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
      */
-    readonly linkedServiceDescription: string;
+    readonly linkedServiceDescription?: string;
     /**
      * The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
      */
-    readonly linkedServicePrincipal: string;
-    readonly name: string;
+    readonly linkedServicePrincipal?: string;
+    readonly name?: string;
     /**
      * List of DNS name servers for the Hosted Zone.
      */
-    readonly nameServers: string[];
+    readonly nameServers?: string[];
     /**
      * The Route 53 name server that created the SOA record.
      */
-    readonly primaryNameServer: string;
+    readonly primaryNameServer?: string;
     readonly privateZone?: boolean;
     /**
      * The number of Record Set in the Hosted Zone.
      */
-    readonly resourceRecordSetCount: number;
-    readonly tags: {[key: string]: string};
-    readonly vpcId: string;
-    readonly zoneId: string;
+    readonly resourceRecordSetCount?: number;
+    readonly tags?: {[key: string]: string};
+    readonly vpcId?: string;
+    readonly zoneId?: string;
 }
 /**
  * `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.

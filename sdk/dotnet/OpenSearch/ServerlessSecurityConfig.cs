@@ -29,7 +29,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Version of the configuration.
         /// </summary>
         [Output("configVersion")]
-        public Output<string> ConfigVersion { get; private set; } = null!;
+        public Output<string?> ConfigVersion { get; private set; } = null!;
 
         /// <summary>
         /// Description of the security configuration.

@@ -57,43 +57,43 @@ namespace Pulumi.Aws.LicenseManager
         /// The home region for the license.
         /// </summary>
         [Output("homeRegion")]
-        public Output<string> HomeRegion { get; private set; } = null!;
+        public Output<string?> HomeRegion { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the license for the grant.
         /// </summary>
         [Output("licenseArn")]
-        public Output<string> LicenseArn { get; private set; } = null!;
+        public Output<string?> LicenseArn { get; private set; } = null!;
 
         /// <summary>
         /// The Name of the grant.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The parent ARN.
         /// </summary>
         [Output("parentArn")]
-        public Output<string> ParentArn { get; private set; } = null!;
+        public Output<string?> ParentArn { get; private set; } = null!;
 
         /// <summary>
         /// The target account for the grant.
         /// </summary>
         [Output("principal")]
-        public Output<string> Principal { get; private set; } = null!;
+        public Output<string?> Principal { get; private set; } = null!;
 
         /// <summary>
         /// The grant status.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The grant version.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

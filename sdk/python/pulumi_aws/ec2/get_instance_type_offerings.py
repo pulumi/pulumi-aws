@@ -50,7 +50,7 @@ class GetInstanceTypeOfferingsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -58,7 +58,7 @@ class GetInstanceTypeOfferingsResult:
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Sequence[str]:
+    def instance_types(self) -> Optional[Sequence[str]]:
         """
         List of EC2 Instance Types.
         """
@@ -71,7 +71,7 @@ class GetInstanceTypeOfferingsResult:
 
     @property
     @pulumi.getter(name="locationTypes")
-    def location_types(self) -> Sequence[str]:
+    def location_types(self) -> Optional[Sequence[str]]:
         """
         List of location types.
         """
@@ -79,7 +79,7 @@ class GetInstanceTypeOfferingsResult:
 
     @property
     @pulumi.getter
-    def locations(self) -> Sequence[str]:
+    def locations(self) -> Optional[Sequence[str]]:
         """
         List of locations.
         """

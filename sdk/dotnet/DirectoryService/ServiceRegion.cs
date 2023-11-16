@@ -28,7 +28,7 @@ namespace Pulumi.Aws.DirectoryService
         /// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         /// </summary>
         [Output("desiredNumberOfDomainControllers")]
-        public Output<int> DesiredNumberOfDomainControllers { get; private set; } = null!;
+        public Output<int?> DesiredNumberOfDomainControllers { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the directory to which you want to add Region replication.

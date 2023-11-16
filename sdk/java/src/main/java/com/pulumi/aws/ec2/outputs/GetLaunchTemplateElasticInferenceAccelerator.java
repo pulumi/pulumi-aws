@@ -6,14 +6,16 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateElasticInferenceAccelerator {
-    private String type;
+    private @Nullable String type;
 
     private GetLaunchTemplateElasticInferenceAccelerator() {}
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetLaunchTemplateElasticInferenceAccelerator {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String type;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetLaunchTemplateElasticInferenceAccelerator defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetLaunchTemplateElasticInferenceAccelerator {
         }
 
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetLaunchTemplateElasticInferenceAccelerator build() {

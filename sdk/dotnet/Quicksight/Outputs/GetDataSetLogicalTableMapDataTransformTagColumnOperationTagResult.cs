@@ -14,13 +14,13 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult
     {
         public readonly ImmutableArray<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult> ColumnDescriptions;
-        public readonly string ColumnGeographicRole;
+        public readonly string? ColumnGeographicRole;
 
         [OutputConstructor]
         private GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult(
             ImmutableArray<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult> columnDescriptions,
 
-            string columnGeographicRole)
+            string? columnGeographicRole)
         {
             ColumnDescriptions = columnDescriptions;
             ColumnGeographicRole = columnGeographicRole;

@@ -51,44 +51,44 @@ export interface GetSigningProfileResult {
     /**
      * ARN for the signing profile.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * A human-readable name for the signing platform associated with the signing profile.
      */
-    readonly platformDisplayName: string;
+    readonly platformDisplayName?: string;
     /**
      * ID of the platform that is used by the target signing profile.
      */
-    readonly platformId: string;
+    readonly platformId?: string;
     /**
      * Revocation information for a signing profile.
      */
-    readonly revocationRecords: outputs.signer.GetSigningProfileRevocationRecord[];
+    readonly revocationRecords?: outputs.signer.GetSigningProfileRevocationRecord[];
     /**
      * The validity period for a signing job.
      */
-    readonly signatureValidityPeriods: outputs.signer.GetSigningProfileSignatureValidityPeriod[];
+    readonly signatureValidityPeriods?: outputs.signer.GetSigningProfileSignatureValidityPeriod[];
     /**
      * Status of the target signing profile.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * List of tags associated with the signing profile.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Current version of the signing profile.
      */
-    readonly version: string;
+    readonly version?: string;
     /**
      * Signing profile ARN, including the profile version.
      */
-    readonly versionArn: string;
+    readonly versionArn?: string;
 }
 /**
  * Provides information about a Signer Signing Profile.

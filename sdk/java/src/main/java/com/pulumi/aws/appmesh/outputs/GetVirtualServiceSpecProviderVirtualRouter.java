@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualServiceSpecProviderVirtualRouter {
-    private String virtualRouterName;
+    private @Nullable String virtualRouterName;
 
     private GetVirtualServiceSpecProviderVirtualRouter() {}
-    public String virtualRouterName() {
-        return this.virtualRouterName;
+    public Optional<String> virtualRouterName() {
+        return Optional.ofNullable(this.virtualRouterName);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetVirtualServiceSpecProviderVirtualRouter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String virtualRouterName;
+        private @Nullable String virtualRouterName;
         public Builder() {}
         public Builder(GetVirtualServiceSpecProviderVirtualRouter defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetVirtualServiceSpecProviderVirtualRouter {
         }
 
         @CustomType.Setter
-        public Builder virtualRouterName(String virtualRouterName) {
-            this.virtualRouterName = Objects.requireNonNull(virtualRouterName);
+        public Builder virtualRouterName(@Nullable String virtualRouterName) {
+            this.virtualRouterName = virtualRouterName;
             return this;
         }
         public GetVirtualServiceSpecProviderVirtualRouter build() {

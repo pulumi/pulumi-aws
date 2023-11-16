@@ -108,7 +108,7 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? LogGroupNamePrefix;
         /// <summary>
         /// Set of names of the Cloudwatch log groups
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.CloudWatch
         private GetLogGroupsResult(
             ImmutableArray<string> arns,
 
-            string id,
+            string? id,
 
             string? logGroupNamePrefix,
 

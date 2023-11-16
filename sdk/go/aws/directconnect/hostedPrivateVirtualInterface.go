@@ -59,22 +59,22 @@ type HostedPrivateVirtualInterface struct {
 	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
-	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
+	AmazonAddress pulumi.StringPtrOutput `pulumi:"amazonAddress"`
+	AmazonSideAsn pulumi.StringPtrOutput `pulumi:"amazonSideAsn"`
 	// The ARN of the virtual interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
+	AwsDevice pulumi.StringPtrOutput `pulumi:"awsDevice"`
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
 	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
+	BgpAuthKey pulumi.StringPtrOutput `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
+	CustomerAddress pulumi.StringPtrOutput `pulumi:"customerAddress"`
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable pulumi.BoolOutput `pulumi:"jumboFrameCapable"`
+	JumboFrameCapable pulumi.BoolPtrOutput `pulumi:"jumboFrameCapable"`
 	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// The name for the virtual interface.
@@ -333,22 +333,22 @@ func (o HostedPrivateVirtualInterfaceOutput) AddressFamily() pulumi.StringOutput
 }
 
 // The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-func (o HostedPrivateVirtualInterfaceOutput) AmazonAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringOutput { return v.AmazonAddress }).(pulumi.StringOutput)
+func (o HostedPrivateVirtualInterfaceOutput) AmazonAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringPtrOutput { return v.AmazonAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o HostedPrivateVirtualInterfaceOutput) AmazonSideAsn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
+func (o HostedPrivateVirtualInterfaceOutput) AmazonSideAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringPtrOutput { return v.AmazonSideAsn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the virtual interface.
-func (o HostedPrivateVirtualInterfaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HostedPrivateVirtualInterfaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Direct Connect endpoint on which the virtual interface terminates.
-func (o HostedPrivateVirtualInterfaceOutput) AwsDevice() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
+func (o HostedPrivateVirtualInterfaceOutput) AwsDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringPtrOutput { return v.AwsDevice }).(pulumi.StringPtrOutput)
 }
 
 // The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -357,8 +357,8 @@ func (o HostedPrivateVirtualInterfaceOutput) BgpAsn() pulumi.IntOutput {
 }
 
 // The authentication key for BGP configuration.
-func (o HostedPrivateVirtualInterfaceOutput) BgpAuthKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringOutput { return v.BgpAuthKey }).(pulumi.StringOutput)
+func (o HostedPrivateVirtualInterfaceOutput) BgpAuthKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringPtrOutput { return v.BgpAuthKey }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -367,13 +367,13 @@ func (o HostedPrivateVirtualInterfaceOutput) ConnectionId() pulumi.StringOutput 
 }
 
 // The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-func (o HostedPrivateVirtualInterfaceOutput) CustomerAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringOutput { return v.CustomerAddress }).(pulumi.StringOutput)
+func (o HostedPrivateVirtualInterfaceOutput) CustomerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringPtrOutput { return v.CustomerAddress }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether jumbo frames (9001 MTU) are supported.
-func (o HostedPrivateVirtualInterfaceOutput) JumboFrameCapable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.BoolOutput { return v.JumboFrameCapable }).(pulumi.BoolOutput)
+func (o HostedPrivateVirtualInterfaceOutput) JumboFrameCapable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.BoolPtrOutput { return v.JumboFrameCapable }).(pulumi.BoolPtrOutput)
 }
 
 // The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.

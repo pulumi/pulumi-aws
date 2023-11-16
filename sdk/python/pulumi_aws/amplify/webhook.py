@@ -313,7 +313,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the webhook.
         """
@@ -337,7 +337,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         URL of the webhook.
         """

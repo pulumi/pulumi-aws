@@ -79,42 +79,42 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the backup report plan.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
     /**
      * @return The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
     @Export(name="deploymentStatus", refs={String.class}, tree="[0]")
-    private Output<String> deploymentStatus;
+    private Output</* @Nullable */ String> deploymentStatus;
 
     /**
      * @return The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
-    public Output<String> deploymentStatus() {
-        return this.deploymentStatus;
+    public Output<Optional<String>> deploymentStatus() {
+        return Codegen.optional(this.deploymentStatus);
     }
     /**
      * The description of the report plan with a maximum of 1,024 characters

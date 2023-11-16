@@ -59,21 +59,21 @@ type LookupFrameworkArgs struct {
 // A collection of values returned by getFramework.
 type LookupFrameworkResult struct {
 	// ARN of the backup framework.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
 	Controls []GetFrameworkControl `pulumi:"controls"`
 	// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-	CreationTime string `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
 	// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
-	DeploymentStatus string `pulumi:"deploymentStatus"`
+	DeploymentStatus *string `pulumi:"deploymentStatus"`
 	// Description of the framework.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of a parameter, for example, BackupPlanFrequency.
 	Name string `pulumi:"name"`
 	// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -119,8 +119,8 @@ func (o LookupFrameworkResultOutput) ToLookupFrameworkResultOutputWithContext(ct
 }
 
 // ARN of the backup framework.
-func (o LookupFrameworkResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
@@ -129,23 +129,23 @@ func (o LookupFrameworkResultOutput) Controls() GetFrameworkControlArrayOutput {
 }
 
 // Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-func (o LookupFrameworkResultOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
-func (o LookupFrameworkResultOutput) DeploymentStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.DeploymentStatus }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) DeploymentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.DeploymentStatus }).(pulumi.StringPtrOutput)
 }
 
 // Description of the framework.
-func (o LookupFrameworkResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupFrameworkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of a parameter, for example, BackupPlanFrequency.
@@ -154,8 +154,8 @@ func (o LookupFrameworkResultOutput) Name() pulumi.StringOutput {
 }
 
 // Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-func (o LookupFrameworkResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.

@@ -98,7 +98,7 @@ type OntapStorageVirtualMachine struct {
 	// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
 	ActiveDirectoryConfiguration OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput `pulumi:"activeDirectoryConfiguration"`
 	// Amazon Resource Name of the storage virtual machine.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
 	Endpoints OntapStorageVirtualMachineEndpointArrayOutput `pulumi:"endpoints"`
 	// The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
@@ -108,7 +108,7 @@ type OntapStorageVirtualMachine struct {
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrOutput `pulumi:"rootVolumeSecurityStyle"`
 	// Describes the SVM's subtype, e.g. `DEFAULT`
-	Subtype          pulumi.StringOutput    `pulumi:"subtype"`
+	Subtype          pulumi.StringPtrOutput `pulumi:"subtype"`
 	SvmAdminPassword pulumi.StringPtrOutput `pulumi:"svmAdminPassword"`
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -117,7 +117,7 @@ type OntapStorageVirtualMachine struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The SVM's UUID (universally unique identifier).
-	Uuid pulumi.StringOutput `pulumi:"uuid"`
+	Uuid pulumi.StringPtrOutput `pulumi:"uuid"`
 }
 
 // NewOntapStorageVirtualMachine registers a new resource with the given unique name, arguments, and options.
@@ -340,8 +340,8 @@ func (o OntapStorageVirtualMachineOutput) ActiveDirectoryConfiguration() OntapSt
 }
 
 // Amazon Resource Name of the storage virtual machine.
-func (o OntapStorageVirtualMachineOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OntapStorageVirtualMachineOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
@@ -365,8 +365,8 @@ func (o OntapStorageVirtualMachineOutput) RootVolumeSecurityStyle() pulumi.Strin
 }
 
 // Describes the SVM's subtype, e.g. `DEFAULT`
-func (o OntapStorageVirtualMachineOutput) Subtype() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Subtype }).(pulumi.StringOutput)
+func (o OntapStorageVirtualMachineOutput) Subtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringPtrOutput { return v.Subtype }).(pulumi.StringPtrOutput)
 }
 
 func (o OntapStorageVirtualMachineOutput) SvmAdminPassword() pulumi.StringPtrOutput {
@@ -386,8 +386,8 @@ func (o OntapStorageVirtualMachineOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The SVM's UUID (universally unique identifier).
-func (o OntapStorageVirtualMachineOutput) Uuid() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+func (o OntapStorageVirtualMachineOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringPtrOutput { return v.Uuid }).(pulumi.StringPtrOutput)
 }
 
 type OntapStorageVirtualMachineArrayOutput struct{ *pulumi.OutputState }

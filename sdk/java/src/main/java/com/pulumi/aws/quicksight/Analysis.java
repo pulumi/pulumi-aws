@@ -126,62 +126,62 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the resource.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * AWS account ID.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * The time that the analysis was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return The time that the analysis was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     @Export(name="lastPublishedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastPublishedTime;
+    private Output</* @Nullable */ String> lastPublishedTime;
 
-    public Output<String> lastPublishedTime() {
-        return this.lastPublishedTime;
+    public Output<Optional<String>> lastPublishedTime() {
+        return Codegen.optional(this.lastPublishedTime);
     }
     /**
      * The time that the analysis was last updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
+    private Output</* @Nullable */ String> lastUpdatedTime;
 
     /**
      * @return The time that the analysis was last updated.
      * 
      */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Output<Optional<String>> lastUpdatedTime() {
+        return Codegen.optional(this.lastUpdatedTime);
     }
     /**
      * Display name for the analysis.
@@ -206,14 +206,14 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parameters", refs={AnalysisParameters.class}, tree="[0]")
-    private Output<AnalysisParameters> parameters;
+    private Output</* @Nullable */ AnalysisParameters> parameters;
 
     /**
      * @return The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
-    public Output<AnalysisParameters> parameters() {
-        return this.parameters;
+    public Output<Optional<AnalysisParameters>> parameters() {
+        return Codegen.optional(this.parameters);
     }
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
@@ -262,14 +262,14 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The analysis creation status.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

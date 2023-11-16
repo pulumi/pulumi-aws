@@ -591,7 +591,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayDefaultRouteTableAssociation")
-    def transit_gateway_default_route_table_association(self) -> pulumi.Output[bool]:
+    def transit_gateway_default_route_table_association(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         """
@@ -599,7 +599,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayDefaultRouteTablePropagation")
-    def transit_gateway_default_route_table_propagation(self) -> pulumi.Output[bool]:
+    def transit_gateway_default_route_table_propagation(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         """
@@ -623,7 +623,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcOwnerId")
-    def vpc_owner_id(self) -> pulumi.Output[str]:
+    def vpc_owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the AWS account that owns the EC2 VPC.
         """

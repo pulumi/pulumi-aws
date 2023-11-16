@@ -139,28 +139,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the ELB
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The AZ&#39;s to serve traffic in.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> availabilityZones;
+    private Output</* @Nullable */ List<String>> availabilityZones;
 
     /**
      * @return The AZ&#39;s to serve traffic in.
      * 
      */
-    public Output<List<String>> availabilityZones() {
-        return this.availabilityZones;
+    public Output<Optional<List<String>>> availabilityZones() {
+        return Codegen.optional(this.availabilityZones);
     }
     /**
      * Boolean to enable connection draining. Default: `false`
@@ -223,28 +223,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name of the ELB
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * A health_check block. Health Check documented below.
      * 
      */
     @Export(name="healthCheck", refs={LoadBalancerHealthCheck.class}, tree="[0]")
-    private Output<LoadBalancerHealthCheck> healthCheck;
+    private Output</* @Nullable */ LoadBalancerHealthCheck> healthCheck;
 
     /**
      * @return A health_check block. Health Check documented below.
      * 
      */
-    public Output<LoadBalancerHealthCheck> healthCheck() {
-        return this.healthCheck;
+    public Output<Optional<LoadBalancerHealthCheck>> healthCheck() {
+        return Codegen.optional(this.healthCheck);
     }
     /**
      * The time in seconds that the connection is allowed to be idle. Default: `60`
@@ -265,28 +265,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="instances", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> instances;
+    private Output</* @Nullable */ List<String>> instances;
 
     /**
      * @return A list of instance ids to place in the ELB pool.
      * 
      */
-    public Output<List<String>> instances() {
-        return this.instances;
+    public Output<Optional<List<String>>> instances() {
+        return Codegen.optional(this.instances);
     }
     /**
      * If true, ELB will be an internal ELB.
      * 
      */
     @Export(name="internal", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> internal;
+    private Output</* @Nullable */ Boolean> internal;
 
     /**
      * @return If true, ELB will be an internal ELB.
      * 
      */
-    public Output<Boolean> internal() {
-        return this.internal;
+    public Output<Optional<Boolean>> internal() {
+        return Codegen.optional(this.internal);
     }
     /**
      * A list of listener blocks. Listeners documented below.
@@ -322,15 +322,15 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * A list of security group IDs to assign to the ELB.
@@ -338,15 +338,15 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroups;
+    private Output</* @Nullable */ List<String>> securityGroups;
 
     /**
      * @return A list of security group IDs to assign to the ELB.
      * Only valid if creating an ELB within a VPC
      * 
      */
-    public Output<List<String>> securityGroups() {
-        return this.securityGroups;
+    public Output<Optional<List<String>>> securityGroups() {
+        return Codegen.optional(this.securityGroups);
     }
     /**
      * The name of the security group that you can use as
@@ -355,7 +355,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceSecurityGroup", refs={String.class}, tree="[0]")
-    private Output<String> sourceSecurityGroup;
+    private Output</* @Nullable */ String> sourceSecurityGroup;
 
     /**
      * @return The name of the security group that you can use as
@@ -363,8 +363,8 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * instances. Use this for Classic or Default VPC only.
      * 
      */
-    public Output<String> sourceSecurityGroup() {
-        return this.sourceSecurityGroup;
+    public Output<Optional<String>> sourceSecurityGroup() {
+        return Codegen.optional(this.sourceSecurityGroup);
     }
     /**
      * The ID of the security group that you can use as
@@ -373,7 +373,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceSecurityGroupId", refs={String.class}, tree="[0]")
-    private Output<String> sourceSecurityGroupId;
+    private Output</* @Nullable */ String> sourceSecurityGroupId;
 
     /**
      * @return The ID of the security group that you can use as
@@ -381,22 +381,22 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * instances. Only available on ELBs launched in a VPC.
      * 
      */
-    public Output<String> sourceSecurityGroupId() {
-        return this.sourceSecurityGroupId;
+    public Output<Optional<String>> sourceSecurityGroupId() {
+        return Codegen.optional(this.sourceSecurityGroupId);
     }
     /**
      * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
     @Export(name="subnets", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subnets;
+    private Output</* @Nullable */ List<String>> subnets;
 
     /**
      * @return A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
-    public Output<List<String>> subnets() {
-        return this.subnets;
+    public Output<Optional<List<String>>> subnets() {
+        return Codegen.optional(this.subnets);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -441,14 +441,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
-    private Output<String> zoneId;
+    private Output</* @Nullable */ String> zoneId;
 
     /**
      * @return The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      * 
      */
-    public Output<String> zoneId() {
-        return this.zoneId;
+    public Output<Optional<String>> zoneId() {
+        return Codegen.optional(this.zoneId);
     }
 
     /**

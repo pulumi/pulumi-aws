@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// `ipv4` or `ipv6`.
         /// </summary>
-        public readonly string IpFamily;
+        public readonly string? IpFamily;
         /// <summary>
         /// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
         /// </summary>
-        public readonly string ServiceIpv4Cidr;
+        public readonly string? ServiceIpv4Cidr;
         /// <summary>
         /// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         /// </summary>
-        public readonly string ServiceIpv6Cidr;
+        public readonly string? ServiceIpv6Cidr;
 
         [OutputConstructor]
         private GetClusterKubernetesNetworkConfigResult(
-            string ipFamily,
+            string? ipFamily,
 
-            string serviceIpv4Cidr,
+            string? serviceIpv4Cidr,
 
-            string serviceIpv6Cidr)
+            string? serviceIpv6Cidr)
         {
             IpFamily = ipFamily;
             ServiceIpv4Cidr = serviceIpv4Cidr;

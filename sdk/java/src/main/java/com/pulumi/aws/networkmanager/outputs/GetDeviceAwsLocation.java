@@ -6,6 +6,8 @@ package com.pulumi.aws.networkmanager.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDeviceAwsLocation {
@@ -13,27 +15,27 @@ public final class GetDeviceAwsLocation {
      * @return ARN of the subnet that the device is located in.
      * 
      */
-    private String subnetArn;
+    private @Nullable String subnetArn;
     /**
      * @return Zone that the device is located in.
      * 
      */
-    private String zone;
+    private @Nullable String zone;
 
     private GetDeviceAwsLocation() {}
     /**
      * @return ARN of the subnet that the device is located in.
      * 
      */
-    public String subnetArn() {
-        return this.subnetArn;
+    public Optional<String> subnetArn() {
+        return Optional.ofNullable(this.subnetArn);
     }
     /**
      * @return Zone that the device is located in.
      * 
      */
-    public String zone() {
-        return this.zone;
+    public Optional<String> zone() {
+        return Optional.ofNullable(this.zone);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetDeviceAwsLocation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String subnetArn;
-        private String zone;
+        private @Nullable String subnetArn;
+        private @Nullable String zone;
         public Builder() {}
         public Builder(GetDeviceAwsLocation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetDeviceAwsLocation {
         }
 
         @CustomType.Setter
-        public Builder subnetArn(String subnetArn) {
-            this.subnetArn = Objects.requireNonNull(subnetArn);
+        public Builder subnetArn(@Nullable String subnetArn) {
+            this.subnetArn = subnetArn;
             return this;
         }
         @CustomType.Setter
-        public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+        public Builder zone(@Nullable String zone) {
+            this.zone = zone;
             return this;
         }
         public GetDeviceAwsLocation build() {

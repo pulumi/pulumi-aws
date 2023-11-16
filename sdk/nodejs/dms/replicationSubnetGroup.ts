@@ -105,7 +105,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationSubnetGroup.__pulumiType;
     }
 
-    public /*out*/ readonly replicationSubnetGroupArn!: pulumi.Output<string>;
+    public /*out*/ readonly replicationSubnetGroupArn!: pulumi.Output<string | undefined>;
     /**
      * Description for the subnet group.
      */
@@ -131,7 +131,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
     /**
      * The ID of the VPC the subnet group is in.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ReplicationSubnetGroup resource with the given unique name, arguments, and options.

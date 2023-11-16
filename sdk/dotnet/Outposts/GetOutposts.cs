@@ -141,34 +141,34 @@ namespace Pulumi.Aws.Outposts
         /// Set of Amazon Resource Names (ARNs).
         /// </summary>
         public readonly ImmutableArray<string> Arns;
-        public readonly string AvailabilityZone;
-        public readonly string AvailabilityZoneId;
+        public readonly string? AvailabilityZone;
+        public readonly string? AvailabilityZoneId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of identifiers.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
-        public readonly string OwnerId;
-        public readonly string SiteId;
+        public readonly string? OwnerId;
+        public readonly string? SiteId;
 
         [OutputConstructor]
         private GetOutpostsResult(
             ImmutableArray<string> arns,
 
-            string availabilityZone,
+            string? availabilityZone,
 
-            string availabilityZoneId,
+            string? availabilityZoneId,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 
-            string ownerId,
+            string? ownerId,
 
-            string siteId)
+            string? siteId)
         {
             Arns = arns;
             AvailabilityZone = availabilityZone;

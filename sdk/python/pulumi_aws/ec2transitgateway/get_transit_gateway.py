@@ -75,7 +75,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> int:
+    def amazon_side_asn(self) -> Optional[int]:
         """
         Private Autonomous System Number (ASN) for the Amazon side of a BGP session
         """
@@ -83,7 +83,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         EC2 Transit Gateway ARN
         """
@@ -91,7 +91,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="associationDefaultRouteTableId")
-    def association_default_route_table_id(self) -> str:
+    def association_default_route_table_id(self) -> Optional[str]:
         """
         Identifier of the default association route table
         """
@@ -99,7 +99,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="autoAcceptSharedAttachments")
-    def auto_accept_shared_attachments(self) -> str:
+    def auto_accept_shared_attachments(self) -> Optional[str]:
         """
         Whether resource attachment requests are automatically accepted
         """
@@ -107,7 +107,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="defaultRouteTableAssociation")
-    def default_route_table_association(self) -> str:
+    def default_route_table_association(self) -> Optional[str]:
         """
         Whether resource attachments are automatically associated with the default association route table
         """
@@ -115,7 +115,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="defaultRouteTablePropagation")
-    def default_route_table_propagation(self) -> str:
+    def default_route_table_propagation(self) -> Optional[str]:
         """
         Whether resource attachments automatically propagate routes to the default propagation route table
         """
@@ -123,7 +123,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the EC2 Transit Gateway
         """
@@ -131,7 +131,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="dnsSupport")
-    def dns_support(self) -> str:
+    def dns_support(self) -> Optional[str]:
         """
         Whether DNS support is enabled
         """
@@ -144,7 +144,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         EC2 Transit Gateway identifier
         """
@@ -152,7 +152,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="multicastSupport")
-    def multicast_support(self) -> str:
+    def multicast_support(self) -> Optional[str]:
         """
         Whether Multicast support is enabled
         """
@@ -160,7 +160,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         Identifier of the AWS account that owns the EC2 Transit Gateway
         """
@@ -168,7 +168,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="propagationDefaultRouteTableId")
-    def propagation_default_route_table_id(self) -> str:
+    def propagation_default_route_table_id(self) -> Optional[str]:
         """
         Identifier of the default propagation route table
         """
@@ -176,7 +176,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the EC2 Transit Gateway
         """
@@ -184,7 +184,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="transitGatewayCidrBlocks")
-    def transit_gateway_cidr_blocks(self) -> Sequence[str]:
+    def transit_gateway_cidr_blocks(self) -> Optional[Sequence[str]]:
         """
         The list of associated CIDR blocks
         """
@@ -192,7 +192,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")
-    def vpn_ecmp_support(self) -> str:
+    def vpn_ecmp_support(self) -> Optional[str]:
         """
         Whether VPN Equal Cost Multipath Protocol support is enabled
         """

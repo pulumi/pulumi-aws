@@ -20,19 +20,19 @@ namespace Pulumi.Aws.RedshiftServerless.Outputs
         /// <summary>
         /// The DNS address of the VPC endpoint.
         /// </summary>
-        public readonly string VpcEndpointId;
+        public readonly string? VpcEndpointId;
         /// <summary>
         /// The port that Amazon Redshift Serverless listens on.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetWorkgroupEndpointVpcEndpointResult(
             ImmutableArray<Outputs.GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult> networkInterfaces,
 
-            string vpcEndpointId,
+            string? vpcEndpointId,
 
-            string vpcId)
+            string? vpcId)
         {
             NetworkInterfaces = networkInterfaces;
             VpcEndpointId = vpcEndpointId;

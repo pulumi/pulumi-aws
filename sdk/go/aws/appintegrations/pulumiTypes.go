@@ -190,7 +190,7 @@ func (o DataIntegrationScheduleConfigPtrOutput) ScheduleExpression() pulumi.Stri
 
 type GetEventIntegrationEventFilter struct {
 	// The source of the events.
-	Source string `pulumi:"source"`
+	Source *string `pulumi:"source"`
 }
 
 // GetEventIntegrationEventFilterInput is an input type that accepts GetEventIntegrationEventFilterArgs and GetEventIntegrationEventFilterOutput values.
@@ -206,7 +206,7 @@ type GetEventIntegrationEventFilterInput interface {
 
 type GetEventIntegrationEventFilterArgs struct {
 	// The source of the events.
-	Source pulumi.StringInput `pulumi:"source"`
+	Source pulumi.StringPtrInput `pulumi:"source"`
 }
 
 func (GetEventIntegrationEventFilterArgs) ElementType() reflect.Type {
@@ -261,8 +261,8 @@ func (o GetEventIntegrationEventFilterOutput) ToGetEventIntegrationEventFilterOu
 }
 
 // The source of the events.
-func (o GetEventIntegrationEventFilterOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEventIntegrationEventFilter) string { return v.Source }).(pulumi.StringOutput)
+func (o GetEventIntegrationEventFilterOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEventIntegrationEventFilter) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
 type GetEventIntegrationEventFilterArrayOutput struct{ *pulumi.OutputState }

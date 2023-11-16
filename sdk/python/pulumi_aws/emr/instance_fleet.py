@@ -523,7 +523,7 @@ class InstanceFleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedOnDemandCapacity")
-    def provisioned_on_demand_capacity(self) -> pulumi.Output[int]:
+    def provisioned_on_demand_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         The number of On-Demand units that have been provisioned for the instance
         fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
@@ -532,7 +532,7 @@ class InstanceFleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedSpotCapacity")
-    def provisioned_spot_capacity(self) -> pulumi.Output[int]:
+    def provisioned_spot_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         The number of Spot units that have been provisioned for this instance fleet
         to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.

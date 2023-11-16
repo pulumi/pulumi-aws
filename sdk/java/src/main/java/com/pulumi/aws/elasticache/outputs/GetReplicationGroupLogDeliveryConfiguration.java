@@ -6,26 +6,28 @@ package com.pulumi.aws.elasticache.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReplicationGroupLogDeliveryConfiguration {
-    private String destination;
-    private String destinationType;
-    private String logFormat;
-    private String logType;
+    private @Nullable String destination;
+    private @Nullable String destinationType;
+    private @Nullable String logFormat;
+    private @Nullable String logType;
 
     private GetReplicationGroupLogDeliveryConfiguration() {}
-    public String destination() {
-        return this.destination;
+    public Optional<String> destination() {
+        return Optional.ofNullable(this.destination);
     }
-    public String destinationType() {
-        return this.destinationType;
+    public Optional<String> destinationType() {
+        return Optional.ofNullable(this.destinationType);
     }
-    public String logFormat() {
-        return this.logFormat;
+    public Optional<String> logFormat() {
+        return Optional.ofNullable(this.logFormat);
     }
-    public String logType() {
-        return this.logType;
+    public Optional<String> logType() {
+        return Optional.ofNullable(this.logType);
     }
 
     public static Builder builder() {
@@ -37,10 +39,10 @@ public final class GetReplicationGroupLogDeliveryConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String destination;
-        private String destinationType;
-        private String logFormat;
-        private String logType;
+        private @Nullable String destination;
+        private @Nullable String destinationType;
+        private @Nullable String logFormat;
+        private @Nullable String logType;
         public Builder() {}
         public Builder(GetReplicationGroupLogDeliveryConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -51,23 +53,23 @@ public final class GetReplicationGroupLogDeliveryConfiguration {
         }
 
         @CustomType.Setter
-        public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+        public Builder destination(@Nullable String destination) {
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
-        public Builder destinationType(String destinationType) {
-            this.destinationType = Objects.requireNonNull(destinationType);
+        public Builder destinationType(@Nullable String destinationType) {
+            this.destinationType = destinationType;
             return this;
         }
         @CustomType.Setter
-        public Builder logFormat(String logFormat) {
-            this.logFormat = Objects.requireNonNull(logFormat);
+        public Builder logFormat(@Nullable String logFormat) {
+            this.logFormat = logFormat;
             return this;
         }
         @CustomType.Setter
-        public Builder logType(String logType) {
-            this.logType = Objects.requireNonNull(logType);
+        public Builder logType(@Nullable String logType) {
+            this.logType = logType;
             return this;
         }
         public GetReplicationGroupLogDeliveryConfiguration build() {

@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterShard {
@@ -16,51 +18,51 @@ public final class GetClusterShard {
      * @return Name of the cluster.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Set of nodes in this shard.
      * 
      */
-    private List<GetClusterShardNode> nodes;
+    private @Nullable List<GetClusterShardNode> nodes;
     /**
      * @return Number of individual nodes in this shard.
      * 
      */
-    private Integer numNodes;
+    private @Nullable Integer numNodes;
     /**
      * @return Keyspace for this shard. Example: `0-16383`.
      * 
      */
-    private String slots;
+    private @Nullable String slots;
 
     private GetClusterShard() {}
     /**
      * @return Name of the cluster.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Set of nodes in this shard.
      * 
      */
     public List<GetClusterShardNode> nodes() {
-        return this.nodes;
+        return this.nodes == null ? List.of() : this.nodes;
     }
     /**
      * @return Number of individual nodes in this shard.
      * 
      */
-    public Integer numNodes() {
-        return this.numNodes;
+    public Optional<Integer> numNodes() {
+        return Optional.ofNullable(this.numNodes);
     }
     /**
      * @return Keyspace for this shard. Example: `0-16383`.
      * 
      */
-    public String slots() {
-        return this.slots;
+    public Optional<String> slots() {
+        return Optional.ofNullable(this.slots);
     }
 
     public static Builder builder() {
@@ -72,10 +74,10 @@ public final class GetClusterShard {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String name;
-        private List<GetClusterShardNode> nodes;
-        private Integer numNodes;
-        private String slots;
+        private @Nullable String name;
+        private @Nullable List<GetClusterShardNode> nodes;
+        private @Nullable Integer numNodes;
+        private @Nullable String slots;
         public Builder() {}
         public Builder(GetClusterShard defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,26 +88,26 @@ public final class GetClusterShard {
         }
 
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder nodes(List<GetClusterShardNode> nodes) {
-            this.nodes = Objects.requireNonNull(nodes);
+        public Builder nodes(@Nullable List<GetClusterShardNode> nodes) {
+            this.nodes = nodes;
             return this;
         }
         public Builder nodes(GetClusterShardNode... nodes) {
             return nodes(List.of(nodes));
         }
         @CustomType.Setter
-        public Builder numNodes(Integer numNodes) {
-            this.numNodes = Objects.requireNonNull(numNodes);
+        public Builder numNodes(@Nullable Integer numNodes) {
+            this.numNodes = numNodes;
             return this;
         }
         @CustomType.Setter
-        public Builder slots(String slots) {
-            this.slots = Objects.requireNonNull(slots);
+        public Builder slots(@Nullable String slots) {
+            this.slots = slots;
             return this;
         }
         public GetClusterShard build() {

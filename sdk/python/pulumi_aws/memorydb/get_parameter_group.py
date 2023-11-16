@@ -47,7 +47,7 @@ class GetParameterGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the parameter group.
         """
@@ -55,7 +55,7 @@ class GetParameterGroupResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the parameter group.
         """
@@ -63,7 +63,7 @@ class GetParameterGroupResult:
 
     @property
     @pulumi.getter
-    def family(self) -> str:
+    def family(self) -> Optional[str]:
         """
         Engine version that the parameter group can be used with.
         """
@@ -71,7 +71,7 @@ class GetParameterGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -87,7 +87,7 @@ class GetParameterGroupResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Sequence['outputs.GetParameterGroupParameterResult']:
+    def parameters(self) -> Optional[Sequence['outputs.GetParameterGroupParameterResult']]:
         """
         Set of user-defined MemoryDB parameters applied by the parameter group.
         """
@@ -95,7 +95,7 @@ class GetParameterGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the parameter group.
         """

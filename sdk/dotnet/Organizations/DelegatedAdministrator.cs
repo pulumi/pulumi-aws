@@ -52,37 +52,37 @@ namespace Pulumi.Aws.Organizations
         /// The Amazon Resource Name (ARN) of the delegated administrator's account.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date when the account was made a delegated administrator.
         /// </summary>
         [Output("delegationEnabledDate")]
-        public Output<string> DelegationEnabledDate { get; private set; } = null!;
+        public Output<string?> DelegationEnabledDate { get; private set; } = null!;
 
         /// <summary>
         /// The email address that is associated with the delegated administrator's AWS account.
         /// </summary>
         [Output("email")]
-        public Output<string> Email { get; private set; } = null!;
+        public Output<string?> Email { get; private set; } = null!;
 
         /// <summary>
         /// The method by which the delegated administrator's account joined the organization.
         /// </summary>
         [Output("joinedMethod")]
-        public Output<string> JoinedMethod { get; private set; } = null!;
+        public Output<string?> JoinedMethod { get; private set; } = null!;
 
         /// <summary>
         /// The date when the delegated administrator's account became a part of the organization.
         /// </summary>
         [Output("joinedTimestamp")]
-        public Output<string> JoinedTimestamp { get; private set; } = null!;
+        public Output<string?> JoinedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// The friendly name of the delegated administrator's account.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The service principal of the AWS service for which you want to make the member account a delegated administrator.
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Organizations
         /// The status of the delegated administrator's account in the organization.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

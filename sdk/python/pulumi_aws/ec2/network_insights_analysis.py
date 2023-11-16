@@ -539,7 +539,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alternatePathHints")
-    def alternate_path_hints(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisAlternatePathHint']]:
+    def alternate_path_hints(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInsightsAnalysisAlternatePathHint']]]:
         """
         Potential intermediate components of a feasible path. Described below.
         """
@@ -547,7 +547,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Network Insights Analysis.
         """
@@ -555,7 +555,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def explanations(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisExplanation']]:
+    def explanations(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInsightsAnalysisExplanation']]]:
         """
         Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
         """
@@ -571,7 +571,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardPathComponents")
-    def forward_path_components(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisForwardPathComponent']]:
+    def forward_path_components(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInsightsAnalysisForwardPathComponent']]]:
         """
         The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         """
@@ -589,7 +589,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pathFound")
-    def path_found(self) -> pulumi.Output[bool]:
+    def path_found(self) -> pulumi.Output[Optional[bool]]:
         """
         Set to `true` if the destination was reachable.
         """
@@ -597,7 +597,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="returnPathComponents")
-    def return_path_components(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisReturnPathComponent']]:
+    def return_path_components(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInsightsAnalysisReturnPathComponent']]]:
         """
         The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         """
@@ -605,7 +605,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> pulumi.Output[str]:
+    def start_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date/time the analysis was started.
         """
@@ -613,7 +613,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         """
@@ -621,7 +621,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> pulumi.Output[str]:
+    def status_message(self) -> pulumi.Output[Optional[str]]:
         """
         A message to provide more context when the `status` is `failed`.
         """
@@ -656,7 +656,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="warningMessage")
-    def warning_message(self) -> pulumi.Output[str]:
+    def warning_message(self) -> pulumi.Output[Optional[str]]:
         """
         The warning message.
         """

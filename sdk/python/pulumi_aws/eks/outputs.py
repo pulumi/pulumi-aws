@@ -952,15 +952,16 @@ class NodeGroupUpdateConfig(dict):
 @pulumi.output_type
 class GetClusterCertificateAuthorityResult(dict):
     def __init__(__self__, *,
-                 data: str):
+                 data: Optional[str] = None):
         """
         :param str data: The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
         """
-        pulumi.set(__self__, "data", data)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
 
     @property
     @pulumi.getter
-    def data(self) -> str:
+    def data(self) -> Optional[str]:
         """
         The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
         """
@@ -970,15 +971,16 @@ class GetClusterCertificateAuthorityResult(dict):
 @pulumi.output_type
 class GetClusterIdentityResult(dict):
     def __init__(__self__, *,
-                 oidcs: Sequence['outputs.GetClusterIdentityOidcResult']):
+                 oidcs: Optional[Sequence['outputs.GetClusterIdentityOidcResult']] = None):
         """
         :param Sequence['GetClusterIdentityOidcArgs'] oidcs: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
         """
-        pulumi.set(__self__, "oidcs", oidcs)
+        if oidcs is not None:
+            pulumi.set(__self__, "oidcs", oidcs)
 
     @property
     @pulumi.getter
-    def oidcs(self) -> Sequence['outputs.GetClusterIdentityOidcResult']:
+    def oidcs(self) -> Optional[Sequence['outputs.GetClusterIdentityOidcResult']]:
         """
         Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
         """
@@ -988,15 +990,16 @@ class GetClusterIdentityResult(dict):
 @pulumi.output_type
 class GetClusterIdentityOidcResult(dict):
     def __init__(__self__, *,
-                 issuer: str):
+                 issuer: Optional[str] = None):
         """
         :param str issuer: Issuer URL for the OpenID Connect identity provider.
         """
-        pulumi.set(__self__, "issuer", issuer)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
-    def issuer(self) -> str:
+    def issuer(self) -> Optional[str]:
         """
         Issuer URL for the OpenID Connect identity provider.
         """
@@ -1006,21 +1009,24 @@ class GetClusterIdentityOidcResult(dict):
 @pulumi.output_type
 class GetClusterKubernetesNetworkConfigResult(dict):
     def __init__(__self__, *,
-                 ip_family: str,
-                 service_ipv4_cidr: str,
-                 service_ipv6_cidr: str):
+                 ip_family: Optional[str] = None,
+                 service_ipv4_cidr: Optional[str] = None,
+                 service_ipv6_cidr: Optional[str] = None):
         """
         :param str ip_family: `ipv4` or `ipv6`.
         :param str service_ipv4_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
         :param str service_ipv6_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         """
-        pulumi.set(__self__, "ip_family", ip_family)
-        pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
-        pulumi.set(__self__, "service_ipv6_cidr", service_ipv6_cidr)
+        if ip_family is not None:
+            pulumi.set(__self__, "ip_family", ip_family)
+        if service_ipv4_cidr is not None:
+            pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+        if service_ipv6_cidr is not None:
+            pulumi.set(__self__, "service_ipv6_cidr", service_ipv6_cidr)
 
     @property
     @pulumi.getter(name="ipFamily")
-    def ip_family(self) -> str:
+    def ip_family(self) -> Optional[str]:
         """
         `ipv4` or `ipv6`.
         """
@@ -1028,7 +1034,7 @@ class GetClusterKubernetesNetworkConfigResult(dict):
 
     @property
     @pulumi.getter(name="serviceIpv4Cidr")
-    def service_ipv4_cidr(self) -> str:
+    def service_ipv4_cidr(self) -> Optional[str]:
         """
         The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
         """
@@ -1036,7 +1042,7 @@ class GetClusterKubernetesNetworkConfigResult(dict):
 
     @property
     @pulumi.getter(name="serviceIpv6Cidr")
-    def service_ipv6_cidr(self) -> str:
+    def service_ipv6_cidr(self) -> Optional[str]:
         """
         The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         """
@@ -1046,21 +1052,24 @@ class GetClusterKubernetesNetworkConfigResult(dict):
 @pulumi.output_type
 class GetClusterOutpostConfigResult(dict):
     def __init__(__self__, *,
-                 control_plane_instance_type: str,
-                 control_plane_placements: Sequence['outputs.GetClusterOutpostConfigControlPlanePlacementResult'],
-                 outpost_arns: Sequence[str]):
+                 control_plane_instance_type: Optional[str] = None,
+                 control_plane_placements: Optional[Sequence['outputs.GetClusterOutpostConfigControlPlanePlacementResult']] = None,
+                 outpost_arns: Optional[Sequence[str]] = None):
         """
         :param str control_plane_instance_type: The Amazon EC2 instance type for all Kubernetes control plane instances.
         :param Sequence['GetClusterOutpostConfigControlPlanePlacementArgs'] control_plane_placements: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
         :param Sequence[str] outpost_arns: List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
         """
-        pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
-        pulumi.set(__self__, "control_plane_placements", control_plane_placements)
-        pulumi.set(__self__, "outpost_arns", outpost_arns)
+        if control_plane_instance_type is not None:
+            pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
+        if control_plane_placements is not None:
+            pulumi.set(__self__, "control_plane_placements", control_plane_placements)
+        if outpost_arns is not None:
+            pulumi.set(__self__, "outpost_arns", outpost_arns)
 
     @property
     @pulumi.getter(name="controlPlaneInstanceType")
-    def control_plane_instance_type(self) -> str:
+    def control_plane_instance_type(self) -> Optional[str]:
         """
         The Amazon EC2 instance type for all Kubernetes control plane instances.
         """
@@ -1068,7 +1077,7 @@ class GetClusterOutpostConfigResult(dict):
 
     @property
     @pulumi.getter(name="controlPlanePlacements")
-    def control_plane_placements(self) -> Sequence['outputs.GetClusterOutpostConfigControlPlanePlacementResult']:
+    def control_plane_placements(self) -> Optional[Sequence['outputs.GetClusterOutpostConfigControlPlanePlacementResult']]:
         """
         An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
         """
@@ -1076,7 +1085,7 @@ class GetClusterOutpostConfigResult(dict):
 
     @property
     @pulumi.getter(name="outpostArns")
-    def outpost_arns(self) -> Sequence[str]:
+    def outpost_arns(self) -> Optional[Sequence[str]]:
         """
         List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
         """
@@ -1086,15 +1095,16 @@ class GetClusterOutpostConfigResult(dict):
 @pulumi.output_type
 class GetClusterOutpostConfigControlPlanePlacementResult(dict):
     def __init__(__self__, *,
-                 group_name: str):
+                 group_name: Optional[str] = None):
         """
         :param str group_name: The name of the placement group for the Kubernetes control plane instances.
         """
-        pulumi.set(__self__, "group_name", group_name)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
 
     @property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> str:
+    def group_name(self) -> Optional[str]:
         """
         The name of the placement group for the Kubernetes control plane instances.
         """
@@ -1104,13 +1114,13 @@ class GetClusterOutpostConfigControlPlanePlacementResult(dict):
 @pulumi.output_type
 class GetClusterVpcConfigResult(dict):
     def __init__(__self__, *,
-                 cluster_security_group_id: str,
-                 endpoint_private_access: bool,
-                 endpoint_public_access: bool,
-                 public_access_cidrs: Sequence[str],
-                 security_group_ids: Sequence[str],
-                 subnet_ids: Sequence[str],
-                 vpc_id: str):
+                 cluster_security_group_id: Optional[str] = None,
+                 endpoint_private_access: Optional[bool] = None,
+                 endpoint_public_access: Optional[bool] = None,
+                 public_access_cidrs: Optional[Sequence[str]] = None,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 subnet_ids: Optional[Sequence[str]] = None,
+                 vpc_id: Optional[str] = None):
         """
         :param str cluster_security_group_id: The cluster security group that was created by Amazon EKS for the cluster.
         :param bool endpoint_private_access: Indicates whether or not the Amazon EKS private API server endpoint is enabled.
@@ -1120,17 +1130,24 @@ class GetClusterVpcConfigResult(dict):
         :param Sequence[str] subnet_ids: List of subnet IDs
         :param str vpc_id: The VPC associated with your cluster.
         """
-        pulumi.set(__self__, "cluster_security_group_id", cluster_security_group_id)
-        pulumi.set(__self__, "endpoint_private_access", endpoint_private_access)
-        pulumi.set(__self__, "endpoint_public_access", endpoint_public_access)
-        pulumi.set(__self__, "public_access_cidrs", public_access_cidrs)
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        if cluster_security_group_id is not None:
+            pulumi.set(__self__, "cluster_security_group_id", cluster_security_group_id)
+        if endpoint_private_access is not None:
+            pulumi.set(__self__, "endpoint_private_access", endpoint_private_access)
+        if endpoint_public_access is not None:
+            pulumi.set(__self__, "endpoint_public_access", endpoint_public_access)
+        if public_access_cidrs is not None:
+            pulumi.set(__self__, "public_access_cidrs", public_access_cidrs)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="clusterSecurityGroupId")
-    def cluster_security_group_id(self) -> str:
+    def cluster_security_group_id(self) -> Optional[str]:
         """
         The cluster security group that was created by Amazon EKS for the cluster.
         """
@@ -1138,7 +1155,7 @@ class GetClusterVpcConfigResult(dict):
 
     @property
     @pulumi.getter(name="endpointPrivateAccess")
-    def endpoint_private_access(self) -> bool:
+    def endpoint_private_access(self) -> Optional[bool]:
         """
         Indicates whether or not the Amazon EKS private API server endpoint is enabled.
         """
@@ -1146,7 +1163,7 @@ class GetClusterVpcConfigResult(dict):
 
     @property
     @pulumi.getter(name="endpointPublicAccess")
-    def endpoint_public_access(self) -> bool:
+    def endpoint_public_access(self) -> Optional[bool]:
         """
         Indicates whether or not the Amazon EKS public API server endpoint is enabled.
         """
@@ -1154,7 +1171,7 @@ class GetClusterVpcConfigResult(dict):
 
     @property
     @pulumi.getter(name="publicAccessCidrs")
-    def public_access_cidrs(self) -> Sequence[str]:
+    def public_access_cidrs(self) -> Optional[Sequence[str]]:
         """
         List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
         """
@@ -1162,7 +1179,7 @@ class GetClusterVpcConfigResult(dict):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         List of security group IDs
         """
@@ -1170,7 +1187,7 @@ class GetClusterVpcConfigResult(dict):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         List of subnet IDs
         """
@@ -1178,7 +1195,7 @@ class GetClusterVpcConfigResult(dict):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         The VPC associated with your cluster.
         """
@@ -1188,21 +1205,24 @@ class GetClusterVpcConfigResult(dict):
 @pulumi.output_type
 class GetNodeGroupLaunchTemplateResult(dict):
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 version: str):
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
         """
         :param str id: The ID of the launch template.
         :param str name: Name of the AutoScaling Group.
         :param str version: Kubernetes version.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The ID of the launch template.
         """
@@ -1210,7 +1230,7 @@ class GetNodeGroupLaunchTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the AutoScaling Group.
         """
@@ -1218,7 +1238,7 @@ class GetNodeGroupLaunchTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Kubernetes version.
         """
@@ -1228,18 +1248,20 @@ class GetNodeGroupLaunchTemplateResult(dict):
 @pulumi.output_type
 class GetNodeGroupRemoteAccessResult(dict):
     def __init__(__self__, *,
-                 ec2_ssh_key: str,
-                 source_security_group_ids: Sequence[str]):
+                 ec2_ssh_key: Optional[str] = None,
+                 source_security_group_ids: Optional[Sequence[str]] = None):
         """
         :param str ec2_ssh_key: EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
         :param Sequence[str] source_security_group_ids: Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
         """
-        pulumi.set(__self__, "ec2_ssh_key", ec2_ssh_key)
-        pulumi.set(__self__, "source_security_group_ids", source_security_group_ids)
+        if ec2_ssh_key is not None:
+            pulumi.set(__self__, "ec2_ssh_key", ec2_ssh_key)
+        if source_security_group_ids is not None:
+            pulumi.set(__self__, "source_security_group_ids", source_security_group_ids)
 
     @property
     @pulumi.getter(name="ec2SshKey")
-    def ec2_ssh_key(self) -> str:
+    def ec2_ssh_key(self) -> Optional[str]:
         """
         EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
         """
@@ -1247,7 +1269,7 @@ class GetNodeGroupRemoteAccessResult(dict):
 
     @property
     @pulumi.getter(name="sourceSecurityGroupIds")
-    def source_security_group_ids(self) -> Sequence[str]:
+    def source_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
         """
@@ -1257,18 +1279,20 @@ class GetNodeGroupRemoteAccessResult(dict):
 @pulumi.output_type
 class GetNodeGroupResourceResult(dict):
     def __init__(__self__, *,
-                 autoscaling_groups: Sequence['outputs.GetNodeGroupResourceAutoscalingGroupResult'],
-                 remote_access_security_group_id: str):
+                 autoscaling_groups: Optional[Sequence['outputs.GetNodeGroupResourceAutoscalingGroupResult']] = None,
+                 remote_access_security_group_id: Optional[str] = None):
         """
         :param Sequence['GetNodeGroupResourceAutoscalingGroupArgs'] autoscaling_groups: List of objects containing information about AutoScaling Groups.
         :param str remote_access_security_group_id: Identifier of the remote access EC2 Security Group.
         """
-        pulumi.set(__self__, "autoscaling_groups", autoscaling_groups)
-        pulumi.set(__self__, "remote_access_security_group_id", remote_access_security_group_id)
+        if autoscaling_groups is not None:
+            pulumi.set(__self__, "autoscaling_groups", autoscaling_groups)
+        if remote_access_security_group_id is not None:
+            pulumi.set(__self__, "remote_access_security_group_id", remote_access_security_group_id)
 
     @property
     @pulumi.getter(name="autoscalingGroups")
-    def autoscaling_groups(self) -> Sequence['outputs.GetNodeGroupResourceAutoscalingGroupResult']:
+    def autoscaling_groups(self) -> Optional[Sequence['outputs.GetNodeGroupResourceAutoscalingGroupResult']]:
         """
         List of objects containing information about AutoScaling Groups.
         """
@@ -1276,7 +1300,7 @@ class GetNodeGroupResourceResult(dict):
 
     @property
     @pulumi.getter(name="remoteAccessSecurityGroupId")
-    def remote_access_security_group_id(self) -> str:
+    def remote_access_security_group_id(self) -> Optional[str]:
         """
         Identifier of the remote access EC2 Security Group.
         """
@@ -1286,15 +1310,16 @@ class GetNodeGroupResourceResult(dict):
 @pulumi.output_type
 class GetNodeGroupResourceAutoscalingGroupResult(dict):
     def __init__(__self__, *,
-                 name: str):
+                 name: Optional[str] = None):
         """
         :param str name: Name of the AutoScaling Group.
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the AutoScaling Group.
         """
@@ -1304,21 +1329,24 @@ class GetNodeGroupResourceAutoscalingGroupResult(dict):
 @pulumi.output_type
 class GetNodeGroupScalingConfigResult(dict):
     def __init__(__self__, *,
-                 desired_size: int,
-                 max_size: int,
-                 min_size: int):
+                 desired_size: Optional[int] = None,
+                 max_size: Optional[int] = None,
+                 min_size: Optional[int] = None):
         """
         :param int desired_size: Desired number of worker nodes.
         :param int max_size: Maximum number of worker nodes.
         :param int min_size: Minimum number of worker nodes.
         """
-        pulumi.set(__self__, "desired_size", desired_size)
-        pulumi.set(__self__, "max_size", max_size)
-        pulumi.set(__self__, "min_size", min_size)
+        if desired_size is not None:
+            pulumi.set(__self__, "desired_size", desired_size)
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if min_size is not None:
+            pulumi.set(__self__, "min_size", min_size)
 
     @property
     @pulumi.getter(name="desiredSize")
-    def desired_size(self) -> int:
+    def desired_size(self) -> Optional[int]:
         """
         Desired number of worker nodes.
         """
@@ -1326,7 +1354,7 @@ class GetNodeGroupScalingConfigResult(dict):
 
     @property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> int:
+    def max_size(self) -> Optional[int]:
         """
         Maximum number of worker nodes.
         """
@@ -1334,7 +1362,7 @@ class GetNodeGroupScalingConfigResult(dict):
 
     @property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> int:
+    def min_size(self) -> Optional[int]:
         """
         Minimum number of worker nodes.
         """
@@ -1344,21 +1372,24 @@ class GetNodeGroupScalingConfigResult(dict):
 @pulumi.output_type
 class GetNodeGroupTaintResult(dict):
     def __init__(__self__, *,
-                 effect: str,
-                 key: str,
-                 value: str):
+                 effect: Optional[str] = None,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
         """
         :param str effect: The effect of the taint.
         :param str key: The key of the taint.
         :param str value: The value of the taint.
         """
-        pulumi.set(__self__, "effect", effect)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        if effect is not None:
+            pulumi.set(__self__, "effect", effect)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def effect(self) -> str:
+    def effect(self) -> Optional[str]:
         """
         The effect of the taint.
         """
@@ -1366,7 +1397,7 @@ class GetNodeGroupTaintResult(dict):
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         """
         The key of the taint.
         """
@@ -1374,7 +1405,7 @@ class GetNodeGroupTaintResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         The value of the taint.
         """

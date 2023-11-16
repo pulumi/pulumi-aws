@@ -6,14 +6,16 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateHibernationOption {
-    private Boolean configured;
+    private @Nullable Boolean configured;
 
     private GetLaunchTemplateHibernationOption() {}
-    public Boolean configured() {
-        return this.configured;
+    public Optional<Boolean> configured() {
+        return Optional.ofNullable(this.configured);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetLaunchTemplateHibernationOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean configured;
+        private @Nullable Boolean configured;
         public Builder() {}
         public Builder(GetLaunchTemplateHibernationOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetLaunchTemplateHibernationOption {
         }
 
         @CustomType.Setter
-        public Builder configured(Boolean configured) {
-            this.configured = Objects.requireNonNull(configured);
+        public Builder configured(@Nullable Boolean configured) {
+            this.configured = configured;
             return this;
         }
         public GetLaunchTemplateHibernationOption build() {

@@ -64,11 +64,11 @@ export class KxDatabase extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX database.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string | undefined>;
     /**
      * Description of the KX database.
      */
@@ -80,7 +80,7 @@ export class KxDatabase extends pulumi.CustomResource {
     /**
      * Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string | undefined>;
     /**
      * Name of the KX database.
      *

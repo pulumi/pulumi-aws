@@ -113,14 +113,14 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name of the volune.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -155,28 +155,28 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
-    private Output<String> fileSystemId;
+    private Output</* @Nullable */ String> fileSystemId;
 
     /**
      * @return Describes the file system for the volume, e.g. `fs-12345679`
      * 
      */
-    public Output<String> fileSystemId() {
-        return this.fileSystemId;
+    public Output<Optional<String>> fileSystemId() {
+        return Codegen.optional(this.fileSystemId);
     }
     /**
      * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
      * 
      */
     @Export(name="flexcacheEndpointType", refs={String.class}, tree="[0]")
-    private Output<String> flexcacheEndpointType;
+    private Output</* @Nullable */ String> flexcacheEndpointType;
 
     /**
      * @return Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
      * 
      */
-    public Output<String> flexcacheEndpointType() {
-        return this.flexcacheEndpointType;
+    public Output<Optional<String>> flexcacheEndpointType() {
+        return Codegen.optional(this.flexcacheEndpointType);
     }
     /**
      * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
@@ -211,28 +211,28 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ontapVolumeType", refs={String.class}, tree="[0]")
-    private Output<String> ontapVolumeType;
+    private Output</* @Nullable */ String> ontapVolumeType;
 
     /**
      * @return Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
-    public Output<String> ontapVolumeType() {
-        return this.ontapVolumeType;
+    public Output<Optional<String>> ontapVolumeType() {
+        return Codegen.optional(this.ontapVolumeType);
     }
     /**
      * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     @Export(name="securityStyle", refs={String.class}, tree="[0]")
-    private Output<String> securityStyle;
+    private Output</* @Nullable */ String> securityStyle;
 
     /**
      * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
-    public Output<String> securityStyle() {
-        return this.securityStyle;
+    public Output<Optional<String>> securityStyle() {
+        return Codegen.optional(this.securityStyle);
     }
     /**
      * Specifies the size of the volume, in megabytes (MB), that you are creating.
@@ -281,14 +281,14 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="snapshotPolicy", refs={String.class}, tree="[0]")
-    private Output<String> snapshotPolicy;
+    private Output</* @Nullable */ String> snapshotPolicy;
 
     /**
      * @return Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      * 
      */
-    public Output<String> snapshotPolicy() {
-        return this.snapshotPolicy;
+    public Output<Optional<String>> snapshotPolicy() {
+        return Codegen.optional(this.snapshotPolicy);
     }
     /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
@@ -369,14 +369,14 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uuid", refs={String.class}, tree="[0]")
-    private Output<String> uuid;
+    private Output</* @Nullable */ String> uuid;
 
     /**
      * @return The Volume&#39;s UUID (universally unique identifier).
      * 
      */
-    public Output<String> uuid() {
-        return this.uuid;
+    public Output<Optional<String>> uuid() {
+        return Codegen.optional(this.uuid);
     }
     /**
      * The type of volume, currently the only valid value is `ONTAP`.

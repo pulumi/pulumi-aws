@@ -65,7 +65,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The Amazon Resource Name (ARN) of the event bus.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The partner event source that the new event bus will be matched with. Must match `name`.

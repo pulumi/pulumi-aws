@@ -47,11 +47,11 @@ type Permission struct {
 	pulumi.CustomResourceState
 
 	// Whether the user is allowed to use SSH to communicate with the instance
-	AllowSsh pulumi.BoolOutput `pulumi:"allowSsh"`
+	AllowSsh pulumi.BoolPtrOutput `pulumi:"allowSsh"`
 	// Whether the user is allowed to use sudo to elevate privileges
-	AllowSudo pulumi.BoolOutput `pulumi:"allowSudo"`
+	AllowSudo pulumi.BoolPtrOutput `pulumi:"allowSudo"`
 	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-	Level pulumi.StringOutput `pulumi:"level"`
+	Level pulumi.StringPtrOutput `pulumi:"level"`
 	// The stack to set the permissions for
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// The user's IAM ARN to set permissions for
@@ -238,18 +238,18 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 }
 
 // Whether the user is allowed to use SSH to communicate with the instance
-func (o PermissionOutput) AllowSsh() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Permission) pulumi.BoolOutput { return v.AllowSsh }).(pulumi.BoolOutput)
+func (o PermissionOutput) AllowSsh() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.BoolPtrOutput { return v.AllowSsh }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the user is allowed to use sudo to elevate privileges
-func (o PermissionOutput) AllowSudo() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Permission) pulumi.BoolOutput { return v.AllowSudo }).(pulumi.BoolOutput)
+func (o PermissionOutput) AllowSudo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.BoolPtrOutput { return v.AllowSudo }).(pulumi.BoolPtrOutput)
 }
 
 // The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-func (o PermissionOutput) Level() pulumi.StringOutput {
-	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Level }).(pulumi.StringOutput)
+func (o PermissionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // The stack to set the permissions for

@@ -29,9 +29,9 @@ type PermissionSet struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Permission Set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// The description of the Permission Set.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
@@ -255,13 +255,13 @@ func (o PermissionSetOutput) ToPermissionSetOutputWithContext(ctx context.Contex
 }
 
 // The Amazon Resource Name (ARN) of the Permission Set.
-func (o PermissionSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PermissionSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o PermissionSetOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o PermissionSetOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The description of the Permission Set.

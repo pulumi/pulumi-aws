@@ -248,7 +248,7 @@ class IndexingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thingGroupIndexingConfiguration")
-    def thing_group_indexing_configuration(self) -> pulumi.Output['outputs.IndexingConfigurationThingGroupIndexingConfiguration']:
+    def thing_group_indexing_configuration(self) -> pulumi.Output[Optional['outputs.IndexingConfigurationThingGroupIndexingConfiguration']]:
         """
         Thing group indexing configuration. See below.
         """
@@ -256,7 +256,7 @@ class IndexingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thingIndexingConfiguration")
-    def thing_indexing_configuration(self) -> pulumi.Output['outputs.IndexingConfigurationThingIndexingConfiguration']:
+    def thing_indexing_configuration(self) -> pulumi.Output[Optional['outputs.IndexingConfigurationThingIndexingConfiguration']]:
         """
         Thing indexing configuration. See below.
         """

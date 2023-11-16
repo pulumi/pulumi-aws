@@ -546,23 +546,23 @@ type DataSource struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Data Source.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 	Configuration DataSourceConfigurationPtrOutput `pulumi:"configuration"`
 	// The Unix timestamp of when the Data Source was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrOutput `pulumi:"customDocumentEnrichmentConfiguration"`
 	// The unique identifiers of the Data Source.
-	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
+	DataSourceId pulumi.StringPtrOutput `pulumi:"dataSourceId"`
 	// A description for the Data Source connector.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
+	ErrorMessage pulumi.StringPtrOutput `pulumi:"errorMessage"`
 	// The identifier of the index for your Amazon Kendra data source.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
+	LanguageCode pulumi.StringPtrOutput `pulumi:"languageCode"`
 	// A name for your data source connector.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
@@ -570,7 +570,7 @@ type DataSource struct {
 	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
 	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
 	// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -582,7 +582,7 @@ type DataSource struct {
 	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The Unix timestamp of when the Data Source was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	UpdatedAt pulumi.StringPtrOutput `pulumi:"updatedAt"`
 }
 
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
@@ -849,8 +849,8 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 }
 
 // ARN of the Data Source.
-func (o DataSourceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DataSourceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
@@ -859,8 +859,8 @@ func (o DataSourceOutput) Configuration() DataSourceConfigurationPtrOutput {
 }
 
 // The Unix timestamp of when the Data Source was created.
-func (o DataSourceOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o DataSourceOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
@@ -871,8 +871,8 @@ func (o DataSourceOutput) CustomDocumentEnrichmentConfiguration() DataSourceCust
 }
 
 // The unique identifiers of the Data Source.
-func (o DataSourceOutput) DataSourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.DataSourceId }).(pulumi.StringOutput)
+func (o DataSourceOutput) DataSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.DataSourceId }).(pulumi.StringPtrOutput)
 }
 
 // A description for the Data Source connector.
@@ -881,8 +881,8 @@ func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 }
 
 // When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
-func (o DataSourceOutput) ErrorMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+func (o DataSourceOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the index for your Amazon Kendra data source.
@@ -891,8 +891,8 @@ func (o DataSourceOutput) IndexId() pulumi.StringOutput {
 }
 
 // The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-func (o DataSourceOutput) LanguageCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
+func (o DataSourceOutput) LanguageCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
 
 // A name for your data source connector.
@@ -911,8 +911,8 @@ func (o DataSourceOutput) Schedule() pulumi.StringPtrOutput {
 }
 
 // The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
-func (o DataSourceOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o DataSourceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -935,8 +935,8 @@ func (o DataSourceOutput) Type() pulumi.StringOutput {
 }
 
 // The Unix timestamp of when the Data Source was last updated.
-func (o DataSourceOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o DataSourceOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 type DataSourceArrayOutput struct{ *pulumi.OutputState }

@@ -8,6 +8,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityProfileResult {
@@ -15,87 +17,87 @@ public final class GetSecurityProfileResult {
      * @return ARN of the Security Profile.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the Security Profile.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
-    private String name;
+    private @Nullable String name;
     /**
      * @return The organization resource identifier for the security profile.
      * 
      */
-    private String organizationResourceId;
+    private @Nullable String organizationResourceId;
     /**
      * @return List of permissions assigned to the security profile.
      * 
      */
-    private List<String> permissions;
-    private String securityProfileId;
+    private @Nullable List<String> permissions;
+    private @Nullable String securityProfileId;
     /**
      * @return Map of tags to assign to the Security Profile.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetSecurityProfileResult() {}
     /**
      * @return ARN of the Security Profile.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the Security Profile.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The organization resource identifier for the security profile.
      * 
      */
-    public String organizationResourceId() {
-        return this.organizationResourceId;
+    public Optional<String> organizationResourceId() {
+        return Optional.ofNullable(this.organizationResourceId);
     }
     /**
      * @return List of permissions assigned to the security profile.
      * 
      */
     public List<String> permissions() {
-        return this.permissions;
+        return this.permissions == null ? List.of() : this.permissions;
     }
-    public String securityProfileId() {
-        return this.securityProfileId;
+    public Optional<String> securityProfileId() {
+        return Optional.ofNullable(this.securityProfileId);
     }
     /**
      * @return Map of tags to assign to the Security Profile.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -107,15 +109,15 @@ public final class GetSecurityProfileResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String id;
         private String instanceId;
-        private String name;
-        private String organizationResourceId;
-        private List<String> permissions;
-        private String securityProfileId;
-        private Map<String,String> tags;
+        private @Nullable String name;
+        private @Nullable String organizationResourceId;
+        private @Nullable List<String> permissions;
+        private @Nullable String securityProfileId;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetSecurityProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -131,18 +133,18 @@ public final class GetSecurityProfileResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -151,31 +153,31 @@ public final class GetSecurityProfileResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder organizationResourceId(String organizationResourceId) {
-            this.organizationResourceId = Objects.requireNonNull(organizationResourceId);
+        public Builder organizationResourceId(@Nullable String organizationResourceId) {
+            this.organizationResourceId = organizationResourceId;
             return this;
         }
         @CustomType.Setter
-        public Builder permissions(List<String> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+        public Builder permissions(@Nullable List<String> permissions) {
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
         @CustomType.Setter
-        public Builder securityProfileId(String securityProfileId) {
-            this.securityProfileId = Objects.requireNonNull(securityProfileId);
+        public Builder securityProfileId(@Nullable String securityProfileId) {
+            this.securityProfileId = securityProfileId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetSecurityProfileResult build() {

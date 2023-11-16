@@ -66,42 +66,42 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      * 
      */
     @Export(name="defaultAssociationRouteTable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> defaultAssociationRouteTable;
+    private Output</* @Nullable */ Boolean> defaultAssociationRouteTable;
 
     /**
      * @return Boolean whether this is the default association route table for the EC2 Transit Gateway.
      * 
      */
-    public Output<Boolean> defaultAssociationRouteTable() {
-        return this.defaultAssociationRouteTable;
+    public Output<Optional<Boolean>> defaultAssociationRouteTable() {
+        return Codegen.optional(this.defaultAssociationRouteTable);
     }
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      * 
      */
     @Export(name="defaultPropagationRouteTable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> defaultPropagationRouteTable;
+    private Output</* @Nullable */ Boolean> defaultPropagationRouteTable;
 
     /**
      * @return Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      * 
      */
-    public Output<Boolean> defaultPropagationRouteTable() {
-        return this.defaultPropagationRouteTable;
+    public Output<Optional<Boolean>> defaultPropagationRouteTable() {
+        return Codegen.optional(this.defaultPropagationRouteTable);
     }
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -36,7 +36,7 @@ type GetPoliciesForTargetArgs struct {
 type GetPoliciesForTargetResult struct {
 	Filter string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all the policy ids found.
 	Ids      []string `pulumi:"ids"`
 	TargetId string   `pulumi:"targetId"`
@@ -87,8 +87,8 @@ func (o GetPoliciesForTargetResultOutput) Filter() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetPoliciesForTargetResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPoliciesForTargetResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPoliciesForTargetResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPoliciesForTargetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the policy ids found.

@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *         },
  *     }),
  * });
- * const ssmLifecyclePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const ssmLifecyclePolicyDocument = stopInstance.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -93,10 +93,10 @@ import * as utilities from "../utilities";
  *         {
  *             effect: "Allow",
  *             actions: ["ssm:SendCommand"],
- *             resources: [stopInstance.arn],
+ *             resources: [arn],
  *         },
  *     ],
- * });
+ * }));
  * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycleRole", {assumeRolePolicy: ssmLifecycleTrust.then(ssmLifecycleTrust => ssmLifecycleTrust.json)});
  * const ssmLifecyclePolicy = new aws.iam.Policy("ssmLifecyclePolicy", {policy: ssmLifecyclePolicyDocument.apply(ssmLifecyclePolicyDocument => ssmLifecyclePolicyDocument.json)});
  * const ssmLifecycleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment", {
@@ -154,7 +154,7 @@ import * as utilities from "../utilities";
  * });
  * // ...
  * const exampleEventTarget = new aws.cloudwatch.EventTarget("exampleEventTarget", {
- *     arn: pulumi.interpolate`${exampleStage.executionArn}/GET`,
+ *     arn: exampleStage.executionArn.apply(executionArn => `${executionArn}/GET`),
  *     rule: exampleEventRule.id,
  *     httpTarget: {
  *         queryStringParameters: {
@@ -265,12 +265,12 @@ import * as utilities from "../utilities";
  *         Environment: "example",
  *     },
  * });
- * const exampleLogPolicy = aws.iam.getPolicyDocumentOutput({
+ * const exampleLogPolicy = pulumi.all([exampleLogGroup.arn, exampleLogGroup.arn, exampleEventRule.arn]).apply(([exampleLogGroupArn, exampleLogGroupArn1, exampleEventRuleArn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
  *             actions: ["logs:CreateLogStream"],
- *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
+ *             resources: [`${exampleLogGroupArn}:*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: [
@@ -282,7 +282,7 @@ import * as utilities from "../utilities";
  *         {
  *             effect: "Allow",
  *             actions: ["logs:PutLogEvents"],
- *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*:*`],
+ *             resources: [`${exampleLogGroupArn1}:*:*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: [
@@ -292,12 +292,12 @@ import * as utilities from "../utilities";
  *             }],
  *             conditions: [{
  *                 test: "ArnEquals",
- *                 values: [exampleEventRule.arn],
+ *                 values: [exampleEventRuleArn],
  *                 variable: "aws:SourceArn",
  *             }],
  *         },
  *     ],
- * });
+ * }));
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
  *     policyDocument: exampleLogPolicy.apply(exampleLogPolicy => exampleLogPolicy.json),
  *     policyName: "guardduty-log-publishing-policy",

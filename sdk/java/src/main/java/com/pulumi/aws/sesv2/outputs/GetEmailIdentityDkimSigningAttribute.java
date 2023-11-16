@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEmailIdentityDkimSigningAttribute {
@@ -14,83 +16,83 @@ public final class GetEmailIdentityDkimSigningAttribute {
      * @return [Easy DKIM] The key length of the DKIM key pair in use.
      * 
      */
-    private String currentSigningKeyLength;
-    private String domainSigningPrivateKey;
-    private String domainSigningSelector;
+    private @Nullable String currentSigningKeyLength;
+    private @Nullable String domainSigningPrivateKey;
+    private @Nullable String domainSigningSelector;
     /**
      * @return [Easy DKIM] The last time a key pair was generated for this identity.
      * 
      */
-    private String lastKeyGenerationTimestamp;
+    private @Nullable String lastKeyGenerationTimestamp;
     /**
      * @return [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
      * 
      */
-    private String nextSigningKeyLength;
+    private @Nullable String nextSigningKeyLength;
     /**
      * @return A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
      * 
      */
-    private String signingAttributesOrigin;
+    private @Nullable String signingAttributesOrigin;
     /**
      * @return Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
      * 
      */
-    private List<String> tokens;
+    private @Nullable List<String> tokens;
 
     private GetEmailIdentityDkimSigningAttribute() {}
     /**
      * @return [Easy DKIM] The key length of the DKIM key pair in use.
      * 
      */
-    public String currentSigningKeyLength() {
-        return this.currentSigningKeyLength;
+    public Optional<String> currentSigningKeyLength() {
+        return Optional.ofNullable(this.currentSigningKeyLength);
     }
-    public String domainSigningPrivateKey() {
-        return this.domainSigningPrivateKey;
+    public Optional<String> domainSigningPrivateKey() {
+        return Optional.ofNullable(this.domainSigningPrivateKey);
     }
-    public String domainSigningSelector() {
-        return this.domainSigningSelector;
+    public Optional<String> domainSigningSelector() {
+        return Optional.ofNullable(this.domainSigningSelector);
     }
     /**
      * @return [Easy DKIM] The last time a key pair was generated for this identity.
      * 
      */
-    public String lastKeyGenerationTimestamp() {
-        return this.lastKeyGenerationTimestamp;
+    public Optional<String> lastKeyGenerationTimestamp() {
+        return Optional.ofNullable(this.lastKeyGenerationTimestamp);
     }
     /**
      * @return [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
      * 
      */
-    public String nextSigningKeyLength() {
-        return this.nextSigningKeyLength;
+    public Optional<String> nextSigningKeyLength() {
+        return Optional.ofNullable(this.nextSigningKeyLength);
     }
     /**
      * @return A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
      * 
      */
-    public String signingAttributesOrigin() {
-        return this.signingAttributesOrigin;
+    public Optional<String> signingAttributesOrigin() {
+        return Optional.ofNullable(this.signingAttributesOrigin);
     }
     /**
      * @return Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
      * 
      */
     public List<String> tokens() {
-        return this.tokens;
+        return this.tokens == null ? List.of() : this.tokens;
     }
 
     public static Builder builder() {
@@ -102,14 +104,14 @@ public final class GetEmailIdentityDkimSigningAttribute {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String currentSigningKeyLength;
-        private String domainSigningPrivateKey;
-        private String domainSigningSelector;
-        private String lastKeyGenerationTimestamp;
-        private String nextSigningKeyLength;
-        private String signingAttributesOrigin;
-        private String status;
-        private List<String> tokens;
+        private @Nullable String currentSigningKeyLength;
+        private @Nullable String domainSigningPrivateKey;
+        private @Nullable String domainSigningSelector;
+        private @Nullable String lastKeyGenerationTimestamp;
+        private @Nullable String nextSigningKeyLength;
+        private @Nullable String signingAttributesOrigin;
+        private @Nullable String status;
+        private @Nullable List<String> tokens;
         public Builder() {}
         public Builder(GetEmailIdentityDkimSigningAttribute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -124,43 +126,43 @@ public final class GetEmailIdentityDkimSigningAttribute {
         }
 
         @CustomType.Setter
-        public Builder currentSigningKeyLength(String currentSigningKeyLength) {
-            this.currentSigningKeyLength = Objects.requireNonNull(currentSigningKeyLength);
+        public Builder currentSigningKeyLength(@Nullable String currentSigningKeyLength) {
+            this.currentSigningKeyLength = currentSigningKeyLength;
             return this;
         }
         @CustomType.Setter
-        public Builder domainSigningPrivateKey(String domainSigningPrivateKey) {
-            this.domainSigningPrivateKey = Objects.requireNonNull(domainSigningPrivateKey);
+        public Builder domainSigningPrivateKey(@Nullable String domainSigningPrivateKey) {
+            this.domainSigningPrivateKey = domainSigningPrivateKey;
             return this;
         }
         @CustomType.Setter
-        public Builder domainSigningSelector(String domainSigningSelector) {
-            this.domainSigningSelector = Objects.requireNonNull(domainSigningSelector);
+        public Builder domainSigningSelector(@Nullable String domainSigningSelector) {
+            this.domainSigningSelector = domainSigningSelector;
             return this;
         }
         @CustomType.Setter
-        public Builder lastKeyGenerationTimestamp(String lastKeyGenerationTimestamp) {
-            this.lastKeyGenerationTimestamp = Objects.requireNonNull(lastKeyGenerationTimestamp);
+        public Builder lastKeyGenerationTimestamp(@Nullable String lastKeyGenerationTimestamp) {
+            this.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
             return this;
         }
         @CustomType.Setter
-        public Builder nextSigningKeyLength(String nextSigningKeyLength) {
-            this.nextSigningKeyLength = Objects.requireNonNull(nextSigningKeyLength);
+        public Builder nextSigningKeyLength(@Nullable String nextSigningKeyLength) {
+            this.nextSigningKeyLength = nextSigningKeyLength;
             return this;
         }
         @CustomType.Setter
-        public Builder signingAttributesOrigin(String signingAttributesOrigin) {
-            this.signingAttributesOrigin = Objects.requireNonNull(signingAttributesOrigin);
+        public Builder signingAttributesOrigin(@Nullable String signingAttributesOrigin) {
+            this.signingAttributesOrigin = signingAttributesOrigin;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tokens(List<String> tokens) {
-            this.tokens = Objects.requireNonNull(tokens);
+        public Builder tokens(@Nullable List<String> tokens) {
+            this.tokens = tokens;
             return this;
         }
         public Builder tokens(String... tokens) {

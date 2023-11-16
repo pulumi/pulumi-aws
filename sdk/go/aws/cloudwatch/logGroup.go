@@ -55,7 +55,7 @@ type LogGroup struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
@@ -63,7 +63,7 @@ type LogGroup struct {
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Specifies the number of days
 	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
 	// If you select 0, the events in the log group are always retained and never expire.
@@ -292,8 +292,8 @@ func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGrou
 }
 
 // The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-func (o LogGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LogGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
@@ -309,8 +309,8 @@ func (o LogGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o LogGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o LogGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the number of days

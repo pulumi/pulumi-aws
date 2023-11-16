@@ -147,17 +147,17 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * The ARN of the GameLift Game Server Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the created EC2 Auto Scaling group.
      */
-    public /*out*/ readonly autoScalingGroupArn!: pulumi.Output<string>;
+    public /*out*/ readonly autoScalingGroupArn!: pulumi.Output<string | undefined>;
     public readonly autoScalingPolicy!: pulumi.Output<outputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
      * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      */
-    public readonly balancingStrategy!: pulumi.Output<string>;
+    public readonly balancingStrategy!: pulumi.Output<string | undefined>;
     /**
      * Name of the game server group.
      * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
@@ -171,7 +171,7 @@ export class GameServerGroup extends pulumi.CustomResource {
      * of a forced game server group deletion.
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
-    public readonly gameServerProtectionPolicy!: pulumi.Output<string>;
+    public readonly gameServerProtectionPolicy!: pulumi.Output<string | undefined>;
     public readonly instanceDefinitions!: pulumi.Output<outputs.gamelift.GameServerGroupInstanceDefinition[]>;
     public readonly launchTemplate!: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate>;
     /**

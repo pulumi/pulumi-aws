@@ -58,58 +58,58 @@ export interface GetDedicatedHostResult {
     /**
      * ARN of the Dedicated Host.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
      */
-    readonly assetId: string;
+    readonly assetId?: string;
     /**
      * Whether auto-placement is on or off.
      */
-    readonly autoPlacement: string;
+    readonly autoPlacement?: string;
     /**
      * Availability Zone of the Dedicated Host.
      */
-    readonly availabilityZone: string;
+    readonly availabilityZone?: string;
     /**
      * Number of cores on the Dedicated Host.
      */
-    readonly cores: number;
+    readonly cores?: number;
     readonly filters?: outputs.ec2.GetDedicatedHostFilter[];
-    readonly hostId: string;
+    readonly hostId?: string;
     /**
      * Whether host recovery is enabled or disabled for the Dedicated Host.
      */
-    readonly hostRecovery: string;
+    readonly hostRecovery?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Instance family supported by the Dedicated Host. For example, "m5".
      */
-    readonly instanceFamily: string;
+    readonly instanceFamily?: string;
     /**
      * Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
      */
-    readonly instanceType: string;
+    readonly instanceType?: string;
     /**
      * ARN of the AWS Outpost on which the Dedicated Host is allocated.
      */
-    readonly outpostArn: string;
+    readonly outpostArn?: string;
     /**
      * ID of the AWS account that owns the Dedicated Host.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * Number of sockets on the Dedicated Host.
      */
-    readonly sockets: number;
-    readonly tags: {[key: string]: string};
+    readonly sockets?: number;
+    readonly tags?: {[key: string]: string};
     /**
      * Total number of vCPUs on the Dedicated Host.
      */
-    readonly totalVcpus: number;
+    readonly totalVcpus?: number;
 }
 /**
  * Use this data source to get information about an EC2 Dedicated Host.

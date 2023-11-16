@@ -45,7 +45,7 @@ class GetInvocationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -63,7 +63,7 @@ class GetInvocationResult:
 
     @property
     @pulumi.getter
-    def result(self) -> str:
+    def result(self) -> Optional[str]:
         """
         String result of the lambda function invocation.
         """

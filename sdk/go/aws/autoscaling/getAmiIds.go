@@ -89,7 +89,7 @@ type GetAmiIdsResult struct {
 	Arns    []string          `pulumi:"arns"`
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of the Autoscaling Groups in the current region.
 	Names []string `pulumi:"names"`
 }
@@ -144,8 +144,8 @@ func (o GetAmiIdsResultOutput) Filters() GetAmiIdsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetAmiIdsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of the Autoscaling Groups in the current region.

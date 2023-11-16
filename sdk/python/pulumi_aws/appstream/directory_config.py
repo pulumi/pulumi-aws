@@ -286,7 +286,7 @@ class DirectoryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         """

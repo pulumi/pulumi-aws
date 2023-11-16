@@ -401,9 +401,9 @@ type Launch struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the launch.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date and time that the launch is created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Specifies the description of the launch.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A block that contains information about the start and end times of the launch. Detailed below
@@ -411,7 +411,7 @@ type Launch struct {
 	// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
 	Groups LaunchGroupArrayOutput `pulumi:"groups"`
 	// The date and time that the launch was most recently updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
 	MetricMonitors LaunchMetricMonitorArrayOutput `pulumi:"metricMonitors"`
 	// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
@@ -423,9 +423,9 @@ type Launch struct {
 	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
 	ScheduledSplitsConfig LaunchScheduledSplitsConfigPtrOutput `pulumi:"scheduledSplitsConfig"`
 	// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
-	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
+	StatusReason pulumi.StringPtrOutput `pulumi:"statusReason"`
 	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -433,7 +433,7 @@ type Launch struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of launch.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewLaunch registers a new resource with the given unique name, arguments, and options.
@@ -680,13 +680,13 @@ func (o LaunchOutput) ToLaunchOutputWithContext(ctx context.Context) LaunchOutpu
 }
 
 // The ARN of the launch.
-func (o LaunchOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LaunchOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that the launch is created.
-func (o LaunchOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o LaunchOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the description of the launch.
@@ -705,8 +705,8 @@ func (o LaunchOutput) Groups() LaunchGroupArrayOutput {
 }
 
 // The date and time that the launch was most recently updated.
-func (o LaunchOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o LaunchOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
@@ -735,13 +735,13 @@ func (o LaunchOutput) ScheduledSplitsConfig() LaunchScheduledSplitsConfigPtrOutp
 }
 
 // The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
-func (o LaunchOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o LaunchOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
-func (o LaunchOutput) StatusReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
+func (o LaunchOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -757,8 +757,8 @@ func (o LaunchOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The type of launch.
-func (o LaunchOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o LaunchOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type LaunchArrayOutput struct{ *pulumi.OutputState }

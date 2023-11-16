@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetClusterSettingResult
     {
-        public readonly string Name;
-        public readonly string Value;
+        public readonly string? Name;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetClusterSettingResult(
-            string name,
+            string? name,
 
-            string value)
+            string? value)
         {
             Name = name;
             Value = value;

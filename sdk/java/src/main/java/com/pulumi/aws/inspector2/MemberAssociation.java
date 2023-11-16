@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -77,42 +78,42 @@ public class MemberAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="delegatedAdminAccountId", refs={String.class}, tree="[0]")
-    private Output<String> delegatedAdminAccountId;
+    private Output</* @Nullable */ String> delegatedAdminAccountId;
 
     /**
      * @return Account ID of the delegated administrator account
      * 
      */
-    public Output<String> delegatedAdminAccountId() {
-        return this.delegatedAdminAccountId;
+    public Output<Optional<String>> delegatedAdminAccountId() {
+        return Codegen.optional(this.delegatedAdminAccountId);
     }
     /**
      * Status of the member relationship
      * 
      */
     @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
-    private Output<String> relationshipStatus;
+    private Output</* @Nullable */ String> relationshipStatus;
 
     /**
      * @return Status of the member relationship
      * 
      */
-    public Output<String> relationshipStatus() {
-        return this.relationshipStatus;
+    public Output<Optional<String>> relationshipStatus() {
+        return Codegen.optional(this.relationshipStatus);
     }
     /**
      * Date and time of the last update of the relationship
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
-    private Output<String> updatedAt;
+    private Output</* @Nullable */ String> updatedAt;
 
     /**
      * @return Date and time of the last update of the relationship
      * 
      */
-    public Output<String> updatedAt() {
-        return this.updatedAt;
+    public Output<Optional<String>> updatedAt() {
+        return Codegen.optional(this.updatedAt);
     }
 
     /**

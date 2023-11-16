@@ -95,27 +95,27 @@ type LookupOntapStorageVirtualMachineResult struct {
 	// The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
 	ActiveDirectoryConfigurations []GetOntapStorageVirtualMachineActiveDirectoryConfiguration `pulumi:"activeDirectoryConfigurations"`
 	// Amazon Resource Name of the SVM.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The time that the SVM was created.
-	CreationTime string `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
 	// The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
 	Endpoints []GetOntapStorageVirtualMachineEndpoint `pulumi:"endpoints"`
 	// Identifier of the file system (e.g. `fs-12345678`).
-	FileSystemId string                                `pulumi:"fileSystemId"`
+	FileSystemId *string                               `pulumi:"fileSystemId"`
 	Filters      []GetOntapStorageVirtualMachineFilter `pulumi:"filters"`
 	// The SVM's system generated unique ID.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The SVM's lifecycle status.
-	LifecycleStatus string `pulumi:"lifecycleStatus"`
+	LifecycleStatus *string `pulumi:"lifecycleStatus"`
 	// Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
 	LifecycleTransitionReasons []GetOntapStorageVirtualMachineLifecycleTransitionReason `pulumi:"lifecycleTransitionReasons"`
 	// The name of the SVM, if provisioned.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The SVM's subtype.
-	Subtype string            `pulumi:"subtype"`
+	Subtype *string           `pulumi:"subtype"`
 	Tags    map[string]string `pulumi:"tags"`
 	// The SVM's UUID.
-	Uuid string `pulumi:"uuid"`
+	Uuid *string `pulumi:"uuid"`
 }
 
 func LookupOntapStorageVirtualMachineOutput(ctx *pulumi.Context, args LookupOntapStorageVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupOntapStorageVirtualMachineResultOutput {
@@ -167,13 +167,13 @@ func (o LookupOntapStorageVirtualMachineResultOutput) ActiveDirectoryConfigurati
 }
 
 // Amazon Resource Name of the SVM.
-func (o LookupOntapStorageVirtualMachineResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupOntapStorageVirtualMachineResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The time that the SVM was created.
-func (o LookupOntapStorageVirtualMachineResultOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o LookupOntapStorageVirtualMachineResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
@@ -184,8 +184,8 @@ func (o LookupOntapStorageVirtualMachineResultOutput) Endpoints() GetOntapStorag
 }
 
 // Identifier of the file system (e.g. `fs-12345678`).
-func (o LookupOntapStorageVirtualMachineResultOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.FileSystemId }).(pulumi.StringOutput)
+func (o LookupOntapStorageVirtualMachineResultOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupOntapStorageVirtualMachineResultOutput) Filters() GetOntapStorageVirtualMachineFilterArrayOutput {
@@ -193,13 +193,13 @@ func (o LookupOntapStorageVirtualMachineResultOutput) Filters() GetOntapStorageV
 }
 
 // The SVM's system generated unique ID.
-func (o LookupOntapStorageVirtualMachineResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupOntapStorageVirtualMachineResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The SVM's lifecycle status.
-func (o LookupOntapStorageVirtualMachineResultOutput) LifecycleStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.LifecycleStatus }).(pulumi.StringOutput)
+func (o LookupOntapStorageVirtualMachineResultOutput) LifecycleStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) *string { return v.LifecycleStatus }).(pulumi.StringPtrOutput)
 }
 
 // Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
@@ -210,13 +210,13 @@ func (o LookupOntapStorageVirtualMachineResultOutput) LifecycleTransitionReasons
 }
 
 // The name of the SVM, if provisioned.
-func (o LookupOntapStorageVirtualMachineResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupOntapStorageVirtualMachineResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The SVM's subtype.
-func (o LookupOntapStorageVirtualMachineResultOutput) Subtype() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.Subtype }).(pulumi.StringOutput)
+func (o LookupOntapStorageVirtualMachineResultOutput) Subtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) *string { return v.Subtype }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupOntapStorageVirtualMachineResultOutput) Tags() pulumi.StringMapOutput {
@@ -224,8 +224,8 @@ func (o LookupOntapStorageVirtualMachineResultOutput) Tags() pulumi.StringMapOut
 }
 
 // The SVM's UUID.
-func (o LookupOntapStorageVirtualMachineResultOutput) Uuid() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.Uuid }).(pulumi.StringOutput)
+func (o LookupOntapStorageVirtualMachineResultOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) *string { return v.Uuid }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -132,28 +132,28 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the parameter.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      * 
      */
     @Export(name="dataType", refs={String.class}, tree="[0]")
-    private Output<String> dataType;
+    private Output</* @Nullable */ String> dataType;
 
     /**
      * @return Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      * 
      */
-    public Output<String> dataType() {
-        return this.dataType;
+    public Output<Optional<String>> dataType() {
+        return Codegen.optional(this.dataType);
     }
     /**
      * Description of the parameter.
@@ -174,28 +174,28 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="insecureValue", refs={String.class}, tree="[0]")
-    private Output<String> insecureValue;
+    private Output</* @Nullable */ String> insecureValue;
 
     /**
      * @return Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      * 
      */
-    public Output<String> insecureValue() {
-        return this.insecureValue;
+    public Output<Optional<String>> insecureValue() {
+        return Codegen.optional(this.insecureValue);
     }
     /**
      * KMS key ID or ARN for encrypting a SecureString.
      * 
      */
     @Export(name="keyId", refs={String.class}, tree="[0]")
-    private Output<String> keyId;
+    private Output</* @Nullable */ String> keyId;
 
     /**
      * @return KMS key ID or ARN for encrypting a SecureString.
      * 
      */
-    public Output<String> keyId() {
-        return this.keyId;
+    public Output<Optional<String>> keyId() {
+        return Codegen.optional(this.keyId);
     }
     /**
      * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
@@ -300,7 +300,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
-    private Output<String> value;
+    private Output</* @Nullable */ String> value;
 
     /**
      * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
@@ -308,22 +308,22 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
      * 
      */
-    public Output<String> value() {
-        return this.value;
+    public Output<Optional<String>> value() {
+        return Codegen.optional(this.value);
     }
     /**
      * Version of the parameter.
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
-    private Output<Integer> version;
+    private Output</* @Nullable */ Integer> version;
 
     /**
      * @return Version of the parameter.
      * 
      */
-    public Output<Integer> version() {
-        return this.version;
+    public Output<Optional<Integer>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

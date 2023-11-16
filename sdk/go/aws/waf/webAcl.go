@@ -137,7 +137,7 @@ type WebAcl struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the WAF WebACL.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// Configuration block to enable WAF logging. Detailed below.
@@ -360,8 +360,8 @@ func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutpu
 }
 
 // The ARN of the WAF WebACL.
-func (o WebAclOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WebAclOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.

@@ -50,37 +50,37 @@ export interface GetFunctionResult {
     /**
      * ARN identifying your CloudFront Function.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Source code of the function
      */
-    readonly code: string;
+    readonly code?: string;
     /**
      * Comment.
      */
-    readonly comment: string;
+    readonly comment?: string;
     /**
      * ETag hash of the function
      */
-    readonly etag: string;
+    readonly etag?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * When this resource was last modified.
      */
-    readonly lastModifiedTime: string;
+    readonly lastModifiedTime?: string;
     readonly name: string;
     /**
      * Identifier of the function's runtime.
      */
-    readonly runtime: string;
+    readonly runtime?: string;
     readonly stage: string;
     /**
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      */
-    readonly status: string;
+    readonly status?: string;
 }
 /**
  * Provides information about a CloudFront Function.

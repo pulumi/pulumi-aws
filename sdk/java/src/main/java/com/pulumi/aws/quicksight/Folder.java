@@ -143,42 +143,42 @@ public class Folder extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the folder.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * AWS account ID.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * The time that the folder was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return The time that the folder was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Identifier for the folder.
@@ -199,14 +199,14 @@ public class Folder extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="folderPaths", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> folderPaths;
+    private Output</* @Nullable */ List<String>> folderPaths;
 
     /**
      * @return An array of ancestor ARN strings for the folder. Empty for root-level folders.
      * 
      */
-    public Output<List<String>> folderPaths() {
-        return this.folderPaths;
+    public Output<Optional<List<String>>> folderPaths() {
+        return Codegen.optional(this.folderPaths);
     }
     /**
      * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
@@ -227,14 +227,14 @@ public class Folder extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
+    private Output</* @Nullable */ String> lastUpdatedTime;
 
     /**
      * @return The time that the folder was last updated.
      * 
      */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Output<Optional<String>> lastUpdatedTime() {
+        return Codegen.optional(this.lastUpdatedTime);
     }
     /**
      * Display name for the folder.

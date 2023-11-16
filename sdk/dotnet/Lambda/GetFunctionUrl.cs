@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Type of authentication that the function URL uses.
         /// </summary>
-        public readonly string AuthorizationType;
+        public readonly string? AuthorizationType;
         /// <summary>
         /// The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
         /// </summary>
@@ -128,57 +128,57 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
         /// </summary>
-        public readonly string CreationTime;
+        public readonly string? CreationTime;
         /// <summary>
         /// ARN of the function.
         /// </summary>
-        public readonly string FunctionArn;
+        public readonly string? FunctionArn;
         public readonly string FunctionName;
         /// <summary>
         /// HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
         /// </summary>
-        public readonly string FunctionUrl;
+        public readonly string? FunctionUrl;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
         /// </summary>
-        public readonly string InvokeMode;
+        public readonly string? InvokeMode;
         /// <summary>
         /// When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
         /// </summary>
-        public readonly string LastModifiedTime;
+        public readonly string? LastModifiedTime;
         public readonly string? Qualifier;
         /// <summary>
         /// Generated ID for the endpoint.
         /// </summary>
-        public readonly string UrlId;
+        public readonly string? UrlId;
 
         [OutputConstructor]
         private GetFunctionUrlResult(
-            string authorizationType,
+            string? authorizationType,
 
             ImmutableArray<Outputs.GetFunctionUrlCorResult> cors,
 
-            string creationTime,
+            string? creationTime,
 
-            string functionArn,
+            string? functionArn,
 
             string functionName,
 
-            string functionUrl,
+            string? functionUrl,
 
-            string id,
+            string? id,
 
-            string invokeMode,
+            string? invokeMode,
 
-            string lastModifiedTime,
+            string? lastModifiedTime,
 
             string? qualifier,
 
-            string urlId)
+            string? urlId)
         {
             AuthorizationType = authorizationType;
             Cors = cors;

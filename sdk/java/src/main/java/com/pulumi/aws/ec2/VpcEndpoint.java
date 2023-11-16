@@ -186,14 +186,14 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the VPC endpoint.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
@@ -214,112 +214,112 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cidrBlocks", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> cidrBlocks;
+    private Output</* @Nullable */ List<String>> cidrBlocks;
 
     /**
      * @return The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    public Output<List<String>> cidrBlocks() {
-        return this.cidrBlocks;
+    public Output<Optional<List<String>>> cidrBlocks() {
+        return Codegen.optional(this.cidrBlocks);
     }
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      * 
      */
     @Export(name="dnsEntries", refs={List.class,VpcEndpointDnsEntry.class}, tree="[0,1]")
-    private Output<List<VpcEndpointDnsEntry>> dnsEntries;
+    private Output</* @Nullable */ List<VpcEndpointDnsEntry>> dnsEntries;
 
     /**
      * @return The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      * 
      */
-    public Output<List<VpcEndpointDnsEntry>> dnsEntries() {
-        return this.dnsEntries;
+    public Output<Optional<List<VpcEndpointDnsEntry>>> dnsEntries() {
+        return Codegen.optional(this.dnsEntries);
     }
     /**
      * The DNS options for the endpoint. See dns_options below.
      * 
      */
     @Export(name="dnsOptions", refs={VpcEndpointDnsOptions.class}, tree="[0]")
-    private Output<VpcEndpointDnsOptions> dnsOptions;
+    private Output</* @Nullable */ VpcEndpointDnsOptions> dnsOptions;
 
     /**
      * @return The DNS options for the endpoint. See dns_options below.
      * 
      */
-    public Output<VpcEndpointDnsOptions> dnsOptions() {
-        return this.dnsOptions;
+    public Output<Optional<VpcEndpointDnsOptions>> dnsOptions() {
+        return Codegen.optional(this.dnsOptions);
     }
     /**
      * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
-    private Output<String> ipAddressType;
+    private Output</* @Nullable */ String> ipAddressType;
 
     /**
      * @return The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      * 
      */
-    public Output<String> ipAddressType() {
-        return this.ipAddressType;
+    public Output<Optional<String>> ipAddressType() {
+        return Codegen.optional(this.ipAddressType);
     }
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      * 
      */
     @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> networkInterfaceIds;
+    private Output</* @Nullable */ List<String>> networkInterfaceIds;
 
     /**
      * @return One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      * 
      */
-    public Output<List<String>> networkInterfaceIds() {
-        return this.networkInterfaceIds;
+    public Output<Optional<List<String>>> networkInterfaceIds() {
+        return Codegen.optional(this.networkInterfaceIds);
     }
     /**
      * The ID of the AWS account that owns the VPC endpoint.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The ID of the AWS account that owns the VPC endpoint.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     @Export(name="prefixListId", refs={String.class}, tree="[0]")
-    private Output<String> prefixListId;
+    private Output</* @Nullable */ String> prefixListId;
 
     /**
      * @return The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    public Output<String> prefixListId() {
-        return this.prefixListId;
+    public Output<Optional<String>> prefixListId() {
+        return Codegen.optional(this.prefixListId);
     }
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
@@ -342,28 +342,28 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="requesterManaged", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> requesterManaged;
+    private Output</* @Nullable */ Boolean> requesterManaged;
 
     /**
      * @return Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      * 
      */
-    public Output<Boolean> requesterManaged() {
-        return this.requesterManaged;
+    public Output<Optional<Boolean>> requesterManaged() {
+        return Codegen.optional(this.requesterManaged);
     }
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      * 
      */
     @Export(name="routeTableIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> routeTableIds;
+    private Output</* @Nullable */ List<String>> routeTableIds;
 
     /**
      * @return One or more route table IDs. Applicable for endpoints of type `Gateway`.
      * 
      */
-    public Output<List<String>> routeTableIds() {
-        return this.routeTableIds;
+    public Output<Optional<List<String>>> routeTableIds() {
+        return Codegen.optional(this.routeTableIds);
     }
     /**
      * The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
@@ -371,15 +371,15 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupIds;
+    private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
      * @return The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
      * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      * 
      */
-    public Output<List<String>> securityGroupIds() {
-        return this.securityGroupIds;
+    public Output<Optional<List<String>>> securityGroupIds() {
+        return Codegen.optional(this.securityGroupIds);
     }
     /**
      * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
@@ -400,28 +400,28 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The state of the VPC endpoint.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subnetIds;
+    private Output</* @Nullable */ List<String>> subnetIds;
 
     /**
      * @return The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
-    public Output<List<String>> subnetIds() {
-        return this.subnetIds;
+    public Output<Optional<List<String>>> subnetIds() {
+        return Codegen.optional(this.subnetIds);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -96,14 +96,14 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Dedicated IP Pool.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name of the dedicated IP pool.
@@ -128,14 +128,14 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="scalingMode", refs={String.class}, tree="[0]")
-    private Output<String> scalingMode;
+    private Output</* @Nullable */ String> scalingMode;
 
     /**
      * @return IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      * 
      */
-    public Output<String> scalingMode() {
-        return this.scalingMode;
+    public Output<Optional<String>> scalingMode() {
+        return Codegen.optional(this.scalingMode);
     }
     /**
      * A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

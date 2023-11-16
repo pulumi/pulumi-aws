@@ -16,15 +16,15 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// <summary>
         /// The automation document's name.
         /// </summary>
-        public readonly string DocumentName;
+        public readonly string? DocumentName;
         /// <summary>
         /// The version of the automation document to use at runtime.
         /// </summary>
-        public readonly string DocumentVersion;
+        public readonly string? DocumentVersion;
         /// <summary>
         /// The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> DynamicParameters;
+        public readonly ImmutableDictionary<string, string>? DynamicParameters;
         /// <summary>
         /// The key-value pair parameters used when the automation document runs. The following values are supported:
         /// </summary>
@@ -32,25 +32,25 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// The account that runs the automation document. This can be in either the management account or an application account.
         /// </summary>
-        public readonly string TargetAccount;
+        public readonly string? TargetAccount;
 
         [OutputConstructor]
         private GetResponsePlanActionSsmAutomationResult(
-            string documentName,
+            string? documentName,
 
-            string documentVersion,
+            string? documentVersion,
 
-            ImmutableDictionary<string, string> dynamicParameters,
+            ImmutableDictionary<string, string>? dynamicParameters,
 
             ImmutableArray<Outputs.GetResponsePlanActionSsmAutomationParameterResult> parameters,
 
-            string roleArn,
+            string? roleArn,
 
-            string targetAccount)
+            string? targetAccount)
         {
             DocumentName = documentName;
             DocumentVersion = documentVersion;

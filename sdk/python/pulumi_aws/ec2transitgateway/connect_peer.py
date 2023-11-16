@@ -469,7 +469,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         EC2 Transit Gateway Connect Peer ARN
         """
@@ -477,7 +477,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> pulumi.Output[str]:
+    def bgp_asn(self) -> pulumi.Output[Optional[str]]:
         """
         The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
         """
@@ -485,7 +485,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpPeerAddress")
-    def bgp_peer_address(self) -> pulumi.Output[str]:
+    def bgp_peer_address(self) -> pulumi.Output[Optional[str]]:
         """
         The IP address assigned to customer device, which is used as BGP IP address.
         """
@@ -493,7 +493,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpTransitGatewayAddresses")
-    def bgp_transit_gateway_addresses(self) -> pulumi.Output[Sequence[str]]:
+    def bgp_transit_gateway_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
         """
@@ -536,7 +536,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayAddress")
-    def transit_gateway_address(self) -> pulumi.Output[str]:
+    def transit_gateway_address(self) -> pulumi.Output[Optional[str]]:
         """
         The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
         """

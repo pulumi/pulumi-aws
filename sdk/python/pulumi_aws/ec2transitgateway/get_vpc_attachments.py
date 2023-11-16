@@ -41,7 +41,7 @@ class GetVpcAttachmentsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -49,7 +49,7 @@ class GetVpcAttachmentsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> Sequence[str]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
         """

@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationProfileResult {
@@ -17,48 +19,48 @@ public final class GetConfigurationProfileResult {
      * @return ARN of the Configuration Profile.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     private String configurationProfileId;
     /**
      * @return Description of the Configuration Profile.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Location URI of the Configuration Profile.
      * 
      */
-    private String locationUri;
+    private @Nullable String locationUri;
     /**
      * @return Name of the Configuration Profile.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return ARN of an IAM role with permission to access the configuration at the specified location_uri.
      * 
      */
-    private String retrievalRoleArn;
+    private @Nullable String retrievalRoleArn;
     /**
      * @return Map of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
      * 
      */
-    private String type;
+    private @Nullable String type;
     /**
      * @return Nested list of methods for validating the configuration.
      * 
      */
-    private List<GetConfigurationProfileValidator> validators;
+    private @Nullable List<GetConfigurationProfileValidator> validators;
 
     private GetConfigurationProfileResult() {}
     public String applicationId() {
@@ -68,8 +70,8 @@ public final class GetConfigurationProfileResult {
      * @return ARN of the Configuration Profile.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public String configurationProfileId() {
         return this.configurationProfileId;
@@ -78,57 +80,57 @@ public final class GetConfigurationProfileResult {
      * @return Description of the Configuration Profile.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Location URI of the Configuration Profile.
      * 
      */
-    public String locationUri() {
-        return this.locationUri;
+    public Optional<String> locationUri() {
+        return Optional.ofNullable(this.locationUri);
     }
     /**
      * @return Name of the Configuration Profile.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return ARN of an IAM role with permission to access the configuration at the specified location_uri.
      * 
      */
-    public String retrievalRoleArn() {
-        return this.retrievalRoleArn;
+    public Optional<String> retrievalRoleArn() {
+        return Optional.ofNullable(this.retrievalRoleArn);
     }
     /**
      * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
     /**
      * @return Nested list of methods for validating the configuration.
      * 
      */
     public List<GetConfigurationProfileValidator> validators() {
-        return this.validators;
+        return this.validators == null ? List.of() : this.validators;
     }
 
     public static Builder builder() {
@@ -141,16 +143,16 @@ public final class GetConfigurationProfileResult {
     @CustomType.Builder
     public static final class Builder {
         private String applicationId;
-        private String arn;
+        private @Nullable String arn;
         private String configurationProfileId;
-        private String description;
-        private String id;
-        private String locationUri;
-        private String name;
-        private String retrievalRoleArn;
-        private Map<String,String> tags;
-        private String type;
-        private List<GetConfigurationProfileValidator> validators;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String locationUri;
+        private @Nullable String name;
+        private @Nullable String retrievalRoleArn;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
+        private @Nullable List<GetConfigurationProfileValidator> validators;
         public Builder() {}
         public Builder(GetConfigurationProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -173,8 +175,8 @@ public final class GetConfigurationProfileResult {
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -183,43 +185,43 @@ public final class GetConfigurationProfileResult {
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder locationUri(String locationUri) {
-            this.locationUri = Objects.requireNonNull(locationUri);
+        public Builder locationUri(@Nullable String locationUri) {
+            this.locationUri = locationUri;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder retrievalRoleArn(String retrievalRoleArn) {
-            this.retrievalRoleArn = Objects.requireNonNull(retrievalRoleArn);
+        public Builder retrievalRoleArn(@Nullable String retrievalRoleArn) {
+            this.retrievalRoleArn = retrievalRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder validators(List<GetConfigurationProfileValidator> validators) {
-            this.validators = Objects.requireNonNull(validators);
+        public Builder validators(@Nullable List<GetConfigurationProfileValidator> validators) {
+            this.validators = validators;
             return this;
         }
         public Builder validators(GetConfigurationProfileValidator... validators) {

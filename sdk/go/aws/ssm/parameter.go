@@ -105,15 +105,15 @@ type Parameter struct {
 	// Regular expression used to validate the parameter value.
 	AllowedPattern pulumi.StringPtrOutput `pulumi:"allowedPattern"`
 	// ARN of the parameter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-	DataType pulumi.StringOutput `pulumi:"dataType"`
+	DataType pulumi.StringPtrOutput `pulumi:"dataType"`
 	// Description of the parameter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-	InsecureValue pulumi.StringOutput `pulumi:"insecureValue"`
+	InsecureValue pulumi.StringPtrOutput `pulumi:"insecureValue"`
 	// KMS key ID or ARN for encrypting a SecureString.
-	KeyId pulumi.StringOutput `pulumi:"keyId"`
+	KeyId pulumi.StringPtrOutput `pulumi:"keyId"`
 	// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
@@ -135,9 +135,9 @@ type Parameter struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 	// Version of the parameter.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewParameter registers a new resource with the given unique name, arguments, and options.
@@ -422,13 +422,13 @@ func (o ParameterOutput) AllowedPattern() pulumi.StringPtrOutput {
 }
 
 // ARN of the parameter.
-func (o ParameterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ParameterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-func (o ParameterOutput) DataType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.DataType }).(pulumi.StringOutput)
+func (o ParameterOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
 // Description of the parameter.
@@ -437,13 +437,13 @@ func (o ParameterOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-func (o ParameterOutput) InsecureValue() pulumi.StringOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.InsecureValue }).(pulumi.StringOutput)
+func (o ParameterOutput) InsecureValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.InsecureValue }).(pulumi.StringPtrOutput)
 }
 
 // KMS key ID or ARN for encrypting a SecureString.
-func (o ParameterOutput) KeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+func (o ParameterOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
@@ -485,13 +485,13 @@ func (o ParameterOutput) Type() pulumi.StringOutput {
 // Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
 //
 // > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-func (o ParameterOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+func (o ParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 // Version of the parameter.
-func (o ParameterOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o ParameterOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type ParameterArrayOutput struct{ *pulumi.OutputState }

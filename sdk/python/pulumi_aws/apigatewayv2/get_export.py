@@ -54,7 +54,7 @@ class GetExportResult:
 
     @property
     @pulumi.getter
-    def body(self) -> str:
+    def body(self) -> Optional[str]:
         """
         ID of the API.
         """
@@ -67,7 +67,7 @@ class GetExportResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

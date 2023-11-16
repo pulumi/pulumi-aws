@@ -6,6 +6,8 @@ package com.pulumi.aws.licensemanager.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReceivedLicenseValidity {
@@ -13,27 +15,27 @@ public final class GetReceivedLicenseValidity {
      * @return Start of the validity time range.
      * 
      */
-    private String begin;
+    private @Nullable String begin;
     /**
      * @return End of the validity time range.
      * 
      */
-    private String end;
+    private @Nullable String end;
 
     private GetReceivedLicenseValidity() {}
     /**
      * @return Start of the validity time range.
      * 
      */
-    public String begin() {
-        return this.begin;
+    public Optional<String> begin() {
+        return Optional.ofNullable(this.begin);
     }
     /**
      * @return End of the validity time range.
      * 
      */
-    public String end() {
-        return this.end;
+    public Optional<String> end() {
+        return Optional.ofNullable(this.end);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetReceivedLicenseValidity {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String begin;
-        private String end;
+        private @Nullable String begin;
+        private @Nullable String end;
         public Builder() {}
         public Builder(GetReceivedLicenseValidity defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetReceivedLicenseValidity {
         }
 
         @CustomType.Setter
-        public Builder begin(String begin) {
-            this.begin = Objects.requireNonNull(begin);
+        public Builder begin(@Nullable String begin) {
+            this.begin = begin;
             return this;
         }
         @CustomType.Setter
-        public Builder end(String end) {
-            this.end = Objects.requireNonNull(end);
+        public Builder end(@Nullable String end) {
+            this.end = end;
             return this;
         }
         public GetReceivedLicenseValidity build() {

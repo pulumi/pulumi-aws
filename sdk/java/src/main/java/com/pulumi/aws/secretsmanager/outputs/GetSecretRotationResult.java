@@ -9,6 +9,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecretRotationResult {
@@ -16,22 +18,22 @@ public final class GetSecretRotationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of the secret.
      * 
      */
-    private Boolean rotationEnabled;
+    private @Nullable Boolean rotationEnabled;
     /**
      * @return Decrypted part of the protected secret information that was originally provided as a string.
      * 
      */
-    private String rotationLambdaArn;
+    private @Nullable String rotationLambdaArn;
     /**
      * @return Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      * 
      */
-    private List<GetSecretRotationRotationRule> rotationRules;
+    private @Nullable List<GetSecretRotationRotationRule> rotationRules;
     private String secretId;
 
     private GetSecretRotationResult() {}
@@ -39,29 +41,29 @@ public final class GetSecretRotationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of the secret.
      * 
      */
-    public Boolean rotationEnabled() {
-        return this.rotationEnabled;
+    public Optional<Boolean> rotationEnabled() {
+        return Optional.ofNullable(this.rotationEnabled);
     }
     /**
      * @return Decrypted part of the protected secret information that was originally provided as a string.
      * 
      */
-    public String rotationLambdaArn() {
-        return this.rotationLambdaArn;
+    public Optional<String> rotationLambdaArn() {
+        return Optional.ofNullable(this.rotationLambdaArn);
     }
     /**
      * @return Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      * 
      */
     public List<GetSecretRotationRotationRule> rotationRules() {
-        return this.rotationRules;
+        return this.rotationRules == null ? List.of() : this.rotationRules;
     }
     public String secretId() {
         return this.secretId;
@@ -76,10 +78,10 @@ public final class GetSecretRotationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private Boolean rotationEnabled;
-        private String rotationLambdaArn;
-        private List<GetSecretRotationRotationRule> rotationRules;
+        private @Nullable String id;
+        private @Nullable Boolean rotationEnabled;
+        private @Nullable String rotationLambdaArn;
+        private @Nullable List<GetSecretRotationRotationRule> rotationRules;
         private String secretId;
         public Builder() {}
         public Builder(GetSecretRotationResult defaults) {
@@ -92,23 +94,23 @@ public final class GetSecretRotationResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder rotationEnabled(Boolean rotationEnabled) {
-            this.rotationEnabled = Objects.requireNonNull(rotationEnabled);
+        public Builder rotationEnabled(@Nullable Boolean rotationEnabled) {
+            this.rotationEnabled = rotationEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder rotationLambdaArn(String rotationLambdaArn) {
-            this.rotationLambdaArn = Objects.requireNonNull(rotationLambdaArn);
+        public Builder rotationLambdaArn(@Nullable String rotationLambdaArn) {
+            this.rotationLambdaArn = rotationLambdaArn;
             return this;
         }
         @CustomType.Setter
-        public Builder rotationRules(List<GetSecretRotationRotationRule> rotationRules) {
-            this.rotationRules = Objects.requireNonNull(rotationRules);
+        public Builder rotationRules(@Nullable List<GetSecretRotationRotationRule> rotationRules) {
+            this.rotationRules = rotationRules;
             return this;
         }
         public Builder rotationRules(GetSecretRotationRotationRule... rotationRules) {

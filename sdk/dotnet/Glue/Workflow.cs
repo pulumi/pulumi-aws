@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Glue
         /// Amazon Resource Name (ARN) of Glue Workflow
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.

@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Cfg
         /// The ARN of the aggregator
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the configuration aggregator.

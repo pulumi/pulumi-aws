@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Ses
         /// SES configuration set ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether messages that use the configuration set are required to use TLS. See below.
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ses
         /// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         /// </summary>
         [Output("lastFreshStart")]
-        public Output<string> LastFreshStart { get; private set; } = null!;
+        public Output<string?> LastFreshStart { get; private set; } = null!;
 
         /// <summary>
         /// Name of the configuration set.

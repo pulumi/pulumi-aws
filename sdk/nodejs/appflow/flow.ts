@@ -147,7 +147,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * Flow's ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the flow you want to create.
      */
@@ -159,7 +159,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
-    public readonly kmsArn!: pulumi.Output<string>;
+    public readonly kmsArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the flow.
      */

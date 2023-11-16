@@ -13,18 +13,18 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetLogicalTableMapResult
     {
-        public readonly string Alias;
+        public readonly string? Alias;
         public readonly ImmutableArray<Outputs.GetDataSetLogicalTableMapDataTransformResult> DataTransforms;
-        public readonly string LogicalTableMapId;
+        public readonly string? LogicalTableMapId;
         public readonly ImmutableArray<Outputs.GetDataSetLogicalTableMapSourceResult> Sources;
 
         [OutputConstructor]
         private GetDataSetLogicalTableMapResult(
-            string alias,
+            string? alias,
 
             ImmutableArray<Outputs.GetDataSetLogicalTableMapDataTransformResult> dataTransforms,
 
-            string logicalTableMapId,
+            string? logicalTableMapId,
 
             ImmutableArray<Outputs.GetDataSetLogicalTableMapSourceResult> sources)
         {

@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPoli
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendDefaultClientPolicy {
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls;
 
     private GetVirtualNodeSpecBackendDefaultClientPolicy() {}
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls() {
-        return this.tls;
+        return this.tls == null ? List.of() : this.tls;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendDefaultClientPolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicy {
         }
 
         @CustomType.Setter
-        public Builder tls(List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls) {
-            this.tls = Objects.requireNonNull(tls);
+        public Builder tls(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls) {
+            this.tls = tls;
             return this;
         }
         public Builder tls(GetVirtualNodeSpecBackendDefaultClientPolicyTl... tls) {

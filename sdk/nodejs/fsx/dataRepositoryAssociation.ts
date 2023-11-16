@@ -91,8 +91,8 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly associationId!: pulumi.Output<string | undefined>;
     /**
      * Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
      */
@@ -116,12 +116,12 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
      */
-    public readonly importedFileChunkSize!: pulumi.Output<number>;
+    public readonly importedFileChunkSize!: pulumi.Output<number | undefined>;
     /**
      * See the `s3` configuration block. Max of 1.
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      */
-    public readonly s3!: pulumi.Output<outputs.fsx.DataRepositoryAssociationS3>;
+    public readonly s3!: pulumi.Output<outputs.fsx.DataRepositoryAssociationS3 | undefined>;
     /**
      * A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

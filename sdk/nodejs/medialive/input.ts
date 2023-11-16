@@ -73,11 +73,11 @@ export class Input extends pulumi.CustomResource {
     /**
      * ARN of the Input.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Channels attached to Input.
      */
-    public /*out*/ readonly attachedChannels!: pulumi.Output<string[]>;
+    public /*out*/ readonly attachedChannels!: pulumi.Output<string[] | undefined>;
     /**
      * Destination settings for PUSH type inputs. See Destinations for more details.
      */
@@ -85,15 +85,15 @@ export class Input extends pulumi.CustomResource {
     /**
      * The input class.
      */
-    public /*out*/ readonly inputClass!: pulumi.Output<string>;
+    public /*out*/ readonly inputClass!: pulumi.Output<string | undefined>;
     /**
      * Settings for the devices. See Input Devices for more details.
      */
-    public readonly inputDevices!: pulumi.Output<outputs.medialive.InputInputDevice[]>;
+    public readonly inputDevices!: pulumi.Output<outputs.medialive.InputInputDevice[] | undefined>;
     /**
      * A list of IDs for all Inputs which are partners of this one.
      */
-    public /*out*/ readonly inputPartnerIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly inputPartnerIds!: pulumi.Output<string[] | undefined>;
     /**
      * List of input security groups.
      */
@@ -101,11 +101,11 @@ export class Input extends pulumi.CustomResource {
     /**
      * Source type of the input.
      */
-    public /*out*/ readonly inputSourceType!: pulumi.Output<string>;
+    public /*out*/ readonly inputSourceType!: pulumi.Output<string | undefined>;
     /**
      * A list of the MediaConnect Flows. See Media Connect Flows for more details.
      */
-    public readonly mediaConnectFlows!: pulumi.Output<outputs.medialive.InputMediaConnectFlow[]>;
+    public readonly mediaConnectFlows!: pulumi.Output<outputs.medialive.InputMediaConnectFlow[] | undefined>;
     /**
      * Name of the input.
      */
@@ -113,11 +113,11 @@ export class Input extends pulumi.CustomResource {
     /**
      * The ARN of the role this input assumes during and after creation.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * The source URLs for a PULL-type input. See Sources for more details.
      */
-    public readonly sources!: pulumi.Output<outputs.medialive.InputSource[]>;
+    public readonly sources!: pulumi.Output<outputs.medialive.InputSource[] | undefined>;
     /**
      * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

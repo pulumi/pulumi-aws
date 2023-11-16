@@ -306,98 +306,98 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID representing the association of the address with an instance in a VPC.
         /// </summary>
-        public readonly string AssociationId;
+        public readonly string? AssociationId;
         /// <summary>
         /// Carrier IP address.
         /// </summary>
-        public readonly string CarrierIp;
+        public readonly string? CarrierIp;
         /// <summary>
         /// Customer Owned IP.
         /// </summary>
-        public readonly string CustomerOwnedIp;
+        public readonly string? CustomerOwnedIp;
         /// <summary>
         /// The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
         /// </summary>
-        public readonly string CustomerOwnedIpv4Pool;
+        public readonly string? CustomerOwnedIpv4Pool;
         /// <summary>
         /// Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
         /// </summary>
-        public readonly string Domain;
+        public readonly string? Domain;
         public readonly ImmutableArray<Outputs.GetElasticIpFilterResult> Filters;
         /// <summary>
         /// If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ID of the instance that the address is associated with (if any).
         /// </summary>
-        public readonly string InstanceId;
+        public readonly string? InstanceId;
         /// <summary>
         /// The ID of the network interface.
         /// </summary>
-        public readonly string NetworkInterfaceId;
+        public readonly string? NetworkInterfaceId;
         /// <summary>
         /// The ID of the AWS account that owns the network interface.
         /// </summary>
-        public readonly string NetworkInterfaceOwnerId;
+        public readonly string? NetworkInterfaceOwnerId;
         /// <summary>
         /// Private DNS associated with the Elastic IP address.
         /// </summary>
-        public readonly string PrivateDns;
+        public readonly string? PrivateDns;
         /// <summary>
         /// Private IP address associated with the Elastic IP address.
         /// </summary>
-        public readonly string PrivateIp;
+        public readonly string? PrivateIp;
         /// <summary>
         /// Public DNS associated with the Elastic IP address.
         /// </summary>
-        public readonly string PublicDns;
+        public readonly string? PublicDns;
         /// <summary>
         /// Public IP address of Elastic IP.
         /// </summary>
-        public readonly string PublicIp;
+        public readonly string? PublicIp;
         /// <summary>
         /// ID of an address pool.
         /// </summary>
-        public readonly string PublicIpv4Pool;
+        public readonly string? PublicIpv4Pool;
         /// <summary>
         /// Key-value map of tags associated with Elastic IP.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetElasticIpResult(
-            string associationId,
+            string? associationId,
 
-            string carrierIp,
+            string? carrierIp,
 
-            string customerOwnedIp,
+            string? customerOwnedIp,
 
-            string customerOwnedIpv4Pool,
+            string? customerOwnedIpv4Pool,
 
-            string domain,
+            string? domain,
 
             ImmutableArray<Outputs.GetElasticIpFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string instanceId,
+            string? instanceId,
 
-            string networkInterfaceId,
+            string? networkInterfaceId,
 
-            string networkInterfaceOwnerId,
+            string? networkInterfaceOwnerId,
 
-            string privateDns,
+            string? privateDns,
 
-            string privateIp,
+            string? privateIp,
 
-            string publicDns,
+            string? publicDns,
 
-            string publicIp,
+            string? publicIp,
 
-            string publicIpv4Pool,
+            string? publicIpv4Pool,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AssociationId = associationId;
             CarrierIp = carrierIp;

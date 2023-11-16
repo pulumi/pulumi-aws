@@ -110,7 +110,7 @@ type CodeRepository struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the Code Repository (must be unique).
 	CodeRepositoryName pulumi.StringOutput `pulumi:"codeRepositoryName"`
 	// Specifies details about the repository. see Git Config details below.
@@ -303,8 +303,8 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-func (o CodeRepositoryOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CodeRepository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CodeRepositoryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepository) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Code Repository (must be unique).

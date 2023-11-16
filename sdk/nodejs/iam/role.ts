@@ -197,7 +197,7 @@ export class Role extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) specifying the role.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Policy that grants an entity permission to assume the role.
      *
@@ -209,7 +209,7 @@ export class Role extends pulumi.CustomResource {
     /**
      * Creation date of the IAM role.
      */
-    public /*out*/ readonly createDate!: pulumi.Output<string>;
+    public /*out*/ readonly createDate!: pulumi.Output<string | undefined>;
     /**
      * Description of the role.
      */
@@ -221,8 +221,8 @@ export class Role extends pulumi.CustomResource {
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
      */
-    public readonly inlinePolicies!: pulumi.Output<outputs.iam.RoleInlinePolicy[]>;
-    public readonly managedPolicyArns!: pulumi.Output<string[]>;
+    public readonly inlinePolicies!: pulumi.Output<outputs.iam.RoleInlinePolicy[] | undefined>;
+    public readonly managedPolicyArns!: pulumi.Output<string[] | undefined>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
@@ -234,7 +234,7 @@ export class Role extends pulumi.CustomResource {
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
@@ -256,7 +256,7 @@ export class Role extends pulumi.CustomResource {
     /**
      * Stable and unique string identifying the role.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.

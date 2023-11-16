@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of EBS snapshot IDs, sorted by creation time in descending order.
         /// </summary>
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Ebs
         private GetSnapshotIdsResult(
             ImmutableArray<Outputs.GetSnapshotIdsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

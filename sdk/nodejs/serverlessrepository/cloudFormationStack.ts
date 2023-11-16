@@ -79,15 +79,15 @@ export class CloudFormationStack extends pulumi.CustomResource {
     /**
      * A map of outputs from the stack.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The version of the application to deploy. If not supplied, deploys the latest version.
      */
-    public readonly semanticVersion!: pulumi.Output<string>;
+    public readonly semanticVersion!: pulumi.Output<string | undefined>;
     /**
      * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

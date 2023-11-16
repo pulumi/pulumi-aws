@@ -56,9 +56,9 @@ type TransitGateway struct {
 	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn pulumi.IntPtrOutput `pulumi:"amazonSideAsn"`
 	// EC2 Transit Gateway Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Identifier of the default association route table
-	AssociationDefaultRouteTableId pulumi.StringOutput `pulumi:"associationDefaultRouteTableId"`
+	AssociationDefaultRouteTableId pulumi.StringPtrOutput `pulumi:"associationDefaultRouteTableId"`
 	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
 	AutoAcceptSharedAttachments pulumi.StringPtrOutput `pulumi:"autoAcceptSharedAttachments"`
 	// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -72,9 +72,9 @@ type TransitGateway struct {
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrOutput `pulumi:"multicastSupport"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
-	PropagationDefaultRouteTableId pulumi.StringOutput `pulumi:"propagationDefaultRouteTableId"`
+	PropagationDefaultRouteTableId pulumi.StringPtrOutput `pulumi:"propagationDefaultRouteTableId"`
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -344,13 +344,13 @@ func (o TransitGatewayOutput) AmazonSideAsn() pulumi.IntPtrOutput {
 }
 
 // EC2 Transit Gateway Amazon Resource Name (ARN)
-func (o TransitGatewayOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TransitGatewayOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the default association route table
-func (o TransitGatewayOutput) AssociationDefaultRouteTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.AssociationDefaultRouteTableId }).(pulumi.StringOutput)
+func (o TransitGatewayOutput) AssociationDefaultRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.AssociationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
 // Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -384,13 +384,13 @@ func (o TransitGatewayOutput) MulticastSupport() pulumi.StringPtrOutput {
 }
 
 // Identifier of the AWS account that owns the EC2 Transit Gateway
-func (o TransitGatewayOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o TransitGatewayOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the default propagation route table
-func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
+func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

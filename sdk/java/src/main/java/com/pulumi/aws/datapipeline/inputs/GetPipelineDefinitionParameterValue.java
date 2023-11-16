@@ -6,6 +6,8 @@ package com.pulumi.aws.datapipeline.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPipelineDefinitionParameterValue extends com.pulumi.resources.InvokeArgs {
@@ -16,30 +18,30 @@ public final class GetPipelineDefinitionParameterValue extends com.pulumi.resour
      * ID of the object.
      * 
      */
-    @Import(name="id", required=true)
-    private String id;
+    @Import(name="id")
+    private @Nullable String id;
 
     /**
      * @return ID of the object.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
      * Field value, expressed as a String.
      * 
      */
-    @Import(name="stringValue", required=true)
-    private String stringValue;
+    @Import(name="stringValue")
+    private @Nullable String stringValue;
 
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    public String stringValue() {
-        return this.stringValue;
+    public Optional<String> stringValue() {
+        return Optional.ofNullable(this.stringValue);
     }
 
     private GetPipelineDefinitionParameterValue() {}
@@ -73,7 +75,7 @@ public final class GetPipelineDefinitionParameterValue extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder id(String id) {
+        public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
@@ -84,14 +86,12 @@ public final class GetPipelineDefinitionParameterValue extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder stringValue(String stringValue) {
+        public Builder stringValue(@Nullable String stringValue) {
             $.stringValue = stringValue;
             return this;
         }
 
         public GetPipelineDefinitionParameterValue build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.stringValue = Objects.requireNonNull($.stringValue, "expected parameter 'stringValue' to be non-null");
             return $;
         }
     }

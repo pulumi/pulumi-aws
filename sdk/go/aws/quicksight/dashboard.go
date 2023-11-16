@@ -66,30 +66,30 @@ type Dashboard struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the resource.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// The time that the dashboard was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Identifier for the dashboard.
 	DashboardId pulumi.StringOutput `pulumi:"dashboardId"`
 	// Options for publishing the dashboard. See dashboard_publish_options.
-	DashboardPublishOptions DashboardDashboardPublishOptionsOutput `pulumi:"dashboardPublishOptions"`
-	LastPublishedTime       pulumi.StringOutput                    `pulumi:"lastPublishedTime"`
+	DashboardPublishOptions DashboardDashboardPublishOptionsPtrOutput `pulumi:"dashboardPublishOptions"`
+	LastPublishedTime       pulumi.StringPtrOutput                    `pulumi:"lastPublishedTime"`
 	// The time that the dashboard was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// Display name for the dashboard.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters DashboardParametersOutput `pulumi:"parameters"`
+	Parameters DashboardParametersPtrOutput `pulumi:"parameters"`
 	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
 	Permissions DashboardPermissionArrayOutput `pulumi:"permissions"`
 	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity DashboardSourceEntityPtrOutput `pulumi:"sourceEntity"`
 	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
-	SourceEntityArn pulumi.StringOutput `pulumi:"sourceEntityArn"`
+	SourceEntityArn pulumi.StringPtrOutput `pulumi:"sourceEntityArn"`
 	// The dashboard creation status.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -103,7 +103,7 @@ type Dashboard struct {
 	// The following arguments are optional:
 	VersionDescription pulumi.StringOutput `pulumi:"versionDescription"`
 	// The version number of the dashboard version.
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	VersionNumber pulumi.IntPtrOutput `pulumi:"versionNumber"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -372,18 +372,18 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 }
 
 // The Amazon Resource Name (ARN) of the resource.
-func (o DashboardOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DashboardOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o DashboardOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o DashboardOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The time that the dashboard was created.
-func (o DashboardOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o DashboardOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Identifier for the dashboard.
@@ -392,17 +392,17 @@ func (o DashboardOutput) DashboardId() pulumi.StringOutput {
 }
 
 // Options for publishing the dashboard. See dashboard_publish_options.
-func (o DashboardOutput) DashboardPublishOptions() DashboardDashboardPublishOptionsOutput {
-	return o.ApplyT(func(v *Dashboard) DashboardDashboardPublishOptionsOutput { return v.DashboardPublishOptions }).(DashboardDashboardPublishOptionsOutput)
+func (o DashboardOutput) DashboardPublishOptions() DashboardDashboardPublishOptionsPtrOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardDashboardPublishOptionsPtrOutput { return v.DashboardPublishOptions }).(DashboardDashboardPublishOptionsPtrOutput)
 }
 
-func (o DashboardOutput) LastPublishedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastPublishedTime }).(pulumi.StringOutput)
+func (o DashboardOutput) LastPublishedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.LastPublishedTime }).(pulumi.StringPtrOutput)
 }
 
 // The time that the dashboard was last updated.
-func (o DashboardOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o DashboardOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Display name for the dashboard.
@@ -411,8 +411,8 @@ func (o DashboardOutput) Name() pulumi.StringOutput {
 }
 
 // The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-func (o DashboardOutput) Parameters() DashboardParametersOutput {
-	return o.ApplyT(func(v *Dashboard) DashboardParametersOutput { return v.Parameters }).(DashboardParametersOutput)
+func (o DashboardOutput) Parameters() DashboardParametersPtrOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardParametersPtrOutput { return v.Parameters }).(DashboardParametersPtrOutput)
 }
 
 // A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
@@ -426,13 +426,13 @@ func (o DashboardOutput) SourceEntity() DashboardSourceEntityPtrOutput {
 }
 
 // Amazon Resource Name (ARN) of a template that was used to create this dashboard.
-func (o DashboardOutput) SourceEntityArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.SourceEntityArn }).(pulumi.StringOutput)
+func (o DashboardOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
 }
 
 // The dashboard creation status.
-func (o DashboardOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o DashboardOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -460,8 +460,8 @@ func (o DashboardOutput) VersionDescription() pulumi.StringOutput {
 }
 
 // The version number of the dashboard version.
-func (o DashboardOutput) VersionNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v *Dashboard) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
+func (o DashboardOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.IntPtrOutput { return v.VersionNumber }).(pulumi.IntPtrOutput)
 }
 
 type DashboardArrayOutput struct{ *pulumi.OutputState }

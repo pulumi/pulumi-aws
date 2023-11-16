@@ -23,13 +23,13 @@ export interface GetCredentialsArgs {
  * A collection of values returned by getCredentials.
  */
 export interface GetCredentialsResult {
-    readonly authorizationToken: string;
-    readonly expiresAt: string;
+    readonly authorizationToken?: string;
+    readonly expiresAt?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly proxyEndpoint: string;
+    readonly id?: string;
+    readonly proxyEndpoint?: string;
     readonly registryId: string;
 }
 export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialsResult> {

@@ -394,7 +394,7 @@ class MedicalVocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the MedicalVocabulary.
         """
@@ -402,7 +402,7 @@ class MedicalVocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="downloadUri")
-    def download_uri(self) -> pulumi.Output[str]:
+    def download_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Generated download URI.
         """

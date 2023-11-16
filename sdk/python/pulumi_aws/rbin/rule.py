@@ -498,12 +498,12 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The retention rule description.
         """
@@ -519,7 +519,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockEndTime")
-    def lock_end_time(self) -> pulumi.Output[str]:
+    def lock_end_time(self) -> pulumi.Output[Optional[str]]:
         """
         (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
         """
@@ -527,7 +527,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockState")
-    def lock_state(self) -> pulumi.Output[str]:
+    def lock_state(self) -> pulumi.Output[Optional[str]]:
         """
         (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
         """
@@ -535,7 +535,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> pulumi.Output[Sequence['outputs.RuleResourceTag']]:
+    def resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.RuleResourceTag']]]:
         """
         Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         """
@@ -561,7 +561,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """

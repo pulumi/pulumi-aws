@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -75,14 +76,14 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="controlId", refs={String.class}, tree="[0]")
-    private Output<String> controlId;
+    private Output</* @Nullable */ String> controlId;
 
     /**
      * @return The identifier of the security standard control.
      * 
      */
-    public Output<String> controlId() {
-        return this.controlId;
+    public Output<Optional<String>> controlId() {
+        return Codegen.optional(this.controlId);
     }
     /**
      * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
@@ -103,84 +104,84 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="controlStatusUpdatedAt", refs={String.class}, tree="[0]")
-    private Output<String> controlStatusUpdatedAt;
+    private Output</* @Nullable */ String> controlStatusUpdatedAt;
 
     /**
      * @return The date and time that the status of the security standard control was most recently updated.
      * 
      */
-    public Output<String> controlStatusUpdatedAt() {
-        return this.controlStatusUpdatedAt;
+    public Output<Optional<String>> controlStatusUpdatedAt() {
+        return Codegen.optional(this.controlStatusUpdatedAt);
     }
     /**
      * The standard control longer description. Provides information about what the control is checking for.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return The standard control longer description. Provides information about what the control is checking for.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
      * 
      */
     @Export(name="disabledReason", refs={String.class}, tree="[0]")
-    private Output<String> disabledReason;
+    private Output</* @Nullable */ String> disabledReason;
 
     /**
      * @return A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
      * 
      */
-    public Output<String> disabledReason() {
-        return this.disabledReason;
+    public Output<Optional<String>> disabledReason() {
+        return Codegen.optional(this.disabledReason);
     }
     /**
      * The list of requirements that are related to this control.
      * 
      */
     @Export(name="relatedRequirements", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> relatedRequirements;
+    private Output</* @Nullable */ List<String>> relatedRequirements;
 
     /**
      * @return The list of requirements that are related to this control.
      * 
      */
-    public Output<List<String>> relatedRequirements() {
-        return this.relatedRequirements;
+    public Output<Optional<List<String>>> relatedRequirements() {
+        return Codegen.optional(this.relatedRequirements);
     }
     /**
      * A link to remediation information for the control in the Security Hub user documentation.
      * 
      */
     @Export(name="remediationUrl", refs={String.class}, tree="[0]")
-    private Output<String> remediationUrl;
+    private Output</* @Nullable */ String> remediationUrl;
 
     /**
      * @return A link to remediation information for the control in the Security Hub user documentation.
      * 
      */
-    public Output<String> remediationUrl() {
-        return this.remediationUrl;
+    public Output<Optional<String>> remediationUrl() {
+        return Codegen.optional(this.remediationUrl);
     }
     /**
      * The severity of findings generated from this security standard control.
      * 
      */
     @Export(name="severityRating", refs={String.class}, tree="[0]")
-    private Output<String> severityRating;
+    private Output</* @Nullable */ String> severityRating;
 
     /**
      * @return The severity of findings generated from this security standard control.
      * 
      */
-    public Output<String> severityRating() {
-        return this.severityRating;
+    public Output<Optional<String>> severityRating() {
+        return Codegen.optional(this.severityRating);
     }
     /**
      * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
@@ -201,14 +202,14 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="title", refs={String.class}, tree="[0]")
-    private Output<String> title;
+    private Output</* @Nullable */ String> title;
 
     /**
      * @return The standard control title.
      * 
      */
-    public Output<String> title() {
-        return this.title;
+    public Output<Optional<String>> title() {
+        return Codegen.optional(this.title);
     }
 
     /**

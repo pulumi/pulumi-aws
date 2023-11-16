@@ -100,8 +100,8 @@ type DataRepositoryAssociation struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name of the file system.
-	Arn           pulumi.StringOutput `pulumi:"arn"`
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
+	Arn           pulumi.StringPtrOutput `pulumi:"arn"`
+	AssociationId pulumi.StringPtrOutput `pulumi:"associationId"`
 	// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
 	BatchImportMetaDataOnCreate pulumi.BoolPtrOutput `pulumi:"batchImportMetaDataOnCreate"`
 	// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
@@ -113,10 +113,10 @@ type DataRepositoryAssociation struct {
 	// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
 	FileSystemPath pulumi.StringOutput `pulumi:"fileSystemPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
-	ImportedFileChunkSize pulumi.IntOutput `pulumi:"importedFileChunkSize"`
+	ImportedFileChunkSize pulumi.IntPtrOutput `pulumi:"importedFileChunkSize"`
 	// See the `s3` configuration block. Max of 1.
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-	S3 DataRepositoryAssociationS3Output `pulumi:"s3"`
+	S3 DataRepositoryAssociationS3PtrOutput `pulumi:"s3"`
 	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -354,12 +354,12 @@ func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutputWithCo
 }
 
 // Amazon Resource Name of the file system.
-func (o DataRepositoryAssociationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DataRepositoryAssociationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o DataRepositoryAssociationOutput) AssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+func (o DataRepositoryAssociationOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringPtrOutput { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
 // Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
@@ -388,14 +388,14 @@ func (o DataRepositoryAssociationOutput) FileSystemPath() pulumi.StringOutput {
 }
 
 // For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
-func (o DataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.IntOutput { return v.ImportedFileChunkSize }).(pulumi.IntOutput)
+func (o DataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.IntPtrOutput { return v.ImportedFileChunkSize }).(pulumi.IntPtrOutput)
 }
 
 // See the `s3` configuration block. Max of 1.
 // The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-func (o DataRepositoryAssociationOutput) S3() DataRepositoryAssociationS3Output {
-	return o.ApplyT(func(v *DataRepositoryAssociation) DataRepositoryAssociationS3Output { return v.S3 }).(DataRepositoryAssociationS3Output)
+func (o DataRepositoryAssociationOutput) S3() DataRepositoryAssociationS3PtrOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociation) DataRepositoryAssociationS3PtrOutput { return v.S3 }).(DataRepositoryAssociationS3PtrOutput)
 }
 
 // A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

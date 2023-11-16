@@ -44,15 +44,15 @@ export interface GetPullThroughCacheRuleResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The registry ID where the repository was created.
      */
-    readonly registryId: string;
+    readonly registryId?: string;
     /**
      * The registry URL of the upstream public registry to use as the source.
      */
-    readonly upstreamRegistryUrl: string;
+    readonly upstreamRegistryUrl?: string;
 }
 /**
  * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.

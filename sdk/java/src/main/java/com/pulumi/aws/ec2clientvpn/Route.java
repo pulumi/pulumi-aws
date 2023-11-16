@@ -132,14 +132,14 @@ public class Route extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="origin", refs={String.class}, tree="[0]")
-    private Output<String> origin;
+    private Output</* @Nullable */ String> origin;
 
     /**
      * @return Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
      * 
      */
-    public Output<String> origin() {
-        return this.origin;
+    public Output<Optional<String>> origin() {
+        return Codegen.optional(this.origin);
     }
     /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
@@ -160,14 +160,14 @@ public class Route extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return The type of the route.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

@@ -79,14 +79,14 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) that identifies the cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A friendly description of the regular expression pattern set.
@@ -103,10 +103,10 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     @Export(name="lockToken", refs={String.class}, tree="[0]")
-    private Output<String> lockToken;
+    private Output</* @Nullable */ String> lockToken;
 
-    public Output<String> lockToken() {
-        return this.lockToken;
+    public Output<Optional<String>> lockToken() {
+        return Codegen.optional(this.lockToken);
     }
     /**
      * A friendly name of the regular expression pattern set.

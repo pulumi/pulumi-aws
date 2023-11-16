@@ -1348,7 +1348,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonManagedKafkaEventSourceConfig")
-    def amazon_managed_kafka_event_source_config(self) -> pulumi.Output['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig']:
+    def amazon_managed_kafka_event_source_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig']]:
         """
         Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         """
@@ -1412,7 +1412,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionArn")
-    def function_arn(self) -> pulumi.Output[str]:
+    def function_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         """
@@ -1436,7 +1436,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> pulumi.Output[str]:
+    def last_modified(self) -> pulumi.Output[Optional[str]]:
         """
         The date this resource was last modified.
         """
@@ -1444,7 +1444,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastProcessingResult")
-    def last_processing_result(self) -> pulumi.Output[str]:
+    def last_processing_result(self) -> pulumi.Output[Optional[str]]:
         """
         The result of the last AWS Lambda invocation of your Lambda function.
         """
@@ -1460,7 +1460,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumRecordAgeInSeconds")
-    def maximum_record_age_in_seconds(self) -> pulumi.Output[int]:
+    def maximum_record_age_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         """
@@ -1468,7 +1468,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumRetryAttempts")
-    def maximum_retry_attempts(self) -> pulumi.Output[int]:
+    def maximum_retry_attempts(self) -> pulumi.Output[Optional[int]]:
         """
         - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         """
@@ -1476,7 +1476,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parallelizationFactor")
-    def parallelization_factor(self) -> pulumi.Output[int]:
+    def parallelization_factor(self) -> pulumi.Output[Optional[int]]:
         """
         - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         """
@@ -1508,7 +1508,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selfManagedKafkaEventSourceConfig")
-    def self_managed_kafka_event_source_config(self) -> pulumi.Output['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig']:
+    def self_managed_kafka_event_source_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig']]:
         """
         Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
         """
@@ -1540,7 +1540,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the event source mapping.
         """
@@ -1548,7 +1548,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stateTransitionReason")
-    def state_transition_reason(self) -> pulumi.Output[str]:
+    def state_transition_reason(self) -> pulumi.Output[Optional[str]]:
         """
         The reason the event source mapping is in its current state.
         """
@@ -1572,7 +1572,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uuid(self) -> pulumi.Output[str]:
+    def uuid(self) -> pulumi.Output[Optional[str]]:
         """
         The UUID of the created event source mapping.
         """

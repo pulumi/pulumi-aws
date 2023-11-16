@@ -46,7 +46,7 @@ namespace Pulumi.Aws.AppSync
         /// Domain name that AppSync provides.
         /// </summary>
         [Output("appsyncDomainName")]
-        public Output<string> AppsyncDomainName { get; private set; } = null!;
+        public Output<string?> AppsyncDomainName { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.AppSync
         /// ID of your Amazon Route 53 hosted zone.
         /// </summary>
         [Output("hostedZoneId")]
-        public Output<string> HostedZoneId { get; private set; } = null!;
+        public Output<string?> HostedZoneId { get; private set; } = null!;
 
 
         /// <summary>

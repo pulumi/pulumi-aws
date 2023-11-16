@@ -125,7 +125,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
     /**
      * The AWS Assigned deployment config id
      */
-    public /*out*/ readonly deploymentConfigId!: pulumi.Output<string>;
+    public /*out*/ readonly deploymentConfigId!: pulumi.Output<string | undefined>;
     /**
      * The name of the deployment config.
      */

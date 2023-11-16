@@ -162,14 +162,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Global Cluster Amazon Resource Name (ARN)
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name for an automatically created database on cluster creation.
@@ -204,14 +204,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output<String> engine;
+    private Output</* @Nullable */ String> engine;
 
     /**
      * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
      * 
      */
-    public Output<String> engine() {
-        return this.engine;
+    public Output<Optional<String>> engine() {
+        return Codegen.optional(this.engine);
     }
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
@@ -219,15 +219,15 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
      * * **NOTE:** Upgrading major versions is not supported.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * The global cluster identifier.
@@ -248,62 +248,62 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="globalClusterMembers", refs={List.class,GlobalClusterGlobalClusterMember.class}, tree="[0,1]")
-    private Output<List<GlobalClusterGlobalClusterMember>> globalClusterMembers;
+    private Output</* @Nullable */ List<GlobalClusterGlobalClusterMember>> globalClusterMembers;
 
     /**
      * @return Set of objects containing Global Cluster members.
      * 
      */
-    public Output<List<GlobalClusterGlobalClusterMember>> globalClusterMembers() {
-        return this.globalClusterMembers;
+    public Output<Optional<List<GlobalClusterGlobalClusterMember>>> globalClusterMembers() {
+        return Codegen.optional(this.globalClusterMembers);
     }
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      * 
      */
     @Export(name="globalClusterResourceId", refs={String.class}, tree="[0]")
-    private Output<String> globalClusterResourceId;
+    private Output</* @Nullable */ String> globalClusterResourceId;
 
     /**
      * @return AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      * 
      */
-    public Output<String> globalClusterResourceId() {
-        return this.globalClusterResourceId;
+    public Output<Optional<String>> globalClusterResourceId() {
+        return Codegen.optional(this.globalClusterResourceId);
     }
     /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
      * 
      */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> sourceDbClusterIdentifier;
+    private Output</* @Nullable */ String> sourceDbClusterIdentifier;
 
     /**
      * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
      * 
      */
-    public Output<String> sourceDbClusterIdentifier() {
-        return this.sourceDbClusterIdentifier;
+    public Output<Optional<String>> sourceDbClusterIdentifier() {
+        return Codegen.optional(this.sourceDbClusterIdentifier);
     }
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> storageEncrypted;
+    private Output</* @Nullable */ Boolean> storageEncrypted;
 
     /**
      * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<Boolean> storageEncrypted() {
-        return this.storageEncrypted;
+    public Output<Optional<Boolean>> storageEncrypted() {
+        return Codegen.optional(this.storageEncrypted);
     }
 
     /**

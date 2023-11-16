@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPromptResult {
@@ -13,34 +15,34 @@ public final class GetPromptResult {
      * @return ARN of the Prompt.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
     private String name;
     /**
      * @return Identifier for the prompt.
      * 
      */
-    private String promptId;
+    private @Nullable String promptId;
 
     private GetPromptResult() {}
     /**
      * @return ARN of the Prompt.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
@@ -52,8 +54,8 @@ public final class GetPromptResult {
      * @return Identifier for the prompt.
      * 
      */
-    public String promptId() {
-        return this.promptId;
+    public Optional<String> promptId() {
+        return Optional.ofNullable(this.promptId);
     }
 
     public static Builder builder() {
@@ -65,11 +67,11 @@ public final class GetPromptResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String id;
         private String instanceId;
         private String name;
-        private String promptId;
+        private @Nullable String promptId;
         public Builder() {}
         public Builder(GetPromptResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -81,13 +83,13 @@ public final class GetPromptResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -101,8 +103,8 @@ public final class GetPromptResult {
             return this;
         }
         @CustomType.Setter
-        public Builder promptId(String promptId) {
-            this.promptId = Objects.requireNonNull(promptId);
+        public Builder promptId(@Nullable String promptId) {
+            this.promptId = promptId;
             return this;
         }
         public GetPromptResult build() {

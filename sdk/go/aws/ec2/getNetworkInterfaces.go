@@ -125,7 +125,7 @@ type GetNetworkInterfacesArgs struct {
 type GetNetworkInterfacesResult struct {
 	Filters []GetNetworkInterfacesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all the network interface ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -180,8 +180,8 @@ func (o GetNetworkInterfacesResultOutput) Filters() GetNetworkInterfacesFilterAr
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetNetworkInterfacesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetNetworkInterfacesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetNetworkInterfacesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNetworkInterfacesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the network interface ids found.

@@ -8,166 +8,168 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointS3Setting {
-    private Boolean addColumnName;
-    private String bucketFolder;
-    private String bucketName;
-    private String cannedAclForObjects;
-    private Boolean cdcInsertsAndUpdates;
-    private Boolean cdcInsertsOnly;
-    private Integer cdcMaxBatchInterval;
-    private Integer cdcMinFileSize;
-    private String cdcPath;
-    private String compressionType;
-    private String csvDelimiter;
-    private String csvNoSupValue;
-    private String csvNullValue;
-    private String csvRowDelimiter;
-    private String dataFormat;
-    private Integer dataPageSize;
-    private String datePartitionDelimiter;
-    private Boolean datePartitionEnabled;
-    private String datePartitionSequence;
-    private Integer dictPageSizeLimit;
-    private Boolean enableStatistics;
-    private String encodingType;
-    private String encryptionMode;
-    private String externalTableDefinition;
-    private Boolean glueCatalogGeneration;
-    private Integer ignoreHeaderRows;
-    private Integer ignoreHeadersRow;
-    private Boolean includeOpForFullLoad;
-    private Integer maxFileSize;
-    private Boolean parquetTimestampInMillisecond;
-    private String parquetVersion;
-    private Boolean preserveTransactions;
-    private Boolean rfc4180;
-    private Integer rowGroupLength;
-    private String serverSideEncryptionKmsKeyId;
-    private String serviceAccessRoleArn;
-    private String timestampColumnName;
-    private Boolean useCsvNoSupValue;
-    private Boolean useTaskStartTimeForFullLoadTimestamp;
+    private @Nullable Boolean addColumnName;
+    private @Nullable String bucketFolder;
+    private @Nullable String bucketName;
+    private @Nullable String cannedAclForObjects;
+    private @Nullable Boolean cdcInsertsAndUpdates;
+    private @Nullable Boolean cdcInsertsOnly;
+    private @Nullable Integer cdcMaxBatchInterval;
+    private @Nullable Integer cdcMinFileSize;
+    private @Nullable String cdcPath;
+    private @Nullable String compressionType;
+    private @Nullable String csvDelimiter;
+    private @Nullable String csvNoSupValue;
+    private @Nullable String csvNullValue;
+    private @Nullable String csvRowDelimiter;
+    private @Nullable String dataFormat;
+    private @Nullable Integer dataPageSize;
+    private @Nullable String datePartitionDelimiter;
+    private @Nullable Boolean datePartitionEnabled;
+    private @Nullable String datePartitionSequence;
+    private @Nullable Integer dictPageSizeLimit;
+    private @Nullable Boolean enableStatistics;
+    private @Nullable String encodingType;
+    private @Nullable String encryptionMode;
+    private @Nullable String externalTableDefinition;
+    private @Nullable Boolean glueCatalogGeneration;
+    private @Nullable Integer ignoreHeaderRows;
+    private @Nullable Integer ignoreHeadersRow;
+    private @Nullable Boolean includeOpForFullLoad;
+    private @Nullable Integer maxFileSize;
+    private @Nullable Boolean parquetTimestampInMillisecond;
+    private @Nullable String parquetVersion;
+    private @Nullable Boolean preserveTransactions;
+    private @Nullable Boolean rfc4180;
+    private @Nullable Integer rowGroupLength;
+    private @Nullable String serverSideEncryptionKmsKeyId;
+    private @Nullable String serviceAccessRoleArn;
+    private @Nullable String timestampColumnName;
+    private @Nullable Boolean useCsvNoSupValue;
+    private @Nullable Boolean useTaskStartTimeForFullLoadTimestamp;
 
     private GetEndpointS3Setting() {}
-    public Boolean addColumnName() {
-        return this.addColumnName;
+    public Optional<Boolean> addColumnName() {
+        return Optional.ofNullable(this.addColumnName);
     }
-    public String bucketFolder() {
-        return this.bucketFolder;
+    public Optional<String> bucketFolder() {
+        return Optional.ofNullable(this.bucketFolder);
     }
-    public String bucketName() {
-        return this.bucketName;
+    public Optional<String> bucketName() {
+        return Optional.ofNullable(this.bucketName);
     }
-    public String cannedAclForObjects() {
-        return this.cannedAclForObjects;
+    public Optional<String> cannedAclForObjects() {
+        return Optional.ofNullable(this.cannedAclForObjects);
     }
-    public Boolean cdcInsertsAndUpdates() {
-        return this.cdcInsertsAndUpdates;
+    public Optional<Boolean> cdcInsertsAndUpdates() {
+        return Optional.ofNullable(this.cdcInsertsAndUpdates);
     }
-    public Boolean cdcInsertsOnly() {
-        return this.cdcInsertsOnly;
+    public Optional<Boolean> cdcInsertsOnly() {
+        return Optional.ofNullable(this.cdcInsertsOnly);
     }
-    public Integer cdcMaxBatchInterval() {
-        return this.cdcMaxBatchInterval;
+    public Optional<Integer> cdcMaxBatchInterval() {
+        return Optional.ofNullable(this.cdcMaxBatchInterval);
     }
-    public Integer cdcMinFileSize() {
-        return this.cdcMinFileSize;
+    public Optional<Integer> cdcMinFileSize() {
+        return Optional.ofNullable(this.cdcMinFileSize);
     }
-    public String cdcPath() {
-        return this.cdcPath;
+    public Optional<String> cdcPath() {
+        return Optional.ofNullable(this.cdcPath);
     }
-    public String compressionType() {
-        return this.compressionType;
+    public Optional<String> compressionType() {
+        return Optional.ofNullable(this.compressionType);
     }
-    public String csvDelimiter() {
-        return this.csvDelimiter;
+    public Optional<String> csvDelimiter() {
+        return Optional.ofNullable(this.csvDelimiter);
     }
-    public String csvNoSupValue() {
-        return this.csvNoSupValue;
+    public Optional<String> csvNoSupValue() {
+        return Optional.ofNullable(this.csvNoSupValue);
     }
-    public String csvNullValue() {
-        return this.csvNullValue;
+    public Optional<String> csvNullValue() {
+        return Optional.ofNullable(this.csvNullValue);
     }
-    public String csvRowDelimiter() {
-        return this.csvRowDelimiter;
+    public Optional<String> csvRowDelimiter() {
+        return Optional.ofNullable(this.csvRowDelimiter);
     }
-    public String dataFormat() {
-        return this.dataFormat;
+    public Optional<String> dataFormat() {
+        return Optional.ofNullable(this.dataFormat);
     }
-    public Integer dataPageSize() {
-        return this.dataPageSize;
+    public Optional<Integer> dataPageSize() {
+        return Optional.ofNullable(this.dataPageSize);
     }
-    public String datePartitionDelimiter() {
-        return this.datePartitionDelimiter;
+    public Optional<String> datePartitionDelimiter() {
+        return Optional.ofNullable(this.datePartitionDelimiter);
     }
-    public Boolean datePartitionEnabled() {
-        return this.datePartitionEnabled;
+    public Optional<Boolean> datePartitionEnabled() {
+        return Optional.ofNullable(this.datePartitionEnabled);
     }
-    public String datePartitionSequence() {
-        return this.datePartitionSequence;
+    public Optional<String> datePartitionSequence() {
+        return Optional.ofNullable(this.datePartitionSequence);
     }
-    public Integer dictPageSizeLimit() {
-        return this.dictPageSizeLimit;
+    public Optional<Integer> dictPageSizeLimit() {
+        return Optional.ofNullable(this.dictPageSizeLimit);
     }
-    public Boolean enableStatistics() {
-        return this.enableStatistics;
+    public Optional<Boolean> enableStatistics() {
+        return Optional.ofNullable(this.enableStatistics);
     }
-    public String encodingType() {
-        return this.encodingType;
+    public Optional<String> encodingType() {
+        return Optional.ofNullable(this.encodingType);
     }
-    public String encryptionMode() {
-        return this.encryptionMode;
+    public Optional<String> encryptionMode() {
+        return Optional.ofNullable(this.encryptionMode);
     }
-    public String externalTableDefinition() {
-        return this.externalTableDefinition;
+    public Optional<String> externalTableDefinition() {
+        return Optional.ofNullable(this.externalTableDefinition);
     }
-    public Boolean glueCatalogGeneration() {
-        return this.glueCatalogGeneration;
+    public Optional<Boolean> glueCatalogGeneration() {
+        return Optional.ofNullable(this.glueCatalogGeneration);
     }
-    public Integer ignoreHeaderRows() {
-        return this.ignoreHeaderRows;
+    public Optional<Integer> ignoreHeaderRows() {
+        return Optional.ofNullable(this.ignoreHeaderRows);
     }
-    public Integer ignoreHeadersRow() {
-        return this.ignoreHeadersRow;
+    public Optional<Integer> ignoreHeadersRow() {
+        return Optional.ofNullable(this.ignoreHeadersRow);
     }
-    public Boolean includeOpForFullLoad() {
-        return this.includeOpForFullLoad;
+    public Optional<Boolean> includeOpForFullLoad() {
+        return Optional.ofNullable(this.includeOpForFullLoad);
     }
-    public Integer maxFileSize() {
-        return this.maxFileSize;
+    public Optional<Integer> maxFileSize() {
+        return Optional.ofNullable(this.maxFileSize);
     }
-    public Boolean parquetTimestampInMillisecond() {
-        return this.parquetTimestampInMillisecond;
+    public Optional<Boolean> parquetTimestampInMillisecond() {
+        return Optional.ofNullable(this.parquetTimestampInMillisecond);
     }
-    public String parquetVersion() {
-        return this.parquetVersion;
+    public Optional<String> parquetVersion() {
+        return Optional.ofNullable(this.parquetVersion);
     }
-    public Boolean preserveTransactions() {
-        return this.preserveTransactions;
+    public Optional<Boolean> preserveTransactions() {
+        return Optional.ofNullable(this.preserveTransactions);
     }
-    public Boolean rfc4180() {
-        return this.rfc4180;
+    public Optional<Boolean> rfc4180() {
+        return Optional.ofNullable(this.rfc4180);
     }
-    public Integer rowGroupLength() {
-        return this.rowGroupLength;
+    public Optional<Integer> rowGroupLength() {
+        return Optional.ofNullable(this.rowGroupLength);
     }
-    public String serverSideEncryptionKmsKeyId() {
-        return this.serverSideEncryptionKmsKeyId;
+    public Optional<String> serverSideEncryptionKmsKeyId() {
+        return Optional.ofNullable(this.serverSideEncryptionKmsKeyId);
     }
-    public String serviceAccessRoleArn() {
-        return this.serviceAccessRoleArn;
+    public Optional<String> serviceAccessRoleArn() {
+        return Optional.ofNullable(this.serviceAccessRoleArn);
     }
-    public String timestampColumnName() {
-        return this.timestampColumnName;
+    public Optional<String> timestampColumnName() {
+        return Optional.ofNullable(this.timestampColumnName);
     }
-    public Boolean useCsvNoSupValue() {
-        return this.useCsvNoSupValue;
+    public Optional<Boolean> useCsvNoSupValue() {
+        return Optional.ofNullable(this.useCsvNoSupValue);
     }
-    public Boolean useTaskStartTimeForFullLoadTimestamp() {
-        return this.useTaskStartTimeForFullLoadTimestamp;
+    public Optional<Boolean> useTaskStartTimeForFullLoadTimestamp() {
+        return Optional.ofNullable(this.useTaskStartTimeForFullLoadTimestamp);
     }
 
     public static Builder builder() {
@@ -179,45 +181,45 @@ public final class GetEndpointS3Setting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean addColumnName;
-        private String bucketFolder;
-        private String bucketName;
-        private String cannedAclForObjects;
-        private Boolean cdcInsertsAndUpdates;
-        private Boolean cdcInsertsOnly;
-        private Integer cdcMaxBatchInterval;
-        private Integer cdcMinFileSize;
-        private String cdcPath;
-        private String compressionType;
-        private String csvDelimiter;
-        private String csvNoSupValue;
-        private String csvNullValue;
-        private String csvRowDelimiter;
-        private String dataFormat;
-        private Integer dataPageSize;
-        private String datePartitionDelimiter;
-        private Boolean datePartitionEnabled;
-        private String datePartitionSequence;
-        private Integer dictPageSizeLimit;
-        private Boolean enableStatistics;
-        private String encodingType;
-        private String encryptionMode;
-        private String externalTableDefinition;
-        private Boolean glueCatalogGeneration;
-        private Integer ignoreHeaderRows;
-        private Integer ignoreHeadersRow;
-        private Boolean includeOpForFullLoad;
-        private Integer maxFileSize;
-        private Boolean parquetTimestampInMillisecond;
-        private String parquetVersion;
-        private Boolean preserveTransactions;
-        private Boolean rfc4180;
-        private Integer rowGroupLength;
-        private String serverSideEncryptionKmsKeyId;
-        private String serviceAccessRoleArn;
-        private String timestampColumnName;
-        private Boolean useCsvNoSupValue;
-        private Boolean useTaskStartTimeForFullLoadTimestamp;
+        private @Nullable Boolean addColumnName;
+        private @Nullable String bucketFolder;
+        private @Nullable String bucketName;
+        private @Nullable String cannedAclForObjects;
+        private @Nullable Boolean cdcInsertsAndUpdates;
+        private @Nullable Boolean cdcInsertsOnly;
+        private @Nullable Integer cdcMaxBatchInterval;
+        private @Nullable Integer cdcMinFileSize;
+        private @Nullable String cdcPath;
+        private @Nullable String compressionType;
+        private @Nullable String csvDelimiter;
+        private @Nullable String csvNoSupValue;
+        private @Nullable String csvNullValue;
+        private @Nullable String csvRowDelimiter;
+        private @Nullable String dataFormat;
+        private @Nullable Integer dataPageSize;
+        private @Nullable String datePartitionDelimiter;
+        private @Nullable Boolean datePartitionEnabled;
+        private @Nullable String datePartitionSequence;
+        private @Nullable Integer dictPageSizeLimit;
+        private @Nullable Boolean enableStatistics;
+        private @Nullable String encodingType;
+        private @Nullable String encryptionMode;
+        private @Nullable String externalTableDefinition;
+        private @Nullable Boolean glueCatalogGeneration;
+        private @Nullable Integer ignoreHeaderRows;
+        private @Nullable Integer ignoreHeadersRow;
+        private @Nullable Boolean includeOpForFullLoad;
+        private @Nullable Integer maxFileSize;
+        private @Nullable Boolean parquetTimestampInMillisecond;
+        private @Nullable String parquetVersion;
+        private @Nullable Boolean preserveTransactions;
+        private @Nullable Boolean rfc4180;
+        private @Nullable Integer rowGroupLength;
+        private @Nullable String serverSideEncryptionKmsKeyId;
+        private @Nullable String serviceAccessRoleArn;
+        private @Nullable String timestampColumnName;
+        private @Nullable Boolean useCsvNoSupValue;
+        private @Nullable Boolean useTaskStartTimeForFullLoadTimestamp;
         public Builder() {}
         public Builder(GetEndpointS3Setting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -263,198 +265,198 @@ public final class GetEndpointS3Setting {
         }
 
         @CustomType.Setter
-        public Builder addColumnName(Boolean addColumnName) {
-            this.addColumnName = Objects.requireNonNull(addColumnName);
+        public Builder addColumnName(@Nullable Boolean addColumnName) {
+            this.addColumnName = addColumnName;
             return this;
         }
         @CustomType.Setter
-        public Builder bucketFolder(String bucketFolder) {
-            this.bucketFolder = Objects.requireNonNull(bucketFolder);
+        public Builder bucketFolder(@Nullable String bucketFolder) {
+            this.bucketFolder = bucketFolder;
             return this;
         }
         @CustomType.Setter
-        public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+        public Builder bucketName(@Nullable String bucketName) {
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
-        public Builder cannedAclForObjects(String cannedAclForObjects) {
-            this.cannedAclForObjects = Objects.requireNonNull(cannedAclForObjects);
+        public Builder cannedAclForObjects(@Nullable String cannedAclForObjects) {
+            this.cannedAclForObjects = cannedAclForObjects;
             return this;
         }
         @CustomType.Setter
-        public Builder cdcInsertsAndUpdates(Boolean cdcInsertsAndUpdates) {
-            this.cdcInsertsAndUpdates = Objects.requireNonNull(cdcInsertsAndUpdates);
+        public Builder cdcInsertsAndUpdates(@Nullable Boolean cdcInsertsAndUpdates) {
+            this.cdcInsertsAndUpdates = cdcInsertsAndUpdates;
             return this;
         }
         @CustomType.Setter
-        public Builder cdcInsertsOnly(Boolean cdcInsertsOnly) {
-            this.cdcInsertsOnly = Objects.requireNonNull(cdcInsertsOnly);
+        public Builder cdcInsertsOnly(@Nullable Boolean cdcInsertsOnly) {
+            this.cdcInsertsOnly = cdcInsertsOnly;
             return this;
         }
         @CustomType.Setter
-        public Builder cdcMaxBatchInterval(Integer cdcMaxBatchInterval) {
-            this.cdcMaxBatchInterval = Objects.requireNonNull(cdcMaxBatchInterval);
+        public Builder cdcMaxBatchInterval(@Nullable Integer cdcMaxBatchInterval) {
+            this.cdcMaxBatchInterval = cdcMaxBatchInterval;
             return this;
         }
         @CustomType.Setter
-        public Builder cdcMinFileSize(Integer cdcMinFileSize) {
-            this.cdcMinFileSize = Objects.requireNonNull(cdcMinFileSize);
+        public Builder cdcMinFileSize(@Nullable Integer cdcMinFileSize) {
+            this.cdcMinFileSize = cdcMinFileSize;
             return this;
         }
         @CustomType.Setter
-        public Builder cdcPath(String cdcPath) {
-            this.cdcPath = Objects.requireNonNull(cdcPath);
+        public Builder cdcPath(@Nullable String cdcPath) {
+            this.cdcPath = cdcPath;
             return this;
         }
         @CustomType.Setter
-        public Builder compressionType(String compressionType) {
-            this.compressionType = Objects.requireNonNull(compressionType);
+        public Builder compressionType(@Nullable String compressionType) {
+            this.compressionType = compressionType;
             return this;
         }
         @CustomType.Setter
-        public Builder csvDelimiter(String csvDelimiter) {
-            this.csvDelimiter = Objects.requireNonNull(csvDelimiter);
+        public Builder csvDelimiter(@Nullable String csvDelimiter) {
+            this.csvDelimiter = csvDelimiter;
             return this;
         }
         @CustomType.Setter
-        public Builder csvNoSupValue(String csvNoSupValue) {
-            this.csvNoSupValue = Objects.requireNonNull(csvNoSupValue);
+        public Builder csvNoSupValue(@Nullable String csvNoSupValue) {
+            this.csvNoSupValue = csvNoSupValue;
             return this;
         }
         @CustomType.Setter
-        public Builder csvNullValue(String csvNullValue) {
-            this.csvNullValue = Objects.requireNonNull(csvNullValue);
+        public Builder csvNullValue(@Nullable String csvNullValue) {
+            this.csvNullValue = csvNullValue;
             return this;
         }
         @CustomType.Setter
-        public Builder csvRowDelimiter(String csvRowDelimiter) {
-            this.csvRowDelimiter = Objects.requireNonNull(csvRowDelimiter);
+        public Builder csvRowDelimiter(@Nullable String csvRowDelimiter) {
+            this.csvRowDelimiter = csvRowDelimiter;
             return this;
         }
         @CustomType.Setter
-        public Builder dataFormat(String dataFormat) {
-            this.dataFormat = Objects.requireNonNull(dataFormat);
+        public Builder dataFormat(@Nullable String dataFormat) {
+            this.dataFormat = dataFormat;
             return this;
         }
         @CustomType.Setter
-        public Builder dataPageSize(Integer dataPageSize) {
-            this.dataPageSize = Objects.requireNonNull(dataPageSize);
+        public Builder dataPageSize(@Nullable Integer dataPageSize) {
+            this.dataPageSize = dataPageSize;
             return this;
         }
         @CustomType.Setter
-        public Builder datePartitionDelimiter(String datePartitionDelimiter) {
-            this.datePartitionDelimiter = Objects.requireNonNull(datePartitionDelimiter);
+        public Builder datePartitionDelimiter(@Nullable String datePartitionDelimiter) {
+            this.datePartitionDelimiter = datePartitionDelimiter;
             return this;
         }
         @CustomType.Setter
-        public Builder datePartitionEnabled(Boolean datePartitionEnabled) {
-            this.datePartitionEnabled = Objects.requireNonNull(datePartitionEnabled);
+        public Builder datePartitionEnabled(@Nullable Boolean datePartitionEnabled) {
+            this.datePartitionEnabled = datePartitionEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder datePartitionSequence(String datePartitionSequence) {
-            this.datePartitionSequence = Objects.requireNonNull(datePartitionSequence);
+        public Builder datePartitionSequence(@Nullable String datePartitionSequence) {
+            this.datePartitionSequence = datePartitionSequence;
             return this;
         }
         @CustomType.Setter
-        public Builder dictPageSizeLimit(Integer dictPageSizeLimit) {
-            this.dictPageSizeLimit = Objects.requireNonNull(dictPageSizeLimit);
+        public Builder dictPageSizeLimit(@Nullable Integer dictPageSizeLimit) {
+            this.dictPageSizeLimit = dictPageSizeLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder enableStatistics(Boolean enableStatistics) {
-            this.enableStatistics = Objects.requireNonNull(enableStatistics);
+        public Builder enableStatistics(@Nullable Boolean enableStatistics) {
+            this.enableStatistics = enableStatistics;
             return this;
         }
         @CustomType.Setter
-        public Builder encodingType(String encodingType) {
-            this.encodingType = Objects.requireNonNull(encodingType);
+        public Builder encodingType(@Nullable String encodingType) {
+            this.encodingType = encodingType;
             return this;
         }
         @CustomType.Setter
-        public Builder encryptionMode(String encryptionMode) {
-            this.encryptionMode = Objects.requireNonNull(encryptionMode);
+        public Builder encryptionMode(@Nullable String encryptionMode) {
+            this.encryptionMode = encryptionMode;
             return this;
         }
         @CustomType.Setter
-        public Builder externalTableDefinition(String externalTableDefinition) {
-            this.externalTableDefinition = Objects.requireNonNull(externalTableDefinition);
+        public Builder externalTableDefinition(@Nullable String externalTableDefinition) {
+            this.externalTableDefinition = externalTableDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder glueCatalogGeneration(Boolean glueCatalogGeneration) {
-            this.glueCatalogGeneration = Objects.requireNonNull(glueCatalogGeneration);
+        public Builder glueCatalogGeneration(@Nullable Boolean glueCatalogGeneration) {
+            this.glueCatalogGeneration = glueCatalogGeneration;
             return this;
         }
         @CustomType.Setter
-        public Builder ignoreHeaderRows(Integer ignoreHeaderRows) {
-            this.ignoreHeaderRows = Objects.requireNonNull(ignoreHeaderRows);
+        public Builder ignoreHeaderRows(@Nullable Integer ignoreHeaderRows) {
+            this.ignoreHeaderRows = ignoreHeaderRows;
             return this;
         }
         @CustomType.Setter
-        public Builder ignoreHeadersRow(Integer ignoreHeadersRow) {
-            this.ignoreHeadersRow = Objects.requireNonNull(ignoreHeadersRow);
+        public Builder ignoreHeadersRow(@Nullable Integer ignoreHeadersRow) {
+            this.ignoreHeadersRow = ignoreHeadersRow;
             return this;
         }
         @CustomType.Setter
-        public Builder includeOpForFullLoad(Boolean includeOpForFullLoad) {
-            this.includeOpForFullLoad = Objects.requireNonNull(includeOpForFullLoad);
+        public Builder includeOpForFullLoad(@Nullable Boolean includeOpForFullLoad) {
+            this.includeOpForFullLoad = includeOpForFullLoad;
             return this;
         }
         @CustomType.Setter
-        public Builder maxFileSize(Integer maxFileSize) {
-            this.maxFileSize = Objects.requireNonNull(maxFileSize);
+        public Builder maxFileSize(@Nullable Integer maxFileSize) {
+            this.maxFileSize = maxFileSize;
             return this;
         }
         @CustomType.Setter
-        public Builder parquetTimestampInMillisecond(Boolean parquetTimestampInMillisecond) {
-            this.parquetTimestampInMillisecond = Objects.requireNonNull(parquetTimestampInMillisecond);
+        public Builder parquetTimestampInMillisecond(@Nullable Boolean parquetTimestampInMillisecond) {
+            this.parquetTimestampInMillisecond = parquetTimestampInMillisecond;
             return this;
         }
         @CustomType.Setter
-        public Builder parquetVersion(String parquetVersion) {
-            this.parquetVersion = Objects.requireNonNull(parquetVersion);
+        public Builder parquetVersion(@Nullable String parquetVersion) {
+            this.parquetVersion = parquetVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder preserveTransactions(Boolean preserveTransactions) {
-            this.preserveTransactions = Objects.requireNonNull(preserveTransactions);
+        public Builder preserveTransactions(@Nullable Boolean preserveTransactions) {
+            this.preserveTransactions = preserveTransactions;
             return this;
         }
         @CustomType.Setter
-        public Builder rfc4180(Boolean rfc4180) {
-            this.rfc4180 = Objects.requireNonNull(rfc4180);
+        public Builder rfc4180(@Nullable Boolean rfc4180) {
+            this.rfc4180 = rfc4180;
             return this;
         }
         @CustomType.Setter
-        public Builder rowGroupLength(Integer rowGroupLength) {
-            this.rowGroupLength = Objects.requireNonNull(rowGroupLength);
+        public Builder rowGroupLength(@Nullable Integer rowGroupLength) {
+            this.rowGroupLength = rowGroupLength;
             return this;
         }
         @CustomType.Setter
-        public Builder serverSideEncryptionKmsKeyId(String serverSideEncryptionKmsKeyId) {
-            this.serverSideEncryptionKmsKeyId = Objects.requireNonNull(serverSideEncryptionKmsKeyId);
+        public Builder serverSideEncryptionKmsKeyId(@Nullable String serverSideEncryptionKmsKeyId) {
+            this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
-            this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
+        public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder timestampColumnName(String timestampColumnName) {
-            this.timestampColumnName = Objects.requireNonNull(timestampColumnName);
+        public Builder timestampColumnName(@Nullable String timestampColumnName) {
+            this.timestampColumnName = timestampColumnName;
             return this;
         }
         @CustomType.Setter
-        public Builder useCsvNoSupValue(Boolean useCsvNoSupValue) {
-            this.useCsvNoSupValue = Objects.requireNonNull(useCsvNoSupValue);
+        public Builder useCsvNoSupValue(@Nullable Boolean useCsvNoSupValue) {
+            this.useCsvNoSupValue = useCsvNoSupValue;
             return this;
         }
         @CustomType.Setter
-        public Builder useTaskStartTimeForFullLoadTimestamp(Boolean useTaskStartTimeForFullLoadTimestamp) {
-            this.useTaskStartTimeForFullLoadTimestamp = Objects.requireNonNull(useTaskStartTimeForFullLoadTimestamp);
+        public Builder useTaskStartTimeForFullLoadTimestamp(@Nullable Boolean useTaskStartTimeForFullLoadTimestamp) {
+            this.useTaskStartTimeForFullLoadTimestamp = useTaskStartTimeForFullLoadTimestamp;
             return this;
         }
         public GetEndpointS3Setting build() {

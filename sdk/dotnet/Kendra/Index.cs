@@ -738,19 +738,19 @@ namespace Pulumi.Aws.Kendra
         /// The Amazon Resource Name (ARN) of the Index.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
         [Output("capacityUnits")]
-        public Output<Outputs.IndexCapacityUnits> CapacityUnits { get; private set; } = null!;
+        public Output<Outputs.IndexCapacityUnits?> CapacityUnits { get; private set; } = null!;
 
         /// <summary>
         /// The Unix datetime that the index was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Index.
@@ -774,7 +774,7 @@ namespace Pulumi.Aws.Kendra
         /// When the Status field value is `FAILED`, this contains a message that explains why.
         /// </summary>
         [Output("errorMessage")]
-        public Output<string> ErrorMessage { get; private set; } = null!;
+        public Output<string?> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
         /// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
@@ -804,7 +804,7 @@ namespace Pulumi.Aws.Kendra
         /// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the Index. If configured with a provider
@@ -823,7 +823,7 @@ namespace Pulumi.Aws.Kendra
         /// The Unix datetime that the index was last updated.
         /// </summary>
         [Output("updatedAt")]
-        public Output<string> UpdatedAt { get; private set; } = null!;
+        public Output<string?> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.

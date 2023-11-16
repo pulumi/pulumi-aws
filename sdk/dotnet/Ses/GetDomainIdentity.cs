@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ses
         /// <summary>
         /// ARN of the domain identity.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Name of the domain
         /// </summary>
@@ -112,21 +112,21 @@ namespace Pulumi.Aws.Ses
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
         /// </summary>
-        public readonly string VerificationToken;
+        public readonly string? VerificationToken;
 
         [OutputConstructor]
         private GetDomainIdentityResult(
-            string arn,
+            string? arn,
 
             string domain,
 
-            string id,
+            string? id,
 
-            string verificationToken)
+            string? verificationToken)
         {
             Arn = arn;
             Domain = domain;

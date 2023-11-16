@@ -560,13 +560,13 @@ func (o EnvironmentSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentSetti
 
 type GetApplicationAppversionLifecycle struct {
 	// Specifies whether delete a version's source bundle from S3 when the application version is deleted.
-	DeleteSourceFromS3 bool `pulumi:"deleteSourceFromS3"`
+	DeleteSourceFromS3 *bool `pulumi:"deleteSourceFromS3"`
 	// Number of days to retain an application version.
-	MaxAgeInDays int `pulumi:"maxAgeInDays"`
+	MaxAgeInDays *int `pulumi:"maxAgeInDays"`
 	// Maximum number of application versions to retain.
-	MaxCount int `pulumi:"maxCount"`
+	MaxCount *int `pulumi:"maxCount"`
 	// ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-	ServiceRole string `pulumi:"serviceRole"`
+	ServiceRole *string `pulumi:"serviceRole"`
 }
 
 // GetApplicationAppversionLifecycleInput is an input type that accepts GetApplicationAppversionLifecycleArgs and GetApplicationAppversionLifecycleOutput values.
@@ -582,13 +582,13 @@ type GetApplicationAppversionLifecycleInput interface {
 
 type GetApplicationAppversionLifecycleArgs struct {
 	// Specifies whether delete a version's source bundle from S3 when the application version is deleted.
-	DeleteSourceFromS3 pulumi.BoolInput `pulumi:"deleteSourceFromS3"`
+	DeleteSourceFromS3 pulumi.BoolPtrInput `pulumi:"deleteSourceFromS3"`
 	// Number of days to retain an application version.
-	MaxAgeInDays pulumi.IntInput `pulumi:"maxAgeInDays"`
+	MaxAgeInDays pulumi.IntPtrInput `pulumi:"maxAgeInDays"`
 	// Maximum number of application versions to retain.
-	MaxCount pulumi.IntInput `pulumi:"maxCount"`
+	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 	// ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
+	ServiceRole pulumi.StringPtrInput `pulumi:"serviceRole"`
 }
 
 func (GetApplicationAppversionLifecycleArgs) ElementType() reflect.Type {
@@ -601,6 +601,47 @@ func (i GetApplicationAppversionLifecycleArgs) ToGetApplicationAppversionLifecyc
 
 func (i GetApplicationAppversionLifecycleArgs) ToGetApplicationAppversionLifecycleOutputWithContext(ctx context.Context) GetApplicationAppversionLifecycleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAppversionLifecycleOutput)
+}
+
+func (i GetApplicationAppversionLifecycleArgs) ToGetApplicationAppversionLifecyclePtrOutput() GetApplicationAppversionLifecyclePtrOutput {
+	return i.ToGetApplicationAppversionLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (i GetApplicationAppversionLifecycleArgs) ToGetApplicationAppversionLifecyclePtrOutputWithContext(ctx context.Context) GetApplicationAppversionLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAppversionLifecycleOutput).ToGetApplicationAppversionLifecyclePtrOutputWithContext(ctx)
+}
+
+// GetApplicationAppversionLifecyclePtrInput is an input type that accepts GetApplicationAppversionLifecycleArgs, GetApplicationAppversionLifecyclePtr and GetApplicationAppversionLifecyclePtrOutput values.
+// You can construct a concrete instance of `GetApplicationAppversionLifecyclePtrInput` via:
+//
+//	        GetApplicationAppversionLifecycleArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetApplicationAppversionLifecyclePtrInput interface {
+	pulumi.Input
+
+	ToGetApplicationAppversionLifecyclePtrOutput() GetApplicationAppversionLifecyclePtrOutput
+	ToGetApplicationAppversionLifecyclePtrOutputWithContext(context.Context) GetApplicationAppversionLifecyclePtrOutput
+}
+
+type getApplicationAppversionLifecyclePtrType GetApplicationAppversionLifecycleArgs
+
+func GetApplicationAppversionLifecyclePtr(v *GetApplicationAppversionLifecycleArgs) GetApplicationAppversionLifecyclePtrInput {
+	return (*getApplicationAppversionLifecyclePtrType)(v)
+}
+
+func (*getApplicationAppversionLifecyclePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetApplicationAppversionLifecycle)(nil)).Elem()
+}
+
+func (i *getApplicationAppversionLifecyclePtrType) ToGetApplicationAppversionLifecyclePtrOutput() GetApplicationAppversionLifecyclePtrOutput {
+	return i.ToGetApplicationAppversionLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (i *getApplicationAppversionLifecyclePtrType) ToGetApplicationAppversionLifecyclePtrOutputWithContext(ctx context.Context) GetApplicationAppversionLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAppversionLifecyclePtrOutput)
 }
 
 type GetApplicationAppversionLifecycleOutput struct{ *pulumi.OutputState }
@@ -617,24 +658,98 @@ func (o GetApplicationAppversionLifecycleOutput) ToGetApplicationAppversionLifec
 	return o
 }
 
+func (o GetApplicationAppversionLifecycleOutput) ToGetApplicationAppversionLifecyclePtrOutput() GetApplicationAppversionLifecyclePtrOutput {
+	return o.ToGetApplicationAppversionLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o GetApplicationAppversionLifecycleOutput) ToGetApplicationAppversionLifecyclePtrOutputWithContext(ctx context.Context) GetApplicationAppversionLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetApplicationAppversionLifecycle) *GetApplicationAppversionLifecycle {
+		return &v
+	}).(GetApplicationAppversionLifecyclePtrOutput)
+}
+
 // Specifies whether delete a version's source bundle from S3 when the application version is deleted.
-func (o GetApplicationAppversionLifecycleOutput) DeleteSourceFromS3() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetApplicationAppversionLifecycle) bool { return v.DeleteSourceFromS3 }).(pulumi.BoolOutput)
+func (o GetApplicationAppversionLifecycleOutput) DeleteSourceFromS3() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetApplicationAppversionLifecycle) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
 }
 
 // Number of days to retain an application version.
-func (o GetApplicationAppversionLifecycleOutput) MaxAgeInDays() pulumi.IntOutput {
-	return o.ApplyT(func(v GetApplicationAppversionLifecycle) int { return v.MaxAgeInDays }).(pulumi.IntOutput)
+func (o GetApplicationAppversionLifecycleOutput) MaxAgeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetApplicationAppversionLifecycle) *int { return v.MaxAgeInDays }).(pulumi.IntPtrOutput)
 }
 
 // Maximum number of application versions to retain.
-func (o GetApplicationAppversionLifecycleOutput) MaxCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetApplicationAppversionLifecycle) int { return v.MaxCount }).(pulumi.IntOutput)
+func (o GetApplicationAppversionLifecycleOutput) MaxCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetApplicationAppversionLifecycle) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
 // ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-func (o GetApplicationAppversionLifecycleOutput) ServiceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
+func (o GetApplicationAppversionLifecycleOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationAppversionLifecycle) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
+}
+
+type GetApplicationAppversionLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationAppversionLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetApplicationAppversionLifecycle)(nil)).Elem()
+}
+
+func (o GetApplicationAppversionLifecyclePtrOutput) ToGetApplicationAppversionLifecyclePtrOutput() GetApplicationAppversionLifecyclePtrOutput {
+	return o
+}
+
+func (o GetApplicationAppversionLifecyclePtrOutput) ToGetApplicationAppversionLifecyclePtrOutputWithContext(ctx context.Context) GetApplicationAppversionLifecyclePtrOutput {
+	return o
+}
+
+func (o GetApplicationAppversionLifecyclePtrOutput) Elem() GetApplicationAppversionLifecycleOutput {
+	return o.ApplyT(func(v *GetApplicationAppversionLifecycle) GetApplicationAppversionLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret GetApplicationAppversionLifecycle
+		return ret
+	}).(GetApplicationAppversionLifecycleOutput)
+}
+
+// Specifies whether delete a version's source bundle from S3 when the application version is deleted.
+func (o GetApplicationAppversionLifecyclePtrOutput) DeleteSourceFromS3() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetApplicationAppversionLifecycle) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteSourceFromS3
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of days to retain an application version.
+func (o GetApplicationAppversionLifecyclePtrOutput) MaxAgeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetApplicationAppversionLifecycle) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAgeInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of application versions to retain.
+func (o GetApplicationAppversionLifecyclePtrOutput) MaxCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetApplicationAppversionLifecycle) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+func (o GetApplicationAppversionLifecyclePtrOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetApplicationAppversionLifecycle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRole
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -647,6 +762,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSettingInput)(nil)).Elem(), EnvironmentSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSettingArrayInput)(nil)).Elem(), EnvironmentSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationAppversionLifecycleInput)(nil)).Elem(), GetApplicationAppversionLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationAppversionLifecyclePtrInput)(nil)).Elem(), GetApplicationAppversionLifecycleArgs{})
 	pulumi.RegisterOutputType(ApplicationAppversionLifecycleOutput{})
 	pulumi.RegisterOutputType(ApplicationAppversionLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateSettingOutput{})
@@ -656,4 +772,5 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentSettingOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationAppversionLifecycleOutput{})
+	pulumi.RegisterOutputType(GetApplicationAppversionLifecyclePtrOutput{})
 }

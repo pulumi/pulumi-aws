@@ -12,34 +12,35 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTl;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListener {
-    private List<GetVirtualNodeSpecListenerConnectionPool> connectionPools;
-    private List<GetVirtualNodeSpecListenerHealthCheck> healthChecks;
-    private List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections;
-    private List<GetVirtualNodeSpecListenerPortMapping> portMappings;
-    private List<GetVirtualNodeSpecListenerTimeout> timeouts;
-    private List<GetVirtualNodeSpecListenerTl> tls;
+    private @Nullable List<GetVirtualNodeSpecListenerConnectionPool> connectionPools;
+    private @Nullable List<GetVirtualNodeSpecListenerHealthCheck> healthChecks;
+    private @Nullable List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections;
+    private @Nullable List<GetVirtualNodeSpecListenerPortMapping> portMappings;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeout> timeouts;
+    private @Nullable List<GetVirtualNodeSpecListenerTl> tls;
 
     private GetVirtualNodeSpecListener() {}
     public List<GetVirtualNodeSpecListenerConnectionPool> connectionPools() {
-        return this.connectionPools;
+        return this.connectionPools == null ? List.of() : this.connectionPools;
     }
     public List<GetVirtualNodeSpecListenerHealthCheck> healthChecks() {
-        return this.healthChecks;
+        return this.healthChecks == null ? List.of() : this.healthChecks;
     }
     public List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections() {
-        return this.outlierDetections;
+        return this.outlierDetections == null ? List.of() : this.outlierDetections;
     }
     public List<GetVirtualNodeSpecListenerPortMapping> portMappings() {
-        return this.portMappings;
+        return this.portMappings == null ? List.of() : this.portMappings;
     }
     public List<GetVirtualNodeSpecListenerTimeout> timeouts() {
-        return this.timeouts;
+        return this.timeouts == null ? List.of() : this.timeouts;
     }
     public List<GetVirtualNodeSpecListenerTl> tls() {
-        return this.tls;
+        return this.tls == null ? List.of() : this.tls;
     }
 
     public static Builder builder() {
@@ -51,12 +52,12 @@ public final class GetVirtualNodeSpecListener {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerConnectionPool> connectionPools;
-        private List<GetVirtualNodeSpecListenerHealthCheck> healthChecks;
-        private List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections;
-        private List<GetVirtualNodeSpecListenerPortMapping> portMappings;
-        private List<GetVirtualNodeSpecListenerTimeout> timeouts;
-        private List<GetVirtualNodeSpecListenerTl> tls;
+        private @Nullable List<GetVirtualNodeSpecListenerConnectionPool> connectionPools;
+        private @Nullable List<GetVirtualNodeSpecListenerHealthCheck> healthChecks;
+        private @Nullable List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections;
+        private @Nullable List<GetVirtualNodeSpecListenerPortMapping> portMappings;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeout> timeouts;
+        private @Nullable List<GetVirtualNodeSpecListenerTl> tls;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListener defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,48 +70,48 @@ public final class GetVirtualNodeSpecListener {
         }
 
         @CustomType.Setter
-        public Builder connectionPools(List<GetVirtualNodeSpecListenerConnectionPool> connectionPools) {
-            this.connectionPools = Objects.requireNonNull(connectionPools);
+        public Builder connectionPools(@Nullable List<GetVirtualNodeSpecListenerConnectionPool> connectionPools) {
+            this.connectionPools = connectionPools;
             return this;
         }
         public Builder connectionPools(GetVirtualNodeSpecListenerConnectionPool... connectionPools) {
             return connectionPools(List.of(connectionPools));
         }
         @CustomType.Setter
-        public Builder healthChecks(List<GetVirtualNodeSpecListenerHealthCheck> healthChecks) {
-            this.healthChecks = Objects.requireNonNull(healthChecks);
+        public Builder healthChecks(@Nullable List<GetVirtualNodeSpecListenerHealthCheck> healthChecks) {
+            this.healthChecks = healthChecks;
             return this;
         }
         public Builder healthChecks(GetVirtualNodeSpecListenerHealthCheck... healthChecks) {
             return healthChecks(List.of(healthChecks));
         }
         @CustomType.Setter
-        public Builder outlierDetections(List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections) {
-            this.outlierDetections = Objects.requireNonNull(outlierDetections);
+        public Builder outlierDetections(@Nullable List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections) {
+            this.outlierDetections = outlierDetections;
             return this;
         }
         public Builder outlierDetections(GetVirtualNodeSpecListenerOutlierDetection... outlierDetections) {
             return outlierDetections(List.of(outlierDetections));
         }
         @CustomType.Setter
-        public Builder portMappings(List<GetVirtualNodeSpecListenerPortMapping> portMappings) {
-            this.portMappings = Objects.requireNonNull(portMappings);
+        public Builder portMappings(@Nullable List<GetVirtualNodeSpecListenerPortMapping> portMappings) {
+            this.portMappings = portMappings;
             return this;
         }
         public Builder portMappings(GetVirtualNodeSpecListenerPortMapping... portMappings) {
             return portMappings(List.of(portMappings));
         }
         @CustomType.Setter
-        public Builder timeouts(List<GetVirtualNodeSpecListenerTimeout> timeouts) {
-            this.timeouts = Objects.requireNonNull(timeouts);
+        public Builder timeouts(@Nullable List<GetVirtualNodeSpecListenerTimeout> timeouts) {
+            this.timeouts = timeouts;
             return this;
         }
         public Builder timeouts(GetVirtualNodeSpecListenerTimeout... timeouts) {
             return timeouts(List.of(timeouts));
         }
         @CustomType.Setter
-        public Builder tls(List<GetVirtualNodeSpecListenerTl> tls) {
-            this.tls = Objects.requireNonNull(tls);
+        public Builder tls(@Nullable List<GetVirtualNodeSpecListenerTl> tls) {
+            this.tls = tls;
             return this;
         }
         public Builder tls(GetVirtualNodeSpecListenerTl... tls) {

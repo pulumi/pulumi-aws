@@ -156,11 +156,11 @@ export class User extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the user.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
      */
-    public readonly directoryUserId!: pulumi.Output<string>;
+    public readonly directoryUserId!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the hierarchy group for the user.
      */
@@ -207,7 +207,7 @@ export class User extends pulumi.CustomResource {
     /**
      * The identifier for the user.
      */
-    public /*out*/ readonly userId!: pulumi.Output<string>;
+    public /*out*/ readonly userId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.

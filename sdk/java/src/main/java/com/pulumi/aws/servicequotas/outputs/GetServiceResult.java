@@ -6,6 +6,8 @@ package com.pulumi.aws.servicequotas.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceResult {
@@ -13,12 +15,12 @@ public final class GetServiceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Code of the service.
      * 
      */
-    private String serviceCode;
+    private @Nullable String serviceCode;
     private String serviceName;
 
     private GetServiceResult() {}
@@ -26,15 +28,15 @@ public final class GetServiceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Code of the service.
      * 
      */
-    public String serviceCode() {
-        return this.serviceCode;
+    public Optional<String> serviceCode() {
+        return Optional.ofNullable(this.serviceCode);
     }
     public String serviceName() {
         return this.serviceName;
@@ -49,8 +51,8 @@ public final class GetServiceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String serviceCode;
+        private @Nullable String id;
+        private @Nullable String serviceCode;
         private String serviceName;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
@@ -61,13 +63,13 @@ public final class GetServiceResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceCode(String serviceCode) {
-            this.serviceCode = Objects.requireNonNull(serviceCode);
+        public Builder serviceCode(@Nullable String serviceCode) {
+            this.serviceCode = serviceCode;
             return this;
         }
         @CustomType.Setter

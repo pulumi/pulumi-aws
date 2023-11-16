@@ -192,7 +192,7 @@ class ReceiptRuleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         SES receipt rule set ARN.
         """

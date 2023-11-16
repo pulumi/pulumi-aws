@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ssm
         /// The code the system generates when it processes the activation.
         /// </summary>
         [Output("activationCode")]
-        public Output<string> ActivationCode { get; private set; } = null!;
+        public Output<string?> ActivationCode { get; private set; } = null!;
 
         /// <summary>
         /// The description of the resource that you want to register.
@@ -103,13 +103,13 @@ namespace Pulumi.Aws.Ssm
         /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Output("expirationDate")]
-        public Output<string> ExpirationDate { get; private set; } = null!;
+        public Output<string?> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
         /// If the current activation has expired.
         /// </summary>
         [Output("expired")]
-        public Output<bool> Expired { get; private set; } = null!;
+        public Output<bool?> Expired { get; private set; } = null!;
 
         /// <summary>
         /// The IAM Role to attach to the managed instance.
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ssm
         /// The number of managed instances that are currently registered using this activation.
         /// </summary>
         [Output("registrationCount")]
-        public Output<int> RegistrationCount { get; private set; } = null!;
+        public Output<int?> RegistrationCount { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of managed instances you want to register. The default value is 1 instance.

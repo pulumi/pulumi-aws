@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -101,42 +102,42 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      */
     @Deprecated /* Use auto_enable_organization_members instead */
     @Export(name="autoEnable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> autoEnable;
+    private Output</* @Nullable */ Boolean> autoEnable;
 
     /**
      * @return *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      * 
      */
-    public Output<Boolean> autoEnable() {
-        return this.autoEnable;
+    public Output<Optional<Boolean>> autoEnable() {
+        return Codegen.optional(this.autoEnable);
     }
     /**
      * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
     @Export(name="autoEnableOrganizationMembers", refs={String.class}, tree="[0]")
-    private Output<String> autoEnableOrganizationMembers;
+    private Output</* @Nullable */ String> autoEnableOrganizationMembers;
 
     /**
      * @return Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
-    public Output<String> autoEnableOrganizationMembers() {
-        return this.autoEnableOrganizationMembers;
+    public Output<Optional<String>> autoEnableOrganizationMembers() {
+        return Codegen.optional(this.autoEnableOrganizationMembers);
     }
     /**
      * Configuration for the collected datasources.
      * 
      */
     @Export(name="datasources", refs={OrganizationConfigurationDatasources.class}, tree="[0]")
-    private Output<OrganizationConfigurationDatasources> datasources;
+    private Output</* @Nullable */ OrganizationConfigurationDatasources> datasources;
 
     /**
      * @return Configuration for the collected datasources.
      * 
      */
-    public Output<OrganizationConfigurationDatasources> datasources() {
-        return this.datasources;
+    public Output<Optional<OrganizationConfigurationDatasources>> datasources() {
+        return Codegen.optional(this.datasources);
     }
     /**
      * The detector ID of the GuardDuty account.

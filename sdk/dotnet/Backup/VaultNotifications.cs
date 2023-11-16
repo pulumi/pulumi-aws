@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Backup
         /// The ARN of the vault.
         /// </summary>
         [Output("backupVaultArn")]
-        public Output<string> BackupVaultArn { get; private set; } = null!;
+        public Output<string?> BackupVaultArn { get; private set; } = null!;
 
         /// <summary>
         /// An array of events that indicate the status of jobs to back up resources to the backup vault.

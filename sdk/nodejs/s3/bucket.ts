@@ -224,7 +224,7 @@ import {RoutingRule} from "./index";
  * }, {
  *     provider: aws.central,
  * });
- * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: pulumi.interpolate`{
+ * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: pulumi.all([source.arn, source.arn, destination.arn]).apply(([sourceArn, sourceArn1, destinationArn]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -234,7 +234,7 @@ import {RoutingRule} from "./index";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${source.arn}"
+ *         "${sourceArn}"
  *       ]
  *     },
  *     {
@@ -245,7 +245,7 @@ import {RoutingRule} from "./index";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${source.arn}/*"
+ *         "${sourceArn1}/*"
  *       ]
  *     },
  *     {
@@ -255,11 +255,11 @@ import {RoutingRule} from "./index";
  *         "s3:ReplicateTags"
  *       ],
  *       "Effect": "Allow",
- *       "Resource": "${destination.arn}/*"
+ *       "Resource": "${destinationArn}/*"
  *     }
  *   ]
  * }
- * `});
+ * `)});
  * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment", {
  *     role: replicationRole.name,
  *     policyArn: replicationPolicy.arn,
@@ -348,7 +348,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
      */
-    public readonly accelerationStatus!: pulumi.Output<string>;
+    public readonly accelerationStatus!: pulumi.Output<string | undefined>;
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
      */
@@ -356,7 +356,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
-    public readonly arn!: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
@@ -364,7 +364,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */
-    public /*out*/ readonly bucketDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly bucketDomainName!: pulumi.Output<string | undefined>;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
@@ -372,7 +372,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
      */
-    public /*out*/ readonly bucketRegionalDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly bucketRegionalDomainName!: pulumi.Output<string | undefined>;
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
@@ -388,7 +388,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
-    public readonly hostedZoneId!: pulumi.Output<string>;
+    public readonly hostedZoneId!: pulumi.Output<string | undefined>;
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
@@ -410,7 +410,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The AWS region this bucket resides in.
      */
-    public /*out*/ readonly region!: pulumi.Output<string>;
+    public /*out*/ readonly region!: pulumi.Output<string | undefined>;
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
@@ -421,11 +421,11 @@ export class Bucket extends pulumi.CustomResource {
      * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
      * developer guide for more information.
      */
-    public readonly requestPayer!: pulumi.Output<string>;
+    public readonly requestPayer!: pulumi.Output<string | undefined>;
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfiguration>;
+    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfiguration | undefined>;
     /**
      * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -439,7 +439,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
-    public readonly versioning!: pulumi.Output<outputs.s3.BucketVersioning>;
+    public readonly versioning!: pulumi.Output<outputs.s3.BucketVersioning | undefined>;
     /**
      * A website object (documented below).
      */
@@ -447,11 +447,11 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */
-    public readonly websiteDomain!: pulumi.Output<string>;
+    public readonly websiteDomain!: pulumi.Output<string | undefined>;
     /**
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
-    public readonly websiteEndpoint!: pulumi.Output<string>;
+    public readonly websiteEndpoint!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.

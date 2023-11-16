@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult> OutboundHeaders;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult> RouteTableRoutes;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult> SecurityGroupRules;
-        public readonly int SequenceNumber;
+        public readonly int? SequenceNumber;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult> SourceVpcs;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSubnetResult> Subnets;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult> TransitGatewayRouteTableRoutes;
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult> securityGroupRules,
 
-            int sequenceNumber,
+            int? sequenceNumber,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult> sourceVpcs,
 

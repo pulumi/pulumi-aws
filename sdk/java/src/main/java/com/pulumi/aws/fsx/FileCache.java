@@ -96,14 +96,14 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the resource.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
@@ -124,14 +124,14 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataRepositoryAssociationIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> dataRepositoryAssociationIds;
+    private Output</* @Nullable */ List<String>> dataRepositoryAssociationIds;
 
     /**
      * @return A list of IDs of data repository associations that are associated with this cache.
      * 
      */
-    public Output<List<String>> dataRepositoryAssociationIds() {
-        return this.dataRepositoryAssociationIds;
+    public Output<Optional<List<String>>> dataRepositoryAssociationIds() {
+        return Codegen.optional(this.dataRepositoryAssociationIds);
     }
     /**
      * See the `data_repository_association` configuration block. Max of 8.
@@ -154,28 +154,28 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The Domain Name System (DNS) name for the cache.
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * The system-generated, unique ID of the cache.
      * 
      */
     @Export(name="fileCacheId", refs={String.class}, tree="[0]")
-    private Output<String> fileCacheId;
+    private Output</* @Nullable */ String> fileCacheId;
 
     /**
      * @return The system-generated, unique ID of the cache.
      * 
      */
-    public Output<String> fileCacheId() {
-        return this.fileCacheId;
+    public Output<Optional<String>> fileCacheId() {
+        return Codegen.optional(this.fileCacheId);
     }
     /**
      * The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
@@ -210,14 +210,14 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
@@ -238,20 +238,20 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> networkInterfaceIds;
+    private Output</* @Nullable */ List<String>> networkInterfaceIds;
 
     /**
      * @return A list of network interface IDs.
      * 
      */
-    public Output<List<String>> networkInterfaceIds() {
-        return this.networkInterfaceIds;
+    public Output<Optional<List<String>>> networkInterfaceIds() {
+        return Codegen.optional(this.networkInterfaceIds);
     }
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
@@ -330,14 +330,14 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The ID of your virtual private cloud (VPC).
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

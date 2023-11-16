@@ -62,19 +62,19 @@ namespace Pulumi.Aws.Backup
         /// The ARN of the backup report plan.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         /// </summary>
         [Output("deploymentStatus")]
-        public Output<string> DeploymentStatus { get; private set; } = null!;
+        public Output<string?> DeploymentStatus { get; private set; } = null!;
 
         /// <summary>
         /// The description of the report plan with a maximum of 1,024 characters

@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Dms
         /// Amazon Resource Name (ARN) of the DMS Event Subscription.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether the event subscription should be enabled.

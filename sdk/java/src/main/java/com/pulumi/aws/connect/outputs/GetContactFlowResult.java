@@ -16,30 +16,30 @@ public final class GetContactFlowResult {
      * @return ARN of the Contact Flow.
      * 
      */
-    private String arn;
-    private String contactFlowId;
+    private @Nullable String arn;
+    private @Nullable String contactFlowId;
     /**
      * @return Logic of the Contact Flow.
      * 
      */
-    private String content;
+    private @Nullable String content;
     /**
      * @return Description of the Contact Flow.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
-    private String name;
+    private @Nullable String name;
     /**
      * @return Tags to assign to the Contact Flow.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of Contact Flow.
      * 
@@ -51,45 +51,45 @@ public final class GetContactFlowResult {
      * @return ARN of the Contact Flow.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String contactFlowId() {
-        return this.contactFlowId;
+    public Optional<String> contactFlowId() {
+        return Optional.ofNullable(this.contactFlowId);
     }
     /**
      * @return Logic of the Contact Flow.
      * 
      */
-    public String content() {
-        return this.content;
+    public Optional<String> content() {
+        return Optional.ofNullable(this.content);
     }
     /**
      * @return Description of the Contact Flow.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Tags to assign to the Contact Flow.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of Contact Flow.
@@ -108,14 +108,14 @@ public final class GetContactFlowResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String contactFlowId;
-        private String content;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String contactFlowId;
+        private @Nullable String content;
+        private @Nullable String description;
+        private @Nullable String id;
         private String instanceId;
-        private String name;
-        private Map<String,String> tags;
+        private @Nullable String name;
+        private @Nullable Map<String,String> tags;
         private @Nullable String type;
         public Builder() {}
         public Builder(GetContactFlowResult defaults) {
@@ -132,28 +132,28 @@ public final class GetContactFlowResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder contactFlowId(String contactFlowId) {
-            this.contactFlowId = Objects.requireNonNull(contactFlowId);
+        public Builder contactFlowId(@Nullable String contactFlowId) {
+            this.contactFlowId = contactFlowId;
             return this;
         }
         @CustomType.Setter
-        public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+        public Builder content(@Nullable String content) {
+            this.content = content;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -162,13 +162,13 @@ public final class GetContactFlowResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

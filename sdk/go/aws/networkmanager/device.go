@@ -55,7 +55,7 @@ type Device struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the device.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The AWS location of the device. Documented below.
 	AwsLocation DeviceAwsLocationPtrOutput `pulumi:"awsLocation"`
 	// A description of the device.
@@ -315,8 +315,8 @@ func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutpu
 }
 
 // The Amazon Resource Name (ARN) of the device.
-func (o DeviceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DeviceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The AWS location of the device. Documented below.

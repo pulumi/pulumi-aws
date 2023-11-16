@@ -69,28 +69,28 @@ public class Upload extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name of this upload.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The upload&#39;s category.
      * 
      */
     @Export(name="category", refs={String.class}, tree="[0]")
-    private Output<String> category;
+    private Output</* @Nullable */ String> category;
 
     /**
      * @return The upload&#39;s category.
      * 
      */
-    public Output<String> category() {
-        return this.category;
+    public Output<Optional<String>> category() {
+        return Codegen.optional(this.category);
     }
     /**
      * The upload&#39;s content type (for example, application/octet-stream).
@@ -111,14 +111,14 @@ public class Upload extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="metadata", refs={String.class}, tree="[0]")
-    private Output<String> metadata;
+    private Output</* @Nullable */ String> metadata;
 
     /**
      * @return The upload&#39;s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
      * 
      */
-    public Output<String> metadata() {
-        return this.metadata;
+    public Output<Optional<String>> metadata() {
+        return Codegen.optional(this.metadata);
     }
     /**
      * The upload&#39;s file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
@@ -167,14 +167,14 @@ public class Upload extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
      * @return The presigned Amazon S3 URL that was used to store a file using a PUT request.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
 
     /**

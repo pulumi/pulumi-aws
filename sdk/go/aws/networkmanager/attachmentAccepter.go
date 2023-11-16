@@ -73,23 +73,23 @@ type AttachmentAccepter struct {
 	// The ID of the attachment.
 	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
 	// The policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentPolicyRuleNumber pulumi.IntPtrOutput `pulumi:"attachmentPolicyRuleNumber"`
 	// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
 	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
 	// The ARN of a core network.
-	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
+	CoreNetworkArn pulumi.StringPtrOutput `pulumi:"coreNetworkArn"`
 	// The id of a core network.
-	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
+	CoreNetworkId pulumi.StringPtrOutput `pulumi:"coreNetworkId"`
 	// The Region where the edge is located.
-	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	EdgeLocation pulumi.StringPtrOutput `pulumi:"edgeLocation"`
 	// The ID of the attachment account owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerAccountId pulumi.StringPtrOutput `pulumi:"ownerAccountId"`
 	// The attachment resource ARN.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
 	// The name of the segment attachment.
-	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
+	SegmentName pulumi.StringPtrOutput `pulumi:"segmentName"`
 	// The state of the attachment.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 }
 
 // NewAttachmentAccepter registers a new resource with the given unique name, arguments, and options.
@@ -285,8 +285,8 @@ func (o AttachmentAccepterOutput) AttachmentId() pulumi.StringOutput {
 }
 
 // The policy rule number associated with the attachment.
-func (o AttachmentAccepterOutput) AttachmentPolicyRuleNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v *AttachmentAccepter) pulumi.IntOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntOutput)
+func (o AttachmentAccepterOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AttachmentAccepter) pulumi.IntPtrOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntPtrOutput)
 }
 
 // The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
@@ -295,38 +295,38 @@ func (o AttachmentAccepterOutput) AttachmentType() pulumi.StringOutput {
 }
 
 // The ARN of a core network.
-func (o AttachmentAccepterOutput) CoreNetworkArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
+func (o AttachmentAccepterOutput) CoreNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringPtrOutput { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The id of a core network.
-func (o AttachmentAccepterOutput) CoreNetworkId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
+func (o AttachmentAccepterOutput) CoreNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringPtrOutput { return v.CoreNetworkId }).(pulumi.StringPtrOutput)
 }
 
 // The Region where the edge is located.
-func (o AttachmentAccepterOutput) EdgeLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
+func (o AttachmentAccepterOutput) EdgeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringPtrOutput { return v.EdgeLocation }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the attachment account owner.
-func (o AttachmentAccepterOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o AttachmentAccepterOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringPtrOutput { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The attachment resource ARN.
-func (o AttachmentAccepterOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+func (o AttachmentAccepterOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the segment attachment.
-func (o AttachmentAccepterOutput) SegmentName() pulumi.StringOutput {
-	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.SegmentName }).(pulumi.StringOutput)
+func (o AttachmentAccepterOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringPtrOutput { return v.SegmentName }).(pulumi.StringPtrOutput)
 }
 
 // The state of the attachment.
-func (o AttachmentAccepterOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o AttachmentAccepterOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type AttachmentAccepterArrayOutput struct{ *pulumi.OutputState }

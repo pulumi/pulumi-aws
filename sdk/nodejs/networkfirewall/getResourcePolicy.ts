@@ -43,11 +43,11 @@ export interface GetResourcePolicyResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The [policy][1] for the resource.
      */
-    readonly policy: string;
+    readonly policy?: string;
     readonly resourceArn: string;
 }
 /**

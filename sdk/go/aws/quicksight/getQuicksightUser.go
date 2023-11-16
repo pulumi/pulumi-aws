@@ -66,22 +66,22 @@ type GetQuicksightUserArgs struct {
 // A collection of values returned by getQuicksightUser.
 type GetQuicksightUserResult struct {
 	// The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
-	Active bool `pulumi:"active"`
+	Active *bool `pulumi:"active"`
 	// The Amazon Resource Name (ARN) for the user.
-	Arn          string `pulumi:"arn"`
-	AwsAccountId string `pulumi:"awsAccountId"`
+	Arn          *string `pulumi:"arn"`
+	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The user's email address.
-	Email string `pulumi:"email"`
+	Email *string `pulumi:"email"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The type of identity authentication used by the user.
-	IdentityType string  `pulumi:"identityType"`
+	IdentityType *string `pulumi:"identityType"`
 	Namespace    *string `pulumi:"namespace"`
 	// The principal ID of the user.
-	PrincipalId string `pulumi:"principalId"`
-	UserName    string `pulumi:"userName"`
+	PrincipalId *string `pulumi:"principalId"`
+	UserName    string  `pulumi:"userName"`
 	// The Amazon QuickSight role for the user. The user role can be one of the following:.
-	UserRole string `pulumi:"userRole"`
+	UserRole *string `pulumi:"userRole"`
 }
 
 func GetQuicksightUserOutput(ctx *pulumi.Context, args GetQuicksightUserOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightUserResultOutput {
@@ -129,32 +129,32 @@ func (o GetQuicksightUserResultOutput) ToGetQuicksightUserResultOutputWithContex
 }
 
 // The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
-func (o GetQuicksightUserResultOutput) Active() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetQuicksightUserResult) bool { return v.Active }).(pulumi.BoolOutput)
+func (o GetQuicksightUserResultOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) *bool { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the user.
-func (o GetQuicksightUserResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetQuicksightUserResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetQuicksightUserResultOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o GetQuicksightUserResultOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) *string { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The user's email address.
-func (o GetQuicksightUserResultOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.Email }).(pulumi.StringOutput)
+func (o GetQuicksightUserResultOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetQuicksightUserResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetQuicksightUserResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The type of identity authentication used by the user.
-func (o GetQuicksightUserResultOutput) IdentityType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.IdentityType }).(pulumi.StringOutput)
+func (o GetQuicksightUserResultOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
 }
 
 func (o GetQuicksightUserResultOutput) Namespace() pulumi.StringPtrOutput {
@@ -162,8 +162,8 @@ func (o GetQuicksightUserResultOutput) Namespace() pulumi.StringPtrOutput {
 }
 
 // The principal ID of the user.
-func (o GetQuicksightUserResultOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o GetQuicksightUserResultOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetQuicksightUserResultOutput) UserName() pulumi.StringOutput {
@@ -171,8 +171,8 @@ func (o GetQuicksightUserResultOutput) UserName() pulumi.StringOutput {
 }
 
 // The Amazon QuickSight role for the user. The user role can be one of the following:.
-func (o GetQuicksightUserResultOutput) UserRole() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.UserRole }).(pulumi.StringOutput)
+func (o GetQuicksightUserResultOutput) UserRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) *string { return v.UserRole }).(pulumi.StringPtrOutput)
 }
 
 func init() {

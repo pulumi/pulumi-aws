@@ -75,29 +75,29 @@ type Schedule struct {
 	pulumi.CustomResourceState
 
 	// ARN assigned by AWS to the autoscaling schedule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
 	// The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-	DesiredCapacity pulumi.IntOutput `pulumi:"desiredCapacity"`
+	DesiredCapacity pulumi.IntPtrOutput `pulumi:"desiredCapacity"`
 	// The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-	EndTime pulumi.StringOutput `pulumi:"endTime"`
+	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
 	// The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-	MaxSize pulumi.IntOutput `pulumi:"maxSize"`
+	MaxSize pulumi.IntPtrOutput `pulumi:"maxSize"`
 	// The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-	MinSize pulumi.IntOutput `pulumi:"minSize"`
+	MinSize pulumi.IntPtrOutput `pulumi:"minSize"`
 	// The recurring schedule for this action specified using the Unix cron syntax format.
-	Recurrence pulumi.StringOutput `pulumi:"recurrence"`
+	Recurrence pulumi.StringPtrOutput `pulumi:"recurrence"`
 	// The name of this scaling action.
 	//
 	// The following arguments are optional:
 	ScheduledActionName pulumi.StringOutput `pulumi:"scheduledActionName"`
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-	StartTime pulumi.StringOutput `pulumi:"startTime"`
+	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
 	//
 	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
-	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
+	TimeZone pulumi.StringPtrOutput `pulumi:"timeZone"`
 }
 
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
@@ -332,8 +332,8 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 }
 
 // ARN assigned by AWS to the autoscaling schedule.
-func (o ScheduleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ScheduleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Auto Scaling group.
@@ -342,28 +342,28 @@ func (o ScheduleOutput) AutoscalingGroupName() pulumi.StringOutput {
 }
 
 // The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-func (o ScheduleOutput) DesiredCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.IntOutput { return v.DesiredCapacity }).(pulumi.IntOutput)
+func (o ScheduleOutput) DesiredCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.IntPtrOutput { return v.DesiredCapacity }).(pulumi.IntPtrOutput)
 }
 
 // The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-func (o ScheduleOutput) EndTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.EndTime }).(pulumi.StringOutput)
+func (o ScheduleOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
 // The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-func (o ScheduleOutput) MaxSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.IntOutput { return v.MaxSize }).(pulumi.IntOutput)
+func (o ScheduleOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.IntPtrOutput { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
 // The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-func (o ScheduleOutput) MinSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.IntOutput { return v.MinSize }).(pulumi.IntOutput)
+func (o ScheduleOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.IntPtrOutput { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
 // The recurring schedule for this action specified using the Unix cron syntax format.
-func (o ScheduleOutput) Recurrence() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Recurrence }).(pulumi.StringOutput)
+func (o ScheduleOutput) Recurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Recurrence }).(pulumi.StringPtrOutput)
 }
 
 // The name of this scaling action.
@@ -374,15 +374,15 @@ func (o ScheduleOutput) ScheduledActionName() pulumi.StringOutput {
 }
 
 // The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-func (o ScheduleOutput) StartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
+func (o ScheduleOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
 //
 // > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
-func (o ScheduleOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
+func (o ScheduleOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
 type ScheduleArrayOutput struct{ *pulumi.OutputState }

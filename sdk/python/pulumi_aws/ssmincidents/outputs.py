@@ -497,10 +497,10 @@ class ResponsePlanIntegrationPagerduty(dict):
 @pulumi.output_type
 class GetReplicationSetRegionResult(dict):
     def __init__(__self__, *,
-                 kms_key_arn: str,
-                 name: str,
-                 status: str,
-                 status_message: str):
+                 kms_key_arn: Optional[str] = None,
+                 name: Optional[str] = None,
+                 status: Optional[str] = None,
+                 status_message: Optional[str] = None):
         """
         :param str kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) encryption key.
         :param str name: The name of the Region.
@@ -508,14 +508,18 @@ class GetReplicationSetRegionResult(dict):
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param str status_message: More information about the status of a Region.
         """
-        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_message", status_message)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if status_message is not None:
+            pulumi.set(__self__, "status_message", status_message)
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> Optional[str]:
         """
         The ARN of the AWS Key Management Service (AWS KMS) encryption key.
         """
@@ -523,7 +527,7 @@ class GetReplicationSetRegionResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the Region.
         """
@@ -531,7 +535,7 @@ class GetReplicationSetRegionResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The current status of the Region.
         * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
@@ -540,7 +544,7 @@ class GetReplicationSetRegionResult(dict):
 
     @property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> str:
+    def status_message(self) -> Optional[str]:
         """
         More information about the status of a Region.
         """
@@ -550,15 +554,16 @@ class GetReplicationSetRegionResult(dict):
 @pulumi.output_type
 class GetResponsePlanActionResult(dict):
     def __init__(__self__, *,
-                 ssm_automations: Sequence['outputs.GetResponsePlanActionSsmAutomationResult']):
+                 ssm_automations: Optional[Sequence['outputs.GetResponsePlanActionSsmAutomationResult']] = None):
         """
         :param Sequence['GetResponsePlanActionSsmAutomationArgs'] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         """
-        pulumi.set(__self__, "ssm_automations", ssm_automations)
+        if ssm_automations is not None:
+            pulumi.set(__self__, "ssm_automations", ssm_automations)
 
     @property
     @pulumi.getter(name="ssmAutomations")
-    def ssm_automations(self) -> Sequence['outputs.GetResponsePlanActionSsmAutomationResult']:
+    def ssm_automations(self) -> Optional[Sequence['outputs.GetResponsePlanActionSsmAutomationResult']]:
         """
         The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         """
@@ -568,12 +573,12 @@ class GetResponsePlanActionResult(dict):
 @pulumi.output_type
 class GetResponsePlanActionSsmAutomationResult(dict):
     def __init__(__self__, *,
-                 document_name: str,
-                 document_version: str,
-                 dynamic_parameters: Mapping[str, str],
-                 parameters: Sequence['outputs.GetResponsePlanActionSsmAutomationParameterResult'],
-                 role_arn: str,
-                 target_account: str):
+                 document_name: Optional[str] = None,
+                 document_version: Optional[str] = None,
+                 dynamic_parameters: Optional[Mapping[str, str]] = None,
+                 parameters: Optional[Sequence['outputs.GetResponsePlanActionSsmAutomationParameterResult']] = None,
+                 role_arn: Optional[str] = None,
+                 target_account: Optional[str] = None):
         """
         :param str document_name: The automation document's name.
         :param str document_version: The version of the automation document to use at runtime.
@@ -582,16 +587,22 @@ class GetResponsePlanActionSsmAutomationResult(dict):
         :param str role_arn: The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
         :param str target_account: The account that runs the automation document. This can be in either the management account or an application account.
         """
-        pulumi.set(__self__, "document_name", document_name)
-        pulumi.set(__self__, "document_version", document_version)
-        pulumi.set(__self__, "dynamic_parameters", dynamic_parameters)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "target_account", target_account)
+        if document_name is not None:
+            pulumi.set(__self__, "document_name", document_name)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+        if dynamic_parameters is not None:
+            pulumi.set(__self__, "dynamic_parameters", dynamic_parameters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if target_account is not None:
+            pulumi.set(__self__, "target_account", target_account)
 
     @property
     @pulumi.getter(name="documentName")
-    def document_name(self) -> str:
+    def document_name(self) -> Optional[str]:
         """
         The automation document's name.
         """
@@ -599,7 +610,7 @@ class GetResponsePlanActionSsmAutomationResult(dict):
 
     @property
     @pulumi.getter(name="documentVersion")
-    def document_version(self) -> str:
+    def document_version(self) -> Optional[str]:
         """
         The version of the automation document to use at runtime.
         """
@@ -607,7 +618,7 @@ class GetResponsePlanActionSsmAutomationResult(dict):
 
     @property
     @pulumi.getter(name="dynamicParameters")
-    def dynamic_parameters(self) -> Mapping[str, str]:
+    def dynamic_parameters(self) -> Optional[Mapping[str, str]]:
         """
         The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
         """
@@ -615,7 +626,7 @@ class GetResponsePlanActionSsmAutomationResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Sequence['outputs.GetResponsePlanActionSsmAutomationParameterResult']:
+    def parameters(self) -> Optional[Sequence['outputs.GetResponsePlanActionSsmAutomationParameterResult']]:
         """
         The key-value pair parameters used when the automation document runs. The following values are supported:
         """
@@ -623,7 +634,7 @@ class GetResponsePlanActionSsmAutomationResult(dict):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
         """
@@ -631,7 +642,7 @@ class GetResponsePlanActionSsmAutomationResult(dict):
 
     @property
     @pulumi.getter(name="targetAccount")
-    def target_account(self) -> str:
+    def target_account(self) -> Optional[str]:
         """
         The account that runs the automation document. This can be in either the management account or an application account.
         """
@@ -641,18 +652,20 @@ class GetResponsePlanActionSsmAutomationResult(dict):
 @pulumi.output_type
 class GetResponsePlanActionSsmAutomationParameterResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
+                 name: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
         """
         :param str name: The name of the PagerDuty configuration.
         :param Sequence[str] values: The values for the associated parameter name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the PagerDuty configuration.
         """
@@ -660,7 +673,7 @@ class GetResponsePlanActionSsmAutomationParameterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Sequence[str]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         The values for the associated parameter name.
         """
@@ -670,12 +683,12 @@ class GetResponsePlanActionSsmAutomationParameterResult(dict):
 @pulumi.output_type
 class GetResponsePlanIncidentTemplateResult(dict):
     def __init__(__self__, *,
-                 dedupe_string: str,
-                 impact: int,
-                 incident_tags: Mapping[str, str],
-                 notification_targets: Sequence['outputs.GetResponsePlanIncidentTemplateNotificationTargetResult'],
-                 summary: str,
-                 title: str):
+                 dedupe_string: Optional[str] = None,
+                 impact: Optional[int] = None,
+                 incident_tags: Optional[Mapping[str, str]] = None,
+                 notification_targets: Optional[Sequence['outputs.GetResponsePlanIncidentTemplateNotificationTargetResult']] = None,
+                 summary: Optional[str] = None,
+                 title: Optional[str] = None):
         """
         :param str dedupe_string: A string used to stop Incident Manager from creating multiple incident records for the same incident.
         :param int impact: The impact value of a generated incident. The following values are supported:
@@ -684,16 +697,22 @@ class GetResponsePlanIncidentTemplateResult(dict):
         :param str summary: The summary of an incident.
         :param str title: The title of a generated incident.
         """
-        pulumi.set(__self__, "dedupe_string", dedupe_string)
-        pulumi.set(__self__, "impact", impact)
-        pulumi.set(__self__, "incident_tags", incident_tags)
-        pulumi.set(__self__, "notification_targets", notification_targets)
-        pulumi.set(__self__, "summary", summary)
-        pulumi.set(__self__, "title", title)
+        if dedupe_string is not None:
+            pulumi.set(__self__, "dedupe_string", dedupe_string)
+        if impact is not None:
+            pulumi.set(__self__, "impact", impact)
+        if incident_tags is not None:
+            pulumi.set(__self__, "incident_tags", incident_tags)
+        if notification_targets is not None:
+            pulumi.set(__self__, "notification_targets", notification_targets)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter(name="dedupeString")
-    def dedupe_string(self) -> str:
+    def dedupe_string(self) -> Optional[str]:
         """
         A string used to stop Incident Manager from creating multiple incident records for the same incident.
         """
@@ -701,7 +720,7 @@ class GetResponsePlanIncidentTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def impact(self) -> int:
+    def impact(self) -> Optional[int]:
         """
         The impact value of a generated incident. The following values are supported:
         """
@@ -709,7 +728,7 @@ class GetResponsePlanIncidentTemplateResult(dict):
 
     @property
     @pulumi.getter(name="incidentTags")
-    def incident_tags(self) -> Mapping[str, str]:
+    def incident_tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
         """
@@ -717,7 +736,7 @@ class GetResponsePlanIncidentTemplateResult(dict):
 
     @property
     @pulumi.getter(name="notificationTargets")
-    def notification_targets(self) -> Sequence['outputs.GetResponsePlanIncidentTemplateNotificationTargetResult']:
+    def notification_targets(self) -> Optional[Sequence['outputs.GetResponsePlanIncidentTemplateNotificationTargetResult']]:
         """
         The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
         """
@@ -725,7 +744,7 @@ class GetResponsePlanIncidentTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def summary(self) -> str:
+    def summary(self) -> Optional[str]:
         """
         The summary of an incident.
         """
@@ -733,7 +752,7 @@ class GetResponsePlanIncidentTemplateResult(dict):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> Optional[str]:
         """
         The title of a generated incident.
         """
@@ -743,15 +762,16 @@ class GetResponsePlanIncidentTemplateResult(dict):
 @pulumi.output_type
 class GetResponsePlanIncidentTemplateNotificationTargetResult(dict):
     def __init__(__self__, *,
-                 sns_topic_arn: str):
+                 sns_topic_arn: Optional[str] = None):
         """
         :param str sns_topic_arn: The ARN of the Amazon SNS topic.
         """
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        if sns_topic_arn is not None:
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> str:
+    def sns_topic_arn(self) -> Optional[str]:
         """
         The ARN of the Amazon SNS topic.
         """
@@ -761,15 +781,16 @@ class GetResponsePlanIncidentTemplateNotificationTargetResult(dict):
 @pulumi.output_type
 class GetResponsePlanIntegrationResult(dict):
     def __init__(__self__, *,
-                 pagerduties: Sequence['outputs.GetResponsePlanIntegrationPagerdutyResult']):
+                 pagerduties: Optional[Sequence['outputs.GetResponsePlanIntegrationPagerdutyResult']] = None):
         """
         :param Sequence['GetResponsePlanIntegrationPagerdutyArgs'] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
         """
-        pulumi.set(__self__, "pagerduties", pagerduties)
+        if pagerduties is not None:
+            pulumi.set(__self__, "pagerduties", pagerduties)
 
     @property
     @pulumi.getter
-    def pagerduties(self) -> Sequence['outputs.GetResponsePlanIntegrationPagerdutyResult']:
+    def pagerduties(self) -> Optional[Sequence['outputs.GetResponsePlanIntegrationPagerdutyResult']]:
         """
         Details about the PagerDuty configuration for a response plan. The following values are supported:
         """
@@ -779,21 +800,24 @@ class GetResponsePlanIntegrationResult(dict):
 @pulumi.output_type
 class GetResponsePlanIntegrationPagerdutyResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 secret_id: str,
-                 service_id: str):
+                 name: Optional[str] = None,
+                 secret_id: Optional[str] = None,
+                 service_id: Optional[str] = None):
         """
         :param str name: The name of the PagerDuty configuration.
         :param str secret_id: The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
         :param str service_id: The ID of the PagerDuty service that the response plan associates with an incident when it launches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_id", secret_id)
-        pulumi.set(__self__, "service_id", service_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret_id is not None:
+            pulumi.set(__self__, "secret_id", secret_id)
+        if service_id is not None:
+            pulumi.set(__self__, "service_id", service_id)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the PagerDuty configuration.
         """
@@ -801,7 +825,7 @@ class GetResponsePlanIntegrationPagerdutyResult(dict):
 
     @property
     @pulumi.getter(name="secretId")
-    def secret_id(self) -> str:
+    def secret_id(self) -> Optional[str]:
         """
         The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
         """
@@ -809,7 +833,7 @@ class GetResponsePlanIntegrationPagerdutyResult(dict):
 
     @property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> str:
+    def service_id(self) -> Optional[str]:
         """
         The ID of the PagerDuty service that the response plan associates with an incident when it launches.
         """

@@ -63,7 +63,7 @@ type LocationObjectStorage struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
@@ -77,7 +77,7 @@ type LocationObjectStorage struct {
 	// The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
 	ServerProtocol pulumi.StringPtrOutput `pulumi:"serverProtocol"`
 	// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
+	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -85,7 +85,7 @@ type LocationObjectStorage struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the Object Storage location that was described.
-	Uri pulumi.StringOutput `pulumi:"uri"`
+	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewLocationObjectStorage registers a new resource with the given unique name, arguments, and options.
@@ -345,8 +345,8 @@ func (o LocationObjectStorageOutput) AgentArns() pulumi.StringArrayOutput {
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (o LocationObjectStorageOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LocationObjectStorageOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The bucket on the self-managed object storage server that is used to read data from.
@@ -380,8 +380,8 @@ func (o LocationObjectStorageOutput) ServerProtocol() pulumi.StringPtrOutput {
 }
 
 // A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-func (o LocationObjectStorageOutput) Subdirectory() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
+func (o LocationObjectStorageOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -397,8 +397,8 @@ func (o LocationObjectStorageOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The URL of the Object Storage location that was described.
-func (o LocationObjectStorageOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+func (o LocationObjectStorageOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 type LocationObjectStorageArrayOutput struct{ *pulumi.OutputState }

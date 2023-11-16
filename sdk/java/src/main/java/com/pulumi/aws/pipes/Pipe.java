@@ -281,14 +281,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A description of the pipe. At most 512 characters.
@@ -365,14 +365,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * ARN of the role that allows the pipe to send data to the target.
@@ -407,14 +407,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceParameters", refs={PipeSourceParameters.class}, tree="[0]")
-    private Output<PipeSourceParameters> sourceParameters;
+    private Output</* @Nullable */ PipeSourceParameters> sourceParameters;
 
     /**
      * @return Parameters to configure a source for the pipe. Detailed below.
      * 
      */
-    public Output<PipeSourceParameters> sourceParameters() {
-        return this.sourceParameters;
+    public Output<Optional<PipeSourceParameters>> sourceParameters() {
+        return Codegen.optional(this.sourceParameters);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExperienceConfigurationUserIdentityConfiguration {
@@ -13,15 +15,15 @@ public final class GetExperienceConfigurationUserIdentityConfiguration {
      * @return The AWS SSO field name that contains the identifiers of your users, such as their emails.
      * 
      */
-    private String identityAttributeName;
+    private @Nullable String identityAttributeName;
 
     private GetExperienceConfigurationUserIdentityConfiguration() {}
     /**
      * @return The AWS SSO field name that contains the identifiers of your users, such as their emails.
      * 
      */
-    public String identityAttributeName() {
-        return this.identityAttributeName;
+    public Optional<String> identityAttributeName() {
+        return Optional.ofNullable(this.identityAttributeName);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetExperienceConfigurationUserIdentityConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String identityAttributeName;
+        private @Nullable String identityAttributeName;
         public Builder() {}
         public Builder(GetExperienceConfigurationUserIdentityConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetExperienceConfigurationUserIdentityConfiguration {
         }
 
         @CustomType.Setter
-        public Builder identityAttributeName(String identityAttributeName) {
-            this.identityAttributeName = Objects.requireNonNull(identityAttributeName);
+        public Builder identityAttributeName(@Nullable String identityAttributeName) {
+            this.identityAttributeName = identityAttributeName;
             return this;
         }
         public GetExperienceConfigurationUserIdentityConfiguration build() {

@@ -140,11 +140,11 @@ export class Table extends pulumi.CustomResource {
     /**
      * ARN of the table
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
      */
-    public readonly attributes!: pulumi.Output<outputs.dynamodb.TableAttribute[]>;
+    public readonly attributes!: pulumi.Output<outputs.dynamodb.TableAttribute[] | undefined>;
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      */
@@ -160,7 +160,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      */
-    public readonly hashKey!: pulumi.Output<string>;
+    public readonly hashKey!: pulumi.Output<string | undefined>;
     /**
      * Import Amazon S3 data into a new table. See below.
      */
@@ -178,7 +178,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Enable point-in-time recovery options. See below.
      */
-    public readonly pointInTimeRecovery!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecovery>;
+    public readonly pointInTimeRecovery!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecovery | undefined>;
     /**
      * Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
      */
@@ -186,7 +186,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */
-    public readonly readCapacity!: pulumi.Output<number>;
+    public readonly readCapacity!: pulumi.Output<number | undefined>;
     /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
@@ -206,11 +206,11 @@ export class Table extends pulumi.CustomResource {
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
      */
-    public readonly serverSideEncryption!: pulumi.Output<outputs.dynamodb.TableServerSideEncryption>;
+    public readonly serverSideEncryption!: pulumi.Output<outputs.dynamodb.TableServerSideEncryption | undefined>;
     /**
      * ARN of the Table Stream. Only available when `streamEnabled = true`
      */
-    public /*out*/ readonly streamArn!: pulumi.Output<string>;
+    public /*out*/ readonly streamArn!: pulumi.Output<string | undefined>;
     /**
      * Whether Streams are enabled.
      */
@@ -218,11 +218,11 @@ export class Table extends pulumi.CustomResource {
     /**
      * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      */
-    public /*out*/ readonly streamLabel!: pulumi.Output<string>;
+    public /*out*/ readonly streamLabel!: pulumi.Output<string | undefined>;
     /**
      * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
      */
-    public readonly streamViewType!: pulumi.Output<string>;
+    public readonly streamViewType!: pulumi.Output<string | undefined>;
     /**
      * Storage class of the table.
      * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
@@ -242,11 +242,11 @@ export class Table extends pulumi.CustomResource {
     /**
      * Configuration block for TTL. See below.
      */
-    public readonly ttl!: pulumi.Output<outputs.dynamodb.TableTtl>;
+    public readonly ttl!: pulumi.Output<outputs.dynamodb.TableTtl | undefined>;
     /**
      * Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */
-    public readonly writeCapacity!: pulumi.Output<number>;
+    public readonly writeCapacity!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.

@@ -130,11 +130,11 @@ namespace Pulumi.Aws.Grafana
         /// <summary>
         /// (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         /// </summary>
-        public readonly string AccountAccessType;
+        public readonly string? AccountAccessType;
         /// <summary>
         /// ARN of the Grafana workspace.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Grafana
         /// <summary>
         /// Creation date of the Grafana workspace.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Data sources for the workspace.
         /// </summary>
@@ -150,27 +150,27 @@ namespace Pulumi.Aws.Grafana
         /// <summary>
         /// Workspace description.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Endpoint of the Grafana workspace.
         /// </summary>
-        public readonly string Endpoint;
+        public readonly string? Endpoint;
         /// <summary>
         /// Version of Grafana running on the workspace.
         /// </summary>
-        public readonly string GrafanaVersion;
+        public readonly string? GrafanaVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Last updated date of the Grafana workspace.
         /// </summary>
-        public readonly string LastUpdatedDate;
+        public readonly string? LastUpdatedDate;
         /// <summary>
         /// Grafana workspace name.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The notification destinations.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Grafana
         /// <summary>
         /// The role name that the workspace uses to access resources through Amazon Organizations.
         /// </summary>
-        public readonly string OrganizationRoleName;
+        public readonly string? OrganizationRoleName;
         /// <summary>
         /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         /// </summary>
@@ -186,67 +186,67 @@ namespace Pulumi.Aws.Grafana
         /// <summary>
         /// Permission type of the workspace.
         /// </summary>
-        public readonly string PermissionType;
+        public readonly string? PermissionType;
         /// <summary>
         /// IAM role ARN that the workspace assumes.
         /// </summary>
-        public readonly string RoleArn;
-        public readonly string SamlConfigurationStatus;
+        public readonly string? RoleArn;
+        public readonly string? SamlConfigurationStatus;
         /// <summary>
         /// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         /// </summary>
-        public readonly string StackSetName;
+        public readonly string? StackSetName;
         /// <summary>
         /// Status of the Grafana workspace.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Tags assigned to the resource
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string WorkspaceId;
 
         [OutputConstructor]
         private GetWorkspaceResult(
-            string accountAccessType,
+            string? accountAccessType,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<string> authenticationProviders,
 
-            string createdDate,
+            string? createdDate,
 
             ImmutableArray<string> dataSources,
 
-            string description,
+            string? description,
 
-            string endpoint,
+            string? endpoint,
 
-            string grafanaVersion,
+            string? grafanaVersion,
 
-            string id,
+            string? id,
 
-            string lastUpdatedDate,
+            string? lastUpdatedDate,
 
-            string name,
+            string? name,
 
             ImmutableArray<string> notificationDestinations,
 
-            string organizationRoleName,
+            string? organizationRoleName,
 
             ImmutableArray<string> organizationalUnits,
 
-            string permissionType,
+            string? permissionType,
 
-            string roleArn,
+            string? roleArn,
 
-            string samlConfigurationStatus,
+            string? samlConfigurationStatus,
 
-            string stackSetName,
+            string? stackSetName,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string workspaceId)
         {

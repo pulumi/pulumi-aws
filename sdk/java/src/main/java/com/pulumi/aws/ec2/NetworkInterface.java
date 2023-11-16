@@ -91,28 +91,28 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the network interface.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      * 
      */
     @Export(name="attachments", refs={List.class,NetworkInterfaceAttachment.class}, tree="[0,1]")
-    private Output<List<NetworkInterfaceAttachment>> attachments;
+    private Output</* @Nullable */ List<NetworkInterfaceAttachment>> attachments;
 
     /**
      * @return Configuration block to define the attachment of the ENI. See Attachment below for more details!
      * 
      */
-    public Output<List<NetworkInterfaceAttachment>> attachments() {
-        return this.attachments;
+    public Output<Optional<List<NetworkInterfaceAttachment>>> attachments() {
+        return Codegen.optional(this.attachments);
     }
     /**
      * Description for the network interface.
@@ -133,56 +133,56 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="interfaceType", refs={String.class}, tree="[0]")
-    private Output<String> interfaceType;
+    private Output</* @Nullable */ String> interfaceType;
 
     /**
      * @return Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
      * 
      */
-    public Output<String> interfaceType() {
-        return this.interfaceType;
+    public Output<Optional<String>> interfaceType() {
+        return Codegen.optional(this.interfaceType);
     }
     /**
      * Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      * 
      */
     @Export(name="ipv4PrefixCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> ipv4PrefixCount;
+    private Output</* @Nullable */ Integer> ipv4PrefixCount;
 
     /**
      * @return Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      * 
      */
-    public Output<Integer> ipv4PrefixCount() {
-        return this.ipv4PrefixCount;
+    public Output<Optional<Integer>> ipv4PrefixCount() {
+        return Codegen.optional(this.ipv4PrefixCount);
     }
     /**
      * One or more IPv4 prefixes assigned to the network interface.
      * 
      */
     @Export(name="ipv4Prefixes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> ipv4Prefixes;
+    private Output</* @Nullable */ List<String>> ipv4Prefixes;
 
     /**
      * @return One or more IPv4 prefixes assigned to the network interface.
      * 
      */
-    public Output<List<String>> ipv4Prefixes() {
-        return this.ipv4Prefixes;
+    public Output<Optional<List<String>>> ipv4Prefixes() {
+        return Codegen.optional(this.ipv4Prefixes);
     }
     /**
      * Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      * 
      */
     @Export(name="ipv6AddressCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> ipv6AddressCount;
+    private Output</* @Nullable */ Integer> ipv6AddressCount;
 
     /**
      * @return Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      * 
      */
-    public Output<Integer> ipv6AddressCount() {
-        return this.ipv6AddressCount;
+    public Output<Optional<Integer>> ipv6AddressCount() {
+        return Codegen.optional(this.ipv6AddressCount);
     }
     /**
      * Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
@@ -203,110 +203,110 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipv6AddressLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> ipv6AddressLists;
+    private Output</* @Nullable */ List<String>> ipv6AddressLists;
 
     /**
      * @return List of private IPs to assign to the ENI in sequential order.
      * 
      */
-    public Output<List<String>> ipv6AddressLists() {
-        return this.ipv6AddressLists;
+    public Output<Optional<List<String>>> ipv6AddressLists() {
+        return Codegen.optional(this.ipv6AddressLists);
     }
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6_address_count`.
      * 
      */
     @Export(name="ipv6Addresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> ipv6Addresses;
+    private Output</* @Nullable */ List<String>> ipv6Addresses;
 
     /**
      * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6_address_count`.
      * 
      */
-    public Output<List<String>> ipv6Addresses() {
-        return this.ipv6Addresses;
+    public Output<Optional<List<String>>> ipv6Addresses() {
+        return Codegen.optional(this.ipv6Addresses);
     }
     /**
      * Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      * 
      */
     @Export(name="ipv6PrefixCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> ipv6PrefixCount;
+    private Output</* @Nullable */ Integer> ipv6PrefixCount;
 
     /**
      * @return Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      * 
      */
-    public Output<Integer> ipv6PrefixCount() {
-        return this.ipv6PrefixCount;
+    public Output<Optional<Integer>> ipv6PrefixCount() {
+        return Codegen.optional(this.ipv6PrefixCount);
     }
     /**
      * One or more IPv6 prefixes assigned to the network interface.
      * 
      */
     @Export(name="ipv6Prefixes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> ipv6Prefixes;
+    private Output</* @Nullable */ List<String>> ipv6Prefixes;
 
     /**
      * @return One or more IPv6 prefixes assigned to the network interface.
      * 
      */
-    public Output<List<String>> ipv6Prefixes() {
-        return this.ipv6Prefixes;
+    public Output<Optional<List<String>>> ipv6Prefixes() {
+        return Codegen.optional(this.ipv6Prefixes);
     }
     /**
      * MAC address of the network interface.
      * 
      */
     @Export(name="macAddress", refs={String.class}, tree="[0]")
-    private Output<String> macAddress;
+    private Output</* @Nullable */ String> macAddress;
 
     /**
      * @return MAC address of the network interface.
      * 
      */
-    public Output<String> macAddress() {
-        return this.macAddress;
+    public Output<Optional<String>> macAddress() {
+        return Codegen.optional(this.macAddress);
     }
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
-    private Output<String> outpostArn;
+    private Output</* @Nullable */ String> outpostArn;
 
-    public Output<String> outpostArn() {
-        return this.outpostArn;
+    public Output<Optional<String>> outpostArn() {
+        return Codegen.optional(this.outpostArn);
     }
     /**
      * AWS account ID of the owner of the network interface.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return AWS account ID of the owner of the network interface.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Private DNS name of the network interface (IPv4).
      * 
      */
     @Export(name="privateDnsName", refs={String.class}, tree="[0]")
-    private Output<String> privateDnsName;
+    private Output</* @Nullable */ String> privateDnsName;
 
     /**
      * @return Private DNS name of the network interface (IPv4).
      * 
      */
-    public Output<String> privateDnsName() {
-        return this.privateDnsName;
+    public Output<Optional<String>> privateDnsName() {
+        return Codegen.optional(this.privateDnsName);
     }
     @Export(name="privateIp", refs={String.class}, tree="[0]")
-    private Output<String> privateIp;
+    private Output</* @Nullable */ String> privateIp;
 
-    public Output<String> privateIp() {
-        return this.privateIp;
+    public Output<Optional<String>> privateIp() {
+        return Codegen.optional(this.privateIp);
     }
     /**
      * Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
@@ -327,56 +327,56 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateIpLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> privateIpLists;
+    private Output</* @Nullable */ List<String>> privateIpLists;
 
     /**
      * @return List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
      * 
      */
-    public Output<List<String>> privateIpLists() {
-        return this.privateIpLists;
+    public Output<Optional<List<String>>> privateIpLists() {
+        return Codegen.optional(this.privateIpLists);
     }
     /**
      * List of private IPs to assign to the ENI without regard to order.
      * 
      */
     @Export(name="privateIps", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> privateIps;
+    private Output</* @Nullable */ List<String>> privateIps;
 
     /**
      * @return List of private IPs to assign to the ENI without regard to order.
      * 
      */
-    public Output<List<String>> privateIps() {
-        return this.privateIps;
+    public Output<Optional<List<String>>> privateIps() {
+        return Codegen.optional(this.privateIps);
     }
     /**
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
      * 
      */
     @Export(name="privateIpsCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> privateIpsCount;
+    private Output</* @Nullable */ Integer> privateIpsCount;
 
     /**
      * @return Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
      * 
      */
-    public Output<Integer> privateIpsCount() {
-        return this.privateIpsCount;
+    public Output<Optional<Integer>> privateIpsCount() {
+        return Codegen.optional(this.privateIpsCount);
     }
     /**
      * List of security group IDs to assign to the ENI.
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroups;
+    private Output</* @Nullable */ List<String>> securityGroups;
 
     /**
      * @return List of security group IDs to assign to the ENI.
      * 
      */
-    public Output<List<String>> securityGroups() {
-        return this.securityGroups;
+    public Output<Optional<List<String>>> securityGroups() {
+        return Codegen.optional(this.securityGroups);
     }
     /**
      * Whether to enable source destination checking for the ENI. Default true.

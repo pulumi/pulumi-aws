@@ -1679,159 +1679,168 @@ class VpcEndpointVpcOptionsArgs:
 @pulumi.input_type
 class GetDomainOffPeakWindowOptionsArgs:
     def __init__(__self__, *,
-                 enabled: bool,
-                 off_peak_windows: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']):
+                 enabled: Optional[bool] = None,
+                 off_peak_windows: Optional[Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']] = None):
         """
         :param bool enabled: Enabled disabled toggle for off-peak update window
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "off_peak_windows", off_peak_windows)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if off_peak_windows is not None:
+            pulumi.set(__self__, "off_peak_windows", off_peak_windows)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: bool):
+    def enabled(self, value: Optional[bool]):
         pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="offPeakWindows")
-    def off_peak_windows(self) -> Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']:
+    def off_peak_windows(self) -> Optional[Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']]:
         return pulumi.get(self, "off_peak_windows")
 
     @off_peak_windows.setter
-    def off_peak_windows(self, value: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']):
+    def off_peak_windows(self, value: Optional[Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']]):
         pulumi.set(self, "off_peak_windows", value)
 
 
 @pulumi.input_type
 class GetDomainOffPeakWindowOptionsOffPeakWindowArgs:
     def __init__(__self__, *,
-                 window_start_times: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']):
+                 window_start_times: Optional[Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']] = None):
         """
         :param Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs'] window_start_times: 10h window for updates
         """
-        pulumi.set(__self__, "window_start_times", window_start_times)
+        if window_start_times is not None:
+            pulumi.set(__self__, "window_start_times", window_start_times)
 
     @property
     @pulumi.getter(name="windowStartTimes")
-    def window_start_times(self) -> Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']:
+    def window_start_times(self) -> Optional[Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']]:
         """
         10h window for updates
         """
         return pulumi.get(self, "window_start_times")
 
     @window_start_times.setter
-    def window_start_times(self, value: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']):
+    def window_start_times(self, value: Optional[Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']]):
         pulumi.set(self, "window_start_times", value)
 
 
 @pulumi.input_type
 class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs:
     def __init__(__self__, *,
-                 hours: int,
-                 minutes: int):
+                 hours: Optional[int] = None,
+                 minutes: Optional[int] = None):
         """
         :param int hours: Starting hour of the 10-hour window for updates
         :param int minutes: Starting minute of the 10-hour window for updates
         """
-        pulumi.set(__self__, "hours", hours)
-        pulumi.set(__self__, "minutes", minutes)
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
-    def hours(self) -> int:
+    def hours(self) -> Optional[int]:
         """
         Starting hour of the 10-hour window for updates
         """
         return pulumi.get(self, "hours")
 
     @hours.setter
-    def hours(self, value: int):
+    def hours(self, value: Optional[int]):
         pulumi.set(self, "hours", value)
 
     @property
     @pulumi.getter
-    def minutes(self) -> int:
+    def minutes(self) -> Optional[int]:
         """
         Starting minute of the 10-hour window for updates
         """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
-    def minutes(self, value: int):
+    def minutes(self, value: Optional[int]):
         pulumi.set(self, "minutes", value)
 
 
 @pulumi.input_type
 class GetServerlessSecurityConfigSamlOptionsArgs:
     def __init__(__self__, *,
-                 group_attribute: str,
-                 metadata: str,
-                 session_timeout: int,
-                 user_attribute: str):
+                 group_attribute: Optional[str] = None,
+                 metadata: Optional[str] = None,
+                 session_timeout: Optional[int] = None,
+                 user_attribute: Optional[str] = None):
         """
         :param str group_attribute: Group attribute for this SAML integration.
         :param str metadata: The XML IdP metadata file generated from your identity provider.
         :param int session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         :param str user_attribute: User attribute for this SAML integration.
         """
-        pulumi.set(__self__, "group_attribute", group_attribute)
-        pulumi.set(__self__, "metadata", metadata)
-        pulumi.set(__self__, "session_timeout", session_timeout)
-        pulumi.set(__self__, "user_attribute", user_attribute)
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if session_timeout is not None:
+            pulumi.set(__self__, "session_timeout", session_timeout)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
 
     @property
     @pulumi.getter(name="groupAttribute")
-    def group_attribute(self) -> str:
+    def group_attribute(self) -> Optional[str]:
         """
         Group attribute for this SAML integration.
         """
         return pulumi.get(self, "group_attribute")
 
     @group_attribute.setter
-    def group_attribute(self, value: str):
+    def group_attribute(self, value: Optional[str]):
         pulumi.set(self, "group_attribute", value)
 
     @property
     @pulumi.getter
-    def metadata(self) -> str:
+    def metadata(self) -> Optional[str]:
         """
         The XML IdP metadata file generated from your identity provider.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: str):
+    def metadata(self, value: Optional[str]):
         pulumi.set(self, "metadata", value)
 
     @property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> int:
+    def session_timeout(self) -> Optional[int]:
         """
         Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: int):
+    def session_timeout(self, value: Optional[int]):
         pulumi.set(self, "session_timeout", value)
 
     @property
     @pulumi.getter(name="userAttribute")
-    def user_attribute(self) -> str:
+    def user_attribute(self) -> Optional[str]:
         """
         User attribute for this SAML integration.
         """
         return pulumi.get(self, "user_attribute")
 
     @user_attribute.setter
-    def user_attribute(self, value: str):
+    def user_attribute(self, value: Optional[str]):
         pulumi.set(self, "user_attribute", value)
 
 

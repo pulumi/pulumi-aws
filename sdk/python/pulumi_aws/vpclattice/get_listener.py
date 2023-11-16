@@ -68,7 +68,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the listener.
         """
@@ -76,7 +76,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         The date and time that the listener was created.
         """
@@ -84,7 +84,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter(name="defaultActions")
-    def default_actions(self) -> Sequence['outputs.GetListenerDefaultActionResult']:
+    def default_actions(self) -> Optional[Sequence['outputs.GetListenerDefaultActionResult']]:
         """
         The actions for the default listener rule.
         """
@@ -92,7 +92,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -100,7 +100,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
-    def last_updated_at(self) -> str:
+    def last_updated_at(self) -> Optional[str]:
         """
         The date and time the listener was last updated.
         """
@@ -108,7 +108,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter(name="listenerId")
-    def listener_id(self) -> str:
+    def listener_id(self) -> Optional[str]:
         """
         The ID of the listener.
         """
@@ -121,7 +121,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the listener.
         """
@@ -129,7 +129,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         """
         The listener port.
         """
@@ -137,7 +137,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         """
         The listener protocol. Either `HTTPS` or `HTTP`.
         """
@@ -145,7 +145,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter(name="serviceArn")
-    def service_arn(self) -> str:
+    def service_arn(self) -> Optional[str]:
         """
         The ARN of the service.
         """
@@ -153,7 +153,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> str:
+    def service_id(self) -> Optional[str]:
         """
         The ID of the service.
         """
@@ -166,7 +166,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         List of tags associated with the listener.
         """

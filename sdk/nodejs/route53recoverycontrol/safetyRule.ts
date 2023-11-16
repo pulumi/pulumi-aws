@@ -84,7 +84,7 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * ARN of the safety rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
      */
@@ -108,7 +108,7 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      */

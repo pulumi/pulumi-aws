@@ -108,14 +108,14 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="apiKeyVersion", refs={String.class}, tree="[0]")
-    private Output<String> apiKeyVersion;
+    private Output</* @Nullable */ String> apiKeyVersion;
 
     /**
      * @return The version of the API keys used for the account.
      * 
      */
-    public Output<String> apiKeyVersion() {
-        return this.apiKeyVersion;
+    public Output<Optional<String>> apiKeyVersion() {
+        return Codegen.optional(this.apiKeyVersion);
     }
     /**
      * ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
@@ -136,28 +136,28 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="features", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> features;
+    private Output</* @Nullable */ List<String>> features;
 
     /**
      * @return A list of features supported for the account.
      * 
      */
-    public Output<List<String>> features() {
-        return this.features;
+    public Output<Optional<List<String>>> features() {
+        return Codegen.optional(this.features);
     }
     /**
      * Account-Level throttle settings. See exported fields below.
      * 
      */
     @Export(name="throttleSettings", refs={List.class,AccountThrottleSetting.class}, tree="[0,1]")
-    private Output<List<AccountThrottleSetting>> throttleSettings;
+    private Output</* @Nullable */ List<AccountThrottleSetting>> throttleSettings;
 
     /**
      * @return Account-Level throttle settings. See exported fields below.
      * 
      */
-    public Output<List<AccountThrottleSetting>> throttleSettings() {
-        return this.throttleSettings;
+    public Output<Optional<List<AccountThrottleSetting>>> throttleSettings() {
+        return Codegen.optional(this.throttleSettings);
     }
 
     /**

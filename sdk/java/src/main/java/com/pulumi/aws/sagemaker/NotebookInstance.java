@@ -142,14 +142,14 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
@@ -254,28 +254,28 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
-    private Output<String> networkInterfaceId;
+    private Output</* @Nullable */ String> networkInterfaceId;
 
     /**
      * @return The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
      * 
      */
-    public Output<String> networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Output<Optional<String>> networkInterfaceId() {
+        return Codegen.optional(this.networkInterfaceId);
     }
     /**
      * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
      * 
      */
     @Export(name="platformIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> platformIdentifier;
+    private Output</* @Nullable */ String> platformIdentifier;
 
     /**
      * @return The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
      * 
      */
-    public Output<String> platformIdentifier() {
-        return this.platformIdentifier;
+    public Output<Optional<String>> platformIdentifier() {
+        return Codegen.optional(this.platformIdentifier);
     }
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
@@ -310,14 +310,14 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroups;
+    private Output</* @Nullable */ List<String>> securityGroups;
 
     /**
      * @return The associated security groups.
      * 
      */
-    public Output<List<String>> securityGroups() {
-        return this.securityGroups;
+    public Output<Optional<List<String>>> securityGroups() {
+        return Codegen.optional(this.securityGroups);
     }
     /**
      * The VPC subnet ID.
@@ -370,14 +370,14 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
      * @return The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
     /**
      * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.

@@ -56,7 +56,7 @@ export class LogStream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the log stream.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the log group under which the log stream is to be created.
      */

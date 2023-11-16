@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.WafV2
         /// Web ACL capacity units (WCUs) currently being used by this web ACL.
         /// </summary>
         [Output("capacity")]
-        public Output<int> Capacity { get; private set; } = null!;
+        public Output<int?> Capacity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("lockToken")]
-        public Output<string> LockToken { get; private set; } = null!;
+        public Output<string?> LockToken { get; private set; } = null!;
 
         /// <summary>
         /// Friendly name of the WebACL.

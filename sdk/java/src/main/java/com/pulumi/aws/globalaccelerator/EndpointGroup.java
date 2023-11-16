@@ -73,14 +73,14 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the endpoint group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The list of endpoint objects. Fields documented below.
@@ -101,14 +101,14 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointGroupRegion", refs={String.class}, tree="[0]")
-    private Output<String> endpointGroupRegion;
+    private Output</* @Nullable */ String> endpointGroupRegion;
 
     /**
      * @return The name of the AWS Region where the endpoint group is located.
      * 
      */
-    public Output<String> endpointGroupRegion() {
-        return this.endpointGroupRegion;
+    public Output<Optional<String>> endpointGroupRegion() {
+        return Codegen.optional(this.endpointGroupRegion);
     }
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
@@ -129,14 +129,14 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="healthCheckPath", refs={String.class}, tree="[0]")
-    private Output<String> healthCheckPath;
+    private Output</* @Nullable */ String> healthCheckPath;
 
     /**
      * @return If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    public Output<String> healthCheckPath() {
-        return this.healthCheckPath;
+    public Output<Optional<String>> healthCheckPath() {
+        return Codegen.optional(this.healthCheckPath);
     }
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
@@ -144,15 +144,15 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="healthCheckPort", refs={Integer.class}, tree="[0]")
-    private Output<Integer> healthCheckPort;
+    private Output</* @Nullable */ Integer> healthCheckPort;
 
     /**
      * @return The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
      * the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    public Output<Integer> healthCheckPort() {
-        return this.healthCheckPort;
+    public Output<Optional<Integer>> healthCheckPort() {
+        return Codegen.optional(this.healthCheckPort);
     }
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.

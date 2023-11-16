@@ -130,32 +130,32 @@ namespace Pulumi.Aws.Ivs
         /// <summary>
         /// ARN of the Stream Key.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string ChannelArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Stream Key value.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetStreamKeyResult(
-            string arn,
+            string? arn,
 
             string channelArn,
 
-            string id,
+            string? id,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string value)
+            string? value)
         {
             Arn = arn;
             ChannelArn = channelArn;

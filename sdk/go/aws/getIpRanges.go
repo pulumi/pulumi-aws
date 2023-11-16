@@ -98,15 +98,15 @@ type GetIpRangesResult struct {
 	// Lexically ordered list of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
-	CreateDate string `pulumi:"createDate"`
-	Id         string `pulumi:"id"`
+	CreateDate *string `pulumi:"createDate"`
+	Id         *string `pulumi:"id"`
 	// Lexically ordered list of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	Regions        []string `pulumi:"regions"`
 	Services       []string `pulumi:"services"`
 	// Publication time of the IP ranges, in Unix epoch time format
 	// (e.g., `1470267965`).
-	SyncToken int     `pulumi:"syncToken"`
+	SyncToken *int    `pulumi:"syncToken"`
 	Url       *string `pulumi:"url"`
 }
 
@@ -168,12 +168,12 @@ func (o GetIpRangesResultOutput) CidrBlocks() pulumi.StringArrayOutput {
 }
 
 // Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
-func (o GetIpRangesResultOutput) CreateDate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIpRangesResult) string { return v.CreateDate }).(pulumi.StringOutput)
+func (o GetIpRangesResultOutput) CreateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetIpRangesResult) *string { return v.CreateDate }).(pulumi.StringPtrOutput)
 }
 
-func (o GetIpRangesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIpRangesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetIpRangesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetIpRangesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Lexically ordered list of IPv6 CIDR blocks.
@@ -191,8 +191,8 @@ func (o GetIpRangesResultOutput) Services() pulumi.StringArrayOutput {
 
 // Publication time of the IP ranges, in Unix epoch time format
 // (e.g., `1470267965`).
-func (o GetIpRangesResultOutput) SyncToken() pulumi.IntOutput {
-	return o.ApplyT(func(v GetIpRangesResult) int { return v.SyncToken }).(pulumi.IntOutput)
+func (o GetIpRangesResultOutput) SyncToken() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetIpRangesResult) *int { return v.SyncToken }).(pulumi.IntPtrOutput)
 }
 
 func (o GetIpRangesResultOutput) Url() pulumi.StringPtrOutput {

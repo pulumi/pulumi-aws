@@ -55,7 +55,7 @@ export class Tracker extends pulumi.CustomResource {
     /**
      * The timestamp for when the tracker resource was created in ISO 8601 format.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string | undefined>;
     /**
      * The optional description for the tracker resource.
      */
@@ -81,7 +81,7 @@ export class Tracker extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
      */
-    public /*out*/ readonly trackerArn!: pulumi.Output<string>;
+    public /*out*/ readonly trackerArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the tracker resource.
      *
@@ -91,7 +91,7 @@ export class Tracker extends pulumi.CustomResource {
     /**
      * The timestamp for when the tracker resource was last updated in ISO 8601 format.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Tracker resource with the given unique name, arguments, and options.

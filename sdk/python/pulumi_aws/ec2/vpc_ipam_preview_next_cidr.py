@@ -288,7 +288,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cidr(self) -> pulumi.Output[str]:
+    def cidr(self) -> pulumi.Output[Optional[str]]:
         """
         The previewed CIDR from the pool.
         """

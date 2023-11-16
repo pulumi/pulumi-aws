@@ -70,7 +70,7 @@ type GetContainerRecipesResult struct {
 	Arns    []string                    `pulumi:"arns"`
 	Filters []GetContainerRecipesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of names of the matched Image Builder Container Recipes.
 	Names []string `pulumi:"names"`
 	Owner *string  `pulumi:"owner"`
@@ -126,8 +126,8 @@ func (o GetContainerRecipesResultOutput) Filters() GetContainerRecipesFilterArra
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetContainerRecipesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerRecipesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetContainerRecipesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerRecipesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of names of the matched Image Builder Container Recipes.

@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * })});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const examplePolicyDocument = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             actions: ["s3:ListAllMyBuckets"],
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *                 "s3:GetBucketLocation",
  *                 "s3:ListBucket",
  *             ],
- *             resources: [exampleBucketV2.arn],
+ *             resources: [exampleBucketV2Arn],
  *         },
  *         {
  *             actions: [
@@ -66,10 +66,10 @@ import * as utilities from "../utilities";
  *                 "s3:PutObject",
  *                 "s3:DeleteObject",
  *             ],
- *             resources: [pulumi.interpolate`${exampleBucketV2.arn}/*`],
+ *             resources: [`${exampleBucketV2Arn1}/*`],
  *         },
  *     ],
- * });
+ * }));
  * const examplePolicy = new aws.iam.Policy("examplePolicy", {policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json)});
  * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
  *     role: exampleRole.name,
@@ -150,7 +150,7 @@ export class ExportTask extends pulumi.CustomResource {
     /**
      * Reason the export failed, if it failed.
      */
-    public /*out*/ readonly failureCause!: pulumi.Output<string>;
+    public /*out*/ readonly failureCause!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role to use for writing to the Amazon S3 bucket.
      */
@@ -162,7 +162,7 @@ export class ExportTask extends pulumi.CustomResource {
     /**
      * Progress of the snapshot export task as a percentage.
      */
-    public /*out*/ readonly percentProgress!: pulumi.Output<number>;
+    public /*out*/ readonly percentProgress!: pulumi.Output<number | undefined>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      */
@@ -170,11 +170,11 @@ export class ExportTask extends pulumi.CustomResource {
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      */
-    public readonly s3Prefix!: pulumi.Output<string>;
+    public readonly s3Prefix!: pulumi.Output<string | undefined>;
     /**
      * Time that the snapshot was created.
      */
-    public /*out*/ readonly snapshotTime!: pulumi.Output<string>;
+    public /*out*/ readonly snapshotTime!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the snapshot to export.
      *
@@ -184,24 +184,24 @@ export class ExportTask extends pulumi.CustomResource {
     /**
      * Type of source for the export.
      */
-    public /*out*/ readonly sourceType!: pulumi.Output<string>;
+    public /*out*/ readonly sourceType!: pulumi.Output<string | undefined>;
     /**
      * Status of the export task.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Time that the snapshot export task completed.
      */
-    public /*out*/ readonly taskEndTime!: pulumi.Output<string>;
+    public /*out*/ readonly taskEndTime!: pulumi.Output<string | undefined>;
     /**
      * Time that the snapshot export task started.
      */
-    public /*out*/ readonly taskStartTime!: pulumi.Output<string>;
+    public /*out*/ readonly taskStartTime!: pulumi.Output<string | undefined>;
     public readonly timeouts!: pulumi.Output<outputs.rds.ExportTaskTimeouts | undefined>;
     /**
      * Warning about the snapshot export task, if any.
      */
-    public /*out*/ readonly warningMessage!: pulumi.Output<string>;
+    public /*out*/ readonly warningMessage!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ExportTask resource with the given unique name, arguments, and options.

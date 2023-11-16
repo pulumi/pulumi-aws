@@ -149,7 +149,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * The ARN of the Kinesis Analytics Appliation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<ARN>;
+    public /*out*/ readonly arn!: pulumi.Output<ARN | undefined>;
     /**
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
@@ -162,7 +162,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * The Timestamp when the application version was created.
      */
-    public /*out*/ readonly createTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly createTimestamp!: pulumi.Output<string | undefined>;
     /**
      * Description of the application.
      */
@@ -174,7 +174,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * The Timestamp when the application was last updated.
      */
-    public /*out*/ readonly lastUpdateTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdateTimestamp!: pulumi.Output<string | undefined>;
     /**
      * Name of the Kinesis Analytics Application.
      */
@@ -196,7 +196,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * The Status of the application.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -210,7 +210,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * The Version of the application.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a AnalyticsApplication resource with the given unique name, arguments, and options.

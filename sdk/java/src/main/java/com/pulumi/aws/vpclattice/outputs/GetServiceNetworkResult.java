@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceNetworkResult {
@@ -15,107 +17,107 @@ public final class GetServiceNetworkResult {
      * @return ARN of the Service Network.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Authentication type for the service network. Either `NONE` or `AWS_IAM`.
      * 
      */
-    private String authType;
+    private @Nullable String authType;
     /**
      * @return Date and time the service network was created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Date and time the service network was last updated.
      * 
      */
-    private String lastUpdatedAt;
+    private @Nullable String lastUpdatedAt;
     /**
      * @return Name of the service network.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Number of services associated with this service network.
      * 
      */
-    private Integer numberOfAssociatedServices;
+    private @Nullable Integer numberOfAssociatedServices;
     /**
      * @return Number of VPCs associated with this service network.
      * 
      */
-    private Integer numberOfAssociatedVpcs;
+    private @Nullable Integer numberOfAssociatedVpcs;
     private String serviceNetworkIdentifier;
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetServiceNetworkResult() {}
     /**
      * @return ARN of the Service Network.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Authentication type for the service network. Either `NONE` or `AWS_IAM`.
      * 
      */
-    public String authType() {
-        return this.authType;
+    public Optional<String> authType() {
+        return Optional.ofNullable(this.authType);
     }
     /**
      * @return Date and time the service network was created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Date and time the service network was last updated.
      * 
      */
-    public String lastUpdatedAt() {
-        return this.lastUpdatedAt;
+    public Optional<String> lastUpdatedAt() {
+        return Optional.ofNullable(this.lastUpdatedAt);
     }
     /**
      * @return Name of the service network.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Number of services associated with this service network.
      * 
      */
-    public Integer numberOfAssociatedServices() {
-        return this.numberOfAssociatedServices;
+    public Optional<Integer> numberOfAssociatedServices() {
+        return Optional.ofNullable(this.numberOfAssociatedServices);
     }
     /**
      * @return Number of VPCs associated with this service network.
      * 
      */
-    public Integer numberOfAssociatedVpcs() {
-        return this.numberOfAssociatedVpcs;
+    public Optional<Integer> numberOfAssociatedVpcs() {
+        return Optional.ofNullable(this.numberOfAssociatedVpcs);
     }
     public String serviceNetworkIdentifier() {
         return this.serviceNetworkIdentifier;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -127,16 +129,16 @@ public final class GetServiceNetworkResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String authType;
-        private String createdAt;
-        private String id;
-        private String lastUpdatedAt;
-        private String name;
-        private Integer numberOfAssociatedServices;
-        private Integer numberOfAssociatedVpcs;
+        private @Nullable String arn;
+        private @Nullable String authType;
+        private @Nullable String createdAt;
+        private @Nullable String id;
+        private @Nullable String lastUpdatedAt;
+        private @Nullable String name;
+        private @Nullable Integer numberOfAssociatedServices;
+        private @Nullable Integer numberOfAssociatedVpcs;
         private String serviceNetworkIdentifier;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetServiceNetworkResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -153,43 +155,43 @@ public final class GetServiceNetworkResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+        public Builder authType(@Nullable String authType) {
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedAt(String lastUpdatedAt) {
-            this.lastUpdatedAt = Objects.requireNonNull(lastUpdatedAt);
+        public Builder lastUpdatedAt(@Nullable String lastUpdatedAt) {
+            this.lastUpdatedAt = lastUpdatedAt;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder numberOfAssociatedServices(Integer numberOfAssociatedServices) {
-            this.numberOfAssociatedServices = Objects.requireNonNull(numberOfAssociatedServices);
+        public Builder numberOfAssociatedServices(@Nullable Integer numberOfAssociatedServices) {
+            this.numberOfAssociatedServices = numberOfAssociatedServices;
             return this;
         }
         @CustomType.Setter
-        public Builder numberOfAssociatedVpcs(Integer numberOfAssociatedVpcs) {
-            this.numberOfAssociatedVpcs = Objects.requireNonNull(numberOfAssociatedVpcs);
+        public Builder numberOfAssociatedVpcs(@Nullable Integer numberOfAssociatedVpcs) {
+            this.numberOfAssociatedVpcs = numberOfAssociatedVpcs;
             return this;
         }
         @CustomType.Setter
@@ -198,8 +200,8 @@ public final class GetServiceNetworkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetServiceNetworkResult build() {

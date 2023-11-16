@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPermissionsLfTagPolicy {
@@ -15,7 +17,7 @@ public final class GetPermissionsLfTagPolicy {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
@@ -34,8 +36,8 @@ public final class GetPermissionsLfTagPolicy {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
     /**
      * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
@@ -63,7 +65,7 @@ public final class GetPermissionsLfTagPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String catalogId;
+        private @Nullable String catalogId;
         private List<GetPermissionsLfTagPolicyExpression> expressions;
         private String resourceType;
         public Builder() {}
@@ -75,8 +77,8 @@ public final class GetPermissionsLfTagPolicy {
         }
 
         @CustomType.Setter
-        public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+        public Builder catalogId(@Nullable String catalogId) {
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter

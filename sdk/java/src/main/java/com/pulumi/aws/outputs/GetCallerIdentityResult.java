@@ -6,6 +6,8 @@ package com.pulumi.aws.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCallerIdentityResult {
@@ -13,51 +15,51 @@ public final class GetCallerIdentityResult {
      * @return AWS Account ID number of the account that owns or contains the calling entity.
      * 
      */
-    private String accountId;
+    private @Nullable String accountId;
     /**
      * @return ARN associated with the calling entity.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Account ID number of the account that owns or contains the calling entity.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Unique identifier of the calling entity.
      * 
      */
-    private String userId;
+    private @Nullable String userId;
 
     private GetCallerIdentityResult() {}
     /**
      * @return AWS Account ID number of the account that owns or contains the calling entity.
      * 
      */
-    public String accountId() {
-        return this.accountId;
+    public Optional<String> accountId() {
+        return Optional.ofNullable(this.accountId);
     }
     /**
      * @return ARN associated with the calling entity.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Account ID number of the account that owns or contains the calling entity.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Unique identifier of the calling entity.
      * 
      */
-    public String userId() {
-        return this.userId;
+    public Optional<String> userId() {
+        return Optional.ofNullable(this.userId);
     }
 
     public static Builder builder() {
@@ -69,10 +71,10 @@ public final class GetCallerIdentityResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountId;
-        private String arn;
-        private String id;
-        private String userId;
+        private @Nullable String accountId;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String userId;
         public Builder() {}
         public Builder(GetCallerIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,23 +85,23 @@ public final class GetCallerIdentityResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+        public Builder accountId(@Nullable String accountId) {
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+        public Builder userId(@Nullable String userId) {
+            this.userId = userId;
             return this;
         }
         public GetCallerIdentityResult build() {

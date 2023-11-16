@@ -521,7 +521,7 @@ namespace Pulumi.Aws.NetworkManager
         /// Current state of a core network.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
 
         /// <summary>

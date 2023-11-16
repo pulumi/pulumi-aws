@@ -506,7 +506,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         """
@@ -514,7 +514,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dualStackDnsName")
-    def dual_stack_dns_name(self) -> pulumi.Output[str]:
+    def dual_stack_dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         """
@@ -530,7 +530,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> pulumi.Output[str]:
+    def hosted_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         -  The Global Accelerator Route 53 zone ID that can be used to
         route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
@@ -556,7 +556,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipSets")
-    def ip_sets(self) -> pulumi.Output[Sequence['outputs.AcceleratorIpSet']]:
+    def ip_sets(self) -> pulumi.Output[Optional[Sequence['outputs.AcceleratorIpSet']]]:
         """
         IP address set associated with the accelerator.
         """

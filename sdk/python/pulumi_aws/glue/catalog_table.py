@@ -862,7 +862,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Glue Table.
         """
@@ -870,7 +870,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> pulumi.Output[str]:
+    def catalog_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         """
@@ -928,7 +928,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionIndices")
-    def partition_indices(self) -> pulumi.Output[Sequence['outputs.CatalogTablePartitionIndex']]:
+    def partition_indices(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogTablePartitionIndex']]]:
         """
         Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """

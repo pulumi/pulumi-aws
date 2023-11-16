@@ -116,13 +116,13 @@ type PhoneNumber struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the phone number.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
 	CountryCode pulumi.StringOutput `pulumi:"countryCode"`
 	// The description of the phone number.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
-	PhoneNumber pulumi.StringOutput `pulumi:"phoneNumber"`
+	PhoneNumber pulumi.StringPtrOutput `pulumi:"phoneNumber"`
 	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
 	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
 	// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
@@ -354,8 +354,8 @@ func (o PhoneNumberOutput) ToPhoneNumberOutputWithContext(ctx context.Context) P
 }
 
 // The ARN of the phone number.
-func (o PhoneNumberOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PhoneNumberOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
@@ -369,8 +369,8 @@ func (o PhoneNumberOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
-func (o PhoneNumberOutput) PhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.PhoneNumber }).(pulumi.StringOutput)
+func (o PhoneNumberOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
 
 // The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.

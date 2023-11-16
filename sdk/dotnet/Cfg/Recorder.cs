@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Cfg
         /// Recording group - see below.
         /// </summary>
         [Output("recordingGroup")]
-        public Output<Outputs.RecorderRecordingGroup> RecordingGroup { get; private set; } = null!;
+        public Output<Outputs.RecorderRecordingGroup?> RecordingGroup { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.

@@ -58,7 +58,7 @@ type GetBrokerNodesArgs struct {
 type GetBrokerNodesResult struct {
 	ClusterArn string `pulumi:"clusterArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string                       `pulumi:"id"`
+	Id            *string                      `pulumi:"id"`
 	NodeInfoLists []GetBrokerNodesNodeInfoList `pulumi:"nodeInfoLists"`
 }
 
@@ -105,8 +105,8 @@ func (o GetBrokerNodesResultOutput) ClusterArn() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetBrokerNodesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerNodesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetBrokerNodesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerNodesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetBrokerNodesResultOutput) NodeInfoLists() GetBrokerNodesNodeInfoListArrayOutput {

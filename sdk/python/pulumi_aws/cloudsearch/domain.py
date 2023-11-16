@@ -459,7 +459,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The domain's ARN.
         """
@@ -467,7 +467,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentServiceEndpoint")
-    def document_service_endpoint(self) -> pulumi.Output[str]:
+    def document_service_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The service endpoint for updating documents in a search domain.
         """
@@ -475,7 +475,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> pulumi.Output[str]:
+    def domain_id(self) -> pulumi.Output[Optional[str]]:
         """
         An internally generated unique identifier for the domain.
         """
@@ -483,7 +483,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointOptions")
-    def endpoint_options(self) -> pulumi.Output['outputs.DomainEndpointOptions']:
+    def endpoint_options(self) -> pulumi.Output[Optional['outputs.DomainEndpointOptions']]:
         """
         Domain endpoint options. Documented below.
         """
@@ -499,7 +499,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> pulumi.Output[bool]:
+    def multi_az(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         """
@@ -515,7 +515,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scalingParameters")
-    def scaling_parameters(self) -> pulumi.Output['outputs.DomainScalingParameters']:
+    def scaling_parameters(self) -> pulumi.Output[Optional['outputs.DomainScalingParameters']]:
         """
         Domain scaling parameters. Documented below.
         """
@@ -523,7 +523,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="searchServiceEndpoint")
-    def search_service_endpoint(self) -> pulumi.Output[str]:
+    def search_service_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The service endpoint for requesting search results from a search domain.
         """

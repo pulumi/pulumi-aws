@@ -77,7 +77,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the serverless replication config.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for provisioning an DMS Serverless replication.
      */
@@ -89,7 +89,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
      */
-    public readonly replicationSettings!: pulumi.Output<string>;
+    public readonly replicationSettings!: pulumi.Output<string | undefined>;
     /**
      * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
@@ -97,7 +97,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      */
-    public readonly resourceIdentifier!: pulumi.Output<string>;
+    public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */

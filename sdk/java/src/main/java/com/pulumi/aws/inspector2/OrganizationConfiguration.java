@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -80,14 +81,14 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="maxAccountLimitReached", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> maxAccountLimitReached;
+    private Output</* @Nullable */ Boolean> maxAccountLimitReached;
 
     /**
      * @return Whether your configuration reached the max account limit.
      * 
      */
-    public Output<Boolean> maxAccountLimitReached() {
-        return this.maxAccountLimitReached;
+    public Output<Optional<Boolean>> maxAccountLimitReached() {
+        return Codegen.optional(this.maxAccountLimitReached);
     }
 
     /**

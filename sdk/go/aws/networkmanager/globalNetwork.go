@@ -52,7 +52,7 @@ type GlobalNetwork struct {
 	pulumi.CustomResourceState
 
 	// Global Network Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the Global Network.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -229,8 +229,8 @@ func (o GlobalNetworkOutput) ToGlobalNetworkOutputWithContext(ctx context.Contex
 }
 
 // Global Network Amazon Resource Name (ARN)
-func (o GlobalNetworkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GlobalNetworkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Global Network.

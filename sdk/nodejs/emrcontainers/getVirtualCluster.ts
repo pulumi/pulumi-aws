@@ -53,31 +53,31 @@ export interface GetVirtualClusterResult {
     /**
      * ARN of the cluster.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
      */
-    readonly containerProviders: outputs.emrcontainers.GetVirtualClusterContainerProvider[];
+    readonly containerProviders?: outputs.emrcontainers.GetVirtualClusterContainerProvider[];
     /**
      * Unix epoch time stamp in seconds for when the cluster was created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the cluster.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      */
-    readonly state: string;
+    readonly state?: string;
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly virtualClusterId: string;
 }
 /**

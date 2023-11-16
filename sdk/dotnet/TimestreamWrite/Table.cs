@@ -101,7 +101,7 @@ namespace Pulumi.Aws.TimestreamWrite
         /// The ARN that uniquely identifies this table.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Timestream database.
@@ -113,19 +113,19 @@ namespace Pulumi.Aws.TimestreamWrite
         /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
         /// </summary>
         [Output("magneticStoreWriteProperties")]
-        public Output<Outputs.TableMagneticStoreWriteProperties> MagneticStoreWriteProperties { get; private set; } = null!;
+        public Output<Outputs.TableMagneticStoreWriteProperties?> MagneticStoreWriteProperties { get; private set; } = null!;
 
         /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         /// </summary>
         [Output("retentionProperties")]
-        public Output<Outputs.TableRetentionProperties> RetentionProperties { get; private set; } = null!;
+        public Output<Outputs.TableRetentionProperties?> RetentionProperties { get; private set; } = null!;
 
         /// <summary>
         /// The schema of the table. See Schema below for more details.
         /// </summary>
         [Output("schema")]
-        public Output<Outputs.TableSchema> Schema { get; private set; } = null!;
+        public Output<Outputs.TableSchema?> Schema { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Timestream table.

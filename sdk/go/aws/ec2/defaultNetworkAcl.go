@@ -200,7 +200,7 @@ type DefaultNetworkAcl struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Default Network ACL
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	//
 	// The following arguments are optional:
@@ -210,7 +210,7 @@ type DefaultNetworkAcl struct {
 	// Configuration block for an ingress rule. Detailed below.
 	Ingress DefaultNetworkAclIngressArrayOutput `pulumi:"ingress"`
 	// ID of the AWS account that owns the Default Network ACL
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -220,7 +220,7 @@ type DefaultNetworkAcl struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ID of the associated VPC
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewDefaultNetworkAcl registers a new resource with the given unique name, arguments, and options.
@@ -432,8 +432,8 @@ func (o DefaultNetworkAclOutput) ToDefaultNetworkAclOutputWithContext(ctx contex
 }
 
 // ARN of the Default Network ACL
-func (o DefaultNetworkAclOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DefaultNetworkAclOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
@@ -454,8 +454,8 @@ func (o DefaultNetworkAclOutput) Ingress() DefaultNetworkAclIngressArrayOutput {
 }
 
 // ID of the AWS account that owns the Default Network ACL
-func (o DefaultNetworkAclOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o DefaultNetworkAclOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
@@ -476,8 +476,8 @@ func (o DefaultNetworkAclOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // ID of the associated VPC
-func (o DefaultNetworkAclOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o DefaultNetworkAclOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type DefaultNetworkAclArrayOutput struct{ *pulumi.OutputState }

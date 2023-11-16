@@ -161,11 +161,11 @@ export class Directory extends pulumi.CustomResource {
     /**
      * The directory alias.
      */
-    public /*out*/ readonly alias!: pulumi.Output<string>;
+    public /*out*/ readonly alias!: pulumi.Output<string | undefined>;
     /**
      * The user name for the service account.
      */
-    public /*out*/ readonly customerUserName!: pulumi.Output<string>;
+    public /*out*/ readonly customerUserName!: pulumi.Output<string | undefined>;
     /**
      * The directory identifier for registration in WorkSpaces service.
      */
@@ -173,35 +173,35 @@ export class Directory extends pulumi.CustomResource {
     /**
      * The name of the directory.
      */
-    public /*out*/ readonly directoryName!: pulumi.Output<string>;
+    public /*out*/ readonly directoryName!: pulumi.Output<string | undefined>;
     /**
      * The directory type.
      */
-    public /*out*/ readonly directoryType!: pulumi.Output<string>;
+    public /*out*/ readonly directoryType!: pulumi.Output<string | undefined>;
     /**
      * The IP addresses of the DNS servers for the directory.
      */
-    public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
+    public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      */
-    public /*out*/ readonly iamRoleId!: pulumi.Output<string>;
+    public /*out*/ readonly iamRoleId!: pulumi.Output<string | undefined>;
     /**
      * The identifiers of the IP access control groups associated with the directory.
      */
-    public readonly ipGroupIds!: pulumi.Output<string[]>;
+    public readonly ipGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
-    public /*out*/ readonly registrationCode!: pulumi.Output<string>;
+    public /*out*/ readonly registrationCode!: pulumi.Output<string | undefined>;
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */
-    public readonly selfServicePermissions!: pulumi.Output<outputs.workspaces.DirectorySelfServicePermissions>;
+    public readonly selfServicePermissions!: pulumi.Output<outputs.workspaces.DirectorySelfServicePermissions | undefined>;
     /**
      * The identifiers of the subnets where the directory resides.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -215,15 +215,15 @@ export class Directory extends pulumi.CustomResource {
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    public readonly workspaceAccessProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    public readonly workspaceAccessProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceAccessProperties | undefined>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
-    public readonly workspaceCreationProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    public readonly workspaceCreationProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceCreationProperties | undefined>;
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      */
-    public /*out*/ readonly workspaceSecurityGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly workspaceSecurityGroupId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Directory resource with the given unique name, arguments, and options.

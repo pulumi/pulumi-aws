@@ -14,28 +14,28 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetRouteSpecHttp2RouteMatchResult
     {
         public readonly ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchHeaderResult> Headers;
-        public readonly string Method;
+        public readonly string? Method;
         public readonly ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchPathResult> Paths;
-        public readonly int Port;
-        public readonly string Prefix;
+        public readonly int? Port;
+        public readonly string? Prefix;
         public readonly ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult> QueryParameters;
-        public readonly string Scheme;
+        public readonly string? Scheme;
 
         [OutputConstructor]
         private GetRouteSpecHttp2RouteMatchResult(
             ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchHeaderResult> headers,
 
-            string method,
+            string? method,
 
             ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchPathResult> paths,
 
-            int port,
+            int? port,
 
-            string prefix,
+            string? prefix,
 
             ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult> queryParameters,
 
-            string scheme)
+            string? scheme)
         {
             Headers = headers;
             Method = method;

@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -121,28 +122,28 @@ public class Partner extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return (Optional) The partner integration status.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * (Optional) The status message provided by the partner.
      * 
      */
     @Export(name="statusMessage", refs={String.class}, tree="[0]")
-    private Output<String> statusMessage;
+    private Output</* @Nullable */ String> statusMessage;
 
     /**
      * @return (Optional) The status message provided by the partner.
      * 
      */
-    public Output<String> statusMessage() {
-        return this.statusMessage;
+    public Output<Optional<String>> statusMessage() {
+        return Codegen.optional(this.statusMessage);
     }
 
     /**

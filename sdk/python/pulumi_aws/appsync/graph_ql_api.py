@@ -604,7 +604,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN
         """
@@ -679,7 +679,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uris(self) -> pulumi.Output[Mapping[str, str]]:
+    def uris(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         """

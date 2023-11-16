@@ -58,37 +58,37 @@ export interface GetServiceResult {
     /**
      * ARN of the service.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Type of IAM policy. Either `NONE` or `AWS_IAM`.
      */
-    readonly authType: string;
+    readonly authType?: string;
     /**
      * Amazon Resource Name (ARN) of the certificate.
      */
-    readonly certificateArn: string;
+    readonly certificateArn?: string;
     /**
      * Custom domain name of the service.
      */
-    readonly customDomainName: string;
+    readonly customDomainName?: string;
     /**
      * DNS name of the service.
      */
-    readonly dnsEntries: outputs.vpclattice.GetServiceDnsEntry[];
+    readonly dnsEntries?: outputs.vpclattice.GetServiceDnsEntry[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly name: string;
-    readonly serviceIdentifier: string;
+    readonly id?: string;
+    readonly name?: string;
+    readonly serviceIdentifier?: string;
     /**
      * Status of the service.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * List of tags associated with the service.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS VPC Lattice Service.

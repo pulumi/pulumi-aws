@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
         /// </summary>
-        public readonly string CookieBehavior;
+        public readonly string? CookieBehavior;
         /// <summary>
         /// Object that contains a list of cookie names. See Items for more information.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
         [OutputConstructor]
         private GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult(
-            string cookieBehavior,
+            string? cookieBehavior,
 
             ImmutableArray<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult> cookies)
         {

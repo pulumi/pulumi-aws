@@ -435,7 +435,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         """
@@ -443,7 +443,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> pulumi.Output[str]:
+    def auth_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of IAM policy. Either `NONE` or `AWS_IAM`.
         """
@@ -467,7 +467,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsEntries")
-    def dns_entries(self) -> pulumi.Output[Sequence['outputs.ServiceDnsEntry']]:
+    def dns_entries(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceDnsEntry']]]:
         """
         Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         """
@@ -485,7 +485,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the service.
         """

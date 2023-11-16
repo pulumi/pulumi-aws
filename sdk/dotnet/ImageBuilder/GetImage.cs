@@ -131,31 +131,31 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Build version ARN of the image. This will always have the `#.#.#/#` suffix.
         /// </summary>
-        public readonly string BuildVersionArn;
+        public readonly string? BuildVersionArn;
         /// <summary>
         /// ARN of the container recipe.
         /// </summary>
-        public readonly string ContainerRecipeArn;
+        public readonly string? ContainerRecipeArn;
         /// <summary>
         /// Date the image was created.
         /// </summary>
-        public readonly string DateCreated;
+        public readonly string? DateCreated;
         /// <summary>
         /// ARN of the Image Builder Distribution Configuration.
         /// </summary>
-        public readonly string DistributionConfigurationArn;
+        public readonly string? DistributionConfigurationArn;
         /// <summary>
         /// Whether additional information about the image being created is collected.
         /// </summary>
-        public readonly bool EnhancedImageMetadataEnabled;
+        public readonly bool? EnhancedImageMetadataEnabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the image recipe.
         /// </summary>
-        public readonly string ImageRecipeArn;
+        public readonly string? ImageRecipeArn;
         /// <summary>
         /// List of an object with image scanning configuration fields.
         /// </summary>
@@ -167,15 +167,15 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// ARN of the Image Builder Infrastructure Configuration.
         /// </summary>
-        public readonly string InfrastructureConfigurationArn;
+        public readonly string? InfrastructureConfigurationArn;
         /// <summary>
         /// Name of the AMI.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Operating System version of the image.
         /// </summary>
-        public readonly string OsVersion;
+        public readonly string? OsVersion;
         /// <summary>
         /// List of objects with resources created by the image.
         /// </summary>
@@ -183,51 +183,51 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Platform of the image.
         /// </summary>
-        public readonly string Platform;
+        public readonly string? Platform;
         /// <summary>
         /// Key-value map of resource tags for the image.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Version of the image.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetImageResult(
             string arn,
 
-            string buildVersionArn,
+            string? buildVersionArn,
 
-            string containerRecipeArn,
+            string? containerRecipeArn,
 
-            string dateCreated,
+            string? dateCreated,
 
-            string distributionConfigurationArn,
+            string? distributionConfigurationArn,
 
-            bool enhancedImageMetadataEnabled,
+            bool? enhancedImageMetadataEnabled,
 
-            string id,
+            string? id,
 
-            string imageRecipeArn,
+            string? imageRecipeArn,
 
             ImmutableArray<Outputs.GetImageImageScanningConfigurationResult> imageScanningConfigurations,
 
             ImmutableArray<Outputs.GetImageImageTestsConfigurationResult> imageTestsConfigurations,
 
-            string infrastructureConfigurationArn,
+            string? infrastructureConfigurationArn,
 
-            string name,
+            string? name,
 
-            string osVersion,
+            string? osVersion,
 
             ImmutableArray<Outputs.GetImageOutputResourceResult> outputResources,
 
-            string platform,
+            string? platform,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string version)
+            string? version)
         {
             Arn = arn;
             BuildVersionArn = buildVersionArn;

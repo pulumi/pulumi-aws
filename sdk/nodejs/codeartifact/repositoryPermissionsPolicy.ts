@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     repository: "example",
  *     domain: exampleDomain.domain,
  * });
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const examplePolicyDocument = exampleRepository.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -30,9 +30,9 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["codeartifact:ReadFromRepository"],
- *         resources: [exampleRepository.arn],
+ *         resources: [arn],
  *     }],
- * });
+ * }));
  * const exampleRepositoryPermissionsPolicy = new aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", {
  *     repository: exampleRepository.repository,
  *     domain: exampleDomain.domain,
@@ -83,7 +83,7 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
     /**
      * The account number of the AWS account that owns the domain.
      */
-    public readonly domainOwner!: pulumi.Output<string>;
+    public readonly domainOwner!: pulumi.Output<string | undefined>;
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      */
@@ -91,7 +91,7 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
-    public readonly policyRevision!: pulumi.Output<string>;
+    public readonly policyRevision!: pulumi.Output<string | undefined>;
     /**
      * The name of the repository to set the resource policy on.
      */
@@ -99,7 +99,7 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
     /**
      * The ARN of the resource associated with the resource policy.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RepositoryPermissionsPolicy resource with the given unique name, arguments, and options.

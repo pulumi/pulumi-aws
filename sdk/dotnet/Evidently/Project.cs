@@ -107,25 +107,25 @@ namespace Pulumi.Aws.Evidently
         /// The number of ongoing experiments currently in the project.
         /// </summary>
         [Output("activeExperimentCount")]
-        public Output<int> ActiveExperimentCount { get; private set; } = null!;
+        public Output<int?> ActiveExperimentCount { get; private set; } = null!;
 
         /// <summary>
         /// The number of ongoing launches currently in the project.
         /// </summary>
         [Output("activeLaunchCount")]
-        public Output<int> ActiveLaunchCount { get; private set; } = null!;
+        public Output<int?> ActiveLaunchCount { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the project.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that the project is created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
@@ -143,25 +143,25 @@ namespace Pulumi.Aws.Evidently
         /// The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
         /// </summary>
         [Output("experimentCount")]
-        public Output<int> ExperimentCount { get; private set; } = null!;
+        public Output<int?> ExperimentCount { get; private set; } = null!;
 
         /// <summary>
         /// The number of features currently in the project.
         /// </summary>
         [Output("featureCount")]
-        public Output<int> FeatureCount { get; private set; } = null!;
+        public Output<int?> FeatureCount { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that the project was most recently updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
         /// </summary>
         [Output("launchCount")]
-        public Output<int> LaunchCount { get; private set; } = null!;
+        public Output<int?> LaunchCount { get; private set; } = null!;
 
         /// <summary>
         /// A name for the project.
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Evidently
         /// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

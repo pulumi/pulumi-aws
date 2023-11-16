@@ -168,26 +168,29 @@ class SecretRotationRotationRules(dict):
 @pulumi.output_type
 class GetSecretRotationRotationRuleResult(dict):
     def __init__(__self__, *,
-                 automatically_after_days: int,
-                 duration: str,
-                 schedule_expression: str):
-        pulumi.set(__self__, "automatically_after_days", automatically_after_days)
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+                 automatically_after_days: Optional[int] = None,
+                 duration: Optional[str] = None,
+                 schedule_expression: Optional[str] = None):
+        if automatically_after_days is not None:
+            pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
-    def automatically_after_days(self) -> int:
+    def automatically_after_days(self) -> Optional[int]:
         return pulumi.get(self, "automatically_after_days")
 
     @property
     @pulumi.getter
-    def duration(self) -> str:
+    def duration(self) -> Optional[str]:
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> str:
+    def schedule_expression(self) -> Optional[str]:
         return pulumi.get(self, "schedule_expression")
 
 

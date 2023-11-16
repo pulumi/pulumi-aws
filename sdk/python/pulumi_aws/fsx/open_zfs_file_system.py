@@ -1038,7 +1038,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the file system.
         """
@@ -1078,7 +1078,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> pulumi.Output[str]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         """
@@ -1094,7 +1094,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIopsConfiguration")
-    def disk_iops_configuration(self) -> pulumi.Output['outputs.OpenZfsFileSystemDiskIopsConfiguration']:
+    def disk_iops_configuration(self) -> pulumi.Output[Optional['outputs.OpenZfsFileSystemDiskIopsConfiguration']]:
         """
         The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         """
@@ -1102,7 +1102,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         """
@@ -1110,7 +1110,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointIpAddressRange")
-    def endpoint_ip_address_range(self) -> pulumi.Output[str]:
+    def endpoint_ip_address_range(self) -> pulumi.Output[Optional[str]]:
         """
         (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         """
@@ -1118,7 +1118,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         """
@@ -1126,7 +1126,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
+    def network_interface_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         """
@@ -1134,7 +1134,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account identifier that created the file system.
         """
@@ -1150,7 +1150,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootVolumeConfiguration")
-    def root_volume_configuration(self) -> pulumi.Output['outputs.OpenZfsFileSystemRootVolumeConfiguration']:
+    def root_volume_configuration(self) -> pulumi.Output[Optional['outputs.OpenZfsFileSystemRootVolumeConfiguration']]:
         """
         The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         """
@@ -1158,7 +1158,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootVolumeId")
-    def root_volume_id(self) -> pulumi.Output[str]:
+    def root_volume_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the root volume, e.g., `fsvol-12345678`
         """
@@ -1166,7 +1166,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeTableIds")
-    def route_table_ids(self) -> pulumi.Output[Sequence[str]]:
+    def route_table_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         """
@@ -1233,7 +1233,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the Virtual Private Cloud for the file system.
         """
@@ -1241,7 +1241,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> pulumi.Output[str]:
+    def weekly_maintenance_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """

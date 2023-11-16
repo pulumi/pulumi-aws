@@ -103,7 +103,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     /**
      * Matchmaking Configuration ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The method used to backfill game sessions that are created with this matchmaking configuration.
      */
@@ -111,7 +111,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     /**
      * The time when the Matchmaking Configuration was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * Information to be added to all events related to this matchmaking configuration.
      */
@@ -123,7 +123,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     /**
      * Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
      */
-    public readonly flexMatchMode!: pulumi.Output<string>;
+    public readonly flexMatchMode!: pulumi.Output<string | undefined>;
     /**
      * One or more custom game properties. See below.
      */
@@ -148,7 +148,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
      * The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
      */
     public readonly requestTimeoutSeconds!: pulumi.Output<number>;
-    public /*out*/ readonly ruleSetArn!: pulumi.Output<string>;
+    public /*out*/ readonly ruleSetArn!: pulumi.Output<string | undefined>;
     /**
      * A rule set names for the matchmaking rule set to use with this configuration.
      */

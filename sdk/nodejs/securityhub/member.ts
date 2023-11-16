@@ -74,11 +74,11 @@ export class Member extends pulumi.CustomResource {
     /**
      * The ID of the master Security Hub AWS account.
      */
-    public /*out*/ readonly masterId!: pulumi.Output<string>;
+    public /*out*/ readonly masterId!: pulumi.Output<string | undefined>;
     /**
      * The status of the member account relationship.
      */
-    public /*out*/ readonly memberStatus!: pulumi.Output<string>;
+    public /*out*/ readonly memberStatus!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Member resource with the given unique name, arguments, and options.

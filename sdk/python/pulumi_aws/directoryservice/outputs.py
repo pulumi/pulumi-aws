@@ -256,12 +256,12 @@ class SharedDirectoryTarget(dict):
 @pulumi.output_type
 class GetDirectoryConnectSettingResult(dict):
     def __init__(__self__, *,
-                 availability_zones: Sequence[str],
-                 connect_ips: Sequence[str],
-                 customer_dns_ips: Sequence[str],
-                 customer_username: str,
-                 subnet_ids: Sequence[str],
-                 vpc_id: str):
+                 availability_zones: Optional[Sequence[str]] = None,
+                 connect_ips: Optional[Sequence[str]] = None,
+                 customer_dns_ips: Optional[Sequence[str]] = None,
+                 customer_username: Optional[str] = None,
+                 subnet_ids: Optional[Sequence[str]] = None,
+                 vpc_id: Optional[str] = None):
         """
         :param Sequence[str] connect_ips: IP addresses of the AD Connector servers.
         :param Sequence[str] customer_dns_ips: DNS IP addresses of the domain to connect to.
@@ -269,21 +269,27 @@ class GetDirectoryConnectSettingResult(dict):
         :param Sequence[str] subnet_ids: Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
         :param str vpc_id: ID of the VPC that the connector is in.
         """
-        pulumi.set(__self__, "availability_zones", availability_zones)
-        pulumi.set(__self__, "connect_ips", connect_ips)
-        pulumi.set(__self__, "customer_dns_ips", customer_dns_ips)
-        pulumi.set(__self__, "customer_username", customer_username)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if connect_ips is not None:
+            pulumi.set(__self__, "connect_ips", connect_ips)
+        if customer_dns_ips is not None:
+            pulumi.set(__self__, "customer_dns_ips", customer_dns_ips)
+        if customer_username is not None:
+            pulumi.set(__self__, "customer_username", customer_username)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="connectIps")
-    def connect_ips(self) -> Sequence[str]:
+    def connect_ips(self) -> Optional[Sequence[str]]:
         """
         IP addresses of the AD Connector servers.
         """
@@ -291,7 +297,7 @@ class GetDirectoryConnectSettingResult(dict):
 
     @property
     @pulumi.getter(name="customerDnsIps")
-    def customer_dns_ips(self) -> Sequence[str]:
+    def customer_dns_ips(self) -> Optional[Sequence[str]]:
         """
         DNS IP addresses of the domain to connect to.
         """
@@ -299,7 +305,7 @@ class GetDirectoryConnectSettingResult(dict):
 
     @property
     @pulumi.getter(name="customerUsername")
-    def customer_username(self) -> str:
+    def customer_username(self) -> Optional[str]:
         """
         Username corresponding to the password provided.
         """
@@ -307,7 +313,7 @@ class GetDirectoryConnectSettingResult(dict):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
         """
@@ -315,7 +321,7 @@ class GetDirectoryConnectSettingResult(dict):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         ID of the VPC that the connector is in.
         """
@@ -325,13 +331,13 @@ class GetDirectoryConnectSettingResult(dict):
 @pulumi.output_type
 class GetDirectoryRadiusSettingResult(dict):
     def __init__(__self__, *,
-                 authentication_protocol: str,
-                 display_label: str,
-                 radius_port: int,
-                 radius_retries: int,
-                 radius_servers: Sequence[str],
-                 radius_timeout: int,
-                 use_same_username: bool):
+                 authentication_protocol: Optional[str] = None,
+                 display_label: Optional[str] = None,
+                 radius_port: Optional[int] = None,
+                 radius_retries: Optional[int] = None,
+                 radius_servers: Optional[Sequence[str]] = None,
+                 radius_timeout: Optional[int] = None,
+                 use_same_username: Optional[bool] = None):
         """
         :param str authentication_protocol: The protocol specified for your RADIUS endpoints.
         :param str display_label: Display label.
@@ -341,17 +347,24 @@ class GetDirectoryRadiusSettingResult(dict):
         :param int radius_timeout: Amount of time, in seconds, to wait for the RADIUS server to respond.
         :param bool use_same_username: Not currently used.
         """
-        pulumi.set(__self__, "authentication_protocol", authentication_protocol)
-        pulumi.set(__self__, "display_label", display_label)
-        pulumi.set(__self__, "radius_port", radius_port)
-        pulumi.set(__self__, "radius_retries", radius_retries)
-        pulumi.set(__self__, "radius_servers", radius_servers)
-        pulumi.set(__self__, "radius_timeout", radius_timeout)
-        pulumi.set(__self__, "use_same_username", use_same_username)
+        if authentication_protocol is not None:
+            pulumi.set(__self__, "authentication_protocol", authentication_protocol)
+        if display_label is not None:
+            pulumi.set(__self__, "display_label", display_label)
+        if radius_port is not None:
+            pulumi.set(__self__, "radius_port", radius_port)
+        if radius_retries is not None:
+            pulumi.set(__self__, "radius_retries", radius_retries)
+        if radius_servers is not None:
+            pulumi.set(__self__, "radius_servers", radius_servers)
+        if radius_timeout is not None:
+            pulumi.set(__self__, "radius_timeout", radius_timeout)
+        if use_same_username is not None:
+            pulumi.set(__self__, "use_same_username", use_same_username)
 
     @property
     @pulumi.getter(name="authenticationProtocol")
-    def authentication_protocol(self) -> str:
+    def authentication_protocol(self) -> Optional[str]:
         """
         The protocol specified for your RADIUS endpoints.
         """
@@ -359,7 +372,7 @@ class GetDirectoryRadiusSettingResult(dict):
 
     @property
     @pulumi.getter(name="displayLabel")
-    def display_label(self) -> str:
+    def display_label(self) -> Optional[str]:
         """
         Display label.
         """
@@ -367,7 +380,7 @@ class GetDirectoryRadiusSettingResult(dict):
 
     @property
     @pulumi.getter(name="radiusPort")
-    def radius_port(self) -> int:
+    def radius_port(self) -> Optional[int]:
         """
         Port that your RADIUS server is using for communications.
         """
@@ -375,7 +388,7 @@ class GetDirectoryRadiusSettingResult(dict):
 
     @property
     @pulumi.getter(name="radiusRetries")
-    def radius_retries(self) -> int:
+    def radius_retries(self) -> Optional[int]:
         """
         Maximum number of times that communication with the RADIUS server is attempted.
         """
@@ -383,7 +396,7 @@ class GetDirectoryRadiusSettingResult(dict):
 
     @property
     @pulumi.getter(name="radiusServers")
-    def radius_servers(self) -> Sequence[str]:
+    def radius_servers(self) -> Optional[Sequence[str]]:
         """
         Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         """
@@ -391,7 +404,7 @@ class GetDirectoryRadiusSettingResult(dict):
 
     @property
     @pulumi.getter(name="radiusTimeout")
-    def radius_timeout(self) -> int:
+    def radius_timeout(self) -> Optional[int]:
         """
         Amount of time, in seconds, to wait for the RADIUS server to respond.
         """
@@ -399,7 +412,7 @@ class GetDirectoryRadiusSettingResult(dict):
 
     @property
     @pulumi.getter(name="useSameUsername")
-    def use_same_username(self) -> bool:
+    def use_same_username(self) -> Optional[bool]:
         """
         Not currently used.
         """
@@ -409,25 +422,28 @@ class GetDirectoryRadiusSettingResult(dict):
 @pulumi.output_type
 class GetDirectoryVpcSettingResult(dict):
     def __init__(__self__, *,
-                 availability_zones: Sequence[str],
-                 subnet_ids: Sequence[str],
-                 vpc_id: str):
+                 availability_zones: Optional[Sequence[str]] = None,
+                 subnet_ids: Optional[Sequence[str]] = None,
+                 vpc_id: Optional[str] = None):
         """
         :param Sequence[str] subnet_ids: Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
         :param str vpc_id: ID of the VPC that the connector is in.
         """
-        pulumi.set(__self__, "availability_zones", availability_zones)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
         """
@@ -435,7 +451,7 @@ class GetDirectoryVpcSettingResult(dict):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         ID of the VPC that the connector is in.
         """

@@ -288,7 +288,7 @@ class KeyGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for this version of the key group.
         """

@@ -80,7 +80,7 @@ type VpcEndpointConnectionAccepter struct {
 	// AWS VPC Endpoint Service ID.
 	VpcEndpointServiceId pulumi.StringOutput `pulumi:"vpcEndpointServiceId"`
 	// State of the VPC Endpoint.
-	VpcEndpointState pulumi.StringOutput `pulumi:"vpcEndpointState"`
+	VpcEndpointState pulumi.StringPtrOutput `pulumi:"vpcEndpointState"`
 }
 
 // NewVpcEndpointConnectionAccepter registers a new resource with the given unique name, arguments, and options.
@@ -253,8 +253,8 @@ func (o VpcEndpointConnectionAccepterOutput) VpcEndpointServiceId() pulumi.Strin
 }
 
 // State of the VPC Endpoint.
-func (o VpcEndpointConnectionAccepterOutput) VpcEndpointState() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringOutput { return v.VpcEndpointState }).(pulumi.StringOutput)
+func (o VpcEndpointConnectionAccepterOutput) VpcEndpointState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringPtrOutput { return v.VpcEndpointState }).(pulumi.StringPtrOutput)
 }
 
 type VpcEndpointConnectionAccepterArrayOutput struct{ *pulumi.OutputState }

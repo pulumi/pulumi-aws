@@ -165,12 +165,12 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of all the Elastic IP addresses.
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetEipsResult(
@@ -178,11 +178,11 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetEipsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> publicIps,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AllocationIds = allocationIds;
             Filters = filters;

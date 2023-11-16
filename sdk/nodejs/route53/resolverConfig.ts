@@ -67,7 +67,7 @@ export class ResolverConfig extends pulumi.CustomResource {
     /**
      * The AWS account ID of the owner of the VPC that this resolver configuration applies to.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC that the configuration is for.
      */

@@ -38,7 +38,7 @@ type GetCoipPoolsArgs struct {
 type GetCoipPoolsResult struct {
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of COIP Pool Identifiers
 	PoolIds []string          `pulumi:"poolIds"`
 	Tags    map[string]string `pulumi:"tags"`
@@ -93,8 +93,8 @@ func (o GetCoipPoolsResultOutput) Filters() GetCoipPoolsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetCoipPoolsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCoipPoolsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetCoipPoolsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoipPoolsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of COIP Pool Identifiers

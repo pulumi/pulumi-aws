@@ -52,7 +52,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the firewall policy.
         """
@@ -60,7 +60,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="firewallPolicies")
-    def firewall_policies(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyResult']:
+    def firewall_policies(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyResult']]:
         """
         The [policy][2] for the specified firewall policy.
         """
@@ -68,7 +68,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -81,7 +81,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the firewall policy.
         """
@@ -89,7 +89,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="updateToken")
-    def update_token(self) -> str:
+    def update_token(self) -> Optional[str]:
         """
         Token used for optimistic locking.
         """

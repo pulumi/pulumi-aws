@@ -55,11 +55,11 @@ type NetworkInsightsPath struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Network Insights Path.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
 	Destination pulumi.StringOutput `pulumi:"destination"`
 	// ARN of the destination.
-	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
+	DestinationArn pulumi.StringPtrOutput `pulumi:"destinationArn"`
 	// IP address of the destination resource.
 	DestinationIp pulumi.StringPtrOutput `pulumi:"destinationIp"`
 	// Destination port to analyze access to.
@@ -71,7 +71,7 @@ type NetworkInsightsPath struct {
 	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
 	Source pulumi.StringOutput `pulumi:"source"`
 	// ARN of the source.
-	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
+	SourceArn pulumi.StringPtrOutput `pulumi:"sourceArn"`
 	// IP address of the source resource.
 	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -313,8 +313,8 @@ func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutputWithContext(ctx co
 }
 
 // ARN of the Network Insights Path.
-func (o NetworkInsightsPathOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NetworkInsightsPathOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
@@ -323,8 +323,8 @@ func (o NetworkInsightsPathOutput) Destination() pulumi.StringOutput {
 }
 
 // ARN of the destination.
-func (o NetworkInsightsPathOutput) DestinationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
+func (o NetworkInsightsPathOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
 
 // IP address of the destination resource.
@@ -350,8 +350,8 @@ func (o NetworkInsightsPathOutput) Source() pulumi.StringOutput {
 }
 
 // ARN of the source.
-func (o NetworkInsightsPathOutput) SourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
+func (o NetworkInsightsPathOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
 
 // IP address of the source resource.

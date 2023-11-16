@@ -6,14 +6,16 @@ package com.pulumi.aws.ssmcontacts.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContactChannelDeliveryAddress {
-    private String simpleAddress;
+    private @Nullable String simpleAddress;
 
     private GetContactChannelDeliveryAddress() {}
-    public String simpleAddress() {
-        return this.simpleAddress;
+    public Optional<String> simpleAddress() {
+        return Optional.ofNullable(this.simpleAddress);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetContactChannelDeliveryAddress {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String simpleAddress;
+        private @Nullable String simpleAddress;
         public Builder() {}
         public Builder(GetContactChannelDeliveryAddress defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetContactChannelDeliveryAddress {
         }
 
         @CustomType.Setter
-        public Builder simpleAddress(String simpleAddress) {
-            this.simpleAddress = Objects.requireNonNull(simpleAddress);
+        public Builder simpleAddress(@Nullable String simpleAddress) {
+            this.simpleAddress = simpleAddress;
             return this;
         }
         public GetContactChannelDeliveryAddress build() {

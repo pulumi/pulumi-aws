@@ -62,15 +62,15 @@ type LookupParameterArgs struct {
 
 // A collection of values returned by getParameter.
 type LookupParameterResult struct {
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string `pulumi:"id"`
-	InsecureValue  string `pulumi:"insecureValue"`
-	Name           string `pulumi:"name"`
-	Type           string `pulumi:"type"`
-	Value          string `pulumi:"value"`
-	Version        int    `pulumi:"version"`
-	WithDecryption *bool  `pulumi:"withDecryption"`
+	Id             *string `pulumi:"id"`
+	InsecureValue  *string `pulumi:"insecureValue"`
+	Name           string  `pulumi:"name"`
+	Type           *string `pulumi:"type"`
+	Value          *string `pulumi:"value"`
+	Version        *int    `pulumi:"version"`
+	WithDecryption *bool   `pulumi:"withDecryption"`
 }
 
 func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, opts ...pulumi.InvokeOption) LookupParameterResultOutput {
@@ -115,33 +115,33 @@ func (o LookupParameterResultOutput) ToLookupParameterResultOutputWithContext(ct
 	return o
 }
 
-func (o LookupParameterResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupParameterResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupParameterResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupParameterResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupParameterResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupParameterResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupParameterResultOutput) InsecureValue() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupParameterResult) string { return v.InsecureValue }).(pulumi.StringOutput)
+func (o LookupParameterResultOutput) InsecureValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *string { return v.InsecureValue }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupParameterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupParameterResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupParameterResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupParameterResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupParameterResultOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupParameterResult) string { return v.Value }).(pulumi.StringOutput)
+func (o LookupParameterResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupParameterResultOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupParameterResult) int { return v.Version }).(pulumi.IntOutput)
+func (o LookupParameterResultOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *int { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupParameterResultOutput) WithDecryption() pulumi.BoolPtrOutput {

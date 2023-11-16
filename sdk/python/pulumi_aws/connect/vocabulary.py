@@ -486,7 +486,7 @@ class Vocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the vocabulary.
         """
@@ -502,7 +502,7 @@ class Vocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> pulumi.Output[str]:
+    def failure_reason(self) -> pulumi.Output[Optional[str]]:
         """
         The reason why the custom vocabulary was not created.
         """
@@ -526,7 +526,7 @@ class Vocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> pulumi.Output[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the custom vocabulary was last modified.
         """
@@ -542,7 +542,7 @@ class Vocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
         """
@@ -570,7 +570,7 @@ class Vocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vocabularyId")
-    def vocabulary_id(self) -> pulumi.Output[str]:
+    def vocabulary_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the custom vocabulary.
         """

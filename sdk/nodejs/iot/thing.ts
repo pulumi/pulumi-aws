@@ -57,7 +57,7 @@ export class Thing extends pulumi.CustomResource {
     /**
      * The ARN of the thing.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Map of attributes of the thing.
      */
@@ -65,7 +65,7 @@ export class Thing extends pulumi.CustomResource {
     /**
      * The default client ID.
      */
-    public /*out*/ readonly defaultClientId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultClientId!: pulumi.Output<string | undefined>;
     /**
      * The name of the thing.
      */
@@ -77,7 +77,7 @@ export class Thing extends pulumi.CustomResource {
     /**
      * The current version of the thing record in the registry.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Thing resource with the given unique name, arguments, and options.

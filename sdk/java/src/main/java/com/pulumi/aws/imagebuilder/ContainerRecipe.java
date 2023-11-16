@@ -94,14 +94,14 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return (Required) Amazon Resource Name (ARN) of the container recipe.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Ordered configuration block(s) with components for the container recipe. Detailed below.
@@ -136,14 +136,14 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dateCreated", refs={String.class}, tree="[0]")
-    private Output<String> dateCreated;
+    private Output</* @Nullable */ String> dateCreated;
 
     /**
      * @return Date the container recipe was created.
      * 
      */
-    public Output<String> dateCreated() {
-        return this.dateCreated;
+    public Output<Optional<String>> dateCreated() {
+        return Codegen.optional(this.dateCreated);
     }
     /**
      * The description of the container recipe.
@@ -164,14 +164,14 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dockerfileTemplateData", refs={String.class}, tree="[0]")
-    private Output<String> dockerfileTemplateData;
+    private Output</* @Nullable */ String> dockerfileTemplateData;
 
     /**
      * @return The Dockerfile template used to build the image as an inline data blob.
      * 
      */
-    public Output<String> dockerfileTemplateData() {
-        return this.dockerfileTemplateData;
+    public Output<Optional<String>> dockerfileTemplateData() {
+        return Codegen.optional(this.dockerfileTemplateData);
     }
     /**
      * The Amazon S3 URI for the Dockerfile that will be used to build the container image.
@@ -192,14 +192,14 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> encrypted;
+    private Output</* @Nullable */ Boolean> encrypted;
 
     /**
      * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    public Output<Boolean> encrypted() {
-        return this.encrypted;
+    public Output<Optional<Boolean>> encrypted() {
+        return Codegen.optional(this.encrypted);
     }
     /**
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
@@ -248,14 +248,14 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return Owner of the container recipe.
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * The base image for the container recipe.
@@ -276,14 +276,14 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="platform", refs={String.class}, tree="[0]")
-    private Output<String> platform;
+    private Output</* @Nullable */ String> platform;
 
     /**
      * @return Platform of the container recipe.
      * 
      */
-    public Output<String> platform() {
-        return this.platform;
+    public Output<Optional<String>> platform() {
+        return Codegen.optional(this.platform);
     }
     /**
      * Specifies the operating system platform when you use a custom base image.

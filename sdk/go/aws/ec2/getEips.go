@@ -68,7 +68,7 @@ type GetEipsResult struct {
 	AllocationIds []string        `pulumi:"allocationIds"`
 	Filters       []GetEipsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all the Elastic IP addresses.
 	PublicIps []string          `pulumi:"publicIps"`
 	Tags      map[string]string `pulumi:"tags"`
@@ -124,8 +124,8 @@ func (o GetEipsResultOutput) Filters() GetEipsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetEipsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEipsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetEipsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEipsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the Elastic IP addresses.

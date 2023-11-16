@@ -95,25 +95,25 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Input;
         public readonly string? Qualifier;
         /// <summary>
         /// String result of the lambda function invocation.
         /// </summary>
-        public readonly string Result;
+        public readonly string? Result;
 
         [OutputConstructor]
         private GetInvocationResult(
             string functionName,
 
-            string id,
+            string? id,
 
             string input,
 
             string? qualifier,
 
-            string result)
+            string? result)
         {
             FunctionName = functionName;
             Id = id;

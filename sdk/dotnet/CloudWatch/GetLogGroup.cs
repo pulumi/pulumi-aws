@@ -128,44 +128,44 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         /// </summary>
-        public readonly int CreationTime;
+        public readonly int? CreationTime;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the KMS Key to use when encrypting log data.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         public readonly string Name;
         /// <summary>
         /// Number of days log events retained in the specified log group.
         /// </summary>
-        public readonly int RetentionInDays;
+        public readonly int? RetentionInDays;
         /// <summary>
         /// Map of tags to assign to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLogGroupResult(
-            string arn,
+            string? arn,
 
-            int creationTime,
+            int? creationTime,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
             string name,
 
-            int retentionInDays,
+            int? retentionInDays,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CreationTime = creationTime;

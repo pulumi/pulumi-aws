@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Quicksight
         /// Assignment ID.
         /// </summary>
         [Output("assignmentId")]
-        public Output<string> AssignmentId { get; private set; } = null!;
+        public Output<string?> AssignmentId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the assignment.
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Quicksight
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Quicksight
         /// Namespace that contains the assignment. Defaults to `default`.
         /// </summary>
         [Output("namespace")]
-        public Output<string> Namespace { get; private set; } = null!;
+        public Output<string?> Namespace { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.

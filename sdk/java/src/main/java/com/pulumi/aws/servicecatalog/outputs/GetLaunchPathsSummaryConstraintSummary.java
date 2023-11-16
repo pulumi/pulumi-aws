@@ -6,6 +6,8 @@ package com.pulumi.aws.servicecatalog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchPathsSummaryConstraintSummary {
@@ -13,27 +15,27 @@ public final class GetLaunchPathsSummaryConstraintSummary {
      * @return Description of the constraint.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetLaunchPathsSummaryConstraintSummary() {}
     /**
      * @return Description of the constraint.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetLaunchPathsSummaryConstraintSummary {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String description;
-        private String type;
+        private @Nullable String description;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetLaunchPathsSummaryConstraintSummary defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetLaunchPathsSummaryConstraintSummary {
         }
 
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetLaunchPathsSummaryConstraintSummary build() {

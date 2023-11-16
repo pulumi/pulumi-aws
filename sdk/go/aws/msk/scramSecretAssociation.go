@@ -40,92 +40,92 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := msk.NewCluster(ctx, "exampleCluster", &msk.ClusterArgs{
-//				ClientAuthentication: &msk.ClusterClientAuthenticationArgs{
-//					Sasl: &msk.ClusterClientAuthenticationSaslArgs{
-//						Scram: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description: pulumi.String("Example Key for MSK Cluster Scram Secret Association"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", &secretsmanager.SecretArgs{
-//				KmsKeyId: exampleKey.KeyId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"username": "user",
-//				"password": "pass",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
-//				SecretId:     exampleSecret.ID(),
-//				SecretString: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = msk.NewScramSecretAssociation(ctx, "exampleScramSecretAssociation", &msk.ScramSecretAssociationArgs{
-//				ClusterArn: exampleCluster.Arn,
-//				SecretArnLists: pulumi.StringArray{
-//					exampleSecret.Arn,
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSecretVersion,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("AWSKafkaResourcePolicy"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("kafka.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("secretsmanager:getSecretValue"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleSecret.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
-//				SecretArn: exampleSecret.Arn,
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCluster, err := msk.NewCluster(ctx, "exampleCluster", &msk.ClusterArgs{
+// ClientAuthentication: &msk.ClusterClientAuthenticationArgs{
+// Sasl: &msk.ClusterClientAuthenticationSaslArgs{
+// Scram: pulumi.Bool(true),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+// Description: pulumi.String("Example Key for MSK Cluster Scram Secret Association"),
+// })
+// if err != nil {
+// return err
+// }
+// exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", &secretsmanager.SecretArgs{
+// KmsKeyId: exampleKey.KeyId,
+// })
+// if err != nil {
+// return err
+// }
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "username": "user",
+// "password": "pass",
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
+// SecretId: exampleSecret.ID(),
+// SecretString: pulumi.String(json0),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = msk.NewScramSecretAssociation(ctx, "exampleScramSecretAssociation", &msk.ScramSecretAssociationArgs{
+// ClusterArn: exampleCluster.Arn,
+// SecretArnLists: pulumi.StringArray{
+// exampleSecret.Arn,
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleSecretVersion,
+// }))
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument := exampleSecret.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: "AWSKafkaResourcePolicy",
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "kafka.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "secretsmanager:getSecretValue",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
+// SecretArn: exampleSecret.Arn,
+// Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &examplePolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

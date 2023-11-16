@@ -710,7 +710,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Current state of a core network.
         """

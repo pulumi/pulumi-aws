@@ -58,11 +58,11 @@ type LookupPullThroughCacheRuleArgs struct {
 type LookupPullThroughCacheRuleResult struct {
 	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The registry ID where the repository was created.
-	RegistryId string `pulumi:"registryId"`
+	RegistryId *string `pulumi:"registryId"`
 	// The registry URL of the upstream public registry to use as the source.
-	UpstreamRegistryUrl string `pulumi:"upstreamRegistryUrl"`
+	UpstreamRegistryUrl *string `pulumi:"upstreamRegistryUrl"`
 }
 
 func LookupPullThroughCacheRuleOutput(ctx *pulumi.Context, args LookupPullThroughCacheRuleOutputArgs, opts ...pulumi.InvokeOption) LookupPullThroughCacheRuleResultOutput {
@@ -108,18 +108,18 @@ func (o LookupPullThroughCacheRuleResultOutput) EcrRepositoryPrefix() pulumi.Str
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupPullThroughCacheRuleResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupPullThroughCacheRuleResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The registry ID where the repository was created.
-func (o LookupPullThroughCacheRuleResultOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.RegistryId }).(pulumi.StringOutput)
+func (o LookupPullThroughCacheRuleResultOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 // The registry URL of the upstream public registry to use as the source.
-func (o LookupPullThroughCacheRuleResultOutput) UpstreamRegistryUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.UpstreamRegistryUrl }).(pulumi.StringOutput)
+func (o LookupPullThroughCacheRuleResultOutput) UpstreamRegistryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) *string { return v.UpstreamRegistryUrl }).(pulumi.StringPtrOutput)
 }
 
 func init() {

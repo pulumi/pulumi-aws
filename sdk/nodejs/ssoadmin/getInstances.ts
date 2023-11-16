@@ -21,15 +21,15 @@ export interface GetInstancesResult {
     /**
      * Set of Amazon Resource Names (ARNs) of the SSO Instances.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of identifiers of the identity stores connected to the SSO Instances.
      */
-    readonly identityStoreIds: string[];
+    readonly identityStoreIds?: string[];
 }
 /**
  * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.

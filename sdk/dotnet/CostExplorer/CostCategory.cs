@@ -105,7 +105,7 @@ namespace Pulumi.Aws.CostExplorer
         /// ARN of the cost category.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Default value for the cost category.
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.CostExplorer
         /// Effective end data of your Cost Category.
         /// </summary>
         [Output("effectiveEnd")]
-        public Output<string> EffectiveEnd { get; private set; } = null!;
+        public Output<string?> EffectiveEnd { get; private set; } = null!;
 
         /// <summary>
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.CostExplorer
         /// The following arguments are optional:
         /// </summary>
         [Output("effectiveStart")]
-        public Output<string> EffectiveStart { get; private set; } = null!;
+        public Output<string?> EffectiveStart { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for the Cost Category.

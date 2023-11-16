@@ -46,16 +46,16 @@ export interface GetActivityArgs {
  * A collection of values returned by getActivity.
  */
 export interface GetActivityResult {
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Date the activity was created.
      */
-    readonly creationDate: string;
+    readonly creationDate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly name: string;
+    readonly id?: string;
+    readonly name?: string;
 }
 /**
  * Provides a Step Functions Activity data source

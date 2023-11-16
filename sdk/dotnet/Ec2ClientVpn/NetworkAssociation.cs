@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// The unique ID of the target network association.
         /// </summary>
         [Output("associationId")]
-        public Output<string> AssociationId { get; private set; } = null!;
+        public Output<string?> AssociationId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Client VPN endpoint.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// The ID of the VPC in which the target subnet is located.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

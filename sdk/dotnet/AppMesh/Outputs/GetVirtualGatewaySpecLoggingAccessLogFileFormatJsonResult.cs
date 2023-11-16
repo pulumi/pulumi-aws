@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult
     {
-        public readonly string Key;
-        public readonly string Value;
+        public readonly string? Key;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult(
-            string key,
+            string? key,
 
-            string value)
+            string? value)
         {
             Key = key;
             Value = value;

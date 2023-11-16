@@ -131,33 +131,33 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class GetStreamConsumerResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         /// </summary>
-        public readonly string CreationTimestamp;
+        public readonly string? CreationTimestamp;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string Name;
+        public readonly string? Id;
+        public readonly string? Name;
         /// <summary>
         /// Current status of the stream consumer.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         public readonly string StreamArn;
 
         [OutputConstructor]
         private GetStreamConsumerResult(
-            string arn,
+            string? arn,
 
-            string creationTimestamp,
+            string? creationTimestamp,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string status,
+            string? status,
 
             string streamArn)
         {

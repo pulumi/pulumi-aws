@@ -527,7 +527,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the storage virtual machine.
         """
@@ -535,7 +535,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> pulumi.Output[Sequence['outputs.OntapStorageVirtualMachineEndpoint']]:
+    def endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.OntapStorageVirtualMachineEndpoint']]]:
         """
         The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         """
@@ -567,7 +567,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subtype(self) -> pulumi.Output[str]:
+    def subtype(self) -> pulumi.Output[Optional[str]]:
         """
         Describes the SVM's subtype, e.g. `DEFAULT`
         """
@@ -599,7 +599,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uuid(self) -> pulumi.Output[str]:
+    def uuid(self) -> pulumi.Output[Optional[str]]:
         """
         The SVM's UUID (universally unique identifier).
         """

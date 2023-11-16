@@ -89,13 +89,13 @@ namespace Pulumi.Aws.Glue
         /// The ARN of the endpoint.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS availability zone where this endpoint is located.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Glue
         /// The reason for a current failure in this endpoint.
         /// </summary>
         [Output("failureReason")]
-        public Output<string> FailureReason { get; private set; } = null!;
+        public Output<string?> FailureReason { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
@@ -143,13 +143,13 @@ namespace Pulumi.Aws.Glue
         /// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
         /// </summary>
         [Output("privateAddress")]
-        public Output<string> PrivateAddress { get; private set; } = null!;
+        public Output<string?> PrivateAddress { get; private set; } = null!;
 
         /// <summary>
         /// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         /// </summary>
         [Output("publicAddress")]
-        public Output<string> PublicAddress { get; private set; } = null!;
+        public Output<string?> PublicAddress { get; private set; } = null!;
 
         /// <summary>
         /// The public key to be used by this endpoint for authentication.
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Glue
         /// The current status of this endpoint.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The subnet ID for the new endpoint to use.
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Glue
         /// he ID of the VPC used by this endpoint.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
         /// <summary>
         /// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
@@ -221,13 +221,13 @@ namespace Pulumi.Aws.Glue
         /// The YARN endpoint address used by this endpoint.
         /// </summary>
         [Output("yarnEndpointAddress")]
-        public Output<string> YarnEndpointAddress { get; private set; } = null!;
+        public Output<string?> YarnEndpointAddress { get; private set; } = null!;
 
         /// <summary>
         /// The Apache Zeppelin port for the remote Apache Spark interpreter.
         /// </summary>
         [Output("zeppelinRemoteSparkInterpreterPort")]
-        public Output<int> ZeppelinRemoteSparkInterpreterPort { get; private set; } = null!;
+        public Output<int?> ZeppelinRemoteSparkInterpreterPort { get; private set; } = null!;
 
 
         /// <summary>

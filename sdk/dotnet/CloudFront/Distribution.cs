@@ -355,13 +355,13 @@ namespace Pulumi.Aws.CloudFront
         /// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the distribution configuration.
         /// </summary>
         [Output("callerReference")]
-        public Output<string> CallerReference { get; private set; } = null!;
+        public Output<string?> CallerReference { get; private set; } = null!;
 
         /// <summary>
         /// Any comments you want to include about the distribution.
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.CloudFront
         /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         /// </summary>
         [Output("continuousDeploymentPolicyId")]
-        public Output<string> ContinuousDeploymentPolicyId { get; private set; } = null!;
+        public Output<string?> ContinuousDeploymentPolicyId { get; private set; } = null!;
 
         /// <summary>
         /// One or more custom error response elements (multiples allowed).
@@ -397,7 +397,7 @@ namespace Pulumi.Aws.CloudFront
         /// DNS domain name of either the S3 bucket, or web site of your custom origin.
         /// </summary>
         [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
+        public Output<string?> DomainName { get; private set; } = null!;
 
         /// <summary>
         /// Whether Origin Shield is enabled.
@@ -409,13 +409,13 @@ namespace Pulumi.Aws.CloudFront
         /// Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         /// </summary>
         [Output("hostedZoneId")]
-        public Output<string> HostedZoneId { get; private set; } = null!;
+        public Output<string?> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
@@ -427,7 +427,7 @@ namespace Pulumi.Aws.CloudFront
         /// Number of invalidation batches currently in progress.
         /// </summary>
         [Output("inProgressValidationBatches")]
-        public Output<int> InProgressValidationBatches { get; private set; } = null!;
+        public Output<int?> InProgressValidationBatches { get; private set; } = null!;
 
         /// <summary>
         /// Whether the IPv6 is enabled for the distribution.
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.CloudFront
         /// Date and time the distribution was last modified.
         /// </summary>
         [Output("lastModifiedTime")]
-        public Output<string> LastModifiedTime { get; private set; } = null!;
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// The logging configuration that controls how logs are written to your distribution (maximum one).
@@ -493,7 +493,7 @@ namespace Pulumi.Aws.CloudFront
         /// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

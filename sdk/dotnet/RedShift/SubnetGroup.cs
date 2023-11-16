@@ -80,7 +80,7 @@ namespace Pulumi.Aws.RedShift
         /// Amazon Resource Name (ARN) of the Redshift Subnet group name
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".

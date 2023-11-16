@@ -60,7 +60,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the bucket.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the bucket.
      */
@@ -68,7 +68,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the Outpost to contain this bucket.
      */
@@ -76,7 +76,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * Boolean whether Public Access Block is enabled.
      */
-    public /*out*/ readonly publicAccessBlockEnabled!: pulumi.Output<boolean>;
+    public /*out*/ readonly publicAccessBlockEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

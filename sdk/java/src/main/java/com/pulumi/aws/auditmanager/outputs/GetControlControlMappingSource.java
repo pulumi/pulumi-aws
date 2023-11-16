@@ -12,39 +12,39 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetControlControlMappingSource {
-    private String sourceDescription;
-    private String sourceFrequency;
-    private String sourceId;
+    private @Nullable String sourceDescription;
+    private @Nullable String sourceFrequency;
+    private @Nullable String sourceId;
     private @Nullable GetControlControlMappingSourceSourceKeyword sourceKeyword;
-    private String sourceName;
-    private String sourceSetUpOption;
-    private String sourceType;
-    private String troubleshootingText;
+    private @Nullable String sourceName;
+    private @Nullable String sourceSetUpOption;
+    private @Nullable String sourceType;
+    private @Nullable String troubleshootingText;
 
     private GetControlControlMappingSource() {}
-    public String sourceDescription() {
-        return this.sourceDescription;
+    public Optional<String> sourceDescription() {
+        return Optional.ofNullable(this.sourceDescription);
     }
-    public String sourceFrequency() {
-        return this.sourceFrequency;
+    public Optional<String> sourceFrequency() {
+        return Optional.ofNullable(this.sourceFrequency);
     }
-    public String sourceId() {
-        return this.sourceId;
+    public Optional<String> sourceId() {
+        return Optional.ofNullable(this.sourceId);
     }
     public Optional<GetControlControlMappingSourceSourceKeyword> sourceKeyword() {
         return Optional.ofNullable(this.sourceKeyword);
     }
-    public String sourceName() {
-        return this.sourceName;
+    public Optional<String> sourceName() {
+        return Optional.ofNullable(this.sourceName);
     }
-    public String sourceSetUpOption() {
-        return this.sourceSetUpOption;
+    public Optional<String> sourceSetUpOption() {
+        return Optional.ofNullable(this.sourceSetUpOption);
     }
-    public String sourceType() {
-        return this.sourceType;
+    public Optional<String> sourceType() {
+        return Optional.ofNullable(this.sourceType);
     }
-    public String troubleshootingText() {
-        return this.troubleshootingText;
+    public Optional<String> troubleshootingText() {
+        return Optional.ofNullable(this.troubleshootingText);
     }
 
     public static Builder builder() {
@@ -56,14 +56,14 @@ public final class GetControlControlMappingSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String sourceDescription;
-        private String sourceFrequency;
-        private String sourceId;
+        private @Nullable String sourceDescription;
+        private @Nullable String sourceFrequency;
+        private @Nullable String sourceId;
         private @Nullable GetControlControlMappingSourceSourceKeyword sourceKeyword;
-        private String sourceName;
-        private String sourceSetUpOption;
-        private String sourceType;
-        private String troubleshootingText;
+        private @Nullable String sourceName;
+        private @Nullable String sourceSetUpOption;
+        private @Nullable String sourceType;
+        private @Nullable String troubleshootingText;
         public Builder() {}
         public Builder(GetControlControlMappingSource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -78,18 +78,18 @@ public final class GetControlControlMappingSource {
         }
 
         @CustomType.Setter
-        public Builder sourceDescription(String sourceDescription) {
-            this.sourceDescription = Objects.requireNonNull(sourceDescription);
+        public Builder sourceDescription(@Nullable String sourceDescription) {
+            this.sourceDescription = sourceDescription;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceFrequency(String sourceFrequency) {
-            this.sourceFrequency = Objects.requireNonNull(sourceFrequency);
+        public Builder sourceFrequency(@Nullable String sourceFrequency) {
+            this.sourceFrequency = sourceFrequency;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceId(String sourceId) {
-            this.sourceId = Objects.requireNonNull(sourceId);
+        public Builder sourceId(@Nullable String sourceId) {
+            this.sourceId = sourceId;
             return this;
         }
         @CustomType.Setter
@@ -98,23 +98,23 @@ public final class GetControlControlMappingSource {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceName(String sourceName) {
-            this.sourceName = Objects.requireNonNull(sourceName);
+        public Builder sourceName(@Nullable String sourceName) {
+            this.sourceName = sourceName;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceSetUpOption(String sourceSetUpOption) {
-            this.sourceSetUpOption = Objects.requireNonNull(sourceSetUpOption);
+        public Builder sourceSetUpOption(@Nullable String sourceSetUpOption) {
+            this.sourceSetUpOption = sourceSetUpOption;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceType(String sourceType) {
-            this.sourceType = Objects.requireNonNull(sourceType);
+        public Builder sourceType(@Nullable String sourceType) {
+            this.sourceType = sourceType;
             return this;
         }
         @CustomType.Setter
-        public Builder troubleshootingText(String troubleshootingText) {
-            this.troubleshootingText = Objects.requireNonNull(troubleshootingText);
+        public Builder troubleshootingText(@Nullable String troubleshootingText) {
+            this.troubleshootingText = troubleshootingText;
             return this;
         }
         public GetControlControlMappingSource build() {

@@ -59,13 +59,13 @@ export interface GetInstanceStorageConfigResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
     readonly resourceType: string;
     /**
      * Specifies the storage configuration options for the Connect Instance. Documented below.
      */
-    readonly storageConfigs: outputs.connect.GetInstanceStorageConfigStorageConfig[];
+    readonly storageConfigs?: outputs.connect.GetInstanceStorageConfigStorageConfig[];
 }
 /**
  * Provides details about a specific Amazon Connect Instance Storage Config.

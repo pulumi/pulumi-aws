@@ -72,13 +72,13 @@ type GetClusterCredentialsResult struct {
 	DbGroups          []string `pulumi:"dbGroups"`
 	DbName            *string  `pulumi:"dbName"`
 	// Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
-	DbPassword      string `pulumi:"dbPassword"`
-	DbUser          string `pulumi:"dbUser"`
-	DurationSeconds *int   `pulumi:"durationSeconds"`
+	DbPassword      *string `pulumi:"dbPassword"`
+	DbUser          string  `pulumi:"dbUser"`
+	DurationSeconds *int    `pulumi:"durationSeconds"`
 	// Date and time the password in `dbPassword` expires.
-	Expiration string `pulumi:"expiration"`
+	Expiration *string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetClusterCredentialsOutput(ctx *pulumi.Context, args GetClusterCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetClusterCredentialsResultOutput {
@@ -146,8 +146,8 @@ func (o GetClusterCredentialsResultOutput) DbName() pulumi.StringPtrOutput {
 }
 
 // Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
-func (o GetClusterCredentialsResultOutput) DbPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterCredentialsResult) string { return v.DbPassword }).(pulumi.StringOutput)
+func (o GetClusterCredentialsResultOutput) DbPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterCredentialsResult) *string { return v.DbPassword }).(pulumi.StringPtrOutput)
 }
 
 func (o GetClusterCredentialsResultOutput) DbUser() pulumi.StringOutput {
@@ -159,13 +159,13 @@ func (o GetClusterCredentialsResultOutput) DurationSeconds() pulumi.IntPtrOutput
 }
 
 // Date and time the password in `dbPassword` expires.
-func (o GetClusterCredentialsResultOutput) Expiration() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterCredentialsResult) string { return v.Expiration }).(pulumi.StringOutput)
+func (o GetClusterCredentialsResultOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterCredentialsResult) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetClusterCredentialsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetClusterCredentialsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterCredentialsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -104,7 +104,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="activeDirectoryId")
-    def active_directory_id(self) -> str:
+    def active_directory_id(self) -> Optional[str]:
         """
         The ID for Microsoft Active Directory instance that the file system is join to.
         """
@@ -112,7 +112,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter
-    def aliases(self) -> Sequence[str]:
+    def aliases(self) -> Optional[Sequence[str]]:
         """
         An array DNS alias names associated with the Amazon FSx file system.
         """
@@ -120,7 +120,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name of the file system.
         """
@@ -128,7 +128,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="auditLogConfigurations")
-    def audit_log_configurations(self) -> Sequence['outputs.GetWindowsFileSystemAuditLogConfigurationResult']:
+    def audit_log_configurations(self) -> Optional[Sequence['outputs.GetWindowsFileSystemAuditLogConfigurationResult']]:
         """
         The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
         """
@@ -136,7 +136,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="automaticBackupRetentionDays")
-    def automatic_backup_retention_days(self) -> int:
+    def automatic_backup_retention_days(self) -> Optional[int]:
         """
         The number of days to retain automatic backups.
         """
@@ -144,12 +144,12 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> str:
+    def backup_id(self) -> Optional[str]:
         return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="copyTagsToBackups")
-    def copy_tags_to_backups(self) -> bool:
+    def copy_tags_to_backups(self) -> Optional[bool]:
         """
         A boolean flag indicating whether tags on the file system should be copied to backups.
         """
@@ -157,7 +157,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> str:
+    def daily_automatic_backup_start_time(self) -> Optional[str]:
         """
         The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         """
@@ -165,7 +165,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> str:
+    def deployment_type(self) -> Optional[str]:
         """
         The file system deployment type.
         """
@@ -173,7 +173,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="diskIopsConfigurations")
-    def disk_iops_configurations(self) -> Sequence['outputs.GetWindowsFileSystemDiskIopsConfigurationResult']:
+    def disk_iops_configurations(self) -> Optional[Sequence['outputs.GetWindowsFileSystemDiskIopsConfigurationResult']]:
         """
         The SSD IOPS configuration for the file system.
         """
@@ -181,7 +181,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> Optional[str]:
         """
         DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
         """
@@ -197,7 +197,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         ARN for the KMS Key to encrypt the file system at rest.
         """
@@ -205,12 +205,12 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> Sequence[str]:
+    def network_interface_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "network_interface_ids")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         AWS account identifier that created the file system.
         """
@@ -218,7 +218,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="preferredFileServerIp")
-    def preferred_file_server_ip(self) -> str:
+    def preferred_file_server_ip(self) -> Optional[str]:
         """
         The IP address of the primary, or preferred, file server.
         """
@@ -226,7 +226,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="preferredSubnetId")
-    def preferred_subnet_id(self) -> str:
+    def preferred_subnet_id(self) -> Optional[str]:
         """
         Specifies the subnet in which you want the preferred file server to be located.
         """
@@ -234,17 +234,17 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="skipFinalBackup")
-    def skip_final_backup(self) -> bool:
+    def skip_final_backup(self) -> Optional[bool]:
         return pulumi.get(self, "skip_final_backup")
 
     @property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> int:
+    def storage_capacity(self) -> Optional[int]:
         """
         The storage capacity of the file system in gibibytes (GiB).
         """
@@ -252,7 +252,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> str:
+    def storage_type(self) -> Optional[str]:
         """
         The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
         """
@@ -260,7 +260,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies the IDs of the subnets that the file system is accessible from.
         """
@@ -268,7 +268,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags to associate with the file system.
         """
@@ -276,7 +276,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="throughputCapacity")
-    def throughput_capacity(self) -> int:
+    def throughput_capacity(self) -> Optional[int]:
         """
         Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
         """
@@ -284,7 +284,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         The ID of the primary virtual private cloud (VPC) for the file system.
         """
@@ -292,7 +292,7 @@ class GetWindowsFileSystemResult:
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> str:
+    def weekly_maintenance_start_time(self) -> Optional[str]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """

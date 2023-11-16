@@ -67,7 +67,7 @@ namespace Pulumi.Aws.AppStream
         /// ARN of the appstream fleet.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the desired capacity of the fleet. See below.
@@ -79,49 +79,49 @@ namespace Pulumi.Aws.AppStream
         /// Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Description to display.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Amount of time that a streaming session remains active after users disconnect.
         /// </summary>
         [Output("disconnectTimeoutInSeconds")]
-        public Output<int> DisconnectTimeoutInSeconds { get; private set; } = null!;
+        public Output<int?> DisconnectTimeoutInSeconds { get; private set; } = null!;
 
         /// <summary>
         /// Human-readable friendly name for the AppStream fleet.
         /// </summary>
         [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
+        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
         /// </summary>
         [Output("domainJoinInfo")]
-        public Output<Outputs.FleetDomainJoinInfo> DomainJoinInfo { get; private set; } = null!;
+        public Output<Outputs.FleetDomainJoinInfo?> DomainJoinInfo { get; private set; } = null!;
 
         /// <summary>
         /// Enables or disables default internet access for the fleet.
         /// </summary>
         [Output("enableDefaultInternetAccess")]
-        public Output<bool> EnableDefaultInternetAccess { get; private set; } = null!;
+        public Output<bool?> EnableDefaultInternetAccess { get; private set; } = null!;
 
         /// <summary>
         /// Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         /// </summary>
         [Output("fleetType")]
-        public Output<string> FleetType { get; private set; } = null!;
+        public Output<string?> FleetType { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the IAM role to apply to the fleet.
         /// </summary>
         [Output("iamRoleArn")]
-        public Output<string> IamRoleArn { get; private set; } = null!;
+        public Output<string?> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
@@ -133,13 +133,13 @@ namespace Pulumi.Aws.AppStream
         /// ARN of the public, private, or shared image to use.
         /// </summary>
         [Output("imageArn")]
-        public Output<string> ImageArn { get; private set; } = null!;
+        public Output<string?> ImageArn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the image used to create the fleet.
         /// </summary>
         [Output("imageName")]
-        public Output<string> ImageName { get; private set; } = null!;
+        public Output<string?> ImageName { get; private set; } = null!;
 
         /// <summary>
         /// Instance type to use when launching fleet instances.
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.AppStream
         /// Maximum amount of time that a streaming session can remain active, in seconds.
         /// </summary>
         [Output("maxUserDurationInSeconds")]
-        public Output<int> MaxUserDurationInSeconds { get; private set; } = null!;
+        public Output<int?> MaxUserDurationInSeconds { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for the fleet.
@@ -165,13 +165,13 @@ namespace Pulumi.Aws.AppStream
         /// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         /// </summary>
         [Output("streamView")]
-        public Output<string> StreamView { get; private set; } = null!;
+        public Output<string?> StreamView { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to attach to AppStream instances.
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.AppStream
         /// Configuration block for the VPC configuration for the image builder. See below.
         /// </summary>
         [Output("vpcConfig")]
-        public Output<Outputs.FleetVpcConfig> VpcConfig { get; private set; } = null!;
+        public Output<Outputs.FleetVpcConfig?> VpcConfig { get; private set; } = null!;
 
 
         /// <summary>

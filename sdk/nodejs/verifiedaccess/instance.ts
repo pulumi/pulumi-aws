@@ -74,7 +74,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The time that the Verified Access Instance was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * A description for the AWS Verified Access Instance.
      */
@@ -86,7 +86,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The time that the Verified Access Instance was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -98,7 +98,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
      */
-    public /*out*/ readonly verifiedAccessTrustProviders!: pulumi.Output<outputs.verifiedaccess.InstanceVerifiedAccessTrustProvider[]>;
+    public /*out*/ readonly verifiedAccessTrustProviders!: pulumi.Output<outputs.verifiedaccess.InstanceVerifiedAccessTrustProvider[] | undefined>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.

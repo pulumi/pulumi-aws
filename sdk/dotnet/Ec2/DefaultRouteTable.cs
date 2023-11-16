@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the route table.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the default route table.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns the route table.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// List of virtual gateways for propagation.
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the VPC.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

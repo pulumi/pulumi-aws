@@ -93,56 +93,56 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The domain&#39;s ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The service endpoint for updating documents in a search domain.
      * 
      */
     @Export(name="documentServiceEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> documentServiceEndpoint;
+    private Output</* @Nullable */ String> documentServiceEndpoint;
 
     /**
      * @return The service endpoint for updating documents in a search domain.
      * 
      */
-    public Output<String> documentServiceEndpoint() {
-        return this.documentServiceEndpoint;
+    public Output<Optional<String>> documentServiceEndpoint() {
+        return Codegen.optional(this.documentServiceEndpoint);
     }
     /**
      * An internally generated unique identifier for the domain.
      * 
      */
     @Export(name="domainId", refs={String.class}, tree="[0]")
-    private Output<String> domainId;
+    private Output</* @Nullable */ String> domainId;
 
     /**
      * @return An internally generated unique identifier for the domain.
      * 
      */
-    public Output<String> domainId() {
-        return this.domainId;
+    public Output<Optional<String>> domainId() {
+        return Codegen.optional(this.domainId);
     }
     /**
      * Domain endpoint options. Documented below.
      * 
      */
     @Export(name="endpointOptions", refs={DomainEndpointOptions.class}, tree="[0]")
-    private Output<DomainEndpointOptions> endpointOptions;
+    private Output</* @Nullable */ DomainEndpointOptions> endpointOptions;
 
     /**
      * @return Domain endpoint options. Documented below.
      * 
      */
-    public Output<DomainEndpointOptions> endpointOptions() {
-        return this.endpointOptions;
+    public Output<Optional<DomainEndpointOptions>> endpointOptions() {
+        return Codegen.optional(this.endpointOptions);
     }
     /**
      * The index fields for documents added to the domain. Documented below.
@@ -163,14 +163,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> multiAz;
+    private Output</* @Nullable */ Boolean> multiAz;
 
     /**
      * @return Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      * 
      */
-    public Output<Boolean> multiAz() {
-        return this.multiAz;
+    public Output<Optional<Boolean>> multiAz() {
+        return Codegen.optional(this.multiAz);
     }
     /**
      * The name of the CloudSearch domain.
@@ -191,28 +191,28 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="scalingParameters", refs={DomainScalingParameters.class}, tree="[0]")
-    private Output<DomainScalingParameters> scalingParameters;
+    private Output</* @Nullable */ DomainScalingParameters> scalingParameters;
 
     /**
      * @return Domain scaling parameters. Documented below.
      * 
      */
-    public Output<DomainScalingParameters> scalingParameters() {
-        return this.scalingParameters;
+    public Output<Optional<DomainScalingParameters>> scalingParameters() {
+        return Codegen.optional(this.scalingParameters);
     }
     /**
      * The service endpoint for requesting search results from a search domain.
      * 
      */
     @Export(name="searchServiceEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> searchServiceEndpoint;
+    private Output</* @Nullable */ String> searchServiceEndpoint;
 
     /**
      * @return The service endpoint for requesting search results from a search domain.
      * 
      */
-    public Output<String> searchServiceEndpoint() {
-        return this.searchServiceEndpoint;
+    public Output<Optional<String>> searchServiceEndpoint() {
+        return Codegen.optional(this.searchServiceEndpoint);
     }
 
     /**

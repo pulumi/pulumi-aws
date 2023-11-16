@@ -73,12 +73,12 @@ type GetIpamPreviewNextCidrArgs struct {
 // A collection of values returned by getIpamPreviewNextCidr.
 type GetIpamPreviewNextCidrResult struct {
 	// Previewed CIDR from the pool.
-	Cidr            string   `pulumi:"cidr"`
+	Cidr            *string  `pulumi:"cidr"`
 	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	IpamPoolId    string `pulumi:"ipamPoolId"`
-	NetmaskLength *int   `pulumi:"netmaskLength"`
+	Id            *string `pulumi:"id"`
+	IpamPoolId    string  `pulumi:"ipamPoolId"`
+	NetmaskLength *int    `pulumi:"netmaskLength"`
 }
 
 func GetIpamPreviewNextCidrOutput(ctx *pulumi.Context, args GetIpamPreviewNextCidrOutputArgs, opts ...pulumi.InvokeOption) GetIpamPreviewNextCidrResultOutput {
@@ -124,8 +124,8 @@ func (o GetIpamPreviewNextCidrResultOutput) ToGetIpamPreviewNextCidrResultOutput
 }
 
 // Previewed CIDR from the pool.
-func (o GetIpamPreviewNextCidrResultOutput) Cidr() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIpamPreviewNextCidrResult) string { return v.Cidr }).(pulumi.StringOutput)
+func (o GetIpamPreviewNextCidrResultOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetIpamPreviewNextCidrResult) *string { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
 func (o GetIpamPreviewNextCidrResultOutput) DisallowedCidrs() pulumi.StringArrayOutput {
@@ -133,8 +133,8 @@ func (o GetIpamPreviewNextCidrResultOutput) DisallowedCidrs() pulumi.StringArray
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetIpamPreviewNextCidrResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIpamPreviewNextCidrResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetIpamPreviewNextCidrResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetIpamPreviewNextCidrResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetIpamPreviewNextCidrResultOutput) IpamPoolId() pulumi.StringOutput {

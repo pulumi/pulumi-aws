@@ -97,7 +97,7 @@ export class TopicRule extends pulumi.CustomResource {
     /**
      * The ARN of the topic rule
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     public readonly cloudwatchAlarms!: pulumi.Output<outputs.iot.TopicRuleCloudwatchAlarm[] | undefined>;
     public readonly cloudwatchLogs!: pulumi.Output<outputs.iot.TopicRuleCloudwatchLog[] | undefined>;
     public readonly cloudwatchMetrics!: pulumi.Output<outputs.iot.TopicRuleCloudwatchMetric[] | undefined>;

@@ -7,30 +7,32 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLoadBalancerHealthCheck {
-    private Integer healthyThreshold;
-    private Integer interval;
-    private String target;
-    private Integer timeout;
-    private Integer unhealthyThreshold;
+    private @Nullable Integer healthyThreshold;
+    private @Nullable Integer interval;
+    private @Nullable String target;
+    private @Nullable Integer timeout;
+    private @Nullable Integer unhealthyThreshold;
 
     private GetLoadBalancerHealthCheck() {}
-    public Integer healthyThreshold() {
-        return this.healthyThreshold;
+    public Optional<Integer> healthyThreshold() {
+        return Optional.ofNullable(this.healthyThreshold);
     }
-    public Integer interval() {
-        return this.interval;
+    public Optional<Integer> interval() {
+        return Optional.ofNullable(this.interval);
     }
-    public String target() {
-        return this.target;
+    public Optional<String> target() {
+        return Optional.ofNullable(this.target);
     }
-    public Integer timeout() {
-        return this.timeout;
+    public Optional<Integer> timeout() {
+        return Optional.ofNullable(this.timeout);
     }
-    public Integer unhealthyThreshold() {
-        return this.unhealthyThreshold;
+    public Optional<Integer> unhealthyThreshold() {
+        return Optional.ofNullable(this.unhealthyThreshold);
     }
 
     public static Builder builder() {
@@ -42,11 +44,11 @@ public final class GetLoadBalancerHealthCheck {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer healthyThreshold;
-        private Integer interval;
-        private String target;
-        private Integer timeout;
-        private Integer unhealthyThreshold;
+        private @Nullable Integer healthyThreshold;
+        private @Nullable Integer interval;
+        private @Nullable String target;
+        private @Nullable Integer timeout;
+        private @Nullable Integer unhealthyThreshold;
         public Builder() {}
         public Builder(GetLoadBalancerHealthCheck defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,28 +60,28 @@ public final class GetLoadBalancerHealthCheck {
         }
 
         @CustomType.Setter
-        public Builder healthyThreshold(Integer healthyThreshold) {
-            this.healthyThreshold = Objects.requireNonNull(healthyThreshold);
+        public Builder healthyThreshold(@Nullable Integer healthyThreshold) {
+            this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
-        public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+        public Builder interval(@Nullable Integer interval) {
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
-        public Builder target(String target) {
-            this.target = Objects.requireNonNull(target);
+        public Builder target(@Nullable String target) {
+            this.target = target;
             return this;
         }
         @CustomType.Setter
-        public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+        public Builder timeout(@Nullable Integer timeout) {
+            this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
-        public Builder unhealthyThreshold(Integer unhealthyThreshold) {
-            this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
+        public Builder unhealthyThreshold(@Nullable Integer unhealthyThreshold) {
+            this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
         public GetLoadBalancerHealthCheck build() {

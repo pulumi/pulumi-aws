@@ -2802,10 +2802,10 @@ func (o ReplicationConfigComputeConfigPtrOutput) VpcSecurityGroupIds() pulumi.St
 }
 
 type GetEndpointElasticsearchSetting struct {
-	EndpointUri             string `pulumi:"endpointUri"`
-	ErrorRetryDuration      int    `pulumi:"errorRetryDuration"`
-	FullLoadErrorPercentage int    `pulumi:"fullLoadErrorPercentage"`
-	ServiceAccessRoleArn    string `pulumi:"serviceAccessRoleArn"`
+	EndpointUri             *string `pulumi:"endpointUri"`
+	ErrorRetryDuration      *int    `pulumi:"errorRetryDuration"`
+	FullLoadErrorPercentage *int    `pulumi:"fullLoadErrorPercentage"`
+	ServiceAccessRoleArn    *string `pulumi:"serviceAccessRoleArn"`
 }
 
 // GetEndpointElasticsearchSettingInput is an input type that accepts GetEndpointElasticsearchSettingArgs and GetEndpointElasticsearchSettingOutput values.
@@ -2820,10 +2820,10 @@ type GetEndpointElasticsearchSettingInput interface {
 }
 
 type GetEndpointElasticsearchSettingArgs struct {
-	EndpointUri             pulumi.StringInput `pulumi:"endpointUri"`
-	ErrorRetryDuration      pulumi.IntInput    `pulumi:"errorRetryDuration"`
-	FullLoadErrorPercentage pulumi.IntInput    `pulumi:"fullLoadErrorPercentage"`
-	ServiceAccessRoleArn    pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+	EndpointUri             pulumi.StringPtrInput `pulumi:"endpointUri"`
+	ErrorRetryDuration      pulumi.IntPtrInput    `pulumi:"errorRetryDuration"`
+	FullLoadErrorPercentage pulumi.IntPtrInput    `pulumi:"fullLoadErrorPercentage"`
+	ServiceAccessRoleArn    pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 }
 
 func (GetEndpointElasticsearchSettingArgs) ElementType() reflect.Type {
@@ -2877,20 +2877,20 @@ func (o GetEndpointElasticsearchSettingOutput) ToGetEndpointElasticsearchSetting
 	return o
 }
 
-func (o GetEndpointElasticsearchSettingOutput) EndpointUri() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointElasticsearchSetting) string { return v.EndpointUri }).(pulumi.StringOutput)
+func (o GetEndpointElasticsearchSettingOutput) EndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointElasticsearchSetting) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointElasticsearchSettingOutput) ErrorRetryDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointElasticsearchSetting) int { return v.ErrorRetryDuration }).(pulumi.IntOutput)
+func (o GetEndpointElasticsearchSettingOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointElasticsearchSetting) *int { return v.ErrorRetryDuration }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointElasticsearchSettingOutput) FullLoadErrorPercentage() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointElasticsearchSetting) int { return v.FullLoadErrorPercentage }).(pulumi.IntOutput)
+func (o GetEndpointElasticsearchSettingOutput) FullLoadErrorPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointElasticsearchSetting) *int { return v.FullLoadErrorPercentage }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointElasticsearchSettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointElasticsearchSetting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+func (o GetEndpointElasticsearchSettingOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointElasticsearchSetting) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 type GetEndpointElasticsearchSettingArrayOutput struct{ *pulumi.OutputState }
@@ -2914,24 +2914,24 @@ func (o GetEndpointElasticsearchSettingArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetEndpointKafkaSetting struct {
-	Broker                      string `pulumi:"broker"`
-	IncludeControlDetails       bool   `pulumi:"includeControlDetails"`
-	IncludeNullAndEmpty         bool   `pulumi:"includeNullAndEmpty"`
-	IncludePartitionValue       bool   `pulumi:"includePartitionValue"`
-	IncludeTableAlterOperations bool   `pulumi:"includeTableAlterOperations"`
-	IncludeTransactionDetails   bool   `pulumi:"includeTransactionDetails"`
-	MessageFormat               string `pulumi:"messageFormat"`
-	MessageMaxBytes             int    `pulumi:"messageMaxBytes"`
-	NoHexPrefix                 bool   `pulumi:"noHexPrefix"`
-	PartitionIncludeSchemaTable bool   `pulumi:"partitionIncludeSchemaTable"`
-	SaslPassword                string `pulumi:"saslPassword"`
-	SaslUsername                string `pulumi:"saslUsername"`
-	SecurityProtocol            string `pulumi:"securityProtocol"`
-	SslCaCertificateArn         string `pulumi:"sslCaCertificateArn"`
-	SslClientCertificateArn     string `pulumi:"sslClientCertificateArn"`
-	SslClientKeyArn             string `pulumi:"sslClientKeyArn"`
-	SslClientKeyPassword        string `pulumi:"sslClientKeyPassword"`
-	Topic                       string `pulumi:"topic"`
+	Broker                      *string `pulumi:"broker"`
+	IncludeControlDetails       *bool   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         *bool   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       *bool   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations *bool   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   *bool   `pulumi:"includeTransactionDetails"`
+	MessageFormat               *string `pulumi:"messageFormat"`
+	MessageMaxBytes             *int    `pulumi:"messageMaxBytes"`
+	NoHexPrefix                 *bool   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable *bool   `pulumi:"partitionIncludeSchemaTable"`
+	SaslPassword                *string `pulumi:"saslPassword"`
+	SaslUsername                *string `pulumi:"saslUsername"`
+	SecurityProtocol            *string `pulumi:"securityProtocol"`
+	SslCaCertificateArn         *string `pulumi:"sslCaCertificateArn"`
+	SslClientCertificateArn     *string `pulumi:"sslClientCertificateArn"`
+	SslClientKeyArn             *string `pulumi:"sslClientKeyArn"`
+	SslClientKeyPassword        *string `pulumi:"sslClientKeyPassword"`
+	Topic                       *string `pulumi:"topic"`
 }
 
 // GetEndpointKafkaSettingInput is an input type that accepts GetEndpointKafkaSettingArgs and GetEndpointKafkaSettingOutput values.
@@ -2946,24 +2946,24 @@ type GetEndpointKafkaSettingInput interface {
 }
 
 type GetEndpointKafkaSettingArgs struct {
-	Broker                      pulumi.StringInput `pulumi:"broker"`
-	IncludeControlDetails       pulumi.BoolInput   `pulumi:"includeControlDetails"`
-	IncludeNullAndEmpty         pulumi.BoolInput   `pulumi:"includeNullAndEmpty"`
-	IncludePartitionValue       pulumi.BoolInput   `pulumi:"includePartitionValue"`
-	IncludeTableAlterOperations pulumi.BoolInput   `pulumi:"includeTableAlterOperations"`
-	IncludeTransactionDetails   pulumi.BoolInput   `pulumi:"includeTransactionDetails"`
-	MessageFormat               pulumi.StringInput `pulumi:"messageFormat"`
-	MessageMaxBytes             pulumi.IntInput    `pulumi:"messageMaxBytes"`
-	NoHexPrefix                 pulumi.BoolInput   `pulumi:"noHexPrefix"`
-	PartitionIncludeSchemaTable pulumi.BoolInput   `pulumi:"partitionIncludeSchemaTable"`
-	SaslPassword                pulumi.StringInput `pulumi:"saslPassword"`
-	SaslUsername                pulumi.StringInput `pulumi:"saslUsername"`
-	SecurityProtocol            pulumi.StringInput `pulumi:"securityProtocol"`
-	SslCaCertificateArn         pulumi.StringInput `pulumi:"sslCaCertificateArn"`
-	SslClientCertificateArn     pulumi.StringInput `pulumi:"sslClientCertificateArn"`
-	SslClientKeyArn             pulumi.StringInput `pulumi:"sslClientKeyArn"`
-	SslClientKeyPassword        pulumi.StringInput `pulumi:"sslClientKeyPassword"`
-	Topic                       pulumi.StringInput `pulumi:"topic"`
+	Broker                      pulumi.StringPtrInput `pulumi:"broker"`
+	IncludeControlDetails       pulumi.BoolPtrInput   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         pulumi.BoolPtrInput   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       pulumi.BoolPtrInput   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations pulumi.BoolPtrInput   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   pulumi.BoolPtrInput   `pulumi:"includeTransactionDetails"`
+	MessageFormat               pulumi.StringPtrInput `pulumi:"messageFormat"`
+	MessageMaxBytes             pulumi.IntPtrInput    `pulumi:"messageMaxBytes"`
+	NoHexPrefix                 pulumi.BoolPtrInput   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable pulumi.BoolPtrInput   `pulumi:"partitionIncludeSchemaTable"`
+	SaslPassword                pulumi.StringPtrInput `pulumi:"saslPassword"`
+	SaslUsername                pulumi.StringPtrInput `pulumi:"saslUsername"`
+	SecurityProtocol            pulumi.StringPtrInput `pulumi:"securityProtocol"`
+	SslCaCertificateArn         pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
+	SslClientCertificateArn     pulumi.StringPtrInput `pulumi:"sslClientCertificateArn"`
+	SslClientKeyArn             pulumi.StringPtrInput `pulumi:"sslClientKeyArn"`
+	SslClientKeyPassword        pulumi.StringPtrInput `pulumi:"sslClientKeyPassword"`
+	Topic                       pulumi.StringPtrInput `pulumi:"topic"`
 }
 
 func (GetEndpointKafkaSettingArgs) ElementType() reflect.Type {
@@ -3017,76 +3017,76 @@ func (o GetEndpointKafkaSettingOutput) ToGetEndpointKafkaSettingOutputWithContex
 	return o
 }
 
-func (o GetEndpointKafkaSettingOutput) Broker() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.Broker }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) Broker() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.Broker }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) IncludeControlDetails() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludeControlDetails }).(pulumi.BoolOutput)
+func (o GetEndpointKafkaSettingOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *bool { return v.IncludeControlDetails }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) IncludeNullAndEmpty() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludeNullAndEmpty }).(pulumi.BoolOutput)
+func (o GetEndpointKafkaSettingOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) IncludePartitionValue() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludePartitionValue }).(pulumi.BoolOutput)
+func (o GetEndpointKafkaSettingOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *bool { return v.IncludePartitionValue }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) IncludeTableAlterOperations() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludeTableAlterOperations }).(pulumi.BoolOutput)
+func (o GetEndpointKafkaSettingOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) IncludeTransactionDetails() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludeTransactionDetails }).(pulumi.BoolOutput)
+func (o GetEndpointKafkaSettingOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) MessageFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.MessageFormat }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) MessageMaxBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) int { return v.MessageMaxBytes }).(pulumi.IntOutput)
+func (o GetEndpointKafkaSettingOutput) MessageMaxBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *int { return v.MessageMaxBytes }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) NoHexPrefix() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.NoHexPrefix }).(pulumi.BoolOutput)
+func (o GetEndpointKafkaSettingOutput) NoHexPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *bool { return v.NoHexPrefix }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) PartitionIncludeSchemaTable() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolOutput)
+func (o GetEndpointKafkaSettingOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) SaslPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SaslPassword }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) SaslPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.SaslPassword }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) SaslUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SaslUsername }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) SaslUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.SaslUsername }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) SecurityProtocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SecurityProtocol }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) SecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.SecurityProtocol }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) SslCaCertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SslCaCertificateArn }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) SslClientCertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SslClientCertificateArn }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) SslClientCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.SslClientCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) SslClientKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SslClientKeyArn }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) SslClientKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.SslClientKeyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) SslClientKeyPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SslClientKeyPassword }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) SslClientKeyPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.SslClientKeyPassword }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKafkaSettingOutput) Topic() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.Topic }).(pulumi.StringOutput)
+func (o GetEndpointKafkaSettingOutput) Topic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) *string { return v.Topic }).(pulumi.StringPtrOutput)
 }
 
 type GetEndpointKafkaSettingArrayOutput struct{ *pulumi.OutputState }
@@ -3110,15 +3110,15 @@ func (o GetEndpointKafkaSettingArrayOutput) Index(i pulumi.IntInput) GetEndpoint
 }
 
 type GetEndpointKinesisSetting struct {
-	IncludeControlDetails       bool   `pulumi:"includeControlDetails"`
-	IncludeNullAndEmpty         bool   `pulumi:"includeNullAndEmpty"`
-	IncludePartitionValue       bool   `pulumi:"includePartitionValue"`
-	IncludeTableAlterOperations bool   `pulumi:"includeTableAlterOperations"`
-	IncludeTransactionDetails   bool   `pulumi:"includeTransactionDetails"`
-	MessageFormat               string `pulumi:"messageFormat"`
-	PartitionIncludeSchemaTable bool   `pulumi:"partitionIncludeSchemaTable"`
-	ServiceAccessRoleArn        string `pulumi:"serviceAccessRoleArn"`
-	StreamArn                   string `pulumi:"streamArn"`
+	IncludeControlDetails       *bool   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         *bool   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       *bool   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations *bool   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   *bool   `pulumi:"includeTransactionDetails"`
+	MessageFormat               *string `pulumi:"messageFormat"`
+	PartitionIncludeSchemaTable *bool   `pulumi:"partitionIncludeSchemaTable"`
+	ServiceAccessRoleArn        *string `pulumi:"serviceAccessRoleArn"`
+	StreamArn                   *string `pulumi:"streamArn"`
 }
 
 // GetEndpointKinesisSettingInput is an input type that accepts GetEndpointKinesisSettingArgs and GetEndpointKinesisSettingOutput values.
@@ -3133,15 +3133,15 @@ type GetEndpointKinesisSettingInput interface {
 }
 
 type GetEndpointKinesisSettingArgs struct {
-	IncludeControlDetails       pulumi.BoolInput   `pulumi:"includeControlDetails"`
-	IncludeNullAndEmpty         pulumi.BoolInput   `pulumi:"includeNullAndEmpty"`
-	IncludePartitionValue       pulumi.BoolInput   `pulumi:"includePartitionValue"`
-	IncludeTableAlterOperations pulumi.BoolInput   `pulumi:"includeTableAlterOperations"`
-	IncludeTransactionDetails   pulumi.BoolInput   `pulumi:"includeTransactionDetails"`
-	MessageFormat               pulumi.StringInput `pulumi:"messageFormat"`
-	PartitionIncludeSchemaTable pulumi.BoolInput   `pulumi:"partitionIncludeSchemaTable"`
-	ServiceAccessRoleArn        pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
-	StreamArn                   pulumi.StringInput `pulumi:"streamArn"`
+	IncludeControlDetails       pulumi.BoolPtrInput   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         pulumi.BoolPtrInput   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       pulumi.BoolPtrInput   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations pulumi.BoolPtrInput   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   pulumi.BoolPtrInput   `pulumi:"includeTransactionDetails"`
+	MessageFormat               pulumi.StringPtrInput `pulumi:"messageFormat"`
+	PartitionIncludeSchemaTable pulumi.BoolPtrInput   `pulumi:"partitionIncludeSchemaTable"`
+	ServiceAccessRoleArn        pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	StreamArn                   pulumi.StringPtrInput `pulumi:"streamArn"`
 }
 
 func (GetEndpointKinesisSettingArgs) ElementType() reflect.Type {
@@ -3195,40 +3195,40 @@ func (o GetEndpointKinesisSettingOutput) ToGetEndpointKinesisSettingOutputWithCo
 	return o
 }
 
-func (o GetEndpointKinesisSettingOutput) IncludeControlDetails() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludeControlDetails }).(pulumi.BoolOutput)
+func (o GetEndpointKinesisSettingOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) *bool { return v.IncludeControlDetails }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKinesisSettingOutput) IncludeNullAndEmpty() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludeNullAndEmpty }).(pulumi.BoolOutput)
+func (o GetEndpointKinesisSettingOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKinesisSettingOutput) IncludePartitionValue() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludePartitionValue }).(pulumi.BoolOutput)
+func (o GetEndpointKinesisSettingOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) *bool { return v.IncludePartitionValue }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKinesisSettingOutput) IncludeTableAlterOperations() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludeTableAlterOperations }).(pulumi.BoolOutput)
+func (o GetEndpointKinesisSettingOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKinesisSettingOutput) IncludeTransactionDetails() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludeTransactionDetails }).(pulumi.BoolOutput)
+func (o GetEndpointKinesisSettingOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKinesisSettingOutput) MessageFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKinesisSetting) string { return v.MessageFormat }).(pulumi.StringOutput)
+func (o GetEndpointKinesisSettingOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKinesisSettingOutput) PartitionIncludeSchemaTable() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolOutput)
+func (o GetEndpointKinesisSettingOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointKinesisSettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKinesisSetting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+func (o GetEndpointKinesisSettingOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointKinesisSettingOutput) StreamArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointKinesisSetting) string { return v.StreamArn }).(pulumi.StringOutput)
+func (o GetEndpointKinesisSettingOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
 
 type GetEndpointKinesisSettingArrayOutput struct{ *pulumi.OutputState }
@@ -3252,12 +3252,12 @@ func (o GetEndpointKinesisSettingArrayOutput) Index(i pulumi.IntInput) GetEndpoi
 }
 
 type GetEndpointMongodbSetting struct {
-	AuthMechanism     string `pulumi:"authMechanism"`
-	AuthSource        string `pulumi:"authSource"`
-	AuthType          string `pulumi:"authType"`
-	DocsToInvestigate string `pulumi:"docsToInvestigate"`
-	ExtractDocId      string `pulumi:"extractDocId"`
-	NestingLevel      string `pulumi:"nestingLevel"`
+	AuthMechanism     *string `pulumi:"authMechanism"`
+	AuthSource        *string `pulumi:"authSource"`
+	AuthType          *string `pulumi:"authType"`
+	DocsToInvestigate *string `pulumi:"docsToInvestigate"`
+	ExtractDocId      *string `pulumi:"extractDocId"`
+	NestingLevel      *string `pulumi:"nestingLevel"`
 }
 
 // GetEndpointMongodbSettingInput is an input type that accepts GetEndpointMongodbSettingArgs and GetEndpointMongodbSettingOutput values.
@@ -3272,12 +3272,12 @@ type GetEndpointMongodbSettingInput interface {
 }
 
 type GetEndpointMongodbSettingArgs struct {
-	AuthMechanism     pulumi.StringInput `pulumi:"authMechanism"`
-	AuthSource        pulumi.StringInput `pulumi:"authSource"`
-	AuthType          pulumi.StringInput `pulumi:"authType"`
-	DocsToInvestigate pulumi.StringInput `pulumi:"docsToInvestigate"`
-	ExtractDocId      pulumi.StringInput `pulumi:"extractDocId"`
-	NestingLevel      pulumi.StringInput `pulumi:"nestingLevel"`
+	AuthMechanism     pulumi.StringPtrInput `pulumi:"authMechanism"`
+	AuthSource        pulumi.StringPtrInput `pulumi:"authSource"`
+	AuthType          pulumi.StringPtrInput `pulumi:"authType"`
+	DocsToInvestigate pulumi.StringPtrInput `pulumi:"docsToInvestigate"`
+	ExtractDocId      pulumi.StringPtrInput `pulumi:"extractDocId"`
+	NestingLevel      pulumi.StringPtrInput `pulumi:"nestingLevel"`
 }
 
 func (GetEndpointMongodbSettingArgs) ElementType() reflect.Type {
@@ -3331,28 +3331,28 @@ func (o GetEndpointMongodbSettingOutput) ToGetEndpointMongodbSettingOutputWithCo
 	return o
 }
 
-func (o GetEndpointMongodbSettingOutput) AuthMechanism() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.AuthMechanism }).(pulumi.StringOutput)
+func (o GetEndpointMongodbSettingOutput) AuthMechanism() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) *string { return v.AuthMechanism }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointMongodbSettingOutput) AuthSource() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.AuthSource }).(pulumi.StringOutput)
+func (o GetEndpointMongodbSettingOutput) AuthSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) *string { return v.AuthSource }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointMongodbSettingOutput) AuthType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.AuthType }).(pulumi.StringOutput)
+func (o GetEndpointMongodbSettingOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointMongodbSettingOutput) DocsToInvestigate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.DocsToInvestigate }).(pulumi.StringOutput)
+func (o GetEndpointMongodbSettingOutput) DocsToInvestigate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) *string { return v.DocsToInvestigate }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointMongodbSettingOutput) ExtractDocId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.ExtractDocId }).(pulumi.StringOutput)
+func (o GetEndpointMongodbSettingOutput) ExtractDocId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) *string { return v.ExtractDocId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointMongodbSettingOutput) NestingLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.NestingLevel }).(pulumi.StringOutput)
+func (o GetEndpointMongodbSettingOutput) NestingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) *string { return v.NestingLevel }).(pulumi.StringPtrOutput)
 }
 
 type GetEndpointMongodbSettingArrayOutput struct{ *pulumi.OutputState }
@@ -3376,13 +3376,13 @@ func (o GetEndpointMongodbSettingArrayOutput) Index(i pulumi.IntInput) GetEndpoi
 }
 
 type GetEndpointRedisSetting struct {
-	AuthPassword        string `pulumi:"authPassword"`
-	AuthType            string `pulumi:"authType"`
-	AuthUserName        string `pulumi:"authUserName"`
-	Port                int    `pulumi:"port"`
-	ServerName          string `pulumi:"serverName"`
-	SslCaCertificateArn string `pulumi:"sslCaCertificateArn"`
-	SslSecurityProtocol string `pulumi:"sslSecurityProtocol"`
+	AuthPassword        *string `pulumi:"authPassword"`
+	AuthType            *string `pulumi:"authType"`
+	AuthUserName        *string `pulumi:"authUserName"`
+	Port                *int    `pulumi:"port"`
+	ServerName          *string `pulumi:"serverName"`
+	SslCaCertificateArn *string `pulumi:"sslCaCertificateArn"`
+	SslSecurityProtocol *string `pulumi:"sslSecurityProtocol"`
 }
 
 // GetEndpointRedisSettingInput is an input type that accepts GetEndpointRedisSettingArgs and GetEndpointRedisSettingOutput values.
@@ -3397,13 +3397,13 @@ type GetEndpointRedisSettingInput interface {
 }
 
 type GetEndpointRedisSettingArgs struct {
-	AuthPassword        pulumi.StringInput `pulumi:"authPassword"`
-	AuthType            pulumi.StringInput `pulumi:"authType"`
-	AuthUserName        pulumi.StringInput `pulumi:"authUserName"`
-	Port                pulumi.IntInput    `pulumi:"port"`
-	ServerName          pulumi.StringInput `pulumi:"serverName"`
-	SslCaCertificateArn pulumi.StringInput `pulumi:"sslCaCertificateArn"`
-	SslSecurityProtocol pulumi.StringInput `pulumi:"sslSecurityProtocol"`
+	AuthPassword        pulumi.StringPtrInput `pulumi:"authPassword"`
+	AuthType            pulumi.StringPtrInput `pulumi:"authType"`
+	AuthUserName        pulumi.StringPtrInput `pulumi:"authUserName"`
+	Port                pulumi.IntPtrInput    `pulumi:"port"`
+	ServerName          pulumi.StringPtrInput `pulumi:"serverName"`
+	SslCaCertificateArn pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
+	SslSecurityProtocol pulumi.StringPtrInput `pulumi:"sslSecurityProtocol"`
 }
 
 func (GetEndpointRedisSettingArgs) ElementType() reflect.Type {
@@ -3457,32 +3457,32 @@ func (o GetEndpointRedisSettingOutput) ToGetEndpointRedisSettingOutputWithContex
 	return o
 }
 
-func (o GetEndpointRedisSettingOutput) AuthPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.AuthPassword }).(pulumi.StringOutput)
+func (o GetEndpointRedisSettingOutput) AuthPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointRedisSettingOutput) AuthType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.AuthType }).(pulumi.StringOutput)
+func (o GetEndpointRedisSettingOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointRedisSettingOutput) AuthUserName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.AuthUserName }).(pulumi.StringOutput)
+func (o GetEndpointRedisSettingOutput) AuthUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) *string { return v.AuthUserName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointRedisSettingOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointRedisSetting) int { return v.Port }).(pulumi.IntOutput)
+func (o GetEndpointRedisSettingOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointRedisSettingOutput) ServerName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.ServerName }).(pulumi.StringOutput)
+func (o GetEndpointRedisSettingOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointRedisSettingOutput) SslCaCertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.SslCaCertificateArn }).(pulumi.StringOutput)
+func (o GetEndpointRedisSettingOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointRedisSettingOutput) SslSecurityProtocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.SslSecurityProtocol }).(pulumi.StringOutput)
+func (o GetEndpointRedisSettingOutput) SslSecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) *string { return v.SslSecurityProtocol }).(pulumi.StringPtrOutput)
 }
 
 type GetEndpointRedisSettingArrayOutput struct{ *pulumi.OutputState }
@@ -3506,11 +3506,11 @@ func (o GetEndpointRedisSettingArrayOutput) Index(i pulumi.IntInput) GetEndpoint
 }
 
 type GetEndpointRedshiftSetting struct {
-	BucketFolder                 string `pulumi:"bucketFolder"`
-	BucketName                   string `pulumi:"bucketName"`
-	EncryptionMode               string `pulumi:"encryptionMode"`
-	ServerSideEncryptionKmsKeyId string `pulumi:"serverSideEncryptionKmsKeyId"`
-	ServiceAccessRoleArn         string `pulumi:"serviceAccessRoleArn"`
+	BucketFolder                 *string `pulumi:"bucketFolder"`
+	BucketName                   *string `pulumi:"bucketName"`
+	EncryptionMode               *string `pulumi:"encryptionMode"`
+	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn         *string `pulumi:"serviceAccessRoleArn"`
 }
 
 // GetEndpointRedshiftSettingInput is an input type that accepts GetEndpointRedshiftSettingArgs and GetEndpointRedshiftSettingOutput values.
@@ -3525,11 +3525,11 @@ type GetEndpointRedshiftSettingInput interface {
 }
 
 type GetEndpointRedshiftSettingArgs struct {
-	BucketFolder                 pulumi.StringInput `pulumi:"bucketFolder"`
-	BucketName                   pulumi.StringInput `pulumi:"bucketName"`
-	EncryptionMode               pulumi.StringInput `pulumi:"encryptionMode"`
-	ServerSideEncryptionKmsKeyId pulumi.StringInput `pulumi:"serverSideEncryptionKmsKeyId"`
-	ServiceAccessRoleArn         pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+	BucketFolder                 pulumi.StringPtrInput `pulumi:"bucketFolder"`
+	BucketName                   pulumi.StringPtrInput `pulumi:"bucketName"`
+	EncryptionMode               pulumi.StringPtrInput `pulumi:"encryptionMode"`
+	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn         pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 }
 
 func (GetEndpointRedshiftSettingArgs) ElementType() reflect.Type {
@@ -3583,24 +3583,24 @@ func (o GetEndpointRedshiftSettingOutput) ToGetEndpointRedshiftSettingOutputWith
 	return o
 }
 
-func (o GetEndpointRedshiftSettingOutput) BucketFolder() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.BucketFolder }).(pulumi.StringOutput)
+func (o GetEndpointRedshiftSettingOutput) BucketFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointRedshiftSettingOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.BucketName }).(pulumi.StringOutput)
+func (o GetEndpointRedshiftSettingOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointRedshiftSettingOutput) EncryptionMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.EncryptionMode }).(pulumi.StringOutput)
+func (o GetEndpointRedshiftSettingOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointRedshiftSettingOutput) ServerSideEncryptionKmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringOutput)
+func (o GetEndpointRedshiftSettingOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointRedshiftSettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+func (o GetEndpointRedshiftSettingOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 type GetEndpointRedshiftSettingArrayOutput struct{ *pulumi.OutputState }
@@ -3624,45 +3624,45 @@ func (o GetEndpointRedshiftSettingArrayOutput) Index(i pulumi.IntInput) GetEndpo
 }
 
 type GetEndpointS3Setting struct {
-	AddColumnName                        bool   `pulumi:"addColumnName"`
-	BucketFolder                         string `pulumi:"bucketFolder"`
-	BucketName                           string `pulumi:"bucketName"`
-	CannedAclForObjects                  string `pulumi:"cannedAclForObjects"`
-	CdcInsertsAndUpdates                 bool   `pulumi:"cdcInsertsAndUpdates"`
-	CdcInsertsOnly                       bool   `pulumi:"cdcInsertsOnly"`
-	CdcMaxBatchInterval                  int    `pulumi:"cdcMaxBatchInterval"`
-	CdcMinFileSize                       int    `pulumi:"cdcMinFileSize"`
-	CdcPath                              string `pulumi:"cdcPath"`
-	CompressionType                      string `pulumi:"compressionType"`
-	CsvDelimiter                         string `pulumi:"csvDelimiter"`
-	CsvNoSupValue                        string `pulumi:"csvNoSupValue"`
-	CsvNullValue                         string `pulumi:"csvNullValue"`
-	CsvRowDelimiter                      string `pulumi:"csvRowDelimiter"`
-	DataFormat                           string `pulumi:"dataFormat"`
-	DataPageSize                         int    `pulumi:"dataPageSize"`
-	DatePartitionDelimiter               string `pulumi:"datePartitionDelimiter"`
-	DatePartitionEnabled                 bool   `pulumi:"datePartitionEnabled"`
-	DatePartitionSequence                string `pulumi:"datePartitionSequence"`
-	DictPageSizeLimit                    int    `pulumi:"dictPageSizeLimit"`
-	EnableStatistics                     bool   `pulumi:"enableStatistics"`
-	EncodingType                         string `pulumi:"encodingType"`
-	EncryptionMode                       string `pulumi:"encryptionMode"`
-	ExternalTableDefinition              string `pulumi:"externalTableDefinition"`
-	GlueCatalogGeneration                bool   `pulumi:"glueCatalogGeneration"`
-	IgnoreHeaderRows                     int    `pulumi:"ignoreHeaderRows"`
-	IgnoreHeadersRow                     int    `pulumi:"ignoreHeadersRow"`
-	IncludeOpForFullLoad                 bool   `pulumi:"includeOpForFullLoad"`
-	MaxFileSize                          int    `pulumi:"maxFileSize"`
-	ParquetTimestampInMillisecond        bool   `pulumi:"parquetTimestampInMillisecond"`
-	ParquetVersion                       string `pulumi:"parquetVersion"`
-	PreserveTransactions                 bool   `pulumi:"preserveTransactions"`
-	Rfc4180                              bool   `pulumi:"rfc4180"`
-	RowGroupLength                       int    `pulumi:"rowGroupLength"`
-	ServerSideEncryptionKmsKeyId         string `pulumi:"serverSideEncryptionKmsKeyId"`
-	ServiceAccessRoleArn                 string `pulumi:"serviceAccessRoleArn"`
-	TimestampColumnName                  string `pulumi:"timestampColumnName"`
-	UseCsvNoSupValue                     bool   `pulumi:"useCsvNoSupValue"`
-	UseTaskStartTimeForFullLoadTimestamp bool   `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
+	AddColumnName                        *bool   `pulumi:"addColumnName"`
+	BucketFolder                         *string `pulumi:"bucketFolder"`
+	BucketName                           *string `pulumi:"bucketName"`
+	CannedAclForObjects                  *string `pulumi:"cannedAclForObjects"`
+	CdcInsertsAndUpdates                 *bool   `pulumi:"cdcInsertsAndUpdates"`
+	CdcInsertsOnly                       *bool   `pulumi:"cdcInsertsOnly"`
+	CdcMaxBatchInterval                  *int    `pulumi:"cdcMaxBatchInterval"`
+	CdcMinFileSize                       *int    `pulumi:"cdcMinFileSize"`
+	CdcPath                              *string `pulumi:"cdcPath"`
+	CompressionType                      *string `pulumi:"compressionType"`
+	CsvDelimiter                         *string `pulumi:"csvDelimiter"`
+	CsvNoSupValue                        *string `pulumi:"csvNoSupValue"`
+	CsvNullValue                         *string `pulumi:"csvNullValue"`
+	CsvRowDelimiter                      *string `pulumi:"csvRowDelimiter"`
+	DataFormat                           *string `pulumi:"dataFormat"`
+	DataPageSize                         *int    `pulumi:"dataPageSize"`
+	DatePartitionDelimiter               *string `pulumi:"datePartitionDelimiter"`
+	DatePartitionEnabled                 *bool   `pulumi:"datePartitionEnabled"`
+	DatePartitionSequence                *string `pulumi:"datePartitionSequence"`
+	DictPageSizeLimit                    *int    `pulumi:"dictPageSizeLimit"`
+	EnableStatistics                     *bool   `pulumi:"enableStatistics"`
+	EncodingType                         *string `pulumi:"encodingType"`
+	EncryptionMode                       *string `pulumi:"encryptionMode"`
+	ExternalTableDefinition              *string `pulumi:"externalTableDefinition"`
+	GlueCatalogGeneration                *bool   `pulumi:"glueCatalogGeneration"`
+	IgnoreHeaderRows                     *int    `pulumi:"ignoreHeaderRows"`
+	IgnoreHeadersRow                     *int    `pulumi:"ignoreHeadersRow"`
+	IncludeOpForFullLoad                 *bool   `pulumi:"includeOpForFullLoad"`
+	MaxFileSize                          *int    `pulumi:"maxFileSize"`
+	ParquetTimestampInMillisecond        *bool   `pulumi:"parquetTimestampInMillisecond"`
+	ParquetVersion                       *string `pulumi:"parquetVersion"`
+	PreserveTransactions                 *bool   `pulumi:"preserveTransactions"`
+	Rfc4180                              *bool   `pulumi:"rfc4180"`
+	RowGroupLength                       *int    `pulumi:"rowGroupLength"`
+	ServerSideEncryptionKmsKeyId         *string `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn                 *string `pulumi:"serviceAccessRoleArn"`
+	TimestampColumnName                  *string `pulumi:"timestampColumnName"`
+	UseCsvNoSupValue                     *bool   `pulumi:"useCsvNoSupValue"`
+	UseTaskStartTimeForFullLoadTimestamp *bool   `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
 }
 
 // GetEndpointS3SettingInput is an input type that accepts GetEndpointS3SettingArgs and GetEndpointS3SettingOutput values.
@@ -3677,45 +3677,45 @@ type GetEndpointS3SettingInput interface {
 }
 
 type GetEndpointS3SettingArgs struct {
-	AddColumnName                        pulumi.BoolInput   `pulumi:"addColumnName"`
-	BucketFolder                         pulumi.StringInput `pulumi:"bucketFolder"`
-	BucketName                           pulumi.StringInput `pulumi:"bucketName"`
-	CannedAclForObjects                  pulumi.StringInput `pulumi:"cannedAclForObjects"`
-	CdcInsertsAndUpdates                 pulumi.BoolInput   `pulumi:"cdcInsertsAndUpdates"`
-	CdcInsertsOnly                       pulumi.BoolInput   `pulumi:"cdcInsertsOnly"`
-	CdcMaxBatchInterval                  pulumi.IntInput    `pulumi:"cdcMaxBatchInterval"`
-	CdcMinFileSize                       pulumi.IntInput    `pulumi:"cdcMinFileSize"`
-	CdcPath                              pulumi.StringInput `pulumi:"cdcPath"`
-	CompressionType                      pulumi.StringInput `pulumi:"compressionType"`
-	CsvDelimiter                         pulumi.StringInput `pulumi:"csvDelimiter"`
-	CsvNoSupValue                        pulumi.StringInput `pulumi:"csvNoSupValue"`
-	CsvNullValue                         pulumi.StringInput `pulumi:"csvNullValue"`
-	CsvRowDelimiter                      pulumi.StringInput `pulumi:"csvRowDelimiter"`
-	DataFormat                           pulumi.StringInput `pulumi:"dataFormat"`
-	DataPageSize                         pulumi.IntInput    `pulumi:"dataPageSize"`
-	DatePartitionDelimiter               pulumi.StringInput `pulumi:"datePartitionDelimiter"`
-	DatePartitionEnabled                 pulumi.BoolInput   `pulumi:"datePartitionEnabled"`
-	DatePartitionSequence                pulumi.StringInput `pulumi:"datePartitionSequence"`
-	DictPageSizeLimit                    pulumi.IntInput    `pulumi:"dictPageSizeLimit"`
-	EnableStatistics                     pulumi.BoolInput   `pulumi:"enableStatistics"`
-	EncodingType                         pulumi.StringInput `pulumi:"encodingType"`
-	EncryptionMode                       pulumi.StringInput `pulumi:"encryptionMode"`
-	ExternalTableDefinition              pulumi.StringInput `pulumi:"externalTableDefinition"`
-	GlueCatalogGeneration                pulumi.BoolInput   `pulumi:"glueCatalogGeneration"`
-	IgnoreHeaderRows                     pulumi.IntInput    `pulumi:"ignoreHeaderRows"`
-	IgnoreHeadersRow                     pulumi.IntInput    `pulumi:"ignoreHeadersRow"`
-	IncludeOpForFullLoad                 pulumi.BoolInput   `pulumi:"includeOpForFullLoad"`
-	MaxFileSize                          pulumi.IntInput    `pulumi:"maxFileSize"`
-	ParquetTimestampInMillisecond        pulumi.BoolInput   `pulumi:"parquetTimestampInMillisecond"`
-	ParquetVersion                       pulumi.StringInput `pulumi:"parquetVersion"`
-	PreserveTransactions                 pulumi.BoolInput   `pulumi:"preserveTransactions"`
-	Rfc4180                              pulumi.BoolInput   `pulumi:"rfc4180"`
-	RowGroupLength                       pulumi.IntInput    `pulumi:"rowGroupLength"`
-	ServerSideEncryptionKmsKeyId         pulumi.StringInput `pulumi:"serverSideEncryptionKmsKeyId"`
-	ServiceAccessRoleArn                 pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
-	TimestampColumnName                  pulumi.StringInput `pulumi:"timestampColumnName"`
-	UseCsvNoSupValue                     pulumi.BoolInput   `pulumi:"useCsvNoSupValue"`
-	UseTaskStartTimeForFullLoadTimestamp pulumi.BoolInput   `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
+	AddColumnName                        pulumi.BoolPtrInput   `pulumi:"addColumnName"`
+	BucketFolder                         pulumi.StringPtrInput `pulumi:"bucketFolder"`
+	BucketName                           pulumi.StringPtrInput `pulumi:"bucketName"`
+	CannedAclForObjects                  pulumi.StringPtrInput `pulumi:"cannedAclForObjects"`
+	CdcInsertsAndUpdates                 pulumi.BoolPtrInput   `pulumi:"cdcInsertsAndUpdates"`
+	CdcInsertsOnly                       pulumi.BoolPtrInput   `pulumi:"cdcInsertsOnly"`
+	CdcMaxBatchInterval                  pulumi.IntPtrInput    `pulumi:"cdcMaxBatchInterval"`
+	CdcMinFileSize                       pulumi.IntPtrInput    `pulumi:"cdcMinFileSize"`
+	CdcPath                              pulumi.StringPtrInput `pulumi:"cdcPath"`
+	CompressionType                      pulumi.StringPtrInput `pulumi:"compressionType"`
+	CsvDelimiter                         pulumi.StringPtrInput `pulumi:"csvDelimiter"`
+	CsvNoSupValue                        pulumi.StringPtrInput `pulumi:"csvNoSupValue"`
+	CsvNullValue                         pulumi.StringPtrInput `pulumi:"csvNullValue"`
+	CsvRowDelimiter                      pulumi.StringPtrInput `pulumi:"csvRowDelimiter"`
+	DataFormat                           pulumi.StringPtrInput `pulumi:"dataFormat"`
+	DataPageSize                         pulumi.IntPtrInput    `pulumi:"dataPageSize"`
+	DatePartitionDelimiter               pulumi.StringPtrInput `pulumi:"datePartitionDelimiter"`
+	DatePartitionEnabled                 pulumi.BoolPtrInput   `pulumi:"datePartitionEnabled"`
+	DatePartitionSequence                pulumi.StringPtrInput `pulumi:"datePartitionSequence"`
+	DictPageSizeLimit                    pulumi.IntPtrInput    `pulumi:"dictPageSizeLimit"`
+	EnableStatistics                     pulumi.BoolPtrInput   `pulumi:"enableStatistics"`
+	EncodingType                         pulumi.StringPtrInput `pulumi:"encodingType"`
+	EncryptionMode                       pulumi.StringPtrInput `pulumi:"encryptionMode"`
+	ExternalTableDefinition              pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
+	GlueCatalogGeneration                pulumi.BoolPtrInput   `pulumi:"glueCatalogGeneration"`
+	IgnoreHeaderRows                     pulumi.IntPtrInput    `pulumi:"ignoreHeaderRows"`
+	IgnoreHeadersRow                     pulumi.IntPtrInput    `pulumi:"ignoreHeadersRow"`
+	IncludeOpForFullLoad                 pulumi.BoolPtrInput   `pulumi:"includeOpForFullLoad"`
+	MaxFileSize                          pulumi.IntPtrInput    `pulumi:"maxFileSize"`
+	ParquetTimestampInMillisecond        pulumi.BoolPtrInput   `pulumi:"parquetTimestampInMillisecond"`
+	ParquetVersion                       pulumi.StringPtrInput `pulumi:"parquetVersion"`
+	PreserveTransactions                 pulumi.BoolPtrInput   `pulumi:"preserveTransactions"`
+	Rfc4180                              pulumi.BoolPtrInput   `pulumi:"rfc4180"`
+	RowGroupLength                       pulumi.IntPtrInput    `pulumi:"rowGroupLength"`
+	ServerSideEncryptionKmsKeyId         pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn                 pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	TimestampColumnName                  pulumi.StringPtrInput `pulumi:"timestampColumnName"`
+	UseCsvNoSupValue                     pulumi.BoolPtrInput   `pulumi:"useCsvNoSupValue"`
+	UseTaskStartTimeForFullLoadTimestamp pulumi.BoolPtrInput   `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
 }
 
 func (GetEndpointS3SettingArgs) ElementType() reflect.Type {
@@ -3769,160 +3769,160 @@ func (o GetEndpointS3SettingOutput) ToGetEndpointS3SettingOutputWithContext(ctx 
 	return o
 }
 
-func (o GetEndpointS3SettingOutput) AddColumnName() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.AddColumnName }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) AddColumnName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.AddColumnName }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) BucketFolder() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.BucketFolder }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) BucketFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.BucketName }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CannedAclForObjects() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CannedAclForObjects }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) CannedAclForObjects() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.CannedAclForObjects }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CdcInsertsAndUpdates() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.CdcInsertsAndUpdates }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) CdcInsertsAndUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.CdcInsertsAndUpdates }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CdcInsertsOnly() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.CdcInsertsOnly }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) CdcInsertsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.CdcInsertsOnly }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CdcMaxBatchInterval() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.CdcMaxBatchInterval }).(pulumi.IntOutput)
+func (o GetEndpointS3SettingOutput) CdcMaxBatchInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *int { return v.CdcMaxBatchInterval }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CdcMinFileSize() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.CdcMinFileSize }).(pulumi.IntOutput)
+func (o GetEndpointS3SettingOutput) CdcMinFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *int { return v.CdcMinFileSize }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CdcPath() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CdcPath }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) CdcPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.CdcPath }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CompressionType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CompressionType }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.CompressionType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CsvDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CsvDelimiter }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) CsvDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.CsvDelimiter }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CsvNoSupValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CsvNoSupValue }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) CsvNoSupValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.CsvNoSupValue }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CsvNullValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CsvNullValue }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) CsvNullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.CsvNullValue }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) CsvRowDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CsvRowDelimiter }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.CsvRowDelimiter }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) DataFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.DataFormat }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) DataPageSize() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.DataPageSize }).(pulumi.IntOutput)
+func (o GetEndpointS3SettingOutput) DataPageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *int { return v.DataPageSize }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) DatePartitionDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.DatePartitionDelimiter }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) DatePartitionDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.DatePartitionDelimiter }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) DatePartitionEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.DatePartitionEnabled }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) DatePartitionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.DatePartitionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) DatePartitionSequence() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.DatePartitionSequence }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) DatePartitionSequence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.DatePartitionSequence }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) DictPageSizeLimit() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.DictPageSizeLimit }).(pulumi.IntOutput)
+func (o GetEndpointS3SettingOutput) DictPageSizeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *int { return v.DictPageSizeLimit }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) EnableStatistics() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.EnableStatistics }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) EnableStatistics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.EnableStatistics }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) EncodingType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.EncodingType }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) EncodingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) EncryptionMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.EncryptionMode }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) ExternalTableDefinition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.ExternalTableDefinition }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) GlueCatalogGeneration() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.GlueCatalogGeneration }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) GlueCatalogGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.GlueCatalogGeneration }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) IgnoreHeaderRows() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.IgnoreHeaderRows }).(pulumi.IntOutput)
+func (o GetEndpointS3SettingOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *int { return v.IgnoreHeaderRows }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) IgnoreHeadersRow() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.IgnoreHeadersRow }).(pulumi.IntOutput)
+func (o GetEndpointS3SettingOutput) IgnoreHeadersRow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *int { return v.IgnoreHeadersRow }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) IncludeOpForFullLoad() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.IncludeOpForFullLoad }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) IncludeOpForFullLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.IncludeOpForFullLoad }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) MaxFileSize() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.MaxFileSize }).(pulumi.IntOutput)
+func (o GetEndpointS3SettingOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) ParquetTimestampInMillisecond() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.ParquetTimestampInMillisecond }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) ParquetTimestampInMillisecond() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.ParquetTimestampInMillisecond }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) ParquetVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.ParquetVersion }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) ParquetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.ParquetVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) PreserveTransactions() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.PreserveTransactions }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) PreserveTransactions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.PreserveTransactions }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) Rfc4180() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.Rfc4180 }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) Rfc4180() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.Rfc4180 }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) RowGroupLength() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.RowGroupLength }).(pulumi.IntOutput)
+func (o GetEndpointS3SettingOutput) RowGroupLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *int { return v.RowGroupLength }).(pulumi.IntPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) ServerSideEncryptionKmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) TimestampColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.TimestampColumnName }).(pulumi.StringOutput)
+func (o GetEndpointS3SettingOutput) TimestampColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *string { return v.TimestampColumnName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) UseCsvNoSupValue() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.UseCsvNoSupValue }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) UseCsvNoSupValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.UseCsvNoSupValue }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointS3SettingOutput) UseTaskStartTimeForFullLoadTimestamp() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.UseTaskStartTimeForFullLoadTimestamp }).(pulumi.BoolOutput)
+func (o GetEndpointS3SettingOutput) UseTaskStartTimeForFullLoadTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) *bool { return v.UseTaskStartTimeForFullLoadTimestamp }).(pulumi.BoolPtrOutput)
 }
 
 type GetEndpointS3SettingArrayOutput struct{ *pulumi.OutputState }

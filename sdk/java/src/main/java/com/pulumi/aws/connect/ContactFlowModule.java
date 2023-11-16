@@ -129,42 +129,42 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Contact Flow Module.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The identifier of the Contact Flow Module.
      * 
      */
     @Export(name="contactFlowModuleId", refs={String.class}, tree="[0]")
-    private Output<String> contactFlowModuleId;
+    private Output</* @Nullable */ String> contactFlowModuleId;
 
     /**
      * @return The identifier of the Contact Flow Module.
      * 
      */
-    public Output<String> contactFlowModuleId() {
-        return this.contactFlowModuleId;
+    public Output<Optional<String>> contactFlowModuleId() {
+        return Codegen.optional(this.contactFlowModuleId);
     }
     /**
      * Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      * 
      */
     @Export(name="content", refs={String.class}, tree="[0]")
-    private Output<String> content;
+    private Output</* @Nullable */ String> content;
 
     /**
      * @return Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      * 
      */
-    public Output<String> content() {
-        return this.content;
+    public Output<Optional<String>> content() {
+        return Codegen.optional(this.content);
     }
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.

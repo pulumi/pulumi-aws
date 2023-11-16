@@ -7,86 +7,88 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPermissionSetResult {
-    private String arn;
-    private String createdDate;
+    private @Nullable String arn;
+    private @Nullable String createdDate;
     /**
      * @return Description of the Permission Set.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceArn;
-    private String name;
+    private @Nullable String name;
     /**
      * @return Relay state URL used to redirect users within the application during the federation authentication process.
      * 
      */
-    private String relayState;
+    private @Nullable String relayState;
     /**
      * @return Length of time that the application user sessions are valid in the ISO-8601 standard.
      * 
      */
-    private String sessionDuration;
+    private @Nullable String sessionDuration;
     /**
      * @return Key-value map of resource tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetPermissionSetResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Description of the Permission Set.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceArn() {
         return this.instanceArn;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Relay state URL used to redirect users within the application during the federation authentication process.
      * 
      */
-    public String relayState() {
-        return this.relayState;
+    public Optional<String> relayState() {
+        return Optional.ofNullable(this.relayState);
     }
     /**
      * @return Length of time that the application user sessions are valid in the ISO-8601 standard.
      * 
      */
-    public String sessionDuration() {
-        return this.sessionDuration;
+    public Optional<String> sessionDuration() {
+        return Optional.ofNullable(this.sessionDuration);
     }
     /**
      * @return Key-value map of resource tags.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -98,15 +100,15 @@ public final class GetPermissionSetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String createdDate;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String createdDate;
+        private @Nullable String description;
+        private @Nullable String id;
         private String instanceArn;
-        private String name;
-        private String relayState;
-        private String sessionDuration;
-        private Map<String,String> tags;
+        private @Nullable String name;
+        private @Nullable String relayState;
+        private @Nullable String sessionDuration;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetPermissionSetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -122,23 +124,23 @@ public final class GetPermissionSetResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -147,23 +149,23 @@ public final class GetPermissionSetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder relayState(String relayState) {
-            this.relayState = Objects.requireNonNull(relayState);
+        public Builder relayState(@Nullable String relayState) {
+            this.relayState = relayState;
             return this;
         }
         @CustomType.Setter
-        public Builder sessionDuration(String sessionDuration) {
-            this.sessionDuration = Objects.requireNonNull(sessionDuration);
+        public Builder sessionDuration(@Nullable String sessionDuration) {
+            this.sessionDuration = sessionDuration;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetPermissionSetResult build() {

@@ -524,7 +524,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the AppConfig Deployment.
         """
@@ -548,7 +548,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentNumber")
-    def deployment_number(self) -> pulumi.Output[int]:
+    def deployment_number(self) -> pulumi.Output[Optional[int]]:
         """
         Deployment number.
         """
@@ -580,7 +580,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the deployment.
         """

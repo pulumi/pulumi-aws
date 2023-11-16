@@ -123,37 +123,37 @@ type UserPool struct {
 	// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
 	AccountRecoverySetting UserPoolAccountRecoverySettingPtrOutput `pulumi:"accountRecoverySetting"`
 	// Configuration block for creating a new user profile. Detailed below.
-	AdminCreateUserConfig UserPoolAdminCreateUserConfigOutput `pulumi:"adminCreateUserConfig"`
+	AdminCreateUserConfig UserPoolAdminCreateUserConfigPtrOutput `pulumi:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
 	AliasAttributes pulumi.StringArrayOutput `pulumi:"aliasAttributes"`
 	// ARN of the user pool.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
 	AutoVerifiedAttributes pulumi.StringArrayOutput `pulumi:"autoVerifiedAttributes"`
 	// Date the user pool was created.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
-	CustomDomain pulumi.StringOutput `pulumi:"customDomain"`
+	CustomDomain pulumi.StringPtrOutput `pulumi:"customDomain"`
 	// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
 	DeletionProtection pulumi.StringPtrOutput `pulumi:"deletionProtection"`
 	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration UserPoolDeviceConfigurationPtrOutput `pulumi:"deviceConfiguration"`
 	// Holds the domain prefix if the user pool has a domain associated with it.
-	Domain pulumi.StringOutput `pulumi:"domain"`
+	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration UserPoolEmailConfigurationPtrOutput `pulumi:"emailConfiguration"`
 	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
-	EmailVerificationMessage pulumi.StringOutput `pulumi:"emailVerificationMessage"`
+	EmailVerificationMessage pulumi.StringPtrOutput `pulumi:"emailVerificationMessage"`
 	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
-	EmailVerificationSubject pulumi.StringOutput `pulumi:"emailVerificationSubject"`
+	EmailVerificationSubject pulumi.StringPtrOutput `pulumi:"emailVerificationSubject"`
 	// Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// A number estimating the size of the user pool.
-	EstimatedNumberOfUsers pulumi.IntOutput `pulumi:"estimatedNumberOfUsers"`
+	EstimatedNumberOfUsers pulumi.IntPtrOutput `pulumi:"estimatedNumberOfUsers"`
 	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
 	LambdaConfig UserPoolLambdaConfigPtrOutput `pulumi:"lambdaConfig"`
 	// Date the user pool was last modified.
-	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
+	LastModifiedDate pulumi.StringPtrOutput `pulumi:"lastModifiedDate"`
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrOutput `pulumi:"mfaConfiguration"`
 	// Name of the user pool.
@@ -161,15 +161,15 @@ type UserPool struct {
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block for information about the user pool password policy. Detailed below.
-	PasswordPolicy UserPoolPasswordPolicyOutput `pulumi:"passwordPolicy"`
+	PasswordPolicy UserPoolPasswordPolicyPtrOutput `pulumi:"passwordPolicy"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayOutput `pulumi:"schemas"`
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrOutput `pulumi:"smsAuthenticationMessage"`
 	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-	SmsConfiguration UserPoolSmsConfigurationOutput `pulumi:"smsConfiguration"`
+	SmsConfiguration UserPoolSmsConfigurationPtrOutput `pulumi:"smsConfiguration"`
 	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
-	SmsVerificationMessage pulumi.StringOutput `pulumi:"smsVerificationMessage"`
+	SmsVerificationMessage pulumi.StringPtrOutput `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrOutput `pulumi:"softwareTokenMfaConfiguration"`
 	// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -187,7 +187,7 @@ type UserPool struct {
 	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration UserPoolUsernameConfigurationPtrOutput `pulumi:"usernameConfiguration"`
 	// Configuration block for verification message templates. Detailed below.
-	VerificationMessageTemplate UserPoolVerificationMessageTemplateOutput `pulumi:"verificationMessageTemplate"`
+	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrOutput `pulumi:"verificationMessageTemplate"`
 }
 
 // NewUserPool registers a new resource with the given unique name, arguments, and options.
@@ -569,8 +569,8 @@ func (o UserPoolOutput) AccountRecoverySetting() UserPoolAccountRecoverySettingP
 }
 
 // Configuration block for creating a new user profile. Detailed below.
-func (o UserPoolOutput) AdminCreateUserConfig() UserPoolAdminCreateUserConfigOutput {
-	return o.ApplyT(func(v *UserPool) UserPoolAdminCreateUserConfigOutput { return v.AdminCreateUserConfig }).(UserPoolAdminCreateUserConfigOutput)
+func (o UserPoolOutput) AdminCreateUserConfig() UserPoolAdminCreateUserConfigPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolAdminCreateUserConfigPtrOutput { return v.AdminCreateUserConfig }).(UserPoolAdminCreateUserConfigPtrOutput)
 }
 
 // Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
@@ -579,8 +579,8 @@ func (o UserPoolOutput) AliasAttributes() pulumi.StringArrayOutput {
 }
 
 // ARN of the user pool.
-func (o UserPoolOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserPoolOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
@@ -589,13 +589,13 @@ func (o UserPoolOutput) AutoVerifiedAttributes() pulumi.StringArrayOutput {
 }
 
 // Date the user pool was created.
-func (o UserPoolOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o UserPoolOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
-func (o UserPoolOutput) CustomDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.CustomDomain }).(pulumi.StringOutput)
+func (o UserPoolOutput) CustomDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.CustomDomain }).(pulumi.StringPtrOutput)
 }
 
 // When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
@@ -609,8 +609,8 @@ func (o UserPoolOutput) DeviceConfiguration() UserPoolDeviceConfigurationPtrOutp
 }
 
 // Holds the domain prefix if the user pool has a domain associated with it.
-func (o UserPoolOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+func (o UserPoolOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for configuring email. Detailed below.
@@ -619,23 +619,23 @@ func (o UserPoolOutput) EmailConfiguration() UserPoolEmailConfigurationPtrOutput
 }
 
 // String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
-func (o UserPoolOutput) EmailVerificationMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.EmailVerificationMessage }).(pulumi.StringOutput)
+func (o UserPoolOutput) EmailVerificationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.EmailVerificationMessage }).(pulumi.StringPtrOutput)
 }
 
 // String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
-func (o UserPoolOutput) EmailVerificationSubject() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.EmailVerificationSubject }).(pulumi.StringOutput)
+func (o UserPoolOutput) EmailVerificationSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.EmailVerificationSubject }).(pulumi.StringPtrOutput)
 }
 
 // Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
-func (o UserPoolOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o UserPoolOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // A number estimating the size of the user pool.
-func (o UserPoolOutput) EstimatedNumberOfUsers() pulumi.IntOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.IntOutput { return v.EstimatedNumberOfUsers }).(pulumi.IntOutput)
+func (o UserPoolOutput) EstimatedNumberOfUsers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.IntPtrOutput { return v.EstimatedNumberOfUsers }).(pulumi.IntPtrOutput)
 }
 
 // Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
@@ -644,8 +644,8 @@ func (o UserPoolOutput) LambdaConfig() UserPoolLambdaConfigPtrOutput {
 }
 
 // Date the user pool was last modified.
-func (o UserPoolOutput) LastModifiedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
+func (o UserPoolOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }
 
 // Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
@@ -661,8 +661,8 @@ func (o UserPoolOutput) Name() pulumi.StringOutput {
 }
 
 // Configuration block for information about the user pool password policy. Detailed below.
-func (o UserPoolOutput) PasswordPolicy() UserPoolPasswordPolicyOutput {
-	return o.ApplyT(func(v *UserPool) UserPoolPasswordPolicyOutput { return v.PasswordPolicy }).(UserPoolPasswordPolicyOutput)
+func (o UserPoolOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolPasswordPolicyPtrOutput { return v.PasswordPolicy }).(UserPoolPasswordPolicyPtrOutput)
 }
 
 // Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
@@ -676,13 +676,13 @@ func (o UserPoolOutput) SmsAuthenticationMessage() pulumi.StringPtrOutput {
 }
 
 // Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-func (o UserPoolOutput) SmsConfiguration() UserPoolSmsConfigurationOutput {
-	return o.ApplyT(func(v *UserPool) UserPoolSmsConfigurationOutput { return v.SmsConfiguration }).(UserPoolSmsConfigurationOutput)
+func (o UserPoolOutput) SmsConfiguration() UserPoolSmsConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolSmsConfigurationPtrOutput { return v.SmsConfiguration }).(UserPoolSmsConfigurationPtrOutput)
 }
 
 // String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
-func (o UserPoolOutput) SmsVerificationMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.SmsVerificationMessage }).(pulumi.StringOutput)
+func (o UserPoolOutput) SmsVerificationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.SmsVerificationMessage }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
@@ -725,8 +725,8 @@ func (o UserPoolOutput) UsernameConfiguration() UserPoolUsernameConfigurationPtr
 }
 
 // Configuration block for verification message templates. Detailed below.
-func (o UserPoolOutput) VerificationMessageTemplate() UserPoolVerificationMessageTemplateOutput {
-	return o.ApplyT(func(v *UserPool) UserPoolVerificationMessageTemplateOutput { return v.VerificationMessageTemplate }).(UserPoolVerificationMessageTemplateOutput)
+func (o UserPoolOutput) VerificationMessageTemplate() UserPoolVerificationMessageTemplatePtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolVerificationMessageTemplatePtrOutput { return v.VerificationMessageTemplate }).(UserPoolVerificationMessageTemplatePtrOutput)
 }
 
 type UserPoolArrayOutput struct{ *pulumi.OutputState }

@@ -54,13 +54,13 @@ namespace Pulumi.Aws.AppRunner
         /// The Amazon Resource Name (ARN) of the VPC Ingress Connection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The domain name associated with the VPC Ingress Connection resource.
         /// </summary>
         [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
+        public Output<string?> DomainName { get; private set; } = null!;
 
         /// <summary>
         /// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.AppRunner
         /// The current status of the VPC Ingress Connection.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

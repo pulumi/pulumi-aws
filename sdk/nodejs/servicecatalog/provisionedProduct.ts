@@ -81,15 +81,15 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * ARN of the provisioned product.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Set of CloudWatch dashboards that were created when provisioning the product.
      */
-    public /*out*/ readonly cloudwatchDashboardNames!: pulumi.Output<string[]>;
+    public /*out*/ readonly cloudwatchDashboardNames!: pulumi.Output<string[] | undefined>;
     /**
      * Time when the provisioned product was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
      */
@@ -97,19 +97,19 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      */
-    public /*out*/ readonly lastProvisioningRecordId!: pulumi.Output<string>;
+    public /*out*/ readonly lastProvisioningRecordId!: pulumi.Output<string | undefined>;
     /**
      * Record identifier of the last request performed on this provisioned product.
      */
-    public /*out*/ readonly lastRecordId!: pulumi.Output<string>;
+    public /*out*/ readonly lastRecordId!: pulumi.Output<string | undefined>;
     /**
      * Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      */
-    public /*out*/ readonly lastSuccessfulProvisioningRecordId!: pulumi.Output<string>;
+    public /*out*/ readonly lastSuccessfulProvisioningRecordId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the launch role associated with the provisioned product.
      */
-    public /*out*/ readonly launchRoleArn!: pulumi.Output<string>;
+    public /*out*/ readonly launchRoleArn!: pulumi.Output<string | undefined>;
     /**
      * User-friendly name of the provisioned product.
      *
@@ -123,11 +123,11 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * The set of outputs for the product created.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<outputs.servicecatalog.ProvisionedProductOutput[]>;
+    public /*out*/ readonly outputs!: pulumi.Output<outputs.servicecatalog.ProvisionedProductOutput[] | undefined>;
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      */
-    public readonly pathId!: pulumi.Output<string>;
+    public readonly pathId!: pulumi.Output<string | undefined>;
     /**
      * Name of the path. You must provide `pathId` or `pathName`, but not both.
      */
@@ -135,7 +135,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
      */
-    public readonly productId!: pulumi.Output<string>;
+    public readonly productId!: pulumi.Output<string | undefined>;
     /**
      * Name of the product. You must provide `productId` or `productName`, but not both.
      */
@@ -143,7 +143,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      */
-    public readonly provisioningArtifactId!: pulumi.Output<string>;
+    public readonly provisioningArtifactId!: pulumi.Output<string | undefined>;
     /**
      * Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      */
@@ -163,11 +163,11 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Current status of the provisioned product. See meanings below.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Current status message of the provisioned product.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    public /*out*/ readonly statusMessage!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -181,7 +181,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProvisionedProduct resource with the given unique name, arguments, and options.

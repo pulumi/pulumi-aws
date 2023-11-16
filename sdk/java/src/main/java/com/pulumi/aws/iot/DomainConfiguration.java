@@ -69,14 +69,14 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the domain configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * An object that specifies the authorization service for a domain. See below.
@@ -111,14 +111,14 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domainType", refs={String.class}, tree="[0]")
-    private Output<String> domainType;
+    private Output</* @Nullable */ String> domainType;
 
     /**
      * @return The type of the domain.
      * 
      */
-    public Output<String> domainType() {
-        return this.domainType;
+    public Output<Optional<String>> domainType() {
+        return Codegen.optional(this.domainType);
     }
     /**
      * The name of the domain configuration. This value must be unique to a region.
@@ -205,14 +205,14 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tlsConfig", refs={DomainConfigurationTlsConfig.class}, tree="[0]")
-    private Output<DomainConfigurationTlsConfig> tlsConfig;
+    private Output</* @Nullable */ DomainConfigurationTlsConfig> tlsConfig;
 
     /**
      * @return An object that specifies the TLS configuration for a domain. See below.
      * 
      */
-    public Output<DomainConfigurationTlsConfig> tlsConfig() {
-        return this.tlsConfig;
+    public Output<Optional<DomainConfigurationTlsConfig>> tlsConfig() {
+        return Codegen.optional(this.tlsConfig);
     }
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.

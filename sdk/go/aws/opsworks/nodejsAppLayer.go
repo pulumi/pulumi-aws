@@ -43,7 +43,7 @@ type NodejsAppLayer struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -71,8 +71,8 @@ type NodejsAppLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput                      `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    NodejsAppLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                         `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    NodejsAppLayerLoadBasedAutoScalingPtrOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The version of NodeJS to use. Defaults to "0.10.38".
@@ -428,8 +428,8 @@ func (o NodejsAppLayerOutput) ToNodejsAppLayerOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name(ARN) of the layer.
-func (o NodejsAppLayerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NodejsAppLayerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
@@ -513,8 +513,8 @@ func (o NodejsAppLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o NodejsAppLayerOutput) LoadBasedAutoScaling() NodejsAppLayerLoadBasedAutoScalingOutput {
-	return o.ApplyT(func(v *NodejsAppLayer) NodejsAppLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(NodejsAppLayerLoadBasedAutoScalingOutput)
+func (o NodejsAppLayerOutput) LoadBasedAutoScaling() NodejsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayer) NodejsAppLayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(NodejsAppLayerLoadBasedAutoScalingPtrOutput)
 }
 
 // A human-readable name for the layer.

@@ -60,29 +60,29 @@ type LookupExperienceArgs struct {
 // A collection of values returned by getExperience.
 type LookupExperienceResult struct {
 	// ARN of the Experience.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
 	Configurations []GetExperienceConfiguration `pulumi:"configurations"`
 	// Unix datetime that the Experience was created.
-	CreatedAt string `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
 	// Description of the Experience.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
 	Endpoints []GetExperienceEndpoint `pulumi:"endpoints"`
 	// Reason your Amazon Kendra Experience could not properly process.
-	ErrorMessage string `pulumi:"errorMessage"`
-	ExperienceId string `pulumi:"experienceId"`
+	ErrorMessage *string `pulumi:"errorMessage"`
+	ExperienceId string  `pulumi:"experienceId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string `pulumi:"id"`
-	IndexId string `pulumi:"indexId"`
+	Id      *string `pulumi:"id"`
+	IndexId string  `pulumi:"indexId"`
 	// Name of the Experience.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 	// Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that this failed.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Date and time that the Experience was last updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 func LookupExperienceOutput(ctx *pulumi.Context, args LookupExperienceOutputArgs, opts ...pulumi.InvokeOption) LookupExperienceResultOutput {
@@ -126,8 +126,8 @@ func (o LookupExperienceResultOutput) ToLookupExperienceResultOutputWithContext(
 }
 
 // ARN of the Experience.
-func (o LookupExperienceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupExperienceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupExperienceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperienceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
@@ -136,13 +136,13 @@ func (o LookupExperienceResultOutput) Configurations() GetExperienceConfiguratio
 }
 
 // Unix datetime that the Experience was created.
-func (o LookupExperienceResultOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupExperienceResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+func (o LookupExperienceResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperienceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Experience.
-func (o LookupExperienceResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupExperienceResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupExperienceResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperienceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
@@ -151,8 +151,8 @@ func (o LookupExperienceResultOutput) Endpoints() GetExperienceEndpointArrayOutp
 }
 
 // Reason your Amazon Kendra Experience could not properly process.
-func (o LookupExperienceResultOutput) ErrorMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupExperienceResult) string { return v.ErrorMessage }).(pulumi.StringOutput)
+func (o LookupExperienceResultOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperienceResult) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupExperienceResultOutput) ExperienceId() pulumi.StringOutput {
@@ -160,8 +160,8 @@ func (o LookupExperienceResultOutput) ExperienceId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupExperienceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupExperienceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupExperienceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperienceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupExperienceResultOutput) IndexId() pulumi.StringOutput {
@@ -169,23 +169,23 @@ func (o LookupExperienceResultOutput) IndexId() pulumi.StringOutput {
 }
 
 // Name of the Experience.
-func (o LookupExperienceResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupExperienceResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupExperienceResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperienceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
-func (o LookupExperienceResultOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupExperienceResult) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o LookupExperienceResultOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperienceResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that this failed.
-func (o LookupExperienceResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupExperienceResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupExperienceResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperienceResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Date and time that the Experience was last updated.
-func (o LookupExperienceResultOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupExperienceResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o LookupExperienceResultOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperienceResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecGrpcRouteTimeoutIdleResult
     {
-        public readonly string Unit;
-        public readonly int Value;
+        public readonly string? Unit;
+        public readonly int? Value;
 
         [OutputConstructor]
         private GetRouteSpecGrpcRouteTimeoutIdleResult(
-            string unit,
+            string? unit,
 
-            int value)
+            int? value)
         {
             Unit = unit;
             Value = value;

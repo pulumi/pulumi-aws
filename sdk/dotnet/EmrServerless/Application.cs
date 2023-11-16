@@ -110,25 +110,25 @@ namespace Pulumi.Aws.EmrServerless
         /// ARN of the cluster.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The configuration for an application to automatically start on job submission.
         /// </summary>
         [Output("autoStartConfiguration")]
-        public Output<Outputs.ApplicationAutoStartConfiguration> AutoStartConfiguration { get; private set; } = null!;
+        public Output<Outputs.ApplicationAutoStartConfiguration?> AutoStartConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The configuration for an application to automatically stop after a certain amount of time being idle.
         /// </summary>
         [Output("autoStopConfiguration")]
-        public Output<Outputs.ApplicationAutoStopConfiguration> AutoStopConfiguration { get; private set; } = null!;
+        public Output<Outputs.ApplicationAutoStopConfiguration?> AutoStopConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The image configuration applied to all worker types.
         /// </summary>
         [Output("imageConfiguration")]
-        public Output<Outputs.ApplicationImageConfiguration> ImageConfiguration { get; private set; } = null!;
+        public Output<Outputs.ApplicationImageConfiguration?> ImageConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The capacity to initialize when the application is created.
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.EmrServerless
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         /// </summary>
         [Output("maximumCapacity")]
-        public Output<Outputs.ApplicationMaximumCapacity> MaximumCapacity { get; private set; } = null!;
+        public Output<Outputs.ApplicationMaximumCapacity?> MaximumCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The name of the application.

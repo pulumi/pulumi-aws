@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Connect
         /// The Amazon Resource Name (ARN) of the Routing Profile.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the default outbound queue for the Routing Profile.
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Connect
         /// The identifier for the Routing Profile.
         /// </summary>
         [Output("routingProfileId")]
-        public Output<string> RoutingProfileId { get; private set; } = null!;
+        public Output<string?> RoutingProfileId { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the Routing Profile. If configured with a provider

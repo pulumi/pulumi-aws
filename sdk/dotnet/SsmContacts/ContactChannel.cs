@@ -79,13 +79,13 @@ namespace Pulumi.Aws.SsmContacts
         /// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
         /// </summary>
         [Output("activationStatus")]
-        public Output<string> ActivationStatus { get; private set; } = null!;
+        public Output<string?> ActivationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the contact channel.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.

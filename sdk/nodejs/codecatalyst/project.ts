@@ -70,7 +70,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The name of the project in the space.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * The name of the space.
      */

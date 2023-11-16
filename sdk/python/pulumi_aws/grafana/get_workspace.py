@@ -88,7 +88,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="accountAccessType")
-    def account_access_type(self) -> str:
+    def account_access_type(self) -> Optional[str]:
         """
         (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         """
@@ -96,7 +96,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Grafana workspace.
         """
@@ -104,7 +104,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="authenticationProviders")
-    def authentication_providers(self) -> Sequence[str]:
+    def authentication_providers(self) -> Optional[Sequence[str]]:
         """
         (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         """
@@ -112,7 +112,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Creation date of the Grafana workspace.
         """
@@ -120,7 +120,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Sequence[str]:
+    def data_sources(self) -> Optional[Sequence[str]]:
         """
         Data sources for the workspace.
         """
@@ -128,7 +128,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Workspace description.
         """
@@ -136,7 +136,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> Optional[str]:
         """
         Endpoint of the Grafana workspace.
         """
@@ -144,7 +144,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="grafanaVersion")
-    def grafana_version(self) -> str:
+    def grafana_version(self) -> Optional[str]:
         """
         Version of Grafana running on the workspace.
         """
@@ -152,7 +152,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -160,7 +160,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> Optional[str]:
         """
         Last updated date of the Grafana workspace.
         """
@@ -168,7 +168,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Grafana workspace name.
         """
@@ -176,7 +176,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="notificationDestinations")
-    def notification_destinations(self) -> Sequence[str]:
+    def notification_destinations(self) -> Optional[Sequence[str]]:
         """
         The notification destinations.
         """
@@ -184,7 +184,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="organizationRoleName")
-    def organization_role_name(self) -> str:
+    def organization_role_name(self) -> Optional[str]:
         """
         The role name that the workspace uses to access resources through Amazon Organizations.
         """
@@ -192,7 +192,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="organizationalUnits")
-    def organizational_units(self) -> Sequence[str]:
+    def organizational_units(self) -> Optional[Sequence[str]]:
         """
         The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         """
@@ -200,7 +200,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="permissionType")
-    def permission_type(self) -> str:
+    def permission_type(self) -> Optional[str]:
         """
         Permission type of the workspace.
         """
@@ -208,7 +208,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         IAM role ARN that the workspace assumes.
         """
@@ -216,12 +216,12 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="samlConfigurationStatus")
-    def saml_configuration_status(self) -> str:
+    def saml_configuration_status(self) -> Optional[str]:
         return pulumi.get(self, "saml_configuration_status")
 
     @property
     @pulumi.getter(name="stackSetName")
-    def stack_set_name(self) -> str:
+    def stack_set_name(self) -> Optional[str]:
         """
         AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         """
@@ -229,7 +229,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the Grafana workspace.
         """
@@ -237,7 +237,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags assigned to the resource
         """

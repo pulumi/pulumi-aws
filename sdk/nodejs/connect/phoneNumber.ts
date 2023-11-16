@@ -93,7 +93,7 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * The ARN of the phone number.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
      */
@@ -105,7 +105,7 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
      */
-    public /*out*/ readonly phoneNumber!: pulumi.Output<string>;
+    public /*out*/ readonly phoneNumber!: pulumi.Output<string | undefined>;
     /**
      * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
      */
@@ -113,7 +113,7 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connect.PhoneNumberStatus[]>;
+    public /*out*/ readonly statuses!: pulumi.Output<outputs.connect.PhoneNumberStatus[] | undefined>;
     /**
      * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

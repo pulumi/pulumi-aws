@@ -288,7 +288,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> pulumi.Output[str]:
+    def path(self) -> pulumi.Output[Optional[str]]:
         """
         Complete path for this API resource, including all parent paths.
         """

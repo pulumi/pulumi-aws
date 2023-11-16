@@ -108,14 +108,14 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
 
         [OutputConstructor]
         private GetUserHierarchyStructureResult(
             ImmutableArray<Outputs.GetUserHierarchyStructureHierarchyStructureResult> hierarchyStructures,
 
-            string id,
+            string? id,
 
             string instanceId)
         {

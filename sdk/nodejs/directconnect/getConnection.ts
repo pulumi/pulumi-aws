@@ -48,44 +48,44 @@ export interface GetConnectionResult {
     /**
      * ARN of the connection.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Direct Connect endpoint on which the physical connection terminates.
      */
-    readonly awsDevice: string;
+    readonly awsDevice?: string;
     /**
      * Bandwidth of the connection.
      */
-    readonly bandwidth: string;
+    readonly bandwidth?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * AWS Direct Connect location where the connection is located.
      */
-    readonly location: string;
+    readonly location?: string;
     readonly name: string;
     /**
      * ID of the AWS account that owns the connection.
      */
-    readonly ownerAccountId: string;
+    readonly ownerAccountId?: string;
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      */
-    readonly partnerName: string;
+    readonly partnerName?: string;
     /**
      * Name of the service provider associated with the connection.
      */
-    readonly providerName: string;
+    readonly providerName?: string;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The VLAN ID.
      */
-    readonly vlanId: number;
+    readonly vlanId?: number;
 }
 /**
  * Retrieve information about a Direct Connect Connection.

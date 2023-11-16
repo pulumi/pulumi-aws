@@ -59,14 +59,14 @@ type LookupVaultArgs struct {
 // A collection of values returned by getVault.
 type LookupVaultResult struct {
 	// ARN of the vault.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Server-side encryption key that is used to protect your backups.
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
-	Name      string `pulumi:"name"`
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	Name      string  `pulumi:"name"`
 	// Number of recovery points that are stored in a backup vault.
-	RecoveryPoints int `pulumi:"recoveryPoints"`
+	RecoveryPoints *int `pulumi:"recoveryPoints"`
 	// Metadata that you can assign to help organize the resources that you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -112,18 +112,18 @@ func (o LookupVaultResultOutput) ToLookupVaultResultOutputWithContext(ctx contex
 }
 
 // ARN of the vault.
-func (o LookupVaultResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVaultResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupVaultResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVaultResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupVaultResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVaultResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVaultResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVaultResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Server-side encryption key that is used to protect your backups.
-func (o LookupVaultResultOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVaultResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o LookupVaultResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVaultResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVaultResultOutput) Name() pulumi.StringOutput {
@@ -131,8 +131,8 @@ func (o LookupVaultResultOutput) Name() pulumi.StringOutput {
 }
 
 // Number of recovery points that are stored in a backup vault.
-func (o LookupVaultResultOutput) RecoveryPoints() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupVaultResult) int { return v.RecoveryPoints }).(pulumi.IntOutput)
+func (o LookupVaultResultOutput) RecoveryPoints() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVaultResult) *int { return v.RecoveryPoints }).(pulumi.IntPtrOutput)
 }
 
 // Metadata that you can assign to help organize the resources that you create.

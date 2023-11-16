@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Ecr
         /// The registry ID where the registry was created.
         /// </summary>
         [Output("registryId")]
-        public Output<string> RegistryId { get; private set; } = null!;
+        public Output<string?> RegistryId { get; private set; } = null!;
 
 
         /// <summary>

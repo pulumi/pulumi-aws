@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetComponentResult {
@@ -17,72 +19,72 @@ public final class GetComponentResult {
      * @return Change description of the component.
      * 
      */
-    private String changeDescription;
+    private @Nullable String changeDescription;
     /**
      * @return Data of the component.
      * 
      */
-    private String data;
+    private @Nullable String data;
     /**
      * @return Date the component was created.
      * 
      */
-    private String dateCreated;
+    private @Nullable String dateCreated;
     /**
      * @return Description of the component.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Encryption status of the component.
      * 
      */
-    private Boolean encrypted;
+    private @Nullable Boolean encrypted;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of the Key Management Service (KMS) Key used to encrypt the component.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Name of the component.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Owner of the component.
      * 
      */
-    private String owner;
+    private @Nullable String owner;
     /**
      * @return Platform of the component.
      * 
      */
-    private String platform;
+    private @Nullable String platform;
     /**
      * @return Operating Systems (OSes) supported by the component.
      * 
      */
-    private List<String> supportedOsVersions;
+    private @Nullable List<String> supportedOsVersions;
     /**
      * @return Key-value map of resource tags for the component.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of the component.
      * 
      */
-    private String type;
+    private @Nullable String type;
     /**
      * @return Version of the component.
      * 
      */
-    private String version;
+    private @Nullable String version;
 
     private GetComponentResult() {}
     public String arn() {
@@ -92,99 +94,99 @@ public final class GetComponentResult {
      * @return Change description of the component.
      * 
      */
-    public String changeDescription() {
-        return this.changeDescription;
+    public Optional<String> changeDescription() {
+        return Optional.ofNullable(this.changeDescription);
     }
     /**
      * @return Data of the component.
      * 
      */
-    public String data() {
-        return this.data;
+    public Optional<String> data() {
+        return Optional.ofNullable(this.data);
     }
     /**
      * @return Date the component was created.
      * 
      */
-    public String dateCreated() {
-        return this.dateCreated;
+    public Optional<String> dateCreated() {
+        return Optional.ofNullable(this.dateCreated);
     }
     /**
      * @return Description of the component.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Encryption status of the component.
      * 
      */
-    public Boolean encrypted() {
-        return this.encrypted;
+    public Optional<Boolean> encrypted() {
+        return Optional.ofNullable(this.encrypted);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of the Key Management Service (KMS) Key used to encrypt the component.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return Name of the component.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Owner of the component.
      * 
      */
-    public String owner() {
-        return this.owner;
+    public Optional<String> owner() {
+        return Optional.ofNullable(this.owner);
     }
     /**
      * @return Platform of the component.
      * 
      */
-    public String platform() {
-        return this.platform;
+    public Optional<String> platform() {
+        return Optional.ofNullable(this.platform);
     }
     /**
      * @return Operating Systems (OSes) supported by the component.
      * 
      */
     public List<String> supportedOsVersions() {
-        return this.supportedOsVersions;
+        return this.supportedOsVersions == null ? List.of() : this.supportedOsVersions;
     }
     /**
      * @return Key-value map of resource tags for the component.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of the component.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
     /**
      * @return Version of the component.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -197,20 +199,20 @@ public final class GetComponentResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String changeDescription;
-        private String data;
-        private String dateCreated;
-        private String description;
-        private Boolean encrypted;
-        private String id;
-        private String kmsKeyId;
-        private String name;
-        private String owner;
-        private String platform;
-        private List<String> supportedOsVersions;
-        private Map<String,String> tags;
-        private String type;
-        private String version;
+        private @Nullable String changeDescription;
+        private @Nullable String data;
+        private @Nullable String dateCreated;
+        private @Nullable String description;
+        private @Nullable Boolean encrypted;
+        private @Nullable String id;
+        private @Nullable String kmsKeyId;
+        private @Nullable String name;
+        private @Nullable String owner;
+        private @Nullable String platform;
+        private @Nullable List<String> supportedOsVersions;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetComponentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -237,76 +239,76 @@ public final class GetComponentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder changeDescription(String changeDescription) {
-            this.changeDescription = Objects.requireNonNull(changeDescription);
+        public Builder changeDescription(@Nullable String changeDescription) {
+            this.changeDescription = changeDescription;
             return this;
         }
         @CustomType.Setter
-        public Builder data(String data) {
-            this.data = Objects.requireNonNull(data);
+        public Builder data(@Nullable String data) {
+            this.data = data;
             return this;
         }
         @CustomType.Setter
-        public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+        public Builder dateCreated(@Nullable String dateCreated) {
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+        public Builder encrypted(@Nullable Boolean encrypted) {
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+        public Builder owner(@Nullable String owner) {
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
-        public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+        public Builder platform(@Nullable String platform) {
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
-        public Builder supportedOsVersions(List<String> supportedOsVersions) {
-            this.supportedOsVersions = Objects.requireNonNull(supportedOsVersions);
+        public Builder supportedOsVersions(@Nullable List<String> supportedOsVersions) {
+            this.supportedOsVersions = supportedOsVersions;
             return this;
         }
         public Builder supportedOsVersions(String... supportedOsVersions) {
             return supportedOsVersions(List.of(supportedOsVersions));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetComponentResult build() {

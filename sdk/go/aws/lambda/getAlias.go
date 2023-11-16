@@ -60,17 +60,17 @@ type LookupAliasArgs struct {
 // A collection of values returned by getAlias.
 type LookupAliasResult struct {
 	// ARN identifying the Lambda function alias.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of alias.
-	Description  string `pulumi:"description"`
-	FunctionName string `pulumi:"functionName"`
+	Description  *string `pulumi:"description"`
+	FunctionName string  `pulumi:"functionName"`
 	// Lambda function version which the alias uses.
-	FunctionVersion string `pulumi:"functionVersion"`
+	FunctionVersion *string `pulumi:"functionVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
-	InvokeArn string `pulumi:"invokeArn"`
-	Name      string `pulumi:"name"`
+	InvokeArn *string `pulumi:"invokeArn"`
+	Name      string  `pulumi:"name"`
 }
 
 func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
@@ -114,13 +114,13 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 }
 
 // ARN identifying the Lambda function alias.
-func (o LookupAliasResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of alias.
-func (o LookupAliasResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAliasResultOutput) FunctionName() pulumi.StringOutput {
@@ -128,18 +128,18 @@ func (o LookupAliasResultOutput) FunctionName() pulumi.StringOutput {
 }
 
 // Lambda function version which the alias uses.
-func (o LookupAliasResultOutput) FunctionVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.FunctionVersion }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) FunctionVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.FunctionVersion }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
-func (o LookupAliasResultOutput) InvokeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.InvokeArn }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) InvokeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.InvokeArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAliasResultOutput) Name() pulumi.StringOutput {

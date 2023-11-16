@@ -90,28 +90,28 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Profile
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      * 
      */
     @Export(name="durationSeconds", refs={Integer.class}, tree="[0]")
-    private Output<Integer> durationSeconds;
+    private Output</* @Nullable */ Integer> durationSeconds;
 
     /**
      * @return The number of seconds the vended session credentials are valid for. Defaults to 3600.
      * 
      */
-    public Output<Integer> durationSeconds() {
-        return this.durationSeconds;
+    public Output<Optional<Integer>> durationSeconds() {
+        return Codegen.optional(this.durationSeconds);
     }
     /**
      * Whether or not the Profile is enabled.

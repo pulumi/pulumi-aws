@@ -8,26 +8,28 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTargetGroupStickiness {
-    private Integer cookieDuration;
-    private String cookieName;
-    private Boolean enabled;
-    private String type;
+    private @Nullable Integer cookieDuration;
+    private @Nullable String cookieName;
+    private @Nullable Boolean enabled;
+    private @Nullable String type;
 
     private GetTargetGroupStickiness() {}
-    public Integer cookieDuration() {
-        return this.cookieDuration;
+    public Optional<Integer> cookieDuration() {
+        return Optional.ofNullable(this.cookieDuration);
     }
-    public String cookieName() {
-        return this.cookieName;
+    public Optional<String> cookieName() {
+        return Optional.ofNullable(this.cookieName);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -39,10 +41,10 @@ public final class GetTargetGroupStickiness {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer cookieDuration;
-        private String cookieName;
-        private Boolean enabled;
-        private String type;
+        private @Nullable Integer cookieDuration;
+        private @Nullable String cookieName;
+        private @Nullable Boolean enabled;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetTargetGroupStickiness defaults) {
     	      Objects.requireNonNull(defaults);
@@ -53,23 +55,23 @@ public final class GetTargetGroupStickiness {
         }
 
         @CustomType.Setter
-        public Builder cookieDuration(Integer cookieDuration) {
-            this.cookieDuration = Objects.requireNonNull(cookieDuration);
+        public Builder cookieDuration(@Nullable Integer cookieDuration) {
+            this.cookieDuration = cookieDuration;
             return this;
         }
         @CustomType.Setter
-        public Builder cookieName(String cookieName) {
-            this.cookieName = Objects.requireNonNull(cookieName);
+        public Builder cookieName(@Nullable String cookieName) {
+            this.cookieName = cookieName;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetTargetGroupStickiness build() {

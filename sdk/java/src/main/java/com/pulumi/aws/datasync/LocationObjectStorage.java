@@ -98,14 +98,14 @@ public class LocationObjectStorage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The bucket on the self-managed object storage server that is used to read data from.
@@ -196,14 +196,14 @@ public class LocationObjectStorage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subdirectory", refs={String.class}, tree="[0]")
-    private Output<String> subdirectory;
+    private Output</* @Nullable */ String> subdirectory;
 
     /**
      * @return A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn&#39;t specified, it will default to /.
      * 
      */
-    public Output<String> subdirectory() {
-        return this.subdirectory;
+    public Output<Optional<String>> subdirectory() {
+        return Codegen.optional(this.subdirectory);
     }
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -242,14 +242,14 @@ public class LocationObjectStorage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uri", refs={String.class}, tree="[0]")
-    private Output<String> uri;
+    private Output</* @Nullable */ String> uri;
 
     /**
      * @return The URL of the Object Storage location that was described.
      * 
      */
-    public Output<String> uri() {
-        return this.uri;
+    public Output<Optional<String>> uri() {
+        return Codegen.optional(this.uri);
     }
 
     /**

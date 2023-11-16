@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkgroupEndpointVpcEndpoint {
@@ -15,17 +17,17 @@ public final class GetWorkgroupEndpointVpcEndpoint {
      * @return The network interfaces of the endpoint.. See `Network Interface` below.
      * 
      */
-    private List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces;
+    private @Nullable List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces;
     /**
      * @return The DNS address of the VPC endpoint.
      * 
      */
-    private String vpcEndpointId;
+    private @Nullable String vpcEndpointId;
     /**
      * @return The port that Amazon Redshift Serverless listens on.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetWorkgroupEndpointVpcEndpoint() {}
     /**
@@ -33,21 +35,21 @@ public final class GetWorkgroupEndpointVpcEndpoint {
      * 
      */
     public List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces() {
-        return this.networkInterfaces;
+        return this.networkInterfaces == null ? List.of() : this.networkInterfaces;
     }
     /**
      * @return The DNS address of the VPC endpoint.
      * 
      */
-    public String vpcEndpointId() {
-        return this.vpcEndpointId;
+    public Optional<String> vpcEndpointId() {
+        return Optional.ofNullable(this.vpcEndpointId);
     }
     /**
      * @return The port that Amazon Redshift Serverless listens on.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetWorkgroupEndpointVpcEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces;
-        private String vpcEndpointId;
-        private String vpcId;
+        private @Nullable List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces;
+        private @Nullable String vpcEndpointId;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetWorkgroupEndpointVpcEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetWorkgroupEndpointVpcEndpoint {
         }
 
         @CustomType.Setter
-        public Builder networkInterfaces(List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces) {
-            this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
+        public Builder networkInterfaces(@Nullable List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces) {
+            this.networkInterfaces = networkInterfaces;
             return this;
         }
         public Builder networkInterfaces(GetWorkgroupEndpointVpcEndpointNetworkInterface... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
         @CustomType.Setter
-        public Builder vpcEndpointId(String vpcEndpointId) {
-            this.vpcEndpointId = Objects.requireNonNull(vpcEndpointId);
+        public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
+            this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetWorkgroupEndpointVpcEndpoint build() {

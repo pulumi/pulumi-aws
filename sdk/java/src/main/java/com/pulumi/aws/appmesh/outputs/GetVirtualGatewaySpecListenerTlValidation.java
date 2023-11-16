@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidationT
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTlValidation {
-    private List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames;
-    private List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts;
+    private @Nullable List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames;
+    private @Nullable List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts;
 
     private GetVirtualGatewaySpecListenerTlValidation() {}
     public List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames() {
-        return this.subjectAlternativeNames;
+        return this.subjectAlternativeNames == null ? List.of() : this.subjectAlternativeNames;
     }
     public List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts() {
-        return this.trusts;
+        return this.trusts == null ? List.of() : this.trusts;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualGatewaySpecListenerTlValidation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames;
-        private List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts;
+        private @Nullable List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames;
+        private @Nullable List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecListenerTlValidation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualGatewaySpecListenerTlValidation {
         }
 
         @CustomType.Setter
-        public Builder subjectAlternativeNames(List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+        public Builder subjectAlternativeNames(@Nullable List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames) {
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
         @CustomType.Setter
-        public Builder trusts(List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts) {
-            this.trusts = Objects.requireNonNull(trusts);
+        public Builder trusts(@Nullable List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts) {
+            this.trusts = trusts;
             return this;
         }
         public Builder trusts(GetVirtualGatewaySpecListenerTlValidationTrust... trusts) {

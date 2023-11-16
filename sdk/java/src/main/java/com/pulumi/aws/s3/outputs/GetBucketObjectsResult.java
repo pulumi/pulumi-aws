@@ -25,7 +25,7 @@ public final class GetBucketObjectsResult {
      * @return List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` &#34;directory&#34;); the list is only returned when you specify `delimiter`
      * 
      */
-    private List<String> commonPrefixes;
+    private @Nullable List<String> commonPrefixes;
     private @Nullable String delimiter;
     private @Nullable String encodingType;
     private @Nullable Boolean fetchOwner;
@@ -33,18 +33,18 @@ public final class GetBucketObjectsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of strings representing object keys
      * 
      */
-    private List<String> keys;
+    private @Nullable List<String> keys;
     private @Nullable Integer maxKeys;
     /**
      * @return List of strings representing object owner IDs (see `fetch_owner` above)
      * 
      */
-    private List<String> owners;
+    private @Nullable List<String> owners;
     private @Nullable String prefix;
     private @Nullable String startAfter;
 
@@ -63,7 +63,7 @@ public final class GetBucketObjectsResult {
      * 
      */
     public List<String> commonPrefixes() {
-        return this.commonPrefixes;
+        return this.commonPrefixes == null ? List.of() : this.commonPrefixes;
     }
     public Optional<String> delimiter() {
         return Optional.ofNullable(this.delimiter);
@@ -78,15 +78,15 @@ public final class GetBucketObjectsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of strings representing object keys
      * 
      */
     public List<String> keys() {
-        return this.keys;
+        return this.keys == null ? List.of() : this.keys;
     }
     public Optional<Integer> maxKeys() {
         return Optional.ofNullable(this.maxKeys);
@@ -96,7 +96,7 @@ public final class GetBucketObjectsResult {
      * 
      */
     public List<String> owners() {
-        return this.owners;
+        return this.owners == null ? List.of() : this.owners;
     }
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
@@ -115,14 +115,14 @@ public final class GetBucketObjectsResult {
     @CustomType.Builder
     public static final class Builder {
         private String bucket;
-        private List<String> commonPrefixes;
+        private @Nullable List<String> commonPrefixes;
         private @Nullable String delimiter;
         private @Nullable String encodingType;
         private @Nullable Boolean fetchOwner;
-        private String id;
-        private List<String> keys;
+        private @Nullable String id;
+        private @Nullable List<String> keys;
         private @Nullable Integer maxKeys;
-        private List<String> owners;
+        private @Nullable List<String> owners;
         private @Nullable String prefix;
         private @Nullable String startAfter;
         public Builder() {}
@@ -147,8 +147,8 @@ public final class GetBucketObjectsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder commonPrefixes(List<String> commonPrefixes) {
-            this.commonPrefixes = Objects.requireNonNull(commonPrefixes);
+        public Builder commonPrefixes(@Nullable List<String> commonPrefixes) {
+            this.commonPrefixes = commonPrefixes;
             return this;
         }
         public Builder commonPrefixes(String... commonPrefixes) {
@@ -170,13 +170,13 @@ public final class GetBucketObjectsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder keys(List<String> keys) {
-            this.keys = Objects.requireNonNull(keys);
+        public Builder keys(@Nullable List<String> keys) {
+            this.keys = keys;
             return this;
         }
         public Builder keys(String... keys) {
@@ -188,8 +188,8 @@ public final class GetBucketObjectsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder owners(List<String> owners) {
-            this.owners = Objects.requireNonNull(owners);
+        public Builder owners(@Nullable List<String> owners) {
+            this.owners = owners;
             return this;
         }
         public Builder owners(String... owners) {

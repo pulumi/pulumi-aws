@@ -68,14 +68,14 @@ public class Space extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The space&#39;s Amazon Resource Name (ARN).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ID of the associated Domain.
@@ -96,14 +96,14 @@ public class Space extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="homeEfsFileSystemUid", refs={String.class}, tree="[0]")
-    private Output<String> homeEfsFileSystemUid;
+    private Output</* @Nullable */ String> homeEfsFileSystemUid;
 
     /**
      * @return The ID of the space&#39;s profile in the Amazon Elastic File System volume.
      * 
      */
-    public Output<String> homeEfsFileSystemUid() {
-        return this.homeEfsFileSystemUid;
+    public Output<Optional<String>> homeEfsFileSystemUid() {
+        return Codegen.optional(this.homeEfsFileSystemUid);
     }
     /**
      * The name of the space.

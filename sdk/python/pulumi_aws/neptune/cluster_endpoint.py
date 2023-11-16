@@ -443,7 +443,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Neptune Cluster Endpoint Amazon Resource Name (ARN).
         """
@@ -467,7 +467,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS address of the endpoint.
         """

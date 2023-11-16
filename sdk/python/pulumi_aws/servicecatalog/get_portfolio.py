@@ -54,7 +54,7 @@ class GetPortfolioResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Portfolio ARN.
         """
@@ -62,7 +62,7 @@ class GetPortfolioResult:
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> Optional[str]:
         """
         Time the portfolio was created.
         """
@@ -70,7 +70,7 @@ class GetPortfolioResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the portfolio
         """
@@ -83,7 +83,7 @@ class GetPortfolioResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Portfolio name.
         """
@@ -91,7 +91,7 @@ class GetPortfolioResult:
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> str:
+    def provider_name(self) -> Optional[str]:
         """
         Name of the person or organization who owns the portfolio.
         """
@@ -99,7 +99,7 @@ class GetPortfolioResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags applied to the portfolio.
         """

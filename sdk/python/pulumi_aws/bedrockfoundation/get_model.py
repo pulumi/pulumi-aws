@@ -55,7 +55,7 @@ class GetModelResult:
 
     @property
     @pulumi.getter(name="customizationsSupporteds")
-    def customizations_supporteds(self) -> Sequence[str]:
+    def customizations_supporteds(self) -> Optional[Sequence[str]]:
         """
         Customizations that the model supports.
         """
@@ -63,12 +63,12 @@ class GetModelResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="inferenceTypesSupporteds")
-    def inference_types_supporteds(self) -> Sequence[str]:
+    def inference_types_supporteds(self) -> Optional[Sequence[str]]:
         """
         Inference types that the model supports.
         """
@@ -76,7 +76,7 @@ class GetModelResult:
 
     @property
     @pulumi.getter(name="inputModalities")
-    def input_modalities(self) -> Sequence[str]:
+    def input_modalities(self) -> Optional[Sequence[str]]:
         """
         Input modalities that the model supports.
         """
@@ -84,7 +84,7 @@ class GetModelResult:
 
     @property
     @pulumi.getter(name="modelArn")
-    def model_arn(self) -> str:
+    def model_arn(self) -> Optional[str]:
         """
         Model ARN.
         """
@@ -97,7 +97,7 @@ class GetModelResult:
 
     @property
     @pulumi.getter(name="modelName")
-    def model_name(self) -> str:
+    def model_name(self) -> Optional[str]:
         """
         Model name.
         """
@@ -105,7 +105,7 @@ class GetModelResult:
 
     @property
     @pulumi.getter(name="outputModalities")
-    def output_modalities(self) -> Sequence[str]:
+    def output_modalities(self) -> Optional[Sequence[str]]:
         """
         Output modalities that the model supports.
         """
@@ -113,7 +113,7 @@ class GetModelResult:
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> str:
+    def provider_name(self) -> Optional[str]:
         """
         Model provider name.
         """
@@ -121,7 +121,7 @@ class GetModelResult:
 
     @property
     @pulumi.getter(name="responseStreamingSupported")
-    def response_streaming_supported(self) -> bool:
+    def response_streaming_supported(self) -> Optional[bool]:
         """
         Indicates whether the model supports streaming.
         """

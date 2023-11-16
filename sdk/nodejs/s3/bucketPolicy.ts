@@ -17,7 +17,7 @@ import {PolicyDocument} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketV2("example", {});
- * const allowAccessFromAnotherAccountPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const allowAccessFromAnotherAccountPolicyDocument = pulumi.all([example.arn, example.arn]).apply(([exampleArn, exampleArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         principals: [{
  *             type: "AWS",
@@ -28,11 +28,11 @@ import {PolicyDocument} from "../iam";
  *             "s3:ListBucket",
  *         ],
  *         resources: [
- *             example.arn,
- *             pulumi.interpolate`${example.arn}/*`,
+ *             exampleArn,
+ *             `${exampleArn1}/*`,
  *         ],
  *     }],
- * });
+ * }));
  * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", {
  *     bucket: example.id,
  *     policy: allowAccessFromAnotherAccountPolicyDocument.apply(allowAccessFromAnotherAccountPolicyDocument => allowAccessFromAnotherAccountPolicyDocument.json),

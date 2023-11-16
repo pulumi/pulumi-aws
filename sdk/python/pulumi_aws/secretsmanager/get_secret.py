@@ -46,7 +46,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the secret.
         """
@@ -54,7 +54,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the secret.
         """
@@ -62,7 +62,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -70,7 +70,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         """
@@ -78,12 +78,12 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> Optional[str]:
         """
         Resource-based policy document that's attached to the secret.
         """
@@ -91,7 +91,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags of the secret.
         """

@@ -122,73 +122,73 @@ export interface GetSubnetResult {
     /**
      * ARN of the subnet.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Whether an IPv6 address is assigned on creation.
      */
-    readonly assignIpv6AddressOnCreation: boolean;
-    readonly availabilityZone: string;
-    readonly availabilityZoneId: string;
+    readonly assignIpv6AddressOnCreation?: boolean;
+    readonly availabilityZone?: string;
+    readonly availabilityZoneId?: string;
     /**
      * Available IP addresses of the subnet.
      */
-    readonly availableIpAddressCount: number;
-    readonly cidrBlock: string;
+    readonly availableIpAddressCount?: number;
+    readonly cidrBlock?: string;
     /**
      * Identifier of customer owned IPv4 address pool.
      */
-    readonly customerOwnedIpv4Pool: string;
-    readonly defaultForAz: boolean;
+    readonly customerOwnedIpv4Pool?: string;
+    readonly defaultForAz?: boolean;
     /**
      * Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
      */
-    readonly enableDns64: boolean;
+    readonly enableDns64?: boolean;
     /**
      * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
      */
-    readonly enableLniAtDeviceIndex: number;
+    readonly enableLniAtDeviceIndex?: number;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
      */
-    readonly enableResourceNameDnsARecordOnLaunch: boolean;
+    readonly enableResourceNameDnsARecordOnLaunch?: boolean;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
      */
-    readonly enableResourceNameDnsAaaaRecordOnLaunch: boolean;
+    readonly enableResourceNameDnsAaaaRecordOnLaunch?: boolean;
     readonly filters?: outputs.ec2.GetSubnetFilter[];
-    readonly id: string;
-    readonly ipv6CidrBlock: string;
+    readonly id?: string;
+    readonly ipv6CidrBlock?: string;
     /**
      * Association ID of the IPv6 CIDR block.
      */
-    readonly ipv6CidrBlockAssociationId: string;
+    readonly ipv6CidrBlockAssociationId?: string;
     /**
      * Whether this is an IPv6-only subnet.
      */
-    readonly ipv6Native: boolean;
+    readonly ipv6Native?: boolean;
     /**
      * Whether customer owned IP addresses are assigned on network interface creation.
      */
-    readonly mapCustomerOwnedIpOnLaunch: boolean;
+    readonly mapCustomerOwnedIpOnLaunch?: boolean;
     /**
      * Whether public IP addresses are assigned on instance launch.
      */
-    readonly mapPublicIpOnLaunch: boolean;
+    readonly mapPublicIpOnLaunch?: boolean;
     /**
      * ARN of the Outpost.
      */
-    readonly outpostArn: string;
+    readonly outpostArn?: string;
     /**
      * ID of the AWS account that owns the subnet.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * The type of hostnames assigned to instances in the subnet at launch.
      */
-    readonly privateDnsHostnameTypeOnLaunch: string;
-    readonly state: string;
-    readonly tags: {[key: string]: string};
-    readonly vpcId: string;
+    readonly privateDnsHostnameTypeOnLaunch?: string;
+    readonly state?: string;
+    readonly tags?: {[key: string]: string};
+    readonly vpcId?: string;
 }
 /**
  * `aws.ec2.Subnet` provides details about a specific VPC subnet.

@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the traffic mirror filter.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the filter.

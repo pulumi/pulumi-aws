@@ -63,12 +63,12 @@ export interface GetEndpointResult {
      * * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
      * * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
      */
-    readonly endpointAddress: string;
+    readonly endpointAddress?: string;
     readonly endpointType?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Returns a unique endpoint specific to the AWS account making the call.

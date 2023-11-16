@@ -72,7 +72,7 @@ export class ServiceAction extends pulumi.CustomResource {
     /**
      * Self-service action description.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Self-service action name.
      *

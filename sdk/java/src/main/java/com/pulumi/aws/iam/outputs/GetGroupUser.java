@@ -6,6 +6,8 @@ package com.pulumi.aws.iam.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupUser {
@@ -13,51 +15,51 @@ public final class GetGroupUser {
      * @return User ARN.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Path to the IAM user.
      * 
      */
-    private String path;
+    private @Nullable String path;
     /**
      * @return Stable and unique string identifying the IAM user.
      * 
      */
-    private String userId;
+    private @Nullable String userId;
     /**
      * @return Name of the IAM user.
      * 
      */
-    private String userName;
+    private @Nullable String userName;
 
     private GetGroupUser() {}
     /**
      * @return User ARN.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Path to the IAM user.
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     /**
      * @return Stable and unique string identifying the IAM user.
      * 
      */
-    public String userId() {
-        return this.userId;
+    public Optional<String> userId() {
+        return Optional.ofNullable(this.userId);
     }
     /**
      * @return Name of the IAM user.
      * 
      */
-    public String userName() {
-        return this.userName;
+    public Optional<String> userName() {
+        return Optional.ofNullable(this.userName);
     }
 
     public static Builder builder() {
@@ -69,10 +71,10 @@ public final class GetGroupUser {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String path;
-        private String userId;
-        private String userName;
+        private @Nullable String arn;
+        private @Nullable String path;
+        private @Nullable String userId;
+        private @Nullable String userName;
         public Builder() {}
         public Builder(GetGroupUser defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,23 +85,23 @@ public final class GetGroupUser {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
-        public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+        public Builder userId(@Nullable String userId) {
+            this.userId = userId;
             return this;
         }
         @CustomType.Setter
-        public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+        public Builder userName(@Nullable String userName) {
+            this.userName = userName;
             return this;
         }
         public GetGroupUser build() {

@@ -1380,7 +1380,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accelerationStatus")
-    def acceleration_status(self) -> pulumi.Output[str]:
+    def acceleration_status(self) -> pulumi.Output[Optional[str]]:
         """
         Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketAccelerateConfigurationV2` instead.
@@ -1392,7 +1392,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def acl(self) -> pulumi.Output[str]:
+    def acl(self) -> pulumi.Output[Optional[str]]:
         """
         The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
         """
@@ -1403,7 +1403,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         """
@@ -1419,7 +1419,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketDomainName")
-    def bucket_domain_name(self) -> pulumi.Output[str]:
+    def bucket_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         """
@@ -1427,7 +1427,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> pulumi.Output[str]:
+    def bucket_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         """
@@ -1435,7 +1435,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketRegionalDomainName")
-    def bucket_regional_domain_name(self) -> pulumi.Output[str]:
+    def bucket_regional_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         """
@@ -1443,7 +1443,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> pulumi.Output[Sequence['outputs.BucketV2CorsRule']]:
+    def cors_rules(self) -> pulumi.Output[Optional[Sequence['outputs.BucketV2CorsRule']]]:
         """
         Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
         """
@@ -1462,7 +1462,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def grants(self) -> pulumi.Output[Sequence['outputs.BucketV2Grant']]:
+    def grants(self) -> pulumi.Output[Optional[Sequence['outputs.BucketV2Grant']]]:
         """
         An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
         """
@@ -1473,7 +1473,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> pulumi.Output[str]:
+    def hosted_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         """
@@ -1481,7 +1481,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lifecycleRules")
-    def lifecycle_rules(self) -> pulumi.Output[Sequence['outputs.BucketV2LifecycleRule']]:
+    def lifecycle_rules(self) -> pulumi.Output[Optional[Sequence['outputs.BucketV2LifecycleRule']]]:
         """
         Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketLifecycleConfigurationV2` instead.
@@ -1493,7 +1493,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def loggings(self) -> pulumi.Output[Sequence['outputs.BucketV2Logging']]:
+    def loggings(self) -> pulumi.Output[Optional[Sequence['outputs.BucketV2Logging']]]:
         """
         Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketLoggingV2` instead.
@@ -1505,7 +1505,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLockConfiguration")
-    def object_lock_configuration(self) -> pulumi.Output['outputs.BucketV2ObjectLockConfiguration']:
+    def object_lock_configuration(self) -> pulumi.Output[Optional['outputs.BucketV2ObjectLockConfiguration']]:
         """
         Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
         The provider wil only perform drift detection if a configuration value is provided.
@@ -1518,7 +1518,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLockEnabled")
-    def object_lock_enabled(self) -> pulumi.Output[bool]:
+    def object_lock_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         """
@@ -1526,7 +1526,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         The provider will only perform drift detection if a configuration value is provided.
@@ -1539,7 +1539,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[str]:
+    def region(self) -> pulumi.Output[Optional[str]]:
         """
         AWS region this bucket resides in.
         """
@@ -1547,7 +1547,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationConfigurations")
-    def replication_configurations(self) -> pulumi.Output[Sequence['outputs.BucketV2ReplicationConfiguration']]:
+    def replication_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketV2ReplicationConfiguration']]]:
         """
         Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketReplicationConfig` instead.
@@ -1559,7 +1559,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestPayer")
-    def request_payer(self) -> pulumi.Output[str]:
+    def request_payer(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies who should bear the cost of Amazon S3 data transfer.
         Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
@@ -1574,7 +1574,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfigurations")
-    def server_side_encryption_configurations(self) -> pulumi.Output[Sequence['outputs.BucketV2ServerSideEncryptionConfiguration']]:
+    def server_side_encryption_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketV2ServerSideEncryptionConfiguration']]]:
         """
         Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
         The provider will only perform drift detection if a configuration value is provided.
@@ -1608,7 +1608,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def versionings(self) -> pulumi.Output[Sequence['outputs.BucketV2Versioning']]:
+    def versionings(self) -> pulumi.Output[Optional[Sequence['outputs.BucketV2Versioning']]]:
         """
         Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         """
@@ -1619,7 +1619,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteDomain")
-    def website_domain(self) -> pulumi.Output[str]:
+    def website_domain(self) -> pulumi.Output[Optional[str]]:
         """
         (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
@@ -1630,7 +1630,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteEndpoint")
-    def website_endpoint(self) -> pulumi.Output[str]:
+    def website_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
@@ -1641,7 +1641,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def websites(self) -> pulumi.Output[Sequence['outputs.BucketV2Website']]:
+    def websites(self) -> pulumi.Output[Optional[Sequence['outputs.BucketV2Website']]]:
         """
         Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketWebsiteConfigurationV2` instead.

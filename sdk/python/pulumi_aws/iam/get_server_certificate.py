@@ -58,7 +58,7 @@ class GetServerCertificateResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         is set to the ARN of the IAM Server Certificate
         """
@@ -66,7 +66,7 @@ class GetServerCertificateResult:
 
     @property
     @pulumi.getter(name="certificateBody")
-    def certificate_body(self) -> str:
+    def certificate_body(self) -> Optional[str]:
         """
         is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer
         """
@@ -74,7 +74,7 @@ class GetServerCertificateResult:
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         """
         is the public key certificate chain (PEM-encoded) if exists, empty otherwise
         """
@@ -82,7 +82,7 @@ class GetServerCertificateResult:
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> str:
+    def expiration_date(self) -> Optional[str]:
         """
         is set to the expiration date of the IAM Server Certificate
         """
@@ -90,7 +90,7 @@ class GetServerCertificateResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -103,7 +103,7 @@ class GetServerCertificateResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
@@ -113,7 +113,7 @@ class GetServerCertificateResult:
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
         is set to the path of the IAM Server Certificate
         """
@@ -126,7 +126,7 @@ class GetServerCertificateResult:
 
     @property
     @pulumi.getter(name="uploadDate")
-    def upload_date(self) -> str:
+    def upload_date(self) -> Optional[str]:
         """
         is the date when the server certificate was uploaded
         """

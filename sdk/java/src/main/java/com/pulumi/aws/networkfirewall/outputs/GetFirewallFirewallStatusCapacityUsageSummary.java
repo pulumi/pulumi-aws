@@ -7,6 +7,7 @@ import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusCapacityU
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallFirewallStatusCapacityUsageSummary {
@@ -14,7 +15,7 @@ public final class GetFirewallFirewallStatusCapacityUsageSummary {
      * @return Capacity usage of CIDR blocks used by IP set references in a firewall.
      * 
      */
-    private List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs;
+    private @Nullable List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs;
 
     private GetFirewallFirewallStatusCapacityUsageSummary() {}
     /**
@@ -22,7 +23,7 @@ public final class GetFirewallFirewallStatusCapacityUsageSummary {
      * 
      */
     public List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs() {
-        return this.cidrs;
+        return this.cidrs == null ? List.of() : this.cidrs;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetFirewallFirewallStatusCapacityUsageSummary {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs;
+        private @Nullable List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs;
         public Builder() {}
         public Builder(GetFirewallFirewallStatusCapacityUsageSummary defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetFirewallFirewallStatusCapacityUsageSummary {
         }
 
         @CustomType.Setter
-        public Builder cidrs(List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs) {
-            this.cidrs = Objects.requireNonNull(cidrs);
+        public Builder cidrs(@Nullable List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs) {
+            this.cidrs = cidrs;
             return this;
         }
         public Builder cidrs(GetFirewallFirewallStatusCapacityUsageSummaryCidr... cidrs) {

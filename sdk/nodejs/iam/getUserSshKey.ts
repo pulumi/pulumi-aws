@@ -56,20 +56,20 @@ export interface GetUserSshKeyResult {
     /**
      * MD5 message digest of the SSH public key.
      */
-    readonly fingerprint: string;
+    readonly fingerprint?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * SSH public key.
      */
-    readonly publicKey: string;
+    readonly publicKey?: string;
     readonly sshPublicKeyId: string;
     /**
      * Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
      */
-    readonly status: string;
+    readonly status?: string;
     readonly username: string;
 }
 /**

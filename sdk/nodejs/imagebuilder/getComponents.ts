@@ -56,16 +56,16 @@ export interface GetComponentsResult {
     /**
      * Set of ARNs of the matched Image Builder Components.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     readonly filters?: outputs.imagebuilder.GetComponentsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of names of the matched Image Builder Components.
      */
-    readonly names: string[];
+    readonly names?: string[];
     readonly owner?: string;
 }
 /**

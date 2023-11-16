@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessPointRootDirectoryCreationInfo {
@@ -14,39 +16,39 @@ public final class GetAccessPointRootDirectoryCreationInfo {
      * @return POSIX owner group ID
      * 
      */
-    private Integer ownerGid;
+    private @Nullable Integer ownerGid;
     /**
      * @return POSIX owner user ID
      * 
      */
-    private Integer ownerUid;
+    private @Nullable Integer ownerUid;
     /**
      * @return POSIX permissions mode
      * 
      */
-    private String permissions;
+    private @Nullable String permissions;
 
     private GetAccessPointRootDirectoryCreationInfo() {}
     /**
      * @return POSIX owner group ID
      * 
      */
-    public Integer ownerGid() {
-        return this.ownerGid;
+    public Optional<Integer> ownerGid() {
+        return Optional.ofNullable(this.ownerGid);
     }
     /**
      * @return POSIX owner user ID
      * 
      */
-    public Integer ownerUid() {
-        return this.ownerUid;
+    public Optional<Integer> ownerUid() {
+        return Optional.ofNullable(this.ownerUid);
     }
     /**
      * @return POSIX permissions mode
      * 
      */
-    public String permissions() {
-        return this.permissions;
+    public Optional<String> permissions() {
+        return Optional.ofNullable(this.permissions);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetAccessPointRootDirectoryCreationInfo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer ownerGid;
-        private Integer ownerUid;
-        private String permissions;
+        private @Nullable Integer ownerGid;
+        private @Nullable Integer ownerUid;
+        private @Nullable String permissions;
         public Builder() {}
         public Builder(GetAccessPointRootDirectoryCreationInfo defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetAccessPointRootDirectoryCreationInfo {
         }
 
         @CustomType.Setter
-        public Builder ownerGid(Integer ownerGid) {
-            this.ownerGid = Objects.requireNonNull(ownerGid);
+        public Builder ownerGid(@Nullable Integer ownerGid) {
+            this.ownerGid = ownerGid;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerUid(Integer ownerUid) {
-            this.ownerUid = Objects.requireNonNull(ownerUid);
+        public Builder ownerUid(@Nullable Integer ownerUid) {
+            this.ownerUid = ownerUid;
             return this;
         }
         @CustomType.Setter
-        public Builder permissions(String permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+        public Builder permissions(@Nullable String permissions) {
+            this.permissions = permissions;
             return this;
         }
         public GetAccessPointRootDirectoryCreationInfo build() {

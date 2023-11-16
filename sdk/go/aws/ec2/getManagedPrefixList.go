@@ -104,23 +104,23 @@ type LookupManagedPrefixListArgs struct {
 // A collection of values returned by getManagedPrefixList.
 type LookupManagedPrefixListResult struct {
 	// Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
-	AddressFamily string `pulumi:"addressFamily"`
+	AddressFamily *string `pulumi:"addressFamily"`
 	// ARN of the selected prefix list.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
 	Entries []GetManagedPrefixListEntryType `pulumi:"entries"`
 	Filters []GetManagedPrefixListFilter    `pulumi:"filters"`
 	// ID of the selected prefix list.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
-	MaxEntries int `pulumi:"maxEntries"`
+	MaxEntries *int `pulumi:"maxEntries"`
 	// Name of the selected prefix list.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
-	OwnerId string `pulumi:"ownerId"`
+	OwnerId *string `pulumi:"ownerId"`
 	// Map of tags assigned to the resource.
 	Tags    map[string]string `pulumi:"tags"`
-	Version int               `pulumi:"version"`
+	Version *int              `pulumi:"version"`
 }
 
 func LookupManagedPrefixListOutput(ctx *pulumi.Context, args LookupManagedPrefixListOutputArgs, opts ...pulumi.InvokeOption) LookupManagedPrefixListResultOutput {
@@ -168,13 +168,13 @@ func (o LookupManagedPrefixListResultOutput) ToLookupManagedPrefixListResultOutp
 }
 
 // Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
-func (o LookupManagedPrefixListResultOutput) AddressFamily() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupManagedPrefixListResult) string { return v.AddressFamily }).(pulumi.StringOutput)
+func (o LookupManagedPrefixListResultOutput) AddressFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the selected prefix list.
-func (o LookupManagedPrefixListResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupManagedPrefixListResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupManagedPrefixListResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
@@ -187,23 +187,23 @@ func (o LookupManagedPrefixListResultOutput) Filters() GetManagedPrefixListFilte
 }
 
 // ID of the selected prefix list.
-func (o LookupManagedPrefixListResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupManagedPrefixListResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupManagedPrefixListResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
-func (o LookupManagedPrefixListResultOutput) MaxEntries() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupManagedPrefixListResult) int { return v.MaxEntries }).(pulumi.IntOutput)
+func (o LookupManagedPrefixListResultOutput) MaxEntries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) *int { return v.MaxEntries }).(pulumi.IntPtrOutput)
 }
 
 // Name of the selected prefix list.
-func (o LookupManagedPrefixListResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupManagedPrefixListResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupManagedPrefixListResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
-func (o LookupManagedPrefixListResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupManagedPrefixListResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupManagedPrefixListResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the resource.
@@ -211,8 +211,8 @@ func (o LookupManagedPrefixListResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupManagedPrefixListResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupManagedPrefixListResultOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupManagedPrefixListResult) int { return v.Version }).(pulumi.IntOutput)
+func (o LookupManagedPrefixListResultOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) *int { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 func init() {

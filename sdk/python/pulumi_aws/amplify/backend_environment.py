@@ -328,7 +328,7 @@ class BackendEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for a backend environment that is part of an Amplify app.
         """
@@ -336,7 +336,7 @@ class BackendEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentArtifacts")
-    def deployment_artifacts(self) -> pulumi.Output[str]:
+    def deployment_artifacts(self) -> pulumi.Output[Optional[str]]:
         """
         Name of deployment artifacts.
         """
@@ -352,7 +352,7 @@ class BackendEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackName")
-    def stack_name(self) -> pulumi.Output[str]:
+    def stack_name(self) -> pulumi.Output[Optional[str]]:
         """
         AWS CloudFormation stack name of a backend environment.
         """

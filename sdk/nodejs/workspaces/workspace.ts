@@ -84,7 +84,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The name of the WorkSpace, as seen by the operating system.
      */
-    public /*out*/ readonly computerName!: pulumi.Output<string>;
+    public /*out*/ readonly computerName!: pulumi.Output<string | undefined>;
     /**
      * The ID of the directory for the WorkSpace.
      */
@@ -92,7 +92,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The IP address of the WorkSpace.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      */
@@ -100,7 +100,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The operational state of the WorkSpace.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -126,7 +126,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The WorkSpace properties.
      */
-    public readonly workspaceProperties!: pulumi.Output<outputs.workspaces.WorkspaceWorkspaceProperties>;
+    public readonly workspaceProperties!: pulumi.Output<outputs.workspaces.WorkspaceWorkspaceProperties | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.

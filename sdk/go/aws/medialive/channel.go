@@ -132,13 +132,13 @@ type Channel struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Channel.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
 	CdiInputSpecification ChannelCdiInputSpecificationPtrOutput `pulumi:"cdiInputSpecification"`
 	// Concise argument description.
 	ChannelClass pulumi.StringOutput `pulumi:"channelClass"`
 	// ID of the channel in MediaPackage that is the destination for this output group.
-	ChannelId pulumi.StringOutput `pulumi:"channelId"`
+	ChannelId pulumi.StringPtrOutput `pulumi:"channelId"`
 	// Destinations for channel. See Destinations for more details.
 	Destinations ChannelDestinationArrayOutput `pulumi:"destinations"`
 	// Encoder settings. See Encoder Settings for more details.
@@ -148,9 +148,9 @@ type Channel struct {
 	// Specification of network and file inputs for the channel.
 	InputSpecification ChannelInputSpecificationOutput `pulumi:"inputSpecification"`
 	// The log level to write to Cloudwatch logs.
-	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
+	LogLevel pulumi.StringPtrOutput `pulumi:"logLevel"`
 	// Maintenance settings for this channel. See Maintenance for more details.
-	Maintenance ChannelMaintenanceOutput `pulumi:"maintenance"`
+	Maintenance ChannelMaintenancePtrOutput `pulumi:"maintenance"`
 	// Name of the Channel.
 	//
 	// The following arguments are optional:
@@ -444,8 +444,8 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 }
 
 // ARN of the Channel.
-func (o ChannelOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ChannelOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specification of CDI inputs for this channel. See CDI Input Specification for more details.
@@ -459,8 +459,8 @@ func (o ChannelOutput) ChannelClass() pulumi.StringOutput {
 }
 
 // ID of the channel in MediaPackage that is the destination for this output group.
-func (o ChannelOutput) ChannelId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
+func (o ChannelOutput) ChannelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ChannelId }).(pulumi.StringPtrOutput)
 }
 
 // Destinations for channel. See Destinations for more details.
@@ -484,13 +484,13 @@ func (o ChannelOutput) InputSpecification() ChannelInputSpecificationOutput {
 }
 
 // The log level to write to Cloudwatch logs.
-func (o ChannelOutput) LogLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.LogLevel }).(pulumi.StringOutput)
+func (o ChannelOutput) LogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
 
 // Maintenance settings for this channel. See Maintenance for more details.
-func (o ChannelOutput) Maintenance() ChannelMaintenanceOutput {
-	return o.ApplyT(func(v *Channel) ChannelMaintenanceOutput { return v.Maintenance }).(ChannelMaintenanceOutput)
+func (o ChannelOutput) Maintenance() ChannelMaintenancePtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelMaintenancePtrOutput { return v.Maintenance }).(ChannelMaintenancePtrOutput)
 }
 
 // Name of the Channel.

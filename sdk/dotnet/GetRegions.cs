@@ -234,7 +234,7 @@ namespace Pulumi.Aws
         /// <summary>
         /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Names of regions that meets the criteria.
         /// </summary>
@@ -246,7 +246,7 @@ namespace Pulumi.Aws
 
             ImmutableArray<Outputs.GetRegionsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> names)
         {

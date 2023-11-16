@@ -376,7 +376,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version="5.6.mysql_aurora.1.22.2",
             database_name="example_db")
         primary_cluster = aws.rds.Cluster("primaryCluster",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             cluster_identifier="test-primary-cluster",
             master_username="username",
@@ -394,7 +394,7 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
         secondary_cluster = aws.rds.Cluster("secondaryCluster",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
@@ -424,7 +424,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version="11.9",
             database_name="example_db")
         primary_cluster = aws.rds.Cluster("primaryCluster",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             cluster_identifier="test-primary-cluster",
             master_username="username",
@@ -442,7 +442,7 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
         secondary_cluster = aws.rds.Cluster("secondaryCluster",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
@@ -489,7 +489,7 @@ class GlobalCluster(pulumi.CustomResource):
             apply_immediately=True,
             cluster_identifier="odessadnipro",
             database_name="totoro",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             global_cluster_identifier=example.id,
             master_password="satsukimae",
@@ -550,7 +550,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version="5.6.mysql_aurora.1.22.2",
             database_name="example_db")
         primary_cluster = aws.rds.Cluster("primaryCluster",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             cluster_identifier="test-primary-cluster",
             master_username="username",
@@ -568,7 +568,7 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
         secondary_cluster = aws.rds.Cluster("secondaryCluster",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
@@ -598,7 +598,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version="11.9",
             database_name="example_db")
         primary_cluster = aws.rds.Cluster("primaryCluster",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             cluster_identifier="test-primary-cluster",
             master_username="username",
@@ -616,7 +616,7 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
         secondary_cluster = aws.rds.Cluster("secondaryCluster",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
@@ -663,7 +663,7 @@ class GlobalCluster(pulumi.CustomResource):
             apply_immediately=True,
             cluster_identifier="odessadnipro",
             database_name="totoro",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example.engine_version,
             global_cluster_identifier=example.id,
             master_password="satsukimae",
@@ -796,7 +796,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         RDS Global Cluster Amazon Resource Name (ARN)
         """
@@ -820,7 +820,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[str]:
+    def engine(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
         """
@@ -828,7 +828,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         """
@@ -836,7 +836,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersionActual")
-    def engine_version_actual(self) -> pulumi.Output[str]:
+    def engine_version_actual(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "engine_version_actual")
 
     @property
@@ -857,7 +857,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalClusterMembers")
-    def global_cluster_members(self) -> pulumi.Output[Sequence['outputs.GlobalClusterGlobalClusterMember']]:
+    def global_cluster_members(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalClusterGlobalClusterMember']]]:
         """
         Set of objects containing Global Cluster members.
         """
@@ -865,7 +865,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalClusterResourceId")
-    def global_cluster_resource_id(self) -> pulumi.Output[str]:
+    def global_cluster_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
         """
@@ -873,7 +873,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
-    def source_db_cluster_identifier(self) -> pulumi.Output[str]:
+    def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         """
@@ -881,7 +881,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> pulumi.Output[bool]:
+    def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """

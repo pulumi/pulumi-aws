@@ -150,17 +150,17 @@ type MLTransform struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of Glue ML Transform.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the ML Transform.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
+	GlueVersion pulumi.StringPtrOutput `pulumi:"glueVersion"`
 	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
 	InputRecordTables MLTransformInputRecordTableArrayOutput `pulumi:"inputRecordTables"`
 	// The number of labels available for this transform.
-	LabelCount pulumi.IntOutput `pulumi:"labelCount"`
+	LabelCount pulumi.IntPtrOutput `pulumi:"labelCount"`
 	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
-	MaxCapacity pulumi.Float64Output `pulumi:"maxCapacity"`
+	MaxCapacity pulumi.Float64PtrOutput `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this ML Transform if it fails.
 	MaxRetries pulumi.IntPtrOutput `pulumi:"maxRetries"`
 	// The name you assign to this ML Transform. It must be unique in your account.
@@ -448,8 +448,8 @@ func (o MLTransformOutput) ToMLTransformOutputWithContext(ctx context.Context) M
 }
 
 // Amazon Resource Name (ARN) of Glue ML Transform.
-func (o MLTransformOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MLTransformOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the ML Transform.
@@ -458,8 +458,8 @@ func (o MLTransformOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-func (o MLTransformOutput) GlueVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.GlueVersion }).(pulumi.StringOutput)
+func (o MLTransformOutput) GlueVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.GlueVersion }).(pulumi.StringPtrOutput)
 }
 
 // A list of AWS Glue table definitions used by the transform. see Input Record Tables.
@@ -468,13 +468,13 @@ func (o MLTransformOutput) InputRecordTables() MLTransformInputRecordTableArrayO
 }
 
 // The number of labels available for this transform.
-func (o MLTransformOutput) LabelCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *MLTransform) pulumi.IntOutput { return v.LabelCount }).(pulumi.IntOutput)
+func (o MLTransformOutput) LabelCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.LabelCount }).(pulumi.IntPtrOutput)
 }
 
 // The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
-func (o MLTransformOutput) MaxCapacity() pulumi.Float64Output {
-	return o.ApplyT(func(v *MLTransform) pulumi.Float64Output { return v.MaxCapacity }).(pulumi.Float64Output)
+func (o MLTransformOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.Float64PtrOutput { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // The maximum number of times to retry this ML Transform if it fails.

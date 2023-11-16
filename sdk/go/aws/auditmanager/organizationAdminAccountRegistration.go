@@ -56,7 +56,7 @@ type OrganizationAdminAccountRegistration struct {
 	// Identifier for the organization administrator account.
 	AdminAccountId pulumi.StringOutput `pulumi:"adminAccountId"`
 	// Identifier for the organization.
-	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
+	OrganizationId pulumi.StringPtrOutput `pulumi:"organizationId"`
 }
 
 // NewOrganizationAdminAccountRegistration registers a new resource with the given unique name, arguments, and options.
@@ -213,8 +213,8 @@ func (o OrganizationAdminAccountRegistrationOutput) AdminAccountId() pulumi.Stri
 }
 
 // Identifier for the organization.
-func (o OrganizationAdminAccountRegistrationOutput) OrganizationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OrganizationAdminAccountRegistration) pulumi.StringOutput { return v.OrganizationId }).(pulumi.StringOutput)
+func (o OrganizationAdminAccountRegistrationOutput) OrganizationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationAdminAccountRegistration) pulumi.StringPtrOutput { return v.OrganizationId }).(pulumi.StringPtrOutput)
 }
 
 type OrganizationAdminAccountRegistrationArrayOutput struct{ *pulumi.OutputState }

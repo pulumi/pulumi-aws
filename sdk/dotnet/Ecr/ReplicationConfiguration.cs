@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Ecr
         /// The account ID of the destination registry to replicate to.
         /// </summary>
         [Output("registryId")]
-        public Output<string> RegistryId { get; private set; } = null!;
+        public Output<string?> RegistryId { get; private set; } = null!;
 
         /// <summary>
         /// Replication configuration for a registry. See Replication Configuration.

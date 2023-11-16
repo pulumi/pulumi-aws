@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs {
@@ -18,120 +20,120 @@ public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs 
      * Indicates whether the quota is global.
      * 
      */
-    @Import(name="globalQuota", required=true)
-    private Boolean globalQuota;
+    @Import(name="globalQuota")
+    private @Nullable Boolean globalQuota;
 
     /**
      * @return Indicates whether the quota is global.
      * 
      */
-    public Boolean globalQuota() {
-        return this.globalQuota;
+    public Optional<Boolean> globalQuota() {
+        return Optional.ofNullable(this.globalQuota);
     }
 
     /**
      * Quota identifier.
      * 
      */
-    @Import(name="quotaCode", required=true)
-    private String quotaCode;
+    @Import(name="quotaCode")
+    private @Nullable String quotaCode;
 
     /**
      * @return Quota identifier.
      * 
      */
-    public String quotaCode() {
-        return this.quotaCode;
+    public Optional<String> quotaCode() {
+        return Optional.ofNullable(this.quotaCode);
     }
 
     /**
      * Quota name.
      * 
      */
-    @Import(name="quotaName", required=true)
-    private String quotaName;
+    @Import(name="quotaName")
+    private @Nullable String quotaName;
 
     /**
      * @return Quota name.
      * 
      */
-    public String quotaName() {
-        return this.quotaName;
+    public Optional<String> quotaName() {
+        return Optional.ofNullable(this.quotaName);
     }
 
     /**
      * AWS Region to which the quota increases apply.
      * 
      */
-    @Import(name="region", required=true)
-    private String region;
+    @Import(name="region")
+    private @Nullable String region;
 
     /**
      * @return AWS Region to which the quota increases apply.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
      * (Required) Service identifier.
      * 
      */
-    @Import(name="serviceCode", required=true)
-    private String serviceCode;
+    @Import(name="serviceCode")
+    private @Nullable String serviceCode;
 
     /**
      * @return (Required) Service identifier.
      * 
      */
-    public String serviceCode() {
-        return this.serviceCode;
+    public Optional<String> serviceCode() {
+        return Optional.ofNullable(this.serviceCode);
     }
 
     /**
      * Service name.
      * 
      */
-    @Import(name="serviceName", required=true)
-    private String serviceName;
+    @Import(name="serviceName")
+    private @Nullable String serviceName;
 
     /**
      * @return Service name.
      * 
      */
-    public String serviceName() {
-        return this.serviceName;
+    public Optional<String> serviceName() {
+        return Optional.ofNullable(this.serviceName);
     }
 
     /**
      * Unit of measurement.
      * 
      */
-    @Import(name="unit", required=true)
-    private String unit;
+    @Import(name="unit")
+    private @Nullable String unit;
 
     /**
      * @return Unit of measurement.
      * 
      */
-    public String unit() {
-        return this.unit;
+    public Optional<String> unit() {
+        return Optional.ofNullable(this.unit);
     }
 
     /**
      * (Required) The new, increased value for the quota.
      * 
      */
-    @Import(name="value", required=true)
-    private Double value;
+    @Import(name="value")
+    private @Nullable Double value;
 
     /**
      * @return (Required) The new, increased value for the quota.
      * 
      */
-    public Double value() {
-        return this.value;
+    public Optional<Double> value() {
+        return Optional.ofNullable(this.value);
     }
 
     private GetTemplatesTemplate() {}
@@ -171,7 +173,7 @@ public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder globalQuota(Boolean globalQuota) {
+        public Builder globalQuota(@Nullable Boolean globalQuota) {
             $.globalQuota = globalQuota;
             return this;
         }
@@ -182,7 +184,7 @@ public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder quotaCode(String quotaCode) {
+        public Builder quotaCode(@Nullable String quotaCode) {
             $.quotaCode = quotaCode;
             return this;
         }
@@ -193,7 +195,7 @@ public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder quotaName(String quotaName) {
+        public Builder quotaName(@Nullable String quotaName) {
             $.quotaName = quotaName;
             return this;
         }
@@ -204,7 +206,7 @@ public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder region(String region) {
+        public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
@@ -215,7 +217,7 @@ public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder serviceCode(String serviceCode) {
+        public Builder serviceCode(@Nullable String serviceCode) {
             $.serviceCode = serviceCode;
             return this;
         }
@@ -226,7 +228,7 @@ public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder serviceName(String serviceName) {
+        public Builder serviceName(@Nullable String serviceName) {
             $.serviceName = serviceName;
             return this;
         }
@@ -237,7 +239,7 @@ public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder unit(String unit) {
+        public Builder unit(@Nullable String unit) {
             $.unit = unit;
             return this;
         }
@@ -248,20 +250,12 @@ public final class GetTemplatesTemplate extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder value(Double value) {
+        public Builder value(@Nullable Double value) {
             $.value = value;
             return this;
         }
 
         public GetTemplatesTemplate build() {
-            $.globalQuota = Objects.requireNonNull($.globalQuota, "expected parameter 'globalQuota' to be non-null");
-            $.quotaCode = Objects.requireNonNull($.quotaCode, "expected parameter 'quotaCode' to be non-null");
-            $.quotaName = Objects.requireNonNull($.quotaName, "expected parameter 'quotaName' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
-            $.serviceCode = Objects.requireNonNull($.serviceCode, "expected parameter 'serviceCode' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
-            $.unit = Objects.requireNonNull($.unit, "expected parameter 'unit' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
             return $;
         }
     }

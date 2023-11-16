@@ -67,26 +67,26 @@ export interface GetSecretVersionResult {
     /**
      * ARN of the secret.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Decrypted part of the protected secret information that was originally provided as a binary.
      */
-    readonly secretBinary: string;
+    readonly secretBinary?: string;
     readonly secretId: string;
     /**
      * Decrypted part of the protected secret information that was originally provided as a string.
      */
-    readonly secretString: string;
+    readonly secretString?: string;
     /**
      * Unique identifier of this version of the secret.
      */
-    readonly versionId: string;
+    readonly versionId?: string;
     readonly versionStage?: string;
-    readonly versionStages: string[];
+    readonly versionStages?: string[];
 }
 /**
  * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.

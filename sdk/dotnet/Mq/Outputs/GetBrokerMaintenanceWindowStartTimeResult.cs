@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerMaintenanceWindowStartTimeResult
     {
-        public readonly string DayOfWeek;
-        public readonly string TimeOfDay;
-        public readonly string TimeZone;
+        public readonly string? DayOfWeek;
+        public readonly string? TimeOfDay;
+        public readonly string? TimeZone;
 
         [OutputConstructor]
         private GetBrokerMaintenanceWindowStartTimeResult(
-            string dayOfWeek,
+            string? dayOfWeek,
 
-            string timeOfDay,
+            string? timeOfDay,
 
-            string timeZone)
+            string? timeZone)
         {
             DayOfWeek = dayOfWeek;
             TimeOfDay = timeOfDay;

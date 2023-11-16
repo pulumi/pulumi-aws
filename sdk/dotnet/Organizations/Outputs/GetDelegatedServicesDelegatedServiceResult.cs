@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Organizations.Outputs
         /// <summary>
         /// The date that the account became a delegated administrator for this service.
         /// </summary>
-        public readonly string DelegationEnabledDate;
+        public readonly string? DelegationEnabledDate;
         /// <summary>
         /// The name of an AWS service that can request an operation for the specified service.
         /// </summary>
-        public readonly string ServicePrincipal;
+        public readonly string? ServicePrincipal;
 
         [OutputConstructor]
         private GetDelegatedServicesDelegatedServiceResult(
-            string delegationEnabledDate,
+            string? delegationEnabledDate,
 
-            string servicePrincipal)
+            string? servicePrincipal)
         {
             DelegationEnabledDate = delegationEnabledDate;
             ServicePrincipal = servicePrincipal;

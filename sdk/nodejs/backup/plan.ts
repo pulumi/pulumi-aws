@@ -77,7 +77,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The ARN of the backup plan.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The display name of a backup plan.
      */
@@ -99,7 +99,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.

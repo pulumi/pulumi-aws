@@ -60,7 +60,7 @@ class GetKeyPairResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Key Pair.
         """
@@ -68,7 +68,7 @@ class GetKeyPairResult:
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> str:
+    def create_time(self) -> Optional[str]:
         """
         Timestamp for when the key pair was created in ISO 8601 format.
         """
@@ -81,7 +81,7 @@ class GetKeyPairResult:
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> str:
+    def fingerprint(self) -> Optional[str]:
         """
         SHA-1 digest of the DER encoded private key.
         """
@@ -89,7 +89,7 @@ class GetKeyPairResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -112,7 +112,7 @@ class GetKeyPairResult:
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> str:
+    def key_type(self) -> Optional[str]:
         """
         Type of key pair.
         """
@@ -120,7 +120,7 @@ class GetKeyPairResult:
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> str:
+    def public_key(self) -> Optional[str]:
         """
         Public key material.
         """
@@ -128,7 +128,7 @@ class GetKeyPairResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Any tags assigned to the Key Pair.
         """

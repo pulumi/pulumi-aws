@@ -13,20 +13,20 @@ namespace Pulumi.Aws.Elb.Outputs
     [OutputType]
     public sealed class GetLoadBalancerAccessLogsResult
     {
-        public readonly string Bucket;
-        public readonly string BucketPrefix;
-        public readonly bool Enabled;
-        public readonly int Interval;
+        public readonly string? Bucket;
+        public readonly string? BucketPrefix;
+        public readonly bool? Enabled;
+        public readonly int? Interval;
 
         [OutputConstructor]
         private GetLoadBalancerAccessLogsResult(
-            string bucket,
+            string? bucket,
 
-            string bucketPrefix,
+            string? bucketPrefix,
 
-            bool enabled,
+            bool? enabled,
 
-            int interval)
+            int? interval)
         {
             Bucket = bucket;
             BucketPrefix = bucketPrefix;

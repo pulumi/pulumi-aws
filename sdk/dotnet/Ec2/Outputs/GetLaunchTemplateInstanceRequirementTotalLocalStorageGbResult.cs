@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult
     {
-        public readonly double Max;
-        public readonly double Min;
+        public readonly double? Max;
+        public readonly double? Min;
 
         [OutputConstructor]
         private GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult(
-            double max,
+            double? max,
 
-            double min)
+            double? min)
         {
             Max = max;
             Min = min;

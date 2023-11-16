@@ -1072,7 +1072,7 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Core Network Amazon Resource Name (ARN).
         """
@@ -1119,7 +1119,7 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp when a core network was created.
         """
@@ -1135,7 +1135,7 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def edges(self) -> pulumi.Output[Sequence['outputs.CoreNetworkEdge']]:
+    def edges(self) -> pulumi.Output[Optional[Sequence['outputs.CoreNetworkEdge']]]:
         """
         One or more blocks detailing the edges within a core network. Detailed below.
         """
@@ -1151,7 +1151,7 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def segments(self) -> pulumi.Output[Sequence['outputs.CoreNetworkSegment']]:
+    def segments(self) -> pulumi.Output[Optional[Sequence['outputs.CoreNetworkSegment']]]:
         """
         One or more blocks detailing the segments within a core network. Detailed below.
         """
@@ -1159,7 +1159,7 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Current state of a core network.
         """

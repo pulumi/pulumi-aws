@@ -55,19 +55,19 @@ namespace Pulumi.Aws.CodeGuruReviewer
         /// The Amazon Resource Name (ARN) identifying the repository association.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the repository association.
         /// </summary>
         [Output("associationId")]
-        public Output<string> AssociationId { get; private set; } = null!;
+        public Output<string?> AssociationId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         /// </summary>
         [Output("connectionArn")]
-        public Output<string> ConnectionArn { get; private set; } = null!;
+        public Output<string?> ConnectionArn { get; private set; } = null!;
 
         /// <summary>
         /// An object describing the KMS key to asssociate. Block is documented below.
@@ -79,19 +79,19 @@ namespace Pulumi.Aws.CodeGuruReviewer
         /// The name of the third party source repository.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The username for the account that owns the repository.
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// The provider type of the repository association.
         /// </summary>
         [Output("providerType")]
-        public Output<string> ProviderType { get; private set; } = null!;
+        public Output<string?> ProviderType { get; private set; } = null!;
 
         /// <summary>
         /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
@@ -108,13 +108,13 @@ namespace Pulumi.Aws.CodeGuruReviewer
         /// The state of the repository association.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// A description of why the repository association is in the current state.
         /// </summary>
         [Output("stateReason")]
-        public Output<string> StateReason { get; private set; } = null!;
+        public Output<string?> StateReason { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;

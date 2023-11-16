@@ -52,31 +52,31 @@ namespace Pulumi.Aws.CloudFormation
         /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the CloudFormation Type default version.
         /// </summary>
         [Output("defaultVersionId")]
-        public Output<string> DefaultVersionId { get; private set; } = null!;
+        public Output<string?> DefaultVersionId { get; private set; } = null!;
 
         /// <summary>
         /// Deprecation status of the version.
         /// </summary>
         [Output("deprecatedStatus")]
-        public Output<string> DeprecatedStatus { get; private set; } = null!;
+        public Output<string?> DeprecatedStatus { get; private set; } = null!;
 
         /// <summary>
         /// Description of the version.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// URL of the documentation for the CloudFormation Type.
         /// </summary>
         [Output("documentationUrl")]
-        public Output<string> DocumentationUrl { get; private set; } = null!;
+        public Output<string?> DocumentationUrl { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Whether the CloudFormation Type version is the default version.
         /// </summary>
         [Output("isDefaultVersion")]
-        public Output<bool> IsDefaultVersion { get; private set; } = null!;
+        public Output<bool?> IsDefaultVersion { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block containing logging configuration.
@@ -100,13 +100,13 @@ namespace Pulumi.Aws.CloudFormation
         /// Provisioning behavior of the CloudFormation Type.
         /// </summary>
         [Output("provisioningType")]
-        public Output<string> ProvisioningType { get; private set; } = null!;
+        public Output<string?> ProvisioningType { get; private set; } = null!;
 
         /// <summary>
         /// JSON document of the CloudFormation Type schema.
         /// </summary>
         [Output("schema")]
-        public Output<string> Schema { get; private set; } = null!;
+        public Output<string?> Schema { get; private set; } = null!;
 
         /// <summary>
         /// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
@@ -118,19 +118,19 @@ namespace Pulumi.Aws.CloudFormation
         /// URL of the source code for the CloudFormation Type.
         /// </summary>
         [Output("sourceUrl")]
-        public Output<string> SourceUrl { get; private set; } = null!;
+        public Output<string?> SourceUrl { get; private set; } = null!;
 
         /// <summary>
         /// CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
         /// </summary>
         [Output("typeArn")]
-        public Output<string> TypeArn { get; private set; } = null!;
+        public Output<string?> TypeArn { get; private set; } = null!;
 
         /// <summary>
         /// CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
@@ -142,13 +142,13 @@ namespace Pulumi.Aws.CloudFormation
         /// (Optional) Identifier of the CloudFormation Type version.
         /// </summary>
         [Output("versionId")]
-        public Output<string> VersionId { get; private set; } = null!;
+        public Output<string?> VersionId { get; private set; } = null!;
 
         /// <summary>
         /// Scope of the CloudFormation Type.
         /// </summary>
         [Output("visibility")]
-        public Output<string> Visibility { get; private set; } = null!;
+        public Output<string?> Visibility { get; private set; } = null!;
 
 
         /// <summary>

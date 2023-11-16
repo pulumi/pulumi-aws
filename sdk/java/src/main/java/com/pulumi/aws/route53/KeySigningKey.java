@@ -140,84 +140,84 @@ public class KeySigningKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="digestAlgorithmMnemonic", refs={String.class}, tree="[0]")
-    private Output<String> digestAlgorithmMnemonic;
+    private Output</* @Nullable */ String> digestAlgorithmMnemonic;
 
     /**
      * @return A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
      * 
      */
-    public Output<String> digestAlgorithmMnemonic() {
-        return this.digestAlgorithmMnemonic;
+    public Output<Optional<String>> digestAlgorithmMnemonic() {
+        return Codegen.optional(this.digestAlgorithmMnemonic);
     }
     /**
      * An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
      * 
      */
     @Export(name="digestAlgorithmType", refs={Integer.class}, tree="[0]")
-    private Output<Integer> digestAlgorithmType;
+    private Output</* @Nullable */ Integer> digestAlgorithmType;
 
     /**
      * @return An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
      * 
      */
-    public Output<Integer> digestAlgorithmType() {
-        return this.digestAlgorithmType;
+    public Output<Optional<Integer>> digestAlgorithmType() {
+        return Codegen.optional(this.digestAlgorithmType);
     }
     /**
      * A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
      * 
      */
     @Export(name="digestValue", refs={String.class}, tree="[0]")
-    private Output<String> digestValue;
+    private Output</* @Nullable */ String> digestValue;
 
     /**
      * @return A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
      * 
      */
-    public Output<String> digestValue() {
-        return this.digestValue;
+    public Output<Optional<String>> digestValue() {
+        return Codegen.optional(this.digestValue);
     }
     /**
      * A string that represents a DNSKEY record.
      * 
      */
     @Export(name="dnskeyRecord", refs={String.class}, tree="[0]")
-    private Output<String> dnskeyRecord;
+    private Output</* @Nullable */ String> dnskeyRecord;
 
     /**
      * @return A string that represents a DNSKEY record.
      * 
      */
-    public Output<String> dnskeyRecord() {
-        return this.dnskeyRecord;
+    public Output<Optional<String>> dnskeyRecord() {
+        return Codegen.optional(this.dnskeyRecord);
     }
     /**
      * A string that represents a delegation signer (DS) record.
      * 
      */
     @Export(name="dsRecord", refs={String.class}, tree="[0]")
-    private Output<String> dsRecord;
+    private Output</* @Nullable */ String> dsRecord;
 
     /**
      * @return A string that represents a delegation signer (DS) record.
      * 
      */
-    public Output<String> dsRecord() {
-        return this.dsRecord;
+    public Output<Optional<String>> dsRecord() {
+        return Codegen.optional(this.dsRecord);
     }
     /**
      * An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
      * 
      */
     @Export(name="flag", refs={Integer.class}, tree="[0]")
-    private Output<Integer> flag;
+    private Output</* @Nullable */ Integer> flag;
 
     /**
      * @return An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
      * 
      */
-    public Output<Integer> flag() {
-        return this.flag;
+    public Output<Optional<Integer>> flag() {
+        return Codegen.optional(this.flag);
     }
     /**
      * Identifier of the Route 53 Hosted Zone.
@@ -252,14 +252,14 @@ public class KeySigningKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyTag", refs={Integer.class}, tree="[0]")
-    private Output<Integer> keyTag;
+    private Output</* @Nullable */ Integer> keyTag;
 
     /**
      * @return An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
      * 
      */
-    public Output<Integer> keyTag() {
-        return this.keyTag;
+    public Output<Optional<Integer>> keyTag() {
+        return Codegen.optional(this.keyTag);
     }
     /**
      * Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
@@ -284,42 +284,42 @@ public class KeySigningKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
-    private Output<String> publicKey;
+    private Output</* @Nullable */ String> publicKey;
 
     /**
      * @return The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
      * 
      */
-    public Output<String> publicKey() {
-        return this.publicKey;
+    public Output<Optional<String>> publicKey() {
+        return Codegen.optional(this.publicKey);
     }
     /**
      * A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      * 
      */
     @Export(name="signingAlgorithmMnemonic", refs={String.class}, tree="[0]")
-    private Output<String> signingAlgorithmMnemonic;
+    private Output</* @Nullable */ String> signingAlgorithmMnemonic;
 
     /**
      * @return A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      * 
      */
-    public Output<String> signingAlgorithmMnemonic() {
-        return this.signingAlgorithmMnemonic;
+    public Output<Optional<String>> signingAlgorithmMnemonic() {
+        return Codegen.optional(this.signingAlgorithmMnemonic);
     }
     /**
      * An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      * 
      */
     @Export(name="signingAlgorithmType", refs={Integer.class}, tree="[0]")
-    private Output<Integer> signingAlgorithmType;
+    private Output</* @Nullable */ Integer> signingAlgorithmType;
 
     /**
      * @return An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      * 
      */
-    public Output<Integer> signingAlgorithmType() {
-        return this.signingAlgorithmType;
+    public Output<Optional<Integer>> signingAlgorithmType() {
+        return Codegen.optional(this.signingAlgorithmType);
     }
     /**
      * Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.

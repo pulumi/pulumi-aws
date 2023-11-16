@@ -196,8 +196,8 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the hierarchy group.
         /// </summary>
-        public readonly string Arn;
-        public readonly string HierarchyGroupId;
+        public readonly string? Arn;
+        public readonly string? HierarchyGroupId;
         /// <summary>
         /// Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         /// </summary>
@@ -205,38 +205,38 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
         /// <summary>
         /// Identifier of the level in the hierarchy group.
         /// </summary>
-        public readonly string LevelId;
+        public readonly string? LevelId;
         /// <summary>
         /// Name of the hierarchy group.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Map of tags to assign to the hierarchy group.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetUserHierarchyGroupResult(
-            string arn,
+            string? arn,
 
-            string hierarchyGroupId,
+            string? hierarchyGroupId,
 
             ImmutableArray<Outputs.GetUserHierarchyGroupHierarchyPathResult> hierarchyPaths,
 
-            string id,
+            string? id,
 
             string instanceId,
 
-            string levelId,
+            string? levelId,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             HierarchyGroupId = hierarchyGroupId;

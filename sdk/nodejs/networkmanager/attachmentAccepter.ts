@@ -66,7 +66,7 @@ export class AttachmentAccepter extends pulumi.CustomResource {
     /**
      * The policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number | undefined>;
     /**
      * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
      */
@@ -74,31 +74,31 @@ export class AttachmentAccepter extends pulumi.CustomResource {
     /**
      * The ARN of a core network.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string | undefined>;
     /**
      * The id of a core network.
      */
-    public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkId!: pulumi.Output<string | undefined>;
     /**
      * The Region where the edge is located.
      */
-    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    public /*out*/ readonly edgeLocation!: pulumi.Output<string | undefined>;
     /**
      * The ID of the attachment account owner.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string | undefined>;
     /**
      * The attachment resource ARN.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the segment attachment.
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    public /*out*/ readonly segmentName!: pulumi.Output<string | undefined>;
     /**
      * The state of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AttachmentAccepter resource with the given unique name, arguments, and options.

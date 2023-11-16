@@ -84,7 +84,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig Extension Association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the extension defined in the association.
      */
@@ -92,7 +92,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
     /**
      * The version number for the extension defined in the association.
      */
-    public /*out*/ readonly extensionVersion!: pulumi.Output<number>;
+    public /*out*/ readonly extensionVersion!: pulumi.Output<number | undefined>;
     /**
      * The parameter names and values defined for the association.
      */

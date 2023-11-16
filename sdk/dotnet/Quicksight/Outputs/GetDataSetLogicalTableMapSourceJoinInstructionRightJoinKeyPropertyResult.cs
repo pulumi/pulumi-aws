@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult
     {
-        public readonly bool UniqueKey;
+        public readonly bool? UniqueKey;
 
         [OutputConstructor]
-        private GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult(bool uniqueKey)
+        private GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult(bool? uniqueKey)
         {
             UniqueKey = uniqueKey;
         }

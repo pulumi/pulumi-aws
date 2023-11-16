@@ -112,7 +112,7 @@ namespace Pulumi.Aws.IdentityStore
         /// The identifier for this user in the identity store.
         /// </summary>
         [Output("userId")]
-        public Output<string> UserId { get; private set; } = null!;
+        public Output<string?> UserId { get; private set; } = null!;
 
         /// <summary>
         /// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.

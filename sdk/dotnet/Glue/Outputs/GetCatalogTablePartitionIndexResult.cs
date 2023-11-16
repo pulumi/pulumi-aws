@@ -16,8 +16,8 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// Name of the partition index.
         /// </summary>
-        public readonly string IndexName;
-        public readonly string IndexStatus;
+        public readonly string? IndexName;
+        public readonly string? IndexStatus;
         /// <summary>
         /// Keys for the partition index.
         /// </summary>
@@ -25,9 +25,9 @@ namespace Pulumi.Aws.Glue.Outputs
 
         [OutputConstructor]
         private GetCatalogTablePartitionIndexResult(
-            string indexName,
+            string? indexName,
 
-            string indexStatus,
+            string? indexStatus,
 
             ImmutableArray<string> keys)
         {

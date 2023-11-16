@@ -79,34 +79,34 @@ type LookupLoadBalancerArgs struct {
 
 // A collection of values returned by getLoadBalancer.
 type LookupLoadBalancerResult struct {
-	AccessLogs                            GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
-	Arn                                   string                    `pulumi:"arn"`
-	ArnSuffix                             string                    `pulumi:"arnSuffix"`
-	CustomerOwnedIpv4Pool                 string                    `pulumi:"customerOwnedIpv4Pool"`
-	DesyncMitigationMode                  string                    `pulumi:"desyncMitigationMode"`
-	DnsName                               string                    `pulumi:"dnsName"`
-	DropInvalidHeaderFields               bool                      `pulumi:"dropInvalidHeaderFields"`
-	EnableCrossZoneLoadBalancing          bool                      `pulumi:"enableCrossZoneLoadBalancing"`
-	EnableDeletionProtection              bool                      `pulumi:"enableDeletionProtection"`
-	EnableHttp2                           bool                      `pulumi:"enableHttp2"`
-	EnableTlsVersionAndCipherSuiteHeaders bool                      `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
-	EnableWafFailOpen                     bool                      `pulumi:"enableWafFailOpen"`
-	EnableXffClientPort                   bool                      `pulumi:"enableXffClientPort"`
+	AccessLogs                            *GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
+	Arn                                   *string                    `pulumi:"arn"`
+	ArnSuffix                             *string                    `pulumi:"arnSuffix"`
+	CustomerOwnedIpv4Pool                 *string                    `pulumi:"customerOwnedIpv4Pool"`
+	DesyncMitigationMode                  *string                    `pulumi:"desyncMitigationMode"`
+	DnsName                               *string                    `pulumi:"dnsName"`
+	DropInvalidHeaderFields               *bool                      `pulumi:"dropInvalidHeaderFields"`
+	EnableCrossZoneLoadBalancing          *bool                      `pulumi:"enableCrossZoneLoadBalancing"`
+	EnableDeletionProtection              *bool                      `pulumi:"enableDeletionProtection"`
+	EnableHttp2                           *bool                      `pulumi:"enableHttp2"`
+	EnableTlsVersionAndCipherSuiteHeaders *bool                      `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
+	EnableWafFailOpen                     *bool                      `pulumi:"enableWafFailOpen"`
+	EnableXffClientPort                   *bool                      `pulumi:"enableXffClientPort"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                      string                         `pulumi:"id"`
-	IdleTimeout             int                            `pulumi:"idleTimeout"`
-	Internal                bool                           `pulumi:"internal"`
-	IpAddressType           string                         `pulumi:"ipAddressType"`
-	LoadBalancerType        string                         `pulumi:"loadBalancerType"`
-	Name                    string                         `pulumi:"name"`
-	PreserveHostHeader      bool                           `pulumi:"preserveHostHeader"`
+	Id                      *string                        `pulumi:"id"`
+	IdleTimeout             *int                           `pulumi:"idleTimeout"`
+	Internal                *bool                          `pulumi:"internal"`
+	IpAddressType           *string                        `pulumi:"ipAddressType"`
+	LoadBalancerType        *string                        `pulumi:"loadBalancerType"`
+	Name                    *string                        `pulumi:"name"`
+	PreserveHostHeader      *bool                          `pulumi:"preserveHostHeader"`
 	SecurityGroups          []string                       `pulumi:"securityGroups"`
 	SubnetMappings          []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
 	Subnets                 []string                       `pulumi:"subnets"`
 	Tags                    map[string]string              `pulumi:"tags"`
-	VpcId                   string                         `pulumi:"vpcId"`
-	XffHeaderProcessingMode string                         `pulumi:"xffHeaderProcessingMode"`
-	ZoneId                  string                         `pulumi:"zoneId"`
+	VpcId                   *string                        `pulumi:"vpcId"`
+	XffHeaderProcessingMode *string                        `pulumi:"xffHeaderProcessingMode"`
+	ZoneId                  *string                        `pulumi:"zoneId"`
 }
 
 func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
@@ -153,85 +153,85 @@ func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithCont
 	return o
 }
 
-func (o LookupLoadBalancerResultOutput) AccessLogs() GetLoadBalancerAccessLogsOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) GetLoadBalancerAccessLogs { return v.AccessLogs }).(GetLoadBalancerAccessLogsOutput)
+func (o LookupLoadBalancerResultOutput) AccessLogs() GetLoadBalancerAccessLogsPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *GetLoadBalancerAccessLogs { return v.AccessLogs }).(GetLoadBalancerAccessLogsPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) ArnSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.ArnSuffix }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) ArnSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.ArnSuffix }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) CustomerOwnedIpv4Pool() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.CustomerOwnedIpv4Pool }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.CustomerOwnedIpv4Pool }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) DesyncMitigationMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.DesyncMitigationMode }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) DesyncMitigationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.DesyncMitigationMode }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.DnsName }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) DropInvalidHeaderFields() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.DropInvalidHeaderFields }).(pulumi.BoolOutput)
+func (o LookupLoadBalancerResultOutput) DropInvalidHeaderFields() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.DropInvalidHeaderFields }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) EnableCrossZoneLoadBalancing() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableCrossZoneLoadBalancing }).(pulumi.BoolOutput)
+func (o LookupLoadBalancerResultOutput) EnableCrossZoneLoadBalancing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.EnableCrossZoneLoadBalancing }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) EnableDeletionProtection() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableDeletionProtection }).(pulumi.BoolOutput)
+func (o LookupLoadBalancerResultOutput) EnableDeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.EnableDeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) EnableHttp2() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableHttp2 }).(pulumi.BoolOutput)
+func (o LookupLoadBalancerResultOutput) EnableHttp2() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) EnableTlsVersionAndCipherSuiteHeaders() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableTlsVersionAndCipherSuiteHeaders }).(pulumi.BoolOutput)
+func (o LookupLoadBalancerResultOutput) EnableTlsVersionAndCipherSuiteHeaders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.EnableTlsVersionAndCipherSuiteHeaders }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) EnableWafFailOpen() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableWafFailOpen }).(pulumi.BoolOutput)
+func (o LookupLoadBalancerResultOutput) EnableWafFailOpen() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.EnableWafFailOpen }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) EnableXffClientPort() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableXffClientPort }).(pulumi.BoolOutput)
+func (o LookupLoadBalancerResultOutput) EnableXffClientPort() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.EnableXffClientPort }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupLoadBalancerResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) IdleTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) int { return v.IdleTimeout }).(pulumi.IntOutput)
+func (o LookupLoadBalancerResultOutput) IdleTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *int { return v.IdleTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) Internal() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.Internal }).(pulumi.BoolOutput)
+func (o LookupLoadBalancerResultOutput) Internal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.Internal }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) IpAddressType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.IpAddressType }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) LoadBalancerType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.LoadBalancerType }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) LoadBalancerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.LoadBalancerType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) PreserveHostHeader() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.PreserveHostHeader }).(pulumi.BoolOutput)
+func (o LookupLoadBalancerResultOutput) PreserveHostHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.PreserveHostHeader }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) SecurityGroups() pulumi.StringArrayOutput {
@@ -250,16 +250,16 @@ func (o LookupLoadBalancerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) XffHeaderProcessingMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.XffHeaderProcessingMode }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) XffHeaderProcessingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.XffHeaderProcessingMode }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) ZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.ZoneId }).(pulumi.StringOutput)
+func (o LookupLoadBalancerResultOutput) ZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.ZoneId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

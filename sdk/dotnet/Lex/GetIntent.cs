@@ -118,28 +118,28 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// ARN of the Lex intent.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Checksum identifying the version of the intent that was created. The checksum is not
         /// included as an argument because the resource will add it automatically when updating the intent.
         /// </summary>
-        public readonly string Checksum;
+        public readonly string? Checksum;
         /// <summary>
         /// Date when the intent version was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Description of the intent.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Date when the $LATEST version of this intent was updated.
         /// </summary>
-        public readonly string LastUpdatedDate;
+        public readonly string? LastUpdatedDate;
         /// <summary>
         /// Name of the intent, not case sensitive.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Lex
         /// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
         /// in the Alexa Skills Kit.
         /// </summary>
-        public readonly string ParentIntentSignature;
+        public readonly string? ParentIntentSignature;
         /// <summary>
         /// Version of the bot.
         /// </summary>
@@ -158,21 +158,21 @@ namespace Pulumi.Aws.Lex
 
         [OutputConstructor]
         private GetIntentResult(
-            string arn,
+            string? arn,
 
-            string checksum,
+            string? checksum,
 
-            string createdDate,
+            string? createdDate,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string lastUpdatedDate,
+            string? lastUpdatedDate,
 
             string name,
 
-            string parentIntentSignature,
+            string? parentIntentSignature,
 
             string? version)
         {

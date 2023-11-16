@@ -234,17 +234,17 @@ namespace Pulumi.Aws
         /// <summary>
         /// ARN of the AWS billing service account.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// ID of the AWS billing service account.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetBillingServiceAccountResult(
-            string arn,
+            string? arn,
 
-            string id)
+            string? id)
         {
             Arn = arn;
             Id = id;

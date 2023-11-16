@@ -87,10 +87,10 @@ type GetEndpointResult struct {
 	// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
 	// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
 	// * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
-	EndpointAddress string  `pulumi:"endpointAddress"`
+	EndpointAddress *string `pulumi:"endpointAddress"`
 	EndpointType    *string `pulumi:"endpointType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetEndpointOutput(ctx *pulumi.Context, args GetEndpointOutputArgs, opts ...pulumi.InvokeOption) GetEndpointResultOutput {
@@ -137,8 +137,8 @@ func (o GetEndpointResultOutput) ToGetEndpointResultOutputWithContext(ctx contex
 // * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
 // * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
 // * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
-func (o GetEndpointResultOutput) EndpointAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointResult) string { return v.EndpointAddress }).(pulumi.StringOutput)
+func (o GetEndpointResultOutput) EndpointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointResult) *string { return v.EndpointAddress }).(pulumi.StringPtrOutput)
 }
 
 func (o GetEndpointResultOutput) EndpointType() pulumi.StringPtrOutput {
@@ -146,8 +146,8 @@ func (o GetEndpointResultOutput) EndpointType() pulumi.StringPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetEndpointResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetEndpointResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

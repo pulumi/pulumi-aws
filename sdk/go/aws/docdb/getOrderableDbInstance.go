@@ -76,13 +76,13 @@ type GetOrderableDbInstanceResult struct {
 	// Availability zones where the instance is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	Engine            *string  `pulumi:"engine"`
-	EngineVersion     string   `pulumi:"engineVersion"`
+	EngineVersion     *string  `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string   `pulumi:"id"`
-	InstanceClass            string   `pulumi:"instanceClass"`
+	Id                       *string  `pulumi:"id"`
+	InstanceClass            *string  `pulumi:"instanceClass"`
 	LicenseModel             *string  `pulumi:"licenseModel"`
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
-	Vpc                      bool     `pulumi:"vpc"`
+	Vpc                      *bool    `pulumi:"vpc"`
 }
 
 func GetOrderableDbInstanceOutput(ctx *pulumi.Context, args GetOrderableDbInstanceOutputArgs, opts ...pulumi.InvokeOption) GetOrderableDbInstanceResultOutput {
@@ -142,17 +142,17 @@ func (o GetOrderableDbInstanceResultOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOrderableDbInstanceResultOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.EngineVersion }).(pulumi.StringOutput)
+func (o GetOrderableDbInstanceResultOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetOrderableDbInstanceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetOrderableDbInstanceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOrderableDbInstanceResultOutput) InstanceClass() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.InstanceClass }).(pulumi.StringOutput)
+func (o GetOrderableDbInstanceResultOutput) InstanceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *string { return v.InstanceClass }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) LicenseModel() pulumi.StringPtrOutput {
@@ -163,8 +163,8 @@ func (o GetOrderableDbInstanceResultOutput) PreferredInstanceClasses() pulumi.St
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.PreferredInstanceClasses }).(pulumi.StringArrayOutput)
 }
 
-func (o GetOrderableDbInstanceResultOutput) Vpc() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.Vpc }).(pulumi.BoolOutput)
+func (o GetOrderableDbInstanceResultOutput) Vpc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.Vpc }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

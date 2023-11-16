@@ -75,19 +75,19 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
     /**
      * The ARN of the resource share invitation.
      */
-    public /*out*/ readonly invitationArn!: pulumi.Output<string>;
+    public /*out*/ readonly invitationArn!: pulumi.Output<string | undefined>;
     /**
      * The account ID of the receiver account which accepts the invitation.
      */
-    public /*out*/ readonly receiverAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly receiverAccountId!: pulumi.Output<string | undefined>;
     /**
      * A list of the resource ARNs shared via the resource share.
      */
-    public /*out*/ readonly resources!: pulumi.Output<string[]>;
+    public /*out*/ readonly resources!: pulumi.Output<string[] | undefined>;
     /**
      * The account ID of the sender account which submits the invitation.
      */
-    public /*out*/ readonly senderAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly senderAccountId!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the resource share.
      */
@@ -95,15 +95,15 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
     /**
      * The ID of the resource share as displayed in the console.
      */
-    public /*out*/ readonly shareId!: pulumi.Output<string>;
+    public /*out*/ readonly shareId!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource share.
      */
-    public /*out*/ readonly shareName!: pulumi.Output<string>;
+    public /*out*/ readonly shareName!: pulumi.Output<string | undefined>;
     /**
      * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ResourceShareAccepter resource with the given unique name, arguments, and options.

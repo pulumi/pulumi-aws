@@ -85,11 +85,11 @@ export interface GetRegionsResult {
     /**
      * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Names of regions that meets the criteria.
      */
-    readonly names: string[];
+    readonly names?: string[];
 }
 /**
  * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.

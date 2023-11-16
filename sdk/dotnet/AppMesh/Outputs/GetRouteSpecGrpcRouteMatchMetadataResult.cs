@@ -13,20 +13,20 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecGrpcRouteMatchMetadataResult
     {
-        public readonly bool Invert;
+        public readonly bool? Invert;
         public readonly ImmutableArray<Outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult> Matches;
         /// <summary>
         /// Name of the route.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetRouteSpecGrpcRouteMatchMetadataResult(
-            bool invert,
+            bool? invert,
 
             ImmutableArray<Outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult> matches,
 
-            string name)
+            string? name)
         {
             Invert = invert;
             Matches = matches;

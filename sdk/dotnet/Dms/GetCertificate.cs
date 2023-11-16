@@ -122,71 +122,71 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// The Amazon Resource Name (ARN) for the certificate.
         /// </summary>
-        public readonly string CertificateArn;
+        public readonly string? CertificateArn;
         /// <summary>
         /// The date that the certificate was created.
         /// </summary>
-        public readonly string CertificateCreationDate;
+        public readonly string? CertificateCreationDate;
         public readonly string CertificateId;
         /// <summary>
         /// The owner of the certificate.
         /// </summary>
-        public readonly string CertificateOwner;
+        public readonly string? CertificateOwner;
         /// <summary>
         /// The contents of a .pem file, which contains an X.509 certificate.
         /// </summary>
-        public readonly string CertificatePem;
+        public readonly string? CertificatePem;
         /// <summary>
         /// The owner of the certificate.
         /// </summary>
-        public readonly string CertificateWallet;
+        public readonly string? CertificateWallet;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The key length of the cryptographic algorithm being used.
         /// </summary>
-        public readonly int KeyLength;
+        public readonly int? KeyLength;
         /// <summary>
         /// The algorithm for the certificate.
         /// </summary>
-        public readonly string SigningAlgorithm;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? SigningAlgorithm;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The beginning date that the certificate is valid.
         /// </summary>
-        public readonly string ValidFromDate;
+        public readonly string? ValidFromDate;
         /// <summary>
         /// The final date that the certificate is valid.
         /// </summary>
-        public readonly string ValidToDate;
+        public readonly string? ValidToDate;
 
         [OutputConstructor]
         private GetCertificateResult(
-            string certificateArn,
+            string? certificateArn,
 
-            string certificateCreationDate,
+            string? certificateCreationDate,
 
             string certificateId,
 
-            string certificateOwner,
+            string? certificateOwner,
 
-            string certificatePem,
+            string? certificatePem,
 
-            string certificateWallet,
+            string? certificateWallet,
 
-            string id,
+            string? id,
 
-            int keyLength,
+            int? keyLength,
 
-            string signingAlgorithm,
+            string? signingAlgorithm,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string validFromDate,
+            string? validFromDate,
 
-            string validToDate)
+            string? validToDate)
         {
             CertificateArn = certificateArn;
             CertificateCreationDate = certificateCreationDate;

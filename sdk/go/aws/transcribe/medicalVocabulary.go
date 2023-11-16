@@ -83,9 +83,9 @@ type MedicalVocabulary struct {
 	pulumi.CustomResourceState
 
 	// ARN of the MedicalVocabulary.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Generated download URI.
-	DownloadUri pulumi.StringOutput `pulumi:"downloadUri"`
+	DownloadUri pulumi.StringPtrOutput `pulumi:"downloadUri"`
 	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -299,13 +299,13 @@ func (o MedicalVocabularyOutput) ToMedicalVocabularyOutputWithContext(ctx contex
 }
 
 // ARN of the MedicalVocabulary.
-func (o MedicalVocabularyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MedicalVocabularyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Generated download URI.
-func (o MedicalVocabularyOutput) DownloadUri() pulumi.StringOutput {
-	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringOutput { return v.DownloadUri }).(pulumi.StringOutput)
+func (o MedicalVocabularyOutput) DownloadUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringPtrOutput { return v.DownloadUri }).(pulumi.StringPtrOutput)
 }
 
 // The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.

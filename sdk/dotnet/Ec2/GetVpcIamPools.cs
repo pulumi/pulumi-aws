@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of IPAM pools and their attributes. See below for details
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Ec2
         private GetVpcIamPoolsResult(
             ImmutableArray<Outputs.GetVpcIamPoolsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetVpcIamPoolsIpamPoolResult> ipamPools)
         {

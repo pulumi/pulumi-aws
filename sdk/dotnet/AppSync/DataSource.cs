@@ -134,7 +134,7 @@ namespace Pulumi.Aws.AppSync
         /// ARN
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the data source.

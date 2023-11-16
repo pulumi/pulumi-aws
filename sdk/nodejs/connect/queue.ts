@@ -103,7 +103,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Queue.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the Queue.
      */
@@ -131,7 +131,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The identifier for the Queue.
      */
-    public /*out*/ readonly queueId!: pulumi.Output<string>;
+    public /*out*/ readonly queueId!: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */
@@ -139,7 +139,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

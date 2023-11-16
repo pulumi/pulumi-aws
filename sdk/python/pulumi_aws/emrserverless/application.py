@@ -695,7 +695,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the cluster.
         """
@@ -703,7 +703,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoStartConfiguration")
-    def auto_start_configuration(self) -> pulumi.Output['outputs.ApplicationAutoStartConfiguration']:
+    def auto_start_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationAutoStartConfiguration']]:
         """
         The configuration for an application to automatically start on job submission.
         """
@@ -711,7 +711,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoStopConfiguration")
-    def auto_stop_configuration(self) -> pulumi.Output['outputs.ApplicationAutoStopConfiguration']:
+    def auto_stop_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationAutoStopConfiguration']]:
         """
         The configuration for an application to automatically stop after a certain amount of time being idle.
         """
@@ -719,7 +719,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageConfiguration")
-    def image_configuration(self) -> pulumi.Output['outputs.ApplicationImageConfiguration']:
+    def image_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationImageConfiguration']]:
         """
         The image configuration applied to all worker types.
         """
@@ -735,7 +735,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumCapacity")
-    def maximum_capacity(self) -> pulumi.Output['outputs.ApplicationMaximumCapacity']:
+    def maximum_capacity(self) -> pulumi.Output[Optional['outputs.ApplicationMaximumCapacity']]:
         """
         The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         """

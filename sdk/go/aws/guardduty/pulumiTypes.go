@@ -2587,9 +2587,9 @@ type GetDetectorFeatureType struct {
 	// Additional feature configuration.
 	AdditionalConfigurations []GetDetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// The name of the detector feature.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Current status of the detector.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 // GetDetectorFeatureTypeInput is an input type that accepts GetDetectorFeatureTypeArgs and GetDetectorFeatureTypeOutput values.
@@ -2607,9 +2607,9 @@ type GetDetectorFeatureTypeArgs struct {
 	// Additional feature configuration.
 	AdditionalConfigurations GetDetectorFeatureAdditionalConfigurationArrayInput `pulumi:"additionalConfigurations"`
 	// The name of the detector feature.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Current status of the detector.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (GetDetectorFeatureTypeArgs) ElementType() reflect.Type {
@@ -2671,13 +2671,13 @@ func (o GetDetectorFeatureTypeOutput) AdditionalConfigurations() GetDetectorFeat
 }
 
 // The name of the detector feature.
-func (o GetDetectorFeatureTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDetectorFeatureType) string { return v.Name }).(pulumi.StringOutput)
+func (o GetDetectorFeatureTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDetectorFeatureType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Current status of the detector.
-func (o GetDetectorFeatureTypeOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDetectorFeatureType) string { return v.Status }).(pulumi.StringOutput)
+func (o GetDetectorFeatureTypeOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDetectorFeatureType) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type GetDetectorFeatureTypeArrayOutput struct{ *pulumi.OutputState }
@@ -2702,9 +2702,9 @@ func (o GetDetectorFeatureTypeArrayOutput) Index(i pulumi.IntInput) GetDetectorF
 
 type GetDetectorFeatureAdditionalConfiguration struct {
 	// The name of the detector feature.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Current status of the detector.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 // GetDetectorFeatureAdditionalConfigurationInput is an input type that accepts GetDetectorFeatureAdditionalConfigurationArgs and GetDetectorFeatureAdditionalConfigurationOutput values.
@@ -2720,9 +2720,9 @@ type GetDetectorFeatureAdditionalConfigurationInput interface {
 
 type GetDetectorFeatureAdditionalConfigurationArgs struct {
 	// The name of the detector feature.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Current status of the detector.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (GetDetectorFeatureAdditionalConfigurationArgs) ElementType() reflect.Type {
@@ -2777,13 +2777,13 @@ func (o GetDetectorFeatureAdditionalConfigurationOutput) ToGetDetectorFeatureAdd
 }
 
 // The name of the detector feature.
-func (o GetDetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDetectorFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
+func (o GetDetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDetectorFeatureAdditionalConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Current status of the detector.
-func (o GetDetectorFeatureAdditionalConfigurationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDetectorFeatureAdditionalConfiguration) string { return v.Status }).(pulumi.StringOutput)
+func (o GetDetectorFeatureAdditionalConfigurationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDetectorFeatureAdditionalConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type GetDetectorFeatureAdditionalConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -52,7 +52,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Date and time when the API Key was created.
         """
@@ -60,7 +60,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="customerId")
-    def customer_id(self) -> str:
+    def customer_id(self) -> Optional[str]:
         """
         Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         """
@@ -68,7 +68,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the API Key.
         """
@@ -76,7 +76,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Whether the API Key is enabled.
         """
@@ -92,7 +92,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> Optional[str]:
         """
         Date and time when the API Key was last updated.
         """
@@ -100,7 +100,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Set to the name of the API Key.
         """
@@ -108,7 +108,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags for the resource.
         """
@@ -116,7 +116,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         Set to the value of the API Key.
         """

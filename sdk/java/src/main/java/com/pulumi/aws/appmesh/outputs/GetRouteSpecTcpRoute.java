@@ -9,22 +9,23 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecTcpRouteTimeout;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecTcpRoute {
-    private List<GetRouteSpecTcpRouteAction> actions;
-    private List<GetRouteSpecTcpRouteMatch> matches;
-    private List<GetRouteSpecTcpRouteTimeout> timeouts;
+    private @Nullable List<GetRouteSpecTcpRouteAction> actions;
+    private @Nullable List<GetRouteSpecTcpRouteMatch> matches;
+    private @Nullable List<GetRouteSpecTcpRouteTimeout> timeouts;
 
     private GetRouteSpecTcpRoute() {}
     public List<GetRouteSpecTcpRouteAction> actions() {
-        return this.actions;
+        return this.actions == null ? List.of() : this.actions;
     }
     public List<GetRouteSpecTcpRouteMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
     public List<GetRouteSpecTcpRouteTimeout> timeouts() {
-        return this.timeouts;
+        return this.timeouts == null ? List.of() : this.timeouts;
     }
 
     public static Builder builder() {
@@ -36,9 +37,9 @@ public final class GetRouteSpecTcpRoute {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecTcpRouteAction> actions;
-        private List<GetRouteSpecTcpRouteMatch> matches;
-        private List<GetRouteSpecTcpRouteTimeout> timeouts;
+        private @Nullable List<GetRouteSpecTcpRouteAction> actions;
+        private @Nullable List<GetRouteSpecTcpRouteMatch> matches;
+        private @Nullable List<GetRouteSpecTcpRouteTimeout> timeouts;
         public Builder() {}
         public Builder(GetRouteSpecTcpRoute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,24 +49,24 @@ public final class GetRouteSpecTcpRoute {
         }
 
         @CustomType.Setter
-        public Builder actions(List<GetRouteSpecTcpRouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+        public Builder actions(@Nullable List<GetRouteSpecTcpRouteAction> actions) {
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetRouteSpecTcpRouteAction... actions) {
             return actions(List.of(actions));
         }
         @CustomType.Setter
-        public Builder matches(List<GetRouteSpecTcpRouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetRouteSpecTcpRouteMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecTcpRouteMatch... matches) {
             return matches(List.of(matches));
         }
         @CustomType.Setter
-        public Builder timeouts(List<GetRouteSpecTcpRouteTimeout> timeouts) {
-            this.timeouts = Objects.requireNonNull(timeouts);
+        public Builder timeouts(@Nullable List<GetRouteSpecTcpRouteTimeout> timeouts) {
+            this.timeouts = timeouts;
             return this;
         }
         public Builder timeouts(GetRouteSpecTcpRouteTimeout... timeouts) {

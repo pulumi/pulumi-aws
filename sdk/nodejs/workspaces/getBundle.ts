@@ -73,15 +73,15 @@ export interface GetBundleResult {
     /**
      * The compute type. See supported fields below.
      */
-    readonly computeTypes: outputs.workspaces.GetBundleComputeType[];
+    readonly computeTypes?: outputs.workspaces.GetBundleComputeType[];
     /**
      * The description of the bundle.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the compute type.
      */
@@ -93,11 +93,11 @@ export interface GetBundleResult {
     /**
      * The root volume. See supported fields below.
      */
-    readonly rootStorages: outputs.workspaces.GetBundleRootStorage[];
+    readonly rootStorages?: outputs.workspaces.GetBundleRootStorage[];
     /**
      * The user storage. See supported fields below.
      */
-    readonly userStorages: outputs.workspaces.GetBundleUserStorage[];
+    readonly userStorages?: outputs.workspaces.GetBundleUserStorage[];
 }
 /**
  * Retrieve information about an AWS WorkSpaces bundle.

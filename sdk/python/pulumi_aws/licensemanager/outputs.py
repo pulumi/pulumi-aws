@@ -79,20 +79,23 @@ class GetLicenseGrantsFilterResult(dict):
 @pulumi.output_type
 class GetReceivedLicenseConsumptionConfigurationResult(dict):
     def __init__(__self__, *,
-                 borrow_configurations: Sequence['outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult'],
-                 provisional_configurations: Sequence['outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult'],
-                 renew_type: str):
+                 borrow_configurations: Optional[Sequence['outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult']] = None,
+                 provisional_configurations: Optional[Sequence['outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult']] = None,
+                 renew_type: Optional[str] = None):
         """
         :param Sequence['GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs'] borrow_configurations: Details about a borrow configuration. Detailed below
         :param Sequence['GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs'] provisional_configurations: Details about a provisional configuration. Detailed below
         """
-        pulumi.set(__self__, "borrow_configurations", borrow_configurations)
-        pulumi.set(__self__, "provisional_configurations", provisional_configurations)
-        pulumi.set(__self__, "renew_type", renew_type)
+        if borrow_configurations is not None:
+            pulumi.set(__self__, "borrow_configurations", borrow_configurations)
+        if provisional_configurations is not None:
+            pulumi.set(__self__, "provisional_configurations", provisional_configurations)
+        if renew_type is not None:
+            pulumi.set(__self__, "renew_type", renew_type)
 
     @property
     @pulumi.getter(name="borrowConfigurations")
-    def borrow_configurations(self) -> Sequence['outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult']:
+    def borrow_configurations(self) -> Optional[Sequence['outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult']]:
         """
         Details about a borrow configuration. Detailed below
         """
@@ -100,7 +103,7 @@ class GetReceivedLicenseConsumptionConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="provisionalConfigurations")
-    def provisional_configurations(self) -> Sequence['outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult']:
+    def provisional_configurations(self) -> Optional[Sequence['outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult']]:
         """
         Details about a provisional configuration. Detailed below
         """
@@ -108,25 +111,27 @@ class GetReceivedLicenseConsumptionConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="renewType")
-    def renew_type(self) -> str:
+    def renew_type(self) -> Optional[str]:
         return pulumi.get(self, "renew_type")
 
 
 @pulumi.output_type
 class GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult(dict):
     def __init__(__self__, *,
-                 allow_early_check_in: bool,
-                 max_time_to_live_in_minutes: int):
+                 allow_early_check_in: Optional[bool] = None,
+                 max_time_to_live_in_minutes: Optional[int] = None):
         """
         :param bool allow_early_check_in: Indicates whether early check-ins are allowed.
         :param int max_time_to_live_in_minutes: Maximum time for the provisional configuration, in minutes.
         """
-        pulumi.set(__self__, "allow_early_check_in", allow_early_check_in)
-        pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
+        if allow_early_check_in is not None:
+            pulumi.set(__self__, "allow_early_check_in", allow_early_check_in)
+        if max_time_to_live_in_minutes is not None:
+            pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="allowEarlyCheckIn")
-    def allow_early_check_in(self) -> bool:
+    def allow_early_check_in(self) -> Optional[bool]:
         """
         Indicates whether early check-ins are allowed.
         """
@@ -134,7 +139,7 @@ class GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
-    def max_time_to_live_in_minutes(self) -> int:
+    def max_time_to_live_in_minutes(self) -> Optional[int]:
         """
         Maximum time for the provisional configuration, in minutes.
         """
@@ -144,15 +149,16 @@ class GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult(dict):
 @pulumi.output_type
 class GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult(dict):
     def __init__(__self__, *,
-                 max_time_to_live_in_minutes: int):
+                 max_time_to_live_in_minutes: Optional[int] = None):
         """
         :param int max_time_to_live_in_minutes: Maximum time for the provisional configuration, in minutes.
         """
-        pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
+        if max_time_to_live_in_minutes is not None:
+            pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
-    def max_time_to_live_in_minutes(self) -> int:
+    def max_time_to_live_in_minutes(self) -> Optional[int]:
         """
         Maximum time for the provisional configuration, in minutes.
         """
@@ -162,11 +168,11 @@ class GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult(d
 @pulumi.output_type
 class GetReceivedLicenseEntitlementResult(dict):
     def __init__(__self__, *,
-                 allow_check_in: bool,
-                 max_count: int,
-                 name: str,
-                 unit: str,
-                 value: str):
+                 allow_check_in: Optional[bool] = None,
+                 max_count: Optional[int] = None,
+                 name: Optional[str] = None,
+                 unit: Optional[str] = None,
+                 value: Optional[str] = None):
         """
         :param bool allow_check_in: Indicates whether check-ins are allowed.
         :param int max_count: Maximum entitlement count. Use if the unit is not None.
@@ -174,15 +180,20 @@ class GetReceivedLicenseEntitlementResult(dict):
         :param str unit: Entitlement unit.
         :param str value: The value.
         """
-        pulumi.set(__self__, "allow_check_in", allow_check_in)
-        pulumi.set(__self__, "max_count", max_count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        if allow_check_in is not None:
+            pulumi.set(__self__, "allow_check_in", allow_check_in)
+        if max_count is not None:
+            pulumi.set(__self__, "max_count", max_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="allowCheckIn")
-    def allow_check_in(self) -> bool:
+    def allow_check_in(self) -> Optional[bool]:
         """
         Indicates whether check-ins are allowed.
         """
@@ -190,7 +201,7 @@ class GetReceivedLicenseEntitlementResult(dict):
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> int:
+    def max_count(self) -> Optional[int]:
         """
         Maximum entitlement count. Use if the unit is not None.
         """
@@ -198,7 +209,7 @@ class GetReceivedLicenseEntitlementResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The key name.
         """
@@ -206,7 +217,7 @@ class GetReceivedLicenseEntitlementResult(dict):
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         """
         Entitlement unit.
         """
@@ -214,7 +225,7 @@ class GetReceivedLicenseEntitlementResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         The value.
         """
@@ -224,21 +235,24 @@ class GetReceivedLicenseEntitlementResult(dict):
 @pulumi.output_type
 class GetReceivedLicenseIssuerResult(dict):
     def __init__(__self__, *,
-                 key_fingerprint: str,
-                 name: str,
-                 sign_key: str):
+                 key_fingerprint: Optional[str] = None,
+                 name: Optional[str] = None,
+                 sign_key: Optional[str] = None):
         """
         :param str key_fingerprint: Issuer key fingerprint.
         :param str name: The key name.
         :param str sign_key: Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
         """
-        pulumi.set(__self__, "key_fingerprint", key_fingerprint)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sign_key", sign_key)
+        if key_fingerprint is not None:
+            pulumi.set(__self__, "key_fingerprint", key_fingerprint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sign_key is not None:
+            pulumi.set(__self__, "sign_key", sign_key)
 
     @property
     @pulumi.getter(name="keyFingerprint")
-    def key_fingerprint(self) -> str:
+    def key_fingerprint(self) -> Optional[str]:
         """
         Issuer key fingerprint.
         """
@@ -246,7 +260,7 @@ class GetReceivedLicenseIssuerResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The key name.
         """
@@ -254,7 +268,7 @@ class GetReceivedLicenseIssuerResult(dict):
 
     @property
     @pulumi.getter(name="signKey")
-    def sign_key(self) -> str:
+    def sign_key(self) -> Optional[str]:
         """
         Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
         """
@@ -264,18 +278,20 @@ class GetReceivedLicenseIssuerResult(dict):
 @pulumi.output_type
 class GetReceivedLicenseLicenseMetadataResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 value: str):
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
         """
         :param str name: The key name.
         :param str value: The value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The key name.
         """
@@ -283,7 +299,7 @@ class GetReceivedLicenseLicenseMetadataResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         The value.
         """
@@ -293,21 +309,24 @@ class GetReceivedLicenseLicenseMetadataResult(dict):
 @pulumi.output_type
 class GetReceivedLicenseReceivedMetadataResult(dict):
     def __init__(__self__, *,
-                 allowed_operations: Sequence[str],
-                 received_status: str,
-                 received_status_reason: str):
+                 allowed_operations: Optional[Sequence[str]] = None,
+                 received_status: Optional[str] = None,
+                 received_status_reason: Optional[str] = None):
         """
         :param Sequence[str] allowed_operations: A list of allowed operations.
         :param str received_status: Received status.
         :param str received_status_reason: Received status reason.
         """
-        pulumi.set(__self__, "allowed_operations", allowed_operations)
-        pulumi.set(__self__, "received_status", received_status)
-        pulumi.set(__self__, "received_status_reason", received_status_reason)
+        if allowed_operations is not None:
+            pulumi.set(__self__, "allowed_operations", allowed_operations)
+        if received_status is not None:
+            pulumi.set(__self__, "received_status", received_status)
+        if received_status_reason is not None:
+            pulumi.set(__self__, "received_status_reason", received_status_reason)
 
     @property
     @pulumi.getter(name="allowedOperations")
-    def allowed_operations(self) -> Sequence[str]:
+    def allowed_operations(self) -> Optional[Sequence[str]]:
         """
         A list of allowed operations.
         """
@@ -315,7 +334,7 @@ class GetReceivedLicenseReceivedMetadataResult(dict):
 
     @property
     @pulumi.getter(name="receivedStatus")
-    def received_status(self) -> str:
+    def received_status(self) -> Optional[str]:
         """
         Received status.
         """
@@ -323,7 +342,7 @@ class GetReceivedLicenseReceivedMetadataResult(dict):
 
     @property
     @pulumi.getter(name="receivedStatusReason")
-    def received_status_reason(self) -> str:
+    def received_status_reason(self) -> Optional[str]:
         """
         Received status reason.
         """
@@ -333,18 +352,20 @@ class GetReceivedLicenseReceivedMetadataResult(dict):
 @pulumi.output_type
 class GetReceivedLicenseValidityResult(dict):
     def __init__(__self__, *,
-                 begin: str,
-                 end: str):
+                 begin: Optional[str] = None,
+                 end: Optional[str] = None):
         """
         :param str begin: Start of the validity time range.
         :param str end: End of the validity time range.
         """
-        pulumi.set(__self__, "begin", begin)
-        pulumi.set(__self__, "end", end)
+        if begin is not None:
+            pulumi.set(__self__, "begin", begin)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
 
     @property
     @pulumi.getter
-    def begin(self) -> str:
+    def begin(self) -> Optional[str]:
         """
         Start of the validity time range.
         """
@@ -352,7 +373,7 @@ class GetReceivedLicenseValidityResult(dict):
 
     @property
     @pulumi.getter
-    def end(self) -> str:
+    def end(self) -> Optional[str]:
         """
         End of the validity time range.
         """

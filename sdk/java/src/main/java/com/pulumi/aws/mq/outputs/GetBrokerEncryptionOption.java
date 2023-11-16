@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBrokerEncryptionOption {
-    private String kmsKeyId;
-    private Boolean useAwsOwnedKey;
+    private @Nullable String kmsKeyId;
+    private @Nullable Boolean useAwsOwnedKey;
 
     private GetBrokerEncryptionOption() {}
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
-    public Boolean useAwsOwnedKey() {
-        return this.useAwsOwnedKey;
+    public Optional<Boolean> useAwsOwnedKey() {
+        return Optional.ofNullable(this.useAwsOwnedKey);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetBrokerEncryptionOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String kmsKeyId;
-        private Boolean useAwsOwnedKey;
+        private @Nullable String kmsKeyId;
+        private @Nullable Boolean useAwsOwnedKey;
         public Builder() {}
         public Builder(GetBrokerEncryptionOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetBrokerEncryptionOption {
         }
 
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder useAwsOwnedKey(Boolean useAwsOwnedKey) {
-            this.useAwsOwnedKey = Objects.requireNonNull(useAwsOwnedKey);
+        public Builder useAwsOwnedKey(@Nullable Boolean useAwsOwnedKey) {
+            this.useAwsOwnedKey = useAwsOwnedKey;
             return this;
         }
         public GetBrokerEncryptionOption build() {

@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcIamPoolCidrsIpamPoolCidr {
@@ -13,27 +15,27 @@ public final class GetVpcIamPoolCidrsIpamPoolCidr {
      * @return A network CIDR.
      * 
      */
-    private String cidr;
+    private @Nullable String cidr;
     /**
      * @return The provisioning state of that CIDR.
      * 
      */
-    private String state;
+    private @Nullable String state;
 
     private GetVpcIamPoolCidrsIpamPoolCidr() {}
     /**
      * @return A network CIDR.
      * 
      */
-    public String cidr() {
-        return this.cidr;
+    public Optional<String> cidr() {
+        return Optional.ofNullable(this.cidr);
     }
     /**
      * @return The provisioning state of that CIDR.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetVpcIamPoolCidrsIpamPoolCidr {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cidr;
-        private String state;
+        private @Nullable String cidr;
+        private @Nullable String state;
         public Builder() {}
         public Builder(GetVpcIamPoolCidrsIpamPoolCidr defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetVpcIamPoolCidrsIpamPoolCidr {
         }
 
         @CustomType.Setter
-        public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+        public Builder cidr(@Nullable String cidr) {
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         public GetVpcIamPoolCidrsIpamPoolCidr build() {

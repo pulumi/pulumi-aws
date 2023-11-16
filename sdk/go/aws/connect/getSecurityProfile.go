@@ -93,18 +93,18 @@ type LookupSecurityProfileArgs struct {
 // A collection of values returned by getSecurityProfile.
 type LookupSecurityProfileResult struct {
 	// ARN of the Security Profile.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the Security Profile.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	Name       string `pulumi:"name"`
+	Id         *string `pulumi:"id"`
+	InstanceId string  `pulumi:"instanceId"`
+	Name       *string `pulumi:"name"`
 	// The organization resource identifier for the security profile.
-	OrganizationResourceId string `pulumi:"organizationResourceId"`
+	OrganizationResourceId *string `pulumi:"organizationResourceId"`
 	// List of permissions assigned to the security profile.
 	Permissions       []string `pulumi:"permissions"`
-	SecurityProfileId string   `pulumi:"securityProfileId"`
+	SecurityProfileId *string  `pulumi:"securityProfileId"`
 	// Map of tags to assign to the Security Profile.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -154,31 +154,31 @@ func (o LookupSecurityProfileResultOutput) ToLookupSecurityProfileResultOutputWi
 }
 
 // ARN of the Security Profile.
-func (o LookupSecurityProfileResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSecurityProfileResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Security Profile.
-func (o LookupSecurityProfileResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupSecurityProfileResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSecurityProfileResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSecurityProfileResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSecurityProfileResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-func (o LookupSecurityProfileResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupSecurityProfileResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The organization resource identifier for the security profile.
-func (o LookupSecurityProfileResultOutput) OrganizationResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.OrganizationResourceId }).(pulumi.StringOutput)
+func (o LookupSecurityProfileResultOutput) OrganizationResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.OrganizationResourceId }).(pulumi.StringPtrOutput)
 }
 
 // List of permissions assigned to the security profile.
@@ -186,8 +186,8 @@ func (o LookupSecurityProfileResultOutput) Permissions() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v LookupSecurityProfileResult) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupSecurityProfileResultOutput) SecurityProfileId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.SecurityProfileId }).(pulumi.StringOutput)
+func (o LookupSecurityProfileResultOutput) SecurityProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.SecurityProfileId }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the Security Profile.

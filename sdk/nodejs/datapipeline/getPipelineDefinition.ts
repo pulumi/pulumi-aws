@@ -51,11 +51,11 @@ export interface GetPipelineDefinitionResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Parameter objects used in the pipeline definition. See below
      */
-    readonly parameterObjects: outputs.datapipeline.GetPipelineDefinitionParameterObject[];
+    readonly parameterObjects?: outputs.datapipeline.GetPipelineDefinitionParameterObject[];
     /**
      * Parameter values used in the pipeline definition. See below
      */
@@ -64,7 +64,7 @@ export interface GetPipelineDefinitionResult {
     /**
      * Objects defined in the pipeline. See below
      */
-    readonly pipelineObjects: outputs.datapipeline.GetPipelineDefinitionPipelineObject[];
+    readonly pipelineObjects?: outputs.datapipeline.GetPipelineDefinitionPipelineObject[];
 }
 /**
  * Provides details about a specific DataPipeline Pipeline Definition.

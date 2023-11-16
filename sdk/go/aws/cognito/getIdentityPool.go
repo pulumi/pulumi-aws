@@ -60,18 +60,18 @@ type LookupIdentityPoolArgs struct {
 // A collection of values returned by getIdentityPool.
 type LookupIdentityPoolResult struct {
 	// Whether the classic / basic authentication flow is enabled.
-	AllowClassicFlow bool `pulumi:"allowClassicFlow"`
+	AllowClassicFlow *bool `pulumi:"allowClassicFlow"`
 	// Whether the identity pool supports unauthenticated logins or not.
-	AllowUnauthenticatedIdentities bool `pulumi:"allowUnauthenticatedIdentities"`
+	AllowUnauthenticatedIdentities *bool `pulumi:"allowUnauthenticatedIdentities"`
 	// ARN of the Pool.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// An array of Amazon Cognito Identity user pools and their client IDs.
 	CognitoIdentityProviders []GetIdentityPoolCognitoIdentityProvider `pulumi:"cognitoIdentityProviders"`
 	// The "domain" by which Cognito will refer to your users.
-	DeveloperProviderName string `pulumi:"developerProviderName"`
+	DeveloperProviderName *string `pulumi:"developerProviderName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string `pulumi:"id"`
-	IdentityPoolName string `pulumi:"identityPoolName"`
+	Id               *string `pulumi:"id"`
+	IdentityPoolName string  `pulumi:"identityPoolName"`
 	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
@@ -123,18 +123,18 @@ func (o LookupIdentityPoolResultOutput) ToLookupIdentityPoolResultOutputWithCont
 }
 
 // Whether the classic / basic authentication flow is enabled.
-func (o LookupIdentityPoolResultOutput) AllowClassicFlow() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) bool { return v.AllowClassicFlow }).(pulumi.BoolOutput)
+func (o LookupIdentityPoolResultOutput) AllowClassicFlow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) *bool { return v.AllowClassicFlow }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the identity pool supports unauthenticated logins or not.
-func (o LookupIdentityPoolResultOutput) AllowUnauthenticatedIdentities() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) bool { return v.AllowUnauthenticatedIdentities }).(pulumi.BoolOutput)
+func (o LookupIdentityPoolResultOutput) AllowUnauthenticatedIdentities() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) *bool { return v.AllowUnauthenticatedIdentities }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the Pool.
-func (o LookupIdentityPoolResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupIdentityPoolResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // An array of Amazon Cognito Identity user pools and their client IDs.
@@ -145,13 +145,13 @@ func (o LookupIdentityPoolResultOutput) CognitoIdentityProviders() GetIdentityPo
 }
 
 // The "domain" by which Cognito will refer to your users.
-func (o LookupIdentityPoolResultOutput) DeveloperProviderName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) string { return v.DeveloperProviderName }).(pulumi.StringOutput)
+func (o LookupIdentityPoolResultOutput) DeveloperProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.DeveloperProviderName }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupIdentityPoolResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupIdentityPoolResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupIdentityPoolResultOutput) IdentityPoolName() pulumi.StringOutput {

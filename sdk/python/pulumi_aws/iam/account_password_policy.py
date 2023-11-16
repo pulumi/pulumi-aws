@@ -531,7 +531,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirePasswords")
-    def expire_passwords(self) -> pulumi.Output[bool]:
+    def expire_passwords(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
         """
@@ -539,7 +539,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hardExpiry")
-    def hard_expiry(self) -> pulumi.Output[bool]:
+    def hard_expiry(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         """
@@ -547,7 +547,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxPasswordAge")
-    def max_password_age(self) -> pulumi.Output[int]:
+    def max_password_age(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days that an user password is valid.
         """
@@ -563,7 +563,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordReusePrevention")
-    def password_reuse_prevention(self) -> pulumi.Output[int]:
+    def password_reuse_prevention(self) -> pulumi.Output[Optional[int]]:
         """
         The number of previous passwords that users are prevented from reusing.
         """
@@ -571,7 +571,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireLowercaseCharacters")
-    def require_lowercase_characters(self) -> pulumi.Output[bool]:
+    def require_lowercase_characters(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to require lowercase characters for user passwords.
         """
@@ -579,7 +579,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireNumbers")
-    def require_numbers(self) -> pulumi.Output[bool]:
+    def require_numbers(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to require numbers for user passwords.
         """
@@ -587,7 +587,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireSymbols")
-    def require_symbols(self) -> pulumi.Output[bool]:
+    def require_symbols(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to require symbols for user passwords.
         """
@@ -595,7 +595,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireUppercaseCharacters")
-    def require_uppercase_characters(self) -> pulumi.Output[bool]:
+    def require_uppercase_characters(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to require uppercase characters for user passwords.
         """

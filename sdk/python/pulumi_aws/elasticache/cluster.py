@@ -1621,7 +1621,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> pulumi.Output[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
         """
@@ -1629,7 +1629,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the created ElastiCache Cluster.
         """
@@ -1647,7 +1647,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         """
@@ -1655,7 +1655,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azMode")
-    def az_mode(self) -> pulumi.Output[str]:
+    def az_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         """
@@ -1663,7 +1663,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheNodes")
-    def cache_nodes(self) -> pulumi.Output[Sequence['outputs.ClusterCacheNode']]:
+    def cache_nodes(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterCacheNode']]]:
         """
         List of node objects including `id`, `address`, `port` and `availability_zone`.
         """
@@ -1671,7 +1671,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterAddress")
-    def cluster_address(self) -> pulumi.Output[str]:
+    def cluster_address(self) -> pulumi.Output[Optional[str]]:
         """
         (Memcached only) DNS name of the cache cluster without the port appended.
         """
@@ -1687,7 +1687,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationEndpoint")
-    def configuration_endpoint(self) -> pulumi.Output[str]:
+    def configuration_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         (Memcached only) Configuration endpoint to allow host discovery.
         """
@@ -1695,7 +1695,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[str]:
+    def engine(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         """
@@ -1703,7 +1703,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version number of the cache engine to be used.
         If not set, defaults to the latest version.
@@ -1718,7 +1718,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersionActual")
-    def engine_version_actual(self) -> pulumi.Output[str]:
+    def engine_version_actual(self) -> pulumi.Output[Optional[str]]:
         """
         Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         """
@@ -1734,7 +1734,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipDiscovery")
-    def ip_discovery(self) -> pulumi.Output[str]:
+    def ip_discovery(self) -> pulumi.Output[Optional[str]]:
         """
         The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         """
@@ -1750,7 +1750,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> pulumi.Output[str]:
+    def maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the weekly time range for when maintenance
         on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
@@ -1760,7 +1760,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> pulumi.Output[str]:
+    def network_type(self) -> pulumi.Output[Optional[str]]:
         """
         The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         """
@@ -1768,7 +1768,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> pulumi.Output[str]:
+    def node_type(self) -> pulumi.Output[Optional[str]]:
         """
         The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         """
@@ -1784,7 +1784,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numCacheNodes")
-    def num_cache_nodes(self) -> pulumi.Output[int]:
+    def num_cache_nodes(self) -> pulumi.Output[Optional[int]]:
         """
         The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         """
@@ -1800,7 +1800,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> pulumi.Output[str]:
+    def parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the parameter group to associate with this cache cluster.
 
@@ -1810,7 +1810,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         """
@@ -1826,7 +1826,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredOutpostArn")
-    def preferred_outpost_arn(self) -> pulumi.Output[str]:
+    def preferred_outpost_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The outpost ARN in which the cache cluster will be created.
         """
@@ -1834,7 +1834,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationGroupId")
-    def replication_group_id(self) -> pulumi.Output[str]:
+    def replication_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         """
@@ -1842,7 +1842,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
         """
@@ -1874,7 +1874,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotWindow")
-    def snapshot_window(self) -> pulumi.Output[str]:
+    def snapshot_window(self) -> pulumi.Output[Optional[str]]:
         """
         Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
         """
@@ -1882,7 +1882,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> pulumi.Output[str]:
+    def subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
         """
@@ -1909,7 +1909,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
-    def transit_encryption_enabled(self) -> pulumi.Output[bool]:
+    def transit_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """

@@ -8,26 +8,28 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBrokerUser {
-    private Boolean consoleAccess;
-    private List<String> groups;
-    private Boolean replicationUser;
-    private String username;
+    private @Nullable Boolean consoleAccess;
+    private @Nullable List<String> groups;
+    private @Nullable Boolean replicationUser;
+    private @Nullable String username;
 
     private GetBrokerUser() {}
-    public Boolean consoleAccess() {
-        return this.consoleAccess;
+    public Optional<Boolean> consoleAccess() {
+        return Optional.ofNullable(this.consoleAccess);
     }
     public List<String> groups() {
-        return this.groups;
+        return this.groups == null ? List.of() : this.groups;
     }
-    public Boolean replicationUser() {
-        return this.replicationUser;
+    public Optional<Boolean> replicationUser() {
+        return Optional.ofNullable(this.replicationUser);
     }
-    public String username() {
-        return this.username;
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
     }
 
     public static Builder builder() {
@@ -39,10 +41,10 @@ public final class GetBrokerUser {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean consoleAccess;
-        private List<String> groups;
-        private Boolean replicationUser;
-        private String username;
+        private @Nullable Boolean consoleAccess;
+        private @Nullable List<String> groups;
+        private @Nullable Boolean replicationUser;
+        private @Nullable String username;
         public Builder() {}
         public Builder(GetBrokerUser defaults) {
     	      Objects.requireNonNull(defaults);
@@ -53,26 +55,26 @@ public final class GetBrokerUser {
         }
 
         @CustomType.Setter
-        public Builder consoleAccess(Boolean consoleAccess) {
-            this.consoleAccess = Objects.requireNonNull(consoleAccess);
+        public Builder consoleAccess(@Nullable Boolean consoleAccess) {
+            this.consoleAccess = consoleAccess;
             return this;
         }
         @CustomType.Setter
-        public Builder groups(List<String> groups) {
-            this.groups = Objects.requireNonNull(groups);
+        public Builder groups(@Nullable List<String> groups) {
+            this.groups = groups;
             return this;
         }
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
         @CustomType.Setter
-        public Builder replicationUser(Boolean replicationUser) {
-            this.replicationUser = Objects.requireNonNull(replicationUser);
+        public Builder replicationUser(@Nullable Boolean replicationUser) {
+            this.replicationUser = replicationUser;
             return this;
         }
         @CustomType.Setter
-        public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+        public Builder username(@Nullable String username) {
+            this.username = username;
             return this;
         }
         public GetBrokerUser build() {

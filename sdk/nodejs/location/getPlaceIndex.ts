@@ -51,36 +51,36 @@ export interface GetPlaceIndexResult {
     /**
      * Timestamp for when the place index resource was created in ISO 8601 format.
      */
-    readonly createTime: string;
+    readonly createTime?: string;
     /**
      * Data provider of geospatial data.
      */
-    readonly dataSource: string;
+    readonly dataSource?: string;
     /**
      * List of configurations that specify data storage option for requesting Places.
      */
-    readonly dataSourceConfigurations: outputs.location.GetPlaceIndexDataSourceConfiguration[];
+    readonly dataSourceConfigurations?: outputs.location.GetPlaceIndexDataSourceConfiguration[];
     /**
      * Optional description for the place index resource.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN for the place index resource.
      */
-    readonly indexArn: string;
+    readonly indexArn?: string;
     readonly indexName: string;
     /**
      * Key-value map of resource tags for the place index.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Timestamp for when the place index resource was last updated in ISO 8601 format.
      */
-    readonly updateTime: string;
+    readonly updateTime?: string;
 }
 /**
  * Retrieve information about a Location Service Place Index.

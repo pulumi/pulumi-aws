@@ -61,12 +61,12 @@ type LookupCertificateArgs struct {
 type LookupCertificateResult struct {
 	Arn string `pulumi:"arn"`
 	// PEM-encoded certificate value.
-	Certificate             string `pulumi:"certificate"`
-	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
+	Certificate             *string `pulumi:"certificate"`
+	CertificateAuthorityArn string  `pulumi:"certificateAuthorityArn"`
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-	CertificateChain string `pulumi:"certificateChain"`
+	CertificateChain *string `pulumi:"certificateChain"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -114,8 +114,8 @@ func (o LookupCertificateResultOutput) Arn() pulumi.StringOutput {
 }
 
 // PEM-encoded certificate value.
-func (o LookupCertificateResultOutput) Certificate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCertificateResultOutput) CertificateAuthorityArn() pulumi.StringOutput {
@@ -123,13 +123,13 @@ func (o LookupCertificateResultOutput) CertificateAuthorityArn() pulumi.StringOu
 }
 
 // PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateChain }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCertificateResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

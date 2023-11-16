@@ -3256,13 +3256,13 @@ func (o GetMaintenanceWindowsFilterArrayOutput) Index(i pulumi.IntInput) GetMain
 
 type GetPatchBaselineApprovalRule struct {
 	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-	ApproveAfterDays int `pulumi:"approveAfterDays"`
+	ApproveAfterDays *int `pulumi:"approveAfterDays"`
 	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
-	ApproveUntilDate string `pulumi:"approveUntilDate"`
+	ApproveUntilDate *string `pulumi:"approveUntilDate"`
 	// The compliance level for patches approved by this rule.
-	ComplianceLevel string `pulumi:"complianceLevel"`
+	ComplianceLevel *string `pulumi:"complianceLevel"`
 	// Boolean enabling the application of non-security updates.
-	EnableNonSecurity bool `pulumi:"enableNonSecurity"`
+	EnableNonSecurity *bool `pulumi:"enableNonSecurity"`
 	// The patch filter group that defines the criteria for the rule.
 	PatchFilters []GetPatchBaselineApprovalRulePatchFilter `pulumi:"patchFilters"`
 }
@@ -3280,13 +3280,13 @@ type GetPatchBaselineApprovalRuleInput interface {
 
 type GetPatchBaselineApprovalRuleArgs struct {
 	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-	ApproveAfterDays pulumi.IntInput `pulumi:"approveAfterDays"`
+	ApproveAfterDays pulumi.IntPtrInput `pulumi:"approveAfterDays"`
 	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
-	ApproveUntilDate pulumi.StringInput `pulumi:"approveUntilDate"`
+	ApproveUntilDate pulumi.StringPtrInput `pulumi:"approveUntilDate"`
 	// The compliance level for patches approved by this rule.
-	ComplianceLevel pulumi.StringInput `pulumi:"complianceLevel"`
+	ComplianceLevel pulumi.StringPtrInput `pulumi:"complianceLevel"`
 	// Boolean enabling the application of non-security updates.
-	EnableNonSecurity pulumi.BoolInput `pulumi:"enableNonSecurity"`
+	EnableNonSecurity pulumi.BoolPtrInput `pulumi:"enableNonSecurity"`
 	// The patch filter group that defines the criteria for the rule.
 	PatchFilters GetPatchBaselineApprovalRulePatchFilterArrayInput `pulumi:"patchFilters"`
 }
@@ -3343,23 +3343,23 @@ func (o GetPatchBaselineApprovalRuleOutput) ToGetPatchBaselineApprovalRuleOutput
 }
 
 // The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-func (o GetPatchBaselineApprovalRuleOutput) ApproveAfterDays() pulumi.IntOutput {
-	return o.ApplyT(func(v GetPatchBaselineApprovalRule) int { return v.ApproveAfterDays }).(pulumi.IntOutput)
+func (o GetPatchBaselineApprovalRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRule) *int { return v.ApproveAfterDays }).(pulumi.IntPtrOutput)
 }
 
 // The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
-func (o GetPatchBaselineApprovalRuleOutput) ApproveUntilDate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPatchBaselineApprovalRule) string { return v.ApproveUntilDate }).(pulumi.StringOutput)
+func (o GetPatchBaselineApprovalRuleOutput) ApproveUntilDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRule) *string { return v.ApproveUntilDate }).(pulumi.StringPtrOutput)
 }
 
 // The compliance level for patches approved by this rule.
-func (o GetPatchBaselineApprovalRuleOutput) ComplianceLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPatchBaselineApprovalRule) string { return v.ComplianceLevel }).(pulumi.StringOutput)
+func (o GetPatchBaselineApprovalRuleOutput) ComplianceLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRule) *string { return v.ComplianceLevel }).(pulumi.StringPtrOutput)
 }
 
 // Boolean enabling the application of non-security updates.
-func (o GetPatchBaselineApprovalRuleOutput) EnableNonSecurity() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetPatchBaselineApprovalRule) bool { return v.EnableNonSecurity }).(pulumi.BoolOutput)
+func (o GetPatchBaselineApprovalRuleOutput) EnableNonSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRule) *bool { return v.EnableNonSecurity }).(pulumi.BoolPtrOutput)
 }
 
 // The patch filter group that defines the criteria for the rule.
@@ -3389,7 +3389,7 @@ func (o GetPatchBaselineApprovalRuleArrayOutput) Index(i pulumi.IntInput) GetPat
 
 type GetPatchBaselineApprovalRulePatchFilter struct {
 	// The key for the filter.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// The value for the filter.
 	Values []string `pulumi:"values"`
 }
@@ -3407,7 +3407,7 @@ type GetPatchBaselineApprovalRulePatchFilterInput interface {
 
 type GetPatchBaselineApprovalRulePatchFilterArgs struct {
 	// The key for the filter.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The value for the filter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -3464,8 +3464,8 @@ func (o GetPatchBaselineApprovalRulePatchFilterOutput) ToGetPatchBaselineApprova
 }
 
 // The key for the filter.
-func (o GetPatchBaselineApprovalRulePatchFilterOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPatchBaselineApprovalRulePatchFilter) string { return v.Key }).(pulumi.StringOutput)
+func (o GetPatchBaselineApprovalRulePatchFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRulePatchFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // The value for the filter.
@@ -3495,7 +3495,7 @@ func (o GetPatchBaselineApprovalRulePatchFilterArrayOutput) Index(i pulumi.IntIn
 
 type GetPatchBaselineGlobalFilter struct {
 	// The key for the filter.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// The value for the filter.
 	Values []string `pulumi:"values"`
 }
@@ -3513,7 +3513,7 @@ type GetPatchBaselineGlobalFilterInput interface {
 
 type GetPatchBaselineGlobalFilterArgs struct {
 	// The key for the filter.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The value for the filter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -3570,8 +3570,8 @@ func (o GetPatchBaselineGlobalFilterOutput) ToGetPatchBaselineGlobalFilterOutput
 }
 
 // The key for the filter.
-func (o GetPatchBaselineGlobalFilterOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPatchBaselineGlobalFilter) string { return v.Key }).(pulumi.StringOutput)
+func (o GetPatchBaselineGlobalFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPatchBaselineGlobalFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // The value for the filter.
@@ -3601,9 +3601,9 @@ func (o GetPatchBaselineGlobalFilterArrayOutput) Index(i pulumi.IntInput) GetPat
 
 type GetPatchBaselineSource struct {
 	// The value of the yum repo configuration.
-	Configuration string `pulumi:"configuration"`
+	Configuration *string `pulumi:"configuration"`
 	// The name specified to identify the patch source.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The specific operating system versions a patch repository applies to.
 	Products []string `pulumi:"products"`
 }
@@ -3621,9 +3621,9 @@ type GetPatchBaselineSourceInput interface {
 
 type GetPatchBaselineSourceArgs struct {
 	// The value of the yum repo configuration.
-	Configuration pulumi.StringInput `pulumi:"configuration"`
+	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
 	// The name specified to identify the patch source.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The specific operating system versions a patch repository applies to.
 	Products pulumi.StringArrayInput `pulumi:"products"`
 }
@@ -3680,13 +3680,13 @@ func (o GetPatchBaselineSourceOutput) ToGetPatchBaselineSourceOutputWithContext(
 }
 
 // The value of the yum repo configuration.
-func (o GetPatchBaselineSourceOutput) Configuration() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPatchBaselineSource) string { return v.Configuration }).(pulumi.StringOutput)
+func (o GetPatchBaselineSourceOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPatchBaselineSource) *string { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
 // The name specified to identify the patch source.
-func (o GetPatchBaselineSourceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPatchBaselineSource) string { return v.Name }).(pulumi.StringOutput)
+func (o GetPatchBaselineSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPatchBaselineSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The specific operating system versions a patch repository applies to.

@@ -111,15 +111,15 @@ export class ContactFlowModule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Contact Flow Module.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Contact Flow Module.
      */
-    public /*out*/ readonly contactFlowModuleId!: pulumi.Output<string>;
+    public /*out*/ readonly contactFlowModuleId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      */
-    public readonly content!: pulumi.Output<string>;
+    public readonly content!: pulumi.Output<string | undefined>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
      */

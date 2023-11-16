@@ -54,7 +54,7 @@ type SnapshotSchedule struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
 	Definitions pulumi.StringArrayOutput `pulumi:"definitions"`
 	// The description of the snapshot schedule.
@@ -62,10 +62,10 @@ type SnapshotSchedule struct {
 	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	Identifier pulumi.StringPtrOutput `pulumi:"identifier"`
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
-	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
+	IdentifierPrefix pulumi.StringPtrOutput `pulumi:"identifierPrefix"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -279,8 +279,8 @@ func (o SnapshotScheduleOutput) ToSnapshotScheduleOutputWithContext(ctx context.
 }
 
 // Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
-func (o SnapshotScheduleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SnapshotScheduleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
@@ -299,14 +299,14 @@ func (o SnapshotScheduleOutput) ForceDestroy() pulumi.BoolPtrOutput {
 }
 
 // The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-func (o SnapshotScheduleOutput) Identifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
+func (o SnapshotScheduleOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringPtrOutput { return v.Identifier }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique
 // identifier beginning with the specified prefix. Conflicts with `identifier`.
-func (o SnapshotScheduleOutput) IdentifierPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringOutput { return v.IdentifierPrefix }).(pulumi.StringOutput)
+func (o SnapshotScheduleOutput) IdentifierPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringPtrOutput { return v.IdentifierPrefix }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

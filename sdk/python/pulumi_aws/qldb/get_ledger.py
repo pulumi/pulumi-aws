@@ -46,17 +46,17 @@ class GetLedgerResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> bool:
+    def deletion_protection(self) -> Optional[bool]:
         return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -64,7 +64,7 @@ class GetLedgerResult:
 
     @property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> str:
+    def kms_key(self) -> Optional[str]:
         return pulumi.get(self, "kms_key")
 
     @property
@@ -74,12 +74,12 @@ class GetLedgerResult:
 
     @property
     @pulumi.getter(name="permissionsMode")
-    def permissions_mode(self) -> str:
+    def permissions_mode(self) -> Optional[str]:
         return pulumi.get(self, "permissions_mode")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

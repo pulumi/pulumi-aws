@@ -17,13 +17,13 @@ public final class GetIpamPreviewNextCidrResult {
      * @return Previewed CIDR from the pool.
      * 
      */
-    private String cidr;
+    private @Nullable String cidr;
     private @Nullable List<String> disallowedCidrs;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String ipamPoolId;
     private @Nullable Integer netmaskLength;
 
@@ -32,8 +32,8 @@ public final class GetIpamPreviewNextCidrResult {
      * @return Previewed CIDR from the pool.
      * 
      */
-    public String cidr() {
-        return this.cidr;
+    public Optional<String> cidr() {
+        return Optional.ofNullable(this.cidr);
     }
     public List<String> disallowedCidrs() {
         return this.disallowedCidrs == null ? List.of() : this.disallowedCidrs;
@@ -42,8 +42,8 @@ public final class GetIpamPreviewNextCidrResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String ipamPoolId() {
         return this.ipamPoolId;
@@ -61,9 +61,9 @@ public final class GetIpamPreviewNextCidrResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cidr;
+        private @Nullable String cidr;
         private @Nullable List<String> disallowedCidrs;
-        private String id;
+        private @Nullable String id;
         private String ipamPoolId;
         private @Nullable Integer netmaskLength;
         public Builder() {}
@@ -77,8 +77,8 @@ public final class GetIpamPreviewNextCidrResult {
         }
 
         @CustomType.Setter
-        public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+        public Builder cidr(@Nullable String cidr) {
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
@@ -90,8 +90,8 @@ public final class GetIpamPreviewNextCidrResult {
             return disallowedCidrs(List.of(disallowedCidrs));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

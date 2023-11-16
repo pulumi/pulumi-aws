@@ -46,37 +46,37 @@ export interface GetServiceNetworkResult {
     /**
      * ARN of the Service Network.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Authentication type for the service network. Either `NONE` or `AWS_IAM`.
      */
-    readonly authType: string;
+    readonly authType?: string;
     /**
      * Date and time the service network was created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Date and time the service network was last updated.
      */
-    readonly lastUpdatedAt: string;
+    readonly lastUpdatedAt?: string;
     /**
      * Name of the service network.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Number of services associated with this service network.
      */
-    readonly numberOfAssociatedServices: number;
+    readonly numberOfAssociatedServices?: number;
     /**
      * Number of VPCs associated with this service network.
      */
-    readonly numberOfAssociatedVpcs: number;
+    readonly numberOfAssociatedVpcs?: number;
     readonly serviceNetworkIdentifier: string;
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS VPC Lattice Service Network.

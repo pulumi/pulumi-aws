@@ -75,33 +75,33 @@ export interface GetPolicyResult {
     /**
      * ARN of the policy.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the policy.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly name: string;
+    readonly id?: string;
+    readonly name?: string;
     /**
      * Path to the policy.
      */
-    readonly path: string;
+    readonly path?: string;
     readonly pathPrefix?: string;
     /**
      * Policy document of the policy.
      */
-    readonly policy: string;
+    readonly policy?: string;
     /**
      * Policy's ID.
      */
-    readonly policyId: string;
+    readonly policyId?: string;
     /**
      * Key-value mapping of tags for the IAM Policy.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * This data source can be used to fetch information about a specific

@@ -55,7 +55,7 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the compute environment.
         """
@@ -68,7 +68,7 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter(name="ecsClusterArn")
-    def ecs_cluster_arn(self) -> str:
+    def ecs_cluster_arn(self) -> Optional[str]:
         """
         ARN of the underlying Amazon ECS cluster used by the compute environment.
         """
@@ -76,7 +76,7 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -84,7 +84,7 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> str:
+    def service_role(self) -> Optional[str]:
         """
         ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         """
@@ -92,7 +92,7 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
         """
@@ -100,7 +100,7 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current status of the compute environment (for example, `CREATING` or `VALID`).
         """
@@ -108,7 +108,7 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> str:
+    def status_reason(self) -> Optional[str]:
         """
         Short, human-readable string to provide additional details about the current status of the compute environment.
         """
@@ -116,7 +116,7 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags
         """
@@ -124,7 +124,7 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         """

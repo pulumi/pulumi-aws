@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCodeSigningConfigAllowedPublisher {
@@ -14,7 +15,7 @@ public final class GetCodeSigningConfigAllowedPublisher {
      * @return The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
      * 
      */
-    private List<String> signingProfileVersionArns;
+    private @Nullable List<String> signingProfileVersionArns;
 
     private GetCodeSigningConfigAllowedPublisher() {}
     /**
@@ -22,7 +23,7 @@ public final class GetCodeSigningConfigAllowedPublisher {
      * 
      */
     public List<String> signingProfileVersionArns() {
-        return this.signingProfileVersionArns;
+        return this.signingProfileVersionArns == null ? List.of() : this.signingProfileVersionArns;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetCodeSigningConfigAllowedPublisher {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> signingProfileVersionArns;
+        private @Nullable List<String> signingProfileVersionArns;
         public Builder() {}
         public Builder(GetCodeSigningConfigAllowedPublisher defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetCodeSigningConfigAllowedPublisher {
         }
 
         @CustomType.Setter
-        public Builder signingProfileVersionArns(List<String> signingProfileVersionArns) {
-            this.signingProfileVersionArns = Objects.requireNonNull(signingProfileVersionArns);
+        public Builder signingProfileVersionArns(@Nullable List<String> signingProfileVersionArns) {
+            this.signingProfileVersionArns = signingProfileVersionArns;
             return this;
         }
         public Builder signingProfileVersionArns(String... signingProfileVersionArns) {

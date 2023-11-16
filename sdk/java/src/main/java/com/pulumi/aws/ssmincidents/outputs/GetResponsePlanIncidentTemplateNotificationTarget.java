@@ -6,6 +6,8 @@ package com.pulumi.aws.ssmincidents.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponsePlanIncidentTemplateNotificationTarget {
@@ -13,15 +15,15 @@ public final class GetResponsePlanIncidentTemplateNotificationTarget {
      * @return The ARN of the Amazon SNS topic.
      * 
      */
-    private String snsTopicArn;
+    private @Nullable String snsTopicArn;
 
     private GetResponsePlanIncidentTemplateNotificationTarget() {}
     /**
      * @return The ARN of the Amazon SNS topic.
      * 
      */
-    public String snsTopicArn() {
-        return this.snsTopicArn;
+    public Optional<String> snsTopicArn() {
+        return Optional.ofNullable(this.snsTopicArn);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetResponsePlanIncidentTemplateNotificationTarget {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String snsTopicArn;
+        private @Nullable String snsTopicArn;
         public Builder() {}
         public Builder(GetResponsePlanIncidentTemplateNotificationTarget defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetResponsePlanIncidentTemplateNotificationTarget {
         }
 
         @CustomType.Setter
-        public Builder snsTopicArn(String snsTopicArn) {
-            this.snsTopicArn = Objects.requireNonNull(snsTopicArn);
+        public Builder snsTopicArn(@Nullable String snsTopicArn) {
+            this.snsTopicArn = snsTopicArn;
             return this;
         }
         public GetResponsePlanIncidentTemplateNotificationTarget build() {

@@ -121,13 +121,13 @@ type Fleet struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the created WorkLink Fleet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
 	AuditStreamArn pulumi.StringPtrOutput `pulumi:"auditStreamArn"`
 	// The identifier used by users to sign in to the Amazon WorkLink app.
-	CompanyCode pulumi.StringOutput `pulumi:"companyCode"`
+	CompanyCode pulumi.StringPtrOutput `pulumi:"companyCode"`
 	// The time that the fleet was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
 	DeviceCaCertificate pulumi.StringPtrOutput `pulumi:"deviceCaCertificate"`
 	// The name of the fleet.
@@ -135,7 +135,7 @@ type Fleet struct {
 	// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
 	IdentityProvider FleetIdentityProviderPtrOutput `pulumi:"identityProvider"`
 	// The time that the fleet was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// A region-unique name for the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
@@ -370,8 +370,8 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 }
 
 // The ARN of the created WorkLink Fleet.
-func (o FleetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FleetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
@@ -380,13 +380,13 @@ func (o FleetOutput) AuditStreamArn() pulumi.StringPtrOutput {
 }
 
 // The identifier used by users to sign in to the Amazon WorkLink app.
-func (o FleetOutput) CompanyCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.CompanyCode }).(pulumi.StringOutput)
+func (o FleetOutput) CompanyCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.CompanyCode }).(pulumi.StringPtrOutput)
 }
 
 // The time that the fleet was created.
-func (o FleetOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o FleetOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
@@ -405,8 +405,8 @@ func (o FleetOutput) IdentityProvider() FleetIdentityProviderPtrOutput {
 }
 
 // The time that the fleet was last updated.
-func (o FleetOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o FleetOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // A region-unique name for the AMI.

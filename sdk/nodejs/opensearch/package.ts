@@ -51,12 +51,12 @@ export class Package extends pulumi.CustomResource {
     /**
      * The current version of the package.
      */
-    public /*out*/ readonly availablePackageVersion!: pulumi.Output<string>;
+    public /*out*/ readonly availablePackageVersion!: pulumi.Output<string | undefined>;
     /**
      * Description of the package.
      */
     public readonly packageDescription!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly packageId!: pulumi.Output<string>;
+    public /*out*/ readonly packageId!: pulumi.Output<string | undefined>;
     /**
      * Unique name for the package.
      */

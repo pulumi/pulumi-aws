@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReceivedLicenseConsumptionConfigurationBorrowConfiguration {
@@ -14,27 +16,27 @@ public final class GetReceivedLicenseConsumptionConfigurationBorrowConfiguration
      * @return Indicates whether early check-ins are allowed.
      * 
      */
-    private Boolean allowEarlyCheckIn;
+    private @Nullable Boolean allowEarlyCheckIn;
     /**
      * @return Maximum time for the provisional configuration, in minutes.
      * 
      */
-    private Integer maxTimeToLiveInMinutes;
+    private @Nullable Integer maxTimeToLiveInMinutes;
 
     private GetReceivedLicenseConsumptionConfigurationBorrowConfiguration() {}
     /**
      * @return Indicates whether early check-ins are allowed.
      * 
      */
-    public Boolean allowEarlyCheckIn() {
-        return this.allowEarlyCheckIn;
+    public Optional<Boolean> allowEarlyCheckIn() {
+        return Optional.ofNullable(this.allowEarlyCheckIn);
     }
     /**
      * @return Maximum time for the provisional configuration, in minutes.
      * 
      */
-    public Integer maxTimeToLiveInMinutes() {
-        return this.maxTimeToLiveInMinutes;
+    public Optional<Integer> maxTimeToLiveInMinutes() {
+        return Optional.ofNullable(this.maxTimeToLiveInMinutes);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetReceivedLicenseConsumptionConfigurationBorrowConfiguration
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean allowEarlyCheckIn;
-        private Integer maxTimeToLiveInMinutes;
+        private @Nullable Boolean allowEarlyCheckIn;
+        private @Nullable Integer maxTimeToLiveInMinutes;
         public Builder() {}
         public Builder(GetReceivedLicenseConsumptionConfigurationBorrowConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetReceivedLicenseConsumptionConfigurationBorrowConfiguration
         }
 
         @CustomType.Setter
-        public Builder allowEarlyCheckIn(Boolean allowEarlyCheckIn) {
-            this.allowEarlyCheckIn = Objects.requireNonNull(allowEarlyCheckIn);
+        public Builder allowEarlyCheckIn(@Nullable Boolean allowEarlyCheckIn) {
+            this.allowEarlyCheckIn = allowEarlyCheckIn;
             return this;
         }
         @CustomType.Setter
-        public Builder maxTimeToLiveInMinutes(Integer maxTimeToLiveInMinutes) {
-            this.maxTimeToLiveInMinutes = Objects.requireNonNull(maxTimeToLiveInMinutes);
+        public Builder maxTimeToLiveInMinutes(@Nullable Integer maxTimeToLiveInMinutes) {
+            this.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
             return this;
         }
         public GetReceivedLicenseConsumptionConfigurationBorrowConfiguration build() {

@@ -94,14 +94,14 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Configuration Set.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the configuration set.
@@ -136,28 +136,28 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="reputationOptions", refs={ConfigurationSetReputationOptions.class}, tree="[0]")
-    private Output<ConfigurationSetReputationOptions> reputationOptions;
+    private Output</* @Nullable */ ConfigurationSetReputationOptions> reputationOptions;
 
     /**
      * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      * 
      */
-    public Output<ConfigurationSetReputationOptions> reputationOptions() {
-        return this.reputationOptions;
+    public Output<Optional<ConfigurationSetReputationOptions>> reputationOptions() {
+        return Codegen.optional(this.reputationOptions);
     }
     /**
      * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
      * 
      */
     @Export(name="sendingOptions", refs={ConfigurationSetSendingOptions.class}, tree="[0]")
-    private Output<ConfigurationSetSendingOptions> sendingOptions;
+    private Output</* @Nullable */ ConfigurationSetSendingOptions> sendingOptions;
 
     /**
      * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set.
      * 
      */
-    public Output<ConfigurationSetSendingOptions> sendingOptions() {
-        return this.sendingOptions;
+    public Output<Optional<ConfigurationSetSendingOptions>> sendingOptions() {
+        return Codegen.optional(this.sendingOptions);
     }
     /**
      * An object that contains information about the suppression list preferences for your account.

@@ -68,11 +68,11 @@ export class Organization extends pulumi.CustomResource {
     /**
      * List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
      */
-    public /*out*/ readonly accounts!: pulumi.Output<outputs.organizations.OrganizationAccount[]>;
+    public /*out*/ readonly accounts!: pulumi.Output<outputs.organizations.OrganizationAccount[] | undefined>;
     /**
      * ARN of the root
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `featureSet` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
      */
@@ -88,23 +88,23 @@ export class Organization extends pulumi.CustomResource {
     /**
      * ARN of the master account
      */
-    public /*out*/ readonly masterAccountArn!: pulumi.Output<string>;
+    public /*out*/ readonly masterAccountArn!: pulumi.Output<string | undefined>;
     /**
      * Email address of the master account
      */
-    public /*out*/ readonly masterAccountEmail!: pulumi.Output<string>;
+    public /*out*/ readonly masterAccountEmail!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the master account
      */
-    public /*out*/ readonly masterAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly masterAccountId!: pulumi.Output<string | undefined>;
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
-    public /*out*/ readonly nonMasterAccounts!: pulumi.Output<outputs.organizations.OrganizationNonMasterAccount[]>;
+    public /*out*/ readonly nonMasterAccounts!: pulumi.Output<outputs.organizations.OrganizationNonMasterAccount[] | undefined>;
     /**
      * List of organization roots. All elements have these attributes:
      */
-    public /*out*/ readonly roots!: pulumi.Output<outputs.organizations.OrganizationRoot[]>;
+    public /*out*/ readonly roots!: pulumi.Output<outputs.organizations.OrganizationRoot[] | undefined>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.

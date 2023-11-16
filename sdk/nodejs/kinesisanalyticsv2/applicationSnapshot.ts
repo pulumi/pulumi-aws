@@ -63,11 +63,11 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
     /**
      * The current application version ID when the snapshot was created.
      */
-    public /*out*/ readonly applicationVersionId!: pulumi.Output<number>;
+    public /*out*/ readonly applicationVersionId!: pulumi.Output<number | undefined>;
     /**
      * The timestamp of the application snapshot.
      */
-    public /*out*/ readonly snapshotCreationTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly snapshotCreationTimestamp!: pulumi.Output<string | undefined>;
     /**
      * The name of the application snapshot.
      */

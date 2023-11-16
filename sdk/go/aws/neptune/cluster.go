@@ -69,23 +69,23 @@ type Cluster struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
-	AllowMajorVersionUpgrade pulumi.BoolOutput `pulumi:"allowMajorVersionUpgrade"`
+	AllowMajorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"allowMajorVersionUpgrade"`
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// The Neptune Cluster Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	ClusterIdentifier pulumi.StringPtrOutput `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
-	ClusterIdentifierPrefix pulumi.StringOutput `pulumi:"clusterIdentifierPrefix"`
+	ClusterIdentifierPrefix pulumi.StringPtrOutput `pulumi:"clusterIdentifierPrefix"`
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
 	// The Neptune Cluster Resource ID
-	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+	ClusterResourceId pulumi.StringPtrOutput `pulumi:"clusterResourceId"`
 	// If set to true, tags are copied to any snapshot of the DB cluster that is created.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -93,37 +93,37 @@ type Cluster struct {
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
 	// The DNS address of the Neptune instance
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// The global cluster identifier specified on `neptune.GlobalCluster`.
 	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringPtrOutput `pulumi:"hostedZoneId"`
 	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
-	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// A cluster parameter group to associate with the cluster.
 	NeptuneClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
 	NeptuneInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneInstanceParameterGroupName"`
 	// A Neptune subnet group to associate with this Neptune instance.
-	NeptuneSubnetGroupName pulumi.StringOutput `pulumi:"neptuneSubnetGroupName"`
+	NeptuneSubnetGroupName pulumi.StringPtrOutput `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the Neptune accepts connections. Default is `8182`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
+	PreferredBackupWindow pulumi.StringPtrOutput `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
-	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
+	ReaderEndpoint pulumi.StringPtrOutput `pulumi:"readerEndpoint"`
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
 	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
@@ -546,18 +546,18 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 }
 
 // Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
-func (o ClusterOutput) AllowMajorVersionUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.AllowMajorVersionUpgrade }).(pulumi.BoolOutput)
+func (o ClusterOutput) AllowMajorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.AllowMajorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-func (o ClusterOutput) ApplyImmediately() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.ApplyImmediately }).(pulumi.BoolOutput)
+func (o ClusterOutput) ApplyImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
 
 // The Neptune Cluster Amazon Resource Name (ARN)
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
@@ -571,13 +571,13 @@ func (o ClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 }
 
 // The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-func (o ClusterOutput) ClusterIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
-func (o ClusterOutput) ClusterIdentifierPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifierPrefix }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterIdentifierPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterIdentifierPrefix }).(pulumi.StringPtrOutput)
 }
 
 // List of Neptune Instances that are a part of this cluster
@@ -586,8 +586,8 @@ func (o ClusterOutput) ClusterMembers() pulumi.StringArrayOutput {
 }
 
 // The Neptune Cluster Resource ID
-func (o ClusterOutput) ClusterResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterResourceId }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
 // If set to true, tags are copied to any snapshot of the DB cluster that is created.
@@ -606,8 +606,8 @@ func (o ClusterOutput) EnableCloudwatchLogsExports() pulumi.StringArrayOutput {
 }
 
 // The DNS address of the Neptune instance
-func (o ClusterOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ClusterOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -616,8 +616,8 @@ func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
 }
 
 // The database engine version.
-func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o ClusterOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
@@ -631,8 +631,8 @@ func (o ClusterOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
 }
 
 // The Route53 Hosted Zone ID of the endpoint
-func (o ClusterOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o ClusterOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
@@ -646,8 +646,8 @@ func (o ClusterOutput) IamRoles() pulumi.StringArrayOutput {
 }
 
 // The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
-func (o ClusterOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o ClusterOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // A cluster parameter group to associate with the cluster.
@@ -661,8 +661,8 @@ func (o ClusterOutput) NeptuneInstanceParameterGroupName() pulumi.StringPtrOutpu
 }
 
 // A Neptune subnet group to associate with this Neptune instance.
-func (o ClusterOutput) NeptuneSubnetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NeptuneSubnetGroupName }).(pulumi.StringOutput)
+func (o ClusterOutput) NeptuneSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.NeptuneSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The port on which the Neptune accepts connections. Default is `8182`.
@@ -671,18 +671,18 @@ func (o ClusterOutput) Port() pulumi.IntPtrOutput {
 }
 
 // The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-func (o ClusterOutput) PreferredBackupWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredBackupWindow }).(pulumi.StringOutput)
+func (o ClusterOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
 // The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
-func (o ClusterOutput) ReaderEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ReaderEndpoint }).(pulumi.StringOutput)
+func (o ClusterOutput) ReaderEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ReaderEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.

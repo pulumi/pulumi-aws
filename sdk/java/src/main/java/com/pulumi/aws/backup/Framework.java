@@ -137,14 +137,14 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the backup framework.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
@@ -165,28 +165,28 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
     /**
      * @return The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
      * 
      */
     @Export(name="deploymentStatus", refs={String.class}, tree="[0]")
-    private Output<String> deploymentStatus;
+    private Output</* @Nullable */ String> deploymentStatus;
 
     /**
      * @return The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
      * 
      */
-    public Output<String> deploymentStatus() {
-        return this.deploymentStatus;
+    public Output<Optional<String>> deploymentStatus() {
+        return Codegen.optional(this.deploymentStatus);
     }
     /**
      * The description of the framework with a maximum of 1,024 characters
@@ -221,14 +221,14 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

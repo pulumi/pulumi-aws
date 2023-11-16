@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Kms
         /// The Amazon Resource Name (ARN) of the key.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
@@ -70,13 +70,13 @@ namespace Pulumi.Aws.Kms
         /// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         /// </summary>
         [Output("enabled")]
-        public Output<bool> Enabled { get; private set; } = null!;
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
         /// </summary>
         [Output("expirationModel")]
-        public Output<string> ExpirationModel { get; private set; } = null!;
+        public Output<string?> ExpirationModel { get; private set; } = null!;
 
         /// <summary>
         /// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
@@ -88,25 +88,25 @@ namespace Pulumi.Aws.Kms
         /// The state of the CMK.
         /// </summary>
         [Output("keyState")]
-        public Output<string> KeyState { get; private set; } = null!;
+        public Output<string?> KeyState { get; private set; } = null!;
 
         /// <summary>
         /// The cryptographic operations for which you can use the CMK.
         /// </summary>
         [Output("keyUsage")]
-        public Output<string> KeyUsage { get; private set; } = null!;
+        public Output<string?> KeyUsage { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         /// </summary>
         [Output("multiRegion")]
-        public Output<bool> MultiRegion { get; private set; } = null!;
+        public Output<bool?> MultiRegion { get; private set; } = null!;
 
         /// <summary>
         /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

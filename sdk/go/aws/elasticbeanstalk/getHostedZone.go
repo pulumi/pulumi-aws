@@ -55,7 +55,7 @@ type GetHostedZoneArgs struct {
 // A collection of values returned by getHostedZone.
 type GetHostedZoneResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Region of the hosted zone.
 	Region *string `pulumi:"region"`
 }
@@ -99,8 +99,8 @@ func (o GetHostedZoneResultOutput) ToGetHostedZoneResultOutputWithContext(ctx co
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetHostedZoneResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetHostedZoneResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetHostedZoneResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetHostedZoneResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Region of the hosted zone.

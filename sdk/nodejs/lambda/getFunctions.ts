@@ -30,15 +30,15 @@ export interface GetFunctionsResult {
     /**
      * A list of Lambda Function ARNs.
      */
-    readonly functionArns: string[];
+    readonly functionArns?: string[];
     /**
      * A list of Lambda Function names.
      */
-    readonly functionNames: string[];
+    readonly functionNames?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Data resource to get a list of Lambda Functions.

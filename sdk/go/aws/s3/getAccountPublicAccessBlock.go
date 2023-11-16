@@ -56,15 +56,15 @@ type LookupAccountPublicAccessBlockArgs struct {
 type LookupAccountPublicAccessBlockResult struct {
 	AccountId *string `pulumi:"accountId"`
 	// Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
-	BlockPublicAcls bool `pulumi:"blockPublicAcls"`
+	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
 	// Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
-	BlockPublicPolicy bool `pulumi:"blockPublicPolicy"`
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
-	IgnorePublicAcls bool `pulumi:"ignorePublicAcls"`
+	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
 	// Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
-	RestrictPublicBuckets bool `pulumi:"restrictPublicBuckets"`
+	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
 }
 
 func LookupAccountPublicAccessBlockOutput(ctx *pulumi.Context, args LookupAccountPublicAccessBlockOutputArgs, opts ...pulumi.InvokeOption) LookupAccountPublicAccessBlockResultOutput {
@@ -110,28 +110,28 @@ func (o LookupAccountPublicAccessBlockResultOutput) AccountId() pulumi.StringPtr
 }
 
 // Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
-func (o LookupAccountPublicAccessBlockResultOutput) BlockPublicAcls() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) bool { return v.BlockPublicAcls }).(pulumi.BoolOutput)
+func (o LookupAccountPublicAccessBlockResultOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
 
 // Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
-func (o LookupAccountPublicAccessBlockResultOutput) BlockPublicPolicy() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) bool { return v.BlockPublicPolicy }).(pulumi.BoolOutput)
+func (o LookupAccountPublicAccessBlockResultOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAccountPublicAccessBlockResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAccountPublicAccessBlockResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
-func (o LookupAccountPublicAccessBlockResultOutput) IgnorePublicAcls() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) bool { return v.IgnorePublicAcls }).(pulumi.BoolOutput)
+func (o LookupAccountPublicAccessBlockResultOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
 }
 
 // Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
-func (o LookupAccountPublicAccessBlockResultOutput) RestrictPublicBuckets() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) bool { return v.RestrictPublicBuckets }).(pulumi.BoolOutput)
+func (o LookupAccountPublicAccessBlockResultOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAccountPublicAccessBlockResult) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

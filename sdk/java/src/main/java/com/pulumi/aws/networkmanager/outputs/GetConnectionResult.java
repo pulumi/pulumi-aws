@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConnectionResult {
@@ -14,66 +16,66 @@ public final class GetConnectionResult {
      * @return ARN of the connection.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return ID of the second device in the connection.
      * 
      */
-    private String connectedDeviceId;
+    private @Nullable String connectedDeviceId;
     /**
      * @return ID of the link for the second device.
      * 
      */
-    private String connectedLinkId;
+    private @Nullable String connectedLinkId;
     private String connectionId;
     /**
      * @return Description of the connection.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return ID of the first device in the connection.
      * 
      */
-    private String deviceId;
+    private @Nullable String deviceId;
     private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ID of the link for the first device.
      * 
      */
-    private String linkId;
+    private @Nullable String linkId;
     /**
      * @return Key-value tags for the connection.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetConnectionResult() {}
     /**
      * @return ARN of the connection.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return ID of the second device in the connection.
      * 
      */
-    public String connectedDeviceId() {
-        return this.connectedDeviceId;
+    public Optional<String> connectedDeviceId() {
+        return Optional.ofNullable(this.connectedDeviceId);
     }
     /**
      * @return ID of the link for the second device.
      * 
      */
-    public String connectedLinkId() {
-        return this.connectedLinkId;
+    public Optional<String> connectedLinkId() {
+        return Optional.ofNullable(this.connectedLinkId);
     }
     public String connectionId() {
         return this.connectionId;
@@ -82,15 +84,15 @@ public final class GetConnectionResult {
      * @return Description of the connection.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return ID of the first device in the connection.
      * 
      */
-    public String deviceId() {
-        return this.deviceId;
+    public Optional<String> deviceId() {
+        return Optional.ofNullable(this.deviceId);
     }
     public String globalNetworkId() {
         return this.globalNetworkId;
@@ -99,22 +101,22 @@ public final class GetConnectionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ID of the link for the first device.
      * 
      */
-    public String linkId() {
-        return this.linkId;
+    public Optional<String> linkId() {
+        return Optional.ofNullable(this.linkId);
     }
     /**
      * @return Key-value tags for the connection.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -126,16 +128,16 @@ public final class GetConnectionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String connectedDeviceId;
-        private String connectedLinkId;
+        private @Nullable String arn;
+        private @Nullable String connectedDeviceId;
+        private @Nullable String connectedLinkId;
         private String connectionId;
-        private String description;
-        private String deviceId;
+        private @Nullable String description;
+        private @Nullable String deviceId;
         private String globalNetworkId;
-        private String id;
-        private String linkId;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable String linkId;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -152,18 +154,18 @@ public final class GetConnectionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder connectedDeviceId(String connectedDeviceId) {
-            this.connectedDeviceId = Objects.requireNonNull(connectedDeviceId);
+        public Builder connectedDeviceId(@Nullable String connectedDeviceId) {
+            this.connectedDeviceId = connectedDeviceId;
             return this;
         }
         @CustomType.Setter
-        public Builder connectedLinkId(String connectedLinkId) {
-            this.connectedLinkId = Objects.requireNonNull(connectedLinkId);
+        public Builder connectedLinkId(@Nullable String connectedLinkId) {
+            this.connectedLinkId = connectedLinkId;
             return this;
         }
         @CustomType.Setter
@@ -172,13 +174,13 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceId(String deviceId) {
-            this.deviceId = Objects.requireNonNull(deviceId);
+        public Builder deviceId(@Nullable String deviceId) {
+            this.deviceId = deviceId;
             return this;
         }
         @CustomType.Setter
@@ -187,18 +189,18 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder linkId(String linkId) {
-            this.linkId = Objects.requireNonNull(linkId);
+        public Builder linkId(@Nullable String linkId) {
+            this.linkId = linkId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetConnectionResult build() {

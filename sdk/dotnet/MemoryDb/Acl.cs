@@ -51,13 +51,13 @@ namespace Pulumi.Aws.MemoryDb
         /// The ARN of the ACL.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The minimum engine version supported by the ACL.
         /// </summary>
         [Output("minimumEngineVersion")]
-        public Output<string> MinimumEngineVersion { get; private set; } = null!;
+        public Output<string?> MinimumEngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.MemoryDb
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

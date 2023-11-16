@@ -447,7 +447,7 @@ class ReportPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the backup report plan.
         """
@@ -455,7 +455,7 @@ class ReportPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         """
@@ -463,7 +463,7 @@ class ReportPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentStatus")
-    def deployment_status(self) -> pulumi.Output[str]:
+    def deployment_status(self) -> pulumi.Output[Optional[str]]:
         """
         The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         """

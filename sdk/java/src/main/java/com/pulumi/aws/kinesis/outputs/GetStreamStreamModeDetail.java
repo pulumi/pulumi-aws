@@ -6,6 +6,8 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStreamStreamModeDetail {
@@ -13,15 +15,15 @@ public final class GetStreamStreamModeDetail {
      * @return Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
      * 
      */
-    private String streamMode;
+    private @Nullable String streamMode;
 
     private GetStreamStreamModeDetail() {}
     /**
      * @return Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
      * 
      */
-    public String streamMode() {
-        return this.streamMode;
+    public Optional<String> streamMode() {
+        return Optional.ofNullable(this.streamMode);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetStreamStreamModeDetail {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String streamMode;
+        private @Nullable String streamMode;
         public Builder() {}
         public Builder(GetStreamStreamModeDetail defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetStreamStreamModeDetail {
         }
 
         @CustomType.Setter
-        public Builder streamMode(String streamMode) {
-            this.streamMode = Objects.requireNonNull(streamMode);
+        public Builder streamMode(@Nullable String streamMode) {
+            this.streamMode = streamMode;
             return this;
         }
         public GetStreamStreamModeDetail build() {

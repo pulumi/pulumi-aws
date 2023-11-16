@@ -213,7 +213,7 @@ type Certificate struct {
 	pulumi.CustomResourceState
 
 	// ARN of the certificate
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN of an ACM PCA
 	CertificateAuthorityArn pulumi.StringPtrOutput `pulumi:"certificateAuthorityArn"`
 	// Certificate's PEM-formatted public key
@@ -222,7 +222,7 @@ type Certificate struct {
 	// * Creating a private CA issued certificate
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
 	// Fully qualified domain name (FQDN) in the certificate.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// Set of domain validation objects which can be used to complete certificate validation.
 	// Can have more than one element, e.g., if SANs are defined.
 	// Only set if `DNS`-validation was used.
@@ -234,23 +234,23 @@ type Certificate struct {
 	// or a string such as `2160h`.
 	EarlyRenewalDuration pulumi.StringPtrOutput `pulumi:"earlyRenewalDuration"`
 	// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-	KeyAlgorithm pulumi.StringOutput `pulumi:"keyAlgorithm"`
+	KeyAlgorithm pulumi.StringPtrOutput `pulumi:"keyAlgorithm"`
 	// Expiration date and time of the certificate.
-	NotAfter pulumi.StringOutput `pulumi:"notAfter"`
+	NotAfter pulumi.StringPtrOutput `pulumi:"notAfter"`
 	// Start of the validity period of the certificate.
-	NotBefore pulumi.StringOutput `pulumi:"notBefore"`
+	NotBefore pulumi.StringPtrOutput `pulumi:"notBefore"`
 	// Configuration block used to set certificate options. Detailed below.
-	Options CertificateOptionsOutput `pulumi:"options"`
+	Options CertificateOptionsPtrOutput `pulumi:"options"`
 	// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
-	PendingRenewal pulumi.BoolOutput `pulumi:"pendingRenewal"`
+	PendingRenewal pulumi.BoolPtrOutput `pulumi:"pendingRenewal"`
 	// Certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// Whether the certificate is eligible for managed renewal.
-	RenewalEligibility pulumi.StringOutput `pulumi:"renewalEligibility"`
+	RenewalEligibility pulumi.StringPtrOutput `pulumi:"renewalEligibility"`
 	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
 	RenewalSummaries CertificateRenewalSummaryArrayOutput `pulumi:"renewalSummaries"`
 	// Status of the certificate.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Set of domains that should be SANs in the issued certificate.
 	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
@@ -261,11 +261,11 @@ type Certificate struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Source of the certificate.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
 	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-	ValidationMethod pulumi.StringOutput `pulumi:"validationMethod"`
+	ValidationMethod pulumi.StringPtrOutput `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
 	ValidationOptions CertificateValidationOptionArrayOutput `pulumi:"validationOptions"`
@@ -589,8 +589,8 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 }
 
 // ARN of the certificate
-func (o CertificateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CertificateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of an ACM PCA
@@ -610,8 +610,8 @@ func (o CertificateOutput) CertificateChain() pulumi.StringPtrOutput {
 }
 
 // Fully qualified domain name (FQDN) in the certificate.
-func (o CertificateOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+func (o CertificateOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // Set of domain validation objects which can be used to complete certificate validation.
@@ -631,28 +631,28 @@ func (o CertificateOutput) EarlyRenewalDuration() pulumi.StringPtrOutput {
 }
 
 // Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-func (o CertificateOutput) KeyAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.KeyAlgorithm }).(pulumi.StringOutput)
+func (o CertificateOutput) KeyAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyAlgorithm }).(pulumi.StringPtrOutput)
 }
 
 // Expiration date and time of the certificate.
-func (o CertificateOutput) NotAfter() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.NotAfter }).(pulumi.StringOutput)
+func (o CertificateOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.NotAfter }).(pulumi.StringPtrOutput)
 }
 
 // Start of the validity period of the certificate.
-func (o CertificateOutput) NotBefore() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.NotBefore }).(pulumi.StringOutput)
+func (o CertificateOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.NotBefore }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block used to set certificate options. Detailed below.
-func (o CertificateOutput) Options() CertificateOptionsOutput {
-	return o.ApplyT(func(v *Certificate) CertificateOptionsOutput { return v.Options }).(CertificateOptionsOutput)
+func (o CertificateOutput) Options() CertificateOptionsPtrOutput {
+	return o.ApplyT(func(v *Certificate) CertificateOptionsPtrOutput { return v.Options }).(CertificateOptionsPtrOutput)
 }
 
 // `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
-func (o CertificateOutput) PendingRenewal() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.BoolOutput { return v.PendingRenewal }).(pulumi.BoolOutput)
+func (o CertificateOutput) PendingRenewal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.BoolPtrOutput { return v.PendingRenewal }).(pulumi.BoolPtrOutput)
 }
 
 // Certificate's PEM-formatted private key
@@ -661,8 +661,8 @@ func (o CertificateOutput) PrivateKey() pulumi.StringPtrOutput {
 }
 
 // Whether the certificate is eligible for managed renewal.
-func (o CertificateOutput) RenewalEligibility() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.RenewalEligibility }).(pulumi.StringOutput)
+func (o CertificateOutput) RenewalEligibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.RenewalEligibility }).(pulumi.StringPtrOutput)
 }
 
 // Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
@@ -671,8 +671,8 @@ func (o CertificateOutput) RenewalSummaries() CertificateRenewalSummaryArrayOutp
 }
 
 // Status of the certificate.
-func (o CertificateOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o CertificateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Set of domains that should be SANs in the issued certificate.
@@ -694,8 +694,8 @@ func (o CertificateOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Source of the certificate.
-func (o CertificateOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o CertificateOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // List of addresses that received a validation email. Only set if `EMAIL` validation was used.
@@ -704,8 +704,8 @@ func (o CertificateOutput) ValidationEmails() pulumi.StringArrayOutput {
 }
 
 // Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-func (o CertificateOutput) ValidationMethod() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ValidationMethod }).(pulumi.StringOutput)
+func (o CertificateOutput) ValidationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.ValidationMethod }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block used to specify information about the initial validation of each domain name. Detailed below.

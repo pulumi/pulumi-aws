@@ -35,7 +35,7 @@ class GetOrganizationalUnitsResult:
 
     @property
     @pulumi.getter
-    def children(self) -> Sequence['outputs.GetOrganizationalUnitsChildResult']:
+    def children(self) -> Optional[Sequence['outputs.GetOrganizationalUnitsChildResult']]:
         """
         List of child organizational units, which have the following attributes:
         """
@@ -43,7 +43,7 @@ class GetOrganizationalUnitsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

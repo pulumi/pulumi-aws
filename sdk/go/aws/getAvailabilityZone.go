@@ -51,28 +51,28 @@ type GetAvailabilityZoneResult struct {
 	AllAvailabilityZones *bool                       `pulumi:"allAvailabilityZones"`
 	Filters              []GetAvailabilityZoneFilter `pulumi:"filters"`
 	// For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
-	GroupName string `pulumi:"groupName"`
+	GroupName *string `pulumi:"groupName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
 	// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
 	// For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
 	// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
-	NameSuffix string `pulumi:"nameSuffix"`
+	NameSuffix *string `pulumi:"nameSuffix"`
 	// The name of the location from which the address is advertised.
-	NetworkBorderGroup string `pulumi:"networkBorderGroup"`
+	NetworkBorderGroup *string `pulumi:"networkBorderGroup"`
 	// For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
-	OptInStatus string `pulumi:"optInStatus"`
+	OptInStatus *string `pulumi:"optInStatus"`
 	// ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-	ParentZoneId string `pulumi:"parentZoneId"`
+	ParentZoneId *string `pulumi:"parentZoneId"`
 	// Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-	ParentZoneName string `pulumi:"parentZoneName"`
+	ParentZoneName *string `pulumi:"parentZoneName"`
 	// Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-	Region string `pulumi:"region"`
-	State  string `pulumi:"state"`
-	ZoneId string `pulumi:"zoneId"`
+	Region *string `pulumi:"region"`
+	State  *string `pulumi:"state"`
+	ZoneId *string `pulumi:"zoneId"`
 	// Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
-	ZoneType string `pulumi:"zoneType"`
+	ZoneType *string `pulumi:"zoneType"`
 }
 
 func GetAvailabilityZoneOutput(ctx *pulumi.Context, args GetAvailabilityZoneOutputArgs, opts ...pulumi.InvokeOption) GetAvailabilityZoneResultOutput {
@@ -130,62 +130,62 @@ func (o GetAvailabilityZoneResultOutput) Filters() GetAvailabilityZoneFilterArra
 }
 
 // For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
-func (o GetAvailabilityZoneResultOutput) GroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.GroupName }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAvailabilityZoneResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetAvailabilityZoneResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.Name }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
 // For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
 // For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
-func (o GetAvailabilityZoneResultOutput) NameSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.NameSuffix }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) NameSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.NameSuffix }).(pulumi.StringPtrOutput)
 }
 
 // The name of the location from which the address is advertised.
-func (o GetAvailabilityZoneResultOutput) NetworkBorderGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.NetworkBorderGroup }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) NetworkBorderGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.NetworkBorderGroup }).(pulumi.StringPtrOutput)
 }
 
 // For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
-func (o GetAvailabilityZoneResultOutput) OptInStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.OptInStatus }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) OptInStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.OptInStatus }).(pulumi.StringPtrOutput)
 }
 
 // ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-func (o GetAvailabilityZoneResultOutput) ParentZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.ParentZoneId }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) ParentZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.ParentZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-func (o GetAvailabilityZoneResultOutput) ParentZoneName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.ParentZoneName }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) ParentZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.ParentZoneName }).(pulumi.StringPtrOutput)
 }
 
 // Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-func (o GetAvailabilityZoneResultOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.Region }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-func (o GetAvailabilityZoneResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.State }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-func (o GetAvailabilityZoneResultOutput) ZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.ZoneId }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) ZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.ZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
-func (o GetAvailabilityZoneResultOutput) ZoneType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.ZoneType }).(pulumi.StringOutput)
+func (o GetAvailabilityZoneResultOutput) ZoneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) *string { return v.ZoneType }).(pulumi.StringPtrOutput)
 }
 
 func init() {

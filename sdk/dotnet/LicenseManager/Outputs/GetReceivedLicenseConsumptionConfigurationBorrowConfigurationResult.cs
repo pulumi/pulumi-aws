@@ -16,17 +16,17 @@ namespace Pulumi.Aws.LicenseManager.Outputs
         /// <summary>
         /// Indicates whether early check-ins are allowed.
         /// </summary>
-        public readonly bool AllowEarlyCheckIn;
+        public readonly bool? AllowEarlyCheckIn;
         /// <summary>
         /// Maximum time for the provisional configuration, in minutes.
         /// </summary>
-        public readonly int MaxTimeToLiveInMinutes;
+        public readonly int? MaxTimeToLiveInMinutes;
 
         [OutputConstructor]
         private GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult(
-            bool allowEarlyCheckIn,
+            bool? allowEarlyCheckIn,
 
-            int maxTimeToLiveInMinutes)
+            int? maxTimeToLiveInMinutes)
         {
             AllowEarlyCheckIn = allowEarlyCheckIn;
             MaxTimeToLiveInMinutes = maxTimeToLiveInMinutes;

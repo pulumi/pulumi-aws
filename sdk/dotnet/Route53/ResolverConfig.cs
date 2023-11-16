@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Route53
         /// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the VPC that the configuration is for.

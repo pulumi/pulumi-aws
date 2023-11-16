@@ -6,34 +6,36 @@ package com.pulumi.aws.rds.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetProxyAuth {
-    private String authScheme;
-    private String clientPasswordAuthType;
-    private String description;
-    private String iamAuth;
-    private String secretArn;
-    private String username;
+    private @Nullable String authScheme;
+    private @Nullable String clientPasswordAuthType;
+    private @Nullable String description;
+    private @Nullable String iamAuth;
+    private @Nullable String secretArn;
+    private @Nullable String username;
 
     private GetProxyAuth() {}
-    public String authScheme() {
-        return this.authScheme;
+    public Optional<String> authScheme() {
+        return Optional.ofNullable(this.authScheme);
     }
-    public String clientPasswordAuthType() {
-        return this.clientPasswordAuthType;
+    public Optional<String> clientPasswordAuthType() {
+        return Optional.ofNullable(this.clientPasswordAuthType);
     }
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
-    public String iamAuth() {
-        return this.iamAuth;
+    public Optional<String> iamAuth() {
+        return Optional.ofNullable(this.iamAuth);
     }
-    public String secretArn() {
-        return this.secretArn;
+    public Optional<String> secretArn() {
+        return Optional.ofNullable(this.secretArn);
     }
-    public String username() {
-        return this.username;
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
     }
 
     public static Builder builder() {
@@ -45,12 +47,12 @@ public final class GetProxyAuth {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String authScheme;
-        private String clientPasswordAuthType;
-        private String description;
-        private String iamAuth;
-        private String secretArn;
-        private String username;
+        private @Nullable String authScheme;
+        private @Nullable String clientPasswordAuthType;
+        private @Nullable String description;
+        private @Nullable String iamAuth;
+        private @Nullable String secretArn;
+        private @Nullable String username;
         public Builder() {}
         public Builder(GetProxyAuth defaults) {
     	      Objects.requireNonNull(defaults);
@@ -63,33 +65,33 @@ public final class GetProxyAuth {
         }
 
         @CustomType.Setter
-        public Builder authScheme(String authScheme) {
-            this.authScheme = Objects.requireNonNull(authScheme);
+        public Builder authScheme(@Nullable String authScheme) {
+            this.authScheme = authScheme;
             return this;
         }
         @CustomType.Setter
-        public Builder clientPasswordAuthType(String clientPasswordAuthType) {
-            this.clientPasswordAuthType = Objects.requireNonNull(clientPasswordAuthType);
+        public Builder clientPasswordAuthType(@Nullable String clientPasswordAuthType) {
+            this.clientPasswordAuthType = clientPasswordAuthType;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder iamAuth(String iamAuth) {
-            this.iamAuth = Objects.requireNonNull(iamAuth);
+        public Builder iamAuth(@Nullable String iamAuth) {
+            this.iamAuth = iamAuth;
             return this;
         }
         @CustomType.Setter
-        public Builder secretArn(String secretArn) {
-            this.secretArn = Objects.requireNonNull(secretArn);
+        public Builder secretArn(@Nullable String secretArn) {
+            this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
-        public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+        public Builder username(@Nullable String username) {
+            this.username = username;
             return this;
         }
         public GetProxyAuth build() {

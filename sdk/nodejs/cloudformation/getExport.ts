@@ -51,16 +51,16 @@ export interface GetExportResult {
     /**
      * ARN of stack that contains the exported output name and value.
      */
-    readonly exportingStackId: string;
+    readonly exportingStackId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      */
-    readonly value: string;
+    readonly value?: string;
 }
 /**
  * The CloudFormation Export data source allows access to stack

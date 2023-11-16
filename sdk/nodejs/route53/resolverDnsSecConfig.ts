@@ -62,11 +62,11 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
     /**
      * The ARN for a configuration for DNSSEC validation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
      */
@@ -74,7 +74,7 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
     /**
      * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
      */
-    public /*out*/ readonly validationStatus!: pulumi.Output<string>;
+    public /*out*/ readonly validationStatus!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ResolverDnsSecConfig resource with the given unique name, arguments, and options.

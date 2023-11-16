@@ -84,11 +84,11 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The ARN of the Glue Connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string | undefined>;
     /**
      * A map of key-value pairs used as parameters for this connection.
      */

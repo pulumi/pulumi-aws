@@ -79,11 +79,11 @@ export interface GetServiceAccountResult {
     /**
      * ARN of the AWS ELB service account in the selected region.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly region?: string;
 }
 /**

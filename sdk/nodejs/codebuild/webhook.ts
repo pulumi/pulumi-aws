@@ -116,7 +116,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
-    public /*out*/ readonly payloadUrl!: pulumi.Output<string>;
+    public /*out*/ readonly payloadUrl!: pulumi.Output<string | undefined>;
     /**
      * The name of the build project.
      */
@@ -124,11 +124,11 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
-    public /*out*/ readonly secret!: pulumi.Output<string>;
+    public /*out*/ readonly secret!: pulumi.Output<string | undefined>;
     /**
      * The URL to the webhook.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.

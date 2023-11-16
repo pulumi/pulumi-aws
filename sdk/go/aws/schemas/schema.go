@@ -88,13 +88,13 @@ type Schema struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the discoverer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The schema specification. Must be a valid Open API 3.0 spec.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The description of the schema. Maximum of 256 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The last modified date of the schema.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
+	LastModified pulumi.StringPtrOutput `pulumi:"lastModified"`
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the registry in which this schema belongs.
@@ -108,9 +108,9 @@ type Schema struct {
 	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version of the schema.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 	// The created date of the version of the schema.
-	VersionCreatedDate pulumi.StringOutput `pulumi:"versionCreatedDate"`
+	VersionCreatedDate pulumi.StringPtrOutput `pulumi:"versionCreatedDate"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -332,8 +332,8 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 }
 
 // The Amazon Resource Name (ARN) of the discoverer.
-func (o SchemaOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SchemaOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The schema specification. Must be a valid Open API 3.0 spec.
@@ -347,8 +347,8 @@ func (o SchemaOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The last modified date of the schema.
-func (o SchemaOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+func (o SchemaOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
 // The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
@@ -379,13 +379,13 @@ func (o SchemaOutput) Type() pulumi.StringOutput {
 }
 
 // The version of the schema.
-func (o SchemaOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o SchemaOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // The created date of the version of the schema.
-func (o SchemaOutput) VersionCreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.VersionCreatedDate }).(pulumi.StringOutput)
+func (o SchemaOutput) VersionCreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.VersionCreatedDate }).(pulumi.StringPtrOutput)
 }
 
 type SchemaArrayOutput struct{ *pulumi.OutputState }

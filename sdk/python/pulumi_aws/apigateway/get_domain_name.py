@@ -71,7 +71,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the found custom domain name.
         """
@@ -79,7 +79,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> Optional[str]:
         """
         ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
         """
@@ -87,7 +87,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> str:
+    def certificate_name(self) -> Optional[str]:
         """
         Name of the certificate that is used by edge-optimized endpoint for this domain name.
         """
@@ -95,7 +95,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="certificateUploadDate")
-    def certificate_upload_date(self) -> str:
+    def certificate_upload_date(self) -> Optional[str]:
         """
         Upload date associated with the domain certificate.
         """
@@ -103,7 +103,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="cloudfrontDomainName")
-    def cloudfront_domain_name(self) -> str:
+    def cloudfront_domain_name(self) -> Optional[str]:
         """
         Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         """
@@ -111,7 +111,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="cloudfrontZoneId")
-    def cloudfront_zone_id(self) -> str:
+    def cloudfront_zone_id(self) -> Optional[str]:
         """
         For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         """
@@ -124,7 +124,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="endpointConfigurations")
-    def endpoint_configurations(self) -> Sequence['outputs.GetDomainNameEndpointConfigurationResult']:
+    def endpoint_configurations(self) -> Optional[Sequence['outputs.GetDomainNameEndpointConfigurationResult']]:
         """
         List of objects with the endpoint configuration of this domain name.
         """
@@ -132,7 +132,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -140,7 +140,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="regionalCertificateArn")
-    def regional_certificate_arn(self) -> str:
+    def regional_certificate_arn(self) -> Optional[str]:
         """
         ARN for an AWS-managed certificate that is used for validating the regional domain name.
         """
@@ -148,7 +148,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="regionalCertificateName")
-    def regional_certificate_name(self) -> str:
+    def regional_certificate_name(self) -> Optional[str]:
         """
         User-friendly name of the certificate that is used by regional endpoint for this domain name.
         """
@@ -156,7 +156,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="regionalDomainName")
-    def regional_domain_name(self) -> str:
+    def regional_domain_name(self) -> Optional[str]:
         """
         Hostname for the custom domain's regional endpoint.
         """
@@ -164,7 +164,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="regionalZoneId")
-    def regional_zone_id(self) -> str:
+    def regional_zone_id(self) -> Optional[str]:
         """
         Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         """
@@ -172,7 +172,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter(name="securityPolicy")
-    def security_policy(self) -> str:
+    def security_policy(self) -> Optional[str]:
         """
         Security policy for the domain name.
         """

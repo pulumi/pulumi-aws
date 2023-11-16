@@ -65,29 +65,29 @@ import (
 type DefaultVpc struct {
 	pulumi.CustomResourceState
 
-	Arn                          pulumi.StringOutput  `pulumi:"arn"`
-	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrOutput `pulumi:"assignGeneratedIpv6CidrBlock"`
+	Arn                          pulumi.StringPtrOutput `pulumi:"arn"`
+	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrOutput   `pulumi:"assignGeneratedIpv6CidrBlock"`
 	// The primary IPv4 CIDR block for the VPC
-	CidrBlock                        pulumi.StringOutput  `pulumi:"cidrBlock"`
-	DefaultNetworkAclId              pulumi.StringOutput  `pulumi:"defaultNetworkAclId"`
-	DefaultRouteTableId              pulumi.StringOutput  `pulumi:"defaultRouteTableId"`
-	DefaultSecurityGroupId           pulumi.StringOutput  `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId                    pulumi.StringOutput  `pulumi:"dhcpOptionsId"`
-	EnableDnsHostnames               pulumi.BoolPtrOutput `pulumi:"enableDnsHostnames"`
-	EnableDnsSupport                 pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
-	EnableNetworkAddressUsageMetrics pulumi.BoolOutput    `pulumi:"enableNetworkAddressUsageMetrics"`
-	ExistingDefaultVpc               pulumi.BoolOutput    `pulumi:"existingDefaultVpc"`
+	CidrBlock                        pulumi.StringPtrOutput `pulumi:"cidrBlock"`
+	DefaultNetworkAclId              pulumi.StringPtrOutput `pulumi:"defaultNetworkAclId"`
+	DefaultRouteTableId              pulumi.StringPtrOutput `pulumi:"defaultRouteTableId"`
+	DefaultSecurityGroupId           pulumi.StringPtrOutput `pulumi:"defaultSecurityGroupId"`
+	DhcpOptionsId                    pulumi.StringPtrOutput `pulumi:"dhcpOptionsId"`
+	EnableDnsHostnames               pulumi.BoolPtrOutput   `pulumi:"enableDnsHostnames"`
+	EnableDnsSupport                 pulumi.BoolPtrOutput   `pulumi:"enableDnsSupport"`
+	EnableNetworkAddressUsageMetrics pulumi.BoolPtrOutput   `pulumi:"enableNetworkAddressUsageMetrics"`
+	ExistingDefaultVpc               pulumi.BoolPtrOutput   `pulumi:"existingDefaultVpc"`
 	// Whether destroying the resource deletes the default VPC. Default: `false`
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// The allowed tenancy of instances launched into the VPC
-	InstanceTenancy                 pulumi.StringOutput    `pulumi:"instanceTenancy"`
-	Ipv6AssociationId               pulumi.StringOutput    `pulumi:"ipv6AssociationId"`
-	Ipv6CidrBlock                   pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockNetworkBorderGroup pulumi.StringOutput    `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
+	InstanceTenancy                 pulumi.StringPtrOutput `pulumi:"instanceTenancy"`
+	Ipv6AssociationId               pulumi.StringPtrOutput `pulumi:"ipv6AssociationId"`
+	Ipv6CidrBlock                   pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrOutput `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	Ipv6IpamPoolId                  pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
 	Ipv6NetmaskLength               pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
-	MainRouteTableId                pulumi.StringOutput    `pulumi:"mainRouteTableId"`
-	OwnerId                         pulumi.StringOutput    `pulumi:"ownerId"`
+	MainRouteTableId                pulumi.StringPtrOutput `pulumi:"mainRouteTableId"`
+	OwnerId                         pulumi.StringPtrOutput `pulumi:"ownerId"`
 	Tags                            pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -304,8 +304,8 @@ func (o DefaultVpcOutput) ToDefaultVpcOutputWithContext(ctx context.Context) Def
 	return o
 }
 
-func (o DefaultVpcOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o DefaultVpcOutput) AssignGeneratedIpv6CidrBlock() pulumi.BoolPtrOutput {
@@ -313,24 +313,24 @@ func (o DefaultVpcOutput) AssignGeneratedIpv6CidrBlock() pulumi.BoolPtrOutput {
 }
 
 // The primary IPv4 CIDR block for the VPC
-func (o DefaultVpcOutput) CidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultVpcOutput) DefaultNetworkAclId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.DefaultNetworkAclId }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) DefaultNetworkAclId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.DefaultNetworkAclId }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultVpcOutput) DefaultRouteTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.DefaultRouteTableId }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) DefaultRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.DefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultVpcOutput) DefaultSecurityGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.DefaultSecurityGroupId }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) DefaultSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.DefaultSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultVpcOutput) DhcpOptionsId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.DhcpOptionsId }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) DhcpOptionsId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.DhcpOptionsId }).(pulumi.StringPtrOutput)
 }
 
 func (o DefaultVpcOutput) EnableDnsHostnames() pulumi.BoolPtrOutput {
@@ -341,12 +341,12 @@ func (o DefaultVpcOutput) EnableDnsSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolPtrOutput { return v.EnableDnsSupport }).(pulumi.BoolPtrOutput)
 }
 
-func (o DefaultVpcOutput) EnableNetworkAddressUsageMetrics() pulumi.BoolOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolOutput { return v.EnableNetworkAddressUsageMetrics }).(pulumi.BoolOutput)
+func (o DefaultVpcOutput) EnableNetworkAddressUsageMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolPtrOutput { return v.EnableNetworkAddressUsageMetrics }).(pulumi.BoolPtrOutput)
 }
 
-func (o DefaultVpcOutput) ExistingDefaultVpc() pulumi.BoolOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolOutput { return v.ExistingDefaultVpc }).(pulumi.BoolOutput)
+func (o DefaultVpcOutput) ExistingDefaultVpc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolPtrOutput { return v.ExistingDefaultVpc }).(pulumi.BoolPtrOutput)
 }
 
 // Whether destroying the resource deletes the default VPC. Default: `false`
@@ -355,20 +355,20 @@ func (o DefaultVpcOutput) ForceDestroy() pulumi.BoolPtrOutput {
 }
 
 // The allowed tenancy of instances launched into the VPC
-func (o DefaultVpcOutput) InstanceTenancy() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.InstanceTenancy }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) InstanceTenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.InstanceTenancy }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultVpcOutput) Ipv6AssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.Ipv6AssociationId }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) Ipv6AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.Ipv6AssociationId }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultVpcOutput) Ipv6CidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultVpcOutput) Ipv6CidrBlockNetworkBorderGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.Ipv6CidrBlockNetworkBorderGroup }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) Ipv6CidrBlockNetworkBorderGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.Ipv6CidrBlockNetworkBorderGroup }).(pulumi.StringPtrOutput)
 }
 
 func (o DefaultVpcOutput) Ipv6IpamPoolId() pulumi.StringPtrOutput {
@@ -379,12 +379,12 @@ func (o DefaultVpcOutput) Ipv6NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.IntPtrOutput { return v.Ipv6NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
-func (o DefaultVpcOutput) MainRouteTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.MainRouteTableId }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) MainRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.MainRouteTableId }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultVpcOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o DefaultVpcOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 func (o DefaultVpcOutput) Tags() pulumi.StringMapOutput {

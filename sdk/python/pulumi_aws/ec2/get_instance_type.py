@@ -167,7 +167,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="autoRecoverySupported")
-    def auto_recovery_supported(self) -> bool:
+    def auto_recovery_supported(self) -> Optional[bool]:
         """
         `true` if auto recovery is supported.
         """
@@ -175,7 +175,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="bareMetal")
-    def bare_metal(self) -> bool:
+    def bare_metal(self) -> Optional[bool]:
         """
         `true` if it is a bare metal instance type.
         """
@@ -183,7 +183,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="burstablePerformanceSupported")
-    def burstable_performance_supported(self) -> bool:
+    def burstable_performance_supported(self) -> Optional[bool]:
         """
         `true` if the instance type is a burstable performance instance type.
         """
@@ -191,7 +191,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="currentGeneration")
-    def current_generation(self) -> bool:
+    def current_generation(self) -> Optional[bool]:
         """
         `true`  if the instance type is a current generation.
         """
@@ -199,7 +199,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="dedicatedHostsSupported")
-    def dedicated_hosts_supported(self) -> bool:
+    def dedicated_hosts_supported(self) -> Optional[bool]:
         """
         `true` if Dedicated Hosts are supported on the instance type.
         """
@@ -207,7 +207,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="defaultCores")
-    def default_cores(self) -> int:
+    def default_cores(self) -> Optional[int]:
         """
         Default number of cores for the instance type.
         """
@@ -215,7 +215,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="defaultThreadsPerCore")
-    def default_threads_per_core(self) -> int:
+    def default_threads_per_core(self) -> Optional[int]:
         """
         The  default  number of threads per core for the instance type.
         """
@@ -223,7 +223,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="defaultVcpus")
-    def default_vcpus(self) -> int:
+    def default_vcpus(self) -> Optional[int]:
         """
         Default number of vCPUs for the instance type.
         """
@@ -231,7 +231,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ebsEncryptionSupport")
-    def ebs_encryption_support(self) -> str:
+    def ebs_encryption_support(self) -> Optional[str]:
         """
         Indicates whether Amazon EBS encryption is supported.
         """
@@ -239,7 +239,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ebsNvmeSupport")
-    def ebs_nvme_support(self) -> str:
+    def ebs_nvme_support(self) -> Optional[str]:
         """
         Whether non-volatile memory express (NVMe) is supported.
         """
@@ -247,7 +247,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ebsOptimizedSupport")
-    def ebs_optimized_support(self) -> str:
+    def ebs_optimized_support(self) -> Optional[str]:
         """
         Indicates that the instance type is Amazon EBS-optimized.
         """
@@ -255,7 +255,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ebsPerformanceBaselineBandwidth")
-    def ebs_performance_baseline_bandwidth(self) -> int:
+    def ebs_performance_baseline_bandwidth(self) -> Optional[int]:
         """
         The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
         """
@@ -263,7 +263,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ebsPerformanceBaselineIops")
-    def ebs_performance_baseline_iops(self) -> int:
+    def ebs_performance_baseline_iops(self) -> Optional[int]:
         """
         The baseline input/output storage operations per seconds for an EBS-optimized instance type.
         """
@@ -271,7 +271,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ebsPerformanceBaselineThroughput")
-    def ebs_performance_baseline_throughput(self) -> float:
+    def ebs_performance_baseline_throughput(self) -> Optional[float]:
         """
         The baseline throughput performance for an EBS-optimized instance type, in MBps.
         """
@@ -279,7 +279,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ebsPerformanceMaximumBandwidth")
-    def ebs_performance_maximum_bandwidth(self) -> int:
+    def ebs_performance_maximum_bandwidth(self) -> Optional[int]:
         """
         The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
         """
@@ -287,7 +287,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ebsPerformanceMaximumIops")
-    def ebs_performance_maximum_iops(self) -> int:
+    def ebs_performance_maximum_iops(self) -> Optional[int]:
         """
         The maximum input/output storage operations per second for an EBS-optimized instance type.
         """
@@ -295,7 +295,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ebsPerformanceMaximumThroughput")
-    def ebs_performance_maximum_throughput(self) -> float:
+    def ebs_performance_maximum_throughput(self) -> Optional[float]:
         """
         The maximum throughput performance for an EBS-optimized instance type, in MBps.
         """
@@ -303,7 +303,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="efaSupported")
-    def efa_supported(self) -> bool:
+    def efa_supported(self) -> Optional[bool]:
         """
         Whether Elastic Fabric Adapter (EFA) is supported.
         """
@@ -311,7 +311,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="enaSupport")
-    def ena_support(self) -> str:
+    def ena_support(self) -> Optional[str]:
         """
         Whether Elastic Network Adapter (ENA) is supported.
         """
@@ -319,7 +319,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="encryptionInTransitSupported")
-    def encryption_in_transit_supported(self) -> bool:
+    def encryption_in_transit_supported(self) -> Optional[bool]:
         """
         Indicates whether encryption in-transit between instances is supported.
         """
@@ -327,7 +327,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter
-    def fpgas(self) -> Sequence['outputs.GetInstanceTypeFpgaResult']:
+    def fpgas(self) -> Optional[Sequence['outputs.GetInstanceTypeFpgaResult']]:
         """
         Describes the FPGA accelerator settings for the instance type.
         * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
@@ -339,7 +339,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="freeTierEligible")
-    def free_tier_eligible(self) -> bool:
+    def free_tier_eligible(self) -> Optional[bool]:
         """
         `true` if the instance type is eligible for the free tier.
         """
@@ -347,7 +347,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter
-    def gpuses(self) -> Sequence['outputs.GetInstanceTypeGpusResult']:
+    def gpuses(self) -> Optional[Sequence['outputs.GetInstanceTypeGpusResult']]:
         """
         Describes the GPU accelerators for the instance type.
         * `gpus.#.count` - The number of GPUs for the instance type.
@@ -359,7 +359,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="hibernationSupported")
-    def hibernation_supported(self) -> bool:
+    def hibernation_supported(self) -> Optional[bool]:
         """
         `true` if On-Demand hibernation is supported.
         """
@@ -367,7 +367,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter
-    def hypervisor(self) -> str:
+    def hypervisor(self) -> Optional[str]:
         """
         Hypervisor used for the instance type.
         """
@@ -375,7 +375,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -383,7 +383,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="inferenceAccelerators")
-    def inference_accelerators(self) -> Sequence['outputs.GetInstanceTypeInferenceAcceleratorResult']:
+    def inference_accelerators(self) -> Optional[Sequence['outputs.GetInstanceTypeInferenceAcceleratorResult']]:
         """
         Describes the Inference accelerators for the instance type.
         * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
@@ -394,7 +394,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="instanceDisks")
-    def instance_disks(self) -> Sequence['outputs.GetInstanceTypeInstanceDiskResult']:
+    def instance_disks(self) -> Optional[Sequence['outputs.GetInstanceTypeInstanceDiskResult']]:
         """
         Describes the disks for the instance type.
         * `instance_disks.#.count` - The number of disks with this configuration.
@@ -405,7 +405,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="instanceStorageSupported")
-    def instance_storage_supported(self) -> bool:
+    def instance_storage_supported(self) -> Optional[bool]:
         """
         `true` if instance storage is supported.
         """
@@ -418,7 +418,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="ipv6Supported")
-    def ipv6_supported(self) -> bool:
+    def ipv6_supported(self) -> Optional[bool]:
         """
         `true` if IPv6 is supported.
         """
@@ -426,7 +426,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="maximumIpv4AddressesPerInterface")
-    def maximum_ipv4_addresses_per_interface(self) -> int:
+    def maximum_ipv4_addresses_per_interface(self) -> Optional[int]:
         """
         The maximum number of IPv4 addresses per network interface.
         """
@@ -434,7 +434,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="maximumIpv6AddressesPerInterface")
-    def maximum_ipv6_addresses_per_interface(self) -> int:
+    def maximum_ipv6_addresses_per_interface(self) -> Optional[int]:
         """
         The maximum number of IPv6 addresses per network interface.
         """
@@ -442,7 +442,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="maximumNetworkInterfaces")
-    def maximum_network_interfaces(self) -> int:
+    def maximum_network_interfaces(self) -> Optional[int]:
         """
         The maximum number of network interfaces for the instance type.
         """
@@ -450,7 +450,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="memorySize")
-    def memory_size(self) -> int:
+    def memory_size(self) -> Optional[int]:
         """
         Size of the instance memory, in MiB.
         """
@@ -458,7 +458,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="networkPerformance")
-    def network_performance(self) -> str:
+    def network_performance(self) -> Optional[str]:
         """
         Describes the network performance.
         """
@@ -466,7 +466,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="supportedArchitectures")
-    def supported_architectures(self) -> Sequence[str]:
+    def supported_architectures(self) -> Optional[Sequence[str]]:
         """
         A list of architectures supported by the instance type.
         """
@@ -474,7 +474,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="supportedPlacementStrategies")
-    def supported_placement_strategies(self) -> Sequence[str]:
+    def supported_placement_strategies(self) -> Optional[Sequence[str]]:
         """
         A list of supported placement groups types.
         """
@@ -482,7 +482,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="supportedRootDeviceTypes")
-    def supported_root_device_types(self) -> Sequence[str]:
+    def supported_root_device_types(self) -> Optional[Sequence[str]]:
         """
         Indicates the supported root device types.
         """
@@ -490,7 +490,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="supportedUsagesClasses")
-    def supported_usages_classes(self) -> Sequence[str]:
+    def supported_usages_classes(self) -> Optional[Sequence[str]]:
         """
         Indicates whether the instance type is offered for spot or On-Demand.
         """
@@ -498,7 +498,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="supportedVirtualizationTypes")
-    def supported_virtualization_types(self) -> Sequence[str]:
+    def supported_virtualization_types(self) -> Optional[Sequence[str]]:
         """
         The supported virtualization types.
         """
@@ -506,7 +506,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="sustainedClockSpeed")
-    def sustained_clock_speed(self) -> float:
+    def sustained_clock_speed(self) -> Optional[float]:
         """
         The speed of the processor, in GHz.
         """
@@ -514,7 +514,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="totalFpgaMemory")
-    def total_fpga_memory(self) -> int:
+    def total_fpga_memory(self) -> Optional[int]:
         """
         Total memory of all FPGA accelerators for the instance type (in MiB).
         """
@@ -522,7 +522,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="totalGpuMemory")
-    def total_gpu_memory(self) -> int:
+    def total_gpu_memory(self) -> Optional[int]:
         """
         Total size of the memory for the GPU accelerators for the instance type (in MiB).
         """
@@ -530,7 +530,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="totalInstanceStorage")
-    def total_instance_storage(self) -> int:
+    def total_instance_storage(self) -> Optional[int]:
         """
         The total size of the instance disks, in GB.
         """
@@ -538,7 +538,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="validCores")
-    def valid_cores(self) -> Sequence[int]:
+    def valid_cores(self) -> Optional[Sequence[int]]:
         """
         List of the valid number of cores that can be configured for the instance type.
         """
@@ -546,7 +546,7 @@ class GetInstanceTypeResult:
 
     @property
     @pulumi.getter(name="validThreadsPerCores")
-    def valid_threads_per_cores(self) -> Sequence[int]:
+    def valid_threads_per_cores(self) -> Optional[Sequence[int]]:
         """
         List of the valid number of threads per core that can be configured for the instance type.
         """

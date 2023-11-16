@@ -52,11 +52,11 @@ export interface GetSitesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IDs of the sites.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly tags?: {[key: string]: string};
 }
 /**

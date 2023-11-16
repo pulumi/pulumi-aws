@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetKeyMultiRegionConfiguration {
@@ -16,39 +18,39 @@ public final class GetKeyMultiRegionConfiguration {
      * @return Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
      * 
      */
-    private String multiRegionKeyType;
+    private @Nullable String multiRegionKeyType;
     /**
      * @return The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
      * 
      */
-    private List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys;
+    private @Nullable List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys;
     /**
      * @return The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
      * 
      */
-    private List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys;
+    private @Nullable List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys;
 
     private GetKeyMultiRegionConfiguration() {}
     /**
      * @return Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
      * 
      */
-    public String multiRegionKeyType() {
-        return this.multiRegionKeyType;
+    public Optional<String> multiRegionKeyType() {
+        return Optional.ofNullable(this.multiRegionKeyType);
     }
     /**
      * @return The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
      * 
      */
     public List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys() {
-        return this.primaryKeys;
+        return this.primaryKeys == null ? List.of() : this.primaryKeys;
     }
     /**
      * @return The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
      * 
      */
     public List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys() {
-        return this.replicaKeys;
+        return this.replicaKeys == null ? List.of() : this.replicaKeys;
     }
 
     public static Builder builder() {
@@ -60,9 +62,9 @@ public final class GetKeyMultiRegionConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String multiRegionKeyType;
-        private List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys;
-        private List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys;
+        private @Nullable String multiRegionKeyType;
+        private @Nullable List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys;
+        private @Nullable List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys;
         public Builder() {}
         public Builder(GetKeyMultiRegionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,21 +74,21 @@ public final class GetKeyMultiRegionConfiguration {
         }
 
         @CustomType.Setter
-        public Builder multiRegionKeyType(String multiRegionKeyType) {
-            this.multiRegionKeyType = Objects.requireNonNull(multiRegionKeyType);
+        public Builder multiRegionKeyType(@Nullable String multiRegionKeyType) {
+            this.multiRegionKeyType = multiRegionKeyType;
             return this;
         }
         @CustomType.Setter
-        public Builder primaryKeys(List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys) {
-            this.primaryKeys = Objects.requireNonNull(primaryKeys);
+        public Builder primaryKeys(@Nullable List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys) {
+            this.primaryKeys = primaryKeys;
             return this;
         }
         public Builder primaryKeys(GetKeyMultiRegionConfigurationPrimaryKey... primaryKeys) {
             return primaryKeys(List.of(primaryKeys));
         }
         @CustomType.Setter
-        public Builder replicaKeys(List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys) {
-            this.replicaKeys = Objects.requireNonNull(replicaKeys);
+        public Builder replicaKeys(@Nullable List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys) {
+            this.replicaKeys = replicaKeys;
             return this;
         }
         public Builder replicaKeys(GetKeyMultiRegionConfigurationReplicaKey... replicaKeys) {

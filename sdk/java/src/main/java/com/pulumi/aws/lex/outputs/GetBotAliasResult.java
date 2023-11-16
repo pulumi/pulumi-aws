@@ -6,6 +6,8 @@ package com.pulumi.aws.lex.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBotAliasResult {
@@ -13,7 +15,7 @@ public final class GetBotAliasResult {
      * @return ARN of the bot alias.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Name of the bot.
      * 
@@ -23,32 +25,32 @@ public final class GetBotAliasResult {
      * @return Version of the bot that the alias points to.
      * 
      */
-    private String botVersion;
+    private @Nullable String botVersion;
     /**
      * @return Checksum of the bot alias.
      * 
      */
-    private String checksum;
+    private @Nullable String checksum;
     /**
      * @return Date that the bot alias was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return Description of the alias.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      * 
      */
-    private String lastUpdatedDate;
+    private @Nullable String lastUpdatedDate;
     /**
      * @return Name of the alias. The name is not case sensitive.
      * 
@@ -60,8 +62,8 @@ public final class GetBotAliasResult {
      * @return ARN of the bot alias.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Name of the bot.
@@ -74,43 +76,43 @@ public final class GetBotAliasResult {
      * @return Version of the bot that the alias points to.
      * 
      */
-    public String botVersion() {
-        return this.botVersion;
+    public Optional<String> botVersion() {
+        return Optional.ofNullable(this.botVersion);
     }
     /**
      * @return Checksum of the bot alias.
      * 
      */
-    public String checksum() {
-        return this.checksum;
+    public Optional<String> checksum() {
+        return Optional.ofNullable(this.checksum);
     }
     /**
      * @return Date that the bot alias was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Description of the alias.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      * 
      */
-    public String lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Optional<String> lastUpdatedDate() {
+        return Optional.ofNullable(this.lastUpdatedDate);
     }
     /**
      * @return Name of the alias. The name is not case sensitive.
@@ -129,14 +131,14 @@ public final class GetBotAliasResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private String botName;
-        private String botVersion;
-        private String checksum;
-        private String createdDate;
-        private String description;
-        private String id;
-        private String lastUpdatedDate;
+        private @Nullable String botVersion;
+        private @Nullable String checksum;
+        private @Nullable String createdDate;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String lastUpdatedDate;
         private String name;
         public Builder() {}
         public Builder(GetBotAliasResult defaults) {
@@ -153,8 +155,8 @@ public final class GetBotAliasResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -163,33 +165,33 @@ public final class GetBotAliasResult {
             return this;
         }
         @CustomType.Setter
-        public Builder botVersion(String botVersion) {
-            this.botVersion = Objects.requireNonNull(botVersion);
+        public Builder botVersion(@Nullable String botVersion) {
+            this.botVersion = botVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder checksum(String checksum) {
-            this.checksum = Objects.requireNonNull(checksum);
+        public Builder checksum(@Nullable String checksum) {
+            this.checksum = checksum;
             return this;
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+        public Builder lastUpdatedDate(@Nullable String lastUpdatedDate) {
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter

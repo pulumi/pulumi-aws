@@ -320,7 +320,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) identifying your state machine alias.
         """
@@ -328,7 +328,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date the state machine alias was created.
         """

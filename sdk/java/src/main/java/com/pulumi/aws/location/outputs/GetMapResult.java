@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMapResult {
@@ -16,38 +18,38 @@ public final class GetMapResult {
      * @return List of configurations that specify the map tile style selected from a partner data provider.
      * 
      */
-    private List<GetMapConfiguration> configurations;
+    private @Nullable List<GetMapConfiguration> configurations;
     /**
      * @return Timestamp for when the map resource was created in ISO 8601 format.
      * 
      */
-    private String createTime;
+    private @Nullable String createTime;
     /**
      * @return Optional description for the map resource.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN for the map resource.
      * 
      */
-    private String mapArn;
+    private @Nullable String mapArn;
     private String mapName;
     /**
      * @return Key-value map of resource tags for the map.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
-    private String updateTime;
+    private @Nullable String updateTime;
 
     private GetMapResult() {}
     /**
@@ -55,35 +57,35 @@ public final class GetMapResult {
      * 
      */
     public List<GetMapConfiguration> configurations() {
-        return this.configurations;
+        return this.configurations == null ? List.of() : this.configurations;
     }
     /**
      * @return Timestamp for when the map resource was created in ISO 8601 format.
      * 
      */
-    public String createTime() {
-        return this.createTime;
+    public Optional<String> createTime() {
+        return Optional.ofNullable(this.createTime);
     }
     /**
      * @return Optional description for the map resource.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN for the map resource.
      * 
      */
-    public String mapArn() {
-        return this.mapArn;
+    public Optional<String> mapArn() {
+        return Optional.ofNullable(this.mapArn);
     }
     public String mapName() {
         return this.mapName;
@@ -93,14 +95,14 @@ public final class GetMapResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
-    public String updateTime() {
-        return this.updateTime;
+    public Optional<String> updateTime() {
+        return Optional.ofNullable(this.updateTime);
     }
 
     public static Builder builder() {
@@ -112,14 +114,14 @@ public final class GetMapResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetMapConfiguration> configurations;
-        private String createTime;
-        private String description;
-        private String id;
-        private String mapArn;
+        private @Nullable List<GetMapConfiguration> configurations;
+        private @Nullable String createTime;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String mapArn;
         private String mapName;
-        private Map<String,String> tags;
-        private String updateTime;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String updateTime;
         public Builder() {}
         public Builder(GetMapResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -134,31 +136,31 @@ public final class GetMapResult {
         }
 
         @CustomType.Setter
-        public Builder configurations(List<GetMapConfiguration> configurations) {
-            this.configurations = Objects.requireNonNull(configurations);
+        public Builder configurations(@Nullable List<GetMapConfiguration> configurations) {
+            this.configurations = configurations;
             return this;
         }
         public Builder configurations(GetMapConfiguration... configurations) {
             return configurations(List.of(configurations));
         }
         @CustomType.Setter
-        public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+        public Builder createTime(@Nullable String createTime) {
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder mapArn(String mapArn) {
-            this.mapArn = Objects.requireNonNull(mapArn);
+        public Builder mapArn(@Nullable String mapArn) {
+            this.mapArn = mapArn;
             return this;
         }
         @CustomType.Setter
@@ -167,13 +169,13 @@ public final class GetMapResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder updateTime(String updateTime) {
-            this.updateTime = Objects.requireNonNull(updateTime);
+        public Builder updateTime(@Nullable String updateTime) {
+            this.updateTime = updateTime;
             return this;
         }
         public GetMapResult build() {

@@ -707,7 +707,7 @@ class EventTarget(pulumi.CustomResource):
                     },
                 },
             }))
-        ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
+        ssm_lifecycle_policy_document = stop_instance.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
@@ -721,9 +721,9 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
-                resources=[stop_instance.arn],
+                resources=[arn],
             ),
-        ])
+        ]))
         ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
         ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
         ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",
@@ -876,11 +876,11 @@ class EventTarget(pulumi.CustomResource):
             tags={
                 "Environment": "example",
             })
-        example_log_policy = aws.iam.get_policy_document_output(statements=[
+        example_log_policy = pulumi.Output.all(example_log_group.arn, example_log_group.arn, example_event_rule.arn).apply(lambda exampleLogGroupArn, exampleLogGroupArn1, exampleEventRuleArn: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["logs:CreateLogStream"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+                resources=[f"{example_log_group_arn}:*"],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=[
@@ -892,7 +892,7 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["logs:PutLogEvents"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
+                resources=[f"{example_log_group_arn1}:*:*"],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=[
@@ -902,11 +902,11 @@ class EventTarget(pulumi.CustomResource):
                 )],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="ArnEquals",
-                    values=[example_event_rule.arn],
+                    values=[example_event_rule_arn],
                     variable="aws:SourceArn",
                 )],
             ),
-        ])
+        ]))
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
             policy_document=example_log_policy.json,
             policy_name="guardduty-log-publishing-policy")
@@ -1021,7 +1021,7 @@ class EventTarget(pulumi.CustomResource):
                     },
                 },
             }))
-        ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
+        ssm_lifecycle_policy_document = stop_instance.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
@@ -1035,9 +1035,9 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
-                resources=[stop_instance.arn],
+                resources=[arn],
             ),
-        ])
+        ]))
         ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
         ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
         ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",
@@ -1190,11 +1190,11 @@ class EventTarget(pulumi.CustomResource):
             tags={
                 "Environment": "example",
             })
-        example_log_policy = aws.iam.get_policy_document_output(statements=[
+        example_log_policy = pulumi.Output.all(example_log_group.arn, example_log_group.arn, example_event_rule.arn).apply(lambda exampleLogGroupArn, exampleLogGroupArn1, exampleEventRuleArn: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["logs:CreateLogStream"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+                resources=[f"{example_log_group_arn}:*"],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=[
@@ -1206,7 +1206,7 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["logs:PutLogEvents"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
+                resources=[f"{example_log_group_arn1}:*:*"],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=[
@@ -1216,11 +1216,11 @@ class EventTarget(pulumi.CustomResource):
                 )],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="ArnEquals",
-                    values=[example_event_rule.arn],
+                    values=[example_event_rule_arn],
                     variable="aws:SourceArn",
                 )],
             ),
-        ])
+        ]))
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
             policy_document=example_log_policy.json,
             policy_name="guardduty-log-publishing-policy")

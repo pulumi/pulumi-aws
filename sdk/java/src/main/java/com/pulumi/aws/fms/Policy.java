@@ -95,10 +95,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fms/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
@@ -203,14 +203,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policyUpdateToken", refs={String.class}, tree="[0]")
-    private Output<String> policyUpdateToken;
+    private Output</* @Nullable */ String> policyUpdateToken;
 
     /**
      * @return A unique identifier for each update to the policy.
      * 
      */
-    public Output<String> policyUpdateToken() {
-        return this.policyUpdateToken;
+    public Output<Optional<String>> policyUpdateToken() {
+        return Codegen.optional(this.policyUpdateToken);
     }
     /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
@@ -245,28 +245,28 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
-    private Output<String> resourceType;
+    private Output</* @Nullable */ String> resourceType;
 
     /**
      * @return A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      * 
      */
-    public Output<String> resourceType() {
-        return this.resourceType;
+    public Output<Optional<String>> resourceType() {
+        return Codegen.optional(this.resourceType);
     }
     /**
      * A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
      * 
      */
     @Export(name="resourceTypeLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> resourceTypeLists;
+    private Output</* @Nullable */ List<String>> resourceTypeLists;
 
     /**
      * @return A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
      * 
      */
-    public Output<List<String>> resourceTypeLists() {
-        return this.resourceTypeLists;
+    public Output<Optional<List<String>>> resourceTypeLists() {
+        return Codegen.optional(this.resourceTypeLists);
     }
     /**
      * The objects to include in Security Service Policy Data. Documented below.

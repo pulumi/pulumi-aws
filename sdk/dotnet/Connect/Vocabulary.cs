@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Connect
         /// The Amazon Resource Name (ARN) of the vocabulary.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Connect
         /// The reason why the custom vocabulary was not created.
         /// </summary>
         [Output("failureReason")]
-        public Output<string> FailureReason { get; private set; } = null!;
+        public Output<string?> FailureReason { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Connect
         /// The timestamp when the custom vocabulary was last modified.
         /// </summary>
         [Output("lastModifiedTime")]
-        public Output<string> LastModifiedTime { get; private set; } = null!;
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// A unique name of the custom vocabulary. Must not be more than 140 characters.
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Connect
         /// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the vocabulary. If configured with a provider
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Connect
         /// The identifier of the custom vocabulary.
         /// </summary>
         [Output("vocabularyId")]
-        public Output<string> VocabularyId { get; private set; } = null!;
+        public Output<string?> VocabularyId { get; private set; } = null!;
 
 
         /// <summary>

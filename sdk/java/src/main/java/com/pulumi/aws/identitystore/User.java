@@ -88,14 +88,14 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="externalIds", refs={List.class,UserExternalId.class}, tree="[0,1]")
-    private Output<List<UserExternalId>> externalIds;
+    private Output</* @Nullable */ List<UserExternalId>> externalIds;
 
     /**
      * @return A list of identifiers issued to this resource by an external identity provider.
      * 
      */
-    public Output<List<UserExternalId>> externalIds() {
-        return this.externalIds;
+    public Output<Optional<List<UserExternalId>>> externalIds() {
+        return Codegen.optional(this.externalIds);
     }
     /**
      * The globally unique identifier for the identity store that this user is in.
@@ -228,14 +228,14 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
-    private Output<String> userId;
+    private Output</* @Nullable */ String> userId;
 
     /**
      * @return The identifier for this user in the identity store.
      * 
      */
-    public Output<String> userId() {
-        return this.userId;
+    public Output<Optional<String>> userId() {
+        return Codegen.optional(this.userId);
     }
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.

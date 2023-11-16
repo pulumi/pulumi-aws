@@ -72,7 +72,7 @@ type WebsiteCertificateAuthorityAssociation struct {
 	// The ARN of the fleet.
 	FleetArn pulumi.StringOutput `pulumi:"fleetArn"`
 	// A unique identifier for the Certificate Authority.
-	WebsiteCaId pulumi.StringOutput `pulumi:"websiteCaId"`
+	WebsiteCaId pulumi.StringPtrOutput `pulumi:"websiteCaId"`
 }
 
 // NewWebsiteCertificateAuthorityAssociation registers a new resource with the given unique name, arguments, and options.
@@ -258,8 +258,8 @@ func (o WebsiteCertificateAuthorityAssociationOutput) FleetArn() pulumi.StringOu
 }
 
 // A unique identifier for the Certificate Authority.
-func (o WebsiteCertificateAuthorityAssociationOutput) WebsiteCaId() pulumi.StringOutput {
-	return o.ApplyT(func(v *WebsiteCertificateAuthorityAssociation) pulumi.StringOutput { return v.WebsiteCaId }).(pulumi.StringOutput)
+func (o WebsiteCertificateAuthorityAssociationOutput) WebsiteCaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebsiteCertificateAuthorityAssociation) pulumi.StringPtrOutput { return v.WebsiteCaId }).(pulumi.StringPtrOutput)
 }
 
 type WebsiteCertificateAuthorityAssociationArrayOutput struct{ *pulumi.OutputState }

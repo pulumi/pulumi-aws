@@ -84,19 +84,19 @@ export class VpcEndpointService extends pulumi.CustomResource {
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
-    public readonly allowedPrincipals!: pulumi.Output<string[]>;
+    public readonly allowedPrincipals!: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint service.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A set of Availability Zones in which the service is available.
      */
-    public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
+    public /*out*/ readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
      * A set of DNS names for the service.
      */
-    public /*out*/ readonly baseEndpointDnsNames!: pulumi.Output<string[]>;
+    public /*out*/ readonly baseEndpointDnsNames!: pulumi.Output<string[] | undefined>;
     /**
      * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
      */
@@ -104,7 +104,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
     /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      */
-    public /*out*/ readonly managesVpcEndpoints!: pulumi.Output<boolean>;
+    public /*out*/ readonly managesVpcEndpoints!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
      */
@@ -112,27 +112,27 @@ export class VpcEndpointService extends pulumi.CustomResource {
     /**
      * The private DNS name for the service.
      */
-    public readonly privateDnsName!: pulumi.Output<string>;
+    public readonly privateDnsName!: pulumi.Output<string | undefined>;
     /**
      * List of objects containing information about the endpoint service private DNS name configuration.
      */
-    public /*out*/ readonly privateDnsNameConfigurations!: pulumi.Output<outputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration[]>;
+    public /*out*/ readonly privateDnsNameConfigurations!: pulumi.Output<outputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration[] | undefined>;
     /**
      * The service name.
      */
-    public /*out*/ readonly serviceName!: pulumi.Output<string>;
+    public /*out*/ readonly serviceName!: pulumi.Output<string | undefined>;
     /**
      * The service type, `Gateway` or `Interface`.
      */
-    public /*out*/ readonly serviceType!: pulumi.Output<string>;
+    public /*out*/ readonly serviceType!: pulumi.Output<string | undefined>;
     /**
      * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * The supported IP address types. The possible values are `ipv4` and `ipv6`.
      */
-    public readonly supportedIpAddressTypes!: pulumi.Output<string[]>;
+    public readonly supportedIpAddressTypes!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

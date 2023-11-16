@@ -84,7 +84,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of cluster instance
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      */
@@ -92,11 +92,11 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * (Optional) The identifier of the CA certificate for the DB instance.
      */
-    public readonly caCertIdentifier!: pulumi.Output<string>;
+    public readonly caCertIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
@@ -108,11 +108,11 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * The DB subnet group to associate with this DB instance.
      */
-    public /*out*/ readonly dbSubnetGroupName!: pulumi.Output<string>;
+    public /*out*/ readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * The region-unique, immutable identifier for the DB instance.
      */
-    public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
+    public /*out*/ readonly dbiResourceId!: pulumi.Output<string | undefined>;
     /**
      * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      */
@@ -120,7 +120,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * The DNS address for this instance. May not be writable
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
@@ -128,15 +128,15 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * The database engine version
      */
-    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      */
-    public readonly identifier!: pulumi.Output<string>;
+    public readonly identifier!: pulumi.Output<string | undefined>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    public readonly identifierPrefix!: pulumi.Output<string>;
+    public readonly identifierPrefix!: pulumi.Output<string | undefined>;
     /**
      * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
      * DocumentDB currently supports the below instance classes.
@@ -167,33 +167,33 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * The ARN for the KMS encryption key if one is set to the cluster.
      */
-    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      */
-    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
+    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The database port
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled.
      */
-    public /*out*/ readonly preferredBackupWindow!: pulumi.Output<string>;
+    public /*out*/ readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      */
     public readonly promotionTier!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly publiclyAccessible!: pulumi.Output<boolean>;
+    public /*out*/ readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the DB cluster is encrypted.
      */
-    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
+    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -207,7 +207,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
-    public /*out*/ readonly writer!: pulumi.Output<boolean>;
+    public /*out*/ readonly writer!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ClusterInstance resource with the given unique name, arguments, and options.

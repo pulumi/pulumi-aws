@@ -978,7 +978,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statementIdPrefix")
-    def statement_id_prefix(self) -> pulumi.Output[str]:
+    def statement_id_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
         """

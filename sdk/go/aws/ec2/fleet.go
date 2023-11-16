@@ -64,7 +64,7 @@ type Fleet struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the fleet
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Reserved.
 	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
@@ -72,11 +72,11 @@ type Fleet struct {
 	// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
 	FleetInstanceSets FleetFleetInstanceSetArrayOutput `pulumi:"fleetInstanceSets"`
 	// The state of the EC2 Fleet.
-	FleetState pulumi.StringOutput `pulumi:"fleetState"`
+	FleetState pulumi.StringPtrOutput `pulumi:"fleetState"`
 	// The number of units fulfilled by this request compared to the set target capacity.
-	FulfilledCapacity pulumi.Float64Output `pulumi:"fulfilledCapacity"`
+	FulfilledCapacity pulumi.Float64PtrOutput `pulumi:"fulfilledCapacity"`
 	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
-	FulfilledOnDemandCapacity pulumi.Float64Output `pulumi:"fulfilledOnDemandCapacity"`
+	FulfilledOnDemandCapacity pulumi.Float64PtrOutput `pulumi:"fulfilledOnDemandCapacity"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
 	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayOutput `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
@@ -397,8 +397,8 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 }
 
 // The ARN of the fleet
-func (o FleetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FleetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Reserved.
@@ -417,18 +417,18 @@ func (o FleetOutput) FleetInstanceSets() FleetFleetInstanceSetArrayOutput {
 }
 
 // The state of the EC2 Fleet.
-func (o FleetOutput) FleetState() pulumi.StringOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.FleetState }).(pulumi.StringOutput)
+func (o FleetOutput) FleetState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.FleetState }).(pulumi.StringPtrOutput)
 }
 
 // The number of units fulfilled by this request compared to the set target capacity.
-func (o FleetOutput) FulfilledCapacity() pulumi.Float64Output {
-	return o.ApplyT(func(v *Fleet) pulumi.Float64Output { return v.FulfilledCapacity }).(pulumi.Float64Output)
+func (o FleetOutput) FulfilledCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.Float64PtrOutput { return v.FulfilledCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // The number of units fulfilled by this request compared to the set target On-Demand capacity.
-func (o FleetOutput) FulfilledOnDemandCapacity() pulumi.Float64Output {
-	return o.ApplyT(func(v *Fleet) pulumi.Float64Output { return v.FulfilledOnDemandCapacity }).(pulumi.Float64Output)
+func (o FleetOutput) FulfilledOnDemandCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.Float64PtrOutput { return v.FulfilledOnDemandCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Nested argument containing EC2 Launch Template configurations. Defined below.

@@ -906,7 +906,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of VPC
         """
@@ -922,7 +922,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Output[str]:
+    def cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         """
@@ -930,7 +930,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultNetworkAclId")
-    def default_network_acl_id(self) -> pulumi.Output[str]:
+    def default_network_acl_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the network ACL created by default on VPC creation
         """
@@ -938,7 +938,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRouteTableId")
-    def default_route_table_id(self) -> pulumi.Output[str]:
+    def default_route_table_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the route table created by default on VPC creation
         """
@@ -946,7 +946,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSecurityGroupId")
-    def default_security_group_id(self) -> pulumi.Output[str]:
+    def default_security_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the security group created by default on VPC creation
         """
@@ -954,12 +954,12 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dhcpOptionsId")
-    def dhcp_options_id(self) -> pulumi.Output[str]:
+    def dhcp_options_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "dhcp_options_id")
 
     @property
     @pulumi.getter(name="enableDnsHostnames")
-    def enable_dns_hostnames(self) -> pulumi.Output[bool]:
+    def enable_dns_hostnames(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         """
@@ -975,7 +975,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
-    def enable_network_address_usage_metrics(self) -> pulumi.Output[bool]:
+    def enable_network_address_usage_metrics(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
         """
@@ -1007,7 +1007,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6AssociationId")
-    def ipv6_association_id(self) -> pulumi.Output[str]:
+    def ipv6_association_id(self) -> pulumi.Output[Optional[str]]:
         """
         The association ID for the IPv6 CIDR block.
         """
@@ -1015,7 +1015,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         """
@@ -1023,7 +1023,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
-    def ipv6_cidr_block_network_border_group(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block_network_border_group(self) -> pulumi.Output[Optional[str]]:
         """
         By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         """
@@ -1047,7 +1047,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mainRouteTableId")
-    def main_route_table_id(self) -> pulumi.Output[str]:
+    def main_route_table_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the main route table associated with
         this VPC. Note that you can change a VPC's main route table by using an
@@ -1057,7 +1057,7 @@ class Vpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that owns the VPC.
         """

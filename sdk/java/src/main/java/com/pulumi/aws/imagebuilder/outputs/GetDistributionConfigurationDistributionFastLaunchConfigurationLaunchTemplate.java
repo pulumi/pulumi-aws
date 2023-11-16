@@ -6,6 +6,8 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
@@ -13,39 +15,39 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
      * @return ID of the Amazon EC2 launch template.
      * 
      */
-    private String launchTemplateId;
+    private @Nullable String launchTemplateId;
     /**
      * @return The name of the launch template to use for faster launching for a Windows AMI.
      * 
      */
-    private String launchTemplateName;
+    private @Nullable String launchTemplateName;
     /**
      * @return The version of the launch template to use for faster launching for a Windows AMI.
      * 
      */
-    private String launchTemplateVersion;
+    private @Nullable String launchTemplateVersion;
 
     private GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate() {}
     /**
      * @return ID of the Amazon EC2 launch template.
      * 
      */
-    public String launchTemplateId() {
-        return this.launchTemplateId;
+    public Optional<String> launchTemplateId() {
+        return Optional.ofNullable(this.launchTemplateId);
     }
     /**
      * @return The name of the launch template to use for faster launching for a Windows AMI.
      * 
      */
-    public String launchTemplateName() {
-        return this.launchTemplateName;
+    public Optional<String> launchTemplateName() {
+        return Optional.ofNullable(this.launchTemplateName);
     }
     /**
      * @return The version of the launch template to use for faster launching for a Windows AMI.
      * 
      */
-    public String launchTemplateVersion() {
-        return this.launchTemplateVersion;
+    public Optional<String> launchTemplateVersion() {
+        return Optional.ofNullable(this.launchTemplateVersion);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
     }
     @CustomType.Builder
     public static final class Builder {
-        private String launchTemplateId;
-        private String launchTemplateName;
-        private String launchTemplateVersion;
+        private @Nullable String launchTemplateId;
+        private @Nullable String launchTemplateName;
+        private @Nullable String launchTemplateVersion;
         public Builder() {}
         public Builder(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
         }
 
         @CustomType.Setter
-        public Builder launchTemplateId(String launchTemplateId) {
-            this.launchTemplateId = Objects.requireNonNull(launchTemplateId);
+        public Builder launchTemplateId(@Nullable String launchTemplateId) {
+            this.launchTemplateId = launchTemplateId;
             return this;
         }
         @CustomType.Setter
-        public Builder launchTemplateName(String launchTemplateName) {
-            this.launchTemplateName = Objects.requireNonNull(launchTemplateName);
+        public Builder launchTemplateName(@Nullable String launchTemplateName) {
+            this.launchTemplateName = launchTemplateName;
             return this;
         }
         @CustomType.Setter
-        public Builder launchTemplateVersion(String launchTemplateVersion) {
-            this.launchTemplateVersion = Objects.requireNonNull(launchTemplateVersion);
+        public Builder launchTemplateVersion(@Nullable String launchTemplateVersion) {
+            this.launchTemplateVersion = launchTemplateVersion;
             return this;
         }
         public GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate build() {

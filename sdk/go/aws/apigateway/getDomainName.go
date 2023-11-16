@@ -59,32 +59,32 @@ type LookupDomainNameArgs struct {
 // A collection of values returned by getDomainName.
 type LookupDomainNameResult struct {
 	// ARN of the found custom domain name.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
-	CertificateArn string `pulumi:"certificateArn"`
+	CertificateArn *string `pulumi:"certificateArn"`
 	// Name of the certificate that is used by edge-optimized endpoint for this domain name.
-	CertificateName string `pulumi:"certificateName"`
+	CertificateName *string `pulumi:"certificateName"`
 	// Upload date associated with the domain certificate.
-	CertificateUploadDate string `pulumi:"certificateUploadDate"`
+	CertificateUploadDate *string `pulumi:"certificateUploadDate"`
 	// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
-	CloudfrontDomainName string `pulumi:"cloudfrontDomainName"`
+	CloudfrontDomainName *string `pulumi:"cloudfrontDomainName"`
 	// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
-	CloudfrontZoneId string `pulumi:"cloudfrontZoneId"`
-	DomainName       string `pulumi:"domainName"`
+	CloudfrontZoneId *string `pulumi:"cloudfrontZoneId"`
+	DomainName       string  `pulumi:"domainName"`
 	// List of objects with the endpoint configuration of this domain name.
 	EndpointConfigurations []GetDomainNameEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ARN for an AWS-managed certificate that is used for validating the regional domain name.
-	RegionalCertificateArn string `pulumi:"regionalCertificateArn"`
+	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// User-friendly name of the certificate that is used by regional endpoint for this domain name.
-	RegionalCertificateName string `pulumi:"regionalCertificateName"`
+	RegionalCertificateName *string `pulumi:"regionalCertificateName"`
 	// Hostname for the custom domain's regional endpoint.
-	RegionalDomainName string `pulumi:"regionalDomainName"`
+	RegionalDomainName *string `pulumi:"regionalDomainName"`
 	// Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-	RegionalZoneId string `pulumi:"regionalZoneId"`
+	RegionalZoneId *string `pulumi:"regionalZoneId"`
 	// Security policy for the domain name.
-	SecurityPolicy string `pulumi:"securityPolicy"`
+	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// Key-value map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -130,33 +130,33 @@ func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutputWithContext(
 }
 
 // ARN of the found custom domain name.
-func (o LookupDomainNameResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
-func (o LookupDomainNameResultOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.CertificateArn }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the certificate that is used by edge-optimized endpoint for this domain name.
-func (o LookupDomainNameResultOutput) CertificateName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.CertificateName }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) CertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.CertificateName }).(pulumi.StringPtrOutput)
 }
 
 // Upload date associated with the domain certificate.
-func (o LookupDomainNameResultOutput) CertificateUploadDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.CertificateUploadDate }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) CertificateUploadDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.CertificateUploadDate }).(pulumi.StringPtrOutput)
 }
 
 // Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
-func (o LookupDomainNameResultOutput) CloudfrontDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.CloudfrontDomainName }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) CloudfrontDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.CloudfrontDomainName }).(pulumi.StringPtrOutput)
 }
 
 // For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
-func (o LookupDomainNameResultOutput) CloudfrontZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.CloudfrontZoneId }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) CloudfrontZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.CloudfrontZoneId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDomainNameResultOutput) DomainName() pulumi.StringOutput {
@@ -169,33 +169,33 @@ func (o LookupDomainNameResultOutput) EndpointConfigurations() GetDomainNameEndp
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDomainNameResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ARN for an AWS-managed certificate that is used for validating the regional domain name.
-func (o LookupDomainNameResultOutput) RegionalCertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.RegionalCertificateArn }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) RegionalCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalCertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // User-friendly name of the certificate that is used by regional endpoint for this domain name.
-func (o LookupDomainNameResultOutput) RegionalCertificateName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.RegionalCertificateName }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) RegionalCertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalCertificateName }).(pulumi.StringPtrOutput)
 }
 
 // Hostname for the custom domain's regional endpoint.
-func (o LookupDomainNameResultOutput) RegionalDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.RegionalDomainName }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) RegionalDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalDomainName }).(pulumi.StringPtrOutput)
 }
 
 // Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-func (o LookupDomainNameResultOutput) RegionalZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.RegionalZoneId }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) RegionalZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Security policy for the domain name.
-func (o LookupDomainNameResultOutput) SecurityPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) string { return v.SecurityPolicy }).(pulumi.StringOutput)
+func (o LookupDomainNameResultOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of tags for the resource.

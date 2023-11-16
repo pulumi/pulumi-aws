@@ -9,6 +9,8 @@ import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReservedInstanceOfferingResult {
@@ -16,25 +18,25 @@ public final class GetReservedInstanceOfferingResult {
      * @return Currency code for the reserved DB instance.
      * 
      */
-    private String currencyCode;
+    private @Nullable String currencyCode;
     private String dbInstanceClass;
     private Integer duration;
     /**
      * @return Fixed price charged for this reserved DB instance.
      * 
      */
-    private Double fixedPrice;
+    private @Nullable Double fixedPrice;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private Boolean multiAz;
     /**
      * @return Unique identifier for the reservation.
      * 
      */
-    private String offeringId;
+    private @Nullable String offeringId;
     private String offeringType;
     private String productDescription;
 
@@ -43,8 +45,8 @@ public final class GetReservedInstanceOfferingResult {
      * @return Currency code for the reserved DB instance.
      * 
      */
-    public String currencyCode() {
-        return this.currencyCode;
+    public Optional<String> currencyCode() {
+        return Optional.ofNullable(this.currencyCode);
     }
     public String dbInstanceClass() {
         return this.dbInstanceClass;
@@ -56,15 +58,15 @@ public final class GetReservedInstanceOfferingResult {
      * @return Fixed price charged for this reserved DB instance.
      * 
      */
-    public Double fixedPrice() {
-        return this.fixedPrice;
+    public Optional<Double> fixedPrice() {
+        return Optional.ofNullable(this.fixedPrice);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Boolean multiAz() {
         return this.multiAz;
@@ -73,8 +75,8 @@ public final class GetReservedInstanceOfferingResult {
      * @return Unique identifier for the reservation.
      * 
      */
-    public String offeringId() {
-        return this.offeringId;
+    public Optional<String> offeringId() {
+        return Optional.ofNullable(this.offeringId);
     }
     public String offeringType() {
         return this.offeringType;
@@ -92,13 +94,13 @@ public final class GetReservedInstanceOfferingResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String currencyCode;
+        private @Nullable String currencyCode;
         private String dbInstanceClass;
         private Integer duration;
-        private Double fixedPrice;
-        private String id;
+        private @Nullable Double fixedPrice;
+        private @Nullable String id;
         private Boolean multiAz;
-        private String offeringId;
+        private @Nullable String offeringId;
         private String offeringType;
         private String productDescription;
         public Builder() {}
@@ -116,8 +118,8 @@ public final class GetReservedInstanceOfferingResult {
         }
 
         @CustomType.Setter
-        public Builder currencyCode(String currencyCode) {
-            this.currencyCode = Objects.requireNonNull(currencyCode);
+        public Builder currencyCode(@Nullable String currencyCode) {
+            this.currencyCode = currencyCode;
             return this;
         }
         @CustomType.Setter
@@ -131,13 +133,13 @@ public final class GetReservedInstanceOfferingResult {
             return this;
         }
         @CustomType.Setter
-        public Builder fixedPrice(Double fixedPrice) {
-            this.fixedPrice = Objects.requireNonNull(fixedPrice);
+        public Builder fixedPrice(@Nullable Double fixedPrice) {
+            this.fixedPrice = fixedPrice;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -146,8 +148,8 @@ public final class GetReservedInstanceOfferingResult {
             return this;
         }
         @CustomType.Setter
-        public Builder offeringId(String offeringId) {
-            this.offeringId = Objects.requireNonNull(offeringId);
+        public Builder offeringId(@Nullable String offeringId) {
+            this.offeringId = offeringId;
             return this;
         }
         @CustomType.Setter

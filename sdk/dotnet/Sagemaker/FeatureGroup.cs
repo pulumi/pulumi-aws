@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A free-form description of a Feature Group.

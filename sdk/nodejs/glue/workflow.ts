@@ -77,7 +77,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Glue Workflow
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */

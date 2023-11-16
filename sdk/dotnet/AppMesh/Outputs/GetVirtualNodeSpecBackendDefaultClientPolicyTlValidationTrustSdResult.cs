@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult
     {
-        public readonly string SecretName;
+        public readonly string? SecretName;
 
         [OutputConstructor]
-        private GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult(string secretName)
+        private GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult(string? secretName)
         {
             SecretName = secretName;
         }

@@ -57,7 +57,7 @@ type Schema struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the schema.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility pulumi.StringOutput `pulumi:"compatibility"`
 	// The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
@@ -65,15 +65,15 @@ type Schema struct {
 	// A description of the schema.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The latest version of the schema associated with the returned schema definition.
-	LatestSchemaVersion pulumi.IntOutput `pulumi:"latestSchemaVersion"`
+	LatestSchemaVersion pulumi.IntPtrOutput `pulumi:"latestSchemaVersion"`
 	// The next version of the schema associated with the returned schema definition.
-	NextSchemaVersion pulumi.IntOutput `pulumi:"nextSchemaVersion"`
+	NextSchemaVersion pulumi.IntPtrOutput `pulumi:"nextSchemaVersion"`
 	// The ARN of the Glue Registry to create the schema in.
-	RegistryArn pulumi.StringOutput `pulumi:"registryArn"`
+	RegistryArn pulumi.StringPtrOutput `pulumi:"registryArn"`
 	// The name of the Glue Registry.
-	RegistryName pulumi.StringOutput `pulumi:"registryName"`
+	RegistryName pulumi.StringPtrOutput `pulumi:"registryName"`
 	// The version number of the checkpoint (the last time the compatibility mode was changed).
-	SchemaCheckpoint pulumi.IntOutput `pulumi:"schemaCheckpoint"`
+	SchemaCheckpoint pulumi.IntPtrOutput `pulumi:"schemaCheckpoint"`
 	// The schema definition using the `dataFormat` setting for `schemaName`.
 	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
 	// The Name of the schema.
@@ -320,8 +320,8 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 }
 
 // Amazon Resource Name (ARN) of the schema.
-func (o SchemaOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SchemaOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
@@ -340,28 +340,28 @@ func (o SchemaOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The latest version of the schema associated with the returned schema definition.
-func (o SchemaOutput) LatestSchemaVersion() pulumi.IntOutput {
-	return o.ApplyT(func(v *Schema) pulumi.IntOutput { return v.LatestSchemaVersion }).(pulumi.IntOutput)
+func (o SchemaOutput) LatestSchemaVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.IntPtrOutput { return v.LatestSchemaVersion }).(pulumi.IntPtrOutput)
 }
 
 // The next version of the schema associated with the returned schema definition.
-func (o SchemaOutput) NextSchemaVersion() pulumi.IntOutput {
-	return o.ApplyT(func(v *Schema) pulumi.IntOutput { return v.NextSchemaVersion }).(pulumi.IntOutput)
+func (o SchemaOutput) NextSchemaVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.IntPtrOutput { return v.NextSchemaVersion }).(pulumi.IntPtrOutput)
 }
 
 // The ARN of the Glue Registry to create the schema in.
-func (o SchemaOutput) RegistryArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.RegistryArn }).(pulumi.StringOutput)
+func (o SchemaOutput) RegistryArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.RegistryArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Glue Registry.
-func (o SchemaOutput) RegistryName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.RegistryName }).(pulumi.StringOutput)
+func (o SchemaOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.RegistryName }).(pulumi.StringPtrOutput)
 }
 
 // The version number of the checkpoint (the last time the compatibility mode was changed).
-func (o SchemaOutput) SchemaCheckpoint() pulumi.IntOutput {
-	return o.ApplyT(func(v *Schema) pulumi.IntOutput { return v.SchemaCheckpoint }).(pulumi.IntOutput)
+func (o SchemaOutput) SchemaCheckpoint() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.IntPtrOutput { return v.SchemaCheckpoint }).(pulumi.IntPtrOutput)
 }
 
 // The schema definition using the `dataFormat` setting for `schemaName`.

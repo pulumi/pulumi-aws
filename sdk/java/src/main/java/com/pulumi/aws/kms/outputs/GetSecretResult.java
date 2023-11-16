@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecretResult {
@@ -15,7 +17,7 @@ public final class GetSecretResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private List<GetSecretSecret> secrets;
 
     private GetSecretResult() {}
@@ -23,8 +25,8 @@ public final class GetSecretResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<GetSecretSecret> secrets() {
         return this.secrets;
@@ -39,7 +41,7 @@ public final class GetSecretResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private List<GetSecretSecret> secrets;
         public Builder() {}
         public Builder(GetSecretResult defaults) {
@@ -49,8 +51,8 @@ public final class GetSecretResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

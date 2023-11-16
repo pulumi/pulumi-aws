@@ -65,14 +65,14 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    private Output</* @Nullable */ String> createTime;
 
     /**
      * @return The timestamp for when the tracker resource was created in ISO 8601 format.
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<Optional<String>> createTime() {
+        return Codegen.optional(this.createTime);
     }
     /**
      * The optional description for the tracker resource.
@@ -153,14 +153,14 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="trackerArn", refs={String.class}, tree="[0]")
-    private Output<String> trackerArn;
+    private Output</* @Nullable */ String> trackerArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    public Output<String> trackerArn() {
-        return this.trackerArn;
+    public Output<Optional<String>> trackerArn() {
+        return Codegen.optional(this.trackerArn);
     }
     /**
      * The name of the tracker resource.
@@ -185,14 +185,14 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    private Output</* @Nullable */ String> updateTime;
 
     /**
      * @return The timestamp for when the tracker resource was last updated in ISO 8601 format.
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<Optional<String>> updateTime() {
+        return Codegen.optional(this.updateTime);
     }
 
     /**

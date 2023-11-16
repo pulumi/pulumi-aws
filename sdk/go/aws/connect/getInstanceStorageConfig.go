@@ -64,9 +64,9 @@ type LookupInstanceStorageConfigArgs struct {
 type LookupInstanceStorageConfigResult struct {
 	AssociationId string `pulumi:"associationId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string `pulumi:"id"`
-	InstanceId   string `pulumi:"instanceId"`
-	ResourceType string `pulumi:"resourceType"`
+	Id           *string `pulumi:"id"`
+	InstanceId   string  `pulumi:"instanceId"`
+	ResourceType string  `pulumi:"resourceType"`
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfigs []GetInstanceStorageConfigStorageConfig `pulumi:"storageConfigs"`
 }
@@ -118,8 +118,8 @@ func (o LookupInstanceStorageConfigResultOutput) AssociationId() pulumi.StringOu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupInstanceStorageConfigResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceStorageConfigResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupInstanceStorageConfigResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupInstanceStorageConfigResultOutput) InstanceId() pulumi.StringOutput {

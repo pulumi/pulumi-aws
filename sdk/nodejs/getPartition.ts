@@ -50,19 +50,19 @@ export interface GetPartitionResult {
     /**
      * Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
      */
-    readonly dnsSuffix: string;
+    readonly dnsSuffix?: string;
     /**
      * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      */
-    readonly partition: string;
+    readonly partition?: string;
     /**
      * Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
      */
-    readonly reverseDnsPrefix: string;
+    readonly reverseDnsPrefix?: string;
 }
 /**
  * Use this data source to lookup information about the current AWS partition in

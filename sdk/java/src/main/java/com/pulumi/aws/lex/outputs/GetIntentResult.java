@@ -15,33 +15,33 @@ public final class GetIntentResult {
      * @return ARN of the Lex intent.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Checksum identifying the version of the intent that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the intent.
      * 
      */
-    private String checksum;
+    private @Nullable String checksum;
     /**
      * @return Date when the intent version was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return Description of the intent.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Date when the $LATEST version of this intent was updated.
      * 
      */
-    private String lastUpdatedDate;
+    private @Nullable String lastUpdatedDate;
     /**
      * @return Name of the intent, not case sensitive.
      * 
@@ -54,7 +54,7 @@ public final class GetIntentResult {
      * in the Alexa Skills Kit.
      * 
      */
-    private String parentIntentSignature;
+    private @Nullable String parentIntentSignature;
     /**
      * @return Version of the bot.
      * 
@@ -66,44 +66,44 @@ public final class GetIntentResult {
      * @return ARN of the Lex intent.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Checksum identifying the version of the intent that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the intent.
      * 
      */
-    public String checksum() {
-        return this.checksum;
+    public Optional<String> checksum() {
+        return Optional.ofNullable(this.checksum);
     }
     /**
      * @return Date when the intent version was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Description of the intent.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Date when the $LATEST version of this intent was updated.
      * 
      */
-    public String lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Optional<String> lastUpdatedDate() {
+        return Optional.ofNullable(this.lastUpdatedDate);
     }
     /**
      * @return Name of the intent, not case sensitive.
@@ -119,8 +119,8 @@ public final class GetIntentResult {
      * in the Alexa Skills Kit.
      * 
      */
-    public String parentIntentSignature() {
-        return this.parentIntentSignature;
+    public Optional<String> parentIntentSignature() {
+        return Optional.ofNullable(this.parentIntentSignature);
     }
     /**
      * @return Version of the bot.
@@ -139,14 +139,14 @@ public final class GetIntentResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String checksum;
-        private String createdDate;
-        private String description;
-        private String id;
-        private String lastUpdatedDate;
+        private @Nullable String arn;
+        private @Nullable String checksum;
+        private @Nullable String createdDate;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String lastUpdatedDate;
         private String name;
-        private String parentIntentSignature;
+        private @Nullable String parentIntentSignature;
         private @Nullable String version;
         public Builder() {}
         public Builder(GetIntentResult defaults) {
@@ -163,33 +163,33 @@ public final class GetIntentResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder checksum(String checksum) {
-            this.checksum = Objects.requireNonNull(checksum);
+        public Builder checksum(@Nullable String checksum) {
+            this.checksum = checksum;
             return this;
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+        public Builder lastUpdatedDate(@Nullable String lastUpdatedDate) {
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
@@ -198,8 +198,8 @@ public final class GetIntentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder parentIntentSignature(String parentIntentSignature) {
-            this.parentIntentSignature = Objects.requireNonNull(parentIntentSignature);
+        public Builder parentIntentSignature(@Nullable String parentIntentSignature) {
+            this.parentIntentSignature = parentIntentSignature;
             return this;
         }
         @CustomType.Setter

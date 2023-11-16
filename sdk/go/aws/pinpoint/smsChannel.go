@@ -61,13 +61,13 @@ type SmsChannel struct {
 	// Whether the channel is enabled or disabled. By default, it is set to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Maximum number of promotional messages that can be sent per second.
-	PromotionalMessagesPerSecond pulumi.IntOutput `pulumi:"promotionalMessagesPerSecond"`
+	PromotionalMessagesPerSecond pulumi.IntPtrOutput `pulumi:"promotionalMessagesPerSecond"`
 	// Identifier of the sender for your messages.
 	SenderId pulumi.StringPtrOutput `pulumi:"senderId"`
 	// Short Code registered with the phone provider.
 	ShortCode pulumi.StringPtrOutput `pulumi:"shortCode"`
 	// Maximum number of transactional messages per second that can be sent.
-	TransactionalMessagesPerSecond pulumi.IntOutput `pulumi:"transactionalMessagesPerSecond"`
+	TransactionalMessagesPerSecond pulumi.IntPtrOutput `pulumi:"transactionalMessagesPerSecond"`
 }
 
 // NewSmsChannel registers a new resource with the given unique name, arguments, and options.
@@ -257,8 +257,8 @@ func (o SmsChannelOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Maximum number of promotional messages that can be sent per second.
-func (o SmsChannelOutput) PromotionalMessagesPerSecond() pulumi.IntOutput {
-	return o.ApplyT(func(v *SmsChannel) pulumi.IntOutput { return v.PromotionalMessagesPerSecond }).(pulumi.IntOutput)
+func (o SmsChannelOutput) PromotionalMessagesPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SmsChannel) pulumi.IntPtrOutput { return v.PromotionalMessagesPerSecond }).(pulumi.IntPtrOutput)
 }
 
 // Identifier of the sender for your messages.
@@ -272,8 +272,8 @@ func (o SmsChannelOutput) ShortCode() pulumi.StringPtrOutput {
 }
 
 // Maximum number of transactional messages per second that can be sent.
-func (o SmsChannelOutput) TransactionalMessagesPerSecond() pulumi.IntOutput {
-	return o.ApplyT(func(v *SmsChannel) pulumi.IntOutput { return v.TransactionalMessagesPerSecond }).(pulumi.IntOutput)
+func (o SmsChannelOutput) TransactionalMessagesPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SmsChannel) pulumi.IntPtrOutput { return v.TransactionalMessagesPerSecond }).(pulumi.IntPtrOutput)
 }
 
 type SmsChannelArrayOutput struct{ *pulumi.OutputState }

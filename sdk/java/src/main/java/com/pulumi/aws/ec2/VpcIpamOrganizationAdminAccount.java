@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -71,14 +72,14 @@ public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Organizations ARN for the delegate account.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="delegatedAdminAccountId", refs={String.class}, tree="[0]")
     private Output<String> delegatedAdminAccountId;
@@ -91,42 +92,42 @@ public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="email", refs={String.class}, tree="[0]")
-    private Output<String> email;
+    private Output</* @Nullable */ String> email;
 
     /**
      * @return The Organizations email for the delegate account.
      * 
      */
-    public Output<String> email() {
-        return this.email;
+    public Output<Optional<String>> email() {
+        return Codegen.optional(this.email);
     }
     /**
      * The Organizations name for the delegate account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return The Organizations name for the delegate account.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * The AWS service principal.
      * 
      */
     @Export(name="servicePrincipal", refs={String.class}, tree="[0]")
-    private Output<String> servicePrincipal;
+    private Output</* @Nullable */ String> servicePrincipal;
 
     /**
      * @return The AWS service principal.
      * 
      */
-    public Output<String> servicePrincipal() {
-        return this.servicePrincipal;
+    public Output<Optional<String>> servicePrincipal() {
+        return Codegen.optional(this.servicePrincipal);
     }
 
     /**

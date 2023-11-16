@@ -12,8 +12,8 @@ namespace Pulumi.Aws.Auditmanager.Inputs
 
     public sealed class GetFrameworkControlSetControlArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("id")]
+        public string? Id { get; set; }
 
         public GetFrameworkControlSetControlArgs()
         {

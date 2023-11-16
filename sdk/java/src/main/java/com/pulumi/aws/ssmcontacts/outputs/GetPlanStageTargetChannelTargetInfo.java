@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlanStageTargetChannelTargetInfo {
-    private String contactChannelId;
-    private Integer retryIntervalInMinutes;
+    private @Nullable String contactChannelId;
+    private @Nullable Integer retryIntervalInMinutes;
 
     private GetPlanStageTargetChannelTargetInfo() {}
-    public String contactChannelId() {
-        return this.contactChannelId;
+    public Optional<String> contactChannelId() {
+        return Optional.ofNullable(this.contactChannelId);
     }
-    public Integer retryIntervalInMinutes() {
-        return this.retryIntervalInMinutes;
+    public Optional<Integer> retryIntervalInMinutes() {
+        return Optional.ofNullable(this.retryIntervalInMinutes);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetPlanStageTargetChannelTargetInfo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String contactChannelId;
-        private Integer retryIntervalInMinutes;
+        private @Nullable String contactChannelId;
+        private @Nullable Integer retryIntervalInMinutes;
         public Builder() {}
         public Builder(GetPlanStageTargetChannelTargetInfo defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetPlanStageTargetChannelTargetInfo {
         }
 
         @CustomType.Setter
-        public Builder contactChannelId(String contactChannelId) {
-            this.contactChannelId = Objects.requireNonNull(contactChannelId);
+        public Builder contactChannelId(@Nullable String contactChannelId) {
+            this.contactChannelId = contactChannelId;
             return this;
         }
         @CustomType.Setter
-        public Builder retryIntervalInMinutes(Integer retryIntervalInMinutes) {
-            this.retryIntervalInMinutes = Objects.requireNonNull(retryIntervalInMinutes);
+        public Builder retryIntervalInMinutes(@Nullable Integer retryIntervalInMinutes) {
+            this.retryIntervalInMinutes = retryIntervalInMinutes;
             return this;
         }
         public GetPlanStageTargetChannelTargetInfo build() {

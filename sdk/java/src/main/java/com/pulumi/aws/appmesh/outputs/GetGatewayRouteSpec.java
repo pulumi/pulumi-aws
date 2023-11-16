@@ -10,26 +10,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpec {
-    private List<GetGatewayRouteSpecGrpcRoute> grpcRoutes;
-    private List<GetGatewayRouteSpecHttp2Route> http2Routes;
-    private List<GetGatewayRouteSpecHttpRoute> httpRoutes;
-    private Integer priority;
+    private @Nullable List<GetGatewayRouteSpecGrpcRoute> grpcRoutes;
+    private @Nullable List<GetGatewayRouteSpecHttp2Route> http2Routes;
+    private @Nullable List<GetGatewayRouteSpecHttpRoute> httpRoutes;
+    private @Nullable Integer priority;
 
     private GetGatewayRouteSpec() {}
     public List<GetGatewayRouteSpecGrpcRoute> grpcRoutes() {
-        return this.grpcRoutes;
+        return this.grpcRoutes == null ? List.of() : this.grpcRoutes;
     }
     public List<GetGatewayRouteSpecHttp2Route> http2Routes() {
-        return this.http2Routes;
+        return this.http2Routes == null ? List.of() : this.http2Routes;
     }
     public List<GetGatewayRouteSpecHttpRoute> httpRoutes() {
-        return this.httpRoutes;
+        return this.httpRoutes == null ? List.of() : this.httpRoutes;
     }
-    public Integer priority() {
-        return this.priority;
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
     }
 
     public static Builder builder() {
@@ -41,10 +43,10 @@ public final class GetGatewayRouteSpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGatewayRouteSpecGrpcRoute> grpcRoutes;
-        private List<GetGatewayRouteSpecHttp2Route> http2Routes;
-        private List<GetGatewayRouteSpecHttpRoute> httpRoutes;
-        private Integer priority;
+        private @Nullable List<GetGatewayRouteSpecGrpcRoute> grpcRoutes;
+        private @Nullable List<GetGatewayRouteSpecHttp2Route> http2Routes;
+        private @Nullable List<GetGatewayRouteSpecHttpRoute> httpRoutes;
+        private @Nullable Integer priority;
         public Builder() {}
         public Builder(GetGatewayRouteSpec defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,32 +57,32 @@ public final class GetGatewayRouteSpec {
         }
 
         @CustomType.Setter
-        public Builder grpcRoutes(List<GetGatewayRouteSpecGrpcRoute> grpcRoutes) {
-            this.grpcRoutes = Objects.requireNonNull(grpcRoutes);
+        public Builder grpcRoutes(@Nullable List<GetGatewayRouteSpecGrpcRoute> grpcRoutes) {
+            this.grpcRoutes = grpcRoutes;
             return this;
         }
         public Builder grpcRoutes(GetGatewayRouteSpecGrpcRoute... grpcRoutes) {
             return grpcRoutes(List.of(grpcRoutes));
         }
         @CustomType.Setter
-        public Builder http2Routes(List<GetGatewayRouteSpecHttp2Route> http2Routes) {
-            this.http2Routes = Objects.requireNonNull(http2Routes);
+        public Builder http2Routes(@Nullable List<GetGatewayRouteSpecHttp2Route> http2Routes) {
+            this.http2Routes = http2Routes;
             return this;
         }
         public Builder http2Routes(GetGatewayRouteSpecHttp2Route... http2Routes) {
             return http2Routes(List.of(http2Routes));
         }
         @CustomType.Setter
-        public Builder httpRoutes(List<GetGatewayRouteSpecHttpRoute> httpRoutes) {
-            this.httpRoutes = Objects.requireNonNull(httpRoutes);
+        public Builder httpRoutes(@Nullable List<GetGatewayRouteSpecHttpRoute> httpRoutes) {
+            this.httpRoutes = httpRoutes;
             return this;
         }
         public Builder httpRoutes(GetGatewayRouteSpecHttpRoute... httpRoutes) {
             return httpRoutes(List.of(httpRoutes));
         }
         @CustomType.Setter
-        public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
             return this;
         }
         public GetGatewayRouteSpec build() {

@@ -328,7 +328,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of a usage plan key.
         """
@@ -344,7 +344,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Output[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         Value of a usage plan key.
         """

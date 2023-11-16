@@ -61,7 +61,7 @@ type StaticIpAttachment struct {
 	// The name of the Lightsail instance to attach the IP to
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
 	// The allocated static IP address
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
 	// The name of the allocated static IP
 	StaticIpName pulumi.StringOutput `pulumi:"staticIpName"`
 }
@@ -231,8 +231,8 @@ func (o StaticIpAttachmentOutput) InstanceName() pulumi.StringOutput {
 }
 
 // The allocated static IP address
-func (o StaticIpAttachmentOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+func (o StaticIpAttachmentOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The name of the allocated static IP

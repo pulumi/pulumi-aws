@@ -66,15 +66,15 @@ type CodeSigningConfig struct {
 	// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
 	AllowedPublishers CodeSigningConfigAllowedPublishersOutput `pulumi:"allowedPublishers"`
 	// The Amazon Resource Name (ARN) of the code signing configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Unique identifier for the code signing configuration.
-	ConfigId pulumi.StringOutput `pulumi:"configId"`
+	ConfigId pulumi.StringPtrOutput `pulumi:"configId"`
 	// Descriptive name for this code signing configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The date and time that the code signing configuration was last modified.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
+	LastModified pulumi.StringPtrOutput `pulumi:"lastModified"`
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
-	Policies CodeSigningConfigPoliciesOutput `pulumi:"policies"`
+	Policies CodeSigningConfigPoliciesPtrOutput `pulumi:"policies"`
 }
 
 // NewCodeSigningConfig registers a new resource with the given unique name, arguments, and options.
@@ -255,13 +255,13 @@ func (o CodeSigningConfigOutput) AllowedPublishers() CodeSigningConfigAllowedPub
 }
 
 // The Amazon Resource Name (ARN) of the code signing configuration.
-func (o CodeSigningConfigOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CodeSigningConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier for the code signing configuration.
-func (o CodeSigningConfigOutput) ConfigId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringOutput { return v.ConfigId }).(pulumi.StringOutput)
+func (o CodeSigningConfigOutput) ConfigId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringPtrOutput { return v.ConfigId }).(pulumi.StringPtrOutput)
 }
 
 // Descriptive name for this code signing configuration.
@@ -270,13 +270,13 @@ func (o CodeSigningConfigOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The date and time that the code signing configuration was last modified.
-func (o CodeSigningConfigOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+func (o CodeSigningConfigOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringPtrOutput { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
 // A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
-func (o CodeSigningConfigOutput) Policies() CodeSigningConfigPoliciesOutput {
-	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfigPoliciesOutput { return v.Policies }).(CodeSigningConfigPoliciesOutput)
+func (o CodeSigningConfigOutput) Policies() CodeSigningConfigPoliciesPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfigPoliciesPtrOutput { return v.Policies }).(CodeSigningConfigPoliciesPtrOutput)
 }
 
 type CodeSigningConfigArrayOutput struct{ *pulumi.OutputState }

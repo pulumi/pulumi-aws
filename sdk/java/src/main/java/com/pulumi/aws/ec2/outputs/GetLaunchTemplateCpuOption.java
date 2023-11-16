@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateCpuOption {
-    private String amdSevSnp;
-    private Integer coreCount;
-    private Integer threadsPerCore;
+    private @Nullable String amdSevSnp;
+    private @Nullable Integer coreCount;
+    private @Nullable Integer threadsPerCore;
 
     private GetLaunchTemplateCpuOption() {}
-    public String amdSevSnp() {
-        return this.amdSevSnp;
+    public Optional<String> amdSevSnp() {
+        return Optional.ofNullable(this.amdSevSnp);
     }
-    public Integer coreCount() {
-        return this.coreCount;
+    public Optional<Integer> coreCount() {
+        return Optional.ofNullable(this.coreCount);
     }
-    public Integer threadsPerCore() {
-        return this.threadsPerCore;
+    public Optional<Integer> threadsPerCore() {
+        return Optional.ofNullable(this.threadsPerCore);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetLaunchTemplateCpuOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String amdSevSnp;
-        private Integer coreCount;
-        private Integer threadsPerCore;
+        private @Nullable String amdSevSnp;
+        private @Nullable Integer coreCount;
+        private @Nullable Integer threadsPerCore;
         public Builder() {}
         public Builder(GetLaunchTemplateCpuOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetLaunchTemplateCpuOption {
         }
 
         @CustomType.Setter
-        public Builder amdSevSnp(String amdSevSnp) {
-            this.amdSevSnp = Objects.requireNonNull(amdSevSnp);
+        public Builder amdSevSnp(@Nullable String amdSevSnp) {
+            this.amdSevSnp = amdSevSnp;
             return this;
         }
         @CustomType.Setter
-        public Builder coreCount(Integer coreCount) {
-            this.coreCount = Objects.requireNonNull(coreCount);
+        public Builder coreCount(@Nullable Integer coreCount) {
+            this.coreCount = coreCount;
             return this;
         }
         @CustomType.Setter
-        public Builder threadsPerCore(Integer threadsPerCore) {
-            this.threadsPerCore = Objects.requireNonNull(threadsPerCore);
+        public Builder threadsPerCore(@Nullable Integer threadsPerCore) {
+            this.threadsPerCore = threadsPerCore;
             return this;
         }
         public GetLaunchTemplateCpuOption build() {

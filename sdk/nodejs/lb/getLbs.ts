@@ -49,11 +49,11 @@ export interface GetLbsResult {
     /**
      * Set of Load Balancer ARNs.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly tags?: {[key: string]: string};
 }
 /**

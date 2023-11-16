@@ -71,40 +71,40 @@ export interface GetVpcAttachmentResult {
     /**
      * Whether Appliance Mode support is enabled.
      */
-    readonly applianceModeSupport: string;
+    readonly applianceModeSupport?: string;
     /**
      * Whether DNS support is enabled.
      */
-    readonly dnsSupport: string;
+    readonly dnsSupport?: string;
     readonly filters?: outputs.ec2transitgateway.GetVpcAttachmentFilter[];
     /**
      * EC2 Transit Gateway VPC Attachment identifier
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Whether IPv6 support is enabled.
      */
-    readonly ipv6Support: string;
+    readonly ipv6Support?: string;
     /**
      * Identifiers of EC2 Subnets.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * EC2 Transit Gateway identifier
      */
-    readonly transitGatewayId: string;
+    readonly transitGatewayId?: string;
     /**
      * Identifier of EC2 VPC.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
     /**
      * Identifier of the AWS account that owns the EC2 VPC.
      */
-    readonly vpcOwnerId: string;
+    readonly vpcOwnerId?: string;
 }
 /**
  * Get information on an EC2 Transit Gateway VPC Attachment.

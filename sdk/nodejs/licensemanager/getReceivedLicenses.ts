@@ -55,12 +55,12 @@ export interface GetReceivedLicensesResult {
     /**
      * List of all the license ARNs found.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     readonly filters?: outputs.licensemanager.GetReceivedLicensesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * This resource can be used to get a set of license ARNs matching a filter.

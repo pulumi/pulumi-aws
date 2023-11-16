@@ -43,25 +43,25 @@ export interface GetImageResult {
     /**
      * The description of the image.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly imageId: string;
     /**
      * The name of the image.
      */
-    readonly name: string;
-    readonly operatingSystemType: string;
+    readonly name?: string;
+    readonly operatingSystemType?: string;
     /**
      * Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
      */
-    readonly requiredTenancy: string;
+    readonly requiredTenancy?: string;
     /**
      * The status of the image.
      */
-    readonly state: string;
+    readonly state?: string;
 }
 /**
  * Use this data source to get information about a Workspaces image.

@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The ARN of the endpoint that was created.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the global endpoint.
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The URL of the endpoint that was created.
         /// </summary>
         [Output("endpointUrl")]
-        public Output<string> EndpointUrl { get; private set; } = null!;
+        public Output<string?> EndpointUrl { get; private set; } = null!;
 
         /// <summary>
         /// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.

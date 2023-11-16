@@ -65,13 +65,13 @@ namespace Pulumi.Aws.AppConfig
         /// ARN of the AppConfig Configuration Profile.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The configuration profile ID.
         /// </summary>
         [Output("configurationProfileId")]
-        public Output<string> ConfigurationProfileId { get; private set; } = null!;
+        public Output<string?> ConfigurationProfileId { get; private set; } = null!;
 
         /// <summary>
         /// Description of the configuration profile. Can be at most 1024 characters.

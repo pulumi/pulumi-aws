@@ -22,13 +22,13 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// <summary>
         /// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
         /// </summary>
-        public readonly string CatalogId;
+        public readonly string? CatalogId;
 
         [OutputConstructor]
         private GetPermissionsDataLocationResult(
             string arn,
 
-            string catalogId)
+            string? catalogId)
         {
             Arn = arn;
             CatalogId = catalogId;

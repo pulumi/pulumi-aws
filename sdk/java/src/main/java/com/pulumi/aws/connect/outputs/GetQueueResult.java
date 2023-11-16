@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQueueResult {
@@ -17,78 +19,78 @@ public final class GetQueueResult {
      * @return ARN of the Queue.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the Queue.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Specifies the identifier of the Hours of Operation.
      * 
      */
-    private String hoursOfOperationId;
+    private @Nullable String hoursOfOperationId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
     /**
      * @return Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      * 
      */
-    private Integer maxContacts;
-    private String name;
+    private @Nullable Integer maxContacts;
+    private @Nullable String name;
     /**
      * @return A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      * 
      */
-    private List<GetQueueOutboundCallerConfig> outboundCallerConfigs;
+    private @Nullable List<GetQueueOutboundCallerConfig> outboundCallerConfigs;
     /**
      * @return Identifier for the Queue.
      * 
      */
-    private String queueId;
+    private @Nullable String queueId;
     /**
      * @return Description of the Queue. Values are `ENABLED` or `DISABLED`.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Map of tags assigned to the Queue.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetQueueResult() {}
     /**
      * @return ARN of the Queue.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the Queue.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Specifies the identifier of the Hours of Operation.
      * 
      */
-    public String hoursOfOperationId() {
-        return this.hoursOfOperationId;
+    public Optional<String> hoursOfOperationId() {
+        return Optional.ofNullable(this.hoursOfOperationId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
@@ -97,39 +99,39 @@ public final class GetQueueResult {
      * @return Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      * 
      */
-    public Integer maxContacts() {
-        return this.maxContacts;
+    public Optional<Integer> maxContacts() {
+        return Optional.ofNullable(this.maxContacts);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      * 
      */
     public List<GetQueueOutboundCallerConfig> outboundCallerConfigs() {
-        return this.outboundCallerConfigs;
+        return this.outboundCallerConfigs == null ? List.of() : this.outboundCallerConfigs;
     }
     /**
      * @return Identifier for the Queue.
      * 
      */
-    public String queueId() {
-        return this.queueId;
+    public Optional<String> queueId() {
+        return Optional.ofNullable(this.queueId);
     }
     /**
      * @return Description of the Queue. Values are `ENABLED` or `DISABLED`.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Map of tags assigned to the Queue.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -141,17 +143,17 @@ public final class GetQueueResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String hoursOfOperationId;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String hoursOfOperationId;
+        private @Nullable String id;
         private String instanceId;
-        private Integer maxContacts;
-        private String name;
-        private List<GetQueueOutboundCallerConfig> outboundCallerConfigs;
-        private String queueId;
-        private String status;
-        private Map<String,String> tags;
+        private @Nullable Integer maxContacts;
+        private @Nullable String name;
+        private @Nullable List<GetQueueOutboundCallerConfig> outboundCallerConfigs;
+        private @Nullable String queueId;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetQueueResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -169,23 +171,23 @@ public final class GetQueueResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder hoursOfOperationId(String hoursOfOperationId) {
-            this.hoursOfOperationId = Objects.requireNonNull(hoursOfOperationId);
+        public Builder hoursOfOperationId(@Nullable String hoursOfOperationId) {
+            this.hoursOfOperationId = hoursOfOperationId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -194,36 +196,36 @@ public final class GetQueueResult {
             return this;
         }
         @CustomType.Setter
-        public Builder maxContacts(Integer maxContacts) {
-            this.maxContacts = Objects.requireNonNull(maxContacts);
+        public Builder maxContacts(@Nullable Integer maxContacts) {
+            this.maxContacts = maxContacts;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder outboundCallerConfigs(List<GetQueueOutboundCallerConfig> outboundCallerConfigs) {
-            this.outboundCallerConfigs = Objects.requireNonNull(outboundCallerConfigs);
+        public Builder outboundCallerConfigs(@Nullable List<GetQueueOutboundCallerConfig> outboundCallerConfigs) {
+            this.outboundCallerConfigs = outboundCallerConfigs;
             return this;
         }
         public Builder outboundCallerConfigs(GetQueueOutboundCallerConfig... outboundCallerConfigs) {
             return outboundCallerConfigs(List.of(outboundCallerConfigs));
         }
         @CustomType.Setter
-        public Builder queueId(String queueId) {
-            this.queueId = Objects.requireNonNull(queueId);
+        public Builder queueId(@Nullable String queueId) {
+            this.queueId = queueId;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetQueueResult build() {

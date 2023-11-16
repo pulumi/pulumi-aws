@@ -90,14 +90,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
@@ -114,10 +114,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoMinorVersionUpgrade);
     }
     @Export(name="clusterEndpoints", refs={List.class,ClusterClusterEndpoint.class}, tree="[0,1]")
-    private Output<List<ClusterClusterEndpoint>> clusterEndpoints;
+    private Output</* @Nullable */ List<ClusterClusterEndpoint>> clusterEndpoints;
 
-    public Output<List<ClusterClusterEndpoint>> clusterEndpoints() {
-        return this.clusterEndpoints;
+    public Output<Optional<List<ClusterClusterEndpoint>>> clusterEndpoints() {
+        return Codegen.optional(this.clusterEndpoints);
     }
     /**
      * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
@@ -152,28 +152,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enginePatchVersion", refs={String.class}, tree="[0]")
-    private Output<String> enginePatchVersion;
+    private Output</* @Nullable */ String> enginePatchVersion;
 
     /**
      * @return Patch version number of the Redis engine used by the cluster.
      * 
      */
-    public Output<String> enginePatchVersion() {
-        return this.enginePatchVersion;
+    public Output<Optional<String>> enginePatchVersion() {
+        return Codegen.optional(this.enginePatchVersion);
     }
     /**
      * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
@@ -208,14 +208,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> maintenanceWindow;
+    private Output</* @Nullable */ String> maintenanceWindow;
 
     /**
      * @return Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      * 
      */
-    public Output<String> maintenanceWindow() {
-        return this.maintenanceWindow;
+    public Output<Optional<String>> maintenanceWindow() {
+        return Codegen.optional(this.maintenanceWindow);
     }
     /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -236,14 +236,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
@@ -296,28 +296,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
-    private Output<String> parameterGroupName;
+    private Output</* @Nullable */ String> parameterGroupName;
 
     /**
      * @return The name of the parameter group associated with the cluster.
      * 
      */
-    public Output<String> parameterGroupName() {
-        return this.parameterGroupName;
+    public Output<Optional<String>> parameterGroupName() {
+        return Codegen.optional(this.parameterGroupName);
     }
     /**
      * The port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return The port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * Set of VPC Security Group ID-s to associate with this cluster.
@@ -338,14 +338,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="shards", refs={List.class,ClusterShard.class}, tree="[0,1]")
-    private Output<List<ClusterShard>> shards;
+    private Output</* @Nullable */ List<ClusterShard>> shards;
 
     /**
      * @return Set of shards in this cluster.
      * 
      */
-    public Output<List<ClusterShard>> shards() {
-        return this.shards;
+    public Output<Optional<List<ClusterShard>>> shards() {
+        return Codegen.optional(this.shards);
     }
     /**
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
@@ -380,28 +380,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="snapshotRetentionLimit", refs={Integer.class}, tree="[0]")
-    private Output<Integer> snapshotRetentionLimit;
+    private Output</* @Nullable */ Integer> snapshotRetentionLimit;
 
     /**
      * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      * 
      */
-    public Output<Integer> snapshotRetentionLimit() {
-        return this.snapshotRetentionLimit;
+    public Output<Optional<Integer>> snapshotRetentionLimit() {
+        return Codegen.optional(this.snapshotRetentionLimit);
     }
     /**
      * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
     @Export(name="snapshotWindow", refs={String.class}, tree="[0]")
-    private Output<String> snapshotWindow;
+    private Output</* @Nullable */ String> snapshotWindow;
 
     /**
      * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
-    public Output<String> snapshotWindow() {
-        return this.snapshotWindow;
+    public Output<Optional<String>> snapshotWindow() {
+        return Codegen.optional(this.snapshotWindow);
     }
     /**
      * ARN of the SNS topic to which cluster notifications are sent.
@@ -422,14 +422,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> subnetGroupName;
+    private Output</* @Nullable */ String> subnetGroupName;
 
     /**
      * @return The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      * 
      */
-    public Output<String> subnetGroupName() {
-        return this.subnetGroupName;
+    public Output<Optional<String>> subnetGroupName() {
+        return Codegen.optional(this.subnetGroupName);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

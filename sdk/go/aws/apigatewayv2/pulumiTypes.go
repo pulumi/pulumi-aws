@@ -1668,7 +1668,7 @@ func (o StageRouteSettingArrayOutput) Index(i pulumi.IntInput) StageRouteSetting
 
 type GetApiCorsConfiguration struct {
 	// Whether credentials are included in the CORS request.
-	AllowCredentials bool `pulumi:"allowCredentials"`
+	AllowCredentials *bool `pulumi:"allowCredentials"`
 	// Set of allowed HTTP headers.
 	AllowHeaders []string `pulumi:"allowHeaders"`
 	// Set of allowed HTTP methods.
@@ -1678,7 +1678,7 @@ type GetApiCorsConfiguration struct {
 	// Set of exposed HTTP headers.
 	ExposeHeaders []string `pulumi:"exposeHeaders"`
 	// Number of seconds that the browser should cache preflight request results.
-	MaxAge int `pulumi:"maxAge"`
+	MaxAge *int `pulumi:"maxAge"`
 }
 
 // GetApiCorsConfigurationInput is an input type that accepts GetApiCorsConfigurationArgs and GetApiCorsConfigurationOutput values.
@@ -1694,7 +1694,7 @@ type GetApiCorsConfigurationInput interface {
 
 type GetApiCorsConfigurationArgs struct {
 	// Whether credentials are included in the CORS request.
-	AllowCredentials pulumi.BoolInput `pulumi:"allowCredentials"`
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
 	// Set of allowed HTTP headers.
 	AllowHeaders pulumi.StringArrayInput `pulumi:"allowHeaders"`
 	// Set of allowed HTTP methods.
@@ -1704,7 +1704,7 @@ type GetApiCorsConfigurationArgs struct {
 	// Set of exposed HTTP headers.
 	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
 	// Number of seconds that the browser should cache preflight request results.
-	MaxAge pulumi.IntInput `pulumi:"maxAge"`
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
 }
 
 func (GetApiCorsConfigurationArgs) ElementType() reflect.Type {
@@ -1759,8 +1759,8 @@ func (o GetApiCorsConfigurationOutput) ToGetApiCorsConfigurationOutputWithContex
 }
 
 // Whether credentials are included in the CORS request.
-func (o GetApiCorsConfigurationOutput) AllowCredentials() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetApiCorsConfiguration) bool { return v.AllowCredentials }).(pulumi.BoolOutput)
+func (o GetApiCorsConfigurationOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetApiCorsConfiguration) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
 }
 
 // Set of allowed HTTP headers.
@@ -1784,8 +1784,8 @@ func (o GetApiCorsConfigurationOutput) ExposeHeaders() pulumi.StringArrayOutput 
 }
 
 // Number of seconds that the browser should cache preflight request results.
-func (o GetApiCorsConfigurationOutput) MaxAge() pulumi.IntOutput {
-	return o.ApplyT(func(v GetApiCorsConfiguration) int { return v.MaxAge }).(pulumi.IntOutput)
+func (o GetApiCorsConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetApiCorsConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
 
 type GetApiCorsConfigurationArrayOutput struct{ *pulumi.OutputState }

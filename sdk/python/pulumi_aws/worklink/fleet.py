@@ -561,7 +561,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the created WorkLink Fleet.
         """
@@ -577,7 +577,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="companyCode")
-    def company_code(self) -> pulumi.Output[str]:
+    def company_code(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier used by users to sign in to the Amazon WorkLink app.
         """
@@ -585,7 +585,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the fleet was created.
         """
@@ -617,7 +617,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the fleet was last updated.
         """

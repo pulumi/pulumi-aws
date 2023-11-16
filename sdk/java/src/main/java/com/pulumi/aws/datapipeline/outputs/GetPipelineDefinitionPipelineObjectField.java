@@ -6,6 +6,8 @@ package com.pulumi.aws.datapipeline.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPipelineDefinitionPipelineObjectField {
@@ -13,39 +15,39 @@ public final class GetPipelineDefinitionPipelineObjectField {
      * @return Field identifier.
      * 
      */
-    private String key;
+    private @Nullable String key;
     /**
      * @return Field value, expressed as the identifier of another object
      * 
      */
-    private String refValue;
+    private @Nullable String refValue;
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    private String stringValue;
+    private @Nullable String stringValue;
 
     private GetPipelineDefinitionPipelineObjectField() {}
     /**
      * @return Field identifier.
      * 
      */
-    public String key() {
-        return this.key;
+    public Optional<String> key() {
+        return Optional.ofNullable(this.key);
     }
     /**
      * @return Field value, expressed as the identifier of another object
      * 
      */
-    public String refValue() {
-        return this.refValue;
+    public Optional<String> refValue() {
+        return Optional.ofNullable(this.refValue);
     }
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    public String stringValue() {
-        return this.stringValue;
+    public Optional<String> stringValue() {
+        return Optional.ofNullable(this.stringValue);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetPipelineDefinitionPipelineObjectField {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String key;
-        private String refValue;
-        private String stringValue;
+        private @Nullable String key;
+        private @Nullable String refValue;
+        private @Nullable String stringValue;
         public Builder() {}
         public Builder(GetPipelineDefinitionPipelineObjectField defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetPipelineDefinitionPipelineObjectField {
         }
 
         @CustomType.Setter
-        public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+        public Builder key(@Nullable String key) {
+            this.key = key;
             return this;
         }
         @CustomType.Setter
-        public Builder refValue(String refValue) {
-            this.refValue = Objects.requireNonNull(refValue);
+        public Builder refValue(@Nullable String refValue) {
+            this.refValue = refValue;
             return this;
         }
         @CustomType.Setter
-        public Builder stringValue(String stringValue) {
-            this.stringValue = Objects.requireNonNull(stringValue);
+        public Builder stringValue(@Nullable String stringValue) {
+            this.stringValue = stringValue;
             return this;
         }
         public GetPipelineDefinitionPipelineObjectField build() {

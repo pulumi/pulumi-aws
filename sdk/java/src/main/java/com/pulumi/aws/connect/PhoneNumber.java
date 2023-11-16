@@ -135,14 +135,14 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the phone number.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
@@ -177,14 +177,14 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="phoneNumber", refs={String.class}, tree="[0]")
-    private Output<String> phoneNumber;
+    private Output</* @Nullable */ String> phoneNumber;
 
     /**
      * @return The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
      * 
      */
-    public Output<String> phoneNumber() {
-        return this.phoneNumber;
+    public Output<Optional<String>> phoneNumber() {
+        return Codegen.optional(this.phoneNumber);
     }
     /**
      * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
@@ -205,14 +205,14 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="statuses", refs={List.class,PhoneNumberStatus.class}, tree="[0,1]")
-    private Output<List<PhoneNumberStatus>> statuses;
+    private Output</* @Nullable */ List<PhoneNumberStatus>> statuses;
 
     /**
      * @return The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      * 
      */
-    public Output<List<PhoneNumberStatus>> statuses() {
-        return this.statuses;
+    public Output<Optional<List<PhoneNumberStatus>>> statuses() {
+        return Codegen.optional(this.statuses);
     }
     /**
      * Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -6,6 +6,8 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeConfigurationTypographyFontFamily {
@@ -13,15 +15,15 @@ public final class GetThemeConfigurationTypographyFontFamily {
      * @return Font family name.
      * 
      */
-    private String fontFamily;
+    private @Nullable String fontFamily;
 
     private GetThemeConfigurationTypographyFontFamily() {}
     /**
      * @return Font family name.
      * 
      */
-    public String fontFamily() {
-        return this.fontFamily;
+    public Optional<String> fontFamily() {
+        return Optional.ofNullable(this.fontFamily);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetThemeConfigurationTypographyFontFamily {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String fontFamily;
+        private @Nullable String fontFamily;
         public Builder() {}
         public Builder(GetThemeConfigurationTypographyFontFamily defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetThemeConfigurationTypographyFontFamily {
         }
 
         @CustomType.Setter
-        public Builder fontFamily(String fontFamily) {
-            this.fontFamily = Objects.requireNonNull(fontFamily);
+        public Builder fontFamily(@Nullable String fontFamily) {
+            this.fontFamily = fontFamily;
             return this;
         }
         public GetThemeConfigurationTypographyFontFamily build() {

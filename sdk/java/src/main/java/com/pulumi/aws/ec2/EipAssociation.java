@@ -86,14 +86,14 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
-    private Output<String> allocationId;
+    private Output</* @Nullable */ String> allocationId;
 
     /**
      * @return The allocation ID. This is required for EC2-VPC.
      * 
      */
-    public Output<String> allocationId() {
-        return this.allocationId;
+    public Output<Optional<String>> allocationId() {
+        return Codegen.optional(this.allocationId);
     }
     /**
      * Whether to allow an Elastic IP to
@@ -119,7 +119,7 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
-    private Output<String> instanceId;
+    private Output</* @Nullable */ String> instanceId;
 
     /**
      * @return The ID of the instance. This is required for
@@ -128,8 +128,8 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * instance ID unless exactly one network interface is attached.
      * 
      */
-    public Output<String> instanceId() {
-        return this.instanceId;
+    public Output<Optional<String>> instanceId() {
+        return Codegen.optional(this.instanceId);
     }
     /**
      * The ID of the network interface. If the
@@ -138,7 +138,7 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
-    private Output<String> networkInterfaceId;
+    private Output</* @Nullable */ String> networkInterfaceId;
 
     /**
      * @return The ID of the network interface. If the
@@ -146,8 +146,8 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * interface ID.
      * 
      */
-    public Output<String> networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Output<Optional<String>> networkInterfaceId() {
+        return Codegen.optional(this.networkInterfaceId);
     }
     /**
      * The primary or secondary private IP address
@@ -157,7 +157,7 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
-    private Output<String> privateIpAddress;
+    private Output</* @Nullable */ String> privateIpAddress;
 
     /**
      * @return The primary or secondary private IP address
@@ -166,22 +166,22 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * address.
      * 
      */
-    public Output<String> privateIpAddress() {
-        return this.privateIpAddress;
+    public Output<Optional<String>> privateIpAddress() {
+        return Codegen.optional(this.privateIpAddress);
     }
     /**
      * The Elastic IP address. This is required for EC2-Classic.
      * 
      */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
-    private Output<String> publicIp;
+    private Output</* @Nullable */ String> publicIp;
 
     /**
      * @return The Elastic IP address. This is required for EC2-Classic.
      * 
      */
-    public Output<String> publicIp() {
-        return this.publicIp;
+    public Output<Optional<String>> publicIp() {
+        return Codegen.optional(this.publicIp);
     }
 
     /**

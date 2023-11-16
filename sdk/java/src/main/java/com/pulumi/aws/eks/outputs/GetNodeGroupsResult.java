@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNodeGroupsResult {
@@ -15,12 +17,12 @@ public final class GetNodeGroupsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set of all node group names in an EKS Cluster.
      * 
      */
-    private List<String> names;
+    private @Nullable List<String> names;
 
     private GetNodeGroupsResult() {}
     public String clusterName() {
@@ -30,15 +32,15 @@ public final class GetNodeGroupsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set of all node group names in an EKS Cluster.
      * 
      */
     public List<String> names() {
-        return this.names;
+        return this.names == null ? List.of() : this.names;
     }
 
     public static Builder builder() {
@@ -51,8 +53,8 @@ public final class GetNodeGroupsResult {
     @CustomType.Builder
     public static final class Builder {
         private String clusterName;
-        private String id;
-        private List<String> names;
+        private @Nullable String id;
+        private @Nullable List<String> names;
         public Builder() {}
         public Builder(GetNodeGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,13 +69,13 @@ public final class GetNodeGroupsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+        public Builder names(@Nullable List<String> names) {
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {

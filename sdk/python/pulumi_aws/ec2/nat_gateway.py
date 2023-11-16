@@ -621,7 +621,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> pulumi.Output[str]:
+    def association_id(self) -> pulumi.Output[Optional[str]]:
         """
         The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         """
@@ -637,7 +637,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> pulumi.Output[str]:
+    def network_interface_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the network interface associated with the NAT Gateway.
         """
@@ -645,7 +645,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> pulumi.Output[str]:
+    def private_ip(self) -> pulumi.Output[Optional[str]]:
         """
         The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         """
@@ -653,7 +653,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> pulumi.Output[str]:
+    def public_ip(self) -> pulumi.Output[Optional[str]]:
         """
         The Elastic IP address associated with the NAT Gateway.
         """
@@ -669,7 +669,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
-    def secondary_private_ip_address_count(self) -> pulumi.Output[int]:
+    def secondary_private_ip_address_count(self) -> pulumi.Output[Optional[int]]:
         """
         [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         """
@@ -677,7 +677,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryPrivateIpAddresses")
-    def secondary_private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+    def secondary_private_ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of secondary private IPv4 addresses to assign to the NAT Gateway.
         """

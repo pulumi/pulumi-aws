@@ -56,11 +56,11 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// ARN of the appstream user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// Date and time, in UTC and extended RFC 3339 format, when the user was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Whether the user in the user pool is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// First name, or given name, of the user.
@@ -279,8 +279,8 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 }
 
 // ARN of the appstream user.
-func (o UserOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
@@ -289,8 +289,8 @@ func (o UserOutput) AuthenticationType() pulumi.StringOutput {
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when the user was created.
-func (o UserOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o UserOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Whether the user in the user pool is enabled.

@@ -164,15 +164,15 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="callerReference", refs={String.class}, tree="[0]")
-    private Output<String> callerReference;
+    private Output</* @Nullable */ String> callerReference;
 
     /**
      * @return Internal value used by CloudFront to allow future
      * updates to the origin access identity.
      * 
      */
-    public Output<String> callerReference() {
-        return this.callerReference;
+    public Output<Optional<String>> callerReference() {
+        return Codegen.optional(this.callerReference);
     }
     /**
      * A shortcut to the full path for the
@@ -180,15 +180,15 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cloudfrontAccessIdentityPath", refs={String.class}, tree="[0]")
-    private Output<String> cloudfrontAccessIdentityPath;
+    private Output</* @Nullable */ String> cloudfrontAccessIdentityPath;
 
     /**
      * @return A shortcut to the full path for the
      * origin access identity to use in CloudFront, see below.
      * 
      */
-    public Output<String> cloudfrontAccessIdentityPath() {
-        return this.cloudfrontAccessIdentityPath;
+    public Output<Optional<String>> cloudfrontAccessIdentityPath() {
+        return Codegen.optional(this.cloudfrontAccessIdentityPath);
     }
     /**
      * An optional comment for the origin access identity.
@@ -210,15 +210,15 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return The current version of the origin access identity&#39;s information.
      * For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * A pre-generated ARN for use in S3 bucket policies (see below).
@@ -227,7 +227,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="iamArn", refs={String.class}, tree="[0]")
-    private Output<String> iamArn;
+    private Output</* @Nullable */ String> iamArn;
 
     /**
      * @return A pre-generated ARN for use in S3 bucket policies (see below).
@@ -235,8 +235,8 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * E2QWRUHAPOMQZL`.
      * 
      */
-    public Output<String> iamArn() {
-        return this.iamArn;
+    public Output<Optional<String>> iamArn() {
+        return Codegen.optional(this.iamArn);
     }
     /**
      * The Amazon S3 canonical user ID for the origin
@@ -245,7 +245,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="s3CanonicalUserId", refs={String.class}, tree="[0]")
-    private Output<String> s3CanonicalUserId;
+    private Output</* @Nullable */ String> s3CanonicalUserId;
 
     /**
      * @return The Amazon S3 canonical user ID for the origin
@@ -253,8 +253,8 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * permission to an object in Amazon S3.
      * 
      */
-    public Output<String> s3CanonicalUserId() {
-        return this.s3CanonicalUserId;
+    public Output<Optional<String>> s3CanonicalUserId() {
+        return Codegen.optional(this.s3CanonicalUserId);
     }
 
     /**

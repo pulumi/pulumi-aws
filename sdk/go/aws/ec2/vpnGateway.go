@@ -55,9 +55,9 @@ type VpnGateway struct {
 	pulumi.CustomResourceState
 
 	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
+	AmazonSideAsn pulumi.StringPtrOutput `pulumi:"amazonSideAsn"`
 	// Amazon Resource Name (ARN) of the VPN Gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -67,7 +67,7 @@ type VpnGateway struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC ID to create in.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewVpnGateway registers a new resource with the given unique name, arguments, and options.
@@ -252,13 +252,13 @@ func (o VpnGatewayOutput) ToVpnGatewayOutputWithContext(ctx context.Context) Vpn
 }
 
 // The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-func (o VpnGatewayOutput) AmazonSideAsn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
+func (o VpnGatewayOutput) AmazonSideAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.StringPtrOutput { return v.AmazonSideAsn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the VPN Gateway.
-func (o VpnGatewayOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpnGatewayOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone for the virtual private gateway.
@@ -279,8 +279,8 @@ func (o VpnGatewayOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The VPC ID to create in.
-func (o VpnGatewayOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o VpnGatewayOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type VpnGatewayArrayOutput struct{ *pulumi.OutputState }

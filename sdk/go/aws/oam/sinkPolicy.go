@@ -92,11 +92,11 @@ type SinkPolicy struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Sink.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// ID string that AWS generated as part of the sink ARN.
-	SinkId pulumi.StringOutput `pulumi:"sinkId"`
+	SinkId pulumi.StringPtrOutput `pulumi:"sinkId"`
 	// ARN of the sink to attach this policy to.
 	SinkIdentifier pulumi.StringOutput `pulumi:"sinkIdentifier"`
 }
@@ -265,8 +265,8 @@ func (o SinkPolicyOutput) ToSinkPolicyOutputWithContext(ctx context.Context) Sin
 }
 
 // ARN of the Sink.
-func (o SinkPolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SinkPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SinkPolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SinkPolicy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
@@ -275,8 +275,8 @@ func (o SinkPolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // ID string that AWS generated as part of the sink ARN.
-func (o SinkPolicyOutput) SinkId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SinkPolicy) pulumi.StringOutput { return v.SinkId }).(pulumi.StringOutput)
+func (o SinkPolicyOutput) SinkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SinkPolicy) pulumi.StringPtrOutput { return v.SinkId }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the sink to attach this policy to.

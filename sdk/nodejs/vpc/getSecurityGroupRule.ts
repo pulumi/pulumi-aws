@@ -52,54 +52,54 @@ export interface GetSecurityGroupRuleResult {
     /**
      * The Amazon Resource Name (ARN) of the security group rule.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The destination IPv4 CIDR range.
      */
-    readonly cidrIpv4: string;
+    readonly cidrIpv4?: string;
     /**
      * The destination IPv6 CIDR range.
      */
-    readonly cidrIpv6: string;
+    readonly cidrIpv6?: string;
     /**
      * The security group rule description.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly filters?: outputs.vpc.GetSecurityGroupRuleFilter[];
     /**
      * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      */
-    readonly fromPort: number;
-    readonly id: string;
+    readonly fromPort?: number;
+    readonly id?: string;
     /**
      * The IP protocol name or number. Use `-1` to specify all protocols.
      */
-    readonly ipProtocol: string;
+    readonly ipProtocol?: string;
     /**
      * Indicates whether the security group rule is an outbound rule.
      */
-    readonly isEgress: boolean;
+    readonly isEgress?: boolean;
     /**
      * The ID of the destination prefix list.
      */
-    readonly prefixListId: string;
+    readonly prefixListId?: string;
     /**
      * The destination security group that is referenced in the rule.
      */
-    readonly referencedSecurityGroupId: string;
+    readonly referencedSecurityGroupId?: string;
     /**
      * The ID of the security group.
      */
-    readonly securityGroupId: string;
-    readonly securityGroupRuleId: string;
+    readonly securityGroupId?: string;
+    readonly securityGroupRuleId?: string;
     /**
      * A map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      */
-    readonly toPort: number;
+    readonly toPort?: number;
 }
 /**
  * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.

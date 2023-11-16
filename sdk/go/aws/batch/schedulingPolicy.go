@@ -68,7 +68,7 @@ type SchedulingPolicy struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of the scheduling policy.
-	Arn             pulumi.StringOutput                      `pulumi:"arn"`
+	Arn             pulumi.StringPtrOutput                   `pulumi:"arn"`
 	FairSharePolicy SchedulingPolicyFairSharePolicyPtrOutput `pulumi:"fairSharePolicy"`
 	// Specifies the name of the scheduling policy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -250,8 +250,8 @@ func (o SchedulingPolicyOutput) ToSchedulingPolicyOutputWithContext(ctx context.
 }
 
 // The Amazon Resource Name of the scheduling policy.
-func (o SchedulingPolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SchedulingPolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o SchedulingPolicyOutput) FairSharePolicy() SchedulingPolicyFairSharePolicyPtrOutput {

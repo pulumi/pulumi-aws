@@ -70,15 +70,15 @@ type Type struct {
 	// GraphQL API ID.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// The ARN of the type.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The type definition.
 	Definition pulumi.StringOutput `pulumi:"definition"`
 	// The type description.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The type format: `SDL` or `JSON`.
 	Format pulumi.StringOutput `pulumi:"format"`
 	// The type name.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 }
 
 // NewType registers a new resource with the given unique name, arguments, and options.
@@ -265,8 +265,8 @@ func (o TypeOutput) ApiId() pulumi.StringOutput {
 }
 
 // The ARN of the type.
-func (o TypeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TypeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Type) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The type definition.
@@ -275,8 +275,8 @@ func (o TypeOutput) Definition() pulumi.StringOutput {
 }
 
 // The type description.
-func (o TypeOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o TypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Type) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The type format: `SDL` or `JSON`.
@@ -285,8 +285,8 @@ func (o TypeOutput) Format() pulumi.StringOutput {
 }
 
 // The type name.
-func (o TypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o TypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Type) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type TypeArrayOutput struct{ *pulumi.OutputState }

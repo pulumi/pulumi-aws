@@ -12,6 +12,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicyResult {
@@ -19,95 +21,95 @@ public final class GetResponseHeadersPolicyResult {
      * @return Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
-    private String comment;
+    private @Nullable String comment;
     /**
      * @return Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      * 
      */
-    private List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
+    private @Nullable List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
     /**
      * @return Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
      * 
      */
-    private List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
+    private @Nullable List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
     /**
      * @return Current version of the response headers policy.
      * 
      */
-    private String etag;
-    private String id;
-    private String name;
+    private @Nullable String etag;
+    private @Nullable String id;
+    private @Nullable String name;
     /**
      * @return Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
      * 
      */
-    private List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs;
+    private @Nullable List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs;
     /**
      * @return A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      * 
      */
-    private List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
+    private @Nullable List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
     /**
      * @return (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      * 
      */
-    private List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
+    private @Nullable List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
 
     private GetResponseHeadersPolicyResult() {}
     /**
      * @return Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
-    public String comment() {
-        return this.comment;
+    public Optional<String> comment() {
+        return Optional.ofNullable(this.comment);
     }
     /**
      * @return Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      * 
      */
     public List<GetResponseHeadersPolicyCorsConfig> corsConfigs() {
-        return this.corsConfigs;
+        return this.corsConfigs == null ? List.of() : this.corsConfigs;
     }
     /**
      * @return Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
      * 
      */
     public List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs() {
-        return this.customHeadersConfigs;
+        return this.customHeadersConfigs == null ? List.of() : this.customHeadersConfigs;
     }
     /**
      * @return Current version of the response headers policy.
      * 
      */
-    public String etag() {
-        return this.etag;
+    public Optional<String> etag() {
+        return Optional.ofNullable(this.etag);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
      * 
      */
     public List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs() {
-        return this.removeHeadersConfigs;
+        return this.removeHeadersConfigs == null ? List.of() : this.removeHeadersConfigs;
     }
     /**
      * @return A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      * 
      */
     public List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs() {
-        return this.securityHeadersConfigs;
+        return this.securityHeadersConfigs == null ? List.of() : this.securityHeadersConfigs;
     }
     /**
      * @return (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      * 
      */
     public List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs() {
-        return this.serverTimingHeadersConfigs;
+        return this.serverTimingHeadersConfigs == null ? List.of() : this.serverTimingHeadersConfigs;
     }
 
     public static Builder builder() {
@@ -119,15 +121,15 @@ public final class GetResponseHeadersPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
-        private List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
-        private String etag;
-        private String id;
-        private String name;
-        private List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs;
-        private List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
-        private List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
+        private @Nullable String comment;
+        private @Nullable List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
+        private @Nullable List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
+        private @Nullable String etag;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs;
+        private @Nullable List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
+        private @Nullable List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
         public Builder() {}
         public Builder(GetResponseHeadersPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -143,60 +145,60 @@ public final class GetResponseHeadersPolicyResult {
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+        public Builder comment(@Nullable String comment) {
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
-        public Builder corsConfigs(List<GetResponseHeadersPolicyCorsConfig> corsConfigs) {
-            this.corsConfigs = Objects.requireNonNull(corsConfigs);
+        public Builder corsConfigs(@Nullable List<GetResponseHeadersPolicyCorsConfig> corsConfigs) {
+            this.corsConfigs = corsConfigs;
             return this;
         }
         public Builder corsConfigs(GetResponseHeadersPolicyCorsConfig... corsConfigs) {
             return corsConfigs(List.of(corsConfigs));
         }
         @CustomType.Setter
-        public Builder customHeadersConfigs(List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs) {
-            this.customHeadersConfigs = Objects.requireNonNull(customHeadersConfigs);
+        public Builder customHeadersConfigs(@Nullable List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs) {
+            this.customHeadersConfigs = customHeadersConfigs;
             return this;
         }
         public Builder customHeadersConfigs(GetResponseHeadersPolicyCustomHeadersConfig... customHeadersConfigs) {
             return customHeadersConfigs(List.of(customHeadersConfigs));
         }
         @CustomType.Setter
-        public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+        public Builder etag(@Nullable String etag) {
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder removeHeadersConfigs(List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs) {
-            this.removeHeadersConfigs = Objects.requireNonNull(removeHeadersConfigs);
+        public Builder removeHeadersConfigs(@Nullable List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs) {
+            this.removeHeadersConfigs = removeHeadersConfigs;
             return this;
         }
         public Builder removeHeadersConfigs(GetResponseHeadersPolicyRemoveHeadersConfig... removeHeadersConfigs) {
             return removeHeadersConfigs(List.of(removeHeadersConfigs));
         }
         @CustomType.Setter
-        public Builder securityHeadersConfigs(List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs) {
-            this.securityHeadersConfigs = Objects.requireNonNull(securityHeadersConfigs);
+        public Builder securityHeadersConfigs(@Nullable List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs) {
+            this.securityHeadersConfigs = securityHeadersConfigs;
             return this;
         }
         public Builder securityHeadersConfigs(GetResponseHeadersPolicySecurityHeadersConfig... securityHeadersConfigs) {
             return securityHeadersConfigs(List.of(securityHeadersConfigs));
         }
         @CustomType.Setter
-        public Builder serverTimingHeadersConfigs(List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs) {
-            this.serverTimingHeadersConfigs = Objects.requireNonNull(serverTimingHeadersConfigs);
+        public Builder serverTimingHeadersConfigs(@Nullable List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs) {
+            this.serverTimingHeadersConfigs = serverTimingHeadersConfigs;
             return this;
         }
         public Builder serverTimingHeadersConfigs(GetResponseHeadersPolicyServerTimingHeadersConfig... serverTimingHeadersConfigs) {

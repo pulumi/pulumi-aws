@@ -9,59 +9,60 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocalGatewayResult {
     private @Nullable List<GetLocalGatewayFilter> filters;
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of Outpost
      * 
      */
-    private String outpostArn;
+    private @Nullable String outpostArn;
     /**
      * @return AWS account identifier that owns the Local Gateway.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     /**
      * @return State of the local gateway.
      * 
      */
-    private String state;
-    private Map<String,String> tags;
+    private @Nullable String state;
+    private @Nullable Map<String,String> tags;
 
     private GetLocalGatewayResult() {}
     public List<GetLocalGatewayFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of Outpost
      * 
      */
-    public String outpostArn() {
-        return this.outpostArn;
+    public Optional<String> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
     }
     /**
      * @return AWS account identifier that owns the Local Gateway.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
      * @return State of the local gateway.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -74,11 +75,11 @@ public final class GetLocalGatewayResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetLocalGatewayFilter> filters;
-        private String id;
-        private String outpostArn;
-        private String ownerId;
-        private String state;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable String outpostArn;
+        private @Nullable String ownerId;
+        private @Nullable String state;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLocalGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -99,28 +100,28 @@ public final class GetLocalGatewayResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+        public Builder outpostArn(@Nullable String outpostArn) {
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetLocalGatewayResult build() {

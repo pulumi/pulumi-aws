@@ -33,7 +33,7 @@ type GroupMembership struct {
 	// The identifier for a user in the Identity Store.
 	MemberId pulumi.StringOutput `pulumi:"memberId"`
 	// The identifier of the newly created group membership in the Identity Store.
-	MembershipId pulumi.StringOutput `pulumi:"membershipId"`
+	MembershipId pulumi.StringPtrOutput `pulumi:"membershipId"`
 }
 
 // NewGroupMembership registers a new resource with the given unique name, arguments, and options.
@@ -222,8 +222,8 @@ func (o GroupMembershipOutput) MemberId() pulumi.StringOutput {
 }
 
 // The identifier of the newly created group membership in the Identity Store.
-func (o GroupMembershipOutput) MembershipId() pulumi.StringOutput {
-	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MembershipId }).(pulumi.StringOutput)
+func (o GroupMembershipOutput) MembershipId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupMembership) pulumi.StringPtrOutput { return v.MembershipId }).(pulumi.StringPtrOutput)
 }
 
 type GroupMembershipArrayOutput struct{ *pulumi.OutputState }

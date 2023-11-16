@@ -35,11 +35,11 @@ export interface GetDefaultKmsKeyResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
      */
-    readonly keyArn: string;
+    readonly keyArn?: string;
 }
 /**
  * Use this data source to get the default EBS encryption KMS key in the current region.

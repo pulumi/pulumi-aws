@@ -61,19 +61,19 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The ARN of the lightsail certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The timestamp when the instance was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * A domain name for which the certificate should be issued.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string | undefined>;
     /**
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
      */
-    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.lightsail.CertificateDomainValidationOption[]>;
+    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.lightsail.CertificateDomainValidationOption[] | undefined>;
     /**
      * The name of the Lightsail load balancer.
      */
@@ -81,7 +81,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      */
-    public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
+    public readonly subjectAlternativeNames!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

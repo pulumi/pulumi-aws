@@ -52,11 +52,11 @@ type PublicDnsNamespace struct {
 	pulumi.CustomResourceState
 
 	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-	HostedZone pulumi.StringOutput `pulumi:"hostedZone"`
+	HostedZone pulumi.StringPtrOutput `pulumi:"hostedZone"`
 	// The name of the namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -245,8 +245,8 @@ func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx cont
 }
 
 // The ARN that Amazon Route 53 assigns to the namespace when you create it.
-func (o PublicDnsNamespaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PublicDnsNamespaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description that you specify for the namespace when you create it.
@@ -255,8 +255,8 @@ func (o PublicDnsNamespaceOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-func (o PublicDnsNamespaceOutput) HostedZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.HostedZone }).(pulumi.StringOutput)
+func (o PublicDnsNamespaceOutput) HostedZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringPtrOutput { return v.HostedZone }).(pulumi.StringPtrOutput)
 }
 
 // The name of the namespace.

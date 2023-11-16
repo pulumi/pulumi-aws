@@ -54,9 +54,9 @@ type Graph struct {
 	pulumi.CustomResourceState
 
 	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// ARN of the Detective Graph.
-	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
+	GraphArn pulumi.StringPtrOutput `pulumi:"graphArn"`
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -221,13 +221,13 @@ func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-func (o GraphOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o GraphOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Graph) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Detective Graph.
-func (o GraphOutput) GraphArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
+func (o GraphOutput) GraphArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Graph) pulumi.StringPtrOutput { return v.GraphArn }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

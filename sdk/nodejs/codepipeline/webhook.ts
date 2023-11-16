@@ -125,7 +125,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The CodePipeline webhook's ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      */
@@ -163,7 +163,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.

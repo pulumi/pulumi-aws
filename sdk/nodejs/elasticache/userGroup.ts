@@ -66,7 +66,7 @@ export class UserGroup extends pulumi.CustomResource {
     /**
      * The ARN that identifies the user group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The current supported value is `REDIS`.
      */

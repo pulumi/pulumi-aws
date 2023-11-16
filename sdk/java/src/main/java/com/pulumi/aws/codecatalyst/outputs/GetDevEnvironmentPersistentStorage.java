@@ -6,14 +6,16 @@ package com.pulumi.aws.codecatalyst.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDevEnvironmentPersistentStorage {
-    private Integer size;
+    private @Nullable Integer size;
 
     private GetDevEnvironmentPersistentStorage() {}
-    public Integer size() {
-        return this.size;
+    public Optional<Integer> size() {
+        return Optional.ofNullable(this.size);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetDevEnvironmentPersistentStorage {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer size;
+        private @Nullable Integer size;
         public Builder() {}
         public Builder(GetDevEnvironmentPersistentStorage defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetDevEnvironmentPersistentStorage {
         }
 
         @CustomType.Setter
-        public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+        public Builder size(@Nullable Integer size) {
+            this.size = size;
             return this;
         }
         public GetDevEnvironmentPersistentStorage build() {

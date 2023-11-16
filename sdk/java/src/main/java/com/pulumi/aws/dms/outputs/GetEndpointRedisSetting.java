@@ -7,38 +7,40 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointRedisSetting {
-    private String authPassword;
-    private String authType;
-    private String authUserName;
-    private Integer port;
-    private String serverName;
-    private String sslCaCertificateArn;
-    private String sslSecurityProtocol;
+    private @Nullable String authPassword;
+    private @Nullable String authType;
+    private @Nullable String authUserName;
+    private @Nullable Integer port;
+    private @Nullable String serverName;
+    private @Nullable String sslCaCertificateArn;
+    private @Nullable String sslSecurityProtocol;
 
     private GetEndpointRedisSetting() {}
-    public String authPassword() {
-        return this.authPassword;
+    public Optional<String> authPassword() {
+        return Optional.ofNullable(this.authPassword);
     }
-    public String authType() {
-        return this.authType;
+    public Optional<String> authType() {
+        return Optional.ofNullable(this.authType);
     }
-    public String authUserName() {
-        return this.authUserName;
+    public Optional<String> authUserName() {
+        return Optional.ofNullable(this.authUserName);
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String serverName() {
-        return this.serverName;
+    public Optional<String> serverName() {
+        return Optional.ofNullable(this.serverName);
     }
-    public String sslCaCertificateArn() {
-        return this.sslCaCertificateArn;
+    public Optional<String> sslCaCertificateArn() {
+        return Optional.ofNullable(this.sslCaCertificateArn);
     }
-    public String sslSecurityProtocol() {
-        return this.sslSecurityProtocol;
+    public Optional<String> sslSecurityProtocol() {
+        return Optional.ofNullable(this.sslSecurityProtocol);
     }
 
     public static Builder builder() {
@@ -50,13 +52,13 @@ public final class GetEndpointRedisSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String authPassword;
-        private String authType;
-        private String authUserName;
-        private Integer port;
-        private String serverName;
-        private String sslCaCertificateArn;
-        private String sslSecurityProtocol;
+        private @Nullable String authPassword;
+        private @Nullable String authType;
+        private @Nullable String authUserName;
+        private @Nullable Integer port;
+        private @Nullable String serverName;
+        private @Nullable String sslCaCertificateArn;
+        private @Nullable String sslSecurityProtocol;
         public Builder() {}
         public Builder(GetEndpointRedisSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,38 +72,38 @@ public final class GetEndpointRedisSetting {
         }
 
         @CustomType.Setter
-        public Builder authPassword(String authPassword) {
-            this.authPassword = Objects.requireNonNull(authPassword);
+        public Builder authPassword(@Nullable String authPassword) {
+            this.authPassword = authPassword;
             return this;
         }
         @CustomType.Setter
-        public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+        public Builder authType(@Nullable String authType) {
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
-        public Builder authUserName(String authUserName) {
-            this.authUserName = Objects.requireNonNull(authUserName);
+        public Builder authUserName(@Nullable String authUserName) {
+            this.authUserName = authUserName;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder serverName(String serverName) {
-            this.serverName = Objects.requireNonNull(serverName);
+        public Builder serverName(@Nullable String serverName) {
+            this.serverName = serverName;
             return this;
         }
         @CustomType.Setter
-        public Builder sslCaCertificateArn(String sslCaCertificateArn) {
-            this.sslCaCertificateArn = Objects.requireNonNull(sslCaCertificateArn);
+        public Builder sslCaCertificateArn(@Nullable String sslCaCertificateArn) {
+            this.sslCaCertificateArn = sslCaCertificateArn;
             return this;
         }
         @CustomType.Setter
-        public Builder sslSecurityProtocol(String sslSecurityProtocol) {
-            this.sslSecurityProtocol = Objects.requireNonNull(sslSecurityProtocol);
+        public Builder sslSecurityProtocol(@Nullable String sslSecurityProtocol) {
+            this.sslSecurityProtocol = sslSecurityProtocol;
             return this;
         }
         public GetEndpointRedisSetting build() {

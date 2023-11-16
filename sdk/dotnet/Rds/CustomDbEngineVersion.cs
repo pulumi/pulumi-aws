@@ -154,13 +154,13 @@ namespace Pulumi.Aws.Rds
         /// The Amazon Resource Name (ARN) for the custom engine version.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that the CEV was created.
         /// </summary>
         [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        public Output<string?> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Amazon S3 bucket that contains the database installation files.
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Rds
         /// The name of the DB parameter group family for the CEV.
         /// </summary>
         [Output("dbParameterGroupFamily")]
-        public Output<string> DbParameterGroupFamily { get; private set; } = null!;
+        public Output<string?> DbParameterGroupFamily { get; private set; } = null!;
 
         /// <summary>
         /// The description of the CEV.
@@ -208,19 +208,19 @@ namespace Pulumi.Aws.Rds
         /// The ID of the AMI that was created with the CEV.
         /// </summary>
         [Output("imageId")]
-        public Output<string> ImageId { get; private set; } = null!;
+        public Output<string?> ImageId { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The major version of the database engine.
         /// </summary>
         [Output("majorEngineVersion")]
-        public Output<string> MajorEngineVersion { get; private set; } = null!;
+        public Output<string?> MajorEngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Rds
         /// The returned manifest file, in JSON format, service generated and often different from input `manifest`.
         /// </summary>
         [Output("manifestComputed")]
-        public Output<string> ManifestComputed { get; private set; } = null!;
+        public Output<string?> ManifestComputed { get; private set; } = null!;
 
         /// <summary>
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Rds
         /// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

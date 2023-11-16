@@ -73,41 +73,41 @@ export interface GetVocabularyResult {
     /**
      * The Amazon Resource Name (ARN) of the Vocabulary.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
      */
-    readonly content: string;
+    readonly content?: string;
     /**
      * The reason why the custom vocabulary was not created.
      */
-    readonly failureReason: string;
+    readonly failureReason?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
     /**
      * The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
      */
-    readonly languageCode: string;
+    readonly languageCode?: string;
     /**
      * The timestamp when the custom vocabulary was last modified.
      */
-    readonly lastModifiedTime: string;
-    readonly name: string;
+    readonly lastModifiedTime?: string;
+    readonly name?: string;
     /**
      * The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      */
-    readonly state: string;
+    readonly state?: string;
     /**
      * A map of tags to assign to the Vocabulary.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The identifier of the custom vocabulary.
      */
-    readonly vocabularyId: string;
+    readonly vocabularyId?: string;
 }
 /**
  * Provides details about a specific Amazon Connect Vocabulary.

@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Glue
         /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         /// </summary>
         [Output("catalogId")]
-        public Output<string> CatalogId { get; private set; } = null!;
+        public Output<string?> CatalogId { get; private set; } = null!;
 
         /// <summary>
         /// The security configuration to set. see Data Catalog Encryption Settings.

@@ -135,13 +135,13 @@ type BucketWebsiteConfigurationV2 struct {
 	RedirectAllRequestsTo BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput `pulumi:"redirectAllRequestsTo"`
 	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-	RoutingRuleDetails pulumi.StringOutput `pulumi:"routingRuleDetails"`
+	RoutingRuleDetails pulumi.StringPtrOutput `pulumi:"routingRuleDetails"`
 	// List of rules that define when a redirect is applied and the redirect behavior. See below.
 	RoutingRules BucketWebsiteConfigurationV2RoutingRuleArrayOutput `pulumi:"routingRules"`
 	// Domain of the website endpoint. This is used to create Route 53 alias records.
-	WebsiteDomain pulumi.StringOutput `pulumi:"websiteDomain"`
+	WebsiteDomain pulumi.StringPtrOutput `pulumi:"websiteDomain"`
 	// Website endpoint.
-	WebsiteEndpoint pulumi.StringOutput `pulumi:"websiteEndpoint"`
+	WebsiteEndpoint pulumi.StringPtrOutput `pulumi:"websiteEndpoint"`
 }
 
 // NewBucketWebsiteConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -381,8 +381,8 @@ func (o BucketWebsiteConfigurationV2Output) RedirectAllRequestsTo() BucketWebsit
 
 // JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 // describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-func (o BucketWebsiteConfigurationV2Output) RoutingRuleDetails() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringOutput { return v.RoutingRuleDetails }).(pulumi.StringOutput)
+func (o BucketWebsiteConfigurationV2Output) RoutingRuleDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringPtrOutput { return v.RoutingRuleDetails }).(pulumi.StringPtrOutput)
 }
 
 // List of rules that define when a redirect is applied and the redirect behavior. See below.
@@ -393,13 +393,13 @@ func (o BucketWebsiteConfigurationV2Output) RoutingRules() BucketWebsiteConfigur
 }
 
 // Domain of the website endpoint. This is used to create Route 53 alias records.
-func (o BucketWebsiteConfigurationV2Output) WebsiteDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringOutput { return v.WebsiteDomain }).(pulumi.StringOutput)
+func (o BucketWebsiteConfigurationV2Output) WebsiteDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringPtrOutput { return v.WebsiteDomain }).(pulumi.StringPtrOutput)
 }
 
 // Website endpoint.
-func (o BucketWebsiteConfigurationV2Output) WebsiteEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringOutput { return v.WebsiteEndpoint }).(pulumi.StringOutput)
+func (o BucketWebsiteConfigurationV2Output) WebsiteEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringPtrOutput { return v.WebsiteEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type BucketWebsiteConfigurationV2ArrayOutput struct{ *pulumi.OutputState }

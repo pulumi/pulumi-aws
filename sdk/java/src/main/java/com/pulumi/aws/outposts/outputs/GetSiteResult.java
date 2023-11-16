@@ -6,6 +6,8 @@ package com.pulumi.aws.outposts.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSiteResult {
@@ -13,35 +15,35 @@ public final class GetSiteResult {
      * @return AWS Account identifier.
      * 
      */
-    private String accountId;
+    private @Nullable String accountId;
     /**
      * @return Description.
      * 
      */
-    private String description;
-    private String id;
-    private String name;
+    private @Nullable String description;
+    private @Nullable String id;
+    private @Nullable String name;
 
     private GetSiteResult() {}
     /**
      * @return AWS Account identifier.
      * 
      */
-    public String accountId() {
-        return this.accountId;
+    public Optional<String> accountId() {
+        return Optional.ofNullable(this.accountId);
     }
     /**
      * @return Description.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -53,10 +55,10 @@ public final class GetSiteResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountId;
-        private String description;
-        private String id;
-        private String name;
+        private @Nullable String accountId;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetSiteResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,23 +69,23 @@ public final class GetSiteResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+        public Builder accountId(@Nullable String accountId) {
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetSiteResult build() {

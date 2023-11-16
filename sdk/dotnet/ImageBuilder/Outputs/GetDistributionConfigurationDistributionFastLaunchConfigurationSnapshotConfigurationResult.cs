@@ -16,10 +16,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
         /// </summary>
-        public readonly int TargetResourceCount;
+        public readonly int? TargetResourceCount;
 
         [OutputConstructor]
-        private GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult(int targetResourceCount)
+        private GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult(int? targetResourceCount)
         {
             TargetResourceCount = targetResourceCount;
         }

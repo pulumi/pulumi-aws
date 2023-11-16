@@ -160,13 +160,13 @@ namespace Pulumi.Aws.Sfn
         /// The ARN of the state machine.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date the state machine was created.
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
@@ -175,13 +175,13 @@ namespace Pulumi.Aws.Sfn
         public Output<string> Definition { get; private set; } = null!;
 
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         /// </summary>
         [Output("loggingConfiguration")]
-        public Output<Outputs.StateMachineLoggingConfiguration> LoggingConfiguration { get; private set; } = null!;
+        public Output<Outputs.StateMachineLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Sfn
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Set to true to publish a version of the state machine during creation. Default: false.
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Sfn
         public Output<bool?> Publish { get; private set; } = null!;
 
         [Output("revisionId")]
-        public Output<string> RevisionId { get; private set; } = null!;
+        public Output<string?> RevisionId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -211,13 +211,13 @@ namespace Pulumi.Aws.Sfn
         public Output<string> RoleArn { get; private set; } = null!;
 
         [Output("stateMachineVersionArn")]
-        public Output<string> StateMachineVersionArn { get; private set; } = null!;
+        public Output<string?> StateMachineVersionArn { get; private set; } = null!;
 
         /// <summary>
         /// The current status of the state machine. Either `ACTIVE` or `DELETING`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Sfn
         /// Selects whether AWS X-Ray tracing is enabled.
         /// </summary>
         [Output("tracingConfiguration")]
-        public Output<Outputs.StateMachineTracingConfiguration> TracingConfiguration { get; private set; } = null!;
+        public Output<Outputs.StateMachineTracingConfiguration?> TracingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Sfn
         public Output<string?> Type { get; private set; } = null!;
 
         [Output("versionDescription")]
-        public Output<string> VersionDescription { get; private set; } = null!;
+        public Output<string?> VersionDescription { get; private set; } = null!;
 
 
         /// <summary>

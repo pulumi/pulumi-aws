@@ -64,7 +64,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Configuration Profile.
         """
@@ -77,7 +77,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Configuration Profile.
         """
@@ -85,7 +85,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -93,7 +93,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter(name="locationUri")
-    def location_uri(self) -> str:
+    def location_uri(self) -> Optional[str]:
         """
         Location URI of the Configuration Profile.
         """
@@ -101,7 +101,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the Configuration Profile.
         """
@@ -109,7 +109,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter(name="retrievalRoleArn")
-    def retrieval_role_arn(self) -> str:
+    def retrieval_role_arn(self) -> Optional[str]:
         """
         ARN of an IAM role with permission to access the configuration at the specified location_uri.
         """
@@ -117,7 +117,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags for the resource.
         """
@@ -125,7 +125,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
         """
@@ -133,7 +133,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter
-    def validators(self) -> Sequence['outputs.GetConfigurationProfileValidatorResult']:
+    def validators(self) -> Optional[Sequence['outputs.GetConfigurationProfileValidatorResult']]:
         """
         Nested list of methods for validating the configuration.
         """

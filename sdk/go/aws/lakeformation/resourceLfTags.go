@@ -136,19 +136,19 @@ type ResourceLfTags struct {
 	pulumi.CustomResourceState
 
 	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// Configuration block for a database resource. See below.
-	Database ResourceLfTagsDatabaseOutput `pulumi:"database"`
+	Database ResourceLfTagsDatabasePtrOutput `pulumi:"database"`
 	// Set of LF-tags to attach to the resource. See below.
 	//
 	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayOutput `pulumi:"lfTags"`
 	// Configuration block for a table resource. See below.
-	Table ResourceLfTagsTableOutput `pulumi:"table"`
+	Table ResourceLfTagsTablePtrOutput `pulumi:"table"`
 	// Configuration block for a table with columns resource. See below.
 	//
 	// The following arguments are optional:
-	TableWithColumns ResourceLfTagsTableWithColumnsOutput `pulumi:"tableWithColumns"`
+	TableWithColumns ResourceLfTagsTableWithColumnsPtrOutput `pulumi:"tableWithColumns"`
 }
 
 // NewResourceLfTags registers a new resource with the given unique name, arguments, and options.
@@ -344,13 +344,13 @@ func (o ResourceLfTagsOutput) ToResourceLfTagsOutputWithContext(ctx context.Cont
 }
 
 // Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-func (o ResourceLfTagsOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceLfTags) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+func (o ResourceLfTagsOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTags) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for a database resource. See below.
-func (o ResourceLfTagsOutput) Database() ResourceLfTagsDatabaseOutput {
-	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsDatabaseOutput { return v.Database }).(ResourceLfTagsDatabaseOutput)
+func (o ResourceLfTagsOutput) Database() ResourceLfTagsDatabasePtrOutput {
+	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsDatabasePtrOutput { return v.Database }).(ResourceLfTagsDatabasePtrOutput)
 }
 
 // Set of LF-tags to attach to the resource. See below.
@@ -361,15 +361,15 @@ func (o ResourceLfTagsOutput) LfTags() ResourceLfTagsLfTagArrayOutput {
 }
 
 // Configuration block for a table resource. See below.
-func (o ResourceLfTagsOutput) Table() ResourceLfTagsTableOutput {
-	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsTableOutput { return v.Table }).(ResourceLfTagsTableOutput)
+func (o ResourceLfTagsOutput) Table() ResourceLfTagsTablePtrOutput {
+	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsTablePtrOutput { return v.Table }).(ResourceLfTagsTablePtrOutput)
 }
 
 // Configuration block for a table with columns resource. See below.
 //
 // The following arguments are optional:
-func (o ResourceLfTagsOutput) TableWithColumns() ResourceLfTagsTableWithColumnsOutput {
-	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsTableWithColumnsOutput { return v.TableWithColumns }).(ResourceLfTagsTableWithColumnsOutput)
+func (o ResourceLfTagsOutput) TableWithColumns() ResourceLfTagsTableWithColumnsPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsTableWithColumnsPtrOutput { return v.TableWithColumns }).(ResourceLfTagsTableWithColumnsPtrOutput)
 }
 
 type ResourceLfTagsArrayOutput struct{ *pulumi.OutputState }

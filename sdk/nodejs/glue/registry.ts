@@ -55,7 +55,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Glue Registry.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description of the registry.
      */

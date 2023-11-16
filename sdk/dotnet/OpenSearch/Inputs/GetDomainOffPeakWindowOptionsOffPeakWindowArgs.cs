@@ -12,7 +12,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class GetDomainOffPeakWindowOptionsOffPeakWindowInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("windowStartTimes", required: true)]
+        [Input("windowStartTimes")]
         private InputList<Inputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInputArgs>? _windowStartTimes;
 
         /// <summary>

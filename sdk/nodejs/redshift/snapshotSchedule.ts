@@ -56,7 +56,7 @@ export class SnapshotSchedule extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
      */
@@ -72,12 +72,12 @@ export class SnapshotSchedule extends pulumi.CustomResource {
     /**
      * The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
      */
-    public readonly identifier!: pulumi.Output<string>;
+    public readonly identifier!: pulumi.Output<string | undefined>;
     /**
      * Creates a unique
      * identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    public readonly identifierPrefix!: pulumi.Output<string>;
+    public readonly identifierPrefix!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

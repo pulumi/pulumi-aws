@@ -273,7 +273,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the SecurityHub Hub created in the account.
         """
@@ -289,7 +289,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="controlFindingGenerator")
-    def control_finding_generator(self) -> pulumi.Output[str]:
+    def control_finding_generator(self) -> pulumi.Output[Optional[str]]:
         """
         Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         """

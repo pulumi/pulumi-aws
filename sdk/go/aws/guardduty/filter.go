@@ -83,7 +83,7 @@ type Filter struct {
 	// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
 	Action pulumi.StringOutput `pulumi:"action"`
 	// The ARN of the GuardDuty filter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the filter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ID of a GuardDuty detector, attached to your account.
@@ -325,8 +325,8 @@ func (o FilterOutput) Action() pulumi.StringOutput {
 }
 
 // The ARN of the GuardDuty filter.
-func (o FilterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FilterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the filter.

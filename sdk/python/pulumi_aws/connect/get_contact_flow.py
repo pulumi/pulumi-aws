@@ -52,7 +52,7 @@ class GetContactFlowResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Contact Flow.
         """
@@ -60,12 +60,12 @@ class GetContactFlowResult:
 
     @property
     @pulumi.getter(name="contactFlowId")
-    def contact_flow_id(self) -> str:
+    def contact_flow_id(self) -> Optional[str]:
         return pulumi.get(self, "contact_flow_id")
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> Optional[str]:
         """
         Logic of the Contact Flow.
         """
@@ -73,7 +73,7 @@ class GetContactFlowResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Contact Flow.
         """
@@ -81,7 +81,7 @@ class GetContactFlowResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -94,12 +94,12 @@ class GetContactFlowResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags to assign to the Contact Flow.
         """

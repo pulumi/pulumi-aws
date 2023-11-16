@@ -59,15 +59,15 @@ type LookupEventConnectionArgs struct {
 // A collection of values returned by getEventConnection.
 type LookupEventConnectionResult struct {
 	// ARN (Amazon Resource Name) for the connection.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-	AuthorizationType string `pulumi:"authorizationType"`
+	AuthorizationType *string `pulumi:"authorizationType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the connection.
 	Name string `pulumi:"name"`
 	// ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
-	SecretArn string `pulumi:"secretArn"`
+	SecretArn *string `pulumi:"secretArn"`
 }
 
 func LookupEventConnectionOutput(ctx *pulumi.Context, args LookupEventConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEventConnectionResultOutput {
@@ -109,18 +109,18 @@ func (o LookupEventConnectionResultOutput) ToLookupEventConnectionResultOutputWi
 }
 
 // ARN (Amazon Resource Name) for the connection.
-func (o LookupEventConnectionResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupEventConnectionResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-func (o LookupEventConnectionResultOutput) AuthorizationType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.AuthorizationType }).(pulumi.StringOutput)
+func (o LookupEventConnectionResultOutput) AuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventConnectionResult) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupEventConnectionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupEventConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the connection.
@@ -129,8 +129,8 @@ func (o LookupEventConnectionResultOutput) Name() pulumi.StringOutput {
 }
 
 // ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
-func (o LookupEventConnectionResultOutput) SecretArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.SecretArn }).(pulumi.StringOutput)
+func (o LookupEventConnectionResultOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventConnectionResult) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

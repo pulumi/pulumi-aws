@@ -56,7 +56,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the ECS Cluster
         """
@@ -69,7 +69,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -77,7 +77,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="pendingTasksCount")
-    def pending_tasks_count(self) -> int:
+    def pending_tasks_count(self) -> Optional[int]:
         """
         Number of pending tasks for the ECS Cluster
         """
@@ -85,7 +85,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="registeredContainerInstancesCount")
-    def registered_container_instances_count(self) -> int:
+    def registered_container_instances_count(self) -> Optional[int]:
         """
         The number of registered container instances for the ECS Cluster
         """
@@ -93,7 +93,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="runningTasksCount")
-    def running_tasks_count(self) -> int:
+    def running_tasks_count(self) -> Optional[int]:
         """
         Number of running tasks for the ECS Cluster
         """
@@ -101,7 +101,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="serviceConnectDefaults")
-    def service_connect_defaults(self) -> Sequence['outputs.GetClusterServiceConnectDefaultResult']:
+    def service_connect_defaults(self) -> Optional[Sequence['outputs.GetClusterServiceConnectDefaultResult']]:
         """
         The default Service Connect namespace
         """
@@ -109,7 +109,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def settings(self) -> Sequence['outputs.GetClusterSettingResult']:
+    def settings(self) -> Optional[Sequence['outputs.GetClusterSettingResult']]:
         """
         Settings associated with the ECS Cluster
         """
@@ -117,7 +117,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the ECS Cluster
         """
@@ -125,7 +125,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags
         """

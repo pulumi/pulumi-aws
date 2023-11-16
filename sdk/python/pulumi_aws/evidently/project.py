@@ -578,7 +578,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeExperimentCount")
-    def active_experiment_count(self) -> pulumi.Output[int]:
+    def active_experiment_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of ongoing experiments currently in the project.
         """
@@ -586,7 +586,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeLaunchCount")
-    def active_launch_count(self) -> pulumi.Output[int]:
+    def active_launch_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of ongoing launches currently in the project.
         """
@@ -594,7 +594,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the project.
         """
@@ -602,7 +602,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the project is created.
         """
@@ -626,7 +626,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="experimentCount")
-    def experiment_count(self) -> pulumi.Output[int]:
+    def experiment_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
         """
@@ -634,7 +634,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="featureCount")
-    def feature_count(self) -> pulumi.Output[int]:
+    def feature_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of features currently in the project.
         """
@@ -642,7 +642,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the project was most recently updated.
         """
@@ -650,7 +650,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchCount")
-    def launch_count(self) -> pulumi.Output[int]:
+    def launch_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
         """
@@ -666,7 +666,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
         """

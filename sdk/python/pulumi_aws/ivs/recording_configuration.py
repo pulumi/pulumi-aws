@@ -408,7 +408,7 @@ class RecordingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Recording Configuration.
         """
@@ -432,7 +432,7 @@ class RecordingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recordingReconnectWindowSeconds")
-    def recording_reconnect_window_seconds(self) -> pulumi.Output[int]:
+    def recording_reconnect_window_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         """
@@ -440,7 +440,7 @@ class RecordingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the Recording Configuration.
         """
@@ -467,7 +467,7 @@ class RecordingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thumbnailConfiguration")
-    def thumbnail_configuration(self) -> pulumi.Output['outputs.RecordingConfigurationThumbnailConfiguration']:
+    def thumbnail_configuration(self) -> pulumi.Output[Optional['outputs.RecordingConfigurationThumbnailConfiguration']]:
         """
         Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """

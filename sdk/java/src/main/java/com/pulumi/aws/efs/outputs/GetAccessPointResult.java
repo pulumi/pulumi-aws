@@ -10,6 +10,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,33 +20,33 @@ public final class GetAccessPointResult {
      * @return Amazon Resource Name of the file system.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    private String fileSystemArn;
+    private @Nullable String fileSystemArn;
     /**
      * @return ID of the file system for which the access point is intended.
      * 
      */
-    private String fileSystemId;
+    private @Nullable String fileSystemId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String ownerId;
+    private @Nullable String id;
+    private @Nullable String ownerId;
     /**
      * @return Single element list containing operating system user and group applied to all file system requests made using the access point.
      * 
      */
-    private List<GetAccessPointPosixUser> posixUsers;
+    private @Nullable List<GetAccessPointPosixUser> posixUsers;
     /**
      * @return Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      * 
      */
-    private List<GetAccessPointRootDirectory> rootDirectories;
+    private @Nullable List<GetAccessPointRootDirectory> rootDirectories;
     /**
      * @return Key-value mapping of resource tags.
      * 
@@ -60,46 +61,46 @@ public final class GetAccessPointResult {
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public String fileSystemArn() {
-        return this.fileSystemArn;
+    public Optional<String> fileSystemArn() {
+        return Optional.ofNullable(this.fileSystemArn);
     }
     /**
      * @return ID of the file system for which the access point is intended.
      * 
      */
-    public String fileSystemId() {
-        return this.fileSystemId;
+    public Optional<String> fileSystemId() {
+        return Optional.ofNullable(this.fileSystemId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
      * @return Single element list containing operating system user and group applied to all file system requests made using the access point.
      * 
      */
     public List<GetAccessPointPosixUser> posixUsers() {
-        return this.posixUsers;
+        return this.posixUsers == null ? List.of() : this.posixUsers;
     }
     /**
      * @return Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      * 
      */
     public List<GetAccessPointRootDirectory> rootDirectories() {
-        return this.rootDirectories;
+        return this.rootDirectories == null ? List.of() : this.rootDirectories;
     }
     /**
      * @return Key-value mapping of resource tags.
@@ -119,13 +120,13 @@ public final class GetAccessPointResult {
     @CustomType.Builder
     public static final class Builder {
         private String accessPointId;
-        private String arn;
-        private String fileSystemArn;
-        private String fileSystemId;
-        private String id;
-        private String ownerId;
-        private List<GetAccessPointPosixUser> posixUsers;
-        private List<GetAccessPointRootDirectory> rootDirectories;
+        private @Nullable String arn;
+        private @Nullable String fileSystemArn;
+        private @Nullable String fileSystemId;
+        private @Nullable String id;
+        private @Nullable String ownerId;
+        private @Nullable List<GetAccessPointPosixUser> posixUsers;
+        private @Nullable List<GetAccessPointRootDirectory> rootDirectories;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetAccessPointResult defaults) {
@@ -147,41 +148,41 @@ public final class GetAccessPointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder fileSystemArn(String fileSystemArn) {
-            this.fileSystemArn = Objects.requireNonNull(fileSystemArn);
+        public Builder fileSystemArn(@Nullable String fileSystemArn) {
+            this.fileSystemArn = fileSystemArn;
             return this;
         }
         @CustomType.Setter
-        public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+        public Builder fileSystemId(@Nullable String fileSystemId) {
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder posixUsers(List<GetAccessPointPosixUser> posixUsers) {
-            this.posixUsers = Objects.requireNonNull(posixUsers);
+        public Builder posixUsers(@Nullable List<GetAccessPointPosixUser> posixUsers) {
+            this.posixUsers = posixUsers;
             return this;
         }
         public Builder posixUsers(GetAccessPointPosixUser... posixUsers) {
             return posixUsers(List.of(posixUsers));
         }
         @CustomType.Setter
-        public Builder rootDirectories(List<GetAccessPointRootDirectory> rootDirectories) {
-            this.rootDirectories = Objects.requireNonNull(rootDirectories);
+        public Builder rootDirectories(@Nullable List<GetAccessPointRootDirectory> rootDirectories) {
+            this.rootDirectories = rootDirectories;
             return this;
         }
         public Builder rootDirectories(GetAccessPointRootDirectory... rootDirectories) {

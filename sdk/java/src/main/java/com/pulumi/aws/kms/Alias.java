@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -67,14 +68,14 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the key alias.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
@@ -96,29 +97,29 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates an unique alias beginning with the specified prefix.
      * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      * 
      */
     @Export(name="targetKeyArn", refs={String.class}, tree="[0]")
-    private Output<String> targetKeyArn;
+    private Output</* @Nullable */ String> targetKeyArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the target key identifier.
      * 
      */
-    public Output<String> targetKeyArn() {
-        return this.targetKeyArn;
+    public Output<Optional<String>> targetKeyArn() {
+        return Codegen.optional(this.targetKeyArn);
     }
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.

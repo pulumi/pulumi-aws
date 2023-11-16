@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceMaintenanceOption {
@@ -13,15 +15,15 @@ public final class GetInstanceMaintenanceOption {
      * @return Automatic recovery behavior of the instance.
      * 
      */
-    private String autoRecovery;
+    private @Nullable String autoRecovery;
 
     private GetInstanceMaintenanceOption() {}
     /**
      * @return Automatic recovery behavior of the instance.
      * 
      */
-    public String autoRecovery() {
-        return this.autoRecovery;
+    public Optional<String> autoRecovery() {
+        return Optional.ofNullable(this.autoRecovery);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetInstanceMaintenanceOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String autoRecovery;
+        private @Nullable String autoRecovery;
         public Builder() {}
         public Builder(GetInstanceMaintenanceOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetInstanceMaintenanceOption {
         }
 
         @CustomType.Setter
-        public Builder autoRecovery(String autoRecovery) {
-            this.autoRecovery = Objects.requireNonNull(autoRecovery);
+        public Builder autoRecovery(@Nullable String autoRecovery) {
+            this.autoRecovery = autoRecovery;
             return this;
         }
         public GetInstanceMaintenanceOption build() {

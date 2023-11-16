@@ -129,28 +129,28 @@ namespace Pulumi.Aws.Acmpca
         /// <summary>
         /// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        public readonly string Certificate;
+        public readonly string? Certificate;
         /// <summary>
         /// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        public readonly string CertificateChain;
+        public readonly string? CertificateChain;
         /// <summary>
         /// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         /// </summary>
-        public readonly string CertificateSigningRequest;
+        public readonly string? CertificateSigningRequest;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string KeyStorageSecurityStandard;
+        public readonly string? Id;
+        public readonly string? KeyStorageSecurityStandard;
         /// <summary>
         /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        public readonly string NotAfter;
+        public readonly string? NotAfter;
         /// <summary>
         /// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        public readonly string NotBefore;
+        public readonly string? NotBefore;
         /// <summary>
         /// Nested attribute containing revocation configuration.
         /// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -166,53 +166,53 @@ namespace Pulumi.Aws.Acmpca
         /// <summary>
         /// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        public readonly string Serial;
+        public readonly string? Serial;
         /// <summary>
         /// Status of the certificate authority.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Key-value map of user-defined tags that are attached to the certificate authority.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of the certificate authority.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
         /// </summary>
-        public readonly string UsageMode;
+        public readonly string? UsageMode;
 
         [OutputConstructor]
         private GetCertificateAuthorityResult(
             string arn,
 
-            string certificate,
+            string? certificate,
 
-            string certificateChain,
+            string? certificateChain,
 
-            string certificateSigningRequest,
+            string? certificateSigningRequest,
 
-            string id,
+            string? id,
 
-            string keyStorageSecurityStandard,
+            string? keyStorageSecurityStandard,
 
-            string notAfter,
+            string? notAfter,
 
-            string notBefore,
+            string? notBefore,
 
             ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationResult> revocationConfigurations,
 
-            string serial,
+            string? serial,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type,
+            string? type,
 
-            string usageMode)
+            string? usageMode)
         {
             Arn = arn;
             Certificate = certificate;

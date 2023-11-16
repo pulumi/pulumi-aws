@@ -799,7 +799,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the container service.
         """
@@ -807,7 +807,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The Availability Zone. Follows the format us-east-2a (case-sensitive).
         """
@@ -815,7 +815,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "created_at")
 
     @property
@@ -847,7 +847,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="powerId")
-    def power_id(self) -> pulumi.Output[str]:
+    def power_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the power of the container service.
         """
@@ -855,7 +855,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalArn")
-    def principal_arn(self) -> pulumi.Output[str]:
+    def principal_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The principal ARN of the container service. The principal ARN can be used to create a trust
         relationship between your standard AWS account and your Lightsail container service. This allows you to give your
@@ -865,7 +865,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDomainName")
-    def private_domain_name(self) -> pulumi.Output[str]:
+    def private_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The private domain name of the container service. The private domain name is accessible only
         by other resources within the default virtual private cloud (VPC) of your Lightsail account.
@@ -874,7 +874,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateRegistryAccess")
-    def private_registry_access(self) -> pulumi.Output['outputs.ContainerServicePrivateRegistryAccess']:
+    def private_registry_access(self) -> pulumi.Output[Optional['outputs.ContainerServicePrivateRegistryAccess']]:
         """
         An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
         """
@@ -894,7 +894,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Output[str]:
+    def resource_type(self) -> pulumi.Output[Optional[str]]:
         """
         The Lightsail resource type of the container service (i.e., ContainerService).
         """
@@ -911,7 +911,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the container service.
         """
@@ -942,7 +942,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         The publicly accessible URL of the container service. If no public endpoint is specified in the
         currentDeployment, this URL returns a 404 response.

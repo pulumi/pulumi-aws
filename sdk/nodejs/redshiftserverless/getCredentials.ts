@@ -54,20 +54,20 @@ export interface GetCredentialsResult {
     /**
      * Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
      */
-    readonly dbPassword: string;
+    readonly dbPassword?: string;
     /**
      * A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
      */
-    readonly dbUser: string;
+    readonly dbUser?: string;
     readonly durationSeconds?: number;
     /**
      * Date and time the password in `dbPassword` expires.
      */
-    readonly expiration: string;
+    readonly expiration?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly workgroupName: string;
 }
 /**

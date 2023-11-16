@@ -16,30 +16,30 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) encryption key.
         /// </summary>
-        public readonly string KmsKeyArn;
+        public readonly string? KmsKeyArn;
         /// <summary>
         /// The name of the Region.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The current status of the Region.
         /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// More information about the status of a Region.
         /// </summary>
-        public readonly string StatusMessage;
+        public readonly string? StatusMessage;
 
         [OutputConstructor]
         private GetReplicationSetRegionResult(
-            string kmsKeyArn,
+            string? kmsKeyArn,
 
-            string name,
+            string? name,
 
-            string status,
+            string? status,
 
-            string statusMessage)
+            string? statusMessage)
         {
             KmsKeyArn = kmsKeyArn;
             Name = name;

@@ -68,7 +68,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the firewall.
         """
@@ -76,7 +76,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> bool:
+    def delete_protection(self) -> Optional[bool]:
         """
         Boolean flag indicating whether it is possible to delete the firewall.
         """
@@ -84,7 +84,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the firewall.
         """
@@ -92,7 +92,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> Sequence['outputs.GetFirewallEncryptionConfigurationResult']:
+    def encryption_configurations(self) -> Optional[Sequence['outputs.GetFirewallEncryptionConfigurationResult']]:
         """
         AWS Key Management Service (AWS KMS) encryption settings for the firewall.
         """
@@ -100,7 +100,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
-    def firewall_policy_arn(self) -> str:
+    def firewall_policy_arn(self) -> Optional[str]:
         """
         ARN of the VPC Firewall policy.
         """
@@ -108,7 +108,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="firewallPolicyChangeProtection")
-    def firewall_policy_change_protection(self) -> bool:
+    def firewall_policy_change_protection(self) -> Optional[bool]:
         """
         A boolean flag indicating whether it is possible to change the associated firewall policy.
         """
@@ -116,7 +116,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="firewallStatuses")
-    def firewall_statuses(self) -> Sequence['outputs.GetFirewallFirewallStatusResult']:
+    def firewall_statuses(self) -> Optional[Sequence['outputs.GetFirewallFirewallStatusResult']]:
         """
         Nested list of information about the current status of the firewall.
         """
@@ -124,7 +124,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -132,7 +132,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Descriptive name of the firewall.
         """
@@ -140,7 +140,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="subnetChangeProtection")
-    def subnet_change_protection(self) -> bool:
+    def subnet_change_protection(self) -> Optional[bool]:
         """
         A boolean flag indicating whether it is possible to change the associated subnet(s).
         """
@@ -148,7 +148,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="subnetMappings")
-    def subnet_mappings(self) -> Sequence['outputs.GetFirewallSubnetMappingResult']:
+    def subnet_mappings(self) -> Optional[Sequence['outputs.GetFirewallSubnetMappingResult']]:
         """
         Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
         """
@@ -164,7 +164,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="updateToken")
-    def update_token(self) -> str:
+    def update_token(self) -> Optional[str]:
         """
         String token used when updating a firewall.
         """
@@ -172,7 +172,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         Unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """

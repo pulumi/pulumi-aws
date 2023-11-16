@@ -35,15 +35,15 @@ type GetAssetResult struct {
 	Arn     string `pulumi:"arn"`
 	AssetId string `pulumi:"assetId"`
 	// Type of the asset.
-	AssetType string `pulumi:"assetType"`
+	AssetType *string `pulumi:"assetType"`
 	// Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
-	HostId string `pulumi:"hostId"`
+	HostId *string `pulumi:"hostId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Position of an asset in a rack measured in rack units.
-	RackElevation int `pulumi:"rackElevation"`
+	RackElevation *int `pulumi:"rackElevation"`
 	// Rack ID of the asset.
-	RackId string `pulumi:"rackId"`
+	RackId *string `pulumi:"rackId"`
 }
 
 func GetAssetOutput(ctx *pulumi.Context, args GetAssetOutputArgs, opts ...pulumi.InvokeOption) GetAssetResultOutput {
@@ -95,28 +95,28 @@ func (o GetAssetResultOutput) AssetId() pulumi.StringOutput {
 }
 
 // Type of the asset.
-func (o GetAssetResultOutput) AssetType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAssetResult) string { return v.AssetType }).(pulumi.StringOutput)
+func (o GetAssetResultOutput) AssetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAssetResult) *string { return v.AssetType }).(pulumi.StringPtrOutput)
 }
 
 // Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
-func (o GetAssetResultOutput) HostId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAssetResult) string { return v.HostId }).(pulumi.StringOutput)
+func (o GetAssetResultOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAssetResult) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAssetResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAssetResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetAssetResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAssetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Position of an asset in a rack measured in rack units.
-func (o GetAssetResultOutput) RackElevation() pulumi.IntOutput {
-	return o.ApplyT(func(v GetAssetResult) int { return v.RackElevation }).(pulumi.IntOutput)
+func (o GetAssetResultOutput) RackElevation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetAssetResult) *int { return v.RackElevation }).(pulumi.IntPtrOutput)
 }
 
 // Rack ID of the asset.
-func (o GetAssetResultOutput) RackId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAssetResult) string { return v.RackId }).(pulumi.StringOutput)
+func (o GetAssetResultOutput) RackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAssetResult) *string { return v.RackId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

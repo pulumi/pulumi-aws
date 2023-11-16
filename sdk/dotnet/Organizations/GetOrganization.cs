@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// ARN of the root
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
         /// </summary>
@@ -229,23 +229,23 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// FeatureSet of the organization.
         /// </summary>
-        public readonly string FeatureSet;
+        public readonly string? FeatureSet;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the account that is designated as the master account for the organization.
         /// </summary>
-        public readonly string MasterAccountArn;
+        public readonly string? MasterAccountArn;
         /// <summary>
         /// The email address that is associated with the AWS account that is designated as the master account for the organization.
         /// </summary>
-        public readonly string MasterAccountEmail;
+        public readonly string? MasterAccountEmail;
         /// <summary>
         /// Unique identifier (ID) of the master account of an organization.
         /// </summary>
-        public readonly string MasterAccountId;
+        public readonly string? MasterAccountId;
         /// <summary>
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         /// </summary>
@@ -259,21 +259,21 @@ namespace Pulumi.Aws.Organizations
         private GetOrganizationResult(
             ImmutableArray<Outputs.GetOrganizationAccountResult> accounts,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<string> awsServiceAccessPrincipals,
 
             ImmutableArray<string> enabledPolicyTypes,
 
-            string featureSet,
+            string? featureSet,
 
-            string id,
+            string? id,
 
-            string masterAccountArn,
+            string? masterAccountArn,
 
-            string masterAccountEmail,
+            string? masterAccountEmail,
 
-            string masterAccountId,
+            string? masterAccountId,
 
             ImmutableArray<Outputs.GetOrganizationNonMasterAccountResult> nonMasterAccounts,
 

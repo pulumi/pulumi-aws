@@ -8,46 +8,48 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTargetGroupHealthCheck {
-    private Boolean enabled;
-    private Integer healthyThreshold;
-    private Integer interval;
-    private String matcher;
-    private String path;
-    private String port;
-    private String protocol;
-    private Integer timeout;
-    private Integer unhealthyThreshold;
+    private @Nullable Boolean enabled;
+    private @Nullable Integer healthyThreshold;
+    private @Nullable Integer interval;
+    private @Nullable String matcher;
+    private @Nullable String path;
+    private @Nullable String port;
+    private @Nullable String protocol;
+    private @Nullable Integer timeout;
+    private @Nullable Integer unhealthyThreshold;
 
     private GetTargetGroupHealthCheck() {}
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
-    public Integer healthyThreshold() {
-        return this.healthyThreshold;
+    public Optional<Integer> healthyThreshold() {
+        return Optional.ofNullable(this.healthyThreshold);
     }
-    public Integer interval() {
-        return this.interval;
+    public Optional<Integer> interval() {
+        return Optional.ofNullable(this.interval);
     }
-    public String matcher() {
-        return this.matcher;
+    public Optional<String> matcher() {
+        return Optional.ofNullable(this.matcher);
     }
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
-    public String port() {
-        return this.port;
+    public Optional<String> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
-    public Integer timeout() {
-        return this.timeout;
+    public Optional<Integer> timeout() {
+        return Optional.ofNullable(this.timeout);
     }
-    public Integer unhealthyThreshold() {
-        return this.unhealthyThreshold;
+    public Optional<Integer> unhealthyThreshold() {
+        return Optional.ofNullable(this.unhealthyThreshold);
     }
 
     public static Builder builder() {
@@ -59,15 +61,15 @@ public final class GetTargetGroupHealthCheck {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private Integer healthyThreshold;
-        private Integer interval;
-        private String matcher;
-        private String path;
-        private String port;
-        private String protocol;
-        private Integer timeout;
-        private Integer unhealthyThreshold;
+        private @Nullable Boolean enabled;
+        private @Nullable Integer healthyThreshold;
+        private @Nullable Integer interval;
+        private @Nullable String matcher;
+        private @Nullable String path;
+        private @Nullable String port;
+        private @Nullable String protocol;
+        private @Nullable Integer timeout;
+        private @Nullable Integer unhealthyThreshold;
         public Builder() {}
         public Builder(GetTargetGroupHealthCheck defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,48 +85,48 @@ public final class GetTargetGroupHealthCheck {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder healthyThreshold(Integer healthyThreshold) {
-            this.healthyThreshold = Objects.requireNonNull(healthyThreshold);
+        public Builder healthyThreshold(@Nullable Integer healthyThreshold) {
+            this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
-        public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+        public Builder interval(@Nullable Integer interval) {
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
-        public Builder matcher(String matcher) {
-            this.matcher = Objects.requireNonNull(matcher);
+        public Builder matcher(@Nullable String matcher) {
+            this.matcher = matcher;
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
-        public Builder port(String port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable String port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+        public Builder timeout(@Nullable Integer timeout) {
+            this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
-        public Builder unhealthyThreshold(Integer unhealthyThreshold) {
-            this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
+        public Builder unhealthyThreshold(@Nullable Integer unhealthyThreshold) {
+            this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
         public GetTargetGroupHealthCheck build() {

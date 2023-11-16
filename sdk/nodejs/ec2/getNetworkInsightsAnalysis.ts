@@ -54,58 +54,58 @@ export interface GetNetworkInsightsAnalysisResult {
     /**
      * Potential intermediate components of a feasible path.
      */
-    readonly alternatePathHints: outputs.ec2.GetNetworkInsightsAnalysisAlternatePathHint[];
+    readonly alternatePathHints?: outputs.ec2.GetNetworkInsightsAnalysisAlternatePathHint[];
     /**
      * ARN of the selected Network Insights Analysis.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Explanation codes for an unreachable path.
      */
-    readonly explanations: outputs.ec2.GetNetworkInsightsAnalysisExplanation[];
+    readonly explanations?: outputs.ec2.GetNetworkInsightsAnalysisExplanation[];
     /**
      * ARNs of the AWS resources that the path must traverse.
      */
-    readonly filterInArns: string[];
+    readonly filterInArns?: string[];
     readonly filters?: outputs.ec2.GetNetworkInsightsAnalysisFilter[];
     /**
      * The components in the path from source to destination.
      */
-    readonly forwardPathComponents: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponent[];
+    readonly forwardPathComponents?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponent[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly networkInsightsAnalysisId: string;
+    readonly id?: string;
+    readonly networkInsightsAnalysisId?: string;
     /**
      * The ID of the path.
      */
-    readonly networkInsightsPathId: string;
+    readonly networkInsightsPathId?: string;
     /**
      * Set to `true` if the destination was reachable.
      */
-    readonly pathFound: boolean;
+    readonly pathFound?: boolean;
     /**
      * The components in the path from destination to source.
      */
-    readonly returnPathComponents: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponent[];
+    readonly returnPathComponents?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponent[];
     /**
      * Date/time the analysis was started.
      */
-    readonly startDate: string;
+    readonly startDate?: string;
     /**
      * Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Message to provide more context when the `status` is `failed`.
      */
-    readonly statusMessage: string;
-    readonly tags: {[key: string]: string};
+    readonly statusMessage?: string;
+    readonly tags?: {[key: string]: string};
     /**
      * Warning message.
      */
-    readonly warningMessage: string;
+    readonly warningMessage?: string;
 }
 /**
  * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.

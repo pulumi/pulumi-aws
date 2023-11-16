@@ -55,7 +55,7 @@ type Repository struct {
 	pulumi.CustomResourceState
 
 	// Full ARN of the repository.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Encryption configuration for the repository. See below for schema.
 	EncryptionConfigurations RepositoryEncryptionConfigurationArrayOutput `pulumi:"encryptionConfigurations"`
 	// If `true`, will delete the repository even if it contains images.
@@ -68,9 +68,9 @@ type Repository struct {
 	// Name of the repository.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The registry ID where the repository was created.
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	RegistryId pulumi.StringPtrOutput `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
+	RepositoryUrl pulumi.StringPtrOutput `pulumi:"repositoryUrl"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -289,8 +289,8 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 }
 
 // Full ARN of the repository.
-func (o RepositoryOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RepositoryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Encryption configuration for the repository. See below for schema.
@@ -320,13 +320,13 @@ func (o RepositoryOutput) Name() pulumi.StringOutput {
 }
 
 // The registry ID where the repository was created.
-func (o RepositoryOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+func (o RepositoryOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 // The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-func (o RepositoryOutput) RepositoryUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryUrl }).(pulumi.StringOutput)
+func (o RepositoryOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.RepositoryUrl }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

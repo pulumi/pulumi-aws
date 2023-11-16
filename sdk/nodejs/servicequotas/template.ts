@@ -63,7 +63,7 @@ export class Template extends pulumi.CustomResource {
     /**
      * Indicates whether the quota is global.
      */
-    public /*out*/ readonly globalQuota!: pulumi.Output<boolean>;
+    public /*out*/ readonly globalQuota!: pulumi.Output<boolean | undefined>;
     /**
      * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
      */
@@ -71,7 +71,7 @@ export class Template extends pulumi.CustomResource {
     /**
      * Quota name.
      */
-    public /*out*/ readonly quotaName!: pulumi.Output<string>;
+    public /*out*/ readonly quotaName!: pulumi.Output<string | undefined>;
     /**
      * AWS Region to which the template applies.
      */
@@ -83,11 +83,11 @@ export class Template extends pulumi.CustomResource {
     /**
      * Service name.
      */
-    public /*out*/ readonly serviceName!: pulumi.Output<string>;
+    public /*out*/ readonly serviceName!: pulumi.Output<string | undefined>;
     /**
      * Unit of measurement.
      */
-    public /*out*/ readonly unit!: pulumi.Output<string>;
+    public /*out*/ readonly unit!: pulumi.Output<string | undefined>;
     /**
      * The new, increased value for the quota.
      */

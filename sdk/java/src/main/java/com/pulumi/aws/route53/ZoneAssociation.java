@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -99,14 +100,14 @@ public class ZoneAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="owningAccount", refs={String.class}, tree="[0]")
-    private Output<String> owningAccount;
+    private Output</* @Nullable */ String> owningAccount;
 
     /**
      * @return The account ID of the account that created the hosted zone.
      * 
      */
-    public Output<String> owningAccount() {
-        return this.owningAccount;
+    public Output<Optional<String>> owningAccount() {
+        return Codegen.optional(this.owningAccount);
     }
     /**
      * The VPC to associate with the private hosted zone.
@@ -127,14 +128,14 @@ public class ZoneAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcRegion", refs={String.class}, tree="[0]")
-    private Output<String> vpcRegion;
+    private Output</* @Nullable */ String> vpcRegion;
 
     /**
      * @return The VPC&#39;s region. Defaults to the region of the AWS provider.
      * 
      */
-    public Output<String> vpcRegion() {
-        return this.vpcRegion;
+    public Output<Optional<String>> vpcRegion() {
+        return Codegen.optional(this.vpcRegion);
     }
     /**
      * The private hosted zone to associate.

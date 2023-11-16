@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> PrefixListId { get; private set; } = null!;
 
         [Output("prefixListOwnerId")]
-        public Output<string> PrefixListOwnerId { get; private set; } = null!;
+        public Output<string?> PrefixListOwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.

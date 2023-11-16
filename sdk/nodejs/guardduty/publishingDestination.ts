@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentRegion = aws.getRegion({});
  * const gdBucket = new aws.s3.BucketV2("gdBucket", {forceDestroy: true});
- * const bucketPol = aws.iam.getPolicyDocumentOutput({
+ * const bucketPol = pulumi.all([gdBucket.arn, gdBucket.arn]).apply(([gdBucketArn, gdBucketArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "Allow PutObject",
  *             actions: ["s3:PutObject"],
- *             resources: [pulumi.interpolate`${gdBucket.arn}/*`],
+ *             resources: [`${gdBucketArn}/*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["guardduty.amazonaws.com"],
@@ -30,14 +30,14 @@ import * as utilities from "../utilities";
  *         {
  *             sid: "Allow GetBucketLocation",
  *             actions: ["s3:GetBucketLocation"],
- *             resources: [gdBucket.arn],
+ *             resources: [gdBucketArn1],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["guardduty.amazonaws.com"],
  *             }],
  *         },
  *     ],
- * });
+ * }));
  * const kmsPol = Promise.all([currentRegion, currentCallerIdentity, currentRegion, currentCallerIdentity, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity, currentRegion1, currentCallerIdentity1, currentCallerIdentity2]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {

@@ -59,16 +59,16 @@ type LookupPlanArgs struct {
 // A collection of values returned by getPlan.
 type LookupPlanResult struct {
 	// ARN of the backup plan.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Display name of a backup plan.
-	Name   string `pulumi:"name"`
-	PlanId string `pulumi:"planId"`
+	Name   *string `pulumi:"name"`
+	PlanId string  `pulumi:"planId"`
 	// Metadata that you can assign to help organize the plans you create.
 	Tags map[string]string `pulumi:"tags"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pulumi.InvokeOption) LookupPlanResultOutput {
@@ -112,18 +112,18 @@ func (o LookupPlanResultOutput) ToLookupPlanResultOutputWithContext(ctx context.
 }
 
 // ARN of the backup plan.
-func (o LookupPlanResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPlanResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupPlanResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlanResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupPlanResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPlanResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupPlanResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlanResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Display name of a backup plan.
-func (o LookupPlanResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPlanResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupPlanResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlanResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupPlanResultOutput) PlanId() pulumi.StringOutput {
@@ -136,8 +136,8 @@ func (o LookupPlanResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-func (o LookupPlanResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPlanResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupPlanResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlanResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

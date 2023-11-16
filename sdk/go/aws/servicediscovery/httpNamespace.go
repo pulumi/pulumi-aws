@@ -50,11 +50,11 @@ type HttpNamespace struct {
 	pulumi.CustomResourceState
 
 	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of an HTTP namespace.
-	HttpName pulumi.StringOutput `pulumi:"httpName"`
+	HttpName pulumi.StringPtrOutput `pulumi:"httpName"`
 	// The name of the http namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -243,8 +243,8 @@ func (o HttpNamespaceOutput) ToHttpNamespaceOutputWithContext(ctx context.Contex
 }
 
 // The ARN that Amazon Route 53 assigns to the namespace when you create it.
-func (o HttpNamespaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HttpNamespaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HttpNamespace) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description that you specify for the namespace when you create it.
@@ -253,8 +253,8 @@ func (o HttpNamespaceOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The name of an HTTP namespace.
-func (o HttpNamespaceOutput) HttpName() pulumi.StringOutput {
-	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.HttpName }).(pulumi.StringOutput)
+func (o HttpNamespaceOutput) HttpName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HttpNamespace) pulumi.StringPtrOutput { return v.HttpName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the http namespace.

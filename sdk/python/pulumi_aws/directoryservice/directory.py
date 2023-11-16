@@ -899,7 +899,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessUrl")
-    def access_url(self) -> pulumi.Output[str]:
+    def access_url(self) -> pulumi.Output[Optional[str]]:
         """
         The access URL for the directory, such as `http://alias.awsapps.com`.
         """
@@ -907,7 +907,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alias(self) -> pulumi.Output[str]:
+    def alias(self) -> pulumi.Output[Optional[str]]:
         """
         The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         """
@@ -931,7 +931,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
-    def desired_number_of_domain_controllers(self) -> pulumi.Output[int]:
+    def desired_number_of_domain_controllers(self) -> pulumi.Output[Optional[int]]:
         """
         The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         """
@@ -939,7 +939,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+    def dns_ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IP addresses of the DNS servers for the directory or connector.
         """
@@ -947,7 +947,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def edition(self) -> pulumi.Output[str]:
+    def edition(self) -> pulumi.Output[Optional[str]]:
         """
         The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         """
@@ -979,7 +979,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> pulumi.Output[str]:
+    def security_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the security group created by the directory.
         """
@@ -987,7 +987,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shortName")
-    def short_name(self) -> pulumi.Output[str]:
+    def short_name(self) -> pulumi.Output[Optional[str]]:
         """
         The short name of the directory, such as `CORP`.
         """
@@ -995,7 +995,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Output[str]:
+    def size(self) -> pulumi.Output[Optional[str]]:
         """
         (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         """

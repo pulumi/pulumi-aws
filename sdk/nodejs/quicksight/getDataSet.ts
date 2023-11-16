@@ -60,29 +60,29 @@ export interface GetDataSetArgs {
  * A collection of values returned by getDataSet.
  */
 export interface GetDataSetResult {
-    readonly arn: string;
-    readonly awsAccountId: string;
-    readonly columnGroups: outputs.quicksight.GetDataSetColumnGroup[];
+    readonly arn?: string;
+    readonly awsAccountId?: string;
+    readonly columnGroups?: outputs.quicksight.GetDataSetColumnGroup[];
     readonly columnLevelPermissionRules?: outputs.quicksight.GetDataSetColumnLevelPermissionRule[];
     readonly dataSetId: string;
-    readonly dataSetUsageConfigurations: outputs.quicksight.GetDataSetDataSetUsageConfiguration[];
-    readonly fieldFolders: outputs.quicksight.GetDataSetFieldFolder[];
+    readonly dataSetUsageConfigurations?: outputs.quicksight.GetDataSetDataSetUsageConfiguration[];
+    readonly fieldFolders?: outputs.quicksight.GetDataSetFieldFolder[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly importMode: string;
-    readonly logicalTableMaps: outputs.quicksight.GetDataSetLogicalTableMap[];
-    readonly name: string;
-    readonly permissions: outputs.quicksight.GetDataSetPermission[];
-    readonly physicalTableMaps: outputs.quicksight.GetDataSetPhysicalTableMap[];
-    readonly rowLevelPermissionDataSets: outputs.quicksight.GetDataSetRowLevelPermissionDataSet[];
-    readonly rowLevelPermissionTagConfigurations: outputs.quicksight.GetDataSetRowLevelPermissionTagConfiguration[];
-    readonly tags: {[key: string]: string};
+    readonly id?: string;
+    readonly importMode?: string;
+    readonly logicalTableMaps?: outputs.quicksight.GetDataSetLogicalTableMap[];
+    readonly name?: string;
+    readonly permissions?: outputs.quicksight.GetDataSetPermission[];
+    readonly physicalTableMaps?: outputs.quicksight.GetDataSetPhysicalTableMap[];
+    readonly rowLevelPermissionDataSets?: outputs.quicksight.GetDataSetRowLevelPermissionDataSet[];
+    readonly rowLevelPermissionTagConfigurations?: outputs.quicksight.GetDataSetRowLevelPermissionTagConfiguration[];
+    readonly tags?: {[key: string]: string};
     /**
      * @deprecated this attribute has been deprecated
      */
-    readonly tagsAll: {[key: string]: string};
+    readonly tagsAll?: {[key: string]: string};
 }
 /**
  * Data source for managing a QuickSight Data Set.

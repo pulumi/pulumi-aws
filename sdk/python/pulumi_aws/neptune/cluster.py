@@ -1449,7 +1449,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
-    def allow_major_version_upgrade(self) -> pulumi.Output[bool]:
+    def allow_major_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         """
@@ -1457,7 +1457,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> pulumi.Output[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
@@ -1465,7 +1465,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Neptune Cluster Amazon Resource Name (ARN)
         """
@@ -1473,7 +1473,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         """
@@ -1489,7 +1489,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> pulumi.Output[str]:
+    def cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         """
@@ -1497,7 +1497,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterIdentifierPrefix")
-    def cluster_identifier_prefix(self) -> pulumi.Output[str]:
+    def cluster_identifier_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         """
@@ -1505,7 +1505,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterMembers")
-    def cluster_members(self) -> pulumi.Output[Sequence[str]]:
+    def cluster_members(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Neptune Instances that are a part of this cluster
         """
@@ -1513,7 +1513,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> pulumi.Output[str]:
+    def cluster_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Neptune Cluster Resource ID
         """
@@ -1545,7 +1545,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS address of the Neptune instance
         """
@@ -1561,7 +1561,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         The database engine version.
         """
@@ -1585,7 +1585,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> pulumi.Output[str]:
+    def hosted_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Route53 Hosted Zone ID of the endpoint
         """
@@ -1609,7 +1609,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> pulumi.Output[str]:
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         """
@@ -1633,7 +1633,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="neptuneSubnetGroupName")
-    def neptune_subnet_group_name(self) -> pulumi.Output[str]:
+    def neptune_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         A Neptune subnet group to associate with this Neptune instance.
         """
@@ -1649,7 +1649,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> pulumi.Output[str]:
+    def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
         """
         The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
@@ -1657,7 +1657,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> pulumi.Output[str]:
+    def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
@@ -1665,7 +1665,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readerEndpoint")
-    def reader_endpoint(self) -> pulumi.Output[str]:
+    def reader_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         """
@@ -1732,7 +1732,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of VPC security groups to associate with the Cluster
         """

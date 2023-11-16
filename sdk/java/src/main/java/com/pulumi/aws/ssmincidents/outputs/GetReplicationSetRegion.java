@@ -6,6 +6,8 @@ package com.pulumi.aws.ssmincidents.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReplicationSetRegion {
@@ -13,53 +15,53 @@ public final class GetReplicationSetRegion {
      * @return The ARN of the AWS Key Management Service (AWS KMS) encryption key.
      * 
      */
-    private String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     /**
      * @return The name of the Region.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return More information about the status of a Region.
      * 
      */
-    private String statusMessage;
+    private @Nullable String statusMessage;
 
     private GetReplicationSetRegion() {}
     /**
      * @return The ARN of the AWS Key Management Service (AWS KMS) encryption key.
      * 
      */
-    public String kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<String> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
     /**
      * @return The name of the Region.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return More information about the status of a Region.
      * 
      */
-    public String statusMessage() {
-        return this.statusMessage;
+    public Optional<String> statusMessage() {
+        return Optional.ofNullable(this.statusMessage);
     }
 
     public static Builder builder() {
@@ -71,10 +73,10 @@ public final class GetReplicationSetRegion {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String kmsKeyArn;
-        private String name;
-        private String status;
-        private String statusMessage;
+        private @Nullable String kmsKeyArn;
+        private @Nullable String name;
+        private @Nullable String status;
+        private @Nullable String statusMessage;
         public Builder() {}
         public Builder(GetReplicationSetRegion defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,23 +87,23 @@ public final class GetReplicationSetRegion {
         }
 
         @CustomType.Setter
-        public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+        public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+        public Builder statusMessage(@Nullable String statusMessage) {
+            this.statusMessage = statusMessage;
             return this;
         }
         public GetReplicationSetRegion build() {

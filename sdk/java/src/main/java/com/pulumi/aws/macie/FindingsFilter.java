@@ -96,14 +96,14 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Findings Filter.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A custom description of the filter. The description can contain as many as 512 characters.
@@ -152,28 +152,28 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      * 
      */
     @Export(name="position", refs={Integer.class}, tree="[0]")
-    private Output<Integer> position;
+    private Output</* @Nullable */ Integer> position;
 
     /**
      * @return The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      * 
      */
-    public Output<Integer> position() {
-        return this.position;
+    public Output<Optional<Integer>> position() {
+        return Codegen.optional(this.position);
     }
     /**
      * A map of key-value pairs that specifies the tags to associate with the filter.

@@ -7,6 +7,8 @@ import com.pulumi.aws.connect.outputs.GetBotAssociationLexBot;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBotAssociationResult {
@@ -14,7 +16,7 @@ public final class GetBotAssociationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
     private GetBotAssociationLexBot lexBot;
 
@@ -23,8 +25,8 @@ public final class GetBotAssociationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
@@ -42,7 +44,7 @@ public final class GetBotAssociationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private String instanceId;
         private GetBotAssociationLexBot lexBot;
         public Builder() {}
@@ -54,8 +56,8 @@ public final class GetBotAssociationResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

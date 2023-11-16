@@ -68,29 +68,29 @@ type LookupMountTargetArgs struct {
 type LookupMountTargetResult struct {
 	AccessPointId *string `pulumi:"accessPointId"`
 	// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
-	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The name of the Availability Zone (AZ) that the mount target resides in.
-	AvailabilityZoneName string `pulumi:"availabilityZoneName"`
+	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// DNS name for the EFS file system.
-	DnsName string `pulumi:"dnsName"`
+	DnsName *string `pulumi:"dnsName"`
 	// Amazon Resource Name of the file system for which the mount target is intended.
-	FileSystemArn string `pulumi:"fileSystemArn"`
-	FileSystemId  string `pulumi:"fileSystemId"`
+	FileSystemArn *string `pulumi:"fileSystemArn"`
+	FileSystemId  *string `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Address at which the file system may be mounted via the mount target.
-	IpAddress string `pulumi:"ipAddress"`
+	IpAddress *string `pulumi:"ipAddress"`
 	// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-	MountTargetDnsName string `pulumi:"mountTargetDnsName"`
-	MountTargetId      string `pulumi:"mountTargetId"`
+	MountTargetDnsName *string `pulumi:"mountTargetDnsName"`
+	MountTargetId      *string `pulumi:"mountTargetId"`
 	// The ID of the network interface that Amazon EFS created when it created the mount target.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// AWS account ID that owns the resource.
-	OwnerId string `pulumi:"ownerId"`
+	OwnerId *string `pulumi:"ownerId"`
 	// List of VPC security group IDs attached to the mount target.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// ID of the mount target's subnet.
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 func LookupMountTargetOutput(ctx *pulumi.Context, args LookupMountTargetOutputArgs, opts ...pulumi.InvokeOption) LookupMountTargetResultOutput {
@@ -140,56 +140,56 @@ func (o LookupMountTargetResultOutput) AccessPointId() pulumi.StringPtrOutput {
 }
 
 // The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
-func (o LookupMountTargetResultOutput) AvailabilityZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Availability Zone (AZ) that the mount target resides in.
-func (o LookupMountTargetResultOutput) AvailabilityZoneName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.AvailabilityZoneName }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.AvailabilityZoneName }).(pulumi.StringPtrOutput)
 }
 
 // DNS name for the EFS file system.
-func (o LookupMountTargetResultOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.DnsName }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name of the file system for which the mount target is intended.
-func (o LookupMountTargetResultOutput) FileSystemArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.FileSystemArn }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) FileSystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.FileSystemArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupMountTargetResultOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.FileSystemId }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupMountTargetResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Address at which the file system may be mounted via the mount target.
-func (o LookupMountTargetResultOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.IpAddress }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-func (o LookupMountTargetResultOutput) MountTargetDnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.MountTargetDnsName }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) MountTargetDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.MountTargetDnsName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupMountTargetResultOutput) MountTargetId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.MountTargetId }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) MountTargetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.MountTargetId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the network interface that Amazon EFS created when it created the mount target.
-func (o LookupMountTargetResultOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID that owns the resource.
-func (o LookupMountTargetResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // List of VPC security group IDs attached to the mount target.
@@ -198,8 +198,8 @@ func (o LookupMountTargetResultOutput) SecurityGroups() pulumi.StringArrayOutput
 }
 
 // ID of the mount target's subnet.
-func (o LookupMountTargetResultOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMountTargetResult) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o LookupMountTargetResultOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

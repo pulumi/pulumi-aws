@@ -81,7 +81,7 @@ export class SlotType extends pulumi.CustomResource {
      * Checksum identifying the version of the slot type that was created. The checksum is
      * not included as an argument because the resource will add it automatically when updating the slot type.
      */
-    public /*out*/ readonly checksum!: pulumi.Output<string>;
+    public /*out*/ readonly checksum!: pulumi.Output<string | undefined>;
     /**
      * Determines if a new slot type version is created when the initial resource is created and on each
      * update. Defaults to `false`.
@@ -90,7 +90,7 @@ export class SlotType extends pulumi.CustomResource {
     /**
      * The date when the slot type version was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * A description of the slot type. Must be less than or equal to 200 characters in length.
      */
@@ -105,7 +105,7 @@ export class SlotType extends pulumi.CustomResource {
     /**
      * The date when the `$LATEST` version of this slot type was updated.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string | undefined>;
     /**
      * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
@@ -120,7 +120,7 @@ export class SlotType extends pulumi.CustomResource {
     /**
      * The version of the slot type.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SlotType resource with the given unique name, arguments, and options.

@@ -62,12 +62,12 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="localAddress")
-    def local_address(self) -> str:
+    def local_address(self) -> Optional[str]:
         """
         Local address.
         """
@@ -75,7 +75,7 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter(name="localBgpAsn")
-    def local_bgp_asn(self) -> int:
+    def local_bgp_asn(self) -> Optional[int]:
         """
         Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
         """
@@ -83,7 +83,7 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter(name="localGatewayId")
-    def local_gateway_id(self) -> str:
+    def local_gateway_id(self) -> Optional[str]:
         """
         Identifier of the EC2 Local Gateway.
         """
@@ -91,12 +91,12 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter(name="localGatewayVirtualInterfaceIds")
-    def local_gateway_virtual_interface_ids(self) -> Sequence[str]:
+    def local_gateway_virtual_interface_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "local_gateway_virtual_interface_ids")
 
     @property
     @pulumi.getter(name="peerAddress")
-    def peer_address(self) -> str:
+    def peer_address(self) -> Optional[str]:
         """
         Peer address.
         """
@@ -104,7 +104,7 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter(name="peerBgpAsn")
-    def peer_bgp_asn(self) -> int:
+    def peer_bgp_asn(self) -> Optional[int]:
         """
         Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
         """
@@ -112,12 +112,12 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def vlan(self) -> int:
+    def vlan(self) -> Optional[int]:
         """
         Virtual Local Area Network.
         """

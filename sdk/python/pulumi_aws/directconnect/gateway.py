@@ -247,7 +247,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> pulumi.Output[str]:
+    def owner_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS Account ID of the gateway.
         """

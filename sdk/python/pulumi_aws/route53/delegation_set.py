@@ -224,7 +224,7 @@ class DelegationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Delegation Set.
         """
@@ -232,7 +232,7 @@ class DelegationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[Sequence[str]]:
+    def name_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of authoritative name servers for the hosted zone
         (effectively a list of NS records).

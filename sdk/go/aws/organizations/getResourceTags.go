@@ -59,8 +59,8 @@ type GetResourceTagsArgs struct {
 // A collection of values returned by getResourceTags.
 type GetResourceTagsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	ResourceId string `pulumi:"resourceId"`
+	Id         *string `pulumi:"id"`
+	ResourceId string  `pulumi:"resourceId"`
 	// Map of key=value pairs for each tag set on the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -106,8 +106,8 @@ func (o GetResourceTagsResultOutput) ToGetResourceTagsResultOutputWithContext(ct
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetResourceTagsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResourceTagsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetResourceTagsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResourceTagsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetResourceTagsResultOutput) ResourceId() pulumi.StringOutput {

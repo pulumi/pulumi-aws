@@ -59,40 +59,40 @@ export interface GetConfigurationProfileResult {
     /**
      * ARN of the Configuration Profile.
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly configurationProfileId: string;
     /**
      * Description of the Configuration Profile.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Location URI of the Configuration Profile.
      */
-    readonly locationUri: string;
+    readonly locationUri?: string;
     /**
      * Name of the Configuration Profile.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * ARN of an IAM role with permission to access the configuration at the specified location_uri.
      */
-    readonly retrievalRoleArn: string;
+    readonly retrievalRoleArn?: string;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
      */
-    readonly type: string;
+    readonly type?: string;
     /**
      * Nested list of methods for validating the configuration.
      */
-    readonly validators: outputs.appconfig.GetConfigurationProfileValidator[];
+    readonly validators?: outputs.appconfig.GetConfigurationProfileValidator[];
 }
 /**
  * Provides access to an AppConfig Configuration Profile.

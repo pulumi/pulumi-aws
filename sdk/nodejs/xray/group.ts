@@ -65,7 +65,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ARN of the Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      */
@@ -77,7 +77,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * Configuration options for enabling insights.
      */
-    public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration>;
+    public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */

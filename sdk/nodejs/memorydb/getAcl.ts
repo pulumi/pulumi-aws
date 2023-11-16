@@ -48,24 +48,24 @@ export interface GetAclResult {
     /**
      * ARN of the ACL.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The minimum engine version supported by the ACL.
      */
-    readonly minimumEngineVersion: string;
+    readonly minimumEngineVersion?: string;
     readonly name: string;
     /**
      * Map of tags assigned to the ACL.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Set of MemoryDB user names included in this ACL.
      */
-    readonly userNames: string[];
+    readonly userNames?: string[];
 }
 /**
  * Provides information about a MemoryDB ACL.

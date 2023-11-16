@@ -924,9 +924,9 @@ type GetLaunchPathsSummary struct {
 	// Block for constraints on the portfolio-product relationship. See details below.
 	ConstraintSummaries []GetLaunchPathsSummaryConstraintSummary `pulumi:"constraintSummaries"`
 	// Name of the portfolio to which the path was assigned.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Identifier of the product path.
-	PathId string `pulumi:"pathId"`
+	PathId *string `pulumi:"pathId"`
 	// Tags associated with this product path.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -946,9 +946,9 @@ type GetLaunchPathsSummaryArgs struct {
 	// Block for constraints on the portfolio-product relationship. See details below.
 	ConstraintSummaries GetLaunchPathsSummaryConstraintSummaryArrayInput `pulumi:"constraintSummaries"`
 	// Name of the portfolio to which the path was assigned.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Identifier of the product path.
-	PathId pulumi.StringInput `pulumi:"pathId"`
+	PathId pulumi.StringPtrInput `pulumi:"pathId"`
 	// Tags associated with this product path.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -1010,13 +1010,13 @@ func (o GetLaunchPathsSummaryOutput) ConstraintSummaries() GetLaunchPathsSummary
 }
 
 // Name of the portfolio to which the path was assigned.
-func (o GetLaunchPathsSummaryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLaunchPathsSummary) string { return v.Name }).(pulumi.StringOutput)
+func (o GetLaunchPathsSummaryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummary) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the product path.
-func (o GetLaunchPathsSummaryOutput) PathId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLaunchPathsSummary) string { return v.PathId }).(pulumi.StringOutput)
+func (o GetLaunchPathsSummaryOutput) PathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummary) *string { return v.PathId }).(pulumi.StringPtrOutput)
 }
 
 // Tags associated with this product path.
@@ -1046,9 +1046,9 @@ func (o GetLaunchPathsSummaryArrayOutput) Index(i pulumi.IntInput) GetLaunchPath
 
 type GetLaunchPathsSummaryConstraintSummary struct {
 	// Description of the constraint.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetLaunchPathsSummaryConstraintSummaryInput is an input type that accepts GetLaunchPathsSummaryConstraintSummaryArgs and GetLaunchPathsSummaryConstraintSummaryOutput values.
@@ -1064,9 +1064,9 @@ type GetLaunchPathsSummaryConstraintSummaryInput interface {
 
 type GetLaunchPathsSummaryConstraintSummaryArgs struct {
 	// Description of the constraint.
-	Description pulumi.StringInput `pulumi:"description"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetLaunchPathsSummaryConstraintSummaryArgs) ElementType() reflect.Type {
@@ -1121,13 +1121,13 @@ func (o GetLaunchPathsSummaryConstraintSummaryOutput) ToGetLaunchPathsSummaryCon
 }
 
 // Description of the constraint.
-func (o GetLaunchPathsSummaryConstraintSummaryOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLaunchPathsSummaryConstraintSummary) string { return v.Description }).(pulumi.StringOutput)
+func (o GetLaunchPathsSummaryConstraintSummaryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummaryConstraintSummary) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-func (o GetLaunchPathsSummaryConstraintSummaryOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLaunchPathsSummaryConstraintSummary) string { return v.Type }).(pulumi.StringOutput)
+func (o GetLaunchPathsSummaryConstraintSummaryOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummaryConstraintSummary) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetLaunchPathsSummaryConstraintSummaryArrayOutput struct{ *pulumi.OutputState }
@@ -1152,18 +1152,18 @@ func (o GetLaunchPathsSummaryConstraintSummaryArrayOutput) Index(i pulumi.IntInp
 
 type GetPortfolioConstraintsDetail struct {
 	// Identifier of the constraint.
-	ConstraintId string `pulumi:"constraintId"`
+	ConstraintId *string `pulumi:"constraintId"`
 	// Description of the constraint.
-	Description string `pulumi:"description"`
-	Owner       string `pulumi:"owner"`
+	Description *string `pulumi:"description"`
+	Owner       *string `pulumi:"owner"`
 	// Portfolio identifier.
 	//
 	// The following arguments are optional:
-	PortfolioId string `pulumi:"portfolioId"`
+	PortfolioId *string `pulumi:"portfolioId"`
 	// Product identifier.
-	ProductId string `pulumi:"productId"`
+	ProductId *string `pulumi:"productId"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetPortfolioConstraintsDetailInput is an input type that accepts GetPortfolioConstraintsDetailArgs and GetPortfolioConstraintsDetailOutput values.
@@ -1179,18 +1179,18 @@ type GetPortfolioConstraintsDetailInput interface {
 
 type GetPortfolioConstraintsDetailArgs struct {
 	// Identifier of the constraint.
-	ConstraintId pulumi.StringInput `pulumi:"constraintId"`
+	ConstraintId pulumi.StringPtrInput `pulumi:"constraintId"`
 	// Description of the constraint.
-	Description pulumi.StringInput `pulumi:"description"`
-	Owner       pulumi.StringInput `pulumi:"owner"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Owner       pulumi.StringPtrInput `pulumi:"owner"`
 	// Portfolio identifier.
 	//
 	// The following arguments are optional:
-	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
+	PortfolioId pulumi.StringPtrInput `pulumi:"portfolioId"`
 	// Product identifier.
-	ProductId pulumi.StringInput `pulumi:"productId"`
+	ProductId pulumi.StringPtrInput `pulumi:"productId"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetPortfolioConstraintsDetailArgs) ElementType() reflect.Type {
@@ -1245,34 +1245,34 @@ func (o GetPortfolioConstraintsDetailOutput) ToGetPortfolioConstraintsDetailOutp
 }
 
 // Identifier of the constraint.
-func (o GetPortfolioConstraintsDetailOutput) ConstraintId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.ConstraintId }).(pulumi.StringOutput)
+func (o GetPortfolioConstraintsDetailOutput) ConstraintId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) *string { return v.ConstraintId }).(pulumi.StringPtrOutput)
 }
 
 // Description of the constraint.
-func (o GetPortfolioConstraintsDetailOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.Description }).(pulumi.StringOutput)
+func (o GetPortfolioConstraintsDetailOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o GetPortfolioConstraintsDetailOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.Owner }).(pulumi.StringOutput)
+func (o GetPortfolioConstraintsDetailOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // Portfolio identifier.
 //
 // The following arguments are optional:
-func (o GetPortfolioConstraintsDetailOutput) PortfolioId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.PortfolioId }).(pulumi.StringOutput)
+func (o GetPortfolioConstraintsDetailOutput) PortfolioId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) *string { return v.PortfolioId }).(pulumi.StringPtrOutput)
 }
 
 // Product identifier.
-func (o GetPortfolioConstraintsDetailOutput) ProductId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.ProductId }).(pulumi.StringOutput)
+func (o GetPortfolioConstraintsDetailOutput) ProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) *string { return v.ProductId }).(pulumi.StringPtrOutput)
 }
 
 // Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-func (o GetPortfolioConstraintsDetailOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.Type }).(pulumi.StringOutput)
+func (o GetPortfolioConstraintsDetailOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetPortfolioConstraintsDetailArrayOutput struct{ *pulumi.OutputState }
@@ -1297,19 +1297,19 @@ func (o GetPortfolioConstraintsDetailArrayOutput) Index(i pulumi.IntInput) GetPo
 
 type GetProvisioningArtifactsProvisioningArtifactDetail struct {
 	// Indicates whether the product version is active.
-	Active bool `pulumi:"active"`
+	Active *bool `pulumi:"active"`
 	// The UTC time stamp of the creation time.
-	CreatedTime string `pulumi:"createdTime"`
+	CreatedTime *string `pulumi:"createdTime"`
 	// The description of the provisioning artifact.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
-	Guidance string `pulumi:"guidance"`
+	Guidance *string `pulumi:"guidance"`
 	// The identifier of the provisioning artifact.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The name of the provisioning artifact.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The type of provisioning artifact.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetProvisioningArtifactsProvisioningArtifactDetailInput is an input type that accepts GetProvisioningArtifactsProvisioningArtifactDetailArgs and GetProvisioningArtifactsProvisioningArtifactDetailOutput values.
@@ -1325,19 +1325,19 @@ type GetProvisioningArtifactsProvisioningArtifactDetailInput interface {
 
 type GetProvisioningArtifactsProvisioningArtifactDetailArgs struct {
 	// Indicates whether the product version is active.
-	Active pulumi.BoolInput `pulumi:"active"`
+	Active pulumi.BoolPtrInput `pulumi:"active"`
 	// The UTC time stamp of the creation time.
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description of the provisioning artifact.
-	Description pulumi.StringInput `pulumi:"description"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
-	Guidance pulumi.StringInput `pulumi:"guidance"`
+	Guidance pulumi.StringPtrInput `pulumi:"guidance"`
 	// The identifier of the provisioning artifact.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the provisioning artifact.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of provisioning artifact.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetProvisioningArtifactsProvisioningArtifactDetailArgs) ElementType() reflect.Type {
@@ -1392,38 +1392,38 @@ func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) ToGetProvision
 }
 
 // Indicates whether the product version is active.
-func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Active() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) bool { return v.Active }).(pulumi.BoolOutput)
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) *bool { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
 // The UTC time stamp of the creation time.
-func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.CreatedTime }).(pulumi.StringOutput)
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The description of the provisioning artifact.
-func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Description }).(pulumi.StringOutput)
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
-func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Guidance() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Guidance }).(pulumi.StringOutput)
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Guidance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) *string { return v.Guidance }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the provisioning artifact.
-func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Id }).(pulumi.StringOutput)
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The name of the provisioning artifact.
-func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Name }).(pulumi.StringOutput)
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The type of provisioning artifact.
-func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Type }).(pulumi.StringOutput)
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput struct{ *pulumi.OutputState }

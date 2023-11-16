@@ -13,12 +13,12 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class GetOriginRequestPolicyCookiesConfigResult
     {
-        public readonly string CookieBehavior;
+        public readonly string? CookieBehavior;
         public readonly ImmutableArray<Outputs.GetOriginRequestPolicyCookiesConfigCookieResult> Cookies;
 
         [OutputConstructor]
         private GetOriginRequestPolicyCookiesConfigResult(
-            string cookieBehavior,
+            string? cookieBehavior,
 
             ImmutableArray<Outputs.GetOriginRequestPolicyCookiesConfigCookieResult> cookies)
         {

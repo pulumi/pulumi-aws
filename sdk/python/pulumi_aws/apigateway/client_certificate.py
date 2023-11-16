@@ -318,7 +318,7 @@ class ClientCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN
         """
@@ -326,7 +326,7 @@ class ClientCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date when the client certificate was created.
         """
@@ -342,7 +342,7 @@ class ClientCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> pulumi.Output[str]:
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date when the client certificate will expire.
         """
@@ -350,7 +350,7 @@ class ClientCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pemEncodedCertificate")
-    def pem_encoded_certificate(self) -> pulumi.Output[str]:
+    def pem_encoded_certificate(self) -> pulumi.Output[Optional[str]]:
         """
         The PEM-encoded public key of the client certificate.
         """

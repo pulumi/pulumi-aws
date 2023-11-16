@@ -146,7 +146,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
     @Export(name="aquaConfigurationStatus", refs={String.class}, tree="[0]")
-    private Output<String> aquaConfigurationStatus;
+    private Output</* @Nullable */ String> aquaConfigurationStatus;
 
     /**
      * @return The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
@@ -154,22 +154,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Always returns `auto`.
      * 
      */
-    public Output<String> aquaConfigurationStatus() {
-        return this.aquaConfigurationStatus;
+    public Output<Optional<String>> aquaConfigurationStatus() {
+        return Codegen.optional(this.aquaConfigurationStatus);
     }
     /**
      * Amazon Resource Name (ARN) of cluster
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of cluster
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
@@ -190,14 +190,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
@@ -232,98 +232,98 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clusterNamespaceArn", refs={String.class}, tree="[0]")
-    private Output<String> clusterNamespaceArn;
+    private Output</* @Nullable */ String> clusterNamespaceArn;
 
     /**
      * @return The namespace Amazon Resource Name (ARN) of the cluster
      * 
      */
-    public Output<String> clusterNamespaceArn() {
-        return this.clusterNamespaceArn;
+    public Output<Optional<String>> clusterNamespaceArn() {
+        return Codegen.optional(this.clusterNamespaceArn);
     }
     /**
      * The nodes in the cluster. Cluster node blocks are documented below
      * 
      */
     @Export(name="clusterNodes", refs={List.class,ClusterClusterNode.class}, tree="[0,1]")
-    private Output<List<ClusterClusterNode>> clusterNodes;
+    private Output</* @Nullable */ List<ClusterClusterNode>> clusterNodes;
 
     /**
      * @return The nodes in the cluster. Cluster node blocks are documented below
      * 
      */
-    public Output<List<ClusterClusterNode>> clusterNodes() {
-        return this.clusterNodes;
+    public Output<Optional<List<ClusterClusterNode>>> clusterNodes() {
+        return Codegen.optional(this.clusterNodes);
     }
     /**
      * The name of the parameter group to be associated with this cluster.
      * 
      */
     @Export(name="clusterParameterGroupName", refs={String.class}, tree="[0]")
-    private Output<String> clusterParameterGroupName;
+    private Output</* @Nullable */ String> clusterParameterGroupName;
 
     /**
      * @return The name of the parameter group to be associated with this cluster.
      * 
      */
-    public Output<String> clusterParameterGroupName() {
-        return this.clusterParameterGroupName;
+    public Output<Optional<String>> clusterParameterGroupName() {
+        return Codegen.optional(this.clusterParameterGroupName);
     }
     /**
      * The public key for the cluster
      * 
      */
     @Export(name="clusterPublicKey", refs={String.class}, tree="[0]")
-    private Output<String> clusterPublicKey;
+    private Output</* @Nullable */ String> clusterPublicKey;
 
     /**
      * @return The public key for the cluster
      * 
      */
-    public Output<String> clusterPublicKey() {
-        return this.clusterPublicKey;
+    public Output<Optional<String>> clusterPublicKey() {
+        return Codegen.optional(this.clusterPublicKey);
     }
     /**
      * The specific revision number of the database in the cluster
      * 
      */
     @Export(name="clusterRevisionNumber", refs={String.class}, tree="[0]")
-    private Output<String> clusterRevisionNumber;
+    private Output</* @Nullable */ String> clusterRevisionNumber;
 
     /**
      * @return The specific revision number of the database in the cluster
      * 
      */
-    public Output<String> clusterRevisionNumber() {
-        return this.clusterRevisionNumber;
+    public Output<Optional<String>> clusterRevisionNumber() {
+        return Codegen.optional(this.clusterRevisionNumber);
     }
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      * 
      */
     @Export(name="clusterSubnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> clusterSubnetGroupName;
+    private Output</* @Nullable */ String> clusterSubnetGroupName;
 
     /**
      * @return The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      * 
      */
-    public Output<String> clusterSubnetGroupName() {
-        return this.clusterSubnetGroupName;
+    public Output<Optional<String>> clusterSubnetGroupName() {
+        return Codegen.optional(this.clusterSubnetGroupName);
     }
     /**
      * The cluster type to use. Either `single-node` or `multi-node`.
      * 
      */
     @Export(name="clusterType", refs={String.class}, tree="[0]")
-    private Output<String> clusterType;
+    private Output</* @Nullable */ String> clusterType;
 
     /**
      * @return The cluster type to use. Either `single-node` or `multi-node`.
      * 
      */
-    public Output<String> clusterType() {
-        return this.clusterType;
+    public Output<Optional<String>> clusterType() {
+        return Codegen.optional(this.clusterType);
     }
     /**
      * The version of the Amazon Redshift engine software that you want to deploy on the cluster.
@@ -347,43 +347,43 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
-    private Output<String> databaseName;
+    private Output</* @Nullable */ String> databaseName;
 
     /**
      * @return The name of the first database to be created when the cluster is created.
      * If you do not provide a name, Amazon Redshift will create a default database called `dev`.
      * 
      */
-    public Output<String> databaseName() {
-        return this.databaseName;
+    public Output<Optional<String>> databaseName() {
+        return Codegen.optional(this.databaseName);
     }
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
-    private Output<String> defaultIamRoleArn;
+    private Output</* @Nullable */ String> defaultIamRoleArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
-    public Output<String> defaultIamRoleArn() {
-        return this.defaultIamRoleArn;
+    public Output<Optional<String>> defaultIamRoleArn() {
+        return Codegen.optional(this.defaultIamRoleArn);
     }
     /**
      * The DNS name of the cluster
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name of the cluster
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * The Elastic IP (EIP) address for the cluster.
@@ -418,28 +418,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The connection endpoint
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * If true , enhanced VPC routing is enabled.
      * 
      */
     @Export(name="enhancedVpcRouting", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enhancedVpcRouting;
+    private Output</* @Nullable */ Boolean> enhancedVpcRouting;
 
     /**
      * @return If true , enhanced VPC routing is enabled.
      * 
      */
-    public Output<Boolean> enhancedVpcRouting() {
-        return this.enhancedVpcRouting;
+    public Output<Optional<Boolean>> enhancedVpcRouting() {
+        return Codegen.optional(this.enhancedVpcRouting);
     }
     /**
      * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
@@ -460,28 +460,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="iamRoles", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> iamRoles;
+    private Output</* @Nullable */ List<String>> iamRoles;
 
     /**
      * @return A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      * 
      */
-    public Output<List<String>> iamRoles() {
-        return this.iamRoles;
+    public Output<Optional<List<String>>> iamRoles() {
+        return Codegen.optional(this.iamRoles);
     }
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * Logging, documented below.
@@ -570,28 +570,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="masterPasswordSecretArn", refs={String.class}, tree="[0]")
-    private Output<String> masterPasswordSecretArn;
+    private Output</* @Nullable */ String> masterPasswordSecretArn;
 
     /**
      * @return ARN of the cluster admin credentials secret
      * 
      */
-    public Output<String> masterPasswordSecretArn() {
-        return this.masterPasswordSecretArn;
+    public Output<Optional<String>> masterPasswordSecretArn() {
+        return Codegen.optional(this.masterPasswordSecretArn);
     }
     /**
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      * 
      */
     @Export(name="masterPasswordSecretKmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> masterPasswordSecretKmsKeyId;
+    private Output</* @Nullable */ String> masterPasswordSecretKmsKeyId;
 
     /**
      * @return ID of the KMS key used to encrypt the cluster admin credentials secret.
      * 
      */
-    public Output<String> masterPasswordSecretKmsKeyId() {
-        return this.masterPasswordSecretKmsKeyId;
+    public Output<Optional<String>> masterPasswordSecretKmsKeyId() {
+        return Codegen.optional(this.masterPasswordSecretKmsKeyId);
     }
     /**
      * Username for the master DB user.
@@ -675,15 +675,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredMaintenanceWindow;
+    private Output</* @Nullable */ String> preferredMaintenanceWindow;
 
     /**
      * @return The weekly time range (in UTC) during which automated cluster maintenance can occur.
      * Format: ddd:hh24:mi-ddd:hh24:mi
      * 
      */
-    public Output<String> preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Output<Optional<String>> preferredMaintenanceWindow() {
+        return Codegen.optional(this.preferredMaintenanceWindow);
     }
     /**
      * If true, the cluster can be accessed from a public network. Default is `true`.
@@ -806,14 +806,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
 
     /**

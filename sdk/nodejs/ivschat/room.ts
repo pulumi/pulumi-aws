@@ -76,7 +76,7 @@ export class Room extends pulumi.CustomResource {
     /**
      * ARN of the Room.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * List of Logging Configuration
      * ARNs to attach to the room.
@@ -87,12 +87,12 @@ export class Room extends pulumi.CustomResource {
      * message. Messages are expected to be UTF-8 encoded and this limit applies
      * specifically to rune/code-point count, not number of bytes.
      */
-    public readonly maximumMessageLength!: pulumi.Output<number>;
+    public readonly maximumMessageLength!: pulumi.Output<number | undefined>;
     /**
      * Maximum number of messages per
      * second that can be sent to the room (by all clients).
      */
-    public readonly maximumMessageRatePerSecond!: pulumi.Output<number>;
+    public readonly maximumMessageRatePerSecond!: pulumi.Output<number | undefined>;
     /**
      * Configuration information for optional
      * review of messages.

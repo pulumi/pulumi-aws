@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetInstanceTypeInstanceDiskResult
     {
-        public readonly int Count;
-        public readonly int Size;
-        public readonly string Type;
+        public readonly int? Count;
+        public readonly int? Size;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetInstanceTypeInstanceDiskResult(
-            int count,
+            int? count,
 
-            int size,
+            int? size,
 
-            string type)
+            string? type)
         {
             Count = count;
             Size = size;

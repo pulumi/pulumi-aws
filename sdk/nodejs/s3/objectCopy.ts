@@ -59,16 +59,16 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
      */
-    public readonly acl!: pulumi.Output<string>;
+    public readonly acl!: pulumi.Output<string | undefined>;
     /**
      * Name of the bucket to put the file in.
      */
     public readonly bucket!: pulumi.Output<string>;
-    public readonly bucketKeyEnabled!: pulumi.Output<boolean>;
+    public readonly bucketKeyEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    public readonly cacheControl!: pulumi.Output<string>;
+    public readonly cacheControl!: pulumi.Output<string | undefined>;
     /**
      * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
      */
@@ -76,35 +76,35 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * The base64-encoded, 32-bit CRC32 checksum of the object.
      */
-    public /*out*/ readonly checksumCrc32!: pulumi.Output<string>;
+    public /*out*/ readonly checksumCrc32!: pulumi.Output<string | undefined>;
     /**
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      */
-    public /*out*/ readonly checksumCrc32c!: pulumi.Output<string>;
+    public /*out*/ readonly checksumCrc32c!: pulumi.Output<string | undefined>;
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      */
-    public /*out*/ readonly checksumSha1!: pulumi.Output<string>;
+    public /*out*/ readonly checksumSha1!: pulumi.Output<string | undefined>;
     /**
      * The base64-encoded, 256-bit SHA-256 digest of the object.
      */
-    public /*out*/ readonly checksumSha256!: pulumi.Output<string>;
+    public /*out*/ readonly checksumSha256!: pulumi.Output<string | undefined>;
     /**
      * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    public readonly contentDisposition!: pulumi.Output<string>;
+    public readonly contentDisposition!: pulumi.Output<string | undefined>;
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    public readonly contentEncoding!: pulumi.Output<string>;
+    public readonly contentEncoding!: pulumi.Output<string | undefined>;
     /**
      * Language the content is in e.g., en-US or en-GB.
      */
-    public readonly contentLanguage!: pulumi.Output<string>;
+    public readonly contentLanguage!: pulumi.Output<string | undefined>;
     /**
      * Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
      */
-    public readonly contentType!: pulumi.Output<string>;
+    public readonly contentType!: pulumi.Output<string | undefined>;
     /**
      * Copies the object if its entity tag (ETag) matches the specified tag.
      */
@@ -124,7 +124,7 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * Specifies the algorithm to use to when encrypting the object (for example, AES256).
      */
-    public readonly customerAlgorithm!: pulumi.Output<string>;
+    public readonly customerAlgorithm!: pulumi.Output<string | undefined>;
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      */
@@ -132,11 +132,11 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
-    public readonly customerKeyMd5!: pulumi.Output<string>;
+    public readonly customerKeyMd5!: pulumi.Output<string | undefined>;
     /**
      * ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
@@ -148,7 +148,7 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * If the object expiration is configured, this attribute will be set.
      */
-    public /*out*/ readonly expiration!: pulumi.Output<string>;
+    public /*out*/ readonly expiration!: pulumi.Output<string | undefined>;
     /**
      * Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
@@ -168,19 +168,19 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      */
-    public readonly kmsEncryptionContext!: pulumi.Output<string>;
+    public readonly kmsEncryptionContext!: pulumi.Output<string | undefined>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string | undefined>;
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      */
@@ -188,19 +188,19 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      */
-    public readonly objectLockLegalHoldStatus!: pulumi.Output<string>;
+    public readonly objectLockLegalHoldStatus!: pulumi.Output<string | undefined>;
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      */
-    public readonly objectLockMode!: pulumi.Output<string>;
+    public readonly objectLockMode!: pulumi.Output<string | undefined>;
     /**
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
-    public readonly objectLockRetainUntilDate!: pulumi.Output<string>;
+    public readonly objectLockRetainUntilDate!: pulumi.Output<string | undefined>;
     /**
      * If present, indicates that the requester was successfully charged for the request.
      */
-    public /*out*/ readonly requestCharged!: pulumi.Output<boolean>;
+    public /*out*/ readonly requestCharged!: pulumi.Output<boolean | undefined>;
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      */
@@ -208,7 +208,7 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      */
-    public readonly serverSideEncryption!: pulumi.Output<string>;
+    public readonly serverSideEncryption!: pulumi.Output<string | undefined>;
     /**
      * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
      *
@@ -230,11 +230,11 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * Version of the copied object in the source bucket.
      */
-    public /*out*/ readonly sourceVersionId!: pulumi.Output<string>;
+    public /*out*/ readonly sourceVersionId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      */
-    public readonly storageClass!: pulumi.Output<string>;
+    public readonly storageClass!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      */
@@ -252,11 +252,11 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * Version ID of the newly created copy.
      */
-    public /*out*/ readonly versionId!: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string | undefined>;
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
-    public readonly websiteRedirect!: pulumi.Output<string>;
+    public readonly websiteRedirect!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ObjectCopy resource with the given unique name, arguments, and options.

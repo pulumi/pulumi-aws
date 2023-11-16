@@ -264,7 +264,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The ARN of the CloudWatch Metric Alarm.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The following values are supported: `ignore`, and `evaluate`.
         /// </summary>
         [Output("evaluateLowSampleCountPercentiles")]
-        public Output<string> EvaluateLowSampleCountPercentiles { get; private set; } = null!;
+        public Output<string?> EvaluateLowSampleCountPercentiles { get; private set; } = null!;
 
         /// <summary>
         /// The number of periods over which data is compared to the specified threshold.

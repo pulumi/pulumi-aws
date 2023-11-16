@@ -126,7 +126,7 @@ type EventDataStore struct {
 	// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayOutput `pulumi:"advancedEventSelectors"`
 	// ARN of the event data store.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
@@ -368,8 +368,8 @@ func (o EventDataStoreOutput) AdvancedEventSelectors() EventDataStoreAdvancedEve
 }
 
 // ARN of the event data store.
-func (o EventDataStoreOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EventDataStoreOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDataStore) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.

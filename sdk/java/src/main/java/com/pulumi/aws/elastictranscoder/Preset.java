@@ -126,14 +126,14 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Audio parameters object (documented below).
@@ -154,14 +154,14 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="audioCodecOptions", refs={PresetAudioCodecOptions.class}, tree="[0]")
-    private Output<PresetAudioCodecOptions> audioCodecOptions;
+    private Output</* @Nullable */ PresetAudioCodecOptions> audioCodecOptions;
 
     /**
      * @return Codec options for the audio parameters (documented below)
      * 
      */
-    public Output<PresetAudioCodecOptions> audioCodecOptions() {
-        return this.audioCodecOptions;
+    public Output<Optional<PresetAudioCodecOptions>> audioCodecOptions() {
+        return Codegen.optional(this.audioCodecOptions);
     }
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
@@ -220,10 +220,10 @@ public class Preset extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.thumbnails);
     }
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
     /**
      * Video parameters object (documented below)

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
         /// ARN of the Network Insights Path.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ec2
         /// ARN of the destination.
         /// </summary>
         [Output("destinationArn")]
-        public Output<string> DestinationArn { get; private set; } = null!;
+        public Output<string?> DestinationArn { get; private set; } = null!;
 
         /// <summary>
         /// IP address of the destination resource.
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         /// ARN of the source.
         /// </summary>
         [Output("sourceArn")]
-        public Output<string> SourceArn { get; private set; } = null!;
+        public Output<string?> SourceArn { get; private set; } = null!;
 
         /// <summary>
         /// IP address of the source resource.

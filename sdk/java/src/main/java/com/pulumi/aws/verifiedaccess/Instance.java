@@ -100,14 +100,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
     /**
      * @return The time that the Verified Access Instance was created.
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * A description for the AWS Verified Access Instance.
@@ -142,14 +142,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
+    private Output</* @Nullable */ String> lastUpdatedTime;
 
     /**
      * @return The time that the Verified Access Instance was last updated.
      * 
      */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Output<Optional<String>> lastUpdatedTime() {
+        return Codegen.optional(this.lastUpdatedTime);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -182,14 +182,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="verifiedAccessTrustProviders", refs={List.class,InstanceVerifiedAccessTrustProvider.class}, tree="[0,1]")
-    private Output<List<InstanceVerifiedAccessTrustProvider>> verifiedAccessTrustProviders;
+    private Output</* @Nullable */ List<InstanceVerifiedAccessTrustProvider>> verifiedAccessTrustProviders;
 
     /**
      * @return One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
      * 
      */
-    public Output<List<InstanceVerifiedAccessTrustProvider>> verifiedAccessTrustProviders() {
-        return this.verifiedAccessTrustProviders;
+    public Output<Optional<List<InstanceVerifiedAccessTrustProvider>>> verifiedAccessTrustProviders() {
+        return Codegen.optional(this.verifiedAccessTrustProviders);
     }
 
     /**

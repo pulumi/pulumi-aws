@@ -58,14 +58,14 @@ type LookupApplicationArgs struct {
 
 // A collection of values returned by getApplication.
 type LookupApplicationResult struct {
-	AppversionLifecycle GetApplicationAppversionLifecycle `pulumi:"appversionLifecycle"`
+	AppversionLifecycle *GetApplicationAppversionLifecycle `pulumi:"appversionLifecycle"`
 	// ARN of the application.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Short description of the application
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -106,23 +106,23 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
-func (o LookupApplicationResultOutput) AppversionLifecycle() GetApplicationAppversionLifecycleOutput {
-	return o.ApplyT(func(v LookupApplicationResult) GetApplicationAppversionLifecycle { return v.AppversionLifecycle }).(GetApplicationAppversionLifecycleOutput)
+func (o LookupApplicationResultOutput) AppversionLifecycle() GetApplicationAppversionLifecyclePtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *GetApplicationAppversionLifecycle { return v.AppversionLifecycle }).(GetApplicationAppversionLifecyclePtrOutput)
 }
 
 // ARN of the application.
-func (o LookupApplicationResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApplicationResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupApplicationResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Short description of the application
-func (o LookupApplicationResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApplicationResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApplicationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupApplicationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupApplicationResultOutput) Name() pulumi.StringOutput {

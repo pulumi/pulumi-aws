@@ -58,7 +58,7 @@ namespace Pulumi.Aws.SecretsManager
         /// Specifies whether automatic rotation is enabled for this secret.
         /// </summary>
         [Output("rotationEnabled")]
-        public Output<bool> RotationEnabled { get; private set; } = null!;
+        public Output<bool?> RotationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.

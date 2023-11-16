@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string UserPoolId;
 
         [OutputConstructor]
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Cognito
 
             ImmutableArray<string> clientNames,
 
-            string id,
+            string? id,
 
             string userPoolId)
         {

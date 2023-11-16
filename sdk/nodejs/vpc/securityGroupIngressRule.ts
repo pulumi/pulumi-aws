@@ -68,7 +68,7 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the security group rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The source IPv4 CIDR range.
      */
@@ -104,7 +104,7 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
     /**
      * The ID of the security group rule.
      */
-    public /*out*/ readonly securityGroupRuleId!: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupRuleId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -58,25 +58,25 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The username of the database within a snapshot.
         /// </summary>
         [Output("adminUsername")]
-        public Output<string> AdminUsername { get; private set; } = null!;
+        public Output<string?> AdminUsername { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the snapshot.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier of the KMS key used to encrypt the snapshot.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
         /// </summary>
         [Output("namespaceArn")]
-        public Output<string> NamespaceArn { get; private set; } = null!;
+        public Output<string?> NamespaceArn { get; private set; } = null!;
 
         /// <summary>
         /// The namespace to create a snapshot for.
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The owner Amazon Web Services; account of the snapshot.
         /// </summary>
         [Output("ownerAccount")]
-        public Output<string> OwnerAccount { get; private set; } = null!;
+        public Output<string?> OwnerAccount { get; private set; } = null!;
 
         /// <summary>
         /// How long to retain the created snapshot. Default value is `-1`.

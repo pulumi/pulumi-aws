@@ -122,27 +122,29 @@ class DevEnvironmentRepositoryArgs:
 @pulumi.input_type
 class GetDevEnvironmentRepositoryArgs:
     def __init__(__self__, *,
-                 branch_name: str,
-                 repository_name: str):
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "repository_name", repository_name)
+                 branch_name: Optional[str] = None,
+                 repository_name: Optional[str] = None):
+        if branch_name is not None:
+            pulumi.set(__self__, "branch_name", branch_name)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
 
     @property
     @pulumi.getter(name="branchName")
-    def branch_name(self) -> str:
+    def branch_name(self) -> Optional[str]:
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
-    def branch_name(self, value: str):
+    def branch_name(self, value: Optional[str]):
         pulumi.set(self, "branch_name", value)
 
     @property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> str:
+    def repository_name(self) -> Optional[str]:
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
-    def repository_name(self, value: str):
+    def repository_name(self, value: Optional[str]):
         pulumi.set(self, "repository_name", value)
 
 

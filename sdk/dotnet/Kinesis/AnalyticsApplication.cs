@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Kinesis
         /// The ARN of the Kinesis Analytics Appliation.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The CloudWatch log stream options to monitor application errors.
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Kinesis
         /// The Timestamp when the application version was created.
         /// </summary>
         [Output("createTimestamp")]
-        public Output<string> CreateTimestamp { get; private set; } = null!;
+        public Output<string?> CreateTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Description of the application.
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Kinesis
         /// The Timestamp when the application was last updated.
         /// </summary>
         [Output("lastUpdateTimestamp")]
-        public Output<string> LastUpdateTimestamp { get; private set; } = null!;
+        public Output<string?> LastUpdateTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Name of the Kinesis Analytics Application.
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Kinesis
         /// The Status of the application.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Kinesis
         /// The Version of the application.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>

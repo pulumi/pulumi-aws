@@ -57,20 +57,20 @@ type LookupSubnetGroupArgs struct {
 // A collection of values returned by getSubnetGroup.
 type LookupSubnetGroupResult struct {
 	// ARN for the DB subnet group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Provides the description of the DB subnet group.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Provides the status of the DB subnet group.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Contains a list of subnet identifiers.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The network type of the DB subnet group.
 	SupportedNetworkTypes []string `pulumi:"supportedNetworkTypes"`
 	// Provides the VPC ID of the DB subnet group.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
@@ -112,18 +112,18 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContex
 }
 
 // ARN for the DB subnet group.
-func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Provides the description of the DB subnet group.
-func (o LookupSubnetGroupResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSubnetGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSubnetGroupResultOutput) Name() pulumi.StringOutput {
@@ -131,8 +131,8 @@ func (o LookupSubnetGroupResultOutput) Name() pulumi.StringOutput {
 }
 
 // Provides the status of the DB subnet group.
-func (o LookupSubnetGroupResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Contains a list of subnet identifiers.
@@ -146,8 +146,8 @@ func (o LookupSubnetGroupResultOutput) SupportedNetworkTypes() pulumi.StringArra
 }
 
 // Provides the VPC ID of the DB subnet group.
-func (o LookupSubnetGroupResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -57,17 +57,17 @@ class GetControlResult:
 
     @property
     @pulumi.getter(name="actionPlanInstructions")
-    def action_plan_instructions(self) -> str:
+    def action_plan_instructions(self) -> Optional[str]:
         return pulumi.get(self, "action_plan_instructions")
 
     @property
     @pulumi.getter(name="actionPlanTitle")
-    def action_plan_title(self) -> str:
+    def action_plan_title(self) -> Optional[str]:
         return pulumi.get(self, "action_plan_title")
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
@@ -77,12 +77,12 @@ class GetControlResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
@@ -92,12 +92,12 @@ class GetControlResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="testingInformation")
-    def testing_information(self) -> str:
+    def testing_information(self) -> Optional[str]:
         return pulumi.get(self, "testing_information")
 
     @property

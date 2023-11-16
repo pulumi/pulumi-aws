@@ -48,7 +48,7 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
     /**
      * Rule Set ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the matchmaking rule set.
      */

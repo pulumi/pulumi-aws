@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        public readonly string CatalogId;
+        public readonly string? CatalogId;
         /// <summary>
         /// Key-name for the tag.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
 
         [OutputConstructor]
         private GetPermissionsLfTagResult(
-            string catalogId,
+            string? catalogId,
 
             string key,
 

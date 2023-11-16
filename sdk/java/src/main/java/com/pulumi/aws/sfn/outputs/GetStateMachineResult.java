@@ -6,6 +6,8 @@ package com.pulumi.aws.sfn.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStateMachineResult {
@@ -13,71 +15,71 @@ public final class GetStateMachineResult {
      * @return Set to the arn of the state function.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Date the state machine was created.
      * 
      */
-    private String creationDate;
+    private @Nullable String creationDate;
     /**
      * @return Set to the state machine definition.
      * 
      */
-    private String definition;
-    private String description;
+    private @Nullable String definition;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return The revision identifier for the state machine.
      * 
      */
-    private String revisionId;
+    private @Nullable String revisionId;
     /**
      * @return Set to the role_arn used by the state function.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return Set to the current status of the state machine.
      * 
      */
-    private String status;
+    private @Nullable String status;
 
     private GetStateMachineResult() {}
     /**
      * @return Set to the arn of the state function.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Date the state machine was created.
      * 
      */
-    public String creationDate() {
-        return this.creationDate;
+    public Optional<String> creationDate() {
+        return Optional.ofNullable(this.creationDate);
     }
     /**
      * @return Set to the state machine definition.
      * 
      */
-    public String definition() {
-        return this.definition;
+    public Optional<String> definition() {
+        return Optional.ofNullable(this.definition);
     }
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -86,22 +88,22 @@ public final class GetStateMachineResult {
      * @return The revision identifier for the state machine.
      * 
      */
-    public String revisionId() {
-        return this.revisionId;
+    public Optional<String> revisionId() {
+        return Optional.ofNullable(this.revisionId);
     }
     /**
      * @return Set to the role_arn used by the state function.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return Set to the current status of the state machine.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -113,15 +115,15 @@ public final class GetStateMachineResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String creationDate;
-        private String definition;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String creationDate;
+        private @Nullable String definition;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private String revisionId;
-        private String roleArn;
-        private String status;
+        private @Nullable String revisionId;
+        private @Nullable String roleArn;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetStateMachineResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -137,28 +139,28 @@ public final class GetStateMachineResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+        public Builder creationDate(@Nullable String creationDate) {
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
-        public Builder definition(String definition) {
-            this.definition = Objects.requireNonNull(definition);
+        public Builder definition(@Nullable String definition) {
+            this.definition = definition;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -167,18 +169,18 @@ public final class GetStateMachineResult {
             return this;
         }
         @CustomType.Setter
-        public Builder revisionId(String revisionId) {
-            this.revisionId = Objects.requireNonNull(revisionId);
+        public Builder revisionId(@Nullable String revisionId) {
+            this.revisionId = revisionId;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetStateMachineResult build() {

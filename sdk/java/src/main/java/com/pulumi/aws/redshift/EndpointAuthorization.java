@@ -81,14 +81,14 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allowedAllVpcs", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> allowedAllVpcs;
+    private Output</* @Nullable */ Boolean> allowedAllVpcs;
 
     /**
      * @return Indicates whether all VPCs in the grantee account are allowed access to the cluster.
      * 
      */
-    public Output<Boolean> allowedAllVpcs() {
-        return this.allowedAllVpcs;
+    public Output<Optional<Boolean>> allowedAllVpcs() {
+        return Codegen.optional(this.allowedAllVpcs);
     }
     /**
      * The cluster identifier of the cluster to grant access to.
@@ -109,14 +109,14 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> endpointCount;
+    private Output</* @Nullable */ Integer> endpointCount;
 
     /**
      * @return The number of Redshift-managed VPC endpoints created for the authorization.
      * 
      */
-    public Output<Integer> endpointCount() {
-        return this.endpointCount;
+    public Output<Optional<Integer>> endpointCount() {
+        return Codegen.optional(this.endpointCount);
     }
     /**
      * Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
@@ -137,28 +137,28 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="grantee", refs={String.class}, tree="[0]")
-    private Output<String> grantee;
+    private Output</* @Nullable */ String> grantee;
 
     /**
      * @return The Amazon Web Services account ID of the grantee of the cluster.
      * 
      */
-    public Output<String> grantee() {
-        return this.grantee;
+    public Output<Optional<String>> grantee() {
+        return Codegen.optional(this.grantee);
     }
     /**
      * The Amazon Web Services account ID of the cluster owner.
      * 
      */
     @Export(name="grantor", refs={String.class}, tree="[0]")
-    private Output<String> grantor;
+    private Output</* @Nullable */ String> grantor;
 
     /**
      * @return The Amazon Web Services account ID of the cluster owner.
      * 
      */
-    public Output<String> grantor() {
-        return this.grantor;
+    public Output<Optional<String>> grantor() {
+        return Codegen.optional(this.grantor);
     }
     /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.

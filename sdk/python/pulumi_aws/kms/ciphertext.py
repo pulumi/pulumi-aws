@@ -281,7 +281,7 @@ class Ciphertext(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ciphertextBlob")
-    def ciphertext_blob(self) -> pulumi.Output[str]:
+    def ciphertext_blob(self) -> pulumi.Output[Optional[str]]:
         """
         Base64 encoded ciphertext
         """

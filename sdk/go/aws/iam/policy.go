@@ -73,20 +73,20 @@ type Policy struct {
 	pulumi.CustomResourceState
 
 	// The ARN assigned by AWS to this policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the IAM policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The policy's ID.
-	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
 	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -304,8 +304,8 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 }
 
 // The ARN assigned by AWS to this policy.
-func (o PolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the IAM policy.
@@ -319,8 +319,8 @@ func (o PolicyOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o PolicyOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o PolicyOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Path in which to create the policy.
@@ -335,8 +335,8 @@ func (o PolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // The policy's ID.
-func (o PolicyOutput) PolicyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+func (o PolicyOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
 // Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

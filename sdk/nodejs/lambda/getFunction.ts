@@ -55,122 +55,122 @@ export interface GetFunctionResult {
     /**
      * Instruction set architecture for the Lambda function.
      */
-    readonly architectures: string[];
+    readonly architectures?: string[];
     /**
      * Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * ARN for a Code Signing Configuration.
      */
-    readonly codeSigningConfigArn: string;
+    readonly codeSigningConfigArn?: string;
     /**
      * Configure the function's *dead letter queue*.
      */
-    readonly deadLetterConfig: outputs.lambda.GetFunctionDeadLetterConfig;
+    readonly deadLetterConfig?: outputs.lambda.GetFunctionDeadLetterConfig;
     /**
      * Description of what your Lambda Function does.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Lambda environment's configuration settings.
      */
-    readonly environment: outputs.lambda.GetFunctionEnvironment;
+    readonly environment?: outputs.lambda.GetFunctionEnvironment;
     /**
      * Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
      */
-    readonly ephemeralStorages: outputs.lambda.GetFunctionEphemeralStorage[];
+    readonly ephemeralStorages?: outputs.lambda.GetFunctionEphemeralStorage[];
     /**
      * Connection settings for an Amazon EFS file system.
      */
-    readonly fileSystemConfigs: outputs.lambda.GetFunctionFileSystemConfig[];
+    readonly fileSystemConfigs?: outputs.lambda.GetFunctionFileSystemConfig[];
     readonly functionName: string;
     /**
      * Function entrypoint in your code.
      */
-    readonly handler: string;
+    readonly handler?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * URI of the container image.
      */
-    readonly imageUri: string;
+    readonly imageUri?: string;
     /**
      * ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
      */
-    readonly invokeArn: string;
+    readonly invokeArn?: string;
     /**
      * ARN for the KMS encryption key.
      */
-    readonly kmsKeyArn: string;
+    readonly kmsKeyArn?: string;
     /**
      * Date this resource was last modified.
      */
-    readonly lastModified: string;
+    readonly lastModified?: string;
     /**
      * List of Lambda Layer ARNs attached to your Lambda Function.
      */
-    readonly layers: string[];
+    readonly layers?: string[];
     /**
      * Amount of memory in MB your Lambda Function can use at runtime.
      */
-    readonly memorySize: number;
+    readonly memorySize?: number;
     /**
      * Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
      */
-    readonly qualifiedArn: string;
+    readonly qualifiedArn?: string;
     /**
      * Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invokeArn`.
      */
-    readonly qualifiedInvokeArn: string;
+    readonly qualifiedInvokeArn?: string;
     readonly qualifier?: string;
     /**
      * The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
      */
-    readonly reservedConcurrentExecutions: number;
+    readonly reservedConcurrentExecutions?: number;
     /**
      * IAM role attached to the Lambda Function.
      */
-    readonly role: string;
+    readonly role?: string;
     /**
      * Runtime environment for the Lambda function.
      */
-    readonly runtime: string;
+    readonly runtime?: string;
     /**
      * ARN of a signing job.
      */
-    readonly signingJobArn: string;
+    readonly signingJobArn?: string;
     /**
      * The ARN for a signing profile version.
      */
-    readonly signingProfileVersionArn: string;
+    readonly signingProfileVersionArn?: string;
     /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      */
-    readonly sourceCodeHash: string;
+    readonly sourceCodeHash?: string;
     /**
      * Size in bytes of the function .zip file.
      */
-    readonly sourceCodeSize: number;
-    readonly tags: {[key: string]: string};
+    readonly sourceCodeSize?: number;
+    readonly tags?: {[key: string]: string};
     /**
      * Function execution time at which Lambda should terminate the function.
      */
-    readonly timeout: number;
+    readonly timeout?: number;
     /**
      * Tracing settings of the function.
      */
-    readonly tracingConfig: outputs.lambda.GetFunctionTracingConfig;
+    readonly tracingConfig?: outputs.lambda.GetFunctionTracingConfig;
     /**
      * The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      */
-    readonly version: string;
+    readonly version?: string;
     /**
      * VPC configuration associated with your Lambda function.
      */
-    readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
+    readonly vpcConfig?: outputs.lambda.GetFunctionVpcConfig;
 }
 /**
  * Provides information about a Lambda Function.

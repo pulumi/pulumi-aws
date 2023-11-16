@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNamespaceResult {
@@ -14,47 +16,47 @@ public final class GetNamespaceResult {
      * @return The username of the administrator for the first database created in the namespace.
      * 
      */
-    private String adminUsername;
+    private @Nullable String adminUsername;
     /**
      * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The name of the first database created in the namespace.
      * 
      */
-    private String dbName;
+    private @Nullable String dbName;
     /**
      * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
      * 
      */
-    private String defaultIamRoleArn;
+    private @Nullable String defaultIamRoleArn;
     /**
      * @return A list of IAM roles to associate with the namespace.
      * 
      */
-    private List<String> iamRoles;
+    private @Nullable List<String> iamRoles;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      * 
      */
-    private List<String> logExports;
+    private @Nullable List<String> logExports;
     /**
      * @return The Redshift Namespace ID.
      * 
      */
-    private String namespaceId;
+    private @Nullable String namespaceId;
     private String namespaceName;
 
     private GetNamespaceResult() {}
@@ -62,64 +64,64 @@ public final class GetNamespaceResult {
      * @return The username of the administrator for the first database created in the namespace.
      * 
      */
-    public String adminUsername() {
-        return this.adminUsername;
+    public Optional<String> adminUsername() {
+        return Optional.ofNullable(this.adminUsername);
     }
     /**
      * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The name of the first database created in the namespace.
      * 
      */
-    public String dbName() {
-        return this.dbName;
+    public Optional<String> dbName() {
+        return Optional.ofNullable(this.dbName);
     }
     /**
      * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
      * 
      */
-    public String defaultIamRoleArn() {
-        return this.defaultIamRoleArn;
+    public Optional<String> defaultIamRoleArn() {
+        return Optional.ofNullable(this.defaultIamRoleArn);
     }
     /**
      * @return A list of IAM roles to associate with the namespace.
      * 
      */
     public List<String> iamRoles() {
-        return this.iamRoles;
+        return this.iamRoles == null ? List.of() : this.iamRoles;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      * 
      */
     public List<String> logExports() {
-        return this.logExports;
+        return this.logExports == null ? List.of() : this.logExports;
     }
     /**
      * @return The Redshift Namespace ID.
      * 
      */
-    public String namespaceId() {
-        return this.namespaceId;
+    public Optional<String> namespaceId() {
+        return Optional.ofNullable(this.namespaceId);
     }
     public String namespaceName() {
         return this.namespaceName;
@@ -134,15 +136,15 @@ public final class GetNamespaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String adminUsername;
-        private String arn;
-        private String dbName;
-        private String defaultIamRoleArn;
-        private List<String> iamRoles;
-        private String id;
-        private String kmsKeyId;
-        private List<String> logExports;
-        private String namespaceId;
+        private @Nullable String adminUsername;
+        private @Nullable String arn;
+        private @Nullable String dbName;
+        private @Nullable String defaultIamRoleArn;
+        private @Nullable List<String> iamRoles;
+        private @Nullable String id;
+        private @Nullable String kmsKeyId;
+        private @Nullable List<String> logExports;
+        private @Nullable String namespaceId;
         private String namespaceName;
         public Builder() {}
         public Builder(GetNamespaceResult defaults) {
@@ -160,54 +162,54 @@ public final class GetNamespaceResult {
         }
 
         @CustomType.Setter
-        public Builder adminUsername(String adminUsername) {
-            this.adminUsername = Objects.requireNonNull(adminUsername);
+        public Builder adminUsername(@Nullable String adminUsername) {
+            this.adminUsername = adminUsername;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder dbName(String dbName) {
-            this.dbName = Objects.requireNonNull(dbName);
+        public Builder dbName(@Nullable String dbName) {
+            this.dbName = dbName;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultIamRoleArn(String defaultIamRoleArn) {
-            this.defaultIamRoleArn = Objects.requireNonNull(defaultIamRoleArn);
+        public Builder defaultIamRoleArn(@Nullable String defaultIamRoleArn) {
+            this.defaultIamRoleArn = defaultIamRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder iamRoles(List<String> iamRoles) {
-            this.iamRoles = Objects.requireNonNull(iamRoles);
+        public Builder iamRoles(@Nullable List<String> iamRoles) {
+            this.iamRoles = iamRoles;
             return this;
         }
         public Builder iamRoles(String... iamRoles) {
             return iamRoles(List.of(iamRoles));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder logExports(List<String> logExports) {
-            this.logExports = Objects.requireNonNull(logExports);
+        public Builder logExports(@Nullable List<String> logExports) {
+            this.logExports = logExports;
             return this;
         }
         public Builder logExports(String... logExports) {
             return logExports(List.of(logExports));
         }
         @CustomType.Setter
-        public Builder namespaceId(String namespaceId) {
-            this.namespaceId = Objects.requireNonNull(namespaceId);
+        public Builder namespaceId(@Nullable String namespaceId) {
+            this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter

@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Macie
         /// The Amazon Resource Name (ARN) of the Findings Filter.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A custom description of the filter. The description can contain as many as 512 characters.
@@ -99,13 +99,13 @@ namespace Pulumi.Aws.Macie
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
         /// </summary>
         [Output("position")]
-        public Output<int> Position { get; private set; } = null!;
+        public Output<int?> Position { get; private set; } = null!;
 
         /// <summary>
         /// A map of key-value pairs that specifies the tags to associate with the filter.

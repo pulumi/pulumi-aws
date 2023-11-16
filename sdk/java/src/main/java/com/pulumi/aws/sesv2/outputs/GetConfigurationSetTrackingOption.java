@@ -6,6 +6,8 @@ package com.pulumi.aws.sesv2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationSetTrackingOption {
@@ -13,15 +15,15 @@ public final class GetConfigurationSetTrackingOption {
      * @return The domain to use for tracking open and click events.
      * 
      */
-    private String customRedirectDomain;
+    private @Nullable String customRedirectDomain;
 
     private GetConfigurationSetTrackingOption() {}
     /**
      * @return The domain to use for tracking open and click events.
      * 
      */
-    public String customRedirectDomain() {
-        return this.customRedirectDomain;
+    public Optional<String> customRedirectDomain() {
+        return Optional.ofNullable(this.customRedirectDomain);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetConfigurationSetTrackingOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String customRedirectDomain;
+        private @Nullable String customRedirectDomain;
         public Builder() {}
         public Builder(GetConfigurationSetTrackingOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetConfigurationSetTrackingOption {
         }
 
         @CustomType.Setter
-        public Builder customRedirectDomain(String customRedirectDomain) {
-            this.customRedirectDomain = Objects.requireNonNull(customRedirectDomain);
+        public Builder customRedirectDomain(@Nullable String customRedirectDomain) {
+            this.customRedirectDomain = customRedirectDomain;
             return this;
         }
         public GetConfigurationSetTrackingOption build() {

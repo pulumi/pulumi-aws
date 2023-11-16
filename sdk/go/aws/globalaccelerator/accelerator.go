@@ -63,15 +63,15 @@ type Accelerator struct {
 	// The attributes of the accelerator. Fields documented below.
 	Attributes AcceleratorAttributesPtrOutput `pulumi:"attributes"`
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
 	// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
-	DualStackDnsName pulumi.StringOutput `pulumi:"dualStackDnsName"`
+	DualStackDnsName pulumi.StringPtrOutput `pulumi:"dualStackDnsName"`
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// -  The Global Accelerator Route 53 zone ID that can be used to
 	//    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
 	//    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringPtrOutput `pulumi:"hostedZoneId"`
 	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
@@ -307,13 +307,13 @@ func (o AcceleratorOutput) Attributes() AcceleratorAttributesPtrOutput {
 }
 
 // The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-func (o AcceleratorOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+func (o AcceleratorOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
-func (o AcceleratorOutput) DualStackDnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.DualStackDnsName }).(pulumi.StringOutput)
+func (o AcceleratorOutput) DualStackDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringPtrOutput { return v.DualStackDnsName }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
@@ -324,8 +324,8 @@ func (o AcceleratorOutput) Enabled() pulumi.BoolPtrOutput {
 //   - The Global Accelerator Route 53 zone ID that can be used to
 //     route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
 //     is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-func (o AcceleratorOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o AcceleratorOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.

@@ -134,7 +134,7 @@ export class Eip extends pulumi.CustomResource {
     /**
      * ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
      */
-    public /*out*/ readonly allocationId!: pulumi.Output<string>;
+    public /*out*/ readonly allocationId!: pulumi.Output<string | undefined>;
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
@@ -142,15 +142,15 @@ export class Eip extends pulumi.CustomResource {
     /**
      * ID representing the association of the address with an instance in a VPC.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string | undefined>;
     /**
      * Carrier IP address.
      */
-    public /*out*/ readonly carrierIp!: pulumi.Output<string>;
+    public /*out*/ readonly carrierIp!: pulumi.Output<string | undefined>;
     /**
      * Customer owned IP.
      */
-    public /*out*/ readonly customerOwnedIp!: pulumi.Output<string>;
+    public /*out*/ readonly customerOwnedIp!: pulumi.Output<string | undefined>;
     /**
      * ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
      */
@@ -158,40 +158,40 @@ export class Eip extends pulumi.CustomResource {
     /**
      * Indicates if this EIP is for use in VPC (`vpc`).
      */
-    public readonly domain!: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string | undefined>;
     /**
      * EC2 instance ID.
      */
-    public readonly instance!: pulumi.Output<string>;
+    public readonly instance!: pulumi.Output<string | undefined>;
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      */
-    public readonly networkBorderGroup!: pulumi.Output<string>;
+    public readonly networkBorderGroup!: pulumi.Output<string | undefined>;
     /**
      * Network interface ID to associate with.
      */
-    public readonly networkInterface!: pulumi.Output<string>;
+    public readonly networkInterface!: pulumi.Output<string | undefined>;
     /**
      * The Private DNS associated with the Elastic IP address (if in VPC).
      */
-    public /*out*/ readonly privateDns!: pulumi.Output<string>;
+    public /*out*/ readonly privateDns!: pulumi.Output<string | undefined>;
     /**
      * Contains the private IP address (if in VPC).
      */
-    public /*out*/ readonly privateIp!: pulumi.Output<string>;
+    public /*out*/ readonly privateIp!: pulumi.Output<string | undefined>;
     /**
      * Public DNS associated with the Elastic IP address.
      */
-    public /*out*/ readonly publicDns!: pulumi.Output<string>;
+    public /*out*/ readonly publicDns!: pulumi.Output<string | undefined>;
     /**
      * Contains the public IP address.
      */
-    public /*out*/ readonly publicIp!: pulumi.Output<string>;
+    public /*out*/ readonly publicIp!: pulumi.Output<string | undefined>;
     /**
      * EC2 IPv4 address pool identifier or `amazon`.
      * This option is only available for VPC EIPs.
      */
-    public readonly publicIpv4Pool!: pulumi.Output<string>;
+    public readonly publicIpv4Pool!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -213,7 +213,7 @@ export class Eip extends pulumi.CustomResource {
      *
      * @deprecated use domain attribute instead
      */
-    public readonly vpc!: pulumi.Output<boolean>;
+    public readonly vpc!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Eip resource with the given unique name, arguments, and options.

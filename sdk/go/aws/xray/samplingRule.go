@@ -66,7 +66,7 @@ type SamplingRule struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the sampling rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Matches attributes derived from the request.
 	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -383,8 +383,8 @@ func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context)
 }
 
 // The ARN of the sampling rule.
-func (o SamplingRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SamplingRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Matches attributes derived from the request.

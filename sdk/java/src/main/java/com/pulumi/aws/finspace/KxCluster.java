@@ -105,14 +105,14 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) identifier of the KX cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
@@ -221,14 +221,14 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> createdTimestamp;
+    private Output</* @Nullable */ String> createdTimestamp;
 
     /**
      * @return Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public Output<String> createdTimestamp() {
-        return this.createdTimestamp;
+    public Output<Optional<String>> createdTimestamp() {
+        return Codegen.optional(this.createdTimestamp);
     }
     /**
      * KX database that will be available for querying. Defined below.
@@ -305,14 +305,14 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModifiedTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedTimestamp;
+    private Output</* @Nullable */ String> lastModifiedTimestamp;
 
     /**
      * @return Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public Output<String> lastModifiedTimestamp() {
-        return this.lastModifiedTimestamp;
+    public Output<Optional<String>> lastModifiedTimestamp() {
+        return Codegen.optional(this.lastModifiedTimestamp);
     }
     /**
      * Unique name for the cluster that you want to create.
@@ -357,16 +357,16 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.savedownStorageConfiguration);
     }
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     @Export(name="statusReason", refs={String.class}, tree="[0]")
-    private Output<String> statusReason;
+    private Output</* @Nullable */ String> statusReason;
 
-    public Output<String> statusReason() {
-        return this.statusReason;
+    public Output<Optional<String>> statusReason() {
+        return Codegen.optional(this.statusReason);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

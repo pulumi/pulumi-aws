@@ -242,7 +242,7 @@ class AccountSettingDefault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalArn")
-    def principal_arn(self) -> pulumi.Output[str]:
+    def principal_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "principal_arn")
 
     @property

@@ -61,7 +61,7 @@ export class Discoverer extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the discoverer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the discoverer. Maximum of 256 characters.
      */

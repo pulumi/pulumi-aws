@@ -54,7 +54,7 @@ type ReadinessCheck struct {
 	pulumi.CustomResourceState
 
 	// ARN of the readiness_check
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Unique name describing the readiness check.
 	ReadinessCheckName pulumi.StringOutput `pulumi:"readinessCheckName"`
 	// Name describing the resource set that will be monitored for readiness.
@@ -257,8 +257,8 @@ func (o ReadinessCheckOutput) ToReadinessCheckOutputWithContext(ctx context.Cont
 }
 
 // ARN of the readiness_check
-func (o ReadinessCheckOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReadinessCheckOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Unique name describing the readiness check.

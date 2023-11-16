@@ -24,17 +24,17 @@ public final class GetBundleResult {
      * @return The compute type. See supported fields below.
      * 
      */
-    private List<GetBundleComputeType> computeTypes;
+    private @Nullable List<GetBundleComputeType> computeTypes;
     /**
      * @return The description of the bundle.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the compute type.
      * 
@@ -49,12 +49,12 @@ public final class GetBundleResult {
      * @return The root volume. See supported fields below.
      * 
      */
-    private List<GetBundleRootStorage> rootStorages;
+    private @Nullable List<GetBundleRootStorage> rootStorages;
     /**
      * @return The user storage. See supported fields below.
      * 
      */
-    private List<GetBundleUserStorage> userStorages;
+    private @Nullable List<GetBundleUserStorage> userStorages;
 
     private GetBundleResult() {}
     /**
@@ -69,21 +69,21 @@ public final class GetBundleResult {
      * 
      */
     public List<GetBundleComputeType> computeTypes() {
-        return this.computeTypes;
+        return this.computeTypes == null ? List.of() : this.computeTypes;
     }
     /**
      * @return The description of the bundle.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the compute type.
@@ -104,14 +104,14 @@ public final class GetBundleResult {
      * 
      */
     public List<GetBundleRootStorage> rootStorages() {
-        return this.rootStorages;
+        return this.rootStorages == null ? List.of() : this.rootStorages;
     }
     /**
      * @return The user storage. See supported fields below.
      * 
      */
     public List<GetBundleUserStorage> userStorages() {
-        return this.userStorages;
+        return this.userStorages == null ? List.of() : this.userStorages;
     }
 
     public static Builder builder() {
@@ -124,13 +124,13 @@ public final class GetBundleResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String bundleId;
-        private List<GetBundleComputeType> computeTypes;
-        private String description;
-        private String id;
+        private @Nullable List<GetBundleComputeType> computeTypes;
+        private @Nullable String description;
+        private @Nullable String id;
         private @Nullable String name;
         private @Nullable String owner;
-        private List<GetBundleRootStorage> rootStorages;
-        private List<GetBundleUserStorage> userStorages;
+        private @Nullable List<GetBundleRootStorage> rootStorages;
+        private @Nullable List<GetBundleUserStorage> userStorages;
         public Builder() {}
         public Builder(GetBundleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -150,21 +150,21 @@ public final class GetBundleResult {
             return this;
         }
         @CustomType.Setter
-        public Builder computeTypes(List<GetBundleComputeType> computeTypes) {
-            this.computeTypes = Objects.requireNonNull(computeTypes);
+        public Builder computeTypes(@Nullable List<GetBundleComputeType> computeTypes) {
+            this.computeTypes = computeTypes;
             return this;
         }
         public Builder computeTypes(GetBundleComputeType... computeTypes) {
             return computeTypes(List.of(computeTypes));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -178,16 +178,16 @@ public final class GetBundleResult {
             return this;
         }
         @CustomType.Setter
-        public Builder rootStorages(List<GetBundleRootStorage> rootStorages) {
-            this.rootStorages = Objects.requireNonNull(rootStorages);
+        public Builder rootStorages(@Nullable List<GetBundleRootStorage> rootStorages) {
+            this.rootStorages = rootStorages;
             return this;
         }
         public Builder rootStorages(GetBundleRootStorage... rootStorages) {
             return rootStorages(List.of(rootStorages));
         }
         @CustomType.Setter
-        public Builder userStorages(List<GetBundleUserStorage> userStorages) {
-            this.userStorages = Objects.requireNonNull(userStorages);
+        public Builder userStorages(@Nullable List<GetBundleUserStorage> userStorages) {
+            this.userStorages = userStorages;
             return this;
         }
         public Builder userStorages(GetBundleUserStorage... userStorages) {

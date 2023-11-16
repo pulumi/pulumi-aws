@@ -9,71 +9,72 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPeeringAttachmentResult {
     private @Nullable List<GetPeeringAttachmentFilter> filters;
-    private String id;
+    private @Nullable String id;
     /**
      * @return Identifier of the peer AWS account
      * 
      */
-    private String peerAccountId;
+    private @Nullable String peerAccountId;
     /**
      * @return Identifier of the peer AWS region
      * 
      */
-    private String peerRegion;
+    private @Nullable String peerRegion;
     /**
      * @return Identifier of the peer EC2 Transit Gateway
      * 
      */
-    private String peerTransitGatewayId;
-    private Map<String,String> tags;
+    private @Nullable String peerTransitGatewayId;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Identifier of the local EC2 Transit Gateway
      * 
      */
-    private String transitGatewayId;
+    private @Nullable String transitGatewayId;
 
     private GetPeeringAttachmentResult() {}
     public List<GetPeeringAttachmentFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Identifier of the peer AWS account
      * 
      */
-    public String peerAccountId() {
-        return this.peerAccountId;
+    public Optional<String> peerAccountId() {
+        return Optional.ofNullable(this.peerAccountId);
     }
     /**
      * @return Identifier of the peer AWS region
      * 
      */
-    public String peerRegion() {
-        return this.peerRegion;
+    public Optional<String> peerRegion() {
+        return Optional.ofNullable(this.peerRegion);
     }
     /**
      * @return Identifier of the peer EC2 Transit Gateway
      * 
      */
-    public String peerTransitGatewayId() {
-        return this.peerTransitGatewayId;
+    public Optional<String> peerTransitGatewayId() {
+        return Optional.ofNullable(this.peerTransitGatewayId);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Identifier of the local EC2 Transit Gateway
      * 
      */
-    public String transitGatewayId() {
-        return this.transitGatewayId;
+    public Optional<String> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
     }
 
     public static Builder builder() {
@@ -86,12 +87,12 @@ public final class GetPeeringAttachmentResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetPeeringAttachmentFilter> filters;
-        private String id;
-        private String peerAccountId;
-        private String peerRegion;
-        private String peerTransitGatewayId;
-        private Map<String,String> tags;
-        private String transitGatewayId;
+        private @Nullable String id;
+        private @Nullable String peerAccountId;
+        private @Nullable String peerRegion;
+        private @Nullable String peerTransitGatewayId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String transitGatewayId;
         public Builder() {}
         public Builder(GetPeeringAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,33 +114,33 @@ public final class GetPeeringAttachmentResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder peerAccountId(String peerAccountId) {
-            this.peerAccountId = Objects.requireNonNull(peerAccountId);
+        public Builder peerAccountId(@Nullable String peerAccountId) {
+            this.peerAccountId = peerAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder peerRegion(String peerRegion) {
-            this.peerRegion = Objects.requireNonNull(peerRegion);
+        public Builder peerRegion(@Nullable String peerRegion) {
+            this.peerRegion = peerRegion;
             return this;
         }
         @CustomType.Setter
-        public Builder peerTransitGatewayId(String peerTransitGatewayId) {
-            this.peerTransitGatewayId = Objects.requireNonNull(peerTransitGatewayId);
+        public Builder peerTransitGatewayId(@Nullable String peerTransitGatewayId) {
+            this.peerTransitGatewayId = peerTransitGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+        public Builder transitGatewayId(@Nullable String transitGatewayId) {
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         public GetPeeringAttachmentResult build() {

@@ -7,6 +7,7 @@ import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanIntegrationPagerduty;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponsePlanIntegration {
@@ -14,7 +15,7 @@ public final class GetResponsePlanIntegration {
      * @return Details about the PagerDuty configuration for a response plan. The following values are supported:
      * 
      */
-    private List<GetResponsePlanIntegrationPagerduty> pagerduties;
+    private @Nullable List<GetResponsePlanIntegrationPagerduty> pagerduties;
 
     private GetResponsePlanIntegration() {}
     /**
@@ -22,7 +23,7 @@ public final class GetResponsePlanIntegration {
      * 
      */
     public List<GetResponsePlanIntegrationPagerduty> pagerduties() {
-        return this.pagerduties;
+        return this.pagerduties == null ? List.of() : this.pagerduties;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetResponsePlanIntegration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetResponsePlanIntegrationPagerduty> pagerduties;
+        private @Nullable List<GetResponsePlanIntegrationPagerduty> pagerduties;
         public Builder() {}
         public Builder(GetResponsePlanIntegration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetResponsePlanIntegration {
         }
 
         @CustomType.Setter
-        public Builder pagerduties(List<GetResponsePlanIntegrationPagerduty> pagerduties) {
-            this.pagerduties = Objects.requireNonNull(pagerduties);
+        public Builder pagerduties(@Nullable List<GetResponsePlanIntegrationPagerduty> pagerduties) {
+            this.pagerduties = pagerduties;
             return this;
         }
         public Builder pagerduties(GetResponsePlanIntegrationPagerduty... pagerduties) {

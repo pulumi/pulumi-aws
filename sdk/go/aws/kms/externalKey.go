@@ -53,7 +53,7 @@ type ExternalKey struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the key.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput `pulumi:"bypassPolicyLockoutSafetyCheck"`
 	// Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
@@ -61,19 +61,19 @@ type ExternalKey struct {
 	// Description of the key.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
-	ExpirationModel pulumi.StringOutput `pulumi:"expirationModel"`
+	ExpirationModel pulumi.StringPtrOutput `pulumi:"expirationModel"`
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 pulumi.StringPtrOutput `pulumi:"keyMaterialBase64"`
 	// The state of the CMK.
-	KeyState pulumi.StringOutput `pulumi:"keyState"`
+	KeyState pulumi.StringPtrOutput `pulumi:"keyState"`
 	// The cryptographic operations for which you can use the CMK.
-	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
+	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-	MultiRegion pulumi.BoolOutput `pulumi:"multiRegion"`
+	MultiRegion pulumi.BoolPtrOutput `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -322,8 +322,8 @@ func (o ExternalKeyOutput) ToExternalKeyOutputWithContext(ctx context.Context) E
 }
 
 // The Amazon Resource Name (ARN) of the key.
-func (o ExternalKeyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ExternalKeyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalKey) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
@@ -342,13 +342,13 @@ func (o ExternalKeyOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
-func (o ExternalKeyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ExternalKey) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+func (o ExternalKeyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalKey) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
-func (o ExternalKeyOutput) ExpirationModel() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.ExpirationModel }).(pulumi.StringOutput)
+func (o ExternalKeyOutput) ExpirationModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalKey) pulumi.StringPtrOutput { return v.ExpirationModel }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
@@ -357,23 +357,23 @@ func (o ExternalKeyOutput) KeyMaterialBase64() pulumi.StringPtrOutput {
 }
 
 // The state of the CMK.
-func (o ExternalKeyOutput) KeyState() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.KeyState }).(pulumi.StringOutput)
+func (o ExternalKeyOutput) KeyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalKey) pulumi.StringPtrOutput { return v.KeyState }).(pulumi.StringPtrOutput)
 }
 
 // The cryptographic operations for which you can use the CMK.
-func (o ExternalKeyOutput) KeyUsage() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.KeyUsage }).(pulumi.StringOutput)
+func (o ExternalKeyOutput) KeyUsage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalKey) pulumi.StringPtrOutput { return v.KeyUsage }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-func (o ExternalKeyOutput) MultiRegion() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ExternalKey) pulumi.BoolOutput { return v.MultiRegion }).(pulumi.BoolOutput)
+func (o ExternalKeyOutput) MultiRegion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalKey) pulumi.BoolPtrOutput { return v.MultiRegion }).(pulumi.BoolPtrOutput)
 }
 
 // A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
-func (o ExternalKeyOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o ExternalKeyOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalKey) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

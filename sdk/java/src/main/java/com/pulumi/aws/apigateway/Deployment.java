@@ -189,14 +189,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
-    private Output<String> createdDate;
+    private Output</* @Nullable */ String> createdDate;
 
     /**
      * @return Creation date of the deployment
      * 
      */
-    public Output<String> createdDate() {
-        return this.createdDate;
+    public Output<Optional<String>> createdDate() {
+        return Codegen.optional(this.createdDate);
     }
     /**
      * Description of the deployment
@@ -219,7 +219,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="executionArn", refs={String.class}, tree="[0]")
-    private Output<String> executionArn;
+    private Output</* @Nullable */ String> executionArn;
 
     /**
      * @return Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
@@ -227,8 +227,8 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
-    public Output<String> executionArn() {
-        return this.executionArn;
+    public Output<Optional<String>> executionArn() {
+        return Codegen.optional(this.executionArn);
     }
     /**
      * URL to invoke the API pointing to the stage,
@@ -236,15 +236,15 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="invokeUrl", refs={String.class}, tree="[0]")
-    private Output<String> invokeUrl;
+    private Output</* @Nullable */ String> invokeUrl;
 
     /**
      * @return URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
-    public Output<String> invokeUrl() {
-        return this.invokeUrl;
+    public Output<Optional<String>> invokeUrl() {
+        return Codegen.optional(this.invokeUrl);
     }
     /**
      * REST API identifier.

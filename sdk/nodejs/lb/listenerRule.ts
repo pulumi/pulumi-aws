@@ -216,7 +216,7 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the target group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
@@ -228,7 +228,7 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
      */
-    public readonly priority!: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

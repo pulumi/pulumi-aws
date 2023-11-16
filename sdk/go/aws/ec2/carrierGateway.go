@@ -56,9 +56,9 @@ type CarrierGateway struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the carrier gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The AWS account ID of the owner of the carrier gateway.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -242,13 +242,13 @@ func (o CarrierGatewayOutput) ToCarrierGatewayOutputWithContext(ctx context.Cont
 }
 
 // The ARN of the carrier gateway.
-func (o CarrierGatewayOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CarrierGatewayOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CarrierGateway) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The AWS account ID of the owner of the carrier gateway.
-func (o CarrierGatewayOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o CarrierGatewayOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CarrierGateway) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

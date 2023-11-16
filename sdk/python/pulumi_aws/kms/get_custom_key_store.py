@@ -46,12 +46,12 @@ class GetCustomKeyStoreResult:
 
     @property
     @pulumi.getter(name="cloudHsmClusterId")
-    def cloud_hsm_cluster_id(self) -> str:
+    def cloud_hsm_cluster_id(self) -> Optional[str]:
         return pulumi.get(self, "cloud_hsm_cluster_id")
 
     @property
     @pulumi.getter(name="connectionState")
-    def connection_state(self) -> str:
+    def connection_state(self) -> Optional[str]:
         """
         Indicates whether the custom key store is connected to its CloudHSM cluster.
         """
@@ -59,7 +59,7 @@ class GetCustomKeyStoreResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> Optional[str]:
         """
         The date and time when the custom key store was created.
         """
@@ -67,17 +67,17 @@ class GetCustomKeyStoreResult:
 
     @property
     @pulumi.getter(name="customKeyStoreId")
-    def custom_key_store_id(self) -> str:
+    def custom_key_store_id(self) -> Optional[str]:
         return pulumi.get(self, "custom_key_store_id")
 
     @property
     @pulumi.getter(name="customKeyStoreName")
-    def custom_key_store_name(self) -> str:
+    def custom_key_store_name(self) -> Optional[str]:
         return pulumi.get(self, "custom_key_store_name")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -85,7 +85,7 @@ class GetCustomKeyStoreResult:
 
     @property
     @pulumi.getter(name="trustAnchorCertificate")
-    def trust_anchor_certificate(self) -> str:
+    def trust_anchor_certificate(self) -> Optional[str]:
         """
         The trust anchor certificate of the associated CloudHSM cluster.
         """

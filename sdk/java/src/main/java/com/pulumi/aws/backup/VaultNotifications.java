@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -93,14 +94,14 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
-    private Output<String> backupVaultArn;
+    private Output</* @Nullable */ String> backupVaultArn;
 
     /**
      * @return The ARN of the vault.
      * 
      */
-    public Output<String> backupVaultArn() {
-        return this.backupVaultArn;
+    public Output<Optional<String>> backupVaultArn() {
+        return Codegen.optional(this.backupVaultArn);
     }
     /**
      * An array of events that indicate the status of jobs to back up resources to the backup vault.

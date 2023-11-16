@@ -62,7 +62,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
     /**
      * The ARN of the authorization
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Region
      */

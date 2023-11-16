@@ -12,11 +12,11 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class GetTableServerSideEncryptionArgs : global::Pulumi.InvokeArgs
     {
-        [Input("enabled", required: true)]
-        public bool Enabled { get; set; }
+        [Input("enabled")]
+        public bool? Enabled { get; set; }
 
-        [Input("kmsKeyArn", required: true)]
-        public string KmsKeyArn { get; set; } = null!;
+        [Input("kmsKeyArn")]
+        public string? KmsKeyArn { get; set; }
 
         public GetTableServerSideEncryptionArgs()
         {

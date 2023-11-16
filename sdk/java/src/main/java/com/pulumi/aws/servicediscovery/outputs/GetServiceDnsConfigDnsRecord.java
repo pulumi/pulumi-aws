@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceDnsConfigDnsRecord {
@@ -14,27 +16,27 @@ public final class GetServiceDnsConfigDnsRecord {
      * @return Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
      * 
      */
-    private Integer ttl;
+    private @Nullable Integer ttl;
     /**
      * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetServiceDnsConfigDnsRecord() {}
     /**
      * @return Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
      * 
      */
-    public Integer ttl() {
-        return this.ttl;
+    public Optional<Integer> ttl() {
+        return Optional.ofNullable(this.ttl);
     }
     /**
      * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetServiceDnsConfigDnsRecord {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer ttl;
-        private String type;
+        private @Nullable Integer ttl;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetServiceDnsConfigDnsRecord defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetServiceDnsConfigDnsRecord {
         }
 
         @CustomType.Setter
-        public Builder ttl(Integer ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+        public Builder ttl(@Nullable Integer ttl) {
+            this.ttl = ttl;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetServiceDnsConfigDnsRecord build() {

@@ -119,7 +119,7 @@ export class TopicEventSubscription extends lambda.EventSubscription {
         this.subscription = new topicSubscription.TopicSubscription(name, {
             topic: topic,
             protocol: "lambda",
-            endpoint: this.func.arn,
+            endpoint: this.func.arn.apply(x => x!),
             confirmationTimeoutInMinutes: args.confirmationTimeoutInMinutes,
             deliveryPolicy: args.deliveryPolicy,
             endpointAutoConfirms: args.endpointAutoConfirms,

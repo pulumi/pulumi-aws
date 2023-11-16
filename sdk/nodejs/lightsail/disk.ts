@@ -65,7 +65,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The ARN of the Lightsail load balancer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone in which to create your disk.
      */
@@ -73,7 +73,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The timestamp when the load balancer was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The name of the Lightsail load balancer.
      */
@@ -85,7 +85,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

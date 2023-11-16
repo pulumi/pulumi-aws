@@ -152,42 +152,42 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the ElastiCache Global Replication Group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A flag that indicate whether the encryption at rest is enabled.
      * 
      */
     @Export(name="atRestEncryptionEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> atRestEncryptionEnabled;
+    private Output</* @Nullable */ Boolean> atRestEncryptionEnabled;
 
     /**
      * @return A flag that indicate whether the encryption at rest is enabled.
      * 
      */
-    public Output<Boolean> atRestEncryptionEnabled() {
-        return this.atRestEncryptionEnabled;
+    public Output<Optional<Boolean>> atRestEncryptionEnabled() {
+        return Codegen.optional(this.atRestEncryptionEnabled);
     }
     /**
      * A flag that indicate whether AuthToken (password) is enabled.
      * 
      */
     @Export(name="authTokenEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> authTokenEnabled;
+    private Output</* @Nullable */ Boolean> authTokenEnabled;
 
     /**
      * @return A flag that indicate whether AuthToken (password) is enabled.
      * 
      */
-    public Output<Boolean> authTokenEnabled() {
-        return this.authTokenEnabled;
+    public Output<Optional<Boolean>> authTokenEnabled() {
+        return Codegen.optional(this.authTokenEnabled);
     }
     /**
      * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
@@ -195,15 +195,15 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="automaticFailoverEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> automaticFailoverEnabled;
+    private Output</* @Nullable */ Boolean> automaticFailoverEnabled;
 
     /**
      * @return Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
      * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
      * 
      */
-    public Output<Boolean> automaticFailoverEnabled() {
-        return this.automaticFailoverEnabled;
+    public Output<Optional<Boolean>> automaticFailoverEnabled() {
+        return Codegen.optional(this.automaticFailoverEnabled);
     }
     /**
      * The instance class used.
@@ -213,7 +213,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="cacheNodeType", refs={String.class}, tree="[0]")
-    private Output<String> cacheNodeType;
+    private Output</* @Nullable */ String> cacheNodeType;
 
     /**
      * @return The instance class used.
@@ -222,36 +222,36 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      * 
      */
-    public Output<String> cacheNodeType() {
-        return this.cacheNodeType;
+    public Output<Optional<String>> cacheNodeType() {
+        return Codegen.optional(this.cacheNodeType);
     }
     /**
      * Indicates whether the Global Datastore is cluster enabled.
      * 
      */
     @Export(name="clusterEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> clusterEnabled;
+    private Output</* @Nullable */ Boolean> clusterEnabled;
 
     /**
      * @return Indicates whether the Global Datastore is cluster enabled.
      * 
      */
-    public Output<Boolean> clusterEnabled() {
-        return this.clusterEnabled;
+    public Output<Optional<Boolean>> clusterEnabled() {
+        return Codegen.optional(this.clusterEnabled);
     }
     /**
      * The name of the cache engine to be used for the clusters in this global replication group.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output<String> engine;
+    private Output</* @Nullable */ String> engine;
 
     /**
      * @return The name of the cache engine to be used for the clusters in this global replication group.
      * 
      */
-    public Output<String> engine() {
-        return this.engine;
+    public Output<Optional<String>> engine() {
+        return Codegen.optional(this.engine);
     }
     /**
      * Redis version to use for the Global Replication Group.
@@ -265,7 +265,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Redis version to use for the Global Replication Group.
@@ -278,22 +278,22 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * The full version number of the cache engine running on the members of this global replication group.
      * 
      */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
-    private Output<String> engineVersionActual;
+    private Output</* @Nullable */ String> engineVersionActual;
 
     /**
      * @return The full version number of the cache engine running on the members of this global replication group.
      * 
      */
-    public Output<String> engineVersionActual() {
-        return this.engineVersionActual;
+    public Output<Optional<String>> engineVersionActual() {
+        return Codegen.optional(this.engineVersionActual);
     }
     /**
      * Set of node groups (shards) on the global replication group.
@@ -301,15 +301,15 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="globalNodeGroups", refs={List.class,GlobalReplicationGroupGlobalNodeGroup.class}, tree="[0,1]")
-    private Output<List<GlobalReplicationGroupGlobalNodeGroup>> globalNodeGroups;
+    private Output</* @Nullable */ List<GlobalReplicationGroupGlobalNodeGroup>> globalNodeGroups;
 
     /**
      * @return Set of node groups (shards) on the global replication group.
      * Has the values:
      * 
      */
-    public Output<List<GlobalReplicationGroupGlobalNodeGroup>> globalNodeGroups() {
-        return this.globalNodeGroups;
+    public Output<Optional<List<GlobalReplicationGroupGlobalNodeGroup>>> globalNodeGroups() {
+        return Codegen.optional(this.globalNodeGroups);
     }
     /**
      * A user-created description for the global replication group.
@@ -330,14 +330,14 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="globalReplicationGroupId", refs={String.class}, tree="[0]")
-    private Output<String> globalReplicationGroupId;
+    private Output</* @Nullable */ String> globalReplicationGroupId;
 
     /**
      * @return The full ID of the global replication group.
      * 
      */
-    public Output<String> globalReplicationGroupId() {
-        return this.globalReplicationGroupId;
+    public Output<Optional<String>> globalReplicationGroupId() {
+        return Codegen.optional(this.globalReplicationGroupId);
     }
     /**
      * The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
@@ -358,14 +358,14 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="numNodeGroups", refs={Integer.class}, tree="[0]")
-    private Output<Integer> numNodeGroups;
+    private Output</* @Nullable */ Integer> numNodeGroups;
 
     /**
      * @return The number of node groups (shards) on the global replication group.
      * 
      */
-    public Output<Integer> numNodeGroups() {
-        return this.numNodeGroups;
+    public Output<Optional<Integer>> numNodeGroups() {
+        return Codegen.optional(this.numNodeGroups);
     }
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
@@ -406,14 +406,14 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> transitEncryptionEnabled;
+    private Output</* @Nullable */ Boolean> transitEncryptionEnabled;
 
     /**
      * @return A flag that indicates whether the encryption in transit is enabled.
      * 
      */
-    public Output<Boolean> transitEncryptionEnabled() {
-        return this.transitEncryptionEnabled;
+    public Output<Optional<Boolean>> transitEncryptionEnabled() {
+        return Codegen.optional(this.transitEncryptionEnabled);
     }
 
     /**

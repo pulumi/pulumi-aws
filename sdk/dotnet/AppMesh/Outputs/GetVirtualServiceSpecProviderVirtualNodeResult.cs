@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualServiceSpecProviderVirtualNodeResult
     {
-        public readonly string VirtualNodeName;
+        public readonly string? VirtualNodeName;
 
         [OutputConstructor]
-        private GetVirtualServiceSpecProviderVirtualNodeResult(string virtualNodeName)
+        private GetVirtualServiceSpecProviderVirtualNodeResult(string? virtualNodeName)
         {
             VirtualNodeName = virtualNodeName;
         }

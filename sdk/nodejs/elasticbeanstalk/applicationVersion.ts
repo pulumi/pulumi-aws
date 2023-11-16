@@ -76,7 +76,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
     /**
      * ARN assigned by AWS for this Elastic Beanstalk Application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * S3 bucket that contains the Application Version source bundle.
      */

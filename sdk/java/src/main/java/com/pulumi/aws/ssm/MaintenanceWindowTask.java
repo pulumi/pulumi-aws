@@ -195,14 +195,14 @@ public class MaintenanceWindowTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the maintenance window task.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
@@ -237,28 +237,28 @@ public class MaintenanceWindowTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maxConcurrency", refs={String.class}, tree="[0]")
-    private Output<String> maxConcurrency;
+    private Output</* @Nullable */ String> maxConcurrency;
 
     /**
      * @return The maximum number of targets this task can be run for in parallel.
      * 
      */
-    public Output<String> maxConcurrency() {
-        return this.maxConcurrency;
+    public Output<Optional<String>> maxConcurrency() {
+        return Codegen.optional(this.maxConcurrency);
     }
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      * 
      */
     @Export(name="maxErrors", refs={String.class}, tree="[0]")
-    private Output<String> maxErrors;
+    private Output</* @Nullable */ String> maxErrors;
 
     /**
      * @return The maximum number of errors allowed before this task stops being scheduled.
      * 
      */
-    public Output<String> maxErrors() {
-        return this.maxErrors;
+    public Output<Optional<String>> maxErrors() {
+        return Codegen.optional(this.maxErrors);
     }
     /**
      * The name of the maintenance window task.
@@ -293,14 +293,14 @@ public class MaintenanceWindowTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
-    private Output<String> serviceRoleArn;
+    private Output</* @Nullable */ String> serviceRoleArn;
 
     /**
      * @return The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account&#39;s service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      * 
      */
-    public Output<String> serviceRoleArn() {
-        return this.serviceRoleArn;
+    public Output<Optional<String>> serviceRoleArn() {
+        return Codegen.optional(this.serviceRoleArn);
     }
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
@@ -377,14 +377,14 @@ public class MaintenanceWindowTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="windowTaskId", refs={String.class}, tree="[0]")
-    private Output<String> windowTaskId;
+    private Output</* @Nullable */ String> windowTaskId;
 
     /**
      * @return The ID of the maintenance window task.
      * 
      */
-    public Output<String> windowTaskId() {
-        return this.windowTaskId;
+    public Output<Optional<String>> windowTaskId() {
+        return Codegen.optional(this.windowTaskId);
     }
 
     /**

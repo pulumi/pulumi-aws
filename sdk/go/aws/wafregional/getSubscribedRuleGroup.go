@@ -82,7 +82,7 @@ type GetSubscribedRuleGroupArgs struct {
 // A collection of values returned by getSubscribedRuleGroup.
 type GetSubscribedRuleGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id         string  `pulumi:"id"`
+	Id         *string `pulumi:"id"`
 	MetricName *string `pulumi:"metricName"`
 	Name       *string `pulumi:"name"`
 }
@@ -128,8 +128,8 @@ func (o GetSubscribedRuleGroupResultOutput) ToGetSubscribedRuleGroupResultOutput
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSubscribedRuleGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSubscribedRuleGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSubscribedRuleGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSubscribedRuleGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSubscribedRuleGroupResultOutput) MetricName() pulumi.StringPtrOutput {

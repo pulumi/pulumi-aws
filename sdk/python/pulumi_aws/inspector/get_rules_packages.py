@@ -31,7 +31,7 @@ class GetRulesPackagesResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
         """
@@ -39,7 +39,7 @@ class GetRulesPackagesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

@@ -7,48 +7,50 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterCacheNode {
-    private String address;
+    private @Nullable String address;
     /**
      * @return Availability Zone for the cache cluster.
      * 
      */
-    private String availabilityZone;
-    private String id;
-    private String outpostArn;
+    private @Nullable String availabilityZone;
+    private @Nullable String id;
+    private @Nullable String outpostArn;
     /**
      * @return The port number on which each of the cache nodes will
      * accept connections.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
 
     private GetClusterCacheNode() {}
-    public String address() {
-        return this.address;
+    public Optional<String> address() {
+        return Optional.ofNullable(this.address);
     }
     /**
      * @return Availability Zone for the cache cluster.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String outpostArn() {
-        return this.outpostArn;
+    public Optional<String> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
     }
     /**
      * @return The port number on which each of the cache nodes will
      * accept connections.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
 
     public static Builder builder() {
@@ -60,11 +62,11 @@ public final class GetClusterCacheNode {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String address;
-        private String availabilityZone;
-        private String id;
-        private String outpostArn;
-        private Integer port;
+        private @Nullable String address;
+        private @Nullable String availabilityZone;
+        private @Nullable String id;
+        private @Nullable String outpostArn;
+        private @Nullable Integer port;
         public Builder() {}
         public Builder(GetClusterCacheNode defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,28 +78,28 @@ public final class GetClusterCacheNode {
         }
 
         @CustomType.Setter
-        public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+        public Builder address(@Nullable String address) {
+            this.address = address;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+        public Builder outpostArn(@Nullable String outpostArn) {
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         public GetClusterCacheNode build() {

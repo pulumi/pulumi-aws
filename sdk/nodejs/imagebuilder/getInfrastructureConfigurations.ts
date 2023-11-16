@@ -50,16 +50,16 @@ export interface GetInfrastructureConfigurationsResult {
     /**
      * Set of ARNs of the matched Image Builder Infrastructure Configurations.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     readonly filters?: outputs.imagebuilder.GetInfrastructureConfigurationsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of names of the matched Image Builder Infrastructure Configurations.
      */
-    readonly names: string[];
+    readonly names?: string[];
 }
 /**
  * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.

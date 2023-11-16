@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the selected Network Insights Analysis.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Explanation codes for an unreachable path.
         /// </summary>
@@ -165,16 +165,16 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string NetworkInsightsAnalysisId;
+        public readonly string? Id;
+        public readonly string? NetworkInsightsAnalysisId;
         /// <summary>
         /// The ID of the path.
         /// </summary>
-        public readonly string NetworkInsightsPathId;
+        public readonly string? NetworkInsightsPathId;
         /// <summary>
         /// Set to `true` if the destination was reachable.
         /// </summary>
-        public readonly bool PathFound;
+        public readonly bool? PathFound;
         /// <summary>
         /// The components in the path from destination to source.
         /// </summary>
@@ -182,26 +182,26 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Date/time the analysis was started.
         /// </summary>
-        public readonly string StartDate;
+        public readonly string? StartDate;
         /// <summary>
         /// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Message to provide more context when the `status` is `failed`.
         /// </summary>
-        public readonly string StatusMessage;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? StatusMessage;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Warning message.
         /// </summary>
-        public readonly string WarningMessage;
+        public readonly string? WarningMessage;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisResult(
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisAlternatePathHintResult> alternatePathHints,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationResult> explanations,
 
@@ -211,25 +211,25 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentResult> forwardPathComponents,
 
-            string id,
+            string? id,
 
-            string networkInsightsAnalysisId,
+            string? networkInsightsAnalysisId,
 
-            string networkInsightsPathId,
+            string? networkInsightsPathId,
 
-            bool pathFound,
+            bool? pathFound,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisReturnPathComponentResult> returnPathComponents,
 
-            string startDate,
+            string? startDate,
 
-            string status,
+            string? status,
 
-            string statusMessage,
+            string? statusMessage,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string warningMessage)
+            string? warningMessage)
         {
             AlternatePathHints = alternatePathHints;
             Arn = arn;

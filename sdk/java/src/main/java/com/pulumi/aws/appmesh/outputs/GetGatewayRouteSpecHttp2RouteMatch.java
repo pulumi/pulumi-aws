@@ -12,34 +12,36 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecHttp2RouteMatch {
-    private List<GetGatewayRouteSpecHttp2RouteMatchHeader> headers;
-    private List<GetGatewayRouteSpecHttp2RouteMatchHostname> hostnames;
-    private List<GetGatewayRouteSpecHttp2RouteMatchPath> paths;
-    private Integer port;
-    private String prefix;
-    private List<GetGatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters;
+    private @Nullable List<GetGatewayRouteSpecHttp2RouteMatchHeader> headers;
+    private @Nullable List<GetGatewayRouteSpecHttp2RouteMatchHostname> hostnames;
+    private @Nullable List<GetGatewayRouteSpecHttp2RouteMatchPath> paths;
+    private @Nullable Integer port;
+    private @Nullable String prefix;
+    private @Nullable List<GetGatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters;
 
     private GetGatewayRouteSpecHttp2RouteMatch() {}
     public List<GetGatewayRouteSpecHttp2RouteMatchHeader> headers() {
-        return this.headers;
+        return this.headers == null ? List.of() : this.headers;
     }
     public List<GetGatewayRouteSpecHttp2RouteMatchHostname> hostnames() {
-        return this.hostnames;
+        return this.hostnames == null ? List.of() : this.hostnames;
     }
     public List<GetGatewayRouteSpecHttp2RouteMatchPath> paths() {
-        return this.paths;
+        return this.paths == null ? List.of() : this.paths;
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String prefix() {
-        return this.prefix;
+    public Optional<String> prefix() {
+        return Optional.ofNullable(this.prefix);
     }
     public List<GetGatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters() {
-        return this.queryParameters;
+        return this.queryParameters == null ? List.of() : this.queryParameters;
     }
 
     public static Builder builder() {
@@ -51,12 +53,12 @@ public final class GetGatewayRouteSpecHttp2RouteMatch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGatewayRouteSpecHttp2RouteMatchHeader> headers;
-        private List<GetGatewayRouteSpecHttp2RouteMatchHostname> hostnames;
-        private List<GetGatewayRouteSpecHttp2RouteMatchPath> paths;
-        private Integer port;
-        private String prefix;
-        private List<GetGatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters;
+        private @Nullable List<GetGatewayRouteSpecHttp2RouteMatchHeader> headers;
+        private @Nullable List<GetGatewayRouteSpecHttp2RouteMatchHostname> hostnames;
+        private @Nullable List<GetGatewayRouteSpecHttp2RouteMatchPath> paths;
+        private @Nullable Integer port;
+        private @Nullable String prefix;
+        private @Nullable List<GetGatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttp2RouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,42 +71,42 @@ public final class GetGatewayRouteSpecHttp2RouteMatch {
         }
 
         @CustomType.Setter
-        public Builder headers(List<GetGatewayRouteSpecHttp2RouteMatchHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+        public Builder headers(@Nullable List<GetGatewayRouteSpecHttp2RouteMatchHeader> headers) {
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetGatewayRouteSpecHttp2RouteMatchHeader... headers) {
             return headers(List.of(headers));
         }
         @CustomType.Setter
-        public Builder hostnames(List<GetGatewayRouteSpecHttp2RouteMatchHostname> hostnames) {
-            this.hostnames = Objects.requireNonNull(hostnames);
+        public Builder hostnames(@Nullable List<GetGatewayRouteSpecHttp2RouteMatchHostname> hostnames) {
+            this.hostnames = hostnames;
             return this;
         }
         public Builder hostnames(GetGatewayRouteSpecHttp2RouteMatchHostname... hostnames) {
             return hostnames(List.of(hostnames));
         }
         @CustomType.Setter
-        public Builder paths(List<GetGatewayRouteSpecHttp2RouteMatchPath> paths) {
-            this.paths = Objects.requireNonNull(paths);
+        public Builder paths(@Nullable List<GetGatewayRouteSpecHttp2RouteMatchPath> paths) {
+            this.paths = paths;
             return this;
         }
         public Builder paths(GetGatewayRouteSpecHttp2RouteMatchPath... paths) {
             return paths(List.of(paths));
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+        public Builder prefix(@Nullable String prefix) {
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
-        public Builder queryParameters(List<GetGatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters) {
-            this.queryParameters = Objects.requireNonNull(queryParameters);
+        public Builder queryParameters(@Nullable List<GetGatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters) {
+            this.queryParameters = queryParameters;
             return this;
         }
         public Builder queryParameters(GetGatewayRouteSpecHttp2RouteMatchQueryParameter... queryParameters) {

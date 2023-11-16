@@ -116,25 +116,25 @@ export class ReplicationSet extends pulumi.CustomResource {
     /**
      * The ARN of the replication set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the user who created the replication set.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    public /*out*/ readonly createdBy!: pulumi.Output<string | undefined>;
     /**
      * If `true`, the last region in a replication set cannot be deleted.
      */
-    public /*out*/ readonly deletionProtected!: pulumi.Output<boolean>;
+    public /*out*/ readonly deletionProtected!: pulumi.Output<boolean | undefined>;
     /**
      * A timestamp showing when the replication set was last modified.
      */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string | undefined>;
     public readonly regions!: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Tags applied to the replication set.
      *

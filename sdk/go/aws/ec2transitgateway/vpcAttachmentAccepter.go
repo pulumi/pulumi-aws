@@ -62,11 +62,11 @@ type VpcAttachmentAccepter struct {
 	pulumi.CustomResourceState
 
 	// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
-	ApplianceModeSupport pulumi.StringOutput `pulumi:"applianceModeSupport"`
+	ApplianceModeSupport pulumi.StringPtrOutput `pulumi:"applianceModeSupport"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`.
-	DnsSupport pulumi.StringOutput `pulumi:"dnsSupport"`
+	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
-	Ipv6Support pulumi.StringOutput `pulumi:"ipv6Support"`
+	Ipv6Support pulumi.StringPtrOutput `pulumi:"ipv6Support"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -82,11 +82,11 @@ type VpcAttachmentAccepter struct {
 	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
 	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrOutput `pulumi:"transitGatewayDefaultRouteTablePropagation"`
 	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// Identifier of EC2 VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 	// Identifier of the AWS account that owns the EC2 VPC.
-	VpcOwnerId pulumi.StringOutput `pulumi:"vpcOwnerId"`
+	VpcOwnerId pulumi.StringPtrOutput `pulumi:"vpcOwnerId"`
 }
 
 // NewVpcAttachmentAccepter registers a new resource with the given unique name, arguments, and options.
@@ -298,18 +298,18 @@ func (o VpcAttachmentAccepterOutput) ToVpcAttachmentAccepterOutputWithContext(ct
 }
 
 // Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
-func (o VpcAttachmentAccepterOutput) ApplianceModeSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.ApplianceModeSupport }).(pulumi.StringOutput)
+func (o VpcAttachmentAccepterOutput) ApplianceModeSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringPtrOutput { return v.ApplianceModeSupport }).(pulumi.StringPtrOutput)
 }
 
 // Whether DNS support is enabled. Valid values: `disable`, `enable`.
-func (o VpcAttachmentAccepterOutput) DnsSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.DnsSupport }).(pulumi.StringOutput)
+func (o VpcAttachmentAccepterOutput) DnsSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringPtrOutput { return v.DnsSupport }).(pulumi.StringPtrOutput)
 }
 
 // Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
-func (o VpcAttachmentAccepterOutput) Ipv6Support() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.Ipv6Support }).(pulumi.StringOutput)
+func (o VpcAttachmentAccepterOutput) Ipv6Support() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringPtrOutput { return v.Ipv6Support }).(pulumi.StringPtrOutput)
 }
 
 // Identifiers of EC2 Subnets.
@@ -349,18 +349,18 @@ func (o VpcAttachmentAccepterOutput) TransitGatewayDefaultRouteTablePropagation(
 }
 
 // Identifier of EC2 Transit Gateway.
-func (o VpcAttachmentAccepterOutput) TransitGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+func (o VpcAttachmentAccepterOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of EC2 VPC.
-func (o VpcAttachmentAccepterOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o VpcAttachmentAccepterOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the AWS account that owns the EC2 VPC.
-func (o VpcAttachmentAccepterOutput) VpcOwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.VpcOwnerId }).(pulumi.StringOutput)
+func (o VpcAttachmentAccepterOutput) VpcOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringPtrOutput { return v.VpcOwnerId }).(pulumi.StringPtrOutput)
 }
 
 type VpcAttachmentAccepterArrayOutput struct{ *pulumi.OutputState }

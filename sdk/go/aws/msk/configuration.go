@@ -56,13 +56,13 @@ type Configuration struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of Apache Kafka versions which can use this configuration.
 	KafkaVersions pulumi.StringArrayOutput `pulumi:"kafkaVersions"`
 	// Latest revision of the configuration.
-	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
+	LatestRevision pulumi.IntPtrOutput `pulumi:"latestRevision"`
 	// Name of the configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
@@ -246,8 +246,8 @@ func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Contex
 }
 
 // Amazon Resource Name (ARN) of the configuration.
-func (o ConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the configuration.
@@ -261,8 +261,8 @@ func (o ConfigurationOutput) KafkaVersions() pulumi.StringArrayOutput {
 }
 
 // Latest revision of the configuration.
-func (o ConfigurationOutput) LatestRevision() pulumi.IntOutput {
-	return o.ApplyT(func(v *Configuration) pulumi.IntOutput { return v.LatestRevision }).(pulumi.IntOutput)
+func (o ConfigurationOutput) LatestRevision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.IntPtrOutput { return v.LatestRevision }).(pulumi.IntPtrOutput)
 }
 
 // Name of the configuration.

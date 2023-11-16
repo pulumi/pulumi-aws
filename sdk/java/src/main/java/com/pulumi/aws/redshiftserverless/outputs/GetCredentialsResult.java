@@ -17,23 +17,23 @@ public final class GetCredentialsResult {
      * @return Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
      * 
      */
-    private String dbPassword;
+    private @Nullable String dbPassword;
     /**
      * @return A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn&#39;t exist in the database.
      * 
      */
-    private String dbUser;
+    private @Nullable String dbUser;
     private @Nullable Integer durationSeconds;
     /**
      * @return Date and time the password in `db_password` expires.
      * 
      */
-    private String expiration;
+    private @Nullable String expiration;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String workgroupName;
 
     private GetCredentialsResult() {}
@@ -44,15 +44,15 @@ public final class GetCredentialsResult {
      * @return Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
      * 
      */
-    public String dbPassword() {
-        return this.dbPassword;
+    public Optional<String> dbPassword() {
+        return Optional.ofNullable(this.dbPassword);
     }
     /**
      * @return A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn&#39;t exist in the database.
      * 
      */
-    public String dbUser() {
-        return this.dbUser;
+    public Optional<String> dbUser() {
+        return Optional.ofNullable(this.dbUser);
     }
     public Optional<Integer> durationSeconds() {
         return Optional.ofNullable(this.durationSeconds);
@@ -61,15 +61,15 @@ public final class GetCredentialsResult {
      * @return Date and time the password in `db_password` expires.
      * 
      */
-    public String expiration() {
-        return this.expiration;
+    public Optional<String> expiration() {
+        return Optional.ofNullable(this.expiration);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String workgroupName() {
         return this.workgroupName;
@@ -85,11 +85,11 @@ public final class GetCredentialsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String dbName;
-        private String dbPassword;
-        private String dbUser;
+        private @Nullable String dbPassword;
+        private @Nullable String dbUser;
         private @Nullable Integer durationSeconds;
-        private String expiration;
-        private String id;
+        private @Nullable String expiration;
+        private @Nullable String id;
         private String workgroupName;
         public Builder() {}
         public Builder(GetCredentialsResult defaults) {
@@ -109,13 +109,13 @@ public final class GetCredentialsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dbPassword(String dbPassword) {
-            this.dbPassword = Objects.requireNonNull(dbPassword);
+        public Builder dbPassword(@Nullable String dbPassword) {
+            this.dbPassword = dbPassword;
             return this;
         }
         @CustomType.Setter
-        public Builder dbUser(String dbUser) {
-            this.dbUser = Objects.requireNonNull(dbUser);
+        public Builder dbUser(@Nullable String dbUser) {
+            this.dbUser = dbUser;
             return this;
         }
         @CustomType.Setter
@@ -124,13 +124,13 @@ public final class GetCredentialsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder expiration(String expiration) {
-            this.expiration = Objects.requireNonNull(expiration);
+        public Builder expiration(@Nullable String expiration) {
+            this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

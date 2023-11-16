@@ -19,58 +19,58 @@ public final class GetOriginRequestPolicyResult {
      * @return Comment to describe the origin request policy.
      * 
      */
-    private String comment;
+    private @Nullable String comment;
     /**
      * @return Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
      */
-    private List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs;
+    private @Nullable List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs;
     /**
      * @return Current version of the origin request policy.
      * 
      */
-    private String etag;
+    private @Nullable String etag;
     /**
      * @return Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      * 
      */
-    private List<GetOriginRequestPolicyHeadersConfig> headersConfigs;
+    private @Nullable List<GetOriginRequestPolicyHeadersConfig> headersConfigs;
     private @Nullable String id;
     private @Nullable String name;
     /**
      * @return Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      * 
      */
-    private List<GetOriginRequestPolicyQueryStringsConfig> queryStringsConfigs;
+    private @Nullable List<GetOriginRequestPolicyQueryStringsConfig> queryStringsConfigs;
 
     private GetOriginRequestPolicyResult() {}
     /**
      * @return Comment to describe the origin request policy.
      * 
      */
-    public String comment() {
-        return this.comment;
+    public Optional<String> comment() {
+        return Optional.ofNullable(this.comment);
     }
     /**
      * @return Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
      */
     public List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs() {
-        return this.cookiesConfigs;
+        return this.cookiesConfigs == null ? List.of() : this.cookiesConfigs;
     }
     /**
      * @return Current version of the origin request policy.
      * 
      */
-    public String etag() {
-        return this.etag;
+    public Optional<String> etag() {
+        return Optional.ofNullable(this.etag);
     }
     /**
      * @return Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      * 
      */
     public List<GetOriginRequestPolicyHeadersConfig> headersConfigs() {
-        return this.headersConfigs;
+        return this.headersConfigs == null ? List.of() : this.headersConfigs;
     }
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -83,7 +83,7 @@ public final class GetOriginRequestPolicyResult {
      * 
      */
     public List<GetOriginRequestPolicyQueryStringsConfig> queryStringsConfigs() {
-        return this.queryStringsConfigs;
+        return this.queryStringsConfigs == null ? List.of() : this.queryStringsConfigs;
     }
 
     public static Builder builder() {
@@ -95,13 +95,13 @@ public final class GetOriginRequestPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs;
-        private String etag;
-        private List<GetOriginRequestPolicyHeadersConfig> headersConfigs;
+        private @Nullable String comment;
+        private @Nullable List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs;
+        private @Nullable String etag;
+        private @Nullable List<GetOriginRequestPolicyHeadersConfig> headersConfigs;
         private @Nullable String id;
         private @Nullable String name;
-        private List<GetOriginRequestPolicyQueryStringsConfig> queryStringsConfigs;
+        private @Nullable List<GetOriginRequestPolicyQueryStringsConfig> queryStringsConfigs;
         public Builder() {}
         public Builder(GetOriginRequestPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -115,26 +115,26 @@ public final class GetOriginRequestPolicyResult {
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+        public Builder comment(@Nullable String comment) {
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
-        public Builder cookiesConfigs(List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs) {
-            this.cookiesConfigs = Objects.requireNonNull(cookiesConfigs);
+        public Builder cookiesConfigs(@Nullable List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs) {
+            this.cookiesConfigs = cookiesConfigs;
             return this;
         }
         public Builder cookiesConfigs(GetOriginRequestPolicyCookiesConfig... cookiesConfigs) {
             return cookiesConfigs(List.of(cookiesConfigs));
         }
         @CustomType.Setter
-        public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+        public Builder etag(@Nullable String etag) {
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
-        public Builder headersConfigs(List<GetOriginRequestPolicyHeadersConfig> headersConfigs) {
-            this.headersConfigs = Objects.requireNonNull(headersConfigs);
+        public Builder headersConfigs(@Nullable List<GetOriginRequestPolicyHeadersConfig> headersConfigs) {
+            this.headersConfigs = headersConfigs;
             return this;
         }
         public Builder headersConfigs(GetOriginRequestPolicyHeadersConfig... headersConfigs) {
@@ -151,8 +151,8 @@ public final class GetOriginRequestPolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder queryStringsConfigs(List<GetOriginRequestPolicyQueryStringsConfig> queryStringsConfigs) {
-            this.queryStringsConfigs = Objects.requireNonNull(queryStringsConfigs);
+        public Builder queryStringsConfigs(@Nullable List<GetOriginRequestPolicyQueryStringsConfig> queryStringsConfigs) {
+            this.queryStringsConfigs = queryStringsConfigs;
             return this;
         }
         public Builder queryStringsConfigs(GetOriginRequestPolicyQueryStringsConfig... queryStringsConfigs) {

@@ -930,7 +930,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the file system.
         """
@@ -946,7 +946,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> pulumi.Output[str]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         """
@@ -962,7 +962,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIopsConfiguration")
-    def disk_iops_configuration(self) -> pulumi.Output['outputs.OntapFileSystemDiskIopsConfiguration']:
+    def disk_iops_configuration(self) -> pulumi.Output[Optional['outputs.OntapFileSystemDiskIopsConfiguration']]:
         """
         The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         """
@@ -970,7 +970,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         """
@@ -978,7 +978,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointIpAddressRange")
-    def endpoint_ip_address_range(self) -> pulumi.Output[str]:
+    def endpoint_ip_address_range(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
         """
@@ -986,7 +986,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> pulumi.Output[Sequence['outputs.OntapFileSystemEndpoint']]:
+    def endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.OntapFileSystemEndpoint']]]:
         """
         The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         """
@@ -1002,7 +1002,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         """
@@ -1010,7 +1010,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
+    def network_interface_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         """
@@ -1018,7 +1018,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account identifier that created the file system.
         """
@@ -1034,7 +1034,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeTableIds")
-    def route_table_ids(self) -> pulumi.Output[Sequence[str]]:
+    def route_table_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         """
@@ -1101,7 +1101,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the Virtual Private Cloud for the file system.
         """
@@ -1109,7 +1109,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> pulumi.Output[str]:
+    def weekly_maintenance_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """

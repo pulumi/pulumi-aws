@@ -444,7 +444,7 @@ class UserProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The user profile Amazon Resource Name (ARN).
         """
@@ -460,7 +460,7 @@ class UserProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="homeEfsFileSystemUid")
-    def home_efs_file_system_uid(self) -> pulumi.Output[str]:
+    def home_efs_file_system_uid(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
         """

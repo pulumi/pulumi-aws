@@ -9,34 +9,36 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapSourceJoinInstruction {
-    private List<GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty> leftJoinKeyProperties;
-    private String leftOperand;
-    private String onClause;
-    private List<GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty> rightJoinKeyProperties;
-    private String rightOperand;
-    private String type;
+    private @Nullable List<GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty> leftJoinKeyProperties;
+    private @Nullable String leftOperand;
+    private @Nullable String onClause;
+    private @Nullable List<GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty> rightJoinKeyProperties;
+    private @Nullable String rightOperand;
+    private @Nullable String type;
 
     private GetDataSetLogicalTableMapSourceJoinInstruction() {}
     public List<GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty> leftJoinKeyProperties() {
-        return this.leftJoinKeyProperties;
+        return this.leftJoinKeyProperties == null ? List.of() : this.leftJoinKeyProperties;
     }
-    public String leftOperand() {
-        return this.leftOperand;
+    public Optional<String> leftOperand() {
+        return Optional.ofNullable(this.leftOperand);
     }
-    public String onClause() {
-        return this.onClause;
+    public Optional<String> onClause() {
+        return Optional.ofNullable(this.onClause);
     }
     public List<GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty> rightJoinKeyProperties() {
-        return this.rightJoinKeyProperties;
+        return this.rightJoinKeyProperties == null ? List.of() : this.rightJoinKeyProperties;
     }
-    public String rightOperand() {
-        return this.rightOperand;
+    public Optional<String> rightOperand() {
+        return Optional.ofNullable(this.rightOperand);
     }
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -48,12 +50,12 @@ public final class GetDataSetLogicalTableMapSourceJoinInstruction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty> leftJoinKeyProperties;
-        private String leftOperand;
-        private String onClause;
-        private List<GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty> rightJoinKeyProperties;
-        private String rightOperand;
-        private String type;
+        private @Nullable List<GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty> leftJoinKeyProperties;
+        private @Nullable String leftOperand;
+        private @Nullable String onClause;
+        private @Nullable List<GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty> rightJoinKeyProperties;
+        private @Nullable String rightOperand;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapSourceJoinInstruction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,39 +68,39 @@ public final class GetDataSetLogicalTableMapSourceJoinInstruction {
         }
 
         @CustomType.Setter
-        public Builder leftJoinKeyProperties(List<GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty> leftJoinKeyProperties) {
-            this.leftJoinKeyProperties = Objects.requireNonNull(leftJoinKeyProperties);
+        public Builder leftJoinKeyProperties(@Nullable List<GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty> leftJoinKeyProperties) {
+            this.leftJoinKeyProperties = leftJoinKeyProperties;
             return this;
         }
         public Builder leftJoinKeyProperties(GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty... leftJoinKeyProperties) {
             return leftJoinKeyProperties(List.of(leftJoinKeyProperties));
         }
         @CustomType.Setter
-        public Builder leftOperand(String leftOperand) {
-            this.leftOperand = Objects.requireNonNull(leftOperand);
+        public Builder leftOperand(@Nullable String leftOperand) {
+            this.leftOperand = leftOperand;
             return this;
         }
         @CustomType.Setter
-        public Builder onClause(String onClause) {
-            this.onClause = Objects.requireNonNull(onClause);
+        public Builder onClause(@Nullable String onClause) {
+            this.onClause = onClause;
             return this;
         }
         @CustomType.Setter
-        public Builder rightJoinKeyProperties(List<GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty> rightJoinKeyProperties) {
-            this.rightJoinKeyProperties = Objects.requireNonNull(rightJoinKeyProperties);
+        public Builder rightJoinKeyProperties(@Nullable List<GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty> rightJoinKeyProperties) {
+            this.rightJoinKeyProperties = rightJoinKeyProperties;
             return this;
         }
         public Builder rightJoinKeyProperties(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty... rightJoinKeyProperties) {
             return rightJoinKeyProperties(List.of(rightJoinKeyProperties));
         }
         @CustomType.Setter
-        public Builder rightOperand(String rightOperand) {
-            this.rightOperand = Objects.requireNonNull(rightOperand);
+        public Builder rightOperand(@Nullable String rightOperand) {
+            this.rightOperand = rightOperand;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetDataSetLogicalTableMapSourceJoinInstruction build() {

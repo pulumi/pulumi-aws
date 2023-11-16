@@ -466,7 +466,7 @@ class ResourceLfTags(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> pulumi.Output[str]:
+    def catalog_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         """
@@ -474,7 +474,7 @@ class ResourceLfTags(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def database(self) -> pulumi.Output['outputs.ResourceLfTagsDatabase']:
+    def database(self) -> pulumi.Output[Optional['outputs.ResourceLfTagsDatabase']]:
         """
         Configuration block for a database resource. See below.
         """
@@ -492,7 +492,7 @@ class ResourceLfTags(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def table(self) -> pulumi.Output['outputs.ResourceLfTagsTable']:
+    def table(self) -> pulumi.Output[Optional['outputs.ResourceLfTagsTable']]:
         """
         Configuration block for a table resource. See below.
         """
@@ -500,7 +500,7 @@ class ResourceLfTags(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableWithColumns")
-    def table_with_columns(self) -> pulumi.Output['outputs.ResourceLfTagsTableWithColumns']:
+    def table_with_columns(self) -> pulumi.Output[Optional['outputs.ResourceLfTagsTableWithColumns']]:
         """
         Configuration block for a table with columns resource. See below.
 

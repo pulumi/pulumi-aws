@@ -172,7 +172,7 @@ type Stage struct {
 	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings StageAccessLogSettingsPtrOutput `pulumi:"accessLogSettings"`
 	// ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether a cache cluster is enabled for the stage
 	CacheClusterEnabled pulumi.BoolPtrOutput `pulumi:"cacheClusterEnabled"`
 	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
@@ -190,10 +190,10 @@ type Stage struct {
 	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
+	ExecutionArn pulumi.StringPtrOutput `pulumi:"executionArn"`
 	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
+	InvokeUrl pulumi.StringPtrOutput `pulumi:"invokeUrl"`
 	// ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Name of the stage
@@ -207,7 +207,7 @@ type Stage struct {
 	// Map that defines the stage variables
 	Variables pulumi.StringMapOutput `pulumi:"variables"`
 	// ARN of the WebAcl associated with the Stage.
-	WebAclArn pulumi.StringOutput `pulumi:"webAclArn"`
+	WebAclArn pulumi.StringPtrOutput `pulumi:"webAclArn"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrOutput `pulumi:"xrayTracingEnabled"`
 }
@@ -498,8 +498,8 @@ func (o StageOutput) AccessLogSettings() StageAccessLogSettingsPtrOutput {
 }
 
 // ARN
-func (o StageOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StageOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether a cache cluster is enabled for the stage
@@ -540,14 +540,14 @@ func (o StageOutput) DocumentationVersion() pulumi.StringPtrOutput {
 // Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-func (o StageOutput) ExecutionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
+func (o StageOutput) ExecutionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.ExecutionArn }).(pulumi.StringPtrOutput)
 }
 
 // URL to invoke the API pointing to the stage,
 // e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-func (o StageOutput) InvokeUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
+func (o StageOutput) InvokeUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.InvokeUrl }).(pulumi.StringPtrOutput)
 }
 
 // ID of the associated REST API
@@ -578,8 +578,8 @@ func (o StageOutput) Variables() pulumi.StringMapOutput {
 }
 
 // ARN of the WebAcl associated with the Stage.
-func (o StageOutput) WebAclArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.WebAclArn }).(pulumi.StringOutput)
+func (o StageOutput) WebAclArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.WebAclArn }).(pulumi.StringPtrOutput)
 }
 
 // Whether active tracing with X-ray is enabled. Defaults to `false`.

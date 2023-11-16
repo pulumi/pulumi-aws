@@ -16,17 +16,17 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Whether node to node encryption is enabled.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// Whether the internal user database is enabled.
         /// </summary>
-        public readonly bool InternalUserDatabaseEnabled;
+        public readonly bool? InternalUserDatabaseEnabled;
 
         [OutputConstructor]
         private GetDomainAdvancedSecurityOptionResult(
-            bool enabled,
+            bool? enabled,
 
-            bool internalUserDatabaseEnabled)
+            bool? internalUserDatabaseEnabled)
         {
             Enabled = enabled;
             InternalUserDatabaseEnabled = internalUserDatabaseEnabled;

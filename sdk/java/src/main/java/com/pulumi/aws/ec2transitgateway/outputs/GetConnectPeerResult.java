@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,83 +18,83 @@ public final class GetConnectPeerResult {
      * @return EC2 Transit Gateway Connect Peer ARN
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return BGP ASN number assigned customer device
      * 
      */
-    private String bgpAsn;
+    private @Nullable String bgpAsn;
     /**
      * @return The IP address assigned to customer device, which is used as BGP IP address.
      * 
      */
-    private String bgpPeerAddress;
+    private @Nullable String bgpPeerAddress;
     /**
      * @return The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
      * 
      */
-    private List<String> bgpTransitGatewayAddresses;
+    private @Nullable List<String> bgpTransitGatewayAddresses;
     private @Nullable List<GetConnectPeerFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return CIDR blocks that will be used for addressing within the tunnel.
      * 
      */
-    private List<String> insideCidrBlocks;
+    private @Nullable List<String> insideCidrBlocks;
     /**
      * @return IP addressed assigned to customer device, which is used as tunnel endpoint
      * 
      */
-    private String peerAddress;
+    private @Nullable String peerAddress;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Connect Peer
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
      * 
      */
-    private String transitGatewayAddress;
+    private @Nullable String transitGatewayAddress;
     /**
      * @return The Transit Gateway Connect
      * 
      */
-    private String transitGatewayAttachmentId;
-    private String transitGatewayConnectPeerId;
+    private @Nullable String transitGatewayAttachmentId;
+    private @Nullable String transitGatewayConnectPeerId;
 
     private GetConnectPeerResult() {}
     /**
      * @return EC2 Transit Gateway Connect Peer ARN
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return BGP ASN number assigned customer device
      * 
      */
-    public String bgpAsn() {
-        return this.bgpAsn;
+    public Optional<String> bgpAsn() {
+        return Optional.ofNullable(this.bgpAsn);
     }
     /**
      * @return The IP address assigned to customer device, which is used as BGP IP address.
      * 
      */
-    public String bgpPeerAddress() {
-        return this.bgpPeerAddress;
+    public Optional<String> bgpPeerAddress() {
+        return Optional.ofNullable(this.bgpPeerAddress);
     }
     /**
      * @return The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
      * 
      */
     public List<String> bgpTransitGatewayAddresses() {
-        return this.bgpTransitGatewayAddresses;
+        return this.bgpTransitGatewayAddresses == null ? List.of() : this.bgpTransitGatewayAddresses;
     }
     public List<GetConnectPeerFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -102,46 +103,46 @@ public final class GetConnectPeerResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return CIDR blocks that will be used for addressing within the tunnel.
      * 
      */
     public List<String> insideCidrBlocks() {
-        return this.insideCidrBlocks;
+        return this.insideCidrBlocks == null ? List.of() : this.insideCidrBlocks;
     }
     /**
      * @return IP addressed assigned to customer device, which is used as tunnel endpoint
      * 
      */
-    public String peerAddress() {
-        return this.peerAddress;
+    public Optional<String> peerAddress() {
+        return Optional.ofNullable(this.peerAddress);
     }
     /**
      * @return Key-value tags for the EC2 Transit Gateway Connect Peer
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
      * 
      */
-    public String transitGatewayAddress() {
-        return this.transitGatewayAddress;
+    public Optional<String> transitGatewayAddress() {
+        return Optional.ofNullable(this.transitGatewayAddress);
     }
     /**
      * @return The Transit Gateway Connect
      * 
      */
-    public String transitGatewayAttachmentId() {
-        return this.transitGatewayAttachmentId;
+    public Optional<String> transitGatewayAttachmentId() {
+        return Optional.ofNullable(this.transitGatewayAttachmentId);
     }
-    public String transitGatewayConnectPeerId() {
-        return this.transitGatewayConnectPeerId;
+    public Optional<String> transitGatewayConnectPeerId() {
+        return Optional.ofNullable(this.transitGatewayConnectPeerId);
     }
 
     public static Builder builder() {
@@ -153,18 +154,18 @@ public final class GetConnectPeerResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String bgpAsn;
-        private String bgpPeerAddress;
-        private List<String> bgpTransitGatewayAddresses;
+        private @Nullable String arn;
+        private @Nullable String bgpAsn;
+        private @Nullable String bgpPeerAddress;
+        private @Nullable List<String> bgpTransitGatewayAddresses;
         private @Nullable List<GetConnectPeerFilter> filters;
-        private String id;
-        private List<String> insideCidrBlocks;
-        private String peerAddress;
-        private Map<String,String> tags;
-        private String transitGatewayAddress;
-        private String transitGatewayAttachmentId;
-        private String transitGatewayConnectPeerId;
+        private @Nullable String id;
+        private @Nullable List<String> insideCidrBlocks;
+        private @Nullable String peerAddress;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String transitGatewayAddress;
+        private @Nullable String transitGatewayAttachmentId;
+        private @Nullable String transitGatewayConnectPeerId;
         public Builder() {}
         public Builder(GetConnectPeerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -183,23 +184,23 @@ public final class GetConnectPeerResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder bgpAsn(String bgpAsn) {
-            this.bgpAsn = Objects.requireNonNull(bgpAsn);
+        public Builder bgpAsn(@Nullable String bgpAsn) {
+            this.bgpAsn = bgpAsn;
             return this;
         }
         @CustomType.Setter
-        public Builder bgpPeerAddress(String bgpPeerAddress) {
-            this.bgpPeerAddress = Objects.requireNonNull(bgpPeerAddress);
+        public Builder bgpPeerAddress(@Nullable String bgpPeerAddress) {
+            this.bgpPeerAddress = bgpPeerAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder bgpTransitGatewayAddresses(List<String> bgpTransitGatewayAddresses) {
-            this.bgpTransitGatewayAddresses = Objects.requireNonNull(bgpTransitGatewayAddresses);
+        public Builder bgpTransitGatewayAddresses(@Nullable List<String> bgpTransitGatewayAddresses) {
+            this.bgpTransitGatewayAddresses = bgpTransitGatewayAddresses;
             return this;
         }
         public Builder bgpTransitGatewayAddresses(String... bgpTransitGatewayAddresses) {
@@ -214,41 +215,41 @@ public final class GetConnectPeerResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder insideCidrBlocks(List<String> insideCidrBlocks) {
-            this.insideCidrBlocks = Objects.requireNonNull(insideCidrBlocks);
+        public Builder insideCidrBlocks(@Nullable List<String> insideCidrBlocks) {
+            this.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }
         @CustomType.Setter
-        public Builder peerAddress(String peerAddress) {
-            this.peerAddress = Objects.requireNonNull(peerAddress);
+        public Builder peerAddress(@Nullable String peerAddress) {
+            this.peerAddress = peerAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayAddress(String transitGatewayAddress) {
-            this.transitGatewayAddress = Objects.requireNonNull(transitGatewayAddress);
+        public Builder transitGatewayAddress(@Nullable String transitGatewayAddress) {
+            this.transitGatewayAddress = transitGatewayAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
-            this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
+        public Builder transitGatewayAttachmentId(@Nullable String transitGatewayAttachmentId) {
+            this.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayConnectPeerId(String transitGatewayConnectPeerId) {
-            this.transitGatewayConnectPeerId = Objects.requireNonNull(transitGatewayConnectPeerId);
+        public Builder transitGatewayConnectPeerId(@Nullable String transitGatewayConnectPeerId) {
+            this.transitGatewayConnectPeerId = transitGatewayConnectPeerId;
             return this;
         }
         public GetConnectPeerResult build() {

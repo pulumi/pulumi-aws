@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -81,14 +82,14 @@ public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
-    private Output<String> relationshipStatus;
+    private Output</* @Nullable */ String> relationshipStatus;
 
     /**
      * @return Status of this delegated admin account.
      * 
      */
-    public Output<String> relationshipStatus() {
-        return this.relationshipStatus;
+    public Output<Optional<String>> relationshipStatus() {
+        return Codegen.optional(this.relationshipStatus);
     }
 
     /**

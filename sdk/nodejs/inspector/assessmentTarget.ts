@@ -59,7 +59,7 @@ export class AssessmentTarget extends pulumi.CustomResource {
     /**
      * The target assessment ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the assessment target.
      */

@@ -81,14 +81,14 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Route 53 Resolver endpoint.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The direction of DNS queries to or from the Route 53 Resolver endpoint.
@@ -113,14 +113,14 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostVpcId", refs={String.class}, tree="[0]")
-    private Output<String> hostVpcId;
+    private Output</* @Nullable */ String> hostVpcId;
 
     /**
      * @return The ID of the VPC that you want to create the resolver endpoint in.
      * 
      */
-    public Output<String> hostVpcId() {
-        return this.hostVpcId;
+    public Output<Optional<String>> hostVpcId() {
+        return Codegen.optional(this.hostVpcId);
     }
     /**
      * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs

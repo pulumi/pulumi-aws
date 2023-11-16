@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationSetReputationOption {
@@ -14,27 +16,27 @@ public final class GetConfigurationSetReputationOption {
      * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start.
      * 
      */
-    private String lastFreshStart;
+    private @Nullable String lastFreshStart;
     /**
      * @return Specifies whether tracking of reputation metrics is enabled.
      * 
      */
-    private Boolean reputationMetricsEnabled;
+    private @Nullable Boolean reputationMetricsEnabled;
 
     private GetConfigurationSetReputationOption() {}
     /**
      * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start.
      * 
      */
-    public String lastFreshStart() {
-        return this.lastFreshStart;
+    public Optional<String> lastFreshStart() {
+        return Optional.ofNullable(this.lastFreshStart);
     }
     /**
      * @return Specifies whether tracking of reputation metrics is enabled.
      * 
      */
-    public Boolean reputationMetricsEnabled() {
-        return this.reputationMetricsEnabled;
+    public Optional<Boolean> reputationMetricsEnabled() {
+        return Optional.ofNullable(this.reputationMetricsEnabled);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetConfigurationSetReputationOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String lastFreshStart;
-        private Boolean reputationMetricsEnabled;
+        private @Nullable String lastFreshStart;
+        private @Nullable Boolean reputationMetricsEnabled;
         public Builder() {}
         public Builder(GetConfigurationSetReputationOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetConfigurationSetReputationOption {
         }
 
         @CustomType.Setter
-        public Builder lastFreshStart(String lastFreshStart) {
-            this.lastFreshStart = Objects.requireNonNull(lastFreshStart);
+        public Builder lastFreshStart(@Nullable String lastFreshStart) {
+            this.lastFreshStart = lastFreshStart;
             return this;
         }
         @CustomType.Setter
-        public Builder reputationMetricsEnabled(Boolean reputationMetricsEnabled) {
-            this.reputationMetricsEnabled = Objects.requireNonNull(reputationMetricsEnabled);
+        public Builder reputationMetricsEnabled(@Nullable Boolean reputationMetricsEnabled) {
+            this.reputationMetricsEnabled = reputationMetricsEnabled;
             return this;
         }
         public GetConfigurationSetReputationOption build() {

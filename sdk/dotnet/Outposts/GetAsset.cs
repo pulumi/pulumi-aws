@@ -74,23 +74,23 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// Type of the asset.
         /// </summary>
-        public readonly string AssetType;
+        public readonly string? AssetType;
         /// <summary>
         /// Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
         /// </summary>
-        public readonly string HostId;
+        public readonly string? HostId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Position of an asset in a rack measured in rack units.
         /// </summary>
-        public readonly int RackElevation;
+        public readonly int? RackElevation;
         /// <summary>
         /// Rack ID of the asset.
         /// </summary>
-        public readonly string RackId;
+        public readonly string? RackId;
 
         [OutputConstructor]
         private GetAssetResult(
@@ -98,15 +98,15 @@ namespace Pulumi.Aws.Outposts
 
             string assetId,
 
-            string assetType,
+            string? assetType,
 
-            string hostId,
+            string? hostId,
 
-            string id,
+            string? id,
 
-            int rackElevation,
+            int? rackElevation,
 
-            string rackId)
+            string? rackId)
         {
             Arn = arn;
             AssetId = assetId;

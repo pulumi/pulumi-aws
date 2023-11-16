@@ -154,10 +154,10 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientMetadata);
     }
     @Export(name="creationDate", refs={String.class}, tree="[0]")
-    private Output<String> creationDate;
+    private Output</* @Nullable */ String> creationDate;
 
-    public Output<String> creationDate() {
-        return this.creationDate;
+    public Output<Optional<String>> creationDate() {
+        return Codegen.optional(this.creationDate);
     }
     /**
      * A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it&#39;s provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `[&#34;SMS&#34;]`.
@@ -202,10 +202,10 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceAliasCreation);
     }
     @Export(name="lastModifiedDate", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedDate;
+    private Output</* @Nullable */ String> lastModifiedDate;
 
-    public Output<String> lastModifiedDate() {
-        return this.lastModifiedDate;
+    public Output<Optional<String>> lastModifiedDate() {
+        return Codegen.optional(this.lastModifiedDate);
     }
     /**
      * Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user&#39;s account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
@@ -222,10 +222,10 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.messageAction);
     }
     @Export(name="mfaSettingLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> mfaSettingLists;
+    private Output</* @Nullable */ List<String>> mfaSettingLists;
 
-    public Output<List<String>> mfaSettingLists() {
-        return this.mfaSettingLists;
+    public Output<Optional<List<String>>> mfaSettingLists() {
+        return Codegen.optional(this.mfaSettingLists);
     }
     /**
      * The user&#39;s permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
@@ -242,38 +242,38 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     @Export(name="preferredMfaSetting", refs={String.class}, tree="[0]")
-    private Output<String> preferredMfaSetting;
+    private Output</* @Nullable */ String> preferredMfaSetting;
 
-    public Output<String> preferredMfaSetting() {
-        return this.preferredMfaSetting;
+    public Output<Optional<String>> preferredMfaSetting() {
+        return Codegen.optional(this.preferredMfaSetting);
     }
     /**
      * current user status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return current user status.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * unique user id that is never reassignable to another user.
      * 
      */
     @Export(name="sub", refs={String.class}, tree="[0]")
-    private Output<String> sub;
+    private Output</* @Nullable */ String> sub;
 
     /**
      * @return unique user id that is never reassignable to another user.
      * 
      */
-    public Output<String> sub() {
-        return this.sub;
+    public Output<Optional<String>> sub() {
+        return Codegen.optional(this.sub);
     }
     /**
      * The user&#39;s temporary password. Conflicts with `password`.

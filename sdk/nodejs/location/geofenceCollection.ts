@@ -55,7 +55,7 @@ export class GeofenceCollection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
      */
-    public /*out*/ readonly collectionArn!: pulumi.Output<string>;
+    public /*out*/ readonly collectionArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the geofence collection.
      *
@@ -65,7 +65,7 @@ export class GeofenceCollection extends pulumi.CustomResource {
     /**
      * The timestamp for when the geofence collection resource was created in ISO 8601 format.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string | undefined>;
     /**
      * The optional description for the geofence collection.
      */
@@ -85,7 +85,7 @@ export class GeofenceCollection extends pulumi.CustomResource {
     /**
      * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GeofenceCollection resource with the given unique name, arguments, and options.

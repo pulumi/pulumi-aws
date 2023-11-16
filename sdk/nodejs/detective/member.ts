@@ -66,12 +66,12 @@ export class Member extends pulumi.CustomResource {
     /**
      * AWS account ID for the administrator account.
      */
-    public /*out*/ readonly administratorId!: pulumi.Output<string>;
+    public /*out*/ readonly administratorId!: pulumi.Output<string | undefined>;
     /**
      * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
      */
     public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly disabledReason!: pulumi.Output<string>;
+    public /*out*/ readonly disabledReason!: pulumi.Output<string | undefined>;
     /**
      * Email address for the account.
      */
@@ -83,7 +83,7 @@ export class Member extends pulumi.CustomResource {
     /**
      * Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
      */
-    public /*out*/ readonly invitedTime!: pulumi.Output<string>;
+    public /*out*/ readonly invitedTime!: pulumi.Output<string | undefined>;
     /**
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
      */
@@ -91,15 +91,15 @@ export class Member extends pulumi.CustomResource {
     /**
      * Current membership status of the member account.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
      */
-    public /*out*/ readonly updatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly updatedTime!: pulumi.Output<string | undefined>;
     /**
      * Data volume in bytes per day for the member account.
      */
-    public /*out*/ readonly volumeUsageInBytes!: pulumi.Output<string>;
+    public /*out*/ readonly volumeUsageInBytes!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Member resource with the given unique name, arguments, and options.

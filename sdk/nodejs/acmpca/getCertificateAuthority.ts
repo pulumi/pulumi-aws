@@ -52,28 +52,28 @@ export interface GetCertificateAuthorityResult {
     /**
      * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      */
-    readonly certificate: string;
+    readonly certificate?: string;
     /**
      * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      */
-    readonly certificateChain: string;
+    readonly certificateChain?: string;
     /**
      * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      */
-    readonly certificateSigningRequest: string;
+    readonly certificateSigningRequest?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly keyStorageSecurityStandard: string;
+    readonly id?: string;
+    readonly keyStorageSecurityStandard?: string;
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
-    readonly notAfter: string;
+    readonly notAfter?: string;
     /**
      * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
-    readonly notBefore: string;
+    readonly notBefore?: string;
     /**
      * Nested attribute containing revocation configuration.
      * * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -85,27 +85,27 @@ export interface GetCertificateAuthorityResult {
      * * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
      * * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
      */
-    readonly revocationConfigurations: outputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
+    readonly revocationConfigurations?: outputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
     /**
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      */
-    readonly serial: string;
+    readonly serial?: string;
     /**
      * Status of the certificate authority.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Type of the certificate authority.
      */
-    readonly type: string;
+    readonly type?: string;
     /**
      * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
      */
-    readonly usageMode: string;
+    readonly usageMode?: string;
 }
 /**
  * Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).

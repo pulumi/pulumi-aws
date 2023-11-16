@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -53,28 +54,28 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Lightsail static IP
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The allocated static IP address
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
-    private Output<String> ipAddress;
+    private Output</* @Nullable */ String> ipAddress;
 
     /**
      * @return The allocated static IP address
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Output<Optional<String>> ipAddress() {
+        return Codegen.optional(this.ipAddress);
     }
     /**
      * The name for the allocated static IP
@@ -95,14 +96,14 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
-    private Output<String> supportCode;
+    private Output</* @Nullable */ String> supportCode;
 
     /**
      * @return The support code.
      * 
      */
-    public Output<String> supportCode() {
-        return this.supportCode;
+    public Output<Optional<String>> supportCode() {
+        return Codegen.optional(this.supportCode);
     }
 
     /**

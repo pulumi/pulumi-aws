@@ -352,7 +352,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Group.
         """
@@ -376,7 +376,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="insightsConfiguration")
-    def insights_configuration(self) -> pulumi.Output['outputs.GroupInsightsConfiguration']:
+    def insights_configuration(self) -> pulumi.Output[Optional['outputs.GroupInsightsConfiguration']]:
         """
         Configuration options for enabling insights.
         """

@@ -110,14 +110,14 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string TrackerName;
 
         [OutputConstructor]
         private GetTrackerAssociationsResult(
             ImmutableArray<string> consumerArns,
 
-            string id,
+            string? id,
 
             string trackerName)
         {

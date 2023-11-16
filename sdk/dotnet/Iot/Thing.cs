@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Iot
         /// The ARN of the thing.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Map of attributes of the thing.
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Iot
         /// The default client ID.
         /// </summary>
         [Output("defaultClientId")]
-        public Output<string> DefaultClientId { get; private set; } = null!;
+        public Output<string?> DefaultClientId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the thing.
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Iot
         /// The current version of the thing record in the registry.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>

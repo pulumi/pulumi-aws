@@ -78,7 +78,7 @@ type Assessment struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the assessment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
 	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrOutput `pulumi:"assessmentReportsDestination"`
 	// Description of the assessment.
@@ -96,7 +96,7 @@ type Assessment struct {
 	// The following arguments are optional:
 	Scope AssessmentScopePtrOutput `pulumi:"scope"`
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -327,8 +327,8 @@ func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) Ass
 }
 
 // Amazon Resource Name (ARN) of the assessment.
-func (o AssessmentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AssessmentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Assessment report storage destination configuration. See `assessmentReportsDestination` below.
@@ -371,8 +371,8 @@ func (o AssessmentOutput) Scope() AssessmentScopePtrOutput {
 }
 
 // Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
-func (o AssessmentOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o AssessmentOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

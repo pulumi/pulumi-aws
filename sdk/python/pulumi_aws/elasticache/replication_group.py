@@ -2044,7 +2044,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> pulumi.Output[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
@@ -2052,7 +2052,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the created ElastiCache Replication Group.
         """
@@ -2060,7 +2060,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="atRestEncryptionEnabled")
-    def at_rest_encryption_enabled(self) -> pulumi.Output[bool]:
+    def at_rest_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable encryption at rest.
         """
@@ -2076,7 +2076,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> pulumi.Output[bool]:
+    def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         Only supported for engine type `"redis"` and if the engine version is 6 or higher.
@@ -2094,7 +2094,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterEnabled")
-    def cluster_enabled(self) -> pulumi.Output[bool]:
+    def cluster_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates if cluster mode is enabled.
         """
@@ -2102,7 +2102,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationEndpointAddress")
-    def configuration_endpoint_address(self) -> pulumi.Output[str]:
+    def configuration_endpoint_address(self) -> pulumi.Output[Optional[str]]:
         """
         Address of the replication group configuration endpoint when cluster mode is enabled.
         """
@@ -2110,7 +2110,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataTieringEnabled")
-    def data_tiering_enabled(self) -> pulumi.Output[bool]:
+    def data_tiering_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         """
@@ -2118,7 +2118,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         User-created description for the replication group. Must not be empty.
         """
@@ -2134,7 +2134,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version number of the cache engine to be used for the cache clusters in this replication group.
         If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -2147,7 +2147,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersionActual")
-    def engine_version_actual(self) -> pulumi.Output[str]:
+    def engine_version_actual(self) -> pulumi.Output[Optional[str]]:
         """
         Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         """
@@ -2163,7 +2163,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalReplicationGroupId")
-    def global_replication_group_id(self) -> pulumi.Output[str]:
+    def global_replication_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
         """
@@ -2171,7 +2171,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipDiscovery")
-    def ip_discovery(self) -> pulumi.Output[str]:
+    def ip_discovery(self) -> pulumi.Output[Optional[str]]:
         """
         The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         """
@@ -2195,7 +2195,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> pulumi.Output[str]:
+    def maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         """
@@ -2203,7 +2203,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="memberClusters")
-    def member_clusters(self) -> pulumi.Output[Sequence[str]]:
+    def member_clusters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Identifiers of all the nodes that are part of this replication group.
         """
@@ -2219,7 +2219,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> pulumi.Output[str]:
+    def network_type(self) -> pulumi.Output[Optional[str]]:
         """
         The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         """
@@ -2227,7 +2227,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> pulumi.Output[str]:
+    def node_type(self) -> pulumi.Output[Optional[str]]:
         """
         Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         """
@@ -2243,7 +2243,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numCacheClusters")
-    def num_cache_clusters(self) -> pulumi.Output[int]:
+    def num_cache_clusters(self) -> pulumi.Output[Optional[int]]:
         """
         Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
         """
@@ -2251,7 +2251,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numNodeGroups")
-    def num_node_groups(self) -> pulumi.Output[int]:
+    def num_node_groups(self) -> pulumi.Output[Optional[int]]:
         """
         Number of node groups (shards) for this Redis replication group.
         Changing this number will trigger a resizing operation before other settings modifications.
@@ -2260,7 +2260,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> pulumi.Output[str]:
+    def parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         """
@@ -2284,7 +2284,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryEndpointAddress")
-    def primary_endpoint_address(self) -> pulumi.Output[str]:
+    def primary_endpoint_address(self) -> pulumi.Output[Optional[str]]:
         """
         (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         """
@@ -2292,7 +2292,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readerEndpointAddress")
-    def reader_endpoint_address(self) -> pulumi.Output[str]:
+    def reader_endpoint_address(self) -> pulumi.Output[Optional[str]]:
         """
         (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
         """
@@ -2300,7 +2300,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicasPerNodeGroup")
-    def replicas_per_node_group(self) -> pulumi.Output[int]:
+    def replicas_per_node_group(self) -> pulumi.Output[Optional[int]]:
         """
         Number of replica nodes in each node group.
         Changing this number will trigger a resizing operation before other settings modifications.
@@ -2320,7 +2320,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
         """
@@ -2328,7 +2328,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> pulumi.Output[Sequence[str]]:
+    def security_group_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
         """
@@ -2360,7 +2360,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotWindow")
-    def snapshot_window(self) -> pulumi.Output[str]:
+    def snapshot_window(self) -> pulumi.Output[Optional[str]]:
         """
         Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         """
@@ -2368,7 +2368,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> pulumi.Output[str]:
+    def subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the cache subnet group to be used for the replication group.
         """
@@ -2395,7 +2395,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
-    def transit_encryption_enabled(self) -> pulumi.Output[bool]:
+    def transit_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable encryption in transit.
         """

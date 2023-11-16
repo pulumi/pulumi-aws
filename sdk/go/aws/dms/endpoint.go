@@ -69,13 +69,13 @@ type Endpoint struct {
 	pulumi.CustomResourceState
 
 	// ARN for the certificate.
-	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
+	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// Name of the endpoint database.
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
 	// Configuration block for OpenSearch settings. See below.
 	ElasticsearchSettings EndpointElasticsearchSettingsPtrOutput `pulumi:"elasticsearchSettings"`
 	// ARN for the endpoint.
-	EndpointArn pulumi.StringOutput `pulumi:"endpointArn"`
+	EndpointArn pulumi.StringPtrOutput `pulumi:"endpointArn"`
 	// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
 	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
 	// Type of endpoint. Valid values are `source`, `target`.
@@ -83,7 +83,7 @@ type Endpoint struct {
 	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
-	ExtraConnectionAttributes pulumi.StringOutput `pulumi:"extraConnectionAttributes"`
+	ExtraConnectionAttributes pulumi.StringPtrOutput `pulumi:"extraConnectionAttributes"`
 	// Configuration block for Kafka settings. See below.
 	KafkaSettings EndpointKafkaSettingsPtrOutput `pulumi:"kafkaSettings"`
 	// Configuration block for Kinesis settings. See below.
@@ -91,7 +91,7 @@ type Endpoint struct {
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
 	//
 	// The following arguments are optional:
-	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrOutput `pulumi:"mongodbSettings"`
 	// Password to be used to login to the endpoint database.
@@ -101,7 +101,7 @@ type Endpoint struct {
 	Port          pulumi.IntPtrOutput            `pulumi:"port"`
 	RedisSettings EndpointRedisSettingsPtrOutput `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
-	RedshiftSettings EndpointRedshiftSettingsOutput `pulumi:"redshiftSettings"`
+	RedshiftSettings EndpointRedshiftSettingsPtrOutput `pulumi:"redshiftSettings"`
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
 	S3Settings EndpointS3SettingsPtrOutput `pulumi:"s3Settings"`
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
@@ -113,7 +113,7 @@ type Endpoint struct {
 	// ARN used by the service access IAM role for dynamodb endpoints.
 	ServiceAccessRole pulumi.StringPtrOutput `pulumi:"serviceAccessRole"`
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
-	SslMode pulumi.StringOutput `pulumi:"sslMode"`
+	SslMode pulumi.StringPtrOutput `pulumi:"sslMode"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -479,8 +479,8 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 }
 
 // ARN for the certificate.
-func (o EndpointOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
+func (o EndpointOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the endpoint database.
@@ -494,8 +494,8 @@ func (o EndpointOutput) ElasticsearchSettings() EndpointElasticsearchSettingsPtr
 }
 
 // ARN for the endpoint.
-func (o EndpointOutput) EndpointArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointArn }).(pulumi.StringOutput)
+func (o EndpointOutput) EndpointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointArn }).(pulumi.StringPtrOutput)
 }
 
 // Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -514,8 +514,8 @@ func (o EndpointOutput) EngineName() pulumi.StringOutput {
 }
 
 // Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
-func (o EndpointOutput) ExtraConnectionAttributes() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ExtraConnectionAttributes }).(pulumi.StringOutput)
+func (o EndpointOutput) ExtraConnectionAttributes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ExtraConnectionAttributes }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for Kafka settings. See below.
@@ -531,8 +531,8 @@ func (o EndpointOutput) KinesisSettings() EndpointKinesisSettingsPtrOutput {
 // ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
 //
 // The following arguments are optional:
-func (o EndpointOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o EndpointOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for MongoDB settings. See below.
@@ -559,8 +559,8 @@ func (o EndpointOutput) RedisSettings() EndpointRedisSettingsPtrOutput {
 }
 
 // Configuration block for Redshift settings. See below.
-func (o EndpointOutput) RedshiftSettings() EndpointRedshiftSettingsOutput {
-	return o.ApplyT(func(v *Endpoint) EndpointRedshiftSettingsOutput { return v.RedshiftSettings }).(EndpointRedshiftSettingsOutput)
+func (o EndpointOutput) RedshiftSettings() EndpointRedshiftSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointRedshiftSettingsPtrOutput { return v.RedshiftSettings }).(EndpointRedshiftSettingsPtrOutput)
 }
 
 // (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
@@ -589,8 +589,8 @@ func (o EndpointOutput) ServiceAccessRole() pulumi.StringPtrOutput {
 }
 
 // SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
-func (o EndpointOutput) SslMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.SslMode }).(pulumi.StringOutput)
+func (o EndpointOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.SslMode }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -318,14 +318,14 @@ class OrganizationalUnitAccount(dict):
 @pulumi.output_type
 class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 delegation_enabled_date: str,
-                 email: str,
-                 id: str,
-                 joined_method: str,
-                 joined_timestamp: str,
-                 name: str,
-                 status: str):
+                 arn: Optional[str] = None,
+                 delegation_enabled_date: Optional[str] = None,
+                 email: Optional[str] = None,
+                 id: Optional[str] = None,
+                 joined_method: Optional[str] = None,
+                 joined_timestamp: Optional[str] = None,
+                 name: Optional[str] = None,
+                 status: Optional[str] = None):
         """
         :param str arn: The ARN of the delegated administrator's account.
         :param str delegation_enabled_date: The date when the account was made a delegated administrator.
@@ -336,18 +336,26 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
         :param str name: The friendly name of the delegated administrator's account.
         :param str status: The status of the delegated administrator's account in the organization.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "delegation_enabled_date", delegation_enabled_date)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "joined_method", joined_method)
-        pulumi.set(__self__, "joined_timestamp", joined_timestamp)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if delegation_enabled_date is not None:
+            pulumi.set(__self__, "delegation_enabled_date", delegation_enabled_date)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if joined_method is not None:
+            pulumi.set(__self__, "joined_method", joined_method)
+        if joined_timestamp is not None:
+            pulumi.set(__self__, "joined_timestamp", joined_timestamp)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The ARN of the delegated administrator's account.
         """
@@ -355,7 +363,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
 
     @property
     @pulumi.getter(name="delegationEnabledDate")
-    def delegation_enabled_date(self) -> str:
+    def delegation_enabled_date(self) -> Optional[str]:
         """
         The date when the account was made a delegated administrator.
         """
@@ -363,7 +371,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> Optional[str]:
         """
         The email address that is associated with the delegated administrator's AWS account.
         """
@@ -371,7 +379,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The unique identifier (ID) of the delegated administrator's account.
         """
@@ -379,7 +387,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
 
     @property
     @pulumi.getter(name="joinedMethod")
-    def joined_method(self) -> str:
+    def joined_method(self) -> Optional[str]:
         """
         The method by which the delegated administrator's account joined the organization.
         """
@@ -387,7 +395,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
 
     @property
     @pulumi.getter(name="joinedTimestamp")
-    def joined_timestamp(self) -> str:
+    def joined_timestamp(self) -> Optional[str]:
         """
         The date when the delegated administrator's account became a part of the organization.
         """
@@ -395,7 +403,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The friendly name of the delegated administrator's account.
         """
@@ -403,7 +411,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The status of the delegated administrator's account in the organization.
         """
@@ -413,18 +421,20 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
 @pulumi.output_type
 class GetDelegatedServicesDelegatedServiceResult(dict):
     def __init__(__self__, *,
-                 delegation_enabled_date: str,
-                 service_principal: str):
+                 delegation_enabled_date: Optional[str] = None,
+                 service_principal: Optional[str] = None):
         """
         :param str delegation_enabled_date: The date that the account became a delegated administrator for this service.
         :param str service_principal: The name of an AWS service that can request an operation for the specified service.
         """
-        pulumi.set(__self__, "delegation_enabled_date", delegation_enabled_date)
-        pulumi.set(__self__, "service_principal", service_principal)
+        if delegation_enabled_date is not None:
+            pulumi.set(__self__, "delegation_enabled_date", delegation_enabled_date)
+        if service_principal is not None:
+            pulumi.set(__self__, "service_principal", service_principal)
 
     @property
     @pulumi.getter(name="delegationEnabledDate")
-    def delegation_enabled_date(self) -> str:
+    def delegation_enabled_date(self) -> Optional[str]:
         """
         The date that the account became a delegated administrator for this service.
         """
@@ -432,7 +442,7 @@ class GetDelegatedServicesDelegatedServiceResult(dict):
 
     @property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> str:
+    def service_principal(self) -> Optional[str]:
         """
         The name of an AWS service that can request an operation for the specified service.
         """
@@ -442,11 +452,11 @@ class GetDelegatedServicesDelegatedServiceResult(dict):
 @pulumi.output_type
 class GetOrganizationAccountResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 email: str,
-                 id: str,
-                 name: str,
-                 status: str):
+                 arn: Optional[str] = None,
+                 email: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 status: Optional[str] = None):
         """
         :param str arn: ARN of the root
         :param str email: Email of the account
@@ -454,15 +464,20 @@ class GetOrganizationAccountResult(dict):
         :param str name: The name of the policy type
         :param str status: The status of the policy type as it relates to the associated root
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the root
         """
@@ -470,7 +485,7 @@ class GetOrganizationAccountResult(dict):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> Optional[str]:
         """
         Email of the account
         """
@@ -478,7 +493,7 @@ class GetOrganizationAccountResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Identifier of the root
         """
@@ -486,7 +501,7 @@ class GetOrganizationAccountResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the policy type
         """
@@ -494,7 +509,7 @@ class GetOrganizationAccountResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The status of the policy type as it relates to the associated root
         """
@@ -504,11 +519,11 @@ class GetOrganizationAccountResult(dict):
 @pulumi.output_type
 class GetOrganizationNonMasterAccountResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 email: str,
-                 id: str,
-                 name: str,
-                 status: str):
+                 arn: Optional[str] = None,
+                 email: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 status: Optional[str] = None):
         """
         :param str arn: ARN of the root
         :param str email: Email of the account
@@ -516,15 +531,20 @@ class GetOrganizationNonMasterAccountResult(dict):
         :param str name: The name of the policy type
         :param str status: The status of the policy type as it relates to the associated root
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the root
         """
@@ -532,7 +552,7 @@ class GetOrganizationNonMasterAccountResult(dict):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> Optional[str]:
         """
         Email of the account
         """
@@ -540,7 +560,7 @@ class GetOrganizationNonMasterAccountResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Identifier of the root
         """
@@ -548,7 +568,7 @@ class GetOrganizationNonMasterAccountResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the policy type
         """
@@ -556,7 +576,7 @@ class GetOrganizationNonMasterAccountResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The status of the policy type as it relates to the associated root
         """
@@ -566,24 +586,28 @@ class GetOrganizationNonMasterAccountResult(dict):
 @pulumi.output_type
 class GetOrganizationRootResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str,
-                 policy_types: Sequence['outputs.GetOrganizationRootPolicyTypeResult']):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 policy_types: Optional[Sequence['outputs.GetOrganizationRootPolicyTypeResult']] = None):
         """
         :param str arn: ARN of the root
         :param str id: Identifier of the root
         :param str name: The name of the policy type
         :param Sequence['GetOrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "policy_types", policy_types)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_types is not None:
+            pulumi.set(__self__, "policy_types", policy_types)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the root
         """
@@ -591,7 +615,7 @@ class GetOrganizationRootResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Identifier of the root
         """
@@ -599,7 +623,7 @@ class GetOrganizationRootResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the policy type
         """
@@ -607,7 +631,7 @@ class GetOrganizationRootResult(dict):
 
     @property
     @pulumi.getter(name="policyTypes")
-    def policy_types(self) -> Sequence['outputs.GetOrganizationRootPolicyTypeResult']:
+    def policy_types(self) -> Optional[Sequence['outputs.GetOrganizationRootPolicyTypeResult']]:
         """
         List of policy types enabled for this root. All elements have these attributes:
         """
@@ -617,17 +641,19 @@ class GetOrganizationRootResult(dict):
 @pulumi.output_type
 class GetOrganizationRootPolicyTypeResult(dict):
     def __init__(__self__, *,
-                 status: str,
-                 type: str):
+                 status: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param str status: The status of the policy type as it relates to the associated root
         """
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The status of the policy type as it relates to the associated root
         """
@@ -635,18 +661,18 @@ class GetOrganizationRootPolicyTypeResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetOrganizationalUnitChildAccountsAccountResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 email: str,
-                 id: str,
-                 name: str,
-                 status: str):
+                 arn: Optional[str] = None,
+                 email: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 status: Optional[str] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the account.
         :param str email: The email address associated with the AWS account.
@@ -654,15 +680,20 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
         :param str name: The friendly name of the account.
         :param str status: The status of the account in the organization.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the account.
         """
@@ -670,7 +701,7 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> Optional[str]:
         """
         The email address associated with the AWS account.
         """
@@ -678,7 +709,7 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Parent identifier of the organizational units.
         """
@@ -686,7 +717,7 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The friendly name of the account.
         """
@@ -694,7 +725,7 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The status of the account in the organization.
         """
@@ -704,11 +735,11 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
 @pulumi.output_type
 class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 email: str,
-                 id: str,
-                 name: str,
-                 status: str):
+                 arn: Optional[str] = None,
+                 email: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 status: Optional[str] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the account.
         :param str email: The email address associated with the AWS account.
@@ -716,15 +747,20 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
         :param str name: The friendly name of the account.
         :param str status: The status of the account in the organization.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the account.
         """
@@ -732,7 +768,7 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> Optional[str]:
         """
         The email address associated with the AWS account.
         """
@@ -740,7 +776,7 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Parent identifier of the organizational units.
         """
@@ -748,7 +784,7 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The friendly name of the account.
         """
@@ -756,7 +792,7 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The status of the account in the organization.
         """
@@ -766,21 +802,24 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
 @pulumi.output_type
 class GetOrganizationalUnitsChildResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the organizational unit
         :param str id: Parent identifier of the organizational units.
         :param str name: Name of the organizational unit
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the organizational unit
         """
@@ -788,7 +827,7 @@ class GetOrganizationalUnitsChildResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Parent identifier of the organizational units.
         """
@@ -796,7 +835,7 @@ class GetOrganizationalUnitsChildResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the organizational unit
         """

@@ -250,22 +250,24 @@ class PipelineDefinitionPipelineObjectField(dict):
 @pulumi.output_type
 class GetPipelineDefinitionParameterObjectResult(dict):
     def __init__(__self__, *,
-                 attributes: Sequence['outputs.GetPipelineDefinitionParameterObjectAttributeResult'],
-                 id: str):
+                 attributes: Optional[Sequence['outputs.GetPipelineDefinitionParameterObjectAttributeResult']] = None,
+                 id: Optional[str] = None):
         """
         :param str id: ID of the object.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "id", id)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Sequence['outputs.GetPipelineDefinitionParameterObjectAttributeResult']:
+    def attributes(self) -> Optional[Sequence['outputs.GetPipelineDefinitionParameterObjectAttributeResult']]:
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         ID of the object.
         """
@@ -275,18 +277,20 @@ class GetPipelineDefinitionParameterObjectResult(dict):
 @pulumi.output_type
 class GetPipelineDefinitionParameterObjectAttributeResult(dict):
     def __init__(__self__, *,
-                 key: str,
-                 string_value: str):
+                 key: Optional[str] = None,
+                 string_value: Optional[str] = None):
         """
         :param str key: Field identifier.
         :param str string_value: Field value, expressed as a String.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "string_value", string_value)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         """
         Field identifier.
         """
@@ -294,7 +298,7 @@ class GetPipelineDefinitionParameterObjectAttributeResult(dict):
 
     @property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> str:
+    def string_value(self) -> Optional[str]:
         """
         Field value, expressed as a String.
         """
@@ -304,18 +308,20 @@ class GetPipelineDefinitionParameterObjectAttributeResult(dict):
 @pulumi.output_type
 class GetPipelineDefinitionParameterValueResult(dict):
     def __init__(__self__, *,
-                 id: str,
-                 string_value: str):
+                 id: Optional[str] = None,
+                 string_value: Optional[str] = None):
         """
         :param str id: ID of the object.
         :param str string_value: Field value, expressed as a String.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "string_value", string_value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         ID of the object.
         """
@@ -323,7 +329,7 @@ class GetPipelineDefinitionParameterValueResult(dict):
 
     @property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> str:
+    def string_value(self) -> Optional[str]:
         """
         Field value, expressed as a String.
         """
@@ -333,34 +339,20 @@ class GetPipelineDefinitionParameterValueResult(dict):
 @pulumi.output_type
 class GetPipelineDefinitionPipelineObjectResult(dict):
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 fields: Optional[Sequence['outputs.GetPipelineDefinitionPipelineObjectFieldResult']] = None):
+                 fields: Optional[Sequence['outputs.GetPipelineDefinitionPipelineObjectFieldResult']] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
+        :param Sequence['GetPipelineDefinitionPipelineObjectFieldArgs'] fields: Key-value pairs that define the properties of the object. See below
         :param str id: ID of the object.
         :param str name: ARN of the storage connector.
-        :param Sequence['GetPipelineDefinitionPipelineObjectFieldArgs'] fields: Key-value pairs that define the properties of the object. See below
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
         if fields is not None:
             pulumi.set(__self__, "fields", fields)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        ID of the object.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        ARN of the storage connector.
-        """
-        return pulumi.get(self, "name")
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -370,25 +362,44 @@ class GetPipelineDefinitionPipelineObjectResult(dict):
         """
         return pulumi.get(self, "fields")
 
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the object.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        ARN of the storage connector.
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class GetPipelineDefinitionPipelineObjectFieldResult(dict):
     def __init__(__self__, *,
-                 key: str,
-                 ref_value: str,
-                 string_value: str):
+                 key: Optional[str] = None,
+                 ref_value: Optional[str] = None,
+                 string_value: Optional[str] = None):
         """
         :param str key: Field identifier.
         :param str ref_value: Field value, expressed as the identifier of another object
         :param str string_value: Field value, expressed as a String.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "ref_value", ref_value)
-        pulumi.set(__self__, "string_value", string_value)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if ref_value is not None:
+            pulumi.set(__self__, "ref_value", ref_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         """
         Field identifier.
         """
@@ -396,7 +407,7 @@ class GetPipelineDefinitionPipelineObjectFieldResult(dict):
 
     @property
     @pulumi.getter(name="refValue")
-    def ref_value(self) -> str:
+    def ref_value(self) -> Optional[str]:
         """
         Field value, expressed as the identifier of another object
         """
@@ -404,7 +415,7 @@ class GetPipelineDefinitionPipelineObjectFieldResult(dict):
 
     @property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> str:
+    def string_value(self) -> Optional[str]:
         """
         Field value, expressed as a String.
         """

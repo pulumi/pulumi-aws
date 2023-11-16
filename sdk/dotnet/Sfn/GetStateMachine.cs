@@ -108,53 +108,53 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// Set to the arn of the state function.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Date the state machine was created.
         /// </summary>
-        public readonly string CreationDate;
+        public readonly string? CreationDate;
         /// <summary>
         /// Set to the state machine definition.
         /// </summary>
-        public readonly string Definition;
-        public readonly string Description;
+        public readonly string? Definition;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// The revision identifier for the state machine.
         /// </summary>
-        public readonly string RevisionId;
+        public readonly string? RevisionId;
         /// <summary>
         /// Set to the role_arn used by the state function.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// Set to the current status of the state machine.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetStateMachineResult(
-            string arn,
+            string? arn,
 
-            string creationDate,
+            string? creationDate,
 
-            string definition,
+            string? definition,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
-            string revisionId,
+            string? revisionId,
 
-            string roleArn,
+            string? roleArn,
 
-            string status)
+            string? status)
         {
             Arn = arn;
             CreationDate = creationDate;

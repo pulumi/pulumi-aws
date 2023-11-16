@@ -76,7 +76,7 @@ export class OrganizationCustomPolicyRule extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the rule
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * List of AWS account identifiers to exclude from the rule
      */

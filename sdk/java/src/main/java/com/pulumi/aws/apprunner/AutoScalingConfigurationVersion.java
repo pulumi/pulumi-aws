@@ -71,14 +71,14 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of this auto scaling configuration version.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name of the auto scaling configuration.
@@ -99,28 +99,28 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="autoScalingConfigurationRevision", refs={Integer.class}, tree="[0]")
-    private Output<Integer> autoScalingConfigurationRevision;
+    private Output</* @Nullable */ Integer> autoScalingConfigurationRevision;
 
     /**
      * @return The revision of this auto scaling configuration.
      * 
      */
-    public Output<Integer> autoScalingConfigurationRevision() {
-        return this.autoScalingConfigurationRevision;
+    public Output<Optional<Integer>> autoScalingConfigurationRevision() {
+        return Codegen.optional(this.autoScalingConfigurationRevision);
     }
     /**
      * Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
      * 
      */
     @Export(name="latest", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> latest;
+    private Output</* @Nullable */ Boolean> latest;
 
     /**
      * @return Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
      * 
      */
-    public Output<Boolean> latest() {
-        return this.latest;
+    public Output<Optional<Boolean>> latest() {
+        return Codegen.optional(this.latest);
     }
     /**
      * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
@@ -169,14 +169,14 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

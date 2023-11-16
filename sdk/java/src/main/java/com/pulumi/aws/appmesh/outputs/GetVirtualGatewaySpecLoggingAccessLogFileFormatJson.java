@@ -6,18 +6,20 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecLoggingAccessLogFileFormatJson {
-    private String key;
-    private String value;
+    private @Nullable String key;
+    private @Nullable String value;
 
     private GetVirtualGatewaySpecLoggingAccessLogFileFormatJson() {}
-    public String key() {
-        return this.key;
+    public Optional<String> key() {
+        return Optional.ofNullable(this.key);
     }
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetVirtualGatewaySpecLoggingAccessLogFileFormatJson {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String key;
-        private String value;
+        private @Nullable String key;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecLoggingAccessLogFileFormatJson defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetVirtualGatewaySpecLoggingAccessLogFileFormatJson {
         }
 
         @CustomType.Setter
-        public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+        public Builder key(@Nullable String key) {
+            this.key = key;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetVirtualGatewaySpecLoggingAccessLogFileFormatJson build() {

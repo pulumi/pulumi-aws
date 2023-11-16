@@ -128,20 +128,20 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string ResourceId;
         /// <summary>
         /// Map of key=value pairs for each tag set on the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetResourceTagsResult(
-            string id,
+            string? id,
 
             string resourceId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Id = id;
             ResourceId = resourceId;

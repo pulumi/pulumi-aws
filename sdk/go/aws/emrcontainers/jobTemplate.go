@@ -62,7 +62,7 @@ type JobTemplate struct {
 	pulumi.CustomResourceState
 
 	// ARN of the job template.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The job template data which holds values of StartJobRun API request.
 	JobTemplateData JobTemplateJobTemplateDataOutput `pulumi:"jobTemplateData"`
 	// The KMS key ARN used to encrypt the job template.
@@ -262,8 +262,8 @@ func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) J
 }
 
 // ARN of the job template.
-func (o JobTemplateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o JobTemplateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The job template data which holds values of StartJobRun API request.

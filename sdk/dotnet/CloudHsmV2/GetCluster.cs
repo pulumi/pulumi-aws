@@ -124,15 +124,15 @@ namespace Pulumi.Aws.CloudHsmV2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterClusterCertificateResult> ClusterCertificates;
         public readonly string ClusterId;
-        public readonly string ClusterState;
+        public readonly string? ClusterState;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ID of the security group associated with the CloudHSM cluster.
         /// </summary>
-        public readonly string SecurityGroupId;
+        public readonly string? SecurityGroupId;
         /// <summary>
         /// IDs of subnets in which cluster operates.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// <summary>
         /// ID of the VPC that the CloudHSM cluster resides in.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -148,15 +148,15 @@ namespace Pulumi.Aws.CloudHsmV2
 
             string clusterId,
 
-            string clusterState,
+            string? clusterState,
 
-            string id,
+            string? id,
 
-            string securityGroupId,
+            string? securityGroupId,
 
             ImmutableArray<string> subnetIds,
 
-            string vpcId)
+            string? vpcId)
         {
             ClusterCertificates = clusterCertificates;
             ClusterId = clusterId;

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.

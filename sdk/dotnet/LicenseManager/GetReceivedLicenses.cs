@@ -151,7 +151,7 @@ namespace Pulumi.Aws.LicenseManager
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetReceivedLicensesResult(
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.LicenseManager
 
             ImmutableArray<Outputs.GetReceivedLicensesFilterResult> filters,
 
-            string id)
+            string? id)
         {
             Arns = arns;
             Filters = filters;

@@ -320,7 +320,7 @@ class Recorder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recordingGroup")
-    def recording_group(self) -> pulumi.Output['outputs.RecorderRecordingGroup']:
+    def recording_group(self) -> pulumi.Output[Optional['outputs.RecorderRecordingGroup']]:
         """
         Recording group - see below.
         """

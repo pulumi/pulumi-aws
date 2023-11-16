@@ -277,42 +277,42 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * The ARN of the Lightsail instance (matches `id`).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Lightsail instance (matches `id`).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
@@ -361,84 +361,84 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="caCertificateIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> caCertificateIdentifier;
+    private Output</* @Nullable */ String> caCertificateIdentifier;
 
     /**
      * @return The certificate associated with the database.
      * 
      */
-    public Output<String> caCertificateIdentifier() {
-        return this.caCertificateIdentifier;
+    public Output<Optional<String>> caCertificateIdentifier() {
+        return Codegen.optional(this.caCertificateIdentifier);
     }
     /**
      * The number of vCPUs for the database.
      * 
      */
     @Export(name="cpuCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> cpuCount;
+    private Output</* @Nullable */ Integer> cpuCount;
 
     /**
      * @return The number of vCPUs for the database.
      * 
      */
-    public Output<Integer> cpuCount() {
-        return this.cpuCount;
+    public Output<Optional<Integer>> cpuCount() {
+        return Codegen.optional(this.cpuCount);
     }
     /**
      * The timestamp when the instance was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The timestamp when the instance was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The size of the disk for the database.
      * 
      */
     @Export(name="diskSize", refs={Double.class}, tree="[0]")
-    private Output<Double> diskSize;
+    private Output</* @Nullable */ Double> diskSize;
 
     /**
      * @return The size of the disk for the database.
      * 
      */
-    public Output<Double> diskSize() {
-        return this.diskSize;
+    public Output<Optional<Double>> diskSize() {
+        return Codegen.optional(this.diskSize);
     }
     /**
      * The database software (for example, MySQL).
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output<String> engine;
+    private Output</* @Nullable */ String> engine;
 
     /**
      * @return The database software (for example, MySQL).
      * 
      */
-    public Output<String> engine() {
-        return this.engine;
+    public Output<Optional<String>> engine() {
+        return Codegen.optional(this.engine);
     }
     /**
      * The database engine version (for example, 5.7.23).
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return The database engine version (for example, 5.7.23).
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
@@ -473,28 +473,28 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="masterEndpointAddress", refs={String.class}, tree="[0]")
-    private Output<String> masterEndpointAddress;
+    private Output</* @Nullable */ String> masterEndpointAddress;
 
     /**
      * @return The master endpoint fqdn for the database.
      * 
      */
-    public Output<String> masterEndpointAddress() {
-        return this.masterEndpointAddress;
+    public Output<Optional<String>> masterEndpointAddress() {
+        return Codegen.optional(this.masterEndpointAddress);
     }
     /**
      * The master endpoint network port for the database.
      * 
      */
     @Export(name="masterEndpointPort", refs={Integer.class}, tree="[0]")
-    private Output<Integer> masterEndpointPort;
+    private Output</* @Nullable */ Integer> masterEndpointPort;
 
     /**
      * @return The master endpoint network port for the database.
      * 
      */
-    public Output<Integer> masterEndpointPort() {
-        return this.masterEndpointPort;
+    public Output<Optional<Integer>> masterEndpointPort() {
+        return Codegen.optional(this.masterEndpointPort);
     }
     /**
      * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;@&#34;.
@@ -529,28 +529,28 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredBackupWindow;
+    private Output</* @Nullable */ String> preferredBackupWindow;
 
     /**
      * @return The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
      * 
      */
-    public Output<String> preferredBackupWindow() {
-        return this.preferredBackupWindow;
+    public Output<Optional<String>> preferredBackupWindow() {
+        return Codegen.optional(this.preferredBackupWindow);
     }
     /**
      * The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredMaintenanceWindow;
+    private Output</* @Nullable */ String> preferredMaintenanceWindow;
 
     /**
      * @return The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
      * 
      */
-    public Output<String> preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Output<Optional<String>> preferredMaintenanceWindow() {
+        return Codegen.optional(this.preferredMaintenanceWindow);
     }
     /**
      * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
@@ -571,14 +571,14 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ramSize", refs={Double.class}, tree="[0]")
-    private Output<Double> ramSize;
+    private Output</* @Nullable */ Double> ramSize;
 
     /**
      * @return The amount of RAM in GB for the database.
      * 
      */
-    public Output<Double> ramSize() {
-        return this.ramSize;
+    public Output<Optional<Double>> ramSize() {
+        return Codegen.optional(this.ramSize);
     }
     /**
      * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
@@ -599,14 +599,14 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="secondaryAvailabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> secondaryAvailabilityZone;
+    private Output</* @Nullable */ String> secondaryAvailabilityZone;
 
     /**
      * @return Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
      * 
      */
-    public Output<String> secondaryAvailabilityZone() {
-        return this.secondaryAvailabilityZone;
+    public Output<Optional<String>> secondaryAvailabilityZone() {
+        return Codegen.optional(this.secondaryAvailabilityZone);
     }
     /**
      * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
@@ -627,14 +627,14 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
-    private Output<String> supportCode;
+    private Output</* @Nullable */ String> supportCode;
 
     /**
      * @return The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    public Output<String> supportCode() {
-        return this.supportCode;
+    public Output<Optional<String>> supportCode() {
+        return Codegen.optional(this.supportCode);
     }
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.

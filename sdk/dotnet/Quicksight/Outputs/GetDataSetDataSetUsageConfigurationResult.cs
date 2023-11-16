@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetDataSetUsageConfigurationResult
     {
-        public readonly bool DisableUseAsDirectQuerySource;
-        public readonly bool DisableUseAsImportedSource;
+        public readonly bool? DisableUseAsDirectQuerySource;
+        public readonly bool? DisableUseAsImportedSource;
 
         [OutputConstructor]
         private GetDataSetDataSetUsageConfigurationResult(
-            bool disableUseAsDirectQuerySource,
+            bool? disableUseAsDirectQuerySource,
 
-            bool disableUseAsImportedSource)
+            bool? disableUseAsImportedSource)
         {
             DisableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
             DisableUseAsImportedSource = disableUseAsImportedSource;

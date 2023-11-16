@@ -102,14 +102,14 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
-    private Output<List<ParameterGroupParameter>> parameters;
+    private Output</* @Nullable */ List<ParameterGroupParameter>> parameters;
 
     /**
      * @return The parameters of the parameter group.
      * 
      */
-    public Output<List<ParameterGroupParameter>> parameters() {
-        return this.parameters;
+    public Output<Optional<List<ParameterGroupParameter>>> parameters() {
+        return Codegen.optional(this.parameters);
     }
 
     /**

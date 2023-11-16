@@ -7,18 +7,19 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetColumnLevelPermissionRule {
-    private List<String> columnNames;
-    private List<String> principals;
+    private @Nullable List<String> columnNames;
+    private @Nullable List<String> principals;
 
     private GetDataSetColumnLevelPermissionRule() {}
     public List<String> columnNames() {
-        return this.columnNames;
+        return this.columnNames == null ? List.of() : this.columnNames;
     }
     public List<String> principals() {
-        return this.principals;
+        return this.principals == null ? List.of() : this.principals;
     }
 
     public static Builder builder() {
@@ -30,8 +31,8 @@ public final class GetDataSetColumnLevelPermissionRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> columnNames;
-        private List<String> principals;
+        private @Nullable List<String> columnNames;
+        private @Nullable List<String> principals;
         public Builder() {}
         public Builder(GetDataSetColumnLevelPermissionRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,16 +41,16 @@ public final class GetDataSetColumnLevelPermissionRule {
         }
 
         @CustomType.Setter
-        public Builder columnNames(List<String> columnNames) {
-            this.columnNames = Objects.requireNonNull(columnNames);
+        public Builder columnNames(@Nullable List<String> columnNames) {
+            this.columnNames = columnNames;
             return this;
         }
         public Builder columnNames(String... columnNames) {
             return columnNames(List.of(columnNames));
         }
         @CustomType.Setter
-        public Builder principals(List<String> principals) {
-            this.principals = Objects.requireNonNull(principals);
+        public Builder principals(@Nullable List<String> principals) {
+            this.principals = principals;
             return this;
         }
         public Builder principals(String... principals) {

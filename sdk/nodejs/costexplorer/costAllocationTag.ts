@@ -66,7 +66,7 @@ export class CostAllocationTag extends pulumi.CustomResource {
     /**
      * The type of cost allocation tag.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CostAllocationTag resource with the given unique name, arguments, and options.

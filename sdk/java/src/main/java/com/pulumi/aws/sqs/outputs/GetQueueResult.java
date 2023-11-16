@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQueueResult {
@@ -14,38 +16,38 @@ public final class GetQueueResult {
      * @return ARN of the queue.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Map of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return URL of the queue.
      * 
      */
-    private String url;
+    private @Nullable String url;
 
     private GetQueueResult() {}
     /**
      * @return ARN of the queue.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -55,14 +57,14 @@ public final class GetQueueResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return URL of the queue.
      * 
      */
-    public String url() {
-        return this.url;
+    public Optional<String> url() {
+        return Optional.ofNullable(this.url);
     }
 
     public static Builder builder() {
@@ -74,11 +76,11 @@ public final class GetQueueResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String id;
         private String name;
-        private Map<String,String> tags;
-        private String url;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String url;
         public Builder() {}
         public Builder(GetQueueResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -90,13 +92,13 @@ public final class GetQueueResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -105,13 +107,13 @@ public final class GetQueueResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+        public Builder url(@Nullable String url) {
+            this.url = url;
             return this;
         }
         public GetQueueResult build() {

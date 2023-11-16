@@ -8,34 +8,36 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule {
-    private String cidr;
-    private String direction;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange> portRanges;
-    private String prefixListId;
-    private String protocol;
-    private String securityGroupId;
+    private @Nullable String cidr;
+    private @Nullable String direction;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange> portRanges;
+    private @Nullable String prefixListId;
+    private @Nullable String protocol;
+    private @Nullable String securityGroupId;
 
     private GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule() {}
-    public String cidr() {
-        return this.cidr;
+    public Optional<String> cidr() {
+        return Optional.ofNullable(this.cidr);
     }
-    public String direction() {
-        return this.direction;
+    public Optional<String> direction() {
+        return Optional.ofNullable(this.direction);
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange> portRanges() {
-        return this.portRanges;
+        return this.portRanges == null ? List.of() : this.portRanges;
     }
-    public String prefixListId() {
-        return this.prefixListId;
+    public Optional<String> prefixListId() {
+        return Optional.ofNullable(this.prefixListId);
     }
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
-    public String securityGroupId() {
-        return this.securityGroupId;
+    public Optional<String> securityGroupId() {
+        return Optional.ofNullable(this.securityGroupId);
     }
 
     public static Builder builder() {
@@ -47,12 +49,12 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRul
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cidr;
-        private String direction;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange> portRanges;
-        private String prefixListId;
-        private String protocol;
-        private String securityGroupId;
+        private @Nullable String cidr;
+        private @Nullable String direction;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange> portRanges;
+        private @Nullable String prefixListId;
+        private @Nullable String protocol;
+        private @Nullable String securityGroupId;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -65,36 +67,36 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRul
         }
 
         @CustomType.Setter
-        public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+        public Builder cidr(@Nullable String cidr) {
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
-        public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+        public Builder direction(@Nullable String direction) {
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
-        public Builder portRanges(List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange> portRanges) {
-            this.portRanges = Objects.requireNonNull(portRanges);
+        public Builder portRanges(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange> portRanges) {
+            this.portRanges = portRanges;
             return this;
         }
         public Builder portRanges(GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange... portRanges) {
             return portRanges(List.of(portRanges));
         }
         @CustomType.Setter
-        public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+        public Builder prefixListId(@Nullable String prefixListId) {
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = Objects.requireNonNull(securityGroupId);
+        public Builder securityGroupId(@Nullable String securityGroupId) {
+            this.securityGroupId = securityGroupId;
             return this;
         }
         public GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule build() {

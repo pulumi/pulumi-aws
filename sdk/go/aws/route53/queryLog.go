@@ -112,7 +112,7 @@ type QueryLog struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Query Logging Config.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn pulumi.StringOutput `pulumi:"cloudwatchLogGroupArn"`
 	// Route53 hosted zone ID to enable query logs.
@@ -279,8 +279,8 @@ func (o QueryLogOutput) ToQueryLogOutputWithContext(ctx context.Context) QueryLo
 }
 
 // The Amazon Resource Name (ARN) of the Query Logging Config.
-func (o QueryLogOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *QueryLog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o QueryLogOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueryLog) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // CloudWatch log group ARN to send query logs.

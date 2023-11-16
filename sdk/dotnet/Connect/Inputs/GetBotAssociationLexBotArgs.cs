@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Connect.Inputs
         /// <summary>
         /// Region that the Amazon Lex (V1) bot was created in.
         /// </summary>
-        [Input("lexRegion", required: true)]
-        public Input<string> LexRegion { get; set; } = null!;
+        [Input("lexRegion")]
+        public Input<string>? LexRegion { get; set; }
 
         /// <summary>
         /// Name of the Amazon Lex (V1) bot.

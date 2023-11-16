@@ -126,7 +126,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The ARN of the Flow Log.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
      */
@@ -146,7 +146,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
      */
-    public readonly logDestination!: pulumi.Output<string>;
+    public readonly logDestination!: pulumi.Output<string | undefined>;
     /**
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      */
@@ -154,13 +154,13 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The fields to include in the flow log record, in the order in which they should appear.
      */
-    public readonly logFormat!: pulumi.Output<string>;
+    public readonly logFormat!: pulumi.Output<string | undefined>;
     /**
      * **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
      *
      * @deprecated use 'log_destination' argument instead
      */
-    public readonly logGroupName!: pulumi.Output<string>;
+    public readonly logGroupName!: pulumi.Output<string | undefined>;
     /**
      * The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow

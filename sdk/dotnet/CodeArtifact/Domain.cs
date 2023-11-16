@@ -45,19 +45,19 @@ namespace Pulumi.Aws.CodeArtifact
         /// The ARN of the Domain.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The total size of all assets in the domain.
         /// </summary>
         [Output("assetSizeBytes")]
-        public Output<string> AssetSizeBytes { get; private set; } = null!;
+        public Output<string?> AssetSizeBytes { get; private set; } = null!;
 
         /// <summary>
         /// A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
@@ -69,19 +69,19 @@ namespace Pulumi.Aws.CodeArtifact
         /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         /// </summary>
         [Output("encryptionKey")]
-        public Output<string> EncryptionKey { get; private set; } = null!;
+        public Output<string?> EncryptionKey { get; private set; } = null!;
 
         /// <summary>
         /// The AWS account ID that owns the domain.
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// The number of repositories in the domain.
         /// </summary>
         [Output("repositoryCount")]
-        public Output<int> RepositoryCount { get; private set; } = null!;
+        public Output<int?> RepositoryCount { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

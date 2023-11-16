@@ -144,7 +144,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def architecture(self) -> str:
+    def architecture(self) -> Optional[str]:
         """
         OS architecture of the AMI (ie: `i386` or `x86_64`).
         """
@@ -152,7 +152,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the AMI.
         """
@@ -160,7 +160,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Sequence['outputs.GetAmiBlockDeviceMappingResult']:
+    def block_device_mappings(self) -> Optional[Sequence['outputs.GetAmiBlockDeviceMappingResult']]:
         """
         Set of objects with block device mappings of the AMI.
         """
@@ -168,7 +168,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="bootMode")
-    def boot_mode(self) -> str:
+    def boot_mode(self) -> Optional[str]:
         """
         Boot mode of the image.
         """
@@ -176,7 +176,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> Optional[str]:
         """
         Date and time the image was created.
         """
@@ -184,7 +184,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="deprecationTime")
-    def deprecation_time(self) -> str:
+    def deprecation_time(self) -> Optional[str]:
         """
         Date and time when the image will be deprecated.
         """
@@ -192,7 +192,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the AMI that was provided during image
         creation.
@@ -201,7 +201,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="enaSupport")
-    def ena_support(self) -> bool:
+    def ena_support(self) -> Optional[bool]:
         """
         Whether enhanced networking with ENA is enabled.
         """
@@ -219,7 +219,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def hypervisor(self) -> str:
+    def hypervisor(self) -> Optional[str]:
         """
         Hypervisor type of the image.
         """
@@ -227,7 +227,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -235,7 +235,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> str:
+    def image_id(self) -> Optional[str]:
         """
         ID of the AMI. Should be the same as the resource `id`.
         """
@@ -243,7 +243,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="imageLocation")
-    def image_location(self) -> str:
+    def image_location(self) -> Optional[str]:
         """
         Location of the AMI.
         """
@@ -251,7 +251,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="imageOwnerAlias")
-    def image_owner_alias(self) -> str:
+    def image_owner_alias(self) -> Optional[str]:
         """
         AWS account alias (for example, `amazon`, `self`) or
         the AWS account ID of the AMI owner.
@@ -260,7 +260,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="imageType")
-    def image_type(self) -> str:
+    def image_type(self) -> Optional[str]:
         """
         Type of image.
         """
@@ -268,7 +268,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="imdsSupport")
-    def imds_support(self) -> str:
+    def imds_support(self) -> Optional[str]:
         """
         Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
         """
@@ -281,7 +281,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> str:
+    def kernel_id(self) -> Optional[str]:
         """
         Kernel associated with the image, if any. Only applicable
         for machine images.
@@ -295,7 +295,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the AMI that was provided during image creation.
         """
@@ -308,7 +308,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         AWS account ID of the image owner.
         """
@@ -321,7 +321,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> str:
+    def platform(self) -> Optional[str]:
         """
         Value is Windows for `Windows` AMIs; otherwise blank.
         """
@@ -329,7 +329,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="platformDetails")
-    def platform_details(self) -> str:
+    def platform_details(self) -> Optional[str]:
         """
         Platform details associated with the billing code of the AMI.
         """
@@ -337,7 +337,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="productCodes")
-    def product_codes(self) -> Sequence['outputs.GetAmiProductCodeResult']:
+    def product_codes(self) -> Optional[Sequence['outputs.GetAmiProductCodeResult']]:
         """
         Any product codes associated with the AMI.
         * `product_codes.#.product_code_id` - The product code.
@@ -347,7 +347,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def public(self) -> bool:
+    def public(self) -> Optional[bool]:
         """
         `true` if the image has public launch permissions.
         """
@@ -355,7 +355,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="ramdiskId")
-    def ramdisk_id(self) -> str:
+    def ramdisk_id(self) -> Optional[str]:
         """
         RAM disk associated with the image, if any. Only applicable
         for machine images.
@@ -364,7 +364,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="rootDeviceName")
-    def root_device_name(self) -> str:
+    def root_device_name(self) -> Optional[str]:
         """
         Device name of the root device.
         """
@@ -372,7 +372,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="rootDeviceType")
-    def root_device_type(self) -> str:
+    def root_device_type(self) -> Optional[str]:
         """
         Type of root device (ie: `ebs` or `instance-store`).
         """
@@ -380,7 +380,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="rootSnapshotId")
-    def root_snapshot_id(self) -> str:
+    def root_snapshot_id(self) -> Optional[str]:
         """
         Snapshot id associated with the root device, if any
         (only applies to `ebs` root devices).
@@ -389,7 +389,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="sriovNetSupport")
-    def sriov_net_support(self) -> str:
+    def sriov_net_support(self) -> Optional[str]:
         """
         Whether enhanced networking is enabled.
         """
@@ -397,7 +397,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         Current state of the AMI. If the state is `available`, the image
         is successfully registered and can be used to launch an instance.
@@ -406,7 +406,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="stateReason")
-    def state_reason(self) -> Mapping[str, str]:
+    def state_reason(self) -> Optional[Mapping[str, str]]:
         """
         Describes a state change. Fields are `UNSET` if not available.
         * `state_reason.code` - The reason code for the state change.
@@ -416,7 +416,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Any tags assigned to the image.
         * `tags.#.key` - Key name of the tag.
@@ -426,7 +426,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="tpmSupport")
-    def tpm_support(self) -> str:
+    def tpm_support(self) -> Optional[str]:
         """
         If the image is configured for NitroTPM support, the value is `v2.0`.
         """
@@ -434,7 +434,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="usageOperation")
-    def usage_operation(self) -> str:
+    def usage_operation(self) -> Optional[str]:
         """
         Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         """
@@ -442,7 +442,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="virtualizationType")
-    def virtualization_type(self) -> str:
+    def virtualization_type(self) -> Optional[str]:
         """
         Type of virtualization of the AMI (ie: `hvm` or
         `paravirtual`).

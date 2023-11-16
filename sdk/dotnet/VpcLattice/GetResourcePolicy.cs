@@ -106,18 +106,18 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// JSON-encoded string representation of the applied resource policy.
         /// </summary>
-        public readonly string Policy;
+        public readonly string? Policy;
         public readonly string ResourceArn;
 
         [OutputConstructor]
         private GetResourcePolicyResult(
-            string id,
+            string? id,
 
-            string policy,
+            string? policy,
 
             string resourceArn)
         {

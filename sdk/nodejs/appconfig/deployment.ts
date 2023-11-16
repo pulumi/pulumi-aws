@@ -69,7 +69,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig Deployment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration profile ID. Must be between 4 and 7 characters in length.
      */
@@ -81,7 +81,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * Deployment number.
      */
-    public /*out*/ readonly deploymentNumber!: pulumi.Output<number>;
+    public /*out*/ readonly deploymentNumber!: pulumi.Output<number | undefined>;
     /**
      * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      */
@@ -97,7 +97,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * State of the deployment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

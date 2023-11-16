@@ -90,14 +90,14 @@ public class CustomRoutingAccelerator extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
@@ -120,7 +120,7 @@ public class CustomRoutingAccelerator extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
-    private Output<String> hostedZoneId;
+    private Output</* @Nullable */ String> hostedZoneId;
 
     /**
      * @return -  The Global Accelerator Route 53 zone ID that can be used to
@@ -128,8 +128,8 @@ public class CustomRoutingAccelerator extends com.pulumi.resources.CustomResourc
      * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
-    public Output<String> hostedZoneId() {
-        return this.hostedZoneId;
+    public Output<Optional<String>> hostedZoneId() {
+        return Codegen.optional(this.hostedZoneId);
     }
     /**
      * The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
@@ -164,14 +164,14 @@ public class CustomRoutingAccelerator extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="ipSets", refs={List.class,CustomRoutingAcceleratorIpSet.class}, tree="[0,1]")
-    private Output<List<CustomRoutingAcceleratorIpSet>> ipSets;
+    private Output</* @Nullable */ List<CustomRoutingAcceleratorIpSet>> ipSets;
 
     /**
      * @return IP address set associated with the accelerator.
      * 
      */
-    public Output<List<CustomRoutingAcceleratorIpSet>> ipSets() {
-        return this.ipSets;
+    public Output<Optional<List<CustomRoutingAcceleratorIpSet>>> ipSets() {
+        return Codegen.optional(this.ipSets);
     }
     /**
      * The name of a custom routing accelerator.

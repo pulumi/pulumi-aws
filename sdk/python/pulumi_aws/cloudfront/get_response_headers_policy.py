@@ -53,7 +53,7 @@ class GetResponseHeadersPolicyResult:
 
     @property
     @pulumi.getter
-    def comment(self) -> str:
+    def comment(self) -> Optional[str]:
         """
         Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         """
@@ -61,7 +61,7 @@ class GetResponseHeadersPolicyResult:
 
     @property
     @pulumi.getter(name="corsConfigs")
-    def cors_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyCorsConfigResult']:
+    def cors_configs(self) -> Optional[Sequence['outputs.GetResponseHeadersPolicyCorsConfigResult']]:
         """
         Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         """
@@ -69,7 +69,7 @@ class GetResponseHeadersPolicyResult:
 
     @property
     @pulumi.getter(name="customHeadersConfigs")
-    def custom_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyCustomHeadersConfigResult']:
+    def custom_headers_configs(self) -> Optional[Sequence['outputs.GetResponseHeadersPolicyCustomHeadersConfigResult']]:
         """
         Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
         """
@@ -77,7 +77,7 @@ class GetResponseHeadersPolicyResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> Optional[str]:
         """
         Current version of the response headers policy.
         """
@@ -85,17 +85,17 @@ class GetResponseHeadersPolicyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="removeHeadersConfigs")
-    def remove_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyRemoveHeadersConfigResult']:
+    def remove_headers_configs(self) -> Optional[Sequence['outputs.GetResponseHeadersPolicyRemoveHeadersConfigResult']]:
         """
         Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
         """
@@ -103,7 +103,7 @@ class GetResponseHeadersPolicyResult:
 
     @property
     @pulumi.getter(name="securityHeadersConfigs")
-    def security_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigResult']:
+    def security_headers_configs(self) -> Optional[Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigResult']]:
         """
         A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         """
@@ -111,7 +111,7 @@ class GetResponseHeadersPolicyResult:
 
     @property
     @pulumi.getter(name="serverTimingHeadersConfigs")
-    def server_timing_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult']:
+    def server_timing_headers_configs(self) -> Optional[Sequence['outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult']]:
         """
         (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """

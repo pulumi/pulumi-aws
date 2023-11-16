@@ -67,19 +67,19 @@ export class Template extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the resource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * The time that the template was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * The time that the template was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * Display name for the template.
      */
@@ -95,11 +95,11 @@ export class Template extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
      */
-    public /*out*/ readonly sourceEntityArn!: pulumi.Output<string>;
+    public /*out*/ readonly sourceEntityArn!: pulumi.Output<string | undefined>;
     /**
      * The template creation status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -123,7 +123,7 @@ export class Template extends pulumi.CustomResource {
     /**
      * The version number of the template version.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    public /*out*/ readonly versionNumber!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Template resource with the given unique name, arguments, and options.

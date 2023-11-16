@@ -54,7 +54,7 @@ type LogDestination struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) specifying the log destination.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A name for the log destination.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
@@ -257,8 +257,8 @@ func (o LogDestinationOutput) ToLogDestinationOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name (ARN) specifying the log destination.
-func (o LogDestinationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LogDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LogDestinationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogDestination) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A name for the log destination.

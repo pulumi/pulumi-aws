@@ -85,14 +85,14 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The license configuration ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of the license configuration.
@@ -183,14 +183,14 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> ownerAccountId;
+    private Output</* @Nullable */ String> ownerAccountId;
 
     /**
      * @return Account ID of the owner of the license configuration.
      * 
      */
-    public Output<String> ownerAccountId() {
-        return this.ownerAccountId;
+    public Output<Optional<String>> ownerAccountId() {
+        return Codegen.optional(this.ownerAccountId);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

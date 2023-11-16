@@ -69,25 +69,25 @@ export class ClassificationJob extends pulumi.CustomResource {
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the job was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The custom data identifiers to use for data analysis and classification.
      */
-    public readonly customDataIdentifierIds!: pulumi.Output<string[]>;
+    public readonly customDataIdentifierIds!: pulumi.Output<string[] | undefined>;
     /**
      * A custom description of the job. The description can contain as many as 200 characters.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
      */
     public readonly initialRun!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly jobArn!: pulumi.Output<string>;
-    public /*out*/ readonly jobId!: pulumi.Output<string>;
+    public /*out*/ readonly jobArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly jobId!: pulumi.Output<string | undefined>;
     /**
      * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
      */
-    public readonly jobStatus!: pulumi.Output<string>;
+    public readonly jobStatus!: pulumi.Output<string | undefined>;
     /**
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
      */
@@ -99,7 +99,7 @@ export class ClassificationJob extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */
@@ -107,11 +107,11 @@ export class ClassificationJob extends pulumi.CustomResource {
     /**
      * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      */
-    public readonly samplingPercentage!: pulumi.Output<number>;
+    public readonly samplingPercentage!: pulumi.Output<number | undefined>;
     /**
      * The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
      */
-    public readonly scheduleFrequency!: pulumi.Output<outputs.macie2.ClassificationJobScheduleFrequency>;
+    public readonly scheduleFrequency!: pulumi.Output<outputs.macie2.ClassificationJobScheduleFrequency | undefined>;
     /**
      * A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
      */
@@ -123,7 +123,7 @@ export class ClassificationJob extends pulumi.CustomResource {
     /**
      * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      */
-    public /*out*/ readonly userPausedDetails!: pulumi.Output<outputs.macie2.ClassificationJobUserPausedDetail[]>;
+    public /*out*/ readonly userPausedDetails!: pulumi.Output<outputs.macie2.ClassificationJobUserPausedDetail[] | undefined>;
 
     /**
      * Create a ClassificationJob resource with the given unique name, arguments, and options.

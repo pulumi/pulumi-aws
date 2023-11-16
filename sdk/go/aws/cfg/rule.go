@@ -218,7 +218,7 @@ type Rule struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the config rule
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the rule
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
@@ -230,7 +230,7 @@ type Rule struct {
 	// The name of the rule
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the config rule
-	RuleId pulumi.StringOutput `pulumi:"ruleId"`
+	RuleId pulumi.StringPtrOutput `pulumi:"ruleId"`
 	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
 	Scope RuleScopePtrOutput `pulumi:"scope"`
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
@@ -464,8 +464,8 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 }
 
 // The ARN of the config rule
-func (o RuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the rule
@@ -494,8 +494,8 @@ func (o RuleOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the config rule
-func (o RuleOutput) RuleId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.RuleId }).(pulumi.StringOutput)
+func (o RuleOutput) RuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.RuleId }).(pulumi.StringPtrOutput)
 }
 
 // Scope defines which resources can trigger an evaluation for the rule. See Source Below.

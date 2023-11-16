@@ -31,7 +31,7 @@ class GetBillingServiceAccountResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the AWS billing service account.
         """
@@ -39,7 +39,7 @@ class GetBillingServiceAccountResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         ID of the AWS billing service account.
         """

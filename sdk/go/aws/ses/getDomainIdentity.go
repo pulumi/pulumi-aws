@@ -57,13 +57,13 @@ type LookupDomainIdentityArgs struct {
 // A collection of values returned by getDomainIdentity.
 type LookupDomainIdentityResult struct {
 	// ARN of the domain identity.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Name of the domain
 	Domain string `pulumi:"domain"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
-	VerificationToken string `pulumi:"verificationToken"`
+	VerificationToken *string `pulumi:"verificationToken"`
 }
 
 func LookupDomainIdentityOutput(ctx *pulumi.Context, args LookupDomainIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupDomainIdentityResultOutput {
@@ -105,8 +105,8 @@ func (o LookupDomainIdentityResultOutput) ToLookupDomainIdentityResultOutputWith
 }
 
 // ARN of the domain identity.
-func (o LookupDomainIdentityResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupDomainIdentityResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainIdentityResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the domain
@@ -115,13 +115,13 @@ func (o LookupDomainIdentityResultOutput) Domain() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDomainIdentityResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDomainIdentityResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainIdentityResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
-func (o LookupDomainIdentityResultOutput) VerificationToken() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.VerificationToken }).(pulumi.StringOutput)
+func (o LookupDomainIdentityResultOutput) VerificationToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainIdentityResult) *string { return v.VerificationToken }).(pulumi.StringPtrOutput)
 }
 
 func init() {

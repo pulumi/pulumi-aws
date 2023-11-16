@@ -43,13 +43,13 @@ type Cluster struct {
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
 	ClusterCertificates ClusterClusterCertificateArrayOutput `pulumi:"clusterCertificates"`
 	// The id of the CloudHSM cluster.
-	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
+	ClusterId pulumi.StringPtrOutput `pulumi:"clusterId"`
 	// The state of the CloudHSM cluster.
-	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
+	ClusterState pulumi.StringPtrOutput `pulumi:"clusterState"`
 	// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
 	HsmType pulumi.StringOutput `pulumi:"hsmType"`
 	// The ID of the security group associated with the CloudHSM cluster.
-	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
+	SecurityGroupId pulumi.StringPtrOutput `pulumi:"securityGroupId"`
 	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier pulumi.StringPtrOutput `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
@@ -61,7 +61,7 @@ type Cluster struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The id of the VPC that the CloudHSM cluster resides in.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -288,13 +288,13 @@ func (o ClusterOutput) ClusterCertificates() ClusterClusterCertificateArrayOutpu
 }
 
 // The id of the CloudHSM cluster.
-func (o ClusterOutput) ClusterId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterId }).(pulumi.StringPtrOutput)
 }
 
 // The state of the CloudHSM cluster.
-func (o ClusterOutput) ClusterState() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterState }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterState }).(pulumi.StringPtrOutput)
 }
 
 // The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
@@ -303,8 +303,8 @@ func (o ClusterOutput) HsmType() pulumi.StringOutput {
 }
 
 // The ID of the security group associated with the CloudHSM cluster.
-func (o ClusterOutput) SecurityGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
+func (o ClusterOutput) SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
 // ID of Cloud HSM v2 cluster backup to be restored.
@@ -330,8 +330,8 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The id of the VPC that the CloudHSM cluster resides in.
-func (o ClusterOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o ClusterOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type ClusterArrayOutput struct{ *pulumi.OutputState }

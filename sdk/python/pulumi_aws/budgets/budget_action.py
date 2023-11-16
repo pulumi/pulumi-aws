@@ -639,7 +639,7 @@ class BudgetAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the target account for budget. Will use current user's account_id by default if omitted.
         """
@@ -647,7 +647,7 @@ class BudgetAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="actionId")
-    def action_id(self) -> pulumi.Output[str]:
+    def action_id(self) -> pulumi.Output[Optional[str]]:
         """
         The id of the budget action.
         """
@@ -679,7 +679,7 @@ class BudgetAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the budget action.
         """
@@ -719,7 +719,7 @@ class BudgetAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the budget action.
         """

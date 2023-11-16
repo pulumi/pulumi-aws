@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// Name of the AutoScaling Group.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
-        private GetNodeGroupResourceAutoscalingGroupResult(string name)
+        private GetNodeGroupResourceAutoscalingGroupResult(string? name)
         {
             Name = name;
         }

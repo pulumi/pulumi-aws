@@ -55,22 +55,22 @@ namespace Pulumi.Aws.DirectConnect
         /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         /// </summary>
         [Output("amazonAddress")]
-        public Output<string> AmazonAddress { get; private set; } = null!;
+        public Output<string?> AmazonAddress { get; private set; } = null!;
 
         [Output("amazonSideAsn")]
-        public Output<string> AmazonSideAsn { get; private set; } = null!;
+        public Output<string?> AmazonSideAsn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the virtual interface.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Direct Connect endpoint on which the virtual interface terminates.
         /// </summary>
         [Output("awsDevice")]
-        public Output<string> AwsDevice { get; private set; } = null!;
+        public Output<string?> AwsDevice { get; private set; } = null!;
 
         /// <summary>
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The authentication key for BGP configuration.
         /// </summary>
         [Output("bgpAuthKey")]
-        public Output<string> BgpAuthKey { get; private set; } = null!;
+        public Output<string?> BgpAuthKey { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -94,13 +94,13 @@ namespace Pulumi.Aws.DirectConnect
         /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         /// </summary>
         [Output("customerAddress")]
-        public Output<string> CustomerAddress { get; private set; } = null!;
+        public Output<string?> CustomerAddress { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether jumbo frames (9001 MTU) are supported.
         /// </summary>
         [Output("jumboFrameCapable")]
-        public Output<bool> JumboFrameCapable { get; private set; } = null!;
+        public Output<bool?> JumboFrameCapable { get; private set; } = null!;
 
         /// <summary>
         /// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.

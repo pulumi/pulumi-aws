@@ -58,7 +58,7 @@ export class RouteCalculation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      */
-    public /*out*/ readonly calculatorArn!: pulumi.Output<string>;
+    public /*out*/ readonly calculatorArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the route calculator resource.
      */
@@ -66,7 +66,7 @@ export class RouteCalculation extends pulumi.CustomResource {
     /**
      * The timestamp for when the route calculator resource was created in ISO 8601 format.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string | undefined>;
     /**
      * Specifies the data provider of traffic and road network data.
      *
@@ -90,7 +90,7 @@ export class RouteCalculation extends pulumi.CustomResource {
     /**
      * The timestamp for when the route calculator resource was last update in ISO 8601.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RouteCalculation resource with the given unique name, arguments, and options.

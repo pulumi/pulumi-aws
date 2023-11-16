@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig {
@@ -13,15 +15,15 @@ public final class GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig {
      * @return The Amazon Resource Name (ARN) of the delivery stream.
      * 
      */
-    private String firehoseArn;
+    private @Nullable String firehoseArn;
 
     private GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig() {}
     /**
      * @return The Amazon Resource Name (ARN) of the delivery stream.
      * 
      */
-    public String firehoseArn() {
-        return this.firehoseArn;
+    public Optional<String> firehoseArn() {
+        return Optional.ofNullable(this.firehoseArn);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String firehoseArn;
+        private @Nullable String firehoseArn;
         public Builder() {}
         public Builder(GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig {
         }
 
         @CustomType.Setter
-        public Builder firehoseArn(String firehoseArn) {
-            this.firehoseArn = Objects.requireNonNull(firehoseArn);
+        public Builder firehoseArn(@Nullable String firehoseArn) {
+            this.firehoseArn = firehoseArn;
             return this;
         }
         public GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig build() {

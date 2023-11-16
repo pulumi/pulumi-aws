@@ -45,49 +45,49 @@ export interface GetDeviceResult {
     /**
      * ARN of the device.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * AWS location of the device. Documented below.
      */
-    readonly awsLocations: outputs.networkmanager.GetDeviceAwsLocation[];
+    readonly awsLocations?: outputs.networkmanager.GetDeviceAwsLocation[];
     /**
      * Description of the device.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly deviceId: string;
     readonly globalNetworkId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Location of the device. Documented below.
      */
-    readonly locations: outputs.networkmanager.GetDeviceLocation[];
+    readonly locations?: outputs.networkmanager.GetDeviceLocation[];
     /**
      * Model of device.
      */
-    readonly model: string;
+    readonly model?: string;
     /**
      * Serial number of the device.
      */
-    readonly serialNumber: string;
+    readonly serialNumber?: string;
     /**
      * ID of the site.
      */
-    readonly siteId: string;
+    readonly siteId?: string;
     /**
      * Key-value tags for the device.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Type of device.
      */
-    readonly type: string;
+    readonly type?: string;
     /**
      * Vendor of the device.
      */
-    readonly vendor: string;
+    readonly vendor?: string;
 }
 /**
  * Retrieve information about a device.

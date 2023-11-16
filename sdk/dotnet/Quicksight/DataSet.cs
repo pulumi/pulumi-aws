@@ -289,13 +289,13 @@ namespace Pulumi.Aws.Quicksight
         /// ARN of the dataset that contains permissions for RLS.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.Quicksight
         /// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
         /// </summary>
         [Output("dataSetUsageConfiguration")]
-        public Output<Outputs.DataSetDataSetUsageConfiguration> DataSetUsageConfiguration { get; private set; } = null!;
+        public Output<Outputs.DataSetDataSetUsageConfiguration?> DataSetUsageConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The folder that contains fields and nested subfolders for your dataset. See field_folders.

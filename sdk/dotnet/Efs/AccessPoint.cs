@@ -45,13 +45,13 @@ namespace Pulumi.Aws.Efs
         /// ARN of the access point.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the file system.
         /// </summary>
         [Output("fileSystemArn")]
-        public Output<string> FileSystemArn { get; private set; } = null!;
+        public Output<string?> FileSystemArn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the file system for which the access point is intended.
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> FileSystemId { get; private set; } = null!;
 
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Efs
         /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         /// </summary>
         [Output("rootDirectory")]
-        public Output<Outputs.AccessPointRootDirectory> RootDirectory { get; private set; } = null!;
+        public Output<Outputs.AccessPointRootDirectory?> RootDirectory { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

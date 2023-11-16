@@ -142,14 +142,14 @@ namespace Pulumi.Aws.CloudFront
         /// updates to the origin access identity.
         /// </summary>
         [Output("callerReference")]
-        public Output<string> CallerReference { get; private set; } = null!;
+        public Output<string?> CallerReference { get; private set; } = null!;
 
         /// <summary>
         /// A shortcut to the full path for the
         /// origin access identity to use in CloudFront, see below.
         /// </summary>
         [Output("cloudfrontAccessIdentityPath")]
-        public Output<string> CloudfrontAccessIdentityPath { get; private set; } = null!;
+        public Output<string?> CloudfrontAccessIdentityPath { get; private set; } = null!;
 
         /// <summary>
         /// An optional comment for the origin access identity.
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.CloudFront
         /// For example: `E2QWRUHAPOMQZL`.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// A pre-generated ARN for use in S3 bucket policies (see below).
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.CloudFront
         /// E2QWRUHAPOMQZL`.
         /// </summary>
         [Output("iamArn")]
-        public Output<string> IamArn { get; private set; } = null!;
+        public Output<string?> IamArn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon S3 canonical user ID for the origin
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.CloudFront
         /// permission to an object in Amazon S3.
         /// </summary>
         [Output("s3CanonicalUserId")]
-        public Output<string> S3CanonicalUserId { get; private set; } = null!;
+        public Output<string?> S3CanonicalUserId { get; private set; } = null!;
 
 
         /// <summary>

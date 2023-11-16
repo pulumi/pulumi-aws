@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.outputs.GetImageOutputResourceContainer;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageOutputResource {
@@ -15,12 +16,12 @@ public final class GetImageOutputResource {
      * @return Set of objects with each Amazon Machine Image (AMI) created.
      * 
      */
-    private List<GetImageOutputResourceAmi> amis;
+    private @Nullable List<GetImageOutputResourceAmi> amis;
     /**
      * @return Set of objects with each container image created and stored in the output repository.
      * 
      */
-    private List<GetImageOutputResourceContainer> containers;
+    private @Nullable List<GetImageOutputResourceContainer> containers;
 
     private GetImageOutputResource() {}
     /**
@@ -28,14 +29,14 @@ public final class GetImageOutputResource {
      * 
      */
     public List<GetImageOutputResourceAmi> amis() {
-        return this.amis;
+        return this.amis == null ? List.of() : this.amis;
     }
     /**
      * @return Set of objects with each container image created and stored in the output repository.
      * 
      */
     public List<GetImageOutputResourceContainer> containers() {
-        return this.containers;
+        return this.containers == null ? List.of() : this.containers;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetImageOutputResource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetImageOutputResourceAmi> amis;
-        private List<GetImageOutputResourceContainer> containers;
+        private @Nullable List<GetImageOutputResourceAmi> amis;
+        private @Nullable List<GetImageOutputResourceContainer> containers;
         public Builder() {}
         public Builder(GetImageOutputResource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetImageOutputResource {
         }
 
         @CustomType.Setter
-        public Builder amis(List<GetImageOutputResourceAmi> amis) {
-            this.amis = Objects.requireNonNull(amis);
+        public Builder amis(@Nullable List<GetImageOutputResourceAmi> amis) {
+            this.amis = amis;
             return this;
         }
         public Builder amis(GetImageOutputResourceAmi... amis) {
             return amis(List.of(amis));
         }
         @CustomType.Setter
-        public Builder containers(List<GetImageOutputResourceContainer> containers) {
-            this.containers = Objects.requireNonNull(containers);
+        public Builder containers(@Nullable List<GetImageOutputResourceContainer> containers) {
+            this.containers = containers;
             return this;
         }
         public Builder containers(GetImageOutputResourceContainer... containers) {

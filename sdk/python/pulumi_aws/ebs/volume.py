@@ -675,7 +675,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         """
@@ -691,7 +691,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> pulumi.Output[bool]:
+    def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the disk will be encrypted.
         """
@@ -707,7 +707,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def iops(self) -> pulumi.Output[int]:
+    def iops(self) -> pulumi.Output[Optional[int]]:
         """
         The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         """
@@ -715,7 +715,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         """
@@ -739,7 +739,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Output[int]:
+    def size(self) -> pulumi.Output[Optional[int]]:
         """
         The size of the drive in GiBs.
         """
@@ -747,7 +747,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> pulumi.Output[str]:
+    def snapshot_id(self) -> pulumi.Output[Optional[str]]:
         """
         A snapshot to base the EBS volume off of.
         """
@@ -774,7 +774,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def throughput(self) -> pulumi.Output[int]:
+    def throughput(self) -> pulumi.Output[Optional[int]]:
         """
         The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 
@@ -784,7 +784,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Amazon Resource Name (ARN) of the image.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the container recipe.
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Date the image was created.
         /// </summary>
         [Output("dateCreated")]
-        public Output<string> DateCreated { get; private set; } = null!;
+        public Output<string?> DateCreated { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
@@ -83,13 +83,13 @@ namespace Pulumi.Aws.ImageBuilder
         /// Configuration block with image scanning configuration. Detailed below.
         /// </summary>
         [Output("imageScanningConfiguration")]
-        public Output<Outputs.ImageImageScanningConfiguration> ImageScanningConfiguration { get; private set; } = null!;
+        public Output<Outputs.ImageImageScanningConfiguration?> ImageScanningConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
         [Output("imageTestsConfiguration")]
-        public Output<Outputs.ImageImageTestsConfiguration> ImageTestsConfiguration { get; private set; } = null!;
+        public Output<Outputs.ImageImageTestsConfiguration?> ImageTestsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -103,13 +103,13 @@ namespace Pulumi.Aws.ImageBuilder
         /// Name of the AMI.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// Operating System version of the image.
         /// </summary>
         [Output("osVersion")]
-        public Output<string> OsVersion { get; private set; } = null!;
+        public Output<string?> OsVersion { get; private set; } = null!;
 
         /// <summary>
         /// List of objects with resources created by the image.
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Platform of the image.
         /// </summary>
         [Output("platform")]
-        public Output<string> Platform { get; private set; } = null!;
+        public Output<string?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Version of the image.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

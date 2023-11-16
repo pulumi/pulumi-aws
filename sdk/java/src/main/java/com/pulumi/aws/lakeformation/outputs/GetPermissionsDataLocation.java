@@ -6,6 +6,8 @@ package com.pulumi.aws.lakeformation.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPermissionsDataLocation {
@@ -20,7 +22,7 @@ public final class GetPermissionsDataLocation {
      * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
      * 
      */
-    private String catalogId;
+    private @Nullable String catalogId;
 
     private GetPermissionsDataLocation() {}
     /**
@@ -36,8 +38,8 @@ public final class GetPermissionsDataLocation {
      * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
 
     public static Builder builder() {
@@ -50,7 +52,7 @@ public final class GetPermissionsDataLocation {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String catalogId;
+        private @Nullable String catalogId;
         public Builder() {}
         public Builder(GetPermissionsDataLocation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,8 +66,8 @@ public final class GetPermissionsDataLocation {
             return this;
         }
         @CustomType.Setter
-        public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+        public Builder catalogId(@Nullable String catalogId) {
+            this.catalogId = catalogId;
             return this;
         }
         public GetPermissionsDataLocation build() {

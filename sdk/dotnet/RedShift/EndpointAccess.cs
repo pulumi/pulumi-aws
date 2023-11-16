@@ -47,7 +47,7 @@ namespace Pulumi.Aws.RedShift
         /// The DNS address of the endpoint.
         /// </summary>
         [Output("address")]
-        public Output<string> Address { get; private set; } = null!;
+        public Output<string?> Address { get; private set; } = null!;
 
         /// <summary>
         /// The cluster identifier of the cluster to access.
@@ -65,13 +65,13 @@ namespace Pulumi.Aws.RedShift
         /// The port number on which the cluster accepts incoming connections.
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         /// </summary>
         [Output("resourceOwner")]
-        public Output<string> ResourceOwner { get; private set; } = null!;
+        public Output<string?> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
         /// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.

@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ses
         /// The SES event destination ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// CloudWatch destination for the events

@@ -66,28 +66,28 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The time that the FSx for Lustre location was created.
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
     /**
      * @return The time that the FSx for Lustre location was created.
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
@@ -122,14 +122,14 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subdirectory", refs={String.class}, tree="[0]")
-    private Output<String> subdirectory;
+    private Output</* @Nullable */ String> subdirectory;
 
     /**
      * @return Subdirectory to perform actions as source or destination.
      * 
      */
-    public Output<String> subdirectory() {
-        return this.subdirectory;
+    public Output<Optional<String>> subdirectory() {
+        return Codegen.optional(this.subdirectory);
     }
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -168,14 +168,14 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uri", refs={String.class}, tree="[0]")
-    private Output<String> uri;
+    private Output</* @Nullable */ String> uri;
 
     /**
      * @return The URL of the FSx for Lustre location that was described.
      * 
      */
-    public Output<String> uri() {
-        return this.uri;
+    public Output<Optional<String>> uri() {
+        return Codegen.optional(this.uri);
     }
 
     /**

@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPoli
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate {
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile> files;
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd> sds;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile> files;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd> sds;
 
     private GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate() {}
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile> files() {
-        return this.files;
+        return this.files == null ? List.of() : this.files;
     }
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd> sds() {
-        return this.sds;
+        return this.sds == null ? List.of() : this.sds;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile> files;
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd> sds;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile> files;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd> sds;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate {
         }
 
         @CustomType.Setter
-        public Builder files(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile> files) {
-            this.files = Objects.requireNonNull(files);
+        public Builder files(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile> files) {
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile... files) {
             return files(List.of(files));
         }
         @CustomType.Setter
-        public Builder sds(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+        public Builder sds(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd> sds) {
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd... sds) {

@@ -78,7 +78,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The Amazon Resource Name (ARN) of the event archive.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the new event archive.

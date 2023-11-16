@@ -44,7 +44,7 @@ type EcsClusterLayer struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -74,8 +74,8 @@ type EcsClusterLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput                       `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    EcsClusterLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                          `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    EcsClusterLayerLoadBasedAutoScalingPtrOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -426,8 +426,8 @@ func (o EcsClusterLayerOutput) ToEcsClusterLayerOutputWithContext(ctx context.Co
 }
 
 // The Amazon Resource Name(ARN) of the layer.
-func (o EcsClusterLayerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EcsClusterLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EcsClusterLayerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
@@ -516,8 +516,8 @@ func (o EcsClusterLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o EcsClusterLayerOutput) LoadBasedAutoScaling() EcsClusterLayerLoadBasedAutoScalingOutput {
-	return o.ApplyT(func(v *EcsClusterLayer) EcsClusterLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(EcsClusterLayerLoadBasedAutoScalingOutput)
+func (o EcsClusterLayerOutput) LoadBasedAutoScaling() EcsClusterLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayer) EcsClusterLayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(EcsClusterLayerLoadBasedAutoScalingPtrOutput)
 }
 
 // A human-readable name for the layer.

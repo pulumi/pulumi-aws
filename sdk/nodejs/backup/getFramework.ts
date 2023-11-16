@@ -51,27 +51,27 @@ export interface GetFrameworkResult {
     /**
      * ARN of the backup framework.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      */
-    readonly controls: outputs.backup.GetFrameworkControl[];
+    readonly controls?: outputs.backup.GetFrameworkControl[];
     /**
      * Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      */
-    readonly creationTime: string;
+    readonly creationTime?: string;
     /**
      * Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
      */
-    readonly deploymentStatus: string;
+    readonly deploymentStatus?: string;
     /**
      * Description of the framework.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of a parameter, for example, BackupPlanFrequency.
      */
@@ -79,11 +79,11 @@ export interface GetFrameworkResult {
     /**
      * Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get information on an existing backup framework.

@@ -66,16 +66,16 @@ type GetQuicksightGroupArgs struct {
 // A collection of values returned by getQuicksightGroup.
 type GetQuicksightGroupResult struct {
 	// The Amazon Resource Name (ARN) for the group.
-	Arn          string `pulumi:"arn"`
-	AwsAccountId string `pulumi:"awsAccountId"`
+	Arn          *string `pulumi:"arn"`
+	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The group description.
-	Description string `pulumi:"description"`
-	GroupName   string `pulumi:"groupName"`
+	Description *string `pulumi:"description"`
+	GroupName   string  `pulumi:"groupName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string  `pulumi:"id"`
+	Id        *string `pulumi:"id"`
 	Namespace *string `pulumi:"namespace"`
 	// The principal ID of the group.
-	PrincipalId string `pulumi:"principalId"`
+	PrincipalId *string `pulumi:"principalId"`
 }
 
 func GetQuicksightGroupOutput(ctx *pulumi.Context, args GetQuicksightGroupOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightGroupResultOutput {
@@ -123,17 +123,17 @@ func (o GetQuicksightGroupResultOutput) ToGetQuicksightGroupResultOutputWithCont
 }
 
 // The Amazon Resource Name (ARN) for the group.
-func (o GetQuicksightGroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetQuicksightGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetQuicksightGroupResultOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o GetQuicksightGroupResultOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightGroupResult) *string { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The group description.
-func (o GetQuicksightGroupResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetQuicksightGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o GetQuicksightGroupResultOutput) GroupName() pulumi.StringOutput {
@@ -141,8 +141,8 @@ func (o GetQuicksightGroupResultOutput) GroupName() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetQuicksightGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetQuicksightGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetQuicksightGroupResultOutput) Namespace() pulumi.StringPtrOutput {
@@ -150,8 +150,8 @@ func (o GetQuicksightGroupResultOutput) Namespace() pulumi.StringPtrOutput {
 }
 
 // The principal ID of the group.
-func (o GetQuicksightGroupResultOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o GetQuicksightGroupResultOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQuicksightGroupResult) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

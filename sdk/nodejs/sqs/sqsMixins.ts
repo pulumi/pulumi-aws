@@ -88,14 +88,14 @@ export class QueueEventSubscription extends lambda.EventSubscription {
             action: "lambda:*",
             function: this.func,
             principal: "sqs.amazonaws.com",
-            sourceArn: queue.arn,
+            sourceArn: queue.arn.apply(x => x!),
         }, parentOpts);
 
         this.eventSourceMapping = new lambda.EventSourceMapping(name, {
             batchSize: args.batchSize,
             maximumBatchingWindowInSeconds: args.maximumBatchingWindowInSeconds,
             enabled: true,
-            eventSourceArn: queue.arn,
+            eventSourceArn: queue.arn.apply(x => x!),
             functionName: this.func.name,
         }, parentOpts);
 

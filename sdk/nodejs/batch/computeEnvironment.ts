@@ -144,15 +144,15 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the compute environment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      */
-    public readonly computeEnvironmentName!: pulumi.Output<string>;
+    public readonly computeEnvironmentName!: pulumi.Output<string | undefined>;
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
      */
-    public readonly computeEnvironmentNamePrefix!: pulumi.Output<string>;
+    public readonly computeEnvironmentNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
@@ -160,7 +160,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */
-    public /*out*/ readonly ecsClusterArn!: pulumi.Output<string>;
+    public /*out*/ readonly ecsClusterArn!: pulumi.Output<string | undefined>;
     /**
      * Details for the Amazon EKS cluster that supports the compute environment. See details below.
      */
@@ -168,7 +168,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
-    public readonly serviceRole!: pulumi.Output<string>;
+    public readonly serviceRole!: pulumi.Output<string | undefined>;
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
@@ -176,11 +176,11 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * The current status of the compute environment (for example, CREATING or VALID).
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      */
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

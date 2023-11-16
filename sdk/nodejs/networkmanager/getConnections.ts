@@ -58,11 +58,11 @@ export interface GetConnectionsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IDs of the connections.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly tags?: {[key: string]: string};
 }
 /**

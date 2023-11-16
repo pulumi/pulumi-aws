@@ -988,7 +988,7 @@ class KxCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) identifier of the KX cluster.
         """
@@ -1054,7 +1054,7 @@ class KxCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTimestamp")
-    def created_timestamp(self) -> pulumi.Output[str]:
+    def created_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """
@@ -1102,7 +1102,7 @@ class KxCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTimestamp")
-    def last_modified_timestamp(self) -> pulumi.Output[str]:
+    def last_modified_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """
@@ -1134,12 +1134,12 @@ class KxCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> pulumi.Output[str]:
+    def status_reason(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status_reason")
 
     @property

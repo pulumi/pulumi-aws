@@ -79,7 +79,7 @@ type GetLicenseGrantsResult struct {
 	Arns    []string                 `pulumi:"arns"`
 	Filters []GetLicenseGrantsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetLicenseGrantsOutput(ctx *pulumi.Context, args GetLicenseGrantsOutputArgs, opts ...pulumi.InvokeOption) GetLicenseGrantsResultOutput {
@@ -133,8 +133,8 @@ func (o GetLicenseGrantsResultOutput) Filters() GetLicenseGrantsFilterArrayOutpu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLicenseGrantsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLicenseGrantsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLicenseGrantsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLicenseGrantsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

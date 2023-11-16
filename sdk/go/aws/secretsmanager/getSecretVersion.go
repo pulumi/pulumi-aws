@@ -90,16 +90,16 @@ type LookupSecretVersionArgs struct {
 // A collection of values returned by getSecretVersion.
 type LookupSecretVersionResult struct {
 	// ARN of the secret.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Decrypted part of the protected secret information that was originally provided as a binary.
-	SecretBinary string `pulumi:"secretBinary"`
-	SecretId     string `pulumi:"secretId"`
+	SecretBinary *string `pulumi:"secretBinary"`
+	SecretId     string  `pulumi:"secretId"`
 	// Decrypted part of the protected secret information that was originally provided as a string.
-	SecretString string `pulumi:"secretString"`
+	SecretString *string `pulumi:"secretString"`
 	// Unique identifier of this version of the secret.
-	VersionId     string   `pulumi:"versionId"`
+	VersionId     *string  `pulumi:"versionId"`
 	VersionStage  *string  `pulumi:"versionStage"`
 	VersionStages []string `pulumi:"versionStages"`
 }
@@ -147,18 +147,18 @@ func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithCo
 }
 
 // ARN of the secret.
-func (o LookupSecretVersionResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSecretVersionResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSecretVersionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSecretVersionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Decrypted part of the protected secret information that was originally provided as a binary.
-func (o LookupSecretVersionResultOutput) SecretBinary() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretBinary }).(pulumi.StringOutput)
+func (o LookupSecretVersionResultOutput) SecretBinary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) *string { return v.SecretBinary }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSecretVersionResultOutput) SecretId() pulumi.StringOutput {
@@ -166,13 +166,13 @@ func (o LookupSecretVersionResultOutput) SecretId() pulumi.StringOutput {
 }
 
 // Decrypted part of the protected secret information that was originally provided as a string.
-func (o LookupSecretVersionResultOutput) SecretString() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretString }).(pulumi.StringOutput)
+func (o LookupSecretVersionResultOutput) SecretString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) *string { return v.SecretString }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier of this version of the secret.
-func (o LookupSecretVersionResultOutput) VersionId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.VersionId }).(pulumi.StringOutput)
+func (o LookupSecretVersionResultOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) *string { return v.VersionId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSecretVersionResultOutput) VersionStage() pulumi.StringPtrOutput {

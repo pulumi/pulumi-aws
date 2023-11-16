@@ -33,14 +33,14 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.

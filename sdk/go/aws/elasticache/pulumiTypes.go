@@ -769,14 +769,14 @@ func (o UserAuthenticationModePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type GetClusterCacheNode struct {
-	Address string `pulumi:"address"`
+	Address *string `pulumi:"address"`
 	// Availability Zone for the cache cluster.
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	Id               string `pulumi:"id"`
-	OutpostArn       string `pulumi:"outpostArn"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	Id               *string `pulumi:"id"`
+	OutpostArn       *string `pulumi:"outpostArn"`
 	// The port number on which each of the cache nodes will
 	// accept connections.
-	Port int `pulumi:"port"`
+	Port *int `pulumi:"port"`
 }
 
 // GetClusterCacheNodeInput is an input type that accepts GetClusterCacheNodeArgs and GetClusterCacheNodeOutput values.
@@ -791,14 +791,14 @@ type GetClusterCacheNodeInput interface {
 }
 
 type GetClusterCacheNodeArgs struct {
-	Address pulumi.StringInput `pulumi:"address"`
+	Address pulumi.StringPtrInput `pulumi:"address"`
 	// Availability Zone for the cache cluster.
-	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
-	Id               pulumi.StringInput `pulumi:"id"`
-	OutpostArn       pulumi.StringInput `pulumi:"outpostArn"`
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	Id               pulumi.StringPtrInput `pulumi:"id"`
+	OutpostArn       pulumi.StringPtrInput `pulumi:"outpostArn"`
 	// The port number on which each of the cache nodes will
 	// accept connections.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
 func (GetClusterCacheNodeArgs) ElementType() reflect.Type {
@@ -852,27 +852,27 @@ func (o GetClusterCacheNodeOutput) ToGetClusterCacheNodeOutputWithContext(ctx co
 	return o
 }
 
-func (o GetClusterCacheNodeOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterCacheNode) string { return v.Address }).(pulumi.StringOutput)
+func (o GetClusterCacheNodeOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterCacheNode) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Availability Zone for the cache cluster.
-func (o GetClusterCacheNodeOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterCacheNode) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o GetClusterCacheNodeOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterCacheNode) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterCacheNodeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterCacheNode) string { return v.Id }).(pulumi.StringOutput)
+func (o GetClusterCacheNodeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterCacheNode) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterCacheNodeOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterCacheNode) string { return v.OutpostArn }).(pulumi.StringOutput)
+func (o GetClusterCacheNodeOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterCacheNode) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // The port number on which each of the cache nodes will
 // accept connections.
-func (o GetClusterCacheNodeOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetClusterCacheNode) int { return v.Port }).(pulumi.IntOutput)
+func (o GetClusterCacheNodeOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetClusterCacheNode) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 type GetClusterCacheNodeArrayOutput struct{ *pulumi.OutputState }
@@ -896,10 +896,10 @@ func (o GetClusterCacheNodeArrayOutput) Index(i pulumi.IntInput) GetClusterCache
 }
 
 type GetClusterLogDeliveryConfiguration struct {
-	Destination     string `pulumi:"destination"`
-	DestinationType string `pulumi:"destinationType"`
-	LogFormat       string `pulumi:"logFormat"`
-	LogType         string `pulumi:"logType"`
+	Destination     *string `pulumi:"destination"`
+	DestinationType *string `pulumi:"destinationType"`
+	LogFormat       *string `pulumi:"logFormat"`
+	LogType         *string `pulumi:"logType"`
 }
 
 // GetClusterLogDeliveryConfigurationInput is an input type that accepts GetClusterLogDeliveryConfigurationArgs and GetClusterLogDeliveryConfigurationOutput values.
@@ -914,10 +914,10 @@ type GetClusterLogDeliveryConfigurationInput interface {
 }
 
 type GetClusterLogDeliveryConfigurationArgs struct {
-	Destination     pulumi.StringInput `pulumi:"destination"`
-	DestinationType pulumi.StringInput `pulumi:"destinationType"`
-	LogFormat       pulumi.StringInput `pulumi:"logFormat"`
-	LogType         pulumi.StringInput `pulumi:"logType"`
+	Destination     pulumi.StringPtrInput `pulumi:"destination"`
+	DestinationType pulumi.StringPtrInput `pulumi:"destinationType"`
+	LogFormat       pulumi.StringPtrInput `pulumi:"logFormat"`
+	LogType         pulumi.StringPtrInput `pulumi:"logType"`
 }
 
 func (GetClusterLogDeliveryConfigurationArgs) ElementType() reflect.Type {
@@ -971,20 +971,20 @@ func (o GetClusterLogDeliveryConfigurationOutput) ToGetClusterLogDeliveryConfigu
 	return o
 }
 
-func (o GetClusterLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
+func (o GetClusterLogDeliveryConfigurationOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
+func (o GetClusterLogDeliveryConfigurationOutput) DestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) *string { return v.DestinationType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
+func (o GetClusterLogDeliveryConfigurationOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) *string { return v.LogFormat }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
+func (o GetClusterLogDeliveryConfigurationOutput) LogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) *string { return v.LogType }).(pulumi.StringPtrOutput)
 }
 
 type GetClusterLogDeliveryConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -1008,10 +1008,10 @@ func (o GetClusterLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetReplicationGroupLogDeliveryConfiguration struct {
-	Destination     string `pulumi:"destination"`
-	DestinationType string `pulumi:"destinationType"`
-	LogFormat       string `pulumi:"logFormat"`
-	LogType         string `pulumi:"logType"`
+	Destination     *string `pulumi:"destination"`
+	DestinationType *string `pulumi:"destinationType"`
+	LogFormat       *string `pulumi:"logFormat"`
+	LogType         *string `pulumi:"logType"`
 }
 
 // GetReplicationGroupLogDeliveryConfigurationInput is an input type that accepts GetReplicationGroupLogDeliveryConfigurationArgs and GetReplicationGroupLogDeliveryConfigurationOutput values.
@@ -1026,10 +1026,10 @@ type GetReplicationGroupLogDeliveryConfigurationInput interface {
 }
 
 type GetReplicationGroupLogDeliveryConfigurationArgs struct {
-	Destination     pulumi.StringInput `pulumi:"destination"`
-	DestinationType pulumi.StringInput `pulumi:"destinationType"`
-	LogFormat       pulumi.StringInput `pulumi:"logFormat"`
-	LogType         pulumi.StringInput `pulumi:"logType"`
+	Destination     pulumi.StringPtrInput `pulumi:"destination"`
+	DestinationType pulumi.StringPtrInput `pulumi:"destinationType"`
+	LogFormat       pulumi.StringPtrInput `pulumi:"logFormat"`
+	LogType         pulumi.StringPtrInput `pulumi:"logType"`
 }
 
 func (GetReplicationGroupLogDeliveryConfigurationArgs) ElementType() reflect.Type {
@@ -1083,20 +1083,20 @@ func (o GetReplicationGroupLogDeliveryConfigurationOutput) ToGetReplicationGroup
 	return o
 }
 
-func (o GetReplicationGroupLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
-func (o GetReplicationGroupLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) DestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) *string { return v.DestinationType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetReplicationGroupLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) *string { return v.LogFormat }).(pulumi.StringPtrOutput)
 }
 
-func (o GetReplicationGroupLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) LogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) *string { return v.LogType }).(pulumi.StringPtrOutput)
 }
 
 type GetReplicationGroupLogDeliveryConfigurationArrayOutput struct{ *pulumi.OutputState }

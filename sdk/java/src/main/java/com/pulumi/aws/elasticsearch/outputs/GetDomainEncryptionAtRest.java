@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainEncryptionAtRest {
@@ -14,27 +16,27 @@ public final class GetDomainEncryptionAtRest {
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The KMS key id used to encrypt data at rest.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
 
     private GetDomainEncryptionAtRest() {}
     /**
      * @return Whether node to node encryption is enabled.
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return The KMS key id used to encrypt data at rest.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetDomainEncryptionAtRest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private String kmsKeyId;
+        private @Nullable Boolean enabled;
+        private @Nullable String kmsKeyId;
         public Builder() {}
         public Builder(GetDomainEncryptionAtRest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetDomainEncryptionAtRest {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         public GetDomainEncryptionAtRest build() {

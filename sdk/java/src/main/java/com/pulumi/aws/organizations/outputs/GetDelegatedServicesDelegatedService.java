@@ -6,6 +6,8 @@ package com.pulumi.aws.organizations.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDelegatedServicesDelegatedService {
@@ -13,27 +15,27 @@ public final class GetDelegatedServicesDelegatedService {
      * @return The date that the account became a delegated administrator for this service.
      * 
      */
-    private String delegationEnabledDate;
+    private @Nullable String delegationEnabledDate;
     /**
      * @return The name of an AWS service that can request an operation for the specified service.
      * 
      */
-    private String servicePrincipal;
+    private @Nullable String servicePrincipal;
 
     private GetDelegatedServicesDelegatedService() {}
     /**
      * @return The date that the account became a delegated administrator for this service.
      * 
      */
-    public String delegationEnabledDate() {
-        return this.delegationEnabledDate;
+    public Optional<String> delegationEnabledDate() {
+        return Optional.ofNullable(this.delegationEnabledDate);
     }
     /**
      * @return The name of an AWS service that can request an operation for the specified service.
      * 
      */
-    public String servicePrincipal() {
-        return this.servicePrincipal;
+    public Optional<String> servicePrincipal() {
+        return Optional.ofNullable(this.servicePrincipal);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetDelegatedServicesDelegatedService {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String delegationEnabledDate;
-        private String servicePrincipal;
+        private @Nullable String delegationEnabledDate;
+        private @Nullable String servicePrincipal;
         public Builder() {}
         public Builder(GetDelegatedServicesDelegatedService defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetDelegatedServicesDelegatedService {
         }
 
         @CustomType.Setter
-        public Builder delegationEnabledDate(String delegationEnabledDate) {
-            this.delegationEnabledDate = Objects.requireNonNull(delegationEnabledDate);
+        public Builder delegationEnabledDate(@Nullable String delegationEnabledDate) {
+            this.delegationEnabledDate = delegationEnabledDate;
             return this;
         }
         @CustomType.Setter
-        public Builder servicePrincipal(String servicePrincipal) {
-            this.servicePrincipal = Objects.requireNonNull(servicePrincipal);
+        public Builder servicePrincipal(@Nullable String servicePrincipal) {
+            this.servicePrincipal = servicePrincipal;
             return this;
         }
         public GetDelegatedServicesDelegatedService build() {

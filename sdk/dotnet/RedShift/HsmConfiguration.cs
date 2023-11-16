@@ -50,7 +50,7 @@ namespace Pulumi.Aws.RedShift
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A text description of the HSM configuration to be created.

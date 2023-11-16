@@ -513,7 +513,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the AppConfig  hosted configuration version.
         """
@@ -553,7 +553,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionNumber")
-    def version_number(self) -> pulumi.Output[int]:
+    def version_number(self) -> pulumi.Output[Optional[int]]:
         """
         Version number of the hosted configuration.
         """

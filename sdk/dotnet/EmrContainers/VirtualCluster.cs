@@ -57,7 +57,7 @@ namespace Pulumi.Aws.EmrContainers
         /// ARN of the cluster.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the container provider associated with your cluster.

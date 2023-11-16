@@ -57,7 +57,7 @@ class GetOpenZfsSnapshotResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name of the snapshot.
         """
@@ -65,7 +65,7 @@ class GetOpenZfsSnapshotResult:
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> Optional[str]:
         """
         Time that the resource was created.
         """
@@ -78,7 +78,7 @@ class GetOpenZfsSnapshotResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -99,7 +99,7 @@ class GetOpenZfsSnapshotResult:
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> str:
+    def snapshot_id(self) -> Optional[str]:
         """
         ID of the snapshot.
         """
@@ -112,7 +112,7 @@ class GetOpenZfsSnapshotResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         List of Tag values, with a maximum of 50 elements.
         """
@@ -120,7 +120,7 @@ class GetOpenZfsSnapshotResult:
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> str:
+    def volume_id(self) -> Optional[str]:
         """
         ID of the volume that the snapshot is of.
         """

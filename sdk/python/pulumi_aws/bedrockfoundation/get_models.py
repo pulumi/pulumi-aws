@@ -65,7 +65,7 @@ class GetModelsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         AWS region.
         """

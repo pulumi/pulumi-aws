@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTlCertificateAcm {
-    private String certificateArn;
+    private @Nullable String certificateArn;
 
     private GetVirtualNodeSpecListenerTlCertificateAcm() {}
-    public String certificateArn() {
-        return this.certificateArn;
+    public Optional<String> certificateArn() {
+        return Optional.ofNullable(this.certificateArn);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetVirtualNodeSpecListenerTlCertificateAcm {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String certificateArn;
+        private @Nullable String certificateArn;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTlCertificateAcm defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetVirtualNodeSpecListenerTlCertificateAcm {
         }
 
         @CustomType.Setter
-        public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+        public Builder certificateArn(@Nullable String certificateArn) {
+            this.certificateArn = certificateArn;
             return this;
         }
         public GetVirtualNodeSpecListenerTlCertificateAcm build() {

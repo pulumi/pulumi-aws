@@ -84,13 +84,13 @@ namespace Pulumi.Aws.Amplify
         /// ARN for the domain association.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The DNS record for certificate verification.
         /// </summary>
         [Output("certificateVerificationDnsRecord")]
-        public Output<string> CertificateVerificationDnsRecord { get; private set; } = null!;
+        public Output<string?> CertificateVerificationDnsRecord { get; private set; } = null!;
 
         /// <summary>
         /// Domain name for the domain association.

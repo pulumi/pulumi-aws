@@ -48,28 +48,28 @@ export interface GetSubnetGroupResult {
     /**
      * ARN of the subnet group.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the subnet group.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Set of VPC Subnet ID-s of the subnet group.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * Map of tags assigned to the subnet group.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * VPC in which the subnet group exists.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Provides information about a MemoryDB Subnet Group.

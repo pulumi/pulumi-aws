@@ -51,7 +51,7 @@ namespace Pulumi.Aws.ServiceQuotas
         /// Indicates whether the quota is global.
         /// </summary>
         [Output("globalQuota")]
-        public Output<bool> GlobalQuota { get; private set; } = null!;
+        public Output<bool?> GlobalQuota { get; private set; } = null!;
 
         /// <summary>
         /// Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.ServiceQuotas
         /// Quota name.
         /// </summary>
         [Output("quotaName")]
-        public Output<string> QuotaName { get; private set; } = null!;
+        public Output<string?> QuotaName { get; private set; } = null!;
 
         /// <summary>
         /// AWS Region to which the template applies.
@@ -81,13 +81,13 @@ namespace Pulumi.Aws.ServiceQuotas
         /// Service name.
         /// </summary>
         [Output("serviceName")]
-        public Output<string> ServiceName { get; private set; } = null!;
+        public Output<string?> ServiceName { get; private set; } = null!;
 
         /// <summary>
         /// Unit of measurement.
         /// </summary>
         [Output("unit")]
-        public Output<string> Unit { get; private set; } = null!;
+        public Output<string?> Unit { get; private set; } = null!;
 
         /// <summary>
         /// The new, increased value for the quota.

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDomainOffPeakWindowOptions extends com.pulumi.resources.InvokeArgs {
@@ -18,22 +20,22 @@ public final class GetDomainOffPeakWindowOptions extends com.pulumi.resources.In
      * Enabled disabled toggle for off-peak update window
      * 
      */
-    @Import(name="enabled", required=true)
-    private Boolean enabled;
+    @Import(name="enabled")
+    private @Nullable Boolean enabled;
 
     /**
      * @return Enabled disabled toggle for off-peak update window
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
-    @Import(name="offPeakWindows", required=true)
-    private List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows;
+    @Import(name="offPeakWindows")
+    private @Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows;
 
-    public List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows() {
-        return this.offPeakWindows;
+    public Optional<List<GetDomainOffPeakWindowOptionsOffPeakWindow>> offPeakWindows() {
+        return Optional.ofNullable(this.offPeakWindows);
     }
 
     private GetDomainOffPeakWindowOptions() {}
@@ -67,12 +69,12 @@ public final class GetDomainOffPeakWindowOptions extends com.pulumi.resources.In
          * @return builder
          * 
          */
-        public Builder enabled(Boolean enabled) {
+        public Builder enabled(@Nullable Boolean enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        public Builder offPeakWindows(List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows) {
+        public Builder offPeakWindows(@Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows) {
             $.offPeakWindows = offPeakWindows;
             return this;
         }
@@ -82,8 +84,6 @@ public final class GetDomainOffPeakWindowOptions extends com.pulumi.resources.In
         }
 
         public GetDomainOffPeakWindowOptions build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.offPeakWindows = Objects.requireNonNull($.offPeakWindows, "expected parameter 'offPeakWindows' to be non-null");
             return $;
         }
     }

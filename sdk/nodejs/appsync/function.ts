@@ -128,7 +128,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * ARN of the Function object.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
@@ -144,11 +144,11 @@ export class Function extends pulumi.CustomResource {
     /**
      * Unique ID representing the Function object.
      */
-    public /*out*/ readonly functionId!: pulumi.Output<string>;
+    public /*out*/ readonly functionId!: pulumi.Output<string | undefined>;
     /**
      * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      */
-    public readonly functionVersion!: pulumi.Output<string>;
+    public readonly functionVersion!: pulumi.Output<string | undefined>;
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */

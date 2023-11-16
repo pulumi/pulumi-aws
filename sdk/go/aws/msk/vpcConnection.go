@@ -68,7 +68,7 @@ type VpcConnection struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the VPC connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication pulumi.StringOutput `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
@@ -300,8 +300,8 @@ func (o VpcConnectionOutput) ToVpcConnectionOutputWithContext(ctx context.Contex
 }
 
 // Amazon Resource Name (ARN) of the VPC connection.
-func (o VpcConnectionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpcConnectionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.

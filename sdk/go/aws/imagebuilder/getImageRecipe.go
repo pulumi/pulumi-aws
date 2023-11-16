@@ -64,27 +64,27 @@ type LookupImageRecipeResult struct {
 	// List of objects with components for the image recipe.
 	Components []GetImageRecipeComponent `pulumi:"components"`
 	// Date the image recipe was created.
-	DateCreated string `pulumi:"dateCreated"`
+	DateCreated *string `pulumi:"dateCreated"`
 	// Description of the image recipe.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the image recipe.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Owner of the image recipe.
-	Owner string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
 	// Base image of the image recipe.
-	ParentImage string `pulumi:"parentImage"`
+	ParentImage *string `pulumi:"parentImage"`
 	// Platform of the image recipe.
-	Platform string `pulumi:"platform"`
+	Platform *string `pulumi:"platform"`
 	// Key-value map of resource tags for the image recipe.
 	Tags map[string]string `pulumi:"tags"`
 	// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
-	UserDataBase64 string `pulumi:"userDataBase64"`
+	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// Version of the image recipe.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 	// Working directory used during build and test workflows.
-	WorkingDirectory string `pulumi:"workingDirectory"`
+	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
 func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupImageRecipeResultOutput {
@@ -142,38 +142,38 @@ func (o LookupImageRecipeResultOutput) Components() GetImageRecipeComponentArray
 }
 
 // Date the image recipe was created.
-func (o LookupImageRecipeResultOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.DateCreated }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Description of the image recipe.
-func (o LookupImageRecipeResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupImageRecipeResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the image recipe.
-func (o LookupImageRecipeResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Owner of the image recipe.
-func (o LookupImageRecipeResultOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Owner }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // Base image of the image recipe.
-func (o LookupImageRecipeResultOutput) ParentImage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.ParentImage }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) ParentImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.ParentImage }).(pulumi.StringPtrOutput)
 }
 
 // Platform of the image recipe.
-func (o LookupImageRecipeResultOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Platform }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags for the image recipe.
@@ -182,18 +182,18 @@ func (o LookupImageRecipeResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
-func (o LookupImageRecipeResultOutput) UserDataBase64() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.UserDataBase64 }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) UserDataBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.UserDataBase64 }).(pulumi.StringPtrOutput)
 }
 
 // Version of the image recipe.
-func (o LookupImageRecipeResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // Working directory used during build and test workflows.
-func (o LookupImageRecipeResultOutput) WorkingDirectory() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.WorkingDirectory }).(pulumi.StringOutput)
+func (o LookupImageRecipeResultOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }
 
 func init() {

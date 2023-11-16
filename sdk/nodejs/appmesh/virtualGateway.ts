@@ -105,15 +105,15 @@ export class VirtualGateway extends pulumi.CustomResource {
     /**
      * ARN of the virtual gateway.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Creation date of the virtual gateway.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * Last update date of the virtual gateway.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string | undefined>;
     /**
      * Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      */
@@ -121,7 +121,7 @@ export class VirtualGateway extends pulumi.CustomResource {
     /**
      * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
-    public readonly meshOwner!: pulumi.Output<string>;
+    public readonly meshOwner!: pulumi.Output<string | undefined>;
     /**
      * Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      */
@@ -129,7 +129,7 @@ export class VirtualGateway extends pulumi.CustomResource {
     /**
      * Resource owner's AWS account ID.
      */
-    public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
+    public /*out*/ readonly resourceOwner!: pulumi.Output<string | undefined>;
     /**
      * Virtual gateway specification to apply.
      */

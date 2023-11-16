@@ -13,10 +13,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionResult
     {
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
-        private GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionResult(string value)
+        private GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionResult(string? value)
         {
             Value = value;
         }

@@ -75,21 +75,21 @@ type ApprovalRuleTemplate struct {
 	pulumi.CustomResourceState
 
 	// The ID of the approval rule template
-	ApprovalRuleTemplateId pulumi.StringOutput `pulumi:"approvalRuleTemplateId"`
+	ApprovalRuleTemplateId pulumi.StringPtrOutput `pulumi:"approvalRuleTemplateId"`
 	// The content of the approval rule template. Maximum of 3000 characters.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// The description of the approval rule template. Maximum of 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
+	LastModifiedDate pulumi.StringPtrOutput `pulumi:"lastModifiedDate"`
 	// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-	LastModifiedUser pulumi.StringOutput `pulumi:"lastModifiedUser"`
+	LastModifiedUser pulumi.StringPtrOutput `pulumi:"lastModifiedUser"`
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The SHA-256 hash signature for the content of the approval rule template.
-	RuleContentSha256 pulumi.StringOutput `pulumi:"ruleContentSha256"`
+	RuleContentSha256 pulumi.StringPtrOutput `pulumi:"ruleContentSha256"`
 }
 
 // NewApprovalRuleTemplate registers a new resource with the given unique name, arguments, and options.
@@ -273,8 +273,8 @@ func (o ApprovalRuleTemplateOutput) ToApprovalRuleTemplateOutputWithContext(ctx 
 }
 
 // The ID of the approval rule template
-func (o ApprovalRuleTemplateOutput) ApprovalRuleTemplateId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.ApprovalRuleTemplateId }).(pulumi.StringOutput)
+func (o ApprovalRuleTemplateOutput) ApprovalRuleTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringPtrOutput { return v.ApprovalRuleTemplateId }).(pulumi.StringPtrOutput)
 }
 
 // The content of the approval rule template. Maximum of 3000 characters.
@@ -283,8 +283,8 @@ func (o ApprovalRuleTemplateOutput) Content() pulumi.StringOutput {
 }
 
 // The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o ApprovalRuleTemplateOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o ApprovalRuleTemplateOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // The description of the approval rule template. Maximum of 1000 characters.
@@ -293,13 +293,13 @@ func (o ApprovalRuleTemplateOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o ApprovalRuleTemplateOutput) LastModifiedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
+func (o ApprovalRuleTemplateOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringPtrOutput { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-func (o ApprovalRuleTemplateOutput) LastModifiedUser() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.LastModifiedUser }).(pulumi.StringOutput)
+func (o ApprovalRuleTemplateOutput) LastModifiedUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringPtrOutput { return v.LastModifiedUser }).(pulumi.StringPtrOutput)
 }
 
 // The name for the approval rule template. Maximum of 100 characters.
@@ -308,8 +308,8 @@ func (o ApprovalRuleTemplateOutput) Name() pulumi.StringOutput {
 }
 
 // The SHA-256 hash signature for the content of the approval rule template.
-func (o ApprovalRuleTemplateOutput) RuleContentSha256() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.RuleContentSha256 }).(pulumi.StringOutput)
+func (o ApprovalRuleTemplateOutput) RuleContentSha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringPtrOutput { return v.RuleContentSha256 }).(pulumi.StringPtrOutput)
 }
 
 type ApprovalRuleTemplateArrayOutput struct{ *pulumi.OutputState }

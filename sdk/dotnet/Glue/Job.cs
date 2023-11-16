@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Glue
         /// Amazon Resource Name (ARN) of Glue Job
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The command of the job. Defined below.
@@ -190,19 +190,19 @@ namespace Pulumi.Aws.Glue
         /// Execution property of the job. Defined below.
         /// </summary>
         [Output("executionProperty")]
-        public Output<Outputs.JobExecutionProperty> ExecutionProperty { get; private set; } = null!;
+        public Output<Outputs.JobExecutionProperty?> ExecutionProperty { get; private set; } = null!;
 
         /// <summary>
         /// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
         [Output("glueVersion")]
-        public Output<string> GlueVersion { get; private set; } = null!;
+        public Output<string?> GlueVersion { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
         [Output("maxCapacity")]
-        public Output<double> MaxCapacity { get; private set; } = null!;
+        public Output<double?> MaxCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of times to retry this job if it fails.
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Glue
         /// Notification property of the job. Defined below.
         /// </summary>
         [Output("notificationProperty")]
-        public Output<Outputs.JobNotificationProperty> NotificationProperty { get; private set; } = null!;
+        public Output<Outputs.JobNotificationProperty?> NotificationProperty { get; private set; } = null!;
 
         /// <summary>
         /// The number of workers of a defined workerType that are allocated when a job runs.
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Glue
         /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         /// </summary>
         [Output("timeout")]
-        public Output<int> Timeout { get; private set; } = null!;
+        public Output<int?> Timeout { get; private set; } = null!;
 
         /// <summary>
         /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.

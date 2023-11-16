@@ -75,7 +75,7 @@ export class KxUser extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX user.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Unique identifier for the KX environment.
      */

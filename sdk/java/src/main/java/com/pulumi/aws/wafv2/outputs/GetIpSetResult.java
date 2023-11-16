@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIpSetResult {
@@ -14,27 +16,27 @@ public final class GetIpSetResult {
      * @return An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
      * 
      */
-    private List<String> addresses;
+    private @Nullable List<String> addresses;
     /**
      * @return ARN of the entity.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the set that helps with identification.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return IP address version of the set.
      * 
      */
-    private String ipAddressVersion;
+    private @Nullable String ipAddressVersion;
     private String name;
     private String scope;
 
@@ -44,35 +46,35 @@ public final class GetIpSetResult {
      * 
      */
     public List<String> addresses() {
-        return this.addresses;
+        return this.addresses == null ? List.of() : this.addresses;
     }
     /**
      * @return ARN of the entity.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the set that helps with identification.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IP address version of the set.
      * 
      */
-    public String ipAddressVersion() {
-        return this.ipAddressVersion;
+    public Optional<String> ipAddressVersion() {
+        return Optional.ofNullable(this.ipAddressVersion);
     }
     public String name() {
         return this.name;
@@ -90,11 +92,11 @@ public final class GetIpSetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> addresses;
-        private String arn;
-        private String description;
-        private String id;
-        private String ipAddressVersion;
+        private @Nullable List<String> addresses;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String ipAddressVersion;
         private String name;
         private String scope;
         public Builder() {}
@@ -110,31 +112,31 @@ public final class GetIpSetResult {
         }
 
         @CustomType.Setter
-        public Builder addresses(List<String> addresses) {
-            this.addresses = Objects.requireNonNull(addresses);
+        public Builder addresses(@Nullable List<String> addresses) {
+            this.addresses = addresses;
             return this;
         }
         public Builder addresses(String... addresses) {
             return addresses(List.of(addresses));
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddressVersion(String ipAddressVersion) {
-            this.ipAddressVersion = Objects.requireNonNull(ipAddressVersion);
+        public Builder ipAddressVersion(@Nullable String ipAddressVersion) {
+            this.ipAddressVersion = ipAddressVersion;
             return this;
         }
         @CustomType.Setter

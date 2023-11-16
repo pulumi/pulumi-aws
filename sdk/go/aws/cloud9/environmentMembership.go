@@ -72,7 +72,7 @@ type EnvironmentMembership struct {
 	// The Amazon Resource Name (ARN) of the environment member you want to add.
 	UserArn pulumi.StringOutput `pulumi:"userArn"`
 	// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-	UserId pulumi.StringOutput `pulumi:"userId"`
+	UserId pulumi.StringPtrOutput `pulumi:"userId"`
 }
 
 // NewEnvironmentMembership registers a new resource with the given unique name, arguments, and options.
@@ -261,8 +261,8 @@ func (o EnvironmentMembershipOutput) UserArn() pulumi.StringOutput {
 }
 
 // he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-func (o EnvironmentMembershipOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+func (o EnvironmentMembershipOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringPtrOutput { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 type EnvironmentMembershipArrayOutput struct{ *pulumi.OutputState }

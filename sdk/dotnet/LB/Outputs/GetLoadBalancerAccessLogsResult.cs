@@ -13,17 +13,17 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetLoadBalancerAccessLogsResult
     {
-        public readonly string Bucket;
-        public readonly bool Enabled;
-        public readonly string Prefix;
+        public readonly string? Bucket;
+        public readonly bool? Enabled;
+        public readonly string? Prefix;
 
         [OutputConstructor]
         private GetLoadBalancerAccessLogsResult(
-            string bucket,
+            string? bucket,
 
-            bool enabled,
+            bool? enabled,
 
-            string prefix)
+            string? prefix)
         {
             Bucket = bucket;
             Enabled = enabled;

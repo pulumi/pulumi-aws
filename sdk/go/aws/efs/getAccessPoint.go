@@ -60,14 +60,14 @@ type LookupAccessPointArgs struct {
 type LookupAccessPointResult struct {
 	AccessPointId string `pulumi:"accessPointId"`
 	// Amazon Resource Name of the file system.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Amazon Resource Name of the file system.
-	FileSystemArn string `pulumi:"fileSystemArn"`
+	FileSystemArn *string `pulumi:"fileSystemArn"`
 	// ID of the file system for which the access point is intended.
-	FileSystemId string `pulumi:"fileSystemId"`
+	FileSystemId *string `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string `pulumi:"id"`
-	OwnerId string `pulumi:"ownerId"`
+	Id      *string `pulumi:"id"`
+	OwnerId *string `pulumi:"ownerId"`
 	// Single element list containing operating system user and group applied to all file system requests made using the access point.
 	PosixUsers []GetAccessPointPosixUser `pulumi:"posixUsers"`
 	// Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
@@ -121,27 +121,27 @@ func (o LookupAccessPointResultOutput) AccessPointId() pulumi.StringOutput {
 }
 
 // Amazon Resource Name of the file system.
-func (o LookupAccessPointResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupAccessPointResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name of the file system.
-func (o LookupAccessPointResultOutput) FileSystemArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccessPointResult) string { return v.FileSystemArn }).(pulumi.StringOutput)
+func (o LookupAccessPointResultOutput) FileSystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) *string { return v.FileSystemArn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the file system for which the access point is intended.
-func (o LookupAccessPointResultOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccessPointResult) string { return v.FileSystemId }).(pulumi.StringOutput)
+func (o LookupAccessPointResultOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAccessPointResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAccessPointResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAccessPointResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccessPointResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupAccessPointResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Single element list containing operating system user and group applied to all file system requests made using the access point.

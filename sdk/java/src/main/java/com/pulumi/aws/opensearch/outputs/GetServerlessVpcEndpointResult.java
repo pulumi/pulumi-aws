@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerlessVpcEndpointResult {
@@ -14,69 +16,69 @@ public final class GetServerlessVpcEndpointResult {
      * @return The date the endpoint was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The name of the endpoint.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      * 
      */
-    private List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return The IDs of the subnets from which you access OpenSearch Serverless.
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     private String vpcEndpointId;
     /**
      * @return The ID of the VPC from which you access OpenSearch Serverless.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetServerlessVpcEndpointResult() {}
     /**
      * @return The date the endpoint was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The name of the endpoint.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      * 
      */
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
      * @return The IDs of the subnets from which you access OpenSearch Serverless.
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     public String vpcEndpointId() {
         return this.vpcEndpointId;
@@ -85,8 +87,8 @@ public final class GetServerlessVpcEndpointResult {
      * @return The ID of the VPC from which you access OpenSearch Serverless.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -98,13 +100,13 @@ public final class GetServerlessVpcEndpointResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String createdDate;
-        private String id;
-        private String name;
-        private List<String> securityGroupIds;
-        private List<String> subnetIds;
+        private @Nullable String createdDate;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable List<String> subnetIds;
         private String vpcEndpointId;
-        private String vpcId;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetServerlessVpcEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -118,31 +120,31 @@ public final class GetServerlessVpcEndpointResult {
         }
 
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -154,8 +156,8 @@ public final class GetServerlessVpcEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetServerlessVpcEndpointResult build() {

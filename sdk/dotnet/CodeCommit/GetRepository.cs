@@ -104,36 +104,36 @@ namespace Pulumi.Aws.CodeCommit
         /// <summary>
         /// ARN of the repository
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// URL to use for cloning the repository over HTTPS.
         /// </summary>
-        public readonly string CloneUrlHttp;
+        public readonly string? CloneUrlHttp;
         /// <summary>
         /// URL to use for cloning the repository over SSH.
         /// </summary>
-        public readonly string CloneUrlSsh;
+        public readonly string? CloneUrlSsh;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ID of the repository
         /// </summary>
-        public readonly string RepositoryId;
+        public readonly string? RepositoryId;
         public readonly string RepositoryName;
 
         [OutputConstructor]
         private GetRepositoryResult(
-            string arn,
+            string? arn,
 
-            string cloneUrlHttp,
+            string? cloneUrlHttp,
 
-            string cloneUrlSsh,
+            string? cloneUrlSsh,
 
-            string id,
+            string? id,
 
-            string repositoryId,
+            string? repositoryId,
 
             string repositoryName)
         {

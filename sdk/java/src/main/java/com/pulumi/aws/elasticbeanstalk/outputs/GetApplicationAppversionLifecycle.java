@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationAppversionLifecycle {
@@ -15,51 +17,51 @@ public final class GetApplicationAppversionLifecycle {
      * @return Specifies whether delete a version&#39;s source bundle from S3 when the application version is deleted.
      * 
      */
-    private Boolean deleteSourceFromS3;
+    private @Nullable Boolean deleteSourceFromS3;
     /**
      * @return Number of days to retain an application version.
      * 
      */
-    private Integer maxAgeInDays;
+    private @Nullable Integer maxAgeInDays;
     /**
      * @return Maximum number of application versions to retain.
      * 
      */
-    private Integer maxCount;
+    private @Nullable Integer maxCount;
     /**
      * @return ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
      * 
      */
-    private String serviceRole;
+    private @Nullable String serviceRole;
 
     private GetApplicationAppversionLifecycle() {}
     /**
      * @return Specifies whether delete a version&#39;s source bundle from S3 when the application version is deleted.
      * 
      */
-    public Boolean deleteSourceFromS3() {
-        return this.deleteSourceFromS3;
+    public Optional<Boolean> deleteSourceFromS3() {
+        return Optional.ofNullable(this.deleteSourceFromS3);
     }
     /**
      * @return Number of days to retain an application version.
      * 
      */
-    public Integer maxAgeInDays() {
-        return this.maxAgeInDays;
+    public Optional<Integer> maxAgeInDays() {
+        return Optional.ofNullable(this.maxAgeInDays);
     }
     /**
      * @return Maximum number of application versions to retain.
      * 
      */
-    public Integer maxCount() {
-        return this.maxCount;
+    public Optional<Integer> maxCount() {
+        return Optional.ofNullable(this.maxCount);
     }
     /**
      * @return ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
      * 
      */
-    public String serviceRole() {
-        return this.serviceRole;
+    public Optional<String> serviceRole() {
+        return Optional.ofNullable(this.serviceRole);
     }
 
     public static Builder builder() {
@@ -71,10 +73,10 @@ public final class GetApplicationAppversionLifecycle {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean deleteSourceFromS3;
-        private Integer maxAgeInDays;
-        private Integer maxCount;
-        private String serviceRole;
+        private @Nullable Boolean deleteSourceFromS3;
+        private @Nullable Integer maxAgeInDays;
+        private @Nullable Integer maxCount;
+        private @Nullable String serviceRole;
         public Builder() {}
         public Builder(GetApplicationAppversionLifecycle defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,23 +87,23 @@ public final class GetApplicationAppversionLifecycle {
         }
 
         @CustomType.Setter
-        public Builder deleteSourceFromS3(Boolean deleteSourceFromS3) {
-            this.deleteSourceFromS3 = Objects.requireNonNull(deleteSourceFromS3);
+        public Builder deleteSourceFromS3(@Nullable Boolean deleteSourceFromS3) {
+            this.deleteSourceFromS3 = deleteSourceFromS3;
             return this;
         }
         @CustomType.Setter
-        public Builder maxAgeInDays(Integer maxAgeInDays) {
-            this.maxAgeInDays = Objects.requireNonNull(maxAgeInDays);
+        public Builder maxAgeInDays(@Nullable Integer maxAgeInDays) {
+            this.maxAgeInDays = maxAgeInDays;
             return this;
         }
         @CustomType.Setter
-        public Builder maxCount(Integer maxCount) {
-            this.maxCount = Objects.requireNonNull(maxCount);
+        public Builder maxCount(@Nullable Integer maxCount) {
+            this.maxCount = maxCount;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceRole(String serviceRole) {
-            this.serviceRole = Objects.requireNonNull(serviceRole);
+        public Builder serviceRole(@Nullable String serviceRole) {
+            this.serviceRole = serviceRole;
             return this;
         }
         public GetApplicationAppversionLifecycle build() {

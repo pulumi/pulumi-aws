@@ -60,11 +60,11 @@ export interface GetPortfolioConstraintsResult {
     /**
      * List of information about the constraints. See details below.
      */
-    readonly details: outputs.servicecatalog.GetPortfolioConstraintsDetail[];
+    readonly details?: outputs.servicecatalog.GetPortfolioConstraintsDetail[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
      */

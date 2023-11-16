@@ -73,21 +73,21 @@ export interface GetSecurityGroupsResult {
     /**
      * ARNs of the matched security groups.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     readonly filters?: outputs.ec2.GetSecurityGroupsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IDs of the matches security groups.
      */
-    readonly ids: string[];
-    readonly tags: {[key: string]: string};
+    readonly ids?: string[];
+    readonly tags?: {[key: string]: string};
     /**
      * VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
      */
-    readonly vpcIds: string[];
+    readonly vpcIds?: string[];
 }
 /**
  * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.

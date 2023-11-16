@@ -64,7 +64,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The bucket on the self-managed object storage server that is used to read data from.
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.DataSync
         /// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
         /// </summary>
         [Output("subdirectory")]
-        public Output<string> Subdirectory { get; private set; } = null!;
+        public Output<string?> Subdirectory { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.DataSync
         /// The URL of the Object Storage location that was described.
         /// </summary>
         [Output("uri")]
-        public Output<string> Uri { get; private set; } = null!;
+        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

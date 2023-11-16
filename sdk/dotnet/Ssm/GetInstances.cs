@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of instance IDs of the matched SSM managed instances.
         /// </summary>
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Ssm
         private GetInstancesResult(
             ImmutableArray<Outputs.GetInstancesFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids)
         {

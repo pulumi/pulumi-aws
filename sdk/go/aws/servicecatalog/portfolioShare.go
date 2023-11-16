@@ -66,7 +66,7 @@ type PortfolioShare struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
 	// Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
-	Accepted pulumi.BoolOutput `pulumi:"accepted"`
+	Accepted pulumi.BoolPtrOutput `pulumi:"accepted"`
 	// Portfolio identifier.
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
@@ -299,8 +299,8 @@ func (o PortfolioShareOutput) AcceptLanguage() pulumi.StringPtrOutput {
 }
 
 // Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
-func (o PortfolioShareOutput) Accepted() pulumi.BoolOutput {
-	return o.ApplyT(func(v *PortfolioShare) pulumi.BoolOutput { return v.Accepted }).(pulumi.BoolOutput)
+func (o PortfolioShareOutput) Accepted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PortfolioShare) pulumi.BoolPtrOutput { return v.Accepted }).(pulumi.BoolPtrOutput)
 }
 
 // Portfolio identifier.

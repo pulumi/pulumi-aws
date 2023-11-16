@@ -55,7 +55,7 @@ export class RecoveryGroup extends pulumi.CustomResource {
     /**
      * ARN of the recovery group
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * List of cell arns to add as nested fault domains within this recovery group
      */

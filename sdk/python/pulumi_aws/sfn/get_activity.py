@@ -37,12 +37,12 @@ class GetActivityResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> Optional[str]:
         """
         Date the activity was created.
         """
@@ -50,7 +50,7 @@ class GetActivityResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -58,7 +58,7 @@ class GetActivityResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
 

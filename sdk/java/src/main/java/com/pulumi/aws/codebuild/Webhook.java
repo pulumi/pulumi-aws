@@ -175,14 +175,14 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="payloadUrl", refs={String.class}, tree="[0]")
-    private Output<String> payloadUrl;
+    private Output</* @Nullable */ String> payloadUrl;
 
     /**
      * @return The CodeBuild endpoint where webhook events are sent.
      * 
      */
-    public Output<String> payloadUrl() {
-        return this.payloadUrl;
+    public Output<Optional<String>> payloadUrl() {
+        return Codegen.optional(this.payloadUrl);
     }
     /**
      * The name of the build project.
@@ -203,28 +203,28 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="secret", refs={String.class}, tree="[0]")
-    private Output<String> secret;
+    private Output</* @Nullable */ String> secret;
 
     /**
      * @return The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      * 
      */
-    public Output<String> secret() {
-        return this.secret;
+    public Output<Optional<String>> secret() {
+        return Codegen.optional(this.secret);
     }
     /**
      * The URL to the webhook.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
      * @return The URL to the webhook.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
 
     /**

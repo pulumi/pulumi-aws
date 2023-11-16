@@ -782,7 +782,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the security group.
         """
@@ -798,7 +798,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def egress(self) -> pulumi.Output[Sequence['outputs.SecurityGroupEgress']]:
+    def egress(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityGroupEgress']]]:
         """
         Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         """
@@ -806,7 +806,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ingress(self) -> pulumi.Output[Sequence['outputs.SecurityGroupIngress']]:
+    def ingress(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityGroupIngress']]]:
         """
         Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         """
@@ -822,7 +822,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -830,7 +830,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         Owner ID.
         """
@@ -865,7 +865,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         VPC ID. Defaults to the region's default VPC.
         """

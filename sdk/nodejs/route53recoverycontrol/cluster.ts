@@ -58,11 +58,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * ARN of the cluster
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
      */
-    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterClusterEndpoint[]>;
+    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterClusterEndpoint[] | undefined>;
     /**
      * Unique name describing the cluster.
      */
@@ -70,7 +70,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.

@@ -120,40 +120,40 @@ namespace Pulumi.Aws.Cur
         /// <summary>
         /// Preferred format for report.
         /// </summary>
-        public readonly string Compression;
+        public readonly string? Compression;
         /// <summary>
         /// Preferred compression format for report.
         /// </summary>
-        public readonly string Format;
+        public readonly string? Format;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// If true reports are updated after they have been finalized.
         /// </summary>
-        public readonly bool RefreshClosedReports;
+        public readonly bool? RefreshClosedReports;
         public readonly string ReportName;
         /// <summary>
         /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
         /// </summary>
-        public readonly string ReportVersioning;
+        public readonly string? ReportVersioning;
         /// <summary>
         /// Name of customer S3 bucket.
         /// </summary>
-        public readonly string S3Bucket;
+        public readonly string? S3Bucket;
         /// <summary>
         /// Preferred report path prefix.
         /// </summary>
-        public readonly string S3Prefix;
+        public readonly string? S3Prefix;
         /// <summary>
         /// Region of customer S3 bucket.
         /// </summary>
-        public readonly string S3Region;
+        public readonly string? S3Region;
         /// <summary>
         /// Frequency on which report data are measured and displayed.
         /// </summary>
-        public readonly string TimeUnit;
+        public readonly string? TimeUnit;
 
         [OutputConstructor]
         private GetReportDefinitionResult(
@@ -161,25 +161,25 @@ namespace Pulumi.Aws.Cur
 
             ImmutableArray<string> additionalSchemaElements,
 
-            string compression,
+            string? compression,
 
-            string format,
+            string? format,
 
-            string id,
+            string? id,
 
-            bool refreshClosedReports,
+            bool? refreshClosedReports,
 
             string reportName,
 
-            string reportVersioning,
+            string? reportVersioning,
 
-            string s3Bucket,
+            string? s3Bucket,
 
-            string s3Prefix,
+            string? s3Prefix,
 
-            string s3Region,
+            string? s3Region,
 
-            string timeUnit)
+            string? timeUnit)
         {
             AdditionalArtifacts = additionalArtifacts;
             AdditionalSchemaElements = additionalSchemaElements;

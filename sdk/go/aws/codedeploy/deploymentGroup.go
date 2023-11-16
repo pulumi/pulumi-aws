@@ -271,19 +271,19 @@ type DeploymentGroup struct {
 	// The name of the application.
 	AppName pulumi.StringOutput `pulumi:"appName"`
 	// The ARN of the CodeDeploy deployment group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration DeploymentGroupAutoRollbackConfigurationPtrOutput `pulumi:"autoRollbackConfiguration"`
 	// Autoscaling groups associated with the deployment group.
 	AutoscalingGroups pulumi.StringArrayOutput `pulumi:"autoscalingGroups"`
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
-	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigOutput `pulumi:"blueGreenDeploymentConfig"`
+	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigPtrOutput `pulumi:"blueGreenDeploymentConfig"`
 	// The destination platform type for the deployment.
-	ComputePlatform pulumi.StringOutput `pulumi:"computePlatform"`
+	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
 	// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
 	DeploymentConfigName pulumi.StringPtrOutput `pulumi:"deploymentConfigName"`
 	// The ID of the CodeDeploy deployment group.
-	DeploymentGroupId pulumi.StringOutput `pulumi:"deploymentGroupId"`
+	DeploymentGroupId pulumi.StringPtrOutput `pulumi:"deploymentGroupId"`
 	// The name of the deployment group.
 	DeploymentGroupName pulumi.StringOutput `pulumi:"deploymentGroupName"`
 	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
@@ -625,8 +625,8 @@ func (o DeploymentGroupOutput) AppName() pulumi.StringOutput {
 }
 
 // The ARN of the CodeDeploy deployment group.
-func (o DeploymentGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DeploymentGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
@@ -642,15 +642,15 @@ func (o DeploymentGroupOutput) AutoscalingGroups() pulumi.StringArrayOutput {
 }
 
 // Configuration block of the blue/green deployment options for a deployment group (documented below).
-func (o DeploymentGroupOutput) BlueGreenDeploymentConfig() DeploymentGroupBlueGreenDeploymentConfigOutput {
-	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupBlueGreenDeploymentConfigOutput {
+func (o DeploymentGroupOutput) BlueGreenDeploymentConfig() DeploymentGroupBlueGreenDeploymentConfigPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupBlueGreenDeploymentConfigPtrOutput {
 		return v.BlueGreenDeploymentConfig
-	}).(DeploymentGroupBlueGreenDeploymentConfigOutput)
+	}).(DeploymentGroupBlueGreenDeploymentConfigPtrOutput)
 }
 
 // The destination platform type for the deployment.
-func (o DeploymentGroupOutput) ComputePlatform() pulumi.StringOutput {
-	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringOutput { return v.ComputePlatform }).(pulumi.StringOutput)
+func (o DeploymentGroupOutput) ComputePlatform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringPtrOutput { return v.ComputePlatform }).(pulumi.StringPtrOutput)
 }
 
 // The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
@@ -659,8 +659,8 @@ func (o DeploymentGroupOutput) DeploymentConfigName() pulumi.StringPtrOutput {
 }
 
 // The ID of the CodeDeploy deployment group.
-func (o DeploymentGroupOutput) DeploymentGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringOutput { return v.DeploymentGroupId }).(pulumi.StringOutput)
+func (o DeploymentGroupOutput) DeploymentGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringPtrOutput { return v.DeploymentGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the deployment group.

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerLogsResult
     {
-        public readonly bool Audit;
-        public readonly bool General;
+        public readonly bool? Audit;
+        public readonly bool? General;
 
         [OutputConstructor]
         private GetBrokerLogsResult(
-            bool audit,
+            bool? audit,
 
-            bool general)
+            bool? general)
         {
             Audit = audit;
             General = general;

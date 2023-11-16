@@ -73,12 +73,12 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that identifies the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A friendly description of the regular expression pattern set.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lockToken!: pulumi.Output<string>;
+    public /*out*/ readonly lockToken!: pulumi.Output<string | undefined>;
     /**
      * A friendly name of the regular expression pattern set.
      */

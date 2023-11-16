@@ -302,7 +302,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN (Amazon Resource Name) of the rule group.
         """
@@ -318,7 +318,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
         """
@@ -326,7 +326,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> pulumi.Output[str]:
+    def share_status(self) -> pulumi.Output[Optional[str]]:
         """
         Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
         """

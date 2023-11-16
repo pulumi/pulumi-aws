@@ -80,7 +80,7 @@ export class ResolverRule extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) for the resolver rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
      */
@@ -92,7 +92,7 @@ export class ResolverRule extends pulumi.CustomResource {
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
@@ -106,7 +106,7 @@ export class ResolverRule extends pulumi.CustomResource {
      * Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
-    public /*out*/ readonly shareStatus!: pulumi.Output<string>;
+    public /*out*/ readonly shareStatus!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

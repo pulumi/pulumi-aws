@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Fsx
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Fsx
         /// specifies whether the volume is read-only. Default is false.
         /// </summary>
         [Output("readOnly")]
-        public Output<bool> ReadOnly { get; private set; } = null!;
+        public Output<bool?> ReadOnly { get; private set; } = null!;
 
         /// <summary>
         /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
@@ -106,13 +106,13 @@ namespace Pulumi.Aws.Fsx
         /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Output("storageCapacityQuotaGib")]
-        public Output<int> StorageCapacityQuotaGib { get; private set; } = null!;
+        public Output<int?> StorageCapacityQuotaGib { get; private set; } = null!;
 
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         /// </summary>
         [Output("storageCapacityReservationGib")]
-        public Output<int> StorageCapacityReservationGib { get; private set; } = null!;
+        public Output<int?> StorageCapacityReservationGib { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -87,13 +87,13 @@ type NetworkAcl struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the network ACL
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies an egress rule. Parameters defined below.
 	Egress NetworkAclEgressArrayOutput `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
 	Ingress NetworkAclIngressArrayOutput `pulumi:"ingress"`
 	// The ID of the AWS account that owns the network ACL.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -303,8 +303,8 @@ func (o NetworkAclOutput) ToNetworkAclOutputWithContext(ctx context.Context) Net
 }
 
 // The ARN of the network ACL
-func (o NetworkAclOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NetworkAclOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkAcl) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies an egress rule. Parameters defined below.
@@ -318,8 +318,8 @@ func (o NetworkAclOutput) Ingress() NetworkAclIngressArrayOutput {
 }
 
 // The ID of the AWS account that owns the network ACL.
-func (o NetworkAclOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o NetworkAclOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkAcl) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // A list of Subnet IDs to apply the ACL to

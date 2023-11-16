@@ -16,17 +16,17 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Maximum.
         /// </summary>
-        public readonly double Max;
+        public readonly double? Max;
         /// <summary>
         /// Minimum.
         /// </summary>
-        public readonly double Min;
+        public readonly double? Min;
 
         [OutputConstructor]
         private GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult(
-            double max,
+            double? max,
 
-            double min)
+            double? min)
         {
             Max = max;
             Min = min;

@@ -173,7 +173,7 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// IDs of the links.
         /// </summary>
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.NetworkManager
         private GetLinksResult(
             string globalNetworkId,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

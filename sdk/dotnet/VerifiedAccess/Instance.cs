@@ -69,7 +69,7 @@ namespace Pulumi.Aws.VerifiedAccess
         /// The time that the Verified Access Instance was created.
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// A description for the AWS Verified Access Instance.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.VerifiedAccess
         /// The time that the Verified Access Instance was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

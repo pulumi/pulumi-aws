@@ -366,7 +366,7 @@ class Space(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The space's Amazon Resource Name (ARN).
         """
@@ -382,7 +382,7 @@ class Space(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="homeEfsFileSystemUid")
-    def home_efs_file_system_uid(self) -> pulumi.Output[str]:
+    def home_efs_file_system_uid(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the space's profile in the Amazon Elastic File System volume.
         """

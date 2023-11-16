@@ -55,13 +55,13 @@ type Endpoint struct {
 	pulumi.CustomResourceState
 
 	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-	AccessType pulumi.StringOutput `pulumi:"accessType"`
+	AccessType pulumi.StringPtrOutput `pulumi:"accessType"`
 	// Amazon Resource Name (ARN) of the endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// VPC CIDR block of the endpoint.
-	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
+	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
 	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
@@ -273,23 +273,23 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 }
 
 // Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-func (o EndpointOutput) AccessType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.AccessType }).(pulumi.StringOutput)
+func (o EndpointOutput) AccessType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.AccessType }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the endpoint.
-func (o EndpointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EndpointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // VPC CIDR block of the endpoint.
-func (o EndpointOutput) CidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
+func (o EndpointOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
 // UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o EndpointOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o EndpointOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).

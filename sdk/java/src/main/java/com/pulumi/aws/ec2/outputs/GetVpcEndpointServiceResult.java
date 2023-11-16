@@ -19,95 +19,95 @@ public final class GetVpcEndpointServiceResult {
      * @return Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      * 
      */
-    private Boolean acceptanceRequired;
+    private @Nullable Boolean acceptanceRequired;
     /**
      * @return ARN of the VPC endpoint service.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Availability Zones in which the service is available.
      * 
      */
-    private List<String> availabilityZones;
+    private @Nullable List<String> availabilityZones;
     /**
      * @return The DNS names for the service.
      * 
      */
-    private List<String> baseEndpointDnsNames;
+    private @Nullable List<String> baseEndpointDnsNames;
     private @Nullable List<GetVpcEndpointServiceFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Whether or not the service manages its VPC endpoints - `true` or `false`.
      * 
      */
-    private Boolean managesVpcEndpoints;
+    private @Nullable Boolean managesVpcEndpoints;
     /**
      * @return AWS account ID of the service owner or `amazon`.
      * 
      */
-    private String owner;
+    private @Nullable String owner;
     /**
      * @return Private DNS name for the service.
      * 
      */
-    private String privateDnsName;
+    private @Nullable String privateDnsName;
     private @Nullable String service;
     /**
      * @return ID of the endpoint service.
      * 
      */
-    private String serviceId;
-    private String serviceName;
-    private String serviceType;
+    private @Nullable String serviceId;
+    private @Nullable String serviceName;
+    private @Nullable String serviceType;
     /**
      * @return The supported IP address types.
      * 
      */
-    private List<String> supportedIpAddressTypes;
+    private @Nullable List<String> supportedIpAddressTypes;
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Whether or not the service supports endpoint policies - `true` or `false`.
      * 
      */
-    private Boolean vpcEndpointPolicySupported;
+    private @Nullable Boolean vpcEndpointPolicySupported;
 
     private GetVpcEndpointServiceResult() {}
     /**
      * @return Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      * 
      */
-    public Boolean acceptanceRequired() {
-        return this.acceptanceRequired;
+    public Optional<Boolean> acceptanceRequired() {
+        return Optional.ofNullable(this.acceptanceRequired);
     }
     /**
      * @return ARN of the VPC endpoint service.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Availability Zones in which the service is available.
      * 
      */
     public List<String> availabilityZones() {
-        return this.availabilityZones;
+        return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
     /**
      * @return The DNS names for the service.
      * 
      */
     public List<String> baseEndpointDnsNames() {
-        return this.baseEndpointDnsNames;
+        return this.baseEndpointDnsNames == null ? List.of() : this.baseEndpointDnsNames;
     }
     public List<GetVpcEndpointServiceFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -116,29 +116,29 @@ public final class GetVpcEndpointServiceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Whether or not the service manages its VPC endpoints - `true` or `false`.
      * 
      */
-    public Boolean managesVpcEndpoints() {
-        return this.managesVpcEndpoints;
+    public Optional<Boolean> managesVpcEndpoints() {
+        return Optional.ofNullable(this.managesVpcEndpoints);
     }
     /**
      * @return AWS account ID of the service owner or `amazon`.
      * 
      */
-    public String owner() {
-        return this.owner;
+    public Optional<String> owner() {
+        return Optional.ofNullable(this.owner);
     }
     /**
      * @return Private DNS name for the service.
      * 
      */
-    public String privateDnsName() {
-        return this.privateDnsName;
+    public Optional<String> privateDnsName() {
+        return Optional.ofNullable(this.privateDnsName);
     }
     public Optional<String> service() {
         return Optional.ofNullable(this.service);
@@ -147,35 +147,35 @@ public final class GetVpcEndpointServiceResult {
      * @return ID of the endpoint service.
      * 
      */
-    public String serviceId() {
-        return this.serviceId;
+    public Optional<String> serviceId() {
+        return Optional.ofNullable(this.serviceId);
     }
-    public String serviceName() {
-        return this.serviceName;
+    public Optional<String> serviceName() {
+        return Optional.ofNullable(this.serviceName);
     }
-    public String serviceType() {
-        return this.serviceType;
+    public Optional<String> serviceType() {
+        return Optional.ofNullable(this.serviceType);
     }
     /**
      * @return The supported IP address types.
      * 
      */
     public List<String> supportedIpAddressTypes() {
-        return this.supportedIpAddressTypes;
+        return this.supportedIpAddressTypes == null ? List.of() : this.supportedIpAddressTypes;
     }
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Whether or not the service supports endpoint policies - `true` or `false`.
      * 
      */
-    public Boolean vpcEndpointPolicySupported() {
-        return this.vpcEndpointPolicySupported;
+    public Optional<Boolean> vpcEndpointPolicySupported() {
+        return Optional.ofNullable(this.vpcEndpointPolicySupported);
     }
 
     public static Builder builder() {
@@ -187,22 +187,22 @@ public final class GetVpcEndpointServiceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean acceptanceRequired;
-        private String arn;
-        private List<String> availabilityZones;
-        private List<String> baseEndpointDnsNames;
+        private @Nullable Boolean acceptanceRequired;
+        private @Nullable String arn;
+        private @Nullable List<String> availabilityZones;
+        private @Nullable List<String> baseEndpointDnsNames;
         private @Nullable List<GetVpcEndpointServiceFilter> filters;
-        private String id;
-        private Boolean managesVpcEndpoints;
-        private String owner;
-        private String privateDnsName;
+        private @Nullable String id;
+        private @Nullable Boolean managesVpcEndpoints;
+        private @Nullable String owner;
+        private @Nullable String privateDnsName;
         private @Nullable String service;
-        private String serviceId;
-        private String serviceName;
-        private String serviceType;
-        private List<String> supportedIpAddressTypes;
-        private Map<String,String> tags;
-        private Boolean vpcEndpointPolicySupported;
+        private @Nullable String serviceId;
+        private @Nullable String serviceName;
+        private @Nullable String serviceType;
+        private @Nullable List<String> supportedIpAddressTypes;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Boolean vpcEndpointPolicySupported;
         public Builder() {}
         public Builder(GetVpcEndpointServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -225,26 +225,26 @@ public final class GetVpcEndpointServiceResult {
         }
 
         @CustomType.Setter
-        public Builder acceptanceRequired(Boolean acceptanceRequired) {
-            this.acceptanceRequired = Objects.requireNonNull(acceptanceRequired);
+        public Builder acceptanceRequired(@Nullable Boolean acceptanceRequired) {
+            this.acceptanceRequired = acceptanceRequired;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+        public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
         @CustomType.Setter
-        public Builder baseEndpointDnsNames(List<String> baseEndpointDnsNames) {
-            this.baseEndpointDnsNames = Objects.requireNonNull(baseEndpointDnsNames);
+        public Builder baseEndpointDnsNames(@Nullable List<String> baseEndpointDnsNames) {
+            this.baseEndpointDnsNames = baseEndpointDnsNames;
             return this;
         }
         public Builder baseEndpointDnsNames(String... baseEndpointDnsNames) {
@@ -259,23 +259,23 @@ public final class GetVpcEndpointServiceResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder managesVpcEndpoints(Boolean managesVpcEndpoints) {
-            this.managesVpcEndpoints = Objects.requireNonNull(managesVpcEndpoints);
+        public Builder managesVpcEndpoints(@Nullable Boolean managesVpcEndpoints) {
+            this.managesVpcEndpoints = managesVpcEndpoints;
             return this;
         }
         @CustomType.Setter
-        public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+        public Builder owner(@Nullable String owner) {
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
-        public Builder privateDnsName(String privateDnsName) {
-            this.privateDnsName = Objects.requireNonNull(privateDnsName);
+        public Builder privateDnsName(@Nullable String privateDnsName) {
+            this.privateDnsName = privateDnsName;
             return this;
         }
         @CustomType.Setter
@@ -284,36 +284,36 @@ public final class GetVpcEndpointServiceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder serviceId(String serviceId) {
-            this.serviceId = Objects.requireNonNull(serviceId);
+        public Builder serviceId(@Nullable String serviceId) {
+            this.serviceId = serviceId;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+        public Builder serviceName(@Nullable String serviceName) {
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceType(String serviceType) {
-            this.serviceType = Objects.requireNonNull(serviceType);
+        public Builder serviceType(@Nullable String serviceType) {
+            this.serviceType = serviceType;
             return this;
         }
         @CustomType.Setter
-        public Builder supportedIpAddressTypes(List<String> supportedIpAddressTypes) {
-            this.supportedIpAddressTypes = Objects.requireNonNull(supportedIpAddressTypes);
+        public Builder supportedIpAddressTypes(@Nullable List<String> supportedIpAddressTypes) {
+            this.supportedIpAddressTypes = supportedIpAddressTypes;
             return this;
         }
         public Builder supportedIpAddressTypes(String... supportedIpAddressTypes) {
             return supportedIpAddressTypes(List.of(supportedIpAddressTypes));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcEndpointPolicySupported(Boolean vpcEndpointPolicySupported) {
-            this.vpcEndpointPolicySupported = Objects.requireNonNull(vpcEndpointPolicySupported);
+        public Builder vpcEndpointPolicySupported(@Nullable Boolean vpcEndpointPolicySupported) {
+            this.vpcEndpointPolicySupported = vpcEndpointPolicySupported;
             return this;
         }
         public GetVpcEndpointServiceResult build() {

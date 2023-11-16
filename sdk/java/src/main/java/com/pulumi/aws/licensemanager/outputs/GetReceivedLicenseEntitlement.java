@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReceivedLicenseEntitlement {
@@ -15,63 +17,63 @@ public final class GetReceivedLicenseEntitlement {
      * @return Indicates whether check-ins are allowed.
      * 
      */
-    private Boolean allowCheckIn;
+    private @Nullable Boolean allowCheckIn;
     /**
      * @return Maximum entitlement count. Use if the unit is not None.
      * 
      */
-    private Integer maxCount;
+    private @Nullable Integer maxCount;
     /**
      * @return The key name.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Entitlement unit.
      * 
      */
-    private String unit;
+    private @Nullable String unit;
     /**
      * @return The value.
      * 
      */
-    private String value;
+    private @Nullable String value;
 
     private GetReceivedLicenseEntitlement() {}
     /**
      * @return Indicates whether check-ins are allowed.
      * 
      */
-    public Boolean allowCheckIn() {
-        return this.allowCheckIn;
+    public Optional<Boolean> allowCheckIn() {
+        return Optional.ofNullable(this.allowCheckIn);
     }
     /**
      * @return Maximum entitlement count. Use if the unit is not None.
      * 
      */
-    public Integer maxCount() {
-        return this.maxCount;
+    public Optional<Integer> maxCount() {
+        return Optional.ofNullable(this.maxCount);
     }
     /**
      * @return The key name.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Entitlement unit.
      * 
      */
-    public String unit() {
-        return this.unit;
+    public Optional<String> unit() {
+        return Optional.ofNullable(this.unit);
     }
     /**
      * @return The value.
      * 
      */
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -83,11 +85,11 @@ public final class GetReceivedLicenseEntitlement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean allowCheckIn;
-        private Integer maxCount;
-        private String name;
-        private String unit;
-        private String value;
+        private @Nullable Boolean allowCheckIn;
+        private @Nullable Integer maxCount;
+        private @Nullable String name;
+        private @Nullable String unit;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetReceivedLicenseEntitlement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -99,28 +101,28 @@ public final class GetReceivedLicenseEntitlement {
         }
 
         @CustomType.Setter
-        public Builder allowCheckIn(Boolean allowCheckIn) {
-            this.allowCheckIn = Objects.requireNonNull(allowCheckIn);
+        public Builder allowCheckIn(@Nullable Boolean allowCheckIn) {
+            this.allowCheckIn = allowCheckIn;
             return this;
         }
         @CustomType.Setter
-        public Builder maxCount(Integer maxCount) {
-            this.maxCount = Objects.requireNonNull(maxCount);
+        public Builder maxCount(@Nullable Integer maxCount) {
+            this.maxCount = maxCount;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+        public Builder unit(@Nullable String unit) {
+            this.unit = unit;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetReceivedLicenseEntitlement build() {

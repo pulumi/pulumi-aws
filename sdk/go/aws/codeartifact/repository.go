@@ -142,15 +142,15 @@ type Repository struct {
 	pulumi.CustomResourceState
 
 	// The account number of the AWS account that manages the repository.
-	AdministratorAccount pulumi.StringOutput `pulumi:"administratorAccount"`
+	AdministratorAccount pulumi.StringPtrOutput `pulumi:"administratorAccount"`
 	// The ARN of the repository.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the repository.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The domain that contains the created repository.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// The account number of the AWS account that owns the domain.
-	DomainOwner pulumi.StringOutput `pulumi:"domainOwner"`
+	DomainOwner pulumi.StringPtrOutput `pulumi:"domainOwner"`
 	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
 	ExternalConnections RepositoryExternalConnectionsPtrOutput `pulumi:"externalConnections"`
 	// The name of the repository to create.
@@ -381,13 +381,13 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 }
 
 // The account number of the AWS account that manages the repository.
-func (o RepositoryOutput) AdministratorAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.AdministratorAccount }).(pulumi.StringOutput)
+func (o RepositoryOutput) AdministratorAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.AdministratorAccount }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the repository.
-func (o RepositoryOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RepositoryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the repository.
@@ -401,8 +401,8 @@ func (o RepositoryOutput) Domain() pulumi.StringOutput {
 }
 
 // The account number of the AWS account that owns the domain.
-func (o RepositoryOutput) DomainOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.DomainOwner }).(pulumi.StringOutput)
+func (o RepositoryOutput) DomainOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.DomainOwner }).(pulumi.StringPtrOutput)
 }
 
 // An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.

@@ -301,69 +301,69 @@ namespace Pulumi.Aws.Ec2
         /// Configuration block that describes [VPC Peering Connection]
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         /// </summary>
-        public readonly ImmutableDictionary<string, bool> Accepter;
+        public readonly ImmutableDictionary<string, bool>? Accepter;
         /// <summary>
         /// CIDR block associated to the VPC of the specific VPC Peering Connection.
         /// </summary>
-        public readonly string CidrBlock;
+        public readonly string? CidrBlock;
         /// <summary>
         /// List of objects with CIDR blocks of the requester VPC.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionCidrBlockSetResult> CidrBlockSets;
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> Filters;
-        public readonly string Id;
-        public readonly string OwnerId;
-        public readonly string PeerCidrBlock;
+        public readonly string? Id;
+        public readonly string? OwnerId;
+        public readonly string? PeerCidrBlock;
         /// <summary>
         /// List of objects with CIDR blocks of the accepter VPC.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> PeerCidrBlockSets;
-        public readonly string PeerOwnerId;
-        public readonly string PeerRegion;
-        public readonly string PeerVpcId;
-        public readonly string Region;
+        public readonly string? PeerOwnerId;
+        public readonly string? PeerRegion;
+        public readonly string? PeerVpcId;
+        public readonly string? Region;
         /// <summary>
         /// Configuration block that describes [VPC Peering Connection]
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         /// </summary>
-        public readonly ImmutableDictionary<string, bool> Requester;
-        public readonly string Status;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string VpcId;
+        public readonly ImmutableDictionary<string, bool>? Requester;
+        public readonly string? Status;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetVpcPeeringConnectionResult(
-            ImmutableDictionary<string, bool> accepter,
+            ImmutableDictionary<string, bool>? accepter,
 
-            string cidrBlock,
+            string? cidrBlock,
 
             ImmutableArray<Outputs.GetVpcPeeringConnectionCidrBlockSetResult> cidrBlockSets,
 
             ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string ownerId,
+            string? ownerId,
 
-            string peerCidrBlock,
+            string? peerCidrBlock,
 
             ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> peerCidrBlockSets,
 
-            string peerOwnerId,
+            string? peerOwnerId,
 
-            string peerRegion,
+            string? peerRegion,
 
-            string peerVpcId,
+            string? peerVpcId,
 
-            string region,
+            string? region,
 
-            ImmutableDictionary<string, bool> requester,
+            ImmutableDictionary<string, bool>? requester,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             Accepter = accepter;
             CidrBlock = cidrBlock;

@@ -425,7 +425,7 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN (Amazon Resource Name) of the firewall rule group association.
         """
@@ -441,7 +441,7 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mutationProtection")
-    def mutation_protection(self) -> pulumi.Output[str]:
+    def mutation_protection(self) -> pulumi.Output[Optional[str]]:
         """
         If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         """

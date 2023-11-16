@@ -245,7 +245,7 @@ class RegionSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceTypeManagementPreference")
-    def resource_type_management_preference(self) -> pulumi.Output[Mapping[str, bool]]:
+    def resource_type_management_preference(self) -> pulumi.Output[Optional[Mapping[str, bool]]]:
         """
         A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         """

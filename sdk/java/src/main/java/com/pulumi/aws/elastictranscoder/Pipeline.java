@@ -80,14 +80,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Elastictranscoder pipeline.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
@@ -108,14 +108,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="contentConfig", refs={PipelineContentConfig.class}, tree="[0]")
-    private Output<PipelineContentConfig> contentConfig;
+    private Output</* @Nullable */ PipelineContentConfig> contentConfig;
 
     /**
      * @return The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      * 
      */
-    public Output<PipelineContentConfig> contentConfig() {
-        return this.contentConfig;
+    public Output<Optional<PipelineContentConfig>> contentConfig() {
+        return Codegen.optional(this.contentConfig);
     }
     /**
      * The permissions for the `content_config` object. (documented below)
@@ -178,14 +178,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="outputBucket", refs={String.class}, tree="[0]")
-    private Output<String> outputBucket;
+    private Output</* @Nullable */ String> outputBucket;
 
     /**
      * @return The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      * 
      */
-    public Output<String> outputBucket() {
-        return this.outputBucket;
+    public Output<Optional<String>> outputBucket() {
+        return Codegen.optional(this.outputBucket);
     }
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
@@ -206,14 +206,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="thumbnailConfig", refs={PipelineThumbnailConfig.class}, tree="[0]")
-    private Output<PipelineThumbnailConfig> thumbnailConfig;
+    private Output</* @Nullable */ PipelineThumbnailConfig> thumbnailConfig;
 
     /**
      * @return The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      * 
      */
-    public Output<PipelineThumbnailConfig> thumbnailConfig() {
-        return this.thumbnailConfig;
+    public Output<Optional<PipelineThumbnailConfig>> thumbnailConfig() {
+        return Codegen.optional(this.thumbnailConfig);
     }
     /**
      * The permissions for the `thumbnail_config` object. (documented below)

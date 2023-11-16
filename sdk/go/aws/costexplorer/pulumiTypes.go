@@ -6139,9 +6139,9 @@ type GetCostCategoryRule struct {
 	// Configuration block for the `Expression` object used to categorize costs. See below.
 	Rules []GetCostCategoryRuleRule `pulumi:"rules"`
 	// Parameter type.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// Default value for the cost category.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetCostCategoryRuleInput is an input type that accepts GetCostCategoryRuleArgs and GetCostCategoryRuleOutput values.
@@ -6161,9 +6161,9 @@ type GetCostCategoryRuleArgs struct {
 	// Configuration block for the `Expression` object used to categorize costs. See below.
 	Rules GetCostCategoryRuleRuleArrayInput `pulumi:"rules"`
 	// Parameter type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Default value for the cost category.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetCostCategoryRuleArgs) ElementType() reflect.Type {
@@ -6228,13 +6228,13 @@ func (o GetCostCategoryRuleOutput) Rules() GetCostCategoryRuleRuleArrayOutput {
 }
 
 // Parameter type.
-func (o GetCostCategoryRuleOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRule) string { return v.Type }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Default value for the cost category.
-func (o GetCostCategoryRuleOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRule) string { return v.Value }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRule) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetCostCategoryRuleArrayOutput struct{ *pulumi.OutputState }
@@ -6259,9 +6259,9 @@ func (o GetCostCategoryRuleArrayOutput) Index(i pulumi.IntInput) GetCostCategory
 
 type GetCostCategoryRuleInheritedValue struct {
 	// Key to extract cost category values.
-	DimensionKey string `pulumi:"dimensionKey"`
+	DimensionKey *string `pulumi:"dimensionKey"`
 	// Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-	DimensionName string `pulumi:"dimensionName"`
+	DimensionName *string `pulumi:"dimensionName"`
 }
 
 // GetCostCategoryRuleInheritedValueInput is an input type that accepts GetCostCategoryRuleInheritedValueArgs and GetCostCategoryRuleInheritedValueOutput values.
@@ -6277,9 +6277,9 @@ type GetCostCategoryRuleInheritedValueInput interface {
 
 type GetCostCategoryRuleInheritedValueArgs struct {
 	// Key to extract cost category values.
-	DimensionKey pulumi.StringInput `pulumi:"dimensionKey"`
+	DimensionKey pulumi.StringPtrInput `pulumi:"dimensionKey"`
 	// Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
+	DimensionName pulumi.StringPtrInput `pulumi:"dimensionName"`
 }
 
 func (GetCostCategoryRuleInheritedValueArgs) ElementType() reflect.Type {
@@ -6334,13 +6334,13 @@ func (o GetCostCategoryRuleInheritedValueOutput) ToGetCostCategoryRuleInheritedV
 }
 
 // Key to extract cost category values.
-func (o GetCostCategoryRuleInheritedValueOutput) DimensionKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleInheritedValue) string { return v.DimensionKey }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleInheritedValueOutput) DimensionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleInheritedValue) *string { return v.DimensionKey }).(pulumi.StringPtrOutput)
 }
 
 // Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-func (o GetCostCategoryRuleInheritedValueOutput) DimensionName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleInheritedValue) string { return v.DimensionName }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleInheritedValueOutput) DimensionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleInheritedValue) *string { return v.DimensionName }).(pulumi.StringPtrOutput)
 }
 
 type GetCostCategoryRuleInheritedValueArrayOutput struct{ *pulumi.OutputState }
@@ -6622,7 +6622,7 @@ func (o GetCostCategoryRuleRuleAndArrayOutput) Index(i pulumi.IntInput) GetCostC
 
 type GetCostCategoryRuleRuleAndCostCategory struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -6642,7 +6642,7 @@ type GetCostCategoryRuleRuleAndCostCategoryInput interface {
 
 type GetCostCategoryRuleRuleAndCostCategoryArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -6701,8 +6701,8 @@ func (o GetCostCategoryRuleRuleAndCostCategoryOutput) ToGetCostCategoryRuleRuleA
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleAndCostCategoryOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleAndCostCategory) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleAndCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -6737,7 +6737,7 @@ func (o GetCostCategoryRuleRuleAndCostCategoryArrayOutput) Index(i pulumi.IntInp
 
 type GetCostCategoryRuleRuleAndDimension struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -6757,7 +6757,7 @@ type GetCostCategoryRuleRuleAndDimensionInput interface {
 
 type GetCostCategoryRuleRuleAndDimensionArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -6816,8 +6816,8 @@ func (o GetCostCategoryRuleRuleAndDimensionOutput) ToGetCostCategoryRuleRuleAndD
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleAndDimensionOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleAndDimension) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleAndDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -6852,7 +6852,7 @@ func (o GetCostCategoryRuleRuleAndDimensionArrayOutput) Index(i pulumi.IntInput)
 
 type GetCostCategoryRuleRuleAndTag struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -6872,7 +6872,7 @@ type GetCostCategoryRuleRuleAndTagInput interface {
 
 type GetCostCategoryRuleRuleAndTagArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -6931,8 +6931,8 @@ func (o GetCostCategoryRuleRuleAndTagOutput) ToGetCostCategoryRuleRuleAndTagOutp
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleAndTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleAndTag) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleAndTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -6967,7 +6967,7 @@ func (o GetCostCategoryRuleRuleAndTagArrayOutput) Index(i pulumi.IntInput) GetCo
 
 type GetCostCategoryRuleRuleCostCategory struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -6987,7 +6987,7 @@ type GetCostCategoryRuleRuleCostCategoryInput interface {
 
 type GetCostCategoryRuleRuleCostCategoryArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7046,8 +7046,8 @@ func (o GetCostCategoryRuleRuleCostCategoryOutput) ToGetCostCategoryRuleRuleCost
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleCostCategoryOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleCostCategory) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -7082,7 +7082,7 @@ func (o GetCostCategoryRuleRuleCostCategoryArrayOutput) Index(i pulumi.IntInput)
 
 type GetCostCategoryRuleRuleDimension struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7102,7 +7102,7 @@ type GetCostCategoryRuleRuleDimensionInput interface {
 
 type GetCostCategoryRuleRuleDimensionArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7161,8 +7161,8 @@ func (o GetCostCategoryRuleRuleDimensionOutput) ToGetCostCategoryRuleRuleDimensi
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleDimensionOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleDimension) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -7312,7 +7312,7 @@ func (o GetCostCategoryRuleRuleNotArrayOutput) Index(i pulumi.IntInput) GetCostC
 
 type GetCostCategoryRuleRuleNotCostCategory struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7332,7 +7332,7 @@ type GetCostCategoryRuleRuleNotCostCategoryInput interface {
 
 type GetCostCategoryRuleRuleNotCostCategoryArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7391,8 +7391,8 @@ func (o GetCostCategoryRuleRuleNotCostCategoryOutput) ToGetCostCategoryRuleRuleN
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleNotCostCategoryOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleNotCostCategory) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleNotCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -7427,7 +7427,7 @@ func (o GetCostCategoryRuleRuleNotCostCategoryArrayOutput) Index(i pulumi.IntInp
 
 type GetCostCategoryRuleRuleNotDimension struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7447,7 +7447,7 @@ type GetCostCategoryRuleRuleNotDimensionInput interface {
 
 type GetCostCategoryRuleRuleNotDimensionArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7506,8 +7506,8 @@ func (o GetCostCategoryRuleRuleNotDimensionOutput) ToGetCostCategoryRuleRuleNotD
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleNotDimensionOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleNotDimension) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleNotDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -7542,7 +7542,7 @@ func (o GetCostCategoryRuleRuleNotDimensionArrayOutput) Index(i pulumi.IntInput)
 
 type GetCostCategoryRuleRuleNotTag struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7562,7 +7562,7 @@ type GetCostCategoryRuleRuleNotTagInput interface {
 
 type GetCostCategoryRuleRuleNotTagArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7621,8 +7621,8 @@ func (o GetCostCategoryRuleRuleNotTagOutput) ToGetCostCategoryRuleRuleNotTagOutp
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleNotTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleNotTag) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleNotTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -7772,7 +7772,7 @@ func (o GetCostCategoryRuleRuleOrArrayOutput) Index(i pulumi.IntInput) GetCostCa
 
 type GetCostCategoryRuleRuleOrCostCategory struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7792,7 +7792,7 @@ type GetCostCategoryRuleRuleOrCostCategoryInput interface {
 
 type GetCostCategoryRuleRuleOrCostCategoryArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7851,8 +7851,8 @@ func (o GetCostCategoryRuleRuleOrCostCategoryOutput) ToGetCostCategoryRuleRuleOr
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleOrCostCategoryOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleOrCostCategory) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleOrCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -7887,7 +7887,7 @@ func (o GetCostCategoryRuleRuleOrCostCategoryArrayOutput) Index(i pulumi.IntInpu
 
 type GetCostCategoryRuleRuleOrDimension struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7907,7 +7907,7 @@ type GetCostCategoryRuleRuleOrDimensionInput interface {
 
 type GetCostCategoryRuleRuleOrDimensionArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -7966,8 +7966,8 @@ func (o GetCostCategoryRuleRuleOrDimensionOutput) ToGetCostCategoryRuleRuleOrDim
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleOrDimensionOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleOrDimension) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleOrDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -8002,7 +8002,7 @@ func (o GetCostCategoryRuleRuleOrDimensionArrayOutput) Index(i pulumi.IntInput) 
 
 type GetCostCategoryRuleRuleOrTag struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -8022,7 +8022,7 @@ type GetCostCategoryRuleRuleOrTagInput interface {
 
 type GetCostCategoryRuleRuleOrTagArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -8081,8 +8081,8 @@ func (o GetCostCategoryRuleRuleOrTagOutput) ToGetCostCategoryRuleRuleOrTagOutput
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleOrTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleOrTag) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleOrTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -8117,7 +8117,7 @@ func (o GetCostCategoryRuleRuleOrTagArrayOutput) Index(i pulumi.IntInput) GetCos
 
 type GetCostCategoryRuleRuleTag struct {
 	// Key for the tag.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions []string `pulumi:"matchOptions"`
 	// Parameter values.
@@ -8137,7 +8137,7 @@ type GetCostCategoryRuleRuleTagInput interface {
 
 type GetCostCategoryRuleRuleTagArgs struct {
 	// Key for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
 	// Parameter values.
@@ -8196,8 +8196,8 @@ func (o GetCostCategoryRuleRuleTagOutput) ToGetCostCategoryRuleRuleTagOutputWith
 }
 
 // Key for the tag.
-func (o GetCostCategoryRuleRuleTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategoryRuleRuleTag) string { return v.Key }).(pulumi.StringOutput)
+func (o GetCostCategoryRuleRuleTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
@@ -8232,11 +8232,11 @@ func (o GetCostCategoryRuleRuleTagArrayOutput) Index(i pulumi.IntInput) GetCostC
 
 type GetCostCategorySplitChargeRule struct {
 	// Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-	Method string `pulumi:"method"`
+	Method *string `pulumi:"method"`
 	// Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
 	Parameters []GetCostCategorySplitChargeRuleParameter `pulumi:"parameters"`
 	// Cost Category value that you want to split.
-	Source string `pulumi:"source"`
+	Source *string `pulumi:"source"`
 	// Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
 	Targets []string `pulumi:"targets"`
 }
@@ -8254,11 +8254,11 @@ type GetCostCategorySplitChargeRuleInput interface {
 
 type GetCostCategorySplitChargeRuleArgs struct {
 	// Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-	Method pulumi.StringInput `pulumi:"method"`
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
 	Parameters GetCostCategorySplitChargeRuleParameterArrayInput `pulumi:"parameters"`
 	// Cost Category value that you want to split.
-	Source pulumi.StringInput `pulumi:"source"`
+	Source pulumi.StringPtrInput `pulumi:"source"`
 	// Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
 	Targets pulumi.StringArrayInput `pulumi:"targets"`
 }
@@ -8315,8 +8315,8 @@ func (o GetCostCategorySplitChargeRuleOutput) ToGetCostCategorySplitChargeRuleOu
 }
 
 // Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-func (o GetCostCategorySplitChargeRuleOutput) Method() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategorySplitChargeRule) string { return v.Method }).(pulumi.StringOutput)
+func (o GetCostCategorySplitChargeRuleOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategorySplitChargeRule) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
@@ -8325,8 +8325,8 @@ func (o GetCostCategorySplitChargeRuleOutput) Parameters() GetCostCategorySplitC
 }
 
 // Cost Category value that you want to split.
-func (o GetCostCategorySplitChargeRuleOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategorySplitChargeRule) string { return v.Source }).(pulumi.StringOutput)
+func (o GetCostCategorySplitChargeRuleOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategorySplitChargeRule) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
 // Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
@@ -8356,7 +8356,7 @@ func (o GetCostCategorySplitChargeRuleArrayOutput) Index(i pulumi.IntInput) GetC
 
 type GetCostCategorySplitChargeRuleParameter struct {
 	// Parameter type.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// Parameter values.
 	Values []string `pulumi:"values"`
 }
@@ -8374,7 +8374,7 @@ type GetCostCategorySplitChargeRuleParameterInput interface {
 
 type GetCostCategorySplitChargeRuleParameterArgs struct {
 	// Parameter type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Parameter values.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -8431,8 +8431,8 @@ func (o GetCostCategorySplitChargeRuleParameterOutput) ToGetCostCategorySplitCha
 }
 
 // Parameter type.
-func (o GetCostCategorySplitChargeRuleParameterOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCostCategorySplitChargeRuleParameter) string { return v.Type }).(pulumi.StringOutput)
+func (o GetCostCategorySplitChargeRuleParameterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCostCategorySplitChargeRuleParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Parameter values.

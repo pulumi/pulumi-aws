@@ -14,6 +14,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -22,70 +23,70 @@ public final class GetNetworkInsightsAnalysisResult {
      * @return Potential intermediate components of a feasible path.
      * 
      */
-    private List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints;
+    private @Nullable List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints;
     /**
      * @return ARN of the selected Network Insights Analysis.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Explanation codes for an unreachable path.
      * 
      */
-    private List<GetNetworkInsightsAnalysisExplanation> explanations;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanation> explanations;
     /**
      * @return ARNs of the AWS resources that the path must traverse.
      * 
      */
-    private List<String> filterInArns;
+    private @Nullable List<String> filterInArns;
     private @Nullable List<GetNetworkInsightsAnalysisFilter> filters;
     /**
      * @return The components in the path from source to destination.
      * 
      */
-    private List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents;
+    private @Nullable List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String networkInsightsAnalysisId;
+    private @Nullable String id;
+    private @Nullable String networkInsightsAnalysisId;
     /**
      * @return The ID of the path.
      * 
      */
-    private String networkInsightsPathId;
+    private @Nullable String networkInsightsPathId;
     /**
      * @return Set to `true` if the destination was reachable.
      * 
      */
-    private Boolean pathFound;
+    private @Nullable Boolean pathFound;
     /**
      * @return The components in the path from destination to source.
      * 
      */
-    private List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents;
     /**
      * @return Date/time the analysis was started.
      * 
      */
-    private String startDate;
+    private @Nullable String startDate;
     /**
      * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Message to provide more context when the `status` is `failed`.
      * 
      */
-    private String statusMessage;
-    private Map<String,String> tags;
+    private @Nullable String statusMessage;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Warning message.
      * 
      */
-    private String warningMessage;
+    private @Nullable String warningMessage;
 
     private GetNetworkInsightsAnalysisResult() {}
     /**
@@ -93,28 +94,28 @@ public final class GetNetworkInsightsAnalysisResult {
      * 
      */
     public List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints() {
-        return this.alternatePathHints;
+        return this.alternatePathHints == null ? List.of() : this.alternatePathHints;
     }
     /**
      * @return ARN of the selected Network Insights Analysis.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Explanation codes for an unreachable path.
      * 
      */
     public List<GetNetworkInsightsAnalysisExplanation> explanations() {
-        return this.explanations;
+        return this.explanations == null ? List.of() : this.explanations;
     }
     /**
      * @return ARNs of the AWS resources that the path must traverse.
      * 
      */
     public List<String> filterInArns() {
-        return this.filterInArns;
+        return this.filterInArns == null ? List.of() : this.filterInArns;
     }
     public List<GetNetworkInsightsAnalysisFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -124,69 +125,69 @@ public final class GetNetworkInsightsAnalysisResult {
      * 
      */
     public List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents() {
-        return this.forwardPathComponents;
+        return this.forwardPathComponents == null ? List.of() : this.forwardPathComponents;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String networkInsightsAnalysisId() {
-        return this.networkInsightsAnalysisId;
+    public Optional<String> networkInsightsAnalysisId() {
+        return Optional.ofNullable(this.networkInsightsAnalysisId);
     }
     /**
      * @return The ID of the path.
      * 
      */
-    public String networkInsightsPathId() {
-        return this.networkInsightsPathId;
+    public Optional<String> networkInsightsPathId() {
+        return Optional.ofNullable(this.networkInsightsPathId);
     }
     /**
      * @return Set to `true` if the destination was reachable.
      * 
      */
-    public Boolean pathFound() {
-        return this.pathFound;
+    public Optional<Boolean> pathFound() {
+        return Optional.ofNullable(this.pathFound);
     }
     /**
      * @return The components in the path from destination to source.
      * 
      */
     public List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents() {
-        return this.returnPathComponents;
+        return this.returnPathComponents == null ? List.of() : this.returnPathComponents;
     }
     /**
      * @return Date/time the analysis was started.
      * 
      */
-    public String startDate() {
-        return this.startDate;
+    public Optional<String> startDate() {
+        return Optional.ofNullable(this.startDate);
     }
     /**
      * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Message to provide more context when the `status` is `failed`.
      * 
      */
-    public String statusMessage() {
-        return this.statusMessage;
+    public Optional<String> statusMessage() {
+        return Optional.ofNullable(this.statusMessage);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Warning message.
      * 
      */
-    public String warningMessage() {
-        return this.warningMessage;
+    public Optional<String> warningMessage() {
+        return Optional.ofNullable(this.warningMessage);
     }
 
     public static Builder builder() {
@@ -198,22 +199,22 @@ public final class GetNetworkInsightsAnalysisResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints;
-        private String arn;
-        private List<GetNetworkInsightsAnalysisExplanation> explanations;
-        private List<String> filterInArns;
+        private @Nullable List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints;
+        private @Nullable String arn;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanation> explanations;
+        private @Nullable List<String> filterInArns;
         private @Nullable List<GetNetworkInsightsAnalysisFilter> filters;
-        private List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents;
-        private String id;
-        private String networkInsightsAnalysisId;
-        private String networkInsightsPathId;
-        private Boolean pathFound;
-        private List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents;
-        private String startDate;
-        private String status;
-        private String statusMessage;
-        private Map<String,String> tags;
-        private String warningMessage;
+        private @Nullable List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents;
+        private @Nullable String id;
+        private @Nullable String networkInsightsAnalysisId;
+        private @Nullable String networkInsightsPathId;
+        private @Nullable Boolean pathFound;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents;
+        private @Nullable String startDate;
+        private @Nullable String status;
+        private @Nullable String statusMessage;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String warningMessage;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -236,29 +237,29 @@ public final class GetNetworkInsightsAnalysisResult {
         }
 
         @CustomType.Setter
-        public Builder alternatePathHints(List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints) {
-            this.alternatePathHints = Objects.requireNonNull(alternatePathHints);
+        public Builder alternatePathHints(@Nullable List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints) {
+            this.alternatePathHints = alternatePathHints;
             return this;
         }
         public Builder alternatePathHints(GetNetworkInsightsAnalysisAlternatePathHint... alternatePathHints) {
             return alternatePathHints(List.of(alternatePathHints));
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder explanations(List<GetNetworkInsightsAnalysisExplanation> explanations) {
-            this.explanations = Objects.requireNonNull(explanations);
+        public Builder explanations(@Nullable List<GetNetworkInsightsAnalysisExplanation> explanations) {
+            this.explanations = explanations;
             return this;
         }
         public Builder explanations(GetNetworkInsightsAnalysisExplanation... explanations) {
             return explanations(List.of(explanations));
         }
         @CustomType.Setter
-        public Builder filterInArns(List<String> filterInArns) {
-            this.filterInArns = Objects.requireNonNull(filterInArns);
+        public Builder filterInArns(@Nullable List<String> filterInArns) {
+            this.filterInArns = filterInArns;
             return this;
         }
         public Builder filterInArns(String... filterInArns) {
@@ -273,64 +274,64 @@ public final class GetNetworkInsightsAnalysisResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder forwardPathComponents(List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents) {
-            this.forwardPathComponents = Objects.requireNonNull(forwardPathComponents);
+        public Builder forwardPathComponents(@Nullable List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents) {
+            this.forwardPathComponents = forwardPathComponents;
             return this;
         }
         public Builder forwardPathComponents(GetNetworkInsightsAnalysisForwardPathComponent... forwardPathComponents) {
             return forwardPathComponents(List.of(forwardPathComponents));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInsightsAnalysisId(String networkInsightsAnalysisId) {
-            this.networkInsightsAnalysisId = Objects.requireNonNull(networkInsightsAnalysisId);
+        public Builder networkInsightsAnalysisId(@Nullable String networkInsightsAnalysisId) {
+            this.networkInsightsAnalysisId = networkInsightsAnalysisId;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInsightsPathId(String networkInsightsPathId) {
-            this.networkInsightsPathId = Objects.requireNonNull(networkInsightsPathId);
+        public Builder networkInsightsPathId(@Nullable String networkInsightsPathId) {
+            this.networkInsightsPathId = networkInsightsPathId;
             return this;
         }
         @CustomType.Setter
-        public Builder pathFound(Boolean pathFound) {
-            this.pathFound = Objects.requireNonNull(pathFound);
+        public Builder pathFound(@Nullable Boolean pathFound) {
+            this.pathFound = pathFound;
             return this;
         }
         @CustomType.Setter
-        public Builder returnPathComponents(List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents) {
-            this.returnPathComponents = Objects.requireNonNull(returnPathComponents);
+        public Builder returnPathComponents(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents) {
+            this.returnPathComponents = returnPathComponents;
             return this;
         }
         public Builder returnPathComponents(GetNetworkInsightsAnalysisReturnPathComponent... returnPathComponents) {
             return returnPathComponents(List.of(returnPathComponents));
         }
         @CustomType.Setter
-        public Builder startDate(String startDate) {
-            this.startDate = Objects.requireNonNull(startDate);
+        public Builder startDate(@Nullable String startDate) {
+            this.startDate = startDate;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+        public Builder statusMessage(@Nullable String statusMessage) {
+            this.statusMessage = statusMessage;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder warningMessage(String warningMessage) {
-            this.warningMessage = Objects.requireNonNull(warningMessage);
+        public Builder warningMessage(@Nullable String warningMessage) {
+            this.warningMessage = warningMessage;
             return this;
         }
         public GetNetworkInsightsAnalysisResult build() {

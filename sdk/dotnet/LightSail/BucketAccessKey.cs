@@ -27,7 +27,7 @@ namespace Pulumi.Aws.LightSail
         /// The ID of the access key.
         /// </summary>
         [Output("accessKeyId")]
-        public Output<string> AccessKeyId { get; private set; } = null!;
+        public Output<string?> AccessKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the bucket that the new access key will belong to, and grant access to.
@@ -39,19 +39,19 @@ namespace Pulumi.Aws.LightSail
         /// The timestamp when the access key was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         /// </summary>
         [Output("secretAccessKey")]
-        public Output<string> SecretAccessKey { get; private set; } = null!;
+        public Output<string?> SecretAccessKey { get; private set; } = null!;
 
         /// <summary>
         /// The status of the access key.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

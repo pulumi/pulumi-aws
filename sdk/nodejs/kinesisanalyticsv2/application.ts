@@ -252,11 +252,11 @@ export class Application extends pulumi.CustomResource {
     /**
      * The application's configuration
      */
-    public readonly applicationConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    public readonly applicationConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationApplicationConfiguration | undefined>;
     /**
      * The ARN of the application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */
@@ -264,7 +264,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The current timestamp when the application was created.
      */
-    public /*out*/ readonly createTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly createTimestamp!: pulumi.Output<string | undefined>;
     /**
      * A summary description of the application.
      */
@@ -276,7 +276,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The current timestamp when the application was last updated.
      */
-    public /*out*/ readonly lastUpdateTimestamp!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdateTimestamp!: pulumi.Output<string | undefined>;
     /**
      * The name of the application.
      */
@@ -296,7 +296,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The status of the application.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
@@ -310,7 +310,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      */
-    public /*out*/ readonly versionId!: pulumi.Output<number>;
+    public /*out*/ readonly versionId!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.

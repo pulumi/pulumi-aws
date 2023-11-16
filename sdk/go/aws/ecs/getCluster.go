@@ -60,22 +60,22 @@ type LookupClusterArgs struct {
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
 	// ARN of the ECS Cluster
-	Arn         string `pulumi:"arn"`
-	ClusterName string `pulumi:"clusterName"`
+	Arn         *string `pulumi:"arn"`
+	ClusterName string  `pulumi:"clusterName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Number of pending tasks for the ECS Cluster
-	PendingTasksCount int `pulumi:"pendingTasksCount"`
+	PendingTasksCount *int `pulumi:"pendingTasksCount"`
 	// The number of registered container instances for the ECS Cluster
-	RegisteredContainerInstancesCount int `pulumi:"registeredContainerInstancesCount"`
+	RegisteredContainerInstancesCount *int `pulumi:"registeredContainerInstancesCount"`
 	// Number of running tasks for the ECS Cluster
-	RunningTasksCount int `pulumi:"runningTasksCount"`
+	RunningTasksCount *int `pulumi:"runningTasksCount"`
 	// The default Service Connect namespace
 	ServiceConnectDefaults []GetClusterServiceConnectDefault `pulumi:"serviceConnectDefaults"`
 	// Settings associated with the ECS Cluster
 	Settings []GetClusterSetting `pulumi:"settings"`
 	// Status of the ECS Cluster
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -121,8 +121,8 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 }
 
 // ARN of the ECS Cluster
-func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) ClusterName() pulumi.StringOutput {
@@ -130,23 +130,23 @@ func (o LookupClusterResultOutput) ClusterName() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Number of pending tasks for the ECS Cluster
-func (o LookupClusterResultOutput) PendingTasksCount() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupClusterResult) int { return v.PendingTasksCount }).(pulumi.IntOutput)
+func (o LookupClusterResultOutput) PendingTasksCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *int { return v.PendingTasksCount }).(pulumi.IntPtrOutput)
 }
 
 // The number of registered container instances for the ECS Cluster
-func (o LookupClusterResultOutput) RegisteredContainerInstancesCount() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupClusterResult) int { return v.RegisteredContainerInstancesCount }).(pulumi.IntOutput)
+func (o LookupClusterResultOutput) RegisteredContainerInstancesCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *int { return v.RegisteredContainerInstancesCount }).(pulumi.IntPtrOutput)
 }
 
 // Number of running tasks for the ECS Cluster
-func (o LookupClusterResultOutput) RunningTasksCount() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupClusterResult) int { return v.RunningTasksCount }).(pulumi.IntOutput)
+func (o LookupClusterResultOutput) RunningTasksCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *int { return v.RunningTasksCount }).(pulumi.IntPtrOutput)
 }
 
 // The default Service Connect namespace
@@ -160,8 +160,8 @@ func (o LookupClusterResultOutput) Settings() GetClusterSettingArrayOutput {
 }
 
 // Status of the ECS Cluster
-func (o LookupClusterResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags

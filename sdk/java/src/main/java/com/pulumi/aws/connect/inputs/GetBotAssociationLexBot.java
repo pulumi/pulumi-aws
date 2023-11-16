@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetBotAssociationLexBot extends com.pulumi.resources.InvokeArgs {
@@ -16,15 +18,15 @@ public final class GetBotAssociationLexBot extends com.pulumi.resources.InvokeAr
      * Region that the Amazon Lex (V1) bot was created in.
      * 
      */
-    @Import(name="lexRegion", required=true)
-    private String lexRegion;
+    @Import(name="lexRegion")
+    private @Nullable String lexRegion;
 
     /**
      * @return Region that the Amazon Lex (V1) bot was created in.
      * 
      */
-    public String lexRegion() {
-        return this.lexRegion;
+    public Optional<String> lexRegion() {
+        return Optional.ofNullable(this.lexRegion);
     }
 
     /**
@@ -73,7 +75,7 @@ public final class GetBotAssociationLexBot extends com.pulumi.resources.InvokeAr
          * @return builder
          * 
          */
-        public Builder lexRegion(String lexRegion) {
+        public Builder lexRegion(@Nullable String lexRegion) {
             $.lexRegion = lexRegion;
             return this;
         }
@@ -90,7 +92,6 @@ public final class GetBotAssociationLexBot extends com.pulumi.resources.InvokeAr
         }
 
         public GetBotAssociationLexBot build() {
-            $.lexRegion = Objects.requireNonNull($.lexRegion, "expected parameter 'lexRegion' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }

@@ -51,11 +51,11 @@ export interface GetReleaseLabelsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Returned release labels.
      */
-    readonly releaseLabels: string[];
+    readonly releaseLabels?: string[];
 }
 /**
  * Retrieve information about EMR Release Labels.

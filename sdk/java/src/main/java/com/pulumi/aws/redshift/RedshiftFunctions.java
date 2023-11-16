@@ -673,6 +673,73 @@ public final class RedshiftFunctions {
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         final var allowAuditLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy(&#34;allowAuditLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAuditLoggingPolicyDocument -&gt; allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount() {
         return getServiceAccount(GetServiceAccountArgs.Empty, InvokeOptions.Empty);
@@ -683,6 +750,73 @@ public final class RedshiftFunctions {
      * 
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         final var allowAuditLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy(&#34;allowAuditLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAuditLoggingPolicyDocument -&gt; allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain() {
@@ -695,6 +829,73 @@ public final class RedshiftFunctions {
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         final var allowAuditLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy(&#34;allowAuditLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAuditLoggingPolicyDocument -&gt; allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args) {
         return getServiceAccount(args, InvokeOptions.Empty);
@@ -705,6 +906,73 @@ public final class RedshiftFunctions {
      * 
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         final var allowAuditLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy(&#34;allowAuditLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAuditLoggingPolicyDocument -&gt; allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args) {
@@ -717,6 +985,73 @@ public final class RedshiftFunctions {
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         final var allowAuditLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy(&#34;allowAuditLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAuditLoggingPolicyDocument -&gt; allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
@@ -727,6 +1062,73 @@ public final class RedshiftFunctions {
      * 
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         final var allowAuditLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for audit logging&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy(&#34;allowAuditLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAuditLoggingPolicyDocument -&gt; allowAuditLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {

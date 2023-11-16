@@ -73,19 +73,19 @@ namespace Pulumi.Aws.AppConfig
         /// ARN of the AppConfig Environment.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the environment. Can be at most 1024 characters.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// AppConfig environment ID.
         /// </summary>
         [Output("environmentId")]
-        public Output<string> EnvironmentId { get; private set; } = null!;
+        public Output<string?> EnvironmentId { get; private set; } = null!;
 
         /// <summary>
         /// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.AppConfig
         /// or `ROLLED_BACK`.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

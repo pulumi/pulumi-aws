@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the fleet
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Reserved.
@@ -84,19 +84,19 @@ namespace Pulumi.Aws.Ec2
         /// The state of the EC2 Fleet.
         /// </summary>
         [Output("fleetState")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The number of units fulfilled by this request compared to the set target capacity.
         /// </summary>
         [Output("fulfilledCapacity")]
-        public Output<double> FulfilledCapacity { get; private set; } = null!;
+        public Output<double?> FulfilledCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The number of units fulfilled by this request compared to the set target On-Demand capacity.
         /// </summary>
         [Output("fulfilledOnDemandCapacity")]
-        public Output<double> FulfilledOnDemandCapacity { get; private set; } = null!;
+        public Output<double?> FulfilledOnDemandCapacity { get; private set; } = null!;
 
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.

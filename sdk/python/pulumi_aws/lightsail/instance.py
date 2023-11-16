@@ -910,7 +910,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Lightsail instance (matches `id`).
         """
@@ -943,7 +943,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuCount")
-    def cpu_count(self) -> pulumi.Output[int]:
+    def cpu_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of vCPUs the instance has.
         """
@@ -951,7 +951,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the instance was created.
         """
@@ -967,7 +967,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> pulumi.Output[Sequence[str]]:
+    def ipv6_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of IPv6 addresses for the Lightsail instance.
         """
@@ -975,7 +975,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isStaticIp")
-    def is_static_ip(self) -> pulumi.Output[bool]:
+    def is_static_ip(self) -> pulumi.Output[Optional[bool]]:
         """
         A Boolean value indicating whether this instance has a static IP assigned to it.
         """
@@ -1000,7 +1000,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> pulumi.Output[str]:
+    def private_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The private IP address of the instance.
         """
@@ -1008,7 +1008,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> pulumi.Output[str]:
+    def public_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The public IP address of the instance.
         """
@@ -1016,7 +1016,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ramSize")
-    def ram_size(self) -> pulumi.Output[float]:
+    def ram_size(self) -> pulumi.Output[Optional[float]]:
         """
         The amount of RAM in GB on the instance (e.g., 1.0).
         """
@@ -1051,7 +1051,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Output[str]:
+    def username(self) -> pulumi.Output[Optional[str]]:
         """
         The user name for connecting to the instance (e.g., ec2-user).
         """

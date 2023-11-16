@@ -70,7 +70,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The ARN that uniquely identifies this database.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the Timestream database. Minimum length of 3. Maximum length of 64.
      */
@@ -78,11 +78,11 @@ export class Database extends pulumi.CustomResource {
     /**
      * The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The total number of tables found within the Timestream database.
      */
-    public /*out*/ readonly tableCount!: pulumi.Output<number>;
+    public /*out*/ readonly tableCount!: pulumi.Output<number | undefined>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

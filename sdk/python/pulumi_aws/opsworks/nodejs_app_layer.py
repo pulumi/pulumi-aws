@@ -1057,7 +1057,7 @@ class NodejsAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name(ARN) of the layer.
         """
@@ -1151,7 +1151,7 @@ class NodejsAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.NodejsAppLayerEbsVolume']]:
+    def ebs_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.NodejsAppLayerEbsVolume']]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
@@ -1183,7 +1183,7 @@ class NodejsAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> pulumi.Output['outputs.NodejsAppLayerLoadBasedAutoScaling']:
+    def load_based_auto_scaling(self) -> pulumi.Output[Optional['outputs.NodejsAppLayerLoadBasedAutoScaling']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @property

@@ -56,19 +56,19 @@ export interface GetCoipPoolResult {
     /**
      * ARN of the COIP pool
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly filters?: outputs.ec2.GetCoipPoolFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly localGatewayRouteTableId: string;
+    readonly id?: string;
+    readonly localGatewayRouteTableId?: string;
     /**
      * Set of CIDR blocks in pool
      */
-    readonly poolCidrs: string[];
-    readonly poolId: string;
-    readonly tags: {[key: string]: string};
+    readonly poolCidrs?: string[];
+    readonly poolId?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific EC2 Customer-Owned IP Pool.

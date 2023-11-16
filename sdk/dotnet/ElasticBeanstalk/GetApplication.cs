@@ -111,30 +111,30 @@ namespace Pulumi.Aws.ElasticBeanstalk
     [OutputType]
     public sealed class GetApplicationResult
     {
-        public readonly Outputs.GetApplicationAppversionLifecycleResult AppversionLifecycle;
+        public readonly Outputs.GetApplicationAppversionLifecycleResult? AppversionLifecycle;
         /// <summary>
         /// ARN of the application.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Short description of the application
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
 
         [OutputConstructor]
         private GetApplicationResult(
-            Outputs.GetApplicationAppversionLifecycleResult appversionLifecycle,
+            Outputs.GetApplicationAppversionLifecycleResult? appversionLifecycle,
 
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name)
         {

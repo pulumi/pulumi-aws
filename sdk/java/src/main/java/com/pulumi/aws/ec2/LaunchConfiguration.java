@@ -270,14 +270,14 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name of the launch configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Associate a public ip address with an instance in a VPC.
@@ -298,28 +298,28 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsBlockDevices", refs={List.class,LaunchConfigurationEbsBlockDevice.class}, tree="[0,1]")
-    private Output<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices;
+    private Output</* @Nullable */ List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices;
 
     /**
      * @return Additional EBS block devices to attach to the instance. See Block Devices below for details.
      * 
      */
-    public Output<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices() {
-        return this.ebsBlockDevices;
+    public Output<Optional<List<LaunchConfigurationEbsBlockDevice>>> ebsBlockDevices() {
+        return Codegen.optional(this.ebsBlockDevices);
     }
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * 
      */
     @Export(name="ebsOptimized", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> ebsOptimized;
+    private Output</* @Nullable */ Boolean> ebsOptimized;
 
     /**
      * @return If true, the launched EC2 instance will be EBS-optimized.
      * 
      */
-    public Output<Boolean> ebsOptimized() {
-        return this.ebsOptimized;
+    public Output<Optional<Boolean>> ebsOptimized() {
+        return Codegen.optional(this.ebsOptimized);
     }
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
@@ -400,28 +400,28 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyName", refs={String.class}, tree="[0]")
-    private Output<String> keyName;
+    private Output</* @Nullable */ String> keyName;
 
     /**
      * @return The key name that should be used for the instance.
      * 
      */
-    public Output<String> keyName() {
-        return this.keyName;
+    public Output<Optional<String>> keyName() {
+        return Codegen.optional(this.keyName);
     }
     /**
      * The metadata options for the instance.
      * 
      */
     @Export(name="metadataOptions", refs={LaunchConfigurationMetadataOptions.class}, tree="[0]")
-    private Output<LaunchConfigurationMetadataOptions> metadataOptions;
+    private Output</* @Nullable */ LaunchConfigurationMetadataOptions> metadataOptions;
 
     /**
      * @return The metadata options for the instance.
      * 
      */
-    public Output<LaunchConfigurationMetadataOptions> metadataOptions() {
-        return this.metadataOptions;
+    public Output<Optional<LaunchConfigurationMetadataOptions>> metadataOptions() {
+        return Codegen.optional(this.metadataOptions);
     }
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
@@ -442,14 +442,14 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
@@ -470,14 +470,14 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="rootBlockDevice", refs={LaunchConfigurationRootBlockDevice.class}, tree="[0]")
-    private Output<LaunchConfigurationRootBlockDevice> rootBlockDevice;
+    private Output</* @Nullable */ LaunchConfigurationRootBlockDevice> rootBlockDevice;
 
     /**
      * @return Customize details about the root block device of the instance. See Block Devices below for details.
      * 
      */
-    public Output<LaunchConfigurationRootBlockDevice> rootBlockDevice() {
-        return this.rootBlockDevice;
+    public Output<Optional<LaunchConfigurationRootBlockDevice>> rootBlockDevice() {
+        return Codegen.optional(this.rootBlockDevice);
     }
     /**
      * A list of associated security group IDS.

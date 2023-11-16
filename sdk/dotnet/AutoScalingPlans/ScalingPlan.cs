@@ -52,7 +52,7 @@ namespace Pulumi.Aws.AutoScalingPlans
         /// The version number of the scaling plan. This value is always 1.
         /// </summary>
         [Output("scalingPlanVersion")]
-        public Output<int> ScalingPlanVersion { get; private set; } = null!;
+        public Output<int?> ScalingPlanVersion { get; private set; } = null!;
 
 
         /// <summary>

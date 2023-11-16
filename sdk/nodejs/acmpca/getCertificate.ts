@@ -50,16 +50,16 @@ export interface GetCertificateResult {
     /**
      * PEM-encoded certificate value.
      */
-    readonly certificate: string;
+    readonly certificate?: string;
     readonly certificateAuthorityArn: string;
     /**
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      */
-    readonly certificateChain: string;
+    readonly certificateChain?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.

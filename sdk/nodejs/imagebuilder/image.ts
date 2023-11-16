@@ -62,7 +62,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the image.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the container recipe.
      */
@@ -70,7 +70,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * Date the image was created.
      */
-    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      */
@@ -86,11 +86,11 @@ export class Image extends pulumi.CustomResource {
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageScanningConfiguration>;
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageScanningConfiguration | undefined>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration>;
+    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      *
@@ -100,19 +100,19 @@ export class Image extends pulumi.CustomResource {
     /**
      * Name of the AMI.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * Operating System version of the image.
      */
-    public /*out*/ readonly osVersion!: pulumi.Output<string>;
+    public /*out*/ readonly osVersion!: pulumi.Output<string | undefined>;
     /**
      * List of objects with resources created by the image.
      */
-    public /*out*/ readonly outputResources!: pulumi.Output<outputs.imagebuilder.ImageOutputResource[]>;
+    public /*out*/ readonly outputResources!: pulumi.Output<outputs.imagebuilder.ImageOutputResource[] | undefined>;
     /**
      * Platform of the image.
      */
-    public /*out*/ readonly platform!: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -126,7 +126,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * Version of the image.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.

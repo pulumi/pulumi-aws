@@ -52,72 +52,72 @@ export interface GetImagePipelineResult {
     /**
      * ARN of the container recipe.
      */
-    readonly containerRecipeArn: string;
+    readonly containerRecipeArn?: string;
     /**
      * Date the image pipeline was created.
      */
-    readonly dateCreated: string;
+    readonly dateCreated?: string;
     /**
      * Date the image pipeline was last run.
      */
-    readonly dateLastRun: string;
+    readonly dateLastRun?: string;
     /**
      * Date the image pipeline will run next.
      */
-    readonly dateNextRun: string;
+    readonly dateNextRun?: string;
     /**
      * Date the image pipeline was updated.
      */
-    readonly dateUpdated: string;
+    readonly dateUpdated?: string;
     /**
      * Description of the image pipeline.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * ARN of the Image Builder Distribution Configuration.
      */
-    readonly distributionConfigurationArn: string;
+    readonly distributionConfigurationArn?: string;
     /**
      * Whether additional information about the image being created is collected.
      */
-    readonly enhancedImageMetadataEnabled: boolean;
+    readonly enhancedImageMetadataEnabled?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the image recipe.
      */
-    readonly imageRecipeArn: string;
-    readonly imageScanningConfigurations: outputs.imagebuilder.GetImagePipelineImageScanningConfiguration[];
+    readonly imageRecipeArn?: string;
+    readonly imageScanningConfigurations?: outputs.imagebuilder.GetImagePipelineImageScanningConfiguration[];
     /**
      * List of an object with image tests configuration.
      */
-    readonly imageTestsConfigurations: outputs.imagebuilder.GetImagePipelineImageTestsConfiguration[];
+    readonly imageTestsConfigurations?: outputs.imagebuilder.GetImagePipelineImageTestsConfiguration[];
     /**
      * ARN of the Image Builder Infrastructure Configuration.
      */
-    readonly infrastructureConfigurationArn: string;
+    readonly infrastructureConfigurationArn?: string;
     /**
      * Name of the image pipeline.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Platform of the image pipeline.
      */
-    readonly platform: string;
+    readonly platform?: string;
     /**
      * List of an object with schedule settings.
      */
-    readonly schedules: outputs.imagebuilder.GetImagePipelineSchedule[];
+    readonly schedules?: outputs.imagebuilder.GetImagePipelineSchedule[];
     /**
      * Status of the image pipeline.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Key-value map of resource tags for the image pipeline.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about an Image Builder Image Pipeline.

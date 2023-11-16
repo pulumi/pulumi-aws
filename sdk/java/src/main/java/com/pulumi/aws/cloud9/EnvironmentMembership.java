@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -115,14 +116,14 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
-    private Output<String> userId;
+    private Output</* @Nullable */ String> userId;
 
     /**
      * @return he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      * 
      */
-    public Output<String> userId() {
-        return this.userId;
+    public Output<Optional<String>> userId() {
+        return Codegen.optional(this.userId);
     }
 
     /**

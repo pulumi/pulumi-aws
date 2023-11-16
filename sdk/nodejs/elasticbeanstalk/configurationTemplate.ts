@@ -82,7 +82,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    public readonly settings!: pulumi.Output<outputs.elasticbeanstalk.ConfigurationTemplateSetting[]>;
+    public readonly settings!: pulumi.Output<outputs.elasticbeanstalk.ConfigurationTemplateSetting[] | undefined>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]

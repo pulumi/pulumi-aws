@@ -60,13 +60,13 @@ namespace Pulumi.Aws.Rds
         /// Specifies the allocated storage size in gigabytes (GB).
         /// </summary>
         [Output("allocatedStorage")]
-        public Output<int> AllocatedStorage { get; private set; } = null!;
+        public Output<int?> AllocatedStorage { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The DB Instance Identifier from which to take the snapshot.
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Rds
         /// The Amazon Resource Name (ARN) for the DB snapshot.
         /// </summary>
         [Output("dbSnapshotArn")]
-        public Output<string> DbSnapshotArn { get; private set; } = null!;
+        public Output<string?> DbSnapshotArn { get; private set; } = null!;
 
         /// <summary>
         /// The Identifier for the snapshot.
@@ -90,46 +90,46 @@ namespace Pulumi.Aws.Rds
         /// Specifies whether the DB snapshot is encrypted.
         /// </summary>
         [Output("encrypted")]
-        public Output<bool> Encrypted { get; private set; } = null!;
+        public Output<bool?> Encrypted { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the database engine.
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the version of the database engine.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         /// </summary>
         [Output("iops")]
-        public Output<int> Iops { get; private set; } = null!;
+        public Output<int?> Iops { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for the KMS encryption key.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// License model information for the restored DB instance.
         /// </summary>
         [Output("licenseModel")]
-        public Output<string> LicenseModel { get; private set; } = null!;
+        public Output<string?> LicenseModel { get; private set; } = null!;
 
         /// <summary>
         /// Provides the option group name for the DB snapshot.
         /// </summary>
         [Output("optionGroupName")]
-        public Output<string> OptionGroupName { get; private set; } = null!;
+        public Output<string?> OptionGroupName { get; private set; } = null!;
 
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
@@ -138,31 +138,31 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<string>> SharedAccounts { get; private set; } = null!;
 
         [Output("snapshotType")]
-        public Output<string> SnapshotType { get; private set; } = null!;
+        public Output<string?> SnapshotType { get; private set; } = null!;
 
         /// <summary>
         /// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         /// </summary>
         [Output("sourceDbSnapshotIdentifier")]
-        public Output<string> SourceDbSnapshotIdentifier { get; private set; } = null!;
+        public Output<string?> SourceDbSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The region that the DB snapshot was created in or copied from.
         /// </summary>
         [Output("sourceRegion")]
-        public Output<string> SourceRegion { get; private set; } = null!;
+        public Output<string?> SourceRegion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the status of this DB snapshot.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the storage type associated with DB snapshot.
         /// </summary>
         [Output("storageType")]
-        public Output<string> StorageType { get; private set; } = null!;
+        public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Rds
         /// Provides the VPC ID associated with the DB snapshot.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

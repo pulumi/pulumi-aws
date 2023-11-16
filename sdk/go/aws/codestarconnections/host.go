@@ -56,7 +56,7 @@ type Host struct {
 	pulumi.CustomResourceState
 
 	// The CodeStar Host ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the host to be created. The name must be unique in the calling AWS account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The endpoint of the infrastructure to be represented by the host after it is created.
@@ -64,7 +64,7 @@ type Host struct {
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
 	// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration HostVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
@@ -249,8 +249,8 @@ func (o HostOutput) ToHostOutputWithContext(ctx context.Context) HostOutput {
 }
 
 // The CodeStar Host ARN.
-func (o HostOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HostOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the host to be created. The name must be unique in the calling AWS account.
@@ -269,8 +269,8 @@ func (o HostOutput) ProviderType() pulumi.StringOutput {
 }
 
 // The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
-func (o HostOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o HostOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.

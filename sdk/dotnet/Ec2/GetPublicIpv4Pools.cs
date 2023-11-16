@@ -201,22 +201,22 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of all the pool IDs found.
         /// </summary>
         public readonly ImmutableArray<string> PoolIds;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetPublicIpv4PoolsResult(
             ImmutableArray<Outputs.GetPublicIpv4PoolsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> poolIds,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;

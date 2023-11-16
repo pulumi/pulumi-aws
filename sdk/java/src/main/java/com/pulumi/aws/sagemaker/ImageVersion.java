@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -65,14 +66,14 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The registry path of the container image on which this image version is based.
@@ -93,28 +94,28 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="containerImage", refs={String.class}, tree="[0]")
-    private Output<String> containerImage;
+    private Output</* @Nullable */ String> containerImage;
 
     /**
      * @return The registry path of the container image that contains this image version.
      * 
      */
-    public Output<String> containerImage() {
-        return this.containerImage;
+    public Output<Optional<String>> containerImage() {
+        return Codegen.optional(this.containerImage);
     }
     /**
      * The Amazon Resource Name (ARN) of the image the version is based on.
      * 
      */
     @Export(name="imageArn", refs={String.class}, tree="[0]")
-    private Output<String> imageArn;
+    private Output</* @Nullable */ String> imageArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the image the version is based on.
      * 
      */
-    public Output<String> imageArn() {
-        return this.imageArn;
+    public Output<Optional<String>> imageArn() {
+        return Codegen.optional(this.imageArn);
     }
     /**
      * The name of the image. Must be unique to your account.
@@ -131,10 +132,10 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
         return this.imageName;
     }
     @Export(name="version", refs={Integer.class}, tree="[0]")
-    private Output<Integer> version;
+    private Output</* @Nullable */ Integer> version;
 
-    public Output<Integer> version() {
-        return this.version;
+    public Output<Optional<Integer>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

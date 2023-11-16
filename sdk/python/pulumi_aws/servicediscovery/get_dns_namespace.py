@@ -46,7 +46,7 @@ class GetDnsNamespaceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the namespace.
         """
@@ -54,7 +54,7 @@ class GetDnsNamespaceResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the namespace.
         """
@@ -62,7 +62,7 @@ class GetDnsNamespaceResult:
 
     @property
     @pulumi.getter(name="hostedZone")
-    def hosted_zone(self) -> str:
+    def hosted_zone(self) -> Optional[str]:
         """
         ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
         """
@@ -70,7 +70,7 @@ class GetDnsNamespaceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -83,7 +83,7 @@ class GetDnsNamespaceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags for the resource.
         """

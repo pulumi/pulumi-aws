@@ -176,90 +176,90 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of VPC
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// CIDR block for the association.
         /// </summary>
-        public readonly string CidrBlock;
+        public readonly string? CidrBlock;
         public readonly ImmutableArray<Outputs.GetVpcCidrBlockAssociationResult> CidrBlockAssociations;
-        public readonly bool Default;
-        public readonly string DhcpOptionsId;
+        public readonly bool? Default;
+        public readonly string? DhcpOptionsId;
         /// <summary>
         /// Whether or not the VPC has DNS hostname support
         /// </summary>
-        public readonly bool EnableDnsHostnames;
+        public readonly bool? EnableDnsHostnames;
         /// <summary>
         /// Whether or not the VPC has DNS support
         /// </summary>
-        public readonly bool EnableDnsSupport;
+        public readonly bool? EnableDnsSupport;
         /// <summary>
         /// Whether Network Address Usage metrics are enabled for your VPC
         /// </summary>
-        public readonly bool EnableNetworkAddressUsageMetrics;
+        public readonly bool? EnableNetworkAddressUsageMetrics;
         public readonly ImmutableArray<Outputs.GetVpcFilterResult> Filters;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Allowed tenancy of instances launched into the
         /// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
         /// </summary>
-        public readonly string InstanceTenancy;
+        public readonly string? InstanceTenancy;
         /// <summary>
         /// Association ID for the IPv6 CIDR block.
         /// </summary>
-        public readonly string Ipv6AssociationId;
+        public readonly string? Ipv6AssociationId;
         /// <summary>
         /// IPv6 CIDR block.
         /// </summary>
-        public readonly string Ipv6CidrBlock;
+        public readonly string? Ipv6CidrBlock;
         /// <summary>
         /// ID of the main route table associated with this VPC.
         /// </summary>
-        public readonly string MainRouteTableId;
+        public readonly string? MainRouteTableId;
         /// <summary>
         /// ID of the AWS account that owns the VPC.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// State of the association.
         /// </summary>
-        public readonly string State;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? State;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetVpcResult(
-            string arn,
+            string? arn,
 
-            string cidrBlock,
+            string? cidrBlock,
 
             ImmutableArray<Outputs.GetVpcCidrBlockAssociationResult> cidrBlockAssociations,
 
-            bool @default,
+            bool? @default,
 
-            string dhcpOptionsId,
+            string? dhcpOptionsId,
 
-            bool enableDnsHostnames,
+            bool? enableDnsHostnames,
 
-            bool enableDnsSupport,
+            bool? enableDnsSupport,
 
-            bool enableNetworkAddressUsageMetrics,
+            bool? enableNetworkAddressUsageMetrics,
 
             ImmutableArray<Outputs.GetVpcFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string instanceTenancy,
+            string? instanceTenancy,
 
-            string ipv6AssociationId,
+            string? ipv6AssociationId,
 
-            string ipv6CidrBlock,
+            string? ipv6CidrBlock,
 
-            string mainRouteTableId,
+            string? mainRouteTableId,
 
-            string ownerId,
+            string? ownerId,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CidrBlock = cidrBlock;

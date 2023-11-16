@@ -20,17 +20,17 @@ public final class GetGroupResult {
      * @return Description of the specified group.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Group&#39;s display name value.
      * 
      */
-    private String displayName;
+    private @Nullable String displayName;
     /**
      * @return List of identifiers issued to this resource by an external identity provider.
      * 
      */
-    private List<GetGroupExternalId> externalIds;
+    private @Nullable List<GetGroupExternalId> externalIds;
     /**
      * @deprecated
      * Use the alternate_identifier attribute instead.
@@ -38,12 +38,12 @@ public final class GetGroupResult {
      */
     @Deprecated /* Use the alternate_identifier attribute instead. */
     private @Nullable GetGroupFilter filter;
-    private String groupId;
+    private @Nullable String groupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String identityStoreId;
 
     private GetGroupResult() {}
@@ -54,22 +54,22 @@ public final class GetGroupResult {
      * @return Description of the specified group.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Group&#39;s display name value.
      * 
      */
-    public String displayName() {
-        return this.displayName;
+    public Optional<String> displayName() {
+        return Optional.ofNullable(this.displayName);
     }
     /**
      * @return List of identifiers issued to this resource by an external identity provider.
      * 
      */
     public List<GetGroupExternalId> externalIds() {
-        return this.externalIds;
+        return this.externalIds == null ? List.of() : this.externalIds;
     }
     /**
      * @deprecated
@@ -80,15 +80,15 @@ public final class GetGroupResult {
     public Optional<GetGroupFilter> filter() {
         return Optional.ofNullable(this.filter);
     }
-    public String groupId() {
-        return this.groupId;
+    public Optional<String> groupId() {
+        return Optional.ofNullable(this.groupId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String identityStoreId() {
         return this.identityStoreId;
@@ -104,12 +104,12 @@ public final class GetGroupResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable GetGroupAlternateIdentifier alternateIdentifier;
-        private String description;
-        private String displayName;
-        private List<GetGroupExternalId> externalIds;
+        private @Nullable String description;
+        private @Nullable String displayName;
+        private @Nullable List<GetGroupExternalId> externalIds;
         private @Nullable GetGroupFilter filter;
-        private String groupId;
-        private String id;
+        private @Nullable String groupId;
+        private @Nullable String id;
         private String identityStoreId;
         public Builder() {}
         public Builder(GetGroupResult defaults) {
@@ -130,18 +130,18 @@ public final class GetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+        public Builder displayName(@Nullable String displayName) {
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
-        public Builder externalIds(List<GetGroupExternalId> externalIds) {
-            this.externalIds = Objects.requireNonNull(externalIds);
+        public Builder externalIds(@Nullable List<GetGroupExternalId> externalIds) {
+            this.externalIds = externalIds;
             return this;
         }
         public Builder externalIds(GetGroupExternalId... externalIds) {
@@ -153,13 +153,13 @@ public final class GetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder groupId(String groupId) {
-            this.groupId = Objects.requireNonNull(groupId);
+        public Builder groupId(@Nullable String groupId) {
+            this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

@@ -69,7 +69,7 @@ type GetLocalGatewaysArgs struct {
 type GetLocalGatewaysResult struct {
 	Filters []GetLocalGatewaysFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of all the Local Gateway identifiers
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -124,8 +124,8 @@ func (o GetLocalGatewaysResultOutput) Filters() GetLocalGatewaysFilterArrayOutpu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLocalGatewaysResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewaysResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocalGatewaysResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewaysResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of all the Local Gateway identifiers

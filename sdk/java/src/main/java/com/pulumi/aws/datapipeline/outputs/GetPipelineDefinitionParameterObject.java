@@ -8,26 +8,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPipelineDefinitionParameterObject {
-    private List<GetPipelineDefinitionParameterObjectAttribute> attributes;
+    private @Nullable List<GetPipelineDefinitionParameterObjectAttribute> attributes;
     /**
      * @return ID of the object.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetPipelineDefinitionParameterObject() {}
     public List<GetPipelineDefinitionParameterObjectAttribute> attributes() {
-        return this.attributes;
+        return this.attributes == null ? List.of() : this.attributes;
     }
     /**
      * @return ID of the object.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -39,8 +41,8 @@ public final class GetPipelineDefinitionParameterObject {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetPipelineDefinitionParameterObjectAttribute> attributes;
-        private String id;
+        private @Nullable List<GetPipelineDefinitionParameterObjectAttribute> attributes;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetPipelineDefinitionParameterObject defaults) {
     	      Objects.requireNonNull(defaults);
@@ -49,16 +51,16 @@ public final class GetPipelineDefinitionParameterObject {
         }
 
         @CustomType.Setter
-        public Builder attributes(List<GetPipelineDefinitionParameterObjectAttribute> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+        public Builder attributes(@Nullable List<GetPipelineDefinitionParameterObjectAttribute> attributes) {
+            this.attributes = attributes;
             return this;
         }
         public Builder attributes(GetPipelineDefinitionParameterObjectAttribute... attributes) {
             return attributes(List.of(attributes));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetPipelineDefinitionParameterObject build() {

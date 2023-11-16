@@ -207,13 +207,13 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? IncludeSpace;
         public readonly int? PasswordLength;
         /// <summary>
         /// Random password.
         /// </summary>
-        public readonly string RandomPassword;
+        public readonly string? RandomPassword;
         public readonly bool? RequireEachIncludedType;
 
         [OutputConstructor]
@@ -228,13 +228,13 @@ namespace Pulumi.Aws.SecretsManager
 
             bool? excludeUppercase,
 
-            string id,
+            string? id,
 
             bool? includeSpace,
 
             int? passwordLength,
 
-            string randomPassword,
+            string? randomPassword,
 
             bool? requireEachIncludedType)
         {

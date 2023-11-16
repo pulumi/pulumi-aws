@@ -83,7 +83,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The ARN of the virtual interface.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Direct Connect gateway to which to connect the virtual interface.

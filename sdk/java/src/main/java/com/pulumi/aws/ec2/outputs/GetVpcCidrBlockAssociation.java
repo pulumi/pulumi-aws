@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcCidrBlockAssociation {
@@ -13,41 +15,41 @@ public final class GetVpcCidrBlockAssociation {
      * @return Association ID for the IPv4 CIDR block.
      * 
      */
-    private String associationId;
+    private @Nullable String associationId;
     /**
      * @return Cidr block of the desired VPC.
      * 
      */
-    private String cidrBlock;
+    private @Nullable String cidrBlock;
     /**
      * @return Current state of the desired VPC.
      * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
-    private String state;
+    private @Nullable String state;
 
     private GetVpcCidrBlockAssociation() {}
     /**
      * @return Association ID for the IPv4 CIDR block.
      * 
      */
-    public String associationId() {
-        return this.associationId;
+    public Optional<String> associationId() {
+        return Optional.ofNullable(this.associationId);
     }
     /**
      * @return Cidr block of the desired VPC.
      * 
      */
-    public String cidrBlock() {
-        return this.cidrBlock;
+    public Optional<String> cidrBlock() {
+        return Optional.ofNullable(this.cidrBlock);
     }
     /**
      * @return Current state of the desired VPC.
      * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetVpcCidrBlockAssociation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String associationId;
-        private String cidrBlock;
-        private String state;
+        private @Nullable String associationId;
+        private @Nullable String cidrBlock;
+        private @Nullable String state;
         public Builder() {}
         public Builder(GetVpcCidrBlockAssociation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,18 +73,18 @@ public final class GetVpcCidrBlockAssociation {
         }
 
         @CustomType.Setter
-        public Builder associationId(String associationId) {
-            this.associationId = Objects.requireNonNull(associationId);
+        public Builder associationId(@Nullable String associationId) {
+            this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
-        public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+        public Builder cidrBlock(@Nullable String cidrBlock) {
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         public GetVpcCidrBlockAssociation build() {

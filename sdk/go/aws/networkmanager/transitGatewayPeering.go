@@ -54,19 +54,19 @@ type TransitGatewayPeering struct {
 	pulumi.CustomResourceState
 
 	// Peering Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ARN of the core network.
-	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
+	CoreNetworkArn pulumi.StringPtrOutput `pulumi:"coreNetworkArn"`
 	// The ID of a core network.
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
 	// The edge location for the peer.
-	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	EdgeLocation pulumi.StringPtrOutput `pulumi:"edgeLocation"`
 	// The ID of the account owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerAccountId pulumi.StringPtrOutput `pulumi:"ownerAccountId"`
 	// The type of peering. This will be `TRANSIT_GATEWAY`.
-	PeeringType pulumi.StringOutput `pulumi:"peeringType"`
+	PeeringType pulumi.StringPtrOutput `pulumi:"peeringType"`
 	// The resource ARN of the peer.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
 	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -76,7 +76,7 @@ type TransitGatewayPeering struct {
 	// The ARN of the transit gateway for the peering request.
 	TransitGatewayArn pulumi.StringOutput `pulumi:"transitGatewayArn"`
 	// The ID of the transit gateway peering attachment.
-	TransitGatewayPeeringAttachmentId pulumi.StringOutput `pulumi:"transitGatewayPeeringAttachmentId"`
+	TransitGatewayPeeringAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayPeeringAttachmentId"`
 }
 
 // NewTransitGatewayPeering registers a new resource with the given unique name, arguments, and options.
@@ -283,13 +283,13 @@ func (o TransitGatewayPeeringOutput) ToTransitGatewayPeeringOutputWithContext(ct
 }
 
 // Peering Amazon Resource Name (ARN).
-func (o TransitGatewayPeeringOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TransitGatewayPeeringOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the core network.
-func (o TransitGatewayPeeringOutput) CoreNetworkArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
+func (o TransitGatewayPeeringOutput) CoreNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringPtrOutput { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a core network.
@@ -298,23 +298,23 @@ func (o TransitGatewayPeeringOutput) CoreNetworkId() pulumi.StringOutput {
 }
 
 // The edge location for the peer.
-func (o TransitGatewayPeeringOutput) EdgeLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
+func (o TransitGatewayPeeringOutput) EdgeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringPtrOutput { return v.EdgeLocation }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the account owner.
-func (o TransitGatewayPeeringOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o TransitGatewayPeeringOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringPtrOutput { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The type of peering. This will be `TRANSIT_GATEWAY`.
-func (o TransitGatewayPeeringOutput) PeeringType() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.PeeringType }).(pulumi.StringOutput)
+func (o TransitGatewayPeeringOutput) PeeringType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringPtrOutput { return v.PeeringType }).(pulumi.StringPtrOutput)
 }
 
 // The resource ARN of the peer.
-func (o TransitGatewayPeeringOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+func (o TransitGatewayPeeringOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -335,8 +335,8 @@ func (o TransitGatewayPeeringOutput) TransitGatewayArn() pulumi.StringOutput {
 }
 
 // The ID of the transit gateway peering attachment.
-func (o TransitGatewayPeeringOutput) TransitGatewayPeeringAttachmentId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.TransitGatewayPeeringAttachmentId }).(pulumi.StringOutput)
+func (o TransitGatewayPeeringOutput) TransitGatewayPeeringAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringPtrOutput { return v.TransitGatewayPeeringAttachmentId }).(pulumi.StringPtrOutput)
 }
 
 type TransitGatewayPeeringArrayOutput struct{ *pulumi.OutputState }

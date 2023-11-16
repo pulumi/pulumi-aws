@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplatePrivateDnsNameOption {
-    private Boolean enableResourceNameDnsARecord;
-    private Boolean enableResourceNameDnsAaaaRecord;
-    private String hostnameType;
+    private @Nullable Boolean enableResourceNameDnsARecord;
+    private @Nullable Boolean enableResourceNameDnsAaaaRecord;
+    private @Nullable String hostnameType;
 
     private GetLaunchTemplatePrivateDnsNameOption() {}
-    public Boolean enableResourceNameDnsARecord() {
-        return this.enableResourceNameDnsARecord;
+    public Optional<Boolean> enableResourceNameDnsARecord() {
+        return Optional.ofNullable(this.enableResourceNameDnsARecord);
     }
-    public Boolean enableResourceNameDnsAaaaRecord() {
-        return this.enableResourceNameDnsAaaaRecord;
+    public Optional<Boolean> enableResourceNameDnsAaaaRecord() {
+        return Optional.ofNullable(this.enableResourceNameDnsAaaaRecord);
     }
-    public String hostnameType() {
-        return this.hostnameType;
+    public Optional<String> hostnameType() {
+        return Optional.ofNullable(this.hostnameType);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetLaunchTemplatePrivateDnsNameOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enableResourceNameDnsARecord;
-        private Boolean enableResourceNameDnsAaaaRecord;
-        private String hostnameType;
+        private @Nullable Boolean enableResourceNameDnsARecord;
+        private @Nullable Boolean enableResourceNameDnsAaaaRecord;
+        private @Nullable String hostnameType;
         public Builder() {}
         public Builder(GetLaunchTemplatePrivateDnsNameOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetLaunchTemplatePrivateDnsNameOption {
         }
 
         @CustomType.Setter
-        public Builder enableResourceNameDnsARecord(Boolean enableResourceNameDnsARecord) {
-            this.enableResourceNameDnsARecord = Objects.requireNonNull(enableResourceNameDnsARecord);
+        public Builder enableResourceNameDnsARecord(@Nullable Boolean enableResourceNameDnsARecord) {
+            this.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
             return this;
         }
         @CustomType.Setter
-        public Builder enableResourceNameDnsAaaaRecord(Boolean enableResourceNameDnsAaaaRecord) {
-            this.enableResourceNameDnsAaaaRecord = Objects.requireNonNull(enableResourceNameDnsAaaaRecord);
+        public Builder enableResourceNameDnsAaaaRecord(@Nullable Boolean enableResourceNameDnsAaaaRecord) {
+            this.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
             return this;
         }
         @CustomType.Setter
-        public Builder hostnameType(String hostnameType) {
-            this.hostnameType = Objects.requireNonNull(hostnameType);
+        public Builder hostnameType(@Nullable String hostnameType) {
+            this.hostnameType = hostnameType;
             return this;
         }
         public GetLaunchTemplatePrivateDnsNameOption build() {

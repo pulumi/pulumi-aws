@@ -14,6 +14,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -66,28 +67,28 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
-    private Output<Integer> allocatedStorage;
+    private Output</* @Nullable */ Integer> allocatedStorage;
 
     /**
      * @return Specifies the allocated storage size in gigabytes (GB).
      * 
      */
-    public Output<Integer> allocatedStorage() {
-        return this.allocatedStorage;
+    public Output<Optional<Integer>> allocatedStorage() {
+        return Codegen.optional(this.allocatedStorage);
     }
     /**
      * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> availabilityZones;
+    private Output</* @Nullable */ List<String>> availabilityZones;
 
     /**
      * @return List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      * 
      */
-    public Output<List<String>> availabilityZones() {
-        return this.availabilityZones;
+    public Output<Optional<List<String>>> availabilityZones() {
+        return Codegen.optional(this.availabilityZones);
     }
     /**
      * The DB Cluster Identifier from which to take the snapshot.
@@ -108,14 +109,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbClusterSnapshotArn", refs={String.class}, tree="[0]")
-    private Output<String> dbClusterSnapshotArn;
+    private Output</* @Nullable */ String> dbClusterSnapshotArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      * 
      */
-    public Output<String> dbClusterSnapshotArn() {
-        return this.dbClusterSnapshotArn;
+    public Output<Optional<String>> dbClusterSnapshotArn() {
+        return Codegen.optional(this.dbClusterSnapshotArn);
     }
     /**
      * The Identifier for the snapshot.
@@ -136,124 +137,124 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output<String> engine;
+    private Output</* @Nullable */ String> engine;
 
     /**
      * @return Specifies the name of the database engine.
      * 
      */
-    public Output<String> engine() {
-        return this.engine;
+    public Output<Optional<String>> engine() {
+        return Codegen.optional(this.engine);
     }
     /**
      * Version of the database engine for this DB cluster snapshot.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Version of the database engine for this DB cluster snapshot.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * License model information for the restored DB cluster.
      * 
      */
     @Export(name="licenseModel", refs={String.class}, tree="[0]")
-    private Output<String> licenseModel;
+    private Output</* @Nullable */ String> licenseModel;
 
     /**
      * @return License model information for the restored DB cluster.
      * 
      */
-    public Output<String> licenseModel() {
-        return this.licenseModel;
+    public Output<Optional<String>> licenseModel() {
+        return Codegen.optional(this.licenseModel);
     }
     /**
      * Port that the DB cluster was listening on at the time of the snapshot.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return Port that the DB cluster was listening on at the time of the snapshot.
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     @Export(name="snapshotType", refs={String.class}, tree="[0]")
-    private Output<String> snapshotType;
+    private Output</* @Nullable */ String> snapshotType;
 
-    public Output<String> snapshotType() {
-        return this.snapshotType;
+    public Output<Optional<String>> snapshotType() {
+        return Codegen.optional(this.snapshotType);
     }
     @Export(name="sourceDbClusterSnapshotArn", refs={String.class}, tree="[0]")
-    private Output<String> sourceDbClusterSnapshotArn;
+    private Output</* @Nullable */ String> sourceDbClusterSnapshotArn;
 
-    public Output<String> sourceDbClusterSnapshotArn() {
-        return this.sourceDbClusterSnapshotArn;
+    public Output<Optional<String>> sourceDbClusterSnapshotArn() {
+        return Codegen.optional(this.sourceDbClusterSnapshotArn);
     }
     /**
      * The status of this DB Cluster Snapshot.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of this DB Cluster Snapshot.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Specifies whether the DB cluster snapshot is encrypted.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> storageEncrypted;
+    private Output</* @Nullable */ Boolean> storageEncrypted;
 
     /**
      * @return Specifies whether the DB cluster snapshot is encrypted.
      * 
      */
-    public Output<Boolean> storageEncrypted() {
-        return this.storageEncrypted;
+    public Output<Optional<Boolean>> storageEncrypted() {
+        return Codegen.optional(this.storageEncrypted);
     }
     /**
      * The VPC ID associated with the DB cluster snapshot.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The VPC ID associated with the DB cluster snapshot.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

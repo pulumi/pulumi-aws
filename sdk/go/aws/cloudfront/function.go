@@ -72,15 +72,15 @@ type Function struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) identifying your CloudFront Function.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Source code of the function
 	Code pulumi.StringOutput `pulumi:"code"`
 	// Comment.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// ETag hash of any `LIVE` stage of the function.
-	LiveStageEtag pulumi.StringOutput `pulumi:"liveStageEtag"`
+	LiveStageEtag pulumi.StringPtrOutput `pulumi:"liveStageEtag"`
 	// Unique name for your CloudFront Function.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -90,7 +90,7 @@ type Function struct {
 	// The following arguments are optional:
 	Runtime pulumi.StringOutput `pulumi:"runtime"`
 	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -297,8 +297,8 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 }
 
 // Amazon Resource Name (ARN) identifying your CloudFront Function.
-func (o FunctionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FunctionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Source code of the function
@@ -312,13 +312,13 @@ func (o FunctionOutput) Comment() pulumi.StringPtrOutput {
 }
 
 // ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-func (o FunctionOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o FunctionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // ETag hash of any `LIVE` stage of the function.
-func (o FunctionOutput) LiveStageEtag() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.LiveStageEtag }).(pulumi.StringOutput)
+func (o FunctionOutput) LiveStageEtag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.LiveStageEtag }).(pulumi.StringPtrOutput)
 }
 
 // Unique name for your CloudFront Function.
@@ -339,8 +339,8 @@ func (o FunctionOutput) Runtime() pulumi.StringOutput {
 }
 
 // Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-func (o FunctionOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o FunctionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type FunctionArrayOutput struct{ *pulumi.OutputState }

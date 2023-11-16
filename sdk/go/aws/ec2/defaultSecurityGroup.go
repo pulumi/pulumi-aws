@@ -130,19 +130,19 @@ type DefaultSecurityGroup struct {
 	pulumi.CustomResourceState
 
 	// ARN of the security group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of this rule.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Configuration block. Detailed below.
 	Egress DefaultSecurityGroupEgressArrayOutput `pulumi:"egress"`
 	// Configuration block. Detailed below.
 	Ingress DefaultSecurityGroupIngressArrayOutput `pulumi:"ingress"`
 	// Name of the security group.
-	Name       pulumi.StringOutput `pulumi:"name"`
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	Name       pulumi.StringPtrOutput `pulumi:"name"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Owner ID.
-	OwnerId             pulumi.StringOutput  `pulumi:"ownerId"`
-	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
+	OwnerId             pulumi.StringPtrOutput `pulumi:"ownerId"`
+	RevokeRulesOnDelete pulumi.BoolPtrOutput   `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -150,7 +150,7 @@ type DefaultSecurityGroup struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewDefaultSecurityGroup registers a new resource with the given unique name, arguments, and options.
@@ -353,13 +353,13 @@ func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupOutputWithContext(ctx 
 }
 
 // ARN of the security group.
-func (o DefaultSecurityGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DefaultSecurityGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of this rule.
-func (o DefaultSecurityGroupOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o DefaultSecurityGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block. Detailed below.
@@ -373,17 +373,17 @@ func (o DefaultSecurityGroupOutput) Ingress() DefaultSecurityGroupIngressArrayOu
 }
 
 // Name of the security group.
-func (o DefaultSecurityGroupOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o DefaultSecurityGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o DefaultSecurityGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o DefaultSecurityGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Owner ID.
-func (o DefaultSecurityGroupOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o DefaultSecurityGroupOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 func (o DefaultSecurityGroupOutput) RevokeRulesOnDelete() pulumi.BoolPtrOutput {
@@ -403,8 +403,8 @@ func (o DefaultSecurityGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-func (o DefaultSecurityGroupOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o DefaultSecurityGroupOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type DefaultSecurityGroupArrayOutput struct{ *pulumi.OutputState }

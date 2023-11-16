@@ -62,23 +62,23 @@ type LookupStreamArgs struct {
 // A collection of values returned by getStream.
 type LookupStreamResult struct {
 	// ARN of the Kinesis Stream (same as id).
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
 	ClosedShards []string `pulumi:"closedShards"`
 	// Approximate UNIX timestamp that the stream was created.
-	CreationTimestamp int `pulumi:"creationTimestamp"`
+	CreationTimestamp *int `pulumi:"creationTimestamp"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the Kinesis Stream.
 	Name string `pulumi:"name"`
 	// List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
 	OpenShards []string `pulumi:"openShards"`
 	// Length of time (in hours) data records are accessible after they are added to the stream.
-	RetentionPeriod int `pulumi:"retentionPeriod"`
+	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
 	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
 	// Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
 	StreamModeDetails []GetStreamStreamModeDetail `pulumi:"streamModeDetails"`
 	// Map of tags to assigned to the stream.
@@ -126,8 +126,8 @@ func (o LookupStreamResultOutput) ToLookupStreamResultOutputWithContext(ctx cont
 }
 
 // ARN of the Kinesis Stream (same as id).
-func (o LookupStreamResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStreamResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupStreamResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
@@ -136,13 +136,13 @@ func (o LookupStreamResultOutput) ClosedShards() pulumi.StringArrayOutput {
 }
 
 // Approximate UNIX timestamp that the stream was created.
-func (o LookupStreamResultOutput) CreationTimestamp() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupStreamResult) int { return v.CreationTimestamp }).(pulumi.IntOutput)
+func (o LookupStreamResultOutput) CreationTimestamp() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupStreamResult) *int { return v.CreationTimestamp }).(pulumi.IntPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupStreamResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStreamResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupStreamResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the Kinesis Stream.
@@ -156,8 +156,8 @@ func (o LookupStreamResultOutput) OpenShards() pulumi.StringArrayOutput {
 }
 
 // Length of time (in hours) data records are accessible after they are added to the stream.
-func (o LookupStreamResultOutput) RetentionPeriod() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupStreamResult) int { return v.RetentionPeriod }).(pulumi.IntOutput)
+func (o LookupStreamResultOutput) RetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupStreamResult) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
 // List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
@@ -166,8 +166,8 @@ func (o LookupStreamResultOutput) ShardLevelMetrics() pulumi.StringArrayOutput {
 }
 
 // Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
-func (o LookupStreamResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStreamResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupStreamResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.

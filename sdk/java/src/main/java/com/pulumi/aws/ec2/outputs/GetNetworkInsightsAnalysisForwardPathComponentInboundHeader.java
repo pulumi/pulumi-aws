@@ -9,30 +9,32 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisForwardPathComponentInboundHeader {
-    private List<String> destinationAddresses;
-    private List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange> destinationPortRanges;
-    private String protocol;
-    private List<String> sourceAddresses;
-    private List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange> sourcePortRanges;
+    private @Nullable List<String> destinationAddresses;
+    private @Nullable List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange> destinationPortRanges;
+    private @Nullable String protocol;
+    private @Nullable List<String> sourceAddresses;
+    private @Nullable List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange> sourcePortRanges;
 
     private GetNetworkInsightsAnalysisForwardPathComponentInboundHeader() {}
     public List<String> destinationAddresses() {
-        return this.destinationAddresses;
+        return this.destinationAddresses == null ? List.of() : this.destinationAddresses;
     }
     public List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange> destinationPortRanges() {
-        return this.destinationPortRanges;
+        return this.destinationPortRanges == null ? List.of() : this.destinationPortRanges;
     }
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
     public List<String> sourceAddresses() {
-        return this.sourceAddresses;
+        return this.sourceAddresses == null ? List.of() : this.sourceAddresses;
     }
     public List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange> sourcePortRanges() {
-        return this.sourcePortRanges;
+        return this.sourcePortRanges == null ? List.of() : this.sourcePortRanges;
     }
 
     public static Builder builder() {
@@ -44,11 +46,11 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentInboundHeader {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> destinationAddresses;
-        private List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange> destinationPortRanges;
-        private String protocol;
-        private List<String> sourceAddresses;
-        private List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange> sourcePortRanges;
+        private @Nullable List<String> destinationAddresses;
+        private @Nullable List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange> destinationPortRanges;
+        private @Nullable String protocol;
+        private @Nullable List<String> sourceAddresses;
+        private @Nullable List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange> sourcePortRanges;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisForwardPathComponentInboundHeader defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,37 +62,37 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentInboundHeader {
         }
 
         @CustomType.Setter
-        public Builder destinationAddresses(List<String> destinationAddresses) {
-            this.destinationAddresses = Objects.requireNonNull(destinationAddresses);
+        public Builder destinationAddresses(@Nullable List<String> destinationAddresses) {
+            this.destinationAddresses = destinationAddresses;
             return this;
         }
         public Builder destinationAddresses(String... destinationAddresses) {
             return destinationAddresses(List.of(destinationAddresses));
         }
         @CustomType.Setter
-        public Builder destinationPortRanges(List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange> destinationPortRanges) {
-            this.destinationPortRanges = Objects.requireNonNull(destinationPortRanges);
+        public Builder destinationPortRanges(@Nullable List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange> destinationPortRanges) {
+            this.destinationPortRanges = destinationPortRanges;
             return this;
         }
         public Builder destinationPortRanges(GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange... destinationPortRanges) {
             return destinationPortRanges(List.of(destinationPortRanges));
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceAddresses(List<String> sourceAddresses) {
-            this.sourceAddresses = Objects.requireNonNull(sourceAddresses);
+        public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
+            this.sourceAddresses = sourceAddresses;
             return this;
         }
         public Builder sourceAddresses(String... sourceAddresses) {
             return sourceAddresses(List.of(sourceAddresses));
         }
         @CustomType.Setter
-        public Builder sourcePortRanges(List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange> sourcePortRanges) {
-            this.sourcePortRanges = Objects.requireNonNull(sourcePortRanges);
+        public Builder sourcePortRanges(@Nullable List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange> sourcePortRanges) {
+            this.sourcePortRanges = sourcePortRanges;
             return this;
         }
         public Builder sourcePortRanges(GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange... sourcePortRanges) {

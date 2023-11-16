@@ -48,7 +48,7 @@ namespace Pulumi.Aws.NetworkManager
         /// The Amazon Resource Name (ARN) of the connection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the second device in the connection.

@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Ec2
         /// The CIDR you want to assign to the pool.
         /// </summary>
         [Output("cidr")]
-        public Output<string> Cidr { get; private set; } = null!;
+        public Output<string?> Cidr { get; private set; } = null!;
 
         /// <summary>
         /// The description for the allocation.
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> DisallowedCidrs { get; private set; } = null!;
 
         [Output("ipamPoolAllocationId")]
-        public Output<string> IpamPoolAllocationId { get; private set; } = null!;
+        public Output<string?> IpamPoolAllocationId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
@@ -168,19 +168,19 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the resource.
         /// </summary>
         [Output("resourceId")]
-        public Output<string> ResourceId { get; private set; } = null!;
+        public Output<string?> ResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The owner of the resource.
         /// </summary>
         [Output("resourceOwner")]
-        public Output<string> ResourceOwner { get; private set; } = null!;
+        public Output<string?> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("resourceType")]
-        public Output<string> ResourceType { get; private set; } = null!;
+        public Output<string?> ResourceType { get; private set; } = null!;
 
 
         /// <summary>

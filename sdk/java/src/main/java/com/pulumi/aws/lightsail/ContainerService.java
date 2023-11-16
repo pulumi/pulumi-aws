@@ -173,34 +173,34 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the container service.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
@@ -255,14 +255,14 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="powerId", refs={String.class}, tree="[0]")
-    private Output<String> powerId;
+    private Output</* @Nullable */ String> powerId;
 
     /**
      * @return The ID of the power of the container service.
      * 
      */
-    public Output<String> powerId() {
-        return this.powerId;
+    public Output<Optional<String>> powerId() {
+        return Codegen.optional(this.powerId);
     }
     /**
      * The principal ARN of the container service. The principal ARN can be used to create a trust
@@ -271,7 +271,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="principalArn", refs={String.class}, tree="[0]")
-    private Output<String> principalArn;
+    private Output</* @Nullable */ String> principalArn;
 
     /**
      * @return The principal ARN of the container service. The principal ARN can be used to create a trust
@@ -279,8 +279,8 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * service permission to access resources in your standard AWS account.
      * 
      */
-    public Output<String> principalArn() {
-        return this.principalArn;
+    public Output<Optional<String>> principalArn() {
+        return Codegen.optional(this.principalArn);
     }
     /**
      * The private domain name of the container service. The private domain name is accessible only
@@ -288,29 +288,29 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateDomainName", refs={String.class}, tree="[0]")
-    private Output<String> privateDomainName;
+    private Output</* @Nullable */ String> privateDomainName;
 
     /**
      * @return The private domain name of the container service. The private domain name is accessible only
      * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
      * 
      */
-    public Output<String> privateDomainName() {
-        return this.privateDomainName;
+    public Output<Optional<String>> privateDomainName() {
+        return Codegen.optional(this.privateDomainName);
     }
     /**
      * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
      * 
      */
     @Export(name="privateRegistryAccess", refs={ContainerServicePrivateRegistryAccess.class}, tree="[0]")
-    private Output<ContainerServicePrivateRegistryAccess> privateRegistryAccess;
+    private Output</* @Nullable */ ContainerServicePrivateRegistryAccess> privateRegistryAccess;
 
     /**
      * @return An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
      * 
      */
-    public Output<ContainerServicePrivateRegistryAccess> privateRegistryAccess() {
-        return this.privateRegistryAccess;
+    public Output<Optional<ContainerServicePrivateRegistryAccess>> privateRegistryAccess() {
+        return Codegen.optional(this.privateRegistryAccess);
     }
     /**
      * The public domain names to use with the container service, such as example.com
@@ -339,14 +339,14 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
-    private Output<String> resourceType;
+    private Output</* @Nullable */ String> resourceType;
 
     /**
      * @return The Lightsail resource type of the container service (i.e., ContainerService).
      * 
      */
-    public Output<String> resourceType() {
-        return this.resourceType;
+    public Output<Optional<String>> resourceType() {
+        return Codegen.optional(this.resourceType);
     }
     /**
      * The scale specification for the container service. The scale specifies the allocated compute
@@ -369,14 +369,14 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The current state of the container service.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
@@ -424,15 +424,15 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
      * @return The publicly accessible URL of the container service. If no public endpoint is specified in the
      * currentDeployment, this URL returns a 404 response.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
 
     /**

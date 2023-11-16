@@ -62,54 +62,54 @@ export interface GetInstanceResult {
     /**
      * ARN of the instance.
      */
-    readonly arn: string;
-    readonly autoResolveBestVoicesEnabled: boolean;
+    readonly arn?: string;
+    readonly autoResolveBestVoicesEnabled?: boolean;
     /**
      * Whether contact flow logs are enabled.
      */
-    readonly contactFlowLogsEnabled: boolean;
+    readonly contactFlowLogsEnabled?: boolean;
     /**
      * Whether contact lens is enabled.
      */
-    readonly contactLensEnabled: boolean;
+    readonly contactLensEnabled?: boolean;
     /**
      * When the instance was created.
      */
-    readonly createdTime: string;
+    readonly createdTime?: string;
     /**
      * Whether early media for outbound calls is enabled .
      */
-    readonly earlyMediaEnabled: boolean;
+    readonly earlyMediaEnabled?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Specifies The identity management type attached to the instance.
      */
-    readonly identityManagementType: string;
+    readonly identityManagementType?: string;
     /**
      * Whether inbound calls are enabled.
      */
-    readonly inboundCallsEnabled: boolean;
-    readonly instanceAlias: string;
-    readonly instanceId: string;
+    readonly inboundCallsEnabled?: boolean;
+    readonly instanceAlias?: string;
+    readonly instanceId?: string;
     /**
      * Whether multi-party calls/conference is enabled.
      */
-    readonly multiPartyConferenceEnabled: boolean;
+    readonly multiPartyConferenceEnabled?: boolean;
     /**
      * Whether outbound calls are enabled.
      */
-    readonly outboundCallsEnabled: boolean;
+    readonly outboundCallsEnabled?: boolean;
     /**
      * Service role of the instance.
      */
-    readonly serviceRole: string;
+    readonly serviceRole?: string;
     /**
      * State of the instance.
      */
-    readonly status: string;
+    readonly status?: string;
 }
 /**
  * Provides details about a specific Amazon Connect Instance.

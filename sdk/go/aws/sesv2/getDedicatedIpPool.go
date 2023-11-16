@@ -60,14 +60,14 @@ type LookupDedicatedIpPoolArgs struct {
 // A collection of values returned by getDedicatedIpPool.
 type LookupDedicatedIpPoolResult struct {
 	// ARN of the Dedicated IP Pool.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// A list of objects describing the pool's dedicated IP's. See `dedicatedIps`.
 	DedicatedIps []GetDedicatedIpPoolDedicatedIp `pulumi:"dedicatedIps"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
-	PoolName string `pulumi:"poolName"`
+	Id       *string `pulumi:"id"`
+	PoolName string  `pulumi:"poolName"`
 	// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
-	ScalingMode string `pulumi:"scalingMode"`
+	ScalingMode *string `pulumi:"scalingMode"`
 	// A map of tags attached to the pool.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -113,8 +113,8 @@ func (o LookupDedicatedIpPoolResultOutput) ToLookupDedicatedIpPoolResultOutputWi
 }
 
 // ARN of the Dedicated IP Pool.
-func (o LookupDedicatedIpPoolResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupDedicatedIpPoolResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDedicatedIpPoolResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A list of objects describing the pool's dedicated IP's. See `dedicatedIps`.
@@ -123,8 +123,8 @@ func (o LookupDedicatedIpPoolResultOutput) DedicatedIps() GetDedicatedIpPoolDedi
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDedicatedIpPoolResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDedicatedIpPoolResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDedicatedIpPoolResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDedicatedIpPoolResultOutput) PoolName() pulumi.StringOutput {
@@ -132,8 +132,8 @@ func (o LookupDedicatedIpPoolResultOutput) PoolName() pulumi.StringOutput {
 }
 
 // (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
-func (o LookupDedicatedIpPoolResultOutput) ScalingMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.ScalingMode }).(pulumi.StringOutput)
+func (o LookupDedicatedIpPoolResultOutput) ScalingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDedicatedIpPoolResult) *string { return v.ScalingMode }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags attached to the pool.

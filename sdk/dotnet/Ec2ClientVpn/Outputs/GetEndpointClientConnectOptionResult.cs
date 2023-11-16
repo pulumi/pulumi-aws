@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     [OutputType]
     public sealed class GetEndpointClientConnectOptionResult
     {
-        public readonly bool Enabled;
-        public readonly string LambdaFunctionArn;
+        public readonly bool? Enabled;
+        public readonly string? LambdaFunctionArn;
 
         [OutputConstructor]
         private GetEndpointClientConnectOptionResult(
-            bool enabled,
+            bool? enabled,
 
-            string lambdaFunctionArn)
+            string? lambdaFunctionArn)
         {
             Enabled = enabled;
             LambdaFunctionArn = lambdaFunctionArn;

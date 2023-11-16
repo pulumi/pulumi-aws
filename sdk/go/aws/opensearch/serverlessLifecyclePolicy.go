@@ -85,7 +85,7 @@ type ServerlessLifecyclePolicy struct {
 	// JSON policy document to use as the content for the new policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Version of the policy.
-	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
+	PolicyVersion pulumi.StringPtrOutput `pulumi:"policyVersion"`
 	// Type of lifecycle policy. Must be `retention`.
 	//
 	// The following arguments are optional:
@@ -291,8 +291,8 @@ func (o ServerlessLifecyclePolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // Version of the policy.
-func (o ServerlessLifecyclePolicyOutput) PolicyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessLifecyclePolicy) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
+func (o ServerlessLifecyclePolicyOutput) PolicyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessLifecyclePolicy) pulumi.StringPtrOutput { return v.PolicyVersion }).(pulumi.StringPtrOutput)
 }
 
 // Type of lifecycle policy. Must be `retention`.

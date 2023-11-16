@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -71,28 +72,28 @@ public class ResolverFirewallConfig extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="firewallFailOpen", refs={String.class}, tree="[0]")
-    private Output<String> firewallFailOpen;
+    private Output</* @Nullable */ String> firewallFailOpen;
 
     /**
      * @return Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    public Output<String> firewallFailOpen() {
-        return this.firewallFailOpen;
+    public Output<Optional<String>> firewallFailOpen() {
+        return Codegen.optional(this.firewallFailOpen);
     }
     /**
      * The AWS account ID of the owner of the VPC that this firewall configuration applies to.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The AWS account ID of the owner of the VPC that this firewall configuration applies to.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The ID of the VPC that the configuration is for.

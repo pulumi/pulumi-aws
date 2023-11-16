@@ -34,7 +34,7 @@ class GetEventCategoriesResult:
 
     @property
     @pulumi.getter(name="eventCategories")
-    def event_categories(self) -> Sequence[str]:
+    def event_categories(self) -> Optional[Sequence[str]]:
         """
         List of the event categories.
         """
@@ -42,7 +42,7 @@ class GetEventCategoriesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

@@ -217,14 +217,14 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Kinesis Analytics Appliation.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The CloudWatch log stream options to monitor application errors.
@@ -261,14 +261,14 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> createTimestamp;
+    private Output</* @Nullable */ String> createTimestamp;
 
     /**
      * @return The Timestamp when the application version was created.
      * 
      */
-    public Output<String> createTimestamp() {
-        return this.createTimestamp;
+    public Output<Optional<String>> createTimestamp() {
+        return Codegen.optional(this.createTimestamp);
     }
     /**
      * Description of the application.
@@ -303,14 +303,14 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdateTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdateTimestamp;
+    private Output</* @Nullable */ String> lastUpdateTimestamp;
 
     /**
      * @return The Timestamp when the application was last updated.
      * 
      */
-    public Output<String> lastUpdateTimestamp() {
-        return this.lastUpdateTimestamp;
+    public Output<Optional<String>> lastUpdateTimestamp() {
+        return Codegen.optional(this.lastUpdateTimestamp);
     }
     /**
      * Name of the Kinesis Analytics Application.
@@ -377,14 +377,14 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The Status of the application.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -423,14 +423,14 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
-    private Output<Integer> version;
+    private Output</* @Nullable */ Integer> version;
 
     /**
      * @return The Version of the application.
      * 
      */
-    public Output<Integer> version() {
-        return this.version;
+    public Output<Optional<Integer>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecTcpRouteMatch {
-    private Integer port;
+    private @Nullable Integer port;
 
     private GetRouteSpecTcpRouteMatch() {}
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetRouteSpecTcpRouteMatch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer port;
+        private @Nullable Integer port;
         public Builder() {}
         public Builder(GetRouteSpecTcpRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetRouteSpecTcpRouteMatch {
         }
 
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         public GetRouteSpecTcpRouteMatch build() {

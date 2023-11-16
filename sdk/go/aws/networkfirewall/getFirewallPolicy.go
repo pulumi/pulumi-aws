@@ -118,16 +118,16 @@ type LookupFirewallPolicyArgs struct {
 type LookupFirewallPolicyResult struct {
 	Arn *string `pulumi:"arn"`
 	// Description of the firewall policy.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The [policy][2] for the specified firewall policy.
 	FirewallPolicies []GetFirewallPolicyFirewallPolicy `pulumi:"firewallPolicies"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string  `pulumi:"id"`
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 	// Key-value tags for the firewall policy.
 	Tags map[string]string `pulumi:"tags"`
 	// Token used for optimistic locking.
-	UpdateToken string `pulumi:"updateToken"`
+	UpdateToken *string `pulumi:"updateToken"`
 }
 
 func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallPolicyResultOutput {
@@ -177,8 +177,8 @@ func (o LookupFirewallPolicyResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // Description of the firewall policy.
-func (o LookupFirewallPolicyResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupFirewallPolicyResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The [policy][2] for the specified firewall policy.
@@ -187,8 +187,8 @@ func (o LookupFirewallPolicyResultOutput) FirewallPolicies() GetFirewallPolicyFi
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupFirewallPolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupFirewallPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFirewallPolicyResultOutput) Name() pulumi.StringPtrOutput {
@@ -201,8 +201,8 @@ func (o LookupFirewallPolicyResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Token used for optimistic locking.
-func (o LookupFirewallPolicyResultOutput) UpdateToken() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.UpdateToken }).(pulumi.StringOutput)
+func (o LookupFirewallPolicyResultOutput) UpdateToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.UpdateToken }).(pulumi.StringPtrOutput)
 }
 
 func init() {

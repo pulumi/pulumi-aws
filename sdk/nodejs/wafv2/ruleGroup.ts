@@ -38,7 +38,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the IP Set that this statement references.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      */
@@ -51,12 +51,12 @@ export class RuleGroup extends pulumi.CustomResource {
      * A friendly description of the rule group.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lockToken!: pulumi.Output<string>;
+    public /*out*/ readonly lockToken!: pulumi.Output<string | undefined>;
     /**
      * A friendly name of the rule group.
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */

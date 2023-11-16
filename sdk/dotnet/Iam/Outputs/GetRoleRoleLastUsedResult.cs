@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Iam.Outputs
         /// <summary>
         /// The date and time, in RFC 3339 format, that the role was last used.
         /// </summary>
-        public readonly string LastUsedDate;
+        public readonly string? LastUsedDate;
         /// <summary>
         /// The name of the AWS Region in which the role was last used.
         /// </summary>
-        public readonly string Region;
+        public readonly string? Region;
 
         [OutputConstructor]
         private GetRoleRoleLastUsedResult(
-            string lastUsedDate,
+            string? lastUsedDate,
 
-            string region)
+            string? region)
         {
             LastUsedDate = lastUsedDate;
             Region = region;

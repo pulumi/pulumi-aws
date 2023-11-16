@@ -72,14 +72,14 @@ export interface GetTagsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly searchString?: string;
     readonly sortBies?: outputs.costexplorer.GetTagsSortBy[];
     readonly tagKey?: string;
     /**
      * Tags that match your request.
      */
-    readonly tags: string[];
+    readonly tags?: string[];
     readonly timePeriod: outputs.costexplorer.GetTagsTimePeriod;
 }
 /**

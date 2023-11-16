@@ -54,13 +54,13 @@ type VoiceConnector struct {
 	pulumi.CustomResourceState
 
 	// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
 	AwsRegion pulumi.StringPtrOutput `pulumi:"awsRegion"`
 	// The name of the Amazon Chime Voice Connector.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The outbound host name for the Amazon Chime Voice Connector.
-	OutboundHostName pulumi.StringOutput `pulumi:"outboundHostName"`
+	OutboundHostName pulumi.StringPtrOutput `pulumi:"outboundHostName"`
 	// When enabled, requires encryption for the Amazon Chime Voice Connector.
 	//
 	// The following arguments are optional:
@@ -270,8 +270,8 @@ func (o VoiceConnectorOutput) ToVoiceConnectorOutputWithContext(ctx context.Cont
 }
 
 // ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
-func (o VoiceConnectorOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VoiceConnector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VoiceConnectorOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VoiceConnector) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
@@ -285,8 +285,8 @@ func (o VoiceConnectorOutput) Name() pulumi.StringOutput {
 }
 
 // The outbound host name for the Amazon Chime Voice Connector.
-func (o VoiceConnectorOutput) OutboundHostName() pulumi.StringOutput {
-	return o.ApplyT(func(v *VoiceConnector) pulumi.StringOutput { return v.OutboundHostName }).(pulumi.StringOutput)
+func (o VoiceConnectorOutput) OutboundHostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VoiceConnector) pulumi.StringPtrOutput { return v.OutboundHostName }).(pulumi.StringPtrOutput)
 }
 
 // When enabled, requires encryption for the Amazon Chime Voice Connector.

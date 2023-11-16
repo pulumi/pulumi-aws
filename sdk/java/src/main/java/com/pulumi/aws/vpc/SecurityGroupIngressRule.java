@@ -77,14 +77,14 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the security group rule.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The source IPv4 CIDR range.
@@ -203,14 +203,14 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="securityGroupRuleId", refs={String.class}, tree="[0]")
-    private Output<String> securityGroupRuleId;
+    private Output</* @Nullable */ String> securityGroupRuleId;
 
     /**
      * @return The ID of the security group rule.
      * 
      */
-    public Output<String> securityGroupRuleId() {
-        return this.securityGroupRuleId;
+    public Output<Optional<String>> securityGroupRuleId() {
+        return Codegen.optional(this.securityGroupRuleId);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

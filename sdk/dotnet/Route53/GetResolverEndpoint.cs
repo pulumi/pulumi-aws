@@ -189,38 +189,38 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverEndpointResult
     {
-        public readonly string Arn;
-        public readonly string Direction;
+        public readonly string? Arn;
+        public readonly string? Direction;
         public readonly ImmutableArray<Outputs.GetResolverEndpointFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<string> IpAddresses;
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string? ResolverEndpointId;
-        public readonly string Status;
-        public readonly string VpcId;
+        public readonly string? Status;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetResolverEndpointResult(
-            string arn,
+            string? arn,
 
-            string direction,
+            string? direction,
 
             ImmutableArray<Outputs.GetResolverEndpointFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ipAddresses,
 
-            string name,
+            string? name,
 
             string? resolverEndpointId,
 
-            string status,
+            string? status,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             Direction = direction;

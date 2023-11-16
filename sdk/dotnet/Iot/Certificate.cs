@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Iot
         /// The ARN of the created certificate.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Iot
         /// for more information on registering a certificate.
         /// </summary>
         [Output("certificatePem")]
-        public Output<string> CertificatePem { get; private set; } = null!;
+        public Output<string?> CertificatePem { get; private set; } = null!;
 
         /// <summary>
         /// The certificate signing request. Review
@@ -114,13 +114,13 @@ namespace Pulumi.Aws.Iot
         /// When neither CSR nor certificate is provided, the private key.
         /// </summary>
         [Output("privateKey")]
-        public Output<string> PrivateKey { get; private set; } = null!;
+        public Output<string?> PrivateKey { get; private set; } = null!;
 
         /// <summary>
         /// When neither CSR nor certificate is provided, the public key.
         /// </summary>
         [Output("publicKey")]
-        public Output<string> PublicKey { get; private set; } = null!;
+        public Output<string?> PublicKey { get; private set; } = null!;
 
 
         /// <summary>

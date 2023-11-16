@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Connect
         /// The Amazon Resource Name (ARN) of the Security Profile.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the description of the Security Profile.
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Connect
         /// The organization resource identifier for the security profile.
         /// </summary>
         [Output("organizationResourceId")]
-        public Output<string> OrganizationResourceId { get; private set; } = null!;
+        public Output<string?> OrganizationResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a list of permissions assigned to the security profile.
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Connect
         /// The identifier for the Security Profile.
         /// </summary>
         [Output("securityProfileId")]
-        public Output<string> SecurityProfileId { get; private set; } = null!;
+        public Output<string?> SecurityProfileId { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the Security Profile. If configured with a provider

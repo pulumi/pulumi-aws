@@ -56,15 +56,15 @@ type LocationFsxLustre struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The time that the FSx for Lustre location was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
-	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
+	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -72,7 +72,7 @@ type LocationFsxLustre struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the FSx for Lustre location that was described.
-	Uri pulumi.StringOutput `pulumi:"uri"`
+	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewLocationFsxLustre registers a new resource with the given unique name, arguments, and options.
@@ -271,13 +271,13 @@ func (o LocationFsxLustreOutput) ToLocationFsxLustreOutputWithContext(ctx contex
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (o LocationFsxLustreOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LocationFsxLustreOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The time that the FSx for Lustre location was created.
-func (o LocationFsxLustreOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o LocationFsxLustreOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the FSx for Lustre file system.
@@ -291,8 +291,8 @@ func (o LocationFsxLustreOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 }
 
 // Subdirectory to perform actions as source or destination.
-func (o LocationFsxLustreOutput) Subdirectory() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
+func (o LocationFsxLustreOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -308,8 +308,8 @@ func (o LocationFsxLustreOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The URL of the FSx for Lustre location that was described.
-func (o LocationFsxLustreOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+func (o LocationFsxLustreOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 type LocationFsxLustreArrayOutput struct{ *pulumi.OutputState }

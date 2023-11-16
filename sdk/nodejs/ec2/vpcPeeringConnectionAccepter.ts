@@ -93,12 +93,12 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     /**
      * The status of the VPC Peering Connection request.
      */
-    public /*out*/ readonly acceptStatus!: pulumi.Output<string>;
+    public /*out*/ readonly acceptStatus!: pulumi.Output<string | undefined>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
-    public readonly accepter!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepterAccepter>;
+    public readonly accepter!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepterAccepter | undefined>;
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
@@ -106,20 +106,20 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     /**
      * The AWS account ID of the owner of the requester VPC.
      */
-    public /*out*/ readonly peerOwnerId!: pulumi.Output<string>;
+    public /*out*/ readonly peerOwnerId!: pulumi.Output<string | undefined>;
     /**
      * The region of the accepter VPC.
      */
-    public /*out*/ readonly peerRegion!: pulumi.Output<string>;
+    public /*out*/ readonly peerRegion!: pulumi.Output<string | undefined>;
     /**
      * The ID of the requester VPC.
      */
-    public /*out*/ readonly peerVpcId!: pulumi.Output<string>;
+    public /*out*/ readonly peerVpcId!: pulumi.Output<string | undefined>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
-    public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepterRequester>;
+    public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepterRequester | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -133,7 +133,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     /**
      * The ID of the accepter VPC.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * The VPC Peering Connection ID to manage.
      */

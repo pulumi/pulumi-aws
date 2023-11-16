@@ -6,6 +6,8 @@ package com.pulumi.aws.sesv2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEmailIdentityMailFromAttributesResult {
@@ -13,26 +15,26 @@ public final class GetEmailIdentityMailFromAttributesResult {
      * @return The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
-    private String behaviorOnMxFailure;
+    private @Nullable String behaviorOnMxFailure;
     private String emailIdentity;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The custom MAIL FROM domain that you want the verified identity to use.
      * 
      */
-    private String mailFromDomain;
+    private @Nullable String mailFromDomain;
 
     private GetEmailIdentityMailFromAttributesResult() {}
     /**
      * @return The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
-    public String behaviorOnMxFailure() {
-        return this.behaviorOnMxFailure;
+    public Optional<String> behaviorOnMxFailure() {
+        return Optional.ofNullable(this.behaviorOnMxFailure);
     }
     public String emailIdentity() {
         return this.emailIdentity;
@@ -41,15 +43,15 @@ public final class GetEmailIdentityMailFromAttributesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The custom MAIL FROM domain that you want the verified identity to use.
      * 
      */
-    public String mailFromDomain() {
-        return this.mailFromDomain;
+    public Optional<String> mailFromDomain() {
+        return Optional.ofNullable(this.mailFromDomain);
     }
 
     public static Builder builder() {
@@ -61,10 +63,10 @@ public final class GetEmailIdentityMailFromAttributesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String behaviorOnMxFailure;
+        private @Nullable String behaviorOnMxFailure;
         private String emailIdentity;
-        private String id;
-        private String mailFromDomain;
+        private @Nullable String id;
+        private @Nullable String mailFromDomain;
         public Builder() {}
         public Builder(GetEmailIdentityMailFromAttributesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -75,8 +77,8 @@ public final class GetEmailIdentityMailFromAttributesResult {
         }
 
         @CustomType.Setter
-        public Builder behaviorOnMxFailure(String behaviorOnMxFailure) {
-            this.behaviorOnMxFailure = Objects.requireNonNull(behaviorOnMxFailure);
+        public Builder behaviorOnMxFailure(@Nullable String behaviorOnMxFailure) {
+            this.behaviorOnMxFailure = behaviorOnMxFailure;
             return this;
         }
         @CustomType.Setter
@@ -85,13 +87,13 @@ public final class GetEmailIdentityMailFromAttributesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder mailFromDomain(String mailFromDomain) {
-            this.mailFromDomain = Objects.requireNonNull(mailFromDomain);
+        public Builder mailFromDomain(@Nullable String mailFromDomain) {
+            this.mailFromDomain = mailFromDomain;
             return this;
         }
         public GetEmailIdentityMailFromAttributesResult build() {

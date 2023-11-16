@@ -38,117 +38,117 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("AWSCloudTrailAclCheck"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("cloudtrail.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetBucketAcl"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn,
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("aws:SourceArn"),
-//								Values: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId)),
-//								},
-//							},
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("AWSCloudTrailWrite"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("cloudtrail.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, currentCallerIdentity.AccountId), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("s3:x-amz-acl"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("bucket-owner-full-control"),
-//								},
-//							},
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("aws:SourceArn"),
-//								Values: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId)),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.ID(),
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
-//				S3BucketName:               exampleBucketV2.ID(),
-//				S3KeyPrefix:                pulumi.String("prefix"),
-//				IncludeGlobalServiceEvents: pulumi.Bool(false),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// ForceDestroy: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// currentPartition, err := aws.GetPartition(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// currentRegion, err := aws.GetRegion(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument := pulumi.All(exampleBucketV2.Arn,exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// exampleBucketV2Arn := _args[0].(*string)
+// exampleBucketV2Arn1 := _args[1].(*string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: "AWSCloudTrailAclCheck",
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "cloudtrail.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "s3:GetBucketAcl",
+// },
+// Resources: interface{}{
+// exampleBucketV2Arn,
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "aws:SourceArn",
+// Values: []string{
+// fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId),
+// },
+// },
+// },
+// },
+// {
+// Sid: "AWSCloudTrailWrite",
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "cloudtrail.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "s3:PutObject",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v/prefix/AWSLogs/%v/*", exampleBucketV2Arn1, currentCallerIdentity.AccountId),
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "s3:x-amz-acl",
+// Values: []string{
+// "bucket-owner-full-control",
+// },
+// },
+// {
+// Test: "StringEquals",
+// Variable: "aws:SourceArn",
+// Values: []string{
+// fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId),
+// },
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+// Bucket: exampleBucketV2.ID(),
+// Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &examplePolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
+// S3BucketName: exampleBucketV2.ID(),
+// S3KeyPrefix: pulumi.String("prefix"),
+// IncludeGlobalServiceEvents: pulumi.Bool(false),
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleBucketPolicy,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Data Event Logging
 //
@@ -301,7 +301,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
-//				CloudWatchLogsGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//				CloudWatchLogsGroupArn: exampleLogGroup.Arn.ApplyT(func(arn *string) (string, error) {
 //					return fmt.Sprintf("%v:*", arn), nil
 //				}).(pulumi.StringOutput),
 //			})
@@ -329,7 +329,7 @@ type Trail struct {
 	// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
 	AdvancedEventSelectors TrailAdvancedEventSelectorArrayOutput `pulumi:"advancedEventSelectors"`
 	// ARN of the trail.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
 	CloudWatchLogsGroupArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogsGroupArn"`
 	// Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
@@ -341,7 +341,7 @@ type Trail struct {
 	// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
 	EventSelectors TrailEventSelectorArrayOutput `pulumi:"eventSelectors"`
 	// Region in which the trail was created.
-	HomeRegion pulumi.StringOutput `pulumi:"homeRegion"`
+	HomeRegion pulumi.StringPtrOutput `pulumi:"homeRegion"`
 	// Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
 	IncludeGlobalServiceEvents pulumi.BoolPtrOutput `pulumi:"includeGlobalServiceEvents"`
 	// Configuration block for identifying unusual operational activity. See details below.
@@ -668,8 +668,8 @@ func (o TrailOutput) AdvancedEventSelectors() TrailAdvancedEventSelectorArrayOut
 }
 
 // ARN of the trail.
-func (o TrailOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TrailOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
@@ -698,8 +698,8 @@ func (o TrailOutput) EventSelectors() TrailEventSelectorArrayOutput {
 }
 
 // Region in which the trail was created.
-func (o TrailOutput) HomeRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.HomeRegion }).(pulumi.StringOutput)
+func (o TrailOutput) HomeRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.HomeRegion }).(pulumi.StringPtrOutput)
 }
 
 // Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.

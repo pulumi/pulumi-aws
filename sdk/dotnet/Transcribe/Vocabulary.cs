@@ -76,13 +76,13 @@ namespace Pulumi.Aws.Transcribe
         /// ARN of the Vocabulary.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Generated download URI.
         /// </summary>
         [Output("downloadUri")]
-        public Output<string> DownloadUri { get; private set; } = null!;
+        public Output<string?> DownloadUri { get; private set; } = null!;
 
         /// <summary>
         /// The language code you selected for your vocabulary.
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Transcribe
         /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         /// </summary>
         [Output("vocabularyFileUri")]
-        public Output<string> VocabularyFileUri { get; private set; } = null!;
+        public Output<string?> VocabularyFileUri { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Vocabulary.

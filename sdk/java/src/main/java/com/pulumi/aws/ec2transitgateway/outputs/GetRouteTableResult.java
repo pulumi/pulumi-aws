@@ -10,6 +10,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,55 +19,55 @@ public final class GetRouteTableResult {
      * @return EC2 Transit Gateway Route Table ARN.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Boolean whether this is the default association route table for the EC2 Transit Gateway
      * 
      */
-    private Boolean defaultAssociationRouteTable;
+    private @Nullable Boolean defaultAssociationRouteTable;
     /**
      * @return Boolean whether this is the default propagation route table for the EC2 Transit Gateway
      * 
      */
-    private Boolean defaultPropagationRouteTable;
+    private @Nullable Boolean defaultPropagationRouteTable;
     private @Nullable List<GetRouteTableFilter> filters;
     /**
      * @return EC2 Transit Gateway Route Table identifier
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Route Table
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return EC2 Transit Gateway identifier
      * 
      */
-    private String transitGatewayId;
+    private @Nullable String transitGatewayId;
 
     private GetRouteTableResult() {}
     /**
      * @return EC2 Transit Gateway Route Table ARN.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Boolean whether this is the default association route table for the EC2 Transit Gateway
      * 
      */
-    public Boolean defaultAssociationRouteTable() {
-        return this.defaultAssociationRouteTable;
+    public Optional<Boolean> defaultAssociationRouteTable() {
+        return Optional.ofNullable(this.defaultAssociationRouteTable);
     }
     /**
      * @return Boolean whether this is the default propagation route table for the EC2 Transit Gateway
      * 
      */
-    public Boolean defaultPropagationRouteTable() {
-        return this.defaultPropagationRouteTable;
+    public Optional<Boolean> defaultPropagationRouteTable() {
+        return Optional.ofNullable(this.defaultPropagationRouteTable);
     }
     public List<GetRouteTableFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -75,22 +76,22 @@ public final class GetRouteTableResult {
      * @return EC2 Transit Gateway Route Table identifier
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Key-value tags for the EC2 Transit Gateway Route Table
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return EC2 Transit Gateway identifier
      * 
      */
-    public String transitGatewayId() {
-        return this.transitGatewayId;
+    public Optional<String> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
     }
 
     public static Builder builder() {
@@ -102,13 +103,13 @@ public final class GetRouteTableResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Boolean defaultAssociationRouteTable;
-        private Boolean defaultPropagationRouteTable;
+        private @Nullable String arn;
+        private @Nullable Boolean defaultAssociationRouteTable;
+        private @Nullable Boolean defaultPropagationRouteTable;
         private @Nullable List<GetRouteTableFilter> filters;
-        private String id;
-        private Map<String,String> tags;
-        private String transitGatewayId;
+        private @Nullable String id;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String transitGatewayId;
         public Builder() {}
         public Builder(GetRouteTableResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -122,18 +123,18 @@ public final class GetRouteTableResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultAssociationRouteTable(Boolean defaultAssociationRouteTable) {
-            this.defaultAssociationRouteTable = Objects.requireNonNull(defaultAssociationRouteTable);
+        public Builder defaultAssociationRouteTable(@Nullable Boolean defaultAssociationRouteTable) {
+            this.defaultAssociationRouteTable = defaultAssociationRouteTable;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultPropagationRouteTable(Boolean defaultPropagationRouteTable) {
-            this.defaultPropagationRouteTable = Objects.requireNonNull(defaultPropagationRouteTable);
+        public Builder defaultPropagationRouteTable(@Nullable Boolean defaultPropagationRouteTable) {
+            this.defaultPropagationRouteTable = defaultPropagationRouteTable;
             return this;
         }
         @CustomType.Setter
@@ -145,18 +146,18 @@ public final class GetRouteTableResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+        public Builder transitGatewayId(@Nullable String transitGatewayId) {
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         public GetRouteTableResult build() {

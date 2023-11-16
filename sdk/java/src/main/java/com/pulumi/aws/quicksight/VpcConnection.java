@@ -108,42 +108,42 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the VPC connection.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      * 
      */
     @Export(name="availabilityStatus", refs={String.class}, tree="[0]")
-    private Output<String> availabilityStatus;
+    private Output</* @Nullable */ String> availabilityStatus;
 
     /**
      * @return The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      * 
      */
-    public Output<String> availabilityStatus() {
-        return this.availabilityStatus;
+    public Output<Optional<String>> availabilityStatus() {
+        return Codegen.optional(this.availabilityStatus);
     }
     /**
      * AWS account ID.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.

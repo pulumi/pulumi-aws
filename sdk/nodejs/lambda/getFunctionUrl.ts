@@ -53,41 +53,41 @@ export interface GetFunctionUrlResult {
     /**
      * Type of authentication that the function URL uses.
      */
-    readonly authorizationType: string;
+    readonly authorizationType?: string;
     /**
      * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
      */
-    readonly cors: outputs.lambda.GetFunctionUrlCor[];
+    readonly cors?: outputs.lambda.GetFunctionUrlCor[];
     /**
      * When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      */
-    readonly creationTime: string;
+    readonly creationTime?: string;
     /**
      * ARN of the function.
      */
-    readonly functionArn: string;
+    readonly functionArn?: string;
     readonly functionName: string;
     /**
      * HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
      */
-    readonly functionUrl: string;
+    readonly functionUrl?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
      */
-    readonly invokeMode: string;
+    readonly invokeMode?: string;
     /**
      * When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      */
-    readonly lastModifiedTime: string;
+    readonly lastModifiedTime?: string;
     readonly qualifier?: string;
     /**
      * Generated ID for the endpoint.
      */
-    readonly urlId: string;
+    readonly urlId?: string;
 }
 /**
  * Provides information about a Lambda function URL.

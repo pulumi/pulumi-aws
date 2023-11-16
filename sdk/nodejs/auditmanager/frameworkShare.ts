@@ -78,7 +78,7 @@ export class FrameworkShare extends pulumi.CustomResource {
     /**
      * Status of the share request.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FrameworkShare resource with the given unique name, arguments, and options.

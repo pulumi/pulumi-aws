@@ -341,7 +341,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * ARN of the Data Source.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
@@ -349,7 +349,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The Unix timestamp of when the Data Source was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      */
@@ -357,7 +357,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The unique identifiers of the Data Source.
      */
-    public /*out*/ readonly dataSourceId!: pulumi.Output<string>;
+    public /*out*/ readonly dataSourceId!: pulumi.Output<string | undefined>;
     /**
      * A description for the Data Source connector.
      */
@@ -365,7 +365,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    public /*out*/ readonly errorMessage!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the index for your Amazon Kendra data source.
      */
@@ -373,7 +373,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      */
-    public readonly languageCode!: pulumi.Output<string>;
+    public readonly languageCode!: pulumi.Output<string | undefined>;
     /**
      * A name for your data source connector.
      */
@@ -389,7 +389,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -409,7 +409,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The Unix timestamp of when the Data Source was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.

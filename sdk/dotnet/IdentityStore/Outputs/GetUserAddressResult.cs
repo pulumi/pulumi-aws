@@ -16,53 +16,53 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// <summary>
         /// The country that this address is in.
         /// </summary>
-        public readonly string Country;
+        public readonly string? Country;
         /// <summary>
         /// The name that is typically displayed when the name is shown for display.
         /// </summary>
-        public readonly string Formatted;
+        public readonly string? Formatted;
         /// <summary>
         /// The address locality.
         /// </summary>
-        public readonly string Locality;
+        public readonly string? Locality;
         /// <summary>
         /// The postal code of the address.
         /// </summary>
-        public readonly string PostalCode;
+        public readonly string? PostalCode;
         /// <summary>
         /// When `true`, this is the primary phone number associated with the user.
         /// </summary>
-        public readonly bool Primary;
+        public readonly bool? Primary;
         /// <summary>
         /// The region of the address.
         /// </summary>
-        public readonly string Region;
+        public readonly string? Region;
         /// <summary>
         /// The street of the address.
         /// </summary>
-        public readonly string StreetAddress;
+        public readonly string? StreetAddress;
         /// <summary>
         /// The type of phone number.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetUserAddressResult(
-            string country,
+            string? country,
 
-            string formatted,
+            string? formatted,
 
-            string locality,
+            string? locality,
 
-            string postalCode,
+            string? postalCode,
 
-            bool primary,
+            bool? primary,
 
-            string region,
+            string? region,
 
-            string streetAddress,
+            string? streetAddress,
 
-            string type)
+            string? type)
         {
             Country = country;
             Formatted = formatted;

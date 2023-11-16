@@ -75,7 +75,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Dedicated Host.
         """
@@ -83,7 +83,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="assetId")
-    def asset_id(self) -> str:
+    def asset_id(self) -> Optional[str]:
         """
         The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
         """
@@ -91,7 +91,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="autoPlacement")
-    def auto_placement(self) -> str:
+    def auto_placement(self) -> Optional[str]:
         """
         Whether auto-placement is on or off.
         """
@@ -99,7 +99,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         """
         Availability Zone of the Dedicated Host.
         """
@@ -107,7 +107,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter
-    def cores(self) -> int:
+    def cores(self) -> Optional[int]:
         """
         Number of cores on the Dedicated Host.
         """
@@ -120,12 +120,12 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="hostId")
-    def host_id(self) -> str:
+    def host_id(self) -> Optional[str]:
         return pulumi.get(self, "host_id")
 
     @property
     @pulumi.getter(name="hostRecovery")
-    def host_recovery(self) -> str:
+    def host_recovery(self) -> Optional[str]:
         """
         Whether host recovery is enabled or disabled for the Dedicated Host.
         """
@@ -133,7 +133,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -141,7 +141,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="instanceFamily")
-    def instance_family(self) -> str:
+    def instance_family(self) -> Optional[str]:
         """
         Instance family supported by the Dedicated Host. For example, "m5".
         """
@@ -149,7 +149,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> Optional[str]:
         """
         Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
         """
@@ -157,7 +157,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> str:
+    def outpost_arn(self) -> Optional[str]:
         """
         ARN of the AWS Outpost on which the Dedicated Host is allocated.
         """
@@ -165,7 +165,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         ID of the AWS account that owns the Dedicated Host.
         """
@@ -173,7 +173,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter
-    def sockets(self) -> int:
+    def sockets(self) -> Optional[int]:
         """
         Number of sockets on the Dedicated Host.
         """
@@ -181,12 +181,12 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="totalVcpus")
-    def total_vcpus(self) -> int:
+    def total_vcpus(self) -> Optional[int]:
         """
         Total number of vCPUs on the Dedicated Host.
         """

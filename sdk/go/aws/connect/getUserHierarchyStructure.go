@@ -59,8 +59,8 @@ type LookupUserHierarchyStructureResult struct {
 	// Block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructures []GetUserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructures"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
+	Id         *string `pulumi:"id"`
+	InstanceId string  `pulumi:"instanceId"`
 }
 
 func LookupUserHierarchyStructureOutput(ctx *pulumi.Context, args LookupUserHierarchyStructureOutputArgs, opts ...pulumi.InvokeOption) LookupUserHierarchyStructureResultOutput {
@@ -109,8 +109,8 @@ func (o LookupUserHierarchyStructureResultOutput) HierarchyStructures() GetUserH
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupUserHierarchyStructureResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserHierarchyStructureResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupUserHierarchyStructureResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserHierarchyStructureResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserHierarchyStructureResultOutput) InstanceId() pulumi.StringOutput {

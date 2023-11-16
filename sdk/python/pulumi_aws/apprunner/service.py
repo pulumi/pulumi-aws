@@ -777,7 +777,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the App Runner service.
         """
@@ -785,7 +785,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoScalingConfigurationArn")
-    def auto_scaling_configuration_arn(self) -> pulumi.Output[str]:
+    def auto_scaling_configuration_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
         """
@@ -801,7 +801,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckConfiguration")
-    def health_check_configuration(self) -> pulumi.Output['outputs.ServiceHealthCheckConfiguration']:
+    def health_check_configuration(self) -> pulumi.Output[Optional['outputs.ServiceHealthCheckConfiguration']]:
         """
         Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         """
@@ -809,7 +809,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceConfiguration")
-    def instance_configuration(self) -> pulumi.Output['outputs.ServiceInstanceConfiguration']:
+    def instance_configuration(self) -> pulumi.Output[Optional['outputs.ServiceInstanceConfiguration']]:
         """
         The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         """
@@ -817,7 +817,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> pulumi.Output['outputs.ServiceNetworkConfiguration']:
+    def network_configuration(self) -> pulumi.Output[Optional['outputs.ServiceNetworkConfiguration']]:
         """
         Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         """
@@ -833,7 +833,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> pulumi.Output[str]:
+    def service_id(self) -> pulumi.Output[Optional[str]]:
         """
         An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         """
@@ -849,7 +849,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceUrl")
-    def service_url(self) -> pulumi.Output[str]:
+    def service_url(self) -> pulumi.Output[Optional[str]]:
         """
         Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         """
@@ -867,7 +867,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Current state of the App Runner service.
         """

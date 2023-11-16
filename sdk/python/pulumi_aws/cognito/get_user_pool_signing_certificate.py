@@ -34,7 +34,7 @@ class GetUserPoolSigningCertificateResult:
 
     @property
     @pulumi.getter
-    def certificate(self) -> str:
+    def certificate(self) -> Optional[str]:
         """
         Certificate string
         """
@@ -42,7 +42,7 @@ class GetUserPoolSigningCertificateResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

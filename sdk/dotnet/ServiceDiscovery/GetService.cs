@@ -168,11 +168,11 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <summary>
         /// ARN of the service.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the service.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
         /// </summary>
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// ID of the namespace to use for DNS configuration.
@@ -201,13 +201,13 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <summary>
         /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> TagsAll;
+        public readonly ImmutableDictionary<string, string>? TagsAll;
 
         [OutputConstructor]
         private GetServiceResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetServiceDnsConfigResult> dnsConfigs,
 
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.ServiceDiscovery
 
             ImmutableArray<Outputs.GetServiceHealthCheckCustomConfigResult> healthCheckCustomConfigs,
 
-            string id,
+            string? id,
 
             string name,
 
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.ServiceDiscovery
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableDictionary<string, string> tagsAll)
+            ImmutableDictionary<string, string>? tagsAll)
         {
             Arn = arn;
             Description = description;

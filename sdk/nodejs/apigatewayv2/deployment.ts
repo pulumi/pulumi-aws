@@ -67,7 +67,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * Whether the deployment was automatically released.
      */
-    public /*out*/ readonly autoDeployed!: pulumi.Output<boolean>;
+    public /*out*/ readonly autoDeployed!: pulumi.Output<boolean | undefined>;
     /**
      * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */

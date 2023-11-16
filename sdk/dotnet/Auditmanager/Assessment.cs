@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Amazon Resource Name (ARN) of the assessment.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Assessment report storage destination configuration. See `assessment_reports_destination` below.
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

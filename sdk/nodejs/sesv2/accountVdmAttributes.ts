@@ -67,11 +67,11 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
-    public readonly dashboardAttributes!: pulumi.Output<outputs.sesv2.AccountVdmAttributesDashboardAttributes>;
+    public readonly dashboardAttributes!: pulumi.Output<outputs.sesv2.AccountVdmAttributesDashboardAttributes | undefined>;
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
-    public readonly guardianAttributes!: pulumi.Output<outputs.sesv2.AccountVdmAttributesGuardianAttributes>;
+    public readonly guardianAttributes!: pulumi.Output<outputs.sesv2.AccountVdmAttributesGuardianAttributes | undefined>;
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *

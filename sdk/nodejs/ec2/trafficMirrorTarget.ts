@@ -69,7 +69,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
     /**
      * The ARN of the traffic mirror target.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description of the traffic mirror session.
      */
@@ -89,7 +89,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the traffic mirror target.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *

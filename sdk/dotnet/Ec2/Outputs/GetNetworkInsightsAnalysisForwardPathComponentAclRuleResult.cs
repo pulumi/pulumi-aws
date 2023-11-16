@@ -13,26 +13,26 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult
     {
-        public readonly string Cidr;
-        public readonly bool Egress;
+        public readonly string? Cidr;
+        public readonly bool? Egress;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult> PortRanges;
-        public readonly string Protocol;
-        public readonly string RuleAction;
-        public readonly int RuleNumber;
+        public readonly string? Protocol;
+        public readonly string? RuleAction;
+        public readonly int? RuleNumber;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult(
-            string cidr,
+            string? cidr,
 
-            bool egress,
+            bool? egress,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult> portRanges,
 
-            string protocol,
+            string? protocol,
 
-            string ruleAction,
+            string? ruleAction,
 
-            int ruleNumber)
+            int? ruleNumber)
         {
             Cidr = cidr;
             Egress = egress;

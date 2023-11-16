@@ -83,13 +83,13 @@ type Instance struct {
 	pulumi.CustomResourceState
 
 	// The time that the Verified Access Instance was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// A description for the AWS Verified Access Instance.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// The time that the Verified Access Instance was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -276,8 +276,8 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 }
 
 // The time that the Verified Access Instance was created.
-func (o InstanceOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o InstanceOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // A description for the AWS Verified Access Instance.
@@ -291,8 +291,8 @@ func (o InstanceOutput) FipsEnabled() pulumi.BoolPtrOutput {
 }
 
 // The time that the Verified Access Instance was last updated.
-func (o InstanceOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o InstanceOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

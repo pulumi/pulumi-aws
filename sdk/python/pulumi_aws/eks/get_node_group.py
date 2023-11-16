@@ -86,7 +86,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="amiType")
-    def ami_type(self) -> str:
+    def ami_type(self) -> Optional[str]:
         """
         Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
         """
@@ -94,7 +94,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the EKS Node Group.
         """
@@ -102,7 +102,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="capacityType")
-    def capacity_type(self) -> str:
+    def capacity_type(self) -> Optional[str]:
         """
         Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
         """
@@ -115,7 +115,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="diskSize")
-    def disk_size(self) -> int:
+    def disk_size(self) -> Optional[int]:
         """
         Disk size in GiB for worker nodes.
         """
@@ -123,7 +123,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -131,7 +131,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Sequence[str]:
+    def instance_types(self) -> Optional[Sequence[str]]:
         """
         Set of instance types associated with the EKS Node Group.
         """
@@ -139,7 +139,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, str]:
+    def labels(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         """
@@ -147,7 +147,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="launchTemplates")
-    def launch_templates(self) -> Sequence['outputs.GetNodeGroupLaunchTemplateResult']:
+    def launch_templates(self) -> Optional[Sequence['outputs.GetNodeGroupLaunchTemplateResult']]:
         """
         Nested attribute containing information about the launch template used to create the EKS Node Group.
         """
@@ -160,7 +160,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="nodeRoleArn")
-    def node_role_arn(self) -> str:
+    def node_role_arn(self) -> Optional[str]:
         """
         ARN of the IAM Role that provides permissions for the EKS Node Group.
         """
@@ -168,7 +168,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="releaseVersion")
-    def release_version(self) -> str:
+    def release_version(self) -> Optional[str]:
         """
         AMI version of the EKS Node Group.
         """
@@ -176,7 +176,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="remoteAccesses")
-    def remote_accesses(self) -> Sequence['outputs.GetNodeGroupRemoteAccessResult']:
+    def remote_accesses(self) -> Optional[Sequence['outputs.GetNodeGroupRemoteAccessResult']]:
         """
         Configuration block with remote access settings.
         """
@@ -184,7 +184,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter
-    def resources(self) -> Sequence['outputs.GetNodeGroupResourceResult']:
+    def resources(self) -> Optional[Sequence['outputs.GetNodeGroupResourceResult']]:
         """
         List of objects containing information about underlying resources.
         """
@@ -192,7 +192,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="scalingConfigs")
-    def scaling_configs(self) -> Sequence['outputs.GetNodeGroupScalingConfigResult']:
+    def scaling_configs(self) -> Optional[Sequence['outputs.GetNodeGroupScalingConfigResult']]:
         """
         Configuration block with scaling settings.
         """
@@ -200,7 +200,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the EKS Node Group.
         """
@@ -208,7 +208,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Identifiers of EC2 Subnets to associate with the EKS Node Group.
         """
@@ -216,7 +216,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags.
         """
@@ -224,7 +224,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter
-    def taints(self) -> Sequence['outputs.GetNodeGroupTaintResult']:
+    def taints(self) -> Optional[Sequence['outputs.GetNodeGroupTaintResult']]:
         """
         List of objects containing information about taints applied to the nodes in the EKS Node Group.
         """
@@ -232,7 +232,7 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Kubernetes version.
         """

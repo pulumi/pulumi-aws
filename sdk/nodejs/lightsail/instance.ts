@@ -162,7 +162,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The ARN of the Lightsail instance (matches `id`).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone in which to create your
      * instance (see list below)
@@ -179,11 +179,11 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The number of vCPUs the instance has.
      */
-    public /*out*/ readonly cpuCount!: pulumi.Output<number>;
+    public /*out*/ readonly cpuCount!: pulumi.Output<number | undefined>;
     /**
      * The timestamp when the instance was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
      */
@@ -191,11 +191,11 @@ export class Instance extends pulumi.CustomResource {
     /**
      * List of IPv6 addresses for the Lightsail instance.
      */
-    public /*out*/ readonly ipv6Addresses!: pulumi.Output<string[]>;
+    public /*out*/ readonly ipv6Addresses!: pulumi.Output<string[] | undefined>;
     /**
      * A Boolean value indicating whether this instance has a static IP assigned to it.
      */
-    public /*out*/ readonly isStaticIp!: pulumi.Output<boolean>;
+    public /*out*/ readonly isStaticIp!: pulumi.Output<boolean | undefined>;
     /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
@@ -208,15 +208,15 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The private IP address of the instance.
      */
-    public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
+    public /*out*/ readonly privateIpAddress!: pulumi.Output<string | undefined>;
     /**
      * The public IP address of the instance.
      */
-    public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
+    public /*out*/ readonly publicIpAddress!: pulumi.Output<string | undefined>;
     /**
      * The amount of RAM in GB on the instance (e.g., 1.0).
      */
-    public /*out*/ readonly ramSize!: pulumi.Output<number>;
+    public /*out*/ readonly ramSize!: pulumi.Output<number | undefined>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -234,7 +234,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The user name for connecting to the instance (e.g., ec2-user).
      */
-    public /*out*/ readonly username!: pulumi.Output<string>;
+    public /*out*/ readonly username!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.

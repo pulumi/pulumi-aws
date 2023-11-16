@@ -192,11 +192,11 @@ export class AnomalySubscription extends pulumi.CustomResource {
     /**
      * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the anomaly subscription.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
      */
@@ -226,7 +226,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      */
-    public readonly thresholdExpression!: pulumi.Output<outputs.costexplorer.AnomalySubscriptionThresholdExpression>;
+    public readonly thresholdExpression!: pulumi.Output<outputs.costexplorer.AnomalySubscriptionThresholdExpression | undefined>;
 
     /**
      * Create a AnomalySubscription resource with the given unique name, arguments, and options.

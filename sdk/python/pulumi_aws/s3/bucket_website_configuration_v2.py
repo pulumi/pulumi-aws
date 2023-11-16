@@ -592,7 +592,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingRuleDetails")
-    def routing_rule_details(self) -> pulumi.Output[str]:
+    def routing_rule_details(self) -> pulumi.Output[Optional[str]]:
         """
         JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
@@ -601,7 +601,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> pulumi.Output[Sequence['outputs.BucketWebsiteConfigurationV2RoutingRule']]:
+    def routing_rules(self) -> pulumi.Output[Optional[Sequence['outputs.BucketWebsiteConfigurationV2RoutingRule']]]:
         """
         List of rules that define when a redirect is applied and the redirect behavior. See below.
         """
@@ -609,7 +609,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteDomain")
-    def website_domain(self) -> pulumi.Output[str]:
+    def website_domain(self) -> pulumi.Output[Optional[str]]:
         """
         Domain of the website endpoint. This is used to create Route 53 alias records.
         """
@@ -617,7 +617,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteEndpoint")
-    def website_endpoint(self) -> pulumi.Output[str]:
+    def website_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Website endpoint.
         """

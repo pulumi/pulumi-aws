@@ -720,7 +720,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the product.
         """
@@ -728,7 +728,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Time when the product was created.
         """
@@ -736,7 +736,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the product.
         """
@@ -744,7 +744,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def distributor(self) -> pulumi.Output[str]:
+    def distributor(self) -> pulumi.Output[Optional[str]]:
         """
         Distributor (i.e., vendor) of the product.
         """
@@ -752,7 +752,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasDefaultPath")
-    def has_default_path(self) -> pulumi.Output[bool]:
+    def has_default_path(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
         """
@@ -784,7 +784,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the product.
         """
@@ -792,7 +792,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportDescription")
-    def support_description(self) -> pulumi.Output[str]:
+    def support_description(self) -> pulumi.Output[Optional[str]]:
         """
         Support information about the product.
         """
@@ -800,7 +800,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportEmail")
-    def support_email(self) -> pulumi.Output[str]:
+    def support_email(self) -> pulumi.Output[Optional[str]]:
         """
         Contact email for product support.
         """
@@ -808,7 +808,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportUrl")
-    def support_url(self) -> pulumi.Output[str]:
+    def support_url(self) -> pulumi.Output[Optional[str]]:
         """
         Contact URL for product support.
         """

@@ -116,14 +116,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the workspace.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
@@ -144,14 +144,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="prometheusEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> prometheusEndpoint;
+    private Output</* @Nullable */ String> prometheusEndpoint;
 
     /**
      * @return Prometheus endpoint available for this workspace.
      * 
      */
-    public Output<String> prometheusEndpoint() {
-        return this.prometheusEndpoint;
+    public Output<Optional<String>> prometheusEndpoint() {
+        return Codegen.optional(this.prometheusEndpoint);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

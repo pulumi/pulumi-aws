@@ -347,7 +347,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="promotionalMessagesPerSecond")
-    def promotional_messages_per_second(self) -> pulumi.Output[int]:
+    def promotional_messages_per_second(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of promotional messages that can be sent per second.
         """
@@ -371,7 +371,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transactionalMessagesPerSecond")
-    def transactional_messages_per_second(self) -> pulumi.Output[int]:
+    def transactional_messages_per_second(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of transactional messages per second that can be sent.
         """

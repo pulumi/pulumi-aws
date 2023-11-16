@@ -96,17 +96,17 @@ type Room struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Room.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// List of Logging Configuration
 	// ARNs to attach to the room.
 	LoggingConfigurationIdentifiers pulumi.StringArrayOutput `pulumi:"loggingConfigurationIdentifiers"`
 	// Maximum number of characters in a single
 	// message. Messages are expected to be UTF-8 encoded and this limit applies
 	// specifically to rune/code-point count, not number of bytes.
-	MaximumMessageLength pulumi.IntOutput `pulumi:"maximumMessageLength"`
+	MaximumMessageLength pulumi.IntPtrOutput `pulumi:"maximumMessageLength"`
 	// Maximum number of messages per
 	// second that can be sent to the room (by all clients).
-	MaximumMessageRatePerSecond pulumi.IntOutput `pulumi:"maximumMessageRatePerSecond"`
+	MaximumMessageRatePerSecond pulumi.IntPtrOutput `pulumi:"maximumMessageRatePerSecond"`
 	// Configuration information for optional
 	// review of messages.
 	MessageReviewHandler RoomMessageReviewHandlerPtrOutput `pulumi:"messageReviewHandler"`
@@ -338,8 +338,8 @@ func (o RoomOutput) ToRoomOutputWithContext(ctx context.Context) RoomOutput {
 }
 
 // ARN of the Room.
-func (o RoomOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Room) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RoomOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Room) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // List of Logging Configuration
@@ -351,14 +351,14 @@ func (o RoomOutput) LoggingConfigurationIdentifiers() pulumi.StringArrayOutput {
 // Maximum number of characters in a single
 // message. Messages are expected to be UTF-8 encoded and this limit applies
 // specifically to rune/code-point count, not number of bytes.
-func (o RoomOutput) MaximumMessageLength() pulumi.IntOutput {
-	return o.ApplyT(func(v *Room) pulumi.IntOutput { return v.MaximumMessageLength }).(pulumi.IntOutput)
+func (o RoomOutput) MaximumMessageLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Room) pulumi.IntPtrOutput { return v.MaximumMessageLength }).(pulumi.IntPtrOutput)
 }
 
 // Maximum number of messages per
 // second that can be sent to the room (by all clients).
-func (o RoomOutput) MaximumMessageRatePerSecond() pulumi.IntOutput {
-	return o.ApplyT(func(v *Room) pulumi.IntOutput { return v.MaximumMessageRatePerSecond }).(pulumi.IntOutput)
+func (o RoomOutput) MaximumMessageRatePerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Room) pulumi.IntPtrOutput { return v.MaximumMessageRatePerSecond }).(pulumi.IntPtrOutput)
 }
 
 // Configuration information for optional

@@ -1222,7 +1222,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Data Source.
         """
@@ -1238,7 +1238,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The Unix timestamp of when the Data Source was created.
         """
@@ -1254,7 +1254,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> pulumi.Output[str]:
+    def data_source_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifiers of the Data Source.
         """
@@ -1270,7 +1270,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> pulumi.Output[str]:
+    def error_message(self) -> pulumi.Output[Optional[str]]:
         """
         When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
         """
@@ -1286,7 +1286,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="languageCode")
-    def language_code(self) -> pulumi.Output[str]:
+    def language_code(self) -> pulumi.Output[Optional[str]]:
         """
         The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         """
@@ -1318,7 +1318,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
         """
@@ -1355,7 +1355,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> pulumi.Output[str]:
+    def updated_at(self) -> pulumi.Output[Optional[str]]:
         """
         The Unix timestamp of when the Data Source was last updated.
         """

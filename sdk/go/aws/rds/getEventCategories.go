@@ -85,7 +85,7 @@ type GetEventCategoriesResult struct {
 	// List of the event categories.
 	EventCategories []string `pulumi:"eventCategories"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string  `pulumi:"id"`
+	Id         *string `pulumi:"id"`
 	SourceType *string `pulumi:"sourceType"`
 }
 
@@ -133,8 +133,8 @@ func (o GetEventCategoriesResultOutput) EventCategories() pulumi.StringArrayOutp
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetEventCategoriesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEventCategoriesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetEventCategoriesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEventCategoriesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetEventCategoriesResultOutput) SourceType() pulumi.StringPtrOutput {

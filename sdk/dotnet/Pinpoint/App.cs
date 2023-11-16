@@ -53,13 +53,13 @@ namespace Pulumi.Aws.Pinpoint
         /// The Application ID of the Pinpoint App.
         /// </summary>
         [Output("applicationId")]
-        public Output<string> ApplicationId { get; private set; } = null!;
+        public Output<string?> ApplicationId { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the PinPoint Application
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Pinpoint
         /// The name of the Pinpoint application. Conflicts with `name`
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own

@@ -46,7 +46,7 @@ class GetLogGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
         """
@@ -54,7 +54,7 @@ class GetLogGroupResult:
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> int:
+    def creation_time(self) -> Optional[int]:
         """
         Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         """
@@ -62,7 +62,7 @@ class GetLogGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -70,7 +70,7 @@ class GetLogGroupResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         ARN of the KMS Key to use when encrypting log data.
         """
@@ -83,7 +83,7 @@ class GetLogGroupResult:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> int:
+    def retention_in_days(self) -> Optional[int]:
         """
         Number of days log events retained in the specified log group.
         """
@@ -91,7 +91,7 @@ class GetLogGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assign to the resource.
         """

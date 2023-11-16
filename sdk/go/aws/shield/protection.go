@@ -82,7 +82,7 @@ type Protection struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Protection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A friendly name for the Protection you are creating.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN (Amazon Resource Name) of the resource to be protected.
@@ -272,8 +272,8 @@ func (o ProtectionOutput) ToProtectionOutputWithContext(ctx context.Context) Pro
 }
 
 // The ARN of the Protection.
-func (o ProtectionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Protection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProtectionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Protection) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A friendly name for the Protection you are creating.

@@ -15,43 +15,43 @@ public final class GetQuicksightGroupResult {
      * @return The Amazon Resource Name (ARN) for the group.
      * 
      */
-    private String arn;
-    private String awsAccountId;
+    private @Nullable String arn;
+    private @Nullable String awsAccountId;
     /**
      * @return The group description.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String groupName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String namespace;
     /**
      * @return The principal ID of the group.
      * 
      */
-    private String principalId;
+    private @Nullable String principalId;
 
     private GetQuicksightGroupResult() {}
     /**
      * @return The Amazon Resource Name (ARN) for the group.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String awsAccountId() {
-        return this.awsAccountId;
+    public Optional<String> awsAccountId() {
+        return Optional.ofNullable(this.awsAccountId);
     }
     /**
      * @return The group description.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String groupName() {
         return this.groupName;
@@ -60,8 +60,8 @@ public final class GetQuicksightGroupResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
@@ -70,8 +70,8 @@ public final class GetQuicksightGroupResult {
      * @return The principal ID of the group.
      * 
      */
-    public String principalId() {
-        return this.principalId;
+    public Optional<String> principalId() {
+        return Optional.ofNullable(this.principalId);
     }
 
     public static Builder builder() {
@@ -83,13 +83,13 @@ public final class GetQuicksightGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String awsAccountId;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable String awsAccountId;
+        private @Nullable String description;
         private String groupName;
-        private String id;
+        private @Nullable String id;
         private @Nullable String namespace;
-        private String principalId;
+        private @Nullable String principalId;
         public Builder() {}
         public Builder(GetQuicksightGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -103,18 +103,18 @@ public final class GetQuicksightGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
+        public Builder awsAccountId(@Nullable String awsAccountId) {
+            this.awsAccountId = awsAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -123,8 +123,8 @@ public final class GetQuicksightGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -133,8 +133,8 @@ public final class GetQuicksightGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+        public Builder principalId(@Nullable String principalId) {
+            this.principalId = principalId;
             return this;
         }
         public GetQuicksightGroupResult build() {

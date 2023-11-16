@@ -85,68 +85,68 @@ export interface GetSnapshotResult {
     /**
      * ARN of the EBS Snapshot.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The data encryption key identifier for the snapshot.
      */
-    readonly dataEncryptionKeyId: string;
+    readonly dataEncryptionKeyId?: string;
     /**
      * Description for the snapshot
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Whether the snapshot is encrypted.
      */
-    readonly encrypted: boolean;
+    readonly encrypted?: boolean;
     readonly filters?: outputs.ebs.GetSnapshotFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN for the KMS encryption key.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     readonly mostRecent?: boolean;
     /**
      * ARN of the Outpost on which the snapshot is stored.
      */
-    readonly outpostArn: string;
+    readonly outpostArn?: string;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
-    readonly ownerAlias: string;
+    readonly ownerAlias?: string;
     /**
      * AWS account ID of the EBS snapshot owner.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];
     /**
      * Snapshot ID (e.g., snap-59fcb34e).
      */
-    readonly snapshotId: string;
+    readonly snapshotId?: string;
     readonly snapshotIds?: string[];
     /**
      * Snapshot state.
      */
-    readonly state: string;
+    readonly state?: string;
     /**
      * Storage tier in which the snapshot is stored.
      */
-    readonly storageTier: string;
+    readonly storageTier?: string;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Volume ID (e.g., vol-59fcb34e).
      */
-    readonly volumeId: string;
+    readonly volumeId?: string;
     /**
      * Size of the drive in GiBs.
      */
-    readonly volumeSize: number;
+    readonly volumeSize?: number;
 }
 /**
  * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes

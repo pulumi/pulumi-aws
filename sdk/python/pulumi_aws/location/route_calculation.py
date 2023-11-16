@@ -394,7 +394,7 @@ class RouteCalculation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="calculatorArn")
-    def calculator_arn(self) -> pulumi.Output[str]:
+    def calculator_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         """
@@ -410,7 +410,7 @@ class RouteCalculation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[str]:
+    def create_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the route calculator resource was created in ISO 8601 format.
         """
@@ -455,7 +455,7 @@ class RouteCalculation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[str]:
+    def update_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the route calculator resource was last update in ISO 8601.
         """

@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteActionTarget;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecHttp2RouteAction {
-    private List<GetGatewayRouteSpecHttp2RouteActionRewrite> rewrites;
-    private List<GetGatewayRouteSpecHttp2RouteActionTarget> targets;
+    private @Nullable List<GetGatewayRouteSpecHttp2RouteActionRewrite> rewrites;
+    private @Nullable List<GetGatewayRouteSpecHttp2RouteActionTarget> targets;
 
     private GetGatewayRouteSpecHttp2RouteAction() {}
     public List<GetGatewayRouteSpecHttp2RouteActionRewrite> rewrites() {
-        return this.rewrites;
+        return this.rewrites == null ? List.of() : this.rewrites;
     }
     public List<GetGatewayRouteSpecHttp2RouteActionTarget> targets() {
-        return this.targets;
+        return this.targets == null ? List.of() : this.targets;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetGatewayRouteSpecHttp2RouteAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGatewayRouteSpecHttp2RouteActionRewrite> rewrites;
-        private List<GetGatewayRouteSpecHttp2RouteActionTarget> targets;
+        private @Nullable List<GetGatewayRouteSpecHttp2RouteActionRewrite> rewrites;
+        private @Nullable List<GetGatewayRouteSpecHttp2RouteActionTarget> targets;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttp2RouteAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetGatewayRouteSpecHttp2RouteAction {
         }
 
         @CustomType.Setter
-        public Builder rewrites(List<GetGatewayRouteSpecHttp2RouteActionRewrite> rewrites) {
-            this.rewrites = Objects.requireNonNull(rewrites);
+        public Builder rewrites(@Nullable List<GetGatewayRouteSpecHttp2RouteActionRewrite> rewrites) {
+            this.rewrites = rewrites;
             return this;
         }
         public Builder rewrites(GetGatewayRouteSpecHttp2RouteActionRewrite... rewrites) {
             return rewrites(List.of(rewrites));
         }
         @CustomType.Setter
-        public Builder targets(List<GetGatewayRouteSpecHttp2RouteActionTarget> targets) {
-            this.targets = Objects.requireNonNull(targets);
+        public Builder targets(@Nullable List<GetGatewayRouteSpecHttp2RouteActionTarget> targets) {
+            this.targets = targets;
             return this;
         }
         public Builder targets(GetGatewayRouteSpecHttp2RouteActionTarget... targets) {

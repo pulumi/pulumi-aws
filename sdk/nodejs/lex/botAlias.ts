@@ -64,7 +64,7 @@ export class BotAlias extends pulumi.CustomResource {
     /**
      * The ARN of the bot alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the bot.
      */
@@ -76,7 +76,7 @@ export class BotAlias extends pulumi.CustomResource {
     /**
      * Checksum of the bot alias.
      */
-    public /*out*/ readonly checksum!: pulumi.Output<string>;
+    public /*out*/ readonly checksum!: pulumi.Output<string | undefined>;
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      */
@@ -84,7 +84,7 @@ export class BotAlias extends pulumi.CustomResource {
     /**
      * The date that the bot alias was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * A description of the alias. Must be less than or equal to 200 characters in length.
      */
@@ -92,7 +92,7 @@ export class BotAlias extends pulumi.CustomResource {
     /**
      * The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string | undefined>;
     /**
      * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */

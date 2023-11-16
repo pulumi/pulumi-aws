@@ -1336,7 +1336,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminCreateUserConfig")
-    def admin_create_user_config(self) -> pulumi.Output['outputs.UserPoolAdminCreateUserConfig']:
+    def admin_create_user_config(self) -> pulumi.Output[Optional['outputs.UserPoolAdminCreateUserConfig']]:
         """
         Configuration block for creating a new user profile. Detailed below.
         """
@@ -1352,7 +1352,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the user pool.
         """
@@ -1368,7 +1368,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date the user pool was created.
         """
@@ -1376,7 +1376,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> pulumi.Output[str]:
+    def custom_domain(self) -> pulumi.Output[Optional[str]]:
         """
         A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
         """
@@ -1400,7 +1400,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> pulumi.Output[str]:
+    def domain(self) -> pulumi.Output[Optional[str]]:
         """
         Holds the domain prefix if the user pool has a domain associated with it.
         """
@@ -1416,7 +1416,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailVerificationMessage")
-    def email_verification_message(self) -> pulumi.Output[str]:
+    def email_verification_message(self) -> pulumi.Output[Optional[str]]:
         """
         String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         """
@@ -1424,7 +1424,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailVerificationSubject")
-    def email_verification_subject(self) -> pulumi.Output[str]:
+    def email_verification_subject(self) -> pulumi.Output[Optional[str]]:
         """
         String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         """
@@ -1432,7 +1432,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
         """
@@ -1440,7 +1440,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="estimatedNumberOfUsers")
-    def estimated_number_of_users(self) -> pulumi.Output[int]:
+    def estimated_number_of_users(self) -> pulumi.Output[Optional[int]]:
         """
         A number estimating the size of the user pool.
         """
@@ -1456,7 +1456,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> pulumi.Output[str]:
+    def last_modified_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date the user pool was last modified.
         """
@@ -1482,7 +1482,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordPolicy")
-    def password_policy(self) -> pulumi.Output['outputs.UserPoolPasswordPolicy']:
+    def password_policy(self) -> pulumi.Output[Optional['outputs.UserPoolPasswordPolicy']]:
         """
         Configuration block for information about the user pool password policy. Detailed below.
         """
@@ -1506,7 +1506,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="smsConfiguration")
-    def sms_configuration(self) -> pulumi.Output['outputs.UserPoolSmsConfiguration']:
+    def sms_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolSmsConfiguration']]:
         """
         Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         """
@@ -1514,7 +1514,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="smsVerificationMessage")
-    def sms_verification_message(self) -> pulumi.Output[str]:
+    def sms_verification_message(self) -> pulumi.Output[Optional[str]]:
         """
         String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         """
@@ -1581,7 +1581,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="verificationMessageTemplate")
-    def verification_message_template(self) -> pulumi.Output['outputs.UserPoolVerificationMessageTemplate']:
+    def verification_message_template(self) -> pulumi.Output[Optional['outputs.UserPoolVerificationMessageTemplate']]:
         """
         Configuration block for verification message templates. Detailed below.
         """

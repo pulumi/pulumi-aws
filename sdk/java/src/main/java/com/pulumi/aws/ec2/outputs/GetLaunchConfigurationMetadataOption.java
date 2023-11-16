@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchConfigurationMetadataOption {
@@ -14,39 +16,39 @@ public final class GetLaunchConfigurationMetadataOption {
      * @return State of the metadata service: `enabled`, `disabled`.
      * 
      */
-    private String httpEndpoint;
+    private @Nullable String httpEndpoint;
     /**
      * @return The desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
-    private Integer httpPutResponseHopLimit;
+    private @Nullable Integer httpPutResponseHopLimit;
     /**
      * @return If session tokens are required: `optional`, `required`.
      * 
      */
-    private String httpTokens;
+    private @Nullable String httpTokens;
 
     private GetLaunchConfigurationMetadataOption() {}
     /**
      * @return State of the metadata service: `enabled`, `disabled`.
      * 
      */
-    public String httpEndpoint() {
-        return this.httpEndpoint;
+    public Optional<String> httpEndpoint() {
+        return Optional.ofNullable(this.httpEndpoint);
     }
     /**
      * @return The desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
-    public Integer httpPutResponseHopLimit() {
-        return this.httpPutResponseHopLimit;
+    public Optional<Integer> httpPutResponseHopLimit() {
+        return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
     /**
      * @return If session tokens are required: `optional`, `required`.
      * 
      */
-    public String httpTokens() {
-        return this.httpTokens;
+    public Optional<String> httpTokens() {
+        return Optional.ofNullable(this.httpTokens);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetLaunchConfigurationMetadataOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String httpEndpoint;
-        private Integer httpPutResponseHopLimit;
-        private String httpTokens;
+        private @Nullable String httpEndpoint;
+        private @Nullable Integer httpPutResponseHopLimit;
+        private @Nullable String httpTokens;
         public Builder() {}
         public Builder(GetLaunchConfigurationMetadataOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetLaunchConfigurationMetadataOption {
         }
 
         @CustomType.Setter
-        public Builder httpEndpoint(String httpEndpoint) {
-            this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
+        public Builder httpEndpoint(@Nullable String httpEndpoint) {
+            this.httpEndpoint = httpEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
-            this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
+        public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
+            this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder httpTokens(String httpTokens) {
-            this.httpTokens = Objects.requireNonNull(httpTokens);
+        public Builder httpTokens(@Nullable String httpTokens) {
+            this.httpTokens = httpTokens;
             return this;
         }
         public GetLaunchConfigurationMetadataOption build() {

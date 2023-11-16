@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Sqs
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? QueueNamePrefix;
         /// <summary>
         /// A list of queue URLs.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Sqs
 
         [OutputConstructor]
         private GetQueuesResult(
-            string id,
+            string? id,
 
             string? queueNamePrefix,
 

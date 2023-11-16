@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualClusterResult {
@@ -16,37 +18,37 @@ public final class GetVirtualClusterResult {
      * @return ARN of the cluster.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
      * 
      */
-    private List<GetVirtualClusterContainerProvider> containerProviders;
+    private @Nullable List<GetVirtualClusterContainerProvider> containerProviders;
     /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the cluster.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return Key-value mapping of resource tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     private String virtualClusterId;
 
     private GetVirtualClusterResult() {}
@@ -54,50 +56,50 @@ public final class GetVirtualClusterResult {
      * @return ARN of the cluster.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
      * 
      */
     public List<GetVirtualClusterContainerProvider> containerProviders() {
-        return this.containerProviders;
+        return this.containerProviders == null ? List.of() : this.containerProviders;
     }
     /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the cluster.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return Key-value mapping of resource tags.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public String virtualClusterId() {
         return this.virtualClusterId;
@@ -112,13 +114,13 @@ public final class GetVirtualClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetVirtualClusterContainerProvider> containerProviders;
-        private String createdAt;
-        private String id;
-        private String name;
-        private String state;
-        private Map<String,String> tags;
+        private @Nullable String arn;
+        private @Nullable List<GetVirtualClusterContainerProvider> containerProviders;
+        private @Nullable String createdAt;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String state;
+        private @Nullable Map<String,String> tags;
         private String virtualClusterId;
         public Builder() {}
         public Builder(GetVirtualClusterResult defaults) {
@@ -134,41 +136,41 @@ public final class GetVirtualClusterResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder containerProviders(List<GetVirtualClusterContainerProvider> containerProviders) {
-            this.containerProviders = Objects.requireNonNull(containerProviders);
+        public Builder containerProviders(@Nullable List<GetVirtualClusterContainerProvider> containerProviders) {
+            this.containerProviders = containerProviders;
             return this;
         }
         public Builder containerProviders(GetVirtualClusterContainerProvider... containerProviders) {
             return containerProviders(List.of(containerProviders));
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

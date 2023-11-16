@@ -64,15 +64,15 @@ type GetUserSshKeyArgs struct {
 type GetUserSshKeyResult struct {
 	Encoding string `pulumi:"encoding"`
 	// MD5 message digest of the SSH public key.
-	Fingerprint string `pulumi:"fingerprint"`
+	Fingerprint *string `pulumi:"fingerprint"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// SSH public key.
-	PublicKey      string `pulumi:"publicKey"`
-	SshPublicKeyId string `pulumi:"sshPublicKeyId"`
+	PublicKey      *string `pulumi:"publicKey"`
+	SshPublicKeyId string  `pulumi:"sshPublicKeyId"`
 	// Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
-	Status   string `pulumi:"status"`
-	Username string `pulumi:"username"`
+	Status   *string `pulumi:"status"`
+	Username string  `pulumi:"username"`
 }
 
 func GetUserSshKeyOutput(ctx *pulumi.Context, args GetUserSshKeyOutputArgs, opts ...pulumi.InvokeOption) GetUserSshKeyResultOutput {
@@ -122,18 +122,18 @@ func (o GetUserSshKeyResultOutput) Encoding() pulumi.StringOutput {
 }
 
 // MD5 message digest of the SSH public key.
-func (o GetUserSshKeyResultOutput) Fingerprint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.Fingerprint }).(pulumi.StringOutput)
+func (o GetUserSshKeyResultOutput) Fingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserSshKeyResult) *string { return v.Fingerprint }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetUserSshKeyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserSshKeyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserSshKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // SSH public key.
-func (o GetUserSshKeyResultOutput) PublicKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.PublicKey }).(pulumi.StringOutput)
+func (o GetUserSshKeyResultOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserSshKeyResult) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
 }
 
 func (o GetUserSshKeyResultOutput) SshPublicKeyId() pulumi.StringOutput {
@@ -141,8 +141,8 @@ func (o GetUserSshKeyResultOutput) SshPublicKeyId() pulumi.StringOutput {
 }
 
 // Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
-func (o GetUserSshKeyResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.Status }).(pulumi.StringOutput)
+func (o GetUserSshKeyResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserSshKeyResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o GetUserSshKeyResultOutput) Username() pulumi.StringOutput {

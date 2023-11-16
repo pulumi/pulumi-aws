@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// Full ARN of the repository.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Encryption configuration for the repository. See Encryption Configuration below.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
         /// </summary>
@@ -156,43 +156,43 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// The tag mutability setting for the repository.
         /// </summary>
-        public readonly string ImageTagMutability;
+        public readonly string? ImageTagMutability;
         /// <summary>
         /// List of image tags associated with the most recently pushed image in the repository.
         /// </summary>
         public readonly ImmutableArray<string> MostRecentImageTags;
         public readonly string Name;
-        public readonly string RegistryId;
+        public readonly string? RegistryId;
         /// <summary>
         /// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         /// </summary>
-        public readonly string RepositoryUrl;
+        public readonly string? RepositoryUrl;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetRepositoryResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetRepositoryEncryptionConfigurationResult> encryptionConfigurations,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetRepositoryImageScanningConfigurationResult> imageScanningConfigurations,
 
-            string imageTagMutability,
+            string? imageTagMutability,
 
             ImmutableArray<string> mostRecentImageTags,
 
             string name,
 
-            string registryId,
+            string? registryId,
 
-            string repositoryUrl,
+            string? repositoryUrl,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             EncryptionConfigurations = encryptionConfigurations;

@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Neptune
         /// The Neptune parameter group Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".

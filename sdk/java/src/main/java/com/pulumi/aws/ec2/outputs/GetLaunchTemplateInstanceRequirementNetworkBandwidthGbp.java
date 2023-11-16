@@ -6,18 +6,20 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Double;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp {
-    private Double max;
-    private Double min;
+    private @Nullable Double max;
+    private @Nullable Double min;
 
     private GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp() {}
-    public Double max() {
-        return this.max;
+    public Optional<Double> max() {
+        return Optional.ofNullable(this.max);
     }
-    public Double min() {
-        return this.min;
+    public Optional<Double> min() {
+        return Optional.ofNullable(this.min);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Double max;
-        private Double min;
+        private @Nullable Double max;
+        private @Nullable Double min;
         public Builder() {}
         public Builder(GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp {
         }
 
         @CustomType.Setter
-        public Builder max(Double max) {
-            this.max = Objects.requireNonNull(max);
+        public Builder max(@Nullable Double max) {
+            this.max = max;
             return this;
         }
         @CustomType.Setter
-        public Builder min(Double min) {
-            this.min = Objects.requireNonNull(min);
+        public Builder min(@Nullable Double min) {
+            this.min = min;
             return this;
         }
         public GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp build() {

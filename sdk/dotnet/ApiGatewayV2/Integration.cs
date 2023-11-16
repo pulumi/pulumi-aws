@@ -201,7 +201,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
         /// </summary>
         [Output("integrationResponseSelectionExpression")]
-        public Output<string> IntegrationResponseSelectionExpression { get; private set; } = null!;
+        public Output<string?> IntegrationResponseSelectionExpression { get; private set; } = null!;
 
         /// <summary>
         /// AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// this provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Output("timeoutMilliseconds")]
-        public Output<int> TimeoutMilliseconds { get; private set; } = null!;
+        public Output<int?> TimeoutMilliseconds { get; private set; } = null!;
 
         /// <summary>
         /// TLS configuration for a private integration. Supported only for HTTP APIs.

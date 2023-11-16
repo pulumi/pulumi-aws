@@ -456,7 +456,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Channel.
         """
@@ -464,7 +464,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorized(self) -> pulumi.Output[bool]:
+    def authorized(self) -> pulumi.Output[Optional[bool]]:
         """
         If `true`, channel is private (enabled for playback authorization).
         """
@@ -472,7 +472,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingestEndpoint")
-    def ingest_endpoint(self) -> pulumi.Output[str]:
+    def ingest_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
         """
@@ -480,7 +480,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latencyMode")
-    def latency_mode(self) -> pulumi.Output[str]:
+    def latency_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Channel latency mode. Valid values: `NORMAL`, `LOW`.
         """
@@ -496,7 +496,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="playbackUrl")
-    def playback_url(self) -> pulumi.Output[str]:
+    def playback_url(self) -> pulumi.Output[Optional[str]]:
         """
         Channel playback URL.
         """
@@ -504,7 +504,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recordingConfigurationArn")
-    def recording_configuration_arn(self) -> pulumi.Output[str]:
+    def recording_configuration_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Recording configuration ARN.
         """
@@ -531,7 +531,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         """

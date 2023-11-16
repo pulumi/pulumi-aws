@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Efs.Outputs
     [OutputType]
     public sealed class GetFileSystemLifecyclePolicyResult
     {
-        public readonly string TransitionToIa;
-        public readonly string TransitionToPrimaryStorageClass;
+        public readonly string? TransitionToIa;
+        public readonly string? TransitionToPrimaryStorageClass;
 
         [OutputConstructor]
         private GetFileSystemLifecyclePolicyResult(
-            string transitionToIa,
+            string? transitionToIa,
 
-            string transitionToPrimaryStorageClass)
+            string? transitionToPrimaryStorageClass)
         {
             TransitionToIa = transitionToIa;
             TransitionToPrimaryStorageClass = transitionToPrimaryStorageClass;

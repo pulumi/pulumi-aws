@@ -37,7 +37,7 @@ class GetPartitionResult:
 
     @property
     @pulumi.getter(name="dnsSuffix")
-    def dns_suffix(self) -> str:
+    def dns_suffix(self) -> Optional[str]:
         """
         Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
         """
@@ -45,7 +45,7 @@ class GetPartitionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         """
@@ -53,7 +53,7 @@ class GetPartitionResult:
 
     @property
     @pulumi.getter
-    def partition(self) -> str:
+    def partition(self) -> Optional[str]:
         """
         Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         """
@@ -61,7 +61,7 @@ class GetPartitionResult:
 
     @property
     @pulumi.getter(name="reverseDnsPrefix")
-    def reverse_dns_prefix(self) -> str:
+    def reverse_dns_prefix(self) -> Optional[str]:
         """
         Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
         """

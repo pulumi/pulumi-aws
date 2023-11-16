@@ -104,19 +104,19 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// The username of the administrator for the first database created in the namespace.
         /// </summary>
-        public readonly string AdminUsername;
+        public readonly string? AdminUsername;
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The name of the first database created in the namespace.
         /// </summary>
-        public readonly string DbName;
+        public readonly string? DbName;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         /// </summary>
-        public readonly string DefaultIamRoleArn;
+        public readonly string? DefaultIamRoleArn;
         /// <summary>
         /// A list of IAM roles to associate with the namespace.
         /// </summary>
@@ -124,11 +124,11 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
         /// </summary>
@@ -136,28 +136,28 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// The Redshift Namespace ID.
         /// </summary>
-        public readonly string NamespaceId;
+        public readonly string? NamespaceId;
         public readonly string NamespaceName;
 
         [OutputConstructor]
         private GetNamespaceResult(
-            string adminUsername,
+            string? adminUsername,
 
-            string arn,
+            string? arn,
 
-            string dbName,
+            string? dbName,
 
-            string defaultIamRoleArn,
+            string? defaultIamRoleArn,
 
             ImmutableArray<string> iamRoles,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
             ImmutableArray<string> logExports,
 
-            string namespaceId,
+            string? namespaceId,
 
             string namespaceName)
         {

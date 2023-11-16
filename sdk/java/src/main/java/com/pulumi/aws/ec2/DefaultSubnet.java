@@ -71,10 +71,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/defaultSubnet:DefaultSubnet")
 public class DefaultSubnet extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="assignIpv6AddressOnCreation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> assignIpv6AddressOnCreation;
@@ -109,28 +109,28 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZoneId;
+    private Output</* @Nullable */ String> availabilityZoneId;
 
     /**
      * @return The AZ ID of the subnet
      * 
      */
-    public Output<String> availabilityZoneId() {
-        return this.availabilityZoneId;
+    public Output<Optional<String>> availabilityZoneId() {
+        return Codegen.optional(this.availabilityZoneId);
     }
     /**
      * The IPv4 CIDR block assigned to the subnet
      * 
      */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
-    private Output<String> cidrBlock;
+    private Output</* @Nullable */ String> cidrBlock;
 
     /**
      * @return The IPv4 CIDR block assigned to the subnet
      * 
      */
-    public Output<String> cidrBlock() {
-        return this.cidrBlock;
+    public Output<Optional<String>> cidrBlock() {
+        return Codegen.optional(this.cidrBlock);
     }
     @Export(name="customerOwnedIpv4Pool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerOwnedIpv4Pool;
@@ -145,10 +145,10 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableDns64);
     }
     @Export(name="enableLniAtDeviceIndex", refs={Integer.class}, tree="[0]")
-    private Output<Integer> enableLniAtDeviceIndex;
+    private Output</* @Nullable */ Integer> enableLniAtDeviceIndex;
 
-    public Output<Integer> enableLniAtDeviceIndex() {
-        return this.enableLniAtDeviceIndex;
+    public Output<Optional<Integer>> enableLniAtDeviceIndex() {
+        return Codegen.optional(this.enableLniAtDeviceIndex);
     }
     @Export(name="enableResourceNameDnsARecordOnLaunch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableResourceNameDnsARecordOnLaunch;
@@ -163,10 +163,10 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableResourceNameDnsAaaaRecordOnLaunch);
     }
     @Export(name="existingDefaultSubnet", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> existingDefaultSubnet;
+    private Output</* @Nullable */ Boolean> existingDefaultSubnet;
 
-    public Output<Boolean> existingDefaultSubnet() {
-        return this.existingDefaultSubnet;
+    public Output<Optional<Boolean>> existingDefaultSubnet() {
+        return Codegen.optional(this.existingDefaultSubnet);
     }
     /**
      * Whether destroying the resource deletes the default subnet. Default: `false`
@@ -183,16 +183,16 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceDestroy);
     }
     @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
-    private Output<String> ipv6CidrBlock;
+    private Output</* @Nullable */ String> ipv6CidrBlock;
 
-    public Output<String> ipv6CidrBlock() {
-        return this.ipv6CidrBlock;
+    public Output<Optional<String>> ipv6CidrBlock() {
+        return Codegen.optional(this.ipv6CidrBlock);
     }
     @Export(name="ipv6CidrBlockAssociationId", refs={String.class}, tree="[0]")
-    private Output<String> ipv6CidrBlockAssociationId;
+    private Output</* @Nullable */ String> ipv6CidrBlockAssociationId;
 
-    public Output<String> ipv6CidrBlockAssociationId() {
-        return this.ipv6CidrBlockAssociationId;
+    public Output<Optional<String>> ipv6CidrBlockAssociationId() {
+        return Codegen.optional(this.ipv6CidrBlockAssociationId);
     }
     @Export(name="ipv6Native", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipv6Native;
@@ -213,22 +213,22 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mapPublicIpOnLaunch);
     }
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
-    private Output<String> outpostArn;
+    private Output</* @Nullable */ String> outpostArn;
 
-    public Output<String> outpostArn() {
-        return this.outpostArn;
+    public Output<Optional<String>> outpostArn() {
+        return Codegen.optional(this.outpostArn);
     }
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     @Export(name="privateDnsHostnameTypeOnLaunch", refs={String.class}, tree="[0]")
-    private Output<String> privateDnsHostnameTypeOnLaunch;
+    private Output</* @Nullable */ String> privateDnsHostnameTypeOnLaunch;
 
-    public Output<String> privateDnsHostnameTypeOnLaunch() {
-        return this.privateDnsHostnameTypeOnLaunch;
+    public Output<Optional<String>> privateDnsHostnameTypeOnLaunch() {
+        return Codegen.optional(this.privateDnsHostnameTypeOnLaunch);
     }
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
@@ -253,14 +253,14 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The ID of the VPC the subnet is in
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

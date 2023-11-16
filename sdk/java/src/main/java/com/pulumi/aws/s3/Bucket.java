@@ -562,14 +562,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accelerationStatus", refs={String.class}, tree="[0]")
-    private Output<String> accelerationStatus;
+    private Output</* @Nullable */ String> accelerationStatus;
 
     /**
      * @return Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
      * 
      */
-    public Output<String> accelerationStatus() {
-        return this.accelerationStatus;
+    public Output<Optional<String>> accelerationStatus() {
+        return Codegen.optional(this.accelerationStatus);
     }
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
@@ -590,14 +590,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -618,14 +618,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bucketDomainName", refs={String.class}, tree="[0]")
-    private Output<String> bucketDomainName;
+    private Output</* @Nullable */ String> bucketDomainName;
 
     /**
      * @return The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      * 
      */
-    public Output<String> bucketDomainName() {
-        return this.bucketDomainName;
+    public Output<Optional<String>> bucketDomainName() {
+        return Codegen.optional(this.bucketDomainName);
     }
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -646,14 +646,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bucketRegionalDomainName", refs={String.class}, tree="[0]")
-    private Output<String> bucketRegionalDomainName;
+    private Output</* @Nullable */ String> bucketRegionalDomainName;
 
     /**
      * @return The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
      * 
      */
-    public Output<String> bucketRegionalDomainName() {
-        return this.bucketRegionalDomainName;
+    public Output<Optional<String>> bucketRegionalDomainName() {
+        return Codegen.optional(this.bucketRegionalDomainName);
     }
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
@@ -702,14 +702,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
-    private Output<String> hostedZoneId;
+    private Output</* @Nullable */ String> hostedZoneId;
 
     /**
      * @return The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket&#39;s region.
      * 
      */
-    public Output<String> hostedZoneId() {
-        return this.hostedZoneId;
+    public Output<Optional<String>> hostedZoneId() {
+        return Codegen.optional(this.hostedZoneId);
     }
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
@@ -776,14 +776,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
-    private Output<String> region;
+    private Output</* @Nullable */ String> region;
 
     /**
      * @return The AWS region this bucket resides in.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    public Output<Optional<String>> region() {
+        return Codegen.optional(this.region);
     }
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
@@ -807,7 +807,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="requestPayer", refs={String.class}, tree="[0]")
-    private Output<String> requestPayer;
+    private Output</* @Nullable */ String> requestPayer;
 
     /**
      * @return Specifies who should bear the cost of Amazon S3 data transfer.
@@ -816,22 +816,22 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * developer guide for more information.
      * 
      */
-    public Output<String> requestPayer() {
-        return this.requestPayer;
+    public Output<Optional<String>> requestPayer() {
+        return Codegen.optional(this.requestPayer);
     }
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      * 
      */
     @Export(name="serverSideEncryptionConfiguration", refs={BucketServerSideEncryptionConfiguration.class}, tree="[0]")
-    private Output<BucketServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
+    private Output</* @Nullable */ BucketServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
     /**
      * @return A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      * 
      */
-    public Output<BucketServerSideEncryptionConfiguration> serverSideEncryptionConfiguration() {
-        return this.serverSideEncryptionConfiguration;
+    public Output<Optional<BucketServerSideEncryptionConfiguration>> serverSideEncryptionConfiguration() {
+        return Codegen.optional(this.serverSideEncryptionConfiguration);
     }
     /**
      * A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -870,14 +870,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versioning", refs={BucketVersioning.class}, tree="[0]")
-    private Output<BucketVersioning> versioning;
+    private Output</* @Nullable */ BucketVersioning> versioning;
 
     /**
      * @return A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      * 
      */
-    public Output<BucketVersioning> versioning() {
-        return this.versioning;
+    public Output<Optional<BucketVersioning>> versioning() {
+        return Codegen.optional(this.versioning);
     }
     /**
      * A website object (documented below).
@@ -898,28 +898,28 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="websiteDomain", refs={String.class}, tree="[0]")
-    private Output<String> websiteDomain;
+    private Output</* @Nullable */ String> websiteDomain;
 
     /**
      * @return The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      * 
      */
-    public Output<String> websiteDomain() {
-        return this.websiteDomain;
+    public Output<Optional<String>> websiteDomain() {
+        return Codegen.optional(this.websiteDomain);
     }
     /**
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      * 
      */
     @Export(name="websiteEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> websiteEndpoint;
+    private Output</* @Nullable */ String> websiteEndpoint;
 
     /**
      * @return The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      * 
      */
-    public Output<String> websiteEndpoint() {
-        return this.websiteEndpoint;
+    public Output<Optional<String>> websiteEndpoint() {
+        return Codegen.optional(this.websiteEndpoint);
     }
 
     /**

@@ -125,7 +125,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * ARN of the target group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The target group configuration.
      */
@@ -137,7 +137,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * Status of the target group.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

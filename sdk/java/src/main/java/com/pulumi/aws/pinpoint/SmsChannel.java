@@ -96,14 +96,14 @@ public class SmsChannel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="promotionalMessagesPerSecond", refs={Integer.class}, tree="[0]")
-    private Output<Integer> promotionalMessagesPerSecond;
+    private Output</* @Nullable */ Integer> promotionalMessagesPerSecond;
 
     /**
      * @return Maximum number of promotional messages that can be sent per second.
      * 
      */
-    public Output<Integer> promotionalMessagesPerSecond() {
-        return this.promotionalMessagesPerSecond;
+    public Output<Optional<Integer>> promotionalMessagesPerSecond() {
+        return Codegen.optional(this.promotionalMessagesPerSecond);
     }
     /**
      * Identifier of the sender for your messages.
@@ -138,14 +138,14 @@ public class SmsChannel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="transactionalMessagesPerSecond", refs={Integer.class}, tree="[0]")
-    private Output<Integer> transactionalMessagesPerSecond;
+    private Output</* @Nullable */ Integer> transactionalMessagesPerSecond;
 
     /**
      * @return Maximum number of transactional messages per second that can be sent.
      * 
      */
-    public Output<Integer> transactionalMessagesPerSecond() {
-        return this.transactionalMessagesPerSecond;
+    public Output<Optional<Integer>> transactionalMessagesPerSecond() {
+        return Codegen.optional(this.transactionalMessagesPerSecond);
     }
 
     /**

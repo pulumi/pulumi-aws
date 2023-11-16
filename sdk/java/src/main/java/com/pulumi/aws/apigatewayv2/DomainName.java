@@ -127,28 +127,28 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="apiMappingSelectionExpression", refs={String.class}, tree="[0]")
-    private Output<String> apiMappingSelectionExpression;
+    private Output</* @Nullable */ String> apiMappingSelectionExpression;
 
     /**
      * @return [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
      * 
      */
-    public Output<String> apiMappingSelectionExpression() {
-        return this.apiMappingSelectionExpression;
+    public Output<Optional<String>> apiMappingSelectionExpression() {
+        return Codegen.optional(this.apiMappingSelectionExpression);
     }
     /**
      * ARN of the domain name.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the domain name.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Domain name. Must be between 1 and 512 characters in length.

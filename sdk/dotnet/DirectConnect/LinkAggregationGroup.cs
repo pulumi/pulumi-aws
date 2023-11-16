@@ -49,7 +49,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The ARN of the LAG.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of an existing dedicated connection to migrate to the LAG.
@@ -73,13 +73,13 @@ namespace Pulumi.Aws.DirectConnect
         /// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
         [Output("hasLogicalRedundancy")]
-        public Output<string> HasLogicalRedundancy { get; private set; } = null!;
+        public Output<string?> HasLogicalRedundancy { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether jumbo frames (9001 MTU) are supported.
         /// </summary>
         [Output("jumboFrameCapable")]
-        public Output<bool> JumboFrameCapable { get; private set; } = null!;
+        public Output<bool?> JumboFrameCapable { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
@@ -97,13 +97,13 @@ namespace Pulumi.Aws.DirectConnect
         /// The ID of the AWS account that owns the LAG.
         /// </summary>
         [Output("ownerAccountId")]
-        public Output<string> OwnerAccountId { get; private set; } = null!;
+        public Output<string?> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the service provider associated with the LAG.
         /// </summary>
         [Output("providerName")]
-        public Output<string> ProviderName { get; private set; } = null!;
+        public Output<string?> ProviderName { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

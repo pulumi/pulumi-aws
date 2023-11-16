@@ -120,7 +120,7 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of a usage plan.
      */

@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContainerDefinitionResult {
@@ -17,47 +19,47 @@ public final class GetContainerDefinitionResult {
      * @return CPU limit for this container definition
      * 
      */
-    private Integer cpu;
+    private @Nullable Integer cpu;
     /**
      * @return Indicator if networking is disabled
      * 
      */
-    private Boolean disableNetworking;
+    private @Nullable Boolean disableNetworking;
     /**
      * @return Set docker labels
      * 
      */
-    private Map<String,String> dockerLabels;
+    private @Nullable Map<String,String> dockerLabels;
     /**
      * @return Environment in use
      * 
      */
-    private Map<String,String> environment;
+    private @Nullable Map<String,String> environment;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Docker image in use, including the digest
      * 
      */
-    private String image;
+    private @Nullable String image;
     /**
      * @return Digest of the docker image in use
      * 
      */
-    private String imageDigest;
+    private @Nullable String imageDigest;
     /**
      * @return Memory limit for this container definition
      * 
      */
-    private Integer memory;
+    private @Nullable Integer memory;
     /**
      * @return Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
      * 
      */
-    private Integer memoryReservation;
+    private @Nullable Integer memoryReservation;
     private String taskDefinition;
 
     private GetContainerDefinitionResult() {}
@@ -68,64 +70,64 @@ public final class GetContainerDefinitionResult {
      * @return CPU limit for this container definition
      * 
      */
-    public Integer cpu() {
-        return this.cpu;
+    public Optional<Integer> cpu() {
+        return Optional.ofNullable(this.cpu);
     }
     /**
      * @return Indicator if networking is disabled
      * 
      */
-    public Boolean disableNetworking() {
-        return this.disableNetworking;
+    public Optional<Boolean> disableNetworking() {
+        return Optional.ofNullable(this.disableNetworking);
     }
     /**
      * @return Set docker labels
      * 
      */
     public Map<String,String> dockerLabels() {
-        return this.dockerLabels;
+        return this.dockerLabels == null ? Map.of() : this.dockerLabels;
     }
     /**
      * @return Environment in use
      * 
      */
     public Map<String,String> environment() {
-        return this.environment;
+        return this.environment == null ? Map.of() : this.environment;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Docker image in use, including the digest
      * 
      */
-    public String image() {
-        return this.image;
+    public Optional<String> image() {
+        return Optional.ofNullable(this.image);
     }
     /**
      * @return Digest of the docker image in use
      * 
      */
-    public String imageDigest() {
-        return this.imageDigest;
+    public Optional<String> imageDigest() {
+        return Optional.ofNullable(this.imageDigest);
     }
     /**
      * @return Memory limit for this container definition
      * 
      */
-    public Integer memory() {
-        return this.memory;
+    public Optional<Integer> memory() {
+        return Optional.ofNullable(this.memory);
     }
     /**
      * @return Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
      * 
      */
-    public Integer memoryReservation() {
-        return this.memoryReservation;
+    public Optional<Integer> memoryReservation() {
+        return Optional.ofNullable(this.memoryReservation);
     }
     public String taskDefinition() {
         return this.taskDefinition;
@@ -141,15 +143,15 @@ public final class GetContainerDefinitionResult {
     @CustomType.Builder
     public static final class Builder {
         private String containerName;
-        private Integer cpu;
-        private Boolean disableNetworking;
-        private Map<String,String> dockerLabels;
-        private Map<String,String> environment;
-        private String id;
-        private String image;
-        private String imageDigest;
-        private Integer memory;
-        private Integer memoryReservation;
+        private @Nullable Integer cpu;
+        private @Nullable Boolean disableNetworking;
+        private @Nullable Map<String,String> dockerLabels;
+        private @Nullable Map<String,String> environment;
+        private @Nullable String id;
+        private @Nullable String image;
+        private @Nullable String imageDigest;
+        private @Nullable Integer memory;
+        private @Nullable Integer memoryReservation;
         private String taskDefinition;
         public Builder() {}
         public Builder(GetContainerDefinitionResult defaults) {
@@ -173,48 +175,48 @@ public final class GetContainerDefinitionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder cpu(Integer cpu) {
-            this.cpu = Objects.requireNonNull(cpu);
+        public Builder cpu(@Nullable Integer cpu) {
+            this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
-        public Builder disableNetworking(Boolean disableNetworking) {
-            this.disableNetworking = Objects.requireNonNull(disableNetworking);
+        public Builder disableNetworking(@Nullable Boolean disableNetworking) {
+            this.disableNetworking = disableNetworking;
             return this;
         }
         @CustomType.Setter
-        public Builder dockerLabels(Map<String,String> dockerLabels) {
-            this.dockerLabels = Objects.requireNonNull(dockerLabels);
+        public Builder dockerLabels(@Nullable Map<String,String> dockerLabels) {
+            this.dockerLabels = dockerLabels;
             return this;
         }
         @CustomType.Setter
-        public Builder environment(Map<String,String> environment) {
-            this.environment = Objects.requireNonNull(environment);
+        public Builder environment(@Nullable Map<String,String> environment) {
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+        public Builder image(@Nullable String image) {
+            this.image = image;
             return this;
         }
         @CustomType.Setter
-        public Builder imageDigest(String imageDigest) {
-            this.imageDigest = Objects.requireNonNull(imageDigest);
+        public Builder imageDigest(@Nullable String imageDigest) {
+            this.imageDigest = imageDigest;
             return this;
         }
         @CustomType.Setter
-        public Builder memory(Integer memory) {
-            this.memory = Objects.requireNonNull(memory);
+        public Builder memory(@Nullable Integer memory) {
+            this.memory = memory;
             return this;
         }
         @CustomType.Setter
-        public Builder memoryReservation(Integer memoryReservation) {
-            this.memoryReservation = Objects.requireNonNull(memoryReservation);
+        public Builder memoryReservation(@Nullable Integer memoryReservation) {
+            this.memoryReservation = memoryReservation;
             return this;
         }
         @CustomType.Setter

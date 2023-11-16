@@ -128,28 +128,28 @@ public class VpcEndpointConnectionNotification extends com.pulumi.resources.Cust
      * 
      */
     @Export(name="notificationType", refs={String.class}, tree="[0]")
-    private Output<String> notificationType;
+    private Output</* @Nullable */ String> notificationType;
 
     /**
      * @return The type of notification.
      * 
      */
-    public Output<String> notificationType() {
-        return this.notificationType;
+    public Output<Optional<String>> notificationType() {
+        return Codegen.optional(this.notificationType);
     }
     /**
      * The state of the notification.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The state of the notification.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * The ID of the VPC Endpoint to receive notifications for.

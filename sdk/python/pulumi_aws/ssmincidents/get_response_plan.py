@@ -56,7 +56,7 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence['outputs.GetResponsePlanActionResult']:
+    def actions(self) -> Optional[Sequence['outputs.GetResponsePlanActionResult']]:
         """
         (Optional) The actions that the response plan starts at the beginning of an incident.
         """
@@ -69,7 +69,7 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter(name="chatChannels")
-    def chat_channels(self) -> Sequence[str]:
+    def chat_channels(self) -> Optional[Sequence[str]]:
         """
         The Chatbot chat channel used for collaboration during an incident.
         """
@@ -77,7 +77,7 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> Optional[str]:
         """
         The long format of the response plan name. This field can contain spaces.
         """
@@ -85,7 +85,7 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter
-    def engagements(self) -> Sequence[str]:
+    def engagements(self) -> Optional[Sequence[str]]:
         """
         The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
         """
@@ -93,7 +93,7 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -101,12 +101,12 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter(name="incidentTemplates")
-    def incident_templates(self) -> Sequence['outputs.GetResponsePlanIncidentTemplateResult']:
+    def incident_templates(self) -> Optional[Sequence['outputs.GetResponsePlanIncidentTemplateResult']]:
         return pulumi.get(self, "incident_templates")
 
     @property
     @pulumi.getter
-    def integrations(self) -> Sequence['outputs.GetResponsePlanIntegrationResult']:
+    def integrations(self) -> Optional[Sequence['outputs.GetResponsePlanIntegrationResult']]:
         """
         Information about third-party services integrated into the response plan. The following values are supported:
         """
@@ -114,7 +114,7 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the PagerDuty configuration.
         """
@@ -122,7 +122,7 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags applied to the response plan.
         """

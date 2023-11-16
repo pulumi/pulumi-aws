@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetHoursOfOperationConfigEndTime {
@@ -13,27 +15,27 @@ public final class GetHoursOfOperationConfigEndTime {
      * @return Hour of opening.
      * 
      */
-    private Integer hours;
+    private @Nullable Integer hours;
     /**
      * @return Minute of opening.
      * 
      */
-    private Integer minutes;
+    private @Nullable Integer minutes;
 
     private GetHoursOfOperationConfigEndTime() {}
     /**
      * @return Hour of opening.
      * 
      */
-    public Integer hours() {
-        return this.hours;
+    public Optional<Integer> hours() {
+        return Optional.ofNullable(this.hours);
     }
     /**
      * @return Minute of opening.
      * 
      */
-    public Integer minutes() {
-        return this.minutes;
+    public Optional<Integer> minutes() {
+        return Optional.ofNullable(this.minutes);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetHoursOfOperationConfigEndTime {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer hours;
-        private Integer minutes;
+        private @Nullable Integer hours;
+        private @Nullable Integer minutes;
         public Builder() {}
         public Builder(GetHoursOfOperationConfigEndTime defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetHoursOfOperationConfigEndTime {
         }
 
         @CustomType.Setter
-        public Builder hours(Integer hours) {
-            this.hours = Objects.requireNonNull(hours);
+        public Builder hours(@Nullable Integer hours) {
+            this.hours = hours;
             return this;
         }
         @CustomType.Setter
-        public Builder minutes(Integer minutes) {
-            this.minutes = Objects.requireNonNull(minutes);
+        public Builder minutes(@Nullable Integer minutes) {
+            this.minutes = minutes;
             return this;
         }
         public GetHoursOfOperationConfigEndTime build() {

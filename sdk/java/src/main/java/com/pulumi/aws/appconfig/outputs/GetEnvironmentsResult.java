@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEnvironmentsResult {
@@ -15,12 +17,12 @@ public final class GetEnvironmentsResult {
      * @return Set of Environment IDs associated with this AppConfig Application.
      * 
      */
-    private List<String> environmentIds;
+    private @Nullable List<String> environmentIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetEnvironmentsResult() {}
     public String applicationId() {
@@ -31,14 +33,14 @@ public final class GetEnvironmentsResult {
      * 
      */
     public List<String> environmentIds() {
-        return this.environmentIds;
+        return this.environmentIds == null ? List.of() : this.environmentIds;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -51,8 +53,8 @@ public final class GetEnvironmentsResult {
     @CustomType.Builder
     public static final class Builder {
         private String applicationId;
-        private List<String> environmentIds;
-        private String id;
+        private @Nullable List<String> environmentIds;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetEnvironmentsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,16 +69,16 @@ public final class GetEnvironmentsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder environmentIds(List<String> environmentIds) {
-            this.environmentIds = Objects.requireNonNull(environmentIds);
+        public Builder environmentIds(@Nullable List<String> environmentIds) {
+            this.environmentIds = environmentIds;
             return this;
         }
         public Builder environmentIds(String... environmentIds) {
             return environmentIds(List.of(environmentIds));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetEnvironmentsResult build() {

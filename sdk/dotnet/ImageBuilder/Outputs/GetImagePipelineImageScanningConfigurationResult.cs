@@ -20,13 +20,13 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Whether image scanning is enabled.
         /// </summary>
-        public readonly bool ImageScanningEnabled;
+        public readonly bool? ImageScanningEnabled;
 
         [OutputConstructor]
         private GetImagePipelineImageScanningConfigurationResult(
             ImmutableArray<Outputs.GetImagePipelineImageScanningConfigurationEcrConfigurationResult> ecrConfigurations,
 
-            bool imageScanningEnabled)
+            bool? imageScanningEnabled)
         {
             EcrConfigurations = ecrConfigurations;
             ImageScanningEnabled = imageScanningEnabled;

@@ -90,7 +90,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Hours of Operation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
      */
@@ -102,7 +102,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
     /**
      * The identifier for the hours of operation.
      */
-    public /*out*/ readonly hoursOfOperationId!: pulumi.Output<string>;
+    public /*out*/ readonly hoursOfOperationId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */

@@ -56,15 +56,15 @@ type Ingestion struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Ingestion.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// ID of the dataset used in the ingestion.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
 	// ID for the ingestion.
 	IngestionId pulumi.StringOutput `pulumi:"ingestionId"`
 	// Ingestion status.
-	IngestionStatus pulumi.StringOutput `pulumi:"ingestionStatus"`
+	IngestionStatus pulumi.StringPtrOutput `pulumi:"ingestionStatus"`
 	// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
 	//
 	// The following arguments are optional:
@@ -262,13 +262,13 @@ func (o IngestionOutput) ToIngestionOutputWithContext(ctx context.Context) Inges
 }
 
 // ARN of the Ingestion.
-func (o IngestionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o IngestionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ingestion) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o IngestionOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o IngestionOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ingestion) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // ID of the dataset used in the ingestion.
@@ -282,8 +282,8 @@ func (o IngestionOutput) IngestionId() pulumi.StringOutput {
 }
 
 // Ingestion status.
-func (o IngestionOutput) IngestionStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.IngestionStatus }).(pulumi.StringOutput)
+func (o IngestionOutput) IngestionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ingestion) pulumi.StringPtrOutput { return v.IngestionStatus }).(pulumi.StringPtrOutput)
 }
 
 // Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.

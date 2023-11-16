@@ -51,22 +51,22 @@ class GetVpnGatewayResult:
 
     @property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> str:
+    def amazon_side_asn(self) -> Optional[str]:
         return pulumi.get(self, "amazon_side_asn")
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="attachedVpcId")
-    def attached_vpc_id(self) -> str:
+    def attached_vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "attached_vpc_id")
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         return pulumi.get(self, "availability_zone")
 
     @property
@@ -76,17 +76,17 @@ class GetVpnGatewayResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

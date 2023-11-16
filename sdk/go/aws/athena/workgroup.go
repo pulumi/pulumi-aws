@@ -64,7 +64,7 @@ type Workgroup struct {
 	pulumi.CustomResourceState
 
 	// ARN of the workgroup
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block with various settings for the workgroup. Documented below.
 	Configuration WorkgroupConfigurationPtrOutput `pulumi:"configuration"`
 	// Description of the workgroup.
@@ -281,8 +281,8 @@ func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) Workg
 }
 
 // ARN of the workgroup
-func (o WorkgroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WorkgroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block with various settings for the workgroup. Documented below.

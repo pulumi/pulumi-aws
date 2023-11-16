@@ -130,7 +130,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ARN of domain name.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
@@ -166,19 +166,19 @@ namespace Pulumi.Aws.ApiGateway
         /// Upload date associated with the domain certificate.
         /// </summary>
         [Output("certificateUploadDate")]
-        public Output<string> CertificateUploadDate { get; private set; } = null!;
+        public Output<string?> CertificateUploadDate { get; private set; } = null!;
 
         /// <summary>
         /// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         /// </summary>
         [Output("cloudfrontDomainName")]
-        public Output<string> CloudfrontDomainName { get; private set; } = null!;
+        public Output<string?> CloudfrontDomainName { get; private set; } = null!;
 
         /// <summary>
         /// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         /// </summary>
         [Output("cloudfrontZoneId")]
-        public Output<string> CloudfrontZoneId { get; private set; } = null!;
+        public Output<string?> CloudfrontZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Fully-qualified domain name to register.
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Configuration block defining API endpoint information including type. See below.
         /// </summary>
         [Output("endpointConfiguration")]
-        public Output<Outputs.DomainNameEndpointConfiguration> EndpointConfiguration { get; private set; } = null!;
+        public Output<Outputs.DomainNameEndpointConfiguration?> EndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Mutual TLS authentication configuration for the domain name. See below.
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         /// </summary>
         [Output("ownershipVerificationCertificateArn")]
-        public Output<string> OwnershipVerificationCertificateArn { get; private set; } = null!;
+        public Output<string?> OwnershipVerificationCertificateArn { get; private set; } = null!;
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
@@ -222,19 +222,19 @@ namespace Pulumi.Aws.ApiGateway
         /// Hostname for the custom domain's regional endpoint.
         /// </summary>
         [Output("regionalDomainName")]
-        public Output<string> RegionalDomainName { get; private set; } = null!;
+        public Output<string?> RegionalDomainName { get; private set; } = null!;
 
         /// <summary>
         /// Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         /// </summary>
         [Output("regionalZoneId")]
-        public Output<string> RegionalZoneId { get; private set; } = null!;
+        public Output<string?> RegionalZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         /// </summary>
         [Output("securityPolicy")]
-        public Output<string> SecurityPolicy { get; private set; } = null!;
+        public Output<string?> SecurityPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

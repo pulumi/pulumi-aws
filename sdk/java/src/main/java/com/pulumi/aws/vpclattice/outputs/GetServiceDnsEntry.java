@@ -6,18 +6,20 @@ package com.pulumi.aws.vpclattice.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceDnsEntry {
-    private String domainName;
-    private String hostedZoneId;
+    private @Nullable String domainName;
+    private @Nullable String hostedZoneId;
 
     private GetServiceDnsEntry() {}
-    public String domainName() {
-        return this.domainName;
+    public Optional<String> domainName() {
+        return Optional.ofNullable(this.domainName);
     }
-    public String hostedZoneId() {
-        return this.hostedZoneId;
+    public Optional<String> hostedZoneId() {
+        return Optional.ofNullable(this.hostedZoneId);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetServiceDnsEntry {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String domainName;
-        private String hostedZoneId;
+        private @Nullable String domainName;
+        private @Nullable String hostedZoneId;
         public Builder() {}
         public Builder(GetServiceDnsEntry defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetServiceDnsEntry {
         }
 
         @CustomType.Setter
-        public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+        public Builder domainName(@Nullable String domainName) {
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
-        public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+        public Builder hostedZoneId(@Nullable String hostedZoneId) {
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         public GetServiceDnsEntry build() {

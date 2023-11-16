@@ -47,7 +47,7 @@ namespace Pulumi.Aws.NetworkManager
         /// The Amazon Resource Name (ARN) of the device.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS location of the device. Documented below.

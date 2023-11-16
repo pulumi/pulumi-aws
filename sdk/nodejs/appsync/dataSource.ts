@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const examplePolicyDocument = exampleTable.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["dynamodb:*"],
- *         resources: [exampleTable.arn],
+ *         resources: [arn],
  *     }],
- * });
+ * }));
  * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
  *     role: exampleRole.id,
  *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
@@ -102,7 +102,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the data source.
      */

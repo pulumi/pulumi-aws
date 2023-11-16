@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
         /// </summary>
-        public readonly string Ec2SshKey;
+        public readonly string? Ec2SshKey;
         /// <summary>
         /// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Eks.Outputs
 
         [OutputConstructor]
         private GetNodeGroupRemoteAccessResult(
-            string ec2SshKey,
+            string? ec2SshKey,
 
             ImmutableArray<string> sourceSecurityGroupIds)
         {

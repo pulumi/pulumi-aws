@@ -116,30 +116,30 @@ namespace Pulumi.Aws.Athena
         /// <summary>
         /// Database to which the query belongs.
         /// </summary>
-        public readonly string Database;
+        public readonly string? Database;
         /// <summary>
         /// Brief explanation of the query.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
-        public readonly string Querystring;
+        public readonly string? Querystring;
         public readonly string? Workgroup;
 
         [OutputConstructor]
         private GetNamedQueryResult(
-            string database,
+            string? database,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
-            string querystring,
+            string? querystring,
 
             string? workgroup)
         {

@@ -890,12 +890,12 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def checksum(self) -> pulumi.Output[str]:
+    def checksum(self) -> pulumi.Output[Optional[str]]:
         """
         Checksum identifying the version of the bot that was created. The checksum is not
         included as an argument because the resource will add it automatically when updating the bot.
@@ -928,7 +928,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the bot version was created.
         """
@@ -960,7 +960,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> pulumi.Output[str]:
+    def failure_reason(self) -> pulumi.Output[Optional[str]]:
         """
         If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
         """
@@ -984,7 +984,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> pulumi.Output[str]:
+    def last_updated_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the $LATEST version of this bot was updated.
         """
@@ -1024,7 +1024,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         When you send a request to create or update a bot, Amazon Lex sets the status response
         element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
@@ -1035,7 +1035,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the bot.
         """
@@ -1043,7 +1043,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="voiceId")
-    def voice_id(self) -> pulumi.Output[str]:
+    def voice_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """

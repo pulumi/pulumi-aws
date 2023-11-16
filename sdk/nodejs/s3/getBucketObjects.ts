@@ -72,23 +72,23 @@ export interface GetBucketObjectsResult {
     /**
      * List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
      */
-    readonly commonPrefixes: string[];
+    readonly commonPrefixes?: string[];
     readonly delimiter?: string;
     readonly encodingType?: string;
     readonly fetchOwner?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of strings representing object keys
      */
-    readonly keys: string[];
+    readonly keys?: string[];
     readonly maxKeys?: number;
     /**
      * List of strings representing object owner IDs (see `fetchOwner` above)
      */
-    readonly owners: string[];
+    readonly owners?: string[];
     readonly prefix?: string;
     readonly startAfter?: string;
 }

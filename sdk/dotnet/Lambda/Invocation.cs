@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Lambda
         /// String result of the lambda function invocation.
         /// </summary>
         [Output("result")]
-        public Output<string> Result { get; private set; } = null!;
+        public Output<string?> Result { get; private set; } = null!;
 
         [Output("terraformKey")]
         public Output<string?> TerraformKey { get; private set; } = null!;

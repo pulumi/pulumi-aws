@@ -169,7 +169,7 @@ export class S3Endpoint extends pulumi.CustomResource {
     /**
      * ARN for the certificate.
      */
-    public readonly certificateArn!: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
      * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      */
@@ -237,7 +237,7 @@ export class S3Endpoint extends pulumi.CustomResource {
     /**
      * ARN for the endpoint.
      */
-    public /*out*/ readonly endpointArn!: pulumi.Output<string>;
+    public /*out*/ readonly endpointArn!: pulumi.Output<string | undefined>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
@@ -249,7 +249,7 @@ export class S3Endpoint extends pulumi.CustomResource {
     /**
      * Expanded name for the engine name.
      */
-    public /*out*/ readonly engineDisplayName!: pulumi.Output<string>;
+    public /*out*/ readonly engineDisplayName!: pulumi.Output<string | undefined>;
     /**
      * Bucket owner to prevent sniping. Value is an AWS account ID.
      */
@@ -257,7 +257,7 @@ export class S3Endpoint extends pulumi.CustomResource {
     /**
      * Can be used for cross-account validation. Use it in another account with `aws.dms.S3Endpoint` to create the endpoint cross-account.
      */
-    public /*out*/ readonly externalId!: pulumi.Output<string>;
+    public /*out*/ readonly externalId!: pulumi.Output<string | undefined>;
     /**
      * JSON document that describes how AWS DMS should interpret the data.
      */
@@ -277,7 +277,7 @@ export class S3Endpoint extends pulumi.CustomResource {
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
      */
@@ -315,11 +315,11 @@ export class S3Endpoint extends pulumi.CustomResource {
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
      */
-    public readonly sslMode!: pulumi.Output<string>;
+    public readonly sslMode!: pulumi.Output<string | undefined>;
     /**
      * Status of the endpoint.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

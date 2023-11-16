@@ -142,14 +142,14 @@ class ServiceQuotaUsageMetricMetricDimensionArgs:
 @pulumi.input_type
 class GetTemplatesTemplateArgs:
     def __init__(__self__, *,
-                 global_quota: bool,
-                 quota_code: str,
-                 quota_name: str,
-                 region: str,
-                 service_code: str,
-                 service_name: str,
-                 unit: str,
-                 value: float):
+                 global_quota: Optional[bool] = None,
+                 quota_code: Optional[str] = None,
+                 quota_name: Optional[str] = None,
+                 region: Optional[str] = None,
+                 service_code: Optional[str] = None,
+                 service_name: Optional[str] = None,
+                 unit: Optional[str] = None,
+                 value: Optional[float] = None):
         """
         :param bool global_quota: Indicates whether the quota is global.
         :param str quota_code: Quota identifier.
@@ -160,109 +160,117 @@ class GetTemplatesTemplateArgs:
         :param str unit: Unit of measurement.
         :param float value: (Required) The new, increased value for the quota.
         """
-        pulumi.set(__self__, "global_quota", global_quota)
-        pulumi.set(__self__, "quota_code", quota_code)
-        pulumi.set(__self__, "quota_name", quota_name)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "service_code", service_code)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        if global_quota is not None:
+            pulumi.set(__self__, "global_quota", global_quota)
+        if quota_code is not None:
+            pulumi.set(__self__, "quota_code", quota_code)
+        if quota_name is not None:
+            pulumi.set(__self__, "quota_name", quota_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if service_code is not None:
+            pulumi.set(__self__, "service_code", service_code)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="globalQuota")
-    def global_quota(self) -> bool:
+    def global_quota(self) -> Optional[bool]:
         """
         Indicates whether the quota is global.
         """
         return pulumi.get(self, "global_quota")
 
     @global_quota.setter
-    def global_quota(self, value: bool):
+    def global_quota(self, value: Optional[bool]):
         pulumi.set(self, "global_quota", value)
 
     @property
     @pulumi.getter(name="quotaCode")
-    def quota_code(self) -> str:
+    def quota_code(self) -> Optional[str]:
         """
         Quota identifier.
         """
         return pulumi.get(self, "quota_code")
 
     @quota_code.setter
-    def quota_code(self, value: str):
+    def quota_code(self, value: Optional[str]):
         pulumi.set(self, "quota_code", value)
 
     @property
     @pulumi.getter(name="quotaName")
-    def quota_name(self) -> str:
+    def quota_name(self) -> Optional[str]:
         """
         Quota name.
         """
         return pulumi.get(self, "quota_name")
 
     @quota_name.setter
-    def quota_name(self, value: str):
+    def quota_name(self, value: Optional[str]):
         pulumi.set(self, "quota_name", value)
 
     @property
     @pulumi.getter
-    def region(self) -> str:
+    def region(self) -> Optional[str]:
         """
         AWS Region to which the quota increases apply.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: str):
+    def region(self, value: Optional[str]):
         pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serviceCode")
-    def service_code(self) -> str:
+    def service_code(self) -> Optional[str]:
         """
         (Required) Service identifier.
         """
         return pulumi.get(self, "service_code")
 
     @service_code.setter
-    def service_code(self, value: str):
+    def service_code(self, value: Optional[str]):
         pulumi.set(self, "service_code", value)
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> Optional[str]:
         """
         Service name.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: str):
+    def service_name(self, value: Optional[str]):
         pulumi.set(self, "service_name", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         """
         Unit of measurement.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: str):
+    def unit(self, value: Optional[str]):
         pulumi.set(self, "unit", value)
 
     @property
     @pulumi.getter
-    def value(self) -> float:
+    def value(self) -> Optional[float]:
         """
         (Required) The new, increased value for the quota.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: float):
+    def value(self, value: Optional[float]):
         pulumi.set(self, "value", value)
 
 

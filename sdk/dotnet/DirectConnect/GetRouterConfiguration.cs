@@ -144,11 +144,11 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// Instructions for configuring your router
         /// </summary>
-        public readonly string CustomerRouterConfig;
+        public readonly string? CustomerRouterConfig;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Router type identifier
         /// </summary>
@@ -158,13 +158,13 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRouterConfigurationRouterResult> Routers;
         public readonly string VirtualInterfaceId;
-        public readonly string VirtualInterfaceName;
+        public readonly string? VirtualInterfaceName;
 
         [OutputConstructor]
         private GetRouterConfigurationResult(
-            string customerRouterConfig,
+            string? customerRouterConfig,
 
-            string id,
+            string? id,
 
             string routerTypeIdentifier,
 
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.DirectConnect
 
             string virtualInterfaceId,
 
-            string virtualInterfaceName)
+            string? virtualInterfaceName)
         {
             CustomerRouterConfig = customerRouterConfig;
             Id = id;

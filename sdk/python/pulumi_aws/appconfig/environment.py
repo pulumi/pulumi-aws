@@ -457,7 +457,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the AppConfig Environment.
         """
@@ -465,7 +465,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the environment. Can be at most 1024 characters.
         """
@@ -473,7 +473,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> pulumi.Output[str]:
+    def environment_id(self) -> pulumi.Output[Optional[str]]:
         """
         AppConfig environment ID.
         """
@@ -497,7 +497,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
         or `ROLLED_BACK`.

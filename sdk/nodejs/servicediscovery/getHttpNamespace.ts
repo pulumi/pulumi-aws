@@ -46,24 +46,24 @@ export interface GetHttpNamespaceResult {
     /**
      * ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description that you specify for the namespace when you create it.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Name of an HTTP namespace.
      */
-    readonly httpName: string;
+    readonly httpName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * ## Example Usage

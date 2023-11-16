@@ -53,7 +53,7 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Hours of Operation.
         """
@@ -61,7 +61,7 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter
-    def configs(self) -> Sequence['outputs.GetHoursOfOperationConfigResult']:
+    def configs(self) -> Optional[Sequence['outputs.GetHoursOfOperationConfigResult']]:
         """
         Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
         """
@@ -69,7 +69,7 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Hours of Operation.
         """
@@ -77,7 +77,7 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter(name="hoursOfOperationId")
-    def hours_of_operation_id(self) -> str:
+    def hours_of_operation_id(self) -> Optional[str]:
         """
         The identifier for the hours of operation.
         """
@@ -85,7 +85,7 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -101,7 +101,7 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the Hours of Operation.
         """
@@ -109,7 +109,7 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assign to the Hours of Operation.
         """
@@ -117,7 +117,7 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> str:
+    def time_zone(self) -> Optional[str]:
         """
         Time zone of the Hours of Operation.
         """

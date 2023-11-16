@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Fms
     public partial class Policy : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Fms
         /// A unique identifier for each update to the policy.
         /// </summary>
         [Output("policyUpdateToken")]
-        public Output<string> PolicyUpdateToken { get; private set; } = null!;
+        public Output<string?> PolicyUpdateToken { get; private set; } = null!;
 
         /// <summary>
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Fms
         /// A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         /// </summary>
         [Output("resourceType")]
-        public Output<string> ResourceType { get; private set; } = null!;
+        public Output<string?> ResourceType { get; private set; } = null!;
 
         /// <summary>
         /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.

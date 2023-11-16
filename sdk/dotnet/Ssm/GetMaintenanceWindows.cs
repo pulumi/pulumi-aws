@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of window IDs of the matched SSM maintenance windows.
         /// </summary>
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Ssm
         private GetMaintenanceWindowsResult(
             ImmutableArray<Outputs.GetMaintenanceWindowsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids)
         {

@@ -302,7 +302,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the key alias.
         """
@@ -318,7 +318,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates an unique alias beginning with the specified prefix.
         The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
@@ -327,7 +327,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetKeyArn")
-    def target_key_arn(self) -> pulumi.Output[str]:
+    def target_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the target key identifier.
         """

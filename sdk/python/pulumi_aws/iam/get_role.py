@@ -62,7 +62,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the role.
         """
@@ -70,7 +70,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter(name="assumeRolePolicy")
-    def assume_role_policy(self) -> str:
+    def assume_role_policy(self) -> Optional[str]:
         """
         Policy document associated with the role.
         """
@@ -78,7 +78,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> str:
+    def create_date(self) -> Optional[str]:
         """
         Creation date of the role in RFC 3339 format.
         """
@@ -86,7 +86,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description for the role.
         """
@@ -94,7 +94,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -102,7 +102,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter(name="maxSessionDuration")
-    def max_session_duration(self) -> int:
+    def max_session_duration(self) -> Optional[int]:
         """
         Maximum session duration.
         """
@@ -115,7 +115,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
         Path to the role.
         """
@@ -123,7 +123,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter(name="permissionsBoundary")
-    def permissions_boundary(self) -> str:
+    def permissions_boundary(self) -> Optional[str]:
         """
         The ARN of the policy that is used to set the permissions boundary for the role.
         """
@@ -131,7 +131,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter(name="roleLastUseds")
-    def role_last_useds(self) -> Sequence['outputs.GetRoleRoleLastUsedResult']:
+    def role_last_useds(self) -> Optional[Sequence['outputs.GetRoleRoleLastUsedResult']]:
         """
         Contains information about the last time that an IAM role was used. See `role_last_used` for details.
         """
@@ -139,7 +139,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags attached to the role.
         """
@@ -147,7 +147,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> Optional[str]:
         """
         Stable and unique string identifying the role.
         """

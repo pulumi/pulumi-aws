@@ -318,14 +318,14 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroupRuleId", refs={String.class}, tree="[0]")
-    private Output<String> securityGroupRuleId;
+    private Output</* @Nullable */ String> securityGroupRuleId;
 
     /**
      * @return If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
      * 
      */
-    public Output<String> securityGroupRuleId() {
-        return this.securityGroupRuleId;
+    public Output<Optional<String>> securityGroupRuleId() {
+        return Codegen.optional(this.securityGroupRuleId);
     }
     /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
@@ -346,14 +346,14 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceSecurityGroupId", refs={String.class}, tree="[0]")
-    private Output<String> sourceSecurityGroupId;
+    private Output</* @Nullable */ String> sourceSecurityGroupId;
 
     /**
      * @return Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
      * 
      */
-    public Output<String> sourceSecurityGroupId() {
-        return this.sourceSecurityGroupId;
+    public Output<Optional<String>> sourceSecurityGroupId() {
+        return Codegen.optional(this.sourceSecurityGroupId);
     }
     /**
      * End port (or ICMP code if protocol is &#34;icmp&#34;).

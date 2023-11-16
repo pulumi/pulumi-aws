@@ -106,7 +106,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The endpoint that is created from the workgroup. See `Endpoint` below.
         /// </summary>
@@ -114,16 +114,16 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         /// </summary>
-        public readonly bool EnhancedVpcRouting;
+        public readonly bool? EnhancedVpcRouting;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string NamespaceName;
+        public readonly string? Id;
+        public readonly string? NamespaceName;
         /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
         /// </summary>
-        public readonly bool PubliclyAccessible;
+        public readonly bool? PubliclyAccessible;
         /// <summary>
         /// An array of security group IDs to associate with the workgroup.
         /// </summary>
@@ -135,28 +135,28 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// The Redshift Workgroup ID.
         /// </summary>
-        public readonly string WorkgroupId;
+        public readonly string? WorkgroupId;
         public readonly string WorkgroupName;
 
         [OutputConstructor]
         private GetWorkgroupResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetWorkgroupEndpointResult> endpoints,
 
-            bool enhancedVpcRouting,
+            bool? enhancedVpcRouting,
 
-            string id,
+            string? id,
 
-            string namespaceName,
+            string? namespaceName,
 
-            bool publiclyAccessible,
+            bool? publiclyAccessible,
 
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds,
 
-            string workgroupId,
+            string? workgroupId,
 
             string workgroupName)
         {

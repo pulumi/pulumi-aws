@@ -61,7 +61,7 @@ type GetInstanceProfilesResult struct {
 	// Set of ARNs of instance profiles.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of IAM instance profile names.
 	Names []string `pulumi:"names"`
 	// Set of IAM instance profile paths.
@@ -113,8 +113,8 @@ func (o GetInstanceProfilesResultOutput) Arns() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetInstanceProfilesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceProfilesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetInstanceProfilesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceProfilesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of IAM instance profile names.

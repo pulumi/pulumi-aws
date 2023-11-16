@@ -139,7 +139,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.ServiceCatalog
 
             ImmutableArray<Outputs.GetPortfolioConstraintsDetailResult> details,
 
-            string id,
+            string? id,
 
             string portfolioId,
 

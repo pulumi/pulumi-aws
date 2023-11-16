@@ -131,41 +131,41 @@ namespace Pulumi.Aws.GlobalAccelerator
     [OutputType]
     public sealed class GetAcceleratorResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly ImmutableArray<Outputs.GetAcceleratorAttributeResult> Attributes;
-        public readonly string DnsName;
-        public readonly string DualStackDnsName;
-        public readonly bool Enabled;
-        public readonly string HostedZoneId;
-        public readonly string Id;
-        public readonly string IpAddressType;
+        public readonly string? DnsName;
+        public readonly string? DualStackDnsName;
+        public readonly bool? Enabled;
+        public readonly string? HostedZoneId;
+        public readonly string? Id;
+        public readonly string? IpAddressType;
         public readonly ImmutableArray<Outputs.GetAcceleratorIpSetResult> IpSets;
-        public readonly string Name;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? Name;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetAcceleratorResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetAcceleratorAttributeResult> attributes,
 
-            string dnsName,
+            string? dnsName,
 
-            string dualStackDnsName,
+            string? dualStackDnsName,
 
-            bool enabled,
+            bool? enabled,
 
-            string hostedZoneId,
+            string? hostedZoneId,
 
-            string id,
+            string? id,
 
-            string ipAddressType,
+            string? ipAddressType,
 
             ImmutableArray<Outputs.GetAcceleratorIpSetResult> ipSets,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Attributes = attributes;

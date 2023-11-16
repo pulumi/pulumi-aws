@@ -108,8 +108,8 @@ type OpenZfsSnapshot struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name of the snapshot.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	Arn          pulumi.StringPtrOutput `pulumi:"arn"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
@@ -301,12 +301,12 @@ func (o OpenZfsSnapshotOutput) ToOpenZfsSnapshotOutputWithContext(ctx context.Co
 }
 
 // Amazon Resource Name of the snapshot.
-func (o OpenZfsSnapshotOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OpenZfsSnapshotOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o OpenZfsSnapshotOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o OpenZfsSnapshotOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.

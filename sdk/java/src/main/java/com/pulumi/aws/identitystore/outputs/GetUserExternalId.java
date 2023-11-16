@@ -6,6 +6,8 @@ package com.pulumi.aws.identitystore.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserExternalId {
@@ -13,27 +15,27 @@ public final class GetUserExternalId {
      * @return The identifier issued to this resource by an external identity provider.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The issuer for an external identifier.
      * 
      */
-    private String issuer;
+    private @Nullable String issuer;
 
     private GetUserExternalId() {}
     /**
      * @return The identifier issued to this resource by an external identity provider.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The issuer for an external identifier.
      * 
      */
-    public String issuer() {
-        return this.issuer;
+    public Optional<String> issuer() {
+        return Optional.ofNullable(this.issuer);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetUserExternalId {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String issuer;
+        private @Nullable String id;
+        private @Nullable String issuer;
         public Builder() {}
         public Builder(GetUserExternalId defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetUserExternalId {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+        public Builder issuer(@Nullable String issuer) {
+            this.issuer = issuer;
             return this;
         }
         public GetUserExternalId build() {

@@ -61,18 +61,18 @@ type LookupServerlessLifecyclePolicyArgs struct {
 // A collection of values returned by getServerlessLifecyclePolicy.
 type LookupServerlessLifecyclePolicyResult struct {
 	// The date the lifecycle policy was created.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the policy. Typically used to store information about the permissions defined in the policy.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
+	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
 	// The date the lifecycle policy was last modified.
-	LastModifiedDate string `pulumi:"lastModifiedDate"`
-	Name             string `pulumi:"name"`
+	LastModifiedDate *string `pulumi:"lastModifiedDate"`
+	Name             string  `pulumi:"name"`
 	// JSON policy document to use as the content for the new policy.
-	Policy string `pulumi:"policy"`
+	Policy *string `pulumi:"policy"`
 	// Version of the policy.
-	PolicyVersion string `pulumi:"policyVersion"`
-	Type          string `pulumi:"type"`
+	PolicyVersion *string `pulumi:"policyVersion"`
+	Type          string  `pulumi:"type"`
 }
 
 func LookupServerlessLifecyclePolicyOutput(ctx *pulumi.Context, args LookupServerlessLifecyclePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessLifecyclePolicyResultOutput {
@@ -116,22 +116,22 @@ func (o LookupServerlessLifecyclePolicyResultOutput) ToLookupServerlessLifecycle
 }
 
 // The date the lifecycle policy was created.
-func (o LookupServerlessLifecyclePolicyResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupServerlessLifecyclePolicyResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of the policy. Typically used to store information about the permissions defined in the policy.
-func (o LookupServerlessLifecyclePolicyResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupServerlessLifecyclePolicyResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServerlessLifecyclePolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServerlessLifecyclePolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The date the lifecycle policy was last modified.
-func (o LookupServerlessLifecyclePolicyResultOutput) LastModifiedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
+func (o LookupServerlessLifecyclePolicyResultOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) *string { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServerlessLifecyclePolicyResultOutput) Name() pulumi.StringOutput {
@@ -139,13 +139,13 @@ func (o LookupServerlessLifecyclePolicyResultOutput) Name() pulumi.StringOutput 
 }
 
 // JSON policy document to use as the content for the new policy.
-func (o LookupServerlessLifecyclePolicyResultOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+func (o LookupServerlessLifecyclePolicyResultOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // Version of the policy.
-func (o LookupServerlessLifecyclePolicyResultOutput) PolicyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
+func (o LookupServerlessLifecyclePolicyResultOutput) PolicyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) *string { return v.PolicyVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServerlessLifecyclePolicyResultOutput) Type() pulumi.StringOutput {

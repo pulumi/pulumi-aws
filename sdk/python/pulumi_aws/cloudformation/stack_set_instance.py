@@ -633,7 +633,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         """
@@ -665,7 +665,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="organizationalUnitId")
-    def organizational_unit_id(self) -> pulumi.Output[str]:
+    def organizational_unit_id(self) -> pulumi.Output[Optional[str]]:
         """
         Organizational unit ID in which the stack is deployed.
         """
@@ -681,7 +681,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[str]:
+    def region(self) -> pulumi.Output[Optional[str]]:
         """
         Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         """
@@ -697,7 +697,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackId")
-    def stack_id(self) -> pulumi.Output[str]:
+    def stack_id(self) -> pulumi.Output[Optional[str]]:
         """
         Stack identifier.
         """
@@ -705,7 +705,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackInstanceSummaries")
-    def stack_instance_summaries(self) -> pulumi.Output[Sequence['outputs.StackSetInstanceStackInstanceSummary']]:
+    def stack_instance_summaries(self) -> pulumi.Output[Optional[Sequence['outputs.StackSetInstanceStackInstanceSummary']]]:
         """
         List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
         """

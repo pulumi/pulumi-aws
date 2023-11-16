@@ -83,7 +83,7 @@ type ManagedPrefixList struct {
 	// Address family (`IPv4` or `IPv6`) of this prefix list.
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// ARN of the prefix list.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
 	Entries ManagedPrefixListEntryTypeArrayOutput `pulumi:"entries"`
 	// Maximum number of entries that this prefix list can contain.
@@ -91,7 +91,7 @@ type ManagedPrefixList struct {
 	// Name of this resource. The name must not start with `com.amazonaws`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the AWS account that owns this prefix list.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -99,7 +99,7 @@ type ManagedPrefixList struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Latest version of this prefix list.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewManagedPrefixList registers a new resource with the given unique name, arguments, and options.
@@ -311,8 +311,8 @@ func (o ManagedPrefixListOutput) AddressFamily() pulumi.StringOutput {
 }
 
 // ARN of the prefix list.
-func (o ManagedPrefixListOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ManagedPrefixList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ManagedPrefixListOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPrefixList) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
@@ -331,8 +331,8 @@ func (o ManagedPrefixListOutput) Name() pulumi.StringOutput {
 }
 
 // ID of the AWS account that owns this prefix list.
-func (o ManagedPrefixListOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ManagedPrefixList) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o ManagedPrefixListOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPrefixList) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -348,8 +348,8 @@ func (o ManagedPrefixListOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Latest version of this prefix list.
-func (o ManagedPrefixListOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *ManagedPrefixList) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o ManagedPrefixListOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedPrefixList) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type ManagedPrefixListArrayOutput struct{ *pulumi.OutputState }

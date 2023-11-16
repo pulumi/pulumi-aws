@@ -152,7 +152,7 @@ type ProtectionGroup struct {
 	// The criteria to use to choose the protected resources for inclusion in the group.
 	Pattern pulumi.StringOutput `pulumi:"pattern"`
 	// The ARN (Amazon Resource Name) of the protection group.
-	ProtectionGroupArn pulumi.StringOutput `pulumi:"protectionGroupArn"`
+	ProtectionGroupArn pulumi.StringPtrOutput `pulumi:"protectionGroupArn"`
 	// The name of the protection group.
 	ProtectionGroupId pulumi.StringOutput `pulumi:"protectionGroupId"`
 	// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
@@ -387,8 +387,8 @@ func (o ProtectionGroupOutput) Pattern() pulumi.StringOutput {
 }
 
 // The ARN (Amazon Resource Name) of the protection group.
-func (o ProtectionGroupOutput) ProtectionGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringOutput { return v.ProtectionGroupArn }).(pulumi.StringOutput)
+func (o ProtectionGroupOutput) ProtectionGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringPtrOutput { return v.ProtectionGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the protection group.

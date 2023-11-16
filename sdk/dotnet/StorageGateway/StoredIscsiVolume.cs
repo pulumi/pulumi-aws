@@ -74,13 +74,13 @@ namespace Pulumi.Aws.StorageGateway
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether mutual CHAP is enabled for the iSCSI target.
         /// </summary>
         [Output("chapEnabled")]
-        public Output<bool> ChapEnabled { get; private set; } = null!;
+        public Output<bool?> ChapEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier for the gateway local disk that is configured as a stored volume.
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.StorageGateway
         /// Logical disk number.
         /// </summary>
         [Output("lunNumber")]
-        public Output<int> LunNumber { get; private set; } = null!;
+        public Output<int?> LunNumber { get; private set; } = null!;
 
         /// <summary>
         /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.StorageGateway
         /// The port used to communicate with iSCSI targets.
         /// </summary>
         [Output("networkInterfacePort")]
-        public Output<int> NetworkInterfacePort { get; private set; } = null!;
+        public Output<int?> NetworkInterfacePort { get; private set; } = null!;
 
         /// <summary>
         /// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.StorageGateway
         /// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         /// </summary>
         [Output("targetArn")]
-        public Output<string> TargetArn { get; private set; } = null!;
+        public Output<string?> TargetArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
@@ -164,31 +164,31 @@ namespace Pulumi.Aws.StorageGateway
         /// A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
         /// </summary>
         [Output("volumeAttachmentStatus")]
-        public Output<string> VolumeAttachmentStatus { get; private set; } = null!;
+        public Output<string?> VolumeAttachmentStatus { get; private set; } = null!;
 
         /// <summary>
         /// Volume ID, e.g., `vol-12345678`.
         /// </summary>
         [Output("volumeId")]
-        public Output<string> VolumeId { get; private set; } = null!;
+        public Output<string?> VolumeId { get; private set; } = null!;
 
         /// <summary>
         /// The size of the data stored on the volume in bytes.
         /// </summary>
         [Output("volumeSizeInBytes")]
-        public Output<int> VolumeSizeInBytes { get; private set; } = null!;
+        public Output<int?> VolumeSizeInBytes { get; private set; } = null!;
 
         /// <summary>
         /// indicates the state of the storage volume.
         /// </summary>
         [Output("volumeStatus")]
-        public Output<string> VolumeStatus { get; private set; } = null!;
+        public Output<string?> VolumeStatus { get; private set; } = null!;
 
         /// <summary>
         /// indicates the type of the volume.
         /// </summary>
         [Output("volumeType")]
-        public Output<string> VolumeType { get; private set; } = null!;
+        public Output<string?> VolumeType { get; private set; } = null!;
 
 
         /// <summary>

@@ -43,11 +43,11 @@ export interface GetAuthorizersResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of Authorizer identifiers.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly restApiId: string;
 }
 /**

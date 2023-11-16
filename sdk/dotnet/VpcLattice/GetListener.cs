@@ -136,11 +136,11 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// ARN of the listener.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The date and time that the listener was created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// The actions for the default listener rule.
         /// </summary>
@@ -148,71 +148,71 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The date and time the listener was last updated.
         /// </summary>
-        public readonly string LastUpdatedAt;
+        public readonly string? LastUpdatedAt;
         /// <summary>
         /// The ID of the listener.
         /// </summary>
-        public readonly string ListenerId;
+        public readonly string? ListenerId;
         public readonly string ListenerIdentifier;
         /// <summary>
         /// The name of the listener.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The listener port.
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
         /// The listener protocol. Either `HTTPS` or `HTTP`.
         /// </summary>
-        public readonly string Protocol;
+        public readonly string? Protocol;
         /// <summary>
         /// The ARN of the service.
         /// </summary>
-        public readonly string ServiceArn;
+        public readonly string? ServiceArn;
         /// <summary>
         /// The ID of the service.
         /// </summary>
-        public readonly string ServiceId;
+        public readonly string? ServiceId;
         public readonly string ServiceIdentifier;
         /// <summary>
         /// List of tags associated with the listener.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetListenerResult(
-            string arn,
+            string? arn,
 
-            string createdAt,
+            string? createdAt,
 
             ImmutableArray<Outputs.GetListenerDefaultActionResult> defaultActions,
 
-            string id,
+            string? id,
 
-            string lastUpdatedAt,
+            string? lastUpdatedAt,
 
-            string listenerId,
+            string? listenerId,
 
             string listenerIdentifier,
 
-            string name,
+            string? name,
 
-            int port,
+            int? port,
 
-            string protocol,
+            string? protocol,
 
-            string serviceArn,
+            string? serviceArn,
 
-            string serviceId,
+            string? serviceId,
 
             string serviceIdentifier,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CreatedAt = createdAt;

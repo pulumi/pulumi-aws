@@ -16,11 +16,11 @@ type WebAcl struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
 	AssociationConfig WebAclAssociationConfigPtrOutput `pulumi:"associationConfig"`
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
-	Capacity pulumi.IntOutput `pulumi:"capacity"`
+	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrOutput `pulumi:"captchaConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
@@ -29,7 +29,7 @@ type WebAcl struct {
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
+	LockToken   pulumi.StringPtrOutput `pulumi:"lockToken"`
 	// Friendly name of the WebACL.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
@@ -301,8 +301,8 @@ func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutpu
 }
 
 // The Amazon Resource Name (ARN) of the IP Set that this statement references.
-func (o WebAclOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WebAclOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
@@ -311,8 +311,8 @@ func (o WebAclOutput) AssociationConfig() WebAclAssociationConfigPtrOutput {
 }
 
 // Web ACL capacity units (WCUs) currently being used by this web ACL.
-func (o WebAclOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v *WebAcl) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
+func (o WebAclOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
 // Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
@@ -335,8 +335,8 @@ func (o WebAclOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o WebAclOutput) LockToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
+func (o WebAclOutput) LockToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.LockToken }).(pulumi.StringPtrOutput)
 }
 
 // Friendly name of the WebACL.

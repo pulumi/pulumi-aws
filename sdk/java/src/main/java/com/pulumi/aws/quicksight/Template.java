@@ -109,56 +109,56 @@ public class Template extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the resource.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * AWS account ID.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * The time that the template was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return The time that the template was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * The time that the template was last updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
+    private Output</* @Nullable */ String> lastUpdatedTime;
 
     /**
      * @return The time that the template was last updated.
      * 
      */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Output<Optional<String>> lastUpdatedTime() {
+        return Codegen.optional(this.lastUpdatedTime);
     }
     /**
      * Display name for the template.
@@ -207,28 +207,28 @@ public class Template extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceEntityArn", refs={String.class}, tree="[0]")
-    private Output<String> sourceEntityArn;
+    private Output</* @Nullable */ String> sourceEntityArn;
 
     /**
      * @return Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
      * 
      */
-    public Output<String> sourceEntityArn() {
-        return this.sourceEntityArn;
+    public Output<Optional<String>> sourceEntityArn() {
+        return Codegen.optional(this.sourceEntityArn);
     }
     /**
      * The template creation status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The template creation status.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -299,14 +299,14 @@ public class Template extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
-    private Output<Integer> versionNumber;
+    private Output</* @Nullable */ Integer> versionNumber;
 
     /**
      * @return The version number of the template version.
      * 
      */
-    public Output<Integer> versionNumber() {
-        return this.versionNumber;
+    public Output<Optional<Integer>> versionNumber() {
+        return Codegen.optional(this.versionNumber);
     }
 
     /**

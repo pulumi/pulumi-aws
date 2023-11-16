@@ -1834,25 +1834,28 @@ class VpcEndpointVpcOptions(dict):
 @pulumi.output_type
 class GetDomainAdvancedSecurityOptionResult(dict):
     def __init__(__self__, *,
-                 anonymous_auth_enabled: bool,
-                 enabled: bool,
-                 internal_user_database_enabled: bool):
+                 anonymous_auth_enabled: Optional[bool] = None,
+                 enabled: Optional[bool] = None,
+                 internal_user_database_enabled: Optional[bool] = None):
         """
         :param bool enabled: Enabled disabled toggle for off-peak update window
         :param bool internal_user_database_enabled: Whether the internal user database is enabled.
         """
-        pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
+        if anonymous_auth_enabled is not None:
+            pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if internal_user_database_enabled is not None:
+            pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
 
     @property
     @pulumi.getter(name="anonymousAuthEnabled")
-    def anonymous_auth_enabled(self) -> bool:
+    def anonymous_auth_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "anonymous_auth_enabled")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Enabled disabled toggle for off-peak update window
         """
@@ -1860,7 +1863,7 @@ class GetDomainAdvancedSecurityOptionResult(dict):
 
     @property
     @pulumi.getter(name="internalUserDatabaseEnabled")
-    def internal_user_database_enabled(self) -> bool:
+    def internal_user_database_enabled(self) -> Optional[bool]:
         """
         Whether the internal user database is enabled.
         """
@@ -1870,21 +1873,24 @@ class GetDomainAdvancedSecurityOptionResult(dict):
 @pulumi.output_type
 class GetDomainAutoTuneOptionResult(dict):
     def __init__(__self__, *,
-                 desired_state: str,
-                 maintenance_schedules: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult'],
-                 rollback_on_disable: str):
+                 desired_state: Optional[str] = None,
+                 maintenance_schedules: Optional[Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult']] = None,
+                 rollback_on_disable: Optional[str] = None):
         """
         :param str desired_state: Auto-Tune desired state for the domain.
         :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleArgs'] maintenance_schedules: A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
         :param str rollback_on_disable: Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
         """
-        pulumi.set(__self__, "desired_state", desired_state)
-        pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
-        pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+        if maintenance_schedules is not None:
+            pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
+        if rollback_on_disable is not None:
+            pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
 
     @property
     @pulumi.getter(name="desiredState")
-    def desired_state(self) -> str:
+    def desired_state(self) -> Optional[str]:
         """
         Auto-Tune desired state for the domain.
         """
@@ -1892,7 +1898,7 @@ class GetDomainAutoTuneOptionResult(dict):
 
     @property
     @pulumi.getter(name="maintenanceSchedules")
-    def maintenance_schedules(self) -> Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult']:
+    def maintenance_schedules(self) -> Optional[Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult']]:
         """
         A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
         """
@@ -1900,7 +1906,7 @@ class GetDomainAutoTuneOptionResult(dict):
 
     @property
     @pulumi.getter(name="rollbackOnDisable")
-    def rollback_on_disable(self) -> str:
+    def rollback_on_disable(self) -> Optional[str]:
         """
         Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
         """
@@ -1910,21 +1916,24 @@ class GetDomainAutoTuneOptionResult(dict):
 @pulumi.output_type
 class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
     def __init__(__self__, *,
-                 cron_expression_for_recurrence: str,
-                 durations: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult'],
-                 start_at: str):
+                 cron_expression_for_recurrence: Optional[str] = None,
+                 durations: Optional[Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult']] = None,
+                 start_at: Optional[str] = None):
         """
         :param str cron_expression_for_recurrence: Cron expression for an Auto-Tune maintenance schedule.
         :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs'] durations: Configuration block for the duration of the Auto-Tune maintenance window.
         :param str start_at: Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
-        pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
-        pulumi.set(__self__, "durations", durations)
-        pulumi.set(__self__, "start_at", start_at)
+        if cron_expression_for_recurrence is not None:
+            pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
+        if durations is not None:
+            pulumi.set(__self__, "durations", durations)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
 
     @property
     @pulumi.getter(name="cronExpressionForRecurrence")
-    def cron_expression_for_recurrence(self) -> str:
+    def cron_expression_for_recurrence(self) -> Optional[str]:
         """
         Cron expression for an Auto-Tune maintenance schedule.
         """
@@ -1932,7 +1941,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
 
     @property
     @pulumi.getter
-    def durations(self) -> Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult']:
+    def durations(self) -> Optional[Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult']]:
         """
         Configuration block for the duration of the Auto-Tune maintenance window.
         """
@@ -1940,7 +1949,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
 
     @property
     @pulumi.getter(name="startAt")
-    def start_at(self) -> str:
+    def start_at(self) -> Optional[str]:
         """
         Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -1950,18 +1959,20 @@ class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
 @pulumi.output_type
 class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
     def __init__(__self__, *,
-                 unit: str,
-                 value: int):
+                 unit: Optional[str] = None,
+                 value: Optional[int] = None):
         """
         :param str unit: Unit of time.
         :param int value: Duration of an Auto-Tune maintenance window.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def unit(self) -> str:
+    def unit(self) -> Optional[str]:
         """
         Unit of time.
         """
@@ -1969,7 +1980,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         """
         Duration of an Auto-Tune maintenance window.
         """
@@ -1979,18 +1990,18 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
 @pulumi.output_type
 class GetDomainClusterConfigResult(dict):
     def __init__(__self__, *,
-                 cold_storage_options: Sequence['outputs.GetDomainClusterConfigColdStorageOptionResult'],
-                 dedicated_master_count: int,
-                 dedicated_master_enabled: bool,
-                 dedicated_master_type: str,
-                 instance_count: int,
-                 instance_type: str,
-                 multi_az_with_standby_enabled: bool,
-                 warm_count: int,
-                 warm_type: str,
-                 zone_awareness_configs: Sequence['outputs.GetDomainClusterConfigZoneAwarenessConfigResult'],
-                 zone_awareness_enabled: bool,
-                 warm_enabled: Optional[bool] = None):
+                 cold_storage_options: Optional[Sequence['outputs.GetDomainClusterConfigColdStorageOptionResult']] = None,
+                 dedicated_master_count: Optional[int] = None,
+                 dedicated_master_enabled: Optional[bool] = None,
+                 dedicated_master_type: Optional[str] = None,
+                 instance_count: Optional[int] = None,
+                 instance_type: Optional[str] = None,
+                 multi_az_with_standby_enabled: Optional[bool] = None,
+                 warm_count: Optional[int] = None,
+                 warm_enabled: Optional[bool] = None,
+                 warm_type: Optional[str] = None,
+                 zone_awareness_configs: Optional[Sequence['outputs.GetDomainClusterConfigZoneAwarenessConfigResult']] = None,
+                 zone_awareness_enabled: Optional[bool] = None):
         """
         :param Sequence['GetDomainClusterConfigColdStorageOptionArgs'] cold_storage_options: Configuration block containing cold storage configuration.
         :param int dedicated_master_count: Number of dedicated master nodes in the cluster.
@@ -1999,28 +2010,39 @@ class GetDomainClusterConfigResult(dict):
         :param int instance_count: Number of instances in the cluster.
         :param str instance_type: Instance type of data nodes in the cluster.
         :param int warm_count: Number of warm nodes in the cluster.
+        :param bool warm_enabled: Warm storage is enabled.
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes.
         :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
         :param bool zone_awareness_enabled: Indicates whether zone awareness is enabled.
-        :param bool warm_enabled: Warm storage is enabled.
         """
-        pulumi.set(__self__, "cold_storage_options", cold_storage_options)
-        pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
-        pulumi.set(__self__, "dedicated_master_enabled", dedicated_master_enabled)
-        pulumi.set(__self__, "dedicated_master_type", dedicated_master_type)
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
-        pulumi.set(__self__, "warm_count", warm_count)
-        pulumi.set(__self__, "warm_type", warm_type)
-        pulumi.set(__self__, "zone_awareness_configs", zone_awareness_configs)
-        pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
+        if cold_storage_options is not None:
+            pulumi.set(__self__, "cold_storage_options", cold_storage_options)
+        if dedicated_master_count is not None:
+            pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
+        if dedicated_master_enabled is not None:
+            pulumi.set(__self__, "dedicated_master_enabled", dedicated_master_enabled)
+        if dedicated_master_type is not None:
+            pulumi.set(__self__, "dedicated_master_type", dedicated_master_type)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if multi_az_with_standby_enabled is not None:
+            pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
+        if warm_count is not None:
+            pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
             pulumi.set(__self__, "warm_enabled", warm_enabled)
+        if warm_type is not None:
+            pulumi.set(__self__, "warm_type", warm_type)
+        if zone_awareness_configs is not None:
+            pulumi.set(__self__, "zone_awareness_configs", zone_awareness_configs)
+        if zone_awareness_enabled is not None:
+            pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
 
     @property
     @pulumi.getter(name="coldStorageOptions")
-    def cold_storage_options(self) -> Sequence['outputs.GetDomainClusterConfigColdStorageOptionResult']:
+    def cold_storage_options(self) -> Optional[Sequence['outputs.GetDomainClusterConfigColdStorageOptionResult']]:
         """
         Configuration block containing cold storage configuration.
         """
@@ -2028,7 +2050,7 @@ class GetDomainClusterConfigResult(dict):
 
     @property
     @pulumi.getter(name="dedicatedMasterCount")
-    def dedicated_master_count(self) -> int:
+    def dedicated_master_count(self) -> Optional[int]:
         """
         Number of dedicated master nodes in the cluster.
         """
@@ -2036,7 +2058,7 @@ class GetDomainClusterConfigResult(dict):
 
     @property
     @pulumi.getter(name="dedicatedMasterEnabled")
-    def dedicated_master_enabled(self) -> bool:
+    def dedicated_master_enabled(self) -> Optional[bool]:
         """
         Indicates whether dedicated master nodes are enabled for the cluster.
         """
@@ -2044,7 +2066,7 @@ class GetDomainClusterConfigResult(dict):
 
     @property
     @pulumi.getter(name="dedicatedMasterType")
-    def dedicated_master_type(self) -> str:
+    def dedicated_master_type(self) -> Optional[str]:
         """
         Instance type of the dedicated master nodes in the cluster.
         """
@@ -2052,7 +2074,7 @@ class GetDomainClusterConfigResult(dict):
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> int:
+    def instance_count(self) -> Optional[int]:
         """
         Number of instances in the cluster.
         """
@@ -2060,7 +2082,7 @@ class GetDomainClusterConfigResult(dict):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> Optional[str]:
         """
         Instance type of data nodes in the cluster.
         """
@@ -2068,40 +2090,16 @@ class GetDomainClusterConfigResult(dict):
 
     @property
     @pulumi.getter(name="multiAzWithStandbyEnabled")
-    def multi_az_with_standby_enabled(self) -> bool:
+    def multi_az_with_standby_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @property
     @pulumi.getter(name="warmCount")
-    def warm_count(self) -> int:
+    def warm_count(self) -> Optional[int]:
         """
         Number of warm nodes in the cluster.
         """
         return pulumi.get(self, "warm_count")
-
-    @property
-    @pulumi.getter(name="warmType")
-    def warm_type(self) -> str:
-        """
-        Instance type for the OpenSearch cluster's warm nodes.
-        """
-        return pulumi.get(self, "warm_type")
-
-    @property
-    @pulumi.getter(name="zoneAwarenessConfigs")
-    def zone_awareness_configs(self) -> Sequence['outputs.GetDomainClusterConfigZoneAwarenessConfigResult']:
-        """
-        Configuration block containing zone awareness settings.
-        """
-        return pulumi.get(self, "zone_awareness_configs")
-
-    @property
-    @pulumi.getter(name="zoneAwarenessEnabled")
-    def zone_awareness_enabled(self) -> bool:
-        """
-        Indicates whether zone awareness is enabled.
-        """
-        return pulumi.get(self, "zone_awareness_enabled")
 
     @property
     @pulumi.getter(name="warmEnabled")
@@ -2111,19 +2109,44 @@ class GetDomainClusterConfigResult(dict):
         """
         return pulumi.get(self, "warm_enabled")
 
+    @property
+    @pulumi.getter(name="warmType")
+    def warm_type(self) -> Optional[str]:
+        """
+        Instance type for the OpenSearch cluster's warm nodes.
+        """
+        return pulumi.get(self, "warm_type")
+
+    @property
+    @pulumi.getter(name="zoneAwarenessConfigs")
+    def zone_awareness_configs(self) -> Optional[Sequence['outputs.GetDomainClusterConfigZoneAwarenessConfigResult']]:
+        """
+        Configuration block containing zone awareness settings.
+        """
+        return pulumi.get(self, "zone_awareness_configs")
+
+    @property
+    @pulumi.getter(name="zoneAwarenessEnabled")
+    def zone_awareness_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether zone awareness is enabled.
+        """
+        return pulumi.get(self, "zone_awareness_enabled")
+
 
 @pulumi.output_type
 class GetDomainClusterConfigColdStorageOptionResult(dict):
     def __init__(__self__, *,
-                 enabled: bool):
+                 enabled: Optional[bool] = None):
         """
         :param bool enabled: Enabled disabled toggle for off-peak update window
         """
-        pulumi.set(__self__, "enabled", enabled)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Enabled disabled toggle for off-peak update window
         """
@@ -2133,15 +2156,16 @@ class GetDomainClusterConfigColdStorageOptionResult(dict):
 @pulumi.output_type
 class GetDomainClusterConfigZoneAwarenessConfigResult(dict):
     def __init__(__self__, *,
-                 availability_zone_count: int):
+                 availability_zone_count: Optional[int] = None):
         """
         :param int availability_zone_count: Number of availability zones used.
         """
-        pulumi.set(__self__, "availability_zone_count", availability_zone_count)
+        if availability_zone_count is not None:
+            pulumi.set(__self__, "availability_zone_count", availability_zone_count)
 
     @property
     @pulumi.getter(name="availabilityZoneCount")
-    def availability_zone_count(self) -> int:
+    def availability_zone_count(self) -> Optional[int]:
         """
         Number of availability zones used.
         """
@@ -2151,24 +2175,28 @@ class GetDomainClusterConfigZoneAwarenessConfigResult(dict):
 @pulumi.output_type
 class GetDomainCognitoOptionResult(dict):
     def __init__(__self__, *,
-                 enabled: bool,
-                 identity_pool_id: str,
-                 role_arn: str,
-                 user_pool_id: str):
+                 enabled: Optional[bool] = None,
+                 identity_pool_id: Optional[str] = None,
+                 role_arn: Optional[str] = None,
+                 user_pool_id: Optional[str] = None):
         """
         :param bool enabled: Enabled disabled toggle for off-peak update window
         :param str identity_pool_id: Cognito Identity pool used by the domain.
         :param str role_arn: IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
         :param str user_pool_id: Cognito User pool used by the domain.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "identity_pool_id", identity_pool_id)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if identity_pool_id is not None:
+            pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Enabled disabled toggle for off-peak update window
         """
@@ -2176,7 +2204,7 @@ class GetDomainCognitoOptionResult(dict):
 
     @property
     @pulumi.getter(name="identityPoolId")
-    def identity_pool_id(self) -> str:
+    def identity_pool_id(self) -> Optional[str]:
         """
         Cognito Identity pool used by the domain.
         """
@@ -2184,7 +2212,7 @@ class GetDomainCognitoOptionResult(dict):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
         """
@@ -2192,7 +2220,7 @@ class GetDomainCognitoOptionResult(dict):
 
     @property
     @pulumi.getter(name="userPoolId")
-    def user_pool_id(self) -> str:
+    def user_pool_id(self) -> Optional[str]:
         """
         Cognito User pool used by the domain.
         """
@@ -2202,11 +2230,11 @@ class GetDomainCognitoOptionResult(dict):
 @pulumi.output_type
 class GetDomainEbsOptionResult(dict):
     def __init__(__self__, *,
-                 ebs_enabled: bool,
-                 iops: int,
-                 throughput: int,
-                 volume_size: int,
-                 volume_type: str):
+                 ebs_enabled: Optional[bool] = None,
+                 iops: Optional[int] = None,
+                 throughput: Optional[int] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
         """
         :param bool ebs_enabled: Whether EBS volumes are attached to data nodes in the domain.
         :param int iops: Baseline input/output (I/O) performance of EBS volumes attached to data nodes.
@@ -2214,15 +2242,20 @@ class GetDomainEbsOptionResult(dict):
         :param int volume_size: Size of EBS volumes attached to data nodes (in GB).
         :param str volume_type: Type of EBS volumes attached to data nodes.
         """
-        pulumi.set(__self__, "ebs_enabled", ebs_enabled)
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "throughput", throughput)
-        pulumi.set(__self__, "volume_size", volume_size)
-        pulumi.set(__self__, "volume_type", volume_type)
+        if ebs_enabled is not None:
+            pulumi.set(__self__, "ebs_enabled", ebs_enabled)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="ebsEnabled")
-    def ebs_enabled(self) -> bool:
+    def ebs_enabled(self) -> Optional[bool]:
         """
         Whether EBS volumes are attached to data nodes in the domain.
         """
@@ -2230,7 +2263,7 @@ class GetDomainEbsOptionResult(dict):
 
     @property
     @pulumi.getter
-    def iops(self) -> int:
+    def iops(self) -> Optional[int]:
         """
         Baseline input/output (I/O) performance of EBS volumes attached to data nodes.
         """
@@ -2238,7 +2271,7 @@ class GetDomainEbsOptionResult(dict):
 
     @property
     @pulumi.getter
-    def throughput(self) -> int:
+    def throughput(self) -> Optional[int]:
         """
         The throughput (in MiB/s) of the EBS volumes attached to data nodes.
         """
@@ -2246,7 +2279,7 @@ class GetDomainEbsOptionResult(dict):
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> int:
+    def volume_size(self) -> Optional[int]:
         """
         Size of EBS volumes attached to data nodes (in GB).
         """
@@ -2254,7 +2287,7 @@ class GetDomainEbsOptionResult(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> str:
+    def volume_type(self) -> Optional[str]:
         """
         Type of EBS volumes attached to data nodes.
         """
@@ -2264,18 +2297,20 @@ class GetDomainEbsOptionResult(dict):
 @pulumi.output_type
 class GetDomainEncryptionAtRestResult(dict):
     def __init__(__self__, *,
-                 enabled: bool,
-                 kms_key_id: str):
+                 enabled: Optional[bool] = None,
+                 kms_key_id: Optional[str] = None):
         """
         :param bool enabled: Enabled disabled toggle for off-peak update window
         :param str kms_key_id: KMS key id used to encrypt data at rest.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Enabled disabled toggle for off-peak update window
         """
@@ -2283,7 +2318,7 @@ class GetDomainEncryptionAtRestResult(dict):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         KMS key id used to encrypt data at rest.
         """
@@ -2293,21 +2328,24 @@ class GetDomainEncryptionAtRestResult(dict):
 @pulumi.output_type
 class GetDomainLogPublishingOptionResult(dict):
     def __init__(__self__, *,
-                 cloudwatch_log_group_arn: str,
-                 enabled: bool,
-                 log_type: str):
+                 cloudwatch_log_group_arn: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 log_type: Optional[str] = None):
         """
         :param str cloudwatch_log_group_arn: CloudWatch Log Group where the logs are published.
         :param bool enabled: Enabled disabled toggle for off-peak update window
         :param str log_type: Type of OpenSearch log being published.
         """
-        pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "log_type", log_type)
+        if cloudwatch_log_group_arn is not None:
+            pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
-    def cloudwatch_log_group_arn(self) -> str:
+    def cloudwatch_log_group_arn(self) -> Optional[str]:
         """
         CloudWatch Log Group where the logs are published.
         """
@@ -2315,7 +2353,7 @@ class GetDomainLogPublishingOptionResult(dict):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Enabled disabled toggle for off-peak update window
         """
@@ -2323,7 +2361,7 @@ class GetDomainLogPublishingOptionResult(dict):
 
     @property
     @pulumi.getter(name="logType")
-    def log_type(self) -> str:
+    def log_type(self) -> Optional[str]:
         """
         Type of OpenSearch log being published.
         """
@@ -2333,15 +2371,16 @@ class GetDomainLogPublishingOptionResult(dict):
 @pulumi.output_type
 class GetDomainNodeToNodeEncryptionResult(dict):
     def __init__(__self__, *,
-                 enabled: bool):
+                 enabled: Optional[bool] = None):
         """
         :param bool enabled: Enabled disabled toggle for off-peak update window
         """
-        pulumi.set(__self__, "enabled", enabled)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Enabled disabled toggle for off-peak update window
         """
@@ -2351,17 +2390,19 @@ class GetDomainNodeToNodeEncryptionResult(dict):
 @pulumi.output_type
 class GetDomainOffPeakWindowOptionsResult(dict):
     def __init__(__self__, *,
-                 enabled: bool,
-                 off_peak_windows: Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult']):
+                 enabled: Optional[bool] = None,
+                 off_peak_windows: Optional[Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult']] = None):
         """
         :param bool enabled: Enabled disabled toggle for off-peak update window
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "off_peak_windows", off_peak_windows)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if off_peak_windows is not None:
+            pulumi.set(__self__, "off_peak_windows", off_peak_windows)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Enabled disabled toggle for off-peak update window
         """
@@ -2369,22 +2410,23 @@ class GetDomainOffPeakWindowOptionsResult(dict):
 
     @property
     @pulumi.getter(name="offPeakWindows")
-    def off_peak_windows(self) -> Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult']:
+    def off_peak_windows(self) -> Optional[Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult']]:
         return pulumi.get(self, "off_peak_windows")
 
 
 @pulumi.output_type
 class GetDomainOffPeakWindowOptionsOffPeakWindowResult(dict):
     def __init__(__self__, *,
-                 window_start_times: Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult']):
+                 window_start_times: Optional[Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult']] = None):
         """
         :param Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs'] window_start_times: 10h window for updates
         """
-        pulumi.set(__self__, "window_start_times", window_start_times)
+        if window_start_times is not None:
+            pulumi.set(__self__, "window_start_times", window_start_times)
 
     @property
     @pulumi.getter(name="windowStartTimes")
-    def window_start_times(self) -> Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult']:
+    def window_start_times(self) -> Optional[Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult']]:
         """
         10h window for updates
         """
@@ -2394,18 +2436,20 @@ class GetDomainOffPeakWindowOptionsOffPeakWindowResult(dict):
 @pulumi.output_type
 class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult(dict):
     def __init__(__self__, *,
-                 hours: int,
-                 minutes: int):
+                 hours: Optional[int] = None,
+                 minutes: Optional[int] = None):
         """
         :param int hours: Starting hour of the 10-hour window for updates
         :param int minutes: Starting minute of the 10-hour window for updates
         """
-        pulumi.set(__self__, "hours", hours)
-        pulumi.set(__self__, "minutes", minutes)
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
-    def hours(self) -> int:
+    def hours(self) -> Optional[int]:
         """
         Starting hour of the 10-hour window for updates
         """
@@ -2413,7 +2457,7 @@ class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult(dict):
 
     @property
     @pulumi.getter
-    def minutes(self) -> int:
+    def minutes(self) -> Optional[int]:
         """
         Starting minute of the 10-hour window for updates
         """
@@ -2423,15 +2467,16 @@ class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult(dict):
 @pulumi.output_type
 class GetDomainSnapshotOptionResult(dict):
     def __init__(__self__, *,
-                 automated_snapshot_start_hour: int):
+                 automated_snapshot_start_hour: Optional[int] = None):
         """
         :param int automated_snapshot_start_hour: Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
-        pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
+        if automated_snapshot_start_hour is not None:
+            pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
 
     @property
     @pulumi.getter(name="automatedSnapshotStartHour")
-    def automated_snapshot_start_hour(self) -> int:
+    def automated_snapshot_start_hour(self) -> Optional[int]:
         """
         Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
@@ -2441,15 +2486,16 @@ class GetDomainSnapshotOptionResult(dict):
 @pulumi.output_type
 class GetDomainSoftwareUpdateOptionResult(dict):
     def __init__(__self__, *,
-                 auto_software_update_enabled: bool):
+                 auto_software_update_enabled: Optional[bool] = None):
         """
         :param bool auto_software_update_enabled: Enabled or disabled.
         """
-        pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+        if auto_software_update_enabled is not None:
+            pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
 
     @property
     @pulumi.getter(name="autoSoftwareUpdateEnabled")
-    def auto_software_update_enabled(self) -> bool:
+    def auto_software_update_enabled(self) -> Optional[bool]:
         """
         Enabled or disabled.
         """
@@ -2459,24 +2505,28 @@ class GetDomainSoftwareUpdateOptionResult(dict):
 @pulumi.output_type
 class GetDomainVpcOptionResult(dict):
     def __init__(__self__, *,
-                 availability_zones: Sequence[str],
-                 security_group_ids: Sequence[str],
-                 subnet_ids: Sequence[str],
-                 vpc_id: str):
+                 availability_zones: Optional[Sequence[str]] = None,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 subnet_ids: Optional[Sequence[str]] = None,
+                 vpc_id: Optional[str] = None):
         """
         :param Sequence[str] availability_zones: Availability zones used by the domain.
         :param Sequence[str] security_group_ids: Security groups used by the domain.
         :param Sequence[str] subnet_ids: Subnets used by the domain.
         :param str vpc_id: VPC used by the domain.
         """
-        pulumi.set(__self__, "availability_zones", availability_zones)
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         Availability zones used by the domain.
         """
@@ -2484,7 +2534,7 @@ class GetDomainVpcOptionResult(dict):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         Security groups used by the domain.
         """
@@ -2492,7 +2542,7 @@ class GetDomainVpcOptionResult(dict):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Subnets used by the domain.
         """
@@ -2500,7 +2550,7 @@ class GetDomainVpcOptionResult(dict):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         VPC used by the domain.
         """
@@ -2510,24 +2560,28 @@ class GetDomainVpcOptionResult(dict):
 @pulumi.output_type
 class GetServerlessSecurityConfigSamlOptionsResult(dict):
     def __init__(__self__, *,
-                 group_attribute: str,
-                 metadata: str,
-                 session_timeout: int,
-                 user_attribute: str):
+                 group_attribute: Optional[str] = None,
+                 metadata: Optional[str] = None,
+                 session_timeout: Optional[int] = None,
+                 user_attribute: Optional[str] = None):
         """
         :param str group_attribute: Group attribute for this SAML integration.
         :param str metadata: The XML IdP metadata file generated from your identity provider.
         :param int session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         :param str user_attribute: User attribute for this SAML integration.
         """
-        pulumi.set(__self__, "group_attribute", group_attribute)
-        pulumi.set(__self__, "metadata", metadata)
-        pulumi.set(__self__, "session_timeout", session_timeout)
-        pulumi.set(__self__, "user_attribute", user_attribute)
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if session_timeout is not None:
+            pulumi.set(__self__, "session_timeout", session_timeout)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
 
     @property
     @pulumi.getter(name="groupAttribute")
-    def group_attribute(self) -> str:
+    def group_attribute(self) -> Optional[str]:
         """
         Group attribute for this SAML integration.
         """
@@ -2535,7 +2589,7 @@ class GetServerlessSecurityConfigSamlOptionsResult(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> str:
+    def metadata(self) -> Optional[str]:
         """
         The XML IdP metadata file generated from your identity provider.
         """
@@ -2543,7 +2597,7 @@ class GetServerlessSecurityConfigSamlOptionsResult(dict):
 
     @property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> int:
+    def session_timeout(self) -> Optional[int]:
         """
         Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         """
@@ -2551,7 +2605,7 @@ class GetServerlessSecurityConfigSamlOptionsResult(dict):
 
     @property
     @pulumi.getter(name="userAttribute")
-    def user_attribute(self) -> str:
+    def user_attribute(self) -> Optional[str]:
         """
         User attribute for this SAML integration.
         """

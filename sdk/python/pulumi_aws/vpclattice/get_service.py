@@ -56,7 +56,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the service.
         """
@@ -64,7 +64,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> str:
+    def auth_type(self) -> Optional[str]:
         """
         Type of IAM policy. Either `NONE` or `AWS_IAM`.
         """
@@ -72,7 +72,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> Optional[str]:
         """
         Amazon Resource Name (ARN) of the certificate.
         """
@@ -80,7 +80,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="customDomainName")
-    def custom_domain_name(self) -> str:
+    def custom_domain_name(self) -> Optional[str]:
         """
         Custom domain name of the service.
         """
@@ -88,7 +88,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="dnsEntries")
-    def dns_entries(self) -> Sequence['outputs.GetServiceDnsEntryResult']:
+    def dns_entries(self) -> Optional[Sequence['outputs.GetServiceDnsEntryResult']]:
         """
         DNS name of the service.
         """
@@ -96,7 +96,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -104,17 +104,17 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="serviceIdentifier")
-    def service_identifier(self) -> str:
+    def service_identifier(self) -> Optional[str]:
         return pulumi.get(self, "service_identifier")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the service.
         """
@@ -122,7 +122,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         List of tags associated with the service.
         """

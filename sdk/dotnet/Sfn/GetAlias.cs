@@ -132,11 +132,11 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// ARN identifying the State Machine alias.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Date the state machine Alias was created.
         /// </summary>
-        public readonly string CreationDate;
+        public readonly string? CreationDate;
         /// <summary>
         /// Description of state machine alias.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Routing Configuration of state machine alias
@@ -154,13 +154,13 @@ namespace Pulumi.Aws.Sfn
 
         [OutputConstructor]
         private GetAliasResult(
-            string arn,
+            string? arn,
 
-            string creationDate,
+            string? creationDate,
 
             string? description,
 
-            string id,
+            string? id,
 
             string name,
 

@@ -43,16 +43,16 @@ export interface GetGatewayResult {
     /**
      * ASN on the Amazon side of the connection.
      */
-    readonly amazonSideAsn: string;
+    readonly amazonSideAsn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * AWS Account ID of the gateway.
      */
-    readonly ownerAccountId: string;
+    readonly ownerAccountId?: string;
 }
 /**
  * Retrieve information about a Direct Connect Gateway.

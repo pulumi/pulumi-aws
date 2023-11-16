@@ -54,17 +54,17 @@ type ScheduleGroup struct {
 	pulumi.CustomResourceState
 
 	// ARN of the schedule group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Time at which the schedule group was created.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// Time at which the schedule group was last modified.
-	LastModificationDate pulumi.StringOutput `pulumi:"lastModificationDate"`
+	LastModificationDate pulumi.StringPtrOutput `pulumi:"lastModificationDate"`
 	// Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// State of the schedule group. Can be `ACTIVE` or `DELETING`.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -259,18 +259,18 @@ func (o ScheduleGroupOutput) ToScheduleGroupOutputWithContext(ctx context.Contex
 }
 
 // ARN of the schedule group.
-func (o ScheduleGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ScheduleGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Time at which the schedule group was created.
-func (o ScheduleGroupOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o ScheduleGroupOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // Time at which the schedule group was last modified.
-func (o ScheduleGroupOutput) LastModificationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.LastModificationDate }).(pulumi.StringOutput)
+func (o ScheduleGroupOutput) LastModificationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringPtrOutput { return v.LastModificationDate }).(pulumi.StringPtrOutput)
 }
 
 // Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -279,13 +279,13 @@ func (o ScheduleGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o ScheduleGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o ScheduleGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // State of the schedule group. Can be `ACTIVE` or `DELETING`.
-func (o ScheduleGroupOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o ScheduleGroupOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

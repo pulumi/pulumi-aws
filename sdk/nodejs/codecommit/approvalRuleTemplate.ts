@@ -66,7 +66,7 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
     /**
      * The ID of the approval rule template
      */
-    public /*out*/ readonly approvalRuleTemplateId!: pulumi.Output<string>;
+    public /*out*/ readonly approvalRuleTemplateId!: pulumi.Output<string | undefined>;
     /**
      * The content of the approval rule template. Maximum of 3000 characters.
      */
@@ -74,7 +74,7 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
     /**
      * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * The description of the approval rule template. Maximum of 1000 characters.
      */
@@ -82,11 +82,11 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
     /**
      * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
      */
-    public /*out*/ readonly lastModifiedUser!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedUser!: pulumi.Output<string | undefined>;
     /**
      * The name for the approval rule template. Maximum of 100 characters.
      */
@@ -94,7 +94,7 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
     /**
      * The SHA-256 hash signature for the content of the approval rule template.
      */
-    public /*out*/ readonly ruleContentSha256!: pulumi.Output<string>;
+    public /*out*/ readonly ruleContentSha256!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApprovalRuleTemplate resource with the given unique name, arguments, and options.

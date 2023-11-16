@@ -72,14 +72,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Full ARN of the repository.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Encryption configuration for the repository. See below for schema.
@@ -158,28 +158,28 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="registryId", refs={String.class}, tree="[0]")
-    private Output<String> registryId;
+    private Output</* @Nullable */ String> registryId;
 
     /**
      * @return The registry ID where the repository was created.
      * 
      */
-    public Output<String> registryId() {
-        return this.registryId;
+    public Output<Optional<String>> registryId() {
+        return Codegen.optional(this.registryId);
     }
     /**
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      * 
      */
     @Export(name="repositoryUrl", refs={String.class}, tree="[0]")
-    private Output<String> repositoryUrl;
+    private Output</* @Nullable */ String> repositoryUrl;
 
     /**
      * @return The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      * 
      */
-    public Output<String> repositoryUrl() {
-        return this.repositoryUrl;
+    public Output<Optional<String>> repositoryUrl() {
+        return Codegen.optional(this.repositoryUrl);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

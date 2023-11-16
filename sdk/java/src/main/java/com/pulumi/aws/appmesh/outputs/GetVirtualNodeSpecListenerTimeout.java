@@ -10,26 +10,27 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutTcp;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTimeout {
-    private List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs;
-    private List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s;
-    private List<GetVirtualNodeSpecListenerTimeoutHttp> https;
-    private List<GetVirtualNodeSpecListenerTimeoutTcp> tcps;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeoutHttp> https;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeoutTcp> tcps;
 
     private GetVirtualNodeSpecListenerTimeout() {}
     public List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs() {
-        return this.grpcs;
+        return this.grpcs == null ? List.of() : this.grpcs;
     }
     public List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s() {
-        return this.http2s;
+        return this.http2s == null ? List.of() : this.http2s;
     }
     public List<GetVirtualNodeSpecListenerTimeoutHttp> https() {
-        return this.https;
+        return this.https == null ? List.of() : this.https;
     }
     public List<GetVirtualNodeSpecListenerTimeoutTcp> tcps() {
-        return this.tcps;
+        return this.tcps == null ? List.of() : this.tcps;
     }
 
     public static Builder builder() {
@@ -41,10 +42,10 @@ public final class GetVirtualNodeSpecListenerTimeout {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs;
-        private List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s;
-        private List<GetVirtualNodeSpecListenerTimeoutHttp> https;
-        private List<GetVirtualNodeSpecListenerTimeoutTcp> tcps;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeoutHttp> https;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeoutTcp> tcps;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTimeout defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,32 +56,32 @@ public final class GetVirtualNodeSpecListenerTimeout {
         }
 
         @CustomType.Setter
-        public Builder grpcs(List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs) {
-            this.grpcs = Objects.requireNonNull(grpcs);
+        public Builder grpcs(@Nullable List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs) {
+            this.grpcs = grpcs;
             return this;
         }
         public Builder grpcs(GetVirtualNodeSpecListenerTimeoutGrpc... grpcs) {
             return grpcs(List.of(grpcs));
         }
         @CustomType.Setter
-        public Builder http2s(List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s) {
-            this.http2s = Objects.requireNonNull(http2s);
+        public Builder http2s(@Nullable List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s) {
+            this.http2s = http2s;
             return this;
         }
         public Builder http2s(GetVirtualNodeSpecListenerTimeoutHttp2... http2s) {
             return http2s(List.of(http2s));
         }
         @CustomType.Setter
-        public Builder https(List<GetVirtualNodeSpecListenerTimeoutHttp> https) {
-            this.https = Objects.requireNonNull(https);
+        public Builder https(@Nullable List<GetVirtualNodeSpecListenerTimeoutHttp> https) {
+            this.https = https;
             return this;
         }
         public Builder https(GetVirtualNodeSpecListenerTimeoutHttp... https) {
             return https(List.of(https));
         }
         @CustomType.Setter
-        public Builder tcps(List<GetVirtualNodeSpecListenerTimeoutTcp> tcps) {
-            this.tcps = Objects.requireNonNull(tcps);
+        public Builder tcps(@Nullable List<GetVirtualNodeSpecListenerTimeoutTcp> tcps) {
+            this.tcps = tcps;
             return this;
         }
         public Builder tcps(GetVirtualNodeSpecListenerTimeoutTcp... tcps) {

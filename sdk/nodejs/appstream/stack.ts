@@ -104,20 +104,20 @@ export class Stack extends pulumi.CustomResource {
      * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
      * See `accessEndpoints` below.
      */
-    public readonly accessEndpoints!: pulumi.Output<outputs.appstream.StackAccessEndpoint[]>;
+    public readonly accessEndpoints!: pulumi.Output<outputs.appstream.StackAccessEndpoint[] | undefined>;
     /**
      * Settings for application settings persistence.
      * See `applicationSettings` below.
      */
-    public readonly applicationSettings!: pulumi.Output<outputs.appstream.StackApplicationSettings>;
+    public readonly applicationSettings!: pulumi.Output<outputs.appstream.StackApplicationSettings | undefined>;
     /**
      * ARN of the appstream stack.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the stack was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Description for the AppStream stack.
      */
@@ -129,11 +129,11 @@ export class Stack extends pulumi.CustomResource {
     /**
      * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
      */
-    public readonly embedHostDomains!: pulumi.Output<string[]>;
+    public readonly embedHostDomains!: pulumi.Output<string[] | undefined>;
     /**
      * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
      */
-    public readonly feedbackUrl!: pulumi.Output<string>;
+    public readonly feedbackUrl!: pulumi.Output<string | undefined>;
     /**
      * Unique name for the AppStream stack.
      *
@@ -143,17 +143,17 @@ export class Stack extends pulumi.CustomResource {
     /**
      * URL that users are redirected to after their streaming session ends.
      */
-    public readonly redirectUrl!: pulumi.Output<string>;
+    public readonly redirectUrl!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the storage connectors to enable.
      * See `storageConnectors` below.
      */
-    public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[]>;
+    public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[] | undefined>;
     /**
      * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
      * See `streamingExperienceSettings` below.
      */
-    public readonly streamingExperienceSettings!: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings>;
+    public readonly streamingExperienceSettings!: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -166,7 +166,7 @@ export class Stack extends pulumi.CustomResource {
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.
      */
-    public readonly userSettings!: pulumi.Output<outputs.appstream.StackUserSetting[]>;
+    public readonly userSettings!: pulumi.Output<outputs.appstream.StackUserSetting[] | undefined>;
 
     /**
      * Create a Stack resource with the given unique name, arguments, and options.

@@ -256,28 +256,28 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="alternativeDomainNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> alternativeDomainNames;
+    private Output</* @Nullable */ List<String>> alternativeDomainNames;
 
     /**
      * @return The alternate domain names of the distribution.
      * 
      */
-    public Output<List<String>> alternativeDomainNames() {
-        return this.alternativeDomainNames;
+    public Output<Optional<List<String>>> alternativeDomainNames() {
+        return Codegen.optional(this.alternativeDomainNames);
     }
     /**
      * The Amazon Resource Name (ARN) of the distribution.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the distribution.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Bundle ID to use for the distribution.
@@ -344,14 +344,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The timestamp when the distribution was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * Object that describes the default cache behavior of the distribution. Detailed below
@@ -372,14 +372,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
-    private Output<String> domainName;
+    private Output</* @Nullable */ String> domainName;
 
     /**
      * @return The domain name of the distribution.
      * 
      */
-    public Output<String> domainName() {
-        return this.domainName;
+    public Output<Optional<String>> domainName() {
+        return Codegen.optional(this.domainName);
     }
     /**
      * The IP address type of the distribution. Default: `dualstack`.
@@ -414,14 +414,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="locations", refs={List.class,DistributionLocation.class}, tree="[0,1]")
-    private Output<List<DistributionLocation>> locations;
+    private Output</* @Nullable */ List<DistributionLocation>> locations;
 
     /**
      * @return An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
      * 
      */
-    public Output<List<DistributionLocation>> locations() {
-        return this.locations;
+    public Output<Optional<List<DistributionLocation>>> locations() {
+        return Codegen.optional(this.locations);
     }
     /**
      * Name of the distribution.
@@ -456,56 +456,56 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="originPublicDns", refs={String.class}, tree="[0]")
-    private Output<String> originPublicDns;
+    private Output</* @Nullable */ String> originPublicDns;
 
     /**
      * @return The public DNS of the origin.
      * 
      */
-    public Output<String> originPublicDns() {
-        return this.originPublicDns;
+    public Output<Optional<String>> originPublicDns() {
+        return Codegen.optional(this.originPublicDns);
     }
     /**
      * The resource type of the origin resource (e.g., Instance).
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
-    private Output<String> resourceType;
+    private Output</* @Nullable */ String> resourceType;
 
     /**
      * @return The resource type of the origin resource (e.g., Instance).
      * 
      */
-    public Output<String> resourceType() {
-        return this.resourceType;
+    public Output<Optional<String>> resourceType() {
+        return Codegen.optional(this.resourceType);
     }
     /**
      * The status of the distribution.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the distribution.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
-    private Output<String> supportCode;
+    private Output</* @Nullable */ String> supportCode;
 
     /**
      * @return The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    public Output<String> supportCode() {
-        return this.supportCode;
+    public Output<Optional<String>> supportCode() {
+        return Codegen.optional(this.supportCode);
     }
     /**
      * Map of tags for the Lightsail Distribution. If

@@ -62,7 +62,7 @@ export class CustomerGateway extends pulumi.CustomResource {
     /**
      * The ARN of the customer gateway.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */

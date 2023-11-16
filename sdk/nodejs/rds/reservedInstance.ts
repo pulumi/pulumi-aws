@@ -73,23 +73,23 @@ export class ReservedInstance extends pulumi.CustomResource {
     /**
      * ARN for the reserved DB instance.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Currency code for the reserved DB instance.
      */
-    public /*out*/ readonly currencyCode!: pulumi.Output<string>;
+    public /*out*/ readonly currencyCode!: pulumi.Output<string | undefined>;
     /**
      * DB instance class for the reserved DB instance.
      */
-    public /*out*/ readonly dbInstanceClass!: pulumi.Output<string>;
+    public /*out*/ readonly dbInstanceClass!: pulumi.Output<string | undefined>;
     /**
      * Duration of the reservation in seconds.
      */
-    public /*out*/ readonly duration!: pulumi.Output<number>;
+    public /*out*/ readonly duration!: pulumi.Output<number | undefined>;
     /**
      * Fixed price charged for this reserved DB instance.
      */
-    public /*out*/ readonly fixedPrice!: pulumi.Output<number>;
+    public /*out*/ readonly fixedPrice!: pulumi.Output<number | undefined>;
     /**
      * Number of instances to reserve. Default value is `1`.
      */
@@ -97,11 +97,11 @@ export class ReservedInstance extends pulumi.CustomResource {
     /**
      * Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
      */
-    public /*out*/ readonly leaseId!: pulumi.Output<string>;
+    public /*out*/ readonly leaseId!: pulumi.Output<string | undefined>;
     /**
      * Whether the reservation applies to Multi-AZ deployments.
      */
-    public /*out*/ readonly multiAz!: pulumi.Output<boolean>;
+    public /*out*/ readonly multiAz!: pulumi.Output<boolean | undefined>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
      *
@@ -111,15 +111,15 @@ export class ReservedInstance extends pulumi.CustomResource {
     /**
      * Offering type of this reserved DB instance.
      */
-    public /*out*/ readonly offeringType!: pulumi.Output<string>;
+    public /*out*/ readonly offeringType!: pulumi.Output<string | undefined>;
     /**
      * Description of the reserved DB instance.
      */
-    public /*out*/ readonly productDescription!: pulumi.Output<string>;
+    public /*out*/ readonly productDescription!: pulumi.Output<string | undefined>;
     /**
      * Recurring price charged to run this reserved DB instance.
      */
-    public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.rds.ReservedInstanceRecurringCharge[]>;
+    public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.rds.ReservedInstanceRecurringCharge[] | undefined>;
     /**
      * Customer-specified identifier to track this reservation.
      */
@@ -127,11 +127,11 @@ export class ReservedInstance extends pulumi.CustomResource {
     /**
      * Time the reservation started.
      */
-    public /*out*/ readonly startTime!: pulumi.Output<string>;
+    public /*out*/ readonly startTime!: pulumi.Output<string | undefined>;
     /**
      * State of the reserved DB instance.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -145,7 +145,7 @@ export class ReservedInstance extends pulumi.CustomResource {
     /**
      * Hourly price charged for this reserved DB instance.
      */
-    public /*out*/ readonly usagePrice!: pulumi.Output<number>;
+    public /*out*/ readonly usagePrice!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ReservedInstance resource with the given unique name, arguments, and options.

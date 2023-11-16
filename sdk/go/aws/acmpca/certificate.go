@@ -36,13 +36,13 @@ type Certificate struct {
 	// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
 	ApiPassthrough pulumi.StringPtrOutput `pulumi:"apiPassthrough"`
 	// ARN of the certificate.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// PEM-encoded certificate value.
-	Certificate pulumi.StringOutput `pulumi:"certificate"`
+	Certificate pulumi.StringPtrOutput `pulumi:"certificate"`
 	// ARN of the certificate authority.
 	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
+	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringOutput `pulumi:"certificateSigningRequest"`
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
@@ -269,13 +269,13 @@ func (o CertificateOutput) ApiPassthrough() pulumi.StringPtrOutput {
 }
 
 // ARN of the certificate.
-func (o CertificateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CertificateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // PEM-encoded certificate value.
-func (o CertificateOutput) Certificate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
+func (o CertificateOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the certificate authority.
@@ -284,8 +284,8 @@ func (o CertificateOutput) CertificateAuthorityArn() pulumi.StringOutput {
 }
 
 // PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-func (o CertificateOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateChain }).(pulumi.StringOutput)
+func (o CertificateOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
 // Certificate Signing Request in PEM format.

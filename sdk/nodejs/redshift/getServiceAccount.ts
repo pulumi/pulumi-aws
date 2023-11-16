@@ -10,6 +10,44 @@ import * as utilities from "../utilities";
  *
  * > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
  * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = aws.redshift.getServiceAccount({});
+ * const bucket = new aws.s3.BucketV2("bucket", {forceDestroy: true});
+ * const allowAuditLoggingPolicyDocument = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
+ *     statements: [
+ *         {
+ *             sid: "Put bucket policy needed for audit logging",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [main.arn],
+ *             }],
+ *             actions: ["s3:PutObject"],
+ *             resources: [`${bucketArn}/*`],
+ *         },
+ *         {
+ *             sid: "Get bucket policy needed for audit logging",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [main1.arn],
+ *             }],
+ *             actions: ["s3:GetBucketAcl"],
+ *             resources: bucketArn1,
+ *         },
+ *     ],
+ * }));
+ * const allowAuditLoggingBucketPolicy = new aws.s3.BucketPolicy("allowAuditLoggingBucketPolicy", {
+ *     bucket: bucket.id,
+ *     policy: allowAuditLoggingPolicyDocument.apply(allowAuditLoggingPolicyDocument => allowAuditLoggingPolicyDocument.json),
+ * });
+ * ```
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};
@@ -38,11 +76,11 @@ export interface GetServiceAccountResult {
     /**
      * ARN of the AWS Redshift service account in the selected region.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly region?: string;
 }
 /**
@@ -51,6 +89,44 @@ export interface GetServiceAccountResult {
  *
  * > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
  * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = aws.redshift.getServiceAccount({});
+ * const bucket = new aws.s3.BucketV2("bucket", {forceDestroy: true});
+ * const allowAuditLoggingPolicyDocument = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
+ *     statements: [
+ *         {
+ *             sid: "Put bucket policy needed for audit logging",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [main.arn],
+ *             }],
+ *             actions: ["s3:PutObject"],
+ *             resources: [`${bucketArn}/*`],
+ *         },
+ *         {
+ *             sid: "Get bucket policy needed for audit logging",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [main1.arn],
+ *             }],
+ *             actions: ["s3:GetBucketAcl"],
+ *             resources: bucketArn1,
+ *         },
+ *     ],
+ * }));
+ * const allowAuditLoggingBucketPolicy = new aws.s3.BucketPolicy("allowAuditLoggingBucketPolicy", {
+ *     bucket: bucket.id,
+ *     policy: allowAuditLoggingPolicyDocument.apply(allowAuditLoggingPolicyDocument => allowAuditLoggingPolicyDocument.json),
+ * });
+ * ```
  */
 export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceAccountResult> {
     return pulumi.output(args).apply((a: any) => getServiceAccount(a, opts))

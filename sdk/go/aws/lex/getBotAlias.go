@@ -60,21 +60,21 @@ type LookupBotAliasArgs struct {
 // A collection of values returned by getBotAlias.
 type LookupBotAliasResult struct {
 	// ARN of the bot alias.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Name of the bot.
 	BotName string `pulumi:"botName"`
 	// Version of the bot that the alias points to.
-	BotVersion string `pulumi:"botVersion"`
+	BotVersion *string `pulumi:"botVersion"`
 	// Checksum of the bot alias.
-	Checksum string `pulumi:"checksum"`
+	Checksum *string `pulumi:"checksum"`
 	// Date that the bot alias was created.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the alias.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// Name of the alias. The name is not case sensitive.
 	Name string `pulumi:"name"`
 }
@@ -120,8 +120,8 @@ func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutputWithContext(ctx 
 }
 
 // ARN of the bot alias.
-func (o LookupBotAliasResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupBotAliasResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the bot.
@@ -130,33 +130,33 @@ func (o LookupBotAliasResultOutput) BotName() pulumi.StringOutput {
 }
 
 // Version of the bot that the alias points to.
-func (o LookupBotAliasResultOutput) BotVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotAliasResult) string { return v.BotVersion }).(pulumi.StringOutput)
+func (o LookupBotAliasResultOutput) BotVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) *string { return v.BotVersion }).(pulumi.StringPtrOutput)
 }
 
 // Checksum of the bot alias.
-func (o LookupBotAliasResultOutput) Checksum() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Checksum }).(pulumi.StringOutput)
+func (o LookupBotAliasResultOutput) Checksum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) *string { return v.Checksum }).(pulumi.StringPtrOutput)
 }
 
 // Date that the bot alias was created.
-func (o LookupBotAliasResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotAliasResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupBotAliasResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of the alias.
-func (o LookupBotAliasResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupBotAliasResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupBotAliasResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupBotAliasResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-func (o LookupBotAliasResultOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBotAliasResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o LookupBotAliasResultOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) *string { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Name of the alias. The name is not case sensitive.

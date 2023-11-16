@@ -135,9 +135,9 @@ type RefreshSchedule struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the refresh schedule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// The ID of the dataset.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
 	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
@@ -332,13 +332,13 @@ func (o RefreshScheduleOutput) ToRefreshScheduleOutputWithContext(ctx context.Co
 }
 
 // Amazon Resource Name (ARN) of the refresh schedule.
-func (o RefreshScheduleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RefreshScheduleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o RefreshScheduleOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o RefreshScheduleOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the dataset.

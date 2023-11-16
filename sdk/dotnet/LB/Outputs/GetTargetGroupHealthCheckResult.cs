@@ -13,35 +13,35 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetTargetGroupHealthCheckResult
     {
-        public readonly bool Enabled;
-        public readonly int HealthyThreshold;
-        public readonly int Interval;
-        public readonly string Matcher;
-        public readonly string Path;
-        public readonly string Port;
-        public readonly string Protocol;
-        public readonly int Timeout;
-        public readonly int UnhealthyThreshold;
+        public readonly bool? Enabled;
+        public readonly int? HealthyThreshold;
+        public readonly int? Interval;
+        public readonly string? Matcher;
+        public readonly string? Path;
+        public readonly string? Port;
+        public readonly string? Protocol;
+        public readonly int? Timeout;
+        public readonly int? UnhealthyThreshold;
 
         [OutputConstructor]
         private GetTargetGroupHealthCheckResult(
-            bool enabled,
+            bool? enabled,
 
-            int healthyThreshold,
+            int? healthyThreshold,
 
-            int interval,
+            int? interval,
 
-            string matcher,
+            string? matcher,
 
-            string path,
+            string? path,
 
-            string port,
+            string? port,
 
-            string protocol,
+            string? protocol,
 
-            int timeout,
+            int? timeout,
 
-            int unhealthyThreshold)
+            int? unhealthyThreshold)
         {
             Enabled = enabled;
             HealthyThreshold = healthyThreshold;

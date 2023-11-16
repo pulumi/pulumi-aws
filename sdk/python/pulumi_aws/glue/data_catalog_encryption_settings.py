@@ -231,7 +231,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> pulumi.Output[str]:
+    def catalog_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         """

@@ -61,7 +61,7 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
     /**
      * Status of this delegated admin account.
      */
-    public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
+    public /*out*/ readonly relationshipStatus!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DelegatedAdminAccount resource with the given unique name, arguments, and options.

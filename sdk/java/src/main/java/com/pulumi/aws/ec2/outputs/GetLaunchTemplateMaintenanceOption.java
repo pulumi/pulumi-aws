@@ -6,14 +6,16 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateMaintenanceOption {
-    private String autoRecovery;
+    private @Nullable String autoRecovery;
 
     private GetLaunchTemplateMaintenanceOption() {}
-    public String autoRecovery() {
-        return this.autoRecovery;
+    public Optional<String> autoRecovery() {
+        return Optional.ofNullable(this.autoRecovery);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetLaunchTemplateMaintenanceOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String autoRecovery;
+        private @Nullable String autoRecovery;
         public Builder() {}
         public Builder(GetLaunchTemplateMaintenanceOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetLaunchTemplateMaintenanceOption {
         }
 
         @CustomType.Setter
-        public Builder autoRecovery(String autoRecovery) {
-            this.autoRecovery = Objects.requireNonNull(autoRecovery);
+        public Builder autoRecovery(@Nullable String autoRecovery) {
+            this.autoRecovery = autoRecovery;
             return this;
         }
         public GetLaunchTemplateMaintenanceOption build() {

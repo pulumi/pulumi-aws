@@ -1105,7 +1105,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> pulumi.Output[str]:
+    def activation_key(self) -> pulumi.Output[Optional[str]]:
         """
         Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         """
@@ -1113,7 +1113,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the gateway.
         """
@@ -1145,7 +1145,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ec2InstanceId")
-    def ec2_instance_id(self) -> pulumi.Output[str]:
+    def ec2_instance_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Amazon EC2 instance that was used to launch the gateway.
         """
@@ -1153,7 +1153,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> pulumi.Output[str]:
+    def endpoint_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of endpoint for your gateway.
         """
@@ -1161,7 +1161,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> pulumi.Output[str]:
+    def gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the gateway.
         """
@@ -1169,7 +1169,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayIpAddress")
-    def gateway_ip_address(self) -> pulumi.Output[str]:
+    def gateway_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         """
@@ -1185,7 +1185,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayNetworkInterfaces")
-    def gateway_network_interfaces(self) -> pulumi.Output[Sequence['outputs.GatewayGatewayNetworkInterface']]:
+    def gateway_network_interfaces(self) -> pulumi.Output[Optional[Sequence['outputs.GatewayGatewayNetworkInterface']]]:
         """
         An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
         """
@@ -1217,7 +1217,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostEnvironment")
-    def host_environment(self) -> pulumi.Output[str]:
+    def host_environment(self) -> pulumi.Output[Optional[str]]:
         """
         The type of hypervisor environment used by the host.
         """
@@ -1225,7 +1225,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceStartTime")
-    def maintenance_start_time(self) -> pulumi.Output['outputs.GatewayMaintenanceStartTime']:
+    def maintenance_start_time(self) -> pulumi.Output[Optional['outputs.GatewayMaintenanceStartTime']]:
         """
         The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         """
@@ -1265,7 +1265,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="smbSecurityStrategy")
-    def smb_security_strategy(self) -> pulumi.Output[str]:
+    def smb_security_strategy(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         """

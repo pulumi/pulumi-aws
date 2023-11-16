@@ -50,7 +50,7 @@ class GetLogDataProtectionPolicyDocumentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -58,7 +58,7 @@ class GetLogDataProtectionPolicyDocumentResult:
 
     @property
     @pulumi.getter
-    def json(self) -> str:
+    def json(self) -> Optional[str]:
         """
         Standard JSON policy document rendered based on the arguments above.
         """

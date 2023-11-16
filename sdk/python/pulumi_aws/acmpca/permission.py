@@ -341,7 +341,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         IAM policy that is associated with the permission.
         """
@@ -357,7 +357,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAccount")
-    def source_account(self) -> pulumi.Output[str]:
+    def source_account(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the calling account
         """

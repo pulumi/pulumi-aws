@@ -6,35 +6,37 @@ package com.pulumi.aws.ecr.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCredentialsResult {
-    private String authorizationToken;
-    private String expiresAt;
+    private @Nullable String authorizationToken;
+    private @Nullable String expiresAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String proxyEndpoint;
+    private @Nullable String id;
+    private @Nullable String proxyEndpoint;
     private String registryId;
 
     private GetCredentialsResult() {}
-    public String authorizationToken() {
-        return this.authorizationToken;
+    public Optional<String> authorizationToken() {
+        return Optional.ofNullable(this.authorizationToken);
     }
-    public String expiresAt() {
-        return this.expiresAt;
+    public Optional<String> expiresAt() {
+        return Optional.ofNullable(this.expiresAt);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String proxyEndpoint() {
-        return this.proxyEndpoint;
+    public Optional<String> proxyEndpoint() {
+        return Optional.ofNullable(this.proxyEndpoint);
     }
     public String registryId() {
         return this.registryId;
@@ -49,10 +51,10 @@ public final class GetCredentialsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String authorizationToken;
-        private String expiresAt;
-        private String id;
-        private String proxyEndpoint;
+        private @Nullable String authorizationToken;
+        private @Nullable String expiresAt;
+        private @Nullable String id;
+        private @Nullable String proxyEndpoint;
         private String registryId;
         public Builder() {}
         public Builder(GetCredentialsResult defaults) {
@@ -65,23 +67,23 @@ public final class GetCredentialsResult {
         }
 
         @CustomType.Setter
-        public Builder authorizationToken(String authorizationToken) {
-            this.authorizationToken = Objects.requireNonNull(authorizationToken);
+        public Builder authorizationToken(@Nullable String authorizationToken) {
+            this.authorizationToken = authorizationToken;
             return this;
         }
         @CustomType.Setter
-        public Builder expiresAt(String expiresAt) {
-            this.expiresAt = Objects.requireNonNull(expiresAt);
+        public Builder expiresAt(@Nullable String expiresAt) {
+            this.expiresAt = expiresAt;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder proxyEndpoint(String proxyEndpoint) {
-            this.proxyEndpoint = Objects.requireNonNull(proxyEndpoint);
+        public Builder proxyEndpoint(@Nullable String proxyEndpoint) {
+            this.proxyEndpoint = proxyEndpoint;
             return this;
         }
         @CustomType.Setter

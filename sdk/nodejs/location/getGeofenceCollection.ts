@@ -54,32 +54,32 @@ export interface GetGeofenceCollectionResult {
     /**
      * ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
      */
-    readonly collectionArn: string;
+    readonly collectionArn?: string;
     readonly collectionName: string;
     /**
      * Timestamp for when the geofence collection resource was created in ISO 8601 format.
      */
-    readonly createTime: string;
+    readonly createTime?: string;
     /**
      * Optional description of the geofence collection resource.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     /**
      * Key-value map of resource tags for the geofence collection.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      */
-    readonly updateTime: string;
+    readonly updateTime?: string;
 }
 /**
  * Retrieve information about a Location Service Geofence Collection.

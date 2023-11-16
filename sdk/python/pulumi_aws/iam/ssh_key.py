@@ -347,7 +347,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> pulumi.Output[str]:
+    def fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         The MD5 message digest of the SSH public key.
         """
@@ -363,7 +363,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshPublicKeyId")
-    def ssh_public_key_id(self) -> pulumi.Output[str]:
+    def ssh_public_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier for the SSH public key.
         """
@@ -371,7 +371,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         """

@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexDocumentMetadataConfigurationUpdate {
@@ -16,51 +18,51 @@ public final class GetIndexDocumentMetadataConfigurationUpdate {
      * @return Name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
      * 
      */
-    private List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances;
+    private @Nullable List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances;
     /**
      * @return Block that provides information about how the field is used during a search. Documented below.
      * 
      */
-    private List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches;
+    private @Nullable List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches;
     /**
      * @return Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetIndexDocumentMetadataConfigurationUpdate() {}
     /**
      * @return Name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
      * 
      */
     public List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances() {
-        return this.relevances;
+        return this.relevances == null ? List.of() : this.relevances;
     }
     /**
      * @return Block that provides information about how the field is used during a search. Documented below.
      * 
      */
     public List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches() {
-        return this.searches;
+        return this.searches == null ? List.of() : this.searches;
     }
     /**
      * @return Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -72,10 +74,10 @@ public final class GetIndexDocumentMetadataConfigurationUpdate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String name;
-        private List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances;
-        private List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches;
-        private String type;
+        private @Nullable String name;
+        private @Nullable List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances;
+        private @Nullable List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetIndexDocumentMetadataConfigurationUpdate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,29 +88,29 @@ public final class GetIndexDocumentMetadataConfigurationUpdate {
         }
 
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder relevances(List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances) {
-            this.relevances = Objects.requireNonNull(relevances);
+        public Builder relevances(@Nullable List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances) {
+            this.relevances = relevances;
             return this;
         }
         public Builder relevances(GetIndexDocumentMetadataConfigurationUpdateRelevance... relevances) {
             return relevances(List.of(relevances));
         }
         @CustomType.Setter
-        public Builder searches(List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches) {
-            this.searches = Objects.requireNonNull(searches);
+        public Builder searches(@Nullable List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches) {
+            this.searches = searches;
             return this;
         }
         public Builder searches(GetIndexDocumentMetadataConfigurationUpdateSearch... searches) {
             return searches(List.of(searches));
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetIndexDocumentMetadataConfigurationUpdate build() {

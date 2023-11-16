@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// Supported only for HTTP API Lambda authorizers.
         /// </summary>
         [Output("authorizerResultTtlInSeconds")]
-        public Output<int> AuthorizerResultTtlInSeconds { get; private set; } = null!;
+        public Output<int?> AuthorizerResultTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
         /// Authorizer type. Valid values: `JWT`, `REQUEST`.

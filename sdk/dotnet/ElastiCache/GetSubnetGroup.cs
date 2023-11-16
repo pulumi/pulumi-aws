@@ -128,15 +128,15 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// ARN of the subnet group.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the subnet group.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Set of VPC Subnet ID-s of the subnet group.
@@ -149,11 +149,11 @@ namespace Pulumi.Aws.ElastiCache
 
         [OutputConstructor]
         private GetSubnetGroupResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 

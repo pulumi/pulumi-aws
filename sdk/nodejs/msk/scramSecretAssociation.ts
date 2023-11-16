@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [exampleSecretVersion],
  * });
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const examplePolicyDocument = exampleSecret.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "AWSKafkaResourcePolicy",
  *         effect: "Allow",
@@ -52,9 +52,9 @@ import * as utilities from "../utilities";
  *             identifiers: ["kafka.amazonaws.com"],
  *         }],
  *         actions: ["secretsmanager:getSecretValue"],
- *         resources: [exampleSecret.arn],
+ *         resources: [arn],
  *     }],
- * });
+ * }));
  * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("exampleSecretPolicy", {
  *     secretArn: exampleSecret.arn,
  *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),

@@ -567,7 +567,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorAccountId")
-    def administrator_account_id(self) -> pulumi.Output[str]:
+    def administrator_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID for the administrator account.
         """
@@ -575,7 +575,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the account.
         """
@@ -607,7 +607,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def invite(self) -> pulumi.Output[bool]:
+    def invite(self) -> pulumi.Output[Optional[bool]]:
         """
         Send an invitation to a member
         """
@@ -615,7 +615,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitedAt")
-    def invited_at(self) -> pulumi.Output[str]:
+    def invited_at(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
         """
@@ -623,12 +623,12 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterAccountId")
-    def master_account_id(self) -> pulumi.Output[str]:
+    def master_account_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "master_account_id")
 
     @property
     @pulumi.getter(name="relationshipStatus")
-    def relationship_status(self) -> pulumi.Output[str]:
+    def relationship_status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of the relationship between the account and the administrator account.
         """
@@ -636,7 +636,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
@@ -660,7 +660,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> pulumi.Output[str]:
+    def updated_at(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
         """

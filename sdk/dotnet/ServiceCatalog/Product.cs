@@ -65,31 +65,31 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ARN of the product.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Time when the product was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Description of the product.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Distributor (i.e., vendor) of the product.
         /// </summary>
         [Output("distributor")]
-        public Output<string> Distributor { get; private set; } = null!;
+        public Output<string?> Distributor { get; private set; } = null!;
 
         /// <summary>
         /// Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
         /// </summary>
         [Output("hasDefaultPath")]
-        public Output<bool> HasDefaultPath { get; private set; } = null!;
+        public Output<bool?> HasDefaultPath { get; private set; } = null!;
 
         /// <summary>
         /// Name of the product.
@@ -113,25 +113,25 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Status of the product.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Support information about the product.
         /// </summary>
         [Output("supportDescription")]
-        public Output<string> SupportDescription { get; private set; } = null!;
+        public Output<string?> SupportDescription { get; private set; } = null!;
 
         /// <summary>
         /// Contact email for product support.
         /// </summary>
         [Output("supportEmail")]
-        public Output<string> SupportEmail { get; private set; } = null!;
+        public Output<string?> SupportEmail { get; private set; } = null!;
 
         /// <summary>
         /// Contact URL for product support.
         /// </summary>
         [Output("supportUrl")]
-        public Output<string> SupportUrl { get; private set; } = null!;
+        public Output<string?> SupportUrl { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

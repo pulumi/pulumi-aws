@@ -13,23 +13,23 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecHttpRouteMatchHeaderMatchResult
     {
-        public readonly string Exact;
-        public readonly string Prefix;
+        public readonly string? Exact;
+        public readonly string? Prefix;
         public readonly ImmutableArray<Outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult> Ranges;
-        public readonly string Regex;
-        public readonly string Suffix;
+        public readonly string? Regex;
+        public readonly string? Suffix;
 
         [OutputConstructor]
         private GetRouteSpecHttpRouteMatchHeaderMatchResult(
-            string exact,
+            string? exact,
 
-            string prefix,
+            string? prefix,
 
             ImmutableArray<Outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult> ranges,
 
-            string regex,
+            string? regex,
 
-            string suffix)
+            string? suffix)
         {
             Exact = exact;
             Prefix = prefix;

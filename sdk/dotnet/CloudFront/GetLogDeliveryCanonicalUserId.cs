@@ -144,12 +144,12 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? Region;
 
         [OutputConstructor]
         private GetLogDeliveryCanonicalUserIdResult(
-            string id,
+            string? id,
 
             string? region)
         {

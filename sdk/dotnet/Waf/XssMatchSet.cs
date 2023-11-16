@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Waf
         /// Amazon Resource Name (ARN)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name or description of the SizeConstraintSet.

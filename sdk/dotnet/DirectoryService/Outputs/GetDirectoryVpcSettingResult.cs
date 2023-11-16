@@ -21,7 +21,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
         /// <summary>
         /// ID of the VPC that the connector is in.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetDirectoryVpcSettingResult(
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
 
             ImmutableArray<string> subnetIds,
 
-            string vpcId)
+            string? vpcId)
         {
             AvailabilityZones = availabilityZones;
             SubnetIds = subnetIds;

@@ -6,6 +6,8 @@ package com.pulumi.aws.cognito.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserPoolSigningCertificateResult {
@@ -13,12 +15,12 @@ public final class GetUserPoolSigningCertificateResult {
      * @return Certificate string
      * 
      */
-    private String certificate;
+    private @Nullable String certificate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String userPoolId;
 
     private GetUserPoolSigningCertificateResult() {}
@@ -26,15 +28,15 @@ public final class GetUserPoolSigningCertificateResult {
      * @return Certificate string
      * 
      */
-    public String certificate() {
-        return this.certificate;
+    public Optional<String> certificate() {
+        return Optional.ofNullable(this.certificate);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String userPoolId() {
         return this.userPoolId;
@@ -49,8 +51,8 @@ public final class GetUserPoolSigningCertificateResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String certificate;
-        private String id;
+        private @Nullable String certificate;
+        private @Nullable String id;
         private String userPoolId;
         public Builder() {}
         public Builder(GetUserPoolSigningCertificateResult defaults) {
@@ -61,13 +63,13 @@ public final class GetUserPoolSigningCertificateResult {
         }
 
         @CustomType.Setter
-        public Builder certificate(String certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+        public Builder certificate(@Nullable String certificate) {
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

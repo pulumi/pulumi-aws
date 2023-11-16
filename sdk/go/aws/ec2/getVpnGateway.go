@@ -81,13 +81,13 @@ type LookupVpnGatewayArgs struct {
 
 // A collection of values returned by getVpnGateway.
 type LookupVpnGatewayResult struct {
-	AmazonSideAsn    string                `pulumi:"amazonSideAsn"`
-	Arn              string                `pulumi:"arn"`
-	AttachedVpcId    string                `pulumi:"attachedVpcId"`
-	AvailabilityZone string                `pulumi:"availabilityZone"`
+	AmazonSideAsn    *string               `pulumi:"amazonSideAsn"`
+	Arn              *string               `pulumi:"arn"`
+	AttachedVpcId    *string               `pulumi:"attachedVpcId"`
+	AvailabilityZone *string               `pulumi:"availabilityZone"`
 	Filters          []GetVpnGatewayFilter `pulumi:"filters"`
-	Id               string                `pulumi:"id"`
-	State            string                `pulumi:"state"`
+	Id               *string               `pulumi:"id"`
+	State            *string               `pulumi:"state"`
 	Tags             map[string]string     `pulumi:"tags"`
 }
 
@@ -145,32 +145,32 @@ func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutputWithContext(
 	return o
 }
 
-func (o LookupVpnGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.AmazonSideAsn }).(pulumi.StringOutput)
+func (o LookupVpnGatewayResultOutput) AmazonSideAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *string { return v.AmazonSideAsn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpnGatewayResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupVpnGatewayResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpnGatewayResultOutput) AttachedVpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.AttachedVpcId }).(pulumi.StringOutput)
+func (o LookupVpnGatewayResultOutput) AttachedVpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *string { return v.AttachedVpcId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpnGatewayResultOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o LookupVpnGatewayResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVpnGatewayResultOutput) Filters() GetVpnGatewayFilterArrayOutput {
 	return o.ApplyT(func(v LookupVpnGatewayResult) []GetVpnGatewayFilter { return v.Filters }).(GetVpnGatewayFilterArrayOutput)
 }
 
-func (o LookupVpnGatewayResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVpnGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpnGatewayResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.State }).(pulumi.StringOutput)
+func (o LookupVpnGatewayResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVpnGatewayResultOutput) Tags() pulumi.StringMapOutput {

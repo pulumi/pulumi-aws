@@ -1818,19 +1818,21 @@ class V2modelsBotTimeouts(dict):
 @pulumi.output_type
 class GetSlotTypeEnumerationValueResult(dict):
     def __init__(__self__, *,
-                 synonyms: Sequence[str],
-                 value: str):
-        pulumi.set(__self__, "synonyms", synonyms)
-        pulumi.set(__self__, "value", value)
+                 synonyms: Optional[Sequence[str]] = None,
+                 value: Optional[str] = None):
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def synonyms(self) -> Sequence[str]:
+    def synonyms(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "synonyms")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 

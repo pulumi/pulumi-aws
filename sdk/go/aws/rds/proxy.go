@@ -75,17 +75,17 @@ type Proxy struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the proxy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
 	Auths ProxyAuthArrayOutput `pulumi:"auths"`
 	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
 	DebugLogging pulumi.BoolPtrOutput `pulumi:"debugLogging"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
 	EngineFamily pulumi.StringOutput `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
-	IdleClientTimeout pulumi.IntOutput `pulumi:"idleClientTimeout"`
+	IdleClientTimeout pulumi.IntPtrOutput `pulumi:"idleClientTimeout"`
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
@@ -350,8 +350,8 @@ func (o ProxyOutput) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 }
 
 // The Amazon Resource Name (ARN) for the proxy.
-func (o ProxyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProxyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Proxy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
@@ -365,8 +365,8 @@ func (o ProxyOutput) DebugLogging() pulumi.BoolPtrOutput {
 }
 
 // The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-func (o ProxyOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ProxyOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Proxy) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
@@ -375,8 +375,8 @@ func (o ProxyOutput) EngineFamily() pulumi.StringOutput {
 }
 
 // The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
-func (o ProxyOutput) IdleClientTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v *Proxy) pulumi.IntOutput { return v.IdleClientTimeout }).(pulumi.IntOutput)
+func (o ProxyOutput) IdleClientTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Proxy) pulumi.IntPtrOutput { return v.IdleClientTimeout }).(pulumi.IntPtrOutput)
 }
 
 // The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.

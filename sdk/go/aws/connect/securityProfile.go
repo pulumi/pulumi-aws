@@ -62,7 +62,7 @@ type SecurityProfile struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Security Profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies the description of the Security Profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -70,11 +70,11 @@ type SecurityProfile struct {
 	// Specifies the name of the Security Profile.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The organization resource identifier for the security profile.
-	OrganizationResourceId pulumi.StringOutput `pulumi:"organizationResourceId"`
+	OrganizationResourceId pulumi.StringPtrOutput `pulumi:"organizationResourceId"`
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// The identifier for the Security Profile.
-	SecurityProfileId pulumi.StringOutput `pulumi:"securityProfileId"`
+	SecurityProfileId pulumi.StringPtrOutput `pulumi:"securityProfileId"`
 	// Tags to apply to the Security Profile. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -289,8 +289,8 @@ func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Co
 }
 
 // The Amazon Resource Name (ARN) of the Security Profile.
-func (o SecurityProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SecurityProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the description of the Security Profile.
@@ -309,8 +309,8 @@ func (o SecurityProfileOutput) Name() pulumi.StringOutput {
 }
 
 // The organization resource identifier for the security profile.
-func (o SecurityProfileOutput) OrganizationResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.OrganizationResourceId }).(pulumi.StringOutput)
+func (o SecurityProfileOutput) OrganizationResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringPtrOutput { return v.OrganizationResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a list of permissions assigned to the security profile.
@@ -319,8 +319,8 @@ func (o SecurityProfileOutput) Permissions() pulumi.StringArrayOutput {
 }
 
 // The identifier for the Security Profile.
-func (o SecurityProfileOutput) SecurityProfileId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.SecurityProfileId }).(pulumi.StringOutput)
+func (o SecurityProfileOutput) SecurityProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringPtrOutput { return v.SecurityProfileId }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the Security Profile. If configured with a provider

@@ -7,24 +7,26 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDevEnvironmentRepositoryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetDevEnvironmentRepositoryArgs Empty = new GetDevEnvironmentRepositoryArgs();
 
-    @Import(name="branchName", required=true)
-    private Output<String> branchName;
+    @Import(name="branchName")
+    private @Nullable Output<String> branchName;
 
-    public Output<String> branchName() {
-        return this.branchName;
+    public Optional<Output<String>> branchName() {
+        return Optional.ofNullable(this.branchName);
     }
 
-    @Import(name="repositoryName", required=true)
-    private Output<String> repositoryName;
+    @Import(name="repositoryName")
+    private @Nullable Output<String> repositoryName;
 
-    public Output<String> repositoryName() {
-        return this.repositoryName;
+    public Optional<Output<String>> repositoryName() {
+        return Optional.ofNullable(this.repositoryName);
     }
 
     private GetDevEnvironmentRepositoryArgs() {}
@@ -52,7 +54,7 @@ public final class GetDevEnvironmentRepositoryArgs extends com.pulumi.resources.
             $ = new GetDevEnvironmentRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder branchName(Output<String> branchName) {
+        public Builder branchName(@Nullable Output<String> branchName) {
             $.branchName = branchName;
             return this;
         }
@@ -61,7 +63,7 @@ public final class GetDevEnvironmentRepositoryArgs extends com.pulumi.resources.
             return branchName(Output.of(branchName));
         }
 
-        public Builder repositoryName(Output<String> repositoryName) {
+        public Builder repositoryName(@Nullable Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
@@ -71,8 +73,6 @@ public final class GetDevEnvironmentRepositoryArgs extends com.pulumi.resources.
         }
 
         public GetDevEnvironmentRepositoryArgs build() {
-            $.branchName = Objects.requireNonNull($.branchName, "expected parameter 'branchName' to be non-null");
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
             return $;
         }
     }

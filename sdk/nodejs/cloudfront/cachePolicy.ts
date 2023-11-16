@@ -91,7 +91,7 @@ export class CachePolicy extends pulumi.CustomResource {
     /**
      * Current version of the cache policy.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */

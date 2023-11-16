@@ -59,13 +59,13 @@ type LookupDomainArgs struct {
 // A collection of values returned by getDomain.
 type LookupDomainResult struct {
 	// The policy document attached to the domain.
-	AccessPolicies string `pulumi:"accessPolicies"`
+	AccessPolicies *string `pulumi:"accessPolicies"`
 	// Key-value string pairs to specify advanced configuration options.
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
 	AdvancedSecurityOptions []GetDomainAdvancedSecurityOption `pulumi:"advancedSecurityOptions"`
 	// The ARN of the domain.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Configuration of the Auto-Tune options of the domain.
 	AutoTuneOptions []GetDomainAutoTuneOption `pulumi:"autoTuneOptions"`
 	// Cluster configuration of the domain.
@@ -73,30 +73,30 @@ type LookupDomainResult struct {
 	// Domain Amazon Cognito Authentication options for Kibana.
 	CognitoOptions []GetDomainCognitoOption `pulumi:"cognitoOptions"`
 	// Status of the creation of the domain.
-	Created bool `pulumi:"created"`
+	Created *bool `pulumi:"created"`
 	// Status of the deletion of the domain.
-	Deleted bool `pulumi:"deleted"`
+	Deleted *bool `pulumi:"deleted"`
 	// Unique identifier for the domain.
-	DomainId   string `pulumi:"domainId"`
-	DomainName string `pulumi:"domainName"`
+	DomainId   *string `pulumi:"domainId"`
+	DomainName string  `pulumi:"domainName"`
 	// EBS Options for the instances in the domain.
 	EbsOptions []GetDomainEbsOption `pulumi:"ebsOptions"`
 	// Elasticsearch version for the domain.
-	ElasticsearchVersion string `pulumi:"elasticsearchVersion"`
+	ElasticsearchVersion *string `pulumi:"elasticsearchVersion"`
 	// Domain encryption at rest related options.
 	EncryptionAtRests []GetDomainEncryptionAtRest `pulumi:"encryptionAtRests"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
-	Endpoint string `pulumi:"endpoint"`
+	Endpoint *string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Domain-specific endpoint used to access the Kibana application.
-	KibanaEndpoint string `pulumi:"kibanaEndpoint"`
+	KibanaEndpoint *string `pulumi:"kibanaEndpoint"`
 	// Domain log publishing related options.
 	LogPublishingOptions []GetDomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Domain in transit encryption related options.
 	NodeToNodeEncryptions []GetDomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryptions"`
 	// Status of a configuration change in the domain.
-	Processing bool `pulumi:"processing"`
+	Processing *bool `pulumi:"processing"`
 	// Domain snapshot related options.
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
 	// Tags assigned to the domain.
@@ -146,8 +146,8 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 }
 
 // The policy document attached to the domain.
-func (o LookupDomainResultOutput) AccessPolicies() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainResult) string { return v.AccessPolicies }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) AccessPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.AccessPolicies }).(pulumi.StringPtrOutput)
 }
 
 // Key-value string pairs to specify advanced configuration options.
@@ -161,8 +161,8 @@ func (o LookupDomainResultOutput) AdvancedSecurityOptions() GetDomainAdvancedSec
 }
 
 // The ARN of the domain.
-func (o LookupDomainResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration of the Auto-Tune options of the domain.
@@ -181,18 +181,18 @@ func (o LookupDomainResultOutput) CognitoOptions() GetDomainCognitoOptionArrayOu
 }
 
 // Status of the creation of the domain.
-func (o LookupDomainResultOutput) Created() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupDomainResult) bool { return v.Created }).(pulumi.BoolOutput)
+func (o LookupDomainResultOutput) Created() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *bool { return v.Created }).(pulumi.BoolPtrOutput)
 }
 
 // Status of the deletion of the domain.
-func (o LookupDomainResultOutput) Deleted() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupDomainResult) bool { return v.Deleted }).(pulumi.BoolOutput)
+func (o LookupDomainResultOutput) Deleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *bool { return v.Deleted }).(pulumi.BoolPtrOutput)
 }
 
 // Unique identifier for the domain.
-func (o LookupDomainResultOutput) DomainId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainResult) string { return v.DomainId }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDomainResultOutput) DomainName() pulumi.StringOutput {
@@ -205,8 +205,8 @@ func (o LookupDomainResultOutput) EbsOptions() GetDomainEbsOptionArrayOutput {
 }
 
 // Elasticsearch version for the domain.
-func (o LookupDomainResultOutput) ElasticsearchVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainResult) string { return v.ElasticsearchVersion }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) ElasticsearchVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.ElasticsearchVersion }).(pulumi.StringPtrOutput)
 }
 
 // Domain encryption at rest related options.
@@ -215,18 +215,18 @@ func (o LookupDomainResultOutput) EncryptionAtRests() GetDomainEncryptionAtRestA
 }
 
 // Domain-specific endpoint used to submit index, search, and data upload requests.
-func (o LookupDomainResultOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainResult) string { return v.Endpoint }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Domain-specific endpoint used to access the Kibana application.
-func (o LookupDomainResultOutput) KibanaEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainResult) string { return v.KibanaEndpoint }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) KibanaEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.KibanaEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Domain log publishing related options.
@@ -240,8 +240,8 @@ func (o LookupDomainResultOutput) NodeToNodeEncryptions() GetDomainNodeToNodeEnc
 }
 
 // Status of a configuration change in the domain.
-func (o LookupDomainResultOutput) Processing() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupDomainResult) bool { return v.Processing }).(pulumi.BoolOutput)
+func (o LookupDomainResultOutput) Processing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *bool { return v.Processing }).(pulumi.BoolPtrOutput)
 }
 
 // Domain snapshot related options.

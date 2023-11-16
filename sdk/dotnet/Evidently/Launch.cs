@@ -399,13 +399,13 @@ namespace Pulumi.Aws.Evidently
         /// The ARN of the launch.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that the launch is created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the description of the launch.
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Evidently
         /// The date and time that the launch was most recently updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
@@ -465,13 +465,13 @@ namespace Pulumi.Aws.Evidently
         /// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
         /// </summary>
         [Output("statusReason")]
-        public Output<string> StatusReason { get; private set; } = null!;
+        public Output<string?> StatusReason { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -489,7 +489,7 @@ namespace Pulumi.Aws.Evidently
         /// The type of launch.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

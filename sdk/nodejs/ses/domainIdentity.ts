@@ -71,7 +71,7 @@ export class DomainIdentity extends pulumi.CustomResource {
     /**
      * The ARN of the domain identity.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The domain name to assign to SES
      */
@@ -86,7 +86,7 @@ export class DomainIdentity extends pulumi.CustomResource {
      * SES in the [AWS SES
      * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      */
-    public /*out*/ readonly verificationToken!: pulumi.Output<string>;
+    public /*out*/ readonly verificationToken!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DomainIdentity resource with the given unique name, arguments, and options.

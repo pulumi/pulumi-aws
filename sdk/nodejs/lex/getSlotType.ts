@@ -53,29 +53,29 @@ export interface GetSlotTypeResult {
      * Checksum identifying the version of the slot type that was created. The checksum is
      * not included as an argument because the resource will add it automatically when updating the slot type.
      */
-    readonly checksum: string;
+    readonly checksum?: string;
     /**
      * Date when the slot type version was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Description of the slot type.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Set of EnumerationValue objects that defines the values that
      * the slot type can take. Each value can have a set of synonyms, which are additional values that help
      * train the machine learning model about the values that it resolves for a slot.
      */
-    readonly enumerationValues: outputs.lex.GetSlotTypeEnumerationValue[];
+    readonly enumerationValues?: outputs.lex.GetSlotTypeEnumerationValue[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Date when the $LATEST version of this slot type was updated.
      */
-    readonly lastUpdatedDate: string;
+    readonly lastUpdatedDate?: string;
     /**
      * Name of the slot type. The name is not case sensitive.
      */
@@ -86,7 +86,7 @@ export interface GetSlotTypeResult {
      * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
      * if there is a resolution list for the slot, otherwise null is returned.
      */
-    readonly valueSelectionStrategy: string;
+    readonly valueSelectionStrategy?: string;
     /**
      * Version of the slot type.
      */

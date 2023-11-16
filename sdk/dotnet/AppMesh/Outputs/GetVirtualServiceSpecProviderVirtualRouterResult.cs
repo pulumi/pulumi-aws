@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualServiceSpecProviderVirtualRouterResult
     {
-        public readonly string VirtualRouterName;
+        public readonly string? VirtualRouterName;
 
         [OutputConstructor]
-        private GetVirtualServiceSpecProviderVirtualRouterResult(string virtualRouterName)
+        private GetVirtualServiceSpecProviderVirtualRouterResult(string? virtualRouterName)
         {
             VirtualRouterName = virtualRouterName;
         }

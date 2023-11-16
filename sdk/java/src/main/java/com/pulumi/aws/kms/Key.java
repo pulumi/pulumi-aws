@@ -72,14 +72,14 @@ public class Key extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the key.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
@@ -154,14 +154,14 @@ public class Key extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return The description of the key as viewed in AWS console.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
@@ -196,14 +196,14 @@ public class Key extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyId", refs={String.class}, tree="[0]")
-    private Output<String> keyId;
+    private Output</* @Nullable */ String> keyId;
 
     /**
      * @return The globally unique identifier for the key.
      * 
      */
-    public Output<String> keyId() {
-        return this.keyId;
+    public Output<Optional<String>> keyId() {
+        return Codegen.optional(this.keyId);
     }
     /**
      * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
@@ -226,14 +226,14 @@ public class Key extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="multiRegion", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> multiRegion;
+    private Output</* @Nullable */ Boolean> multiRegion;
 
     /**
      * @return Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
-    public Output<Boolean> multiRegion() {
-        return this.multiRegion;
+    public Output<Optional<Boolean>> multiRegion() {
+        return Codegen.optional(this.multiRegion);
     }
     /**
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
@@ -242,7 +242,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
@@ -250,8 +250,8 @@ public class Key extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

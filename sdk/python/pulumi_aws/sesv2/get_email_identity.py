@@ -50,7 +50,7 @@ class GetEmailIdentityResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Email Identity.
         """
@@ -58,12 +58,12 @@ class GetEmailIdentityResult:
 
     @property
     @pulumi.getter(name="configurationSetName")
-    def configuration_set_name(self) -> str:
+    def configuration_set_name(self) -> Optional[str]:
         return pulumi.get(self, "configuration_set_name")
 
     @property
     @pulumi.getter(name="dkimSigningAttributes")
-    def dkim_signing_attributes(self) -> Sequence['outputs.GetEmailIdentityDkimSigningAttributeResult']:
+    def dkim_signing_attributes(self) -> Optional[Sequence['outputs.GetEmailIdentityDkimSigningAttributeResult']]:
         """
         A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
         """
@@ -76,7 +76,7 @@ class GetEmailIdentityResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -84,7 +84,7 @@ class GetEmailIdentityResult:
 
     @property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> str:
+    def identity_type(self) -> Optional[str]:
         """
         The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         """
@@ -92,7 +92,7 @@ class GetEmailIdentityResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value mapping of resource tags.
         """
@@ -100,7 +100,7 @@ class GetEmailIdentityResult:
 
     @property
     @pulumi.getter(name="verifiedForSendingStatus")
-    def verified_for_sending_status(self) -> bool:
+    def verified_for_sending_status(self) -> Optional[bool]:
         """
         Specifies whether or not the identity is verified.
         """

@@ -53,13 +53,13 @@ type GeofenceCollection struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
-	CollectionArn pulumi.StringOutput `pulumi:"collectionArn"`
+	CollectionArn pulumi.StringPtrOutput `pulumi:"collectionArn"`
 	// The name of the geofence collection.
 	//
 	// The following arguments are optional:
 	CollectionName pulumi.StringOutput `pulumi:"collectionName"`
 	// The timestamp for when the geofence collection resource was created in ISO 8601 format.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	CreateTime pulumi.StringPtrOutput `pulumi:"createTime"`
 	// The optional description for the geofence collection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
@@ -69,7 +69,7 @@ type GeofenceCollection struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	UpdateTime pulumi.StringPtrOutput `pulumi:"updateTime"`
 }
 
 // NewGeofenceCollection registers a new resource with the given unique name, arguments, and options.
@@ -269,8 +269,8 @@ func (o GeofenceCollectionOutput) ToGeofenceCollectionOutputWithContext(ctx cont
 }
 
 // The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
-func (o GeofenceCollectionOutput) CollectionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CollectionArn }).(pulumi.StringOutput)
+func (o GeofenceCollectionOutput) CollectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.CollectionArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the geofence collection.
@@ -281,8 +281,8 @@ func (o GeofenceCollectionOutput) CollectionName() pulumi.StringOutput {
 }
 
 // The timestamp for when the geofence collection resource was created in ISO 8601 format.
-func (o GeofenceCollectionOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+func (o GeofenceCollectionOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // The optional description for the geofence collection.
@@ -306,8 +306,8 @@ func (o GeofenceCollectionOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
-func (o GeofenceCollectionOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o GeofenceCollectionOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 type GeofenceCollectionArrayOutput struct{ *pulumi.OutputState }

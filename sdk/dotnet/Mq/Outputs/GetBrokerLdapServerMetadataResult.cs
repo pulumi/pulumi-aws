@@ -14,40 +14,40 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class GetBrokerLdapServerMetadataResult
     {
         public readonly ImmutableArray<string> Hosts;
-        public readonly string RoleBase;
-        public readonly string RoleName;
-        public readonly string RoleSearchMatching;
-        public readonly bool RoleSearchSubtree;
-        public readonly string ServiceAccountPassword;
-        public readonly string ServiceAccountUsername;
-        public readonly string UserBase;
-        public readonly string UserRoleName;
-        public readonly string UserSearchMatching;
-        public readonly bool UserSearchSubtree;
+        public readonly string? RoleBase;
+        public readonly string? RoleName;
+        public readonly string? RoleSearchMatching;
+        public readonly bool? RoleSearchSubtree;
+        public readonly string? ServiceAccountPassword;
+        public readonly string? ServiceAccountUsername;
+        public readonly string? UserBase;
+        public readonly string? UserRoleName;
+        public readonly string? UserSearchMatching;
+        public readonly bool? UserSearchSubtree;
 
         [OutputConstructor]
         private GetBrokerLdapServerMetadataResult(
             ImmutableArray<string> hosts,
 
-            string roleBase,
+            string? roleBase,
 
-            string roleName,
+            string? roleName,
 
-            string roleSearchMatching,
+            string? roleSearchMatching,
 
-            bool roleSearchSubtree,
+            bool? roleSearchSubtree,
 
-            string serviceAccountPassword,
+            string? serviceAccountPassword,
 
-            string serviceAccountUsername,
+            string? serviceAccountUsername,
 
-            string userBase,
+            string? userBase,
 
-            string userRoleName,
+            string? userRoleName,
 
-            string userSearchMatching,
+            string? userSearchMatching,
 
-            bool userSearchSubtree)
+            bool? userSearchSubtree)
         {
             Hosts = hosts;
             RoleBase = roleBase;

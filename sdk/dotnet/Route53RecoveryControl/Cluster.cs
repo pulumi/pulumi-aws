@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// ARN of the cluster
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

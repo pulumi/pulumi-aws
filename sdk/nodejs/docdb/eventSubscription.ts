@@ -76,11 +76,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the DocumentDB event notification subscription
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The AWS customer account associated with the DocumentDB event notification subscription
      */
-    public /*out*/ readonly customerAwsId!: pulumi.Output<string>;
+    public /*out*/ readonly customerAwsId!: pulumi.Output<string | undefined>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.
      */
@@ -96,7 +96,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The name of the DocumentDB event subscription. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     public readonly snsTopicArn!: pulumi.Output<string>;
     /**
      * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.

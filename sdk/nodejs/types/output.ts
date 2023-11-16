@@ -46,7 +46,7 @@ export namespace accessanalyzer {
         /**
          * Contains comparator.
          */
-        contains: string[];
+        contains?: string[];
         /**
          * Filter criteria.
          */
@@ -54,15 +54,15 @@ export namespace accessanalyzer {
         /**
          * Equals comparator.
          */
-        eqs: string[];
+        eqs?: string[];
         /**
          * Boolean comparator.
          */
-        exists: string;
+        exists?: string;
         /**
          * Not Equals comparator.
          */
-        neqs: string[];
+        neqs?: string[];
     }
 
 }
@@ -72,19 +72,19 @@ export namespace acm {
         /**
          * Fully qualified domain name (FQDN) in the certificate.
          */
-        domainName: string;
+        domainName?: string;
         /**
          * The name of the DNS record to create to validate the certificate
          */
-        resourceRecordName: string;
+        resourceRecordName?: string;
         /**
          * The type of DNS record to create
          */
-        resourceRecordType: string;
+        resourceRecordType?: string;
         /**
          * The value the DNS record needs to have
          */
-        resourceRecordValue: string;
+        resourceRecordValue?: string;
     }
 
     export interface CertificateOptions {
@@ -98,12 +98,12 @@ export namespace acm {
         /**
          * The status of ACM's managed renewal of the certificate
          */
-        renewalStatus: string;
+        renewalStatus?: string;
         /**
          * The reason that a renewal request was unsuccessful or is pending
          */
-        renewalStatusReason: string;
-        updatedAt: string;
+        renewalStatusReason?: string;
+        updatedAt?: string;
     }
 
     export interface CertificateValidationOption {
@@ -222,7 +222,7 @@ export namespace acmpca {
         /**
          * Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
          */
-        s3ObjectAcl: string;
+        s3ObjectAcl?: string;
     }
 
     export interface CertificateAuthorityRevocationConfigurationOcspConfiguration {
@@ -248,129 +248,129 @@ export namespace acmpca {
     }
 
     export interface GetCertificateAuthorityRevocationConfiguration {
-        crlConfigurations: outputs.acmpca.GetCertificateAuthorityRevocationConfigurationCrlConfiguration[];
-        ocspConfigurations: outputs.acmpca.GetCertificateAuthorityRevocationConfigurationOcspConfiguration[];
+        crlConfigurations?: outputs.acmpca.GetCertificateAuthorityRevocationConfigurationCrlConfiguration[];
+        ocspConfigurations?: outputs.acmpca.GetCertificateAuthorityRevocationConfigurationOcspConfiguration[];
     }
 
     export interface GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
-        customCname: string;
-        enabled: boolean;
-        expirationInDays: number;
-        s3BucketName: string;
-        s3ObjectAcl: string;
+        customCname?: string;
+        enabled?: boolean;
+        expirationInDays?: number;
+        s3BucketName?: string;
+        s3ObjectAcl?: string;
     }
 
     export interface GetCertificateAuthorityRevocationConfigurationOcspConfiguration {
-        enabled: boolean;
-        ocspCustomCname: string;
+        enabled?: boolean;
+        ocspCustomCname?: string;
     }
 
 }
 
 export namespace alb {
     export interface GetListenerDefaultAction {
-        authenticateCognitos: outputs.alb.GetListenerDefaultActionAuthenticateCognito[];
-        authenticateOidcs: outputs.alb.GetListenerDefaultActionAuthenticateOidc[];
-        fixedResponses: outputs.alb.GetListenerDefaultActionFixedResponse[];
-        forwards: outputs.alb.GetListenerDefaultActionForward[];
-        order: number;
-        redirects: outputs.alb.GetListenerDefaultActionRedirect[];
-        targetGroupArn: string;
-        type: string;
+        authenticateCognitos?: outputs.alb.GetListenerDefaultActionAuthenticateCognito[];
+        authenticateOidcs?: outputs.alb.GetListenerDefaultActionAuthenticateOidc[];
+        fixedResponses?: outputs.alb.GetListenerDefaultActionFixedResponse[];
+        forwards?: outputs.alb.GetListenerDefaultActionForward[];
+        order?: number;
+        redirects?: outputs.alb.GetListenerDefaultActionRedirect[];
+        targetGroupArn?: string;
+        type?: string;
     }
 
     export interface GetListenerDefaultActionAuthenticateCognito {
-        authenticationRequestExtraParams: {[key: string]: string};
-        onUnauthenticatedRequest: string;
-        scope: string;
-        sessionCookieName: string;
-        sessionTimeout: number;
-        userPoolArn: string;
-        userPoolClientId: string;
-        userPoolDomain: string;
+        authenticationRequestExtraParams?: {[key: string]: string};
+        onUnauthenticatedRequest?: string;
+        scope?: string;
+        sessionCookieName?: string;
+        sessionTimeout?: number;
+        userPoolArn?: string;
+        userPoolClientId?: string;
+        userPoolDomain?: string;
     }
 
     export interface GetListenerDefaultActionAuthenticateOidc {
-        authenticationRequestExtraParams: {[key: string]: string};
-        authorizationEndpoint: string;
-        clientId: string;
-        clientSecret: string;
-        issuer: string;
-        onUnauthenticatedRequest: string;
-        scope: string;
-        sessionCookieName: string;
-        sessionTimeout: number;
-        tokenEndpoint: string;
-        userInfoEndpoint: string;
+        authenticationRequestExtraParams?: {[key: string]: string};
+        authorizationEndpoint?: string;
+        clientId?: string;
+        clientSecret?: string;
+        issuer?: string;
+        onUnauthenticatedRequest?: string;
+        scope?: string;
+        sessionCookieName?: string;
+        sessionTimeout?: number;
+        tokenEndpoint?: string;
+        userInfoEndpoint?: string;
     }
 
     export interface GetListenerDefaultActionFixedResponse {
-        contentType: string;
-        messageBody: string;
-        statusCode: string;
+        contentType?: string;
+        messageBody?: string;
+        statusCode?: string;
     }
 
     export interface GetListenerDefaultActionForward {
-        stickinesses: outputs.alb.GetListenerDefaultActionForwardStickiness[];
-        targetGroups: outputs.alb.GetListenerDefaultActionForwardTargetGroup[];
+        stickinesses?: outputs.alb.GetListenerDefaultActionForwardStickiness[];
+        targetGroups?: outputs.alb.GetListenerDefaultActionForwardTargetGroup[];
     }
 
     export interface GetListenerDefaultActionForwardStickiness {
-        duration: number;
-        enabled: boolean;
+        duration?: number;
+        enabled?: boolean;
     }
 
     export interface GetListenerDefaultActionForwardTargetGroup {
         /**
          * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
          */
-        arn: string;
-        weight: number;
+        arn?: string;
+        weight?: number;
     }
 
     export interface GetListenerDefaultActionRedirect {
-        host: string;
-        path: string;
+        host?: string;
+        path?: string;
         /**
          * Port of the listener. Required if `arn` is not set.
          */
-        port: string;
-        protocol: string;
-        query: string;
-        statusCode: string;
+        port?: string;
+        protocol?: string;
+        query?: string;
+        statusCode?: string;
     }
 
     export interface GetLoadBalancerAccessLogs {
-        bucket: string;
-        enabled: boolean;
-        prefix: string;
+        bucket?: string;
+        enabled?: boolean;
+        prefix?: string;
     }
 
     export interface GetLoadBalancerSubnetMapping {
-        allocationId: string;
-        ipv6Address: string;
-        outpostId: string;
-        privateIpv4Address: string;
-        subnetId: string;
+        allocationId?: string;
+        ipv6Address?: string;
+        outpostId?: string;
+        privateIpv4Address?: string;
+        subnetId?: string;
     }
 
     export interface GetTargetGroupHealthCheck {
-        enabled: boolean;
-        healthyThreshold: number;
-        interval: number;
-        matcher: string;
-        path: string;
-        port: string;
-        protocol: string;
-        timeout: number;
-        unhealthyThreshold: number;
+        enabled?: boolean;
+        healthyThreshold?: number;
+        interval?: number;
+        matcher?: string;
+        path?: string;
+        port?: string;
+        protocol?: string;
+        timeout?: number;
+        unhealthyThreshold?: number;
     }
 
     export interface GetTargetGroupStickiness {
-        cookieDuration: number;
-        cookieName: string;
-        enabled: boolean;
-        type: string;
+        cookieDuration?: number;
+        cookieName?: string;
+        enabled?: boolean;
+        type?: string;
     }
 
     export interface ListenerDefaultAction {
@@ -393,7 +393,7 @@ export namespace alb {
         /**
          * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
          */
-        order: number;
+        order?: number;
         /**
          * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
@@ -418,19 +418,19 @@ export namespace alb {
         /**
          * Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: string;
         /**
          * Set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * Name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * Maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * ARN of the Cognito user pool.
          */
@@ -471,19 +471,19 @@ export namespace alb {
         /**
          * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: string;
         /**
          * Set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * Name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * Maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * Token endpoint of the IdP.
          */
@@ -510,7 +510,7 @@ export namespace alb {
         /**
          * HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: string;
     }
 
     export interface ListenerDefaultActionForward {
@@ -598,7 +598,7 @@ export namespace alb {
          * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
          */
         forward?: outputs.alb.ListenerRuleActionForward;
-        order: number;
+        order?: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
@@ -621,7 +621,7 @@ export namespace alb {
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: string;
         /**
          * The set of user claims to be requested from the IdP.
          */
@@ -672,7 +672,7 @@ export namespace alb {
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: string;
         /**
          * The set of user claims to be requested from the IdP.
          */
@@ -707,7 +707,7 @@ export namespace alb {
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: string;
     }
 
     export interface ListenerRuleActionForward {
@@ -873,7 +873,7 @@ export namespace alb {
          * The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
          */
         ipv6Address?: string;
-        outpostId: string;
+        outpostId?: string;
         /**
          * The private IPv4 address for an internal load balancer.
          */
@@ -900,11 +900,11 @@ export namespace alb {
         /**
          * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          */
-        matcher: string;
+        matcher?: string;
         /**
          * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          */
-        path: string;
+        path?: string;
         /**
          * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
          */
@@ -916,7 +916,7 @@ export namespace alb {
         /**
          * Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
          */
-        timeout: number;
+        timeout?: number;
         /**
          * Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
          */
@@ -1039,19 +1039,19 @@ export namespace amplify {
         /**
          * Branch name for the production branch.
          */
-        branchName: string;
+        branchName?: string;
         /**
          * Last deploy time of the production branch.
          */
-        lastDeployTime: string;
+        lastDeployTime?: string;
         /**
          * Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
          */
-        status: string;
+        status?: string;
         /**
          * Thumbnail URL for the production branch.
          */
-        thumbnailUrl: string;
+        thumbnailUrl?: string;
     }
 
     export interface DomainAssociationSubDomain {
@@ -1062,7 +1062,7 @@ export namespace amplify {
         /**
          * DNS record for the subdomain.
          */
-        dnsRecord: string;
+        dnsRecord?: string;
         /**
          * Prefix setting for the subdomain.
          */
@@ -1070,7 +1070,7 @@ export namespace amplify {
         /**
          * Verified status of the subdomain.
          */
-        verified: boolean;
+        verified?: boolean;
     }
 
 }
@@ -1080,11 +1080,11 @@ export namespace apigateway {
         /**
          * Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
          */
-        burstLimit: number;
+        burstLimit?: number;
         /**
          * Number of times API Gateway allows the API to be called per second on average (RPS).
          */
-        rateLimit: number;
+        rateLimit?: number;
     }
 
     export interface DocumentationPartLocation {
@@ -1132,12 +1132,12 @@ export namespace apigateway {
         /**
          * List of endpoint types.
          */
-        types: string[];
+        types?: string[];
     }
 
     export interface GetRestApiEndpointConfiguration {
-        types: string[];
-        vpcEndpointIds: string[];
+        types?: string[];
+        vpcEndpointIds?: string[];
     }
 
     export interface IntegrationTlsConfig {
@@ -1151,31 +1151,31 @@ export namespace apigateway {
         /**
          * Whether the cached responses are encrypted.
          */
-        cacheDataEncrypted: boolean;
+        cacheDataEncrypted?: boolean;
         /**
          * Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
          */
-        cacheTtlInSeconds: number;
+        cacheTtlInSeconds?: number;
         /**
          * Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
          */
-        cachingEnabled: boolean;
+        cachingEnabled?: boolean;
         /**
          * Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
          */
-        dataTraceEnabled: boolean;
+        dataTraceEnabled?: boolean;
         /**
          * Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
          */
-        loggingLevel: string;
+        loggingLevel?: string;
         /**
          * Whether Amazon CloudWatch metrics are enabled for this method.
          */
-        metricsEnabled: boolean;
+        metricsEnabled?: boolean;
         /**
          * Whether authorization is required for a cache invalidation request.
          */
-        requireAuthorizationForCacheControl: boolean;
+        requireAuthorizationForCacheControl?: boolean;
         /**
          * Throttling burst limit. Default: `-1` (throttling disabled).
          */
@@ -1187,7 +1187,7 @@ export namespace apigateway {
         /**
          * How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
          */
-        unauthorizedCacheControlHeaderStrategy: string;
+        unauthorizedCacheControlHeaderStrategy?: string;
     }
 
     export interface RestApiEndpointConfiguration {
@@ -1198,7 +1198,7 @@ export namespace apigateway {
         /**
          * Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
          */
-        vpcEndpointIds: string[];
+        vpcEndpointIds?: string[];
     }
 
     export interface StageAccessLogSettings {
@@ -1337,11 +1337,11 @@ export namespace apigatewayv2 {
         /**
          * Amazon Route 53 Hosted Zone ID of the endpoint.
          */
-        hostedZoneId: string;
+        hostedZoneId?: string;
         /**
          * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
          */
-        ownershipVerificationCertificateArn: string;
+        ownershipVerificationCertificateArn?: string;
         /**
          * Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
          */
@@ -1349,7 +1349,7 @@ export namespace apigatewayv2 {
         /**
          * Target domain name.
          */
-        targetDomainName: string;
+        targetDomainName?: string;
     }
 
     export interface DomainNameMutualTlsAuthentication {
@@ -1367,27 +1367,27 @@ export namespace apigatewayv2 {
         /**
          * Whether credentials are included in the CORS request.
          */
-        allowCredentials: boolean;
+        allowCredentials?: boolean;
         /**
          * Set of allowed HTTP headers.
          */
-        allowHeaders: string[];
+        allowHeaders?: string[];
         /**
          * Set of allowed HTTP methods.
          */
-        allowMethods: string[];
+        allowMethods?: string[];
         /**
          * Set of allowed origins.
          */
-        allowOrigins: string[];
+        allowOrigins?: string[];
         /**
          * Set of exposed HTTP headers.
          */
-        exposeHeaders: string[];
+        exposeHeaders?: string[];
         /**
          * Number of seconds that the browser should cache preflight request results.
          */
-        maxAge: number;
+        maxAge?: number;
     }
 
     export interface IntegrationResponseParameter {
@@ -1445,7 +1445,7 @@ export namespace apigatewayv2 {
          * Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
          * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          */
-        loggingLevel: string;
+        loggingLevel?: string;
         /**
          * Throttling burst limit for the default route.
          */
@@ -1470,7 +1470,7 @@ export namespace apigatewayv2 {
          * Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
          * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          */
-        loggingLevel: string;
+        loggingLevel?: string;
         /**
          * Route key.
          */
@@ -1778,22 +1778,22 @@ export namespace appconfig {
         /**
          * Either the JSON Schema content or the ARN of an AWS Lambda function.
          */
-        content: string;
+        content?: string;
         /**
          * Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetEnvironmentMonitor {
         /**
          * ARN of the Amazon CloudWatch alarm.
          */
-        alarmArn: string;
+        alarmArn?: string;
         /**
          * ARN of an IAM role for AWS AppConfig to monitor.
          */
-        alarmRoleArn: string;
+        alarmRoleArn?: string;
     }
 
 }
@@ -3448,7 +3448,7 @@ export namespace appflow {
         /**
          * Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
          */
-        triggerProperties: outputs.appflow.FlowTriggerConfigTriggerProperties;
+        triggerProperties?: outputs.appflow.FlowTriggerConfigTriggerProperties;
         /**
          * Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
          */
@@ -3512,7 +3512,7 @@ export namespace appintegrations {
         /**
          * The source of the events.
          */
-        source: string;
+        source?: string;
     }
 
 }
@@ -3977,1082 +3977,1082 @@ export namespace appmesh {
     }
 
     export interface GetGatewayRouteSpec {
-        grpcRoutes: outputs.appmesh.GetGatewayRouteSpecGrpcRoute[];
-        http2Routes: outputs.appmesh.GetGatewayRouteSpecHttp2Route[];
-        httpRoutes: outputs.appmesh.GetGatewayRouteSpecHttpRoute[];
-        priority: number;
+        grpcRoutes?: outputs.appmesh.GetGatewayRouteSpecGrpcRoute[];
+        http2Routes?: outputs.appmesh.GetGatewayRouteSpecHttp2Route[];
+        httpRoutes?: outputs.appmesh.GetGatewayRouteSpecHttpRoute[];
+        priority?: number;
     }
 
     export interface GetGatewayRouteSpecGrpcRoute {
-        actions: outputs.appmesh.GetGatewayRouteSpecGrpcRouteAction[];
-        matches: outputs.appmesh.GetGatewayRouteSpecGrpcRouteMatch[];
+        actions?: outputs.appmesh.GetGatewayRouteSpecGrpcRouteAction[];
+        matches?: outputs.appmesh.GetGatewayRouteSpecGrpcRouteMatch[];
     }
 
     export interface GetGatewayRouteSpecGrpcRouteAction {
-        targets: outputs.appmesh.GetGatewayRouteSpecGrpcRouteActionTarget[];
+        targets?: outputs.appmesh.GetGatewayRouteSpecGrpcRouteActionTarget[];
     }
 
     export interface GetGatewayRouteSpecGrpcRouteActionTarget {
-        port: number;
-        virtualServices: outputs.appmesh.GetGatewayRouteSpecGrpcRouteActionTargetVirtualService[];
+        port?: number;
+        virtualServices?: outputs.appmesh.GetGatewayRouteSpecGrpcRouteActionTargetVirtualService[];
     }
 
     export interface GetGatewayRouteSpecGrpcRouteActionTargetVirtualService {
-        virtualServiceName: string;
+        virtualServiceName?: string;
     }
 
     export interface GetGatewayRouteSpecGrpcRouteMatch {
-        port: number;
-        serviceName: string;
+        port?: number;
+        serviceName?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2Route {
-        actions: outputs.appmesh.GetGatewayRouteSpecHttp2RouteAction[];
-        matches: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatch[];
+        actions?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteAction[];
+        matches?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatch[];
     }
 
     export interface GetGatewayRouteSpecHttp2RouteAction {
-        rewrites: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewrite[];
-        targets: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionTarget[];
+        rewrites?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewrite[];
+        targets?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionTarget[];
     }
 
     export interface GetGatewayRouteSpecHttp2RouteActionRewrite {
-        hostnames: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewriteHostname[];
-        paths: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewritePath[];
-        prefixes: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewritePrefix[];
+        hostnames?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewriteHostname[];
+        paths?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewritePath[];
+        prefixes?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewritePrefix[];
     }
 
     export interface GetGatewayRouteSpecHttp2RouteActionRewriteHostname {
-        defaultTargetHostname: string;
+        defaultTargetHostname?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteActionRewritePath {
-        exact: string;
+        exact?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteActionRewritePrefix {
-        defaultPrefix: string;
-        value: string;
+        defaultPrefix?: string;
+        value?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteActionTarget {
-        port: number;
-        virtualServices: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionTargetVirtualService[];
+        port?: number;
+        virtualServices?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionTargetVirtualService[];
     }
 
     export interface GetGatewayRouteSpecHttp2RouteActionTargetVirtualService {
-        virtualServiceName: string;
+        virtualServiceName?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteMatch {
-        headers: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchHeader[];
-        hostnames: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchHostname[];
-        paths: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchPath[];
-        port: number;
-        prefix: string;
-        queryParameters: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchQueryParameter[];
+        headers?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchHeader[];
+        hostnames?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchHostname[];
+        paths?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchPath[];
+        port?: number;
+        prefix?: string;
+        queryParameters?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchQueryParameter[];
     }
 
     export interface GetGatewayRouteSpecHttp2RouteMatchHeader {
-        invert: boolean;
-        matches: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchHeaderMatch[];
+        invert?: boolean;
+        matches?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchHeaderMatch[];
         /**
          * Name of the gateway route.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteMatchHeaderMatch {
-        exact: string;
-        prefix: string;
-        ranges: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRange[];
-        regex: string;
-        suffix: string;
+        exact?: string;
+        prefix?: string;
+        ranges?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRange[];
+        regex?: string;
+        suffix?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRange {
-        end: number;
-        start: number;
+        end?: number;
+        start?: number;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteMatchHostname {
-        exact: string;
-        suffix: string;
+        exact?: string;
+        suffix?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteMatchPath {
-        exact: string;
-        regex: string;
+        exact?: string;
+        regex?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteMatchQueryParameter {
-        matches: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatch[];
+        matches?: outputs.appmesh.GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatch[];
         /**
          * Name of the gateway route.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatch {
-        exact: string;
+        exact?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRoute {
-        actions: outputs.appmesh.GetGatewayRouteSpecHttpRouteAction[];
-        matches: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatch[];
+        actions?: outputs.appmesh.GetGatewayRouteSpecHttpRouteAction[];
+        matches?: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatch[];
     }
 
     export interface GetGatewayRouteSpecHttpRouteAction {
-        rewrites: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewrite[];
-        targets: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionTarget[];
+        rewrites?: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewrite[];
+        targets?: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionTarget[];
     }
 
     export interface GetGatewayRouteSpecHttpRouteActionRewrite {
-        hostnames: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewriteHostname[];
-        paths: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewritePath[];
-        prefixes: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewritePrefix[];
+        hostnames?: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewriteHostname[];
+        paths?: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewritePath[];
+        prefixes?: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewritePrefix[];
     }
 
     export interface GetGatewayRouteSpecHttpRouteActionRewriteHostname {
-        defaultTargetHostname: string;
+        defaultTargetHostname?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteActionRewritePath {
-        exact: string;
+        exact?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteActionRewritePrefix {
-        defaultPrefix: string;
-        value: string;
+        defaultPrefix?: string;
+        value?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteActionTarget {
-        port: number;
-        virtualServices: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionTargetVirtualService[];
+        port?: number;
+        virtualServices?: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionTargetVirtualService[];
     }
 
     export interface GetGatewayRouteSpecHttpRouteActionTargetVirtualService {
-        virtualServiceName: string;
+        virtualServiceName?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteMatch {
-        headers: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchHeader[];
-        hostnames: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchHostname[];
-        paths: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchPath[];
-        port: number;
-        prefix: string;
-        queryParameters: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchQueryParameter[];
+        headers?: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchHeader[];
+        hostnames?: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchHostname[];
+        paths?: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchPath[];
+        port?: number;
+        prefix?: string;
+        queryParameters?: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchQueryParameter[];
     }
 
     export interface GetGatewayRouteSpecHttpRouteMatchHeader {
-        invert: boolean;
-        matches: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchHeaderMatch[];
+        invert?: boolean;
+        matches?: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchHeaderMatch[];
         /**
          * Name of the gateway route.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteMatchHeaderMatch {
-        exact: string;
-        prefix: string;
-        ranges: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange[];
-        regex: string;
-        suffix: string;
+        exact?: string;
+        prefix?: string;
+        ranges?: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange[];
+        regex?: string;
+        suffix?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange {
-        end: number;
-        start: number;
+        end?: number;
+        start?: number;
     }
 
     export interface GetGatewayRouteSpecHttpRouteMatchHostname {
-        exact: string;
-        suffix: string;
+        exact?: string;
+        suffix?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteMatchPath {
-        exact: string;
-        regex: string;
+        exact?: string;
+        regex?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteMatchQueryParameter {
-        matches: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch[];
+        matches?: outputs.appmesh.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch[];
         /**
          * Name of the gateway route.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch {
-        exact: string;
+        exact?: string;
     }
 
     export interface GetMeshSpec {
-        egressFilters: outputs.appmesh.GetMeshSpecEgressFilter[];
+        egressFilters?: outputs.appmesh.GetMeshSpecEgressFilter[];
     }
 
     export interface GetMeshSpecEgressFilter {
-        type: string;
+        type?: string;
     }
 
     export interface GetRouteSpec {
-        grpcRoutes: outputs.appmesh.GetRouteSpecGrpcRoute[];
-        http2Routes: outputs.appmesh.GetRouteSpecHttp2Route[];
-        httpRoutes: outputs.appmesh.GetRouteSpecHttpRoute[];
-        priority: number;
-        tcpRoutes: outputs.appmesh.GetRouteSpecTcpRoute[];
+        grpcRoutes?: outputs.appmesh.GetRouteSpecGrpcRoute[];
+        http2Routes?: outputs.appmesh.GetRouteSpecHttp2Route[];
+        httpRoutes?: outputs.appmesh.GetRouteSpecHttpRoute[];
+        priority?: number;
+        tcpRoutes?: outputs.appmesh.GetRouteSpecTcpRoute[];
     }
 
     export interface GetRouteSpecGrpcRoute {
-        actions: outputs.appmesh.GetRouteSpecGrpcRouteAction[];
-        matches: outputs.appmesh.GetRouteSpecGrpcRouteMatch[];
-        retryPolicies: outputs.appmesh.GetRouteSpecGrpcRouteRetryPolicy[];
-        timeouts: outputs.appmesh.GetRouteSpecGrpcRouteTimeout[];
+        actions?: outputs.appmesh.GetRouteSpecGrpcRouteAction[];
+        matches?: outputs.appmesh.GetRouteSpecGrpcRouteMatch[];
+        retryPolicies?: outputs.appmesh.GetRouteSpecGrpcRouteRetryPolicy[];
+        timeouts?: outputs.appmesh.GetRouteSpecGrpcRouteTimeout[];
     }
 
     export interface GetRouteSpecGrpcRouteAction {
-        weightedTargets: outputs.appmesh.GetRouteSpecGrpcRouteActionWeightedTarget[];
+        weightedTargets?: outputs.appmesh.GetRouteSpecGrpcRouteActionWeightedTarget[];
     }
 
     export interface GetRouteSpecGrpcRouteActionWeightedTarget {
-        port: number;
-        virtualNode: string;
-        weight: number;
+        port?: number;
+        virtualNode?: string;
+        weight?: number;
     }
 
     export interface GetRouteSpecGrpcRouteMatch {
-        metadatas: outputs.appmesh.GetRouteSpecGrpcRouteMatchMetadata[];
-        methodName: string;
-        port: number;
-        prefix: string;
-        serviceName: string;
+        metadatas?: outputs.appmesh.GetRouteSpecGrpcRouteMatchMetadata[];
+        methodName?: string;
+        port?: number;
+        prefix?: string;
+        serviceName?: string;
     }
 
     export interface GetRouteSpecGrpcRouteMatchMetadata {
-        invert: boolean;
-        matches: outputs.appmesh.GetRouteSpecGrpcRouteMatchMetadataMatch[];
+        invert?: boolean;
+        matches?: outputs.appmesh.GetRouteSpecGrpcRouteMatchMetadataMatch[];
         /**
          * Name of the route.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetRouteSpecGrpcRouteMatchMetadataMatch {
-        exact: string;
-        prefix: string;
-        ranges: outputs.appmesh.GetRouteSpecGrpcRouteMatchMetadataMatchRange[];
-        regex: string;
-        suffix: string;
+        exact?: string;
+        prefix?: string;
+        ranges?: outputs.appmesh.GetRouteSpecGrpcRouteMatchMetadataMatchRange[];
+        regex?: string;
+        suffix?: string;
     }
 
     export interface GetRouteSpecGrpcRouteMatchMetadataMatchRange {
-        end: number;
-        start: number;
+        end?: number;
+        start?: number;
     }
 
     export interface GetRouteSpecGrpcRouteRetryPolicy {
-        grpcRetryEvents: string[];
-        httpRetryEvents: string[];
-        maxRetries: number;
-        perRetryTimeouts: outputs.appmesh.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout[];
-        tcpRetryEvents: string[];
+        grpcRetryEvents?: string[];
+        httpRetryEvents?: string[];
+        maxRetries?: number;
+        perRetryTimeouts?: outputs.appmesh.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout[];
+        tcpRetryEvents?: string[];
     }
 
     export interface GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetRouteSpecGrpcRouteTimeout {
-        idles: outputs.appmesh.GetRouteSpecGrpcRouteTimeoutIdle[];
-        perRequests: outputs.appmesh.GetRouteSpecGrpcRouteTimeoutPerRequest[];
+        idles?: outputs.appmesh.GetRouteSpecGrpcRouteTimeoutIdle[];
+        perRequests?: outputs.appmesh.GetRouteSpecGrpcRouteTimeoutPerRequest[];
     }
 
     export interface GetRouteSpecGrpcRouteTimeoutIdle {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetRouteSpecGrpcRouteTimeoutPerRequest {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetRouteSpecHttp2Route {
-        actions: outputs.appmesh.GetRouteSpecHttp2RouteAction[];
-        matches: outputs.appmesh.GetRouteSpecHttp2RouteMatch[];
-        retryPolicies: outputs.appmesh.GetRouteSpecHttp2RouteRetryPolicy[];
-        timeouts: outputs.appmesh.GetRouteSpecHttp2RouteTimeout[];
+        actions?: outputs.appmesh.GetRouteSpecHttp2RouteAction[];
+        matches?: outputs.appmesh.GetRouteSpecHttp2RouteMatch[];
+        retryPolicies?: outputs.appmesh.GetRouteSpecHttp2RouteRetryPolicy[];
+        timeouts?: outputs.appmesh.GetRouteSpecHttp2RouteTimeout[];
     }
 
     export interface GetRouteSpecHttp2RouteAction {
-        weightedTargets: outputs.appmesh.GetRouteSpecHttp2RouteActionWeightedTarget[];
+        weightedTargets?: outputs.appmesh.GetRouteSpecHttp2RouteActionWeightedTarget[];
     }
 
     export interface GetRouteSpecHttp2RouteActionWeightedTarget {
-        port: number;
-        virtualNode: string;
-        weight: number;
+        port?: number;
+        virtualNode?: string;
+        weight?: number;
     }
 
     export interface GetRouteSpecHttp2RouteMatch {
-        headers: outputs.appmesh.GetRouteSpecHttp2RouteMatchHeader[];
-        method: string;
-        paths: outputs.appmesh.GetRouteSpecHttp2RouteMatchPath[];
-        port: number;
-        prefix: string;
-        queryParameters: outputs.appmesh.GetRouteSpecHttp2RouteMatchQueryParameter[];
-        scheme: string;
+        headers?: outputs.appmesh.GetRouteSpecHttp2RouteMatchHeader[];
+        method?: string;
+        paths?: outputs.appmesh.GetRouteSpecHttp2RouteMatchPath[];
+        port?: number;
+        prefix?: string;
+        queryParameters?: outputs.appmesh.GetRouteSpecHttp2RouteMatchQueryParameter[];
+        scheme?: string;
     }
 
     export interface GetRouteSpecHttp2RouteMatchHeader {
-        invert: boolean;
-        matches: outputs.appmesh.GetRouteSpecHttp2RouteMatchHeaderMatch[];
+        invert?: boolean;
+        matches?: outputs.appmesh.GetRouteSpecHttp2RouteMatchHeaderMatch[];
         /**
          * Name of the route.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetRouteSpecHttp2RouteMatchHeaderMatch {
-        exact: string;
-        prefix: string;
-        ranges: outputs.appmesh.GetRouteSpecHttp2RouteMatchHeaderMatchRange[];
-        regex: string;
-        suffix: string;
+        exact?: string;
+        prefix?: string;
+        ranges?: outputs.appmesh.GetRouteSpecHttp2RouteMatchHeaderMatchRange[];
+        regex?: string;
+        suffix?: string;
     }
 
     export interface GetRouteSpecHttp2RouteMatchHeaderMatchRange {
-        end: number;
-        start: number;
+        end?: number;
+        start?: number;
     }
 
     export interface GetRouteSpecHttp2RouteMatchPath {
-        exact: string;
-        regex: string;
+        exact?: string;
+        regex?: string;
     }
 
     export interface GetRouteSpecHttp2RouteMatchQueryParameter {
-        matches: outputs.appmesh.GetRouteSpecHttp2RouteMatchQueryParameterMatch[];
+        matches?: outputs.appmesh.GetRouteSpecHttp2RouteMatchQueryParameterMatch[];
         /**
          * Name of the route.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetRouteSpecHttp2RouteMatchQueryParameterMatch {
-        exact: string;
+        exact?: string;
     }
 
     export interface GetRouteSpecHttp2RouteRetryPolicy {
-        httpRetryEvents: string[];
-        maxRetries: number;
-        perRetryTimeouts: outputs.appmesh.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout[];
-        tcpRetryEvents: string[];
+        httpRetryEvents?: string[];
+        maxRetries?: number;
+        perRetryTimeouts?: outputs.appmesh.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout[];
+        tcpRetryEvents?: string[];
     }
 
     export interface GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetRouteSpecHttp2RouteTimeout {
-        idles: outputs.appmesh.GetRouteSpecHttp2RouteTimeoutIdle[];
-        perRequests: outputs.appmesh.GetRouteSpecHttp2RouteTimeoutPerRequest[];
+        idles?: outputs.appmesh.GetRouteSpecHttp2RouteTimeoutIdle[];
+        perRequests?: outputs.appmesh.GetRouteSpecHttp2RouteTimeoutPerRequest[];
     }
 
     export interface GetRouteSpecHttp2RouteTimeoutIdle {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetRouteSpecHttp2RouteTimeoutPerRequest {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetRouteSpecHttpRoute {
-        actions: outputs.appmesh.GetRouteSpecHttpRouteAction[];
-        matches: outputs.appmesh.GetRouteSpecHttpRouteMatch[];
-        retryPolicies: outputs.appmesh.GetRouteSpecHttpRouteRetryPolicy[];
-        timeouts: outputs.appmesh.GetRouteSpecHttpRouteTimeout[];
+        actions?: outputs.appmesh.GetRouteSpecHttpRouteAction[];
+        matches?: outputs.appmesh.GetRouteSpecHttpRouteMatch[];
+        retryPolicies?: outputs.appmesh.GetRouteSpecHttpRouteRetryPolicy[];
+        timeouts?: outputs.appmesh.GetRouteSpecHttpRouteTimeout[];
     }
 
     export interface GetRouteSpecHttpRouteAction {
-        weightedTargets: outputs.appmesh.GetRouteSpecHttpRouteActionWeightedTarget[];
+        weightedTargets?: outputs.appmesh.GetRouteSpecHttpRouteActionWeightedTarget[];
     }
 
     export interface GetRouteSpecHttpRouteActionWeightedTarget {
-        port: number;
-        virtualNode: string;
-        weight: number;
+        port?: number;
+        virtualNode?: string;
+        weight?: number;
     }
 
     export interface GetRouteSpecHttpRouteMatch {
-        headers: outputs.appmesh.GetRouteSpecHttpRouteMatchHeader[];
-        method: string;
-        paths: outputs.appmesh.GetRouteSpecHttpRouteMatchPath[];
-        port: number;
-        prefix: string;
-        queryParameters: outputs.appmesh.GetRouteSpecHttpRouteMatchQueryParameter[];
-        scheme: string;
+        headers?: outputs.appmesh.GetRouteSpecHttpRouteMatchHeader[];
+        method?: string;
+        paths?: outputs.appmesh.GetRouteSpecHttpRouteMatchPath[];
+        port?: number;
+        prefix?: string;
+        queryParameters?: outputs.appmesh.GetRouteSpecHttpRouteMatchQueryParameter[];
+        scheme?: string;
     }
 
     export interface GetRouteSpecHttpRouteMatchHeader {
-        invert: boolean;
-        matches: outputs.appmesh.GetRouteSpecHttpRouteMatchHeaderMatch[];
+        invert?: boolean;
+        matches?: outputs.appmesh.GetRouteSpecHttpRouteMatchHeaderMatch[];
         /**
          * Name of the route.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetRouteSpecHttpRouteMatchHeaderMatch {
-        exact: string;
-        prefix: string;
-        ranges: outputs.appmesh.GetRouteSpecHttpRouteMatchHeaderMatchRange[];
-        regex: string;
-        suffix: string;
+        exact?: string;
+        prefix?: string;
+        ranges?: outputs.appmesh.GetRouteSpecHttpRouteMatchHeaderMatchRange[];
+        regex?: string;
+        suffix?: string;
     }
 
     export interface GetRouteSpecHttpRouteMatchHeaderMatchRange {
-        end: number;
-        start: number;
+        end?: number;
+        start?: number;
     }
 
     export interface GetRouteSpecHttpRouteMatchPath {
-        exact: string;
-        regex: string;
+        exact?: string;
+        regex?: string;
     }
 
     export interface GetRouteSpecHttpRouteMatchQueryParameter {
-        matches: outputs.appmesh.GetRouteSpecHttpRouteMatchQueryParameterMatch[];
+        matches?: outputs.appmesh.GetRouteSpecHttpRouteMatchQueryParameterMatch[];
         /**
          * Name of the route.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetRouteSpecHttpRouteMatchQueryParameterMatch {
-        exact: string;
+        exact?: string;
     }
 
     export interface GetRouteSpecHttpRouteRetryPolicy {
-        httpRetryEvents: string[];
-        maxRetries: number;
-        perRetryTimeouts: outputs.appmesh.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout[];
-        tcpRetryEvents: string[];
+        httpRetryEvents?: string[];
+        maxRetries?: number;
+        perRetryTimeouts?: outputs.appmesh.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout[];
+        tcpRetryEvents?: string[];
     }
 
     export interface GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetRouteSpecHttpRouteTimeout {
-        idles: outputs.appmesh.GetRouteSpecHttpRouteTimeoutIdle[];
-        perRequests: outputs.appmesh.GetRouteSpecHttpRouteTimeoutPerRequest[];
+        idles?: outputs.appmesh.GetRouteSpecHttpRouteTimeoutIdle[];
+        perRequests?: outputs.appmesh.GetRouteSpecHttpRouteTimeoutPerRequest[];
     }
 
     export interface GetRouteSpecHttpRouteTimeoutIdle {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetRouteSpecHttpRouteTimeoutPerRequest {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetRouteSpecTcpRoute {
-        actions: outputs.appmesh.GetRouteSpecTcpRouteAction[];
-        matches: outputs.appmesh.GetRouteSpecTcpRouteMatch[];
-        timeouts: outputs.appmesh.GetRouteSpecTcpRouteTimeout[];
+        actions?: outputs.appmesh.GetRouteSpecTcpRouteAction[];
+        matches?: outputs.appmesh.GetRouteSpecTcpRouteMatch[];
+        timeouts?: outputs.appmesh.GetRouteSpecTcpRouteTimeout[];
     }
 
     export interface GetRouteSpecTcpRouteAction {
-        weightedTargets: outputs.appmesh.GetRouteSpecTcpRouteActionWeightedTarget[];
+        weightedTargets?: outputs.appmesh.GetRouteSpecTcpRouteActionWeightedTarget[];
     }
 
     export interface GetRouteSpecTcpRouteActionWeightedTarget {
-        port: number;
-        virtualNode: string;
-        weight: number;
+        port?: number;
+        virtualNode?: string;
+        weight?: number;
     }
 
     export interface GetRouteSpecTcpRouteMatch {
-        port: number;
+        port?: number;
     }
 
     export interface GetRouteSpecTcpRouteTimeout {
-        idles: outputs.appmesh.GetRouteSpecTcpRouteTimeoutIdle[];
+        idles?: outputs.appmesh.GetRouteSpecTcpRouteTimeoutIdle[];
     }
 
     export interface GetRouteSpecTcpRouteTimeoutIdle {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualGatewaySpec {
-        backendDefaults: outputs.appmesh.GetVirtualGatewaySpecBackendDefault[];
-        listeners: outputs.appmesh.GetVirtualGatewaySpecListener[];
-        loggings: outputs.appmesh.GetVirtualGatewaySpecLogging[];
+        backendDefaults?: outputs.appmesh.GetVirtualGatewaySpecBackendDefault[];
+        listeners?: outputs.appmesh.GetVirtualGatewaySpecListener[];
+        loggings?: outputs.appmesh.GetVirtualGatewaySpecLogging[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefault {
-        clientPolicies: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicy[];
+        clientPolicies?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicy[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicy {
-        tls: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTl[];
+        tls?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTl[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTl {
-        certificates: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate[];
-        enforce: boolean;
-        ports: number[];
-        validations: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation[];
+        certificates?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate[];
+        enforce?: boolean;
+        ports?: number[];
+        validations?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate {
-        files: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile[];
-        sds: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd[];
+        files?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile[];
+        sds?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile {
-        certificateChain: string;
-        privateKey: string;
+        certificateChain?: string;
+        privateKey?: string;
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation {
-        subjectAlternativeNames: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName[];
-        trusts: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust[];
+        subjectAlternativeNames?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName[];
+        trusts?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName {
-        matches: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch[];
+        matches?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch {
-        exacts: string[];
+        exacts?: string[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust {
-        acms: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm[];
-        files: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile[];
-        sds: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd[];
+        acms?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm[];
+        files?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile[];
+        sds?: outputs.appmesh.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm {
-        certificateAuthorityArns: string[];
+        certificateAuthorityArns?: string[];
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile {
-        certificateChain: string;
+        certificateChain?: string;
     }
 
     export interface GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualGatewaySpecListener {
-        connectionPools: outputs.appmesh.GetVirtualGatewaySpecListenerConnectionPool[];
-        healthChecks: outputs.appmesh.GetVirtualGatewaySpecListenerHealthCheck[];
-        portMappings: outputs.appmesh.GetVirtualGatewaySpecListenerPortMapping[];
-        tls: outputs.appmesh.GetVirtualGatewaySpecListenerTl[];
+        connectionPools?: outputs.appmesh.GetVirtualGatewaySpecListenerConnectionPool[];
+        healthChecks?: outputs.appmesh.GetVirtualGatewaySpecListenerHealthCheck[];
+        portMappings?: outputs.appmesh.GetVirtualGatewaySpecListenerPortMapping[];
+        tls?: outputs.appmesh.GetVirtualGatewaySpecListenerTl[];
     }
 
     export interface GetVirtualGatewaySpecListenerConnectionPool {
-        grpcs: outputs.appmesh.GetVirtualGatewaySpecListenerConnectionPoolGrpc[];
-        http2s: outputs.appmesh.GetVirtualGatewaySpecListenerConnectionPoolHttp2[];
-        https: outputs.appmesh.GetVirtualGatewaySpecListenerConnectionPoolHttp[];
+        grpcs?: outputs.appmesh.GetVirtualGatewaySpecListenerConnectionPoolGrpc[];
+        http2s?: outputs.appmesh.GetVirtualGatewaySpecListenerConnectionPoolHttp2[];
+        https?: outputs.appmesh.GetVirtualGatewaySpecListenerConnectionPoolHttp[];
     }
 
     export interface GetVirtualGatewaySpecListenerConnectionPoolGrpc {
-        maxRequests: number;
+        maxRequests?: number;
     }
 
     export interface GetVirtualGatewaySpecListenerConnectionPoolHttp {
-        maxConnections: number;
-        maxPendingRequests: number;
+        maxConnections?: number;
+        maxPendingRequests?: number;
     }
 
     export interface GetVirtualGatewaySpecListenerConnectionPoolHttp2 {
-        maxRequests: number;
+        maxRequests?: number;
     }
 
     export interface GetVirtualGatewaySpecListenerHealthCheck {
-        healthyThreshold: number;
-        intervalMillis: number;
-        path: string;
-        port: number;
-        protocol: string;
-        timeoutMillis: number;
-        unhealthyThreshold: number;
+        healthyThreshold?: number;
+        intervalMillis?: number;
+        path?: string;
+        port?: number;
+        protocol?: string;
+        timeoutMillis?: number;
+        unhealthyThreshold?: number;
     }
 
     export interface GetVirtualGatewaySpecListenerPortMapping {
-        port: number;
-        protocol: string;
+        port?: number;
+        protocol?: string;
     }
 
     export interface GetVirtualGatewaySpecListenerTl {
-        certificates: outputs.appmesh.GetVirtualGatewaySpecListenerTlCertificate[];
-        mode: string;
-        validations: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidation[];
+        certificates?: outputs.appmesh.GetVirtualGatewaySpecListenerTlCertificate[];
+        mode?: string;
+        validations?: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidation[];
     }
 
     export interface GetVirtualGatewaySpecListenerTlCertificate {
-        acms: outputs.appmesh.GetVirtualGatewaySpecListenerTlCertificateAcm[];
-        files: outputs.appmesh.GetVirtualGatewaySpecListenerTlCertificateFile[];
-        sds: outputs.appmesh.GetVirtualGatewaySpecListenerTlCertificateSd[];
+        acms?: outputs.appmesh.GetVirtualGatewaySpecListenerTlCertificateAcm[];
+        files?: outputs.appmesh.GetVirtualGatewaySpecListenerTlCertificateFile[];
+        sds?: outputs.appmesh.GetVirtualGatewaySpecListenerTlCertificateSd[];
     }
 
     export interface GetVirtualGatewaySpecListenerTlCertificateAcm {
-        certificateArn: string;
+        certificateArn?: string;
     }
 
     export interface GetVirtualGatewaySpecListenerTlCertificateFile {
-        certificateChain: string;
-        privateKey: string;
+        certificateChain?: string;
+        privateKey?: string;
     }
 
     export interface GetVirtualGatewaySpecListenerTlCertificateSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualGatewaySpecListenerTlValidation {
-        subjectAlternativeNames: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName[];
-        trusts: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationTrust[];
+        subjectAlternativeNames?: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName[];
+        trusts?: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationTrust[];
     }
 
     export interface GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName {
-        matches: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch[];
+        matches?: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch[];
     }
 
     export interface GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch {
-        exacts: string[];
+        exacts?: string[];
     }
 
     export interface GetVirtualGatewaySpecListenerTlValidationTrust {
-        files: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationTrustFile[];
-        sds: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationTrustSd[];
+        files?: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationTrustFile[];
+        sds?: outputs.appmesh.GetVirtualGatewaySpecListenerTlValidationTrustSd[];
     }
 
     export interface GetVirtualGatewaySpecListenerTlValidationTrustFile {
-        certificateChain: string;
+        certificateChain?: string;
     }
 
     export interface GetVirtualGatewaySpecListenerTlValidationTrustSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualGatewaySpecLogging {
-        accessLogs: outputs.appmesh.GetVirtualGatewaySpecLoggingAccessLog[];
+        accessLogs?: outputs.appmesh.GetVirtualGatewaySpecLoggingAccessLog[];
     }
 
     export interface GetVirtualGatewaySpecLoggingAccessLog {
-        files: outputs.appmesh.GetVirtualGatewaySpecLoggingAccessLogFile[];
+        files?: outputs.appmesh.GetVirtualGatewaySpecLoggingAccessLogFile[];
     }
 
     export interface GetVirtualGatewaySpecLoggingAccessLogFile {
-        formats: outputs.appmesh.GetVirtualGatewaySpecLoggingAccessLogFileFormat[];
-        path: string;
+        formats?: outputs.appmesh.GetVirtualGatewaySpecLoggingAccessLogFileFormat[];
+        path?: string;
     }
 
     export interface GetVirtualGatewaySpecLoggingAccessLogFileFormat {
-        jsons: outputs.appmesh.GetVirtualGatewaySpecLoggingAccessLogFileFormatJson[];
-        text: string;
+        jsons?: outputs.appmesh.GetVirtualGatewaySpecLoggingAccessLogFileFormatJson[];
+        text?: string;
     }
 
     export interface GetVirtualGatewaySpecLoggingAccessLogFileFormatJson {
-        key: string;
-        value: string;
+        key?: string;
+        value?: string;
     }
 
     export interface GetVirtualNodeSpec {
-        backendDefaults: outputs.appmesh.GetVirtualNodeSpecBackendDefault[];
-        backends: outputs.appmesh.GetVirtualNodeSpecBackend[];
-        listeners: outputs.appmesh.GetVirtualNodeSpecListener[];
-        loggings: outputs.appmesh.GetVirtualNodeSpecLogging[];
-        serviceDiscoveries: outputs.appmesh.GetVirtualNodeSpecServiceDiscovery[];
+        backendDefaults?: outputs.appmesh.GetVirtualNodeSpecBackendDefault[];
+        backends?: outputs.appmesh.GetVirtualNodeSpecBackend[];
+        listeners?: outputs.appmesh.GetVirtualNodeSpecListener[];
+        loggings?: outputs.appmesh.GetVirtualNodeSpecLogging[];
+        serviceDiscoveries?: outputs.appmesh.GetVirtualNodeSpecServiceDiscovery[];
     }
 
     export interface GetVirtualNodeSpecBackend {
-        virtualServices: outputs.appmesh.GetVirtualNodeSpecBackendVirtualService[];
+        virtualServices?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualService[];
     }
 
     export interface GetVirtualNodeSpecBackendDefault {
-        clientPolicies: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicy[];
+        clientPolicies?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicy[];
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicy {
-        tls: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTl[];
+        tls?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTl[];
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTl {
-        certificates: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate[];
-        enforce: boolean;
-        ports: number[];
-        validations: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation[];
+        certificates?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate[];
+        enforce?: boolean;
+        ports?: number[];
+        validations?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation[];
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate {
-        files: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile[];
-        sds: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd[];
+        files?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile[];
+        sds?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd[];
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile {
-        certificateChain: string;
-        privateKey: string;
+        certificateChain?: string;
+        privateKey?: string;
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation {
-        subjectAlternativeNames: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName[];
-        trusts: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust[];
+        subjectAlternativeNames?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName[];
+        trusts?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust[];
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName {
-        matches: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch[];
+        matches?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch[];
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch {
-        exacts: string[];
+        exacts?: string[];
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust {
-        acms: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm[];
-        files: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile[];
-        sds: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd[];
+        acms?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm[];
+        files?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile[];
+        sds?: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd[];
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm {
-        certificateAuthorityArns: string[];
+        certificateAuthorityArns?: string[];
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile {
-        certificateChain: string;
+        certificateChain?: string;
     }
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualNodeSpecBackendVirtualService {
-        clientPolicies: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicy[];
-        virtualServiceName: string;
+        clientPolicies?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicy[];
+        virtualServiceName?: string;
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicy {
-        tls: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl[];
+        tls?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl[];
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
-        certificates: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate[];
-        enforce: boolean;
-        ports: number[];
-        validations: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation[];
+        certificates?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate[];
+        enforce?: boolean;
+        ports?: number[];
+        validations?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation[];
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate {
-        files: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile[];
-        sds: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd[];
+        files?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile[];
+        sds?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd[];
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile {
-        certificateChain: string;
-        privateKey: string;
+        certificateChain?: string;
+        privateKey?: string;
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation {
-        subjectAlternativeNames: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName[];
-        trusts: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust[];
+        subjectAlternativeNames?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName[];
+        trusts?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust[];
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName {
-        matches: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatch[];
+        matches?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatch[];
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatch {
-        exacts: string[];
+        exacts?: string[];
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust {
-        acms: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm[];
-        files: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile[];
-        sds: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd[];
+        acms?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm[];
+        files?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile[];
+        sds?: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd[];
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm {
-        certificateAuthorityArns: string[];
+        certificateAuthorityArns?: string[];
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile {
-        certificateChain: string;
+        certificateChain?: string;
     }
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualNodeSpecListener {
-        connectionPools: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPool[];
-        healthChecks: outputs.appmesh.GetVirtualNodeSpecListenerHealthCheck[];
-        outlierDetections: outputs.appmesh.GetVirtualNodeSpecListenerOutlierDetection[];
-        portMappings: outputs.appmesh.GetVirtualNodeSpecListenerPortMapping[];
-        timeouts: outputs.appmesh.GetVirtualNodeSpecListenerTimeout[];
-        tls: outputs.appmesh.GetVirtualNodeSpecListenerTl[];
+        connectionPools?: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPool[];
+        healthChecks?: outputs.appmesh.GetVirtualNodeSpecListenerHealthCheck[];
+        outlierDetections?: outputs.appmesh.GetVirtualNodeSpecListenerOutlierDetection[];
+        portMappings?: outputs.appmesh.GetVirtualNodeSpecListenerPortMapping[];
+        timeouts?: outputs.appmesh.GetVirtualNodeSpecListenerTimeout[];
+        tls?: outputs.appmesh.GetVirtualNodeSpecListenerTl[];
     }
 
     export interface GetVirtualNodeSpecListenerConnectionPool {
-        grpcs: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPoolGrpc[];
-        http2s: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPoolHttp2[];
-        https: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPoolHttp[];
-        tcps: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPoolTcp[];
+        grpcs?: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPoolGrpc[];
+        http2s?: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPoolHttp2[];
+        https?: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPoolHttp[];
+        tcps?: outputs.appmesh.GetVirtualNodeSpecListenerConnectionPoolTcp[];
     }
 
     export interface GetVirtualNodeSpecListenerConnectionPoolGrpc {
-        maxRequests: number;
+        maxRequests?: number;
     }
 
     export interface GetVirtualNodeSpecListenerConnectionPoolHttp {
-        maxConnections: number;
-        maxPendingRequests: number;
+        maxConnections?: number;
+        maxPendingRequests?: number;
     }
 
     export interface GetVirtualNodeSpecListenerConnectionPoolHttp2 {
-        maxRequests: number;
+        maxRequests?: number;
     }
 
     export interface GetVirtualNodeSpecListenerConnectionPoolTcp {
-        maxConnections: number;
+        maxConnections?: number;
     }
 
     export interface GetVirtualNodeSpecListenerHealthCheck {
-        healthyThreshold: number;
-        intervalMillis: number;
-        path: string;
-        port: number;
-        protocol: string;
-        timeoutMillis: number;
-        unhealthyThreshold: number;
+        healthyThreshold?: number;
+        intervalMillis?: number;
+        path?: string;
+        port?: number;
+        protocol?: string;
+        timeoutMillis?: number;
+        unhealthyThreshold?: number;
     }
 
     export interface GetVirtualNodeSpecListenerOutlierDetection {
-        baseEjectionDurations: outputs.appmesh.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration[];
-        intervals: outputs.appmesh.GetVirtualNodeSpecListenerOutlierDetectionInterval[];
-        maxEjectionPercent: number;
-        maxServerErrors: number;
+        baseEjectionDurations?: outputs.appmesh.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration[];
+        intervals?: outputs.appmesh.GetVirtualNodeSpecListenerOutlierDetectionInterval[];
+        maxEjectionPercent?: number;
+        maxServerErrors?: number;
     }
 
     export interface GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualNodeSpecListenerOutlierDetectionInterval {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualNodeSpecListenerPortMapping {
-        port: number;
-        protocol: string;
+        port?: number;
+        protocol?: string;
     }
 
     export interface GetVirtualNodeSpecListenerTimeout {
-        grpcs: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutGrpc[];
-        http2s: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttp2[];
-        https: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttp[];
-        tcps: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutTcp[];
+        grpcs?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutGrpc[];
+        http2s?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttp2[];
+        https?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttp[];
+        tcps?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutTcp[];
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutGrpc {
-        idles: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutGrpcIdle[];
-        perRequests: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutGrpcPerRequest[];
+        idles?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutGrpcIdle[];
+        perRequests?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutGrpcPerRequest[];
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutGrpcIdle {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutGrpcPerRequest {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutHttp {
-        idles: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttpIdle[];
-        perRequests: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttpPerRequest[];
+        idles?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttpIdle[];
+        perRequests?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttpPerRequest[];
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutHttp2 {
-        idles: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttp2Idle[];
-        perRequests: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttp2PerRequest[];
+        idles?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttp2Idle[];
+        perRequests?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutHttp2PerRequest[];
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutHttp2Idle {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutHttp2PerRequest {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutHttpIdle {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutHttpPerRequest {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutTcp {
-        idles: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutTcpIdle[];
+        idles?: outputs.appmesh.GetVirtualNodeSpecListenerTimeoutTcpIdle[];
     }
 
     export interface GetVirtualNodeSpecListenerTimeoutTcpIdle {
-        unit: string;
-        value: number;
+        unit?: string;
+        value?: number;
     }
 
     export interface GetVirtualNodeSpecListenerTl {
-        certificates: outputs.appmesh.GetVirtualNodeSpecListenerTlCertificate[];
-        mode: string;
-        validations: outputs.appmesh.GetVirtualNodeSpecListenerTlValidation[];
+        certificates?: outputs.appmesh.GetVirtualNodeSpecListenerTlCertificate[];
+        mode?: string;
+        validations?: outputs.appmesh.GetVirtualNodeSpecListenerTlValidation[];
     }
 
     export interface GetVirtualNodeSpecListenerTlCertificate {
-        acms: outputs.appmesh.GetVirtualNodeSpecListenerTlCertificateAcm[];
-        files: outputs.appmesh.GetVirtualNodeSpecListenerTlCertificateFile[];
-        sds: outputs.appmesh.GetVirtualNodeSpecListenerTlCertificateSd[];
+        acms?: outputs.appmesh.GetVirtualNodeSpecListenerTlCertificateAcm[];
+        files?: outputs.appmesh.GetVirtualNodeSpecListenerTlCertificateFile[];
+        sds?: outputs.appmesh.GetVirtualNodeSpecListenerTlCertificateSd[];
     }
 
     export interface GetVirtualNodeSpecListenerTlCertificateAcm {
-        certificateArn: string;
+        certificateArn?: string;
     }
 
     export interface GetVirtualNodeSpecListenerTlCertificateFile {
-        certificateChain: string;
-        privateKey: string;
+        certificateChain?: string;
+        privateKey?: string;
     }
 
     export interface GetVirtualNodeSpecListenerTlCertificateSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualNodeSpecListenerTlValidation {
-        subjectAlternativeNames: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName[];
-        trusts: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationTrust[];
+        subjectAlternativeNames?: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName[];
+        trusts?: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationTrust[];
     }
 
     export interface GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName {
-        matches: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch[];
+        matches?: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch[];
     }
 
     export interface GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch {
-        exacts: string[];
+        exacts?: string[];
     }
 
     export interface GetVirtualNodeSpecListenerTlValidationTrust {
-        files: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationTrustFile[];
-        sds: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationTrustSd[];
+        files?: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationTrustFile[];
+        sds?: outputs.appmesh.GetVirtualNodeSpecListenerTlValidationTrustSd[];
     }
 
     export interface GetVirtualNodeSpecListenerTlValidationTrustFile {
-        certificateChain: string;
+        certificateChain?: string;
     }
 
     export interface GetVirtualNodeSpecListenerTlValidationTrustSd {
-        secretName: string;
+        secretName?: string;
     }
 
     export interface GetVirtualNodeSpecLogging {
-        accessLogs: outputs.appmesh.GetVirtualNodeSpecLoggingAccessLog[];
+        accessLogs?: outputs.appmesh.GetVirtualNodeSpecLoggingAccessLog[];
     }
 
     export interface GetVirtualNodeSpecLoggingAccessLog {
-        files: outputs.appmesh.GetVirtualNodeSpecLoggingAccessLogFile[];
+        files?: outputs.appmesh.GetVirtualNodeSpecLoggingAccessLogFile[];
     }
 
     export interface GetVirtualNodeSpecLoggingAccessLogFile {
-        formats: outputs.appmesh.GetVirtualNodeSpecLoggingAccessLogFileFormat[];
-        path: string;
+        formats?: outputs.appmesh.GetVirtualNodeSpecLoggingAccessLogFileFormat[];
+        path?: string;
     }
 
     export interface GetVirtualNodeSpecLoggingAccessLogFileFormat {
-        jsons: outputs.appmesh.GetVirtualNodeSpecLoggingAccessLogFileFormatJson[];
-        text: string;
+        jsons?: outputs.appmesh.GetVirtualNodeSpecLoggingAccessLogFileFormatJson[];
+        text?: string;
     }
 
     export interface GetVirtualNodeSpecLoggingAccessLogFileFormatJson {
-        key: string;
-        value: string;
+        key?: string;
+        value?: string;
     }
 
     export interface GetVirtualNodeSpecServiceDiscovery {
-        awsCloudMaps: outputs.appmesh.GetVirtualNodeSpecServiceDiscoveryAwsCloudMap[];
-        dns: outputs.appmesh.GetVirtualNodeSpecServiceDiscoveryDn[];
+        awsCloudMaps?: outputs.appmesh.GetVirtualNodeSpecServiceDiscoveryAwsCloudMap[];
+        dns?: outputs.appmesh.GetVirtualNodeSpecServiceDiscoveryDn[];
     }
 
     export interface GetVirtualNodeSpecServiceDiscoveryAwsCloudMap {
-        attributes: {[key: string]: string};
-        namespaceName: string;
-        serviceName: string;
+        attributes?: {[key: string]: string};
+        namespaceName?: string;
+        serviceName?: string;
     }
 
     export interface GetVirtualNodeSpecServiceDiscoveryDn {
-        hostname: string;
-        ipPreference: string;
-        responseType: string;
+        hostname?: string;
+        ipPreference?: string;
+        responseType?: string;
     }
 
     export interface GetVirtualRouterSpec {
-        listeners: outputs.appmesh.GetVirtualRouterSpecListener[];
+        listeners?: outputs.appmesh.GetVirtualRouterSpecListener[];
     }
 
     export interface GetVirtualRouterSpecListener {
-        portMappings: outputs.appmesh.GetVirtualRouterSpecListenerPortMapping[];
+        portMappings?: outputs.appmesh.GetVirtualRouterSpecListenerPortMapping[];
     }
 
     export interface GetVirtualRouterSpecListenerPortMapping {
-        port: number;
-        protocol: string;
+        port?: number;
+        protocol?: string;
     }
 
     export interface GetVirtualServiceSpec {
-        providers: outputs.appmesh.GetVirtualServiceSpecProvider[];
+        providers?: outputs.appmesh.GetVirtualServiceSpecProvider[];
     }
 
     export interface GetVirtualServiceSpecProvider {
-        virtualNodes: outputs.appmesh.GetVirtualServiceSpecProviderVirtualNode[];
-        virtualRouters: outputs.appmesh.GetVirtualServiceSpecProviderVirtualRouter[];
+        virtualNodes?: outputs.appmesh.GetVirtualServiceSpecProviderVirtualNode[];
+        virtualRouters?: outputs.appmesh.GetVirtualServiceSpecProviderVirtualRouter[];
     }
 
     export interface GetVirtualServiceSpecProviderVirtualNode {
-        virtualNodeName: string;
+        virtualNodeName?: string;
     }
 
     export interface GetVirtualServiceSpecProviderVirtualRouter {
-        virtualRouterName: string;
+        virtualRouterName?: string;
     }
 
     export interface MeshSpec {
@@ -5985,7 +5985,7 @@ export namespace appmesh {
         /**
          * Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
          */
-        port: number;
+        port?: number;
         /**
          * Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
          */
@@ -6539,7 +6539,7 @@ export namespace appmesh {
         /**
          * Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
          */
-        port: number;
+        port?: number;
         /**
          * Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
          */
@@ -7002,19 +7002,19 @@ export namespace apprunner {
         /**
          * Certificate CNAME record name.
          */
-        name: string;
+        name?: string;
         /**
          * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
          */
-        status: string;
+        status?: string;
         /**
          * Record type, always `CNAME`.
          */
-        type: string;
+        type?: string;
         /**
          * Certificate CNAME record value.
          */
-        value: string;
+        value?: string;
     }
 
     export interface ObservabilityConfigurationTraceConfiguration {
@@ -7077,18 +7077,18 @@ export namespace apprunner {
         /**
          * Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
          */
-        egressConfiguration: outputs.apprunner.ServiceNetworkConfigurationEgressConfiguration;
+        egressConfiguration?: outputs.apprunner.ServiceNetworkConfigurationEgressConfiguration;
         /**
          * Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
          */
-        ingressConfiguration: outputs.apprunner.ServiceNetworkConfigurationIngressConfiguration;
+        ingressConfiguration?: outputs.apprunner.ServiceNetworkConfigurationIngressConfiguration;
     }
 
     export interface ServiceNetworkConfigurationEgressConfiguration {
         /**
          * The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
          */
-        egressType: string;
+        egressType?: string;
         /**
          * The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
          */
@@ -7271,7 +7271,7 @@ export namespace appstream {
         /**
          * Number of currently available instances that can be used to stream sessions.
          */
-        available: number;
+        available?: number;
         /**
          * Desired number of streaming instances.
          */
@@ -7279,33 +7279,33 @@ export namespace appstream {
         /**
          * Number of instances in use for streaming.
          */
-        inUse: number;
+        inUse?: number;
         /**
          * Total number of simultaneous streaming instances that are running.
          */
-        running: number;
+        running?: number;
     }
 
     export interface FleetDomainJoinInfo {
         /**
          * Fully qualified name of the directory (for example, corp.example.com).
          */
-        directoryName: string;
+        directoryName?: string;
         /**
          * Distinguished name of the organizational unit for computer accounts.
          */
-        organizationalUnitDistinguishedName: string;
+        organizationalUnitDistinguishedName?: string;
     }
 
     export interface FleetVpcConfig {
         /**
          * Identifiers of the security groups for the fleet or image builder.
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
          */
-        subnetIds: string[];
+        subnetIds?: string[];
     }
 
     export interface ImageBuilderAccessEndpoint {
@@ -7316,7 +7316,7 @@ export namespace appstream {
         /**
          * Identifier (ID) of the VPC in which the interface endpoint is used.
          */
-        vpceId: string;
+        vpceId?: string;
     }
 
     export interface ImageBuilderDomainJoinInfo {
@@ -7334,11 +7334,11 @@ export namespace appstream {
         /**
          * Identifiers of the security groups for the image builder or image builder.
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * Identifier of the subnet to which a network interface is attached from the image builder instance.
          */
-        subnetIds: string[];
+        subnetIds?: string[];
     }
 
     export interface StackAccessEndpoint {
@@ -7350,7 +7350,7 @@ export namespace appstream {
         /**
          * ID of the VPC in which the interface endpoint is used.
          */
-        vpceId: string;
+        vpceId?: string;
     }
 
     export interface StackApplicationSettings {
@@ -7375,11 +7375,11 @@ export namespace appstream {
         /**
          * Names of the domains for the account.
          */
-        domains: string[];
+        domains?: string[];
         /**
          * ARN of the storage connector.
          */
-        resourceIdentifier: string;
+        resourceIdentifier?: string;
     }
 
     export interface StackStreamingExperienceSettings {
@@ -7414,7 +7414,7 @@ export namespace appsync {
         /**
          * AWS region of the DynamoDB table. Defaults to current region.
          */
-        region: string;
+        region?: string;
         /**
          * Name of the DynamoDB table.
          */
@@ -7452,7 +7452,7 @@ export namespace appsync {
         /**
          * AWS region of Elasticsearch domain. Defaults to current region.
          */
-        region: string;
+        region?: string;
     }
 
     export interface DataSourceEventBridgeConfig {
@@ -7510,7 +7510,7 @@ export namespace appsync {
         /**
          * AWS region of the DynamoDB table. Defaults to current region.
          */
-        region: string;
+        region?: string;
     }
 
     export interface DataSourceRelationalDatabaseConfig {
@@ -7540,7 +7540,7 @@ export namespace appsync {
         /**
          * AWS Region for RDS HTTP endpoint. Defaults to current region.
          */
-        region: string;
+        region?: string;
         /**
          * Logical schema name.
          */
@@ -7641,7 +7641,7 @@ export namespace appsync {
         /**
          * AWS region in which the user pool was created.
          */
-        awsRegion: string;
+        awsRegion?: string;
         /**
          * User pool ID.
          */
@@ -7705,7 +7705,7 @@ export namespace appsync {
         /**
          * AWS region in which the user pool was created.
          */
-        awsRegion: string;
+        awsRegion?: string;
         /**
          * Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
          */
@@ -7825,7 +7825,7 @@ export namespace athena {
         /**
          * The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
          */
-        effectiveEngineVersion: string;
+        effectiveEngineVersion?: string;
         /**
          * Requested engine version. Defaults to `AUTO`.
          */
@@ -7939,7 +7939,7 @@ export namespace auditmanager {
          * Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
          */
         sourceFrequency?: string;
-        sourceId: string;
+        sourceId?: string;
         /**
          * The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
          */
@@ -7983,7 +7983,7 @@ export namespace auditmanager {
         /**
          * Unique identifier of the control.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the control set.
          */
@@ -7998,32 +7998,32 @@ export namespace auditmanager {
     }
 
     export interface GetControlControlMappingSource {
-        sourceDescription: string;
-        sourceFrequency: string;
-        sourceId: string;
+        sourceDescription?: string;
+        sourceFrequency?: string;
+        sourceId?: string;
         sourceKeyword?: outputs.auditmanager.GetControlControlMappingSourceSourceKeyword;
-        sourceName: string;
-        sourceSetUpOption: string;
-        sourceType: string;
-        troubleshootingText: string;
+        sourceName?: string;
+        sourceSetUpOption?: string;
+        sourceType?: string;
+        troubleshootingText?: string;
     }
 
     export interface GetControlControlMappingSourceSourceKeyword {
-        keywordInputType: string;
-        keywordValue: string;
+        keywordInputType?: string;
+        keywordValue?: string;
     }
 
     export interface GetFrameworkControlSet {
         controls?: outputs.auditmanager.GetFrameworkControlSetControl[];
-        id: string;
+        id?: string;
         /**
          * Name of the framework.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetFrameworkControlSetControl {
-        id: string;
+        id?: string;
     }
 
 }
@@ -8044,76 +8044,76 @@ export namespace autoscaling {
         /**
          * ID of the launch template.
          */
-        id: string;
+        id?: string;
         /**
          * Specify the exact name of the desired autoscaling group.
          */
-        name: string;
+        name?: string;
         /**
          * Template version.
          */
-        version: string;
+        version?: string;
     }
 
     export interface GetGroupMixedInstancesPolicy {
         /**
          * List of instances distribution objects.
          */
-        instancesDistributions: outputs.autoscaling.GetGroupMixedInstancesPolicyInstancesDistribution[];
+        instancesDistributions?: outputs.autoscaling.GetGroupMixedInstancesPolicyInstancesDistribution[];
         /**
          * List of launch templates along with the overrides.
          */
-        launchTemplates: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplate[];
+        launchTemplates?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplate[];
     }
 
     export interface GetGroupMixedInstancesPolicyInstancesDistribution {
         /**
          * Strategy used when launching on-demand instances.
          */
-        onDemandAllocationStrategy: string;
+        onDemandAllocationStrategy?: string;
         /**
          * Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
          */
-        onDemandBaseCapacity: number;
-        onDemandPercentageAboveBaseCapacity: number;
+        onDemandBaseCapacity?: number;
+        onDemandPercentageAboveBaseCapacity?: number;
         /**
          * Strategy used when launching Spot instances.
          */
-        spotAllocationStrategy: string;
+        spotAllocationStrategy?: string;
         /**
          * Number of Spot pools per availability zone to allocate capacity.
          */
-        spotInstancePools: number;
+        spotInstancePools?: number;
         /**
          * Maximum price per unit hour that the user is willing to pay for the Spot instances.
          */
-        spotMaxPrice: string;
+        spotMaxPrice?: string;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplate {
         /**
          * List of overriding launch template specification objects.
          */
-        launchTemplateSpecifications: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification[];
+        launchTemplateSpecifications?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification[];
         /**
          * List of properties overriding the same properties in the launch template.
          */
-        overrides: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverride[];
+        overrides?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverride[];
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
         /**
          * ID of the launch template.
          */
-        launchTemplateId: string;
+        launchTemplateId?: string;
         /**
          * Name of the launch template.
          */
-        launchTemplateName: string;
+        launchTemplateName?: string;
         /**
          * Template version.
          */
-        version: string;
+        version?: string;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverride {
@@ -8121,278 +8121,278 @@ export namespace autoscaling {
          * List of instance requirements objects.
          * * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
          */
-        instanceRequirements: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement[];
+        instanceRequirements?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement[];
         /**
          * Overriding instance type.
          */
-        instanceType: string;
+        instanceType?: string;
         /**
          * List of overriding launch template specification objects.
          */
-        launchTemplateSpecifications: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification[];
+        launchTemplateSpecifications?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification[];
         /**
          * Number of capacity units, which gives the instance type a proportional weight to other instance types.
          */
-        weightedCapacity: string;
+        weightedCapacity?: string;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement {
-        acceleratorCounts: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount[];
+        acceleratorCounts?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount[];
         /**
          * List of accelerator manufacturer names.
          */
-        acceleratorManufacturers: string[];
+        acceleratorManufacturers?: string[];
         /**
          * List of accelerator names.
          */
-        acceleratorNames: string[];
+        acceleratorNames?: string[];
         /**
          * List of objects describing the minimum and maximum total memory of the accelerators.
          */
-        acceleratorTotalMemoryMibs: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib[];
+        acceleratorTotalMemoryMibs?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib[];
         /**
          * List of accelerator types.
          */
-        acceleratorTypes: string[];
+        acceleratorTypes?: string[];
         /**
          * List of instance types to apply the specified attributes against.
          */
-        allowedInstanceTypes: string[];
+        allowedInstanceTypes?: string[];
         /**
          * Indicates whether bare metal instances are included, excluded, or required.
          */
-        bareMetal: string;
+        bareMetal?: string;
         /**
          * List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
          */
-        baselineEbsBandwidthMbps: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp[];
+        baselineEbsBandwidthMbps?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp[];
         /**
          * Indicates whether burstable performance instance types are included, excluded, or required.
          */
-        burstablePerformance: string;
+        burstablePerformance?: string;
         /**
          * List of CPU manufacturer names.
          */
-        cpuManufacturers: string[];
+        cpuManufacturers?: string[];
         /**
          * List of excluded instance types.
          */
-        excludedInstanceTypes: string[];
+        excludedInstanceTypes?: string[];
         /**
          * List of instance generation names.
          */
-        instanceGenerations: string[];
+        instanceGenerations?: string[];
         /**
          * Indicates whether instance types with instance store volumes are included, excluded, or required.
          */
-        localStorage: string;
+        localStorage?: string;
         /**
          * List of local storage type names.
          */
-        localStorageTypes: string[];
+        localStorageTypes?: string[];
         /**
          * List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
          */
-        memoryGibPerVcpus: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus[];
+        memoryGibPerVcpus?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus[];
         /**
          * List of objects describing the minimum and maximum amount of memory (MiB).
          */
-        memoryMibs: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib[];
+        memoryMibs?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib[];
         /**
          * List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
          */
-        networkBandwidthGbps: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp[];
+        networkBandwidthGbps?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp[];
         /**
          * List of objects describing the minimum and maximum amount of network interfaces.
          */
-        networkInterfaceCounts: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount[];
+        networkInterfaceCounts?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount[];
         /**
          * Price protection threshold for On-Demand Instances.
          */
-        onDemandMaxPricePercentageOverLowestPrice: number;
+        onDemandMaxPricePercentageOverLowestPrice?: number;
         /**
          * Indicates whether instance types must support On-Demand Instance Hibernation.
          */
-        requireHibernateSupport: boolean;
+        requireHibernateSupport?: boolean;
         /**
          * Price protection threshold for Spot Instances.
          */
-        spotMaxPricePercentageOverLowestPrice: number;
+        spotMaxPricePercentageOverLowestPrice?: number;
         /**
          * List of objects describing the minimum and maximum total storage (GB).
          */
-        totalLocalStorageGbs: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb[];
+        totalLocalStorageGbs?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb[];
         /**
          * List of objects describing the minimum and maximum number of vCPUs.
          */
-        vcpuCounts: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount[];
+        vcpuCounts?: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount[];
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount {
         /**
          * Maximum.
          */
-        max: number;
+        max?: number;
         /**
          * Minimum.
          */
-        min: number;
+        min?: number;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib {
         /**
          * Maximum.
          */
-        max: number;
+        max?: number;
         /**
          * Minimum.
          */
-        min: number;
+        min?: number;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp {
         /**
          * Maximum.
          */
-        max: number;
+        max?: number;
         /**
          * Minimum.
          */
-        min: number;
+        min?: number;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus {
         /**
          * Maximum.
          */
-        max: number;
+        max?: number;
         /**
          * Minimum.
          */
-        min: number;
+        min?: number;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib {
         /**
          * Maximum.
          */
-        max: number;
+        max?: number;
         /**
          * Minimum.
          */
-        min: number;
+        min?: number;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp {
         /**
          * Maximum.
          */
-        max: number;
+        max?: number;
         /**
          * Minimum.
          */
-        min: number;
+        min?: number;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount {
         /**
          * Maximum.
          */
-        max: number;
+        max?: number;
         /**
          * Minimum.
          */
-        min: number;
+        min?: number;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb {
         /**
          * Maximum.
          */
-        max: number;
+        max?: number;
         /**
          * Minimum.
          */
-        min: number;
+        min?: number;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount {
         /**
          * Maximum.
          */
-        max: number;
+        max?: number;
         /**
          * Minimum.
          */
-        min: number;
+        min?: number;
     }
 
     export interface GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
         /**
          * ID of the launch template.
          */
-        launchTemplateId: string;
+        launchTemplateId?: string;
         /**
          * Name of the launch template.
          */
-        launchTemplateName: string;
+        launchTemplateName?: string;
         /**
          * Template version.
          */
-        version: string;
+        version?: string;
     }
 
     export interface GetGroupTag {
         /**
          * Key.
          */
-        key: string;
+        key?: string;
         /**
          * Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
          */
-        propagateAtLaunch: boolean;
+        propagateAtLaunch?: boolean;
         /**
          * Value.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetGroupTrafficSource {
         /**
          * Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
          */
-        identifier: string;
+        identifier?: string;
         /**
          * Traffic source type.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetGroupWarmPool {
         /**
          * List of instance reuse policy objects.
          */
-        instanceReusePolicies: outputs.autoscaling.GetGroupWarmPoolInstanceReusePolicy[];
-        maxGroupPreparedCapacity: number;
+        instanceReusePolicies?: outputs.autoscaling.GetGroupWarmPoolInstanceReusePolicy[];
+        maxGroupPreparedCapacity?: number;
         /**
          * Minimum number of instances to maintain in the warm pool.
          */
-        minSize: number;
+        minSize?: number;
         /**
          * Instance state to transition to after the lifecycle actions are complete.
          */
-        poolState: string;
+        poolState?: string;
     }
 
     export interface GetGroupWarmPoolInstanceReusePolicy {
         /**
          * Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
          */
-        reuseOnScaleIn: boolean;
+        reuseOnScaleIn?: boolean;
     }
 
     export interface GroupInitialLifecycleHook {
-        defaultResult: string;
+        defaultResult?: string;
         heartbeatTimeout?: number;
         lifecycleTransition: string;
         /**
@@ -8466,11 +8466,11 @@ export namespace autoscaling {
         /**
          * ID of the launch template. Conflicts with `name`.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the launch template. Conflicts with `id`.
          */
-        name: string;
+        name?: string;
         /**
          * Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
          */
@@ -8481,7 +8481,7 @@ export namespace autoscaling {
         /**
          * Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
          */
-        instancesDistribution: outputs.autoscaling.GroupMixedInstancesPolicyInstancesDistribution;
+        instancesDistribution?: outputs.autoscaling.GroupMixedInstancesPolicyInstancesDistribution;
         /**
          * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
          */
@@ -8492,23 +8492,23 @@ export namespace autoscaling {
         /**
          * Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
          */
-        onDemandAllocationStrategy: string;
+        onDemandAllocationStrategy?: string;
         /**
          * Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
          */
-        onDemandBaseCapacity: number;
+        onDemandBaseCapacity?: number;
         /**
          * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
          */
-        onDemandPercentageAboveBaseCapacity: number;
+        onDemandPercentageAboveBaseCapacity?: number;
         /**
          * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
          */
-        spotAllocationStrategy: string;
+        spotAllocationStrategy?: string;
         /**
          * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
          */
-        spotInstancePools: number;
+        spotInstancePools?: number;
         /**
          * Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
          */
@@ -8523,18 +8523,18 @@ export namespace autoscaling {
         /**
          * List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
          */
-        overrides: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverride[];
+        overrides?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverride[];
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
         /**
          * ID of the launch template. Conflicts with `launchTemplateName`.
          */
-        launchTemplateId: string;
+        launchTemplateId?: string;
         /**
          * Name of the launch template. Conflicts with `launchTemplateId`.
          */
-        launchTemplateName: string;
+        launchTemplateName?: string;
         /**
          * Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
          */
@@ -8792,11 +8792,11 @@ export namespace autoscaling {
         /**
          * ID of the launch template. Conflicts with `launchTemplateName`.
          */
-        launchTemplateId: string;
+        launchTemplateId?: string;
         /**
          * Name of the launch template. Conflicts with `launchTemplateId`.
          */
-        launchTemplateName: string;
+        launchTemplateName?: string;
         /**
          * Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
          */
@@ -9592,83 +9592,83 @@ export namespace backup {
         /**
          * One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
          */
-        inputParameters: outputs.backup.GetFrameworkControlInputParameter[];
+        inputParameters?: outputs.backup.GetFrameworkControlInputParameter[];
         /**
          * Backup framework name.
          */
-        name: string;
+        name?: string;
         /**
          * Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
          */
-        scopes: outputs.backup.GetFrameworkControlScope[];
+        scopes?: outputs.backup.GetFrameworkControlScope[];
     }
 
     export interface GetFrameworkControlInputParameter {
         /**
          * Backup framework name.
          */
-        name: string;
+        name?: string;
         /**
          * Value of parameter, for example, hourly.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetFrameworkControlScope {
         /**
          * The ID of the only AWS resource that you want your control scope to contain.
          */
-        complianceResourceIds: string[];
+        complianceResourceIds?: string[];
         /**
          * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
          */
-        complianceResourceTypes: string[];
+        complianceResourceTypes?: string[];
         /**
          * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
     }
 
     export interface GetReportPlanReportDeliveryChannel {
         /**
          * List of the format of your reports: CSV, JSON, or both.
          */
-        formats: string[];
+        formats?: string[];
         /**
          * Unique name of the S3 bucket that receives your reports.
          */
-        s3BucketName: string;
+        s3BucketName?: string;
         /**
          * Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
          */
-        s3KeyPrefix: string;
+        s3KeyPrefix?: string;
     }
 
     export interface GetReportPlanReportSetting {
         /**
          * (Optional) Specifies the list of accounts a report covers.
          */
-        accounts: string[];
+        accounts?: string[];
         /**
          * ARNs of the frameworks a report covers.
          */
-        frameworkArns: string[];
+        frameworkArns?: string[];
         /**
          * Specifies the number of frameworks a report covers.
          */
-        numberOfFrameworks: number;
+        numberOfFrameworks?: number;
         /**
          * (Optional) Specifies the list of Organizational Units a report covers.
          */
-        organizationUnits: string[];
+        organizationUnits?: string[];
         /**
          * (Optional) Specifies the list of regions a report covers.
          */
-        regions: string[];
+        regions?: string[];
         /**
          * Identifies the report template for the report. Reports are built using a report template.
          */
-        reportTemplate: string;
+        reportTemplate?: string;
     }
 
     export interface PlanAdvancedBackupSetting {
@@ -9877,11 +9877,11 @@ export namespace batch {
         /**
          * The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
-        desiredVcpus: number;
+        desiredVcpus?: number;
         /**
          * Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
          */
-        ec2Configurations: outputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration[];
+        ec2Configurations?: outputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration[];
         /**
          * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
@@ -9940,7 +9940,7 @@ export namespace batch {
         /**
          * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
          */
-        imageIdOverride: string;
+        imageIdOverride?: string;
         /**
          * The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
          */
@@ -9959,7 +9959,7 @@ export namespace batch {
         /**
          * The version number of the launch template. Default: The default version of the launch template.
          */
-        version: string;
+        version?: string;
     }
 
     export interface ComputeEnvironmentEksConfiguration {
@@ -9974,31 +9974,31 @@ export namespace batch {
     }
 
     export interface GetJobQueueComputeEnvironmentOrder {
-        computeEnvironment: string;
-        order: number;
+        computeEnvironment?: string;
+        order?: number;
     }
 
     export interface GetSchedulingPolicyFairSharePolicy {
         /**
          * Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
          */
-        computeReservation: number;
-        shareDecaySeconds: number;
+        computeReservation?: number;
+        shareDecaySeconds?: number;
         /**
          * One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
          */
-        shareDistributions: outputs.batch.GetSchedulingPolicyFairSharePolicyShareDistribution[];
+        shareDistributions?: outputs.batch.GetSchedulingPolicyFairSharePolicyShareDistribution[];
     }
 
     export interface GetSchedulingPolicyFairSharePolicyShareDistribution {
         /**
          * Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          */
-        shareIdentifier: string;
+        shareIdentifier?: string;
         /**
          * Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          */
-        weightFactor: number;
+        weightFactor?: number;
     }
 
     export interface JobDefinitionRetryStrategy {
@@ -10074,39 +10074,39 @@ export namespace bedrockfoundation {
         /**
          * Customizations that the model supports.
          */
-        customizationsSupporteds: string[];
+        customizationsSupporteds?: string[];
         /**
          * Inference types that the model supports.
          */
-        inferenceTypesSupporteds: string[];
+        inferenceTypesSupporteds?: string[];
         /**
          * Input modalities that the model supports.
          */
-        inputModalities: string[];
+        inputModalities?: string[];
         /**
          * Model ARN.
          */
-        modelArn: string;
+        modelArn?: string;
         /**
          * Model identifier.
          */
-        modelId: string;
+        modelId?: string;
         /**
          * Model name.
          */
-        modelName: string;
+        modelName?: string;
         /**
          * Output modalities that the model supports.
          */
-        outputModalities: string[];
+        outputModalities?: string[];
         /**
          * Model provider name.
          */
-        providerName: string;
+        providerName?: string;
         /**
          * Indicates whether the model supports streaming.
          */
-        responseStreamingSupported: boolean;
+        responseStreamingSupported?: boolean;
     }
 
 }
@@ -10197,12 +10197,12 @@ export namespace budgets {
     export interface BudgetAutoAdjustData {
         autoAdjustType: string;
         historicalOptions?: outputs.budgets.BudgetAutoAdjustDataHistoricalOptions;
-        lastAutoAdjustTime: string;
+        lastAutoAdjustTime?: string;
     }
 
     export interface BudgetAutoAdjustDataHistoricalOptions {
         budgetAdjustmentPeriod: number;
-        lookbackAvailablePeriods: number;
+        lookbackAvailablePeriods?: number;
     }
 
     export interface BudgetCostFilter {
@@ -10306,52 +10306,52 @@ export namespace budgets {
         /**
          * (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
          */
-        autoAdjustType: string;
+        autoAdjustType?: string;
         /**
          * (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
          */
-        historicalOptions: outputs.budgets.GetBudgetAutoAdjustDataHistoricalOption[];
+        historicalOptions?: outputs.budgets.GetBudgetAutoAdjustDataHistoricalOption[];
         /**
          * (Optional) - The last time that your budget was auto-adjusted.
          */
-        lastAutoAdjustTime: string;
+        lastAutoAdjustTime?: string;
     }
 
     export interface GetBudgetAutoAdjustDataHistoricalOption {
         /**
          * (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
          */
-        budgetAdjustmentPeriod: number;
+        budgetAdjustmentPeriod?: number;
         /**
          * (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
          */
-        lookbackAvailablePeriods: number;
+        lookbackAvailablePeriods?: number;
     }
 
     export interface GetBudgetBudgetLimit {
         /**
          * The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
          */
-        amount: string;
+        amount?: string;
         /**
          * The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
          */
-        unit: string;
+        unit?: string;
     }
 
     export interface GetBudgetCalculatedSpend {
-        actualSpends: outputs.budgets.GetBudgetCalculatedSpendActualSpend[];
+        actualSpends?: outputs.budgets.GetBudgetCalculatedSpendActualSpend[];
     }
 
     export interface GetBudgetCalculatedSpendActualSpend {
         /**
          * The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
          */
-        amount: string;
+        amount?: string;
         /**
          * The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
          */
-        unit: string;
+        unit?: string;
     }
 
     export interface GetBudgetCostFilter {
@@ -10360,97 +10360,97 @@ export namespace budgets {
          *
          * The following arguments are optional:
          */
-        name: string;
-        values: string[];
+        name?: string;
+        values?: string[];
     }
 
     export interface GetBudgetCostType {
         /**
          * A boolean value whether to include credits in the cost budget. Defaults to `true`.
          */
-        includeCredit: boolean;
+        includeCredit?: boolean;
         /**
          * Whether a budget includes discounts. Defaults to `true`.
          */
-        includeDiscount: boolean;
+        includeDiscount?: boolean;
         /**
          * A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
          */
-        includeOtherSubscription: boolean;
+        includeOtherSubscription?: boolean;
         /**
          * A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
          */
-        includeRecurring: boolean;
+        includeRecurring?: boolean;
         /**
          * A boolean value whether to include refunds in the cost budget. Defaults to `true`.
          */
-        includeRefund: boolean;
+        includeRefund?: boolean;
         /**
          * A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
          */
-        includeSubscription: boolean;
+        includeSubscription?: boolean;
         /**
          * A boolean value whether to include support costs in the cost budget. Defaults to `true`.
          */
-        includeSupport: boolean;
+        includeSupport?: boolean;
         /**
          * A boolean value whether to include tax in the cost budget. Defaults to `true`.
          */
-        includeTax: boolean;
+        includeTax?: boolean;
         /**
          * A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
          */
-        includeUpfront: boolean;
+        includeUpfront?: boolean;
         /**
          * Whether a budget uses the amortized rate. Defaults to `false`.
          */
-        useAmortized: boolean;
+        useAmortized?: boolean;
         /**
          * A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
          */
-        useBlended: boolean;
+        useBlended?: boolean;
     }
 
     export interface GetBudgetNotification {
         /**
          * (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
          */
-        comparisonOperator: string;
+        comparisonOperator?: string;
         /**
          * (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
          */
-        notificationType: string;
+        notificationType?: string;
         /**
          * (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
          */
-        subscriberEmailAddresses: string[];
+        subscriberEmailAddresses?: string[];
         /**
          * (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
          */
-        subscriberSnsTopicArns: string[];
+        subscriberSnsTopicArns?: string[];
         /**
          * (Required) Threshold when the notification should be sent.
          */
-        threshold: number;
+        threshold?: number;
         /**
          * (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
          */
-        thresholdType: string;
+        thresholdType?: string;
     }
 
     export interface GetBudgetPlannedLimit {
         /**
          * The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
          */
-        amount: string;
+        amount?: string;
         /**
          * (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
          */
-        startTime: string;
+        startTime?: string;
         /**
          * The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
          */
-        unit: string;
+        unit?: string;
     }
 
 }
@@ -10527,7 +10527,7 @@ export namespace cfg {
         /**
          * An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `allSupported = false`. Conflicts with `resourceTypes`.
          */
-        exclusionByResourceTypes: outputs.cfg.RecorderRecordingGroupExclusionByResourceType[];
+        exclusionByResourceTypes?: outputs.cfg.RecorderRecordingGroupExclusionByResourceType[];
         /**
          * Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
          */
@@ -10535,7 +10535,7 @@ export namespace cfg {
         /**
          * Recording Strategy. Detailed below.
          */
-        recordingStrategies: outputs.cfg.RecorderRecordingGroupRecordingStrategy[];
+        recordingStrategies?: outputs.cfg.RecorderRecordingGroupRecordingStrategy[];
         /**
          * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
          */
@@ -10587,14 +10587,14 @@ export namespace cfg {
         /**
          * List of static values.
          */
-        staticValues: string[];
+        staticValues?: string[];
     }
 
     export interface RuleEvaluationMode {
         /**
          * The mode of an evaluation.
          */
-        mode: string;
+        mode?: string;
     }
 
     export interface RuleScope {
@@ -10979,7 +10979,7 @@ export namespace chimesdkmediapipelines {
         /**
          * Disables real time alert rules.
          */
-        disabled: boolean;
+        disabled?: boolean;
         /**
          * Collection of real time alert rules
          */
@@ -11020,7 +11020,7 @@ export namespace chimesdkmediapipelines {
         /**
          * Negate the rule.
          */
-        negate: boolean;
+        negate?: boolean;
         /**
          * Rule name.
          */
@@ -11056,7 +11056,7 @@ export namespace cleanrooms {
         accountId: string;
         displayName: string;
         memberAbilities: string[];
-        status: string;
+        status?: string;
     }
 
     export interface ConfiguredTableTableReference {
@@ -11082,11 +11082,11 @@ export namespace cloudformation {
         /**
          * Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
          */
-        logGroupName: string;
+        logGroupName?: string;
         /**
          * ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
          */
-        logRoleArn: string;
+        logRoleArn?: string;
     }
 
     export interface StackSetAutoDeployment {
@@ -11138,15 +11138,15 @@ export namespace cloudformation {
         /**
          * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
          */
-        accountId: string;
+        accountId?: string;
         /**
          * Organizational unit ID in which the stack is deployed.
          */
-        organizationalUnitId: string;
+        organizationalUnitId?: string;
         /**
          * Stack identifier.
          */
-        stackId: string;
+        stackId?: string;
     }
 
     export interface StackSetManagedExecution {
@@ -11361,7 +11361,7 @@ export namespace cloudfront {
         /**
          * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
          */
-        defaultTtl: number;
+        defaultTtl?: number;
         /**
          * Field level encryption configuration ID.
          */
@@ -11381,7 +11381,7 @@ export namespace cloudfront {
         /**
          * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
          */
-        maxTtl: number;
+        maxTtl?: number;
         /**
          * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
          */
@@ -11409,11 +11409,11 @@ export namespace cloudfront {
         /**
          * List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          */
-        trustedKeyGroups: string[];
+        trustedKeyGroups?: string[];
         /**
          * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          */
-        trustedSigners: string[];
+        trustedSigners?: string[];
         /**
          * Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
          */
@@ -11428,7 +11428,7 @@ export namespace cloudfront {
         /**
          * Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
          */
-        headers: string[];
+        headers?: string[];
         /**
          * Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
          */
@@ -11436,7 +11436,7 @@ export namespace cloudfront {
         /**
          * When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
          */
-        queryStringCacheKeys: string[];
+        queryStringCacheKeys?: string[];
     }
 
     export interface DistributionDefaultCacheBehaviorForwardedValuesCookies {
@@ -11447,7 +11447,7 @@ export namespace cloudfront {
         /**
          * If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
          */
-        whitelistedNames: string[];
+        whitelistedNames?: string[];
     }
 
     export interface DistributionDefaultCacheBehaviorFunctionAssociation {
@@ -11511,7 +11511,7 @@ export namespace cloudfront {
         /**
          * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
          */
-        defaultTtl: number;
+        defaultTtl?: number;
         /**
          * Field level encryption configuration ID.
          */
@@ -11531,7 +11531,7 @@ export namespace cloudfront {
         /**
          * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
          */
-        maxTtl: number;
+        maxTtl?: number;
         /**
          * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
          */
@@ -11582,7 +11582,7 @@ export namespace cloudfront {
         /**
          * Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
          */
-        headers: string[];
+        headers?: string[];
         /**
          * Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
          */
@@ -11590,7 +11590,7 @@ export namespace cloudfront {
         /**
          * When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
          */
-        queryStringCacheKeys: string[];
+        queryStringCacheKeys?: string[];
     }
 
     export interface DistributionOrderedCacheBehaviorForwardedValuesCookies {
@@ -11760,7 +11760,7 @@ export namespace cloudfront {
         /**
          * [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
          */
-        locations: string[];
+        locations?: string[];
         /**
          * Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
          */
@@ -11771,44 +11771,44 @@ export namespace cloudfront {
         /**
          * Whether Origin Shield is enabled.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * List of nested attributes for each trusted signer
          */
-        items: outputs.cloudfront.DistributionTrustedKeyGroupItem[];
+        items?: outputs.cloudfront.DistributionTrustedKeyGroupItem[];
     }
 
     export interface DistributionTrustedKeyGroupItem {
         /**
          * ID of the key group that contains the public keys.
          */
-        keyGroupId: string;
+        keyGroupId?: string;
         /**
          * Set of active CloudFront key pairs associated with the signer account
          */
-        keyPairIds: string[];
+        keyPairIds?: string[];
     }
 
     export interface DistributionTrustedSigner {
         /**
          * Whether Origin Shield is enabled.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * List of nested attributes for each trusted signer
          */
-        items: outputs.cloudfront.DistributionTrustedSignerItem[];
+        items?: outputs.cloudfront.DistributionTrustedSignerItem[];
     }
 
     export interface DistributionTrustedSignerItem {
         /**
          * AWS account ID or `self`
          */
-        awsAccountNumber: string;
+        awsAccountNumber?: string;
         /**
          * Set of active CloudFront key pairs associated with the signer account
          */
-        keyPairIds: string[];
+        keyPairIds?: string[];
     }
 
     export interface DistributionViewerCertificate {
@@ -11917,115 +11917,115 @@ export namespace cloudfront {
         /**
          * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
          */
-        cookiesConfigs: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig[];
+        cookiesConfigs?: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig[];
         /**
          * A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
          */
-        enableAcceptEncodingBrotli: boolean;
+        enableAcceptEncodingBrotli?: boolean;
         /**
          * A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
          */
-        enableAcceptEncodingGzip: boolean;
+        enableAcceptEncodingGzip?: boolean;
         /**
          * Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
          */
-        headersConfigs: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig[];
+        headersConfigs?: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig[];
         /**
          * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
          */
-        queryStringsConfigs: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig[];
+        queryStringsConfigs?: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig[];
     }
 
     export interface GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
         /**
          * Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
          */
-        cookieBehavior: string;
+        cookieBehavior?: string;
         /**
          * Object that contains a list of cookie names. See Items for more information.
          */
-        cookies: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie[];
+        cookies?: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie[];
     }
 
     export interface GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie {
         /**
          * List of item names (`cookies`, `headers`, or `queryStrings`).
          */
-        items: string[];
+        items?: string[];
     }
 
     export interface GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
         /**
          * Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
          */
-        headerBehavior: string;
+        headerBehavior?: string;
         /**
          * Object that contains a list of header names. See Items for more information.
          */
-        headers: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader[];
+        headers?: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader[];
     }
 
     export interface GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader {
         /**
          * List of item names (`cookies`, `headers`, or `queryStrings`).
          */
-        items: string[];
+        items?: string[];
     }
 
     export interface GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
         /**
          * Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
          */
-        queryStringBehavior: string;
+        queryStringBehavior?: string;
         /**
          * Object that contains a list of query string names. See Items for more information.
          */
-        queryStrings: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString[];
+        queryStrings?: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString[];
     }
 
     export interface GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString {
         /**
          * List of item names (`cookies`, `headers`, or `queryStrings`).
          */
-        items: string[];
+        items?: string[];
     }
 
     export interface GetOriginRequestPolicyCookiesConfig {
-        cookieBehavior: string;
-        cookies: outputs.cloudfront.GetOriginRequestPolicyCookiesConfigCookie[];
+        cookieBehavior?: string;
+        cookies?: outputs.cloudfront.GetOriginRequestPolicyCookiesConfigCookie[];
     }
 
     export interface GetOriginRequestPolicyCookiesConfigCookie {
-        items: string[];
+        items?: string[];
     }
 
     export interface GetOriginRequestPolicyHeadersConfig {
-        headerBehavior: string;
-        headers: outputs.cloudfront.GetOriginRequestPolicyHeadersConfigHeader[];
+        headerBehavior?: string;
+        headers?: outputs.cloudfront.GetOriginRequestPolicyHeadersConfigHeader[];
     }
 
     export interface GetOriginRequestPolicyHeadersConfigHeader {
-        items: string[];
+        items?: string[];
     }
 
     export interface GetOriginRequestPolicyQueryStringsConfig {
-        queryStringBehavior: string;
-        queryStrings: outputs.cloudfront.GetOriginRequestPolicyQueryStringsConfigQueryString[];
+        queryStringBehavior?: string;
+        queryStrings?: outputs.cloudfront.GetOriginRequestPolicyQueryStringsConfigQueryString[];
     }
 
     export interface GetOriginRequestPolicyQueryStringsConfigQueryString {
-        items: string[];
+        items?: string[];
     }
 
     export interface GetRealtimeLogConfigEndpoint {
         /**
          * (Required) Amazon Kinesis data stream configuration.
          */
-        kinesisStreamConfigs: outputs.cloudfront.GetRealtimeLogConfigEndpointKinesisStreamConfig[];
+        kinesisStreamConfigs?: outputs.cloudfront.GetRealtimeLogConfigEndpointKinesisStreamConfig[];
         /**
          * (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
          */
-        streamType: string;
+        streamType?: string;
     }
 
     export interface GetRealtimeLogConfigEndpointKinesisStreamConfig {
@@ -12033,201 +12033,201 @@ export namespace cloudfront {
          * (Required) ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
          * See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
          */
-        roleArn: string;
+        roleArn?: string;
         /**
          * (Required) ARN of the Kinesis data stream.
          */
-        streamArn: string;
+        streamArn?: string;
     }
 
     export interface GetResponseHeadersPolicyCorsConfig {
         /**
          * A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
          */
-        accessControlAllowCredentials: boolean;
+        accessControlAllowCredentials?: boolean;
         /**
          * Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
          */
-        accessControlAllowHeaders: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader[];
+        accessControlAllowHeaders?: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader[];
         /**
          * Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
          */
-        accessControlAllowMethods: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod[];
+        accessControlAllowMethods?: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod[];
         /**
          * Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
          */
-        accessControlAllowOrigins: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin[];
+        accessControlAllowOrigins?: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin[];
         /**
          * Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
          */
-        accessControlExposeHeaders: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader[];
+        accessControlExposeHeaders?: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader[];
         /**
          * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
          */
-        accessControlMaxAgeSec: number;
-        originOverride: boolean;
+        accessControlMaxAgeSec?: number;
+        originOverride?: boolean;
     }
 
     export interface GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader {
-        items: string[];
+        items?: string[];
     }
 
     export interface GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod {
-        items: string[];
+        items?: string[];
     }
 
     export interface GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin {
-        items: string[];
+        items?: string[];
     }
 
     export interface GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader {
-        items: string[];
+        items?: string[];
     }
 
     export interface GetResponseHeadersPolicyCustomHeadersConfig {
-        items: outputs.cloudfront.GetResponseHeadersPolicyCustomHeadersConfigItem[];
+        items?: outputs.cloudfront.GetResponseHeadersPolicyCustomHeadersConfigItem[];
     }
 
     export interface GetResponseHeadersPolicyCustomHeadersConfigItem {
         /**
          * The HTTP header name.
          */
-        header: string;
+        header?: string;
         /**
          * Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
          */
-        override: boolean;
+        override?: boolean;
         /**
          * Value for the HTTP response header.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetResponseHeadersPolicyRemoveHeadersConfig {
-        items: outputs.cloudfront.GetResponseHeadersPolicyRemoveHeadersConfigItem[];
+        items?: outputs.cloudfront.GetResponseHeadersPolicyRemoveHeadersConfigItem[];
     }
 
     export interface GetResponseHeadersPolicyRemoveHeadersConfigItem {
         /**
          * The HTTP header name.
          */
-        header: string;
+        header?: string;
     }
 
     export interface GetResponseHeadersPolicySecurityHeadersConfig {
         /**
          * The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
          */
-        contentSecurityPolicies: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy[];
+        contentSecurityPolicies?: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy[];
         /**
          * A setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
          */
-        contentTypeOptions: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption[];
+        contentTypeOptions?: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption[];
         /**
          * Setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
          */
-        frameOptions: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigFrameOption[];
+        frameOptions?: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigFrameOption[];
         /**
          * Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
          */
-        referrerPolicies: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy[];
+        referrerPolicies?: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy[];
         /**
          * Settings that determine whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value. See Strict Transport Security for more information.
          */
-        strictTransportSecurities: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity[];
+        strictTransportSecurities?: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity[];
         /**
          * Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
          */
-        xssProtections: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigXssProtection[];
+        xssProtections?: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigXssProtection[];
     }
 
     export interface GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
         /**
          * The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
          */
-        contentSecurityPolicy: string;
+        contentSecurityPolicy?: string;
         /**
          * Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
          */
-        override: boolean;
+        override?: boolean;
     }
 
     export interface GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption {
         /**
          * Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
          */
-        override: boolean;
+        override?: boolean;
     }
 
     export interface GetResponseHeadersPolicySecurityHeadersConfigFrameOption {
         /**
          * Value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
          */
-        frameOption: string;
+        frameOption?: string;
         /**
          * Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
          */
-        override: boolean;
+        override?: boolean;
     }
 
     export interface GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
         /**
          * Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
          */
-        override: boolean;
+        override?: boolean;
         /**
          * Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
          */
-        referrerPolicy: string;
+        referrerPolicy?: string;
     }
 
     export interface GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity {
         /**
          * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
          */
-        accessControlMaxAgeSec: number;
+        accessControlMaxAgeSec?: number;
         /**
          * Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
          */
-        includeSubdomains: boolean;
+        includeSubdomains?: boolean;
         /**
          * Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
          */
-        override: boolean;
+        override?: boolean;
         /**
          * Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
          */
-        preload: boolean;
+        preload?: boolean;
     }
 
     export interface GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
         /**
          * Whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
          */
-        modeBlock: boolean;
+        modeBlock?: boolean;
         /**
          * Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
          */
-        override: boolean;
+        override?: boolean;
         /**
          * Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
          */
-        protection: boolean;
+        protection?: boolean;
         /**
          * Whether CloudFront sets a reporting URI in the X-XSS-Protection header.
          */
-        reportUri: string;
+        reportUri?: string;
     }
 
     export interface GetResponseHeadersPolicyServerTimingHeadersConfig {
         /**
          * Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
          */
-        samplingRate: number;
+        samplingRate?: number;
     }
 
     export interface MonitoringSubscriptionMonitoringSubscription {
@@ -12491,19 +12491,19 @@ export namespace cloudfront {
 
 export namespace cloudhsmv2 {
     export interface ClusterClusterCertificate {
-        awsHardwareCertificate: string;
-        clusterCertificate: string;
-        clusterCsr: string;
-        hsmCertificate: string;
-        manufacturerHardwareCertificate: string;
+        awsHardwareCertificate?: string;
+        clusterCertificate?: string;
+        clusterCsr?: string;
+        hsmCertificate?: string;
+        manufacturerHardwareCertificate?: string;
     }
 
     export interface GetClusterClusterCertificate {
-        awsHardwareCertificate: string;
-        clusterCertificate: string;
-        clusterCsr: string;
-        hsmCertificate: string;
-        manufacturerHardwareCertificate: string;
+        awsHardwareCertificate?: string;
+        clusterCertificate?: string;
+        clusterCsr?: string;
+        hsmCertificate?: string;
+        manufacturerHardwareCertificate?: string;
     }
 
 }
@@ -12513,11 +12513,11 @@ export namespace cloudsearch {
         /**
          * Enables or disables the requirement that all requests to the domain arrive over HTTPS.
          */
-        enforceHttps: boolean;
+        enforceHttps?: boolean;
         /**
          * The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
          */
-        tlsSecurityPolicy: string;
+        tlsSecurityPolicy?: string;
     }
 
     export interface DomainIndexField {
@@ -12567,15 +12567,15 @@ export namespace cloudsearch {
         /**
          * The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
          */
-        desiredInstanceType: string;
+        desiredInstanceType?: string;
         /**
          * The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
          */
-        desiredPartitionCount: number;
+        desiredPartitionCount?: number;
         /**
          * The number of replicas you want to preconfigure for each index partition.
          */
-        desiredReplicationCount: number;
+        desiredReplicationCount?: number;
     }
 
 }
@@ -12585,42 +12585,42 @@ export namespace cloudtrail {
         /**
          * Specifies the selector statements in an advanced event selector. Fields documented below.
          */
-        fieldSelectors: outputs.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelector[];
+        fieldSelectors?: outputs.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelector[];
         /**
          * Specifies the name of the advanced event selector.
          */
-        name: string;
+        name?: string;
     }
 
     export interface EventDataStoreAdvancedEventSelectorFieldSelector {
         /**
          * A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
          */
-        endsWiths: string[];
+        endsWiths?: string[];
         /**
          * A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
          */
-        equals: string[];
+        equals?: string[];
         /**
          * Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
          */
-        field: string;
+        field?: string;
         /**
          * A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
          */
-        notEndsWiths: string[];
+        notEndsWiths?: string[];
         /**
          * A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
          */
-        notEquals: string[];
+        notEquals?: string[];
         /**
          * A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
          */
-        notStartsWiths: string[];
+        notStartsWiths?: string[];
         /**
          * A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
          */
-        startsWiths: string[];
+        startsWiths?: string[];
     }
 
     export interface TrailAdvancedEventSelector {
@@ -13465,8 +13465,8 @@ export namespace codeartifact {
          * The name of the external connection associated with a repository.
          */
         externalConnectionName: string;
-        packageFormat: string;
-        status: string;
+        packageFormat?: string;
+        status?: string;
     }
 
     export interface RepositoryUpstream {
@@ -13967,17 +13967,17 @@ export namespace codecatalyst {
     }
 
     export interface GetDevEnvironmentIde {
-        name: string;
-        runtime: string;
+        name?: string;
+        runtime?: string;
     }
 
     export interface GetDevEnvironmentPersistentStorage {
-        size: number;
+        size?: number;
     }
 
     export interface GetDevEnvironmentRepository {
-        branchName: string;
-        repositoryName: string;
+        branchName?: string;
+        repositoryName?: string;
     }
 
 }
@@ -14096,7 +14096,7 @@ export namespace codedeploy {
         /**
          * Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
          */
-        greenFleetProvisioningOption: outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption;
+        greenFleetProvisioningOption?: outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption;
         /**
          * Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
          *
@@ -14367,13 +14367,13 @@ export namespace codegurureviewer {
         /**
          * The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
          */
-        bucketName: string;
-        codeArtifacts: outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetailCodeArtifact[];
+        bucketName?: string;
+        codeArtifacts?: outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetailCodeArtifact[];
     }
 
     export interface RepositoryAssociationS3RepositoryDetailCodeArtifact {
-        buildArtifactsObjectKey: string;
-        sourceCodeArtifactsObjectKey: string;
+        buildArtifactsObjectKey?: string;
+        sourceCodeArtifactsObjectKey?: string;
     }
 
 }
@@ -14463,7 +14463,7 @@ export namespace codepipeline {
         /**
          * The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
          */
-        region: string;
+        region?: string;
         /**
          * The type of the artifact store, such as Amazon S3
          */
@@ -14530,7 +14530,7 @@ export namespace codepipeline {
         /**
          * The region in which to run the action.
          */
-        region: string;
+        region?: string;
         /**
          * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
          */
@@ -14538,7 +14538,7 @@ export namespace codepipeline {
         /**
          * The order in which actions are run.
          */
-        runOrder: number;
+        runOrder?: number;
         /**
          * A string that identifies the action type.
          */
@@ -14600,7 +14600,7 @@ export namespace codestarnotifications {
         /**
          * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
          */
-        status: string;
+        status?: string;
         /**
          * The type of the notification target. Default value is `SNS`.
          */
@@ -14611,47 +14611,47 @@ export namespace codestarnotifications {
 
 export namespace cognito {
     export interface GetIdentityPoolCognitoIdentityProvider {
-        clientId: string;
-        providerName: string;
-        serverSideTokenCheck: boolean;
+        clientId?: string;
+        providerName?: string;
+        serverSideTokenCheck?: boolean;
     }
 
     export interface GetUserPoolClientAnalyticsConfiguration {
         /**
          * (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
          */
-        applicationArn: string;
+        applicationArn?: string;
         /**
          * (Optional) Application ID for an Amazon Pinpoint application.
          */
-        applicationId: string;
+        applicationId?: string;
         /**
          * (Optional) ID for the Analytics Configuration. Conflicts with `applicationArn`.
          */
-        externalId: string;
+        externalId?: string;
         /**
          * (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
          */
-        roleArn: string;
+        roleArn?: string;
         /**
          * (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
          */
-        userDataShared: boolean;
+        userDataShared?: boolean;
     }
 
     export interface GetUserPoolClientTokenValidityUnit {
         /**
          * (Optional) Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
          */
-        accessToken: string;
+        accessToken?: string;
         /**
          * (Optional) Time unit in for the value in `idTokenValidity`, defaults to `hours`.
          */
-        idToken: string;
+        idToken?: string;
         /**
          * (Optional) Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
          */
-        refreshToken: string;
+        refreshToken?: string;
     }
 
     export interface IdentityPoolCognitoIdentityProvider {
@@ -14723,26 +14723,26 @@ export namespace cognito {
         /**
          * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
          */
-        roleArn: string;
+        roleArn?: string;
         /**
          * If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
          */
-        userDataShared: boolean;
+        userDataShared?: boolean;
     }
 
     export interface ManagedUserPoolClientTokenValidityUnits {
         /**
          * Time unit for the value in `accessTokenValidity` and defaults to `hours`.
          */
-        accessToken: string;
+        accessToken?: string;
         /**
          * Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
          */
-        idToken: string;
+        idToken?: string;
         /**
          * Time unit for the value in `refreshTokenValidity` and defaults to `days`.
          */
-        refreshToken: string;
+        refreshToken?: string;
     }
 
     export interface ResourceServerScope {
@@ -14895,7 +14895,7 @@ export namespace cognito {
         /**
          * Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
          */
-        eventFilters: string[];
+        eventFilters?: string[];
     }
 
     export interface RiskConfigurationCompromisedCredentialsRiskConfigurationActions {
@@ -14924,7 +14924,7 @@ export namespace cognito {
         /**
          * List of Account Recovery Options of the following structure:
          */
-        recoveryMechanisms: outputs.cognito.UserPoolAccountRecoverySettingRecoveryMechanism[];
+        recoveryMechanisms?: outputs.cognito.UserPoolAccountRecoverySettingRecoveryMechanism[];
     }
 
     export interface UserPoolAccountRecoverySettingRecoveryMechanism {
@@ -14982,26 +14982,26 @@ export namespace cognito {
         /**
          * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
          */
-        roleArn: string;
+        roleArn?: string;
         /**
          * If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
          */
-        userDataShared: boolean;
+        userDataShared?: boolean;
     }
 
     export interface UserPoolClientTokenValidityUnits {
         /**
          * Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
          */
-        accessToken: string;
+        accessToken?: string;
         /**
          * Time unit in for the value in `idTokenValidity`, defaults to `hours`.
          */
-        idToken: string;
+        idToken?: string;
         /**
          * Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
          */
-        refreshToken: string;
+        refreshToken?: string;
     }
 
     export interface UserPoolDeviceConfiguration {
@@ -15207,7 +15207,7 @@ export namespace cognito {
         /**
          * The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
          */
-        snsRegion: string;
+        snsRegion?: string;
     }
 
     export interface UserPoolSoftwareTokenMfaConfiguration {
@@ -15246,23 +15246,23 @@ export namespace cognito {
         /**
          * Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
          */
-        emailMessage: string;
+        emailMessage?: string;
         /**
          * Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
          */
-        emailMessageByLink: string;
+        emailMessageByLink?: string;
         /**
          * Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
          */
-        emailSubject: string;
+        emailSubject?: string;
         /**
          * Subject line for the email message template for sending a confirmation link to the user.
          */
-        emailSubjectByLink: string;
+        emailSubjectByLink?: string;
         /**
          * SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
          */
-        smsMessage: string;
+        smsMessage?: string;
     }
 
 }
@@ -15285,7 +15285,7 @@ export namespace comprehend {
          * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
          * Default is `|`.
          */
-        labelDelimiter: string;
+        labelDelimiter?: string;
         /**
          * Location of training documents.
          * Used if `dataFormat` is `COMPREHEND_CSV`.
@@ -15332,7 +15332,7 @@ export namespace comprehend {
         /**
          * Full path for the output documents.
          */
-        outputS3Uri: string;
+        outputS3Uri?: string;
         /**
          * Destination path for the output documents.
          * The full path to the output file will be returned in `outputS3Uri`.
@@ -15760,7 +15760,7 @@ export namespace connect {
         /**
          * The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
          */
-        lexRegion: string;
+        lexRegion?: string;
         /**
          * The name of the Amazon Lex (V1) bot.
          */
@@ -15771,7 +15771,7 @@ export namespace connect {
         /**
          * Region that the Amazon Lex (V1) bot was created in.
          */
-        lexRegion: string;
+        lexRegion?: string;
         /**
          * Name of the Amazon Lex (V1) bot.
          */
@@ -15782,457 +15782,457 @@ export namespace connect {
         /**
          * Day that the hours of operation applies to.
          */
-        day: string;
+        day?: string;
         /**
          * End time block specifies the time that your contact center closes. The `endTime` is documented below.
          */
-        endTimes: outputs.connect.GetHoursOfOperationConfigEndTime[];
+        endTimes?: outputs.connect.GetHoursOfOperationConfigEndTime[];
         /**
          * Start time block specifies the time that your contact center opens. The `startTime` is documented below.
          */
-        startTimes: outputs.connect.GetHoursOfOperationConfigStartTime[];
+        startTimes?: outputs.connect.GetHoursOfOperationConfigStartTime[];
     }
 
     export interface GetHoursOfOperationConfigEndTime {
         /**
          * Hour of opening.
          */
-        hours: number;
+        hours?: number;
         /**
          * Minute of opening.
          */
-        minutes: number;
+        minutes?: number;
     }
 
     export interface GetHoursOfOperationConfigStartTime {
         /**
          * Hour of opening.
          */
-        hours: number;
+        hours?: number;
         /**
          * Minute of opening.
          */
-        minutes: number;
+        minutes?: number;
     }
 
     export interface GetInstanceStorageConfigStorageConfig {
         /**
          * A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
          */
-        kinesisFirehoseConfigs: outputs.connect.GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig[];
+        kinesisFirehoseConfigs?: outputs.connect.GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig[];
         /**
          * A block that specifies the configuration of the Kinesis data stream. Documented below.
          */
-        kinesisStreamConfigs: outputs.connect.GetInstanceStorageConfigStorageConfigKinesisStreamConfig[];
+        kinesisStreamConfigs?: outputs.connect.GetInstanceStorageConfigStorageConfigKinesisStreamConfig[];
         /**
          * A block that specifies the configuration of the Kinesis video stream. Documented below.
          */
-        kinesisVideoStreamConfigs: outputs.connect.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig[];
+        kinesisVideoStreamConfigs?: outputs.connect.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig[];
         /**
          * A block that specifies the configuration of S3 Bucket. Documented below.
          */
-        s3Configs: outputs.connect.GetInstanceStorageConfigStorageConfigS3Config[];
+        s3Configs?: outputs.connect.GetInstanceStorageConfigStorageConfigS3Config[];
         /**
          * A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
          */
-        storageType: string;
+        storageType?: string;
     }
 
     export interface GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig {
         /**
          * The Amazon Resource Name (ARN) of the delivery stream.
          */
-        firehoseArn: string;
+        firehoseArn?: string;
     }
 
     export interface GetInstanceStorageConfigStorageConfigKinesisStreamConfig {
         /**
          * The Amazon Resource Name (ARN) of the data stream.
          */
-        streamArn: string;
+        streamArn?: string;
     }
 
     export interface GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig {
         /**
          * The encryption configuration. Documented below.
          */
-        encryptionConfigs: outputs.connect.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig[];
+        encryptionConfigs?: outputs.connect.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig[];
         /**
          * The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
          */
-        prefix: string;
+        prefix?: string;
         /**
          * The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
          */
-        retentionPeriodHours: number;
+        retentionPeriodHours?: number;
     }
 
     export interface GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig {
         /**
          * The type of encryption. Valid Values: `KMS`.
          */
-        encryptionType: string;
+        encryptionType?: string;
         /**
          * The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
          */
-        keyId: string;
+        keyId?: string;
     }
 
     export interface GetInstanceStorageConfigStorageConfigS3Config {
         /**
          * The S3 bucket name.
          */
-        bucketName: string;
+        bucketName?: string;
         /**
          * The S3 bucket prefix.
          */
-        bucketPrefix: string;
+        bucketPrefix?: string;
         /**
          * The encryption configuration. Documented below.
          */
-        encryptionConfigs: outputs.connect.GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig[];
+        encryptionConfigs?: outputs.connect.GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig[];
     }
 
     export interface GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig {
         /**
          * The type of encryption. Valid Values: `KMS`.
          */
-        encryptionType: string;
+        encryptionType?: string;
         /**
          * The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
          */
-        keyId: string;
+        keyId?: string;
     }
 
     export interface GetQueueOutboundCallerConfig {
         /**
          * Specifies the caller ID name.
          */
-        outboundCallerIdName: string;
+        outboundCallerIdName?: string;
         /**
          * Specifies the caller ID number.
          */
-        outboundCallerIdNumberId: string;
+        outboundCallerIdNumberId?: string;
         /**
          * Outbound whisper flow to be used during an outbound call.
          */
-        outboundFlowId: string;
+        outboundFlowId?: string;
     }
 
     export interface GetQuickConnectQuickConnectConfig {
         /**
          * Phone configuration of the Quick Connect. This is returned only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
          */
-        phoneConfigs: outputs.connect.GetQuickConnectQuickConnectConfigPhoneConfig[];
+        phoneConfigs?: outputs.connect.GetQuickConnectQuickConnectConfigPhoneConfig[];
         /**
          * Queue configuration of the Quick Connect. This is returned only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
          */
-        queueConfigs: outputs.connect.GetQuickConnectQuickConnectConfigQueueConfig[];
+        queueConfigs?: outputs.connect.GetQuickConnectQuickConnectConfigQueueConfig[];
         /**
          * Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
          */
-        quickConnectType: string;
+        quickConnectType?: string;
         /**
          * User configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
          */
-        userConfigs: outputs.connect.GetQuickConnectQuickConnectConfigUserConfig[];
+        userConfigs?: outputs.connect.GetQuickConnectQuickConnectConfigUserConfig[];
     }
 
     export interface GetQuickConnectQuickConnectConfigPhoneConfig {
         /**
          * Phone number in in E.164 format.
          */
-        phoneNumber: string;
+        phoneNumber?: string;
     }
 
     export interface GetQuickConnectQuickConnectConfigQueueConfig {
         /**
          * Identifier of the contact flow.
          */
-        contactFlowId: string;
+        contactFlowId?: string;
         /**
          * Identifier for the queue.
          */
-        queueId: string;
+        queueId?: string;
     }
 
     export interface GetQuickConnectQuickConnectConfigUserConfig {
         /**
          * Identifier of the contact flow.
          */
-        contactFlowId: string;
+        contactFlowId?: string;
         /**
          * Identifier for the user.
          */
-        userId: string;
+        userId?: string;
     }
 
     export interface GetRoutingProfileMediaConcurrency {
         /**
          * Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
          */
-        channel: string;
+        channel?: string;
         /**
          * Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
          */
-        concurrency: number;
+        concurrency?: number;
     }
 
     export interface GetRoutingProfileQueueConfig {
         /**
          * Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
          */
-        channel: string;
+        channel?: string;
         /**
          * Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
          */
-        delay: number;
+        delay?: number;
         /**
          * Order in which contacts are to be handled for the queue.
          */
-        priority: number;
+        priority?: number;
         /**
          * ARN for the queue.
          */
-        queueArn: string;
+        queueArn?: string;
         /**
          * Identifier for the queue.
          */
-        queueId: string;
+        queueId?: string;
         /**
          * Name for the queue.
          */
-        queueName: string;
+        queueName?: string;
     }
 
     export interface GetUserHierarchyGroupHierarchyPath {
         /**
          * Details of level five. See below.
          */
-        levelFives: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelFife[];
+        levelFives?: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelFife[];
         /**
          * Details of level four. See below.
          */
-        levelFours: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelFour[];
+        levelFours?: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelFour[];
         /**
          * Details of level one. See below.
          */
-        levelOnes: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelOne[];
+        levelOnes?: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelOne[];
         /**
          * Details of level three. See below.
          */
-        levelThrees: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelThree[];
+        levelThrees?: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelThree[];
         /**
          * Details of level two. See below.
          */
-        levelTwos: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelTwo[];
+        levelTwos?: outputs.connect.GetUserHierarchyGroupHierarchyPathLevelTwo[];
     }
 
     export interface GetUserHierarchyGroupHierarchyPathLevelFife {
         /**
          * ARN of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * Returns information on a specific hierarchy group by name
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserHierarchyGroupHierarchyPathLevelFour {
         /**
          * ARN of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * Returns information on a specific hierarchy group by name
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserHierarchyGroupHierarchyPathLevelOne {
         /**
          * ARN of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * Returns information on a specific hierarchy group by name
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserHierarchyGroupHierarchyPathLevelThree {
         /**
          * ARN of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * Returns information on a specific hierarchy group by name
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserHierarchyGroupHierarchyPathLevelTwo {
         /**
          * ARN of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * Returns information on a specific hierarchy group by name
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserHierarchyStructureHierarchyStructure {
         /**
          * Details of level five. See below.
          */
-        levelFives: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelFife[];
+        levelFives?: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelFife[];
         /**
          * Details of level four. See below.
          */
-        levelFours: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelFour[];
+        levelFours?: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelFour[];
         /**
          * Details of level one. See below.
          */
-        levelOnes: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelOne[];
+        levelOnes?: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelOne[];
         /**
          * Details of level three. See below.
          */
-        levelThrees: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelThree[];
+        levelThrees?: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelThree[];
         /**
          * Details of level two. See below.
          */
-        levelTwos: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelTwo[];
+        levelTwos?: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelTwo[];
     }
 
     export interface GetUserHierarchyStructureHierarchyStructureLevelFife {
         /**
          * ARN of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the user hierarchy level. Must not be more than 50 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserHierarchyStructureHierarchyStructureLevelFour {
         /**
          * ARN of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the user hierarchy level. Must not be more than 50 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserHierarchyStructureHierarchyStructureLevelOne {
         /**
          * ARN of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the user hierarchy level. Must not be more than 50 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserHierarchyStructureHierarchyStructureLevelThree {
         /**
          * ARN of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the user hierarchy level. Must not be more than 50 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserHierarchyStructureHierarchyStructureLevelTwo {
         /**
          * ARN of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the user hierarchy level. Must not be more than 50 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetUserIdentityInfo {
         /**
          * The email address.
          */
-        email: string;
+        email?: string;
         /**
          * The first name.
          */
-        firstName: string;
+        firstName?: string;
         /**
          * The last name.
          */
-        lastName: string;
+        lastName?: string;
     }
 
     export interface GetUserPhoneConfig {
         /**
          * The After Call Work (ACW) timeout setting, in seconds.
          */
-        afterContactWorkTimeLimit: number;
+        afterContactWorkTimeLimit?: number;
         /**
          * When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
          */
-        autoAccept: boolean;
+        autoAccept?: boolean;
         /**
          * The phone number for the user's desk phone.
          */
-        deskPhoneNumber: string;
+        deskPhoneNumber?: string;
         /**
          * The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
          */
-        phoneType: string;
+        phoneType?: string;
     }
 
     export interface HoursOfOperationConfig {
@@ -16365,11 +16365,11 @@ export namespace connect {
         /**
          * The status message.
          */
-        message: string;
+        message?: string;
         /**
          * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
          */
-        status: string;
+        status?: string;
     }
 
     export interface QueueOutboundCallerConfig {
@@ -16462,7 +16462,7 @@ export namespace connect {
         /**
          * ARN for the queue.
          */
-        queueArn: string;
+        queueArn?: string;
         /**
          * Specifies the identifier for the queue.
          */
@@ -16470,105 +16470,105 @@ export namespace connect {
         /**
          * Name for the queue.
          */
-        queueName: string;
+        queueName?: string;
     }
 
     export interface UserHierarchyGroupHierarchyPath {
         /**
          * A block that defines the details of level five. The level block is documented below.
          */
-        levelFives: outputs.connect.UserHierarchyGroupHierarchyPathLevelFife[];
+        levelFives?: outputs.connect.UserHierarchyGroupHierarchyPathLevelFife[];
         /**
          * A block that defines the details of level four. The level block is documented below.
          */
-        levelFours: outputs.connect.UserHierarchyGroupHierarchyPathLevelFour[];
+        levelFours?: outputs.connect.UserHierarchyGroupHierarchyPathLevelFour[];
         /**
          * A block that defines the details of level one. The level block is documented below.
          */
-        levelOnes: outputs.connect.UserHierarchyGroupHierarchyPathLevelOne[];
+        levelOnes?: outputs.connect.UserHierarchyGroupHierarchyPathLevelOne[];
         /**
          * A block that defines the details of level three. The level block is documented below.
          */
-        levelThrees: outputs.connect.UserHierarchyGroupHierarchyPathLevelThree[];
+        levelThrees?: outputs.connect.UserHierarchyGroupHierarchyPathLevelThree[];
         /**
          * A block that defines the details of level two. The level block is documented below.
          */
-        levelTwos: outputs.connect.UserHierarchyGroupHierarchyPathLevelTwo[];
+        levelTwos?: outputs.connect.UserHierarchyGroupHierarchyPathLevelTwo[];
     }
 
     export interface UserHierarchyGroupHierarchyPathLevelFife {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy group. Must not be more than 100 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface UserHierarchyGroupHierarchyPathLevelFour {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy group. Must not be more than 100 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface UserHierarchyGroupHierarchyPathLevelOne {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy group. Must not be more than 100 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface UserHierarchyGroupHierarchyPathLevelThree {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy group. Must not be more than 100 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface UserHierarchyGroupHierarchyPathLevelTwo {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy group.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy group.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy group. Must not be more than 100 characters.
          */
-        name: string;
+        name?: string;
     }
 
     export interface UserHierarchyStructureHierarchyStructure {
@@ -16577,34 +16577,34 @@ export namespace connect {
          *
          * Each level block supports the following arguments:
          */
-        levelFive: outputs.connect.UserHierarchyStructureHierarchyStructureLevelFive;
+        levelFive?: outputs.connect.UserHierarchyStructureHierarchyStructureLevelFive;
         /**
          * A block that defines the details of level four. The level block is documented below.
          */
-        levelFour: outputs.connect.UserHierarchyStructureHierarchyStructureLevelFour;
+        levelFour?: outputs.connect.UserHierarchyStructureHierarchyStructureLevelFour;
         /**
          * A block that defines the details of level one. The level block is documented below.
          */
-        levelOne: outputs.connect.UserHierarchyStructureHierarchyStructureLevelOne;
+        levelOne?: outputs.connect.UserHierarchyStructureHierarchyStructureLevelOne;
         /**
          * A block that defines the details of level three. The level block is documented below.
          */
-        levelThree: outputs.connect.UserHierarchyStructureHierarchyStructureLevelThree;
+        levelThree?: outputs.connect.UserHierarchyStructureHierarchyStructureLevelThree;
         /**
          * A block that defines the details of level two. The level block is documented below.
          */
-        levelTwo: outputs.connect.UserHierarchyStructureHierarchyStructureLevelTwo;
+        levelTwo?: outputs.connect.UserHierarchyStructureHierarchyStructureLevelTwo;
     }
 
     export interface UserHierarchyStructureHierarchyStructureLevelFive {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy level. Must not be more than 50 characters.
          */
@@ -16615,11 +16615,11 @@ export namespace connect {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy level. Must not be more than 50 characters.
          */
@@ -16630,11 +16630,11 @@ export namespace connect {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy level. Must not be more than 50 characters.
          */
@@ -16645,11 +16645,11 @@ export namespace connect {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy level. Must not be more than 50 characters.
          */
@@ -16660,11 +16660,11 @@ export namespace connect {
         /**
          * The Amazon Resource Name (ARN) of the hierarchy level.
          */
-        arn: string;
+        arn?: string;
         /**
          * The identifier of the hierarchy level.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the user hierarchy level. Must not be more than 50 characters.
          */
@@ -17287,312 +17287,312 @@ export namespace costexplorer {
         /**
          * Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
          */
-        inheritedValues: outputs.costexplorer.GetCostCategoryRuleInheritedValue[];
+        inheritedValues?: outputs.costexplorer.GetCostCategoryRuleInheritedValue[];
         /**
          * Configuration block for the `Expression` object used to categorize costs. See below.
          */
-        rules: outputs.costexplorer.GetCostCategoryRuleRule[];
+        rules?: outputs.costexplorer.GetCostCategoryRuleRule[];
         /**
          * Parameter type.
          */
-        type: string;
+        type?: string;
         /**
          * Default value for the cost category.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetCostCategoryRuleInheritedValue {
         /**
          * Key to extract cost category values.
          */
-        dimensionKey: string;
+        dimensionKey?: string;
         /**
          * Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
          */
-        dimensionName: string;
+        dimensionName?: string;
     }
 
     export interface GetCostCategoryRuleRule {
         /**
          * Return results that match both `Dimension` objects.
          */
-        ands: outputs.costexplorer.GetCostCategoryRuleRuleAnd[];
+        ands?: outputs.costexplorer.GetCostCategoryRuleRuleAnd[];
         /**
          * Configuration block for the filter that's based on `CostCategory` values. See below.
          */
-        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleCostCategory[];
+        costCategories?: outputs.costexplorer.GetCostCategoryRuleRuleCostCategory[];
         /**
          * Configuration block for the specific `Dimension` to use for `Expression`. See below.
          */
-        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleDimension[];
+        dimensions?: outputs.costexplorer.GetCostCategoryRuleRuleDimension[];
         /**
          * Return results that do not match the `Dimension` object.
          */
-        nots: outputs.costexplorer.GetCostCategoryRuleRuleNot[];
+        nots?: outputs.costexplorer.GetCostCategoryRuleRuleNot[];
         /**
          * Return results that match either `Dimension` object.
          */
-        ors: outputs.costexplorer.GetCostCategoryRuleRuleOr[];
+        ors?: outputs.costexplorer.GetCostCategoryRuleRuleOr[];
         /**
          * Configuration block for the specific `Tag` to use for `Expression`. See below.
          */
-        tags: outputs.costexplorer.GetCostCategoryRuleRuleTag[];
+        tags?: outputs.costexplorer.GetCostCategoryRuleRuleTag[];
     }
 
     export interface GetCostCategoryRuleRuleAnd {
         /**
          * Configuration block for the filter that's based on `CostCategory` values. See below.
          */
-        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleAndCostCategory[];
+        costCategories?: outputs.costexplorer.GetCostCategoryRuleRuleAndCostCategory[];
         /**
          * Configuration block for the specific `Dimension` to use for `Expression`. See below.
          */
-        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleAndDimension[];
+        dimensions?: outputs.costexplorer.GetCostCategoryRuleRuleAndDimension[];
         /**
          * Configuration block for the specific `Tag` to use for `Expression`. See below.
          */
-        tags: outputs.costexplorer.GetCostCategoryRuleRuleAndTag[];
+        tags?: outputs.costexplorer.GetCostCategoryRuleRuleAndTag[];
     }
 
     export interface GetCostCategoryRuleRuleAndCostCategory {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleAndDimension {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleAndTag {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleCostCategory {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleDimension {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleNot {
         /**
          * Configuration block for the filter that's based on `CostCategory` values. See below.
          */
-        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleNotCostCategory[];
+        costCategories?: outputs.costexplorer.GetCostCategoryRuleRuleNotCostCategory[];
         /**
          * Configuration block for the specific `Dimension` to use for `Expression`. See below.
          */
-        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleNotDimension[];
+        dimensions?: outputs.costexplorer.GetCostCategoryRuleRuleNotDimension[];
         /**
          * Configuration block for the specific `Tag` to use for `Expression`. See below.
          */
-        tags: outputs.costexplorer.GetCostCategoryRuleRuleNotTag[];
+        tags?: outputs.costexplorer.GetCostCategoryRuleRuleNotTag[];
     }
 
     export interface GetCostCategoryRuleRuleNotCostCategory {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleNotDimension {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleNotTag {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleOr {
         /**
          * Configuration block for the filter that's based on `CostCategory` values. See below.
          */
-        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleOrCostCategory[];
+        costCategories?: outputs.costexplorer.GetCostCategoryRuleRuleOrCostCategory[];
         /**
          * Configuration block for the specific `Dimension` to use for `Expression`. See below.
          */
-        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleOrDimension[];
+        dimensions?: outputs.costexplorer.GetCostCategoryRuleRuleOrDimension[];
         /**
          * Configuration block for the specific `Tag` to use for `Expression`. See below.
          */
-        tags: outputs.costexplorer.GetCostCategoryRuleRuleOrTag[];
+        tags?: outputs.costexplorer.GetCostCategoryRuleRuleOrTag[];
     }
 
     export interface GetCostCategoryRuleRuleOrCostCategory {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleOrDimension {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleOrTag {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategoryRuleRuleTag {
         /**
          * Key for the tag.
          */
-        key: string;
+        key?: string;
         /**
          * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
          */
-        matchOptions: string[];
+        matchOptions?: string[];
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetCostCategorySplitChargeRule {
         /**
          * Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
          */
-        method: string;
+        method?: string;
         /**
          * Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
          */
-        parameters: outputs.costexplorer.GetCostCategorySplitChargeRuleParameter[];
+        parameters?: outputs.costexplorer.GetCostCategorySplitChargeRuleParameter[];
         /**
          * Cost Category value that you want to split.
          */
-        source: string;
+        source?: string;
         /**
          * Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
          */
-        targets: string[];
+        targets?: string[];
     }
 
     export interface GetCostCategorySplitChargeRuleParameter {
         /**
          * Parameter type.
          */
-        type: string;
+        type?: string;
         /**
          * Parameter values.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetTagsFilter {
@@ -17873,33 +17873,33 @@ export namespace costexplorer {
 
 export namespace datapipeline {
     export interface GetPipelineDefinitionParameterObject {
-        attributes: outputs.datapipeline.GetPipelineDefinitionParameterObjectAttribute[];
+        attributes?: outputs.datapipeline.GetPipelineDefinitionParameterObjectAttribute[];
         /**
          * ID of the object.
          */
-        id: string;
+        id?: string;
     }
 
     export interface GetPipelineDefinitionParameterObjectAttribute {
         /**
          * Field identifier.
          */
-        key: string;
+        key?: string;
         /**
          * Field value, expressed as a String.
          */
-        stringValue: string;
+        stringValue?: string;
     }
 
     export interface GetPipelineDefinitionParameterValue {
         /**
          * ID of the object.
          */
-        id: string;
+        id?: string;
         /**
          * Field value, expressed as a String.
          */
-        stringValue: string;
+        stringValue?: string;
     }
 
     export interface GetPipelineDefinitionPipelineObject {
@@ -17910,26 +17910,26 @@ export namespace datapipeline {
         /**
          * ID of the object.
          */
-        id: string;
+        id?: string;
         /**
          * ARN of the storage connector.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetPipelineDefinitionPipelineObjectField {
         /**
          * Field identifier.
          */
-        key: string;
+        key?: string;
         /**
          * Field value, expressed as the identifier of another object
          */
-        refValue: string;
+        refValue?: string;
         /**
          * Field value, expressed as a String.
          */
-        stringValue: string;
+        stringValue?: string;
     }
 
     export interface PipelineDefinitionParameterObject {
@@ -18204,7 +18204,7 @@ export namespace datasync {
         /**
          * Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
          */
-        securityDescriptorCopyFlags: string;
+        securityDescriptorCopyFlags?: string;
         /**
          * Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
          */
@@ -18291,13 +18291,13 @@ export namespace datasync {
 
 export namespace dax {
     export interface ClusterNode {
-        address: string;
-        availabilityZone: string;
-        id: string;
+        address?: string;
+        availabilityZone?: string;
+        id?: string;
         /**
          * The port used by the configuration endpoint
          */
-        port: number;
+        port?: number;
     }
 
     export interface ClusterServerSideEncryption {
@@ -18358,7 +18358,7 @@ export namespace directconnect {
         /**
          * Router platform
          */
-        platform: string;
+        platform?: string;
         /**
          * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
          *
@@ -18368,31 +18368,31 @@ export namespace directconnect {
          * import * as pulumi from "@pulumi/pulumi";
          * ```
          */
-        routerTypeIdentifier: string;
+        routerTypeIdentifier?: string;
         /**
          * Router operating system
          */
-        software: string;
+        software?: string;
         /**
          * Router vendor
          */
-        vendor: string;
+        vendor?: string;
         /**
          * Router XSLT Template Name
          */
-        xsltTemplateName: string;
-        xsltTemplateNameForMacSec: string;
+        xsltTemplateName?: string;
+        xsltTemplateNameForMacSec?: string;
     }
 
 }
 
 export namespace directoryservice {
     export interface DirectoryConnectSettings {
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * The IP addresses of the AD Connector servers.
          */
-        connectIps: string[];
+        connectIps?: string[];
         /**
          * The DNS IP addresses of the domain to connect to.
          */
@@ -18412,7 +18412,7 @@ export namespace directoryservice {
     }
 
     export interface DirectoryVpcSettings {
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
          */
@@ -18424,70 +18424,70 @@ export namespace directoryservice {
     }
 
     export interface GetDirectoryConnectSetting {
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * IP addresses of the AD Connector servers.
          */
-        connectIps: string[];
+        connectIps?: string[];
         /**
          * DNS IP addresses of the domain to connect to.
          */
-        customerDnsIps: string[];
+        customerDnsIps?: string[];
         /**
          * Username corresponding to the password provided.
          */
-        customerUsername: string;
+        customerUsername?: string;
         /**
          * Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
          */
-        subnetIds: string[];
+        subnetIds?: string[];
         /**
          * ID of the VPC that the connector is in.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface GetDirectoryRadiusSetting {
         /**
          * The protocol specified for your RADIUS endpoints.
          */
-        authenticationProtocol: string;
+        authenticationProtocol?: string;
         /**
          * Display label.
          */
-        displayLabel: string;
+        displayLabel?: string;
         /**
          * Port that your RADIUS server is using for communications.
          */
-        radiusPort: number;
+        radiusPort?: number;
         /**
          * Maximum number of times that communication with the RADIUS server is attempted.
          */
-        radiusRetries: number;
+        radiusRetries?: number;
         /**
          * Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
          */
-        radiusServers: string[];
+        radiusServers?: string[];
         /**
          * Amount of time, in seconds, to wait for the RADIUS server to respond.
          */
-        radiusTimeout: number;
+        radiusTimeout?: number;
         /**
          * Not currently used.
          */
-        useSameUsername: boolean;
+        useSameUsername?: boolean;
     }
 
     export interface GetDirectoryVpcSetting {
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
          */
-        subnetIds: string[];
+        subnetIds?: string[];
         /**
          * ID of the VPC that the connector is in.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface ServiceRegionVpcSettings {
@@ -18535,7 +18535,7 @@ export namespace dlm {
         /**
          * The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
          */
-        resourceLocations: string;
+        resourceLocations?: string;
         /**
          * A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
          */
@@ -18641,7 +18641,7 @@ export namespace dlm {
         /**
          * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
          */
-        copyTags: boolean;
+        copyTags?: boolean;
         /**
          * See the `createRule` block. Max of 1 per schedule.
          */
@@ -18692,15 +18692,15 @@ export namespace dlm {
         /**
          * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
-        intervalUnit: string;
+        intervalUnit?: string;
         /**
          * Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
          */
-        location: string;
+        location?: string;
         /**
          * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
-        times: string;
+        times?: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
@@ -19183,119 +19183,119 @@ export namespace dms {
     }
 
     export interface GetEndpointElasticsearchSetting {
-        endpointUri: string;
-        errorRetryDuration: number;
-        fullLoadErrorPercentage: number;
-        serviceAccessRoleArn: string;
+        endpointUri?: string;
+        errorRetryDuration?: number;
+        fullLoadErrorPercentage?: number;
+        serviceAccessRoleArn?: string;
     }
 
     export interface GetEndpointKafkaSetting {
-        broker: string;
-        includeControlDetails: boolean;
-        includeNullAndEmpty: boolean;
-        includePartitionValue: boolean;
-        includeTableAlterOperations: boolean;
-        includeTransactionDetails: boolean;
-        messageFormat: string;
-        messageMaxBytes: number;
-        noHexPrefix: boolean;
-        partitionIncludeSchemaTable: boolean;
-        saslPassword: string;
-        saslUsername: string;
-        securityProtocol: string;
-        sslCaCertificateArn: string;
-        sslClientCertificateArn: string;
-        sslClientKeyArn: string;
-        sslClientKeyPassword: string;
-        topic: string;
+        broker?: string;
+        includeControlDetails?: boolean;
+        includeNullAndEmpty?: boolean;
+        includePartitionValue?: boolean;
+        includeTableAlterOperations?: boolean;
+        includeTransactionDetails?: boolean;
+        messageFormat?: string;
+        messageMaxBytes?: number;
+        noHexPrefix?: boolean;
+        partitionIncludeSchemaTable?: boolean;
+        saslPassword?: string;
+        saslUsername?: string;
+        securityProtocol?: string;
+        sslCaCertificateArn?: string;
+        sslClientCertificateArn?: string;
+        sslClientKeyArn?: string;
+        sslClientKeyPassword?: string;
+        topic?: string;
     }
 
     export interface GetEndpointKinesisSetting {
-        includeControlDetails: boolean;
-        includeNullAndEmpty: boolean;
-        includePartitionValue: boolean;
-        includeTableAlterOperations: boolean;
-        includeTransactionDetails: boolean;
-        messageFormat: string;
-        partitionIncludeSchemaTable: boolean;
-        serviceAccessRoleArn: string;
-        streamArn: string;
+        includeControlDetails?: boolean;
+        includeNullAndEmpty?: boolean;
+        includePartitionValue?: boolean;
+        includeTableAlterOperations?: boolean;
+        includeTransactionDetails?: boolean;
+        messageFormat?: string;
+        partitionIncludeSchemaTable?: boolean;
+        serviceAccessRoleArn?: string;
+        streamArn?: string;
     }
 
     export interface GetEndpointMongodbSetting {
-        authMechanism: string;
-        authSource: string;
-        authType: string;
-        docsToInvestigate: string;
-        extractDocId: string;
-        nestingLevel: string;
+        authMechanism?: string;
+        authSource?: string;
+        authType?: string;
+        docsToInvestigate?: string;
+        extractDocId?: string;
+        nestingLevel?: string;
     }
 
     export interface GetEndpointRedisSetting {
-        authPassword: string;
-        authType: string;
-        authUserName: string;
-        port: number;
-        serverName: string;
-        sslCaCertificateArn: string;
-        sslSecurityProtocol: string;
+        authPassword?: string;
+        authType?: string;
+        authUserName?: string;
+        port?: number;
+        serverName?: string;
+        sslCaCertificateArn?: string;
+        sslSecurityProtocol?: string;
     }
 
     export interface GetEndpointRedshiftSetting {
-        bucketFolder: string;
-        bucketName: string;
-        encryptionMode: string;
-        serverSideEncryptionKmsKeyId: string;
-        serviceAccessRoleArn: string;
+        bucketFolder?: string;
+        bucketName?: string;
+        encryptionMode?: string;
+        serverSideEncryptionKmsKeyId?: string;
+        serviceAccessRoleArn?: string;
     }
 
     export interface GetEndpointS3Setting {
-        addColumnName: boolean;
-        bucketFolder: string;
-        bucketName: string;
-        cannedAclForObjects: string;
-        cdcInsertsAndUpdates: boolean;
-        cdcInsertsOnly: boolean;
-        cdcMaxBatchInterval: number;
-        cdcMinFileSize: number;
-        cdcPath: string;
-        compressionType: string;
-        csvDelimiter: string;
-        csvNoSupValue: string;
-        csvNullValue: string;
-        csvRowDelimiter: string;
-        dataFormat: string;
-        dataPageSize: number;
-        datePartitionDelimiter: string;
-        datePartitionEnabled: boolean;
-        datePartitionSequence: string;
-        dictPageSizeLimit: number;
-        enableStatistics: boolean;
-        encodingType: string;
-        encryptionMode: string;
-        externalTableDefinition: string;
-        glueCatalogGeneration: boolean;
-        ignoreHeaderRows: number;
-        ignoreHeadersRow: number;
-        includeOpForFullLoad: boolean;
-        maxFileSize: number;
-        parquetTimestampInMillisecond: boolean;
-        parquetVersion: string;
-        preserveTransactions: boolean;
-        rfc4180: boolean;
-        rowGroupLength: number;
-        serverSideEncryptionKmsKeyId: string;
-        serviceAccessRoleArn: string;
-        timestampColumnName: string;
-        useCsvNoSupValue: boolean;
-        useTaskStartTimeForFullLoadTimestamp: boolean;
+        addColumnName?: boolean;
+        bucketFolder?: string;
+        bucketName?: string;
+        cannedAclForObjects?: string;
+        cdcInsertsAndUpdates?: boolean;
+        cdcInsertsOnly?: boolean;
+        cdcMaxBatchInterval?: number;
+        cdcMinFileSize?: number;
+        cdcPath?: string;
+        compressionType?: string;
+        csvDelimiter?: string;
+        csvNoSupValue?: string;
+        csvNullValue?: string;
+        csvRowDelimiter?: string;
+        dataFormat?: string;
+        dataPageSize?: number;
+        datePartitionDelimiter?: string;
+        datePartitionEnabled?: boolean;
+        datePartitionSequence?: string;
+        dictPageSizeLimit?: number;
+        enableStatistics?: boolean;
+        encodingType?: string;
+        encryptionMode?: string;
+        externalTableDefinition?: string;
+        glueCatalogGeneration?: boolean;
+        ignoreHeaderRows?: number;
+        ignoreHeadersRow?: number;
+        includeOpForFullLoad?: boolean;
+        maxFileSize?: number;
+        parquetTimestampInMillisecond?: boolean;
+        parquetVersion?: string;
+        preserveTransactions?: boolean;
+        rfc4180?: boolean;
+        rowGroupLength?: number;
+        serverSideEncryptionKmsKeyId?: string;
+        serviceAccessRoleArn?: string;
+        timestampColumnName?: string;
+        useCsvNoSupValue?: boolean;
+        useTaskStartTimeForFullLoadTimestamp?: boolean;
     }
 
     export interface ReplicationConfigComputeConfig {
         /**
          * The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
          */
-        availabilityZone: string;
+        availabilityZone?: string;
         /**
          * A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
          */
@@ -19303,7 +19303,7 @@ export namespace dms {
         /**
          * An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
          */
@@ -19315,7 +19315,7 @@ export namespace dms {
         /**
          * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
          */
-        multiAz: boolean;
+        multiAz?: boolean;
         /**
          * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
          *
@@ -19324,7 +19324,7 @@ export namespace dms {
          * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
          * - Constraints: Minimum 30-minute window.
          */
-        preferredMaintenanceWindow: string;
+        preferredMaintenanceWindow?: string;
         /**
          * Specifies a subnet group identifier to associate with the DMS Serverless replication.
          */
@@ -19332,7 +19332,7 @@ export namespace dms {
         /**
          * Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
          */
-        vpcSecurityGroupIds: string[];
+        vpcSecurityGroupIds?: string[];
     }
 
 }
@@ -19357,11 +19357,11 @@ export namespace docdb {
         /**
          * Amazon Resource Name (ARN) of member DB Cluster.
          */
-        dbClusterArn: string;
+        dbClusterArn?: string;
         /**
          * Whether the member is the primary DB Cluster.
          */
-        isWriter: boolean;
+        isWriter?: boolean;
     }
 
 }
@@ -19371,50 +19371,50 @@ export namespace dynamodb {
         /**
          * Name of the DynamoDB table.
          */
-        name: string;
-        type: string;
+        name?: string;
+        type?: string;
     }
 
     export interface GetTableGlobalSecondaryIndex {
-        hashKey: string;
+        hashKey?: string;
         /**
          * Name of the DynamoDB table.
          */
-        name: string;
-        nonKeyAttributes: string[];
-        projectionType: string;
-        rangeKey: string;
-        readCapacity: number;
-        writeCapacity: number;
+        name?: string;
+        nonKeyAttributes?: string[];
+        projectionType?: string;
+        rangeKey?: string;
+        readCapacity?: number;
+        writeCapacity?: number;
     }
 
     export interface GetTableLocalSecondaryIndex {
         /**
          * Name of the DynamoDB table.
          */
-        name: string;
-        nonKeyAttributes: string[];
-        projectionType: string;
-        rangeKey: string;
+        name?: string;
+        nonKeyAttributes?: string[];
+        projectionType?: string;
+        rangeKey?: string;
     }
 
     export interface GetTablePointInTimeRecovery {
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface GetTableReplica {
-        kmsKeyArn: string;
-        regionName: string;
+        kmsKeyArn?: string;
+        regionName?: string;
     }
 
     export interface GetTableServerSideEncryption {
-        enabled: boolean;
-        kmsKeyArn: string;
+        enabled?: boolean;
+        kmsKeyArn?: string;
     }
 
     export interface GetTableTtl {
-        attributeName: string;
-        enabled: boolean;
+        attributeName?: string;
+        enabled?: boolean;
     }
 
     export interface GlobalTableReplica {
@@ -19548,11 +19548,11 @@ export namespace dynamodb {
         /**
          * ARN of the table
          */
-        arn: string;
+        arn?: string;
         /**
          * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
          */
-        kmsKeyArn: string;
+        kmsKeyArn?: string;
         /**
          * Whether to enable Point In Time Recovery for the replica. Default is `false`.
          */
@@ -19568,11 +19568,11 @@ export namespace dynamodb {
         /**
          * ARN of the Table Stream. Only available when `streamEnabled = true`
          */
-        streamArn: string;
+        streamArn?: string;
         /**
          * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
          */
-        streamLabel: string;
+        streamLabel?: string;
     }
 
     export interface TableServerSideEncryption {
@@ -19583,7 +19583,7 @@ export namespace dynamodb {
         /**
          * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
          */
-        kmsKeyArn: string;
+        kmsKeyArn?: string;
     }
 
     export interface TableTtl {
@@ -19652,15 +19652,15 @@ export namespace ebs {
         /**
          * The time that the disk upload ends.
          */
-        uploadEnd: string;
+        uploadEnd?: string;
         /**
          * The size of the uploaded disk image, in GiB.
          */
-        uploadSize: number;
+        uploadSize?: number;
         /**
          * The time that the disk upload starts.
          */
-        uploadStart: string;
+        uploadStart?: string;
     }
 
     export interface SnapshotImportDiskContainer {
@@ -19701,58 +19701,58 @@ export namespace ec2 {
          * Boolean controlling whether the EBS volumes created to
          * support each created instance will be deleted once that instance is terminated.
          */
-        deleteOnTermination: boolean;
+        deleteOnTermination?: boolean;
         /**
          * Path at which the device is exposed to created instances.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Number of I/O operations per second the
          * created volumes will support.
          */
-        iops: number;
+        iops?: number;
         /**
          * ARN of the Outpost on which the snapshot is stored.
          *
          * > **Note:** You can specify `encrypted` or `snapshotId` but not both.
          */
-        outpostArn: string;
+        outpostArn?: string;
         /**
          * ID of an EBS snapshot that will be used to initialize the created
          * EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
          * snapshot.
          */
-        snapshotId: string;
+        snapshotId?: string;
         /**
          * Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of created volumes in GiB.
          * If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
          * as the selected snapshot.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface AmiCopyEphemeralBlockDevice {
         /**
          * Path at which the device is exposed to created instances.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Name for the ephemeral device, of the form "ephemeralN" where
          * *N* is a volume number starting from zero.
          */
-        virtualName: string;
+        virtualName?: string;
     }
 
     export interface AmiEbsBlockDevice {
@@ -19789,13 +19789,13 @@ export namespace ec2 {
         /**
          * Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of created volumes in GiB.
          * If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
          * as the selected snapshot.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          */
@@ -19819,58 +19819,58 @@ export namespace ec2 {
          * Boolean controlling whether the EBS volumes created to
          * support each created instance will be deleted once that instance is terminated.
          */
-        deleteOnTermination: boolean;
+        deleteOnTermination?: boolean;
         /**
          * Path at which the device is exposed to created instances.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Number of I/O operations per second the
          * created volumes will support.
          */
-        iops: number;
+        iops?: number;
         /**
          * ARN of the Outpost on which the snapshot is stored.
          *
          * > **Note:** You can specify `encrypted` or `snapshotId` but not both.
          */
-        outpostArn: string;
+        outpostArn?: string;
         /**
          * ID of an EBS snapshot that will be used to initialize the created
          * EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
          * snapshot.
          */
-        snapshotId: string;
+        snapshotId?: string;
         /**
          * Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of created volumes in GiB.
          * If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
          * as the selected snapshot.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface AmiFromInstanceEphemeralBlockDevice {
         /**
          * Path at which the device is exposed to created instances.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Name for the ephemeral device, of the form "ephemeralN" where
          * *N* is a volume number starting from zero.
          */
-        virtualName: string;
+        virtualName?: string;
     }
 
     export interface DefaultNetworkAclEgress {
@@ -20096,19 +20096,19 @@ export namespace ec2 {
         /**
          * The IDs of the instances.
          */
-        instanceIds: string[];
+        instanceIds?: string[];
         /**
          * Instance type.
          */
-        instanceType: string;
+        instanceType?: string;
         /**
          * Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
          */
-        lifecycle: string;
+        lifecycle?: string;
         /**
          * The value is `Windows` for Windows instances. Otherwise, the value is blank.
          */
-        platform: string;
+        platform?: string;
     }
 
     export interface FleetLaunchTemplateConfig {
@@ -20472,19 +20472,19 @@ export namespace ec2 {
         /**
          * Physical name of the device.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
          */
-        ebs: {[key: string]: string};
+        ebs?: {[key: string]: string};
         /**
          * Suppresses the specified device included in the block device mapping of the AMI.
          */
-        noDevice: string;
+        noDevice?: string;
         /**
          * Virtual device name (for instance stores).
          */
-        virtualName: string;
+        virtualName?: string;
     }
 
     export interface GetAmiFilter {
@@ -20501,8 +20501,8 @@ export namespace ec2 {
     }
 
     export interface GetAmiProductCode {
-        productCodeId: string;
-        productCodeType: string;
+        productCodeId?: string;
+        productCodeType?: string;
     }
 
     export interface GetCoipPoolFilter {
@@ -20565,55 +20565,55 @@ export namespace ec2 {
     }
 
     export interface GetInstanceCreditSpecification {
-        cpuCredits: string;
+        cpuCredits?: string;
     }
 
     export interface GetInstanceEbsBlockDevice {
         /**
          * If the root block device will be deleted on termination.
          */
-        deleteOnTermination: boolean;
+        deleteOnTermination?: boolean;
         /**
          * Physical name of the device.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * If the EBS volume is encrypted.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
          */
-        iops: number;
-        kmsKeyId: string;
+        iops?: number;
+        kmsKeyId?: string;
         /**
          * ID of the snapshot.
          */
-        snapshotId: string;
+        snapshotId?: string;
         /**
          * Map of tags assigned to the Instance.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
         /**
          * Throughput of the volume, in MiB/s.
          */
-        throughput: number;
-        volumeId: string;
+        throughput?: number;
+        volumeId?: string;
         /**
          * Size of the volume, in GiB.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of the volume.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface GetInstanceEnclaveOption {
         /**
          * Whether Nitro Enclaves are enabled.
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface GetInstanceEphemeralBlockDevice {
@@ -20640,114 +20640,114 @@ export namespace ec2 {
         /**
          * Automatic recovery behavior of the instance.
          */
-        autoRecovery: string;
+        autoRecovery?: string;
     }
 
     export interface GetInstanceMetadataOption {
         /**
          * State of the metadata service: `enabled`, `disabled`.
          */
-        httpEndpoint: string;
+        httpEndpoint?: string;
         /**
          * Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
          */
-        httpProtocolIpv6: string;
+        httpProtocolIpv6?: string;
         /**
          * Desired HTTP PUT response hop limit for instance metadata requests.
          */
-        httpPutResponseHopLimit: number;
+        httpPutResponseHopLimit?: number;
         /**
          * If session tokens are required: `optional`, `required`.
          */
-        httpTokens: string;
+        httpTokens?: string;
         /**
          * If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
          */
-        instanceMetadataTags: string;
+        instanceMetadataTags?: string;
     }
 
     export interface GetInstancePrivateDnsNameOption {
         /**
          * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
          */
-        enableResourceNameDnsARecord: boolean;
+        enableResourceNameDnsARecord?: boolean;
         /**
          * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
          */
-        enableResourceNameDnsAaaaRecord: boolean;
+        enableResourceNameDnsAaaaRecord?: boolean;
         /**
          * Type of hostname for EC2 instances.
          */
-        hostnameType: string;
+        hostnameType?: string;
     }
 
     export interface GetInstanceRootBlockDevice {
         /**
          * If the root block device will be deleted on termination.
          */
-        deleteOnTermination: boolean;
+        deleteOnTermination?: boolean;
         /**
          * Physical name of the device.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * If the EBS volume is encrypted.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
          */
-        iops: number;
-        kmsKeyId: string;
+        iops?: number;
+        kmsKeyId?: string;
         /**
          * Map of tags assigned to the Instance.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
         /**
          * Throughput of the volume, in MiB/s.
          */
-        throughput: number;
-        volumeId: string;
+        throughput?: number;
+        volumeId?: string;
         /**
          * Size of the volume, in GiB.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of the volume.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface GetInstanceTypeFpga {
-        count: number;
-        manufacturer: string;
+        count?: number;
+        manufacturer?: string;
         /**
          * Size of the instance memory, in MiB.
          */
-        memorySize: number;
-        name: string;
+        memorySize?: number;
+        name?: string;
     }
 
     export interface GetInstanceTypeGpus {
-        count: number;
-        manufacturer: string;
+        count?: number;
+        manufacturer?: string;
         /**
          * Size of the instance memory, in MiB.
          */
-        memorySize: number;
-        name: string;
+        memorySize?: number;
+        name?: string;
     }
 
     export interface GetInstanceTypeInferenceAccelerator {
-        count: number;
-        manufacturer: string;
-        name: string;
+        count?: number;
+        manufacturer?: string;
+        name?: string;
     }
 
     export interface GetInstanceTypeInstanceDisk {
-        count: number;
-        size: number;
-        type: string;
+        count?: number;
+        size?: number;
+        type?: string;
     }
 
     export interface GetInstanceTypeOfferingFilter {
@@ -20792,11 +20792,11 @@ export namespace ec2 {
         /**
          * Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
          */
-        state: string;
+        state?: string;
         /**
          * ID of an attached VPC.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface GetInternetGatewayFilter {
@@ -20827,130 +20827,130 @@ export namespace ec2 {
         /**
          * Whether the EBS Volume will be deleted on instance termination.
          */
-        deleteOnTermination: boolean;
+        deleteOnTermination?: boolean;
         /**
          * Name of the device.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Whether the volume is Encrypted.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Provisioned IOPs of the volume.
          */
-        iops: number;
+        iops?: number;
         /**
          * Whether the device in the block device mapping of the AMI is suppressed.
          */
-        noDevice: boolean;
+        noDevice?: boolean;
         /**
          * Snapshot ID of the mount.
          */
-        snapshotId: string;
+        snapshotId?: string;
         /**
          * Throughput of the volume.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of the volume.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of the volume.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface GetLaunchConfigurationEphemeralBlockDevice {
         /**
          * Name of the device.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Virtual Name of the device.
          */
-        virtualName: string;
+        virtualName?: string;
     }
 
     export interface GetLaunchConfigurationMetadataOption {
         /**
          * State of the metadata service: `enabled`, `disabled`.
          */
-        httpEndpoint: string;
+        httpEndpoint?: string;
         /**
          * The desired HTTP PUT response hop limit for instance metadata requests.
          */
-        httpPutResponseHopLimit: number;
+        httpPutResponseHopLimit?: number;
         /**
          * If session tokens are required: `optional`, `required`.
          */
-        httpTokens: string;
+        httpTokens?: string;
     }
 
     export interface GetLaunchConfigurationRootBlockDevice {
         /**
          * Whether the EBS Volume will be deleted on instance termination.
          */
-        deleteOnTermination: boolean;
+        deleteOnTermination?: boolean;
         /**
          * Whether the volume is Encrypted.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Provisioned IOPs of the volume.
          */
-        iops: number;
+        iops?: number;
         /**
          * Throughput of the volume.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of the volume.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of the volume.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface GetLaunchTemplateBlockDeviceMapping {
-        deviceName: string;
-        ebs: outputs.ec2.GetLaunchTemplateBlockDeviceMappingEb[];
-        noDevice: string;
-        virtualName: string;
+        deviceName?: string;
+        ebs?: outputs.ec2.GetLaunchTemplateBlockDeviceMappingEb[];
+        noDevice?: string;
+        virtualName?: string;
     }
 
     export interface GetLaunchTemplateBlockDeviceMappingEb {
-        deleteOnTermination: string;
-        encrypted: string;
-        iops: number;
-        kmsKeyId: string;
-        snapshotId: string;
-        throughput: number;
-        volumeSize: number;
-        volumeType: string;
+        deleteOnTermination?: string;
+        encrypted?: string;
+        iops?: number;
+        kmsKeyId?: string;
+        snapshotId?: string;
+        throughput?: number;
+        volumeSize?: number;
+        volumeType?: string;
     }
 
     export interface GetLaunchTemplateCapacityReservationSpecification {
-        capacityReservationPreference: string;
-        capacityReservationTargets: outputs.ec2.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget[];
+        capacityReservationPreference?: string;
+        capacityReservationTargets?: outputs.ec2.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget[];
     }
 
     export interface GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
-        capacityReservationId: string;
-        capacityReservationResourceGroupArn: string;
+        capacityReservationId?: string;
+        capacityReservationResourceGroupArn?: string;
     }
 
     export interface GetLaunchTemplateCpuOption {
-        amdSevSnp: string;
-        coreCount: number;
-        threadsPerCore: number;
+        amdSevSnp?: string;
+        coreCount?: number;
+        threadsPerCore?: number;
     }
 
     export interface GetLaunchTemplateCreditSpecification {
-        cpuCredits: string;
+        cpuCredits?: string;
     }
 
     export interface GetLaunchTemplateElasticGpuSpecification {
@@ -20958,11 +20958,11 @@ export namespace ec2 {
     }
 
     export interface GetLaunchTemplateElasticInferenceAccelerator {
-        type: string;
+        type?: string;
     }
 
     export interface GetLaunchTemplateEnclaveOption {
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface GetLaunchTemplateFilter {
@@ -20977,166 +20977,166 @@ export namespace ec2 {
     }
 
     export interface GetLaunchTemplateHibernationOption {
-        configured: boolean;
+        configured?: boolean;
     }
 
     export interface GetLaunchTemplateIamInstanceProfile {
-        arn: string;
+        arn?: string;
         /**
          * Name of the launch template.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetLaunchTemplateInstanceMarketOption {
-        marketType: string;
-        spotOptions: outputs.ec2.GetLaunchTemplateInstanceMarketOptionSpotOption[];
+        marketType?: string;
+        spotOptions?: outputs.ec2.GetLaunchTemplateInstanceMarketOptionSpotOption[];
     }
 
     export interface GetLaunchTemplateInstanceMarketOptionSpotOption {
-        blockDurationMinutes: number;
-        instanceInterruptionBehavior: string;
-        maxPrice: string;
-        spotInstanceType: string;
-        validUntil: string;
+        blockDurationMinutes?: number;
+        instanceInterruptionBehavior?: string;
+        maxPrice?: string;
+        spotInstanceType?: string;
+        validUntil?: string;
     }
 
     export interface GetLaunchTemplateInstanceRequirement {
-        acceleratorCounts: outputs.ec2.GetLaunchTemplateInstanceRequirementAcceleratorCount[];
-        acceleratorManufacturers: string[];
-        acceleratorNames: string[];
-        acceleratorTotalMemoryMibs: outputs.ec2.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib[];
-        acceleratorTypes: string[];
-        allowedInstanceTypes: string[];
-        bareMetal: string;
-        baselineEbsBandwidthMbps: outputs.ec2.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp[];
-        burstablePerformance: string;
-        cpuManufacturers: string[];
-        excludedInstanceTypes: string[];
-        instanceGenerations: string[];
-        localStorage: string;
-        localStorageTypes: string[];
-        memoryGibPerVcpus: outputs.ec2.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus[];
-        memoryMibs: outputs.ec2.GetLaunchTemplateInstanceRequirementMemoryMib[];
-        networkBandwidthGbps: outputs.ec2.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp[];
-        networkInterfaceCounts: outputs.ec2.GetLaunchTemplateInstanceRequirementNetworkInterfaceCount[];
-        onDemandMaxPricePercentageOverLowestPrice: number;
-        requireHibernateSupport: boolean;
-        spotMaxPricePercentageOverLowestPrice: number;
-        totalLocalStorageGbs: outputs.ec2.GetLaunchTemplateInstanceRequirementTotalLocalStorageGb[];
-        vcpuCounts: outputs.ec2.GetLaunchTemplateInstanceRequirementVcpuCount[];
+        acceleratorCounts?: outputs.ec2.GetLaunchTemplateInstanceRequirementAcceleratorCount[];
+        acceleratorManufacturers?: string[];
+        acceleratorNames?: string[];
+        acceleratorTotalMemoryMibs?: outputs.ec2.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib[];
+        acceleratorTypes?: string[];
+        allowedInstanceTypes?: string[];
+        bareMetal?: string;
+        baselineEbsBandwidthMbps?: outputs.ec2.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp[];
+        burstablePerformance?: string;
+        cpuManufacturers?: string[];
+        excludedInstanceTypes?: string[];
+        instanceGenerations?: string[];
+        localStorage?: string;
+        localStorageTypes?: string[];
+        memoryGibPerVcpus?: outputs.ec2.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus[];
+        memoryMibs?: outputs.ec2.GetLaunchTemplateInstanceRequirementMemoryMib[];
+        networkBandwidthGbps?: outputs.ec2.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp[];
+        networkInterfaceCounts?: outputs.ec2.GetLaunchTemplateInstanceRequirementNetworkInterfaceCount[];
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        requireHibernateSupport?: boolean;
+        spotMaxPricePercentageOverLowestPrice?: number;
+        totalLocalStorageGbs?: outputs.ec2.GetLaunchTemplateInstanceRequirementTotalLocalStorageGb[];
+        vcpuCounts?: outputs.ec2.GetLaunchTemplateInstanceRequirementVcpuCount[];
     }
 
     export interface GetLaunchTemplateInstanceRequirementAcceleratorCount {
-        max: number;
-        min: number;
+        max?: number;
+        min?: number;
     }
 
     export interface GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib {
-        max: number;
-        min: number;
+        max?: number;
+        min?: number;
     }
 
     export interface GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp {
-        max: number;
-        min: number;
+        max?: number;
+        min?: number;
     }
 
     export interface GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus {
-        max: number;
-        min: number;
+        max?: number;
+        min?: number;
     }
 
     export interface GetLaunchTemplateInstanceRequirementMemoryMib {
-        max: number;
-        min: number;
+        max?: number;
+        min?: number;
     }
 
     export interface GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp {
-        max: number;
-        min: number;
+        max?: number;
+        min?: number;
     }
 
     export interface GetLaunchTemplateInstanceRequirementNetworkInterfaceCount {
-        max: number;
-        min: number;
+        max?: number;
+        min?: number;
     }
 
     export interface GetLaunchTemplateInstanceRequirementTotalLocalStorageGb {
-        max: number;
-        min: number;
+        max?: number;
+        min?: number;
     }
 
     export interface GetLaunchTemplateInstanceRequirementVcpuCount {
-        max: number;
-        min: number;
+        max?: number;
+        min?: number;
     }
 
     export interface GetLaunchTemplateLicenseSpecification {
-        licenseConfigurationArn: string;
+        licenseConfigurationArn?: string;
     }
 
     export interface GetLaunchTemplateMaintenanceOption {
-        autoRecovery: string;
+        autoRecovery?: string;
     }
 
     export interface GetLaunchTemplateMetadataOption {
-        httpEndpoint: string;
-        httpProtocolIpv6: string;
-        httpPutResponseHopLimit: number;
-        httpTokens: string;
-        instanceMetadataTags: string;
+        httpEndpoint?: string;
+        httpProtocolIpv6?: string;
+        httpPutResponseHopLimit?: number;
+        httpTokens?: string;
+        instanceMetadataTags?: string;
     }
 
     export interface GetLaunchTemplateMonitoring {
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface GetLaunchTemplateNetworkInterface {
-        associateCarrierIpAddress: string;
+        associateCarrierIpAddress?: string;
         associatePublicIpAddress?: boolean;
         deleteOnTermination?: boolean;
-        description: string;
-        deviceIndex: number;
-        interfaceType: string;
-        ipv4AddressCount: number;
-        ipv4Addresses: string[];
-        ipv4PrefixCount: number;
-        ipv4Prefixes: string[];
-        ipv6AddressCount: number;
-        ipv6Addresses: string[];
-        ipv6PrefixCount: number;
-        ipv6Prefixes: string[];
-        networkCardIndex: number;
-        networkInterfaceId: string;
-        privateIpAddress: string;
-        securityGroups: string[];
-        subnetId: string;
+        description?: string;
+        deviceIndex?: number;
+        interfaceType?: string;
+        ipv4AddressCount?: number;
+        ipv4Addresses?: string[];
+        ipv4PrefixCount?: number;
+        ipv4Prefixes?: string[];
+        ipv6AddressCount?: number;
+        ipv6Addresses?: string[];
+        ipv6PrefixCount?: number;
+        ipv6Prefixes?: string[];
+        networkCardIndex?: number;
+        networkInterfaceId?: string;
+        privateIpAddress?: string;
+        securityGroups?: string[];
+        subnetId?: string;
     }
 
     export interface GetLaunchTemplatePlacement {
-        affinity: string;
-        availabilityZone: string;
-        groupName: string;
-        hostId: string;
-        hostResourceGroupArn: string;
-        partitionNumber: number;
-        spreadDomain: string;
-        tenancy: string;
+        affinity?: string;
+        availabilityZone?: string;
+        groupName?: string;
+        hostId?: string;
+        hostResourceGroupArn?: string;
+        partitionNumber?: number;
+        spreadDomain?: string;
+        tenancy?: string;
     }
 
     export interface GetLaunchTemplatePrivateDnsNameOption {
-        enableResourceNameDnsARecord: boolean;
-        enableResourceNameDnsAaaaRecord: boolean;
-        hostnameType: string;
+        enableResourceNameDnsARecord?: boolean;
+        enableResourceNameDnsAaaaRecord?: boolean;
+        hostnameType?: string;
     }
 
     export interface GetLaunchTemplateTagSpecification {
-        resourceType: string;
+        resourceType?: string;
         /**
          * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
     }
 
     export interface GetLocalGatewayFilter {
@@ -21225,8 +21225,8 @@ export namespace ec2 {
     }
 
     export interface GetManagedPrefixListEntry {
-        cidr: string;
-        description: string;
+        cidr?: string;
+        description?: string;
     }
 
     export interface GetManagedPrefixListFilter {
@@ -21293,432 +21293,432 @@ export namespace ec2 {
     }
 
     export interface GetNetworkInsightsAnalysisAlternatePathHint {
-        componentArn: string;
-        componentId: string;
+        componentArn?: string;
+        componentId?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanation {
-        aclRules: outputs.ec2.GetNetworkInsightsAnalysisExplanationAclRule[];
-        acls: outputs.ec2.GetNetworkInsightsAnalysisExplanationAcl[];
-        address: string;
-        addresses: string[];
-        attachedTos: outputs.ec2.GetNetworkInsightsAnalysisExplanationAttachedTo[];
-        availabilityZones: string[];
-        cidrs: string[];
-        classicLoadBalancerListeners: outputs.ec2.GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener[];
-        components: outputs.ec2.GetNetworkInsightsAnalysisExplanationComponent[];
-        customerGateways: outputs.ec2.GetNetworkInsightsAnalysisExplanationCustomerGateway[];
-        destinationVpcs: outputs.ec2.GetNetworkInsightsAnalysisExplanationDestinationVpc[];
-        destinations: outputs.ec2.GetNetworkInsightsAnalysisExplanationDestination[];
-        direction: string;
-        elasticLoadBalancerListeners: outputs.ec2.GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener[];
-        explanationCode: string;
-        ingressRouteTables: outputs.ec2.GetNetworkInsightsAnalysisExplanationIngressRouteTable[];
-        internetGateways: outputs.ec2.GetNetworkInsightsAnalysisExplanationInternetGateway[];
-        loadBalancerArn: string;
-        loadBalancerListenerPort: number;
-        loadBalancerTargetGroup: outputs.ec2.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup[];
-        loadBalancerTargetGroups: outputs.ec2.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup[];
-        loadBalancerTargetPort: number;
-        missingComponent: string;
-        natGateways: outputs.ec2.GetNetworkInsightsAnalysisExplanationNatGateway[];
-        networkInterfaces: outputs.ec2.GetNetworkInsightsAnalysisExplanationNetworkInterface[];
-        packetField: string;
-        port: number;
-        portRanges: outputs.ec2.GetNetworkInsightsAnalysisExplanationPortRange[];
-        prefixLists: outputs.ec2.GetNetworkInsightsAnalysisExplanationPrefixList[];
-        protocols: string[];
-        routeTableRoutes: outputs.ec2.GetNetworkInsightsAnalysisExplanationRouteTableRoute[];
-        routeTables: outputs.ec2.GetNetworkInsightsAnalysisExplanationRouteTable[];
-        securityGroup: outputs.ec2.GetNetworkInsightsAnalysisExplanationSecurityGroup[];
-        securityGroupRules: outputs.ec2.GetNetworkInsightsAnalysisExplanationSecurityGroupRule[];
-        securityGroups: outputs.ec2.GetNetworkInsightsAnalysisExplanationSecurityGroup[];
-        sourceVpcs: outputs.ec2.GetNetworkInsightsAnalysisExplanationSourceVpc[];
-        state: string;
-        subnetRouteTables: outputs.ec2.GetNetworkInsightsAnalysisExplanationSubnetRouteTable[];
-        subnets: outputs.ec2.GetNetworkInsightsAnalysisExplanationSubnet[];
-        transitGatewayAttachments: outputs.ec2.GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment[];
-        transitGatewayRouteTableRoutes: outputs.ec2.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute[];
-        transitGatewayRouteTables: outputs.ec2.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable[];
-        transitGateways: outputs.ec2.GetNetworkInsightsAnalysisExplanationTransitGateway[];
-        vpcEndpoints: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpcEndpoint[];
-        vpcPeeringConnections: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpcPeeringConnection[];
-        vpcs: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpc[];
-        vpnConnections: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpnConnection[];
-        vpnGateways: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpnGateway[];
+        aclRules?: outputs.ec2.GetNetworkInsightsAnalysisExplanationAclRule[];
+        acls?: outputs.ec2.GetNetworkInsightsAnalysisExplanationAcl[];
+        address?: string;
+        addresses?: string[];
+        attachedTos?: outputs.ec2.GetNetworkInsightsAnalysisExplanationAttachedTo[];
+        availabilityZones?: string[];
+        cidrs?: string[];
+        classicLoadBalancerListeners?: outputs.ec2.GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener[];
+        components?: outputs.ec2.GetNetworkInsightsAnalysisExplanationComponent[];
+        customerGateways?: outputs.ec2.GetNetworkInsightsAnalysisExplanationCustomerGateway[];
+        destinationVpcs?: outputs.ec2.GetNetworkInsightsAnalysisExplanationDestinationVpc[];
+        destinations?: outputs.ec2.GetNetworkInsightsAnalysisExplanationDestination[];
+        direction?: string;
+        elasticLoadBalancerListeners?: outputs.ec2.GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener[];
+        explanationCode?: string;
+        ingressRouteTables?: outputs.ec2.GetNetworkInsightsAnalysisExplanationIngressRouteTable[];
+        internetGateways?: outputs.ec2.GetNetworkInsightsAnalysisExplanationInternetGateway[];
+        loadBalancerArn?: string;
+        loadBalancerListenerPort?: number;
+        loadBalancerTargetGroup?: outputs.ec2.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup[];
+        loadBalancerTargetGroups?: outputs.ec2.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup[];
+        loadBalancerTargetPort?: number;
+        missingComponent?: string;
+        natGateways?: outputs.ec2.GetNetworkInsightsAnalysisExplanationNatGateway[];
+        networkInterfaces?: outputs.ec2.GetNetworkInsightsAnalysisExplanationNetworkInterface[];
+        packetField?: string;
+        port?: number;
+        portRanges?: outputs.ec2.GetNetworkInsightsAnalysisExplanationPortRange[];
+        prefixLists?: outputs.ec2.GetNetworkInsightsAnalysisExplanationPrefixList[];
+        protocols?: string[];
+        routeTableRoutes?: outputs.ec2.GetNetworkInsightsAnalysisExplanationRouteTableRoute[];
+        routeTables?: outputs.ec2.GetNetworkInsightsAnalysisExplanationRouteTable[];
+        securityGroup?: outputs.ec2.GetNetworkInsightsAnalysisExplanationSecurityGroup[];
+        securityGroupRules?: outputs.ec2.GetNetworkInsightsAnalysisExplanationSecurityGroupRule[];
+        securityGroups?: outputs.ec2.GetNetworkInsightsAnalysisExplanationSecurityGroup[];
+        sourceVpcs?: outputs.ec2.GetNetworkInsightsAnalysisExplanationSourceVpc[];
+        state?: string;
+        subnetRouteTables?: outputs.ec2.GetNetworkInsightsAnalysisExplanationSubnetRouteTable[];
+        subnets?: outputs.ec2.GetNetworkInsightsAnalysisExplanationSubnet[];
+        transitGatewayAttachments?: outputs.ec2.GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment[];
+        transitGatewayRouteTableRoutes?: outputs.ec2.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute[];
+        transitGatewayRouteTables?: outputs.ec2.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable[];
+        transitGateways?: outputs.ec2.GetNetworkInsightsAnalysisExplanationTransitGateway[];
+        vpcEndpoints?: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpcEndpoint[];
+        vpcPeeringConnections?: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpcPeeringConnection[];
+        vpcs?: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpc[];
+        vpnConnections?: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpnConnection[];
+        vpnGateways?: outputs.ec2.GetNetworkInsightsAnalysisExplanationVpnGateway[];
     }
 
     export interface GetNetworkInsightsAnalysisExplanationAcl {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationAclRule {
-        cidr: string;
-        egress: boolean;
-        portRanges: outputs.ec2.GetNetworkInsightsAnalysisExplanationAclRulePortRange[];
-        protocol: string;
-        ruleAction: string;
-        ruleNumber: number;
+        cidr?: string;
+        egress?: boolean;
+        portRanges?: outputs.ec2.GetNetworkInsightsAnalysisExplanationAclRulePortRange[];
+        protocol?: string;
+        ruleAction?: string;
+        ruleNumber?: number;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationAclRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationAttachedTo {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener {
-        instancePort: number;
-        loadBalancerPort: number;
+        instancePort?: number;
+        loadBalancerPort?: number;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationComponent {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationCustomerGateway {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationDestination {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationDestinationVpc {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationIngressRouteTable {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationInternetGateway {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationNatGateway {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationNetworkInterface {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationPrefixList {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationRouteTable {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationRouteTableRoute {
-        destinationCidr: string;
-        destinationPrefixListId: string;
-        egressOnlyInternetGatewayId: string;
-        gatewayId: string;
-        instanceId: string;
-        natGatewayId: string;
-        networkInterfaceId: string;
-        origin: string;
-        transitGatewayId: string;
-        vpcPeeringConnectionId: string;
+        destinationCidr?: string;
+        destinationPrefixListId?: string;
+        egressOnlyInternetGatewayId?: string;
+        gatewayId?: string;
+        instanceId?: string;
+        natGatewayId?: string;
+        networkInterfaceId?: string;
+        origin?: string;
+        transitGatewayId?: string;
+        vpcPeeringConnectionId?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationSecurityGroup {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationSecurityGroupRule {
-        cidr: string;
-        direction: string;
-        portRanges: outputs.ec2.GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRange[];
-        prefixListId: string;
-        protocol: string;
-        securityGroupId: string;
+        cidr?: string;
+        direction?: string;
+        portRanges?: outputs.ec2.GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRange[];
+        prefixListId?: string;
+        protocol?: string;
+        securityGroupId?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationSourceVpc {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationSubnet {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationSubnetRouteTable {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationTransitGateway {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute {
-        attachmentId: string;
-        destinationCidr: string;
-        prefixListId: string;
-        resourceId: string;
-        resourceType: string;
-        routeOrigin: string;
-        state: string;
+        attachmentId?: string;
+        destinationCidr?: string;
+        prefixListId?: string;
+        resourceId?: string;
+        resourceType?: string;
+        routeOrigin?: string;
+        state?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationVpc {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationVpcEndpoint {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationVpcPeeringConnection {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationVpnConnection {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisExplanationVpnGateway {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisFilter {
@@ -21733,415 +21733,415 @@ export namespace ec2 {
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponent {
-        aclRules: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAclRule[];
-        additionalDetails: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail[];
-        attachedTos: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAttachedTo[];
-        components: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentComponent[];
-        destinationVpcs: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpc[];
-        inboundHeaders: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentInboundHeader[];
-        outboundHeaders: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader[];
-        routeTableRoutes: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRoute[];
-        securityGroupRules: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRule[];
-        sequenceNumber: number;
-        sourceVpcs: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentSourceVpc[];
-        subnets: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentSubnet[];
-        transitGatewayRouteTableRoutes: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute[];
-        transitGateways: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentTransitGateway[];
-        vpcs: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentVpc[];
+        aclRules?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAclRule[];
+        additionalDetails?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail[];
+        attachedTos?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAttachedTo[];
+        components?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentComponent[];
+        destinationVpcs?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpc[];
+        inboundHeaders?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentInboundHeader[];
+        outboundHeaders?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader[];
+        routeTableRoutes?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRoute[];
+        securityGroupRules?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRule[];
+        sequenceNumber?: number;
+        sourceVpcs?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentSourceVpc[];
+        subnets?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentSubnet[];
+        transitGatewayRouteTableRoutes?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute[];
+        transitGateways?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentTransitGateway[];
+        vpcs?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentVpc[];
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentAclRule {
-        cidr: string;
-        egress: boolean;
-        portRanges: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRange[];
-        protocol: string;
-        ruleAction: string;
-        ruleNumber: number;
+        cidr?: string;
+        egress?: boolean;
+        portRanges?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRange[];
+        protocol?: string;
+        ruleAction?: string;
+        ruleNumber?: number;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail {
-        additionalDetailType: string;
-        components: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent[];
+        additionalDetailType?: string;
+        components?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent[];
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentAttachedTo {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentComponent {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentDestinationVpc {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentInboundHeader {
-        destinationAddresses: string[];
-        destinationPortRanges: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange[];
-        protocol: string;
-        sourceAddresses: string[];
-        sourcePortRanges: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange[];
+        destinationAddresses?: string[];
+        destinationPortRanges?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange[];
+        protocol?: string;
+        sourceAddresses?: string[];
+        sourcePortRanges?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange[];
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader {
-        destinationAddresses: string[];
-        destinationPortRanges: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange[];
-        protocol: string;
-        sourceAddresses: string[];
-        sourcePortRanges: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange[];
+        destinationAddresses?: string[];
+        destinationPortRanges?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange[];
+        protocol?: string;
+        sourceAddresses?: string[];
+        sourcePortRanges?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange[];
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentRouteTableRoute {
-        destinationCidr: string;
-        destinationPrefixListId: string;
-        egressOnlyInternetGatewayId: string;
-        gatewayId: string;
-        instanceId: string;
-        natGatewayId: string;
-        networkInterfaceId: string;
-        origin: string;
-        transitGatewayId: string;
-        vpcPeeringConnectionId: string;
+        destinationCidr?: string;
+        destinationPrefixListId?: string;
+        egressOnlyInternetGatewayId?: string;
+        gatewayId?: string;
+        instanceId?: string;
+        natGatewayId?: string;
+        networkInterfaceId?: string;
+        origin?: string;
+        transitGatewayId?: string;
+        vpcPeeringConnectionId?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRule {
-        cidr: string;
-        direction: string;
-        portRanges: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange[];
-        prefixListId: string;
-        protocol: string;
-        securityGroupId: string;
+        cidr?: string;
+        direction?: string;
+        portRanges?: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange[];
+        prefixListId?: string;
+        protocol?: string;
+        securityGroupId?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentSourceVpc {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentSubnet {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentTransitGateway {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute {
-        attachmentId: string;
-        destinationCidr: string;
-        prefixListId: string;
-        resourceId: string;
-        resourceType: string;
-        routeOrigin: string;
-        state: string;
+        attachmentId?: string;
+        destinationCidr?: string;
+        prefixListId?: string;
+        resourceId?: string;
+        resourceType?: string;
+        routeOrigin?: string;
+        state?: string;
     }
 
     export interface GetNetworkInsightsAnalysisForwardPathComponentVpc {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponent {
-        aclRules: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAclRule[];
-        additionalDetails: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail[];
-        attachedTos: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAttachedTo[];
-        components: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentComponent[];
-        destinationVpcs: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc[];
-        inboundHeaders: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentInboundHeader[];
-        outboundHeaders: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader[];
-        routeTableRoutes: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute[];
-        securityGroupRules: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule[];
-        sequenceNumber: number;
-        sourceVpcs: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentSourceVpc[];
-        subnets: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentSubnet[];
-        transitGatewayRouteTableRoutes: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute[];
-        transitGateways: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentTransitGateway[];
-        vpcs: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentVpc[];
+        aclRules?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAclRule[];
+        additionalDetails?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail[];
+        attachedTos?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAttachedTo[];
+        components?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentComponent[];
+        destinationVpcs?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc[];
+        inboundHeaders?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentInboundHeader[];
+        outboundHeaders?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader[];
+        routeTableRoutes?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute[];
+        securityGroupRules?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule[];
+        sequenceNumber?: number;
+        sourceVpcs?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentSourceVpc[];
+        subnets?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentSubnet[];
+        transitGatewayRouteTableRoutes?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute[];
+        transitGateways?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentTransitGateway[];
+        vpcs?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentVpc[];
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentAclRule {
-        cidr: string;
-        egress: boolean;
-        portRanges: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRange[];
-        protocol: string;
-        ruleAction: string;
-        ruleNumber: number;
+        cidr?: string;
+        egress?: boolean;
+        portRanges?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRange[];
+        protocol?: string;
+        ruleAction?: string;
+        ruleNumber?: number;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail {
-        additionalDetailType: string;
-        components: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent[];
+        additionalDetailType?: string;
+        components?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent[];
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentAttachedTo {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentComponent {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentInboundHeader {
-        destinationAddresses: string[];
-        destinationPortRanges: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange[];
-        protocol: string;
-        sourceAddresses: string[];
-        sourcePortRanges: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange[];
+        destinationAddresses?: string[];
+        destinationPortRanges?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange[];
+        protocol?: string;
+        sourceAddresses?: string[];
+        sourcePortRanges?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange[];
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader {
-        destinationAddresses: string[];
-        destinationPortRanges: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange[];
-        protocol: string;
-        sourceAddresses: string[];
-        sourcePortRanges: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange[];
+        destinationAddresses?: string[];
+        destinationPortRanges?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange[];
+        protocol?: string;
+        sourceAddresses?: string[];
+        sourcePortRanges?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange[];
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute {
-        destinationCidr: string;
-        destinationPrefixListId: string;
-        egressOnlyInternetGatewayId: string;
-        gatewayId: string;
-        instanceId: string;
-        natGatewayId: string;
-        networkInterfaceId: string;
-        origin: string;
-        transitGatewayId: string;
-        vpcPeeringConnectionId: string;
+        destinationCidr?: string;
+        destinationPrefixListId?: string;
+        egressOnlyInternetGatewayId?: string;
+        gatewayId?: string;
+        instanceId?: string;
+        natGatewayId?: string;
+        networkInterfaceId?: string;
+        origin?: string;
+        transitGatewayId?: string;
+        vpcPeeringConnectionId?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule {
-        cidr: string;
-        direction: string;
-        portRanges: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange[];
-        prefixListId: string;
-        protocol: string;
-        securityGroupId: string;
+        cidr?: string;
+        direction?: string;
+        portRanges?: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange[];
+        prefixListId?: string;
+        protocol?: string;
+        securityGroupId?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentSourceVpc {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentSubnet {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentTransitGateway {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute {
-        attachmentId: string;
-        destinationCidr: string;
-        prefixListId: string;
-        resourceId: string;
-        resourceType: string;
-        routeOrigin: string;
-        state: string;
+        attachmentId?: string;
+        destinationCidr?: string;
+        prefixListId?: string;
+        resourceId?: string;
+        resourceType?: string;
+        routeOrigin?: string;
+        state?: string;
     }
 
     export interface GetNetworkInsightsAnalysisReturnPathComponentVpc {
         /**
          * ARN of the selected Network Insights Analysis.
          */
-        arn: string;
-        id: string;
+        arn?: string;
+        id?: string;
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNetworkInsightsPathFilter {
@@ -22159,38 +22159,38 @@ export namespace ec2 {
         /**
          * Allocation ID.
          */
-        allocationId: string;
+        allocationId?: string;
         /**
          * Association ID.
          */
-        associationId: string;
+        associationId?: string;
         /**
          * Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
          */
-        carrierIp: string;
+        carrierIp?: string;
         /**
          * Customer-owned IP address.
          */
-        customerOwnedIp: string;
+        customerOwnedIp?: string;
         /**
          * ID of the Elastic IP address owner.
          */
-        ipOwnerId: string;
+        ipOwnerId?: string;
         /**
          * Public DNS name.
          */
-        publicDnsName: string;
+        publicDnsName?: string;
         /**
          * Address of the Elastic IP address bound to the network interface.
          */
-        publicIp: string;
+        publicIp?: string;
     }
 
     export interface GetNetworkInterfaceAttachment {
-        attachmentId: string;
-        deviceIndex: number;
-        instanceId: string;
-        instanceOwnerId: string;
+        attachmentId?: string;
+        deviceIndex?: number;
+        instanceId?: string;
+        instanceOwnerId?: string;
     }
 
     export interface GetNetworkInterfaceFilter {
@@ -22225,19 +22225,19 @@ export namespace ec2 {
         /**
          * Number of addresses in the range.
          */
-        addressCount: number;
+        addressCount?: number;
         /**
          * Number of available addresses in the range.
          */
-        availableAddressCount: number;
+        availableAddressCount?: number;
         /**
          * First address in the range.
          */
-        firstAddress: string;
+        firstAddress?: string;
         /**
          * Last address in the range.
          */
-        lastAddress: string;
+        lastAddress?: string;
     }
 
     export interface GetPublicIpv4PoolsFilter {
@@ -22255,23 +22255,23 @@ export namespace ec2 {
         /**
          * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
          */
-        gatewayId: string;
+        gatewayId?: string;
         /**
          * Whether the association is due to the main route table.
          */
-        main: boolean;
+        main?: boolean;
         /**
          * Association ID.
          */
-        routeTableAssociationId: string;
+        routeTableAssociationId?: string;
         /**
          * ID of the specific Route Table to retrieve.
          */
-        routeTableId: string;
+        routeTableId?: string;
         /**
          * ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
          */
-        subnetId: string;
+        subnetId?: string;
     }
 
     export interface GetRouteTableFilter {
@@ -22289,59 +22289,59 @@ export namespace ec2 {
         /**
          * ID of the Carrier Gateway.
          */
-        carrierGatewayId: string;
+        carrierGatewayId?: string;
         /**
          * CIDR block of the route.
          */
-        cidrBlock: string;
+        cidrBlock?: string;
         /**
          * ARN of the core network.
          */
-        coreNetworkArn: string;
+        coreNetworkArn?: string;
         /**
          * The ID of a managed prefix list destination of the route.
          */
-        destinationPrefixListId: string;
+        destinationPrefixListId?: string;
         /**
          * ID of the Egress Only Internet Gateway.
          */
-        egressOnlyGatewayId: string;
+        egressOnlyGatewayId?: string;
         /**
          * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
          */
-        gatewayId: string;
+        gatewayId?: string;
         /**
          * EC2 instance ID.
          */
-        instanceId: string;
+        instanceId?: string;
         /**
          * IPv6 CIDR block of the route.
          */
-        ipv6CidrBlock: string;
+        ipv6CidrBlock?: string;
         /**
          * Local Gateway ID.
          */
-        localGatewayId: string;
+        localGatewayId?: string;
         /**
          * NAT Gateway ID.
          */
-        natGatewayId: string;
+        natGatewayId?: string;
         /**
          * ID of the elastic network interface (eni) to use.
          */
-        networkInterfaceId: string;
+        networkInterfaceId?: string;
         /**
          * EC2 Transit Gateway ID.
          */
-        transitGatewayId: string;
+        transitGatewayId?: string;
         /**
          * VPC Endpoint ID.
          */
-        vpcEndpointId: string;
+        vpcEndpointId?: string;
         /**
          * VPC Peering ID.
          */
-        vpcPeeringConnectionId: string;
+        vpcPeeringConnectionId?: string;
     }
 
     export interface GetRouteTablesFilter {
@@ -22440,16 +22440,16 @@ export namespace ec2 {
         /**
          * Association ID for the IPv4 CIDR block.
          */
-        associationId: string;
+        associationId?: string;
         /**
          * Cidr block of the desired VPC.
          */
-        cidrBlock: string;
+        cidrBlock?: string;
         /**
          * Current state of the desired VPC.
          * Can be either `"pending"` or `"available"`.
          */
-        state: string;
+        state?: string;
     }
 
     export interface GetVpcDhcpOptionsFilter {
@@ -22467,22 +22467,22 @@ export namespace ec2 {
         /**
          * DNS name.
          */
-        dnsName: string;
+        dnsName?: string;
         /**
          * ID of the private hosted zone.
          */
-        hostedZoneId: string;
+        hostedZoneId?: string;
     }
 
     export interface GetVpcEndpointDnsOption {
         /**
          * The DNS records created for the endpoint.
          */
-        dnsRecordIpType: string;
+        dnsRecordIpType?: string;
         /**
          * Indicates whether to enable private DNS only for inbound endpoints.
          */
-        privateDnsOnlyForInboundResolverEndpoint: boolean;
+        privateDnsOnlyForInboundResolverEndpoint?: boolean;
     }
 
     export interface GetVpcEndpointFilter {
@@ -22531,11 +22531,11 @@ export namespace ec2 {
         /**
          * A network CIDR.
          */
-        cidr: string;
+        cidr?: string;
         /**
          * The provisioning state of that CIDR.
          */
-        state: string;
+        state?: string;
     }
 
     export interface GetVpcIamPoolFilter {
@@ -22564,66 +22564,66 @@ export namespace ec2 {
         /**
          * IP protocol assigned to this pool.
          */
-        addressFamily: string;
+        addressFamily?: string;
         /**
          * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
          */
-        allocationDefaultNetmaskLength: number;
+        allocationDefaultNetmaskLength?: number;
         /**
          * The maximum netmask length that will be required for CIDR allocations in this pool.
          */
-        allocationMaxNetmaskLength: number;
+        allocationMaxNetmaskLength?: number;
         /**
          * The minimum netmask length that will be required for CIDR allocations in this pool.
          */
-        allocationMinNetmaskLength: number;
+        allocationMinNetmaskLength?: number;
         /**
          * Tags that are required to create resources in using this pool.
          */
-        allocationResourceTags: {[key: string]: string};
+        allocationResourceTags?: {[key: string]: string};
         /**
          * ARN of the pool
          */
-        arn: string;
+        arn?: string;
         /**
          * If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
          */
-        autoImport: boolean;
+        autoImport?: boolean;
         /**
          * Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
          */
-        awsService: string;
+        awsService?: string;
         /**
          * Description for the IPAM pool.
          */
-        description: string;
+        description?: string;
         /**
          * ID of the IPAM pool.
          */
-        id: string;
+        id?: string;
         /**
          * ID of the scope the pool belongs to.
          */
-        ipamScopeId: string;
-        ipamScopeType: string;
+        ipamScopeId?: string;
+        ipamScopeType?: string;
         /**
          * Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
          */
-        locale: string;
-        poolDepth: number;
+        locale?: string;
+        poolDepth?: number;
         /**
          * Defines whether or not IPv6 pool space is publicly advertisable over the internet.
          */
-        publiclyAdvertisable: boolean;
+        publiclyAdvertisable?: boolean;
         /**
          * ID of the source IPAM pool.
          */
-        sourceIpamPoolId: string;
-        state: string;
+        sourceIpamPoolId?: string;
+        state?: string;
         /**
          * Map of tags to assigned to the resource.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
     }
 
     export interface GetVpcIpamPoolCidrsFilter {
@@ -22635,11 +22635,11 @@ export namespace ec2 {
         /**
          * A network CIDR.
          */
-        cidr: string;
+        cidr?: string;
         /**
          * The provisioning state of that CIDR.
          */
-        state: string;
+        state?: string;
     }
 
     export interface GetVpcIpamPoolFilter {
@@ -22668,73 +22668,73 @@ export namespace ec2 {
         /**
          * IP protocol assigned to this pool.
          */
-        addressFamily: string;
+        addressFamily?: string;
         /**
          * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
          */
-        allocationDefaultNetmaskLength: number;
+        allocationDefaultNetmaskLength?: number;
         /**
          * The maximum netmask length that will be required for CIDR allocations in this pool.
          */
-        allocationMaxNetmaskLength: number;
+        allocationMaxNetmaskLength?: number;
         /**
          * The minimum netmask length that will be required for CIDR allocations in this pool.
          */
-        allocationMinNetmaskLength: number;
+        allocationMinNetmaskLength?: number;
         /**
          * Tags that are required to create resources in using this pool.
          */
-        allocationResourceTags: {[key: string]: string};
+        allocationResourceTags?: {[key: string]: string};
         /**
          * ARN of the pool
          */
-        arn: string;
+        arn?: string;
         /**
          * If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
          */
-        autoImport: boolean;
+        autoImport?: boolean;
         /**
          * Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
          */
-        awsService: string;
+        awsService?: string;
         /**
          * Description for the IPAM pool.
          */
-        description: string;
+        description?: string;
         /**
          * ID of the IPAM pool.
          */
-        id: string;
+        id?: string;
         /**
          * ID of the scope the pool belongs to.
          */
-        ipamScopeId: string;
-        ipamScopeType: string;
+        ipamScopeId?: string;
+        ipamScopeType?: string;
         /**
          * Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
          */
-        locale: string;
-        poolDepth: number;
+        locale?: string;
+        poolDepth?: number;
         /**
          * Defines whether or not IPv6 pool space is publicly advertisable over the internet.
          */
-        publiclyAdvertisable: boolean;
+        publiclyAdvertisable?: boolean;
         /**
          * ID of the source IPAM pool.
          */
-        sourceIpamPoolId: string;
-        state: string;
+        sourceIpamPoolId?: string;
+        state?: string;
         /**
          * Map of tags to assigned to the resource.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
     }
 
     export interface GetVpcPeeringConnectionCidrBlockSet {
         /**
          * Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
          */
-        cidrBlock: string;
+        cidrBlock?: string;
     }
 
     export interface GetVpcPeeringConnectionFilter {
@@ -22754,7 +22754,7 @@ export namespace ec2 {
         /**
          * Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
          */
-        cidrBlock: string;
+        cidrBlock?: string;
     }
 
     export interface GetVpcPeeringConnectionsFilter {
@@ -22824,17 +22824,17 @@ export namespace ec2 {
         /**
          * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
          */
-        amdSevSnp: string;
+        amdSevSnp?: string;
         /**
          * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
          */
-        coreCount: number;
+        coreCount?: number;
         /**
          * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
          *
          * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
          */
-        threadsPerCore: number;
+        threadsPerCore?: number;
     }
 
     export interface InstanceCreditSpecification {
@@ -22856,19 +22856,19 @@ export namespace ec2 {
         /**
          * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
-        iops: number;
+        iops?: number;
         /**
          * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Snapshot ID to mount.
          */
-        snapshotId: string;
+        snapshotId?: string;
         /**
          * Map of tags to assign to the device.
          */
@@ -22876,21 +22876,21 @@ export namespace ec2 {
         /**
          * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
          */
-        volumeId: string;
+        volumeId?: string;
         /**
          * Size of the volume in gibibytes (GiB).
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          *
          * > **NOTE:** Currently, changes to the `ebsBlockDevice` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources instead. If you use `ebsBlockDevice` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebsBlockDevice` cannot be mixed with external `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources for a given instance.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface InstanceEnclaveOptions {
@@ -22899,7 +22899,7 @@ export namespace ec2 {
          *
          * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface InstanceEphemeralBlockDevice {
@@ -22923,41 +22923,41 @@ export namespace ec2 {
         /**
          * Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
          */
-        marketType: string;
+        marketType?: string;
         /**
          * Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
          */
-        spotOptions: outputs.ec2.InstanceInstanceMarketOptionsSpotOptions;
+        spotOptions?: outputs.ec2.InstanceInstanceMarketOptionsSpotOptions;
     }
 
     export interface InstanceInstanceMarketOptionsSpotOptions {
         /**
          * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
          */
-        instanceInterruptionBehavior: string;
+        instanceInterruptionBehavior?: string;
         /**
          * The maximum hourly price that you're willing to pay for a Spot Instance.
          */
-        maxPrice: string;
+        maxPrice?: string;
         /**
          * The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
          */
-        spotInstanceType: string;
+        spotInstanceType?: string;
         /**
          * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
          */
-        validUntil: string;
+        validUntil?: string;
     }
 
     export interface InstanceLaunchTemplate {
         /**
          * ID of the launch template. Conflicts with `name`.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the launch template. Conflicts with `id`.
          */
-        name: string;
+        name?: string;
         /**
          * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
          */
@@ -22968,7 +22968,7 @@ export namespace ec2 {
         /**
          * Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
          */
-        autoRecovery: string;
+        autoRecovery?: string;
     }
 
     export interface InstanceMetadataOptions {
@@ -22983,17 +22983,17 @@ export namespace ec2 {
         /**
          * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
          */
-        httpPutResponseHopLimit: number;
+        httpPutResponseHopLimit?: number;
         /**
          * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
-        httpTokens: string;
+        httpTokens?: string;
         /**
          * Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
          *
          * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
          */
-        instanceMetadataTags: string;
+        instanceMetadataTags?: string;
     }
 
     export interface InstanceNetworkInterface {
@@ -23019,15 +23019,15 @@ export namespace ec2 {
         /**
          * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
          */
-        enableResourceNameDnsARecord: boolean;
+        enableResourceNameDnsARecord?: boolean;
         /**
          * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
          */
-        enableResourceNameDnsAaaaRecord: boolean;
+        enableResourceNameDnsAaaaRecord?: boolean;
         /**
          * Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
          */
-        hostnameType: string;
+        hostnameType?: string;
     }
 
     export interface InstanceRootBlockDevice {
@@ -23038,19 +23038,19 @@ export namespace ec2 {
         /**
          * Name of the device to mount.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
-        iops: number;
+        iops?: number;
         /**
          * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Map of tags to assign to the device.
          */
@@ -23058,33 +23058,33 @@ export namespace ec2 {
         /**
          * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
          */
-        volumeId: string;
+        volumeId?: string;
         /**
          * Size of the volume in gibibytes (GiB).
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
          *
          * Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface LaunchConfigurationEbsBlockDevice {
         deleteOnTermination?: boolean;
         deviceName: string;
-        encrypted: boolean;
-        iops: number;
+        encrypted?: boolean;
+        iops?: number;
         noDevice?: boolean;
-        snapshotId: string;
-        throughput: number;
-        volumeSize: number;
-        volumeType: string;
+        snapshotId?: string;
+        throughput?: number;
+        volumeSize?: number;
+        volumeType?: string;
     }
 
     export interface LaunchConfigurationEphemeralBlockDevice {
@@ -23097,24 +23097,24 @@ export namespace ec2 {
         /**
          * The state of the metadata service: `enabled`, `disabled`.
          */
-        httpEndpoint: string;
+        httpEndpoint?: string;
         /**
          * The desired HTTP PUT response hop limit for instance metadata requests.
          */
-        httpPutResponseHopLimit: number;
+        httpPutResponseHopLimit?: number;
         /**
          * If session tokens are required: `optional`, `required`.
          */
-        httpTokens: string;
+        httpTokens?: string;
     }
 
     export interface LaunchConfigurationRootBlockDevice {
         deleteOnTermination?: boolean;
-        encrypted: boolean;
-        iops: number;
-        throughput: number;
-        volumeSize: number;
-        volumeType: string;
+        encrypted?: boolean;
+        iops?: number;
+        throughput?: number;
+        volumeSize?: number;
+        volumeType?: string;
     }
 
     export interface LaunchTemplateBlockDeviceMapping {
@@ -23153,7 +23153,7 @@ export namespace ec2 {
          * The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
          * This must be set with a `volumeType` of `"io1/io2/gp3"`.
          */
-        iops: number;
+        iops?: number;
         /**
          * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
          * `encrypted` must be set to `true` when this is set.
@@ -23166,16 +23166,16 @@ export namespace ec2 {
         /**
          * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * The size of the volume in gigabytes.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * The volume type.
          * Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface LaunchTemplateCapacityReservationSpecification {
@@ -23302,7 +23302,7 @@ export namespace ec2 {
         /**
          * The end date of the request.
          */
-        validUntil: string;
+        validUntil?: string;
     }
 
     export interface LaunchTemplateInstanceRequirements {
@@ -23551,25 +23551,25 @@ export namespace ec2 {
         /**
          * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
          */
-        httpEndpoint: string;
+        httpEndpoint?: string;
         /**
          * Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
          */
-        httpProtocolIpv6: string;
+        httpProtocolIpv6?: string;
         /**
          * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
          */
-        httpPutResponseHopLimit: number;
+        httpPutResponseHopLimit?: number;
         /**
          * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
          */
-        httpTokens: string;
+        httpTokens?: string;
         /**
          * Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
          *
          * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
          */
-        instanceMetadataTags: string;
+        instanceMetadataTags?: string;
     }
 
     export interface LaunchTemplateMonitoring {
@@ -23823,851 +23823,851 @@ export namespace ec2 {
         /**
          * The Amazon Resource Name (ARN) of the component.
          */
-        componentArn: string;
+        componentArn?: string;
         /**
          * The ID of the component.
          */
-        componentId: string;
+        componentId?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanation {
-        aclRules: outputs.ec2.NetworkInsightsAnalysisExplanationAclRule[];
-        acls: outputs.ec2.NetworkInsightsAnalysisExplanationAcl[];
-        address: string;
-        addresses: string[];
-        attachedTos: outputs.ec2.NetworkInsightsAnalysisExplanationAttachedTo[];
-        availabilityZones: string[];
-        cidrs: string[];
-        classicLoadBalancerListeners: outputs.ec2.NetworkInsightsAnalysisExplanationClassicLoadBalancerListener[];
-        components: outputs.ec2.NetworkInsightsAnalysisExplanationComponent[];
-        customerGateways: outputs.ec2.NetworkInsightsAnalysisExplanationCustomerGateway[];
-        destinationVpcs: outputs.ec2.NetworkInsightsAnalysisExplanationDestinationVpc[];
-        destinations: outputs.ec2.NetworkInsightsAnalysisExplanationDestination[];
-        direction: string;
-        elasticLoadBalancerListeners: outputs.ec2.NetworkInsightsAnalysisExplanationElasticLoadBalancerListener[];
-        explanationCode: string;
-        ingressRouteTables: outputs.ec2.NetworkInsightsAnalysisExplanationIngressRouteTable[];
-        internetGateways: outputs.ec2.NetworkInsightsAnalysisExplanationInternetGateway[];
-        loadBalancerArn: string;
-        loadBalancerListenerPort: number;
-        loadBalancerTargetGroup: outputs.ec2.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup[];
-        loadBalancerTargetGroups: outputs.ec2.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup[];
-        loadBalancerTargetPort: number;
-        missingComponent: string;
-        natGateways: outputs.ec2.NetworkInsightsAnalysisExplanationNatGateway[];
-        networkInterfaces: outputs.ec2.NetworkInsightsAnalysisExplanationNetworkInterface[];
-        packetField: string;
-        port: number;
-        portRanges: outputs.ec2.NetworkInsightsAnalysisExplanationPortRange[];
-        prefixLists: outputs.ec2.NetworkInsightsAnalysisExplanationPrefixList[];
-        protocols: string[];
-        routeTableRoutes: outputs.ec2.NetworkInsightsAnalysisExplanationRouteTableRoute[];
-        routeTables: outputs.ec2.NetworkInsightsAnalysisExplanationRouteTable[];
-        securityGroup: outputs.ec2.NetworkInsightsAnalysisExplanationSecurityGroup[];
-        securityGroupRules: outputs.ec2.NetworkInsightsAnalysisExplanationSecurityGroupRule[];
-        securityGroups: outputs.ec2.NetworkInsightsAnalysisExplanationSecurityGroup[];
-        sourceVpcs: outputs.ec2.NetworkInsightsAnalysisExplanationSourceVpc[];
-        state: string;
-        subnetRouteTables: outputs.ec2.NetworkInsightsAnalysisExplanationSubnetRouteTable[];
-        subnets: outputs.ec2.NetworkInsightsAnalysisExplanationSubnet[];
-        transitGatewayAttachments: outputs.ec2.NetworkInsightsAnalysisExplanationTransitGatewayAttachment[];
-        transitGatewayRouteTableRoutes: outputs.ec2.NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute[];
-        transitGatewayRouteTables: outputs.ec2.NetworkInsightsAnalysisExplanationTransitGatewayRouteTable[];
-        transitGateways: outputs.ec2.NetworkInsightsAnalysisExplanationTransitGateway[];
-        vpcEndpoints: outputs.ec2.NetworkInsightsAnalysisExplanationVpcEndpoint[];
-        vpcPeeringConnections: outputs.ec2.NetworkInsightsAnalysisExplanationVpcPeeringConnection[];
-        vpcs: outputs.ec2.NetworkInsightsAnalysisExplanationVpc[];
-        vpnConnections: outputs.ec2.NetworkInsightsAnalysisExplanationVpnConnection[];
-        vpnGateways: outputs.ec2.NetworkInsightsAnalysisExplanationVpnGateway[];
+        aclRules?: outputs.ec2.NetworkInsightsAnalysisExplanationAclRule[];
+        acls?: outputs.ec2.NetworkInsightsAnalysisExplanationAcl[];
+        address?: string;
+        addresses?: string[];
+        attachedTos?: outputs.ec2.NetworkInsightsAnalysisExplanationAttachedTo[];
+        availabilityZones?: string[];
+        cidrs?: string[];
+        classicLoadBalancerListeners?: outputs.ec2.NetworkInsightsAnalysisExplanationClassicLoadBalancerListener[];
+        components?: outputs.ec2.NetworkInsightsAnalysisExplanationComponent[];
+        customerGateways?: outputs.ec2.NetworkInsightsAnalysisExplanationCustomerGateway[];
+        destinationVpcs?: outputs.ec2.NetworkInsightsAnalysisExplanationDestinationVpc[];
+        destinations?: outputs.ec2.NetworkInsightsAnalysisExplanationDestination[];
+        direction?: string;
+        elasticLoadBalancerListeners?: outputs.ec2.NetworkInsightsAnalysisExplanationElasticLoadBalancerListener[];
+        explanationCode?: string;
+        ingressRouteTables?: outputs.ec2.NetworkInsightsAnalysisExplanationIngressRouteTable[];
+        internetGateways?: outputs.ec2.NetworkInsightsAnalysisExplanationInternetGateway[];
+        loadBalancerArn?: string;
+        loadBalancerListenerPort?: number;
+        loadBalancerTargetGroup?: outputs.ec2.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup[];
+        loadBalancerTargetGroups?: outputs.ec2.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup[];
+        loadBalancerTargetPort?: number;
+        missingComponent?: string;
+        natGateways?: outputs.ec2.NetworkInsightsAnalysisExplanationNatGateway[];
+        networkInterfaces?: outputs.ec2.NetworkInsightsAnalysisExplanationNetworkInterface[];
+        packetField?: string;
+        port?: number;
+        portRanges?: outputs.ec2.NetworkInsightsAnalysisExplanationPortRange[];
+        prefixLists?: outputs.ec2.NetworkInsightsAnalysisExplanationPrefixList[];
+        protocols?: string[];
+        routeTableRoutes?: outputs.ec2.NetworkInsightsAnalysisExplanationRouteTableRoute[];
+        routeTables?: outputs.ec2.NetworkInsightsAnalysisExplanationRouteTable[];
+        securityGroup?: outputs.ec2.NetworkInsightsAnalysisExplanationSecurityGroup[];
+        securityGroupRules?: outputs.ec2.NetworkInsightsAnalysisExplanationSecurityGroupRule[];
+        securityGroups?: outputs.ec2.NetworkInsightsAnalysisExplanationSecurityGroup[];
+        sourceVpcs?: outputs.ec2.NetworkInsightsAnalysisExplanationSourceVpc[];
+        state?: string;
+        subnetRouteTables?: outputs.ec2.NetworkInsightsAnalysisExplanationSubnetRouteTable[];
+        subnets?: outputs.ec2.NetworkInsightsAnalysisExplanationSubnet[];
+        transitGatewayAttachments?: outputs.ec2.NetworkInsightsAnalysisExplanationTransitGatewayAttachment[];
+        transitGatewayRouteTableRoutes?: outputs.ec2.NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute[];
+        transitGatewayRouteTables?: outputs.ec2.NetworkInsightsAnalysisExplanationTransitGatewayRouteTable[];
+        transitGateways?: outputs.ec2.NetworkInsightsAnalysisExplanationTransitGateway[];
+        vpcEndpoints?: outputs.ec2.NetworkInsightsAnalysisExplanationVpcEndpoint[];
+        vpcPeeringConnections?: outputs.ec2.NetworkInsightsAnalysisExplanationVpcPeeringConnection[];
+        vpcs?: outputs.ec2.NetworkInsightsAnalysisExplanationVpc[];
+        vpnConnections?: outputs.ec2.NetworkInsightsAnalysisExplanationVpnConnection[];
+        vpnGateways?: outputs.ec2.NetworkInsightsAnalysisExplanationVpnGateway[];
     }
 
     export interface NetworkInsightsAnalysisExplanationAcl {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationAclRule {
-        cidr: string;
-        egress: boolean;
-        portRanges: outputs.ec2.NetworkInsightsAnalysisExplanationAclRulePortRange[];
-        protocol: string;
-        ruleAction: string;
-        ruleNumber: number;
+        cidr?: string;
+        egress?: boolean;
+        portRanges?: outputs.ec2.NetworkInsightsAnalysisExplanationAclRulePortRange[];
+        protocol?: string;
+        ruleAction?: string;
+        ruleNumber?: number;
     }
 
     export interface NetworkInsightsAnalysisExplanationAclRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisExplanationAttachedTo {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationClassicLoadBalancerListener {
-        instancePort: number;
-        loadBalancerPort: number;
+        instancePort?: number;
+        loadBalancerPort?: number;
     }
 
     export interface NetworkInsightsAnalysisExplanationComponent {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationCustomerGateway {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationDestination {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationDestinationVpc {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationElasticLoadBalancerListener {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationIngressRouteTable {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationInternetGateway {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationNatGateway {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationNetworkInterface {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisExplanationPrefixList {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationRouteTable {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationRouteTableRoute {
-        destinationCidr: string;
-        destinationPrefixListId: string;
-        egressOnlyInternetGatewayId: string;
-        gatewayId: string;
-        instanceId: string;
-        natGatewayId: string;
-        networkInterfaceId: string;
-        origin: string;
-        transitGatewayId: string;
-        vpcPeeringConnectionId: string;
+        destinationCidr?: string;
+        destinationPrefixListId?: string;
+        egressOnlyInternetGatewayId?: string;
+        gatewayId?: string;
+        instanceId?: string;
+        natGatewayId?: string;
+        networkInterfaceId?: string;
+        origin?: string;
+        transitGatewayId?: string;
+        vpcPeeringConnectionId?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationSecurityGroup {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationSecurityGroupRule {
-        cidr: string;
-        direction: string;
-        portRanges: outputs.ec2.NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange[];
-        prefixListId: string;
-        protocol: string;
-        securityGroupId: string;
+        cidr?: string;
+        direction?: string;
+        portRanges?: outputs.ec2.NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange[];
+        prefixListId?: string;
+        protocol?: string;
+        securityGroupId?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisExplanationSourceVpc {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationSubnet {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationSubnetRouteTable {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationTransitGateway {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationTransitGatewayAttachment {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationTransitGatewayRouteTable {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute {
-        attachmentId: string;
-        destinationCidr: string;
-        prefixListId: string;
-        resourceId: string;
-        resourceType: string;
-        routeOrigin: string;
-        state: string;
+        attachmentId?: string;
+        destinationCidr?: string;
+        prefixListId?: string;
+        resourceId?: string;
+        resourceType?: string;
+        routeOrigin?: string;
+        state?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationVpc {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationVpcEndpoint {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationVpcPeeringConnection {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationVpnConnection {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisExplanationVpnGateway {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponent {
-        aclRules: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAclRule[];
-        additionalDetails: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAdditionalDetail[];
-        attachedTos: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAttachedTo[];
-        components: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentComponent[];
-        destinationVpcs: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentDestinationVpc[];
-        inboundHeaders: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentInboundHeader[];
-        outboundHeaders: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentOutboundHeader[];
-        routeTableRoutes: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentRouteTableRoute[];
-        securityGroupRules: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule[];
-        sequenceNumber: number;
-        sourceVpcs: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentSourceVpc[];
-        subnets: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentSubnet[];
-        transitGatewayRouteTableRoutes: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute[];
-        transitGateways: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentTransitGateway[];
-        vpcs: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentVpc[];
+        aclRules?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAclRule[];
+        additionalDetails?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAdditionalDetail[];
+        attachedTos?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAttachedTo[];
+        components?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentComponent[];
+        destinationVpcs?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentDestinationVpc[];
+        inboundHeaders?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentInboundHeader[];
+        outboundHeaders?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentOutboundHeader[];
+        routeTableRoutes?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentRouteTableRoute[];
+        securityGroupRules?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule[];
+        sequenceNumber?: number;
+        sourceVpcs?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentSourceVpc[];
+        subnets?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentSubnet[];
+        transitGatewayRouteTableRoutes?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute[];
+        transitGateways?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentTransitGateway[];
+        vpcs?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentVpc[];
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentAclRule {
-        cidr: string;
-        egress: boolean;
-        portRanges: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAclRulePortRange[];
-        protocol: string;
-        ruleAction: string;
-        ruleNumber: number;
+        cidr?: string;
+        egress?: boolean;
+        portRanges?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAclRulePortRange[];
+        protocol?: string;
+        ruleAction?: string;
+        ruleNumber?: number;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentAclRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentAdditionalDetail {
-        additionalDetailType: string;
-        components: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent[];
+        additionalDetailType?: string;
+        components?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent[];
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentAttachedTo {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentComponent {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentDestinationVpc {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentInboundHeader {
-        destinationAddresses: string[];
-        destinationPortRanges: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange[];
-        protocol: string;
-        sourceAddresses: string[];
-        sourcePortRanges: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange[];
+        destinationAddresses?: string[];
+        destinationPortRanges?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange[];
+        protocol?: string;
+        sourceAddresses?: string[];
+        sourcePortRanges?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange[];
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentOutboundHeader {
-        destinationAddresses: string[];
-        destinationPortRanges: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange[];
-        protocol: string;
-        sourceAddresses: string[];
-        sourcePortRanges: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange[];
+        destinationAddresses?: string[];
+        destinationPortRanges?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange[];
+        protocol?: string;
+        sourceAddresses?: string[];
+        sourcePortRanges?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange[];
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentRouteTableRoute {
-        destinationCidr: string;
-        destinationPrefixListId: string;
-        egressOnlyInternetGatewayId: string;
-        gatewayId: string;
-        instanceId: string;
-        natGatewayId: string;
-        networkInterfaceId: string;
-        origin: string;
-        transitGatewayId: string;
-        vpcPeeringConnectionId: string;
+        destinationCidr?: string;
+        destinationPrefixListId?: string;
+        egressOnlyInternetGatewayId?: string;
+        gatewayId?: string;
+        instanceId?: string;
+        natGatewayId?: string;
+        networkInterfaceId?: string;
+        origin?: string;
+        transitGatewayId?: string;
+        vpcPeeringConnectionId?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule {
-        cidr: string;
-        direction: string;
-        portRanges: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange[];
-        prefixListId: string;
-        protocol: string;
-        securityGroupId: string;
+        cidr?: string;
+        direction?: string;
+        portRanges?: outputs.ec2.NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange[];
+        prefixListId?: string;
+        protocol?: string;
+        securityGroupId?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentSourceVpc {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentSubnet {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentTransitGateway {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute {
-        attachmentId: string;
-        destinationCidr: string;
-        prefixListId: string;
-        resourceId: string;
-        resourceType: string;
-        routeOrigin: string;
-        state: string;
+        attachmentId?: string;
+        destinationCidr?: string;
+        prefixListId?: string;
+        resourceId?: string;
+        resourceType?: string;
+        routeOrigin?: string;
+        state?: string;
     }
 
     export interface NetworkInsightsAnalysisForwardPathComponentVpc {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponent {
-        aclRules: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAclRule[];
-        additionalDetails: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAdditionalDetail[];
-        attachedTos: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAttachedTo[];
-        components: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentComponent[];
-        destinationVpcs: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentDestinationVpc[];
-        inboundHeaders: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentInboundHeader[];
-        outboundHeaders: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentOutboundHeader[];
-        routeTableRoutes: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentRouteTableRoute[];
-        securityGroupRules: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule[];
-        sequenceNumber: number;
-        sourceVpcs: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentSourceVpc[];
-        subnets: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentSubnet[];
-        transitGatewayRouteTableRoutes: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute[];
-        transitGateways: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentTransitGateway[];
-        vpcs: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentVpc[];
+        aclRules?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAclRule[];
+        additionalDetails?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAdditionalDetail[];
+        attachedTos?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAttachedTo[];
+        components?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentComponent[];
+        destinationVpcs?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentDestinationVpc[];
+        inboundHeaders?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentInboundHeader[];
+        outboundHeaders?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentOutboundHeader[];
+        routeTableRoutes?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentRouteTableRoute[];
+        securityGroupRules?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule[];
+        sequenceNumber?: number;
+        sourceVpcs?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentSourceVpc[];
+        subnets?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentSubnet[];
+        transitGatewayRouteTableRoutes?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute[];
+        transitGateways?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentTransitGateway[];
+        vpcs?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentVpc[];
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentAclRule {
-        cidr: string;
-        egress: boolean;
-        portRanges: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAclRulePortRange[];
-        protocol: string;
-        ruleAction: string;
-        ruleNumber: number;
+        cidr?: string;
+        egress?: boolean;
+        portRanges?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAclRulePortRange[];
+        protocol?: string;
+        ruleAction?: string;
+        ruleNumber?: number;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentAclRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentAdditionalDetail {
-        additionalDetailType: string;
-        components: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent[];
+        additionalDetailType?: string;
+        components?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent[];
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentAttachedTo {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentComponent {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentDestinationVpc {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentInboundHeader {
-        destinationAddresses: string[];
-        destinationPortRanges: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange[];
-        protocol: string;
-        sourceAddresses: string[];
-        sourcePortRanges: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange[];
+        destinationAddresses?: string[];
+        destinationPortRanges?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange[];
+        protocol?: string;
+        sourceAddresses?: string[];
+        sourcePortRanges?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange[];
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentOutboundHeader {
-        destinationAddresses: string[];
-        destinationPortRanges: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange[];
-        protocol: string;
-        sourceAddresses: string[];
-        sourcePortRanges: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange[];
+        destinationAddresses?: string[];
+        destinationPortRanges?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange[];
+        protocol?: string;
+        sourceAddresses?: string[];
+        sourcePortRanges?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange[];
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentRouteTableRoute {
-        destinationCidr: string;
-        destinationPrefixListId: string;
-        egressOnlyInternetGatewayId: string;
-        gatewayId: string;
-        instanceId: string;
-        natGatewayId: string;
-        networkInterfaceId: string;
-        origin: string;
-        transitGatewayId: string;
-        vpcPeeringConnectionId: string;
+        destinationCidr?: string;
+        destinationPrefixListId?: string;
+        egressOnlyInternetGatewayId?: string;
+        gatewayId?: string;
+        instanceId?: string;
+        natGatewayId?: string;
+        networkInterfaceId?: string;
+        origin?: string;
+        transitGatewayId?: string;
+        vpcPeeringConnectionId?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule {
-        cidr: string;
-        direction: string;
-        portRanges: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange[];
-        prefixListId: string;
-        protocol: string;
-        securityGroupId: string;
+        cidr?: string;
+        direction?: string;
+        portRanges?: outputs.ec2.NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange[];
+        prefixListId?: string;
+        protocol?: string;
+        securityGroupId?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange {
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentSourceVpc {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentSubnet {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentTransitGateway {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute {
-        attachmentId: string;
-        destinationCidr: string;
-        prefixListId: string;
-        resourceId: string;
-        resourceType: string;
-        routeOrigin: string;
-        state: string;
+        attachmentId?: string;
+        destinationCidr?: string;
+        prefixListId?: string;
+        resourceId?: string;
+        resourceType?: string;
+        routeOrigin?: string;
+        state?: string;
     }
 
     export interface NetworkInsightsAnalysisReturnPathComponentVpc {
         /**
          * ARN of the Network Insights Analysis.
          */
-        arn: string;
+        arn?: string;
         /**
          * ID of the Network Insights Analysis.
          */
-        id: string;
-        name: string;
+        id?: string;
+        name?: string;
     }
 
     export interface NetworkInterfaceAttachment {
-        attachmentId: string;
+        attachmentId?: string;
         /**
          * Integer to define the devices index.
          */
@@ -24843,21 +24843,21 @@ export namespace ec2 {
         /**
          * The availability zone in which to place the request.
          */
-        availabilityZone: string;
-        ebsBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationEbsBlockDevice[];
+        availabilityZone?: string;
+        ebsBlockDevices?: outputs.ec2.SpotFleetRequestLaunchSpecificationEbsBlockDevice[];
         ebsOptimized?: boolean;
-        ephemeralBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[];
+        ephemeralBlockDevices?: outputs.ec2.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[];
         iamInstanceProfile?: string;
         iamInstanceProfileArn?: string;
         /**
          * The type of instance to request.
          */
         instanceType: string;
-        keyName: string;
+        keyName?: string;
         monitoring?: boolean;
-        placementGroup: string;
+        placementGroup?: string;
         placementTenancy?: string;
-        rootBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationRootBlockDevice[];
+        rootBlockDevices?: outputs.ec2.SpotFleetRequestLaunchSpecificationRootBlockDevice[];
         /**
          * The maximum bid price per unit hour.
          */
@@ -24865,13 +24865,13 @@ export namespace ec2 {
         /**
          * The subnet in which to launch the requested instance.
          */
-        subnetId: string;
+        subnetId?: string;
         /**
          * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          */
         tags?: {[key: string]: string};
         userData?: string;
-        vpcSecurityGroupIds: string[];
+        vpcSecurityGroupIds?: string[];
         /**
          * The capacity added to the fleet by a fulfilled request.
          */
@@ -24881,13 +24881,13 @@ export namespace ec2 {
     export interface SpotFleetRequestLaunchSpecificationEbsBlockDevice {
         deleteOnTermination?: boolean;
         deviceName: string;
-        encrypted: boolean;
-        iops: number;
-        kmsKeyId: string;
-        snapshotId: string;
-        throughput: number;
-        volumeSize: number;
-        volumeType: string;
+        encrypted?: boolean;
+        iops?: number;
+        kmsKeyId?: string;
+        snapshotId?: string;
+        throughput?: number;
+        volumeSize?: number;
+        volumeType?: string;
     }
 
     export interface SpotFleetRequestLaunchSpecificationEphemeralBlockDevice {
@@ -24897,12 +24897,12 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchSpecificationRootBlockDevice {
         deleteOnTermination?: boolean;
-        encrypted: boolean;
-        iops: number;
-        kmsKeyId: string;
-        throughput: number;
-        volumeSize: number;
-        volumeType: string;
+        encrypted?: boolean;
+        iops?: number;
+        kmsKeyId?: string;
+        throughput?: number;
+        volumeSize?: number;
+        volumeType?: string;
     }
 
     export interface SpotFleetRequestLaunchTemplateConfig {
@@ -24951,19 +24951,19 @@ export namespace ec2 {
         /**
          * The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
          */
-        priority: number;
+        priority?: number;
         /**
          * The maximum spot bid for this override request.
          */
-        spotPrice: string;
+        spotPrice?: string;
         /**
          * The subnet in which to launch the requested instance.
          */
-        subnetId: string;
+        subnetId?: string;
         /**
          * The capacity added to the fleet by a fulfilled request.
          */
-        weightedCapacity: number;
+        weightedCapacity?: number;
     }
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements {
@@ -25236,17 +25236,17 @@ export namespace ec2 {
         /**
          * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
          */
-        amdSevSnp: string;
+        amdSevSnp?: string;
         /**
          * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
          */
-        coreCount: number;
+        coreCount?: number;
         /**
          * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
          *
          * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
          */
-        threadsPerCore: number;
+        threadsPerCore?: number;
     }
 
     export interface SpotInstanceRequestCreditSpecification {
@@ -25268,19 +25268,19 @@ export namespace ec2 {
         /**
          * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
-        iops: number;
+        iops?: number;
         /**
          * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Snapshot ID to mount.
          */
-        snapshotId: string;
+        snapshotId?: string;
         /**
          * Map of tags to assign to the device.
          */
@@ -25288,18 +25288,18 @@ export namespace ec2 {
         /**
          * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
-        throughput: number;
-        volumeId: string;
+        throughput?: number;
+        volumeId?: string;
         /**
          * Size of the volume in gibibytes (GiB).
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          *
          * > **NOTE:** Currently, changes to the `ebsBlockDevice` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources instead. If you use `ebsBlockDevice` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebsBlockDevice` cannot be mixed with external `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources for a given instance.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface SpotInstanceRequestEnclaveOptions {
@@ -25308,7 +25308,7 @@ export namespace ec2 {
          *
          * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface SpotInstanceRequestEphemeralBlockDevice {
@@ -25332,11 +25332,11 @@ export namespace ec2 {
         /**
          * ID of the launch template. Conflicts with `name`.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the launch template. Conflicts with `id`.
          */
-        name: string;
+        name?: string;
         /**
          * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
          */
@@ -25347,7 +25347,7 @@ export namespace ec2 {
         /**
          * Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
          */
-        autoRecovery: string;
+        autoRecovery?: string;
     }
 
     export interface SpotInstanceRequestMetadataOptions {
@@ -25362,17 +25362,17 @@ export namespace ec2 {
         /**
          * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
          */
-        httpPutResponseHopLimit: number;
+        httpPutResponseHopLimit?: number;
         /**
          * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
-        httpTokens: string;
+        httpTokens?: string;
         /**
          * Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
          *
          * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
          */
-        instanceMetadataTags: string;
+        instanceMetadataTags?: string;
     }
 
     export interface SpotInstanceRequestNetworkInterface {
@@ -25398,15 +25398,15 @@ export namespace ec2 {
         /**
          * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
          */
-        enableResourceNameDnsARecord: boolean;
+        enableResourceNameDnsARecord?: boolean;
         /**
          * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
          */
-        enableResourceNameDnsAaaaRecord: boolean;
+        enableResourceNameDnsAaaaRecord?: boolean;
         /**
          * Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
          */
-        hostnameType: string;
+        hostnameType?: string;
     }
 
     export interface SpotInstanceRequestRootBlockDevice {
@@ -25417,19 +25417,19 @@ export namespace ec2 {
         /**
          * Name of the device to mount.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
-        iops: number;
+        iops?: number;
         /**
          * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Map of tags to assign to the device.
          */
@@ -25437,18 +25437,18 @@ export namespace ec2 {
         /**
          * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
-        throughput: number;
-        volumeId: string;
+        throughput?: number;
+        volumeId?: string;
         /**
          * Size of the volume in gibibytes (GiB).
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
          *
          * Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface TrafficMirrorFilterRuleDestinationPortRange {
@@ -25477,18 +25477,18 @@ export namespace ec2 {
         /**
          * The DNS name.
          */
-        dnsName: string;
+        dnsName?: string;
         /**
          * The ID of the private hosted zone.
          */
-        hostedZoneId: string;
+        hostedZoneId?: string;
     }
 
     export interface VpcEndpointDnsOptions {
         /**
          * The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
          */
-        dnsRecordIpType: string;
+        dnsRecordIpType?: string;
         /**
          * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
          */
@@ -25499,19 +25499,19 @@ export namespace ec2 {
         /**
          * Name of the record subdomain the service provider needs to create.
          */
-        name: string;
+        name?: string;
         /**
          * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
          */
-        state: string;
+        state?: string;
         /**
          * Endpoint service verification type, for example `TXT`.
          */
-        type: string;
+        type?: string;
         /**
          * Value the service provider adds to the private DNS name domain record before verification.
          */
-        value: string;
+        value?: string;
     }
 
     export interface VpcIpamOperatingRegion {
@@ -25575,22 +25575,22 @@ export namespace ec2 {
         /**
          * The CIDR block associated with the local subnet of the customer data center.
          */
-        destinationCidrBlock: string;
+        destinationCidrBlock?: string;
         /**
          * Indicates how the routes were provided.
          */
-        source: string;
+        source?: string;
         /**
          * The current state of the static route.
          */
-        state: string;
+        state?: string;
     }
 
     export interface VpnConnectionTunnel1LogOptions {
         /**
          * Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
          */
-        cloudwatchLogOptions: outputs.ec2.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions;
+        cloudwatchLogOptions?: outputs.ec2.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions;
     }
 
     export interface VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
@@ -25612,7 +25612,7 @@ export namespace ec2 {
         /**
          * Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
          */
-        cloudwatchLogOptions: outputs.ec2.VpnConnectionTunnel2LogOptionsCloudwatchLogOptions;
+        cloudwatchLogOptions?: outputs.ec2.VpnConnectionTunnel2LogOptionsCloudwatchLogOptions;
     }
 
     export interface VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
@@ -25634,27 +25634,27 @@ export namespace ec2 {
         /**
          * The number of accepted routes.
          */
-        acceptedRouteCount: number;
+        acceptedRouteCount?: number;
         /**
          * The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
          */
-        certificateArn: string;
+        certificateArn?: string;
         /**
          * The date and time of the last change in status.
          */
-        lastStatusChange: string;
+        lastStatusChange?: string;
         /**
          * The Internet-routable IP address of the virtual private gateway's outside interface.
          */
-        outsideIpAddress: string;
+        outsideIpAddress?: string;
         /**
          * The status of the VPN tunnel.
          */
-        status: string;
+        status?: string;
         /**
          * If an error occurs, a description of the error.
          */
-        statusMessage: string;
+        statusMessage?: string;
     }
 
 }
@@ -25687,22 +25687,22 @@ export namespace ec2clientvpn {
         /**
          * Indicates whether client connect options are enabled. The default is `false` (not enabled).
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
          */
-        lambdaFunctionArn: string;
+        lambdaFunctionArn?: string;
     }
 
     export interface EndpointClientLoginBannerOptions {
         /**
          * Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
          */
-        bannerText: string;
+        bannerText?: string;
         /**
          * Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface EndpointConnectionLogOptions {
@@ -25713,7 +25713,7 @@ export namespace ec2clientvpn {
         /**
          * The name of the CloudWatch Logs log stream to which the connection data is published.
          */
-        cloudwatchLogStream: string;
+        cloudwatchLogStream?: string;
         /**
          * Indicates whether connection logging is enabled.
          */
@@ -25721,27 +25721,27 @@ export namespace ec2clientvpn {
     }
 
     export interface GetEndpointAuthenticationOption {
-        activeDirectoryId: string;
-        rootCertificateChainArn: string;
-        samlProviderArn: string;
-        selfServiceSamlProviderArn: string;
-        type: string;
+        activeDirectoryId?: string;
+        rootCertificateChainArn?: string;
+        samlProviderArn?: string;
+        selfServiceSamlProviderArn?: string;
+        type?: string;
     }
 
     export interface GetEndpointClientConnectOption {
-        enabled: boolean;
-        lambdaFunctionArn: string;
+        enabled?: boolean;
+        lambdaFunctionArn?: string;
     }
 
     export interface GetEndpointClientLoginBannerOption {
-        bannerText: string;
-        enabled: boolean;
+        bannerText?: string;
+        enabled?: boolean;
     }
 
     export interface GetEndpointConnectionLogOption {
-        cloudwatchLogGroup: string;
-        cloudwatchLogStream: string;
-        enabled: boolean;
+        cloudwatchLogGroup?: string;
+        cloudwatchLogStream?: string;
+        enabled?: boolean;
     }
 
     export interface GetEndpointFilter {
@@ -25817,11 +25817,11 @@ export namespace ec2transitgateway {
         /**
          * The ID of the subnet associated with the transit gateway multicast domain.
          */
-        subnetId: string;
+        subnetId?: string;
         /**
          * The ID of the transit gateway attachment.
          */
-        transitGatewayAttachmentId: string;
+        transitGatewayAttachmentId?: string;
     }
 
     export interface GetMulticastDomainFilter {
@@ -25839,22 +25839,22 @@ export namespace ec2transitgateway {
         /**
          * The IP address assigned to the transit gateway multicast group.
          */
-        groupIpAddress: string;
+        groupIpAddress?: string;
         /**
          * The group members' network interface ID.
          */
-        networkInterfaceId: string;
+        networkInterfaceId?: string;
     }
 
     export interface GetMulticastDomainSource {
         /**
          * The IP address assigned to the transit gateway multicast group.
          */
-        groupIpAddress: string;
+        groupIpAddress?: string;
         /**
          * The group members' network interface ID.
          */
-        networkInterfaceId: string;
+        networkInterfaceId?: string;
     }
 
     export interface GetPeeringAttachmentFilter {
@@ -25923,23 +25923,23 @@ export namespace ec2transitgateway {
         /**
          * The CIDR used for route destination matches.
          */
-        destinationCidrBlock: string;
+        destinationCidrBlock?: string;
         /**
          * The ID of the prefix list used for destination matches.
          */
-        prefixListId: string;
+        prefixListId?: string;
         /**
          * The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
          */
-        state: string;
+        state?: string;
         /**
          * The id of the transit gateway route table announcement, most of the time it is an empty string.
          */
-        transitGatewayRouteTableAnnouncementId: string;
+        transitGatewayRouteTableAnnouncementId?: string;
         /**
          * The type of the route, can be `propagated` or `static`.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetTransitGatewayFilter {
@@ -25998,18 +25998,18 @@ export namespace ecr {
         /**
          * Encryption type to use for the repository, either `AES256` or `KMS`.
          */
-        encryptionType: string;
+        encryptionType?: string;
         /**
          * If `encryptionType` is `KMS`, the ARN of the KMS key used.
          */
-        kmsKey: string;
+        kmsKey?: string;
     }
 
     export interface GetRepositoryImageScanningConfiguration {
         /**
          * Whether images are scanned after being pushed to the repository.
          */
-        scanOnPush: boolean;
+        scanOnPush?: boolean;
     }
 
     export interface RegistryScanningConfigurationRule {
@@ -26076,7 +26076,7 @@ export namespace ecr {
         /**
          * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
          */
-        kmsKey: string;
+        kmsKey?: string;
     }
 
     export interface RepositoryImageScanningConfiguration {
@@ -26105,7 +26105,7 @@ export namespace ecrpublic {
         /**
          * The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
          */
-        logoImageBlob: string;
+        logoImageBlob?: string;
         /**
          * The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
          */
@@ -26127,34 +26127,34 @@ export namespace ecs {
         /**
          * Configuration block defining the parameters of the auto scaling. Detailed below.
          */
-        managedScaling: outputs.ecs.CapacityProviderAutoScalingGroupProviderManagedScaling;
+        managedScaling?: outputs.ecs.CapacityProviderAutoScalingGroupProviderManagedScaling;
         /**
          * Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
          */
-        managedTerminationProtection: string;
+        managedTerminationProtection?: string;
     }
 
     export interface CapacityProviderAutoScalingGroupProviderManagedScaling {
         /**
          * Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
          */
-        instanceWarmupPeriod: number;
+        instanceWarmupPeriod?: number;
         /**
          * Maximum step adjustment size. A number between 1 and 10,000.
          */
-        maximumScalingStepSize: number;
+        maximumScalingStepSize?: number;
         /**
          * Minimum step adjustment size. A number between 1 and 10,000.
          */
-        minimumScalingStepSize: number;
+        minimumScalingStepSize?: number;
         /**
          * Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
          */
-        status: string;
+        status?: string;
         /**
          * Target utilization for the capacity provider. A number between 1 and 100.
          */
-        targetCapacity: number;
+        targetCapacity?: number;
     }
 
     export interface ClusterCapacityProvidersDefaultCapacityProviderStrategy {
@@ -26236,12 +26236,12 @@ export namespace ecs {
     }
 
     export interface GetClusterServiceConnectDefault {
-        namespace: string;
+        namespace?: string;
     }
 
     export interface GetClusterSetting {
-        name: string;
-        value: string;
+        name?: string;
+        value?: string;
     }
 
     export interface GetTaskExecutionCapacityProviderStrategy {
@@ -26531,7 +26531,7 @@ export namespace ecs {
         /**
          * The configuration options to send to the log driver.
          */
-        options: {[key: string]: string};
+        options?: {[key: string]: string};
         /**
          * The secrets to pass to the log configuration. See below.
          */
@@ -26697,7 +26697,7 @@ export namespace ecs {
         /**
          * Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
          */
-        scope: string;
+        scope?: string;
     }
 
     export interface TaskDefinitionVolumeEfsVolumeConfiguration {
@@ -26865,11 +26865,11 @@ export namespace efs {
         /**
          * POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
          */
-        creationInfo: outputs.efs.AccessPointRootDirectoryCreationInfo;
+        creationInfo?: outputs.efs.AccessPointRootDirectoryCreationInfo;
         /**
          * Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
          */
-        path: string;
+        path?: string;
     }
 
     export interface AccessPointRootDirectoryCreationInfo {
@@ -26909,61 +26909,61 @@ export namespace efs {
         /**
          * The latest known metered size (in bytes) of data stored in the file system.
          */
-        value: number;
+        value?: number;
         /**
          * The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
          */
-        valueInIa: number;
+        valueInIa?: number;
         /**
          * The latest known metered size (in bytes) of data stored in the Standard storage class.
          */
-        valueInStandard: number;
+        valueInStandard?: number;
     }
 
     export interface GetAccessPointPosixUser {
         /**
          * Group ID
          */
-        gid: number;
+        gid?: number;
         /**
          * Secondary group IDs
          */
-        secondaryGids: number[];
+        secondaryGids?: number[];
         /**
          * User Id
          */
-        uid: number;
+        uid?: number;
     }
 
     export interface GetAccessPointRootDirectory {
         /**
          * Single element list containing information on the creation permissions of the directory
          */
-        creationInfos: outputs.efs.GetAccessPointRootDirectoryCreationInfo[];
+        creationInfos?: outputs.efs.GetAccessPointRootDirectoryCreationInfo[];
         /**
          * Path exposed as the root directory
          */
-        path: string;
+        path?: string;
     }
 
     export interface GetAccessPointRootDirectoryCreationInfo {
         /**
          * POSIX owner group ID
          */
-        ownerGid: number;
+        ownerGid?: number;
         /**
          * POSIX owner user ID
          */
-        ownerUid: number;
+        ownerUid?: number;
         /**
          * POSIX permissions mode
          */
-        permissions: string;
+        permissions?: string;
     }
 
     export interface GetFileSystemLifecyclePolicy {
-        transitionToIa: string;
-        transitionToPrimaryStorageClass: string;
+        transitionToIa?: string;
+        transitionToPrimaryStorageClass?: string;
     }
 
     export interface ReplicationConfigurationDestination {
@@ -26971,7 +26971,7 @@ export namespace efs {
          * The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
          */
         availabilityZoneName?: string;
-        fileSystemId: string;
+        fileSystemId?: string;
         /**
          * The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
          */
@@ -26979,8 +26979,8 @@ export namespace efs {
         /**
          * The region in which the replica should be created.
          */
-        region: string;
-        status: string;
+        region?: string;
+        status?: string;
     }
 
 }
@@ -26990,7 +26990,7 @@ export namespace eks {
         /**
          * Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
          */
-        data: string;
+        data?: string;
     }
 
     export interface ClusterEncryptionConfig {
@@ -27015,21 +27015,21 @@ export namespace eks {
         /**
          * Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
          */
-        oidcs: outputs.eks.ClusterIdentityOidc[];
+        oidcs?: outputs.eks.ClusterIdentityOidc[];
     }
 
     export interface ClusterIdentityOidc {
         /**
          * Issuer URL for the OpenID Connect identity provider.
          */
-        issuer: string;
+        issuer?: string;
     }
 
     export interface ClusterKubernetesNetworkConfig {
         /**
          * The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
          */
-        ipFamily: string;
+        ipFamily?: string;
         /**
          * The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
          *
@@ -27039,8 +27039,8 @@ export namespace eks {
          *
          * * Between /24 and /12.
          */
-        serviceIpv4Cidr: string;
-        serviceIpv6Cidr: string;
+        serviceIpv4Cidr?: string;
+        serviceIpv6Cidr?: string;
     }
 
     export interface ClusterOutpostConfig {
@@ -27078,7 +27078,7 @@ export namespace eks {
         /**
          * Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
          */
-        clusterSecurityGroupId: string;
+        clusterSecurityGroupId?: string;
         /**
          * Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
          */
@@ -27090,7 +27090,7 @@ export namespace eks {
         /**
          * List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
          */
-        publicAccessCidrs: string[];
+        publicAccessCidrs?: string[];
         /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
          */
@@ -27102,7 +27102,7 @@ export namespace eks {
         /**
          * ID of the VPC associated with your cluster.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface FargateProfileSelector {
@@ -27122,163 +27122,163 @@ export namespace eks {
         /**
          * The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
          */
-        data: string;
+        data?: string;
     }
 
     export interface GetClusterIdentity {
         /**
          * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
          */
-        oidcs: outputs.eks.GetClusterIdentityOidc[];
+        oidcs?: outputs.eks.GetClusterIdentityOidc[];
     }
 
     export interface GetClusterIdentityOidc {
         /**
          * Issuer URL for the OpenID Connect identity provider.
          */
-        issuer: string;
+        issuer?: string;
     }
 
     export interface GetClusterKubernetesNetworkConfig {
         /**
          * `ipv4` or `ipv6`.
          */
-        ipFamily: string;
+        ipFamily?: string;
         /**
          * The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
          */
-        serviceIpv4Cidr: string;
+        serviceIpv4Cidr?: string;
         /**
          * The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
          */
-        serviceIpv6Cidr: string;
+        serviceIpv6Cidr?: string;
     }
 
     export interface GetClusterOutpostConfig {
         /**
          * The Amazon EC2 instance type for all Kubernetes control plane instances.
          */
-        controlPlaneInstanceType: string;
+        controlPlaneInstanceType?: string;
         /**
          * An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
          */
-        controlPlanePlacements: outputs.eks.GetClusterOutpostConfigControlPlanePlacement[];
+        controlPlanePlacements?: outputs.eks.GetClusterOutpostConfigControlPlanePlacement[];
         /**
          * List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
          */
-        outpostArns: string[];
+        outpostArns?: string[];
     }
 
     export interface GetClusterOutpostConfigControlPlanePlacement {
         /**
          * The name of the placement group for the Kubernetes control plane instances.
          */
-        groupName: string;
+        groupName?: string;
     }
 
     export interface GetClusterVpcConfig {
         /**
          * The cluster security group that was created by Amazon EKS for the cluster.
          */
-        clusterSecurityGroupId: string;
+        clusterSecurityGroupId?: string;
         /**
          * Indicates whether or not the Amazon EKS private API server endpoint is enabled.
          */
-        endpointPrivateAccess: boolean;
+        endpointPrivateAccess?: boolean;
         /**
          * Indicates whether or not the Amazon EKS public API server endpoint is enabled.
          */
-        endpointPublicAccess: boolean;
+        endpointPublicAccess?: boolean;
         /**
          * List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
          */
-        publicAccessCidrs: string[];
+        publicAccessCidrs?: string[];
         /**
          * List of security group IDs
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * List of subnet IDs
          */
-        subnetIds: string[];
+        subnetIds?: string[];
         /**
          * The VPC associated with your cluster.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface GetNodeGroupLaunchTemplate {
         /**
          * The ID of the launch template.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the AutoScaling Group.
          */
-        name: string;
+        name?: string;
         /**
          * Kubernetes version.
          */
-        version: string;
+        version?: string;
     }
 
     export interface GetNodeGroupRemoteAccess {
         /**
          * EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
          */
-        ec2SshKey: string;
+        ec2SshKey?: string;
         /**
          * Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
          */
-        sourceSecurityGroupIds: string[];
+        sourceSecurityGroupIds?: string[];
     }
 
     export interface GetNodeGroupResource {
         /**
          * List of objects containing information about AutoScaling Groups.
          */
-        autoscalingGroups: outputs.eks.GetNodeGroupResourceAutoscalingGroup[];
+        autoscalingGroups?: outputs.eks.GetNodeGroupResourceAutoscalingGroup[];
         /**
          * Identifier of the remote access EC2 Security Group.
          */
-        remoteAccessSecurityGroupId: string;
+        remoteAccessSecurityGroupId?: string;
     }
 
     export interface GetNodeGroupResourceAutoscalingGroup {
         /**
          * Name of the AutoScaling Group.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetNodeGroupScalingConfig {
         /**
          * Desired number of worker nodes.
          */
-        desiredSize: number;
+        desiredSize?: number;
         /**
          * Maximum number of worker nodes.
          */
-        maxSize: number;
+        maxSize?: number;
         /**
          * Minimum number of worker nodes.
          */
-        minSize: number;
+        minSize?: number;
     }
 
     export interface GetNodeGroupTaint {
         /**
          * The effect of the taint.
          */
-        effect: string;
+        effect?: string;
         /**
          * The key of the taint.
          */
-        key: string;
+        key?: string;
         /**
          * The value of the taint.
          */
-        value: string;
+        value?: string;
     }
 
     export interface IdentityProviderConfigOidc {
@@ -27320,11 +27320,11 @@ export namespace eks {
         /**
          * Identifier of the EC2 Launch Template. Conflicts with `name`.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the EC2 Launch Template. Conflicts with `id`.
          */
-        name: string;
+        name?: string;
         /**
          * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
          */
@@ -27346,18 +27346,18 @@ export namespace eks {
         /**
          * List of objects containing information about AutoScaling Groups.
          */
-        autoscalingGroups: outputs.eks.NodeGroupResourceAutoscalingGroup[];
+        autoscalingGroups?: outputs.eks.NodeGroupResourceAutoscalingGroup[];
         /**
          * Identifier of the remote access EC2 Security Group.
          */
-        remoteAccessSecurityGroupId: string;
+        remoteAccessSecurityGroupId?: string;
     }
 
     export interface NodeGroupResourceAutoscalingGroup {
         /**
          * Name of the EC2 Launch Template. Conflicts with `id`.
          */
-        name: string;
+        name?: string;
     }
 
     export interface NodeGroupScalingConfig {
@@ -27405,17 +27405,17 @@ export namespace eks {
 
 export namespace elasticache {
     export interface ClusterCacheNode {
-        address: string;
+        address?: string;
         /**
          * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
          */
-        availabilityZone: string;
-        id: string;
-        outpostArn: string;
+        availabilityZone?: string;
+        id?: string;
+        outpostArn?: string;
         /**
          * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
          */
-        port: number;
+        port?: number;
     }
 
     export interface ClusterLogDeliveryConfiguration {
@@ -27438,32 +27438,32 @@ export namespace elasticache {
     }
 
     export interface GetClusterCacheNode {
-        address: string;
+        address?: string;
         /**
          * Availability Zone for the cache cluster.
          */
-        availabilityZone: string;
-        id: string;
-        outpostArn: string;
+        availabilityZone?: string;
+        id?: string;
+        outpostArn?: string;
         /**
          * The port number on which each of the cache nodes will
          * accept connections.
          */
-        port: number;
+        port?: number;
     }
 
     export interface GetClusterLogDeliveryConfiguration {
-        destination: string;
-        destinationType: string;
-        logFormat: string;
-        logType: string;
+        destination?: string;
+        destinationType?: string;
+        logFormat?: string;
+        logType?: string;
     }
 
     export interface GetReplicationGroupLogDeliveryConfiguration {
-        destination: string;
-        destinationType: string;
-        logFormat: string;
-        logType: string;
+        destination?: string;
+        destinationType?: string;
+        logFormat?: string;
+        logType?: string;
     }
 
     export interface GetUserAuthenticationMode {
@@ -27475,11 +27475,11 @@ export namespace elasticache {
         /**
          * The ID of the global node group.
          */
-        globalNodeGroupId: string;
+        globalNodeGroupId?: string;
         /**
          * The keyspace for this node group.
          */
-        slots: string;
+        slots?: string;
     }
 
     export interface ParameterGroupParameter {
@@ -27513,7 +27513,7 @@ export namespace elasticache {
     }
 
     export interface UserAuthenticationMode {
-        passwordCount: number;
+        passwordCount?: number;
         /**
          * Specifies the passwords to use for authentication if `type` is set to `password`.
          */
@@ -27582,19 +27582,19 @@ export namespace elasticbeanstalk {
         /**
          * Specifies whether delete a version's source bundle from S3 when the application version is deleted.
          */
-        deleteSourceFromS3: boolean;
+        deleteSourceFromS3?: boolean;
         /**
          * Number of days to retain an application version.
          */
-        maxAgeInDays: number;
+        maxAgeInDays?: number;
         /**
          * Maximum number of application versions to retain.
          */
-        maxCount: number;
+        maxCount?: number;
         /**
          * ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
          */
-        serviceRole: string;
+        serviceRole?: string;
     }
 
 }
@@ -27638,11 +27638,11 @@ export namespace elasticsearch {
         /**
          * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
          */
-        maintenanceSchedules: outputs.elasticsearch.DomainAutoTuneOptionsMaintenanceSchedule[];
+        maintenanceSchedules?: outputs.elasticsearch.DomainAutoTuneOptionsMaintenanceSchedule[];
         /**
          * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
          */
-        rollbackOnDisable: string;
+        rollbackOnDisable?: string;
     }
 
     export interface DomainAutoTuneOptionsMaintenanceSchedule {
@@ -27675,7 +27675,7 @@ export namespace elasticsearch {
         /**
          * Configuration block containing cold storage configuration. Detailed below.
          */
-        coldStorageOptions: outputs.elasticsearch.DomainClusterConfigColdStorageOptions;
+        coldStorageOptions?: outputs.elasticsearch.DomainClusterConfigColdStorageOptions;
         /**
          * Number of dedicated main nodes in the cluster.
          */
@@ -27722,7 +27722,7 @@ export namespace elasticsearch {
         /**
          * Boolean to enable cold storage for an Elasticsearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface DomainClusterConfigZoneAwarenessConfig {
@@ -27771,7 +27771,7 @@ export namespace elasticsearch {
         /**
          * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
          */
-        tlsSecurityPolicy: string;
+        tlsSecurityPolicy?: string;
     }
 
     export interface DomainEbsOptions {
@@ -27782,11 +27782,11 @@ export namespace elasticsearch {
         /**
          * Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
          */
-        iops: number;
+        iops?: number;
         /**
          * Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of EBS volumes attached to data nodes (in GiB).
          */
@@ -27794,7 +27794,7 @@ export namespace elasticsearch {
         /**
          * Type of EBS volumes attached to data nodes.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface DomainEncryptAtRest {
@@ -27805,7 +27805,7 @@ export namespace elasticsearch {
         /**
          * KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
     }
 
     export interface DomainLogPublishingOption {
@@ -27880,7 +27880,7 @@ export namespace elasticsearch {
     }
 
     export interface DomainVpcOptions {
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
          */
@@ -27889,234 +27889,234 @@ export namespace elasticsearch {
          * List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
          */
         subnetIds?: string[];
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface GetDomainAdvancedSecurityOption {
         /**
          * Whether node to node encryption is enabled.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Whether the internal user database is enabled.
          */
-        internalUserDatabaseEnabled: boolean;
+        internalUserDatabaseEnabled?: boolean;
     }
 
     export interface GetDomainAutoTuneOption {
         /**
          * The Auto-Tune desired state for the domain.
          */
-        desiredState: string;
+        desiredState?: string;
         /**
          * A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
          */
-        maintenanceSchedules: outputs.elasticsearch.GetDomainAutoTuneOptionMaintenanceSchedule[];
+        maintenanceSchedules?: outputs.elasticsearch.GetDomainAutoTuneOptionMaintenanceSchedule[];
         /**
          * Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
          */
-        rollbackOnDisable: string;
+        rollbackOnDisable?: string;
     }
 
     export interface GetDomainAutoTuneOptionMaintenanceSchedule {
         /**
          * Cron expression for an Auto-Tune maintenance schedule.
          */
-        cronExpressionForRecurrence: string;
+        cronExpressionForRecurrence?: string;
         /**
          * Configuration block for the duration of the Auto-Tune maintenance window.
          */
-        durations: outputs.elasticsearch.GetDomainAutoTuneOptionMaintenanceScheduleDuration[];
+        durations?: outputs.elasticsearch.GetDomainAutoTuneOptionMaintenanceScheduleDuration[];
         /**
          * Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          */
-        startAt: string;
+        startAt?: string;
     }
 
     export interface GetDomainAutoTuneOptionMaintenanceScheduleDuration {
         /**
          * Unit of time.
          */
-        unit: string;
+        unit?: string;
         /**
          * Duration of an Auto-Tune maintenance window.
          */
-        value: number;
+        value?: number;
     }
 
     export interface GetDomainClusterConfig {
         /**
          * Configuration block containing cold storage configuration.
          */
-        coldStorageOptions: outputs.elasticsearch.GetDomainClusterConfigColdStorageOption[];
+        coldStorageOptions?: outputs.elasticsearch.GetDomainClusterConfigColdStorageOption[];
         /**
          * Number of dedicated master nodes in the cluster.
          */
-        dedicatedMasterCount: number;
+        dedicatedMasterCount?: number;
         /**
          * Indicates whether dedicated master nodes are enabled for the cluster.
          */
-        dedicatedMasterEnabled: boolean;
+        dedicatedMasterEnabled?: boolean;
         /**
          * Instance type of the dedicated master nodes in the cluster.
          */
-        dedicatedMasterType: string;
+        dedicatedMasterType?: string;
         /**
          * Number of instances in the cluster.
          */
-        instanceCount: number;
+        instanceCount?: number;
         /**
          * Instance type of data nodes in the cluster.
          */
-        instanceType: string;
+        instanceType?: string;
         /**
          * The number of warm nodes in the cluster.
          */
-        warmCount: number;
+        warmCount?: number;
         /**
          * Warm storage is enabled.
          */
-        warmEnabled: boolean;
+        warmEnabled?: boolean;
         /**
          * The instance type for the Elasticsearch cluster's warm nodes.
          */
-        warmType: string;
+        warmType?: string;
         /**
          * Configuration block containing zone awareness settings.
          */
-        zoneAwarenessConfigs: outputs.elasticsearch.GetDomainClusterConfigZoneAwarenessConfig[];
+        zoneAwarenessConfigs?: outputs.elasticsearch.GetDomainClusterConfigZoneAwarenessConfig[];
         /**
          * Indicates whether zone awareness is enabled.
          */
-        zoneAwarenessEnabled: boolean;
+        zoneAwarenessEnabled?: boolean;
     }
 
     export interface GetDomainClusterConfigColdStorageOption {
         /**
          * Whether node to node encryption is enabled.
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface GetDomainClusterConfigZoneAwarenessConfig {
         /**
          * Number of availability zones used.
          */
-        availabilityZoneCount: number;
+        availabilityZoneCount?: number;
     }
 
     export interface GetDomainCognitoOption {
         /**
          * Whether node to node encryption is enabled.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * The Cognito Identity pool used by the domain.
          */
-        identityPoolId: string;
+        identityPoolId?: string;
         /**
          * The IAM Role with the AmazonESCognitoAccess policy attached.
          */
-        roleArn: string;
+        roleArn?: string;
         /**
          * The Cognito User pool used by the domain.
          */
-        userPoolId: string;
+        userPoolId?: string;
     }
 
     export interface GetDomainEbsOption {
         /**
          * Whether EBS volumes are attached to data nodes in the domain.
          */
-        ebsEnabled: boolean;
+        ebsEnabled?: boolean;
         /**
          * The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
          */
-        iops: number;
+        iops?: number;
         /**
          * The throughput (in MiB/s) of the EBS volumes attached to data nodes.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * The size of EBS volumes attached to data nodes (in GB).
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * The type of EBS volumes attached to data nodes.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface GetDomainEncryptionAtRest {
         /**
          * Whether node to node encryption is enabled.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * The KMS key id used to encrypt data at rest.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
     }
 
     export interface GetDomainLogPublishingOption {
         /**
          * The CloudWatch Log Group where the logs are published.
          */
-        cloudwatchLogGroupArn: string;
+        cloudwatchLogGroupArn?: string;
         /**
          * Whether node to node encryption is enabled.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * The type of Elasticsearch log being published.
          */
-        logType: string;
+        logType?: string;
     }
 
     export interface GetDomainNodeToNodeEncryption {
         /**
          * Whether node to node encryption is enabled.
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface GetDomainSnapshotOption {
         /**
          * Hour during which the service takes an automated daily snapshot of the indices in the domain.
          */
-        automatedSnapshotStartHour: number;
+        automatedSnapshotStartHour?: number;
     }
 
     export interface GetDomainVpcOption {
         /**
          * The availability zones used by the domain.
          */
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * The security groups used by the domain.
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * The subnets used by the domain.
          */
-        subnetIds: string[];
+        subnetIds?: string[];
         /**
          * The VPC used by the domain.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface VpcEndpointVpcOptions {
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
          */
         subnetIds: string[];
-        vpcId: string;
+        vpcId?: string;
     }
 
 }
@@ -28126,7 +28126,7 @@ export namespace elastictranscoder {
         /**
          * The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
          */
-        bucket: string;
+        bucket?: string;
         /**
          * The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
          */
@@ -28181,7 +28181,7 @@ export namespace elastictranscoder {
         /**
          * The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
          */
-        bucket: string;
+        bucket?: string;
         /**
          * The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
          */
@@ -28211,7 +28211,7 @@ export namespace elastictranscoder {
         /**
          * The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
          */
-        bitRate: string;
+        bitRate?: string;
         /**
          * The number of audio channels in the output file
          */
@@ -28230,19 +28230,19 @@ export namespace elastictranscoder {
         /**
          * The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
          */
-        bitDepth: string;
+        bitDepth?: string;
         /**
          * The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
          */
-        bitOrder: string;
+        bitOrder?: string;
         /**
          * If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
          */
-        profile: string;
+        profile?: string;
         /**
          * Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
          */
-        signed: string;
+        signed?: string;
     }
 
     export interface PresetThumbnails {
@@ -28288,7 +28288,7 @@ export namespace elastictranscoder {
         /**
          * The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
          */
-        bitRate: string;
+        bitRate?: string;
         /**
          * The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
          */
@@ -28312,7 +28312,7 @@ export namespace elastictranscoder {
         /**
          * If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
          */
-        maxFrameRate: string;
+        maxFrameRate?: string;
         /**
          * The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
          */
@@ -28382,26 +28382,26 @@ export namespace elastictranscoder {
 
 export namespace elb {
     export interface GetLoadBalancerAccessLogs {
-        bucket: string;
-        bucketPrefix: string;
-        enabled: boolean;
-        interval: number;
+        bucket?: string;
+        bucketPrefix?: string;
+        enabled?: boolean;
+        interval?: number;
     }
 
     export interface GetLoadBalancerHealthCheck {
-        healthyThreshold: number;
-        interval: number;
-        target: string;
-        timeout: number;
-        unhealthyThreshold: number;
+        healthyThreshold?: number;
+        interval?: number;
+        target?: string;
+        timeout?: number;
+        unhealthyThreshold?: number;
     }
 
     export interface GetLoadBalancerListener {
-        instancePort: number;
-        instanceProtocol: string;
-        lbPort: number;
-        lbProtocol: string;
-        sslCertificateId: string;
+        instancePort?: number;
+        instanceProtocol?: string;
+        lbPort?: number;
+        lbProtocol?: string;
+        sslCertificateId?: string;
     }
 
     export interface LoadBalancerAccessLogs {
@@ -28529,7 +28529,7 @@ export namespace emr {
         /**
          * ID of the cluster.
          */
-        id: string;
+        id?: string;
         /**
          * Configuration block for instance fleet.
          */
@@ -28542,8 +28542,8 @@ export namespace emr {
          * Friendly name given to the instance fleet.
          */
         name?: string;
-        provisionedOnDemandCapacity: number;
-        provisionedSpotCapacity: number;
+        provisionedOnDemandCapacity?: number;
+        provisionedSpotCapacity?: number;
         /**
          * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
          */
@@ -28570,7 +28570,7 @@ export namespace emr {
         /**
          * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
          */
-        ebsConfigs: outputs.emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig[];
+        ebsConfigs?: outputs.emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig[];
         /**
          * EC2 instance type, such as m4.xlarge.
          */
@@ -28660,11 +28660,11 @@ export namespace emr {
         /**
          * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
          */
-        ebsConfigs: outputs.emr.ClusterCoreInstanceGroupEbsConfig[];
+        ebsConfigs?: outputs.emr.ClusterCoreInstanceGroupEbsConfig[];
         /**
          * ID of the cluster.
          */
-        id: string;
+        id?: string;
         /**
          * Target number of instances for the instance group. Must be at least 1. Defaults to 1.
          */
@@ -28714,11 +28714,11 @@ export namespace emr {
         /**
          * Identifier of the Amazon EC2 EMR-Managed security group for the master node.
          */
-        emrManagedMasterSecurityGroup: string;
+        emrManagedMasterSecurityGroup?: string;
         /**
          * Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
          */
-        emrManagedSlaveSecurityGroup: string;
+        emrManagedSlaveSecurityGroup?: string;
         /**
          * Instance Profile for EC2 instances of the cluster assume this role.
          */
@@ -28730,17 +28730,17 @@ export namespace emr {
         /**
          * Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
          */
-        serviceAccessSecurityGroup: string;
+        serviceAccessSecurityGroup?: string;
         /**
          * VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
          */
-        subnetId: string;
+        subnetId?: string;
         /**
          * List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
          *
          * > **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revokeRulesOnDelete` optional attribute for any Security Group used in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
          */
-        subnetIds: string[];
+        subnetIds?: string[];
     }
 
     export interface ClusterKerberosAttributes {
@@ -28770,7 +28770,7 @@ export namespace emr {
         /**
          * ID of the cluster.
          */
-        id: string;
+        id?: string;
         /**
          * Configuration block for instance fleet.
          */
@@ -28783,8 +28783,8 @@ export namespace emr {
          * Friendly name given to the instance fleet.
          */
         name?: string;
-        provisionedOnDemandCapacity: number;
-        provisionedSpotCapacity: number;
+        provisionedOnDemandCapacity?: number;
+        provisionedSpotCapacity?: number;
         /**
          * Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
          */
@@ -28811,7 +28811,7 @@ export namespace emr {
         /**
          * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
          */
-        ebsConfigs: outputs.emr.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig[];
+        ebsConfigs?: outputs.emr.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig[];
         /**
          * EC2 instance type, such as m4.xlarge.
          */
@@ -28897,11 +28897,11 @@ export namespace emr {
         /**
          * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
          */
-        ebsConfigs: outputs.emr.ClusterMasterInstanceGroupEbsConfig[];
+        ebsConfigs?: outputs.emr.ClusterMasterInstanceGroupEbsConfig[];
         /**
          * ID of the cluster.
          */
-        id: string;
+        id?: string;
         /**
          * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
          */
@@ -28947,7 +28947,7 @@ export namespace emr {
         /**
          * EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
          */
-        placementStrategy: string;
+        placementStrategy?: string;
     }
 
     export interface ClusterStep {
@@ -29011,7 +29011,7 @@ export namespace emr {
         /**
          * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
          */
-        ebsConfigs: outputs.emr.InstanceFleetInstanceTypeConfigEbsConfig[];
+        ebsConfigs?: outputs.emr.InstanceFleetInstanceTypeConfigEbsConfig[];
         /**
          * An EC2 instance type, such as m4.xlarge.
          */
@@ -29138,29 +29138,29 @@ export namespace emrcontainers {
         /**
          * The name of the container provider that is running your EMR Containers cluster
          */
-        id: string;
+        id?: string;
         /**
          * Nested list containing information about the configuration of the container provider
          */
-        infos: outputs.emrcontainers.GetVirtualClusterContainerProviderInfo[];
+        infos?: outputs.emrcontainers.GetVirtualClusterContainerProviderInfo[];
         /**
          * The type of the container provider
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetVirtualClusterContainerProviderInfo {
         /**
          * Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
          */
-        eksInfos: outputs.emrcontainers.GetVirtualClusterContainerProviderInfoEksInfo[];
+        eksInfos?: outputs.emrcontainers.GetVirtualClusterContainerProviderInfoEksInfo[];
     }
 
     export interface GetVirtualClusterContainerProviderInfoEksInfo {
         /**
          * The namespace where the EMR Containers cluster is running
          */
-        namespace: string;
+        namespace?: string;
     }
 
     export interface JobTemplateJobTemplateData {
@@ -29380,7 +29380,7 @@ export namespace emrserverless {
         /**
          * The disk requirements for every worker instance of the worker type.
          */
-        disk: string;
+        disk?: string;
         /**
          * The memory requirements for every worker instance of the worker type.
          */
@@ -29395,7 +29395,7 @@ export namespace emrserverless {
         /**
          * The maximum allowed disk for an application.
          */
-        disk: string;
+        disk?: string;
         /**
          * The maximum allowed resources for an application.
          */
@@ -29420,11 +29420,11 @@ export namespace evidently {
         /**
          * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
          */
-        name: string;
+        name?: string;
         /**
          * This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
          */
-        type: string;
+        type?: string;
     }
 
     export interface FeatureVariation {
@@ -29461,11 +29461,11 @@ export namespace evidently {
         /**
          * The date and time that the launch ended.
          */
-        endedTime: string;
+        endedTime?: string;
         /**
          * The date and time that the launch started.
          */
-        startedTime: string;
+        startedTime?: string;
     }
 
     export interface LaunchGroup {
@@ -30022,29 +30022,29 @@ export namespace fsx {
         /**
          * Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
          */
-        autoExportPolicy: outputs.fsx.DataRepositoryAssociationS3AutoExportPolicy;
+        autoExportPolicy?: outputs.fsx.DataRepositoryAssociationS3AutoExportPolicy;
         /**
          * Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
          */
-        autoImportPolicy: outputs.fsx.DataRepositoryAssociationS3AutoImportPolicy;
+        autoImportPolicy?: outputs.fsx.DataRepositoryAssociationS3AutoImportPolicy;
     }
 
     export interface DataRepositoryAssociationS3AutoExportPolicy {
         /**
          * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
          */
-        events: string[];
+        events?: string[];
     }
 
     export interface DataRepositoryAssociationS3AutoImportPolicy {
         /**
          * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
          */
-        events: string[];
+        events?: string[];
     }
 
     export interface FileCacheDataRepositoryAssociation {
-        associationId: string;
+        associationId?: string;
         /**
          * The path to the S3 or NFS data repository that links to the cache.
          */
@@ -30056,23 +30056,23 @@ export namespace fsx {
         /**
          * The system-generated, unique ID of the cache.
          */
-        fileCacheId: string;
+        fileCacheId?: string;
         /**
          * A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
          */
         fileCachePath: string;
-        fileSystemId: string;
-        fileSystemPath: string;
-        importedFileChunkSize: number;
+        fileSystemId?: string;
+        fileSystemPath?: string;
+        importedFileChunkSize?: number;
         /**
          * (Optional) See the `nfs` configuration block.
          */
         nfs?: outputs.fsx.FileCacheDataRepositoryAssociationNf[];
-        resourceArn: string;
+        resourceArn?: string;
         /**
          * A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
     }
 
     export interface FileCacheDataRepositoryAssociationNf {
@@ -30091,12 +30091,12 @@ export namespace fsx {
          * Specifies the cache deployment type. The only supported value is `CACHE_1`.
          */
         deploymentType: string;
-        logConfigurations: outputs.fsx.FileCacheLustreConfigurationLogConfiguration[];
+        logConfigurations?: outputs.fsx.FileCacheLustreConfigurationLogConfiguration[];
         /**
          * The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
          */
         metadataConfigurations: outputs.fsx.FileCacheLustreConfigurationMetadataConfiguration[];
-        mountName: string;
+        mountName?: string;
         /**
          * Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
          */
@@ -30108,8 +30108,8 @@ export namespace fsx {
     }
 
     export interface FileCacheLustreConfigurationLogConfiguration {
-        destination: string;
-        level: string;
+        destination?: string;
+        level?: string;
     }
 
     export interface FileCacheLustreConfigurationMetadataConfiguration {
@@ -30123,105 +30123,105 @@ export namespace fsx {
         /**
          * The total number of SSD IOPS provisioned for the file system.
          */
-        iops: number;
+        iops?: number;
         /**
          * Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
          */
-        mode: string;
+        mode?: string;
     }
 
     export interface GetOntapFileSystemEndpoint {
         /**
          * A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
          */
-        interclusters: outputs.fsx.GetOntapFileSystemEndpointIntercluster[];
+        interclusters?: outputs.fsx.GetOntapFileSystemEndpointIntercluster[];
         /**
          * A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
          */
-        managements: outputs.fsx.GetOntapFileSystemEndpointManagement[];
+        managements?: outputs.fsx.GetOntapFileSystemEndpointManagement[];
     }
 
     export interface GetOntapFileSystemEndpointIntercluster {
         /**
          * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
          */
-        dnsName: string;
-        ipAddresses: string[];
+        dnsName?: string;
+        ipAddresses?: string[];
     }
 
     export interface GetOntapFileSystemEndpointManagement {
         /**
          * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
          */
-        dnsName: string;
-        ipAddresses: string[];
+        dnsName?: string;
+        ipAddresses?: string[];
     }
 
     export interface GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
         /**
          * The NetBIOS name of the AD computer object to which the SVM is joined.
          */
-        netbiosName: string;
-        selfManagedActiveDirectoryConfigurations: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration[];
+        netbiosName?: string;
+        selfManagedActiveDirectoryConfigurations?: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration[];
     }
 
     export interface GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
         /**
          * A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
          */
-        dnsIps: string[];
+        dnsIps?: string[];
         /**
          * The fully qualified domain name of the self-managed AD directory.
          */
-        domainName: string;
+        domainName?: string;
         /**
          * The name of the domain group whose members have administrative privileges for the FSx file system.
          */
-        fileSystemAdministratorsGroup: string;
+        fileSystemAdministratorsGroup?: string;
         /**
          * The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
          */
-        organizationalUnitDistinguishedName: string;
+        organizationalUnitDistinguishedName?: string;
         /**
          * The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
          */
-        username: string;
+        username?: string;
     }
 
     export interface GetOntapStorageVirtualMachineEndpoint {
-        iscsis: outputs.fsx.GetOntapStorageVirtualMachineEndpointIscsi[];
+        iscsis?: outputs.fsx.GetOntapStorageVirtualMachineEndpointIscsi[];
         /**
          * An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
          */
-        managements: outputs.fsx.GetOntapStorageVirtualMachineEndpointManagement[];
+        managements?: outputs.fsx.GetOntapStorageVirtualMachineEndpointManagement[];
         /**
          * An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
          */
-        nfs: outputs.fsx.GetOntapStorageVirtualMachineEndpointNf[];
+        nfs?: outputs.fsx.GetOntapStorageVirtualMachineEndpointNf[];
         /**
          * An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
          */
-        smbs: outputs.fsx.GetOntapStorageVirtualMachineEndpointSmb[];
+        smbs?: outputs.fsx.GetOntapStorageVirtualMachineEndpointSmb[];
     }
 
     export interface GetOntapStorageVirtualMachineEndpointIscsi {
-        dnsName: string;
-        ipAddresses: string[];
+        dnsName?: string;
+        ipAddresses?: string[];
     }
 
     export interface GetOntapStorageVirtualMachineEndpointManagement {
-        dnsName: string;
-        ipAddresses: string[];
+        dnsName?: string;
+        ipAddresses?: string[];
     }
 
     export interface GetOntapStorageVirtualMachineEndpointNf {
-        dnsName: string;
-        ipAddresses: string[];
+        dnsName?: string;
+        ipAddresses?: string[];
     }
 
     export interface GetOntapStorageVirtualMachineEndpointSmb {
-        dnsName: string;
-        ipAddresses: string[];
+        dnsName?: string;
+        ipAddresses?: string[];
     }
 
     export interface GetOntapStorageVirtualMachineFilter {
@@ -30239,7 +30239,7 @@ export namespace fsx {
         /**
          * A detailed message.
          */
-        message: string;
+        message?: string;
     }
 
     export interface GetOntapStorageVirtualMachinesFilter {
@@ -30262,21 +30262,21 @@ export namespace fsx {
     }
 
     export interface GetWindowsFileSystemAuditLogConfiguration {
-        auditLogDestination: string;
-        fileAccessAuditLogLevel: string;
-        fileShareAccessAuditLogLevel: string;
+        auditLogDestination?: string;
+        fileAccessAuditLogLevel?: string;
+        fileShareAccessAuditLogLevel?: string;
     }
 
     export interface GetWindowsFileSystemDiskIopsConfiguration {
-        iops: number;
-        mode: string;
+        iops?: number;
+        mode?: string;
     }
 
     export interface LustreFileSystemLogConfiguration {
         /**
          * The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
          */
-        destination: string;
+        destination?: string;
         /**
          * Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
          */
@@ -30298,7 +30298,7 @@ export namespace fsx {
         /**
          * The total number of SSD IOPS provisioned for the file system.
          */
-        iops: number;
+        iops?: number;
         /**
          * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
          */
@@ -30309,33 +30309,33 @@ export namespace fsx {
         /**
          * An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
          */
-        interclusters: outputs.fsx.OntapFileSystemEndpointIntercluster[];
+        interclusters?: outputs.fsx.OntapFileSystemEndpointIntercluster[];
         /**
          * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
          */
-        managements: outputs.fsx.OntapFileSystemEndpointManagement[];
+        managements?: outputs.fsx.OntapFileSystemEndpointManagement[];
     }
 
     export interface OntapFileSystemEndpointIntercluster {
         /**
          * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
          */
-        dnsName: string;
+        dnsName?: string;
         /**
          * IP addresses of the file system endpoint.
          */
-        ipAddresses: string[];
+        ipAddresses?: string[];
     }
 
     export interface OntapFileSystemEndpointManagement {
         /**
          * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
          */
-        dnsName: string;
+        dnsName?: string;
         /**
          * IP addresses of the file system endpoint.
          */
-        ipAddresses: string[];
+        ipAddresses?: string[];
     }
 
     export interface OntapStorageVirtualMachineActiveDirectoryConfiguration {
@@ -30377,63 +30377,63 @@ export namespace fsx {
         /**
          * An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
          */
-        iscsis: outputs.fsx.OntapStorageVirtualMachineEndpointIscsi[];
+        iscsis?: outputs.fsx.OntapStorageVirtualMachineEndpointIscsi[];
         /**
          * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
          */
-        managements: outputs.fsx.OntapStorageVirtualMachineEndpointManagement[];
+        managements?: outputs.fsx.OntapStorageVirtualMachineEndpointManagement[];
         /**
          * An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
          */
-        nfs: outputs.fsx.OntapStorageVirtualMachineEndpointNf[];
+        nfs?: outputs.fsx.OntapStorageVirtualMachineEndpointNf[];
         /**
          * An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
          */
-        smbs: outputs.fsx.OntapStorageVirtualMachineEndpointSmb[];
+        smbs?: outputs.fsx.OntapStorageVirtualMachineEndpointSmb[];
     }
 
     export interface OntapStorageVirtualMachineEndpointIscsi {
         /**
          * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          */
-        dnsName: string;
+        dnsName?: string;
         /**
          * IP addresses of the storage virtual machine endpoint.
          */
-        ipAddresses: string[];
+        ipAddresses?: string[];
     }
 
     export interface OntapStorageVirtualMachineEndpointManagement {
         /**
          * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          */
-        dnsName: string;
+        dnsName?: string;
         /**
          * IP addresses of the storage virtual machine endpoint.
          */
-        ipAddresses: string[];
+        ipAddresses?: string[];
     }
 
     export interface OntapStorageVirtualMachineEndpointNf {
         /**
          * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          */
-        dnsName: string;
+        dnsName?: string;
         /**
          * IP addresses of the storage virtual machine endpoint.
          */
-        ipAddresses: string[];
+        ipAddresses?: string[];
     }
 
     export interface OntapStorageVirtualMachineEndpointSmb {
         /**
          * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          */
-        dnsName: string;
+        dnsName?: string;
         /**
          * IP addresses of the storage virtual machine endpoint.
          */
-        ipAddresses: string[];
+        ipAddresses?: string[];
     }
 
     export interface OntapVolumeSnaplockConfiguration {
@@ -30444,7 +30444,7 @@ export namespace fsx {
         /**
          * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
          */
-        autocommitPeriod: outputs.fsx.OntapVolumeSnaplockConfigurationAutocommitPeriod;
+        autocommitPeriod?: outputs.fsx.OntapVolumeSnaplockConfigurationAutocommitPeriod;
         /**
          * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
          */
@@ -30452,7 +30452,7 @@ export namespace fsx {
         /**
          * The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
          */
-        retentionPeriod: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriod;
+        retentionPeriod?: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriod;
         /**
          * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
          */
@@ -30467,7 +30467,7 @@ export namespace fsx {
         /**
          * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
          */
-        type: string;
+        type?: string;
         /**
          * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
@@ -30478,22 +30478,22 @@ export namespace fsx {
         /**
          * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
          */
-        defaultRetention: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention;
+        defaultRetention?: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention;
         /**
          * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
          */
-        maximumRetention: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention;
+        maximumRetention?: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention;
         /**
          * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
          */
-        minimumRetention: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention;
+        minimumRetention?: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
         /**
          * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
          */
-        type: string;
+        type?: string;
         /**
          * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
@@ -30504,7 +30504,7 @@ export namespace fsx {
         /**
          * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
          */
-        type: string;
+        type?: string;
         /**
          * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
@@ -30515,7 +30515,7 @@ export namespace fsx {
         /**
          * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
          */
-        type: string;
+        type?: string;
         /**
          * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
@@ -30530,14 +30530,14 @@ export namespace fsx {
         /**
          * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
          */
-        name: string;
+        name?: string;
     }
 
     export interface OpenZfsFileSystemDiskIopsConfiguration {
         /**
          * The total number of SSD IOPS provisioned for the file system.
          */
-        iops: number;
+        iops?: number;
         /**
          * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
          */
@@ -30560,7 +30560,7 @@ export namespace fsx {
         /**
          * specifies whether the volume is read-only. Default is false.
          */
-        readOnly: boolean;
+        readOnly?: boolean;
         /**
          * Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
          */
@@ -30568,7 +30568,7 @@ export namespace fsx {
         /**
          * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
          */
-        userAndGroupQuotas: outputs.fsx.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota[];
+        userAndGroupQuotas?: outputs.fsx.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota[];
     }
 
     export interface OpenZfsFileSystemRootVolumeConfigurationNfsExports {
@@ -30643,7 +30643,7 @@ export namespace fsx {
         /**
          * The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
          */
-        auditLogDestination: string;
+        auditLogDestination?: string;
         /**
          * Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
          */
@@ -30658,7 +30658,7 @@ export namespace fsx {
         /**
          * The total number of SSD IOPS provisioned for the file system.
          */
-        iops: number;
+        iops?: number;
         /**
          * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
          */
@@ -30803,7 +30803,7 @@ export namespace gamelift {
          * Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
          * because it avoids prematurely starting new instances. Defaults to `60`.
          */
-        estimatedInstanceWarmup: number;
+        estimatedInstanceWarmup?: number;
         targetTrackingConfiguration: outputs.gamelift.GameServerGroupAutoScalingPolicyTargetTrackingConfiguration;
     }
 
@@ -30832,11 +30832,11 @@ export namespace gamelift {
         /**
          * A unique identifier for an existing EC2 launch template.
          */
-        id: string;
+        id?: string;
         /**
          * A readable identifier for an existing EC2 launch template.
          */
-        name: string;
+        name?: string;
         /**
          * The version of the EC2 launch template to use. If none is set, the default is the first version created.
          */
@@ -30920,11 +30920,11 @@ export namespace globalaccelerator {
         /**
          * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          */
-        ipAddresses: string[];
+        ipAddresses?: string[];
         /**
          * The type of IP addresses included in this IP set.
          */
-        ipFamily: string;
+        ipFamily?: string;
     }
 
     export interface CustomRoutingAcceleratorAttributes {
@@ -30946,11 +30946,11 @@ export namespace globalaccelerator {
         /**
          * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          */
-        ipAddresses: string[];
+        ipAddresses?: string[];
         /**
          * The type of IP addresses included in this IP set.
          */
-        ipFamily: string;
+        ipFamily?: string;
     }
 
     export interface CustomRoutingEndpointGroupDestinationConfiguration {
@@ -30991,7 +30991,7 @@ export namespace globalaccelerator {
          * Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
          * **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
          */
-        clientIpPreservationEnabled: boolean;
+        clientIpPreservationEnabled?: boolean;
         /**
          * An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
          */
@@ -31025,14 +31025,14 @@ export namespace globalaccelerator {
     }
 
     export interface GetCustomRoutingAcceleratorAttribute {
-        flowLogsEnabled: boolean;
-        flowLogsS3Bucket: string;
-        flowLogsS3Prefix: string;
+        flowLogsEnabled?: boolean;
+        flowLogsS3Bucket?: string;
+        flowLogsS3Prefix?: string;
     }
 
     export interface GetCustomRoutingAcceleratorIpSet {
-        ipAddresses: string[];
-        ipFamily: string;
+        ipAddresses?: string[];
+        ipFamily?: string;
     }
 
     export interface ListenerPortRange {
@@ -31105,7 +31105,7 @@ export namespace glue {
          * Name of the partition index.
          */
         indexName: string;
-        indexStatus: string;
+        indexStatus?: string;
         /**
          * Keys for the partition index.
          */
@@ -31135,7 +31135,7 @@ export namespace glue {
         /**
          * Configuration block for columns in the table. See `columns` below.
          */
-        columns: outputs.glue.CatalogTableStorageDescriptorColumn[];
+        columns?: outputs.glue.CatalogTableStorageDescriptorColumn[];
         /**
          * Whether the data in the table is compressed.
          */
@@ -31492,7 +31492,7 @@ export namespace glue {
         /**
          * Required for cross account crawls. For same account crawls as the target data, this can omitted.
          */
-        accountId: string;
+        accountId?: string;
         /**
          * Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
          */
@@ -31622,226 +31622,226 @@ export namespace glue {
         /**
          * Name of the partition index.
          */
-        indexName: string;
-        indexStatus: string;
+        indexName?: string;
+        indexStatus?: string;
         /**
          * Keys for the partition index.
          */
-        keys: string[];
+        keys?: string[];
     }
 
     export interface GetCatalogTablePartitionKey {
         /**
          * Free-form text comment.
          */
-        comment: string;
+        comment?: string;
         /**
          * Name of the table.
          */
-        name: string;
+        name?: string;
         /**
          * Datatype of data in the Column.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetCatalogTableStorageDescriptor {
         /**
          * List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          */
-        bucketColumns: string[];
+        bucketColumns?: string[];
         /**
          * Configuration block for columns in the table. See `columns` below.
          */
-        columns: outputs.glue.GetCatalogTableStorageDescriptorColumn[];
+        columns?: outputs.glue.GetCatalogTableStorageDescriptorColumn[];
         /**
          * Whether the data in the table is compressed.
          */
-        compressed: boolean;
+        compressed?: boolean;
         /**
          * Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
          */
-        inputFormat: string;
+        inputFormat?: string;
         /**
          * Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
          */
-        location: string;
+        location?: string;
         /**
          * Is if the table contains any dimension columns.
          */
-        numberOfBuckets: number;
+        numberOfBuckets?: number;
         /**
          * Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
          */
-        outputFormat: string;
+        outputFormat?: string;
         /**
          * Map of initialization parameters for the SerDe, in key-value form.
          */
-        parameters: {[key: string]: string};
+        parameters?: {[key: string]: string};
         /**
          * Object that references a schema stored in the AWS Glue Schema Registry. See `schemaReference` below.
          */
-        schemaReferences: outputs.glue.GetCatalogTableStorageDescriptorSchemaReference[];
+        schemaReferences?: outputs.glue.GetCatalogTableStorageDescriptorSchemaReference[];
         /**
          * Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
          */
-        serDeInfos: outputs.glue.GetCatalogTableStorageDescriptorSerDeInfo[];
+        serDeInfos?: outputs.glue.GetCatalogTableStorageDescriptorSerDeInfo[];
         /**
          * Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
          */
-        skewedInfos: outputs.glue.GetCatalogTableStorageDescriptorSkewedInfo[];
+        skewedInfos?: outputs.glue.GetCatalogTableStorageDescriptorSkewedInfo[];
         /**
          * Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
          */
-        sortColumns: outputs.glue.GetCatalogTableStorageDescriptorSortColumn[];
+        sortColumns?: outputs.glue.GetCatalogTableStorageDescriptorSortColumn[];
         /**
          * Whether the table data is stored in subdirectories.
          */
-        storedAsSubDirectories: boolean;
+        storedAsSubDirectories?: boolean;
     }
 
     export interface GetCatalogTableStorageDescriptorColumn {
         /**
          * Free-form text comment.
          */
-        comment: string;
+        comment?: string;
         /**
          * Name of the table.
          */
-        name: string;
+        name?: string;
         /**
          * Map of initialization parameters for the SerDe, in key-value form.
          */
-        parameters: {[key: string]: string};
+        parameters?: {[key: string]: string};
         /**
          * Datatype of data in the Column.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetCatalogTableStorageDescriptorSchemaReference {
         /**
          * Configuration block that contains schema identity fields. See `schemaId` below.
          */
-        schemaIds: outputs.glue.GetCatalogTableStorageDescriptorSchemaReferenceSchemaId[];
+        schemaIds?: outputs.glue.GetCatalogTableStorageDescriptorSchemaReferenceSchemaId[];
         /**
          * Unique ID assigned to a version of the schema.
          */
-        schemaVersionId: string;
+        schemaVersionId?: string;
         /**
          * Version number of the schema.
          */
-        schemaVersionNumber: number;
+        schemaVersionNumber?: number;
     }
 
     export interface GetCatalogTableStorageDescriptorSchemaReferenceSchemaId {
         /**
          * Name of the schema registry that contains the schema.
          */
-        registryName: string;
+        registryName?: string;
         /**
          * ARN of the schema.
          */
-        schemaArn: string;
+        schemaArn?: string;
         /**
          * Name of the schema.
          */
-        schemaName: string;
+        schemaName?: string;
     }
 
     export interface GetCatalogTableStorageDescriptorSerDeInfo {
         /**
          * Name of the table.
          */
-        name: string;
+        name?: string;
         /**
          * Map of initialization parameters for the SerDe, in key-value form.
          */
-        parameters: {[key: string]: string};
+        parameters?: {[key: string]: string};
         /**
          * Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
          */
-        serializationLibrary: string;
+        serializationLibrary?: string;
     }
 
     export interface GetCatalogTableStorageDescriptorSkewedInfo {
         /**
          * List of names of columns that contain skewed values.
          */
-        skewedColumnNames: string[];
+        skewedColumnNames?: string[];
         /**
          * List of values that appear so frequently as to be considered skewed.
          */
-        skewedColumnValueLocationMaps: {[key: string]: string};
+        skewedColumnValueLocationMaps?: {[key: string]: string};
         /**
          * Map of skewed values to the columns that contain them.
          */
-        skewedColumnValues: string[];
+        skewedColumnValues?: string[];
     }
 
     export interface GetCatalogTableStorageDescriptorSortColumn {
         /**
          * Name of the column.
          */
-        column: string;
+        column?: string;
         /**
          * Whether the column is sorted in ascending (`1`) or descending order (`0`).
          */
-        sortOrder: number;
+        sortOrder?: number;
     }
 
     export interface GetCatalogTableTargetTable {
         /**
          * ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Name of the metadata database where the table metadata resides.
          */
-        databaseName: string;
+        databaseName?: string;
         /**
          * Name of the table.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetConnectionPhysicalConnectionRequirement {
-        availabilityZone: string;
-        securityGroupIdLists: string[];
-        subnetId: string;
+        availabilityZone?: string;
+        securityGroupIdLists?: string[];
+        subnetId?: string;
     }
 
     export interface GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting {
         /**
          * When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
          */
-        connectionPasswordEncryptions: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption[];
+        connectionPasswordEncryptions?: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption[];
         /**
          * Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
          */
-        encryptionAtRests: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest[];
+        encryptionAtRests?: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest[];
     }
 
     export interface GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption {
         /**
          * KMS key ARN that is used to encrypt the connection password.
          */
-        awsKmsKeyId: string;
+        awsKmsKeyId?: string;
         /**
          * When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
          */
-        returnConnectionPasswordEncrypted: boolean;
+        returnConnectionPasswordEncrypted?: boolean;
     }
 
     export interface GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest {
         /**
          * The encryption-at-rest mode for encrypting Data Catalog data.
          */
-        catalogEncryptionMode: string;
+        catalogEncryptionMode?: string;
         /**
          * ARN of the AWS KMS key to use for encryption at rest.
          */
-        sseAwsKmsKeyId: string;
+        sseAwsKmsKeyId?: string;
     }
 
     export interface GetScriptDagEdge {
@@ -31901,11 +31901,11 @@ export namespace glue {
         /**
          * The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
          */
-        pythonVersion: string;
+        pythonVersion?: string;
         /**
          * In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
          */
-        runtime: string;
+        runtime?: string;
         /**
          * Specifies the S3 path to a script that executes a job.
          */
@@ -31979,11 +31979,11 @@ export namespace glue {
         /**
          * The type of data in the column.
          */
-        dataType: string;
+        dataType?: string;
         /**
          * The name you assign to this ML Transform. It must be unique in your account.
          */
-        name: string;
+        name?: string;
     }
 
     export interface PartitionIndexPartitionIndex {
@@ -31991,7 +31991,7 @@ export namespace glue {
          * Name of the partition index.
          */
         indexName?: string;
-        indexStatus: string;
+        indexStatus?: string;
         /**
          * Keys for the partition index.
          */
@@ -32270,19 +32270,19 @@ export namespace guardduty {
          * Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
          * See Kubernetes and Kubernetes Audit Logs below for more details.
          */
-        kubernetes: outputs.guardduty.DetectorDatasourcesKubernetes;
+        kubernetes?: outputs.guardduty.DetectorDatasourcesKubernetes;
         /**
          * Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
          * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
          *
          * The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
          */
-        malwareProtection: outputs.guardduty.DetectorDatasourcesMalwareProtection;
+        malwareProtection?: outputs.guardduty.DetectorDatasourcesMalwareProtection;
         /**
          * Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
          * See S3 Logs below for more details.
          */
-        s3Logs: outputs.guardduty.DetectorDatasourcesS3Logs;
+        s3Logs?: outputs.guardduty.DetectorDatasourcesS3Logs;
     }
 
     export interface DetectorDatasourcesKubernetes {
@@ -32382,41 +32382,41 @@ export namespace guardduty {
         /**
          * Additional feature configuration.
          */
-        additionalConfigurations: outputs.guardduty.GetDetectorFeatureAdditionalConfiguration[];
+        additionalConfigurations?: outputs.guardduty.GetDetectorFeatureAdditionalConfiguration[];
         /**
          * The name of the detector feature.
          */
-        name: string;
+        name?: string;
         /**
          * Current status of the detector.
          */
-        status: string;
+        status?: string;
     }
 
     export interface GetDetectorFeatureAdditionalConfiguration {
         /**
          * The name of the detector feature.
          */
-        name: string;
+        name?: string;
         /**
          * Current status of the detector.
          */
-        status: string;
+        status?: string;
     }
 
     export interface OrganizationConfigurationDatasources {
         /**
          * Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
          */
-        kubernetes: outputs.guardduty.OrganizationConfigurationDatasourcesKubernetes;
+        kubernetes?: outputs.guardduty.OrganizationConfigurationDatasourcesKubernetes;
         /**
          * Enable Malware Protection automatically for new member accounts.
          */
-        malwareProtection: outputs.guardduty.OrganizationConfigurationDatasourcesMalwareProtection;
+        malwareProtection?: outputs.guardduty.OrganizationConfigurationDatasourcesMalwareProtection;
         /**
          * Enable S3 Protection automatically for new member accounts.
          */
-        s3Logs: outputs.guardduty.OrganizationConfigurationDatasourcesS3Logs;
+        s3Logs?: outputs.guardduty.OrganizationConfigurationDatasourcesS3Logs;
     }
 
     export interface OrganizationConfigurationDatasourcesKubernetes {
@@ -32484,34 +32484,34 @@ export namespace iam {
         /**
          * Access key ID.
          */
-        accessKeyId: string;
+        accessKeyId?: string;
         /**
          * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
          */
-        createDate: string;
+        createDate?: string;
         /**
          * Access key status. Possible values are `Active` and `Inactive`.
          */
-        status: string;
+        status?: string;
     }
 
     export interface GetGroupUser {
         /**
          * User ARN.
          */
-        arn: string;
+        arn?: string;
         /**
          * Path to the IAM user.
          */
-        path: string;
+        path?: string;
         /**
          * Stable and unique string identifying the IAM user.
          */
-        userId: string;
+        userId?: string;
         /**
          * Name of the IAM user.
          */
-        userName: string;
+        userName?: string;
     }
 
     export interface GetPolicyDocumentStatement {
@@ -32613,47 +32613,47 @@ export namespace iam {
         /**
          * The name of the single IAM action used for this particular request.
          */
-        actionName: string;
+        actionName?: string;
         /**
          * `true` if `decision` is "allowed", and `false` otherwise.
          */
-        allowed: boolean;
+        allowed?: boolean;
         /**
          * The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
          */
-        decision: string;
+        decision?: string;
         /**
          * A map of arbitrary metadata entries returned by the policy simulator for this request.
          */
-        decisionDetails: {[key: string]: string};
+        decisionDetails?: {[key: string]: string};
         /**
          * A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
          */
-        matchedStatements: outputs.iam.GetPrincipalPolicySimulationResultMatchedStatement[];
+        matchedStatements?: outputs.iam.GetPrincipalPolicySimulationResultMatchedStatement[];
         /**
          * A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
          */
-        missingContextKeys: string[];
+        missingContextKeys?: string[];
         /**
          * ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
          */
-        resourceArn: string;
+        resourceArn?: string;
     }
 
     export interface GetPrincipalPolicySimulationResultMatchedStatement {
-        sourcePolicyId: string;
-        sourcePolicyType: string;
+        sourcePolicyId?: string;
+        sourcePolicyType?: string;
     }
 
     export interface GetRoleRoleLastUsed {
         /**
          * The date and time, in RFC 3339 format, that the role was last used.
          */
-        lastUsedDate: string;
+        lastUsedDate?: string;
         /**
          * The name of the AWS Region in which the role was last used.
          */
-        region: string;
+        region?: string;
     }
 
     export interface RoleInlinePolicy {
@@ -32709,11 +32709,11 @@ export namespace identitystore {
         /**
          * The identifier issued to this resource by an external identity provider.
          */
-        id: string;
+        id?: string;
         /**
          * The issuer for an external identifier.
          */
-        issuer: string;
+        issuer?: string;
     }
 
     export interface GetGroupFilter {
@@ -32731,35 +32731,35 @@ export namespace identitystore {
         /**
          * The country that this address is in.
          */
-        country: string;
+        country?: string;
         /**
          * The name that is typically displayed when the name is shown for display.
          */
-        formatted: string;
+        formatted?: string;
         /**
          * The address locality.
          */
-        locality: string;
+        locality?: string;
         /**
          * The postal code of the address.
          */
-        postalCode: string;
+        postalCode?: string;
         /**
          * When `true`, this is the primary phone number associated with the user.
          */
-        primary: boolean;
+        primary?: boolean;
         /**
          * The region of the address.
          */
-        region: string;
+        region?: string;
         /**
          * The street of the address.
          */
-        streetAddress: string;
+        streetAddress?: string;
         /**
          * The type of phone number.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetUserAlternateIdentifier {
@@ -32801,26 +32801,26 @@ export namespace identitystore {
         /**
          * When `true`, this is the primary phone number associated with the user.
          */
-        primary: boolean;
+        primary?: boolean;
         /**
          * The type of phone number.
          */
-        type: string;
+        type?: string;
         /**
          * The user's phone number.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetUserExternalId {
         /**
          * The identifier issued to this resource by an external identity provider.
          */
-        id: string;
+        id?: string;
         /**
          * The issuer for an external identifier.
          */
-        issuer: string;
+        issuer?: string;
     }
 
     export interface GetUserFilter {
@@ -32838,53 +32838,53 @@ export namespace identitystore {
         /**
          * The family name of the user.
          */
-        familyName: string;
+        familyName?: string;
         /**
          * The name that is typically displayed when the name is shown for display.
          */
-        formatted: string;
+        formatted?: string;
         /**
          * The given name of the user.
          */
-        givenName: string;
+        givenName?: string;
         /**
          * The honorific prefix of the user.
          */
-        honorificPrefix: string;
+        honorificPrefix?: string;
         /**
          * The honorific suffix of the user.
          */
-        honorificSuffix: string;
+        honorificSuffix?: string;
         /**
          * The middle name of the user.
          */
-        middleName: string;
+        middleName?: string;
     }
 
     export interface GetUserPhoneNumber {
         /**
          * When `true`, this is the primary phone number associated with the user.
          */
-        primary: boolean;
+        primary?: boolean;
         /**
          * The type of phone number.
          */
-        type: string;
+        type?: string;
         /**
          * The user's phone number.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GroupExternalId {
         /**
          * The identifier issued to this resource by an external identity provider.
          */
-        id: string;
+        id?: string;
         /**
          * The issuer for an external identifier.
          */
-        issuer: string;
+        issuer?: string;
     }
 
     export interface UserAddresses {
@@ -32941,11 +32941,11 @@ export namespace identitystore {
         /**
          * The identifier issued to this resource by an external identity provider.
          */
-        id: string;
+        id?: string;
         /**
          * The issuer for an external identifier.
          */
-        issuer: string;
+        issuer?: string;
     }
 
     export interface UserName {
@@ -33269,98 +33269,98 @@ export namespace imagebuilder {
         /**
          * ARN of the Image Builder Component.
          */
-        componentArn: string;
+        componentArn?: string;
         /**
          * Set of parameters that are used to configure the component.
          */
-        parameters: outputs.imagebuilder.GetContainerRecipeComponentParameter[];
+        parameters?: outputs.imagebuilder.GetContainerRecipeComponentParameter[];
     }
 
     export interface GetContainerRecipeComponentParameter {
         /**
          * Name of the container recipe.
          */
-        name: string;
+        name?: string;
         /**
          * Value of the component parameter.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetContainerRecipeInstanceConfiguration {
         /**
          * Set of objects with block device mappings for the instance configuration.
          */
-        blockDeviceMappings: outputs.imagebuilder.GetContainerRecipeInstanceConfigurationBlockDeviceMapping[];
+        blockDeviceMappings?: outputs.imagebuilder.GetContainerRecipeInstanceConfigurationBlockDeviceMapping[];
         /**
          * AMI ID of the base image for container build and test instance.
          */
-        image: string;
+        image?: string;
     }
 
     export interface GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
         /**
          * Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Single list of object with Elastic Block Storage (EBS) block device mapping settings.
          */
-        ebs: outputs.imagebuilder.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb[];
+        ebs?: outputs.imagebuilder.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb[];
         /**
          * Whether to remove a mapping from the parent image.
          */
-        noDevice: string;
+        noDevice?: string;
         /**
          * Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
          */
-        virtualName: string;
+        virtualName?: string;
     }
 
     export interface GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb {
         /**
          * Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
          */
-        deleteOnTermination: boolean;
+        deleteOnTermination?: boolean;
         /**
          * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
          */
-        iops: number;
+        iops?: number;
         /**
          * KMS key used to encrypt the container image.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Identifier of the EC2 Volume Snapshot.
          */
-        snapshotId: string;
+        snapshotId?: string;
         /**
          * For GP3 volumes only. The throughput in MiB/s that the volume supports.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of the volume, in GiB.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of the volume. For example, `gp2` or `io2`.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface GetContainerRecipeTargetRepository {
         /**
          * Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
          */
-        repositoryName: string;
+        repositoryName?: string;
         /**
          * Service in which this image is registered.
          */
-        service: string;
+        service?: string;
     }
 
     export interface GetContainerRecipesFilter {
@@ -33378,159 +33378,159 @@ export namespace imagebuilder {
         /**
          * Nested list of AMI distribution configuration.
          */
-        amiDistributionConfigurations: outputs.imagebuilder.GetDistributionConfigurationDistributionAmiDistributionConfiguration[];
+        amiDistributionConfigurations?: outputs.imagebuilder.GetDistributionConfigurationDistributionAmiDistributionConfiguration[];
         /**
          * Nested list of container distribution configurations.
          */
-        containerDistributionConfigurations: outputs.imagebuilder.GetDistributionConfigurationDistributionContainerDistributionConfiguration[];
+        containerDistributionConfigurations?: outputs.imagebuilder.GetDistributionConfigurationDistributionContainerDistributionConfiguration[];
         /**
          * Nested list of Windows faster-launching configurations to use for AMI distribution.
          */
-        fastLaunchConfigurations: outputs.imagebuilder.GetDistributionConfigurationDistributionFastLaunchConfiguration[];
+        fastLaunchConfigurations?: outputs.imagebuilder.GetDistributionConfigurationDistributionFastLaunchConfiguration[];
         /**
          * Nested list of launch template configurations.
          */
-        launchTemplateConfigurations: outputs.imagebuilder.GetDistributionConfigurationDistributionLaunchTemplateConfiguration[];
+        launchTemplateConfigurations?: outputs.imagebuilder.GetDistributionConfigurationDistributionLaunchTemplateConfiguration[];
         /**
          * Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
          */
-        licenseConfigurationArns: string[];
+        licenseConfigurationArns?: string[];
         /**
          * AWS Region of distribution.
          */
-        region: string;
+        region?: string;
     }
 
     export interface GetDistributionConfigurationDistributionAmiDistributionConfiguration {
         /**
          * Key-value map of tags to apply to distributed AMI.
          */
-        amiTags: {[key: string]: string};
+        amiTags?: {[key: string]: string};
         /**
          * Description of the container distribution configuration.
          */
-        description: string;
+        description?: string;
         /**
          * ARN of Key Management Service (KMS) Key to encrypt AMI.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Nested list of EC2 launch permissions.
          */
-        launchPermissions: outputs.imagebuilder.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission[];
+        launchPermissions?: outputs.imagebuilder.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission[];
         /**
          * Name of the distribution configuration.
          */
-        name: string;
+        name?: string;
         /**
          * Set of target AWS Account identifiers.
          */
-        targetAccountIds: string[];
+        targetAccountIds?: string[];
     }
 
     export interface GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
         /**
          * Set of AWS Organization ARNs.
          */
-        organizationArns: string[];
+        organizationArns?: string[];
         /**
          * Set of AWS Organizational Unit ARNs.
          */
-        organizationalUnitArns: string[];
+        organizationalUnitArns?: string[];
         /**
          * Set of EC2 launch permission user groups.
          */
-        userGroups: string[];
+        userGroups?: string[];
         /**
          * Set of AWS Account identifiers.
          */
-        userIds: string[];
+        userIds?: string[];
     }
 
     export interface GetDistributionConfigurationDistributionContainerDistributionConfiguration {
         /**
          * Set of tags that are attached to the container distribution configuration.
          */
-        containerTags: string[];
+        containerTags?: string[];
         /**
          * Description of the container distribution configuration.
          */
-        description: string;
+        description?: string;
         /**
          * Set of destination repositories for the container distribution configuration.
          */
-        targetRepositories: outputs.imagebuilder.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository[];
+        targetRepositories?: outputs.imagebuilder.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository[];
     }
 
     export interface GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
         /**
          * Name of the container repository where the output container image is stored.
          */
-        repositoryName: string;
+        repositoryName?: string;
         /**
          * Service in which the image is registered.
          */
-        service: string;
+        service?: string;
     }
 
     export interface GetDistributionConfigurationDistributionFastLaunchConfiguration {
         /**
          * The account ID that this configuration applies to.
          */
-        accountId: string;
+        accountId?: string;
         /**
          * A Boolean that represents the current state of faster launching for the Windows AMI.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
          */
-        launchTemplates: outputs.imagebuilder.GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate[];
+        launchTemplates?: outputs.imagebuilder.GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate[];
         /**
          * The maximum number of parallel instances that are launched for creating resources.
          */
-        maxParallelLaunches: number;
+        maxParallelLaunches?: number;
         /**
          * Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
          */
-        snapshotConfigurations: outputs.imagebuilder.GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration[];
+        snapshotConfigurations?: outputs.imagebuilder.GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration[];
     }
 
     export interface GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
         /**
          * ID of the Amazon EC2 launch template.
          */
-        launchTemplateId: string;
+        launchTemplateId?: string;
         /**
          * The name of the launch template to use for faster launching for a Windows AMI.
          */
-        launchTemplateName: string;
+        launchTemplateName?: string;
         /**
          * The version of the launch template to use for faster launching for a Windows AMI.
          */
-        launchTemplateVersion: string;
+        launchTemplateVersion?: string;
     }
 
     export interface GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
         /**
          * The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
          */
-        targetResourceCount: number;
+        targetResourceCount?: number;
     }
 
     export interface GetDistributionConfigurationDistributionLaunchTemplateConfiguration {
         /**
          * The account ID that this configuration applies to.
          */
-        accountId: string;
+        accountId?: string;
         /**
          * Whether the specified Amazon EC2 launch template is set as the default launch template.
          */
-        default: boolean;
+        default?: boolean;
         /**
          * ID of the Amazon EC2 launch template.
          */
-        launchTemplateId: string;
+        launchTemplateId?: string;
     }
 
     export interface GetDistributionConfigurationsFilter {
@@ -33548,122 +33548,122 @@ export namespace imagebuilder {
         /**
          * Configuration block with ECR configuration.
          */
-        ecrConfigurations: outputs.imagebuilder.GetImageImageScanningConfigurationEcrConfiguration[];
+        ecrConfigurations?: outputs.imagebuilder.GetImageImageScanningConfigurationEcrConfiguration[];
         /**
          * Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
          */
-        imageScanningEnabled: boolean;
+        imageScanningEnabled?: boolean;
     }
 
     export interface GetImageImageScanningConfigurationEcrConfiguration {
         /**
          * Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
          */
-        containerTags: string[];
+        containerTags?: string[];
         /**
          * The name of the container repository that Amazon Inspector scans to identify findings for your container images.
          */
-        repositoryName: string;
+        repositoryName?: string;
     }
 
     export interface GetImageImageTestsConfiguration {
         /**
          * Whether image tests are enabled.
          */
-        imageTestsEnabled: boolean;
+        imageTestsEnabled?: boolean;
         /**
          * Number of minutes before image tests time out.
          */
-        timeoutMinutes: number;
+        timeoutMinutes?: number;
     }
 
     export interface GetImageOutputResource {
         /**
          * Set of objects with each Amazon Machine Image (AMI) created.
          */
-        amis: outputs.imagebuilder.GetImageOutputResourceAmi[];
+        amis?: outputs.imagebuilder.GetImageOutputResourceAmi[];
         /**
          * Set of objects with each container image created and stored in the output repository.
          */
-        containers: outputs.imagebuilder.GetImageOutputResourceContainer[];
+        containers?: outputs.imagebuilder.GetImageOutputResourceContainer[];
     }
 
     export interface GetImageOutputResourceAmi {
         /**
          * Account identifier of the AMI.
          */
-        accountId: string;
+        accountId?: string;
         /**
          * Description of the AMI.
          */
-        description: string;
+        description?: string;
         /**
          * Identifier of the AMI.
          */
-        image: string;
+        image?: string;
         /**
          * Name of the AMI.
          */
-        name: string;
+        name?: string;
         /**
          * Region of the container image.
          */
-        region: string;
+        region?: string;
     }
 
     export interface GetImageOutputResourceContainer {
         /**
          * Set of URIs for created containers.
          */
-        imageUris: string[];
+        imageUris?: string[];
         /**
          * Region of the container image.
          */
-        region: string;
+        region?: string;
     }
 
     export interface GetImagePipelineImageScanningConfiguration {
         /**
          * List if an object with ecr configuration for image scanning
          */
-        ecrConfigurations: outputs.imagebuilder.GetImagePipelineImageScanningConfigurationEcrConfiguration[];
+        ecrConfigurations?: outputs.imagebuilder.GetImagePipelineImageScanningConfigurationEcrConfiguration[];
         /**
          * Whether image scanning is enabled.
          */
-        imageScanningEnabled: boolean;
+        imageScanningEnabled?: boolean;
     }
 
     export interface GetImagePipelineImageScanningConfigurationEcrConfiguration {
         /**
          * Tags that are added to the output containers that are scanned
          */
-        containerTags: string[];
+        containerTags?: string[];
         /**
          * The name of the container repository that Amazon Inspector scans
          */
-        repositoryName: string;
+        repositoryName?: string;
     }
 
     export interface GetImagePipelineImageTestsConfiguration {
         /**
          * Whether image tests are enabled.
          */
-        imageTestsEnabled: boolean;
+        imageTestsEnabled?: boolean;
         /**
          * Number of minutes before image tests time out.
          */
-        timeoutMinutes: number;
+        timeoutMinutes?: number;
     }
 
     export interface GetImagePipelineSchedule {
         /**
          * Condition when the pipeline should trigger a new image build.
          */
-        pipelineExecutionStartCondition: string;
+        pipelineExecutionStartCondition?: string;
         /**
          * Cron expression of how often the pipeline start condition is evaluated.
          */
-        scheduleExpression: string;
+        scheduleExpression?: string;
     }
 
     export interface GetImagePipelinesFilter {
@@ -33681,76 +33681,76 @@ export namespace imagebuilder {
         /**
          * Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
          */
-        deviceName: string;
+        deviceName?: string;
         /**
          * Single list of object with Elastic Block Storage (EBS) block device mapping settings.
          */
-        ebs: outputs.imagebuilder.GetImageRecipeBlockDeviceMappingEb[];
+        ebs?: outputs.imagebuilder.GetImageRecipeBlockDeviceMappingEb[];
         /**
          * Whether to remove a mapping from the parent image.
          */
-        noDevice: string;
+        noDevice?: string;
         /**
          * Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
          */
-        virtualName: string;
+        virtualName?: string;
     }
 
     export interface GetImageRecipeBlockDeviceMappingEb {
         /**
          * Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
          */
-        deleteOnTermination: boolean;
+        deleteOnTermination?: boolean;
         /**
          * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
          */
-        encrypted: boolean;
+        encrypted?: boolean;
         /**
          * Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
          */
-        iops: number;
+        iops?: number;
         /**
          * ARN of the Key Management Service (KMS) Key for encryption.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Identifier of the EC2 Volume Snapshot.
          */
-        snapshotId: string;
+        snapshotId?: string;
         /**
          * For GP3 volumes only. The throughput in MiB/s that the volume supports.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of the volume, in GiB.
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of the volume. For example, `gp2` or `io2`.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface GetImageRecipeComponent {
         /**
          * ARN of the Image Builder Component.
          */
-        componentArn: string;
+        componentArn?: string;
         /**
          * Set of parameters that are used to configure the component.
          */
-        parameters: outputs.imagebuilder.GetImageRecipeComponentParameter[];
+        parameters?: outputs.imagebuilder.GetImageRecipeComponentParameter[];
     }
 
     export interface GetImageRecipeComponentParameter {
         /**
          * Name of the image recipe.
          */
-        name: string;
+        name?: string;
         /**
          * Value of the component parameter.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetImageRecipesFilter {
@@ -33768,29 +33768,29 @@ export namespace imagebuilder {
         /**
          * Number of hops that an instance can traverse to reach its destonation.
          */
-        httpPutResponseHopLimit: number;
+        httpPutResponseHopLimit?: number;
         /**
          * Whether a signed token is required for instance metadata retrieval requests.
          */
-        httpTokens: string;
+        httpTokens?: string;
     }
 
     export interface GetInfrastructureConfigurationLogging {
         /**
          * Nested list of S3 logs settings.
          */
-        s3Logs: outputs.imagebuilder.GetInfrastructureConfigurationLoggingS3Log[];
+        s3Logs?: outputs.imagebuilder.GetInfrastructureConfigurationLoggingS3Log[];
     }
 
     export interface GetInfrastructureConfigurationLoggingS3Log {
         /**
          * Name of the S3 Bucket for logging.
          */
-        s3BucketName: string;
+        s3BucketName?: string;
         /**
          * Key prefix for S3 Bucket logging.
          */
-        s3KeyPrefix: string;
+        s3KeyPrefix?: string;
     }
 
     export interface GetInfrastructureConfigurationsFilter {
@@ -33808,7 +33808,7 @@ export namespace imagebuilder {
         /**
          * Configuration block with ECR configuration. Detailed below.
          */
-        ecrConfiguration: outputs.imagebuilder.ImageImageScanningConfigurationEcrConfiguration;
+        ecrConfiguration?: outputs.imagebuilder.ImageImageScanningConfigurationEcrConfiguration;
         /**
          * Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
          */
@@ -33841,52 +33841,52 @@ export namespace imagebuilder {
         /**
          * Set of objects with each Amazon Machine Image (AMI) created.
          */
-        amis: outputs.imagebuilder.ImageOutputResourceAmi[];
+        amis?: outputs.imagebuilder.ImageOutputResourceAmi[];
         /**
          * Set of objects with each container image created and stored in the output repository.
          */
-        containers: outputs.imagebuilder.ImageOutputResourceContainer[];
+        containers?: outputs.imagebuilder.ImageOutputResourceContainer[];
     }
 
     export interface ImageOutputResourceAmi {
         /**
          * Account identifier of the AMI.
          */
-        accountId: string;
+        accountId?: string;
         /**
          * Description of the AMI.
          */
-        description: string;
+        description?: string;
         /**
          * Identifier of the AMI.
          */
-        image: string;
+        image?: string;
         /**
          * Name of the AMI.
          */
-        name: string;
+        name?: string;
         /**
          * Region of the container image.
          */
-        region: string;
+        region?: string;
     }
 
     export interface ImageOutputResourceContainer {
         /**
          * Set of URIs for created containers.
          */
-        imageUris: string[];
+        imageUris?: string[];
         /**
          * Region of the container image.
          */
-        region: string;
+        region?: string;
     }
 
     export interface ImagePipelineImageScanningConfiguration {
         /**
          * Configuration block with ECR configuration for image scanning. Detailed below.
          */
-        ecrConfiguration: outputs.imagebuilder.ImagePipelineImageScanningConfigurationEcrConfiguration;
+        ecrConfiguration?: outputs.imagebuilder.ImagePipelineImageScanningConfigurationEcrConfiguration;
         /**
          * Whether image scans are enabled. Defaults to `false`.
          */
@@ -33926,7 +33926,7 @@ export namespace imagebuilder {
         /**
          * The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
          */
-        timezone: string;
+        timezone?: string;
     }
 
     export interface ImageRecipeBlockDeviceMapping {
@@ -34097,7 +34097,7 @@ export namespace iot {
         /**
          * The security policy for a domain configuration.
          */
-        securityPolicy: string;
+        securityPolicy?: string;
     }
 
     export interface IndexingConfigurationThingGroupIndexingConfiguration {
@@ -34108,7 +34108,7 @@ export namespace iot {
         /**
          * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
          */
-        managedFields: outputs.iot.IndexingConfigurationThingGroupIndexingConfigurationManagedField[];
+        managedFields?: outputs.iot.IndexingConfigurationThingGroupIndexingConfigurationManagedField[];
         /**
          * Thing group indexing mode. Valid values: `OFF`, `ON`.
          */
@@ -34149,11 +34149,11 @@ export namespace iot {
         /**
          * Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
          */
-        filter: outputs.iot.IndexingConfigurationThingIndexingConfigurationFilter;
+        filter?: outputs.iot.IndexingConfigurationThingIndexingConfigurationFilter;
         /**
          * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
          */
-        managedFields: outputs.iot.IndexingConfigurationThingIndexingConfigurationManagedField[];
+        managedFields?: outputs.iot.IndexingConfigurationThingIndexingConfigurationManagedField[];
         /**
          * [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
          */
@@ -34209,17 +34209,17 @@ export namespace iot {
     }
 
     export interface ThingGroupMetadata {
-        creationDate: string;
+        creationDate?: string;
         /**
          * The name of the parent Thing Group.
          */
-        parentGroupName: string;
-        rootToParentGroups: outputs.iot.ThingGroupMetadataRootToParentGroup[];
+        parentGroupName?: string;
+        rootToParentGroups?: outputs.iot.ThingGroupMetadataRootToParentGroup[];
     }
 
     export interface ThingGroupMetadataRootToParentGroup {
-        groupArn: string;
-        groupName: string;
+        groupArn?: string;
+        groupName?: string;
     }
 
     export interface ThingGroupProperties {
@@ -34248,7 +34248,7 @@ export namespace iot {
         /**
          * A list of searchable thing attribute names.
          */
-        searchableAttributes: string[];
+        searchableAttributes?: string[];
     }
 
     export interface TopicRuleCloudwatchAlarm {
@@ -35127,11 +35127,11 @@ export namespace ivs {
         /**
          * Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
          */
-        recordingMode: string;
+        recordingMode?: string;
         /**
          * The targeted thumbnail-generation interval in seconds.
          */
-        targetIntervalSeconds: number;
+        targetIntervalSeconds?: number;
     }
 
 }
@@ -35181,7 +35181,7 @@ export namespace ivschat {
          * is allowed or denied) if the handler does not return a valid response,
          * encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
          */
-        fallbackResult: string;
+        fallbackResult?: string;
         /**
          * ARN of the lambda message review handler function.
          */
@@ -35540,7 +35540,7 @@ export namespace kendra {
         /**
          * The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
          */
-        contentSourceConfiguration: outputs.kendra.ExperienceConfigurationContentSourceConfiguration;
+        contentSourceConfiguration?: outputs.kendra.ExperienceConfigurationContentSourceConfiguration;
         /**
          * The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
          */
@@ -35573,11 +35573,11 @@ export namespace kendra {
         /**
          * The endpoint of your Amazon Kendra experience.
          */
-        endpoint: string;
+        endpoint?: string;
         /**
          * The type of endpoint for your Amazon Kendra experience.
          */
-        endpointType: string;
+        endpointType?: string;
     }
 
     export interface FaqS3Path {
@@ -35597,256 +35597,256 @@ export namespace kendra {
         /**
          * The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
          */
-        contentSourceConfigurations: outputs.kendra.GetExperienceConfigurationContentSourceConfiguration[];
+        contentSourceConfigurations?: outputs.kendra.GetExperienceConfigurationContentSourceConfiguration[];
         /**
          * The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
          */
-        userIdentityConfigurations: outputs.kendra.GetExperienceConfigurationUserIdentityConfiguration[];
+        userIdentityConfigurations?: outputs.kendra.GetExperienceConfigurationUserIdentityConfiguration[];
     }
 
     export interface GetExperienceConfigurationContentSourceConfiguration {
         /**
          * Identifiers of the data sources you want to use for your Amazon Kendra Experience.
          */
-        dataSourceIds: string[];
+        dataSourceIds?: string[];
         /**
          * Whether to use documents you indexed directly using the `BatchPutDocument API`.
          */
-        directPutContent: boolean;
+        directPutContent?: boolean;
         /**
          * Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
          */
-        faqIds: string[];
+        faqIds?: string[];
     }
 
     export interface GetExperienceConfigurationUserIdentityConfiguration {
         /**
          * The AWS SSO field name that contains the identifiers of your users, such as their emails.
          */
-        identityAttributeName: string;
+        identityAttributeName?: string;
     }
 
     export interface GetExperienceEndpoint {
         /**
          * Endpoint of your Amazon Kendra Experience.
          */
-        endpoint: string;
+        endpoint?: string;
         /**
          * Type of endpoint for your Amazon Kendra Experience.
          */
-        endpointType: string;
+        endpointType?: string;
     }
 
     export interface GetFaqS3Path {
         /**
          * Name of the S3 bucket that contains the file.
          */
-        bucket: string;
+        bucket?: string;
         /**
          * Name of the file.
          */
-        key: string;
+        key?: string;
     }
 
     export interface GetIndexCapacityUnit {
         /**
          * The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
          */
-        queryCapacityUnits: number;
+        queryCapacityUnits?: number;
         /**
          * The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
          */
-        storageCapacityUnits: number;
+        storageCapacityUnits?: number;
     }
 
     export interface GetIndexDocumentMetadataConfigurationUpdate {
         /**
          * Name of the index field. Minimum length of 1. Maximum length of 30.
          */
-        name: string;
+        name?: string;
         /**
          * Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
          */
-        relevances: outputs.kendra.GetIndexDocumentMetadataConfigurationUpdateRelevance[];
+        relevances?: outputs.kendra.GetIndexDocumentMetadataConfigurationUpdateRelevance[];
         /**
          * Block that provides information about how the field is used during a search. Documented below.
          */
-        searches: outputs.kendra.GetIndexDocumentMetadataConfigurationUpdateSearch[];
+        searches?: outputs.kendra.GetIndexDocumentMetadataConfigurationUpdateSearch[];
         /**
          * Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetIndexDocumentMetadataConfigurationUpdateRelevance {
         /**
          * Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
          */
-        duration: string;
+        duration?: string;
         /**
          * How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
          */
-        freshness: boolean;
+        freshness?: boolean;
         /**
          * Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
          */
-        importance: number;
+        importance?: number;
         /**
          * Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
          */
-        rankOrder: string;
+        rankOrder?: string;
         /**
          * A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
          */
-        valuesImportanceMap: {[key: string]: number};
+        valuesImportanceMap?: {[key: string]: number};
     }
 
     export interface GetIndexDocumentMetadataConfigurationUpdateSearch {
         /**
          * Determines whether the field is returned in the query response. The default is `true`.
          */
-        displayable: boolean;
+        displayable?: boolean;
         /**
          * Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
          */
-        facetable: boolean;
+        facetable?: boolean;
         /**
          * Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
          */
-        searchable: boolean;
+        searchable?: boolean;
         /**
          * Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
          */
-        sortable: boolean;
+        sortable?: boolean;
     }
 
     export interface GetIndexIndexStatistic {
         /**
          * Block that specifies the number of question and answer topics in the index. Documented below.
          */
-        faqStatistics: outputs.kendra.GetIndexIndexStatisticFaqStatistic[];
+        faqStatistics?: outputs.kendra.GetIndexIndexStatisticFaqStatistic[];
         /**
          * A block that specifies the number of text documents indexed.
          */
-        textDocumentStatistics: outputs.kendra.GetIndexIndexStatisticTextDocumentStatistic[];
+        textDocumentStatistics?: outputs.kendra.GetIndexIndexStatisticTextDocumentStatistic[];
     }
 
     export interface GetIndexIndexStatisticFaqStatistic {
         /**
          * The total number of FAQ questions and answers contained in the index.
          */
-        indexedQuestionAnswersCount: number;
+        indexedQuestionAnswersCount?: number;
     }
 
     export interface GetIndexIndexStatisticTextDocumentStatistic {
         /**
          * Total size, in bytes, of the indexed documents.
          */
-        indexedTextBytes: number;
+        indexedTextBytes?: number;
         /**
          * The number of text documents indexed.
          */
-        indexedTextDocumentsCount: number;
+        indexedTextDocumentsCount?: number;
     }
 
     export interface GetIndexServerSideEncryptionConfiguration {
         /**
          * Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
     }
 
     export interface GetIndexUserGroupResolutionConfiguration {
         /**
          * The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
          */
-        userGroupResolutionMode: string;
+        userGroupResolutionMode?: string;
     }
 
     export interface GetIndexUserTokenConfiguration {
         /**
          * A block that specifies the information about the JSON token type configuration.
          */
-        jsonTokenTypeConfigurations: outputs.kendra.GetIndexUserTokenConfigurationJsonTokenTypeConfiguration[];
+        jsonTokenTypeConfigurations?: outputs.kendra.GetIndexUserTokenConfigurationJsonTokenTypeConfiguration[];
         /**
          * A block that specifies the information about the JWT token type configuration.
          */
-        jwtTokenTypeConfigurations: outputs.kendra.GetIndexUserTokenConfigurationJwtTokenTypeConfiguration[];
+        jwtTokenTypeConfigurations?: outputs.kendra.GetIndexUserTokenConfigurationJwtTokenTypeConfiguration[];
     }
 
     export interface GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
         /**
          * The group attribute field.
          */
-        groupAttributeField: string;
+        groupAttributeField?: string;
         /**
          * The user name attribute field.
          */
-        userNameAttributeField: string;
+        userNameAttributeField?: string;
     }
 
     export interface GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
         /**
          * Regular expression that identifies the claim.
          */
-        claimRegex: string;
+        claimRegex?: string;
         /**
          * The group attribute field.
          */
-        groupAttributeField: string;
+        groupAttributeField?: string;
         /**
          * Issuer of the token.
          */
-        issuer: string;
+        issuer?: string;
         /**
          * Location of the key. Valid values are `URL` or `SECRET_MANAGER`
          */
-        keyLocation: string;
+        keyLocation?: string;
         /**
          * ARN of the secret.
          */
-        secretsManagerArn: string;
+        secretsManagerArn?: string;
         /**
          * Signing key URL.
          */
-        url: string;
+        url?: string;
         /**
          * The user name attribute field.
          */
-        userNameAttributeField: string;
+        userNameAttributeField?: string;
     }
 
     export interface GetQuerySuggestionsBlockListSourceS3Path {
         /**
          * Name of the S3 bucket that contains the file.
          */
-        bucket: string;
+        bucket?: string;
         /**
          * Name of the file.
          */
-        key: string;
+        key?: string;
     }
 
     export interface GetThesaurusSourceS3Path {
         /**
          * Name of the S3 bucket that contains the file.
          */
-        bucket: string;
+        bucket?: string;
         /**
          * Name of the file.
          */
-        key: string;
+        key?: string;
     }
 
     export interface IndexCapacityUnits {
         /**
          * The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
          */
-        queryCapacityUnits: number;
+        queryCapacityUnits?: number;
         /**
          * The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
          */
-        storageCapacityUnits: number;
+        storageCapacityUnits?: number;
     }
 
     export interface IndexDocumentMetadataConfigurationUpdate {
@@ -35857,11 +35857,11 @@ export namespace kendra {
         /**
          * A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
          */
-        relevance: outputs.kendra.IndexDocumentMetadataConfigurationUpdateRelevance;
+        relevance?: outputs.kendra.IndexDocumentMetadataConfigurationUpdateRelevance;
         /**
          * A block that provides information about how the field is used during a search. Documented below. Detailed below
          */
-        search: outputs.kendra.IndexDocumentMetadataConfigurationUpdateSearch;
+        search?: outputs.kendra.IndexDocumentMetadataConfigurationUpdateSearch;
         /**
          * The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
          */
@@ -35872,71 +35872,71 @@ export namespace kendra {
         /**
          * Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
          */
-        duration: string;
+        duration?: string;
         /**
          * Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
          */
-        freshness: boolean;
+        freshness?: boolean;
         /**
          * The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
          */
-        importance: number;
+        importance?: number;
         /**
          * Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
          */
-        rankOrder: string;
+        rankOrder?: string;
         /**
          * A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
          */
-        valuesImportanceMap: {[key: string]: number};
+        valuesImportanceMap?: {[key: string]: number};
     }
 
     export interface IndexDocumentMetadataConfigurationUpdateSearch {
         /**
          * Determines whether the field is returned in the query response. The default is `true`.
          */
-        displayable: boolean;
+        displayable?: boolean;
         /**
          * Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
          */
-        facetable: boolean;
+        facetable?: boolean;
         /**
          * Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
          */
-        searchable: boolean;
+        searchable?: boolean;
         /**
          * Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
          */
-        sortable: boolean;
+        sortable?: boolean;
     }
 
     export interface IndexIndexStatistic {
         /**
          * A block that specifies the number of question and answer topics in the index. Detailed below.
          */
-        faqStatistics: outputs.kendra.IndexIndexStatisticFaqStatistic[];
+        faqStatistics?: outputs.kendra.IndexIndexStatisticFaqStatistic[];
         /**
          * A block that specifies the number of text documents indexed. Detailed below.
          */
-        textDocumentStatistics: outputs.kendra.IndexIndexStatisticTextDocumentStatistic[];
+        textDocumentStatistics?: outputs.kendra.IndexIndexStatisticTextDocumentStatistic[];
     }
 
     export interface IndexIndexStatisticFaqStatistic {
         /**
          * The total number of FAQ questions and answers contained in the index.
          */
-        indexedQuestionAnswersCount: number;
+        indexedQuestionAnswersCount?: number;
     }
 
     export interface IndexIndexStatisticTextDocumentStatistic {
         /**
          * The total size, in bytes, of the indexed documents.
          */
-        indexedTextBytes: number;
+        indexedTextBytes?: number;
         /**
          * The number of text documents indexed.
          */
-        indexedTextDocumentsCount: number;
+        indexedTextDocumentsCount?: number;
     }
 
     export interface IndexServerSideEncryptionConfiguration {
@@ -36043,7 +36043,7 @@ export namespace keyspaces {
         /**
          * The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
          */
-        throughputMode: string;
+        throughputMode?: string;
         /**
          * The throughput capacity specified for write operations defined in write capacity units (WCUs).
          */
@@ -36061,7 +36061,7 @@ export namespace keyspaces {
         /**
          * A description of the table.
          */
-        message: string;
+        message?: string;
     }
 
     export interface TableEncryptionSpecification {
@@ -36072,14 +36072,14 @@ export namespace keyspaces {
         /**
          * The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
          */
-        type: string;
+        type?: string;
     }
 
     export interface TablePointInTimeRecovery {
         /**
          * Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
          */
-        status: string;
+        status?: string;
     }
 
     export interface TableSchemaDefinition {
@@ -36151,7 +36151,7 @@ export namespace kinesis {
         /**
          * The ARN of the Kinesis Analytics Application.
          */
-        id: string;
+        id?: string;
         /**
          * The ARN of the CloudWatch Log Stream.
          */
@@ -36166,7 +36166,7 @@ export namespace kinesis {
         /**
          * The ARN of the Kinesis Analytics Application.
          */
-        id: string;
+        id?: string;
         /**
          * The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
          * See Kinesis Firehose below for more details.
@@ -36185,7 +36185,7 @@ export namespace kinesis {
          * The number of Parallel in-application streams to create.
          * See Parallelism below for more details.
          */
-        parallelism: outputs.kinesis.AnalyticsApplicationInputsParallelism;
+        parallelism?: outputs.kinesis.AnalyticsApplicationInputsParallelism;
         /**
          * The Processing Configuration to transform records as they are received from the stream.
          * See Processing Configuration below for more details.
@@ -36199,8 +36199,8 @@ export namespace kinesis {
          * The point at which the application starts processing records from the streaming source.
          * See Starting Position Configuration below for more details.
          */
-        startingPositionConfigurations: outputs.kinesis.AnalyticsApplicationInputsStartingPositionConfiguration[];
-        streamNames: string[];
+        startingPositionConfigurations?: outputs.kinesis.AnalyticsApplicationInputsStartingPositionConfiguration[];
+        streamNames?: string[];
     }
 
     export interface AnalyticsApplicationInputsKinesisFirehose {
@@ -36229,7 +36229,7 @@ export namespace kinesis {
         /**
          * The Count of streams.
          */
-        count: number;
+        count?: number;
     }
 
     export interface AnalyticsApplicationInputsProcessingConfiguration {
@@ -36291,7 +36291,7 @@ export namespace kinesis {
         /**
          * The type of Record Format. Can be `CSV` or `JSON`.
          */
-        recordFormatType: string;
+        recordFormatType?: string;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
@@ -36329,14 +36329,14 @@ export namespace kinesis {
         /**
          * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
          */
-        startingPosition: string;
+        startingPosition?: string;
     }
 
     export interface AnalyticsApplicationOutput {
         /**
          * The ARN of the Kinesis Analytics Application.
          */
-        id: string;
+        id?: string;
         /**
          * The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
          * See Kinesis Firehose below for more details.
@@ -36405,7 +36405,7 @@ export namespace kinesis {
         /**
          * The ARN of the Kinesis Analytics Application.
          */
-        id: string;
+        id?: string;
         /**
          * The S3 configuration for the reference data source. See S3 Reference below for more details.
          */
@@ -36476,7 +36476,7 @@ export namespace kinesis {
         /**
          * The type of Record Format. Can be `CSV` or `JSON`.
          */
-        recordFormatType: string;
+        recordFormatType?: string;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
@@ -36522,7 +36522,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions;
         /**
          * The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          */
@@ -36635,7 +36635,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
@@ -36687,7 +36687,7 @@ export namespace kinesis {
          * A list of subnet IDs to associate with Kinesis Firehose.
          */
         subnetIds: string[];
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3Configuration {
@@ -36706,7 +36706,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions;
         /**
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
@@ -36916,7 +36916,7 @@ export namespace kinesis {
         /**
          * The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Specifies the name of the AWS Glue database that contains the schema for the output data.
          */
@@ -36924,7 +36924,7 @@ export namespace kinesis {
         /**
          * If you don't specify an AWS Region, the default is the current region.
          */
-        region: string;
+        region?: string;
         /**
          * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
@@ -37003,7 +37003,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
         /**
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
@@ -37058,7 +37058,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions;
         /**
          * The HTTP endpoint name.
          */
@@ -37070,7 +37070,7 @@ export namespace kinesis {
         /**
          * The request configuration.  More details are given below.
          */
-        requestConfiguration: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration;
+        requestConfiguration?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration;
         /**
          * Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
          */
@@ -37181,7 +37181,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
@@ -37269,7 +37269,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions;
         /**
          * The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          */
@@ -37382,7 +37382,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
@@ -37434,7 +37434,7 @@ export namespace kinesis {
          * A list of subnet IDs to associate with Kinesis Firehose.
          */
         subnetIds: string[];
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface FirehoseDeliveryStreamOpensearchserverlessConfiguration {
@@ -37449,7 +37449,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions;
         /**
          * The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
          */
@@ -37550,7 +37550,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
@@ -37602,14 +37602,14 @@ export namespace kinesis {
          * A list of subnet IDs to associate with Kinesis Firehose.
          */
         subnetIds: string[];
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfiguration {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions;
         /**
          * The jdbcurl of the redshift cluster.
          */
@@ -37726,7 +37726,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
         /**
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
@@ -37781,7 +37781,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
@@ -37841,7 +37841,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions;
         /**
          * The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
          */
@@ -37942,7 +37942,7 @@ export namespace kinesis {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
@@ -37985,7 +37985,7 @@ export namespace kinesis {
         /**
          * Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
          */
-        streamMode: string;
+        streamMode?: string;
     }
 
     export interface StreamStreamModeDetails {
@@ -38006,7 +38006,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * Describes whether snapshots are enabled for a Flink-based application.
          */
-        applicationSnapshotConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationSnapshotConfiguration;
+        applicationSnapshotConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationSnapshotConfiguration;
         /**
          * Describes execution properties for a Flink-based application.
          */
@@ -38014,11 +38014,11 @@ export namespace kinesisanalyticsv2 {
         /**
          * The configuration of a Flink-based application.
          */
-        flinkApplicationConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfiguration;
+        flinkApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfiguration;
         /**
          * Describes the starting properties for a Flink-based application.
          */
-        runConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfiguration;
+        runConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfiguration;
         /**
          * The configuration of a SQL-based application.
          */
@@ -38097,26 +38097,26 @@ export namespace kinesisanalyticsv2 {
         /**
          * Describes an application's checkpointing configuration.
          */
-        checkpointConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration;
+        checkpointConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration;
         /**
          * Describes configuration parameters for CloudWatch logging for an application.
          */
-        monitoringConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration;
+        monitoringConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration;
         /**
          * Describes parameters for how an application executes multiple tasks simultaneously.
          */
-        parallelismConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration;
+        parallelismConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration;
     }
 
     export interface ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration {
         /**
          * Describes the interval in milliseconds between checkpoint operations.
          */
-        checkpointInterval: number;
+        checkpointInterval?: number;
         /**
          * Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
          */
-        checkpointingEnabled: boolean;
+        checkpointingEnabled?: boolean;
         /**
          * Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
          * * `checkpointingEnabled = true`
@@ -38127,7 +38127,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
          */
-        minPauseBetweenCheckpoints: number;
+        minPauseBetweenCheckpoints?: number;
     }
 
     export interface ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
@@ -38138,18 +38138,18 @@ export namespace kinesisanalyticsv2 {
         /**
          * Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
          */
-        logLevel: string;
+        logLevel?: string;
         /**
          * Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
          */
-        metricsLevel: string;
+        metricsLevel?: string;
     }
 
     export interface ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
         /**
          * Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
          */
-        autoScalingEnabled: boolean;
+        autoScalingEnabled?: boolean;
         /**
          * Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
          */
@@ -38157,29 +38157,29 @@ export namespace kinesisanalyticsv2 {
         /**
          * Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
          */
-        parallelism: number;
+        parallelism?: number;
         /**
          * Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
          */
-        parallelismPerKpu: number;
+        parallelismPerKpu?: number;
     }
 
     export interface ApplicationApplicationConfigurationRunConfiguration {
         /**
          * The restore behavior of a restarting application.
          */
-        applicationRestoreConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration;
+        applicationRestoreConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration;
         /**
          * The starting parameters for a Flink-based Kinesis Data Analytics application.
          */
-        flinkRunConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration;
+        flinkRunConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration;
     }
 
     export interface ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
         /**
          * Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
          */
-        applicationRestoreType: string;
+        applicationRestoreType?: string;
         /**
          * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
          */
@@ -38190,7 +38190,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
          */
-        allowNonRestoredState: boolean;
+        allowNonRestoredState?: boolean;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfiguration {
@@ -38209,12 +38209,12 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
-        inAppStreamNames: string[];
-        inputId: string;
+        inAppStreamNames?: string[];
+        inputId?: string;
         /**
          * Describes the number of in-application streams to create.
          */
-        inputParallelism: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism;
+        inputParallelism?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism;
         /**
          * The input processing configuration for the input.
          * An input processor transforms records as they are received from the stream, before the application's SQL code executes.
@@ -38227,7 +38227,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The point at which the application starts processing records from the streaming source.
          */
-        inputStartingPositionConfigurations: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration[];
+        inputStartingPositionConfigurations?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration[];
         /**
          * If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
          */
@@ -38246,7 +38246,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The number of in-application streams to create.
          */
-        count: number;
+        count?: number;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
@@ -38337,7 +38337,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
          */
-        inputStartingPosition: string;
+        inputStartingPosition?: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
@@ -38375,7 +38375,7 @@ export namespace kinesisanalyticsv2 {
          * The name of the in-application stream.
          */
         name: string;
-        outputId: string;
+        outputId?: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema {
@@ -38407,7 +38407,7 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
-        referenceId: string;
+        referenceId?: string;
         /**
          * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
          */
@@ -38514,12 +38514,12 @@ export namespace kinesisanalyticsv2 {
          * The Subnet IDs used by the VPC configuration.
          */
         subnetIds: string[];
-        vpcConfigurationId: string;
-        vpcId: string;
+        vpcConfigurationId?: string;
+        vpcId?: string;
     }
 
     export interface ApplicationCloudwatchLoggingOptions {
-        cloudwatchLoggingOptionId: string;
+        cloudwatchLoggingOptionId?: string;
         /**
          * The ARN of the CloudWatch log stream to receive application messages.
          */
@@ -38533,44 +38533,44 @@ export namespace kms {
         /**
          * Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
          */
-        multiRegionKeyType: string;
+        multiRegionKeyType?: string;
         /**
          * The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
          */
-        primaryKeys: outputs.kms.GetKeyMultiRegionConfigurationPrimaryKey[];
+        primaryKeys?: outputs.kms.GetKeyMultiRegionConfigurationPrimaryKey[];
         /**
          * The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
          */
-        replicaKeys: outputs.kms.GetKeyMultiRegionConfigurationReplicaKey[];
+        replicaKeys?: outputs.kms.GetKeyMultiRegionConfigurationReplicaKey[];
     }
 
     export interface GetKeyMultiRegionConfigurationPrimaryKey {
         /**
          * The key ARN of a primary or replica key of a multi-Region key.
          */
-        arn: string;
+        arn?: string;
         /**
          * The AWS Region of a primary or replica key in a multi-Region key.
          */
-        region: string;
+        region?: string;
     }
 
     export interface GetKeyMultiRegionConfigurationReplicaKey {
         /**
          * The key ARN of a primary or replica key of a multi-Region key.
          */
-        arn: string;
+        arn?: string;
         /**
          * The AWS Region of a primary or replica key in a multi-Region key.
          */
-        region: string;
+        region?: string;
     }
 
     export interface GetKeyXksKeyConfiguration {
         /**
          * The globally unique identifier for the key
          */
-        id: string;
+        id?: string;
     }
 
     export interface GetSecretSecret {
@@ -38628,44 +38628,44 @@ export namespace lakeformation {
         /**
          * List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
          */
-        permissions: string[];
+        permissions?: string[];
         /**
          * Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
          */
-        principal: string;
+        principal?: string;
     }
 
     export interface DataLakeSettingsCreateTableDefaultPermission {
         /**
          * List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
          */
-        permissions: string[];
+        permissions?: string[];
         /**
          * Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
          */
-        principal: string;
+        principal?: string;
     }
 
     export interface GetDataLakeSettingsCreateDatabaseDefaultPermission {
         /**
          * List of permissions granted to the principal.
          */
-        permissions: string[];
+        permissions?: string[];
         /**
          * Principal who is granted permissions.
          */
-        principal: string;
+        principal?: string;
     }
 
     export interface GetDataLakeSettingsCreateTableDefaultPermission {
         /**
          * List of permissions granted to the principal.
          */
-        permissions: string[];
+        permissions?: string[];
         /**
          * Principal who is granted permissions.
          */
-        principal: string;
+        principal?: string;
     }
 
     export interface GetPermissionsDataLocation {
@@ -38678,14 +38678,14 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
     }
 
     export interface GetPermissionsDatabase {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Name of the database resource. Unique to the Data Catalog.
          *
@@ -38698,7 +38698,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Key-name for the tag.
          */
@@ -38715,7 +38715,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          *
@@ -38743,7 +38743,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Name of the database for the table. Unique to a Data Catalog.
          *
@@ -38753,7 +38753,7 @@ export namespace lakeformation {
         /**
          * Name of the table. At least one of `name` or `wildcard` is required.
          */
-        name: string;
+        name?: string;
         /**
          * Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
          */
@@ -38764,7 +38764,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
          */
@@ -38799,14 +38799,14 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
     }
 
     export interface PermissionsDatabase {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Name of the database resource. Unique to the Data Catalog.
          *
@@ -38819,7 +38819,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * The key-name for the tag.
          */
@@ -38836,7 +38836,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          *
@@ -38864,7 +38864,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Name of the database for the table. Unique to a Data Catalog.
          */
@@ -38872,7 +38872,7 @@ export namespace lakeformation {
         /**
          * Name of the table.
          */
-        name: string;
+        name?: string;
         /**
          * Whether to use a wildcard representing every table under a database. Defaults to `false`.
          *
@@ -38885,7 +38885,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Set of column names for the table.
          */
@@ -38914,7 +38914,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Name of the database resource. Unique to the Data Catalog.
          *
@@ -38927,7 +38927,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Key name for an existing LF-tag.
          */
@@ -38944,7 +38944,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Name of the database for the table. Unique to a Data Catalog.
          */
@@ -38952,7 +38952,7 @@ export namespace lakeformation {
         /**
          * Name of the table.
          */
-        name: string;
+        name?: string;
         /**
          * Whether to use a wildcard representing every table under a database. Defaults to `false`.
          *
@@ -38965,7 +38965,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Set of column names for the table.
          */
@@ -39018,7 +39018,7 @@ export namespace lambda {
         /**
          * A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
          */
-        consumerGroupId: string;
+        consumerGroupId?: string;
     }
 
     export interface EventSourceMappingDestinationConfig {
@@ -39082,7 +39082,7 @@ export namespace lambda {
         /**
          * A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
          */
-        consumerGroupId: string;
+        consumerGroupId?: string;
     }
 
     export interface EventSourceMappingSourceAccessConfiguration {
@@ -39114,7 +39114,7 @@ export namespace lambda {
         /**
          * The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
          */
-        size: number;
+        size?: number;
     }
 
     export interface FunctionEventInvokeConfigDestinationConfig {
@@ -39173,7 +39173,7 @@ export namespace lambda {
          * Conditions where snap start is enabled. Valid values are `PublishedVersions`.
          */
         applyOn: string;
-        optimizationStatus: string;
+        optimizationStatus?: string;
     }
 
     export interface FunctionTracingConfig {
@@ -39223,169 +39223,169 @@ export namespace lambda {
          * List of subnet IDs associated with the Lambda function.
          */
         subnetIds: string[];
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface GetCodeSigningConfigAllowedPublisher {
         /**
          * The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
          */
-        signingProfileVersionArns: string[];
+        signingProfileVersionArns?: string[];
     }
 
     export interface GetCodeSigningConfigPolicy {
         /**
          * Code signing configuration policy for deployment validation failure.
          */
-        untrustedArtifactOnDeployment: string;
+        untrustedArtifactOnDeployment?: string;
     }
 
     export interface GetFunctionDeadLetterConfig {
-        targetArn: string;
+        targetArn?: string;
     }
 
     export interface GetFunctionEnvironment {
-        variables: {[key: string]: string};
+        variables?: {[key: string]: string};
     }
 
     export interface GetFunctionEphemeralStorage {
-        size: number;
+        size?: number;
     }
 
     export interface GetFunctionFileSystemConfig {
         /**
          * Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
          */
-        arn: string;
-        localMountPath: string;
+        arn?: string;
+        localMountPath?: string;
     }
 
     export interface GetFunctionTracingConfig {
-        mode: string;
+        mode?: string;
     }
 
     export interface GetFunctionUrlCor {
-        allowCredentials: boolean;
-        allowHeaders: string[];
-        allowMethods: string[];
-        allowOrigins: string[];
-        exposeHeaders: string[];
-        maxAge: number;
+        allowCredentials?: boolean;
+        allowHeaders?: string[];
+        allowMethods?: string[];
+        allowOrigins?: string[];
+        exposeHeaders?: string[];
+        maxAge?: number;
     }
 
     export interface GetFunctionVpcConfig {
-        ipv6AllowedForDualStack: boolean;
-        securityGroupIds: string[];
-        subnetIds: string[];
-        vpcId: string;
+        ipv6AllowedForDualStack?: boolean;
+        securityGroupIds?: string[];
+        subnetIds?: string[];
+        vpcId?: string;
     }
 
 }
 
 export namespace lb {
     export interface GetListenerDefaultAction {
-        authenticateCognitos: outputs.lb.GetListenerDefaultActionAuthenticateCognito[];
-        authenticateOidcs: outputs.lb.GetListenerDefaultActionAuthenticateOidc[];
-        fixedResponses: outputs.lb.GetListenerDefaultActionFixedResponse[];
-        forwards: outputs.lb.GetListenerDefaultActionForward[];
-        order: number;
-        redirects: outputs.lb.GetListenerDefaultActionRedirect[];
-        targetGroupArn: string;
-        type: string;
+        authenticateCognitos?: outputs.lb.GetListenerDefaultActionAuthenticateCognito[];
+        authenticateOidcs?: outputs.lb.GetListenerDefaultActionAuthenticateOidc[];
+        fixedResponses?: outputs.lb.GetListenerDefaultActionFixedResponse[];
+        forwards?: outputs.lb.GetListenerDefaultActionForward[];
+        order?: number;
+        redirects?: outputs.lb.GetListenerDefaultActionRedirect[];
+        targetGroupArn?: string;
+        type?: string;
     }
 
     export interface GetListenerDefaultActionAuthenticateCognito {
-        authenticationRequestExtraParams: {[key: string]: string};
-        onUnauthenticatedRequest: string;
-        scope: string;
-        sessionCookieName: string;
-        sessionTimeout: number;
-        userPoolArn: string;
-        userPoolClientId: string;
-        userPoolDomain: string;
+        authenticationRequestExtraParams?: {[key: string]: string};
+        onUnauthenticatedRequest?: string;
+        scope?: string;
+        sessionCookieName?: string;
+        sessionTimeout?: number;
+        userPoolArn?: string;
+        userPoolClientId?: string;
+        userPoolDomain?: string;
     }
 
     export interface GetListenerDefaultActionAuthenticateOidc {
-        authenticationRequestExtraParams: {[key: string]: string};
-        authorizationEndpoint: string;
-        clientId: string;
-        clientSecret: string;
-        issuer: string;
-        onUnauthenticatedRequest: string;
-        scope: string;
-        sessionCookieName: string;
-        sessionTimeout: number;
-        tokenEndpoint: string;
-        userInfoEndpoint: string;
+        authenticationRequestExtraParams?: {[key: string]: string};
+        authorizationEndpoint?: string;
+        clientId?: string;
+        clientSecret?: string;
+        issuer?: string;
+        onUnauthenticatedRequest?: string;
+        scope?: string;
+        sessionCookieName?: string;
+        sessionTimeout?: number;
+        tokenEndpoint?: string;
+        userInfoEndpoint?: string;
     }
 
     export interface GetListenerDefaultActionFixedResponse {
-        contentType: string;
-        messageBody: string;
-        statusCode: string;
+        contentType?: string;
+        messageBody?: string;
+        statusCode?: string;
     }
 
     export interface GetListenerDefaultActionForward {
-        stickinesses: outputs.lb.GetListenerDefaultActionForwardStickiness[];
-        targetGroups: outputs.lb.GetListenerDefaultActionForwardTargetGroup[];
+        stickinesses?: outputs.lb.GetListenerDefaultActionForwardStickiness[];
+        targetGroups?: outputs.lb.GetListenerDefaultActionForwardTargetGroup[];
     }
 
     export interface GetListenerDefaultActionForwardStickiness {
-        duration: number;
-        enabled: boolean;
+        duration?: number;
+        enabled?: boolean;
     }
 
     export interface GetListenerDefaultActionForwardTargetGroup {
         /**
          * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
          */
-        arn: string;
-        weight: number;
+        arn?: string;
+        weight?: number;
     }
 
     export interface GetListenerDefaultActionRedirect {
-        host: string;
-        path: string;
+        host?: string;
+        path?: string;
         /**
          * Port of the listener. Required if `arn` is not set.
          */
-        port: string;
-        protocol: string;
-        query: string;
-        statusCode: string;
+        port?: string;
+        protocol?: string;
+        query?: string;
+        statusCode?: string;
     }
 
     export interface GetLoadBalancerAccessLogs {
-        bucket: string;
-        enabled: boolean;
-        prefix: string;
+        bucket?: string;
+        enabled?: boolean;
+        prefix?: string;
     }
 
     export interface GetLoadBalancerSubnetMapping {
-        allocationId: string;
-        ipv6Address: string;
-        outpostId: string;
-        privateIpv4Address: string;
-        subnetId: string;
+        allocationId?: string;
+        ipv6Address?: string;
+        outpostId?: string;
+        privateIpv4Address?: string;
+        subnetId?: string;
     }
 
     export interface GetTargetGroupHealthCheck {
-        enabled: boolean;
-        healthyThreshold: number;
-        interval: number;
-        matcher: string;
-        path: string;
-        port: string;
-        protocol: string;
-        timeout: number;
-        unhealthyThreshold: number;
+        enabled?: boolean;
+        healthyThreshold?: number;
+        interval?: number;
+        matcher?: string;
+        path?: string;
+        port?: string;
+        protocol?: string;
+        timeout?: number;
+        unhealthyThreshold?: number;
     }
 
     export interface GetTargetGroupStickiness {
-        cookieDuration: number;
-        cookieName: string;
-        enabled: boolean;
-        type: string;
+        cookieDuration?: number;
+        cookieName?: string;
+        enabled?: boolean;
+        type?: string;
     }
 
     export interface ListenerDefaultAction {
@@ -39408,7 +39408,7 @@ export namespace lb {
         /**
          * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
          */
-        order: number;
+        order?: number;
         /**
          * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
@@ -39433,19 +39433,19 @@ export namespace lb {
         /**
          * Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: string;
         /**
          * Set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * Name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * Maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * ARN of the Cognito user pool.
          */
@@ -39486,19 +39486,19 @@ export namespace lb {
         /**
          * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: string;
         /**
          * Set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * Name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * Maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * Token endpoint of the IdP.
          */
@@ -39525,7 +39525,7 @@ export namespace lb {
         /**
          * HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: string;
     }
 
     export interface ListenerDefaultActionForward {
@@ -39613,7 +39613,7 @@ export namespace lb {
          * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
          */
         forward?: outputs.lb.ListenerRuleActionForward;
-        order: number;
+        order?: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
@@ -39636,7 +39636,7 @@ export namespace lb {
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: string;
         /**
          * The set of user claims to be requested from the IdP.
          */
@@ -39687,7 +39687,7 @@ export namespace lb {
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: string;
         /**
          * The set of user claims to be requested from the IdP.
          */
@@ -39722,7 +39722,7 @@ export namespace lb {
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: string;
     }
 
     export interface ListenerRuleActionForward {
@@ -39888,7 +39888,7 @@ export namespace lb {
          * The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
          */
         ipv6Address?: string;
-        outpostId: string;
+        outpostId?: string;
         /**
          * The private IPv4 address for an internal load balancer.
          */
@@ -39915,11 +39915,11 @@ export namespace lb {
         /**
          * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          */
-        matcher: string;
+        matcher?: string;
         /**
          * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          */
-        path: string;
+        path?: string;
         /**
          * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
          */
@@ -39931,7 +39931,7 @@ export namespace lb {
         /**
          * Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
          */
-        timeout: number;
+        timeout?: number;
         /**
          * Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
          */
@@ -40040,7 +40040,7 @@ export namespace lex {
         /**
          * The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
          */
-        resourcePrefix: string;
+        resourcePrefix?: string;
     }
 
     export interface BotClarificationPrompt {
@@ -40090,8 +40090,8 @@ export namespace lex {
     }
 
     export interface GetSlotTypeEnumerationValue {
-        synonyms: string[];
-        value: string;
+        synonyms?: string[];
+        value?: string;
     }
 
     export interface IntentConclusionStatement {
@@ -40417,7 +40417,7 @@ export namespace lex {
     }
 
     export interface V2modelsBotLocaleVoiceSettings {
-        engine: string;
+        engine?: string;
         voiceId: string;
     }
 
@@ -40482,105 +40482,105 @@ export namespace licensemanager {
         /**
          * Details about a borrow configuration. Detailed below
          */
-        borrowConfigurations: outputs.licensemanager.GetReceivedLicenseConsumptionConfigurationBorrowConfiguration[];
+        borrowConfigurations?: outputs.licensemanager.GetReceivedLicenseConsumptionConfigurationBorrowConfiguration[];
         /**
          * Details about a provisional configuration. Detailed below
          */
-        provisionalConfigurations: outputs.licensemanager.GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration[];
-        renewType: string;
+        provisionalConfigurations?: outputs.licensemanager.GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration[];
+        renewType?: string;
     }
 
     export interface GetReceivedLicenseConsumptionConfigurationBorrowConfiguration {
         /**
          * Indicates whether early check-ins are allowed.
          */
-        allowEarlyCheckIn: boolean;
+        allowEarlyCheckIn?: boolean;
         /**
          * Maximum time for the provisional configuration, in minutes.
          */
-        maxTimeToLiveInMinutes: number;
+        maxTimeToLiveInMinutes?: number;
     }
 
     export interface GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration {
         /**
          * Maximum time for the provisional configuration, in minutes.
          */
-        maxTimeToLiveInMinutes: number;
+        maxTimeToLiveInMinutes?: number;
     }
 
     export interface GetReceivedLicenseEntitlement {
         /**
          * Indicates whether check-ins are allowed.
          */
-        allowCheckIn: boolean;
+        allowCheckIn?: boolean;
         /**
          * Maximum entitlement count. Use if the unit is not None.
          */
-        maxCount: number;
+        maxCount?: number;
         /**
          * The key name.
          */
-        name: string;
+        name?: string;
         /**
          * Entitlement unit.
          */
-        unit: string;
+        unit?: string;
         /**
          * The value.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetReceivedLicenseIssuer {
         /**
          * Issuer key fingerprint.
          */
-        keyFingerprint: string;
+        keyFingerprint?: string;
         /**
          * The key name.
          */
-        name: string;
+        name?: string;
         /**
          * Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
          */
-        signKey: string;
+        signKey?: string;
     }
 
     export interface GetReceivedLicenseLicenseMetadata {
         /**
          * The key name.
          */
-        name: string;
+        name?: string;
         /**
          * The value.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetReceivedLicenseReceivedMetadata {
         /**
          * A list of allowed operations.
          */
-        allowedOperations: string[];
+        allowedOperations?: string[];
         /**
          * Received status.
          */
-        receivedStatus: string;
+        receivedStatus?: string;
         /**
          * Received status reason.
          */
-        receivedStatusReason: string;
+        receivedStatusReason?: string;
     }
 
     export interface GetReceivedLicenseValidity {
         /**
          * Start of the validity time range.
          */
-        begin: string;
+        begin?: string;
         /**
          * End of the validity time range.
          */
-        end: string;
+        end?: string;
     }
 
     export interface GetReceivedLicensesFilter {
@@ -40615,10 +40615,10 @@ export namespace lightsail {
         /**
          * A domain name for which the certificate should be issued.
          */
-        domainName: string;
-        resourceRecordName: string;
-        resourceRecordType: string;
-        resourceRecordValue: string;
+        domainName?: string;
+        resourceRecordName?: string;
+        resourceRecordType?: string;
+        resourceRecordValue?: string;
     }
 
     export interface ContainerServiceDeploymentVersionContainer {
@@ -40690,7 +40690,7 @@ export namespace lightsail {
         /**
          * Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
          */
-        ecrImagePullerRole: outputs.lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRole;
+        ecrImagePullerRole?: outputs.lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRole;
     }
 
     export interface ContainerServicePrivateRegistryAccessEcrImagePullerRole {
@@ -40703,7 +40703,7 @@ export namespace lightsail {
          * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
          * service permission to access resources in your standard AWS account.
          */
-        principalArn: string;
+        principalArn?: string;
     }
 
     export interface ContainerServicePublicDomainNames {
@@ -40828,7 +40828,7 @@ export namespace lightsail {
         /**
          * The resource type of the origin resource (e.g., Instance).
          */
-        resourceType: string;
+        resourceType?: string;
     }
 
     export interface InstanceAddOn {
@@ -40850,16 +40850,16 @@ export namespace lightsail {
         /**
          * Set of CIDR aliases that define access for a preconfigured range of IP addresses.
          */
-        cidrListAliases: string[];
+        cidrListAliases?: string[];
         /**
          * Set of CIDR blocks.
          */
-        cidrs: string[];
+        cidrs?: string[];
         /**
          * First port in a range of open ports on an instance.
          */
         fromPort: number;
-        ipv6Cidrs: string[];
+        ipv6Cidrs?: string[];
         /**
          * IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
          */
@@ -40876,10 +40876,10 @@ export namespace lightsail {
         /**
          * The domain name (e.g., example.com) for your SSL/TLS certificate.
          */
-        domainName: string;
-        resourceRecordName: string;
-        resourceRecordType: string;
-        resourceRecordValue: string;
+        domainName?: string;
+        resourceRecordName?: string;
+        resourceRecordType?: string;
+        resourceRecordValue?: string;
     }
 
 }
@@ -40889,11 +40889,11 @@ export namespace location {
         /**
          * The map style selected from an available data provider.
          */
-        style: string;
+        style?: string;
     }
 
     export interface GetPlaceIndexDataSourceConfiguration {
-        intendedUse: string;
+        intendedUse?: string;
     }
 
     export interface MapConfiguration {
@@ -40979,7 +40979,7 @@ export namespace macie2 {
         /**
          * The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucketDefinitions`. (documented below)
          */
-        bucketCriteria: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteria;
+        bucketCriteria?: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteria;
         /**
          * An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucketCriteria`. (documented below)
          */
@@ -40987,58 +40987,58 @@ export namespace macie2 {
         /**
          * The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
          */
-        scoping: outputs.macie2.ClassificationJobS3JobDefinitionScoping;
+        scoping?: outputs.macie2.ClassificationJobS3JobDefinitionScoping;
     }
 
     export interface ClassificationJobS3JobDefinitionBucketCriteria {
         /**
          * The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
          */
-        excludes: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaExcludes;
+        excludes?: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaExcludes;
         /**
          * The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
          */
-        includes: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaIncludes;
+        includes?: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaIncludes;
     }
 
     export interface ClassificationJobS3JobDefinitionBucketCriteriaExcludes {
         /**
          * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
          */
-        ands: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd[];
+        ands?: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd[];
     }
 
     export interface ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd {
         /**
          * A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
          */
-        simpleCriterion: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion;
+        simpleCriterion?: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion;
         /**
          * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
          */
-        tagCriterion: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion;
+        tagCriterion?: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion;
     }
 
     export interface ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion {
         /**
          * The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
          */
-        comparator: string;
+        comparator?: string;
         /**
          * The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
          */
-        key: string;
+        key?: string;
         /**
          * An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion {
         /**
          * The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
          */
-        comparator: string;
+        comparator?: string;
         /**
          * The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
          */
@@ -41049,51 +41049,51 @@ export namespace macie2 {
         /**
          * The tag key.
          */
-        key: string;
+        key?: string;
         /**
          * The tag value.
          */
-        value: string;
+        value?: string;
     }
 
     export interface ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
         /**
          * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
          */
-        ands: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd[];
+        ands?: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd[];
     }
 
     export interface ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
         /**
          * A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
          */
-        simpleCriterion: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion;
+        simpleCriterion?: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion;
         /**
          * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
          */
-        tagCriterion: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion;
+        tagCriterion?: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion;
     }
 
     export interface ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion {
         /**
          * The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
          */
-        comparator: string;
+        comparator?: string;
         /**
          * The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
          */
-        key: string;
+        key?: string;
         /**
          * An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion {
         /**
          * The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
          */
-        comparator: string;
+        comparator?: string;
         /**
          * The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
          */
@@ -41104,11 +41104,11 @@ export namespace macie2 {
         /**
          * The tag key.
          */
-        key: string;
+        key?: string;
         /**
          * The tag value.
          */
-        value: string;
+        value?: string;
     }
 
     export interface ClassificationJobS3JobDefinitionBucketDefinition {
@@ -41126,118 +41126,118 @@ export namespace macie2 {
         /**
          * The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
          */
-        excludes: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludes;
+        excludes?: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludes;
         /**
          * The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
          */
-        includes: outputs.macie2.ClassificationJobS3JobDefinitionScopingIncludes;
+        includes?: outputs.macie2.ClassificationJobS3JobDefinitionScopingIncludes;
     }
 
     export interface ClassificationJobS3JobDefinitionScopingExcludes {
         /**
          * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
          */
-        ands: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAnd[];
+        ands?: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAnd[];
     }
 
     export interface ClassificationJobS3JobDefinitionScopingExcludesAnd {
         /**
          * A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
          */
-        simpleScopeTerm: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm;
+        simpleScopeTerm?: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm;
         /**
          * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
          */
-        tagScopeTerm: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm;
+        tagScopeTerm?: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm;
     }
 
     export interface ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm {
         /**
          * The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
          */
-        comparator: string;
+        comparator?: string;
         /**
          * The object property to use in the condition.
          */
-        key: string;
+        key?: string;
         /**
          * An array that lists the values to use in the condition.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm {
         /**
          * The operator to use in the condition.
          */
-        comparator: string;
+        comparator?: string;
         /**
          * The tag key to use in the condition. The only valid value is `TAG`.
          */
-        key: string;
+        key?: string;
         /**
          * The tag keys or tag key and value pairs to use in the condition.
          */
-        tagValues: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue[];
+        tagValues?: outputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue[];
         /**
          * The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
          */
-        target: string;
+        target?: string;
     }
 
     export interface ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue {
         /**
          * The tag key.
          */
-        key: string;
+        key?: string;
         /**
          * The tag value.
          */
-        value: string;
+        value?: string;
     }
 
     export interface ClassificationJobS3JobDefinitionScopingIncludes {
         /**
          * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
          */
-        ands: outputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAnd[];
+        ands?: outputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAnd[];
     }
 
     export interface ClassificationJobS3JobDefinitionScopingIncludesAnd {
         /**
          * A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
          */
-        simpleScopeTerm: outputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm;
+        simpleScopeTerm?: outputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm;
         /**
          * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
          */
-        tagScopeTerm: outputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm;
+        tagScopeTerm?: outputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm;
     }
 
     export interface ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm {
         /**
          * The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
          */
-        comparator: string;
+        comparator?: string;
         /**
          * The object property to use in the condition.
          */
-        key: string;
+        key?: string;
         /**
          * An array that lists the values to use in the condition.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm {
         /**
          * The operator to use in the condition.
          */
-        comparator: string;
+        comparator?: string;
         /**
          * The tag key to use in the condition. The only valid value is `TAG`.
          */
-        key: string;
+        key?: string;
         /**
          * The tag keys or tag key and value pairs to use in the condition.
          */
@@ -41245,18 +41245,18 @@ export namespace macie2 {
         /**
          * The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
          */
-        target: string;
+        target?: string;
     }
 
     export interface ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue {
         /**
          * The tag key.
          */
-        key: string;
+        key?: string;
         /**
          * The tag value.
          */
-        value: string;
+        value?: string;
     }
 
     export interface ClassificationJobScheduleFrequency {
@@ -41269,17 +41269,17 @@ export namespace macie2 {
          *
          * The `s3JobDefinition` object supports the following:
          */
-        monthlySchedule: number;
+        monthlySchedule?: number;
         /**
          * Specifies a weekly recurrence pattern for running the job.
          */
-        weeklySchedule: string;
+        weeklySchedule?: string;
     }
 
     export interface ClassificationJobUserPausedDetail {
-        jobExpiresAt: string;
-        jobImminentExpirationHealthEventArn: string;
-        jobPausedAt: string;
+        jobExpiresAt?: string;
+        jobImminentExpirationHealthEventArn?: string;
+        jobPausedAt?: string;
     }
 
 }
@@ -41374,11 +41374,11 @@ export namespace medialive {
         /**
          * Settings for ad avail blanking. See Avail Blanking for more details.
          */
-        availBlanking: outputs.medialive.ChannelEncoderSettingsAvailBlanking;
+        availBlanking?: outputs.medialive.ChannelEncoderSettingsAvailBlanking;
         /**
          * Caption Descriptions. See Caption Descriptions for more details.
          */
-        captionDescriptions: outputs.medialive.ChannelEncoderSettingsCaptionDescription[];
+        captionDescriptions?: outputs.medialive.ChannelEncoderSettingsCaptionDescription[];
         /**
          * Configuration settings that apply to the event as a whole. See Global Configuration for more details.
          */
@@ -41402,7 +41402,7 @@ export namespace medialive {
         /**
          * Video Descriptions. See Video Descriptions for more details.
          */
-        videoDescriptions: outputs.medialive.ChannelEncoderSettingsVideoDescription[];
+        videoDescriptions?: outputs.medialive.ChannelEncoderSettingsVideoDescription[];
     }
 
     export interface ChannelEncoderSettingsAudioDescription {
@@ -41417,11 +41417,11 @@ export namespace medialive {
         /**
          * Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
          */
-        audioType: string;
+        audioType?: string;
         /**
          * Determined how audio type is determined.
          */
-        audioTypeControl: string;
+        audioTypeControl?: string;
         /**
          * Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
          */
@@ -41429,12 +41429,12 @@ export namespace medialive {
         /**
          * Audio codec settings. See Audio Codec Settings for more details.
          */
-        codecSettings: outputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettings;
+        codecSettings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettings;
         /**
          * Selects a specific three-letter language code from within an audio source.
          */
-        languageCode: string;
-        languageCodeControl: string;
+        languageCode?: string;
+        languageCodeControl?: string;
         /**
          * The name of this audio description.
          */
@@ -41443,41 +41443,41 @@ export namespace medialive {
         /**
          * Stream name RTMP destinations (URLs of type rtmp://)
          */
-        streamName: string;
+        streamName?: string;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings {
         /**
          * Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
          */
-        algorithm: string;
+        algorithm?: string;
         /**
          * Algorithm control for the audio description.
          */
-        algorithmControl: string;
+        algorithmControl?: string;
         /**
          * Target LKFS (loudness) to adjust volume to.
          */
-        targetLkfs: number;
+        targetLkfs?: number;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings {
-        nielsenWatermarksSettings: outputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings;
+        nielsenWatermarksSettings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings {
         /**
          * Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
          */
-        nielsenCbetSettings: outputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings;
+        nielsenCbetSettings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings;
         /**
          * Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
          */
-        nielsenDistributionType: string;
+        nielsenDistributionType?: string;
         /**
          * Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
          */
-        nielsenNaesIiNwSettings: outputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting[];
+        nielsenNaesIiNwSettings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting[];
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings {
@@ -41526,187 +41526,187 @@ export namespace medialive {
         /**
          * Average bitrate in bits/second.
          */
-        bitrate: number;
+        bitrate?: number;
         /**
          * Mono, Stereo, or 5.1 channel layout.
          */
-        codingMode: string;
+        codingMode?: string;
         /**
          * Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
          */
-        inputType: string;
+        inputType?: string;
         /**
          * AAC profile.
          */
-        profile: string;
+        profile?: string;
         /**
          * The rate control mode.
          */
-        rateControlMode: string;
+        rateControlMode?: string;
         /**
          * Sets LATM/LOAS AAC output for raw containers.
          */
-        rawFormat: string;
+        rawFormat?: string;
         /**
          * Sample rate in Hz.
          */
-        sampleRate: number;
+        sampleRate?: number;
         /**
          * Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
          */
-        spec: string;
+        spec?: string;
         /**
          * VBR Quality Level - Only used if rateControlMode is VBR.
          */
-        vbrQuality: string;
+        vbrQuality?: string;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings {
         /**
          * Average bitrate in bits/second.
          */
-        bitrate: number;
+        bitrate?: number;
         /**
          * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
          */
-        bitstreamMode: string;
+        bitstreamMode?: string;
         /**
          * Mono, Stereo, or 5.1 channel layout.
          */
-        codingMode: string;
+        codingMode?: string;
         /**
          * Sets the dialnorm of the output.
          */
-        dialnorm: number;
+        dialnorm?: number;
         /**
          * If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
          */
-        drcProfile: string;
+        drcProfile?: string;
         /**
          * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
          */
-        lfeFilter: string;
+        lfeFilter?: string;
         /**
          * Metadata control.
          */
-        metadataControl: string;
+        metadataControl?: string;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings {
         /**
          * Average bitrate in bits/second.
          */
-        bitrate: number;
+        bitrate?: number;
         /**
          * Mono, Stereo, or 5.1 channel layout.
          */
-        codingMode: string;
+        codingMode?: string;
         /**
          * Sets the dialnorm of the output.
          */
-        dialnorm: number;
+        dialnorm?: number;
         /**
          * Sets the Dolby dynamic range compression profile.
          */
-        drcLine: string;
+        drcLine?: string;
         /**
          * Sets the profile for heavy Dolby dynamic range compression.
          */
-        drcRf: string;
+        drcRf?: string;
         /**
          * Height dimensional trim.
          */
-        heightTrim: number;
+        heightTrim?: number;
         /**
          * Surround dimensional trim.
          */
-        surroundTrim: number;
+        surroundTrim?: number;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings {
         /**
          * Sets the attenuation control.
          */
-        attenuationControl: string;
+        attenuationControl?: string;
         /**
          * Average bitrate in bits/second.
          */
-        bitrate: number;
+        bitrate?: number;
         /**
          * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
          */
-        bitstreamMode: string;
+        bitstreamMode?: string;
         /**
          * Mono, Stereo, or 5.1 channel layout.
          */
-        codingMode: string;
-        dcFilter: string;
+        codingMode?: string;
+        dcFilter?: string;
         /**
          * Sets the dialnorm of the output.
          */
-        dialnorm: number;
+        dialnorm?: number;
         /**
          * Sets the Dolby dynamic range compression profile.
          */
-        drcLine: string;
+        drcLine?: string;
         /**
          * Sets the profile for heavy Dolby dynamic range compression.
          */
-        drcRf: string;
-        lfeControl: string;
+        drcRf?: string;
+        lfeControl?: string;
         /**
          * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
          */
-        lfeFilter: string;
-        loRoCenterMixLevel: number;
-        loRoSurroundMixLevel: number;
-        ltRtCenterMixLevel: number;
-        ltRtSurroundMixLevel: number;
+        lfeFilter?: string;
+        loRoCenterMixLevel?: number;
+        loRoSurroundMixLevel?: number;
+        ltRtCenterMixLevel?: number;
+        ltRtSurroundMixLevel?: number;
         /**
          * Metadata control.
          */
-        metadataControl: string;
-        passthroughControl: string;
-        phaseControl: string;
-        stereoDownmix: string;
-        surroundExMode: string;
-        surroundMode: string;
+        metadataControl?: string;
+        passthroughControl?: string;
+        phaseControl?: string;
+        stereoDownmix?: string;
+        surroundExMode?: string;
+        surroundMode?: string;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings {
         /**
          * Average bitrate in bits/second.
          */
-        bitrate: number;
+        bitrate?: number;
         /**
          * Mono, Stereo, or 5.1 channel layout.
          */
-        codingMode: string;
+        codingMode?: string;
         /**
          * Sample rate in Hz.
          */
-        sampleRate: number;
+        sampleRate?: number;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings {
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings {
-        bitDepth: number;
+        bitDepth?: number;
         /**
          * Mono, Stereo, or 5.1 channel layout.
          */
-        codingMode: string;
+        codingMode?: string;
         /**
          * Sample rate in Hz.
          */
-        sampleRate: number;
+        sampleRate?: number;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionRemixSettings {
         channelMappings: outputs.medialive.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping[];
-        channelsIn: number;
-        channelsOut: number;
+        channelsIn?: number;
+        channelsOut?: number;
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping {
@@ -41727,14 +41727,14 @@ export namespace medialive {
         /**
          * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
          */
-        state: string;
+        state?: string;
     }
 
     export interface ChannelEncoderSettingsAvailBlankingAvailBlankingImage {
         /**
          * Key used to extract the password from EC2 Parameter store.
          */
-        passwordParam: string;
+        passwordParam?: string;
         /**
          * Path to a file accessible to the live stream.
          */
@@ -41742,7 +41742,7 @@ export namespace medialive {
         /**
          * . Username to be used.
          */
-        username: string;
+        username?: string;
     }
 
     export interface ChannelEncoderSettingsCaptionDescription {
@@ -41905,7 +41905,7 @@ export namespace medialive {
         /**
          * Key used to extract the password from EC2 Parameter store.
          */
-        passwordParam: string;
+        passwordParam?: string;
         /**
          * Path to a file accessible to the live stream.
          */
@@ -41913,7 +41913,7 @@ export namespace medialive {
         /**
          * Username to be used.
          */
-        username: string;
+        username?: string;
     }
 
     export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings {
@@ -41948,7 +41948,7 @@ export namespace medialive {
         /**
          * When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
          */
-        fontSize: string;
+        fontSize?: string;
         /**
          * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
          */
@@ -41991,7 +41991,7 @@ export namespace medialive {
         /**
          * Key used to extract the password from EC2 Parameter store.
          */
-        passwordParam: string;
+        passwordParam?: string;
         /**
          * Path to a file accessible to the live stream.
          */
@@ -41999,7 +41999,7 @@ export namespace medialive {
         /**
          * Username to be used.
          */
-        username: string;
+        username?: string;
     }
 
     export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings {
@@ -42018,7 +42018,7 @@ export namespace medialive {
         /**
          * Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
          */
-        styleControl: string;
+        styleControl?: string;
     }
 
     export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings {
@@ -42095,7 +42095,7 @@ export namespace medialive {
         /**
          * Key used to extract the password from EC2 Parameter store.
          */
-        passwordParam: string;
+        passwordParam?: string;
         /**
          * Path to a file accessible to the live stream.
          */
@@ -42103,7 +42103,7 @@ export namespace medialive {
         /**
          * . Username to be used.
          */
-        username: string;
+        username?: string;
     }
 
     export interface ChannelEncoderSettingsMotionGraphicsConfiguration {
@@ -42161,7 +42161,7 @@ export namespace medialive {
         /**
          * The names of the caption descriptions used as caption sources for the output.
          */
-        captionDescriptionNames: string[];
+        captionDescriptionNames?: string[];
         /**
          * The name used to identify an output.
          */
@@ -42180,7 +42180,7 @@ export namespace medialive {
         /**
          * Archive group settings. See Archive Group Settings for more details.
          */
-        archiveGroupSettings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting[];
+        archiveGroupSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting[];
         frameCaptureGroupSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings;
         hlsGroupSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings;
         /**
@@ -42237,7 +42237,7 @@ export namespace medialive {
          * A director and base filename where archive files should be written. See Destination for more details.
          */
         destination: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination;
-        frameCaptureCdnSettings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings;
+        frameCaptureCdnSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination {
@@ -42248,7 +42248,7 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings {
-        frameCaptureS3Settings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings;
+        frameCaptureS3Settings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings {
@@ -42262,57 +42262,57 @@ export namespace medialive {
         /**
          * The ad marker type for this output group.
          */
-        adMarkers: string[];
-        baseUrlContent: string;
-        baseUrlContent1: string;
-        baseUrlManifest: string;
-        baseUrlManifest1: string;
+        adMarkers?: string[];
+        baseUrlContent?: string;
+        baseUrlContent1?: string;
+        baseUrlManifest?: string;
+        baseUrlManifest1?: string;
         captionLanguageMappings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping[];
-        captionLanguageSetting: string;
-        clientCache: string;
-        codecSpecification: string;
-        constantIv: string;
+        captionLanguageSetting?: string;
+        clientCache?: string;
+        codecSpecification?: string;
+        constantIv?: string;
         /**
          * A director and base filename where archive files should be written. See Destination for more details.
          */
         destination: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination;
-        directoryStructure: string;
-        discontinuityTags: string;
-        encryptionType: string;
-        hlsCdnSettings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting[];
-        hlsId3SegmentTagging: string;
-        iframeOnlyPlaylists: string;
-        incompleteSegmentBehavior: string;
-        indexNSegments: number;
+        directoryStructure?: string;
+        discontinuityTags?: string;
+        encryptionType?: string;
+        hlsCdnSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting[];
+        hlsId3SegmentTagging?: string;
+        iframeOnlyPlaylists?: string;
+        incompleteSegmentBehavior?: string;
+        indexNSegments?: number;
         /**
          * Controls the behavior of the RTMP group if input becomes unavailable.
          */
-        inputLossAction: string;
-        ivInManifest: string;
-        ivSource: string;
-        keepSegments: number;
-        keyFormat: string;
-        keyFormatVersions: string;
-        keyProviderSettings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings;
-        manifestCompression: string;
-        manifestDurationFormat: string;
-        minSegmentLength: number;
-        mode: string;
-        outputSelection: string;
-        programDateTime: string;
-        programDateTimeClock: string;
-        programDateTimePeriod: number;
-        redundantManifest: string;
-        segmentLength: number;
-        segmentsPerSubdirectory: number;
-        streamInfResolution: string;
+        inputLossAction?: string;
+        ivInManifest?: string;
+        ivSource?: string;
+        keepSegments?: number;
+        keyFormat?: string;
+        keyFormatVersions?: string;
+        keyProviderSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings;
+        manifestCompression?: string;
+        manifestDurationFormat?: string;
+        minSegmentLength?: number;
+        mode?: string;
+        outputSelection?: string;
+        programDateTime?: string;
+        programDateTimeClock?: string;
+        programDateTimePeriod?: number;
+        redundantManifest?: string;
+        segmentLength?: number;
+        segmentsPerSubdirectory?: number;
+        streamInfResolution?: string;
         /**
          * Indicates ID3 frame that has the timecode.
          */
-        timedMetadataId3Frame: string;
-        timedMetadataId3Period: number;
-        timestampDeltaMilliseconds: number;
-        tsFileMode: string;
+        timedMetadataId3Frame?: string;
+        timedMetadataId3Period?: number;
+        timestampDeltaMilliseconds?: number;
+        tsFileMode?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
@@ -42338,8 +42338,8 @@ export namespace medialive {
         hlsAkamaiSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings;
         hlsBasicPutSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings;
         hlsMediaStoreSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings;
-        hlsS3Settings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings;
-        hlsWebdavSettings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings;
+        hlsS3Settings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings;
+        hlsWebdavSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings {
@@ -42348,7 +42348,7 @@ export namespace medialive {
          */
         connectionRetryInterval?: number;
         filecacheDuration?: number;
-        httpTransferMode: string;
+        httpTransferMode?: string;
         /**
          * Number of retry attempts.
          */
@@ -42357,8 +42357,8 @@ export namespace medialive {
          * Number of seconds to wait until a restart is initiated.
          */
         restartDelay?: number;
-        salt: string;
-        token: string;
+        salt?: string;
+        token?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings {
@@ -42383,7 +42383,7 @@ export namespace medialive {
          */
         connectionRetryInterval?: number;
         filecacheDuration?: number;
-        mediaStoreStorageClass: string;
+        mediaStoreStorageClass?: string;
         /**
          * Number of retry attempts.
          */
@@ -42407,7 +42407,7 @@ export namespace medialive {
          */
         connectionRetryInterval?: number;
         filecacheDuration?: number;
-        httpTransferMode: string;
+        httpTransferMode?: string;
         /**
          * Number of retry attempts.
          */
@@ -42431,7 +42431,7 @@ export namespace medialive {
         /**
          * Key used to extract the password from EC2 Parameter store.
          */
-        passwordParam: string;
+        passwordParam?: string;
         /**
          * Path to a file accessible to the live stream.
          */
@@ -42439,7 +42439,7 @@ export namespace medialive {
         /**
          * . Username to be used.
          */
-        username: string;
+        username?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings {
@@ -42457,29 +42457,29 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings {
-        acquisitionPointId: string;
-        audioOnlyTimecodeControl: string;
+        acquisitionPointId?: string;
+        audioOnlyTimecodeControl?: string;
         /**
          * Setting to allow self signed or verified RTMP certificates.
          */
-        certificateMode: string;
+        certificateMode?: string;
         /**
          * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
          */
-        connectionRetryInterval: number;
+        connectionRetryInterval?: number;
         /**
          * A director and base filename where archive files should be written. See Destination for more details.
          */
         destination: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination;
-        eventId: string;
-        eventIdMode: string;
-        eventStopBehavior: string;
+        eventId?: string;
+        eventIdMode?: string;
+        eventStopBehavior?: string;
         filecacheDuration?: number;
-        fragmentLength: number;
+        fragmentLength?: number;
         /**
          * Controls the behavior of the RTMP group if input becomes unavailable.
          */
-        inputLossAction: string;
+        inputLossAction?: string;
         /**
          * Number of retry attempts.
          */
@@ -42488,12 +42488,12 @@ export namespace medialive {
          * Number of seconds to wait until a restart is initiated.
          */
         restartDelay?: number;
-        segmentationMode: string;
-        sendDelayMs: number;
-        sparseTrackType: string;
-        streamManifestBehavior: string;
-        timestampOffset: string;
-        timestampOffsetMode: string;
+        segmentationMode?: string;
+        sendDelayMs?: number;
+        sparseTrackType?: string;
+        streamManifestBehavior?: string;
+        timestampOffset?: string;
+        timestampOffsetMode?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination {
@@ -42514,23 +42514,23 @@ export namespace medialive {
         /**
          * Authentication scheme to use when connecting with CDN.
          */
-        authenticationScheme: string;
+        authenticationScheme?: string;
         /**
          * Controls behavior when content cache fills up.
          */
-        cacheFullBehavior: string;
+        cacheFullBehavior?: string;
         /**
          * Cache length in seconds, is used to calculate buffer size.
          */
-        cacheLength: number;
+        cacheLength?: number;
         /**
          * Controls the types of data that passes to onCaptionInfo outputs.
          */
-        captionData: string;
+        captionData?: string;
         /**
          * Controls the behavior of the RTMP group if input becomes unavailable.
          */
-        inputLossAction: string;
+        inputLossAction?: string;
         /**
          * Number of seconds to wait until a restart is initiated.
          */
@@ -42541,12 +42541,12 @@ export namespace medialive {
         /**
          * Specifies behavior of last resort when input video os lost.
          */
-        inputLossAction: string;
+        inputLossAction?: string;
         /**
          * Indicates ID3 frame that has the timecode.
          */
-        timedMetadataId3Frame: string;
-        timedMetadataId3Period: number;
+        timedMetadataId3Frame?: string;
+        timedMetadataId3Period?: number;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettings {
@@ -42602,13 +42602,13 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings {
-        absentInputAudioBehavior: string;
+        absentInputAudioBehavior?: string;
         arib?: string;
-        aribCaptionsPid: string;
+        aribCaptionsPid?: string;
         aribCaptionsPidControl?: string;
         audioBufferModel?: string;
         audioFramesPerPes?: number;
-        audioPids: string;
+        audioPids?: string;
         audioStreamType?: string;
         /**
          * Average bitrate in bits/second.
@@ -42618,20 +42618,20 @@ export namespace medialive {
         ccDescriptor?: string;
         dvbNitSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings;
         dvbSdtSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings;
-        dvbSubPids: string;
+        dvbSubPids?: string;
         dvbTdtSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings;
-        dvbTeletextPid: string;
+        dvbTeletextPid?: string;
         ebif?: string;
         ebpAudioInterval?: string;
         ebpLookaheadMs?: number;
         ebpPlacement?: string;
         ecmPid?: string;
         esRateInPes?: string;
-        etvPlatformPid: string;
-        etvSignalPid: string;
+        etvPlatformPid?: string;
+        etvSignalPid?: string;
         fragmentTime?: number;
         klv?: string;
-        klvDataPids: string;
+        klvDataPids?: string;
         nielsenId3Behavior?: string;
         nullPacketBitrate?: number;
         patInterval?: number;
@@ -42639,22 +42639,22 @@ export namespace medialive {
         pcrPeriod?: number;
         pcrPid?: string;
         pmtInterval?: number;
-        pmtPid: string;
+        pmtPid?: string;
         programNum?: number;
         rateMode?: string;
-        scte27Pids: string;
+        scte27Pids?: string;
         scte35Control?: string;
         /**
          * PID from which to read SCTE-35 messages.
          */
-        scte35Pid: string;
+        scte35Pid?: string;
         segmentationMarkers?: string;
         segmentationStyle?: string;
         segmentationTime?: number;
         timedMetadataBehavior?: string;
-        timedMetadataPid: string;
+        timedMetadataPid?: string;
         transportStreamId?: number;
-        videoPid: string;
+        videoPid?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings {
@@ -42681,17 +42681,17 @@ export namespace medialive {
         /**
          * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
          */
-        nameModifier: string;
+        nameModifier?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings {
-        h265PackagingType: string;
+        h265PackagingType?: string;
         hlsSettings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings;
         /**
          * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
          */
-        nameModifier: string;
-        segmentModifier: string;
+        nameModifier?: string;
+        segmentModifier?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings {
@@ -42702,17 +42702,17 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings {
-        audioGroupId: string;
+        audioGroupId?: string;
         audioOnlyImage?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage;
-        audioTrackType: string;
-        segmentType: string;
+        audioTrackType?: string;
+        segmentType?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage {
         /**
          * Key used to extract the password from EC2 Parameter store.
          */
-        passwordParam: string;
+        passwordParam?: string;
         /**
          * Path to a file accessible to the live stream.
          */
@@ -42720,55 +42720,55 @@ export namespace medialive {
         /**
          * . Username to be used.
          */
-        username: string;
+        username?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings {
-        audioRenditionSets: string;
-        nielsenId3Behavior: string;
-        timedMetadataBehavior: string;
+        audioRenditionSets?: string;
+        nielsenId3Behavior?: string;
+        timedMetadataBehavior?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings {
-        audioRenditionSets: string;
+        audioRenditionSets?: string;
         m3u8Settings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings {
-        audioFramesPerPes: number;
-        audioPids: string;
-        ecmPid: string;
-        nielsenId3Behavior: string;
-        patInterval: number;
-        pcrControl: string;
-        pcrPeriod: number;
-        pcrPid: string;
-        pmtInterval: number;
-        pmtPid: string;
-        programNum: number;
-        scte35Behavior: string;
+        audioFramesPerPes?: number;
+        audioPids?: string;
+        ecmPid?: string;
+        nielsenId3Behavior?: string;
+        patInterval?: number;
+        pcrControl?: string;
+        pcrPeriod?: number;
+        pcrPid?: string;
+        pmtInterval?: number;
+        pmtPid?: string;
+        programNum?: number;
+        scte35Behavior?: string;
         /**
          * PID from which to read SCTE-35 messages.
          */
-        scte35Pid: string;
-        timedMetadataBehavior: string;
-        timedMetadataPid: string;
-        transportStreamId: number;
-        videoPid: string;
+        scte35Pid?: string;
+        timedMetadataBehavior?: string;
+        timedMetadataPid?: string;
+        transportStreamId?: number;
+        videoPid?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings {
-        h265PackagingType: string;
+        h265PackagingType?: string;
         /**
          * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
          */
-        nameModifier: string;
+        nameModifier?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings {
@@ -42789,11 +42789,11 @@ export namespace medialive {
         /**
          * Setting to allow self signed or verified RTMP certificates.
          */
-        certificateMode: string;
+        certificateMode?: string;
         /**
          * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
          */
-        connectionRetryInterval: number;
+        connectionRetryInterval?: number;
         /**
          * The RTMP endpoint excluding the stream name. See Destination for more details.
          */
@@ -42801,7 +42801,7 @@ export namespace medialive {
         /**
          * Number of retry attempts.
          */
-        numRetries: number;
+        numRetries?: number;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination {
@@ -42815,7 +42815,7 @@ export namespace medialive {
         /**
          * UDP output buffering in milliseconds.
          */
-        bufferMsec: number;
+        bufferMsec?: number;
         /**
          * UDP container settings. See Container Settings for more details.
          */
@@ -42835,13 +42835,13 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings {
-        absentInputAudioBehavior: string;
+        absentInputAudioBehavior?: string;
         arib?: string;
-        aribCaptionsPid: string;
+        aribCaptionsPid?: string;
         aribCaptionsPidControl?: string;
         audioBufferModel?: string;
         audioFramesPerPes?: number;
-        audioPids: string;
+        audioPids?: string;
         audioStreamType?: string;
         /**
          * Average bitrate in bits/second.
@@ -42851,20 +42851,20 @@ export namespace medialive {
         ccDescriptor?: string;
         dvbNitSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings;
         dvbSdtSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings;
-        dvbSubPids: string;
+        dvbSubPids?: string;
         dvbTdtSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings;
-        dvbTeletextPid: string;
+        dvbTeletextPid?: string;
         ebif?: string;
         ebpAudioInterval?: string;
         ebpLookaheadMs?: number;
         ebpPlacement?: string;
         ecmPid?: string;
         esRateInPes?: string;
-        etvPlatformPid: string;
-        etvSignalPid: string;
+        etvPlatformPid?: string;
+        etvSignalPid?: string;
         fragmentTime?: number;
         klv?: string;
-        klvDataPids: string;
+        klvDataPids?: string;
         nielsenId3Behavior?: string;
         nullPacketBitrate?: number;
         patInterval?: number;
@@ -42872,22 +42872,22 @@ export namespace medialive {
         pcrPeriod?: number;
         pcrPid?: string;
         pmtInterval?: number;
-        pmtPid: string;
+        pmtPid?: string;
         programNum?: number;
         rateMode?: string;
-        scte27Pids: string;
+        scte27Pids?: string;
         scte35Control?: string;
         /**
          * PID from which to read SCTE-35 messages.
          */
-        scte35Pid: string;
+        scte35Pid?: string;
         segmentationMarkers?: string;
         segmentationStyle?: string;
         segmentationTime?: number;
         timedMetadataBehavior?: string;
-        timedMetadataPid: string;
+        timedMetadataPid?: string;
         transportStreamId?: number;
-        videoPid: string;
+        videoPid?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings {
@@ -42918,15 +42918,15 @@ export namespace medialive {
         /**
          * The height of the FEC protection matrix.
          */
-        columnDepth: number;
+        columnDepth?: number;
         /**
          * Enables column only or column and row based FEC.
          */
-        includeFec: string;
+        includeFec?: string;
         /**
          * The width of the FEC protection matrix.
          */
-        rowLength: number;
+        rowLength?: number;
     }
 
     export interface ChannelEncoderSettingsTimecodeConfig {
@@ -42937,7 +42937,7 @@ export namespace medialive {
         /**
          * Threshold in frames beyond which output timecode is resynchronized to the input timecode.
          */
-        syncThreshold: number;
+        syncThreshold?: number;
     }
 
     export interface ChannelEncoderSettingsVideoDescription {
@@ -42948,7 +42948,7 @@ export namespace medialive {
         /**
          * Output video height in pixels.
          */
-        height: number;
+        height?: number;
         /**
          * The name of the video description.
          */
@@ -42956,19 +42956,19 @@ export namespace medialive {
         /**
          * Indicate how to respond to the AFD values that might be in the input video.
          */
-        respondToAfd: string;
+        respondToAfd?: string;
         /**
          * Behavior on how to scale.
          */
-        scalingBehavior: string;
+        scalingBehavior?: string;
         /**
          * Changes the strength of the anti-alias filter used for scaling.
          */
-        sharpness: number;
+        sharpness?: number;
         /**
          * Output video width in pixels.
          */
-        width: number;
+        width?: number;
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettings {
@@ -42987,39 +42987,39 @@ export namespace medialive {
         /**
          * The frequency at which to capture frames for inclusion in the output.
          */
-        captureInterval: number;
+        captureInterval?: number;
         /**
          * Unit for the frame capture interval.
          */
-        captureIntervalUnits: string;
+        captureIntervalUnits?: string;
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings {
         /**
          * Enables or disables adaptive quantization.
          */
-        adaptiveQuantization: string;
+        adaptiveQuantization?: string;
         /**
          * Indicates that AFD values will be written into the output stream.
          */
-        afdSignaling: string;
+        afdSignaling?: string;
         /**
          * Average bitrate in bits/second.
          */
-        bitrate: number;
-        bufFillPct: number;
+        bitrate?: number;
+        bufFillPct?: number;
         /**
          * Size of buffer in bits.
          */
-        bufSize: number;
+        bufSize?: number;
         /**
          * Includes color space metadata in the output.
          */
-        colorMetadata: string;
+        colorMetadata?: string;
         /**
          * Entropy encoding mode.
          */
-        entropyEncoding: string;
+        entropyEncoding?: string;
         /**
          * Filters to apply to an encode. See H265 Filter Settings for more details.
          */
@@ -43027,125 +43027,125 @@ export namespace medialive {
         /**
          * Four bit AFD value to write on all frames of video in the output stream.
          */
-        fixedAfd: string;
-        flickerAq: string;
+        fixedAfd?: string;
+        flickerAq?: string;
         /**
          * Controls whether coding is performed on a field basis or on a frame basis.
          */
-        forceFieldPictures: string;
+        forceFieldPictures?: string;
         /**
          * Indicates how the output video frame rate is specified.
          */
-        framerateControl: string;
+        framerateControl?: string;
         /**
          * Framerate denominator.
          */
-        framerateDenominator: number;
+        framerateDenominator?: number;
         /**
          * Framerate numerator.
          */
-        framerateNumerator: number;
+        framerateNumerator?: number;
         /**
          * GOP-B reference.
          */
-        gopBReference: string;
+        gopBReference?: string;
         /**
          * Frequency of closed GOPs.
          */
-        gopClosedCadence: number;
+        gopClosedCadence?: number;
         /**
          * Number of B-frames between reference frames.
          */
-        gopNumBFrames: number;
+        gopNumBFrames?: number;
         /**
          * GOP size in units of either frames of seconds per `gopSizeUnits`.
          */
-        gopSize: number;
+        gopSize?: number;
         /**
          * Indicates if the `gopSize` is specified in frames or seconds.
          */
-        gopSizeUnits: string;
+        gopSizeUnits?: string;
         /**
          * H265 level.
          */
-        level: string;
+        level?: string;
         /**
          * Amount of lookahead.
          */
-        lookAheadRateControl: string;
+        lookAheadRateControl?: string;
         /**
          * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
          */
-        maxBitrate: number;
-        minIInterval: number;
+        maxBitrate?: number;
+        minIInterval?: number;
         /**
          * Number of reference frames to use.
          */
-        numRefFrames: number;
+        numRefFrames?: number;
         /**
          * Indicates how the output pixel aspect ratio is specified.
          */
-        parControl: string;
+        parControl?: string;
         /**
          * Pixel Aspect Ratio denominator.
          */
-        parDenominator: number;
+        parDenominator?: number;
         /**
          * Pixel Aspect Ratio numerator.
          */
-        parNumerator: number;
+        parNumerator?: number;
         /**
          * AAC profile.
          */
-        profile: string;
+        profile?: string;
         /**
          * Quality level.
          */
-        qualityLevel: string;
+        qualityLevel?: string;
         /**
          * Controls the target quality for the video encode.
          */
-        qvbrQualityLevel: number;
+        qvbrQualityLevel?: number;
         /**
          * The rate control mode.
          */
-        rateControlMode: string;
+        rateControlMode?: string;
         /**
          * Sets the scan type of the output.
          */
-        scanType: string;
+        scanType?: string;
         /**
          * Scene change detection.
          */
-        sceneChangeDetect: string;
+        sceneChangeDetect?: string;
         /**
          * Number of slices per picture.
          */
-        slices: number;
+        slices?: number;
         /**
          * Softness.
          */
-        softness: number;
+        softness?: number;
         /**
          * Makes adjustments within each frame based on spatial variation of content complexity.
          */
-        spatialAq: string;
+        spatialAq?: string;
         /**
          * Subgop length.
          */
-        subgopLength: string;
+        subgopLength?: string;
         /**
          * Produces a bitstream compliant with SMPTE RP-2027.
          */
-        syntax: string;
+        syntax?: string;
         /**
          * Makes adjustments within each frame based on temporal variation of content complexity.
          */
-        temporalAq: string;
+        temporalAq?: string;
         /**
          * Determines how timecodes should be inserted into the video elementary stream.
          */
-        timecodeInsertion: string;
+        timecodeInsertion?: string;
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings {
@@ -43170,15 +43170,15 @@ export namespace medialive {
         /**
          * Enables or disables adaptive quantization.
          */
-        adaptiveQuantization: string;
+        adaptiveQuantization?: string;
         /**
          * Indicates that AFD values will be written into the output stream.
          */
-        afdSignaling: string;
+        afdSignaling?: string;
         /**
          * Whether or not EML should insert an Alternative Transfer Function SEI message.
          */
-        alternativeTransferFunction: string;
+        alternativeTransferFunction?: string;
         /**
          * Average bitrate in bits/second.
          */
@@ -43190,7 +43190,7 @@ export namespace medialive {
         /**
          * Includes color space metadata in the output.
          */
-        colorMetadata: string;
+        colorMetadata?: string;
         /**
          * Define the color metadata for the output. H265 Color Space Settings for more details.
          */
@@ -43202,8 +43202,8 @@ export namespace medialive {
         /**
          * Four bit AFD value to write on all frames of video in the output stream.
          */
-        fixedAfd: string;
-        flickerAq: string;
+        fixedAfd?: string;
+        flickerAq?: string;
         /**
          * Framerate denominator.
          */
@@ -43223,15 +43223,15 @@ export namespace medialive {
         /**
          * Indicates if the `gopSize` is specified in frames or seconds.
          */
-        gopSizeUnits: string;
+        gopSizeUnits?: string;
         /**
          * H265 level.
          */
-        level: string;
+        level?: string;
         /**
          * Amount of lookahead.
          */
-        lookAheadRateControl: string;
+        lookAheadRateControl?: string;
         /**
          * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
          */
@@ -43248,7 +43248,7 @@ export namespace medialive {
         /**
          * AAC profile.
          */
-        profile: string;
+        profile?: string;
         /**
          * Controls the target quality for the video encode.
          */
@@ -43256,15 +43256,15 @@ export namespace medialive {
         /**
          * The rate control mode.
          */
-        rateControlMode: string;
+        rateControlMode?: string;
         /**
          * Sets the scan type of the output.
          */
-        scanType: string;
+        scanType?: string;
         /**
          * Scene change detection.
          */
-        sceneChangeDetect: string;
+        sceneChangeDetect?: string;
         /**
          * Number of slices per picture.
          */
@@ -43272,7 +43272,7 @@ export namespace medialive {
         /**
          * Set the H265 tier in the output.
          */
-        tier: string;
+        tier?: string;
         /**
          * Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
          */
@@ -43280,7 +43280,7 @@ export namespace medialive {
         /**
          * Determines how timecodes should be inserted into the video elementary stream.
          */
-        timecodeInsertion: string;
+        timecodeInsertion?: string;
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
@@ -43351,15 +43351,15 @@ export namespace medialive {
         /**
          * Set a prefix on the burned in timecode.
          */
-        prefix: string;
+        prefix?: string;
         /**
          * Sets the size of the burned in timecode.
          */
-        timecodeBurninFontSize: string;
+        timecodeBurninFontSize?: string;
         /**
          * Sets the position of the burned in timecode.
          */
-        timecodeBurninPosition: string;
+        timecodeBurninPosition?: string;
     }
 
     export interface ChannelInputAttachment {
@@ -43378,7 +43378,7 @@ export namespace medialive {
         /**
          * Settings of an input. See Input Settings for more details.
          */
-        inputSettings: outputs.medialive.ChannelInputAttachmentInputSettings;
+        inputSettings?: outputs.medialive.ChannelInputAttachmentInputSettings;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettings {
@@ -43466,7 +43466,7 @@ export namespace medialive {
         /**
          * Turns on the filter for the input.
          */
-        inputFilter: string;
+        inputFilter?: string;
         /**
          * Input settings. See Network Input Settings for more details.
          */
@@ -43762,8 +43762,8 @@ export namespace medialive {
     }
 
     export interface ChannelVpc {
-        availabilityZones: string[];
-        networkInterfaceIds: string[];
+        availabilityZones?: string[];
+        networkInterfaceIds?: string[];
         /**
          * List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
          */
@@ -43771,7 +43771,7 @@ export namespace medialive {
         /**
          * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
          */
@@ -43836,7 +43836,7 @@ export namespace medialive {
         /**
          * Maximum video buffer delay.
          */
-        maximumVideoBufferDelayMilliseconds: number;
+        maximumVideoBufferDelayMilliseconds?: number;
         /**
          * Transport stream bit rate.
          */
@@ -43848,7 +43848,7 @@ export namespace medialive {
         /**
          * Transport stream reserved bit rate.
          */
-        transportStreamReservedBitrate: number;
+        transportStreamReservedBitrate?: number;
     }
 
     export interface MultiplexProgramMultiplexProgramSettings {
@@ -43885,7 +43885,7 @@ export namespace medialive {
         /**
          * Constant bitrate value.
          */
-        constantBitrate: number;
+        constantBitrate?: number;
         /**
          * Statmux settings. See Statmux Settings for more details.
          */
@@ -43896,15 +43896,15 @@ export namespace medialive {
         /**
          * Maximum bitrate.
          */
-        maximumBitrate: number;
+        maximumBitrate?: number;
         /**
          * Minimum bitrate.
          */
-        minimumBitrate: number;
+        minimumBitrate?: number;
         /**
          * Priority value.
          */
-        priority: number;
+        priority?: number;
     }
 
 }
@@ -43914,22 +43914,22 @@ export namespace mediapackage {
         /**
          * A list of the ingest endpoints
          */
-        ingestEndpoints: outputs.mediapackage.ChannelHlsIngestIngestEndpoint[];
+        ingestEndpoints?: outputs.mediapackage.ChannelHlsIngestIngestEndpoint[];
     }
 
     export interface ChannelHlsIngestIngestEndpoint {
         /**
          * The password
          */
-        password: string;
+        password?: string;
         /**
          * The URL
          */
-        url: string;
+        url?: string;
         /**
          * The username
          */
-        username: string;
+        username?: string;
     }
 
 }
@@ -43939,191 +43939,191 @@ export namespace memorydb {
         /**
          * DNS hostname of the node.
          */
-        address: string;
+        address?: string;
         /**
          * The port number on which each of the nodes accepts connections. Defaults to `6379`.
          */
-        port: number;
+        port?: number;
     }
 
     export interface ClusterShard {
         /**
          * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
-        name: string;
+        name?: string;
         /**
          * Set of nodes in this shard.
          */
-        nodes: outputs.memorydb.ClusterShardNode[];
+        nodes?: outputs.memorydb.ClusterShardNode[];
         /**
          * Number of individual nodes in this shard.
          */
-        numNodes: number;
+        numNodes?: number;
         /**
          * Keyspace for this shard. Example: `0-16383`.
          */
-        slots: string;
+        slots?: string;
     }
 
     export interface ClusterShardNode {
         /**
          * The Availability Zone in which the node resides.
          */
-        availabilityZone: string;
+        availabilityZone?: string;
         /**
          * The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
          */
-        createTime: string;
-        endpoints: outputs.memorydb.ClusterShardNodeEndpoint[];
+        createTime?: string;
+        endpoints?: outputs.memorydb.ClusterShardNodeEndpoint[];
         /**
          * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
-        name: string;
+        name?: string;
     }
 
     export interface ClusterShardNodeEndpoint {
         /**
          * DNS hostname of the node.
          */
-        address: string;
+        address?: string;
         /**
          * The port number on which each of the nodes accepts connections. Defaults to `6379`.
          */
-        port: number;
+        port?: number;
     }
 
     export interface GetClusterClusterEndpoint {
         /**
          * DNS hostname of the node.
          */
-        address: string;
+        address?: string;
         /**
          * Port number that this node is listening on.
          */
-        port: number;
+        port?: number;
     }
 
     export interface GetClusterShard {
         /**
          * Name of the cluster.
          */
-        name: string;
+        name?: string;
         /**
          * Set of nodes in this shard.
          */
-        nodes: outputs.memorydb.GetClusterShardNode[];
+        nodes?: outputs.memorydb.GetClusterShardNode[];
         /**
          * Number of individual nodes in this shard.
          */
-        numNodes: number;
+        numNodes?: number;
         /**
          * Keyspace for this shard. Example: `0-16383`.
          */
-        slots: string;
+        slots?: string;
     }
 
     export interface GetClusterShardNode {
         /**
          * The Availability Zone in which the node resides.
          */
-        availabilityZone: string;
+        availabilityZone?: string;
         /**
          * The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
          */
-        createTime: string;
-        endpoints: outputs.memorydb.GetClusterShardNodeEndpoint[];
+        createTime?: string;
+        endpoints?: outputs.memorydb.GetClusterShardNodeEndpoint[];
         /**
          * Name of the cluster.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetClusterShardNodeEndpoint {
         /**
          * DNS hostname of the node.
          */
-        address: string;
+        address?: string;
         /**
          * Port number that this node is listening on.
          */
-        port: number;
+        port?: number;
     }
 
     export interface GetParameterGroupParameter {
         /**
          * Name of the parameter group.
          */
-        name: string;
+        name?: string;
         /**
          * Value of the parameter.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetSnapshotClusterConfiguration {
         /**
          * Description for the cluster.
          */
-        description: string;
+        description?: string;
         /**
          * Version number of the Redis engine used by the cluster.
          */
-        engineVersion: string;
+        engineVersion?: string;
         /**
          * The weekly time range during which maintenance on the cluster is performed.
          */
-        maintenanceWindow: string;
+        maintenanceWindow?: string;
         /**
          * Name of the snapshot.
          */
-        name: string;
+        name?: string;
         /**
          * Compute and memory capacity of the nodes in the cluster.
          */
-        nodeType: string;
+        nodeType?: string;
         /**
          * Number of shards in the cluster.
          */
-        numShards: number;
+        numShards?: number;
         /**
          * Name of the parameter group associated with the cluster.
          */
-        parameterGroupName: string;
+        parameterGroupName?: string;
         /**
          * Port number on which the cluster accepts connections.
          */
-        port: number;
+        port?: number;
         /**
          * Number of days for which MemoryDB retains automatic snapshots before deleting them.
          */
-        snapshotRetentionLimit: number;
+        snapshotRetentionLimit?: number;
         /**
          * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
          */
-        snapshotWindow: string;
+        snapshotWindow?: string;
         /**
          * Name of the subnet group used by the cluster.
          */
-        subnetGroupName: string;
+        subnetGroupName?: string;
         /**
          * ARN of the SNS topic to which cluster notifications are sent.
          */
-        topicArn: string;
+        topicArn?: string;
         /**
          * The VPC in which the cluster exists.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface GetUserAuthenticationMode {
         /**
          * The number of passwords belonging to the user.
          */
-        passwordCount: number;
+        passwordCount?: number;
         /**
          * Whether the user requires a password to authenticate.
          */
-        type: string;
+        type?: string;
     }
 
     export interface ParameterGroupParameter {
@@ -44141,62 +44141,62 @@ export namespace memorydb {
         /**
          * Description for the cluster.
          */
-        description: string;
+        description?: string;
         /**
          * Version number of the Redis engine used by the cluster.
          */
-        engineVersion: string;
+        engineVersion?: string;
         /**
          * The weekly time range during which maintenance on the cluster is performed.
          */
-        maintenanceWindow: string;
+        maintenanceWindow?: string;
         /**
          * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
-        name: string;
+        name?: string;
         /**
          * Compute and memory capacity of the nodes in the cluster.
          */
-        nodeType: string;
+        nodeType?: string;
         /**
          * Number of shards in the cluster.
          */
-        numShards: number;
+        numShards?: number;
         /**
          * Name of the parameter group associated with the cluster.
          */
-        parameterGroupName: string;
+        parameterGroupName?: string;
         /**
          * Port number on which the cluster accepts connections.
          */
-        port: number;
+        port?: number;
         /**
          * Number of days for which MemoryDB retains automatic snapshots before deleting them.
          */
-        snapshotRetentionLimit: number;
+        snapshotRetentionLimit?: number;
         /**
          * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
          */
-        snapshotWindow: string;
+        snapshotWindow?: string;
         /**
          * Name of the subnet group used by the cluster.
          */
-        subnetGroupName: string;
+        subnetGroupName?: string;
         /**
          * ARN of the SNS topic to which cluster notifications are sent.
          */
-        topicArn: string;
+        topicArn?: string;
         /**
          * The VPC in which the cluster exists.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface UserAuthenticationMode {
         /**
          * The number of passwords belonging to the user.
          */
-        passwordCount: number;
+        passwordCount?: number;
         /**
          * The set of passwords used for authentication. You can create up to two passwords for each user.
          */
@@ -44214,18 +44214,18 @@ export namespace mq {
         /**
          * The Configuration ID.
          */
-        id: string;
+        id?: string;
         /**
          * Revision of the Configuration.
          */
-        revision: number;
+        revision?: number;
     }
 
     export interface BrokerEncryptionOptions {
         /**
          * Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS-managed CMK aliased to `aws/mq` in your account.
          */
@@ -44233,9 +44233,9 @@ export namespace mq {
     }
 
     export interface BrokerInstance {
-        consoleUrl: string;
-        endpoints: string[];
-        ipAddress: string;
+        consoleUrl?: string;
+        endpoints?: string[];
+        ipAddress?: string;
     }
 
     export interface BrokerLdapServerMetadata {
@@ -44337,85 +44337,85 @@ export namespace mq {
     }
 
     export interface GetBrokerConfiguration {
-        id: string;
-        revision: number;
+        id?: string;
+        revision?: number;
     }
 
     export interface GetBrokerEncryptionOption {
-        kmsKeyId: string;
-        useAwsOwnedKey: boolean;
+        kmsKeyId?: string;
+        useAwsOwnedKey?: boolean;
     }
 
     export interface GetBrokerInstance {
-        consoleUrl: string;
-        endpoints: string[];
-        ipAddress: string;
+        consoleUrl?: string;
+        endpoints?: string[];
+        ipAddress?: string;
     }
 
     export interface GetBrokerLdapServerMetadata {
-        hosts: string[];
-        roleBase: string;
-        roleName: string;
-        roleSearchMatching: string;
-        roleSearchSubtree: boolean;
-        serviceAccountPassword: string;
-        serviceAccountUsername: string;
-        userBase: string;
-        userRoleName: string;
-        userSearchMatching: string;
-        userSearchSubtree: boolean;
+        hosts?: string[];
+        roleBase?: string;
+        roleName?: string;
+        roleSearchMatching?: string;
+        roleSearchSubtree?: boolean;
+        serviceAccountPassword?: string;
+        serviceAccountUsername?: string;
+        userBase?: string;
+        userRoleName?: string;
+        userSearchMatching?: string;
+        userSearchSubtree?: boolean;
     }
 
     export interface GetBrokerLogs {
-        audit: boolean;
-        general: boolean;
+        audit?: boolean;
+        general?: boolean;
     }
 
     export interface GetBrokerMaintenanceWindowStartTime {
-        dayOfWeek: string;
-        timeOfDay: string;
-        timeZone: string;
+        dayOfWeek?: string;
+        timeOfDay?: string;
+        timeZone?: string;
     }
 
     export interface GetBrokerUser {
-        consoleAccess: boolean;
-        groups: string[];
-        replicationUser: boolean;
-        username: string;
+        consoleAccess?: boolean;
+        groups?: string[];
+        replicationUser?: boolean;
+        username?: string;
     }
 
     export interface GetInstanceTypeOfferingsBrokerInstanceOption {
         /**
          * List of available AZs. See Availability Zones. below
          */
-        availabilityZones: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone[];
+        availabilityZones?: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone[];
         /**
          * Filter response by engine type.
          */
-        engineType: string;
+        engineType?: string;
         /**
          * Filter response by host instance type.
          */
-        hostInstanceType: string;
+        hostInstanceType?: string;
         /**
          * Filter response by storage type.
          */
-        storageType: string;
+        storageType?: string;
         /**
          * The list of supported deployment modes.
          */
-        supportedDeploymentModes: string[];
+        supportedDeploymentModes?: string[];
         /**
          * The list of supported engine versions.
          */
-        supportedEngineVersions: string[];
+        supportedEngineVersions?: string[];
     }
 
     export interface GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone {
         /**
          * Name of the Availability Zone.
          */
-        name: string;
+        name?: string;
     }
 
 }
@@ -44433,7 +44433,7 @@ export namespace msk {
         /**
          * Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
          */
-        connectivityInfo: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfo;
+        connectivityInfo?: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfo;
         /**
          * Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
          */
@@ -44445,54 +44445,54 @@ export namespace msk {
         /**
          * A block that contains information about storage volumes attached to MSK broker nodes. See below.
          */
-        storageInfo: outputs.msk.ClusterBrokerNodeGroupInfoStorageInfo;
+        storageInfo?: outputs.msk.ClusterBrokerNodeGroupInfoStorageInfo;
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfo {
         /**
          * Access control settings for brokers. See below.
          */
-        publicAccess: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess;
+        publicAccess?: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess;
         /**
          * VPC connectivity access control for brokers. See below.
          */
-        vpcConnectivity: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity;
+        vpcConnectivity?: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity;
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
         /**
          * Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
          */
-        type: string;
+        type?: string;
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
         /**
          * Configuration block for specifying a client authentication. See below.
          */
-        clientAuthentication: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication;
+        clientAuthentication?: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication;
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
         /**
          * Configuration block for specifying SASL client authentication. See below.
          */
-        sasl: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl;
+        sasl?: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl;
         /**
          * Configuration block for specifying TLS client authentication. See below.
          */
-        tls: boolean;
+        tls?: boolean;
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
         /**
          * Enables IAM client authentication. Defaults to `false`.
          */
-        iam: boolean;
+        iam?: boolean;
         /**
          * Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
          */
-        scram: boolean;
+        scram?: boolean;
     }
 
     export interface ClusterBrokerNodeGroupInfoStorageInfo {
@@ -44572,7 +44572,7 @@ export namespace msk {
         /**
          * You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
          */
-        encryptionAtRestKmsKeyArn: string;
+        encryptionAtRestKmsKeyArn?: string;
         /**
          * Configuration block to specify encryption in transit. See below.
          */
@@ -44676,27 +44676,27 @@ export namespace msk {
         /**
          * Attached elastic network interface of the broker
          */
-        attachedEniId: string;
+        attachedEniId?: string;
         /**
          * ID of the broker
          */
-        brokerId: number;
+        brokerId?: number;
         /**
          * Client subnet to which this broker node belongs
          */
-        clientSubnet: string;
+        clientSubnet?: string;
         /**
          * The client virtual private cloud (VPC) IP address
          */
-        clientVpcIpAddress: string;
+        clientVpcIpAddress?: string;
         /**
          * Set of endpoints for accessing the broker. This does not include ports
          */
-        endpoints: string[];
+        endpoints?: string[];
         /**
          * ARN of the node
          */
-        nodeArn: string;
+        nodeArn?: string;
     }
 
     export interface ReplicatorKafkaCluster {
@@ -44733,7 +44733,7 @@ export namespace msk {
          * Confguration relating to consumer group replication.
          */
         consumerGroupReplications: outputs.msk.ReplicatorReplicationInfoListConsumerGroupReplication[];
-        sourceKafkaClusterAlias: string;
+        sourceKafkaClusterAlias?: string;
         /**
          * The ARN of the source Kafka cluster.
          */
@@ -44742,7 +44742,7 @@ export namespace msk {
          * The type of compression to use writing records to target Kafka cluster.
          */
         targetCompressionType: string;
-        targetKafkaClusterAlias: string;
+        targetKafkaClusterAlias?: string;
         /**
          * The ARN of the target Kafka cluster.
          */
@@ -44820,7 +44820,7 @@ export namespace msk {
         /**
          * Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * A list of subnets in at least two different Availability Zones that host your client applications.
          */
@@ -44857,25 +44857,25 @@ export namespace mskconnect {
         /**
          * The scale-in policy for the connector. See below.
          */
-        scaleInPolicy: outputs.mskconnect.ConnectorCapacityAutoscalingScaleInPolicy;
+        scaleInPolicy?: outputs.mskconnect.ConnectorCapacityAutoscalingScaleInPolicy;
         /**
          * The scale-out policy for the connector. See below.
          */
-        scaleOutPolicy: outputs.mskconnect.ConnectorCapacityAutoscalingScaleOutPolicy;
+        scaleOutPolicy?: outputs.mskconnect.ConnectorCapacityAutoscalingScaleOutPolicy;
     }
 
     export interface ConnectorCapacityAutoscalingScaleInPolicy {
         /**
          * Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
          */
-        cpuUtilizationPercentage: number;
+        cpuUtilizationPercentage?: number;
     }
 
     export interface ConnectorCapacityAutoscalingScaleOutPolicy {
         /**
          * The CPU utilization percentage threshold at which you want connector scale out to be triggered.
          */
-        cpuUtilizationPercentage: number;
+        cpuUtilizationPercentage?: number;
     }
 
     export interface ConnectorCapacityProvisionedCapacity {
@@ -45050,100 +45050,100 @@ export namespace mwaa {
          * The Created At date of the MWAA Environment
          * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
          */
-        createdAt: string;
-        errors: outputs.mwaa.EnvironmentLastUpdatedError[];
+        createdAt?: string;
+        errors?: outputs.mwaa.EnvironmentLastUpdatedError[];
         /**
          * The status of the Amazon MWAA Environment
          */
-        status: string;
+        status?: string;
     }
 
     export interface EnvironmentLastUpdatedError {
-        errorCode: string;
-        errorMessage: string;
+        errorCode?: string;
+        errorMessage?: string;
     }
 
     export interface EnvironmentLoggingConfiguration {
         /**
          * (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
          */
-        dagProcessingLogs: outputs.mwaa.EnvironmentLoggingConfigurationDagProcessingLogs;
+        dagProcessingLogs?: outputs.mwaa.EnvironmentLoggingConfigurationDagProcessingLogs;
         /**
          * Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
          */
-        schedulerLogs: outputs.mwaa.EnvironmentLoggingConfigurationSchedulerLogs;
+        schedulerLogs?: outputs.mwaa.EnvironmentLoggingConfigurationSchedulerLogs;
         /**
          * Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
          */
-        taskLogs: outputs.mwaa.EnvironmentLoggingConfigurationTaskLogs;
+        taskLogs?: outputs.mwaa.EnvironmentLoggingConfigurationTaskLogs;
         /**
          * Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
          */
-        webserverLogs: outputs.mwaa.EnvironmentLoggingConfigurationWebserverLogs;
+        webserverLogs?: outputs.mwaa.EnvironmentLoggingConfigurationWebserverLogs;
         /**
          * Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
          */
-        workerLogs: outputs.mwaa.EnvironmentLoggingConfigurationWorkerLogs;
+        workerLogs?: outputs.mwaa.EnvironmentLoggingConfigurationWorkerLogs;
     }
 
     export interface EnvironmentLoggingConfigurationDagProcessingLogs {
-        cloudWatchLogGroupArn: string;
+        cloudWatchLogGroupArn?: string;
         /**
          * Enabling or disabling the collection of logs
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
          */
-        logLevel: string;
+        logLevel?: string;
     }
 
     export interface EnvironmentLoggingConfigurationSchedulerLogs {
-        cloudWatchLogGroupArn: string;
+        cloudWatchLogGroupArn?: string;
         /**
          * Enabling or disabling the collection of logs
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
          */
-        logLevel: string;
+        logLevel?: string;
     }
 
     export interface EnvironmentLoggingConfigurationTaskLogs {
-        cloudWatchLogGroupArn: string;
+        cloudWatchLogGroupArn?: string;
         /**
          * Enabling or disabling the collection of logs
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
          */
-        logLevel: string;
+        logLevel?: string;
     }
 
     export interface EnvironmentLoggingConfigurationWebserverLogs {
-        cloudWatchLogGroupArn: string;
+        cloudWatchLogGroupArn?: string;
         /**
          * Enabling or disabling the collection of logs
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
          */
-        logLevel: string;
+        logLevel?: string;
     }
 
     export interface EnvironmentLoggingConfigurationWorkerLogs {
-        cloudWatchLogGroupArn: string;
+        cloudWatchLogGroupArn?: string;
         /**
          * Enabling or disabling the collection of logs
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
          */
-        logLevel: string;
+        logLevel?: string;
     }
 
     export interface EnvironmentNetworkConfiguration {
@@ -45190,11 +45190,11 @@ export namespace neptune {
         /**
          * Amazon Resource Name (ARN) of member DB Cluster.
          */
-        dbClusterArn: string;
+        dbClusterArn?: string;
         /**
          * Whether the member is the primary DB Cluster.
          */
-        isWriter: boolean;
+        isWriter?: boolean;
     }
 
     export interface ParameterGroupParameter {
@@ -45230,29 +45230,29 @@ export namespace networkfirewall {
         /**
          * Set of subnets configured for use by the firewall.
          */
-        syncStates: outputs.networkfirewall.FirewallFirewallStatusSyncState[];
+        syncStates?: outputs.networkfirewall.FirewallFirewallStatusSyncState[];
     }
 
     export interface FirewallFirewallStatusSyncState {
         /**
          * Nested list describing the attachment status of the firewall's association with a single VPC subnet.
          */
-        attachments: outputs.networkfirewall.FirewallFirewallStatusSyncStateAttachment[];
+        attachments?: outputs.networkfirewall.FirewallFirewallStatusSyncStateAttachment[];
         /**
          * The Availability Zone where the subnet is configured.
          */
-        availabilityZone: string;
+        availabilityZone?: string;
     }
 
     export interface FirewallFirewallStatusSyncStateAttachment {
         /**
          * The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
          */
-        endpointId: string;
+        endpointId?: string;
         /**
          * The unique identifier for the subnet.
          */
-        subnetId: string;
+        subnetId?: string;
     }
 
     export interface FirewallPolicyEncryptionConfiguration {
@@ -45405,7 +45405,7 @@ export namespace networkfirewall {
         /**
          * The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
          */
-        ipAddressType: string;
+        ipAddressType?: string;
         /**
          * The unique identifier for the subnet.
          */
@@ -45416,100 +45416,100 @@ export namespace networkfirewall {
         /**
          * The ID of the AWS Key Management Service (AWS KMS) customer managed key.
          */
-        keyId: string;
+        keyId?: string;
         /**
          * The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetFirewallFirewallStatus {
         /**
          * Aggregated count of all resources used by reference sets in a firewall.
          */
-        capacityUsageSummaries: outputs.networkfirewall.GetFirewallFirewallStatusCapacityUsageSummary[];
+        capacityUsageSummaries?: outputs.networkfirewall.GetFirewallFirewallStatusCapacityUsageSummary[];
         /**
          * Summary of sync states for all availability zones in which the firewall is configured.
          */
-        configurationSyncStateSummary: string;
-        status: string;
+        configurationSyncStateSummary?: string;
+        status?: string;
         /**
          * Set of subnets configured for use by the firewall.
          */
-        syncStates: outputs.networkfirewall.GetFirewallFirewallStatusSyncState[];
+        syncStates?: outputs.networkfirewall.GetFirewallFirewallStatusSyncState[];
     }
 
     export interface GetFirewallFirewallStatusCapacityUsageSummary {
         /**
          * Capacity usage of CIDR blocks used by IP set references in a firewall.
          */
-        cidrs: outputs.networkfirewall.GetFirewallFirewallStatusCapacityUsageSummaryCidr[];
+        cidrs?: outputs.networkfirewall.GetFirewallFirewallStatusCapacityUsageSummaryCidr[];
     }
 
     export interface GetFirewallFirewallStatusCapacityUsageSummaryCidr {
         /**
          * Available number of CIDR blocks available for use by the IP set references in a firewall.
          */
-        availableCidrCount: number;
+        availableCidrCount?: number;
         /**
          * The list of IP set references used by a firewall.
          */
-        ipSetReferences: outputs.networkfirewall.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference[];
+        ipSetReferences?: outputs.networkfirewall.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference[];
         /**
          * Number of CIDR blocks used by the IP set references in a firewall.
          */
-        utilizedCidrCount: number;
+        utilizedCidrCount?: number;
     }
 
     export interface GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference {
         /**
          * Total number of CIDR blocks used by the IP set references in a firewall.
          */
-        resolvedCidrCount: number;
+        resolvedCidrCount?: number;
     }
 
     export interface GetFirewallFirewallStatusSyncState {
         /**
          * Nested list describing the attachment status of the firewall's association with a single VPC subnet.
          */
-        attachments: outputs.networkfirewall.GetFirewallFirewallStatusSyncStateAttachment[];
+        attachments?: outputs.networkfirewall.GetFirewallFirewallStatusSyncStateAttachment[];
         /**
          * The Availability Zone where the subnet is configured.
          */
-        availabilityZone: string;
+        availabilityZone?: string;
     }
 
     export interface GetFirewallFirewallStatusSyncStateAttachment {
         /**
          * The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
          */
-        endpointId: string;
-        status: string;
+        endpointId?: string;
+        status?: string;
         /**
          * The unique identifier for the subnet.
          */
-        subnetId: string;
+        subnetId?: string;
     }
 
     export interface GetFirewallPolicyFirewallPolicy {
-        statefulDefaultActions: string[];
-        statefulEngineOptions: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatefulEngineOption[];
-        statefulRuleGroupReferences: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference[];
-        statelessCustomActions: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessCustomAction[];
-        statelessDefaultActions: string[];
-        statelessFragmentDefaultActions: string[];
-        statelessRuleGroupReferences: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference[];
+        statefulDefaultActions?: string[];
+        statefulEngineOptions?: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatefulEngineOption[];
+        statefulRuleGroupReferences?: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference[];
+        statelessCustomActions?: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessCustomAction[];
+        statelessDefaultActions?: string[];
+        statelessFragmentDefaultActions?: string[];
+        statelessRuleGroupReferences?: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference[];
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatefulEngineOption {
-        ruleOrder: string;
-        streamExceptionPolicy: string;
+        ruleOrder?: string;
+        streamExceptionPolicy?: string;
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
         overrides?: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride[];
-        priority: number;
-        resourceArn: string;
+        priority?: number;
+        resourceArn?: string;
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride {
@@ -45517,25 +45517,25 @@ export namespace networkfirewall {
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatelessCustomAction {
-        actionDefinitions: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition[];
-        actionName: string;
+        actionDefinitions?: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition[];
+        actionName?: string;
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition {
-        publishMetricActions: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction[];
+        publishMetricActions?: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction[];
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction {
-        dimensions: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension[];
+        dimensions?: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension[];
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension {
-        value: string;
+        value?: string;
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference {
-        priority: number;
-        resourceArn: string;
+        priority?: number;
+        resourceArn?: string;
     }
 
     export interface GetFirewallSubnetMapping {
@@ -45920,67 +45920,67 @@ export namespace networkmanager {
     }
 
     export interface ConnectPeerConfiguration {
-        bgpConfigurations: outputs.networkmanager.ConnectPeerConfigurationBgpConfiguration[];
+        bgpConfigurations?: outputs.networkmanager.ConnectPeerConfigurationBgpConfiguration[];
         /**
          * A Connect peer core network address.
          */
-        coreNetworkAddress: string;
+        coreNetworkAddress?: string;
         /**
          * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          */
-        insideCidrBlocks: string[];
+        insideCidrBlocks?: string[];
         /**
          * The Connect peer address.
          *
          * The following arguments are optional:
          */
-        peerAddress: string;
-        protocol: string;
+        peerAddress?: string;
+        protocol?: string;
     }
 
     export interface ConnectPeerConfigurationBgpConfiguration {
         /**
          * A Connect peer core network address.
          */
-        coreNetworkAddress: string;
-        coreNetworkAsn: number;
+        coreNetworkAddress?: string;
+        coreNetworkAsn?: number;
         /**
          * The Connect peer address.
          *
          * The following arguments are optional:
          */
-        peerAddress: string;
-        peerAsn: number;
+        peerAddress?: string;
+        peerAsn?: number;
     }
 
     export interface CoreNetworkEdge {
         /**
          * ASN of a core network edge.
          */
-        asn: number;
+        asn?: number;
         /**
          * Region where a core network edge is located.
          */
-        edgeLocation: string;
+        edgeLocation?: string;
         /**
          * Inside IP addresses used for core network edges.
          */
-        insideCidrBlocks: string[];
+        insideCidrBlocks?: string[];
     }
 
     export interface CoreNetworkSegment {
         /**
          * Regions where the edges are located.
          */
-        edgeLocations: string[];
+        edgeLocations?: string[];
         /**
          * Name of a core network segment.
          */
-        name: string;
+        name?: string;
         /**
          * Shared segments of a core network.
          */
-        sharedSegments: string[];
+        sharedSegments?: string[];
     }
 
     export interface DeviceAwsLocation {
@@ -46171,52 +46171,52 @@ export namespace networkmanager {
         /**
          * ARN of the subnet that the device is located in.
          */
-        subnetArn: string;
+        subnetArn?: string;
         /**
          * Zone that the device is located in.
          */
-        zone: string;
+        zone?: string;
     }
 
     export interface GetDeviceLocation {
         /**
          * Physical address.
          */
-        address: string;
+        address?: string;
         /**
          * Latitude.
          */
-        latitude: string;
+        latitude?: string;
         /**
          * Longitude.
          */
-        longitude: string;
+        longitude?: string;
     }
 
     export interface GetLinkBandwidth {
         /**
          * Download speed in Mbps.
          */
-        downloadSpeed: number;
+        downloadSpeed?: number;
         /**
          * Upload speed in Mbps.
          */
-        uploadSpeed: number;
+        uploadSpeed?: number;
     }
 
     export interface GetSiteLocation {
         /**
          * Address of the location.
          */
-        address: string;
+        address?: string;
         /**
          * Latitude of the location.
          */
-        latitude: string;
+        latitude?: string;
         /**
          * Longitude of the location.
          */
-        longitude: string;
+        longitude?: string;
     }
 
     export interface LinkBandwidth {
@@ -46263,7 +46263,7 @@ export namespace opensearch {
         /**
          * Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
          */
-        anonymousAuthEnabled: boolean;
+        anonymousAuthEnabled?: boolean;
         /**
          * Whether advanced security is enabled.
          */
@@ -46301,11 +46301,11 @@ export namespace opensearch {
         /**
          * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
          */
-        maintenanceSchedules: outputs.opensearch.DomainAutoTuneOptionsMaintenanceSchedule[];
+        maintenanceSchedules?: outputs.opensearch.DomainAutoTuneOptionsMaintenanceSchedule[];
         /**
          * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
          */
-        rollbackOnDisable: string;
+        rollbackOnDisable?: string;
     }
 
     export interface DomainAutoTuneOptionsMaintenanceSchedule {
@@ -46338,7 +46338,7 @@ export namespace opensearch {
         /**
          * Configuration block containing cold storage configuration. Detailed below.
          */
-        coldStorageOptions: outputs.opensearch.DomainClusterConfigColdStorageOptions;
+        coldStorageOptions?: outputs.opensearch.DomainClusterConfigColdStorageOptions;
         /**
          * Number of dedicated main nodes in the cluster.
          */
@@ -46386,7 +46386,7 @@ export namespace opensearch {
         /**
          * Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface DomainClusterConfigZoneAwarenessConfig {
@@ -46435,7 +46435,7 @@ export namespace opensearch {
         /**
          * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
          */
-        tlsSecurityPolicy: string;
+        tlsSecurityPolicy?: string;
     }
 
     export interface DomainEbsOptions {
@@ -46446,11 +46446,11 @@ export namespace opensearch {
         /**
          * Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
          */
-        iops: number;
+        iops?: number;
         /**
          * Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of EBS volumes attached to data nodes (in GiB).
          */
@@ -46458,7 +46458,7 @@ export namespace opensearch {
         /**
          * Type of EBS volumes attached to data nodes.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface DomainEncryptAtRest {
@@ -46469,7 +46469,7 @@ export namespace opensearch {
         /**
          * KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
     }
 
     export interface DomainLogPublishingOption {
@@ -46498,26 +46498,26 @@ export namespace opensearch {
         /**
          * Enabled disabled toggle for off-peak update window.
          */
-        enabled: boolean;
-        offPeakWindow: outputs.opensearch.DomainOffPeakWindowOptionsOffPeakWindow;
+        enabled?: boolean;
+        offPeakWindow?: outputs.opensearch.DomainOffPeakWindowOptionsOffPeakWindow;
     }
 
     export interface DomainOffPeakWindowOptionsOffPeakWindow {
         /**
          * 10h window for updates
          */
-        windowStartTime: outputs.opensearch.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime;
+        windowStartTime?: outputs.opensearch.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime;
     }
 
     export interface DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
         /**
          * Starting hour of the 10-hour window for updates
          */
-        hours: number;
+        hours?: number;
         /**
          * Starting minute of the 10-hour window for updates
          */
-        minutes: number;
+        minutes?: number;
     }
 
     export interface DomainSamlOptionsSamlOptions {
@@ -46573,11 +46573,11 @@ export namespace opensearch {
         /**
          * Whether automatic service software updates are enabled for the domain. Defaults to `false`.
          */
-        autoSoftwareUpdateEnabled: boolean;
+        autoSoftwareUpdateEnabled?: boolean;
     }
 
     export interface DomainVpcOptions {
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * List of VPC Security Group IDs to be applied to the OpenSearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
          */
@@ -46586,92 +46586,92 @@ export namespace opensearch {
          * List of VPC Subnet IDs for the OpenSearch domain endpoints to be created in.
          */
         subnetIds?: string[];
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface GetDomainAdvancedSecurityOption {
-        anonymousAuthEnabled: boolean;
+        anonymousAuthEnabled?: boolean;
         /**
          * Enabled disabled toggle for off-peak update window
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Whether the internal user database is enabled.
          */
-        internalUserDatabaseEnabled: boolean;
+        internalUserDatabaseEnabled?: boolean;
     }
 
     export interface GetDomainAutoTuneOption {
         /**
          * Auto-Tune desired state for the domain.
          */
-        desiredState: string;
+        desiredState?: string;
         /**
          * A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
          */
-        maintenanceSchedules: outputs.opensearch.GetDomainAutoTuneOptionMaintenanceSchedule[];
+        maintenanceSchedules?: outputs.opensearch.GetDomainAutoTuneOptionMaintenanceSchedule[];
         /**
          * Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
          */
-        rollbackOnDisable: string;
+        rollbackOnDisable?: string;
     }
 
     export interface GetDomainAutoTuneOptionMaintenanceSchedule {
         /**
          * Cron expression for an Auto-Tune maintenance schedule.
          */
-        cronExpressionForRecurrence: string;
+        cronExpressionForRecurrence?: string;
         /**
          * Configuration block for the duration of the Auto-Tune maintenance window.
          */
-        durations: outputs.opensearch.GetDomainAutoTuneOptionMaintenanceScheduleDuration[];
+        durations?: outputs.opensearch.GetDomainAutoTuneOptionMaintenanceScheduleDuration[];
         /**
          * Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          */
-        startAt: string;
+        startAt?: string;
     }
 
     export interface GetDomainAutoTuneOptionMaintenanceScheduleDuration {
         /**
          * Unit of time.
          */
-        unit: string;
+        unit?: string;
         /**
          * Duration of an Auto-Tune maintenance window.
          */
-        value: number;
+        value?: number;
     }
 
     export interface GetDomainClusterConfig {
         /**
          * Configuration block containing cold storage configuration.
          */
-        coldStorageOptions: outputs.opensearch.GetDomainClusterConfigColdStorageOption[];
+        coldStorageOptions?: outputs.opensearch.GetDomainClusterConfigColdStorageOption[];
         /**
          * Number of dedicated master nodes in the cluster.
          */
-        dedicatedMasterCount: number;
+        dedicatedMasterCount?: number;
         /**
          * Indicates whether dedicated master nodes are enabled for the cluster.
          */
-        dedicatedMasterEnabled: boolean;
+        dedicatedMasterEnabled?: boolean;
         /**
          * Instance type of the dedicated master nodes in the cluster.
          */
-        dedicatedMasterType: string;
+        dedicatedMasterType?: string;
         /**
          * Number of instances in the cluster.
          */
-        instanceCount: number;
+        instanceCount?: number;
         /**
          * Instance type of data nodes in the cluster.
          */
-        instanceType: string;
-        multiAzWithStandbyEnabled: boolean;
+        instanceType?: string;
+        multiAzWithStandbyEnabled?: boolean;
         /**
          * Number of warm nodes in the cluster.
          */
-        warmCount: number;
+        warmCount?: number;
         /**
          * Warm storage is enabled.
          */
@@ -46679,182 +46679,182 @@ export namespace opensearch {
         /**
          * Instance type for the OpenSearch cluster's warm nodes.
          */
-        warmType: string;
+        warmType?: string;
         /**
          * Configuration block containing zone awareness settings.
          */
-        zoneAwarenessConfigs: outputs.opensearch.GetDomainClusterConfigZoneAwarenessConfig[];
+        zoneAwarenessConfigs?: outputs.opensearch.GetDomainClusterConfigZoneAwarenessConfig[];
         /**
          * Indicates whether zone awareness is enabled.
          */
-        zoneAwarenessEnabled: boolean;
+        zoneAwarenessEnabled?: boolean;
     }
 
     export interface GetDomainClusterConfigColdStorageOption {
         /**
          * Enabled disabled toggle for off-peak update window
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface GetDomainClusterConfigZoneAwarenessConfig {
         /**
          * Number of availability zones used.
          */
-        availabilityZoneCount: number;
+        availabilityZoneCount?: number;
     }
 
     export interface GetDomainCognitoOption {
         /**
          * Enabled disabled toggle for off-peak update window
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Cognito Identity pool used by the domain.
          */
-        identityPoolId: string;
+        identityPoolId?: string;
         /**
          * IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
          */
-        roleArn: string;
+        roleArn?: string;
         /**
          * Cognito User pool used by the domain.
          */
-        userPoolId: string;
+        userPoolId?: string;
     }
 
     export interface GetDomainEbsOption {
         /**
          * Whether EBS volumes are attached to data nodes in the domain.
          */
-        ebsEnabled: boolean;
+        ebsEnabled?: boolean;
         /**
          * Baseline input/output (I/O) performance of EBS volumes attached to data nodes.
          */
-        iops: number;
+        iops?: number;
         /**
          * The throughput (in MiB/s) of the EBS volumes attached to data nodes.
          */
-        throughput: number;
+        throughput?: number;
         /**
          * Size of EBS volumes attached to data nodes (in GB).
          */
-        volumeSize: number;
+        volumeSize?: number;
         /**
          * Type of EBS volumes attached to data nodes.
          */
-        volumeType: string;
+        volumeType?: string;
     }
 
     export interface GetDomainEncryptionAtRest {
         /**
          * Enabled disabled toggle for off-peak update window
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * KMS key id used to encrypt data at rest.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
     }
 
     export interface GetDomainLogPublishingOption {
         /**
          * CloudWatch Log Group where the logs are published.
          */
-        cloudwatchLogGroupArn: string;
+        cloudwatchLogGroupArn?: string;
         /**
          * Enabled disabled toggle for off-peak update window
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * Type of OpenSearch log being published.
          */
-        logType: string;
+        logType?: string;
     }
 
     export interface GetDomainNodeToNodeEncryption {
         /**
          * Enabled disabled toggle for off-peak update window
          */
-        enabled: boolean;
+        enabled?: boolean;
     }
 
     export interface GetDomainOffPeakWindowOptions {
         /**
          * Enabled disabled toggle for off-peak update window
          */
-        enabled: boolean;
-        offPeakWindows: outputs.opensearch.GetDomainOffPeakWindowOptionsOffPeakWindow[];
+        enabled?: boolean;
+        offPeakWindows?: outputs.opensearch.GetDomainOffPeakWindowOptionsOffPeakWindow[];
     }
 
     export interface GetDomainOffPeakWindowOptionsOffPeakWindow {
         /**
          * 10h window for updates
          */
-        windowStartTimes: outputs.opensearch.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime[];
+        windowStartTimes?: outputs.opensearch.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime[];
     }
 
     export interface GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
         /**
          * Starting hour of the 10-hour window for updates
          */
-        hours: number;
+        hours?: number;
         /**
          * Starting minute of the 10-hour window for updates
          */
-        minutes: number;
+        minutes?: number;
     }
 
     export interface GetDomainSnapshotOption {
         /**
          * Hour during which the service takes an automated daily snapshot of the indices in the domain.
          */
-        automatedSnapshotStartHour: number;
+        automatedSnapshotStartHour?: number;
     }
 
     export interface GetDomainSoftwareUpdateOption {
         /**
          * Enabled or disabled.
          */
-        autoSoftwareUpdateEnabled: boolean;
+        autoSoftwareUpdateEnabled?: boolean;
     }
 
     export interface GetDomainVpcOption {
         /**
          * Availability zones used by the domain.
          */
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * Security groups used by the domain.
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * Subnets used by the domain.
          */
-        subnetIds: string[];
+        subnetIds?: string[];
         /**
          * VPC used by the domain.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface GetServerlessSecurityConfigSamlOptions {
         /**
          * Group attribute for this SAML integration.
          */
-        groupAttribute: string;
+        groupAttribute?: string;
         /**
          * The XML IdP metadata file generated from your identity provider.
          */
-        metadata: string;
+        metadata?: string;
         /**
          * Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * User attribute for this SAML integration.
          */
-        userAttribute: string;
+        userAttribute?: string;
     }
 
     export interface OutboundConnectionConnectionProperties {
@@ -46865,7 +46865,7 @@ export namespace opensearch {
         /**
          * The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
          */
-        endpoint: string;
+        endpoint?: string;
     }
 
     export interface OutboundConnectionConnectionPropertiesCrossClusterSearch {
@@ -46933,7 +46933,7 @@ export namespace opensearch {
         /**
          * Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * User attribute for this SAML integration.
          */
@@ -46947,16 +46947,16 @@ export namespace opensearch {
     }
 
     export interface VpcEndpointVpcOptions {
-        availabilityZones: string[];
+        availabilityZones?: string[];
         /**
          * The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
          */
         subnetIds: string[];
-        vpcId: string;
+        vpcId?: string;
     }
 
 }
@@ -47109,7 +47109,7 @@ export namespace opsworks {
         /**
          * The downscaling settings, as defined below, used for load-based autoscaling
          */
-        downscaling: outputs.opsworks.CustomLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.CustomLayerLoadBasedAutoScalingDownscaling;
         /**
          * Whether load-based auto scaling is enabled for the layer.
          */
@@ -47117,7 +47117,7 @@ export namespace opsworks {
         /**
          * The upscaling settings, as defined below, used for load-based autoscaling
          */
-        upscaling: outputs.opsworks.CustomLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.CustomLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface CustomLayerLoadBasedAutoScalingDownscaling {
@@ -47230,9 +47230,9 @@ export namespace opsworks {
     }
 
     export interface EcsClusterLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.EcsClusterLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.EcsClusterLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.EcsClusterLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.EcsClusterLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface EcsClusterLayerLoadBasedAutoScalingDownscaling {
@@ -47303,9 +47303,9 @@ export namespace opsworks {
     }
 
     export interface GangliaLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.GangliaLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.GangliaLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.GangliaLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.GangliaLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface GangliaLayerLoadBasedAutoScalingDownscaling {
@@ -47376,9 +47376,9 @@ export namespace opsworks {
     }
 
     export interface HaproxyLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.HaproxyLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.HaproxyLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.HaproxyLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.HaproxyLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface HaproxyLayerLoadBasedAutoScalingDownscaling {
@@ -47404,10 +47404,10 @@ export namespace opsworks {
     export interface InstanceEbsBlockDevice {
         deleteOnTermination?: boolean;
         deviceName: string;
-        iops: number;
-        snapshotId: string;
-        volumeSize: number;
-        volumeType: string;
+        iops?: number;
+        snapshotId?: string;
+        volumeSize?: number;
+        volumeType?: string;
     }
 
     export interface InstanceEphemeralBlockDevice {
@@ -47417,9 +47417,9 @@ export namespace opsworks {
 
     export interface InstanceRootBlockDevice {
         deleteOnTermination?: boolean;
-        iops: number;
-        volumeSize: number;
-        volumeType: string;
+        iops?: number;
+        volumeSize?: number;
+        volumeType?: string;
     }
 
     export interface JavaAppLayerCloudwatchConfiguration {
@@ -47470,9 +47470,9 @@ export namespace opsworks {
     }
 
     export interface JavaAppLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.JavaAppLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.JavaAppLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.JavaAppLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.JavaAppLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface JavaAppLayerLoadBasedAutoScalingDownscaling {
@@ -47543,9 +47543,9 @@ export namespace opsworks {
     }
 
     export interface MemcachedLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.MemcachedLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.MemcachedLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.MemcachedLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.MemcachedLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface MemcachedLayerLoadBasedAutoScalingDownscaling {
@@ -47616,9 +47616,9 @@ export namespace opsworks {
     }
 
     export interface MysqlLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.MysqlLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.MysqlLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.MysqlLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.MysqlLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface MysqlLayerLoadBasedAutoScalingDownscaling {
@@ -47689,9 +47689,9 @@ export namespace opsworks {
     }
 
     export interface NodejsAppLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.NodejsAppLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.NodejsAppLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.NodejsAppLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.NodejsAppLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface NodejsAppLayerLoadBasedAutoScalingDownscaling {
@@ -47762,9 +47762,9 @@ export namespace opsworks {
     }
 
     export interface PhpAppLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.PhpAppLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.PhpAppLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.PhpAppLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.PhpAppLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface PhpAppLayerLoadBasedAutoScalingDownscaling {
@@ -47835,9 +47835,9 @@ export namespace opsworks {
     }
 
     export interface RailsAppLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.RailsAppLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.RailsAppLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.RailsAppLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.RailsAppLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface RailsAppLayerLoadBasedAutoScalingDownscaling {
@@ -47935,9 +47935,9 @@ export namespace opsworks {
     }
 
     export interface StaticWebLayerLoadBasedAutoScaling {
-        downscaling: outputs.opsworks.StaticWebLayerLoadBasedAutoScalingDownscaling;
+        downscaling?: outputs.opsworks.StaticWebLayerLoadBasedAutoScalingDownscaling;
         enable?: boolean;
-        upscaling: outputs.opsworks.StaticWebLayerLoadBasedAutoScalingUpscaling;
+        upscaling?: outputs.opsworks.StaticWebLayerLoadBasedAutoScalingUpscaling;
     }
 
     export interface StaticWebLayerLoadBasedAutoScalingDownscaling {
@@ -47967,272 +47967,272 @@ export namespace organizations {
         /**
          * The ARN of the delegated administrator's account.
          */
-        arn: string;
+        arn?: string;
         /**
          * The date when the account was made a delegated administrator.
          */
-        delegationEnabledDate: string;
+        delegationEnabledDate?: string;
         /**
          * The email address that is associated with the delegated administrator's AWS account.
          */
-        email: string;
+        email?: string;
         /**
          * The unique identifier (ID) of the delegated administrator's account.
          */
-        id: string;
+        id?: string;
         /**
          * The method by which the delegated administrator's account joined the organization.
          */
-        joinedMethod: string;
+        joinedMethod?: string;
         /**
          * The date when the delegated administrator's account became a part of the organization.
          */
-        joinedTimestamp: string;
+        joinedTimestamp?: string;
         /**
          * The friendly name of the delegated administrator's account.
          */
-        name: string;
+        name?: string;
         /**
          * The status of the delegated administrator's account in the organization.
          */
-        status: string;
+        status?: string;
     }
 
     export interface GetDelegatedServicesDelegatedService {
         /**
          * The date that the account became a delegated administrator for this service.
          */
-        delegationEnabledDate: string;
+        delegationEnabledDate?: string;
         /**
          * The name of an AWS service that can request an operation for the specified service.
          */
-        servicePrincipal: string;
+        servicePrincipal?: string;
     }
 
     export interface GetOrganizationAccount {
         /**
          * ARN of the root
          */
-        arn: string;
+        arn?: string;
         /**
          * Email of the account
          */
-        email: string;
+        email?: string;
         /**
          * Identifier of the root
          */
-        id: string;
+        id?: string;
         /**
          * The name of the policy type
          */
-        name: string;
+        name?: string;
         /**
          * The status of the policy type as it relates to the associated root
          */
-        status: string;
+        status?: string;
     }
 
     export interface GetOrganizationNonMasterAccount {
         /**
          * ARN of the root
          */
-        arn: string;
+        arn?: string;
         /**
          * Email of the account
          */
-        email: string;
+        email?: string;
         /**
          * Identifier of the root
          */
-        id: string;
+        id?: string;
         /**
          * The name of the policy type
          */
-        name: string;
+        name?: string;
         /**
          * The status of the policy type as it relates to the associated root
          */
-        status: string;
+        status?: string;
     }
 
     export interface GetOrganizationRoot {
         /**
          * ARN of the root
          */
-        arn: string;
+        arn?: string;
         /**
          * Identifier of the root
          */
-        id: string;
+        id?: string;
         /**
          * The name of the policy type
          */
-        name: string;
+        name?: string;
         /**
          * List of policy types enabled for this root. All elements have these attributes:
          */
-        policyTypes: outputs.organizations.GetOrganizationRootPolicyType[];
+        policyTypes?: outputs.organizations.GetOrganizationRootPolicyType[];
     }
 
     export interface GetOrganizationRootPolicyType {
         /**
          * The status of the policy type as it relates to the associated root
          */
-        status: string;
-        type: string;
+        status?: string;
+        type?: string;
     }
 
     export interface GetOrganizationalUnitChildAccountsAccount {
         /**
          * The Amazon Resource Name (ARN) of the account.
          */
-        arn: string;
+        arn?: string;
         /**
          * The email address associated with the AWS account.
          */
-        email: string;
+        email?: string;
         /**
          * Parent identifier of the organizational units.
          */
-        id: string;
+        id?: string;
         /**
          * The friendly name of the account.
          */
-        name: string;
+        name?: string;
         /**
          * The status of the account in the organization.
          */
-        status: string;
+        status?: string;
     }
 
     export interface GetOrganizationalUnitDescendantAccountsAccount {
         /**
          * The Amazon Resource Name (ARN) of the account.
          */
-        arn: string;
+        arn?: string;
         /**
          * The email address associated with the AWS account.
          */
-        email: string;
+        email?: string;
         /**
          * Parent identifier of the organizational units.
          */
-        id: string;
+        id?: string;
         /**
          * The friendly name of the account.
          */
-        name: string;
+        name?: string;
         /**
          * The status of the account in the organization.
          */
-        status: string;
+        status?: string;
     }
 
     export interface GetOrganizationalUnitsChild {
         /**
          * ARN of the organizational unit
          */
-        arn: string;
+        arn?: string;
         /**
          * Parent identifier of the organizational units.
          */
-        id: string;
+        id?: string;
         /**
          * Name of the organizational unit
          */
-        name: string;
+        name?: string;
     }
 
     export interface OrganizationAccount {
         /**
          * ARN of the root
          */
-        arn: string;
+        arn?: string;
         /**
          * Email of the account
          */
-        email: string;
+        email?: string;
         /**
          * Identifier of the root
          */
-        id: string;
+        id?: string;
         /**
          * The name of the policy type
          */
-        name: string;
+        name?: string;
         /**
          * The status of the policy type as it relates to the associated root
          */
-        status: string;
+        status?: string;
     }
 
     export interface OrganizationNonMasterAccount {
         /**
          * ARN of the root
          */
-        arn: string;
+        arn?: string;
         /**
          * Email of the account
          */
-        email: string;
+        email?: string;
         /**
          * Identifier of the root
          */
-        id: string;
+        id?: string;
         /**
          * The name of the policy type
          */
-        name: string;
+        name?: string;
         /**
          * The status of the policy type as it relates to the associated root
          */
-        status: string;
+        status?: string;
     }
 
     export interface OrganizationRoot {
         /**
          * ARN of the root
          */
-        arn: string;
+        arn?: string;
         /**
          * Identifier of the root
          */
-        id: string;
+        id?: string;
         /**
          * The name of the policy type
          */
-        name: string;
+        name?: string;
         /**
          * List of policy types enabled for this root. All elements have these attributes:
          */
-        policyTypes: outputs.organizations.OrganizationRootPolicyType[];
+        policyTypes?: outputs.organizations.OrganizationRootPolicyType[];
     }
 
     export interface OrganizationRootPolicyType {
         /**
          * The status of the policy type as it relates to the associated root
          */
-        status: string;
-        type: string;
+        status?: string;
+        type?: string;
     }
 
     export interface OrganizationalUnitAccount {
         /**
          * ARN of the organizational unit
          */
-        arn: string;
+        arn?: string;
         /**
          * Email of the account
          */
-        email: string;
+        email?: string;
         /**
          * Identifier of the organization unit
          */
-        id: string;
+        id?: string;
         /**
          * The name for the organizational unit
          */
-        name: string;
+        name?: string;
     }
 
 }
@@ -48316,11 +48316,11 @@ export namespace pipes {
         /**
          * The parameters for using an Active MQ broker as a source. Detailed below.
          */
-        activemqBrokerParameters: outputs.pipes.PipeSourceParametersActivemqBrokerParameters;
+        activemqBrokerParameters?: outputs.pipes.PipeSourceParametersActivemqBrokerParameters;
         /**
          * The parameters for using a DynamoDB stream as a source.  Detailed below.
          */
-        dynamodbStreamParameters: outputs.pipes.PipeSourceParametersDynamodbStreamParameters;
+        dynamodbStreamParameters?: outputs.pipes.PipeSourceParametersDynamodbStreamParameters;
         /**
          * The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
          */
@@ -48328,30 +48328,30 @@ export namespace pipes {
         /**
          * The parameters for using a Kinesis stream as a source. Detailed below.
          */
-        kinesisStreamParameters: outputs.pipes.PipeSourceParametersKinesisStreamParameters;
+        kinesisStreamParameters?: outputs.pipes.PipeSourceParametersKinesisStreamParameters;
         /**
          * The parameters for using an MSK stream as a source. Detailed below.
          */
-        managedStreamingKafkaParameters: outputs.pipes.PipeSourceParametersManagedStreamingKafkaParameters;
+        managedStreamingKafkaParameters?: outputs.pipes.PipeSourceParametersManagedStreamingKafkaParameters;
         /**
          * The parameters for using a Rabbit MQ broker as a source. Detailed below.
          */
-        rabbitmqBrokerParameters: outputs.pipes.PipeSourceParametersRabbitmqBrokerParameters;
+        rabbitmqBrokerParameters?: outputs.pipes.PipeSourceParametersRabbitmqBrokerParameters;
         /**
          * The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
          */
-        selfManagedKafkaParameters: outputs.pipes.PipeSourceParametersSelfManagedKafkaParameters;
+        selfManagedKafkaParameters?: outputs.pipes.PipeSourceParametersSelfManagedKafkaParameters;
         /**
          * The parameters for using a Amazon SQS stream as a source. Detailed below.
          */
-        sqsQueueParameters: outputs.pipes.PipeSourceParametersSqsQueueParameters;
+        sqsQueueParameters?: outputs.pipes.PipeSourceParametersSqsQueueParameters;
     }
 
     export interface PipeSourceParametersActivemqBrokerParameters {
         /**
          * The maximum number of records to include in each batch. Maximum value of 10000.
          */
-        batchSize: number;
+        batchSize?: number;
         /**
          * The credentials needed to access the resource. Detailed below.
          */
@@ -48359,7 +48359,7 @@ export namespace pipes {
         /**
          * The maximum length of a time to wait for events. Maximum value of 300.
          */
-        maximumBatchingWindowInSeconds: number;
+        maximumBatchingWindowInSeconds?: number;
         /**
          * The name of the destination queue to consume. Maximum length of 1000.
          */
@@ -48377,7 +48377,7 @@ export namespace pipes {
         /**
          * The maximum number of records to include in each batch. Maximum value of 10000.
          */
-        batchSize: number;
+        batchSize?: number;
         /**
          * Define the target queue to send dead-letter queue events to. Detailed below.
          */
@@ -48385,11 +48385,11 @@ export namespace pipes {
         /**
          * The maximum length of a time to wait for events. Maximum value of 300.
          */
-        maximumBatchingWindowInSeconds: number;
+        maximumBatchingWindowInSeconds?: number;
         /**
          * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
          */
-        maximumRecordAgeInSeconds: number;
+        maximumRecordAgeInSeconds?: number;
         /**
          * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
          */
@@ -48401,7 +48401,7 @@ export namespace pipes {
         /**
          * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
          */
-        parallelizationFactor: number;
+        parallelizationFactor?: number;
         /**
          * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          */
@@ -48433,7 +48433,7 @@ export namespace pipes {
         /**
          * The maximum number of records to include in each batch. Maximum value of 10000.
          */
-        batchSize: number;
+        batchSize?: number;
         /**
          * Define the target queue to send dead-letter queue events to. Detailed below.
          */
@@ -48441,11 +48441,11 @@ export namespace pipes {
         /**
          * The maximum length of a time to wait for events. Maximum value of 300.
          */
-        maximumBatchingWindowInSeconds: number;
+        maximumBatchingWindowInSeconds?: number;
         /**
          * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
          */
-        maximumRecordAgeInSeconds: number;
+        maximumRecordAgeInSeconds?: number;
         /**
          * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
          */
@@ -48457,7 +48457,7 @@ export namespace pipes {
         /**
          * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
          */
-        parallelizationFactor: number;
+        parallelizationFactor?: number;
         /**
          * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          */
@@ -48479,7 +48479,7 @@ export namespace pipes {
         /**
          * The maximum number of records to include in each batch. Maximum value of 10000.
          */
-        batchSize: number;
+        batchSize?: number;
         /**
          * The name of the destination queue to consume. Maximum value of 200.
          */
@@ -48491,7 +48491,7 @@ export namespace pipes {
         /**
          * The maximum length of a time to wait for events. Maximum value of 300.
          */
-        maximumBatchingWindowInSeconds: number;
+        maximumBatchingWindowInSeconds?: number;
         /**
          * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          */
@@ -48517,7 +48517,7 @@ export namespace pipes {
         /**
          * The maximum number of records to include in each batch. Maximum value of 10000.
          */
-        batchSize: number;
+        batchSize?: number;
         /**
          * The credentials needed to access the resource. Detailed below.
          */
@@ -48525,7 +48525,7 @@ export namespace pipes {
         /**
          * The maximum length of a time to wait for events. Maximum value of 300.
          */
-        maximumBatchingWindowInSeconds: number;
+        maximumBatchingWindowInSeconds?: number;
         /**
          * The name of the destination queue to consume. Maximum length of 1000.
          */
@@ -48551,7 +48551,7 @@ export namespace pipes {
         /**
          * The maximum number of records to include in each batch. Maximum value of 10000.
          */
-        batchSize: number;
+        batchSize?: number;
         /**
          * The name of the destination queue to consume. Maximum value of 200.
          */
@@ -48563,7 +48563,7 @@ export namespace pipes {
         /**
          * The maximum length of a time to wait for events. Maximum value of 300.
          */
-        maximumBatchingWindowInSeconds: number;
+        maximumBatchingWindowInSeconds?: number;
         /**
          * The ARN of the Secrets Manager secret used for certification.
          */
@@ -48616,11 +48616,11 @@ export namespace pipes {
         /**
          * The maximum number of records to include in each batch. Maximum value of 10000.
          */
-        batchSize: number;
+        batchSize?: number;
         /**
          * The maximum length of a time to wait for events. Maximum value of 300.
          */
-        maximumBatchingWindowInSeconds: number;
+        maximumBatchingWindowInSeconds?: number;
     }
 
     export interface PipeTargetParameters {
@@ -49507,11 +49507,11 @@ export namespace quicksight {
         /**
          * Controls whether a child dataset of a direct query can use this dataset as a source.
          */
-        disableUseAsDirectQuerySource: boolean;
+        disableUseAsDirectQuerySource?: boolean;
         /**
          * Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
          */
-        disableUseAsImportedSource: boolean;
+        disableUseAsImportedSource?: boolean;
     }
 
     export interface DataSetFieldFolder {
@@ -49537,7 +49537,7 @@ export namespace quicksight {
         /**
          * Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
          */
-        dataTransforms: outputs.quicksight.DataSetLogicalTableMapDataTransform[];
+        dataTransforms?: outputs.quicksight.DataSetLogicalTableMapDataTransform[];
         /**
          * Key of the logical table map.
          */
@@ -49552,31 +49552,31 @@ export namespace quicksight {
         /**
          * A transform operation that casts a column to a different type. See cast_column_type_operation.
          */
-        castColumnTypeOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformCastColumnTypeOperation;
+        castColumnTypeOperation?: outputs.quicksight.DataSetLogicalTableMapDataTransformCastColumnTypeOperation;
         /**
          * An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
          */
-        createColumnsOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformCreateColumnsOperation;
+        createColumnsOperation?: outputs.quicksight.DataSetLogicalTableMapDataTransformCreateColumnsOperation;
         /**
          * An operation that filters rows based on some condition. See filter_operation.
          */
-        filterOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformFilterOperation;
+        filterOperation?: outputs.quicksight.DataSetLogicalTableMapDataTransformFilterOperation;
         /**
          * An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
          */
-        projectOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformProjectOperation;
+        projectOperation?: outputs.quicksight.DataSetLogicalTableMapDataTransformProjectOperation;
         /**
          * An operation that renames a column. See rename_column_operation.
          */
-        renameColumnOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformRenameColumnOperation;
+        renameColumnOperation?: outputs.quicksight.DataSetLogicalTableMapDataTransformRenameColumnOperation;
         /**
          * An operation that tags a column with additional information. See tag_column_operation.
          */
-        tagColumnOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperation;
+        tagColumnOperation?: outputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperation;
         /**
          * A transform operation that removes tags associated with a column. See untag_column_operation.
          */
-        untagColumnOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformUntagColumnOperation;
+        untagColumnOperation?: outputs.quicksight.DataSetLogicalTableMapDataTransformUntagColumnOperation;
     }
 
     export interface DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
@@ -49587,7 +49587,7 @@ export namespace quicksight {
         /**
          * When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
          */
-        format: string;
+        format?: string;
         /**
          * New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
          */
@@ -49656,18 +49656,18 @@ export namespace quicksight {
         /**
          * A description for a column. See column_description.
          */
-        columnDescription: outputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription;
+        columnDescription?: outputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription;
         /**
          * A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
          */
-        columnGeographicRole: string;
+        columnGeographicRole?: string;
     }
 
     export interface DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
         /**
          * The text of a description for a column.
          */
-        text: string;
+        text?: string;
     }
 
     export interface DataSetLogicalTableMapDataTransformUntagColumnOperation {
@@ -49685,22 +49685,22 @@ export namespace quicksight {
         /**
          * ARN of the parent data set.
          */
-        dataSetArn: string;
+        dataSetArn?: string;
         /**
          * Specifies the result of a join of two logical tables. See join_instruction.
          */
-        joinInstruction: outputs.quicksight.DataSetLogicalTableMapSourceJoinInstruction;
+        joinInstruction?: outputs.quicksight.DataSetLogicalTableMapSourceJoinInstruction;
         /**
          * Physical table ID.
          */
-        physicalTableId: string;
+        physicalTableId?: string;
     }
 
     export interface DataSetLogicalTableMapSourceJoinInstruction {
         /**
          * Join key properties of the left operand. See left_join_key_properties.
          */
-        leftJoinKeyProperties: outputs.quicksight.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties;
+        leftJoinKeyProperties?: outputs.quicksight.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties;
         /**
          * Operand on the left side of a join.
          */
@@ -49712,7 +49712,7 @@ export namespace quicksight {
         /**
          * Join key properties of the right operand. See right_join_key_properties.
          */
-        rightJoinKeyProperties: outputs.quicksight.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties;
+        rightJoinKeyProperties?: outputs.quicksight.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties;
         /**
          * Operand on the right side of a join.
          */
@@ -49727,29 +49727,29 @@ export namespace quicksight {
         /**
          * A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
          */
-        uniqueKey: boolean;
+        uniqueKey?: boolean;
     }
 
     export interface DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties {
         /**
          * A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
          */
-        uniqueKey: boolean;
+        uniqueKey?: boolean;
     }
 
     export interface DataSetOutputColumn {
         /**
          * Field folder description.
          */
-        description: string;
+        description?: string;
         /**
          * Display name for the dataset.
          */
-        name: string;
+        name?: string;
         /**
          * Data type of the column.
          */
-        type: string;
+        type?: string;
     }
 
     export interface DataSetPermission {
@@ -49779,7 +49779,7 @@ export namespace quicksight {
         /**
          * A physical table type for as S3 data source. See s3_source.
          */
-        s3Source: outputs.quicksight.DataSetPhysicalTableMapS3Source;
+        s3Source?: outputs.quicksight.DataSetPhysicalTableMapS3Source;
     }
 
     export interface DataSetPhysicalTableMapCustomSql {
@@ -49876,23 +49876,23 @@ export namespace quicksight {
         /**
          * Whether the file has a header row, or the files each have a header row.
          */
-        containsHeader: boolean;
+        containsHeader?: boolean;
         /**
          * Delimiter between values in the file.
          */
-        delimiter: string;
+        delimiter?: string;
         /**
          * File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
          */
-        format: string;
+        format?: string;
         /**
          * A row number to start reading data from.
          */
-        startFromRow: number;
+        startFromRow?: number;
         /**
          * Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
          */
-        textQualifier: string;
+        textQualifier?: string;
     }
 
     export interface DataSetRefreshProperties {
@@ -50382,369 +50382,369 @@ export namespace quicksight {
     }
 
     export interface GetDataSetColumnGroup {
-        geoSpatialColumnGroups: outputs.quicksight.GetDataSetColumnGroupGeoSpatialColumnGroup[];
+        geoSpatialColumnGroups?: outputs.quicksight.GetDataSetColumnGroupGeoSpatialColumnGroup[];
     }
 
     export interface GetDataSetColumnGroupGeoSpatialColumnGroup {
-        columns: string[];
-        countryCode: string;
-        name: string;
+        columns?: string[];
+        countryCode?: string;
+        name?: string;
     }
 
     export interface GetDataSetColumnLevelPermissionRule {
-        columnNames: string[];
-        principals: string[];
+        columnNames?: string[];
+        principals?: string[];
     }
 
     export interface GetDataSetDataSetUsageConfiguration {
-        disableUseAsDirectQuerySource: boolean;
-        disableUseAsImportedSource: boolean;
+        disableUseAsDirectQuerySource?: boolean;
+        disableUseAsImportedSource?: boolean;
     }
 
     export interface GetDataSetFieldFolder {
-        columns: string[];
-        description: string;
-        fieldFoldersId: string;
+        columns?: string[];
+        description?: string;
+        fieldFoldersId?: string;
     }
 
     export interface GetDataSetLogicalTableMap {
-        alias: string;
-        dataTransforms: outputs.quicksight.GetDataSetLogicalTableMapDataTransform[];
-        logicalTableMapId: string;
-        sources: outputs.quicksight.GetDataSetLogicalTableMapSource[];
+        alias?: string;
+        dataTransforms?: outputs.quicksight.GetDataSetLogicalTableMapDataTransform[];
+        logicalTableMapId?: string;
+        sources?: outputs.quicksight.GetDataSetLogicalTableMapSource[];
     }
 
     export interface GetDataSetLogicalTableMapDataTransform {
-        castColumnTypeOperations: outputs.quicksight.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation[];
-        createColumnsOperations: outputs.quicksight.GetDataSetLogicalTableMapDataTransformCreateColumnsOperation[];
-        filterOperations: outputs.quicksight.GetDataSetLogicalTableMapDataTransformFilterOperation[];
-        projectOperations: outputs.quicksight.GetDataSetLogicalTableMapDataTransformProjectOperation[];
-        renameColumnOperations: outputs.quicksight.GetDataSetLogicalTableMapDataTransformRenameColumnOperation[];
-        tagColumnOperations: outputs.quicksight.GetDataSetLogicalTableMapDataTransformTagColumnOperation[];
-        untagColumnOperations: outputs.quicksight.GetDataSetLogicalTableMapDataTransformUntagColumnOperation[];
+        castColumnTypeOperations?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation[];
+        createColumnsOperations?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformCreateColumnsOperation[];
+        filterOperations?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformFilterOperation[];
+        projectOperations?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformProjectOperation[];
+        renameColumnOperations?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformRenameColumnOperation[];
+        tagColumnOperations?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformTagColumnOperation[];
+        untagColumnOperations?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformUntagColumnOperation[];
     }
 
     export interface GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation {
-        columnName: string;
-        format: string;
-        newColumnType: string;
+        columnName?: string;
+        format?: string;
+        newColumnType?: string;
     }
 
     export interface GetDataSetLogicalTableMapDataTransformCreateColumnsOperation {
-        columns: outputs.quicksight.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn[];
+        columns?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn[];
     }
 
     export interface GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
-        columnId: string;
-        columnName: string;
-        expression: string;
+        columnId?: string;
+        columnName?: string;
+        expression?: string;
     }
 
     export interface GetDataSetLogicalTableMapDataTransformFilterOperation {
-        conditionExpression: string;
+        conditionExpression?: string;
     }
 
     export interface GetDataSetLogicalTableMapDataTransformProjectOperation {
-        projectedColumns: string[];
+        projectedColumns?: string[];
     }
 
     export interface GetDataSetLogicalTableMapDataTransformRenameColumnOperation {
-        columnName: string;
-        newColumnName: string;
+        columnName?: string;
+        newColumnName?: string;
     }
 
     export interface GetDataSetLogicalTableMapDataTransformTagColumnOperation {
-        columnName: string;
-        tags: outputs.quicksight.GetDataSetLogicalTableMapDataTransformTagColumnOperationTag[];
+        columnName?: string;
+        tags?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformTagColumnOperationTag[];
     }
 
     export interface GetDataSetLogicalTableMapDataTransformTagColumnOperationTag {
-        columnDescriptions: outputs.quicksight.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription[];
-        columnGeographicRole: string;
+        columnDescriptions?: outputs.quicksight.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription[];
+        columnGeographicRole?: string;
     }
 
     export interface GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
-        text: string;
+        text?: string;
     }
 
     export interface GetDataSetLogicalTableMapDataTransformUntagColumnOperation {
-        columnName: string;
-        tagNames: string[];
+        columnName?: string;
+        tagNames?: string[];
     }
 
     export interface GetDataSetLogicalTableMapSource {
-        dataSetArn: string;
-        joinInstructions: outputs.quicksight.GetDataSetLogicalTableMapSourceJoinInstruction[];
-        physicalTableId: string;
+        dataSetArn?: string;
+        joinInstructions?: outputs.quicksight.GetDataSetLogicalTableMapSourceJoinInstruction[];
+        physicalTableId?: string;
     }
 
     export interface GetDataSetLogicalTableMapSourceJoinInstruction {
-        leftJoinKeyProperties: outputs.quicksight.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty[];
-        leftOperand: string;
-        onClause: string;
-        rightJoinKeyProperties: outputs.quicksight.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty[];
-        rightOperand: string;
-        type: string;
+        leftJoinKeyProperties?: outputs.quicksight.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty[];
+        leftOperand?: string;
+        onClause?: string;
+        rightJoinKeyProperties?: outputs.quicksight.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty[];
+        rightOperand?: string;
+        type?: string;
     }
 
     export interface GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty {
-        uniqueKey: boolean;
+        uniqueKey?: boolean;
     }
 
     export interface GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty {
-        uniqueKey: boolean;
+        uniqueKey?: boolean;
     }
 
     export interface GetDataSetPermission {
-        actions: string[];
-        principal: string;
+        actions?: string[];
+        principal?: string;
     }
 
     export interface GetDataSetPhysicalTableMap {
-        customSqls: outputs.quicksight.GetDataSetPhysicalTableMapCustomSql[];
-        physicalTableMapId: string;
-        relationalTables: outputs.quicksight.GetDataSetPhysicalTableMapRelationalTable[];
-        s3Sources: outputs.quicksight.GetDataSetPhysicalTableMapS3Source[];
+        customSqls?: outputs.quicksight.GetDataSetPhysicalTableMapCustomSql[];
+        physicalTableMapId?: string;
+        relationalTables?: outputs.quicksight.GetDataSetPhysicalTableMapRelationalTable[];
+        s3Sources?: outputs.quicksight.GetDataSetPhysicalTableMapS3Source[];
     }
 
     export interface GetDataSetPhysicalTableMapCustomSql {
-        columns: outputs.quicksight.GetDataSetPhysicalTableMapCustomSqlColumn[];
-        dataSourceArn: string;
-        name: string;
-        sqlQuery: string;
+        columns?: outputs.quicksight.GetDataSetPhysicalTableMapCustomSqlColumn[];
+        dataSourceArn?: string;
+        name?: string;
+        sqlQuery?: string;
     }
 
     export interface GetDataSetPhysicalTableMapCustomSqlColumn {
-        name: string;
-        type: string;
+        name?: string;
+        type?: string;
     }
 
     export interface GetDataSetPhysicalTableMapRelationalTable {
-        catalog: string;
-        dataSourceArn: string;
-        inputColumns: outputs.quicksight.GetDataSetPhysicalTableMapRelationalTableInputColumn[];
-        name: string;
-        schema: string;
+        catalog?: string;
+        dataSourceArn?: string;
+        inputColumns?: outputs.quicksight.GetDataSetPhysicalTableMapRelationalTableInputColumn[];
+        name?: string;
+        schema?: string;
     }
 
     export interface GetDataSetPhysicalTableMapRelationalTableInputColumn {
-        name: string;
-        type: string;
+        name?: string;
+        type?: string;
     }
 
     export interface GetDataSetPhysicalTableMapS3Source {
-        dataSourceArn: string;
-        inputColumns: outputs.quicksight.GetDataSetPhysicalTableMapS3SourceInputColumn[];
-        uploadSettings: outputs.quicksight.GetDataSetPhysicalTableMapS3SourceUploadSetting[];
+        dataSourceArn?: string;
+        inputColumns?: outputs.quicksight.GetDataSetPhysicalTableMapS3SourceInputColumn[];
+        uploadSettings?: outputs.quicksight.GetDataSetPhysicalTableMapS3SourceUploadSetting[];
     }
 
     export interface GetDataSetPhysicalTableMapS3SourceInputColumn {
-        name: string;
-        type: string;
+        name?: string;
+        type?: string;
     }
 
     export interface GetDataSetPhysicalTableMapS3SourceUploadSetting {
-        containsHeader: boolean;
-        delimiter: string;
-        format: string;
-        startFromRow: number;
-        textQualifier: string;
+        containsHeader?: boolean;
+        delimiter?: string;
+        format?: string;
+        startFromRow?: number;
+        textQualifier?: string;
     }
 
     export interface GetDataSetRowLevelPermissionDataSet {
-        arn: string;
-        formatVersion: string;
-        namespace: string;
-        permissionPolicy: string;
-        status: string;
+        arn?: string;
+        formatVersion?: string;
+        namespace?: string;
+        permissionPolicy?: string;
+        status?: string;
     }
 
     export interface GetDataSetRowLevelPermissionTagConfiguration {
-        status: string;
-        tagRules: outputs.quicksight.GetDataSetRowLevelPermissionTagConfigurationTagRule[];
+        status?: string;
+        tagRules?: outputs.quicksight.GetDataSetRowLevelPermissionTagConfigurationTagRule[];
     }
 
     export interface GetDataSetRowLevelPermissionTagConfigurationTagRule {
-        columnName: string;
-        matchAllValue: string;
-        tagKey: string;
-        tagMultiValueDelimiter: string;
+        columnName?: string;
+        matchAllValue?: string;
+        tagKey?: string;
+        tagMultiValueDelimiter?: string;
     }
 
     export interface GetThemeConfiguration {
         /**
          * Color properties that apply to chart data colors. See data_color_palette.
          */
-        dataColorPalettes: outputs.quicksight.GetThemeConfigurationDataColorPalette[];
+        dataColorPalettes?: outputs.quicksight.GetThemeConfigurationDataColorPalette[];
         /**
          * Display options related to sheets. See sheet.
          */
-        sheets: outputs.quicksight.GetThemeConfigurationSheet[];
+        sheets?: outputs.quicksight.GetThemeConfigurationSheet[];
         /**
          * Determines the typography options. See typography.
          */
-        typographies: outputs.quicksight.GetThemeConfigurationTypography[];
+        typographies?: outputs.quicksight.GetThemeConfigurationTypography[];
         /**
          * Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
          */
-        uiColorPalettes: outputs.quicksight.GetThemeConfigurationUiColorPalette[];
+        uiColorPalettes?: outputs.quicksight.GetThemeConfigurationUiColorPalette[];
     }
 
     export interface GetThemeConfigurationDataColorPalette {
         /**
          * List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
          */
-        colors: string[];
+        colors?: string[];
         /**
          * The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
          */
-        emptyFillColor: string;
+        emptyFillColor?: string;
         /**
          * The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
          */
-        minMaxGradients: string[];
+        minMaxGradients?: string[];
     }
 
     export interface GetThemeConfigurationSheet {
         /**
          * The layout options for tiles. See tile_layout.
          */
-        tileLayouts: outputs.quicksight.GetThemeConfigurationSheetTileLayout[];
+        tileLayouts?: outputs.quicksight.GetThemeConfigurationSheetTileLayout[];
         /**
          * The display options for tiles. See tile.
          */
-        tiles: outputs.quicksight.GetThemeConfigurationSheetTile[];
+        tiles?: outputs.quicksight.GetThemeConfigurationSheetTile[];
     }
 
     export interface GetThemeConfigurationSheetTile {
         /**
          * The border around a tile. See border.
          */
-        borders: outputs.quicksight.GetThemeConfigurationSheetTileBorder[];
+        borders?: outputs.quicksight.GetThemeConfigurationSheetTileBorder[];
     }
 
     export interface GetThemeConfigurationSheetTileBorder {
         /**
          * This Boolean value controls whether to display sheet margins.
          */
-        show: boolean;
+        show?: boolean;
     }
 
     export interface GetThemeConfigurationSheetTileLayout {
         /**
          * The gutter settings that apply between tiles. See gutter.
          */
-        gutters: outputs.quicksight.GetThemeConfigurationSheetTileLayoutGutter[];
+        gutters?: outputs.quicksight.GetThemeConfigurationSheetTileLayoutGutter[];
         /**
          * The margin settings that apply around the outside edge of sheets. See margin.
          */
-        margins: outputs.quicksight.GetThemeConfigurationSheetTileLayoutMargin[];
+        margins?: outputs.quicksight.GetThemeConfigurationSheetTileLayoutMargin[];
     }
 
     export interface GetThemeConfigurationSheetTileLayoutGutter {
         /**
          * This Boolean value controls whether to display sheet margins.
          */
-        show: boolean;
+        show?: boolean;
     }
 
     export interface GetThemeConfigurationSheetTileLayoutMargin {
         /**
          * This Boolean value controls whether to display sheet margins.
          */
-        show: boolean;
+        show?: boolean;
     }
 
     export interface GetThemeConfigurationTypography {
         /**
          * Determines the list of font families. Maximum number of 5 items. See font_families.
          */
-        fontFamilies: outputs.quicksight.GetThemeConfigurationTypographyFontFamily[];
+        fontFamilies?: outputs.quicksight.GetThemeConfigurationTypographyFontFamily[];
     }
 
     export interface GetThemeConfigurationTypographyFontFamily {
         /**
          * Font family name.
          */
-        fontFamily: string;
+        fontFamily?: string;
     }
 
     export interface GetThemeConfigurationUiColorPalette {
         /**
          * Color (hexadecimal) that applies to selected states and buttons.
          */
-        accent: string;
+        accent?: string;
         /**
          * Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
          */
-        accentForeground: string;
+        accentForeground?: string;
         /**
          * Color (hexadecimal) that applies to error messages.
          */
-        danger: string;
+        danger?: string;
         /**
          * Color (hexadecimal) that applies to any text or other elements that appear over the error color.
          */
-        dangerForeground: string;
+        dangerForeground?: string;
         /**
          * Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
          */
-        dimension: string;
+        dimension?: string;
         /**
          * Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
          */
-        dimensionForeground: string;
+        dimensionForeground?: string;
         /**
          * Color (hexadecimal) that applies to the names of fields that are identified as measures.
          */
-        measure: string;
+        measure?: string;
         /**
          * Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
          */
-        measureForeground: string;
+        measureForeground?: string;
         /**
          * Color (hexadecimal) that applies to visuals and other high emphasis UI.
          */
-        primaryBackground: string;
+        primaryBackground?: string;
         /**
          * Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
          */
-        primaryForeground: string;
+        primaryForeground?: string;
         /**
          * Color (hexadecimal) that applies to the sheet background and sheet controls.
          */
-        secondaryBackground: string;
+        secondaryBackground?: string;
         /**
          * Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
          */
-        secondaryForeground: string;
+        secondaryForeground?: string;
         /**
          * Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
          */
-        success: string;
+        success?: string;
         /**
          * Color (hexadecimal) that applies to any text or other elements that appear over the success color.
          */
-        successForeground: string;
+        successForeground?: string;
         /**
          * Color (hexadecimal) that applies to warning and informational messages.
          */
-        warning: string;
+        warning?: string;
         /**
          * Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
          */
-        warningForeground: string;
+        warningForeground?: string;
     }
 
     export interface GetThemePermission {
         /**
          * List of IAM actions to grant or revoke permissions on.
          */
-        actions: string[];
+        actions?: string[];
         /**
          * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
          */
-        principal: string;
+        principal?: string;
     }
 
     export interface IamPolicyAssignmentIdentities {
@@ -50772,7 +50772,7 @@ export namespace quicksight {
         /**
          * Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
          */
-        startAfterDateTime: string;
+        startAfterDateTime?: string;
     }
 
     export interface RefreshScheduleScheduleScheduleFrequency {
@@ -50787,11 +50787,11 @@ export namespace quicksight {
         /**
          * The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
          */
-        timeOfTheDay: string;
+        timeOfTheDay?: string;
         /**
          * The timezone that you want the refresh schedule to use.
          */
-        timezone: string;
+        timezone?: string;
     }
 
     export interface RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
@@ -51104,15 +51104,15 @@ export namespace rds {
         /**
          * ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Amazon Resource Name (ARN) of the secret.
          */
-        secretArn: string;
+        secretArn?: string;
         /**
          * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          */
-        secretStatus: string;
+        secretStatus?: string;
     }
 
     export interface ClusterParameterGroupParameter {
@@ -51217,9 +51217,9 @@ export namespace rds {
     }
 
     export interface GetClusterMasterUserSecret {
-        kmsKeyId: string;
-        secretArn: string;
-        secretStatus: string;
+        kmsKeyId?: string;
+        secretArn?: string;
+        secretStatus?: string;
     }
 
     export interface GetClustersFilter {
@@ -51242,15 +51242,15 @@ export namespace rds {
         /**
          * The Amazon Web Services KMS key identifier that is used to encrypt the secret.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * The Amazon Resource Name (ARN) of the secret.
          */
-        secretArn: string;
+        secretArn?: string;
         /**
          * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          */
-        secretStatus: string;
+        secretStatus?: string;
     }
 
     export interface GetInstancesFilter {
@@ -51265,23 +51265,23 @@ export namespace rds {
     }
 
     export interface GetProxyAuth {
-        authScheme: string;
-        clientPasswordAuthType: string;
-        description: string;
-        iamAuth: string;
-        secretArn: string;
-        username: string;
+        authScheme?: string;
+        clientPasswordAuthType?: string;
+        description?: string;
+        iamAuth?: string;
+        secretArn?: string;
+        username?: string;
     }
 
     export interface GlobalClusterGlobalClusterMember {
         /**
          * Amazon Resource Name (ARN) of member DB Cluster
          */
-        dbClusterArn: string;
+        dbClusterArn?: string;
         /**
          * Whether the member is the primary DB Cluster
          */
-        isWriter: boolean;
+        isWriter?: boolean;
     }
 
     export interface InstanceBlueGreenUpdate {
@@ -51303,15 +51303,15 @@ export namespace rds {
         /**
          * Specifies the DNS address of the DB instance.
          */
-        address: string;
+        address?: string;
         /**
          * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
          */
-        hostedZoneId: string;
+        hostedZoneId?: string;
         /**
          * The port on which the DB accepts connections.
          */
-        port: number;
+        port?: number;
     }
 
     export interface InstanceMasterUserSecret {
@@ -51319,15 +51319,15 @@ export namespace rds {
          * The ARN for the KMS encryption key. If creating an
          * encrypted replica, set this to the destination KMS ARN.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * The Amazon Resource Name (ARN) of the secret.
          */
-        secretArn: string;
+        secretArn?: string;
         /**
          * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          */
-        secretStatus: string;
+        secretStatus?: string;
     }
 
     export interface InstanceRestoreToPointInTime {
@@ -51441,7 +51441,7 @@ export namespace rds {
         /**
          * The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
          */
-        clientPasswordAuthType: string;
+        clientPasswordAuthType?: string;
         /**
          * A user-specified description about the authentication used by a proxy to log in as a specific database user.
          */
@@ -51484,8 +51484,8 @@ export namespace rds {
     }
 
     export interface ReservedInstanceRecurringCharge {
-        recurringChargeAmount: number;
-        recurringChargeFrequency: string;
+        recurringChargeAmount?: number;
+        recurringChargeFrequency?: string;
     }
 
 }
@@ -51495,15 +51495,15 @@ export namespace redshift {
         /**
          * Whether the node is a leader node or a compute node
          */
-        nodeRole: string;
+        nodeRole?: string;
         /**
          * The private IP address of a node within a cluster
          */
-        privateIpAddress: string;
+        privateIpAddress?: string;
         /**
          * The public IP address of a node within a cluster
          */
-        publicIpAddress: string;
+        publicIpAddress?: string;
     }
 
     export interface ClusterLogging {
@@ -51511,7 +51511,7 @@ export namespace redshift {
          * The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
          * For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
          */
-        bucketName: string;
+        bucketName?: string;
         /**
          * Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
          */
@@ -51527,7 +51527,7 @@ export namespace redshift {
         /**
          * The prefix applied to the log file names.
          */
-        s3KeyPrefix: string;
+        s3KeyPrefix?: string;
     }
 
     export interface ClusterSnapshotCopy {
@@ -51549,49 +51549,49 @@ export namespace redshift {
         /**
          * One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
          */
-        networkInterfaces: outputs.redshift.EndpointAccessVpcEndpointNetworkInterface[];
+        networkInterfaces?: outputs.redshift.EndpointAccessVpcEndpointNetworkInterface[];
         /**
          * The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
          */
-        vpcEndpointId: string;
+        vpcEndpointId?: string;
         /**
          * The VPC identifier that the endpoint is associated.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface EndpointAccessVpcEndpointNetworkInterface {
         /**
          * The Availability Zone.
          */
-        availabilityZone: string;
+        availabilityZone?: string;
         /**
          * The network interface identifier.
          */
-        networkInterfaceId: string;
+        networkInterfaceId?: string;
         /**
          * The IPv4 address of the network interface within the subnet.
          */
-        privateIpAddress: string;
+        privateIpAddress?: string;
         /**
          * The subnet identifier.
          */
-        subnetId: string;
+        subnetId?: string;
     }
 
     export interface GetClusterClusterNode {
         /**
          * Whether the node is a leader node or a compute node
          */
-        nodeRole: string;
+        nodeRole?: string;
         /**
          * Private IP address of a node within a cluster
          */
-        privateIpAddress: string;
+        privateIpAddress?: string;
         /**
          * Public IP address of a node within a cluster
          */
-        publicIpAddress: string;
+        publicIpAddress?: string;
     }
 
     export interface ParameterGroupParameter {
@@ -51672,83 +51672,83 @@ export namespace redshiftserverless {
         /**
          * The network interfaces of the endpoint.. See `Network Interface` below.
          */
-        networkInterfaces: outputs.redshiftserverless.EndpointAccessVpcEndpointNetworkInterface[];
+        networkInterfaces?: outputs.redshiftserverless.EndpointAccessVpcEndpointNetworkInterface[];
         /**
          * The DNS address of the VPC endpoint.
          */
-        vpcEndpointId: string;
+        vpcEndpointId?: string;
         /**
          * The port that Amazon Redshift Serverless listens on.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface EndpointAccessVpcEndpointNetworkInterface {
         /**
          * The availability Zone.
          */
-        availabilityZone: string;
+        availabilityZone?: string;
         /**
          * The unique identifier of the network interface.
          */
-        networkInterfaceId: string;
+        networkInterfaceId?: string;
         /**
          * The IPv4 address of the network interface within the subnet.
          */
-        privateIpAddress: string;
+        privateIpAddress?: string;
         /**
          * The unique identifier of the subnet.
          */
-        subnetId: string;
+        subnetId?: string;
     }
 
     export interface GetWorkgroupEndpoint {
         /**
          * The DNS address of the VPC endpoint.
          */
-        address: string;
+        address?: string;
         /**
          * The port that Amazon Redshift Serverless listens on.
          */
-        port: number;
+        port?: number;
         /**
          * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
          */
-        vpcEndpoints: outputs.redshiftserverless.GetWorkgroupEndpointVpcEndpoint[];
+        vpcEndpoints?: outputs.redshiftserverless.GetWorkgroupEndpointVpcEndpoint[];
     }
 
     export interface GetWorkgroupEndpointVpcEndpoint {
         /**
          * The network interfaces of the endpoint.. See `Network Interface` below.
          */
-        networkInterfaces: outputs.redshiftserverless.GetWorkgroupEndpointVpcEndpointNetworkInterface[];
+        networkInterfaces?: outputs.redshiftserverless.GetWorkgroupEndpointVpcEndpointNetworkInterface[];
         /**
          * The DNS address of the VPC endpoint.
          */
-        vpcEndpointId: string;
+        vpcEndpointId?: string;
         /**
          * The port that Amazon Redshift Serverless listens on.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface GetWorkgroupEndpointVpcEndpointNetworkInterface {
         /**
          * The availability Zone.
          */
-        availabilityZone: string;
+        availabilityZone?: string;
         /**
          * The unique identifier of the network interface.
          */
-        networkInterfaceId: string;
+        networkInterfaceId?: string;
         /**
          * The IPv4 address of the network interface within the subnet.
          */
-        privateIpAddress: string;
+        privateIpAddress?: string;
         /**
          * The unique identifier of the subnet.
          */
-        subnetId: string;
+        subnetId?: string;
     }
 
     export interface WorkgroupConfigParameter {
@@ -51766,49 +51766,49 @@ export namespace redshiftserverless {
         /**
          * The DNS address of the VPC endpoint.
          */
-        address: string;
+        address?: string;
         /**
          * The port that Amazon Redshift Serverless listens on.
          */
-        port: number;
+        port?: number;
         /**
          * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
          */
-        vpcEndpoints: outputs.redshiftserverless.WorkgroupEndpointVpcEndpoint[];
+        vpcEndpoints?: outputs.redshiftserverless.WorkgroupEndpointVpcEndpoint[];
     }
 
     export interface WorkgroupEndpointVpcEndpoint {
         /**
          * The network interfaces of the endpoint.. See `Network Interface` below.
          */
-        networkInterfaces: outputs.redshiftserverless.WorkgroupEndpointVpcEndpointNetworkInterface[];
+        networkInterfaces?: outputs.redshiftserverless.WorkgroupEndpointVpcEndpointNetworkInterface[];
         /**
          * The DNS address of the VPC endpoint.
          */
-        vpcEndpointId: string;
+        vpcEndpointId?: string;
         /**
          * The port that Amazon Redshift Serverless listens on.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
     export interface WorkgroupEndpointVpcEndpointNetworkInterface {
         /**
          * The availability Zone.
          */
-        availabilityZone: string;
+        availabilityZone?: string;
         /**
          * The unique identifier of the network interface.
          */
-        networkInterfaceId: string;
+        networkInterfaceId?: string;
         /**
          * The IPv4 address of the network interface within the subnet.
          */
-        privateIpAddress: string;
+        privateIpAddress?: string;
         /**
          * The unique identifier of the subnet.
          */
-        subnetId: string;
+        subnetId?: string;
     }
 
 }
@@ -51877,15 +51877,15 @@ export namespace resourcegroupstaggingapi {
         /**
          * List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
          */
-        complianceDetails: outputs.resourcegroupstaggingapi.GetResourcesResourceTagMappingListComplianceDetail[];
+        complianceDetails?: outputs.resourcegroupstaggingapi.GetResourcesResourceTagMappingListComplianceDetail[];
         /**
          * ARN of the resource.
          */
-        resourceArn: string;
+        resourceArn?: string;
         /**
          * Map of tags assigned to the resource.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
     }
 
     export interface GetResourcesResourceTagMappingListComplianceDetail {
@@ -51894,9 +51894,9 @@ export namespace resourcegroupstaggingapi {
          * * `keysWithNoncompliantValues ` - Set of tag keys with non-compliant tag values.
          * * `nonCompliantKeys ` - Set of non-compliant tag keys.
          */
-        complianceStatus: boolean;
-        keysWithNoncompliantValues: string[];
-        nonCompliantKeys: string[];
+        complianceStatus?: boolean;
+        keysWithNoncompliantValues?: string[];
+        nonCompliantKeys?: string[];
     }
 
     export interface GetResourcesTagFilter {
@@ -51952,51 +51952,51 @@ export namespace route53 {
         /**
          * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
          */
-        action: string;
+        action?: string;
         /**
          * The DNS record's type.
          */
-        blockOverrideDnsType: string;
+        blockOverrideDnsType?: string;
         /**
          * The custom DNS record to send back in response to the query.
          */
-        blockOverrideDomain: string;
+        blockOverrideDomain?: string;
         /**
          * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
          */
-        blockOverrideTtl: number;
+        blockOverrideTtl?: number;
         /**
          * The way that you want DNS Firewall to block the request.
          */
-        blockResponse: string;
+        blockResponse?: string;
         /**
          * The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
          */
-        creationTime: string;
+        creationTime?: string;
         /**
          * A unique string defined by you to identify the request.
          */
-        creatorRequestId: string;
+        creatorRequestId?: string;
         /**
          * The ID of the domain list that's used in the rule.
          */
-        firewallDomainListId: string;
+        firewallDomainListId?: string;
         /**
          * The unique identifier of the firewall rule group that you want to retrieve the rules for.
          */
-        firewallRuleGroupId: string;
+        firewallRuleGroupId?: string;
         /**
          * The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
          */
-        modificationTime: string;
+        modificationTime?: string;
         /**
          * The name of the rule.
          */
-        name: string;
+        name?: string;
         /**
          * The setting that determines the processing order of the rules in a rule group.
          */
-        priority: number;
+        priority?: number;
     }
 
     export interface GetTrafficPolicyDocumentEndpoint {
@@ -52261,8 +52261,8 @@ export namespace route53 {
         /**
          * The IP address in the subnet that you want to use for DNS queries.
          */
-        ip: string;
-        ipId: string;
+        ip?: string;
+        ipId?: string;
         /**
          * The ID of the subnet that contains the IP address.
          */
@@ -52288,7 +52288,7 @@ export namespace route53 {
         /**
          * Region of the VPC to associate. Defaults to AWS provider region.
          */
-        vpcRegion: string;
+        vpcRegion?: string;
     }
 
 }
@@ -52298,59 +52298,59 @@ export namespace route53domains {
         /**
          * First line of the contact's address.
          */
-        addressLine1: string;
+        addressLine1?: string;
         /**
          * Second line of contact's address, if any.
          */
-        addressLine2: string;
+        addressLine2?: string;
         /**
          * The city of the contact's address.
          */
-        city: string;
+        city?: string;
         /**
          * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
          */
-        contactType: string;
+        contactType?: string;
         /**
          * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
          */
-        countryCode: string;
+        countryCode?: string;
         /**
          * Email address of the contact.
          */
-        email: string;
+        email?: string;
         /**
          * A key-value map of parameters required by certain top-level domains.
          */
-        extraParams: {[key: string]: string};
+        extraParams?: {[key: string]: string};
         /**
          * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
          */
-        fax: string;
+        fax?: string;
         /**
          * First name of contact.
          */
-        firstName: string;
+        firstName?: string;
         /**
          * Last name of contact.
          */
-        lastName: string;
+        lastName?: string;
         /**
          * Name of the organization for contact types other than `PERSON`.
          */
-        organizationName: string;
+        organizationName?: string;
         /**
          * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
          */
-        phoneNumber: string;
+        phoneNumber?: string;
         /**
          * The state or province of the contact's city.
          */
-        state: string;
+        state?: string;
         /**
          * The zip or postal code of the contact's address.
          */
-        zipCode: string;
+        zipCode?: string;
     }
 
     export interface RegisteredDomainNameServer {
@@ -52368,118 +52368,118 @@ export namespace route53domains {
         /**
          * First line of the contact's address.
          */
-        addressLine1: string;
+        addressLine1?: string;
         /**
          * Second line of contact's address, if any.
          */
-        addressLine2: string;
+        addressLine2?: string;
         /**
          * The city of the contact's address.
          */
-        city: string;
+        city?: string;
         /**
          * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
          */
-        contactType: string;
+        contactType?: string;
         /**
          * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
          */
-        countryCode: string;
+        countryCode?: string;
         /**
          * Email address of the contact.
          */
-        email: string;
+        email?: string;
         /**
          * A key-value map of parameters required by certain top-level domains.
          */
-        extraParams: {[key: string]: string};
+        extraParams?: {[key: string]: string};
         /**
          * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
          */
-        fax: string;
+        fax?: string;
         /**
          * First name of contact.
          */
-        firstName: string;
+        firstName?: string;
         /**
          * Last name of contact.
          */
-        lastName: string;
+        lastName?: string;
         /**
          * Name of the organization for contact types other than `PERSON`.
          */
-        organizationName: string;
+        organizationName?: string;
         /**
          * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
          */
-        phoneNumber: string;
+        phoneNumber?: string;
         /**
          * The state or province of the contact's city.
          */
-        state: string;
+        state?: string;
         /**
          * The zip or postal code of the contact's address.
          */
-        zipCode: string;
+        zipCode?: string;
     }
 
     export interface RegisteredDomainTechContact {
         /**
          * First line of the contact's address.
          */
-        addressLine1: string;
+        addressLine1?: string;
         /**
          * Second line of contact's address, if any.
          */
-        addressLine2: string;
+        addressLine2?: string;
         /**
          * The city of the contact's address.
          */
-        city: string;
+        city?: string;
         /**
          * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
          */
-        contactType: string;
+        contactType?: string;
         /**
          * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
          */
-        countryCode: string;
+        countryCode?: string;
         /**
          * Email address of the contact.
          */
-        email: string;
+        email?: string;
         /**
          * A key-value map of parameters required by certain top-level domains.
          */
-        extraParams: {[key: string]: string};
+        extraParams?: {[key: string]: string};
         /**
          * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
          */
-        fax: string;
+        fax?: string;
         /**
          * First name of contact.
          */
-        firstName: string;
+        firstName?: string;
         /**
          * Last name of contact.
          */
-        lastName: string;
+        lastName?: string;
         /**
          * Name of the organization for contact types other than `PERSON`.
          */
-        organizationName: string;
+        organizationName?: string;
         /**
          * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
          */
-        phoneNumber: string;
+        phoneNumber?: string;
         /**
          * The state or province of the contact's city.
          */
-        state: string;
+        state?: string;
         /**
          * The zip or postal code of the contact's address.
          */
-        zipCode: string;
+        zipCode?: string;
     }
 
 }
@@ -52489,11 +52489,11 @@ export namespace route53recoverycontrol {
         /**
          * Cluster endpoint.
          */
-        endpoint: string;
+        endpoint?: string;
         /**
          * Region of the endpoint.
          */
-        region: string;
+        region?: string;
     }
 
     export interface SafetyRuleRuleConfig {
@@ -52515,7 +52515,7 @@ export namespace route53recoverycontrol {
 
 export namespace route53recoveryreadiness {
     export interface ResourceSetResource {
-        componentId: string;
+        componentId?: string;
         /**
          * Component for DNS/Routing Control Readiness Checks.
          */
@@ -52749,7 +52749,7 @@ export namespace s3 {
         /**
          * Display name of the owner.
          */
-        displayName: string;
+        displayName?: string;
         /**
          * Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
          */
@@ -52772,7 +52772,7 @@ export namespace s3 {
         /**
          * Display name of the owner.
          */
-        displayName: string;
+        displayName?: string;
         /**
          * ID of the owner.
          */
@@ -52930,7 +52930,7 @@ export namespace s3 {
         /**
          * Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
          */
-        expiredObjectDeleteMarker: boolean;
+        expiredObjectDeleteMarker?: boolean;
     }
 
     export interface BucketLifecycleConfigurationV2RuleFilter {
@@ -53043,7 +53043,7 @@ export namespace s3 {
         /**
          * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
-        id: string;
+        id?: string;
         /**
          * Specifies when noncurrent object versions expire (documented below).
          */
@@ -53139,7 +53139,7 @@ export namespace s3 {
     }
 
     export interface BucketLoggingV2TargetGrantGrantee {
-        displayName: string;
+        displayName?: string;
         /**
          * Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
          */
@@ -53185,7 +53185,7 @@ export namespace s3 {
         /**
          * Unique identifier for each of the notification configurations.
          */
-        id: string;
+        id?: string;
         /**
          * Lambda function ARN.
          */
@@ -53208,7 +53208,7 @@ export namespace s3 {
         /**
          * Unique identifier for each of the notification configurations.
          */
-        id: string;
+        id?: string;
         /**
          * SQS queue ARN.
          */
@@ -53231,7 +53231,7 @@ export namespace s3 {
         /**
          * Unique identifier for each of the notification configurations.
          */
-        id: string;
+        id?: string;
         /**
          * SNS topic ARN.
          */
@@ -53340,7 +53340,7 @@ export namespace s3 {
         /**
          * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
-        id: string;
+        id?: string;
         /**
          * Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
          *
@@ -53763,7 +53763,7 @@ export namespace s3 {
         /**
          * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
-        id: string;
+        id?: string;
         /**
          * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
          */
@@ -54088,7 +54088,7 @@ export namespace s3 {
         /**
          * Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
          */
-        mfaDelete: string;
+        mfaDelete?: string;
         /**
          * Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
          */
@@ -54345,37 +54345,37 @@ export namespace s3control {
          * * PUT Object calls fail if the request includes a public ACL.
          * * PUT Bucket calls fail if the request includes a public ACL.
          */
-        blockPublicAcls: boolean;
+        blockPublicAcls?: boolean;
         /**
          * Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
          * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
          */
-        blockPublicPolicy: boolean;
+        blockPublicPolicy?: boolean;
         /**
          * Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
          * * Ignore all public ACLs on buckets in this account and any objects that they contain.
          */
-        ignorePublicAcls: boolean;
+        ignorePublicAcls?: boolean;
         /**
          * Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
          * * Only the bucket owner and AWS Services can access buckets with public policies.
          */
-        restrictPublicBuckets: boolean;
+        restrictPublicBuckets?: boolean;
     }
 
     export interface GetMultiRegionAccessPointRegion {
         /**
          * The name of the bucket.
          */
-        bucket: string;
+        bucket?: string;
         /**
          * The AWS account ID that owns the bucket.
          */
-        bucketAccountId: string;
+        bucketAccountId?: string;
         /**
          * The name of the region.
          */
-        region: string;
+        region?: string;
     }
 
     export interface MultiRegionAccessPointDetails {
@@ -54393,8 +54393,8 @@ export namespace s3control {
 
     export interface MultiRegionAccessPointDetailsRegion {
         bucket: string;
-        bucketAccountId: string;
-        region: string;
+        bucketAccountId?: string;
+        region?: string;
     }
 
     export interface MultiRegionAccessPointPolicyDetails {
@@ -54722,7 +54722,7 @@ export namespace s3outposts {
         /**
          * Identifier of the Elastic Network Interface (ENI).
          */
-        networkInterfaceId: string;
+        networkInterfaceId?: string;
     }
 
 }
@@ -54779,7 +54779,7 @@ export namespace sagemaker {
         /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
-        sagemakerImageArn: string;
+        sagemakerImageArn?: string;
         /**
          * The ARN of the image version created on the instance.
          */
@@ -54872,11 +54872,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
          */
-        s3DataDistributionType: string;
+        s3DataDistributionType?: string;
         /**
          * Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
          */
-        s3InputMode: string;
+        s3InputMode?: string;
     }
 
     export interface DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat {
@@ -54916,11 +54916,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
          */
-        s3DataDistributionType: string;
+        s3DataDistributionType?: string;
         /**
          * Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
          */
-        s3InputMode: string;
+        s3InputMode?: string;
     }
 
     export interface DataQualityJobDefinitionDataQualityJobOutputConfig {
@@ -54949,7 +54949,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
          */
-        s3UploadMode: string;
+        s3UploadMode?: string;
         /**
          * The Amazon S3 URI for the constraints resource.
          */
@@ -55012,7 +55012,7 @@ export namespace sagemaker {
         /**
          * The maximum runtime allowed in seconds.
          */
-        maxRuntimeInSeconds: number;
+        maxRuntimeInSeconds?: number;
     }
 
     export interface DeviceDevice {
@@ -55666,11 +55666,11 @@ export namespace sagemaker {
         /**
          * The name of the variant. If omitted, this provider will assign a random, unique name.
          */
-        variantName: string;
+        variantName?: string;
         /**
          * The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
          */
-        volumeSizeInGb: number;
+        volumeSizeInGb?: number;
     }
 
     export interface EndpointConfigurationProductionVariantCoreDumpConfig {
@@ -55743,7 +55743,7 @@ export namespace sagemaker {
         /**
          * The name of the variant. If omitted, this provider will assign a random, unique name.
          */
-        variantName: string;
+        variantName?: string;
         /**
          * The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
          */
@@ -55917,7 +55917,7 @@ export namespace sagemaker {
         /**
          * The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
          */
-        dataCatalogConfig: outputs.sagemaker.FeatureGroupOfflineStoreConfigDataCatalogConfig;
+        dataCatalogConfig?: outputs.sagemaker.FeatureGroupOfflineStoreConfigDataCatalogConfig;
         /**
          * Set to `true` to turn Online Store On.
          */
@@ -55936,15 +55936,15 @@ export namespace sagemaker {
         /**
          * The name of the Glue table catalog.
          */
-        catalog: string;
+        catalog?: string;
         /**
          * The name of the Glue table database.
          */
-        database: string;
+        database?: string;
         /**
          * The name of the Glue table.
          */
-        tableName: string;
+        tableName?: string;
     }
 
     export interface FeatureGroupOfflineStoreConfigS3StorageConfig {
@@ -55955,7 +55955,7 @@ export namespace sagemaker {
         /**
          * The S3 path where offline records are written.
          */
-        resolvedOutputS3Uri: string;
+        resolvedOutputS3Uri?: string;
         /**
          * The S3 URI, or location in Amazon S3, of OfflineStore.
          */
@@ -56100,11 +56100,11 @@ export namespace sagemaker {
         /**
          * The SHA-256 digest of the contents of the template.
          */
-        contentSha256: string;
+        contentSha256?: string;
         /**
          * The URL for the user interface template.
          */
-        url: string;
+        url?: string;
     }
 
     export interface ModelContainer {
@@ -56132,7 +56132,7 @@ export namespace sagemaker {
         /**
          * The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
          */
-        modelDataSource: outputs.sagemaker.ModelContainerModelDataSource;
+        modelDataSource?: outputs.sagemaker.ModelContainerModelDataSource;
         /**
          * The URL for the S3 location where model artifacts are stored.
          */
@@ -56215,7 +56215,7 @@ export namespace sagemaker {
         /**
          * The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
          */
-        modelDataSource: outputs.sagemaker.ModelPrimaryContainerModelDataSource;
+        modelDataSource?: outputs.sagemaker.ModelPrimaryContainerModelDataSource;
         /**
          * The URL for the S3 location where model artifacts are stored.
          */
@@ -56283,7 +56283,7 @@ export namespace sagemaker {
         /**
          * Configures the monitoring schedule. Fields are documented below.
          */
-        scheduleConfig: outputs.sagemaker.MonitoringScheduleMonitoringScheduleConfigScheduleConfig;
+        scheduleConfig?: outputs.sagemaker.MonitoringScheduleMonitoringScheduleConfigScheduleConfig;
     }
 
     export interface MonitoringScheduleMonitoringScheduleConfigScheduleConfig {
@@ -56297,7 +56297,7 @@ export namespace sagemaker {
         /**
          * Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
          */
-        minimumInstanceMetadataServiceVersion: string;
+        minimumInstanceMetadataServiceVersion?: string;
     }
 
     export interface PipelineParallelismConfiguration {
@@ -56334,7 +56334,7 @@ export namespace sagemaker {
         /**
          * The ID of the provisioning artifact.
          */
-        provisioningArtifactId: string;
+        provisioningArtifactId?: string;
         /**
          * A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
          */
@@ -56830,7 +56830,7 @@ export namespace sagemaker {
          * The ID of the subnets in the VPC that you want to connect.
          */
         subnets?: string[];
-        vpcEndpointId: string;
+        vpcEndpointId?: string;
         /**
          * The ID of the VPC that the workforce uses for communication.
          */
@@ -57114,9 +57114,9 @@ export namespace scheduler {
 
 export namespace secretsmanager {
     export interface GetSecretRotationRotationRule {
-        automaticallyAfterDays: number;
-        duration: string;
-        scheduleExpression: string;
+        automaticallyAfterDays?: number;
+        duration?: string;
+        scheduleExpression?: string;
     }
 
     export interface GetSecretsFilter {
@@ -57134,11 +57134,11 @@ export namespace secretsmanager {
         /**
          * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
          */
-        kmsKeyId: string;
+        kmsKeyId?: string;
         /**
          * Date that you last accessed the secret in the Region.
          */
-        lastAccessedDate: string;
+        lastAccessedDate?: string;
         /**
          * Region for replicating the secret.
          */
@@ -57146,11 +57146,11 @@ export namespace secretsmanager {
         /**
          * Status can be `InProgress`, `Failed`, or `InSync`.
          */
-        status: string;
+        status?: string;
         /**
          * Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
          */
-        statusMessage: string;
+        statusMessage?: string;
     }
 
     export interface SecretRotationRotationRules {
@@ -58686,87 +58686,87 @@ export namespace servicecatalog {
         /**
          * Block for constraints on the portfolio-product relationship. See details below.
          */
-        constraintSummaries: outputs.servicecatalog.GetLaunchPathsSummaryConstraintSummary[];
+        constraintSummaries?: outputs.servicecatalog.GetLaunchPathsSummaryConstraintSummary[];
         /**
          * Name of the portfolio to which the path was assigned.
          */
-        name: string;
+        name?: string;
         /**
          * Identifier of the product path.
          */
-        pathId: string;
+        pathId?: string;
         /**
          * Tags associated with this product path.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
     }
 
     export interface GetLaunchPathsSummaryConstraintSummary {
         /**
          * Description of the constraint.
          */
-        description: string;
+        description?: string;
         /**
          * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetPortfolioConstraintsDetail {
         /**
          * Identifier of the constraint.
          */
-        constraintId: string;
+        constraintId?: string;
         /**
          * Description of the constraint.
          */
-        description: string;
-        owner: string;
+        description?: string;
+        owner?: string;
         /**
          * Portfolio identifier.
          *
          * The following arguments are optional:
          */
-        portfolioId: string;
+        portfolioId?: string;
         /**
          * Product identifier.
          */
-        productId: string;
+        productId?: string;
         /**
          * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetProvisioningArtifactsProvisioningArtifactDetail {
         /**
          * Indicates whether the product version is active.
          */
-        active: boolean;
+        active?: boolean;
         /**
          * The UTC time stamp of the creation time.
          */
-        createdTime: string;
+        createdTime?: string;
         /**
          * The description of the provisioning artifact.
          */
-        description: string;
+        description?: string;
         /**
          * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
          */
-        guidance: string;
+        guidance?: string;
         /**
          * The identifier of the provisioning artifact.
          */
-        id: string;
+        id?: string;
         /**
          * The name of the provisioning artifact.
          */
-        name: string;
+        name?: string;
         /**
          * The type of provisioning artifact.
          */
-        type: string;
+        type?: string;
     }
 
     export interface ProductProvisioningArtifactParameters {
@@ -58800,15 +58800,15 @@ export namespace servicecatalog {
         /**
          * The description of the output.
          */
-        description: string;
+        description?: string;
         /**
          * Parameter key.
          */
-        key: string;
+        key?: string;
         /**
          * Parameter value.
          */
-        value: string;
+        value?: string;
     }
 
     export interface ProvisionedProductProvisioningParameter {
@@ -58883,48 +58883,48 @@ export namespace servicediscovery {
         /**
          * An array that contains one DnsRecord object for each resource record set.
          */
-        dnsRecords: outputs.servicediscovery.GetServiceDnsConfigDnsRecord[];
+        dnsRecords?: outputs.servicediscovery.GetServiceDnsConfigDnsRecord[];
         /**
          * ID of the namespace that the service belongs to.
          */
-        namespaceId: string;
+        namespaceId?: string;
         /**
          * Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
          */
-        routingPolicy: string;
+        routingPolicy?: string;
     }
 
     export interface GetServiceDnsConfigDnsRecord {
         /**
          * Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
          */
-        ttl: number;
+        ttl?: number;
         /**
          * The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetServiceHealthCheckConfig {
         /**
          * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
          */
-        failureThreshold: number;
+        failureThreshold?: number;
         /**
          * Path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
          */
-        resourcePath: string;
+        resourcePath?: string;
         /**
          * The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
          */
-        type: string;
+        type?: string;
     }
 
     export interface GetServiceHealthCheckCustomConfig {
         /**
          * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
          */
-        failureThreshold: number;
+        failureThreshold?: number;
     }
 
     export interface ServiceDnsConfig {
@@ -58982,87 +58982,87 @@ export namespace servicequotas {
         /**
          * The metric dimensions.
          */
-        metricDimensions: outputs.servicequotas.GetServiceQuotaUsageMetricMetricDimension[];
+        metricDimensions?: outputs.servicequotas.GetServiceQuotaUsageMetricMetricDimension[];
         /**
          * The name of the metric.
          */
-        metricName: string;
+        metricName?: string;
         /**
          * The namespace of the metric.
          */
-        metricNamespace: string;
+        metricNamespace?: string;
         /**
          * The metric statistic that AWS recommend you use when determining quota usage.
          */
-        metricStatisticRecommendation: string;
+        metricStatisticRecommendation?: string;
     }
 
     export interface GetServiceQuotaUsageMetricMetricDimension {
-        class: string;
-        resource: string;
-        service: string;
-        type: string;
+        class?: string;
+        resource?: string;
+        service?: string;
+        type?: string;
     }
 
     export interface GetTemplatesTemplate {
         /**
          * Indicates whether the quota is global.
          */
-        globalQuota: boolean;
+        globalQuota?: boolean;
         /**
          * Quota identifier.
          */
-        quotaCode: string;
+        quotaCode?: string;
         /**
          * Quota name.
          */
-        quotaName: string;
+        quotaName?: string;
         /**
          * AWS Region to which the quota increases apply.
          */
-        region: string;
+        region?: string;
         /**
          * (Required) Service identifier.
          */
-        serviceCode: string;
+        serviceCode?: string;
         /**
          * Service name.
          */
-        serviceName: string;
+        serviceName?: string;
         /**
          * Unit of measurement.
          */
-        unit: string;
+        unit?: string;
         /**
          * (Required) The new, increased value for the quota.
          */
-        value: number;
+        value?: number;
     }
 
     export interface ServiceQuotaUsageMetric {
         /**
          * The metric dimensions.
          */
-        metricDimensions: outputs.servicequotas.ServiceQuotaUsageMetricMetricDimension[];
+        metricDimensions?: outputs.servicequotas.ServiceQuotaUsageMetricMetricDimension[];
         /**
          * The name of the metric.
          */
-        metricName: string;
+        metricName?: string;
         /**
          * The namespace of the metric.
          */
-        metricNamespace: string;
+        metricNamespace?: string;
         /**
          * The metric statistic that AWS recommend you use when determining quota usage.
          */
-        metricStatisticRecommendation: string;
+        metricStatisticRecommendation?: string;
     }
 
     export interface ServiceQuotaUsageMetricMetricDimension {
-        class: string;
-        resource: string;
-        service: string;
-        type: string;
+        class?: string;
+        resource?: string;
+        service?: string;
+        type?: string;
     }
 
 }
@@ -59349,18 +59349,18 @@ export namespace sesv2 {
         /**
          * The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
          */
-        lastFreshStart: string;
+        lastFreshStart?: string;
         /**
          * If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
          */
-        reputationMetricsEnabled: boolean;
+        reputationMetricsEnabled?: boolean;
     }
 
     export interface ConfigurationSetSendingOptions {
         /**
          * If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
          */
-        sendingEnabled: boolean;
+        sendingEnabled?: boolean;
     }
 
     export interface ConfigurationSetSuppressionOptions {
@@ -59427,7 +59427,7 @@ export namespace sesv2 {
         /**
          * [Easy DKIM] The key length of the DKIM key pair in use.
          */
-        currentSigningKeyLength: string;
+        currentSigningKeyLength?: string;
         /**
          * [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
          *
@@ -59441,135 +59441,135 @@ export namespace sesv2 {
         /**
          * [Easy DKIM] The last time a key pair was generated for this identity.
          */
-        lastKeyGenerationTimestamp: string;
+        lastKeyGenerationTimestamp?: string;
         /**
          * [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
          */
-        nextSigningKeyLength: string;
+        nextSigningKeyLength?: string;
         /**
          * A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
          */
-        signingAttributesOrigin: string;
+        signingAttributesOrigin?: string;
         /**
          * Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
          */
-        status: string;
+        status?: string;
         /**
          * If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
          */
-        tokens: string[];
+        tokens?: string[];
     }
 
     export interface GetConfigurationSetDeliveryOption {
         /**
          * The name of the dedicated IP pool to associate with the configuration set.
          */
-        sendingPoolName: string;
+        sendingPoolName?: string;
         /**
          * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
          */
-        tlsPolicy: string;
+        tlsPolicy?: string;
     }
 
     export interface GetConfigurationSetReputationOption {
         /**
          * The date and time (in Unix time) when the reputation metrics were last given a fresh start.
          */
-        lastFreshStart: string;
+        lastFreshStart?: string;
         /**
          * Specifies whether tracking of reputation metrics is enabled.
          */
-        reputationMetricsEnabled: boolean;
+        reputationMetricsEnabled?: boolean;
     }
 
     export interface GetConfigurationSetSendingOption {
         /**
          * Specifies whether email sending is enabled.
          */
-        sendingEnabled: boolean;
+        sendingEnabled?: boolean;
     }
 
     export interface GetConfigurationSetSuppressionOption {
         /**
          * A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
          */
-        suppressedReasons: string[];
+        suppressedReasons?: string[];
     }
 
     export interface GetConfigurationSetTrackingOption {
         /**
          * The domain to use for tracking open and click events.
          */
-        customRedirectDomain: string;
+        customRedirectDomain?: string;
     }
 
     export interface GetConfigurationSetVdmOption {
         /**
          * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
          */
-        dashboardOptions: outputs.sesv2.GetConfigurationSetVdmOptionDashboardOption[];
+        dashboardOptions?: outputs.sesv2.GetConfigurationSetVdmOptionDashboardOption[];
         /**
          * Specifies additional settings for your VDM configuration as applicable to the Guardian.
          */
-        guardianOptions: outputs.sesv2.GetConfigurationSetVdmOptionGuardianOption[];
+        guardianOptions?: outputs.sesv2.GetConfigurationSetVdmOptionGuardianOption[];
     }
 
     export interface GetConfigurationSetVdmOptionDashboardOption {
         /**
          * Specifies the status of your VDM engagement metrics collection.
          */
-        engagementMetrics: string;
+        engagementMetrics?: string;
     }
 
     export interface GetConfigurationSetVdmOptionGuardianOption {
         /**
          * Specifies the status of your VDM optimized shared delivery.
          */
-        optimizedSharedDelivery: string;
+        optimizedSharedDelivery?: string;
     }
 
     export interface GetDedicatedIpPoolDedicatedIp {
         /**
          * IPv4 address.
          */
-        ip: string;
+        ip?: string;
         /**
          * Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
          */
-        warmupPercentage: number;
+        warmupPercentage?: number;
         /**
          * The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
          */
-        warmupStatus: string;
+        warmupStatus?: string;
     }
 
     export interface GetEmailIdentityDkimSigningAttribute {
         /**
          * [Easy DKIM] The key length of the DKIM key pair in use.
          */
-        currentSigningKeyLength: string;
-        domainSigningPrivateKey: string;
-        domainSigningSelector: string;
+        currentSigningKeyLength?: string;
+        domainSigningPrivateKey?: string;
+        domainSigningSelector?: string;
         /**
          * [Easy DKIM] The last time a key pair was generated for this identity.
          */
-        lastKeyGenerationTimestamp: string;
+        lastKeyGenerationTimestamp?: string;
         /**
          * [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
          */
-        nextSigningKeyLength: string;
+        nextSigningKeyLength?: string;
         /**
          * A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
          */
-        signingAttributesOrigin: string;
+        signingAttributesOrigin?: string;
         /**
          * Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
          */
-        status: string;
+        status?: string;
         /**
          * If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
          */
-        tokens: string[];
+        tokens?: string[];
     }
 
 }
@@ -59638,39 +59638,39 @@ export namespace shield {
 
 export namespace signer {
     export interface GetSigningJobRevocationRecord {
-        reason: string;
-        revokedAt: string;
-        revokedBy: string;
+        reason?: string;
+        revokedAt?: string;
+        revokedBy?: string;
     }
 
     export interface GetSigningJobSignedObject {
-        s3s: outputs.signer.GetSigningJobSignedObjectS3[];
+        s3s?: outputs.signer.GetSigningJobSignedObjectS3[];
     }
 
     export interface GetSigningJobSignedObjectS3 {
-        bucket: string;
-        key: string;
+        bucket?: string;
+        key?: string;
     }
 
     export interface GetSigningJobSource {
-        s3s: outputs.signer.GetSigningJobSourceS3[];
+        s3s?: outputs.signer.GetSigningJobSourceS3[];
     }
 
     export interface GetSigningJobSourceS3 {
-        bucket: string;
-        key: string;
-        version: string;
+        bucket?: string;
+        key?: string;
+        version?: string;
     }
 
     export interface GetSigningProfileRevocationRecord {
-        revocationEffectiveFrom: string;
-        revokedAt: string;
-        revokedBy: string;
+        revocationEffectiveFrom?: string;
+        revokedAt?: string;
+        revokedBy?: string;
     }
 
     export interface GetSigningProfileSignatureValidityPeriod {
-        type: string;
-        value: number;
+        type?: string;
+        value?: number;
     }
 
     export interface SigningJobDestination {
@@ -59692,27 +59692,27 @@ export namespace signer {
     }
 
     export interface SigningJobRevocationRecord {
-        reason: string;
-        revokedAt: string;
-        revokedBy: string;
+        reason?: string;
+        revokedAt?: string;
+        revokedBy?: string;
     }
 
     export interface SigningJobSignedObject {
         /**
          * A configuration block describing the S3 Destination object: See S3 Destination below for details.
          */
-        s3s: outputs.signer.SigningJobSignedObjectS3[];
+        s3s?: outputs.signer.SigningJobSignedObjectS3[];
     }
 
     export interface SigningJobSignedObjectS3 {
         /**
          * Name of the S3 bucket.
          */
-        bucket: string;
+        bucket?: string;
         /**
          * Key name of the object that contains your unsigned code.
          */
-        key: string;
+        key?: string;
     }
 
     export interface SigningJobSource {
@@ -59738,9 +59738,9 @@ export namespace signer {
     }
 
     export interface SigningProfileRevocationRecord {
-        revocationEffectiveFrom: string;
-        revokedAt: string;
-        revokedBy: string;
+        revocationEffectiveFrom?: string;
+        revokedAt?: string;
+        revokedBy?: string;
     }
 
     export interface SigningProfileSignatureValidityPeriod {
@@ -59799,16 +59799,16 @@ export namespace ssm {
     }
 
     export interface DocumentParameter {
-        defaultValue: string;
+        defaultValue?: string;
         /**
          * The description of the document.
          */
-        description: string;
+        description?: string;
         /**
          * The name of the document.
          */
-        name: string;
-        type: string;
+        name?: string;
+        type?: string;
     }
 
     export interface GetInstancesFilter {
@@ -59837,60 +59837,60 @@ export namespace ssm {
         /**
          * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
          */
-        approveAfterDays: number;
+        approveAfterDays?: number;
         /**
          * The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
          */
-        approveUntilDate: string;
+        approveUntilDate?: string;
         /**
          * The compliance level for patches approved by this rule.
          */
-        complianceLevel: string;
+        complianceLevel?: string;
         /**
          * Boolean enabling the application of non-security updates.
          */
-        enableNonSecurity: boolean;
+        enableNonSecurity?: boolean;
         /**
          * The patch filter group that defines the criteria for the rule.
          */
-        patchFilters: outputs.ssm.GetPatchBaselineApprovalRulePatchFilter[];
+        patchFilters?: outputs.ssm.GetPatchBaselineApprovalRulePatchFilter[];
     }
 
     export interface GetPatchBaselineApprovalRulePatchFilter {
         /**
          * The key for the filter.
          */
-        key: string;
+        key?: string;
         /**
          * The value for the filter.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetPatchBaselineGlobalFilter {
         /**
          * The key for the filter.
          */
-        key: string;
+        key?: string;
         /**
          * The value for the filter.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetPatchBaselineSource {
         /**
          * The value of the yum repo configuration.
          */
-        configuration: string;
+        configuration?: string;
         /**
          * The name specified to identify the patch source.
          */
-        name: string;
+        name?: string;
         /**
          * The specific operating system versions a patch repository applies to.
          */
-        products: string[];
+        products?: string[];
     }
 
     export interface MaintenanceWindowTargetTarget {
@@ -60013,7 +60013,7 @@ export namespace ssm {
         /**
          * The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
          */
-        cloudwatchLogGroupName: string;
+        cloudwatchLogGroupName?: string;
         /**
          * Enables Systems Manager to send command output to CloudWatch Logs.
          */
@@ -60153,30 +60153,30 @@ export namespace ssmcontacts {
     }
 
     export interface GetContactChannelDeliveryAddress {
-        simpleAddress: string;
+        simpleAddress?: string;
     }
 
     export interface GetPlanStage {
-        durationInMinutes: number;
-        targets: outputs.ssmcontacts.GetPlanStageTarget[];
+        durationInMinutes?: number;
+        targets?: outputs.ssmcontacts.GetPlanStageTarget[];
     }
 
     export interface GetPlanStageTarget {
-        channelTargetInfos: outputs.ssmcontacts.GetPlanStageTargetChannelTargetInfo[];
-        contactTargetInfos: outputs.ssmcontacts.GetPlanStageTargetContactTargetInfo[];
+        channelTargetInfos?: outputs.ssmcontacts.GetPlanStageTargetChannelTargetInfo[];
+        contactTargetInfos?: outputs.ssmcontacts.GetPlanStageTargetContactTargetInfo[];
     }
 
     export interface GetPlanStageTargetChannelTargetInfo {
-        contactChannelId: string;
-        retryIntervalInMinutes: number;
+        contactChannelId?: string;
+        retryIntervalInMinutes?: number;
     }
 
     export interface GetPlanStageTargetContactTargetInfo {
         /**
          * The Amazon Resource Name (ARN) of the contact or escalation plan.
          */
-        contactId: string;
-        isEssential: boolean;
+        contactId?: string;
+        isEssential?: boolean;
     }
 
     export interface PlanStage {
@@ -60230,121 +60230,121 @@ export namespace ssmincidents {
         /**
          * The ARN of the AWS Key Management Service (AWS KMS) encryption key.
          */
-        kmsKeyArn: string;
+        kmsKeyArn?: string;
         /**
          * The name of the Region.
          */
-        name: string;
+        name?: string;
         /**
          * The current status of the Region.
          * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
          */
-        status: string;
+        status?: string;
         /**
          * More information about the status of a Region.
          */
-        statusMessage: string;
+        statusMessage?: string;
     }
 
     export interface GetResponsePlanAction {
         /**
          * The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
          */
-        ssmAutomations: outputs.ssmincidents.GetResponsePlanActionSsmAutomation[];
+        ssmAutomations?: outputs.ssmincidents.GetResponsePlanActionSsmAutomation[];
     }
 
     export interface GetResponsePlanActionSsmAutomation {
         /**
          * The automation document's name.
          */
-        documentName: string;
+        documentName?: string;
         /**
          * The version of the automation document to use at runtime.
          */
-        documentVersion: string;
+        documentVersion?: string;
         /**
          * The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
          */
-        dynamicParameters: {[key: string]: string};
+        dynamicParameters?: {[key: string]: string};
         /**
          * The key-value pair parameters used when the automation document runs. The following values are supported:
          */
-        parameters: outputs.ssmincidents.GetResponsePlanActionSsmAutomationParameter[];
+        parameters?: outputs.ssmincidents.GetResponsePlanActionSsmAutomationParameter[];
         /**
          * The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
          */
-        roleArn: string;
+        roleArn?: string;
         /**
          * The account that runs the automation document. This can be in either the management account or an application account.
          */
-        targetAccount: string;
+        targetAccount?: string;
     }
 
     export interface GetResponsePlanActionSsmAutomationParameter {
         /**
          * The name of the PagerDuty configuration.
          */
-        name: string;
+        name?: string;
         /**
          * The values for the associated parameter name.
          */
-        values: string[];
+        values?: string[];
     }
 
     export interface GetResponsePlanIncidentTemplate {
         /**
          * A string used to stop Incident Manager from creating multiple incident records for the same incident.
          */
-        dedupeString: string;
+        dedupeString?: string;
         /**
          * The impact value of a generated incident. The following values are supported:
          */
-        impact: number;
+        impact?: number;
         /**
          * The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
          */
-        incidentTags: {[key: string]: string};
+        incidentTags?: {[key: string]: string};
         /**
          * The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
          */
-        notificationTargets: outputs.ssmincidents.GetResponsePlanIncidentTemplateNotificationTarget[];
+        notificationTargets?: outputs.ssmincidents.GetResponsePlanIncidentTemplateNotificationTarget[];
         /**
          * The summary of an incident.
          */
-        summary: string;
+        summary?: string;
         /**
          * The title of a generated incident.
          */
-        title: string;
+        title?: string;
     }
 
     export interface GetResponsePlanIncidentTemplateNotificationTarget {
         /**
          * The ARN of the Amazon SNS topic.
          */
-        snsTopicArn: string;
+        snsTopicArn?: string;
     }
 
     export interface GetResponsePlanIntegration {
         /**
          * Details about the PagerDuty configuration for a response plan. The following values are supported:
          */
-        pagerduties: outputs.ssmincidents.GetResponsePlanIntegrationPagerduty[];
+        pagerduties?: outputs.ssmincidents.GetResponsePlanIntegrationPagerduty[];
     }
 
     export interface GetResponsePlanIntegrationPagerduty {
         /**
          * The name of the PagerDuty configuration.
          */
-        name: string;
+        name?: string;
         /**
          * The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
          */
-        secretId: string;
+        secretId?: string;
         /**
          * The ID of the PagerDuty service that the response plan associates with an incident when it launches.
          */
-        serviceId: string;
+        serviceId?: string;
     }
 
     export interface ReplicationSetRegion {
@@ -60362,11 +60362,11 @@ export namespace ssmincidents {
          * The current status of the Region.
          * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
          */
-        status: string;
+        status?: string;
         /**
          * More information about the status of a Region.
          */
-        statusMessage: string;
+        statusMessage?: string;
     }
 
     export interface ResponsePlanAction {
@@ -60544,7 +60544,7 @@ export namespace storagegateway {
         /**
          * The Internet Protocol version 4 (IPv4) address of the interface.
          */
-        ipv4Address: string;
+        ipv4Address?: string;
     }
 
     export interface GatewayMaintenanceStartTime {
@@ -60567,7 +60567,7 @@ export namespace storagegateway {
     }
 
     export interface GatewaySmbActiveDirectorySettings {
-        activeDirectoryStatus: string;
+        activeDirectoryStatus?: string;
         /**
          * List of IPv4 addresses, NetBIOS names, or host names of your domain server.
          * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
@@ -60666,7 +60666,7 @@ export namespace synthetics {
         /**
          * Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
          */
-        memoryInMb: number;
+        memoryInMb?: number;
         /**
          * Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
          */
@@ -60688,19 +60688,19 @@ export namespace synthetics {
         /**
          * Date and time the canary was created.
          */
-        created: string;
+        created?: string;
         /**
          * Date and time the canary was most recently modified.
          */
-        lastModified: string;
+        lastModified?: string;
         /**
          * Date and time that the canary's most recent run started.
          */
-        lastStarted: string;
+        lastStarted?: string;
         /**
          * Date and time that the canary's most recent run ended.
          */
-        lastStopped: string;
+        lastStopped?: string;
     }
 
     export interface CanaryVpcConfig {
@@ -60715,7 +60715,7 @@ export namespace synthetics {
         /**
          * ID of the VPC where this canary is to run.
          */
-        vpcId: string;
+        vpcId?: string;
     }
 
 }
@@ -60773,7 +60773,7 @@ export namespace timestreamwrite {
         /**
          * A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
          */
-        compositePartitionKey: outputs.timestreamwrite.TableSchemaCompositePartitionKey;
+        compositePartitionKey?: outputs.timestreamwrite.TableSchemaCompositePartitionKey;
     }
 
     export interface TableSchemaCompositePartitionKey {
@@ -60808,7 +60808,7 @@ export namespace transcribe {
          *
          * The following arguments are optional:
          */
-        tuningDataS3Uri: string;
+        tuningDataS3Uri?: string;
     }
 
 }
@@ -60894,7 +60894,7 @@ export namespace transfer {
         /**
          * A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
          */
-        securityGroupIds: string[];
+        securityGroupIds?: string[];
         /**
          * A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
          */
@@ -60902,7 +60902,7 @@ export namespace transfer {
         /**
          * The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
          */
-        vpcEndpointId: string;
+        vpcEndpointId?: string;
         /**
          * The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
          */
@@ -60913,19 +60913,19 @@ export namespace transfer {
         /**
          * Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
          */
-        as2Transports: string[];
+        as2Transports?: string[];
         /**
          * Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
          */
-        passiveIp: string;
+        passiveIp?: string;
         /**
          * Use to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket. Valid values: `DEFAULT`, `ENABLE_NO_OP`.
          */
-        setStatOption: string;
+        setStatOption?: string;
         /**
          * A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
          */
-        tlsSessionResumptionMode: string;
+        tlsSessionResumptionMode?: string;
     }
 
     export interface ServerWorkflowDetails {
@@ -61404,7 +61404,7 @@ export namespace verifiedaccess {
         /**
          * Include trust data sent by trust providers into the logs.
          */
-        includeTrustContext: boolean;
+        includeTrustContext?: boolean;
         /**
          * A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
          */
@@ -61412,7 +61412,7 @@ export namespace verifiedaccess {
         /**
          * The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
          */
-        logVersion: string;
+        logVersion?: string;
         /**
          * A block that specifies configures sending Verified Access logs to S3. Detailed below.
          */
@@ -61449,7 +61449,7 @@ export namespace verifiedaccess {
         /**
          * The ID of the AWS account that owns the Amazon S3 bucket.
          */
-        bucketOwner: string;
+        bucketOwner?: string;
         /**
          * Indicates whether logging is enabled.
          */
@@ -61464,23 +61464,23 @@ export namespace verifiedaccess {
         /**
          * A description for the AWS Verified Access Instance.
          */
-        description: string;
+        description?: string;
         /**
          * The type of device-based trust provider.
          */
-        deviceTrustProviderType: string;
+        deviceTrustProviderType?: string;
         /**
          * The type of trust provider (user- or device-based).
          */
-        trustProviderType: string;
+        trustProviderType?: string;
         /**
          * The type of user-based trust provider.
          */
-        userTrustProviderType: string;
+        userTrustProviderType?: string;
         /**
          * The ID of the trust provider.
          */
-        verifiedAccessTrustProviderId: string;
+        verifiedAccessTrustProviderId?: string;
     }
 
     export interface TrustProviderDeviceOptions {
@@ -61528,26 +61528,26 @@ export namespace vpc {
 
 export namespace vpclattice {
     export interface GetListenerDefaultAction {
-        fixedResponses: outputs.vpclattice.GetListenerDefaultActionFixedResponse[];
-        forwards: outputs.vpclattice.GetListenerDefaultActionForward[];
+        fixedResponses?: outputs.vpclattice.GetListenerDefaultActionFixedResponse[];
+        forwards?: outputs.vpclattice.GetListenerDefaultActionForward[];
     }
 
     export interface GetListenerDefaultActionFixedResponse {
-        statusCode: number;
+        statusCode?: number;
     }
 
     export interface GetListenerDefaultActionForward {
-        targetGroups: outputs.vpclattice.GetListenerDefaultActionForwardTargetGroup[];
+        targetGroups?: outputs.vpclattice.GetListenerDefaultActionForwardTargetGroup[];
     }
 
     export interface GetListenerDefaultActionForwardTargetGroup {
-        targetGroupIdentifier: string;
-        weight: number;
+        targetGroupIdentifier?: string;
+        weight?: number;
     }
 
     export interface GetServiceDnsEntry {
-        domainName: string;
-        hostedZoneId: string;
+        domainName?: string;
+        hostedZoneId?: string;
     }
 
     export interface ListenerDefaultAction {
@@ -61693,19 +61693,19 @@ export namespace vpclattice {
     }
 
     export interface ServiceDnsEntry {
-        domainName: string;
-        hostedZoneId: string;
+        domainName?: string;
+        hostedZoneId?: string;
     }
 
     export interface ServiceNetworkServiceAssociationDnsEntry {
         /**
          * The domain name of the service.
          */
-        domainName: string;
+        domainName?: string;
         /**
          * The ID of the hosted zone.
          */
-        hostedZoneId: string;
+        hostedZoneId?: string;
     }
 
     export interface TargetGroupAttachmentTarget {
@@ -61716,7 +61716,7 @@ export namespace vpclattice {
         /**
          * This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
          */
-        port: number;
+        port?: number;
     }
 
     export interface TargetGroupConfig {
@@ -61727,23 +61727,23 @@ export namespace vpclattice {
         /**
          * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
          */
-        ipAddressType: string;
+        ipAddressType?: string;
         /**
          * The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
          */
-        lambdaEventStructureVersion: string;
+        lambdaEventStructureVersion?: string;
         /**
          * The port on which the targets are listening.
          */
-        port: number;
+        port?: number;
         /**
          * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
          */
-        protocol: string;
+        protocol?: string;
         /**
          * The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
          */
-        protocolVersion: string;
+        protocolVersion?: string;
         /**
          * The ID of the VPC.
          */
@@ -61776,11 +61776,11 @@ export namespace vpclattice {
         /**
          * The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
          */
-        port: number;
+        port?: number;
         /**
          * The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
          */
-        protocol: string;
+        protocol?: string;
         /**
          * The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
          */
@@ -62460,7 +62460,7 @@ export namespace wafv2 {
         /**
          * (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
          */
-        regexString: string;
+        regexString?: string;
     }
 
     export interface RegexPatternSetRegularExpression {
@@ -71129,125 +71129,125 @@ export namespace workspaces {
         /**
          * Name of the bundle. You cannot combine this parameter with `bundleId`.
          */
-        name: string;
+        name?: string;
     }
 
     export interface GetBundleRootStorage {
         /**
          * Size of the user storage.
          */
-        capacity: string;
+        capacity?: string;
     }
 
     export interface GetBundleUserStorage {
         /**
          * Size of the user storage.
          */
-        capacity: string;
+        capacity?: string;
     }
 
     export interface GetDirectorySelfServicePermission {
         /**
          * Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
          */
-        changeComputeType: boolean;
+        changeComputeType?: boolean;
         /**
          * Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
          */
-        increaseVolumeSize: boolean;
+        increaseVolumeSize?: boolean;
         /**
          * Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
          */
-        rebuildWorkspace: boolean;
+        rebuildWorkspace?: boolean;
         /**
          * Whether WorkSpaces directory users can restart their workspace.
          */
-        restartWorkspace: boolean;
+        restartWorkspace?: boolean;
         /**
          * Whether WorkSpaces directory users can switch the running mode of their workspace.
          */
-        switchRunningMode: boolean;
+        switchRunningMode?: boolean;
     }
 
     export interface GetDirectoryWorkspaceAccessProperty {
         /**
          * (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
          */
-        deviceTypeAndroid: string;
+        deviceTypeAndroid?: string;
         /**
          * (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
          */
-        deviceTypeChromeos: string;
+        deviceTypeChromeos?: string;
         /**
          * (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
          */
-        deviceTypeIos: string;
+        deviceTypeIos?: string;
         /**
          * (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
          */
-        deviceTypeLinux: string;
+        deviceTypeLinux?: string;
         /**
          * (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
          */
-        deviceTypeOsx: string;
+        deviceTypeOsx?: string;
         /**
          * (Optional) Indicates whether users can access their WorkSpaces through a web browser.
          */
-        deviceTypeWeb: string;
+        deviceTypeWeb?: string;
         /**
          * (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
          */
-        deviceTypeWindows: string;
+        deviceTypeWindows?: string;
         /**
          * (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
          */
-        deviceTypeZeroclient: string;
+        deviceTypeZeroclient?: string;
     }
 
     export interface GetDirectoryWorkspaceCreationProperty {
         /**
          * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
          */
-        customSecurityGroupId: string;
+        customSecurityGroupId?: string;
         /**
          * The default organizational unit (OU) for your WorkSpace directories.
          */
-        defaultOu: string;
+        defaultOu?: string;
         /**
          * Indicates whether internet access is enabled for your WorkSpaces.
          */
-        enableInternetAccess: boolean;
+        enableInternetAccess?: boolean;
         /**
          * Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
          */
-        enableMaintenanceMode: boolean;
+        enableMaintenanceMode?: boolean;
         /**
          * Indicates whether users are local administrators of their WorkSpaces.
          */
-        userEnabledAsLocalAdministrator: boolean;
+        userEnabledAsLocalAdministrator?: boolean;
     }
 
     export interface GetWorkspaceWorkspaceProperty {
         /**
          * Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
          */
-        computeTypeName: string;
+        computeTypeName?: string;
         /**
          * Size of the root volume.
          */
-        rootVolumeSizeGib: number;
+        rootVolumeSizeGib?: number;
         /**
          * Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
          */
-        runningMode: string;
+        runningMode?: string;
         /**
          * Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
          */
-        runningModeAutoStopTimeoutInMinutes: number;
+        runningModeAutoStopTimeoutInMinutes?: number;
         /**
          * Size of the user storage.
          */
-        userVolumeSizeGib: number;
+        userVolumeSizeGib?: number;
     }
 
     export interface IpGroupRule {
@@ -71277,7 +71277,7 @@ export namespace workspaces {
         /**
          * The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
          */
-        runningModeAutoStopTimeoutInMinutes: number;
+        runningModeAutoStopTimeoutInMinutes?: number;
         /**
          * The size of the user storage.
          */
@@ -71295,7 +71295,7 @@ export namespace xray {
         /**
          * Specifies whether insight notifications are enabled.
          */
-        notificationsEnabled: boolean;
+        notificationsEnabled?: boolean;
     }
 
 }

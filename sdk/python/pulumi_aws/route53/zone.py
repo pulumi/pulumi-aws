@@ -557,7 +557,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Hosted Zone.
         """
@@ -597,7 +597,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[Sequence[str]]:
+    def name_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of name servers in associated (or default) delegation set.
         Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
@@ -606,7 +606,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryNameServer")
-    def primary_name_server(self) -> pulumi.Output[str]:
+    def primary_name_server(self) -> pulumi.Output[Optional[str]]:
         """
         The Route 53 name server that created the SOA record.
         """
@@ -641,7 +641,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> pulumi.Output[str]:
+    def zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Hosted Zone ID. This can be referenced by zone records.
         """

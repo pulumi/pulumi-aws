@@ -6,6 +6,8 @@ package com.pulumi.aws.ses.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainIdentityResult {
@@ -13,7 +15,7 @@ public final class GetDomainIdentityResult {
      * @return ARN of the domain identity.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Name of the domain
      * 
@@ -23,20 +25,20 @@ public final class GetDomainIdentityResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      * 
      */
-    private String verificationToken;
+    private @Nullable String verificationToken;
 
     private GetDomainIdentityResult() {}
     /**
      * @return ARN of the domain identity.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Name of the domain
@@ -49,15 +51,15 @@ public final class GetDomainIdentityResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      * 
      */
-    public String verificationToken() {
-        return this.verificationToken;
+    public Optional<String> verificationToken() {
+        return Optional.ofNullable(this.verificationToken);
     }
 
     public static Builder builder() {
@@ -69,10 +71,10 @@ public final class GetDomainIdentityResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private String domain;
-        private String id;
-        private String verificationToken;
+        private @Nullable String id;
+        private @Nullable String verificationToken;
         public Builder() {}
         public Builder(GetDomainIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,8 +85,8 @@ public final class GetDomainIdentityResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -93,13 +95,13 @@ public final class GetDomainIdentityResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder verificationToken(String verificationToken) {
-            this.verificationToken = Objects.requireNonNull(verificationToken);
+        public Builder verificationToken(@Nullable String verificationToken) {
+            this.verificationToken = verificationToken;
             return this;
         }
         public GetDomainIdentityResult build() {

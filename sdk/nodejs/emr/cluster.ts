@@ -316,7 +316,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * ARN of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
      */
@@ -329,7 +329,7 @@ export class Cluster extends pulumi.CustomResource {
      * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
      */
     public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapAction[] | undefined>;
-    public /*out*/ readonly clusterState!: pulumi.Output<string>;
+    public /*out*/ readonly clusterState!: pulumi.Output<string | undefined>;
     /**
      * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      */
@@ -365,11 +365,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
      */
-    public readonly coreInstanceFleet!: pulumi.Output<outputs.emr.ClusterCoreInstanceFleet>;
+    public readonly coreInstanceFleet!: pulumi.Output<outputs.emr.ClusterCoreInstanceFleet | undefined>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      */
-    public readonly coreInstanceGroup!: pulumi.Output<outputs.emr.ClusterCoreInstanceGroup>;
+    public readonly coreInstanceGroup!: pulumi.Output<outputs.emr.ClusterCoreInstanceGroup | undefined>;
     /**
      * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
      */
@@ -385,7 +385,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
-    public readonly keepJobFlowAliveWhenNoSteps!: pulumi.Output<boolean>;
+    public readonly keepJobFlowAliveWhenNoSteps!: pulumi.Output<boolean | undefined>;
     /**
      * Kerberos configuration for the cluster. See below.
      */
@@ -405,15 +405,15 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
      */
-    public readonly masterInstanceFleet!: pulumi.Output<outputs.emr.ClusterMasterInstanceFleet>;
+    public readonly masterInstanceFleet!: pulumi.Output<outputs.emr.ClusterMasterInstanceFleet | undefined>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      */
-    public readonly masterInstanceGroup!: pulumi.Output<outputs.emr.ClusterMasterInstanceGroup>;
+    public readonly masterInstanceGroup!: pulumi.Output<outputs.emr.ClusterMasterInstanceGroup | undefined>;
     /**
      * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
      */
-    public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
+    public /*out*/ readonly masterPublicDns!: pulumi.Output<string | undefined>;
     /**
      * Name of the job flow.
      */
@@ -429,7 +429,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      */
-    public readonly scaleDownBehavior!: pulumi.Output<string>;
+    public readonly scaleDownBehavior!: pulumi.Output<string | undefined>;
     /**
      * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
      */
@@ -447,7 +447,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */
-    public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
+    public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[] | undefined>;
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -461,7 +461,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
-    public readonly terminationProtection!: pulumi.Output<boolean>;
+    public readonly terminationProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      */

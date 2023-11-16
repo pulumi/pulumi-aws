@@ -95,18 +95,18 @@ type LookupVirtualServiceArgs struct {
 // A collection of values returned by getVirtualService.
 type LookupVirtualServiceResult struct {
 	// ARN of the virtual service.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Creation date of the virtual service.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Last update date of the virtual service.
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
-	MeshName        string `pulumi:"meshName"`
-	MeshOwner       string `pulumi:"meshOwner"`
-	Name            string `pulumi:"name"`
+	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
+	MeshName        string  `pulumi:"meshName"`
+	MeshOwner       *string `pulumi:"meshOwner"`
+	Name            string  `pulumi:"name"`
 	// Resource owner's AWS account ID.
-	ResourceOwner string `pulumi:"resourceOwner"`
+	ResourceOwner *string `pulumi:"resourceOwner"`
 	// Virtual service specification. See the `appmesh.VirtualService` resource for details.
 	Specs []GetVirtualServiceSpec `pulumi:"specs"`
 	// Map of tags.
@@ -158,31 +158,31 @@ func (o LookupVirtualServiceResultOutput) ToLookupVirtualServiceResultOutputWith
 }
 
 // ARN of the virtual service.
-func (o LookupVirtualServiceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupVirtualServiceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualServiceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Creation date of the virtual service.
-func (o LookupVirtualServiceResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupVirtualServiceResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualServiceResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupVirtualServiceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVirtualServiceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Last update date of the virtual service.
-func (o LookupVirtualServiceResultOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o LookupVirtualServiceResultOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualServiceResult) *string { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVirtualServiceResultOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.MeshName }).(pulumi.StringOutput)
 }
 
-func (o LookupVirtualServiceResultOutput) MeshOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.MeshOwner }).(pulumi.StringOutput)
+func (o LookupVirtualServiceResultOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualServiceResult) *string { return v.MeshOwner }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVirtualServiceResultOutput) Name() pulumi.StringOutput {
@@ -190,8 +190,8 @@ func (o LookupVirtualServiceResultOutput) Name() pulumi.StringOutput {
 }
 
 // Resource owner's AWS account ID.
-func (o LookupVirtualServiceResultOutput) ResourceOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
+func (o LookupVirtualServiceResultOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualServiceResult) *string { return v.ResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // Virtual service specification. See the `appmesh.VirtualService` resource for details.

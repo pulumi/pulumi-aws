@@ -43,28 +43,28 @@ export interface GetConfigurationResult {
     /**
      * ARN of the configuration.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the configuration.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of Apache Kafka versions which can use this configuration.
      */
-    readonly kafkaVersions: string[];
+    readonly kafkaVersions?: string[];
     /**
      * Latest revision of the configuration.
      */
-    readonly latestRevision: number;
+    readonly latestRevision?: number;
     readonly name: string;
     /**
      * Contents of the server.properties file.
      */
-    readonly serverProperties: string;
+    readonly serverProperties?: string;
 }
 /**
  * Get information on an Amazon MSK Configuration.

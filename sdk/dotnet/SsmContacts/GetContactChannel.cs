@@ -106,12 +106,12 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// Whether the contact channel is activated.
         /// </summary>
-        public readonly string ActivationStatus;
+        public readonly string? ActivationStatus;
         public readonly string Arn;
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         /// </summary>
-        public readonly string ContactId;
+        public readonly string? ContactId;
         /// <summary>
         /// Details used to engage the contact channel.
         /// </summary>
@@ -119,31 +119,31 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the contact channel.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Type of the contact channel.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetContactChannelResult(
-            string activationStatus,
+            string? activationStatus,
 
             string arn,
 
-            string contactId,
+            string? contactId,
 
             ImmutableArray<Outputs.GetContactChannelDeliveryAddressResult> deliveryAddresses,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string type)
+            string? type)
         {
             ActivationStatus = activationStatus;
             Arn = arn;

@@ -11,6 +11,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfig {
@@ -18,27 +20,27 @@ public final class GetInstanceStorageConfigStorageConfig {
      * @return A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
      * 
      */
-    private List<GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfigs;
+    private @Nullable List<GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfigs;
     /**
      * @return A block that specifies the configuration of the Kinesis data stream. Documented below.
      * 
      */
-    private List<GetInstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfigs;
+    private @Nullable List<GetInstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfigs;
     /**
      * @return A block that specifies the configuration of the Kinesis video stream. Documented below.
      * 
      */
-    private List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfigs;
+    private @Nullable List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfigs;
     /**
      * @return A block that specifies the configuration of S3 Bucket. Documented below.
      * 
      */
-    private List<GetInstanceStorageConfigStorageConfigS3Config> s3Configs;
+    private @Nullable List<GetInstanceStorageConfigStorageConfigS3Config> s3Configs;
     /**
      * @return A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
      * 
      */
-    private String storageType;
+    private @Nullable String storageType;
 
     private GetInstanceStorageConfigStorageConfig() {}
     /**
@@ -46,35 +48,35 @@ public final class GetInstanceStorageConfigStorageConfig {
      * 
      */
     public List<GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfigs() {
-        return this.kinesisFirehoseConfigs;
+        return this.kinesisFirehoseConfigs == null ? List.of() : this.kinesisFirehoseConfigs;
     }
     /**
      * @return A block that specifies the configuration of the Kinesis data stream. Documented below.
      * 
      */
     public List<GetInstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfigs() {
-        return this.kinesisStreamConfigs;
+        return this.kinesisStreamConfigs == null ? List.of() : this.kinesisStreamConfigs;
     }
     /**
      * @return A block that specifies the configuration of the Kinesis video stream. Documented below.
      * 
      */
     public List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfigs() {
-        return this.kinesisVideoStreamConfigs;
+        return this.kinesisVideoStreamConfigs == null ? List.of() : this.kinesisVideoStreamConfigs;
     }
     /**
      * @return A block that specifies the configuration of S3 Bucket. Documented below.
      * 
      */
     public List<GetInstanceStorageConfigStorageConfigS3Config> s3Configs() {
-        return this.s3Configs;
+        return this.s3Configs == null ? List.of() : this.s3Configs;
     }
     /**
      * @return A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
      * 
      */
-    public String storageType() {
-        return this.storageType;
+    public Optional<String> storageType() {
+        return Optional.ofNullable(this.storageType);
     }
 
     public static Builder builder() {
@@ -86,11 +88,11 @@ public final class GetInstanceStorageConfigStorageConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfigs;
-        private List<GetInstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfigs;
-        private List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfigs;
-        private List<GetInstanceStorageConfigStorageConfigS3Config> s3Configs;
-        private String storageType;
+        private @Nullable List<GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfigs;
+        private @Nullable List<GetInstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfigs;
+        private @Nullable List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfigs;
+        private @Nullable List<GetInstanceStorageConfigStorageConfigS3Config> s3Configs;
+        private @Nullable String storageType;
         public Builder() {}
         public Builder(GetInstanceStorageConfigStorageConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -102,40 +104,40 @@ public final class GetInstanceStorageConfigStorageConfig {
         }
 
         @CustomType.Setter
-        public Builder kinesisFirehoseConfigs(List<GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfigs) {
-            this.kinesisFirehoseConfigs = Objects.requireNonNull(kinesisFirehoseConfigs);
+        public Builder kinesisFirehoseConfigs(@Nullable List<GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfigs) {
+            this.kinesisFirehoseConfigs = kinesisFirehoseConfigs;
             return this;
         }
         public Builder kinesisFirehoseConfigs(GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig... kinesisFirehoseConfigs) {
             return kinesisFirehoseConfigs(List.of(kinesisFirehoseConfigs));
         }
         @CustomType.Setter
-        public Builder kinesisStreamConfigs(List<GetInstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfigs) {
-            this.kinesisStreamConfigs = Objects.requireNonNull(kinesisStreamConfigs);
+        public Builder kinesisStreamConfigs(@Nullable List<GetInstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfigs) {
+            this.kinesisStreamConfigs = kinesisStreamConfigs;
             return this;
         }
         public Builder kinesisStreamConfigs(GetInstanceStorageConfigStorageConfigKinesisStreamConfig... kinesisStreamConfigs) {
             return kinesisStreamConfigs(List.of(kinesisStreamConfigs));
         }
         @CustomType.Setter
-        public Builder kinesisVideoStreamConfigs(List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfigs) {
-            this.kinesisVideoStreamConfigs = Objects.requireNonNull(kinesisVideoStreamConfigs);
+        public Builder kinesisVideoStreamConfigs(@Nullable List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfigs) {
+            this.kinesisVideoStreamConfigs = kinesisVideoStreamConfigs;
             return this;
         }
         public Builder kinesisVideoStreamConfigs(GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig... kinesisVideoStreamConfigs) {
             return kinesisVideoStreamConfigs(List.of(kinesisVideoStreamConfigs));
         }
         @CustomType.Setter
-        public Builder s3Configs(List<GetInstanceStorageConfigStorageConfigS3Config> s3Configs) {
-            this.s3Configs = Objects.requireNonNull(s3Configs);
+        public Builder s3Configs(@Nullable List<GetInstanceStorageConfigStorageConfigS3Config> s3Configs) {
+            this.s3Configs = s3Configs;
             return this;
         }
         public Builder s3Configs(GetInstanceStorageConfigStorageConfigS3Config... s3Configs) {
             return s3Configs(List.of(s3Configs));
         }
         @CustomType.Setter
-        public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+        public Builder storageType(@Nullable String storageType) {
+            this.storageType = storageType;
             return this;
         }
         public GetInstanceStorageConfigStorageConfig build() {

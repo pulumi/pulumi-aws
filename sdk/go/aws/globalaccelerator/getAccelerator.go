@@ -72,16 +72,16 @@ type LookupAcceleratorArgs struct {
 
 // A collection of values returned by getAccelerator.
 type LookupAcceleratorResult struct {
-	Arn              string                    `pulumi:"arn"`
+	Arn              *string                   `pulumi:"arn"`
 	Attributes       []GetAcceleratorAttribute `pulumi:"attributes"`
-	DnsName          string                    `pulumi:"dnsName"`
-	DualStackDnsName string                    `pulumi:"dualStackDnsName"`
-	Enabled          bool                      `pulumi:"enabled"`
-	HostedZoneId     string                    `pulumi:"hostedZoneId"`
-	Id               string                    `pulumi:"id"`
-	IpAddressType    string                    `pulumi:"ipAddressType"`
+	DnsName          *string                   `pulumi:"dnsName"`
+	DualStackDnsName *string                   `pulumi:"dualStackDnsName"`
+	Enabled          *bool                     `pulumi:"enabled"`
+	HostedZoneId     *string                   `pulumi:"hostedZoneId"`
+	Id               *string                   `pulumi:"id"`
+	IpAddressType    *string                   `pulumi:"ipAddressType"`
 	IpSets           []GetAcceleratorIpSet     `pulumi:"ipSets"`
-	Name             string                    `pulumi:"name"`
+	Name             *string                   `pulumi:"name"`
 	Tags             map[string]string         `pulumi:"tags"`
 }
 
@@ -128,44 +128,44 @@ func (o LookupAcceleratorResultOutput) ToLookupAcceleratorResultOutputWithContex
 	return o
 }
 
-func (o LookupAcceleratorResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupAcceleratorResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAcceleratorResultOutput) Attributes() GetAcceleratorAttributeArrayOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) []GetAcceleratorAttribute { return v.Attributes }).(GetAcceleratorAttributeArrayOutput)
 }
 
-func (o LookupAcceleratorResultOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.DnsName }).(pulumi.StringOutput)
+func (o LookupAcceleratorResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAcceleratorResultOutput) DualStackDnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.DualStackDnsName }).(pulumi.StringOutput)
+func (o LookupAcceleratorResultOutput) DualStackDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.DualStackDnsName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAcceleratorResultOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAcceleratorResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o LookupAcceleratorResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupAcceleratorResultOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o LookupAcceleratorResultOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAcceleratorResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAcceleratorResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAcceleratorResultOutput) IpAddressType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.IpAddressType }).(pulumi.StringOutput)
+func (o LookupAcceleratorResultOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAcceleratorResultOutput) IpSets() GetAcceleratorIpSetArrayOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) []GetAcceleratorIpSet { return v.IpSets }).(GetAcceleratorIpSetArrayOutput)
 }
 
-func (o LookupAcceleratorResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupAcceleratorResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAcceleratorResultOutput) Tags() pulumi.StringMapOutput {

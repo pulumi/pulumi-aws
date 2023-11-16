@@ -54,18 +54,18 @@ type PlacementGroup struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the placement group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the placement group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of partitions to create in the
 	// placement group.  Can only be specified when the `strategy` is set to
 	// `partition`.  Valid values are 1 - 7 (default is `2`).
-	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
+	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
 	// The ID of the placement group.
-	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
+	PlacementGroupId pulumi.StringPtrOutput `pulumi:"placementGroupId"`
 	// Determines how placement groups spread instances. Can only be used
 	// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
-	SpreadLevel pulumi.StringOutput `pulumi:"spreadLevel"`
+	SpreadLevel pulumi.StringPtrOutput `pulumi:"spreadLevel"`
 	// The placement strategy. Can be `cluster`, `partition` or `spread`.
 	Strategy pulumi.StringOutput `pulumi:"strategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -285,8 +285,8 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 }
 
 // Amazon Resource Name (ARN) of the placement group.
-func (o PlacementGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PlacementGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the placement group.
@@ -297,19 +297,19 @@ func (o PlacementGroupOutput) Name() pulumi.StringOutput {
 // The number of partitions to create in the
 // placement group.  Can only be specified when the `strategy` is set to
 // `partition`.  Valid values are 1 - 7 (default is `2`).
-func (o PlacementGroupOutput) PartitionCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *PlacementGroup) pulumi.IntOutput { return v.PartitionCount }).(pulumi.IntOutput)
+func (o PlacementGroupOutput) PartitionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.IntPtrOutput { return v.PartitionCount }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the placement group.
-func (o PlacementGroupOutput) PlacementGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.PlacementGroupId }).(pulumi.StringOutput)
+func (o PlacementGroupOutput) PlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.PlacementGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Determines how placement groups spread instances. Can only be used
 // when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
-func (o PlacementGroupOutput) SpreadLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.SpreadLevel }).(pulumi.StringOutput)
+func (o PlacementGroupOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.SpreadLevel }).(pulumi.StringPtrOutput)
 }
 
 // The placement strategy. Can be `cluster`, `partition` or `spread`.

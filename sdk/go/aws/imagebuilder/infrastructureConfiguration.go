@@ -74,11 +74,11 @@ type InfrastructureConfiguration struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Date when the configuration was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
+	DateCreated pulumi.StringPtrOutput `pulumi:"dateCreated"`
 	// Date when the configuration was updated.
-	DateUpdated pulumi.StringOutput `pulumi:"dateUpdated"`
+	DateUpdated pulumi.StringPtrOutput `pulumi:"dateUpdated"`
 	// Description for the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
@@ -386,18 +386,18 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWi
 }
 
 // Amazon Resource Name (ARN) of the configuration.
-func (o InfrastructureConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InfrastructureConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date when the configuration was created.
-func (o InfrastructureConfigurationOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
+func (o InfrastructureConfigurationOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Date when the configuration was updated.
-func (o InfrastructureConfigurationOutput) DateUpdated() pulumi.StringOutput {
-	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.DateUpdated }).(pulumi.StringOutput)
+func (o InfrastructureConfigurationOutput) DateUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.DateUpdated }).(pulumi.StringPtrOutput)
 }
 
 // Description for the configuration.

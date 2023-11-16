@@ -19,112 +19,112 @@ public final class GetZoneResult {
      * @return ARN of the Hosted Zone.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Caller Reference of the Hosted Zone.
      * 
      */
-    private String callerReference;
+    private @Nullable String callerReference;
     /**
      * @return Comment field of the Hosted Zone.
      * 
      */
-    private String comment;
+    private @Nullable String comment;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
      * 
      */
-    private String linkedServiceDescription;
+    private @Nullable String linkedServiceDescription;
     /**
      * @return The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
      * 
      */
-    private String linkedServicePrincipal;
-    private String name;
+    private @Nullable String linkedServicePrincipal;
+    private @Nullable String name;
     /**
      * @return List of DNS name servers for the Hosted Zone.
      * 
      */
-    private List<String> nameServers;
+    private @Nullable List<String> nameServers;
     /**
      * @return The Route 53 name server that created the SOA record.
      * 
      */
-    private String primaryNameServer;
+    private @Nullable String primaryNameServer;
     private @Nullable Boolean privateZone;
     /**
      * @return The number of Record Set in the Hosted Zone.
      * 
      */
-    private Integer resourceRecordSetCount;
-    private Map<String,String> tags;
-    private String vpcId;
-    private String zoneId;
+    private @Nullable Integer resourceRecordSetCount;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String vpcId;
+    private @Nullable String zoneId;
 
     private GetZoneResult() {}
     /**
      * @return ARN of the Hosted Zone.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Caller Reference of the Hosted Zone.
      * 
      */
-    public String callerReference() {
-        return this.callerReference;
+    public Optional<String> callerReference() {
+        return Optional.ofNullable(this.callerReference);
     }
     /**
      * @return Comment field of the Hosted Zone.
      * 
      */
-    public String comment() {
-        return this.comment;
+    public Optional<String> comment() {
+        return Optional.ofNullable(this.comment);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
      * 
      */
-    public String linkedServiceDescription() {
-        return this.linkedServiceDescription;
+    public Optional<String> linkedServiceDescription() {
+        return Optional.ofNullable(this.linkedServiceDescription);
     }
     /**
      * @return The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
      * 
      */
-    public String linkedServicePrincipal() {
-        return this.linkedServicePrincipal;
+    public Optional<String> linkedServicePrincipal() {
+        return Optional.ofNullable(this.linkedServicePrincipal);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return List of DNS name servers for the Hosted Zone.
      * 
      */
     public List<String> nameServers() {
-        return this.nameServers;
+        return this.nameServers == null ? List.of() : this.nameServers;
     }
     /**
      * @return The Route 53 name server that created the SOA record.
      * 
      */
-    public String primaryNameServer() {
-        return this.primaryNameServer;
+    public Optional<String> primaryNameServer() {
+        return Optional.ofNullable(this.primaryNameServer);
     }
     public Optional<Boolean> privateZone() {
         return Optional.ofNullable(this.privateZone);
@@ -133,17 +133,17 @@ public final class GetZoneResult {
      * @return The number of Record Set in the Hosted Zone.
      * 
      */
-    public Integer resourceRecordSetCount() {
-        return this.resourceRecordSetCount;
+    public Optional<Integer> resourceRecordSetCount() {
+        return Optional.ofNullable(this.resourceRecordSetCount);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
-    public String zoneId() {
-        return this.zoneId;
+    public Optional<String> zoneId() {
+        return Optional.ofNullable(this.zoneId);
     }
 
     public static Builder builder() {
@@ -155,20 +155,20 @@ public final class GetZoneResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String callerReference;
-        private String comment;
-        private String id;
-        private String linkedServiceDescription;
-        private String linkedServicePrincipal;
-        private String name;
-        private List<String> nameServers;
-        private String primaryNameServer;
+        private @Nullable String arn;
+        private @Nullable String callerReference;
+        private @Nullable String comment;
+        private @Nullable String id;
+        private @Nullable String linkedServiceDescription;
+        private @Nullable String linkedServicePrincipal;
+        private @Nullable String name;
+        private @Nullable List<String> nameServers;
+        private @Nullable String primaryNameServer;
         private @Nullable Boolean privateZone;
-        private Integer resourceRecordSetCount;
-        private Map<String,String> tags;
-        private String vpcId;
-        private String zoneId;
+        private @Nullable Integer resourceRecordSetCount;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vpcId;
+        private @Nullable String zoneId;
         public Builder() {}
         public Builder(GetZoneResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -189,51 +189,51 @@ public final class GetZoneResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder callerReference(String callerReference) {
-            this.callerReference = Objects.requireNonNull(callerReference);
+        public Builder callerReference(@Nullable String callerReference) {
+            this.callerReference = callerReference;
             return this;
         }
         @CustomType.Setter
-        public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+        public Builder comment(@Nullable String comment) {
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder linkedServiceDescription(String linkedServiceDescription) {
-            this.linkedServiceDescription = Objects.requireNonNull(linkedServiceDescription);
+        public Builder linkedServiceDescription(@Nullable String linkedServiceDescription) {
+            this.linkedServiceDescription = linkedServiceDescription;
             return this;
         }
         @CustomType.Setter
-        public Builder linkedServicePrincipal(String linkedServicePrincipal) {
-            this.linkedServicePrincipal = Objects.requireNonNull(linkedServicePrincipal);
+        public Builder linkedServicePrincipal(@Nullable String linkedServicePrincipal) {
+            this.linkedServicePrincipal = linkedServicePrincipal;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder nameServers(List<String> nameServers) {
-            this.nameServers = Objects.requireNonNull(nameServers);
+        public Builder nameServers(@Nullable List<String> nameServers) {
+            this.nameServers = nameServers;
             return this;
         }
         public Builder nameServers(String... nameServers) {
             return nameServers(List.of(nameServers));
         }
         @CustomType.Setter
-        public Builder primaryNameServer(String primaryNameServer) {
-            this.primaryNameServer = Objects.requireNonNull(primaryNameServer);
+        public Builder primaryNameServer(@Nullable String primaryNameServer) {
+            this.primaryNameServer = primaryNameServer;
             return this;
         }
         @CustomType.Setter
@@ -242,23 +242,23 @@ public final class GetZoneResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceRecordSetCount(Integer resourceRecordSetCount) {
-            this.resourceRecordSetCount = Objects.requireNonNull(resourceRecordSetCount);
+        public Builder resourceRecordSetCount(@Nullable Integer resourceRecordSetCount) {
+            this.resourceRecordSetCount = resourceRecordSetCount;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
-        public Builder zoneId(String zoneId) {
-            this.zoneId = Objects.requireNonNull(zoneId);
+        public Builder zoneId(@Nullable String zoneId) {
+            this.zoneId = zoneId;
             return this;
         }
         public GetZoneResult build() {

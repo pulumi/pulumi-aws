@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// The ARN of the Elastictranscoder pipeline.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
         /// </summary>
         [Output("contentConfig")]
-        public Output<Outputs.PipelineContentConfig> ContentConfig { get; private set; } = null!;
+        public Output<Outputs.PipelineContentConfig?> ContentConfig { get; private set; } = null!;
 
         /// <summary>
         /// The permissions for the `content_config` object. (documented below)
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         /// </summary>
         [Output("outputBucket")]
-        public Output<string> OutputBucket { get; private set; } = null!;
+        public Output<string?> OutputBucket { get; private set; } = null!;
 
         /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         /// </summary>
         [Output("thumbnailConfig")]
-        public Output<Outputs.PipelineThumbnailConfig> ThumbnailConfig { get; private set; } = null!;
+        public Output<Outputs.PipelineThumbnailConfig?> ThumbnailConfig { get; private set; } = null!;
 
         /// <summary>
         /// The permissions for the `thumbnail_config` object. (documented below)

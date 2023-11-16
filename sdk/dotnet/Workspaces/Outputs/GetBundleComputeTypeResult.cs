@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Workspaces.Outputs
         /// <summary>
         /// Name of the bundle. You cannot combine this parameter with `bundle_id`.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
-        private GetBundleComputeTypeResult(string name)
+        private GetBundleComputeTypeResult(string? name)
         {
             Name = name;
         }

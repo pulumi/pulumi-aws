@@ -66,7 +66,7 @@ export class NfsLocation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      */
@@ -93,7 +93,7 @@ export class NfsLocation extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NfsLocation resource with the given unique name, arguments, and options.

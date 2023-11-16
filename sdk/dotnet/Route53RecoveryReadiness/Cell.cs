@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         /// ARN of the cell
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Unique name describing the cell.

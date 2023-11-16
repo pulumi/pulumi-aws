@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Chime
         /// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Chime
         /// The outbound host name for the Amazon Chime Voice Connector.
         /// </summary>
         [Output("outboundHostName")]
-        public Output<string> OutboundHostName { get; private set; } = null!;
+        public Output<string?> OutboundHostName { get; private set; } = null!;
 
         /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.

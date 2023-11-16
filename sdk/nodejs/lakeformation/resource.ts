@@ -56,13 +56,13 @@ export class Resource extends pulumi.CustomResource {
     /**
      * (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string | undefined>;
     /**
      * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
      *
      * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.

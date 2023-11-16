@@ -92,19 +92,19 @@ namespace Pulumi.Aws.S3
         /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Alias of the S3 Access Point.
         /// </summary>
         [Output("alias")]
-        public Output<string> Alias { get; private set; } = null!;
+        public Output<string?> Alias { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the S3 Access Point.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
@@ -116,26 +116,26 @@ namespace Pulumi.Aws.S3
         /// AWS account ID associated with the S3 bucket associated with this access point.
         /// </summary>
         [Output("bucketAccountId")]
-        public Output<string> BucketAccountId { get; private set; } = null!;
+        public Output<string?> BucketAccountId { get; private set; } = null!;
 
         /// <summary>
         /// DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
         /// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
         /// </summary>
         [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
+        public Output<string?> DomainName { get; private set; } = null!;
 
         /// <summary>
         /// VPC endpoints for the S3 Access Point.
         /// </summary>
         [Output("endpoints")]
-        public Output<ImmutableDictionary<string, string>> Endpoints { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Endpoints { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether this access point currently has a policy that allows public access.
         /// </summary>
         [Output("hasPublicAccessPolicy")]
-        public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
+        public Output<bool?> HasPublicAccessPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Name you want to assign to this access point.
@@ -149,13 +149,13 @@ namespace Pulumi.Aws.S3
         /// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
         /// </summary>
         [Output("networkOrigin")]
-        public Output<string> NetworkOrigin { get; private set; } = null!;
+        public Output<string?> NetworkOrigin { get; private set; } = null!;
 
         /// <summary>
         /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.

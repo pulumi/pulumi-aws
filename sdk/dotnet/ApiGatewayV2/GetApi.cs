@@ -128,17 +128,17 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         /// </summary>
-        public readonly string ApiEndpoint;
+        public readonly string? ApiEndpoint;
         public readonly string ApiId;
         /// <summary>
         /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
         /// Applicable for WebSocket APIs.
         /// </summary>
-        public readonly string ApiKeySelectionExpression;
+        public readonly string? ApiKeySelectionExpression;
         /// <summary>
         /// ARN of the API.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
         /// Applicable for HTTP APIs.
@@ -147,71 +147,71 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// Description of the API.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Whether clients can invoke the API by using the default `execute-api` endpoint.
         /// </summary>
-        public readonly bool DisableExecuteApiEndpoint;
+        public readonly bool? DisableExecuteApiEndpoint;
         /// <summary>
         /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
         /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
-        public readonly string ExecutionArn;
+        public readonly string? ExecutionArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the API.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// API protocol.
         /// </summary>
-        public readonly string ProtocolType;
+        public readonly string? ProtocolType;
         /// <summary>
         /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         /// </summary>
-        public readonly string RouteSelectionExpression;
+        public readonly string? RouteSelectionExpression;
         /// <summary>
         /// Map of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Version identifier for the API.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetApiResult(
-            string apiEndpoint,
+            string? apiEndpoint,
 
             string apiId,
 
-            string apiKeySelectionExpression,
+            string? apiKeySelectionExpression,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetApiCorsConfigurationResult> corsConfigurations,
 
-            string description,
+            string? description,
 
-            bool disableExecuteApiEndpoint,
+            bool? disableExecuteApiEndpoint,
 
-            string executionArn,
+            string? executionArn,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string protocolType,
+            string? protocolType,
 
-            string routeSelectionExpression,
+            string? routeSelectionExpression,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string version)
+            string? version)
         {
             ApiEndpoint = apiEndpoint;
             ApiId = apiId;

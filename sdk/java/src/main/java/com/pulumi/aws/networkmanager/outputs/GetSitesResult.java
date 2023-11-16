@@ -8,6 +8,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,12 +18,12 @@ public final class GetSitesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return IDs of the sites.
      * 
      */
-    private List<String> ids;
+    private @Nullable List<String> ids;
     private @Nullable Map<String,String> tags;
 
     private GetSitesResult() {}
@@ -33,15 +34,15 @@ public final class GetSitesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IDs of the sites.
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
@@ -57,8 +58,8 @@ public final class GetSitesResult {
     @CustomType.Builder
     public static final class Builder {
         private String globalNetworkId;
-        private String id;
-        private List<String> ids;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetSitesResult defaults) {
@@ -75,13 +76,13 @@ public final class GetSitesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {

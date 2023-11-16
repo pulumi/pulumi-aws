@@ -13,20 +13,20 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerUserResult
     {
-        public readonly bool ConsoleAccess;
+        public readonly bool? ConsoleAccess;
         public readonly ImmutableArray<string> Groups;
-        public readonly bool ReplicationUser;
-        public readonly string Username;
+        public readonly bool? ReplicationUser;
+        public readonly string? Username;
 
         [OutputConstructor]
         private GetBrokerUserResult(
-            bool consoleAccess,
+            bool? consoleAccess,
 
             ImmutableArray<string> groups,
 
-            bool replicationUser,
+            bool? replicationUser,
 
-            string username)
+            string? username)
         {
             ConsoleAccess = consoleAccess;
             Groups = groups;

@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies configuration for how an endpoint performs asynchronous inference.
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Sagemaker
         /// Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.

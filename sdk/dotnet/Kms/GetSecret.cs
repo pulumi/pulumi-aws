@@ -58,12 +58,12 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<Outputs.GetSecretSecretResult> Secrets;
 
         [OutputConstructor]
         private GetSecretResult(
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetSecretSecretResult> secrets)
         {

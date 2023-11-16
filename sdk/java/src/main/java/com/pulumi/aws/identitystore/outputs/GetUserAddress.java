@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserAddress {
@@ -14,99 +16,99 @@ public final class GetUserAddress {
      * @return The country that this address is in.
      * 
      */
-    private String country;
+    private @Nullable String country;
     /**
      * @return The name that is typically displayed when the name is shown for display.
      * 
      */
-    private String formatted;
+    private @Nullable String formatted;
     /**
      * @return The address locality.
      * 
      */
-    private String locality;
+    private @Nullable String locality;
     /**
      * @return The postal code of the address.
      * 
      */
-    private String postalCode;
+    private @Nullable String postalCode;
     /**
      * @return When `true`, this is the primary phone number associated with the user.
      * 
      */
-    private Boolean primary;
+    private @Nullable Boolean primary;
     /**
      * @return The region of the address.
      * 
      */
-    private String region;
+    private @Nullable String region;
     /**
      * @return The street of the address.
      * 
      */
-    private String streetAddress;
+    private @Nullable String streetAddress;
     /**
      * @return The type of phone number.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetUserAddress() {}
     /**
      * @return The country that this address is in.
      * 
      */
-    public String country() {
-        return this.country;
+    public Optional<String> country() {
+        return Optional.ofNullable(this.country);
     }
     /**
      * @return The name that is typically displayed when the name is shown for display.
      * 
      */
-    public String formatted() {
-        return this.formatted;
+    public Optional<String> formatted() {
+        return Optional.ofNullable(this.formatted);
     }
     /**
      * @return The address locality.
      * 
      */
-    public String locality() {
-        return this.locality;
+    public Optional<String> locality() {
+        return Optional.ofNullable(this.locality);
     }
     /**
      * @return The postal code of the address.
      * 
      */
-    public String postalCode() {
-        return this.postalCode;
+    public Optional<String> postalCode() {
+        return Optional.ofNullable(this.postalCode);
     }
     /**
      * @return When `true`, this is the primary phone number associated with the user.
      * 
      */
-    public Boolean primary() {
-        return this.primary;
+    public Optional<Boolean> primary() {
+        return Optional.ofNullable(this.primary);
     }
     /**
      * @return The region of the address.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
     /**
      * @return The street of the address.
      * 
      */
-    public String streetAddress() {
-        return this.streetAddress;
+    public Optional<String> streetAddress() {
+        return Optional.ofNullable(this.streetAddress);
     }
     /**
      * @return The type of phone number.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -118,14 +120,14 @@ public final class GetUserAddress {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String country;
-        private String formatted;
-        private String locality;
-        private String postalCode;
-        private Boolean primary;
-        private String region;
-        private String streetAddress;
-        private String type;
+        private @Nullable String country;
+        private @Nullable String formatted;
+        private @Nullable String locality;
+        private @Nullable String postalCode;
+        private @Nullable Boolean primary;
+        private @Nullable String region;
+        private @Nullable String streetAddress;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetUserAddress defaults) {
     	      Objects.requireNonNull(defaults);
@@ -140,43 +142,43 @@ public final class GetUserAddress {
         }
 
         @CustomType.Setter
-        public Builder country(String country) {
-            this.country = Objects.requireNonNull(country);
+        public Builder country(@Nullable String country) {
+            this.country = country;
             return this;
         }
         @CustomType.Setter
-        public Builder formatted(String formatted) {
-            this.formatted = Objects.requireNonNull(formatted);
+        public Builder formatted(@Nullable String formatted) {
+            this.formatted = formatted;
             return this;
         }
         @CustomType.Setter
-        public Builder locality(String locality) {
-            this.locality = Objects.requireNonNull(locality);
+        public Builder locality(@Nullable String locality) {
+            this.locality = locality;
             return this;
         }
         @CustomType.Setter
-        public Builder postalCode(String postalCode) {
-            this.postalCode = Objects.requireNonNull(postalCode);
+        public Builder postalCode(@Nullable String postalCode) {
+            this.postalCode = postalCode;
             return this;
         }
         @CustomType.Setter
-        public Builder primary(Boolean primary) {
-            this.primary = Objects.requireNonNull(primary);
+        public Builder primary(@Nullable Boolean primary) {
+            this.primary = primary;
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         @CustomType.Setter
-        public Builder streetAddress(String streetAddress) {
-            this.streetAddress = Objects.requireNonNull(streetAddress);
+        public Builder streetAddress(@Nullable String streetAddress) {
+            this.streetAddress = streetAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetUserAddress build() {

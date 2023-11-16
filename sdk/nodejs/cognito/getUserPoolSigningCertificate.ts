@@ -43,11 +43,11 @@ export interface GetUserPoolSigningCertificateResult {
     /**
      * Certificate string
      */
-    readonly certificate: string;
+    readonly certificate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly userPoolId: string;
 }
 /**

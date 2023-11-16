@@ -53,13 +53,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// The current application version ID when the snapshot was created.
         /// </summary>
         [Output("applicationVersionId")]
-        public Output<int> ApplicationVersionId { get; private set; } = null!;
+        public Output<int?> ApplicationVersionId { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp of the application snapshot.
         /// </summary>
         [Output("snapshotCreationTimestamp")]
-        public Output<string> SnapshotCreationTimestamp { get; private set; } = null!;
+        public Output<string?> SnapshotCreationTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// The name of the application snapshot.

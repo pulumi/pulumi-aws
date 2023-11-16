@@ -6,14 +6,16 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransformFilterOperation {
-    private String conditionExpression;
+    private @Nullable String conditionExpression;
 
     private GetDataSetLogicalTableMapDataTransformFilterOperation() {}
-    public String conditionExpression() {
-        return this.conditionExpression;
+    public Optional<String> conditionExpression() {
+        return Optional.ofNullable(this.conditionExpression);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetDataSetLogicalTableMapDataTransformFilterOperation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String conditionExpression;
+        private @Nullable String conditionExpression;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransformFilterOperation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetDataSetLogicalTableMapDataTransformFilterOperation {
         }
 
         @CustomType.Setter
-        public Builder conditionExpression(String conditionExpression) {
-            this.conditionExpression = Objects.requireNonNull(conditionExpression);
+        public Builder conditionExpression(@Nullable String conditionExpression) {
+            this.conditionExpression = conditionExpression;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformFilterOperation build() {

@@ -209,28 +209,28 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the App Runner service.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
      * 
      */
     @Export(name="autoScalingConfigurationArn", refs={String.class}, tree="[0]")
-    private Output<String> autoScalingConfigurationArn;
+    private Output</* @Nullable */ String> autoScalingConfigurationArn;
 
     /**
      * @return ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
      * 
      */
-    public Output<String> autoScalingConfigurationArn() {
-        return this.autoScalingConfigurationArn;
+    public Output<Optional<String>> autoScalingConfigurationArn() {
+        return Codegen.optional(this.autoScalingConfigurationArn);
     }
     /**
      * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
@@ -251,42 +251,42 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="healthCheckConfiguration", refs={ServiceHealthCheckConfiguration.class}, tree="[0]")
-    private Output<ServiceHealthCheckConfiguration> healthCheckConfiguration;
+    private Output</* @Nullable */ ServiceHealthCheckConfiguration> healthCheckConfiguration;
 
     /**
      * @return Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
      * 
      */
-    public Output<ServiceHealthCheckConfiguration> healthCheckConfiguration() {
-        return this.healthCheckConfiguration;
+    public Output<Optional<ServiceHealthCheckConfiguration>> healthCheckConfiguration() {
+        return Codegen.optional(this.healthCheckConfiguration);
     }
     /**
      * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
      * 
      */
     @Export(name="instanceConfiguration", refs={ServiceInstanceConfiguration.class}, tree="[0]")
-    private Output<ServiceInstanceConfiguration> instanceConfiguration;
+    private Output</* @Nullable */ ServiceInstanceConfiguration> instanceConfiguration;
 
     /**
      * @return The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
      * 
      */
-    public Output<ServiceInstanceConfiguration> instanceConfiguration() {
-        return this.instanceConfiguration;
+    public Output<Optional<ServiceInstanceConfiguration>> instanceConfiguration() {
+        return Codegen.optional(this.instanceConfiguration);
     }
     /**
      * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      * 
      */
     @Export(name="networkConfiguration", refs={ServiceNetworkConfiguration.class}, tree="[0]")
-    private Output<ServiceNetworkConfiguration> networkConfiguration;
+    private Output</* @Nullable */ ServiceNetworkConfiguration> networkConfiguration;
 
     /**
      * @return Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      * 
      */
-    public Output<ServiceNetworkConfiguration> networkConfiguration() {
-        return this.networkConfiguration;
+    public Output<Optional<ServiceNetworkConfiguration>> networkConfiguration() {
+        return Codegen.optional(this.networkConfiguration);
     }
     /**
      * The observability configuration of your service. See Observability Configuration below for more details.
@@ -307,14 +307,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serviceId", refs={String.class}, tree="[0]")
-    private Output<String> serviceId;
+    private Output</* @Nullable */ String> serviceId;
 
     /**
      * @return An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      * 
      */
-    public Output<String> serviceId() {
-        return this.serviceId;
+    public Output<Optional<String>> serviceId() {
+        return Codegen.optional(this.serviceId);
     }
     /**
      * Name of the service.
@@ -335,14 +335,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serviceUrl", refs={String.class}, tree="[0]")
-    private Output<String> serviceUrl;
+    private Output</* @Nullable */ String> serviceUrl;
 
     /**
      * @return Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      * 
      */
-    public Output<String> serviceUrl() {
-        return this.serviceUrl;
+    public Output<Optional<String>> serviceUrl() {
+        return Codegen.optional(this.serviceUrl);
     }
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
@@ -367,14 +367,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Current state of the App Runner service.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

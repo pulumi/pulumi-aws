@@ -16,7 +16,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Auto-Tune desired state for the domain.
         /// </summary>
-        public readonly string DesiredState;
+        public readonly string? DesiredState;
         /// <summary>
         /// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
         /// </summary>
@@ -24,15 +24,15 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
         /// </summary>
-        public readonly string RollbackOnDisable;
+        public readonly string? RollbackOnDisable;
 
         [OutputConstructor]
         private GetDomainAutoTuneOptionResult(
-            string desiredState,
+            string? desiredState,
 
             ImmutableArray<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult> maintenanceSchedules,
 
-            string rollbackOnDisable)
+            string? rollbackOnDisable)
         {
             DesiredState = desiredState;
             MaintenanceSchedules = maintenanceSchedules;

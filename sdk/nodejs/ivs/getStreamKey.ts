@@ -49,20 +49,20 @@ export interface GetStreamKeyResult {
     /**
      * ARN of the Stream Key.
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly channelArn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Stream Key value.
      */
-    readonly value: string;
+    readonly value?: string;
 }
 /**
  * Data source for managing an AWS IVS (Interactive Video) Stream Key.

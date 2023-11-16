@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// The ARN of the Client VPN endpoint.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Information about the authentication method to be used to authenticate clients.
@@ -80,13 +80,13 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// The options for managing connection authorization for new client connections.
         /// </summary>
         [Output("clientConnectOptions")]
-        public Output<Outputs.EndpointClientConnectOptions> ClientConnectOptions { get; private set; } = null!;
+        public Output<Outputs.EndpointClientConnectOptions?> ClientConnectOptions { get; private set; } = null!;
 
         /// <summary>
         /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         /// </summary>
         [Output("clientLoginBannerOptions")]
-        public Output<Outputs.EndpointClientLoginBannerOptions> ClientLoginBannerOptions { get; private set; } = null!;
+        public Output<Outputs.EndpointClientLoginBannerOptions?> ClientLoginBannerOptions { get; private set; } = null!;
 
         /// <summary>
         /// Information about the client connection logging options.
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// The DNS name to be used by clients when establishing their VPN session.
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// The URL of the self-service portal.
         /// </summary>
         [Output("selfServicePortalUrl")]
-        public Output<string> SelfServicePortalUrl { get; private set; } = null!;
+        public Output<string?> SelfServicePortalUrl { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the ACM server certificate.
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
         /// <summary>
         /// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.

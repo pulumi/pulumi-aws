@@ -881,7 +881,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the SSM association
         """
@@ -889,7 +889,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> pulumi.Output[str]:
+    def association_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the SSM association.
         """
@@ -921,7 +921,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentVersion")
-    def document_version(self) -> pulumi.Output[str]:
+    def document_version(self) -> pulumi.Output[Optional[str]]:
         """
         The document version you want to associate with the target(s). Can be a specific version or the default version.
         """
@@ -972,7 +972,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A block of arbitrary string parameters to pass to the SSM document.
         """
@@ -996,7 +996,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Output[Sequence['outputs.AssociationTarget']]:
+    def targets(self) -> pulumi.Output[Optional[Sequence['outputs.AssociationTarget']]]:
         """
         A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         """

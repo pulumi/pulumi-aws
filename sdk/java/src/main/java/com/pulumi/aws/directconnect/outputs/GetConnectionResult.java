@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConnectionResult {
@@ -15,89 +17,89 @@ public final class GetConnectionResult {
      * @return ARN of the connection.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    private String awsDevice;
+    private @Nullable String awsDevice;
     /**
      * @return Bandwidth of the connection.
      * 
      */
-    private String bandwidth;
+    private @Nullable String bandwidth;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return AWS Direct Connect location where the connection is located.
      * 
      */
-    private String location;
+    private @Nullable String location;
     private String name;
     /**
      * @return ID of the AWS account that owns the connection.
      * 
      */
-    private String ownerAccountId;
+    private @Nullable String ownerAccountId;
     /**
      * @return The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
-    private String partnerName;
+    private @Nullable String partnerName;
     /**
      * @return Name of the service provider associated with the connection.
      * 
      */
-    private String providerName;
+    private @Nullable String providerName;
     /**
      * @return Map of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The VLAN ID.
      * 
      */
-    private Integer vlanId;
+    private @Nullable Integer vlanId;
 
     private GetConnectionResult() {}
     /**
      * @return ARN of the connection.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    public String awsDevice() {
-        return this.awsDevice;
+    public Optional<String> awsDevice() {
+        return Optional.ofNullable(this.awsDevice);
     }
     /**
      * @return Bandwidth of the connection.
      * 
      */
-    public String bandwidth() {
-        return this.bandwidth;
+    public Optional<String> bandwidth() {
+        return Optional.ofNullable(this.bandwidth);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return AWS Direct Connect location where the connection is located.
      * 
      */
-    public String location() {
-        return this.location;
+    public Optional<String> location() {
+        return Optional.ofNullable(this.location);
     }
     public String name() {
         return this.name;
@@ -106,36 +108,36 @@ public final class GetConnectionResult {
      * @return ID of the AWS account that owns the connection.
      * 
      */
-    public String ownerAccountId() {
-        return this.ownerAccountId;
+    public Optional<String> ownerAccountId() {
+        return Optional.ofNullable(this.ownerAccountId);
     }
     /**
      * @return The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
-    public String partnerName() {
-        return this.partnerName;
+    public Optional<String> partnerName() {
+        return Optional.ofNullable(this.partnerName);
     }
     /**
      * @return Name of the service provider associated with the connection.
      * 
      */
-    public String providerName() {
-        return this.providerName;
+    public Optional<String> providerName() {
+        return Optional.ofNullable(this.providerName);
     }
     /**
      * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The VLAN ID.
      * 
      */
-    public Integer vlanId() {
-        return this.vlanId;
+    public Optional<Integer> vlanId() {
+        return Optional.ofNullable(this.vlanId);
     }
 
     public static Builder builder() {
@@ -147,17 +149,17 @@ public final class GetConnectionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String awsDevice;
-        private String bandwidth;
-        private String id;
-        private String location;
+        private @Nullable String arn;
+        private @Nullable String awsDevice;
+        private @Nullable String bandwidth;
+        private @Nullable String id;
+        private @Nullable String location;
         private String name;
-        private String ownerAccountId;
-        private String partnerName;
-        private String providerName;
-        private Map<String,String> tags;
-        private Integer vlanId;
+        private @Nullable String ownerAccountId;
+        private @Nullable String partnerName;
+        private @Nullable String providerName;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Integer vlanId;
         public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -175,28 +177,28 @@ public final class GetConnectionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder awsDevice(String awsDevice) {
-            this.awsDevice = Objects.requireNonNull(awsDevice);
+        public Builder awsDevice(@Nullable String awsDevice) {
+            this.awsDevice = awsDevice;
             return this;
         }
         @CustomType.Setter
-        public Builder bandwidth(String bandwidth) {
-            this.bandwidth = Objects.requireNonNull(bandwidth);
+        public Builder bandwidth(@Nullable String bandwidth) {
+            this.bandwidth = bandwidth;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+        public Builder location(@Nullable String location) {
+            this.location = location;
             return this;
         }
         @CustomType.Setter
@@ -205,28 +207,28 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ownerAccountId(String ownerAccountId) {
-            this.ownerAccountId = Objects.requireNonNull(ownerAccountId);
+        public Builder ownerAccountId(@Nullable String ownerAccountId) {
+            this.ownerAccountId = ownerAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder partnerName(String partnerName) {
-            this.partnerName = Objects.requireNonNull(partnerName);
+        public Builder partnerName(@Nullable String partnerName) {
+            this.partnerName = partnerName;
             return this;
         }
         @CustomType.Setter
-        public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+        public Builder providerName(@Nullable String providerName) {
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vlanId(Integer vlanId) {
-            this.vlanId = Objects.requireNonNull(vlanId);
+        public Builder vlanId(@Nullable Integer vlanId) {
+            this.vlanId = vlanId;
             return this;
         }
         public GetConnectionResult build() {

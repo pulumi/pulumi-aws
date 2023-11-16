@@ -54,13 +54,13 @@ namespace Pulumi.Aws.SesV2
         /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         [Output("dashboardAttributes")]
-        public Output<Outputs.AccountVdmAttributesDashboardAttributes> DashboardAttributes { get; private set; } = null!;
+        public Output<Outputs.AccountVdmAttributesDashboardAttributes?> DashboardAttributes { get; private set; } = null!;
 
         /// <summary>
         /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         [Output("guardianAttributes")]
-        public Output<Outputs.AccountVdmAttributesGuardianAttributes> GuardianAttributes { get; private set; } = null!;
+        public Output<Outputs.AccountVdmAttributesGuardianAttributes?> GuardianAttributes { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.

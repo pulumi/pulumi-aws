@@ -45,19 +45,19 @@ export interface GetApplicationArgs {
  * A collection of values returned by getApplication.
  */
 export interface GetApplicationResult {
-    readonly appversionLifecycle: outputs.elasticbeanstalk.GetApplicationAppversionLifecycle;
+    readonly appversionLifecycle?: outputs.elasticbeanstalk.GetApplicationAppversionLifecycle;
     /**
      * ARN of the application.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Short description of the application
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
 }
 /**

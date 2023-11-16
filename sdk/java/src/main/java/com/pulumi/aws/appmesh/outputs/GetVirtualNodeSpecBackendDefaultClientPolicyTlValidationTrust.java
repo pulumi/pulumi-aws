@@ -9,22 +9,23 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPoli
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust {
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm> acms;
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile> files;
-    private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd> sds;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm> acms;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile> files;
+    private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd> sds;
 
     private GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust() {}
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm> acms() {
-        return this.acms;
+        return this.acms == null ? List.of() : this.acms;
     }
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile> files() {
-        return this.files;
+        return this.files == null ? List.of() : this.files;
     }
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd> sds() {
-        return this.sds;
+        return this.sds == null ? List.of() : this.sds;
     }
 
     public static Builder builder() {
@@ -36,9 +37,9 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm> acms;
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile> files;
-        private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd> sds;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm> acms;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile> files;
+        private @Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd> sds;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,24 +49,24 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust
         }
 
         @CustomType.Setter
-        public Builder acms(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm> acms) {
-            this.acms = Objects.requireNonNull(acms);
+        public Builder acms(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm> acms) {
+            this.acms = acms;
             return this;
         }
         public Builder acms(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm... acms) {
             return acms(List.of(acms));
         }
         @CustomType.Setter
-        public Builder files(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile> files) {
-            this.files = Objects.requireNonNull(files);
+        public Builder files(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile> files) {
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile... files) {
             return files(List.of(files));
         }
         @CustomType.Setter
-        public Builder sds(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+        public Builder sds(@Nullable List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd> sds) {
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd... sds) {

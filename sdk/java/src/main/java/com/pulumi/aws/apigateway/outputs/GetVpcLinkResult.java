@@ -8,6 +8,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcLinkResult {
@@ -15,48 +17,48 @@ public final class GetVpcLinkResult {
      * @return Description of the VPC link.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Set to the ID of the found API Gateway VPC Link.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Status of the VPC link.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Status message of the VPC link.
      * 
      */
-    private String statusMessage;
+    private @Nullable String statusMessage;
     /**
      * @return Key-value map of resource tags
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      * 
      */
-    private List<String> targetArns;
+    private @Nullable List<String> targetArns;
 
     private GetVpcLinkResult() {}
     /**
      * @return Description of the VPC link.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Set to the ID of the found API Gateway VPC Link.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -65,29 +67,29 @@ public final class GetVpcLinkResult {
      * @return Status of the VPC link.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Status message of the VPC link.
      * 
      */
-    public String statusMessage() {
-        return this.statusMessage;
+    public Optional<String> statusMessage() {
+        return Optional.ofNullable(this.statusMessage);
     }
     /**
      * @return Key-value map of resource tags
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      * 
      */
     public List<String> targetArns() {
-        return this.targetArns;
+        return this.targetArns == null ? List.of() : this.targetArns;
     }
 
     public static Builder builder() {
@@ -99,13 +101,13 @@ public final class GetVpcLinkResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String description;
-        private String id;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private String status;
-        private String statusMessage;
-        private Map<String,String> tags;
-        private List<String> targetArns;
+        private @Nullable String status;
+        private @Nullable String statusMessage;
+        private @Nullable Map<String,String> tags;
+        private @Nullable List<String> targetArns;
         public Builder() {}
         public Builder(GetVpcLinkResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -119,13 +121,13 @@ public final class GetVpcLinkResult {
         }
 
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -134,23 +136,23 @@ public final class GetVpcLinkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+        public Builder statusMessage(@Nullable String statusMessage) {
+            this.statusMessage = statusMessage;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder targetArns(List<String> targetArns) {
-            this.targetArns = Objects.requireNonNull(targetArns);
+        public Builder targetArns(@Nullable List<String> targetArns) {
+            this.targetArns = targetArns;
             return this;
         }
         public Builder targetArns(String... targetArns) {

@@ -137,14 +137,14 @@ public class LogSubscriptionFilter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
-    private Output<String> roleArn;
+    private Output</* @Nullable */ String> roleArn;
 
     /**
      * @return The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      * 
      */
-    public Output<String> roleArn() {
-        return this.roleArn;
+    public Output<Optional<String>> roleArn() {
+        return Codegen.optional(this.roleArn);
     }
 
     /**

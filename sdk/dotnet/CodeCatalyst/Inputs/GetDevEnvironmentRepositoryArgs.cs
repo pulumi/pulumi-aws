@@ -12,11 +12,11 @@ namespace Pulumi.Aws.CodeCatalyst.Inputs
 
     public sealed class GetDevEnvironmentRepositoryInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("branchName", required: true)]
-        public Input<string> BranchName { get; set; } = null!;
+        [Input("branchName")]
+        public Input<string>? BranchName { get; set; }
 
-        [Input("repositoryName", required: true)]
-        public Input<string> RepositoryName { get; set; } = null!;
+        [Input("repositoryName")]
+        public Input<string>? RepositoryName { get; set; }
 
         public GetDevEnvironmentRepositoryInputArgs()
         {

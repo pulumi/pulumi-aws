@@ -128,7 +128,7 @@ namespace Pulumi.Aws.AppSync
         /// ARN of the Function object.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.AppSync
         /// Unique ID representing the Function object.
         /// </summary>
         [Output("functionId")]
-        public Output<string> FunctionId { get; private set; } = null!;
+        public Output<string?> FunctionId { get; private set; } = null!;
 
         /// <summary>
         /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         /// </summary>
         [Output("functionVersion")]
-        public Output<string> FunctionVersion { get; private set; } = null!;
+        public Output<string?> FunctionVersion { get; private set; } = null!;
 
         /// <summary>
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.

@@ -1640,7 +1640,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         """
@@ -1648,7 +1648,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> pulumi.Output[str]:
+    def caller_reference(self) -> pulumi.Output[Optional[str]]:
         """
         Internal value used by CloudFront to allow future updates to the distribution configuration.
         """
@@ -1664,7 +1664,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="continuousDeploymentPolicyId")
-    def continuous_deployment_policy_id(self) -> pulumi.Output[str]:
+    def continuous_deployment_policy_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         """
@@ -1696,7 +1696,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         DNS domain name of either the S3 bucket, or web site of your custom origin.
         """
@@ -1712,7 +1712,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         """
@@ -1720,7 +1720,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> pulumi.Output[str]:
+    def hosted_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         """
@@ -1736,7 +1736,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inProgressValidationBatches")
-    def in_progress_validation_batches(self) -> pulumi.Output[int]:
+    def in_progress_validation_batches(self) -> pulumi.Output[Optional[int]]:
         """
         Number of invalidation batches currently in progress.
         """
@@ -1752,7 +1752,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> pulumi.Output[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time the distribution was last modified.
         """
@@ -1824,7 +1824,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         """
@@ -1851,7 +1851,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedKeyGroups")
-    def trusted_key_groups(self) -> pulumi.Output[Sequence['outputs.DistributionTrustedKeyGroup']]:
+    def trusted_key_groups(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionTrustedKeyGroup']]]:
         """
         List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
@@ -1859,7 +1859,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedSigners")
-    def trusted_signers(self) -> pulumi.Output[Sequence['outputs.DistributionTrustedSigner']]:
+    def trusted_signers(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionTrustedSigner']]]:
         """
         List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """

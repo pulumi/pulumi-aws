@@ -344,7 +344,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitationArn")
-    def invitation_arn(self) -> pulumi.Output[str]:
+    def invitation_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the resource share invitation.
         """
@@ -352,7 +352,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="receiverAccountId")
-    def receiver_account_id(self) -> pulumi.Output[str]:
+    def receiver_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The account ID of the receiver account which accepts the invitation.
         """
@@ -360,7 +360,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def resources(self) -> pulumi.Output[Sequence[str]]:
+    def resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of the resource ARNs shared via the resource share.
         """
@@ -368,7 +368,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="senderAccountId")
-    def sender_account_id(self) -> pulumi.Output[str]:
+    def sender_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The account ID of the sender account which submits the invitation.
         """
@@ -384,7 +384,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareId")
-    def share_id(self) -> pulumi.Output[str]:
+    def share_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the resource share as displayed in the console.
         """
@@ -392,7 +392,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> pulumi.Output[str]:
+    def share_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource share.
         """
@@ -400,7 +400,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         """

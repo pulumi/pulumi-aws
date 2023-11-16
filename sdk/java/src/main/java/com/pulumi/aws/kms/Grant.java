@@ -64,28 +64,28 @@ public class Grant extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="grantId", refs={String.class}, tree="[0]")
-    private Output<String> grantId;
+    private Output</* @Nullable */ String> grantId;
 
     /**
      * @return The unique identifier for the grant.
      * 
      */
-    public Output<String> grantId() {
-        return this.grantId;
+    public Output<Optional<String>> grantId() {
+        return Codegen.optional(this.grantId);
     }
     /**
      * The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
      * 
      */
     @Export(name="grantToken", refs={String.class}, tree="[0]")
-    private Output<String> grantToken;
+    private Output</* @Nullable */ String> grantToken;
 
     /**
      * @return The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
      * 
      */
-    public Output<String> grantToken() {
-        return this.grantToken;
+    public Output<Optional<String>> grantToken() {
+        return Codegen.optional(this.grantToken);
     }
     /**
      * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.

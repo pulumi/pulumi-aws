@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteTableRoutesResult {
@@ -17,12 +19,12 @@ public final class GetRouteTableRoutesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of Transit Gateway Routes.
      * 
      */
-    private List<GetRouteTableRoutesRoute> routes;
+    private @Nullable List<GetRouteTableRoutesRoute> routes;
     private String transitGatewayRouteTableId;
 
     private GetRouteTableRoutesResult() {}
@@ -33,15 +35,15 @@ public final class GetRouteTableRoutesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of Transit Gateway Routes.
      * 
      */
     public List<GetRouteTableRoutesRoute> routes() {
-        return this.routes;
+        return this.routes == null ? List.of() : this.routes;
     }
     public String transitGatewayRouteTableId() {
         return this.transitGatewayRouteTableId;
@@ -57,8 +59,8 @@ public final class GetRouteTableRoutesResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetRouteTableRoutesFilter> filters;
-        private String id;
-        private List<GetRouteTableRoutesRoute> routes;
+        private @Nullable String id;
+        private @Nullable List<GetRouteTableRoutesRoute> routes;
         private String transitGatewayRouteTableId;
         public Builder() {}
         public Builder(GetRouteTableRoutesResult defaults) {
@@ -78,13 +80,13 @@ public final class GetRouteTableRoutesResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder routes(List<GetRouteTableRoutesRoute> routes) {
-            this.routes = Objects.requireNonNull(routes);
+        public Builder routes(@Nullable List<GetRouteTableRoutesRoute> routes) {
+            this.routes = routes;
             return this;
         }
         public Builder routes(GetRouteTableRoutesRoute... routes) {

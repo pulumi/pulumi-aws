@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// A list that contains the names of the retrieved parameters.
         /// </summary>
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ssm
         private GetParametersByPathResult(
             ImmutableArray<string> arns,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> names,
 

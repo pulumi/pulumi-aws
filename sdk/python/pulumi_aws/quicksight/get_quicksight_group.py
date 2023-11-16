@@ -46,7 +46,7 @@ class GetQuicksightGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for the group.
         """
@@ -54,12 +54,12 @@ class GetQuicksightGroupResult:
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> str:
+    def aws_account_id(self) -> Optional[str]:
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The group description.
         """
@@ -72,7 +72,7 @@ class GetQuicksightGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -85,7 +85,7 @@ class GetQuicksightGroupResult:
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    def principal_id(self) -> Optional[str]:
         """
         The principal ID of the group.
         """

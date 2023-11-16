@@ -81,7 +81,7 @@ type VpcIpamPreviewNextCidr struct {
 	pulumi.CustomResourceState
 
 	// The previewed CIDR from the pool.
-	Cidr pulumi.StringOutput `pulumi:"cidr"`
+	Cidr pulumi.StringPtrOutput `pulumi:"cidr"`
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs pulumi.StringArrayOutput `pulumi:"disallowedCidrs"`
 	// The ID of the pool to which you want to assign a CIDR.
@@ -255,8 +255,8 @@ func (o VpcIpamPreviewNextCidrOutput) ToVpcIpamPreviewNextCidrOutputWithContext(
 }
 
 // The previewed CIDR from the pool.
-func (o VpcIpamPreviewNextCidrOutput) Cidr() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
+func (o VpcIpamPreviewNextCidrOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.StringPtrOutput { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
 // Exclude a particular CIDR range from being returned by the pool.

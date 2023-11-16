@@ -57,49 +57,49 @@ export interface GetMountTargetResult {
     /**
      * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      */
-    readonly availabilityZoneId: string;
+    readonly availabilityZoneId?: string;
     /**
      * The name of the Availability Zone (AZ) that the mount target resides in.
      */
-    readonly availabilityZoneName: string;
+    readonly availabilityZoneName?: string;
     /**
      * DNS name for the EFS file system.
      */
-    readonly dnsName: string;
+    readonly dnsName?: string;
     /**
      * Amazon Resource Name of the file system for which the mount target is intended.
      */
-    readonly fileSystemArn: string;
-    readonly fileSystemId: string;
+    readonly fileSystemArn?: string;
+    readonly fileSystemId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Address at which the file system may be mounted via the mount target.
      */
-    readonly ipAddress: string;
+    readonly ipAddress?: string;
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
-    readonly mountTargetDnsName: string;
-    readonly mountTargetId: string;
+    readonly mountTargetDnsName?: string;
+    readonly mountTargetId?: string;
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
-    readonly networkInterfaceId: string;
+    readonly networkInterfaceId?: string;
     /**
      * AWS account ID that owns the resource.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * List of VPC security group IDs attached to the mount target.
      */
-    readonly securityGroups: string[];
+    readonly securityGroups?: string[];
     /**
      * ID of the mount target's subnet.
      */
-    readonly subnetId: string;
+    readonly subnetId?: string;
 }
 /**
  * Provides information about an Elastic File System Mount Target (EFS).

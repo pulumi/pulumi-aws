@@ -69,7 +69,7 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
     /**
      * ARN of the block list.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description for a block list.
      */
@@ -85,7 +85,7 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
     /**
      * Unique identifier of the block list.
      */
-    public /*out*/ readonly querySuggestionsBlockListId!: pulumi.Output<string>;
+    public /*out*/ readonly querySuggestionsBlockListId!: pulumi.Output<string | undefined>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      */
@@ -96,7 +96,7 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
      * The `sourceS3Path` configuration block supports the following arguments:
      */
     public readonly sourceS3Path!: pulumi.Output<outputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
      */

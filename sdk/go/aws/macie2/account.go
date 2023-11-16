@@ -53,15 +53,15 @@ type Account struct {
 	pulumi.CustomResourceState
 
 	// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
-	FindingPublishingFrequency pulumi.StringOutput `pulumi:"findingPublishingFrequency"`
+	FindingPublishingFrequency pulumi.StringPtrOutput `pulumi:"findingPublishingFrequency"`
 	// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
-	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
+	ServiceRole pulumi.StringPtrOutput `pulumi:"serviceRole"`
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	UpdatedAt pulumi.StringPtrOutput `pulumi:"updatedAt"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -226,28 +226,28 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 }
 
 // The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-func (o AccountOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o AccountOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
-func (o AccountOutput) FindingPublishingFrequency() pulumi.StringOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.FindingPublishingFrequency }).(pulumi.StringOutput)
+func (o AccountOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.FindingPublishingFrequency }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
-func (o AccountOutput) ServiceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
+func (o AccountOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.ServiceRole }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-func (o AccountOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o AccountOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
-func (o AccountOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o AccountOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 type AccountArrayOutput struct{ *pulumi.OutputState }

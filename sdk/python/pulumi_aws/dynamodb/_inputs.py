@@ -672,27 +672,29 @@ class TableTtlArgs:
 @pulumi.input_type
 class GetTableServerSideEncryptionArgs:
     def __init__(__self__, *,
-                 enabled: bool,
-                 kms_key_arn: str):
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+                 enabled: Optional[bool] = None,
+                 kms_key_arn: Optional[str] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: bool):
+    def enabled(self, value: Optional[bool]):
         pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: str):
+    def kms_key_arn(self, value: Optional[str]):
         pulumi.set(self, "kms_key_arn", value)
 
 

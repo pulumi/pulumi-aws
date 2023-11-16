@@ -52,7 +52,7 @@ namespace Pulumi.Aws.AppRunner
         /// ARN of this auto scaling configuration version.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the auto scaling configuration.
@@ -64,13 +64,13 @@ namespace Pulumi.Aws.AppRunner
         /// The revision of this auto scaling configuration.
         /// </summary>
         [Output("autoScalingConfigurationRevision")]
-        public Output<int> AutoScalingConfigurationRevision { get; private set; } = null!;
+        public Output<int?> AutoScalingConfigurationRevision { get; private set; } = null!;
 
         /// <summary>
         /// Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
         /// </summary>
         [Output("latest")]
-        public Output<bool> Latest { get; private set; } = null!;
+        public Output<bool?> Latest { get; private set; } = null!;
 
         /// <summary>
         /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.AppRunner
         /// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

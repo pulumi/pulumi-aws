@@ -1258,7 +1258,7 @@ class SmbFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the SMB File Share.
         """
@@ -1314,7 +1314,7 @@ class SmbFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileShareName")
-    def file_share_name(self) -> pulumi.Output[str]:
+    def file_share_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         """
@@ -1322,7 +1322,7 @@ class SmbFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileshareId")
-    def fileshare_id(self) -> pulumi.Output[str]:
+    def fileshare_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the SMB File Share.
         """
@@ -1394,7 +1394,7 @@ class SmbFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oplocksEnabled")
-    def oplocks_enabled(self) -> pulumi.Output[bool]:
+    def oplocks_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         """
@@ -1402,7 +1402,7 @@ class SmbFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> pulumi.Output[str]:
+    def path(self) -> pulumi.Output[Optional[str]]:
         """
         File share path used by the NFS client to identify the mount point.
         """

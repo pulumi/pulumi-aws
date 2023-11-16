@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Iam
         /// The Amazon Resource Name (ARN) specifying the role.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Iam
         /// The creation date of the IAM role.
         /// </summary>
         [Output("createDate")]
-        public Output<string> CreateDate { get; private set; } = null!;
+        public Output<string?> CreateDate { get; private set; } = null!;
 
         /// <summary>
         /// Additional string appended to the role name. Not all AWS services support custom suffixes.
@@ -75,13 +75,13 @@ namespace Pulumi.Aws.Iam
         /// The name of the role.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The path of the role.
         /// </summary>
         [Output("path")]
-        public Output<string> Path { get; private set; } = null!;
+        public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Iam
         /// The stable and unique string identifying the role.
         /// </summary>
         [Output("uniqueId")]
-        public Output<string> UniqueId { get; private set; } = null!;
+        public Output<string?> UniqueId { get; private set; } = null!;
 
 
         /// <summary>

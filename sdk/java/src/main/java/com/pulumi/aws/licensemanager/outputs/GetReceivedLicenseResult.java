@@ -13,6 +13,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReceivedLicenseResult {
@@ -20,37 +22,37 @@ public final class GetReceivedLicenseResult {
      * @return Granted license beneficiary. This is in the form of the ARN of the root user of the account.
      * 
      */
-    private String beneficiary;
+    private @Nullable String beneficiary;
     /**
      * @return Configuration for consumption of the license. Detailed below
      * 
      */
-    private List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations;
+    private @Nullable List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations;
     /**
      * @return Creation time of the granted license in RFC 3339 format.
      * 
      */
-    private String createTime;
+    private @Nullable String createTime;
     /**
      * @return License entitlements. Detailed below
      * 
      */
-    private List<GetReceivedLicenseEntitlement> entitlements;
+    private @Nullable List<GetReceivedLicenseEntitlement> entitlements;
     /**
      * @return Home Region of the granted license.
      * 
      */
-    private String homeRegion;
+    private @Nullable String homeRegion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Granted license issuer. Detailed below
      * 
      */
-    private List<GetReceivedLicenseIssuer> issuers;
+    private @Nullable List<GetReceivedLicenseIssuer> issuers;
     /**
      * @return Amazon Resource Name (ARN) of the license.
      * 
@@ -60,89 +62,89 @@ public final class GetReceivedLicenseResult {
      * @return Granted license metadata. This is in the form of a set of all meta data. Detailed below
      * 
      */
-    private List<GetReceivedLicenseLicenseMetadata> licenseMetadatas;
+    private @Nullable List<GetReceivedLicenseLicenseMetadata> licenseMetadatas;
     /**
      * @return License name.
      * 
      */
-    private String licenseName;
+    private @Nullable String licenseName;
     /**
      * @return Product name.
      * * ` product_sku  ` - Product SKU.
      * 
      */
-    private String productName;
-    private String productSku;
+    private @Nullable String productName;
+    private @Nullable String productSku;
     /**
      * @return Granted license received metadata. Detailed below
      * 
      */
-    private List<GetReceivedLicenseReceivedMetadata> receivedMetadatas;
+    private @Nullable List<GetReceivedLicenseReceivedMetadata> receivedMetadatas;
     /**
      * @return Granted license status.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
      * 
      */
-    private List<GetReceivedLicenseValidity> validities;
+    private @Nullable List<GetReceivedLicenseValidity> validities;
     /**
      * @return Version of the granted license.
      * 
      */
-    private String version;
+    private @Nullable String version;
 
     private GetReceivedLicenseResult() {}
     /**
      * @return Granted license beneficiary. This is in the form of the ARN of the root user of the account.
      * 
      */
-    public String beneficiary() {
-        return this.beneficiary;
+    public Optional<String> beneficiary() {
+        return Optional.ofNullable(this.beneficiary);
     }
     /**
      * @return Configuration for consumption of the license. Detailed below
      * 
      */
     public List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations() {
-        return this.consumptionConfigurations;
+        return this.consumptionConfigurations == null ? List.of() : this.consumptionConfigurations;
     }
     /**
      * @return Creation time of the granted license in RFC 3339 format.
      * 
      */
-    public String createTime() {
-        return this.createTime;
+    public Optional<String> createTime() {
+        return Optional.ofNullable(this.createTime);
     }
     /**
      * @return License entitlements. Detailed below
      * 
      */
     public List<GetReceivedLicenseEntitlement> entitlements() {
-        return this.entitlements;
+        return this.entitlements == null ? List.of() : this.entitlements;
     }
     /**
      * @return Home Region of the granted license.
      * 
      */
-    public String homeRegion() {
-        return this.homeRegion;
+    public Optional<String> homeRegion() {
+        return Optional.ofNullable(this.homeRegion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Granted license issuer. Detailed below
      * 
      */
     public List<GetReceivedLicenseIssuer> issuers() {
-        return this.issuers;
+        return this.issuers == null ? List.of() : this.issuers;
     }
     /**
      * @return Amazon Resource Name (ARN) of the license.
@@ -156,53 +158,53 @@ public final class GetReceivedLicenseResult {
      * 
      */
     public List<GetReceivedLicenseLicenseMetadata> licenseMetadatas() {
-        return this.licenseMetadatas;
+        return this.licenseMetadatas == null ? List.of() : this.licenseMetadatas;
     }
     /**
      * @return License name.
      * 
      */
-    public String licenseName() {
-        return this.licenseName;
+    public Optional<String> licenseName() {
+        return Optional.ofNullable(this.licenseName);
     }
     /**
      * @return Product name.
      * * ` product_sku  ` - Product SKU.
      * 
      */
-    public String productName() {
-        return this.productName;
+    public Optional<String> productName() {
+        return Optional.ofNullable(this.productName);
     }
-    public String productSku() {
-        return this.productSku;
+    public Optional<String> productSku() {
+        return Optional.ofNullable(this.productSku);
     }
     /**
      * @return Granted license received metadata. Detailed below
      * 
      */
     public List<GetReceivedLicenseReceivedMetadata> receivedMetadatas() {
-        return this.receivedMetadatas;
+        return this.receivedMetadatas == null ? List.of() : this.receivedMetadatas;
     }
     /**
      * @return Granted license status.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
      * 
      */
     public List<GetReceivedLicenseValidity> validities() {
-        return this.validities;
+        return this.validities == null ? List.of() : this.validities;
     }
     /**
      * @return Version of the granted license.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -214,22 +216,22 @@ public final class GetReceivedLicenseResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String beneficiary;
-        private List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations;
-        private String createTime;
-        private List<GetReceivedLicenseEntitlement> entitlements;
-        private String homeRegion;
-        private String id;
-        private List<GetReceivedLicenseIssuer> issuers;
+        private @Nullable String beneficiary;
+        private @Nullable List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations;
+        private @Nullable String createTime;
+        private @Nullable List<GetReceivedLicenseEntitlement> entitlements;
+        private @Nullable String homeRegion;
+        private @Nullable String id;
+        private @Nullable List<GetReceivedLicenseIssuer> issuers;
         private String licenseArn;
-        private List<GetReceivedLicenseLicenseMetadata> licenseMetadatas;
-        private String licenseName;
-        private String productName;
-        private String productSku;
-        private List<GetReceivedLicenseReceivedMetadata> receivedMetadatas;
-        private String status;
-        private List<GetReceivedLicenseValidity> validities;
-        private String version;
+        private @Nullable List<GetReceivedLicenseLicenseMetadata> licenseMetadatas;
+        private @Nullable String licenseName;
+        private @Nullable String productName;
+        private @Nullable String productSku;
+        private @Nullable List<GetReceivedLicenseReceivedMetadata> receivedMetadatas;
+        private @Nullable String status;
+        private @Nullable List<GetReceivedLicenseValidity> validities;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetReceivedLicenseResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -252,44 +254,44 @@ public final class GetReceivedLicenseResult {
         }
 
         @CustomType.Setter
-        public Builder beneficiary(String beneficiary) {
-            this.beneficiary = Objects.requireNonNull(beneficiary);
+        public Builder beneficiary(@Nullable String beneficiary) {
+            this.beneficiary = beneficiary;
             return this;
         }
         @CustomType.Setter
-        public Builder consumptionConfigurations(List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations) {
-            this.consumptionConfigurations = Objects.requireNonNull(consumptionConfigurations);
+        public Builder consumptionConfigurations(@Nullable List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations) {
+            this.consumptionConfigurations = consumptionConfigurations;
             return this;
         }
         public Builder consumptionConfigurations(GetReceivedLicenseConsumptionConfiguration... consumptionConfigurations) {
             return consumptionConfigurations(List.of(consumptionConfigurations));
         }
         @CustomType.Setter
-        public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+        public Builder createTime(@Nullable String createTime) {
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
-        public Builder entitlements(List<GetReceivedLicenseEntitlement> entitlements) {
-            this.entitlements = Objects.requireNonNull(entitlements);
+        public Builder entitlements(@Nullable List<GetReceivedLicenseEntitlement> entitlements) {
+            this.entitlements = entitlements;
             return this;
         }
         public Builder entitlements(GetReceivedLicenseEntitlement... entitlements) {
             return entitlements(List.of(entitlements));
         }
         @CustomType.Setter
-        public Builder homeRegion(String homeRegion) {
-            this.homeRegion = Objects.requireNonNull(homeRegion);
+        public Builder homeRegion(@Nullable String homeRegion) {
+            this.homeRegion = homeRegion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder issuers(List<GetReceivedLicenseIssuer> issuers) {
-            this.issuers = Objects.requireNonNull(issuers);
+        public Builder issuers(@Nullable List<GetReceivedLicenseIssuer> issuers) {
+            this.issuers = issuers;
             return this;
         }
         public Builder issuers(GetReceivedLicenseIssuer... issuers) {
@@ -301,52 +303,52 @@ public final class GetReceivedLicenseResult {
             return this;
         }
         @CustomType.Setter
-        public Builder licenseMetadatas(List<GetReceivedLicenseLicenseMetadata> licenseMetadatas) {
-            this.licenseMetadatas = Objects.requireNonNull(licenseMetadatas);
+        public Builder licenseMetadatas(@Nullable List<GetReceivedLicenseLicenseMetadata> licenseMetadatas) {
+            this.licenseMetadatas = licenseMetadatas;
             return this;
         }
         public Builder licenseMetadatas(GetReceivedLicenseLicenseMetadata... licenseMetadatas) {
             return licenseMetadatas(List.of(licenseMetadatas));
         }
         @CustomType.Setter
-        public Builder licenseName(String licenseName) {
-            this.licenseName = Objects.requireNonNull(licenseName);
+        public Builder licenseName(@Nullable String licenseName) {
+            this.licenseName = licenseName;
             return this;
         }
         @CustomType.Setter
-        public Builder productName(String productName) {
-            this.productName = Objects.requireNonNull(productName);
+        public Builder productName(@Nullable String productName) {
+            this.productName = productName;
             return this;
         }
         @CustomType.Setter
-        public Builder productSku(String productSku) {
-            this.productSku = Objects.requireNonNull(productSku);
+        public Builder productSku(@Nullable String productSku) {
+            this.productSku = productSku;
             return this;
         }
         @CustomType.Setter
-        public Builder receivedMetadatas(List<GetReceivedLicenseReceivedMetadata> receivedMetadatas) {
-            this.receivedMetadatas = Objects.requireNonNull(receivedMetadatas);
+        public Builder receivedMetadatas(@Nullable List<GetReceivedLicenseReceivedMetadata> receivedMetadatas) {
+            this.receivedMetadatas = receivedMetadatas;
             return this;
         }
         public Builder receivedMetadatas(GetReceivedLicenseReceivedMetadata... receivedMetadatas) {
             return receivedMetadatas(List.of(receivedMetadatas));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder validities(List<GetReceivedLicenseValidity> validities) {
-            this.validities = Objects.requireNonNull(validities);
+        public Builder validities(@Nullable List<GetReceivedLicenseValidity> validities) {
+            this.validities = validities;
             return this;
         }
         public Builder validities(GetReceivedLicenseValidity... validities) {
             return validities(List.of(validities));
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetReceivedLicenseResult build() {

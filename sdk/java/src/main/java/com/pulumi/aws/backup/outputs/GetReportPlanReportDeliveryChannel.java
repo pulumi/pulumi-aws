@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReportPlanReportDeliveryChannel {
@@ -14,17 +16,17 @@ public final class GetReportPlanReportDeliveryChannel {
      * @return List of the format of your reports: CSV, JSON, or both.
      * 
      */
-    private List<String> formats;
+    private @Nullable List<String> formats;
     /**
      * @return Unique name of the S3 bucket that receives your reports.
      * 
      */
-    private String s3BucketName;
+    private @Nullable String s3BucketName;
     /**
      * @return Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
      * 
      */
-    private String s3KeyPrefix;
+    private @Nullable String s3KeyPrefix;
 
     private GetReportPlanReportDeliveryChannel() {}
     /**
@@ -32,21 +34,21 @@ public final class GetReportPlanReportDeliveryChannel {
      * 
      */
     public List<String> formats() {
-        return this.formats;
+        return this.formats == null ? List.of() : this.formats;
     }
     /**
      * @return Unique name of the S3 bucket that receives your reports.
      * 
      */
-    public String s3BucketName() {
-        return this.s3BucketName;
+    public Optional<String> s3BucketName() {
+        return Optional.ofNullable(this.s3BucketName);
     }
     /**
      * @return Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
      * 
      */
-    public String s3KeyPrefix() {
-        return this.s3KeyPrefix;
+    public Optional<String> s3KeyPrefix() {
+        return Optional.ofNullable(this.s3KeyPrefix);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetReportPlanReportDeliveryChannel {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> formats;
-        private String s3BucketName;
-        private String s3KeyPrefix;
+        private @Nullable List<String> formats;
+        private @Nullable String s3BucketName;
+        private @Nullable String s3KeyPrefix;
         public Builder() {}
         public Builder(GetReportPlanReportDeliveryChannel defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,21 +72,21 @@ public final class GetReportPlanReportDeliveryChannel {
         }
 
         @CustomType.Setter
-        public Builder formats(List<String> formats) {
-            this.formats = Objects.requireNonNull(formats);
+        public Builder formats(@Nullable List<String> formats) {
+            this.formats = formats;
             return this;
         }
         public Builder formats(String... formats) {
             return formats(List.of(formats));
         }
         @CustomType.Setter
-        public Builder s3BucketName(String s3BucketName) {
-            this.s3BucketName = Objects.requireNonNull(s3BucketName);
+        public Builder s3BucketName(@Nullable String s3BucketName) {
+            this.s3BucketName = s3BucketName;
             return this;
         }
         @CustomType.Setter
-        public Builder s3KeyPrefix(String s3KeyPrefix) {
-            this.s3KeyPrefix = Objects.requireNonNull(s3KeyPrefix);
+        public Builder s3KeyPrefix(@Nullable String s3KeyPrefix) {
+            this.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
         public GetReportPlanReportDeliveryChannel build() {

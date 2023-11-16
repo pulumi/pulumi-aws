@@ -86,7 +86,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
     /**
      * The current version of the origin request policy.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      */

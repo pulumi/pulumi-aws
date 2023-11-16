@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -83,14 +84,14 @@ public class StaticIpAttachment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
-    private Output<String> ipAddress;
+    private Output</* @Nullable */ String> ipAddress;
 
     /**
      * @return The allocated static IP address
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Output<Optional<String>> ipAddress() {
+        return Codegen.optional(this.ipAddress);
     }
     /**
      * The name of the allocated static IP

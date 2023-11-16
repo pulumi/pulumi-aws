@@ -822,7 +822,7 @@ class Intent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Lex intent.
         """
@@ -830,7 +830,7 @@ class Intent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def checksum(self) -> pulumi.Output[str]:
+    def checksum(self) -> pulumi.Output[Optional[str]]:
         """
         Checksum identifying the version of the intent that was created. The checksum is not
         included as an argument because the resource will add it automatically when updating the intent.
@@ -870,7 +870,7 @@ class Intent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the intent version was created.
         """
@@ -916,7 +916,7 @@ class Intent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> pulumi.Output[str]:
+    def last_updated_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the $LATEST version of this intent was updated.
         """
@@ -973,7 +973,7 @@ class Intent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the bot.
         """

@@ -93,7 +93,7 @@ type GetModelsResult struct {
 	ByOutputModality    *string `pulumi:"byOutputModality"`
 	ByProvider          *string `pulumi:"byProvider"`
 	// AWS region.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of model summary objects. See `modelSummaries`.
 	ModelSummaries []GetModelsModelSummary `pulumi:"modelSummaries"`
 }
@@ -161,8 +161,8 @@ func (o GetModelsResultOutput) ByProvider() pulumi.StringPtrOutput {
 }
 
 // AWS region.
-func (o GetModelsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetModelsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetModelsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetModelsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of model summary objects. See `modelSummaries`.

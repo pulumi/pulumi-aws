@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Elb
         /// The ARN of the ELB
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AZ's to serve traffic in.
@@ -153,13 +153,13 @@ namespace Pulumi.Aws.Elb
         /// The DNS name of the ELB
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// A health_check block. Health Check documented below.
         /// </summary>
         [Output("healthCheck")]
-        public Output<Outputs.LoadBalancerHealthCheck> HealthCheck { get; private set; } = null!;
+        public Output<Outputs.LoadBalancerHealthCheck?> HealthCheck { get; private set; } = null!;
 
         /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Default: `60`
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Elb
         /// If true, ELB will be an internal ELB.
         /// </summary>
         [Output("internal")]
-        public Output<bool> Internal { get; private set; } = null!;
+        public Output<bool?> Internal { get; private set; } = null!;
 
         /// <summary>
         /// A list of listener blocks. Listeners documented below.
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Elb
         /// prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// A list of security group IDs to assign to the ELB.
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Elb
         /// instances. Use this for Classic or Default VPC only.
         /// </summary>
         [Output("sourceSecurityGroup")]
-        public Output<string> SourceSecurityGroup { get; private set; } = null!;
+        public Output<string?> SourceSecurityGroup { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the security group that you can use as
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Elb
         /// instances. Only available on ELBs launched in a VPC.
         /// </summary>
         [Output("sourceSecurityGroupId")]
-        public Output<string> SourceSecurityGroupId { get; private set; } = null!;
+        public Output<string?> SourceSecurityGroupId { get; private set; } = null!;
 
         /// <summary>
         /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Elb
         /// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
         /// </summary>
         [Output("zoneId")]
-        public Output<string> ZoneId { get; private set; } = null!;
+        public Output<string?> ZoneId { get; private set; } = null!;
 
 
         /// <summary>

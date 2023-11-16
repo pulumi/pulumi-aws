@@ -16,35 +16,35 @@ namespace Pulumi.Aws.Organizations.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the account.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The email address associated with the AWS account.
         /// </summary>
-        public readonly string Email;
+        public readonly string? Email;
         /// <summary>
         /// Parent identifier of the organizational units.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The friendly name of the account.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The status of the account in the organization.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetOrganizationalUnitChildAccountsAccountResult(
-            string arn,
+            string? arn,
 
-            string email,
+            string? email,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string status)
+            string? status)
         {
             Arn = arn;
             Email = email;

@@ -6,6 +6,8 @@ package com.pulumi.aws.licensemanager.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration {
@@ -13,15 +15,15 @@ public final class GetReceivedLicenseConsumptionConfigurationProvisionalConfigur
      * @return Maximum time for the provisional configuration, in minutes.
      * 
      */
-    private Integer maxTimeToLiveInMinutes;
+    private @Nullable Integer maxTimeToLiveInMinutes;
 
     private GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration() {}
     /**
      * @return Maximum time for the provisional configuration, in minutes.
      * 
      */
-    public Integer maxTimeToLiveInMinutes() {
-        return this.maxTimeToLiveInMinutes;
+    public Optional<Integer> maxTimeToLiveInMinutes() {
+        return Optional.ofNullable(this.maxTimeToLiveInMinutes);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetReceivedLicenseConsumptionConfigurationProvisionalConfigur
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer maxTimeToLiveInMinutes;
+        private @Nullable Integer maxTimeToLiveInMinutes;
         public Builder() {}
         public Builder(GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetReceivedLicenseConsumptionConfigurationProvisionalConfigur
         }
 
         @CustomType.Setter
-        public Builder maxTimeToLiveInMinutes(Integer maxTimeToLiveInMinutes) {
-            this.maxTimeToLiveInMinutes = Objects.requireNonNull(maxTimeToLiveInMinutes);
+        public Builder maxTimeToLiveInMinutes(@Nullable Integer maxTimeToLiveInMinutes) {
+            this.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
             return this;
         }
         public GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration build() {

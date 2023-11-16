@@ -6,14 +6,16 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateLicenseSpecification {
-    private String licenseConfigurationArn;
+    private @Nullable String licenseConfigurationArn;
 
     private GetLaunchTemplateLicenseSpecification() {}
-    public String licenseConfigurationArn() {
-        return this.licenseConfigurationArn;
+    public Optional<String> licenseConfigurationArn() {
+        return Optional.ofNullable(this.licenseConfigurationArn);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetLaunchTemplateLicenseSpecification {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String licenseConfigurationArn;
+        private @Nullable String licenseConfigurationArn;
         public Builder() {}
         public Builder(GetLaunchTemplateLicenseSpecification defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetLaunchTemplateLicenseSpecification {
         }
 
         @CustomType.Setter
-        public Builder licenseConfigurationArn(String licenseConfigurationArn) {
-            this.licenseConfigurationArn = Objects.requireNonNull(licenseConfigurationArn);
+        public Builder licenseConfigurationArn(@Nullable String licenseConfigurationArn) {
+            this.licenseConfigurationArn = licenseConfigurationArn;
             return this;
         }
         public GetLaunchTemplateLicenseSpecification build() {

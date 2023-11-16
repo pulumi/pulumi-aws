@@ -18,12 +18,12 @@ public final class GetReleaseLabelsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Returned release labels.
      * 
      */
-    private List<String> releaseLabels;
+    private @Nullable List<String> releaseLabels;
 
     private GetReleaseLabelsResult() {}
     public Optional<GetReleaseLabelsFilters> filters() {
@@ -33,15 +33,15 @@ public final class GetReleaseLabelsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Returned release labels.
      * 
      */
     public List<String> releaseLabels() {
-        return this.releaseLabels;
+        return this.releaseLabels == null ? List.of() : this.releaseLabels;
     }
 
     public static Builder builder() {
@@ -54,8 +54,8 @@ public final class GetReleaseLabelsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable GetReleaseLabelsFilters filters;
-        private String id;
-        private List<String> releaseLabels;
+        private @Nullable String id;
+        private @Nullable List<String> releaseLabels;
         public Builder() {}
         public Builder(GetReleaseLabelsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,13 +70,13 @@ public final class GetReleaseLabelsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder releaseLabels(List<String> releaseLabels) {
-            this.releaseLabels = Objects.requireNonNull(releaseLabels);
+        public Builder releaseLabels(@Nullable List<String> releaseLabels) {
+            this.releaseLabels = releaseLabels;
             return this;
         }
         public Builder releaseLabels(String... releaseLabels) {

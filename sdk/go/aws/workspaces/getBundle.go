@@ -92,9 +92,9 @@ type GetBundleResult struct {
 	// The compute type. See supported fields below.
 	ComputeTypes []GetBundleComputeType `pulumi:"computeTypes"`
 	// The description of the bundle.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the compute type.
 	Name *string `pulumi:"name"`
 	// The owner of the bundle.
@@ -158,13 +158,13 @@ func (o GetBundleResultOutput) ComputeTypes() GetBundleComputeTypeArrayOutput {
 }
 
 // The description of the bundle.
-func (o GetBundleResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBundleResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetBundleResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBundleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetBundleResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBundleResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetBundleResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBundleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the compute type.

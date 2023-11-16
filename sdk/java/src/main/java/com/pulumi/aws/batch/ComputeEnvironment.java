@@ -214,42 +214,42 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the compute environment.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="computeEnvironmentName", refs={String.class}, tree="[0]")
-    private Output<String> computeEnvironmentName;
+    private Output</* @Nullable */ String> computeEnvironmentName;
 
     /**
      * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
-    public Output<String> computeEnvironmentName() {
-        return this.computeEnvironmentName;
+    public Output<Optional<String>> computeEnvironmentName() {
+        return Codegen.optional(this.computeEnvironmentName);
     }
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
      * 
      */
     @Export(name="computeEnvironmentNamePrefix", refs={String.class}, tree="[0]")
-    private Output<String> computeEnvironmentNamePrefix;
+    private Output</* @Nullable */ String> computeEnvironmentNamePrefix;
 
     /**
      * @return Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
      * 
      */
-    public Output<String> computeEnvironmentNamePrefix() {
-        return this.computeEnvironmentNamePrefix;
+    public Output<Optional<String>> computeEnvironmentNamePrefix() {
+        return Codegen.optional(this.computeEnvironmentNamePrefix);
     }
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -270,14 +270,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ecsClusterArn", refs={String.class}, tree="[0]")
-    private Output<String> ecsClusterArn;
+    private Output</* @Nullable */ String> ecsClusterArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
-    public Output<String> ecsClusterArn() {
-        return this.ecsClusterArn;
+    public Output<Optional<String>> ecsClusterArn() {
+        return Codegen.optional(this.ecsClusterArn);
     }
     /**
      * Details for the Amazon EKS cluster that supports the compute environment. See details below.
@@ -298,14 +298,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
-    private Output<String> serviceRole;
+    private Output</* @Nullable */ String> serviceRole;
 
     /**
      * @return The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
-    public Output<String> serviceRole() {
-        return this.serviceRole;
+    public Output<Optional<String>> serviceRole() {
+        return Codegen.optional(this.serviceRole);
     }
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -326,28 +326,28 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The current status of the compute environment (for example, CREATING or VALID).
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
     @Export(name="statusReason", refs={String.class}, tree="[0]")
-    private Output<String> statusReason;
+    private Output</* @Nullable */ String> statusReason;
 
     /**
      * @return A short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
-    public Output<String> statusReason() {
-        return this.statusReason;
+    public Output<Optional<String>> statusReason() {
+        return Codegen.optional(this.statusReason);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -59,13 +59,13 @@ namespace Pulumi.Aws.Ebs
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
         [Output("dataEncryptionKeyId")]
-        public Output<string> DataEncryptionKeyId { get; private set; } = null!;
+        public Output<string?> DataEncryptionKeyId { get; private set; } = null!;
 
         /// <summary>
         /// A description of what the snapshot is.
@@ -77,13 +77,13 @@ namespace Pulumi.Aws.Ebs
         /// Whether the snapshot is encrypted.
         /// </summary>
         [Output("encrypted")]
-        public Output<bool> Encrypted { get; private set; } = null!;
+        public Output<bool?> Encrypted { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for the KMS encryption key.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
@@ -95,13 +95,13 @@ namespace Pulumi.Aws.Ebs
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
         [Output("ownerAlias")]
-        public Output<string> OwnerAlias { get; private set; } = null!;
+        public Output<string?> OwnerAlias { get; private set; } = null!;
 
         /// <summary>
         /// The AWS account ID of the EBS snapshot owner.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether to permanently restore an archived snapshot.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ebs
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         /// </summary>
         [Output("storageTier")]
-        public Output<string> StorageTier { get; private set; } = null!;
+        public Output<string?> StorageTier { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Ebs
         /// The size of the drive in GiBs.
         /// </summary>
         [Output("volumeSize")]
-        public Output<int> VolumeSize { get; private set; } = null!;
+        public Output<int?> VolumeSize { get; private set; } = null!;
 
 
         /// <summary>

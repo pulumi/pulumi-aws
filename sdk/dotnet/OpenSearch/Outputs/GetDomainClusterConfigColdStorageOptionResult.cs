@@ -16,10 +16,10 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Enabled disabled toggle for off-peak update window
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
-        private GetDomainClusterConfigColdStorageOptionResult(bool enabled)
+        private GetDomainClusterConfigColdStorageOptionResult(bool? enabled)
         {
             Enabled = enabled;
         }

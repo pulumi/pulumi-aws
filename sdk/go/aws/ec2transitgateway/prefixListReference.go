@@ -85,8 +85,8 @@ type PrefixListReference struct {
 	// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
 	Blackhole pulumi.BoolPtrOutput `pulumi:"blackhole"`
 	// Identifier of EC2 Prefix List.
-	PrefixListId      pulumi.StringOutput `pulumi:"prefixListId"`
-	PrefixListOwnerId pulumi.StringOutput `pulumi:"prefixListOwnerId"`
+	PrefixListId      pulumi.StringOutput    `pulumi:"prefixListId"`
+	PrefixListOwnerId pulumi.StringPtrOutput `pulumi:"prefixListOwnerId"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -286,8 +286,8 @@ func (o PrefixListReferenceOutput) PrefixListId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.PrefixListId }).(pulumi.StringOutput)
 }
 
-func (o PrefixListReferenceOutput) PrefixListOwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.PrefixListOwnerId }).(pulumi.StringOutput)
+func (o PrefixListReferenceOutput) PrefixListOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrefixListReference) pulumi.StringPtrOutput { return v.PrefixListOwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of EC2 Transit Gateway Attachment.

@@ -79,42 +79,42 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="adminUsername", refs={String.class}, tree="[0]")
-    private Output<String> adminUsername;
+    private Output</* @Nullable */ String> adminUsername;
 
     /**
      * @return The username of the administrator for the first database created in the namespace.
      * 
      */
-    public Output<String> adminUsername() {
-        return this.adminUsername;
+    public Output<Optional<String>> adminUsername() {
+        return Codegen.optional(this.adminUsername);
     }
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the first database created in the namespace.
      * 
      */
     @Export(name="dbName", refs={String.class}, tree="[0]")
-    private Output<String> dbName;
+    private Output</* @Nullable */ String> dbName;
 
     /**
      * @return The name of the first database created in the namespace.
      * 
      */
-    public Output<String> dbName() {
-        return this.dbName;
+    public Output<Optional<String>> dbName() {
+        return Codegen.optional(this.dbName);
     }
     /**
      * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
@@ -135,28 +135,28 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="iamRoles", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> iamRoles;
+    private Output</* @Nullable */ List<String>> iamRoles;
 
     /**
      * @return A list of IAM roles to associate with the namespace.
      * 
      */
-    public Output<List<String>> iamRoles() {
-        return this.iamRoles;
+    public Output<Optional<List<String>>> iamRoles() {
+        return Codegen.optional(this.iamRoles);
     }
     /**
      * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
@@ -177,14 +177,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
-    private Output<String> namespaceId;
+    private Output</* @Nullable */ String> namespaceId;
 
     /**
      * @return The Redshift Namespace ID.
      * 
      */
-    public Output<String> namespaceId() {
-        return this.namespaceId;
+    public Output<Optional<String>> namespaceId() {
+        return Codegen.optional(this.namespaceId);
     }
     /**
      * The name of the namespace.

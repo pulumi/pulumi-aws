@@ -11,143 +11,145 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterResult {
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Availability Zone for the cache cluster.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
      * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      * 
      */
-    private List<GetClusterCacheNode> cacheNodes;
+    private @Nullable List<GetClusterCacheNode> cacheNodes;
     /**
      * @return (Memcached only) DNS name of the cache cluster without the port appended.
      * 
      */
-    private String clusterAddress;
+    private @Nullable String clusterAddress;
     private String clusterId;
     /**
      * @return (Memcached only) Configuration endpoint to allow host discovery.
      * 
      */
-    private String configurationEndpoint;
+    private @Nullable String configurationEndpoint;
     /**
      * @return Name of the cache engine.
      * 
      */
-    private String engine;
+    private @Nullable String engine;
     /**
      * @return Version number of the cache engine.
      * 
      */
-    private String engineVersion;
+    private @Nullable String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The IP version advertised in the discovery protocol.
      * 
      */
-    private String ipDiscovery;
+    private @Nullable String ipDiscovery;
     /**
      * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
      * 
      */
-    private List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations;
+    private @Nullable List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations;
     /**
      * @return Specifies the weekly time range for when maintenance
      * on the cache cluster is performed.
      * 
      */
-    private String maintenanceWindow;
+    private @Nullable String maintenanceWindow;
     /**
      * @return The IP versions for cache cluster connections.
      * 
      */
-    private String networkType;
+    private @Nullable String networkType;
     /**
      * @return The cluster node type.
      * 
      */
-    private String nodeType;
+    private @Nullable String nodeType;
     /**
      * @return An ARN of an
      * SNS topic that ElastiCache notifications get sent to.
      * 
      */
-    private String notificationTopicArn;
+    private @Nullable String notificationTopicArn;
     /**
      * @return The number of cache nodes that the cache cluster has.
      * 
      */
-    private Integer numCacheNodes;
+    private @Nullable Integer numCacheNodes;
     /**
      * @return Name of the parameter group associated with this cache cluster.
      * 
      */
-    private String parameterGroupName;
+    private @Nullable String parameterGroupName;
     /**
      * @return The port number on which each of the cache nodes will
      * accept connections.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
     /**
      * @return The outpost ARN in which the cache cluster was created if created in outpost.
      * 
      */
-    private String preferredOutpostArn;
+    private @Nullable String preferredOutpostArn;
     /**
      * @return The replication group to which this cache cluster belongs.
      * 
      */
-    private String replicationGroupId;
+    private @Nullable String replicationGroupId;
     /**
      * @return List VPC security groups associated with the cache cluster.
      * 
      */
-    private List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return The number of days for which ElastiCache will
      * retain automatic cache cluster snapshots before deleting them.
      * 
      */
-    private Integer snapshotRetentionLimit;
+    private @Nullable Integer snapshotRetentionLimit;
     /**
      * @return Daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of the cache cluster.
      * 
      */
-    private String snapshotWindow;
+    private @Nullable String snapshotWindow;
     /**
      * @return Name of the subnet group associated to the cache cluster.
      * 
      */
-    private String subnetGroupName;
+    private @Nullable String subnetGroupName;
     /**
      * @return Tags assigned to the resource
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetClusterResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Availability Zone for the cache cluster.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     /**
      * @return List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
@@ -155,14 +157,14 @@ public final class GetClusterResult {
      * 
      */
     public List<GetClusterCacheNode> cacheNodes() {
-        return this.cacheNodes;
+        return this.cacheNodes == null ? List.of() : this.cacheNodes;
     }
     /**
      * @return (Memcached only) DNS name of the cache cluster without the port appended.
      * 
      */
-    public String clusterAddress() {
-        return this.clusterAddress;
+    public Optional<String> clusterAddress() {
+        return Optional.ofNullable(this.clusterAddress);
     }
     public String clusterId() {
         return this.clusterId;
@@ -171,146 +173,146 @@ public final class GetClusterResult {
      * @return (Memcached only) Configuration endpoint to allow host discovery.
      * 
      */
-    public String configurationEndpoint() {
-        return this.configurationEndpoint;
+    public Optional<String> configurationEndpoint() {
+        return Optional.ofNullable(this.configurationEndpoint);
     }
     /**
      * @return Name of the cache engine.
      * 
      */
-    public String engine() {
-        return this.engine;
+    public Optional<String> engine() {
+        return Optional.ofNullable(this.engine);
     }
     /**
      * @return Version number of the cache engine.
      * 
      */
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The IP version advertised in the discovery protocol.
      * 
      */
-    public String ipDiscovery() {
-        return this.ipDiscovery;
+    public Optional<String> ipDiscovery() {
+        return Optional.ofNullable(this.ipDiscovery);
     }
     /**
      * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
      * 
      */
     public List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations() {
-        return this.logDeliveryConfigurations;
+        return this.logDeliveryConfigurations == null ? List.of() : this.logDeliveryConfigurations;
     }
     /**
      * @return Specifies the weekly time range for when maintenance
      * on the cache cluster is performed.
      * 
      */
-    public String maintenanceWindow() {
-        return this.maintenanceWindow;
+    public Optional<String> maintenanceWindow() {
+        return Optional.ofNullable(this.maintenanceWindow);
     }
     /**
      * @return The IP versions for cache cluster connections.
      * 
      */
-    public String networkType() {
-        return this.networkType;
+    public Optional<String> networkType() {
+        return Optional.ofNullable(this.networkType);
     }
     /**
      * @return The cluster node type.
      * 
      */
-    public String nodeType() {
-        return this.nodeType;
+    public Optional<String> nodeType() {
+        return Optional.ofNullable(this.nodeType);
     }
     /**
      * @return An ARN of an
      * SNS topic that ElastiCache notifications get sent to.
      * 
      */
-    public String notificationTopicArn() {
-        return this.notificationTopicArn;
+    public Optional<String> notificationTopicArn() {
+        return Optional.ofNullable(this.notificationTopicArn);
     }
     /**
      * @return The number of cache nodes that the cache cluster has.
      * 
      */
-    public Integer numCacheNodes() {
-        return this.numCacheNodes;
+    public Optional<Integer> numCacheNodes() {
+        return Optional.ofNullable(this.numCacheNodes);
     }
     /**
      * @return Name of the parameter group associated with this cache cluster.
      * 
      */
-    public String parameterGroupName() {
-        return this.parameterGroupName;
+    public Optional<String> parameterGroupName() {
+        return Optional.ofNullable(this.parameterGroupName);
     }
     /**
      * @return The port number on which each of the cache nodes will
      * accept connections.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return The outpost ARN in which the cache cluster was created if created in outpost.
      * 
      */
-    public String preferredOutpostArn() {
-        return this.preferredOutpostArn;
+    public Optional<String> preferredOutpostArn() {
+        return Optional.ofNullable(this.preferredOutpostArn);
     }
     /**
      * @return The replication group to which this cache cluster belongs.
      * 
      */
-    public String replicationGroupId() {
-        return this.replicationGroupId;
+    public Optional<String> replicationGroupId() {
+        return Optional.ofNullable(this.replicationGroupId);
     }
     /**
      * @return List VPC security groups associated with the cache cluster.
      * 
      */
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
      * @return The number of days for which ElastiCache will
      * retain automatic cache cluster snapshots before deleting them.
      * 
      */
-    public Integer snapshotRetentionLimit() {
-        return this.snapshotRetentionLimit;
+    public Optional<Integer> snapshotRetentionLimit() {
+        return Optional.ofNullable(this.snapshotRetentionLimit);
     }
     /**
      * @return Daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of the cache cluster.
      * 
      */
-    public String snapshotWindow() {
-        return this.snapshotWindow;
+    public Optional<String> snapshotWindow() {
+        return Optional.ofNullable(this.snapshotWindow);
     }
     /**
      * @return Name of the subnet group associated to the cache cluster.
      * 
      */
-    public String subnetGroupName() {
-        return this.subnetGroupName;
+    public Optional<String> subnetGroupName() {
+        return Optional.ofNullable(this.subnetGroupName);
     }
     /**
      * @return Tags assigned to the resource
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -322,31 +324,31 @@ public final class GetClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String availabilityZone;
-        private List<GetClusterCacheNode> cacheNodes;
-        private String clusterAddress;
+        private @Nullable String arn;
+        private @Nullable String availabilityZone;
+        private @Nullable List<GetClusterCacheNode> cacheNodes;
+        private @Nullable String clusterAddress;
         private String clusterId;
-        private String configurationEndpoint;
-        private String engine;
-        private String engineVersion;
-        private String id;
-        private String ipDiscovery;
-        private List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations;
-        private String maintenanceWindow;
-        private String networkType;
-        private String nodeType;
-        private String notificationTopicArn;
-        private Integer numCacheNodes;
-        private String parameterGroupName;
-        private Integer port;
-        private String preferredOutpostArn;
-        private String replicationGroupId;
-        private List<String> securityGroupIds;
-        private Integer snapshotRetentionLimit;
-        private String snapshotWindow;
-        private String subnetGroupName;
-        private Map<String,String> tags;
+        private @Nullable String configurationEndpoint;
+        private @Nullable String engine;
+        private @Nullable String engineVersion;
+        private @Nullable String id;
+        private @Nullable String ipDiscovery;
+        private @Nullable List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations;
+        private @Nullable String maintenanceWindow;
+        private @Nullable String networkType;
+        private @Nullable String nodeType;
+        private @Nullable String notificationTopicArn;
+        private @Nullable Integer numCacheNodes;
+        private @Nullable String parameterGroupName;
+        private @Nullable Integer port;
+        private @Nullable String preferredOutpostArn;
+        private @Nullable String replicationGroupId;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable Integer snapshotRetentionLimit;
+        private @Nullable String snapshotWindow;
+        private @Nullable String subnetGroupName;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -378,26 +380,26 @@ public final class GetClusterResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder cacheNodes(List<GetClusterCacheNode> cacheNodes) {
-            this.cacheNodes = Objects.requireNonNull(cacheNodes);
+        public Builder cacheNodes(@Nullable List<GetClusterCacheNode> cacheNodes) {
+            this.cacheNodes = cacheNodes;
             return this;
         }
         public Builder cacheNodes(GetClusterCacheNode... cacheNodes) {
             return cacheNodes(List.of(cacheNodes));
         }
         @CustomType.Setter
-        public Builder clusterAddress(String clusterAddress) {
-            this.clusterAddress = Objects.requireNonNull(clusterAddress);
+        public Builder clusterAddress(@Nullable String clusterAddress) {
+            this.clusterAddress = clusterAddress;
             return this;
         }
         @CustomType.Setter
@@ -406,109 +408,109 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder configurationEndpoint(String configurationEndpoint) {
-            this.configurationEndpoint = Objects.requireNonNull(configurationEndpoint);
+        public Builder configurationEndpoint(@Nullable String configurationEndpoint) {
+            this.configurationEndpoint = configurationEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder engine(String engine) {
-            this.engine = Objects.requireNonNull(engine);
+        public Builder engine(@Nullable String engine) {
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipDiscovery(String ipDiscovery) {
-            this.ipDiscovery = Objects.requireNonNull(ipDiscovery);
+        public Builder ipDiscovery(@Nullable String ipDiscovery) {
+            this.ipDiscovery = ipDiscovery;
             return this;
         }
         @CustomType.Setter
-        public Builder logDeliveryConfigurations(List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations) {
-            this.logDeliveryConfigurations = Objects.requireNonNull(logDeliveryConfigurations);
+        public Builder logDeliveryConfigurations(@Nullable List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations) {
+            this.logDeliveryConfigurations = logDeliveryConfigurations;
             return this;
         }
         public Builder logDeliveryConfigurations(GetClusterLogDeliveryConfiguration... logDeliveryConfigurations) {
             return logDeliveryConfigurations(List.of(logDeliveryConfigurations));
         }
         @CustomType.Setter
-        public Builder maintenanceWindow(String maintenanceWindow) {
-            this.maintenanceWindow = Objects.requireNonNull(maintenanceWindow);
+        public Builder maintenanceWindow(@Nullable String maintenanceWindow) {
+            this.maintenanceWindow = maintenanceWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder networkType(String networkType) {
-            this.networkType = Objects.requireNonNull(networkType);
+        public Builder networkType(@Nullable String networkType) {
+            this.networkType = networkType;
             return this;
         }
         @CustomType.Setter
-        public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+        public Builder nodeType(@Nullable String nodeType) {
+            this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
-        public Builder notificationTopicArn(String notificationTopicArn) {
-            this.notificationTopicArn = Objects.requireNonNull(notificationTopicArn);
+        public Builder notificationTopicArn(@Nullable String notificationTopicArn) {
+            this.notificationTopicArn = notificationTopicArn;
             return this;
         }
         @CustomType.Setter
-        public Builder numCacheNodes(Integer numCacheNodes) {
-            this.numCacheNodes = Objects.requireNonNull(numCacheNodes);
+        public Builder numCacheNodes(@Nullable Integer numCacheNodes) {
+            this.numCacheNodes = numCacheNodes;
             return this;
         }
         @CustomType.Setter
-        public Builder parameterGroupName(String parameterGroupName) {
-            this.parameterGroupName = Objects.requireNonNull(parameterGroupName);
+        public Builder parameterGroupName(@Nullable String parameterGroupName) {
+            this.parameterGroupName = parameterGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder preferredOutpostArn(String preferredOutpostArn) {
-            this.preferredOutpostArn = Objects.requireNonNull(preferredOutpostArn);
+        public Builder preferredOutpostArn(@Nullable String preferredOutpostArn) {
+            this.preferredOutpostArn = preferredOutpostArn;
             return this;
         }
         @CustomType.Setter
-        public Builder replicationGroupId(String replicationGroupId) {
-            this.replicationGroupId = Objects.requireNonNull(replicationGroupId);
+        public Builder replicationGroupId(@Nullable String replicationGroupId) {
+            this.replicationGroupId = replicationGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder snapshotRetentionLimit(Integer snapshotRetentionLimit) {
-            this.snapshotRetentionLimit = Objects.requireNonNull(snapshotRetentionLimit);
+        public Builder snapshotRetentionLimit(@Nullable Integer snapshotRetentionLimit) {
+            this.snapshotRetentionLimit = snapshotRetentionLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotWindow(String snapshotWindow) {
-            this.snapshotWindow = Objects.requireNonNull(snapshotWindow);
+        public Builder snapshotWindow(@Nullable String snapshotWindow) {
+            this.snapshotWindow = snapshotWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetGroupName(String subnetGroupName) {
-            this.subnetGroupName = Objects.requireNonNull(subnetGroupName);
+        public Builder subnetGroupName(@Nullable String subnetGroupName) {
+            this.subnetGroupName = subnetGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetClusterResult build() {

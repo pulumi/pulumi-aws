@@ -71,14 +71,14 @@ public class Script extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return GameLift Script ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name of the script
@@ -99,14 +99,14 @@ public class Script extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageLocation", refs={ScriptStorageLocation.class}, tree="[0]")
-    private Output<ScriptStorageLocation> storageLocation;
+    private Output</* @Nullable */ ScriptStorageLocation> storageLocation;
 
     /**
      * @return Information indicating where your game script files are stored. See below.
      * 
      */
-    public Output<ScriptStorageLocation> storageLocation() {
-        return this.storageLocation;
+    public Output<Optional<ScriptStorageLocation>> storageLocation() {
+        return Codegen.optional(this.storageLocation);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

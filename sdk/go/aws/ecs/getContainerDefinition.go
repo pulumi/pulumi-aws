@@ -62,23 +62,23 @@ type GetContainerDefinitionArgs struct {
 type GetContainerDefinitionResult struct {
 	ContainerName string `pulumi:"containerName"`
 	// CPU limit for this container definition
-	Cpu int `pulumi:"cpu"`
+	Cpu *int `pulumi:"cpu"`
 	// Indicator if networking is disabled
-	DisableNetworking bool `pulumi:"disableNetworking"`
+	DisableNetworking *bool `pulumi:"disableNetworking"`
 	// Set docker labels
 	DockerLabels map[string]string `pulumi:"dockerLabels"`
 	// Environment in use
 	Environment map[string]string `pulumi:"environment"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Docker image in use, including the digest
-	Image string `pulumi:"image"`
+	Image *string `pulumi:"image"`
 	// Digest of the docker image in use
-	ImageDigest string `pulumi:"imageDigest"`
+	ImageDigest *string `pulumi:"imageDigest"`
 	// Memory limit for this container definition
-	Memory int `pulumi:"memory"`
+	Memory *int `pulumi:"memory"`
 	// Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
-	MemoryReservation int    `pulumi:"memoryReservation"`
+	MemoryReservation *int   `pulumi:"memoryReservation"`
 	TaskDefinition    string `pulumi:"taskDefinition"`
 }
 
@@ -127,13 +127,13 @@ func (o GetContainerDefinitionResultOutput) ContainerName() pulumi.StringOutput 
 }
 
 // CPU limit for this container definition
-func (o GetContainerDefinitionResultOutput) Cpu() pulumi.IntOutput {
-	return o.ApplyT(func(v GetContainerDefinitionResult) int { return v.Cpu }).(pulumi.IntOutput)
+func (o GetContainerDefinitionResultOutput) Cpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetContainerDefinitionResult) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
 
 // Indicator if networking is disabled
-func (o GetContainerDefinitionResultOutput) DisableNetworking() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetContainerDefinitionResult) bool { return v.DisableNetworking }).(pulumi.BoolOutput)
+func (o GetContainerDefinitionResultOutput) DisableNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetContainerDefinitionResult) *bool { return v.DisableNetworking }).(pulumi.BoolPtrOutput)
 }
 
 // Set docker labels
@@ -147,28 +147,28 @@ func (o GetContainerDefinitionResultOutput) Environment() pulumi.StringMapOutput
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetContainerDefinitionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetContainerDefinitionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerDefinitionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Docker image in use, including the digest
-func (o GetContainerDefinitionResultOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerDefinitionResult) string { return v.Image }).(pulumi.StringOutput)
+func (o GetContainerDefinitionResultOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerDefinitionResult) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Digest of the docker image in use
-func (o GetContainerDefinitionResultOutput) ImageDigest() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerDefinitionResult) string { return v.ImageDigest }).(pulumi.StringOutput)
+func (o GetContainerDefinitionResultOutput) ImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerDefinitionResult) *string { return v.ImageDigest }).(pulumi.StringPtrOutput)
 }
 
 // Memory limit for this container definition
-func (o GetContainerDefinitionResultOutput) Memory() pulumi.IntOutput {
-	return o.ApplyT(func(v GetContainerDefinitionResult) int { return v.Memory }).(pulumi.IntOutput)
+func (o GetContainerDefinitionResultOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetContainerDefinitionResult) *int { return v.Memory }).(pulumi.IntPtrOutput)
 }
 
 // Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
-func (o GetContainerDefinitionResultOutput) MemoryReservation() pulumi.IntOutput {
-	return o.ApplyT(func(v GetContainerDefinitionResult) int { return v.MemoryReservation }).(pulumi.IntOutput)
+func (o GetContainerDefinitionResultOutput) MemoryReservation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetContainerDefinitionResult) *int { return v.MemoryReservation }).(pulumi.IntPtrOutput)
 }
 
 func (o GetContainerDefinitionResultOutput) TaskDefinition() pulumi.StringOutput {

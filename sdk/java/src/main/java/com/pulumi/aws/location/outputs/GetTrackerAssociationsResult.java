@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrackerAssociationsResult {
@@ -14,12 +16,12 @@ public final class GetTrackerAssociationsResult {
      * @return List of geofence collection ARNs associated to the tracker resource.
      * 
      */
-    private List<String> consumerArns;
+    private @Nullable List<String> consumerArns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String trackerName;
 
     private GetTrackerAssociationsResult() {}
@@ -28,14 +30,14 @@ public final class GetTrackerAssociationsResult {
      * 
      */
     public List<String> consumerArns() {
-        return this.consumerArns;
+        return this.consumerArns == null ? List.of() : this.consumerArns;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String trackerName() {
         return this.trackerName;
@@ -50,8 +52,8 @@ public final class GetTrackerAssociationsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> consumerArns;
-        private String id;
+        private @Nullable List<String> consumerArns;
+        private @Nullable String id;
         private String trackerName;
         public Builder() {}
         public Builder(GetTrackerAssociationsResult defaults) {
@@ -62,16 +64,16 @@ public final class GetTrackerAssociationsResult {
         }
 
         @CustomType.Setter
-        public Builder consumerArns(List<String> consumerArns) {
-            this.consumerArns = Objects.requireNonNull(consumerArns);
+        public Builder consumerArns(@Nullable List<String> consumerArns) {
+            this.consumerArns = consumerArns;
             return this;
         }
         public Builder consumerArns(String... consumerArns) {
             return consumerArns(List.of(consumerArns));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

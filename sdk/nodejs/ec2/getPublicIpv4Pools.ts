@@ -68,12 +68,12 @@ export interface GetPublicIpv4PoolsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of all the pool IDs found.
      */
-    readonly poolIds: string[];
-    readonly tags: {[key: string]: string};
+    readonly poolIds?: string[];
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for getting information about AWS EC2 Public IPv4 Pools.

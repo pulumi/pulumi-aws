@@ -91,176 +91,176 @@ export interface GetInstanceResult {
     /**
      * ID of the AMI used to launch the instance.
      */
-    readonly ami: string;
+    readonly ami?: string;
     /**
      * ARN of the instance.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Whether or not the Instance is associated with a public IP address or not (Boolean).
      */
-    readonly associatePublicIpAddress: boolean;
+    readonly associatePublicIpAddress?: boolean;
     /**
      * Availability zone of the Instance.
      */
-    readonly availabilityZone: string;
+    readonly availabilityZone?: string;
     /**
      * Credit specification of the Instance.
      */
-    readonly creditSpecifications: outputs.ec2.GetInstanceCreditSpecification[];
+    readonly creditSpecifications?: outputs.ec2.GetInstanceCreditSpecification[];
     /**
      * Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
      */
-    readonly disableApiStop: boolean;
+    readonly disableApiStop?: boolean;
     /**
      * Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
      */
-    readonly disableApiTermination: boolean;
+    readonly disableApiTermination?: boolean;
     /**
      * EBS block device mappings of the Instance.
      */
-    readonly ebsBlockDevices: outputs.ec2.GetInstanceEbsBlockDevice[];
+    readonly ebsBlockDevices?: outputs.ec2.GetInstanceEbsBlockDevice[];
     /**
      * Whether the Instance is EBS optimized or not (Boolean).
      */
-    readonly ebsOptimized: boolean;
+    readonly ebsOptimized?: boolean;
     /**
      * Enclave options of the instance.
      */
-    readonly enclaveOptions: outputs.ec2.GetInstanceEnclaveOption[];
+    readonly enclaveOptions?: outputs.ec2.GetInstanceEnclaveOption[];
     /**
      * Ephemeral block device mappings of the Instance.
      */
-    readonly ephemeralBlockDevices: outputs.ec2.GetInstanceEphemeralBlockDevice[];
+    readonly ephemeralBlockDevices?: outputs.ec2.GetInstanceEphemeralBlockDevice[];
     readonly filters?: outputs.ec2.GetInstanceFilter[];
     readonly getPasswordData?: boolean;
     readonly getUserData?: boolean;
     /**
      * ID of the dedicated host the instance will be assigned to.
      */
-    readonly hostId: string;
+    readonly hostId?: string;
     /**
      * ARN of the host resource group the instance is associated with.
      */
-    readonly hostResourceGroupArn: string;
+    readonly hostResourceGroupArn?: string;
     /**
      * Name of the instance profile associated with the Instance.
      */
-    readonly iamInstanceProfile: string;
+    readonly iamInstanceProfile?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId?: string;
     /**
      * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
-    readonly instanceState: string;
-    readonly instanceTags: {[key: string]: string};
+    readonly instanceState?: string;
+    readonly instanceTags?: {[key: string]: string};
     /**
      * Type of the Instance.
      */
-    readonly instanceType: string;
+    readonly instanceType?: string;
     /**
      * IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
      */
-    readonly ipv6Addresses: string[];
+    readonly ipv6Addresses?: string[];
     /**
      * Key name of the Instance.
      */
-    readonly keyName: string;
+    readonly keyName?: string;
     /**
      * Maintenance and recovery options for the instance.
      */
-    readonly maintenanceOptions: outputs.ec2.GetInstanceMaintenanceOption[];
+    readonly maintenanceOptions?: outputs.ec2.GetInstanceMaintenanceOption[];
     /**
      * Metadata options of the Instance.
      */
-    readonly metadataOptions: outputs.ec2.GetInstanceMetadataOption[];
+    readonly metadataOptions?: outputs.ec2.GetInstanceMetadataOption[];
     /**
      * Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
      */
-    readonly monitoring: boolean;
+    readonly monitoring?: boolean;
     /**
      * ID of the network interface that was created with the Instance.
      */
-    readonly networkInterfaceId: string;
+    readonly networkInterfaceId?: string;
     /**
      * ARN of the Outpost.
      */
-    readonly outpostArn: string;
+    readonly outpostArn?: string;
     /**
      * Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    readonly passwordData: string;
+    readonly passwordData?: string;
     /**
      * Placement group of the Instance.
      */
-    readonly placementGroup: string;
+    readonly placementGroup?: string;
     /**
      * Number of the partition the instance is in.
      */
-    readonly placementPartitionNumber: number;
+    readonly placementPartitionNumber?: number;
     /**
      * Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
      */
-    readonly privateDns: string;
+    readonly privateDns?: string;
     /**
      * Options for the instance hostname.
      */
-    readonly privateDnsNameOptions: outputs.ec2.GetInstancePrivateDnsNameOption[];
+    readonly privateDnsNameOptions?: outputs.ec2.GetInstancePrivateDnsNameOption[];
     /**
      * Private IP address assigned to the Instance.
      */
-    readonly privateIp: string;
+    readonly privateIp?: string;
     /**
      * Public DNS name assigned to the Instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
      */
-    readonly publicDns: string;
+    readonly publicDns?: string;
     /**
      * Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
      */
-    readonly publicIp: string;
+    readonly publicIp?: string;
     /**
      * Root block device mappings of the Instance
      */
-    readonly rootBlockDevices: outputs.ec2.GetInstanceRootBlockDevice[];
+    readonly rootBlockDevices?: outputs.ec2.GetInstanceRootBlockDevice[];
     /**
      * Secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
      */
-    readonly secondaryPrivateIps: string[];
+    readonly secondaryPrivateIps?: string[];
     /**
      * Associated security groups.
      */
-    readonly securityGroups: string[];
+    readonly securityGroups?: string[];
     /**
      * Whether the network interface performs source/destination checking (Boolean).
      */
-    readonly sourceDestCheck: boolean;
+    readonly sourceDestCheck?: boolean;
     /**
      * VPC subnet ID.
      */
-    readonly subnetId: string;
+    readonly subnetId?: string;
     /**
      * Map of tags assigned to the Instance.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Tenancy of the instance: `dedicated`, `default`, `host`.
      */
-    readonly tenancy: string;
+    readonly tenancy?: string;
     /**
      * SHA-1 hash of User Data supplied to the Instance.
      */
-    readonly userData: string;
+    readonly userData?: string;
     /**
      * Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `getUserData` is true.
      */
-    readonly userDataBase64: string;
+    readonly userDataBase64?: string;
     /**
      * Associated security groups in a non-default VPC.
      */
-    readonly vpcSecurityGroupIds: string[];
+    readonly vpcSecurityGroupIds?: string[];
 }
 /**
  * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.

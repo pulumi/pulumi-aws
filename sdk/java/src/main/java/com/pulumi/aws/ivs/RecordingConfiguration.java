@@ -75,14 +75,14 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Recording Configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Object containing destination configuration for where recorded video will be stored.
@@ -117,28 +117,28 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="recordingReconnectWindowSeconds", refs={Integer.class}, tree="[0]")
-    private Output<Integer> recordingReconnectWindowSeconds;
+    private Output</* @Nullable */ Integer> recordingReconnectWindowSeconds;
 
     /**
      * @return If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
      * 
      */
-    public Output<Integer> recordingReconnectWindowSeconds() {
-        return this.recordingReconnectWindowSeconds;
+    public Output<Optional<Integer>> recordingReconnectWindowSeconds() {
+        return Codegen.optional(this.recordingReconnectWindowSeconds);
     }
     /**
      * The current state of the Recording Configuration.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The current state of the Recording Configuration.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -177,14 +177,14 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="thumbnailConfiguration", refs={RecordingConfigurationThumbnailConfiguration.class}, tree="[0]")
-    private Output<RecordingConfigurationThumbnailConfiguration> thumbnailConfiguration;
+    private Output</* @Nullable */ RecordingConfigurationThumbnailConfiguration> thumbnailConfiguration;
 
     /**
      * @return Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
      * 
      */
-    public Output<RecordingConfigurationThumbnailConfiguration> thumbnailConfiguration() {
-        return this.thumbnailConfiguration;
+    public Output<Optional<RecordingConfigurationThumbnailConfiguration>> thumbnailConfiguration() {
+        return Codegen.optional(this.thumbnailConfiguration);
     }
 
     /**

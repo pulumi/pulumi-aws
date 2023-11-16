@@ -84,7 +84,7 @@ export class AccessPointPolicy extends pulumi.CustomResource {
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      */
-    public /*out*/ readonly hasPublicAccessPolicy!: pulumi.Output<boolean>;
+    public /*out*/ readonly hasPublicAccessPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * The policy that you want to apply to the specified access point.
      */

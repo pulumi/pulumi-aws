@@ -72,11 +72,11 @@ export class MedicalVocabulary extends pulumi.CustomResource {
     /**
      * ARN of the MedicalVocabulary.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Generated download URI.
      */
-    public /*out*/ readonly downloadUri!: pulumi.Output<string>;
+    public /*out*/ readonly downloadUri!: pulumi.Output<string | undefined>;
     /**
      * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      */

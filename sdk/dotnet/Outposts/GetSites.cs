@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of Outposts Site identifiers.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Outposts
 
         [OutputConstructor]
         private GetSitesResult(
-            string id,
+            string? id,
 
             ImmutableArray<string> ids)
         {

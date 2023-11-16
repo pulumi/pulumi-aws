@@ -123,14 +123,14 @@ namespace Pulumi.Aws.Emr
         /// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
         /// </summary>
         [Output("provisionedOnDemandCapacity")]
-        public Output<int> ProvisionedOnDemandCapacity { get; private set; } = null!;
+        public Output<int?> ProvisionedOnDemandCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The number of Spot units that have been provisioned for this instance fleet
         /// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
         /// </summary>
         [Output("provisionedSpotCapacity")]
-        public Output<int> ProvisionedSpotCapacity { get; private set; } = null!;
+        public Output<int?> ProvisionedSpotCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.

@@ -505,18 +505,20 @@ class GetGroupAlternateIdentifierUniqueAttributeResult(dict):
 @pulumi.output_type
 class GetGroupExternalIdResult(dict):
     def __init__(__self__, *,
-                 id: str,
-                 issuer: str):
+                 id: Optional[str] = None,
+                 issuer: Optional[str] = None):
         """
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "issuer", issuer)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The identifier issued to this resource by an external identity provider.
         """
@@ -524,7 +526,7 @@ class GetGroupExternalIdResult(dict):
 
     @property
     @pulumi.getter
-    def issuer(self) -> str:
+    def issuer(self) -> Optional[str]:
         """
         The issuer for an external identifier.
         """
@@ -563,14 +565,14 @@ class GetGroupFilterResult(dict):
 @pulumi.output_type
 class GetUserAddressResult(dict):
     def __init__(__self__, *,
-                 country: str,
-                 formatted: str,
-                 locality: str,
-                 postal_code: str,
-                 primary: bool,
-                 region: str,
-                 street_address: str,
-                 type: str):
+                 country: Optional[str] = None,
+                 formatted: Optional[str] = None,
+                 locality: Optional[str] = None,
+                 postal_code: Optional[str] = None,
+                 primary: Optional[bool] = None,
+                 region: Optional[str] = None,
+                 street_address: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param str country: The country that this address is in.
         :param str formatted: The name that is typically displayed when the name is shown for display.
@@ -581,18 +583,26 @@ class GetUserAddressResult(dict):
         :param str street_address: The street of the address.
         :param str type: The type of phone number.
         """
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "formatted", formatted)
-        pulumi.set(__self__, "locality", locality)
-        pulumi.set(__self__, "postal_code", postal_code)
-        pulumi.set(__self__, "primary", primary)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "street_address", street_address)
-        pulumi.set(__self__, "type", type)
+        if country is not None:
+            pulumi.set(__self__, "country", country)
+        if formatted is not None:
+            pulumi.set(__self__, "formatted", formatted)
+        if locality is not None:
+            pulumi.set(__self__, "locality", locality)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if street_address is not None:
+            pulumi.set(__self__, "street_address", street_address)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def country(self) -> str:
+    def country(self) -> Optional[str]:
         """
         The country that this address is in.
         """
@@ -600,7 +610,7 @@ class GetUserAddressResult(dict):
 
     @property
     @pulumi.getter
-    def formatted(self) -> str:
+    def formatted(self) -> Optional[str]:
         """
         The name that is typically displayed when the name is shown for display.
         """
@@ -608,7 +618,7 @@ class GetUserAddressResult(dict):
 
     @property
     @pulumi.getter
-    def locality(self) -> str:
+    def locality(self) -> Optional[str]:
         """
         The address locality.
         """
@@ -616,7 +626,7 @@ class GetUserAddressResult(dict):
 
     @property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> str:
+    def postal_code(self) -> Optional[str]:
         """
         The postal code of the address.
         """
@@ -624,7 +634,7 @@ class GetUserAddressResult(dict):
 
     @property
     @pulumi.getter
-    def primary(self) -> bool:
+    def primary(self) -> Optional[bool]:
         """
         When `true`, this is the primary phone number associated with the user.
         """
@@ -632,7 +642,7 @@ class GetUserAddressResult(dict):
 
     @property
     @pulumi.getter
-    def region(self) -> str:
+    def region(self) -> Optional[str]:
         """
         The region of the address.
         """
@@ -640,7 +650,7 @@ class GetUserAddressResult(dict):
 
     @property
     @pulumi.getter(name="streetAddress")
-    def street_address(self) -> str:
+    def street_address(self) -> Optional[str]:
         """
         The street of the address.
         """
@@ -648,7 +658,7 @@ class GetUserAddressResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The type of phone number.
         """
@@ -751,21 +761,24 @@ class GetUserAlternateIdentifierUniqueAttributeResult(dict):
 @pulumi.output_type
 class GetUserEmailResult(dict):
     def __init__(__self__, *,
-                 primary: bool,
-                 type: str,
-                 value: str):
+                 primary: Optional[bool] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
         """
         :param bool primary: When `true`, this is the primary phone number associated with the user.
         :param str type: The type of phone number.
         :param str value: The user's phone number.
         """
-        pulumi.set(__self__, "primary", primary)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def primary(self) -> bool:
+    def primary(self) -> Optional[bool]:
         """
         When `true`, this is the primary phone number associated with the user.
         """
@@ -773,7 +786,7 @@ class GetUserEmailResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The type of phone number.
         """
@@ -781,7 +794,7 @@ class GetUserEmailResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         The user's phone number.
         """
@@ -791,18 +804,20 @@ class GetUserEmailResult(dict):
 @pulumi.output_type
 class GetUserExternalIdResult(dict):
     def __init__(__self__, *,
-                 id: str,
-                 issuer: str):
+                 id: Optional[str] = None,
+                 issuer: Optional[str] = None):
         """
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "issuer", issuer)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The identifier issued to this resource by an external identity provider.
         """
@@ -810,7 +825,7 @@ class GetUserExternalIdResult(dict):
 
     @property
     @pulumi.getter
-    def issuer(self) -> str:
+    def issuer(self) -> Optional[str]:
         """
         The issuer for an external identifier.
         """
@@ -849,12 +864,12 @@ class GetUserFilterResult(dict):
 @pulumi.output_type
 class GetUserNameResult(dict):
     def __init__(__self__, *,
-                 family_name: str,
-                 formatted: str,
-                 given_name: str,
-                 honorific_prefix: str,
-                 honorific_suffix: str,
-                 middle_name: str):
+                 family_name: Optional[str] = None,
+                 formatted: Optional[str] = None,
+                 given_name: Optional[str] = None,
+                 honorific_prefix: Optional[str] = None,
+                 honorific_suffix: Optional[str] = None,
+                 middle_name: Optional[str] = None):
         """
         :param str family_name: The family name of the user.
         :param str formatted: The name that is typically displayed when the name is shown for display.
@@ -863,16 +878,22 @@ class GetUserNameResult(dict):
         :param str honorific_suffix: The honorific suffix of the user.
         :param str middle_name: The middle name of the user.
         """
-        pulumi.set(__self__, "family_name", family_name)
-        pulumi.set(__self__, "formatted", formatted)
-        pulumi.set(__self__, "given_name", given_name)
-        pulumi.set(__self__, "honorific_prefix", honorific_prefix)
-        pulumi.set(__self__, "honorific_suffix", honorific_suffix)
-        pulumi.set(__self__, "middle_name", middle_name)
+        if family_name is not None:
+            pulumi.set(__self__, "family_name", family_name)
+        if formatted is not None:
+            pulumi.set(__self__, "formatted", formatted)
+        if given_name is not None:
+            pulumi.set(__self__, "given_name", given_name)
+        if honorific_prefix is not None:
+            pulumi.set(__self__, "honorific_prefix", honorific_prefix)
+        if honorific_suffix is not None:
+            pulumi.set(__self__, "honorific_suffix", honorific_suffix)
+        if middle_name is not None:
+            pulumi.set(__self__, "middle_name", middle_name)
 
     @property
     @pulumi.getter(name="familyName")
-    def family_name(self) -> str:
+    def family_name(self) -> Optional[str]:
         """
         The family name of the user.
         """
@@ -880,7 +901,7 @@ class GetUserNameResult(dict):
 
     @property
     @pulumi.getter
-    def formatted(self) -> str:
+    def formatted(self) -> Optional[str]:
         """
         The name that is typically displayed when the name is shown for display.
         """
@@ -888,7 +909,7 @@ class GetUserNameResult(dict):
 
     @property
     @pulumi.getter(name="givenName")
-    def given_name(self) -> str:
+    def given_name(self) -> Optional[str]:
         """
         The given name of the user.
         """
@@ -896,7 +917,7 @@ class GetUserNameResult(dict):
 
     @property
     @pulumi.getter(name="honorificPrefix")
-    def honorific_prefix(self) -> str:
+    def honorific_prefix(self) -> Optional[str]:
         """
         The honorific prefix of the user.
         """
@@ -904,7 +925,7 @@ class GetUserNameResult(dict):
 
     @property
     @pulumi.getter(name="honorificSuffix")
-    def honorific_suffix(self) -> str:
+    def honorific_suffix(self) -> Optional[str]:
         """
         The honorific suffix of the user.
         """
@@ -912,7 +933,7 @@ class GetUserNameResult(dict):
 
     @property
     @pulumi.getter(name="middleName")
-    def middle_name(self) -> str:
+    def middle_name(self) -> Optional[str]:
         """
         The middle name of the user.
         """
@@ -922,21 +943,24 @@ class GetUserNameResult(dict):
 @pulumi.output_type
 class GetUserPhoneNumberResult(dict):
     def __init__(__self__, *,
-                 primary: bool,
-                 type: str,
-                 value: str):
+                 primary: Optional[bool] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
         """
         :param bool primary: When `true`, this is the primary phone number associated with the user.
         :param str type: The type of phone number.
         :param str value: The user's phone number.
         """
-        pulumi.set(__self__, "primary", primary)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def primary(self) -> bool:
+    def primary(self) -> Optional[bool]:
         """
         When `true`, this is the primary phone number associated with the user.
         """
@@ -944,7 +968,7 @@ class GetUserPhoneNumberResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The type of phone number.
         """
@@ -952,7 +976,7 @@ class GetUserPhoneNumberResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         The user's phone number.
         """

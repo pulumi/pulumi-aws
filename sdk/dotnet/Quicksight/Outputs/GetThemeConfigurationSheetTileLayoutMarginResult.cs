@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// <summary>
         /// This Boolean value controls whether to display sheet margins.
         /// </summary>
-        public readonly bool Show;
+        public readonly bool? Show;
 
         [OutputConstructor]
-        private GetThemeConfigurationSheetTileLayoutMarginResult(bool show)
+        private GetThemeConfigurationSheetTileLayoutMarginResult(bool? show)
         {
             Show = show;
         }

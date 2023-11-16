@@ -94,16 +94,16 @@ type LookupLaunchTemplateArgs struct {
 
 // A collection of values returned by getLaunchTemplate.
 type LookupLaunchTemplateResult struct {
-	Arn                               string                                              `pulumi:"arn"`
+	Arn                               *string                                             `pulumi:"arn"`
 	BlockDeviceMappings               []GetLaunchTemplateBlockDeviceMapping               `pulumi:"blockDeviceMappings"`
 	CapacityReservationSpecifications []GetLaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecifications"`
 	CpuOptions                        []GetLaunchTemplateCpuOption                        `pulumi:"cpuOptions"`
 	CreditSpecifications              []GetLaunchTemplateCreditSpecification              `pulumi:"creditSpecifications"`
-	DefaultVersion                    int                                                 `pulumi:"defaultVersion"`
-	Description                       string                                              `pulumi:"description"`
-	DisableApiStop                    bool                                                `pulumi:"disableApiStop"`
-	DisableApiTermination             bool                                                `pulumi:"disableApiTermination"`
-	EbsOptimized                      string                                              `pulumi:"ebsOptimized"`
+	DefaultVersion                    *int                                                `pulumi:"defaultVersion"`
+	Description                       *string                                             `pulumi:"description"`
+	DisableApiStop                    *bool                                               `pulumi:"disableApiStop"`
+	DisableApiTermination             *bool                                               `pulumi:"disableApiTermination"`
+	EbsOptimized                      *string                                             `pulumi:"ebsOptimized"`
 	ElasticGpuSpecifications          []GetLaunchTemplateElasticGpuSpecification          `pulumi:"elasticGpuSpecifications"`
 	ElasticInferenceAccelerators      []GetLaunchTemplateElasticInferenceAccelerator      `pulumi:"elasticInferenceAccelerators"`
 	EnclaveOptions                    []GetLaunchTemplateEnclaveOption                    `pulumi:"enclaveOptions"`
@@ -111,28 +111,28 @@ type LookupLaunchTemplateResult struct {
 	HibernationOptions                []GetLaunchTemplateHibernationOption                `pulumi:"hibernationOptions"`
 	IamInstanceProfiles               []GetLaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfiles"`
 	// ID of the launch template.
-	Id                                string                                  `pulumi:"id"`
-	ImageId                           string                                  `pulumi:"imageId"`
-	InstanceInitiatedShutdownBehavior string                                  `pulumi:"instanceInitiatedShutdownBehavior"`
+	Id                                *string                                 `pulumi:"id"`
+	ImageId                           *string                                 `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior *string                                 `pulumi:"instanceInitiatedShutdownBehavior"`
 	InstanceMarketOptions             []GetLaunchTemplateInstanceMarketOption `pulumi:"instanceMarketOptions"`
 	InstanceRequirements              []GetLaunchTemplateInstanceRequirement  `pulumi:"instanceRequirements"`
-	InstanceType                      string                                  `pulumi:"instanceType"`
-	KernelId                          string                                  `pulumi:"kernelId"`
-	KeyName                           string                                  `pulumi:"keyName"`
-	LatestVersion                     int                                     `pulumi:"latestVersion"`
+	InstanceType                      *string                                 `pulumi:"instanceType"`
+	KernelId                          *string                                 `pulumi:"kernelId"`
+	KeyName                           *string                                 `pulumi:"keyName"`
+	LatestVersion                     *int                                    `pulumi:"latestVersion"`
 	LicenseSpecifications             []GetLaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
 	MaintenanceOptions                []GetLaunchTemplateMaintenanceOption    `pulumi:"maintenanceOptions"`
 	MetadataOptions                   []GetLaunchTemplateMetadataOption       `pulumi:"metadataOptions"`
 	Monitorings                       []GetLaunchTemplateMonitoring           `pulumi:"monitorings"`
-	Name                              string                                  `pulumi:"name"`
+	Name                              *string                                 `pulumi:"name"`
 	NetworkInterfaces                 []GetLaunchTemplateNetworkInterface     `pulumi:"networkInterfaces"`
 	Placements                        []GetLaunchTemplatePlacement            `pulumi:"placements"`
 	PrivateDnsNameOptions             []GetLaunchTemplatePrivateDnsNameOption `pulumi:"privateDnsNameOptions"`
-	RamDiskId                         string                                  `pulumi:"ramDiskId"`
+	RamDiskId                         *string                                 `pulumi:"ramDiskId"`
 	SecurityGroupNames                []string                                `pulumi:"securityGroupNames"`
 	TagSpecifications                 []GetLaunchTemplateTagSpecification     `pulumi:"tagSpecifications"`
 	Tags                              map[string]string                       `pulumi:"tags"`
-	UserData                          string                                  `pulumi:"userData"`
+	UserData                          *string                                 `pulumi:"userData"`
 	VpcSecurityGroupIds               []string                                `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -180,8 +180,8 @@ func (o LookupLaunchTemplateResultOutput) ToLookupLaunchTemplateResultOutputWith
 	return o
 }
 
-func (o LookupLaunchTemplateResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) BlockDeviceMappings() GetLaunchTemplateBlockDeviceMappingArrayOutput {
@@ -204,24 +204,24 @@ func (o LookupLaunchTemplateResultOutput) CreditSpecifications() GetLaunchTempla
 	}).(GetLaunchTemplateCreditSpecificationArrayOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) DefaultVersion() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) int { return v.DefaultVersion }).(pulumi.IntOutput)
+func (o LookupLaunchTemplateResultOutput) DefaultVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *int { return v.DefaultVersion }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) DisableApiStop() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) bool { return v.DisableApiStop }).(pulumi.BoolOutput)
+func (o LookupLaunchTemplateResultOutput) DisableApiStop() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *bool { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) DisableApiTermination() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) bool { return v.DisableApiTermination }).(pulumi.BoolOutput)
+func (o LookupLaunchTemplateResultOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) EbsOptimized() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.EbsOptimized }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) EbsOptimized() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.EbsOptimized }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) ElasticGpuSpecifications() GetLaunchTemplateElasticGpuSpecificationArrayOutput {
@@ -253,16 +253,16 @@ func (o LookupLaunchTemplateResultOutput) IamInstanceProfiles() GetLaunchTemplat
 }
 
 // ID of the launch template.
-func (o LookupLaunchTemplateResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) ImageId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.ImageId }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) InstanceInitiatedShutdownBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) InstanceMarketOptions() GetLaunchTemplateInstanceMarketOptionArrayOutput {
@@ -277,20 +277,20 @@ func (o LookupLaunchTemplateResultOutput) InstanceRequirements() GetLaunchTempla
 	}).(GetLaunchTemplateInstanceRequirementArrayOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) KernelId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.KernelId }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.KernelId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.KeyName }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) LatestVersion() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) int { return v.LatestVersion }).(pulumi.IntOutput)
+func (o LookupLaunchTemplateResultOutput) LatestVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *int { return v.LatestVersion }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) LicenseSpecifications() GetLaunchTemplateLicenseSpecificationArrayOutput {
@@ -311,8 +311,8 @@ func (o LookupLaunchTemplateResultOutput) Monitorings() GetLaunchTemplateMonitor
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateMonitoring { return v.Monitorings }).(GetLaunchTemplateMonitoringArrayOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) NetworkInterfaces() GetLaunchTemplateNetworkInterfaceArrayOutput {
@@ -329,8 +329,8 @@ func (o LookupLaunchTemplateResultOutput) PrivateDnsNameOptions() GetLaunchTempl
 	}).(GetLaunchTemplatePrivateDnsNameOptionArrayOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) RamDiskId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.RamDiskId }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) RamDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.RamDiskId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) SecurityGroupNames() pulumi.StringArrayOutput {
@@ -345,8 +345,8 @@ func (o LookupLaunchTemplateResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) UserData() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.UserData }).(pulumi.StringOutput)
+func (o LookupLaunchTemplateResultOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

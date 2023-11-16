@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImagePipelineImageTestsConfiguration {
@@ -14,27 +16,27 @@ public final class GetImagePipelineImageTestsConfiguration {
      * @return Whether image tests are enabled.
      * 
      */
-    private Boolean imageTestsEnabled;
+    private @Nullable Boolean imageTestsEnabled;
     /**
      * @return Number of minutes before image tests time out.
      * 
      */
-    private Integer timeoutMinutes;
+    private @Nullable Integer timeoutMinutes;
 
     private GetImagePipelineImageTestsConfiguration() {}
     /**
      * @return Whether image tests are enabled.
      * 
      */
-    public Boolean imageTestsEnabled() {
-        return this.imageTestsEnabled;
+    public Optional<Boolean> imageTestsEnabled() {
+        return Optional.ofNullable(this.imageTestsEnabled);
     }
     /**
      * @return Number of minutes before image tests time out.
      * 
      */
-    public Integer timeoutMinutes() {
-        return this.timeoutMinutes;
+    public Optional<Integer> timeoutMinutes() {
+        return Optional.ofNullable(this.timeoutMinutes);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetImagePipelineImageTestsConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean imageTestsEnabled;
-        private Integer timeoutMinutes;
+        private @Nullable Boolean imageTestsEnabled;
+        private @Nullable Integer timeoutMinutes;
         public Builder() {}
         public Builder(GetImagePipelineImageTestsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetImagePipelineImageTestsConfiguration {
         }
 
         @CustomType.Setter
-        public Builder imageTestsEnabled(Boolean imageTestsEnabled) {
-            this.imageTestsEnabled = Objects.requireNonNull(imageTestsEnabled);
+        public Builder imageTestsEnabled(@Nullable Boolean imageTestsEnabled) {
+            this.imageTestsEnabled = imageTestsEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder timeoutMinutes(Integer timeoutMinutes) {
-            this.timeoutMinutes = Objects.requireNonNull(timeoutMinutes);
+        public Builder timeoutMinutes(@Nullable Integer timeoutMinutes) {
+            this.timeoutMinutes = timeoutMinutes;
             return this;
         }
         public GetImagePipelineImageTestsConfiguration build() {

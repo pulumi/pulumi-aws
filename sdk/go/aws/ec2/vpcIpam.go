@@ -27,24 +27,24 @@ type VpcIpam struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of IPAM
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade pulumi.BoolPtrOutput `pulumi:"cascade"`
 	// The IPAM's default resource discovery association ID.
-	DefaultResourceDiscoveryAssociationId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryAssociationId"`
+	DefaultResourceDiscoveryAssociationId pulumi.StringPtrOutput `pulumi:"defaultResourceDiscoveryAssociationId"`
 	// The IPAM's default resource discovery ID.
-	DefaultResourceDiscoveryId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryId"`
+	DefaultResourceDiscoveryId pulumi.StringPtrOutput `pulumi:"defaultResourceDiscoveryId"`
 	// A description for the IPAM.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions VpcIpamOperatingRegionArrayOutput `pulumi:"operatingRegions"`
 	// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
-	PrivateDefaultScopeId pulumi.StringOutput `pulumi:"privateDefaultScopeId"`
+	PrivateDefaultScopeId pulumi.StringPtrOutput `pulumi:"privateDefaultScopeId"`
 	// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
 	// IP space. The public scope is intended for all internet-routable IP space.
-	PublicDefaultScopeId pulumi.StringOutput `pulumi:"publicDefaultScopeId"`
+	PublicDefaultScopeId pulumi.StringPtrOutput `pulumi:"publicDefaultScopeId"`
 	// The number of scopes in the IPAM.
-	ScopeCount pulumi.IntOutput `pulumi:"scopeCount"`
+	ScopeCount pulumi.IntPtrOutput `pulumi:"scopeCount"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -260,8 +260,8 @@ func (o VpcIpamOutput) ToVpcIpamOutputWithContext(ctx context.Context) VpcIpamOu
 }
 
 // Amazon Resource Name (ARN) of IPAM
-func (o VpcIpamOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpcIpamOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpam) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
@@ -270,13 +270,13 @@ func (o VpcIpamOutput) Cascade() pulumi.BoolPtrOutput {
 }
 
 // The IPAM's default resource discovery association ID.
-func (o VpcIpamOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringOutput)
+func (o VpcIpamOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpam) pulumi.StringPtrOutput { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringPtrOutput)
 }
 
 // The IPAM's default resource discovery ID.
-func (o VpcIpamOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
+func (o VpcIpamOutput) DefaultResourceDiscoveryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpam) pulumi.StringPtrOutput { return v.DefaultResourceDiscoveryId }).(pulumi.StringPtrOutput)
 }
 
 // A description for the IPAM.
@@ -290,19 +290,19 @@ func (o VpcIpamOutput) OperatingRegions() VpcIpamOperatingRegionArrayOutput {
 }
 
 // The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
-func (o VpcIpamOutput) PrivateDefaultScopeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.PrivateDefaultScopeId }).(pulumi.StringOutput)
+func (o VpcIpamOutput) PrivateDefaultScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpam) pulumi.StringPtrOutput { return v.PrivateDefaultScopeId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
 // IP space. The public scope is intended for all internet-routable IP space.
-func (o VpcIpamOutput) PublicDefaultScopeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
+func (o VpcIpamOutput) PublicDefaultScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpam) pulumi.StringPtrOutput { return v.PublicDefaultScopeId }).(pulumi.StringPtrOutput)
 }
 
 // The number of scopes in the IPAM.
-func (o VpcIpamOutput) ScopeCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *VpcIpam) pulumi.IntOutput { return v.ScopeCount }).(pulumi.IntOutput)
+func (o VpcIpamOutput) ScopeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpcIpam) pulumi.IntPtrOutput { return v.ScopeCount }).(pulumi.IntPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

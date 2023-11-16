@@ -68,7 +68,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the theme.
         """
@@ -76,12 +76,12 @@ class GetThemeResult:
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> str:
+    def aws_account_id(self) -> Optional[str]:
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="baseThemeId")
-    def base_theme_id(self) -> str:
+    def base_theme_id(self) -> Optional[str]:
         """
         The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
         """
@@ -89,7 +89,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter
-    def configurations(self) -> Sequence['outputs.GetThemeConfigurationResult']:
+    def configurations(self) -> Optional[Sequence['outputs.GetThemeConfigurationResult']]:
         """
         The theme configuration, which contains the theme display properties. See configuration.
         """
@@ -97,7 +97,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> Optional[str]:
         """
         The time that the theme was created.
         """
@@ -105,7 +105,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -113,7 +113,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> str:
+    def last_updated_time(self) -> Optional[str]:
         """
         The time that the theme was last updated.
         """
@@ -121,7 +121,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Display name of the theme.
         """
@@ -129,7 +129,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter
-    def permissions(self) -> Sequence['outputs.GetThemePermissionResult']:
+    def permissions(self) -> Optional[Sequence['outputs.GetThemePermissionResult']]:
         """
         A set of resource permissions on the theme. See permissions.
         """
@@ -137,7 +137,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         The theme creation status.
         """
@@ -145,7 +145,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -158,7 +158,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter(name="versionDescription")
-    def version_description(self) -> str:
+    def version_description(self) -> Optional[str]:
         """
         A description of the current theme version being created/updated.
         """
@@ -166,7 +166,7 @@ class GetThemeResult:
 
     @property
     @pulumi.getter(name="versionNumber")
-    def version_number(self) -> int:
+    def version_number(self) -> Optional[int]:
         """
         The version number of the theme version.
         """

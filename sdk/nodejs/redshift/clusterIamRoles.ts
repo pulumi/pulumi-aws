@@ -64,11 +64,11 @@ export class ClusterIamRoles extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      */
-    public readonly defaultIamRoleArn!: pulumi.Output<string>;
+    public readonly defaultIamRoleArn!: pulumi.Output<string | undefined>;
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
-    public readonly iamRoleArns!: pulumi.Output<string[]>;
+    public readonly iamRoleArns!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ClusterIamRoles resource with the given unique name, arguments, and options.

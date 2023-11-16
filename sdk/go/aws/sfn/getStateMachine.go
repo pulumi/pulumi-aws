@@ -59,21 +59,21 @@ type LookupStateMachineArgs struct {
 // A collection of values returned by getStateMachine.
 type LookupStateMachineResult struct {
 	// Set to the arn of the state function.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Date the state machine was created.
-	CreationDate string `pulumi:"creationDate"`
+	CreationDate *string `pulumi:"creationDate"`
 	// Set to the state machine definition.
-	Definition  string `pulumi:"definition"`
-	Description string `pulumi:"description"`
+	Definition  *string `pulumi:"definition"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// The revision identifier for the state machine.
-	RevisionId string `pulumi:"revisionId"`
+	RevisionId *string `pulumi:"revisionId"`
 	// Set to the roleArn used by the state function.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 	// Set to the current status of the state machine.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineResultOutput {
@@ -115,27 +115,27 @@ func (o LookupStateMachineResultOutput) ToLookupStateMachineResultOutputWithCont
 }
 
 // Set to the arn of the state function.
-func (o LookupStateMachineResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupStateMachineResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date the state machine was created.
-func (o LookupStateMachineResultOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) string { return v.CreationDate }).(pulumi.StringOutput)
+func (o LookupStateMachineResultOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // Set to the state machine definition.
-func (o LookupStateMachineResultOutput) Definition() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Definition }).(pulumi.StringOutput)
+func (o LookupStateMachineResultOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.Definition }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupStateMachineResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupStateMachineResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupStateMachineResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupStateMachineResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStateMachineResultOutput) Name() pulumi.StringOutput {
@@ -143,18 +143,18 @@ func (o LookupStateMachineResultOutput) Name() pulumi.StringOutput {
 }
 
 // The revision identifier for the state machine.
-func (o LookupStateMachineResultOutput) RevisionId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) string { return v.RevisionId }).(pulumi.StringOutput)
+func (o LookupStateMachineResultOutput) RevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.RevisionId }).(pulumi.StringPtrOutput)
 }
 
 // Set to the roleArn used by the state function.
-func (o LookupStateMachineResultOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o LookupStateMachineResultOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Set to the current status of the state machine.
-func (o LookupStateMachineResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupStateMachineResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func init() {

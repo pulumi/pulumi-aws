@@ -63,38 +63,38 @@ export interface GetServiceQuotaResult {
     /**
      * Whether the service quota is adjustable.
      */
-    readonly adjustable: boolean;
+    readonly adjustable?: boolean;
     /**
      * ARN of the service quota.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Default value of the service quota.
      */
-    readonly defaultValue: number;
+    readonly defaultValue?: number;
     /**
      * Whether the service quota is global for the AWS account.
      */
-    readonly globalQuota: boolean;
+    readonly globalQuota?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly quotaCode: string;
-    readonly quotaName: string;
+    readonly id?: string;
+    readonly quotaCode?: string;
+    readonly quotaName?: string;
     readonly serviceCode: string;
     /**
      * Name of the service.
      */
-    readonly serviceName: string;
+    readonly serviceName?: string;
     /**
      * Information about the measurement.
      */
-    readonly usageMetrics: outputs.servicequotas.GetServiceQuotaUsageMetric[];
+    readonly usageMetrics?: outputs.servicequotas.GetServiceQuotaUsageMetric[];
     /**
      * Current value of the service quota.
      */
-    readonly value: number;
+    readonly value?: number;
 }
 /**
  * Retrieve information about a Service Quota.

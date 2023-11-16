@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDelegatedServicesResult {
@@ -16,12 +18,12 @@ public final class GetDelegatedServicesResult {
      * @return Services for which the account is a delegated administrator, which have the following attributes:
      * 
      */
-    private List<GetDelegatedServicesDelegatedService> delegatedServices;
+    private @Nullable List<GetDelegatedServicesDelegatedService> delegatedServices;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetDelegatedServicesResult() {}
     public String accountId() {
@@ -32,14 +34,14 @@ public final class GetDelegatedServicesResult {
      * 
      */
     public List<GetDelegatedServicesDelegatedService> delegatedServices() {
-        return this.delegatedServices;
+        return this.delegatedServices == null ? List.of() : this.delegatedServices;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -52,8 +54,8 @@ public final class GetDelegatedServicesResult {
     @CustomType.Builder
     public static final class Builder {
         private String accountId;
-        private List<GetDelegatedServicesDelegatedService> delegatedServices;
-        private String id;
+        private @Nullable List<GetDelegatedServicesDelegatedService> delegatedServices;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetDelegatedServicesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -68,16 +70,16 @@ public final class GetDelegatedServicesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder delegatedServices(List<GetDelegatedServicesDelegatedService> delegatedServices) {
-            this.delegatedServices = Objects.requireNonNull(delegatedServices);
+        public Builder delegatedServices(@Nullable List<GetDelegatedServicesDelegatedService> delegatedServices) {
+            this.delegatedServices = delegatedServices;
             return this;
         }
         public Builder delegatedServices(GetDelegatedServicesDelegatedService... delegatedServices) {
             return delegatedServices(List.of(delegatedServices));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetDelegatedServicesResult build() {

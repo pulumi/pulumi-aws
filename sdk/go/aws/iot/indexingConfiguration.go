@@ -70,9 +70,9 @@ type IndexingConfiguration struct {
 	pulumi.CustomResourceState
 
 	// Thing group indexing configuration. See below.
-	ThingGroupIndexingConfiguration IndexingConfigurationThingGroupIndexingConfigurationOutput `pulumi:"thingGroupIndexingConfiguration"`
+	ThingGroupIndexingConfiguration IndexingConfigurationThingGroupIndexingConfigurationPtrOutput `pulumi:"thingGroupIndexingConfiguration"`
 	// Thing indexing configuration. See below.
-	ThingIndexingConfiguration IndexingConfigurationThingIndexingConfigurationOutput `pulumi:"thingIndexingConfiguration"`
+	ThingIndexingConfiguration IndexingConfigurationThingIndexingConfigurationPtrOutput `pulumi:"thingIndexingConfiguration"`
 }
 
 // NewIndexingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -225,17 +225,17 @@ func (o IndexingConfigurationOutput) ToIndexingConfigurationOutputWithContext(ct
 }
 
 // Thing group indexing configuration. See below.
-func (o IndexingConfigurationOutput) ThingGroupIndexingConfiguration() IndexingConfigurationThingGroupIndexingConfigurationOutput {
-	return o.ApplyT(func(v *IndexingConfiguration) IndexingConfigurationThingGroupIndexingConfigurationOutput {
+func (o IndexingConfigurationOutput) ThingGroupIndexingConfiguration() IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
+	return o.ApplyT(func(v *IndexingConfiguration) IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
 		return v.ThingGroupIndexingConfiguration
-	}).(IndexingConfigurationThingGroupIndexingConfigurationOutput)
+	}).(IndexingConfigurationThingGroupIndexingConfigurationPtrOutput)
 }
 
 // Thing indexing configuration. See below.
-func (o IndexingConfigurationOutput) ThingIndexingConfiguration() IndexingConfigurationThingIndexingConfigurationOutput {
-	return o.ApplyT(func(v *IndexingConfiguration) IndexingConfigurationThingIndexingConfigurationOutput {
+func (o IndexingConfigurationOutput) ThingIndexingConfiguration() IndexingConfigurationThingIndexingConfigurationPtrOutput {
+	return o.ApplyT(func(v *IndexingConfiguration) IndexingConfigurationThingIndexingConfigurationPtrOutput {
 		return v.ThingIndexingConfiguration
-	}).(IndexingConfigurationThingIndexingConfigurationOutput)
+	}).(IndexingConfigurationThingIndexingConfigurationPtrOutput)
 }
 
 type IndexingConfigurationArrayOutput struct{ *pulumi.OutputState }

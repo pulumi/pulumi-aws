@@ -84,7 +84,7 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the volune.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
@@ -96,11 +96,11 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * Describes the file system for the volume, e.g. `fs-12345679`
      */
-    public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
+    public /*out*/ readonly fileSystemId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
      */
-    public /*out*/ readonly flexcacheEndpointType!: pulumi.Output<string>;
+    public /*out*/ readonly flexcacheEndpointType!: pulumi.Output<string | undefined>;
     /**
      * Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      */
@@ -112,11 +112,11 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      */
-    public readonly ontapVolumeType!: pulumi.Output<string>;
+    public readonly ontapVolumeType!: pulumi.Output<string | undefined>;
     /**
      * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      */
-    public readonly securityStyle!: pulumi.Output<string>;
+    public readonly securityStyle!: pulumi.Output<string | undefined>;
     /**
      * Specifies the size of the volume, in megabytes (MB), that you are creating.
      */
@@ -132,7 +132,7 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      */
-    public readonly snapshotPolicy!: pulumi.Output<string>;
+    public readonly snapshotPolicy!: pulumi.Output<string | undefined>;
     /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      */
@@ -158,7 +158,7 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * The Volume's UUID (universally unique identifier).
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    public /*out*/ readonly uuid!: pulumi.Output<string | undefined>;
     /**
      * The type of volume, currently the only valid value is `ONTAP`.
      */

@@ -46,13 +46,13 @@ namespace Pulumi.Aws.VpcLattice
         /// ARN of the Service Network.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Type of IAM policy. Either `NONE` or `AWS_IAM`.
         /// </summary>
         [Output("authType")]
-        public Output<string> AuthType { get; private set; } = null!;
+        public Output<string?> AuthType { get; private set; } = null!;
 
         /// <summary>
         /// Name of the service network

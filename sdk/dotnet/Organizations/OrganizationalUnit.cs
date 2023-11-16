@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Organizations
         /// ARN of the organizational unit
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name for the organizational unit

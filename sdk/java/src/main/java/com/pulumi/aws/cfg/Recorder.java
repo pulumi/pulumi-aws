@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -138,14 +139,14 @@ public class Recorder extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="recordingGroup", refs={RecorderRecordingGroup.class}, tree="[0]")
-    private Output<RecorderRecordingGroup> recordingGroup;
+    private Output</* @Nullable */ RecorderRecordingGroup> recordingGroup;
 
     /**
      * @return Recording group - see below.
      * 
      */
-    public Output<RecorderRecordingGroup> recordingGroup() {
-        return this.recordingGroup;
+    public Output<Optional<RecorderRecordingGroup>> recordingGroup() {
+        return Codegen.optional(this.recordingGroup);
     }
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.

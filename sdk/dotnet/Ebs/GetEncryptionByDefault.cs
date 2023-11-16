@@ -69,17 +69,17 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetEncryptionByDefaultResult(
-            bool enabled,
+            bool? enabled,
 
-            string id)
+            string? id)
         {
             Enabled = enabled;
             Id = id;

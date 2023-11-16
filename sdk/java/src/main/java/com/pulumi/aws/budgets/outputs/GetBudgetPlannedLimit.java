@@ -6,6 +6,8 @@ package com.pulumi.aws.budgets.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBudgetPlannedLimit {
@@ -13,39 +15,39 @@ public final class GetBudgetPlannedLimit {
      * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
      * 
      */
-    private String amount;
+    private @Nullable String amount;
     /**
      * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
-    private String startTime;
+    private @Nullable String startTime;
     /**
      * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
      * 
      */
-    private String unit;
+    private @Nullable String unit;
 
     private GetBudgetPlannedLimit() {}
     /**
      * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
      * 
      */
-    public String amount() {
-        return this.amount;
+    public Optional<String> amount() {
+        return Optional.ofNullable(this.amount);
     }
     /**
      * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
-    public String startTime() {
-        return this.startTime;
+    public Optional<String> startTime() {
+        return Optional.ofNullable(this.startTime);
     }
     /**
      * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
      * 
      */
-    public String unit() {
-        return this.unit;
+    public Optional<String> unit() {
+        return Optional.ofNullable(this.unit);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetBudgetPlannedLimit {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String amount;
-        private String startTime;
-        private String unit;
+        private @Nullable String amount;
+        private @Nullable String startTime;
+        private @Nullable String unit;
         public Builder() {}
         public Builder(GetBudgetPlannedLimit defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetBudgetPlannedLimit {
         }
 
         @CustomType.Setter
-        public Builder amount(String amount) {
-            this.amount = Objects.requireNonNull(amount);
+        public Builder amount(@Nullable String amount) {
+            this.amount = amount;
             return this;
         }
         @CustomType.Setter
-        public Builder startTime(String startTime) {
-            this.startTime = Objects.requireNonNull(startTime);
+        public Builder startTime(@Nullable String startTime) {
+            this.startTime = startTime;
             return this;
         }
         @CustomType.Setter
-        public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+        public Builder unit(@Nullable String unit) {
+            this.unit = unit;
             return this;
         }
         public GetBudgetPlannedLimit build() {

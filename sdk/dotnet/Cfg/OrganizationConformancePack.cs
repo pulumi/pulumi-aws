@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Cfg
         /// Amazon Resource Name (ARN) of the organization conformance pack.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.

@@ -460,7 +460,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the network ACL
         """
@@ -468,7 +468,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def egress(self) -> pulumi.Output[Sequence['outputs.NetworkAclEgress']]:
+    def egress(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkAclEgress']]]:
         """
         Specifies an egress rule. Parameters defined below.
         """
@@ -476,7 +476,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ingress(self) -> pulumi.Output[Sequence['outputs.NetworkAclIngress']]:
+    def ingress(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkAclIngress']]]:
         """
         Specifies an ingress rule. Parameters defined below.
         """
@@ -484,7 +484,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that owns the network ACL.
         """
@@ -492,7 +492,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+    def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Subnet IDs to apply the ACL to
         """

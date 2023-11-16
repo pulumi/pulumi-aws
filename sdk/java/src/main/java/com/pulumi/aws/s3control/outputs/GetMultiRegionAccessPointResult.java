@@ -9,90 +9,92 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMultiRegionAccessPointResult {
-    private String accountId;
+    private @Nullable String accountId;
     /**
      * @return The alias for the Multi-Region Access Point.
      * 
      */
-    private String alias;
+    private @Nullable String alias;
     /**
      * @return Amazon Resource Name (ARN) of the Multi-Region Access Point.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Timestamp when the resource has been created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      * 
      */
-    private String domainName;
+    private @Nullable String domainName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Public Access Block of the Multi-Region Access Point. Detailed below.
      * 
      */
-    private List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks;
+    private @Nullable List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks;
     /**
      * @return A collection of the regions and buckets associated with the Multi-Region Access Point.
      * 
      */
-    private List<GetMultiRegionAccessPointRegion> regions;
+    private @Nullable List<GetMultiRegionAccessPointRegion> regions;
     /**
      * @return The current status of the Multi-Region Access Point.
      * 
      */
-    private String status;
+    private @Nullable String status;
 
     private GetMultiRegionAccessPointResult() {}
-    public String accountId() {
-        return this.accountId;
+    public Optional<String> accountId() {
+        return Optional.ofNullable(this.accountId);
     }
     /**
      * @return The alias for the Multi-Region Access Point.
      * 
      */
-    public String alias() {
-        return this.alias;
+    public Optional<String> alias() {
+        return Optional.ofNullable(this.alias);
     }
     /**
      * @return Amazon Resource Name (ARN) of the Multi-Region Access Point.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Timestamp when the resource has been created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      * 
      */
-    public String domainName() {
-        return this.domainName;
+    public Optional<String> domainName() {
+        return Optional.ofNullable(this.domainName);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -102,21 +104,21 @@ public final class GetMultiRegionAccessPointResult {
      * 
      */
     public List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks() {
-        return this.publicAccessBlocks;
+        return this.publicAccessBlocks == null ? List.of() : this.publicAccessBlocks;
     }
     /**
      * @return A collection of the regions and buckets associated with the Multi-Region Access Point.
      * 
      */
     public List<GetMultiRegionAccessPointRegion> regions() {
-        return this.regions;
+        return this.regions == null ? List.of() : this.regions;
     }
     /**
      * @return The current status of the Multi-Region Access Point.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -128,16 +130,16 @@ public final class GetMultiRegionAccessPointResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountId;
-        private String alias;
-        private String arn;
-        private String createdAt;
-        private String domainName;
-        private String id;
+        private @Nullable String accountId;
+        private @Nullable String alias;
+        private @Nullable String arn;
+        private @Nullable String createdAt;
+        private @Nullable String domainName;
+        private @Nullable String id;
         private String name;
-        private List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks;
-        private List<GetMultiRegionAccessPointRegion> regions;
-        private String status;
+        private @Nullable List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks;
+        private @Nullable List<GetMultiRegionAccessPointRegion> regions;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetMultiRegionAccessPointResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -154,33 +156,33 @@ public final class GetMultiRegionAccessPointResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+        public Builder accountId(@Nullable String accountId) {
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
-        public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+        public Builder alias(@Nullable String alias) {
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+        public Builder domainName(@Nullable String domainName) {
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -189,24 +191,24 @@ public final class GetMultiRegionAccessPointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder publicAccessBlocks(List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks) {
-            this.publicAccessBlocks = Objects.requireNonNull(publicAccessBlocks);
+        public Builder publicAccessBlocks(@Nullable List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks) {
+            this.publicAccessBlocks = publicAccessBlocks;
             return this;
         }
         public Builder publicAccessBlocks(GetMultiRegionAccessPointPublicAccessBlock... publicAccessBlocks) {
             return publicAccessBlocks(List.of(publicAccessBlocks));
         }
         @CustomType.Setter
-        public Builder regions(List<GetMultiRegionAccessPointRegion> regions) {
-            this.regions = Objects.requireNonNull(regions);
+        public Builder regions(@Nullable List<GetMultiRegionAccessPointRegion> regions) {
+            this.regions = regions;
             return this;
         }
         public Builder regions(GetMultiRegionAccessPointRegion... regions) {
             return regions(List.of(regions));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetMultiRegionAccessPointResult build() {

@@ -94,7 +94,7 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources pulumi.BoolPtrOutput `pulumi:"deleteAllPolicyResources"`
 	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
@@ -110,13 +110,13 @@ type Policy struct {
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A unique identifier for each update to the policy.
-	PolicyUpdateToken pulumi.StringOutput `pulumi:"policyUpdateToken"`
+	PolicyUpdateToken pulumi.StringPtrOutput `pulumi:"policyUpdateToken"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrOutput `pulumi:"remediationEnabled"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists pulumi.StringArrayOutput `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
@@ -390,8 +390,8 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-func (o PolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
@@ -430,8 +430,8 @@ func (o PolicyOutput) Name() pulumi.StringOutput {
 }
 
 // A unique identifier for each update to the policy.
-func (o PolicyOutput) PolicyUpdateToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyUpdateToken }).(pulumi.StringOutput)
+func (o PolicyOutput) PolicyUpdateToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicyUpdateToken }).(pulumi.StringPtrOutput)
 }
 
 // A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
@@ -445,8 +445,8 @@ func (o PolicyOutput) ResourceTags() pulumi.StringMapOutput {
 }
 
 // A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-func (o PolicyOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+func (o PolicyOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 // A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.

@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Rds
         /// The name of the Amazon Kinesis data stream to be used for the database activity stream.
         /// </summary>
         [Output("kinesisStreamName")]
-        public Output<string> KinesisStreamName { get; private set; } = null!;
+        public Output<string?> KinesisStreamName { get; private set; } = null!;
 
         /// <summary>
         /// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.

@@ -104,20 +104,20 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// ARN of the Auto Scaling group.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// One or more Availability Zones for the group.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
-        public readonly int DefaultCooldown;
+        public readonly int? DefaultCooldown;
         /// <summary>
         /// Desired size of the group.
         /// </summary>
-        public readonly int DesiredCapacity;
+        public readonly int? DesiredCapacity;
         /// <summary>
         /// The unit of measurement for the value returned for `desired_capacity`.
         /// </summary>
-        public readonly string DesiredCapacityType;
+        public readonly string? DesiredCapacityType;
         /// <summary>
         /// List of metrics enabled for collection.
         /// </summary>
@@ -125,19 +125,19 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
         /// </summary>
-        public readonly int HealthCheckGracePeriod;
+        public readonly int? HealthCheckGracePeriod;
         /// <summary>
         /// Service to use for the health checks. The valid values are EC2 and ELB.
         /// </summary>
-        public readonly string HealthCheckType;
+        public readonly string? HealthCheckType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The name of the associated launch configuration.
         /// </summary>
-        public readonly string LaunchConfiguration;
+        public readonly string? LaunchConfiguration;
         /// <summary>
         /// List of launch templates along with the overrides.
         /// </summary>
@@ -149,15 +149,15 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Maximum amount of time, in seconds, that an instance can be in service.
         /// </summary>
-        public readonly int MaxInstanceLifetime;
+        public readonly int? MaxInstanceLifetime;
         /// <summary>
         /// Maximum size of the group.
         /// </summary>
-        public readonly int MaxSize;
+        public readonly int? MaxSize;
         /// <summary>
         /// Minimum number of instances to maintain in the warm pool.
         /// </summary>
-        public readonly int MinSize;
+        public readonly int? MinSize;
         /// <summary>
         /// List of mixed instances policy objects for the group.
         /// </summary>
@@ -166,23 +166,23 @@ namespace Pulumi.Aws.AutoScaling
         /// Name of the Auto Scaling Group.
         /// </summary>
         public readonly string Name;
-        public readonly bool NewInstancesProtectedFromScaleIn;
+        public readonly bool? NewInstancesProtectedFromScaleIn;
         /// <summary>
         /// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
-        public readonly string PlacementGroup;
+        public readonly string? PlacementGroup;
         /// <summary>
         /// Predicted capacity of the group.
         /// </summary>
-        public readonly int PredictedCapacity;
+        public readonly int? PredictedCapacity;
         /// <summary>
         /// ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
         /// </summary>
-        public readonly string ServiceLinkedRoleArn;
+        public readonly string? ServiceLinkedRoleArn;
         /// <summary>
         /// Current state of the group when DeleteAutoScalingGroup is in progress.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// List of processes suspended processes for the Auto Scaling Group.
         /// </summary>
@@ -206,11 +206,11 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// VPC ID for the group.
         /// </summary>
-        public readonly string VpcZoneIdentifier;
+        public readonly string? VpcZoneIdentifier;
         /// <summary>
         /// Current size of the warm pool.
         /// </summary>
-        public readonly int WarmPoolSize;
+        public readonly int? WarmPoolSize;
         /// <summary>
         /// List of warm pool configuration objects.
         /// </summary>
@@ -218,49 +218,49 @@ namespace Pulumi.Aws.AutoScaling
 
         [OutputConstructor]
         private GetGroupResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<string> availabilityZones,
 
-            int defaultCooldown,
+            int? defaultCooldown,
 
-            int desiredCapacity,
+            int? desiredCapacity,
 
-            string desiredCapacityType,
+            string? desiredCapacityType,
 
             ImmutableArray<string> enabledMetrics,
 
-            int healthCheckGracePeriod,
+            int? healthCheckGracePeriod,
 
-            string healthCheckType,
+            string? healthCheckType,
 
-            string id,
+            string? id,
 
-            string launchConfiguration,
+            string? launchConfiguration,
 
             ImmutableArray<Outputs.GetGroupLaunchTemplateResult> launchTemplates,
 
             ImmutableArray<string> loadBalancers,
 
-            int maxInstanceLifetime,
+            int? maxInstanceLifetime,
 
-            int maxSize,
+            int? maxSize,
 
-            int minSize,
+            int? minSize,
 
             ImmutableArray<Outputs.GetGroupMixedInstancesPolicyResult> mixedInstancesPolicies,
 
             string name,
 
-            bool newInstancesProtectedFromScaleIn,
+            bool? newInstancesProtectedFromScaleIn,
 
-            string placementGroup,
+            string? placementGroup,
 
-            int predictedCapacity,
+            int? predictedCapacity,
 
-            string serviceLinkedRoleArn,
+            string? serviceLinkedRoleArn,
 
-            string status,
+            string? status,
 
             ImmutableArray<string> suspendedProcesses,
 
@@ -272,9 +272,9 @@ namespace Pulumi.Aws.AutoScaling
 
             ImmutableArray<Outputs.GetGroupTrafficSourceResult> trafficSources,
 
-            string vpcZoneIdentifier,
+            string? vpcZoneIdentifier,
 
-            int warmPoolSize,
+            int? warmPoolSize,
 
             ImmutableArray<Outputs.GetGroupWarmPoolResult> warmPools)
         {

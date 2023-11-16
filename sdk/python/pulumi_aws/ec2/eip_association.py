@@ -452,7 +452,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> pulumi.Output[str]:
+    def allocation_id(self) -> pulumi.Output[Optional[str]]:
         """
         The allocation ID. This is required for EC2-VPC.
         """
@@ -469,7 +469,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> pulumi.Output[str]:
+    def instance_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the instance. This is required for
         EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
@@ -480,7 +480,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> pulumi.Output[str]:
+    def network_interface_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the network interface. If the
         instance has more than one network interface, you must specify a network
@@ -490,7 +490,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> pulumi.Output[str]:
+    def private_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The primary or secondary private IP address
         to associate with the Elastic IP address. If no private IP address is
@@ -501,7 +501,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> pulumi.Output[str]:
+    def public_ip(self) -> pulumi.Output[Optional[str]]:
         """
         The Elastic IP address. This is required for EC2-Classic.
         """

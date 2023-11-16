@@ -173,7 +173,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// The ARN of the response plan.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Chatbot chat channel used for collaboration during an incident.

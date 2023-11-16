@@ -137,33 +137,33 @@ type KeySigningKey struct {
 	pulumi.CustomResourceState
 
 	// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-	DigestAlgorithmMnemonic pulumi.StringOutput `pulumi:"digestAlgorithmMnemonic"`
+	DigestAlgorithmMnemonic pulumi.StringPtrOutput `pulumi:"digestAlgorithmMnemonic"`
 	// An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-	DigestAlgorithmType pulumi.IntOutput `pulumi:"digestAlgorithmType"`
+	DigestAlgorithmType pulumi.IntPtrOutput `pulumi:"digestAlgorithmType"`
 	// A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
-	DigestValue pulumi.StringOutput `pulumi:"digestValue"`
+	DigestValue pulumi.StringPtrOutput `pulumi:"digestValue"`
 	// A string that represents a DNSKEY record.
-	DnskeyRecord pulumi.StringOutput `pulumi:"dnskeyRecord"`
+	DnskeyRecord pulumi.StringPtrOutput `pulumi:"dnskeyRecord"`
 	// A string that represents a delegation signer (DS) record.
-	DsRecord pulumi.StringOutput `pulumi:"dsRecord"`
+	DsRecord pulumi.StringPtrOutput `pulumi:"dsRecord"`
 	// An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
-	Flag pulumi.IntOutput `pulumi:"flag"`
+	Flag pulumi.IntPtrOutput `pulumi:"flag"`
 	// Identifier of the Route 53 Hosted Zone.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
 	KeyManagementServiceArn pulumi.StringOutput `pulumi:"keyManagementServiceArn"`
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
-	KeyTag pulumi.IntOutput `pulumi:"keyTag"`
+	KeyTag pulumi.IntPtrOutput `pulumi:"keyTag"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
-	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
+	PublicKey pulumi.StringPtrOutput `pulumi:"publicKey"`
 	// A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-	SigningAlgorithmMnemonic pulumi.StringOutput `pulumi:"signingAlgorithmMnemonic"`
+	SigningAlgorithmMnemonic pulumi.StringPtrOutput `pulumi:"signingAlgorithmMnemonic"`
 	// An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-	SigningAlgorithmType pulumi.IntOutput `pulumi:"signingAlgorithmType"`
+	SigningAlgorithmType pulumi.IntPtrOutput `pulumi:"signingAlgorithmType"`
 	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
@@ -388,33 +388,33 @@ func (o KeySigningKeyOutput) ToKeySigningKeyOutputWithContext(ctx context.Contex
 }
 
 // A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-func (o KeySigningKeyOutput) DigestAlgorithmMnemonic() pulumi.StringOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.DigestAlgorithmMnemonic }).(pulumi.StringOutput)
+func (o KeySigningKeyOutput) DigestAlgorithmMnemonic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.StringPtrOutput { return v.DigestAlgorithmMnemonic }).(pulumi.StringPtrOutput)
 }
 
 // An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-func (o KeySigningKeyOutput) DigestAlgorithmType() pulumi.IntOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.IntOutput { return v.DigestAlgorithmType }).(pulumi.IntOutput)
+func (o KeySigningKeyOutput) DigestAlgorithmType() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.IntPtrOutput { return v.DigestAlgorithmType }).(pulumi.IntPtrOutput)
 }
 
 // A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
-func (o KeySigningKeyOutput) DigestValue() pulumi.StringOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.DigestValue }).(pulumi.StringOutput)
+func (o KeySigningKeyOutput) DigestValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.StringPtrOutput { return v.DigestValue }).(pulumi.StringPtrOutput)
 }
 
 // A string that represents a DNSKEY record.
-func (o KeySigningKeyOutput) DnskeyRecord() pulumi.StringOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.DnskeyRecord }).(pulumi.StringOutput)
+func (o KeySigningKeyOutput) DnskeyRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.StringPtrOutput { return v.DnskeyRecord }).(pulumi.StringPtrOutput)
 }
 
 // A string that represents a delegation signer (DS) record.
-func (o KeySigningKeyOutput) DsRecord() pulumi.StringOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.DsRecord }).(pulumi.StringOutput)
+func (o KeySigningKeyOutput) DsRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.StringPtrOutput { return v.DsRecord }).(pulumi.StringPtrOutput)
 }
 
 // An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
-func (o KeySigningKeyOutput) Flag() pulumi.IntOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.IntOutput { return v.Flag }).(pulumi.IntOutput)
+func (o KeySigningKeyOutput) Flag() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.IntPtrOutput { return v.Flag }).(pulumi.IntPtrOutput)
 }
 
 // Identifier of the Route 53 Hosted Zone.
@@ -428,8 +428,8 @@ func (o KeySigningKeyOutput) KeyManagementServiceArn() pulumi.StringOutput {
 }
 
 // An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
-func (o KeySigningKeyOutput) KeyTag() pulumi.IntOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.IntOutput { return v.KeyTag }).(pulumi.IntOutput)
+func (o KeySigningKeyOutput) KeyTag() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.IntPtrOutput { return v.KeyTag }).(pulumi.IntPtrOutput)
 }
 
 // Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
@@ -440,18 +440,18 @@ func (o KeySigningKeyOutput) Name() pulumi.StringOutput {
 }
 
 // The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
-func (o KeySigningKeyOutput) PublicKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
+func (o KeySigningKeyOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.StringPtrOutput { return v.PublicKey }).(pulumi.StringPtrOutput)
 }
 
 // A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-func (o KeySigningKeyOutput) SigningAlgorithmMnemonic() pulumi.StringOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.SigningAlgorithmMnemonic }).(pulumi.StringOutput)
+func (o KeySigningKeyOutput) SigningAlgorithmMnemonic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.StringPtrOutput { return v.SigningAlgorithmMnemonic }).(pulumi.StringPtrOutput)
 }
 
 // An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-func (o KeySigningKeyOutput) SigningAlgorithmType() pulumi.IntOutput {
-	return o.ApplyT(func(v *KeySigningKey) pulumi.IntOutput { return v.SigningAlgorithmType }).(pulumi.IntOutput)
+func (o KeySigningKeyOutput) SigningAlgorithmType() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.IntPtrOutput { return v.SigningAlgorithmType }).(pulumi.IntPtrOutput)
 }
 
 // Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.

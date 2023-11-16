@@ -696,12 +696,12 @@ class StageRouteSetting(dict):
 @pulumi.output_type
 class GetApiCorsConfigurationResult(dict):
     def __init__(__self__, *,
-                 allow_credentials: bool,
-                 allow_headers: Sequence[str],
-                 allow_methods: Sequence[str],
-                 allow_origins: Sequence[str],
-                 expose_headers: Sequence[str],
-                 max_age: int):
+                 allow_credentials: Optional[bool] = None,
+                 allow_headers: Optional[Sequence[str]] = None,
+                 allow_methods: Optional[Sequence[str]] = None,
+                 allow_origins: Optional[Sequence[str]] = None,
+                 expose_headers: Optional[Sequence[str]] = None,
+                 max_age: Optional[int] = None):
         """
         :param bool allow_credentials: Whether credentials are included in the CORS request.
         :param Sequence[str] allow_headers: Set of allowed HTTP headers.
@@ -710,16 +710,22 @@ class GetApiCorsConfigurationResult(dict):
         :param Sequence[str] expose_headers: Set of exposed HTTP headers.
         :param int max_age: Number of seconds that the browser should cache preflight request results.
         """
-        pulumi.set(__self__, "allow_credentials", allow_credentials)
-        pulumi.set(__self__, "allow_headers", allow_headers)
-        pulumi.set(__self__, "allow_methods", allow_methods)
-        pulumi.set(__self__, "allow_origins", allow_origins)
-        pulumi.set(__self__, "expose_headers", expose_headers)
-        pulumi.set(__self__, "max_age", max_age)
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if allow_headers is not None:
+            pulumi.set(__self__, "allow_headers", allow_headers)
+        if allow_methods is not None:
+            pulumi.set(__self__, "allow_methods", allow_methods)
+        if allow_origins is not None:
+            pulumi.set(__self__, "allow_origins", allow_origins)
+        if expose_headers is not None:
+            pulumi.set(__self__, "expose_headers", expose_headers)
+        if max_age is not None:
+            pulumi.set(__self__, "max_age", max_age)
 
     @property
     @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> bool:
+    def allow_credentials(self) -> Optional[bool]:
         """
         Whether credentials are included in the CORS request.
         """
@@ -727,7 +733,7 @@ class GetApiCorsConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="allowHeaders")
-    def allow_headers(self) -> Sequence[str]:
+    def allow_headers(self) -> Optional[Sequence[str]]:
         """
         Set of allowed HTTP headers.
         """
@@ -735,7 +741,7 @@ class GetApiCorsConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="allowMethods")
-    def allow_methods(self) -> Sequence[str]:
+    def allow_methods(self) -> Optional[Sequence[str]]:
         """
         Set of allowed HTTP methods.
         """
@@ -743,7 +749,7 @@ class GetApiCorsConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="allowOrigins")
-    def allow_origins(self) -> Sequence[str]:
+    def allow_origins(self) -> Optional[Sequence[str]]:
         """
         Set of allowed origins.
         """
@@ -751,7 +757,7 @@ class GetApiCorsConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="exposeHeaders")
-    def expose_headers(self) -> Sequence[str]:
+    def expose_headers(self) -> Optional[Sequence[str]]:
         """
         Set of exposed HTTP headers.
         """
@@ -759,7 +765,7 @@ class GetApiCorsConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> int:
+    def max_age(self) -> Optional[int]:
         """
         Number of seconds that the browser should cache preflight request results.
         """

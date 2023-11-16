@@ -119,7 +119,7 @@ type FargateProfile struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
@@ -129,7 +129,7 @@ type FargateProfile struct {
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors FargateProfileSelectorArrayOutput `pulumi:"selectors"`
 	// Status of the EKS Fargate Profile.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	//
 	// The following arguments are optional:
@@ -361,8 +361,8 @@ func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Cont
 }
 
 // Amazon Resource Name (ARN) of the EKS Fargate Profile.
-func (o FargateProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FargateProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FargateProfile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -386,8 +386,8 @@ func (o FargateProfileOutput) Selectors() FargateProfileSelectorArrayOutput {
 }
 
 // Status of the EKS Fargate Profile.
-func (o FargateProfileOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o FargateProfileOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FargateProfile) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).

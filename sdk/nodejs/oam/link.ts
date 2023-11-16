@@ -63,11 +63,11 @@ export class Link extends pulumi.CustomResource {
     /**
      * ARN of the link.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Label that is assigned to this link.
      */
-    public /*out*/ readonly label!: pulumi.Output<string>;
+    public /*out*/ readonly label!: pulumi.Output<string | undefined>;
     /**
      * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
      */
@@ -75,7 +75,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * ID string that AWS generated as part of the link ARN.
      */
-    public /*out*/ readonly linkId!: pulumi.Output<string>;
+    public /*out*/ readonly linkId!: pulumi.Output<string | undefined>;
     /**
      * Types of data that the source account shares with the monitoring account.
      */
@@ -83,7 +83,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * ARN of the sink that is used for this link.
      */
-    public /*out*/ readonly sinkArn!: pulumi.Output<string>;
+    public /*out*/ readonly sinkArn!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the sink to use to create this link.
      *

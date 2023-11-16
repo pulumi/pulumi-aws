@@ -57,8 +57,8 @@ type TagOption struct {
 	// Whether tag option is active. Default is `true`.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// Tag option key.
-	Key   pulumi.StringOutput `pulumi:"key"`
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Key   pulumi.StringOutput    `pulumi:"key"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -248,8 +248,8 @@ func (o TagOptionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o TagOptionOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o TagOptionOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagOption) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // Tag option value.

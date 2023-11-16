@@ -54,33 +54,33 @@ type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
 	// Specifies the allocated storage size in gigabytes (GB).
-	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
+	AllocatedStorage pulumi.IntPtrOutput `pulumi:"allocatedStorage"`
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The DB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
 	// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-	DbClusterSnapshotArn pulumi.StringOutput `pulumi:"dbClusterSnapshotArn"`
+	DbClusterSnapshotArn pulumi.StringPtrOutput `pulumi:"dbClusterSnapshotArn"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringOutput `pulumi:"dbClusterSnapshotIdentifier"`
 	// Specifies the name of the database engine.
-	Engine pulumi.StringOutput `pulumi:"engine"`
+	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// Version of the database engine for this DB cluster snapshot.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// License model information for the restored DB cluster.
-	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
+	LicenseModel pulumi.StringPtrOutput `pulumi:"licenseModel"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port                       pulumi.IntOutput    `pulumi:"port"`
-	SnapshotType               pulumi.StringOutput `pulumi:"snapshotType"`
-	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
+	Port                       pulumi.IntPtrOutput    `pulumi:"port"`
+	SnapshotType               pulumi.StringPtrOutput `pulumi:"snapshotType"`
+	SourceDbClusterSnapshotArn pulumi.StringPtrOutput `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Specifies whether the DB cluster snapshot is encrypted.
-	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
+	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
 	// The VPC ID associated with the DB cluster snapshot.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewClusterSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -287,8 +287,8 @@ func (o ClusterSnapshotOutput) ToClusterSnapshotOutputWithContext(ctx context.Co
 }
 
 // Specifies the allocated storage size in gigabytes (GB).
-func (o ClusterSnapshotOutput) AllocatedStorage() pulumi.IntOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntOutput { return v.AllocatedStorage }).(pulumi.IntOutput)
+func (o ClusterSnapshotOutput) AllocatedStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntPtrOutput { return v.AllocatedStorage }).(pulumi.IntPtrOutput)
 }
 
 // List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
@@ -302,8 +302,8 @@ func (o ClusterSnapshotOutput) DbClusterIdentifier() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-func (o ClusterSnapshotOutput) DbClusterSnapshotArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterSnapshotArn }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) DbClusterSnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.DbClusterSnapshotArn }).(pulumi.StringPtrOutput)
 }
 
 // The Identifier for the snapshot.
@@ -312,51 +312,51 @@ func (o ClusterSnapshotOutput) DbClusterSnapshotIdentifier() pulumi.StringOutput
 }
 
 // Specifies the name of the database engine.
-func (o ClusterSnapshotOutput) Engine() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
 // Version of the database engine for this DB cluster snapshot.
-func (o ClusterSnapshotOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-func (o ClusterSnapshotOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // License model information for the restored DB cluster.
-func (o ClusterSnapshotOutput) LicenseModel() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.LicenseModel }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) LicenseModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.LicenseModel }).(pulumi.StringPtrOutput)
 }
 
 // Port that the DB cluster was listening on at the time of the snapshot.
-func (o ClusterSnapshotOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+func (o ClusterSnapshotOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o ClusterSnapshotOutput) SnapshotType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.SnapshotType }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) SnapshotType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.SnapshotType }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterSnapshotOutput) SourceDbClusterSnapshotArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.SourceDbClusterSnapshotArn }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) SourceDbClusterSnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.SourceDbClusterSnapshotArn }).(pulumi.StringPtrOutput)
 }
 
 // The status of this DB Cluster Snapshot.
-func (o ClusterSnapshotOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the DB cluster snapshot is encrypted.
-func (o ClusterSnapshotOutput) StorageEncrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
+func (o ClusterSnapshotOutput) StorageEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
 // The VPC ID associated with the DB cluster snapshot.
-func (o ClusterSnapshotOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o ClusterSnapshotOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type ClusterSnapshotArrayOutput struct{ *pulumi.OutputState }

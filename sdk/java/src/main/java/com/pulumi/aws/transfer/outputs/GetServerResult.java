@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerResult {
@@ -14,146 +16,146 @@ public final class GetServerResult {
      * @return ARN of Transfer Server.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return ARN of any certificate.
      * 
      */
-    private String certificate;
+    private @Nullable String certificate;
     /**
      * @return The domain of the storage system that is used for file transfers.
      * 
      */
-    private String domain;
+    private @Nullable String domain;
     /**
      * @return Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
      * 
      */
-    private String endpoint;
+    private @Nullable String endpoint;
     /**
      * @return Type of endpoint that the server is connected to.
      * 
      */
-    private String endpointType;
+    private @Nullable String endpointType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
      * 
      */
-    private String identityProviderType;
+    private @Nullable String identityProviderType;
     /**
      * @return ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    private String invocationRole;
+    private @Nullable String invocationRole;
     /**
      * @return ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
-    private String loggingRole;
+    private @Nullable String loggingRole;
     /**
      * @return File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint.
      * 
      */
-    private List<String> protocols;
+    private @Nullable List<String> protocols;
     /**
      * @return The name of the security policy that is attached to the server.
      * 
      */
-    private String securityPolicyName;
+    private @Nullable String securityPolicyName;
     private String serverId;
     /**
      * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
      * 
      */
-    private List<String> structuredLogDestinations;
+    private @Nullable List<String> structuredLogDestinations;
     /**
      * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    private String url;
+    private @Nullable String url;
 
     private GetServerResult() {}
     /**
      * @return ARN of Transfer Server.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return ARN of any certificate.
      * 
      */
-    public String certificate() {
-        return this.certificate;
+    public Optional<String> certificate() {
+        return Optional.ofNullable(this.certificate);
     }
     /**
      * @return The domain of the storage system that is used for file transfers.
      * 
      */
-    public String domain() {
-        return this.domain;
+    public Optional<String> domain() {
+        return Optional.ofNullable(this.domain);
     }
     /**
      * @return Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
      * 
      */
-    public String endpoint() {
-        return this.endpoint;
+    public Optional<String> endpoint() {
+        return Optional.ofNullable(this.endpoint);
     }
     /**
      * @return Type of endpoint that the server is connected to.
      * 
      */
-    public String endpointType() {
-        return this.endpointType;
+    public Optional<String> endpointType() {
+        return Optional.ofNullable(this.endpointType);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
      * 
      */
-    public String identityProviderType() {
-        return this.identityProviderType;
+    public Optional<String> identityProviderType() {
+        return Optional.ofNullable(this.identityProviderType);
     }
     /**
      * @return ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    public String invocationRole() {
-        return this.invocationRole;
+    public Optional<String> invocationRole() {
+        return Optional.ofNullable(this.invocationRole);
     }
     /**
      * @return ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
-    public String loggingRole() {
-        return this.loggingRole;
+    public Optional<String> loggingRole() {
+        return Optional.ofNullable(this.loggingRole);
     }
     /**
      * @return File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint.
      * 
      */
     public List<String> protocols() {
-        return this.protocols;
+        return this.protocols == null ? List.of() : this.protocols;
     }
     /**
      * @return The name of the security policy that is attached to the server.
      * 
      */
-    public String securityPolicyName() {
-        return this.securityPolicyName;
+    public Optional<String> securityPolicyName() {
+        return Optional.ofNullable(this.securityPolicyName);
     }
     public String serverId() {
         return this.serverId;
@@ -163,14 +165,14 @@ public final class GetServerResult {
      * 
      */
     public List<String> structuredLogDestinations() {
-        return this.structuredLogDestinations;
+        return this.structuredLogDestinations == null ? List.of() : this.structuredLogDestinations;
     }
     /**
      * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    public String url() {
-        return this.url;
+    public Optional<String> url() {
+        return Optional.ofNullable(this.url);
     }
 
     public static Builder builder() {
@@ -182,20 +184,20 @@ public final class GetServerResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String certificate;
-        private String domain;
-        private String endpoint;
-        private String endpointType;
-        private String id;
-        private String identityProviderType;
-        private String invocationRole;
-        private String loggingRole;
-        private List<String> protocols;
-        private String securityPolicyName;
+        private @Nullable String arn;
+        private @Nullable String certificate;
+        private @Nullable String domain;
+        private @Nullable String endpoint;
+        private @Nullable String endpointType;
+        private @Nullable String id;
+        private @Nullable String identityProviderType;
+        private @Nullable String invocationRole;
+        private @Nullable String loggingRole;
+        private @Nullable List<String> protocols;
+        private @Nullable String securityPolicyName;
         private String serverId;
-        private List<String> structuredLogDestinations;
-        private String url;
+        private @Nullable List<String> structuredLogDestinations;
+        private @Nullable String url;
         public Builder() {}
         public Builder(GetServerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -216,61 +218,61 @@ public final class GetServerResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder certificate(String certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+        public Builder certificate(@Nullable String certificate) {
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
-        public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+        public Builder domain(@Nullable String domain) {
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+        public Builder endpoint(@Nullable String endpoint) {
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder endpointType(String endpointType) {
-            this.endpointType = Objects.requireNonNull(endpointType);
+        public Builder endpointType(@Nullable String endpointType) {
+            this.endpointType = endpointType;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder identityProviderType(String identityProviderType) {
-            this.identityProviderType = Objects.requireNonNull(identityProviderType);
+        public Builder identityProviderType(@Nullable String identityProviderType) {
+            this.identityProviderType = identityProviderType;
             return this;
         }
         @CustomType.Setter
-        public Builder invocationRole(String invocationRole) {
-            this.invocationRole = Objects.requireNonNull(invocationRole);
+        public Builder invocationRole(@Nullable String invocationRole) {
+            this.invocationRole = invocationRole;
             return this;
         }
         @CustomType.Setter
-        public Builder loggingRole(String loggingRole) {
-            this.loggingRole = Objects.requireNonNull(loggingRole);
+        public Builder loggingRole(@Nullable String loggingRole) {
+            this.loggingRole = loggingRole;
             return this;
         }
         @CustomType.Setter
-        public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+        public Builder protocols(@Nullable List<String> protocols) {
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
         @CustomType.Setter
-        public Builder securityPolicyName(String securityPolicyName) {
-            this.securityPolicyName = Objects.requireNonNull(securityPolicyName);
+        public Builder securityPolicyName(@Nullable String securityPolicyName) {
+            this.securityPolicyName = securityPolicyName;
             return this;
         }
         @CustomType.Setter
@@ -279,16 +281,16 @@ public final class GetServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder structuredLogDestinations(List<String> structuredLogDestinations) {
-            this.structuredLogDestinations = Objects.requireNonNull(structuredLogDestinations);
+        public Builder structuredLogDestinations(@Nullable List<String> structuredLogDestinations) {
+            this.structuredLogDestinations = structuredLogDestinations;
             return this;
         }
         public Builder structuredLogDestinations(String... structuredLogDestinations) {
             return structuredLogDestinations(List.of(structuredLogDestinations));
         }
         @CustomType.Setter
-        public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+        public Builder url(@Nullable String url) {
+            this.url = url;
             return this;
         }
         public GetServerResult build() {

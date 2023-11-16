@@ -49,7 +49,7 @@ class GetServerlessSecurityPolicyResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         The date the security policy was created.
         """
@@ -57,7 +57,7 @@ class GetServerlessSecurityPolicyResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the security policy.
         """
@@ -65,7 +65,7 @@ class GetServerlessSecurityPolicyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -73,7 +73,7 @@ class GetServerlessSecurityPolicyResult:
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> str:
+    def last_modified_date(self) -> Optional[str]:
         """
         The date the security policy was last modified.
         """
@@ -86,7 +86,7 @@ class GetServerlessSecurityPolicyResult:
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> Optional[str]:
         """
         The JSON policy document without any whitespaces.
         """
@@ -94,7 +94,7 @@ class GetServerlessSecurityPolicyResult:
 
     @property
     @pulumi.getter(name="policyVersion")
-    def policy_version(self) -> str:
+    def policy_version(self) -> Optional[str]:
         """
         Version of the policy.
         """

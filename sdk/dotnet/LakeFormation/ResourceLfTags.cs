@@ -129,13 +129,13 @@ namespace Pulumi.Aws.LakeFormation
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         /// </summary>
         [Output("catalogId")]
-        public Output<string> CatalogId { get; private set; } = null!;
+        public Output<string?> CatalogId { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for a database resource. See below.
         /// </summary>
         [Output("database")]
-        public Output<Outputs.ResourceLfTagsDatabase> Database { get; private set; } = null!;
+        public Output<Outputs.ResourceLfTagsDatabase?> Database { get; private set; } = null!;
 
         /// <summary>
         /// Set of LF-tags to attach to the resource. See below.
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.LakeFormation
         /// Configuration block for a table resource. See below.
         /// </summary>
         [Output("table")]
-        public Output<Outputs.ResourceLfTagsTable> Table { get; private set; } = null!;
+        public Output<Outputs.ResourceLfTagsTable?> Table { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for a table with columns resource. See below.
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.LakeFormation
         /// The following arguments are optional:
         /// </summary>
         [Output("tableWithColumns")]
-        public Output<Outputs.ResourceLfTagsTableWithColumns> TableWithColumns { get; private set; } = null!;
+        public Output<Outputs.ResourceLfTagsTableWithColumns?> TableWithColumns { get; private set; } = null!;
 
 
         /// <summary>

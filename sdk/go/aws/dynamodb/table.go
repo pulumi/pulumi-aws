@@ -153,7 +153,7 @@ type Table struct {
 	pulumi.CustomResourceState
 
 	// ARN of the table
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
 	Attributes TableAttributeArrayOutput `pulumi:"attributes"`
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
@@ -163,7 +163,7 @@ type Table struct {
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
-	HashKey pulumi.StringOutput `pulumi:"hashKey"`
+	HashKey pulumi.StringPtrOutput `pulumi:"hashKey"`
 	// Import Amazon S3 data into a new table. See below.
 	ImportTable TableImportTablePtrOutput `pulumi:"importTable"`
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
@@ -173,11 +173,11 @@ type Table struct {
 	// Optional arguments:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Enable point-in-time recovery options. See below.
-	PointInTimeRecovery TablePointInTimeRecoveryOutput `pulumi:"pointInTimeRecovery"`
+	PointInTimeRecovery TablePointInTimeRecoveryPtrOutput `pulumi:"pointInTimeRecovery"`
 	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
-	ReadCapacity pulumi.IntOutput `pulumi:"readCapacity"`
+	ReadCapacity pulumi.IntPtrOutput `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayOutput `pulumi:"replicas"`
 	// Time of the point-in-time recovery point to restore.
@@ -187,15 +187,15 @@ type Table struct {
 	// If set, restores table to the most recent point-in-time recovery point.
 	RestoreToLatestTime pulumi.BoolPtrOutput `pulumi:"restoreToLatestTime"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
-	ServerSideEncryption TableServerSideEncryptionOutput `pulumi:"serverSideEncryption"`
+	ServerSideEncryption TableServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
 	// ARN of the Table Stream. Only available when `streamEnabled = true`
-	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
+	StreamArn pulumi.StringPtrOutput `pulumi:"streamArn"`
 	// Whether Streams are enabled.
 	StreamEnabled pulumi.BoolPtrOutput `pulumi:"streamEnabled"`
 	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
-	StreamLabel pulumi.StringOutput `pulumi:"streamLabel"`
+	StreamLabel pulumi.StringPtrOutput `pulumi:"streamLabel"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
-	StreamViewType pulumi.StringOutput `pulumi:"streamViewType"`
+	StreamViewType pulumi.StringPtrOutput `pulumi:"streamViewType"`
 	// Storage class of the table.
 	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
 	// Default value is `STANDARD`.
@@ -207,9 +207,9 @@ type Table struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for TTL. See below.
-	Ttl TableTtlOutput `pulumi:"ttl"`
+	Ttl TableTtlPtrOutput `pulumi:"ttl"`
 	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
-	WriteCapacity pulumi.IntOutput `pulumi:"writeCapacity"`
+	WriteCapacity pulumi.IntPtrOutput `pulumi:"writeCapacity"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -562,8 +562,8 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 }
 
 // ARN of the table
-func (o TableOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TableOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
@@ -587,8 +587,8 @@ func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutp
 }
 
 // Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
-func (o TableOutput) HashKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.HashKey }).(pulumi.StringOutput)
+func (o TableOutput) HashKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.HashKey }).(pulumi.StringPtrOutput)
 }
 
 // Import Amazon S3 data into a new table. See below.
@@ -609,8 +609,8 @@ func (o TableOutput) Name() pulumi.StringOutput {
 }
 
 // Enable point-in-time recovery options. See below.
-func (o TableOutput) PointInTimeRecovery() TablePointInTimeRecoveryOutput {
-	return o.ApplyT(func(v *Table) TablePointInTimeRecoveryOutput { return v.PointInTimeRecovery }).(TablePointInTimeRecoveryOutput)
+func (o TableOutput) PointInTimeRecovery() TablePointInTimeRecoveryPtrOutput {
+	return o.ApplyT(func(v *Table) TablePointInTimeRecoveryPtrOutput { return v.PointInTimeRecovery }).(TablePointInTimeRecoveryPtrOutput)
 }
 
 // Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -619,8 +619,8 @@ func (o TableOutput) RangeKey() pulumi.StringPtrOutput {
 }
 
 // Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
-func (o TableOutput) ReadCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v *Table) pulumi.IntOutput { return v.ReadCapacity }).(pulumi.IntOutput)
+func (o TableOutput) ReadCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.ReadCapacity }).(pulumi.IntPtrOutput)
 }
 
 // Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
@@ -644,13 +644,13 @@ func (o TableOutput) RestoreToLatestTime() pulumi.BoolPtrOutput {
 }
 
 // Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
-func (o TableOutput) ServerSideEncryption() TableServerSideEncryptionOutput {
-	return o.ApplyT(func(v *Table) TableServerSideEncryptionOutput { return v.ServerSideEncryption }).(TableServerSideEncryptionOutput)
+func (o TableOutput) ServerSideEncryption() TableServerSideEncryptionPtrOutput {
+	return o.ApplyT(func(v *Table) TableServerSideEncryptionPtrOutput { return v.ServerSideEncryption }).(TableServerSideEncryptionPtrOutput)
 }
 
 // ARN of the Table Stream. Only available when `streamEnabled = true`
-func (o TableOutput) StreamArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
+func (o TableOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
 
 // Whether Streams are enabled.
@@ -659,13 +659,13 @@ func (o TableOutput) StreamEnabled() pulumi.BoolPtrOutput {
 }
 
 // Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
-func (o TableOutput) StreamLabel() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StreamLabel }).(pulumi.StringOutput)
+func (o TableOutput) StreamLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.StreamLabel }).(pulumi.StringPtrOutput)
 }
 
 // When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
-func (o TableOutput) StreamViewType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StreamViewType }).(pulumi.StringOutput)
+func (o TableOutput) StreamViewType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.StreamViewType }).(pulumi.StringPtrOutput)
 }
 
 // Storage class of the table.
@@ -688,13 +688,13 @@ func (o TableOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Configuration block for TTL. See below.
-func (o TableOutput) Ttl() TableTtlOutput {
-	return o.ApplyT(func(v *Table) TableTtlOutput { return v.Ttl }).(TableTtlOutput)
+func (o TableOutput) Ttl() TableTtlPtrOutput {
+	return o.ApplyT(func(v *Table) TableTtlPtrOutput { return v.Ttl }).(TableTtlPtrOutput)
 }
 
 // Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
-func (o TableOutput) WriteCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v *Table) pulumi.IntOutput { return v.WriteCapacity }).(pulumi.IntOutput)
+func (o TableOutput) WriteCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.WriteCapacity }).(pulumi.IntPtrOutput)
 }
 
 type TableArrayOutput struct{ *pulumi.OutputState }

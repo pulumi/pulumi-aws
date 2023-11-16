@@ -737,39 +737,44 @@ class SchedulingPolicyFairSharePolicyShareDistribution(dict):
 @pulumi.output_type
 class GetJobQueueComputeEnvironmentOrderResult(dict):
     def __init__(__self__, *,
-                 compute_environment: str,
-                 order: int):
-        pulumi.set(__self__, "compute_environment", compute_environment)
-        pulumi.set(__self__, "order", order)
+                 compute_environment: Optional[str] = None,
+                 order: Optional[int] = None):
+        if compute_environment is not None:
+            pulumi.set(__self__, "compute_environment", compute_environment)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter(name="computeEnvironment")
-    def compute_environment(self) -> str:
+    def compute_environment(self) -> Optional[str]:
         return pulumi.get(self, "compute_environment")
 
     @property
     @pulumi.getter
-    def order(self) -> int:
+    def order(self) -> Optional[int]:
         return pulumi.get(self, "order")
 
 
 @pulumi.output_type
 class GetSchedulingPolicyFairSharePolicyResult(dict):
     def __init__(__self__, *,
-                 compute_reservation: int,
-                 share_decay_seconds: int,
-                 share_distributions: Sequence['outputs.GetSchedulingPolicyFairSharePolicyShareDistributionResult']):
+                 compute_reservation: Optional[int] = None,
+                 share_decay_seconds: Optional[int] = None,
+                 share_distributions: Optional[Sequence['outputs.GetSchedulingPolicyFairSharePolicyShareDistributionResult']] = None):
         """
         :param int compute_reservation: Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
         :param Sequence['GetSchedulingPolicyFairSharePolicyShareDistributionArgs'] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
         """
-        pulumi.set(__self__, "compute_reservation", compute_reservation)
-        pulumi.set(__self__, "share_decay_seconds", share_decay_seconds)
-        pulumi.set(__self__, "share_distributions", share_distributions)
+        if compute_reservation is not None:
+            pulumi.set(__self__, "compute_reservation", compute_reservation)
+        if share_decay_seconds is not None:
+            pulumi.set(__self__, "share_decay_seconds", share_decay_seconds)
+        if share_distributions is not None:
+            pulumi.set(__self__, "share_distributions", share_distributions)
 
     @property
     @pulumi.getter(name="computeReservation")
-    def compute_reservation(self) -> int:
+    def compute_reservation(self) -> Optional[int]:
         """
         Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
         """
@@ -777,12 +782,12 @@ class GetSchedulingPolicyFairSharePolicyResult(dict):
 
     @property
     @pulumi.getter(name="shareDecaySeconds")
-    def share_decay_seconds(self) -> int:
+    def share_decay_seconds(self) -> Optional[int]:
         return pulumi.get(self, "share_decay_seconds")
 
     @property
     @pulumi.getter(name="shareDistributions")
-    def share_distributions(self) -> Sequence['outputs.GetSchedulingPolicyFairSharePolicyShareDistributionResult']:
+    def share_distributions(self) -> Optional[Sequence['outputs.GetSchedulingPolicyFairSharePolicyShareDistributionResult']]:
         """
         One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
         """
@@ -792,18 +797,20 @@ class GetSchedulingPolicyFairSharePolicyResult(dict):
 @pulumi.output_type
 class GetSchedulingPolicyFairSharePolicyShareDistributionResult(dict):
     def __init__(__self__, *,
-                 share_identifier: str,
-                 weight_factor: float):
+                 share_identifier: Optional[str] = None,
+                 weight_factor: Optional[float] = None):
         """
         :param str share_identifier: Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         :param float weight_factor: Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         """
-        pulumi.set(__self__, "share_identifier", share_identifier)
-        pulumi.set(__self__, "weight_factor", weight_factor)
+        if share_identifier is not None:
+            pulumi.set(__self__, "share_identifier", share_identifier)
+        if weight_factor is not None:
+            pulumi.set(__self__, "weight_factor", weight_factor)
 
     @property
     @pulumi.getter(name="shareIdentifier")
-    def share_identifier(self) -> str:
+    def share_identifier(self) -> Optional[str]:
         """
         Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         """
@@ -811,7 +818,7 @@ class GetSchedulingPolicyFairSharePolicyShareDistributionResult(dict):
 
     @property
     @pulumi.getter(name="weightFactor")
-    def weight_factor(self) -> float:
+    def weight_factor(self) -> Optional[float]:
         """
         Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         """

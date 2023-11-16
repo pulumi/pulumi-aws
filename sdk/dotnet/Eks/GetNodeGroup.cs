@@ -142,24 +142,24 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
         /// </summary>
-        public readonly string AmiType;
+        public readonly string? AmiType;
         /// <summary>
         /// ARN of the EKS Node Group.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
         /// </summary>
-        public readonly string CapacityType;
+        public readonly string? CapacityType;
         public readonly string ClusterName;
         /// <summary>
         /// Disk size in GiB for worker nodes.
         /// </summary>
-        public readonly int DiskSize;
+        public readonly int? DiskSize;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of instance types associated with the EKS Node Group.
         /// </summary>
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Labels;
+        public readonly ImmutableDictionary<string, string>? Labels;
         /// <summary>
         /// Nested attribute containing information about the launch template used to create the EKS Node Group.
         /// </summary>
@@ -176,11 +176,11 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// ARN of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
-        public readonly string NodeRoleArn;
+        public readonly string? NodeRoleArn;
         /// <summary>
         /// AMI version of the EKS Node Group.
         /// </summary>
-        public readonly string ReleaseVersion;
+        public readonly string? ReleaseVersion;
         /// <summary>
         /// Configuration block with remote access settings.
         /// </summary>
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Status of the EKS Node Group.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
         /// </summary>
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// List of objects containing information about taints applied to the nodes in the EKS Node Group.
         /// </summary>
@@ -212,33 +212,33 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Kubernetes version.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetNodeGroupResult(
-            string amiType,
+            string? amiType,
 
-            string arn,
+            string? arn,
 
-            string capacityType,
+            string? capacityType,
 
             string clusterName,
 
-            int diskSize,
+            int? diskSize,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> instanceTypes,
 
-            ImmutableDictionary<string, string> labels,
+            ImmutableDictionary<string, string>? labels,
 
             ImmutableArray<Outputs.GetNodeGroupLaunchTemplateResult> launchTemplates,
 
             string nodeGroupName,
 
-            string nodeRoleArn,
+            string? nodeRoleArn,
 
-            string releaseVersion,
+            string? releaseVersion,
 
             ImmutableArray<Outputs.GetNodeGroupRemoteAccessResult> remoteAccesses,
 
@@ -246,15 +246,15 @@ namespace Pulumi.Aws.Eks
 
             ImmutableArray<Outputs.GetNodeGroupScalingConfigResult> scalingConfigs,
 
-            string status,
+            string? status,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.GetNodeGroupTaintResult> taints,
 
-            string version)
+            string? version)
         {
             AmiType = amiType;
             Arn = arn;

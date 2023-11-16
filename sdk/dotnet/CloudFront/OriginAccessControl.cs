@@ -57,7 +57,7 @@ namespace Pulumi.Aws.CloudFront
         /// The current version of this Origin Access Control.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// A name that identifies the Origin Access Control.

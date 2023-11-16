@@ -85,15 +85,15 @@ type ContainerServiceDeploymentVersion struct {
 	// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
 	Containers ContainerServiceDeploymentVersionContainerArrayOutput `pulumi:"containers"`
 	// The timestamp when the deployment was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
 	PublicEndpoint ContainerServiceDeploymentVersionPublicEndpointPtrOutput `pulumi:"publicEndpoint"`
 	// The name for the container service.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// The current state of the container service.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The version number of the deployment.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewContainerServiceDeploymentVersion registers a new resource with the given unique name, arguments, and options.
@@ -279,8 +279,8 @@ func (o ContainerServiceDeploymentVersionOutput) Containers() ContainerServiceDe
 }
 
 // The timestamp when the deployment was created.
-func (o ContainerServiceDeploymentVersionOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o ContainerServiceDeploymentVersionOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
@@ -296,13 +296,13 @@ func (o ContainerServiceDeploymentVersionOutput) ServiceName() pulumi.StringOutp
 }
 
 // The current state of the container service.
-func (o ContainerServiceDeploymentVersionOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o ContainerServiceDeploymentVersionOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The version number of the deployment.
-func (o ContainerServiceDeploymentVersionOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o ContainerServiceDeploymentVersionOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type ContainerServiceDeploymentVersionArrayOutput struct{ *pulumi.OutputState }

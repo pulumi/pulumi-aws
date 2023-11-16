@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecListenerConnectionPoolHttp2Result
     {
-        public readonly int MaxRequests;
+        public readonly int? MaxRequests;
 
         [OutputConstructor]
-        private GetVirtualGatewaySpecListenerConnectionPoolHttp2Result(int maxRequests)
+        private GetVirtualGatewaySpecListenerConnectionPoolHttp2Result(int? maxRequests)
         {
             MaxRequests = maxRequests;
         }

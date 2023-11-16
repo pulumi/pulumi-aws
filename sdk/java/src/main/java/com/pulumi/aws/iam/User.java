@@ -92,14 +92,14 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN assigned by AWS for this user.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * When destroying this user, destroy even if it
@@ -198,14 +198,14 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
-    private Output<String> uniqueId;
+    private Output</* @Nullable */ String> uniqueId;
 
     /**
      * @return The [unique ID][1] assigned by AWS.
      * 
      */
-    public Output<String> uniqueId() {
-        return this.uniqueId;
+    public Output<Optional<String>> uniqueId() {
+        return Codegen.optional(this.uniqueId);
     }
 
     /**

@@ -283,7 +283,7 @@ namespace Pulumi.Aws.CodeDeploy
         /// The ARN of the CodeDeploy deployment group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
@@ -301,13 +301,13 @@ namespace Pulumi.Aws.CodeDeploy
         /// Configuration block of the blue/green deployment options for a deployment group (documented below).
         /// </summary>
         [Output("blueGreenDeploymentConfig")]
-        public Output<Outputs.DeploymentGroupBlueGreenDeploymentConfig> BlueGreenDeploymentConfig { get; private set; } = null!;
+        public Output<Outputs.DeploymentGroupBlueGreenDeploymentConfig?> BlueGreenDeploymentConfig { get; private set; } = null!;
 
         /// <summary>
         /// The destination platform type for the deployment.
         /// </summary>
         [Output("computePlatform")]
-        public Output<string> ComputePlatform { get; private set; } = null!;
+        public Output<string?> ComputePlatform { get; private set; } = null!;
 
         /// <summary>
         /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.CodeDeploy
         /// The ID of the CodeDeploy deployment group.
         /// </summary>
         [Output("deploymentGroupId")]
-        public Output<string> DeploymentGroupId { get; private set; } = null!;
+        public Output<string?> DeploymentGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the deployment group.

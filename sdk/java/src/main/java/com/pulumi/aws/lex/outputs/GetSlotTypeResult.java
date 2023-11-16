@@ -18,34 +18,34 @@ public final class GetSlotTypeResult {
      * not included as an argument because the resource will add it automatically when updating the slot type.
      * 
      */
-    private String checksum;
+    private @Nullable String checksum;
     /**
      * @return Date when the slot type version was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return Description of the slot type.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Set of EnumerationValue objects that defines the values that
      * the slot type can take. Each value can have a set of synonyms, which are additional values that help
      * train the machine learning model about the values that it resolves for a slot.
      * 
      */
-    private List<GetSlotTypeEnumerationValue> enumerationValues;
+    private @Nullable List<GetSlotTypeEnumerationValue> enumerationValues;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Date when the $LATEST version of this slot type was updated.
      * 
      */
-    private String lastUpdatedDate;
+    private @Nullable String lastUpdatedDate;
     /**
      * @return Name of the slot type. The name is not case sensitive.
      * 
@@ -58,7 +58,7 @@ public final class GetSlotTypeResult {
      * if there is a resolution list for the slot, otherwise null is returned.
      * 
      */
-    private String valueSelectionStrategy;
+    private @Nullable String valueSelectionStrategy;
     /**
      * @return Version of the slot type.
      * 
@@ -71,22 +71,22 @@ public final class GetSlotTypeResult {
      * not included as an argument because the resource will add it automatically when updating the slot type.
      * 
      */
-    public String checksum() {
-        return this.checksum;
+    public Optional<String> checksum() {
+        return Optional.ofNullable(this.checksum);
     }
     /**
      * @return Date when the slot type version was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Description of the slot type.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Set of EnumerationValue objects that defines the values that
@@ -95,21 +95,21 @@ public final class GetSlotTypeResult {
      * 
      */
     public List<GetSlotTypeEnumerationValue> enumerationValues() {
-        return this.enumerationValues;
+        return this.enumerationValues == null ? List.of() : this.enumerationValues;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Date when the $LATEST version of this slot type was updated.
      * 
      */
-    public String lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Optional<String> lastUpdatedDate() {
+        return Optional.ofNullable(this.lastUpdatedDate);
     }
     /**
      * @return Name of the slot type. The name is not case sensitive.
@@ -125,8 +125,8 @@ public final class GetSlotTypeResult {
      * if there is a resolution list for the slot, otherwise null is returned.
      * 
      */
-    public String valueSelectionStrategy() {
-        return this.valueSelectionStrategy;
+    public Optional<String> valueSelectionStrategy() {
+        return Optional.ofNullable(this.valueSelectionStrategy);
     }
     /**
      * @return Version of the slot type.
@@ -145,14 +145,14 @@ public final class GetSlotTypeResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String checksum;
-        private String createdDate;
-        private String description;
-        private List<GetSlotTypeEnumerationValue> enumerationValues;
-        private String id;
-        private String lastUpdatedDate;
+        private @Nullable String checksum;
+        private @Nullable String createdDate;
+        private @Nullable String description;
+        private @Nullable List<GetSlotTypeEnumerationValue> enumerationValues;
+        private @Nullable String id;
+        private @Nullable String lastUpdatedDate;
         private String name;
-        private String valueSelectionStrategy;
+        private @Nullable String valueSelectionStrategy;
         private @Nullable String version;
         public Builder() {}
         public Builder(GetSlotTypeResult defaults) {
@@ -169,36 +169,36 @@ public final class GetSlotTypeResult {
         }
 
         @CustomType.Setter
-        public Builder checksum(String checksum) {
-            this.checksum = Objects.requireNonNull(checksum);
+        public Builder checksum(@Nullable String checksum) {
+            this.checksum = checksum;
             return this;
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder enumerationValues(List<GetSlotTypeEnumerationValue> enumerationValues) {
-            this.enumerationValues = Objects.requireNonNull(enumerationValues);
+        public Builder enumerationValues(@Nullable List<GetSlotTypeEnumerationValue> enumerationValues) {
+            this.enumerationValues = enumerationValues;
             return this;
         }
         public Builder enumerationValues(GetSlotTypeEnumerationValue... enumerationValues) {
             return enumerationValues(List.of(enumerationValues));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+        public Builder lastUpdatedDate(@Nullable String lastUpdatedDate) {
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
@@ -207,8 +207,8 @@ public final class GetSlotTypeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder valueSelectionStrategy(String valueSelectionStrategy) {
-            this.valueSelectionStrategy = Objects.requireNonNull(valueSelectionStrategy);
+        public Builder valueSelectionStrategy(@Nullable String valueSelectionStrategy) {
+            this.valueSelectionStrategy = valueSelectionStrategy;
             return this;
         }
         @CustomType.Setter

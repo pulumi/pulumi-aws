@@ -130,19 +130,19 @@ export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
      */
-    public readonly routingRuleDetails!: pulumi.Output<string>;
+    public readonly routingRuleDetails!: pulumi.Output<string | undefined>;
     /**
      * List of rules that define when a redirect is applied and the redirect behavior. See below.
      */
-    public readonly routingRules!: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2RoutingRule[]>;
+    public readonly routingRules!: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2RoutingRule[] | undefined>;
     /**
      * Domain of the website endpoint. This is used to create Route 53 alias records.
      */
-    public /*out*/ readonly websiteDomain!: pulumi.Output<string>;
+    public /*out*/ readonly websiteDomain!: pulumi.Output<string | undefined>;
     /**
      * Website endpoint.
      */
-    public /*out*/ readonly websiteEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly websiteEndpoint!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BucketWebsiteConfigurationV2 resource with the given unique name, arguments, and options.

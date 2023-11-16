@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -108,14 +109,14 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return Name of a usage plan key.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * Id of the usage plan resource representing to associate the key to.
@@ -136,14 +137,14 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
-    private Output<String> value;
+    private Output</* @Nullable */ String> value;
 
     /**
      * @return Value of a usage plan key.
      * 
      */
-    public Output<String> value() {
-        return this.value;
+    public Output<Optional<String>> value() {
+        return Codegen.optional(this.value);
     }
 
     /**

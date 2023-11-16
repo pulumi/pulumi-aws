@@ -96,14 +96,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the discoverer.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The schema specification. Must be a valid Open API 3.0 spec.
@@ -138,14 +138,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
-    private Output<String> lastModified;
+    private Output</* @Nullable */ String> lastModified;
 
     /**
      * @return The last modified date of the schema.
      * 
      */
-    public Output<String> lastModified() {
-        return this.lastModified;
+    public Output<Optional<String>> lastModified() {
+        return Codegen.optional(this.lastModified);
     }
     /**
      * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
@@ -226,28 +226,28 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return The version of the schema.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
     /**
      * The created date of the version of the schema.
      * 
      */
     @Export(name="versionCreatedDate", refs={String.class}, tree="[0]")
-    private Output<String> versionCreatedDate;
+    private Output</* @Nullable */ String> versionCreatedDate;
 
     /**
      * @return The created date of the version of the schema.
      * 
      */
-    public Output<String> versionCreatedDate() {
-        return this.versionCreatedDate;
+    public Output<Optional<String>> versionCreatedDate() {
+        return Codegen.optional(this.versionCreatedDate);
     }
 
     /**

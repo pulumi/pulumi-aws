@@ -42,7 +42,7 @@ export interface GetHostedZoneResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Region of the hosted zone.
      */

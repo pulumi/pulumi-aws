@@ -59,7 +59,7 @@ export class TemplateAssociation extends pulumi.CustomResource {
     /**
      * Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a TemplateAssociation resource with the given unique name, arguments, and options.

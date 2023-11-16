@@ -76,28 +76,28 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the custom data identifier.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * A custom description of the custom data identifier. The description can contain as many as 512 characters.
@@ -146,14 +146,14 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maximumMatchDistance", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maximumMatchDistance;
+    private Output</* @Nullable */ Integer> maximumMatchDistance;
 
     /**
      * @return The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
      * 
      */
-    public Output<Integer> maximumMatchDistance() {
-        return this.maximumMatchDistance;
+    public Output<Optional<Integer>> maximumMatchDistance() {
+        return Codegen.optional(this.maximumMatchDistance);
     }
     /**
      * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -174,14 +174,14 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.

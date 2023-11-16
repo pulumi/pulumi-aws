@@ -47,11 +47,11 @@ export interface GetControlsResult {
     /**
      * List of all the ARNs for the controls applied to the `targetIdentifier`.
      */
-    readonly enabledControls: string[];
+    readonly enabledControls?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly targetIdentifier: string;
 }
 /**

@@ -81,11 +81,11 @@ type OrganizationConfiguration struct {
 	// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	//
 	// Deprecated: Use auto_enable_organization_members instead
-	AutoEnable pulumi.BoolOutput `pulumi:"autoEnable"`
+	AutoEnable pulumi.BoolPtrOutput `pulumi:"autoEnable"`
 	// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
-	AutoEnableOrganizationMembers pulumi.StringOutput `pulumi:"autoEnableOrganizationMembers"`
+	AutoEnableOrganizationMembers pulumi.StringPtrOutput `pulumi:"autoEnableOrganizationMembers"`
 	// Configuration for the collected datasources.
-	Datasources OrganizationConfigurationDatasourcesOutput `pulumi:"datasources"`
+	Datasources OrganizationConfigurationDatasourcesPtrOutput `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 }
@@ -269,18 +269,18 @@ func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutputWithCo
 // *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 //
 // Deprecated: Use auto_enable_organization_members instead
-func (o OrganizationConfigurationOutput) AutoEnable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolOutput { return v.AutoEnable }).(pulumi.BoolOutput)
+func (o OrganizationConfigurationOutput) AutoEnable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolPtrOutput { return v.AutoEnable }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
-func (o OrganizationConfigurationOutput) AutoEnableOrganizationMembers() pulumi.StringOutput {
-	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.AutoEnableOrganizationMembers }).(pulumi.StringOutput)
+func (o OrganizationConfigurationOutput) AutoEnableOrganizationMembers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringPtrOutput { return v.AutoEnableOrganizationMembers }).(pulumi.StringPtrOutput)
 }
 
 // Configuration for the collected datasources.
-func (o OrganizationConfigurationOutput) Datasources() OrganizationConfigurationDatasourcesOutput {
-	return o.ApplyT(func(v *OrganizationConfiguration) OrganizationConfigurationDatasourcesOutput { return v.Datasources }).(OrganizationConfigurationDatasourcesOutput)
+func (o OrganizationConfigurationOutput) Datasources() OrganizationConfigurationDatasourcesPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) OrganizationConfigurationDatasourcesPtrOutput { return v.Datasources }).(OrganizationConfigurationDatasourcesPtrOutput)
 }
 
 // The detector ID of the GuardDuty account.

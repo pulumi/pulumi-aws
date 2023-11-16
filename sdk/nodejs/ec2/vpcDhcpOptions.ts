@@ -88,7 +88,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
     /**
      * The ARN of the DHCP Options Set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
@@ -112,7 +112,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the DHCP options set.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

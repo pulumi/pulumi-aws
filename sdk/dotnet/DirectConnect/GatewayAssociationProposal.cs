@@ -69,13 +69,13 @@ namespace Pulumi.Aws.DirectConnect
         /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// </summary>
         [Output("associatedGatewayOwnerAccountId")]
-        public Output<string> AssociatedGatewayOwnerAccountId { get; private set; } = null!;
+        public Output<string?> AssociatedGatewayOwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         /// </summary>
         [Output("associatedGatewayType")]
-        public Output<string> AssociatedGatewayType { get; private set; } = null!;
+        public Output<string?> AssociatedGatewayType { get; private set; } = null!;
 
         /// <summary>
         /// Direct Connect Gateway identifier.

@@ -1430,9 +1430,9 @@ func (o GetAcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) GetAcceleratorI
 }
 
 type GetCustomRoutingAcceleratorAttribute struct {
-	FlowLogsEnabled  bool   `pulumi:"flowLogsEnabled"`
-	FlowLogsS3Bucket string `pulumi:"flowLogsS3Bucket"`
-	FlowLogsS3Prefix string `pulumi:"flowLogsS3Prefix"`
+	FlowLogsEnabled  *bool   `pulumi:"flowLogsEnabled"`
+	FlowLogsS3Bucket *string `pulumi:"flowLogsS3Bucket"`
+	FlowLogsS3Prefix *string `pulumi:"flowLogsS3Prefix"`
 }
 
 // GetCustomRoutingAcceleratorAttributeInput is an input type that accepts GetCustomRoutingAcceleratorAttributeArgs and GetCustomRoutingAcceleratorAttributeOutput values.
@@ -1447,9 +1447,9 @@ type GetCustomRoutingAcceleratorAttributeInput interface {
 }
 
 type GetCustomRoutingAcceleratorAttributeArgs struct {
-	FlowLogsEnabled  pulumi.BoolInput   `pulumi:"flowLogsEnabled"`
-	FlowLogsS3Bucket pulumi.StringInput `pulumi:"flowLogsS3Bucket"`
-	FlowLogsS3Prefix pulumi.StringInput `pulumi:"flowLogsS3Prefix"`
+	FlowLogsEnabled  pulumi.BoolPtrInput   `pulumi:"flowLogsEnabled"`
+	FlowLogsS3Bucket pulumi.StringPtrInput `pulumi:"flowLogsS3Bucket"`
+	FlowLogsS3Prefix pulumi.StringPtrInput `pulumi:"flowLogsS3Prefix"`
 }
 
 func (GetCustomRoutingAcceleratorAttributeArgs) ElementType() reflect.Type {
@@ -1503,16 +1503,16 @@ func (o GetCustomRoutingAcceleratorAttributeOutput) ToGetCustomRoutingAccelerato
 	return o
 }
 
-func (o GetCustomRoutingAcceleratorAttributeOutput) FlowLogsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetCustomRoutingAcceleratorAttribute) bool { return v.FlowLogsEnabled }).(pulumi.BoolOutput)
+func (o GetCustomRoutingAcceleratorAttributeOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCustomRoutingAcceleratorAttribute) *bool { return v.FlowLogsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetCustomRoutingAcceleratorAttributeOutput) FlowLogsS3Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCustomRoutingAcceleratorAttribute) string { return v.FlowLogsS3Bucket }).(pulumi.StringOutput)
+func (o GetCustomRoutingAcceleratorAttributeOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCustomRoutingAcceleratorAttribute) *string { return v.FlowLogsS3Bucket }).(pulumi.StringPtrOutput)
 }
 
-func (o GetCustomRoutingAcceleratorAttributeOutput) FlowLogsS3Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCustomRoutingAcceleratorAttribute) string { return v.FlowLogsS3Prefix }).(pulumi.StringOutput)
+func (o GetCustomRoutingAcceleratorAttributeOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCustomRoutingAcceleratorAttribute) *string { return v.FlowLogsS3Prefix }).(pulumi.StringPtrOutput)
 }
 
 type GetCustomRoutingAcceleratorAttributeArrayOutput struct{ *pulumi.OutputState }
@@ -1537,7 +1537,7 @@ func (o GetCustomRoutingAcceleratorAttributeArrayOutput) Index(i pulumi.IntInput
 
 type GetCustomRoutingAcceleratorIpSet struct {
 	IpAddresses []string `pulumi:"ipAddresses"`
-	IpFamily    string   `pulumi:"ipFamily"`
+	IpFamily    *string  `pulumi:"ipFamily"`
 }
 
 // GetCustomRoutingAcceleratorIpSetInput is an input type that accepts GetCustomRoutingAcceleratorIpSetArgs and GetCustomRoutingAcceleratorIpSetOutput values.
@@ -1553,7 +1553,7 @@ type GetCustomRoutingAcceleratorIpSetInput interface {
 
 type GetCustomRoutingAcceleratorIpSetArgs struct {
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
-	IpFamily    pulumi.StringInput      `pulumi:"ipFamily"`
+	IpFamily    pulumi.StringPtrInput   `pulumi:"ipFamily"`
 }
 
 func (GetCustomRoutingAcceleratorIpSetArgs) ElementType() reflect.Type {
@@ -1611,8 +1611,8 @@ func (o GetCustomRoutingAcceleratorIpSetOutput) IpAddresses() pulumi.StringArray
 	return o.ApplyT(func(v GetCustomRoutingAcceleratorIpSet) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-func (o GetCustomRoutingAcceleratorIpSetOutput) IpFamily() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCustomRoutingAcceleratorIpSet) string { return v.IpFamily }).(pulumi.StringOutput)
+func (o GetCustomRoutingAcceleratorIpSetOutput) IpFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCustomRoutingAcceleratorIpSet) *string { return v.IpFamily }).(pulumi.StringPtrOutput)
 }
 
 type GetCustomRoutingAcceleratorIpSetArrayOutput struct{ *pulumi.OutputState }

@@ -31,162 +31,165 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			streamsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"streams.metrics.cloudwatch.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			metricStreamToFirehoseRole, err := iam.NewRole(ctx, "metricStreamToFirehoseRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(streamsAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			firehoseAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"firehose.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			firehoseToS3Role, err := iam.NewRole(ctx, "firehoseToS3Role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			s3Stream, err := kinesis.NewFirehoseDeliveryStream(ctx, "s3Stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("extended_s3"),
-//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:   firehoseToS3Role.Arn,
-//					BucketArn: bucket.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
-//				RoleArn:      metricStreamToFirehoseRole.Arn,
-//				FirehoseArn:  s3Stream.Arn,
-//				OutputFormat: pulumi.String("json"),
-//				IncludeFilters: cloudwatch.MetricStreamIncludeFilterArray{
-//					&cloudwatch.MetricStreamIncludeFilterArgs{
-//						Namespace: pulumi.String("AWS/EC2"),
-//						MetricNames: pulumi.StringArray{
-//							pulumi.String("CPUUtilization"),
-//							pulumi.String("NetworkOut"),
-//						},
-//					},
-//					&cloudwatch.MetricStreamIncludeFilterArgs{
-//						Namespace:   pulumi.String("AWS/EBS"),
-//						MetricNames: pulumi.StringArray{},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			metricStreamToFirehosePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("firehose:PutRecord"),
-//							pulumi.String("firehose:PutRecordBatch"),
-//						},
-//						Resources: pulumi.StringArray{
-//							s3Stream.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "metricStreamToFirehoseRolePolicy", &iam.RolePolicyArgs{
-//				Role: metricStreamToFirehoseRole.ID(),
-//				Policy: metricStreamToFirehosePolicyDocument.ApplyT(func(metricStreamToFirehosePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &metricStreamToFirehosePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
-//				Bucket: bucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			firehoseToS3PolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:AbortMultipartUpload"),
-//							pulumi.String("s3:GetBucketLocation"),
-//							pulumi.String("s3:GetObject"),
-//							pulumi.String("s3:ListBucket"),
-//							pulumi.String("s3:ListBucketMultipartUploads"),
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							bucket.Arn,
-//							bucket.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "firehoseToS3RolePolicy", &iam.RolePolicyArgs{
-//				Role: firehoseToS3Role.ID(),
-//				Policy: firehoseToS3PolicyDocument.ApplyT(func(firehoseToS3PolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &firehoseToS3PolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// streamsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "streams.metrics.cloudwatch.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// metricStreamToFirehoseRole, err := iam.NewRole(ctx, "metricStreamToFirehoseRole", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(streamsAssumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+// if err != nil {
+// return err
+// }
+// firehoseAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "firehose.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// firehoseToS3Role, err := iam.NewRole(ctx, "firehoseToS3Role", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// s3Stream, err := kinesis.NewFirehoseDeliveryStream(ctx, "s3Stream", &kinesis.FirehoseDeliveryStreamArgs{
+// Destination: pulumi.String("extended_s3"),
+// ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
+// RoleArn: firehoseToS3Role.Arn,
+// BucketArn: bucket.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
+// RoleArn: metricStreamToFirehoseRole.Arn,
+// FirehoseArn: s3Stream.Arn,
+// OutputFormat: pulumi.String("json"),
+// IncludeFilters: cloudwatch.MetricStreamIncludeFilterArray{
+// &cloudwatch.MetricStreamIncludeFilterArgs{
+// Namespace: pulumi.String("AWS/EC2"),
+// MetricNames: pulumi.StringArray{
+// pulumi.String("CPUUtilization"),
+// pulumi.String("NetworkOut"),
+// },
+// },
+// &cloudwatch.MetricStreamIncludeFilterArgs{
+// Namespace: pulumi.String("AWS/EBS"),
+// MetricNames: pulumi.StringArray{
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// metricStreamToFirehosePolicyDocument := s3Stream.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "firehose:PutRecord",
+// "firehose:PutRecordBatch",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = iam.NewRolePolicy(ctx, "metricStreamToFirehoseRolePolicy", &iam.RolePolicyArgs{
+// Role: metricStreamToFirehoseRole.ID(),
+// Policy: metricStreamToFirehosePolicyDocument.ApplyT(func(metricStreamToFirehosePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &metricStreamToFirehosePolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+// Bucket: bucket.ID(),
+// Acl: pulumi.String("private"),
+// })
+// if err != nil {
+// return err
+// }
+// firehoseToS3PolicyDocument := pulumi.All(bucket.Arn,bucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// bucketArn := _args[0].(*string)
+// bucketArn1 := _args[1].(*string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "s3:AbortMultipartUpload",
+// "s3:GetBucketLocation",
+// "s3:GetObject",
+// "s3:ListBucket",
+// "s3:ListBucketMultipartUploads",
+// "s3:PutObject",
+// },
+// Resources: interface{}{
+// bucketArn,
+// fmt.Sprintf("%v/*", bucketArn1),
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = iam.NewRolePolicy(ctx, "firehoseToS3RolePolicy", &iam.RolePolicyArgs{
+// Role: firehoseToS3Role.ID(),
+// Policy: firehoseToS3PolicyDocument.ApplyT(func(firehoseToS3PolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &firehoseToS3PolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Additional Statistics
 //
@@ -254,9 +257,9 @@ type MetricStream struct {
 	pulumi.CustomResourceState
 
 	// ARN of the metric stream.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
 	ExcludeFilters MetricStreamExcludeFilterArrayOutput `pulumi:"excludeFilters"`
 	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
@@ -266,11 +269,11 @@ type MetricStream struct {
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 	IncludeLinkedAccountsMetrics pulumi.BoolPtrOutput `pulumi:"includeLinkedAccountsMetrics"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
-	LastUpdateDate pulumi.StringOutput `pulumi:"lastUpdateDate"`
+	LastUpdateDate pulumi.StringPtrOutput `pulumi:"lastUpdateDate"`
 	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
 	//
 	// The following arguments are optional:
@@ -278,7 +281,7 @@ type MetricStream struct {
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// State of the metric stream. Possible values are `running` and `stopped`.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
 	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayOutput `pulumi:"statisticsConfigurations"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -548,13 +551,13 @@ func (o MetricStreamOutput) ToMetricStreamOutputWithContext(ctx context.Context)
 }
 
 // ARN of the metric stream.
-func (o MetricStreamOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MetricStreamOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
-func (o MetricStreamOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o MetricStreamOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
@@ -578,8 +581,8 @@ func (o MetricStreamOutput) IncludeLinkedAccountsMetrics() pulumi.BoolPtrOutput 
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
-func (o MetricStreamOutput) LastUpdateDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.LastUpdateDate }).(pulumi.StringOutput)
+func (o MetricStreamOutput) LastUpdateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringPtrOutput { return v.LastUpdateDate }).(pulumi.StringPtrOutput)
 }
 
 // Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -588,8 +591,8 @@ func (o MetricStreamOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-func (o MetricStreamOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o MetricStreamOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
@@ -605,8 +608,8 @@ func (o MetricStreamOutput) RoleArn() pulumi.StringOutput {
 }
 
 // State of the metric stream. Possible values are `running` and `stopped`.
-func (o MetricStreamOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o MetricStreamOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.

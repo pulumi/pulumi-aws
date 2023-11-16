@@ -423,7 +423,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID for the user pool owner.
         """
@@ -439,7 +439,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudfrontDistribution")
-    def cloudfront_distribution(self) -> pulumi.Output[str]:
+    def cloudfront_distribution(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
         """
@@ -447,7 +447,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudfrontDistributionArn")
-    def cloudfront_distribution_arn(self) -> pulumi.Output[str]:
+    def cloudfront_distribution_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
         """
@@ -455,7 +455,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudfrontDistributionZoneId")
-    def cloudfront_distribution_zone_id(self) -> pulumi.Output[str]:
+    def cloudfront_distribution_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Route 53 hosted zone ID of the CloudFront distribution.
         """
@@ -471,7 +471,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> pulumi.Output[str]:
+    def s3_bucket(self) -> pulumi.Output[Optional[str]]:
         """
         The S3 bucket where the static files for this domain are stored.
         """
@@ -487,7 +487,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The app version.
         """

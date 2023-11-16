@@ -86,14 +86,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the AppConfig Deployment.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration profile ID. Must be between 4 and 7 characters in length.
@@ -128,14 +128,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="deploymentNumber", refs={Integer.class}, tree="[0]")
-    private Output<Integer> deploymentNumber;
+    private Output</* @Nullable */ Integer> deploymentNumber;
 
     /**
      * @return Deployment number.
      * 
      */
-    public Output<Integer> deploymentNumber() {
-        return this.deploymentNumber;
+    public Output<Optional<Integer>> deploymentNumber() {
+        return Codegen.optional(this.deploymentNumber);
     }
     /**
      * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
@@ -184,14 +184,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return State of the deployment.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

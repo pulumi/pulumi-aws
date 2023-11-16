@@ -58,7 +58,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
     /**
      * The SES receipt filter ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The IP address or address range to filter, in CIDR notation
      */

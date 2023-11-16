@@ -171,7 +171,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * `lowestPrice`.
      */
     public readonly allocationStrategy!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly clientToken!: pulumi.Output<string>;
+    public /*out*/ readonly clientToken!: pulumi.Output<string | undefined>;
     /**
      * Reserved.
      */
@@ -226,7 +226,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
-    public readonly loadBalancers!: pulumi.Output<string[]>;
+    public readonly loadBalancers!: pulumi.Output<string[] | undefined>;
     /**
      * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
      */
@@ -254,7 +254,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * The state of the Spot fleet request.
      */
-    public /*out*/ readonly spotRequestState!: pulumi.Output<string>;
+    public /*out*/ readonly spotRequestState!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -278,7 +278,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
-    public readonly targetGroupArns!: pulumi.Output<string[]>;
+    public readonly targetGroupArns!: pulumi.Output<string[] | undefined>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).

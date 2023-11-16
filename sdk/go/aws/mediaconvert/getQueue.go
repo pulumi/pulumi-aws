@@ -59,12 +59,12 @@ type LookupQueueArgs struct {
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
 	// The Arn of the queue.
-	Arn string `pulumi:"arn"`
-	Id  string `pulumi:"id"`
+	Arn *string `pulumi:"arn"`
+	Id  string  `pulumi:"id"`
 	// The same as `id`.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The status of the queue.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -110,8 +110,8 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 }
 
 // The Arn of the queue.
-func (o LookupQueueResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupQueueResultOutput) Id() pulumi.StringOutput {
@@ -119,13 +119,13 @@ func (o LookupQueueResultOutput) Id() pulumi.StringOutput {
 }
 
 // The same as `id`.
-func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The status of the queue.
-func (o LookupQueueResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.

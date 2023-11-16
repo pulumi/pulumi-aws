@@ -161,9 +161,9 @@ type ContinuousDeploymentPolicy struct {
 	// Whether this continuous deployment policy is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Current version of the continuous distribution policy.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Date and time the continuous deployment policy was last modified.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
 	// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
 	StagingDistributionDnsNames ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput `pulumi:"stagingDistributionDnsNames"`
 	// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
@@ -344,13 +344,13 @@ func (o ContinuousDeploymentPolicyOutput) Enabled() pulumi.BoolOutput {
 }
 
 // Current version of the continuous distribution policy.
-func (o ContinuousDeploymentPolicyOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o ContinuousDeploymentPolicyOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Date and time the continuous deployment policy was last modified.
-func (o ContinuousDeploymentPolicyOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+func (o ContinuousDeploymentPolicyOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
 // CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.

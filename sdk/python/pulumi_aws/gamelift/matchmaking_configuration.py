@@ -892,7 +892,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Matchmaking Configuration ARN.
         """
@@ -908,7 +908,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time when the Matchmaking Configuration was created.
         """
@@ -932,7 +932,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="flexMatchMode")
-    def flex_match_mode(self) -> pulumi.Output[str]:
+    def flex_match_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
         """
@@ -988,7 +988,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleSetArn")
-    def rule_set_arn(self) -> pulumi.Output[str]:
+    def rule_set_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "rule_set_arn")
 
     @property

@@ -60,11 +60,11 @@ export interface GetResolverFirewallRulesResult {
     /**
      * List with information about the firewall rules. See details below.
      */
-    readonly firewallRules: outputs.route53.GetResolverFirewallRulesFirewallRule[];
+    readonly firewallRules?: outputs.route53.GetResolverFirewallRulesFirewallRule[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly priority?: number;
 }
 /**

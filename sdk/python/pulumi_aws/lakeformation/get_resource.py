@@ -42,7 +42,7 @@ class GetResourceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -50,7 +50,7 @@ class GetResourceResult:
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> Optional[str]:
         """
         Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -58,7 +58,7 @@ class GetResourceResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         Role that the resource was registered with.
         """

@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecListenerTlCertificateSdResult
     {
-        public readonly string SecretName;
+        public readonly string? SecretName;
 
         [OutputConstructor]
-        private GetVirtualGatewaySpecListenerTlCertificateSdResult(string secretName)
+        private GetVirtualGatewaySpecListenerTlCertificateSdResult(string? secretName)
         {
             SecretName = secretName;
         }

@@ -16,35 +16,35 @@ namespace Pulumi.Aws.LicenseManager.Outputs
         /// <summary>
         /// Indicates whether check-ins are allowed.
         /// </summary>
-        public readonly bool AllowCheckIn;
+        public readonly bool? AllowCheckIn;
         /// <summary>
         /// Maximum entitlement count. Use if the unit is not None.
         /// </summary>
-        public readonly int MaxCount;
+        public readonly int? MaxCount;
         /// <summary>
         /// The key name.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Entitlement unit.
         /// </summary>
-        public readonly string Unit;
+        public readonly string? Unit;
         /// <summary>
         /// The value.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetReceivedLicenseEntitlementResult(
-            bool allowCheckIn,
+            bool? allowCheckIn,
 
-            int maxCount,
+            int? maxCount,
 
-            string name,
+            string? name,
 
-            string unit,
+            string? unit,
 
-            string value)
+            string? value)
         {
             AllowCheckIn = allowCheckIn;
             MaxCount = maxCount;

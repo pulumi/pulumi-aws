@@ -75,7 +75,7 @@ type RateBasedRule struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the WAF Regional Rate Based Rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name or description for the Amazon CloudWatch metric of this rule.
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
 	// The name or description of the rule.
@@ -301,8 +301,8 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Contex
 }
 
 // The ARN of the WAF Regional Rate Based Rule.
-func (o RateBasedRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RateBasedRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RateBasedRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name or description for the Amazon CloudWatch metric of this rule.

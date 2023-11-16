@@ -6,30 +6,32 @@ package com.pulumi.aws.cloudhsmv2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterClusterCertificate {
-    private String awsHardwareCertificate;
-    private String clusterCertificate;
-    private String clusterCsr;
-    private String hsmCertificate;
-    private String manufacturerHardwareCertificate;
+    private @Nullable String awsHardwareCertificate;
+    private @Nullable String clusterCertificate;
+    private @Nullable String clusterCsr;
+    private @Nullable String hsmCertificate;
+    private @Nullable String manufacturerHardwareCertificate;
 
     private GetClusterClusterCertificate() {}
-    public String awsHardwareCertificate() {
-        return this.awsHardwareCertificate;
+    public Optional<String> awsHardwareCertificate() {
+        return Optional.ofNullable(this.awsHardwareCertificate);
     }
-    public String clusterCertificate() {
-        return this.clusterCertificate;
+    public Optional<String> clusterCertificate() {
+        return Optional.ofNullable(this.clusterCertificate);
     }
-    public String clusterCsr() {
-        return this.clusterCsr;
+    public Optional<String> clusterCsr() {
+        return Optional.ofNullable(this.clusterCsr);
     }
-    public String hsmCertificate() {
-        return this.hsmCertificate;
+    public Optional<String> hsmCertificate() {
+        return Optional.ofNullable(this.hsmCertificate);
     }
-    public String manufacturerHardwareCertificate() {
-        return this.manufacturerHardwareCertificate;
+    public Optional<String> manufacturerHardwareCertificate() {
+        return Optional.ofNullable(this.manufacturerHardwareCertificate);
     }
 
     public static Builder builder() {
@@ -41,11 +43,11 @@ public final class GetClusterClusterCertificate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String awsHardwareCertificate;
-        private String clusterCertificate;
-        private String clusterCsr;
-        private String hsmCertificate;
-        private String manufacturerHardwareCertificate;
+        private @Nullable String awsHardwareCertificate;
+        private @Nullable String clusterCertificate;
+        private @Nullable String clusterCsr;
+        private @Nullable String hsmCertificate;
+        private @Nullable String manufacturerHardwareCertificate;
         public Builder() {}
         public Builder(GetClusterClusterCertificate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,28 +59,28 @@ public final class GetClusterClusterCertificate {
         }
 
         @CustomType.Setter
-        public Builder awsHardwareCertificate(String awsHardwareCertificate) {
-            this.awsHardwareCertificate = Objects.requireNonNull(awsHardwareCertificate);
+        public Builder awsHardwareCertificate(@Nullable String awsHardwareCertificate) {
+            this.awsHardwareCertificate = awsHardwareCertificate;
             return this;
         }
         @CustomType.Setter
-        public Builder clusterCertificate(String clusterCertificate) {
-            this.clusterCertificate = Objects.requireNonNull(clusterCertificate);
+        public Builder clusterCertificate(@Nullable String clusterCertificate) {
+            this.clusterCertificate = clusterCertificate;
             return this;
         }
         @CustomType.Setter
-        public Builder clusterCsr(String clusterCsr) {
-            this.clusterCsr = Objects.requireNonNull(clusterCsr);
+        public Builder clusterCsr(@Nullable String clusterCsr) {
+            this.clusterCsr = clusterCsr;
             return this;
         }
         @CustomType.Setter
-        public Builder hsmCertificate(String hsmCertificate) {
-            this.hsmCertificate = Objects.requireNonNull(hsmCertificate);
+        public Builder hsmCertificate(@Nullable String hsmCertificate) {
+            this.hsmCertificate = hsmCertificate;
             return this;
         }
         @CustomType.Setter
-        public Builder manufacturerHardwareCertificate(String manufacturerHardwareCertificate) {
-            this.manufacturerHardwareCertificate = Objects.requireNonNull(manufacturerHardwareCertificate);
+        public Builder manufacturerHardwareCertificate(@Nullable String manufacturerHardwareCertificate) {
+            this.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
             return this;
         }
         public GetClusterClusterCertificate build() {

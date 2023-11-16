@@ -52,9 +52,9 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the user
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// The email address of the user that you want to register.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
@@ -282,13 +282,13 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 }
 
 // Amazon Resource Name (ARN) of the user
-func (o UserOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-func (o UserOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o UserOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The email address of the user that you want to register.

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainOffPeakWindowOptions {
@@ -15,19 +17,19 @@ public final class GetDomainOffPeakWindowOptions {
      * @return Enabled disabled toggle for off-peak update window
      * 
      */
-    private Boolean enabled;
-    private List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows;
+    private @Nullable Boolean enabled;
+    private @Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows;
 
     private GetDomainOffPeakWindowOptions() {}
     /**
      * @return Enabled disabled toggle for off-peak update window
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     public List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows() {
-        return this.offPeakWindows;
+        return this.offPeakWindows == null ? List.of() : this.offPeakWindows;
     }
 
     public static Builder builder() {
@@ -39,8 +41,8 @@ public final class GetDomainOffPeakWindowOptions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows;
+        private @Nullable Boolean enabled;
+        private @Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows;
         public Builder() {}
         public Builder(GetDomainOffPeakWindowOptions defaults) {
     	      Objects.requireNonNull(defaults);
@@ -49,13 +51,13 @@ public final class GetDomainOffPeakWindowOptions {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder offPeakWindows(List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows) {
-            this.offPeakWindows = Objects.requireNonNull(offPeakWindows);
+        public Builder offPeakWindows(@Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows) {
+            this.offPeakWindows = offPeakWindows;
             return this;
         }
         public Builder offPeakWindows(GetDomainOffPeakWindowOptionsOffPeakWindow... offPeakWindows) {

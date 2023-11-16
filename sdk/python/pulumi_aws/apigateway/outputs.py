@@ -798,15 +798,16 @@ class UsagePlanThrottleSettings(dict):
 @pulumi.output_type
 class GetDomainNameEndpointConfigurationResult(dict):
     def __init__(__self__, *,
-                 types: Sequence[str]):
+                 types: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] types: List of endpoint types.
         """
-        pulumi.set(__self__, "types", types)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
 
     @property
     @pulumi.getter
-    def types(self) -> Sequence[str]:
+    def types(self) -> Optional[Sequence[str]]:
         """
         List of endpoint types.
         """
@@ -816,19 +817,21 @@ class GetDomainNameEndpointConfigurationResult(dict):
 @pulumi.output_type
 class GetRestApiEndpointConfigurationResult(dict):
     def __init__(__self__, *,
-                 types: Sequence[str],
-                 vpc_endpoint_ids: Sequence[str]):
-        pulumi.set(__self__, "types", types)
-        pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
+                 types: Optional[Sequence[str]] = None,
+                 vpc_endpoint_ids: Optional[Sequence[str]] = None):
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+        if vpc_endpoint_ids is not None:
+            pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
 
     @property
     @pulumi.getter
-    def types(self) -> Sequence[str]:
+    def types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "types")
 
     @property
     @pulumi.getter(name="vpcEndpointIds")
-    def vpc_endpoint_ids(self) -> Sequence[str]:
+    def vpc_endpoint_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "vpc_endpoint_ids")
 
 

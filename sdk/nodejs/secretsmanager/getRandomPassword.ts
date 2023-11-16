@@ -90,13 +90,13 @@ export interface GetRandomPasswordResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly includeSpace?: boolean;
     readonly passwordLength?: number;
     /**
      * Random password.
      */
-    readonly randomPassword: string;
+    readonly randomPassword?: string;
     readonly requireEachIncludedType?: boolean;
 }
 /**

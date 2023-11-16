@@ -6,6 +6,8 @@ package com.pulumi.aws.location.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMapConfiguration {
@@ -13,15 +15,15 @@ public final class GetMapConfiguration {
      * @return The map style selected from an available data provider.
      * 
      */
-    private String style;
+    private @Nullable String style;
 
     private GetMapConfiguration() {}
     /**
      * @return The map style selected from an available data provider.
      * 
      */
-    public String style() {
-        return this.style;
+    public Optional<String> style() {
+        return Optional.ofNullable(this.style);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetMapConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String style;
+        private @Nullable String style;
         public Builder() {}
         public Builder(GetMapConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetMapConfiguration {
         }
 
         @CustomType.Setter
-        public Builder style(String style) {
-            this.style = Objects.requireNonNull(style);
+        public Builder style(@Nullable String style) {
+            this.style = style;
             return this;
         }
         public GetMapConfiguration build() {

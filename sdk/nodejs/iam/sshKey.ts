@@ -64,7 +64,7 @@ export class SshKey extends pulumi.CustomResource {
     /**
      * The MD5 message digest of the SSH public key.
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    public /*out*/ readonly fingerprint!: pulumi.Output<string | undefined>;
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      */
@@ -72,11 +72,11 @@ export class SshKey extends pulumi.CustomResource {
     /**
      * The unique identifier for the SSH public key.
      */
-    public /*out*/ readonly sshPublicKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly sshPublicKeyId!: pulumi.Output<string | undefined>;
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The name of the IAM user to associate the SSH public key with.
      */

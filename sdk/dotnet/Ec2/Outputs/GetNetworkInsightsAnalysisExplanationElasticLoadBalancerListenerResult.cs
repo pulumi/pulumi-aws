@@ -16,20 +16,20 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// ARN of the selected Network Insights Analysis.
         /// </summary>
-        public readonly string Arn;
-        public readonly string Id;
+        public readonly string? Arn;
+        public readonly string? Id;
         /// <summary>
         /// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             Arn = arn;
             Id = id;

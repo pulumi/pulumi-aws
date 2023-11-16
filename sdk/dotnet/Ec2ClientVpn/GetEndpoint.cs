@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// <summary>
         /// The ARN of the Client VPN endpoint.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Information about the authentication method used by the Client VPN endpoint.
         /// </summary>
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// <summary>
         /// IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
         /// </summary>
-        public readonly string ClientCidrBlock;
+        public readonly string? ClientCidrBlock;
         /// <summary>
         /// The options for managing connection authorization for new client connections.
         /// </summary>
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEndpointClientLoginBannerOptionResult> ClientLoginBannerOptions;
-        public readonly string ClientVpnEndpointId;
+        public readonly string? ClientVpnEndpointId;
         /// <summary>
         /// Information about the client connection logging options for the Client VPN endpoint.
         /// </summary>
@@ -237,11 +237,11 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// <summary>
         /// Brief description of the endpoint.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// DNS name to be used by clients when connecting to the Client VPN endpoint.
         /// </summary>
-        public readonly string DnsName;
+        public readonly string? DnsName;
         /// <summary>
         /// Information about the DNS servers to be used for DNS resolution.
         /// </summary>
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// IDs of the security groups for the target network associated with the Client VPN endpoint.
         /// </summary>
@@ -258,82 +258,82 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// <summary>
         /// Whether the self-service portal for the Client VPN endpoint is enabled.
         /// </summary>
-        public readonly string SelfServicePortal;
+        public readonly string? SelfServicePortal;
         /// <summary>
         /// The URL of the self-service portal.
         /// </summary>
-        public readonly string SelfServicePortalUrl;
+        public readonly string? SelfServicePortalUrl;
         /// <summary>
         /// The ARN of the server certificate.
         /// </summary>
-        public readonly string ServerCertificateArn;
+        public readonly string? ServerCertificateArn;
         /// <summary>
         /// The maximum VPN session duration time in hours.
         /// </summary>
-        public readonly int SessionTimeoutHours;
+        public readonly int? SessionTimeoutHours;
         /// <summary>
         /// Whether split-tunnel is enabled in the AWS Client VPN endpoint.
         /// </summary>
-        public readonly bool SplitTunnel;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly bool? SplitTunnel;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Transport protocol used by the Client VPN endpoint.
         /// </summary>
-        public readonly string TransportProtocol;
+        public readonly string? TransportProtocol;
         /// <summary>
         /// ID of the VPC associated with the Client VPN endpoint.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
         /// <summary>
         /// Port number for the Client VPN endpoint.
         /// </summary>
-        public readonly int VpnPort;
+        public readonly int? VpnPort;
 
         [OutputConstructor]
         private GetEndpointResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetEndpointAuthenticationOptionResult> authenticationOptions,
 
-            string clientCidrBlock,
+            string? clientCidrBlock,
 
             ImmutableArray<Outputs.GetEndpointClientConnectOptionResult> clientConnectOptions,
 
             ImmutableArray<Outputs.GetEndpointClientLoginBannerOptionResult> clientLoginBannerOptions,
 
-            string clientVpnEndpointId,
+            string? clientVpnEndpointId,
 
             ImmutableArray<Outputs.GetEndpointConnectionLogOptionResult> connectionLogOptions,
 
-            string description,
+            string? description,
 
-            string dnsName,
+            string? dnsName,
 
             ImmutableArray<string> dnsServers,
 
             ImmutableArray<Outputs.GetEndpointFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> securityGroupIds,
 
-            string selfServicePortal,
+            string? selfServicePortal,
 
-            string selfServicePortalUrl,
+            string? selfServicePortalUrl,
 
-            string serverCertificateArn,
+            string? serverCertificateArn,
 
-            int sessionTimeoutHours,
+            int? sessionTimeoutHours,
 
-            bool splitTunnel,
+            bool? splitTunnel,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string transportProtocol,
+            string? transportProtocol,
 
-            string vpcId,
+            string? vpcId,
 
-            int vpnPort)
+            int? vpnPort)
         {
             Arn = arn;
             AuthenticationOptions = authenticationOptions;

@@ -51,7 +51,7 @@ namespace Pulumi.Aws.StorageGateway
         /// Amazon Resource Name (ARN) of the NFS File Share.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the storage used for audit logs.
@@ -87,13 +87,13 @@ namespace Pulumi.Aws.StorageGateway
         /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         /// </summary>
         [Output("fileShareName")]
-        public Output<string> FileShareName { get; private set; } = null!;
+        public Output<string?> FileShareName { get; private set; } = null!;
 
         /// <summary>
         /// ID of the NFS File Share.
         /// </summary>
         [Output("fileshareId")]
-        public Output<string> FileshareId { get; private set; } = null!;
+        public Output<string?> FileshareId { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the file gateway.
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.StorageGateway
         /// File share path used by the NFS client to identify the mount point.
         /// </summary>
         [Output("path")]
-        public Output<string> Path { get; private set; } = null!;
+        public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
         /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.

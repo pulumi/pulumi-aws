@@ -61,7 +61,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * (Required) Amazon Resource Name (ARN) of the component.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Change description of the component.
      */
@@ -69,11 +69,11 @@ export class Component extends pulumi.CustomResource {
     /**
      * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      */
-    public readonly data!: pulumi.Output<string>;
+    public readonly data!: pulumi.Output<string | undefined>;
     /**
      * Date the component was created.
      */
-    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string | undefined>;
     /**
      * Description of the component.
      */
@@ -81,7 +81,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Encryption status of the component.
      */
-    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
+    public /*out*/ readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      */
@@ -93,7 +93,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Owner of the component.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * Platform of the component.
      */
@@ -119,7 +119,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Type of the component.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      *

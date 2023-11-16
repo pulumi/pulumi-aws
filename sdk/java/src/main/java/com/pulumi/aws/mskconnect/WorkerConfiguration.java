@@ -69,14 +69,14 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return the Amazon Resource Name (ARN) of the worker configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A summary description of the worker configuration.
@@ -97,14 +97,14 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="latestRevision", refs={Integer.class}, tree="[0]")
-    private Output<Integer> latestRevision;
+    private Output</* @Nullable */ Integer> latestRevision;
 
     /**
      * @return an ID of the latest successfully created revision of the worker configuration.
      * 
      */
-    public Output<Integer> latestRevision() {
-        return this.latestRevision;
+    public Output<Optional<Integer>> latestRevision() {
+        return Codegen.optional(this.latestRevision);
     }
     /**
      * The name of the worker configuration.

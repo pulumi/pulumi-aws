@@ -5320,16 +5320,16 @@ type GetMultiRegionAccessPointPublicAccessBlock struct {
 	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
 	// * PUT Object calls fail if the request includes a public ACL.
 	// * PUT Bucket calls fail if the request includes a public ACL.
-	BlockPublicAcls bool `pulumi:"blockPublicAcls"`
+	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
 	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
 	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-	BlockPublicPolicy bool `pulumi:"blockPublicPolicy"`
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
 	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
 	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
-	IgnorePublicAcls bool `pulumi:"ignorePublicAcls"`
+	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
 	// Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
 	// * Only the bucket owner and AWS Services can access buckets with public policies.
-	RestrictPublicBuckets bool `pulumi:"restrictPublicBuckets"`
+	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
 }
 
 // GetMultiRegionAccessPointPublicAccessBlockInput is an input type that accepts GetMultiRegionAccessPointPublicAccessBlockArgs and GetMultiRegionAccessPointPublicAccessBlockOutput values.
@@ -5348,16 +5348,16 @@ type GetMultiRegionAccessPointPublicAccessBlockArgs struct {
 	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
 	// * PUT Object calls fail if the request includes a public ACL.
 	// * PUT Bucket calls fail if the request includes a public ACL.
-	BlockPublicAcls pulumi.BoolInput `pulumi:"blockPublicAcls"`
+	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
 	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
 	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-	BlockPublicPolicy pulumi.BoolInput `pulumi:"blockPublicPolicy"`
+	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
 	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
 	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
-	IgnorePublicAcls pulumi.BoolInput `pulumi:"ignorePublicAcls"`
+	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
 	// Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
 	// * Only the bucket owner and AWS Services can access buckets with public policies.
-	RestrictPublicBuckets pulumi.BoolInput `pulumi:"restrictPublicBuckets"`
+	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
 }
 
 func (GetMultiRegionAccessPointPublicAccessBlockArgs) ElementType() reflect.Type {
@@ -5415,26 +5415,26 @@ func (o GetMultiRegionAccessPointPublicAccessBlockOutput) ToGetMultiRegionAccess
 // * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
 // * PUT Object calls fail if the request includes a public ACL.
 // * PUT Bucket calls fail if the request includes a public ACL.
-func (o GetMultiRegionAccessPointPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) bool { return v.BlockPublicAcls }).(pulumi.BoolOutput)
+func (o GetMultiRegionAccessPointPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
 // * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-func (o GetMultiRegionAccessPointPublicAccessBlockOutput) BlockPublicPolicy() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) bool { return v.BlockPublicPolicy }).(pulumi.BoolOutput)
+func (o GetMultiRegionAccessPointPublicAccessBlockOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
 // * Ignore all public ACLs on buckets in this account and any objects that they contain.
-func (o GetMultiRegionAccessPointPublicAccessBlockOutput) IgnorePublicAcls() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) bool { return v.IgnorePublicAcls }).(pulumi.BoolOutput)
+func (o GetMultiRegionAccessPointPublicAccessBlockOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
 // * Only the bucket owner and AWS Services can access buckets with public policies.
-func (o GetMultiRegionAccessPointPublicAccessBlockOutput) RestrictPublicBuckets() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) bool { return v.RestrictPublicBuckets }).(pulumi.BoolOutput)
+func (o GetMultiRegionAccessPointPublicAccessBlockOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
 }
 
 type GetMultiRegionAccessPointPublicAccessBlockArrayOutput struct{ *pulumi.OutputState }
@@ -5459,11 +5459,11 @@ func (o GetMultiRegionAccessPointPublicAccessBlockArrayOutput) Index(i pulumi.In
 
 type GetMultiRegionAccessPointRegion struct {
 	// The name of the bucket.
-	Bucket string `pulumi:"bucket"`
+	Bucket *string `pulumi:"bucket"`
 	// The AWS account ID that owns the bucket.
-	BucketAccountId string `pulumi:"bucketAccountId"`
+	BucketAccountId *string `pulumi:"bucketAccountId"`
 	// The name of the region.
-	Region string `pulumi:"region"`
+	Region *string `pulumi:"region"`
 }
 
 // GetMultiRegionAccessPointRegionInput is an input type that accepts GetMultiRegionAccessPointRegionArgs and GetMultiRegionAccessPointRegionOutput values.
@@ -5479,11 +5479,11 @@ type GetMultiRegionAccessPointRegionInput interface {
 
 type GetMultiRegionAccessPointRegionArgs struct {
 	// The name of the bucket.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
 	// The AWS account ID that owns the bucket.
-	BucketAccountId pulumi.StringInput `pulumi:"bucketAccountId"`
+	BucketAccountId pulumi.StringPtrInput `pulumi:"bucketAccountId"`
 	// The name of the region.
-	Region pulumi.StringInput `pulumi:"region"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetMultiRegionAccessPointRegionArgs) ElementType() reflect.Type {
@@ -5538,18 +5538,18 @@ func (o GetMultiRegionAccessPointRegionOutput) ToGetMultiRegionAccessPointRegion
 }
 
 // The name of the bucket.
-func (o GetMultiRegionAccessPointRegionOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) string { return v.Bucket }).(pulumi.StringOutput)
+func (o GetMultiRegionAccessPointRegionOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
 // The AWS account ID that owns the bucket.
-func (o GetMultiRegionAccessPointRegionOutput) BucketAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) string { return v.BucketAccountId }).(pulumi.StringOutput)
+func (o GetMultiRegionAccessPointRegionOutput) BucketAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) *string { return v.BucketAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the region.
-func (o GetMultiRegionAccessPointRegionOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) string { return v.Region }).(pulumi.StringOutput)
+func (o GetMultiRegionAccessPointRegionOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 type GetMultiRegionAccessPointRegionArrayOutput struct{ *pulumi.OutputState }

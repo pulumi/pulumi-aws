@@ -53,10 +53,10 @@ import (
 type Portfolio struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	Arn         pulumi.StringPtrOutput `pulumi:"arn"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Description of the portfolio
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the portfolio.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
@@ -253,17 +253,17 @@ func (o PortfolioOutput) ToPortfolioOutputWithContext(ctx context.Context) Portf
 	return o
 }
 
-func (o PortfolioOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PortfolioOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o PortfolioOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o PortfolioOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Description of the portfolio
-func (o PortfolioOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o PortfolioOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The name of the portfolio.

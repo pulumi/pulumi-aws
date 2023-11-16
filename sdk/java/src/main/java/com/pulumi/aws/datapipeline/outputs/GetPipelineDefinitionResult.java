@@ -10,6 +10,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,12 +19,12 @@ public final class GetPipelineDefinitionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Parameter objects used in the pipeline definition. See below
      * 
      */
-    private List<GetPipelineDefinitionParameterObject> parameterObjects;
+    private @Nullable List<GetPipelineDefinitionParameterObject> parameterObjects;
     /**
      * @return Parameter values used in the pipeline definition. See below
      * 
@@ -34,22 +35,22 @@ public final class GetPipelineDefinitionResult {
      * @return Objects defined in the pipeline. See below
      * 
      */
-    private List<GetPipelineDefinitionPipelineObject> pipelineObjects;
+    private @Nullable List<GetPipelineDefinitionPipelineObject> pipelineObjects;
 
     private GetPipelineDefinitionResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Parameter objects used in the pipeline definition. See below
      * 
      */
     public List<GetPipelineDefinitionParameterObject> parameterObjects() {
-        return this.parameterObjects;
+        return this.parameterObjects == null ? List.of() : this.parameterObjects;
     }
     /**
      * @return Parameter values used in the pipeline definition. See below
@@ -66,7 +67,7 @@ public final class GetPipelineDefinitionResult {
      * 
      */
     public List<GetPipelineDefinitionPipelineObject> pipelineObjects() {
-        return this.pipelineObjects;
+        return this.pipelineObjects == null ? List.of() : this.pipelineObjects;
     }
 
     public static Builder builder() {
@@ -78,11 +79,11 @@ public final class GetPipelineDefinitionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private List<GetPipelineDefinitionParameterObject> parameterObjects;
+        private @Nullable String id;
+        private @Nullable List<GetPipelineDefinitionParameterObject> parameterObjects;
         private @Nullable List<GetPipelineDefinitionParameterValue> parameterValues;
         private String pipelineId;
-        private List<GetPipelineDefinitionPipelineObject> pipelineObjects;
+        private @Nullable List<GetPipelineDefinitionPipelineObject> pipelineObjects;
         public Builder() {}
         public Builder(GetPipelineDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -94,13 +95,13 @@ public final class GetPipelineDefinitionResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder parameterObjects(List<GetPipelineDefinitionParameterObject> parameterObjects) {
-            this.parameterObjects = Objects.requireNonNull(parameterObjects);
+        public Builder parameterObjects(@Nullable List<GetPipelineDefinitionParameterObject> parameterObjects) {
+            this.parameterObjects = parameterObjects;
             return this;
         }
         public Builder parameterObjects(GetPipelineDefinitionParameterObject... parameterObjects) {
@@ -120,8 +121,8 @@ public final class GetPipelineDefinitionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pipelineObjects(List<GetPipelineDefinitionPipelineObject> pipelineObjects) {
-            this.pipelineObjects = Objects.requireNonNull(pipelineObjects);
+        public Builder pipelineObjects(@Nullable List<GetPipelineDefinitionPipelineObject> pipelineObjects) {
+            this.pipelineObjects = pipelineObjects;
             return this;
         }
         public Builder pipelineObjects(GetPipelineDefinitionPipelineObject... pipelineObjects) {

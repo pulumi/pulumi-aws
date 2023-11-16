@@ -6,6 +6,8 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainClusterConfigZoneAwarenessConfig {
@@ -13,15 +15,15 @@ public final class GetDomainClusterConfigZoneAwarenessConfig {
      * @return Number of availability zones used.
      * 
      */
-    private Integer availabilityZoneCount;
+    private @Nullable Integer availabilityZoneCount;
 
     private GetDomainClusterConfigZoneAwarenessConfig() {}
     /**
      * @return Number of availability zones used.
      * 
      */
-    public Integer availabilityZoneCount() {
-        return this.availabilityZoneCount;
+    public Optional<Integer> availabilityZoneCount() {
+        return Optional.ofNullable(this.availabilityZoneCount);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetDomainClusterConfigZoneAwarenessConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer availabilityZoneCount;
+        private @Nullable Integer availabilityZoneCount;
         public Builder() {}
         public Builder(GetDomainClusterConfigZoneAwarenessConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetDomainClusterConfigZoneAwarenessConfig {
         }
 
         @CustomType.Setter
-        public Builder availabilityZoneCount(Integer availabilityZoneCount) {
-            this.availabilityZoneCount = Objects.requireNonNull(availabilityZoneCount);
+        public Builder availabilityZoneCount(@Nullable Integer availabilityZoneCount) {
+            this.availabilityZoneCount = availabilityZoneCount;
             return this;
         }
         public GetDomainClusterConfigZoneAwarenessConfig build() {

@@ -81,7 +81,7 @@ export class NotificationRule extends pulumi.CustomResource {
     /**
      * The codestar notification rule ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
      */

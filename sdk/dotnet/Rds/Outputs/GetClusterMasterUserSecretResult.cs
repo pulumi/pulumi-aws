@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class GetClusterMasterUserSecretResult
     {
-        public readonly string KmsKeyId;
-        public readonly string SecretArn;
-        public readonly string SecretStatus;
+        public readonly string? KmsKeyId;
+        public readonly string? SecretArn;
+        public readonly string? SecretStatus;
 
         [OutputConstructor]
         private GetClusterMasterUserSecretResult(
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string secretArn,
+            string? secretArn,
 
-            string secretStatus)
+            string? secretStatus)
         {
             KmsKeyId = kmsKeyId;
             SecretArn = secretArn;

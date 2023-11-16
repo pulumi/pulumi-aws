@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// ARN of the safety rule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.

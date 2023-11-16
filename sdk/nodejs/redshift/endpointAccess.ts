@@ -62,7 +62,7 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The DNS address of the endpoint.
      */
-    public /*out*/ readonly address!: pulumi.Output<string>;
+    public /*out*/ readonly address!: pulumi.Output<string | undefined>;
     /**
      * The cluster identifier of the cluster to access.
      */
@@ -74,11 +74,11 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The port number on which the cluster accepts incoming connections.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
     /**
      * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
      */
-    public readonly resourceOwner!: pulumi.Output<string>;
+    public readonly resourceOwner!: pulumi.Output<string | undefined>;
     /**
      * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
      */
@@ -86,11 +86,11 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
      */
-    public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.redshift.EndpointAccessVpcEndpoint[]>;
+    public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.redshift.EndpointAccessVpcEndpoint[] | undefined>;
     /**
      * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a EndpointAccess resource with the given unique name, arguments, and options.

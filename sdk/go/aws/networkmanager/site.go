@@ -57,7 +57,7 @@ type Site struct {
 	pulumi.CustomResourceState
 
 	// Site Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the Site.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the Global Network to create the site in.
@@ -257,8 +257,8 @@ func (o SiteOutput) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 }
 
 // Site Amazon Resource Name (ARN)
-func (o SiteOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SiteOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Site.

@@ -129,43 +129,43 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Change description of the component.
         /// </summary>
-        public readonly string ChangeDescription;
+        public readonly string? ChangeDescription;
         /// <summary>
         /// Data of the component.
         /// </summary>
-        public readonly string Data;
+        public readonly string? Data;
         /// <summary>
         /// Date the component was created.
         /// </summary>
-        public readonly string DateCreated;
+        public readonly string? DateCreated;
         /// <summary>
         /// Description of the component.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Encryption status of the component.
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly bool? Encrypted;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the Key Management Service (KMS) Key used to encrypt the component.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// Name of the component.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Owner of the component.
         /// </summary>
-        public readonly string Owner;
+        public readonly string? Owner;
         /// <summary>
         /// Platform of the component.
         /// </summary>
-        public readonly string Platform;
+        public readonly string? Platform;
         /// <summary>
         /// Operating Systems (OSes) supported by the component.
         /// </summary>
@@ -173,47 +173,47 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Key-value map of resource tags for the component.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of the component.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// Version of the component.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetComponentResult(
             string arn,
 
-            string changeDescription,
+            string? changeDescription,
 
-            string data,
+            string? data,
 
-            string dateCreated,
+            string? dateCreated,
 
-            string description,
+            string? description,
 
-            bool encrypted,
+            bool? encrypted,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string name,
+            string? name,
 
-            string owner,
+            string? owner,
 
-            string platform,
+            string? platform,
 
             ImmutableArray<string> supportedOsVersions,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type,
+            string? type,
 
-            string version)
+            string? version)
         {
             Arn = arn;
             ChangeDescription = changeDescription;

@@ -465,7 +465,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="payloadUrl")
-    def payload_url(self) -> pulumi.Output[str]:
+    def payload_url(self) -> pulumi.Output[Optional[str]]:
         """
         The CodeBuild endpoint where webhook events are sent.
         """
@@ -481,7 +481,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secret(self) -> pulumi.Output[str]:
+    def secret(self) -> pulumi.Output[Optional[str]]:
         """
         The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         """
@@ -489,7 +489,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         The URL to the webhook.
         """

@@ -379,7 +379,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the deployment was created.
         """
@@ -403,7 +403,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the container service.
         """
@@ -411,7 +411,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         The version number of the deployment.
         """

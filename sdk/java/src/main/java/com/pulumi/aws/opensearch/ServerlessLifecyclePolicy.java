@@ -122,14 +122,14 @@ public class ServerlessLifecyclePolicy extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="policyVersion", refs={String.class}, tree="[0]")
-    private Output<String> policyVersion;
+    private Output</* @Nullable */ String> policyVersion;
 
     /**
      * @return Version of the policy.
      * 
      */
-    public Output<String> policyVersion() {
-        return this.policyVersion;
+    public Output<Optional<String>> policyVersion() {
+        return Codegen.optional(this.policyVersion);
     }
     /**
      * Type of lifecycle policy. Must be `retention`.

@@ -60,16 +60,16 @@ type LookupCostCategoryArgs struct {
 type LookupCostCategoryResult struct {
 	CostCategoryArn string `pulumi:"costCategoryArn"`
 	// Default value for the cost category.
-	DefaultValue string `pulumi:"defaultValue"`
+	DefaultValue *string `pulumi:"defaultValue"`
 	// Effective end data of your Cost Category.
-	EffectiveEnd string `pulumi:"effectiveEnd"`
+	EffectiveEnd *string `pulumi:"effectiveEnd"`
 	// Effective state data of your Cost Category.
-	EffectiveStart string `pulumi:"effectiveStart"`
+	EffectiveStart *string `pulumi:"effectiveStart"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
 	// Rule schema version in this particular Cost Category.
-	RuleVersion string `pulumi:"ruleVersion"`
+	RuleVersion *string `pulumi:"ruleVersion"`
 	// Configuration block for the `Expression` object used to categorize costs. See below.
 	Rules []GetCostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
@@ -123,32 +123,32 @@ func (o LookupCostCategoryResultOutput) CostCategoryArn() pulumi.StringOutput {
 }
 
 // Default value for the cost category.
-func (o LookupCostCategoryResultOutput) DefaultValue() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.DefaultValue }).(pulumi.StringOutput)
+func (o LookupCostCategoryResultOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
 // Effective end data of your Cost Category.
-func (o LookupCostCategoryResultOutput) EffectiveEnd() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.EffectiveEnd }).(pulumi.StringOutput)
+func (o LookupCostCategoryResultOutput) EffectiveEnd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) *string { return v.EffectiveEnd }).(pulumi.StringPtrOutput)
 }
 
 // Effective state data of your Cost Category.
-func (o LookupCostCategoryResultOutput) EffectiveStart() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.EffectiveStart }).(pulumi.StringOutput)
+func (o LookupCostCategoryResultOutput) EffectiveStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) *string { return v.EffectiveStart }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCostCategoryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCostCategoryResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCostCategoryResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupCostCategoryResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Rule schema version in this particular Cost Category.
-func (o LookupCostCategoryResultOutput) RuleVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.RuleVersion }).(pulumi.StringOutput)
+func (o LookupCostCategoryResultOutput) RuleVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) *string { return v.RuleVersion }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the `Expression` object used to categorize costs. See below.

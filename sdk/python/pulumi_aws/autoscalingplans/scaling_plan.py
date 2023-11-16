@@ -293,7 +293,7 @@ class ScalingPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scalingPlanVersion")
-    def scaling_plan_version(self) -> pulumi.Output[int]:
+    def scaling_plan_version(self) -> pulumi.Output[Optional[int]]:
         """
         The version number of the scaling plan. This value is always 1.
         """

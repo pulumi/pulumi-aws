@@ -126,14 +126,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="deviceValidationDomain", refs={String.class}, tree="[0]")
-    private Output<String> deviceValidationDomain;
+    private Output</* @Nullable */ String> deviceValidationDomain;
 
     /**
      * @return Returned if endpoint has a device trust provider attached.
      * 
      */
-    public Output<String> deviceValidationDomain() {
-        return this.deviceValidationDomain;
+    public Output<Optional<String>> deviceValidationDomain() {
+        return Codegen.optional(this.deviceValidationDomain);
     }
     /**
      * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
@@ -154,14 +154,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointDomain", refs={String.class}, tree="[0]")
-    private Output<String> endpointDomain;
+    private Output</* @Nullable */ String> endpointDomain;
 
     /**
      * @return A DNS name that is generated for the endpoint.
      * 
      */
-    public Output<String> endpointDomain() {
-        return this.endpointDomain;
+    public Output<Optional<String>> endpointDomain() {
+        return Codegen.optional(this.endpointDomain);
     }
     /**
      * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
@@ -238,14 +238,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sseSpecification", refs={EndpointSseSpecification.class}, tree="[0]")
-    private Output<EndpointSseSpecification> sseSpecification;
+    private Output</* @Nullable */ EndpointSseSpecification> sseSpecification;
 
     /**
      * @return The options in use for server side encryption.
      * 
      */
-    public Output<EndpointSseSpecification> sseSpecification() {
-        return this.sseSpecification;
+    public Output<Optional<EndpointSseSpecification>> sseSpecification() {
+        return Codegen.optional(this.sseSpecification);
     }
     /**
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -292,10 +292,10 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.verifiedAccessGroupId;
     }
     @Export(name="verifiedAccessInstanceId", refs={String.class}, tree="[0]")
-    private Output<String> verifiedAccessInstanceId;
+    private Output</* @Nullable */ String> verifiedAccessInstanceId;
 
-    public Output<String> verifiedAccessInstanceId() {
-        return this.verifiedAccessInstanceId;
+    public Output<Optional<String>> verifiedAccessInstanceId() {
+        return Codegen.optional(this.verifiedAccessInstanceId);
     }
 
     /**

@@ -68,7 +68,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * ARN for the webhook.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name for a branch that is part of the Amplify app.
      */
@@ -80,7 +80,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * URL of the webhook.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.

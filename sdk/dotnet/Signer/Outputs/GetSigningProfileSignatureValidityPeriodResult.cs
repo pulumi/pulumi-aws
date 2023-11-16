@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Signer.Outputs
     [OutputType]
     public sealed class GetSigningProfileSignatureValidityPeriodResult
     {
-        public readonly string Type;
-        public readonly int Value;
+        public readonly string? Type;
+        public readonly int? Value;
 
         [OutputConstructor]
         private GetSigningProfileSignatureValidityPeriodResult(
-            string type,
+            string? type,
 
-            int value)
+            int? value)
         {
             Type = type;
             Value = value;

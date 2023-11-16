@@ -52,13 +52,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the resource
         /// </summary>
         [Output("resourceId")]
-        public Output<string> ResourceId { get; private set; } = null!;
+        public Output<string?> ResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource
         /// </summary>
         [Output("resourceType")]
-        public Output<string> ResourceType { get; private set; } = null!;
+        public Output<string?> ResourceType { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.

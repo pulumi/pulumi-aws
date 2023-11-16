@@ -532,7 +532,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acceptStatus")
-    def accept_status(self) -> pulumi.Output[str]:
+    def accept_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the VPC Peering Connection request.
         """
@@ -540,7 +540,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accepter(self) -> pulumi.Output['outputs.VpcPeeringConnectionAccepterAccepter']:
+    def accepter(self) -> pulumi.Output[Optional['outputs.VpcPeeringConnectionAccepterAccepter']]:
         """
         A configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
@@ -557,7 +557,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerOwnerId")
-    def peer_owner_id(self) -> pulumi.Output[str]:
+    def peer_owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID of the owner of the requester VPC.
         """
@@ -565,7 +565,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerRegion")
-    def peer_region(self) -> pulumi.Output[str]:
+    def peer_region(self) -> pulumi.Output[Optional[str]]:
         """
         The region of the accepter VPC.
         """
@@ -573,7 +573,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerVpcId")
-    def peer_vpc_id(self) -> pulumi.Output[str]:
+    def peer_vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the requester VPC.
         """
@@ -581,7 +581,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def requester(self) -> pulumi.Output['outputs.VpcPeeringConnectionAccepterRequester']:
+    def requester(self) -> pulumi.Output[Optional['outputs.VpcPeeringConnectionAccepterRequester']]:
         """
         A configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
@@ -609,7 +609,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the accepter VPC.
         """

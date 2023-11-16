@@ -58,7 +58,7 @@ type Trigger struct {
 	pulumi.CustomResourceState
 
 	// System-generated unique identifier.
-	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
+	ConfigurationId pulumi.StringPtrOutput `pulumi:"configurationId"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringOutput       `pulumi:"repositoryName"`
 	Triggers       TriggerTriggerArrayOutput `pulumi:"triggers"`
@@ -220,8 +220,8 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 }
 
 // System-generated unique identifier.
-func (o TriggerOutput) ConfigurationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.ConfigurationId }).(pulumi.StringOutput)
+func (o TriggerOutput) ConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.ConfigurationId }).(pulumi.StringPtrOutput)
 }
 
 // The name for the repository. This needs to be less than 100 characters.

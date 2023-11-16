@@ -73,30 +73,30 @@ export interface GetSecurityProfileResult {
     /**
      * ARN of the Security Profile.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the Security Profile.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
-    readonly name: string;
+    readonly name?: string;
     /**
      * The organization resource identifier for the security profile.
      */
-    readonly organizationResourceId: string;
+    readonly organizationResourceId?: string;
     /**
      * List of permissions assigned to the security profile.
      */
-    readonly permissions: string[];
-    readonly securityProfileId: string;
+    readonly permissions?: string[];
+    readonly securityProfileId?: string;
     /**
      * Map of tags to assign to the Security Profile.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific Amazon Connect Security Profile.

@@ -372,7 +372,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="approvalRuleTemplateId")
-    def approval_rule_template_id(self) -> pulumi.Output[str]:
+    def approval_rule_template_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the approval rule template
         """
@@ -388,7 +388,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -404,7 +404,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> pulumi.Output[str]:
+    def last_modified_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -412,7 +412,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedUser")
-    def last_modified_user(self) -> pulumi.Output[str]:
+    def last_modified_user(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
         """
@@ -428,7 +428,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleContentSha256")
-    def rule_content_sha256(self) -> pulumi.Output[str]:
+    def rule_content_sha256(self) -> pulumi.Output[Optional[str]]:
         """
         The SHA-256 hash signature for the content of the approval rule template.
         """

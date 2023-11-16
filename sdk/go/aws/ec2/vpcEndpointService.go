@@ -96,7 +96,7 @@ type VpcEndpointService struct {
 	// The ARNs of one or more principals allowed to discover the endpoint service.
 	AllowedPrincipals pulumi.StringArrayOutput `pulumi:"allowedPrincipals"`
 	// The Amazon Resource Name (ARN) of the VPC endpoint service.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A set of Availability Zones in which the service is available.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// A set of DNS names for the service.
@@ -104,19 +104,19 @@ type VpcEndpointService struct {
 	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
 	GatewayLoadBalancerArns pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.
-	ManagesVpcEndpoints pulumi.BoolOutput `pulumi:"managesVpcEndpoints"`
+	ManagesVpcEndpoints pulumi.BoolPtrOutput `pulumi:"managesVpcEndpoints"`
 	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
 	// The private DNS name for the service.
-	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
+	PrivateDnsName pulumi.StringPtrOutput `pulumi:"privateDnsName"`
 	// List of objects containing information about the endpoint service private DNS name configuration.
 	PrivateDnsNameConfigurations VpcEndpointServicePrivateDnsNameConfigurationArrayOutput `pulumi:"privateDnsNameConfigurations"`
 	// The service name.
-	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	ServiceName pulumi.StringPtrOutput `pulumi:"serviceName"`
 	// The service type, `Gateway` or `Interface`.
-	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
+	ServiceType pulumi.StringPtrOutput `pulumi:"serviceType"`
 	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes pulumi.StringArrayOutput `pulumi:"supportedIpAddressTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -374,8 +374,8 @@ func (o VpcEndpointServiceOutput) AllowedPrincipals() pulumi.StringArrayOutput {
 }
 
 // The Amazon Resource Name (ARN) of the VPC endpoint service.
-func (o VpcEndpointServiceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpcEndpointServiceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A set of Availability Zones in which the service is available.
@@ -394,8 +394,8 @@ func (o VpcEndpointServiceOutput) GatewayLoadBalancerArns() pulumi.StringArrayOu
 }
 
 // Whether or not the service manages its VPC endpoints - `true` or `false`.
-func (o VpcEndpointServiceOutput) ManagesVpcEndpoints() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VpcEndpointService) pulumi.BoolOutput { return v.ManagesVpcEndpoints }).(pulumi.BoolOutput)
+func (o VpcEndpointServiceOutput) ManagesVpcEndpoints() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.BoolPtrOutput { return v.ManagesVpcEndpoints }).(pulumi.BoolPtrOutput)
 }
 
 // Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
@@ -404,8 +404,8 @@ func (o VpcEndpointServiceOutput) NetworkLoadBalancerArns() pulumi.StringArrayOu
 }
 
 // The private DNS name for the service.
-func (o VpcEndpointServiceOutput) PrivateDnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.PrivateDnsName }).(pulumi.StringOutput)
+func (o VpcEndpointServiceOutput) PrivateDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringPtrOutput { return v.PrivateDnsName }).(pulumi.StringPtrOutput)
 }
 
 // List of objects containing information about the endpoint service private DNS name configuration.
@@ -416,18 +416,18 @@ func (o VpcEndpointServiceOutput) PrivateDnsNameConfigurations() VpcEndpointServ
 }
 
 // The service name.
-func (o VpcEndpointServiceOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
+func (o VpcEndpointServiceOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringPtrOutput { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 // The service type, `Gateway` or `Interface`.
-func (o VpcEndpointServiceOutput) ServiceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.ServiceType }).(pulumi.StringOutput)
+func (o VpcEndpointServiceOutput) ServiceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringPtrOutput { return v.ServiceType }).(pulumi.StringPtrOutput)
 }
 
 // Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-func (o VpcEndpointServiceOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o VpcEndpointServiceOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The supported IP address types. The possible values are `ipv4` and `ipv6`.

@@ -124,26 +124,26 @@ namespace Pulumi.Aws.CloudFormation
         /// <summary>
         /// ARN of stack that contains the exported output name and value.
         /// </summary>
-        public readonly string ExportingStackId;
+        public readonly string? ExportingStackId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetExportResult(
-            string exportingStackId,
+            string? exportingStackId,
 
-            string id,
+            string? id,
 
             string name,
 
-            string value)
+            string? value)
         {
             ExportingStackId = exportingStackId;
             Id = id;

@@ -102,28 +102,28 @@ namespace Pulumi.Aws.GuardDuty
         /// <summary>
         /// The frequency of notifications sent about subsequent finding occurrences.
         /// </summary>
-        public readonly string FindingPublishingFrequency;
-        public readonly string Id;
+        public readonly string? FindingPublishingFrequency;
+        public readonly string? Id;
         /// <summary>
         /// Service-linked role that grants GuardDuty access to the resources in the AWS account.
         /// </summary>
-        public readonly string ServiceRoleArn;
+        public readonly string? ServiceRoleArn;
         /// <summary>
         /// Current status of the detector.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetDetectorResult(
             ImmutableArray<Outputs.GetDetectorFeatureResult> features,
 
-            string findingPublishingFrequency,
+            string? findingPublishingFrequency,
 
-            string id,
+            string? id,
 
-            string serviceRoleArn,
+            string? serviceRoleArn,
 
-            string status)
+            string? status)
         {
             Features = features;
             FindingPublishingFrequency = findingPublishingFrequency;

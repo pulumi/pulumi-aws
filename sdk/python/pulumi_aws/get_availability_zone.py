@@ -79,7 +79,7 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> str:
+    def group_name(self) -> Optional[str]:
         """
         For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
         """
@@ -87,7 +87,7 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -95,12 +95,12 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nameSuffix")
-    def name_suffix(self) -> str:
+    def name_suffix(self) -> Optional[str]:
         """
         Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
         For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
@@ -110,7 +110,7 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter(name="networkBorderGroup")
-    def network_border_group(self) -> str:
+    def network_border_group(self) -> Optional[str]:
         """
         The name of the location from which the address is advertised.
         """
@@ -118,7 +118,7 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter(name="optInStatus")
-    def opt_in_status(self) -> str:
+    def opt_in_status(self) -> Optional[str]:
         """
         For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
         """
@@ -126,7 +126,7 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter(name="parentZoneId")
-    def parent_zone_id(self) -> str:
+    def parent_zone_id(self) -> Optional[str]:
         """
         ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
         """
@@ -134,7 +134,7 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter(name="parentZoneName")
-    def parent_zone_name(self) -> str:
+    def parent_zone_name(self) -> Optional[str]:
         """
         Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
         """
@@ -142,7 +142,7 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter
-    def region(self) -> str:
+    def region(self) -> Optional[str]:
         """
         Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
         """
@@ -150,17 +150,17 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> str:
+    def zone_id(self) -> Optional[str]:
         return pulumi.get(self, "zone_id")
 
     @property
     @pulumi.getter(name="zoneType")
-    def zone_type(self) -> str:
+    def zone_type(self) -> Optional[str]:
         """
         Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
         """

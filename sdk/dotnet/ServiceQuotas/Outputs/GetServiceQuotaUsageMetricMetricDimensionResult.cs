@@ -13,20 +13,20 @@ namespace Pulumi.Aws.ServiceQuotas.Outputs
     [OutputType]
     public sealed class GetServiceQuotaUsageMetricMetricDimensionResult
     {
-        public readonly string Class;
-        public readonly string Resource;
-        public readonly string Service;
-        public readonly string Type;
+        public readonly string? Class;
+        public readonly string? Resource;
+        public readonly string? Service;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetServiceQuotaUsageMetricMetricDimensionResult(
-            string @class,
+            string? @class,
 
-            string resource,
+            string? resource,
 
-            string service,
+            string? service,
 
-            string type)
+            string? type)
         {
             Class = @class;
             Resource = resource;

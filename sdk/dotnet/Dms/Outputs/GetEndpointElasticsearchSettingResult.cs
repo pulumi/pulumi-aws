@@ -13,20 +13,20 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class GetEndpointElasticsearchSettingResult
     {
-        public readonly string EndpointUri;
-        public readonly int ErrorRetryDuration;
-        public readonly int FullLoadErrorPercentage;
-        public readonly string ServiceAccessRoleArn;
+        public readonly string? EndpointUri;
+        public readonly int? ErrorRetryDuration;
+        public readonly int? FullLoadErrorPercentage;
+        public readonly string? ServiceAccessRoleArn;
 
         [OutputConstructor]
         private GetEndpointElasticsearchSettingResult(
-            string endpointUri,
+            string? endpointUri,
 
-            int errorRetryDuration,
+            int? errorRetryDuration,
 
-            int fullLoadErrorPercentage,
+            int? fullLoadErrorPercentage,
 
-            string serviceAccessRoleArn)
+            string? serviceAccessRoleArn)
         {
             EndpointUri = endpointUri;
             ErrorRetryDuration = errorRetryDuration;

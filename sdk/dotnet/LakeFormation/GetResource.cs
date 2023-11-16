@@ -105,25 +105,25 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        public readonly string LastModified;
+        public readonly string? LastModified;
         /// <summary>
         /// Role that the resource was registered with.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
 
         [OutputConstructor]
         private GetResourceResult(
             string arn,
 
-            string id,
+            string? id,
 
-            string lastModified,
+            string? lastModified,
 
-            string roleArn)
+            string? roleArn)
         {
             Arn = arn;
             Id = id;

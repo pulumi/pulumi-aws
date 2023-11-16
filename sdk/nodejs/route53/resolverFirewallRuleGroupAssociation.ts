@@ -60,7 +60,7 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
     /**
      * The ARN (Amazon Resource Name) of the firewall rule group association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the firewall rule group.
      */
@@ -68,7 +68,7 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
     /**
      * If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
      */
-    public readonly mutationProtection!: pulumi.Output<string>;
+    public readonly mutationProtection!: pulumi.Output<string | undefined>;
     /**
      * A name that lets you identify the rule group association, to manage and use it.
      */

@@ -9,22 +9,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetPhysicalTableMapS3Source {
-    private String dataSourceArn;
-    private List<GetDataSetPhysicalTableMapS3SourceInputColumn> inputColumns;
-    private List<GetDataSetPhysicalTableMapS3SourceUploadSetting> uploadSettings;
+    private @Nullable String dataSourceArn;
+    private @Nullable List<GetDataSetPhysicalTableMapS3SourceInputColumn> inputColumns;
+    private @Nullable List<GetDataSetPhysicalTableMapS3SourceUploadSetting> uploadSettings;
 
     private GetDataSetPhysicalTableMapS3Source() {}
-    public String dataSourceArn() {
-        return this.dataSourceArn;
+    public Optional<String> dataSourceArn() {
+        return Optional.ofNullable(this.dataSourceArn);
     }
     public List<GetDataSetPhysicalTableMapS3SourceInputColumn> inputColumns() {
-        return this.inputColumns;
+        return this.inputColumns == null ? List.of() : this.inputColumns;
     }
     public List<GetDataSetPhysicalTableMapS3SourceUploadSetting> uploadSettings() {
-        return this.uploadSettings;
+        return this.uploadSettings == null ? List.of() : this.uploadSettings;
     }
 
     public static Builder builder() {
@@ -36,9 +38,9 @@ public final class GetDataSetPhysicalTableMapS3Source {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dataSourceArn;
-        private List<GetDataSetPhysicalTableMapS3SourceInputColumn> inputColumns;
-        private List<GetDataSetPhysicalTableMapS3SourceUploadSetting> uploadSettings;
+        private @Nullable String dataSourceArn;
+        private @Nullable List<GetDataSetPhysicalTableMapS3SourceInputColumn> inputColumns;
+        private @Nullable List<GetDataSetPhysicalTableMapS3SourceUploadSetting> uploadSettings;
         public Builder() {}
         public Builder(GetDataSetPhysicalTableMapS3Source defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,21 +50,21 @@ public final class GetDataSetPhysicalTableMapS3Source {
         }
 
         @CustomType.Setter
-        public Builder dataSourceArn(String dataSourceArn) {
-            this.dataSourceArn = Objects.requireNonNull(dataSourceArn);
+        public Builder dataSourceArn(@Nullable String dataSourceArn) {
+            this.dataSourceArn = dataSourceArn;
             return this;
         }
         @CustomType.Setter
-        public Builder inputColumns(List<GetDataSetPhysicalTableMapS3SourceInputColumn> inputColumns) {
-            this.inputColumns = Objects.requireNonNull(inputColumns);
+        public Builder inputColumns(@Nullable List<GetDataSetPhysicalTableMapS3SourceInputColumn> inputColumns) {
+            this.inputColumns = inputColumns;
             return this;
         }
         public Builder inputColumns(GetDataSetPhysicalTableMapS3SourceInputColumn... inputColumns) {
             return inputColumns(List.of(inputColumns));
         }
         @CustomType.Setter
-        public Builder uploadSettings(List<GetDataSetPhysicalTableMapS3SourceUploadSetting> uploadSettings) {
-            this.uploadSettings = Objects.requireNonNull(uploadSettings);
+        public Builder uploadSettings(@Nullable List<GetDataSetPhysicalTableMapS3SourceUploadSetting> uploadSettings) {
+            this.uploadSettings = uploadSettings;
             return this;
         }
         public Builder uploadSettings(GetDataSetPhysicalTableMapS3SourceUploadSetting... uploadSettings) {

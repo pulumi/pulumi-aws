@@ -10,6 +10,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,95 +19,95 @@ public final class GetNetworkInsightsPathResult {
      * @return ARN of the selected Network Insights Path.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return AWS resource that is the destination of the path.
      * 
      */
-    private String destination;
+    private @Nullable String destination;
     /**
      * @return ARN of the destination.
      * 
      */
-    private String destinationArn;
+    private @Nullable String destinationArn;
     /**
      * @return IP address of the AWS resource that is the destination of the path.
      * 
      */
-    private String destinationIp;
+    private @Nullable String destinationIp;
     /**
      * @return Destination port.
      * 
      */
-    private Integer destinationPort;
+    private @Nullable Integer destinationPort;
     private @Nullable List<GetNetworkInsightsPathFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String networkInsightsPathId;
+    private @Nullable String id;
+    private @Nullable String networkInsightsPathId;
     /**
      * @return Protocol.
      * 
      */
-    private String protocol;
+    private @Nullable String protocol;
     /**
      * @return AWS resource that is the source of the path.
      * 
      */
-    private String source;
+    private @Nullable String source;
     /**
      * @return ARN of the source.
      * 
      */
-    private String sourceArn;
+    private @Nullable String sourceArn;
     /**
      * @return IP address of the AWS resource that is the source of the path.
      * 
      */
-    private String sourceIp;
+    private @Nullable String sourceIp;
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetNetworkInsightsPathResult() {}
     /**
      * @return ARN of the selected Network Insights Path.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return AWS resource that is the destination of the path.
      * 
      */
-    public String destination() {
-        return this.destination;
+    public Optional<String> destination() {
+        return Optional.ofNullable(this.destination);
     }
     /**
      * @return ARN of the destination.
      * 
      */
-    public String destinationArn() {
-        return this.destinationArn;
+    public Optional<String> destinationArn() {
+        return Optional.ofNullable(this.destinationArn);
     }
     /**
      * @return IP address of the AWS resource that is the destination of the path.
      * 
      */
-    public String destinationIp() {
-        return this.destinationIp;
+    public Optional<String> destinationIp() {
+        return Optional.ofNullable(this.destinationIp);
     }
     /**
      * @return Destination port.
      * 
      */
-    public Integer destinationPort() {
-        return this.destinationPort;
+    public Optional<Integer> destinationPort() {
+        return Optional.ofNullable(this.destinationPort);
     }
     public List<GetNetworkInsightsPathFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -115,46 +116,46 @@ public final class GetNetworkInsightsPathResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String networkInsightsPathId() {
-        return this.networkInsightsPathId;
+    public Optional<String> networkInsightsPathId() {
+        return Optional.ofNullable(this.networkInsightsPathId);
     }
     /**
      * @return Protocol.
      * 
      */
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
     /**
      * @return AWS resource that is the source of the path.
      * 
      */
-    public String source() {
-        return this.source;
+    public Optional<String> source() {
+        return Optional.ofNullable(this.source);
     }
     /**
      * @return ARN of the source.
      * 
      */
-    public String sourceArn() {
-        return this.sourceArn;
+    public Optional<String> sourceArn() {
+        return Optional.ofNullable(this.sourceArn);
     }
     /**
      * @return IP address of the AWS resource that is the source of the path.
      * 
      */
-    public String sourceIp() {
-        return this.sourceIp;
+    public Optional<String> sourceIp() {
+        return Optional.ofNullable(this.sourceIp);
     }
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -166,19 +167,19 @@ public final class GetNetworkInsightsPathResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String destination;
-        private String destinationArn;
-        private String destinationIp;
-        private Integer destinationPort;
+        private @Nullable String arn;
+        private @Nullable String destination;
+        private @Nullable String destinationArn;
+        private @Nullable String destinationIp;
+        private @Nullable Integer destinationPort;
         private @Nullable List<GetNetworkInsightsPathFilter> filters;
-        private String id;
-        private String networkInsightsPathId;
-        private String protocol;
-        private String source;
-        private String sourceArn;
-        private String sourceIp;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable String networkInsightsPathId;
+        private @Nullable String protocol;
+        private @Nullable String source;
+        private @Nullable String sourceArn;
+        private @Nullable String sourceIp;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetNetworkInsightsPathResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -198,28 +199,28 @@ public final class GetNetworkInsightsPathResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+        public Builder destination(@Nullable String destination) {
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
-        public Builder destinationArn(String destinationArn) {
-            this.destinationArn = Objects.requireNonNull(destinationArn);
+        public Builder destinationArn(@Nullable String destinationArn) {
+            this.destinationArn = destinationArn;
             return this;
         }
         @CustomType.Setter
-        public Builder destinationIp(String destinationIp) {
-            this.destinationIp = Objects.requireNonNull(destinationIp);
+        public Builder destinationIp(@Nullable String destinationIp) {
+            this.destinationIp = destinationIp;
             return this;
         }
         @CustomType.Setter
-        public Builder destinationPort(Integer destinationPort) {
-            this.destinationPort = Objects.requireNonNull(destinationPort);
+        public Builder destinationPort(@Nullable Integer destinationPort) {
+            this.destinationPort = destinationPort;
             return this;
         }
         @CustomType.Setter
@@ -231,38 +232,38 @@ public final class GetNetworkInsightsPathResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInsightsPathId(String networkInsightsPathId) {
-            this.networkInsightsPathId = Objects.requireNonNull(networkInsightsPathId);
+        public Builder networkInsightsPathId(@Nullable String networkInsightsPathId) {
+            this.networkInsightsPathId = networkInsightsPathId;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+        public Builder source(@Nullable String source) {
+            this.source = source;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceArn(String sourceArn) {
-            this.sourceArn = Objects.requireNonNull(sourceArn);
+        public Builder sourceArn(@Nullable String sourceArn) {
+            this.sourceArn = sourceArn;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceIp(String sourceIp) {
-            this.sourceIp = Objects.requireNonNull(sourceIp);
+        public Builder sourceIp(@Nullable String sourceIp) {
+            this.sourceIp = sourceIp;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetNetworkInsightsPathResult build() {

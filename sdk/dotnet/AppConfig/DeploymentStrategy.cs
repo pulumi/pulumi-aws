@@ -54,7 +54,7 @@ namespace Pulumi.Aws.AppConfig
         /// ARN of the AppConfig Deployment Strategy.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.

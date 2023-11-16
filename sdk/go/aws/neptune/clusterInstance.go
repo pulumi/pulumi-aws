@@ -79,51 +79,51 @@ type ClusterInstance struct {
 	pulumi.CustomResourceState
 
 	// The hostname of the instance. See also `endpoint` and `port`.
-	Address pulumi.StringOutput `pulumi:"address"`
+	Address pulumi.StringPtrOutput `pulumi:"address"`
 	// Specifies whether any instance modifications
 	// are applied immediately, or during the next maintenance window. Default is`false`.
-	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of neptune instance
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the neptune instance is created in.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The region-unique, immutable identifier for the neptune instance.
-	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
+	DbiResourceId pulumi.StringPtrOutput `pulumi:"dbiResourceId"`
 	// The connection endpoint in `address:port` format.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The neptune engine version. Currently configuring this argumnet has no effect.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	Identifier pulumi.StringPtrOutput `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
+	IdentifierPrefix pulumi.StringPtrOutput `pulumi:"identifierPrefix"`
 	// The instance class to use.
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
 	// The ARN for the KMS encryption key if one is set to the neptune cluster.
-	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneParameterGroupName"`
 	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
-	NeptuneSubnetGroupName pulumi.StringOutput `pulumi:"neptuneSubnetGroupName"`
+	NeptuneSubnetGroupName pulumi.StringPtrOutput `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
+	PreferredBackupWindow pulumi.StringPtrOutput `pulumi:"preferredBackupWindow"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
 	PromotionTier pulumi.IntPtrOutput `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the neptune cluster is encrypted.
-	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
+	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -131,7 +131,7 @@ type ClusterInstance struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-	Writer pulumi.BoolOutput `pulumi:"writer"`
+	Writer pulumi.BoolPtrOutput `pulumi:"writer"`
 }
 
 // NewClusterInstance registers a new resource with the given unique name, arguments, and options.
@@ -458,19 +458,19 @@ func (o ClusterInstanceOutput) ToClusterInstanceOutputWithContext(ctx context.Co
 }
 
 // The hostname of the instance. See also `endpoint` and `port`.
-func (o ClusterInstanceOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether any instance modifications
 // are applied immediately, or during the next maintenance window. Default is`false`.
-func (o ClusterInstanceOutput) ApplyImmediately() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.ApplyImmediately }).(pulumi.BoolOutput)
+func (o ClusterInstanceOutput) ApplyImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of neptune instance
-func (o ClusterInstanceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
@@ -479,8 +479,8 @@ func (o ClusterInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 }
 
 // The EC2 Availability Zone that the neptune instance is created in.
-func (o ClusterInstanceOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the `neptune.Cluster` in which to launch this instance.
@@ -489,13 +489,13 @@ func (o ClusterInstanceOutput) ClusterIdentifier() pulumi.StringOutput {
 }
 
 // The region-unique, immutable identifier for the neptune instance.
-func (o ClusterInstanceOutput) DbiResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.DbiResourceId }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) DbiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.DbiResourceId }).(pulumi.StringPtrOutput)
 }
 
 // The connection endpoint in `address:port` format.
-func (o ClusterInstanceOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
@@ -504,18 +504,18 @@ func (o ClusterInstanceOutput) Engine() pulumi.StringPtrOutput {
 }
 
 // The neptune engine version. Currently configuring this argumnet has no effect.
-func (o ClusterInstanceOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-func (o ClusterInstanceOutput) Identifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.Identifier }).(pulumi.StringPtrOutput)
 }
 
 // Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-func (o ClusterInstanceOutput) IdentifierPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.IdentifierPrefix }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) IdentifierPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.IdentifierPrefix }).(pulumi.StringPtrOutput)
 }
 
 // The instance class to use.
@@ -524,8 +524,8 @@ func (o ClusterInstanceOutput) InstanceClass() pulumi.StringOutput {
 }
 
 // The ARN for the KMS encryption key if one is set to the neptune cluster.
-func (o ClusterInstanceOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the neptune parameter group to associate with this instance.
@@ -534,8 +534,8 @@ func (o ClusterInstanceOutput) NeptuneParameterGroupName() pulumi.StringPtrOutpu
 }
 
 // A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
-func (o ClusterInstanceOutput) NeptuneSubnetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.NeptuneSubnetGroupName }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) NeptuneSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.NeptuneSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The port on which the DB accepts connections. Defaults to `8182`.
@@ -544,14 +544,14 @@ func (o ClusterInstanceOutput) Port() pulumi.IntPtrOutput {
 }
 
 // The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-func (o ClusterInstanceOutput) PreferredBackupWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.PreferredBackupWindow }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
 // The window to perform maintenance in.
 // Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-func (o ClusterInstanceOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+func (o ClusterInstanceOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
@@ -565,8 +565,8 @@ func (o ClusterInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 }
 
 // Specifies whether the neptune cluster is encrypted.
-func (o ClusterInstanceOutput) StorageEncrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
+func (o ClusterInstanceOutput) StorageEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
 // A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -582,8 +582,8 @@ func (o ClusterInstanceOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-func (o ClusterInstanceOutput) Writer() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.Writer }).(pulumi.BoolOutput)
+func (o ClusterInstanceOutput) Writer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.Writer }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterInstanceArrayOutput struct{ *pulumi.OutputState }

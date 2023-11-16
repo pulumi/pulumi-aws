@@ -60,32 +60,32 @@ type LookupDistributionResult struct {
 	// List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases []string `pulumi:"aliases"`
 	// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Domain name corresponding to the distribution. For
 	// example: `d604721fxaaqy9.cloudfront.net`.
-	DomainName string `pulumi:"domainName"`
-	Enabled    bool   `pulumi:"enabled"`
+	DomainName *string `pulumi:"domainName"`
+	Enabled    *bool   `pulumi:"enabled"`
 	// Current version of the distribution's information. For example:
 	// `E2QWRUHAPOMQZL`.
-	Etag string `pulumi:"etag"`
+	Etag *string `pulumi:"etag"`
 	// CloudFront Route 53 zone ID that can be used to
 	// route an [Alias Resource Record Set][7] to. This attribute is simply an
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
-	HostedZoneId string `pulumi:"hostedZoneId"`
+	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
 	Id string `pulumi:"id"`
 	// The number of invalidation batches
 	// currently in progress.
-	InProgressValidationBatches int `pulumi:"inProgressValidationBatches"`
+	InProgressValidationBatches *int `pulumi:"inProgressValidationBatches"`
 	// Date and time the distribution was last modified.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// Current status of the distribution. `Deployed` if the
 	// distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
-	Status string            `pulumi:"status"`
+	Status *string           `pulumi:"status"`
 	Tags   map[string]string `pulumi:"tags"`
 	// AWS WAF web ACL associated with this distribution.
-	WebAclId string `pulumi:"webAclId"`
+	WebAclId *string `pulumi:"webAclId"`
 }
 
 func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionResultOutput {
@@ -133,31 +133,31 @@ func (o LookupDistributionResultOutput) Aliases() pulumi.StringArrayOutput {
 }
 
 // ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
-func (o LookupDistributionResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupDistributionResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Domain name corresponding to the distribution. For
 // example: `d604721fxaaqy9.cloudfront.net`.
-func (o LookupDistributionResultOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionResult) string { return v.DomainName }).(pulumi.StringOutput)
+func (o LookupDistributionResultOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDistributionResultOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupDistributionResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o LookupDistributionResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDistributionResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Current version of the distribution's information. For example:
 // `E2QWRUHAPOMQZL`.
-func (o LookupDistributionResultOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionResult) string { return v.Etag }).(pulumi.StringOutput)
+func (o LookupDistributionResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // CloudFront Route 53 zone ID that can be used to
 // route an [Alias Resource Record Set][7] to. This attribute is simply an
 // alias for the zone ID `Z2FDTNDATAQYW2`.
-func (o LookupDistributionResultOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o LookupDistributionResultOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionResult) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
@@ -167,20 +167,20 @@ func (o LookupDistributionResultOutput) Id() pulumi.StringOutput {
 
 // The number of invalidation batches
 // currently in progress.
-func (o LookupDistributionResultOutput) InProgressValidationBatches() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupDistributionResult) int { return v.InProgressValidationBatches }).(pulumi.IntOutput)
+func (o LookupDistributionResultOutput) InProgressValidationBatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDistributionResult) *int { return v.InProgressValidationBatches }).(pulumi.IntPtrOutput)
 }
 
 // Date and time the distribution was last modified.
-func (o LookupDistributionResultOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+func (o LookupDistributionResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
 // Current status of the distribution. `Deployed` if the
 // distribution's information is fully propagated throughout the Amazon
 // CloudFront system.
-func (o LookupDistributionResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupDistributionResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDistributionResultOutput) Tags() pulumi.StringMapOutput {
@@ -188,8 +188,8 @@ func (o LookupDistributionResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // AWS WAF web ACL associated with this distribution.
-func (o LookupDistributionResultOutput) WebAclId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionResult) string { return v.WebAclId }).(pulumi.StringOutput)
+func (o LookupDistributionResultOutput) WebAclId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionResult) *string { return v.WebAclId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

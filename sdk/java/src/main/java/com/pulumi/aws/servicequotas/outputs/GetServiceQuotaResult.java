@@ -10,6 +10,8 @@ import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceQuotaResult {
@@ -17,87 +19,87 @@ public final class GetServiceQuotaResult {
      * @return Whether the service quota is adjustable.
      * 
      */
-    private Boolean adjustable;
+    private @Nullable Boolean adjustable;
     /**
      * @return ARN of the service quota.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Default value of the service quota.
      * 
      */
-    private Double defaultValue;
+    private @Nullable Double defaultValue;
     /**
      * @return Whether the service quota is global for the AWS account.
      * 
      */
-    private Boolean globalQuota;
+    private @Nullable Boolean globalQuota;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String quotaCode;
-    private String quotaName;
+    private @Nullable String id;
+    private @Nullable String quotaCode;
+    private @Nullable String quotaName;
     private String serviceCode;
     /**
      * @return Name of the service.
      * 
      */
-    private String serviceName;
+    private @Nullable String serviceName;
     /**
      * @return Information about the measurement.
      * 
      */
-    private List<GetServiceQuotaUsageMetric> usageMetrics;
+    private @Nullable List<GetServiceQuotaUsageMetric> usageMetrics;
     /**
      * @return Current value of the service quota.
      * 
      */
-    private Double value;
+    private @Nullable Double value;
 
     private GetServiceQuotaResult() {}
     /**
      * @return Whether the service quota is adjustable.
      * 
      */
-    public Boolean adjustable() {
-        return this.adjustable;
+    public Optional<Boolean> adjustable() {
+        return Optional.ofNullable(this.adjustable);
     }
     /**
      * @return ARN of the service quota.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Default value of the service quota.
      * 
      */
-    public Double defaultValue() {
-        return this.defaultValue;
+    public Optional<Double> defaultValue() {
+        return Optional.ofNullable(this.defaultValue);
     }
     /**
      * @return Whether the service quota is global for the AWS account.
      * 
      */
-    public Boolean globalQuota() {
-        return this.globalQuota;
+    public Optional<Boolean> globalQuota() {
+        return Optional.ofNullable(this.globalQuota);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String quotaCode() {
-        return this.quotaCode;
+    public Optional<String> quotaCode() {
+        return Optional.ofNullable(this.quotaCode);
     }
-    public String quotaName() {
-        return this.quotaName;
+    public Optional<String> quotaName() {
+        return Optional.ofNullable(this.quotaName);
     }
     public String serviceCode() {
         return this.serviceCode;
@@ -106,22 +108,22 @@ public final class GetServiceQuotaResult {
      * @return Name of the service.
      * 
      */
-    public String serviceName() {
-        return this.serviceName;
+    public Optional<String> serviceName() {
+        return Optional.ofNullable(this.serviceName);
     }
     /**
      * @return Information about the measurement.
      * 
      */
     public List<GetServiceQuotaUsageMetric> usageMetrics() {
-        return this.usageMetrics;
+        return this.usageMetrics == null ? List.of() : this.usageMetrics;
     }
     /**
      * @return Current value of the service quota.
      * 
      */
-    public Double value() {
-        return this.value;
+    public Optional<Double> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -133,17 +135,17 @@ public final class GetServiceQuotaResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean adjustable;
-        private String arn;
-        private Double defaultValue;
-        private Boolean globalQuota;
-        private String id;
-        private String quotaCode;
-        private String quotaName;
+        private @Nullable Boolean adjustable;
+        private @Nullable String arn;
+        private @Nullable Double defaultValue;
+        private @Nullable Boolean globalQuota;
+        private @Nullable String id;
+        private @Nullable String quotaCode;
+        private @Nullable String quotaName;
         private String serviceCode;
-        private String serviceName;
-        private List<GetServiceQuotaUsageMetric> usageMetrics;
-        private Double value;
+        private @Nullable String serviceName;
+        private @Nullable List<GetServiceQuotaUsageMetric> usageMetrics;
+        private @Nullable Double value;
         public Builder() {}
         public Builder(GetServiceQuotaResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -161,38 +163,38 @@ public final class GetServiceQuotaResult {
         }
 
         @CustomType.Setter
-        public Builder adjustable(Boolean adjustable) {
-            this.adjustable = Objects.requireNonNull(adjustable);
+        public Builder adjustable(@Nullable Boolean adjustable) {
+            this.adjustable = adjustable;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultValue(Double defaultValue) {
-            this.defaultValue = Objects.requireNonNull(defaultValue);
+        public Builder defaultValue(@Nullable Double defaultValue) {
+            this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
-        public Builder globalQuota(Boolean globalQuota) {
-            this.globalQuota = Objects.requireNonNull(globalQuota);
+        public Builder globalQuota(@Nullable Boolean globalQuota) {
+            this.globalQuota = globalQuota;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder quotaCode(String quotaCode) {
-            this.quotaCode = Objects.requireNonNull(quotaCode);
+        public Builder quotaCode(@Nullable String quotaCode) {
+            this.quotaCode = quotaCode;
             return this;
         }
         @CustomType.Setter
-        public Builder quotaName(String quotaName) {
-            this.quotaName = Objects.requireNonNull(quotaName);
+        public Builder quotaName(@Nullable String quotaName) {
+            this.quotaName = quotaName;
             return this;
         }
         @CustomType.Setter
@@ -201,21 +203,21 @@ public final class GetServiceQuotaResult {
             return this;
         }
         @CustomType.Setter
-        public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+        public Builder serviceName(@Nullable String serviceName) {
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder usageMetrics(List<GetServiceQuotaUsageMetric> usageMetrics) {
-            this.usageMetrics = Objects.requireNonNull(usageMetrics);
+        public Builder usageMetrics(@Nullable List<GetServiceQuotaUsageMetric> usageMetrics) {
+            this.usageMetrics = usageMetrics;
             return this;
         }
         public Builder usageMetrics(GetServiceQuotaUsageMetric... usageMetrics) {
             return usageMetrics(List.of(usageMetrics));
         }
         @CustomType.Setter
-        public Builder value(Double value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable Double value) {
+            this.value = value;
             return this;
         }
         public GetServiceQuotaResult build() {

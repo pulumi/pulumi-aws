@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicySecurityHeadersConfigFrameOption {
@@ -14,27 +16,27 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigFrameOption {
      * @return Value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
      * 
      */
-    private String frameOption;
+    private @Nullable String frameOption;
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private Boolean override;
+    private @Nullable Boolean override;
 
     private GetResponseHeadersPolicySecurityHeadersConfigFrameOption() {}
     /**
      * @return Value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
      * 
      */
-    public String frameOption() {
-        return this.frameOption;
+    public Optional<String> frameOption() {
+        return Optional.ofNullable(this.frameOption);
     }
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    public Boolean override() {
-        return this.override;
+    public Optional<Boolean> override() {
+        return Optional.ofNullable(this.override);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigFrameOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String frameOption;
-        private Boolean override;
+        private @Nullable String frameOption;
+        private @Nullable Boolean override;
         public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfigFrameOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigFrameOption {
         }
 
         @CustomType.Setter
-        public Builder frameOption(String frameOption) {
-            this.frameOption = Objects.requireNonNull(frameOption);
+        public Builder frameOption(@Nullable String frameOption) {
+            this.frameOption = frameOption;
             return this;
         }
         @CustomType.Setter
-        public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+        public Builder override(@Nullable Boolean override) {
+            this.override = override;
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigFrameOption build() {

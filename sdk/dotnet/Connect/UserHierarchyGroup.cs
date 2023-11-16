@@ -84,13 +84,13 @@ namespace Pulumi.Aws.Connect
         /// The Amazon Resource Name (ARN) of the hierarchy group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the hierarchy group.
         /// </summary>
         [Output("hierarchyGroupId")]
-        public Output<string> HierarchyGroupId { get; private set; } = null!;
+        public Output<string?> HierarchyGroupId { get; private set; } = null!;
 
         /// <summary>
         /// A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Connect
         /// The identifier of the level in the hierarchy group.
         /// </summary>
         [Output("levelId")]
-        public Output<string> LevelId { get; private set; } = null!;
+        public Output<string?> LevelId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the user hierarchy group. Must not be more than 100 characters.

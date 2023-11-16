@@ -55,7 +55,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN identifying your CloudFront Function.
         """
@@ -63,7 +63,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def code(self) -> str:
+    def code(self) -> Optional[str]:
         """
         Source code of the function
         """
@@ -71,7 +71,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def comment(self) -> str:
+    def comment(self) -> Optional[str]:
         """
         Comment.
         """
@@ -79,7 +79,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> Optional[str]:
         """
         ETag hash of the function
         """
@@ -87,7 +87,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -95,7 +95,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> Optional[str]:
         """
         When this resource was last modified.
         """
@@ -108,7 +108,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def runtime(self) -> str:
+    def runtime(self) -> Optional[str]:
         """
         Identifier of the function's runtime.
         """
@@ -121,7 +121,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         """

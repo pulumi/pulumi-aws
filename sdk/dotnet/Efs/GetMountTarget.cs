@@ -133,41 +133,41 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
         /// </summary>
-        public readonly string AvailabilityZoneId;
+        public readonly string? AvailabilityZoneId;
         /// <summary>
         /// The name of the Availability Zone (AZ) that the mount target resides in.
         /// </summary>
-        public readonly string AvailabilityZoneName;
+        public readonly string? AvailabilityZoneName;
         /// <summary>
         /// DNS name for the EFS file system.
         /// </summary>
-        public readonly string DnsName;
+        public readonly string? DnsName;
         /// <summary>
         /// Amazon Resource Name of the file system for which the mount target is intended.
         /// </summary>
-        public readonly string FileSystemArn;
-        public readonly string FileSystemId;
+        public readonly string? FileSystemArn;
+        public readonly string? FileSystemId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Address at which the file system may be mounted via the mount target.
         /// </summary>
-        public readonly string IpAddress;
+        public readonly string? IpAddress;
         /// <summary>
         /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         /// </summary>
-        public readonly string MountTargetDnsName;
-        public readonly string MountTargetId;
+        public readonly string? MountTargetDnsName;
+        public readonly string? MountTargetId;
         /// <summary>
         /// The ID of the network interface that Amazon EFS created when it created the mount target.
         /// </summary>
-        public readonly string NetworkInterfaceId;
+        public readonly string? NetworkInterfaceId;
         /// <summary>
         /// AWS account ID that owns the resource.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// List of VPC security group IDs attached to the mount target.
         /// </summary>
@@ -175,37 +175,37 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// ID of the mount target's subnet.
         /// </summary>
-        public readonly string SubnetId;
+        public readonly string? SubnetId;
 
         [OutputConstructor]
         private GetMountTargetResult(
             string? accessPointId,
 
-            string availabilityZoneId,
+            string? availabilityZoneId,
 
-            string availabilityZoneName,
+            string? availabilityZoneName,
 
-            string dnsName,
+            string? dnsName,
 
-            string fileSystemArn,
+            string? fileSystemArn,
 
-            string fileSystemId,
+            string? fileSystemId,
 
-            string id,
+            string? id,
 
-            string ipAddress,
+            string? ipAddress,
 
-            string mountTargetDnsName,
+            string? mountTargetDnsName,
 
-            string mountTargetId,
+            string? mountTargetId,
 
-            string networkInterfaceId,
+            string? networkInterfaceId,
 
-            string ownerId,
+            string? ownerId,
 
             ImmutableArray<string> securityGroups,
 
-            string subnetId)
+            string? subnetId)
         {
             AccessPointId = accessPointId;
             AvailabilityZoneId = availabilityZoneId;

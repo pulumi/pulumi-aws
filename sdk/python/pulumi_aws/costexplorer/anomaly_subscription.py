@@ -706,7 +706,7 @@ class AnomalySubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         """
@@ -714,7 +714,7 @@ class AnomalySubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the anomaly subscription.
         """
@@ -773,7 +773,7 @@ class AnomalySubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thresholdExpression")
-    def threshold_expression(self) -> pulumi.Output['outputs.AnomalySubscriptionThresholdExpression']:
+    def threshold_expression(self) -> pulumi.Output[Optional['outputs.AnomalySubscriptionThresholdExpression']]:
         """
         An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """

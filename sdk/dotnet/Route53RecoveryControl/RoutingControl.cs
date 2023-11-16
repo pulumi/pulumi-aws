@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// ARN of the routing control.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the cluster in which this routing control will reside.
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// ARN of the control panel in which this routing control will reside.
         /// </summary>
         [Output("controlPanelArn")]
-        public Output<string> ControlPanelArn { get; private set; } = null!;
+        public Output<string?> ControlPanelArn { get; private set; } = null!;
 
         /// <summary>
         /// The name describing the routing control.
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

@@ -13,42 +13,44 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultAction {
-    private List<GetListenerDefaultActionAuthenticateCognito> authenticateCognitos;
-    private List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs;
-    private List<GetListenerDefaultActionFixedResponse> fixedResponses;
-    private List<GetListenerDefaultActionForward> forwards;
-    private Integer order;
-    private List<GetListenerDefaultActionRedirect> redirects;
-    private String targetGroupArn;
-    private String type;
+    private @Nullable List<GetListenerDefaultActionAuthenticateCognito> authenticateCognitos;
+    private @Nullable List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs;
+    private @Nullable List<GetListenerDefaultActionFixedResponse> fixedResponses;
+    private @Nullable List<GetListenerDefaultActionForward> forwards;
+    private @Nullable Integer order;
+    private @Nullable List<GetListenerDefaultActionRedirect> redirects;
+    private @Nullable String targetGroupArn;
+    private @Nullable String type;
 
     private GetListenerDefaultAction() {}
     public List<GetListenerDefaultActionAuthenticateCognito> authenticateCognitos() {
-        return this.authenticateCognitos;
+        return this.authenticateCognitos == null ? List.of() : this.authenticateCognitos;
     }
     public List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs() {
-        return this.authenticateOidcs;
+        return this.authenticateOidcs == null ? List.of() : this.authenticateOidcs;
     }
     public List<GetListenerDefaultActionFixedResponse> fixedResponses() {
-        return this.fixedResponses;
+        return this.fixedResponses == null ? List.of() : this.fixedResponses;
     }
     public List<GetListenerDefaultActionForward> forwards() {
-        return this.forwards;
+        return this.forwards == null ? List.of() : this.forwards;
     }
-    public Integer order() {
-        return this.order;
+    public Optional<Integer> order() {
+        return Optional.ofNullable(this.order);
     }
     public List<GetListenerDefaultActionRedirect> redirects() {
-        return this.redirects;
+        return this.redirects == null ? List.of() : this.redirects;
     }
-    public String targetGroupArn() {
-        return this.targetGroupArn;
+    public Optional<String> targetGroupArn() {
+        return Optional.ofNullable(this.targetGroupArn);
     }
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -60,14 +62,14 @@ public final class GetListenerDefaultAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetListenerDefaultActionAuthenticateCognito> authenticateCognitos;
-        private List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs;
-        private List<GetListenerDefaultActionFixedResponse> fixedResponses;
-        private List<GetListenerDefaultActionForward> forwards;
-        private Integer order;
-        private List<GetListenerDefaultActionRedirect> redirects;
-        private String targetGroupArn;
-        private String type;
+        private @Nullable List<GetListenerDefaultActionAuthenticateCognito> authenticateCognitos;
+        private @Nullable List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs;
+        private @Nullable List<GetListenerDefaultActionFixedResponse> fixedResponses;
+        private @Nullable List<GetListenerDefaultActionForward> forwards;
+        private @Nullable Integer order;
+        private @Nullable List<GetListenerDefaultActionRedirect> redirects;
+        private @Nullable String targetGroupArn;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetListenerDefaultAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -82,58 +84,58 @@ public final class GetListenerDefaultAction {
         }
 
         @CustomType.Setter
-        public Builder authenticateCognitos(List<GetListenerDefaultActionAuthenticateCognito> authenticateCognitos) {
-            this.authenticateCognitos = Objects.requireNonNull(authenticateCognitos);
+        public Builder authenticateCognitos(@Nullable List<GetListenerDefaultActionAuthenticateCognito> authenticateCognitos) {
+            this.authenticateCognitos = authenticateCognitos;
             return this;
         }
         public Builder authenticateCognitos(GetListenerDefaultActionAuthenticateCognito... authenticateCognitos) {
             return authenticateCognitos(List.of(authenticateCognitos));
         }
         @CustomType.Setter
-        public Builder authenticateOidcs(List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs) {
-            this.authenticateOidcs = Objects.requireNonNull(authenticateOidcs);
+        public Builder authenticateOidcs(@Nullable List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs) {
+            this.authenticateOidcs = authenticateOidcs;
             return this;
         }
         public Builder authenticateOidcs(GetListenerDefaultActionAuthenticateOidc... authenticateOidcs) {
             return authenticateOidcs(List.of(authenticateOidcs));
         }
         @CustomType.Setter
-        public Builder fixedResponses(List<GetListenerDefaultActionFixedResponse> fixedResponses) {
-            this.fixedResponses = Objects.requireNonNull(fixedResponses);
+        public Builder fixedResponses(@Nullable List<GetListenerDefaultActionFixedResponse> fixedResponses) {
+            this.fixedResponses = fixedResponses;
             return this;
         }
         public Builder fixedResponses(GetListenerDefaultActionFixedResponse... fixedResponses) {
             return fixedResponses(List.of(fixedResponses));
         }
         @CustomType.Setter
-        public Builder forwards(List<GetListenerDefaultActionForward> forwards) {
-            this.forwards = Objects.requireNonNull(forwards);
+        public Builder forwards(@Nullable List<GetListenerDefaultActionForward> forwards) {
+            this.forwards = forwards;
             return this;
         }
         public Builder forwards(GetListenerDefaultActionForward... forwards) {
             return forwards(List.of(forwards));
         }
         @CustomType.Setter
-        public Builder order(Integer order) {
-            this.order = Objects.requireNonNull(order);
+        public Builder order(@Nullable Integer order) {
+            this.order = order;
             return this;
         }
         @CustomType.Setter
-        public Builder redirects(List<GetListenerDefaultActionRedirect> redirects) {
-            this.redirects = Objects.requireNonNull(redirects);
+        public Builder redirects(@Nullable List<GetListenerDefaultActionRedirect> redirects) {
+            this.redirects = redirects;
             return this;
         }
         public Builder redirects(GetListenerDefaultActionRedirect... redirects) {
             return redirects(List.of(redirects));
         }
         @CustomType.Setter
-        public Builder targetGroupArn(String targetGroupArn) {
-            this.targetGroupArn = Objects.requireNonNull(targetGroupArn);
+        public Builder targetGroupArn(@Nullable String targetGroupArn) {
+            this.targetGroupArn = targetGroupArn;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetListenerDefaultAction build() {

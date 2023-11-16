@@ -92,9 +92,9 @@ type LicenseAssociation struct {
 	pulumi.CustomResourceState
 
 	// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
-	FreeTrialExpiration pulumi.StringOutput `pulumi:"freeTrialExpiration"`
+	FreeTrialExpiration pulumi.StringPtrOutput `pulumi:"freeTrialExpiration"`
 	// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-	LicenseExpiration pulumi.StringOutput `pulumi:"licenseExpiration"`
+	LicenseExpiration pulumi.StringPtrOutput `pulumi:"licenseExpiration"`
 	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// The workspace id.
@@ -265,13 +265,13 @@ func (o LicenseAssociationOutput) ToLicenseAssociationOutputWithContext(ctx cont
 }
 
 // If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
-func (o LicenseAssociationOutput) FreeTrialExpiration() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.FreeTrialExpiration }).(pulumi.StringOutput)
+func (o LicenseAssociationOutput) FreeTrialExpiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringPtrOutput { return v.FreeTrialExpiration }).(pulumi.StringPtrOutput)
 }
 
 // If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-func (o LicenseAssociationOutput) LicenseExpiration() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.LicenseExpiration }).(pulumi.StringOutput)
+func (o LicenseAssociationOutput) LicenseExpiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringPtrOutput { return v.LicenseExpiration }).(pulumi.StringPtrOutput)
 }
 
 // The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.

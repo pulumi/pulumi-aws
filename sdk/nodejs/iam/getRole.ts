@@ -53,48 +53,48 @@ export interface GetRoleResult {
     /**
      * ARN of the role.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Policy document associated with the role.
      */
-    readonly assumeRolePolicy: string;
+    readonly assumeRolePolicy?: string;
     /**
      * Creation date of the role in RFC 3339 format.
      */
-    readonly createDate: string;
+    readonly createDate?: string;
     /**
      * Description for the role.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Maximum session duration.
      */
-    readonly maxSessionDuration: number;
+    readonly maxSessionDuration?: number;
     readonly name: string;
     /**
      * Path to the role.
      */
-    readonly path: string;
+    readonly path?: string;
     /**
      * The ARN of the policy that is used to set the permissions boundary for the role.
      */
-    readonly permissionsBoundary: string;
+    readonly permissionsBoundary?: string;
     /**
      * Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
      */
-    readonly roleLastUseds: outputs.iam.GetRoleRoleLastUsed[];
+    readonly roleLastUseds?: outputs.iam.GetRoleRoleLastUsed[];
     /**
      * Tags attached to the role.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Stable and unique string identifying the role.
      */
-    readonly uniqueId: string;
+    readonly uniqueId?: string;
 }
 /**
  * This data source can be used to fetch information about a specific

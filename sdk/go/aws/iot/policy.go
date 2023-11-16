@@ -71,9 +71,9 @@ type Policy struct {
 	pulumi.CustomResourceState
 
 	// The ARN assigned by AWS to this policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The default version of this policy.
-	DefaultVersionId pulumi.StringOutput `pulumi:"defaultVersionId"`
+	DefaultVersionId pulumi.StringPtrOutput `pulumi:"defaultVersionId"`
 	// The name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
@@ -241,13 +241,13 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 }
 
 // The ARN assigned by AWS to this policy.
-func (o PolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The default version of this policy.
-func (o PolicyOutput) DefaultVersionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.DefaultVersionId }).(pulumi.StringOutput)
+func (o PolicyOutput) DefaultVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.DefaultVersionId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the policy.

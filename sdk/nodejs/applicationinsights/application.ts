@@ -64,7 +64,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * ARN of the Application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
      */

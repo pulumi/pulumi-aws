@@ -461,7 +461,7 @@ class ExportTask(pulumi.CustomResource):
                 },
             }],
         }))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[
+        example_policy_document = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 actions=["s3:ListAllMyBuckets"],
                 resources=["*"],
@@ -471,7 +471,7 @@ class ExportTask(pulumi.CustomResource):
                     "s3:GetBucketLocation",
                     "s3:ListBucket",
                 ],
-                resources=[example_bucket_v2.arn],
+                resources=[example_bucket_v2_arn],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 actions=[
@@ -479,9 +479,9 @@ class ExportTask(pulumi.CustomResource):
                     "s3:PutObject",
                     "s3:DeleteObject",
                 ],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+                resources=[f"{example_bucket_v2_arn1}/*"],
             ),
-        ])
+        ]))
         example_policy = aws.iam.Policy("examplePolicy", policy=example_policy_document.json)
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
             role=example_role.name,
@@ -576,7 +576,7 @@ class ExportTask(pulumi.CustomResource):
                 },
             }],
         }))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[
+        example_policy_document = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 actions=["s3:ListAllMyBuckets"],
                 resources=["*"],
@@ -586,7 +586,7 @@ class ExportTask(pulumi.CustomResource):
                     "s3:GetBucketLocation",
                     "s3:ListBucket",
                 ],
-                resources=[example_bucket_v2.arn],
+                resources=[example_bucket_v2_arn],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 actions=[
@@ -594,9 +594,9 @@ class ExportTask(pulumi.CustomResource):
                     "s3:PutObject",
                     "s3:DeleteObject",
                 ],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+                resources=[f"{example_bucket_v2_arn1}/*"],
             ),
-        ])
+        ]))
         example_policy = aws.iam.Policy("examplePolicy", policy=example_policy_document.json)
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
             role=example_role.name,
@@ -783,7 +783,7 @@ class ExportTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failureCause")
-    def failure_cause(self) -> pulumi.Output[str]:
+    def failure_cause(self) -> pulumi.Output[Optional[str]]:
         """
         Reason the export failed, if it failed.
         """
@@ -807,7 +807,7 @@ class ExportTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="percentProgress")
-    def percent_progress(self) -> pulumi.Output[int]:
+    def percent_progress(self) -> pulumi.Output[Optional[int]]:
         """
         Progress of the snapshot export task as a percentage.
         """
@@ -823,7 +823,7 @@ class ExportTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> pulumi.Output[str]:
+    def s3_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         """
@@ -831,7 +831,7 @@ class ExportTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotTime")
-    def snapshot_time(self) -> pulumi.Output[str]:
+    def snapshot_time(self) -> pulumi.Output[Optional[str]]:
         """
         Time that the snapshot was created.
         """
@@ -849,7 +849,7 @@ class ExportTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> pulumi.Output[str]:
+    def source_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of source for the export.
         """
@@ -857,7 +857,7 @@ class ExportTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the export task.
         """
@@ -865,7 +865,7 @@ class ExportTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="taskEndTime")
-    def task_end_time(self) -> pulumi.Output[str]:
+    def task_end_time(self) -> pulumi.Output[Optional[str]]:
         """
         Time that the snapshot export task completed.
         """
@@ -873,7 +873,7 @@ class ExportTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="taskStartTime")
-    def task_start_time(self) -> pulumi.Output[str]:
+    def task_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         Time that the snapshot export task started.
         """
@@ -886,7 +886,7 @@ class ExportTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="warningMessage")
-    def warning_message(self) -> pulumi.Output[str]:
+    def warning_message(self) -> pulumi.Output[Optional[str]]:
         """
         Warning about the snapshot export task, if any.
         """

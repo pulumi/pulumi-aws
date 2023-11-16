@@ -5008,17 +5008,17 @@ func (o ServerlessClusterVpcConfigArrayOutput) Index(i pulumi.IntInput) Serverle
 
 type GetBrokerNodesNodeInfoList struct {
 	// Attached elastic network interface of the broker
-	AttachedEniId string `pulumi:"attachedEniId"`
+	AttachedEniId *string `pulumi:"attachedEniId"`
 	// ID of the broker
-	BrokerId float64 `pulumi:"brokerId"`
+	BrokerId *float64 `pulumi:"brokerId"`
 	// Client subnet to which this broker node belongs
-	ClientSubnet string `pulumi:"clientSubnet"`
+	ClientSubnet *string `pulumi:"clientSubnet"`
 	// The client virtual private cloud (VPC) IP address
-	ClientVpcIpAddress string `pulumi:"clientVpcIpAddress"`
+	ClientVpcIpAddress *string `pulumi:"clientVpcIpAddress"`
 	// Set of endpoints for accessing the broker. This does not include ports
 	Endpoints []string `pulumi:"endpoints"`
 	// ARN of the node
-	NodeArn string `pulumi:"nodeArn"`
+	NodeArn *string `pulumi:"nodeArn"`
 }
 
 // GetBrokerNodesNodeInfoListInput is an input type that accepts GetBrokerNodesNodeInfoListArgs and GetBrokerNodesNodeInfoListOutput values.
@@ -5034,17 +5034,17 @@ type GetBrokerNodesNodeInfoListInput interface {
 
 type GetBrokerNodesNodeInfoListArgs struct {
 	// Attached elastic network interface of the broker
-	AttachedEniId pulumi.StringInput `pulumi:"attachedEniId"`
+	AttachedEniId pulumi.StringPtrInput `pulumi:"attachedEniId"`
 	// ID of the broker
-	BrokerId pulumi.Float64Input `pulumi:"brokerId"`
+	BrokerId pulumi.Float64PtrInput `pulumi:"brokerId"`
 	// Client subnet to which this broker node belongs
-	ClientSubnet pulumi.StringInput `pulumi:"clientSubnet"`
+	ClientSubnet pulumi.StringPtrInput `pulumi:"clientSubnet"`
 	// The client virtual private cloud (VPC) IP address
-	ClientVpcIpAddress pulumi.StringInput `pulumi:"clientVpcIpAddress"`
+	ClientVpcIpAddress pulumi.StringPtrInput `pulumi:"clientVpcIpAddress"`
 	// Set of endpoints for accessing the broker. This does not include ports
 	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
 	// ARN of the node
-	NodeArn pulumi.StringInput `pulumi:"nodeArn"`
+	NodeArn pulumi.StringPtrInput `pulumi:"nodeArn"`
 }
 
 func (GetBrokerNodesNodeInfoListArgs) ElementType() reflect.Type {
@@ -5099,23 +5099,23 @@ func (o GetBrokerNodesNodeInfoListOutput) ToGetBrokerNodesNodeInfoListOutputWith
 }
 
 // Attached elastic network interface of the broker
-func (o GetBrokerNodesNodeInfoListOutput) AttachedEniId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.AttachedEniId }).(pulumi.StringOutput)
+func (o GetBrokerNodesNodeInfoListOutput) AttachedEniId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) *string { return v.AttachedEniId }).(pulumi.StringPtrOutput)
 }
 
 // ID of the broker
-func (o GetBrokerNodesNodeInfoListOutput) BrokerId() pulumi.Float64Output {
-	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) float64 { return v.BrokerId }).(pulumi.Float64Output)
+func (o GetBrokerNodesNodeInfoListOutput) BrokerId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) *float64 { return v.BrokerId }).(pulumi.Float64PtrOutput)
 }
 
 // Client subnet to which this broker node belongs
-func (o GetBrokerNodesNodeInfoListOutput) ClientSubnet() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.ClientSubnet }).(pulumi.StringOutput)
+func (o GetBrokerNodesNodeInfoListOutput) ClientSubnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) *string { return v.ClientSubnet }).(pulumi.StringPtrOutput)
 }
 
 // The client virtual private cloud (VPC) IP address
-func (o GetBrokerNodesNodeInfoListOutput) ClientVpcIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.ClientVpcIpAddress }).(pulumi.StringOutput)
+func (o GetBrokerNodesNodeInfoListOutput) ClientVpcIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) *string { return v.ClientVpcIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // Set of endpoints for accessing the broker. This does not include ports
@@ -5124,8 +5124,8 @@ func (o GetBrokerNodesNodeInfoListOutput) Endpoints() pulumi.StringArrayOutput {
 }
 
 // ARN of the node
-func (o GetBrokerNodesNodeInfoListOutput) NodeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.NodeArn }).(pulumi.StringOutput)
+func (o GetBrokerNodesNodeInfoListOutput) NodeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) *string { return v.NodeArn }).(pulumi.StringPtrOutput)
 }
 
 type GetBrokerNodesNodeInfoListArrayOutput struct{ *pulumi.OutputState }

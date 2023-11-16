@@ -201,18 +201,20 @@ class GetDirectConnectGatewayAttachmentFilterResult(dict):
 @pulumi.output_type
 class GetMulticastDomainAssociationResult(dict):
     def __init__(__self__, *,
-                 subnet_id: str,
-                 transit_gateway_attachment_id: str):
+                 subnet_id: Optional[str] = None,
+                 transit_gateway_attachment_id: Optional[str] = None):
         """
         :param str subnet_id: The ID of the subnet associated with the transit gateway multicast domain.
         :param str transit_gateway_attachment_id: The ID of the transit gateway attachment.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if transit_gateway_attachment_id is not None:
+            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> Optional[str]:
         """
         The ID of the subnet associated with the transit gateway multicast domain.
         """
@@ -220,7 +222,7 @@ class GetMulticastDomainAssociationResult(dict):
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> str:
+    def transit_gateway_attachment_id(self) -> Optional[str]:
         """
         The ID of the transit gateway attachment.
         """
@@ -259,18 +261,20 @@ class GetMulticastDomainFilterResult(dict):
 @pulumi.output_type
 class GetMulticastDomainMemberResult(dict):
     def __init__(__self__, *,
-                 group_ip_address: str,
-                 network_interface_id: str):
+                 group_ip_address: Optional[str] = None,
+                 network_interface_id: Optional[str] = None):
         """
         :param str group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param str network_interface_id: The group members' network interface ID.
         """
-        pulumi.set(__self__, "group_ip_address", group_ip_address)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if group_ip_address is not None:
+            pulumi.set(__self__, "group_ip_address", group_ip_address)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="groupIpAddress")
-    def group_ip_address(self) -> str:
+    def group_ip_address(self) -> Optional[str]:
         """
         The IP address assigned to the transit gateway multicast group.
         """
@@ -278,7 +282,7 @@ class GetMulticastDomainMemberResult(dict):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> Optional[str]:
         """
         The group members' network interface ID.
         """
@@ -288,18 +292,20 @@ class GetMulticastDomainMemberResult(dict):
 @pulumi.output_type
 class GetMulticastDomainSourceResult(dict):
     def __init__(__self__, *,
-                 group_ip_address: str,
-                 network_interface_id: str):
+                 group_ip_address: Optional[str] = None,
+                 network_interface_id: Optional[str] = None):
         """
         :param str group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param str network_interface_id: The group members' network interface ID.
         """
-        pulumi.set(__self__, "group_ip_address", group_ip_address)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if group_ip_address is not None:
+            pulumi.set(__self__, "group_ip_address", group_ip_address)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="groupIpAddress")
-    def group_ip_address(self) -> str:
+    def group_ip_address(self) -> Optional[str]:
         """
         The IP address assigned to the transit gateway multicast group.
         """
@@ -307,7 +313,7 @@ class GetMulticastDomainSourceResult(dict):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> Optional[str]:
         """
         The group members' network interface ID.
         """
@@ -476,11 +482,11 @@ class GetRouteTableRoutesFilterResult(dict):
 @pulumi.output_type
 class GetRouteTableRoutesRouteResult(dict):
     def __init__(__self__, *,
-                 destination_cidr_block: str,
-                 prefix_list_id: str,
-                 state: str,
-                 transit_gateway_route_table_announcement_id: str,
-                 type: str):
+                 destination_cidr_block: Optional[str] = None,
+                 prefix_list_id: Optional[str] = None,
+                 state: Optional[str] = None,
+                 transit_gateway_route_table_announcement_id: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param str destination_cidr_block: The CIDR used for route destination matches.
         :param str prefix_list_id: The ID of the prefix list used for destination matches.
@@ -488,15 +494,20 @@ class GetRouteTableRoutesRouteResult(dict):
         :param str transit_gateway_route_table_announcement_id: The id of the transit gateway route table announcement, most of the time it is an empty string.
         :param str type: The type of the route, can be `propagated` or `static`.
         """
-        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "transit_gateway_route_table_announcement_id", transit_gateway_route_table_announcement_id)
-        pulumi.set(__self__, "type", type)
+        if destination_cidr_block is not None:
+            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if transit_gateway_route_table_announcement_id is not None:
+            pulumi.set(__self__, "transit_gateway_route_table_announcement_id", transit_gateway_route_table_announcement_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> str:
+    def destination_cidr_block(self) -> Optional[str]:
         """
         The CIDR used for route destination matches.
         """
@@ -504,7 +515,7 @@ class GetRouteTableRoutesRouteResult(dict):
 
     @property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> str:
+    def prefix_list_id(self) -> Optional[str]:
         """
         The ID of the prefix list used for destination matches.
         """
@@ -512,7 +523,7 @@ class GetRouteTableRoutesRouteResult(dict):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
         """
@@ -520,7 +531,7 @@ class GetRouteTableRoutesRouteResult(dict):
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableAnnouncementId")
-    def transit_gateway_route_table_announcement_id(self) -> str:
+    def transit_gateway_route_table_announcement_id(self) -> Optional[str]:
         """
         The id of the transit gateway route table announcement, most of the time it is an empty string.
         """
@@ -528,7 +539,7 @@ class GetRouteTableRoutesRouteResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The type of the route, can be `propagated` or `static`.
         """

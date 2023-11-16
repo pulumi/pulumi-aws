@@ -356,7 +356,7 @@ class ResourceServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scopeIdentifiers")
-    def scope_identifiers(self) -> pulumi.Output[Sequence[str]]:
+    def scope_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of all scopes configured for this resource server in the format identifier/scope_name.
         """

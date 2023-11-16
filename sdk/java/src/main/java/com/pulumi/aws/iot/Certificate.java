@@ -132,14 +132,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the created certificate.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
@@ -164,7 +164,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificatePem", refs={String.class}, tree="[0]")
-    private Output<String> certificatePem;
+    private Output</* @Nullable */ String> certificatePem;
 
     /**
      * @return The certificate to be registered. If `ca_pem` is unspecified, review
@@ -174,8 +174,8 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * for more information on registering a certificate.
      * 
      */
-    public Output<String> certificatePem() {
-        return this.certificatePem;
+    public Output<Optional<String>> certificatePem() {
+        return Codegen.optional(this.certificatePem);
     }
     /**
      * The certificate signing request. Review
@@ -204,28 +204,28 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
-    private Output<String> privateKey;
+    private Output</* @Nullable */ String> privateKey;
 
     /**
      * @return When neither CSR nor certificate is provided, the private key.
      * 
      */
-    public Output<String> privateKey() {
-        return this.privateKey;
+    public Output<Optional<String>> privateKey() {
+        return Codegen.optional(this.privateKey);
     }
     /**
      * When neither CSR nor certificate is provided, the public key.
      * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
-    private Output<String> publicKey;
+    private Output</* @Nullable */ String> publicKey;
 
     /**
      * @return When neither CSR nor certificate is provided, the public key.
      * 
      */
-    public Output<String> publicKey() {
-        return this.publicKey;
+    public Output<Optional<String>> publicKey() {
+        return Codegen.optional(this.publicKey);
     }
 
     /**

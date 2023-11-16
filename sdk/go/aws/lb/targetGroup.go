@@ -184,41 +184,41 @@ type TargetGroup struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Target Group (matches `id`).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN suffix for use with CloudWatch Metrics.
-	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
+	ArnSuffix pulumi.StringPtrOutput `pulumi:"arnSuffix"`
 	// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-	ConnectionTermination pulumi.BoolOutput `pulumi:"connectionTermination"`
+	ConnectionTermination pulumi.BoolPtrOutput `pulumi:"connectionTermination"`
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
 	DeregistrationDelay pulumi.IntPtrOutput `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
-	HealthCheck TargetGroupHealthCheckOutput `pulumi:"healthCheck"`
+	HealthCheck TargetGroupHealthCheckPtrOutput `pulumi:"healthCheck"`
 	// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
+	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
 	LambdaMultiValueHeadersEnabled pulumi.BoolPtrOutput `pulumi:"lambdaMultiValueHeadersEnabled"`
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
-	LoadBalancingAlgorithmType pulumi.StringOutput `pulumi:"loadBalancingAlgorithmType"`
+	LoadBalancingAlgorithmType pulumi.StringPtrOutput `pulumi:"loadBalancingAlgorithmType"`
 	// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
-	LoadBalancingCrossZoneEnabled pulumi.StringOutput `pulumi:"loadBalancingCrossZoneEnabled"`
+	LoadBalancingCrossZoneEnabled pulumi.StringPtrOutput `pulumi:"loadBalancingCrossZoneEnabled"`
 	// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-	PreserveClientIp pulumi.StringOutput `pulumi:"preserveClientIp"`
+	PreserveClientIp pulumi.StringPtrOutput `pulumi:"preserveClientIp"`
 	// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-	ProtocolVersion pulumi.StringOutput `pulumi:"protocolVersion"`
+	ProtocolVersion pulumi.StringPtrOutput `pulumi:"protocolVersion"`
 	// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
 	ProxyProtocolV2 pulumi.BoolPtrOutput `pulumi:"proxyProtocolV2"`
 	// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
 	SlowStart pulumi.IntPtrOutput `pulumi:"slowStart"`
 	// Stickiness configuration block. Detailed below.
-	Stickiness TargetGroupStickinessOutput `pulumi:"stickiness"`
+	Stickiness TargetGroupStickinessPtrOutput `pulumi:"stickiness"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -603,18 +603,18 @@ func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) T
 }
 
 // ARN of the Target Group (matches `id`).
-func (o TargetGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TargetGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN suffix for use with CloudWatch Metrics.
-func (o TargetGroupOutput) ArnSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.ArnSuffix }).(pulumi.StringOutput)
+func (o TargetGroupOutput) ArnSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.ArnSuffix }).(pulumi.StringPtrOutput)
 }
 
 // Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-func (o TargetGroupOutput) ConnectionTermination() pulumi.BoolOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.BoolOutput { return v.ConnectionTermination }).(pulumi.BoolOutput)
+func (o TargetGroupOutput) ConnectionTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.BoolPtrOutput { return v.ConnectionTermination }).(pulumi.BoolPtrOutput)
 }
 
 // Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
@@ -623,13 +623,13 @@ func (o TargetGroupOutput) DeregistrationDelay() pulumi.IntPtrOutput {
 }
 
 // Health Check configuration block. Detailed below.
-func (o TargetGroupOutput) HealthCheck() TargetGroupHealthCheckOutput {
-	return o.ApplyT(func(v *TargetGroup) TargetGroupHealthCheckOutput { return v.HealthCheck }).(TargetGroupHealthCheckOutput)
+func (o TargetGroupOutput) HealthCheck() TargetGroupHealthCheckPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) TargetGroupHealthCheckPtrOutput { return v.HealthCheck }).(TargetGroupHealthCheckPtrOutput)
 }
 
 // The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-func (o TargetGroupOutput) IpAddressType() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
+func (o TargetGroupOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
 // Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
@@ -638,13 +638,13 @@ func (o TargetGroupOutput) LambdaMultiValueHeadersEnabled() pulumi.BoolPtrOutput
 }
 
 // Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
-func (o TargetGroupOutput) LoadBalancingAlgorithmType() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.LoadBalancingAlgorithmType }).(pulumi.StringOutput)
+func (o TargetGroupOutput) LoadBalancingAlgorithmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.LoadBalancingAlgorithmType }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
-func (o TargetGroupOutput) LoadBalancingCrossZoneEnabled() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.LoadBalancingCrossZoneEnabled }).(pulumi.StringOutput)
+func (o TargetGroupOutput) LoadBalancingCrossZoneEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.LoadBalancingCrossZoneEnabled }).(pulumi.StringPtrOutput)
 }
 
 // Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
@@ -653,8 +653,8 @@ func (o TargetGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-func (o TargetGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o TargetGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
@@ -663,8 +663,8 @@ func (o TargetGroupOutput) Port() pulumi.IntPtrOutput {
 }
 
 // Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-func (o TargetGroupOutput) PreserveClientIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.PreserveClientIp }).(pulumi.StringOutput)
+func (o TargetGroupOutput) PreserveClientIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.PreserveClientIp }).(pulumi.StringPtrOutput)
 }
 
 // Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
@@ -673,8 +673,8 @@ func (o TargetGroupOutput) Protocol() pulumi.StringPtrOutput {
 }
 
 // Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-func (o TargetGroupOutput) ProtocolVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.ProtocolVersion }).(pulumi.StringOutput)
+func (o TargetGroupOutput) ProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
 // Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
@@ -688,8 +688,8 @@ func (o TargetGroupOutput) SlowStart() pulumi.IntPtrOutput {
 }
 
 // Stickiness configuration block. Detailed below.
-func (o TargetGroupOutput) Stickiness() TargetGroupStickinessOutput {
-	return o.ApplyT(func(v *TargetGroup) TargetGroupStickinessOutput { return v.Stickiness }).(TargetGroupStickinessOutput)
+func (o TargetGroupOutput) Stickiness() TargetGroupStickinessPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) TargetGroupStickinessPtrOutput { return v.Stickiness }).(TargetGroupStickinessPtrOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

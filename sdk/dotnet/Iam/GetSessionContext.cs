@@ -161,37 +161,37 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.
         /// </summary>
-        public readonly string IssuerArn;
+        public readonly string? IssuerArn;
         /// <summary>
         /// Unique identifier of the IAM role that issues the STS assumed role.
         /// </summary>
-        public readonly string IssuerId;
+        public readonly string? IssuerId;
         /// <summary>
         /// Name of the source role. Only available if `arn` corresponds to an STS assumed role.
         /// </summary>
-        public readonly string IssuerName;
+        public readonly string? IssuerName;
         /// <summary>
         /// Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
         /// </summary>
-        public readonly string SessionName;
+        public readonly string? SessionName;
 
         [OutputConstructor]
         private GetSessionContextResult(
             string arn,
 
-            string id,
+            string? id,
 
-            string issuerArn,
+            string? issuerArn,
 
-            string issuerId,
+            string? issuerId,
 
-            string issuerName,
+            string? issuerName,
 
-            string sessionName)
+            string? sessionName)
         {
             Arn = arn;
             Id = id;

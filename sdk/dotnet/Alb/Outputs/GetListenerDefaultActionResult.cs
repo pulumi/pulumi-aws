@@ -17,10 +17,10 @@ namespace Pulumi.Aws.Alb.Outputs
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionAuthenticateOidcResult> AuthenticateOidcs;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionFixedResponseResult> FixedResponses;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionForwardResult> Forwards;
-        public readonly int Order;
+        public readonly int? Order;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionRedirectResult> Redirects;
-        public readonly string TargetGroupArn;
-        public readonly string Type;
+        public readonly string? TargetGroupArn;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetListenerDefaultActionResult(
@@ -32,13 +32,13 @@ namespace Pulumi.Aws.Alb.Outputs
 
             ImmutableArray<Outputs.GetListenerDefaultActionForwardResult> forwards,
 
-            int order,
+            int? order,
 
             ImmutableArray<Outputs.GetListenerDefaultActionRedirectResult> redirects,
 
-            string targetGroupArn,
+            string? targetGroupArn,
 
-            string type)
+            string? type)
         {
             AuthenticateCognitos = authenticateCognitos;
             AuthenticateOidcs = authenticateOidcs;

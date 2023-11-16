@@ -87,15 +87,15 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the hierarchy group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The identifier for the hierarchy group.
      */
-    public /*out*/ readonly hierarchyGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly hierarchyGroupId!: pulumi.Output<string | undefined>;
     /**
      * A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      */
-    public /*out*/ readonly hierarchyPaths!: pulumi.Output<outputs.connect.UserHierarchyGroupHierarchyPath[]>;
+    public /*out*/ readonly hierarchyPaths!: pulumi.Output<outputs.connect.UserHierarchyGroupHierarchyPath[] | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
@@ -103,7 +103,7 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
     /**
      * The identifier of the level in the hierarchy group.
      */
-    public /*out*/ readonly levelId!: pulumi.Output<string>;
+    public /*out*/ readonly levelId!: pulumi.Output<string | undefined>;
     /**
      * The name of the user hierarchy group. Must not be more than 100 characters.
      */

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
@@ -15,27 +17,27 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQuerySt
      * @return Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
      * 
      */
-    private String queryStringBehavior;
+    private @Nullable String queryStringBehavior;
     /**
      * @return Object that contains a list of query string names. See Items for more information.
      * 
      */
-    private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings;
+    private @Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings;
 
     private GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig() {}
     /**
      * @return Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
      * 
      */
-    public String queryStringBehavior() {
-        return this.queryStringBehavior;
+    public Optional<String> queryStringBehavior() {
+        return Optional.ofNullable(this.queryStringBehavior);
     }
     /**
      * @return Object that contains a list of query string names. See Items for more information.
      * 
      */
     public List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings() {
-        return this.queryStrings;
+        return this.queryStrings == null ? List.of() : this.queryStrings;
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQuerySt
     }
     @CustomType.Builder
     public static final class Builder {
-        private String queryStringBehavior;
-        private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings;
+        private @Nullable String queryStringBehavior;
+        private @Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings;
         public Builder() {}
         public Builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,13 +59,13 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQuerySt
         }
 
         @CustomType.Setter
-        public Builder queryStringBehavior(String queryStringBehavior) {
-            this.queryStringBehavior = Objects.requireNonNull(queryStringBehavior);
+        public Builder queryStringBehavior(@Nullable String queryStringBehavior) {
+            this.queryStringBehavior = queryStringBehavior;
             return this;
         }
         @CustomType.Setter
-        public Builder queryStrings(List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings) {
-            this.queryStrings = Objects.requireNonNull(queryStrings);
+        public Builder queryStrings(@Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings) {
+            this.queryStrings = queryStrings;
             return this;
         }
         public Builder queryStrings(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString... queryStrings) {

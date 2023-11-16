@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.

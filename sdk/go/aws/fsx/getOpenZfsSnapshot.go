@@ -75,22 +75,22 @@ type LookupOpenZfsSnapshotArgs struct {
 // A collection of values returned by getOpenZfsSnapshot.
 type LookupOpenZfsSnapshotResult struct {
 	// Amazon Resource Name of the snapshot.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Time that the resource was created.
-	CreationTime string                     `pulumi:"creationTime"`
+	CreationTime *string                    `pulumi:"creationTime"`
 	Filters      []GetOpenZfsSnapshotFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	MostRecent *bool  `pulumi:"mostRecent"`
+	Id         *string `pulumi:"id"`
+	MostRecent *bool   `pulumi:"mostRecent"`
 	// Name of the snapshot.
 	Name *string `pulumi:"name"`
 	// ID of the snapshot.
-	SnapshotId  string   `pulumi:"snapshotId"`
+	SnapshotId  *string  `pulumi:"snapshotId"`
 	SnapshotIds []string `pulumi:"snapshotIds"`
 	// List of Tag values, with a maximum of 50 elements.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the volume that the snapshot is of.
-	VolumeId string `pulumi:"volumeId"`
+	VolumeId *string `pulumi:"volumeId"`
 }
 
 func LookupOpenZfsSnapshotOutput(ctx *pulumi.Context, args LookupOpenZfsSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupOpenZfsSnapshotResultOutput {
@@ -141,13 +141,13 @@ func (o LookupOpenZfsSnapshotResultOutput) ToLookupOpenZfsSnapshotResultOutputWi
 }
 
 // Amazon Resource Name of the snapshot.
-func (o LookupOpenZfsSnapshotResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupOpenZfsSnapshotResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Time that the resource was created.
-func (o LookupOpenZfsSnapshotResultOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o LookupOpenZfsSnapshotResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupOpenZfsSnapshotResultOutput) Filters() GetOpenZfsSnapshotFilterArrayOutput {
@@ -155,8 +155,8 @@ func (o LookupOpenZfsSnapshotResultOutput) Filters() GetOpenZfsSnapshotFilterArr
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupOpenZfsSnapshotResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupOpenZfsSnapshotResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupOpenZfsSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
@@ -169,8 +169,8 @@ func (o LookupOpenZfsSnapshotResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // ID of the snapshot.
-func (o LookupOpenZfsSnapshotResultOutput) SnapshotId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.SnapshotId }).(pulumi.StringOutput)
+func (o LookupOpenZfsSnapshotResultOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupOpenZfsSnapshotResultOutput) SnapshotIds() pulumi.StringArrayOutput {
@@ -183,8 +183,8 @@ func (o LookupOpenZfsSnapshotResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // ID of the volume that the snapshot is of.
-func (o LookupOpenZfsSnapshotResultOutput) VolumeId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.VolumeId }).(pulumi.StringOutput)
+func (o LookupOpenZfsSnapshotResultOutput) VolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

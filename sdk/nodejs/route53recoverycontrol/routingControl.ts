@@ -65,7 +65,7 @@ export class RoutingControl extends pulumi.CustomResource {
     /**
      * ARN of the routing control.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the cluster in which this routing control will reside.
      */
@@ -73,7 +73,7 @@ export class RoutingControl extends pulumi.CustomResource {
     /**
      * ARN of the control panel in which this routing control will reside.
      */
-    public readonly controlPanelArn!: pulumi.Output<string>;
+    public readonly controlPanelArn!: pulumi.Output<string | undefined>;
     /**
      * The name describing the routing control.
      *
@@ -83,7 +83,7 @@ export class RoutingControl extends pulumi.CustomResource {
     /**
      * Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RoutingControl resource with the given unique name, arguments, and options.

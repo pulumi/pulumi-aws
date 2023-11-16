@@ -61,19 +61,19 @@ export class Workgroup extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
      */
-    public readonly baseCapacity!: pulumi.Output<number>;
+    public readonly baseCapacity!: pulumi.Output<number | undefined>;
     /**
      * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      */
-    public readonly configParameters!: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[]>;
+    public readonly configParameters!: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[] | undefined>;
     /**
      * The endpoint that is created from the workgroup. See `Endpoint` below.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.redshiftserverless.WorkgroupEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.redshiftserverless.WorkgroupEndpoint[] | undefined>;
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
@@ -89,11 +89,11 @@ export class Workgroup extends pulumi.CustomResource {
     /**
      * An array of security group IDs to associate with the workgroup.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -107,7 +107,7 @@ export class Workgroup extends pulumi.CustomResource {
     /**
      * The Redshift Workgroup ID.
      */
-    public /*out*/ readonly workgroupId!: pulumi.Output<string>;
+    public /*out*/ readonly workgroupId!: pulumi.Output<string | undefined>;
     /**
      * The name of the workgroup.
      *

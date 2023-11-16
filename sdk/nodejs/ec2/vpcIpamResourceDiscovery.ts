@@ -69,7 +69,7 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of IPAM Resource Discovery
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description for the IPAM Resource Discovery.
      */
@@ -77,11 +77,11 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
     /**
      * The home region of the Resource Discovery
      */
-    public /*out*/ readonly ipamResourceDiscoveryRegion!: pulumi.Output<string>;
+    public /*out*/ readonly ipamResourceDiscoveryRegion!: pulumi.Output<string | undefined>;
     /**
      * A boolean to identify if the Resource Discovery is the accounts default resource discovery
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    public /*out*/ readonly isDefault!: pulumi.Output<boolean | undefined>;
     /**
      * Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
      */
@@ -89,7 +89,7 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
     /**
      * The account ID for the account that manages the Resource Discovery
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

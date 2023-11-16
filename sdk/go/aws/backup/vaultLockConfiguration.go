@@ -56,7 +56,7 @@ type VaultLockConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the vault.
-	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
+	BackupVaultArn pulumi.StringPtrOutput `pulumi:"backupVaultArn"`
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
 	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
@@ -240,8 +240,8 @@ func (o VaultLockConfigurationOutput) ToVaultLockConfigurationOutputWithContext(
 }
 
 // The ARN of the vault.
-func (o VaultLockConfigurationOutput) BackupVaultArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
+func (o VaultLockConfigurationOutput) BackupVaultArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.StringPtrOutput { return v.BackupVaultArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the backup vault to add a lock configuration for.

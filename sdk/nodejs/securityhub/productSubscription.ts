@@ -59,7 +59,7 @@ export class ProductSubscription extends pulumi.CustomResource {
     /**
      * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the product that generates findings that you want to import into Security Hub - see below.
      *

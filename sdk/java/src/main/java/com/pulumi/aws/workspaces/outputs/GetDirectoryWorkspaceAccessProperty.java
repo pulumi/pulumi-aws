@@ -6,6 +6,8 @@ package com.pulumi.aws.workspaces.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectoryWorkspaceAccessProperty {
@@ -13,99 +15,99 @@ public final class GetDirectoryWorkspaceAccessProperty {
      * @return (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
      * 
      */
-    private String deviceTypeAndroid;
+    private @Nullable String deviceTypeAndroid;
     /**
      * @return (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
      * 
      */
-    private String deviceTypeChromeos;
+    private @Nullable String deviceTypeChromeos;
     /**
      * @return (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
      * 
      */
-    private String deviceTypeIos;
+    private @Nullable String deviceTypeIos;
     /**
      * @return (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
      * 
      */
-    private String deviceTypeLinux;
+    private @Nullable String deviceTypeLinux;
     /**
      * @return (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
      * 
      */
-    private String deviceTypeOsx;
+    private @Nullable String deviceTypeOsx;
     /**
      * @return (Optional) Indicates whether users can access their WorkSpaces through a web browser.
      * 
      */
-    private String deviceTypeWeb;
+    private @Nullable String deviceTypeWeb;
     /**
      * @return (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
      * 
      */
-    private String deviceTypeWindows;
+    private @Nullable String deviceTypeWindows;
     /**
      * @return (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
      * 
      */
-    private String deviceTypeZeroclient;
+    private @Nullable String deviceTypeZeroclient;
 
     private GetDirectoryWorkspaceAccessProperty() {}
     /**
      * @return (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
      * 
      */
-    public String deviceTypeAndroid() {
-        return this.deviceTypeAndroid;
+    public Optional<String> deviceTypeAndroid() {
+        return Optional.ofNullable(this.deviceTypeAndroid);
     }
     /**
      * @return (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
      * 
      */
-    public String deviceTypeChromeos() {
-        return this.deviceTypeChromeos;
+    public Optional<String> deviceTypeChromeos() {
+        return Optional.ofNullable(this.deviceTypeChromeos);
     }
     /**
      * @return (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
      * 
      */
-    public String deviceTypeIos() {
-        return this.deviceTypeIos;
+    public Optional<String> deviceTypeIos() {
+        return Optional.ofNullable(this.deviceTypeIos);
     }
     /**
      * @return (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
      * 
      */
-    public String deviceTypeLinux() {
-        return this.deviceTypeLinux;
+    public Optional<String> deviceTypeLinux() {
+        return Optional.ofNullable(this.deviceTypeLinux);
     }
     /**
      * @return (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
      * 
      */
-    public String deviceTypeOsx() {
-        return this.deviceTypeOsx;
+    public Optional<String> deviceTypeOsx() {
+        return Optional.ofNullable(this.deviceTypeOsx);
     }
     /**
      * @return (Optional) Indicates whether users can access their WorkSpaces through a web browser.
      * 
      */
-    public String deviceTypeWeb() {
-        return this.deviceTypeWeb;
+    public Optional<String> deviceTypeWeb() {
+        return Optional.ofNullable(this.deviceTypeWeb);
     }
     /**
      * @return (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
      * 
      */
-    public String deviceTypeWindows() {
-        return this.deviceTypeWindows;
+    public Optional<String> deviceTypeWindows() {
+        return Optional.ofNullable(this.deviceTypeWindows);
     }
     /**
      * @return (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
      * 
      */
-    public String deviceTypeZeroclient() {
-        return this.deviceTypeZeroclient;
+    public Optional<String> deviceTypeZeroclient() {
+        return Optional.ofNullable(this.deviceTypeZeroclient);
     }
 
     public static Builder builder() {
@@ -117,14 +119,14 @@ public final class GetDirectoryWorkspaceAccessProperty {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String deviceTypeAndroid;
-        private String deviceTypeChromeos;
-        private String deviceTypeIos;
-        private String deviceTypeLinux;
-        private String deviceTypeOsx;
-        private String deviceTypeWeb;
-        private String deviceTypeWindows;
-        private String deviceTypeZeroclient;
+        private @Nullable String deviceTypeAndroid;
+        private @Nullable String deviceTypeChromeos;
+        private @Nullable String deviceTypeIos;
+        private @Nullable String deviceTypeLinux;
+        private @Nullable String deviceTypeOsx;
+        private @Nullable String deviceTypeWeb;
+        private @Nullable String deviceTypeWindows;
+        private @Nullable String deviceTypeZeroclient;
         public Builder() {}
         public Builder(GetDirectoryWorkspaceAccessProperty defaults) {
     	      Objects.requireNonNull(defaults);
@@ -139,43 +141,43 @@ public final class GetDirectoryWorkspaceAccessProperty {
         }
 
         @CustomType.Setter
-        public Builder deviceTypeAndroid(String deviceTypeAndroid) {
-            this.deviceTypeAndroid = Objects.requireNonNull(deviceTypeAndroid);
+        public Builder deviceTypeAndroid(@Nullable String deviceTypeAndroid) {
+            this.deviceTypeAndroid = deviceTypeAndroid;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceTypeChromeos(String deviceTypeChromeos) {
-            this.deviceTypeChromeos = Objects.requireNonNull(deviceTypeChromeos);
+        public Builder deviceTypeChromeos(@Nullable String deviceTypeChromeos) {
+            this.deviceTypeChromeos = deviceTypeChromeos;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceTypeIos(String deviceTypeIos) {
-            this.deviceTypeIos = Objects.requireNonNull(deviceTypeIos);
+        public Builder deviceTypeIos(@Nullable String deviceTypeIos) {
+            this.deviceTypeIos = deviceTypeIos;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceTypeLinux(String deviceTypeLinux) {
-            this.deviceTypeLinux = Objects.requireNonNull(deviceTypeLinux);
+        public Builder deviceTypeLinux(@Nullable String deviceTypeLinux) {
+            this.deviceTypeLinux = deviceTypeLinux;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceTypeOsx(String deviceTypeOsx) {
-            this.deviceTypeOsx = Objects.requireNonNull(deviceTypeOsx);
+        public Builder deviceTypeOsx(@Nullable String deviceTypeOsx) {
+            this.deviceTypeOsx = deviceTypeOsx;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceTypeWeb(String deviceTypeWeb) {
-            this.deviceTypeWeb = Objects.requireNonNull(deviceTypeWeb);
+        public Builder deviceTypeWeb(@Nullable String deviceTypeWeb) {
+            this.deviceTypeWeb = deviceTypeWeb;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceTypeWindows(String deviceTypeWindows) {
-            this.deviceTypeWindows = Objects.requireNonNull(deviceTypeWindows);
+        public Builder deviceTypeWindows(@Nullable String deviceTypeWindows) {
+            this.deviceTypeWindows = deviceTypeWindows;
             return this;
         }
         @CustomType.Setter
-        public Builder deviceTypeZeroclient(String deviceTypeZeroclient) {
-            this.deviceTypeZeroclient = Objects.requireNonNull(deviceTypeZeroclient);
+        public Builder deviceTypeZeroclient(@Nullable String deviceTypeZeroclient) {
+            this.deviceTypeZeroclient = deviceTypeZeroclient;
             return this;
         }
         public GetDirectoryWorkspaceAccessProperty build() {

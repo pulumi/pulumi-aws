@@ -89,7 +89,7 @@ namespace Pulumi.Aws.DynamoDB
         /// ARN of the table replica.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.DynamoDB
         /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         /// </summary>
         [Output("kmsKeyArn")]
-        public Output<string> KmsKeyArn { get; private set; } = null!;
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Whether to enable Point In Time Recovery for the replica. Default is `false`.

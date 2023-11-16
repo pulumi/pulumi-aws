@@ -355,14 +355,14 @@ namespace Pulumi.Aws.LakeFormation
     {
         public readonly string? CatalogId;
         public readonly bool? CatalogResource;
-        public readonly Outputs.GetPermissionsDataLocationResult DataLocation;
-        public readonly Outputs.GetPermissionsDatabaseResult Database;
+        public readonly Outputs.GetPermissionsDataLocationResult? DataLocation;
+        public readonly Outputs.GetPermissionsDatabaseResult? Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly Outputs.GetPermissionsLfTagResult LfTag;
-        public readonly Outputs.GetPermissionsLfTagPolicyResult LfTagPolicy;
+        public readonly string? Id;
+        public readonly Outputs.GetPermissionsLfTagResult? LfTag;
+        public readonly Outputs.GetPermissionsLfTagPolicyResult? LfTagPolicy;
         /// <summary>
         /// List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
@@ -372,8 +372,8 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         public readonly ImmutableArray<string> PermissionsWithGrantOptions;
         public readonly string Principal;
-        public readonly Outputs.GetPermissionsTableResult Table;
-        public readonly Outputs.GetPermissionsTableWithColumnsResult TableWithColumns;
+        public readonly Outputs.GetPermissionsTableResult? Table;
+        public readonly Outputs.GetPermissionsTableWithColumnsResult? TableWithColumns;
 
         [OutputConstructor]
         private GetPermissionsResult(
@@ -381,15 +381,15 @@ namespace Pulumi.Aws.LakeFormation
 
             bool? catalogResource,
 
-            Outputs.GetPermissionsDataLocationResult dataLocation,
+            Outputs.GetPermissionsDataLocationResult? dataLocation,
 
-            Outputs.GetPermissionsDatabaseResult database,
+            Outputs.GetPermissionsDatabaseResult? database,
 
-            string id,
+            string? id,
 
-            Outputs.GetPermissionsLfTagResult lfTag,
+            Outputs.GetPermissionsLfTagResult? lfTag,
 
-            Outputs.GetPermissionsLfTagPolicyResult lfTagPolicy,
+            Outputs.GetPermissionsLfTagPolicyResult? lfTagPolicy,
 
             ImmutableArray<string> permissions,
 
@@ -397,9 +397,9 @@ namespace Pulumi.Aws.LakeFormation
 
             string principal,
 
-            Outputs.GetPermissionsTableResult table,
+            Outputs.GetPermissionsTableResult? table,
 
-            Outputs.GetPermissionsTableWithColumnsResult tableWithColumns)
+            Outputs.GetPermissionsTableWithColumnsResult? tableWithColumns)
         {
             CatalogId = catalogId;
             CatalogResource = catalogResource;

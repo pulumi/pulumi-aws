@@ -6,6 +6,8 @@ package com.pulumi.aws.s3.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCanonicalUserIdResult {
@@ -13,27 +15,27 @@ public final class GetCanonicalUserIdResult {
      * @return Human-friendly name linked to the canonical user ID. The bucket owner&#39;s display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
      * 
      */
-    private String displayName;
+    private @Nullable String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetCanonicalUserIdResult() {}
     /**
      * @return Human-friendly name linked to the canonical user ID. The bucket owner&#39;s display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
      * 
      */
-    public String displayName() {
-        return this.displayName;
+    public Optional<String> displayName() {
+        return Optional.ofNullable(this.displayName);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetCanonicalUserIdResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String displayName;
-        private String id;
+        private @Nullable String displayName;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetCanonicalUserIdResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetCanonicalUserIdResult {
         }
 
         @CustomType.Setter
-        public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+        public Builder displayName(@Nullable String displayName) {
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetCanonicalUserIdResult build() {

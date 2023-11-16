@@ -63,7 +63,7 @@ export class EventApiDestination extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the event API Destination.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the EventBridge Connection to use for the API Destination.
      */

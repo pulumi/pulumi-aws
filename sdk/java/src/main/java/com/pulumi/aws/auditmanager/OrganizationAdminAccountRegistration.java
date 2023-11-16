@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -77,14 +78,14 @@ public class OrganizationAdminAccountRegistration extends com.pulumi.resources.C
      * 
      */
     @Export(name="organizationId", refs={String.class}, tree="[0]")
-    private Output<String> organizationId;
+    private Output</* @Nullable */ String> organizationId;
 
     /**
      * @return Identifier for the organization.
      * 
      */
-    public Output<String> organizationId() {
-        return this.organizationId;
+    public Output<Optional<String>> organizationId() {
+        return Codegen.optional(this.organizationId);
     }
 
     /**

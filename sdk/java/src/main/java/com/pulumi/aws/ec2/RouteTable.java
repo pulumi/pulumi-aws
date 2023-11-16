@@ -229,42 +229,42 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the route table.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ID of the AWS account that owns the route table.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The ID of the AWS account that owns the route table.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * A list of virtual gateways for propagation.
      * 
      */
     @Export(name="propagatingVgws", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> propagatingVgws;
+    private Output</* @Nullable */ List<String>> propagatingVgws;
 
     /**
      * @return A list of virtual gateways for propagation.
      * 
      */
-    public Output<List<String>> propagatingVgws() {
-        return this.propagatingVgws;
+    public Output<Optional<List<String>>> propagatingVgws() {
+        return Codegen.optional(this.propagatingVgws);
     }
     /**
      * A list of route objects. Their keys are documented below.
@@ -272,15 +272,15 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="routes", refs={List.class,RouteTableRoute.class}, tree="[0,1]")
-    private Output<List<RouteTableRoute>> routes;
+    private Output</* @Nullable */ List<RouteTableRoute>> routes;
 
     /**
      * @return A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      * 
      */
-    public Output<List<RouteTableRoute>> routes() {
-        return this.routes;
+    public Output<Optional<List<RouteTableRoute>>> routes() {
+        return Codegen.optional(this.routes);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -212,15 +212,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// EC2 Transit Gateway Connect Peer ARN
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// BGP ASN number assigned customer device
         /// </summary>
-        public readonly string BgpAsn;
+        public readonly string? BgpAsn;
         /// <summary>
         /// The IP address assigned to customer device, which is used as BGP IP address.
         /// </summary>
-        public readonly string BgpPeerAddress;
+        public readonly string? BgpPeerAddress;
         /// <summary>
         /// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
         /// </summary>
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// CIDR blocks that will be used for addressing within the tunnel.
         /// </summary>
@@ -237,46 +237,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// IP addressed assigned to customer device, which is used as tunnel endpoint
         /// </summary>
-        public readonly string PeerAddress;
+        public readonly string? PeerAddress;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect Peer
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
         /// </summary>
-        public readonly string TransitGatewayAddress;
+        public readonly string? TransitGatewayAddress;
         /// <summary>
         /// The Transit Gateway Connect
         /// </summary>
-        public readonly string TransitGatewayAttachmentId;
-        public readonly string TransitGatewayConnectPeerId;
+        public readonly string? TransitGatewayAttachmentId;
+        public readonly string? TransitGatewayConnectPeerId;
 
         [OutputConstructor]
         private GetConnectPeerResult(
-            string arn,
+            string? arn,
 
-            string bgpAsn,
+            string? bgpAsn,
 
-            string bgpPeerAddress,
+            string? bgpPeerAddress,
 
             ImmutableArray<string> bgpTransitGatewayAddresses,
 
             ImmutableArray<Outputs.GetConnectPeerFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> insideCidrBlocks,
 
-            string peerAddress,
+            string? peerAddress,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string transitGatewayAddress,
+            string? transitGatewayAddress,
 
-            string transitGatewayAttachmentId,
+            string? transitGatewayAttachmentId,
 
-            string transitGatewayConnectPeerId)
+            string? transitGatewayConnectPeerId)
         {
             Arn = arn;
             BgpAsn = bgpAsn;

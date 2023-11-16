@@ -61,7 +61,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the API Gateway Authorizer.
         """
@@ -69,7 +69,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter(name="authorizerCredentials")
-    def authorizer_credentials(self) -> str:
+    def authorizer_credentials(self) -> Optional[str]:
         """
         Credentials required for the authorizer.
         """
@@ -82,7 +82,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
-    def authorizer_result_ttl_in_seconds(self) -> int:
+    def authorizer_result_ttl_in_seconds(self) -> Optional[int]:
         """
         TTL of cached authorizer results in seconds.
         """
@@ -90,7 +90,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter(name="authorizerUri")
-    def authorizer_uri(self) -> str:
+    def authorizer_uri(self) -> Optional[str]:
         """
         Authorizer's Uniform Resource Identifier (URI).
         """
@@ -98,7 +98,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -106,7 +106,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter(name="identitySource")
-    def identity_source(self) -> str:
+    def identity_source(self) -> Optional[str]:
         """
         Source of the identity in an incoming request.
         """
@@ -114,7 +114,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter(name="identityValidationExpression")
-    def identity_validation_expression(self) -> str:
+    def identity_validation_expression(self) -> Optional[str]:
         """
         Validation expression for the incoming identity.
         """
@@ -122,7 +122,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the authorizer.
         """
@@ -130,7 +130,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter(name="providerArns")
-    def provider_arns(self) -> Sequence[str]:
+    def provider_arns(self) -> Optional[Sequence[str]]:
         """
         List of the Amazon Cognito user pool ARNs.
         """
@@ -143,7 +143,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of the authorizer.
         """

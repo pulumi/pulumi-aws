@@ -40,7 +40,7 @@ type GetVpcsArgs struct {
 type GetVpcsResult struct {
 	Filters []GetVpcsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all the VPC Ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -95,8 +95,8 @@ func (o GetVpcsResultOutput) Filters() GetVpcsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetVpcsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetVpcsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the VPC Ids found.

@@ -122,29 +122,29 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the Prompt.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
         public readonly string Name;
         /// <summary>
         /// Identifier for the prompt.
         /// </summary>
-        public readonly string PromptId;
+        public readonly string? PromptId;
 
         [OutputConstructor]
         private GetPromptResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
             string instanceId,
 
             string name,
 
-            string promptId)
+            string? promptId)
         {
             Arn = arn;
             Id = id;

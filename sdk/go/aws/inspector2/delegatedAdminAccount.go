@@ -61,7 +61,7 @@ type DelegatedAdminAccount struct {
 	// Account to enable as delegated admin account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Status of this delegated admin account.
-	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
+	RelationshipStatus pulumi.StringPtrOutput `pulumi:"relationshipStatus"`
 }
 
 // NewDelegatedAdminAccount registers a new resource with the given unique name, arguments, and options.
@@ -218,8 +218,8 @@ func (o DelegatedAdminAccountOutput) AccountId() pulumi.StringOutput {
 }
 
 // Status of this delegated admin account.
-func (o DelegatedAdminAccountOutput) RelationshipStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *DelegatedAdminAccount) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
+func (o DelegatedAdminAccountOutput) RelationshipStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DelegatedAdminAccount) pulumi.StringPtrOutput { return v.RelationshipStatus }).(pulumi.StringPtrOutput)
 }
 
 type DelegatedAdminAccountArrayOutput struct{ *pulumi.OutputState }

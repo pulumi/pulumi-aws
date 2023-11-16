@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Macie
         /// The Amazon Resource Name (ARN) of the custom data identifier.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// A custom description of the custom data identifier. The description can contain as many as 512 characters.
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Macie
         /// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
         /// </summary>
         [Output("maximumMatchDistance")]
-        public Output<int> MaximumMatchDistance { get; private set; } = null!;
+        public Output<int?> MaximumMatchDistance { get; private set; } = null!;
 
         /// <summary>
         /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Macie
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.

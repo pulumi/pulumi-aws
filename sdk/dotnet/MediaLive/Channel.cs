@@ -149,7 +149,7 @@ namespace Pulumi.Aws.MediaLive
         /// ARN of the Channel.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.MediaLive
         /// ID of the channel in MediaPackage that is the destination for this output group.
         /// </summary>
         [Output("channelId")]
-        public Output<string> ChannelId { get; private set; } = null!;
+        public Output<string?> ChannelId { get; private set; } = null!;
 
         /// <summary>
         /// Destinations for channel. See Destinations for more details.
@@ -197,13 +197,13 @@ namespace Pulumi.Aws.MediaLive
         /// The log level to write to Cloudwatch logs.
         /// </summary>
         [Output("logLevel")]
-        public Output<string> LogLevel { get; private set; } = null!;
+        public Output<string?> LogLevel { get; private set; } = null!;
 
         /// <summary>
         /// Maintenance settings for this channel. See Maintenance for more details.
         /// </summary>
         [Output("maintenance")]
-        public Output<Outputs.ChannelMaintenance> Maintenance { get; private set; } = null!;
+        public Output<Outputs.ChannelMaintenance?> Maintenance { get; private set; } = null!;
 
         /// <summary>
         /// Name of the Channel.

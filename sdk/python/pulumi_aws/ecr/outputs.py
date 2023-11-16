@@ -352,18 +352,20 @@ class RepositoryImageScanningConfiguration(dict):
 @pulumi.output_type
 class GetRepositoryEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
-                 encryption_type: str,
-                 kms_key: str):
+                 encryption_type: Optional[str] = None,
+                 kms_key: Optional[str] = None):
         """
         :param str encryption_type: Encryption type to use for the repository, either `AES256` or `KMS`.
         :param str kms_key: If `encryption_type` is `KMS`, the ARN of the KMS key used.
         """
-        pulumi.set(__self__, "encryption_type", encryption_type)
-        pulumi.set(__self__, "kms_key", kms_key)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
 
     @property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> str:
+    def encryption_type(self) -> Optional[str]:
         """
         Encryption type to use for the repository, either `AES256` or `KMS`.
         """
@@ -371,7 +373,7 @@ class GetRepositoryEncryptionConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> str:
+    def kms_key(self) -> Optional[str]:
         """
         If `encryption_type` is `KMS`, the ARN of the KMS key used.
         """
@@ -381,15 +383,16 @@ class GetRepositoryEncryptionConfigurationResult(dict):
 @pulumi.output_type
 class GetRepositoryImageScanningConfigurationResult(dict):
     def __init__(__self__, *,
-                 scan_on_push: bool):
+                 scan_on_push: Optional[bool] = None):
         """
         :param bool scan_on_push: Whether images are scanned after being pushed to the repository.
         """
-        pulumi.set(__self__, "scan_on_push", scan_on_push)
+        if scan_on_push is not None:
+            pulumi.set(__self__, "scan_on_push", scan_on_push)
 
     @property
     @pulumi.getter(name="scanOnPush")
-    def scan_on_push(self) -> bool:
+    def scan_on_push(self) -> Optional[bool]:
         """
         Whether images are scanned after being pushed to the repository.
         """

@@ -43,7 +43,7 @@ class GetWorkerConfigurationResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         the ARN of the worker configuration.
         """
@@ -51,7 +51,7 @@ class GetWorkerConfigurationResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         a summary description of the worker configuration.
         """
@@ -59,7 +59,7 @@ class GetWorkerConfigurationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -67,7 +67,7 @@ class GetWorkerConfigurationResult:
 
     @property
     @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> int:
+    def latest_revision(self) -> Optional[int]:
         """
         an ID of the latest successfully created revision of the worker configuration.
         """
@@ -80,7 +80,7 @@ class GetWorkerConfigurationResult:
 
     @property
     @pulumi.getter(name="propertiesFileContent")
-    def properties_file_content(self) -> str:
+    def properties_file_content(self) -> Optional[str]:
         """
         contents of connect-distributed.properties file.
         """

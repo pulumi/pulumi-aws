@@ -63,7 +63,7 @@ type NetworkInsightsAnalysis struct {
 	// Potential intermediate components of a feasible path. Described below.
 	AlternatePathHints NetworkInsightsAnalysisAlternatePathHintArrayOutput `pulumi:"alternatePathHints"`
 	// ARN of the Network Insights Analysis.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
 	Explanations NetworkInsightsAnalysisExplanationArrayOutput `pulumi:"explanations"`
 	// A list of ARNs for resources the path must traverse.
@@ -75,15 +75,15 @@ type NetworkInsightsAnalysis struct {
 	// The following arguments are optional:
 	NetworkInsightsPathId pulumi.StringOutput `pulumi:"networkInsightsPathId"`
 	// Set to `true` if the destination was reachable.
-	PathFound pulumi.BoolOutput `pulumi:"pathFound"`
+	PathFound pulumi.BoolPtrOutput `pulumi:"pathFound"`
 	// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ReturnPathComponents NetworkInsightsAnalysisReturnPathComponentArrayOutput `pulumi:"returnPathComponents"`
 	// The date/time the analysis was started.
-	StartDate pulumi.StringOutput `pulumi:"startDate"`
+	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
 	// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A message to provide more context when the `status` is `failed`.
-	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	StatusMessage pulumi.StringPtrOutput `pulumi:"statusMessage"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -93,7 +93,7 @@ type NetworkInsightsAnalysis struct {
 	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
 	WaitForCompletion pulumi.BoolPtrOutput `pulumi:"waitForCompletion"`
 	// The warning message.
-	WarningMessage pulumi.StringOutput `pulumi:"warningMessage"`
+	WarningMessage pulumi.StringPtrOutput `pulumi:"warningMessage"`
 }
 
 // NewNetworkInsightsAnalysis registers a new resource with the given unique name, arguments, and options.
@@ -332,8 +332,8 @@ func (o NetworkInsightsAnalysisOutput) AlternatePathHints() NetworkInsightsAnaly
 }
 
 // ARN of the Network Insights Analysis.
-func (o NetworkInsightsAnalysisOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NetworkInsightsAnalysisOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
@@ -361,8 +361,8 @@ func (o NetworkInsightsAnalysisOutput) NetworkInsightsPathId() pulumi.StringOutp
 }
 
 // Set to `true` if the destination was reachable.
-func (o NetworkInsightsAnalysisOutput) PathFound() pulumi.BoolOutput {
-	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.BoolOutput { return v.PathFound }).(pulumi.BoolOutput)
+func (o NetworkInsightsAnalysisOutput) PathFound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.BoolPtrOutput { return v.PathFound }).(pulumi.BoolPtrOutput)
 }
 
 // The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
@@ -373,18 +373,18 @@ func (o NetworkInsightsAnalysisOutput) ReturnPathComponents() NetworkInsightsAna
 }
 
 // The date/time the analysis was started.
-func (o NetworkInsightsAnalysisOutput) StartDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
+func (o NetworkInsightsAnalysisOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
 // The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-func (o NetworkInsightsAnalysisOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o NetworkInsightsAnalysisOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A message to provide more context when the `status` is `failed`.
-func (o NetworkInsightsAnalysisOutput) StatusMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+func (o NetworkInsightsAnalysisOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringPtrOutput { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -405,8 +405,8 @@ func (o NetworkInsightsAnalysisOutput) WaitForCompletion() pulumi.BoolPtrOutput 
 }
 
 // The warning message.
-func (o NetworkInsightsAnalysisOutput) WarningMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.WarningMessage }).(pulumi.StringOutput)
+func (o NetworkInsightsAnalysisOutput) WarningMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringPtrOutput { return v.WarningMessage }).(pulumi.StringPtrOutput)
 }
 
 type NetworkInsightsAnalysisArrayOutput struct{ *pulumi.OutputState }

@@ -79,11 +79,11 @@ type ObjectLambdaAccessPoint struct {
 	pulumi.CustomResourceState
 
 	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// Alias for the S3 Object Lambda Access Point.
-	Alias pulumi.StringOutput `pulumi:"alias"`
+	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
 	Configuration ObjectLambdaAccessPointConfigurationOutput `pulumi:"configuration"`
 	// The name for this Object Lambda Access Point.
@@ -259,18 +259,18 @@ func (o ObjectLambdaAccessPointOutput) ToObjectLambdaAccessPointOutputWithContex
 }
 
 // The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-func (o ObjectLambdaAccessPointOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+func (o ObjectLambdaAccessPointOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // Alias for the S3 Object Lambda Access Point.
-func (o ObjectLambdaAccessPointOutput) Alias() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+func (o ObjectLambdaAccessPointOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the Object Lambda Access Point.
-func (o ObjectLambdaAccessPointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ObjectLambdaAccessPointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.

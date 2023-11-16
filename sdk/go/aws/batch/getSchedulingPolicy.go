@@ -61,9 +61,9 @@ type LookupSchedulingPolicyResult struct {
 	Arn               string                               `pulumi:"arn"`
 	FairSharePolicies []GetSchedulingPolicyFairSharePolicy `pulumi:"fairSharePolicies"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the scheduling policy.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -117,13 +117,13 @@ func (o LookupSchedulingPolicyResultOutput) FairSharePolicies() GetSchedulingPol
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSchedulingPolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSchedulingPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSchedulingPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSchedulingPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the scheduling policy.
-func (o LookupSchedulingPolicyResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSchedulingPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupSchedulingPolicyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSchedulingPolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResolverFirewallRulesFirewallRule {
@@ -14,147 +16,147 @@ public final class GetResolverFirewallRulesFirewallRule {
      * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list.
      * 
      */
-    private String action;
+    private @Nullable String action;
     /**
      * @return The DNS record&#39;s type.
      * 
      */
-    private String blockOverrideDnsType;
+    private @Nullable String blockOverrideDnsType;
     /**
      * @return The custom DNS record to send back in response to the query.
      * 
      */
-    private String blockOverrideDomain;
+    private @Nullable String blockOverrideDomain;
     /**
      * @return The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
      * 
      */
-    private Integer blockOverrideTtl;
+    private @Nullable Integer blockOverrideTtl;
     /**
      * @return The way that you want DNS Firewall to block the request.
      * 
      */
-    private String blockResponse;
+    private @Nullable String blockResponse;
     /**
      * @return The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
      * 
      */
-    private String creationTime;
+    private @Nullable String creationTime;
     /**
      * @return A unique string defined by you to identify the request.
      * 
      */
-    private String creatorRequestId;
+    private @Nullable String creatorRequestId;
     /**
      * @return The ID of the domain list that&#39;s used in the rule.
      * 
      */
-    private String firewallDomainListId;
+    private @Nullable String firewallDomainListId;
     /**
      * @return The unique identifier of the firewall rule group that you want to retrieve the rules for.
      * 
      */
-    private String firewallRuleGroupId;
+    private @Nullable String firewallRuleGroupId;
     /**
      * @return The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
      * 
      */
-    private String modificationTime;
+    private @Nullable String modificationTime;
     /**
      * @return The name of the rule.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The setting that determines the processing order of the rules in a rule group.
      * 
      */
-    private Integer priority;
+    private @Nullable Integer priority;
 
     private GetResolverFirewallRulesFirewallRule() {}
     /**
      * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list.
      * 
      */
-    public String action() {
-        return this.action;
+    public Optional<String> action() {
+        return Optional.ofNullable(this.action);
     }
     /**
      * @return The DNS record&#39;s type.
      * 
      */
-    public String blockOverrideDnsType() {
-        return this.blockOverrideDnsType;
+    public Optional<String> blockOverrideDnsType() {
+        return Optional.ofNullable(this.blockOverrideDnsType);
     }
     /**
      * @return The custom DNS record to send back in response to the query.
      * 
      */
-    public String blockOverrideDomain() {
-        return this.blockOverrideDomain;
+    public Optional<String> blockOverrideDomain() {
+        return Optional.ofNullable(this.blockOverrideDomain);
     }
     /**
      * @return The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
      * 
      */
-    public Integer blockOverrideTtl() {
-        return this.blockOverrideTtl;
+    public Optional<Integer> blockOverrideTtl() {
+        return Optional.ofNullable(this.blockOverrideTtl);
     }
     /**
      * @return The way that you want DNS Firewall to block the request.
      * 
      */
-    public String blockResponse() {
-        return this.blockResponse;
+    public Optional<String> blockResponse() {
+        return Optional.ofNullable(this.blockResponse);
     }
     /**
      * @return The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
      * 
      */
-    public String creationTime() {
-        return this.creationTime;
+    public Optional<String> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
     /**
      * @return A unique string defined by you to identify the request.
      * 
      */
-    public String creatorRequestId() {
-        return this.creatorRequestId;
+    public Optional<String> creatorRequestId() {
+        return Optional.ofNullable(this.creatorRequestId);
     }
     /**
      * @return The ID of the domain list that&#39;s used in the rule.
      * 
      */
-    public String firewallDomainListId() {
-        return this.firewallDomainListId;
+    public Optional<String> firewallDomainListId() {
+        return Optional.ofNullable(this.firewallDomainListId);
     }
     /**
      * @return The unique identifier of the firewall rule group that you want to retrieve the rules for.
      * 
      */
-    public String firewallRuleGroupId() {
-        return this.firewallRuleGroupId;
+    public Optional<String> firewallRuleGroupId() {
+        return Optional.ofNullable(this.firewallRuleGroupId);
     }
     /**
      * @return The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
      * 
      */
-    public String modificationTime() {
-        return this.modificationTime;
+    public Optional<String> modificationTime() {
+        return Optional.ofNullable(this.modificationTime);
     }
     /**
      * @return The name of the rule.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The setting that determines the processing order of the rules in a rule group.
      * 
      */
-    public Integer priority() {
-        return this.priority;
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
     }
 
     public static Builder builder() {
@@ -166,18 +168,18 @@ public final class GetResolverFirewallRulesFirewallRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String action;
-        private String blockOverrideDnsType;
-        private String blockOverrideDomain;
-        private Integer blockOverrideTtl;
-        private String blockResponse;
-        private String creationTime;
-        private String creatorRequestId;
-        private String firewallDomainListId;
-        private String firewallRuleGroupId;
-        private String modificationTime;
-        private String name;
-        private Integer priority;
+        private @Nullable String action;
+        private @Nullable String blockOverrideDnsType;
+        private @Nullable String blockOverrideDomain;
+        private @Nullable Integer blockOverrideTtl;
+        private @Nullable String blockResponse;
+        private @Nullable String creationTime;
+        private @Nullable String creatorRequestId;
+        private @Nullable String firewallDomainListId;
+        private @Nullable String firewallRuleGroupId;
+        private @Nullable String modificationTime;
+        private @Nullable String name;
+        private @Nullable Integer priority;
         public Builder() {}
         public Builder(GetResolverFirewallRulesFirewallRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -196,63 +198,63 @@ public final class GetResolverFirewallRulesFirewallRule {
         }
 
         @CustomType.Setter
-        public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+        public Builder action(@Nullable String action) {
+            this.action = action;
             return this;
         }
         @CustomType.Setter
-        public Builder blockOverrideDnsType(String blockOverrideDnsType) {
-            this.blockOverrideDnsType = Objects.requireNonNull(blockOverrideDnsType);
+        public Builder blockOverrideDnsType(@Nullable String blockOverrideDnsType) {
+            this.blockOverrideDnsType = blockOverrideDnsType;
             return this;
         }
         @CustomType.Setter
-        public Builder blockOverrideDomain(String blockOverrideDomain) {
-            this.blockOverrideDomain = Objects.requireNonNull(blockOverrideDomain);
+        public Builder blockOverrideDomain(@Nullable String blockOverrideDomain) {
+            this.blockOverrideDomain = blockOverrideDomain;
             return this;
         }
         @CustomType.Setter
-        public Builder blockOverrideTtl(Integer blockOverrideTtl) {
-            this.blockOverrideTtl = Objects.requireNonNull(blockOverrideTtl);
+        public Builder blockOverrideTtl(@Nullable Integer blockOverrideTtl) {
+            this.blockOverrideTtl = blockOverrideTtl;
             return this;
         }
         @CustomType.Setter
-        public Builder blockResponse(String blockResponse) {
-            this.blockResponse = Objects.requireNonNull(blockResponse);
+        public Builder blockResponse(@Nullable String blockResponse) {
+            this.blockResponse = blockResponse;
             return this;
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable String creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder creatorRequestId(String creatorRequestId) {
-            this.creatorRequestId = Objects.requireNonNull(creatorRequestId);
+        public Builder creatorRequestId(@Nullable String creatorRequestId) {
+            this.creatorRequestId = creatorRequestId;
             return this;
         }
         @CustomType.Setter
-        public Builder firewallDomainListId(String firewallDomainListId) {
-            this.firewallDomainListId = Objects.requireNonNull(firewallDomainListId);
+        public Builder firewallDomainListId(@Nullable String firewallDomainListId) {
+            this.firewallDomainListId = firewallDomainListId;
             return this;
         }
         @CustomType.Setter
-        public Builder firewallRuleGroupId(String firewallRuleGroupId) {
-            this.firewallRuleGroupId = Objects.requireNonNull(firewallRuleGroupId);
+        public Builder firewallRuleGroupId(@Nullable String firewallRuleGroupId) {
+            this.firewallRuleGroupId = firewallRuleGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder modificationTime(String modificationTime) {
-            this.modificationTime = Objects.requireNonNull(modificationTime);
+        public Builder modificationTime(@Nullable String modificationTime) {
+            this.modificationTime = modificationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
             return this;
         }
         public GetResolverFirewallRulesFirewallRule build() {

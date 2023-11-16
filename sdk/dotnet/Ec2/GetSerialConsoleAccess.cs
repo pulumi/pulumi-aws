@@ -69,17 +69,17 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Whether or not serial console access is enabled. Returns as `true` or `false`.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetSerialConsoleAccessResult(
-            bool enabled,
+            bool? enabled,
 
-            string id)
+            string? id)
         {
             Enabled = enabled;
             Id = id;

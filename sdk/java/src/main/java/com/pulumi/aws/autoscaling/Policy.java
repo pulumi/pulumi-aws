@@ -308,14 +308,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN assigned by AWS to the scaling policy.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name of the autoscaling group.
@@ -382,14 +382,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="metricAggregationType", refs={String.class}, tree="[0]")
-    private Output<String> metricAggregationType;
+    private Output</* @Nullable */ String> metricAggregationType;
 
     /**
      * @return Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
-    public Output<String> metricAggregationType() {
-        return this.metricAggregationType;
+    public Output<Optional<String>> metricAggregationType() {
+        return Codegen.optional(this.metricAggregationType);
     }
     /**
      * Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.

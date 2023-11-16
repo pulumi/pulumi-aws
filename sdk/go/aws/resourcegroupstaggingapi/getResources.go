@@ -125,7 +125,7 @@ type GetResourcesArgs struct {
 type GetResourcesResult struct {
 	ExcludeCompliantResources *bool `pulumi:"excludeCompliantResources"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string   `pulumi:"id"`
+	Id                       *string  `pulumi:"id"`
 	IncludeComplianceDetails *bool    `pulumi:"includeComplianceDetails"`
 	ResourceArnLists         []string `pulumi:"resourceArnLists"`
 	// List of objects matching the search criteria.
@@ -185,8 +185,8 @@ func (o GetResourcesResultOutput) ExcludeCompliantResources() pulumi.BoolPtrOutp
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetResourcesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResourcesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetResourcesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResourcesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetResourcesResultOutput) IncludeComplianceDetails() pulumi.BoolPtrOutput {

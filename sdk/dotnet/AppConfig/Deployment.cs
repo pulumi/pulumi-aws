@@ -60,7 +60,7 @@ namespace Pulumi.Aws.AppConfig
         /// ARN of the AppConfig Deployment.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration profile ID. Must be between 4 and 7 characters in length.
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.AppConfig
         /// Deployment number.
         /// </summary>
         [Output("deploymentNumber")]
-        public Output<int> DeploymentNumber { get; private set; } = null!;
+        public Output<int?> DeploymentNumber { get; private set; } = null!;
 
         /// <summary>
         /// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.AppConfig
         /// State of the deployment.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

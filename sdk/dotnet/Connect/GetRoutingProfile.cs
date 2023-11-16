@@ -196,56 +196,56 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the Routing Profile.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Specifies the default outbound queue for the Routing Profile.
         /// </summary>
-        public readonly string DefaultOutboundQueueId;
+        public readonly string? DefaultOutboundQueueId;
         /// <summary>
         /// Description of the Routing Profile.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
         /// <summary>
         /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoutingProfileMediaConcurrencyResult> MediaConcurrencies;
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoutingProfileQueueConfigResult> QueueConfigs;
-        public readonly string RoutingProfileId;
+        public readonly string? RoutingProfileId;
         /// <summary>
         /// Map of tags to assign to the Routing Profile.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetRoutingProfileResult(
-            string arn,
+            string? arn,
 
-            string defaultOutboundQueueId,
+            string? defaultOutboundQueueId,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string instanceId,
 
             ImmutableArray<Outputs.GetRoutingProfileMediaConcurrencyResult> mediaConcurrencies,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetRoutingProfileQueueConfigResult> queueConfigs,
 
-            string routingProfileId,
+            string? routingProfileId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             DefaultOutboundQueueId = defaultOutboundQueueId;

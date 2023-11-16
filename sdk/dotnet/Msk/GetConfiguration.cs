@@ -104,15 +104,15 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// ARN of the configuration.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the configuration.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of Apache Kafka versions which can use this configuration.
         /// </summary>
@@ -120,28 +120,28 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// Latest revision of the configuration.
         /// </summary>
-        public readonly int LatestRevision;
+        public readonly int? LatestRevision;
         public readonly string Name;
         /// <summary>
         /// Contents of the server.properties file.
         /// </summary>
-        public readonly string ServerProperties;
+        public readonly string? ServerProperties;
 
         [OutputConstructor]
         private GetConfigurationResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> kafkaVersions,
 
-            int latestRevision,
+            int? latestRevision,
 
             string name,
 
-            string serverProperties)
+            string? serverProperties)
         {
             Arn = arn;
             Description = description;

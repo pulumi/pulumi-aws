@@ -48,7 +48,7 @@ class GetServerlessSecurityConfigResult:
 
     @property
     @pulumi.getter(name="configVersion")
-    def config_version(self) -> str:
+    def config_version(self) -> Optional[str]:
         """
         The version of the security configuration.
         """
@@ -56,7 +56,7 @@ class GetServerlessSecurityConfigResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         The date the configuration was created.
         """
@@ -64,7 +64,7 @@ class GetServerlessSecurityConfigResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The description of the security configuration.
         """
@@ -77,7 +77,7 @@ class GetServerlessSecurityConfigResult:
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> str:
+    def last_modified_date(self) -> Optional[str]:
         """
         The date the configuration was last modified.
         """
@@ -93,7 +93,7 @@ class GetServerlessSecurityConfigResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The type of security configuration.
         """

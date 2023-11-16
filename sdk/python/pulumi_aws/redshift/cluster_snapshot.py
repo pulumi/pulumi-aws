@@ -360,7 +360,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the snapshot.
         """
@@ -376,7 +376,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
         """
@@ -392,7 +392,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccount")
-    def owner_account(self) -> pulumi.Output[str]:
+    def owner_account(self) -> pulumi.Output[Optional[str]]:
         """
         For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
         """

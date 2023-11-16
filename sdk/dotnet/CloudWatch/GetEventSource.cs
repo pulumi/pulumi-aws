@@ -108,38 +108,38 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// ARN of the partner event source
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Name of the SaaS partner that created the event source
         /// </summary>
-        public readonly string CreatedBy;
+        public readonly string? CreatedBy;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the event source
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string? NamePrefix;
         /// <summary>
         /// State of the event source (`ACTIVE` or `PENDING`)
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
 
         [OutputConstructor]
         private GetEventSourceResult(
-            string arn,
+            string? arn,
 
-            string createdBy,
+            string? createdBy,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             string? namePrefix,
 
-            string state)
+            string? state)
         {
             Arn = arn;
             CreatedBy = createdBy;

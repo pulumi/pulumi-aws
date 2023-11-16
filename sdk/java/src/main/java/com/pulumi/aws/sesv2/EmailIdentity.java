@@ -169,14 +169,14 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Email Identity.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
@@ -197,14 +197,14 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dkimSigningAttributes", refs={EmailIdentityDkimSigningAttributes.class}, tree="[0]")
-    private Output<EmailIdentityDkimSigningAttributes> dkimSigningAttributes;
+    private Output</* @Nullable */ EmailIdentityDkimSigningAttributes> dkimSigningAttributes;
 
     /**
      * @return The configuration of the DKIM authentication settings for an email domain identity.
      * 
      */
-    public Output<EmailIdentityDkimSigningAttributes> dkimSigningAttributes() {
-        return this.dkimSigningAttributes;
+    public Output<Optional<EmailIdentityDkimSigningAttributes>> dkimSigningAttributes() {
+        return Codegen.optional(this.dkimSigningAttributes);
     }
     /**
      * The email address or domain to verify.
@@ -229,14 +229,14 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identityType", refs={String.class}, tree="[0]")
-    private Output<String> identityType;
+    private Output</* @Nullable */ String> identityType;
 
     /**
      * @return The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
-    public Output<String> identityType() {
-        return this.identityType;
+    public Output<Optional<String>> identityType() {
+        return Codegen.optional(this.identityType);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -275,14 +275,14 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="verifiedForSendingStatus", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> verifiedForSendingStatus;
+    private Output</* @Nullable */ Boolean> verifiedForSendingStatus;
 
     /**
      * @return Specifies whether or not the identity is verified.
      * 
      */
-    public Output<Boolean> verifiedForSendingStatus() {
-        return this.verifiedForSendingStatus;
+    public Output<Optional<Boolean>> verifiedForSendingStatus() {
+        return Codegen.optional(this.verifiedForSendingStatus);
     }
 
     /**

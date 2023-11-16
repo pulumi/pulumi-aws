@@ -46,7 +46,7 @@ class GetPortfolioConstraintsResult:
 
     @property
     @pulumi.getter
-    def details(self) -> Sequence['outputs.GetPortfolioConstraintsDetailResult']:
+    def details(self) -> Optional[Sequence['outputs.GetPortfolioConstraintsDetailResult']]:
         """
         List of information about the constraints. See details below.
         """
@@ -54,7 +54,7 @@ class GetPortfolioConstraintsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

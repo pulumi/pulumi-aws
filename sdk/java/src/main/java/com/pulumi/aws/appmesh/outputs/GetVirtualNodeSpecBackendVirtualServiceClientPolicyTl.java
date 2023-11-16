@@ -10,26 +10,28 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
-    private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates;
-    private Boolean enforce;
-    private List<Integer> ports;
-    private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations;
+    private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates;
+    private @Nullable Boolean enforce;
+    private @Nullable List<Integer> ports;
+    private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations;
 
     private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl() {}
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates() {
-        return this.certificates;
+        return this.certificates == null ? List.of() : this.certificates;
     }
-    public Boolean enforce() {
-        return this.enforce;
+    public Optional<Boolean> enforce() {
+        return Optional.ofNullable(this.enforce);
     }
     public List<Integer> ports() {
-        return this.ports;
+        return this.ports == null ? List.of() : this.ports;
     }
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations() {
-        return this.validations;
+        return this.validations == null ? List.of() : this.validations;
     }
 
     public static Builder builder() {
@@ -41,10 +43,10 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates;
-        private Boolean enforce;
-        private List<Integer> ports;
-        private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations;
+        private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates;
+        private @Nullable Boolean enforce;
+        private @Nullable List<Integer> ports;
+        private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,29 +57,29 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
         }
 
         @CustomType.Setter
-        public Builder certificates(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+        public Builder certificates(@Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates) {
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate... certificates) {
             return certificates(List.of(certificates));
         }
         @CustomType.Setter
-        public Builder enforce(Boolean enforce) {
-            this.enforce = Objects.requireNonNull(enforce);
+        public Builder enforce(@Nullable Boolean enforce) {
+            this.enforce = enforce;
             return this;
         }
         @CustomType.Setter
-        public Builder ports(List<Integer> ports) {
-            this.ports = Objects.requireNonNull(ports);
+        public Builder ports(@Nullable List<Integer> ports) {
+            this.ports = ports;
             return this;
         }
         public Builder ports(Integer... ports) {
             return ports(List.of(ports));
         }
         @CustomType.Setter
-        public Builder validations(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations) {
-            this.validations = Objects.requireNonNull(validations);
+        public Builder validations(@Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations) {
+            this.validations = validations;
             return this;
         }
         public Builder validations(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation... validations) {

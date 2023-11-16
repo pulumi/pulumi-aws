@@ -331,7 +331,7 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> pulumi.Output[str]:
+    def caller_reference(self) -> pulumi.Output[Optional[str]]:
         """
         Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
         """
@@ -355,7 +355,7 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
         """

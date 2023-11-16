@@ -7,14 +7,15 @@ import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicySta
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition {
-    private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions;
+    private @Nullable List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions;
 
     private GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition() {}
     public List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions() {
-        return this.publishMetricActions;
+        return this.publishMetricActions == null ? List.of() : this.publishMetricActions;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDef
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions;
+        private @Nullable List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDef
         }
 
         @CustomType.Setter
-        public Builder publishMetricActions(List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions) {
-            this.publishMetricActions = Objects.requireNonNull(publishMetricActions);
+        public Builder publishMetricActions(@Nullable List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions) {
+            this.publishMetricActions = publishMetricActions;
             return this;
         }
         public Builder publishMetricActions(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction... publishMetricActions) {

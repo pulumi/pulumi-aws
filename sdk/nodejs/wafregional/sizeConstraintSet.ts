@@ -62,7 +62,7 @@ export class SizeConstraintSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SizeConstraintSet.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name or description of the Size Constraint Set.
      */

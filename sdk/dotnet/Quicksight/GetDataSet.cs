@@ -169,8 +169,8 @@ namespace Pulumi.Aws.Quicksight
     [OutputType]
     public sealed class GetDataSetResult
     {
-        public readonly string Arn;
-        public readonly string AwsAccountId;
+        public readonly string? Arn;
+        public readonly string? AwsAccountId;
         public readonly ImmutableArray<Outputs.GetDataSetColumnGroupResult> ColumnGroups;
         public readonly ImmutableArray<Outputs.GetDataSetColumnLevelPermissionRuleResult> ColumnLevelPermissionRules;
         public readonly string DataSetId;
@@ -179,22 +179,22 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string ImportMode;
+        public readonly string? Id;
+        public readonly string? ImportMode;
         public readonly ImmutableArray<Outputs.GetDataSetLogicalTableMapResult> LogicalTableMaps;
-        public readonly string Name;
+        public readonly string? Name;
         public readonly ImmutableArray<Outputs.GetDataSetPermissionResult> Permissions;
         public readonly ImmutableArray<Outputs.GetDataSetPhysicalTableMapResult> PhysicalTableMaps;
         public readonly ImmutableArray<Outputs.GetDataSetRowLevelPermissionDataSetResult> RowLevelPermissionDataSets;
         public readonly ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationResult> RowLevelPermissionTagConfigurations;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly ImmutableDictionary<string, string> TagsAll;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string>? TagsAll;
 
         [OutputConstructor]
         private GetDataSetResult(
-            string arn,
+            string? arn,
 
-            string awsAccountId,
+            string? awsAccountId,
 
             ImmutableArray<Outputs.GetDataSetColumnGroupResult> columnGroups,
 
@@ -206,13 +206,13 @@ namespace Pulumi.Aws.Quicksight
 
             ImmutableArray<Outputs.GetDataSetFieldFolderResult> fieldFolders,
 
-            string id,
+            string? id,
 
-            string importMode,
+            string? importMode,
 
             ImmutableArray<Outputs.GetDataSetLogicalTableMapResult> logicalTableMaps,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetDataSetPermissionResult> permissions,
 
@@ -222,9 +222,9 @@ namespace Pulumi.Aws.Quicksight
 
             ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationResult> rowLevelPermissionTagConfigurations,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            ImmutableDictionary<string, string> tagsAll)
+            ImmutableDictionary<string, string>? tagsAll)
         {
             Arn = arn;
             AwsAccountId = awsAccountId;

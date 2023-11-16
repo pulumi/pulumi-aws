@@ -63,15 +63,15 @@ export class Cluster extends pulumi.CustomResource {
      * * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
      * * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
      */
-    public /*out*/ readonly clusterCertificates!: pulumi.Output<outputs.cloudhsmv2.ClusterClusterCertificate[]>;
+    public /*out*/ readonly clusterCertificates!: pulumi.Output<outputs.cloudhsmv2.ClusterClusterCertificate[] | undefined>;
     /**
      * The id of the CloudHSM cluster.
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    public /*out*/ readonly clusterId!: pulumi.Output<string | undefined>;
     /**
      * The state of the CloudHSM cluster.
      */
-    public /*out*/ readonly clusterState!: pulumi.Output<string>;
+    public /*out*/ readonly clusterState!: pulumi.Output<string | undefined>;
     /**
      * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
      */
@@ -79,7 +79,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
-    public /*out*/ readonly securityGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupId!: pulumi.Output<string | undefined>;
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
      */
@@ -101,7 +101,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The id of the VPC that the CloudHSM cluster resides in.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.

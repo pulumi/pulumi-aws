@@ -193,14 +193,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the WAF Regional WebACL.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The action that you want AWS WAF Regional to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL.

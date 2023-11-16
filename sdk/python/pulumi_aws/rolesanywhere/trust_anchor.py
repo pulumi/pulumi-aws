@@ -399,7 +399,7 @@ class TrustAnchor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Trust Anchor
         """
@@ -407,7 +407,7 @@ class TrustAnchor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not the Trust Anchor should be enabled.
         """

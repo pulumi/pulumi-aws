@@ -89,7 +89,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name of the file system.
         """
@@ -97,7 +97,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="automaticBackupRetentionDays")
-    def automatic_backup_retention_days(self) -> int:
+    def automatic_backup_retention_days(self) -> Optional[int]:
         """
         The number of days to retain automatic backups.
         """
@@ -105,7 +105,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> str:
+    def daily_automatic_backup_start_time(self) -> Optional[str]:
         """
         The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         """
@@ -113,7 +113,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> str:
+    def deployment_type(self) -> Optional[str]:
         """
         The file system deployment type.
         """
@@ -121,7 +121,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="diskIopsConfigurations")
-    def disk_iops_configurations(self) -> Sequence['outputs.GetOntapFileSystemDiskIopsConfigurationResult']:
+    def disk_iops_configurations(self) -> Optional[Sequence['outputs.GetOntapFileSystemDiskIopsConfigurationResult']]:
         """
         The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
         """
@@ -129,7 +129,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> Optional[str]:
         """
         DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
         """
@@ -137,7 +137,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="endpointIpAddressRange")
-    def endpoint_ip_address_range(self) -> str:
+    def endpoint_ip_address_range(self) -> Optional[str]:
         """
         (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
         """
@@ -145,7 +145,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Sequence['outputs.GetOntapFileSystemEndpointResult']:
+    def endpoints(self) -> Optional[Sequence['outputs.GetOntapFileSystemEndpointResult']]:
         """
         The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
         """
@@ -161,7 +161,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         ARN for the KMS Key to encrypt the file system at rest.
         """
@@ -169,7 +169,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> Sequence[str]:
+    def network_interface_ids(self) -> Optional[Sequence[str]]:
         """
         The IDs of the elastic network interfaces from which a specific file system is accessible.
         """
@@ -177,7 +177,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         AWS account identifier that created the file system.
         """
@@ -185,7 +185,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="preferredSubnetId")
-    def preferred_subnet_id(self) -> str:
+    def preferred_subnet_id(self) -> Optional[str]:
         """
         Specifies the subnet in which you want the preferred file server to be located.
         """
@@ -193,7 +193,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="routeTableIds")
-    def route_table_ids(self) -> Sequence[str]:
+    def route_table_ids(self) -> Optional[Sequence[str]]:
         """
         (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.
         """
@@ -201,7 +201,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> int:
+    def storage_capacity(self) -> Optional[int]:
         """
         The storage capacity of the file system in gibibytes (GiB).
         """
@@ -209,7 +209,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> str:
+    def storage_type(self) -> Optional[str]:
         """
         The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
         """
@@ -217,7 +217,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferred_subnet_id` property.
         """
@@ -225,7 +225,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags associated with the file system.
         """
@@ -233,7 +233,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="throughputCapacity")
-    def throughput_capacity(self) -> int:
+    def throughput_capacity(self) -> Optional[int]:
         """
         The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
         """
@@ -241,7 +241,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         The ID of the primary virtual private cloud (VPC) for the file system.
         """
@@ -249,7 +249,7 @@ class GetOntapFileSystemResult:
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> str:
+    def weekly_maintenance_start_time(self) -> Optional[str]:
         """
         The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """

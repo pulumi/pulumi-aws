@@ -321,7 +321,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateValidationRecords")
-    def certificate_validation_records(self) -> pulumi.Output[Sequence['outputs.CustomDomainAssociationCertificateValidationRecord']]:
+    def certificate_validation_records(self) -> pulumi.Output[Optional[Sequence['outputs.CustomDomainAssociationCertificateValidationRecord']]]:
         """
         A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
         """
@@ -329,7 +329,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsTarget")
-    def dns_target(self) -> pulumi.Output[str]:
+    def dns_target(self) -> pulumi.Output[Optional[str]]:
         """
         App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         """
@@ -361,7 +361,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """

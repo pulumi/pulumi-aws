@@ -36,13 +36,13 @@ namespace Pulumi.Aws.LightSail
         /// The ARN of the Lightsail static IP
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The allocated static IP address
         /// </summary>
         [Output("ipAddress")]
-        public Output<string> IpAddress { get; private set; } = null!;
+        public Output<string?> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The name for the allocated static IP
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.LightSail
         /// The support code.
         /// </summary>
         [Output("supportCode")]
-        public Output<string> SupportCode { get; private set; } = null!;
+        public Output<string?> SupportCode { get; private set; } = null!;
 
 
         /// <summary>

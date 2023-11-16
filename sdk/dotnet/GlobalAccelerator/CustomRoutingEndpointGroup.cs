@@ -64,7 +64,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// The Amazon Resource Name (ARN) of the custom routing endpoint group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// The name of the AWS Region where the custom routing endpoint group is located.
         /// </summary>
         [Output("endpointGroupRegion")]
-        public Output<string> EndpointGroupRegion { get; private set; } = null!;
+        public Output<string?> EndpointGroupRegion { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the custom routing listener.

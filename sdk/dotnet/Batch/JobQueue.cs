@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Batch
         /// The Amazon Resource Name of the job queue.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// List of compute environment ARNs mapped to a job queue.

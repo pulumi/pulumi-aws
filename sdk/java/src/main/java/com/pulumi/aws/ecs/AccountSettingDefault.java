@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -76,10 +77,10 @@ public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     @Export(name="principalArn", refs={String.class}, tree="[0]")
-    private Output<String> principalArn;
+    private Output</* @Nullable */ String> principalArn;
 
-    public Output<String> principalArn() {
-        return this.principalArn;
+    public Output<Optional<String>> principalArn() {
+        return Codegen.optional(this.principalArn);
     }
     /**
      * State of the setting. Valid values are `enabled` and `disabled`.

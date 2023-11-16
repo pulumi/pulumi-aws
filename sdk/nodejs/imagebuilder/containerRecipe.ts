@@ -83,7 +83,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * (Required) Amazon Resource Name (ARN) of the container recipe.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Ordered configuration block(s) with components for the container recipe. Detailed below.
      */
@@ -95,7 +95,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Date the container recipe was created.
      */
-    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string | undefined>;
     /**
      * The description of the container recipe.
      */
@@ -103,7 +103,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * The Dockerfile template used to build the image as an inline data blob.
      */
-    public readonly dockerfileTemplateData!: pulumi.Output<string>;
+    public readonly dockerfileTemplateData!: pulumi.Output<string | undefined>;
     /**
      * The Amazon S3 URI for the Dockerfile that will be used to build the container image.
      */
@@ -111,7 +111,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      */
-    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
+    public /*out*/ readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
      */
@@ -127,7 +127,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Owner of the container recipe.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * The base image for the container recipe.
      */
@@ -135,7 +135,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Platform of the container recipe.
      */
-    public /*out*/ readonly platform!: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string | undefined>;
     /**
      * Specifies the operating system platform when you use a custom base image.
      */

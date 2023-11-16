@@ -57,8 +57,8 @@ type LookupRuleArgs struct {
 // A collection of values returned by getRule.
 type LookupRuleResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
@@ -100,8 +100,8 @@ func (o LookupRuleResultOutput) ToLookupRuleResultOutputWithContext(ctx context.
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupRuleResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRuleResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupRuleResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRuleResultOutput) Name() pulumi.StringOutput {

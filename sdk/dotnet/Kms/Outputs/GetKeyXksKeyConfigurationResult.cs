@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Kms.Outputs
         /// <summary>
         /// The globally unique identifier for the key
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
-        private GetKeyXksKeyConfigurationResult(string id)
+        private GetKeyXksKeyConfigurationResult(string? id)
         {
             Id = id;
         }

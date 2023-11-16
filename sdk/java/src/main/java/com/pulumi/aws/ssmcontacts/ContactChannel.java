@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -110,28 +111,28 @@ public class ContactChannel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="activationStatus", refs={String.class}, tree="[0]")
-    private Output<String> activationStatus;
+    private Output</* @Nullable */ String> activationStatus;
 
     /**
      * @return Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
      * 
      */
-    public Output<String> activationStatus() {
-        return this.activationStatus;
+    public Output<Optional<String>> activationStatus() {
+        return Codegen.optional(this.activationStatus);
     }
     /**
      * Amazon Resource Name (ARN) of the contact channel.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the contact channel.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.

@@ -69,7 +69,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     /**
      * The ARN of the traffic mirror session.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description of the traffic mirror session.
      */
@@ -81,7 +81,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     /**
      * The AWS account ID of the session owner.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
@@ -111,7 +111,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     /**
      * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      */
-    public readonly virtualNetworkId!: pulumi.Output<number>;
+    public readonly virtualNetworkId!: pulumi.Output<number | undefined>;
 
     /**
      * Create a TrafficMirrorSession resource with the given unique name, arguments, and options.

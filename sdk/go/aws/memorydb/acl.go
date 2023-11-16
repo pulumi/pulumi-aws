@@ -57,13 +57,13 @@ type Acl struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the ACL.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The minimum engine version supported by the ACL.
-	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
+	MinimumEngineVersion pulumi.StringPtrOutput `pulumi:"minimumEngineVersion"`
 	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -260,13 +260,13 @@ func (o AclOutput) ToAclOutputWithContext(ctx context.Context) AclOutput {
 }
 
 // The ARN of the ACL.
-func (o AclOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AclOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Acl) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The minimum engine version supported by the ACL.
-func (o AclOutput) MinimumEngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.MinimumEngineVersion }).(pulumi.StringOutput)
+func (o AclOutput) MinimumEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Acl) pulumi.StringPtrOutput { return v.MinimumEngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -275,8 +275,8 @@ func (o AclOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o AclOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o AclOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Acl) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

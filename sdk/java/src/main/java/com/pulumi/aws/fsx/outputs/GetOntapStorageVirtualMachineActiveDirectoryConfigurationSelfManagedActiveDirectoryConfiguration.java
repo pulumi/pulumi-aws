@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
@@ -14,27 +16,27 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelf
      * @return A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
      * 
      */
-    private List<String> dnsIps;
+    private @Nullable List<String> dnsIps;
     /**
      * @return The fully qualified domain name of the self-managed AD directory.
      * 
      */
-    private String domainName;
+    private @Nullable String domainName;
     /**
      * @return The name of the domain group whose members have administrative privileges for the FSx file system.
      * 
      */
-    private String fileSystemAdministratorsGroup;
+    private @Nullable String fileSystemAdministratorsGroup;
     /**
      * @return The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
      * 
      */
-    private String organizationalUnitDistinguishedName;
+    private @Nullable String organizationalUnitDistinguishedName;
     /**
      * @return The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
      * 
      */
-    private String username;
+    private @Nullable String username;
 
     private GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration() {}
     /**
@@ -42,35 +44,35 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelf
      * 
      */
     public List<String> dnsIps() {
-        return this.dnsIps;
+        return this.dnsIps == null ? List.of() : this.dnsIps;
     }
     /**
      * @return The fully qualified domain name of the self-managed AD directory.
      * 
      */
-    public String domainName() {
-        return this.domainName;
+    public Optional<String> domainName() {
+        return Optional.ofNullable(this.domainName);
     }
     /**
      * @return The name of the domain group whose members have administrative privileges for the FSx file system.
      * 
      */
-    public String fileSystemAdministratorsGroup() {
-        return this.fileSystemAdministratorsGroup;
+    public Optional<String> fileSystemAdministratorsGroup() {
+        return Optional.ofNullable(this.fileSystemAdministratorsGroup);
     }
     /**
      * @return The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
      * 
      */
-    public String organizationalUnitDistinguishedName() {
-        return this.organizationalUnitDistinguishedName;
+    public Optional<String> organizationalUnitDistinguishedName() {
+        return Optional.ofNullable(this.organizationalUnitDistinguishedName);
     }
     /**
      * @return The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
      * 
      */
-    public String username() {
-        return this.username;
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
     }
 
     public static Builder builder() {
@@ -82,11 +84,11 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelf
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> dnsIps;
-        private String domainName;
-        private String fileSystemAdministratorsGroup;
-        private String organizationalUnitDistinguishedName;
-        private String username;
+        private @Nullable List<String> dnsIps;
+        private @Nullable String domainName;
+        private @Nullable String fileSystemAdministratorsGroup;
+        private @Nullable String organizationalUnitDistinguishedName;
+        private @Nullable String username;
         public Builder() {}
         public Builder(GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -98,31 +100,31 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelf
         }
 
         @CustomType.Setter
-        public Builder dnsIps(List<String> dnsIps) {
-            this.dnsIps = Objects.requireNonNull(dnsIps);
+        public Builder dnsIps(@Nullable List<String> dnsIps) {
+            this.dnsIps = dnsIps;
             return this;
         }
         public Builder dnsIps(String... dnsIps) {
             return dnsIps(List.of(dnsIps));
         }
         @CustomType.Setter
-        public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+        public Builder domainName(@Nullable String domainName) {
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
-        public Builder fileSystemAdministratorsGroup(String fileSystemAdministratorsGroup) {
-            this.fileSystemAdministratorsGroup = Objects.requireNonNull(fileSystemAdministratorsGroup);
+        public Builder fileSystemAdministratorsGroup(@Nullable String fileSystemAdministratorsGroup) {
+            this.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
             return this;
         }
         @CustomType.Setter
-        public Builder organizationalUnitDistinguishedName(String organizationalUnitDistinguishedName) {
-            this.organizationalUnitDistinguishedName = Objects.requireNonNull(organizationalUnitDistinguishedName);
+        public Builder organizationalUnitDistinguishedName(@Nullable String organizationalUnitDistinguishedName) {
+            this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             return this;
         }
         @CustomType.Setter
-        public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+        public Builder username(@Nullable String username) {
+            this.username = username;
             return this;
         }
         public GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration build() {

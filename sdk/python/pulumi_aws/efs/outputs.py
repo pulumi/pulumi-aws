@@ -402,21 +402,24 @@ class ReplicationConfigurationDestination(dict):
 @pulumi.output_type
 class GetAccessPointPosixUserResult(dict):
     def __init__(__self__, *,
-                 gid: int,
-                 secondary_gids: Sequence[int],
-                 uid: int):
+                 gid: Optional[int] = None,
+                 secondary_gids: Optional[Sequence[int]] = None,
+                 uid: Optional[int] = None):
         """
         :param int gid: Group ID
         :param Sequence[int] secondary_gids: Secondary group IDs
         :param int uid: User Id
         """
-        pulumi.set(__self__, "gid", gid)
-        pulumi.set(__self__, "secondary_gids", secondary_gids)
-        pulumi.set(__self__, "uid", uid)
+        if gid is not None:
+            pulumi.set(__self__, "gid", gid)
+        if secondary_gids is not None:
+            pulumi.set(__self__, "secondary_gids", secondary_gids)
+        if uid is not None:
+            pulumi.set(__self__, "uid", uid)
 
     @property
     @pulumi.getter
-    def gid(self) -> int:
+    def gid(self) -> Optional[int]:
         """
         Group ID
         """
@@ -424,7 +427,7 @@ class GetAccessPointPosixUserResult(dict):
 
     @property
     @pulumi.getter(name="secondaryGids")
-    def secondary_gids(self) -> Sequence[int]:
+    def secondary_gids(self) -> Optional[Sequence[int]]:
         """
         Secondary group IDs
         """
@@ -432,7 +435,7 @@ class GetAccessPointPosixUserResult(dict):
 
     @property
     @pulumi.getter
-    def uid(self) -> int:
+    def uid(self) -> Optional[int]:
         """
         User Id
         """
@@ -442,18 +445,20 @@ class GetAccessPointPosixUserResult(dict):
 @pulumi.output_type
 class GetAccessPointRootDirectoryResult(dict):
     def __init__(__self__, *,
-                 creation_infos: Sequence['outputs.GetAccessPointRootDirectoryCreationInfoResult'],
-                 path: str):
+                 creation_infos: Optional[Sequence['outputs.GetAccessPointRootDirectoryCreationInfoResult']] = None,
+                 path: Optional[str] = None):
         """
         :param Sequence['GetAccessPointRootDirectoryCreationInfoArgs'] creation_infos: Single element list containing information on the creation permissions of the directory
         :param str path: Path exposed as the root directory
         """
-        pulumi.set(__self__, "creation_infos", creation_infos)
-        pulumi.set(__self__, "path", path)
+        if creation_infos is not None:
+            pulumi.set(__self__, "creation_infos", creation_infos)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter(name="creationInfos")
-    def creation_infos(self) -> Sequence['outputs.GetAccessPointRootDirectoryCreationInfoResult']:
+    def creation_infos(self) -> Optional[Sequence['outputs.GetAccessPointRootDirectoryCreationInfoResult']]:
         """
         Single element list containing information on the creation permissions of the directory
         """
@@ -461,7 +466,7 @@ class GetAccessPointRootDirectoryResult(dict):
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
         Path exposed as the root directory
         """
@@ -471,21 +476,24 @@ class GetAccessPointRootDirectoryResult(dict):
 @pulumi.output_type
 class GetAccessPointRootDirectoryCreationInfoResult(dict):
     def __init__(__self__, *,
-                 owner_gid: int,
-                 owner_uid: int,
-                 permissions: str):
+                 owner_gid: Optional[int] = None,
+                 owner_uid: Optional[int] = None,
+                 permissions: Optional[str] = None):
         """
         :param int owner_gid: POSIX owner group ID
         :param int owner_uid: POSIX owner user ID
         :param str permissions: POSIX permissions mode
         """
-        pulumi.set(__self__, "owner_gid", owner_gid)
-        pulumi.set(__self__, "owner_uid", owner_uid)
-        pulumi.set(__self__, "permissions", permissions)
+        if owner_gid is not None:
+            pulumi.set(__self__, "owner_gid", owner_gid)
+        if owner_uid is not None:
+            pulumi.set(__self__, "owner_uid", owner_uid)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter(name="ownerGid")
-    def owner_gid(self) -> int:
+    def owner_gid(self) -> Optional[int]:
         """
         POSIX owner group ID
         """
@@ -493,7 +501,7 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
 
     @property
     @pulumi.getter(name="ownerUid")
-    def owner_uid(self) -> int:
+    def owner_uid(self) -> Optional[int]:
         """
         POSIX owner user ID
         """
@@ -501,7 +509,7 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
 
     @property
     @pulumi.getter
-    def permissions(self) -> str:
+    def permissions(self) -> Optional[str]:
         """
         POSIX permissions mode
         """
@@ -511,19 +519,21 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
 @pulumi.output_type
 class GetFileSystemLifecyclePolicyResult(dict):
     def __init__(__self__, *,
-                 transition_to_ia: str,
-                 transition_to_primary_storage_class: str):
-        pulumi.set(__self__, "transition_to_ia", transition_to_ia)
-        pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
+                 transition_to_ia: Optional[str] = None,
+                 transition_to_primary_storage_class: Optional[str] = None):
+        if transition_to_ia is not None:
+            pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+        if transition_to_primary_storage_class is not None:
+            pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
     @pulumi.getter(name="transitionToIa")
-    def transition_to_ia(self) -> str:
+    def transition_to_ia(self) -> Optional[str]:
         return pulumi.get(self, "transition_to_ia")
 
     @property
     @pulumi.getter(name="transitionToPrimaryStorageClass")
-    def transition_to_primary_storage_class(self) -> str:
+    def transition_to_primary_storage_class(self) -> Optional[str]:
         return pulumi.get(self, "transition_to_primary_storage_class")
 
 

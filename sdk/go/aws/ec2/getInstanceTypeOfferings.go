@@ -75,7 +75,7 @@ type GetInstanceTypeOfferingsArgs struct {
 type GetInstanceTypeOfferingsResult struct {
 	Filters []GetInstanceTypeOfferingsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of EC2 Instance Types.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	LocationType  *string  `pulumi:"locationType"`
@@ -130,8 +130,8 @@ func (o GetInstanceTypeOfferingsResultOutput) Filters() GetInstanceTypeOfferings
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetInstanceTypeOfferingsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetInstanceTypeOfferingsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of EC2 Instance Types.

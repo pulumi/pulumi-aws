@@ -74,7 +74,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name of the file system.
         """
@@ -82,7 +82,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> str:
+    def availability_zone_id(self) -> Optional[str]:
         """
         The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
         """
@@ -90,7 +90,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="availabilityZoneName")
-    def availability_zone_name(self) -> str:
+    def availability_zone_name(self) -> Optional[str]:
         """
         The Availability Zone name in which the file system's One Zone storage classes exist.
         """
@@ -98,12 +98,12 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="creationToken")
-    def creation_token(self) -> str:
+    def creation_token(self) -> Optional[str]:
         return pulumi.get(self, "creation_token")
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> Optional[str]:
         """
         DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         """
@@ -111,7 +111,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> Optional[bool]:
         """
         Whether EFS is encrypted.
         """
@@ -119,12 +119,12 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> str:
+    def file_system_id(self) -> Optional[str]:
         return pulumi.get(self, "file_system_id")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -132,7 +132,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         ARN for the KMS encryption key.
         """
@@ -140,7 +140,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="lifecyclePolicy")
-    def lifecycle_policy(self) -> 'outputs.GetFileSystemLifecyclePolicyResult':
+    def lifecycle_policy(self) -> Optional['outputs.GetFileSystemLifecyclePolicyResult']:
         """
         File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
         """
@@ -148,7 +148,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The value of the file system's `Name` tag.
         """
@@ -156,7 +156,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="performanceMode")
-    def performance_mode(self) -> str:
+    def performance_mode(self) -> Optional[str]:
         """
         File system performance mode.
         """
@@ -164,7 +164,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="provisionedThroughputInMibps")
-    def provisioned_throughput_in_mibps(self) -> float:
+    def provisioned_throughput_in_mibps(self) -> Optional[float]:
         """
         The throughput, measured in MiB/s, that you want to provision for the file system.
         """
@@ -172,7 +172,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> int:
+    def size_in_bytes(self) -> Optional[int]:
         """
         Current byte count used by the file system.
         """
@@ -180,7 +180,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags to assign to the file system.
         """
@@ -188,7 +188,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="throughputMode")
-    def throughput_mode(self) -> str:
+    def throughput_mode(self) -> Optional[str]:
         """
         Throughput mode for the file system.
         """

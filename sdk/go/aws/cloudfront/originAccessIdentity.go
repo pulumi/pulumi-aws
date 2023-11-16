@@ -157,23 +157,23 @@ type OriginAccessIdentity struct {
 
 	// Internal value used by CloudFront to allow future
 	// updates to the origin access identity.
-	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
+	CallerReference pulumi.StringPtrOutput `pulumi:"callerReference"`
 	// A shortcut to the full path for the
 	// origin access identity to use in CloudFront, see below.
-	CloudfrontAccessIdentityPath pulumi.StringOutput `pulumi:"cloudfrontAccessIdentityPath"`
+	CloudfrontAccessIdentityPath pulumi.StringPtrOutput `pulumi:"cloudfrontAccessIdentityPath"`
 	// An optional comment for the origin access identity.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The current version of the origin access identity's information.
 	// For example: `E2QWRUHAPOMQZL`.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// A pre-generated ARN for use in S3 bucket policies (see below).
 	// Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
 	// E2QWRUHAPOMQZL`.
-	IamArn pulumi.StringOutput `pulumi:"iamArn"`
+	IamArn pulumi.StringPtrOutput `pulumi:"iamArn"`
 	// The Amazon S3 canonical user ID for the origin
 	// access identity, which you use when giving the origin access identity read
 	// permission to an object in Amazon S3.
-	S3CanonicalUserId pulumi.StringOutput `pulumi:"s3CanonicalUserId"`
+	S3CanonicalUserId pulumi.StringPtrOutput `pulumi:"s3CanonicalUserId"`
 }
 
 // NewOriginAccessIdentity registers a new resource with the given unique name, arguments, and options.
@@ -353,14 +353,14 @@ func (o OriginAccessIdentityOutput) ToOriginAccessIdentityOutputWithContext(ctx 
 
 // Internal value used by CloudFront to allow future
 // updates to the origin access identity.
-func (o OriginAccessIdentityOutput) CallerReference() pulumi.StringOutput {
-	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringOutput { return v.CallerReference }).(pulumi.StringOutput)
+func (o OriginAccessIdentityOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringPtrOutput { return v.CallerReference }).(pulumi.StringPtrOutput)
 }
 
 // A shortcut to the full path for the
 // origin access identity to use in CloudFront, see below.
-func (o OriginAccessIdentityOutput) CloudfrontAccessIdentityPath() pulumi.StringOutput {
-	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringOutput { return v.CloudfrontAccessIdentityPath }).(pulumi.StringOutput)
+func (o OriginAccessIdentityOutput) CloudfrontAccessIdentityPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringPtrOutput { return v.CloudfrontAccessIdentityPath }).(pulumi.StringPtrOutput)
 }
 
 // An optional comment for the origin access identity.
@@ -370,22 +370,22 @@ func (o OriginAccessIdentityOutput) Comment() pulumi.StringPtrOutput {
 
 // The current version of the origin access identity's information.
 // For example: `E2QWRUHAPOMQZL`.
-func (o OriginAccessIdentityOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o OriginAccessIdentityOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // A pre-generated ARN for use in S3 bucket policies (see below).
 // Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
 // E2QWRUHAPOMQZL`.
-func (o OriginAccessIdentityOutput) IamArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringOutput { return v.IamArn }).(pulumi.StringOutput)
+func (o OriginAccessIdentityOutput) IamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringPtrOutput { return v.IamArn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon S3 canonical user ID for the origin
 // access identity, which you use when giving the origin access identity read
 // permission to an object in Amazon S3.
-func (o OriginAccessIdentityOutput) S3CanonicalUserId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringOutput { return v.S3CanonicalUserId }).(pulumi.StringOutput)
+func (o OriginAccessIdentityOutput) S3CanonicalUserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringPtrOutput { return v.S3CanonicalUserId }).(pulumi.StringPtrOutput)
 }
 
 type OriginAccessIdentityArrayOutput struct{ *pulumi.OutputState }

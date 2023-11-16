@@ -54,7 +54,7 @@ class GetVpcConnectionResult:
 
     @property
     @pulumi.getter
-    def authentication(self) -> str:
+    def authentication(self) -> Optional[str]:
         """
         The authentication type for the client VPC Connection.
         """
@@ -62,7 +62,7 @@ class GetVpcConnectionResult:
 
     @property
     @pulumi.getter(name="clientSubnets")
-    def client_subnets(self) -> Sequence[str]:
+    def client_subnets(self) -> Optional[Sequence[str]]:
         """
         The list of subnets in the client VPC.
         """
@@ -70,7 +70,7 @@ class GetVpcConnectionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -78,7 +78,7 @@ class GetVpcConnectionResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Sequence[str]:
+    def security_groups(self) -> Optional[Sequence[str]]:
         """
         The security groups attached to the ENIs for the broker nodes.
         """
@@ -86,7 +86,7 @@ class GetVpcConnectionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of key-value pairs assigned to the VPC Connection.
         """
@@ -94,7 +94,7 @@ class GetVpcConnectionResult:
 
     @property
     @pulumi.getter(name="targetClusterArn")
-    def target_cluster_arn(self) -> str:
+    def target_cluster_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the cluster.
         """
@@ -102,7 +102,7 @@ class GetVpcConnectionResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         The VPC ID of the remote client.
         """

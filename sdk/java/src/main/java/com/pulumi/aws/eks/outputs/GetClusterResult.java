@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterResult {
@@ -20,147 +22,147 @@ public final class GetClusterResult {
      * @return ARN of the cluster.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Nested attribute containing `certificate-authority-data` for your cluster.
      * 
      */
-    private List<GetClusterCertificateAuthority> certificateAuthorities;
+    private @Nullable List<GetClusterCertificateAuthority> certificateAuthorities;
     /**
      * @return The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
      * 
      */
-    private String clusterId;
+    private @Nullable String clusterId;
     /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return The enabled control plane logs.
      * 
      */
-    private List<String> enabledClusterLogTypes;
+    private @Nullable List<String> enabledClusterLogTypes;
     /**
      * @return Endpoint for your Kubernetes API server.
      * 
      */
-    private String endpoint;
+    private @Nullable String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
      * 
      */
-    private List<GetClusterIdentity> identities;
+    private @Nullable List<GetClusterIdentity> identities;
     /**
      * @return Nested list containing Kubernetes Network Configuration.
      * 
      */
-    private List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
+    private @Nullable List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
     private String name;
     /**
      * @return Contains Outpost Configuration.
      * 
      */
-    private List<GetClusterOutpostConfig> outpostConfigs;
+    private @Nullable List<GetClusterOutpostConfig> outpostConfigs;
     /**
      * @return Platform version for the cluster.
      * 
      */
-    private String platformVersion;
+    private @Nullable String platformVersion;
     /**
      * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Key-value map of resource tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Kubernetes server version for the cluster.
      * 
      */
-    private String version;
+    private @Nullable String version;
     /**
      * @return Nested list containing VPC configuration for the cluster.
      * 
      */
-    private GetClusterVpcConfig vpcConfig;
+    private @Nullable GetClusterVpcConfig vpcConfig;
 
     private GetClusterResult() {}
     /**
      * @return ARN of the cluster.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Nested attribute containing `certificate-authority-data` for your cluster.
      * 
      */
     public List<GetClusterCertificateAuthority> certificateAuthorities() {
-        return this.certificateAuthorities;
+        return this.certificateAuthorities == null ? List.of() : this.certificateAuthorities;
     }
     /**
      * @return The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
      * 
      */
-    public String clusterId() {
-        return this.clusterId;
+    public Optional<String> clusterId() {
+        return Optional.ofNullable(this.clusterId);
     }
     /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return The enabled control plane logs.
      * 
      */
     public List<String> enabledClusterLogTypes() {
-        return this.enabledClusterLogTypes;
+        return this.enabledClusterLogTypes == null ? List.of() : this.enabledClusterLogTypes;
     }
     /**
      * @return Endpoint for your Kubernetes API server.
      * 
      */
-    public String endpoint() {
-        return this.endpoint;
+    public Optional<String> endpoint() {
+        return Optional.ofNullable(this.endpoint);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
      * 
      */
     public List<GetClusterIdentity> identities() {
-        return this.identities;
+        return this.identities == null ? List.of() : this.identities;
     }
     /**
      * @return Nested list containing Kubernetes Network Configuration.
      * 
      */
     public List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs() {
-        return this.kubernetesNetworkConfigs;
+        return this.kubernetesNetworkConfigs == null ? List.of() : this.kubernetesNetworkConfigs;
     }
     public String name() {
         return this.name;
@@ -170,49 +172,49 @@ public final class GetClusterResult {
      * 
      */
     public List<GetClusterOutpostConfig> outpostConfigs() {
-        return this.outpostConfigs;
+        return this.outpostConfigs == null ? List.of() : this.outpostConfigs;
     }
     /**
      * @return Platform version for the cluster.
      * 
      */
-    public String platformVersion() {
-        return this.platformVersion;
+    public Optional<String> platformVersion() {
+        return Optional.ofNullable(this.platformVersion);
     }
     /**
      * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Key-value map of resource tags.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Kubernetes server version for the cluster.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
     /**
      * @return Nested list containing VPC configuration for the cluster.
      * 
      */
-    public GetClusterVpcConfig vpcConfig() {
-        return this.vpcConfig;
+    public Optional<GetClusterVpcConfig> vpcConfig() {
+        return Optional.ofNullable(this.vpcConfig);
     }
 
     public static Builder builder() {
@@ -224,23 +226,23 @@ public final class GetClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetClusterCertificateAuthority> certificateAuthorities;
-        private String clusterId;
-        private String createdAt;
-        private List<String> enabledClusterLogTypes;
-        private String endpoint;
-        private String id;
-        private List<GetClusterIdentity> identities;
-        private List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
+        private @Nullable String arn;
+        private @Nullable List<GetClusterCertificateAuthority> certificateAuthorities;
+        private @Nullable String clusterId;
+        private @Nullable String createdAt;
+        private @Nullable List<String> enabledClusterLogTypes;
+        private @Nullable String endpoint;
+        private @Nullable String id;
+        private @Nullable List<GetClusterIdentity> identities;
+        private @Nullable List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
         private String name;
-        private List<GetClusterOutpostConfig> outpostConfigs;
-        private String platformVersion;
-        private String roleArn;
-        private String status;
-        private Map<String,String> tags;
-        private String version;
-        private GetClusterVpcConfig vpcConfig;
+        private @Nullable List<GetClusterOutpostConfig> outpostConfigs;
+        private @Nullable String platformVersion;
+        private @Nullable String roleArn;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String version;
+        private @Nullable GetClusterVpcConfig vpcConfig;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -264,57 +266,57 @@ public final class GetClusterResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateAuthorities(List<GetClusterCertificateAuthority> certificateAuthorities) {
-            this.certificateAuthorities = Objects.requireNonNull(certificateAuthorities);
+        public Builder certificateAuthorities(@Nullable List<GetClusterCertificateAuthority> certificateAuthorities) {
+            this.certificateAuthorities = certificateAuthorities;
             return this;
         }
         public Builder certificateAuthorities(GetClusterCertificateAuthority... certificateAuthorities) {
             return certificateAuthorities(List.of(certificateAuthorities));
         }
         @CustomType.Setter
-        public Builder clusterId(String clusterId) {
-            this.clusterId = Objects.requireNonNull(clusterId);
+        public Builder clusterId(@Nullable String clusterId) {
+            this.clusterId = clusterId;
             return this;
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder enabledClusterLogTypes(List<String> enabledClusterLogTypes) {
-            this.enabledClusterLogTypes = Objects.requireNonNull(enabledClusterLogTypes);
+        public Builder enabledClusterLogTypes(@Nullable List<String> enabledClusterLogTypes) {
+            this.enabledClusterLogTypes = enabledClusterLogTypes;
             return this;
         }
         public Builder enabledClusterLogTypes(String... enabledClusterLogTypes) {
             return enabledClusterLogTypes(List.of(enabledClusterLogTypes));
         }
         @CustomType.Setter
-        public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+        public Builder endpoint(@Nullable String endpoint) {
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder identities(List<GetClusterIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+        public Builder identities(@Nullable List<GetClusterIdentity> identities) {
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetClusterIdentity... identities) {
             return identities(List.of(identities));
         }
         @CustomType.Setter
-        public Builder kubernetesNetworkConfigs(List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs) {
-            this.kubernetesNetworkConfigs = Objects.requireNonNull(kubernetesNetworkConfigs);
+        public Builder kubernetesNetworkConfigs(@Nullable List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs) {
+            this.kubernetesNetworkConfigs = kubernetesNetworkConfigs;
             return this;
         }
         public Builder kubernetesNetworkConfigs(GetClusterKubernetesNetworkConfig... kubernetesNetworkConfigs) {
@@ -326,41 +328,41 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder outpostConfigs(List<GetClusterOutpostConfig> outpostConfigs) {
-            this.outpostConfigs = Objects.requireNonNull(outpostConfigs);
+        public Builder outpostConfigs(@Nullable List<GetClusterOutpostConfig> outpostConfigs) {
+            this.outpostConfigs = outpostConfigs;
             return this;
         }
         public Builder outpostConfigs(GetClusterOutpostConfig... outpostConfigs) {
             return outpostConfigs(List.of(outpostConfigs));
         }
         @CustomType.Setter
-        public Builder platformVersion(String platformVersion) {
-            this.platformVersion = Objects.requireNonNull(platformVersion);
+        public Builder platformVersion(@Nullable String platformVersion) {
+            this.platformVersion = platformVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcConfig(GetClusterVpcConfig vpcConfig) {
-            this.vpcConfig = Objects.requireNonNull(vpcConfig);
+        public Builder vpcConfig(@Nullable GetClusterVpcConfig vpcConfig) {
+            this.vpcConfig = vpcConfig;
             return this;
         }
         public GetClusterResult build() {

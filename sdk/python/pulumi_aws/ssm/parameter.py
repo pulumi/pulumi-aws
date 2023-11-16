@@ -754,7 +754,7 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the parameter.
         """
@@ -762,7 +762,7 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> pulumi.Output[str]:
+    def data_type(self) -> pulumi.Output[Optional[str]]:
         """
         Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         """
@@ -778,7 +778,7 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="insecureValue")
-    def insecure_value(self) -> pulumi.Output[str]:
+    def insecure_value(self) -> pulumi.Output[Optional[str]]:
         """
         Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         """
@@ -786,7 +786,7 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> pulumi.Output[str]:
+    def key_id(self) -> pulumi.Output[Optional[str]]:
         """
         KMS key ID or ARN for encrypting a SecureString.
         """
@@ -850,7 +850,7 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Output[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
 
@@ -860,7 +860,7 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         Version of the parameter.
         """

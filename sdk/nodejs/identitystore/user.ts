@@ -68,7 +68,7 @@ export class User extends pulumi.CustomResource {
     /**
      * A list of identifiers issued to this resource by an external identity provider.
      */
-    public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.UserExternalId[]>;
+    public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.UserExternalId[] | undefined>;
     /**
      * The globally unique identifier for the identity store that this user is in.
      */
@@ -108,7 +108,7 @@ export class User extends pulumi.CustomResource {
     /**
      * The identifier for this user in the identity store.
      */
-    public /*out*/ readonly userId!: pulumi.Output<string>;
+    public /*out*/ readonly userId!: pulumi.Output<string | undefined>;
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
      *

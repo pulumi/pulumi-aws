@@ -56,17 +56,17 @@ type EndpointAuthorization struct {
 	// The Amazon Web Services account ID to grant access to.
 	Account pulumi.StringOutput `pulumi:"account"`
 	// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
-	AllowedAllVpcs pulumi.BoolOutput `pulumi:"allowedAllVpcs"`
+	AllowedAllVpcs pulumi.BoolPtrOutput `pulumi:"allowedAllVpcs"`
 	// The cluster identifier of the cluster to grant access to.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The number of Redshift-managed VPC endpoints created for the authorization.
-	EndpointCount pulumi.IntOutput `pulumi:"endpointCount"`
+	EndpointCount pulumi.IntPtrOutput `pulumi:"endpointCount"`
 	// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// The Amazon Web Services account ID of the grantee of the cluster.
-	Grantee pulumi.StringOutput `pulumi:"grantee"`
+	Grantee pulumi.StringPtrOutput `pulumi:"grantee"`
 	// The Amazon Web Services account ID of the cluster owner.
-	Grantor pulumi.StringOutput `pulumi:"grantor"`
+	Grantor pulumi.StringPtrOutput `pulumi:"grantor"`
 	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds pulumi.StringArrayOutput `pulumi:"vpcIds"`
 }
@@ -264,8 +264,8 @@ func (o EndpointAuthorizationOutput) Account() pulumi.StringOutput {
 }
 
 // Indicates whether all VPCs in the grantee account are allowed access to the cluster.
-func (o EndpointAuthorizationOutput) AllowedAllVpcs() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndpointAuthorization) pulumi.BoolOutput { return v.AllowedAllVpcs }).(pulumi.BoolOutput)
+func (o EndpointAuthorizationOutput) AllowedAllVpcs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.BoolPtrOutput { return v.AllowedAllVpcs }).(pulumi.BoolPtrOutput)
 }
 
 // The cluster identifier of the cluster to grant access to.
@@ -274,8 +274,8 @@ func (o EndpointAuthorizationOutput) ClusterIdentifier() pulumi.StringOutput {
 }
 
 // The number of Redshift-managed VPC endpoints created for the authorization.
-func (o EndpointAuthorizationOutput) EndpointCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *EndpointAuthorization) pulumi.IntOutput { return v.EndpointCount }).(pulumi.IntOutput)
+func (o EndpointAuthorizationOutput) EndpointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.IntPtrOutput { return v.EndpointCount }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
@@ -284,13 +284,13 @@ func (o EndpointAuthorizationOutput) ForceDelete() pulumi.BoolPtrOutput {
 }
 
 // The Amazon Web Services account ID of the grantee of the cluster.
-func (o EndpointAuthorizationOutput) Grantee() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Grantee }).(pulumi.StringOutput)
+func (o EndpointAuthorizationOutput) Grantee() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringPtrOutput { return v.Grantee }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Web Services account ID of the cluster owner.
-func (o EndpointAuthorizationOutput) Grantor() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Grantor }).(pulumi.StringOutput)
+func (o EndpointAuthorizationOutput) Grantor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringPtrOutput { return v.Grantor }).(pulumi.StringPtrOutput)
 }
 
 // The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.

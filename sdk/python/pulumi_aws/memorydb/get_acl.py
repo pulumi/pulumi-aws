@@ -43,7 +43,7 @@ class GetAclResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the ACL.
         """
@@ -51,7 +51,7 @@ class GetAclResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -59,7 +59,7 @@ class GetAclResult:
 
     @property
     @pulumi.getter(name="minimumEngineVersion")
-    def minimum_engine_version(self) -> str:
+    def minimum_engine_version(self) -> Optional[str]:
         """
         The minimum engine version supported by the ACL.
         """
@@ -72,7 +72,7 @@ class GetAclResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the ACL.
         """
@@ -80,7 +80,7 @@ class GetAclResult:
 
     @property
     @pulumi.getter(name="userNames")
-    def user_names(self) -> Sequence[str]:
+    def user_names(self) -> Optional[Sequence[str]]:
         """
         Set of MemoryDB user names included in this ACL.
         """

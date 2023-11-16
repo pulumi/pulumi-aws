@@ -127,7 +127,7 @@ namespace Pulumi.Aws.SesV2
     [OutputType]
     public sealed class GetConfigurationSetResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string ConfigurationSetName;
         /// <summary>
         /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// Key-value map of resource tags for the container recipe.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// An object that defines the open and click tracking options for emails that you send using the configuration set.
         /// </summary>
@@ -164,13 +164,13 @@ namespace Pulumi.Aws.SesV2
 
         [OutputConstructor]
         private GetConfigurationSetResult(
-            string arn,
+            string? arn,
 
             string configurationSetName,
 
             ImmutableArray<Outputs.GetConfigurationSetDeliveryOptionResult> deliveryOptions,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetConfigurationSetReputationOptionResult> reputationOptions,
 
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.SesV2
 
             ImmutableArray<Outputs.GetConfigurationSetSuppressionOptionResult> suppressionOptions,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.GetConfigurationSetTrackingOptionResult> trackingOptions,
 

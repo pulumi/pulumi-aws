@@ -29,7 +29,7 @@ namespace Pulumi.Aws.GameLift
         /// Rule Set ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the matchmaking rule set.

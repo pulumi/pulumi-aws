@@ -136,11 +136,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
      */
-    public readonly applyImmediately!: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the created ElastiCache Cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
@@ -150,19 +150,19 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
      */
-    public readonly azMode!: pulumi.Output<string>;
+    public readonly azMode!: pulumi.Output<string | undefined>;
     /**
      * List of node objects including `id`, `address`, `port` and `availabilityZone`.
      */
-    public /*out*/ readonly cacheNodes!: pulumi.Output<outputs.elasticache.ClusterCacheNode[]>;
+    public /*out*/ readonly cacheNodes!: pulumi.Output<outputs.elasticache.ClusterCacheNode[] | undefined>;
     /**
      * (Memcached only) DNS name of the cache cluster without the port appended.
      */
-    public /*out*/ readonly clusterAddress!: pulumi.Output<string>;
+    public /*out*/ readonly clusterAddress!: pulumi.Output<string | undefined>;
     /**
      * Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
      */
@@ -170,11 +170,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * (Memcached only) Configuration endpoint to allow host discovery.
      */
-    public /*out*/ readonly configurationEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly configurationEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
      */
-    public readonly engine!: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Version number of the cache engine to be used.
      * If not set, defaults to the latest version.
@@ -185,11 +185,11 @@ export class Cluster extends pulumi.CustomResource {
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
      * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      */
-    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string | undefined>;
     /**
      * Name of your final cluster snapshot. If omitted, no final snapshot will be made.
      */
@@ -197,7 +197,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      */
-    public readonly ipDiscovery!: pulumi.Output<string>;
+    public readonly ipDiscovery!: pulumi.Output<string | undefined>;
     /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      */
@@ -207,15 +207,15 @@ export class Cluster extends pulumi.CustomResource {
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
      */
-    public readonly maintenanceWindow!: pulumi.Output<string>;
+    public readonly maintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dualStack`.
      */
-    public readonly networkType!: pulumi.Output<string>;
+    public readonly networkType!: pulumi.Output<string | undefined>;
     /**
      * The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
      */
-    public readonly nodeType!: pulumi.Output<string>;
+    public readonly nodeType!: pulumi.Output<string | undefined>;
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
      */
@@ -223,7 +223,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
      */
-    public readonly numCacheNodes!: pulumi.Output<number>;
+    public readonly numCacheNodes!: pulumi.Output<number | undefined>;
     /**
      * Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
      */
@@ -233,11 +233,11 @@ export class Cluster extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly parameterGroupName!: pulumi.Output<string>;
+    public readonly parameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
      */
-    public readonly port!: pulumi.Output<number>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      */
@@ -245,15 +245,15 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The outpost ARN in which the cache cluster will be created.
      */
-    public readonly preferredOutpostArn!: pulumi.Output<string>;
+    public readonly preferredOutpostArn!: pulumi.Output<string | undefined>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
-    public readonly replicationGroupId!: pulumi.Output<string>;
+    public readonly replicationGroupId!: pulumi.Output<string | undefined>;
     /**
      * One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
@@ -269,11 +269,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      */
-    public readonly snapshotWindow!: pulumi.Output<string>;
+    public readonly snapshotWindow!: pulumi.Output<string | undefined>;
     /**
      * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      */
-    public readonly subnetGroupName!: pulumi.Output<string>;
+    public readonly subnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -287,7 +287,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
      */
-    public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
+    public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.

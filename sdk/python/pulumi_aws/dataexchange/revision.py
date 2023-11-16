@@ -318,7 +318,7 @@ class Revision(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name of this data set.
         """
@@ -342,7 +342,7 @@ class Revision(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="revisionId")
-    def revision_id(self) -> pulumi.Output[str]:
+    def revision_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Id of the revision.
         """

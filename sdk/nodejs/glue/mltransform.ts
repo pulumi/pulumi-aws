@@ -139,7 +139,7 @@ export class MLTransform extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Glue ML Transform.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the ML Transform.
      */
@@ -147,7 +147,7 @@ export class MLTransform extends pulumi.CustomResource {
     /**
      * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
-    public readonly glueVersion!: pulumi.Output<string>;
+    public readonly glueVersion!: pulumi.Output<string | undefined>;
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      */
@@ -155,11 +155,11 @@ export class MLTransform extends pulumi.CustomResource {
     /**
      * The number of labels available for this transform.
      */
-    public /*out*/ readonly labelCount!: pulumi.Output<number>;
+    public /*out*/ readonly labelCount!: pulumi.Output<number | undefined>;
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      */
-    public readonly maxCapacity!: pulumi.Output<number>;
+    public readonly maxCapacity!: pulumi.Output<number | undefined>;
     /**
      * The maximum number of times to retry this ML Transform if it fails.
      */
@@ -183,7 +183,7 @@ export class MLTransform extends pulumi.CustomResource {
     /**
      * The object that represents the schema that this transform accepts. see Schema.
      */
-    public /*out*/ readonly schemas!: pulumi.Output<outputs.glue.MLTransformSchema[]>;
+    public /*out*/ readonly schemas!: pulumi.Output<outputs.glue.MLTransformSchema[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

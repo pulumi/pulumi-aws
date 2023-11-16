@@ -92,13 +92,13 @@ type ProxyDefaultTargetGroup struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) representing the target group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The settings that determine the size and behavior of the connection pool for the target group.
-	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigOutput `pulumi:"connectionPoolConfig"`
+	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput `pulumi:"connectionPoolConfig"`
 	// Name of the RDS DB Proxy.
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// The name of the default target group.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 }
 
 // NewProxyDefaultTargetGroup registers a new resource with the given unique name, arguments, and options.
@@ -262,15 +262,15 @@ func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupOutputWithContex
 }
 
 // The Amazon Resource Name (ARN) representing the target group.
-func (o ProxyDefaultTargetGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProxyDefaultTargetGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The settings that determine the size and behavior of the connection pool for the target group.
-func (o ProxyDefaultTargetGroupOutput) ConnectionPoolConfig() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
-	return o.ApplyT(func(v *ProxyDefaultTargetGroup) ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+func (o ProxyDefaultTargetGroupOutput) ConnectionPoolConfig() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroup) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
 		return v.ConnectionPoolConfig
-	}).(ProxyDefaultTargetGroupConnectionPoolConfigOutput)
+	}).(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput)
 }
 
 // Name of the RDS DB Proxy.
@@ -279,8 +279,8 @@ func (o ProxyDefaultTargetGroupOutput) DbProxyName() pulumi.StringOutput {
 }
 
 // The name of the default target group.
-func (o ProxyDefaultTargetGroupOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o ProxyDefaultTargetGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type ProxyDefaultTargetGroupArrayOutput struct{ *pulumi.OutputState }

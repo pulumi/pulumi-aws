@@ -16,10 +16,10 @@ namespace Pulumi.Aws.SesV2.Outputs
         /// <summary>
         /// Specifies the status of your VDM engagement metrics collection.
         /// </summary>
-        public readonly string EngagementMetrics;
+        public readonly string? EngagementMetrics;
 
         [OutputConstructor]
-        private GetConfigurationSetVdmOptionDashboardOptionResult(string engagementMetrics)
+        private GetConfigurationSetVdmOptionDashboardOptionResult(string? engagementMetrics)
         {
             EngagementMetrics = engagementMetrics;
         }

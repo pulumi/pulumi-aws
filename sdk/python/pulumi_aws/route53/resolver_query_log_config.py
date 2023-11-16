@@ -362,7 +362,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
         """
@@ -387,7 +387,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID of the account that created the query logging configuration.
         """
@@ -395,7 +395,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> pulumi.Output[str]:
+    def share_status(self) -> pulumi.Output[Optional[str]]:
         """
         An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
         Sharing is configured through AWS Resource Access Manager (AWS RAM).

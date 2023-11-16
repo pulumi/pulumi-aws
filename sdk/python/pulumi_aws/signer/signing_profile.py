@@ -529,7 +529,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the signing profile.
         """
@@ -545,7 +545,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         A signing profile name prefix. The provider will generate a unique suffix. Conflicts with `name`.
         """
@@ -553,7 +553,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformDisplayName")
-    def platform_display_name(self) -> pulumi.Output[str]:
+    def platform_display_name(self) -> pulumi.Output[Optional[str]]:
         """
         A human-readable name for the signing platform associated with the signing profile.
         """
@@ -569,7 +569,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="revocationRecords")
-    def revocation_records(self) -> pulumi.Output[Sequence['outputs.SigningProfileRevocationRecord']]:
+    def revocation_records(self) -> pulumi.Output[Optional[Sequence['outputs.SigningProfileRevocationRecord']]]:
         """
         Revocation information for a signing profile.
         """
@@ -577,7 +577,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signatureValidityPeriod")
-    def signature_validity_period(self) -> pulumi.Output['outputs.SigningProfileSignatureValidityPeriod']:
+    def signature_validity_period(self) -> pulumi.Output[Optional['outputs.SigningProfileSignatureValidityPeriod']]:
         """
         The validity period for a signing job.
         """
@@ -585,12 +585,12 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signingMaterial")
-    def signing_material(self) -> pulumi.Output['outputs.SigningProfileSigningMaterial']:
+    def signing_material(self) -> pulumi.Output[Optional['outputs.SigningProfileSigningMaterial']]:
         return pulumi.get(self, "signing_material")
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the target signing profile.
         """
@@ -617,7 +617,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The current version of the signing profile.
         """
@@ -625,7 +625,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionArn")
-    def version_arn(self) -> pulumi.Output[str]:
+    def version_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The signing profile ARN, including the profile version.
         """

@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetIdentityPoolCognitoIdentityProviderResult
     {
-        public readonly string ClientId;
-        public readonly string ProviderName;
-        public readonly bool ServerSideTokenCheck;
+        public readonly string? ClientId;
+        public readonly string? ProviderName;
+        public readonly bool? ServerSideTokenCheck;
 
         [OutputConstructor]
         private GetIdentityPoolCognitoIdentityProviderResult(
-            string clientId,
+            string? clientId,
 
-            string providerName,
+            string? providerName,
 
-            bool serverSideTokenCheck)
+            bool? serverSideTokenCheck)
         {
             ClientId = clientId;
             ProviderName = providerName;

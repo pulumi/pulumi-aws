@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApiResult {
@@ -17,80 +19,80 @@ public final class GetApiResult {
      * @return URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
-    private String apiEndpoint;
+    private @Nullable String apiEndpoint;
     private String apiId;
     /**
      * @return An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
      * Applicable for WebSocket APIs.
      * 
      */
-    private String apiKeySelectionExpression;
+    private @Nullable String apiKeySelectionExpression;
     /**
      * @return ARN of the API.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
      * Applicable for HTTP APIs.
      * 
      */
-    private List<GetApiCorsConfiguration> corsConfigurations;
+    private @Nullable List<GetApiCorsConfiguration> corsConfigurations;
     /**
      * @return Description of the API.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Whether clients can invoke the API by using the default `execute-api` endpoint.
      * 
      */
-    private Boolean disableExecuteApiEndpoint;
+    private @Nullable Boolean disableExecuteApiEndpoint;
     /**
      * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    private String executionArn;
+    private @Nullable String executionArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the API.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return API protocol.
      * 
      */
-    private String protocolType;
+    private @Nullable String protocolType;
     /**
      * @return The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      * 
      */
-    private String routeSelectionExpression;
+    private @Nullable String routeSelectionExpression;
     /**
      * @return Map of resource tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Version identifier for the API.
      * 
      */
-    private String version;
+    private @Nullable String version;
 
     private GetApiResult() {}
     /**
      * @return URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
-    public String apiEndpoint() {
-        return this.apiEndpoint;
+    public Optional<String> apiEndpoint() {
+        return Optional.ofNullable(this.apiEndpoint);
     }
     public String apiId() {
         return this.apiId;
@@ -100,15 +102,15 @@ public final class GetApiResult {
      * Applicable for WebSocket APIs.
      * 
      */
-    public String apiKeySelectionExpression() {
-        return this.apiKeySelectionExpression;
+    public Optional<String> apiKeySelectionExpression() {
+        return Optional.ofNullable(this.apiKeySelectionExpression);
     }
     /**
      * @return ARN of the API.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
@@ -116,21 +118,21 @@ public final class GetApiResult {
      * 
      */
     public List<GetApiCorsConfiguration> corsConfigurations() {
-        return this.corsConfigurations;
+        return this.corsConfigurations == null ? List.of() : this.corsConfigurations;
     }
     /**
      * @return Description of the API.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Whether clients can invoke the API by using the default `execute-api` endpoint.
      * 
      */
-    public Boolean disableExecuteApiEndpoint() {
-        return this.disableExecuteApiEndpoint;
+    public Optional<Boolean> disableExecuteApiEndpoint() {
+        return Optional.ofNullable(this.disableExecuteApiEndpoint);
     }
     /**
      * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
@@ -138,50 +140,50 @@ public final class GetApiResult {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    public String executionArn() {
-        return this.executionArn;
+    public Optional<String> executionArn() {
+        return Optional.ofNullable(this.executionArn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the API.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return API protocol.
      * 
      */
-    public String protocolType() {
-        return this.protocolType;
+    public Optional<String> protocolType() {
+        return Optional.ofNullable(this.protocolType);
     }
     /**
      * @return The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      * 
      */
-    public String routeSelectionExpression() {
-        return this.routeSelectionExpression;
+    public Optional<String> routeSelectionExpression() {
+        return Optional.ofNullable(this.routeSelectionExpression);
     }
     /**
      * @return Map of resource tags.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Version identifier for the API.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -193,20 +195,20 @@ public final class GetApiResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String apiEndpoint;
+        private @Nullable String apiEndpoint;
         private String apiId;
-        private String apiKeySelectionExpression;
-        private String arn;
-        private List<GetApiCorsConfiguration> corsConfigurations;
-        private String description;
-        private Boolean disableExecuteApiEndpoint;
-        private String executionArn;
-        private String id;
-        private String name;
-        private String protocolType;
-        private String routeSelectionExpression;
-        private Map<String,String> tags;
-        private String version;
+        private @Nullable String apiKeySelectionExpression;
+        private @Nullable String arn;
+        private @Nullable List<GetApiCorsConfiguration> corsConfigurations;
+        private @Nullable String description;
+        private @Nullable Boolean disableExecuteApiEndpoint;
+        private @Nullable String executionArn;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String protocolType;
+        private @Nullable String routeSelectionExpression;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetApiResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -227,8 +229,8 @@ public final class GetApiResult {
         }
 
         @CustomType.Setter
-        public Builder apiEndpoint(String apiEndpoint) {
-            this.apiEndpoint = Objects.requireNonNull(apiEndpoint);
+        public Builder apiEndpoint(@Nullable String apiEndpoint) {
+            this.apiEndpoint = apiEndpoint;
             return this;
         }
         @CustomType.Setter
@@ -237,66 +239,66 @@ public final class GetApiResult {
             return this;
         }
         @CustomType.Setter
-        public Builder apiKeySelectionExpression(String apiKeySelectionExpression) {
-            this.apiKeySelectionExpression = Objects.requireNonNull(apiKeySelectionExpression);
+        public Builder apiKeySelectionExpression(@Nullable String apiKeySelectionExpression) {
+            this.apiKeySelectionExpression = apiKeySelectionExpression;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder corsConfigurations(List<GetApiCorsConfiguration> corsConfigurations) {
-            this.corsConfigurations = Objects.requireNonNull(corsConfigurations);
+        public Builder corsConfigurations(@Nullable List<GetApiCorsConfiguration> corsConfigurations) {
+            this.corsConfigurations = corsConfigurations;
             return this;
         }
         public Builder corsConfigurations(GetApiCorsConfiguration... corsConfigurations) {
             return corsConfigurations(List.of(corsConfigurations));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder disableExecuteApiEndpoint(Boolean disableExecuteApiEndpoint) {
-            this.disableExecuteApiEndpoint = Objects.requireNonNull(disableExecuteApiEndpoint);
+        public Builder disableExecuteApiEndpoint(@Nullable Boolean disableExecuteApiEndpoint) {
+            this.disableExecuteApiEndpoint = disableExecuteApiEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder executionArn(String executionArn) {
-            this.executionArn = Objects.requireNonNull(executionArn);
+        public Builder executionArn(@Nullable String executionArn) {
+            this.executionArn = executionArn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder protocolType(String protocolType) {
-            this.protocolType = Objects.requireNonNull(protocolType);
+        public Builder protocolType(@Nullable String protocolType) {
+            this.protocolType = protocolType;
             return this;
         }
         @CustomType.Setter
-        public Builder routeSelectionExpression(String routeSelectionExpression) {
-            this.routeSelectionExpression = Objects.requireNonNull(routeSelectionExpression);
+        public Builder routeSelectionExpression(@Nullable String routeSelectionExpression) {
+            this.routeSelectionExpression = routeSelectionExpression;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetApiResult build() {

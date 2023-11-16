@@ -7,26 +7,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDelegationSetResult {
-    private String arn;
-    private String callerReference;
+    private @Nullable String arn;
+    private @Nullable String callerReference;
     private String id;
-    private List<String> nameServers;
+    private @Nullable List<String> nameServers;
 
     private GetDelegationSetResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String callerReference() {
-        return this.callerReference;
+    public Optional<String> callerReference() {
+        return Optional.ofNullable(this.callerReference);
     }
     public String id() {
         return this.id;
     }
     public List<String> nameServers() {
-        return this.nameServers;
+        return this.nameServers == null ? List.of() : this.nameServers;
     }
 
     public static Builder builder() {
@@ -38,10 +40,10 @@ public final class GetDelegationSetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String callerReference;
+        private @Nullable String arn;
+        private @Nullable String callerReference;
         private String id;
-        private List<String> nameServers;
+        private @Nullable List<String> nameServers;
         public Builder() {}
         public Builder(GetDelegationSetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -52,13 +54,13 @@ public final class GetDelegationSetResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder callerReference(String callerReference) {
-            this.callerReference = Objects.requireNonNull(callerReference);
+        public Builder callerReference(@Nullable String callerReference) {
+            this.callerReference = callerReference;
             return this;
         }
         @CustomType.Setter
@@ -67,8 +69,8 @@ public final class GetDelegationSetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder nameServers(List<String> nameServers) {
-            this.nameServers = Objects.requireNonNull(nameServers);
+        public Builder nameServers(@Nullable List<String> nameServers) {
+            this.nameServers = nameServers;
             return this;
         }
         public Builder nameServers(String... nameServers) {

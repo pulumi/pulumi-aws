@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointConnectionLogOption {
-    private String cloudwatchLogGroup;
-    private String cloudwatchLogStream;
-    private Boolean enabled;
+    private @Nullable String cloudwatchLogGroup;
+    private @Nullable String cloudwatchLogStream;
+    private @Nullable Boolean enabled;
 
     private GetEndpointConnectionLogOption() {}
-    public String cloudwatchLogGroup() {
-        return this.cloudwatchLogGroup;
+    public Optional<String> cloudwatchLogGroup() {
+        return Optional.ofNullable(this.cloudwatchLogGroup);
     }
-    public String cloudwatchLogStream() {
-        return this.cloudwatchLogStream;
+    public Optional<String> cloudwatchLogStream() {
+        return Optional.ofNullable(this.cloudwatchLogStream);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetEndpointConnectionLogOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cloudwatchLogGroup;
-        private String cloudwatchLogStream;
-        private Boolean enabled;
+        private @Nullable String cloudwatchLogGroup;
+        private @Nullable String cloudwatchLogStream;
+        private @Nullable Boolean enabled;
         public Builder() {}
         public Builder(GetEndpointConnectionLogOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetEndpointConnectionLogOption {
         }
 
         @CustomType.Setter
-        public Builder cloudwatchLogGroup(String cloudwatchLogGroup) {
-            this.cloudwatchLogGroup = Objects.requireNonNull(cloudwatchLogGroup);
+        public Builder cloudwatchLogGroup(@Nullable String cloudwatchLogGroup) {
+            this.cloudwatchLogGroup = cloudwatchLogGroup;
             return this;
         }
         @CustomType.Setter
-        public Builder cloudwatchLogStream(String cloudwatchLogStream) {
-            this.cloudwatchLogStream = Objects.requireNonNull(cloudwatchLogStream);
+        public Builder cloudwatchLogStream(@Nullable String cloudwatchLogStream) {
+            this.cloudwatchLogStream = cloudwatchLogStream;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         public GetEndpointConnectionLogOption build() {

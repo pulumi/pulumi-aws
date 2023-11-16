@@ -219,7 +219,7 @@ class StaticIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Lightsail static IP
         """
@@ -227,7 +227,7 @@ class StaticIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> pulumi.Output[str]:
+    def ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The allocated static IP address
         """
@@ -243,7 +243,7 @@ class StaticIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportCode")
-    def support_code(self) -> pulumi.Output[str]:
+    def support_code(self) -> pulumi.Output[Optional[str]]:
         """
         The support code.
         """

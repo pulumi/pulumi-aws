@@ -90,7 +90,7 @@ export class IdentityPool extends pulumi.CustomResource {
     /**
      * The ARN of the identity pool.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * An array of Amazon Cognito Identity user pools and their client IDs.
      */

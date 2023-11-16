@@ -65,7 +65,7 @@ export class DeviceFleet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description of the fleet.
      */
@@ -78,7 +78,7 @@ export class DeviceFleet extends pulumi.CustomResource {
      * Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
      */
     public readonly enableIotRoleAlias!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly iotRoleAlias!: pulumi.Output<string>;
+    public /*out*/ readonly iotRoleAlias!: pulumi.Output<string | undefined>;
     /**
      * Specifies details about the repository. see Output Config details below.
      */

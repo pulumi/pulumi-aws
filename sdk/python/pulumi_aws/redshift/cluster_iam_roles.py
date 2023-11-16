@@ -266,7 +266,7 @@ class ClusterIamRoles(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultIamRoleArn")
-    def default_iam_role_arn(self) -> pulumi.Output[str]:
+    def default_iam_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         """
@@ -274,7 +274,7 @@ class ClusterIamRoles(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoleArns")
-    def iam_role_arns(self) -> pulumi.Output[Sequence[str]]:
+    def iam_role_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """

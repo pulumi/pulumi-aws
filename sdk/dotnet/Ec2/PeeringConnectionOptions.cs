@@ -170,13 +170,13 @@ namespace Pulumi.Aws.Ec2
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
         /// </summary>
         [Output("accepter")]
-        public Output<Outputs.PeeringConnectionOptionsAccepter> Accepter { get; private set; } = null!;
+        public Output<Outputs.PeeringConnectionOptionsAccepter?> Accepter { get; private set; } = null!;
 
         /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         /// </summary>
         [Output("requester")]
-        public Output<Outputs.PeeringConnectionOptionsRequester> Requester { get; private set; } = null!;
+        public Output<Outputs.PeeringConnectionOptionsRequester?> Requester { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the requester VPC peering connection.

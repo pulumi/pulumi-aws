@@ -99,7 +99,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The Amazon Resource Name (ARN) of the rule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the rule.
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.

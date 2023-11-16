@@ -1050,7 +1050,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of Glue Job
         """
@@ -1098,7 +1098,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionProperty")
-    def execution_property(self) -> pulumi.Output['outputs.JobExecutionProperty']:
+    def execution_property(self) -> pulumi.Output[Optional['outputs.JobExecutionProperty']]:
         """
         Execution property of the job. Defined below.
         """
@@ -1106,7 +1106,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="glueVersion")
-    def glue_version(self) -> pulumi.Output[str]:
+    def glue_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         """
@@ -1114,7 +1114,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> pulumi.Output[float]:
+    def max_capacity(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         """
@@ -1146,7 +1146,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationProperty")
-    def notification_property(self) -> pulumi.Output['outputs.JobNotificationProperty']:
+    def notification_property(self) -> pulumi.Output[Optional['outputs.JobNotificationProperty']]:
         """
         Notification property of the job. Defined below.
         """
@@ -1197,7 +1197,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Output[int]:
+    def timeout(self) -> pulumi.Output[Optional[int]]:
         """
         The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         """

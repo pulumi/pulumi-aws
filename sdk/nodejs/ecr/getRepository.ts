@@ -56,37 +56,37 @@ export interface GetRepositoryResult {
     /**
      * Full ARN of the repository.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Encryption configuration for the repository. See Encryption Configuration below.
      */
-    readonly encryptionConfigurations: outputs.ecr.GetRepositoryEncryptionConfiguration[];
+    readonly encryptionConfigurations?: outputs.ecr.GetRepositoryEncryptionConfiguration[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
      */
-    readonly imageScanningConfigurations: outputs.ecr.GetRepositoryImageScanningConfiguration[];
+    readonly imageScanningConfigurations?: outputs.ecr.GetRepositoryImageScanningConfiguration[];
     /**
      * The tag mutability setting for the repository.
      */
-    readonly imageTagMutability: string;
+    readonly imageTagMutability?: string;
     /**
      * List of image tags associated with the most recently pushed image in the repository.
      */
-    readonly mostRecentImageTags: string[];
+    readonly mostRecentImageTags?: string[];
     readonly name: string;
-    readonly registryId: string;
+    readonly registryId?: string;
     /**
      * URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      */
-    readonly repositoryUrl: string;
+    readonly repositoryUrl?: string;
     /**
      * Map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.

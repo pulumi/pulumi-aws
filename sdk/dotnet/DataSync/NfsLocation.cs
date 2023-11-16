@@ -55,7 +55,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block containing mount options used by DataSync to access the NFS Server.
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("uri")]
-        public Output<string> Uri { get; private set; } = null!;
+        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
@@ -111,14 +111,14 @@ namespace Pulumi.Aws.Sagemaker
         /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         /// </summary>
         [Output("sourceIpConfig")]
-        public Output<Outputs.WorkforceSourceIpConfig> SourceIpConfig { get; private set; } = null!;
+        public Output<Outputs.WorkforceSourceIpConfig?> SourceIpConfig { get; private set; } = null!;
 
         /// <summary>
         /// The subdomain for your OIDC Identity Provider.
         /// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         /// </summary>
         [Output("subdomain")]
-        public Output<string> Subdomain { get; private set; } = null!;
+        public Output<string?> Subdomain { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Workforce (must be unique).

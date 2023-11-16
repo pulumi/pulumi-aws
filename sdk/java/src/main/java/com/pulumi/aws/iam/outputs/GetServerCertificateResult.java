@@ -16,83 +16,83 @@ public final class GetServerCertificateResult {
      * @return is set to the ARN of the IAM Server Certificate
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer
      * 
      */
-    private String certificateBody;
+    private @Nullable String certificateBody;
     /**
      * @return is the public key certificate chain (PEM-encoded) if exists, empty otherwise
      * 
      */
-    private String certificateChain;
+    private @Nullable String certificateChain;
     /**
      * @return is set to the expiration date of the IAM Server Certificate
      * 
      */
-    private String expirationDate;
+    private @Nullable String expirationDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean latest;
-    private String name;
+    private @Nullable String name;
     private @Nullable String namePrefix;
     /**
      * @return is set to the path of the IAM Server Certificate
      * 
      */
-    private String path;
+    private @Nullable String path;
     private @Nullable String pathPrefix;
     /**
      * @return is the date when the server certificate was uploaded
      * 
      */
-    private String uploadDate;
+    private @Nullable String uploadDate;
 
     private GetServerCertificateResult() {}
     /**
      * @return is set to the ARN of the IAM Server Certificate
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer
      * 
      */
-    public String certificateBody() {
-        return this.certificateBody;
+    public Optional<String> certificateBody() {
+        return Optional.ofNullable(this.certificateBody);
     }
     /**
      * @return is the public key certificate chain (PEM-encoded) if exists, empty otherwise
      * 
      */
-    public String certificateChain() {
-        return this.certificateChain;
+    public Optional<String> certificateChain() {
+        return Optional.ofNullable(this.certificateChain);
     }
     /**
      * @return is set to the expiration date of the IAM Server Certificate
      * 
      */
-    public String expirationDate() {
-        return this.expirationDate;
+    public Optional<String> expirationDate() {
+        return Optional.ofNullable(this.expirationDate);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> latest() {
         return Optional.ofNullable(this.latest);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
@@ -101,8 +101,8 @@ public final class GetServerCertificateResult {
      * @return is set to the path of the IAM Server Certificate
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
@@ -111,8 +111,8 @@ public final class GetServerCertificateResult {
      * @return is the date when the server certificate was uploaded
      * 
      */
-    public String uploadDate() {
-        return this.uploadDate;
+    public Optional<String> uploadDate() {
+        return Optional.ofNullable(this.uploadDate);
     }
 
     public static Builder builder() {
@@ -124,17 +124,17 @@ public final class GetServerCertificateResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String certificateBody;
-        private String certificateChain;
-        private String expirationDate;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String certificateBody;
+        private @Nullable String certificateChain;
+        private @Nullable String expirationDate;
+        private @Nullable String id;
         private @Nullable Boolean latest;
-        private String name;
+        private @Nullable String name;
         private @Nullable String namePrefix;
-        private String path;
+        private @Nullable String path;
         private @Nullable String pathPrefix;
-        private String uploadDate;
+        private @Nullable String uploadDate;
         public Builder() {}
         public Builder(GetServerCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -152,28 +152,28 @@ public final class GetServerCertificateResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateBody(String certificateBody) {
-            this.certificateBody = Objects.requireNonNull(certificateBody);
+        public Builder certificateBody(@Nullable String certificateBody) {
+            this.certificateBody = certificateBody;
             return this;
         }
         @CustomType.Setter
-        public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+        public Builder certificateChain(@Nullable String certificateChain) {
+            this.certificateChain = certificateChain;
             return this;
         }
         @CustomType.Setter
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = Objects.requireNonNull(expirationDate);
+        public Builder expirationDate(@Nullable String expirationDate) {
+            this.expirationDate = expirationDate;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -182,8 +182,8 @@ public final class GetServerCertificateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -192,8 +192,8 @@ public final class GetServerCertificateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
@@ -202,8 +202,8 @@ public final class GetServerCertificateResult {
             return this;
         }
         @CustomType.Setter
-        public Builder uploadDate(String uploadDate) {
-            this.uploadDate = Objects.requireNonNull(uploadDate);
+        public Builder uploadDate(@Nullable String uploadDate) {
+            this.uploadDate = uploadDate;
             return this;
         }
         public GetServerCertificateResult build() {

@@ -51,56 +51,56 @@ export interface GetDomainNameResult {
     /**
      * ARN of the found custom domain name.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
      */
-    readonly certificateArn: string;
+    readonly certificateArn?: string;
     /**
      * Name of the certificate that is used by edge-optimized endpoint for this domain name.
      */
-    readonly certificateName: string;
+    readonly certificateName?: string;
     /**
      * Upload date associated with the domain certificate.
      */
-    readonly certificateUploadDate: string;
+    readonly certificateUploadDate?: string;
     /**
      * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
      */
-    readonly cloudfrontDomainName: string;
+    readonly cloudfrontDomainName?: string;
     /**
      * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
      */
-    readonly cloudfrontZoneId: string;
+    readonly cloudfrontZoneId?: string;
     readonly domainName: string;
     /**
      * List of objects with the endpoint configuration of this domain name.
      */
-    readonly endpointConfigurations: outputs.apigateway.GetDomainNameEndpointConfiguration[];
+    readonly endpointConfigurations?: outputs.apigateway.GetDomainNameEndpointConfiguration[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN for an AWS-managed certificate that is used for validating the regional domain name.
      */
-    readonly regionalCertificateArn: string;
+    readonly regionalCertificateArn?: string;
     /**
      * User-friendly name of the certificate that is used by regional endpoint for this domain name.
      */
-    readonly regionalCertificateName: string;
+    readonly regionalCertificateName?: string;
     /**
      * Hostname for the custom domain's regional endpoint.
      */
-    readonly regionalDomainName: string;
+    readonly regionalDomainName?: string;
     /**
      * Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      */
-    readonly regionalZoneId: string;
+    readonly regionalZoneId?: string;
     /**
      * Security policy for the domain name.
      */
-    readonly securityPolicy: string;
+    readonly securityPolicy?: string;
     /**
      * Key-value map of tags for the resource.
      */

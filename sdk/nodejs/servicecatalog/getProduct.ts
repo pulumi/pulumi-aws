@@ -59,56 +59,56 @@ export interface GetProductResult {
     /**
      * ARN of the product.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Time when the product was created.
      */
-    readonly createdTime: string;
+    readonly createdTime?: string;
     /**
      * Description of the product.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Vendor of the product.
      */
-    readonly distributor: string;
+    readonly distributor?: string;
     /**
      * Whether the product has a default path.
      */
-    readonly hasDefaultPath: boolean;
+    readonly hasDefaultPath?: boolean;
     readonly id: string;
     /**
      * Name of the product.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Owner of the product.
      */
-    readonly owner: string;
+    readonly owner?: string;
     /**
      * Status of the product.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Field that provides support information about the product.
      */
-    readonly supportDescription: string;
+    readonly supportDescription?: string;
     /**
      * Contact email for product support.
      */
-    readonly supportEmail: string;
+    readonly supportEmail?: string;
     /**
      * Contact URL for product support.
      */
-    readonly supportUrl: string;
+    readonly supportUrl?: string;
     /**
      * Tags applied to the product.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Type of product.
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * Use this data source to retrieve information about a Service Catalog product.

@@ -66,7 +66,7 @@ export class Protection extends pulumi.CustomResource {
     /**
      * The ARN of the Protection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A friendly name for the Protection you are creating.
      */

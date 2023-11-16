@@ -55,7 +55,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
     /**
      * SES receipt rule set ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the rule set.
      */

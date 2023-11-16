@@ -86,17 +86,17 @@ export interface GetServiceArgs {
  * A collection of values returned by getService.
  */
 export interface GetServiceResult {
-    readonly dnsName: string;
-    readonly id: string;
-    readonly partition: string;
-    readonly region: string;
-    readonly reverseDnsName: string;
-    readonly reverseDnsPrefix: string;
-    readonly serviceId: string;
+    readonly dnsName?: string;
+    readonly id?: string;
+    readonly partition?: string;
+    readonly region?: string;
+    readonly reverseDnsName?: string;
+    readonly reverseDnsPrefix?: string;
+    readonly serviceId?: string;
     /**
      * Whether the service is supported in the region's partition. New services may not be listed immediately as supported.
      */
-    readonly supported: boolean;
+    readonly supported?: boolean;
 }
 /**
  * Use this data source to compose and decompose AWS service DNS names.

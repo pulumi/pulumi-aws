@@ -135,11 +135,11 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The ARN of the load balancer (matches `id`).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN suffix for use with CloudWatch Metrics.
      */
-    public /*out*/ readonly arnSuffix!: pulumi.Output<string>;
+    public /*out*/ readonly arnSuffix!: pulumi.Output<string | undefined>;
     /**
      * The ID of the customer owned ipv4 pool to use for this load balancer.
      */
@@ -151,7 +151,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The DNS name of the load balancer.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      */
@@ -191,11 +191,11 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * If true, the LB will be internal. Defaults to `false`.
      */
-    public readonly internal!: pulumi.Output<boolean>;
+    public readonly internal!: pulumi.Output<boolean | undefined>;
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      */
-    public readonly ipAddressType!: pulumi.Output<string>;
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
      * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
@@ -209,7 +209,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
@@ -217,17 +217,17 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * A subnet mapping block as documented below.
      */
-    public readonly subnetMappings!: pulumi.Output<outputs.lb.LoadBalancerSubnetMapping[]>;
+    public readonly subnetMappings!: pulumi.Output<outputs.lb.LoadBalancerSubnetMapping[] | undefined>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value
      * for load balancers of type `network` will force a recreation of the resource.
      */
-    public readonly subnets!: pulumi.Output<string[]>;
+    public readonly subnets!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -238,7 +238,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
      */
@@ -246,7 +246,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      */
-    public /*out*/ readonly zoneId!: pulumi.Output<string>;
+    public /*out*/ readonly zoneId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.

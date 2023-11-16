@@ -332,7 +332,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Playback Key Pair.
         """
@@ -340,7 +340,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> pulumi.Output[str]:
+    def fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         Key-pair identifier.
         """

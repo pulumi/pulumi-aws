@@ -7,14 +7,15 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm {
-    private List<String> certificateAuthorityArns;
+    private @Nullable List<String> certificateAuthorityArns;
 
     private GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm() {}
     public List<String> certificateAuthorityArns() {
-        return this.certificateAuthorityArns;
+        return this.certificateAuthorityArns == null ? List.of() : this.certificateAuthorityArns;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> certificateAuthorityArns;
+        private @Nullable List<String> certificateAuthorityArns;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
         }
 
         @CustomType.Setter
-        public Builder certificateAuthorityArns(List<String> certificateAuthorityArns) {
-            this.certificateAuthorityArns = Objects.requireNonNull(certificateAuthorityArns);
+        public Builder certificateAuthorityArns(@Nullable List<String> certificateAuthorityArns) {
+            this.certificateAuthorityArns = certificateAuthorityArns;
             return this;
         }
         public Builder certificateAuthorityArns(String... certificateAuthorityArns) {

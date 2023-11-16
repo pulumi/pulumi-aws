@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// Free-form text comment.
         /// </summary>
-        public readonly string Comment;
+        public readonly string? Comment;
         /// <summary>
         /// Name of the table.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Datatype of data in the Column.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetCatalogTablePartitionKeyResult(
-            string comment,
+            string? comment,
 
-            string name,
+            string? name,
 
-            string type)
+            string? type)
         {
             Comment = comment;
             Name = name;

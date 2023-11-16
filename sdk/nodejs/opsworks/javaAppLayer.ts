@@ -58,7 +58,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name(ARN) of the layer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
@@ -96,7 +96,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.JavaAppLayerEbsVolume[]>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.JavaAppLayerEbsVolume[] | undefined>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -121,7 +121,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
      * Version of JVM to use. Defaults to "7".
      */
     public readonly jvmVersion!: pulumi.Output<string | undefined>;
-    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.JavaAppLayerLoadBasedAutoScaling>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.JavaAppLayerLoadBasedAutoScaling | undefined>;
     /**
      * A human-readable name for the layer.
      */

@@ -48,20 +48,20 @@ export interface GetGlobalNetworkResult {
     /**
      * ARN of the global network.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the global network.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly globalNetworkId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Map of resource tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Retrieve information about a global network.

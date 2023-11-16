@@ -418,7 +418,7 @@ class ServiceQuota(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def adjustable(self) -> pulumi.Output[bool]:
+    def adjustable(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the service quota can be increased.
         """
@@ -426,7 +426,7 @@ class ServiceQuota(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the service quota.
         """
@@ -434,7 +434,7 @@ class ServiceQuota(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> pulumi.Output[float]:
+    def default_value(self) -> pulumi.Output[Optional[float]]:
         """
         Default value of the service quota.
         """
@@ -450,7 +450,7 @@ class ServiceQuota(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="quotaName")
-    def quota_name(self) -> pulumi.Output[str]:
+    def quota_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the quota.
         """
@@ -458,12 +458,12 @@ class ServiceQuota(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestId")
-    def request_id(self) -> pulumi.Output[str]:
+    def request_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "request_id")
 
     @property
     @pulumi.getter(name="requestStatus")
-    def request_status(self) -> pulumi.Output[str]:
+    def request_status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "request_status")
 
     @property
@@ -476,7 +476,7 @@ class ServiceQuota(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Output[str]:
+    def service_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the service.
         """
@@ -484,7 +484,7 @@ class ServiceQuota(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageMetrics")
-    def usage_metrics(self) -> pulumi.Output[Sequence['outputs.ServiceQuotaUsageMetric']]:
+    def usage_metrics(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceQuotaUsageMetric']]]:
         """
         Information about the measurement.
         """

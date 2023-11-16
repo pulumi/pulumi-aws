@@ -50,7 +50,7 @@ type Queue struct {
 	pulumi.CustomResourceState
 
 	// The Arn of the queue
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the queue
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique identifier describing the queue
@@ -58,7 +58,7 @@ type Queue struct {
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrOutput `pulumi:"pricingPlan"`
 	// A detail pricing plan of the  reserved queue. See below.
-	ReservationPlanSettings QueueReservationPlanSettingsOutput `pulumi:"reservationPlanSettings"`
+	ReservationPlanSettings QueueReservationPlanSettingsPtrOutput `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -267,8 +267,8 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 }
 
 // The Arn of the queue
-func (o QueueOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o QueueOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the queue
@@ -287,8 +287,8 @@ func (o QueueOutput) PricingPlan() pulumi.StringPtrOutput {
 }
 
 // A detail pricing plan of the  reserved queue. See below.
-func (o QueueOutput) ReservationPlanSettings() QueueReservationPlanSettingsOutput {
-	return o.ApplyT(func(v *Queue) QueueReservationPlanSettingsOutput { return v.ReservationPlanSettings }).(QueueReservationPlanSettingsOutput)
+func (o QueueOutput) ReservationPlanSettings() QueueReservationPlanSettingsPtrOutput {
+	return o.ApplyT(func(v *Queue) QueueReservationPlanSettingsPtrOutput { return v.ReservationPlanSettings }).(QueueReservationPlanSettingsPtrOutput)
 }
 
 // A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.

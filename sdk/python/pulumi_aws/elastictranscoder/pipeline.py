@@ -608,7 +608,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Elastictranscoder pipeline.
         """
@@ -624,7 +624,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentConfig")
-    def content_config(self) -> pulumi.Output['outputs.PipelineContentConfig']:
+    def content_config(self) -> pulumi.Output[Optional['outputs.PipelineContentConfig']]:
         """
         The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
         """
@@ -664,7 +664,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputBucket")
-    def output_bucket(self) -> pulumi.Output[str]:
+    def output_bucket(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         """
@@ -680,7 +680,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thumbnailConfig")
-    def thumbnail_config(self) -> pulumi.Output['outputs.PipelineThumbnailConfig']:
+    def thumbnail_config(self) -> pulumi.Output[Optional['outputs.PipelineThumbnailConfig']]:
         """
         The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         """

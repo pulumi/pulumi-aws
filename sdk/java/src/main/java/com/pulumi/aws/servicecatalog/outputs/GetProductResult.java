@@ -18,68 +18,68 @@ public final class GetProductResult {
      * @return ARN of the product.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Time when the product was created.
      * 
      */
-    private String createdTime;
+    private @Nullable String createdTime;
     /**
      * @return Description of the product.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Vendor of the product.
      * 
      */
-    private String distributor;
+    private @Nullable String distributor;
     /**
      * @return Whether the product has a default path.
      * 
      */
-    private Boolean hasDefaultPath;
+    private @Nullable Boolean hasDefaultPath;
     private String id;
     /**
      * @return Name of the product.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Owner of the product.
      * 
      */
-    private String owner;
+    private @Nullable String owner;
     /**
      * @return Status of the product.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Field that provides support information about the product.
      * 
      */
-    private String supportDescription;
+    private @Nullable String supportDescription;
     /**
      * @return Contact email for product support.
      * 
      */
-    private String supportEmail;
+    private @Nullable String supportEmail;
     /**
      * @return Contact URL for product support.
      * 
      */
-    private String supportUrl;
+    private @Nullable String supportUrl;
     /**
      * @return Tags applied to the product.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of product.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetProductResult() {}
     public Optional<String> acceptLanguage() {
@@ -89,36 +89,36 @@ public final class GetProductResult {
      * @return ARN of the product.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Time when the product was created.
      * 
      */
-    public String createdTime() {
-        return this.createdTime;
+    public Optional<String> createdTime() {
+        return Optional.ofNullable(this.createdTime);
     }
     /**
      * @return Description of the product.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Vendor of the product.
      * 
      */
-    public String distributor() {
-        return this.distributor;
+    public Optional<String> distributor() {
+        return Optional.ofNullable(this.distributor);
     }
     /**
      * @return Whether the product has a default path.
      * 
      */
-    public Boolean hasDefaultPath() {
-        return this.hasDefaultPath;
+    public Optional<Boolean> hasDefaultPath() {
+        return Optional.ofNullable(this.hasDefaultPath);
     }
     public String id() {
         return this.id;
@@ -127,57 +127,57 @@ public final class GetProductResult {
      * @return Name of the product.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Owner of the product.
      * 
      */
-    public String owner() {
-        return this.owner;
+    public Optional<String> owner() {
+        return Optional.ofNullable(this.owner);
     }
     /**
      * @return Status of the product.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Field that provides support information about the product.
      * 
      */
-    public String supportDescription() {
-        return this.supportDescription;
+    public Optional<String> supportDescription() {
+        return Optional.ofNullable(this.supportDescription);
     }
     /**
      * @return Contact email for product support.
      * 
      */
-    public String supportEmail() {
-        return this.supportEmail;
+    public Optional<String> supportEmail() {
+        return Optional.ofNullable(this.supportEmail);
     }
     /**
      * @return Contact URL for product support.
      * 
      */
-    public String supportUrl() {
-        return this.supportUrl;
+    public Optional<String> supportUrl() {
+        return Optional.ofNullable(this.supportUrl);
     }
     /**
      * @return Tags applied to the product.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of product.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -190,20 +190,20 @@ public final class GetProductResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
-        private String arn;
-        private String createdTime;
-        private String description;
-        private String distributor;
-        private Boolean hasDefaultPath;
+        private @Nullable String arn;
+        private @Nullable String createdTime;
+        private @Nullable String description;
+        private @Nullable String distributor;
+        private @Nullable Boolean hasDefaultPath;
         private String id;
-        private String name;
-        private String owner;
-        private String status;
-        private String supportDescription;
-        private String supportEmail;
-        private String supportUrl;
-        private Map<String,String> tags;
-        private String type;
+        private @Nullable String name;
+        private @Nullable String owner;
+        private @Nullable String status;
+        private @Nullable String supportDescription;
+        private @Nullable String supportEmail;
+        private @Nullable String supportUrl;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetProductResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -230,28 +230,28 @@ public final class GetProductResult {
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+        public Builder createdTime(@Nullable String createdTime) {
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder distributor(String distributor) {
-            this.distributor = Objects.requireNonNull(distributor);
+        public Builder distributor(@Nullable String distributor) {
+            this.distributor = distributor;
             return this;
         }
         @CustomType.Setter
-        public Builder hasDefaultPath(Boolean hasDefaultPath) {
-            this.hasDefaultPath = Objects.requireNonNull(hasDefaultPath);
+        public Builder hasDefaultPath(@Nullable Boolean hasDefaultPath) {
+            this.hasDefaultPath = hasDefaultPath;
             return this;
         }
         @CustomType.Setter
@@ -260,43 +260,43 @@ public final class GetProductResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+        public Builder owner(@Nullable String owner) {
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder supportDescription(String supportDescription) {
-            this.supportDescription = Objects.requireNonNull(supportDescription);
+        public Builder supportDescription(@Nullable String supportDescription) {
+            this.supportDescription = supportDescription;
             return this;
         }
         @CustomType.Setter
-        public Builder supportEmail(String supportEmail) {
-            this.supportEmail = Objects.requireNonNull(supportEmail);
+        public Builder supportEmail(@Nullable String supportEmail) {
+            this.supportEmail = supportEmail;
             return this;
         }
         @CustomType.Setter
-        public Builder supportUrl(String supportUrl) {
-            this.supportUrl = Objects.requireNonNull(supportUrl);
+        public Builder supportUrl(@Nullable String supportUrl) {
+            this.supportUrl = supportUrl;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetProductResult build() {

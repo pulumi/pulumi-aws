@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2
         /// Used internally, see **Notes** below
         /// </summary>
         [Output("originalRouteTableId")]
-        public Output<string> OriginalRouteTableId { get; private set; } = null!;
+        public Output<string?> OriginalRouteTableId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Route Table to set as the new

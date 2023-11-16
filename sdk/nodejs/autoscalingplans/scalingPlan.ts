@@ -68,7 +68,7 @@ export class ScalingPlan extends pulumi.CustomResource {
     /**
      * The version number of the scaling plan. This value is always 1.
      */
-    public /*out*/ readonly scalingPlanVersion!: pulumi.Output<number>;
+    public /*out*/ readonly scalingPlanVersion!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ScalingPlan resource with the given unique name, arguments, and options.

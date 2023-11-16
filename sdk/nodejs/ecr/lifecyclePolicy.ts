@@ -116,7 +116,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * The registry ID where the repository was created.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string | undefined>;
     /**
      * Name of the repository to apply the policy.
      */

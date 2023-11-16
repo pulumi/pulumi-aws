@@ -62,7 +62,7 @@ namespace Pulumi.Aws.ElastiCache
         /// The ARN that identifies the user group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The current supported value is `REDIS`.

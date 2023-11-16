@@ -1215,7 +1215,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTokenValidity")
-    def access_token_validity(self) -> pulumi.Output[int]:
+    def access_token_validity(self) -> pulumi.Output[Optional[int]]:
         """
         Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
         By default, the unit is hours.
@@ -1225,7 +1225,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthFlows")
-    def allowed_oauth_flows(self) -> pulumi.Output[Sequence[str]]:
+    def allowed_oauth_flows(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of allowed OAuth flows (code, implicit, client_credentials).
         """
@@ -1233,7 +1233,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
-    def allowed_oauth_flows_user_pool_client(self) -> pulumi.Output[bool]:
+    def allowed_oauth_flows_user_pool_client(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         """
@@ -1241,7 +1241,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthScopes")
-    def allowed_oauth_scopes(self) -> pulumi.Output[Sequence[str]]:
+    def allowed_oauth_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         """
@@ -1257,7 +1257,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSessionValidity")
-    def auth_session_validity(self) -> pulumi.Output[int]:
+    def auth_session_validity(self) -> pulumi.Output[Optional[int]]:
         """
         Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
         """
@@ -1265,7 +1265,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callbackUrls")
-    def callback_urls(self) -> pulumi.Output[Sequence[str]]:
+    def callback_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of allowed callback URLs for the identity providers.
         """
@@ -1273,7 +1273,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Output[str]:
+    def client_secret(self) -> pulumi.Output[Optional[str]]:
         """
         Client secret of the user pool client.
         """
@@ -1281,7 +1281,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRedirectUri")
-    def default_redirect_uri(self) -> pulumi.Output[str]:
+    def default_redirect_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Default redirect URI. Must be in the list of callback URLs.
         """
@@ -1289,7 +1289,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePropagateAdditionalUserContextData")
-    def enable_propagate_additional_user_context_data(self) -> pulumi.Output[bool]:
+    def enable_propagate_additional_user_context_data(self) -> pulumi.Output[Optional[bool]]:
         """
         Activates the propagation of additional user context data.
         """
@@ -1297,7 +1297,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableTokenRevocation")
-    def enable_token_revocation(self) -> pulumi.Output[bool]:
+    def enable_token_revocation(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables or disables token revocation.
         """
@@ -1305,7 +1305,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="explicitAuthFlows")
-    def explicit_auth_flows(self) -> pulumi.Output[Sequence[str]]:
+    def explicit_auth_flows(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         """
@@ -1321,7 +1321,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idTokenValidity")
-    def id_token_validity(self) -> pulumi.Output[int]:
+    def id_token_validity(self) -> pulumi.Output[Optional[int]]:
         """
         Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
         By default, the unit is hours.
@@ -1331,7 +1331,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logoutUrls")
-    def logout_urls(self) -> pulumi.Output[Sequence[str]]:
+    def logout_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of allowed logout URLs for the identity providers.
         """
@@ -1347,7 +1347,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preventUserExistenceErrors")
-    def prevent_user_existence_errors(self) -> pulumi.Output[str]:
+    def prevent_user_existence_errors(self) -> pulumi.Output[Optional[str]]:
         """
         Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
         """
@@ -1355,7 +1355,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readAttributes")
-    def read_attributes(self) -> pulumi.Output[Sequence[str]]:
+    def read_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of user pool attributes the application client can read from.
         """
@@ -1363,7 +1363,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenValidity")
-    def refresh_token_validity(self) -> pulumi.Output[int]:
+    def refresh_token_validity(self) -> pulumi.Output[Optional[int]]:
         """
         Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
         By default, the unit is days.
@@ -1373,7 +1373,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportedIdentityProviders")
-    def supported_identity_providers(self) -> pulumi.Output[Sequence[str]]:
+    def supported_identity_providers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         """
@@ -1399,7 +1399,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeAttributes")
-    def write_attributes(self) -> pulumi.Output[Sequence[str]]:
+    def write_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of user pool attributes the application client can write to.
         """

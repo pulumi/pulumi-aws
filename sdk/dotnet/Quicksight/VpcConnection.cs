@@ -107,19 +107,19 @@ namespace Pulumi.Aws.Quicksight
         /// ARN of the VPC connection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
         /// </summary>
         [Output("availabilityStatus")]
-        public Output<string> AvailabilityStatus { get; private set; } = null!;
+        public Output<string?> AvailabilityStatus { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// A list of IP addresses of DNS resolver endpoints for the VPC connection.

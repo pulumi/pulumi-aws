@@ -221,7 +221,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * The ARN of the CloudWatch Metric Alarm.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
@@ -240,7 +240,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      */
-    public readonly evaluateLowSampleCountPercentiles!: pulumi.Output<string>;
+    public readonly evaluateLowSampleCountPercentiles!: pulumi.Output<string | undefined>;
     /**
      * The number of periods over which data is compared to the specified threshold.
      */

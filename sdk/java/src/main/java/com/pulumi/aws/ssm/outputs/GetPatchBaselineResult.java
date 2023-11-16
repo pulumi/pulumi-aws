@@ -20,43 +20,43 @@ public final class GetPatchBaselineResult {
      * @return List of rules used to include patches in the baseline.
      * 
      */
-    private List<GetPatchBaselineApprovalRule> approvalRules;
+    private @Nullable List<GetPatchBaselineApprovalRule> approvalRules;
     /**
      * @return List of explicitly approved patches for the baseline.
      * 
      */
-    private List<String> approvedPatches;
+    private @Nullable List<String> approvedPatches;
     /**
      * @return The compliance level for approved patches.
      * 
      */
-    private String approvedPatchesComplianceLevel;
+    private @Nullable String approvedPatchesComplianceLevel;
     /**
      * @return Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
      * 
      */
-    private Boolean approvedPatchesEnableNonSecurity;
+    private @Nullable Boolean approvedPatchesEnableNonSecurity;
     private @Nullable Boolean defaultBaseline;
     /**
      * @return Description of the baseline.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Set of global filters used to exclude patches from the baseline.
      * 
      */
-    private List<GetPatchBaselineGlobalFilter> globalFilters;
+    private @Nullable List<GetPatchBaselineGlobalFilter> globalFilters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The name specified to identify the patch source.
      * 
      */
-    private String name;
+    private @Nullable String name;
     private @Nullable String namePrefix;
     private @Nullable String operatingSystem;
     private String owner;
@@ -64,17 +64,17 @@ public final class GetPatchBaselineResult {
      * @return List of rejected patches.
      * 
      */
-    private List<String> rejectedPatches;
+    private @Nullable List<String> rejectedPatches;
     /**
      * @return The action specified to take on patches included in the `rejected_patches` list.
      * 
      */
-    private String rejectedPatchesAction;
+    private @Nullable String rejectedPatchesAction;
     /**
      * @return Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
      * 
      */
-    private List<GetPatchBaselineSource> sources;
+    private @Nullable List<GetPatchBaselineSource> sources;
 
     private GetPatchBaselineResult() {}
     /**
@@ -82,28 +82,28 @@ public final class GetPatchBaselineResult {
      * 
      */
     public List<GetPatchBaselineApprovalRule> approvalRules() {
-        return this.approvalRules;
+        return this.approvalRules == null ? List.of() : this.approvalRules;
     }
     /**
      * @return List of explicitly approved patches for the baseline.
      * 
      */
     public List<String> approvedPatches() {
-        return this.approvedPatches;
+        return this.approvedPatches == null ? List.of() : this.approvedPatches;
     }
     /**
      * @return The compliance level for approved patches.
      * 
      */
-    public String approvedPatchesComplianceLevel() {
-        return this.approvedPatchesComplianceLevel;
+    public Optional<String> approvedPatchesComplianceLevel() {
+        return Optional.ofNullable(this.approvedPatchesComplianceLevel);
     }
     /**
      * @return Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
      * 
      */
-    public Boolean approvedPatchesEnableNonSecurity() {
-        return this.approvedPatchesEnableNonSecurity;
+    public Optional<Boolean> approvedPatchesEnableNonSecurity() {
+        return Optional.ofNullable(this.approvedPatchesEnableNonSecurity);
     }
     public Optional<Boolean> defaultBaseline() {
         return Optional.ofNullable(this.defaultBaseline);
@@ -112,29 +112,29 @@ public final class GetPatchBaselineResult {
      * @return Description of the baseline.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Set of global filters used to exclude patches from the baseline.
      * 
      */
     public List<GetPatchBaselineGlobalFilter> globalFilters() {
-        return this.globalFilters;
+        return this.globalFilters == null ? List.of() : this.globalFilters;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The name specified to identify the patch source.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
@@ -150,21 +150,21 @@ public final class GetPatchBaselineResult {
      * 
      */
     public List<String> rejectedPatches() {
-        return this.rejectedPatches;
+        return this.rejectedPatches == null ? List.of() : this.rejectedPatches;
     }
     /**
      * @return The action specified to take on patches included in the `rejected_patches` list.
      * 
      */
-    public String rejectedPatchesAction() {
-        return this.rejectedPatchesAction;
+    public Optional<String> rejectedPatchesAction() {
+        return Optional.ofNullable(this.rejectedPatchesAction);
     }
     /**
      * @return Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
      * 
      */
     public List<GetPatchBaselineSource> sources() {
-        return this.sources;
+        return this.sources == null ? List.of() : this.sources;
     }
 
     public static Builder builder() {
@@ -176,21 +176,21 @@ public final class GetPatchBaselineResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetPatchBaselineApprovalRule> approvalRules;
-        private List<String> approvedPatches;
-        private String approvedPatchesComplianceLevel;
-        private Boolean approvedPatchesEnableNonSecurity;
+        private @Nullable List<GetPatchBaselineApprovalRule> approvalRules;
+        private @Nullable List<String> approvedPatches;
+        private @Nullable String approvedPatchesComplianceLevel;
+        private @Nullable Boolean approvedPatchesEnableNonSecurity;
         private @Nullable Boolean defaultBaseline;
-        private String description;
-        private List<GetPatchBaselineGlobalFilter> globalFilters;
-        private String id;
-        private String name;
+        private @Nullable String description;
+        private @Nullable List<GetPatchBaselineGlobalFilter> globalFilters;
+        private @Nullable String id;
+        private @Nullable String name;
         private @Nullable String namePrefix;
         private @Nullable String operatingSystem;
         private String owner;
-        private List<String> rejectedPatches;
-        private String rejectedPatchesAction;
-        private List<GetPatchBaselineSource> sources;
+        private @Nullable List<String> rejectedPatches;
+        private @Nullable String rejectedPatchesAction;
+        private @Nullable List<GetPatchBaselineSource> sources;
         public Builder() {}
         public Builder(GetPatchBaselineResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -212,29 +212,29 @@ public final class GetPatchBaselineResult {
         }
 
         @CustomType.Setter
-        public Builder approvalRules(List<GetPatchBaselineApprovalRule> approvalRules) {
-            this.approvalRules = Objects.requireNonNull(approvalRules);
+        public Builder approvalRules(@Nullable List<GetPatchBaselineApprovalRule> approvalRules) {
+            this.approvalRules = approvalRules;
             return this;
         }
         public Builder approvalRules(GetPatchBaselineApprovalRule... approvalRules) {
             return approvalRules(List.of(approvalRules));
         }
         @CustomType.Setter
-        public Builder approvedPatches(List<String> approvedPatches) {
-            this.approvedPatches = Objects.requireNonNull(approvedPatches);
+        public Builder approvedPatches(@Nullable List<String> approvedPatches) {
+            this.approvedPatches = approvedPatches;
             return this;
         }
         public Builder approvedPatches(String... approvedPatches) {
             return approvedPatches(List.of(approvedPatches));
         }
         @CustomType.Setter
-        public Builder approvedPatchesComplianceLevel(String approvedPatchesComplianceLevel) {
-            this.approvedPatchesComplianceLevel = Objects.requireNonNull(approvedPatchesComplianceLevel);
+        public Builder approvedPatchesComplianceLevel(@Nullable String approvedPatchesComplianceLevel) {
+            this.approvedPatchesComplianceLevel = approvedPatchesComplianceLevel;
             return this;
         }
         @CustomType.Setter
-        public Builder approvedPatchesEnableNonSecurity(Boolean approvedPatchesEnableNonSecurity) {
-            this.approvedPatchesEnableNonSecurity = Objects.requireNonNull(approvedPatchesEnableNonSecurity);
+        public Builder approvedPatchesEnableNonSecurity(@Nullable Boolean approvedPatchesEnableNonSecurity) {
+            this.approvedPatchesEnableNonSecurity = approvedPatchesEnableNonSecurity;
             return this;
         }
         @CustomType.Setter
@@ -243,26 +243,26 @@ public final class GetPatchBaselineResult {
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder globalFilters(List<GetPatchBaselineGlobalFilter> globalFilters) {
-            this.globalFilters = Objects.requireNonNull(globalFilters);
+        public Builder globalFilters(@Nullable List<GetPatchBaselineGlobalFilter> globalFilters) {
+            this.globalFilters = globalFilters;
             return this;
         }
         public Builder globalFilters(GetPatchBaselineGlobalFilter... globalFilters) {
             return globalFilters(List.of(globalFilters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -281,21 +281,21 @@ public final class GetPatchBaselineResult {
             return this;
         }
         @CustomType.Setter
-        public Builder rejectedPatches(List<String> rejectedPatches) {
-            this.rejectedPatches = Objects.requireNonNull(rejectedPatches);
+        public Builder rejectedPatches(@Nullable List<String> rejectedPatches) {
+            this.rejectedPatches = rejectedPatches;
             return this;
         }
         public Builder rejectedPatches(String... rejectedPatches) {
             return rejectedPatches(List.of(rejectedPatches));
         }
         @CustomType.Setter
-        public Builder rejectedPatchesAction(String rejectedPatchesAction) {
-            this.rejectedPatchesAction = Objects.requireNonNull(rejectedPatchesAction);
+        public Builder rejectedPatchesAction(@Nullable String rejectedPatchesAction) {
+            this.rejectedPatchesAction = rejectedPatchesAction;
             return this;
         }
         @CustomType.Setter
-        public Builder sources(List<GetPatchBaselineSource> sources) {
-            this.sources = Objects.requireNonNull(sources);
+        public Builder sources(@Nullable List<GetPatchBaselineSource> sources) {
+            this.sources = sources;
             return this;
         }
         public Builder sources(GetPatchBaselineSource... sources) {

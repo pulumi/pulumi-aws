@@ -8,6 +8,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkspaceResult {
@@ -15,98 +17,98 @@ public final class GetWorkspaceResult {
      * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
      * 
      */
-    private String accountAccessType;
+    private @Nullable String accountAccessType;
     /**
      * @return ARN of the Grafana workspace.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
-    private List<String> authenticationProviders;
+    private @Nullable List<String> authenticationProviders;
     /**
      * @return Creation date of the Grafana workspace.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return Data sources for the workspace.
      * 
      */
-    private List<String> dataSources;
+    private @Nullable List<String> dataSources;
     /**
      * @return Workspace description.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Endpoint of the Grafana workspace.
      * 
      */
-    private String endpoint;
+    private @Nullable String endpoint;
     /**
      * @return Version of Grafana running on the workspace.
      * 
      */
-    private String grafanaVersion;
+    private @Nullable String grafanaVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Last updated date of the Grafana workspace.
      * 
      */
-    private String lastUpdatedDate;
+    private @Nullable String lastUpdatedDate;
     /**
      * @return Grafana workspace name.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The notification destinations.
      * 
      */
-    private List<String> notificationDestinations;
+    private @Nullable List<String> notificationDestinations;
     /**
      * @return The role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
-    private String organizationRoleName;
+    private @Nullable String organizationRoleName;
     /**
      * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
-    private List<String> organizationalUnits;
+    private @Nullable List<String> organizationalUnits;
     /**
      * @return Permission type of the workspace.
      * 
      */
-    private String permissionType;
+    private @Nullable String permissionType;
     /**
      * @return IAM role ARN that the workspace assumes.
      * 
      */
-    private String roleArn;
-    private String samlConfigurationStatus;
+    private @Nullable String roleArn;
+    private @Nullable String samlConfigurationStatus;
     /**
      * @return AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
-    private String stackSetName;
+    private @Nullable String stackSetName;
     /**
      * @return Status of the Grafana workspace.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Tags assigned to the resource
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     private String workspaceId;
 
     private GetWorkspaceResult() {}
@@ -114,137 +116,137 @@ public final class GetWorkspaceResult {
      * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
      * 
      */
-    public String accountAccessType() {
-        return this.accountAccessType;
+    public Optional<String> accountAccessType() {
+        return Optional.ofNullable(this.accountAccessType);
     }
     /**
      * @return ARN of the Grafana workspace.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
     public List<String> authenticationProviders() {
-        return this.authenticationProviders;
+        return this.authenticationProviders == null ? List.of() : this.authenticationProviders;
     }
     /**
      * @return Creation date of the Grafana workspace.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Data sources for the workspace.
      * 
      */
     public List<String> dataSources() {
-        return this.dataSources;
+        return this.dataSources == null ? List.of() : this.dataSources;
     }
     /**
      * @return Workspace description.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Endpoint of the Grafana workspace.
      * 
      */
-    public String endpoint() {
-        return this.endpoint;
+    public Optional<String> endpoint() {
+        return Optional.ofNullable(this.endpoint);
     }
     /**
      * @return Version of Grafana running on the workspace.
      * 
      */
-    public String grafanaVersion() {
-        return this.grafanaVersion;
+    public Optional<String> grafanaVersion() {
+        return Optional.ofNullable(this.grafanaVersion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Last updated date of the Grafana workspace.
      * 
      */
-    public String lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Optional<String> lastUpdatedDate() {
+        return Optional.ofNullable(this.lastUpdatedDate);
     }
     /**
      * @return Grafana workspace name.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The notification destinations.
      * 
      */
     public List<String> notificationDestinations() {
-        return this.notificationDestinations;
+        return this.notificationDestinations == null ? List.of() : this.notificationDestinations;
     }
     /**
      * @return The role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
-    public String organizationRoleName() {
-        return this.organizationRoleName;
+    public Optional<String> organizationRoleName() {
+        return Optional.ofNullable(this.organizationRoleName);
     }
     /**
      * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
     public List<String> organizationalUnits() {
-        return this.organizationalUnits;
+        return this.organizationalUnits == null ? List.of() : this.organizationalUnits;
     }
     /**
      * @return Permission type of the workspace.
      * 
      */
-    public String permissionType() {
-        return this.permissionType;
+    public Optional<String> permissionType() {
+        return Optional.ofNullable(this.permissionType);
     }
     /**
      * @return IAM role ARN that the workspace assumes.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
-    public String samlConfigurationStatus() {
-        return this.samlConfigurationStatus;
+    public Optional<String> samlConfigurationStatus() {
+        return Optional.ofNullable(this.samlConfigurationStatus);
     }
     /**
      * @return AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
-    public String stackSetName() {
-        return this.stackSetName;
+    public Optional<String> stackSetName() {
+        return Optional.ofNullable(this.stackSetName);
     }
     /**
      * @return Status of the Grafana workspace.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Tags assigned to the resource
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public String workspaceId() {
         return this.workspaceId;
@@ -259,26 +261,26 @@ public final class GetWorkspaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountAccessType;
-        private String arn;
-        private List<String> authenticationProviders;
-        private String createdDate;
-        private List<String> dataSources;
-        private String description;
-        private String endpoint;
-        private String grafanaVersion;
-        private String id;
-        private String lastUpdatedDate;
-        private String name;
-        private List<String> notificationDestinations;
-        private String organizationRoleName;
-        private List<String> organizationalUnits;
-        private String permissionType;
-        private String roleArn;
-        private String samlConfigurationStatus;
-        private String stackSetName;
-        private String status;
-        private Map<String,String> tags;
+        private @Nullable String accountAccessType;
+        private @Nullable String arn;
+        private @Nullable List<String> authenticationProviders;
+        private @Nullable String createdDate;
+        private @Nullable List<String> dataSources;
+        private @Nullable String description;
+        private @Nullable String endpoint;
+        private @Nullable String grafanaVersion;
+        private @Nullable String id;
+        private @Nullable String lastUpdatedDate;
+        private @Nullable String name;
+        private @Nullable List<String> notificationDestinations;
+        private @Nullable String organizationRoleName;
+        private @Nullable List<String> organizationalUnits;
+        private @Nullable String permissionType;
+        private @Nullable String roleArn;
+        private @Nullable String samlConfigurationStatus;
+        private @Nullable String stackSetName;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
         private String workspaceId;
         public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
@@ -307,115 +309,115 @@ public final class GetWorkspaceResult {
         }
 
         @CustomType.Setter
-        public Builder accountAccessType(String accountAccessType) {
-            this.accountAccessType = Objects.requireNonNull(accountAccessType);
+        public Builder accountAccessType(@Nullable String accountAccessType) {
+            this.accountAccessType = accountAccessType;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder authenticationProviders(List<String> authenticationProviders) {
-            this.authenticationProviders = Objects.requireNonNull(authenticationProviders);
+        public Builder authenticationProviders(@Nullable List<String> authenticationProviders) {
+            this.authenticationProviders = authenticationProviders;
             return this;
         }
         public Builder authenticationProviders(String... authenticationProviders) {
             return authenticationProviders(List.of(authenticationProviders));
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder dataSources(List<String> dataSources) {
-            this.dataSources = Objects.requireNonNull(dataSources);
+        public Builder dataSources(@Nullable List<String> dataSources) {
+            this.dataSources = dataSources;
             return this;
         }
         public Builder dataSources(String... dataSources) {
             return dataSources(List.of(dataSources));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+        public Builder endpoint(@Nullable String endpoint) {
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder grafanaVersion(String grafanaVersion) {
-            this.grafanaVersion = Objects.requireNonNull(grafanaVersion);
+        public Builder grafanaVersion(@Nullable String grafanaVersion) {
+            this.grafanaVersion = grafanaVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+        public Builder lastUpdatedDate(@Nullable String lastUpdatedDate) {
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder notificationDestinations(List<String> notificationDestinations) {
-            this.notificationDestinations = Objects.requireNonNull(notificationDestinations);
+        public Builder notificationDestinations(@Nullable List<String> notificationDestinations) {
+            this.notificationDestinations = notificationDestinations;
             return this;
         }
         public Builder notificationDestinations(String... notificationDestinations) {
             return notificationDestinations(List.of(notificationDestinations));
         }
         @CustomType.Setter
-        public Builder organizationRoleName(String organizationRoleName) {
-            this.organizationRoleName = Objects.requireNonNull(organizationRoleName);
+        public Builder organizationRoleName(@Nullable String organizationRoleName) {
+            this.organizationRoleName = organizationRoleName;
             return this;
         }
         @CustomType.Setter
-        public Builder organizationalUnits(List<String> organizationalUnits) {
-            this.organizationalUnits = Objects.requireNonNull(organizationalUnits);
+        public Builder organizationalUnits(@Nullable List<String> organizationalUnits) {
+            this.organizationalUnits = organizationalUnits;
             return this;
         }
         public Builder organizationalUnits(String... organizationalUnits) {
             return organizationalUnits(List.of(organizationalUnits));
         }
         @CustomType.Setter
-        public Builder permissionType(String permissionType) {
-            this.permissionType = Objects.requireNonNull(permissionType);
+        public Builder permissionType(@Nullable String permissionType) {
+            this.permissionType = permissionType;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder samlConfigurationStatus(String samlConfigurationStatus) {
-            this.samlConfigurationStatus = Objects.requireNonNull(samlConfigurationStatus);
+        public Builder samlConfigurationStatus(@Nullable String samlConfigurationStatus) {
+            this.samlConfigurationStatus = samlConfigurationStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder stackSetName(String stackSetName) {
-            this.stackSetName = Objects.requireNonNull(stackSetName);
+        public Builder stackSetName(@Nullable String stackSetName) {
+            this.stackSetName = stackSetName;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

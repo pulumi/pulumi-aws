@@ -64,14 +64,14 @@ type GetRepositoryEndpointArgs struct {
 
 // A collection of values returned by getRepositoryEndpoint.
 type GetRepositoryEndpointResult struct {
-	Domain      string `pulumi:"domain"`
-	DomainOwner string `pulumi:"domainOwner"`
-	Format      string `pulumi:"format"`
+	Domain      string  `pulumi:"domain"`
+	DomainOwner *string `pulumi:"domainOwner"`
+	Format      string  `pulumi:"format"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	Repository string `pulumi:"repository"`
+	Id         *string `pulumi:"id"`
+	Repository string  `pulumi:"repository"`
 	// URL of the returned endpoint.
-	RepositoryEndpoint string `pulumi:"repositoryEndpoint"`
+	RepositoryEndpoint *string `pulumi:"repositoryEndpoint"`
 }
 
 func GetRepositoryEndpointOutput(ctx *pulumi.Context, args GetRepositoryEndpointOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryEndpointResultOutput {
@@ -122,8 +122,8 @@ func (o GetRepositoryEndpointResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-func (o GetRepositoryEndpointResultOutput) DomainOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.DomainOwner }).(pulumi.StringOutput)
+func (o GetRepositoryEndpointResultOutput) DomainOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRepositoryEndpointResult) *string { return v.DomainOwner }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRepositoryEndpointResultOutput) Format() pulumi.StringOutput {
@@ -131,8 +131,8 @@ func (o GetRepositoryEndpointResultOutput) Format() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetRepositoryEndpointResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetRepositoryEndpointResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRepositoryEndpointResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRepositoryEndpointResultOutput) Repository() pulumi.StringOutput {
@@ -140,8 +140,8 @@ func (o GetRepositoryEndpointResultOutput) Repository() pulumi.StringOutput {
 }
 
 // URL of the returned endpoint.
-func (o GetRepositoryEndpointResultOutput) RepositoryEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.RepositoryEndpoint }).(pulumi.StringOutput)
+func (o GetRepositoryEndpointResultOutput) RepositoryEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRepositoryEndpointResult) *string { return v.RepositoryEndpoint }).(pulumi.StringPtrOutput)
 }
 
 func init() {

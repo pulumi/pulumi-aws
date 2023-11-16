@@ -114,14 +114,14 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The SES receipt rule ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A list of Bounce Action blocks. Documented below.
@@ -268,14 +268,14 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tlsPolicy", refs={String.class}, tree="[0]")
-    private Output<String> tlsPolicy;
+    private Output</* @Nullable */ String> tlsPolicy;
 
     /**
      * @return `Require` or `Optional`
      * 
      */
-    public Output<String> tlsPolicy() {
-        return this.tlsPolicy;
+    public Output<Optional<String>> tlsPolicy() {
+        return Codegen.optional(this.tlsPolicy);
     }
     /**
      * A list of WorkMail Action blocks. Documented below.

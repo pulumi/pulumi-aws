@@ -64,11 +64,11 @@ export class TemplateAlias extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the template alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * ID of the template.
      */

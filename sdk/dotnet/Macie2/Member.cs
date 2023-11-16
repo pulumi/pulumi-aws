@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Macie2
         /// The AWS account ID for the administrator account.
         /// </summary>
         [Output("administratorAccountId")]
-        public Output<string> AdministratorAccountId { get; private set; } = null!;
+        public Output<string?> AdministratorAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the account.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The email address for the account.
@@ -93,28 +93,28 @@ namespace Pulumi.Aws.Macie2
         /// Send an invitation to a member
         /// </summary>
         [Output("invite")]
-        public Output<bool> Invite { get; private set; } = null!;
+        public Output<bool?> Invite { get; private set; } = null!;
 
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
         /// </summary>
         [Output("invitedAt")]
-        public Output<string> InvitedAt { get; private set; } = null!;
+        public Output<string?> InvitedAt { get; private set; } = null!;
 
         [Output("masterAccountId")]
-        public Output<string> MasterAccountId { get; private set; } = null!;
+        public Output<string?> MasterAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The current status of the relationship between the account and the administrator account.
         /// </summary>
         [Output("relationshipStatus")]
-        public Output<string> RelationshipStatus { get; private set; } = null!;
+        public Output<string?> RelationshipStatus { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Macie2
         /// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
         /// </summary>
         [Output("updatedAt")]
-        public Output<string> UpdatedAt { get; private set; } = null!;
+        public Output<string?> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

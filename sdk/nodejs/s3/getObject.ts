@@ -100,115 +100,115 @@ export interface GetObjectResult {
     /**
      * Object data (see **limitations above** to understand cases in which this field is actually available)
      */
-    readonly body: string;
+    readonly body?: string;
     readonly bucket: string;
     /**
      * (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
-    readonly bucketKeyEnabled: boolean;
+    readonly bucketKeyEnabled?: boolean;
     /**
      * Caching behavior along the request/reply chain.
      */
-    readonly cacheControl: string;
+    readonly cacheControl?: string;
     /**
      * The base64-encoded, 32-bit CRC32 checksum of the object.
      */
-    readonly checksumCrc32: string;
+    readonly checksumCrc32?: string;
     /**
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      */
-    readonly checksumCrc32c: string;
+    readonly checksumCrc32c?: string;
     readonly checksumMode?: string;
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      */
-    readonly checksumSha1: string;
+    readonly checksumSha1?: string;
     /**
      * The base64-encoded, 256-bit SHA-256 digest of the object.
      */
-    readonly checksumSha256: string;
+    readonly checksumSha256?: string;
     /**
      * Presentational information for the object.
      */
-    readonly contentDisposition: string;
+    readonly contentDisposition?: string;
     /**
      * What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
      */
-    readonly contentEncoding: string;
+    readonly contentEncoding?: string;
     /**
      * Language the content is in.
      */
-    readonly contentLanguage: string;
+    readonly contentLanguage?: string;
     /**
      * Size of the body in bytes.
      */
-    readonly contentLength: number;
+    readonly contentLength?: number;
     /**
      * Standard MIME type describing the format of the object data.
      */
-    readonly contentType: string;
+    readonly contentType?: string;
     /**
      * [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
      */
-    readonly etag: string;
+    readonly etag?: string;
     /**
      * If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
      */
-    readonly expiration: string;
+    readonly expiration?: string;
     /**
      * Date and time at which the object is no longer cacheable.
      */
-    readonly expires: string;
+    readonly expires?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly key: string;
     /**
      * Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
      */
-    readonly lastModified: string;
+    readonly lastModified?: string;
     /**
      * Map of metadata stored with the object in S3. Keys are always returned in lowercase.
      */
-    readonly metadata: {[key: string]: string};
+    readonly metadata?: {[key: string]: string};
     /**
      * Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
      */
-    readonly objectLockLegalHoldStatus: string;
+    readonly objectLockLegalHoldStatus?: string;
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
      */
-    readonly objectLockMode: string;
+    readonly objectLockMode?: string;
     /**
      * The date and time when this object's object lock will expire.
      */
-    readonly objectLockRetainUntilDate: string;
+    readonly objectLockRetainUntilDate?: string;
     readonly range?: string;
     /**
      * If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
      */
-    readonly serverSideEncryption: string;
+    readonly serverSideEncryption?: string;
     /**
      * If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
      */
-    readonly sseKmsKeyId: string;
+    readonly sseKmsKeyId?: string;
     /**
      * [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
      */
-    readonly storageClass: string;
+    readonly storageClass?: string;
     /**
      * Map of tags assigned to the object.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Latest version ID of the object returned.
      */
-    readonly versionId: string;
+    readonly versionId?: string;
     /**
      * If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
      */
-    readonly websiteRedirectLocation: string;
+    readonly websiteRedirectLocation?: string;
 }
 /**
  * The S3 object data source allows access to the metadata and

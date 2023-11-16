@@ -43,32 +43,32 @@ export interface GetSubnetGroupResult {
     /**
      * ARN for the DB subnet group.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Provides the description of the DB subnet group.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Provides the status of the DB subnet group.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Contains a list of subnet identifiers.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * The network type of the DB subnet group.
      */
-    readonly supportedNetworkTypes: string[];
+    readonly supportedNetworkTypes?: string[];
     /**
      * Provides the VPC ID of the DB subnet group.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Use this data source to get information about an RDS subnet group.

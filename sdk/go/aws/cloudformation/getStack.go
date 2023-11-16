@@ -74,14 +74,14 @@ type LookupStackResult struct {
 	// List of capabilities
 	Capabilities []string `pulumi:"capabilities"`
 	// Description of the stack
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Whether the rollback of the stack is disabled when stack creation fails
-	DisableRollback bool `pulumi:"disableRollback"`
+	DisableRollback *bool `pulumi:"disableRollback"`
 	// ARN of the IAM role used to create the stack.
-	IamRoleArn string `pulumi:"iamRoleArn"`
+	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// List of SNS topic ARNs to publish stack related events
 	NotificationArns []string `pulumi:"notificationArns"`
 	// Map of outputs from the stack.
@@ -91,9 +91,9 @@ type LookupStackResult struct {
 	// Map of tags associated with this stack.
 	Tags map[string]string `pulumi:"tags"`
 	// Structure containing the template body.
-	TemplateBody string `pulumi:"templateBody"`
+	TemplateBody *string `pulumi:"templateBody"`
 	// Amount of time that can pass before the stack status becomes `CREATE_FAILED`
-	TimeoutInMinutes int `pulumi:"timeoutInMinutes"`
+	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
 }
 
 func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...pulumi.InvokeOption) LookupStackResultOutput {
@@ -142,23 +142,23 @@ func (o LookupStackResultOutput) Capabilities() pulumi.StringArrayOutput {
 }
 
 // Description of the stack
-func (o LookupStackResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStackResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupStackResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Whether the rollback of the stack is disabled when stack creation fails
-func (o LookupStackResultOutput) DisableRollback() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupStackResult) bool { return v.DisableRollback }).(pulumi.BoolOutput)
+func (o LookupStackResultOutput) DisableRollback() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *bool { return v.DisableRollback }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the IAM role used to create the stack.
-func (o LookupStackResultOutput) IamRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStackResult) string { return v.IamRoleArn }).(pulumi.StringOutput)
+func (o LookupStackResultOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupStackResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStackResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupStackResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStackResultOutput) Name() pulumi.StringOutput {
@@ -186,13 +186,13 @@ func (o LookupStackResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Structure containing the template body.
-func (o LookupStackResultOutput) TemplateBody() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStackResult) string { return v.TemplateBody }).(pulumi.StringOutput)
+func (o LookupStackResultOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.TemplateBody }).(pulumi.StringPtrOutput)
 }
 
 // Amount of time that can pass before the stack status becomes `CREATE_FAILED`
-func (o LookupStackResultOutput) TimeoutInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupStackResult) int { return v.TimeoutInMinutes }).(pulumi.IntOutput)
+func (o LookupStackResultOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
 func init() {

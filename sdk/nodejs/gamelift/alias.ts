@@ -64,7 +64,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * Alias ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the alias.
      */

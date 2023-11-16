@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -65,14 +66,14 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="attachmentId", refs={String.class}, tree="[0]")
-    private Output<String> attachmentId;
+    private Output</* @Nullable */ String> attachmentId;
 
     /**
      * @return The ENI Attachment ID.
      * 
      */
-    public Output<String> attachmentId() {
-        return this.attachmentId;
+    public Output<Optional<String>> attachmentId() {
+        return Codegen.optional(this.attachmentId);
     }
     /**
      * Network interface index (int).
@@ -121,14 +122,14 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the Network Interface Attachment.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetInstanceTypeInferenceAcceleratorResult
     {
-        public readonly int Count;
-        public readonly string Manufacturer;
-        public readonly string Name;
+        public readonly int? Count;
+        public readonly string? Manufacturer;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetInstanceTypeInferenceAcceleratorResult(
-            int count,
+            int? count,
 
-            string manufacturer,
+            string? manufacturer,
 
-            string name)
+            string? name)
         {
             Count = count;
             Manufacturer = manufacturer;

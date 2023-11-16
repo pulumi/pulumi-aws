@@ -174,9 +174,9 @@ type PeeringConnectionOptions struct {
 	pulumi.CustomResourceState
 
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
-	Accepter PeeringConnectionOptionsAccepterOutput `pulumi:"accepter"`
+	Accepter PeeringConnectionOptionsAccepterPtrOutput `pulumi:"accepter"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
-	Requester PeeringConnectionOptionsRequesterOutput `pulumi:"requester"`
+	Requester PeeringConnectionOptionsRequesterPtrOutput `pulumi:"requester"`
 	// The ID of the requester VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringOutput `pulumi:"vpcPeeringConnectionId"`
 }
@@ -342,13 +342,13 @@ func (o PeeringConnectionOptionsOutput) ToPeeringConnectionOptionsOutputWithCont
 }
 
 // An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
-func (o PeeringConnectionOptionsOutput) Accepter() PeeringConnectionOptionsAccepterOutput {
-	return o.ApplyT(func(v *PeeringConnectionOptions) PeeringConnectionOptionsAccepterOutput { return v.Accepter }).(PeeringConnectionOptionsAccepterOutput)
+func (o PeeringConnectionOptionsOutput) Accepter() PeeringConnectionOptionsAccepterPtrOutput {
+	return o.ApplyT(func(v *PeeringConnectionOptions) PeeringConnectionOptionsAccepterPtrOutput { return v.Accepter }).(PeeringConnectionOptionsAccepterPtrOutput)
 }
 
 // A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
-func (o PeeringConnectionOptionsOutput) Requester() PeeringConnectionOptionsRequesterOutput {
-	return o.ApplyT(func(v *PeeringConnectionOptions) PeeringConnectionOptionsRequesterOutput { return v.Requester }).(PeeringConnectionOptionsRequesterOutput)
+func (o PeeringConnectionOptionsOutput) Requester() PeeringConnectionOptionsRequesterPtrOutput {
+	return o.ApplyT(func(v *PeeringConnectionOptions) PeeringConnectionOptionsRequesterPtrOutput { return v.Requester }).(PeeringConnectionOptionsRequesterPtrOutput)
 }
 
 // The ID of the requester VPC peering connection.

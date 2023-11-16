@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Ec2
     public partial class DefaultVpc : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("assignGeneratedIpv6CidrBlock")]
         public Output<bool?> AssignGeneratedIpv6CidrBlock { get; private set; } = null!;
@@ -66,19 +66,19 @@ namespace Pulumi.Aws.Ec2
         /// The primary IPv4 CIDR block for the VPC
         /// </summary>
         [Output("cidrBlock")]
-        public Output<string> CidrBlock { get; private set; } = null!;
+        public Output<string?> CidrBlock { get; private set; } = null!;
 
         [Output("defaultNetworkAclId")]
-        public Output<string> DefaultNetworkAclId { get; private set; } = null!;
+        public Output<string?> DefaultNetworkAclId { get; private set; } = null!;
 
         [Output("defaultRouteTableId")]
-        public Output<string> DefaultRouteTableId { get; private set; } = null!;
+        public Output<string?> DefaultRouteTableId { get; private set; } = null!;
 
         [Output("defaultSecurityGroupId")]
-        public Output<string> DefaultSecurityGroupId { get; private set; } = null!;
+        public Output<string?> DefaultSecurityGroupId { get; private set; } = null!;
 
         [Output("dhcpOptionsId")]
-        public Output<string> DhcpOptionsId { get; private set; } = null!;
+        public Output<string?> DhcpOptionsId { get; private set; } = null!;
 
         [Output("enableDnsHostnames")]
         public Output<bool?> EnableDnsHostnames { get; private set; } = null!;
@@ -87,10 +87,10 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> EnableDnsSupport { get; private set; } = null!;
 
         [Output("enableNetworkAddressUsageMetrics")]
-        public Output<bool> EnableNetworkAddressUsageMetrics { get; private set; } = null!;
+        public Output<bool?> EnableNetworkAddressUsageMetrics { get; private set; } = null!;
 
         [Output("existingDefaultVpc")]
-        public Output<bool> ExistingDefaultVpc { get; private set; } = null!;
+        public Output<bool?> ExistingDefaultVpc { get; private set; } = null!;
 
         /// <summary>
         /// Whether destroying the resource deletes the default VPC. Default: `false`
@@ -102,16 +102,16 @@ namespace Pulumi.Aws.Ec2
         /// The allowed tenancy of instances launched into the VPC
         /// </summary>
         [Output("instanceTenancy")]
-        public Output<string> InstanceTenancy { get; private set; } = null!;
+        public Output<string?> InstanceTenancy { get; private set; } = null!;
 
         [Output("ipv6AssociationId")]
-        public Output<string> Ipv6AssociationId { get; private set; } = null!;
+        public Output<string?> Ipv6AssociationId { get; private set; } = null!;
 
         [Output("ipv6CidrBlock")]
-        public Output<string> Ipv6CidrBlock { get; private set; } = null!;
+        public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
         [Output("ipv6CidrBlockNetworkBorderGroup")]
-        public Output<string> Ipv6CidrBlockNetworkBorderGroup { get; private set; } = null!;
+        public Output<string?> Ipv6CidrBlockNetworkBorderGroup { get; private set; } = null!;
 
         [Output("ipv6IpamPoolId")]
         public Output<string?> Ipv6IpamPoolId { get; private set; } = null!;
@@ -120,10 +120,10 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
         [Output("mainRouteTableId")]
-        public Output<string> MainRouteTableId { get; private set; } = null!;
+        public Output<string?> MainRouteTableId { get; private set; } = null!;
 
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;

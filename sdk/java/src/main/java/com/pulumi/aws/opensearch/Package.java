@@ -36,14 +36,14 @@ public class Package extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availablePackageVersion", refs={String.class}, tree="[0]")
-    private Output<String> availablePackageVersion;
+    private Output</* @Nullable */ String> availablePackageVersion;
 
     /**
      * @return The current version of the package.
      * 
      */
-    public Output<String> availablePackageVersion() {
-        return this.availablePackageVersion;
+    public Output<Optional<String>> availablePackageVersion() {
+        return Codegen.optional(this.availablePackageVersion);
     }
     /**
      * Description of the package.
@@ -60,10 +60,10 @@ public class Package extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.packageDescription);
     }
     @Export(name="packageId", refs={String.class}, tree="[0]")
-    private Output<String> packageId;
+    private Output</* @Nullable */ String> packageId;
 
-    public Output<String> packageId() {
-        return this.packageId;
+    public Output<Optional<String>> packageId() {
+        return Codegen.optional(this.packageId);
     }
     /**
      * Unique name for the package.

@@ -114,12 +114,12 @@ export class InstanceFleet extends pulumi.CustomResource {
      * The number of On-Demand units that have been provisioned for the instance
      * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
      */
-    public /*out*/ readonly provisionedOnDemandCapacity!: pulumi.Output<number>;
+    public /*out*/ readonly provisionedOnDemandCapacity!: pulumi.Output<number | undefined>;
     /**
      * The number of Spot units that have been provisioned for this instance fleet
      * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
      */
-    public /*out*/ readonly provisionedSpotCapacity!: pulumi.Output<number>;
+    public /*out*/ readonly provisionedSpotCapacity!: pulumi.Output<number | undefined>;
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      */

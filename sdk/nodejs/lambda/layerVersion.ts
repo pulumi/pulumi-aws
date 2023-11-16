@@ -73,7 +73,7 @@ export class LayerVersion extends pulumi.CustomResource {
     /**
      * ARN of the Lambda Layer with version.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
@@ -89,7 +89,7 @@ export class LayerVersion extends pulumi.CustomResource {
     /**
      * Date this resource was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * Description of what your Lambda Layer does.
      */
@@ -97,7 +97,7 @@ export class LayerVersion extends pulumi.CustomResource {
     /**
      * ARN of the Lambda Layer without version.
      */
-    public /*out*/ readonly layerArn!: pulumi.Output<string>;
+    public /*out*/ readonly layerArn!: pulumi.Output<string | undefined>;
     /**
      * Unique name for your Lambda Layer
      *
@@ -123,11 +123,11 @@ export class LayerVersion extends pulumi.CustomResource {
     /**
      * ARN of a signing job.
      */
-    public /*out*/ readonly signingJobArn!: pulumi.Output<string>;
+    public /*out*/ readonly signingJobArn!: pulumi.Output<string | undefined>;
     /**
      * ARN for a signing profile version.
      */
-    public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string>;
+    public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string | undefined>;
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
@@ -135,15 +135,15 @@ export class LayerVersion extends pulumi.CustomResource {
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
      */
-    public readonly sourceCodeHash!: pulumi.Output<string>;
+    public readonly sourceCodeHash!: pulumi.Output<string | undefined>;
     /**
      * Size in bytes of the function .zip file.
      */
-    public /*out*/ readonly sourceCodeSize!: pulumi.Output<number>;
+    public /*out*/ readonly sourceCodeSize!: pulumi.Output<number | undefined>;
     /**
      * Lambda Layer version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LayerVersion resource with the given unique name, arguments, and options.

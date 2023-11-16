@@ -70,7 +70,7 @@ export class CustomActionType extends pulumi.CustomResource {
     /**
      * The action ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
      */
@@ -90,7 +90,7 @@ export class CustomActionType extends pulumi.CustomResource {
     /**
      * The creator of the action being called.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * The provider of the service used in the custom action
      */

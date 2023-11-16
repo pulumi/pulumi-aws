@@ -521,7 +521,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the custom data identifier.
         """
@@ -529,7 +529,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         """
@@ -561,7 +561,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumMatchDistance")
-    def maximum_match_distance(self) -> pulumi.Output[int]:
+    def maximum_match_distance(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
         """
@@ -577,7 +577,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """

@@ -66,11 +66,11 @@ export interface GetDirectConnectGatewayAttachmentResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Attachment
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly transitGatewayId?: string;
 }
 /**

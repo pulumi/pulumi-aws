@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const fs = new aws.efs.FileSystem("fs", {});
- * const policyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const policyPolicyDocument = fs.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "ExampleStatement01",
  *         effect: "Allow",
@@ -26,14 +26,14 @@ import * as utilities from "../utilities";
  *             "elasticfilesystem:ClientMount",
  *             "elasticfilesystem:ClientWrite",
  *         ],
- *         resources: [fs.arn],
+ *         resources: [arn],
  *         conditions: [{
  *             test: "Bool",
  *             variable: "aws:SecureTransport",
  *             values: ["true"],
  *         }],
  *     }],
- * });
+ * }));
  * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policyFileSystemPolicy", {
  *     fileSystemId: fs.id,
  *     policy: policyPolicyDocument.apply(policyPolicyDocument => policyPolicyDocument.json),

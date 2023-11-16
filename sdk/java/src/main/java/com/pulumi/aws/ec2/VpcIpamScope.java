@@ -83,14 +83,14 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the scope.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A description for the scope you&#39;re creating.
@@ -111,14 +111,14 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipamArn", refs={String.class}, tree="[0]")
-    private Output<String> ipamArn;
+    private Output</* @Nullable */ String> ipamArn;
 
     /**
      * @return The ARN of the IPAM for which you&#39;re creating this scope.
      * 
      */
-    public Output<String> ipamArn() {
-        return this.ipamArn;
+    public Output<Optional<String>> ipamArn() {
+        return Codegen.optional(this.ipamArn);
     }
     /**
      * The ID of the IPAM for which you&#39;re creating this scope.
@@ -135,38 +135,38 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
         return this.ipamId;
     }
     @Export(name="ipamScopeType", refs={String.class}, tree="[0]")
-    private Output<String> ipamScopeType;
+    private Output</* @Nullable */ String> ipamScopeType;
 
-    public Output<String> ipamScopeType() {
-        return this.ipamScopeType;
+    public Output<Optional<String>> ipamScopeType() {
+        return Codegen.optional(this.ipamScopeType);
     }
     /**
      * Defines if the scope is the default scope or not.
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> isDefault;
+    private Output</* @Nullable */ Boolean> isDefault;
 
     /**
      * @return Defines if the scope is the default scope or not.
      * 
      */
-    public Output<Boolean> isDefault() {
-        return this.isDefault;
+    public Output<Optional<Boolean>> isDefault() {
+        return Codegen.optional(this.isDefault);
     }
     /**
      * The number of pools in the scope.
      * 
      */
     @Export(name="poolCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> poolCount;
+    private Output</* @Nullable */ Integer> poolCount;
 
     /**
      * @return The number of pools in the scope.
      * 
      */
-    public Output<Integer> poolCount() {
-        return this.poolCount;
+    public Output<Optional<Integer>> poolCount() {
+        return Codegen.optional(this.poolCount);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

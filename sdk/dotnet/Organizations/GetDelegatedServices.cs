@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetDelegatedServicesResult(
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Organizations
 
             ImmutableArray<Outputs.GetDelegatedServicesDelegatedServiceResult> delegatedServices,
 
-            string id)
+            string? id)
         {
             AccountId = accountId;
             DelegatedServices = delegatedServices;

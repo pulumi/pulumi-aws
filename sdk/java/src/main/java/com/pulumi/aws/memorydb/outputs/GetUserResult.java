@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserResult {
@@ -16,32 +18,32 @@ public final class GetUserResult {
      * @return Access permissions string used for this user.
      * 
      */
-    private String accessString;
+    private @Nullable String accessString;
     /**
      * @return ARN of the user.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Denotes the user&#39;s authentication properties.
      * 
      */
-    private List<GetUserAuthenticationMode> authenticationModes;
+    private @Nullable List<GetUserAuthenticationMode> authenticationModes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The minimum engine version supported for the user.
      * 
      */
-    private String minimumEngineVersion;
+    private @Nullable String minimumEngineVersion;
     /**
      * @return Map of tags assigned to the subnet group.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     private String userName;
 
     private GetUserResult() {}
@@ -49,43 +51,43 @@ public final class GetUserResult {
      * @return Access permissions string used for this user.
      * 
      */
-    public String accessString() {
-        return this.accessString;
+    public Optional<String> accessString() {
+        return Optional.ofNullable(this.accessString);
     }
     /**
      * @return ARN of the user.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Denotes the user&#39;s authentication properties.
      * 
      */
     public List<GetUserAuthenticationMode> authenticationModes() {
-        return this.authenticationModes;
+        return this.authenticationModes == null ? List.of() : this.authenticationModes;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The minimum engine version supported for the user.
      * 
      */
-    public String minimumEngineVersion() {
-        return this.minimumEngineVersion;
+    public Optional<String> minimumEngineVersion() {
+        return Optional.ofNullable(this.minimumEngineVersion);
     }
     /**
      * @return Map of tags assigned to the subnet group.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public String userName() {
         return this.userName;
@@ -100,12 +102,12 @@ public final class GetUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accessString;
-        private String arn;
-        private List<GetUserAuthenticationMode> authenticationModes;
-        private String id;
-        private String minimumEngineVersion;
-        private Map<String,String> tags;
+        private @Nullable String accessString;
+        private @Nullable String arn;
+        private @Nullable List<GetUserAuthenticationMode> authenticationModes;
+        private @Nullable String id;
+        private @Nullable String minimumEngineVersion;
+        private @Nullable Map<String,String> tags;
         private String userName;
         public Builder() {}
         public Builder(GetUserResult defaults) {
@@ -120,36 +122,36 @@ public final class GetUserResult {
         }
 
         @CustomType.Setter
-        public Builder accessString(String accessString) {
-            this.accessString = Objects.requireNonNull(accessString);
+        public Builder accessString(@Nullable String accessString) {
+            this.accessString = accessString;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder authenticationModes(List<GetUserAuthenticationMode> authenticationModes) {
-            this.authenticationModes = Objects.requireNonNull(authenticationModes);
+        public Builder authenticationModes(@Nullable List<GetUserAuthenticationMode> authenticationModes) {
+            this.authenticationModes = authenticationModes;
             return this;
         }
         public Builder authenticationModes(GetUserAuthenticationMode... authenticationModes) {
             return authenticationModes(List.of(authenticationModes));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder minimumEngineVersion(String minimumEngineVersion) {
-            this.minimumEngineVersion = Objects.requireNonNull(minimumEngineVersion);
+        public Builder minimumEngineVersion(@Nullable String minimumEngineVersion) {
+            this.minimumEngineVersion = minimumEngineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

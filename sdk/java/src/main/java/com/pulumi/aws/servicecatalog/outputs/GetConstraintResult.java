@@ -16,38 +16,38 @@ public final class GetConstraintResult {
      * @return Description of the constraint.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String id;
     /**
      * @return Owner of the constraint.
      * 
      */
-    private String owner;
+    private @Nullable String owner;
     /**
      * @return Constraint parameters in JSON format.
      * 
      */
-    private String parameters;
+    private @Nullable String parameters;
     /**
      * @return Portfolio identifier.
      * 
      */
-    private String portfolioId;
+    private @Nullable String portfolioId;
     /**
      * @return Product identifier.
      * 
      */
-    private String productId;
+    private @Nullable String productId;
     /**
      * @return Constraint status.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetConstraintResult() {}
     public Optional<String> acceptLanguage() {
@@ -57,8 +57,8 @@ public final class GetConstraintResult {
      * @return Description of the constraint.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String id() {
         return this.id;
@@ -67,43 +67,43 @@ public final class GetConstraintResult {
      * @return Owner of the constraint.
      * 
      */
-    public String owner() {
-        return this.owner;
+    public Optional<String> owner() {
+        return Optional.ofNullable(this.owner);
     }
     /**
      * @return Constraint parameters in JSON format.
      * 
      */
-    public String parameters() {
-        return this.parameters;
+    public Optional<String> parameters() {
+        return Optional.ofNullable(this.parameters);
     }
     /**
      * @return Portfolio identifier.
      * 
      */
-    public String portfolioId() {
-        return this.portfolioId;
+    public Optional<String> portfolioId() {
+        return Optional.ofNullable(this.portfolioId);
     }
     /**
      * @return Product identifier.
      * 
      */
-    public String productId() {
-        return this.productId;
+    public Optional<String> productId() {
+        return Optional.ofNullable(this.productId);
     }
     /**
      * @return Constraint status.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -116,14 +116,14 @@ public final class GetConstraintResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
-        private String description;
+        private @Nullable String description;
         private String id;
-        private String owner;
-        private String parameters;
-        private String portfolioId;
-        private String productId;
-        private String status;
-        private String type;
+        private @Nullable String owner;
+        private @Nullable String parameters;
+        private @Nullable String portfolioId;
+        private @Nullable String productId;
+        private @Nullable String status;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetConstraintResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -144,8 +144,8 @@ public final class GetConstraintResult {
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -154,33 +154,33 @@ public final class GetConstraintResult {
             return this;
         }
         @CustomType.Setter
-        public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+        public Builder owner(@Nullable String owner) {
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(String parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable String parameters) {
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
-        public Builder portfolioId(String portfolioId) {
-            this.portfolioId = Objects.requireNonNull(portfolioId);
+        public Builder portfolioId(@Nullable String portfolioId) {
+            this.portfolioId = portfolioId;
             return this;
         }
         @CustomType.Setter
-        public Builder productId(String productId) {
-            this.productId = Objects.requireNonNull(productId);
+        public Builder productId(@Nullable String productId) {
+            this.productId = productId;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetConstraintResult build() {

@@ -16,23 +16,23 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// <summary>
         /// Physical address.
         /// </summary>
-        public readonly string Address;
+        public readonly string? Address;
         /// <summary>
         /// Latitude.
         /// </summary>
-        public readonly string Latitude;
+        public readonly string? Latitude;
         /// <summary>
         /// Longitude.
         /// </summary>
-        public readonly string Longitude;
+        public readonly string? Longitude;
 
         [OutputConstructor]
         private GetDeviceLocationResult(
-            string address,
+            string? address,
 
-            string latitude,
+            string? latitude,
 
-            string longitude)
+            string? longitude)
         {
             Address = address;
             Latitude = latitude;

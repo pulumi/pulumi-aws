@@ -16,19 +16,19 @@ namespace Pulumi.Aws.Msk.Outputs
         /// <summary>
         /// Attached elastic network interface of the broker
         /// </summary>
-        public readonly string AttachedEniId;
+        public readonly string? AttachedEniId;
         /// <summary>
         /// ID of the broker
         /// </summary>
-        public readonly double BrokerId;
+        public readonly double? BrokerId;
         /// <summary>
         /// Client subnet to which this broker node belongs
         /// </summary>
-        public readonly string ClientSubnet;
+        public readonly string? ClientSubnet;
         /// <summary>
         /// The client virtual private cloud (VPC) IP address
         /// </summary>
-        public readonly string ClientVpcIpAddress;
+        public readonly string? ClientVpcIpAddress;
         /// <summary>
         /// Set of endpoints for accessing the broker. This does not include ports
         /// </summary>
@@ -36,21 +36,21 @@ namespace Pulumi.Aws.Msk.Outputs
         /// <summary>
         /// ARN of the node
         /// </summary>
-        public readonly string NodeArn;
+        public readonly string? NodeArn;
 
         [OutputConstructor]
         private GetBrokerNodesNodeInfoListResult(
-            string attachedEniId,
+            string? attachedEniId,
 
-            double brokerId,
+            double? brokerId,
 
-            string clientSubnet,
+            string? clientSubnet,
 
-            string clientVpcIpAddress,
+            string? clientVpcIpAddress,
 
             ImmutableArray<string> endpoints,
 
-            string nodeArn)
+            string? nodeArn)
         {
             AttachedEniId = attachedEniId;
             BrokerId = brokerId;

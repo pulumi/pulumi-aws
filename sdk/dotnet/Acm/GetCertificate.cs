@@ -266,54 +266,54 @@ namespace Pulumi.Aws.Acm
         /// <summary>
         /// ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// ACM-issued certificate.
         /// </summary>
-        public readonly string Certificate;
+        public readonly string? Certificate;
         /// <summary>
         /// Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
         /// </summary>
-        public readonly string CertificateChain;
+        public readonly string? CertificateChain;
         public readonly string Domain;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<string> KeyTypes;
         public readonly bool? MostRecent;
         /// <summary>
         /// Status of the found certificate.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         public readonly ImmutableArray<string> Statuses;
         /// <summary>
         /// Mapping of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly ImmutableArray<string> Types;
 
         [OutputConstructor]
         private GetCertificateResult(
-            string arn,
+            string? arn,
 
-            string certificate,
+            string? certificate,
 
-            string certificateChain,
+            string? certificateChain,
 
             string domain,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> keyTypes,
 
             bool? mostRecent,
 
-            string status,
+            string? status,
 
             ImmutableArray<string> statuses,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<string> types)
         {

@@ -54,24 +54,24 @@ export interface GetDnsNamespaceResult {
     /**
      * ARN of the namespace.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the namespace.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      */
-    readonly hostedZone: string;
+    readonly hostedZone?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Map of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly type: string;
 }
 /**

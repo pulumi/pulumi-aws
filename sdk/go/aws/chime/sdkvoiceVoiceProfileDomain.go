@@ -68,7 +68,7 @@ type SdkvoiceVoiceProfileDomain struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Voice Profile Domain.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of Voice Profile Domain.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of Voice Profile Domain.
@@ -257,8 +257,8 @@ func (o SdkvoiceVoiceProfileDomainOutput) ToSdkvoiceVoiceProfileDomainOutputWith
 }
 
 // ARN of the Voice Profile Domain.
-func (o SdkvoiceVoiceProfileDomainOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SdkvoiceVoiceProfileDomainOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of Voice Profile Domain.

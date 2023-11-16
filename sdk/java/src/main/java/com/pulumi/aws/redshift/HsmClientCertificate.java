@@ -65,14 +65,14 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Hsm Client Certificate.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The identifier of the HSM client certificate.
@@ -93,14 +93,14 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hsmClientCertificatePublicKey", refs={String.class}, tree="[0]")
-    private Output<String> hsmClientCertificatePublicKey;
+    private Output</* @Nullable */ String> hsmClientCertificatePublicKey;
 
     /**
      * @return The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
      * 
      */
-    public Output<String> hsmClientCertificatePublicKey() {
-        return this.hsmClientCertificatePublicKey;
+    public Output<Optional<String>> hsmClientCertificatePublicKey() {
+        return Codegen.optional(this.hsmClientCertificatePublicKey);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -8,31 +8,32 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFrameworkControlSet {
     private @Nullable List<GetFrameworkControlSetControl> controls;
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the framework.
      * 
      */
-    private String name;
+    private @Nullable String name;
 
     private GetFrameworkControlSet() {}
     public List<GetFrameworkControlSetControl> controls() {
         return this.controls == null ? List.of() : this.controls;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the framework.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -45,8 +46,8 @@ public final class GetFrameworkControlSet {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetFrameworkControlSetControl> controls;
-        private String id;
-        private String name;
+        private @Nullable String id;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetFrameworkControlSet defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,13 +65,13 @@ public final class GetFrameworkControlSet {
             return controls(List.of(controls));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetFrameworkControlSet build() {

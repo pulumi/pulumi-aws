@@ -421,7 +421,7 @@ class BotAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the bot alias.
         """
@@ -445,7 +445,7 @@ class BotAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def checksum(self) -> pulumi.Output[str]:
+    def checksum(self) -> pulumi.Output[Optional[str]]:
         """
         Checksum of the bot alias.
         """
@@ -461,7 +461,7 @@ class BotAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date that the bot alias was created.
         """
@@ -477,7 +477,7 @@ class BotAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> pulumi.Output[str]:
+    def last_updated_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         """

@@ -62,24 +62,24 @@ export interface GetOpenIdConnectProviderArgs {
  * A collection of values returned by getOpenIdConnectProvider.
  */
 export interface GetOpenIdConnectProviderResult {
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
      */
-    readonly clientIdLists: string[];
+    readonly clientIdLists?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Map of resource tags for the IAM OIDC provider.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
-    readonly thumbprintLists: string[];
-    readonly url: string;
+    readonly thumbprintLists?: string[];
+    readonly url?: string;
 }
 /**
  * This data source can be used to fetch information about a specific

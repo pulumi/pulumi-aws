@@ -327,7 +327,7 @@ class DedicatedIpPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Dedicated IP Pool.
         """
@@ -345,7 +345,7 @@ class DedicatedIpPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scalingMode")
-    def scaling_mode(self) -> pulumi.Output[str]:
+    def scaling_mode(self) -> pulumi.Output[Optional[str]]:
         """
         IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         """

@@ -592,7 +592,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Default Network ACL
         """
@@ -626,7 +626,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the AWS account that owns the Default Network ACL
         """
@@ -661,7 +661,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the associated VPC
         """

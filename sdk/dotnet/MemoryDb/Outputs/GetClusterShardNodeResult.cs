@@ -16,26 +16,26 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// <summary>
         /// The Availability Zone in which the node resides.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
         /// </summary>
-        public readonly string CreateTime;
+        public readonly string? CreateTime;
         public readonly ImmutableArray<Outputs.GetClusterShardNodeEndpointResult> Endpoints;
         /// <summary>
         /// Name of the cluster.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetClusterShardNodeResult(
-            string availabilityZone,
+            string? availabilityZone,
 
-            string createTime,
+            string? createTime,
 
             ImmutableArray<Outputs.GetClusterShardNodeEndpointResult> endpoints,
 
-            string name)
+            string? name)
         {
             AvailabilityZone = availabilityZone;
             CreateTime = createTime;

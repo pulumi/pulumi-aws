@@ -1162,7 +1162,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the CodeDeploy deployment group.
         """
@@ -1186,7 +1186,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blueGreenDeploymentConfig")
-    def blue_green_deployment_config(self) -> pulumi.Output['outputs.DeploymentGroupBlueGreenDeploymentConfig']:
+    def blue_green_deployment_config(self) -> pulumi.Output[Optional['outputs.DeploymentGroupBlueGreenDeploymentConfig']]:
         """
         Configuration block of the blue/green deployment options for a deployment group (documented below).
         """
@@ -1194,7 +1194,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computePlatform")
-    def compute_platform(self) -> pulumi.Output[str]:
+    def compute_platform(self) -> pulumi.Output[Optional[str]]:
         """
         The destination platform type for the deployment.
         """
@@ -1210,7 +1210,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentGroupId")
-    def deployment_group_id(self) -> pulumi.Output[str]:
+    def deployment_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the CodeDeploy deployment group.
         """

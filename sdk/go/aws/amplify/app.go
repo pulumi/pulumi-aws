@@ -252,21 +252,21 @@ type App struct {
 	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
 	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
 	// ARN of the Amplify app.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
-	AutoBranchCreationConfig AppAutoBranchCreationConfigOutput `pulumi:"autoBranchCreationConfig"`
+	AutoBranchCreationConfig AppAutoBranchCreationConfigPtrOutput `pulumi:"autoBranchCreationConfig"`
 	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns pulumi.StringArrayOutput `pulumi:"autoBranchCreationPatterns"`
 	// Credentials for basic authorization for an Amplify app.
 	BasicAuthCredentials pulumi.StringPtrOutput `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-	BuildSpec pulumi.StringOutput `pulumi:"buildSpec"`
+	BuildSpec pulumi.StringPtrOutput `pulumi:"buildSpec"`
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
-	CustomHeaders pulumi.StringOutput `pulumi:"customHeaders"`
+	CustomHeaders pulumi.StringPtrOutput `pulumi:"customHeaders"`
 	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules AppCustomRuleArrayOutput `pulumi:"customRules"`
 	// Default domain for the Amplify app.
-	DefaultDomain pulumi.StringOutput `pulumi:"defaultDomain"`
+	DefaultDomain pulumi.StringPtrOutput `pulumi:"defaultDomain"`
 	// Description for an Amplify app.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enables automated branch creation for an Amplify app.
@@ -626,13 +626,13 @@ func (o AppOutput) AccessToken() pulumi.StringPtrOutput {
 }
 
 // ARN of the Amplify app.
-func (o AppOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AppOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
-func (o AppOutput) AutoBranchCreationConfig() AppAutoBranchCreationConfigOutput {
-	return o.ApplyT(func(v *App) AppAutoBranchCreationConfigOutput { return v.AutoBranchCreationConfig }).(AppAutoBranchCreationConfigOutput)
+func (o AppOutput) AutoBranchCreationConfig() AppAutoBranchCreationConfigPtrOutput {
+	return o.ApplyT(func(v *App) AppAutoBranchCreationConfigPtrOutput { return v.AutoBranchCreationConfig }).(AppAutoBranchCreationConfigPtrOutput)
 }
 
 // Automated branch creation glob patterns for an Amplify app.
@@ -646,13 +646,13 @@ func (o AppOutput) BasicAuthCredentials() pulumi.StringPtrOutput {
 }
 
 // The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-func (o AppOutput) BuildSpec() pulumi.StringOutput {
-	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.BuildSpec }).(pulumi.StringOutput)
+func (o AppOutput) BuildSpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
 // The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
-func (o AppOutput) CustomHeaders() pulumi.StringOutput {
-	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.CustomHeaders }).(pulumi.StringOutput)
+func (o AppOutput) CustomHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.CustomHeaders }).(pulumi.StringPtrOutput)
 }
 
 // Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
@@ -661,8 +661,8 @@ func (o AppOutput) CustomRules() AppCustomRuleArrayOutput {
 }
 
 // Default domain for the Amplify app.
-func (o AppOutput) DefaultDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.DefaultDomain }).(pulumi.StringOutput)
+func (o AppOutput) DefaultDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.DefaultDomain }).(pulumi.StringPtrOutput)
 }
 
 // Description for an Amplify app.

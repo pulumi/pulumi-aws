@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcEndpointDnsEntry {
@@ -13,27 +15,27 @@ public final class GetVpcEndpointDnsEntry {
      * @return DNS name.
      * 
      */
-    private String dnsName;
+    private @Nullable String dnsName;
     /**
      * @return ID of the private hosted zone.
      * 
      */
-    private String hostedZoneId;
+    private @Nullable String hostedZoneId;
 
     private GetVpcEndpointDnsEntry() {}
     /**
      * @return DNS name.
      * 
      */
-    public String dnsName() {
-        return this.dnsName;
+    public Optional<String> dnsName() {
+        return Optional.ofNullable(this.dnsName);
     }
     /**
      * @return ID of the private hosted zone.
      * 
      */
-    public String hostedZoneId() {
-        return this.hostedZoneId;
+    public Optional<String> hostedZoneId() {
+        return Optional.ofNullable(this.hostedZoneId);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetVpcEndpointDnsEntry {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dnsName;
-        private String hostedZoneId;
+        private @Nullable String dnsName;
+        private @Nullable String hostedZoneId;
         public Builder() {}
         public Builder(GetVpcEndpointDnsEntry defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetVpcEndpointDnsEntry {
         }
 
         @CustomType.Setter
-        public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+        public Builder dnsName(@Nullable String dnsName) {
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+        public Builder hostedZoneId(@Nullable String hostedZoneId) {
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         public GetVpcEndpointDnsEntry build() {

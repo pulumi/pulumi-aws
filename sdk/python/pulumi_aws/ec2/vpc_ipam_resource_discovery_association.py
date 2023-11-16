@@ -417,7 +417,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
         """
@@ -425,7 +425,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipamArn")
-    def ipam_arn(self) -> pulumi.Output[str]:
+    def ipam_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the IPAM.
         """
@@ -441,7 +441,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipamRegion")
-    def ipam_region(self) -> pulumi.Output[str]:
+    def ipam_region(self) -> pulumi.Output[Optional[str]]:
         """
         The home region of the IPAM.
         """
@@ -457,7 +457,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> pulumi.Output[bool]:
+    def is_default(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean to identify if the Resource Discovery is the accounts default resource discovery.
         """
@@ -465,7 +465,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The account ID for the account that manages the Resource Discovery
         """
@@ -473,7 +473,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The lifecycle state of the association when you associate or disassociate a resource discovery.
         """

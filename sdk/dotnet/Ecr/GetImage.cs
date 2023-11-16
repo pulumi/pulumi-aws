@@ -154,34 +154,34 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string ImageDigest;
+        public readonly string? Id;
+        public readonly string? ImageDigest;
         /// <summary>
         /// Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
         /// </summary>
-        public readonly int ImagePushedAt;
+        public readonly int? ImagePushedAt;
         /// <summary>
         /// Size, in bytes, of the image in the repository.
         /// </summary>
-        public readonly int ImageSizeInBytes;
+        public readonly int? ImageSizeInBytes;
         public readonly string? ImageTag;
         /// <summary>
         /// List of tags associated with this image.
         /// </summary>
         public readonly ImmutableArray<string> ImageTags;
         public readonly bool? MostRecent;
-        public readonly string RegistryId;
+        public readonly string? RegistryId;
         public readonly string RepositoryName;
 
         [OutputConstructor]
         private GetImageResult(
-            string id,
+            string? id,
 
-            string imageDigest,
+            string? imageDigest,
 
-            int imagePushedAt,
+            int? imagePushedAt,
 
-            int imageSizeInBytes,
+            int? imageSizeInBytes,
 
             string? imageTag,
 
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Ecr
 
             bool? mostRecent,
 
-            string registryId,
+            string? registryId,
 
             string repositoryName)
         {

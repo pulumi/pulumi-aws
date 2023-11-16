@@ -68,7 +68,7 @@ export class Workgroup extends pulumi.CustomResource {
     /**
      * ARN of the workgroup
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with various settings for the workgroup. Documented below.
      */

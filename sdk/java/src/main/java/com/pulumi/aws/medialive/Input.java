@@ -83,28 +83,28 @@ public class Input extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Input.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Channels attached to Input.
      * 
      */
     @Export(name="attachedChannels", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> attachedChannels;
+    private Output</* @Nullable */ List<String>> attachedChannels;
 
     /**
      * @return Channels attached to Input.
      * 
      */
-    public Output<List<String>> attachedChannels() {
-        return this.attachedChannels;
+    public Output<Optional<List<String>>> attachedChannels() {
+        return Codegen.optional(this.attachedChannels);
     }
     /**
      * Destination settings for PUSH type inputs. See Destinations for more details.
@@ -125,42 +125,42 @@ public class Input extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="inputClass", refs={String.class}, tree="[0]")
-    private Output<String> inputClass;
+    private Output</* @Nullable */ String> inputClass;
 
     /**
      * @return The input class.
      * 
      */
-    public Output<String> inputClass() {
-        return this.inputClass;
+    public Output<Optional<String>> inputClass() {
+        return Codegen.optional(this.inputClass);
     }
     /**
      * Settings for the devices. See Input Devices for more details.
      * 
      */
     @Export(name="inputDevices", refs={List.class,InputInputDevice.class}, tree="[0,1]")
-    private Output<List<InputInputDevice>> inputDevices;
+    private Output</* @Nullable */ List<InputInputDevice>> inputDevices;
 
     /**
      * @return Settings for the devices. See Input Devices for more details.
      * 
      */
-    public Output<List<InputInputDevice>> inputDevices() {
-        return this.inputDevices;
+    public Output<Optional<List<InputInputDevice>>> inputDevices() {
+        return Codegen.optional(this.inputDevices);
     }
     /**
      * A list of IDs for all Inputs which are partners of this one.
      * 
      */
     @Export(name="inputPartnerIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> inputPartnerIds;
+    private Output</* @Nullable */ List<String>> inputPartnerIds;
 
     /**
      * @return A list of IDs for all Inputs which are partners of this one.
      * 
      */
-    public Output<List<String>> inputPartnerIds() {
-        return this.inputPartnerIds;
+    public Output<Optional<List<String>>> inputPartnerIds() {
+        return Codegen.optional(this.inputPartnerIds);
     }
     /**
      * List of input security groups.
@@ -181,28 +181,28 @@ public class Input extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="inputSourceType", refs={String.class}, tree="[0]")
-    private Output<String> inputSourceType;
+    private Output</* @Nullable */ String> inputSourceType;
 
     /**
      * @return Source type of the input.
      * 
      */
-    public Output<String> inputSourceType() {
-        return this.inputSourceType;
+    public Output<Optional<String>> inputSourceType() {
+        return Codegen.optional(this.inputSourceType);
     }
     /**
      * A list of the MediaConnect Flows. See Media Connect Flows for more details.
      * 
      */
     @Export(name="mediaConnectFlows", refs={List.class,InputMediaConnectFlow.class}, tree="[0,1]")
-    private Output<List<InputMediaConnectFlow>> mediaConnectFlows;
+    private Output</* @Nullable */ List<InputMediaConnectFlow>> mediaConnectFlows;
 
     /**
      * @return A list of the MediaConnect Flows. See Media Connect Flows for more details.
      * 
      */
-    public Output<List<InputMediaConnectFlow>> mediaConnectFlows() {
-        return this.mediaConnectFlows;
+    public Output<Optional<List<InputMediaConnectFlow>>> mediaConnectFlows() {
+        return Codegen.optional(this.mediaConnectFlows);
     }
     /**
      * Name of the input.
@@ -223,28 +223,28 @@ public class Input extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
-    private Output<String> roleArn;
+    private Output</* @Nullable */ String> roleArn;
 
     /**
      * @return The ARN of the role this input assumes during and after creation.
      * 
      */
-    public Output<String> roleArn() {
-        return this.roleArn;
+    public Output<Optional<String>> roleArn() {
+        return Codegen.optional(this.roleArn);
     }
     /**
      * The source URLs for a PULL-type input. See Sources for more details.
      * 
      */
     @Export(name="sources", refs={List.class,InputSource.class}, tree="[0,1]")
-    private Output<List<InputSource>> sources;
+    private Output</* @Nullable */ List<InputSource>> sources;
 
     /**
      * @return The source URLs for a PULL-type input. See Sources for more details.
      * 
      */
-    public Output<List<InputSource>> sources() {
-        return this.sources;
+    public Output<Optional<List<InputSource>>> sources() {
+        return Codegen.optional(this.sources);
     }
     /**
      * A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -361,7 +361,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> pulumi.Output[str]:
+    def certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the certificate.
         """

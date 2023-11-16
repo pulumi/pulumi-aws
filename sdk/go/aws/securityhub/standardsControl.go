@@ -63,25 +63,25 @@ type StandardsControl struct {
 	pulumi.CustomResourceState
 
 	// The identifier of the security standard control.
-	ControlId pulumi.StringOutput `pulumi:"controlId"`
+	ControlId pulumi.StringPtrOutput `pulumi:"controlId"`
 	// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
 	ControlStatus pulumi.StringOutput `pulumi:"controlStatus"`
 	// The date and time that the status of the security standard control was most recently updated.
-	ControlStatusUpdatedAt pulumi.StringOutput `pulumi:"controlStatusUpdatedAt"`
+	ControlStatusUpdatedAt pulumi.StringPtrOutput `pulumi:"controlStatusUpdatedAt"`
 	// The standard control longer description. Provides information about what the control is checking for.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-	DisabledReason pulumi.StringOutput `pulumi:"disabledReason"`
+	DisabledReason pulumi.StringPtrOutput `pulumi:"disabledReason"`
 	// The list of requirements that are related to this control.
 	RelatedRequirements pulumi.StringArrayOutput `pulumi:"relatedRequirements"`
 	// A link to remediation information for the control in the Security Hub user documentation.
-	RemediationUrl pulumi.StringOutput `pulumi:"remediationUrl"`
+	RemediationUrl pulumi.StringPtrOutput `pulumi:"remediationUrl"`
 	// The severity of findings generated from this security standard control.
-	SeverityRating pulumi.StringOutput `pulumi:"severityRating"`
+	SeverityRating pulumi.StringPtrOutput `pulumi:"severityRating"`
 	// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
 	StandardsControlArn pulumi.StringOutput `pulumi:"standardsControlArn"`
 	// The standard control title.
-	Title pulumi.StringOutput `pulumi:"title"`
+	Title pulumi.StringPtrOutput `pulumi:"title"`
 }
 
 // NewStandardsControl registers a new resource with the given unique name, arguments, and options.
@@ -276,8 +276,8 @@ func (o StandardsControlOutput) ToStandardsControlOutputWithContext(ctx context.
 }
 
 // The identifier of the security standard control.
-func (o StandardsControlOutput) ControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.ControlId }).(pulumi.StringOutput)
+func (o StandardsControlOutput) ControlId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardsControl) pulumi.StringPtrOutput { return v.ControlId }).(pulumi.StringPtrOutput)
 }
 
 // The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
@@ -286,18 +286,18 @@ func (o StandardsControlOutput) ControlStatus() pulumi.StringOutput {
 }
 
 // The date and time that the status of the security standard control was most recently updated.
-func (o StandardsControlOutput) ControlStatusUpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.ControlStatusUpdatedAt }).(pulumi.StringOutput)
+func (o StandardsControlOutput) ControlStatusUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardsControl) pulumi.StringPtrOutput { return v.ControlStatusUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The standard control longer description. Provides information about what the control is checking for.
-func (o StandardsControlOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o StandardsControlOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardsControl) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-func (o StandardsControlOutput) DisabledReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.DisabledReason }).(pulumi.StringOutput)
+func (o StandardsControlOutput) DisabledReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardsControl) pulumi.StringPtrOutput { return v.DisabledReason }).(pulumi.StringPtrOutput)
 }
 
 // The list of requirements that are related to this control.
@@ -306,13 +306,13 @@ func (o StandardsControlOutput) RelatedRequirements() pulumi.StringArrayOutput {
 }
 
 // A link to remediation information for the control in the Security Hub user documentation.
-func (o StandardsControlOutput) RemediationUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.RemediationUrl }).(pulumi.StringOutput)
+func (o StandardsControlOutput) RemediationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardsControl) pulumi.StringPtrOutput { return v.RemediationUrl }).(pulumi.StringPtrOutput)
 }
 
 // The severity of findings generated from this security standard control.
-func (o StandardsControlOutput) SeverityRating() pulumi.StringOutput {
-	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.SeverityRating }).(pulumi.StringOutput)
+func (o StandardsControlOutput) SeverityRating() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardsControl) pulumi.StringPtrOutput { return v.SeverityRating }).(pulumi.StringPtrOutput)
 }
 
 // The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
@@ -321,8 +321,8 @@ func (o StandardsControlOutput) StandardsControlArn() pulumi.StringOutput {
 }
 
 // The standard control title.
-func (o StandardsControlOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+func (o StandardsControlOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardsControl) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
 }
 
 type StandardsControlArrayOutput struct{ *pulumi.OutputState }

@@ -58,7 +58,7 @@ type GetQueuesArgs struct {
 // A collection of values returned by getQueues.
 type GetQueuesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id              string  `pulumi:"id"`
+	Id              *string `pulumi:"id"`
 	QueueNamePrefix *string `pulumi:"queueNamePrefix"`
 	// A list of queue URLs.
 	QueueUrls []string `pulumi:"queueUrls"`
@@ -103,8 +103,8 @@ func (o GetQueuesResultOutput) ToGetQueuesResultOutputWithContext(ctx context.Co
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetQueuesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetQueuesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetQueuesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetQueuesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetQueuesResultOutput) QueueNamePrefix() pulumi.StringPtrOutput {

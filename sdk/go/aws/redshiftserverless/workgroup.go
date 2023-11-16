@@ -54,9 +54,9 @@ type Workgroup struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-	BaseCapacity pulumi.IntOutput `pulumi:"baseCapacity"`
+	BaseCapacity pulumi.IntPtrOutput `pulumi:"baseCapacity"`
 	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
 	ConfigParameters WorkgroupConfigParameterArrayOutput `pulumi:"configParameters"`
 	// The endpoint that is created from the workgroup. See `Endpoint` below.
@@ -78,7 +78,7 @@ type Workgroup struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Redshift Workgroup ID.
-	WorkgroupId pulumi.StringOutput `pulumi:"workgroupId"`
+	WorkgroupId pulumi.StringPtrOutput `pulumi:"workgroupId"`
 	// The name of the workgroup.
 	//
 	// The following arguments are optional:
@@ -329,13 +329,13 @@ func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) Workg
 }
 
 // Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-func (o WorkgroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WorkgroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-func (o WorkgroupOutput) BaseCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v *Workgroup) pulumi.IntOutput { return v.BaseCapacity }).(pulumi.IntOutput)
+func (o WorkgroupOutput) BaseCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.IntPtrOutput { return v.BaseCapacity }).(pulumi.IntPtrOutput)
 }
 
 // An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
@@ -386,8 +386,8 @@ func (o WorkgroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The Redshift Workgroup ID.
-func (o WorkgroupOutput) WorkgroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.WorkgroupId }).(pulumi.StringOutput)
+func (o WorkgroupOutput) WorkgroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.WorkgroupId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the workgroup.

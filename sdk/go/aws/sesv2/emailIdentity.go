@@ -142,17 +142,17 @@ type EmailIdentity struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Email Identity.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
 	ConfigurationSetName pulumi.StringPtrOutput `pulumi:"configurationSetName"`
 	// The configuration of the DKIM authentication settings for an email domain identity.
-	DkimSigningAttributes EmailIdentityDkimSigningAttributesOutput `pulumi:"dkimSigningAttributes"`
+	DkimSigningAttributes EmailIdentityDkimSigningAttributesPtrOutput `pulumi:"dkimSigningAttributes"`
 	// The email address or domain to verify.
 	//
 	// The following arguments are optional:
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-	IdentityType pulumi.StringOutput `pulumi:"identityType"`
+	IdentityType pulumi.StringPtrOutput `pulumi:"identityType"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -160,7 +160,7 @@ type EmailIdentity struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies whether or not the identity is verified.
-	VerifiedForSendingStatus pulumi.BoolOutput `pulumi:"verifiedForSendingStatus"`
+	VerifiedForSendingStatus pulumi.BoolPtrOutput `pulumi:"verifiedForSendingStatus"`
 }
 
 // NewEmailIdentity registers a new resource with the given unique name, arguments, and options.
@@ -364,8 +364,8 @@ func (o EmailIdentityOutput) ToEmailIdentityOutputWithContext(ctx context.Contex
 }
 
 // ARN of the Email Identity.
-func (o EmailIdentityOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EmailIdentityOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
@@ -374,8 +374,8 @@ func (o EmailIdentityOutput) ConfigurationSetName() pulumi.StringPtrOutput {
 }
 
 // The configuration of the DKIM authentication settings for an email domain identity.
-func (o EmailIdentityOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesOutput {
-	return o.ApplyT(func(v *EmailIdentity) EmailIdentityDkimSigningAttributesOutput { return v.DkimSigningAttributes }).(EmailIdentityDkimSigningAttributesOutput)
+func (o EmailIdentityOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesPtrOutput {
+	return o.ApplyT(func(v *EmailIdentity) EmailIdentityDkimSigningAttributesPtrOutput { return v.DkimSigningAttributes }).(EmailIdentityDkimSigningAttributesPtrOutput)
 }
 
 // The email address or domain to verify.
@@ -386,8 +386,8 @@ func (o EmailIdentityOutput) EmailIdentity() pulumi.StringOutput {
 }
 
 // The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-func (o EmailIdentityOutput) IdentityType() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.IdentityType }).(pulumi.StringOutput)
+func (o EmailIdentityOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringPtrOutput { return v.IdentityType }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -403,8 +403,8 @@ func (o EmailIdentityOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Specifies whether or not the identity is verified.
-func (o EmailIdentityOutput) VerifiedForSendingStatus() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.BoolOutput { return v.VerifiedForSendingStatus }).(pulumi.BoolOutput)
+func (o EmailIdentityOutput) VerifiedForSendingStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.BoolPtrOutput { return v.VerifiedForSendingStatus }).(pulumi.BoolPtrOutput)
 }
 
 type EmailIdentityArrayOutput struct{ *pulumi.OutputState }

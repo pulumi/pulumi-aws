@@ -9,6 +9,8 @@ import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTemplatesTemplateArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,120 +21,120 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
      * Indicates whether the quota is global.
      * 
      */
-    @Import(name="globalQuota", required=true)
-    private Output<Boolean> globalQuota;
+    @Import(name="globalQuota")
+    private @Nullable Output<Boolean> globalQuota;
 
     /**
      * @return Indicates whether the quota is global.
      * 
      */
-    public Output<Boolean> globalQuota() {
-        return this.globalQuota;
+    public Optional<Output<Boolean>> globalQuota() {
+        return Optional.ofNullable(this.globalQuota);
     }
 
     /**
      * Quota identifier.
      * 
      */
-    @Import(name="quotaCode", required=true)
-    private Output<String> quotaCode;
+    @Import(name="quotaCode")
+    private @Nullable Output<String> quotaCode;
 
     /**
      * @return Quota identifier.
      * 
      */
-    public Output<String> quotaCode() {
-        return this.quotaCode;
+    public Optional<Output<String>> quotaCode() {
+        return Optional.ofNullable(this.quotaCode);
     }
 
     /**
      * Quota name.
      * 
      */
-    @Import(name="quotaName", required=true)
-    private Output<String> quotaName;
+    @Import(name="quotaName")
+    private @Nullable Output<String> quotaName;
 
     /**
      * @return Quota name.
      * 
      */
-    public Output<String> quotaName() {
-        return this.quotaName;
+    public Optional<Output<String>> quotaName() {
+        return Optional.ofNullable(this.quotaName);
     }
 
     /**
      * AWS Region to which the quota increases apply.
      * 
      */
-    @Import(name="region", required=true)
-    private Output<String> region;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
      * @return AWS Region to which the quota increases apply.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
      * (Required) Service identifier.
      * 
      */
-    @Import(name="serviceCode", required=true)
-    private Output<String> serviceCode;
+    @Import(name="serviceCode")
+    private @Nullable Output<String> serviceCode;
 
     /**
      * @return (Required) Service identifier.
      * 
      */
-    public Output<String> serviceCode() {
-        return this.serviceCode;
+    public Optional<Output<String>> serviceCode() {
+        return Optional.ofNullable(this.serviceCode);
     }
 
     /**
      * Service name.
      * 
      */
-    @Import(name="serviceName", required=true)
-    private Output<String> serviceName;
+    @Import(name="serviceName")
+    private @Nullable Output<String> serviceName;
 
     /**
      * @return Service name.
      * 
      */
-    public Output<String> serviceName() {
-        return this.serviceName;
+    public Optional<Output<String>> serviceName() {
+        return Optional.ofNullable(this.serviceName);
     }
 
     /**
      * Unit of measurement.
      * 
      */
-    @Import(name="unit", required=true)
-    private Output<String> unit;
+    @Import(name="unit")
+    private @Nullable Output<String> unit;
 
     /**
      * @return Unit of measurement.
      * 
      */
-    public Output<String> unit() {
-        return this.unit;
+    public Optional<Output<String>> unit() {
+        return Optional.ofNullable(this.unit);
     }
 
     /**
      * (Required) The new, increased value for the quota.
      * 
      */
-    @Import(name="value", required=true)
-    private Output<Double> value;
+    @Import(name="value")
+    private @Nullable Output<Double> value;
 
     /**
      * @return (Required) The new, increased value for the quota.
      * 
      */
-    public Output<Double> value() {
-        return this.value;
+    public Optional<Output<Double>> value() {
+        return Optional.ofNullable(this.value);
     }
 
     private GetTemplatesTemplateArgs() {}
@@ -172,7 +174,7 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder globalQuota(Output<Boolean> globalQuota) {
+        public Builder globalQuota(@Nullable Output<Boolean> globalQuota) {
             $.globalQuota = globalQuota;
             return this;
         }
@@ -193,7 +195,7 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder quotaCode(Output<String> quotaCode) {
+        public Builder quotaCode(@Nullable Output<String> quotaCode) {
             $.quotaCode = quotaCode;
             return this;
         }
@@ -214,7 +216,7 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder quotaName(Output<String> quotaName) {
+        public Builder quotaName(@Nullable Output<String> quotaName) {
             $.quotaName = quotaName;
             return this;
         }
@@ -235,7 +237,7 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder region(Output<String> region) {
+        public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
@@ -256,7 +258,7 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder serviceCode(Output<String> serviceCode) {
+        public Builder serviceCode(@Nullable Output<String> serviceCode) {
             $.serviceCode = serviceCode;
             return this;
         }
@@ -277,7 +279,7 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder serviceName(Output<String> serviceName) {
+        public Builder serviceName(@Nullable Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
@@ -298,7 +300,7 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder unit(Output<String> unit) {
+        public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
@@ -319,7 +321,7 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder value(Output<Double> value) {
+        public Builder value(@Nullable Output<Double> value) {
             $.value = value;
             return this;
         }
@@ -335,14 +337,6 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
         }
 
         public GetTemplatesTemplateArgs build() {
-            $.globalQuota = Objects.requireNonNull($.globalQuota, "expected parameter 'globalQuota' to be non-null");
-            $.quotaCode = Objects.requireNonNull($.quotaCode, "expected parameter 'quotaCode' to be non-null");
-            $.quotaName = Objects.requireNonNull($.quotaName, "expected parameter 'quotaName' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
-            $.serviceCode = Objects.requireNonNull($.serviceCode, "expected parameter 'serviceCode' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
-            $.unit = Objects.requireNonNull($.unit, "expected parameter 'unit' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
             return $;
         }
     }

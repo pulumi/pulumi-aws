@@ -117,7 +117,7 @@ export class FileSystemAssociation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the newly created file system association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the storage used for the audit logs.
      */

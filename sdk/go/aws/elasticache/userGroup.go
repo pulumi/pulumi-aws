@@ -69,7 +69,7 @@ type UserGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN that identifies the user group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The current supported value is `REDIS`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -282,8 +282,8 @@ func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserG
 }
 
 // The ARN that identifies the user group.
-func (o UserGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The current supported value is `REDIS`.

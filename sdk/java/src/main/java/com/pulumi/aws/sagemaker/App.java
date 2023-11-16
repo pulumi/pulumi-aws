@@ -98,14 +98,14 @@ public class App extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the app.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The domain ID.
@@ -126,14 +126,14 @@ public class App extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceSpec", refs={AppResourceSpec.class}, tree="[0]")
-    private Output<AppResourceSpec> resourceSpec;
+    private Output</* @Nullable */ AppResourceSpec> resourceSpec;
 
     /**
      * @return The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
      * 
      */
-    public Output<AppResourceSpec> resourceSpec() {
-        return this.resourceSpec;
+    public Output<Optional<AppResourceSpec>> resourceSpec() {
+        return Codegen.optional(this.resourceSpec);
     }
     /**
      * The name of the space. At least one of `user_profile_name` or `space_name` required.

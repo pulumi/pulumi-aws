@@ -71,14 +71,14 @@ public class NfsFileShare extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the NFS File Share.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Amazon Resource Name (ARN) of the storage used for audit logs.
@@ -155,28 +155,28 @@ public class NfsFileShare extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="fileShareName", refs={String.class}, tree="[0]")
-    private Output<String> fileShareName;
+    private Output</* @Nullable */ String> fileShareName;
 
     /**
      * @return The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
      * 
      */
-    public Output<String> fileShareName() {
-        return this.fileShareName;
+    public Output<Optional<String>> fileShareName() {
+        return Codegen.optional(this.fileShareName);
     }
     /**
      * ID of the NFS File Share.
      * 
      */
     @Export(name="fileshareId", refs={String.class}, tree="[0]")
-    private Output<String> fileshareId;
+    private Output</* @Nullable */ String> fileshareId;
 
     /**
      * @return ID of the NFS File Share.
      * 
      */
-    public Output<String> fileshareId() {
-        return this.fileshareId;
+    public Output<Optional<String>> fileshareId() {
+        return Codegen.optional(this.fileshareId);
     }
     /**
      * Amazon Resource Name (ARN) of the file gateway.
@@ -295,14 +295,14 @@ public class NfsFileShare extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="path", refs={String.class}, tree="[0]")
-    private Output<String> path;
+    private Output</* @Nullable */ String> path;
 
     /**
      * @return File share path used by the NFS client to identify the mount point.
      * 
      */
-    public Output<String> path() {
-        return this.path;
+    public Output<Optional<String>> path() {
+        return Codegen.optional(this.path);
     }
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.

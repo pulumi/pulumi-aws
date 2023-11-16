@@ -50,13 +50,13 @@ namespace Pulumi.Aws.Synthetics
         public Output<string> CanaryArn { get; private set; } = null!;
 
         [Output("groupArn")]
-        public Output<string> GroupArn { get; private set; } = null!;
+        public Output<string?> GroupArn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the Group.
         /// </summary>
         [Output("groupId")]
-        public Output<string> GroupId { get; private set; } = null!;
+        public Output<string?> GroupId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the group that the canary will be associated with.

@@ -198,16 +198,16 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The compliance level for approved patches.
         /// </summary>
-        public readonly string ApprovedPatchesComplianceLevel;
+        public readonly string? ApprovedPatchesComplianceLevel;
         /// <summary>
         /// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
         /// </summary>
-        public readonly bool ApprovedPatchesEnableNonSecurity;
+        public readonly bool? ApprovedPatchesEnableNonSecurity;
         public readonly bool? DefaultBaseline;
         /// <summary>
         /// Description of the baseline.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Set of global filters used to exclude patches from the baseline.
         /// </summary>
@@ -215,11 +215,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The name specified to identify the patch source.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string? NamePrefix;
         public readonly string? OperatingSystem;
         public readonly string Owner;
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The action specified to take on patches included in the `rejected_patches` list.
         /// </summary>
-        public readonly string RejectedPatchesAction;
+        public readonly string? RejectedPatchesAction;
         /// <summary>
         /// Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
         /// </summary>
@@ -242,19 +242,19 @@ namespace Pulumi.Aws.Ssm
 
             ImmutableArray<string> approvedPatches,
 
-            string approvedPatchesComplianceLevel,
+            string? approvedPatchesComplianceLevel,
 
-            bool approvedPatchesEnableNonSecurity,
+            bool? approvedPatchesEnableNonSecurity,
 
             bool? defaultBaseline,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetPatchBaselineGlobalFilterResult> globalFilters,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             string? namePrefix,
 
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Ssm
 
             ImmutableArray<string> rejectedPatches,
 
-            string rejectedPatchesAction,
+            string? rejectedPatchesAction,
 
             ImmutableArray<Outputs.GetPatchBaselineSourceResult> sources)
         {

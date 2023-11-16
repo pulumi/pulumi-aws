@@ -163,7 +163,7 @@ namespace Pulumi.Aws.CloudFront
         /// The current version of the response headers policy.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// A unique name to identify the response headers policy.

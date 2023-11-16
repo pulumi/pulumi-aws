@@ -66,7 +66,7 @@ type GameSessionQueue struct {
 	pulumi.CustomResourceState
 
 	// Game Session Queue ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Information to be added to all events that are related to this game session queue.
 	CustomEventData pulumi.StringPtrOutput `pulumi:"customEventData"`
 	// List of fleet/alias ARNs used by session queue for placing game sessions.
@@ -293,8 +293,8 @@ func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.
 }
 
 // Game Session Queue ARN.
-func (o GameSessionQueueOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GameSessionQueueOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Information to be added to all events that are related to this game session queue.

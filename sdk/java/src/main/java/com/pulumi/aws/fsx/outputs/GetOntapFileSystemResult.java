@@ -11,6 +11,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOntapFileSystemResult {
@@ -18,42 +20,42 @@ public final class GetOntapFileSystemResult {
      * @return Amazon Resource Name of the file system.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The number of days to retain automatic backups.
      * 
      */
-    private Integer automaticBackupRetentionDays;
+    private @Nullable Integer automaticBackupRetentionDays;
     /**
      * @return The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
-    private String dailyAutomaticBackupStartTime;
+    private @Nullable String dailyAutomaticBackupStartTime;
     /**
      * @return The file system deployment type.
      * 
      */
-    private String deploymentType;
+    private @Nullable String deploymentType;
     /**
      * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
      * 
      */
-    private List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations;
+    private @Nullable List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations;
     /**
      * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      * 
      */
-    private String dnsName;
+    private @Nullable String dnsName;
     /**
      * @return (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
      * 
      */
-    private String endpointIpAddressRange;
+    private @Nullable String endpointIpAddressRange;
     /**
      * @return The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
      * 
      */
-    private List<GetOntapFileSystemEndpoint> endpoints;
+    private @Nullable List<GetOntapFileSystemEndpoint> endpoints;
     /**
      * @return Identifier of the file system (e.g. `fs-12345678`).
      * 
@@ -63,119 +65,119 @@ public final class GetOntapFileSystemResult {
      * @return ARN for the KMS Key to encrypt the file system at rest.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return The IDs of the elastic network interfaces from which a specific file system is accessible.
      * 
      */
-    private List<String> networkInterfaceIds;
+    private @Nullable List<String> networkInterfaceIds;
     /**
      * @return AWS account identifier that created the file system.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     /**
      * @return Specifies the subnet in which you want the preferred file server to be located.
      * 
      */
-    private String preferredSubnetId;
+    private @Nullable String preferredSubnetId;
     /**
      * @return (Multi-AZ only) The VPC route tables in which your file system&#39;s endpoints exist.
      * 
      */
-    private List<String> routeTableIds;
+    private @Nullable List<String> routeTableIds;
     /**
      * @return The storage capacity of the file system in gibibytes (GiB).
      * 
      */
-    private Integer storageCapacity;
+    private @Nullable Integer storageCapacity;
     /**
      * @return The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      * 
      */
-    private String storageType;
+    private @Nullable String storageType;
     /**
      * @return Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferred_subnet_id` property.
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return The tags associated with the file system.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
      * 
      */
-    private Integer throughputCapacity;
+    private @Nullable Integer throughputCapacity;
     /**
      * @return The ID of the primary virtual private cloud (VPC) for the file system.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
     /**
      * @return The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    private String weeklyMaintenanceStartTime;
+    private @Nullable String weeklyMaintenanceStartTime;
 
     private GetOntapFileSystemResult() {}
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The number of days to retain automatic backups.
      * 
      */
-    public Integer automaticBackupRetentionDays() {
-        return this.automaticBackupRetentionDays;
+    public Optional<Integer> automaticBackupRetentionDays() {
+        return Optional.ofNullable(this.automaticBackupRetentionDays);
     }
     /**
      * @return The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
-    public String dailyAutomaticBackupStartTime() {
-        return this.dailyAutomaticBackupStartTime;
+    public Optional<String> dailyAutomaticBackupStartTime() {
+        return Optional.ofNullable(this.dailyAutomaticBackupStartTime);
     }
     /**
      * @return The file system deployment type.
      * 
      */
-    public String deploymentType() {
-        return this.deploymentType;
+    public Optional<String> deploymentType() {
+        return Optional.ofNullable(this.deploymentType);
     }
     /**
      * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
      * 
      */
     public List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations() {
-        return this.diskIopsConfigurations;
+        return this.diskIopsConfigurations == null ? List.of() : this.diskIopsConfigurations;
     }
     /**
      * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      * 
      */
-    public String dnsName() {
-        return this.dnsName;
+    public Optional<String> dnsName() {
+        return Optional.ofNullable(this.dnsName);
     }
     /**
      * @return (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
      * 
      */
-    public String endpointIpAddressRange() {
-        return this.endpointIpAddressRange;
+    public Optional<String> endpointIpAddressRange() {
+        return Optional.ofNullable(this.endpointIpAddressRange);
     }
     /**
      * @return The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
      * 
      */
     public List<GetOntapFileSystemEndpoint> endpoints() {
-        return this.endpoints;
+        return this.endpoints == null ? List.of() : this.endpoints;
     }
     /**
      * @return Identifier of the file system (e.g. `fs-12345678`).
@@ -188,85 +190,85 @@ public final class GetOntapFileSystemResult {
      * @return ARN for the KMS Key to encrypt the file system at rest.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return The IDs of the elastic network interfaces from which a specific file system is accessible.
      * 
      */
     public List<String> networkInterfaceIds() {
-        return this.networkInterfaceIds;
+        return this.networkInterfaceIds == null ? List.of() : this.networkInterfaceIds;
     }
     /**
      * @return AWS account identifier that created the file system.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
      * @return Specifies the subnet in which you want the preferred file server to be located.
      * 
      */
-    public String preferredSubnetId() {
-        return this.preferredSubnetId;
+    public Optional<String> preferredSubnetId() {
+        return Optional.ofNullable(this.preferredSubnetId);
     }
     /**
      * @return (Multi-AZ only) The VPC route tables in which your file system&#39;s endpoints exist.
      * 
      */
     public List<String> routeTableIds() {
-        return this.routeTableIds;
+        return this.routeTableIds == null ? List.of() : this.routeTableIds;
     }
     /**
      * @return The storage capacity of the file system in gibibytes (GiB).
      * 
      */
-    public Integer storageCapacity() {
-        return this.storageCapacity;
+    public Optional<Integer> storageCapacity() {
+        return Optional.ofNullable(this.storageCapacity);
     }
     /**
      * @return The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      * 
      */
-    public String storageType() {
-        return this.storageType;
+    public Optional<String> storageType() {
+        return Optional.ofNullable(this.storageType);
     }
     /**
      * @return Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferred_subnet_id` property.
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
      * @return The tags associated with the file system.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
      * 
      */
-    public Integer throughputCapacity() {
-        return this.throughputCapacity;
+    public Optional<Integer> throughputCapacity() {
+        return Optional.ofNullable(this.throughputCapacity);
     }
     /**
      * @return The ID of the primary virtual private cloud (VPC) for the file system.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
     /**
      * @return The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    public String weeklyMaintenanceStartTime() {
-        return this.weeklyMaintenanceStartTime;
+    public Optional<String> weeklyMaintenanceStartTime() {
+        return Optional.ofNullable(this.weeklyMaintenanceStartTime);
     }
 
     public static Builder builder() {
@@ -278,27 +280,27 @@ public final class GetOntapFileSystemResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Integer automaticBackupRetentionDays;
-        private String dailyAutomaticBackupStartTime;
-        private String deploymentType;
-        private List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations;
-        private String dnsName;
-        private String endpointIpAddressRange;
-        private List<GetOntapFileSystemEndpoint> endpoints;
+        private @Nullable String arn;
+        private @Nullable Integer automaticBackupRetentionDays;
+        private @Nullable String dailyAutomaticBackupStartTime;
+        private @Nullable String deploymentType;
+        private @Nullable List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations;
+        private @Nullable String dnsName;
+        private @Nullable String endpointIpAddressRange;
+        private @Nullable List<GetOntapFileSystemEndpoint> endpoints;
         private String id;
-        private String kmsKeyId;
-        private List<String> networkInterfaceIds;
-        private String ownerId;
-        private String preferredSubnetId;
-        private List<String> routeTableIds;
-        private Integer storageCapacity;
-        private String storageType;
-        private List<String> subnetIds;
-        private Map<String,String> tags;
-        private Integer throughputCapacity;
-        private String vpcId;
-        private String weeklyMaintenanceStartTime;
+        private @Nullable String kmsKeyId;
+        private @Nullable List<String> networkInterfaceIds;
+        private @Nullable String ownerId;
+        private @Nullable String preferredSubnetId;
+        private @Nullable List<String> routeTableIds;
+        private @Nullable Integer storageCapacity;
+        private @Nullable String storageType;
+        private @Nullable List<String> subnetIds;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Integer throughputCapacity;
+        private @Nullable String vpcId;
+        private @Nullable String weeklyMaintenanceStartTime;
         public Builder() {}
         public Builder(GetOntapFileSystemResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -326,46 +328,46 @@ public final class GetOntapFileSystemResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder automaticBackupRetentionDays(Integer automaticBackupRetentionDays) {
-            this.automaticBackupRetentionDays = Objects.requireNonNull(automaticBackupRetentionDays);
+        public Builder automaticBackupRetentionDays(@Nullable Integer automaticBackupRetentionDays) {
+            this.automaticBackupRetentionDays = automaticBackupRetentionDays;
             return this;
         }
         @CustomType.Setter
-        public Builder dailyAutomaticBackupStartTime(String dailyAutomaticBackupStartTime) {
-            this.dailyAutomaticBackupStartTime = Objects.requireNonNull(dailyAutomaticBackupStartTime);
+        public Builder dailyAutomaticBackupStartTime(@Nullable String dailyAutomaticBackupStartTime) {
+            this.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
             return this;
         }
         @CustomType.Setter
-        public Builder deploymentType(String deploymentType) {
-            this.deploymentType = Objects.requireNonNull(deploymentType);
+        public Builder deploymentType(@Nullable String deploymentType) {
+            this.deploymentType = deploymentType;
             return this;
         }
         @CustomType.Setter
-        public Builder diskIopsConfigurations(List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations) {
-            this.diskIopsConfigurations = Objects.requireNonNull(diskIopsConfigurations);
+        public Builder diskIopsConfigurations(@Nullable List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations) {
+            this.diskIopsConfigurations = diskIopsConfigurations;
             return this;
         }
         public Builder diskIopsConfigurations(GetOntapFileSystemDiskIopsConfiguration... diskIopsConfigurations) {
             return diskIopsConfigurations(List.of(diskIopsConfigurations));
         }
         @CustomType.Setter
-        public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+        public Builder dnsName(@Nullable String dnsName) {
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder endpointIpAddressRange(String endpointIpAddressRange) {
-            this.endpointIpAddressRange = Objects.requireNonNull(endpointIpAddressRange);
+        public Builder endpointIpAddressRange(@Nullable String endpointIpAddressRange) {
+            this.endpointIpAddressRange = endpointIpAddressRange;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoints(List<GetOntapFileSystemEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+        public Builder endpoints(@Nullable List<GetOntapFileSystemEndpoint> endpoints) {
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetOntapFileSystemEndpoint... endpoints) {
@@ -377,72 +379,72 @@ public final class GetOntapFileSystemResult {
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceIds(List<String> networkInterfaceIds) {
-            this.networkInterfaceIds = Objects.requireNonNull(networkInterfaceIds);
+        public Builder networkInterfaceIds(@Nullable List<String> networkInterfaceIds) {
+            this.networkInterfaceIds = networkInterfaceIds;
             return this;
         }
         public Builder networkInterfaceIds(String... networkInterfaceIds) {
             return networkInterfaceIds(List.of(networkInterfaceIds));
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder preferredSubnetId(String preferredSubnetId) {
-            this.preferredSubnetId = Objects.requireNonNull(preferredSubnetId);
+        public Builder preferredSubnetId(@Nullable String preferredSubnetId) {
+            this.preferredSubnetId = preferredSubnetId;
             return this;
         }
         @CustomType.Setter
-        public Builder routeTableIds(List<String> routeTableIds) {
-            this.routeTableIds = Objects.requireNonNull(routeTableIds);
+        public Builder routeTableIds(@Nullable List<String> routeTableIds) {
+            this.routeTableIds = routeTableIds;
             return this;
         }
         public Builder routeTableIds(String... routeTableIds) {
             return routeTableIds(List.of(routeTableIds));
         }
         @CustomType.Setter
-        public Builder storageCapacity(Integer storageCapacity) {
-            this.storageCapacity = Objects.requireNonNull(storageCapacity);
+        public Builder storageCapacity(@Nullable Integer storageCapacity) {
+            this.storageCapacity = storageCapacity;
             return this;
         }
         @CustomType.Setter
-        public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+        public Builder storageType(@Nullable String storageType) {
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder throughputCapacity(Integer throughputCapacity) {
-            this.throughputCapacity = Objects.requireNonNull(throughputCapacity);
+        public Builder throughputCapacity(@Nullable Integer throughputCapacity) {
+            this.throughputCapacity = throughputCapacity;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
-        public Builder weeklyMaintenanceStartTime(String weeklyMaintenanceStartTime) {
-            this.weeklyMaintenanceStartTime = Objects.requireNonNull(weeklyMaintenanceStartTime);
+        public Builder weeklyMaintenanceStartTime(@Nullable String weeklyMaintenanceStartTime) {
+            this.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
             return this;
         }
         public GetOntapFileSystemResult build() {

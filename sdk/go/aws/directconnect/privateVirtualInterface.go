@@ -58,24 +58,24 @@ type PrivateVirtualInterface struct {
 	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
-	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
+	AmazonAddress pulumi.StringPtrOutput `pulumi:"amazonAddress"`
+	AmazonSideAsn pulumi.StringPtrOutput `pulumi:"amazonSideAsn"`
 	// The ARN of the virtual interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
+	AwsDevice pulumi.StringPtrOutput `pulumi:"awsDevice"`
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
 	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
+	BgpAuthKey pulumi.StringPtrOutput `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
+	CustomerAddress pulumi.StringPtrOutput `pulumi:"customerAddress"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrOutput `pulumi:"dxGatewayId"`
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable pulumi.BoolOutput `pulumi:"jumboFrameCapable"`
+	JumboFrameCapable pulumi.BoolPtrOutput `pulumi:"jumboFrameCapable"`
 	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
 	// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
@@ -380,22 +380,22 @@ func (o PrivateVirtualInterfaceOutput) AddressFamily() pulumi.StringOutput {
 }
 
 // The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-func (o PrivateVirtualInterfaceOutput) AmazonAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.AmazonAddress }).(pulumi.StringOutput)
+func (o PrivateVirtualInterfaceOutput) AmazonAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.AmazonAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o PrivateVirtualInterfaceOutput) AmazonSideAsn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
+func (o PrivateVirtualInterfaceOutput) AmazonSideAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.AmazonSideAsn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the virtual interface.
-func (o PrivateVirtualInterfaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PrivateVirtualInterfaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Direct Connect endpoint on which the virtual interface terminates.
-func (o PrivateVirtualInterfaceOutput) AwsDevice() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
+func (o PrivateVirtualInterfaceOutput) AwsDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.AwsDevice }).(pulumi.StringPtrOutput)
 }
 
 // The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -404,8 +404,8 @@ func (o PrivateVirtualInterfaceOutput) BgpAsn() pulumi.IntOutput {
 }
 
 // The authentication key for BGP configuration.
-func (o PrivateVirtualInterfaceOutput) BgpAuthKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.BgpAuthKey }).(pulumi.StringOutput)
+func (o PrivateVirtualInterfaceOutput) BgpAuthKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.BgpAuthKey }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -414,8 +414,8 @@ func (o PrivateVirtualInterfaceOutput) ConnectionId() pulumi.StringOutput {
 }
 
 // The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-func (o PrivateVirtualInterfaceOutput) CustomerAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.CustomerAddress }).(pulumi.StringOutput)
+func (o PrivateVirtualInterfaceOutput) CustomerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.CustomerAddress }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Direct Connect gateway to which to connect the virtual interface.
@@ -424,8 +424,8 @@ func (o PrivateVirtualInterfaceOutput) DxGatewayId() pulumi.StringPtrOutput {
 }
 
 // Indicates whether jumbo frames (9001 MTU) are supported.
-func (o PrivateVirtualInterfaceOutput) JumboFrameCapable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.BoolOutput { return v.JumboFrameCapable }).(pulumi.BoolOutput)
+func (o PrivateVirtualInterfaceOutput) JumboFrameCapable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.BoolPtrOutput { return v.JumboFrameCapable }).(pulumi.BoolPtrOutput)
 }
 
 // The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.

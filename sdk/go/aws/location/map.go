@@ -58,11 +58,11 @@ type Map struct {
 	// Configuration block with the map style selected from an available data provider. Detailed below.
 	Configuration MapConfigurationOutput `pulumi:"configuration"`
 	// The timestamp for when the map resource was created in ISO 8601 format.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	CreateTime pulumi.StringPtrOutput `pulumi:"createTime"`
 	// An optional description for the map resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
-	MapArn pulumi.StringOutput `pulumi:"mapArn"`
+	MapArn pulumi.StringPtrOutput `pulumi:"mapArn"`
 	// The name for the map resource.
 	//
 	// The following arguments are optional:
@@ -74,7 +74,7 @@ type Map struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the map resource was last updated in ISO 8601 format.
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	UpdateTime pulumi.StringPtrOutput `pulumi:"updateTime"`
 }
 
 // NewMap registers a new resource with the given unique name, arguments, and options.
@@ -286,8 +286,8 @@ func (o MapOutput) Configuration() MapConfigurationOutput {
 }
 
 // The timestamp for when the map resource was created in ISO 8601 format.
-func (o MapOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+func (o MapOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // An optional description for the map resource.
@@ -296,8 +296,8 @@ func (o MapOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
-func (o MapOutput) MapArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapArn }).(pulumi.StringOutput)
+func (o MapOutput) MapArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.MapArn }).(pulumi.StringPtrOutput)
 }
 
 // The name for the map resource.
@@ -320,8 +320,8 @@ func (o MapOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The timestamp for when the map resource was last updated in ISO 8601 format.
-func (o MapOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o MapOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 type MapArrayOutput struct{ *pulumi.OutputState }

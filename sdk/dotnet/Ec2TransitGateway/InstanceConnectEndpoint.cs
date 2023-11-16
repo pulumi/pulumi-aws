@@ -45,25 +45,25 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Availability Zone of the EC2 Instance Connect Endpoint.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name of the EC2 Instance Connect Endpoint.
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name of the EC2 Instance Connect FIPS Endpoint.
         /// </summary>
         [Output("fipsDnsName")]
-        public Output<string> FipsDnsName { get; private set; } = null!;
+        public Output<string?> FipsDnsName { get; private set; } = null!;
 
         /// <summary>
         /// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
@@ -75,13 +75,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether your client's IP address is preserved as the source. Default: `true`.
         /// </summary>
         [Output("preserveClientIp")]
-        public Output<bool> PreserveClientIp { get; private set; } = null!;
+        public Output<bool?> PreserveClientIp { get; private set; } = null!;
 
         /// <summary>
         /// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

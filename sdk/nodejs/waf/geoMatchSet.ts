@@ -67,7 +67,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
      */

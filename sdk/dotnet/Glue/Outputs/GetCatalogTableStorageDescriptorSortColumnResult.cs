@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// Name of the column.
         /// </summary>
-        public readonly string Column;
+        public readonly string? Column;
         /// <summary>
         /// Whether the column is sorted in ascending (`1`) or descending order (`0`).
         /// </summary>
-        public readonly int SortOrder;
+        public readonly int? SortOrder;
 
         [OutputConstructor]
         private GetCatalogTableStorageDescriptorSortColumnResult(
-            string column,
+            string? column,
 
-            int sortOrder)
+            int? sortOrder)
         {
             Column = column;
             SortOrder = sortOrder;

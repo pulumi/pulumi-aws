@@ -138,7 +138,7 @@ namespace Pulumi.Aws.DocDB
         /// Global Cluster Amazon Resource Name (ARN)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name for an automatically created database on cluster creation.
@@ -156,14 +156,14 @@ namespace Pulumi.Aws.DocDB
         /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
         /// * **NOTE:** Upgrading major versions is not supported.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The global cluster identifier.
@@ -181,22 +181,22 @@ namespace Pulumi.Aws.DocDB
         /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         /// </summary>
         [Output("globalClusterResourceId")]
-        public Output<string> GlobalClusterResourceId { get; private set; } = null!;
+        public Output<string?> GlobalClusterResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         /// </summary>
         [Output("sourceDbClusterIdentifier")]
-        public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
+        public Output<string?> SourceDbClusterIdentifier { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
-        public Output<bool> StorageEncrypted { get; private set; } = null!;
+        public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
 
         /// <summary>

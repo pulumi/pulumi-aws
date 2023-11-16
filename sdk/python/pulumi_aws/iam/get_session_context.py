@@ -48,7 +48,7 @@ class GetSessionContextResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -56,7 +56,7 @@ class GetSessionContextResult:
 
     @property
     @pulumi.getter(name="issuerArn")
-    def issuer_arn(self) -> str:
+    def issuer_arn(self) -> Optional[str]:
         """
         IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.
         """
@@ -64,7 +64,7 @@ class GetSessionContextResult:
 
     @property
     @pulumi.getter(name="issuerId")
-    def issuer_id(self) -> str:
+    def issuer_id(self) -> Optional[str]:
         """
         Unique identifier of the IAM role that issues the STS assumed role.
         """
@@ -72,7 +72,7 @@ class GetSessionContextResult:
 
     @property
     @pulumi.getter(name="issuerName")
-    def issuer_name(self) -> str:
+    def issuer_name(self) -> Optional[str]:
         """
         Name of the source role. Only available if `arn` corresponds to an STS assumed role.
         """
@@ -80,7 +80,7 @@ class GetSessionContextResult:
 
     @property
     @pulumi.getter(name="sessionName")
-    def session_name(self) -> str:
+    def session_name(self) -> Optional[str]:
         """
         Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
         """

@@ -59,21 +59,21 @@ type GetCertificateArgs struct {
 // A collection of values returned by getCertificate.
 type GetCertificateResult struct {
 	// ARN of the certificate.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Type of certificate. For example, `CA`.
-	CertificateType string `pulumi:"certificateType"`
+	CertificateType *string `pulumi:"certificateType"`
 	// Boolean whether there is an override for the default certificate identifier.
-	CustomerOverride bool `pulumi:"customerOverride"`
+	CustomerOverride *bool `pulumi:"customerOverride"`
 	// If there is an override for the default certificate identifier, when the override expires.
-	CustomerOverrideValidTill string `pulumi:"customerOverrideValidTill"`
-	Id                        string `pulumi:"id"`
-	LatestValidTill           *bool  `pulumi:"latestValidTill"`
+	CustomerOverrideValidTill *string `pulumi:"customerOverrideValidTill"`
+	Id                        *string `pulumi:"id"`
+	LatestValidTill           *bool   `pulumi:"latestValidTill"`
 	// Thumbprint of the certificate.
-	Thumbprint string `pulumi:"thumbprint"`
+	Thumbprint *string `pulumi:"thumbprint"`
 	// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
-	ValidFrom string `pulumi:"validFrom"`
+	ValidFrom *string `pulumi:"validFrom"`
 	// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
-	ValidTill string `pulumi:"validTill"`
+	ValidTill *string `pulumi:"validTill"`
 }
 
 func GetCertificateOutput(ctx *pulumi.Context, args GetCertificateOutputArgs, opts ...pulumi.InvokeOption) GetCertificateResultOutput {
@@ -117,27 +117,27 @@ func (o GetCertificateResultOutput) ToGetCertificateResultOutputWithContext(ctx 
 }
 
 // ARN of the certificate.
-func (o GetCertificateResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetCertificateResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Type of certificate. For example, `CA`.
-func (o GetCertificateResultOutput) CertificateType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateResult) string { return v.CertificateType }).(pulumi.StringOutput)
+func (o GetCertificateResultOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateResult) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
 }
 
 // Boolean whether there is an override for the default certificate identifier.
-func (o GetCertificateResultOutput) CustomerOverride() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetCertificateResult) bool { return v.CustomerOverride }).(pulumi.BoolOutput)
+func (o GetCertificateResultOutput) CustomerOverride() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCertificateResult) *bool { return v.CustomerOverride }).(pulumi.BoolPtrOutput)
 }
 
 // If there is an override for the default certificate identifier, when the override expires.
-func (o GetCertificateResultOutput) CustomerOverrideValidTill() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateResult) string { return v.CustomerOverrideValidTill }).(pulumi.StringOutput)
+func (o GetCertificateResultOutput) CustomerOverrideValidTill() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateResult) *string { return v.CustomerOverrideValidTill }).(pulumi.StringPtrOutput)
 }
 
-func (o GetCertificateResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetCertificateResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetCertificateResultOutput) LatestValidTill() pulumi.BoolPtrOutput {
@@ -145,18 +145,18 @@ func (o GetCertificateResultOutput) LatestValidTill() pulumi.BoolPtrOutput {
 }
 
 // Thumbprint of the certificate.
-func (o GetCertificateResultOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateResult) string { return v.Thumbprint }).(pulumi.StringOutput)
+func (o GetCertificateResultOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateResult) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 // [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
-func (o GetCertificateResultOutput) ValidFrom() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateResult) string { return v.ValidFrom }).(pulumi.StringOutput)
+func (o GetCertificateResultOutput) ValidFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateResult) *string { return v.ValidFrom }).(pulumi.StringPtrOutput)
 }
 
 // [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
-func (o GetCertificateResultOutput) ValidTill() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCertificateResult) string { return v.ValidTill }).(pulumi.StringOutput)
+func (o GetCertificateResultOutput) ValidTill() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCertificateResult) *string { return v.ValidTill }).(pulumi.StringPtrOutput)
 }
 
 func init() {

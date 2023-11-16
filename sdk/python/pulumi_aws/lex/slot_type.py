@@ -497,7 +497,7 @@ class SlotType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def checksum(self) -> pulumi.Output[str]:
+    def checksum(self) -> pulumi.Output[Optional[str]]:
         """
         Checksum identifying the version of the slot type that was created. The checksum is
         not included as an argument because the resource will add it automatically when updating the slot type.
@@ -515,7 +515,7 @@ class SlotType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the slot type version was created.
         """
@@ -542,7 +542,7 @@ class SlotType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> pulumi.Output[str]:
+    def last_updated_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date when the `$LATEST` version of this slot type was updated.
         """
@@ -569,7 +569,7 @@ class SlotType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the slot type.
         """

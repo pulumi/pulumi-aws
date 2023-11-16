@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetJobQueueResult {
@@ -17,7 +19,7 @@ public final class GetJobQueueResult {
      * @return ARN of the job queue.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The compute environments that are attached to the job queue and the order in
      * which job placement is preferred. Compute environments are selected for job placement in ascending order.
@@ -25,53 +27,53 @@ public final class GetJobQueueResult {
      * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
      * 
      */
-    private List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
+    private @Nullable List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Priority of the job queue. Job queues with a higher priority are evaluated first when
      * associated with the same compute environment.
      * 
      */
-    private Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
      * 
      */
-    private String schedulingPolicyArn;
+    private @Nullable String schedulingPolicyArn;
     /**
      * @return Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return Current status of the job queue (for example, `CREATING` or `VALID`).
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Short, human-readable string to provide additional details about the current status
      * of the job queue.
      * 
      */
-    private String statusReason;
+    private @Nullable String statusReason;
     /**
      * @return Key-value map of resource tags
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetJobQueueResult() {}
     /**
      * @return ARN of the job queue.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The compute environments that are attached to the job queue and the order in
@@ -81,14 +83,14 @@ public final class GetJobQueueResult {
      * 
      */
     public List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders() {
-        return this.computeEnvironmentOrders;
+        return this.computeEnvironmentOrders == null ? List.of() : this.computeEnvironmentOrders;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -98,44 +100,44 @@ public final class GetJobQueueResult {
      * associated with the same compute environment.
      * 
      */
-    public Integer priority() {
-        return this.priority;
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
     }
     /**
      * @return The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
      * 
      */
-    public String schedulingPolicyArn() {
-        return this.schedulingPolicyArn;
+    public Optional<String> schedulingPolicyArn() {
+        return Optional.ofNullable(this.schedulingPolicyArn);
     }
     /**
      * @return Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return Current status of the job queue (for example, `CREATING` or `VALID`).
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Short, human-readable string to provide additional details about the current status
      * of the job queue.
      * 
      */
-    public String statusReason() {
-        return this.statusReason;
+    public Optional<String> statusReason() {
+        return Optional.ofNullable(this.statusReason);
     }
     /**
      * @return Key-value map of resource tags
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -147,16 +149,16 @@ public final class GetJobQueueResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
+        private @Nullable String id;
         private String name;
-        private Integer priority;
-        private String schedulingPolicyArn;
-        private String state;
-        private String status;
-        private String statusReason;
-        private Map<String,String> tags;
+        private @Nullable Integer priority;
+        private @Nullable String schedulingPolicyArn;
+        private @Nullable String state;
+        private @Nullable String status;
+        private @Nullable String statusReason;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetJobQueueResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -173,21 +175,21 @@ public final class GetJobQueueResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder computeEnvironmentOrders(List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders) {
-            this.computeEnvironmentOrders = Objects.requireNonNull(computeEnvironmentOrders);
+        public Builder computeEnvironmentOrders(@Nullable List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders) {
+            this.computeEnvironmentOrders = computeEnvironmentOrders;
             return this;
         }
         public Builder computeEnvironmentOrders(GetJobQueueComputeEnvironmentOrder... computeEnvironmentOrders) {
             return computeEnvironmentOrders(List.of(computeEnvironmentOrders));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -196,33 +198,33 @@ public final class GetJobQueueResult {
             return this;
         }
         @CustomType.Setter
-        public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
-        public Builder schedulingPolicyArn(String schedulingPolicyArn) {
-            this.schedulingPolicyArn = Objects.requireNonNull(schedulingPolicyArn);
+        public Builder schedulingPolicyArn(@Nullable String schedulingPolicyArn) {
+            this.schedulingPolicyArn = schedulingPolicyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder statusReason(String statusReason) {
-            this.statusReason = Objects.requireNonNull(statusReason);
+        public Builder statusReason(@Nullable String statusReason) {
+            this.statusReason = statusReason;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetJobQueueResult build() {

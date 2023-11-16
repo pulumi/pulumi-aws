@@ -102,11 +102,11 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The account number of the AWS account that manages the repository.
      */
-    public /*out*/ readonly administratorAccount!: pulumi.Output<string>;
+    public /*out*/ readonly administratorAccount!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the repository.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the repository.
      */
@@ -118,7 +118,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The account number of the AWS account that owns the domain.
      */
-    public readonly domainOwner!: pulumi.Output<string>;
+    public readonly domainOwner!: pulumi.Output<string | undefined>;
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */

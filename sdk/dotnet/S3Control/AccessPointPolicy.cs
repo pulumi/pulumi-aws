@@ -85,7 +85,7 @@ namespace Pulumi.Aws.S3Control
         /// Indicates whether this access point currently has a policy that allows public access.
         /// </summary>
         [Output("hasPublicAccessPolicy")]
-        public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
+        public Output<bool?> HasPublicAccessPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The policy that you want to apply to the specified access point.

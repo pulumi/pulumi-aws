@@ -580,7 +580,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for this account.
         """
@@ -612,7 +612,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="govcloudId")
-    def govcloud_id(self) -> pulumi.Output[str]:
+    def govcloud_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID for a GovCloud account created with the account.
         """
@@ -628,12 +628,12 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="joinedMethod")
-    def joined_method(self) -> pulumi.Output[str]:
+    def joined_method(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "joined_method")
 
     @property
     @pulumi.getter(name="joinedTimestamp")
-    def joined_timestamp(self) -> pulumi.Output[str]:
+    def joined_timestamp(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "joined_timestamp")
 
     @property
@@ -648,7 +648,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> pulumi.Output[str]:
+    def parent_id(self) -> pulumi.Output[Optional[str]]:
         """
         Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         """
@@ -664,7 +664,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property

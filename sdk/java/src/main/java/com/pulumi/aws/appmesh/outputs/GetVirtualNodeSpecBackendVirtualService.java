@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualService {
-    private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies;
-    private String virtualServiceName;
+    private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies;
+    private @Nullable String virtualServiceName;
 
     private GetVirtualNodeSpecBackendVirtualService() {}
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies() {
-        return this.clientPolicies;
+        return this.clientPolicies == null ? List.of() : this.clientPolicies;
     }
-    public String virtualServiceName() {
-        return this.virtualServiceName;
+    public Optional<String> virtualServiceName() {
+        return Optional.ofNullable(this.virtualServiceName);
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetVirtualNodeSpecBackendVirtualService {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies;
-        private String virtualServiceName;
+        private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies;
+        private @Nullable String virtualServiceName;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendVirtualService defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +43,16 @@ public final class GetVirtualNodeSpecBackendVirtualService {
         }
 
         @CustomType.Setter
-        public Builder clientPolicies(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies) {
-            this.clientPolicies = Objects.requireNonNull(clientPolicies);
+        public Builder clientPolicies(@Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies) {
+            this.clientPolicies = clientPolicies;
             return this;
         }
         public Builder clientPolicies(GetVirtualNodeSpecBackendVirtualServiceClientPolicy... clientPolicies) {
             return clientPolicies(List.of(clientPolicies));
         }
         @CustomType.Setter
-        public Builder virtualServiceName(String virtualServiceName) {
-            this.virtualServiceName = Objects.requireNonNull(virtualServiceName);
+        public Builder virtualServiceName(@Nullable String virtualServiceName) {
+            this.virtualServiceName = virtualServiceName;
             return this;
         }
         public GetVirtualNodeSpecBackendVirtualService build() {

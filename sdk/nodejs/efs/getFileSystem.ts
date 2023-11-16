@@ -64,61 +64,61 @@ export interface GetFileSystemResult {
     /**
      * Amazon Resource Name of the file system.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
      */
-    readonly availabilityZoneId: string;
+    readonly availabilityZoneId?: string;
     /**
      * The Availability Zone name in which the file system's One Zone storage classes exist.
      */
-    readonly availabilityZoneName: string;
-    readonly creationToken: string;
+    readonly availabilityZoneName?: string;
+    readonly creationToken?: string;
     /**
      * DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
-    readonly dnsName: string;
+    readonly dnsName?: string;
     /**
      * Whether EFS is encrypted.
      */
-    readonly encrypted: boolean;
-    readonly fileSystemId: string;
+    readonly encrypted?: boolean;
+    readonly fileSystemId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN for the KMS encryption key.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     /**
      * File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      */
-    readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy;
+    readonly lifecyclePolicy?: outputs.efs.GetFileSystemLifecyclePolicy;
     /**
      * The value of the file system's `Name` tag.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * File system performance mode.
      */
-    readonly performanceMode: string;
+    readonly performanceMode?: string;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system.
      */
-    readonly provisionedThroughputInMibps: number;
+    readonly provisionedThroughputInMibps?: number;
     /**
      * Current byte count used by the file system.
      */
-    readonly sizeInBytes: number;
+    readonly sizeInBytes?: number;
     /**
      * A map of tags to assign to the file system.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Throughput mode for the file system.
      */
-    readonly throughputMode: string;
+    readonly throughputMode?: string;
 }
 /**
  * Provides information about an Elastic File System (EFS) File System.

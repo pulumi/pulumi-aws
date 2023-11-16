@@ -71,8 +71,8 @@ export class Stack extends pulumi.CustomResource {
     /**
      * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
      */
-    public readonly agentVersion!: pulumi.Output<string>;
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly agentVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * If `manageBerkshelf` is enabled, the version of Berkshelf to use.
      */
@@ -92,7 +92,7 @@ export class Stack extends pulumi.CustomResource {
     /**
      * When `useCustomCookbooks` is set, provide this sub-object as described below.
      */
-    public readonly customCookbooksSources!: pulumi.Output<outputs.opsworks.StackCustomCookbooksSource[]>;
+    public readonly customCookbooksSources!: pulumi.Output<outputs.opsworks.StackCustomCookbooksSource[] | undefined>;
     /**
      * Custom JSON attributes to apply to the entire stack.
      */
@@ -101,7 +101,7 @@ export class Stack extends pulumi.CustomResource {
      * Name of the availability zone where instances will be created by default.
      * Cannot be set when `vpcId` is set.
      */
-    public readonly defaultAvailabilityZone!: pulumi.Output<string>;
+    public readonly defaultAvailabilityZone!: pulumi.Output<string | undefined>;
     /**
      * The ARN of an IAM Instance Profile that created instances will have by default.
      */
@@ -122,7 +122,7 @@ export class Stack extends pulumi.CustomResource {
      * ID of the subnet in which instances will be created by default.
      * Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
      */
-    public readonly defaultSubnetId!: pulumi.Output<string>;
+    public readonly defaultSubnetId!: pulumi.Output<string | undefined>;
     /**
      * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      */
@@ -143,7 +143,7 @@ export class Stack extends pulumi.CustomResource {
      * The ARN of an IAM role that the OpsWorks service will act as.
      */
     public readonly serviceRoleArn!: pulumi.Output<string>;
-    public /*out*/ readonly stackEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly stackEndpoint!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource.
      * If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -167,7 +167,7 @@ export class Stack extends pulumi.CustomResource {
      * ID of the VPC that this stack belongs to.
      * Defaults to the region's default VPC.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Stack resource with the given unique name, arguments, and options.

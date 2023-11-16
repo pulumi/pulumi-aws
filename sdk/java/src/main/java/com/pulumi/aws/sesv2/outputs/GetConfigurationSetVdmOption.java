@@ -8,6 +8,7 @@ import com.pulumi.aws.sesv2.outputs.GetConfigurationSetVdmOptionGuardianOption;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationSetVdmOption {
@@ -15,12 +16,12 @@ public final class GetConfigurationSetVdmOption {
      * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      * 
      */
-    private List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions;
+    private @Nullable List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions;
     /**
      * @return Specifies additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
-    private List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions;
+    private @Nullable List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions;
 
     private GetConfigurationSetVdmOption() {}
     /**
@@ -28,14 +29,14 @@ public final class GetConfigurationSetVdmOption {
      * 
      */
     public List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions() {
-        return this.dashboardOptions;
+        return this.dashboardOptions == null ? List.of() : this.dashboardOptions;
     }
     /**
      * @return Specifies additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
     public List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions() {
-        return this.guardianOptions;
+        return this.guardianOptions == null ? List.of() : this.guardianOptions;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetConfigurationSetVdmOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions;
-        private List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions;
+        private @Nullable List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions;
+        private @Nullable List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions;
         public Builder() {}
         public Builder(GetConfigurationSetVdmOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetConfigurationSetVdmOption {
         }
 
         @CustomType.Setter
-        public Builder dashboardOptions(List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions) {
-            this.dashboardOptions = Objects.requireNonNull(dashboardOptions);
+        public Builder dashboardOptions(@Nullable List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions) {
+            this.dashboardOptions = dashboardOptions;
             return this;
         }
         public Builder dashboardOptions(GetConfigurationSetVdmOptionDashboardOption... dashboardOptions) {
             return dashboardOptions(List.of(dashboardOptions));
         }
         @CustomType.Setter
-        public Builder guardianOptions(List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions) {
-            this.guardianOptions = Objects.requireNonNull(guardianOptions);
+        public Builder guardianOptions(@Nullable List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions) {
+            this.guardianOptions = guardianOptions;
             return this;
         }
         public Builder guardianOptions(GetConfigurationSetVdmOptionGuardianOption... guardianOptions) {

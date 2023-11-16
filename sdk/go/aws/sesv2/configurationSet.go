@@ -72,15 +72,15 @@ type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Configuration Set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-	ReputationOptions ConfigurationSetReputationOptionsOutput `pulumi:"reputationOptions"`
+	ReputationOptions ConfigurationSetReputationOptionsPtrOutput `pulumi:"reputationOptions"`
 	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-	SendingOptions ConfigurationSetSendingOptionsOutput `pulumi:"sendingOptions"`
+	SendingOptions ConfigurationSetSendingOptionsPtrOutput `pulumi:"sendingOptions"`
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -306,8 +306,8 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 }
 
 // ARN of the Configuration Set.
-func (o ConfigurationSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConfigurationSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the configuration set.
@@ -321,13 +321,13 @@ func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOption
 }
 
 // An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-func (o ConfigurationSetOutput) ReputationOptions() ConfigurationSetReputationOptionsOutput {
-	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetReputationOptionsOutput { return v.ReputationOptions }).(ConfigurationSetReputationOptionsOutput)
+func (o ConfigurationSetOutput) ReputationOptions() ConfigurationSetReputationOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetReputationOptionsPtrOutput { return v.ReputationOptions }).(ConfigurationSetReputationOptionsPtrOutput)
 }
 
 // An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-func (o ConfigurationSetOutput) SendingOptions() ConfigurationSetSendingOptionsOutput {
-	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSendingOptionsOutput { return v.SendingOptions }).(ConfigurationSetSendingOptionsOutput)
+func (o ConfigurationSetOutput) SendingOptions() ConfigurationSetSendingOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSendingOptionsPtrOutput { return v.SendingOptions }).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
 // An object that contains information about the suppression list preferences for your account.

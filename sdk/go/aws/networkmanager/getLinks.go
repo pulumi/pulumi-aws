@@ -69,7 +69,7 @@ type GetLinksArgs struct {
 type GetLinksResult struct {
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// IDs of the links.
 	Ids          []string          `pulumi:"ids"`
 	ProviderName *string           `pulumi:"providerName"`
@@ -129,8 +129,8 @@ func (o GetLinksResultOutput) GlobalNetworkId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLinksResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinksResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLinksResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLinksResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // IDs of the links.

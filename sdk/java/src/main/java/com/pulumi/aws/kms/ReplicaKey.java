@@ -86,14 +86,14 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
@@ -164,70 +164,70 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyId", refs={String.class}, tree="[0]")
-    private Output<String> keyId;
+    private Output</* @Nullable */ String> keyId;
 
     /**
      * @return The key ID of the replica key. Related multi-Region keys have the same key ID.
      * 
      */
-    public Output<String> keyId() {
-        return this.keyId;
+    public Output<Optional<String>> keyId() {
+        return Codegen.optional(this.keyId);
     }
     /**
      * A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
      * 
      */
     @Export(name="keyRotationEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> keyRotationEnabled;
+    private Output</* @Nullable */ Boolean> keyRotationEnabled;
 
     /**
      * @return A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
      * 
      */
-    public Output<Boolean> keyRotationEnabled() {
-        return this.keyRotationEnabled;
+    public Output<Optional<Boolean>> keyRotationEnabled() {
+        return Codegen.optional(this.keyRotationEnabled);
     }
     /**
      * The type of key material in the KMS key. This is a shared property of multi-Region keys.
      * 
      */
     @Export(name="keySpec", refs={String.class}, tree="[0]")
-    private Output<String> keySpec;
+    private Output</* @Nullable */ String> keySpec;
 
     /**
      * @return The type of key material in the KMS key. This is a shared property of multi-Region keys.
      * 
      */
-    public Output<String> keySpec() {
-        return this.keySpec;
+    public Output<Optional<String>> keySpec() {
+        return Codegen.optional(this.keySpec);
     }
     /**
      * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      * 
      */
     @Export(name="keyUsage", refs={String.class}, tree="[0]")
-    private Output<String> keyUsage;
+    private Output</* @Nullable */ String> keyUsage;
 
     /**
      * @return The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      * 
      */
-    public Output<String> keyUsage() {
-        return this.keyUsage;
+    public Output<Optional<String>> keyUsage() {
+        return Codegen.optional(this.keyUsage);
     }
     /**
      * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.

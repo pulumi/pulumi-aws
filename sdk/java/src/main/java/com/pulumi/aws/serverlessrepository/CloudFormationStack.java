@@ -121,42 +121,42 @@ public class CloudFormationStack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="outputs", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> outputs;
+    private Output</* @Nullable */ Map<String,String>> outputs;
 
     /**
      * @return A map of outputs from the stack.
      * 
      */
-    public Output<Map<String,String>> outputs() {
-        return this.outputs;
+    public Output<Optional<Map<String,String>>> outputs() {
+        return Codegen.optional(this.outputs);
     }
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> parameters;
+    private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
      * @return A map of Parameter structures that specify input parameters for the stack.
      * 
      */
-    public Output<Map<String,String>> parameters() {
-        return this.parameters;
+    public Output<Optional<Map<String,String>>> parameters() {
+        return Codegen.optional(this.parameters);
     }
     /**
      * The version of the application to deploy. If not supplied, deploys the latest version.
      * 
      */
     @Export(name="semanticVersion", refs={String.class}, tree="[0]")
-    private Output<String> semanticVersion;
+    private Output</* @Nullable */ String> semanticVersion;
 
     /**
      * @return The version of the application to deploy. If not supplied, deploys the latest version.
      * 
      */
-    public Output<String> semanticVersion() {
-        return this.semanticVersion;
+    public Output<Optional<String>> semanticVersion() {
+        return Codegen.optional(this.semanticVersion);
     }
     /**
      * A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

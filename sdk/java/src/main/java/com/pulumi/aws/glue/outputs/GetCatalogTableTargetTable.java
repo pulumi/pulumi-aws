@@ -6,6 +6,8 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTableTargetTable {
@@ -13,39 +15,39 @@ public final class GetCatalogTableTargetTable {
      * @return ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
      * 
      */
-    private String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return Name of the metadata database where the table metadata resides.
      * 
      */
-    private String databaseName;
+    private @Nullable String databaseName;
     /**
      * @return Name of the table.
      * 
      */
-    private String name;
+    private @Nullable String name;
 
     private GetCatalogTableTargetTable() {}
     /**
      * @return ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
     /**
      * @return Name of the metadata database where the table metadata resides.
      * 
      */
-    public String databaseName() {
-        return this.databaseName;
+    public Optional<String> databaseName() {
+        return Optional.ofNullable(this.databaseName);
     }
     /**
      * @return Name of the table.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetCatalogTableTargetTable {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String catalogId;
-        private String databaseName;
-        private String name;
+        private @Nullable String catalogId;
+        private @Nullable String databaseName;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetCatalogTableTargetTable defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetCatalogTableTargetTable {
         }
 
         @CustomType.Setter
-        public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+        public Builder catalogId(@Nullable String catalogId) {
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
-        public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+        public Builder databaseName(@Nullable String databaseName) {
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetCatalogTableTargetTable build() {

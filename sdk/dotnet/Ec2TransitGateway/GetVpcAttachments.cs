@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
         /// </summary>
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private GetVpcAttachmentsResult(
             ImmutableArray<Outputs.GetVpcAttachmentsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids)
         {

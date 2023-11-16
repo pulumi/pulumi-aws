@@ -53,18 +53,18 @@ export interface GetAuthorizationTokenResult {
     /**
      * Temporary authorization token.
      */
-    readonly authorizationToken: string;
+    readonly authorizationToken?: string;
     readonly domain: string;
-    readonly domainOwner: string;
+    readonly domainOwner?: string;
     readonly durationSeconds?: number;
     /**
      * Time in UTC RFC3339 format when the authorization token expires.
      */
-    readonly expiration: string;
+    readonly expiration?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.

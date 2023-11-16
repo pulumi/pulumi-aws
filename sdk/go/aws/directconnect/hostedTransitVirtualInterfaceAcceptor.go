@@ -87,7 +87,7 @@ type HostedTransitVirtualInterfaceAcceptor struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the virtual interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringOutput `pulumi:"dxGatewayId"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -280,8 +280,8 @@ func (o HostedTransitVirtualInterfaceAcceptorOutput) ToHostedTransitVirtualInter
 }
 
 // The ARN of the virtual interface.
-func (o HostedTransitVirtualInterfaceAcceptorOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HostedTransitVirtualInterfaceAcceptorOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Direct Connect gateway to which to connect the virtual interface.

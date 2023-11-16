@@ -8,6 +8,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReplicationSubnetGroupResult {
@@ -15,67 +17,67 @@ public final class GetReplicationSubnetGroupResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String replicationSubnetGroupArn;
+    private @Nullable String id;
+    private @Nullable String replicationSubnetGroupArn;
     /**
      * @return Description for the subnet group.
      * 
      */
-    private String replicationSubnetGroupDescription;
+    private @Nullable String replicationSubnetGroupDescription;
     private String replicationSubnetGroupId;
-    private String subnetGroupStatus;
+    private @Nullable String subnetGroupStatus;
     /**
      * @return List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
      * 
      */
-    private List<String> subnetIds;
-    private Map<String,String> tags;
+    private @Nullable List<String> subnetIds;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The ID of the VPC the subnet group is in.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetReplicationSubnetGroupResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String replicationSubnetGroupArn() {
-        return this.replicationSubnetGroupArn;
+    public Optional<String> replicationSubnetGroupArn() {
+        return Optional.ofNullable(this.replicationSubnetGroupArn);
     }
     /**
      * @return Description for the subnet group.
      * 
      */
-    public String replicationSubnetGroupDescription() {
-        return this.replicationSubnetGroupDescription;
+    public Optional<String> replicationSubnetGroupDescription() {
+        return Optional.ofNullable(this.replicationSubnetGroupDescription);
     }
     public String replicationSubnetGroupId() {
         return this.replicationSubnetGroupId;
     }
-    public String subnetGroupStatus() {
-        return this.subnetGroupStatus;
+    public Optional<String> subnetGroupStatus() {
+        return Optional.ofNullable(this.subnetGroupStatus);
     }
     /**
      * @return List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The ID of the VPC the subnet group is in.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -87,14 +89,14 @@ public final class GetReplicationSubnetGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String replicationSubnetGroupArn;
-        private String replicationSubnetGroupDescription;
+        private @Nullable String id;
+        private @Nullable String replicationSubnetGroupArn;
+        private @Nullable String replicationSubnetGroupDescription;
         private String replicationSubnetGroupId;
-        private String subnetGroupStatus;
-        private List<String> subnetIds;
-        private Map<String,String> tags;
-        private String vpcId;
+        private @Nullable String subnetGroupStatus;
+        private @Nullable List<String> subnetIds;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetReplicationSubnetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -109,18 +111,18 @@ public final class GetReplicationSubnetGroupResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder replicationSubnetGroupArn(String replicationSubnetGroupArn) {
-            this.replicationSubnetGroupArn = Objects.requireNonNull(replicationSubnetGroupArn);
+        public Builder replicationSubnetGroupArn(@Nullable String replicationSubnetGroupArn) {
+            this.replicationSubnetGroupArn = replicationSubnetGroupArn;
             return this;
         }
         @CustomType.Setter
-        public Builder replicationSubnetGroupDescription(String replicationSubnetGroupDescription) {
-            this.replicationSubnetGroupDescription = Objects.requireNonNull(replicationSubnetGroupDescription);
+        public Builder replicationSubnetGroupDescription(@Nullable String replicationSubnetGroupDescription) {
+            this.replicationSubnetGroupDescription = replicationSubnetGroupDescription;
             return this;
         }
         @CustomType.Setter
@@ -129,26 +131,26 @@ public final class GetReplicationSubnetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder subnetGroupStatus(String subnetGroupStatus) {
-            this.subnetGroupStatus = Objects.requireNonNull(subnetGroupStatus);
+        public Builder subnetGroupStatus(@Nullable String subnetGroupStatus) {
+            this.subnetGroupStatus = subnetGroupStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetReplicationSubnetGroupResult build() {

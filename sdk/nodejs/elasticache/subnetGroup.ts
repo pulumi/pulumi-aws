@@ -66,7 +66,7 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description for the cache subnet group. Defaults to "Managed by Pulumi".
      */

@@ -52,55 +52,55 @@ export interface GetContainerRecipeResult {
     /**
      * List of objects with components for the container recipe.
      */
-    readonly components: outputs.imagebuilder.GetContainerRecipeComponent[];
+    readonly components?: outputs.imagebuilder.GetContainerRecipeComponent[];
     /**
      * Type of the container.
      */
-    readonly containerType: string;
+    readonly containerType?: string;
     /**
      * Date the container recipe was created.
      */
-    readonly dateCreated: string;
+    readonly dateCreated?: string;
     /**
      * Description of the container recipe.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Dockerfile template used to build the image.
      */
-    readonly dockerfileTemplateData: string;
+    readonly dockerfileTemplateData?: string;
     /**
      * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      */
-    readonly encrypted: boolean;
+    readonly encrypted?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of objects with instance configurations for building and testing container images.
      */
-    readonly instanceConfigurations: outputs.imagebuilder.GetContainerRecipeInstanceConfiguration[];
+    readonly instanceConfigurations?: outputs.imagebuilder.GetContainerRecipeInstanceConfiguration[];
     /**
      * KMS key used to encrypt the container image.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     /**
      * Name of the container recipe.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Owner of the container recipe.
      */
-    readonly owner: string;
+    readonly owner?: string;
     /**
      * Base image for the container recipe.
      */
-    readonly parentImage: string;
+    readonly parentImage?: string;
     /**
      * Platform of the container recipe.
      */
-    readonly platform: string;
+    readonly platform?: string;
     /**
      * Key-value map of resource tags for the container recipe.
      */
@@ -108,15 +108,15 @@ export interface GetContainerRecipeResult {
     /**
      * Destination repository for the container image.
      */
-    readonly targetRepositories: outputs.imagebuilder.GetContainerRecipeTargetRepository[];
+    readonly targetRepositories?: outputs.imagebuilder.GetContainerRecipeTargetRepository[];
     /**
      * Version of the container recipe.
      */
-    readonly version: string;
+    readonly version?: string;
     /**
      * Working directory used during build and test workflows.
      */
-    readonly workingDirectory: string;
+    readonly workingDirectory?: string;
 }
 /**
  * Provides details about an Image builder Container Recipe.

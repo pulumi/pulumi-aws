@@ -10006,11 +10006,11 @@ func (o GetAmiIdsFilterArrayOutput) Index(i pulumi.IntInput) GetAmiIdsFilterOutp
 
 type GetGroupLaunchTemplate struct {
 	// ID of the launch template.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Specify the exact name of the desired autoscaling group.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Template version.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 // GetGroupLaunchTemplateInput is an input type that accepts GetGroupLaunchTemplateArgs and GetGroupLaunchTemplateOutput values.
@@ -10026,11 +10026,11 @@ type GetGroupLaunchTemplateInput interface {
 
 type GetGroupLaunchTemplateArgs struct {
 	// ID of the launch template.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specify the exact name of the desired autoscaling group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Template version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GetGroupLaunchTemplateArgs) ElementType() reflect.Type {
@@ -10085,18 +10085,18 @@ func (o GetGroupLaunchTemplateOutput) ToGetGroupLaunchTemplateOutputWithContext(
 }
 
 // ID of the launch template.
-func (o GetGroupLaunchTemplateOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupLaunchTemplate) string { return v.Id }).(pulumi.StringOutput)
+func (o GetGroupLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specify the exact name of the desired autoscaling group.
-func (o GetGroupLaunchTemplateOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupLaunchTemplate) string { return v.Name }).(pulumi.StringOutput)
+func (o GetGroupLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Template version.
-func (o GetGroupLaunchTemplateOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupLaunchTemplate) string { return v.Version }).(pulumi.StringOutput)
+func (o GetGroupLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type GetGroupLaunchTemplateArrayOutput struct{ *pulumi.OutputState }
@@ -10231,16 +10231,16 @@ func (o GetGroupMixedInstancesPolicyArrayOutput) Index(i pulumi.IntInput) GetGro
 
 type GetGroupMixedInstancesPolicyInstancesDistribution struct {
 	// Strategy used when launching on-demand instances.
-	OnDemandAllocationStrategy string `pulumi:"onDemandAllocationStrategy"`
+	OnDemandAllocationStrategy *string `pulumi:"onDemandAllocationStrategy"`
 	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-	OnDemandBaseCapacity                int `pulumi:"onDemandBaseCapacity"`
-	OnDemandPercentageAboveBaseCapacity int `pulumi:"onDemandPercentageAboveBaseCapacity"`
+	OnDemandBaseCapacity                *int `pulumi:"onDemandBaseCapacity"`
+	OnDemandPercentageAboveBaseCapacity *int `pulumi:"onDemandPercentageAboveBaseCapacity"`
 	// Strategy used when launching Spot instances.
-	SpotAllocationStrategy string `pulumi:"spotAllocationStrategy"`
+	SpotAllocationStrategy *string `pulumi:"spotAllocationStrategy"`
 	// Number of Spot pools per availability zone to allocate capacity.
-	SpotInstancePools int `pulumi:"spotInstancePools"`
+	SpotInstancePools *int `pulumi:"spotInstancePools"`
 	// Maximum price per unit hour that the user is willing to pay for the Spot instances.
-	SpotMaxPrice string `pulumi:"spotMaxPrice"`
+	SpotMaxPrice *string `pulumi:"spotMaxPrice"`
 }
 
 // GetGroupMixedInstancesPolicyInstancesDistributionInput is an input type that accepts GetGroupMixedInstancesPolicyInstancesDistributionArgs and GetGroupMixedInstancesPolicyInstancesDistributionOutput values.
@@ -10256,16 +10256,16 @@ type GetGroupMixedInstancesPolicyInstancesDistributionInput interface {
 
 type GetGroupMixedInstancesPolicyInstancesDistributionArgs struct {
 	// Strategy used when launching on-demand instances.
-	OnDemandAllocationStrategy pulumi.StringInput `pulumi:"onDemandAllocationStrategy"`
+	OnDemandAllocationStrategy pulumi.StringPtrInput `pulumi:"onDemandAllocationStrategy"`
 	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-	OnDemandBaseCapacity                pulumi.IntInput `pulumi:"onDemandBaseCapacity"`
-	OnDemandPercentageAboveBaseCapacity pulumi.IntInput `pulumi:"onDemandPercentageAboveBaseCapacity"`
+	OnDemandBaseCapacity                pulumi.IntPtrInput `pulumi:"onDemandBaseCapacity"`
+	OnDemandPercentageAboveBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandPercentageAboveBaseCapacity"`
 	// Strategy used when launching Spot instances.
-	SpotAllocationStrategy pulumi.StringInput `pulumi:"spotAllocationStrategy"`
+	SpotAllocationStrategy pulumi.StringPtrInput `pulumi:"spotAllocationStrategy"`
 	// Number of Spot pools per availability zone to allocate capacity.
-	SpotInstancePools pulumi.IntInput `pulumi:"spotInstancePools"`
+	SpotInstancePools pulumi.IntPtrInput `pulumi:"spotInstancePools"`
 	// Maximum price per unit hour that the user is willing to pay for the Spot instances.
-	SpotMaxPrice pulumi.StringInput `pulumi:"spotMaxPrice"`
+	SpotMaxPrice pulumi.StringPtrInput `pulumi:"spotMaxPrice"`
 }
 
 func (GetGroupMixedInstancesPolicyInstancesDistributionArgs) ElementType() reflect.Type {
@@ -10320,34 +10320,34 @@ func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) ToGetGroupMixed
 }
 
 // Strategy used when launching on-demand instances.
-func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandAllocationStrategy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) string { return v.OnDemandAllocationStrategy }).(pulumi.StringOutput)
+func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) *string { return v.OnDemandAllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
 // Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandBaseCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) int { return v.OnDemandBaseCapacity }).(pulumi.IntOutput)
+func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandBaseCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) *int { return v.OnDemandBaseCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandPercentageAboveBaseCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) int {
+func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandPercentageAboveBaseCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) *int {
 		return v.OnDemandPercentageAboveBaseCapacity
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Strategy used when launching Spot instances.
-func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) SpotAllocationStrategy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) string { return v.SpotAllocationStrategy }).(pulumi.StringOutput)
+func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) SpotAllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) *string { return v.SpotAllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
 // Number of Spot pools per availability zone to allocate capacity.
-func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) SpotInstancePools() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) int { return v.SpotInstancePools }).(pulumi.IntOutput)
+func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) SpotInstancePools() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) *int { return v.SpotInstancePools }).(pulumi.IntPtrOutput)
 }
 
 // Maximum price per unit hour that the user is willing to pay for the Spot instances.
-func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) SpotMaxPrice() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) string { return v.SpotMaxPrice }).(pulumi.StringOutput)
+func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) SpotMaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) *string { return v.SpotMaxPrice }).(pulumi.StringPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyInstancesDistributionArrayOutput struct{ *pulumi.OutputState }
@@ -10482,11 +10482,11 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput) Index(i pulumi.In
 
 type GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification struct {
 	// ID of the launch template.
-	LaunchTemplateId string `pulumi:"launchTemplateId"`
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
 	// Name of the launch template.
-	LaunchTemplateName string `pulumi:"launchTemplateName"`
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
 	// Template version.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs and GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput values.
@@ -10502,11 +10502,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput 
 
 type GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs struct {
 	// ID of the launch template.
-	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	// Name of the launch template.
-	LaunchTemplateName pulumi.StringInput `pulumi:"launchTemplateName"`
+	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
 	// Template version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
@@ -10561,22 +10561,24 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOut
 }
 
 // ID of the launch template.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) string {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *string {
 		return v.LaunchTemplateId
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the launch template.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) string {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *string {
 		return v.LaunchTemplateName
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Template version.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) string { return v.Version }).(pulumi.StringOutput)
+func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *string {
+		return v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutput struct{ *pulumi.OutputState }
@@ -10604,11 +10606,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverride struct {
 	// * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
 	InstanceRequirements []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement `pulumi:"instanceRequirements"`
 	// Overriding instance type.
-	InstanceType string `pulumi:"instanceType"`
+	InstanceType *string `pulumi:"instanceType"`
 	// List of overriding launch template specification objects.
 	LaunchTemplateSpecifications []GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification `pulumi:"launchTemplateSpecifications"`
 	// Number of capacity units, which gives the instance type a proportional weight to other instance types.
-	WeightedCapacity string `pulumi:"weightedCapacity"`
+	WeightedCapacity *string `pulumi:"weightedCapacity"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput values.
@@ -10627,11 +10629,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs struct {
 	// * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
 	InstanceRequirements GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayInput `pulumi:"instanceRequirements"`
 	// Overriding instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// List of overriding launch template specification objects.
 	LaunchTemplateSpecifications GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayInput `pulumi:"launchTemplateSpecifications"`
 	// Number of capacity units, which gives the instance type a proportional weight to other instance types.
-	WeightedCapacity pulumi.StringInput `pulumi:"weightedCapacity"`
+	WeightedCapacity pulumi.StringPtrInput `pulumi:"weightedCapacity"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs) ElementType() reflect.Type {
@@ -10694,8 +10696,8 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceRequir
 }
 
 // Overriding instance type.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverride) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverride) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // List of overriding launch template specification objects.
@@ -10706,8 +10708,8 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) LaunchTemplate
 }
 
 // Number of capacity units, which gives the instance type a proportional weight to other instance types.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) WeightedCapacity() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverride) string { return v.WeightedCapacity }).(pulumi.StringOutput)
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) WeightedCapacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverride) *string { return v.WeightedCapacity }).(pulumi.StringPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput struct{ *pulumi.OutputState }
@@ -10743,11 +10745,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement struc
 	// List of instance types to apply the specified attributes against.
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
 	// Indicates whether bare metal instances are included, excluded, or required.
-	BareMetal string `pulumi:"bareMetal"`
+	BareMetal *string `pulumi:"bareMetal"`
 	// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
 	BaselineEbsBandwidthMbps []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp `pulumi:"baselineEbsBandwidthMbps"`
 	// Indicates whether burstable performance instance types are included, excluded, or required.
-	BurstablePerformance string `pulumi:"burstablePerformance"`
+	BurstablePerformance *string `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names.
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// List of excluded instance types.
@@ -10755,7 +10757,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement struc
 	// List of instance generation names.
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
 	// Indicates whether instance types with instance store volumes are included, excluded, or required.
-	LocalStorage string `pulumi:"localStorage"`
+	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names.
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
@@ -10767,11 +10769,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement struc
 	// List of objects describing the minimum and maximum amount of network interfaces.
 	NetworkInterfaceCounts []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount `pulumi:"networkInterfaceCounts"`
 	// Price protection threshold for On-Demand Instances.
-	OnDemandMaxPricePercentageOverLowestPrice int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support On-Demand Instance Hibernation.
-	RequireHibernateSupport bool `pulumi:"requireHibernateSupport"`
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
 	// Price protection threshold for Spot Instances.
-	SpotMaxPricePercentageOverLowestPrice int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
 	// List of objects describing the minimum and maximum total storage (GB).
 	TotalLocalStorageGbs []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb `pulumi:"totalLocalStorageGbs"`
 	// List of objects describing the minimum and maximum number of vCPUs.
@@ -10802,11 +10804,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs s
 	// List of instance types to apply the specified attributes against.
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
 	// Indicates whether bare metal instances are included, excluded, or required.
-	BareMetal pulumi.StringInput `pulumi:"bareMetal"`
+	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
 	BaselineEbsBandwidthMbps GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayInput `pulumi:"baselineEbsBandwidthMbps"`
 	// Indicates whether burstable performance instance types are included, excluded, or required.
-	BurstablePerformance pulumi.StringInput `pulumi:"burstablePerformance"`
+	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names.
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// List of excluded instance types.
@@ -10814,7 +10816,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs s
 	// List of instance generation names.
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
 	// Indicates whether instance types with instance store volumes are included, excluded, or required.
-	LocalStorage pulumi.StringInput `pulumi:"localStorage"`
+	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names.
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
@@ -10826,11 +10828,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs s
 	// List of objects describing the minimum and maximum amount of network interfaces.
 	NetworkInterfaceCounts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayInput `pulumi:"networkInterfaceCounts"`
 	// Price protection threshold for On-Demand Instances.
-	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support On-Demand Instance Hibernation.
-	RequireHibernateSupport pulumi.BoolInput `pulumi:"requireHibernateSupport"`
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
 	// Price protection threshold for Spot Instances.
-	SpotMaxPricePercentageOverLowestPrice pulumi.IntInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
 	// List of objects describing the minimum and maximum total storage (GB).
 	TotalLocalStorageGbs GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayInput `pulumi:"totalLocalStorageGbs"`
 	// List of objects describing the minimum and maximum number of vCPUs.
@@ -10930,10 +10932,10 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 }
 
 // Indicates whether bare metal instances are included, excluded, or required.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) BareMetal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) string {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) *string {
 		return v.BareMetal
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
@@ -10944,10 +10946,10 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 }
 
 // Indicates whether burstable performance instance types are included, excluded, or required.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) BurstablePerformance() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) string {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) *string {
 		return v.BurstablePerformance
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // List of CPU manufacturer names.
@@ -10972,10 +10974,10 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 }
 
 // Indicates whether instance types with instance store volumes are included, excluded, or required.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) LocalStorage() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) string {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) *string {
 		return v.LocalStorage
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // List of local storage type names.
@@ -11014,24 +11016,24 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 }
 
 // Price protection threshold for On-Demand Instances.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) *int {
 		return v.OnDemandMaxPricePercentageOverLowestPrice
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether instance types must support On-Demand Instance Hibernation.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) RequireHibernateSupport() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) bool {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) *bool {
 		return v.RequireHibernateSupport
-	}).(pulumi.BoolOutput)
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Price protection threshold for Spot Instances.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) *int {
 		return v.SpotMaxPricePercentageOverLowestPrice
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // List of objects describing the minimum and maximum total storage (GB).
@@ -11070,9 +11072,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArr
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount struct {
 	// Maximum.
-	Max int `pulumi:"max"`
+	Max *int `pulumi:"max"`
 	// Minimum.
-	Min int `pulumi:"min"`
+	Min *int `pulumi:"min"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput values.
@@ -11088,9 +11090,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccele
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArgs struct {
 	// Maximum.
-	Max pulumi.IntInput `pulumi:"max"`
+	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
-	Min pulumi.IntInput `pulumi:"min"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArgs) ElementType() reflect.Type {
@@ -11145,17 +11147,17 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 }
 
 // Maximum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput) Max() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount) *int {
 		return v.Max
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput) Min() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount) *int {
 		return v.Min
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput struct{ *pulumi.OutputState }
@@ -11180,9 +11182,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib struct {
 	// Maximum.
-	Max int `pulumi:"max"`
+	Max *int `pulumi:"max"`
 	// Minimum.
-	Min int `pulumi:"min"`
+	Min *int `pulumi:"min"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput values.
@@ -11198,9 +11200,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccele
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArgs struct {
 	// Maximum.
-	Max pulumi.IntInput `pulumi:"max"`
+	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
-	Min pulumi.IntInput `pulumi:"min"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArgs) ElementType() reflect.Type {
@@ -11255,17 +11257,17 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 }
 
 // Maximum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput) Max() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib) *int {
 		return v.Max
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput) Min() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib) *int {
 		return v.Min
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutput struct{ *pulumi.OutputState }
@@ -11290,9 +11292,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp struct {
 	// Maximum.
-	Max int `pulumi:"max"`
+	Max *int `pulumi:"max"`
 	// Minimum.
-	Min int `pulumi:"min"`
+	Min *int `pulumi:"min"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput values.
@@ -11308,9 +11310,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaseli
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArgs struct {
 	// Maximum.
-	Max pulumi.IntInput `pulumi:"max"`
+	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
-	Min pulumi.IntInput `pulumi:"min"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArgs) ElementType() reflect.Type {
@@ -11365,17 +11367,17 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBas
 }
 
 // Maximum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput) Max() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp) *int {
 		return v.Max
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput) Min() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp) *int {
 		return v.Min
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput struct{ *pulumi.OutputState }
@@ -11400,9 +11402,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBas
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus struct {
 	// Maximum.
-	Max float64 `pulumi:"max"`
+	Max *float64 `pulumi:"max"`
 	// Minimum.
-	Min float64 `pulumi:"min"`
+	Min *float64 `pulumi:"min"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput values.
@@ -11418,9 +11420,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemory
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArgs struct {
 	// Maximum.
-	Max pulumi.Float64Input `pulumi:"max"`
+	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
-	Min pulumi.Float64Input `pulumi:"min"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArgs) ElementType() reflect.Type {
@@ -11475,17 +11477,17 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 }
 
 // Maximum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput) Max() pulumi.Float64Output {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus) float64 {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus) *float64 {
 		return v.Max
-	}).(pulumi.Float64Output)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Minimum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput) Min() pulumi.Float64Output {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus) float64 {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus) *float64 {
 		return v.Min
-	}).(pulumi.Float64Output)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutput struct{ *pulumi.OutputState }
@@ -11510,9 +11512,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib struct {
 	// Maximum.
-	Max int `pulumi:"max"`
+	Max *int `pulumi:"max"`
 	// Minimum.
-	Min int `pulumi:"min"`
+	Min *int `pulumi:"min"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput values.
@@ -11528,9 +11530,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemory
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArgs struct {
 	// Maximum.
-	Max pulumi.IntInput `pulumi:"max"`
+	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
-	Min pulumi.IntInput `pulumi:"min"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArgs) ElementType() reflect.Type {
@@ -11585,17 +11587,17 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 }
 
 // Maximum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput) Max() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib) *int {
 		return v.Max
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput) Min() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib) *int {
 		return v.Min
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutput struct{ *pulumi.OutputState }
@@ -11620,9 +11622,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp struct {
 	// Maximum.
-	Max float64 `pulumi:"max"`
+	Max *float64 `pulumi:"max"`
 	// Minimum.
-	Min float64 `pulumi:"min"`
+	Min *float64 `pulumi:"min"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput values.
@@ -11638,9 +11640,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwor
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArgs struct {
 	// Maximum.
-	Max pulumi.Float64Input `pulumi:"max"`
+	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
-	Min pulumi.Float64Input `pulumi:"min"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArgs) ElementType() reflect.Type {
@@ -11695,17 +11697,17 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 }
 
 // Maximum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput) Max() pulumi.Float64Output {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp) float64 {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp) *float64 {
 		return v.Max
-	}).(pulumi.Float64Output)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Minimum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput) Min() pulumi.Float64Output {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp) float64 {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp) *float64 {
 		return v.Min
-	}).(pulumi.Float64Output)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutput struct{ *pulumi.OutputState }
@@ -11730,9 +11732,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount struct {
 	// Maximum.
-	Max int `pulumi:"max"`
+	Max *int `pulumi:"max"`
 	// Minimum.
-	Min int `pulumi:"min"`
+	Min *int `pulumi:"min"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput values.
@@ -11748,9 +11750,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwor
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArgs struct {
 	// Maximum.
-	Max pulumi.IntInput `pulumi:"max"`
+	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
-	Min pulumi.IntInput `pulumi:"min"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArgs) ElementType() reflect.Type {
@@ -11805,17 +11807,17 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 }
 
 // Maximum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput) Max() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount) *int {
 		return v.Max
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput) Min() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount) *int {
 		return v.Min
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutput struct{ *pulumi.OutputState }
@@ -11840,9 +11842,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb struct {
 	// Maximum.
-	Max float64 `pulumi:"max"`
+	Max *float64 `pulumi:"max"`
 	// Minimum.
-	Min float64 `pulumi:"min"`
+	Min *float64 `pulumi:"min"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput values.
@@ -11858,9 +11860,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalL
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArgs struct {
 	// Maximum.
-	Max pulumi.Float64Input `pulumi:"max"`
+	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
-	Min pulumi.Float64Input `pulumi:"min"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArgs) ElementType() reflect.Type {
@@ -11915,17 +11917,17 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTot
 }
 
 // Maximum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput) Max() pulumi.Float64Output {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb) float64 {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb) *float64 {
 		return v.Max
-	}).(pulumi.Float64Output)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Minimum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput) Min() pulumi.Float64Output {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb) float64 {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb) *float64 {
 		return v.Min
-	}).(pulumi.Float64Output)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutput struct{ *pulumi.OutputState }
@@ -11950,9 +11952,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTot
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount struct {
 	// Maximum.
-	Max int `pulumi:"max"`
+	Max *int `pulumi:"max"`
 	// Minimum.
-	Min int `pulumi:"min"`
+	Min *int `pulumi:"min"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput values.
@@ -11968,9 +11970,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCo
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArgs struct {
 	// Maximum.
-	Max pulumi.IntInput `pulumi:"max"`
+	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
-	Min pulumi.IntInput `pulumi:"min"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArgs) ElementType() reflect.Type {
@@ -12025,17 +12027,17 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcp
 }
 
 // Maximum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput) Max() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount) *int {
 		return v.Max
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput) Min() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount) int {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount) *int {
 		return v.Min
-	}).(pulumi.IntOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutput struct{ *pulumi.OutputState }
@@ -12060,11 +12062,11 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcp
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification struct {
 	// ID of the launch template.
-	LaunchTemplateId string `pulumi:"launchTemplateId"`
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
 	// Name of the launch template.
-	LaunchTemplateName string `pulumi:"launchTemplateName"`
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
 	// Template version.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput values.
@@ -12080,11 +12082,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs struct {
 	// ID of the launch template.
-	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	// Name of the launch template.
-	LaunchTemplateName pulumi.StringInput `pulumi:"launchTemplateName"`
+	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
 	// Template version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
@@ -12139,24 +12141,24 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecific
 }
 
 // ID of the launch template.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) string {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *string {
 		return v.LaunchTemplateId
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the launch template.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) string {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *string {
 		return v.LaunchTemplateName
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Template version.
-func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) string {
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *string {
 		return v.Version
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutput struct{ *pulumi.OutputState }
@@ -12181,11 +12183,11 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecific
 
 type GetGroupTag struct {
 	// Key.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
-	PropagateAtLaunch bool `pulumi:"propagateAtLaunch"`
+	PropagateAtLaunch *bool `pulumi:"propagateAtLaunch"`
 	// Value.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetGroupTagInput is an input type that accepts GetGroupTagArgs and GetGroupTagOutput values.
@@ -12201,11 +12203,11 @@ type GetGroupTagInput interface {
 
 type GetGroupTagArgs struct {
 	// Key.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
-	PropagateAtLaunch pulumi.BoolInput `pulumi:"propagateAtLaunch"`
+	PropagateAtLaunch pulumi.BoolPtrInput `pulumi:"propagateAtLaunch"`
 	// Value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetGroupTagArgs) ElementType() reflect.Type {
@@ -12260,18 +12262,18 @@ func (o GetGroupTagOutput) ToGetGroupTagOutputWithContext(ctx context.Context) G
 }
 
 // Key.
-func (o GetGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupTag) string { return v.Key }).(pulumi.StringOutput)
+func (o GetGroupTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
-func (o GetGroupTagOutput) PropagateAtLaunch() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetGroupTag) bool { return v.PropagateAtLaunch }).(pulumi.BoolOutput)
+func (o GetGroupTagOutput) PropagateAtLaunch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetGroupTag) *bool { return v.PropagateAtLaunch }).(pulumi.BoolPtrOutput)
 }
 
 // Value.
-func (o GetGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupTag) string { return v.Value }).(pulumi.StringOutput)
+func (o GetGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetGroupTagArrayOutput struct{ *pulumi.OutputState }
@@ -12296,9 +12298,9 @@ func (o GetGroupTagArrayOutput) Index(i pulumi.IntInput) GetGroupTagOutput {
 
 type GetGroupTrafficSource struct {
 	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-	Identifier string `pulumi:"identifier"`
+	Identifier *string `pulumi:"identifier"`
 	// Traffic source type.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetGroupTrafficSourceInput is an input type that accepts GetGroupTrafficSourceArgs and GetGroupTrafficSourceOutput values.
@@ -12314,9 +12316,9 @@ type GetGroupTrafficSourceInput interface {
 
 type GetGroupTrafficSourceArgs struct {
 	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-	Identifier pulumi.StringInput `pulumi:"identifier"`
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
 	// Traffic source type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetGroupTrafficSourceArgs) ElementType() reflect.Type {
@@ -12371,13 +12373,13 @@ func (o GetGroupTrafficSourceOutput) ToGetGroupTrafficSourceOutputWithContext(ct
 }
 
 // Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-func (o GetGroupTrafficSourceOutput) Identifier() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupTrafficSource) string { return v.Identifier }).(pulumi.StringOutput)
+func (o GetGroupTrafficSourceOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupTrafficSource) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
 
 // Traffic source type.
-func (o GetGroupTrafficSourceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupTrafficSource) string { return v.Type }).(pulumi.StringOutput)
+func (o GetGroupTrafficSourceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupTrafficSource) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetGroupTrafficSourceArrayOutput struct{ *pulumi.OutputState }
@@ -12403,11 +12405,11 @@ func (o GetGroupTrafficSourceArrayOutput) Index(i pulumi.IntInput) GetGroupTraff
 type GetGroupWarmPool struct {
 	// List of instance reuse policy objects.
 	InstanceReusePolicies    []GetGroupWarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicies"`
-	MaxGroupPreparedCapacity int                                   `pulumi:"maxGroupPreparedCapacity"`
+	MaxGroupPreparedCapacity *int                                  `pulumi:"maxGroupPreparedCapacity"`
 	// Minimum number of instances to maintain in the warm pool.
-	MinSize int `pulumi:"minSize"`
+	MinSize *int `pulumi:"minSize"`
 	// Instance state to transition to after the lifecycle actions are complete.
-	PoolState string `pulumi:"poolState"`
+	PoolState *string `pulumi:"poolState"`
 }
 
 // GetGroupWarmPoolInput is an input type that accepts GetGroupWarmPoolArgs and GetGroupWarmPoolOutput values.
@@ -12424,11 +12426,11 @@ type GetGroupWarmPoolInput interface {
 type GetGroupWarmPoolArgs struct {
 	// List of instance reuse policy objects.
 	InstanceReusePolicies    GetGroupWarmPoolInstanceReusePolicyArrayInput `pulumi:"instanceReusePolicies"`
-	MaxGroupPreparedCapacity pulumi.IntInput                               `pulumi:"maxGroupPreparedCapacity"`
+	MaxGroupPreparedCapacity pulumi.IntPtrInput                            `pulumi:"maxGroupPreparedCapacity"`
 	// Minimum number of instances to maintain in the warm pool.
-	MinSize pulumi.IntInput `pulumi:"minSize"`
+	MinSize pulumi.IntPtrInput `pulumi:"minSize"`
 	// Instance state to transition to after the lifecycle actions are complete.
-	PoolState pulumi.StringInput `pulumi:"poolState"`
+	PoolState pulumi.StringPtrInput `pulumi:"poolState"`
 }
 
 func (GetGroupWarmPoolArgs) ElementType() reflect.Type {
@@ -12487,18 +12489,18 @@ func (o GetGroupWarmPoolOutput) InstanceReusePolicies() GetGroupWarmPoolInstance
 	return o.ApplyT(func(v GetGroupWarmPool) []GetGroupWarmPoolInstanceReusePolicy { return v.InstanceReusePolicies }).(GetGroupWarmPoolInstanceReusePolicyArrayOutput)
 }
 
-func (o GetGroupWarmPoolOutput) MaxGroupPreparedCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupWarmPool) int { return v.MaxGroupPreparedCapacity }).(pulumi.IntOutput)
+func (o GetGroupWarmPoolOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupWarmPool) *int { return v.MaxGroupPreparedCapacity }).(pulumi.IntPtrOutput)
 }
 
 // Minimum number of instances to maintain in the warm pool.
-func (o GetGroupWarmPoolOutput) MinSize() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGroupWarmPool) int { return v.MinSize }).(pulumi.IntOutput)
+func (o GetGroupWarmPoolOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupWarmPool) *int { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
 // Instance state to transition to after the lifecycle actions are complete.
-func (o GetGroupWarmPoolOutput) PoolState() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupWarmPool) string { return v.PoolState }).(pulumi.StringOutput)
+func (o GetGroupWarmPoolOutput) PoolState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupWarmPool) *string { return v.PoolState }).(pulumi.StringPtrOutput)
 }
 
 type GetGroupWarmPoolArrayOutput struct{ *pulumi.OutputState }
@@ -12523,7 +12525,7 @@ func (o GetGroupWarmPoolArrayOutput) Index(i pulumi.IntInput) GetGroupWarmPoolOu
 
 type GetGroupWarmPoolInstanceReusePolicy struct {
 	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
-	ReuseOnScaleIn bool `pulumi:"reuseOnScaleIn"`
+	ReuseOnScaleIn *bool `pulumi:"reuseOnScaleIn"`
 }
 
 // GetGroupWarmPoolInstanceReusePolicyInput is an input type that accepts GetGroupWarmPoolInstanceReusePolicyArgs and GetGroupWarmPoolInstanceReusePolicyOutput values.
@@ -12539,7 +12541,7 @@ type GetGroupWarmPoolInstanceReusePolicyInput interface {
 
 type GetGroupWarmPoolInstanceReusePolicyArgs struct {
 	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
-	ReuseOnScaleIn pulumi.BoolInput `pulumi:"reuseOnScaleIn"`
+	ReuseOnScaleIn pulumi.BoolPtrInput `pulumi:"reuseOnScaleIn"`
 }
 
 func (GetGroupWarmPoolInstanceReusePolicyArgs) ElementType() reflect.Type {
@@ -12594,8 +12596,8 @@ func (o GetGroupWarmPoolInstanceReusePolicyOutput) ToGetGroupWarmPoolInstanceReu
 }
 
 // Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
-func (o GetGroupWarmPoolInstanceReusePolicyOutput) ReuseOnScaleIn() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetGroupWarmPoolInstanceReusePolicy) bool { return v.ReuseOnScaleIn }).(pulumi.BoolOutput)
+func (o GetGroupWarmPoolInstanceReusePolicyOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetGroupWarmPoolInstanceReusePolicy) *bool { return v.ReuseOnScaleIn }).(pulumi.BoolPtrOutput)
 }
 
 type GetGroupWarmPoolInstanceReusePolicyArrayOutput struct{ *pulumi.OutputState }

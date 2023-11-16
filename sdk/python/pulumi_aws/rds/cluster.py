@@ -2622,7 +2622,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> pulumi.Output[int]:
+    def allocated_storage(self) -> pulumi.Output[Optional[int]]:
         """
         The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         """
@@ -2638,7 +2638,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> pulumi.Output[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         """
@@ -2646,7 +2646,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of cluster
         """
@@ -2654,7 +2654,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
         RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
@@ -2673,7 +2673,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> pulumi.Output[int]:
+    def backup_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
         Days to retain backups for. Default `1`
         """
@@ -2681,7 +2681,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> pulumi.Output[str]:
+    def cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         """
@@ -2689,7 +2689,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterIdentifierPrefix")
-    def cluster_identifier_prefix(self) -> pulumi.Output[str]:
+    def cluster_identifier_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         """
@@ -2697,7 +2697,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterMembers")
-    def cluster_members(self) -> pulumi.Output[Sequence[str]]:
+    def cluster_members(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of RDS Instances that are a part of this cluster
         """
@@ -2705,7 +2705,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> pulumi.Output[str]:
+    def cluster_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         RDS Cluster Resource ID
         """
@@ -2721,7 +2721,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Output[str]:
+    def database_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         """
@@ -2737,7 +2737,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbClusterParameterGroupName")
-    def db_cluster_parameter_group_name(self) -> pulumi.Output[str]:
+    def db_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         A cluster parameter group to associate with the cluster.
         """
@@ -2753,7 +2753,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
-    def db_subnet_group_name(self) -> pulumi.Output[str]:
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         DB subnet group to associate with this DB cluster.
         **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
@@ -2762,7 +2762,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbSystemId")
-    def db_system_id(self) -> pulumi.Output[str]:
+    def db_system_id(self) -> pulumi.Output[Optional[str]]:
         """
         For use with RDS Custom.
         """
@@ -2804,7 +2804,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         DNS address of the RDS instance
         """
@@ -2828,7 +2828,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         """
@@ -2836,7 +2836,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersionActual")
-    def engine_version_actual(self) -> pulumi.Output[str]:
+    def engine_version_actual(self) -> pulumi.Output[Optional[str]]:
         """
         Running version of the database.
         """
@@ -2860,7 +2860,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> pulumi.Output[str]:
+    def hosted_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         Route53 Hosted Zone ID of the endpoint
         """
@@ -2876,7 +2876,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> pulumi.Output[Sequence[str]]:
+    def iam_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of ARNs for the IAM roles to associate to the RDS Cluster.
         """
@@ -2892,7 +2892,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         """
@@ -2916,7 +2916,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterUserSecretKmsKeyId")
-    def master_user_secret_kms_key_id(self) -> pulumi.Output[str]:
+    def master_user_secret_kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         """
@@ -2924,7 +2924,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterUserSecrets")
-    def master_user_secrets(self) -> pulumi.Output[Sequence['outputs.ClusterMasterUserSecret']]:
+    def master_user_secrets(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterMasterUserSecret']]]:
         """
         Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         """
@@ -2932,7 +2932,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterUsername")
-    def master_username(self) -> pulumi.Output[str]:
+    def master_username(self) -> pulumi.Output[Optional[str]]:
         """
         Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         """
@@ -2940,7 +2940,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> pulumi.Output[str]:
+    def network_type(self) -> pulumi.Output[Optional[str]]:
         """
         Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         """
@@ -2948,7 +2948,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         Port on which the DB accepts connections
         """
@@ -2956,7 +2956,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> pulumi.Output[str]:
+    def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
         """
         Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
@@ -2964,7 +2964,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> pulumi.Output[str]:
+    def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
@@ -2972,7 +2972,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readerEndpoint")
-    def reader_endpoint(self) -> pulumi.Output[str]:
+    def reader_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Read-only endpoint for the Aurora cluster, automatically
         load-balanced across replicas
@@ -3042,7 +3042,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> pulumi.Output[bool]:
+    def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         """
@@ -3050,7 +3050,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> pulumi.Output[str]:
+    def storage_type(self) -> pulumi.Output[Optional[str]]:
         """
         (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         """
@@ -3077,7 +3077,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of VPC security groups to associate with the Cluster
         """

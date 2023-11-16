@@ -61,7 +61,7 @@ type ServiceAction struct {
 	// Self-service action definition configuration block. Detailed below.
 	Definition ServiceActionDefinitionOutput `pulumi:"definition"`
 	// Self-service action description.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Self-service action name.
 	//
 	// The following arguments are optional:
@@ -255,8 +255,8 @@ func (o ServiceActionOutput) Definition() ServiceActionDefinitionOutput {
 }
 
 // Self-service action description.
-func (o ServiceActionOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o ServiceActionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAction) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Self-service action name.

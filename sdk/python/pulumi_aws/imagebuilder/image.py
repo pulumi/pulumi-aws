@@ -633,7 +633,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the image.
         """
@@ -649,7 +649,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> pulumi.Output[str]:
+    def date_created(self) -> pulumi.Output[Optional[str]]:
         """
         Date the image was created.
         """
@@ -681,7 +681,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageScanningConfiguration")
-    def image_scanning_configuration(self) -> pulumi.Output['outputs.ImageImageScanningConfiguration']:
+    def image_scanning_configuration(self) -> pulumi.Output[Optional['outputs.ImageImageScanningConfiguration']]:
         """
         Configuration block with image scanning configuration. Detailed below.
         """
@@ -689,7 +689,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageTestsConfiguration")
-    def image_tests_configuration(self) -> pulumi.Output['outputs.ImageImageTestsConfiguration']:
+    def image_tests_configuration(self) -> pulumi.Output[Optional['outputs.ImageImageTestsConfiguration']]:
         """
         Configuration block with image tests configuration. Detailed below.
         """
@@ -707,7 +707,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the AMI.
         """
@@ -715,7 +715,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osVersion")
-    def os_version(self) -> pulumi.Output[str]:
+    def os_version(self) -> pulumi.Output[Optional[str]]:
         """
         Operating System version of the image.
         """
@@ -723,7 +723,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputResources")
-    def output_resources(self) -> pulumi.Output[Sequence['outputs.ImageOutputResource']]:
+    def output_resources(self) -> pulumi.Output[Optional[Sequence['outputs.ImageOutputResource']]]:
         """
         List of objects with resources created by the image.
         """
@@ -731,7 +731,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output[str]:
+    def platform(self) -> pulumi.Output[Optional[str]]:
         """
         Platform of the image.
         """
@@ -758,7 +758,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of the image.
         """

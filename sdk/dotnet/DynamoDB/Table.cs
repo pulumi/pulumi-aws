@@ -152,7 +152,7 @@ namespace Pulumi.Aws.DynamoDB
         /// ARN of the table
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.DynamoDB
         /// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         /// </summary>
         [Output("hashKey")]
-        public Output<string> HashKey { get; private set; } = null!;
+        public Output<string?> HashKey { get; private set; } = null!;
 
         /// <summary>
         /// Import Amazon S3 data into a new table. See below.
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.DynamoDB
         /// Enable point-in-time recovery options. See below.
         /// </summary>
         [Output("pointInTimeRecovery")]
-        public Output<Outputs.TablePointInTimeRecovery> PointInTimeRecovery { get; private set; } = null!;
+        public Output<Outputs.TablePointInTimeRecovery?> PointInTimeRecovery { get; private set; } = null!;
 
         /// <summary>
         /// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.DynamoDB
         /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Output("readCapacity")]
-        public Output<int> ReadCapacity { get; private set; } = null!;
+        public Output<int?> ReadCapacity { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
@@ -250,13 +250,13 @@ namespace Pulumi.Aws.DynamoDB
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
         /// </summary>
         [Output("serverSideEncryption")]
-        public Output<Outputs.TableServerSideEncryption> ServerSideEncryption { get; private set; } = null!;
+        public Output<Outputs.TableServerSideEncryption?> ServerSideEncryption { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the Table Stream. Only available when `stream_enabled = true`
         /// </summary>
         [Output("streamArn")]
-        public Output<string> StreamArn { get; private set; } = null!;
+        public Output<string?> StreamArn { get; private set; } = null!;
 
         /// <summary>
         /// Whether Streams are enabled.
@@ -268,13 +268,13 @@ namespace Pulumi.Aws.DynamoDB
         /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         /// </summary>
         [Output("streamLabel")]
-        public Output<string> StreamLabel { get; private set; } = null!;
+        public Output<string?> StreamLabel { get; private set; } = null!;
 
         /// <summary>
         /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         /// </summary>
         [Output("streamViewType")]
-        public Output<string> StreamViewType { get; private set; } = null!;
+        public Output<string?> StreamViewType { get; private set; } = null!;
 
         /// <summary>
         /// Storage class of the table.
@@ -300,13 +300,13 @@ namespace Pulumi.Aws.DynamoDB
         /// Configuration block for TTL. See below.
         /// </summary>
         [Output("ttl")]
-        public Output<Outputs.TableTtl> Ttl { get; private set; } = null!;
+        public Output<Outputs.TableTtl?> Ttl { get; private set; } = null!;
 
         /// <summary>
         /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Output("writeCapacity")]
-        public Output<int> WriteCapacity { get; private set; } = null!;
+        public Output<int?> WriteCapacity { get; private set; } = null!;
 
 
         /// <summary>

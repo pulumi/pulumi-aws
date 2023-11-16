@@ -258,13 +258,13 @@ type ListenerRule struct {
 	// An Action block. Action blocks are documented below.
 	Actions ListenerRuleActionArrayOutput `pulumi:"actions"`
 	// The Amazon Resource Name (ARN) of the target group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 	Conditions ListenerRuleConditionArrayOutput `pulumi:"conditions"`
 	// The ARN of the listener to which to attach the rule.
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
 	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-	Priority pulumi.IntOutput `pulumi:"priority"`
+	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -483,8 +483,8 @@ func (o ListenerRuleOutput) Actions() ListenerRuleActionArrayOutput {
 }
 
 // The Amazon Resource Name (ARN) of the target group.
-func (o ListenerRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ListenerRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
@@ -498,8 +498,8 @@ func (o ListenerRuleOutput) ListenerArn() pulumi.StringOutput {
 }
 
 // The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v *ListenerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
+func (o ListenerRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerRule) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -27,13 +27,13 @@ namespace Pulumi.Aws.Glue
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
         [Output("catalogId")]
-        public Output<string> CatalogId { get; private set; } = null!;
+        public Output<string?> CatalogId { get; private set; } = null!;
 
         /// <summary>
         /// The time at which the partition was created.
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -45,13 +45,13 @@ namespace Pulumi.Aws.Glue
         /// The last time at which the partition was accessed.
         /// </summary>
         [Output("lastAccessedTime")]
-        public Output<string> LastAccessedTime { get; private set; } = null!;
+        public Output<string?> LastAccessedTime { get; private set; } = null!;
 
         /// <summary>
         /// The last time at which column statistics were computed for this partition.
         /// </summary>
         [Output("lastAnalyzedTime")]
-        public Output<string> LastAnalyzedTime { get; private set; } = null!;
+        public Output<string?> LastAnalyzedTime { get; private set; } = null!;
 
         /// <summary>
         /// Properties associated with this table, as a list of key-value pairs.

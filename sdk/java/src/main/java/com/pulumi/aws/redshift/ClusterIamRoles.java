@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -80,28 +81,28 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
-    private Output<String> defaultIamRoleArn;
+    private Output</* @Nullable */ String> defaultIamRoleArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
-    public Output<String> defaultIamRoleArn() {
-        return this.defaultIamRoleArn;
+    public Output<Optional<String>> defaultIamRoleArn() {
+        return Codegen.optional(this.defaultIamRoleArn);
     }
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      * 
      */
     @Export(name="iamRoleArns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> iamRoleArns;
+    private Output</* @Nullable */ List<String>> iamRoleArns;
 
     /**
      * @return A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      * 
      */
-    public Output<List<String>> iamRoleArns() {
-        return this.iamRoleArns;
+    public Output<Optional<List<String>>> iamRoleArns() {
+        return Codegen.optional(this.iamRoleArns);
     }
 
     /**

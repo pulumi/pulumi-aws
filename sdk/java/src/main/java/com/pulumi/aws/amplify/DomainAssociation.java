@@ -109,28 +109,28 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN for the domain association.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The DNS record for certificate verification.
      * 
      */
     @Export(name="certificateVerificationDnsRecord", refs={String.class}, tree="[0]")
-    private Output<String> certificateVerificationDnsRecord;
+    private Output</* @Nullable */ String> certificateVerificationDnsRecord;
 
     /**
      * @return The DNS record for certificate verification.
      * 
      */
-    public Output<String> certificateVerificationDnsRecord() {
-        return this.certificateVerificationDnsRecord;
+    public Output<Optional<String>> certificateVerificationDnsRecord() {
+        return Codegen.optional(this.certificateVerificationDnsRecord);
     }
     /**
      * Domain name for the domain association.

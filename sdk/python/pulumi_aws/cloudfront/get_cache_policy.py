@@ -50,7 +50,7 @@ class GetCachePolicyResult:
 
     @property
     @pulumi.getter
-    def comment(self) -> str:
+    def comment(self) -> Optional[str]:
         """
         Comment to describe the cache policy.
         """
@@ -58,7 +58,7 @@ class GetCachePolicyResult:
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> int:
+    def default_ttl(self) -> Optional[int]:
         """
         Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         """
@@ -66,7 +66,7 @@ class GetCachePolicyResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> Optional[str]:
         """
         Current version of the cache policy.
         """
@@ -79,7 +79,7 @@ class GetCachePolicyResult:
 
     @property
     @pulumi.getter(name="maxTtl")
-    def max_ttl(self) -> int:
+    def max_ttl(self) -> Optional[int]:
         """
         Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         """
@@ -87,7 +87,7 @@ class GetCachePolicyResult:
 
     @property
     @pulumi.getter(name="minTtl")
-    def min_ttl(self) -> int:
+    def min_ttl(self) -> Optional[int]:
         """
         Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         """
@@ -100,7 +100,7 @@ class GetCachePolicyResult:
 
     @property
     @pulumi.getter(name="parametersInCacheKeyAndForwardedToOrigins")
-    def parameters_in_cache_key_and_forwarded_to_origins(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult']:
+    def parameters_in_cache_key_and_forwarded_to_origins(self) -> Optional[Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult']]:
         """
         The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
         """

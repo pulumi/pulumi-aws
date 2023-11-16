@@ -50,13 +50,13 @@ namespace Pulumi.Aws.DeviceFarm
         /// The Amazon Resource Name of this upload.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The upload's category.
         /// </summary>
         [Output("category")]
-        public Output<string> Category { get; private set; } = null!;
+        public Output<string?> Category { get; private set; } = null!;
 
         /// <summary>
         /// The upload's content type (for example, application/octet-stream).
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.DeviceFarm
         /// The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
         /// </summary>
         [Output("metadata")]
-        public Output<string> Metadata { get; private set; } = null!;
+        public Output<string?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.DeviceFarm
         /// The presigned Amazon S3 URL that was used to store a file using a PUT request.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>

@@ -52,13 +52,13 @@ type ResolverFirewallRuleGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN (Amazon Resource Name) of the rule group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A name that lets you identify the rule group, to manage and use it.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
-	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
+	ShareStatus pulumi.StringPtrOutput `pulumi:"shareStatus"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -241,8 +241,8 @@ func (o ResolverFirewallRuleGroupOutput) ToResolverFirewallRuleGroupOutputWithCo
 }
 
 // The ARN (Amazon Resource Name) of the rule group.
-func (o ResolverFirewallRuleGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResolverFirewallRuleGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A name that lets you identify the rule group, to manage and use it.
@@ -251,13 +251,13 @@ func (o ResolverFirewallRuleGroupOutput) Name() pulumi.StringOutput {
 }
 
 // The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
-func (o ResolverFirewallRuleGroupOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o ResolverFirewallRuleGroupOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
-func (o ResolverFirewallRuleGroupOutput) ShareStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
+func (o ResolverFirewallRuleGroupOutput) ShareStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringPtrOutput { return v.ShareStatus }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

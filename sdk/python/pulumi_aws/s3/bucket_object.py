@@ -1313,7 +1313,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketKeyEnabled")
-    def bucket_key_enabled(self) -> pulumi.Output[bool]:
+    def bucket_key_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
@@ -1369,7 +1369,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> pulumi.Output[str]:
+    def content_type(self) -> pulumi.Output[Optional[str]]:
         """
         Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         """
@@ -1377,7 +1377,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         """
@@ -1403,7 +1403,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         """
@@ -1443,7 +1443,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> pulumi.Output[str]:
+    def server_side_encryption(self) -> pulumi.Output[Optional[str]]:
         """
         Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         """
@@ -1467,7 +1467,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> pulumi.Output[str]:
+    def storage_class(self) -> pulumi.Output[Optional[str]]:
         """
         [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         """
@@ -1494,7 +1494,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> pulumi.Output[str]:
+    def version_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique version ID value for the object, if bucket versioning is enabled.
         """

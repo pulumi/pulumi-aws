@@ -592,7 +592,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The current version of the response headers policy.
         """

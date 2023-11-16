@@ -6,6 +6,8 @@ package com.pulumi.aws.lambda.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCodeSigningConfigPolicy {
@@ -13,15 +15,15 @@ public final class GetCodeSigningConfigPolicy {
      * @return Code signing configuration policy for deployment validation failure.
      * 
      */
-    private String untrustedArtifactOnDeployment;
+    private @Nullable String untrustedArtifactOnDeployment;
 
     private GetCodeSigningConfigPolicy() {}
     /**
      * @return Code signing configuration policy for deployment validation failure.
      * 
      */
-    public String untrustedArtifactOnDeployment() {
-        return this.untrustedArtifactOnDeployment;
+    public Optional<String> untrustedArtifactOnDeployment() {
+        return Optional.ofNullable(this.untrustedArtifactOnDeployment);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetCodeSigningConfigPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String untrustedArtifactOnDeployment;
+        private @Nullable String untrustedArtifactOnDeployment;
         public Builder() {}
         public Builder(GetCodeSigningConfigPolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetCodeSigningConfigPolicy {
         }
 
         @CustomType.Setter
-        public Builder untrustedArtifactOnDeployment(String untrustedArtifactOnDeployment) {
-            this.untrustedArtifactOnDeployment = Objects.requireNonNull(untrustedArtifactOnDeployment);
+        public Builder untrustedArtifactOnDeployment(@Nullable String untrustedArtifactOnDeployment) {
+            this.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
             return this;
         }
         public GetCodeSigningConfigPolicy build() {

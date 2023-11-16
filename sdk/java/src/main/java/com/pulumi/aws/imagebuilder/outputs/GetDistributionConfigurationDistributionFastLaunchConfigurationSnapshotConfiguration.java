@@ -6,6 +6,8 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
@@ -13,15 +15,15 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
      * @return The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
      * 
      */
-    private Integer targetResourceCount;
+    private @Nullable Integer targetResourceCount;
 
     private GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration() {}
     /**
      * @return The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
      * 
      */
-    public Integer targetResourceCount() {
-        return this.targetResourceCount;
+    public Optional<Integer> targetResourceCount() {
+        return Optional.ofNullable(this.targetResourceCount);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer targetResourceCount;
+        private @Nullable Integer targetResourceCount;
         public Builder() {}
         public Builder(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
         }
 
         @CustomType.Setter
-        public Builder targetResourceCount(Integer targetResourceCount) {
-            this.targetResourceCount = Objects.requireNonNull(targetResourceCount);
+        public Builder targetResourceCount(@Nullable Integer targetResourceCount) {
+            this.targetResourceCount = targetResourceCount;
             return this;
         }
         public GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration build() {

@@ -59,15 +59,15 @@ type LookupUserArgs struct {
 // A collection of values returned by getUser.
 type LookupUserResult struct {
 	// Access permissions string used for this user.
-	AccessString string `pulumi:"accessString"`
+	AccessString *string `pulumi:"accessString"`
 	// ARN of the user.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Denotes the user's authentication properties.
 	AuthenticationModes []GetUserAuthenticationMode `pulumi:"authenticationModes"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The minimum engine version supported for the user.
-	MinimumEngineVersion string `pulumi:"minimumEngineVersion"`
+	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
 	// Map of tags assigned to the subnet group.
 	Tags     map[string]string `pulumi:"tags"`
 	UserName string            `pulumi:"userName"`
@@ -114,13 +114,13 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 }
 
 // Access permissions string used for this user.
-func (o LookupUserResultOutput) AccessString() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.AccessString }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) AccessString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.AccessString }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the user.
-func (o LookupUserResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Denotes the user's authentication properties.
@@ -129,13 +129,13 @@ func (o LookupUserResultOutput) AuthenticationModes() GetUserAuthenticationModeA
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupUserResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The minimum engine version supported for the user.
-func (o LookupUserResultOutput) MinimumEngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.MinimumEngineVersion }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) MinimumEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.MinimumEngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the subnet group.

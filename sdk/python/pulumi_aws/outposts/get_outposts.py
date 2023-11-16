@@ -46,7 +46,7 @@ class GetOutpostsResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         Set of Amazon Resource Names (ARNs).
         """
@@ -54,17 +54,17 @@ class GetOutpostsResult:
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> str:
+    def availability_zone_id(self) -> Optional[str]:
         return pulumi.get(self, "availability_zone_id")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -72,7 +72,7 @@ class GetOutpostsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> Sequence[str]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         Set of identifiers.
         """
@@ -80,12 +80,12 @@ class GetOutpostsResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="siteId")
-    def site_id(self) -> str:
+    def site_id(self) -> Optional[str]:
         return pulumi.get(self, "site_id")
 
 

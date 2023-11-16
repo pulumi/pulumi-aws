@@ -7,6 +7,7 @@ import com.pulumi.aws.opensearch.outputs.GetDomainOffPeakWindowOptionsOffPeakWin
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainOffPeakWindowOptionsOffPeakWindow {
@@ -14,7 +15,7 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindow {
      * @return 10h window for updates
      * 
      */
-    private List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes;
+    private @Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes;
 
     private GetDomainOffPeakWindowOptionsOffPeakWindow() {}
     /**
@@ -22,7 +23,7 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindow {
      * 
      */
     public List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes() {
-        return this.windowStartTimes;
+        return this.windowStartTimes == null ? List.of() : this.windowStartTimes;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindow {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes;
+        private @Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes;
         public Builder() {}
         public Builder(GetDomainOffPeakWindowOptionsOffPeakWindow defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindow {
         }
 
         @CustomType.Setter
-        public Builder windowStartTimes(List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes) {
-            this.windowStartTimes = Objects.requireNonNull(windowStartTimes);
+        public Builder windowStartTimes(@Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes) {
+            this.windowStartTimes = windowStartTimes;
             return this;
         }
         public Builder windowStartTimes(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime... windowStartTimes) {

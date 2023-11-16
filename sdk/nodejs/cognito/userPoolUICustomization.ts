@@ -92,7 +92,7 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
     /**
      * The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
      */
@@ -100,7 +100,7 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
     /**
      * The CSS version number.
      */
-    public /*out*/ readonly cssVersion!: pulumi.Output<string>;
+    public /*out*/ readonly cssVersion!: pulumi.Output<string | undefined>;
     /**
      * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
      */
@@ -108,11 +108,11 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
     /**
      * The logo image URL for the UI customization.
      */
-    public /*out*/ readonly imageUrl!: pulumi.Output<string>;
+    public /*out*/ readonly imageUrl!: pulumi.Output<string | undefined>;
     /**
      * The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      */
-    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string | undefined>;
     /**
      * The user pool ID for the user pool.
      */

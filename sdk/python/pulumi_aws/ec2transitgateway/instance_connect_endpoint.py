@@ -488,7 +488,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
         """
@@ -496,7 +496,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The Availability Zone of the EC2 Instance Connect Endpoint.
         """
@@ -504,7 +504,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the EC2 Instance Connect Endpoint.
         """
@@ -512,7 +512,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fipsDnsName")
-    def fips_dns_name(self) -> pulumi.Output[str]:
+    def fips_dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the EC2 Instance Connect FIPS Endpoint.
         """
@@ -520,7 +520,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
+    def network_interface_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
         """
@@ -528,7 +528,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that created the EC2 Instance Connect Endpoint.
         """
@@ -536,7 +536,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preserveClientIp")
-    def preserve_client_ip(self) -> pulumi.Output[bool]:
+    def preserve_client_ip(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether your client's IP address is preserved as the source. Default: `true`.
         """
@@ -544,7 +544,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         """
@@ -584,7 +584,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
         """

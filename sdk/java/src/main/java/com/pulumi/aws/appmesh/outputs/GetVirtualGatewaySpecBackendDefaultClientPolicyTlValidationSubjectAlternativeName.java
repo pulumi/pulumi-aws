@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientP
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName {
-    private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches;
 
     private GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName() {}
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSu
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSu
         }
 
         @CustomType.Setter
-        public Builder matches(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch... matches) {

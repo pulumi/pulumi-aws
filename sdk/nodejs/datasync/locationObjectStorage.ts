@@ -69,7 +69,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The bucket on the self-managed object storage server that is used to read data from.
      */
@@ -97,7 +97,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     /**
      * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -111,7 +111,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     /**
      * The URL of the Object Storage location that was described.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LocationObjectStorage resource with the given unique name, arguments, and options.

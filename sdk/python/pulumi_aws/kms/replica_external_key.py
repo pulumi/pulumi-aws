@@ -664,7 +664,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
         """
@@ -700,7 +700,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         """
@@ -708,7 +708,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationModel")
-    def expiration_model(self) -> pulumi.Output[str]:
+    def expiration_model(self) -> pulumi.Output[Optional[str]]:
         """
         Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
         """
@@ -716,7 +716,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> pulumi.Output[str]:
+    def key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The key ID of the replica key. Related multi-Region keys have the same key ID.
         """
@@ -732,7 +732,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyState")
-    def key_state(self) -> pulumi.Output[str]:
+    def key_state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the replica key.
         """
@@ -740,7 +740,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> pulumi.Output[str]:
+    def key_usage(self) -> pulumi.Output[Optional[str]]:
         """
         The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
         """
@@ -748,7 +748,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         """

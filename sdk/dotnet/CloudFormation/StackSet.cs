@@ -157,7 +157,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Amazon Resource Name (ARN) of the StackSet.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
         [Output("executionRoleName")]
-        public Output<string> ExecutionRoleName { get; private set; } = null!;
+        public Output<string?> ExecutionRoleName { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Unique identifier of the StackSet.
         /// </summary>
         [Output("stackSetId")]
-        public Output<string> StackSetId { get; private set; } = null!;
+        public Output<string?> StackSetId { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.CloudFormation
         /// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         /// </summary>
         [Output("templateBody")]
-        public Output<string> TemplateBody { get; private set; } = null!;
+        public Output<string?> TemplateBody { get; private set; } = null!;
 
         /// <summary>
         /// String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.

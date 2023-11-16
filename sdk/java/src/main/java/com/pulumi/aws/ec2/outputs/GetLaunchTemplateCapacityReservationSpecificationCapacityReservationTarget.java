@@ -6,18 +6,20 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
-    private String capacityReservationId;
-    private String capacityReservationResourceGroupArn;
+    private @Nullable String capacityReservationId;
+    private @Nullable String capacityReservationResourceGroupArn;
 
     private GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget() {}
-    public String capacityReservationId() {
-        return this.capacityReservationId;
+    public Optional<String> capacityReservationId() {
+        return Optional.ofNullable(this.capacityReservationId);
     }
-    public String capacityReservationResourceGroupArn() {
-        return this.capacityReservationResourceGroupArn;
+    public Optional<String> capacityReservationResourceGroupArn() {
+        return Optional.ofNullable(this.capacityReservationResourceGroupArn);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetLaunchTemplateCapacityReservationSpecificationCapacityRese
     }
     @CustomType.Builder
     public static final class Builder {
-        private String capacityReservationId;
-        private String capacityReservationResourceGroupArn;
+        private @Nullable String capacityReservationId;
+        private @Nullable String capacityReservationResourceGroupArn;
         public Builder() {}
         public Builder(GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetLaunchTemplateCapacityReservationSpecificationCapacityRese
         }
 
         @CustomType.Setter
-        public Builder capacityReservationId(String capacityReservationId) {
-            this.capacityReservationId = Objects.requireNonNull(capacityReservationId);
+        public Builder capacityReservationId(@Nullable String capacityReservationId) {
+            this.capacityReservationId = capacityReservationId;
             return this;
         }
         @CustomType.Setter
-        public Builder capacityReservationResourceGroupArn(String capacityReservationResourceGroupArn) {
-            this.capacityReservationResourceGroupArn = Objects.requireNonNull(capacityReservationResourceGroupArn);
+        public Builder capacityReservationResourceGroupArn(@Nullable String capacityReservationResourceGroupArn) {
+            this.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
             return this;
         }
         public GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget build() {

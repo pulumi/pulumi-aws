@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Lambda.Outputs
         /// <summary>
         /// Code signing configuration policy for deployment validation failure.
         /// </summary>
-        public readonly string UntrustedArtifactOnDeployment;
+        public readonly string? UntrustedArtifactOnDeployment;
 
         [OutputConstructor]
-        private GetCodeSigningConfigPolicyResult(string untrustedArtifactOnDeployment)
+        private GetCodeSigningConfigPolicyResult(string? untrustedArtifactOnDeployment)
         {
             UntrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
         }

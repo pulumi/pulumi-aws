@@ -61,7 +61,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for the certificate.
         """
@@ -69,7 +69,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="certificateCreationDate")
-    def certificate_creation_date(self) -> str:
+    def certificate_creation_date(self) -> Optional[str]:
         """
         The date that the certificate was created.
         """
@@ -82,7 +82,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="certificateOwner")
-    def certificate_owner(self) -> str:
+    def certificate_owner(self) -> Optional[str]:
         """
         The owner of the certificate.
         """
@@ -90,7 +90,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="certificatePem")
-    def certificate_pem(self) -> str:
+    def certificate_pem(self) -> Optional[str]:
         """
         The contents of a .pem file, which contains an X.509 certificate.
         """
@@ -98,7 +98,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="certificateWallet")
-    def certificate_wallet(self) -> str:
+    def certificate_wallet(self) -> Optional[str]:
         """
         The owner of the certificate.
         """
@@ -106,7 +106,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -114,7 +114,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="keyLength")
-    def key_length(self) -> int:
+    def key_length(self) -> Optional[int]:
         """
         The key length of the cryptographic algorithm being used.
         """
@@ -122,7 +122,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="signingAlgorithm")
-    def signing_algorithm(self) -> str:
+    def signing_algorithm(self) -> Optional[str]:
         """
         The algorithm for the certificate.
         """
@@ -130,12 +130,12 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="validFromDate")
-    def valid_from_date(self) -> str:
+    def valid_from_date(self) -> Optional[str]:
         """
         The beginning date that the certificate is valid.
         """
@@ -143,7 +143,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="validToDate")
-    def valid_to_date(self) -> str:
+    def valid_to_date(self) -> Optional[str]:
         """
         The final date that the certificate is valid.
         """

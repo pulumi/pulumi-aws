@@ -41,11 +41,11 @@ type LookupInvocationArgs struct {
 type LookupInvocationResult struct {
 	FunctionName string `pulumi:"functionName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string  `pulumi:"id"`
+	Id        *string `pulumi:"id"`
 	Input     string  `pulumi:"input"`
 	Qualifier *string `pulumi:"qualifier"`
 	// String result of the lambda function invocation.
-	Result string `pulumi:"result"`
+	Result *string `pulumi:"result"`
 }
 
 func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs, opts ...pulumi.InvokeOption) LookupInvocationResultOutput {
@@ -96,8 +96,8 @@ func (o LookupInvocationResultOutput) FunctionName() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupInvocationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInvocationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupInvocationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInvocationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupInvocationResultOutput) Input() pulumi.StringOutput {
@@ -109,8 +109,8 @@ func (o LookupInvocationResultOutput) Qualifier() pulumi.StringPtrOutput {
 }
 
 // String result of the lambda function invocation.
-func (o LookupInvocationResultOutput) Result() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInvocationResult) string { return v.Result }).(pulumi.StringOutput)
+func (o LookupInvocationResultOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInvocationResult) *string { return v.Result }).(pulumi.StringPtrOutput)
 }
 
 func init() {

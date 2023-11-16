@@ -106,15 +106,15 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the secret.
         /// </summary>
-        public readonly bool RotationEnabled;
+        public readonly bool? RotationEnabled;
         /// <summary>
         /// Decrypted part of the protected secret information that was originally provided as a string.
         /// </summary>
-        public readonly string RotationLambdaArn;
+        public readonly string? RotationLambdaArn;
         /// <summary>
         /// Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
         /// </summary>
@@ -123,11 +123,11 @@ namespace Pulumi.Aws.SecretsManager
 
         [OutputConstructor]
         private GetSecretRotationResult(
-            string id,
+            string? id,
 
-            bool rotationEnabled,
+            bool? rotationEnabled,
 
-            string rotationLambdaArn,
+            string? rotationLambdaArn,
 
             ImmutableArray<Outputs.GetSecretRotationRotationRuleResult> rotationRules,
 

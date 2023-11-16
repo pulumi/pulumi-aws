@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// DNS name.
         /// </summary>
-        public readonly string DnsName;
+        public readonly string? DnsName;
         /// <summary>
         /// ID of the private hosted zone.
         /// </summary>
-        public readonly string HostedZoneId;
+        public readonly string? HostedZoneId;
 
         [OutputConstructor]
         private GetVpcEndpointDnsEntryResult(
-            string dnsName,
+            string? dnsName,
 
-            string hostedZoneId)
+            string? hostedZoneId)
         {
             DnsName = dnsName;
             HostedZoneId = hostedZoneId;

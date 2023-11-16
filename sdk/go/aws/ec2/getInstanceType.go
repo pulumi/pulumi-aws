@@ -57,45 +57,45 @@ type GetInstanceTypeArgs struct {
 // A collection of values returned by getInstanceType.
 type GetInstanceTypeResult struct {
 	// `true` if auto recovery is supported.
-	AutoRecoverySupported bool `pulumi:"autoRecoverySupported"`
+	AutoRecoverySupported *bool `pulumi:"autoRecoverySupported"`
 	// `true` if it is a bare metal instance type.
-	BareMetal bool `pulumi:"bareMetal"`
+	BareMetal *bool `pulumi:"bareMetal"`
 	// `true` if the instance type is a burstable performance instance type.
-	BurstablePerformanceSupported bool `pulumi:"burstablePerformanceSupported"`
+	BurstablePerformanceSupported *bool `pulumi:"burstablePerformanceSupported"`
 	// `true`  if the instance type is a current generation.
-	CurrentGeneration bool `pulumi:"currentGeneration"`
+	CurrentGeneration *bool `pulumi:"currentGeneration"`
 	// `true` if Dedicated Hosts are supported on the instance type.
-	DedicatedHostsSupported bool `pulumi:"dedicatedHostsSupported"`
+	DedicatedHostsSupported *bool `pulumi:"dedicatedHostsSupported"`
 	// Default number of cores for the instance type.
-	DefaultCores int `pulumi:"defaultCores"`
+	DefaultCores *int `pulumi:"defaultCores"`
 	// The  default  number of threads per core for the instance type.
-	DefaultThreadsPerCore int `pulumi:"defaultThreadsPerCore"`
+	DefaultThreadsPerCore *int `pulumi:"defaultThreadsPerCore"`
 	// Default number of vCPUs for the instance type.
-	DefaultVcpus int `pulumi:"defaultVcpus"`
+	DefaultVcpus *int `pulumi:"defaultVcpus"`
 	// Indicates whether Amazon EBS encryption is supported.
-	EbsEncryptionSupport string `pulumi:"ebsEncryptionSupport"`
+	EbsEncryptionSupport *string `pulumi:"ebsEncryptionSupport"`
 	// Whether non-volatile memory express (NVMe) is supported.
-	EbsNvmeSupport string `pulumi:"ebsNvmeSupport"`
+	EbsNvmeSupport *string `pulumi:"ebsNvmeSupport"`
 	// Indicates that the instance type is Amazon EBS-optimized.
-	EbsOptimizedSupport string `pulumi:"ebsOptimizedSupport"`
+	EbsOptimizedSupport *string `pulumi:"ebsOptimizedSupport"`
 	// The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
-	EbsPerformanceBaselineBandwidth int `pulumi:"ebsPerformanceBaselineBandwidth"`
+	EbsPerformanceBaselineBandwidth *int `pulumi:"ebsPerformanceBaselineBandwidth"`
 	// The baseline input/output storage operations per seconds for an EBS-optimized instance type.
-	EbsPerformanceBaselineIops int `pulumi:"ebsPerformanceBaselineIops"`
+	EbsPerformanceBaselineIops *int `pulumi:"ebsPerformanceBaselineIops"`
 	// The baseline throughput performance for an EBS-optimized instance type, in MBps.
-	EbsPerformanceBaselineThroughput float64 `pulumi:"ebsPerformanceBaselineThroughput"`
+	EbsPerformanceBaselineThroughput *float64 `pulumi:"ebsPerformanceBaselineThroughput"`
 	// The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
-	EbsPerformanceMaximumBandwidth int `pulumi:"ebsPerformanceMaximumBandwidth"`
+	EbsPerformanceMaximumBandwidth *int `pulumi:"ebsPerformanceMaximumBandwidth"`
 	// The maximum input/output storage operations per second for an EBS-optimized instance type.
-	EbsPerformanceMaximumIops int `pulumi:"ebsPerformanceMaximumIops"`
+	EbsPerformanceMaximumIops *int `pulumi:"ebsPerformanceMaximumIops"`
 	// The maximum throughput performance for an EBS-optimized instance type, in MBps.
-	EbsPerformanceMaximumThroughput float64 `pulumi:"ebsPerformanceMaximumThroughput"`
+	EbsPerformanceMaximumThroughput *float64 `pulumi:"ebsPerformanceMaximumThroughput"`
 	// Whether Elastic Fabric Adapter (EFA) is supported.
-	EfaSupported bool `pulumi:"efaSupported"`
+	EfaSupported *bool `pulumi:"efaSupported"`
 	// Whether Elastic Network Adapter (ENA) is supported.
-	EnaSupport string `pulumi:"enaSupport"`
+	EnaSupport *string `pulumi:"enaSupport"`
 	// Indicates whether encryption in-transit between instances is supported.
-	EncryptionInTransitSupported bool `pulumi:"encryptionInTransitSupported"`
+	EncryptionInTransitSupported *bool `pulumi:"encryptionInTransitSupported"`
 	// Describes the FPGA accelerator settings for the instance type.
 	// * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
 	// * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
@@ -103,7 +103,7 @@ type GetInstanceTypeResult struct {
 	// * `fpgas.#.name` - The name of the FPGA accelerator.
 	Fpgas []GetInstanceTypeFpga `pulumi:"fpgas"`
 	// `true` if the instance type is eligible for the free tier.
-	FreeTierEligible bool `pulumi:"freeTierEligible"`
+	FreeTierEligible *bool `pulumi:"freeTierEligible"`
 	// Describes the GPU accelerators for the instance type.
 	// * `gpus.#.count` - The number of GPUs for the instance type.
 	// * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
@@ -111,11 +111,11 @@ type GetInstanceTypeResult struct {
 	// * `gpus.#.name` - The name of the GPU accelerator.
 	Gpuses []GetInstanceTypeGpus `pulumi:"gpuses"`
 	// `true` if On-Demand hibernation is supported.
-	HibernationSupported bool `pulumi:"hibernationSupported"`
+	HibernationSupported *bool `pulumi:"hibernationSupported"`
 	// Hypervisor used for the instance type.
-	Hypervisor string `pulumi:"hypervisor"`
+	Hypervisor *string `pulumi:"hypervisor"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Describes the Inference accelerators for the instance type.
 	// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
 	// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
@@ -127,20 +127,20 @@ type GetInstanceTypeResult struct {
 	// * `instance_disks.#.type` - The type of disk.
 	InstanceDisks []GetInstanceTypeInstanceDisk `pulumi:"instanceDisks"`
 	// `true` if instance storage is supported.
-	InstanceStorageSupported bool   `pulumi:"instanceStorageSupported"`
+	InstanceStorageSupported *bool  `pulumi:"instanceStorageSupported"`
 	InstanceType             string `pulumi:"instanceType"`
 	// `true` if IPv6 is supported.
-	Ipv6Supported bool `pulumi:"ipv6Supported"`
+	Ipv6Supported *bool `pulumi:"ipv6Supported"`
 	// The maximum number of IPv4 addresses per network interface.
-	MaximumIpv4AddressesPerInterface int `pulumi:"maximumIpv4AddressesPerInterface"`
+	MaximumIpv4AddressesPerInterface *int `pulumi:"maximumIpv4AddressesPerInterface"`
 	// The maximum number of IPv6 addresses per network interface.
-	MaximumIpv6AddressesPerInterface int `pulumi:"maximumIpv6AddressesPerInterface"`
+	MaximumIpv6AddressesPerInterface *int `pulumi:"maximumIpv6AddressesPerInterface"`
 	// The maximum number of network interfaces for the instance type.
-	MaximumNetworkInterfaces int `pulumi:"maximumNetworkInterfaces"`
+	MaximumNetworkInterfaces *int `pulumi:"maximumNetworkInterfaces"`
 	// Size of the instance memory, in MiB.
-	MemorySize int `pulumi:"memorySize"`
+	MemorySize *int `pulumi:"memorySize"`
 	// Describes the network performance.
-	NetworkPerformance string `pulumi:"networkPerformance"`
+	NetworkPerformance *string `pulumi:"networkPerformance"`
 	// A list of architectures supported by the instance type.
 	SupportedArchitectures []string `pulumi:"supportedArchitectures"`
 	// A list of supported placement groups types.
@@ -152,13 +152,13 @@ type GetInstanceTypeResult struct {
 	// The supported virtualization types.
 	SupportedVirtualizationTypes []string `pulumi:"supportedVirtualizationTypes"`
 	// The speed of the processor, in GHz.
-	SustainedClockSpeed float64 `pulumi:"sustainedClockSpeed"`
+	SustainedClockSpeed *float64 `pulumi:"sustainedClockSpeed"`
 	// Total memory of all FPGA accelerators for the instance type (in MiB).
-	TotalFpgaMemory int `pulumi:"totalFpgaMemory"`
+	TotalFpgaMemory *int `pulumi:"totalFpgaMemory"`
 	// Total size of the memory for the GPU accelerators for the instance type (in MiB).
-	TotalGpuMemory int `pulumi:"totalGpuMemory"`
+	TotalGpuMemory *int `pulumi:"totalGpuMemory"`
 	// The total size of the instance disks, in GB.
-	TotalInstanceStorage int `pulumi:"totalInstanceStorage"`
+	TotalInstanceStorage *int `pulumi:"totalInstanceStorage"`
 	// List of the valid number of cores that can be configured for the instance type.
 	ValidCores []int `pulumi:"validCores"`
 	// List of the valid number of threads per core that can be configured for the instance type.
@@ -204,103 +204,103 @@ func (o GetInstanceTypeResultOutput) ToGetInstanceTypeResultOutputWithContext(ct
 }
 
 // `true` if auto recovery is supported.
-func (o GetInstanceTypeResultOutput) AutoRecoverySupported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.AutoRecoverySupported }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) AutoRecoverySupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.AutoRecoverySupported }).(pulumi.BoolPtrOutput)
 }
 
 // `true` if it is a bare metal instance type.
-func (o GetInstanceTypeResultOutput) BareMetal() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.BareMetal }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) BareMetal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.BareMetal }).(pulumi.BoolPtrOutput)
 }
 
 // `true` if the instance type is a burstable performance instance type.
-func (o GetInstanceTypeResultOutput) BurstablePerformanceSupported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.BurstablePerformanceSupported }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) BurstablePerformanceSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.BurstablePerformanceSupported }).(pulumi.BoolPtrOutput)
 }
 
 // `true`  if the instance type is a current generation.
-func (o GetInstanceTypeResultOutput) CurrentGeneration() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.CurrentGeneration }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) CurrentGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.CurrentGeneration }).(pulumi.BoolPtrOutput)
 }
 
 // `true` if Dedicated Hosts are supported on the instance type.
-func (o GetInstanceTypeResultOutput) DedicatedHostsSupported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.DedicatedHostsSupported }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) DedicatedHostsSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.DedicatedHostsSupported }).(pulumi.BoolPtrOutput)
 }
 
 // Default number of cores for the instance type.
-func (o GetInstanceTypeResultOutput) DefaultCores() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.DefaultCores }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) DefaultCores() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.DefaultCores }).(pulumi.IntPtrOutput)
 }
 
 // The  default  number of threads per core for the instance type.
-func (o GetInstanceTypeResultOutput) DefaultThreadsPerCore() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.DefaultThreadsPerCore }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) DefaultThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.DefaultThreadsPerCore }).(pulumi.IntPtrOutput)
 }
 
 // Default number of vCPUs for the instance type.
-func (o GetInstanceTypeResultOutput) DefaultVcpus() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.DefaultVcpus }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) DefaultVcpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.DefaultVcpus }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether Amazon EBS encryption is supported.
-func (o GetInstanceTypeResultOutput) EbsEncryptionSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.EbsEncryptionSupport }).(pulumi.StringOutput)
+func (o GetInstanceTypeResultOutput) EbsEncryptionSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *string { return v.EbsEncryptionSupport }).(pulumi.StringPtrOutput)
 }
 
 // Whether non-volatile memory express (NVMe) is supported.
-func (o GetInstanceTypeResultOutput) EbsNvmeSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.EbsNvmeSupport }).(pulumi.StringOutput)
+func (o GetInstanceTypeResultOutput) EbsNvmeSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *string { return v.EbsNvmeSupport }).(pulumi.StringPtrOutput)
 }
 
 // Indicates that the instance type is Amazon EBS-optimized.
-func (o GetInstanceTypeResultOutput) EbsOptimizedSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.EbsOptimizedSupport }).(pulumi.StringOutput)
+func (o GetInstanceTypeResultOutput) EbsOptimizedSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *string { return v.EbsOptimizedSupport }).(pulumi.StringPtrOutput)
 }
 
 // The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
-func (o GetInstanceTypeResultOutput) EbsPerformanceBaselineBandwidth() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.EbsPerformanceBaselineBandwidth }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) EbsPerformanceBaselineBandwidth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.EbsPerformanceBaselineBandwidth }).(pulumi.IntPtrOutput)
 }
 
 // The baseline input/output storage operations per seconds for an EBS-optimized instance type.
-func (o GetInstanceTypeResultOutput) EbsPerformanceBaselineIops() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.EbsPerformanceBaselineIops }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) EbsPerformanceBaselineIops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.EbsPerformanceBaselineIops }).(pulumi.IntPtrOutput)
 }
 
 // The baseline throughput performance for an EBS-optimized instance type, in MBps.
-func (o GetInstanceTypeResultOutput) EbsPerformanceBaselineThroughput() pulumi.Float64Output {
-	return o.ApplyT(func(v GetInstanceTypeResult) float64 { return v.EbsPerformanceBaselineThroughput }).(pulumi.Float64Output)
+func (o GetInstanceTypeResultOutput) EbsPerformanceBaselineThroughput() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *float64 { return v.EbsPerformanceBaselineThroughput }).(pulumi.Float64PtrOutput)
 }
 
 // The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
-func (o GetInstanceTypeResultOutput) EbsPerformanceMaximumBandwidth() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.EbsPerformanceMaximumBandwidth }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) EbsPerformanceMaximumBandwidth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.EbsPerformanceMaximumBandwidth }).(pulumi.IntPtrOutput)
 }
 
 // The maximum input/output storage operations per second for an EBS-optimized instance type.
-func (o GetInstanceTypeResultOutput) EbsPerformanceMaximumIops() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.EbsPerformanceMaximumIops }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) EbsPerformanceMaximumIops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.EbsPerformanceMaximumIops }).(pulumi.IntPtrOutput)
 }
 
 // The maximum throughput performance for an EBS-optimized instance type, in MBps.
-func (o GetInstanceTypeResultOutput) EbsPerformanceMaximumThroughput() pulumi.Float64Output {
-	return o.ApplyT(func(v GetInstanceTypeResult) float64 { return v.EbsPerformanceMaximumThroughput }).(pulumi.Float64Output)
+func (o GetInstanceTypeResultOutput) EbsPerformanceMaximumThroughput() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *float64 { return v.EbsPerformanceMaximumThroughput }).(pulumi.Float64PtrOutput)
 }
 
 // Whether Elastic Fabric Adapter (EFA) is supported.
-func (o GetInstanceTypeResultOutput) EfaSupported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.EfaSupported }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) EfaSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.EfaSupported }).(pulumi.BoolPtrOutput)
 }
 
 // Whether Elastic Network Adapter (ENA) is supported.
-func (o GetInstanceTypeResultOutput) EnaSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.EnaSupport }).(pulumi.StringOutput)
+func (o GetInstanceTypeResultOutput) EnaSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *string { return v.EnaSupport }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether encryption in-transit between instances is supported.
-func (o GetInstanceTypeResultOutput) EncryptionInTransitSupported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.EncryptionInTransitSupported }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) EncryptionInTransitSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.EncryptionInTransitSupported }).(pulumi.BoolPtrOutput)
 }
 
 // Describes the FPGA accelerator settings for the instance type.
@@ -313,8 +313,8 @@ func (o GetInstanceTypeResultOutput) Fpgas() GetInstanceTypeFpgaArrayOutput {
 }
 
 // `true` if the instance type is eligible for the free tier.
-func (o GetInstanceTypeResultOutput) FreeTierEligible() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.FreeTierEligible }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) FreeTierEligible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.FreeTierEligible }).(pulumi.BoolPtrOutput)
 }
 
 // Describes the GPU accelerators for the instance type.
@@ -327,18 +327,18 @@ func (o GetInstanceTypeResultOutput) Gpuses() GetInstanceTypeGpusArrayOutput {
 }
 
 // `true` if On-Demand hibernation is supported.
-func (o GetInstanceTypeResultOutput) HibernationSupported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.HibernationSupported }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) HibernationSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.HibernationSupported }).(pulumi.BoolPtrOutput)
 }
 
 // Hypervisor used for the instance type.
-func (o GetInstanceTypeResultOutput) Hypervisor() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.Hypervisor }).(pulumi.StringOutput)
+func (o GetInstanceTypeResultOutput) Hypervisor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *string { return v.Hypervisor }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetInstanceTypeResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetInstanceTypeResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Describes the Inference accelerators for the instance type.
@@ -358,8 +358,8 @@ func (o GetInstanceTypeResultOutput) InstanceDisks() GetInstanceTypeInstanceDisk
 }
 
 // `true` if instance storage is supported.
-func (o GetInstanceTypeResultOutput) InstanceStorageSupported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.InstanceStorageSupported }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) InstanceStorageSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.InstanceStorageSupported }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetInstanceTypeResultOutput) InstanceType() pulumi.StringOutput {
@@ -367,33 +367,33 @@ func (o GetInstanceTypeResultOutput) InstanceType() pulumi.StringOutput {
 }
 
 // `true` if IPv6 is supported.
-func (o GetInstanceTypeResultOutput) Ipv6Supported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.Ipv6Supported }).(pulumi.BoolOutput)
+func (o GetInstanceTypeResultOutput) Ipv6Supported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *bool { return v.Ipv6Supported }).(pulumi.BoolPtrOutput)
 }
 
 // The maximum number of IPv4 addresses per network interface.
-func (o GetInstanceTypeResultOutput) MaximumIpv4AddressesPerInterface() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.MaximumIpv4AddressesPerInterface }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) MaximumIpv4AddressesPerInterface() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.MaximumIpv4AddressesPerInterface }).(pulumi.IntPtrOutput)
 }
 
 // The maximum number of IPv6 addresses per network interface.
-func (o GetInstanceTypeResultOutput) MaximumIpv6AddressesPerInterface() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.MaximumIpv6AddressesPerInterface }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) MaximumIpv6AddressesPerInterface() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.MaximumIpv6AddressesPerInterface }).(pulumi.IntPtrOutput)
 }
 
 // The maximum number of network interfaces for the instance type.
-func (o GetInstanceTypeResultOutput) MaximumNetworkInterfaces() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.MaximumNetworkInterfaces }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) MaximumNetworkInterfaces() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.MaximumNetworkInterfaces }).(pulumi.IntPtrOutput)
 }
 
 // Size of the instance memory, in MiB.
-func (o GetInstanceTypeResultOutput) MemorySize() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.MemorySize }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) MemorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.MemorySize }).(pulumi.IntPtrOutput)
 }
 
 // Describes the network performance.
-func (o GetInstanceTypeResultOutput) NetworkPerformance() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.NetworkPerformance }).(pulumi.StringOutput)
+func (o GetInstanceTypeResultOutput) NetworkPerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *string { return v.NetworkPerformance }).(pulumi.StringPtrOutput)
 }
 
 // A list of architectures supported by the instance type.
@@ -422,23 +422,23 @@ func (o GetInstanceTypeResultOutput) SupportedVirtualizationTypes() pulumi.Strin
 }
 
 // The speed of the processor, in GHz.
-func (o GetInstanceTypeResultOutput) SustainedClockSpeed() pulumi.Float64Output {
-	return o.ApplyT(func(v GetInstanceTypeResult) float64 { return v.SustainedClockSpeed }).(pulumi.Float64Output)
+func (o GetInstanceTypeResultOutput) SustainedClockSpeed() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *float64 { return v.SustainedClockSpeed }).(pulumi.Float64PtrOutput)
 }
 
 // Total memory of all FPGA accelerators for the instance type (in MiB).
-func (o GetInstanceTypeResultOutput) TotalFpgaMemory() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalFpgaMemory }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) TotalFpgaMemory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.TotalFpgaMemory }).(pulumi.IntPtrOutput)
 }
 
 // Total size of the memory for the GPU accelerators for the instance type (in MiB).
-func (o GetInstanceTypeResultOutput) TotalGpuMemory() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalGpuMemory }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) TotalGpuMemory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.TotalGpuMemory }).(pulumi.IntPtrOutput)
 }
 
 // The total size of the instance disks, in GB.
-func (o GetInstanceTypeResultOutput) TotalInstanceStorage() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalInstanceStorage }).(pulumi.IntOutput)
+func (o GetInstanceTypeResultOutput) TotalInstanceStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) *int { return v.TotalInstanceStorage }).(pulumi.IntPtrOutput)
 }
 
 // List of the valid number of cores that can be configured for the instance type.

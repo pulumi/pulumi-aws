@@ -78,7 +78,7 @@ type GetLogDeliveryCanonicalUserIdArgs struct {
 // A collection of values returned by getLogDeliveryCanonicalUserId.
 type GetLogDeliveryCanonicalUserIdResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id     string  `pulumi:"id"`
+	Id     *string `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
 
@@ -121,8 +121,8 @@ func (o GetLogDeliveryCanonicalUserIdResultOutput) ToGetLogDeliveryCanonicalUser
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLogDeliveryCanonicalUserIdResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLogDeliveryCanonicalUserIdResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLogDeliveryCanonicalUserIdResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLogDeliveryCanonicalUserIdResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLogDeliveryCanonicalUserIdResultOutput) Region() pulumi.StringPtrOutput {

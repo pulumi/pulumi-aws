@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Rds
         /// The Amazon Resource Name (ARN) for the proxy endpoint.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
@@ -66,13 +66,13 @@ namespace Pulumi.Aws.Rds
         /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
         /// </summary>
         [Output("isDefault")]
-        public Output<bool> IsDefault { get; private set; } = null!;
+        public Output<bool?> IsDefault { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Rds
         /// The VPC ID of the DB proxy endpoint.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
         /// <summary>
         /// One or more VPC security group IDs to associate with the new proxy.

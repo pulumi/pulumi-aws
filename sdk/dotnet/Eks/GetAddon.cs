@@ -145,56 +145,56 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Version of EKS add-on.
         /// </summary>
-        public readonly string AddonVersion;
+        public readonly string? AddonVersion;
         /// <summary>
         /// ARN of the EKS add-on.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string ClusterName;
         /// <summary>
         /// Configuration values for the addon with a single JSON string.
         /// </summary>
-        public readonly string ConfigurationValues;
+        public readonly string? ConfigurationValues;
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         /// </summary>
-        public readonly string ModifiedAt;
+        public readonly string? ModifiedAt;
         /// <summary>
         /// ARN of IAM role used for EKS add-on. If value is empty -
         /// then add-on uses the IAM role assigned to the EKS Cluster node.
         /// </summary>
-        public readonly string ServiceAccountRoleArn;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? ServiceAccountRoleArn;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetAddonResult(
             string addonName,
 
-            string addonVersion,
+            string? addonVersion,
 
-            string arn,
+            string? arn,
 
             string clusterName,
 
-            string configurationValues,
+            string? configurationValues,
 
-            string createdAt,
+            string? createdAt,
 
-            string id,
+            string? id,
 
-            string modifiedAt,
+            string? modifiedAt,
 
-            string serviceAccountRoleArn,
+            string? serviceAccountRoleArn,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AddonName = addonName;
             AddonVersion = addonVersion;

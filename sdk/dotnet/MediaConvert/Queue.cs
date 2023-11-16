@@ -42,7 +42,7 @@ namespace Pulumi.Aws.MediaConvert
         /// The Arn of the queue
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the queue
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.MediaConvert
         /// A detail pricing plan of the  reserved queue. See below.
         /// </summary>
         [Output("reservationPlanSettings")]
-        public Output<Outputs.QueueReservationPlanSettings> ReservationPlanSettings { get; private set; } = null!;
+        public Output<Outputs.QueueReservationPlanSettings?> ReservationPlanSettings { get; private set; } = null!;
 
         /// <summary>
         /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.

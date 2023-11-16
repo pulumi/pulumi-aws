@@ -149,25 +149,25 @@ type Listener struct {
 	pulumi.CustomResourceState
 
 	// ARN of the listener.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Date and time that the listener was created, specified in ISO-8601 format.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// Default action block for the default listener rule. Default action blocks are defined below.
 	DefaultAction ListenerDefaultActionOutput `pulumi:"defaultAction"`
-	LastUpdatedAt pulumi.StringOutput         `pulumi:"lastUpdatedAt"`
+	LastUpdatedAt pulumi.StringPtrOutput      `pulumi:"lastUpdatedAt"`
 	// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
-	ListenerId pulumi.StringOutput `pulumi:"listenerId"`
+	ListenerId pulumi.StringPtrOutput `pulumi:"listenerId"`
 	// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
-	Port pulumi.IntOutput `pulumi:"port"`
+	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
-	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
+	ServiceArn pulumi.StringPtrOutput `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
-	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
+	ServiceIdentifier pulumi.StringPtrOutput `pulumi:"serviceIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -396,13 +396,13 @@ func (o ListenerOutput) ToListenerOutputWithContext(ctx context.Context) Listene
 }
 
 // ARN of the listener.
-func (o ListenerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ListenerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date and time that the listener was created, specified in ISO-8601 format.
-func (o ListenerOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o ListenerOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Default action block for the default listener rule. Default action blocks are defined below.
@@ -410,13 +410,13 @@ func (o ListenerOutput) DefaultAction() ListenerDefaultActionOutput {
 	return o.ApplyT(func(v *Listener) ListenerDefaultActionOutput { return v.DefaultAction }).(ListenerDefaultActionOutput)
 }
 
-func (o ListenerOutput) LastUpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
+func (o ListenerOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
-func (o ListenerOutput) ListenerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ListenerId }).(pulumi.StringOutput)
+func (o ListenerOutput) ListenerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.ListenerId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -425,8 +425,8 @@ func (o ListenerOutput) Name() pulumi.StringOutput {
 }
 
 // Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
-func (o ListenerOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v *Listener) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+func (o ListenerOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // Protocol for the listener. Supported values are `HTTP` or `HTTPS`
@@ -435,14 +435,14 @@ func (o ListenerOutput) Protocol() pulumi.StringOutput {
 }
 
 // Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
-func (o ListenerOutput) ServiceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
+func (o ListenerOutput) ServiceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.ServiceArn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 // > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
-func (o ListenerOutput) ServiceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ServiceIdentifier }).(pulumi.StringOutput)
+func (o ListenerOutput) ServiceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

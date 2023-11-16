@@ -57,10 +57,10 @@ type LookupResourcePolicyArgs struct {
 // A collection of values returned by getResourcePolicy.
 type LookupResourcePolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The [policy][1] for the resource.
-	Policy      string `pulumi:"policy"`
-	ResourceArn string `pulumi:"resourceArn"`
+	Policy      *string `pulumi:"policy"`
+	ResourceArn string  `pulumi:"resourceArn"`
 }
 
 func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePolicyResultOutput {
@@ -102,13 +102,13 @@ func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutputWith
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResourcePolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResourcePolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourcePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The [policy][1] for the resource.
-func (o LookupResourcePolicyResultOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+func (o LookupResourcePolicyResultOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourcePolicyResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResourcePolicyResultOutput) ResourceArn() pulumi.StringOutput {

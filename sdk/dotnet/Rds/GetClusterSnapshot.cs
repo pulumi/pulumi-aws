@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Allocated storage size in gigabytes (GB).
         /// </summary>
-        public readonly int AllocatedStorage;
+        public readonly int? AllocatedStorage;
         /// <summary>
         /// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         /// </summary>
@@ -252,101 +252,101 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The ARN for the DB Cluster Snapshot.
         /// </summary>
-        public readonly string DbClusterSnapshotArn;
+        public readonly string? DbClusterSnapshotArn;
         public readonly string? DbClusterSnapshotIdentifier;
         /// <summary>
         /// Name of the database engine.
         /// </summary>
-        public readonly string Engine;
+        public readonly string? Engine;
         /// <summary>
         /// Version of the database engine for this DB cluster snapshot.
         /// </summary>
-        public readonly string EngineVersion;
+        public readonly string? EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? IncludePublic;
         public readonly bool? IncludeShared;
         /// <summary>
         /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// License model information for the restored DB cluster.
         /// </summary>
-        public readonly string LicenseModel;
+        public readonly string? LicenseModel;
         public readonly bool? MostRecent;
         /// <summary>
         /// Port that the DB cluster was listening on at the time of the snapshot.
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
         /// Time when the snapshot was taken, in Universal Coordinated Time (UTC).
         /// </summary>
-        public readonly string SnapshotCreateTime;
+        public readonly string? SnapshotCreateTime;
         public readonly string? SnapshotType;
-        public readonly string SourceDbClusterSnapshotArn;
+        public readonly string? SourceDbClusterSnapshotArn;
         /// <summary>
         /// Status of this DB Cluster Snapshot.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Whether the DB cluster snapshot is encrypted.
         /// </summary>
-        public readonly bool StorageEncrypted;
+        public readonly bool? StorageEncrypted;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// VPC ID associated with the DB cluster snapshot.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetClusterSnapshotResult(
-            int allocatedStorage,
+            int? allocatedStorage,
 
             ImmutableArray<string> availabilityZones,
 
             string? dbClusterIdentifier,
 
-            string dbClusterSnapshotArn,
+            string? dbClusterSnapshotArn,
 
             string? dbClusterSnapshotIdentifier,
 
-            string engine,
+            string? engine,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string id,
+            string? id,
 
             bool? includePublic,
 
             bool? includeShared,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string licenseModel,
+            string? licenseModel,
 
             bool? mostRecent,
 
-            int port,
+            int? port,
 
-            string snapshotCreateTime,
+            string? snapshotCreateTime,
 
             string? snapshotType,
 
-            string sourceDbClusterSnapshotArn,
+            string? sourceDbClusterSnapshotArn,
 
-            string status,
+            string? status,
 
-            bool storageEncrypted,
+            bool? storageEncrypted,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             AllocatedStorage = allocatedStorage;
             AvailabilityZones = availabilityZones;

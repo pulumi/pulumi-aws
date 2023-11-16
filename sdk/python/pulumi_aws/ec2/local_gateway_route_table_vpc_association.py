@@ -314,7 +314,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localGatewayId")
-    def local_gateway_id(self) -> pulumi.Output[str]:
+    def local_gateway_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "local_gateway_id")
 
     @property

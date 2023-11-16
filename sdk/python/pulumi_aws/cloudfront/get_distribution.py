@@ -61,7 +61,7 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter
-    def aliases(self) -> Sequence[str]:
+    def aliases(self) -> Optional[Sequence[str]]:
         """
         List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
         """
@@ -69,7 +69,7 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
         """
@@ -77,7 +77,7 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> Optional[str]:
         """
         Domain name corresponding to the distribution. For
         example: `d604721fxaaqy9.cloudfront.net`.
@@ -86,12 +86,12 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> Optional[str]:
         """
         Current version of the distribution's information. For example:
         `E2QWRUHAPOMQZL`.
@@ -100,7 +100,7 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> str:
+    def hosted_zone_id(self) -> Optional[str]:
         """
         CloudFront Route 53 zone ID that can be used to
         route an [Alias Resource Record Set][7] to. This attribute is simply an
@@ -118,7 +118,7 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter(name="inProgressValidationBatches")
-    def in_progress_validation_batches(self) -> int:
+    def in_progress_validation_batches(self) -> Optional[int]:
         """
         The number of invalidation batches
         currently in progress.
@@ -127,7 +127,7 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> Optional[str]:
         """
         Date and time the distribution was last modified.
         """
@@ -135,7 +135,7 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current status of the distribution. `Deployed` if the
         distribution's information is fully propagated throughout the Amazon
@@ -150,7 +150,7 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter(name="webAclId")
-    def web_acl_id(self) -> str:
+    def web_acl_id(self) -> Optional[str]:
         """
         AWS WAF web ACL associated with this distribution.
         """

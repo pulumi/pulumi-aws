@@ -11,6 +11,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceResult {
@@ -18,503 +20,503 @@ public final class GetInstanceResult {
      * @return Hostname of the RDS instance. See also `endpoint` and `port`.
      * 
      */
-    private String address;
+    private @Nullable String address;
     /**
      * @return Allocated storage size specified in gigabytes.
      * 
      */
-    private Integer allocatedStorage;
+    private @Nullable Integer allocatedStorage;
     /**
      * @return Indicates that minor version patches are applied automatically.
      * 
      */
-    private Boolean autoMinorVersionUpgrade;
+    private @Nullable Boolean autoMinorVersionUpgrade;
     /**
      * @return Name of the Availability Zone the DB instance is located in.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return Specifies the number of days for which automatic DB snapshots are retained.
      * 
      */
-    private Integer backupRetentionPeriod;
+    private @Nullable Integer backupRetentionPeriod;
     /**
      * @return Identifier of the CA certificate for the DB instance.
      * 
      */
-    private String caCertIdentifier;
+    private @Nullable String caCertIdentifier;
     /**
      * @return If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
      * 
      */
-    private String dbClusterIdentifier;
+    private @Nullable String dbClusterIdentifier;
     /**
      * @return ARN for the DB instance.
      * 
      */
-    private String dbInstanceArn;
+    private @Nullable String dbInstanceArn;
     /**
      * @return Contains the name of the compute and memory capacity class of the DB instance.
      * 
      */
-    private String dbInstanceClass;
-    private String dbInstanceIdentifier;
+    private @Nullable String dbInstanceClass;
+    private @Nullable String dbInstanceIdentifier;
     /**
      * @return Port that the DB instance listens on.
      * 
      */
-    private Integer dbInstancePort;
+    private @Nullable Integer dbInstancePort;
     /**
      * @return Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
      * 
      */
-    private String dbName;
+    private @Nullable String dbName;
     /**
      * @return Provides the list of DB parameter groups applied to this DB instance.
      * 
      */
-    private List<String> dbParameterGroups;
+    private @Nullable List<String> dbParameterGroups;
     /**
      * @return Name of the subnet group associated with the DB instance.
      * 
      */
-    private String dbSubnetGroup;
+    private @Nullable String dbSubnetGroup;
     /**
      * @return List of log types to export to cloudwatch.
      * 
      */
-    private List<String> enabledCloudwatchLogsExports;
+    private @Nullable List<String> enabledCloudwatchLogsExports;
     /**
      * @return Connection endpoint in `address:port` format.
      * 
      */
-    private String endpoint;
+    private @Nullable String endpoint;
     /**
      * @return Provides the name of the database engine to be used for this DB instance.
      * 
      */
-    private String engine;
+    private @Nullable String engine;
     /**
      * @return Database engine version.
      * 
      */
-    private String engineVersion;
+    private @Nullable String engineVersion;
     /**
      * @return Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
      * 
      */
-    private String hostedZoneId;
+    private @Nullable String hostedZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Provisioned IOPS (I/O operations per second) value.
      * 
      */
-    private Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return License model information for this DB instance.
      * 
      */
-    private String licenseModel;
+    private @Nullable String licenseModel;
     /**
      * @return Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
      * 
      */
-    private List<GetInstanceMasterUserSecret> masterUserSecrets;
+    private @Nullable List<GetInstanceMasterUserSecret> masterUserSecrets;
     /**
      * @return Contains the master username for the DB instance.
      * 
      */
-    private String masterUsername;
+    private @Nullable String masterUsername;
     /**
      * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
      * 
      */
-    private Integer maxAllocatedStorage;
+    private @Nullable Integer maxAllocatedStorage;
     /**
      * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      * 
      */
-    private Integer monitoringInterval;
+    private @Nullable Integer monitoringInterval;
     /**
      * @return ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
      * 
      */
-    private String monitoringRoleArn;
+    private @Nullable String monitoringRoleArn;
     /**
      * @return If the DB instance is a Multi-AZ deployment.
      * 
      */
-    private Boolean multiAz;
+    private @Nullable Boolean multiAz;
     /**
      * @return Network type of the DB instance.
      * 
      */
-    private String networkType;
+    private @Nullable String networkType;
     /**
      * @return Provides the list of option group memberships for this DB instance.
      * 
      */
-    private List<String> optionGroupMemberships;
+    private @Nullable List<String> optionGroupMemberships;
     /**
      * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
     /**
      * @return Specifies the daily time range during which automated backups are created.
      * 
      */
-    private String preferredBackupWindow;
+    private @Nullable String preferredBackupWindow;
     /**
      * @return Specifies the weekly time range during which system maintenance can occur in UTC.
      * 
      */
-    private String preferredMaintenanceWindow;
+    private @Nullable String preferredMaintenanceWindow;
     /**
      * @return Accessibility options for the DB instance.
      * 
      */
-    private Boolean publiclyAccessible;
+    private @Nullable Boolean publiclyAccessible;
     /**
      * @return Identifier of the source DB that this is a replica of.
      * 
      */
-    private String replicateSourceDb;
+    private @Nullable String replicateSourceDb;
     /**
      * @return RDS Resource ID of this instance.
      * 
      */
-    private String resourceId;
+    private @Nullable String resourceId;
     /**
      * @return Whether the DB instance is encrypted.
      * 
      */
-    private Boolean storageEncrypted;
+    private @Nullable Boolean storageEncrypted;
     /**
      * @return Storage throughput value for the DB instance.
      * 
      */
-    private Integer storageThroughput;
+    private @Nullable Integer storageThroughput;
     /**
      * @return Storage type associated with DB instance.
      * 
      */
-    private String storageType;
-    private Map<String,String> tags;
+    private @Nullable String storageType;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Time zone of the DB instance.
      * 
      */
-    private String timezone;
+    private @Nullable String timezone;
     /**
      * @return Provides a list of VPC security group elements that the DB instance belongs to.
      * 
      */
-    private List<String> vpcSecurityGroups;
+    private @Nullable List<String> vpcSecurityGroups;
 
     private GetInstanceResult() {}
     /**
      * @return Hostname of the RDS instance. See also `endpoint` and `port`.
      * 
      */
-    public String address() {
-        return this.address;
+    public Optional<String> address() {
+        return Optional.ofNullable(this.address);
     }
     /**
      * @return Allocated storage size specified in gigabytes.
      * 
      */
-    public Integer allocatedStorage() {
-        return this.allocatedStorage;
+    public Optional<Integer> allocatedStorage() {
+        return Optional.ofNullable(this.allocatedStorage);
     }
     /**
      * @return Indicates that minor version patches are applied automatically.
      * 
      */
-    public Boolean autoMinorVersionUpgrade() {
-        return this.autoMinorVersionUpgrade;
+    public Optional<Boolean> autoMinorVersionUpgrade() {
+        return Optional.ofNullable(this.autoMinorVersionUpgrade);
     }
     /**
      * @return Name of the Availability Zone the DB instance is located in.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     /**
      * @return Specifies the number of days for which automatic DB snapshots are retained.
      * 
      */
-    public Integer backupRetentionPeriod() {
-        return this.backupRetentionPeriod;
+    public Optional<Integer> backupRetentionPeriod() {
+        return Optional.ofNullable(this.backupRetentionPeriod);
     }
     /**
      * @return Identifier of the CA certificate for the DB instance.
      * 
      */
-    public String caCertIdentifier() {
-        return this.caCertIdentifier;
+    public Optional<String> caCertIdentifier() {
+        return Optional.ofNullable(this.caCertIdentifier);
     }
     /**
      * @return If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
      * 
      */
-    public String dbClusterIdentifier() {
-        return this.dbClusterIdentifier;
+    public Optional<String> dbClusterIdentifier() {
+        return Optional.ofNullable(this.dbClusterIdentifier);
     }
     /**
      * @return ARN for the DB instance.
      * 
      */
-    public String dbInstanceArn() {
-        return this.dbInstanceArn;
+    public Optional<String> dbInstanceArn() {
+        return Optional.ofNullable(this.dbInstanceArn);
     }
     /**
      * @return Contains the name of the compute and memory capacity class of the DB instance.
      * 
      */
-    public String dbInstanceClass() {
-        return this.dbInstanceClass;
+    public Optional<String> dbInstanceClass() {
+        return Optional.ofNullable(this.dbInstanceClass);
     }
-    public String dbInstanceIdentifier() {
-        return this.dbInstanceIdentifier;
+    public Optional<String> dbInstanceIdentifier() {
+        return Optional.ofNullable(this.dbInstanceIdentifier);
     }
     /**
      * @return Port that the DB instance listens on.
      * 
      */
-    public Integer dbInstancePort() {
-        return this.dbInstancePort;
+    public Optional<Integer> dbInstancePort() {
+        return Optional.ofNullable(this.dbInstancePort);
     }
     /**
      * @return Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
      * 
      */
-    public String dbName() {
-        return this.dbName;
+    public Optional<String> dbName() {
+        return Optional.ofNullable(this.dbName);
     }
     /**
      * @return Provides the list of DB parameter groups applied to this DB instance.
      * 
      */
     public List<String> dbParameterGroups() {
-        return this.dbParameterGroups;
+        return this.dbParameterGroups == null ? List.of() : this.dbParameterGroups;
     }
     /**
      * @return Name of the subnet group associated with the DB instance.
      * 
      */
-    public String dbSubnetGroup() {
-        return this.dbSubnetGroup;
+    public Optional<String> dbSubnetGroup() {
+        return Optional.ofNullable(this.dbSubnetGroup);
     }
     /**
      * @return List of log types to export to cloudwatch.
      * 
      */
     public List<String> enabledCloudwatchLogsExports() {
-        return this.enabledCloudwatchLogsExports;
+        return this.enabledCloudwatchLogsExports == null ? List.of() : this.enabledCloudwatchLogsExports;
     }
     /**
      * @return Connection endpoint in `address:port` format.
      * 
      */
-    public String endpoint() {
-        return this.endpoint;
+    public Optional<String> endpoint() {
+        return Optional.ofNullable(this.endpoint);
     }
     /**
      * @return Provides the name of the database engine to be used for this DB instance.
      * 
      */
-    public String engine() {
-        return this.engine;
+    public Optional<String> engine() {
+        return Optional.ofNullable(this.engine);
     }
     /**
      * @return Database engine version.
      * 
      */
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
     /**
      * @return Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
      * 
      */
-    public String hostedZoneId() {
-        return this.hostedZoneId;
+    public Optional<String> hostedZoneId() {
+        return Optional.ofNullable(this.hostedZoneId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Provisioned IOPS (I/O operations per second) value.
      * 
      */
-    public Integer iops() {
-        return this.iops;
+    public Optional<Integer> iops() {
+        return Optional.ofNullable(this.iops);
     }
     /**
      * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return License model information for this DB instance.
      * 
      */
-    public String licenseModel() {
-        return this.licenseModel;
+    public Optional<String> licenseModel() {
+        return Optional.ofNullable(this.licenseModel);
     }
     /**
      * @return Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
      * 
      */
     public List<GetInstanceMasterUserSecret> masterUserSecrets() {
-        return this.masterUserSecrets;
+        return this.masterUserSecrets == null ? List.of() : this.masterUserSecrets;
     }
     /**
      * @return Contains the master username for the DB instance.
      * 
      */
-    public String masterUsername() {
-        return this.masterUsername;
+    public Optional<String> masterUsername() {
+        return Optional.ofNullable(this.masterUsername);
     }
     /**
      * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
      * 
      */
-    public Integer maxAllocatedStorage() {
-        return this.maxAllocatedStorage;
+    public Optional<Integer> maxAllocatedStorage() {
+        return Optional.ofNullable(this.maxAllocatedStorage);
     }
     /**
      * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      * 
      */
-    public Integer monitoringInterval() {
-        return this.monitoringInterval;
+    public Optional<Integer> monitoringInterval() {
+        return Optional.ofNullable(this.monitoringInterval);
     }
     /**
      * @return ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
      * 
      */
-    public String monitoringRoleArn() {
-        return this.monitoringRoleArn;
+    public Optional<String> monitoringRoleArn() {
+        return Optional.ofNullable(this.monitoringRoleArn);
     }
     /**
      * @return If the DB instance is a Multi-AZ deployment.
      * 
      */
-    public Boolean multiAz() {
-        return this.multiAz;
+    public Optional<Boolean> multiAz() {
+        return Optional.ofNullable(this.multiAz);
     }
     /**
      * @return Network type of the DB instance.
      * 
      */
-    public String networkType() {
-        return this.networkType;
+    public Optional<String> networkType() {
+        return Optional.ofNullable(this.networkType);
     }
     /**
      * @return Provides the list of option group memberships for this DB instance.
      * 
      */
     public List<String> optionGroupMemberships() {
-        return this.optionGroupMemberships;
+        return this.optionGroupMemberships == null ? List.of() : this.optionGroupMemberships;
     }
     /**
      * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return Specifies the daily time range during which automated backups are created.
      * 
      */
-    public String preferredBackupWindow() {
-        return this.preferredBackupWindow;
+    public Optional<String> preferredBackupWindow() {
+        return Optional.ofNullable(this.preferredBackupWindow);
     }
     /**
      * @return Specifies the weekly time range during which system maintenance can occur in UTC.
      * 
      */
-    public String preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Optional<String> preferredMaintenanceWindow() {
+        return Optional.ofNullable(this.preferredMaintenanceWindow);
     }
     /**
      * @return Accessibility options for the DB instance.
      * 
      */
-    public Boolean publiclyAccessible() {
-        return this.publiclyAccessible;
+    public Optional<Boolean> publiclyAccessible() {
+        return Optional.ofNullable(this.publiclyAccessible);
     }
     /**
      * @return Identifier of the source DB that this is a replica of.
      * 
      */
-    public String replicateSourceDb() {
-        return this.replicateSourceDb;
+    public Optional<String> replicateSourceDb() {
+        return Optional.ofNullable(this.replicateSourceDb);
     }
     /**
      * @return RDS Resource ID of this instance.
      * 
      */
-    public String resourceId() {
-        return this.resourceId;
+    public Optional<String> resourceId() {
+        return Optional.ofNullable(this.resourceId);
     }
     /**
      * @return Whether the DB instance is encrypted.
      * 
      */
-    public Boolean storageEncrypted() {
-        return this.storageEncrypted;
+    public Optional<Boolean> storageEncrypted() {
+        return Optional.ofNullable(this.storageEncrypted);
     }
     /**
      * @return Storage throughput value for the DB instance.
      * 
      */
-    public Integer storageThroughput() {
-        return this.storageThroughput;
+    public Optional<Integer> storageThroughput() {
+        return Optional.ofNullable(this.storageThroughput);
     }
     /**
      * @return Storage type associated with DB instance.
      * 
      */
-    public String storageType() {
-        return this.storageType;
+    public Optional<String> storageType() {
+        return Optional.ofNullable(this.storageType);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Time zone of the DB instance.
      * 
      */
-    public String timezone() {
-        return this.timezone;
+    public Optional<String> timezone() {
+        return Optional.ofNullable(this.timezone);
     }
     /**
      * @return Provides a list of VPC security group elements that the DB instance belongs to.
      * 
      */
     public List<String> vpcSecurityGroups() {
-        return this.vpcSecurityGroups;
+        return this.vpcSecurityGroups == null ? List.of() : this.vpcSecurityGroups;
     }
 
     public static Builder builder() {
@@ -526,49 +528,49 @@ public final class GetInstanceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String address;
-        private Integer allocatedStorage;
-        private Boolean autoMinorVersionUpgrade;
-        private String availabilityZone;
-        private Integer backupRetentionPeriod;
-        private String caCertIdentifier;
-        private String dbClusterIdentifier;
-        private String dbInstanceArn;
-        private String dbInstanceClass;
-        private String dbInstanceIdentifier;
-        private Integer dbInstancePort;
-        private String dbName;
-        private List<String> dbParameterGroups;
-        private String dbSubnetGroup;
-        private List<String> enabledCloudwatchLogsExports;
-        private String endpoint;
-        private String engine;
-        private String engineVersion;
-        private String hostedZoneId;
-        private String id;
-        private Integer iops;
-        private String kmsKeyId;
-        private String licenseModel;
-        private List<GetInstanceMasterUserSecret> masterUserSecrets;
-        private String masterUsername;
-        private Integer maxAllocatedStorage;
-        private Integer monitoringInterval;
-        private String monitoringRoleArn;
-        private Boolean multiAz;
-        private String networkType;
-        private List<String> optionGroupMemberships;
-        private Integer port;
-        private String preferredBackupWindow;
-        private String preferredMaintenanceWindow;
-        private Boolean publiclyAccessible;
-        private String replicateSourceDb;
-        private String resourceId;
-        private Boolean storageEncrypted;
-        private Integer storageThroughput;
-        private String storageType;
-        private Map<String,String> tags;
-        private String timezone;
-        private List<String> vpcSecurityGroups;
+        private @Nullable String address;
+        private @Nullable Integer allocatedStorage;
+        private @Nullable Boolean autoMinorVersionUpgrade;
+        private @Nullable String availabilityZone;
+        private @Nullable Integer backupRetentionPeriod;
+        private @Nullable String caCertIdentifier;
+        private @Nullable String dbClusterIdentifier;
+        private @Nullable String dbInstanceArn;
+        private @Nullable String dbInstanceClass;
+        private @Nullable String dbInstanceIdentifier;
+        private @Nullable Integer dbInstancePort;
+        private @Nullable String dbName;
+        private @Nullable List<String> dbParameterGroups;
+        private @Nullable String dbSubnetGroup;
+        private @Nullable List<String> enabledCloudwatchLogsExports;
+        private @Nullable String endpoint;
+        private @Nullable String engine;
+        private @Nullable String engineVersion;
+        private @Nullable String hostedZoneId;
+        private @Nullable String id;
+        private @Nullable Integer iops;
+        private @Nullable String kmsKeyId;
+        private @Nullable String licenseModel;
+        private @Nullable List<GetInstanceMasterUserSecret> masterUserSecrets;
+        private @Nullable String masterUsername;
+        private @Nullable Integer maxAllocatedStorage;
+        private @Nullable Integer monitoringInterval;
+        private @Nullable String monitoringRoleArn;
+        private @Nullable Boolean multiAz;
+        private @Nullable String networkType;
+        private @Nullable List<String> optionGroupMemberships;
+        private @Nullable Integer port;
+        private @Nullable String preferredBackupWindow;
+        private @Nullable String preferredMaintenanceWindow;
+        private @Nullable Boolean publiclyAccessible;
+        private @Nullable String replicateSourceDb;
+        private @Nullable String resourceId;
+        private @Nullable Boolean storageEncrypted;
+        private @Nullable Integer storageThroughput;
+        private @Nullable String storageType;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String timezone;
+        private @Nullable List<String> vpcSecurityGroups;
         public Builder() {}
         public Builder(GetInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -618,230 +620,230 @@ public final class GetInstanceResult {
         }
 
         @CustomType.Setter
-        public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+        public Builder address(@Nullable String address) {
+            this.address = address;
             return this;
         }
         @CustomType.Setter
-        public Builder allocatedStorage(Integer allocatedStorage) {
-            this.allocatedStorage = Objects.requireNonNull(allocatedStorage);
+        public Builder allocatedStorage(@Nullable Integer allocatedStorage) {
+            this.allocatedStorage = allocatedStorage;
             return this;
         }
         @CustomType.Setter
-        public Builder autoMinorVersionUpgrade(Boolean autoMinorVersionUpgrade) {
-            this.autoMinorVersionUpgrade = Objects.requireNonNull(autoMinorVersionUpgrade);
+        public Builder autoMinorVersionUpgrade(@Nullable Boolean autoMinorVersionUpgrade) {
+            this.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder backupRetentionPeriod(Integer backupRetentionPeriod) {
-            this.backupRetentionPeriod = Objects.requireNonNull(backupRetentionPeriod);
+        public Builder backupRetentionPeriod(@Nullable Integer backupRetentionPeriod) {
+            this.backupRetentionPeriod = backupRetentionPeriod;
             return this;
         }
         @CustomType.Setter
-        public Builder caCertIdentifier(String caCertIdentifier) {
-            this.caCertIdentifier = Objects.requireNonNull(caCertIdentifier);
+        public Builder caCertIdentifier(@Nullable String caCertIdentifier) {
+            this.caCertIdentifier = caCertIdentifier;
             return this;
         }
         @CustomType.Setter
-        public Builder dbClusterIdentifier(String dbClusterIdentifier) {
-            this.dbClusterIdentifier = Objects.requireNonNull(dbClusterIdentifier);
+        public Builder dbClusterIdentifier(@Nullable String dbClusterIdentifier) {
+            this.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
         @CustomType.Setter
-        public Builder dbInstanceArn(String dbInstanceArn) {
-            this.dbInstanceArn = Objects.requireNonNull(dbInstanceArn);
+        public Builder dbInstanceArn(@Nullable String dbInstanceArn) {
+            this.dbInstanceArn = dbInstanceArn;
             return this;
         }
         @CustomType.Setter
-        public Builder dbInstanceClass(String dbInstanceClass) {
-            this.dbInstanceClass = Objects.requireNonNull(dbInstanceClass);
+        public Builder dbInstanceClass(@Nullable String dbInstanceClass) {
+            this.dbInstanceClass = dbInstanceClass;
             return this;
         }
         @CustomType.Setter
-        public Builder dbInstanceIdentifier(String dbInstanceIdentifier) {
-            this.dbInstanceIdentifier = Objects.requireNonNull(dbInstanceIdentifier);
+        public Builder dbInstanceIdentifier(@Nullable String dbInstanceIdentifier) {
+            this.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
         @CustomType.Setter
-        public Builder dbInstancePort(Integer dbInstancePort) {
-            this.dbInstancePort = Objects.requireNonNull(dbInstancePort);
+        public Builder dbInstancePort(@Nullable Integer dbInstancePort) {
+            this.dbInstancePort = dbInstancePort;
             return this;
         }
         @CustomType.Setter
-        public Builder dbName(String dbName) {
-            this.dbName = Objects.requireNonNull(dbName);
+        public Builder dbName(@Nullable String dbName) {
+            this.dbName = dbName;
             return this;
         }
         @CustomType.Setter
-        public Builder dbParameterGroups(List<String> dbParameterGroups) {
-            this.dbParameterGroups = Objects.requireNonNull(dbParameterGroups);
+        public Builder dbParameterGroups(@Nullable List<String> dbParameterGroups) {
+            this.dbParameterGroups = dbParameterGroups;
             return this;
         }
         public Builder dbParameterGroups(String... dbParameterGroups) {
             return dbParameterGroups(List.of(dbParameterGroups));
         }
         @CustomType.Setter
-        public Builder dbSubnetGroup(String dbSubnetGroup) {
-            this.dbSubnetGroup = Objects.requireNonNull(dbSubnetGroup);
+        public Builder dbSubnetGroup(@Nullable String dbSubnetGroup) {
+            this.dbSubnetGroup = dbSubnetGroup;
             return this;
         }
         @CustomType.Setter
-        public Builder enabledCloudwatchLogsExports(List<String> enabledCloudwatchLogsExports) {
-            this.enabledCloudwatchLogsExports = Objects.requireNonNull(enabledCloudwatchLogsExports);
+        public Builder enabledCloudwatchLogsExports(@Nullable List<String> enabledCloudwatchLogsExports) {
+            this.enabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             return this;
         }
         public Builder enabledCloudwatchLogsExports(String... enabledCloudwatchLogsExports) {
             return enabledCloudwatchLogsExports(List.of(enabledCloudwatchLogsExports));
         }
         @CustomType.Setter
-        public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+        public Builder endpoint(@Nullable String endpoint) {
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder engine(String engine) {
-            this.engine = Objects.requireNonNull(engine);
+        public Builder engine(@Nullable String engine) {
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+        public Builder hostedZoneId(@Nullable String hostedZoneId) {
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+        public Builder iops(@Nullable Integer iops) {
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder licenseModel(String licenseModel) {
-            this.licenseModel = Objects.requireNonNull(licenseModel);
+        public Builder licenseModel(@Nullable String licenseModel) {
+            this.licenseModel = licenseModel;
             return this;
         }
         @CustomType.Setter
-        public Builder masterUserSecrets(List<GetInstanceMasterUserSecret> masterUserSecrets) {
-            this.masterUserSecrets = Objects.requireNonNull(masterUserSecrets);
+        public Builder masterUserSecrets(@Nullable List<GetInstanceMasterUserSecret> masterUserSecrets) {
+            this.masterUserSecrets = masterUserSecrets;
             return this;
         }
         public Builder masterUserSecrets(GetInstanceMasterUserSecret... masterUserSecrets) {
             return masterUserSecrets(List.of(masterUserSecrets));
         }
         @CustomType.Setter
-        public Builder masterUsername(String masterUsername) {
-            this.masterUsername = Objects.requireNonNull(masterUsername);
+        public Builder masterUsername(@Nullable String masterUsername) {
+            this.masterUsername = masterUsername;
             return this;
         }
         @CustomType.Setter
-        public Builder maxAllocatedStorage(Integer maxAllocatedStorage) {
-            this.maxAllocatedStorage = Objects.requireNonNull(maxAllocatedStorage);
+        public Builder maxAllocatedStorage(@Nullable Integer maxAllocatedStorage) {
+            this.maxAllocatedStorage = maxAllocatedStorage;
             return this;
         }
         @CustomType.Setter
-        public Builder monitoringInterval(Integer monitoringInterval) {
-            this.monitoringInterval = Objects.requireNonNull(monitoringInterval);
+        public Builder monitoringInterval(@Nullable Integer monitoringInterval) {
+            this.monitoringInterval = monitoringInterval;
             return this;
         }
         @CustomType.Setter
-        public Builder monitoringRoleArn(String monitoringRoleArn) {
-            this.monitoringRoleArn = Objects.requireNonNull(monitoringRoleArn);
+        public Builder monitoringRoleArn(@Nullable String monitoringRoleArn) {
+            this.monitoringRoleArn = monitoringRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder multiAz(Boolean multiAz) {
-            this.multiAz = Objects.requireNonNull(multiAz);
+        public Builder multiAz(@Nullable Boolean multiAz) {
+            this.multiAz = multiAz;
             return this;
         }
         @CustomType.Setter
-        public Builder networkType(String networkType) {
-            this.networkType = Objects.requireNonNull(networkType);
+        public Builder networkType(@Nullable String networkType) {
+            this.networkType = networkType;
             return this;
         }
         @CustomType.Setter
-        public Builder optionGroupMemberships(List<String> optionGroupMemberships) {
-            this.optionGroupMemberships = Objects.requireNonNull(optionGroupMemberships);
+        public Builder optionGroupMemberships(@Nullable List<String> optionGroupMemberships) {
+            this.optionGroupMemberships = optionGroupMemberships;
             return this;
         }
         public Builder optionGroupMemberships(String... optionGroupMemberships) {
             return optionGroupMemberships(List.of(optionGroupMemberships));
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder preferredBackupWindow(String preferredBackupWindow) {
-            this.preferredBackupWindow = Objects.requireNonNull(preferredBackupWindow);
+        public Builder preferredBackupWindow(@Nullable String preferredBackupWindow) {
+            this.preferredBackupWindow = preferredBackupWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder preferredMaintenanceWindow(String preferredMaintenanceWindow) {
-            this.preferredMaintenanceWindow = Objects.requireNonNull(preferredMaintenanceWindow);
+        public Builder preferredMaintenanceWindow(@Nullable String preferredMaintenanceWindow) {
+            this.preferredMaintenanceWindow = preferredMaintenanceWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder publiclyAccessible(Boolean publiclyAccessible) {
-            this.publiclyAccessible = Objects.requireNonNull(publiclyAccessible);
+        public Builder publiclyAccessible(@Nullable Boolean publiclyAccessible) {
+            this.publiclyAccessible = publiclyAccessible;
             return this;
         }
         @CustomType.Setter
-        public Builder replicateSourceDb(String replicateSourceDb) {
-            this.replicateSourceDb = Objects.requireNonNull(replicateSourceDb);
+        public Builder replicateSourceDb(@Nullable String replicateSourceDb) {
+            this.replicateSourceDb = replicateSourceDb;
             return this;
         }
         @CustomType.Setter
-        public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+        public Builder resourceId(@Nullable String resourceId) {
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
-        public Builder storageEncrypted(Boolean storageEncrypted) {
-            this.storageEncrypted = Objects.requireNonNull(storageEncrypted);
+        public Builder storageEncrypted(@Nullable Boolean storageEncrypted) {
+            this.storageEncrypted = storageEncrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder storageThroughput(Integer storageThroughput) {
-            this.storageThroughput = Objects.requireNonNull(storageThroughput);
+        public Builder storageThroughput(@Nullable Integer storageThroughput) {
+            this.storageThroughput = storageThroughput;
             return this;
         }
         @CustomType.Setter
-        public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+        public Builder storageType(@Nullable String storageType) {
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder timezone(String timezone) {
-            this.timezone = Objects.requireNonNull(timezone);
+        public Builder timezone(@Nullable String timezone) {
+            this.timezone = timezone;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcSecurityGroups(List<String> vpcSecurityGroups) {
-            this.vpcSecurityGroups = Objects.requireNonNull(vpcSecurityGroups);
+        public Builder vpcSecurityGroups(@Nullable List<String> vpcSecurityGroups) {
+            this.vpcSecurityGroups = vpcSecurityGroups;
             return this;
         }
         public Builder vpcSecurityGroups(String... vpcSecurityGroups) {

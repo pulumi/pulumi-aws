@@ -6,6 +6,8 @@ package com.pulumi.aws.fsx.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineLifecycleTransitionReason {
@@ -13,15 +15,15 @@ public final class GetOntapStorageVirtualMachineLifecycleTransitionReason {
      * @return A detailed message.
      * 
      */
-    private String message;
+    private @Nullable String message;
 
     private GetOntapStorageVirtualMachineLifecycleTransitionReason() {}
     /**
      * @return A detailed message.
      * 
      */
-    public String message() {
-        return this.message;
+    public Optional<String> message() {
+        return Optional.ofNullable(this.message);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetOntapStorageVirtualMachineLifecycleTransitionReason {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String message;
+        private @Nullable String message;
         public Builder() {}
         public Builder(GetOntapStorageVirtualMachineLifecycleTransitionReason defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetOntapStorageVirtualMachineLifecycleTransitionReason {
         }
 
         @CustomType.Setter
-        public Builder message(String message) {
-            this.message = Objects.requireNonNull(message);
+        public Builder message(@Nullable String message) {
+            this.message = message;
             return this;
         }
         public GetOntapStorageVirtualMachineLifecycleTransitionReason build() {

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDnsNamespaceResult {
@@ -14,28 +16,28 @@ public final class GetDnsNamespaceResult {
      * @return ARN of the namespace.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the namespace.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      * 
      */
-    private String hostedZone;
+    private @Nullable String hostedZone;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Map of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     private String type;
 
     private GetDnsNamespaceResult() {}
@@ -43,29 +45,29 @@ public final class GetDnsNamespaceResult {
      * @return ARN of the namespace.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the namespace.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      * 
      */
-    public String hostedZone() {
-        return this.hostedZone;
+    public Optional<String> hostedZone() {
+        return Optional.ofNullable(this.hostedZone);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -75,7 +77,7 @@ public final class GetDnsNamespaceResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public String type() {
         return this.type;
@@ -90,12 +92,12 @@ public final class GetDnsNamespaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String hostedZone;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String hostedZone;
+        private @Nullable String id;
         private String name;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         private String type;
         public Builder() {}
         public Builder(GetDnsNamespaceResult defaults) {
@@ -110,23 +112,23 @@ public final class GetDnsNamespaceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder hostedZone(String hostedZone) {
-            this.hostedZone = Objects.requireNonNull(hostedZone);
+        public Builder hostedZone(@Nullable String hostedZone) {
+            this.hostedZone = hostedZone;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -135,8 +137,8 @@ public final class GetDnsNamespaceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

@@ -66,7 +66,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifying your CloudFront Function.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Source code of the function
      */
@@ -78,11 +78,11 @@ export class Function extends pulumi.CustomResource {
     /**
      * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * ETag hash of any `LIVE` stage of the function.
      */
-    public /*out*/ readonly liveStageEtag!: pulumi.Output<string>;
+    public /*out*/ readonly liveStageEtag!: pulumi.Output<string | undefined>;
     /**
      * Unique name for your CloudFront Function.
      */
@@ -100,7 +100,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.

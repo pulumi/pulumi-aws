@@ -108,18 +108,18 @@ namespace Pulumi.Aws.ServiceQuotas
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Code of the service.
         /// </summary>
-        public readonly string ServiceCode;
+        public readonly string? ServiceCode;
         public readonly string ServiceName;
 
         [OutputConstructor]
         private GetServiceResult(
-            string id,
+            string? id,
 
-            string serviceCode,
+            string? serviceCode,
 
             string serviceName)
         {

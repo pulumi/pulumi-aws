@@ -44,16 +44,16 @@ export interface GetLogGroupsResult {
     /**
      * Set of ARNs of the Cloudwatch log groups
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly logGroupNamePrefix?: string;
     /**
      * Set of names of the Cloudwatch log groups
      */
-    readonly logGroupNames: string[];
+    readonly logGroupNames?: string[];
 }
 /**
  * Use this data source to get a list of AWS Cloudwatch Log Groups

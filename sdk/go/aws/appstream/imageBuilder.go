@@ -67,25 +67,25 @@ type ImageBuilder struct {
 	// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
 	AccessEndpoints ImageBuilderAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
 	// Version of the AppStream 2.0 agent to use for this image builder.
-	AppstreamAgentVersion pulumi.StringOutput `pulumi:"appstreamAgentVersion"`
+	AppstreamAgentVersion pulumi.StringPtrOutput `pulumi:"appstreamAgentVersion"`
 	// ARN of the appstream image builder.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Description to display.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Human-readable friendly name for the AppStream image builder.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-	DomainJoinInfo ImageBuilderDomainJoinInfoOutput `pulumi:"domainJoinInfo"`
+	DomainJoinInfo ImageBuilderDomainJoinInfoPtrOutput `pulumi:"domainJoinInfo"`
 	// Enables or disables default internet access for the image builder.
-	EnableDefaultInternetAccess pulumi.BoolOutput `pulumi:"enableDefaultInternetAccess"`
+	EnableDefaultInternetAccess pulumi.BoolPtrOutput `pulumi:"enableDefaultInternetAccess"`
 	// ARN of the IAM role to apply to the image builder.
-	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
+	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
 	// ARN of the public, private, or shared image to use.
-	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
+	ImageArn pulumi.StringPtrOutput `pulumi:"imageArn"`
 	// Name of the image used to create the image builder.
-	ImageName pulumi.StringOutput `pulumi:"imageName"`
+	ImageName pulumi.StringPtrOutput `pulumi:"imageName"`
 	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Unique name for the image builder.
@@ -93,7 +93,7 @@ type ImageBuilder struct {
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -101,7 +101,7 @@ type ImageBuilder struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for the VPC configuration for the image builder. See below.
-	VpcConfig ImageBuilderVpcConfigOutput `pulumi:"vpcConfig"`
+	VpcConfig ImageBuilderVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewImageBuilder registers a new resource with the given unique name, arguments, and options.
@@ -382,53 +382,53 @@ func (o ImageBuilderOutput) AccessEndpoints() ImageBuilderAccessEndpointArrayOut
 }
 
 // Version of the AppStream 2.0 agent to use for this image builder.
-func (o ImageBuilderOutput) AppstreamAgentVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.AppstreamAgentVersion }).(pulumi.StringOutput)
+func (o ImageBuilderOutput) AppstreamAgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.AppstreamAgentVersion }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the appstream image builder.
-func (o ImageBuilderOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ImageBuilderOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
-func (o ImageBuilderOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o ImageBuilderOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Description to display.
-func (o ImageBuilderOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o ImageBuilderOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Human-readable friendly name for the AppStream image builder.
-func (o ImageBuilderOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+func (o ImageBuilderOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-func (o ImageBuilderOutput) DomainJoinInfo() ImageBuilderDomainJoinInfoOutput {
-	return o.ApplyT(func(v *ImageBuilder) ImageBuilderDomainJoinInfoOutput { return v.DomainJoinInfo }).(ImageBuilderDomainJoinInfoOutput)
+func (o ImageBuilderOutput) DomainJoinInfo() ImageBuilderDomainJoinInfoPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) ImageBuilderDomainJoinInfoPtrOutput { return v.DomainJoinInfo }).(ImageBuilderDomainJoinInfoPtrOutput)
 }
 
 // Enables or disables default internet access for the image builder.
-func (o ImageBuilderOutput) EnableDefaultInternetAccess() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.BoolOutput { return v.EnableDefaultInternetAccess }).(pulumi.BoolOutput)
+func (o ImageBuilderOutput) EnableDefaultInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.BoolPtrOutput { return v.EnableDefaultInternetAccess }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the IAM role to apply to the image builder.
-func (o ImageBuilderOutput) IamRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
+func (o ImageBuilderOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the public, private, or shared image to use.
-func (o ImageBuilderOutput) ImageArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.ImageArn }).(pulumi.StringOutput)
+func (o ImageBuilderOutput) ImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.ImageArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the image used to create the image builder.
-func (o ImageBuilderOutput) ImageName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
+func (o ImageBuilderOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.ImageName }).(pulumi.StringPtrOutput)
 }
 
 // Instance type to use when launching the image builder.
@@ -444,8 +444,8 @@ func (o ImageBuilderOutput) Name() pulumi.StringOutput {
 }
 
 // State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
-func (o ImageBuilderOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o ImageBuilderOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -461,8 +461,8 @@ func (o ImageBuilderOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Configuration block for the VPC configuration for the image builder. See below.
-func (o ImageBuilderOutput) VpcConfig() ImageBuilderVpcConfigOutput {
-	return o.ApplyT(func(v *ImageBuilder) ImageBuilderVpcConfigOutput { return v.VpcConfig }).(ImageBuilderVpcConfigOutput)
+func (o ImageBuilderOutput) VpcConfig() ImageBuilderVpcConfigPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) ImageBuilderVpcConfigPtrOutput { return v.VpcConfig }).(ImageBuilderVpcConfigPtrOutput)
 }
 
 type ImageBuilderArrayOutput struct{ *pulumi.OutputState }

@@ -52,7 +52,7 @@ class GetReservedInstanceOfferingResult:
 
     @property
     @pulumi.getter(name="currencyCode")
-    def currency_code(self) -> str:
+    def currency_code(self) -> Optional[str]:
         """
         Currency code for the reserved DB instance.
         """
@@ -70,7 +70,7 @@ class GetReservedInstanceOfferingResult:
 
     @property
     @pulumi.getter(name="fixedPrice")
-    def fixed_price(self) -> float:
+    def fixed_price(self) -> Optional[float]:
         """
         Fixed price charged for this reserved DB instance.
         """
@@ -78,7 +78,7 @@ class GetReservedInstanceOfferingResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -91,7 +91,7 @@ class GetReservedInstanceOfferingResult:
 
     @property
     @pulumi.getter(name="offeringId")
-    def offering_id(self) -> str:
+    def offering_id(self) -> Optional[str]:
         """
         Unique identifier for the reservation.
         """

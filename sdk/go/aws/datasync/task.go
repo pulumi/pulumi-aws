@@ -94,7 +94,7 @@ type Task struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the DataSync Task.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
 	CloudwatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudwatchLogGroupArn"`
 	// Amazon Resource Name (ARN) of destination DataSync Location.
@@ -357,8 +357,8 @@ func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 }
 
 // Amazon Resource Name (ARN) of the DataSync Task.
-func (o TaskOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TaskOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.

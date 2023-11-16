@@ -109,14 +109,14 @@ public class AssessmentDelegation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="delegationId", refs={String.class}, tree="[0]")
-    private Output<String> delegationId;
+    private Output</* @Nullable */ String> delegationId;
 
     /**
      * @return Unique identifier for the delegation.
      * 
      */
-    public Output<String> delegationId() {
-        return this.delegationId;
+    public Output<Optional<String>> delegationId() {
+        return Codegen.optional(this.delegationId);
     }
     /**
      * Amazon Resource Name (ARN) of the IAM role.
@@ -155,14 +155,14 @@ public class AssessmentDelegation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the delegation.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

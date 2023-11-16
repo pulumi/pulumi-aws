@@ -62,11 +62,11 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     /**
      * Identifier of the resource
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    public /*out*/ readonly resourceId!: pulumi.Output<string | undefined>;
     /**
      * Type of the resource
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */

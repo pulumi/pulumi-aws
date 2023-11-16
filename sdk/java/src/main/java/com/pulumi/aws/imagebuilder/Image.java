@@ -71,14 +71,14 @@ public class Image extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the image.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Amazon Resource Name (ARN) of the container recipe.
@@ -99,14 +99,14 @@ public class Image extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dateCreated", refs={String.class}, tree="[0]")
-    private Output<String> dateCreated;
+    private Output</* @Nullable */ String> dateCreated;
 
     /**
      * @return Date the image was created.
      * 
      */
-    public Output<String> dateCreated() {
-        return this.dateCreated;
+    public Output<Optional<String>> dateCreated() {
+        return Codegen.optional(this.dateCreated);
     }
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
@@ -155,28 +155,28 @@ public class Image extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="imageScanningConfiguration", refs={ImageImageScanningConfiguration.class}, tree="[0]")
-    private Output<ImageImageScanningConfiguration> imageScanningConfiguration;
+    private Output</* @Nullable */ ImageImageScanningConfiguration> imageScanningConfiguration;
 
     /**
      * @return Configuration block with image scanning configuration. Detailed below.
      * 
      */
-    public Output<ImageImageScanningConfiguration> imageScanningConfiguration() {
-        return this.imageScanningConfiguration;
+    public Output<Optional<ImageImageScanningConfiguration>> imageScanningConfiguration() {
+        return Codegen.optional(this.imageScanningConfiguration);
     }
     /**
      * Configuration block with image tests configuration. Detailed below.
      * 
      */
     @Export(name="imageTestsConfiguration", refs={ImageImageTestsConfiguration.class}, tree="[0]")
-    private Output<ImageImageTestsConfiguration> imageTestsConfiguration;
+    private Output</* @Nullable */ ImageImageTestsConfiguration> imageTestsConfiguration;
 
     /**
      * @return Configuration block with image tests configuration. Detailed below.
      * 
      */
-    public Output<ImageImageTestsConfiguration> imageTestsConfiguration() {
-        return this.imageTestsConfiguration;
+    public Output<Optional<ImageImageTestsConfiguration>> imageTestsConfiguration() {
+        return Codegen.optional(this.imageTestsConfiguration);
     }
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -201,56 +201,56 @@ public class Image extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return Name of the AMI.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * Operating System version of the image.
      * 
      */
     @Export(name="osVersion", refs={String.class}, tree="[0]")
-    private Output<String> osVersion;
+    private Output</* @Nullable */ String> osVersion;
 
     /**
      * @return Operating System version of the image.
      * 
      */
-    public Output<String> osVersion() {
-        return this.osVersion;
+    public Output<Optional<String>> osVersion() {
+        return Codegen.optional(this.osVersion);
     }
     /**
      * List of objects with resources created by the image.
      * 
      */
     @Export(name="outputResources", refs={List.class,ImageOutputResource.class}, tree="[0,1]")
-    private Output<List<ImageOutputResource>> outputResources;
+    private Output</* @Nullable */ List<ImageOutputResource>> outputResources;
 
     /**
      * @return List of objects with resources created by the image.
      * 
      */
-    public Output<List<ImageOutputResource>> outputResources() {
-        return this.outputResources;
+    public Output<Optional<List<ImageOutputResource>>> outputResources() {
+        return Codegen.optional(this.outputResources);
     }
     /**
      * Platform of the image.
      * 
      */
     @Export(name="platform", refs={String.class}, tree="[0]")
-    private Output<String> platform;
+    private Output</* @Nullable */ String> platform;
 
     /**
      * @return Platform of the image.
      * 
      */
-    public Output<String> platform() {
-        return this.platform;
+    public Output<Optional<String>> platform() {
+        return Codegen.optional(this.platform);
     }
     /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -289,14 +289,14 @@ public class Image extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return Version of the image.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

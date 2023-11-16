@@ -156,7 +156,7 @@ namespace Pulumi.Aws.FinSpace
         /// Amazon Resource Name (ARN) identifier of the KX environment.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.FinSpace
         /// Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Output("createdTimestamp")]
-        public Output<string> CreatedTimestamp { get; private set; } = null!;
+        public Output<string?> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.FinSpace
         /// Unique identifier for the AWS environment infrastructure account.
         /// </summary>
         [Output("infrastructureAccountId")]
-        public Output<string> InfrastructureAccountId { get; private set; } = null!;
+        public Output<string?> InfrastructureAccountId { get; private set; } = null!;
 
         /// <summary>
         /// KMS key ID to encrypt your data in the FinSpace environment.
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.FinSpace
         /// Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Output("lastModifiedTimestamp")]
-        public Output<string> LastModifiedTimestamp { get; private set; } = null!;
+        public Output<string?> LastModifiedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Name of the KX environment that you want to create.
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.FinSpace
         /// Status of environment creation
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

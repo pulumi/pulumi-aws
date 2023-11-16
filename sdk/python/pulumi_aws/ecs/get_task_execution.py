@@ -114,7 +114,7 @@ class GetTaskExecutionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -172,7 +172,7 @@ class GetTaskExecutionResult:
 
     @property
     @pulumi.getter(name="taskArns")
-    def task_arns(self) -> Sequence[str]:
+    def task_arns(self) -> Optional[Sequence[str]]:
         """
         A list of the provisioned task ARNs.
         """

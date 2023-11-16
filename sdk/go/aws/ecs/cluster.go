@@ -104,7 +104,7 @@ type Cluster struct {
 	pulumi.CustomResourceState
 
 	// ARN that identifies the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration ClusterConfigurationPtrOutput `pulumi:"configuration"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -311,8 +311,8 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 }
 
 // ARN that identifies the cluster.
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The execute command configuration for the cluster. Detailed below.

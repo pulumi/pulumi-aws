@@ -60,17 +60,17 @@ type LookupDistributionConfigurationArgs struct {
 type LookupDistributionConfigurationResult struct {
 	Arn string `pulumi:"arn"`
 	// Date the distribution configuration was created.
-	DateCreated string `pulumi:"dateCreated"`
+	DateCreated *string `pulumi:"dateCreated"`
 	// Date the distribution configuration was updated.
-	DateUpdated string `pulumi:"dateUpdated"`
+	DateUpdated *string `pulumi:"dateUpdated"`
 	// Description of the container distribution configuration.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Set of distributions.
 	Distributions []GetDistributionConfigurationDistribution `pulumi:"distributions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the distribution configuration.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Key-value map of resource tags for the distribution configuration.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -120,18 +120,18 @@ func (o LookupDistributionConfigurationResultOutput) Arn() pulumi.StringOutput {
 }
 
 // Date the distribution configuration was created.
-func (o LookupDistributionConfigurationResultOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.DateCreated }).(pulumi.StringOutput)
+func (o LookupDistributionConfigurationResultOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) *string { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Date the distribution configuration was updated.
-func (o LookupDistributionConfigurationResultOutput) DateUpdated() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.DateUpdated }).(pulumi.StringOutput)
+func (o LookupDistributionConfigurationResultOutput) DateUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) *string { return v.DateUpdated }).(pulumi.StringPtrOutput)
 }
 
 // Description of the container distribution configuration.
-func (o LookupDistributionConfigurationResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupDistributionConfigurationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Set of distributions.
@@ -142,13 +142,13 @@ func (o LookupDistributionConfigurationResultOutput) Distributions() GetDistribu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDistributionConfigurationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDistributionConfigurationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the distribution configuration.
-func (o LookupDistributionConfigurationResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupDistributionConfigurationResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags for the distribution configuration.

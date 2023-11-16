@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRealtimeLogConfigResult {
@@ -16,57 +18,57 @@ public final class GetRealtimeLogConfigResult {
      * @return ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return (Required) Amazon Kinesis data streams where real-time log data is sent.
      * 
      */
-    private List<GetRealtimeLogConfigEndpoint> endpoints;
+    private @Nullable List<GetRealtimeLogConfigEndpoint> endpoints;
     /**
      * @return (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      * 
      */
-    private List<String> fields;
+    private @Nullable List<String> fields;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      * 
      */
-    private Integer samplingRate;
+    private @Nullable Integer samplingRate;
 
     private GetRealtimeLogConfigResult() {}
     /**
      * @return ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return (Required) Amazon Kinesis data streams where real-time log data is sent.
      * 
      */
     public List<GetRealtimeLogConfigEndpoint> endpoints() {
-        return this.endpoints;
+        return this.endpoints == null ? List.of() : this.endpoints;
     }
     /**
      * @return (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      * 
      */
     public List<String> fields() {
-        return this.fields;
+        return this.fields == null ? List.of() : this.fields;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -75,8 +77,8 @@ public final class GetRealtimeLogConfigResult {
      * @return (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      * 
      */
-    public Integer samplingRate() {
-        return this.samplingRate;
+    public Optional<Integer> samplingRate() {
+        return Optional.ofNullable(this.samplingRate);
     }
 
     public static Builder builder() {
@@ -88,12 +90,12 @@ public final class GetRealtimeLogConfigResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetRealtimeLogConfigEndpoint> endpoints;
-        private List<String> fields;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable List<GetRealtimeLogConfigEndpoint> endpoints;
+        private @Nullable List<String> fields;
+        private @Nullable String id;
         private String name;
-        private Integer samplingRate;
+        private @Nullable Integer samplingRate;
         public Builder() {}
         public Builder(GetRealtimeLogConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -106,29 +108,29 @@ public final class GetRealtimeLogConfigResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoints(List<GetRealtimeLogConfigEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+        public Builder endpoints(@Nullable List<GetRealtimeLogConfigEndpoint> endpoints) {
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetRealtimeLogConfigEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
         @CustomType.Setter
-        public Builder fields(List<String> fields) {
-            this.fields = Objects.requireNonNull(fields);
+        public Builder fields(@Nullable List<String> fields) {
+            this.fields = fields;
             return this;
         }
         public Builder fields(String... fields) {
             return fields(List.of(fields));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -137,8 +139,8 @@ public final class GetRealtimeLogConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder samplingRate(Integer samplingRate) {
-            this.samplingRate = Objects.requireNonNull(samplingRate);
+        public Builder samplingRate(@Nullable Integer samplingRate) {
+            this.samplingRate = samplingRate;
             return this;
         }
         public GetRealtimeLogConfigResult build() {

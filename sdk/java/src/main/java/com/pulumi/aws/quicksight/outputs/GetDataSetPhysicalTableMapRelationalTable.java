@@ -8,30 +8,32 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetPhysicalTableMapRelationalTable {
-    private String catalog;
-    private String dataSourceArn;
-    private List<GetDataSetPhysicalTableMapRelationalTableInputColumn> inputColumns;
-    private String name;
-    private String schema;
+    private @Nullable String catalog;
+    private @Nullable String dataSourceArn;
+    private @Nullable List<GetDataSetPhysicalTableMapRelationalTableInputColumn> inputColumns;
+    private @Nullable String name;
+    private @Nullable String schema;
 
     private GetDataSetPhysicalTableMapRelationalTable() {}
-    public String catalog() {
-        return this.catalog;
+    public Optional<String> catalog() {
+        return Optional.ofNullable(this.catalog);
     }
-    public String dataSourceArn() {
-        return this.dataSourceArn;
+    public Optional<String> dataSourceArn() {
+        return Optional.ofNullable(this.dataSourceArn);
     }
     public List<GetDataSetPhysicalTableMapRelationalTableInputColumn> inputColumns() {
-        return this.inputColumns;
+        return this.inputColumns == null ? List.of() : this.inputColumns;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public String schema() {
-        return this.schema;
+    public Optional<String> schema() {
+        return Optional.ofNullable(this.schema);
     }
 
     public static Builder builder() {
@@ -43,11 +45,11 @@ public final class GetDataSetPhysicalTableMapRelationalTable {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String catalog;
-        private String dataSourceArn;
-        private List<GetDataSetPhysicalTableMapRelationalTableInputColumn> inputColumns;
-        private String name;
-        private String schema;
+        private @Nullable String catalog;
+        private @Nullable String dataSourceArn;
+        private @Nullable List<GetDataSetPhysicalTableMapRelationalTableInputColumn> inputColumns;
+        private @Nullable String name;
+        private @Nullable String schema;
         public Builder() {}
         public Builder(GetDataSetPhysicalTableMapRelationalTable defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,31 +61,31 @@ public final class GetDataSetPhysicalTableMapRelationalTable {
         }
 
         @CustomType.Setter
-        public Builder catalog(String catalog) {
-            this.catalog = Objects.requireNonNull(catalog);
+        public Builder catalog(@Nullable String catalog) {
+            this.catalog = catalog;
             return this;
         }
         @CustomType.Setter
-        public Builder dataSourceArn(String dataSourceArn) {
-            this.dataSourceArn = Objects.requireNonNull(dataSourceArn);
+        public Builder dataSourceArn(@Nullable String dataSourceArn) {
+            this.dataSourceArn = dataSourceArn;
             return this;
         }
         @CustomType.Setter
-        public Builder inputColumns(List<GetDataSetPhysicalTableMapRelationalTableInputColumn> inputColumns) {
-            this.inputColumns = Objects.requireNonNull(inputColumns);
+        public Builder inputColumns(@Nullable List<GetDataSetPhysicalTableMapRelationalTableInputColumn> inputColumns) {
+            this.inputColumns = inputColumns;
             return this;
         }
         public Builder inputColumns(GetDataSetPhysicalTableMapRelationalTableInputColumn... inputColumns) {
             return inputColumns(List.of(inputColumns));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+        public Builder schema(@Nullable String schema) {
+            this.schema = schema;
             return this;
         }
         public GetDataSetPhysicalTableMapRelationalTable build() {

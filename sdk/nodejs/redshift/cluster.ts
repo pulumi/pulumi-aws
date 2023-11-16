@@ -95,11 +95,11 @@ export class Cluster extends pulumi.CustomResource {
      *
      * @deprecated This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      */
-    public readonly aquaConfigurationStatus!: pulumi.Output<string>;
+    public readonly aquaConfigurationStatus!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of cluster
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
      */
@@ -107,7 +107,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
      */
@@ -119,31 +119,31 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The namespace Amazon Resource Name (ARN) of the cluster
      */
-    public /*out*/ readonly clusterNamespaceArn!: pulumi.Output<string>;
+    public /*out*/ readonly clusterNamespaceArn!: pulumi.Output<string | undefined>;
     /**
      * The nodes in the cluster. Cluster node blocks are documented below
      */
-    public /*out*/ readonly clusterNodes!: pulumi.Output<outputs.redshift.ClusterClusterNode[]>;
+    public /*out*/ readonly clusterNodes!: pulumi.Output<outputs.redshift.ClusterClusterNode[] | undefined>;
     /**
      * The name of the parameter group to be associated with this cluster.
      */
-    public readonly clusterParameterGroupName!: pulumi.Output<string>;
+    public readonly clusterParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * The public key for the cluster
      */
-    public readonly clusterPublicKey!: pulumi.Output<string>;
+    public readonly clusterPublicKey!: pulumi.Output<string | undefined>;
     /**
      * The specific revision number of the database in the cluster
      */
-    public readonly clusterRevisionNumber!: pulumi.Output<string>;
+    public readonly clusterRevisionNumber!: pulumi.Output<string | undefined>;
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      */
-    public readonly clusterSubnetGroupName!: pulumi.Output<string>;
+    public readonly clusterSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * The cluster type to use. Either `single-node` or `multi-node`.
      */
-    public readonly clusterType!: pulumi.Output<string>;
+    public readonly clusterType!: pulumi.Output<string | undefined>;
     /**
      * The version of the Amazon Redshift engine software that you want to deploy on the cluster.
      * The version selected runs on all the nodes in the cluster.
@@ -153,15 +153,15 @@ export class Cluster extends pulumi.CustomResource {
      * The name of the first database to be created when the cluster is created.
      * If you do not provide a name, Amazon Redshift will create a default database called `dev`.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    public readonly databaseName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      */
-    public readonly defaultIamRoleArn!: pulumi.Output<string>;
+    public readonly defaultIamRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The DNS name of the cluster
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * The Elastic IP (EIP) address for the cluster.
      */
@@ -173,11 +173,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The connection endpoint
      */
-    public readonly endpoint!: pulumi.Output<string>;
+    public readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * If true , enhanced VPC routing is enabled.
      */
-    public readonly enhancedVpcRouting!: pulumi.Output<boolean>;
+    public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
     /**
      * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
      */
@@ -185,11 +185,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
-    public readonly iamRoles!: pulumi.Output<string[]>;
+    public readonly iamRoles!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Logging, documented below.
      */
@@ -219,11 +219,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * ARN of the cluster admin credentials secret
      */
-    public /*out*/ readonly masterPasswordSecretArn!: pulumi.Output<string>;
+    public /*out*/ readonly masterPasswordSecretArn!: pulumi.Output<string | undefined>;
     /**
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      */
-    public readonly masterPasswordSecretKmsKeyId!: pulumi.Output<string>;
+    public readonly masterPasswordSecretKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Username for the master DB user.
      */
@@ -251,7 +251,7 @@ export class Cluster extends pulumi.CustomResource {
      * The weekly time range (in UTC) during which automated cluster maintenance can occur.
      * Format: ddd:hh24:mi-ddd:hh24:mi
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * If true, the cluster can be accessed from a public network. Default is `true`.
      */
@@ -289,7 +289,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.

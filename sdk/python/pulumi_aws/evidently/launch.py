@@ -1076,7 +1076,7 @@ class Launch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the launch.
         """
@@ -1084,7 +1084,7 @@ class Launch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the launch is created.
         """
@@ -1100,7 +1100,7 @@ class Launch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def executions(self) -> pulumi.Output[Sequence['outputs.LaunchExecution']]:
+    def executions(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchExecution']]]:
         """
         A block that contains information about the start and end times of the launch. Detailed below
         """
@@ -1116,7 +1116,7 @@ class Launch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the launch was most recently updated.
         """
@@ -1164,7 +1164,7 @@ class Launch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         """
@@ -1172,7 +1172,7 @@ class Launch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> pulumi.Output[str]:
+    def status_reason(self) -> pulumi.Output[Optional[str]]:
         """
         If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
         """
@@ -1199,7 +1199,7 @@ class Launch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of launch.
         """

@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisReturnPathComponentVpc {
@@ -13,31 +15,31 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentVpc {
      * @return ARN of the selected Network Insights Analysis.
      * 
      */
-    private String arn;
-    private String id;
+    private @Nullable String arn;
+    private @Nullable String id;
     /**
      * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
      * 
      */
-    private String name;
+    private @Nullable String name;
 
     private GetNetworkInsightsAnalysisReturnPathComponentVpc() {}
     /**
      * @return ARN of the selected Network Insights Analysis.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -49,9 +51,9 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentVpc {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String name;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisReturnPathComponentVpc defaults) {
     	      Objects.requireNonNull(defaults);
@@ -61,18 +63,18 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentVpc {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetNetworkInsightsAnalysisReturnPathComponentVpc build() {

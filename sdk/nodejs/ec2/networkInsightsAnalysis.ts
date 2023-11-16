@@ -63,15 +63,15 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * Potential intermediate components of a feasible path. Described below.
      */
-    public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
+    public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[] | undefined>;
     /**
      * ARN of the Network Insights Analysis.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      */
-    public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
+    public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[] | undefined>;
     /**
      * A list of ARNs for resources the path must traverse.
      */
@@ -79,7 +79,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisForwardPathComponent[]>;
+    public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisForwardPathComponent[] | undefined>;
     /**
      * ID of the Network Insights Path to run an analysis on.
      *
@@ -89,23 +89,23 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * Set to `true` if the destination was reachable.
      */
-    public /*out*/ readonly pathFound!: pulumi.Output<boolean>;
+    public /*out*/ readonly pathFound!: pulumi.Output<boolean | undefined>;
     /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisReturnPathComponent[]>;
+    public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisReturnPathComponent[] | undefined>;
     /**
      * The date/time the analysis was started.
      */
-    public /*out*/ readonly startDate!: pulumi.Output<string>;
+    public /*out*/ readonly startDate!: pulumi.Output<string | undefined>;
     /**
      * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * A message to provide more context when the `status` is `failed`.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    public /*out*/ readonly statusMessage!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -123,7 +123,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * The warning message.
      */
-    public /*out*/ readonly warningMessage!: pulumi.Output<string>;
+    public /*out*/ readonly warningMessage!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NetworkInsightsAnalysis resource with the given unique name, arguments, and options.

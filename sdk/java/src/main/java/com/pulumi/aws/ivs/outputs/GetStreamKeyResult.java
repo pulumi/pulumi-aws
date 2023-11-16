@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStreamKeyResult {
@@ -14,31 +16,31 @@ public final class GetStreamKeyResult {
      * @return ARN of the Stream Key.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     private String channelArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Stream Key value.
      * 
      */
-    private String value;
+    private @Nullable String value;
 
     private GetStreamKeyResult() {}
     /**
      * @return ARN of the Stream Key.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public String channelArn() {
         return this.channelArn;
@@ -47,22 +49,22 @@ public final class GetStreamKeyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Stream Key value.
      * 
      */
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -74,11 +76,11 @@ public final class GetStreamKeyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private String channelArn;
-        private String id;
-        private Map<String,String> tags;
-        private String value;
+        private @Nullable String id;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetStreamKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -90,8 +92,8 @@ public final class GetStreamKeyResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -100,18 +102,18 @@ public final class GetStreamKeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetStreamKeyResult build() {

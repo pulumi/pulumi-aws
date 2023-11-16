@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// <summary>
         /// Parameter type.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// Parameter values.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
 
         [OutputConstructor]
         private GetCostCategorySplitChargeRuleParameterResult(
-            string type,
+            string? type,
 
             ImmutableArray<string> values)
         {

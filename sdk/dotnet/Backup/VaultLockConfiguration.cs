@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Backup
         /// The ARN of the vault.
         /// </summary>
         [Output("backupVaultArn")]
-        public Output<string> BackupVaultArn { get; private set; } = null!;
+        public Output<string?> BackupVaultArn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the backup vault to add a lock configuration for.

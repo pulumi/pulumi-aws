@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["ds.amazonaws.com"],
  *             type: "Service",
  *         }],
- *         resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
+ *         resources: [exampleLogGroup.arn.apply(arn => `${arn}:*`)],
  *         effect: "Allow",
  *     }],
  * });

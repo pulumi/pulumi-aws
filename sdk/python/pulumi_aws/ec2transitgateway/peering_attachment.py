@@ -396,7 +396,7 @@ class PeeringAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerAccountId")
-    def peer_account_id(self) -> pulumi.Output[str]:
+    def peer_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         """

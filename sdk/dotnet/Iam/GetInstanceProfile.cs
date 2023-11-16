@@ -108,50 +108,50 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// ARN.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// String representation of the date the instance profile was created.
         /// </summary>
-        public readonly string CreateDate;
+        public readonly string? CreateDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Path to the instance profile.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         /// <summary>
         /// Role ARN associated with this instance profile.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// Role ID associated with this instance profile.
         /// </summary>
-        public readonly string RoleId;
+        public readonly string? RoleId;
         /// <summary>
         /// Role name associated with this instance profile.
         /// </summary>
-        public readonly string RoleName;
+        public readonly string? RoleName;
 
         [OutputConstructor]
         private GetInstanceProfileResult(
-            string arn,
+            string? arn,
 
-            string createDate,
+            string? createDate,
 
-            string id,
+            string? id,
 
             string name,
 
-            string path,
+            string? path,
 
-            string roleArn,
+            string? roleArn,
 
-            string roleId,
+            string? roleId,
 
-            string roleName)
+            string? roleName)
         {
             Arn = arn;
             CreateDate = createDate;

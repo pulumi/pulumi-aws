@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Eks
         /// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the EKS Cluster.
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Eks
         /// Status of the EKS Identity Provider Configuration.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

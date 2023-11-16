@@ -73,13 +73,13 @@ namespace Pulumi.Aws.Iot
         /// Thing group indexing configuration. See below.
         /// </summary>
         [Output("thingGroupIndexingConfiguration")]
-        public Output<Outputs.IndexingConfigurationThingGroupIndexingConfiguration> ThingGroupIndexingConfiguration { get; private set; } = null!;
+        public Output<Outputs.IndexingConfigurationThingGroupIndexingConfiguration?> ThingGroupIndexingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Thing indexing configuration. See below.
         /// </summary>
         [Output("thingIndexingConfiguration")]
-        public Output<Outputs.IndexingConfigurationThingIndexingConfiguration> ThingIndexingConfiguration { get; private set; } = null!;
+        public Output<Outputs.IndexingConfigurationThingIndexingConfiguration?> ThingIndexingConfiguration { get; private set; } = null!;
 
 
         /// <summary>

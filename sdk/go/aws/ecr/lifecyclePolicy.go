@@ -133,7 +133,7 @@ type LifecyclePolicy struct {
 	// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The registry ID where the repository was created.
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	RegistryId pulumi.StringPtrOutput `pulumi:"registryId"`
 	// Name of the repository to apply the policy.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 }
@@ -303,8 +303,8 @@ func (o LifecyclePolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // The registry ID where the repository was created.
-func (o LifecyclePolicyOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+func (o LifecyclePolicyOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the repository to apply the policy.

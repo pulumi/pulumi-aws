@@ -83,7 +83,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the created ElastiCache Replication Group.
         """
@@ -91,7 +91,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="authTokenEnabled")
-    def auth_token_enabled(self) -> bool:
+    def auth_token_enabled(self) -> Optional[bool]:
         """
         Whether an AuthToken (password) is enabled.
         """
@@ -99,7 +99,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> bool:
+    def automatic_failover_enabled(self) -> Optional[bool]:
         """
         A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
         """
@@ -107,7 +107,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="configurationEndpointAddress")
-    def configuration_endpoint_address(self) -> str:
+    def configuration_endpoint_address(self) -> Optional[str]:
         """
         The configuration endpoint address to allow host discovery.
         """
@@ -115,7 +115,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the replication group.
         """
@@ -123,7 +123,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -131,7 +131,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="logDeliveryConfigurations")
-    def log_delivery_configurations(self) -> Sequence['outputs.GetReplicationGroupLogDeliveryConfigurationResult']:
+    def log_delivery_configurations(self) -> Optional[Sequence['outputs.GetReplicationGroupLogDeliveryConfigurationResult']]:
         """
         Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
         """
@@ -139,7 +139,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="memberClusters")
-    def member_clusters(self) -> Sequence[str]:
+    def member_clusters(self) -> Optional[Sequence[str]]:
         """
         Identifiers of all the nodes that are part of this replication group.
         """
@@ -147,7 +147,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="multiAzEnabled")
-    def multi_az_enabled(self) -> bool:
+    def multi_az_enabled(self) -> Optional[bool]:
         """
         Whether Multi-AZ Support is enabled for the replication group.
         """
@@ -155,7 +155,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> str:
+    def node_type(self) -> Optional[str]:
         """
         The cluster node type.
         """
@@ -163,7 +163,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="numCacheClusters")
-    def num_cache_clusters(self) -> int:
+    def num_cache_clusters(self) -> Optional[int]:
         """
         The number of cache clusters that the replication group has.
         """
@@ -171,7 +171,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="numNodeGroups")
-    def num_node_groups(self) -> int:
+    def num_node_groups(self) -> Optional[int]:
         """
         Number of node groups (shards) for the replication group.
         """
@@ -179,7 +179,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         """
         The port number on which the configuration endpoint will accept connections.
         """
@@ -187,7 +187,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="primaryEndpointAddress")
-    def primary_endpoint_address(self) -> str:
+    def primary_endpoint_address(self) -> Optional[str]:
         """
         The endpoint of the primary node in this node group (shard).
         """
@@ -195,7 +195,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="readerEndpointAddress")
-    def reader_endpoint_address(self) -> str:
+    def reader_endpoint_address(self) -> Optional[str]:
         """
         The endpoint of the reader node in this node group (shard).
         """
@@ -203,7 +203,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="replicasPerNodeGroup")
-    def replicas_per_node_group(self) -> int:
+    def replicas_per_node_group(self) -> Optional[int]:
         """
         Number of replica nodes in each node group.
         """
@@ -216,7 +216,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> int:
+    def snapshot_retention_limit(self) -> Optional[int]:
         """
         The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
         """
@@ -224,7 +224,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="snapshotWindow")
-    def snapshot_window(self) -> str:
+    def snapshot_window(self) -> Optional[str]:
         """
         Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         """

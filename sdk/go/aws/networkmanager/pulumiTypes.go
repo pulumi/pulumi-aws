@@ -2483,9 +2483,9 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) Index(i pulumi.Int
 
 type GetDeviceAwsLocation struct {
 	// ARN of the subnet that the device is located in.
-	SubnetArn string `pulumi:"subnetArn"`
+	SubnetArn *string `pulumi:"subnetArn"`
 	// Zone that the device is located in.
-	Zone string `pulumi:"zone"`
+	Zone *string `pulumi:"zone"`
 }
 
 // GetDeviceAwsLocationInput is an input type that accepts GetDeviceAwsLocationArgs and GetDeviceAwsLocationOutput values.
@@ -2501,9 +2501,9 @@ type GetDeviceAwsLocationInput interface {
 
 type GetDeviceAwsLocationArgs struct {
 	// ARN of the subnet that the device is located in.
-	SubnetArn pulumi.StringInput `pulumi:"subnetArn"`
+	SubnetArn pulumi.StringPtrInput `pulumi:"subnetArn"`
 	// Zone that the device is located in.
-	Zone pulumi.StringInput `pulumi:"zone"`
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (GetDeviceAwsLocationArgs) ElementType() reflect.Type {
@@ -2558,13 +2558,13 @@ func (o GetDeviceAwsLocationOutput) ToGetDeviceAwsLocationOutputWithContext(ctx 
 }
 
 // ARN of the subnet that the device is located in.
-func (o GetDeviceAwsLocationOutput) SubnetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDeviceAwsLocation) string { return v.SubnetArn }).(pulumi.StringOutput)
+func (o GetDeviceAwsLocationOutput) SubnetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDeviceAwsLocation) *string { return v.SubnetArn }).(pulumi.StringPtrOutput)
 }
 
 // Zone that the device is located in.
-func (o GetDeviceAwsLocationOutput) Zone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDeviceAwsLocation) string { return v.Zone }).(pulumi.StringOutput)
+func (o GetDeviceAwsLocationOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDeviceAwsLocation) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 type GetDeviceAwsLocationArrayOutput struct{ *pulumi.OutputState }
@@ -2589,11 +2589,11 @@ func (o GetDeviceAwsLocationArrayOutput) Index(i pulumi.IntInput) GetDeviceAwsLo
 
 type GetDeviceLocation struct {
 	// Physical address.
-	Address string `pulumi:"address"`
+	Address *string `pulumi:"address"`
 	// Latitude.
-	Latitude string `pulumi:"latitude"`
+	Latitude *string `pulumi:"latitude"`
 	// Longitude.
-	Longitude string `pulumi:"longitude"`
+	Longitude *string `pulumi:"longitude"`
 }
 
 // GetDeviceLocationInput is an input type that accepts GetDeviceLocationArgs and GetDeviceLocationOutput values.
@@ -2609,11 +2609,11 @@ type GetDeviceLocationInput interface {
 
 type GetDeviceLocationArgs struct {
 	// Physical address.
-	Address pulumi.StringInput `pulumi:"address"`
+	Address pulumi.StringPtrInput `pulumi:"address"`
 	// Latitude.
-	Latitude pulumi.StringInput `pulumi:"latitude"`
+	Latitude pulumi.StringPtrInput `pulumi:"latitude"`
 	// Longitude.
-	Longitude pulumi.StringInput `pulumi:"longitude"`
+	Longitude pulumi.StringPtrInput `pulumi:"longitude"`
 }
 
 func (GetDeviceLocationArgs) ElementType() reflect.Type {
@@ -2668,18 +2668,18 @@ func (o GetDeviceLocationOutput) ToGetDeviceLocationOutputWithContext(ctx contex
 }
 
 // Physical address.
-func (o GetDeviceLocationOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDeviceLocation) string { return v.Address }).(pulumi.StringOutput)
+func (o GetDeviceLocationOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDeviceLocation) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Latitude.
-func (o GetDeviceLocationOutput) Latitude() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDeviceLocation) string { return v.Latitude }).(pulumi.StringOutput)
+func (o GetDeviceLocationOutput) Latitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDeviceLocation) *string { return v.Latitude }).(pulumi.StringPtrOutput)
 }
 
 // Longitude.
-func (o GetDeviceLocationOutput) Longitude() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDeviceLocation) string { return v.Longitude }).(pulumi.StringOutput)
+func (o GetDeviceLocationOutput) Longitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDeviceLocation) *string { return v.Longitude }).(pulumi.StringPtrOutput)
 }
 
 type GetDeviceLocationArrayOutput struct{ *pulumi.OutputState }
@@ -2704,9 +2704,9 @@ func (o GetDeviceLocationArrayOutput) Index(i pulumi.IntInput) GetDeviceLocation
 
 type GetLinkBandwidth struct {
 	// Download speed in Mbps.
-	DownloadSpeed int `pulumi:"downloadSpeed"`
+	DownloadSpeed *int `pulumi:"downloadSpeed"`
 	// Upload speed in Mbps.
-	UploadSpeed int `pulumi:"uploadSpeed"`
+	UploadSpeed *int `pulumi:"uploadSpeed"`
 }
 
 // GetLinkBandwidthInput is an input type that accepts GetLinkBandwidthArgs and GetLinkBandwidthOutput values.
@@ -2722,9 +2722,9 @@ type GetLinkBandwidthInput interface {
 
 type GetLinkBandwidthArgs struct {
 	// Download speed in Mbps.
-	DownloadSpeed pulumi.IntInput `pulumi:"downloadSpeed"`
+	DownloadSpeed pulumi.IntPtrInput `pulumi:"downloadSpeed"`
 	// Upload speed in Mbps.
-	UploadSpeed pulumi.IntInput `pulumi:"uploadSpeed"`
+	UploadSpeed pulumi.IntPtrInput `pulumi:"uploadSpeed"`
 }
 
 func (GetLinkBandwidthArgs) ElementType() reflect.Type {
@@ -2779,13 +2779,13 @@ func (o GetLinkBandwidthOutput) ToGetLinkBandwidthOutputWithContext(ctx context.
 }
 
 // Download speed in Mbps.
-func (o GetLinkBandwidthOutput) DownloadSpeed() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLinkBandwidth) int { return v.DownloadSpeed }).(pulumi.IntOutput)
+func (o GetLinkBandwidthOutput) DownloadSpeed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetLinkBandwidth) *int { return v.DownloadSpeed }).(pulumi.IntPtrOutput)
 }
 
 // Upload speed in Mbps.
-func (o GetLinkBandwidthOutput) UploadSpeed() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLinkBandwidth) int { return v.UploadSpeed }).(pulumi.IntOutput)
+func (o GetLinkBandwidthOutput) UploadSpeed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetLinkBandwidth) *int { return v.UploadSpeed }).(pulumi.IntPtrOutput)
 }
 
 type GetLinkBandwidthArrayOutput struct{ *pulumi.OutputState }
@@ -2810,11 +2810,11 @@ func (o GetLinkBandwidthArrayOutput) Index(i pulumi.IntInput) GetLinkBandwidthOu
 
 type GetSiteLocation struct {
 	// Address of the location.
-	Address string `pulumi:"address"`
+	Address *string `pulumi:"address"`
 	// Latitude of the location.
-	Latitude string `pulumi:"latitude"`
+	Latitude *string `pulumi:"latitude"`
 	// Longitude of the location.
-	Longitude string `pulumi:"longitude"`
+	Longitude *string `pulumi:"longitude"`
 }
 
 // GetSiteLocationInput is an input type that accepts GetSiteLocationArgs and GetSiteLocationOutput values.
@@ -2830,11 +2830,11 @@ type GetSiteLocationInput interface {
 
 type GetSiteLocationArgs struct {
 	// Address of the location.
-	Address pulumi.StringInput `pulumi:"address"`
+	Address pulumi.StringPtrInput `pulumi:"address"`
 	// Latitude of the location.
-	Latitude pulumi.StringInput `pulumi:"latitude"`
+	Latitude pulumi.StringPtrInput `pulumi:"latitude"`
 	// Longitude of the location.
-	Longitude pulumi.StringInput `pulumi:"longitude"`
+	Longitude pulumi.StringPtrInput `pulumi:"longitude"`
 }
 
 func (GetSiteLocationArgs) ElementType() reflect.Type {
@@ -2889,18 +2889,18 @@ func (o GetSiteLocationOutput) ToGetSiteLocationOutputWithContext(ctx context.Co
 }
 
 // Address of the location.
-func (o GetSiteLocationOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSiteLocation) string { return v.Address }).(pulumi.StringOutput)
+func (o GetSiteLocationOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSiteLocation) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Latitude of the location.
-func (o GetSiteLocationOutput) Latitude() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSiteLocation) string { return v.Latitude }).(pulumi.StringOutput)
+func (o GetSiteLocationOutput) Latitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSiteLocation) *string { return v.Latitude }).(pulumi.StringPtrOutput)
 }
 
 // Longitude of the location.
-func (o GetSiteLocationOutput) Longitude() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSiteLocation) string { return v.Longitude }).(pulumi.StringOutput)
+func (o GetSiteLocationOutput) Longitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSiteLocation) *string { return v.Longitude }).(pulumi.StringPtrOutput)
 }
 
 type GetSiteLocationArrayOutput struct{ *pulumi.OutputState }

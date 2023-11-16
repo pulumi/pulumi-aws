@@ -53,7 +53,7 @@ export class WorkspaceApiKey extends pulumi.CustomResource {
     /**
      * The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      */
-    public /*out*/ readonly key!: pulumi.Output<string>;
+    public /*out*/ readonly key!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the API key. Key names must be unique to the workspace.
      */

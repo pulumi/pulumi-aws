@@ -125,28 +125,28 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
-    private Output<String> applicationId;
+    private Output</* @Nullable */ String> applicationId;
 
     /**
      * @return The application ID.
      * 
      */
-    public Output<String> applicationId() {
-        return this.applicationId;
+    public Output<Optional<String>> applicationId() {
+        return Codegen.optional(this.applicationId);
     }
     /**
      * The ARN of the CodeDeploy application.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the CodeDeploy application.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
@@ -167,28 +167,28 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="githubAccountName", refs={String.class}, tree="[0]")
-    private Output<String> githubAccountName;
+    private Output</* @Nullable */ String> githubAccountName;
 
     /**
      * @return The name for a connection to a GitHub account.
      * 
      */
-    public Output<String> githubAccountName() {
-        return this.githubAccountName;
+    public Output<Optional<String>> githubAccountName() {
+        return Codegen.optional(this.githubAccountName);
     }
     /**
      * Whether the user has authenticated with GitHub for the specified application.
      * 
      */
     @Export(name="linkedToGithub", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> linkedToGithub;
+    private Output</* @Nullable */ Boolean> linkedToGithub;
 
     /**
      * @return Whether the user has authenticated with GitHub for the specified application.
      * 
      */
-    public Output<Boolean> linkedToGithub() {
-        return this.linkedToGithub;
+    public Output<Optional<Boolean>> linkedToGithub() {
+        return Codegen.optional(this.linkedToGithub);
     }
     /**
      * The name of the application.

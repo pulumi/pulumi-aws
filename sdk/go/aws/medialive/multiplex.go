@@ -74,7 +74,7 @@ type Multiplex struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Multiplex.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A list of availability zones. You must specify exactly two.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Multiplex settings. See Multiplex Settings for more details.
@@ -288,8 +288,8 @@ func (o MultiplexOutput) ToMultiplexOutputWithContext(ctx context.Context) Multi
 }
 
 // ARN of the Multiplex.
-func (o MultiplexOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Multiplex) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MultiplexOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Multiplex) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A list of availability zones. You must specify exactly two.

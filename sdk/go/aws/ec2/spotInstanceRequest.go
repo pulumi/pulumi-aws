@@ -71,12 +71,12 @@ type SpotInstanceRequest struct {
 	pulumi.CustomResourceState
 
 	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
-	Ami pulumi.StringOutput `pulumi:"ami"`
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Ami pulumi.StringPtrOutput `pulumi:"ami"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to associate a public IP address with an instance in a VPC.
-	AssociatePublicIpAddress pulumi.BoolOutput `pulumi:"associatePublicIpAddress"`
+	AssociatePublicIpAddress pulumi.BoolPtrOutput `pulumi:"associatePublicIpAddress"`
 	// AZ to start the instance in.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
 	// The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
@@ -84,29 +84,29 @@ type SpotInstanceRequest struct {
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
 	//
 	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
-	CapacityReservationSpecification SpotInstanceRequestCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
+	CapacityReservationSpecification SpotInstanceRequestCapacityReservationSpecificationPtrOutput `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
 	// Deprecated: use 'cpu_options' argument instead
-	CpuCoreCount pulumi.IntOutput `pulumi:"cpuCoreCount"`
+	CpuCoreCount pulumi.IntPtrOutput `pulumi:"cpuCoreCount"`
 	// The CPU options for the instance. See CPU Options below for more details.
-	CpuOptions SpotInstanceRequestCpuOptionsOutput `pulumi:"cpuOptions"`
+	CpuOptions SpotInstanceRequestCpuOptionsPtrOutput `pulumi:"cpuOptions"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
 	// Deprecated: use 'cpu_options' argument instead
-	CpuThreadsPerCore pulumi.IntOutput `pulumi:"cpuThreadsPerCore"`
+	CpuThreadsPerCore pulumi.IntPtrOutput `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
-	DisableApiStop pulumi.BoolOutput `pulumi:"disableApiStop"`
+	DisableApiStop pulumi.BoolPtrOutput `pulumi:"disableApiStop"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-	DisableApiTermination pulumi.BoolOutput `pulumi:"disableApiTermination"`
+	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
 	EbsBlockDevices SpotInstanceRequestEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-	EbsOptimized pulumi.BoolOutput `pulumi:"ebsOptimized"`
+	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-	EnclaveOptions SpotInstanceRequestEnclaveOptionsOutput `pulumi:"enclaveOptions"`
+	EnclaveOptions SpotInstanceRequestEnclaveOptionsPtrOutput `pulumi:"enclaveOptions"`
 	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -114,59 +114,59 @@ type SpotInstanceRequest struct {
 	// If true, the launched EC2 instance will support hibernation.
 	Hibernation pulumi.BoolPtrOutput `pulumi:"hibernation"`
 	// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-	HostId pulumi.StringOutput `pulumi:"hostId"`
+	HostId pulumi.StringPtrOutput `pulumi:"hostId"`
 	// ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-	HostResourceGroupArn pulumi.StringOutput `pulumi:"hostResourceGroupArn"`
+	HostResourceGroupArn pulumi.StringPtrOutput `pulumi:"hostResourceGroupArn"`
 	// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	IamInstanceProfile pulumi.StringOutput `pulumi:"iamInstanceProfile"`
+	IamInstanceProfile pulumi.StringPtrOutput `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-	InstanceInitiatedShutdownBehavior pulumi.StringOutput `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceInitiatedShutdownBehavior pulumi.StringPtrOutput `pulumi:"instanceInitiatedShutdownBehavior"`
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehavior"`
-	InstanceState                pulumi.StringOutput    `pulumi:"instanceState"`
+	InstanceState                pulumi.StringPtrOutput `pulumi:"instanceState"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	InstanceType pulumi.StringPtrOutput `pulumi:"instanceType"`
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
+	Ipv6AddressCount pulumi.IntPtrOutput `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
-	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup pulumi.StringPtrOutput `pulumi:"launchGroup"`
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
 	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
 	// Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-	MaintenanceOptions SpotInstanceRequestMaintenanceOptionsOutput `pulumi:"maintenanceOptions"`
+	MaintenanceOptions SpotInstanceRequestMaintenanceOptionsPtrOutput `pulumi:"maintenanceOptions"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
-	MetadataOptions SpotInstanceRequestMetadataOptionsOutput `pulumi:"metadataOptions"`
+	MetadataOptions SpotInstanceRequestMetadataOptionsPtrOutput `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-	Monitoring pulumi.BoolOutput `pulumi:"monitoring"`
+	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	OutpostArn        pulumi.StringOutput                            `pulumi:"outpostArn"`
-	PasswordData      pulumi.StringOutput                            `pulumi:"passwordData"`
+	OutpostArn        pulumi.StringPtrOutput                         `pulumi:"outpostArn"`
+	PasswordData      pulumi.StringPtrOutput                         `pulumi:"passwordData"`
 	// Placement Group to start the instance in.
-	PlacementGroup pulumi.StringOutput `pulumi:"placementGroup"`
+	PlacementGroup pulumi.StringPtrOutput `pulumi:"placementGroup"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-	PlacementPartitionNumber  pulumi.IntOutput    `pulumi:"placementPartitionNumber"`
-	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
+	PlacementPartitionNumber  pulumi.IntPtrOutput    `pulumi:"placementPartitionNumber"`
+	PrimaryNetworkInterfaceId pulumi.StringPtrOutput `pulumi:"primaryNetworkInterfaceId"`
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC
-	PrivateDns pulumi.StringOutput `pulumi:"privateDns"`
+	PrivateDns pulumi.StringPtrOutput `pulumi:"privateDns"`
 	// Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-	PrivateDnsNameOptions SpotInstanceRequestPrivateDnsNameOptionsOutput `pulumi:"privateDnsNameOptions"`
+	PrivateDnsNameOptions SpotInstanceRequestPrivateDnsNameOptionsPtrOutput `pulumi:"privateDnsNameOptions"`
 	// Private IP address to associate with the instance in a VPC.
-	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
+	PrivateIp pulumi.StringPtrOutput `pulumi:"privateIp"`
 	// The public DNS name assigned to the instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC
-	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
+	PublicDns pulumi.StringPtrOutput `pulumi:"publicDns"`
 	// The public IP address assigned to the instance, if applicable.
-	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+	PublicIp pulumi.StringPtrOutput `pulumi:"publicIp"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-	RootBlockDevice SpotInstanceRequestRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
+	RootBlockDevice SpotInstanceRequestRootBlockDevicePtrOutput `pulumi:"rootBlockDevice"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
@@ -178,21 +178,21 @@ type SpotInstanceRequest struct {
 	// The current [bid
 	// status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 	// of the Spot Instance Request.
-	SpotBidStatus pulumi.StringOutput `pulumi:"spotBidStatus"`
+	SpotBidStatus pulumi.StringPtrOutput `pulumi:"spotBidStatus"`
 	// The Instance ID (if any) that is currently fulfilling
 	// the Spot Instance request.
-	SpotInstanceId pulumi.StringOutput `pulumi:"spotInstanceId"`
+	SpotInstanceId pulumi.StringPtrOutput `pulumi:"spotInstanceId"`
 	// The maximum price to request on the spot market.
-	SpotPrice pulumi.StringOutput `pulumi:"spotPrice"`
+	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
 	// The current [request
 	// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
 	// of the Spot Instance Request.
-	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
+	SpotRequestState pulumi.StringPtrOutput `pulumi:"spotRequestState"`
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
 	SpotType pulumi.StringPtrOutput `pulumi:"spotType"`
 	// VPC Subnet ID to launch in.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -200,17 +200,17 @@ type SpotInstanceRequest struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
-	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
+	Tenancy pulumi.StringPtrOutput `pulumi:"tenancy"`
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
-	UserData pulumi.StringOutput `pulumi:"userData"`
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
-	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
+	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrOutput `pulumi:"userDataReplaceOnChange"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-	ValidFrom pulumi.StringOutput `pulumi:"validFrom"`
+	ValidFrom pulumi.StringPtrOutput `pulumi:"validFrom"`
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
-	ValidUntil pulumi.StringOutput `pulumi:"validUntil"`
+	ValidUntil pulumi.StringPtrOutput `pulumi:"validUntil"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
 	//
 	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
@@ -907,22 +907,22 @@ func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutputWithContext(ctx co
 }
 
 // AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
-func (o SpotInstanceRequestOutput) Ami() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.Ami }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) Ami() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.Ami }).(pulumi.StringPtrOutput)
 }
 
-func (o SpotInstanceRequestOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to associate a public IP address with an instance in a VPC.
-func (o SpotInstanceRequestOutput) AssociatePublicIpAddress() pulumi.BoolOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolOutput { return v.AssociatePublicIpAddress }).(pulumi.BoolOutput)
+func (o SpotInstanceRequestOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolPtrOutput { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
 // AZ to start the instance in.
-func (o SpotInstanceRequestOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
@@ -935,29 +935,29 @@ func (o SpotInstanceRequestOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 // Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
 //
 // > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
-func (o SpotInstanceRequestOutput) CapacityReservationSpecification() SpotInstanceRequestCapacityReservationSpecificationOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestCapacityReservationSpecificationOutput {
+func (o SpotInstanceRequestOutput) CapacityReservationSpecification() SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
 		return v.CapacityReservationSpecification
-	}).(SpotInstanceRequestCapacityReservationSpecificationOutput)
+	}).(SpotInstanceRequestCapacityReservationSpecificationPtrOutput)
 }
 
 // Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 //
 // Deprecated: use 'cpu_options' argument instead
-func (o SpotInstanceRequestOutput) CpuCoreCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntOutput { return v.CpuCoreCount }).(pulumi.IntOutput)
+func (o SpotInstanceRequestOutput) CpuCoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntPtrOutput { return v.CpuCoreCount }).(pulumi.IntPtrOutput)
 }
 
 // The CPU options for the instance. See CPU Options below for more details.
-func (o SpotInstanceRequestOutput) CpuOptions() SpotInstanceRequestCpuOptionsOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestCpuOptionsOutput { return v.CpuOptions }).(SpotInstanceRequestCpuOptionsOutput)
+func (o SpotInstanceRequestOutput) CpuOptions() SpotInstanceRequestCpuOptionsPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestCpuOptionsPtrOutput { return v.CpuOptions }).(SpotInstanceRequestCpuOptionsPtrOutput)
 }
 
 // If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 //
 // Deprecated: use 'cpu_options' argument instead
-func (o SpotInstanceRequestOutput) CpuThreadsPerCore() pulumi.IntOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntOutput { return v.CpuThreadsPerCore }).(pulumi.IntOutput)
+func (o SpotInstanceRequestOutput) CpuThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntPtrOutput { return v.CpuThreadsPerCore }).(pulumi.IntPtrOutput)
 }
 
 // Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -968,13 +968,13 @@ func (o SpotInstanceRequestOutput) CreditSpecification() SpotInstanceRequestCred
 }
 
 // If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
-func (o SpotInstanceRequestOutput) DisableApiStop() pulumi.BoolOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolOutput { return v.DisableApiStop }).(pulumi.BoolOutput)
+func (o SpotInstanceRequestOutput) DisableApiStop() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolPtrOutput { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
 // If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-func (o SpotInstanceRequestOutput) DisableApiTermination() pulumi.BoolOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolOutput { return v.DisableApiTermination }).(pulumi.BoolOutput)
+func (o SpotInstanceRequestOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolPtrOutput { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
 }
 
 // One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -983,13 +983,13 @@ func (o SpotInstanceRequestOutput) EbsBlockDevices() SpotInstanceRequestEbsBlock
 }
 
 // If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-func (o SpotInstanceRequestOutput) EbsOptimized() pulumi.BoolOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolOutput { return v.EbsOptimized }).(pulumi.BoolOutput)
+func (o SpotInstanceRequestOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
 // Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-func (o SpotInstanceRequestOutput) EnclaveOptions() SpotInstanceRequestEnclaveOptionsOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestEnclaveOptionsOutput { return v.EnclaveOptions }).(SpotInstanceRequestEnclaveOptionsOutput)
+func (o SpotInstanceRequestOutput) EnclaveOptions() SpotInstanceRequestEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestEnclaveOptionsPtrOutput { return v.EnclaveOptions }).(SpotInstanceRequestEnclaveOptionsPtrOutput)
 }
 
 // One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
@@ -1010,23 +1010,23 @@ func (o SpotInstanceRequestOutput) Hibernation() pulumi.BoolPtrOutput {
 }
 
 // ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-func (o SpotInstanceRequestOutput) HostId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.HostId }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-func (o SpotInstanceRequestOutput) HostResourceGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.HostResourceGroupArn }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-func (o SpotInstanceRequestOutput) IamInstanceProfile() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.IamInstanceProfile }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) IamInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.IamInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
 // Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-func (o SpotInstanceRequestOutput) InstanceInitiatedShutdownBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
 }
 
 // Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
@@ -1034,18 +1034,18 @@ func (o SpotInstanceRequestOutput) InstanceInterruptionBehavior() pulumi.StringP
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
 }
 
-func (o SpotInstanceRequestOutput) InstanceState() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.InstanceState }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) InstanceState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.InstanceState }).(pulumi.StringPtrOutput)
 }
 
 // Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
-func (o SpotInstanceRequestOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-func (o SpotInstanceRequestOutput) Ipv6AddressCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntOutput { return v.Ipv6AddressCount }).(pulumi.IntOutput)
+func (o SpotInstanceRequestOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntPtrOutput { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
 // Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -1054,8 +1054,8 @@ func (o SpotInstanceRequestOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 }
 
 // Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
-func (o SpotInstanceRequestOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
 // A launch group is a group of spot instances that launch together and terminate together.
@@ -1070,18 +1070,20 @@ func (o SpotInstanceRequestOutput) LaunchTemplate() SpotInstanceRequestLaunchTem
 }
 
 // Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-func (o SpotInstanceRequestOutput) MaintenanceOptions() SpotInstanceRequestMaintenanceOptionsOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestMaintenanceOptionsOutput { return v.MaintenanceOptions }).(SpotInstanceRequestMaintenanceOptionsOutput)
+func (o SpotInstanceRequestOutput) MaintenanceOptions() SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestMaintenanceOptionsPtrOutput {
+		return v.MaintenanceOptions
+	}).(SpotInstanceRequestMaintenanceOptionsPtrOutput)
 }
 
 // Customize the metadata options of the instance. See Metadata Options below for more details.
-func (o SpotInstanceRequestOutput) MetadataOptions() SpotInstanceRequestMetadataOptionsOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestMetadataOptionsOutput { return v.MetadataOptions }).(SpotInstanceRequestMetadataOptionsOutput)
+func (o SpotInstanceRequestOutput) MetadataOptions() SpotInstanceRequestMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestMetadataOptionsPtrOutput { return v.MetadataOptions }).(SpotInstanceRequestMetadataOptionsPtrOutput)
 }
 
 // If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-func (o SpotInstanceRequestOutput) Monitoring() pulumi.BoolOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolOutput { return v.Monitoring }).(pulumi.BoolOutput)
+func (o SpotInstanceRequestOutput) Monitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolPtrOutput { return v.Monitoring }).(pulumi.BoolPtrOutput)
 }
 
 // Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -1091,61 +1093,61 @@ func (o SpotInstanceRequestOutput) NetworkInterfaces() SpotInstanceRequestNetwor
 	}).(SpotInstanceRequestNetworkInterfaceArrayOutput)
 }
 
-func (o SpotInstanceRequestOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.OutpostArn }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-func (o SpotInstanceRequestOutput) PasswordData() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PasswordData }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) PasswordData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.PasswordData }).(pulumi.StringPtrOutput)
 }
 
 // Placement Group to start the instance in.
-func (o SpotInstanceRequestOutput) PlacementGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PlacementGroup }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) PlacementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.PlacementGroup }).(pulumi.StringPtrOutput)
 }
 
 // Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-func (o SpotInstanceRequestOutput) PlacementPartitionNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntOutput { return v.PlacementPartitionNumber }).(pulumi.IntOutput)
+func (o SpotInstanceRequestOutput) PlacementPartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntPtrOutput { return v.PlacementPartitionNumber }).(pulumi.IntPtrOutput)
 }
 
-func (o SpotInstanceRequestOutput) PrimaryNetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PrimaryNetworkInterfaceId }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) PrimaryNetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.PrimaryNetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // The private DNS name assigned to the instance. Can only be
 // used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 // for your VPC
-func (o SpotInstanceRequestOutput) PrivateDns() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PrivateDns }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) PrivateDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.PrivateDns }).(pulumi.StringPtrOutput)
 }
 
 // Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-func (o SpotInstanceRequestOutput) PrivateDnsNameOptions() SpotInstanceRequestPrivateDnsNameOptionsOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestPrivateDnsNameOptionsOutput {
+func (o SpotInstanceRequestOutput) PrivateDnsNameOptions() SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
 		return v.PrivateDnsNameOptions
-	}).(SpotInstanceRequestPrivateDnsNameOptionsOutput)
+	}).(SpotInstanceRequestPrivateDnsNameOptionsPtrOutput)
 }
 
 // Private IP address to associate with the instance in a VPC.
-func (o SpotInstanceRequestOutput) PrivateIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) PrivateIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.PrivateIp }).(pulumi.StringPtrOutput)
 }
 
 // The public DNS name assigned to the instance. For EC2-VPC, this
 // is only available if you've enabled DNS hostnames for your VPC
-func (o SpotInstanceRequestOutput) PublicDns() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PublicDns }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) PublicDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.PublicDns }).(pulumi.StringPtrOutput)
 }
 
 // The public IP address assigned to the instance, if applicable.
-func (o SpotInstanceRequestOutput) PublicIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) PublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.PublicIp }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-func (o SpotInstanceRequestOutput) RootBlockDevice() SpotInstanceRequestRootBlockDeviceOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestRootBlockDeviceOutput { return v.RootBlockDevice }).(SpotInstanceRequestRootBlockDeviceOutput)
+func (o SpotInstanceRequestOutput) RootBlockDevice() SpotInstanceRequestRootBlockDevicePtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestRootBlockDevicePtrOutput { return v.RootBlockDevice }).(SpotInstanceRequestRootBlockDevicePtrOutput)
 }
 
 // List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
@@ -1168,26 +1170,26 @@ func (o SpotInstanceRequestOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 // The current [bid
 // status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 // of the Spot Instance Request.
-func (o SpotInstanceRequestOutput) SpotBidStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SpotBidStatus }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) SpotBidStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.SpotBidStatus }).(pulumi.StringPtrOutput)
 }
 
 // The Instance ID (if any) that is currently fulfilling
 // the Spot Instance request.
-func (o SpotInstanceRequestOutput) SpotInstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SpotInstanceId }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) SpotInstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.SpotInstanceId }).(pulumi.StringPtrOutput)
 }
 
 // The maximum price to request on the spot market.
-func (o SpotInstanceRequestOutput) SpotPrice() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SpotPrice }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }
 
 // The current [request
 // state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
 // of the Spot Instance Request.
-func (o SpotInstanceRequestOutput) SpotRequestState() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SpotRequestState }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) SpotRequestState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.SpotRequestState }).(pulumi.StringPtrOutput)
 }
 
 // If set to `one-time`, after
@@ -1197,8 +1199,8 @@ func (o SpotInstanceRequestOutput) SpotType() pulumi.StringPtrOutput {
 }
 
 // VPC Subnet ID to launch in.
-func (o SpotInstanceRequestOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1214,18 +1216,18 @@ func (o SpotInstanceRequestOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
-func (o SpotInstanceRequestOutput) Tenancy() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.Tenancy }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
 
 // User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
-func (o SpotInstanceRequestOutput) UserData() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.UserData }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
 // Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
-func (o SpotInstanceRequestOutput) UserDataBase64() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.UserDataBase64 }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) UserDataBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.UserDataBase64 }).(pulumi.StringPtrOutput)
 }
 
 // When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
@@ -1234,13 +1236,13 @@ func (o SpotInstanceRequestOutput) UserDataReplaceOnChange() pulumi.BoolPtrOutpu
 }
 
 // The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-func (o SpotInstanceRequestOutput) ValidFrom() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.ValidFrom }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) ValidFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.ValidFrom }).(pulumi.StringPtrOutput)
 }
 
 // The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
-func (o SpotInstanceRequestOutput) ValidUntil() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.ValidUntil }).(pulumi.StringOutput)
+func (o SpotInstanceRequestOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.ValidUntil }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign, at instance-creation time, to root and EBS volumes.

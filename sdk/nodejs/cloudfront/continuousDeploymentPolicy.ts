@@ -130,11 +130,11 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
     /**
      * Current version of the continuous distribution policy.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Date and time the continuous deployment policy was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
     /**
      * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      */

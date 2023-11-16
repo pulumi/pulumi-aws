@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -75,14 +76,14 @@ public class DataCatalogEncryptionSettings extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
-    private Output<String> catalogId;
+    private Output</* @Nullable */ String> catalogId;
 
     /**
      * @return The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Output<Optional<String>> catalogId() {
+        return Codegen.optional(this.catalogId);
     }
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.

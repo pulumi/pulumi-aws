@@ -128,11 +128,11 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// Access permissions string used for this user.
         /// </summary>
-        public readonly string AccessString;
+        public readonly string? AccessString;
         /// <summary>
         /// ARN of the user.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Denotes the user's authentication properties.
         /// </summary>
@@ -140,30 +140,30 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The minimum engine version supported for the user.
         /// </summary>
-        public readonly string MinimumEngineVersion;
+        public readonly string? MinimumEngineVersion;
         /// <summary>
         /// Map of tags assigned to the subnet group.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string UserName;
 
         [OutputConstructor]
         private GetUserResult(
-            string accessString,
+            string? accessString,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetUserAuthenticationModeResult> authenticationModes,
 
-            string id,
+            string? id,
 
-            string minimumEngineVersion,
+            string? minimumEngineVersion,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string userName)
         {

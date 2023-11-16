@@ -86,14 +86,14 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the traffic mirror session.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A description of the traffic mirror session.
@@ -128,14 +128,14 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The AWS account ID of the session owner.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
@@ -230,14 +230,14 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="virtualNetworkId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> virtualNetworkId;
+    private Output</* @Nullable */ Integer> virtualNetworkId;
 
     /**
      * @return The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      * 
      */
-    public Output<Integer> virtualNetworkId() {
-        return this.virtualNetworkId;
+    public Output<Optional<Integer>> virtualNetworkId() {
+        return Codegen.optional(this.virtualNetworkId);
     }
 
     /**

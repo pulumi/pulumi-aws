@@ -798,7 +798,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceValidationDomain")
-    def device_validation_domain(self) -> pulumi.Output[str]:
+    def device_validation_domain(self) -> pulumi.Output[Optional[str]]:
         """
         Returned if endpoint has a device trust provider attached.
         """
@@ -814,7 +814,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointDomain")
-    def endpoint_domain(self) -> pulumi.Output[str]:
+    def endpoint_domain(self) -> pulumi.Output[Optional[str]]:
         """
         A DNS name that is generated for the endpoint.
         """
@@ -862,7 +862,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> pulumi.Output['outputs.EndpointSseSpecification']:
+    def sse_specification(self) -> pulumi.Output[Optional['outputs.EndpointSseSpecification']]:
         """
         The options in use for server side encryption.
         """
@@ -896,6 +896,6 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="verifiedAccessInstanceId")
-    def verified_access_instance_id(self) -> pulumi.Output[str]:
+    def verified_access_instance_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "verified_access_instance_id")
 

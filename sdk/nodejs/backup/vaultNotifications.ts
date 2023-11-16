@@ -80,7 +80,7 @@ export class VaultNotifications extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
+    public /*out*/ readonly backupVaultArn!: pulumi.Output<string | undefined>;
     /**
      * An array of events that indicate the status of jobs to back up resources to the backup vault.
      */

@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexUserGroupResolutionConfiguration {
@@ -13,15 +15,15 @@ public final class GetIndexUserGroupResolutionConfiguration {
      * @return The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
      * 
      */
-    private String userGroupResolutionMode;
+    private @Nullable String userGroupResolutionMode;
 
     private GetIndexUserGroupResolutionConfiguration() {}
     /**
      * @return The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
      * 
      */
-    public String userGroupResolutionMode() {
-        return this.userGroupResolutionMode;
+    public Optional<String> userGroupResolutionMode() {
+        return Optional.ofNullable(this.userGroupResolutionMode);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetIndexUserGroupResolutionConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String userGroupResolutionMode;
+        private @Nullable String userGroupResolutionMode;
         public Builder() {}
         public Builder(GetIndexUserGroupResolutionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetIndexUserGroupResolutionConfiguration {
         }
 
         @CustomType.Setter
-        public Builder userGroupResolutionMode(String userGroupResolutionMode) {
-            this.userGroupResolutionMode = Objects.requireNonNull(userGroupResolutionMode);
+        public Builder userGroupResolutionMode(@Nullable String userGroupResolutionMode) {
+            this.userGroupResolutionMode = userGroupResolutionMode;
             return this;
         }
         public GetIndexUserGroupResolutionConfiguration build() {

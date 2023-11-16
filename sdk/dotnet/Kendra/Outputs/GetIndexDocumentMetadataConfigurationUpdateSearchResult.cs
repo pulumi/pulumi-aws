@@ -16,29 +16,29 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// Determines whether the field is returned in the query response. The default is `true`.
         /// </summary>
-        public readonly bool Displayable;
+        public readonly bool? Displayable;
         /// <summary>
         /// Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
         /// </summary>
-        public readonly bool Facetable;
+        public readonly bool? Facetable;
         /// <summary>
         /// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
         /// </summary>
-        public readonly bool Searchable;
+        public readonly bool? Searchable;
         /// <summary>
         /// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
         /// </summary>
-        public readonly bool Sortable;
+        public readonly bool? Sortable;
 
         [OutputConstructor]
         private GetIndexDocumentMetadataConfigurationUpdateSearchResult(
-            bool displayable,
+            bool? displayable,
 
-            bool facetable,
+            bool? facetable,
 
-            bool searchable,
+            bool? searchable,
 
-            bool sortable)
+            bool? sortable)
         {
             Displayable = displayable;
             Facetable = facetable;

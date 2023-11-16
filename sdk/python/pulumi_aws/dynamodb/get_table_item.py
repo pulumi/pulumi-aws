@@ -48,7 +48,7 @@ class GetTableItemResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -56,7 +56,7 @@ class GetTableItemResult:
 
     @property
     @pulumi.getter
-    def item(self) -> str:
+    def item(self) -> Optional[str]:
         """
         JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
         """

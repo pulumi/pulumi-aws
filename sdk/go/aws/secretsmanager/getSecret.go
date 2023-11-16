@@ -85,16 +85,16 @@ type LookupSecretArgs struct {
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
 	// ARN of the secret.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the secret.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	Name     string `pulumi:"name"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	Name     *string `pulumi:"name"`
 	// Resource-based policy document that's attached to the secret.
-	Policy string `pulumi:"policy"`
+	Policy *string `pulumi:"policy"`
 	// Tags of the secret.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -140,32 +140,32 @@ func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx cont
 }
 
 // ARN of the secret.
-func (o LookupSecretResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the secret.
-func (o LookupSecretResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
-func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Resource-based policy document that's attached to the secret.
-func (o LookupSecretResultOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretResult) string { return v.Policy }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // Tags of the secret.

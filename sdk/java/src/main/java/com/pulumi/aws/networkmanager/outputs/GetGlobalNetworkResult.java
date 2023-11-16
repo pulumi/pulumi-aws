@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGlobalNetworkResult {
@@ -14,38 +16,38 @@ public final class GetGlobalNetworkResult {
      * @return ARN of the global network.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the global network.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Map of resource tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetGlobalNetworkResult() {}
     /**
      * @return ARN of the global network.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the global network.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String globalNetworkId() {
         return this.globalNetworkId;
@@ -54,15 +56,15 @@ public final class GetGlobalNetworkResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Map of resource tags.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -74,11 +76,11 @@ public final class GetGlobalNetworkResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable String description;
         private String globalNetworkId;
-        private String id;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetGlobalNetworkResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -90,13 +92,13 @@ public final class GetGlobalNetworkResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -105,13 +107,13 @@ public final class GetGlobalNetworkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetGlobalNetworkResult build() {

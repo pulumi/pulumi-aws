@@ -72,7 +72,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this resource group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
      */

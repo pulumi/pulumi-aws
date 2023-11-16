@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig {
@@ -13,27 +15,27 @@ public final class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig
      * @return The type of encryption. Valid Values: `KMS`.
      * 
      */
-    private String encryptionType;
+    private @Nullable String encryptionType;
     /**
      * @return The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
      * 
      */
-    private String keyId;
+    private @Nullable String keyId;
 
     private GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig() {}
     /**
      * @return The type of encryption. Valid Values: `KMS`.
      * 
      */
-    public String encryptionType() {
-        return this.encryptionType;
+    public Optional<String> encryptionType() {
+        return Optional.ofNullable(this.encryptionType);
     }
     /**
      * @return The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
      * 
      */
-    public String keyId() {
-        return this.keyId;
+    public Optional<String> keyId() {
+        return Optional.ofNullable(this.keyId);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig
     }
     @CustomType.Builder
     public static final class Builder {
-        private String encryptionType;
-        private String keyId;
+        private @Nullable String encryptionType;
+        private @Nullable String keyId;
         public Builder() {}
         public Builder(GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig
         }
 
         @CustomType.Setter
-        public Builder encryptionType(String encryptionType) {
-            this.encryptionType = Objects.requireNonNull(encryptionType);
+        public Builder encryptionType(@Nullable String encryptionType) {
+            this.encryptionType = encryptionType;
             return this;
         }
         @CustomType.Setter
-        public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+        public Builder keyId(@Nullable String keyId) {
+            this.keyId = keyId;
             return this;
         }
         public GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig build() {

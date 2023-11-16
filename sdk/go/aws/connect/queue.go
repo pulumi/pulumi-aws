@@ -128,7 +128,7 @@ type Queue struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Queue.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies the description of the Queue.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the identifier of the Hours of Operation.
@@ -142,11 +142,11 @@ type Queue struct {
 	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
 	OutboundCallerConfig QueueOutboundCallerConfigPtrOutput `pulumi:"outboundCallerConfig"`
 	// The identifier for the Queue.
-	QueueId pulumi.StringOutput `pulumi:"queueId"`
+	QueueId pulumi.StringPtrOutput `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -387,8 +387,8 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 }
 
 // The Amazon Resource Name (ARN) of the Queue.
-func (o QueueOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o QueueOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the description of the Queue.
@@ -422,8 +422,8 @@ func (o QueueOutput) OutboundCallerConfig() QueueOutboundCallerConfigPtrOutput {
 }
 
 // The identifier for the Queue.
-func (o QueueOutput) QueueId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.QueueId }).(pulumi.StringOutput)
+func (o QueueOutput) QueueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.QueueId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
@@ -432,8 +432,8 @@ func (o QueueOutput) QuickConnectIds() pulumi.StringArrayOutput {
 }
 
 // Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-func (o QueueOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o QueueOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

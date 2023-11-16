@@ -121,11 +121,11 @@ func (o RoleInlinePolicyArrayOutput) Index(i pulumi.IntInput) RoleInlinePolicyOu
 
 type GetAccessKeysAccessKey struct {
 	// Access key ID.
-	AccessKeyId string `pulumi:"accessKeyId"`
+	AccessKeyId *string `pulumi:"accessKeyId"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-	CreateDate string `pulumi:"createDate"`
+	CreateDate *string `pulumi:"createDate"`
 	// Access key status. Possible values are `Active` and `Inactive`.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 // GetAccessKeysAccessKeyInput is an input type that accepts GetAccessKeysAccessKeyArgs and GetAccessKeysAccessKeyOutput values.
@@ -141,11 +141,11 @@ type GetAccessKeysAccessKeyInput interface {
 
 type GetAccessKeysAccessKeyArgs struct {
 	// Access key ID.
-	AccessKeyId pulumi.StringInput `pulumi:"accessKeyId"`
+	AccessKeyId pulumi.StringPtrInput `pulumi:"accessKeyId"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-	CreateDate pulumi.StringInput `pulumi:"createDate"`
+	CreateDate pulumi.StringPtrInput `pulumi:"createDate"`
 	// Access key status. Possible values are `Active` and `Inactive`.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (GetAccessKeysAccessKeyArgs) ElementType() reflect.Type {
@@ -200,18 +200,18 @@ func (o GetAccessKeysAccessKeyOutput) ToGetAccessKeysAccessKeyOutputWithContext(
 }
 
 // Access key ID.
-func (o GetAccessKeysAccessKeyOutput) AccessKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccessKeysAccessKey) string { return v.AccessKeyId }).(pulumi.StringOutput)
+func (o GetAccessKeysAccessKeyOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAccessKeysAccessKey) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-func (o GetAccessKeysAccessKeyOutput) CreateDate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccessKeysAccessKey) string { return v.CreateDate }).(pulumi.StringOutput)
+func (o GetAccessKeysAccessKeyOutput) CreateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAccessKeysAccessKey) *string { return v.CreateDate }).(pulumi.StringPtrOutput)
 }
 
 // Access key status. Possible values are `Active` and `Inactive`.
-func (o GetAccessKeysAccessKeyOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccessKeysAccessKey) string { return v.Status }).(pulumi.StringOutput)
+func (o GetAccessKeysAccessKeyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAccessKeysAccessKey) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type GetAccessKeysAccessKeyArrayOutput struct{ *pulumi.OutputState }
@@ -236,13 +236,13 @@ func (o GetAccessKeysAccessKeyArrayOutput) Index(i pulumi.IntInput) GetAccessKey
 
 type GetGroupUser struct {
 	// User ARN.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Path to the IAM user.
-	Path string `pulumi:"path"`
+	Path *string `pulumi:"path"`
 	// Stable and unique string identifying the IAM user.
-	UserId string `pulumi:"userId"`
+	UserId *string `pulumi:"userId"`
 	// Name of the IAM user.
-	UserName string `pulumi:"userName"`
+	UserName *string `pulumi:"userName"`
 }
 
 // GetGroupUserInput is an input type that accepts GetGroupUserArgs and GetGroupUserOutput values.
@@ -258,13 +258,13 @@ type GetGroupUserInput interface {
 
 type GetGroupUserArgs struct {
 	// User ARN.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Path to the IAM user.
-	Path pulumi.StringInput `pulumi:"path"`
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Stable and unique string identifying the IAM user.
-	UserId pulumi.StringInput `pulumi:"userId"`
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
 	// Name of the IAM user.
-	UserName pulumi.StringInput `pulumi:"userName"`
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
 }
 
 func (GetGroupUserArgs) ElementType() reflect.Type {
@@ -319,23 +319,23 @@ func (o GetGroupUserOutput) ToGetGroupUserOutputWithContext(ctx context.Context)
 }
 
 // User ARN.
-func (o GetGroupUserOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupUser) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetGroupUserOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupUser) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Path to the IAM user.
-func (o GetGroupUserOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupUser) string { return v.Path }).(pulumi.StringOutput)
+func (o GetGroupUserOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupUser) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Stable and unique string identifying the IAM user.
-func (o GetGroupUserOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupUser) string { return v.UserId }).(pulumi.StringOutput)
+func (o GetGroupUserOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupUser) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the IAM user.
-func (o GetGroupUserOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupUser) string { return v.UserName }).(pulumi.StringOutput)
+func (o GetGroupUserOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupUser) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 type GetGroupUserArrayOutput struct{ *pulumi.OutputState }
@@ -983,11 +983,11 @@ func (o GetPrincipalPolicySimulationContextArrayOutput) Index(i pulumi.IntInput)
 
 type GetPrincipalPolicySimulationResult struct {
 	// The name of the single IAM action used for this particular request.
-	ActionName string `pulumi:"actionName"`
+	ActionName *string `pulumi:"actionName"`
 	// `true` if `decision` is "allowed", and `false` otherwise.
-	Allowed bool `pulumi:"allowed"`
+	Allowed *bool `pulumi:"allowed"`
 	// The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
-	Decision string `pulumi:"decision"`
+	Decision *string `pulumi:"decision"`
 	// A map of arbitrary metadata entries returned by the policy simulator for this request.
 	DecisionDetails map[string]string `pulumi:"decisionDetails"`
 	// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
@@ -995,7 +995,7 @@ type GetPrincipalPolicySimulationResult struct {
 	// A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
 	MissingContextKeys []string `pulumi:"missingContextKeys"`
 	// ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
-	ResourceArn string `pulumi:"resourceArn"`
+	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 // GetPrincipalPolicySimulationResultInput is an input type that accepts GetPrincipalPolicySimulationResultArgs and GetPrincipalPolicySimulationResultOutput values.
@@ -1011,11 +1011,11 @@ type GetPrincipalPolicySimulationResultInput interface {
 
 type GetPrincipalPolicySimulationResultArgs struct {
 	// The name of the single IAM action used for this particular request.
-	ActionName pulumi.StringInput `pulumi:"actionName"`
+	ActionName pulumi.StringPtrInput `pulumi:"actionName"`
 	// `true` if `decision` is "allowed", and `false` otherwise.
-	Allowed pulumi.BoolInput `pulumi:"allowed"`
+	Allowed pulumi.BoolPtrInput `pulumi:"allowed"`
 	// The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
-	Decision pulumi.StringInput `pulumi:"decision"`
+	Decision pulumi.StringPtrInput `pulumi:"decision"`
 	// A map of arbitrary metadata entries returned by the policy simulator for this request.
 	DecisionDetails pulumi.StringMapInput `pulumi:"decisionDetails"`
 	// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
@@ -1023,7 +1023,7 @@ type GetPrincipalPolicySimulationResultArgs struct {
 	// A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
 	MissingContextKeys pulumi.StringArrayInput `pulumi:"missingContextKeys"`
 	// ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
 }
 
 func (GetPrincipalPolicySimulationResultArgs) ElementType() reflect.Type {
@@ -1078,18 +1078,18 @@ func (o GetPrincipalPolicySimulationResultOutput) ToGetPrincipalPolicySimulation
 }
 
 // The name of the single IAM action used for this particular request.
-func (o GetPrincipalPolicySimulationResultOutput) ActionName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) string { return v.ActionName }).(pulumi.StringOutput)
+func (o GetPrincipalPolicySimulationResultOutput) ActionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) *string { return v.ActionName }).(pulumi.StringPtrOutput)
 }
 
 // `true` if `decision` is "allowed", and `false` otherwise.
-func (o GetPrincipalPolicySimulationResultOutput) Allowed() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) bool { return v.Allowed }).(pulumi.BoolOutput)
+func (o GetPrincipalPolicySimulationResultOutput) Allowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) *bool { return v.Allowed }).(pulumi.BoolPtrOutput)
 }
 
 // The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
-func (o GetPrincipalPolicySimulationResultOutput) Decision() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) string { return v.Decision }).(pulumi.StringOutput)
+func (o GetPrincipalPolicySimulationResultOutput) Decision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) *string { return v.Decision }).(pulumi.StringPtrOutput)
 }
 
 // A map of arbitrary metadata entries returned by the policy simulator for this request.
@@ -1110,8 +1110,8 @@ func (o GetPrincipalPolicySimulationResultOutput) MissingContextKeys() pulumi.St
 }
 
 // ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
-func (o GetPrincipalPolicySimulationResultOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) string { return v.ResourceArn }).(pulumi.StringOutput)
+func (o GetPrincipalPolicySimulationResultOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 type GetPrincipalPolicySimulationResultArrayOutput struct{ *pulumi.OutputState }
@@ -1135,8 +1135,8 @@ func (o GetPrincipalPolicySimulationResultArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetPrincipalPolicySimulationResultMatchedStatement struct {
-	SourcePolicyId   string `pulumi:"sourcePolicyId"`
-	SourcePolicyType string `pulumi:"sourcePolicyType"`
+	SourcePolicyId   *string `pulumi:"sourcePolicyId"`
+	SourcePolicyType *string `pulumi:"sourcePolicyType"`
 }
 
 // GetPrincipalPolicySimulationResultMatchedStatementInput is an input type that accepts GetPrincipalPolicySimulationResultMatchedStatementArgs and GetPrincipalPolicySimulationResultMatchedStatementOutput values.
@@ -1151,8 +1151,8 @@ type GetPrincipalPolicySimulationResultMatchedStatementInput interface {
 }
 
 type GetPrincipalPolicySimulationResultMatchedStatementArgs struct {
-	SourcePolicyId   pulumi.StringInput `pulumi:"sourcePolicyId"`
-	SourcePolicyType pulumi.StringInput `pulumi:"sourcePolicyType"`
+	SourcePolicyId   pulumi.StringPtrInput `pulumi:"sourcePolicyId"`
+	SourcePolicyType pulumi.StringPtrInput `pulumi:"sourcePolicyType"`
 }
 
 func (GetPrincipalPolicySimulationResultMatchedStatementArgs) ElementType() reflect.Type {
@@ -1206,12 +1206,12 @@ func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) ToGetPrincipal
 	return o
 }
 
-func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) SourcePolicyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrincipalPolicySimulationResultMatchedStatement) string { return v.SourcePolicyId }).(pulumi.StringOutput)
+func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) SourcePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrincipalPolicySimulationResultMatchedStatement) *string { return v.SourcePolicyId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) SourcePolicyType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrincipalPolicySimulationResultMatchedStatement) string { return v.SourcePolicyType }).(pulumi.StringOutput)
+func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) SourcePolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrincipalPolicySimulationResultMatchedStatement) *string { return v.SourcePolicyType }).(pulumi.StringPtrOutput)
 }
 
 type GetPrincipalPolicySimulationResultMatchedStatementArrayOutput struct{ *pulumi.OutputState }
@@ -1236,9 +1236,9 @@ func (o GetPrincipalPolicySimulationResultMatchedStatementArrayOutput) Index(i p
 
 type GetRoleRoleLastUsed struct {
 	// The date and time, in RFC 3339 format, that the role was last used.
-	LastUsedDate string `pulumi:"lastUsedDate"`
+	LastUsedDate *string `pulumi:"lastUsedDate"`
 	// The name of the AWS Region in which the role was last used.
-	Region string `pulumi:"region"`
+	Region *string `pulumi:"region"`
 }
 
 // GetRoleRoleLastUsedInput is an input type that accepts GetRoleRoleLastUsedArgs and GetRoleRoleLastUsedOutput values.
@@ -1254,9 +1254,9 @@ type GetRoleRoleLastUsedInput interface {
 
 type GetRoleRoleLastUsedArgs struct {
 	// The date and time, in RFC 3339 format, that the role was last used.
-	LastUsedDate pulumi.StringInput `pulumi:"lastUsedDate"`
+	LastUsedDate pulumi.StringPtrInput `pulumi:"lastUsedDate"`
 	// The name of the AWS Region in which the role was last used.
-	Region pulumi.StringInput `pulumi:"region"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetRoleRoleLastUsedArgs) ElementType() reflect.Type {
@@ -1311,13 +1311,13 @@ func (o GetRoleRoleLastUsedOutput) ToGetRoleRoleLastUsedOutputWithContext(ctx co
 }
 
 // The date and time, in RFC 3339 format, that the role was last used.
-func (o GetRoleRoleLastUsedOutput) LastUsedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRoleRoleLastUsed) string { return v.LastUsedDate }).(pulumi.StringOutput)
+func (o GetRoleRoleLastUsedOutput) LastUsedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRoleRoleLastUsed) *string { return v.LastUsedDate }).(pulumi.StringPtrOutput)
 }
 
 // The name of the AWS Region in which the role was last used.
-func (o GetRoleRoleLastUsedOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRoleRoleLastUsed) string { return v.Region }).(pulumi.StringOutput)
+func (o GetRoleRoleLastUsedOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRoleRoleLastUsed) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 type GetRoleRoleLastUsedArrayOutput struct{ *pulumi.OutputState }

@@ -71,7 +71,7 @@ type GetTagsArgs struct {
 type GetTagsResult struct {
 	Filter *GetTagsFilter `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string          `pulumi:"id"`
+	Id           *string         `pulumi:"id"`
 	SearchString *string         `pulumi:"searchString"`
 	SortBies     []GetTagsSortBy `pulumi:"sortBies"`
 	TagKey       *string         `pulumi:"tagKey"`
@@ -133,8 +133,8 @@ func (o GetTagsResultOutput) Filter() GetTagsFilterPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetTagsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTagsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetTagsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTagsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetTagsResultOutput) SearchString() pulumi.StringPtrOutput {

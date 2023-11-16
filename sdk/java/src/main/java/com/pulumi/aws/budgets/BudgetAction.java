@@ -15,6 +15,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -136,28 +137,28 @@ public class BudgetAction extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
+    private Output</* @Nullable */ String> accountId;
 
     /**
      * @return The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
     }
     /**
      * The id of the budget action.
      * 
      */
     @Export(name="actionId", refs={String.class}, tree="[0]")
-    private Output<String> actionId;
+    private Output</* @Nullable */ String> actionId;
 
     /**
      * @return The id of the budget action.
      * 
      */
-    public Output<String> actionId() {
-        return this.actionId;
+    public Output<Optional<String>> actionId() {
+        return Codegen.optional(this.actionId);
     }
     /**
      * The trigger threshold of the action. See Action Threshold.
@@ -206,14 +207,14 @@ public class BudgetAction extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the budget action.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of a budget.
@@ -276,14 +277,14 @@ public class BudgetAction extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the budget action.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A list of subscribers. See Subscriber.

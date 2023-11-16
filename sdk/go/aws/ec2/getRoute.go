@@ -104,22 +104,22 @@ type LookupRouteArgs struct {
 
 // A collection of values returned by getRoute.
 type LookupRouteResult struct {
-	CarrierGatewayId         string `pulumi:"carrierGatewayId"`
-	CoreNetworkArn           string `pulumi:"coreNetworkArn"`
-	DestinationCidrBlock     string `pulumi:"destinationCidrBlock"`
-	DestinationIpv6CidrBlock string `pulumi:"destinationIpv6CidrBlock"`
-	DestinationPrefixListId  string `pulumi:"destinationPrefixListId"`
-	EgressOnlyGatewayId      string `pulumi:"egressOnlyGatewayId"`
-	GatewayId                string `pulumi:"gatewayId"`
+	CarrierGatewayId         *string `pulumi:"carrierGatewayId"`
+	CoreNetworkArn           *string `pulumi:"coreNetworkArn"`
+	DestinationCidrBlock     *string `pulumi:"destinationCidrBlock"`
+	DestinationIpv6CidrBlock *string `pulumi:"destinationIpv6CidrBlock"`
+	DestinationPrefixListId  *string `pulumi:"destinationPrefixListId"`
+	EgressOnlyGatewayId      *string `pulumi:"egressOnlyGatewayId"`
+	GatewayId                *string `pulumi:"gatewayId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                     string `pulumi:"id"`
-	InstanceId             string `pulumi:"instanceId"`
-	LocalGatewayId         string `pulumi:"localGatewayId"`
-	NatGatewayId           string `pulumi:"natGatewayId"`
-	NetworkInterfaceId     string `pulumi:"networkInterfaceId"`
-	RouteTableId           string `pulumi:"routeTableId"`
-	TransitGatewayId       string `pulumi:"transitGatewayId"`
-	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
+	Id                     *string `pulumi:"id"`
+	InstanceId             *string `pulumi:"instanceId"`
+	LocalGatewayId         *string `pulumi:"localGatewayId"`
+	NatGatewayId           *string `pulumi:"natGatewayId"`
+	NetworkInterfaceId     *string `pulumi:"networkInterfaceId"`
+	RouteTableId           string  `pulumi:"routeTableId"`
+	TransitGatewayId       *string `pulumi:"transitGatewayId"`
+	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
 func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...pulumi.InvokeOption) LookupRouteResultOutput {
@@ -188,65 +188,65 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o LookupRouteResultOutput) CarrierGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.CarrierGatewayId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) CarrierGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.CarrierGatewayId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) CoreNetworkArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.CoreNetworkArn }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) CoreNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) DestinationCidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) DestinationIpv6CidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.DestinationIpv6CidrBlock }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) DestinationIpv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.DestinationIpv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) DestinationPrefixListId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.DestinationPrefixListId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) EgressOnlyGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.EgressOnlyGatewayId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) EgressOnlyGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.EgressOnlyGatewayId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) GatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.GatewayId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) GatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupRouteResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) InstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.InstanceId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) LocalGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.LocalGatewayId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.LocalGatewayId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) NatGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.NatGatewayId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) NatGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRouteResultOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
-func (o LookupRouteResultOutput) TransitGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) VpcPeeringConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteResult) string { return v.VpcPeeringConnectionId }).(pulumi.StringOutput)
+func (o LookupRouteResultOutput) VpcPeeringConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.VpcPeeringConnectionId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

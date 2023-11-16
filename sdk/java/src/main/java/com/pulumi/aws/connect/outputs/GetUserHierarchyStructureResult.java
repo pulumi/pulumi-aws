@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserHierarchyStructureResult {
@@ -15,12 +17,12 @@ public final class GetUserHierarchyStructureResult {
      * @return Block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
      * 
      */
-    private List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
+    private @Nullable List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
 
     private GetUserHierarchyStructureResult() {}
@@ -29,14 +31,14 @@ public final class GetUserHierarchyStructureResult {
      * 
      */
     public List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures() {
-        return this.hierarchyStructures;
+        return this.hierarchyStructures == null ? List.of() : this.hierarchyStructures;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
@@ -51,8 +53,8 @@ public final class GetUserHierarchyStructureResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
-        private String id;
+        private @Nullable List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
+        private @Nullable String id;
         private String instanceId;
         public Builder() {}
         public Builder(GetUserHierarchyStructureResult defaults) {
@@ -63,16 +65,16 @@ public final class GetUserHierarchyStructureResult {
         }
 
         @CustomType.Setter
-        public Builder hierarchyStructures(List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures) {
-            this.hierarchyStructures = Objects.requireNonNull(hierarchyStructures);
+        public Builder hierarchyStructures(@Nullable List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures) {
+            this.hierarchyStructures = hierarchyStructures;
             return this;
         }
         public Builder hierarchyStructures(GetUserHierarchyStructureHierarchyStructure... hierarchyStructures) {
             return hierarchyStructures(List.of(hierarchyStructures));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

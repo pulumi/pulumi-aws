@@ -57,48 +57,48 @@ export interface GetStackResult {
     /**
      * List of capabilities
      */
-    readonly capabilities: string[];
+    readonly capabilities?: string[];
     /**
      * Description of the stack
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Whether the rollback of the stack is disabled when stack creation fails
      */
-    readonly disableRollback: boolean;
+    readonly disableRollback?: boolean;
     /**
      * ARN of the IAM role used to create the stack.
      */
-    readonly iamRoleArn: string;
+    readonly iamRoleArn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * List of SNS topic ARNs to publish stack related events
      */
-    readonly notificationArns: string[];
+    readonly notificationArns?: string[];
     /**
      * Map of outputs from the stack.
      */
-    readonly outputs: {[key: string]: string};
+    readonly outputs?: {[key: string]: string};
     /**
      * Map of parameters that specify input parameters for the stack.
      */
-    readonly parameters: {[key: string]: string};
+    readonly parameters?: {[key: string]: string};
     /**
      * Map of tags associated with this stack.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Structure containing the template body.
      */
-    readonly templateBody: string;
+    readonly templateBody?: string;
     /**
      * Amount of time that can pass before the stack status becomes `CREATE_FAILED`
      */
-    readonly timeoutInMinutes: number;
+    readonly timeoutInMinutes?: number;
 }
 /**
  * The CloudFormation Stack data source allows access to stack

@@ -660,7 +660,7 @@ class Flow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Flow's ARN.
         """
@@ -684,7 +684,7 @@ class Flow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsArn")
-    def kms_arn(self) -> pulumi.Output[str]:
+    def kms_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """

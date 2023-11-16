@@ -68,7 +68,7 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
     /**
      * The previewed CIDR from the pool.
      */
-    public /*out*/ readonly cidr!: pulumi.Output<string>;
+    public /*out*/ readonly cidr!: pulumi.Output<string | undefined>;
     /**
      * Exclude a particular CIDR range from being returned by the pool.
      */

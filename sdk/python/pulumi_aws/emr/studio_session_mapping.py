@@ -338,7 +338,7 @@ class StudioSessionMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> pulumi.Output[str]:
+    def identity_id(self) -> pulumi.Output[Optional[str]]:
         """
         The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
         """
@@ -346,7 +346,7 @@ class StudioSessionMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityName")
-    def identity_name(self) -> pulumi.Output[str]:
+    def identity_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the user or group from the Amazon Web Services SSO Identity Store.
         """

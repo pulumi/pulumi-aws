@@ -52,44 +52,44 @@ export interface GetWindowsFileSystemResult {
     /**
      * The ID for Microsoft Active Directory instance that the file system is join to.
      */
-    readonly activeDirectoryId: string;
+    readonly activeDirectoryId?: string;
     /**
      * An array DNS alias names associated with the Amazon FSx file system.
      */
-    readonly aliases: string[];
+    readonly aliases?: string[];
     /**
      * Amazon Resource Name of the file system.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
      */
-    readonly auditLogConfigurations: outputs.fsx.GetWindowsFileSystemAuditLogConfiguration[];
+    readonly auditLogConfigurations?: outputs.fsx.GetWindowsFileSystemAuditLogConfiguration[];
     /**
      * The number of days to retain automatic backups.
      */
-    readonly automaticBackupRetentionDays: number;
-    readonly backupId: string;
+    readonly automaticBackupRetentionDays?: number;
+    readonly backupId?: string;
     /**
      * A boolean flag indicating whether tags on the file system should be copied to backups.
      */
-    readonly copyTagsToBackups: boolean;
+    readonly copyTagsToBackups?: boolean;
     /**
      * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
-    readonly dailyAutomaticBackupStartTime: string;
+    readonly dailyAutomaticBackupStartTime?: string;
     /**
      * The file system deployment type.
      */
-    readonly deploymentType: string;
+    readonly deploymentType?: string;
     /**
      * The SSD IOPS configuration for the file system.
      */
-    readonly diskIopsConfigurations: outputs.fsx.GetWindowsFileSystemDiskIopsConfiguration[];
+    readonly diskIopsConfigurations?: outputs.fsx.GetWindowsFileSystemDiskIopsConfiguration[];
     /**
      * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      */
-    readonly dnsName: string;
+    readonly dnsName?: string;
     /**
      * Identifier of the file system (e.g. `fs-12345678`).
      */
@@ -97,50 +97,50 @@ export interface GetWindowsFileSystemResult {
     /**
      * ARN for the KMS Key to encrypt the file system at rest.
      */
-    readonly kmsKeyId: string;
-    readonly networkInterfaceIds: string[];
+    readonly kmsKeyId?: string;
+    readonly networkInterfaceIds?: string[];
     /**
      * AWS account identifier that created the file system.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * The IP address of the primary, or preferred, file server.
      */
-    readonly preferredFileServerIp: string;
+    readonly preferredFileServerIp?: string;
     /**
      * Specifies the subnet in which you want the preferred file server to be located.
      */
-    readonly preferredSubnetId: string;
-    readonly securityGroupIds: string[];
-    readonly skipFinalBackup: boolean;
+    readonly preferredSubnetId?: string;
+    readonly securityGroupIds?: string[];
+    readonly skipFinalBackup?: boolean;
     /**
      * The storage capacity of the file system in gibibytes (GiB).
      */
-    readonly storageCapacity: number;
+    readonly storageCapacity?: number;
     /**
      * The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      */
-    readonly storageType: string;
+    readonly storageType?: string;
     /**
      * Specifies the IDs of the subnets that the file system is accessible from.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * The tags to associate with the file system.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      */
-    readonly throughputCapacity: number;
+    readonly throughputCapacity?: number;
     /**
      * The ID of the primary virtual private cloud (VPC) for the file system.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    readonly weeklyMaintenanceStartTime: string;
+    readonly weeklyMaintenanceStartTime?: string;
 }
 /**
  * Retrieve information on FSx Windows File System.

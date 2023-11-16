@@ -169,7 +169,7 @@ type WebAcl struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the WAF Regional WebACL.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// Configuration block to enable WAF logging. Detailed below.
@@ -392,8 +392,8 @@ func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutpu
 }
 
 // Amazon Resource Name (ARN) of the WAF Regional WebACL.
-func (o WebAclOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WebAclOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.

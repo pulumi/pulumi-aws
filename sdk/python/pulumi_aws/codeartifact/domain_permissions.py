@@ -192,15 +192,15 @@ class DomainPermissions(pulumi.CustomResource):
         example_domain = aws.codeartifact.Domain("exampleDomain",
             domain="example",
             encryption_key=example_key.arn)
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = example_domain.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["codeartifact:CreateRepository"],
-            resources=[example_domain.arn],
-        )])
+            resources=[arn],
+        )]))
         test_domain_permissions = aws.codeartifact.DomainPermissions("testDomainPermissions",
             domain=example_domain.domain,
             policy_document=test_policy_document.json)
@@ -240,15 +240,15 @@ class DomainPermissions(pulumi.CustomResource):
         example_domain = aws.codeartifact.Domain("exampleDomain",
             domain="example",
             encryption_key=example_key.arn)
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = example_domain.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["codeartifact:CreateRepository"],
-            resources=[example_domain.arn],
-        )])
+            resources=[arn],
+        )]))
         test_domain_permissions = aws.codeartifact.DomainPermissions("testDomainPermissions",
             domain=example_domain.domain,
             policy_document=test_policy_document.json)
@@ -348,7 +348,7 @@ class DomainPermissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> pulumi.Output[str]:
+    def domain_owner(self) -> pulumi.Output[Optional[str]]:
         """
         The account number of the AWS account that owns the domain.
         """
@@ -364,7 +364,7 @@ class DomainPermissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyRevision")
-    def policy_revision(self) -> pulumi.Output[str]:
+    def policy_revision(self) -> pulumi.Output[Optional[str]]:
         """
         The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         """
@@ -372,7 +372,7 @@ class DomainPermissions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Output[str]:
+    def resource_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the resource associated with the resource policy.
         """

@@ -55,34 +55,34 @@ export interface GetRouteResult {
     /**
      * ARN of the route.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Creation date of the route.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Last update date of the route.
      */
-    readonly lastUpdatedDate: string;
+    readonly lastUpdatedDate?: string;
     readonly meshName: string;
-    readonly meshOwner: string;
+    readonly meshOwner?: string;
     readonly name: string;
     /**
      * Resource owner's AWS account ID.
      */
-    readonly resourceOwner: string;
+    readonly resourceOwner?: string;
     /**
      * Route specification. See the `aws.appmesh.Route` resource for details.
      */
-    readonly specs: outputs.appmesh.GetRouteSpec[];
+    readonly specs?: outputs.appmesh.GetRouteSpec[];
     /**
      * Map of tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly virtualRouterName: string;
 }
 /**

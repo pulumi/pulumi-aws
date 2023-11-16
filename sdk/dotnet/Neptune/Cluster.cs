@@ -62,19 +62,19 @@ namespace Pulumi.Aws.Neptune
         /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         /// </summary>
         [Output("allowMajorVersionUpgrade")]
-        public Output<bool> AllowMajorVersionUpgrade { get; private set; } = null!;
+        public Output<bool?> AllowMajorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
         [Output("applyImmediately")]
-        public Output<bool> ApplyImmediately { get; private set; } = null!;
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
         /// The Neptune Cluster Amazon Resource Name (ARN)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Neptune
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Output("clusterIdentifier")]
-        public Output<string> ClusterIdentifier { get; private set; } = null!;
+        public Output<string?> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
         [Output("clusterIdentifierPrefix")]
-        public Output<string> ClusterIdentifierPrefix { get; private set; } = null!;
+        public Output<string?> ClusterIdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
         /// List of Neptune Instances that are a part of this cluster
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Neptune
         /// The Neptune Cluster Resource ID
         /// </summary>
         [Output("clusterResourceId")]
-        public Output<string> ClusterResourceId { get; private set; } = null!;
+        public Output<string?> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
         /// If set to true, tags are copied to any snapshot of the DB cluster that is created.
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Neptune
         /// The DNS address of the Neptune instance
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Neptune
         /// The database engine version.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Neptune
         /// The Route53 Hosted Zone ID of the endpoint
         /// </summary>
         [Output("hostedZoneId")]
-        public Output<string> HostedZoneId { get; private set; } = null!;
+        public Output<string?> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Neptune
         /// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyArn")]
-        public Output<string> KmsKeyArn { get; private set; } = null!;
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// A cluster parameter group to associate with the cluster.
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Neptune
         /// A Neptune subnet group to associate with this Neptune instance.
         /// </summary>
         [Output("neptuneSubnetGroupName")]
-        public Output<string> NeptuneSubnetGroupName { get; private set; } = null!;
+        public Output<string?> NeptuneSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The port on which the Neptune accepts connections. Default is `8182`.
@@ -212,19 +212,19 @@ namespace Pulumi.Aws.Neptune
         /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Output("preferredBackupWindow")]
-        public Output<string> PreferredBackupWindow { get; private set; } = null!;
+        public Output<string?> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Output("preferredMaintenanceWindow")]
-        public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+        public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         /// </summary>
         [Output("readerEndpoint")]
-        public Output<string> ReaderEndpoint { get; private set; } = null!;
+        public Output<string?> ReaderEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.

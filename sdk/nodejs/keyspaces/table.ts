@@ -72,11 +72,11 @@ export class Table extends pulumi.CustomResource {
     /**
      * The ARN of the table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies the read/write throughput capacity mode for the table.
      */
-    public readonly capacitySpecification!: pulumi.Output<outputs.keyspaces.TableCapacitySpecification>;
+    public readonly capacitySpecification!: pulumi.Output<outputs.keyspaces.TableCapacitySpecification | undefined>;
     /**
      * Enables client-side timestamps for the table. By default, the setting is disabled.
      */
@@ -84,7 +84,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * A description of the table.
      */
-    public readonly comment!: pulumi.Output<outputs.keyspaces.TableComment>;
+    public readonly comment!: pulumi.Output<outputs.keyspaces.TableComment | undefined>;
     /**
      * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      */
@@ -92,7 +92,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
      */
-    public readonly encryptionSpecification!: pulumi.Output<outputs.keyspaces.TableEncryptionSpecification>;
+    public readonly encryptionSpecification!: pulumi.Output<outputs.keyspaces.TableEncryptionSpecification | undefined>;
     /**
      * The name of the keyspace that the table is going to be created in.
      */
@@ -100,7 +100,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
      */
-    public readonly pointInTimeRecovery!: pulumi.Output<outputs.keyspaces.TablePointInTimeRecovery>;
+    public readonly pointInTimeRecovery!: pulumi.Output<outputs.keyspaces.TablePointInTimeRecovery | undefined>;
     /**
      * Describes the schema of the table.
      */

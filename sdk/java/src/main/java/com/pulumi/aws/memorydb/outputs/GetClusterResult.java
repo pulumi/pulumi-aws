@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterResult {
@@ -19,58 +21,58 @@ public final class GetClusterResult {
      * @return Name of the Access Control List associated with the cluster.
      * 
      */
-    private String aclName;
+    private @Nullable String aclName;
     /**
      * @return ARN of the cluster.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return True when the cluster allows automatic minor version upgrades.
      * 
      */
-    private Boolean autoMinorVersionUpgrade;
-    private List<GetClusterClusterEndpoint> clusterEndpoints;
+    private @Nullable Boolean autoMinorVersionUpgrade;
+    private @Nullable List<GetClusterClusterEndpoint> clusterEndpoints;
     /**
      * @return True when data tiering is enabled.
      * 
      */
-    private Boolean dataTiering;
+    private @Nullable Boolean dataTiering;
     /**
      * @return Description for the cluster.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Patch version number of the Redis engine used by the cluster.
      * 
      */
-    private String enginePatchVersion;
+    private @Nullable String enginePatchVersion;
     /**
      * @return Version number of the Redis engine used by the cluster.
      * 
      */
-    private String engineVersion;
+    private @Nullable String engineVersion;
     /**
      * @return Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
      * 
      */
-    private String finalSnapshotName;
+    private @Nullable String finalSnapshotName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of the KMS key used to encrypt the cluster at rest.
      * 
      */
-    private String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     /**
      * @return Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
      * 
      */
-    private String maintenanceWindow;
+    private @Nullable String maintenanceWindow;
     /**
      * @return Name of this node.
      * 
@@ -80,148 +82,148 @@ public final class GetClusterResult {
      * @return Compute and memory capacity of the nodes in the cluster.
      * 
      */
-    private String nodeType;
+    private @Nullable String nodeType;
     /**
      * @return The number of replicas to apply to each shard.
      * 
      */
-    private Integer numReplicasPerShard;
+    private @Nullable Integer numReplicasPerShard;
     /**
      * @return Number of shards in the cluster.
      * 
      */
-    private Integer numShards;
+    private @Nullable Integer numShards;
     /**
      * @return The name of the parameter group associated with the cluster.
      * 
      */
-    private String parameterGroupName;
+    private @Nullable String parameterGroupName;
     /**
      * @return Port number that this node is listening on.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
     /**
      * @return Set of VPC Security Group ID-s associated with this cluster.
      * 
      */
-    private List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return Set of shards in this cluster.
      * 
      */
-    private List<GetClusterShard> shards;
+    private @Nullable List<GetClusterShard> shards;
     /**
      * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
      * 
      */
-    private Integer snapshotRetentionLimit;
+    private @Nullable Integer snapshotRetentionLimit;
     /**
      * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
-    private String snapshotWindow;
+    private @Nullable String snapshotWindow;
     /**
      * @return ARN of the SNS topic to which cluster notifications are sent.
      * 
      */
-    private String snsTopicArn;
+    private @Nullable String snsTopicArn;
     /**
      * @return The name of the subnet group used for the cluster.
      * 
      */
-    private String subnetGroupName;
+    private @Nullable String subnetGroupName;
     /**
      * @return Map of tags assigned to the cluster.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return When true, in-transit encryption is enabled for the cluster.
      * 
      */
-    private Boolean tlsEnabled;
+    private @Nullable Boolean tlsEnabled;
 
     private GetClusterResult() {}
     /**
      * @return Name of the Access Control List associated with the cluster.
      * 
      */
-    public String aclName() {
-        return this.aclName;
+    public Optional<String> aclName() {
+        return Optional.ofNullable(this.aclName);
     }
     /**
      * @return ARN of the cluster.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return True when the cluster allows automatic minor version upgrades.
      * 
      */
-    public Boolean autoMinorVersionUpgrade() {
-        return this.autoMinorVersionUpgrade;
+    public Optional<Boolean> autoMinorVersionUpgrade() {
+        return Optional.ofNullable(this.autoMinorVersionUpgrade);
     }
     public List<GetClusterClusterEndpoint> clusterEndpoints() {
-        return this.clusterEndpoints;
+        return this.clusterEndpoints == null ? List.of() : this.clusterEndpoints;
     }
     /**
      * @return True when data tiering is enabled.
      * 
      */
-    public Boolean dataTiering() {
-        return this.dataTiering;
+    public Optional<Boolean> dataTiering() {
+        return Optional.ofNullable(this.dataTiering);
     }
     /**
      * @return Description for the cluster.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Patch version number of the Redis engine used by the cluster.
      * 
      */
-    public String enginePatchVersion() {
-        return this.enginePatchVersion;
+    public Optional<String> enginePatchVersion() {
+        return Optional.ofNullable(this.enginePatchVersion);
     }
     /**
      * @return Version number of the Redis engine used by the cluster.
      * 
      */
-    public String engineVersion() {
-        return this.engineVersion;
+    public Optional<String> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
     }
     /**
      * @return Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
      * 
      */
-    public String finalSnapshotName() {
-        return this.finalSnapshotName;
+    public Optional<String> finalSnapshotName() {
+        return Optional.ofNullable(this.finalSnapshotName);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of the KMS key used to encrypt the cluster at rest.
      * 
      */
-    public String kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<String> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
     /**
      * @return Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
      * 
      */
-    public String maintenanceWindow() {
-        return this.maintenanceWindow;
+    public Optional<String> maintenanceWindow() {
+        return Optional.ofNullable(this.maintenanceWindow);
     }
     /**
      * @return Name of this node.
@@ -234,92 +236,92 @@ public final class GetClusterResult {
      * @return Compute and memory capacity of the nodes in the cluster.
      * 
      */
-    public String nodeType() {
-        return this.nodeType;
+    public Optional<String> nodeType() {
+        return Optional.ofNullable(this.nodeType);
     }
     /**
      * @return The number of replicas to apply to each shard.
      * 
      */
-    public Integer numReplicasPerShard() {
-        return this.numReplicasPerShard;
+    public Optional<Integer> numReplicasPerShard() {
+        return Optional.ofNullable(this.numReplicasPerShard);
     }
     /**
      * @return Number of shards in the cluster.
      * 
      */
-    public Integer numShards() {
-        return this.numShards;
+    public Optional<Integer> numShards() {
+        return Optional.ofNullable(this.numShards);
     }
     /**
      * @return The name of the parameter group associated with the cluster.
      * 
      */
-    public String parameterGroupName() {
-        return this.parameterGroupName;
+    public Optional<String> parameterGroupName() {
+        return Optional.ofNullable(this.parameterGroupName);
     }
     /**
      * @return Port number that this node is listening on.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return Set of VPC Security Group ID-s associated with this cluster.
      * 
      */
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
      * @return Set of shards in this cluster.
      * 
      */
     public List<GetClusterShard> shards() {
-        return this.shards;
+        return this.shards == null ? List.of() : this.shards;
     }
     /**
      * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
      * 
      */
-    public Integer snapshotRetentionLimit() {
-        return this.snapshotRetentionLimit;
+    public Optional<Integer> snapshotRetentionLimit() {
+        return Optional.ofNullable(this.snapshotRetentionLimit);
     }
     /**
      * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
-    public String snapshotWindow() {
-        return this.snapshotWindow;
+    public Optional<String> snapshotWindow() {
+        return Optional.ofNullable(this.snapshotWindow);
     }
     /**
      * @return ARN of the SNS topic to which cluster notifications are sent.
      * 
      */
-    public String snsTopicArn() {
-        return this.snsTopicArn;
+    public Optional<String> snsTopicArn() {
+        return Optional.ofNullable(this.snsTopicArn);
     }
     /**
      * @return The name of the subnet group used for the cluster.
      * 
      */
-    public String subnetGroupName() {
-        return this.subnetGroupName;
+    public Optional<String> subnetGroupName() {
+        return Optional.ofNullable(this.subnetGroupName);
     }
     /**
      * @return Map of tags assigned to the cluster.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return When true, in-transit encryption is enabled for the cluster.
      * 
      */
-    public Boolean tlsEnabled() {
-        return this.tlsEnabled;
+    public Optional<Boolean> tlsEnabled() {
+        return Optional.ofNullable(this.tlsEnabled);
     }
 
     public static Builder builder() {
@@ -331,32 +333,32 @@ public final class GetClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String aclName;
-        private String arn;
-        private Boolean autoMinorVersionUpgrade;
-        private List<GetClusterClusterEndpoint> clusterEndpoints;
-        private Boolean dataTiering;
-        private String description;
-        private String enginePatchVersion;
-        private String engineVersion;
-        private String finalSnapshotName;
-        private String id;
-        private String kmsKeyArn;
-        private String maintenanceWindow;
+        private @Nullable String aclName;
+        private @Nullable String arn;
+        private @Nullable Boolean autoMinorVersionUpgrade;
+        private @Nullable List<GetClusterClusterEndpoint> clusterEndpoints;
+        private @Nullable Boolean dataTiering;
+        private @Nullable String description;
+        private @Nullable String enginePatchVersion;
+        private @Nullable String engineVersion;
+        private @Nullable String finalSnapshotName;
+        private @Nullable String id;
+        private @Nullable String kmsKeyArn;
+        private @Nullable String maintenanceWindow;
         private String name;
-        private String nodeType;
-        private Integer numReplicasPerShard;
-        private Integer numShards;
-        private String parameterGroupName;
-        private Integer port;
-        private List<String> securityGroupIds;
-        private List<GetClusterShard> shards;
-        private Integer snapshotRetentionLimit;
-        private String snapshotWindow;
-        private String snsTopicArn;
-        private String subnetGroupName;
-        private Map<String,String> tags;
-        private Boolean tlsEnabled;
+        private @Nullable String nodeType;
+        private @Nullable Integer numReplicasPerShard;
+        private @Nullable Integer numShards;
+        private @Nullable String parameterGroupName;
+        private @Nullable Integer port;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable List<GetClusterShard> shards;
+        private @Nullable Integer snapshotRetentionLimit;
+        private @Nullable String snapshotWindow;
+        private @Nullable String snsTopicArn;
+        private @Nullable String subnetGroupName;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Boolean tlsEnabled;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -389,66 +391,66 @@ public final class GetClusterResult {
         }
 
         @CustomType.Setter
-        public Builder aclName(String aclName) {
-            this.aclName = Objects.requireNonNull(aclName);
+        public Builder aclName(@Nullable String aclName) {
+            this.aclName = aclName;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder autoMinorVersionUpgrade(Boolean autoMinorVersionUpgrade) {
-            this.autoMinorVersionUpgrade = Objects.requireNonNull(autoMinorVersionUpgrade);
+        public Builder autoMinorVersionUpgrade(@Nullable Boolean autoMinorVersionUpgrade) {
+            this.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
             return this;
         }
         @CustomType.Setter
-        public Builder clusterEndpoints(List<GetClusterClusterEndpoint> clusterEndpoints) {
-            this.clusterEndpoints = Objects.requireNonNull(clusterEndpoints);
+        public Builder clusterEndpoints(@Nullable List<GetClusterClusterEndpoint> clusterEndpoints) {
+            this.clusterEndpoints = clusterEndpoints;
             return this;
         }
         public Builder clusterEndpoints(GetClusterClusterEndpoint... clusterEndpoints) {
             return clusterEndpoints(List.of(clusterEndpoints));
         }
         @CustomType.Setter
-        public Builder dataTiering(Boolean dataTiering) {
-            this.dataTiering = Objects.requireNonNull(dataTiering);
+        public Builder dataTiering(@Nullable Boolean dataTiering) {
+            this.dataTiering = dataTiering;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder enginePatchVersion(String enginePatchVersion) {
-            this.enginePatchVersion = Objects.requireNonNull(enginePatchVersion);
+        public Builder enginePatchVersion(@Nullable String enginePatchVersion) {
+            this.enginePatchVersion = enginePatchVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+        public Builder engineVersion(@Nullable String engineVersion) {
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder finalSnapshotName(String finalSnapshotName) {
-            this.finalSnapshotName = Objects.requireNonNull(finalSnapshotName);
+        public Builder finalSnapshotName(@Nullable String finalSnapshotName) {
+            this.finalSnapshotName = finalSnapshotName;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+        public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder maintenanceWindow(String maintenanceWindow) {
-            this.maintenanceWindow = Objects.requireNonNull(maintenanceWindow);
+        public Builder maintenanceWindow(@Nullable String maintenanceWindow) {
+            this.maintenanceWindow = maintenanceWindow;
             return this;
         }
         @CustomType.Setter
@@ -457,74 +459,74 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+        public Builder nodeType(@Nullable String nodeType) {
+            this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
-        public Builder numReplicasPerShard(Integer numReplicasPerShard) {
-            this.numReplicasPerShard = Objects.requireNonNull(numReplicasPerShard);
+        public Builder numReplicasPerShard(@Nullable Integer numReplicasPerShard) {
+            this.numReplicasPerShard = numReplicasPerShard;
             return this;
         }
         @CustomType.Setter
-        public Builder numShards(Integer numShards) {
-            this.numShards = Objects.requireNonNull(numShards);
+        public Builder numShards(@Nullable Integer numShards) {
+            this.numShards = numShards;
             return this;
         }
         @CustomType.Setter
-        public Builder parameterGroupName(String parameterGroupName) {
-            this.parameterGroupName = Objects.requireNonNull(parameterGroupName);
+        public Builder parameterGroupName(@Nullable String parameterGroupName) {
+            this.parameterGroupName = parameterGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder shards(List<GetClusterShard> shards) {
-            this.shards = Objects.requireNonNull(shards);
+        public Builder shards(@Nullable List<GetClusterShard> shards) {
+            this.shards = shards;
             return this;
         }
         public Builder shards(GetClusterShard... shards) {
             return shards(List.of(shards));
         }
         @CustomType.Setter
-        public Builder snapshotRetentionLimit(Integer snapshotRetentionLimit) {
-            this.snapshotRetentionLimit = Objects.requireNonNull(snapshotRetentionLimit);
+        public Builder snapshotRetentionLimit(@Nullable Integer snapshotRetentionLimit) {
+            this.snapshotRetentionLimit = snapshotRetentionLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotWindow(String snapshotWindow) {
-            this.snapshotWindow = Objects.requireNonNull(snapshotWindow);
+        public Builder snapshotWindow(@Nullable String snapshotWindow) {
+            this.snapshotWindow = snapshotWindow;
             return this;
         }
         @CustomType.Setter
-        public Builder snsTopicArn(String snsTopicArn) {
-            this.snsTopicArn = Objects.requireNonNull(snsTopicArn);
+        public Builder snsTopicArn(@Nullable String snsTopicArn) {
+            this.snsTopicArn = snsTopicArn;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetGroupName(String subnetGroupName) {
-            this.subnetGroupName = Objects.requireNonNull(subnetGroupName);
+        public Builder subnetGroupName(@Nullable String subnetGroupName) {
+            this.subnetGroupName = subnetGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder tlsEnabled(Boolean tlsEnabled) {
-            this.tlsEnabled = Objects.requireNonNull(tlsEnabled);
+        public Builder tlsEnabled(@Nullable Boolean tlsEnabled) {
+            this.tlsEnabled = tlsEnabled;
             return this;
         }
         public GetClusterResult build() {

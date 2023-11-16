@@ -59,7 +59,7 @@ type GetGlobalNetworksArgs struct {
 // A collection of values returned by getGlobalNetworks.
 type GetGlobalNetworksResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// IDs of the global networks.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -104,8 +104,8 @@ func (o GetGlobalNetworksResultOutput) ToGetGlobalNetworksResultOutputWithContex
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetGlobalNetworksResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGlobalNetworksResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetGlobalNetworksResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGlobalNetworksResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // IDs of the global networks.

@@ -432,7 +432,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the lightsail bucket.
         """
@@ -440,7 +440,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
         """
@@ -456,7 +456,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the bucket was created.
         """
@@ -480,7 +480,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[str]:
+    def region(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Web Services Region name.
         """
@@ -488,7 +488,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportCode")
-    def support_code(self) -> pulumi.Output[str]:
+    def support_code(self) -> pulumi.Output[Optional[str]]:
         """
         The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
@@ -515,6 +515,6 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "url")
 

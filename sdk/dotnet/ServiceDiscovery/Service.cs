@@ -112,7 +112,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// The ARN of the service.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the service.
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// The ID of the namespace that you want to use to create the service.
         /// </summary>
         [Output("namespaceId")]
-        public Output<string> NamespaceId { get; private set; } = null!;
+        public Output<string?> NamespaceId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

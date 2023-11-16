@@ -55,7 +55,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the task definition.
         """
@@ -63,7 +63,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter(name="arnWithoutRevision")
-    def arn_without_revision(self) -> str:
+    def arn_without_revision(self) -> Optional[str]:
         """
         ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         """
@@ -71,7 +71,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> str:
+    def execution_role_arn(self) -> Optional[str]:
         """
         ARN of the task execution role that the Amazon ECS container agent and the Docker.
         """
@@ -79,7 +79,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter
-    def family(self) -> str:
+    def family(self) -> Optional[str]:
         """
         Family of this task definition.
         """
@@ -87,7 +87,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -95,7 +95,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter(name="networkMode")
-    def network_mode(self) -> str:
+    def network_mode(self) -> Optional[str]:
         """
         Docker networking mode to use for the containers in this task.
         """
@@ -103,7 +103,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter
-    def revision(self) -> int:
+    def revision(self) -> Optional[int]:
         """
         Revision of this task definition.
         """
@@ -111,7 +111,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of this task definition.
         """
@@ -124,7 +124,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter(name="taskRoleArn")
-    def task_role_arn(self) -> str:
+    def task_role_arn(self) -> Optional[str]:
         """
         ARN of the IAM role that containers in this task can assume.
         """

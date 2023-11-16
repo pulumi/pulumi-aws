@@ -124,25 +124,25 @@ namespace Pulumi.Aws.Rds
         /// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// Port for the target RDS DB Instance or Aurora DB Cluster.
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// Identifier representing the DB Instance or DB Cluster target.
         /// </summary>
         [Output("rdsResourceId")]
-        public Output<string> RdsResourceId { get; private set; } = null!;
+        public Output<string?> RdsResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         /// </summary>
         [Output("targetArn")]
-        public Output<string> TargetArn { get; private set; } = null!;
+        public Output<string?> TargetArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the target group.
@@ -154,13 +154,13 @@ namespace Pulumi.Aws.Rds
         /// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         /// </summary>
         [Output("trackedClusterId")]
-        public Output<string> TrackedClusterId { get; private set; } = null!;
+        public Output<string?> TrackedClusterId { get; private set; } = null!;
 
         /// <summary>
         /// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

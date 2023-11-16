@@ -79,7 +79,7 @@ type DataQualityJobDefinition struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies the container that runs the monitoring job. Fields are documented below.
 	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecificationOutput `pulumi:"dataQualityAppSpecification"`
 	// Configures the constraints and baselines for the monitoring job. Fields are documented below.
@@ -97,7 +97,7 @@ type DataQualityJobDefinition struct {
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-	StoppingCondition DataQualityJobDefinitionStoppingConditionOutput `pulumi:"stoppingCondition"`
+	StoppingCondition DataQualityJobDefinitionStoppingConditionPtrOutput `pulumi:"stoppingCondition"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -351,8 +351,8 @@ func (o DataQualityJobDefinitionOutput) ToDataQualityJobDefinitionOutputWithCont
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-func (o DataQualityJobDefinitionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DataQualityJobDefinitionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the container that runs the monitoring job. Fields are documented below.
@@ -406,10 +406,10 @@ func (o DataQualityJobDefinitionOutput) RoleArn() pulumi.StringOutput {
 }
 
 // A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-func (o DataQualityJobDefinitionOutput) StoppingCondition() DataQualityJobDefinitionStoppingConditionOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionStoppingConditionOutput {
+func (o DataQualityJobDefinitionOutput) StoppingCondition() DataQualityJobDefinitionStoppingConditionPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionStoppingConditionPtrOutput {
 		return v.StoppingCondition
-	}).(DataQualityJobDefinitionStoppingConditionOutput)
+	}).(DataQualityJobDefinitionStoppingConditionPtrOutput)
 }
 
 // A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Efs.Outputs
         /// <summary>
         /// POSIX owner group ID
         /// </summary>
-        public readonly int OwnerGid;
+        public readonly int? OwnerGid;
         /// <summary>
         /// POSIX owner user ID
         /// </summary>
-        public readonly int OwnerUid;
+        public readonly int? OwnerUid;
         /// <summary>
         /// POSIX permissions mode
         /// </summary>
-        public readonly string Permissions;
+        public readonly string? Permissions;
 
         [OutputConstructor]
         private GetAccessPointRootDirectoryCreationInfoResult(
-            int ownerGid,
+            int? ownerGid,
 
-            int ownerUid,
+            int? ownerUid,
 
-            string permissions)
+            string? permissions)
         {
             OwnerGid = ownerGid;
             OwnerUid = ownerUid;

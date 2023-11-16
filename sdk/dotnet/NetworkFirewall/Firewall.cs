@@ -58,7 +58,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// The Amazon Resource Name (ARN) that identifies the firewall.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// A string token used when updating a firewall.
         /// </summary>
         [Output("updateToken")]
-        public Output<string> UpdateToken { get; private set; } = null!;
+        public Output<string?> UpdateToken { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.

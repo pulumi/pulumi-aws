@@ -81,7 +81,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * The SES receipt rule ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A list of Bounce Action blocks. Documented below.
      */
@@ -125,7 +125,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * `Require` or `Optional`
      */
-    public readonly tlsPolicy!: pulumi.Output<string>;
+    public readonly tlsPolicy!: pulumi.Output<string | undefined>;
     /**
      * A list of WorkMail Action blocks. Documented below.
      */

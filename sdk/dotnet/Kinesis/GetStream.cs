@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Kinesis
         /// <summary>
         /// ARN of the Kinesis Stream (same as id).
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         /// </summary>
@@ -142,11 +142,11 @@ namespace Pulumi.Aws.Kinesis
         /// <summary>
         /// Approximate UNIX timestamp that the stream was created.
         /// </summary>
-        public readonly int CreationTimestamp;
+        public readonly int? CreationTimestamp;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the Kinesis Stream.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Kinesis
         /// <summary>
         /// Length of time (in hours) data records are accessible after they are added to the stream.
         /// </summary>
-        public readonly int RetentionPeriod;
+        public readonly int? RetentionPeriod;
         /// <summary>
         /// List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Kinesis
         /// <summary>
         /// Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         /// </summary>
@@ -174,31 +174,31 @@ namespace Pulumi.Aws.Kinesis
         /// <summary>
         /// Map of tags to assigned to the stream.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetStreamResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<string> closedShards,
 
-            int creationTimestamp,
+            int? creationTimestamp,
 
-            string id,
+            string? id,
 
             string name,
 
             ImmutableArray<string> openShards,
 
-            int retentionPeriod,
+            int? retentionPeriod,
 
             ImmutableArray<string> shardLevelMetrics,
 
-            string status,
+            string? status,
 
             ImmutableArray<Outputs.GetStreamStreamModeDetailResult> streamModeDetails,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ClosedShards = closedShards;

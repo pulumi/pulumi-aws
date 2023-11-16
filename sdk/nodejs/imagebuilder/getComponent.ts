@@ -49,59 +49,59 @@ export interface GetComponentResult {
     /**
      * Change description of the component.
      */
-    readonly changeDescription: string;
+    readonly changeDescription?: string;
     /**
      * Data of the component.
      */
-    readonly data: string;
+    readonly data?: string;
     /**
      * Date the component was created.
      */
-    readonly dateCreated: string;
+    readonly dateCreated?: string;
     /**
      * Description of the component.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Encryption status of the component.
      */
-    readonly encrypted: boolean;
+    readonly encrypted?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the Key Management Service (KMS) Key used to encrypt the component.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     /**
      * Name of the component.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Owner of the component.
      */
-    readonly owner: string;
+    readonly owner?: string;
     /**
      * Platform of the component.
      */
-    readonly platform: string;
+    readonly platform?: string;
     /**
      * Operating Systems (OSes) supported by the component.
      */
-    readonly supportedOsVersions: string[];
+    readonly supportedOsVersions?: string[];
     /**
      * Key-value map of resource tags for the component.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Type of the component.
      */
-    readonly type: string;
+    readonly type?: string;
     /**
      * Version of the component.
      */
-    readonly version: string;
+    readonly version?: string;
 }
 /**
  * Provides details about an Image Builder Component.

@@ -71,7 +71,7 @@ namespace Pulumi.Aws.SesV2
     public partial class ContactList : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the contact list.
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.SesV2
         /// A timestamp noting when the contact list was created in ISO 8601 format.
         /// </summary>
         [Output("createdTimestamp")]
-        public Output<string> CreatedTimestamp { get; private set; } = null!;
+        public Output<string?> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// A description of what the contact list is about.
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.SesV2
         /// A timestamp noting the last time the contact list was updated in ISO 8601 format.
         /// </summary>
         [Output("lastUpdatedTimestamp")]
-        public Output<string> LastUpdatedTimestamp { get; private set; } = null!;
+        public Output<string?> LastUpdatedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

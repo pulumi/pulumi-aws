@@ -52,20 +52,20 @@ export interface GetRegexPatternSetResult {
     /**
      * ARN of the entity.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the set that helps with identification.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
      */
-    readonly regularExpressions: outputs.wafv2.GetRegexPatternSetRegularExpression[];
+    readonly regularExpressions?: outputs.wafv2.GetRegexPatternSetRegularExpression[];
     readonly scope: string;
 }
 /**

@@ -316,7 +316,7 @@ namespace Pulumi.Aws.Rds
         /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         /// </summary>
         [Output("allocatedStorage")]
-        public Output<int> AllocatedStorage { get; private set; } = null!;
+        public Output<int?> AllocatedStorage { get; private set; } = null!;
 
         /// <summary>
         /// Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
@@ -328,13 +328,13 @@ namespace Pulumi.Aws.Rds
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Output("applyImmediately")]
-        public Output<bool> ApplyImmediately { get; private set; } = null!;
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
@@ -355,19 +355,19 @@ namespace Pulumi.Aws.Rds
         /// Days to retain backups for. Default `1`
         /// </summary>
         [Output("backupRetentionPeriod")]
-        public Output<int> BackupRetentionPeriod { get; private set; } = null!;
+        public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Output("clusterIdentifier")]
-        public Output<string> ClusterIdentifier { get; private set; } = null!;
+        public Output<string?> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
         [Output("clusterIdentifierPrefix")]
-        public Output<string> ClusterIdentifierPrefix { get; private set; } = null!;
+        public Output<string?> ClusterIdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
         /// List of RDS Instances that are a part of this cluster
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.Rds
         /// RDS Cluster Resource ID
         /// </summary>
         [Output("clusterResourceId")]
-        public Output<string> ClusterResourceId { get; private set; } = null!;
+        public Output<string?> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Copy all Cluster `tags` to snapshots. Default is `false`.
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.Rds
         /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Output("databaseName")]
-        public Output<string> DatabaseName { get; private set; } = null!;
+        public Output<string?> DatabaseName { get; private set; } = null!;
 
         /// <summary>
         /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.Rds
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
         [Output("dbClusterParameterGroupName")]
-        public Output<string> DbClusterParameterGroupName { get; private set; } = null!;
+        public Output<string?> DbClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
@@ -416,13 +416,13 @@ namespace Pulumi.Aws.Rds
         /// **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Output("dbSubnetGroupName")]
-        public Output<string> DbSubnetGroupName { get; private set; } = null!;
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// For use with RDS Custom.
         /// </summary>
         [Output("dbSystemId")]
-        public Output<string> DbSystemId { get; private set; } = null!;
+        public Output<string?> DbSystemId { get; private set; } = null!;
 
         /// <summary>
         /// If the DB cluster should have deletion protection enabled.
@@ -454,7 +454,7 @@ namespace Pulumi.Aws.Rds
         /// DNS address of the RDS instance
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
@@ -472,13 +472,13 @@ namespace Pulumi.Aws.Rds
         /// Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// Running version of the database.
         /// </summary>
         [Output("engineVersionActual")]
-        public Output<string> EngineVersionActual { get; private set; } = null!;
+        public Output<string?> EngineVersionActual { get; private set; } = null!;
 
         /// <summary>
         /// Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
@@ -496,7 +496,7 @@ namespace Pulumi.Aws.Rds
         /// Route53 Hosted Zone ID of the endpoint
         /// </summary>
         [Output("hostedZoneId")]
-        public Output<string> HostedZoneId { get; private set; } = null!;
+        public Output<string?> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.Rds
         /// ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
@@ -538,7 +538,7 @@ namespace Pulumi.Aws.Rds
         /// Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         /// </summary>
         [Output("masterUserSecretKmsKeyId")]
-        public Output<string> MasterUserSecretKmsKeyId { get; private set; } = null!;
+        public Output<string?> MasterUserSecretKmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
@@ -550,38 +550,38 @@ namespace Pulumi.Aws.Rds
         /// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         /// </summary>
         [Output("masterUsername")]
-        public Output<string> MasterUsername { get; private set; } = null!;
+        public Output<string?> MasterUsername { get; private set; } = null!;
 
         /// <summary>
         /// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         /// </summary>
         [Output("networkType")]
-        public Output<string> NetworkType { get; private set; } = null!;
+        public Output<string?> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// Port on which the DB accepts connections
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Output("preferredBackupWindow")]
-        public Output<string> PreferredBackupWindow { get; private set; } = null!;
+        public Output<string?> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Output("preferredMaintenanceWindow")]
-        public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+        public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// Read-only endpoint for the Aurora cluster, automatically
         /// load-balanced across replicas
         /// </summary>
         [Output("readerEndpoint")]
-        public Output<string> ReaderEndpoint { get; private set; } = null!;
+        public Output<string?> ReaderEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
@@ -632,13 +632,13 @@ namespace Pulumi.Aws.Rds
         /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
-        public Output<bool> StorageEncrypted { get; private set; } = null!;
+        public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
         /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         /// </summary>
         [Output("storageType")]
-        public Output<string> StorageType { get; private set; } = null!;
+        public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -147,7 +147,7 @@ type UsagePlan struct {
 	// Associated API stages of the usage plan.
 	ApiStages UsagePlanApiStageArrayOutput `pulumi:"apiStages"`
 	// ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of a usage plan.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the usage plan.
@@ -377,8 +377,8 @@ func (o UsagePlanOutput) ApiStages() UsagePlanApiStageArrayOutput {
 }
 
 // ARN
-func (o UsagePlanOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *UsagePlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UsagePlanOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UsagePlan) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of a usage plan.

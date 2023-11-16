@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         /// <summary>
         /// Whether credentials are included in the CORS request.
         /// </summary>
-        public readonly bool AllowCredentials;
+        public readonly bool? AllowCredentials;
         /// <summary>
         /// Set of allowed HTTP headers.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         /// <summary>
         /// Number of seconds that the browser should cache preflight request results.
         /// </summary>
-        public readonly int MaxAge;
+        public readonly int? MaxAge;
 
         [OutputConstructor]
         private GetApiCorsConfigurationResult(
-            bool allowCredentials,
+            bool? allowCredentials,
 
             ImmutableArray<string> allowHeaders,
 
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
 
             ImmutableArray<string> exposeHeaders,
 
-            int maxAge)
+            int? maxAge)
         {
             AllowCredentials = allowCredentials;
             AllowHeaders = allowHeaders;

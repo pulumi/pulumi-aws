@@ -112,31 +112,31 @@ type Connection struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
+	AwsDevice pulumi.StringPtrOutput `pulumi:"awsDevice"`
 	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	Bandwidth pulumi.StringOutput `pulumi:"bandwidth"`
 	// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `noEncrypt`, `shouldEncrypt`, and `mustEncrypt`.
-	EncryptionMode pulumi.StringOutput `pulumi:"encryptionMode"`
+	EncryptionMode pulumi.StringPtrOutput `pulumi:"encryptionMode"`
 	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-	HasLogicalRedundancy pulumi.StringOutput `pulumi:"hasLogicalRedundancy"`
+	HasLogicalRedundancy pulumi.StringPtrOutput `pulumi:"hasLogicalRedundancy"`
 	// Boolean value representing if jumbo frames have been enabled for this connection.
-	JumboFrameCapable pulumi.BoolOutput `pulumi:"jumboFrameCapable"`
+	JumboFrameCapable pulumi.BoolPtrOutput `pulumi:"jumboFrameCapable"`
 	// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Boolean value indicating whether the connection supports MAC Security (MACsec).
-	MacsecCapable pulumi.BoolOutput `pulumi:"macsecCapable"`
+	MacsecCapable pulumi.BoolPtrOutput `pulumi:"macsecCapable"`
 	// The name of the connection.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the AWS account that owns the connection.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerAccountId pulumi.StringPtrOutput `pulumi:"ownerAccountId"`
 	// The name of the AWS Direct Connect service provider associated with the connection.
-	PartnerName pulumi.StringOutput `pulumi:"partnerName"`
+	PartnerName pulumi.StringPtrOutput `pulumi:"partnerName"`
 	// The MAC Security (MACsec) port link status of the connection.
-	PortEncryptionStatus pulumi.StringOutput `pulumi:"portEncryptionStatus"`
+	PortEncryptionStatus pulumi.StringPtrOutput `pulumi:"portEncryptionStatus"`
 	// The name of the service provider associated with the connection.
-	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
 	//
 	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
@@ -150,7 +150,7 @@ type Connection struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VLAN ID.
-	VlanId pulumi.IntOutput `pulumi:"vlanId"`
+	VlanId pulumi.IntPtrOutput `pulumi:"vlanId"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -413,13 +413,13 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 }
 
 // The ARN of the connection.
-func (o ConnectionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConnectionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Direct Connect endpoint on which the physical connection terminates.
-func (o ConnectionOutput) AwsDevice() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
+func (o ConnectionOutput) AwsDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.AwsDevice }).(pulumi.StringPtrOutput)
 }
 
 // The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
@@ -428,18 +428,18 @@ func (o ConnectionOutput) Bandwidth() pulumi.StringOutput {
 }
 
 // The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `noEncrypt`, `shouldEncrypt`, and `mustEncrypt`.
-func (o ConnectionOutput) EncryptionMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.EncryptionMode }).(pulumi.StringOutput)
+func (o ConnectionOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-func (o ConnectionOutput) HasLogicalRedundancy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.HasLogicalRedundancy }).(pulumi.StringOutput)
+func (o ConnectionOutput) HasLogicalRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.HasLogicalRedundancy }).(pulumi.StringPtrOutput)
 }
 
 // Boolean value representing if jumbo frames have been enabled for this connection.
-func (o ConnectionOutput) JumboFrameCapable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Connection) pulumi.BoolOutput { return v.JumboFrameCapable }).(pulumi.BoolOutput)
+func (o ConnectionOutput) JumboFrameCapable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.BoolPtrOutput { return v.JumboFrameCapable }).(pulumi.BoolPtrOutput)
 }
 
 // The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
@@ -448,8 +448,8 @@ func (o ConnectionOutput) Location() pulumi.StringOutput {
 }
 
 // Boolean value indicating whether the connection supports MAC Security (MACsec).
-func (o ConnectionOutput) MacsecCapable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Connection) pulumi.BoolOutput { return v.MacsecCapable }).(pulumi.BoolOutput)
+func (o ConnectionOutput) MacsecCapable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.BoolPtrOutput { return v.MacsecCapable }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the connection.
@@ -458,23 +458,23 @@ func (o ConnectionOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the AWS account that owns the connection.
-func (o ConnectionOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o ConnectionOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the AWS Direct Connect service provider associated with the connection.
-func (o ConnectionOutput) PartnerName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.PartnerName }).(pulumi.StringOutput)
+func (o ConnectionOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.PartnerName }).(pulumi.StringPtrOutput)
 }
 
 // The MAC Security (MACsec) port link status of the connection.
-func (o ConnectionOutput) PortEncryptionStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.PortEncryptionStatus }).(pulumi.StringOutput)
+func (o ConnectionOutput) PortEncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.PortEncryptionStatus }).(pulumi.StringPtrOutput)
 }
 
 // The name of the service provider associated with the connection.
-func (o ConnectionOutput) ProviderName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+func (o ConnectionOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
 // Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
@@ -502,8 +502,8 @@ func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The VLAN ID.
-func (o ConnectionOutput) VlanId() pulumi.IntOutput {
-	return o.ApplyT(func(v *Connection) pulumi.IntOutput { return v.VlanId }).(pulumi.IntOutput)
+func (o ConnectionOutput) VlanId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.IntPtrOutput { return v.VlanId }).(pulumi.IntPtrOutput)
 }
 
 type ConnectionArrayOutput struct{ *pulumi.OutputState }

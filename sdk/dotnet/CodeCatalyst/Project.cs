@@ -62,7 +62,7 @@ namespace Pulumi.Aws.CodeCatalyst
         /// The name of the project in the space.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The name of the space.

@@ -31,6 +31,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-archive/sdk/go/archive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -133,6 +134,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -274,6 +276,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
@@ -364,7 +367,7 @@ type Function struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
 	Architectures pulumi.StringArrayOutput `pulumi:"architectures"`
 	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -376,7 +379,7 @@ type Function struct {
 	// Configuration block. Detailed below.
 	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
 	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
-	EphemeralStorage FunctionEphemeralStorageOutput `pulumi:"ephemeralStorage"`
+	EphemeralStorage FunctionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
 	// Configuration block. Detailed below.
 	FileSystemConfig FunctionFileSystemConfigPtrOutput `pulumi:"fileSystemConfig"`
 	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
@@ -386,11 +389,11 @@ type Function struct {
 	// ECR image URI containing the function's deployment package. Exactly one of `filename`, `imageUri`,  or `s3Bucket` must be specified.
 	ImageUri pulumi.StringPtrOutput `pulumi:"imageUri"`
 	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	InvokeArn pulumi.StringOutput `pulumi:"invokeArn"`
+	InvokeArn pulumi.StringPtrOutput `pulumi:"invokeArn"`
 	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Date this resource was last modified.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
+	LastModified pulumi.StringPtrOutput `pulumi:"lastModified"`
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 	Layers pulumi.StringArrayOutput `pulumi:"layers"`
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
@@ -402,9 +405,9 @@ type Function struct {
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
-	QualifiedArn pulumi.StringOutput `pulumi:"qualifiedArn"`
+	QualifiedArn pulumi.StringPtrOutput `pulumi:"qualifiedArn"`
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	QualifiedInvokeArn pulumi.StringOutput `pulumi:"qualifiedInvokeArn"`
+	QualifiedInvokeArn pulumi.StringPtrOutput `pulumi:"qualifiedInvokeArn"`
 	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
 	//
 	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
@@ -428,18 +431,18 @@ type Function struct {
 	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 	S3ObjectVersion pulumi.StringPtrOutput `pulumi:"s3ObjectVersion"`
 	// ARN of the signing job.
-	SigningJobArn pulumi.StringOutput `pulumi:"signingJobArn"`
+	SigningJobArn pulumi.StringPtrOutput `pulumi:"signingJobArn"`
 	// ARN of the signing profile version.
 	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
+	SigningProfileVersionArn pulumi.StringPtrOutput `pulumi:"signingProfileVersionArn"`
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
 	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
+	SourceCodeHash pulumi.StringPtrOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
-	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
+	SourceCodeSize pulumi.IntPtrOutput `pulumi:"sourceCodeSize"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -449,10 +452,10 @@ type Function struct {
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Configuration block. Detailed below.
-	TracingConfig FunctionTracingConfigOutput `pulumi:"tracingConfig"`
+	TracingConfig FunctionTracingConfigPtrOutput `pulumi:"tracingConfig"`
 	// Latest published version of your Lambda Function.
 	// * `vpc_config.vpc_id` - ID of the VPC.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 	// Configuration block. Detailed below.
 	VpcConfig FunctionVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
@@ -931,8 +934,8 @@ func (o FunctionOutput) Architectures() pulumi.StringArrayOutput {
 }
 
 // Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-func (o FunctionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FunctionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
@@ -961,8 +964,8 @@ func (o FunctionOutput) Environment() FunctionEnvironmentPtrOutput {
 }
 
 // The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
-func (o FunctionOutput) EphemeralStorage() FunctionEphemeralStorageOutput {
-	return o.ApplyT(func(v *Function) FunctionEphemeralStorageOutput { return v.EphemeralStorage }).(FunctionEphemeralStorageOutput)
+func (o FunctionOutput) EphemeralStorage() FunctionEphemeralStoragePtrOutput {
+	return o.ApplyT(func(v *Function) FunctionEphemeralStoragePtrOutput { return v.EphemeralStorage }).(FunctionEphemeralStoragePtrOutput)
 }
 
 // Configuration block. Detailed below.
@@ -986,8 +989,8 @@ func (o FunctionOutput) ImageUri() pulumi.StringPtrOutput {
 }
 
 // ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-func (o FunctionOutput) InvokeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.InvokeArn }).(pulumi.StringOutput)
+func (o FunctionOutput) InvokeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.InvokeArn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
@@ -996,8 +999,8 @@ func (o FunctionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 }
 
 // Date this resource was last modified.
-func (o FunctionOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+func (o FunctionOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
 // List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
@@ -1026,13 +1029,13 @@ func (o FunctionOutput) Publish() pulumi.BoolPtrOutput {
 }
 
 // ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
-func (o FunctionOutput) QualifiedArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedArn }).(pulumi.StringOutput)
+func (o FunctionOutput) QualifiedArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.QualifiedArn }).(pulumi.StringPtrOutput)
 }
 
 // Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-func (o FunctionOutput) QualifiedInvokeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedInvokeArn }).(pulumi.StringOutput)
+func (o FunctionOutput) QualifiedInvokeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.QualifiedInvokeArn }).(pulumi.StringPtrOutput)
 }
 
 // **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
@@ -1082,14 +1085,14 @@ func (o FunctionOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 }
 
 // ARN of the signing job.
-func (o FunctionOutput) SigningJobArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SigningJobArn }).(pulumi.StringOutput)
+func (o FunctionOutput) SigningJobArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.SigningJobArn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the signing profile version.
 // * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-func (o FunctionOutput) SigningProfileVersionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
+func (o FunctionOutput) SigningProfileVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.SigningProfileVersionArn }).(pulumi.StringPtrOutput)
 }
 
 // Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
@@ -1103,13 +1106,13 @@ func (o FunctionOutput) SnapStart() FunctionSnapStartPtrOutput {
 }
 
 // Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-func (o FunctionOutput) SourceCodeHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SourceCodeHash }).(pulumi.StringOutput)
+func (o FunctionOutput) SourceCodeHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.SourceCodeHash }).(pulumi.StringPtrOutput)
 }
 
 // Size in bytes of the function .zip file.
-func (o FunctionOutput) SourceCodeSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *Function) pulumi.IntOutput { return v.SourceCodeSize }).(pulumi.IntOutput)
+func (o FunctionOutput) SourceCodeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.SourceCodeSize }).(pulumi.IntPtrOutput)
 }
 
 // Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1130,14 +1133,14 @@ func (o FunctionOutput) Timeout() pulumi.IntPtrOutput {
 }
 
 // Configuration block. Detailed below.
-func (o FunctionOutput) TracingConfig() FunctionTracingConfigOutput {
-	return o.ApplyT(func(v *Function) FunctionTracingConfigOutput { return v.TracingConfig }).(FunctionTracingConfigOutput)
+func (o FunctionOutput) TracingConfig() FunctionTracingConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionTracingConfigPtrOutput { return v.TracingConfig }).(FunctionTracingConfigPtrOutput)
 }
 
 // Latest published version of your Lambda Function.
 // * `vpc_config.vpc_id` - ID of the VPC.
-func (o FunctionOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o FunctionOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block. Detailed below.

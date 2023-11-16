@@ -9,23 +9,24 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     private @Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
-    private Integer priority;
-    private String resourceArn;
+    private @Nullable Integer priority;
+    private @Nullable String resourceArn;
 
     private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference() {}
     public List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides() {
         return this.overrides == null ? List.of() : this.overrides;
     }
-    public Integer priority() {
-        return this.priority;
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
     }
-    public String resourceArn() {
-        return this.resourceArn;
+    public Optional<String> resourceArn() {
+        return Optional.ofNullable(this.resourceArn);
     }
 
     public static Builder builder() {
@@ -38,8 +39,8 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
-        private Integer priority;
-        private String resourceArn;
+        private @Nullable Integer priority;
+        private @Nullable String resourceArn;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,13 +58,13 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
             return overrides(List.of(overrides));
         }
         @CustomType.Setter
-        public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
-        public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+        public Builder resourceArn(@Nullable String resourceArn) {
+            this.resourceArn = resourceArn;
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {

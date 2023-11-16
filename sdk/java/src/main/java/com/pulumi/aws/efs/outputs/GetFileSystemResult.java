@@ -11,6 +11,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFileSystemResult {
@@ -18,179 +20,179 @@ public final class GetFileSystemResult {
      * @return Amazon Resource Name of the file system.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    private String availabilityZoneId;
+    private @Nullable String availabilityZoneId;
     /**
      * @return The Availability Zone name in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    private String availabilityZoneName;
-    private String creationToken;
+    private @Nullable String availabilityZoneName;
+    private @Nullable String creationToken;
     /**
      * @return DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    private String dnsName;
+    private @Nullable String dnsName;
     /**
      * @return Whether EFS is encrypted.
      * 
      */
-    private Boolean encrypted;
-    private String fileSystemId;
+    private @Nullable Boolean encrypted;
+    private @Nullable String fileSystemId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN for the KMS encryption key.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      * 
      */
-    private GetFileSystemLifecyclePolicy lifecyclePolicy;
+    private @Nullable GetFileSystemLifecyclePolicy lifecyclePolicy;
     /**
      * @return The value of the file system&#39;s `Name` tag.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return File system performance mode.
      * 
      */
-    private String performanceMode;
+    private @Nullable String performanceMode;
     /**
      * @return The throughput, measured in MiB/s, that you want to provision for the file system.
      * 
      */
-    private Double provisionedThroughputInMibps;
+    private @Nullable Double provisionedThroughputInMibps;
     /**
      * @return Current byte count used by the file system.
      * 
      */
-    private Integer sizeInBytes;
+    private @Nullable Integer sizeInBytes;
     /**
      * @return A map of tags to assign to the file system.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Throughput mode for the file system.
      * 
      */
-    private String throughputMode;
+    private @Nullable String throughputMode;
 
     private GetFileSystemResult() {}
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    public String availabilityZoneId() {
-        return this.availabilityZoneId;
+    public Optional<String> availabilityZoneId() {
+        return Optional.ofNullable(this.availabilityZoneId);
     }
     /**
      * @return The Availability Zone name in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    public String availabilityZoneName() {
-        return this.availabilityZoneName;
+    public Optional<String> availabilityZoneName() {
+        return Optional.ofNullable(this.availabilityZoneName);
     }
-    public String creationToken() {
-        return this.creationToken;
+    public Optional<String> creationToken() {
+        return Optional.ofNullable(this.creationToken);
     }
     /**
      * @return DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    public String dnsName() {
-        return this.dnsName;
+    public Optional<String> dnsName() {
+        return Optional.ofNullable(this.dnsName);
     }
     /**
      * @return Whether EFS is encrypted.
      * 
      */
-    public Boolean encrypted() {
-        return this.encrypted;
+    public Optional<Boolean> encrypted() {
+        return Optional.ofNullable(this.encrypted);
     }
-    public String fileSystemId() {
-        return this.fileSystemId;
+    public Optional<String> fileSystemId() {
+        return Optional.ofNullable(this.fileSystemId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN for the KMS encryption key.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      * 
      */
-    public GetFileSystemLifecyclePolicy lifecyclePolicy() {
-        return this.lifecyclePolicy;
+    public Optional<GetFileSystemLifecyclePolicy> lifecyclePolicy() {
+        return Optional.ofNullable(this.lifecyclePolicy);
     }
     /**
      * @return The value of the file system&#39;s `Name` tag.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return File system performance mode.
      * 
      */
-    public String performanceMode() {
-        return this.performanceMode;
+    public Optional<String> performanceMode() {
+        return Optional.ofNullable(this.performanceMode);
     }
     /**
      * @return The throughput, measured in MiB/s, that you want to provision for the file system.
      * 
      */
-    public Double provisionedThroughputInMibps() {
-        return this.provisionedThroughputInMibps;
+    public Optional<Double> provisionedThroughputInMibps() {
+        return Optional.ofNullable(this.provisionedThroughputInMibps);
     }
     /**
      * @return Current byte count used by the file system.
      * 
      */
-    public Integer sizeInBytes() {
-        return this.sizeInBytes;
+    public Optional<Integer> sizeInBytes() {
+        return Optional.ofNullable(this.sizeInBytes);
     }
     /**
      * @return A map of tags to assign to the file system.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Throughput mode for the file system.
      * 
      */
-    public String throughputMode() {
-        return this.throughputMode;
+    public Optional<String> throughputMode() {
+        return Optional.ofNullable(this.throughputMode);
     }
 
     public static Builder builder() {
@@ -202,22 +204,22 @@ public final class GetFileSystemResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String availabilityZoneId;
-        private String availabilityZoneName;
-        private String creationToken;
-        private String dnsName;
-        private Boolean encrypted;
-        private String fileSystemId;
-        private String id;
-        private String kmsKeyId;
-        private GetFileSystemLifecyclePolicy lifecyclePolicy;
-        private String name;
-        private String performanceMode;
-        private Double provisionedThroughputInMibps;
-        private Integer sizeInBytes;
-        private Map<String,String> tags;
-        private String throughputMode;
+        private @Nullable String arn;
+        private @Nullable String availabilityZoneId;
+        private @Nullable String availabilityZoneName;
+        private @Nullable String creationToken;
+        private @Nullable String dnsName;
+        private @Nullable Boolean encrypted;
+        private @Nullable String fileSystemId;
+        private @Nullable String id;
+        private @Nullable String kmsKeyId;
+        private @Nullable GetFileSystemLifecyclePolicy lifecyclePolicy;
+        private @Nullable String name;
+        private @Nullable String performanceMode;
+        private @Nullable Double provisionedThroughputInMibps;
+        private @Nullable Integer sizeInBytes;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String throughputMode;
         public Builder() {}
         public Builder(GetFileSystemResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -240,83 +242,83 @@ public final class GetFileSystemResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZoneId(String availabilityZoneId) {
-            this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
+        public Builder availabilityZoneId(@Nullable String availabilityZoneId) {
+            this.availabilityZoneId = availabilityZoneId;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZoneName(String availabilityZoneName) {
-            this.availabilityZoneName = Objects.requireNonNull(availabilityZoneName);
+        public Builder availabilityZoneName(@Nullable String availabilityZoneName) {
+            this.availabilityZoneName = availabilityZoneName;
             return this;
         }
         @CustomType.Setter
-        public Builder creationToken(String creationToken) {
-            this.creationToken = Objects.requireNonNull(creationToken);
+        public Builder creationToken(@Nullable String creationToken) {
+            this.creationToken = creationToken;
             return this;
         }
         @CustomType.Setter
-        public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+        public Builder dnsName(@Nullable String dnsName) {
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+        public Builder encrypted(@Nullable Boolean encrypted) {
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+        public Builder fileSystemId(@Nullable String fileSystemId) {
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder lifecyclePolicy(GetFileSystemLifecyclePolicy lifecyclePolicy) {
-            this.lifecyclePolicy = Objects.requireNonNull(lifecyclePolicy);
+        public Builder lifecyclePolicy(@Nullable GetFileSystemLifecyclePolicy lifecyclePolicy) {
+            this.lifecyclePolicy = lifecyclePolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder performanceMode(String performanceMode) {
-            this.performanceMode = Objects.requireNonNull(performanceMode);
+        public Builder performanceMode(@Nullable String performanceMode) {
+            this.performanceMode = performanceMode;
             return this;
         }
         @CustomType.Setter
-        public Builder provisionedThroughputInMibps(Double provisionedThroughputInMibps) {
-            this.provisionedThroughputInMibps = Objects.requireNonNull(provisionedThroughputInMibps);
+        public Builder provisionedThroughputInMibps(@Nullable Double provisionedThroughputInMibps) {
+            this.provisionedThroughputInMibps = provisionedThroughputInMibps;
             return this;
         }
         @CustomType.Setter
-        public Builder sizeInBytes(Integer sizeInBytes) {
-            this.sizeInBytes = Objects.requireNonNull(sizeInBytes);
+        public Builder sizeInBytes(@Nullable Integer sizeInBytes) {
+            this.sizeInBytes = sizeInBytes;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder throughputMode(String throughputMode) {
-            this.throughputMode = Objects.requireNonNull(throughputMode);
+        public Builder throughputMode(@Nullable String throughputMode) {
+            this.throughputMode = throughputMode;
             return this;
         }
         public GetFileSystemResult build() {

@@ -17,12 +17,12 @@ public final class GetPolicyDocumentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Standard JSON policy document rendered based on the arguments above.
      * 
      */
-    private String json;
+    private @Nullable String json;
     private @Nullable List<String> overridePolicyDocuments;
     private @Nullable String policyId;
     private @Nullable List<String> sourcePolicyDocuments;
@@ -34,15 +34,15 @@ public final class GetPolicyDocumentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Standard JSON policy document rendered based on the arguments above.
      * 
      */
-    public String json() {
-        return this.json;
+    public Optional<String> json() {
+        return Optional.ofNullable(this.json);
     }
     public List<String> overridePolicyDocuments() {
         return this.overridePolicyDocuments == null ? List.of() : this.overridePolicyDocuments;
@@ -69,8 +69,8 @@ public final class GetPolicyDocumentResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String json;
+        private @Nullable String id;
+        private @Nullable String json;
         private @Nullable List<String> overridePolicyDocuments;
         private @Nullable String policyId;
         private @Nullable List<String> sourcePolicyDocuments;
@@ -89,13 +89,13 @@ public final class GetPolicyDocumentResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+        public Builder json(@Nullable String json) {
+            this.json = json;
             return this;
         }
         @CustomType.Setter

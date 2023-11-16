@@ -45,11 +45,11 @@ export interface GetVpcIamPoolCidrsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The CIDRs provisioned into the IPAM pool, described below.
      */
-    readonly ipamPoolCidrs: outputs.ec2.GetVpcIamPoolCidrsIpamPoolCidr[];
+    readonly ipamPoolCidrs?: outputs.ec2.GetVpcIamPoolCidrsIpamPoolCidr[];
     readonly ipamPoolId: string;
 }
 /**

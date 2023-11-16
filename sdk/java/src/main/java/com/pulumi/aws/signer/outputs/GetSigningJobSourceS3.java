@@ -6,22 +6,24 @@ package com.pulumi.aws.signer.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSigningJobSourceS3 {
-    private String bucket;
-    private String key;
-    private String version;
+    private @Nullable String bucket;
+    private @Nullable String key;
+    private @Nullable String version;
 
     private GetSigningJobSourceS3() {}
-    public String bucket() {
-        return this.bucket;
+    public Optional<String> bucket() {
+        return Optional.ofNullable(this.bucket);
     }
-    public String key() {
-        return this.key;
+    public Optional<String> key() {
+        return Optional.ofNullable(this.key);
     }
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -33,9 +35,9 @@ public final class GetSigningJobSourceS3 {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bucket;
-        private String key;
-        private String version;
+        private @Nullable String bucket;
+        private @Nullable String key;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetSigningJobSourceS3 defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,18 +47,18 @@ public final class GetSigningJobSourceS3 {
         }
 
         @CustomType.Setter
-        public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+        public Builder bucket(@Nullable String bucket) {
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
-        public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+        public Builder key(@Nullable String key) {
+            this.key = key;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetSigningJobSourceS3 build() {

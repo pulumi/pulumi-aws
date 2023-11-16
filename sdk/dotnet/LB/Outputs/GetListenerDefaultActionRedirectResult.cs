@@ -13,29 +13,29 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionRedirectResult
     {
-        public readonly string Host;
-        public readonly string Path;
+        public readonly string? Host;
+        public readonly string? Path;
         /// <summary>
         /// Port of the listener. Required if `arn` is not set.
         /// </summary>
-        public readonly string Port;
-        public readonly string Protocol;
-        public readonly string Query;
-        public readonly string StatusCode;
+        public readonly string? Port;
+        public readonly string? Protocol;
+        public readonly string? Query;
+        public readonly string? StatusCode;
 
         [OutputConstructor]
         private GetListenerDefaultActionRedirectResult(
-            string host,
+            string? host,
 
-            string path,
+            string? path,
 
-            string port,
+            string? port,
 
-            string protocol,
+            string? protocol,
 
-            string query,
+            string? query,
 
-            string statusCode)
+            string? statusCode)
         {
             Host = host;
             Path = path;

@@ -78,7 +78,7 @@ export class ClusterPolicy extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
      */
     public readonly clusterArn!: pulumi.Output<string>;
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    public /*out*/ readonly currentVersion!: pulumi.Output<string | undefined>;
     /**
      * Resource policy for cluster.
      */

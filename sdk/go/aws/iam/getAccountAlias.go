@@ -51,9 +51,9 @@ func LookupAccountAlias(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Look
 // A collection of values returned by getAccountAlias.
 type LookupAccountAliasResult struct {
 	// Alias associated with the AWS account.
-	AccountAlias string `pulumi:"accountAlias"`
+	AccountAlias *string `pulumi:"accountAlias"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func LookupAccountAliasOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupAccountAliasResultOutput {
@@ -83,13 +83,13 @@ func (o LookupAccountAliasResultOutput) ToLookupAccountAliasResultOutputWithCont
 }
 
 // Alias associated with the AWS account.
-func (o LookupAccountAliasResultOutput) AccountAlias() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccountAliasResult) string { return v.AccountAlias }).(pulumi.StringOutput)
+func (o LookupAccountAliasResultOutput) AccountAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountAliasResult) *string { return v.AccountAlias }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAccountAliasResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccountAliasResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAccountAliasResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountAliasResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -16,14 +16,14 @@ namespace Pulumi.Aws.SsmContacts.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the contact or escalation plan.
         /// </summary>
-        public readonly string ContactId;
-        public readonly bool IsEssential;
+        public readonly string? ContactId;
+        public readonly bool? IsEssential;
 
         [OutputConstructor]
         private GetPlanStageTargetContactTargetInfoResult(
-            string contactId,
+            string? contactId,
 
-            bool isEssential)
+            bool? isEssential)
         {
             ContactId = contactId;
             IsEssential = isEssential;

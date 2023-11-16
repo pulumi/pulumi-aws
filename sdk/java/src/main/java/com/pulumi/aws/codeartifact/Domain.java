@@ -66,42 +66,42 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Domain.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The total size of all assets in the domain.
      * 
      */
     @Export(name="assetSizeBytes", refs={String.class}, tree="[0]")
-    private Output<String> assetSizeBytes;
+    private Output</* @Nullable */ String> assetSizeBytes;
 
     /**
      * @return The total size of all assets in the domain.
      * 
      */
-    public Output<String> assetSizeBytes() {
-        return this.assetSizeBytes;
+    public Output<Optional<String>> assetSizeBytes() {
+        return Codegen.optional(this.assetSizeBytes);
     }
     /**
      * A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
@@ -122,42 +122,42 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encryptionKey", refs={String.class}, tree="[0]")
-    private Output<String> encryptionKey;
+    private Output</* @Nullable */ String> encryptionKey;
 
     /**
      * @return The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
      * 
      */
-    public Output<String> encryptionKey() {
-        return this.encryptionKey;
+    public Output<Optional<String>> encryptionKey() {
+        return Codegen.optional(this.encryptionKey);
     }
     /**
      * The AWS account ID that owns the domain.
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return The AWS account ID that owns the domain.
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * The number of repositories in the domain.
      * 
      */
     @Export(name="repositoryCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> repositoryCount;
+    private Output</* @Nullable */ Integer> repositoryCount;
 
     /**
      * @return The number of repositories in the domain.
      * 
      */
-    public Output<Integer> repositoryCount() {
-        return this.repositoryCount;
+    public Output<Optional<Integer>> repositoryCount() {
+        return Codegen.optional(this.repositoryCount);
     }
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

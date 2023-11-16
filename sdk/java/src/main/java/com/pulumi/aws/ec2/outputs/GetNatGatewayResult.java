@@ -10,6 +10,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,135 +19,135 @@ public final class GetNatGatewayResult {
      * @return ID of the EIP allocated to the selected NAT Gateway.
      * 
      */
-    private String allocationId;
+    private @Nullable String allocationId;
     /**
      * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
-    private String associationId;
+    private @Nullable String associationId;
     /**
      * @return Connectivity type of the NAT Gateway.
      * 
      */
-    private String connectivityType;
+    private @Nullable String connectivityType;
     private @Nullable List<GetNatGatewayFilter> filters;
-    private String id;
+    private @Nullable String id;
     /**
      * @return The ID of the ENI allocated to the selected NAT Gateway.
      * 
      */
-    private String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
     /**
      * @return Private IP address of the selected NAT Gateway.
      * 
      */
-    private String privateIp;
+    private @Nullable String privateIp;
     /**
      * @return Public IP (EIP) address of the selected NAT Gateway.
      * 
      */
-    private String publicIp;
+    private @Nullable String publicIp;
     /**
      * @return Secondary allocation EIP IDs for the selected NAT Gateway.
      * 
      */
-    private List<String> secondaryAllocationIds;
+    private @Nullable List<String> secondaryAllocationIds;
     /**
      * @return The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
      * 
      */
-    private Integer secondaryPrivateIpAddressCount;
+    private @Nullable Integer secondaryPrivateIpAddressCount;
     /**
      * @return Secondary private IPv4 addresses assigned to the selected NAT Gateway.
      * 
      */
-    private List<String> secondaryPrivateIpAddresses;
-    private String state;
-    private String subnetId;
-    private Map<String,String> tags;
-    private String vpcId;
+    private @Nullable List<String> secondaryPrivateIpAddresses;
+    private @Nullable String state;
+    private @Nullable String subnetId;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String vpcId;
 
     private GetNatGatewayResult() {}
     /**
      * @return ID of the EIP allocated to the selected NAT Gateway.
      * 
      */
-    public String allocationId() {
-        return this.allocationId;
+    public Optional<String> allocationId() {
+        return Optional.ofNullable(this.allocationId);
     }
     /**
      * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
-    public String associationId() {
-        return this.associationId;
+    public Optional<String> associationId() {
+        return Optional.ofNullable(this.associationId);
     }
     /**
      * @return Connectivity type of the NAT Gateway.
      * 
      */
-    public String connectivityType() {
-        return this.connectivityType;
+    public Optional<String> connectivityType() {
+        return Optional.ofNullable(this.connectivityType);
     }
     public List<GetNatGatewayFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The ID of the ENI allocated to the selected NAT Gateway.
      * 
      */
-    public String networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Optional<String> networkInterfaceId() {
+        return Optional.ofNullable(this.networkInterfaceId);
     }
     /**
      * @return Private IP address of the selected NAT Gateway.
      * 
      */
-    public String privateIp() {
-        return this.privateIp;
+    public Optional<String> privateIp() {
+        return Optional.ofNullable(this.privateIp);
     }
     /**
      * @return Public IP (EIP) address of the selected NAT Gateway.
      * 
      */
-    public String publicIp() {
-        return this.publicIp;
+    public Optional<String> publicIp() {
+        return Optional.ofNullable(this.publicIp);
     }
     /**
      * @return Secondary allocation EIP IDs for the selected NAT Gateway.
      * 
      */
     public List<String> secondaryAllocationIds() {
-        return this.secondaryAllocationIds;
+        return this.secondaryAllocationIds == null ? List.of() : this.secondaryAllocationIds;
     }
     /**
      * @return The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
      * 
      */
-    public Integer secondaryPrivateIpAddressCount() {
-        return this.secondaryPrivateIpAddressCount;
+    public Optional<Integer> secondaryPrivateIpAddressCount() {
+        return Optional.ofNullable(this.secondaryPrivateIpAddressCount);
     }
     /**
      * @return Secondary private IPv4 addresses assigned to the selected NAT Gateway.
      * 
      */
     public List<String> secondaryPrivateIpAddresses() {
-        return this.secondaryPrivateIpAddresses;
+        return this.secondaryPrivateIpAddresses == null ? List.of() : this.secondaryPrivateIpAddresses;
     }
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -158,21 +159,21 @@ public final class GetNatGatewayResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String allocationId;
-        private String associationId;
-        private String connectivityType;
+        private @Nullable String allocationId;
+        private @Nullable String associationId;
+        private @Nullable String connectivityType;
         private @Nullable List<GetNatGatewayFilter> filters;
-        private String id;
-        private String networkInterfaceId;
-        private String privateIp;
-        private String publicIp;
-        private List<String> secondaryAllocationIds;
-        private Integer secondaryPrivateIpAddressCount;
-        private List<String> secondaryPrivateIpAddresses;
-        private String state;
-        private String subnetId;
-        private Map<String,String> tags;
-        private String vpcId;
+        private @Nullable String id;
+        private @Nullable String networkInterfaceId;
+        private @Nullable String privateIp;
+        private @Nullable String publicIp;
+        private @Nullable List<String> secondaryAllocationIds;
+        private @Nullable Integer secondaryPrivateIpAddressCount;
+        private @Nullable List<String> secondaryPrivateIpAddresses;
+        private @Nullable String state;
+        private @Nullable String subnetId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetNatGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -194,18 +195,18 @@ public final class GetNatGatewayResult {
         }
 
         @CustomType.Setter
-        public Builder allocationId(String allocationId) {
-            this.allocationId = Objects.requireNonNull(allocationId);
+        public Builder allocationId(@Nullable String allocationId) {
+            this.allocationId = allocationId;
             return this;
         }
         @CustomType.Setter
-        public Builder associationId(String associationId) {
-            this.associationId = Objects.requireNonNull(associationId);
+        public Builder associationId(@Nullable String associationId) {
+            this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
-        public Builder connectivityType(String connectivityType) {
-            this.connectivityType = Objects.requireNonNull(connectivityType);
+        public Builder connectivityType(@Nullable String connectivityType) {
+            this.connectivityType = connectivityType;
             return this;
         }
         @CustomType.Setter
@@ -217,64 +218,64 @@ public final class GetNatGatewayResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+        public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder privateIp(String privateIp) {
-            this.privateIp = Objects.requireNonNull(privateIp);
+        public Builder privateIp(@Nullable String privateIp) {
+            this.privateIp = privateIp;
             return this;
         }
         @CustomType.Setter
-        public Builder publicIp(String publicIp) {
-            this.publicIp = Objects.requireNonNull(publicIp);
+        public Builder publicIp(@Nullable String publicIp) {
+            this.publicIp = publicIp;
             return this;
         }
         @CustomType.Setter
-        public Builder secondaryAllocationIds(List<String> secondaryAllocationIds) {
-            this.secondaryAllocationIds = Objects.requireNonNull(secondaryAllocationIds);
+        public Builder secondaryAllocationIds(@Nullable List<String> secondaryAllocationIds) {
+            this.secondaryAllocationIds = secondaryAllocationIds;
             return this;
         }
         public Builder secondaryAllocationIds(String... secondaryAllocationIds) {
             return secondaryAllocationIds(List.of(secondaryAllocationIds));
         }
         @CustomType.Setter
-        public Builder secondaryPrivateIpAddressCount(Integer secondaryPrivateIpAddressCount) {
-            this.secondaryPrivateIpAddressCount = Objects.requireNonNull(secondaryPrivateIpAddressCount);
+        public Builder secondaryPrivateIpAddressCount(@Nullable Integer secondaryPrivateIpAddressCount) {
+            this.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
             return this;
         }
         @CustomType.Setter
-        public Builder secondaryPrivateIpAddresses(List<String> secondaryPrivateIpAddresses) {
-            this.secondaryPrivateIpAddresses = Objects.requireNonNull(secondaryPrivateIpAddresses);
+        public Builder secondaryPrivateIpAddresses(@Nullable List<String> secondaryPrivateIpAddresses) {
+            this.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
             return this;
         }
         public Builder secondaryPrivateIpAddresses(String... secondaryPrivateIpAddresses) {
             return secondaryPrivateIpAddresses(List.of(secondaryPrivateIpAddresses));
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetNatGatewayResult build() {

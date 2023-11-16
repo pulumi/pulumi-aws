@@ -62,7 +62,7 @@ export class SnapshotImport extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the EBS Snapshot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The client-specific data. Detailed below.
      */
@@ -70,11 +70,11 @@ export class SnapshotImport extends pulumi.CustomResource {
     /**
      * The data encryption key identifier for the snapshot.
      */
-    public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string | undefined>;
     /**
      * The description string for the import snapshot task.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Information about the disk container. Detailed below.
      */
@@ -87,15 +87,15 @@ export class SnapshotImport extends pulumi.CustomResource {
      * An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
-    public /*out*/ readonly ownerAlias!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAlias!: pulumi.Output<string | undefined>;
     /**
      * The AWS account ID of the EBS snapshot owner.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to permanently restore an archived snapshot.
      */
@@ -107,7 +107,7 @@ export class SnapshotImport extends pulumi.CustomResource {
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
-    public readonly storageTier!: pulumi.Output<string>;
+    public readonly storageTier!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the snapshot.
      */
@@ -122,11 +122,11 @@ export class SnapshotImport extends pulumi.CustomResource {
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      */
     public readonly temporaryRestoreDays!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly volumeId!: pulumi.Output<string>;
+    public /*out*/ readonly volumeId!: pulumi.Output<string | undefined>;
     /**
      * The size of the drive in GiBs.
      */
-    public /*out*/ readonly volumeSize!: pulumi.Output<number>;
+    public /*out*/ readonly volumeSize!: pulumi.Output<number | undefined>;
 
     /**
      * Create a SnapshotImport resource with the given unique name, arguments, and options.

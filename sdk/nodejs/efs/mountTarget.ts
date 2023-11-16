@@ -64,19 +64,19 @@ export class MountTarget extends pulumi.CustomResource {
     /**
      * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      */
-    public /*out*/ readonly availabilityZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZoneId!: pulumi.Output<string | undefined>;
     /**
      * The name of the Availability Zone (AZ) that the mount target resides in.
      */
-    public /*out*/ readonly availabilityZoneName!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZoneName!: pulumi.Output<string | undefined>;
     /**
      * The DNS name for the EFS file system.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly fileSystemArn!: pulumi.Output<string>;
+    public /*out*/ readonly fileSystemArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the file system for which the mount target is intended.
      */
@@ -85,24 +85,24 @@ export class MountTarget extends pulumi.CustomResource {
      * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
-    public /*out*/ readonly mountTargetDnsName!: pulumi.Output<string>;
+    public /*out*/ readonly mountTargetDnsName!: pulumi.Output<string | undefined>;
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
-    public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfaceId!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID that owns the resource.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the subnet to add the mount target in.
      */

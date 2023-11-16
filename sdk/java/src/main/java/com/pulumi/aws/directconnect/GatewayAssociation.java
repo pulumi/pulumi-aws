@@ -181,14 +181,14 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allowedPrefixes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> allowedPrefixes;
+    private Output</* @Nullable */ List<String>> allowedPrefixes;
 
     /**
      * @return VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
      */
-    public Output<List<String>> allowedPrefixes() {
-        return this.allowedPrefixes;
+    public Output<Optional<List<String>>> allowedPrefixes() {
+        return Codegen.optional(this.allowedPrefixes);
     }
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
@@ -196,15 +196,15 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="associatedGatewayId", refs={String.class}, tree="[0]")
-    private Output<String> associatedGatewayId;
+    private Output</* @Nullable */ String> associatedGatewayId;
 
     /**
      * @return The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for single account Direct Connect gateway associations.
      * 
      */
-    public Output<String> associatedGatewayId() {
-        return this.associatedGatewayId;
+    public Output<Optional<String>> associatedGatewayId() {
+        return Codegen.optional(this.associatedGatewayId);
     }
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
@@ -212,43 +212,43 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="associatedGatewayOwnerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> associatedGatewayOwnerAccountId;
+    private Output</* @Nullable */ String> associatedGatewayOwnerAccountId;
 
     /**
      * @return The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for cross-account Direct Connect gateway associations.
      * 
      */
-    public Output<String> associatedGatewayOwnerAccountId() {
-        return this.associatedGatewayOwnerAccountId;
+    public Output<Optional<String>> associatedGatewayOwnerAccountId() {
+        return Codegen.optional(this.associatedGatewayOwnerAccountId);
     }
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      * 
      */
     @Export(name="associatedGatewayType", refs={String.class}, tree="[0]")
-    private Output<String> associatedGatewayType;
+    private Output</* @Nullable */ String> associatedGatewayType;
 
     /**
      * @return The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      * 
      */
-    public Output<String> associatedGatewayType() {
-        return this.associatedGatewayType;
+    public Output<Optional<String>> associatedGatewayType() {
+        return Codegen.optional(this.associatedGatewayType);
     }
     /**
      * The ID of the Direct Connect gateway association.
      * 
      */
     @Export(name="dxGatewayAssociationId", refs={String.class}, tree="[0]")
-    private Output<String> dxGatewayAssociationId;
+    private Output</* @Nullable */ String> dxGatewayAssociationId;
 
     /**
      * @return The ID of the Direct Connect gateway association.
      * 
      */
-    public Output<String> dxGatewayAssociationId() {
-        return this.dxGatewayAssociationId;
+    public Output<Optional<String>> dxGatewayAssociationId() {
+        return Codegen.optional(this.dxGatewayAssociationId);
     }
     /**
      * The ID of the Direct Connect gateway.
@@ -269,14 +269,14 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dxGatewayOwnerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> dxGatewayOwnerAccountId;
+    private Output</* @Nullable */ String> dxGatewayOwnerAccountId;
 
     /**
      * @return The ID of the AWS account that owns the Direct Connect gateway.
      * 
      */
-    public Output<String> dxGatewayOwnerAccountId() {
-        return this.dxGatewayOwnerAccountId;
+    public Output<Optional<String>> dxGatewayOwnerAccountId() {
+        return Codegen.optional(this.dxGatewayOwnerAccountId);
     }
     /**
      * The ID of the Direct Connect gateway association proposal.

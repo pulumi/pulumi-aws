@@ -1075,7 +1075,7 @@ class Branch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the branch.
         """
@@ -1083,7 +1083,7 @@ class Branch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedResources")
-    def associated_resources(self) -> pulumi.Output[Sequence[str]]:
+    def associated_resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of custom resources that are linked to this branch.
         """
@@ -1115,7 +1115,7 @@ class Branch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> pulumi.Output[Sequence[str]]:
+    def custom_domains(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Custom domains for the branch.
         """
@@ -1131,7 +1131,7 @@ class Branch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationBranch")
-    def destination_branch(self) -> pulumi.Output[str]:
+    def destination_branch(self) -> pulumi.Output[Optional[str]]:
         """
         Destination branch if the branch is a pull request branch.
         """
@@ -1139,7 +1139,7 @@ class Branch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         Display name for a branch. This is used as the default domain prefix.
         """
@@ -1211,7 +1211,7 @@ class Branch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceBranch")
-    def source_branch(self) -> pulumi.Output[str]:
+    def source_branch(self) -> pulumi.Output[Optional[str]]:
         """
         Source branch if the branch is a pull request branch.
         """

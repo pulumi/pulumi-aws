@@ -180,27 +180,27 @@ type KxEnvironment struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) identifier of the KX environment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
+	CreatedTimestamp pulumi.StringPtrOutput `pulumi:"createdTimestamp"`
 	// List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
 	CustomDnsConfigurations KxEnvironmentCustomDnsConfigurationArrayOutput `pulumi:"customDnsConfigurations"`
 	// Description for the KX environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Unique identifier for the AWS environment infrastructure account.
-	InfrastructureAccountId pulumi.StringOutput `pulumi:"infrastructureAccountId"`
+	InfrastructureAccountId pulumi.StringPtrOutput `pulumi:"infrastructureAccountId"`
 	// KMS key ID to encrypt your data in the FinSpace environment.
 	//
 	// The following arguments are optional:
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
+	LastModifiedTimestamp pulumi.StringPtrOutput `pulumi:"lastModifiedTimestamp"`
 	// Name of the KX environment that you want to create.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of environment creation
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -440,8 +440,8 @@ func (o KxEnvironmentOutput) ToKxEnvironmentOutputWithContext(ctx context.Contex
 }
 
 // Amazon Resource Name (ARN) identifier of the KX environment.
-func (o KxEnvironmentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o KxEnvironmentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxEnvironment) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
@@ -450,8 +450,8 @@ func (o KxEnvironmentOutput) AvailabilityZones() pulumi.StringArrayOutput {
 }
 
 // Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-func (o KxEnvironmentOutput) CreatedTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
+func (o KxEnvironmentOutput) CreatedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxEnvironment) pulumi.StringPtrOutput { return v.CreatedTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
@@ -467,8 +467,8 @@ func (o KxEnvironmentOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Unique identifier for the AWS environment infrastructure account.
-func (o KxEnvironmentOutput) InfrastructureAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.InfrastructureAccountId }).(pulumi.StringOutput)
+func (o KxEnvironmentOutput) InfrastructureAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxEnvironment) pulumi.StringPtrOutput { return v.InfrastructureAccountId }).(pulumi.StringPtrOutput)
 }
 
 // KMS key ID to encrypt your data in the FinSpace environment.
@@ -479,8 +479,8 @@ func (o KxEnvironmentOutput) KmsKeyId() pulumi.StringOutput {
 }
 
 // Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-func (o KxEnvironmentOutput) LastModifiedTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.LastModifiedTimestamp }).(pulumi.StringOutput)
+func (o KxEnvironmentOutput) LastModifiedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxEnvironment) pulumi.StringPtrOutput { return v.LastModifiedTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // Name of the KX environment that you want to create.
@@ -489,8 +489,8 @@ func (o KxEnvironmentOutput) Name() pulumi.StringOutput {
 }
 
 // Status of environment creation
-func (o KxEnvironmentOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o KxEnvironmentOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxEnvironment) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

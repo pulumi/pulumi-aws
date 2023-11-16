@@ -324,7 +324,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterId")
-    def master_id(self) -> pulumi.Output[str]:
+    def master_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the master Security Hub AWS account.
         """
@@ -332,7 +332,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="memberStatus")
-    def member_status(self) -> pulumi.Output[str]:
+    def member_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the member account relationship.
         """

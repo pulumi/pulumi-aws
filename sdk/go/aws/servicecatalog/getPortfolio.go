@@ -64,16 +64,16 @@ type LookupPortfolioArgs struct {
 type LookupPortfolioResult struct {
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// Portfolio ARN.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Time the portfolio was created.
-	CreatedTime string `pulumi:"createdTime"`
+	CreatedTime *string `pulumi:"createdTime"`
 	// Description of the portfolio
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
+	Description *string `pulumi:"description"`
+	Id          string  `pulumi:"id"`
 	// Portfolio name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
-	ProviderName string `pulumi:"providerName"`
+	ProviderName *string `pulumi:"providerName"`
 	// Tags applied to the portfolio.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -127,18 +127,18 @@ func (o LookupPortfolioResultOutput) AcceptLanguage() pulumi.StringPtrOutput {
 }
 
 // Portfolio ARN.
-func (o LookupPortfolioResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupPortfolioResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Time the portfolio was created.
-func (o LookupPortfolioResultOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPortfolioResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+func (o LookupPortfolioResultOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Description of the portfolio
-func (o LookupPortfolioResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupPortfolioResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupPortfolioResultOutput) Id() pulumi.StringOutput {
@@ -146,13 +146,13 @@ func (o LookupPortfolioResultOutput) Id() pulumi.StringOutput {
 }
 
 // Portfolio name.
-func (o LookupPortfolioResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupPortfolioResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Name of the person or organization who owns the portfolio.
-func (o LookupPortfolioResultOutput) ProviderName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPortfolioResult) string { return v.ProviderName }).(pulumi.StringOutput)
+func (o LookupPortfolioResultOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
 // Tags applied to the portfolio.

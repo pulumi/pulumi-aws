@@ -95,11 +95,11 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
     /**
      * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the S3 Storage Lens configuration.
      */

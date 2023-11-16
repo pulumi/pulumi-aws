@@ -72,13 +72,13 @@ type SubnetGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the subnet group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description for the subnet group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
 	//
 	// The following arguments are optional:
@@ -90,7 +90,7 @@ type SubnetGroup struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC in which the subnet group exists.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -298,8 +298,8 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 }
 
 // The ARN of the subnet group.
-func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SubnetGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description for the subnet group.
@@ -313,8 +313,8 @@ func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o SubnetGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o SubnetGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
@@ -337,8 +337,8 @@ func (o SubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The VPC in which the subnet group exists.
-func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o SubnetGroupOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type SubnetGroupArrayOutput struct{ *pulumi.OutputState }

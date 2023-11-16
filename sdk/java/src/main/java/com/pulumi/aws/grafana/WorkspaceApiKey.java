@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -59,14 +60,14 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
-    private Output<String> key;
+    private Output</* @Nullable */ String> key;
 
     /**
      * @return The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      * 
      */
-    public Output<String> key() {
-        return this.key;
+    public Output<Optional<String>> key() {
+        return Codegen.optional(this.key);
     }
     /**
      * Specifies the name of the API key. Key names must be unique to the workspace.

@@ -72,11 +72,11 @@ export class Vocabulary extends pulumi.CustomResource {
     /**
      * ARN of the Vocabulary.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Generated download URI.
      */
-    public /*out*/ readonly downloadUri!: pulumi.Output<string>;
+    public /*out*/ readonly downloadUri!: pulumi.Output<string | undefined>;
     /**
      * The language code you selected for your vocabulary.
      */
@@ -96,7 +96,7 @@ export class Vocabulary extends pulumi.CustomResource {
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      */
-    public readonly vocabularyFileUri!: pulumi.Output<string>;
+    public readonly vocabularyFileUri!: pulumi.Output<string | undefined>;
     /**
      * The name of the Vocabulary.
      *

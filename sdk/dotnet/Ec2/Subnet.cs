@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the subnet.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specify true to indicate
@@ -94,13 +94,13 @@ namespace Pulumi.Aws.Ec2
         /// AZ for the subnet.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         /// </summary>
         [Output("availabilityZoneId")]
-        public Output<string> AvailabilityZoneId { get; private set; } = null!;
+        public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 CIDR block for the subnet.
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Ec2
         /// The association ID for the IPv6 CIDR block.
         /// </summary>
         [Output("ipv6CidrBlockAssociationId")]
-        public Output<string> Ipv6CidrBlockAssociationId { get; private set; } = null!;
+        public Output<string?> Ipv6CidrBlockAssociationId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether to create an IPv6-only subnet. Default: `false`.
@@ -181,13 +181,13 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the AWS account that owns the subnet.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         /// </summary>
         [Output("privateDnsHostnameTypeOnLaunch")]
-        public Output<string> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
+        public Output<string?> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

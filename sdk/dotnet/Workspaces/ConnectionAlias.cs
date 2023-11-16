@@ -52,13 +52,13 @@ namespace Pulumi.Aws.Workspaces
         /// The identifier of the Amazon Web Services account that owns the connection alias.
         /// </summary>
         [Output("ownerAccountId")]
-        public Output<string> OwnerAccountId { get; private set; } = null!;
+        public Output<string?> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The current state of the connection alias.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

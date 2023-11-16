@@ -196,19 +196,19 @@ export class Permissions extends pulumi.CustomResource {
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    public readonly dataLocation!: pulumi.Output<outputs.lakeformation.PermissionsDataLocation>;
+    public readonly dataLocation!: pulumi.Output<outputs.lakeformation.PermissionsDataLocation | undefined>;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    public readonly database!: pulumi.Output<outputs.lakeformation.PermissionsDatabase>;
+    public readonly database!: pulumi.Output<outputs.lakeformation.PermissionsDatabase | undefined>;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    public readonly lfTag!: pulumi.Output<outputs.lakeformation.PermissionsLfTag>;
+    public readonly lfTag!: pulumi.Output<outputs.lakeformation.PermissionsLfTag | undefined>;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    public readonly lfTagPolicy!: pulumi.Output<outputs.lakeformation.PermissionsLfTagPolicy>;
+    public readonly lfTagPolicy!: pulumi.Output<outputs.lakeformation.PermissionsLfTagPolicy | undefined>;
     /**
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
@@ -216,7 +216,7 @@ export class Permissions extends pulumi.CustomResource {
     /**
      * Subset of `permissions` which the principal can pass.
      */
-    public readonly permissionsWithGrantOptions!: pulumi.Output<string[]>;
+    public readonly permissionsWithGrantOptions!: pulumi.Output<string[] | undefined>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      *
@@ -228,13 +228,13 @@ export class Permissions extends pulumi.CustomResource {
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    public readonly table!: pulumi.Output<outputs.lakeformation.PermissionsTable>;
+    public readonly table!: pulumi.Output<outputs.lakeformation.PermissionsTable | undefined>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.PermissionsTableWithColumns>;
+    public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.PermissionsTableWithColumns | undefined>;
 
     /**
      * Create a Permissions resource with the given unique name, arguments, and options.

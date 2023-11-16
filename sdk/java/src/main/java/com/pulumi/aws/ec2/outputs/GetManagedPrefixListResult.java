@@ -11,6 +11,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,66 +20,66 @@ public final class GetManagedPrefixListResult {
      * @return Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
      * 
      */
-    private String addressFamily;
+    private @Nullable String addressFamily;
     /**
      * @return ARN of the selected prefix list.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
      * 
      */
-    private List<GetManagedPrefixListEntry> entries;
+    private @Nullable List<GetManagedPrefixListEntry> entries;
     private @Nullable List<GetManagedPrefixListFilter> filters;
     /**
      * @return ID of the selected prefix list.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
      * 
      */
-    private Integer maxEntries;
+    private @Nullable Integer maxEntries;
     /**
      * @return Name of the selected prefix list.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
-    private Integer version;
+    private @Nullable Map<String,String> tags;
+    private @Nullable Integer version;
 
     private GetManagedPrefixListResult() {}
     /**
      * @return Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
      * 
      */
-    public String addressFamily() {
-        return this.addressFamily;
+    public Optional<String> addressFamily() {
+        return Optional.ofNullable(this.addressFamily);
     }
     /**
      * @return ARN of the selected prefix list.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
      * 
      */
     public List<GetManagedPrefixListEntry> entries() {
-        return this.entries;
+        return this.entries == null ? List.of() : this.entries;
     }
     public List<GetManagedPrefixListFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -87,39 +88,39 @@ public final class GetManagedPrefixListResult {
      * @return ID of the selected prefix list.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
      * 
      */
-    public Integer maxEntries() {
-        return this.maxEntries;
+    public Optional<Integer> maxEntries() {
+        return Optional.ofNullable(this.maxEntries);
     }
     /**
      * @return Name of the selected prefix list.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public Integer version() {
-        return this.version;
+    public Optional<Integer> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -131,16 +132,16 @@ public final class GetManagedPrefixListResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String addressFamily;
-        private String arn;
-        private List<GetManagedPrefixListEntry> entries;
+        private @Nullable String addressFamily;
+        private @Nullable String arn;
+        private @Nullable List<GetManagedPrefixListEntry> entries;
         private @Nullable List<GetManagedPrefixListFilter> filters;
-        private String id;
-        private Integer maxEntries;
-        private String name;
-        private String ownerId;
-        private Map<String,String> tags;
-        private Integer version;
+        private @Nullable String id;
+        private @Nullable Integer maxEntries;
+        private @Nullable String name;
+        private @Nullable String ownerId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Integer version;
         public Builder() {}
         public Builder(GetManagedPrefixListResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -157,18 +158,18 @@ public final class GetManagedPrefixListResult {
         }
 
         @CustomType.Setter
-        public Builder addressFamily(String addressFamily) {
-            this.addressFamily = Objects.requireNonNull(addressFamily);
+        public Builder addressFamily(@Nullable String addressFamily) {
+            this.addressFamily = addressFamily;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder entries(List<GetManagedPrefixListEntry> entries) {
-            this.entries = Objects.requireNonNull(entries);
+        public Builder entries(@Nullable List<GetManagedPrefixListEntry> entries) {
+            this.entries = entries;
             return this;
         }
         public Builder entries(GetManagedPrefixListEntry... entries) {
@@ -183,33 +184,33 @@ public final class GetManagedPrefixListResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder maxEntries(Integer maxEntries) {
-            this.maxEntries = Objects.requireNonNull(maxEntries);
+        public Builder maxEntries(@Nullable Integer maxEntries) {
+            this.maxEntries = maxEntries;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable Integer version) {
+            this.version = version;
             return this;
         }
         public GetManagedPrefixListResult build() {

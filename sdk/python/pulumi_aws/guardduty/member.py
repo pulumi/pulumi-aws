@@ -453,7 +453,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relationshipStatus")
-    def relationship_status(self) -> pulumi.Output[str]:
+    def relationship_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """

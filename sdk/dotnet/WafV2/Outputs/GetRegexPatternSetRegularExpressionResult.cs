@@ -16,10 +16,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// <summary>
         /// (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
         /// </summary>
-        public readonly string RegexString;
+        public readonly string? RegexString;
 
         [OutputConstructor]
-        private GetRegexPatternSetRegularExpressionResult(string regexString)
+        private GetRegexPatternSetRegularExpressionResult(string? regexString)
         {
             RegexString = regexString;
         }

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.DataExchange
         /// The Amazon Resource Name of this data set.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// An optional comment about the revision.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.DataExchange
         /// The Id of the revision.
         /// </summary>
         [Output("revisionId")]
-        public Output<string> RevisionId { get; private set; } = null!;
+        public Output<string?> RevisionId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

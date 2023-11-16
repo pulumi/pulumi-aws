@@ -61,7 +61,7 @@ export class Template extends pulumi.CustomResource {
     /**
      * The ARN of the SES template
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */

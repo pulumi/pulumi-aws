@@ -49,7 +49,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> Optional[str]:
         """
         Prometheus workspace alias.
         """
@@ -57,7 +57,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Prometheus workspace.
         """
@@ -65,7 +65,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Creation date of the Prometheus workspace.
         """
@@ -73,7 +73,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -81,7 +81,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="prometheusEndpoint")
-    def prometheus_endpoint(self) -> str:
+    def prometheus_endpoint(self) -> Optional[str]:
         """
         Endpoint of the Prometheus workspace.
         """
@@ -89,7 +89,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the Prometheus workspace.
         """
@@ -97,7 +97,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags assigned to the resource.
         """

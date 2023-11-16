@@ -9,22 +9,23 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlCertificate
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTlCertificate {
-    private List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms;
-    private List<GetVirtualGatewaySpecListenerTlCertificateFile> files;
-    private List<GetVirtualGatewaySpecListenerTlCertificateSd> sds;
+    private @Nullable List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms;
+    private @Nullable List<GetVirtualGatewaySpecListenerTlCertificateFile> files;
+    private @Nullable List<GetVirtualGatewaySpecListenerTlCertificateSd> sds;
 
     private GetVirtualGatewaySpecListenerTlCertificate() {}
     public List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms() {
-        return this.acms;
+        return this.acms == null ? List.of() : this.acms;
     }
     public List<GetVirtualGatewaySpecListenerTlCertificateFile> files() {
-        return this.files;
+        return this.files == null ? List.of() : this.files;
     }
     public List<GetVirtualGatewaySpecListenerTlCertificateSd> sds() {
-        return this.sds;
+        return this.sds == null ? List.of() : this.sds;
     }
 
     public static Builder builder() {
@@ -36,9 +37,9 @@ public final class GetVirtualGatewaySpecListenerTlCertificate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms;
-        private List<GetVirtualGatewaySpecListenerTlCertificateFile> files;
-        private List<GetVirtualGatewaySpecListenerTlCertificateSd> sds;
+        private @Nullable List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms;
+        private @Nullable List<GetVirtualGatewaySpecListenerTlCertificateFile> files;
+        private @Nullable List<GetVirtualGatewaySpecListenerTlCertificateSd> sds;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecListenerTlCertificate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,24 +49,24 @@ public final class GetVirtualGatewaySpecListenerTlCertificate {
         }
 
         @CustomType.Setter
-        public Builder acms(List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms) {
-            this.acms = Objects.requireNonNull(acms);
+        public Builder acms(@Nullable List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms) {
+            this.acms = acms;
             return this;
         }
         public Builder acms(GetVirtualGatewaySpecListenerTlCertificateAcm... acms) {
             return acms(List.of(acms));
         }
         @CustomType.Setter
-        public Builder files(List<GetVirtualGatewaySpecListenerTlCertificateFile> files) {
-            this.files = Objects.requireNonNull(files);
+        public Builder files(@Nullable List<GetVirtualGatewaySpecListenerTlCertificateFile> files) {
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualGatewaySpecListenerTlCertificateFile... files) {
             return files(List.of(files));
         }
         @CustomType.Setter
-        public Builder sds(List<GetVirtualGatewaySpecListenerTlCertificateSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+        public Builder sds(@Nullable List<GetVirtualGatewaySpecListenerTlCertificateSd> sds) {
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualGatewaySpecListenerTlCertificateSd... sds) {

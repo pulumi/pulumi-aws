@@ -72,7 +72,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         EC2 Transit Gateway Multicast Domain ARN.
         """
@@ -80,7 +80,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter
-    def associations(self) -> Sequence['outputs.GetMulticastDomainAssociationResult']:
+    def associations(self) -> Optional[Sequence['outputs.GetMulticastDomainAssociationResult']]:
         """
         EC2 Transit Gateway Multicast Domain Associations
         """
@@ -88,7 +88,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter(name="autoAcceptSharedAssociations")
-    def auto_accept_shared_associations(self) -> str:
+    def auto_accept_shared_associations(self) -> Optional[str]:
         """
         Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.
         """
@@ -101,7 +101,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -109,7 +109,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter(name="igmpv2Support")
-    def igmpv2_support(self) -> str:
+    def igmpv2_support(self) -> Optional[str]:
         """
         Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.
         """
@@ -117,7 +117,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter
-    def members(self) -> Sequence['outputs.GetMulticastDomainMemberResult']:
+    def members(self) -> Optional[Sequence['outputs.GetMulticastDomainMemberResult']]:
         """
         EC2 Multicast Domain Group Members
         """
@@ -125,7 +125,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
         """
@@ -133,7 +133,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> Sequence['outputs.GetMulticastDomainSourceResult']:
+    def sources(self) -> Optional[Sequence['outputs.GetMulticastDomainSourceResult']]:
         """
         EC2 Multicast Domain Group Sources
         """
@@ -141,12 +141,12 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="staticSourcesSupport")
-    def static_sources_support(self) -> str:
+    def static_sources_support(self) -> Optional[str]:
         """
         Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.
         """
@@ -154,7 +154,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the EC2 Transit Gateway Multicast Domain.
         """
@@ -162,7 +162,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> str:
+    def transit_gateway_attachment_id(self) -> Optional[str]:
         """
         The ID of the transit gateway attachment.
         """
@@ -170,7 +170,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> Optional[str]:
         """
         EC2 Transit Gateway identifier.
         """
@@ -178,7 +178,7 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")
-    def transit_gateway_multicast_domain_id(self) -> str:
+    def transit_gateway_multicast_domain_id(self) -> Optional[str]:
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 
 

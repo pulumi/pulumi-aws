@@ -109,14 +109,14 @@ public class SmsPreferences extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="monthlySpendLimit", refs={Integer.class}, tree="[0]")
-    private Output<Integer> monthlySpendLimit;
+    private Output</* @Nullable */ Integer> monthlySpendLimit;
 
     /**
      * @return The maximum amount in USD that you are willing to spend each month to send SMS messages.
      * 
      */
-    public Output<Integer> monthlySpendLimit() {
-        return this.monthlySpendLimit;
+    public Output<Optional<Integer>> monthlySpendLimit() {
+        return Codegen.optional(this.monthlySpendLimit);
     }
     /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.

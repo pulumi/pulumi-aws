@@ -50,16 +50,16 @@ export interface GetSecretsResult {
     /**
      * Set of ARNs of the matched Secrets Manager secrets.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     readonly filters?: outputs.secretsmanager.GetSecretsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of names of the matched Secrets Manager secrets.
      */
-    readonly names: string[];
+    readonly names?: string[];
 }
 /**
  * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.

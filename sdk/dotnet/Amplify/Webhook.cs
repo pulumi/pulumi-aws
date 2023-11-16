@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Amplify
         /// ARN for the webhook.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name for a branch that is part of the Amplify app.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Amplify
         /// URL of the webhook.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>

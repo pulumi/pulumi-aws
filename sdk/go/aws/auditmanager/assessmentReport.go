@@ -58,13 +58,13 @@ type AssessmentReport struct {
 	// The following arguments are optional:
 	AssessmentId pulumi.StringOutput `pulumi:"assessmentId"`
 	// Name of the user who created the assessment report.
-	Author pulumi.StringOutput `pulumi:"author"`
+	Author pulumi.StringPtrOutput `pulumi:"author"`
 	// Description of the assessment report.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the assessment report.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewAssessmentReport registers a new resource with the given unique name, arguments, and options.
@@ -251,8 +251,8 @@ func (o AssessmentReportOutput) AssessmentId() pulumi.StringOutput {
 }
 
 // Name of the user who created the assessment report.
-func (o AssessmentReportOutput) Author() pulumi.StringOutput {
-	return o.ApplyT(func(v *AssessmentReport) pulumi.StringOutput { return v.Author }).(pulumi.StringOutput)
+func (o AssessmentReportOutput) Author() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentReport) pulumi.StringPtrOutput { return v.Author }).(pulumi.StringPtrOutput)
 }
 
 // Description of the assessment report.
@@ -266,8 +266,8 @@ func (o AssessmentReportOutput) Name() pulumi.StringOutput {
 }
 
 // Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-func (o AssessmentReportOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *AssessmentReport) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o AssessmentReportOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentReport) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type AssessmentReportArrayOutput struct{ *pulumi.OutputState }

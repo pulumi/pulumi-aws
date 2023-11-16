@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -32,14 +33,14 @@ public class BucketAccessKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accessKeyId", refs={String.class}, tree="[0]")
-    private Output<String> accessKeyId;
+    private Output</* @Nullable */ String> accessKeyId;
 
     /**
      * @return The ID of the access key.
      * 
      */
-    public Output<String> accessKeyId() {
-        return this.accessKeyId;
+    public Output<Optional<String>> accessKeyId() {
+        return Codegen.optional(this.accessKeyId);
     }
     /**
      * The name of the bucket that the new access key will belong to, and grant access to.
@@ -60,42 +61,42 @@ public class BucketAccessKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The timestamp when the access key was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */
     @Export(name="secretAccessKey", refs={String.class}, tree="[0]")
-    private Output<String> secretAccessKey;
+    private Output</* @Nullable */ String> secretAccessKey;
 
     /**
      * @return The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */
-    public Output<String> secretAccessKey() {
-        return this.secretAccessKey;
+    public Output<Optional<String>> secretAccessKey() {
+        return Codegen.optional(this.secretAccessKey);
     }
     /**
      * The status of the access key.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the access key.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

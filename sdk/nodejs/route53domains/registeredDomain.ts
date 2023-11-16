@@ -67,15 +67,15 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
      */
-    public /*out*/ readonly abuseContactEmail!: pulumi.Output<string>;
+    public /*out*/ readonly abuseContactEmail!: pulumi.Output<string | undefined>;
     /**
      * Phone number for reporting abuse.
      */
-    public /*out*/ readonly abuseContactPhone!: pulumi.Output<string>;
+    public /*out*/ readonly abuseContactPhone!: pulumi.Output<string | undefined>;
     /**
      * Details about the domain administrative contact.
      */
-    public readonly adminContact!: pulumi.Output<outputs.route53domains.RegisteredDomainAdminContact>;
+    public readonly adminContact!: pulumi.Output<outputs.route53domains.RegisteredDomainAdminContact | undefined>;
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -87,7 +87,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * The date when the domain was created as found in the response to a WHOIS query.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * The name of the registered domain.
      */
@@ -95,15 +95,15 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * The date when the registration for the domain is set to expire.
      */
-    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    public /*out*/ readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
      * The list of nameservers for the domain.
      */
-    public readonly nameServers!: pulumi.Output<outputs.route53domains.RegisteredDomainNameServer[]>;
+    public readonly nameServers!: pulumi.Output<outputs.route53domains.RegisteredDomainNameServer[] | undefined>;
     /**
      * Details about the domain registrant.
      */
-    public readonly registrantContact!: pulumi.Output<outputs.route53domains.RegisteredDomainRegistrantContact>;
+    public readonly registrantContact!: pulumi.Output<outputs.route53domains.RegisteredDomainRegistrantContact | undefined>;
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -111,19 +111,19 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * Name of the registrar of the domain as identified in the registry.
      */
-    public /*out*/ readonly registrarName!: pulumi.Output<string>;
+    public /*out*/ readonly registrarName!: pulumi.Output<string | undefined>;
     /**
      * Web address of the registrar.
      */
-    public /*out*/ readonly registrarUrl!: pulumi.Output<string>;
+    public /*out*/ readonly registrarUrl!: pulumi.Output<string | undefined>;
     /**
      * Reseller of the domain.
      */
-    public /*out*/ readonly reseller!: pulumi.Output<string>;
+    public /*out*/ readonly reseller!: pulumi.Output<string | undefined>;
     /**
      * List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
      */
-    public /*out*/ readonly statusLists!: pulumi.Output<string[]>;
+    public /*out*/ readonly statusLists!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -137,7 +137,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * Details about the domain technical contact.
      */
-    public readonly techContact!: pulumi.Output<outputs.route53domains.RegisteredDomainTechContact>;
+    public readonly techContact!: pulumi.Output<outputs.route53domains.RegisteredDomainTechContact | undefined>;
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -149,11 +149,11 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * The last updated date of the domain as found in the response to a WHOIS query.
      */
-    public /*out*/ readonly updatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly updatedDate!: pulumi.Output<string | undefined>;
     /**
      * The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
      */
-    public /*out*/ readonly whoisServer!: pulumi.Output<string>;
+    public /*out*/ readonly whoisServer!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RegisteredDomain resource with the given unique name, arguments, and options.

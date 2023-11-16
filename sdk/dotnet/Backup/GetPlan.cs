@@ -128,38 +128,38 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// ARN of the backup plan.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Display name of a backup plan.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string PlanId;
         /// <summary>
         /// Metadata that you can assign to help organize the plans you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetPlanResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             string planId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string version)
+            string? version)
         {
             Arn = arn;
             Id = id;

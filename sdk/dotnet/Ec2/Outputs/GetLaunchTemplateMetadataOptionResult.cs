@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateMetadataOptionResult
     {
-        public readonly string HttpEndpoint;
-        public readonly string HttpProtocolIpv6;
-        public readonly int HttpPutResponseHopLimit;
-        public readonly string HttpTokens;
-        public readonly string InstanceMetadataTags;
+        public readonly string? HttpEndpoint;
+        public readonly string? HttpProtocolIpv6;
+        public readonly int? HttpPutResponseHopLimit;
+        public readonly string? HttpTokens;
+        public readonly string? InstanceMetadataTags;
 
         [OutputConstructor]
         private GetLaunchTemplateMetadataOptionResult(
-            string httpEndpoint,
+            string? httpEndpoint,
 
-            string httpProtocolIpv6,
+            string? httpProtocolIpv6,
 
-            int httpPutResponseHopLimit,
+            int? httpPutResponseHopLimit,
 
-            string httpTokens,
+            string? httpTokens,
 
-            string instanceMetadataTags)
+            string? instanceMetadataTags)
         {
             HttpEndpoint = httpEndpoint;
             HttpProtocolIpv6 = httpProtocolIpv6;

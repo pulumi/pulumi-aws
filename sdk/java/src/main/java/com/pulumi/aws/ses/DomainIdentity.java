@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -102,14 +103,14 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the domain identity.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The domain name to assign to SES
@@ -137,7 +138,7 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="verificationToken", refs={String.class}, tree="[0]")
-    private Output<String> verificationToken;
+    private Output</* @Nullable */ String> verificationToken;
 
     /**
      * @return A code which when added to the domain as a TXT record
@@ -150,8 +151,8 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      * 
      */
-    public Output<String> verificationToken() {
-        return this.verificationToken;
+    public Output<Optional<String>> verificationToken() {
+        return Codegen.optional(this.verificationToken);
     }
 
     /**

@@ -121,15 +121,15 @@ type GetServiceArgs struct {
 
 // A collection of values returned by getService.
 type GetServiceResult struct {
-	DnsName          string `pulumi:"dnsName"`
-	Id               string `pulumi:"id"`
-	Partition        string `pulumi:"partition"`
-	Region           string `pulumi:"region"`
-	ReverseDnsName   string `pulumi:"reverseDnsName"`
-	ReverseDnsPrefix string `pulumi:"reverseDnsPrefix"`
-	ServiceId        string `pulumi:"serviceId"`
+	DnsName          *string `pulumi:"dnsName"`
+	Id               *string `pulumi:"id"`
+	Partition        *string `pulumi:"partition"`
+	Region           *string `pulumi:"region"`
+	ReverseDnsName   *string `pulumi:"reverseDnsName"`
+	ReverseDnsPrefix *string `pulumi:"reverseDnsPrefix"`
+	ServiceId        *string `pulumi:"serviceId"`
 	// Whether the service is supported in the region's partition. New services may not be listed immediately as supported.
-	Supported bool `pulumi:"supported"`
+	Supported *bool `pulumi:"supported"`
 }
 
 func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pulumi.InvokeOption) GetServiceResultOutput {
@@ -179,37 +179,37 @@ func (o GetServiceResultOutput) ToGetServiceResultOutputWithContext(ctx context.
 	return o
 }
 
-func (o GetServiceResultOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceResult) string { return v.DnsName }).(pulumi.StringOutput)
+func (o GetServiceResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetServiceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceResultOutput) Partition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceResult) string { return v.Partition }).(pulumi.StringOutput)
+func (o GetServiceResultOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *string { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceResultOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceResult) string { return v.Region }).(pulumi.StringOutput)
+func (o GetServiceResultOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceResultOutput) ReverseDnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceResult) string { return v.ReverseDnsName }).(pulumi.StringOutput)
+func (o GetServiceResultOutput) ReverseDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *string { return v.ReverseDnsName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceResultOutput) ReverseDnsPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceResult) string { return v.ReverseDnsPrefix }).(pulumi.StringOutput)
+func (o GetServiceResultOutput) ReverseDnsPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *string { return v.ReverseDnsPrefix }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceResultOutput) ServiceId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceResult) string { return v.ServiceId }).(pulumi.StringOutput)
+func (o GetServiceResultOutput) ServiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
 // Whether the service is supported in the region's partition. New services may not be listed immediately as supported.
-func (o GetServiceResultOutput) Supported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetServiceResult) bool { return v.Supported }).(pulumi.BoolOutput)
+func (o GetServiceResultOutput) Supported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetServiceResult) *bool { return v.Supported }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

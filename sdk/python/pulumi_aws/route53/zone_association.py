@@ -323,7 +323,7 @@ class ZoneAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="owningAccount")
-    def owning_account(self) -> pulumi.Output[str]:
+    def owning_account(self) -> pulumi.Output[Optional[str]]:
         """
         The account ID of the account that created the hosted zone.
         """
@@ -339,7 +339,7 @@ class ZoneAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcRegion")
-    def vpc_region(self) -> pulumi.Output[str]:
+    def vpc_region(self) -> pulumi.Output[Optional[str]]:
         """
         The VPC's region. Defaults to the region of the AWS provider.
         """

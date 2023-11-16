@@ -28,57 +28,57 @@ public final class GetInstanceResult {
      * @return ID of the AMI used to launch the instance.
      * 
      */
-    private String ami;
+    private @Nullable String ami;
     /**
      * @return ARN of the instance.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Whether or not the Instance is associated with a public IP address or not (Boolean).
      * 
      */
-    private Boolean associatePublicIpAddress;
+    private @Nullable Boolean associatePublicIpAddress;
     /**
      * @return Availability zone of the Instance.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return Credit specification of the Instance.
      * 
      */
-    private List<GetInstanceCreditSpecification> creditSpecifications;
+    private @Nullable List<GetInstanceCreditSpecification> creditSpecifications;
     /**
      * @return Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
      * 
      */
-    private Boolean disableApiStop;
+    private @Nullable Boolean disableApiStop;
     /**
      * @return Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
      * 
      */
-    private Boolean disableApiTermination;
+    private @Nullable Boolean disableApiTermination;
     /**
      * @return EBS block device mappings of the Instance.
      * 
      */
-    private List<GetInstanceEbsBlockDevice> ebsBlockDevices;
+    private @Nullable List<GetInstanceEbsBlockDevice> ebsBlockDevices;
     /**
      * @return Whether the Instance is EBS optimized or not (Boolean).
      * 
      */
-    private Boolean ebsOptimized;
+    private @Nullable Boolean ebsOptimized;
     /**
      * @return Enclave options of the instance.
      * 
      */
-    private List<GetInstanceEnclaveOption> enclaveOptions;
+    private @Nullable List<GetInstanceEnclaveOption> enclaveOptions;
     /**
      * @return Ephemeral block device mappings of the Instance.
      * 
      */
-    private List<GetInstanceEphemeralBlockDevice> ephemeralBlockDevices;
+    private @Nullable List<GetInstanceEphemeralBlockDevice> ephemeralBlockDevices;
     private @Nullable List<GetInstanceFilter> filters;
     private @Nullable Boolean getPasswordData;
     private @Nullable Boolean getUserData;
@@ -86,237 +86,237 @@ public final class GetInstanceResult {
      * @return ID of the dedicated host the instance will be assigned to.
      * 
      */
-    private String hostId;
+    private @Nullable String hostId;
     /**
      * @return ARN of the host resource group the instance is associated with.
      * 
      */
-    private String hostResourceGroupArn;
+    private @Nullable String hostResourceGroupArn;
     /**
      * @return Name of the instance profile associated with the Instance.
      * 
      */
-    private String iamInstanceProfile;
+    private @Nullable String iamInstanceProfile;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String instanceId;
     /**
      * @return State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
-    private String instanceState;
-    private Map<String,String> instanceTags;
+    private @Nullable String instanceState;
+    private @Nullable Map<String,String> instanceTags;
     /**
      * @return Type of the Instance.
      * 
      */
-    private String instanceType;
+    private @Nullable String instanceType;
     /**
      * @return IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn&#39;t change if you attach an EIP to the instance.
      * 
      */
-    private List<String> ipv6Addresses;
+    private @Nullable List<String> ipv6Addresses;
     /**
      * @return Key name of the Instance.
      * 
      */
-    private String keyName;
+    private @Nullable String keyName;
     /**
      * @return Maintenance and recovery options for the instance.
      * 
      */
-    private List<GetInstanceMaintenanceOption> maintenanceOptions;
+    private @Nullable List<GetInstanceMaintenanceOption> maintenanceOptions;
     /**
      * @return Metadata options of the Instance.
      * 
      */
-    private List<GetInstanceMetadataOption> metadataOptions;
+    private @Nullable List<GetInstanceMetadataOption> metadataOptions;
     /**
      * @return Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
      * 
      */
-    private Boolean monitoring;
+    private @Nullable Boolean monitoring;
     /**
      * @return ID of the network interface that was created with the Instance.
      * 
      */
-    private String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
     /**
      * @return ARN of the Outpost.
      * 
      */
-    private String outpostArn;
+    private @Nullable String outpostArn;
     /**
      * @return Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    private String passwordData;
+    private @Nullable String passwordData;
     /**
      * @return Placement group of the Instance.
      * 
      */
-    private String placementGroup;
+    private @Nullable String placementGroup;
     /**
      * @return Number of the partition the instance is in.
      * 
      */
-    private Integer placementPartitionNumber;
+    private @Nullable Integer placementPartitionNumber;
     /**
      * @return Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    private String privateDns;
+    private @Nullable String privateDns;
     /**
      * @return Options for the instance hostname.
      * 
      */
-    private List<GetInstancePrivateDnsNameOption> privateDnsNameOptions;
+    private @Nullable List<GetInstancePrivateDnsNameOption> privateDnsNameOptions;
     /**
      * @return Private IP address assigned to the Instance.
      * 
      */
-    private String privateIp;
+    private @Nullable String privateIp;
     /**
      * @return Public DNS name assigned to the Instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    private String publicDns;
+    private @Nullable String publicDns;
     /**
      * @return Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip`, as this field will change after the EIP is attached.
      * 
      */
-    private String publicIp;
+    private @Nullable String publicIp;
     /**
      * @return Root block device mappings of the Instance
      * 
      */
-    private List<GetInstanceRootBlockDevice> rootBlockDevices;
+    private @Nullable List<GetInstanceRootBlockDevice> rootBlockDevices;
     /**
      * @return Secondary private IPv4 addresses assigned to the instance&#39;s primary network interface (eth0) in a VPC.
      * 
      */
-    private List<String> secondaryPrivateIps;
+    private @Nullable List<String> secondaryPrivateIps;
     /**
      * @return Associated security groups.
      * 
      */
-    private List<String> securityGroups;
+    private @Nullable List<String> securityGroups;
     /**
      * @return Whether the network interface performs source/destination checking (Boolean).
      * 
      */
-    private Boolean sourceDestCheck;
+    private @Nullable Boolean sourceDestCheck;
     /**
      * @return VPC subnet ID.
      * 
      */
-    private String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return Map of tags assigned to the Instance.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Tenancy of the instance: `dedicated`, `default`, `host`.
      * 
      */
-    private String tenancy;
+    private @Nullable String tenancy;
     /**
      * @return SHA-1 hash of User Data supplied to the Instance.
      * 
      */
-    private String userData;
+    private @Nullable String userData;
     /**
      * @return Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
      * 
      */
-    private String userDataBase64;
+    private @Nullable String userDataBase64;
     /**
      * @return Associated security groups in a non-default VPC.
      * 
      */
-    private List<String> vpcSecurityGroupIds;
+    private @Nullable List<String> vpcSecurityGroupIds;
 
     private GetInstanceResult() {}
     /**
      * @return ID of the AMI used to launch the instance.
      * 
      */
-    public String ami() {
-        return this.ami;
+    public Optional<String> ami() {
+        return Optional.ofNullable(this.ami);
     }
     /**
      * @return ARN of the instance.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Whether or not the Instance is associated with a public IP address or not (Boolean).
      * 
      */
-    public Boolean associatePublicIpAddress() {
-        return this.associatePublicIpAddress;
+    public Optional<Boolean> associatePublicIpAddress() {
+        return Optional.ofNullable(this.associatePublicIpAddress);
     }
     /**
      * @return Availability zone of the Instance.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     /**
      * @return Credit specification of the Instance.
      * 
      */
     public List<GetInstanceCreditSpecification> creditSpecifications() {
-        return this.creditSpecifications;
+        return this.creditSpecifications == null ? List.of() : this.creditSpecifications;
     }
     /**
      * @return Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
      * 
      */
-    public Boolean disableApiStop() {
-        return this.disableApiStop;
+    public Optional<Boolean> disableApiStop() {
+        return Optional.ofNullable(this.disableApiStop);
     }
     /**
      * @return Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
      * 
      */
-    public Boolean disableApiTermination() {
-        return this.disableApiTermination;
+    public Optional<Boolean> disableApiTermination() {
+        return Optional.ofNullable(this.disableApiTermination);
     }
     /**
      * @return EBS block device mappings of the Instance.
      * 
      */
     public List<GetInstanceEbsBlockDevice> ebsBlockDevices() {
-        return this.ebsBlockDevices;
+        return this.ebsBlockDevices == null ? List.of() : this.ebsBlockDevices;
     }
     /**
      * @return Whether the Instance is EBS optimized or not (Boolean).
      * 
      */
-    public Boolean ebsOptimized() {
-        return this.ebsOptimized;
+    public Optional<Boolean> ebsOptimized() {
+        return Optional.ofNullable(this.ebsOptimized);
     }
     /**
      * @return Enclave options of the instance.
      * 
      */
     public List<GetInstanceEnclaveOption> enclaveOptions() {
-        return this.enclaveOptions;
+        return this.enclaveOptions == null ? List.of() : this.enclaveOptions;
     }
     /**
      * @return Ephemeral block device mappings of the Instance.
      * 
      */
     public List<GetInstanceEphemeralBlockDevice> ephemeralBlockDevices() {
-        return this.ephemeralBlockDevices;
+        return this.ephemeralBlockDevices == null ? List.of() : this.ephemeralBlockDevices;
     }
     public List<GetInstanceFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -331,29 +331,29 @@ public final class GetInstanceResult {
      * @return ID of the dedicated host the instance will be assigned to.
      * 
      */
-    public String hostId() {
-        return this.hostId;
+    public Optional<String> hostId() {
+        return Optional.ofNullable(this.hostId);
     }
     /**
      * @return ARN of the host resource group the instance is associated with.
      * 
      */
-    public String hostResourceGroupArn() {
-        return this.hostResourceGroupArn;
+    public Optional<String> hostResourceGroupArn() {
+        return Optional.ofNullable(this.hostResourceGroupArn);
     }
     /**
      * @return Name of the instance profile associated with the Instance.
      * 
      */
-    public String iamInstanceProfile() {
-        return this.iamInstanceProfile;
+    public Optional<String> iamInstanceProfile() {
+        return Optional.ofNullable(this.iamInstanceProfile);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> instanceId() {
         return Optional.ofNullable(this.instanceId);
@@ -362,193 +362,193 @@ public final class GetInstanceResult {
      * @return State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
-    public String instanceState() {
-        return this.instanceState;
+    public Optional<String> instanceState() {
+        return Optional.ofNullable(this.instanceState);
     }
     public Map<String,String> instanceTags() {
-        return this.instanceTags;
+        return this.instanceTags == null ? Map.of() : this.instanceTags;
     }
     /**
      * @return Type of the Instance.
      * 
      */
-    public String instanceType() {
-        return this.instanceType;
+    public Optional<String> instanceType() {
+        return Optional.ofNullable(this.instanceType);
     }
     /**
      * @return IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn&#39;t change if you attach an EIP to the instance.
      * 
      */
     public List<String> ipv6Addresses() {
-        return this.ipv6Addresses;
+        return this.ipv6Addresses == null ? List.of() : this.ipv6Addresses;
     }
     /**
      * @return Key name of the Instance.
      * 
      */
-    public String keyName() {
-        return this.keyName;
+    public Optional<String> keyName() {
+        return Optional.ofNullable(this.keyName);
     }
     /**
      * @return Maintenance and recovery options for the instance.
      * 
      */
     public List<GetInstanceMaintenanceOption> maintenanceOptions() {
-        return this.maintenanceOptions;
+        return this.maintenanceOptions == null ? List.of() : this.maintenanceOptions;
     }
     /**
      * @return Metadata options of the Instance.
      * 
      */
     public List<GetInstanceMetadataOption> metadataOptions() {
-        return this.metadataOptions;
+        return this.metadataOptions == null ? List.of() : this.metadataOptions;
     }
     /**
      * @return Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
      * 
      */
-    public Boolean monitoring() {
-        return this.monitoring;
+    public Optional<Boolean> monitoring() {
+        return Optional.ofNullable(this.monitoring);
     }
     /**
      * @return ID of the network interface that was created with the Instance.
      * 
      */
-    public String networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Optional<String> networkInterfaceId() {
+        return Optional.ofNullable(this.networkInterfaceId);
     }
     /**
      * @return ARN of the Outpost.
      * 
      */
-    public String outpostArn() {
-        return this.outpostArn;
+    public Optional<String> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
     }
     /**
      * @return Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    public String passwordData() {
-        return this.passwordData;
+    public Optional<String> passwordData() {
+        return Optional.ofNullable(this.passwordData);
     }
     /**
      * @return Placement group of the Instance.
      * 
      */
-    public String placementGroup() {
-        return this.placementGroup;
+    public Optional<String> placementGroup() {
+        return Optional.ofNullable(this.placementGroup);
     }
     /**
      * @return Number of the partition the instance is in.
      * 
      */
-    public Integer placementPartitionNumber() {
-        return this.placementPartitionNumber;
+    public Optional<Integer> placementPartitionNumber() {
+        return Optional.ofNullable(this.placementPartitionNumber);
     }
     /**
      * @return Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public String privateDns() {
-        return this.privateDns;
+    public Optional<String> privateDns() {
+        return Optional.ofNullable(this.privateDns);
     }
     /**
      * @return Options for the instance hostname.
      * 
      */
     public List<GetInstancePrivateDnsNameOption> privateDnsNameOptions() {
-        return this.privateDnsNameOptions;
+        return this.privateDnsNameOptions == null ? List.of() : this.privateDnsNameOptions;
     }
     /**
      * @return Private IP address assigned to the Instance.
      * 
      */
-    public String privateIp() {
-        return this.privateIp;
+    public Optional<String> privateIp() {
+        return Optional.ofNullable(this.privateIp);
     }
     /**
      * @return Public DNS name assigned to the Instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public String publicDns() {
-        return this.publicDns;
+    public Optional<String> publicDns() {
+        return Optional.ofNullable(this.publicDns);
     }
     /**
      * @return Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip`, as this field will change after the EIP is attached.
      * 
      */
-    public String publicIp() {
-        return this.publicIp;
+    public Optional<String> publicIp() {
+        return Optional.ofNullable(this.publicIp);
     }
     /**
      * @return Root block device mappings of the Instance
      * 
      */
     public List<GetInstanceRootBlockDevice> rootBlockDevices() {
-        return this.rootBlockDevices;
+        return this.rootBlockDevices == null ? List.of() : this.rootBlockDevices;
     }
     /**
      * @return Secondary private IPv4 addresses assigned to the instance&#39;s primary network interface (eth0) in a VPC.
      * 
      */
     public List<String> secondaryPrivateIps() {
-        return this.secondaryPrivateIps;
+        return this.secondaryPrivateIps == null ? List.of() : this.secondaryPrivateIps;
     }
     /**
      * @return Associated security groups.
      * 
      */
     public List<String> securityGroups() {
-        return this.securityGroups;
+        return this.securityGroups == null ? List.of() : this.securityGroups;
     }
     /**
      * @return Whether the network interface performs source/destination checking (Boolean).
      * 
      */
-    public Boolean sourceDestCheck() {
-        return this.sourceDestCheck;
+    public Optional<Boolean> sourceDestCheck() {
+        return Optional.ofNullable(this.sourceDestCheck);
     }
     /**
      * @return VPC subnet ID.
      * 
      */
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
     /**
      * @return Map of tags assigned to the Instance.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Tenancy of the instance: `dedicated`, `default`, `host`.
      * 
      */
-    public String tenancy() {
-        return this.tenancy;
+    public Optional<String> tenancy() {
+        return Optional.ofNullable(this.tenancy);
     }
     /**
      * @return SHA-1 hash of User Data supplied to the Instance.
      * 
      */
-    public String userData() {
-        return this.userData;
+    public Optional<String> userData() {
+        return Optional.ofNullable(this.userData);
     }
     /**
      * @return Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
      * 
      */
-    public String userDataBase64() {
-        return this.userDataBase64;
+    public Optional<String> userDataBase64() {
+        return Optional.ofNullable(this.userDataBase64);
     }
     /**
      * @return Associated security groups in a non-default VPC.
      * 
      */
     public List<String> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+        return this.vpcSecurityGroupIds == null ? List.of() : this.vpcSecurityGroupIds;
     }
 
     public static Builder builder() {
@@ -560,53 +560,53 @@ public final class GetInstanceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String ami;
-        private String arn;
-        private Boolean associatePublicIpAddress;
-        private String availabilityZone;
-        private List<GetInstanceCreditSpecification> creditSpecifications;
-        private Boolean disableApiStop;
-        private Boolean disableApiTermination;
-        private List<GetInstanceEbsBlockDevice> ebsBlockDevices;
-        private Boolean ebsOptimized;
-        private List<GetInstanceEnclaveOption> enclaveOptions;
-        private List<GetInstanceEphemeralBlockDevice> ephemeralBlockDevices;
+        private @Nullable String ami;
+        private @Nullable String arn;
+        private @Nullable Boolean associatePublicIpAddress;
+        private @Nullable String availabilityZone;
+        private @Nullable List<GetInstanceCreditSpecification> creditSpecifications;
+        private @Nullable Boolean disableApiStop;
+        private @Nullable Boolean disableApiTermination;
+        private @Nullable List<GetInstanceEbsBlockDevice> ebsBlockDevices;
+        private @Nullable Boolean ebsOptimized;
+        private @Nullable List<GetInstanceEnclaveOption> enclaveOptions;
+        private @Nullable List<GetInstanceEphemeralBlockDevice> ephemeralBlockDevices;
         private @Nullable List<GetInstanceFilter> filters;
         private @Nullable Boolean getPasswordData;
         private @Nullable Boolean getUserData;
-        private String hostId;
-        private String hostResourceGroupArn;
-        private String iamInstanceProfile;
-        private String id;
+        private @Nullable String hostId;
+        private @Nullable String hostResourceGroupArn;
+        private @Nullable String iamInstanceProfile;
+        private @Nullable String id;
         private @Nullable String instanceId;
-        private String instanceState;
-        private Map<String,String> instanceTags;
-        private String instanceType;
-        private List<String> ipv6Addresses;
-        private String keyName;
-        private List<GetInstanceMaintenanceOption> maintenanceOptions;
-        private List<GetInstanceMetadataOption> metadataOptions;
-        private Boolean monitoring;
-        private String networkInterfaceId;
-        private String outpostArn;
-        private String passwordData;
-        private String placementGroup;
-        private Integer placementPartitionNumber;
-        private String privateDns;
-        private List<GetInstancePrivateDnsNameOption> privateDnsNameOptions;
-        private String privateIp;
-        private String publicDns;
-        private String publicIp;
-        private List<GetInstanceRootBlockDevice> rootBlockDevices;
-        private List<String> secondaryPrivateIps;
-        private List<String> securityGroups;
-        private Boolean sourceDestCheck;
-        private String subnetId;
-        private Map<String,String> tags;
-        private String tenancy;
-        private String userData;
-        private String userDataBase64;
-        private List<String> vpcSecurityGroupIds;
+        private @Nullable String instanceState;
+        private @Nullable Map<String,String> instanceTags;
+        private @Nullable String instanceType;
+        private @Nullable List<String> ipv6Addresses;
+        private @Nullable String keyName;
+        private @Nullable List<GetInstanceMaintenanceOption> maintenanceOptions;
+        private @Nullable List<GetInstanceMetadataOption> metadataOptions;
+        private @Nullable Boolean monitoring;
+        private @Nullable String networkInterfaceId;
+        private @Nullable String outpostArn;
+        private @Nullable String passwordData;
+        private @Nullable String placementGroup;
+        private @Nullable Integer placementPartitionNumber;
+        private @Nullable String privateDns;
+        private @Nullable List<GetInstancePrivateDnsNameOption> privateDnsNameOptions;
+        private @Nullable String privateIp;
+        private @Nullable String publicDns;
+        private @Nullable String publicIp;
+        private @Nullable List<GetInstanceRootBlockDevice> rootBlockDevices;
+        private @Nullable List<String> secondaryPrivateIps;
+        private @Nullable List<String> securityGroups;
+        private @Nullable Boolean sourceDestCheck;
+        private @Nullable String subnetId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String tenancy;
+        private @Nullable String userData;
+        private @Nullable String userDataBase64;
+        private @Nullable List<String> vpcSecurityGroupIds;
         public Builder() {}
         public Builder(GetInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -660,67 +660,67 @@ public final class GetInstanceResult {
         }
 
         @CustomType.Setter
-        public Builder ami(String ami) {
-            this.ami = Objects.requireNonNull(ami);
+        public Builder ami(@Nullable String ami) {
+            this.ami = ami;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder associatePublicIpAddress(Boolean associatePublicIpAddress) {
-            this.associatePublicIpAddress = Objects.requireNonNull(associatePublicIpAddress);
+        public Builder associatePublicIpAddress(@Nullable Boolean associatePublicIpAddress) {
+            this.associatePublicIpAddress = associatePublicIpAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder creditSpecifications(List<GetInstanceCreditSpecification> creditSpecifications) {
-            this.creditSpecifications = Objects.requireNonNull(creditSpecifications);
+        public Builder creditSpecifications(@Nullable List<GetInstanceCreditSpecification> creditSpecifications) {
+            this.creditSpecifications = creditSpecifications;
             return this;
         }
         public Builder creditSpecifications(GetInstanceCreditSpecification... creditSpecifications) {
             return creditSpecifications(List.of(creditSpecifications));
         }
         @CustomType.Setter
-        public Builder disableApiStop(Boolean disableApiStop) {
-            this.disableApiStop = Objects.requireNonNull(disableApiStop);
+        public Builder disableApiStop(@Nullable Boolean disableApiStop) {
+            this.disableApiStop = disableApiStop;
             return this;
         }
         @CustomType.Setter
-        public Builder disableApiTermination(Boolean disableApiTermination) {
-            this.disableApiTermination = Objects.requireNonNull(disableApiTermination);
+        public Builder disableApiTermination(@Nullable Boolean disableApiTermination) {
+            this.disableApiTermination = disableApiTermination;
             return this;
         }
         @CustomType.Setter
-        public Builder ebsBlockDevices(List<GetInstanceEbsBlockDevice> ebsBlockDevices) {
-            this.ebsBlockDevices = Objects.requireNonNull(ebsBlockDevices);
+        public Builder ebsBlockDevices(@Nullable List<GetInstanceEbsBlockDevice> ebsBlockDevices) {
+            this.ebsBlockDevices = ebsBlockDevices;
             return this;
         }
         public Builder ebsBlockDevices(GetInstanceEbsBlockDevice... ebsBlockDevices) {
             return ebsBlockDevices(List.of(ebsBlockDevices));
         }
         @CustomType.Setter
-        public Builder ebsOptimized(Boolean ebsOptimized) {
-            this.ebsOptimized = Objects.requireNonNull(ebsOptimized);
+        public Builder ebsOptimized(@Nullable Boolean ebsOptimized) {
+            this.ebsOptimized = ebsOptimized;
             return this;
         }
         @CustomType.Setter
-        public Builder enclaveOptions(List<GetInstanceEnclaveOption> enclaveOptions) {
-            this.enclaveOptions = Objects.requireNonNull(enclaveOptions);
+        public Builder enclaveOptions(@Nullable List<GetInstanceEnclaveOption> enclaveOptions) {
+            this.enclaveOptions = enclaveOptions;
             return this;
         }
         public Builder enclaveOptions(GetInstanceEnclaveOption... enclaveOptions) {
             return enclaveOptions(List.of(enclaveOptions));
         }
         @CustomType.Setter
-        public Builder ephemeralBlockDevices(List<GetInstanceEphemeralBlockDevice> ephemeralBlockDevices) {
-            this.ephemeralBlockDevices = Objects.requireNonNull(ephemeralBlockDevices);
+        public Builder ephemeralBlockDevices(@Nullable List<GetInstanceEphemeralBlockDevice> ephemeralBlockDevices) {
+            this.ephemeralBlockDevices = ephemeralBlockDevices;
             return this;
         }
         public Builder ephemeralBlockDevices(GetInstanceEphemeralBlockDevice... ephemeralBlockDevices) {
@@ -745,23 +745,23 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder hostId(String hostId) {
-            this.hostId = Objects.requireNonNull(hostId);
+        public Builder hostId(@Nullable String hostId) {
+            this.hostId = hostId;
             return this;
         }
         @CustomType.Setter
-        public Builder hostResourceGroupArn(String hostResourceGroupArn) {
-            this.hostResourceGroupArn = Objects.requireNonNull(hostResourceGroupArn);
+        public Builder hostResourceGroupArn(@Nullable String hostResourceGroupArn) {
+            this.hostResourceGroupArn = hostResourceGroupArn;
             return this;
         }
         @CustomType.Setter
-        public Builder iamInstanceProfile(String iamInstanceProfile) {
-            this.iamInstanceProfile = Objects.requireNonNull(iamInstanceProfile);
+        public Builder iamInstanceProfile(@Nullable String iamInstanceProfile) {
+            this.iamInstanceProfile = iamInstanceProfile;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -770,164 +770,164 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder instanceState(String instanceState) {
-            this.instanceState = Objects.requireNonNull(instanceState);
+        public Builder instanceState(@Nullable String instanceState) {
+            this.instanceState = instanceState;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceTags(Map<String,String> instanceTags) {
-            this.instanceTags = Objects.requireNonNull(instanceTags);
+        public Builder instanceTags(@Nullable Map<String,String> instanceTags) {
+            this.instanceTags = instanceTags;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+        public Builder instanceType(@Nullable String instanceType) {
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6Addresses(List<String> ipv6Addresses) {
-            this.ipv6Addresses = Objects.requireNonNull(ipv6Addresses);
+        public Builder ipv6Addresses(@Nullable List<String> ipv6Addresses) {
+            this.ipv6Addresses = ipv6Addresses;
             return this;
         }
         public Builder ipv6Addresses(String... ipv6Addresses) {
             return ipv6Addresses(List.of(ipv6Addresses));
         }
         @CustomType.Setter
-        public Builder keyName(String keyName) {
-            this.keyName = Objects.requireNonNull(keyName);
+        public Builder keyName(@Nullable String keyName) {
+            this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
-        public Builder maintenanceOptions(List<GetInstanceMaintenanceOption> maintenanceOptions) {
-            this.maintenanceOptions = Objects.requireNonNull(maintenanceOptions);
+        public Builder maintenanceOptions(@Nullable List<GetInstanceMaintenanceOption> maintenanceOptions) {
+            this.maintenanceOptions = maintenanceOptions;
             return this;
         }
         public Builder maintenanceOptions(GetInstanceMaintenanceOption... maintenanceOptions) {
             return maintenanceOptions(List.of(maintenanceOptions));
         }
         @CustomType.Setter
-        public Builder metadataOptions(List<GetInstanceMetadataOption> metadataOptions) {
-            this.metadataOptions = Objects.requireNonNull(metadataOptions);
+        public Builder metadataOptions(@Nullable List<GetInstanceMetadataOption> metadataOptions) {
+            this.metadataOptions = metadataOptions;
             return this;
         }
         public Builder metadataOptions(GetInstanceMetadataOption... metadataOptions) {
             return metadataOptions(List.of(metadataOptions));
         }
         @CustomType.Setter
-        public Builder monitoring(Boolean monitoring) {
-            this.monitoring = Objects.requireNonNull(monitoring);
+        public Builder monitoring(@Nullable Boolean monitoring) {
+            this.monitoring = monitoring;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+        public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+        public Builder outpostArn(@Nullable String outpostArn) {
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
-        public Builder passwordData(String passwordData) {
-            this.passwordData = Objects.requireNonNull(passwordData);
+        public Builder passwordData(@Nullable String passwordData) {
+            this.passwordData = passwordData;
             return this;
         }
         @CustomType.Setter
-        public Builder placementGroup(String placementGroup) {
-            this.placementGroup = Objects.requireNonNull(placementGroup);
+        public Builder placementGroup(@Nullable String placementGroup) {
+            this.placementGroup = placementGroup;
             return this;
         }
         @CustomType.Setter
-        public Builder placementPartitionNumber(Integer placementPartitionNumber) {
-            this.placementPartitionNumber = Objects.requireNonNull(placementPartitionNumber);
+        public Builder placementPartitionNumber(@Nullable Integer placementPartitionNumber) {
+            this.placementPartitionNumber = placementPartitionNumber;
             return this;
         }
         @CustomType.Setter
-        public Builder privateDns(String privateDns) {
-            this.privateDns = Objects.requireNonNull(privateDns);
+        public Builder privateDns(@Nullable String privateDns) {
+            this.privateDns = privateDns;
             return this;
         }
         @CustomType.Setter
-        public Builder privateDnsNameOptions(List<GetInstancePrivateDnsNameOption> privateDnsNameOptions) {
-            this.privateDnsNameOptions = Objects.requireNonNull(privateDnsNameOptions);
+        public Builder privateDnsNameOptions(@Nullable List<GetInstancePrivateDnsNameOption> privateDnsNameOptions) {
+            this.privateDnsNameOptions = privateDnsNameOptions;
             return this;
         }
         public Builder privateDnsNameOptions(GetInstancePrivateDnsNameOption... privateDnsNameOptions) {
             return privateDnsNameOptions(List.of(privateDnsNameOptions));
         }
         @CustomType.Setter
-        public Builder privateIp(String privateIp) {
-            this.privateIp = Objects.requireNonNull(privateIp);
+        public Builder privateIp(@Nullable String privateIp) {
+            this.privateIp = privateIp;
             return this;
         }
         @CustomType.Setter
-        public Builder publicDns(String publicDns) {
-            this.publicDns = Objects.requireNonNull(publicDns);
+        public Builder publicDns(@Nullable String publicDns) {
+            this.publicDns = publicDns;
             return this;
         }
         @CustomType.Setter
-        public Builder publicIp(String publicIp) {
-            this.publicIp = Objects.requireNonNull(publicIp);
+        public Builder publicIp(@Nullable String publicIp) {
+            this.publicIp = publicIp;
             return this;
         }
         @CustomType.Setter
-        public Builder rootBlockDevices(List<GetInstanceRootBlockDevice> rootBlockDevices) {
-            this.rootBlockDevices = Objects.requireNonNull(rootBlockDevices);
+        public Builder rootBlockDevices(@Nullable List<GetInstanceRootBlockDevice> rootBlockDevices) {
+            this.rootBlockDevices = rootBlockDevices;
             return this;
         }
         public Builder rootBlockDevices(GetInstanceRootBlockDevice... rootBlockDevices) {
             return rootBlockDevices(List.of(rootBlockDevices));
         }
         @CustomType.Setter
-        public Builder secondaryPrivateIps(List<String> secondaryPrivateIps) {
-            this.secondaryPrivateIps = Objects.requireNonNull(secondaryPrivateIps);
+        public Builder secondaryPrivateIps(@Nullable List<String> secondaryPrivateIps) {
+            this.secondaryPrivateIps = secondaryPrivateIps;
             return this;
         }
         public Builder secondaryPrivateIps(String... secondaryPrivateIps) {
             return secondaryPrivateIps(List.of(secondaryPrivateIps));
         }
         @CustomType.Setter
-        public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+        public Builder securityGroups(@Nullable List<String> securityGroups) {
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
         @CustomType.Setter
-        public Builder sourceDestCheck(Boolean sourceDestCheck) {
-            this.sourceDestCheck = Objects.requireNonNull(sourceDestCheck);
+        public Builder sourceDestCheck(@Nullable Boolean sourceDestCheck) {
+            this.sourceDestCheck = sourceDestCheck;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder tenancy(String tenancy) {
-            this.tenancy = Objects.requireNonNull(tenancy);
+        public Builder tenancy(@Nullable String tenancy) {
+            this.tenancy = tenancy;
             return this;
         }
         @CustomType.Setter
-        public Builder userData(String userData) {
-            this.userData = Objects.requireNonNull(userData);
+        public Builder userData(@Nullable String userData) {
+            this.userData = userData;
             return this;
         }
         @CustomType.Setter
-        public Builder userDataBase64(String userDataBase64) {
-            this.userDataBase64 = Objects.requireNonNull(userDataBase64);
+        public Builder userDataBase64(@Nullable String userDataBase64) {
+            this.userDataBase64 = userDataBase64;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
-            this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
+        public Builder vpcSecurityGroupIds(@Nullable List<String> vpcSecurityGroupIds) {
+            this.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {

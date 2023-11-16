@@ -47,7 +47,7 @@ namespace Pulumi.Aws.MemoryDb
         /// The ARN of the snapshot.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The configuration of the cluster from which the snapshot was taken.
@@ -77,13 +77,13 @@ namespace Pulumi.Aws.MemoryDb
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         /// </summary>
         [Output("source")]
-        public Output<string> Source { get; private set; } = null!;
+        public Output<string?> Source { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

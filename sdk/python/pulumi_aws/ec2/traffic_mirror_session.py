@@ -540,7 +540,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the traffic mirror session.
         """
@@ -564,7 +564,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID of the session owner.
         """
@@ -623,7 +623,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> pulumi.Output[int]:
+    def virtual_network_id(self) -> pulumi.Output[Optional[int]]:
         """
         The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         """

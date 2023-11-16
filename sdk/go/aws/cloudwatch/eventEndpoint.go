@@ -76,11 +76,11 @@ type EventEndpoint struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the endpoint that was created.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the global endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The URL of the endpoint that was created.
-	EndpointUrl pulumi.StringOutput `pulumi:"endpointUrl"`
+	EndpointUrl pulumi.StringPtrOutput `pulumi:"endpointUrl"`
 	// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
 	EventBuses EventEndpointEventBusArrayOutput `pulumi:"eventBuses"`
 	// The name of the global endpoint.
@@ -289,8 +289,8 @@ func (o EventEndpointOutput) ToEventEndpointOutputWithContext(ctx context.Contex
 }
 
 // The ARN of the endpoint that was created.
-func (o EventEndpointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EventEndpointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventEndpoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the global endpoint.
@@ -299,8 +299,8 @@ func (o EventEndpointOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The URL of the endpoint that was created.
-func (o EventEndpointOutput) EndpointUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventEndpoint) pulumi.StringOutput { return v.EndpointUrl }).(pulumi.StringOutput)
+func (o EventEndpointOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventEndpoint) pulumi.StringPtrOutput { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
 
 // The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.

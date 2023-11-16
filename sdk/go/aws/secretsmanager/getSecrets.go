@@ -67,7 +67,7 @@ type GetSecretsResult struct {
 	Arns    []string           `pulumi:"arns"`
 	Filters []GetSecretsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of names of the matched Secrets Manager secrets.
 	Names []string `pulumi:"names"`
 }
@@ -120,8 +120,8 @@ func (o GetSecretsResultOutput) Filters() GetSecretsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSecretsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSecretsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecretsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of names of the matched Secrets Manager secrets.

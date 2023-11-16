@@ -129,24 +129,24 @@ namespace Pulumi.Aws.CostExplorer
         /// <summary>
         /// Default value for the cost category.
         /// </summary>
-        public readonly string DefaultValue;
+        public readonly string? DefaultValue;
         /// <summary>
         /// Effective end data of your Cost Category.
         /// </summary>
-        public readonly string EffectiveEnd;
+        public readonly string? EffectiveEnd;
         /// <summary>
         /// Effective state data of your Cost Category.
         /// </summary>
-        public readonly string EffectiveStart;
+        public readonly string? EffectiveStart;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string Name;
+        public readonly string? Id;
+        public readonly string? Name;
         /// <summary>
         /// Rule schema version in this particular Cost Category.
         /// </summary>
-        public readonly string RuleVersion;
+        public readonly string? RuleVersion;
         /// <summary>
         /// Configuration block for the `Expression` object used to categorize costs. See below.
         /// </summary>
@@ -158,29 +158,29 @@ namespace Pulumi.Aws.CostExplorer
         /// <summary>
         /// Configuration block for the specific `Tag` to use for `Expression`. See below.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetCostCategoryResult(
             string costCategoryArn,
 
-            string defaultValue,
+            string? defaultValue,
 
-            string effectiveEnd,
+            string? effectiveEnd,
 
-            string effectiveStart,
+            string? effectiveStart,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string ruleVersion,
+            string? ruleVersion,
 
             ImmutableArray<Outputs.GetCostCategoryRuleResult> rules,
 
             ImmutableArray<Outputs.GetCostCategorySplitChargeRuleResult> splitChargeRules,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             CostCategoryArn = costCategoryArn;
             DefaultValue = defaultValue;

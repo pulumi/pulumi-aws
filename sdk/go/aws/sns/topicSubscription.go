@@ -304,11 +304,11 @@ type TopicSubscription struct {
 	pulumi.CustomResourceState
 
 	// ARN of the subscription.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
 	ConfirmationTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"confirmationTimeoutInMinutes"`
 	// Whether the subscription confirmation request was authenticated.
-	ConfirmationWasAuthenticated pulumi.BoolOutput `pulumi:"confirmationWasAuthenticated"`
+	ConfirmationWasAuthenticated pulumi.BoolPtrOutput `pulumi:"confirmationWasAuthenticated"`
 	// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
 	DeliveryPolicy pulumi.StringPtrOutput `pulumi:"deliveryPolicy"`
 	// Endpoint to send data to. The contents vary with the protocol. See details below.
@@ -318,11 +318,11 @@ type TopicSubscription struct {
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy pulumi.StringPtrOutput `pulumi:"filterPolicy"`
 	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
-	FilterPolicyScope pulumi.StringOutput `pulumi:"filterPolicyScope"`
+	FilterPolicyScope pulumi.StringPtrOutput `pulumi:"filterPolicyScope"`
 	// AWS account ID of the subscription's owner.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Whether the subscription has not been confirmed.
-	PendingConfirmation pulumi.BoolOutput `pulumi:"pendingConfirmation"`
+	PendingConfirmation pulumi.BoolPtrOutput `pulumi:"pendingConfirmation"`
 	// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
@@ -602,8 +602,8 @@ func (o TopicSubscriptionOutput) ToTopicSubscriptionOutputWithContext(ctx contex
 }
 
 // ARN of the subscription.
-func (o TopicSubscriptionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TopicSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TopicSubscriptionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicSubscription) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
@@ -612,8 +612,8 @@ func (o TopicSubscriptionOutput) ConfirmationTimeoutInMinutes() pulumi.IntPtrOut
 }
 
 // Whether the subscription confirmation request was authenticated.
-func (o TopicSubscriptionOutput) ConfirmationWasAuthenticated() pulumi.BoolOutput {
-	return o.ApplyT(func(v *TopicSubscription) pulumi.BoolOutput { return v.ConfirmationWasAuthenticated }).(pulumi.BoolOutput)
+func (o TopicSubscriptionOutput) ConfirmationWasAuthenticated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicSubscription) pulumi.BoolPtrOutput { return v.ConfirmationWasAuthenticated }).(pulumi.BoolPtrOutput)
 }
 
 // JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
@@ -637,18 +637,18 @@ func (o TopicSubscriptionOutput) FilterPolicy() pulumi.StringPtrOutput {
 }
 
 // Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
-func (o TopicSubscriptionOutput) FilterPolicyScope() pulumi.StringOutput {
-	return o.ApplyT(func(v *TopicSubscription) pulumi.StringOutput { return v.FilterPolicyScope }).(pulumi.StringOutput)
+func (o TopicSubscriptionOutput) FilterPolicyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicSubscription) pulumi.StringPtrOutput { return v.FilterPolicyScope }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID of the subscription's owner.
-func (o TopicSubscriptionOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TopicSubscription) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o TopicSubscriptionOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicSubscription) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Whether the subscription has not been confirmed.
-func (o TopicSubscriptionOutput) PendingConfirmation() pulumi.BoolOutput {
-	return o.ApplyT(func(v *TopicSubscription) pulumi.BoolOutput { return v.PendingConfirmation }).(pulumi.BoolOutput)
+func (o TopicSubscriptionOutput) PendingConfirmation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicSubscription) pulumi.BoolPtrOutput { return v.PendingConfirmation }).(pulumi.BoolPtrOutput)
 }
 
 // Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.

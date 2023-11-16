@@ -202,7 +202,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> pulumi.Output[str]:
+    def organization_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier for the organization.
         """

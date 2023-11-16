@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualServiceSpecProviderVirtualNode {
-    private String virtualNodeName;
+    private @Nullable String virtualNodeName;
 
     private GetVirtualServiceSpecProviderVirtualNode() {}
-    public String virtualNodeName() {
-        return this.virtualNodeName;
+    public Optional<String> virtualNodeName() {
+        return Optional.ofNullable(this.virtualNodeName);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetVirtualServiceSpecProviderVirtualNode {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String virtualNodeName;
+        private @Nullable String virtualNodeName;
         public Builder() {}
         public Builder(GetVirtualServiceSpecProviderVirtualNode defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetVirtualServiceSpecProviderVirtualNode {
         }
 
         @CustomType.Setter
-        public Builder virtualNodeName(String virtualNodeName) {
-            this.virtualNodeName = Objects.requireNonNull(virtualNodeName);
+        public Builder virtualNodeName(@Nullable String virtualNodeName) {
+            this.virtualNodeName = virtualNodeName;
             return this;
         }
         public GetVirtualServiceSpecProviderVirtualNode build() {

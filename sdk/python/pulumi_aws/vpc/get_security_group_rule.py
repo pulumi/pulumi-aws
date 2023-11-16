@@ -72,7 +72,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the security group rule.
         """
@@ -80,7 +80,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter(name="cidrIpv4")
-    def cidr_ipv4(self) -> str:
+    def cidr_ipv4(self) -> Optional[str]:
         """
         The destination IPv4 CIDR range.
         """
@@ -88,7 +88,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter(name="cidrIpv6")
-    def cidr_ipv6(self) -> str:
+    def cidr_ipv6(self) -> Optional[str]:
         """
         The destination IPv6 CIDR range.
         """
@@ -96,7 +96,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The security group rule description.
         """
@@ -109,7 +109,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> int:
+    def from_port(self) -> Optional[int]:
         """
         The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         """
@@ -117,12 +117,12 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipProtocol")
-    def ip_protocol(self) -> str:
+    def ip_protocol(self) -> Optional[str]:
         """
         The IP protocol name or number. Use `-1` to specify all protocols.
         """
@@ -130,7 +130,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter(name="isEgress")
-    def is_egress(self) -> bool:
+    def is_egress(self) -> Optional[bool]:
         """
         Indicates whether the security group rule is an outbound rule.
         """
@@ -138,7 +138,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> str:
+    def prefix_list_id(self) -> Optional[str]:
         """
         The ID of the destination prefix list.
         """
@@ -146,7 +146,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter(name="referencedSecurityGroupId")
-    def referenced_security_group_id(self) -> str:
+    def referenced_security_group_id(self) -> Optional[str]:
         """
         The destination security group that is referenced in the rule.
         """
@@ -154,7 +154,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> str:
+    def security_group_id(self) -> Optional[str]:
         """
         The ID of the security group.
         """
@@ -162,12 +162,12 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter(name="securityGroupRuleId")
-    def security_group_rule_id(self) -> str:
+    def security_group_rule_id(self) -> Optional[str]:
         return pulumi.get(self, "security_group_rule_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags assigned to the resource.
         """
@@ -175,7 +175,7 @@ class GetSecurityGroupRuleResult:
 
     @property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> int:
+    def to_port(self) -> Optional[int]:
         """
         (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         """

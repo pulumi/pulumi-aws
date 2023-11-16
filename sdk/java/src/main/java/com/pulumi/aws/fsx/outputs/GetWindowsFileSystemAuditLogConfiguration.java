@@ -6,22 +6,24 @@ package com.pulumi.aws.fsx.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWindowsFileSystemAuditLogConfiguration {
-    private String auditLogDestination;
-    private String fileAccessAuditLogLevel;
-    private String fileShareAccessAuditLogLevel;
+    private @Nullable String auditLogDestination;
+    private @Nullable String fileAccessAuditLogLevel;
+    private @Nullable String fileShareAccessAuditLogLevel;
 
     private GetWindowsFileSystemAuditLogConfiguration() {}
-    public String auditLogDestination() {
-        return this.auditLogDestination;
+    public Optional<String> auditLogDestination() {
+        return Optional.ofNullable(this.auditLogDestination);
     }
-    public String fileAccessAuditLogLevel() {
-        return this.fileAccessAuditLogLevel;
+    public Optional<String> fileAccessAuditLogLevel() {
+        return Optional.ofNullable(this.fileAccessAuditLogLevel);
     }
-    public String fileShareAccessAuditLogLevel() {
-        return this.fileShareAccessAuditLogLevel;
+    public Optional<String> fileShareAccessAuditLogLevel() {
+        return Optional.ofNullable(this.fileShareAccessAuditLogLevel);
     }
 
     public static Builder builder() {
@@ -33,9 +35,9 @@ public final class GetWindowsFileSystemAuditLogConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String auditLogDestination;
-        private String fileAccessAuditLogLevel;
-        private String fileShareAccessAuditLogLevel;
+        private @Nullable String auditLogDestination;
+        private @Nullable String fileAccessAuditLogLevel;
+        private @Nullable String fileShareAccessAuditLogLevel;
         public Builder() {}
         public Builder(GetWindowsFileSystemAuditLogConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,18 +47,18 @@ public final class GetWindowsFileSystemAuditLogConfiguration {
         }
 
         @CustomType.Setter
-        public Builder auditLogDestination(String auditLogDestination) {
-            this.auditLogDestination = Objects.requireNonNull(auditLogDestination);
+        public Builder auditLogDestination(@Nullable String auditLogDestination) {
+            this.auditLogDestination = auditLogDestination;
             return this;
         }
         @CustomType.Setter
-        public Builder fileAccessAuditLogLevel(String fileAccessAuditLogLevel) {
-            this.fileAccessAuditLogLevel = Objects.requireNonNull(fileAccessAuditLogLevel);
+        public Builder fileAccessAuditLogLevel(@Nullable String fileAccessAuditLogLevel) {
+            this.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
             return this;
         }
         @CustomType.Setter
-        public Builder fileShareAccessAuditLogLevel(String fileShareAccessAuditLogLevel) {
-            this.fileShareAccessAuditLogLevel = Objects.requireNonNull(fileShareAccessAuditLogLevel);
+        public Builder fileShareAccessAuditLogLevel(@Nullable String fileShareAccessAuditLogLevel) {
+            this.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
             return this;
         }
         public GetWindowsFileSystemAuditLogConfiguration build() {

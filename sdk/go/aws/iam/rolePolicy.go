@@ -101,7 +101,7 @@ type RolePolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The name of the IAM role to attach to the policy.
@@ -295,8 +295,8 @@ func (o RolePolicyOutput) Name() pulumi.StringOutput {
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (o RolePolicyOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *RolePolicy) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o RolePolicyOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RolePolicy) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide

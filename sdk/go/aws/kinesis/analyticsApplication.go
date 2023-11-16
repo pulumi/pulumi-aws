@@ -186,20 +186,20 @@ type AnalyticsApplication struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Kinesis Analytics Appliation.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The CloudWatch log stream options to monitor application errors.
 	// See CloudWatch Logging Options below for more details.
 	CloudwatchLoggingOptions AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput `pulumi:"cloudwatchLoggingOptions"`
 	// SQL Code to transform input data, and generate output.
 	Code pulumi.StringPtrOutput `pulumi:"code"`
 	// The Timestamp when the application version was created.
-	CreateTimestamp pulumi.StringOutput `pulumi:"createTimestamp"`
+	CreateTimestamp pulumi.StringPtrOutput `pulumi:"createTimestamp"`
 	// Description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Input configuration of the application. See Inputs below for more details.
 	Inputs AnalyticsApplicationInputsPtrOutput `pulumi:"inputs"`
 	// The Timestamp when the application was last updated.
-	LastUpdateTimestamp pulumi.StringOutput `pulumi:"lastUpdateTimestamp"`
+	LastUpdateTimestamp pulumi.StringPtrOutput `pulumi:"lastUpdateTimestamp"`
 	// Name of the Kinesis Analytics Application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Output destination configuration of the application. See Outputs below for more details.
@@ -211,7 +211,7 @@ type AnalyticsApplication struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The Status of the application.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -219,7 +219,7 @@ type AnalyticsApplication struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Version of the application.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewAnalyticsApplication registers a new resource with the given unique name, arguments, and options.
@@ -472,8 +472,8 @@ func (o AnalyticsApplicationOutput) ToAnalyticsApplicationOutputWithContext(ctx 
 }
 
 // The ARN of the Kinesis Analytics Appliation.
-func (o AnalyticsApplicationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AnalyticsApplicationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The CloudWatch log stream options to monitor application errors.
@@ -490,8 +490,8 @@ func (o AnalyticsApplicationOutput) Code() pulumi.StringPtrOutput {
 }
 
 // The Timestamp when the application version was created.
-func (o AnalyticsApplicationOutput) CreateTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.CreateTimestamp }).(pulumi.StringOutput)
+func (o AnalyticsApplicationOutput) CreateTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringPtrOutput { return v.CreateTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // Description of the application.
@@ -505,8 +505,8 @@ func (o AnalyticsApplicationOutput) Inputs() AnalyticsApplicationInputsPtrOutput
 }
 
 // The Timestamp when the application was last updated.
-func (o AnalyticsApplicationOutput) LastUpdateTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.LastUpdateTimestamp }).(pulumi.StringOutput)
+func (o AnalyticsApplicationOutput) LastUpdateTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringPtrOutput { return v.LastUpdateTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // Name of the Kinesis Analytics Application.
@@ -534,8 +534,8 @@ func (o AnalyticsApplicationOutput) StartApplication() pulumi.BoolPtrOutput {
 }
 
 // The Status of the application.
-func (o AnalyticsApplicationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o AnalyticsApplicationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -551,8 +551,8 @@ func (o AnalyticsApplicationOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The Version of the application.
-func (o AnalyticsApplicationOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *AnalyticsApplication) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o AnalyticsApplicationOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AnalyticsApplication) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type AnalyticsApplicationArrayOutput struct{ *pulumi.OutputState }

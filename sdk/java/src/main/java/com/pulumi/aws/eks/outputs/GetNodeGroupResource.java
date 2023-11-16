@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNodeGroupResource {
@@ -15,12 +17,12 @@ public final class GetNodeGroupResource {
      * @return List of objects containing information about AutoScaling Groups.
      * 
      */
-    private List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups;
+    private @Nullable List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups;
     /**
      * @return Identifier of the remote access EC2 Security Group.
      * 
      */
-    private String remoteAccessSecurityGroupId;
+    private @Nullable String remoteAccessSecurityGroupId;
 
     private GetNodeGroupResource() {}
     /**
@@ -28,14 +30,14 @@ public final class GetNodeGroupResource {
      * 
      */
     public List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups() {
-        return this.autoscalingGroups;
+        return this.autoscalingGroups == null ? List.of() : this.autoscalingGroups;
     }
     /**
      * @return Identifier of the remote access EC2 Security Group.
      * 
      */
-    public String remoteAccessSecurityGroupId() {
-        return this.remoteAccessSecurityGroupId;
+    public Optional<String> remoteAccessSecurityGroupId() {
+        return Optional.ofNullable(this.remoteAccessSecurityGroupId);
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetNodeGroupResource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups;
-        private String remoteAccessSecurityGroupId;
+        private @Nullable List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups;
+        private @Nullable String remoteAccessSecurityGroupId;
         public Builder() {}
         public Builder(GetNodeGroupResource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +59,16 @@ public final class GetNodeGroupResource {
         }
 
         @CustomType.Setter
-        public Builder autoscalingGroups(List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups) {
-            this.autoscalingGroups = Objects.requireNonNull(autoscalingGroups);
+        public Builder autoscalingGroups(@Nullable List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups) {
+            this.autoscalingGroups = autoscalingGroups;
             return this;
         }
         public Builder autoscalingGroups(GetNodeGroupResourceAutoscalingGroup... autoscalingGroups) {
             return autoscalingGroups(List.of(autoscalingGroups));
         }
         @CustomType.Setter
-        public Builder remoteAccessSecurityGroupId(String remoteAccessSecurityGroupId) {
-            this.remoteAccessSecurityGroupId = Objects.requireNonNull(remoteAccessSecurityGroupId);
+        public Builder remoteAccessSecurityGroupId(@Nullable String remoteAccessSecurityGroupId) {
+            this.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
             return this;
         }
         public GetNodeGroupResource build() {

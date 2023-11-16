@@ -95,7 +95,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> str:
+    def access_policies(self) -> Optional[str]:
         """
         The policy document attached to the domain.
         """
@@ -103,7 +103,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="advancedOptions")
-    def advanced_options(self) -> Mapping[str, str]:
+    def advanced_options(self) -> Optional[Mapping[str, str]]:
         """
         Key-value string pairs to specify advanced configuration options.
         """
@@ -111,7 +111,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="advancedSecurityOptions")
-    def advanced_security_options(self) -> Sequence['outputs.GetDomainAdvancedSecurityOptionResult']:
+    def advanced_security_options(self) -> Optional[Sequence['outputs.GetDomainAdvancedSecurityOptionResult']]:
         """
         Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
         """
@@ -119,7 +119,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The ARN of the domain.
         """
@@ -127,7 +127,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="autoTuneOptions")
-    def auto_tune_options(self) -> Sequence['outputs.GetDomainAutoTuneOptionResult']:
+    def auto_tune_options(self) -> Optional[Sequence['outputs.GetDomainAutoTuneOptionResult']]:
         """
         Configuration of the Auto-Tune options of the domain.
         """
@@ -135,7 +135,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="clusterConfigs")
-    def cluster_configs(self) -> Sequence['outputs.GetDomainClusterConfigResult']:
+    def cluster_configs(self) -> Optional[Sequence['outputs.GetDomainClusterConfigResult']]:
         """
         Cluster configuration of the domain.
         """
@@ -143,7 +143,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="cognitoOptions")
-    def cognito_options(self) -> Sequence['outputs.GetDomainCognitoOptionResult']:
+    def cognito_options(self) -> Optional[Sequence['outputs.GetDomainCognitoOptionResult']]:
         """
         Domain Amazon Cognito Authentication options for Kibana.
         """
@@ -151,7 +151,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def created(self) -> bool:
+    def created(self) -> Optional[bool]:
         """
         Status of the creation of the domain.
         """
@@ -159,7 +159,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def deleted(self) -> bool:
+    def deleted(self) -> Optional[bool]:
         """
         Status of the deletion of the domain.
         """
@@ -167,7 +167,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> str:
+    def domain_id(self) -> Optional[str]:
         """
         Unique identifier for the domain.
         """
@@ -180,7 +180,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="ebsOptions")
-    def ebs_options(self) -> Sequence['outputs.GetDomainEbsOptionResult']:
+    def ebs_options(self) -> Optional[Sequence['outputs.GetDomainEbsOptionResult']]:
         """
         EBS Options for the instances in the domain.
         """
@@ -188,7 +188,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="elasticsearchVersion")
-    def elasticsearch_version(self) -> str:
+    def elasticsearch_version(self) -> Optional[str]:
         """
         Elasticsearch version for the domain.
         """
@@ -196,7 +196,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="encryptionAtRests")
-    def encryption_at_rests(self) -> Sequence['outputs.GetDomainEncryptionAtRestResult']:
+    def encryption_at_rests(self) -> Optional[Sequence['outputs.GetDomainEncryptionAtRestResult']]:
         """
         Domain encryption at rest related options.
         """
@@ -204,7 +204,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> Optional[str]:
         """
         Domain-specific endpoint used to submit index, search, and data upload requests.
         """
@@ -212,7 +212,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -220,7 +220,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="kibanaEndpoint")
-    def kibana_endpoint(self) -> str:
+    def kibana_endpoint(self) -> Optional[str]:
         """
         Domain-specific endpoint used to access the Kibana application.
         """
@@ -228,7 +228,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="logPublishingOptions")
-    def log_publishing_options(self) -> Sequence['outputs.GetDomainLogPublishingOptionResult']:
+    def log_publishing_options(self) -> Optional[Sequence['outputs.GetDomainLogPublishingOptionResult']]:
         """
         Domain log publishing related options.
         """
@@ -236,7 +236,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="nodeToNodeEncryptions")
-    def node_to_node_encryptions(self) -> Sequence['outputs.GetDomainNodeToNodeEncryptionResult']:
+    def node_to_node_encryptions(self) -> Optional[Sequence['outputs.GetDomainNodeToNodeEncryptionResult']]:
         """
         Domain in transit encryption related options.
         """
@@ -244,7 +244,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def processing(self) -> bool:
+    def processing(self) -> Optional[bool]:
         """
         Status of a configuration change in the domain.
         """
@@ -252,7 +252,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="snapshotOptions")
-    def snapshot_options(self) -> Sequence['outputs.GetDomainSnapshotOptionResult']:
+    def snapshot_options(self) -> Optional[Sequence['outputs.GetDomainSnapshotOptionResult']]:
         """
         Domain snapshot related options.
         """
@@ -260,7 +260,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags assigned to the domain.
         """
@@ -268,7 +268,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="vpcOptions")
-    def vpc_options(self) -> Sequence['outputs.GetDomainVpcOptionResult']:
+    def vpc_options(self) -> Optional[Sequence['outputs.GetDomainVpcOptionResult']]:
         """
         VPC Options for private Elasticsearch domains.
         """

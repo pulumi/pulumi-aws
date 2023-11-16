@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Dms
         /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         /// </summary>
         [Output("allocatedStorage")]
-        public Output<int> AllocatedStorage { get; private set; } = null!;
+        public Output<int?> AllocatedStorage { get; private set; } = null!;
 
         /// <summary>
         /// Indicates that major version upgrades are allowed.
@@ -151,37 +151,37 @@ namespace Pulumi.Aws.Dms
         /// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         /// </summary>
         [Output("autoMinorVersionUpgrade")]
-        public Output<bool> AutoMinorVersionUpgrade { get; private set; } = null!;
+        public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
         /// The EC2 Availability Zone that the replication instance will be created in.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The engine version number of the replication instance.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Output("kmsKeyArn")]
-        public Output<string> KmsKeyArn { get; private set; } = null!;
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         /// </summary>
         [Output("multiAz")]
-        public Output<bool> MultiAz { get; private set; } = null!;
+        public Output<bool?> MultiAz { get; private set; } = null!;
 
         /// <summary>
         /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         /// </summary>
         [Output("networkType")]
-        public Output<string> NetworkType { get; private set; } = null!;
+        public Output<string?> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -192,19 +192,19 @@ namespace Pulumi.Aws.Dms
         /// - Constraints: Minimum 30-minute window.
         /// </summary>
         [Output("preferredMaintenanceWindow")]
-        public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+        public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         /// </summary>
         [Output("publiclyAccessible")]
-        public Output<bool> PubliclyAccessible { get; private set; } = null!;
+        public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replication instance.
         /// </summary>
         [Output("replicationInstanceArn")]
-        public Output<string> ReplicationInstanceArn { get; private set; } = null!;
+        public Output<string?> ReplicationInstanceArn { get; private set; } = null!;
 
         /// <summary>
         /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Dms
         /// A subnet group to associate with the replication instance.
         /// </summary>
         [Output("replicationSubnetGroupId")]
-        public Output<string> ReplicationSubnetGroupId { get; private set; } = null!;
+        public Output<string?> ReplicationSubnetGroupId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

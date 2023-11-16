@@ -30,14 +30,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
@@ -58,14 +58,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="capacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> capacity;
+    private Output</* @Nullable */ Integer> capacity;
 
     /**
      * @return Web ACL capacity units (WCUs) currently being used by this web ACL.
      * 
      */
-    public Output<Integer> capacity() {
-        return this.capacity;
+    public Output<Optional<Integer>> capacity() {
+        return Codegen.optional(this.capacity);
     }
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
@@ -124,10 +124,10 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     @Export(name="lockToken", refs={String.class}, tree="[0]")
-    private Output<String> lockToken;
+    private Output</* @Nullable */ String> lockToken;
 
-    public Output<String> lockToken() {
-        return this.lockToken;
+    public Output<Optional<String>> lockToken() {
+        return Codegen.optional(this.lockToken);
     }
     /**
      * Friendly name of the WebACL.

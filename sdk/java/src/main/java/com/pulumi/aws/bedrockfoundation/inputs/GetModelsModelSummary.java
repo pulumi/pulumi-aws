@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs {
@@ -18,135 +20,135 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
      * Customizations that the model supports.
      * 
      */
-    @Import(name="customizationsSupporteds", required=true)
-    private List<String> customizationsSupporteds;
+    @Import(name="customizationsSupporteds")
+    private @Nullable List<String> customizationsSupporteds;
 
     /**
      * @return Customizations that the model supports.
      * 
      */
-    public List<String> customizationsSupporteds() {
-        return this.customizationsSupporteds;
+    public Optional<List<String>> customizationsSupporteds() {
+        return Optional.ofNullable(this.customizationsSupporteds);
     }
 
     /**
      * Inference types that the model supports.
      * 
      */
-    @Import(name="inferenceTypesSupporteds", required=true)
-    private List<String> inferenceTypesSupporteds;
+    @Import(name="inferenceTypesSupporteds")
+    private @Nullable List<String> inferenceTypesSupporteds;
 
     /**
      * @return Inference types that the model supports.
      * 
      */
-    public List<String> inferenceTypesSupporteds() {
-        return this.inferenceTypesSupporteds;
+    public Optional<List<String>> inferenceTypesSupporteds() {
+        return Optional.ofNullable(this.inferenceTypesSupporteds);
     }
 
     /**
      * Input modalities that the model supports.
      * 
      */
-    @Import(name="inputModalities", required=true)
-    private List<String> inputModalities;
+    @Import(name="inputModalities")
+    private @Nullable List<String> inputModalities;
 
     /**
      * @return Input modalities that the model supports.
      * 
      */
-    public List<String> inputModalities() {
-        return this.inputModalities;
+    public Optional<List<String>> inputModalities() {
+        return Optional.ofNullable(this.inputModalities);
     }
 
     /**
      * Model ARN.
      * 
      */
-    @Import(name="modelArn", required=true)
-    private String modelArn;
+    @Import(name="modelArn")
+    private @Nullable String modelArn;
 
     /**
      * @return Model ARN.
      * 
      */
-    public String modelArn() {
-        return this.modelArn;
+    public Optional<String> modelArn() {
+        return Optional.ofNullable(this.modelArn);
     }
 
     /**
      * Model identifier.
      * 
      */
-    @Import(name="modelId", required=true)
-    private String modelId;
+    @Import(name="modelId")
+    private @Nullable String modelId;
 
     /**
      * @return Model identifier.
      * 
      */
-    public String modelId() {
-        return this.modelId;
+    public Optional<String> modelId() {
+        return Optional.ofNullable(this.modelId);
     }
 
     /**
      * Model name.
      * 
      */
-    @Import(name="modelName", required=true)
-    private String modelName;
+    @Import(name="modelName")
+    private @Nullable String modelName;
 
     /**
      * @return Model name.
      * 
      */
-    public String modelName() {
-        return this.modelName;
+    public Optional<String> modelName() {
+        return Optional.ofNullable(this.modelName);
     }
 
     /**
      * Output modalities that the model supports.
      * 
      */
-    @Import(name="outputModalities", required=true)
-    private List<String> outputModalities;
+    @Import(name="outputModalities")
+    private @Nullable List<String> outputModalities;
 
     /**
      * @return Output modalities that the model supports.
      * 
      */
-    public List<String> outputModalities() {
-        return this.outputModalities;
+    public Optional<List<String>> outputModalities() {
+        return Optional.ofNullable(this.outputModalities);
     }
 
     /**
      * Model provider name.
      * 
      */
-    @Import(name="providerName", required=true)
-    private String providerName;
+    @Import(name="providerName")
+    private @Nullable String providerName;
 
     /**
      * @return Model provider name.
      * 
      */
-    public String providerName() {
-        return this.providerName;
+    public Optional<String> providerName() {
+        return Optional.ofNullable(this.providerName);
     }
 
     /**
      * Indicates whether the model supports streaming.
      * 
      */
-    @Import(name="responseStreamingSupported", required=true)
-    private Boolean responseStreamingSupported;
+    @Import(name="responseStreamingSupported")
+    private @Nullable Boolean responseStreamingSupported;
 
     /**
      * @return Indicates whether the model supports streaming.
      * 
      */
-    public Boolean responseStreamingSupported() {
-        return this.responseStreamingSupported;
+    public Optional<Boolean> responseStreamingSupported() {
+        return Optional.ofNullable(this.responseStreamingSupported);
     }
 
     private GetModelsModelSummary() {}
@@ -187,7 +189,7 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          */
-        public Builder customizationsSupporteds(List<String> customizationsSupporteds) {
+        public Builder customizationsSupporteds(@Nullable List<String> customizationsSupporteds) {
             $.customizationsSupporteds = customizationsSupporteds;
             return this;
         }
@@ -208,7 +210,7 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          */
-        public Builder inferenceTypesSupporteds(List<String> inferenceTypesSupporteds) {
+        public Builder inferenceTypesSupporteds(@Nullable List<String> inferenceTypesSupporteds) {
             $.inferenceTypesSupporteds = inferenceTypesSupporteds;
             return this;
         }
@@ -229,7 +231,7 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          */
-        public Builder inputModalities(List<String> inputModalities) {
+        public Builder inputModalities(@Nullable List<String> inputModalities) {
             $.inputModalities = inputModalities;
             return this;
         }
@@ -250,7 +252,7 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          */
-        public Builder modelArn(String modelArn) {
+        public Builder modelArn(@Nullable String modelArn) {
             $.modelArn = modelArn;
             return this;
         }
@@ -261,7 +263,7 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          */
-        public Builder modelId(String modelId) {
+        public Builder modelId(@Nullable String modelId) {
             $.modelId = modelId;
             return this;
         }
@@ -272,7 +274,7 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          */
-        public Builder modelName(String modelName) {
+        public Builder modelName(@Nullable String modelName) {
             $.modelName = modelName;
             return this;
         }
@@ -283,7 +285,7 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          */
-        public Builder outputModalities(List<String> outputModalities) {
+        public Builder outputModalities(@Nullable List<String> outputModalities) {
             $.outputModalities = outputModalities;
             return this;
         }
@@ -304,7 +306,7 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          */
-        public Builder providerName(String providerName) {
+        public Builder providerName(@Nullable String providerName) {
             $.providerName = providerName;
             return this;
         }
@@ -315,21 +317,12 @@ public final class GetModelsModelSummary extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          */
-        public Builder responseStreamingSupported(Boolean responseStreamingSupported) {
+        public Builder responseStreamingSupported(@Nullable Boolean responseStreamingSupported) {
             $.responseStreamingSupported = responseStreamingSupported;
             return this;
         }
 
         public GetModelsModelSummary build() {
-            $.customizationsSupporteds = Objects.requireNonNull($.customizationsSupporteds, "expected parameter 'customizationsSupporteds' to be non-null");
-            $.inferenceTypesSupporteds = Objects.requireNonNull($.inferenceTypesSupporteds, "expected parameter 'inferenceTypesSupporteds' to be non-null");
-            $.inputModalities = Objects.requireNonNull($.inputModalities, "expected parameter 'inputModalities' to be non-null");
-            $.modelArn = Objects.requireNonNull($.modelArn, "expected parameter 'modelArn' to be non-null");
-            $.modelId = Objects.requireNonNull($.modelId, "expected parameter 'modelId' to be non-null");
-            $.modelName = Objects.requireNonNull($.modelName, "expected parameter 'modelName' to be non-null");
-            $.outputModalities = Objects.requireNonNull($.outputModalities, "expected parameter 'outputModalities' to be non-null");
-            $.providerName = Objects.requireNonNull($.providerName, "expected parameter 'providerName' to be non-null");
-            $.responseStreamingSupported = Objects.requireNonNull($.responseStreamingSupported, "expected parameter 'responseStreamingSupported' to be non-null");
             return $;
         }
     }

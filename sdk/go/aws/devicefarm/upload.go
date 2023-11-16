@@ -60,13 +60,13 @@ type Upload struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of this upload.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The upload's category.
-	Category pulumi.StringOutput `pulumi:"category"`
+	Category pulumi.StringPtrOutput `pulumi:"category"`
 	// The upload's content type (for example, application/octet-stream).
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
-	Metadata pulumi.StringOutput `pulumi:"metadata"`
+	Metadata pulumi.StringPtrOutput `pulumi:"metadata"`
 	// The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the project for the upload.
@@ -74,7 +74,7 @@ type Upload struct {
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The presigned Amazon S3 URL that was used to store a file using a PUT request.
-	Url pulumi.StringOutput `pulumi:"url"`
+	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewUpload registers a new resource with the given unique name, arguments, and options.
@@ -265,13 +265,13 @@ func (o UploadOutput) ToUploadOutputWithContext(ctx context.Context) UploadOutpu
 }
 
 // The Amazon Resource Name of this upload.
-func (o UploadOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Upload) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UploadOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Upload) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The upload's category.
-func (o UploadOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func(v *Upload) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
+func (o UploadOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Upload) pulumi.StringPtrOutput { return v.Category }).(pulumi.StringPtrOutput)
 }
 
 // The upload's content type (for example, application/octet-stream).
@@ -280,8 +280,8 @@ func (o UploadOutput) ContentType() pulumi.StringPtrOutput {
 }
 
 // The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
-func (o UploadOutput) Metadata() pulumi.StringOutput {
-	return o.ApplyT(func(v *Upload) pulumi.StringOutput { return v.Metadata }).(pulumi.StringOutput)
+func (o UploadOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Upload) pulumi.StringPtrOutput { return v.Metadata }).(pulumi.StringPtrOutput)
 }
 
 // The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
@@ -300,8 +300,8 @@ func (o UploadOutput) Type() pulumi.StringOutput {
 }
 
 // The presigned Amazon S3 URL that was used to store a file using a PUT request.
-func (o UploadOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *Upload) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+func (o UploadOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Upload) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 type UploadArrayOutput struct{ *pulumi.OutputState }

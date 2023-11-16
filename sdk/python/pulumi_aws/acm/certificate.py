@@ -1084,7 +1084,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the certificate
         """
@@ -1117,7 +1117,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         Fully qualified domain name (FQDN) in the certificate.
         """
@@ -1125,7 +1125,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainValidationOptions")
-    def domain_validation_options(self) -> pulumi.Output[Sequence['outputs.CertificateDomainValidationOption']]:
+    def domain_validation_options(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateDomainValidationOption']]]:
         """
         Set of domain validation objects which can be used to complete certificate validation.
         Can have more than one element, e.g., if SANs are defined.
@@ -1147,7 +1147,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyAlgorithm")
-    def key_algorithm(self) -> pulumi.Output[str]:
+    def key_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         """
@@ -1155,7 +1155,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notAfter")
-    def not_after(self) -> pulumi.Output[str]:
+    def not_after(self) -> pulumi.Output[Optional[str]]:
         """
         Expiration date and time of the certificate.
         """
@@ -1163,7 +1163,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> pulumi.Output[str]:
+    def not_before(self) -> pulumi.Output[Optional[str]]:
         """
         Start of the validity period of the certificate.
         """
@@ -1171,7 +1171,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Output['outputs.CertificateOptions']:
+    def options(self) -> pulumi.Output[Optional['outputs.CertificateOptions']]:
         """
         Configuration block used to set certificate options. Detailed below.
         """
@@ -1179,7 +1179,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pendingRenewal")
-    def pending_renewal(self) -> pulumi.Output[bool]:
+    def pending_renewal(self) -> pulumi.Output[Optional[bool]]:
         """
         `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
         """
@@ -1195,7 +1195,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="renewalEligibility")
-    def renewal_eligibility(self) -> pulumi.Output[str]:
+    def renewal_eligibility(self) -> pulumi.Output[Optional[str]]:
         """
         Whether the certificate is eligible for managed renewal.
         """
@@ -1203,7 +1203,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="renewalSummaries")
-    def renewal_summaries(self) -> pulumi.Output[Sequence['outputs.CertificateRenewalSummary']]:
+    def renewal_summaries(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateRenewalSummary']]]:
         """
         Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         """
@@ -1211,7 +1211,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the certificate.
         """
@@ -1219,7 +1219,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> pulumi.Output[Sequence[str]]:
+    def subject_alternative_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of domains that should be SANs in the issued certificate.
         To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
@@ -1247,7 +1247,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Source of the certificate.
         """
@@ -1255,7 +1255,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationEmails")
-    def validation_emails(self) -> pulumi.Output[Sequence[str]]:
+    def validation_emails(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of addresses that received a validation email. Only set if `EMAIL` validation was used.
         """
@@ -1263,7 +1263,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationMethod")
-    def validation_method(self) -> pulumi.Output[str]:
+    def validation_method(self) -> pulumi.Output[Optional[str]]:
         """
         Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         """

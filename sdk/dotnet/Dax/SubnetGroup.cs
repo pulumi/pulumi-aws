@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Dax
         /// VPC ID of the subnet group.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

@@ -21,70 +21,72 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisReturnPathComponent {
-    private List<GetNetworkInsightsAnalysisReturnPathComponentAclRule> aclRules;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail> additionalDetails;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentAttachedTo> attachedTos;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentComponent> components;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc> destinationVpcs;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeader> inboundHeaders;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader> outboundHeaders;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute> routeTableRoutes;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule> securityGroupRules;
-    private Integer sequenceNumber;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentSourceVpc> sourceVpcs;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentSubnet> subnets;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentTransitGateway> transitGateways;
-    private List<GetNetworkInsightsAnalysisReturnPathComponentVpc> vpcs;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentAclRule> aclRules;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail> additionalDetails;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentAttachedTo> attachedTos;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentComponent> components;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc> destinationVpcs;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeader> inboundHeaders;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader> outboundHeaders;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute> routeTableRoutes;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule> securityGroupRules;
+    private @Nullable Integer sequenceNumber;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSourceVpc> sourceVpcs;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSubnet> subnets;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentTransitGateway> transitGateways;
+    private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentVpc> vpcs;
 
     private GetNetworkInsightsAnalysisReturnPathComponent() {}
     public List<GetNetworkInsightsAnalysisReturnPathComponentAclRule> aclRules() {
-        return this.aclRules;
+        return this.aclRules == null ? List.of() : this.aclRules;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail> additionalDetails() {
-        return this.additionalDetails;
+        return this.additionalDetails == null ? List.of() : this.additionalDetails;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentAttachedTo> attachedTos() {
-        return this.attachedTos;
+        return this.attachedTos == null ? List.of() : this.attachedTos;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentComponent> components() {
-        return this.components;
+        return this.components == null ? List.of() : this.components;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc> destinationVpcs() {
-        return this.destinationVpcs;
+        return this.destinationVpcs == null ? List.of() : this.destinationVpcs;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeader> inboundHeaders() {
-        return this.inboundHeaders;
+        return this.inboundHeaders == null ? List.of() : this.inboundHeaders;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader> outboundHeaders() {
-        return this.outboundHeaders;
+        return this.outboundHeaders == null ? List.of() : this.outboundHeaders;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute> routeTableRoutes() {
-        return this.routeTableRoutes;
+        return this.routeTableRoutes == null ? List.of() : this.routeTableRoutes;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule> securityGroupRules() {
-        return this.securityGroupRules;
+        return this.securityGroupRules == null ? List.of() : this.securityGroupRules;
     }
-    public Integer sequenceNumber() {
-        return this.sequenceNumber;
+    public Optional<Integer> sequenceNumber() {
+        return Optional.ofNullable(this.sequenceNumber);
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentSourceVpc> sourceVpcs() {
-        return this.sourceVpcs;
+        return this.sourceVpcs == null ? List.of() : this.sourceVpcs;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentSubnet> subnets() {
-        return this.subnets;
+        return this.subnets == null ? List.of() : this.subnets;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes() {
-        return this.transitGatewayRouteTableRoutes;
+        return this.transitGatewayRouteTableRoutes == null ? List.of() : this.transitGatewayRouteTableRoutes;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentTransitGateway> transitGateways() {
-        return this.transitGateways;
+        return this.transitGateways == null ? List.of() : this.transitGateways;
     }
     public List<GetNetworkInsightsAnalysisReturnPathComponentVpc> vpcs() {
-        return this.vpcs;
+        return this.vpcs == null ? List.of() : this.vpcs;
     }
 
     public static Builder builder() {
@@ -96,21 +98,21 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetNetworkInsightsAnalysisReturnPathComponentAclRule> aclRules;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail> additionalDetails;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentAttachedTo> attachedTos;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentComponent> components;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc> destinationVpcs;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeader> inboundHeaders;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader> outboundHeaders;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute> routeTableRoutes;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule> securityGroupRules;
-        private Integer sequenceNumber;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentSourceVpc> sourceVpcs;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentSubnet> subnets;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentTransitGateway> transitGateways;
-        private List<GetNetworkInsightsAnalysisReturnPathComponentVpc> vpcs;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentAclRule> aclRules;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail> additionalDetails;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentAttachedTo> attachedTos;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentComponent> components;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc> destinationVpcs;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeader> inboundHeaders;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader> outboundHeaders;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute> routeTableRoutes;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule> securityGroupRules;
+        private @Nullable Integer sequenceNumber;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSourceVpc> sourceVpcs;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSubnet> subnets;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentTransitGateway> transitGateways;
+        private @Nullable List<GetNetworkInsightsAnalysisReturnPathComponentVpc> vpcs;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisReturnPathComponent defaults) {
     	      Objects.requireNonNull(defaults);
@@ -132,117 +134,117 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
 
         @CustomType.Setter
-        public Builder aclRules(List<GetNetworkInsightsAnalysisReturnPathComponentAclRule> aclRules) {
-            this.aclRules = Objects.requireNonNull(aclRules);
+        public Builder aclRules(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentAclRule> aclRules) {
+            this.aclRules = aclRules;
             return this;
         }
         public Builder aclRules(GetNetworkInsightsAnalysisReturnPathComponentAclRule... aclRules) {
             return aclRules(List.of(aclRules));
         }
         @CustomType.Setter
-        public Builder additionalDetails(List<GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail> additionalDetails) {
-            this.additionalDetails = Objects.requireNonNull(additionalDetails);
+        public Builder additionalDetails(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail> additionalDetails) {
+            this.additionalDetails = additionalDetails;
             return this;
         }
         public Builder additionalDetails(GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail... additionalDetails) {
             return additionalDetails(List.of(additionalDetails));
         }
         @CustomType.Setter
-        public Builder attachedTos(List<GetNetworkInsightsAnalysisReturnPathComponentAttachedTo> attachedTos) {
-            this.attachedTos = Objects.requireNonNull(attachedTos);
+        public Builder attachedTos(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentAttachedTo> attachedTos) {
+            this.attachedTos = attachedTos;
             return this;
         }
         public Builder attachedTos(GetNetworkInsightsAnalysisReturnPathComponentAttachedTo... attachedTos) {
             return attachedTos(List.of(attachedTos));
         }
         @CustomType.Setter
-        public Builder components(List<GetNetworkInsightsAnalysisReturnPathComponentComponent> components) {
-            this.components = Objects.requireNonNull(components);
+        public Builder components(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentComponent> components) {
+            this.components = components;
             return this;
         }
         public Builder components(GetNetworkInsightsAnalysisReturnPathComponentComponent... components) {
             return components(List.of(components));
         }
         @CustomType.Setter
-        public Builder destinationVpcs(List<GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc> destinationVpcs) {
-            this.destinationVpcs = Objects.requireNonNull(destinationVpcs);
+        public Builder destinationVpcs(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc> destinationVpcs) {
+            this.destinationVpcs = destinationVpcs;
             return this;
         }
         public Builder destinationVpcs(GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc... destinationVpcs) {
             return destinationVpcs(List.of(destinationVpcs));
         }
         @CustomType.Setter
-        public Builder inboundHeaders(List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeader> inboundHeaders) {
-            this.inboundHeaders = Objects.requireNonNull(inboundHeaders);
+        public Builder inboundHeaders(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeader> inboundHeaders) {
+            this.inboundHeaders = inboundHeaders;
             return this;
         }
         public Builder inboundHeaders(GetNetworkInsightsAnalysisReturnPathComponentInboundHeader... inboundHeaders) {
             return inboundHeaders(List.of(inboundHeaders));
         }
         @CustomType.Setter
-        public Builder outboundHeaders(List<GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader> outboundHeaders) {
-            this.outboundHeaders = Objects.requireNonNull(outboundHeaders);
+        public Builder outboundHeaders(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader> outboundHeaders) {
+            this.outboundHeaders = outboundHeaders;
             return this;
         }
         public Builder outboundHeaders(GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader... outboundHeaders) {
             return outboundHeaders(List.of(outboundHeaders));
         }
         @CustomType.Setter
-        public Builder routeTableRoutes(List<GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute> routeTableRoutes) {
-            this.routeTableRoutes = Objects.requireNonNull(routeTableRoutes);
+        public Builder routeTableRoutes(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute> routeTableRoutes) {
+            this.routeTableRoutes = routeTableRoutes;
             return this;
         }
         public Builder routeTableRoutes(GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute... routeTableRoutes) {
             return routeTableRoutes(List.of(routeTableRoutes));
         }
         @CustomType.Setter
-        public Builder securityGroupRules(List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule> securityGroupRules) {
-            this.securityGroupRules = Objects.requireNonNull(securityGroupRules);
+        public Builder securityGroupRules(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule> securityGroupRules) {
+            this.securityGroupRules = securityGroupRules;
             return this;
         }
         public Builder securityGroupRules(GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule... securityGroupRules) {
             return securityGroupRules(List.of(securityGroupRules));
         }
         @CustomType.Setter
-        public Builder sequenceNumber(Integer sequenceNumber) {
-            this.sequenceNumber = Objects.requireNonNull(sequenceNumber);
+        public Builder sequenceNumber(@Nullable Integer sequenceNumber) {
+            this.sequenceNumber = sequenceNumber;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceVpcs(List<GetNetworkInsightsAnalysisReturnPathComponentSourceVpc> sourceVpcs) {
-            this.sourceVpcs = Objects.requireNonNull(sourceVpcs);
+        public Builder sourceVpcs(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSourceVpc> sourceVpcs) {
+            this.sourceVpcs = sourceVpcs;
             return this;
         }
         public Builder sourceVpcs(GetNetworkInsightsAnalysisReturnPathComponentSourceVpc... sourceVpcs) {
             return sourceVpcs(List.of(sourceVpcs));
         }
         @CustomType.Setter
-        public Builder subnets(List<GetNetworkInsightsAnalysisReturnPathComponentSubnet> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+        public Builder subnets(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentSubnet> subnets) {
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(GetNetworkInsightsAnalysisReturnPathComponentSubnet... subnets) {
             return subnets(List.of(subnets));
         }
         @CustomType.Setter
-        public Builder transitGatewayRouteTableRoutes(List<GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes) {
-            this.transitGatewayRouteTableRoutes = Objects.requireNonNull(transitGatewayRouteTableRoutes);
+        public Builder transitGatewayRouteTableRoutes(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes) {
+            this.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
             return this;
         }
         public Builder transitGatewayRouteTableRoutes(GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute... transitGatewayRouteTableRoutes) {
             return transitGatewayRouteTableRoutes(List.of(transitGatewayRouteTableRoutes));
         }
         @CustomType.Setter
-        public Builder transitGateways(List<GetNetworkInsightsAnalysisReturnPathComponentTransitGateway> transitGateways) {
-            this.transitGateways = Objects.requireNonNull(transitGateways);
+        public Builder transitGateways(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentTransitGateway> transitGateways) {
+            this.transitGateways = transitGateways;
             return this;
         }
         public Builder transitGateways(GetNetworkInsightsAnalysisReturnPathComponentTransitGateway... transitGateways) {
             return transitGateways(List.of(transitGateways));
         }
         @CustomType.Setter
-        public Builder vpcs(List<GetNetworkInsightsAnalysisReturnPathComponentVpc> vpcs) {
-            this.vpcs = Objects.requireNonNull(vpcs);
+        public Builder vpcs(@Nullable List<GetNetworkInsightsAnalysisReturnPathComponentVpc> vpcs) {
+            this.vpcs = vpcs;
             return this;
         }
         public Builder vpcs(GetNetworkInsightsAnalysisReturnPathComponentVpc... vpcs) {

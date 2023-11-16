@@ -36,10 +36,10 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> InstanceArn { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         [Output("statusReason")]
-        public Output<string> StatusReason { get; private set; } = null!;
+        public Output<string?> StatusReason { get; private set; } = null!;
 
 
         /// <summary>

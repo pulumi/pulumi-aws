@@ -63,35 +63,35 @@ type LookupCloudFormationTypeArgs struct {
 
 // A collection of values returned by getCloudFormationType.
 type LookupCloudFormationTypeResult struct {
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Identifier of the CloudFormation Type default version.
-	DefaultVersionId string `pulumi:"defaultVersionId"`
+	DefaultVersionId *string `pulumi:"defaultVersionId"`
 	// Deprecation status of the CloudFormation Type.
-	DeprecatedStatus string `pulumi:"deprecatedStatus"`
+	DeprecatedStatus *string `pulumi:"deprecatedStatus"`
 	// Description of the CloudFormation Type.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// URL of the documentation for the CloudFormation Type.
-	DocumentationUrl string `pulumi:"documentationUrl"`
+	DocumentationUrl *string `pulumi:"documentationUrl"`
 	// ARN of the IAM Role used to register the CloudFormation Type.
-	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Whether the CloudFormation Type version is the default version.
-	IsDefaultVersion bool `pulumi:"isDefaultVersion"`
+	IsDefaultVersion *bool `pulumi:"isDefaultVersion"`
 	// List of objects containing logging configuration.
 	LoggingConfigs []GetCloudFormationTypeLoggingConfig `pulumi:"loggingConfigs"`
 	// Provisioning behavior of the CloudFormation Type.
-	ProvisioningType string `pulumi:"provisioningType"`
+	ProvisioningType *string `pulumi:"provisioningType"`
 	// JSON document of the CloudFormation Type schema.
-	Schema string `pulumi:"schema"`
+	Schema *string `pulumi:"schema"`
 	// URL of the source code for the CloudFormation Type.
-	SourceUrl string  `pulumi:"sourceUrl"`
-	Type      string  `pulumi:"type"`
-	TypeArn   string  `pulumi:"typeArn"`
-	TypeName  string  `pulumi:"typeName"`
+	SourceUrl *string `pulumi:"sourceUrl"`
+	Type      *string `pulumi:"type"`
+	TypeArn   *string `pulumi:"typeArn"`
+	TypeName  *string `pulumi:"typeName"`
 	VersionId *string `pulumi:"versionId"`
 	// Scope of the CloudFormation Type.
-	Visibility string `pulumi:"visibility"`
+	Visibility *string `pulumi:"visibility"`
 }
 
 func LookupCloudFormationTypeOutput(ctx *pulumi.Context, args LookupCloudFormationTypeOutputArgs, opts ...pulumi.InvokeOption) LookupCloudFormationTypeResultOutput {
@@ -138,43 +138,43 @@ func (o LookupCloudFormationTypeResultOutput) ToLookupCloudFormationTypeResultOu
 	return o
 }
 
-func (o LookupCloudFormationTypeResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the CloudFormation Type default version.
-func (o LookupCloudFormationTypeResultOutput) DefaultVersionId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.DefaultVersionId }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) DefaultVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.DefaultVersionId }).(pulumi.StringPtrOutput)
 }
 
 // Deprecation status of the CloudFormation Type.
-func (o LookupCloudFormationTypeResultOutput) DeprecatedStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.DeprecatedStatus }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) DeprecatedStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.DeprecatedStatus }).(pulumi.StringPtrOutput)
 }
 
 // Description of the CloudFormation Type.
-func (o LookupCloudFormationTypeResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // URL of the documentation for the CloudFormation Type.
-func (o LookupCloudFormationTypeResultOutput) DocumentationUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.DocumentationUrl }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) DocumentationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.DocumentationUrl }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM Role used to register the CloudFormation Type.
-func (o LookupCloudFormationTypeResultOutput) ExecutionRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCloudFormationTypeResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Whether the CloudFormation Type version is the default version.
-func (o LookupCloudFormationTypeResultOutput) IsDefaultVersion() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) bool { return v.IsDefaultVersion }).(pulumi.BoolOutput)
+func (o LookupCloudFormationTypeResultOutput) IsDefaultVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *bool { return v.IsDefaultVersion }).(pulumi.BoolPtrOutput)
 }
 
 // List of objects containing logging configuration.
@@ -183,30 +183,30 @@ func (o LookupCloudFormationTypeResultOutput) LoggingConfigs() GetCloudFormation
 }
 
 // Provisioning behavior of the CloudFormation Type.
-func (o LookupCloudFormationTypeResultOutput) ProvisioningType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.ProvisioningType }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) ProvisioningType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.ProvisioningType }).(pulumi.StringPtrOutput)
 }
 
 // JSON document of the CloudFormation Type schema.
-func (o LookupCloudFormationTypeResultOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.Schema }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
 // URL of the source code for the CloudFormation Type.
-func (o LookupCloudFormationTypeResultOutput) SourceUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.SourceUrl }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) SourceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.SourceUrl }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCloudFormationTypeResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCloudFormationTypeResultOutput) TypeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.TypeArn }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) TypeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.TypeArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCloudFormationTypeResultOutput) TypeName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.TypeName }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) TypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCloudFormationTypeResultOutput) VersionId() pulumi.StringPtrOutput {
@@ -214,8 +214,8 @@ func (o LookupCloudFormationTypeResultOutput) VersionId() pulumi.StringPtrOutput
 }
 
 // Scope of the CloudFormation Type.
-func (o LookupCloudFormationTypeResultOutput) Visibility() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.Visibility }).(pulumi.StringOutput)
+func (o LookupCloudFormationTypeResultOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) *string { return v.Visibility }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -76,34 +76,34 @@ export interface GetRoutingProfileResult {
     /**
      * ARN of the Routing Profile.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Specifies the default outbound queue for the Routing Profile.
      */
-    readonly defaultOutboundQueueId: string;
+    readonly defaultOutboundQueueId?: string;
     /**
      * Description of the Routing Profile.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceId: string;
     /**
      * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      */
-    readonly mediaConcurrencies: outputs.connect.GetRoutingProfileMediaConcurrency[];
-    readonly name: string;
+    readonly mediaConcurrencies?: outputs.connect.GetRoutingProfileMediaConcurrency[];
+    readonly name?: string;
     /**
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
-    readonly queueConfigs: outputs.connect.GetRoutingProfileQueueConfig[];
-    readonly routingProfileId: string;
+    readonly queueConfigs?: outputs.connect.GetRoutingProfileQueueConfig[];
+    readonly routingProfileId?: string;
     /**
      * Map of tags to assign to the Routing Profile.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific Amazon Connect Routing Profile.

@@ -6,6 +6,8 @@ package com.pulumi.aws.budgets.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBudgetCostType {
@@ -13,135 +15,135 @@ public final class GetBudgetCostType {
      * @return A boolean value whether to include credits in the cost budget. Defaults to `true`.
      * 
      */
-    private Boolean includeCredit;
+    private @Nullable Boolean includeCredit;
     /**
      * @return Whether a budget includes discounts. Defaults to `true`.
      * 
      */
-    private Boolean includeDiscount;
+    private @Nullable Boolean includeDiscount;
     /**
      * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
      * 
      */
-    private Boolean includeOtherSubscription;
+    private @Nullable Boolean includeOtherSubscription;
     /**
      * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
      * 
      */
-    private Boolean includeRecurring;
+    private @Nullable Boolean includeRecurring;
     /**
      * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`.
      * 
      */
-    private Boolean includeRefund;
+    private @Nullable Boolean includeRefund;
     /**
      * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
      * 
      */
-    private Boolean includeSubscription;
+    private @Nullable Boolean includeSubscription;
     /**
      * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`.
      * 
      */
-    private Boolean includeSupport;
+    private @Nullable Boolean includeSupport;
     /**
      * @return A boolean value whether to include tax in the cost budget. Defaults to `true`.
      * 
      */
-    private Boolean includeTax;
+    private @Nullable Boolean includeTax;
     /**
      * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
      * 
      */
-    private Boolean includeUpfront;
+    private @Nullable Boolean includeUpfront;
     /**
      * @return Whether a budget uses the amortized rate. Defaults to `false`.
      * 
      */
-    private Boolean useAmortized;
+    private @Nullable Boolean useAmortized;
     /**
      * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
      * 
      */
-    private Boolean useBlended;
+    private @Nullable Boolean useBlended;
 
     private GetBudgetCostType() {}
     /**
      * @return A boolean value whether to include credits in the cost budget. Defaults to `true`.
      * 
      */
-    public Boolean includeCredit() {
-        return this.includeCredit;
+    public Optional<Boolean> includeCredit() {
+        return Optional.ofNullable(this.includeCredit);
     }
     /**
      * @return Whether a budget includes discounts. Defaults to `true`.
      * 
      */
-    public Boolean includeDiscount() {
-        return this.includeDiscount;
+    public Optional<Boolean> includeDiscount() {
+        return Optional.ofNullable(this.includeDiscount);
     }
     /**
      * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
      * 
      */
-    public Boolean includeOtherSubscription() {
-        return this.includeOtherSubscription;
+    public Optional<Boolean> includeOtherSubscription() {
+        return Optional.ofNullable(this.includeOtherSubscription);
     }
     /**
      * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
      * 
      */
-    public Boolean includeRecurring() {
-        return this.includeRecurring;
+    public Optional<Boolean> includeRecurring() {
+        return Optional.ofNullable(this.includeRecurring);
     }
     /**
      * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`.
      * 
      */
-    public Boolean includeRefund() {
-        return this.includeRefund;
+    public Optional<Boolean> includeRefund() {
+        return Optional.ofNullable(this.includeRefund);
     }
     /**
      * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
      * 
      */
-    public Boolean includeSubscription() {
-        return this.includeSubscription;
+    public Optional<Boolean> includeSubscription() {
+        return Optional.ofNullable(this.includeSubscription);
     }
     /**
      * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`.
      * 
      */
-    public Boolean includeSupport() {
-        return this.includeSupport;
+    public Optional<Boolean> includeSupport() {
+        return Optional.ofNullable(this.includeSupport);
     }
     /**
      * @return A boolean value whether to include tax in the cost budget. Defaults to `true`.
      * 
      */
-    public Boolean includeTax() {
-        return this.includeTax;
+    public Optional<Boolean> includeTax() {
+        return Optional.ofNullable(this.includeTax);
     }
     /**
      * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
      * 
      */
-    public Boolean includeUpfront() {
-        return this.includeUpfront;
+    public Optional<Boolean> includeUpfront() {
+        return Optional.ofNullable(this.includeUpfront);
     }
     /**
      * @return Whether a budget uses the amortized rate. Defaults to `false`.
      * 
      */
-    public Boolean useAmortized() {
-        return this.useAmortized;
+    public Optional<Boolean> useAmortized() {
+        return Optional.ofNullable(this.useAmortized);
     }
     /**
      * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
      * 
      */
-    public Boolean useBlended() {
-        return this.useBlended;
+    public Optional<Boolean> useBlended() {
+        return Optional.ofNullable(this.useBlended);
     }
 
     public static Builder builder() {
@@ -153,17 +155,17 @@ public final class GetBudgetCostType {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean includeCredit;
-        private Boolean includeDiscount;
-        private Boolean includeOtherSubscription;
-        private Boolean includeRecurring;
-        private Boolean includeRefund;
-        private Boolean includeSubscription;
-        private Boolean includeSupport;
-        private Boolean includeTax;
-        private Boolean includeUpfront;
-        private Boolean useAmortized;
-        private Boolean useBlended;
+        private @Nullable Boolean includeCredit;
+        private @Nullable Boolean includeDiscount;
+        private @Nullable Boolean includeOtherSubscription;
+        private @Nullable Boolean includeRecurring;
+        private @Nullable Boolean includeRefund;
+        private @Nullable Boolean includeSubscription;
+        private @Nullable Boolean includeSupport;
+        private @Nullable Boolean includeTax;
+        private @Nullable Boolean includeUpfront;
+        private @Nullable Boolean useAmortized;
+        private @Nullable Boolean useBlended;
         public Builder() {}
         public Builder(GetBudgetCostType defaults) {
     	      Objects.requireNonNull(defaults);
@@ -181,58 +183,58 @@ public final class GetBudgetCostType {
         }
 
         @CustomType.Setter
-        public Builder includeCredit(Boolean includeCredit) {
-            this.includeCredit = Objects.requireNonNull(includeCredit);
+        public Builder includeCredit(@Nullable Boolean includeCredit) {
+            this.includeCredit = includeCredit;
             return this;
         }
         @CustomType.Setter
-        public Builder includeDiscount(Boolean includeDiscount) {
-            this.includeDiscount = Objects.requireNonNull(includeDiscount);
+        public Builder includeDiscount(@Nullable Boolean includeDiscount) {
+            this.includeDiscount = includeDiscount;
             return this;
         }
         @CustomType.Setter
-        public Builder includeOtherSubscription(Boolean includeOtherSubscription) {
-            this.includeOtherSubscription = Objects.requireNonNull(includeOtherSubscription);
+        public Builder includeOtherSubscription(@Nullable Boolean includeOtherSubscription) {
+            this.includeOtherSubscription = includeOtherSubscription;
             return this;
         }
         @CustomType.Setter
-        public Builder includeRecurring(Boolean includeRecurring) {
-            this.includeRecurring = Objects.requireNonNull(includeRecurring);
+        public Builder includeRecurring(@Nullable Boolean includeRecurring) {
+            this.includeRecurring = includeRecurring;
             return this;
         }
         @CustomType.Setter
-        public Builder includeRefund(Boolean includeRefund) {
-            this.includeRefund = Objects.requireNonNull(includeRefund);
+        public Builder includeRefund(@Nullable Boolean includeRefund) {
+            this.includeRefund = includeRefund;
             return this;
         }
         @CustomType.Setter
-        public Builder includeSubscription(Boolean includeSubscription) {
-            this.includeSubscription = Objects.requireNonNull(includeSubscription);
+        public Builder includeSubscription(@Nullable Boolean includeSubscription) {
+            this.includeSubscription = includeSubscription;
             return this;
         }
         @CustomType.Setter
-        public Builder includeSupport(Boolean includeSupport) {
-            this.includeSupport = Objects.requireNonNull(includeSupport);
+        public Builder includeSupport(@Nullable Boolean includeSupport) {
+            this.includeSupport = includeSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder includeTax(Boolean includeTax) {
-            this.includeTax = Objects.requireNonNull(includeTax);
+        public Builder includeTax(@Nullable Boolean includeTax) {
+            this.includeTax = includeTax;
             return this;
         }
         @CustomType.Setter
-        public Builder includeUpfront(Boolean includeUpfront) {
-            this.includeUpfront = Objects.requireNonNull(includeUpfront);
+        public Builder includeUpfront(@Nullable Boolean includeUpfront) {
+            this.includeUpfront = includeUpfront;
             return this;
         }
         @CustomType.Setter
-        public Builder useAmortized(Boolean useAmortized) {
-            this.useAmortized = Objects.requireNonNull(useAmortized);
+        public Builder useAmortized(@Nullable Boolean useAmortized) {
+            this.useAmortized = useAmortized;
             return this;
         }
         @CustomType.Setter
-        public Builder useBlended(Boolean useBlended) {
-            this.useBlended = Objects.requireNonNull(useBlended);
+        public Builder useBlended(@Nullable Boolean useBlended) {
+            this.useBlended = useBlended;
             return this;
         }
         public GetBudgetCostType build() {

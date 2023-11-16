@@ -53,7 +53,7 @@ class GetReportPlanResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the backup report plan.
         """
@@ -61,7 +61,7 @@ class GetReportPlanResult:
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> Optional[str]:
         """
         Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         """
@@ -69,7 +69,7 @@ class GetReportPlanResult:
 
     @property
     @pulumi.getter(name="deploymentStatus")
-    def deployment_status(self) -> str:
+    def deployment_status(self) -> Optional[str]:
         """
         Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         """
@@ -77,7 +77,7 @@ class GetReportPlanResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the report plan.
         """
@@ -85,7 +85,7 @@ class GetReportPlanResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -98,7 +98,7 @@ class GetReportPlanResult:
 
     @property
     @pulumi.getter(name="reportDeliveryChannels")
-    def report_delivery_channels(self) -> Sequence['outputs.GetReportPlanReportDeliveryChannelResult']:
+    def report_delivery_channels(self) -> Optional[Sequence['outputs.GetReportPlanReportDeliveryChannelResult']]:
         """
         An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         """
@@ -106,7 +106,7 @@ class GetReportPlanResult:
 
     @property
     @pulumi.getter(name="reportSettings")
-    def report_settings(self) -> Sequence['outputs.GetReportPlanReportSettingResult']:
+    def report_settings(self) -> Optional[Sequence['outputs.GetReportPlanReportSettingResult']]:
         """
         An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         """
@@ -114,7 +114,7 @@ class GetReportPlanResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Metadata that you can assign to help organize the report plans you create.
         """

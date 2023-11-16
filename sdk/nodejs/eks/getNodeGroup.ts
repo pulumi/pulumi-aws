@@ -57,77 +57,77 @@ export interface GetNodeGroupResult {
     /**
      * Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
      */
-    readonly amiType: string;
+    readonly amiType?: string;
     /**
      * ARN of the EKS Node Group.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
      */
-    readonly capacityType: string;
+    readonly capacityType?: string;
     readonly clusterName: string;
     /**
      * Disk size in GiB for worker nodes.
      */
-    readonly diskSize: number;
+    readonly diskSize?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of instance types associated with the EKS Node Group.
      */
-    readonly instanceTypes: string[];
+    readonly instanceTypes?: string[];
     /**
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
-    readonly labels: {[key: string]: string};
+    readonly labels?: {[key: string]: string};
     /**
      * Nested attribute containing information about the launch template used to create the EKS Node Group.
      */
-    readonly launchTemplates: outputs.eks.GetNodeGroupLaunchTemplate[];
+    readonly launchTemplates?: outputs.eks.GetNodeGroupLaunchTemplate[];
     readonly nodeGroupName: string;
     /**
      * ARN of the IAM Role that provides permissions for the EKS Node Group.
      */
-    readonly nodeRoleArn: string;
+    readonly nodeRoleArn?: string;
     /**
      * AMI version of the EKS Node Group.
      */
-    readonly releaseVersion: string;
+    readonly releaseVersion?: string;
     /**
      * Configuration block with remote access settings.
      */
-    readonly remoteAccesses: outputs.eks.GetNodeGroupRemoteAccess[];
+    readonly remoteAccesses?: outputs.eks.GetNodeGroupRemoteAccess[];
     /**
      * List of objects containing information about underlying resources.
      */
-    readonly resources: outputs.eks.GetNodeGroupResource[];
+    readonly resources?: outputs.eks.GetNodeGroupResource[];
     /**
      * Configuration block with scaling settings.
      */
-    readonly scalingConfigs: outputs.eks.GetNodeGroupScalingConfig[];
+    readonly scalingConfigs?: outputs.eks.GetNodeGroupScalingConfig[];
     /**
      * Status of the EKS Node Group.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * Key-value map of resource tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * List of objects containing information about taints applied to the nodes in the EKS Node Group.
      */
-    readonly taints: outputs.eks.GetNodeGroupTaint[];
+    readonly taints?: outputs.eks.GetNodeGroupTaint[];
     /**
      * Kubernetes version.
      */
-    readonly version: string;
+    readonly version?: string;
 }
 /**
  * Retrieve information about an EKS Node Group.

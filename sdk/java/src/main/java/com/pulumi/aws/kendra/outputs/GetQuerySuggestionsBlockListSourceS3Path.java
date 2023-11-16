@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQuerySuggestionsBlockListSourceS3Path {
@@ -13,27 +15,27 @@ public final class GetQuerySuggestionsBlockListSourceS3Path {
      * @return Name of the S3 bucket that contains the file.
      * 
      */
-    private String bucket;
+    private @Nullable String bucket;
     /**
      * @return Name of the file.
      * 
      */
-    private String key;
+    private @Nullable String key;
 
     private GetQuerySuggestionsBlockListSourceS3Path() {}
     /**
      * @return Name of the S3 bucket that contains the file.
      * 
      */
-    public String bucket() {
-        return this.bucket;
+    public Optional<String> bucket() {
+        return Optional.ofNullable(this.bucket);
     }
     /**
      * @return Name of the file.
      * 
      */
-    public String key() {
-        return this.key;
+    public Optional<String> key() {
+        return Optional.ofNullable(this.key);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetQuerySuggestionsBlockListSourceS3Path {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bucket;
-        private String key;
+        private @Nullable String bucket;
+        private @Nullable String key;
         public Builder() {}
         public Builder(GetQuerySuggestionsBlockListSourceS3Path defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetQuerySuggestionsBlockListSourceS3Path {
         }
 
         @CustomType.Setter
-        public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+        public Builder bucket(@Nullable String bucket) {
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
-        public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+        public Builder key(@Nullable String key) {
+            this.key = key;
             return this;
         }
         public GetQuerySuggestionsBlockListSourceS3Path build() {

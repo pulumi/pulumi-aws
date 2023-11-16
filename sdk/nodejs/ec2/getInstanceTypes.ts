@@ -68,11 +68,11 @@ export interface GetInstanceTypesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of EC2 Instance Types.
      */
-    readonly instanceTypes: string[];
+    readonly instanceTypes?: string[];
 }
 /**
  * Information about EC2 Instance Types.

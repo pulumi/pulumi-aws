@@ -308,7 +308,7 @@ namespace Pulumi.Aws.CloudTrail
         /// ARN of the trail.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.CloudTrail
         /// Region in which the trail was created.
         /// </summary>
         [Output("homeRegion")]
-        public Output<string> HomeRegion { get; private set; } = null!;
+        public Output<string?> HomeRegion { get; private set; } = null!;
 
         /// <summary>
         /// Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.

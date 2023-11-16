@@ -84,7 +84,7 @@ type GroupPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
@@ -281,8 +281,8 @@ func (o GroupPolicyOutput) Name() pulumi.StringOutput {
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (o GroupPolicyOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *GroupPolicy) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o GroupPolicyOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupPolicy) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The policy document. This is a JSON formatted string.

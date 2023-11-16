@@ -62,25 +62,25 @@ type LookupFunctionUrlArgs struct {
 // A collection of values returned by getFunctionUrl.
 type LookupFunctionUrlResult struct {
 	// Type of authentication that the function URL uses.
-	AuthorizationType string `pulumi:"authorizationType"`
+	AuthorizationType *string `pulumi:"authorizationType"`
 	// The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `lambda.FunctionUrl` resource documentation for more details.
 	Cors []GetFunctionUrlCor `pulumi:"cors"`
 	// When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-	CreationTime string `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
 	// ARN of the function.
-	FunctionArn  string `pulumi:"functionArn"`
-	FunctionName string `pulumi:"functionName"`
+	FunctionArn  *string `pulumi:"functionArn"`
+	FunctionName string  `pulumi:"functionName"`
 	// HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
-	FunctionUrl string `pulumi:"functionUrl"`
+	FunctionUrl *string `pulumi:"functionUrl"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
-	InvokeMode string `pulumi:"invokeMode"`
+	InvokeMode *string `pulumi:"invokeMode"`
 	// When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-	LastModifiedTime string  `pulumi:"lastModifiedTime"`
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	Qualifier        *string `pulumi:"qualifier"`
 	// Generated ID for the endpoint.
-	UrlId string `pulumi:"urlId"`
+	UrlId *string `pulumi:"urlId"`
 }
 
 func LookupFunctionUrlOutput(ctx *pulumi.Context, args LookupFunctionUrlOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionUrlResultOutput {
@@ -124,8 +124,8 @@ func (o LookupFunctionUrlResultOutput) ToLookupFunctionUrlResultOutputWithContex
 }
 
 // Type of authentication that the function URL uses.
-func (o LookupFunctionUrlResultOutput) AuthorizationType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.AuthorizationType }).(pulumi.StringOutput)
+func (o LookupFunctionUrlResultOutput) AuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
 
 // The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `lambda.FunctionUrl` resource documentation for more details.
@@ -134,13 +134,13 @@ func (o LookupFunctionUrlResultOutput) Cors() GetFunctionUrlCorArrayOutput {
 }
 
 // When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-func (o LookupFunctionUrlResultOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o LookupFunctionUrlResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the function.
-func (o LookupFunctionUrlResultOutput) FunctionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionArn }).(pulumi.StringOutput)
+func (o LookupFunctionUrlResultOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFunctionUrlResultOutput) FunctionName() pulumi.StringOutput {
@@ -148,23 +148,23 @@ func (o LookupFunctionUrlResultOutput) FunctionName() pulumi.StringOutput {
 }
 
 // HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
-func (o LookupFunctionUrlResultOutput) FunctionUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionUrl }).(pulumi.StringOutput)
+func (o LookupFunctionUrlResultOutput) FunctionUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.FunctionUrl }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupFunctionUrlResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupFunctionUrlResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
-func (o LookupFunctionUrlResultOutput) InvokeMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.InvokeMode }).(pulumi.StringOutput)
+func (o LookupFunctionUrlResultOutput) InvokeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.InvokeMode }).(pulumi.StringPtrOutput)
 }
 
 // When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-func (o LookupFunctionUrlResultOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+func (o LookupFunctionUrlResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFunctionUrlResultOutput) Qualifier() pulumi.StringPtrOutput {
@@ -172,8 +172,8 @@ func (o LookupFunctionUrlResultOutput) Qualifier() pulumi.StringPtrOutput {
 }
 
 // Generated ID for the endpoint.
-func (o LookupFunctionUrlResultOutput) UrlId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.UrlId }).(pulumi.StringOutput)
+func (o LookupFunctionUrlResultOutput) UrlId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.UrlId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetLogicalTableMapDataTransformFilterOperationResult
     {
-        public readonly string ConditionExpression;
+        public readonly string? ConditionExpression;
 
         [OutputConstructor]
-        private GetDataSetLogicalTableMapDataTransformFilterOperationResult(string conditionExpression)
+        private GetDataSetLogicalTableMapDataTransformFilterOperationResult(string? conditionExpression)
         {
             ConditionExpression = conditionExpression;
         }

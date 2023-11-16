@@ -53,7 +53,7 @@ class GetPlaceIndexResult:
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> str:
+    def create_time(self) -> Optional[str]:
         """
         Timestamp for when the place index resource was created in ISO 8601 format.
         """
@@ -61,7 +61,7 @@ class GetPlaceIndexResult:
 
     @property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> str:
+    def data_source(self) -> Optional[str]:
         """
         Data provider of geospatial data.
         """
@@ -69,7 +69,7 @@ class GetPlaceIndexResult:
 
     @property
     @pulumi.getter(name="dataSourceConfigurations")
-    def data_source_configurations(self) -> Sequence['outputs.GetPlaceIndexDataSourceConfigurationResult']:
+    def data_source_configurations(self) -> Optional[Sequence['outputs.GetPlaceIndexDataSourceConfigurationResult']]:
         """
         List of configurations that specify data storage option for requesting Places.
         """
@@ -77,7 +77,7 @@ class GetPlaceIndexResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Optional description for the place index resource.
         """
@@ -85,7 +85,7 @@ class GetPlaceIndexResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -93,7 +93,7 @@ class GetPlaceIndexResult:
 
     @property
     @pulumi.getter(name="indexArn")
-    def index_arn(self) -> str:
+    def index_arn(self) -> Optional[str]:
         """
         ARN for the place index resource.
         """
@@ -106,7 +106,7 @@ class GetPlaceIndexResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the place index.
         """
@@ -114,7 +114,7 @@ class GetPlaceIndexResult:
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> str:
+    def update_time(self) -> Optional[str]:
         """
         Timestamp for when the place index resource was last updated in ISO 8601 format.
         """

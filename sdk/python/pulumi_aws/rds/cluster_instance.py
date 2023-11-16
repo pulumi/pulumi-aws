@@ -1344,7 +1344,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> pulumi.Output[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
         """
@@ -1352,7 +1352,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of cluster instance
         """
@@ -1368,7 +1368,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         """
@@ -1376,7 +1376,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caCertIdentifier")
-    def ca_cert_identifier(self) -> pulumi.Output[str]:
+    def ca_cert_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the CA certificate for the DB instance.
         """
@@ -1408,7 +1408,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbParameterGroupName")
-    def db_parameter_group_name(self) -> pulumi.Output[str]:
+    def db_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the DB parameter group to associate with this instance.
         """
@@ -1416,7 +1416,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
-    def db_subnet_group_name(self) -> pulumi.Output[str]:
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         """
@@ -1424,7 +1424,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbiResourceId")
-    def dbi_resource_id(self) -> pulumi.Output[str]:
+    def dbi_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Region-unique, immutable identifier for the DB instance.
         """
@@ -1432,7 +1432,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         DNS address for this instance. May not be writable
         """
@@ -1448,7 +1448,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         Database engine version.
         """
@@ -1456,7 +1456,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersionActual")
-    def engine_version_actual(self) -> pulumi.Output[str]:
+    def engine_version_actual(self) -> pulumi.Output[Optional[str]]:
         """
         Database engine version
         """
@@ -1464,7 +1464,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identifier(self) -> pulumi.Output[str]:
+    def identifier(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
         """
@@ -1472,7 +1472,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identifierPrefix")
-    def identifier_prefix(self) -> pulumi.Output[str]:
+    def identifier_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         """
@@ -1488,7 +1488,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the KMS encryption key if one is set to the cluster.
         """
@@ -1504,7 +1504,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringRoleArn")
-    def monitoring_role_arn(self) -> pulumi.Output[str]:
+    def monitoring_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         """
@@ -1512,7 +1512,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> pulumi.Output[str]:
+    def network_type(self) -> pulumi.Output[Optional[str]]:
         """
         Network type of the DB instance.
         """
@@ -1520,7 +1520,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceInsightsEnabled")
-    def performance_insights_enabled(self) -> pulumi.Output[bool]:
+    def performance_insights_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether Performance Insights is enabled or not.
         """
@@ -1528,7 +1528,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
-    def performance_insights_kms_key_id(self) -> pulumi.Output[str]:
+    def performance_insights_kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         """
@@ -1536,7 +1536,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
-    def performance_insights_retention_period(self) -> pulumi.Output[int]:
+    def performance_insights_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
         Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         """
@@ -1544,7 +1544,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         Database port
         """
@@ -1552,7 +1552,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> pulumi.Output[str]:
+    def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
         """
         Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         """
@@ -1560,7 +1560,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> pulumi.Output[str]:
+    def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         """
@@ -1584,7 +1584,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> pulumi.Output[bool]:
+    def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the DB cluster is encrypted.
         """
@@ -1611,7 +1611,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def writer(self) -> pulumi.Output[bool]:
+    def writer(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """

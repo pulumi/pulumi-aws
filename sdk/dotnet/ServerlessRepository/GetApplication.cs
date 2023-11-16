@@ -134,40 +134,40 @@ namespace Pulumi.Aws.ServerlessRepository
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the application.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// A list of capabilities describing the permissions needed to deploy the application.
         /// </summary>
         public readonly ImmutableArray<string> RequiredCapabilities;
-        public readonly string SemanticVersion;
+        public readonly string? SemanticVersion;
         /// <summary>
         /// URL pointing to the source code of the application version.
         /// </summary>
-        public readonly string SourceCodeUrl;
+        public readonly string? SourceCodeUrl;
         /// <summary>
         /// URL pointing to the Cloud Formation template for the application version.
         /// </summary>
-        public readonly string TemplateUrl;
+        public readonly string? TemplateUrl;
 
         [OutputConstructor]
         private GetApplicationResult(
             string applicationId,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             ImmutableArray<string> requiredCapabilities,
 
-            string semanticVersion,
+            string? semanticVersion,
 
-            string sourceCodeUrl,
+            string? sourceCodeUrl,
 
-            string templateUrl)
+            string? templateUrl)
         {
             ApplicationId = applicationId;
             Id = id;

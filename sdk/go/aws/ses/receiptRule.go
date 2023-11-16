@@ -75,7 +75,7 @@ type ReceiptRule struct {
 	// The name of the rule to place this rule after
 	After pulumi.StringPtrOutput `pulumi:"after"`
 	// The SES receipt rule ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A list of Bounce Action blocks. Documented below.
 	BounceActions ReceiptRuleBounceActionArrayOutput `pulumi:"bounceActions"`
 	// If true, the rule will be enabled
@@ -97,7 +97,7 @@ type ReceiptRule struct {
 	// A list of Stop Action blocks. Documented below.
 	StopActions ReceiptRuleStopActionArrayOutput `pulumi:"stopActions"`
 	// `Require` or `Optional`
-	TlsPolicy pulumi.StringOutput `pulumi:"tlsPolicy"`
+	TlsPolicy pulumi.StringPtrOutput `pulumi:"tlsPolicy"`
 	// A list of WorkMail Action blocks. Documented below.
 	WorkmailActions ReceiptRuleWorkmailActionArrayOutput `pulumi:"workmailActions"`
 }
@@ -365,8 +365,8 @@ func (o ReceiptRuleOutput) After() pulumi.StringPtrOutput {
 }
 
 // The SES receipt rule ARN.
-func (o ReceiptRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReceiptRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A list of Bounce Action blocks. Documented below.
@@ -420,8 +420,8 @@ func (o ReceiptRuleOutput) StopActions() ReceiptRuleStopActionArrayOutput {
 }
 
 // `Require` or `Optional`
-func (o ReceiptRuleOutput) TlsPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.TlsPolicy }).(pulumi.StringOutput)
+func (o ReceiptRuleOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRule) pulumi.StringPtrOutput { return v.TlsPolicy }).(pulumi.StringPtrOutput)
 }
 
 // A list of WorkMail Action blocks. Documented below.

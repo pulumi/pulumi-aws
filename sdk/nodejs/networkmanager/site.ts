@@ -59,7 +59,7 @@ export class Site extends pulumi.CustomResource {
     /**
      * Site Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the Site.
      */

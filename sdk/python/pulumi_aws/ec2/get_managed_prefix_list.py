@@ -57,7 +57,7 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> str:
+    def address_family(self) -> Optional[str]:
         """
         Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
         """
@@ -65,7 +65,7 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected prefix list.
         """
@@ -73,7 +73,7 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter
-    def entries(self) -> Sequence['outputs.GetManagedPrefixListEntryResult']:
+    def entries(self) -> Optional[Sequence['outputs.GetManagedPrefixListEntryResult']]:
         """
         Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
         """
@@ -86,7 +86,7 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         ID of the selected prefix list.
         """
@@ -94,7 +94,7 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter(name="maxEntries")
-    def max_entries(self) -> int:
+    def max_entries(self) -> Optional[int]:
         """
         When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
         """
@@ -102,7 +102,7 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the selected prefix list.
         """
@@ -110,7 +110,7 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
         """
@@ -118,7 +118,7 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the resource.
         """
@@ -126,7 +126,7 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter
-    def version(self) -> int:
+    def version(self) -> Optional[int]:
         return pulumi.get(self, "version")
 
 

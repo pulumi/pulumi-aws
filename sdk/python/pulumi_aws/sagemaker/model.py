@@ -543,7 +543,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this model.
         """
@@ -575,7 +575,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inferenceExecutionConfig")
-    def inference_execution_config(self) -> pulumi.Output['outputs.ModelInferenceExecutionConfig']:
+    def inference_execution_config(self) -> pulumi.Output[Optional['outputs.ModelInferenceExecutionConfig']]:
         """
         Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
         """

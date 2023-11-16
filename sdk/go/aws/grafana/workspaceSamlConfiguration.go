@@ -101,7 +101,7 @@ type WorkspaceSamlConfiguration struct {
 	// The editor role values.
 	EditorRoleValues pulumi.StringArrayOutput `pulumi:"editorRoleValues"`
 	// The email assertion.
-	EmailAssertion pulumi.StringOutput `pulumi:"emailAssertion"`
+	EmailAssertion pulumi.StringPtrOutput `pulumi:"emailAssertion"`
 	// The groups assertion.
 	GroupsAssertion pulumi.StringPtrOutput `pulumi:"groupsAssertion"`
 	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
@@ -109,17 +109,17 @@ type WorkspaceSamlConfiguration struct {
 	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataXml pulumi.StringPtrOutput `pulumi:"idpMetadataXml"`
 	// The login assertion.
-	LoginAssertion pulumi.StringOutput `pulumi:"loginAssertion"`
+	LoginAssertion pulumi.StringPtrOutput `pulumi:"loginAssertion"`
 	// The login validity duration.
-	LoginValidityDuration pulumi.IntOutput `pulumi:"loginValidityDuration"`
+	LoginValidityDuration pulumi.IntPtrOutput `pulumi:"loginValidityDuration"`
 	// The name assertion.
-	NameAssertion pulumi.StringOutput `pulumi:"nameAssertion"`
+	NameAssertion pulumi.StringPtrOutput `pulumi:"nameAssertion"`
 	// The org assertion.
 	OrgAssertion pulumi.StringPtrOutput `pulumi:"orgAssertion"`
 	// The role assertion.
 	RoleAssertion pulumi.StringPtrOutput `pulumi:"roleAssertion"`
 	// The status of the SAML configuration.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The workspace id.
 	//
 	// The following arguments are optional:
@@ -397,8 +397,8 @@ func (o WorkspaceSamlConfigurationOutput) EditorRoleValues() pulumi.StringArrayO
 }
 
 // The email assertion.
-func (o WorkspaceSamlConfigurationOutput) EmailAssertion() pulumi.StringOutput {
-	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.EmailAssertion }).(pulumi.StringOutput)
+func (o WorkspaceSamlConfigurationOutput) EmailAssertion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.EmailAssertion }).(pulumi.StringPtrOutput)
 }
 
 // The groups assertion.
@@ -417,18 +417,18 @@ func (o WorkspaceSamlConfigurationOutput) IdpMetadataXml() pulumi.StringPtrOutpu
 }
 
 // The login assertion.
-func (o WorkspaceSamlConfigurationOutput) LoginAssertion() pulumi.StringOutput {
-	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.LoginAssertion }).(pulumi.StringOutput)
+func (o WorkspaceSamlConfigurationOutput) LoginAssertion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.LoginAssertion }).(pulumi.StringPtrOutput)
 }
 
 // The login validity duration.
-func (o WorkspaceSamlConfigurationOutput) LoginValidityDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.IntOutput { return v.LoginValidityDuration }).(pulumi.IntOutput)
+func (o WorkspaceSamlConfigurationOutput) LoginValidityDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.IntPtrOutput { return v.LoginValidityDuration }).(pulumi.IntPtrOutput)
 }
 
 // The name assertion.
-func (o WorkspaceSamlConfigurationOutput) NameAssertion() pulumi.StringOutput {
-	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.NameAssertion }).(pulumi.StringOutput)
+func (o WorkspaceSamlConfigurationOutput) NameAssertion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.NameAssertion }).(pulumi.StringPtrOutput)
 }
 
 // The org assertion.
@@ -442,8 +442,8 @@ func (o WorkspaceSamlConfigurationOutput) RoleAssertion() pulumi.StringPtrOutput
 }
 
 // The status of the SAML configuration.
-func (o WorkspaceSamlConfigurationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o WorkspaceSamlConfigurationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The workspace id.

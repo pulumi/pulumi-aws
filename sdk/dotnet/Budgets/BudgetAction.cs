@@ -140,13 +140,13 @@ namespace Pulumi.Aws.Budgets
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The id of the budget action.
         /// </summary>
         [Output("actionId")]
-        public Output<string> ActionId { get; private set; } = null!;
+        public Output<string?> ActionId { get; private set; } = null!;
 
         /// <summary>
         /// The trigger threshold of the action. See Action Threshold.
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Budgets
         /// The ARN of the budget action.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of a budget.
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Budgets
         /// The status of the budget action.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A list of subscribers. See Subscriber.

@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Dms
     public partial class ReplicationSubnetGroup : global::Pulumi.CustomResource
     {
         [Output("replicationSubnetGroupArn")]
-        public Output<string> ReplicationSubnetGroupArn { get; private set; } = null!;
+        public Output<string?> ReplicationSubnetGroupArn { get; private set; } = null!;
 
         /// <summary>
         /// Description for the subnet group.
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Dms
         /// The ID of the VPC the subnet group is in.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

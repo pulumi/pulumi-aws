@@ -307,14 +307,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="integrationResponseSelectionExpression", refs={String.class}, tree="[0]")
-    private Output<String> integrationResponseSelectionExpression;
+    private Output</* @Nullable */ String> integrationResponseSelectionExpression;
 
     /**
      * @return The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
      * 
      */
-    public Output<String> integrationResponseSelectionExpression() {
-        return this.integrationResponseSelectionExpression;
+    public Output<Optional<String>> integrationResponseSelectionExpression() {
+        return Codegen.optional(this.integrationResponseSelectionExpression);
     }
     /**
      * AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
@@ -461,7 +461,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="timeoutMilliseconds", refs={Integer.class}, tree="[0]")
-    private Output<Integer> timeoutMilliseconds;
+    private Output</* @Nullable */ Integer> timeoutMilliseconds;
 
     /**
      * @return Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
@@ -469,8 +469,8 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * this provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    public Output<Integer> timeoutMilliseconds() {
-        return this.timeoutMilliseconds;
+    public Output<Optional<Integer>> timeoutMilliseconds() {
+        return Codegen.optional(this.timeoutMilliseconds);
     }
     /**
      * TLS configuration for a private integration. Supported only for HTTP APIs.

@@ -403,7 +403,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Full ARN of the repository.
         """
@@ -424,7 +424,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> pulumi.Output[str]:
+    def registry_id(self) -> pulumi.Output[Optional[str]]:
         """
         The registry ID where the repository was created.
         """
@@ -440,7 +440,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repositoryUri")
-    def repository_uri(self) -> pulumi.Output[str]:
+    def repository_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URI of the repository.
         """

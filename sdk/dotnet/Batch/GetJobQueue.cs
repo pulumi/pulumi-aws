@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// ARN of the job queue.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The compute environments that are attached to the job queue and the order in
         /// which job placement is preferred. Compute environments are selected for job placement in ascending order.
@@ -141,56 +141,56 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Priority of the job queue. Job queues with a higher priority are evaluated first when
         /// associated with the same compute environment.
         /// </summary>
-        public readonly int Priority;
+        public readonly int? Priority;
         /// <summary>
         /// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
         /// </summary>
-        public readonly string SchedulingPolicyArn;
+        public readonly string? SchedulingPolicyArn;
         /// <summary>
         /// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// Current status of the job queue (for example, `CREATING` or `VALID`).
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Short, human-readable string to provide additional details about the current status
         /// of the job queue.
         /// </summary>
-        public readonly string StatusReason;
+        public readonly string? StatusReason;
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetJobQueueResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrderResult> computeEnvironmentOrders,
 
-            string id,
+            string? id,
 
             string name,
 
-            int priority,
+            int? priority,
 
-            string schedulingPolicyArn,
+            string? schedulingPolicyArn,
 
-            string state,
+            string? state,
 
-            string status,
+            string? status,
 
-            string statusReason,
+            string? statusReason,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ComputeEnvironmentOrders = computeEnvironmentOrders;

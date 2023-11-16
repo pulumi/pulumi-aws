@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContactResult {
@@ -14,36 +16,36 @@ public final class GetContactResult {
      * @return A unique and identifiable alias of the contact or escalation plan.
      * 
      */
-    private String alias;
+    private @Nullable String alias;
     private String arn;
     /**
      * @return Full friendly name of the contact or escalation plan.
      * 
      */
-    private String displayName;
+    private @Nullable String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Map of tags to assign to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetContactResult() {}
     /**
      * @return A unique and identifiable alias of the contact or escalation plan.
      * 
      */
-    public String alias() {
-        return this.alias;
+    public Optional<String> alias() {
+        return Optional.ofNullable(this.alias);
     }
     public String arn() {
         return this.arn;
@@ -52,29 +54,29 @@ public final class GetContactResult {
      * @return Full friendly name of the contact or escalation plan.
      * 
      */
-    public String displayName() {
-        return this.displayName;
+    public Optional<String> displayName() {
+        return Optional.ofNullable(this.displayName);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Map of tags to assign to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -86,12 +88,12 @@ public final class GetContactResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String alias;
+        private @Nullable String alias;
         private String arn;
-        private String displayName;
-        private String id;
-        private Map<String,String> tags;
-        private String type;
+        private @Nullable String displayName;
+        private @Nullable String id;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetContactResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,8 +106,8 @@ public final class GetContactResult {
         }
 
         @CustomType.Setter
-        public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+        public Builder alias(@Nullable String alias) {
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
@@ -114,23 +116,23 @@ public final class GetContactResult {
             return this;
         }
         @CustomType.Setter
-        public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+        public Builder displayName(@Nullable String displayName) {
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetContactResult build() {

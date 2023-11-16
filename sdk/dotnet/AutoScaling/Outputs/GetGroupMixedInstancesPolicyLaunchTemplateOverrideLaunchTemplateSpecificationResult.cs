@@ -16,23 +16,23 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// ID of the launch template.
         /// </summary>
-        public readonly string LaunchTemplateId;
+        public readonly string? LaunchTemplateId;
         /// <summary>
         /// Name of the launch template.
         /// </summary>
-        public readonly string LaunchTemplateName;
+        public readonly string? LaunchTemplateName;
         /// <summary>
         /// Template version.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult(
-            string launchTemplateId,
+            string? launchTemplateId,
 
-            string launchTemplateName,
+            string? launchTemplateName,
 
-            string version)
+            string? version)
         {
             LaunchTemplateId = launchTemplateId;
             LaunchTemplateName = launchTemplateName;

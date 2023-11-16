@@ -235,16 +235,16 @@ export interface GetScriptResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly language?: string;
     /**
      * Python script generated from the DAG when the `language` argument is set to `PYTHON`.
      */
-    readonly pythonScript: string;
+    readonly pythonScript?: string;
     /**
      * Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      */
-    readonly scalaCode: string;
+    readonly scalaCode?: string;
 }
 /**
  * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).

@@ -355,14 +355,14 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="amazonManagedKafkaEventSourceConfig", refs={EventSourceMappingAmazonManagedKafkaEventSourceConfig.class}, tree="[0]")
-    private Output<EventSourceMappingAmazonManagedKafkaEventSourceConfig> amazonManagedKafkaEventSourceConfig;
+    private Output</* @Nullable */ EventSourceMappingAmazonManagedKafkaEventSourceConfig> amazonManagedKafkaEventSourceConfig;
 
     /**
      * @return Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
      * 
      */
-    public Output<EventSourceMappingAmazonManagedKafkaEventSourceConfig> amazonManagedKafkaEventSourceConfig() {
-        return this.amazonManagedKafkaEventSourceConfig;
+    public Output<Optional<EventSourceMappingAmazonManagedKafkaEventSourceConfig>> amazonManagedKafkaEventSourceConfig() {
+        return Codegen.optional(this.amazonManagedKafkaEventSourceConfig);
     }
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
@@ -467,14 +467,14 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="functionArn", refs={String.class}, tree="[0]")
-    private Output<String> functionArn;
+    private Output</* @Nullable */ String> functionArn;
 
     /**
      * @return The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
      * 
      */
-    public Output<String> functionArn() {
-        return this.functionArn;
+    public Output<Optional<String>> functionArn() {
+        return Codegen.optional(this.functionArn);
     }
     /**
      * The name or the ARN of the Lambda function that will be subscribing to events.
@@ -509,28 +509,28 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
-    private Output<String> lastModified;
+    private Output</* @Nullable */ String> lastModified;
 
     /**
      * @return The date this resource was last modified.
      * 
      */
-    public Output<String> lastModified() {
-        return this.lastModified;
+    public Output<Optional<String>> lastModified() {
+        return Codegen.optional(this.lastModified);
     }
     /**
      * The result of the last AWS Lambda invocation of your Lambda function.
      * 
      */
     @Export(name="lastProcessingResult", refs={String.class}, tree="[0]")
-    private Output<String> lastProcessingResult;
+    private Output</* @Nullable */ String> lastProcessingResult;
 
     /**
      * @return The result of the last AWS Lambda invocation of your Lambda function.
      * 
      */
-    public Output<String> lastProcessingResult() {
-        return this.lastProcessingResult;
+    public Output<Optional<String>> lastProcessingResult() {
+        return Codegen.optional(this.lastProcessingResult);
     }
     /**
      * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
@@ -551,42 +551,42 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maximumRecordAgeInSeconds", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maximumRecordAgeInSeconds;
+    private Output</* @Nullable */ Integer> maximumRecordAgeInSeconds;
 
     /**
      * @return - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      * 
      */
-    public Output<Integer> maximumRecordAgeInSeconds() {
-        return this.maximumRecordAgeInSeconds;
+    public Output<Optional<Integer>> maximumRecordAgeInSeconds() {
+        return Codegen.optional(this.maximumRecordAgeInSeconds);
     }
     /**
      * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      * 
      */
     @Export(name="maximumRetryAttempts", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maximumRetryAttempts;
+    private Output</* @Nullable */ Integer> maximumRetryAttempts;
 
     /**
      * @return - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      * 
      */
-    public Output<Integer> maximumRetryAttempts() {
-        return this.maximumRetryAttempts;
+    public Output<Optional<Integer>> maximumRetryAttempts() {
+        return Codegen.optional(this.maximumRetryAttempts);
     }
     /**
      * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
     @Export(name="parallelizationFactor", refs={Integer.class}, tree="[0]")
-    private Output<Integer> parallelizationFactor;
+    private Output</* @Nullable */ Integer> parallelizationFactor;
 
     /**
      * @return - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
-    public Output<Integer> parallelizationFactor() {
-        return this.parallelizationFactor;
+    public Output<Optional<Integer>> parallelizationFactor() {
+        return Codegen.optional(this.parallelizationFactor);
     }
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
@@ -635,14 +635,14 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="selfManagedKafkaEventSourceConfig", refs={EventSourceMappingSelfManagedKafkaEventSourceConfig.class}, tree="[0]")
-    private Output<EventSourceMappingSelfManagedKafkaEventSourceConfig> selfManagedKafkaEventSourceConfig;
+    private Output</* @Nullable */ EventSourceMappingSelfManagedKafkaEventSourceConfig> selfManagedKafkaEventSourceConfig;
 
     /**
      * @return Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
      * 
      */
-    public Output<EventSourceMappingSelfManagedKafkaEventSourceConfig> selfManagedKafkaEventSourceConfig() {
-        return this.selfManagedKafkaEventSourceConfig;
+    public Output<Optional<EventSourceMappingSelfManagedKafkaEventSourceConfig>> selfManagedKafkaEventSourceConfig() {
+        return Codegen.optional(this.selfManagedKafkaEventSourceConfig);
     }
     /**
      * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
@@ -691,28 +691,28 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The state of the event source mapping.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * The reason the event source mapping is in its current state.
      * 
      */
     @Export(name="stateTransitionReason", refs={String.class}, tree="[0]")
-    private Output<String> stateTransitionReason;
+    private Output</* @Nullable */ String> stateTransitionReason;
 
     /**
      * @return The reason the event source mapping is in its current state.
      * 
      */
-    public Output<String> stateTransitionReason() {
-        return this.stateTransitionReason;
+    public Output<Optional<String>> stateTransitionReason() {
+        return Codegen.optional(this.stateTransitionReason);
     }
     /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
@@ -747,14 +747,14 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uuid", refs={String.class}, tree="[0]")
-    private Output<String> uuid;
+    private Output</* @Nullable */ String> uuid;
 
     /**
      * @return The UUID of the created event source mapping.
      * 
      */
-    public Output<String> uuid() {
-        return this.uuid;
+    public Output<Optional<String>> uuid() {
+        return Codegen.optional(this.uuid);
     }
 
     /**

@@ -85,14 +85,14 @@ public class S3Location extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Amazon Resource Name (ARN) of the S3 Bucket.
@@ -127,14 +127,14 @@ public class S3Location extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="s3StorageClass", refs={String.class}, tree="[0]")
-    private Output<String> s3StorageClass;
+    private Output</* @Nullable */ String> s3StorageClass;
 
     /**
      * @return The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      * 
      */
-    public Output<String> s3StorageClass() {
-        return this.s3StorageClass;
+    public Output<Optional<String>> s3StorageClass() {
+        return Codegen.optional(this.s3StorageClass);
     }
     /**
      * Prefix to perform actions as source or destination.
@@ -183,10 +183,10 @@ public class S3Location extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     @Export(name="uri", refs={String.class}, tree="[0]")
-    private Output<String> uri;
+    private Output</* @Nullable */ String> uri;
 
-    public Output<String> uri() {
-        return this.uri;
+    public Output<Optional<String>> uri() {
+        return Codegen.optional(this.uri);
     }
 
     /**

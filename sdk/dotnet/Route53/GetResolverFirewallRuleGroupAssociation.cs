@@ -113,53 +113,53 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallRuleGroupAssociationResult
     {
-        public readonly string Arn;
-        public readonly string CreationTime;
-        public readonly string CreatorRequestId;
+        public readonly string? Arn;
+        public readonly string? CreationTime;
+        public readonly string? CreatorRequestId;
         public readonly string FirewallRuleGroupAssociationId;
-        public readonly string FirewallRuleGroupId;
+        public readonly string? FirewallRuleGroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string ManagedOwnerName;
-        public readonly string ModificationTime;
-        public readonly string MutationProtection;
-        public readonly string Name;
-        public readonly int Priority;
-        public readonly string Status;
-        public readonly string StatusMessage;
-        public readonly string VpcId;
+        public readonly string? Id;
+        public readonly string? ManagedOwnerName;
+        public readonly string? ModificationTime;
+        public readonly string? MutationProtection;
+        public readonly string? Name;
+        public readonly int? Priority;
+        public readonly string? Status;
+        public readonly string? StatusMessage;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetResolverFirewallRuleGroupAssociationResult(
-            string arn,
+            string? arn,
 
-            string creationTime,
+            string? creationTime,
 
-            string creatorRequestId,
+            string? creatorRequestId,
 
             string firewallRuleGroupAssociationId,
 
-            string firewallRuleGroupId,
+            string? firewallRuleGroupId,
 
-            string id,
+            string? id,
 
-            string managedOwnerName,
+            string? managedOwnerName,
 
-            string modificationTime,
+            string? modificationTime,
 
-            string mutationProtection,
+            string? mutationProtection,
 
-            string name,
+            string? name,
 
-            int priority,
+            int? priority,
 
-            string status,
+            string? status,
 
-            string statusMessage,
+            string? statusMessage,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             CreationTime = creationTime;

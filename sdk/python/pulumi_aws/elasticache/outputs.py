@@ -375,30 +375,35 @@ class UserAuthenticationMode(dict):
 @pulumi.output_type
 class GetClusterCacheNodeResult(dict):
     def __init__(__self__, *,
-                 address: str,
-                 availability_zone: str,
-                 id: str,
-                 outpost_arn: str,
-                 port: int):
+                 address: Optional[str] = None,
+                 availability_zone: Optional[str] = None,
+                 id: Optional[str] = None,
+                 outpost_arn: Optional[str] = None,
+                 port: Optional[int] = None):
         """
         :param str availability_zone: Availability Zone for the cache cluster.
         :param int port: The port number on which each of the cache nodes will
                accept connections.
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "outpost_arn", outpost_arn)
-        pulumi.set(__self__, "port", port)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
-    def address(self) -> str:
+    def address(self) -> Optional[str]:
         return pulumi.get(self, "address")
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         """
         Availability Zone for the cache cluster.
         """
@@ -406,17 +411,17 @@ class GetClusterCacheNodeResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> str:
+    def outpost_arn(self) -> Optional[str]:
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         """
         The port number on which each of the cache nodes will
         accept connections.
@@ -427,66 +432,74 @@ class GetClusterCacheNodeResult(dict):
 @pulumi.output_type
 class GetClusterLogDeliveryConfigurationResult(dict):
     def __init__(__self__, *,
-                 destination: str,
-                 destination_type: str,
-                 log_format: str,
-                 log_type: str):
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "destination_type", destination_type)
-        pulumi.set(__self__, "log_format", log_format)
-        pulumi.set(__self__, "log_type", log_type)
+                 destination: Optional[str] = None,
+                 destination_type: Optional[str] = None,
+                 log_format: Optional[str] = None,
+                 log_type: Optional[str] = None):
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if destination_type is not None:
+            pulumi.set(__self__, "destination_type", destination_type)
+        if log_format is not None:
+            pulumi.set(__self__, "log_format", log_format)
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter
-    def destination(self) -> str:
+    def destination(self) -> Optional[str]:
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationType")
-    def destination_type(self) -> str:
+    def destination_type(self) -> Optional[str]:
         return pulumi.get(self, "destination_type")
 
     @property
     @pulumi.getter(name="logFormat")
-    def log_format(self) -> str:
+    def log_format(self) -> Optional[str]:
         return pulumi.get(self, "log_format")
 
     @property
     @pulumi.getter(name="logType")
-    def log_type(self) -> str:
+    def log_type(self) -> Optional[str]:
         return pulumi.get(self, "log_type")
 
 
 @pulumi.output_type
 class GetReplicationGroupLogDeliveryConfigurationResult(dict):
     def __init__(__self__, *,
-                 destination: str,
-                 destination_type: str,
-                 log_format: str,
-                 log_type: str):
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "destination_type", destination_type)
-        pulumi.set(__self__, "log_format", log_format)
-        pulumi.set(__self__, "log_type", log_type)
+                 destination: Optional[str] = None,
+                 destination_type: Optional[str] = None,
+                 log_format: Optional[str] = None,
+                 log_type: Optional[str] = None):
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if destination_type is not None:
+            pulumi.set(__self__, "destination_type", destination_type)
+        if log_format is not None:
+            pulumi.set(__self__, "log_format", log_format)
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter
-    def destination(self) -> str:
+    def destination(self) -> Optional[str]:
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationType")
-    def destination_type(self) -> str:
+    def destination_type(self) -> Optional[str]:
         return pulumi.get(self, "destination_type")
 
     @property
     @pulumi.getter(name="logFormat")
-    def log_format(self) -> str:
+    def log_format(self) -> Optional[str]:
         return pulumi.get(self, "log_format")
 
     @property
     @pulumi.getter(name="logType")
-    def log_type(self) -> str:
+    def log_type(self) -> Optional[str]:
         return pulumi.get(self, "log_type")
 
 

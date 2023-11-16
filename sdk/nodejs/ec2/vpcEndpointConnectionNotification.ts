@@ -89,11 +89,11 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     /**
      * The type of notification.
      */
-    public /*out*/ readonly notificationType!: pulumi.Output<string>;
+    public /*out*/ readonly notificationType!: pulumi.Output<string | undefined>;
     /**
      * The state of the notification.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */

@@ -6,6 +6,8 @@ package com.pulumi.aws.networkmanager.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSiteLocation {
@@ -13,39 +15,39 @@ public final class GetSiteLocation {
      * @return Address of the location.
      * 
      */
-    private String address;
+    private @Nullable String address;
     /**
      * @return Latitude of the location.
      * 
      */
-    private String latitude;
+    private @Nullable String latitude;
     /**
      * @return Longitude of the location.
      * 
      */
-    private String longitude;
+    private @Nullable String longitude;
 
     private GetSiteLocation() {}
     /**
      * @return Address of the location.
      * 
      */
-    public String address() {
-        return this.address;
+    public Optional<String> address() {
+        return Optional.ofNullable(this.address);
     }
     /**
      * @return Latitude of the location.
      * 
      */
-    public String latitude() {
-        return this.latitude;
+    public Optional<String> latitude() {
+        return Optional.ofNullable(this.latitude);
     }
     /**
      * @return Longitude of the location.
      * 
      */
-    public String longitude() {
-        return this.longitude;
+    public Optional<String> longitude() {
+        return Optional.ofNullable(this.longitude);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetSiteLocation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String address;
-        private String latitude;
-        private String longitude;
+        private @Nullable String address;
+        private @Nullable String latitude;
+        private @Nullable String longitude;
         public Builder() {}
         public Builder(GetSiteLocation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetSiteLocation {
         }
 
         @CustomType.Setter
-        public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+        public Builder address(@Nullable String address) {
+            this.address = address;
             return this;
         }
         @CustomType.Setter
-        public Builder latitude(String latitude) {
-            this.latitude = Objects.requireNonNull(latitude);
+        public Builder latitude(@Nullable String latitude) {
+            this.latitude = latitude;
             return this;
         }
         @CustomType.Setter
-        public Builder longitude(String longitude) {
-            this.longitude = Objects.requireNonNull(longitude);
+        public Builder longitude(@Nullable String longitude) {
+            this.longitude = longitude;
             return this;
         }
         public GetSiteLocation build() {

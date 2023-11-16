@@ -62,7 +62,7 @@ type Stage struct {
 	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// ARN of the stage.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
 	AutoDeploy pulumi.BoolPtrOutput `pulumi:"autoDeploy"`
 	// Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
@@ -71,16 +71,16 @@ type Stage struct {
 	// Default route settings for the stage.
 	DefaultRouteSettings StageDefaultRouteSettingsPtrOutput `pulumi:"defaultRouteSettings"`
 	// Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
-	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
+	DeploymentId pulumi.StringPtrOutput `pulumi:"deploymentId"`
 	// Description for the stage. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute.
 	// For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
+	ExecutionArn pulumi.StringPtrOutput `pulumi:"executionArn"`
 	// URL to invoke the API pointing to the stage,
 	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
-	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
+	InvokeUrl pulumi.StringPtrOutput `pulumi:"invokeUrl"`
 	// Name of the stage. Must be between 1 and 128 characters in length.
 	//
 	// The following arguments are optional:
@@ -379,8 +379,8 @@ func (o StageOutput) ApiId() pulumi.StringOutput {
 }
 
 // ARN of the stage.
-func (o StageOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StageOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
@@ -400,8 +400,8 @@ func (o StageOutput) DefaultRouteSettings() StageDefaultRouteSettingsPtrOutput {
 }
 
 // Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
-func (o StageOutput) DeploymentId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
+func (o StageOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
 
 // Description for the stage. Must be less than or equal to 1024 characters in length.
@@ -412,14 +412,14 @@ func (o StageOutput) Description() pulumi.StringPtrOutput {
 // ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute.
 // For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 // See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-func (o StageOutput) ExecutionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
+func (o StageOutput) ExecutionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.ExecutionArn }).(pulumi.StringPtrOutput)
 }
 
 // URL to invoke the API pointing to the stage,
 // e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
-func (o StageOutput) InvokeUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
+func (o StageOutput) InvokeUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.InvokeUrl }).(pulumi.StringPtrOutput)
 }
 
 // Name of the stage. Must be between 1 and 128 characters in length.

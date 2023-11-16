@@ -51,7 +51,7 @@ export class TestGridProject extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this Test Grid Project.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Human-readable description of the project.
      */

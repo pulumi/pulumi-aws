@@ -59,13 +59,13 @@ type SubnetGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the docDB subnet group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// A list of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -272,8 +272,8 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 }
 
 // The ARN of the docDB subnet group.
-func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SubnetGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the docDB subnet group. Defaults to "Managed by Pulumi".
@@ -287,8 +287,8 @@ func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o SubnetGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o SubnetGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // A list of VPC subnet IDs.

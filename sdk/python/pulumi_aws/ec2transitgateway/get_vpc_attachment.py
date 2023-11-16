@@ -57,7 +57,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter(name="applianceModeSupport")
-    def appliance_mode_support(self) -> str:
+    def appliance_mode_support(self) -> Optional[str]:
         """
         Whether Appliance Mode support is enabled.
         """
@@ -65,7 +65,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter(name="dnsSupport")
-    def dns_support(self) -> str:
+    def dns_support(self) -> Optional[str]:
         """
         Whether DNS support is enabled.
         """
@@ -78,7 +78,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         EC2 Transit Gateway VPC Attachment identifier
         """
@@ -86,7 +86,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter(name="ipv6Support")
-    def ipv6_support(self) -> str:
+    def ipv6_support(self) -> Optional[str]:
         """
         Whether IPv6 support is enabled.
         """
@@ -94,7 +94,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         Identifiers of EC2 Subnets.
         """
@@ -102,7 +102,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the EC2 Transit Gateway VPC Attachment
         """
@@ -110,7 +110,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> Optional[str]:
         """
         EC2 Transit Gateway identifier
         """
@@ -118,7 +118,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         Identifier of EC2 VPC.
         """
@@ -126,7 +126,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter(name="vpcOwnerId")
-    def vpc_owner_id(self) -> str:
+    def vpc_owner_id(self) -> Optional[str]:
         """
         Identifier of the AWS account that owns the EC2 VPC.
         """

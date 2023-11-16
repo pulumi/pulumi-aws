@@ -52,7 +52,7 @@ type AccountSubscription struct {
 	// Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// Status of the Amazon QuickSight account's subscription.
-	AccountSubscriptionStatus pulumi.StringOutput `pulumi:"accountSubscriptionStatus"`
+	AccountSubscriptionStatus pulumi.StringPtrOutput `pulumi:"accountSubscriptionStatus"`
 	// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	ActiveDirectoryName pulumi.StringPtrOutput `pulumi:"activeDirectoryName"`
 	// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
@@ -62,7 +62,7 @@ type AccountSubscription struct {
 	// Author group associated with your Active Directory.
 	AuthorGroups pulumi.StringArrayOutput `pulumi:"authorGroups"`
 	// AWS account ID hosting the QuickSight account. Default to provider account.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrOutput `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
@@ -368,8 +368,8 @@ func (o AccountSubscriptionOutput) AccountName() pulumi.StringOutput {
 }
 
 // Status of the Amazon QuickSight account's subscription.
-func (o AccountSubscriptionOutput) AccountSubscriptionStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.AccountSubscriptionStatus }).(pulumi.StringOutput)
+func (o AccountSubscriptionOutput) AccountSubscriptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.AccountSubscriptionStatus }).(pulumi.StringPtrOutput)
 }
 
 // Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
@@ -393,8 +393,8 @@ func (o AccountSubscriptionOutput) AuthorGroups() pulumi.StringArrayOutput {
 }
 
 // AWS account ID hosting the QuickSight account. Default to provider account.
-func (o AccountSubscriptionOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o AccountSubscriptionOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.

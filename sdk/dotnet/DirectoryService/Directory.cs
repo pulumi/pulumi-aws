@@ -185,13 +185,13 @@ namespace Pulumi.Aws.DirectoryService
         /// The access URL for the directory, such as `http://alias.awsapps.com`.
         /// </summary>
         [Output("accessUrl")]
-        public Output<string> AccessUrl { get; private set; } = null!;
+        public Output<string?> AccessUrl { get; private set; } = null!;
 
         /// <summary>
         /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         /// </summary>
         [Output("alias")]
-        public Output<string> Alias { get; private set; } = null!;
+        public Output<string?> Alias { get; private set; } = null!;
 
         /// <summary>
         /// Connector related information about the directory. Fields documented below.
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.DirectoryService
         /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         /// </summary>
         [Output("desiredNumberOfDomainControllers")]
-        public Output<int> DesiredNumberOfDomainControllers { get; private set; } = null!;
+        public Output<int?> DesiredNumberOfDomainControllers { get; private set; } = null!;
 
         /// <summary>
         /// A list of IP addresses of the DNS servers for the directory or connector.
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.DirectoryService
         /// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         /// </summary>
         [Output("edition")]
-        public Output<string> Edition { get; private set; } = null!;
+        public Output<string?> Edition { get; private set; } = null!;
 
         /// <summary>
         /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
@@ -245,19 +245,19 @@ namespace Pulumi.Aws.DirectoryService
         /// The ID of the security group created by the directory.
         /// </summary>
         [Output("securityGroupId")]
-        public Output<string> SecurityGroupId { get; private set; } = null!;
+        public Output<string?> SecurityGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The short name of the directory, such as `CORP`.
         /// </summary>
         [Output("shortName")]
-        public Output<string> ShortName { get; private set; } = null!;
+        public Output<string?> ShortName { get; private set; } = null!;
 
         /// <summary>
         /// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         /// </summary>
         [Output("size")]
-        public Output<string> Size { get; private set; } = null!;
+        public Output<string?> Size { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

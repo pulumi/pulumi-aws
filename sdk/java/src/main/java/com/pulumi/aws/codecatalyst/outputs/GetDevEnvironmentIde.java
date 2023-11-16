@@ -6,18 +6,20 @@ package com.pulumi.aws.codecatalyst.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDevEnvironmentIde {
-    private String name;
-    private String runtime;
+    private @Nullable String name;
+    private @Nullable String runtime;
 
     private GetDevEnvironmentIde() {}
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public String runtime() {
-        return this.runtime;
+    public Optional<String> runtime() {
+        return Optional.ofNullable(this.runtime);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetDevEnvironmentIde {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String name;
-        private String runtime;
+        private @Nullable String name;
+        private @Nullable String runtime;
         public Builder() {}
         public Builder(GetDevEnvironmentIde defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetDevEnvironmentIde {
         }
 
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder runtime(String runtime) {
-            this.runtime = Objects.requireNonNull(runtime);
+        public Builder runtime(@Nullable String runtime) {
+            this.runtime = runtime;
             return this;
         }
         public GetDevEnvironmentIde build() {

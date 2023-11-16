@@ -57,24 +57,24 @@ export interface GetApplicationResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the application.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * A list of capabilities describing the permissions needed to deploy the application.
      */
-    readonly requiredCapabilities: string[];
-    readonly semanticVersion: string;
+    readonly requiredCapabilities?: string[];
+    readonly semanticVersion?: string;
     /**
      * URL pointing to the source code of the application version.
      */
-    readonly sourceCodeUrl: string;
+    readonly sourceCodeUrl?: string;
     /**
      * URL pointing to the Cloud Formation template for the application version.
      */
-    readonly templateUrl: string;
+    readonly templateUrl?: string;
 }
 /**
  * Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.

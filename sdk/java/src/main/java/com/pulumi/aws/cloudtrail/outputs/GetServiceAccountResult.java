@@ -15,12 +15,12 @@ public final class GetServiceAccountResult {
      * @return ARN of the AWS CloudTrail service account in the selected region.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String region;
 
     private GetServiceAccountResult() {}
@@ -28,15 +28,15 @@ public final class GetServiceAccountResult {
      * @return ARN of the AWS CloudTrail service account in the selected region.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
@@ -51,8 +51,8 @@ public final class GetServiceAccountResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String id;
         private @Nullable String region;
         public Builder() {}
         public Builder(GetServiceAccountResult defaults) {
@@ -63,13 +63,13 @@ public final class GetServiceAccountResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

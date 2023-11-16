@@ -70,7 +70,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the instance.
         """
@@ -78,12 +78,12 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="autoResolveBestVoicesEnabled")
-    def auto_resolve_best_voices_enabled(self) -> bool:
+    def auto_resolve_best_voices_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "auto_resolve_best_voices_enabled")
 
     @property
     @pulumi.getter(name="contactFlowLogsEnabled")
-    def contact_flow_logs_enabled(self) -> bool:
+    def contact_flow_logs_enabled(self) -> Optional[bool]:
         """
         Whether contact flow logs are enabled.
         """
@@ -91,7 +91,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="contactLensEnabled")
-    def contact_lens_enabled(self) -> bool:
+    def contact_lens_enabled(self) -> Optional[bool]:
         """
         Whether contact lens is enabled.
         """
@@ -99,7 +99,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> Optional[str]:
         """
         When the instance was created.
         """
@@ -107,7 +107,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="earlyMediaEnabled")
-    def early_media_enabled(self) -> bool:
+    def early_media_enabled(self) -> Optional[bool]:
         """
         Whether early media for outbound calls is enabled .
         """
@@ -115,7 +115,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -123,7 +123,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="identityManagementType")
-    def identity_management_type(self) -> str:
+    def identity_management_type(self) -> Optional[str]:
         """
         Specifies The identity management type attached to the instance.
         """
@@ -131,7 +131,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="inboundCallsEnabled")
-    def inbound_calls_enabled(self) -> bool:
+    def inbound_calls_enabled(self) -> Optional[bool]:
         """
         Whether inbound calls are enabled.
         """
@@ -139,17 +139,17 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="instanceAlias")
-    def instance_alias(self) -> str:
+    def instance_alias(self) -> Optional[str]:
         return pulumi.get(self, "instance_alias")
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> Optional[str]:
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="multiPartyConferenceEnabled")
-    def multi_party_conference_enabled(self) -> bool:
+    def multi_party_conference_enabled(self) -> Optional[bool]:
         """
         Whether multi-party calls/conference is enabled.
         """
@@ -157,7 +157,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="outboundCallsEnabled")
-    def outbound_calls_enabled(self) -> bool:
+    def outbound_calls_enabled(self) -> Optional[bool]:
         """
         Whether outbound calls are enabled.
         """
@@ -165,7 +165,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> str:
+    def service_role(self) -> Optional[str]:
         """
         Service role of the instance.
         """
@@ -173,7 +173,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         State of the instance.
         """

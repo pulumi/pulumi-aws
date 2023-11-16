@@ -56,7 +56,7 @@ type GetDefaultTagsArgs struct {
 
 // A collection of values returned by getDefaultTags.
 type GetDefaultTagsResult struct {
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Blocks of default tags set on the provider. See details below.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -98,8 +98,8 @@ func (o GetDefaultTagsResultOutput) ToGetDefaultTagsResultOutputWithContext(ctx 
 	return o
 }
 
-func (o GetDefaultTagsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDefaultTagsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetDefaultTagsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDefaultTagsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Blocks of default tags set on the provider. See details below.

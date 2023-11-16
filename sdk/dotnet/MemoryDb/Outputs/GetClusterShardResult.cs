@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// <summary>
         /// Name of the cluster.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Set of nodes in this shard.
         /// </summary>
@@ -24,21 +24,21 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// <summary>
         /// Number of individual nodes in this shard.
         /// </summary>
-        public readonly int NumNodes;
+        public readonly int? NumNodes;
         /// <summary>
         /// Keyspace for this shard. Example: `0-16383`.
         /// </summary>
-        public readonly string Slots;
+        public readonly string? Slots;
 
         [OutputConstructor]
         private GetClusterShardResult(
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetClusterShardNodeResult> nodes,
 
-            int numNodes,
+            int? numNodes,
 
-            string slots)
+            string? slots)
         {
             Name = name;
             Nodes = nodes;

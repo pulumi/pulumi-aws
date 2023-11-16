@@ -512,7 +512,7 @@ class ConfiguredTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the configured table.
         """
@@ -520,7 +520,7 @@ class ConfiguredTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[str]:
+    def create_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time the configured table was created.
         """
@@ -570,7 +570,7 @@ class ConfiguredTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[str]:
+    def update_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time the configured table was last updated.
         """

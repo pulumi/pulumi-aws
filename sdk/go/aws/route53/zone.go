@@ -129,7 +129,7 @@ type Zone struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Hosted Zone.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
 	Comment pulumi.StringOutput `pulumi:"comment"`
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
@@ -142,7 +142,7 @@ type Zone struct {
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
 	// The Route 53 name server that created the SOA record.
-	PrimaryNameServer pulumi.StringOutput `pulumi:"primaryNameServer"`
+	PrimaryNameServer pulumi.StringPtrOutput `pulumi:"primaryNameServer"`
 	// A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -152,7 +152,7 @@ type Zone struct {
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayOutput `pulumi:"vpcs"`
 	// The Hosted Zone ID. This can be referenced by zone records.
-	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
+	ZoneId pulumi.StringPtrOutput `pulumi:"zoneId"`
 }
 
 // NewZone registers a new resource with the given unique name, arguments, and options.
@@ -370,8 +370,8 @@ func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 }
 
 // The Amazon Resource Name (ARN) of the Hosted Zone.
-func (o ZoneOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ZoneOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
@@ -401,8 +401,8 @@ func (o ZoneOutput) NameServers() pulumi.StringArrayOutput {
 }
 
 // The Route 53 name server that created the SOA record.
-func (o ZoneOutput) PrimaryNameServer() pulumi.StringOutput {
-	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.PrimaryNameServer }).(pulumi.StringOutput)
+func (o ZoneOutput) PrimaryNameServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.PrimaryNameServer }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -423,8 +423,8 @@ func (o ZoneOutput) Vpcs() ZoneVpcArrayOutput {
 }
 
 // The Hosted Zone ID. This can be referenced by zone records.
-func (o ZoneOutput) ZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.ZoneId }).(pulumi.StringOutput)
+func (o ZoneOutput) ZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.ZoneId }).(pulumi.StringPtrOutput)
 }
 
 type ZoneArrayOutput struct{ *pulumi.OutputState }

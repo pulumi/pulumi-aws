@@ -29,13 +29,13 @@ type Profile struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
 	As2Id pulumi.StringOutput `pulumi:"as2Id"`
 	// The list of certificate Ids from the imported certificate operation.
 	CertificateIds pulumi.StringArrayOutput `pulumi:"certificateIds"`
 	// The unique identifier for the AS2 profile.
-	ProfileId pulumi.StringOutput `pulumi:"profileId"`
+	ProfileId pulumi.StringPtrOutput `pulumi:"profileId"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringOutput `pulumi:"profileType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -232,8 +232,8 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 }
 
 // The ARN of the profile.
-func (o ProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
@@ -247,8 +247,8 @@ func (o ProfileOutput) CertificateIds() pulumi.StringArrayOutput {
 }
 
 // The unique identifier for the AS2 profile.
-func (o ProfileOutput) ProfileId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
+func (o ProfileOutput) ProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.ProfileId }).(pulumi.StringPtrOutput)
 }
 
 // The profile type should be LOCAL or PARTNER.

@@ -59,37 +59,37 @@ type LookupIndexArgs struct {
 // A collection of values returned by getIndex.
 type LookupIndexResult struct {
 	// ARN of the Index.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
 	CapacityUnits []GetIndexCapacityUnit `pulumi:"capacityUnits"`
 	// Unix datetime that the index was created.
-	CreatedAt string `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
 	// Description of the Index.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
 	DocumentMetadataConfigurationUpdates []GetIndexDocumentMetadataConfigurationUpdate `pulumi:"documentMetadataConfigurationUpdates"`
 	// Amazon Kendra edition for the index.
-	Edition string `pulumi:"edition"`
+	Edition *string `pulumi:"edition"`
 	// When the Status field value is `FAILED`, this contains a message that explains why.
-	ErrorMessage string `pulumi:"errorMessage"`
+	ErrorMessage *string `pulumi:"errorMessage"`
 	// Identifier of the Index.
 	Id string `pulumi:"id"`
 	// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
 	IndexStatistics []GetIndexIndexStatistic `pulumi:"indexStatistics"`
 	// Name of the index field. Minimum length of 1. Maximum length of 30.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
 	ServerSideEncryptionConfigurations []GetIndexServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfigurations"`
 	// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Metadata that helps organize the Indices you create.
 	Tags map[string]string `pulumi:"tags"`
 	// Unix datetime that the index was last updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	UpdatedAt *string `pulumi:"updatedAt"`
 	// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
-	UserContextPolicy string `pulumi:"userContextPolicy"`
+	UserContextPolicy *string `pulumi:"userContextPolicy"`
 	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
 	UserGroupResolutionConfigurations []GetIndexUserGroupResolutionConfiguration `pulumi:"userGroupResolutionConfigurations"`
 	// A block that specifies the user token configuration. Documented below.
@@ -137,8 +137,8 @@ func (o LookupIndexResultOutput) ToLookupIndexResultOutputWithContext(ctx contex
 }
 
 // ARN of the Index.
-func (o LookupIndexResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
@@ -147,13 +147,13 @@ func (o LookupIndexResultOutput) CapacityUnits() GetIndexCapacityUnitArrayOutput
 }
 
 // Unix datetime that the index was created.
-func (o LookupIndexResultOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Index.
-func (o LookupIndexResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
@@ -164,13 +164,13 @@ func (o LookupIndexResultOutput) DocumentMetadataConfigurationUpdates() GetIndex
 }
 
 // Amazon Kendra edition for the index.
-func (o LookupIndexResultOutput) Edition() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.Edition }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.Edition }).(pulumi.StringPtrOutput)
 }
 
 // When the Status field value is `FAILED`, this contains a message that explains why.
-func (o LookupIndexResultOutput) ErrorMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.ErrorMessage }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the Index.
@@ -184,13 +184,13 @@ func (o LookupIndexResultOutput) IndexStatistics() GetIndexIndexStatisticArrayOu
 }
 
 // Name of the index field. Minimum length of 1. Maximum length of 30.
-func (o LookupIndexResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-func (o LookupIndexResultOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
@@ -201,8 +201,8 @@ func (o LookupIndexResultOutput) ServerSideEncryptionConfigurations() GetIndexSe
 }
 
 // Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
-func (o LookupIndexResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Metadata that helps organize the Indices you create.
@@ -211,13 +211,13 @@ func (o LookupIndexResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Unix datetime that the index was last updated.
-func (o LookupIndexResultOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 // User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
-func (o LookupIndexResultOutput) UserContextPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupIndexResult) string { return v.UserContextPolicy }).(pulumi.StringOutput)
+func (o LookupIndexResultOutput) UserContextPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *string { return v.UserContextPolicy }).(pulumi.StringPtrOutput)
 }
 
 // A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.

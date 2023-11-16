@@ -55,7 +55,7 @@ class GetResolverRuleResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN (Amazon Resource Name) for the resolver rule.
         """
@@ -63,12 +63,12 @@ class GetResolverRuleResult:
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> Optional[str]:
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -76,12 +76,12 @@ class GetResolverRuleResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
         """
@@ -89,22 +89,22 @@ class GetResolverRuleResult:
 
     @property
     @pulumi.getter(name="resolverEndpointId")
-    def resolver_endpoint_id(self) -> str:
+    def resolver_endpoint_id(self) -> Optional[str]:
         return pulumi.get(self, "resolver_endpoint_id")
 
     @property
     @pulumi.getter(name="resolverRuleId")
-    def resolver_rule_id(self) -> str:
+    def resolver_rule_id(self) -> Optional[str]:
         return pulumi.get(self, "resolver_rule_id")
 
     @property
     @pulumi.getter(name="ruleType")
-    def rule_type(self) -> str:
+    def rule_type(self) -> Optional[str]:
         return pulumi.get(self, "rule_type")
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> str:
+    def share_status(self) -> Optional[str]:
         """
         Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
         Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
@@ -113,7 +113,7 @@ class GetResolverRuleResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the resolver rule.
         """

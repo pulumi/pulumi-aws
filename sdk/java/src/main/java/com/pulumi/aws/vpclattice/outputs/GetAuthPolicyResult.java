@@ -15,7 +15,7 @@ public final class GetAuthPolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The auth policy. The policy string in JSON must not contain newlines or blank lines.
      * 
@@ -33,8 +33,8 @@ public final class GetAuthPolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The auth policy. The policy string in JSON must not contain newlines or blank lines.
@@ -63,7 +63,7 @@ public final class GetAuthPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private @Nullable String policy;
         private String resourceIdentifier;
         private @Nullable String state;
@@ -77,8 +77,8 @@ public final class GetAuthPolicyResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

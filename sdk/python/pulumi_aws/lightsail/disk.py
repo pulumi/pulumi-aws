@@ -392,7 +392,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Lightsail load balancer.
         """
@@ -408,7 +408,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the load balancer was created.
         """
@@ -432,7 +432,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportCode")
-    def support_code(self) -> pulumi.Output[str]:
+    def support_code(self) -> pulumi.Output[Optional[str]]:
         """
         The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """

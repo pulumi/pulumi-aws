@@ -80,7 +80,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Index.
         """
@@ -88,7 +88,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="capacityUnits")
-    def capacity_units(self) -> Sequence['outputs.GetIndexCapacityUnitResult']:
+    def capacity_units(self) -> Optional[Sequence['outputs.GetIndexCapacityUnitResult']]:
         """
         Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
         """
@@ -96,7 +96,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Unix datetime that the index was created.
         """
@@ -104,7 +104,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Index.
         """
@@ -112,7 +112,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="documentMetadataConfigurationUpdates")
-    def document_metadata_configuration_updates(self) -> Sequence['outputs.GetIndexDocumentMetadataConfigurationUpdateResult']:
+    def document_metadata_configuration_updates(self) -> Optional[Sequence['outputs.GetIndexDocumentMetadataConfigurationUpdateResult']]:
         """
         One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
         """
@@ -120,7 +120,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter
-    def edition(self) -> str:
+    def edition(self) -> Optional[str]:
         """
         Amazon Kendra edition for the index.
         """
@@ -128,7 +128,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> str:
+    def error_message(self) -> Optional[str]:
         """
         When the Status field value is `FAILED`, this contains a message that explains why.
         """
@@ -144,7 +144,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="indexStatistics")
-    def index_statistics(self) -> Sequence['outputs.GetIndexIndexStatisticResult']:
+    def index_statistics(self) -> Optional[Sequence['outputs.GetIndexIndexStatisticResult']]:
         """
         Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
         """
@@ -152,7 +152,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the index field. Minimum length of 1. Maximum length of 30.
         """
@@ -160,7 +160,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         """
@@ -168,7 +168,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfigurations")
-    def server_side_encryption_configurations(self) -> Sequence['outputs.GetIndexServerSideEncryptionConfigurationResult']:
+    def server_side_encryption_configurations(self) -> Optional[Sequence['outputs.GetIndexServerSideEncryptionConfigurationResult']]:
         """
         A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
         """
@@ -176,7 +176,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         """
@@ -184,7 +184,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Metadata that helps organize the Indices you create.
         """
@@ -192,7 +192,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> Optional[str]:
         """
         Unix datetime that the index was last updated.
         """
@@ -200,7 +200,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="userContextPolicy")
-    def user_context_policy(self) -> str:
+    def user_context_policy(self) -> Optional[str]:
         """
         User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
         """
@@ -208,7 +208,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="userGroupResolutionConfigurations")
-    def user_group_resolution_configurations(self) -> Sequence['outputs.GetIndexUserGroupResolutionConfigurationResult']:
+    def user_group_resolution_configurations(self) -> Optional[Sequence['outputs.GetIndexUserGroupResolutionConfigurationResult']]:
         """
         A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
         """
@@ -216,7 +216,7 @@ class GetIndexResult:
 
     @property
     @pulumi.getter(name="userTokenConfigurations")
-    def user_token_configurations(self) -> Sequence['outputs.GetIndexUserTokenConfigurationResult']:
+    def user_token_configurations(self) -> Optional[Sequence['outputs.GetIndexUserTokenConfigurationResult']]:
         """
         A block that specifies the user token configuration. Documented below.
         """

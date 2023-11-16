@@ -541,7 +541,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name of the DocumentDB event notification subscription
         """
@@ -549,7 +549,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerAwsId")
-    def customer_aws_id(self) -> pulumi.Output[str]:
+    def customer_aws_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS customer account associated with the DocumentDB event notification subscription
         """
@@ -581,7 +581,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the DocumentDB event subscription. Conflicts with `name`.
         """

@@ -62,7 +62,7 @@ export class V2modelsBot extends pulumi.CustomResource {
         return obj['__pulumiType'] === V2modelsBot.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
      */
@@ -99,7 +99,7 @@ export class V2modelsBot extends pulumi.CustomResource {
      */
     public readonly testBotAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotTimeouts | undefined>;
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a V2modelsBot resource with the given unique name, arguments, and options.

@@ -115,14 +115,14 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return Full Lambda Layer Permission policy.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
@@ -143,14 +143,14 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="revisionId", refs={String.class}, tree="[0]")
-    private Output<String> revisionId;
+    private Output</* @Nullable */ String> revisionId;
 
     /**
      * @return A unique identifier for the current revision of the policy.
      * 
      */
-    public Output<String> revisionId() {
-        return this.revisionId;
+    public Output<Optional<String>> revisionId() {
+        return Codegen.optional(this.revisionId);
     }
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.

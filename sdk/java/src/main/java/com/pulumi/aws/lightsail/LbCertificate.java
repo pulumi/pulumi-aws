@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -73,48 +74,48 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the lightsail certificate.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The timestamp when the instance was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The timestamp when the instance was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
-    private Output<String> domainName;
+    private Output</* @Nullable */ String> domainName;
 
     /**
      * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
-    public Output<String> domainName() {
-        return this.domainName;
+    public Output<Optional<String>> domainName() {
+        return Codegen.optional(this.domainName);
     }
     @Export(name="domainValidationRecords", refs={List.class,LbCertificateDomainValidationRecord.class}, tree="[0,1]")
-    private Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords;
+    private Output</* @Nullable */ List<LbCertificateDomainValidationRecord>> domainValidationRecords;
 
-    public Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords() {
-        return this.domainValidationRecords;
+    public Output<Optional<List<LbCertificateDomainValidationRecord>>> domainValidationRecords() {
+        return Codegen.optional(this.domainValidationRecords);
     }
     /**
      * The load balancer name where you want to create the SSL/TLS certificate.
@@ -149,20 +150,20 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subjectAlternativeNames;
+    private Output</* @Nullable */ List<String>> subjectAlternativeNames;
 
     /**
      * @return Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
      * 
      */
-    public Output<List<String>> subjectAlternativeNames() {
-        return this.subjectAlternativeNames;
+    public Output<Optional<List<String>>> subjectAlternativeNames() {
+        return Codegen.optional(this.subjectAlternativeNames);
     }
     @Export(name="supportCode", refs={String.class}, tree="[0]")
-    private Output<String> supportCode;
+    private Output</* @Nullable */ String> supportCode;
 
-    public Output<String> supportCode() {
-        return this.supportCode;
+    public Output<Optional<String>> supportCode() {
+        return Codegen.optional(this.supportCode);
     }
 
     /**

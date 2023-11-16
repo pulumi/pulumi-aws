@@ -48,24 +48,24 @@ export interface GetGroupResult {
     /**
      * User ARN.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Stable and unique string identifying the group.
      */
-    readonly groupId: string;
+    readonly groupId?: string;
     readonly groupName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Path to the IAM user.
      */
-    readonly path: string;
+    readonly path?: string;
     /**
      * List of objects containing group member information. See below.
      */
-    readonly users: outputs.iam.GetGroupUser[];
+    readonly users?: outputs.iam.GetGroupUser[];
 }
 /**
  * This data source can be used to fetch information about a specific

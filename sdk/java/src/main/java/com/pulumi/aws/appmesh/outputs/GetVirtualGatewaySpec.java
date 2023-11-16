@@ -9,22 +9,23 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecLogging;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpec {
-    private List<GetVirtualGatewaySpecBackendDefault> backendDefaults;
-    private List<GetVirtualGatewaySpecListener> listeners;
-    private List<GetVirtualGatewaySpecLogging> loggings;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefault> backendDefaults;
+    private @Nullable List<GetVirtualGatewaySpecListener> listeners;
+    private @Nullable List<GetVirtualGatewaySpecLogging> loggings;
 
     private GetVirtualGatewaySpec() {}
     public List<GetVirtualGatewaySpecBackendDefault> backendDefaults() {
-        return this.backendDefaults;
+        return this.backendDefaults == null ? List.of() : this.backendDefaults;
     }
     public List<GetVirtualGatewaySpecListener> listeners() {
-        return this.listeners;
+        return this.listeners == null ? List.of() : this.listeners;
     }
     public List<GetVirtualGatewaySpecLogging> loggings() {
-        return this.loggings;
+        return this.loggings == null ? List.of() : this.loggings;
     }
 
     public static Builder builder() {
@@ -36,9 +37,9 @@ public final class GetVirtualGatewaySpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecBackendDefault> backendDefaults;
-        private List<GetVirtualGatewaySpecListener> listeners;
-        private List<GetVirtualGatewaySpecLogging> loggings;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefault> backendDefaults;
+        private @Nullable List<GetVirtualGatewaySpecListener> listeners;
+        private @Nullable List<GetVirtualGatewaySpecLogging> loggings;
         public Builder() {}
         public Builder(GetVirtualGatewaySpec defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,24 +49,24 @@ public final class GetVirtualGatewaySpec {
         }
 
         @CustomType.Setter
-        public Builder backendDefaults(List<GetVirtualGatewaySpecBackendDefault> backendDefaults) {
-            this.backendDefaults = Objects.requireNonNull(backendDefaults);
+        public Builder backendDefaults(@Nullable List<GetVirtualGatewaySpecBackendDefault> backendDefaults) {
+            this.backendDefaults = backendDefaults;
             return this;
         }
         public Builder backendDefaults(GetVirtualGatewaySpecBackendDefault... backendDefaults) {
             return backendDefaults(List.of(backendDefaults));
         }
         @CustomType.Setter
-        public Builder listeners(List<GetVirtualGatewaySpecListener> listeners) {
-            this.listeners = Objects.requireNonNull(listeners);
+        public Builder listeners(@Nullable List<GetVirtualGatewaySpecListener> listeners) {
+            this.listeners = listeners;
             return this;
         }
         public Builder listeners(GetVirtualGatewaySpecListener... listeners) {
             return listeners(List.of(listeners));
         }
         @CustomType.Setter
-        public Builder loggings(List<GetVirtualGatewaySpecLogging> loggings) {
-            this.loggings = Objects.requireNonNull(loggings);
+        public Builder loggings(@Nullable List<GetVirtualGatewaySpecLogging> loggings) {
+            this.loggings = loggings;
             return this;
         }
         public Builder loggings(GetVirtualGatewaySpecLogging... loggings) {

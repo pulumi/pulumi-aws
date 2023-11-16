@@ -58,11 +58,11 @@ type LookupResourceArgs struct {
 type LookupResourceResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	LastModified string `pulumi:"lastModified"`
+	LastModified *string `pulumi:"lastModified"`
 	// Role that the resource was registered with.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceResultOutput {
@@ -108,18 +108,18 @@ func (o LookupResourceResultOutput) Arn() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResourceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o LookupResourceResultOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceResult) string { return v.LastModified }).(pulumi.StringOutput)
+func (o LookupResourceResultOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *string { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
 // Role that the resource was registered with.
-func (o LookupResourceResultOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResourceResult) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o LookupResourceResultOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

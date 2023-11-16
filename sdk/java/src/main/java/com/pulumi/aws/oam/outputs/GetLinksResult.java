@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLinksResult {
@@ -14,12 +16,12 @@ public final class GetLinksResult {
      * @return Set of ARN of the Links.
      * 
      */
-    private List<String> arns;
+    private @Nullable List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetLinksResult() {}
     /**
@@ -27,14 +29,14 @@ public final class GetLinksResult {
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetLinksResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> arns;
-        private String id;
+        private @Nullable List<String> arns;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetLinksResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,16 +58,16 @@ public final class GetLinksResult {
         }
 
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetLinksResult build() {

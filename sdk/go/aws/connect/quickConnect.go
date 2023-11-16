@@ -66,7 +66,7 @@ type QuickConnect struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Quick Connect.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies the description of the Quick Connect.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -76,7 +76,7 @@ type QuickConnect struct {
 	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
 	QuickConnectConfig QuickConnectQuickConnectConfigOutput `pulumi:"quickConnectConfig"`
 	// The identifier for the Quick Connect.
-	QuickConnectId pulumi.StringOutput `pulumi:"quickConnectId"`
+	QuickConnectId pulumi.StringPtrOutput `pulumi:"quickConnectId"`
 	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -285,8 +285,8 @@ func (o QuickConnectOutput) ToQuickConnectOutputWithContext(ctx context.Context)
 }
 
 // The Amazon Resource Name (ARN) of the Quick Connect.
-func (o QuickConnectOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o QuickConnectOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuickConnect) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the description of the Quick Connect.
@@ -310,8 +310,8 @@ func (o QuickConnectOutput) QuickConnectConfig() QuickConnectQuickConnectConfigO
 }
 
 // The identifier for the Quick Connect.
-func (o QuickConnectOutput) QuickConnectId() pulumi.StringOutput {
-	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.QuickConnectId }).(pulumi.StringOutput)
+func (o QuickConnectOutput) QuickConnectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuickConnect) pulumi.StringPtrOutput { return v.QuickConnectId }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -91,7 +91,7 @@ export class LifecycleHook extends pulumi.CustomResource {
     /**
      * Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
      */
-    public readonly defaultResult!: pulumi.Output<string>;
+    public readonly defaultResult!: pulumi.Output<string | undefined>;
     /**
      * Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
      */

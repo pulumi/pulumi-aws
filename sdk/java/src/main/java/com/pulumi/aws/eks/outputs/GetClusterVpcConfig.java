@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterVpcConfig {
@@ -15,87 +17,87 @@ public final class GetClusterVpcConfig {
      * @return The cluster security group that was created by Amazon EKS for the cluster.
      * 
      */
-    private String clusterSecurityGroupId;
+    private @Nullable String clusterSecurityGroupId;
     /**
      * @return Indicates whether or not the Amazon EKS private API server endpoint is enabled.
      * 
      */
-    private Boolean endpointPrivateAccess;
+    private @Nullable Boolean endpointPrivateAccess;
     /**
      * @return Indicates whether or not the Amazon EKS public API server endpoint is enabled.
      * 
      */
-    private Boolean endpointPublicAccess;
+    private @Nullable Boolean endpointPublicAccess;
     /**
      * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
      * 
      */
-    private List<String> publicAccessCidrs;
+    private @Nullable List<String> publicAccessCidrs;
     /**
      * @return List of security group IDs
      * 
      */
-    private List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return List of subnet IDs
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return The VPC associated with your cluster.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetClusterVpcConfig() {}
     /**
      * @return The cluster security group that was created by Amazon EKS for the cluster.
      * 
      */
-    public String clusterSecurityGroupId() {
-        return this.clusterSecurityGroupId;
+    public Optional<String> clusterSecurityGroupId() {
+        return Optional.ofNullable(this.clusterSecurityGroupId);
     }
     /**
      * @return Indicates whether or not the Amazon EKS private API server endpoint is enabled.
      * 
      */
-    public Boolean endpointPrivateAccess() {
-        return this.endpointPrivateAccess;
+    public Optional<Boolean> endpointPrivateAccess() {
+        return Optional.ofNullable(this.endpointPrivateAccess);
     }
     /**
      * @return Indicates whether or not the Amazon EKS public API server endpoint is enabled.
      * 
      */
-    public Boolean endpointPublicAccess() {
-        return this.endpointPublicAccess;
+    public Optional<Boolean> endpointPublicAccess() {
+        return Optional.ofNullable(this.endpointPublicAccess);
     }
     /**
      * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
      * 
      */
     public List<String> publicAccessCidrs() {
-        return this.publicAccessCidrs;
+        return this.publicAccessCidrs == null ? List.of() : this.publicAccessCidrs;
     }
     /**
      * @return List of security group IDs
      * 
      */
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
      * @return List of subnet IDs
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
      * @return The VPC associated with your cluster.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -107,13 +109,13 @@ public final class GetClusterVpcConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String clusterSecurityGroupId;
-        private Boolean endpointPrivateAccess;
-        private Boolean endpointPublicAccess;
-        private List<String> publicAccessCidrs;
-        private List<String> securityGroupIds;
-        private List<String> subnetIds;
-        private String vpcId;
+        private @Nullable String clusterSecurityGroupId;
+        private @Nullable Boolean endpointPrivateAccess;
+        private @Nullable Boolean endpointPublicAccess;
+        private @Nullable List<String> publicAccessCidrs;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable List<String> subnetIds;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetClusterVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -127,47 +129,47 @@ public final class GetClusterVpcConfig {
         }
 
         @CustomType.Setter
-        public Builder clusterSecurityGroupId(String clusterSecurityGroupId) {
-            this.clusterSecurityGroupId = Objects.requireNonNull(clusterSecurityGroupId);
+        public Builder clusterSecurityGroupId(@Nullable String clusterSecurityGroupId) {
+            this.clusterSecurityGroupId = clusterSecurityGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder endpointPrivateAccess(Boolean endpointPrivateAccess) {
-            this.endpointPrivateAccess = Objects.requireNonNull(endpointPrivateAccess);
+        public Builder endpointPrivateAccess(@Nullable Boolean endpointPrivateAccess) {
+            this.endpointPrivateAccess = endpointPrivateAccess;
             return this;
         }
         @CustomType.Setter
-        public Builder endpointPublicAccess(Boolean endpointPublicAccess) {
-            this.endpointPublicAccess = Objects.requireNonNull(endpointPublicAccess);
+        public Builder endpointPublicAccess(@Nullable Boolean endpointPublicAccess) {
+            this.endpointPublicAccess = endpointPublicAccess;
             return this;
         }
         @CustomType.Setter
-        public Builder publicAccessCidrs(List<String> publicAccessCidrs) {
-            this.publicAccessCidrs = Objects.requireNonNull(publicAccessCidrs);
+        public Builder publicAccessCidrs(@Nullable List<String> publicAccessCidrs) {
+            this.publicAccessCidrs = publicAccessCidrs;
             return this;
         }
         public Builder publicAccessCidrs(String... publicAccessCidrs) {
             return publicAccessCidrs(List.of(publicAccessCidrs));
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetClusterVpcConfig build() {

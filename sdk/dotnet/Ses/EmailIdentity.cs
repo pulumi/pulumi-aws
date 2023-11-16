@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ses
         /// The ARN of the email identity.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The email address to assign to SES.

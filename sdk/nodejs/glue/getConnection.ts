@@ -52,37 +52,37 @@ export interface GetConnectionResult {
     /**
      * ARN of the Glue Connection.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Catalog ID of the Glue Connection.
      */
-    readonly catalogId: string;
-    readonly connectionProperties: {[key: string]: string};
+    readonly catalogId?: string;
+    readonly connectionProperties?: {[key: string]: string};
     /**
      * Type of Glue Connection.
      */
-    readonly connectionType: string;
+    readonly connectionType?: string;
     /**
      * Description of the connection.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly id: string;
     /**
      * A list of criteria that can be used in selecting this connection.
      */
-    readonly matchCriterias: string[];
+    readonly matchCriterias?: string[];
     /**
      * Name of the Glue Connection.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup.
      */
-    readonly physicalConnectionRequirements: outputs.glue.GetConnectionPhysicalConnectionRequirement[];
+    readonly physicalConnectionRequirements?: outputs.glue.GetConnectionPhysicalConnectionRequirement[];
     /**
      * Tags assigned to the resource
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * This data source can be used to fetch information about a specific Glue Connection.

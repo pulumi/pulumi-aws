@@ -59,7 +59,7 @@ type GetNodeGroupsArgs struct {
 type GetNodeGroupsResult struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of all node group names in an EKS Cluster.
 	Names []string `pulumi:"names"`
 }
@@ -107,8 +107,8 @@ func (o GetNodeGroupsResultOutput) ClusterName() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetNodeGroupsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetNodeGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetNodeGroupsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNodeGroupsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of all node group names in an EKS Cluster.

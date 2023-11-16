@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConnectionResult {
@@ -16,76 +18,76 @@ public final class GetConnectionResult {
      * @return ARN of the Glue Connection.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Catalog ID of the Glue Connection.
      * 
      */
-    private String catalogId;
-    private Map<String,String> connectionProperties;
+    private @Nullable String catalogId;
+    private @Nullable Map<String,String> connectionProperties;
     /**
      * @return Type of Glue Connection.
      * 
      */
-    private String connectionType;
+    private @Nullable String connectionType;
     /**
      * @return Description of the connection.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String id;
     /**
      * @return A list of criteria that can be used in selecting this connection.
      * 
      */
-    private List<String> matchCriterias;
+    private @Nullable List<String> matchCriterias;
     /**
      * @return Name of the Glue Connection.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return A map of physical connection requirements, such as VPC and SecurityGroup.
      * 
      */
-    private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
+    private @Nullable List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
     /**
      * @return Tags assigned to the resource
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetConnectionResult() {}
     /**
      * @return ARN of the Glue Connection.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Catalog ID of the Glue Connection.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
     public Map<String,String> connectionProperties() {
-        return this.connectionProperties;
+        return this.connectionProperties == null ? Map.of() : this.connectionProperties;
     }
     /**
      * @return Type of Glue Connection.
      * 
      */
-    public String connectionType() {
-        return this.connectionType;
+    public Optional<String> connectionType() {
+        return Optional.ofNullable(this.connectionType);
     }
     /**
      * @return Description of the connection.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String id() {
         return this.id;
@@ -95,28 +97,28 @@ public final class GetConnectionResult {
      * 
      */
     public List<String> matchCriterias() {
-        return this.matchCriterias;
+        return this.matchCriterias == null ? List.of() : this.matchCriterias;
     }
     /**
      * @return Name of the Glue Connection.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return A map of physical connection requirements, such as VPC and SecurityGroup.
      * 
      */
     public List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements() {
-        return this.physicalConnectionRequirements;
+        return this.physicalConnectionRequirements == null ? List.of() : this.physicalConnectionRequirements;
     }
     /**
      * @return Tags assigned to the resource
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -128,16 +130,16 @@ public final class GetConnectionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String catalogId;
-        private Map<String,String> connectionProperties;
-        private String connectionType;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable String catalogId;
+        private @Nullable Map<String,String> connectionProperties;
+        private @Nullable String connectionType;
+        private @Nullable String description;
         private String id;
-        private List<String> matchCriterias;
-        private String name;
-        private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
-        private Map<String,String> tags;
+        private @Nullable List<String> matchCriterias;
+        private @Nullable String name;
+        private @Nullable List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -154,28 +156,28 @@ public final class GetConnectionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+        public Builder catalogId(@Nullable String catalogId) {
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
-        public Builder connectionProperties(Map<String,String> connectionProperties) {
-            this.connectionProperties = Objects.requireNonNull(connectionProperties);
+        public Builder connectionProperties(@Nullable Map<String,String> connectionProperties) {
+            this.connectionProperties = connectionProperties;
             return this;
         }
         @CustomType.Setter
-        public Builder connectionType(String connectionType) {
-            this.connectionType = Objects.requireNonNull(connectionType);
+        public Builder connectionType(@Nullable String connectionType) {
+            this.connectionType = connectionType;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -184,29 +186,29 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder matchCriterias(List<String> matchCriterias) {
-            this.matchCriterias = Objects.requireNonNull(matchCriterias);
+        public Builder matchCriterias(@Nullable List<String> matchCriterias) {
+            this.matchCriterias = matchCriterias;
             return this;
         }
         public Builder matchCriterias(String... matchCriterias) {
             return matchCriterias(List.of(matchCriterias));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder physicalConnectionRequirements(List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements) {
-            this.physicalConnectionRequirements = Objects.requireNonNull(physicalConnectionRequirements);
+        public Builder physicalConnectionRequirements(@Nullable List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements) {
+            this.physicalConnectionRequirements = physicalConnectionRequirements;
             return this;
         }
         public Builder physicalConnectionRequirements(GetConnectionPhysicalConnectionRequirement... physicalConnectionRequirements) {
             return physicalConnectionRequirements(List.of(physicalConnectionRequirements));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetConnectionResult build() {

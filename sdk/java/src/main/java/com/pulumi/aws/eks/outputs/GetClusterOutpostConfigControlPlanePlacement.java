@@ -6,6 +6,8 @@ package com.pulumi.aws.eks.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterOutpostConfigControlPlanePlacement {
@@ -13,15 +15,15 @@ public final class GetClusterOutpostConfigControlPlanePlacement {
      * @return The name of the placement group for the Kubernetes control plane instances.
      * 
      */
-    private String groupName;
+    private @Nullable String groupName;
 
     private GetClusterOutpostConfigControlPlanePlacement() {}
     /**
      * @return The name of the placement group for the Kubernetes control plane instances.
      * 
      */
-    public String groupName() {
-        return this.groupName;
+    public Optional<String> groupName() {
+        return Optional.ofNullable(this.groupName);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetClusterOutpostConfigControlPlanePlacement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String groupName;
+        private @Nullable String groupName;
         public Builder() {}
         public Builder(GetClusterOutpostConfigControlPlanePlacement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetClusterOutpostConfigControlPlanePlacement {
         }
 
         @CustomType.Setter
-        public Builder groupName(String groupName) {
-            this.groupName = Objects.requireNonNull(groupName);
+        public Builder groupName(@Nullable String groupName) {
+            this.groupName = groupName;
             return this;
         }
         public GetClusterOutpostConfigControlPlanePlacement build() {

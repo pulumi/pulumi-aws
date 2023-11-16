@@ -565,7 +565,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the attachment.
         """
@@ -581,7 +581,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configurations(self) -> pulumi.Output[Sequence['outputs.ConnectPeerConfiguration']]:
+    def configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ConnectPeerConfiguration']]]:
         """
         The configuration of the Connect peer.
         """
@@ -597,7 +597,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectPeerId")
-    def connect_peer_id(self) -> pulumi.Output[str]:
+    def connect_peer_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "connect_peer_id")
 
     @property
@@ -610,7 +610,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> pulumi.Output[str]:
+    def core_network_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a core network.
         """
@@ -618,12 +618,12 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="edgeLocation")
-    def edge_location(self) -> pulumi.Output[str]:
+    def edge_location(self) -> pulumi.Output[Optional[str]]:
         """
         The Region where the peer is located.
         """
@@ -649,7 +649,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the Connect peer.
         """

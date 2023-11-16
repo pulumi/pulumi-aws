@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Cognito
         /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
         /// </summary>
         [Output("accessTokenValidity")]
-        public Output<int> AccessTokenValidity { get; private set; } = null!;
+        public Output<int?> AccessTokenValidity { get; private set; } = null!;
 
         /// <summary>
         /// List of allowed OAuth flows, including code, implicit, and client_credentials.
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Cognito
         /// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
         /// </summary>
         [Output("allowedOauthFlowsUserPoolClient")]
-        public Output<bool> AllowedOauthFlowsUserPoolClient { get; private set; } = null!;
+        public Output<bool?> AllowedOauthFlowsUserPoolClient { get; private set; } = null!;
 
         /// <summary>
         /// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Cognito
         /// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         /// </summary>
         [Output("authSessionValidity")]
-        public Output<int> AuthSessionValidity { get; private set; } = null!;
+        public Output<int?> AuthSessionValidity { get; private set; } = null!;
 
         /// <summary>
         /// List of allowed callback URLs for the identity providers.
@@ -171,25 +171,25 @@ namespace Pulumi.Aws.Cognito
         /// Client secret of the user pool client.
         /// </summary>
         [Output("clientSecret")]
-        public Output<string> ClientSecret { get; private set; } = null!;
+        public Output<string?> ClientSecret { get; private set; } = null!;
 
         /// <summary>
         /// Default redirect URI and must be included in the list of callback URLs.
         /// </summary>
         [Output("defaultRedirectUri")]
-        public Output<string> DefaultRedirectUri { get; private set; } = null!;
+        public Output<string?> DefaultRedirectUri { get; private set; } = null!;
 
         /// <summary>
         /// Enables the propagation of additional user context data.
         /// </summary>
         [Output("enablePropagateAdditionalUserContextData")]
-        public Output<bool> EnablePropagateAdditionalUserContextData { get; private set; } = null!;
+        public Output<bool?> EnablePropagateAdditionalUserContextData { get; private set; } = null!;
 
         /// <summary>
         /// Enables or disables token revocation.
         /// </summary>
         [Output("enableTokenRevocation")]
-        public Output<bool> EnableTokenRevocation { get; private set; } = null!;
+        public Output<bool?> EnableTokenRevocation { get; private set; } = null!;
 
         /// <summary>
         /// List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Cognito
         /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
         /// </summary>
         [Output("idTokenValidity")]
-        public Output<int> IdTokenValidity { get; private set; } = null!;
+        public Output<int?> IdTokenValidity { get; private set; } = null!;
 
         /// <summary>
         /// List of allowed logout URLs for the identity providers.
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Cognito
         /// Name of the user pool client.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Cognito
         /// Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         /// </summary>
         [Output("preventUserExistenceErrors")]
-        public Output<string> PreventUserExistenceErrors { get; private set; } = null!;
+        public Output<string?> PreventUserExistenceErrors { get; private set; } = null!;
 
         /// <summary>
         /// List of user pool attributes that the application client can read from.
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.Cognito
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Output("refreshTokenValidity")]
-        public Output<int> RefreshTokenValidity { get; private set; } = null!;
+        public Output<int?> RefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
         /// List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).

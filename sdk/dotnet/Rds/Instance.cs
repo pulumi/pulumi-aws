@@ -170,13 +170,13 @@ namespace Pulumi.Aws.Rds
         /// Specifies the DNS address of the DB instance.
         /// </summary>
         [Output("address")]
-        public Output<string> Address { get; private set; } = null!;
+        public Output<string?> Address { get; private set; } = null!;
 
         /// <summary>
         /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         /// </summary>
         [Output("allocatedStorage")]
-        public Output<int> AllocatedStorage { get; private set; } = null!;
+        public Output<int?> AllocatedStorage { get; private set; } = null!;
 
         /// <summary>
         /// Indicates that major version
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Rds
         /// The ARN of the RDS instance.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Indicates that minor engine upgrades
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Rds
         /// The AZ for the RDS instance.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The days to retain backups for.
@@ -224,20 +224,20 @@ namespace Pulumi.Aws.Rds
         /// or will use [RDS Blue/Green deployments][blue-green].
         /// </summary>
         [Output("backupRetentionPeriod")]
-        public Output<int> BackupRetentionPeriod { get; private set; } = null!;
+        public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
         /// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         /// </summary>
         [Output("backupTarget")]
-        public Output<string> BackupTarget { get; private set; } = null!;
+        public Output<string?> BackupTarget { get; private set; } = null!;
 
         /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
         /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         /// </summary>
         [Output("backupWindow")]
-        public Output<string> BackupWindow { get; private set; } = null!;
+        public Output<string?> BackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Rds
         /// The identifier of the CA certificate for the DB instance.
         /// </summary>
         [Output("caCertIdentifier")]
-        public Output<string> CaCertIdentifier { get; private set; } = null!;
+        public Output<string?> CaCertIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The character set name to use for DB
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Rds
         /// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         /// </summary>
         [Output("characterSetName")]
-        public Output<string> CharacterSetName { get; private set; } = null!;
+        public Output<string?> CharacterSetName { get; private set; } = null!;
 
         /// <summary>
         /// Copy all Instance `tags` to snapshots. Default is `false`.
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Rds
         /// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         /// </summary>
         [Output("dbName")]
-        public Output<string> DbName { get; private set; } = null!;
+        public Output<string?> DbName { get; private set; } = null!;
 
         /// <summary>
         /// Name of DB subnet group. DB instance will
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Rds
         /// for additional read replica constraints.
         /// </summary>
         [Output("dbSubnetGroupName")]
-        public Output<string> DbSubnetGroupName { get; private set; } = null!;
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
@@ -335,25 +335,25 @@ namespace Pulumi.Aws.Rds
         /// The connection endpoint in `address:port` format.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The running version of the database.
         /// </summary>
         [Output("engineVersionActual")]
-        public Output<string> EngineVersionActual { get; private set; } = null!;
+        public Output<string?> EngineVersionActual { get; private set; } = null!;
 
         /// <summary>
         /// The name of your final DB snapshot
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Rds
         /// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         /// </summary>
         [Output("hostedZoneId")]
-        public Output<string> HostedZoneId { get; private set; } = null!;
+        public Output<string?> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.Rds
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Output("identifierPrefix")]
-        public Output<string> IdentifierPrefix { get; private set; } = null!;
+        public Output<string?> IdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
         /// The instance type of the RDS instance.
@@ -401,20 +401,20 @@ namespace Pulumi.Aws.Rds
         /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Output("iops")]
-        public Output<int> Iops { get; private set; } = null!;
+        public Output<int?> Iops { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for the KMS encryption key. If creating an
         /// encrypted replica, set this to the destination KMS ARN.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         /// </summary>
         [Output("latestRestorableTime")]
-        public Output<string> LatestRestorableTime { get; private set; } = null!;
+        public Output<string?> LatestRestorableTime { get; private set; } = null!;
 
         /// <summary>
         /// License model information for this DB instance. Valid values for this field are as follows:
@@ -425,7 +425,7 @@ namespace Pulumi.Aws.Rds
         /// * RDS for PostgreSQL: `postgresql-license`
         /// </summary>
         [Output("licenseModel")]
-        public Output<string> LicenseModel { get; private set; } = null!;
+        public Output<string?> LicenseModel { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
@@ -441,7 +441,7 @@ namespace Pulumi.Aws.Rds
         /// for more information.
         /// </summary>
         [Output("maintenanceWindow")]
-        public Output<string> MaintenanceWindow { get; private set; } = null!;
+        public Output<string?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
@@ -453,7 +453,7 @@ namespace Pulumi.Aws.Rds
         /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         /// </summary>
         [Output("masterUserSecretKmsKeyId")]
-        public Output<string> MasterUserSecretKmsKeyId { get; private set; } = null!;
+        public Output<string?> MasterUserSecretKmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
@@ -484,13 +484,13 @@ namespace Pulumi.Aws.Rds
         /// what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         /// </summary>
         [Output("monitoringRoleArn")]
-        public Output<string> MonitoringRoleArn { get; private set; } = null!;
+        public Output<string?> MonitoringRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if the RDS instance is multi-AZ
         /// </summary>
         [Output("multiAz")]
-        public Output<bool> MultiAz { get; private set; } = null!;
+        public Output<bool?> MultiAz { get; private set; } = null!;
 
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -500,26 +500,26 @@ namespace Pulumi.Aws.Rds
         /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         /// </summary>
         [Output("ncharCharacterSetName")]
-        public Output<string> NcharCharacterSetName { get; private set; } = null!;
+        public Output<string?> NcharCharacterSetName { get; private set; } = null!;
 
         /// <summary>
         /// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         /// </summary>
         [Output("networkType")]
-        public Output<string> NetworkType { get; private set; } = null!;
+        public Output<string?> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// Name of the DB option group to associate.
         /// </summary>
         [Output("optionGroupName")]
-        public Output<string> OptionGroupName { get; private set; } = null!;
+        public Output<string?> OptionGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Name of the DB parameter group to
         /// associate.
         /// </summary>
         [Output("parameterGroupName")]
-        public Output<string> ParameterGroupName { get; private set; } = null!;
+        public Output<string?> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
@@ -539,19 +539,19 @@ namespace Pulumi.Aws.Rds
         /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         /// </summary>
         [Output("performanceInsightsKmsKeyId")]
-        public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
+        public Output<string?> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Output("performanceInsightsRetentionPeriod")]
-        public Output<int> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
+        public Output<int?> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
         /// The port on which the DB accepts connections.
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// Bool to control if instance is publicly
@@ -565,7 +565,7 @@ namespace Pulumi.Aws.Rds
         /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         /// </summary>
         [Output("replicaMode")]
-        public Output<string> ReplicaMode { get; private set; } = null!;
+        public Output<string?> ReplicaMode { get; private set; } = null!;
 
         [Output("replicas")]
         public Output<ImmutableArray<string>> Replicas { get; private set; } = null!;
@@ -588,7 +588,7 @@ namespace Pulumi.Aws.Rds
         /// The RDS Resource ID of this instance.
         /// </summary>
         [Output("resourceId")]
-        public Output<string> ResourceId { get; private set; } = null!;
+        public Output<string?> ResourceId { get; private set; } = null!;
 
         /// <summary>
         /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
@@ -618,13 +618,13 @@ namespace Pulumi.Aws.Rds
         /// RDS console, e.g: rds:production-2015-06-26-06-05.
         /// </summary>
         [Output("snapshotIdentifier")]
-        public Output<string> SnapshotIdentifier { get; private set; } = null!;
+        public Output<string?> SnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The RDS instance status.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the DB instance is
@@ -639,7 +639,7 @@ namespace Pulumi.Aws.Rds
         /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Output("storageThroughput")]
-        public Output<int> StorageThroughput { get; private set; } = null!;
+        public Output<int?> StorageThroughput { get; private set; } = null!;
 
         /// <summary>
         /// One of "standard" (magnetic), "gp2" (general
@@ -648,7 +648,7 @@ namespace Pulumi.Aws.Rds
         /// "gp2" if not.
         /// </summary>
         [Output("storageType")]
-        public Output<string> StorageType { get; private set; } = null!;
+        public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -670,14 +670,14 @@ namespace Pulumi.Aws.Rds
         /// for more information.
         /// </summary>
         [Output("timezone")]
-        public Output<string> Timezone { get; private set; } = null!;
+        public Output<string?> Timezone { get; private set; } = null!;
 
         /// <summary>
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
         /// is provided) Username for the master DB user. Cannot be specified for a replica.
         /// </summary>
         [Output("username")]
-        public Output<string> Username { get; private set; } = null!;
+        public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
         /// List of VPC security groups to

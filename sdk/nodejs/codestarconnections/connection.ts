@@ -87,11 +87,11 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The codestar connection ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
      */
@@ -103,7 +103,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
-    public readonly providerType!: pulumi.Output<string>;
+    public readonly providerType!: pulumi.Output<string | undefined>;
     /**
      * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

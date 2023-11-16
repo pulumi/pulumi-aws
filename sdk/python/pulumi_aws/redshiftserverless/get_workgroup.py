@@ -56,7 +56,7 @@ class GetWorkgroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
         """
@@ -64,7 +64,7 @@ class GetWorkgroupResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Sequence['outputs.GetWorkgroupEndpointResult']:
+    def endpoints(self) -> Optional[Sequence['outputs.GetWorkgroupEndpointResult']]:
         """
         The endpoint that is created from the workgroup. See `Endpoint` below.
         """
@@ -72,7 +72,7 @@ class GetWorkgroupResult:
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
-    def enhanced_vpc_routing(self) -> bool:
+    def enhanced_vpc_routing(self) -> Optional[bool]:
         """
         The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         """
@@ -80,7 +80,7 @@ class GetWorkgroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -88,12 +88,12 @@ class GetWorkgroupResult:
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> Optional[str]:
         return pulumi.get(self, "namespace_name")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> bool:
+    def publicly_accessible(self) -> Optional[bool]:
         """
         A value that specifies whether the workgroup can be accessed from a public network.
         """
@@ -101,7 +101,7 @@ class GetWorkgroupResult:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         An array of security group IDs to associate with the workgroup.
         """
@@ -109,7 +109,7 @@ class GetWorkgroupResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         """
@@ -117,7 +117,7 @@ class GetWorkgroupResult:
 
     @property
     @pulumi.getter(name="workgroupId")
-    def workgroup_id(self) -> str:
+    def workgroup_id(self) -> Optional[str]:
         """
         The Redshift Workgroup ID.
         """

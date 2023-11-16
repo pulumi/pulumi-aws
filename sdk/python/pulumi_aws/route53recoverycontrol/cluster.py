@@ -233,7 +233,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the cluster
         """
@@ -241,7 +241,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterEndpoints")
-    def cluster_endpoints(self) -> pulumi.Output[Sequence['outputs.ClusterClusterEndpoint']]:
+    def cluster_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterClusterEndpoint']]]:
         """
         List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
         """
@@ -257,7 +257,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
         """

@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Name of the user who created the assessment report.
         /// </summary>
         [Output("author")]
-        public Output<string> Author { get; private set; } = null!;
+        public Output<string?> Author { get; private set; } = null!;
 
         /// <summary>
         /// Description of the assessment report.
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

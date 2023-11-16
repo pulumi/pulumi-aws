@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserPoolsResult {
@@ -14,17 +16,17 @@ public final class GetUserPoolsResult {
      * @return Set of cognito user pool Amazon Resource Names (ARNs).
      * 
      */
-    private List<String> arns;
+    private @Nullable List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set of cognito user pool ids.
      * 
      */
-    private List<String> ids;
+    private @Nullable List<String> ids;
     private String name;
 
     private GetUserPoolsResult() {}
@@ -33,21 +35,21 @@ public final class GetUserPoolsResult {
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set of cognito user pool ids.
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     public String name() {
         return this.name;
@@ -62,9 +64,9 @@ public final class GetUserPoolsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> arns;
-        private String id;
-        private List<String> ids;
+        private @Nullable List<String> arns;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
         private String name;
         public Builder() {}
         public Builder(GetUserPoolsResult defaults) {
@@ -76,21 +78,21 @@ public final class GetUserPoolsResult {
         }
 
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {

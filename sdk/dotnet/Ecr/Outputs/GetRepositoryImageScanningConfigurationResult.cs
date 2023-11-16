@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Ecr.Outputs
         /// <summary>
         /// Whether images are scanned after being pushed to the repository.
         /// </summary>
-        public readonly bool ScanOnPush;
+        public readonly bool? ScanOnPush;
 
         [OutputConstructor]
-        private GetRepositoryImageScanningConfigurationResult(bool scanOnPush)
+        private GetRepositoryImageScanningConfigurationResult(bool? scanOnPush)
         {
             ScanOnPush = scanOnPush;
         }

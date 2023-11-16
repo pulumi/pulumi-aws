@@ -55,7 +55,7 @@ export class ControlPanel extends pulumi.CustomResource {
     /**
      * ARN of the control panel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the cluster in which this control panel will reside.
      */
@@ -63,7 +63,7 @@ export class ControlPanel extends pulumi.CustomResource {
     /**
      * Whether a control panel is default.
      */
-    public /*out*/ readonly defaultControlPanel!: pulumi.Output<boolean>;
+    public /*out*/ readonly defaultControlPanel!: pulumi.Output<boolean | undefined>;
     /**
      * Name describing the control panel.
      */
@@ -71,11 +71,11 @@ export class ControlPanel extends pulumi.CustomResource {
     /**
      * Number routing controls in a control panel.
      */
-    public /*out*/ readonly routingControlCount!: pulumi.Output<number>;
+    public /*out*/ readonly routingControlCount!: pulumi.Output<number | undefined>;
     /**
      * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ControlPanel resource with the given unique name, arguments, and options.

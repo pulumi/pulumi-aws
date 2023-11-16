@@ -59,21 +59,24 @@ class RoleInlinePolicy(dict):
 @pulumi.output_type
 class GetAccessKeysAccessKeyResult(dict):
     def __init__(__self__, *,
-                 access_key_id: str,
-                 create_date: str,
-                 status: str):
+                 access_key_id: Optional[str] = None,
+                 create_date: Optional[str] = None,
+                 status: Optional[str] = None):
         """
         :param str access_key_id: Access key ID.
         :param str create_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
         :param str status: Access key status. Possible values are `Active` and `Inactive`.
         """
-        pulumi.set(__self__, "access_key_id", access_key_id)
-        pulumi.set(__self__, "create_date", create_date)
-        pulumi.set(__self__, "status", status)
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if create_date is not None:
+            pulumi.set(__self__, "create_date", create_date)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> str:
+    def access_key_id(self) -> Optional[str]:
         """
         Access key ID.
         """
@@ -81,7 +84,7 @@ class GetAccessKeysAccessKeyResult(dict):
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> str:
+    def create_date(self) -> Optional[str]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
         """
@@ -89,7 +92,7 @@ class GetAccessKeysAccessKeyResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Access key status. Possible values are `Active` and `Inactive`.
         """
@@ -99,24 +102,28 @@ class GetAccessKeysAccessKeyResult(dict):
 @pulumi.output_type
 class GetGroupUserResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 path: str,
-                 user_id: str,
-                 user_name: str):
+                 arn: Optional[str] = None,
+                 path: Optional[str] = None,
+                 user_id: Optional[str] = None,
+                 user_name: Optional[str] = None):
         """
         :param str arn: User ARN.
         :param str path: Path to the IAM user.
         :param str user_id: Stable and unique string identifying the IAM user.
         :param str user_name: Name of the IAM user.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "user_id", user_id)
-        pulumi.set(__self__, "user_name", user_name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         User ARN.
         """
@@ -124,7 +131,7 @@ class GetGroupUserResult(dict):
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
         Path to the IAM user.
         """
@@ -132,7 +139,7 @@ class GetGroupUserResult(dict):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> Optional[str]:
         """
         Stable and unique string identifying the IAM user.
         """
@@ -140,7 +147,7 @@ class GetGroupUserResult(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> Optional[str]:
         """
         Name of the IAM user.
         """
@@ -411,13 +418,13 @@ class GetPrincipalPolicySimulationContextResult(dict):
 @pulumi.output_type
 class GetPrincipalPolicySimulationResultResult(dict):
     def __init__(__self__, *,
-                 action_name: str,
-                 allowed: bool,
-                 decision: str,
-                 decision_details: Mapping[str, str],
-                 matched_statements: Sequence['outputs.GetPrincipalPolicySimulationResultMatchedStatementResult'],
-                 missing_context_keys: Sequence[str],
-                 resource_arn: str):
+                 action_name: Optional[str] = None,
+                 allowed: Optional[bool] = None,
+                 decision: Optional[str] = None,
+                 decision_details: Optional[Mapping[str, str]] = None,
+                 matched_statements: Optional[Sequence['outputs.GetPrincipalPolicySimulationResultMatchedStatementResult']] = None,
+                 missing_context_keys: Optional[Sequence[str]] = None,
+                 resource_arn: Optional[str] = None):
         """
         :param str action_name: The name of the single IAM action used for this particular request.
         :param bool allowed: `true` if `decision` is "allowed", and `false` otherwise.
@@ -427,17 +434,24 @@ class GetPrincipalPolicySimulationResultResult(dict):
         :param Sequence[str] missing_context_keys: A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
         :param str resource_arn: ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
         """
-        pulumi.set(__self__, "action_name", action_name)
-        pulumi.set(__self__, "allowed", allowed)
-        pulumi.set(__self__, "decision", decision)
-        pulumi.set(__self__, "decision_details", decision_details)
-        pulumi.set(__self__, "matched_statements", matched_statements)
-        pulumi.set(__self__, "missing_context_keys", missing_context_keys)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        if action_name is not None:
+            pulumi.set(__self__, "action_name", action_name)
+        if allowed is not None:
+            pulumi.set(__self__, "allowed", allowed)
+        if decision is not None:
+            pulumi.set(__self__, "decision", decision)
+        if decision_details is not None:
+            pulumi.set(__self__, "decision_details", decision_details)
+        if matched_statements is not None:
+            pulumi.set(__self__, "matched_statements", matched_statements)
+        if missing_context_keys is not None:
+            pulumi.set(__self__, "missing_context_keys", missing_context_keys)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="actionName")
-    def action_name(self) -> str:
+    def action_name(self) -> Optional[str]:
         """
         The name of the single IAM action used for this particular request.
         """
@@ -445,7 +459,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
 
     @property
     @pulumi.getter
-    def allowed(self) -> bool:
+    def allowed(self) -> Optional[bool]:
         """
         `true` if `decision` is "allowed", and `false` otherwise.
         """
@@ -453,7 +467,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
 
     @property
     @pulumi.getter
-    def decision(self) -> str:
+    def decision(self) -> Optional[str]:
         """
         The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
         """
@@ -461,7 +475,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
 
     @property
     @pulumi.getter(name="decisionDetails")
-    def decision_details(self) -> Mapping[str, str]:
+    def decision_details(self) -> Optional[Mapping[str, str]]:
         """
         A map of arbitrary metadata entries returned by the policy simulator for this request.
         """
@@ -469,7 +483,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
 
     @property
     @pulumi.getter(name="matchedStatements")
-    def matched_statements(self) -> Sequence['outputs.GetPrincipalPolicySimulationResultMatchedStatementResult']:
+    def matched_statements(self) -> Optional[Sequence['outputs.GetPrincipalPolicySimulationResultMatchedStatementResult']]:
         """
         A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
         """
@@ -477,7 +491,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
 
     @property
     @pulumi.getter(name="missingContextKeys")
-    def missing_context_keys(self) -> Sequence[str]:
+    def missing_context_keys(self) -> Optional[Sequence[str]]:
         """
         A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
         """
@@ -485,7 +499,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
+    def resource_arn(self) -> Optional[str]:
         """
         ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
         """
@@ -495,37 +509,41 @@ class GetPrincipalPolicySimulationResultResult(dict):
 @pulumi.output_type
 class GetPrincipalPolicySimulationResultMatchedStatementResult(dict):
     def __init__(__self__, *,
-                 source_policy_id: str,
-                 source_policy_type: str):
-        pulumi.set(__self__, "source_policy_id", source_policy_id)
-        pulumi.set(__self__, "source_policy_type", source_policy_type)
+                 source_policy_id: Optional[str] = None,
+                 source_policy_type: Optional[str] = None):
+        if source_policy_id is not None:
+            pulumi.set(__self__, "source_policy_id", source_policy_id)
+        if source_policy_type is not None:
+            pulumi.set(__self__, "source_policy_type", source_policy_type)
 
     @property
     @pulumi.getter(name="sourcePolicyId")
-    def source_policy_id(self) -> str:
+    def source_policy_id(self) -> Optional[str]:
         return pulumi.get(self, "source_policy_id")
 
     @property
     @pulumi.getter(name="sourcePolicyType")
-    def source_policy_type(self) -> str:
+    def source_policy_type(self) -> Optional[str]:
         return pulumi.get(self, "source_policy_type")
 
 
 @pulumi.output_type
 class GetRoleRoleLastUsedResult(dict):
     def __init__(__self__, *,
-                 last_used_date: str,
-                 region: str):
+                 last_used_date: Optional[str] = None,
+                 region: Optional[str] = None):
         """
         :param str last_used_date: The date and time, in RFC 3339 format, that the role was last used.
         :param str region: The name of the AWS Region in which the role was last used.
         """
-        pulumi.set(__self__, "last_used_date", last_used_date)
-        pulumi.set(__self__, "region", region)
+        if last_used_date is not None:
+            pulumi.set(__self__, "last_used_date", last_used_date)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="lastUsedDate")
-    def last_used_date(self) -> str:
+    def last_used_date(self) -> Optional[str]:
         """
         The date and time, in RFC 3339 format, that the role was last used.
         """
@@ -533,7 +551,7 @@ class GetRoleRoleLastUsedResult(dict):
 
     @property
     @pulumi.getter
-    def region(self) -> str:
+    def region(self) -> Optional[str]:
         """
         The name of the AWS Region in which the role was last used.
         """

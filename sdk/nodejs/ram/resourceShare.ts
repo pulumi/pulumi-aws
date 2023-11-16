@@ -64,7 +64,7 @@ export class ResourceShare extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource share.
      */
@@ -72,7 +72,7 @@ export class ResourceShare extends pulumi.CustomResource {
     /**
      * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
-    public readonly permissionArns!: pulumi.Output<string[]>;
+    public readonly permissionArns!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

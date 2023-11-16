@@ -70,7 +70,7 @@ export class ReplicationTask extends pulumi.CustomResource {
     /**
      * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      */
-    public readonly cdcStartPosition!: pulumi.Output<string>;
+    public readonly cdcStartPosition!: pulumi.Output<string | undefined>;
     /**
      * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */
@@ -86,7 +86,7 @@ export class ReplicationTask extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the replication task.
      */
-    public /*out*/ readonly replicationTaskArn!: pulumi.Output<string>;
+    public /*out*/ readonly replicationTaskArn!: pulumi.Output<string | undefined>;
     /**
      * The replication task identifier.
      *
@@ -111,7 +111,7 @@ export class ReplicationTask extends pulumi.CustomResource {
     /**
      * Replication Task status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      */

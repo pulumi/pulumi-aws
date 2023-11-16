@@ -161,78 +161,78 @@ namespace Pulumi.Aws.LB
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
-        public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
-        public readonly string Arn;
-        public readonly string ArnSuffix;
-        public readonly string CustomerOwnedIpv4Pool;
-        public readonly string DesyncMitigationMode;
-        public readonly string DnsName;
-        public readonly bool DropInvalidHeaderFields;
-        public readonly bool EnableCrossZoneLoadBalancing;
-        public readonly bool EnableDeletionProtection;
-        public readonly bool EnableHttp2;
-        public readonly bool EnableTlsVersionAndCipherSuiteHeaders;
-        public readonly bool EnableWafFailOpen;
-        public readonly bool EnableXffClientPort;
+        public readonly Outputs.GetLoadBalancerAccessLogsResult? AccessLogs;
+        public readonly string? Arn;
+        public readonly string? ArnSuffix;
+        public readonly string? CustomerOwnedIpv4Pool;
+        public readonly string? DesyncMitigationMode;
+        public readonly string? DnsName;
+        public readonly bool? DropInvalidHeaderFields;
+        public readonly bool? EnableCrossZoneLoadBalancing;
+        public readonly bool? EnableDeletionProtection;
+        public readonly bool? EnableHttp2;
+        public readonly bool? EnableTlsVersionAndCipherSuiteHeaders;
+        public readonly bool? EnableWafFailOpen;
+        public readonly bool? EnableXffClientPort;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly int IdleTimeout;
-        public readonly bool Internal;
-        public readonly string IpAddressType;
-        public readonly string LoadBalancerType;
-        public readonly string Name;
-        public readonly bool PreserveHostHeader;
+        public readonly string? Id;
+        public readonly int? IdleTimeout;
+        public readonly bool? Internal;
+        public readonly string? IpAddressType;
+        public readonly string? LoadBalancerType;
+        public readonly string? Name;
+        public readonly bool? PreserveHostHeader;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> SubnetMappings;
         public readonly ImmutableArray<string> Subnets;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string VpcId;
-        public readonly string XffHeaderProcessingMode;
-        public readonly string ZoneId;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? VpcId;
+        public readonly string? XffHeaderProcessingMode;
+        public readonly string? ZoneId;
 
         [OutputConstructor]
         private GetLoadBalancerResult(
-            Outputs.GetLoadBalancerAccessLogsResult accessLogs,
+            Outputs.GetLoadBalancerAccessLogsResult? accessLogs,
 
-            string arn,
+            string? arn,
 
-            string arnSuffix,
+            string? arnSuffix,
 
-            string customerOwnedIpv4Pool,
+            string? customerOwnedIpv4Pool,
 
-            string desyncMitigationMode,
+            string? desyncMitigationMode,
 
-            string dnsName,
+            string? dnsName,
 
-            bool dropInvalidHeaderFields,
+            bool? dropInvalidHeaderFields,
 
-            bool enableCrossZoneLoadBalancing,
+            bool? enableCrossZoneLoadBalancing,
 
-            bool enableDeletionProtection,
+            bool? enableDeletionProtection,
 
-            bool enableHttp2,
+            bool? enableHttp2,
 
-            bool enableTlsVersionAndCipherSuiteHeaders,
+            bool? enableTlsVersionAndCipherSuiteHeaders,
 
-            bool enableWafFailOpen,
+            bool? enableWafFailOpen,
 
-            bool enableXffClientPort,
+            bool? enableXffClientPort,
 
-            string id,
+            string? id,
 
-            int idleTimeout,
+            int? idleTimeout,
 
-            bool @internal,
+            bool? @internal,
 
-            string ipAddressType,
+            string? ipAddressType,
 
-            string loadBalancerType,
+            string? loadBalancerType,
 
-            string name,
+            string? name,
 
-            bool preserveHostHeader,
+            bool? preserveHostHeader,
 
             ImmutableArray<string> securityGroups,
 
@@ -240,13 +240,13 @@ namespace Pulumi.Aws.LB
 
             ImmutableArray<string> subnets,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId,
+            string? vpcId,
 
-            string xffHeaderProcessingMode,
+            string? xffHeaderProcessingMode,
 
-            string zoneId)
+            string? zoneId)
         {
             AccessLogs = accessLogs;
             Arn = arn;

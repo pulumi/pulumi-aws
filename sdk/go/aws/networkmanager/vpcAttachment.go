@@ -58,27 +58,27 @@ type VpcAttachment struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the attachment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentPolicyRuleNumber pulumi.IntPtrOutput `pulumi:"attachmentPolicyRuleNumber"`
 	// The type of attachment.
-	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
+	AttachmentType pulumi.StringPtrOutput `pulumi:"attachmentType"`
 	// The ARN of a core network.
-	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
+	CoreNetworkArn pulumi.StringPtrOutput `pulumi:"coreNetworkArn"`
 	// The ID of a core network for the VPC attachment.
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
 	// The Region where the edge is located.
-	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	EdgeLocation pulumi.StringPtrOutput `pulumi:"edgeLocation"`
 	// Options for the VPC attachment.
 	Options VpcAttachmentOptionsPtrOutput `pulumi:"options"`
 	// The ID of the attachment account owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerAccountId pulumi.StringPtrOutput `pulumi:"ownerAccountId"`
 	// The attachment resource ARN.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
 	// The name of the segment attachment.
-	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
+	SegmentName pulumi.StringPtrOutput `pulumi:"segmentName"`
 	// The state of the attachment.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The subnet ARN of the VPC attachment.
 	SubnetArns pulumi.StringArrayOutput `pulumi:"subnetArns"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -332,23 +332,23 @@ func (o VpcAttachmentOutput) ToVpcAttachmentOutputWithContext(ctx context.Contex
 }
 
 // The ARN of the attachment.
-func (o VpcAttachmentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VpcAttachmentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The policy rule number associated with the attachment.
-func (o VpcAttachmentOutput) AttachmentPolicyRuleNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.IntOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntOutput)
+func (o VpcAttachmentOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.IntPtrOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntPtrOutput)
 }
 
 // The type of attachment.
-func (o VpcAttachmentOutput) AttachmentType() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
+func (o VpcAttachmentOutput) AttachmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.AttachmentType }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of a core network.
-func (o VpcAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
+func (o VpcAttachmentOutput) CoreNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a core network for the VPC attachment.
@@ -357,8 +357,8 @@ func (o VpcAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
 }
 
 // The Region where the edge is located.
-func (o VpcAttachmentOutput) EdgeLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
+func (o VpcAttachmentOutput) EdgeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.EdgeLocation }).(pulumi.StringPtrOutput)
 }
 
 // Options for the VPC attachment.
@@ -367,23 +367,23 @@ func (o VpcAttachmentOutput) Options() VpcAttachmentOptionsPtrOutput {
 }
 
 // The ID of the attachment account owner.
-func (o VpcAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o VpcAttachmentOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The attachment resource ARN.
-func (o VpcAttachmentOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+func (o VpcAttachmentOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the segment attachment.
-func (o VpcAttachmentOutput) SegmentName() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.SegmentName }).(pulumi.StringOutput)
+func (o VpcAttachmentOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.SegmentName }).(pulumi.StringPtrOutput)
 }
 
 // The state of the attachment.
-func (o VpcAttachmentOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o VpcAttachmentOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The subnet ARN of the VPC attachment.

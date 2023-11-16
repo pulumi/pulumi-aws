@@ -75,9 +75,9 @@ type TrafficPolicy struct {
 	// Name of the traffic policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewTrafficPolicy registers a new resource with the given unique name, arguments, and options.
@@ -274,13 +274,13 @@ func (o TrafficPolicyOutput) Name() pulumi.StringOutput {
 }
 
 // DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
-func (o TrafficPolicyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *TrafficPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o TrafficPolicyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficPolicy) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
-func (o TrafficPolicyOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *TrafficPolicy) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o TrafficPolicyOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficPolicy) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type TrafficPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -93,11 +93,11 @@ export class Segment extends pulumi.CustomResource {
     /**
      * The ARN of the segment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time that the segment is created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the segment.
      */
@@ -105,15 +105,15 @@ export class Segment extends pulumi.CustomResource {
     /**
      * The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
      */
-    public /*out*/ readonly experimentCount!: pulumi.Output<number>;
+    public /*out*/ readonly experimentCount!: pulumi.Output<number | undefined>;
     /**
      * The date and time that this segment was most recently updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
      */
-    public /*out*/ readonly launchCount!: pulumi.Output<number>;
+    public /*out*/ readonly launchCount!: pulumi.Output<number | undefined>;
     /**
      * A name for the segment.
      */

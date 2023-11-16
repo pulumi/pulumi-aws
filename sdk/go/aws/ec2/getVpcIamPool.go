@@ -95,38 +95,38 @@ type GetVpcIamPoolArgs struct {
 // A collection of values returned by getVpcIamPool.
 type GetVpcIamPoolResult struct {
 	// IP protocol assigned to this pool.
-	AddressFamily string `pulumi:"addressFamily"`
+	AddressFamily *string `pulumi:"addressFamily"`
 	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
-	AllocationDefaultNetmaskLength int `pulumi:"allocationDefaultNetmaskLength"`
+	AllocationDefaultNetmaskLength *int `pulumi:"allocationDefaultNetmaskLength"`
 	// The maximum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMaxNetmaskLength int `pulumi:"allocationMaxNetmaskLength"`
+	AllocationMaxNetmaskLength *int `pulumi:"allocationMaxNetmaskLength"`
 	// The minimum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMinNetmaskLength int `pulumi:"allocationMinNetmaskLength"`
+	AllocationMinNetmaskLength *int `pulumi:"allocationMinNetmaskLength"`
 	// Tags that are required to create resources in using this pool.
 	AllocationResourceTags map[string]string `pulumi:"allocationResourceTags"`
 	// ARN of the pool
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-	AutoImport bool `pulumi:"autoImport"`
+	AutoImport *bool `pulumi:"autoImport"`
 	// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
-	AwsService string `pulumi:"awsService"`
+	AwsService *string `pulumi:"awsService"`
 	// Description for the IPAM pool.
-	Description string                `pulumi:"description"`
+	Description *string               `pulumi:"description"`
 	Filters     []GetVpcIamPoolFilter `pulumi:"filters"`
 	// ID of the IPAM pool.
 	Id         *string `pulumi:"id"`
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// ID of the scope the pool belongs to.
-	IpamScopeId   string `pulumi:"ipamScopeId"`
-	IpamScopeType string `pulumi:"ipamScopeType"`
+	IpamScopeId   *string `pulumi:"ipamScopeId"`
+	IpamScopeType *string `pulumi:"ipamScopeType"`
 	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-	Locale    string `pulumi:"locale"`
-	PoolDepth int    `pulumi:"poolDepth"`
+	Locale    *string `pulumi:"locale"`
+	PoolDepth *int    `pulumi:"poolDepth"`
 	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
-	PubliclyAdvertisable bool `pulumi:"publiclyAdvertisable"`
+	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
 	// ID of the source IPAM pool.
-	SourceIpamPoolId string `pulumi:"sourceIpamPoolId"`
-	State            string `pulumi:"state"`
+	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
+	State            *string `pulumi:"state"`
 	// Map of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -178,23 +178,23 @@ func (o GetVpcIamPoolResultOutput) ToGetVpcIamPoolResultOutputWithContext(ctx co
 }
 
 // IP protocol assigned to this pool.
-func (o GetVpcIamPoolResultOutput) AddressFamily() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.AddressFamily }).(pulumi.StringOutput)
+func (o GetVpcIamPoolResultOutput) AddressFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
 }
 
 // A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
-func (o GetVpcIamPoolResultOutput) AllocationDefaultNetmaskLength() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) int { return v.AllocationDefaultNetmaskLength }).(pulumi.IntOutput)
+func (o GetVpcIamPoolResultOutput) AllocationDefaultNetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *int { return v.AllocationDefaultNetmaskLength }).(pulumi.IntPtrOutput)
 }
 
 // The maximum netmask length that will be required for CIDR allocations in this pool.
-func (o GetVpcIamPoolResultOutput) AllocationMaxNetmaskLength() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) int { return v.AllocationMaxNetmaskLength }).(pulumi.IntOutput)
+func (o GetVpcIamPoolResultOutput) AllocationMaxNetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *int { return v.AllocationMaxNetmaskLength }).(pulumi.IntPtrOutput)
 }
 
 // The minimum netmask length that will be required for CIDR allocations in this pool.
-func (o GetVpcIamPoolResultOutput) AllocationMinNetmaskLength() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) int { return v.AllocationMinNetmaskLength }).(pulumi.IntOutput)
+func (o GetVpcIamPoolResultOutput) AllocationMinNetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *int { return v.AllocationMinNetmaskLength }).(pulumi.IntPtrOutput)
 }
 
 // Tags that are required to create resources in using this pool.
@@ -203,23 +203,23 @@ func (o GetVpcIamPoolResultOutput) AllocationResourceTags() pulumi.StringMapOutp
 }
 
 // ARN of the pool
-func (o GetVpcIamPoolResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetVpcIamPoolResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-func (o GetVpcIamPoolResultOutput) AutoImport() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) bool { return v.AutoImport }).(pulumi.BoolOutput)
+func (o GetVpcIamPoolResultOutput) AutoImport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *bool { return v.AutoImport }).(pulumi.BoolPtrOutput)
 }
 
 // Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
-func (o GetVpcIamPoolResultOutput) AwsService() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.AwsService }).(pulumi.StringOutput)
+func (o GetVpcIamPoolResultOutput) AwsService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.AwsService }).(pulumi.StringPtrOutput)
 }
 
 // Description for the IPAM pool.
-func (o GetVpcIamPoolResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetVpcIamPoolResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o GetVpcIamPoolResultOutput) Filters() GetVpcIamPoolFilterArrayOutput {
@@ -236,35 +236,35 @@ func (o GetVpcIamPoolResultOutput) IpamPoolId() pulumi.StringPtrOutput {
 }
 
 // ID of the scope the pool belongs to.
-func (o GetVpcIamPoolResultOutput) IpamScopeId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.IpamScopeId }).(pulumi.StringOutput)
+func (o GetVpcIamPoolResultOutput) IpamScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.IpamScopeId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVpcIamPoolResultOutput) IpamScopeType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.IpamScopeType }).(pulumi.StringOutput)
+func (o GetVpcIamPoolResultOutput) IpamScopeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.IpamScopeType }).(pulumi.StringPtrOutput)
 }
 
 // Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-func (o GetVpcIamPoolResultOutput) Locale() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.Locale }).(pulumi.StringOutput)
+func (o GetVpcIamPoolResultOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVpcIamPoolResultOutput) PoolDepth() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) int { return v.PoolDepth }).(pulumi.IntOutput)
+func (o GetVpcIamPoolResultOutput) PoolDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *int { return v.PoolDepth }).(pulumi.IntPtrOutput)
 }
 
 // Defines whether or not IPv6 pool space is publicly advertisable over the internet.
-func (o GetVpcIamPoolResultOutput) PubliclyAdvertisable() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) bool { return v.PubliclyAdvertisable }).(pulumi.BoolOutput)
+func (o GetVpcIamPoolResultOutput) PubliclyAdvertisable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *bool { return v.PubliclyAdvertisable }).(pulumi.BoolPtrOutput)
 }
 
 // ID of the source IPAM pool.
-func (o GetVpcIamPoolResultOutput) SourceIpamPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.SourceIpamPoolId }).(pulumi.StringOutput)
+func (o GetVpcIamPoolResultOutput) SourceIpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.SourceIpamPoolId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVpcIamPoolResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.State }).(pulumi.StringOutput)
+func (o GetVpcIamPoolResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assigned to the resource.

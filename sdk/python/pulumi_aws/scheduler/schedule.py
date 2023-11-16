@@ -709,7 +709,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the SQS queue specified as the destination for the dead-letter queue.
         """
@@ -741,7 +741,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> pulumi.Output[str]:
+    def group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
         """
@@ -765,7 +765,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """

@@ -297,7 +297,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcRegion")
-    def vpc_region(self) -> pulumi.Output[str]:
+    def vpc_region(self) -> pulumi.Output[Optional[str]]:
         """
         The VPC's region. Defaults to the region of the AWS provider.
         """

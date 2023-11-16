@@ -166,7 +166,7 @@ namespace Pulumi.Aws.LightSail
         /// The ARN of the Lightsail instance (matches `id`).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Availability Zone in which to create your
@@ -191,13 +191,13 @@ namespace Pulumi.Aws.LightSail
         /// The number of vCPUs the instance has.
         /// </summary>
         [Output("cpuCount")]
-        public Output<int> CpuCount { get; private set; } = null!;
+        public Output<int?> CpuCount { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.LightSail
         /// A Boolean value indicating whether this instance has a static IP assigned to it.
         /// </summary>
         [Output("isStaticIp")]
-        public Output<bool> IsStaticIp { get; private set; } = null!;
+        public Output<bool?> IsStaticIp { get; private set; } = null!;
 
         /// <summary>
         /// The name of your key pair. Created in the
@@ -234,19 +234,19 @@ namespace Pulumi.Aws.LightSail
         /// The private IP address of the instance.
         /// </summary>
         [Output("privateIpAddress")]
-        public Output<string> PrivateIpAddress { get; private set; } = null!;
+        public Output<string?> PrivateIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The public IP address of the instance.
         /// </summary>
         [Output("publicIpAddress")]
-        public Output<string> PublicIpAddress { get; private set; } = null!;
+        public Output<string?> PublicIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The amount of RAM in GB on the instance (e.g., 1.0).
         /// </summary>
         [Output("ramSize")]
-        public Output<double> RamSize { get; private set; } = null!;
+        public Output<double?> RamSize { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.LightSail
         /// The user name for connecting to the instance (e.g., ec2-user).
         /// </summary>
         [Output("username")]
-        public Output<string> Username { get; private set; } = null!;
+        public Output<string?> Username { get; private set; } = null!;
 
 
         /// <summary>

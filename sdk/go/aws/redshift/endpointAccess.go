@@ -55,15 +55,15 @@ type EndpointAccess struct {
 	pulumi.CustomResourceState
 
 	// The DNS address of the endpoint.
-	Address pulumi.StringOutput `pulumi:"address"`
+	Address pulumi.StringPtrOutput `pulumi:"address"`
 	// The cluster identifier of the cluster to access.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The Redshift-managed VPC endpoint name.
 	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
 	// The port number on which the cluster accepts incoming connections.
-	Port pulumi.IntOutput `pulumi:"port"`
+	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
+	ResourceOwner pulumi.StringPtrOutput `pulumi:"resourceOwner"`
 	// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
 	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
@@ -267,8 +267,8 @@ func (o EndpointAccessOutput) ToEndpointAccessOutputWithContext(ctx context.Cont
 }
 
 // The DNS address of the endpoint.
-func (o EndpointAccessOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
+func (o EndpointAccessOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // The cluster identifier of the cluster to access.
@@ -282,13 +282,13 @@ func (o EndpointAccessOutput) EndpointName() pulumi.StringOutput {
 }
 
 // The port number on which the cluster accepts incoming connections.
-func (o EndpointAccessOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v *EndpointAccess) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+func (o EndpointAccessOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-func (o EndpointAccessOutput) ResourceOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+func (o EndpointAccessOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.ResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.

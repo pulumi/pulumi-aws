@@ -364,7 +364,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the Verified Access Instance was created.
         """
@@ -388,7 +388,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the Verified Access Instance was last updated.
         """
@@ -412,7 +412,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="verifiedAccessTrustProviders")
-    def verified_access_trust_providers(self) -> pulumi.Output[Sequence['outputs.InstanceVerifiedAccessTrustProvider']]:
+    def verified_access_trust_providers(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceVerifiedAccessTrustProvider']]]:
         """
         One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         """

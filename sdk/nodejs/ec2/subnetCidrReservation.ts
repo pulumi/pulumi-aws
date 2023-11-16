@@ -67,7 +67,7 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
     /**
      * ID of the AWS account that owns this CIDR reservation.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The type of reservation to create. Valid values: `explicit`, `prefix`
      */

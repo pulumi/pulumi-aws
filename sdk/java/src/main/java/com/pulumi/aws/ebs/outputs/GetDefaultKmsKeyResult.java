@@ -6,6 +6,8 @@ package com.pulumi.aws.ebs.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDefaultKmsKeyResult {
@@ -13,27 +15,27 @@ public final class GetDefaultKmsKeyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
      * 
      */
-    private String keyArn;
+    private @Nullable String keyArn;
 
     private GetDefaultKmsKeyResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
      * 
      */
-    public String keyArn() {
-        return this.keyArn;
+    public Optional<String> keyArn() {
+        return Optional.ofNullable(this.keyArn);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetDefaultKmsKeyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String keyArn;
+        private @Nullable String id;
+        private @Nullable String keyArn;
         public Builder() {}
         public Builder(GetDefaultKmsKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetDefaultKmsKeyResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder keyArn(String keyArn) {
-            this.keyArn = Objects.requireNonNull(keyArn);
+        public Builder keyArn(@Nullable String keyArn) {
+            this.keyArn = keyArn;
             return this;
         }
         public GetDefaultKmsKeyResult build() {

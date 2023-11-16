@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,13 +17,13 @@ public final class GetReceivedLicensesResult {
      * @return List of all the license ARNs found.
      * 
      */
-    private List<String> arns;
+    private @Nullable List<String> arns;
     private @Nullable List<GetReceivedLicensesFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetReceivedLicensesResult() {}
     /**
@@ -30,7 +31,7 @@ public final class GetReceivedLicensesResult {
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
     public List<GetReceivedLicensesFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -39,8 +40,8 @@ public final class GetReceivedLicensesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -52,9 +53,9 @@ public final class GetReceivedLicensesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> arns;
+        private @Nullable List<String> arns;
         private @Nullable List<GetReceivedLicensesFilter> filters;
-        private String id;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetReceivedLicensesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,8 +65,8 @@ public final class GetReceivedLicensesResult {
         }
 
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -80,8 +81,8 @@ public final class GetReceivedLicensesResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetReceivedLicensesResult build() {

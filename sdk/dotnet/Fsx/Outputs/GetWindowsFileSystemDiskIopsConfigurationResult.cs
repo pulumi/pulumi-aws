@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class GetWindowsFileSystemDiskIopsConfigurationResult
     {
-        public readonly int Iops;
-        public readonly string Mode;
+        public readonly int? Iops;
+        public readonly string? Mode;
 
         [OutputConstructor]
         private GetWindowsFileSystemDiskIopsConfigurationResult(
-            int iops,
+            int? iops,
 
-            string mode)
+            string? mode)
         {
             Iops = iops;
             Mode = mode;

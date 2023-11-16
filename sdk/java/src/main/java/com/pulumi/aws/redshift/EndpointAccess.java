@@ -14,6 +14,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -67,14 +68,14 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="address", refs={String.class}, tree="[0]")
-    private Output<String> address;
+    private Output</* @Nullable */ String> address;
 
     /**
      * @return The DNS address of the endpoint.
      * 
      */
-    public Output<String> address() {
-        return this.address;
+    public Output<Optional<String>> address() {
+        return Codegen.optional(this.address);
     }
     /**
      * The cluster identifier of the cluster to access.
@@ -109,28 +110,28 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return The port number on which the cluster accepts incoming connections.
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
      * 
      */
     @Export(name="resourceOwner", refs={String.class}, tree="[0]")
-    private Output<String> resourceOwner;
+    private Output</* @Nullable */ String> resourceOwner;
 
     /**
      * @return The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
      * 
      */
-    public Output<String> resourceOwner() {
-        return this.resourceOwner;
+    public Output<Optional<String>> resourceOwner() {
+        return Codegen.optional(this.resourceOwner);
     }
     /**
      * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
@@ -151,28 +152,28 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcEndpoints", refs={List.class,EndpointAccessVpcEndpoint.class}, tree="[0,1]")
-    private Output<List<EndpointAccessVpcEndpoint>> vpcEndpoints;
+    private Output</* @Nullable */ List<EndpointAccessVpcEndpoint>> vpcEndpoints;
 
     /**
      * @return The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
      * 
      */
-    public Output<List<EndpointAccessVpcEndpoint>> vpcEndpoints() {
-        return this.vpcEndpoints;
+    public Output<Optional<List<EndpointAccessVpcEndpoint>>> vpcEndpoints() {
+        return Codegen.optional(this.vpcEndpoints);
     }
     /**
      * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
 
     /**

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// The ARN that Amazon Route 53 assigns to the namespace when you create it.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description that you specify for the namespace when you create it.
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
         /// </summary>
         [Output("hostedZone")]
-        public Output<string> HostedZone { get; private set; } = null!;
+        public Output<string?> HostedZone { get; private set; } = null!;
 
         /// <summary>
         /// The name of the namespace.

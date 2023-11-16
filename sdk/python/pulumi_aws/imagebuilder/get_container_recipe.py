@@ -85,7 +85,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter
-    def components(self) -> Sequence['outputs.GetContainerRecipeComponentResult']:
+    def components(self) -> Optional[Sequence['outputs.GetContainerRecipeComponentResult']]:
         """
         List of objects with components for the container recipe.
         """
@@ -93,7 +93,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> str:
+    def container_type(self) -> Optional[str]:
         """
         Type of the container.
         """
@@ -101,7 +101,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> str:
+    def date_created(self) -> Optional[str]:
         """
         Date the container recipe was created.
         """
@@ -109,7 +109,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the container recipe.
         """
@@ -117,7 +117,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter(name="dockerfileTemplateData")
-    def dockerfile_template_data(self) -> str:
+    def dockerfile_template_data(self) -> Optional[str]:
         """
         Dockerfile template used to build the image.
         """
@@ -125,7 +125,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> Optional[bool]:
         """
         Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         """
@@ -133,7 +133,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -141,7 +141,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter(name="instanceConfigurations")
-    def instance_configurations(self) -> Sequence['outputs.GetContainerRecipeInstanceConfigurationResult']:
+    def instance_configurations(self) -> Optional[Sequence['outputs.GetContainerRecipeInstanceConfigurationResult']]:
         """
         List of objects with instance configurations for building and testing container images.
         """
@@ -149,7 +149,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         KMS key used to encrypt the container image.
         """
@@ -157,7 +157,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the container recipe.
         """
@@ -165,7 +165,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter
-    def owner(self) -> str:
+    def owner(self) -> Optional[str]:
         """
         Owner of the container recipe.
         """
@@ -173,7 +173,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter(name="parentImage")
-    def parent_image(self) -> str:
+    def parent_image(self) -> Optional[str]:
         """
         Base image for the container recipe.
         """
@@ -181,7 +181,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> str:
+    def platform(self) -> Optional[str]:
         """
         Platform of the container recipe.
         """
@@ -197,7 +197,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter(name="targetRepositories")
-    def target_repositories(self) -> Sequence['outputs.GetContainerRecipeTargetRepositoryResult']:
+    def target_repositories(self) -> Optional[Sequence['outputs.GetContainerRecipeTargetRepositoryResult']]:
         """
         Destination repository for the container image.
         """
@@ -205,7 +205,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Version of the container recipe.
         """
@@ -213,7 +213,7 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter(name="workingDirectory")
-    def working_directory(self) -> str:
+    def working_directory(self) -> Optional[str]:
         """
         Working directory used during build and test workflows.
         """

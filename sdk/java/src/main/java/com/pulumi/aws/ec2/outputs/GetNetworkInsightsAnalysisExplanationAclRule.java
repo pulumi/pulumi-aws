@@ -10,34 +10,36 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisExplanationAclRule {
-    private String cidr;
-    private Boolean egress;
-    private List<GetNetworkInsightsAnalysisExplanationAclRulePortRange> portRanges;
-    private String protocol;
-    private String ruleAction;
-    private Integer ruleNumber;
+    private @Nullable String cidr;
+    private @Nullable Boolean egress;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationAclRulePortRange> portRanges;
+    private @Nullable String protocol;
+    private @Nullable String ruleAction;
+    private @Nullable Integer ruleNumber;
 
     private GetNetworkInsightsAnalysisExplanationAclRule() {}
-    public String cidr() {
-        return this.cidr;
+    public Optional<String> cidr() {
+        return Optional.ofNullable(this.cidr);
     }
-    public Boolean egress() {
-        return this.egress;
+    public Optional<Boolean> egress() {
+        return Optional.ofNullable(this.egress);
     }
     public List<GetNetworkInsightsAnalysisExplanationAclRulePortRange> portRanges() {
-        return this.portRanges;
+        return this.portRanges == null ? List.of() : this.portRanges;
     }
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
-    public String ruleAction() {
-        return this.ruleAction;
+    public Optional<String> ruleAction() {
+        return Optional.ofNullable(this.ruleAction);
     }
-    public Integer ruleNumber() {
-        return this.ruleNumber;
+    public Optional<Integer> ruleNumber() {
+        return Optional.ofNullable(this.ruleNumber);
     }
 
     public static Builder builder() {
@@ -49,12 +51,12 @@ public final class GetNetworkInsightsAnalysisExplanationAclRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cidr;
-        private Boolean egress;
-        private List<GetNetworkInsightsAnalysisExplanationAclRulePortRange> portRanges;
-        private String protocol;
-        private String ruleAction;
-        private Integer ruleNumber;
+        private @Nullable String cidr;
+        private @Nullable Boolean egress;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationAclRulePortRange> portRanges;
+        private @Nullable String protocol;
+        private @Nullable String ruleAction;
+        private @Nullable Integer ruleNumber;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisExplanationAclRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,36 +69,36 @@ public final class GetNetworkInsightsAnalysisExplanationAclRule {
         }
 
         @CustomType.Setter
-        public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+        public Builder cidr(@Nullable String cidr) {
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
-        public Builder egress(Boolean egress) {
-            this.egress = Objects.requireNonNull(egress);
+        public Builder egress(@Nullable Boolean egress) {
+            this.egress = egress;
             return this;
         }
         @CustomType.Setter
-        public Builder portRanges(List<GetNetworkInsightsAnalysisExplanationAclRulePortRange> portRanges) {
-            this.portRanges = Objects.requireNonNull(portRanges);
+        public Builder portRanges(@Nullable List<GetNetworkInsightsAnalysisExplanationAclRulePortRange> portRanges) {
+            this.portRanges = portRanges;
             return this;
         }
         public Builder portRanges(GetNetworkInsightsAnalysisExplanationAclRulePortRange... portRanges) {
             return portRanges(List.of(portRanges));
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder ruleAction(String ruleAction) {
-            this.ruleAction = Objects.requireNonNull(ruleAction);
+        public Builder ruleAction(@Nullable String ruleAction) {
+            this.ruleAction = ruleAction;
             return this;
         }
         @CustomType.Setter
-        public Builder ruleNumber(Integer ruleNumber) {
-            this.ruleNumber = Objects.requireNonNull(ruleNumber);
+        public Builder ruleNumber(@Nullable Integer ruleNumber) {
+            this.ruleNumber = ruleNumber;
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationAclRule build() {

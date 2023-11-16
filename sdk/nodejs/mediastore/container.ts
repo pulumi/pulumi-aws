@@ -55,11 +55,11 @@ export class Container extends pulumi.CustomResource {
     /**
      * The ARN of the container.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The DNS endpoint of the container.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * The name of the container. Must contain alphanumeric characters or underscores.
      */

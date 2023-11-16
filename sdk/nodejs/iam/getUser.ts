@@ -50,27 +50,27 @@ export interface GetUserResult {
     /**
      * ARN assigned by AWS for this user.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Path in which this user was created.
      */
-    readonly path: string;
+    readonly path?: string;
     /**
      * The ARN of the policy that is used to set the permissions boundary for the user.
      */
-    readonly permissionsBoundary: string;
+    readonly permissionsBoundary?: string;
     /**
      * Map of key-value pairs associated with the user.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Unique ID assigned by AWS for this user.
      */
-    readonly userId: string;
+    readonly userId?: string;
     /**
      * Name associated to this User
      */

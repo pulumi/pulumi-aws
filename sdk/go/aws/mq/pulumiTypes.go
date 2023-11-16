@@ -1229,8 +1229,8 @@ func (o BrokerUserArrayOutput) Index(i pulumi.IntInput) BrokerUserOutput {
 }
 
 type GetBrokerConfiguration struct {
-	Id       string `pulumi:"id"`
-	Revision int    `pulumi:"revision"`
+	Id       *string `pulumi:"id"`
+	Revision *int    `pulumi:"revision"`
 }
 
 // GetBrokerConfigurationInput is an input type that accepts GetBrokerConfigurationArgs and GetBrokerConfigurationOutput values.
@@ -1245,8 +1245,8 @@ type GetBrokerConfigurationInput interface {
 }
 
 type GetBrokerConfigurationArgs struct {
-	Id       pulumi.StringInput `pulumi:"id"`
-	Revision pulumi.IntInput    `pulumi:"revision"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
+	Revision pulumi.IntPtrInput    `pulumi:"revision"`
 }
 
 func (GetBrokerConfigurationArgs) ElementType() reflect.Type {
@@ -1259,6 +1259,47 @@ func (i GetBrokerConfigurationArgs) ToGetBrokerConfigurationOutput() GetBrokerCo
 
 func (i GetBrokerConfigurationArgs) ToGetBrokerConfigurationOutputWithContext(ctx context.Context) GetBrokerConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerConfigurationOutput)
+}
+
+func (i GetBrokerConfigurationArgs) ToGetBrokerConfigurationPtrOutput() GetBrokerConfigurationPtrOutput {
+	return i.ToGetBrokerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GetBrokerConfigurationArgs) ToGetBrokerConfigurationPtrOutputWithContext(ctx context.Context) GetBrokerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerConfigurationOutput).ToGetBrokerConfigurationPtrOutputWithContext(ctx)
+}
+
+// GetBrokerConfigurationPtrInput is an input type that accepts GetBrokerConfigurationArgs, GetBrokerConfigurationPtr and GetBrokerConfigurationPtrOutput values.
+// You can construct a concrete instance of `GetBrokerConfigurationPtrInput` via:
+//
+//	        GetBrokerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetBrokerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGetBrokerConfigurationPtrOutput() GetBrokerConfigurationPtrOutput
+	ToGetBrokerConfigurationPtrOutputWithContext(context.Context) GetBrokerConfigurationPtrOutput
+}
+
+type getBrokerConfigurationPtrType GetBrokerConfigurationArgs
+
+func GetBrokerConfigurationPtr(v *GetBrokerConfigurationArgs) GetBrokerConfigurationPtrInput {
+	return (*getBrokerConfigurationPtrType)(v)
+}
+
+func (*getBrokerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBrokerConfiguration)(nil)).Elem()
+}
+
+func (i *getBrokerConfigurationPtrType) ToGetBrokerConfigurationPtrOutput() GetBrokerConfigurationPtrOutput {
+	return i.ToGetBrokerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *getBrokerConfigurationPtrType) ToGetBrokerConfigurationPtrOutputWithContext(ctx context.Context) GetBrokerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerConfigurationPtrOutput)
 }
 
 type GetBrokerConfigurationOutput struct{ *pulumi.OutputState }
@@ -1275,17 +1316,69 @@ func (o GetBrokerConfigurationOutput) ToGetBrokerConfigurationOutputWithContext(
 	return o
 }
 
-func (o GetBrokerConfigurationOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerConfiguration) string { return v.Id }).(pulumi.StringOutput)
+func (o GetBrokerConfigurationOutput) ToGetBrokerConfigurationPtrOutput() GetBrokerConfigurationPtrOutput {
+	return o.ToGetBrokerConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o GetBrokerConfigurationOutput) Revision() pulumi.IntOutput {
-	return o.ApplyT(func(v GetBrokerConfiguration) int { return v.Revision }).(pulumi.IntOutput)
+func (o GetBrokerConfigurationOutput) ToGetBrokerConfigurationPtrOutputWithContext(ctx context.Context) GetBrokerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetBrokerConfiguration) *GetBrokerConfiguration {
+		return &v
+	}).(GetBrokerConfigurationPtrOutput)
+}
+
+func (o GetBrokerConfigurationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o GetBrokerConfigurationOutput) Revision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetBrokerConfiguration) *int { return v.Revision }).(pulumi.IntPtrOutput)
+}
+
+type GetBrokerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBrokerConfiguration)(nil)).Elem()
+}
+
+func (o GetBrokerConfigurationPtrOutput) ToGetBrokerConfigurationPtrOutput() GetBrokerConfigurationPtrOutput {
+	return o
+}
+
+func (o GetBrokerConfigurationPtrOutput) ToGetBrokerConfigurationPtrOutputWithContext(ctx context.Context) GetBrokerConfigurationPtrOutput {
+	return o
+}
+
+func (o GetBrokerConfigurationPtrOutput) Elem() GetBrokerConfigurationOutput {
+	return o.ApplyT(func(v *GetBrokerConfiguration) GetBrokerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GetBrokerConfiguration
+		return ret
+	}).(GetBrokerConfigurationOutput)
+}
+
+func (o GetBrokerConfigurationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBrokerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetBrokerConfigurationPtrOutput) Revision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetBrokerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Revision
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetBrokerEncryptionOption struct {
-	KmsKeyId       string `pulumi:"kmsKeyId"`
-	UseAwsOwnedKey bool   `pulumi:"useAwsOwnedKey"`
+	KmsKeyId       *string `pulumi:"kmsKeyId"`
+	UseAwsOwnedKey *bool   `pulumi:"useAwsOwnedKey"`
 }
 
 // GetBrokerEncryptionOptionInput is an input type that accepts GetBrokerEncryptionOptionArgs and GetBrokerEncryptionOptionOutput values.
@@ -1300,8 +1393,8 @@ type GetBrokerEncryptionOptionInput interface {
 }
 
 type GetBrokerEncryptionOptionArgs struct {
-	KmsKeyId       pulumi.StringInput `pulumi:"kmsKeyId"`
-	UseAwsOwnedKey pulumi.BoolInput   `pulumi:"useAwsOwnedKey"`
+	KmsKeyId       pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	UseAwsOwnedKey pulumi.BoolPtrInput   `pulumi:"useAwsOwnedKey"`
 }
 
 func (GetBrokerEncryptionOptionArgs) ElementType() reflect.Type {
@@ -1355,12 +1448,12 @@ func (o GetBrokerEncryptionOptionOutput) ToGetBrokerEncryptionOptionOutputWithCo
 	return o
 }
 
-func (o GetBrokerEncryptionOptionOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerEncryptionOption) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o GetBrokerEncryptionOptionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerEncryptionOption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetBrokerEncryptionOptionOutput) UseAwsOwnedKey() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBrokerEncryptionOption) bool { return v.UseAwsOwnedKey }).(pulumi.BoolOutput)
+func (o GetBrokerEncryptionOptionOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBrokerEncryptionOption) *bool { return v.UseAwsOwnedKey }).(pulumi.BoolPtrOutput)
 }
 
 type GetBrokerEncryptionOptionArrayOutput struct{ *pulumi.OutputState }
@@ -1384,9 +1477,9 @@ func (o GetBrokerEncryptionOptionArrayOutput) Index(i pulumi.IntInput) GetBroker
 }
 
 type GetBrokerInstance struct {
-	ConsoleUrl string   `pulumi:"consoleUrl"`
+	ConsoleUrl *string  `pulumi:"consoleUrl"`
 	Endpoints  []string `pulumi:"endpoints"`
-	IpAddress  string   `pulumi:"ipAddress"`
+	IpAddress  *string  `pulumi:"ipAddress"`
 }
 
 // GetBrokerInstanceInput is an input type that accepts GetBrokerInstanceArgs and GetBrokerInstanceOutput values.
@@ -1401,9 +1494,9 @@ type GetBrokerInstanceInput interface {
 }
 
 type GetBrokerInstanceArgs struct {
-	ConsoleUrl pulumi.StringInput      `pulumi:"consoleUrl"`
+	ConsoleUrl pulumi.StringPtrInput   `pulumi:"consoleUrl"`
 	Endpoints  pulumi.StringArrayInput `pulumi:"endpoints"`
-	IpAddress  pulumi.StringInput      `pulumi:"ipAddress"`
+	IpAddress  pulumi.StringPtrInput   `pulumi:"ipAddress"`
 }
 
 func (GetBrokerInstanceArgs) ElementType() reflect.Type {
@@ -1457,16 +1550,16 @@ func (o GetBrokerInstanceOutput) ToGetBrokerInstanceOutputWithContext(ctx contex
 	return o
 }
 
-func (o GetBrokerInstanceOutput) ConsoleUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerInstance) string { return v.ConsoleUrl }).(pulumi.StringOutput)
+func (o GetBrokerInstanceOutput) ConsoleUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerInstance) *string { return v.ConsoleUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o GetBrokerInstanceOutput) Endpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetBrokerInstance) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
 }
 
-func (o GetBrokerInstanceOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerInstance) string { return v.IpAddress }).(pulumi.StringOutput)
+func (o GetBrokerInstanceOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerInstance) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 type GetBrokerInstanceArrayOutput struct{ *pulumi.OutputState }
@@ -1491,16 +1584,16 @@ func (o GetBrokerInstanceArrayOutput) Index(i pulumi.IntInput) GetBrokerInstance
 
 type GetBrokerLdapServerMetadata struct {
 	Hosts                  []string `pulumi:"hosts"`
-	RoleBase               string   `pulumi:"roleBase"`
-	RoleName               string   `pulumi:"roleName"`
-	RoleSearchMatching     string   `pulumi:"roleSearchMatching"`
-	RoleSearchSubtree      bool     `pulumi:"roleSearchSubtree"`
-	ServiceAccountPassword string   `pulumi:"serviceAccountPassword"`
-	ServiceAccountUsername string   `pulumi:"serviceAccountUsername"`
-	UserBase               string   `pulumi:"userBase"`
-	UserRoleName           string   `pulumi:"userRoleName"`
-	UserSearchMatching     string   `pulumi:"userSearchMatching"`
-	UserSearchSubtree      bool     `pulumi:"userSearchSubtree"`
+	RoleBase               *string  `pulumi:"roleBase"`
+	RoleName               *string  `pulumi:"roleName"`
+	RoleSearchMatching     *string  `pulumi:"roleSearchMatching"`
+	RoleSearchSubtree      *bool    `pulumi:"roleSearchSubtree"`
+	ServiceAccountPassword *string  `pulumi:"serviceAccountPassword"`
+	ServiceAccountUsername *string  `pulumi:"serviceAccountUsername"`
+	UserBase               *string  `pulumi:"userBase"`
+	UserRoleName           *string  `pulumi:"userRoleName"`
+	UserSearchMatching     *string  `pulumi:"userSearchMatching"`
+	UserSearchSubtree      *bool    `pulumi:"userSearchSubtree"`
 }
 
 // GetBrokerLdapServerMetadataInput is an input type that accepts GetBrokerLdapServerMetadataArgs and GetBrokerLdapServerMetadataOutput values.
@@ -1516,16 +1609,16 @@ type GetBrokerLdapServerMetadataInput interface {
 
 type GetBrokerLdapServerMetadataArgs struct {
 	Hosts                  pulumi.StringArrayInput `pulumi:"hosts"`
-	RoleBase               pulumi.StringInput      `pulumi:"roleBase"`
-	RoleName               pulumi.StringInput      `pulumi:"roleName"`
-	RoleSearchMatching     pulumi.StringInput      `pulumi:"roleSearchMatching"`
-	RoleSearchSubtree      pulumi.BoolInput        `pulumi:"roleSearchSubtree"`
-	ServiceAccountPassword pulumi.StringInput      `pulumi:"serviceAccountPassword"`
-	ServiceAccountUsername pulumi.StringInput      `pulumi:"serviceAccountUsername"`
-	UserBase               pulumi.StringInput      `pulumi:"userBase"`
-	UserRoleName           pulumi.StringInput      `pulumi:"userRoleName"`
-	UserSearchMatching     pulumi.StringInput      `pulumi:"userSearchMatching"`
-	UserSearchSubtree      pulumi.BoolInput        `pulumi:"userSearchSubtree"`
+	RoleBase               pulumi.StringPtrInput   `pulumi:"roleBase"`
+	RoleName               pulumi.StringPtrInput   `pulumi:"roleName"`
+	RoleSearchMatching     pulumi.StringPtrInput   `pulumi:"roleSearchMatching"`
+	RoleSearchSubtree      pulumi.BoolPtrInput     `pulumi:"roleSearchSubtree"`
+	ServiceAccountPassword pulumi.StringPtrInput   `pulumi:"serviceAccountPassword"`
+	ServiceAccountUsername pulumi.StringPtrInput   `pulumi:"serviceAccountUsername"`
+	UserBase               pulumi.StringPtrInput   `pulumi:"userBase"`
+	UserRoleName           pulumi.StringPtrInput   `pulumi:"userRoleName"`
+	UserSearchMatching     pulumi.StringPtrInput   `pulumi:"userSearchMatching"`
+	UserSearchSubtree      pulumi.BoolPtrInput     `pulumi:"userSearchSubtree"`
 }
 
 func (GetBrokerLdapServerMetadataArgs) ElementType() reflect.Type {
@@ -1583,44 +1676,44 @@ func (o GetBrokerLdapServerMetadataOutput) Hosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetBrokerLdapServerMetadata) []string { return v.Hosts }).(pulumi.StringArrayOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) RoleBase() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.RoleBase }).(pulumi.StringOutput)
+func (o GetBrokerLdapServerMetadataOutput) RoleBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *string { return v.RoleBase }).(pulumi.StringPtrOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) RoleName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.RoleName }).(pulumi.StringOutput)
+func (o GetBrokerLdapServerMetadataOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *string { return v.RoleName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) RoleSearchMatching() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.RoleSearchMatching }).(pulumi.StringOutput)
+func (o GetBrokerLdapServerMetadataOutput) RoleSearchMatching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *string { return v.RoleSearchMatching }).(pulumi.StringPtrOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) RoleSearchSubtree() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) bool { return v.RoleSearchSubtree }).(pulumi.BoolOutput)
+func (o GetBrokerLdapServerMetadataOutput) RoleSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *bool { return v.RoleSearchSubtree }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) ServiceAccountPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.ServiceAccountPassword }).(pulumi.StringOutput)
+func (o GetBrokerLdapServerMetadataOutput) ServiceAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *string { return v.ServiceAccountPassword }).(pulumi.StringPtrOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) ServiceAccountUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.ServiceAccountUsername }).(pulumi.StringOutput)
+func (o GetBrokerLdapServerMetadataOutput) ServiceAccountUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *string { return v.ServiceAccountUsername }).(pulumi.StringPtrOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) UserBase() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.UserBase }).(pulumi.StringOutput)
+func (o GetBrokerLdapServerMetadataOutput) UserBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *string { return v.UserBase }).(pulumi.StringPtrOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) UserRoleName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.UserRoleName }).(pulumi.StringOutput)
+func (o GetBrokerLdapServerMetadataOutput) UserRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *string { return v.UserRoleName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) UserSearchMatching() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.UserSearchMatching }).(pulumi.StringOutput)
+func (o GetBrokerLdapServerMetadataOutput) UserSearchMatching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *string { return v.UserSearchMatching }).(pulumi.StringPtrOutput)
 }
 
-func (o GetBrokerLdapServerMetadataOutput) UserSearchSubtree() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBrokerLdapServerMetadata) bool { return v.UserSearchSubtree }).(pulumi.BoolOutput)
+func (o GetBrokerLdapServerMetadataOutput) UserSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) *bool { return v.UserSearchSubtree }).(pulumi.BoolPtrOutput)
 }
 
 type GetBrokerLdapServerMetadataArrayOutput struct{ *pulumi.OutputState }
@@ -1644,8 +1737,8 @@ func (o GetBrokerLdapServerMetadataArrayOutput) Index(i pulumi.IntInput) GetBrok
 }
 
 type GetBrokerLogs struct {
-	Audit   bool `pulumi:"audit"`
-	General bool `pulumi:"general"`
+	Audit   *bool `pulumi:"audit"`
+	General *bool `pulumi:"general"`
 }
 
 // GetBrokerLogsInput is an input type that accepts GetBrokerLogsArgs and GetBrokerLogsOutput values.
@@ -1660,8 +1753,8 @@ type GetBrokerLogsInput interface {
 }
 
 type GetBrokerLogsArgs struct {
-	Audit   pulumi.BoolInput `pulumi:"audit"`
-	General pulumi.BoolInput `pulumi:"general"`
+	Audit   pulumi.BoolPtrInput `pulumi:"audit"`
+	General pulumi.BoolPtrInput `pulumi:"general"`
 }
 
 func (GetBrokerLogsArgs) ElementType() reflect.Type {
@@ -1674,6 +1767,47 @@ func (i GetBrokerLogsArgs) ToGetBrokerLogsOutput() GetBrokerLogsOutput {
 
 func (i GetBrokerLogsArgs) ToGetBrokerLogsOutputWithContext(ctx context.Context) GetBrokerLogsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLogsOutput)
+}
+
+func (i GetBrokerLogsArgs) ToGetBrokerLogsPtrOutput() GetBrokerLogsPtrOutput {
+	return i.ToGetBrokerLogsPtrOutputWithContext(context.Background())
+}
+
+func (i GetBrokerLogsArgs) ToGetBrokerLogsPtrOutputWithContext(ctx context.Context) GetBrokerLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLogsOutput).ToGetBrokerLogsPtrOutputWithContext(ctx)
+}
+
+// GetBrokerLogsPtrInput is an input type that accepts GetBrokerLogsArgs, GetBrokerLogsPtr and GetBrokerLogsPtrOutput values.
+// You can construct a concrete instance of `GetBrokerLogsPtrInput` via:
+//
+//	        GetBrokerLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetBrokerLogsPtrInput interface {
+	pulumi.Input
+
+	ToGetBrokerLogsPtrOutput() GetBrokerLogsPtrOutput
+	ToGetBrokerLogsPtrOutputWithContext(context.Context) GetBrokerLogsPtrOutput
+}
+
+type getBrokerLogsPtrType GetBrokerLogsArgs
+
+func GetBrokerLogsPtr(v *GetBrokerLogsArgs) GetBrokerLogsPtrInput {
+	return (*getBrokerLogsPtrType)(v)
+}
+
+func (*getBrokerLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBrokerLogs)(nil)).Elem()
+}
+
+func (i *getBrokerLogsPtrType) ToGetBrokerLogsPtrOutput() GetBrokerLogsPtrOutput {
+	return i.ToGetBrokerLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *getBrokerLogsPtrType) ToGetBrokerLogsPtrOutputWithContext(ctx context.Context) GetBrokerLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLogsPtrOutput)
 }
 
 type GetBrokerLogsOutput struct{ *pulumi.OutputState }
@@ -1690,18 +1824,70 @@ func (o GetBrokerLogsOutput) ToGetBrokerLogsOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o GetBrokerLogsOutput) Audit() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBrokerLogs) bool { return v.Audit }).(pulumi.BoolOutput)
+func (o GetBrokerLogsOutput) ToGetBrokerLogsPtrOutput() GetBrokerLogsPtrOutput {
+	return o.ToGetBrokerLogsPtrOutputWithContext(context.Background())
 }
 
-func (o GetBrokerLogsOutput) General() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBrokerLogs) bool { return v.General }).(pulumi.BoolOutput)
+func (o GetBrokerLogsOutput) ToGetBrokerLogsPtrOutputWithContext(ctx context.Context) GetBrokerLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetBrokerLogs) *GetBrokerLogs {
+		return &v
+	}).(GetBrokerLogsPtrOutput)
+}
+
+func (o GetBrokerLogsOutput) Audit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBrokerLogs) *bool { return v.Audit }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetBrokerLogsOutput) General() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBrokerLogs) *bool { return v.General }).(pulumi.BoolPtrOutput)
+}
+
+type GetBrokerLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBrokerLogs)(nil)).Elem()
+}
+
+func (o GetBrokerLogsPtrOutput) ToGetBrokerLogsPtrOutput() GetBrokerLogsPtrOutput {
+	return o
+}
+
+func (o GetBrokerLogsPtrOutput) ToGetBrokerLogsPtrOutputWithContext(ctx context.Context) GetBrokerLogsPtrOutput {
+	return o
+}
+
+func (o GetBrokerLogsPtrOutput) Elem() GetBrokerLogsOutput {
+	return o.ApplyT(func(v *GetBrokerLogs) GetBrokerLogs {
+		if v != nil {
+			return *v
+		}
+		var ret GetBrokerLogs
+		return ret
+	}).(GetBrokerLogsOutput)
+}
+
+func (o GetBrokerLogsPtrOutput) Audit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetBrokerLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Audit
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetBrokerLogsPtrOutput) General() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetBrokerLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.General
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetBrokerMaintenanceWindowStartTime struct {
-	DayOfWeek string `pulumi:"dayOfWeek"`
-	TimeOfDay string `pulumi:"timeOfDay"`
-	TimeZone  string `pulumi:"timeZone"`
+	DayOfWeek *string `pulumi:"dayOfWeek"`
+	TimeOfDay *string `pulumi:"timeOfDay"`
+	TimeZone  *string `pulumi:"timeZone"`
 }
 
 // GetBrokerMaintenanceWindowStartTimeInput is an input type that accepts GetBrokerMaintenanceWindowStartTimeArgs and GetBrokerMaintenanceWindowStartTimeOutput values.
@@ -1716,9 +1902,9 @@ type GetBrokerMaintenanceWindowStartTimeInput interface {
 }
 
 type GetBrokerMaintenanceWindowStartTimeArgs struct {
-	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
-	TimeOfDay pulumi.StringInput `pulumi:"timeOfDay"`
-	TimeZone  pulumi.StringInput `pulumi:"timeZone"`
+	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
+	TimeOfDay pulumi.StringPtrInput `pulumi:"timeOfDay"`
+	TimeZone  pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
 func (GetBrokerMaintenanceWindowStartTimeArgs) ElementType() reflect.Type {
@@ -1731,6 +1917,47 @@ func (i GetBrokerMaintenanceWindowStartTimeArgs) ToGetBrokerMaintenanceWindowSta
 
 func (i GetBrokerMaintenanceWindowStartTimeArgs) ToGetBrokerMaintenanceWindowStartTimeOutputWithContext(ctx context.Context) GetBrokerMaintenanceWindowStartTimeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerMaintenanceWindowStartTimeOutput)
+}
+
+func (i GetBrokerMaintenanceWindowStartTimeArgs) ToGetBrokerMaintenanceWindowStartTimePtrOutput() GetBrokerMaintenanceWindowStartTimePtrOutput {
+	return i.ToGetBrokerMaintenanceWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i GetBrokerMaintenanceWindowStartTimeArgs) ToGetBrokerMaintenanceWindowStartTimePtrOutputWithContext(ctx context.Context) GetBrokerMaintenanceWindowStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerMaintenanceWindowStartTimeOutput).ToGetBrokerMaintenanceWindowStartTimePtrOutputWithContext(ctx)
+}
+
+// GetBrokerMaintenanceWindowStartTimePtrInput is an input type that accepts GetBrokerMaintenanceWindowStartTimeArgs, GetBrokerMaintenanceWindowStartTimePtr and GetBrokerMaintenanceWindowStartTimePtrOutput values.
+// You can construct a concrete instance of `GetBrokerMaintenanceWindowStartTimePtrInput` via:
+//
+//	        GetBrokerMaintenanceWindowStartTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetBrokerMaintenanceWindowStartTimePtrInput interface {
+	pulumi.Input
+
+	ToGetBrokerMaintenanceWindowStartTimePtrOutput() GetBrokerMaintenanceWindowStartTimePtrOutput
+	ToGetBrokerMaintenanceWindowStartTimePtrOutputWithContext(context.Context) GetBrokerMaintenanceWindowStartTimePtrOutput
+}
+
+type getBrokerMaintenanceWindowStartTimePtrType GetBrokerMaintenanceWindowStartTimeArgs
+
+func GetBrokerMaintenanceWindowStartTimePtr(v *GetBrokerMaintenanceWindowStartTimeArgs) GetBrokerMaintenanceWindowStartTimePtrInput {
+	return (*getBrokerMaintenanceWindowStartTimePtrType)(v)
+}
+
+func (*getBrokerMaintenanceWindowStartTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBrokerMaintenanceWindowStartTime)(nil)).Elem()
+}
+
+func (i *getBrokerMaintenanceWindowStartTimePtrType) ToGetBrokerMaintenanceWindowStartTimePtrOutput() GetBrokerMaintenanceWindowStartTimePtrOutput {
+	return i.ToGetBrokerMaintenanceWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i *getBrokerMaintenanceWindowStartTimePtrType) ToGetBrokerMaintenanceWindowStartTimePtrOutputWithContext(ctx context.Context) GetBrokerMaintenanceWindowStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerMaintenanceWindowStartTimePtrOutput)
 }
 
 type GetBrokerMaintenanceWindowStartTimeOutput struct{ *pulumi.OutputState }
@@ -1747,23 +1974,84 @@ func (o GetBrokerMaintenanceWindowStartTimeOutput) ToGetBrokerMaintenanceWindowS
 	return o
 }
 
-func (o GetBrokerMaintenanceWindowStartTimeOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
+func (o GetBrokerMaintenanceWindowStartTimeOutput) ToGetBrokerMaintenanceWindowStartTimePtrOutput() GetBrokerMaintenanceWindowStartTimePtrOutput {
+	return o.ToGetBrokerMaintenanceWindowStartTimePtrOutputWithContext(context.Background())
 }
 
-func (o GetBrokerMaintenanceWindowStartTimeOutput) TimeOfDay() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
+func (o GetBrokerMaintenanceWindowStartTimeOutput) ToGetBrokerMaintenanceWindowStartTimePtrOutputWithContext(ctx context.Context) GetBrokerMaintenanceWindowStartTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetBrokerMaintenanceWindowStartTime) *GetBrokerMaintenanceWindowStartTime {
+		return &v
+	}).(GetBrokerMaintenanceWindowStartTimePtrOutput)
 }
 
-func (o GetBrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
+func (o GetBrokerMaintenanceWindowStartTimeOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
+}
+
+func (o GetBrokerMaintenanceWindowStartTimeOutput) TimeOfDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) *string { return v.TimeOfDay }).(pulumi.StringPtrOutput)
+}
+
+func (o GetBrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type GetBrokerMaintenanceWindowStartTimePtrOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerMaintenanceWindowStartTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBrokerMaintenanceWindowStartTime)(nil)).Elem()
+}
+
+func (o GetBrokerMaintenanceWindowStartTimePtrOutput) ToGetBrokerMaintenanceWindowStartTimePtrOutput() GetBrokerMaintenanceWindowStartTimePtrOutput {
+	return o
+}
+
+func (o GetBrokerMaintenanceWindowStartTimePtrOutput) ToGetBrokerMaintenanceWindowStartTimePtrOutputWithContext(ctx context.Context) GetBrokerMaintenanceWindowStartTimePtrOutput {
+	return o
+}
+
+func (o GetBrokerMaintenanceWindowStartTimePtrOutput) Elem() GetBrokerMaintenanceWindowStartTimeOutput {
+	return o.ApplyT(func(v *GetBrokerMaintenanceWindowStartTime) GetBrokerMaintenanceWindowStartTime {
+		if v != nil {
+			return *v
+		}
+		var ret GetBrokerMaintenanceWindowStartTime
+		return ret
+	}).(GetBrokerMaintenanceWindowStartTimeOutput)
+}
+
+func (o GetBrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBrokerMaintenanceWindowStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetBrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBrokerMaintenanceWindowStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeOfDay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetBrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBrokerMaintenanceWindowStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetBrokerUser struct {
-	ConsoleAccess   bool     `pulumi:"consoleAccess"`
+	ConsoleAccess   *bool    `pulumi:"consoleAccess"`
 	Groups          []string `pulumi:"groups"`
-	ReplicationUser bool     `pulumi:"replicationUser"`
-	Username        string   `pulumi:"username"`
+	ReplicationUser *bool    `pulumi:"replicationUser"`
+	Username        *string  `pulumi:"username"`
 }
 
 // GetBrokerUserInput is an input type that accepts GetBrokerUserArgs and GetBrokerUserOutput values.
@@ -1778,10 +2066,10 @@ type GetBrokerUserInput interface {
 }
 
 type GetBrokerUserArgs struct {
-	ConsoleAccess   pulumi.BoolInput        `pulumi:"consoleAccess"`
+	ConsoleAccess   pulumi.BoolPtrInput     `pulumi:"consoleAccess"`
 	Groups          pulumi.StringArrayInput `pulumi:"groups"`
-	ReplicationUser pulumi.BoolInput        `pulumi:"replicationUser"`
-	Username        pulumi.StringInput      `pulumi:"username"`
+	ReplicationUser pulumi.BoolPtrInput     `pulumi:"replicationUser"`
+	Username        pulumi.StringPtrInput   `pulumi:"username"`
 }
 
 func (GetBrokerUserArgs) ElementType() reflect.Type {
@@ -1835,20 +2123,20 @@ func (o GetBrokerUserOutput) ToGetBrokerUserOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o GetBrokerUserOutput) ConsoleAccess() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBrokerUser) bool { return v.ConsoleAccess }).(pulumi.BoolOutput)
+func (o GetBrokerUserOutput) ConsoleAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBrokerUser) *bool { return v.ConsoleAccess }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetBrokerUserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetBrokerUser) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-func (o GetBrokerUserOutput) ReplicationUser() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBrokerUser) bool { return v.ReplicationUser }).(pulumi.BoolOutput)
+func (o GetBrokerUserOutput) ReplicationUser() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBrokerUser) *bool { return v.ReplicationUser }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetBrokerUserOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBrokerUser) string { return v.Username }).(pulumi.StringOutput)
+func (o GetBrokerUserOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBrokerUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type GetBrokerUserArrayOutput struct{ *pulumi.OutputState }
@@ -1875,11 +2163,11 @@ type GetInstanceTypeOfferingsBrokerInstanceOption struct {
 	// List of available AZs. See Availability Zones. below
 	AvailabilityZones []GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone `pulumi:"availabilityZones"`
 	// Filter response by engine type.
-	EngineType string `pulumi:"engineType"`
+	EngineType *string `pulumi:"engineType"`
 	// Filter response by host instance type.
-	HostInstanceType string `pulumi:"hostInstanceType"`
+	HostInstanceType *string `pulumi:"hostInstanceType"`
 	// Filter response by storage type.
-	StorageType string `pulumi:"storageType"`
+	StorageType *string `pulumi:"storageType"`
 	// The list of supported deployment modes.
 	SupportedDeploymentModes []string `pulumi:"supportedDeploymentModes"`
 	// The list of supported engine versions.
@@ -1901,11 +2189,11 @@ type GetInstanceTypeOfferingsBrokerInstanceOptionArgs struct {
 	// List of available AZs. See Availability Zones. below
 	AvailabilityZones GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput `pulumi:"availabilityZones"`
 	// Filter response by engine type.
-	EngineType pulumi.StringInput `pulumi:"engineType"`
+	EngineType pulumi.StringPtrInput `pulumi:"engineType"`
 	// Filter response by host instance type.
-	HostInstanceType pulumi.StringInput `pulumi:"hostInstanceType"`
+	HostInstanceType pulumi.StringPtrInput `pulumi:"hostInstanceType"`
 	// Filter response by storage type.
-	StorageType pulumi.StringInput `pulumi:"storageType"`
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 	// The list of supported deployment modes.
 	SupportedDeploymentModes pulumi.StringArrayInput `pulumi:"supportedDeploymentModes"`
 	// The list of supported engine versions.
@@ -1971,18 +2259,18 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) AvailabilityZones() 
 }
 
 // Filter response by engine type.
-func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) EngineType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) string { return v.EngineType }).(pulumi.StringOutput)
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) EngineType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) *string { return v.EngineType }).(pulumi.StringPtrOutput)
 }
 
 // Filter response by host instance type.
-func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) HostInstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) string { return v.HostInstanceType }).(pulumi.StringOutput)
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) HostInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) *string { return v.HostInstanceType }).(pulumi.StringPtrOutput)
 }
 
 // Filter response by storage type.
-func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) string { return v.StorageType }).(pulumi.StringOutput)
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 // The list of supported deployment modes.
@@ -2017,7 +2305,7 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput) Index(i pulumi.
 
 type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone struct {
 	// Name of the Availability Zone.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneInput is an input type that accepts GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs and GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput values.
@@ -2033,7 +2321,7 @@ type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneInput interface
 
 type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs struct {
 	// Name of the Availability Zone.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs) ElementType() reflect.Type {
@@ -2088,8 +2376,8 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) ToGe
 }
 
 // Name of the Availability Zone.
-func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone) string { return v.Name }).(pulumi.StringOutput)
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput struct{ *pulumi.OutputState }
@@ -2128,6 +2416,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserInput)(nil)).Elem(), BrokerUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserArrayInput)(nil)).Elem(), BrokerUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerConfigurationInput)(nil)).Elem(), GetBrokerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerConfigurationPtrInput)(nil)).Elem(), GetBrokerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEncryptionOptionInput)(nil)).Elem(), GetBrokerEncryptionOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEncryptionOptionArrayInput)(nil)).Elem(), GetBrokerEncryptionOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerInstanceInput)(nil)).Elem(), GetBrokerInstanceArgs{})
@@ -2135,7 +2424,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLdapServerMetadataInput)(nil)).Elem(), GetBrokerLdapServerMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLdapServerMetadataArrayInput)(nil)).Elem(), GetBrokerLdapServerMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLogsInput)(nil)).Elem(), GetBrokerLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLogsPtrInput)(nil)).Elem(), GetBrokerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerMaintenanceWindowStartTimeInput)(nil)).Elem(), GetBrokerMaintenanceWindowStartTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerMaintenanceWindowStartTimePtrInput)(nil)).Elem(), GetBrokerMaintenanceWindowStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerUserInput)(nil)).Elem(), GetBrokerUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerUserArrayInput)(nil)).Elem(), GetBrokerUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOptionInput)(nil)).Elem(), GetInstanceTypeOfferingsBrokerInstanceOptionArgs{})
@@ -2157,6 +2448,7 @@ func init() {
 	pulumi.RegisterOutputType(BrokerUserOutput{})
 	pulumi.RegisterOutputType(BrokerUserArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerConfigurationOutput{})
+	pulumi.RegisterOutputType(GetBrokerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetBrokerEncryptionOptionOutput{})
 	pulumi.RegisterOutputType(GetBrokerEncryptionOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerInstanceOutput{})
@@ -2164,7 +2456,9 @@ func init() {
 	pulumi.RegisterOutputType(GetBrokerLdapServerMetadataOutput{})
 	pulumi.RegisterOutputType(GetBrokerLdapServerMetadataArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerLogsOutput{})
+	pulumi.RegisterOutputType(GetBrokerLogsPtrOutput{})
 	pulumi.RegisterOutputType(GetBrokerMaintenanceWindowStartTimeOutput{})
+	pulumi.RegisterOutputType(GetBrokerMaintenanceWindowStartTimePtrOutput{})
 	pulumi.RegisterOutputType(GetBrokerUserOutput{})
 	pulumi.RegisterOutputType(GetBrokerUserArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingsBrokerInstanceOptionOutput{})

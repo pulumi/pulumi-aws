@@ -99,13 +99,13 @@ namespace Pulumi.Aws.CodeBuild
         /// The ARN of Report Group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time this Report Group was created.
         /// </summary>
         [Output("created")]
-        public Output<string> Created { get; private set; } = null!;
+        public Output<string?> Created { get; private set; } = null!;
 
         /// <summary>
         /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.

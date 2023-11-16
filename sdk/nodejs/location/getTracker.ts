@@ -48,36 +48,36 @@ export interface GetTrackerResult {
     /**
      * Timestamp for when the tracker resource was created in ISO 8601 format.
      */
-    readonly createTime: string;
+    readonly createTime?: string;
     /**
      * Optional description for the tracker resource.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     /**
      * Position filtering method of the tracker resource.
      */
-    readonly positionFiltering: string;
+    readonly positionFiltering?: string;
     /**
      * Key-value map of resource tags for the tracker.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * ARN for the tracker resource. Used when you need to specify a resource across all AWS.
      */
-    readonly trackerArn: string;
+    readonly trackerArn?: string;
     readonly trackerName: string;
     /**
      * Timestamp for when the tracker resource was last updated in ISO 8601 format.
      */
-    readonly updateTime: string;
+    readonly updateTime?: string;
 }
 /**
  * Retrieve information about a Location Service Tracker.

@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of all the EBS Volume IDs found. This data source will fail if
         /// no volumes match the provided criteria.
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Ebs
         private GetEbsVolumesResult(
             ImmutableArray<Outputs.GetEbsVolumesFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

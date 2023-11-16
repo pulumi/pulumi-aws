@@ -128,32 +128,32 @@ namespace Pulumi.Aws.CodeArtifact
         /// <summary>
         /// Temporary authorization token.
         /// </summary>
-        public readonly string AuthorizationToken;
+        public readonly string? AuthorizationToken;
         public readonly string Domain;
-        public readonly string DomainOwner;
+        public readonly string? DomainOwner;
         public readonly int? DurationSeconds;
         /// <summary>
         /// Time in UTC RFC3339 format when the authorization token expires.
         /// </summary>
-        public readonly string Expiration;
+        public readonly string? Expiration;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetAuthorizationTokenResult(
-            string authorizationToken,
+            string? authorizationToken,
 
             string domain,
 
-            string domainOwner,
+            string? domainOwner,
 
             int? durationSeconds,
 
-            string expiration,
+            string? expiration,
 
-            string id)
+            string? id)
         {
             AuthorizationToken = authorizationToken;
             Domain = domain;

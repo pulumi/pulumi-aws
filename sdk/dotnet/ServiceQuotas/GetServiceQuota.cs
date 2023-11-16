@@ -146,30 +146,30 @@ namespace Pulumi.Aws.ServiceQuotas
         /// <summary>
         /// Whether the service quota is adjustable.
         /// </summary>
-        public readonly bool Adjustable;
+        public readonly bool? Adjustable;
         /// <summary>
         /// ARN of the service quota.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Default value of the service quota.
         /// </summary>
-        public readonly double DefaultValue;
+        public readonly double? DefaultValue;
         /// <summary>
         /// Whether the service quota is global for the AWS account.
         /// </summary>
-        public readonly bool GlobalQuota;
+        public readonly bool? GlobalQuota;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string QuotaCode;
-        public readonly string QuotaName;
+        public readonly string? Id;
+        public readonly string? QuotaCode;
+        public readonly string? QuotaName;
         public readonly string ServiceCode;
         /// <summary>
         /// Name of the service.
         /// </summary>
-        public readonly string ServiceName;
+        public readonly string? ServiceName;
         /// <summary>
         /// Information about the measurement.
         /// </summary>
@@ -177,31 +177,31 @@ namespace Pulumi.Aws.ServiceQuotas
         /// <summary>
         /// Current value of the service quota.
         /// </summary>
-        public readonly double Value;
+        public readonly double? Value;
 
         [OutputConstructor]
         private GetServiceQuotaResult(
-            bool adjustable,
+            bool? adjustable,
 
-            string arn,
+            string? arn,
 
-            double defaultValue,
+            double? defaultValue,
 
-            bool globalQuota,
+            bool? globalQuota,
 
-            string id,
+            string? id,
 
-            string quotaCode,
+            string? quotaCode,
 
-            string quotaName,
+            string? quotaName,
 
             string serviceCode,
 
-            string serviceName,
+            string? serviceName,
 
             ImmutableArray<Outputs.GetServiceQuotaUsageMetricResult> usageMetrics,
 
-            double value)
+            double? value)
         {
             Adjustable = adjustable;
             Arn = arn;

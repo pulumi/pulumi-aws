@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -64,14 +65,14 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="associationId", refs={String.class}, tree="[0]")
-    private Output<String> associationId;
+    private Output</* @Nullable */ String> associationId;
 
     /**
      * @return The unique ID of the target network association.
      * 
      */
-    public Output<String> associationId() {
-        return this.associationId;
+    public Output<Optional<String>> associationId() {
+        return Codegen.optional(this.associationId);
     }
     /**
      * The ID of the Client VPN endpoint.
@@ -106,14 +107,14 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The ID of the VPC in which the target subnet is located.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

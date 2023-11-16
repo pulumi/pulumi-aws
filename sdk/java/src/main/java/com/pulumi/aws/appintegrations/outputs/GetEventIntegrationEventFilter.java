@@ -6,6 +6,8 @@ package com.pulumi.aws.appintegrations.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEventIntegrationEventFilter {
@@ -13,15 +15,15 @@ public final class GetEventIntegrationEventFilter {
      * @return The source of the events.
      * 
      */
-    private String source;
+    private @Nullable String source;
 
     private GetEventIntegrationEventFilter() {}
     /**
      * @return The source of the events.
      * 
      */
-    public String source() {
-        return this.source;
+    public Optional<String> source() {
+        return Optional.ofNullable(this.source);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetEventIntegrationEventFilter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String source;
+        private @Nullable String source;
         public Builder() {}
         public Builder(GetEventIntegrationEventFilter defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetEventIntegrationEventFilter {
         }
 
         @CustomType.Setter
-        public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+        public Builder source(@Nullable String source) {
+            this.source = source;
             return this;
         }
         public GetEventIntegrationEventFilter build() {

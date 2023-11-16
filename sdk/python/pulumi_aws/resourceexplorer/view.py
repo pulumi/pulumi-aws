@@ -393,7 +393,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Resource Explorer view.
         """
@@ -401,7 +401,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultView")
-    def default_view(self) -> pulumi.Output[bool]:
+    def default_view(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
         """

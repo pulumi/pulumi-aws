@@ -302,7 +302,7 @@ class InputSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the InputSecurityGroup.
         """
@@ -310,7 +310,7 @@ class InputSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def inputs(self) -> pulumi.Output[Sequence[str]]:
+    def inputs(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of inputs currently using this InputSecurityGroup.
         """

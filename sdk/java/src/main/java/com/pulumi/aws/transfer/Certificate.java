@@ -70,28 +70,28 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="activeDate", refs={String.class}, tree="[0]")
-    private Output<String> activeDate;
+    private Output</* @Nullable */ String> activeDate;
 
     /**
      * @return An date when the certificate becomes active
      * 
      */
-    public Output<String> activeDate() {
-        return this.activeDate;
+    public Output<Optional<String>> activeDate() {
+        return Codegen.optional(this.activeDate);
     }
     /**
      * The ARN of the certificate
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the certificate
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The valid certificate file required for the transfer.
@@ -126,14 +126,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
-    private Output<String> certificateId;
+    private Output</* @Nullable */ String> certificateId;
 
     /**
      * @return The unique identifier for the AS2 certificate
      * 
      */
-    public Output<String> certificateId() {
-        return this.certificateId;
+    public Output<Optional<String>> certificateId() {
+        return Codegen.optional(this.certificateId);
     }
     /**
      * A short description that helps identify the certificate.
@@ -154,14 +154,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="inactiveDate", refs={String.class}, tree="[0]")
-    private Output<String> inactiveDate;
+    private Output</* @Nullable */ String> inactiveDate;
 
     /**
      * @return An date when the certificate becomes inactive
      * 
      */
-    public Output<String> inactiveDate() {
-        return this.inactiveDate;
+    public Output<Optional<String>> inactiveDate() {
+        return Codegen.optional(this.inactiveDate);
     }
     /**
      * The private key associated with the certificate being imported.

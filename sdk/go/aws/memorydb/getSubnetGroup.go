@@ -59,18 +59,18 @@ type LookupSubnetGroupArgs struct {
 // A collection of values returned by getSubnetGroup.
 type LookupSubnetGroupResult struct {
 	// ARN of the subnet group.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the subnet group.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Set of VPC Subnet ID-s of the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags assigned to the subnet group.
 	Tags map[string]string `pulumi:"tags"`
 	// VPC in which the subnet group exists.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
@@ -114,18 +114,18 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContex
 }
 
 // ARN of the subnet group.
-func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the subnet group.
-func (o LookupSubnetGroupResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSubnetGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSubnetGroupResultOutput) Name() pulumi.StringOutput {
@@ -143,8 +143,8 @@ func (o LookupSubnetGroupResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // VPC in which the subnet group exists.
-func (o LookupSubnetGroupResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -84,7 +84,7 @@ namespace Pulumi.Aws.GuardDuty
         /// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The detector ID of the GuardDuty.

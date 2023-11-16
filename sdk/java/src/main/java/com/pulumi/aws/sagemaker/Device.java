@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -64,24 +65,24 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/device:Device")
 public class Device extends com.pulumi.resources.CustomResource {
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
-    private Output<String> agentVersion;
+    private Output</* @Nullable */ String> agentVersion;
 
-    public Output<String> agentVersion() {
-        return this.agentVersion;
+    public Output<Optional<String>> agentVersion() {
+        return Codegen.optional(this.agentVersion);
     }
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Device.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this Device.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The device to register with SageMaker Edge Manager. See Device details below.

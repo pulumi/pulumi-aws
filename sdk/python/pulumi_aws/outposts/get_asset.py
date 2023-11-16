@@ -56,7 +56,7 @@ class GetAssetResult:
 
     @property
     @pulumi.getter(name="assetType")
-    def asset_type(self) -> str:
+    def asset_type(self) -> Optional[str]:
         """
         Type of the asset.
         """
@@ -64,7 +64,7 @@ class GetAssetResult:
 
     @property
     @pulumi.getter(name="hostId")
-    def host_id(self) -> str:
+    def host_id(self) -> Optional[str]:
         """
         Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
         """
@@ -72,7 +72,7 @@ class GetAssetResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -80,7 +80,7 @@ class GetAssetResult:
 
     @property
     @pulumi.getter(name="rackElevation")
-    def rack_elevation(self) -> int:
+    def rack_elevation(self) -> Optional[int]:
         """
         Position of an asset in a rack measured in rack units.
         """
@@ -88,7 +88,7 @@ class GetAssetResult:
 
     @property
     @pulumi.getter(name="rackId")
-    def rack_id(self) -> str:
+    def rack_id(self) -> Optional[str]:
         """
         Rack ID of the asset.
         """

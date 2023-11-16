@@ -74,7 +74,7 @@ namespace Pulumi.Aws.WafRegional
         /// The ARN of the WAF Regional Rate Based Rule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.

@@ -375,28 +375,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="address", refs={String.class}, tree="[0]")
-    private Output<String> address;
+    private Output</* @Nullable */ String> address;
 
     /**
      * @return Specifies the DNS address of the DB instance.
      * 
      */
-    public Output<String> address() {
-        return this.address;
+    public Output<Optional<String>> address() {
+        return Codegen.optional(this.address);
     }
     /**
      * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
-    private Output<Integer> allocatedStorage;
+    private Output</* @Nullable */ Integer> allocatedStorage;
 
     /**
      * @return The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
      * 
      */
-    public Output<Integer> allocatedStorage() {
-        return this.allocatedStorage;
+    public Output<Optional<Integer>> allocatedStorage() {
+        return Codegen.optional(this.allocatedStorage);
     }
     /**
      * Indicates that major version
@@ -441,14 +441,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the RDS instance.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Indicates that minor engine upgrades
@@ -473,14 +473,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The AZ for the RDS instance.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * The days to retain backups for.
@@ -492,7 +492,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="backupRetentionPeriod", refs={Integer.class}, tree="[0]")
-    private Output<Integer> backupRetentionPeriod;
+    private Output</* @Nullable */ Integer> backupRetentionPeriod;
 
     /**
      * @return The days to retain backups for.
@@ -503,22 +503,22 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * or will use [RDS Blue/Green deployments][blue-green].
      * 
      */
-    public Output<Integer> backupRetentionPeriod() {
-        return this.backupRetentionPeriod;
+    public Output<Optional<Integer>> backupRetentionPeriod() {
+        return Codegen.optional(this.backupRetentionPeriod);
     }
     /**
      * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
      * 
      */
     @Export(name="backupTarget", refs={String.class}, tree="[0]")
-    private Output<String> backupTarget;
+    private Output</* @Nullable */ String> backupTarget;
 
     /**
      * @return Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
      * 
      */
-    public Output<String> backupTarget() {
-        return this.backupTarget;
+    public Output<Optional<String>> backupTarget() {
+        return Codegen.optional(this.backupTarget);
     }
     /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
@@ -526,15 +526,15 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="backupWindow", refs={String.class}, tree="[0]")
-    private Output<String> backupWindow;
+    private Output</* @Nullable */ String> backupWindow;
 
     /**
      * @return The daily time range (in UTC) during which automated backups are created if they are enabled.
      * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
      * 
      */
-    public Output<String> backupWindow() {
-        return this.backupWindow;
+    public Output<Optional<String>> backupWindow() {
+        return Codegen.optional(this.backupWindow);
     }
     /**
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
@@ -557,14 +557,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="caCertIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> caCertIdentifier;
+    private Output</* @Nullable */ String> caCertIdentifier;
 
     /**
      * @return The identifier of the CA certificate for the DB instance.
      * 
      */
-    public Output<String> caCertIdentifier() {
-        return this.caCertIdentifier;
+    public Output<Optional<String>> caCertIdentifier() {
+        return Codegen.optional(this.caCertIdentifier);
     }
     /**
      * The character set name to use for DB
@@ -574,7 +574,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="characterSetName", refs={String.class}, tree="[0]")
-    private Output<String> characterSetName;
+    private Output</* @Nullable */ String> characterSetName;
 
     /**
      * @return The character set name to use for DB
@@ -583,8 +583,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
      * 
      */
-    public Output<String> characterSetName() {
-        return this.characterSetName;
+    public Output<Optional<String>> characterSetName() {
+        return Codegen.optional(this.characterSetName);
     }
     /**
      * Copy all Instance `tags` to snapshots. Default is `false`.
@@ -641,14 +641,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbName", refs={String.class}, tree="[0]")
-    private Output<String> dbName;
+    private Output</* @Nullable */ String> dbName;
 
     /**
      * @return The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
      * 
      */
-    public Output<String> dbName() {
-        return this.dbName;
+    public Output<Optional<String>> dbName() {
+        return Codegen.optional(this.dbName);
     }
     /**
      * Name of DB subnet group. DB instance will
@@ -661,7 +661,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
-    private Output<String> dbSubnetGroupName;
+    private Output</* @Nullable */ String> dbSubnetGroupName;
 
     /**
      * @return Name of DB subnet group. DB instance will
@@ -673,8 +673,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * for additional read replica constraints.
      * 
      */
-    public Output<String> dbSubnetGroupName() {
-        return this.dbSubnetGroupName;
+    public Output<Optional<String>> dbSubnetGroupName() {
+        return Codegen.optional(this.dbSubnetGroupName);
     }
     /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
@@ -751,56 +751,56 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The connection endpoint in `address:port` format.
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output<String> engine;
+    private Output</* @Nullable */ String> engine;
 
     /**
      * @return The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
      * 
      */
-    public Output<String> engine() {
-        return this.engine;
+    public Output<Optional<String>> engine() {
+        return Codegen.optional(this.engine);
     }
     /**
      * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * The running version of the database.
      * 
      */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
-    private Output<String> engineVersionActual;
+    private Output</* @Nullable */ String> engineVersionActual;
 
     /**
      * @return The running version of the database.
      * 
      */
-    public Output<String> engineVersionActual() {
-        return this.engineVersionActual;
+    public Output<Optional<String>> engineVersionActual() {
+        return Codegen.optional(this.engineVersionActual);
     }
     /**
      * The name of your final DB snapshot
@@ -825,14 +825,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
-    private Output<String> hostedZoneId;
+    private Output</* @Nullable */ String> hostedZoneId;
 
     /**
      * @return Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
      * 
      */
-    public Output<String> hostedZoneId() {
-        return this.hostedZoneId;
+    public Output<Optional<String>> hostedZoneId() {
+        return Codegen.optional(this.hostedZoneId);
     }
     /**
      * Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
@@ -869,14 +869,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identifierPrefix", refs={String.class}, tree="[0]")
-    private Output<String> identifierPrefix;
+    private Output</* @Nullable */ String> identifierPrefix;
 
     /**
      * @return Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public Output<String> identifierPrefix() {
-        return this.identifierPrefix;
+    public Output<Optional<String>> identifierPrefix() {
+        return Codegen.optional(this.identifierPrefix);
     }
     /**
      * The instance type of the RDS instance.
@@ -900,7 +900,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="iops", refs={Integer.class}, tree="[0]")
-    private Output<Integer> iops;
+    private Output</* @Nullable */ Integer> iops;
 
     /**
      * @return The amount of provisioned IOPS. Setting this implies a
@@ -909,8 +909,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
-    public Output<Integer> iops() {
-        return this.iops;
+    public Output<Optional<Integer>> iops() {
+        return Codegen.optional(this.iops);
     }
     /**
      * The ARN for the KMS encryption key. If creating an
@@ -918,29 +918,29 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The ARN for the KMS encryption key. If creating an
      * encrypted replica, set this to the destination KMS ARN.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
      * 
      */
     @Export(name="latestRestorableTime", refs={String.class}, tree="[0]")
-    private Output<String> latestRestorableTime;
+    private Output</* @Nullable */ String> latestRestorableTime;
 
     /**
      * @return The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
      * 
      */
-    public Output<String> latestRestorableTime() {
-        return this.latestRestorableTime;
+    public Output<Optional<String>> latestRestorableTime() {
+        return Codegen.optional(this.latestRestorableTime);
     }
     /**
      * License model information for this DB instance. Valid values for this field are as follows:
@@ -952,7 +952,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="licenseModel", refs={String.class}, tree="[0]")
-    private Output<String> licenseModel;
+    private Output</* @Nullable */ String> licenseModel;
 
     /**
      * @return License model information for this DB instance. Valid values for this field are as follows:
@@ -963,22 +963,22 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * * RDS for PostgreSQL: `postgresql-license`
      * 
      */
-    public Output<String> licenseModel() {
-        return this.licenseModel;
+    public Output<Optional<String>> licenseModel() {
+        return Codegen.optional(this.licenseModel);
     }
     /**
      * Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
      * 
      */
     @Export(name="listenerEndpoints", refs={List.class,InstanceListenerEndpoint.class}, tree="[0,1]")
-    private Output<List<InstanceListenerEndpoint>> listenerEndpoints;
+    private Output</* @Nullable */ List<InstanceListenerEndpoint>> listenerEndpoints;
 
     /**
      * @return Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
      * 
      */
-    public Output<List<InstanceListenerEndpoint>> listenerEndpoints() {
-        return this.listenerEndpoints;
+    public Output<Optional<List<InstanceListenerEndpoint>>> listenerEndpoints() {
+        return Codegen.optional(this.listenerEndpoints);
     }
     /**
      * The window to perform maintenance in.
@@ -989,7 +989,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> maintenanceWindow;
+    private Output</* @Nullable */ String> maintenanceWindow;
 
     /**
      * @return The window to perform maintenance in.
@@ -999,8 +999,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * for more information.
      * 
      */
-    public Output<String> maintenanceWindow() {
-        return this.maintenanceWindow;
+    public Output<Optional<String>> maintenanceWindow() {
+        return Codegen.optional(this.maintenanceWindow);
     }
     /**
      * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
@@ -1021,28 +1021,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="masterUserSecretKmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> masterUserSecretKmsKeyId;
+    private Output</* @Nullable */ String> masterUserSecretKmsKeyId;
 
     /**
      * @return The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      * 
      */
-    public Output<String> masterUserSecretKmsKeyId() {
-        return this.masterUserSecretKmsKeyId;
+    public Output<Optional<String>> masterUserSecretKmsKeyId() {
+        return Codegen.optional(this.masterUserSecretKmsKeyId);
     }
     /**
      * A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
      * 
      */
     @Export(name="masterUserSecrets", refs={List.class,InstanceMasterUserSecret.class}, tree="[0,1]")
-    private Output<List<InstanceMasterUserSecret>> masterUserSecrets;
+    private Output</* @Nullable */ List<InstanceMasterUserSecret>> masterUserSecrets;
 
     /**
      * @return A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
      * 
      */
-    public Output<List<InstanceMasterUserSecret>> masterUserSecrets() {
-        return this.masterUserSecrets;
+    public Output<Optional<List<InstanceMasterUserSecret>>> masterUserSecrets() {
+        return Codegen.optional(this.masterUserSecrets);
     }
     /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
@@ -1087,7 +1087,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="monitoringRoleArn", refs={String.class}, tree="[0]")
-    private Output<String> monitoringRoleArn;
+    private Output</* @Nullable */ String> monitoringRoleArn;
 
     /**
      * @return The ARN for the IAM role that permits RDS
@@ -1097,22 +1097,22 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      * 
      */
-    public Output<String> monitoringRoleArn() {
-        return this.monitoringRoleArn;
+    public Output<Optional<String>> monitoringRoleArn() {
+        return Codegen.optional(this.monitoringRoleArn);
     }
     /**
      * Specifies if the RDS instance is multi-AZ
      * 
      */
     @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> multiAz;
+    private Output</* @Nullable */ Boolean> multiAz;
 
     /**
      * @return Specifies if the RDS instance is multi-AZ
      * 
      */
-    public Output<Boolean> multiAz() {
-        return this.multiAz;
+    public Output<Optional<Boolean>> multiAz() {
+        return Codegen.optional(this.multiAz);
     }
     /**
      * @deprecated
@@ -1132,43 +1132,43 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ncharCharacterSetName", refs={String.class}, tree="[0]")
-    private Output<String> ncharCharacterSetName;
+    private Output</* @Nullable */ String> ncharCharacterSetName;
 
     /**
      * @return The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      * 
      */
-    public Output<String> ncharCharacterSetName() {
-        return this.ncharCharacterSetName;
+    public Output<Optional<String>> ncharCharacterSetName() {
+        return Codegen.optional(this.ncharCharacterSetName);
     }
     /**
      * The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
-    private Output<String> networkType;
+    private Output</* @Nullable */ String> networkType;
 
     /**
      * @return The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
      * 
      */
-    public Output<String> networkType() {
-        return this.networkType;
+    public Output<Optional<String>> networkType() {
+        return Codegen.optional(this.networkType);
     }
     /**
      * Name of the DB option group to associate.
      * 
      */
     @Export(name="optionGroupName", refs={String.class}, tree="[0]")
-    private Output<String> optionGroupName;
+    private Output</* @Nullable */ String> optionGroupName;
 
     /**
      * @return Name of the DB option group to associate.
      * 
      */
-    public Output<String> optionGroupName() {
-        return this.optionGroupName;
+    public Output<Optional<String>> optionGroupName() {
+        return Codegen.optional(this.optionGroupName);
     }
     /**
      * Name of the DB parameter group to
@@ -1176,15 +1176,15 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
-    private Output<String> parameterGroupName;
+    private Output</* @Nullable */ String> parameterGroupName;
 
     /**
      * @return Name of the DB parameter group to
      * associate.
      * 
      */
-    public Output<String> parameterGroupName() {
-        return this.parameterGroupName;
+    public Output<Optional<String>> parameterGroupName() {
+        return Codegen.optional(this.parameterGroupName);
     }
     /**
      * (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
@@ -1223,42 +1223,42 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="performanceInsightsKmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> performanceInsightsKmsKeyId;
+    private Output</* @Nullable */ String> performanceInsightsKmsKeyId;
 
     /**
      * @return The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
      * 
      */
-    public Output<String> performanceInsightsKmsKeyId() {
-        return this.performanceInsightsKmsKeyId;
+    public Output<Optional<String>> performanceInsightsKmsKeyId() {
+        return Codegen.optional(this.performanceInsightsKmsKeyId);
     }
     /**
      * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     @Export(name="performanceInsightsRetentionPeriod", refs={Integer.class}, tree="[0]")
-    private Output<Integer> performanceInsightsRetentionPeriod;
+    private Output</* @Nullable */ Integer> performanceInsightsRetentionPeriod;
 
     /**
      * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
-    public Output<Integer> performanceInsightsRetentionPeriod() {
-        return this.performanceInsightsRetentionPeriod;
+    public Output<Optional<Integer>> performanceInsightsRetentionPeriod() {
+        return Codegen.optional(this.performanceInsightsRetentionPeriod);
     }
     /**
      * The port on which the DB accepts connections.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return The port on which the DB accepts connections.
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * Bool to control if instance is publicly
@@ -1282,21 +1282,21 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="replicaMode", refs={String.class}, tree="[0]")
-    private Output<String> replicaMode;
+    private Output</* @Nullable */ String> replicaMode;
 
     /**
      * @return Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
      * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
      * 
      */
-    public Output<String> replicaMode() {
-        return this.replicaMode;
+    public Output<Optional<String>> replicaMode() {
+        return Codegen.optional(this.replicaMode);
     }
     @Export(name="replicas", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> replicas;
+    private Output</* @Nullable */ List<String>> replicas;
 
-    public Output<List<String>> replicas() {
-        return this.replicas;
+    public Output<Optional<List<String>>> replicas() {
+        return Codegen.optional(this.replicas);
     }
     /**
      * Specifies that this resource is a Replicate
@@ -1333,14 +1333,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
-    private Output<String> resourceId;
+    private Output</* @Nullable */ String> resourceId;
 
     /**
      * @return The RDS Resource ID of this instance.
      * 
      */
-    public Output<String> resourceId() {
-        return this.resourceId;
+    public Output<Optional<String>> resourceId() {
+        return Codegen.optional(this.resourceId);
     }
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
@@ -1399,7 +1399,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> snapshotIdentifier;
+    private Output</* @Nullable */ String> snapshotIdentifier;
 
     /**
      * @return Specifies whether or not to create this
@@ -1407,22 +1407,22 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * RDS console, e.g: rds:production-2015-06-26-06-05.
      * 
      */
-    public Output<String> snapshotIdentifier() {
-        return this.snapshotIdentifier;
+    public Output<Optional<String>> snapshotIdentifier() {
+        return Codegen.optional(this.snapshotIdentifier);
     }
     /**
      * The RDS instance status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The RDS instance status.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Specifies whether the DB instance is
@@ -1449,14 +1449,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageThroughput", refs={Integer.class}, tree="[0]")
-    private Output<Integer> storageThroughput;
+    private Output</* @Nullable */ Integer> storageThroughput;
 
     /**
      * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
-    public Output<Integer> storageThroughput() {
-        return this.storageThroughput;
+    public Output<Optional<Integer>> storageThroughput() {
+        return Codegen.optional(this.storageThroughput);
     }
     /**
      * One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
@@ -1466,7 +1466,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
-    private Output<String> storageType;
+    private Output</* @Nullable */ String> storageType;
 
     /**
      * @return One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
@@ -1475,8 +1475,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * &#34;gp2&#34; if not.
      * 
      */
-    public Output<String> storageType() {
-        return this.storageType;
+    public Output<Optional<String>> storageType() {
+        return Codegen.optional(this.storageType);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1519,7 +1519,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="timezone", refs={String.class}, tree="[0]")
-    private Output<String> timezone;
+    private Output</* @Nullable */ String> timezone;
 
     /**
      * @return Time zone of the DB instance. `timezone` is currently
@@ -1529,8 +1529,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * for more information.
      * 
      */
-    public Output<String> timezone() {
-        return this.timezone;
+    public Output<Optional<String>> timezone() {
+        return Codegen.optional(this.timezone);
     }
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
@@ -1538,15 +1538,15 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
-    private Output<String> username;
+    private Output</* @Nullable */ String> username;
 
     /**
      * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Output<Optional<String>> username() {
+        return Codegen.optional(this.username);
     }
     /**
      * List of VPC security groups to
@@ -1554,15 +1554,15 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return List of VPC security groups to
      * associate.
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
 
     /**

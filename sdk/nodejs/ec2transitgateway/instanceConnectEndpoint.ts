@@ -58,35 +58,35 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone of the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * The DNS name of the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * The DNS name of the EC2 Instance Connect FIPS Endpoint.
      */
-    public /*out*/ readonly fipsDnsName!: pulumi.Output<string>;
+    public /*out*/ readonly fipsDnsName!: pulumi.Output<string | undefined>;
     /**
      * The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the AWS account that created the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether your client's IP address is preserved as the source. Default: `true`.
      */
-    public readonly preserveClientIp!: pulumi.Output<boolean>;
+    public readonly preserveClientIp!: pulumi.Output<boolean | undefined>;
     /**
      * One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
      */
@@ -105,7 +105,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
     /**
      * The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a InstanceConnectEndpoint resource with the given unique name, arguments, and options.

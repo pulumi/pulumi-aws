@@ -75,7 +75,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter(name="alternatePathHints")
-    def alternate_path_hints(self) -> Sequence['outputs.GetNetworkInsightsAnalysisAlternatePathHintResult']:
+    def alternate_path_hints(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisAlternatePathHintResult']]:
         """
         Potential intermediate components of a feasible path.
         """
@@ -83,7 +83,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -91,7 +91,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter
-    def explanations(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationResult']:
+    def explanations(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationResult']]:
         """
         Explanation codes for an unreachable path.
         """
@@ -99,7 +99,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter(name="filterInArns")
-    def filter_in_arns(self) -> Sequence[str]:
+    def filter_in_arns(self) -> Optional[Sequence[str]]:
         """
         ARNs of the AWS resources that the path must traverse.
         """
@@ -112,7 +112,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter(name="forwardPathComponents")
-    def forward_path_components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentResult']:
+    def forward_path_components(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentResult']]:
         """
         The components in the path from source to destination.
         """
@@ -120,7 +120,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -128,12 +128,12 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter(name="networkInsightsAnalysisId")
-    def network_insights_analysis_id(self) -> str:
+    def network_insights_analysis_id(self) -> Optional[str]:
         return pulumi.get(self, "network_insights_analysis_id")
 
     @property
     @pulumi.getter(name="networkInsightsPathId")
-    def network_insights_path_id(self) -> str:
+    def network_insights_path_id(self) -> Optional[str]:
         """
         The ID of the path.
         """
@@ -141,7 +141,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter(name="pathFound")
-    def path_found(self) -> bool:
+    def path_found(self) -> Optional[bool]:
         """
         Set to `true` if the destination was reachable.
         """
@@ -149,7 +149,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter(name="returnPathComponents")
-    def return_path_components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentResult']:
+    def return_path_components(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentResult']]:
         """
         The components in the path from destination to source.
         """
@@ -157,7 +157,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> str:
+    def start_date(self) -> Optional[str]:
         """
         Date/time the analysis was started.
         """
@@ -165,7 +165,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         """
@@ -173,7 +173,7 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> str:
+    def status_message(self) -> Optional[str]:
         """
         Message to provide more context when the `status` is `failed`.
         """
@@ -181,12 +181,12 @@ class GetNetworkInsightsAnalysisResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="warningMessage")
-    def warning_message(self) -> str:
+    def warning_message(self) -> Optional[str]:
         """
         Warning message.
         """

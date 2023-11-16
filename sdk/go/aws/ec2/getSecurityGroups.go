@@ -100,7 +100,7 @@ type GetSecurityGroupsResult struct {
 	Arns    []string                  `pulumi:"arns"`
 	Filters []GetSecurityGroupsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// IDs of the matches security groups.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -158,8 +158,8 @@ func (o GetSecurityGroupsResultOutput) Filters() GetSecurityGroupsFilterArrayOut
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSecurityGroupsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSecurityGroupsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityGroupsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // IDs of the matches security groups.

@@ -182,28 +182,28 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="outputs", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> outputs;
+    private Output</* @Nullable */ Map<String,String>> outputs;
 
     /**
      * @return A map of outputs from the stack.
      * 
      */
-    public Output<Map<String,String>> outputs() {
-        return this.outputs;
+    public Output<Optional<Map<String,String>>> outputs() {
+        return Codegen.optional(this.outputs);
     }
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> parameters;
+    private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
      * @return A map of Parameter structures that specify input parameters for the stack.
      * 
      */
-    public Output<Map<String,String>> parameters() {
-        return this.parameters;
+    public Output<Optional<Map<String,String>>> parameters() {
+        return Codegen.optional(this.parameters);
     }
     /**
      * Structure containing the stack policy body.
@@ -211,15 +211,15 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policyBody", refs={String.class}, tree="[0]")
-    private Output<String> policyBody;
+    private Output</* @Nullable */ String> policyBody;
 
     /**
      * @return Structure containing the stack policy body.
      * Conflicts w/ `policy_url`.
      * 
      */
-    public Output<String> policyBody() {
-        return this.policyBody;
+    public Output<Optional<String>> policyBody() {
+        return Codegen.optional(this.policyBody);
     }
     /**
      * Location of a file containing the stack policy.
@@ -274,14 +274,14 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="templateBody", refs={String.class}, tree="[0]")
-    private Output<String> templateBody;
+    private Output</* @Nullable */ String> templateBody;
 
     /**
      * @return Structure containing the template body (max size: 51,200 bytes).
      * 
      */
-    public Output<String> templateBody() {
-        return this.templateBody;
+    public Output<Optional<String>> templateBody() {
+        return Codegen.optional(this.templateBody);
     }
     /**
      * Location of a file containing the template body (max size: 460,800 bytes).

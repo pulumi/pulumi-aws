@@ -125,111 +125,111 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetClusterResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly ImmutableArray<string> AvailabilityZones;
-        public readonly int BacktrackWindow;
-        public readonly int BackupRetentionPeriod;
+        public readonly int? BacktrackWindow;
+        public readonly int? BackupRetentionPeriod;
         public readonly string ClusterIdentifier;
         public readonly ImmutableArray<string> ClusterMembers;
-        public readonly string ClusterResourceId;
-        public readonly string DatabaseName;
-        public readonly string DbClusterParameterGroupName;
-        public readonly string DbSubnetGroupName;
-        public readonly string DbSystemId;
+        public readonly string? ClusterResourceId;
+        public readonly string? DatabaseName;
+        public readonly string? DbClusterParameterGroupName;
+        public readonly string? DbSubnetGroupName;
+        public readonly string? DbSystemId;
         public readonly ImmutableArray<string> EnabledCloudwatchLogsExports;
-        public readonly string Endpoint;
-        public readonly string Engine;
-        public readonly string EngineMode;
-        public readonly string EngineVersion;
-        public readonly string FinalSnapshotIdentifier;
-        public readonly string HostedZoneId;
-        public readonly bool IamDatabaseAuthenticationEnabled;
+        public readonly string? Endpoint;
+        public readonly string? Engine;
+        public readonly string? EngineMode;
+        public readonly string? EngineVersion;
+        public readonly string? FinalSnapshotIdentifier;
+        public readonly string? HostedZoneId;
+        public readonly bool? IamDatabaseAuthenticationEnabled;
         public readonly ImmutableArray<string> IamRoles;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string KmsKeyId;
+        public readonly string? Id;
+        public readonly string? KmsKeyId;
         public readonly ImmutableArray<Outputs.GetClusterMasterUserSecretResult> MasterUserSecrets;
-        public readonly string MasterUsername;
-        public readonly string NetworkType;
-        public readonly int Port;
-        public readonly string PreferredBackupWindow;
-        public readonly string PreferredMaintenanceWindow;
-        public readonly string ReaderEndpoint;
-        public readonly string ReplicationSourceIdentifier;
-        public readonly bool StorageEncrypted;
+        public readonly string? MasterUsername;
+        public readonly string? NetworkType;
+        public readonly int? Port;
+        public readonly string? PreferredBackupWindow;
+        public readonly string? PreferredMaintenanceWindow;
+        public readonly string? ReaderEndpoint;
+        public readonly string? ReplicationSourceIdentifier;
+        public readonly bool? StorageEncrypted;
         /// <summary>
         /// A map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
         private GetClusterResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<string> availabilityZones,
 
-            int backtrackWindow,
+            int? backtrackWindow,
 
-            int backupRetentionPeriod,
+            int? backupRetentionPeriod,
 
             string clusterIdentifier,
 
             ImmutableArray<string> clusterMembers,
 
-            string clusterResourceId,
+            string? clusterResourceId,
 
-            string databaseName,
+            string? databaseName,
 
-            string dbClusterParameterGroupName,
+            string? dbClusterParameterGroupName,
 
-            string dbSubnetGroupName,
+            string? dbSubnetGroupName,
 
-            string dbSystemId,
+            string? dbSystemId,
 
             ImmutableArray<string> enabledCloudwatchLogsExports,
 
-            string endpoint,
+            string? endpoint,
 
-            string engine,
+            string? engine,
 
-            string engineMode,
+            string? engineMode,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string finalSnapshotIdentifier,
+            string? finalSnapshotIdentifier,
 
-            string hostedZoneId,
+            string? hostedZoneId,
 
-            bool iamDatabaseAuthenticationEnabled,
+            bool? iamDatabaseAuthenticationEnabled,
 
             ImmutableArray<string> iamRoles,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
             ImmutableArray<Outputs.GetClusterMasterUserSecretResult> masterUserSecrets,
 
-            string masterUsername,
+            string? masterUsername,
 
-            string networkType,
+            string? networkType,
 
-            int port,
+            int? port,
 
-            string preferredBackupWindow,
+            string? preferredBackupWindow,
 
-            string preferredMaintenanceWindow,
+            string? preferredMaintenanceWindow,
 
-            string readerEndpoint,
+            string? readerEndpoint,
 
-            string replicationSourceIdentifier,
+            string? replicationSourceIdentifier,
 
-            bool storageEncrypted,
+            bool? storageEncrypted,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

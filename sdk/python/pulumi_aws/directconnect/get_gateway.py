@@ -37,7 +37,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> str:
+    def amazon_side_asn(self) -> Optional[str]:
         """
         ASN on the Amazon side of the connection.
         """
@@ -45,7 +45,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -58,7 +58,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> str:
+    def owner_account_id(self) -> Optional[str]:
         """
         AWS Account ID of the gateway.
         """

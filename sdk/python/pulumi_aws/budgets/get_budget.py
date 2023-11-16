@@ -77,17 +77,17 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> Optional[str]:
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoAdjustDatas")
-    def auto_adjust_datas(self) -> Sequence['outputs.GetBudgetAutoAdjustDataResult']:
+    def auto_adjust_datas(self) -> Optional[Sequence['outputs.GetBudgetAutoAdjustDataResult']]:
         """
         Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
         """
@@ -95,7 +95,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="budgetExceeded")
-    def budget_exceeded(self) -> bool:
+    def budget_exceeded(self) -> Optional[bool]:
         """
         Boolean indicating whether this budget has been exceeded.
         """
@@ -103,7 +103,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="budgetLimits")
-    def budget_limits(self) -> Sequence['outputs.GetBudgetBudgetLimitResult']:
+    def budget_limits(self) -> Optional[Sequence['outputs.GetBudgetBudgetLimitResult']]:
         """
         The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
         """
@@ -111,7 +111,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="budgetType")
-    def budget_type(self) -> str:
+    def budget_type(self) -> Optional[str]:
         """
         Whether this budget tracks monetary cost or usage.
         """
@@ -119,7 +119,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="calculatedSpends")
-    def calculated_spends(self) -> Sequence['outputs.GetBudgetCalculatedSpendResult']:
+    def calculated_spends(self) -> Optional[Sequence['outputs.GetBudgetCalculatedSpendResult']]:
         """
         The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.
         """
@@ -127,7 +127,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> Sequence['outputs.GetBudgetCostFilterResult']:
+    def cost_filters(self) -> Optional[Sequence['outputs.GetBudgetCostFilterResult']]:
         """
         A list of CostFilter name/values pair to apply to budget.
         """
@@ -135,7 +135,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="costTypes")
-    def cost_types(self) -> Sequence['outputs.GetBudgetCostTypeResult']:
+    def cost_types(self) -> Optional[Sequence['outputs.GetBudgetCostTypeResult']]:
         """
         Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         """
@@ -143,7 +143,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -161,7 +161,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter
-    def notifications(self) -> Sequence['outputs.GetBudgetNotificationResult']:
+    def notifications(self) -> Optional[Sequence['outputs.GetBudgetNotificationResult']]:
         """
         Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         """
@@ -169,7 +169,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="plannedLimits")
-    def planned_limits(self) -> Sequence['outputs.GetBudgetPlannedLimitResult']:
+    def planned_limits(self) -> Optional[Sequence['outputs.GetBudgetPlannedLimitResult']]:
         """
         Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         """
@@ -177,7 +177,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="timePeriodEnd")
-    def time_period_end(self) -> str:
+    def time_period_end(self) -> Optional[str]:
         """
         The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         """
@@ -185,7 +185,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="timePeriodStart")
-    def time_period_start(self) -> str:
+    def time_period_start(self) -> Optional[str]:
         """
         The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         """
@@ -193,7 +193,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> str:
+    def time_unit(self) -> Optional[str]:
         """
         The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         """

@@ -94,42 +94,42 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the AppConfig Environment.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of the environment. Can be at most 1024 characters.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description of the environment. Can be at most 1024 characters.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * AppConfig environment ID.
      * 
      */
     @Export(name="environmentId", refs={String.class}, tree="[0]")
-    private Output<String> environmentId;
+    private Output</* @Nullable */ String> environmentId;
 
     /**
      * @return AppConfig environment ID.
      * 
      */
-    public Output<String> environmentId() {
-        return this.environmentId;
+    public Output<Optional<String>> environmentId() {
+        return Codegen.optional(this.environmentId);
     }
     /**
      * Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
@@ -165,15 +165,15 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
      * or `ROLLED_BACK`.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

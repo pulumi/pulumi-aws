@@ -320,7 +320,7 @@ class ConnectionAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> pulumi.Output[str]:
+    def owner_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the Amazon Web Services account that owns the connection alias.
         """
@@ -328,7 +328,7 @@ class ConnectionAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the connection alias.
         """

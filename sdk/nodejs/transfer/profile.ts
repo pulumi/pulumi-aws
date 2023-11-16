@@ -48,7 +48,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The ARN of the profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
      */
@@ -60,7 +60,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The unique identifier for the AS2 profile.
      */
-    public /*out*/ readonly profileId!: pulumi.Output<string>;
+    public /*out*/ readonly profileId!: pulumi.Output<string | undefined>;
     /**
      * The profile type should be LOCAL or PARTNER.
      */

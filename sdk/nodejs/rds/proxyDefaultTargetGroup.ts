@@ -88,11 +88,11 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    public readonly connectionPoolConfig!: pulumi.Output<outputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    public readonly connectionPoolConfig!: pulumi.Output<outputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig | undefined>;
     /**
      * Name of the RDS DB Proxy.
      */
@@ -100,7 +100,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
     /**
      * The name of the default target group.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProxyDefaultTargetGroup resource with the given unique name, arguments, and options.

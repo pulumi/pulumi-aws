@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Synthetics
         /// Amazon Resource Name (ARN) of the Canary.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Synthetics
         /// ARN of the Lambda function that is used as your canary's engine.
         /// </summary>
         [Output("engineArn")]
-        public Output<string> EngineArn { get; private set; } = null!;
+        public Output<string?> EngineArn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Synthetics
         /// Configuration block for individual canary runs. Detailed below.
         /// </summary>
         [Output("runConfig")]
-        public Output<Outputs.CanaryRunConfig> RunConfig { get; private set; } = null!;
+        public Output<Outputs.CanaryRunConfig?> RunConfig { get; private set; } = null!;
 
         /// <summary>
         /// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Synthetics
         /// ARN of the Lambda layer where Synthetics stores the canary script code.
         /// </summary>
         [Output("sourceLocationArn")]
-        public Output<string> SourceLocationArn { get; private set; } = null!;
+        public Output<string?> SourceLocationArn { get; private set; } = null!;
 
         /// <summary>
         /// Whether to run or stop the canary.
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Synthetics
         /// Canary status.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.

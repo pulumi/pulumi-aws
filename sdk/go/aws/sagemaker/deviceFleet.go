@@ -60,14 +60,14 @@ type DeviceFleet struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the fleet.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Device Fleet (must be unique).
 	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
 	// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-	EnableIotRoleAlias pulumi.BoolPtrOutput `pulumi:"enableIotRoleAlias"`
-	IotRoleAlias       pulumi.StringOutput  `pulumi:"iotRoleAlias"`
+	EnableIotRoleAlias pulumi.BoolPtrOutput   `pulumi:"enableIotRoleAlias"`
+	IotRoleAlias       pulumi.StringPtrOutput `pulumi:"iotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigOutput `pulumi:"outputConfig"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
@@ -289,8 +289,8 @@ func (o DeviceFleetOutput) ToDeviceFleetOutputWithContext(ctx context.Context) D
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
-func (o DeviceFleetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DeviceFleetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceFleet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the fleet.
@@ -308,8 +308,8 @@ func (o DeviceFleetOutput) EnableIotRoleAlias() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceFleet) pulumi.BoolPtrOutput { return v.EnableIotRoleAlias }).(pulumi.BoolPtrOutput)
 }
 
-func (o DeviceFleetOutput) IotRoleAlias() pulumi.StringOutput {
-	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.IotRoleAlias }).(pulumi.StringOutput)
+func (o DeviceFleetOutput) IotRoleAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceFleet) pulumi.StringPtrOutput { return v.IotRoleAlias }).(pulumi.StringPtrOutput)
 }
 
 // Specifies details about the repository. see Output Config details below.

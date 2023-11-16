@@ -82,24 +82,24 @@ type LookupRouteTableArgs struct {
 // A collection of values returned by getRouteTable.
 type LookupRouteTableResult struct {
 	// ARN of the route table.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// List of associations with attributes detailed below.
 	Associations []GetRouteTableAssociationType `pulumi:"associations"`
 	Filters      []GetRouteTableFilter          `pulumi:"filters"`
 	// Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
-	GatewayId string `pulumi:"gatewayId"`
+	GatewayId *string `pulumi:"gatewayId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ID of the AWS account that owns the route table.
-	OwnerId string `pulumi:"ownerId"`
+	OwnerId *string `pulumi:"ownerId"`
 	// Route Table ID.
-	RouteTableId string `pulumi:"routeTableId"`
+	RouteTableId *string `pulumi:"routeTableId"`
 	// List of routes with attributes detailed below.
 	Routes []GetRouteTableRoute `pulumi:"routes"`
 	// Subnet ID. Only set when associated with a subnet.
-	SubnetId string            `pulumi:"subnetId"`
+	SubnetId *string           `pulumi:"subnetId"`
 	Tags     map[string]string `pulumi:"tags"`
-	VpcId    string            `pulumi:"vpcId"`
+	VpcId    *string           `pulumi:"vpcId"`
 }
 
 func LookupRouteTableOutput(ctx *pulumi.Context, args LookupRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupRouteTableResultOutput {
@@ -151,8 +151,8 @@ func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(
 }
 
 // ARN of the route table.
-func (o LookupRouteTableResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupRouteTableResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // List of associations with attributes detailed below.
@@ -165,23 +165,23 @@ func (o LookupRouteTableResultOutput) Filters() GetRouteTableFilterArrayOutput {
 }
 
 // Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
-func (o LookupRouteTableResultOutput) GatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteTableResult) string { return v.GatewayId }).(pulumi.StringOutput)
+func (o LookupRouteTableResultOutput) GatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupRouteTableResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupRouteTableResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ID of the AWS account that owns the route table.
-func (o LookupRouteTableResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteTableResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupRouteTableResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Route Table ID.
-func (o LookupRouteTableResultOutput) RouteTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteTableResult) string { return v.RouteTableId }).(pulumi.StringOutput)
+func (o LookupRouteTableResultOutput) RouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
 }
 
 // List of routes with attributes detailed below.
@@ -190,16 +190,16 @@ func (o LookupRouteTableResultOutput) Routes() GetRouteTableRouteArrayOutput {
 }
 
 // Subnet ID. Only set when associated with a subnet.
-func (o LookupRouteTableResultOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteTableResult) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o LookupRouteTableResultOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRouteTableResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRouteTableResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupRouteTableResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRouteTableResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupRouteTableResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

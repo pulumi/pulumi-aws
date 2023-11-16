@@ -81,14 +81,14 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the resource share.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the resource share.
@@ -109,14 +109,14 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="permissionArns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> permissionArns;
+    private Output</* @Nullable */ List<String>> permissionArns;
 
     /**
      * @return Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
-    public Output<List<String>> permissionArns() {
-        return this.permissionArns;
+    public Output<Optional<List<String>>> permissionArns() {
+        return Codegen.optional(this.permissionArns);
     }
     /**
      * A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

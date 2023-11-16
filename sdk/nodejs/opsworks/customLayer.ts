@@ -61,7 +61,7 @@ export class CustomLayer extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name(ARN) of the layer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
@@ -102,7 +102,7 @@ export class CustomLayer extends pulumi.CustomResource {
     /**
      * Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.CustomLayerEbsVolume[]>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.CustomLayerEbsVolume[] | undefined>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -118,7 +118,7 @@ export class CustomLayer extends pulumi.CustomResource {
     /**
      * Load-based auto scaling configuration. See Load Based AutoScaling
      */
-    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.CustomLayerLoadBasedAutoScaling>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.CustomLayerLoadBasedAutoScaling | undefined>;
     /**
      * A human-readable name for the layer.
      */

@@ -16,24 +16,24 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Association ID for the IPv4 CIDR block.
         /// </summary>
-        public readonly string AssociationId;
+        public readonly string? AssociationId;
         /// <summary>
         /// Cidr block of the desired VPC.
         /// </summary>
-        public readonly string CidrBlock;
+        public readonly string? CidrBlock;
         /// <summary>
         /// Current state of the desired VPC.
         /// Can be either `"pending"` or `"available"`.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
 
         [OutputConstructor]
         private GetVpcCidrBlockAssociationResult(
-            string associationId,
+            string? associationId,
 
-            string cidrBlock,
+            string? cidrBlock,
 
-            string state)
+            string? state)
         {
             AssociationId = associationId;
             CidrBlock = cidrBlock;

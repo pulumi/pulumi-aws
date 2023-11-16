@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlanStageTargetContactTargetInfo {
@@ -14,19 +16,19 @@ public final class GetPlanStageTargetContactTargetInfo {
      * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
      * 
      */
-    private String contactId;
-    private Boolean isEssential;
+    private @Nullable String contactId;
+    private @Nullable Boolean isEssential;
 
     private GetPlanStageTargetContactTargetInfo() {}
     /**
      * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
      * 
      */
-    public String contactId() {
-        return this.contactId;
+    public Optional<String> contactId() {
+        return Optional.ofNullable(this.contactId);
     }
-    public Boolean isEssential() {
-        return this.isEssential;
+    public Optional<Boolean> isEssential() {
+        return Optional.ofNullable(this.isEssential);
     }
 
     public static Builder builder() {
@@ -38,8 +40,8 @@ public final class GetPlanStageTargetContactTargetInfo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String contactId;
-        private Boolean isEssential;
+        private @Nullable String contactId;
+        private @Nullable Boolean isEssential;
         public Builder() {}
         public Builder(GetPlanStageTargetContactTargetInfo defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,13 +50,13 @@ public final class GetPlanStageTargetContactTargetInfo {
         }
 
         @CustomType.Setter
-        public Builder contactId(String contactId) {
-            this.contactId = Objects.requireNonNull(contactId);
+        public Builder contactId(@Nullable String contactId) {
+            this.contactId = contactId;
             return this;
         }
         @CustomType.Setter
-        public Builder isEssential(Boolean isEssential) {
-            this.isEssential = Objects.requireNonNull(isEssential);
+        public Builder isEssential(@Nullable Boolean isEssential) {
+            this.isEssential = isEssential;
             return this;
         }
         public GetPlanStageTargetContactTargetInfo build() {

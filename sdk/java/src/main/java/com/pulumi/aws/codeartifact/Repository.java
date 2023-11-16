@@ -159,28 +159,28 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="administratorAccount", refs={String.class}, tree="[0]")
-    private Output<String> administratorAccount;
+    private Output</* @Nullable */ String> administratorAccount;
 
     /**
      * @return The account number of the AWS account that manages the repository.
      * 
      */
-    public Output<String> administratorAccount() {
-        return this.administratorAccount;
+    public Output<Optional<String>> administratorAccount() {
+        return Codegen.optional(this.administratorAccount);
     }
     /**
      * The ARN of the repository.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the repository.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The description of the repository.
@@ -215,14 +215,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domainOwner", refs={String.class}, tree="[0]")
-    private Output<String> domainOwner;
+    private Output</* @Nullable */ String> domainOwner;
 
     /**
      * @return The account number of the AWS account that owns the domain.
      * 
      */
-    public Output<String> domainOwner() {
-        return this.domainOwner;
+    public Output<Optional<String>> domainOwner() {
+        return Codegen.optional(this.domainOwner);
     }
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.

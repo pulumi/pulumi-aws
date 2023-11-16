@@ -198,95 +198,95 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// AZ where the EBS volume exists.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// Whether the disk is encrypted.
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly bool? Encrypted;
         public readonly ImmutableArray<Outputs.GetVolumeFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Amount of IOPS for the disk.
         /// </summary>
-        public readonly int Iops;
+        public readonly int? Iops;
         /// <summary>
         /// ARN for the KMS encryption key.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         public readonly bool? MostRecent;
         /// <summary>
         /// (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
         /// </summary>
-        public readonly bool MultiAttachEnabled;
+        public readonly bool? MultiAttachEnabled;
         /// <summary>
         /// ARN of the Outpost.
         /// </summary>
-        public readonly string OutpostArn;
+        public readonly string? OutpostArn;
         /// <summary>
         /// Size of the drive in GiBs.
         /// </summary>
-        public readonly int Size;
+        public readonly int? Size;
         /// <summary>
         /// Snapshot_id the EBS volume is based off.
         /// </summary>
-        public readonly string SnapshotId;
+        public readonly string? SnapshotId;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Throughput that the volume supports, in MiB/s.
         /// </summary>
-        public readonly int Throughput;
+        public readonly int? Throughput;
         /// <summary>
         /// Volume ID (e.g., vol-59fcb34e).
         /// </summary>
-        public readonly string VolumeId;
+        public readonly string? VolumeId;
         /// <summary>
         /// Type of EBS volume.
         /// </summary>
-        public readonly string VolumeType;
+        public readonly string? VolumeType;
 
         [OutputConstructor]
         private GetVolumeResult(
-            string arn,
+            string? arn,
 
-            string availabilityZone,
+            string? availabilityZone,
 
-            bool encrypted,
+            bool? encrypted,
 
             ImmutableArray<Outputs.GetVolumeFilterResult> filters,
 
-            string id,
+            string? id,
 
-            int iops,
+            int? iops,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
             bool? mostRecent,
 
-            bool multiAttachEnabled,
+            bool? multiAttachEnabled,
 
-            string outpostArn,
+            string? outpostArn,
 
-            int size,
+            int? size,
 
-            string snapshotId,
+            string? snapshotId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int throughput,
+            int? throughput,
 
-            string volumeId,
+            string? volumeId,
 
-            string volumeType)
+            string? volumeType)
         {
             Arn = arn;
             AvailabilityZone = availabilityZone;

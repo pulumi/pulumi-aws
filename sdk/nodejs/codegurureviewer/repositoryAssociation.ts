@@ -62,15 +62,15 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) identifying the repository association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the repository association.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      */
-    public /*out*/ readonly connectionArn!: pulumi.Output<string>;
+    public /*out*/ readonly connectionArn!: pulumi.Output<string | undefined>;
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
      */
@@ -78,30 +78,30 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     /**
      * The name of the third party source repository.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * The username for the account that owns the repository.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * The provider type of the repository association.
      */
-    public /*out*/ readonly providerType!: pulumi.Output<string>;
+    public /*out*/ readonly providerType!: pulumi.Output<string | undefined>;
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
      *
      * The following arguments are optional:
      */
     public readonly repository!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationRepository>;
-    public /*out*/ readonly s3RepositoryDetails!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail[]>;
+    public /*out*/ readonly s3RepositoryDetails!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail[] | undefined>;
     /**
      * The state of the repository association.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * A description of why the repository association is in the current state.
      */
-    public /*out*/ readonly stateReason!: pulumi.Output<string>;
+    public /*out*/ readonly stateReason!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.

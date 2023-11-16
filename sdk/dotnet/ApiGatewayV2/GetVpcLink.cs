@@ -130,15 +130,15 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// ARN of the VPC Link.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// VPC Link Name.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// List of security groups associated with the VPC Link.
         /// </summary>
@@ -155,11 +155,11 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         [OutputConstructor]
         private GetVpcLinkResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             ImmutableArray<string> securityGroupIds,
 

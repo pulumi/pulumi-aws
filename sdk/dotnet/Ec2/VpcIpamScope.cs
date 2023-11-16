@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2
         /// The Amazon Resource Name (ARN) of the scope.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description for the scope you're creating.
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the IPAM for which you're creating this scope.
         /// </summary>
         [Output("ipamArn")]
-        public Output<string> IpamArn { get; private set; } = null!;
+        public Output<string?> IpamArn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the IPAM for which you're creating this scope.
@@ -82,19 +82,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> IpamId { get; private set; } = null!;
 
         [Output("ipamScopeType")]
-        public Output<string> IpamScopeType { get; private set; } = null!;
+        public Output<string?> IpamScopeType { get; private set; } = null!;
 
         /// <summary>
         /// Defines if the scope is the default scope or not.
         /// </summary>
         [Output("isDefault")]
-        public Output<bool> IsDefault { get; private set; } = null!;
+        public Output<bool?> IsDefault { get; private set; } = null!;
 
         /// <summary>
         /// The number of pools in the scope.
         /// </summary>
         [Output("poolCount")]
-        public Output<int> PoolCount { get; private set; } = null!;
+        public Output<int?> PoolCount { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

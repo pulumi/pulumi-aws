@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetHoursOfOperationConfig {
@@ -16,39 +18,39 @@ public final class GetHoursOfOperationConfig {
      * @return Day that the hours of operation applies to.
      * 
      */
-    private String day;
+    private @Nullable String day;
     /**
      * @return End time block specifies the time that your contact center closes. The `end_time` is documented below.
      * 
      */
-    private List<GetHoursOfOperationConfigEndTime> endTimes;
+    private @Nullable List<GetHoursOfOperationConfigEndTime> endTimes;
     /**
      * @return Start time block specifies the time that your contact center opens. The `start_time` is documented below.
      * 
      */
-    private List<GetHoursOfOperationConfigStartTime> startTimes;
+    private @Nullable List<GetHoursOfOperationConfigStartTime> startTimes;
 
     private GetHoursOfOperationConfig() {}
     /**
      * @return Day that the hours of operation applies to.
      * 
      */
-    public String day() {
-        return this.day;
+    public Optional<String> day() {
+        return Optional.ofNullable(this.day);
     }
     /**
      * @return End time block specifies the time that your contact center closes. The `end_time` is documented below.
      * 
      */
     public List<GetHoursOfOperationConfigEndTime> endTimes() {
-        return this.endTimes;
+        return this.endTimes == null ? List.of() : this.endTimes;
     }
     /**
      * @return Start time block specifies the time that your contact center opens. The `start_time` is documented below.
      * 
      */
     public List<GetHoursOfOperationConfigStartTime> startTimes() {
-        return this.startTimes;
+        return this.startTimes == null ? List.of() : this.startTimes;
     }
 
     public static Builder builder() {
@@ -60,9 +62,9 @@ public final class GetHoursOfOperationConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String day;
-        private List<GetHoursOfOperationConfigEndTime> endTimes;
-        private List<GetHoursOfOperationConfigStartTime> startTimes;
+        private @Nullable String day;
+        private @Nullable List<GetHoursOfOperationConfigEndTime> endTimes;
+        private @Nullable List<GetHoursOfOperationConfigStartTime> startTimes;
         public Builder() {}
         public Builder(GetHoursOfOperationConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,21 +74,21 @@ public final class GetHoursOfOperationConfig {
         }
 
         @CustomType.Setter
-        public Builder day(String day) {
-            this.day = Objects.requireNonNull(day);
+        public Builder day(@Nullable String day) {
+            this.day = day;
             return this;
         }
         @CustomType.Setter
-        public Builder endTimes(List<GetHoursOfOperationConfigEndTime> endTimes) {
-            this.endTimes = Objects.requireNonNull(endTimes);
+        public Builder endTimes(@Nullable List<GetHoursOfOperationConfigEndTime> endTimes) {
+            this.endTimes = endTimes;
             return this;
         }
         public Builder endTimes(GetHoursOfOperationConfigEndTime... endTimes) {
             return endTimes(List.of(endTimes));
         }
         @CustomType.Setter
-        public Builder startTimes(List<GetHoursOfOperationConfigStartTime> startTimes) {
-            this.startTimes = Objects.requireNonNull(startTimes);
+        public Builder startTimes(@Nullable List<GetHoursOfOperationConfigStartTime> startTimes) {
+            this.startTimes = startTimes;
             return this;
         }
         public Builder startTimes(GetHoursOfOperationConfigStartTime... startTimes) {

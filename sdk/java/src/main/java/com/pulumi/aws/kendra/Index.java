@@ -739,42 +739,42 @@ public class Index extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Index.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
     @Export(name="capacityUnits", refs={IndexCapacityUnits.class}, tree="[0]")
-    private Output<IndexCapacityUnits> capacityUnits;
+    private Output</* @Nullable */ IndexCapacityUnits> capacityUnits;
 
     /**
      * @return A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
-    public Output<IndexCapacityUnits> capacityUnits() {
-        return this.capacityUnits;
+    public Output<Optional<IndexCapacityUnits>> capacityUnits() {
+        return Codegen.optional(this.capacityUnits);
     }
     /**
      * The Unix datetime that the index was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return The Unix datetime that the index was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The description of the Index.
@@ -795,14 +795,14 @@ public class Index extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="documentMetadataConfigurationUpdates", refs={List.class,IndexDocumentMetadataConfigurationUpdate.class}, tree="[0,1]")
-    private Output<List<IndexDocumentMetadataConfigurationUpdate>> documentMetadataConfigurationUpdates;
+    private Output</* @Nullable */ List<IndexDocumentMetadataConfigurationUpdate>> documentMetadataConfigurationUpdates;
 
     /**
      * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      * 
      */
-    public Output<List<IndexDocumentMetadataConfigurationUpdate>> documentMetadataConfigurationUpdates() {
-        return this.documentMetadataConfigurationUpdates;
+    public Output<Optional<List<IndexDocumentMetadataConfigurationUpdate>>> documentMetadataConfigurationUpdates() {
+        return Codegen.optional(this.documentMetadataConfigurationUpdates);
     }
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`
@@ -823,28 +823,28 @@ public class Index extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="errorMessage", refs={String.class}, tree="[0]")
-    private Output<String> errorMessage;
+    private Output</* @Nullable */ String> errorMessage;
 
     /**
      * @return When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    public Output<String> errorMessage() {
-        return this.errorMessage;
+    public Output<Optional<String>> errorMessage() {
+        return Codegen.optional(this.errorMessage);
     }
     /**
      * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
     @Export(name="indexStatistics", refs={List.class,IndexIndexStatistic.class}, tree="[0,1]")
-    private Output<List<IndexIndexStatistic>> indexStatistics;
+    private Output</* @Nullable */ List<IndexIndexStatistic>> indexStatistics;
 
     /**
      * @return A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
-    public Output<List<IndexIndexStatistic>> indexStatistics() {
-        return this.indexStatistics;
+    public Output<Optional<List<IndexIndexStatistic>>> indexStatistics() {
+        return Codegen.optional(this.indexStatistics);
     }
     /**
      * Specifies the name of the Index.
@@ -893,14 +893,14 @@ public class Index extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Tags to apply to the Index. If configured with a provider
@@ -941,14 +941,14 @@ public class Index extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
-    private Output<String> updatedAt;
+    private Output</* @Nullable */ String> updatedAt;
 
     /**
      * @return The Unix datetime that the index was last updated.
      * 
      */
-    public Output<String> updatedAt() {
-        return this.updatedAt;
+    public Output<Optional<String>> updatedAt() {
+        return Codegen.optional(this.updatedAt);
     }
     /**
      * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.

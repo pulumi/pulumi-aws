@@ -437,7 +437,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN assigned by AWS to the instance profile.
         """
@@ -445,7 +445,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> pulumi.Output[str]:
+    def create_date(self) -> pulumi.Output[Optional[str]]:
         """
         Creation timestamp of the instance profile.
         """
@@ -461,7 +461,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -504,7 +504,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> pulumi.Output[str]:
+    def unique_id(self) -> pulumi.Output[Optional[str]]:
         """
         [Unique ID][1] assigned by AWS.
         """

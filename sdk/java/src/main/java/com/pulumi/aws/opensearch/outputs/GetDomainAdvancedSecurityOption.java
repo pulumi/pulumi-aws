@@ -6,38 +6,40 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainAdvancedSecurityOption {
-    private Boolean anonymousAuthEnabled;
+    private @Nullable Boolean anonymousAuthEnabled;
     /**
      * @return Enabled disabled toggle for off-peak update window
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Whether the internal user database is enabled.
      * 
      */
-    private Boolean internalUserDatabaseEnabled;
+    private @Nullable Boolean internalUserDatabaseEnabled;
 
     private GetDomainAdvancedSecurityOption() {}
-    public Boolean anonymousAuthEnabled() {
-        return this.anonymousAuthEnabled;
+    public Optional<Boolean> anonymousAuthEnabled() {
+        return Optional.ofNullable(this.anonymousAuthEnabled);
     }
     /**
      * @return Enabled disabled toggle for off-peak update window
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return Whether the internal user database is enabled.
      * 
      */
-    public Boolean internalUserDatabaseEnabled() {
-        return this.internalUserDatabaseEnabled;
+    public Optional<Boolean> internalUserDatabaseEnabled() {
+        return Optional.ofNullable(this.internalUserDatabaseEnabled);
     }
 
     public static Builder builder() {
@@ -49,9 +51,9 @@ public final class GetDomainAdvancedSecurityOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean anonymousAuthEnabled;
-        private Boolean enabled;
-        private Boolean internalUserDatabaseEnabled;
+        private @Nullable Boolean anonymousAuthEnabled;
+        private @Nullable Boolean enabled;
+        private @Nullable Boolean internalUserDatabaseEnabled;
         public Builder() {}
         public Builder(GetDomainAdvancedSecurityOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -61,18 +63,18 @@ public final class GetDomainAdvancedSecurityOption {
         }
 
         @CustomType.Setter
-        public Builder anonymousAuthEnabled(Boolean anonymousAuthEnabled) {
-            this.anonymousAuthEnabled = Objects.requireNonNull(anonymousAuthEnabled);
+        public Builder anonymousAuthEnabled(@Nullable Boolean anonymousAuthEnabled) {
+            this.anonymousAuthEnabled = anonymousAuthEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder internalUserDatabaseEnabled(Boolean internalUserDatabaseEnabled) {
-            this.internalUserDatabaseEnabled = Objects.requireNonNull(internalUserDatabaseEnabled);
+        public Builder internalUserDatabaseEnabled(@Nullable Boolean internalUserDatabaseEnabled) {
+            this.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             return this;
         }
         public GetDomainAdvancedSecurityOption build() {

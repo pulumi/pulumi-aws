@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecLoggingAccessLog;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecLogging {
-    private List<GetVirtualNodeSpecLoggingAccessLog> accessLogs;
+    private @Nullable List<GetVirtualNodeSpecLoggingAccessLog> accessLogs;
 
     private GetVirtualNodeSpecLogging() {}
     public List<GetVirtualNodeSpecLoggingAccessLog> accessLogs() {
-        return this.accessLogs;
+        return this.accessLogs == null ? List.of() : this.accessLogs;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualNodeSpecLogging {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecLoggingAccessLog> accessLogs;
+        private @Nullable List<GetVirtualNodeSpecLoggingAccessLog> accessLogs;
         public Builder() {}
         public Builder(GetVirtualNodeSpecLogging defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualNodeSpecLogging {
         }
 
         @CustomType.Setter
-        public Builder accessLogs(List<GetVirtualNodeSpecLoggingAccessLog> accessLogs) {
-            this.accessLogs = Objects.requireNonNull(accessLogs);
+        public Builder accessLogs(@Nullable List<GetVirtualNodeSpecLoggingAccessLog> accessLogs) {
+            this.accessLogs = accessLogs;
             return this;
         }
         public Builder accessLogs(GetVirtualNodeSpecLoggingAccessLog... accessLogs) {

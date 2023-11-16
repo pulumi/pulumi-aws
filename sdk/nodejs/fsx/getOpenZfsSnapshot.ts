@@ -73,16 +73,16 @@ export interface GetOpenZfsSnapshotResult {
     /**
      * Amazon Resource Name of the snapshot.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Time that the resource was created.
      */
-    readonly creationTime: string;
+    readonly creationTime?: string;
     readonly filters?: outputs.fsx.GetOpenZfsSnapshotFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly mostRecent?: boolean;
     /**
      * Name of the snapshot.
@@ -91,16 +91,16 @@ export interface GetOpenZfsSnapshotResult {
     /**
      * ID of the snapshot.
      */
-    readonly snapshotId: string;
+    readonly snapshotId?: string;
     readonly snapshotIds?: string[];
     /**
      * List of Tag values, with a maximum of 50 elements.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * ID of the volume that the snapshot is of.
      */
-    readonly volumeId: string;
+    readonly volumeId?: string;
 }
 /**
  * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.

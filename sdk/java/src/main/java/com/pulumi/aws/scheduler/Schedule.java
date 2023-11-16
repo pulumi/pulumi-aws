@@ -127,14 +127,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Brief description of the schedule.
@@ -183,14 +183,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="groupName", refs={String.class}, tree="[0]")
-    private Output<String> groupName;
+    private Output</* @Nullable */ String> groupName;
 
     /**
      * @return Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      * 
      */
-    public Output<String> groupName() {
-        return this.groupName;
+    public Output<Optional<String>> groupName() {
+        return Codegen.optional(this.groupName);
     }
     /**
      * ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
@@ -225,14 +225,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).

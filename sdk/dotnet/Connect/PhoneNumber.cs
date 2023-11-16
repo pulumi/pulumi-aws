@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Connect
         /// The ARN of the phone number.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Connect
         /// The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
         /// </summary>
         [Output("phoneNumber")]
-        public Output<string> PhoneNumberValue { get; private set; } = null!;
+        public Output<string?> PhoneNumberValue { get; private set; } = null!;
 
         /// <summary>
         /// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.

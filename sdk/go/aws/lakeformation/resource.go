@@ -54,11 +54,11 @@ type Resource struct {
 	// Amazon Resource Name (ARN) of the resource, an S3 path.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
+	LastModified pulumi.StringPtrOutput `pulumi:"lastModified"`
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
 	//
 	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 }
 
 // NewResource registers a new resource with the given unique name, arguments, and options.
@@ -231,15 +231,15 @@ func (o ResourceOutput) Arn() pulumi.StringOutput {
 }
 
 // (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o ResourceOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+func (o ResourceOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
 // Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
 //
 // > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-func (o ResourceOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+func (o ResourceOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 type ResourceArrayOutput struct{ *pulumi.OutputState }

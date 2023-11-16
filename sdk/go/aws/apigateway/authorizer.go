@@ -21,116 +21,117 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoRestApi, err := apigateway.NewRestApi(ctx, "demoRestApi", nil)
-//			if err != nil {
-//				return err
-//			}
-//			invocationAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"apigateway.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invocationRole, err := iam.NewRole(ctx, "invocationRole", &iam.RoleArgs{
-//				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: *pulumi.String(invocationAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			lambdaAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"lambda.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			lambda, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			authorizer, err := lambda.NewFunction(ctx, "authorizer", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda-function.zip"),
-//				Role:    lambda.Arn,
-//				Handler: pulumi.String("exports.example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewAuthorizer(ctx, "demoAuthorizer", &apigateway.AuthorizerArgs{
-//				RestApi:               demoRestApi.ID(),
-//				AuthorizerUri:         authorizer.InvokeArn,
-//				AuthorizerCredentials: invocationRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invocationPolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("lambda:InvokeFunction"),
-//						},
-//						Resources: pulumi.StringArray{
-//							authorizer.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "invocationPolicyRolePolicy", &iam.RolePolicyArgs{
-//				Role: invocationRole.ID(),
-//				Policy: invocationPolicyPolicyDocument.ApplyT(func(invocationPolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &invocationPolicyPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// demoRestApi, err := apigateway.NewRestApi(ctx, "demoRestApi", nil)
+// if err != nil {
+// return err
+// }
+// invocationAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "apigateway.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// invocationRole, err := iam.NewRole(ctx, "invocationRole", &iam.RoleArgs{
+// Path: pulumi.String("/"),
+// AssumeRolePolicy: *pulumi.String(invocationAssumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// lambdaAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "lambda.amazonaws.com",
+// },
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// lambda, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// authorizer, err := lambda.NewFunction(ctx, "authorizer", &lambda.FunctionArgs{
+// Code: pulumi.NewFileArchive("lambda-function.zip"),
+// Role: lambda.Arn,
+// Handler: pulumi.String("exports.example"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigateway.NewAuthorizer(ctx, "demoAuthorizer", &apigateway.AuthorizerArgs{
+// RestApi: demoRestApi.ID(),
+// AuthorizerUri: authorizer.InvokeArn,
+// AuthorizerCredentials: invocationRole.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// invocationPolicyPolicyDocument := authorizer.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "lambda:InvokeFunction",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = iam.NewRolePolicy(ctx, "invocationPolicyRolePolicy", &iam.RolePolicyArgs{
+// Role: invocationRole.ID(),
+// Policy: invocationPolicyPolicyDocument.ApplyT(func(invocationPolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &invocationPolicyPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -146,7 +147,7 @@ type Authorizer struct {
 	pulumi.CustomResourceState
 
 	// ARN of the API Gateway Authorizer
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
 	AuthorizerCredentials pulumi.StringPtrOutput `pulumi:"authorizerCredentials"`
 	// TTL of cached authorizer results in seconds. Defaults to `300`.
@@ -385,8 +386,8 @@ func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) Aut
 }
 
 // ARN of the API Gateway Authorizer
-func (o AuthorizerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AuthorizerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.

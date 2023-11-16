@@ -758,7 +758,7 @@ class Feature(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the feature.
         """
@@ -766,7 +766,7 @@ class Feature(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the feature is created.
         """
@@ -774,7 +774,7 @@ class Feature(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVariation")
-    def default_variation(self) -> pulumi.Output[str]:
+    def default_variation(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
         """
@@ -798,7 +798,7 @@ class Feature(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluationRules")
-    def evaluation_rules(self) -> pulumi.Output[Sequence['outputs.FeatureEvaluationRule']]:
+    def evaluation_rules(self) -> pulumi.Output[Optional[Sequence['outputs.FeatureEvaluationRule']]]:
         """
         One or more blocks that define the evaluation rules for the feature. Detailed below
         """
@@ -806,7 +806,7 @@ class Feature(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluationStrategy")
-    def evaluation_strategy(self) -> pulumi.Output[str]:
+    def evaluation_strategy(self) -> pulumi.Output[Optional[str]]:
         """
         Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         """
@@ -814,7 +814,7 @@ class Feature(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the feature was most recently updated.
         """
@@ -838,7 +838,7 @@ class Feature(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
         """
@@ -865,7 +865,7 @@ class Feature(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="valueType")
-    def value_type(self) -> pulumi.Output[str]:
+    def value_type(self) -> pulumi.Output[Optional[str]]:
         """
         Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
         """

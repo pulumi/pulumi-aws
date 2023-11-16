@@ -63,7 +63,7 @@ namespace Pulumi.Aws.WafV2
         /// The Amazon Resource Name (ARN) of the IP set.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A friendly description of the IP set.
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> IpAddressVersion { get; private set; } = null!;
 
         [Output("lockToken")]
-        public Output<string> LockToken { get; private set; } = null!;
+        public Output<string?> LockToken { get; private set; } = null!;
 
         /// <summary>
         /// A friendly name of the IP set.

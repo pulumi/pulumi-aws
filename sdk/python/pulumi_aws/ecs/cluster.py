@@ -425,7 +425,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN that identifies the cluster.
         """
@@ -457,7 +457,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> pulumi.Output[Sequence['outputs.ClusterSetting']]:
+    def settings(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterSetting']]]:
         """
         Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         """

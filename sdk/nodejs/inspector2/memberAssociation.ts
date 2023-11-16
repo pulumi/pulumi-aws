@@ -60,15 +60,15 @@ export class MemberAssociation extends pulumi.CustomResource {
     /**
      * Account ID of the delegated administrator account
      */
-    public /*out*/ readonly delegatedAdminAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly delegatedAdminAccountId!: pulumi.Output<string | undefined>;
     /**
      * Status of the member relationship
      */
-    public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
+    public /*out*/ readonly relationshipStatus!: pulumi.Output<string | undefined>;
     /**
      * Date and time of the last update of the relationship
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MemberAssociation resource with the given unique name, arguments, and options.

@@ -115,7 +115,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of IPAM
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
      * within the CIDR range in the pool.
@@ -133,12 +133,12 @@ export class VpcIpamPool extends pulumi.CustomResource {
      * The ID of the scope in which you would like to create the IPAM pool.
      */
     public readonly ipamScopeId!: pulumi.Output<string>;
-    public /*out*/ readonly ipamScopeType!: pulumi.Output<string>;
+    public /*out*/ readonly ipamScopeType!: pulumi.Output<string | undefined>;
     /**
      * The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
      */
     public readonly locale!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly poolDepth!: pulumi.Output<number>;
+    public /*out*/ readonly poolDepth!: pulumi.Output<number | undefined>;
     /**
      * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
      */
@@ -154,7 +154,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
     /**
      * The ID of the IPAM
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

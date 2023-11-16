@@ -60,7 +60,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig Application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the application. Can be at most 1024 characters.
      */

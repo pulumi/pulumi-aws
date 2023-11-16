@@ -57,7 +57,7 @@ type GetAuthorizersArgs struct {
 // A collection of values returned by getAuthorizers.
 type GetAuthorizersResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of Authorizer identifiers.
 	Ids       []string `pulumi:"ids"`
 	RestApiId string   `pulumi:"restApiId"`
@@ -102,8 +102,8 @@ func (o GetAuthorizersResultOutput) ToGetAuthorizersResultOutputWithContext(ctx 
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAuthorizersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthorizersResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetAuthorizersResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthorizersResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of Authorizer identifiers.

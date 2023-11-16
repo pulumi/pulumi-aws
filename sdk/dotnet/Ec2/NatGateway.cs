@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Ec2
         /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         /// </summary>
         [Output("associationId")]
-        public Output<string> AssociationId { get; private set; } = null!;
+        public Output<string?> AssociationId { get; private set; } = null!;
 
         /// <summary>
         /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
@@ -138,19 +138,19 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the network interface associated with the NAT Gateway.
         /// </summary>
         [Output("networkInterfaceId")]
-        public Output<string> NetworkInterfaceId { get; private set; } = null!;
+        public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
         /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         /// </summary>
         [Output("privateIp")]
-        public Output<string> PrivateIp { get; private set; } = null!;
+        public Output<string?> PrivateIp { get; private set; } = null!;
 
         /// <summary>
         /// The Elastic IP address associated with the NAT Gateway.
         /// </summary>
         [Output("publicIp")]
-        public Output<string> PublicIp { get; private set; } = null!;
+        public Output<string?> PublicIp { get; private set; } = null!;
 
         /// <summary>
         /// A list of secondary allocation EIP IDs for this NAT Gateway.
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
         /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         /// </summary>
         [Output("secondaryPrivateIpAddressCount")]
-        public Output<int> SecondaryPrivateIpAddressCount { get; private set; } = null!;
+        public Output<int?> SecondaryPrivateIpAddressCount { get; private set; } = null!;
 
         /// <summary>
         /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.

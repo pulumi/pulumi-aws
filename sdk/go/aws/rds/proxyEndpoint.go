@@ -65,15 +65,15 @@ type ProxyEndpoint struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the proxy endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName pulumi.StringOutput `pulumi:"dbProxyEndpointName"`
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
+	IsDefault pulumi.BoolPtrOutput `pulumi:"isDefault"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -81,7 +81,7 @@ type ProxyEndpoint struct {
 	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole pulumi.StringPtrOutput `pulumi:"targetRole"`
 	// The VPC ID of the DB proxy endpoint.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 	// One or more VPC subnet IDs to associate with the new proxy.
@@ -303,8 +303,8 @@ func (o ProxyEndpointOutput) ToProxyEndpointOutputWithContext(ctx context.Contex
 }
 
 // The Amazon Resource Name (ARN) for the proxy endpoint.
-func (o ProxyEndpointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProxyEndpointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
@@ -318,13 +318,13 @@ func (o ProxyEndpointOutput) DbProxyName() pulumi.StringOutput {
 }
 
 // The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-func (o ProxyEndpointOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ProxyEndpointOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-func (o ProxyEndpointOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ProxyEndpoint) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
+func (o ProxyEndpointOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProxyEndpoint) pulumi.BoolPtrOutput { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.
@@ -343,8 +343,8 @@ func (o ProxyEndpointOutput) TargetRole() pulumi.StringPtrOutput {
 }
 
 // The VPC ID of the DB proxy endpoint.
-func (o ProxyEndpointOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o ProxyEndpointOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // One or more VPC security group IDs to associate with the new proxy.

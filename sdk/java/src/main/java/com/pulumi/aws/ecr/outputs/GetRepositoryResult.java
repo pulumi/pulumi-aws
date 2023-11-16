@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryResult {
@@ -17,107 +19,107 @@ public final class GetRepositoryResult {
      * @return Full ARN of the repository.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Encryption configuration for the repository. See Encryption Configuration below.
      * 
      */
-    private List<GetRepositoryEncryptionConfiguration> encryptionConfigurations;
+    private @Nullable List<GetRepositoryEncryptionConfiguration> encryptionConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
      * 
      */
-    private List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations;
+    private @Nullable List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations;
     /**
      * @return The tag mutability setting for the repository.
      * 
      */
-    private String imageTagMutability;
+    private @Nullable String imageTagMutability;
     /**
      * @return List of image tags associated with the most recently pushed image in the repository.
      * 
      */
-    private List<String> mostRecentImageTags;
+    private @Nullable List<String> mostRecentImageTags;
     private String name;
-    private String registryId;
+    private @Nullable String registryId;
     /**
      * @return URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      * 
      */
-    private String repositoryUrl;
+    private @Nullable String repositoryUrl;
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetRepositoryResult() {}
     /**
      * @return Full ARN of the repository.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Encryption configuration for the repository. See Encryption Configuration below.
      * 
      */
     public List<GetRepositoryEncryptionConfiguration> encryptionConfigurations() {
-        return this.encryptionConfigurations;
+        return this.encryptionConfigurations == null ? List.of() : this.encryptionConfigurations;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
      * 
      */
     public List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations() {
-        return this.imageScanningConfigurations;
+        return this.imageScanningConfigurations == null ? List.of() : this.imageScanningConfigurations;
     }
     /**
      * @return The tag mutability setting for the repository.
      * 
      */
-    public String imageTagMutability() {
-        return this.imageTagMutability;
+    public Optional<String> imageTagMutability() {
+        return Optional.ofNullable(this.imageTagMutability);
     }
     /**
      * @return List of image tags associated with the most recently pushed image in the repository.
      * 
      */
     public List<String> mostRecentImageTags() {
-        return this.mostRecentImageTags;
+        return this.mostRecentImageTags == null ? List.of() : this.mostRecentImageTags;
     }
     public String name() {
         return this.name;
     }
-    public String registryId() {
-        return this.registryId;
+    public Optional<String> registryId() {
+        return Optional.ofNullable(this.registryId);
     }
     /**
      * @return URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      * 
      */
-    public String repositoryUrl() {
-        return this.repositoryUrl;
+    public Optional<String> repositoryUrl() {
+        return Optional.ofNullable(this.repositoryUrl);
     }
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -129,16 +131,16 @@ public final class GetRepositoryResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetRepositoryEncryptionConfiguration> encryptionConfigurations;
-        private String id;
-        private List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations;
-        private String imageTagMutability;
-        private List<String> mostRecentImageTags;
+        private @Nullable String arn;
+        private @Nullable List<GetRepositoryEncryptionConfiguration> encryptionConfigurations;
+        private @Nullable String id;
+        private @Nullable List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations;
+        private @Nullable String imageTagMutability;
+        private @Nullable List<String> mostRecentImageTags;
         private String name;
-        private String registryId;
-        private String repositoryUrl;
-        private Map<String,String> tags;
+        private @Nullable String registryId;
+        private @Nullable String repositoryUrl;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetRepositoryResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -155,39 +157,39 @@ public final class GetRepositoryResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder encryptionConfigurations(List<GetRepositoryEncryptionConfiguration> encryptionConfigurations) {
-            this.encryptionConfigurations = Objects.requireNonNull(encryptionConfigurations);
+        public Builder encryptionConfigurations(@Nullable List<GetRepositoryEncryptionConfiguration> encryptionConfigurations) {
+            this.encryptionConfigurations = encryptionConfigurations;
             return this;
         }
         public Builder encryptionConfigurations(GetRepositoryEncryptionConfiguration... encryptionConfigurations) {
             return encryptionConfigurations(List.of(encryptionConfigurations));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder imageScanningConfigurations(List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations) {
-            this.imageScanningConfigurations = Objects.requireNonNull(imageScanningConfigurations);
+        public Builder imageScanningConfigurations(@Nullable List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations) {
+            this.imageScanningConfigurations = imageScanningConfigurations;
             return this;
         }
         public Builder imageScanningConfigurations(GetRepositoryImageScanningConfiguration... imageScanningConfigurations) {
             return imageScanningConfigurations(List.of(imageScanningConfigurations));
         }
         @CustomType.Setter
-        public Builder imageTagMutability(String imageTagMutability) {
-            this.imageTagMutability = Objects.requireNonNull(imageTagMutability);
+        public Builder imageTagMutability(@Nullable String imageTagMutability) {
+            this.imageTagMutability = imageTagMutability;
             return this;
         }
         @CustomType.Setter
-        public Builder mostRecentImageTags(List<String> mostRecentImageTags) {
-            this.mostRecentImageTags = Objects.requireNonNull(mostRecentImageTags);
+        public Builder mostRecentImageTags(@Nullable List<String> mostRecentImageTags) {
+            this.mostRecentImageTags = mostRecentImageTags;
             return this;
         }
         public Builder mostRecentImageTags(String... mostRecentImageTags) {
@@ -199,18 +201,18 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+        public Builder registryId(@Nullable String registryId) {
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
-        public Builder repositoryUrl(String repositoryUrl) {
-            this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
+        public Builder repositoryUrl(@Nullable String repositoryUrl) {
+            this.repositoryUrl = repositoryUrl;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetRepositoryResult build() {

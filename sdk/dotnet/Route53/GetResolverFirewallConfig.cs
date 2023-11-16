@@ -113,21 +113,21 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallConfigResult
     {
-        public readonly string FirewallFailOpen;
+        public readonly string? FirewallFailOpen;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string OwnerId;
+        public readonly string? Id;
+        public readonly string? OwnerId;
         public readonly string ResourceId;
 
         [OutputConstructor]
         private GetResolverFirewallConfigResult(
-            string firewallFailOpen,
+            string? firewallFailOpen,
 
-            string id,
+            string? id,
 
-            string ownerId,
+            string? ownerId,
 
             string resourceId)
         {

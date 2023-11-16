@@ -95,17 +95,17 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetDefaultTagsResult
     {
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Blocks of default tags set on the provider. See details below.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetDefaultTagsResult(
-            string id,
+            string? id,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Id = id;
             Tags = tags;

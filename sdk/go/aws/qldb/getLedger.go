@@ -57,13 +57,13 @@ type LookupLedgerArgs struct {
 
 // A collection of values returned by getLedger.
 type LookupLedgerResult struct {
-	Arn                string `pulumi:"arn"`
-	DeletionProtection bool   `pulumi:"deletionProtection"`
+	Arn                *string `pulumi:"arn"`
+	DeletionProtection *bool   `pulumi:"deletionProtection"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string            `pulumi:"id"`
-	KmsKey          string            `pulumi:"kmsKey"`
+	Id              *string           `pulumi:"id"`
+	KmsKey          *string           `pulumi:"kmsKey"`
 	Name            string            `pulumi:"name"`
-	PermissionsMode string            `pulumi:"permissionsMode"`
+	PermissionsMode *string           `pulumi:"permissionsMode"`
 	Tags            map[string]string `pulumi:"tags"`
 }
 
@@ -106,29 +106,29 @@ func (o LookupLedgerResultOutput) ToLookupLedgerResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o LookupLedgerResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLedgerResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupLedgerResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLedgerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLedgerResultOutput) DeletionProtection() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupLedgerResult) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
+func (o LookupLedgerResultOutput) DeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLedgerResult) *bool { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupLedgerResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLedgerResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupLedgerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLedgerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLedgerResultOutput) KmsKey() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLedgerResult) string { return v.KmsKey }).(pulumi.StringOutput)
+func (o LookupLedgerResultOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLedgerResult) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLedgerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLedgerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupLedgerResultOutput) PermissionsMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLedgerResult) string { return v.PermissionsMode }).(pulumi.StringOutput)
+func (o LookupLedgerResultOutput) PermissionsMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLedgerResult) *string { return v.PermissionsMode }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLedgerResultOutput) Tags() pulumi.StringMapOutput {

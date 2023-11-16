@@ -75,7 +75,7 @@ type LicenseConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The license configuration ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the license configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Number of licenses managed by the license configuration.
@@ -89,7 +89,7 @@ type LicenseConfiguration struct {
 	// Name of the license configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Account ID of the owner of the license configuration.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerAccountId pulumi.StringPtrOutput `pulumi:"ownerAccountId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -311,8 +311,8 @@ func (o LicenseConfigurationOutput) ToLicenseConfigurationOutputWithContext(ctx 
 }
 
 // The license configuration ARN.
-func (o LicenseConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LicenseConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the license configuration.
@@ -346,8 +346,8 @@ func (o LicenseConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // Account ID of the owner of the license configuration.
-func (o LicenseConfigurationOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o LicenseConfigurationOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringPtrOutput { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

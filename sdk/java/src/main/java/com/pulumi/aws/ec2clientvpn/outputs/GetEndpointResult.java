@@ -15,6 +15,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -23,167 +24,167 @@ public final class GetEndpointResult {
      * @return The ARN of the Client VPN endpoint.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Information about the authentication method used by the Client VPN endpoint.
      * 
      */
-    private List<GetEndpointAuthenticationOption> authenticationOptions;
+    private @Nullable List<GetEndpointAuthenticationOption> authenticationOptions;
     /**
      * @return IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
      * 
      */
-    private String clientCidrBlock;
+    private @Nullable String clientCidrBlock;
     /**
      * @return The options for managing connection authorization for new client connections.
      * 
      */
-    private List<GetEndpointClientConnectOption> clientConnectOptions;
+    private @Nullable List<GetEndpointClientConnectOption> clientConnectOptions;
     /**
      * @return Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      * 
      */
-    private List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions;
-    private String clientVpnEndpointId;
+    private @Nullable List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions;
+    private @Nullable String clientVpnEndpointId;
     /**
      * @return Information about the client connection logging options for the Client VPN endpoint.
      * 
      */
-    private List<GetEndpointConnectionLogOption> connectionLogOptions;
+    private @Nullable List<GetEndpointConnectionLogOption> connectionLogOptions;
     /**
      * @return Brief description of the endpoint.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return DNS name to be used by clients when connecting to the Client VPN endpoint.
      * 
      */
-    private String dnsName;
+    private @Nullable String dnsName;
     /**
      * @return Information about the DNS servers to be used for DNS resolution.
      * 
      */
-    private List<String> dnsServers;
+    private @Nullable List<String> dnsServers;
     private @Nullable List<GetEndpointFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return IDs of the security groups for the target network associated with the Client VPN endpoint.
      * 
      */
-    private List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return Whether the self-service portal for the Client VPN endpoint is enabled.
      * 
      */
-    private String selfServicePortal;
+    private @Nullable String selfServicePortal;
     /**
      * @return The URL of the self-service portal.
      * 
      */
-    private String selfServicePortalUrl;
+    private @Nullable String selfServicePortalUrl;
     /**
      * @return The ARN of the server certificate.
      * 
      */
-    private String serverCertificateArn;
+    private @Nullable String serverCertificateArn;
     /**
      * @return The maximum VPN session duration time in hours.
      * 
      */
-    private Integer sessionTimeoutHours;
+    private @Nullable Integer sessionTimeoutHours;
     /**
      * @return Whether split-tunnel is enabled in the AWS Client VPN endpoint.
      * 
      */
-    private Boolean splitTunnel;
-    private Map<String,String> tags;
+    private @Nullable Boolean splitTunnel;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Transport protocol used by the Client VPN endpoint.
      * 
      */
-    private String transportProtocol;
+    private @Nullable String transportProtocol;
     /**
      * @return ID of the VPC associated with the Client VPN endpoint.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
     /**
      * @return Port number for the Client VPN endpoint.
      * 
      */
-    private Integer vpnPort;
+    private @Nullable Integer vpnPort;
 
     private GetEndpointResult() {}
     /**
      * @return The ARN of the Client VPN endpoint.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Information about the authentication method used by the Client VPN endpoint.
      * 
      */
     public List<GetEndpointAuthenticationOption> authenticationOptions() {
-        return this.authenticationOptions;
+        return this.authenticationOptions == null ? List.of() : this.authenticationOptions;
     }
     /**
      * @return IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
      * 
      */
-    public String clientCidrBlock() {
-        return this.clientCidrBlock;
+    public Optional<String> clientCidrBlock() {
+        return Optional.ofNullable(this.clientCidrBlock);
     }
     /**
      * @return The options for managing connection authorization for new client connections.
      * 
      */
     public List<GetEndpointClientConnectOption> clientConnectOptions() {
-        return this.clientConnectOptions;
+        return this.clientConnectOptions == null ? List.of() : this.clientConnectOptions;
     }
     /**
      * @return Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      * 
      */
     public List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions() {
-        return this.clientLoginBannerOptions;
+        return this.clientLoginBannerOptions == null ? List.of() : this.clientLoginBannerOptions;
     }
-    public String clientVpnEndpointId() {
-        return this.clientVpnEndpointId;
+    public Optional<String> clientVpnEndpointId() {
+        return Optional.ofNullable(this.clientVpnEndpointId);
     }
     /**
      * @return Information about the client connection logging options for the Client VPN endpoint.
      * 
      */
     public List<GetEndpointConnectionLogOption> connectionLogOptions() {
-        return this.connectionLogOptions;
+        return this.connectionLogOptions == null ? List.of() : this.connectionLogOptions;
     }
     /**
      * @return Brief description of the endpoint.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return DNS name to be used by clients when connecting to the Client VPN endpoint.
      * 
      */
-    public String dnsName() {
-        return this.dnsName;
+    public Optional<String> dnsName() {
+        return Optional.ofNullable(this.dnsName);
     }
     /**
      * @return Information about the DNS servers to be used for DNS resolution.
      * 
      */
     public List<String> dnsServers() {
-        return this.dnsServers;
+        return this.dnsServers == null ? List.of() : this.dnsServers;
     }
     public List<GetEndpointFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -192,74 +193,74 @@ public final class GetEndpointResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IDs of the security groups for the target network associated with the Client VPN endpoint.
      * 
      */
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
      * @return Whether the self-service portal for the Client VPN endpoint is enabled.
      * 
      */
-    public String selfServicePortal() {
-        return this.selfServicePortal;
+    public Optional<String> selfServicePortal() {
+        return Optional.ofNullable(this.selfServicePortal);
     }
     /**
      * @return The URL of the self-service portal.
      * 
      */
-    public String selfServicePortalUrl() {
-        return this.selfServicePortalUrl;
+    public Optional<String> selfServicePortalUrl() {
+        return Optional.ofNullable(this.selfServicePortalUrl);
     }
     /**
      * @return The ARN of the server certificate.
      * 
      */
-    public String serverCertificateArn() {
-        return this.serverCertificateArn;
+    public Optional<String> serverCertificateArn() {
+        return Optional.ofNullable(this.serverCertificateArn);
     }
     /**
      * @return The maximum VPN session duration time in hours.
      * 
      */
-    public Integer sessionTimeoutHours() {
-        return this.sessionTimeoutHours;
+    public Optional<Integer> sessionTimeoutHours() {
+        return Optional.ofNullable(this.sessionTimeoutHours);
     }
     /**
      * @return Whether split-tunnel is enabled in the AWS Client VPN endpoint.
      * 
      */
-    public Boolean splitTunnel() {
-        return this.splitTunnel;
+    public Optional<Boolean> splitTunnel() {
+        return Optional.ofNullable(this.splitTunnel);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Transport protocol used by the Client VPN endpoint.
      * 
      */
-    public String transportProtocol() {
-        return this.transportProtocol;
+    public Optional<String> transportProtocol() {
+        return Optional.ofNullable(this.transportProtocol);
     }
     /**
      * @return ID of the VPC associated with the Client VPN endpoint.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
     /**
      * @return Port number for the Client VPN endpoint.
      * 
      */
-    public Integer vpnPort() {
-        return this.vpnPort;
+    public Optional<Integer> vpnPort() {
+        return Optional.ofNullable(this.vpnPort);
     }
 
     public static Builder builder() {
@@ -271,28 +272,28 @@ public final class GetEndpointResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetEndpointAuthenticationOption> authenticationOptions;
-        private String clientCidrBlock;
-        private List<GetEndpointClientConnectOption> clientConnectOptions;
-        private List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions;
-        private String clientVpnEndpointId;
-        private List<GetEndpointConnectionLogOption> connectionLogOptions;
-        private String description;
-        private String dnsName;
-        private List<String> dnsServers;
+        private @Nullable String arn;
+        private @Nullable List<GetEndpointAuthenticationOption> authenticationOptions;
+        private @Nullable String clientCidrBlock;
+        private @Nullable List<GetEndpointClientConnectOption> clientConnectOptions;
+        private @Nullable List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions;
+        private @Nullable String clientVpnEndpointId;
+        private @Nullable List<GetEndpointConnectionLogOption> connectionLogOptions;
+        private @Nullable String description;
+        private @Nullable String dnsName;
+        private @Nullable List<String> dnsServers;
         private @Nullable List<GetEndpointFilter> filters;
-        private String id;
-        private List<String> securityGroupIds;
-        private String selfServicePortal;
-        private String selfServicePortalUrl;
-        private String serverCertificateArn;
-        private Integer sessionTimeoutHours;
-        private Boolean splitTunnel;
-        private Map<String,String> tags;
-        private String transportProtocol;
-        private String vpcId;
-        private Integer vpnPort;
+        private @Nullable String id;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable String selfServicePortal;
+        private @Nullable String selfServicePortalUrl;
+        private @Nullable String serverCertificateArn;
+        private @Nullable Integer sessionTimeoutHours;
+        private @Nullable Boolean splitTunnel;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String transportProtocol;
+        private @Nullable String vpcId;
+        private @Nullable Integer vpnPort;
         public Builder() {}
         public Builder(GetEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -321,65 +322,65 @@ public final class GetEndpointResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder authenticationOptions(List<GetEndpointAuthenticationOption> authenticationOptions) {
-            this.authenticationOptions = Objects.requireNonNull(authenticationOptions);
+        public Builder authenticationOptions(@Nullable List<GetEndpointAuthenticationOption> authenticationOptions) {
+            this.authenticationOptions = authenticationOptions;
             return this;
         }
         public Builder authenticationOptions(GetEndpointAuthenticationOption... authenticationOptions) {
             return authenticationOptions(List.of(authenticationOptions));
         }
         @CustomType.Setter
-        public Builder clientCidrBlock(String clientCidrBlock) {
-            this.clientCidrBlock = Objects.requireNonNull(clientCidrBlock);
+        public Builder clientCidrBlock(@Nullable String clientCidrBlock) {
+            this.clientCidrBlock = clientCidrBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder clientConnectOptions(List<GetEndpointClientConnectOption> clientConnectOptions) {
-            this.clientConnectOptions = Objects.requireNonNull(clientConnectOptions);
+        public Builder clientConnectOptions(@Nullable List<GetEndpointClientConnectOption> clientConnectOptions) {
+            this.clientConnectOptions = clientConnectOptions;
             return this;
         }
         public Builder clientConnectOptions(GetEndpointClientConnectOption... clientConnectOptions) {
             return clientConnectOptions(List.of(clientConnectOptions));
         }
         @CustomType.Setter
-        public Builder clientLoginBannerOptions(List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions) {
-            this.clientLoginBannerOptions = Objects.requireNonNull(clientLoginBannerOptions);
+        public Builder clientLoginBannerOptions(@Nullable List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions) {
+            this.clientLoginBannerOptions = clientLoginBannerOptions;
             return this;
         }
         public Builder clientLoginBannerOptions(GetEndpointClientLoginBannerOption... clientLoginBannerOptions) {
             return clientLoginBannerOptions(List.of(clientLoginBannerOptions));
         }
         @CustomType.Setter
-        public Builder clientVpnEndpointId(String clientVpnEndpointId) {
-            this.clientVpnEndpointId = Objects.requireNonNull(clientVpnEndpointId);
+        public Builder clientVpnEndpointId(@Nullable String clientVpnEndpointId) {
+            this.clientVpnEndpointId = clientVpnEndpointId;
             return this;
         }
         @CustomType.Setter
-        public Builder connectionLogOptions(List<GetEndpointConnectionLogOption> connectionLogOptions) {
-            this.connectionLogOptions = Objects.requireNonNull(connectionLogOptions);
+        public Builder connectionLogOptions(@Nullable List<GetEndpointConnectionLogOption> connectionLogOptions) {
+            this.connectionLogOptions = connectionLogOptions;
             return this;
         }
         public Builder connectionLogOptions(GetEndpointConnectionLogOption... connectionLogOptions) {
             return connectionLogOptions(List.of(connectionLogOptions));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+        public Builder dnsName(@Nullable String dnsName) {
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder dnsServers(List<String> dnsServers) {
-            this.dnsServers = Objects.requireNonNull(dnsServers);
+        public Builder dnsServers(@Nullable List<String> dnsServers) {
+            this.dnsServers = dnsServers;
             return this;
         }
         public Builder dnsServers(String... dnsServers) {
@@ -394,61 +395,61 @@ public final class GetEndpointResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder selfServicePortal(String selfServicePortal) {
-            this.selfServicePortal = Objects.requireNonNull(selfServicePortal);
+        public Builder selfServicePortal(@Nullable String selfServicePortal) {
+            this.selfServicePortal = selfServicePortal;
             return this;
         }
         @CustomType.Setter
-        public Builder selfServicePortalUrl(String selfServicePortalUrl) {
-            this.selfServicePortalUrl = Objects.requireNonNull(selfServicePortalUrl);
+        public Builder selfServicePortalUrl(@Nullable String selfServicePortalUrl) {
+            this.selfServicePortalUrl = selfServicePortalUrl;
             return this;
         }
         @CustomType.Setter
-        public Builder serverCertificateArn(String serverCertificateArn) {
-            this.serverCertificateArn = Objects.requireNonNull(serverCertificateArn);
+        public Builder serverCertificateArn(@Nullable String serverCertificateArn) {
+            this.serverCertificateArn = serverCertificateArn;
             return this;
         }
         @CustomType.Setter
-        public Builder sessionTimeoutHours(Integer sessionTimeoutHours) {
-            this.sessionTimeoutHours = Objects.requireNonNull(sessionTimeoutHours);
+        public Builder sessionTimeoutHours(@Nullable Integer sessionTimeoutHours) {
+            this.sessionTimeoutHours = sessionTimeoutHours;
             return this;
         }
         @CustomType.Setter
-        public Builder splitTunnel(Boolean splitTunnel) {
-            this.splitTunnel = Objects.requireNonNull(splitTunnel);
+        public Builder splitTunnel(@Nullable Boolean splitTunnel) {
+            this.splitTunnel = splitTunnel;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder transportProtocol(String transportProtocol) {
-            this.transportProtocol = Objects.requireNonNull(transportProtocol);
+        public Builder transportProtocol(@Nullable String transportProtocol) {
+            this.transportProtocol = transportProtocol;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
-        public Builder vpnPort(Integer vpnPort) {
-            this.vpnPort = Objects.requireNonNull(vpnPort);
+        public Builder vpnPort(@Nullable Integer vpnPort) {
+            this.vpnPort = vpnPort;
             return this;
         }
         public GetEndpointResult build() {

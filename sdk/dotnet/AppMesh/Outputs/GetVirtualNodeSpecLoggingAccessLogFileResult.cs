@@ -14,13 +14,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualNodeSpecLoggingAccessLogFileResult
     {
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult> Formats;
-        public readonly string Path;
+        public readonly string? Path;
 
         [OutputConstructor]
         private GetVirtualNodeSpecLoggingAccessLogFileResult(
             ImmutableArray<Outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult> formats,
 
-            string path)
+            string? path)
         {
             Formats = formats;
             Path = path;

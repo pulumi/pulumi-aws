@@ -64,14 +64,14 @@ type GetOutpostsArgs struct {
 type GetOutpostsResult struct {
 	// Set of Amazon Resource Names (ARNs).
 	Arns               []string `pulumi:"arns"`
-	AvailabilityZone   string   `pulumi:"availabilityZone"`
-	AvailabilityZoneId string   `pulumi:"availabilityZoneId"`
+	AvailabilityZone   *string  `pulumi:"availabilityZone"`
+	AvailabilityZoneId *string  `pulumi:"availabilityZoneId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of identifiers.
 	Ids     []string `pulumi:"ids"`
-	OwnerId string   `pulumi:"ownerId"`
-	SiteId  string   `pulumi:"siteId"`
+	OwnerId *string  `pulumi:"ownerId"`
+	SiteId  *string  `pulumi:"siteId"`
 }
 
 func GetOutpostsOutput(ctx *pulumi.Context, args GetOutpostsOutputArgs, opts ...pulumi.InvokeOption) GetOutpostsResultOutput {
@@ -123,17 +123,17 @@ func (o GetOutpostsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
 
-func (o GetOutpostsResultOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostsResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o GetOutpostsResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostsResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOutpostsResultOutput) AvailabilityZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostsResult) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+func (o GetOutpostsResultOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostsResult) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetOutpostsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetOutpostsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of identifiers.
@@ -141,12 +141,12 @@ func (o GetOutpostsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }
 
-func (o GetOutpostsResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostsResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o GetOutpostsResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostsResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOutpostsResultOutput) SiteId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostsResult) string { return v.SiteId }).(pulumi.StringOutput)
+func (o GetOutpostsResultOutput) SiteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostsResult) *string { return v.SiteId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

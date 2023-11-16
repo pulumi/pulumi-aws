@@ -291,7 +291,7 @@ class ControlPanel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the control panel.
         """
@@ -307,7 +307,7 @@ class ControlPanel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultControlPanel")
-    def default_control_panel(self) -> pulumi.Output[bool]:
+    def default_control_panel(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether a control panel is default.
         """
@@ -323,7 +323,7 @@ class ControlPanel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingControlCount")
-    def routing_control_count(self) -> pulumi.Output[int]:
+    def routing_control_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number routing controls in a control panel.
         """
@@ -331,7 +331,7 @@ class ControlPanel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """

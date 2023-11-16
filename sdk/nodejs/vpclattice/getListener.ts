@@ -55,53 +55,53 @@ export interface GetListenerResult {
     /**
      * ARN of the listener.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The date and time that the listener was created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * The actions for the default listener rule.
      */
-    readonly defaultActions: outputs.vpclattice.GetListenerDefaultAction[];
+    readonly defaultActions?: outputs.vpclattice.GetListenerDefaultAction[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The date and time the listener was last updated.
      */
-    readonly lastUpdatedAt: string;
+    readonly lastUpdatedAt?: string;
     /**
      * The ID of the listener.
      */
-    readonly listenerId: string;
+    readonly listenerId?: string;
     readonly listenerIdentifier: string;
     /**
      * The name of the listener.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * The listener port.
      */
-    readonly port: number;
+    readonly port?: number;
     /**
      * The listener protocol. Either `HTTPS` or `HTTP`.
      */
-    readonly protocol: string;
+    readonly protocol?: string;
     /**
      * The ARN of the service.
      */
-    readonly serviceArn: string;
+    readonly serviceArn?: string;
     /**
      * The ID of the service.
      */
-    readonly serviceId: string;
+    readonly serviceId?: string;
     readonly serviceIdentifier: string;
     /**
      * List of tags associated with the listener.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS VPC Lattice Listener.

@@ -37,7 +37,7 @@ class GetLogGroupsResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         Set of ARNs of the Cloudwatch log groups
         """
@@ -45,7 +45,7 @@ class GetLogGroupsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -58,7 +58,7 @@ class GetLogGroupsResult:
 
     @property
     @pulumi.getter(name="logGroupNames")
-    def log_group_names(self) -> Sequence[str]:
+    def log_group_names(self) -> Optional[Sequence[str]]:
         """
         Set of names of the Cloudwatch log groups
         """

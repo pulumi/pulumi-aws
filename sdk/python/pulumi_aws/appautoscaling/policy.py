@@ -798,7 +798,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alarmArns")
-    def alarm_arns(self) -> pulumi.Output[Sequence[str]]:
+    def alarm_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of CloudWatch alarm ARNs associated with the scaling policy.
         """
@@ -806,7 +806,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN assigned by AWS to the scaling policy.
         """

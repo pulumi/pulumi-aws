@@ -58,23 +58,23 @@ type LookupWorkgroupArgs struct {
 // A collection of values returned by getWorkgroup.
 type LookupWorkgroupResult struct {
 	// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The endpoint that is created from the workgroup. See `Endpoint` below.
 	Endpoints []GetWorkgroupEndpoint `pulumi:"endpoints"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-	EnhancedVpcRouting bool `pulumi:"enhancedVpcRouting"`
+	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	NamespaceName string `pulumi:"namespaceName"`
+	Id            *string `pulumi:"id"`
+	NamespaceName *string `pulumi:"namespaceName"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
-	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The Redshift Workgroup ID.
-	WorkgroupId   string `pulumi:"workgroupId"`
-	WorkgroupName string `pulumi:"workgroupName"`
+	WorkgroupId   *string `pulumi:"workgroupId"`
+	WorkgroupName string  `pulumi:"workgroupName"`
 }
 
 func LookupWorkgroupOutput(ctx *pulumi.Context, args LookupWorkgroupOutputArgs, opts ...pulumi.InvokeOption) LookupWorkgroupResultOutput {
@@ -116,8 +116,8 @@ func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutputWithContext(ct
 }
 
 // Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-func (o LookupWorkgroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkgroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupWorkgroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint that is created from the workgroup. See `Endpoint` below.
@@ -126,22 +126,22 @@ func (o LookupWorkgroupResultOutput) Endpoints() GetWorkgroupEndpointArrayOutput
 }
 
 // The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-func (o LookupWorkgroupResultOutput) EnhancedVpcRouting() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupWorkgroupResult) bool { return v.EnhancedVpcRouting }).(pulumi.BoolOutput)
+func (o LookupWorkgroupResultOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *bool { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupWorkgroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkgroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupWorkgroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupWorkgroupResultOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkgroupResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+func (o LookupWorkgroupResultOutput) NamespaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
 // A value that specifies whether the workgroup can be accessed from a public network.
-func (o LookupWorkgroupResultOutput) PubliclyAccessible() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupWorkgroupResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+func (o LookupWorkgroupResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
 // An array of security group IDs to associate with the workgroup.
@@ -155,8 +155,8 @@ func (o LookupWorkgroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // The Redshift Workgroup ID.
-func (o LookupWorkgroupResultOutput) WorkgroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkgroupResult) string { return v.WorkgroupId }).(pulumi.StringOutput)
+func (o LookupWorkgroupResultOutput) WorkgroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *string { return v.WorkgroupId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupWorkgroupResultOutput) WorkgroupName() pulumi.StringOutput {

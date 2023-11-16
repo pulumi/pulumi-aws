@@ -109,16 +109,16 @@ export class Stack extends pulumi.CustomResource {
     /**
      * A map of outputs from the stack.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policyUrl`.
      */
-    public readonly policyBody!: pulumi.Output<string>;
+    public readonly policyBody!: pulumi.Output<string | undefined>;
     /**
      * Location of a file containing the stack policy.
      * Conflicts w/ `policyBody`.
@@ -137,7 +137,7 @@ export class Stack extends pulumi.CustomResource {
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
-    public readonly templateBody!: pulumi.Output<string>;
+    public readonly templateBody!: pulumi.Output<string | undefined>;
     /**
      * Location of a file containing the template body (max size: 460,800 bytes).
      */

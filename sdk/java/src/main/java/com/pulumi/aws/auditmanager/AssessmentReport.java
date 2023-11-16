@@ -82,14 +82,14 @@ public class AssessmentReport extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="author", refs={String.class}, tree="[0]")
-    private Output<String> author;
+    private Output</* @Nullable */ String> author;
 
     /**
      * @return Name of the user who created the assessment report.
      * 
      */
-    public Output<String> author() {
-        return this.author;
+    public Output<Optional<String>> author() {
+        return Codegen.optional(this.author);
     }
     /**
      * Description of the assessment report.
@@ -124,14 +124,14 @@ public class AssessmentReport extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

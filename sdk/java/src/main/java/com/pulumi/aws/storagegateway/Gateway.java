@@ -258,28 +258,28 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="activationKey", refs={String.class}, tree="[0]")
-    private Output<String> activationKey;
+    private Output</* @Nullable */ String> activationKey;
 
     /**
      * @return Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      * 
      */
-    public Output<String> activationKey() {
-        return this.activationKey;
+    public Output<Optional<String>> activationKey() {
+        return Codegen.optional(this.activationKey);
     }
     /**
      * Amazon Resource Name (ARN) of the gateway.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
@@ -328,56 +328,56 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ec2InstanceId", refs={String.class}, tree="[0]")
-    private Output<String> ec2InstanceId;
+    private Output</* @Nullable */ String> ec2InstanceId;
 
     /**
      * @return The ID of the Amazon EC2 instance that was used to launch the gateway.
      * 
      */
-    public Output<String> ec2InstanceId() {
-        return this.ec2InstanceId;
+    public Output<Optional<String>> ec2InstanceId() {
+        return Codegen.optional(this.ec2InstanceId);
     }
     /**
      * The type of endpoint for your gateway.
      * 
      */
     @Export(name="endpointType", refs={String.class}, tree="[0]")
-    private Output<String> endpointType;
+    private Output</* @Nullable */ String> endpointType;
 
     /**
      * @return The type of endpoint for your gateway.
      * 
      */
-    public Output<String> endpointType() {
-        return this.endpointType;
+    public Output<Optional<String>> endpointType() {
+        return Codegen.optional(this.endpointType);
     }
     /**
      * Identifier of the gateway.
      * 
      */
     @Export(name="gatewayId", refs={String.class}, tree="[0]")
-    private Output<String> gatewayId;
+    private Output</* @Nullable */ String> gatewayId;
 
     /**
      * @return Identifier of the gateway.
      * 
      */
-    public Output<String> gatewayId() {
-        return this.gatewayId;
+    public Output<Optional<String>> gatewayId() {
+        return Codegen.optional(this.gatewayId);
     }
     /**
      * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      * 
      */
     @Export(name="gatewayIpAddress", refs={String.class}, tree="[0]")
-    private Output<String> gatewayIpAddress;
+    private Output</* @Nullable */ String> gatewayIpAddress;
 
     /**
      * @return Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      * 
      */
-    public Output<String> gatewayIpAddress() {
-        return this.gatewayIpAddress;
+    public Output<Optional<String>> gatewayIpAddress() {
+        return Codegen.optional(this.gatewayIpAddress);
     }
     /**
      * Name of the gateway.
@@ -398,14 +398,14 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="gatewayNetworkInterfaces", refs={List.class,GatewayGatewayNetworkInterface.class}, tree="[0,1]")
-    private Output<List<GatewayGatewayNetworkInterface>> gatewayNetworkInterfaces;
+    private Output</* @Nullable */ List<GatewayGatewayNetworkInterface>> gatewayNetworkInterfaces;
 
     /**
      * @return An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
      * 
      */
-    public Output<List<GatewayGatewayNetworkInterface>> gatewayNetworkInterfaces() {
-        return this.gatewayNetworkInterfaces;
+    public Output<Optional<List<GatewayGatewayNetworkInterface>>> gatewayNetworkInterfaces() {
+        return Codegen.optional(this.gatewayNetworkInterfaces);
     }
     /**
      * Time zone for the gateway. The time zone is of the format &#34;GMT&#34;, &#34;GMT-hr:mm&#34;, or &#34;GMT+hr:mm&#34;. For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway&#39;s maintenance schedule.
@@ -454,28 +454,28 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostEnvironment", refs={String.class}, tree="[0]")
-    private Output<String> hostEnvironment;
+    private Output</* @Nullable */ String> hostEnvironment;
 
     /**
      * @return The type of hypervisor environment used by the host.
      * 
      */
-    public Output<String> hostEnvironment() {
-        return this.hostEnvironment;
+    public Output<Optional<String>> hostEnvironment() {
+        return Codegen.optional(this.hostEnvironment);
     }
     /**
      * The gateway&#39;s weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway&#39;s time zone. More details below.
      * 
      */
     @Export(name="maintenanceStartTime", refs={GatewayMaintenanceStartTime.class}, tree="[0]")
-    private Output<GatewayMaintenanceStartTime> maintenanceStartTime;
+    private Output</* @Nullable */ GatewayMaintenanceStartTime> maintenanceStartTime;
 
     /**
      * @return The gateway&#39;s weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway&#39;s time zone. More details below.
      * 
      */
-    public Output<GatewayMaintenanceStartTime> maintenanceStartTime() {
-        return this.maintenanceStartTime;
+    public Output<Optional<GatewayMaintenanceStartTime>> maintenanceStartTime() {
+        return Codegen.optional(this.maintenanceStartTime);
     }
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
@@ -538,14 +538,14 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="smbSecurityStrategy", refs={String.class}, tree="[0]")
-    private Output<String> smbSecurityStrategy;
+    private Output</* @Nullable */ String> smbSecurityStrategy;
 
     /**
      * @return Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
      * 
      */
-    public Output<String> smbSecurityStrategy() {
-        return this.smbSecurityStrategy;
+    public Output<Optional<String>> smbSecurityStrategy() {
+        return Codegen.optional(this.smbSecurityStrategy);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

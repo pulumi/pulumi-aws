@@ -50,7 +50,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clusterCertificates", refs={List.class,ClusterClusterCertificate.class}, tree="[0,1]")
-    private Output<List<ClusterClusterCertificate>> clusterCertificates;
+    private Output</* @Nullable */ List<ClusterClusterCertificate>> clusterCertificates;
 
     /**
      * @return The list of cluster certificates.
@@ -61,36 +61,36 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
      * 
      */
-    public Output<List<ClusterClusterCertificate>> clusterCertificates() {
-        return this.clusterCertificates;
+    public Output<Optional<List<ClusterClusterCertificate>>> clusterCertificates() {
+        return Codegen.optional(this.clusterCertificates);
     }
     /**
      * The id of the CloudHSM cluster.
      * 
      */
     @Export(name="clusterId", refs={String.class}, tree="[0]")
-    private Output<String> clusterId;
+    private Output</* @Nullable */ String> clusterId;
 
     /**
      * @return The id of the CloudHSM cluster.
      * 
      */
-    public Output<String> clusterId() {
-        return this.clusterId;
+    public Output<Optional<String>> clusterId() {
+        return Codegen.optional(this.clusterId);
     }
     /**
      * The state of the CloudHSM cluster.
      * 
      */
     @Export(name="clusterState", refs={String.class}, tree="[0]")
-    private Output<String> clusterState;
+    private Output</* @Nullable */ String> clusterState;
 
     /**
      * @return The state of the CloudHSM cluster.
      * 
      */
-    public Output<String> clusterState() {
-        return this.clusterState;
+    public Output<Optional<String>> clusterState() {
+        return Codegen.optional(this.clusterState);
     }
     /**
      * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
@@ -111,14 +111,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
-    private Output<String> securityGroupId;
+    private Output</* @Nullable */ String> securityGroupId;
 
     /**
      * @return The ID of the security group associated with the CloudHSM cluster.
      * 
      */
-    public Output<String> securityGroupId() {
-        return this.securityGroupId;
+    public Output<Optional<String>> securityGroupId() {
+        return Codegen.optional(this.securityGroupId);
     }
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
@@ -185,14 +185,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The id of the VPC that the CloudHSM cluster resides in.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

@@ -118,28 +118,28 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
      * 
      */
     @Export(name="authenticationStrategy", refs={String.class}, tree="[0]")
-    private Output<String> authenticationStrategy;
+    private Output</* @Nullable */ String> authenticationStrategy;
 
     /**
      * @return Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
      * 
      */
-    public Output<String> authenticationStrategy() {
-        return this.authenticationStrategy;
+    public Output<Optional<String>> authenticationStrategy() {
+        return Codegen.optional(this.authenticationStrategy);
     }
     /**
      * Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
@@ -202,14 +202,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="latestRevision", refs={Integer.class}, tree="[0]")
-    private Output<Integer> latestRevision;
+    private Output</* @Nullable */ Integer> latestRevision;
 
     /**
      * @return Latest revision of the configuration.
      * 
      */
-    public Output<Integer> latestRevision() {
-        return this.latestRevision;
+    public Output<Optional<Integer>> latestRevision() {
+        return Codegen.optional(this.latestRevision);
     }
     /**
      * Name of the configuration.

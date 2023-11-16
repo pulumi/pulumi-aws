@@ -52,19 +52,19 @@ namespace Pulumi.Aws.Inspector2
         /// Account ID of the delegated administrator account
         /// </summary>
         [Output("delegatedAdminAccountId")]
-        public Output<string> DelegatedAdminAccountId { get; private set; } = null!;
+        public Output<string?> DelegatedAdminAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Status of the member relationship
         /// </summary>
         [Output("relationshipStatus")]
-        public Output<string> RelationshipStatus { get; private set; } = null!;
+        public Output<string?> RelationshipStatus { get; private set; } = null!;
 
         /// <summary>
         /// Date and time of the last update of the relationship
         /// </summary>
         [Output("updatedAt")]
-        public Output<string> UpdatedAt { get; private set; } = null!;
+        public Output<string?> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

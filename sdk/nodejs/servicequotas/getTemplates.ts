@@ -49,7 +49,7 @@ export interface GetTemplatesArgs {
  * A collection of values returned by getTemplates.
  */
 export interface GetTemplatesResult {
-    readonly id: string;
+    readonly id?: string;
     /**
      * AWS Region to which the template applies.
      */

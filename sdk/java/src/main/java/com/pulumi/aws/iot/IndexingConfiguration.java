@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -82,28 +83,28 @@ public class IndexingConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="thingGroupIndexingConfiguration", refs={IndexingConfigurationThingGroupIndexingConfiguration.class}, tree="[0]")
-    private Output<IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration;
+    private Output</* @Nullable */ IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration;
 
     /**
      * @return Thing group indexing configuration. See below.
      * 
      */
-    public Output<IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration() {
-        return this.thingGroupIndexingConfiguration;
+    public Output<Optional<IndexingConfigurationThingGroupIndexingConfiguration>> thingGroupIndexingConfiguration() {
+        return Codegen.optional(this.thingGroupIndexingConfiguration);
     }
     /**
      * Thing indexing configuration. See below.
      * 
      */
     @Export(name="thingIndexingConfiguration", refs={IndexingConfigurationThingIndexingConfiguration.class}, tree="[0]")
-    private Output<IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration;
+    private Output</* @Nullable */ IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration;
 
     /**
      * @return Thing indexing configuration. See below.
      * 
      */
-    public Output<IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration() {
-        return this.thingIndexingConfiguration;
+    public Output<Optional<IndexingConfigurationThingIndexingConfiguration>> thingIndexingConfiguration() {
+        return Codegen.optional(this.thingIndexingConfiguration);
     }
 
     /**

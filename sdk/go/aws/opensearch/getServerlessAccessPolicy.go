@@ -61,14 +61,14 @@ type LookupServerlessAccessPolicyArgs struct {
 // A collection of values returned by getServerlessAccessPolicy.
 type LookupServerlessAccessPolicyResult struct {
 	// Description of the policy. Typically used to store information about the permissions defined in the policy.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
+	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
+	Name        string  `pulumi:"name"`
 	// JSON policy document to use as the content for the new policy.
-	Policy string `pulumi:"policy"`
+	Policy *string `pulumi:"policy"`
 	// Version of the policy.
-	PolicyVersion string `pulumi:"policyVersion"`
-	Type          string `pulumi:"type"`
+	PolicyVersion *string `pulumi:"policyVersion"`
+	Type          string  `pulumi:"type"`
 }
 
 func LookupServerlessAccessPolicyOutput(ctx *pulumi.Context, args LookupServerlessAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessAccessPolicyResultOutput {
@@ -112,12 +112,12 @@ func (o LookupServerlessAccessPolicyResultOutput) ToLookupServerlessAccessPolicy
 }
 
 // Description of the policy. Typically used to store information about the permissions defined in the policy.
-func (o LookupServerlessAccessPolicyResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupServerlessAccessPolicyResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServerlessAccessPolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupServerlessAccessPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServerlessAccessPolicyResultOutput) Name() pulumi.StringOutput {
@@ -125,13 +125,13 @@ func (o LookupServerlessAccessPolicyResultOutput) Name() pulumi.StringOutput {
 }
 
 // JSON policy document to use as the content for the new policy.
-func (o LookupServerlessAccessPolicyResultOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+func (o LookupServerlessAccessPolicyResultOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // Version of the policy.
-func (o LookupServerlessAccessPolicyResultOutput) PolicyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
+func (o LookupServerlessAccessPolicyResultOutput) PolicyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) *string { return v.PolicyVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServerlessAccessPolicyResultOutput) Type() pulumi.StringOutput {

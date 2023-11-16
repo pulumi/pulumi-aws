@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Oam
         /// ARN of the Sink.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Oam
         /// ID string that AWS generated as part of the sink ARN.
         /// </summary>
         [Output("sinkId")]
-        public Output<string> SinkId { get; private set; } = null!;
+        public Output<string?> SinkId { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the sink to attach this policy to.

@@ -461,7 +461,7 @@ class EmailIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Email Identity.
         """
@@ -477,7 +477,7 @@ class EmailIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dkimSigningAttributes")
-    def dkim_signing_attributes(self) -> pulumi.Output['outputs.EmailIdentityDkimSigningAttributes']:
+    def dkim_signing_attributes(self) -> pulumi.Output[Optional['outputs.EmailIdentityDkimSigningAttributes']]:
         """
         The configuration of the DKIM authentication settings for an email domain identity.
         """
@@ -495,7 +495,7 @@ class EmailIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> pulumi.Output[str]:
+    def identity_type(self) -> pulumi.Output[Optional[str]]:
         """
         The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         """
@@ -522,7 +522,7 @@ class EmailIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="verifiedForSendingStatus")
-    def verified_for_sending_status(self) -> pulumi.Output[bool]:
+    def verified_for_sending_status(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether or not the identity is verified.
         """

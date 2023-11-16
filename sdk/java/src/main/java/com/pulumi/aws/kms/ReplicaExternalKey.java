@@ -90,14 +90,14 @@ public class ReplicaExternalKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
@@ -154,42 +154,42 @@ public class ReplicaExternalKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enabled;
+    private Output</* @Nullable */ Boolean> enabled;
 
     /**
      * @return Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
-    public Output<Boolean> enabled() {
-        return this.enabled;
+    public Output<Optional<Boolean>> enabled() {
+        return Codegen.optional(this.enabled);
     }
     /**
      * Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
      * 
      */
     @Export(name="expirationModel", refs={String.class}, tree="[0]")
-    private Output<String> expirationModel;
+    private Output</* @Nullable */ String> expirationModel;
 
     /**
      * @return Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
      * 
      */
-    public Output<String> expirationModel() {
-        return this.expirationModel;
+    public Output<Optional<String>> expirationModel() {
+        return Codegen.optional(this.expirationModel);
     }
     /**
      * The key ID of the replica key. Related multi-Region keys have the same key ID.
      * 
      */
     @Export(name="keyId", refs={String.class}, tree="[0]")
-    private Output<String> keyId;
+    private Output</* @Nullable */ String> keyId;
 
     /**
      * @return The key ID of the replica key. Related multi-Region keys have the same key ID.
      * 
      */
-    public Output<String> keyId() {
-        return this.keyId;
+    public Output<Optional<String>> keyId() {
+        return Codegen.optional(this.keyId);
     }
     /**
      * Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
@@ -210,42 +210,42 @@ public class ReplicaExternalKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyState", refs={String.class}, tree="[0]")
-    private Output<String> keyState;
+    private Output</* @Nullable */ String> keyState;
 
     /**
      * @return The state of the replica key.
      * 
      */
-    public Output<String> keyState() {
-        return this.keyState;
+    public Output<Optional<String>> keyState() {
+        return Codegen.optional(this.keyState);
     }
     /**
      * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      * 
      */
     @Export(name="keyUsage", refs={String.class}, tree="[0]")
-    private Output<String> keyUsage;
+    private Output</* @Nullable */ String> keyUsage;
 
     /**
      * @return The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      * 
      */
-    public Output<String> keyUsage() {
-        return this.keyUsage;
+    public Output<Optional<String>> keyUsage() {
+        return Codegen.optional(this.keyUsage);
     }
     /**
      * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.

@@ -34,32 +34,32 @@ export interface GetPolicyResult {
     /**
      * The Amazon Resource Name of the policy.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Indicates if a policy is an AWS managed policy.
      */
-    readonly awsManaged: boolean;
+    readonly awsManaged?: boolean;
     /**
      * The text content of the policy.
      */
-    readonly content: string;
+    readonly content?: string;
     /**
      * The description of the policy.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The friendly name of the policy.
      */
-    readonly name: string;
+    readonly name?: string;
     readonly policyId: string;
     /**
      * The type of policy values can be `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * Data source for managing an AWS Organizations Policy.

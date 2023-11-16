@@ -67,7 +67,7 @@ export class EventIntegration extends pulumi.CustomResource {
     /**
      * ARN of the Event Integration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the Event Integration.
      */

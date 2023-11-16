@@ -67,7 +67,7 @@ type GetInfrastructureConfigurationsResult struct {
 	Arns    []string                                `pulumi:"arns"`
 	Filters []GetInfrastructureConfigurationsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of names of the matched Image Builder Infrastructure Configurations.
 	Names []string `pulumi:"names"`
 }
@@ -122,8 +122,8 @@ func (o GetInfrastructureConfigurationsResultOutput) Filters() GetInfrastructure
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetInfrastructureConfigurationsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInfrastructureConfigurationsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetInfrastructureConfigurationsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInfrastructureConfigurationsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of names of the matched Image Builder Infrastructure Configurations.

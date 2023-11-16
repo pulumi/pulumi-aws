@@ -62,7 +62,7 @@ export class Script extends pulumi.CustomResource {
     /**
      * GameLift Script ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the script
      */
@@ -70,7 +70,7 @@ export class Script extends pulumi.CustomResource {
     /**
      * Information indicating where your game script files are stored. See below.
      */
-    public readonly storageLocation!: pulumi.Output<outputs.gamelift.ScriptStorageLocation>;
+    public readonly storageLocation!: pulumi.Output<outputs.gamelift.ScriptStorageLocation | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

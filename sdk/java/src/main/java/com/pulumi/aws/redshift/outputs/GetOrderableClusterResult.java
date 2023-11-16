@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -15,15 +16,15 @@ public final class GetOrderableClusterResult {
      * @return List of Availability Zone names where the Redshift Cluster is available.
      * 
      */
-    private List<String> availabilityZones;
-    private String clusterType;
-    private String clusterVersion;
+    private @Nullable List<String> availabilityZones;
+    private @Nullable String clusterType;
+    private @Nullable String clusterVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String nodeType;
+    private @Nullable String id;
+    private @Nullable String nodeType;
     private @Nullable List<String> preferredNodeTypes;
 
     private GetOrderableClusterResult() {}
@@ -32,23 +33,23 @@ public final class GetOrderableClusterResult {
      * 
      */
     public List<String> availabilityZones() {
-        return this.availabilityZones;
+        return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
-    public String clusterType() {
-        return this.clusterType;
+    public Optional<String> clusterType() {
+        return Optional.ofNullable(this.clusterType);
     }
-    public String clusterVersion() {
-        return this.clusterVersion;
+    public Optional<String> clusterVersion() {
+        return Optional.ofNullable(this.clusterVersion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String nodeType() {
-        return this.nodeType;
+    public Optional<String> nodeType() {
+        return Optional.ofNullable(this.nodeType);
     }
     public List<String> preferredNodeTypes() {
         return this.preferredNodeTypes == null ? List.of() : this.preferredNodeTypes;
@@ -63,11 +64,11 @@ public final class GetOrderableClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> availabilityZones;
-        private String clusterType;
-        private String clusterVersion;
-        private String id;
-        private String nodeType;
+        private @Nullable List<String> availabilityZones;
+        private @Nullable String clusterType;
+        private @Nullable String clusterVersion;
+        private @Nullable String id;
+        private @Nullable String nodeType;
         private @Nullable List<String> preferredNodeTypes;
         public Builder() {}
         public Builder(GetOrderableClusterResult defaults) {
@@ -81,31 +82,31 @@ public final class GetOrderableClusterResult {
         }
 
         @CustomType.Setter
-        public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+        public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
         @CustomType.Setter
-        public Builder clusterType(String clusterType) {
-            this.clusterType = Objects.requireNonNull(clusterType);
+        public Builder clusterType(@Nullable String clusterType) {
+            this.clusterType = clusterType;
             return this;
         }
         @CustomType.Setter
-        public Builder clusterVersion(String clusterVersion) {
-            this.clusterVersion = Objects.requireNonNull(clusterVersion);
+        public Builder clusterVersion(@Nullable String clusterVersion) {
+            this.clusterVersion = clusterVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+        public Builder nodeType(@Nullable String nodeType) {
+            this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter

@@ -66,9 +66,9 @@ type ConfigurationProfile struct {
 	// Application ID. Must be between 4 and 7 characters in length.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// ARN of the AppConfig Configuration Profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The configuration profile ID.
-	ConfigurationProfileId pulumi.StringOutput `pulumi:"configurationProfileId"`
+	ConfigurationProfileId pulumi.StringPtrOutput `pulumi:"configurationProfileId"`
 	// Description of the configuration profile. Can be at most 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
@@ -318,13 +318,13 @@ func (o ConfigurationProfileOutput) ApplicationId() pulumi.StringOutput {
 }
 
 // ARN of the AppConfig Configuration Profile.
-func (o ConfigurationProfileOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConfigurationProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The configuration profile ID.
-func (o ConfigurationProfileOutput) ConfigurationProfileId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
+func (o ConfigurationProfileOutput) ConfigurationProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.ConfigurationProfileId }).(pulumi.StringPtrOutput)
 }
 
 // Description of the configuration profile. Can be at most 1024 characters.

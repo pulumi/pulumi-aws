@@ -12,29 +12,29 @@ namespace Pulumi.Aws.Auditmanager.Inputs
 
     public sealed class GetControlControlMappingSourceArgs : global::Pulumi.InvokeArgs
     {
-        [Input("sourceDescription", required: true)]
-        public string SourceDescription { get; set; } = null!;
+        [Input("sourceDescription")]
+        public string? SourceDescription { get; set; }
 
-        [Input("sourceFrequency", required: true)]
-        public string SourceFrequency { get; set; } = null!;
+        [Input("sourceFrequency")]
+        public string? SourceFrequency { get; set; }
 
-        [Input("sourceId", required: true)]
-        public string SourceId { get; set; } = null!;
+        [Input("sourceId")]
+        public string? SourceId { get; set; }
 
         [Input("sourceKeyword")]
         public Inputs.GetControlControlMappingSourceSourceKeywordArgs? SourceKeyword { get; set; }
 
-        [Input("sourceName", required: true)]
-        public string SourceName { get; set; } = null!;
+        [Input("sourceName")]
+        public string? SourceName { get; set; }
 
-        [Input("sourceSetUpOption", required: true)]
-        public string SourceSetUpOption { get; set; } = null!;
+        [Input("sourceSetUpOption")]
+        public string? SourceSetUpOption { get; set; }
 
-        [Input("sourceType", required: true)]
-        public string SourceType { get; set; } = null!;
+        [Input("sourceType")]
+        public string? SourceType { get; set; }
 
-        [Input("troubleshootingText", required: true)]
-        public string TroubleshootingText { get; set; } = null!;
+        [Input("troubleshootingText")]
+        public string? TroubleshootingText { get; set; }
 
         public GetControlControlMappingSourceArgs()
         {

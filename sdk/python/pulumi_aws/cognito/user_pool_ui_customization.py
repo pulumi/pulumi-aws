@@ -435,7 +435,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         """
@@ -451,7 +451,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cssVersion")
-    def css_version(self) -> pulumi.Output[str]:
+    def css_version(self) -> pulumi.Output[Optional[str]]:
         """
         The CSS version number.
         """
@@ -467,7 +467,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageUrl")
-    def image_url(self) -> pulumi.Output[str]:
+    def image_url(self) -> pulumi.Output[Optional[str]]:
         """
         The logo image URL for the UI customization.
         """
@@ -475,7 +475,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> pulumi.Output[str]:
+    def last_modified_date(self) -> pulumi.Output[Optional[str]]:
         """
         The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         """

@@ -146,7 +146,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="allowVersionUpgrade")
-    def allow_version_upgrade(self) -> bool:
+    def allow_version_upgrade(self) -> Optional[bool]:
         """
         Whether major version upgrades can be applied during maintenance period
         """
@@ -154,7 +154,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="aquaConfigurationStatus")
-    def aqua_configuration_status(self) -> str:
+    def aqua_configuration_status(self) -> Optional[str]:
         """
         The value represents how the cluster is configured to use AQUA.
         """
@@ -162,7 +162,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of cluster.
         """
@@ -170,7 +170,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
-    def automated_snapshot_retention_period(self) -> int:
+    def automated_snapshot_retention_period(self) -> Optional[int]:
         """
         The backup retention period
         """
@@ -178,7 +178,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         """
         Availability zone of the cluster
         """
@@ -186,7 +186,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="availabilityZoneRelocationEnabled")
-    def availability_zone_relocation_enabled(self) -> bool:
+    def availability_zone_relocation_enabled(self) -> Optional[bool]:
         """
         Indicates whether the cluster is able to be relocated to another availability zone.
         """
@@ -194,7 +194,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> str:
+    def bucket_name(self) -> Optional[str]:
         """
         Name of the S3 bucket where the log files are to be stored
         """
@@ -210,7 +210,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterNamespaceArn")
-    def cluster_namespace_arn(self) -> str:
+    def cluster_namespace_arn(self) -> Optional[str]:
         """
         The namespace Amazon Resource Name (ARN) of the cluster
         """
@@ -218,7 +218,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterNodes")
-    def cluster_nodes(self) -> Sequence['outputs.GetClusterClusterNodeResult']:
+    def cluster_nodes(self) -> Optional[Sequence['outputs.GetClusterClusterNodeResult']]:
         """
         Nodes in the cluster. Cluster node blocks are documented below
         """
@@ -226,7 +226,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterParameterGroupName")
-    def cluster_parameter_group_name(self) -> str:
+    def cluster_parameter_group_name(self) -> Optional[str]:
         """
         The name of the parameter group to be associated with this cluster
         """
@@ -234,7 +234,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterPublicKey")
-    def cluster_public_key(self) -> str:
+    def cluster_public_key(self) -> Optional[str]:
         """
         Public key for the cluster
         """
@@ -242,7 +242,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterRevisionNumber")
-    def cluster_revision_number(self) -> str:
+    def cluster_revision_number(self) -> Optional[str]:
         """
         The cluster revision number
         """
@@ -250,7 +250,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterSubnetGroupName")
-    def cluster_subnet_group_name(self) -> str:
+    def cluster_subnet_group_name(self) -> Optional[str]:
         """
         The name of a cluster subnet group to be associated with this cluster
         """
@@ -258,7 +258,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> str:
+    def cluster_type(self) -> Optional[str]:
         """
         Cluster type
         """
@@ -266,12 +266,12 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> str:
+    def cluster_version(self) -> Optional[str]:
         return pulumi.get(self, "cluster_version")
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> Optional[str]:
         """
         Name of the default database in the cluster
         """
@@ -279,7 +279,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="defaultIamRoleArn")
-    def default_iam_role_arn(self) -> str:
+    def default_iam_role_arn(self) -> Optional[str]:
         """
         The ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
@@ -287,7 +287,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="elasticIp")
-    def elastic_ip(self) -> str:
+    def elastic_ip(self) -> Optional[str]:
         """
         Elastic IP of the cluster
         """
@@ -295,7 +295,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="enableLogging")
-    def enable_logging(self) -> bool:
+    def enable_logging(self) -> Optional[bool]:
         """
         Whether cluster logging is enabled
         """
@@ -303,7 +303,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> Optional[bool]:
         """
         Whether the cluster data is encrypted
         """
@@ -311,7 +311,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> Optional[str]:
         """
         Cluster endpoint
         """
@@ -319,7 +319,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
-    def enhanced_vpc_routing(self) -> bool:
+    def enhanced_vpc_routing(self) -> Optional[bool]:
         """
         Whether enhanced VPC routing is enabled
         """
@@ -327,7 +327,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> Sequence[str]:
+    def iam_roles(self) -> Optional[Sequence[str]]:
         """
         IAM roles associated to the cluster
         """
@@ -335,7 +335,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -343,7 +343,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         KMS encryption key associated to the cluster
         """
@@ -351,7 +351,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="logDestinationType")
-    def log_destination_type(self) -> str:
+    def log_destination_type(self) -> Optional[str]:
         """
         The log destination type.
         """
@@ -359,7 +359,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="logExports")
-    def log_exports(self) -> Sequence[str]:
+    def log_exports(self) -> Optional[Sequence[str]]:
         """
         Collection of exported log types. Log types include the connection log, user log and user activity log.
         """
@@ -367,7 +367,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="maintenanceTrackName")
-    def maintenance_track_name(self) -> str:
+    def maintenance_track_name(self) -> Optional[str]:
         """
         The name of the maintenance track for the restored cluster.
         """
@@ -375,7 +375,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
-    def manual_snapshot_retention_period(self) -> int:
+    def manual_snapshot_retention_period(self) -> Optional[int]:
         """
         (Optional)  The default number of days to retain a manual snapshot.
         """
@@ -383,7 +383,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="masterUsername")
-    def master_username(self) -> str:
+    def master_username(self) -> Optional[str]:
         """
         Username for the master DB user
         """
@@ -391,7 +391,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> str:
+    def node_type(self) -> Optional[str]:
         """
         Cluster node type
         """
@@ -399,7 +399,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> int:
+    def number_of_nodes(self) -> Optional[int]:
         """
         Number of nodes in the cluster
         """
@@ -407,7 +407,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         """
         Port the cluster responds on
         """
@@ -415,7 +415,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> str:
+    def preferred_maintenance_window(self) -> Optional[str]:
         """
         The maintenance window
         """
@@ -423,7 +423,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> bool:
+    def publicly_accessible(self) -> Optional[bool]:
         """
         Whether the cluster is publicly accessible
         """
@@ -431,7 +431,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
-    def s3_key_prefix(self) -> str:
+    def s3_key_prefix(self) -> Optional[str]:
         """
         Folder inside the S3 bucket where the log files are stored
         """
@@ -447,7 +447,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         VPC Id associated with the cluster
         """
@@ -455,7 +455,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Sequence[str]:
+    def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         The VPC security group Ids associated with the cluster
         """

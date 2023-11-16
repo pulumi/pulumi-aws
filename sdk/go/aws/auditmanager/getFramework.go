@@ -60,12 +60,12 @@ type LookupFrameworkArgs struct {
 
 // A collection of values returned by getFramework.
 type LookupFrameworkResult struct {
-	Arn            string                   `pulumi:"arn"`
-	ComplianceType string                   `pulumi:"complianceType"`
+	Arn            *string                  `pulumi:"arn"`
+	ComplianceType *string                  `pulumi:"complianceType"`
 	ControlSets    []GetFrameworkControlSet `pulumi:"controlSets"`
-	Description    string                   `pulumi:"description"`
+	Description    *string                  `pulumi:"description"`
 	FrameworkType  string                   `pulumi:"frameworkType"`
-	Id             string                   `pulumi:"id"`
+	Id             *string                  `pulumi:"id"`
 	Name           string                   `pulumi:"name"`
 	Tags           map[string]string        `pulumi:"tags"`
 }
@@ -110,28 +110,28 @@ func (o LookupFrameworkResultOutput) ToLookupFrameworkResultOutputWithContext(ct
 	return o
 }
 
-func (o LookupFrameworkResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFrameworkResultOutput) ComplianceType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.ComplianceType }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) ComplianceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.ComplianceType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFrameworkResultOutput) ControlSets() GetFrameworkControlSetArrayOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) []GetFrameworkControlSet { return v.ControlSets }).(GetFrameworkControlSetArrayOutput)
 }
 
-func (o LookupFrameworkResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFrameworkResultOutput) FrameworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) string { return v.FrameworkType }).(pulumi.StringOutput)
 }
 
-func (o LookupFrameworkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupFrameworkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFrameworkResultOutput) Name() pulumi.StringOutput {

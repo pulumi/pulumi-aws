@@ -962,7 +962,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the subnet.
         """
@@ -980,7 +980,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         AZ for the subnet.
         """
@@ -988,7 +988,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> pulumi.Output[str]:
+    def availability_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         """
@@ -1053,7 +1053,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
-    def ipv6_cidr_block_association_id(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block_association_id(self) -> pulumi.Output[Optional[str]]:
         """
         The association ID for the IPv6 CIDR block.
         """
@@ -1095,7 +1095,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that owns the subnet.
         """
@@ -1103,7 +1103,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
-    def private_dns_hostname_type_on_launch(self) -> pulumi.Output[str]:
+    def private_dns_hostname_type_on_launch(self) -> pulumi.Output[Optional[str]]:
         """
         The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         """

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.OpenSearch
         /// The current version of the package.
         /// </summary>
         [Output("availablePackageVersion")]
-        public Output<string> AvailablePackageVersion { get; private set; } = null!;
+        public Output<string?> AvailablePackageVersion { get; private set; } = null!;
 
         /// <summary>
         /// Description of the package.
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string?> PackageDescription { get; private set; } = null!;
 
         [Output("packageId")]
-        public Output<string> PackageId { get; private set; } = null!;
+        public Output<string?> PackageId { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for the package.

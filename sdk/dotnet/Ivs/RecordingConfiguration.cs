@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ivs
         /// ARN of the Recording Configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Object containing destination configuration for where recorded video will be stored.
@@ -70,13 +70,13 @@ namespace Pulumi.Aws.Ivs
         /// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         /// </summary>
         [Output("recordingReconnectWindowSeconds")]
-        public Output<int> RecordingReconnectWindowSeconds { get; private set; } = null!;
+        public Output<int?> RecordingReconnectWindowSeconds { get; private set; } = null!;
 
         /// <summary>
         /// The current state of the Recording Configuration.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Ivs
         /// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         /// </summary>
         [Output("thumbnailConfiguration")]
-        public Output<Outputs.RecordingConfigurationThumbnailConfiguration> ThumbnailConfiguration { get; private set; } = null!;
+        public Output<Outputs.RecordingConfigurationThumbnailConfiguration?> ThumbnailConfiguration { get; private set; } = null!;
 
 
         /// <summary>

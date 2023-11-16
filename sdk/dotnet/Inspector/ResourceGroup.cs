@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Inspector
         /// The resource group ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.

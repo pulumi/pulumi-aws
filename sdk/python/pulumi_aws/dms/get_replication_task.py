@@ -67,7 +67,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter(name="cdcStartPosition")
-    def cdc_start_position(self) -> str:
+    def cdc_start_position(self) -> Optional[str]:
         """
         (Conflicts with `cdc_start_time`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         """
@@ -75,7 +75,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter(name="cdcStartTime")
-    def cdc_start_time(self) -> str:
+    def cdc_start_time(self) -> Optional[str]:
         """
         (Conflicts with `cdc_start_position`) The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         """
@@ -83,7 +83,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -91,7 +91,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter(name="migrationType")
-    def migration_type(self) -> str:
+    def migration_type(self) -> Optional[str]:
         """
         The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         """
@@ -99,7 +99,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter(name="replicationInstanceArn")
-    def replication_instance_arn(self) -> str:
+    def replication_instance_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the replication instance.
         """
@@ -107,7 +107,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter(name="replicationTaskArn")
-    def replication_task_arn(self) -> str:
+    def replication_task_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for the replication task.
         """
@@ -120,7 +120,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter(name="replicationTaskSettings")
-    def replication_task_settings(self) -> str:
+    def replication_task_settings(self) -> Optional[str]:
         """
         An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         """
@@ -128,7 +128,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter(name="sourceEndpointArn")
-    def source_endpoint_arn(self) -> str:
+    def source_endpoint_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         """
@@ -136,7 +136,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter(name="startReplicationTask")
-    def start_replication_task(self) -> bool:
+    def start_replication_task(self) -> Optional[bool]:
         """
         Whether to run or stop the replication task.
         """
@@ -144,7 +144,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Replication Task status.
         """
@@ -152,7 +152,7 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter(name="tableMappings")
-    def table_mappings(self) -> str:
+    def table_mappings(self) -> Optional[str]:
         """
         An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         """
@@ -160,12 +160,12 @@ class GetReplicationTaskResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetEndpointArn")
-    def target_endpoint_arn(self) -> str:
+    def target_endpoint_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         """

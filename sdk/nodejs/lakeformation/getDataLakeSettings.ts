@@ -47,40 +47,40 @@ export interface GetDataLakeSettingsResult {
     /**
      * List of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
-    readonly admins: string[];
+    readonly admins?: string[];
     /**
      * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
      */
-    readonly allowExternalDataFiltering: boolean;
+    readonly allowExternalDataFiltering?: boolean;
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
      */
-    readonly authorizedSessionTagValueLists: string[];
+    readonly authorizedSessionTagValueLists?: string[];
     readonly catalogId?: string;
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      */
-    readonly createDatabaseDefaultPermissions: outputs.lakeformation.GetDataLakeSettingsCreateDatabaseDefaultPermission[];
+    readonly createDatabaseDefaultPermissions?: outputs.lakeformation.GetDataLakeSettingsCreateDatabaseDefaultPermission[];
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
-    readonly createTableDefaultPermissions: outputs.lakeformation.GetDataLakeSettingsCreateTableDefaultPermission[];
+    readonly createTableDefaultPermissions?: outputs.lakeformation.GetDataLakeSettingsCreateTableDefaultPermission[];
     /**
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      */
-    readonly externalDataFilteringAllowLists: string[];
+    readonly externalDataFilteringAllowLists?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
-    readonly readOnlyAdmins: string[];
+    readonly readOnlyAdmins?: string[];
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
-    readonly trustedResourceOwners: string[];
+    readonly trustedResourceOwners?: string[];
 }
 /**
  * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.

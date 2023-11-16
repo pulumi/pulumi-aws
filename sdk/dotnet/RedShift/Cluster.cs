@@ -89,13 +89,13 @@ namespace Pulumi.Aws.RedShift
         /// Always returns `auto`.
         /// </summary>
         [Output("aquaConfigurationStatus")]
-        public Output<string> AquaConfigurationStatus { get; private set; } = null!;
+        public Output<string?> AquaConfigurationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.RedShift
         /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.RedShift
         /// The namespace Amazon Resource Name (ARN) of the cluster
         /// </summary>
         [Output("clusterNamespaceArn")]
-        public Output<string> ClusterNamespaceArn { get; private set; } = null!;
+        public Output<string?> ClusterNamespaceArn { get; private set; } = null!;
 
         /// <summary>
         /// The nodes in the cluster. Cluster node blocks are documented below
@@ -137,31 +137,31 @@ namespace Pulumi.Aws.RedShift
         /// The name of the parameter group to be associated with this cluster.
         /// </summary>
         [Output("clusterParameterGroupName")]
-        public Output<string> ClusterParameterGroupName { get; private set; } = null!;
+        public Output<string?> ClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The public key for the cluster
         /// </summary>
         [Output("clusterPublicKey")]
-        public Output<string> ClusterPublicKey { get; private set; } = null!;
+        public Output<string?> ClusterPublicKey { get; private set; } = null!;
 
         /// <summary>
         /// The specific revision number of the database in the cluster
         /// </summary>
         [Output("clusterRevisionNumber")]
-        public Output<string> ClusterRevisionNumber { get; private set; } = null!;
+        public Output<string?> ClusterRevisionNumber { get; private set; } = null!;
 
         /// <summary>
         /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         /// </summary>
         [Output("clusterSubnetGroupName")]
-        public Output<string> ClusterSubnetGroupName { get; private set; } = null!;
+        public Output<string?> ClusterSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The cluster type to use. Either `single-node` or `multi-node`.
         /// </summary>
         [Output("clusterType")]
-        public Output<string> ClusterType { get; private set; } = null!;
+        public Output<string?> ClusterType { get; private set; } = null!;
 
         /// <summary>
         /// The version of the Amazon Redshift engine software that you want to deploy on the cluster.
@@ -175,19 +175,19 @@ namespace Pulumi.Aws.RedShift
         /// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
         /// </summary>
         [Output("databaseName")]
-        public Output<string> DatabaseName { get; private set; } = null!;
+        public Output<string?> DatabaseName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Output("defaultIamRoleArn")]
-        public Output<string> DefaultIamRoleArn { get; private set; } = null!;
+        public Output<string?> DefaultIamRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name of the cluster
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// The Elastic IP (EIP) address for the cluster.
@@ -205,13 +205,13 @@ namespace Pulumi.Aws.RedShift
         /// The connection endpoint
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// If true , enhanced VPC routing is enabled.
         /// </summary>
         [Output("enhancedVpcRouting")]
-        public Output<bool> EnhancedVpcRouting { get; private set; } = null!;
+        public Output<bool?> EnhancedVpcRouting { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.RedShift
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Logging, documented below.
@@ -271,13 +271,13 @@ namespace Pulumi.Aws.RedShift
         /// ARN of the cluster admin credentials secret
         /// </summary>
         [Output("masterPasswordSecretArn")]
-        public Output<string> MasterPasswordSecretArn { get; private set; } = null!;
+        public Output<string?> MasterPasswordSecretArn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the KMS key used to encrypt the cluster admin credentials secret.
         /// </summary>
         [Output("masterPasswordSecretKmsKeyId")]
-        public Output<string> MasterPasswordSecretKmsKeyId { get; private set; } = null!;
+        public Output<string?> MasterPasswordSecretKmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Username for the master DB user.
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.RedShift
         /// Format: ddd:hh24:mi-ddd:hh24:mi
         /// </summary>
         [Output("preferredMaintenanceWindow")]
-        public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+        public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// If true, the cluster can be accessed from a public network. Default is `true`.

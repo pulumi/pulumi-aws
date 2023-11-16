@@ -16,18 +16,18 @@ public final class GetRolesResult {
      * @return Set of ARNs of the matched IAM roles.
      * 
      */
-    private List<String> arns;
+    private @Nullable List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String nameRegex;
     /**
      * @return Set of Names of the matched IAM roles.
      * 
      */
-    private List<String> names;
+    private @Nullable List<String> names;
     private @Nullable String pathPrefix;
 
     private GetRolesResult() {}
@@ -36,14 +36,14 @@ public final class GetRolesResult {
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
@@ -53,7 +53,7 @@ public final class GetRolesResult {
      * 
      */
     public List<String> names() {
-        return this.names;
+        return this.names == null ? List.of() : this.names;
     }
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
@@ -68,10 +68,10 @@ public final class GetRolesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> arns;
-        private String id;
+        private @Nullable List<String> arns;
+        private @Nullable String id;
         private @Nullable String nameRegex;
-        private List<String> names;
+        private @Nullable List<String> names;
         private @Nullable String pathPrefix;
         public Builder() {}
         public Builder(GetRolesResult defaults) {
@@ -84,16 +84,16 @@ public final class GetRolesResult {
         }
 
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -102,8 +102,8 @@ public final class GetRolesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+        public Builder names(@Nullable List<String> names) {
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {

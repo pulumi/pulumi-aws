@@ -49,11 +49,11 @@ export class Partition extends pulumi.CustomResource {
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string | undefined>;
     /**
      * The time at which the partition was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
@@ -61,11 +61,11 @@ export class Partition extends pulumi.CustomResource {
     /**
      * The last time at which the partition was accessed.
      */
-    public /*out*/ readonly lastAccessedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastAccessedTime!: pulumi.Output<string | undefined>;
     /**
      * The last time at which column statistics were computed for this partition.
      */
-    public /*out*/ readonly lastAnalyzedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastAnalyzedTime!: pulumi.Output<string | undefined>;
     /**
      * Properties associated with this table, as a list of key-value pairs.
      */

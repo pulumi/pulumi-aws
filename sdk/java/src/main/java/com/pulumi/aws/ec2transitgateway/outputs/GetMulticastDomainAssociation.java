@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMulticastDomainAssociation {
@@ -13,27 +15,27 @@ public final class GetMulticastDomainAssociation {
      * @return The ID of the subnet associated with the transit gateway multicast domain.
      * 
      */
-    private String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return The ID of the transit gateway attachment.
      * 
      */
-    private String transitGatewayAttachmentId;
+    private @Nullable String transitGatewayAttachmentId;
 
     private GetMulticastDomainAssociation() {}
     /**
      * @return The ID of the subnet associated with the transit gateway multicast domain.
      * 
      */
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
     /**
      * @return The ID of the transit gateway attachment.
      * 
      */
-    public String transitGatewayAttachmentId() {
-        return this.transitGatewayAttachmentId;
+    public Optional<String> transitGatewayAttachmentId() {
+        return Optional.ofNullable(this.transitGatewayAttachmentId);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetMulticastDomainAssociation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String subnetId;
-        private String transitGatewayAttachmentId;
+        private @Nullable String subnetId;
+        private @Nullable String transitGatewayAttachmentId;
         public Builder() {}
         public Builder(GetMulticastDomainAssociation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetMulticastDomainAssociation {
         }
 
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
-            this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
+        public Builder transitGatewayAttachmentId(@Nullable String transitGatewayAttachmentId) {
+            this.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
         public GetMulticastDomainAssociation build() {

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupResult {
@@ -15,43 +17,43 @@ public final class GetGroupResult {
      * @return User ARN.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Stable and unique string identifying the group.
      * 
      */
-    private String groupId;
+    private @Nullable String groupId;
     private String groupName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Path to the IAM user.
      * 
      */
-    private String path;
+    private @Nullable String path;
     /**
      * @return List of objects containing group member information. See below.
      * 
      */
-    private List<GetGroupUser> users;
+    private @Nullable List<GetGroupUser> users;
 
     private GetGroupResult() {}
     /**
      * @return User ARN.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Stable and unique string identifying the group.
      * 
      */
-    public String groupId() {
-        return this.groupId;
+    public Optional<String> groupId() {
+        return Optional.ofNullable(this.groupId);
     }
     public String groupName() {
         return this.groupName;
@@ -60,22 +62,22 @@ public final class GetGroupResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Path to the IAM user.
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     /**
      * @return List of objects containing group member information. See below.
      * 
      */
     public List<GetGroupUser> users() {
-        return this.users;
+        return this.users == null ? List.of() : this.users;
     }
 
     public static Builder builder() {
@@ -87,12 +89,12 @@ public final class GetGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String groupId;
+        private @Nullable String arn;
+        private @Nullable String groupId;
         private String groupName;
-        private String id;
-        private String path;
-        private List<GetGroupUser> users;
+        private @Nullable String id;
+        private @Nullable String path;
+        private @Nullable List<GetGroupUser> users;
         public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -105,13 +107,13 @@ public final class GetGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder groupId(String groupId) {
-            this.groupId = Objects.requireNonNull(groupId);
+        public Builder groupId(@Nullable String groupId) {
+            this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
@@ -120,18 +122,18 @@ public final class GetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
-        public Builder users(List<GetGroupUser> users) {
-            this.users = Objects.requireNonNull(users);
+        public Builder users(@Nullable List<GetGroupUser> users) {
+            this.users = users;
             return this;
         }
         public Builder users(GetGroupUser... users) {

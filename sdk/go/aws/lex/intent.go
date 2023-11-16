@@ -28,10 +28,10 @@ type Intent struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Lex intent.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Checksum identifying the version of the intent that was created. The checksum is not
 	// included as an argument because the resource will add it automatically when updating the intent.
-	Checksum pulumi.StringOutput `pulumi:"checksum"`
+	Checksum pulumi.StringPtrOutput `pulumi:"checksum"`
 	// The statement that you want Amazon Lex to convey to the user
 	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
 	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
@@ -46,7 +46,7 @@ type Intent struct {
 	// resource is created and on each update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrOutput `pulumi:"createVersion"`
 	// The date when the intent version was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// A description of the intent. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies a Lambda function to invoke for each user input. You can
@@ -62,7 +62,7 @@ type Intent struct {
 	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
 	FulfillmentActivity IntentFulfillmentActivityOutput `pulumi:"fulfillmentActivity"`
 	// The date when the $LATEST version of this intent was updated.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate pulumi.StringPtrOutput `pulumi:"lastUpdatedDate"`
 	// The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A unique identifier for the built-in intent to base this
@@ -83,7 +83,7 @@ type Intent struct {
 	// from the user using prompts defined in the slots. Attributes are documented under slot.
 	Slots IntentSlotArrayOutput `pulumi:"slots"`
 	// The version of the bot.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewIntent registers a new resource with the given unique name, arguments, and options.
@@ -429,14 +429,14 @@ func (o IntentOutput) ToIntentOutputWithContext(ctx context.Context) IntentOutpu
 }
 
 // The ARN of the Lex intent.
-func (o IntentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o IntentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Intent) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Checksum identifying the version of the intent that was created. The checksum is not
 // included as an argument because the resource will add it automatically when updating the intent.
-func (o IntentOutput) Checksum() pulumi.StringOutput {
-	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.Checksum }).(pulumi.StringOutput)
+func (o IntentOutput) Checksum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Intent) pulumi.StringPtrOutput { return v.Checksum }).(pulumi.StringPtrOutput)
 }
 
 // The statement that you want Amazon Lex to convey to the user
@@ -462,8 +462,8 @@ func (o IntentOutput) CreateVersion() pulumi.BoolPtrOutput {
 }
 
 // The date when the intent version was created.
-func (o IntentOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o IntentOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Intent) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // A description of the intent. Must be less than or equal to 200 characters in length.
@@ -493,8 +493,8 @@ func (o IntentOutput) FulfillmentActivity() IntentFulfillmentActivityOutput {
 }
 
 // The date when the $LATEST version of this intent was updated.
-func (o IntentOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o IntentOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Intent) pulumi.StringPtrOutput { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
@@ -532,8 +532,8 @@ func (o IntentOutput) Slots() IntentSlotArrayOutput {
 }
 
 // The version of the bot.
-func (o IntentOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o IntentOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Intent) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type IntentArrayOutput struct{ *pulumi.OutputState }

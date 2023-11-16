@@ -6,6 +6,8 @@ package com.pulumi.aws.networkmanager.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLinkBandwidth {
@@ -13,27 +15,27 @@ public final class GetLinkBandwidth {
      * @return Download speed in Mbps.
      * 
      */
-    private Integer downloadSpeed;
+    private @Nullable Integer downloadSpeed;
     /**
      * @return Upload speed in Mbps.
      * 
      */
-    private Integer uploadSpeed;
+    private @Nullable Integer uploadSpeed;
 
     private GetLinkBandwidth() {}
     /**
      * @return Download speed in Mbps.
      * 
      */
-    public Integer downloadSpeed() {
-        return this.downloadSpeed;
+    public Optional<Integer> downloadSpeed() {
+        return Optional.ofNullable(this.downloadSpeed);
     }
     /**
      * @return Upload speed in Mbps.
      * 
      */
-    public Integer uploadSpeed() {
-        return this.uploadSpeed;
+    public Optional<Integer> uploadSpeed() {
+        return Optional.ofNullable(this.uploadSpeed);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetLinkBandwidth {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer downloadSpeed;
-        private Integer uploadSpeed;
+        private @Nullable Integer downloadSpeed;
+        private @Nullable Integer uploadSpeed;
         public Builder() {}
         public Builder(GetLinkBandwidth defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetLinkBandwidth {
         }
 
         @CustomType.Setter
-        public Builder downloadSpeed(Integer downloadSpeed) {
-            this.downloadSpeed = Objects.requireNonNull(downloadSpeed);
+        public Builder downloadSpeed(@Nullable Integer downloadSpeed) {
+            this.downloadSpeed = downloadSpeed;
             return this;
         }
         @CustomType.Setter
-        public Builder uploadSpeed(Integer uploadSpeed) {
-            this.uploadSpeed = Objects.requireNonNull(uploadSpeed);
+        public Builder uploadSpeed(@Nullable Integer uploadSpeed) {
+            this.uploadSpeed = uploadSpeed;
             return this;
         }
         public GetLinkBandwidth build() {

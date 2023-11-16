@@ -43,7 +43,7 @@ class GetProvisioningArtifactsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -56,7 +56,7 @@ class GetProvisioningArtifactsResult:
 
     @property
     @pulumi.getter(name="provisioningArtifactDetails")
-    def provisioning_artifact_details(self) -> Sequence['outputs.GetProvisioningArtifactsProvisioningArtifactDetailResult']:
+    def provisioning_artifact_details(self) -> Optional[Sequence['outputs.GetProvisioningArtifactsProvisioningArtifactDetailResult']]:
         """
         List with information about the provisioning artifacts. See details below.
         """

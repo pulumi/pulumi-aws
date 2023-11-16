@@ -64,12 +64,12 @@ type LookupEmailIdentityMailFromAttributesArgs struct {
 // A collection of values returned by getEmailIdentityMailFromAttributes.
 type LookupEmailIdentityMailFromAttributesResult struct {
 	// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-	BehaviorOnMxFailure string `pulumi:"behaviorOnMxFailure"`
-	EmailIdentity       string `pulumi:"emailIdentity"`
+	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`
+	EmailIdentity       string  `pulumi:"emailIdentity"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The custom MAIL FROM domain that you want the verified identity to use.
-	MailFromDomain string `pulumi:"mailFromDomain"`
+	MailFromDomain *string `pulumi:"mailFromDomain"`
 }
 
 func LookupEmailIdentityMailFromAttributesOutput(ctx *pulumi.Context, args LookupEmailIdentityMailFromAttributesOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityMailFromAttributesResultOutput {
@@ -111,8 +111,8 @@ func (o LookupEmailIdentityMailFromAttributesResultOutput) ToLookupEmailIdentity
 }
 
 // The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-func (o LookupEmailIdentityMailFromAttributesResultOutput) BehaviorOnMxFailure() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) string { return v.BehaviorOnMxFailure }).(pulumi.StringOutput)
+func (o LookupEmailIdentityMailFromAttributesResultOutput) BehaviorOnMxFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) *string { return v.BehaviorOnMxFailure }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupEmailIdentityMailFromAttributesResultOutput) EmailIdentity() pulumi.StringOutput {
@@ -120,13 +120,13 @@ func (o LookupEmailIdentityMailFromAttributesResultOutput) EmailIdentity() pulum
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupEmailIdentityMailFromAttributesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupEmailIdentityMailFromAttributesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The custom MAIL FROM domain that you want the verified identity to use.
-func (o LookupEmailIdentityMailFromAttributesResultOutput) MailFromDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) string { return v.MailFromDomain }).(pulumi.StringOutput)
+func (o LookupEmailIdentityMailFromAttributesResultOutput) MailFromDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) *string { return v.MailFromDomain }).(pulumi.StringPtrOutput)
 }
 
 func init() {

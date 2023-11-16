@@ -76,7 +76,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// (Required) Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Ordered configuration block(s) with components for the container recipe. Detailed below.
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Date the container recipe was created.
         /// </summary>
         [Output("dateCreated")]
-        public Output<string> DateCreated { get; private set; } = null!;
+        public Output<string?> DateCreated { get; private set; } = null!;
 
         /// <summary>
         /// The description of the container recipe.
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// The Dockerfile template used to build the image as an inline data blob.
         /// </summary>
         [Output("dockerfileTemplateData")]
-        public Output<string> DockerfileTemplateData { get; private set; } = null!;
+        public Output<string?> DockerfileTemplateData { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         /// </summary>
         [Output("encrypted")]
-        public Output<bool> Encrypted { get; private set; } = null!;
+        public Output<bool?> Encrypted { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block used to configure an instance for building and testing container images. Detailed below.
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Owner of the container recipe.
         /// </summary>
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// The base image for the container recipe.
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Platform of the container recipe.
         /// </summary>
         [Output("platform")]
-        public Output<string> Platform { get; private set; } = null!;
+        public Output<string?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the operating system platform when you use a custom base image.

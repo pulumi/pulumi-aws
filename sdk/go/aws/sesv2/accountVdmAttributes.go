@@ -60,9 +60,9 @@ type AccountVdmAttributes struct {
 	pulumi.CustomResourceState
 
 	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-	DashboardAttributes AccountVdmAttributesDashboardAttributesOutput `pulumi:"dashboardAttributes"`
+	DashboardAttributes AccountVdmAttributesDashboardAttributesPtrOutput `pulumi:"dashboardAttributes"`
 	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
-	GuardianAttributes AccountVdmAttributesGuardianAttributesOutput `pulumi:"guardianAttributes"`
+	GuardianAttributes AccountVdmAttributesGuardianAttributesPtrOutput `pulumi:"guardianAttributes"`
 	// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
 	//
 	// The following arguments are optional:
@@ -238,17 +238,17 @@ func (o AccountVdmAttributesOutput) ToAccountVdmAttributesOutputWithContext(ctx 
 }
 
 // Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-func (o AccountVdmAttributesOutput) DashboardAttributes() AccountVdmAttributesDashboardAttributesOutput {
-	return o.ApplyT(func(v *AccountVdmAttributes) AccountVdmAttributesDashboardAttributesOutput {
+func (o AccountVdmAttributesOutput) DashboardAttributes() AccountVdmAttributesDashboardAttributesPtrOutput {
+	return o.ApplyT(func(v *AccountVdmAttributes) AccountVdmAttributesDashboardAttributesPtrOutput {
 		return v.DashboardAttributes
-	}).(AccountVdmAttributesDashboardAttributesOutput)
+	}).(AccountVdmAttributesDashboardAttributesPtrOutput)
 }
 
 // Specifies additional settings for your VDM configuration as applicable to the Guardian.
-func (o AccountVdmAttributesOutput) GuardianAttributes() AccountVdmAttributesGuardianAttributesOutput {
-	return o.ApplyT(func(v *AccountVdmAttributes) AccountVdmAttributesGuardianAttributesOutput {
+func (o AccountVdmAttributesOutput) GuardianAttributes() AccountVdmAttributesGuardianAttributesPtrOutput {
+	return o.ApplyT(func(v *AccountVdmAttributes) AccountVdmAttributesGuardianAttributesPtrOutput {
 		return v.GuardianAttributes
-	}).(AccountVdmAttributesGuardianAttributesOutput)
+	}).(AccountVdmAttributesGuardianAttributesPtrOutput)
 }
 
 // Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.

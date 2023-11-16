@@ -155,7 +155,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of names of the matched Image Builder Components.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.ImageBuilder
 
             ImmutableArray<Outputs.GetComponentsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> names,
 

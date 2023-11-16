@@ -51,48 +51,48 @@ export interface GetDirectoryResult {
     /**
      * Directory alias.
      */
-    readonly alias: string;
+    readonly alias?: string;
     /**
      * User name for the service account.
      */
-    readonly customerUserName: string;
+    readonly customerUserName?: string;
     readonly directoryId: string;
     /**
      * Name of the directory.
      */
-    readonly directoryName: string;
+    readonly directoryName?: string;
     /**
      * Directory type.
      */
-    readonly directoryType: string;
+    readonly directoryType?: string;
     /**
      * IP addresses of the DNS servers for the directory.
      */
-    readonly dnsIpAddresses: string[];
+    readonly dnsIpAddresses?: string[];
     /**
      * Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      */
-    readonly iamRoleId: string;
+    readonly iamRoleId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Identifiers of the IP access control groups associated with the directory.
      */
-    readonly ipGroupIds: string[];
+    readonly ipGroupIds?: string[];
     /**
      * Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
-    readonly registrationCode: string;
+    readonly registrationCode?: string;
     /**
      * The permissions to enable or disable self-service capabilities.
      */
-    readonly selfServicePermissions: outputs.workspaces.GetDirectorySelfServicePermission[];
+    readonly selfServicePermissions?: outputs.workspaces.GetDirectorySelfServicePermission[];
     /**
      * Identifiers of the subnets where the directory resides.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * A map of tags assigned to the WorkSpaces directory.
      */
@@ -100,15 +100,15 @@ export interface GetDirectoryResult {
     /**
      * (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    readonly workspaceAccessProperties: outputs.workspaces.GetDirectoryWorkspaceAccessProperty[];
+    readonly workspaceAccessProperties?: outputs.workspaces.GetDirectoryWorkspaceAccessProperty[];
     /**
      * The default properties that are used for creating WorkSpaces. Defined below.
      */
-    readonly workspaceCreationProperties: outputs.workspaces.GetDirectoryWorkspaceCreationProperty[];
+    readonly workspaceCreationProperties?: outputs.workspaces.GetDirectoryWorkspaceCreationProperty[];
     /**
      * The identifier of the security group that is assigned to new WorkSpaces. Defined below.
      */
-    readonly workspaceSecurityGroupId: string;
+    readonly workspaceSecurityGroupId?: string;
 }
 /**
  * Retrieve information about an AWS WorkSpaces directory.

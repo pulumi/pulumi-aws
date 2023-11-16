@@ -148,23 +148,23 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<string> PreferredVersions;
         /// <summary>
         /// Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
         /// </summary>
-        public readonly string Status;
-        public readonly string Version;
+        public readonly string? Status;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetKafkaVersionResult(
-            string id,
+            string? id,
 
             ImmutableArray<string> preferredVersions,
 
-            string status,
+            string? status,
 
-            string version)
+            string? version)
         {
             Id = id;
             PreferredVersions = preferredVersions;

@@ -57,7 +57,7 @@ export class Keyspace extends pulumi.CustomResource {
     /**
      * The ARN of the keyspace.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the keyspace to be created.
      *

@@ -56,7 +56,7 @@ namespace Pulumi.Aws.MediaLive
         /// ARN of the InputSecurityGroup.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The list of inputs currently using this InputSecurityGroup.

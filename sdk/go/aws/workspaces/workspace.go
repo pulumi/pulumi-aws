@@ -78,15 +78,15 @@ type Workspace struct {
 	// The ID of the bundle for the WorkSpace.
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// The name of the WorkSpace, as seen by the operating system.
-	ComputerName pulumi.StringOutput `pulumi:"computerName"`
+	ComputerName pulumi.StringPtrOutput `pulumi:"computerName"`
 	// The ID of the directory for the WorkSpace.
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// The IP address of the WorkSpace.
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"rootVolumeEncryptionEnabled"`
 	// The operational state of the WorkSpace.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -100,7 +100,7 @@ type Workspace struct {
 	// The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
 	VolumeEncryptionKey pulumi.StringPtrOutput `pulumi:"volumeEncryptionKey"`
 	// The WorkSpace properties.
-	WorkspaceProperties WorkspaceWorkspacePropertiesOutput `pulumi:"workspaceProperties"`
+	WorkspaceProperties WorkspaceWorkspacePropertiesPtrOutput `pulumi:"workspaceProperties"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -339,8 +339,8 @@ func (o WorkspaceOutput) BundleId() pulumi.StringOutput {
 }
 
 // The name of the WorkSpace, as seen by the operating system.
-func (o WorkspaceOutput) ComputerName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ComputerName }).(pulumi.StringOutput)
+func (o WorkspaceOutput) ComputerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ComputerName }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the directory for the WorkSpace.
@@ -349,8 +349,8 @@ func (o WorkspaceOutput) DirectoryId() pulumi.StringOutput {
 }
 
 // The IP address of the WorkSpace.
-func (o WorkspaceOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+func (o WorkspaceOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the data stored on the root volume is encrypted.
@@ -359,8 +359,8 @@ func (o WorkspaceOutput) RootVolumeEncryptionEnabled() pulumi.BoolPtrOutput {
 }
 
 // The operational state of the WorkSpace.
-func (o WorkspaceOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o WorkspaceOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -391,8 +391,8 @@ func (o WorkspaceOutput) VolumeEncryptionKey() pulumi.StringPtrOutput {
 }
 
 // The WorkSpace properties.
-func (o WorkspaceOutput) WorkspaceProperties() WorkspaceWorkspacePropertiesOutput {
-	return o.ApplyT(func(v *Workspace) WorkspaceWorkspacePropertiesOutput { return v.WorkspaceProperties }).(WorkspaceWorkspacePropertiesOutput)
+func (o WorkspaceOutput) WorkspaceProperties() WorkspaceWorkspacePropertiesPtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceWorkspacePropertiesPtrOutput { return v.WorkspaceProperties }).(WorkspaceWorkspacePropertiesPtrOutput)
 }
 
 type WorkspaceArrayOutput struct{ *pulumi.OutputState }

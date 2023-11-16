@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ses
         /// The ARN of the domain identity.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The domain name of the SES domain identity to verify.

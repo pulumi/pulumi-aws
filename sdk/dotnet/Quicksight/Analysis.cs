@@ -67,28 +67,28 @@ namespace Pulumi.Aws.Quicksight
         /// The Amazon Resource Name (ARN) of the resource.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The time that the analysis was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         [Output("lastPublishedTime")]
-        public Output<string> LastPublishedTime { get; private set; } = null!;
+        public Output<string?> LastPublishedTime { get; private set; } = null!;
 
         /// <summary>
         /// The time that the analysis was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Display name for the analysis.
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Quicksight
         /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
         [Output("parameters")]
-        public Output<Outputs.AnalysisParameters> Parameters { get; private set; } = null!;
+        public Output<Outputs.AnalysisParameters?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Quicksight
         /// The analysis creation status.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

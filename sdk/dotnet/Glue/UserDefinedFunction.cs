@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Glue
         /// The ARN of the Glue User Defined Function.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Glue
         /// The time at which the function was created.
         /// </summary>
         [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        public Output<string?> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Database to create the Function.

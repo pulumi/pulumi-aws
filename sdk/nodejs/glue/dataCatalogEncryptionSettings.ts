@@ -67,7 +67,7 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
     /**
      * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string | undefined>;
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */

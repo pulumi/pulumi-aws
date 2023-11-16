@@ -128,32 +128,32 @@ namespace Pulumi.Aws.DataPipeline
         /// <summary>
         /// Description of Pipeline.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of Pipeline.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string PipelineId;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetPipelineResult(
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             string pipelineId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Description = description;
             Id = id;

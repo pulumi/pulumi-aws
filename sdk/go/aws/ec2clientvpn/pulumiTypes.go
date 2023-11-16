@@ -634,11 +634,11 @@ func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type GetEndpointAuthenticationOption struct {
-	ActiveDirectoryId          string `pulumi:"activeDirectoryId"`
-	RootCertificateChainArn    string `pulumi:"rootCertificateChainArn"`
-	SamlProviderArn            string `pulumi:"samlProviderArn"`
-	SelfServiceSamlProviderArn string `pulumi:"selfServiceSamlProviderArn"`
-	Type                       string `pulumi:"type"`
+	ActiveDirectoryId          *string `pulumi:"activeDirectoryId"`
+	RootCertificateChainArn    *string `pulumi:"rootCertificateChainArn"`
+	SamlProviderArn            *string `pulumi:"samlProviderArn"`
+	SelfServiceSamlProviderArn *string `pulumi:"selfServiceSamlProviderArn"`
+	Type                       *string `pulumi:"type"`
 }
 
 // GetEndpointAuthenticationOptionInput is an input type that accepts GetEndpointAuthenticationOptionArgs and GetEndpointAuthenticationOptionOutput values.
@@ -653,11 +653,11 @@ type GetEndpointAuthenticationOptionInput interface {
 }
 
 type GetEndpointAuthenticationOptionArgs struct {
-	ActiveDirectoryId          pulumi.StringInput `pulumi:"activeDirectoryId"`
-	RootCertificateChainArn    pulumi.StringInput `pulumi:"rootCertificateChainArn"`
-	SamlProviderArn            pulumi.StringInput `pulumi:"samlProviderArn"`
-	SelfServiceSamlProviderArn pulumi.StringInput `pulumi:"selfServiceSamlProviderArn"`
-	Type                       pulumi.StringInput `pulumi:"type"`
+	ActiveDirectoryId          pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
+	RootCertificateChainArn    pulumi.StringPtrInput `pulumi:"rootCertificateChainArn"`
+	SamlProviderArn            pulumi.StringPtrInput `pulumi:"samlProviderArn"`
+	SelfServiceSamlProviderArn pulumi.StringPtrInput `pulumi:"selfServiceSamlProviderArn"`
+	Type                       pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetEndpointAuthenticationOptionArgs) ElementType() reflect.Type {
@@ -711,24 +711,24 @@ func (o GetEndpointAuthenticationOptionOutput) ToGetEndpointAuthenticationOption
 	return o
 }
 
-func (o GetEndpointAuthenticationOptionOutput) ActiveDirectoryId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.ActiveDirectoryId }).(pulumi.StringOutput)
+func (o GetEndpointAuthenticationOptionOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointAuthenticationOptionOutput) RootCertificateChainArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.RootCertificateChainArn }).(pulumi.StringOutput)
+func (o GetEndpointAuthenticationOptionOutput) RootCertificateChainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) *string { return v.RootCertificateChainArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointAuthenticationOptionOutput) SamlProviderArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.SamlProviderArn }).(pulumi.StringOutput)
+func (o GetEndpointAuthenticationOptionOutput) SamlProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) *string { return v.SamlProviderArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointAuthenticationOptionOutput) SelfServiceSamlProviderArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.SelfServiceSamlProviderArn }).(pulumi.StringOutput)
+func (o GetEndpointAuthenticationOptionOutput) SelfServiceSamlProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) *string { return v.SelfServiceSamlProviderArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointAuthenticationOptionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.Type }).(pulumi.StringOutput)
+func (o GetEndpointAuthenticationOptionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetEndpointAuthenticationOptionArrayOutput struct{ *pulumi.OutputState }
@@ -752,8 +752,8 @@ func (o GetEndpointAuthenticationOptionArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetEndpointClientConnectOption struct {
-	Enabled           bool   `pulumi:"enabled"`
-	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
+	Enabled           *bool   `pulumi:"enabled"`
+	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
 }
 
 // GetEndpointClientConnectOptionInput is an input type that accepts GetEndpointClientConnectOptionArgs and GetEndpointClientConnectOptionOutput values.
@@ -768,8 +768,8 @@ type GetEndpointClientConnectOptionInput interface {
 }
 
 type GetEndpointClientConnectOptionArgs struct {
-	Enabled           pulumi.BoolInput   `pulumi:"enabled"`
-	LambdaFunctionArn pulumi.StringInput `pulumi:"lambdaFunctionArn"`
+	Enabled           pulumi.BoolPtrInput   `pulumi:"enabled"`
+	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
 }
 
 func (GetEndpointClientConnectOptionArgs) ElementType() reflect.Type {
@@ -823,12 +823,12 @@ func (o GetEndpointClientConnectOptionOutput) ToGetEndpointClientConnectOptionOu
 	return o
 }
 
-func (o GetEndpointClientConnectOptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointClientConnectOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetEndpointClientConnectOptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointClientConnectOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEndpointClientConnectOptionOutput) LambdaFunctionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointClientConnectOption) string { return v.LambdaFunctionArn }).(pulumi.StringOutput)
+func (o GetEndpointClientConnectOptionOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointClientConnectOption) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
 }
 
 type GetEndpointClientConnectOptionArrayOutput struct{ *pulumi.OutputState }
@@ -852,8 +852,8 @@ func (o GetEndpointClientConnectOptionArrayOutput) Index(i pulumi.IntInput) GetE
 }
 
 type GetEndpointClientLoginBannerOption struct {
-	BannerText string `pulumi:"bannerText"`
-	Enabled    bool   `pulumi:"enabled"`
+	BannerText *string `pulumi:"bannerText"`
+	Enabled    *bool   `pulumi:"enabled"`
 }
 
 // GetEndpointClientLoginBannerOptionInput is an input type that accepts GetEndpointClientLoginBannerOptionArgs and GetEndpointClientLoginBannerOptionOutput values.
@@ -868,8 +868,8 @@ type GetEndpointClientLoginBannerOptionInput interface {
 }
 
 type GetEndpointClientLoginBannerOptionArgs struct {
-	BannerText pulumi.StringInput `pulumi:"bannerText"`
-	Enabled    pulumi.BoolInput   `pulumi:"enabled"`
+	BannerText pulumi.StringPtrInput `pulumi:"bannerText"`
+	Enabled    pulumi.BoolPtrInput   `pulumi:"enabled"`
 }
 
 func (GetEndpointClientLoginBannerOptionArgs) ElementType() reflect.Type {
@@ -923,12 +923,12 @@ func (o GetEndpointClientLoginBannerOptionOutput) ToGetEndpointClientLoginBanner
 	return o
 }
 
-func (o GetEndpointClientLoginBannerOptionOutput) BannerText() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointClientLoginBannerOption) string { return v.BannerText }).(pulumi.StringOutput)
+func (o GetEndpointClientLoginBannerOptionOutput) BannerText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointClientLoginBannerOption) *string { return v.BannerText }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointClientLoginBannerOptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointClientLoginBannerOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetEndpointClientLoginBannerOptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointClientLoginBannerOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetEndpointClientLoginBannerOptionArrayOutput struct{ *pulumi.OutputState }
@@ -952,9 +952,9 @@ func (o GetEndpointClientLoginBannerOptionArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetEndpointConnectionLogOption struct {
-	CloudwatchLogGroup  string `pulumi:"cloudwatchLogGroup"`
-	CloudwatchLogStream string `pulumi:"cloudwatchLogStream"`
-	Enabled             bool   `pulumi:"enabled"`
+	CloudwatchLogGroup  *string `pulumi:"cloudwatchLogGroup"`
+	CloudwatchLogStream *string `pulumi:"cloudwatchLogStream"`
+	Enabled             *bool   `pulumi:"enabled"`
 }
 
 // GetEndpointConnectionLogOptionInput is an input type that accepts GetEndpointConnectionLogOptionArgs and GetEndpointConnectionLogOptionOutput values.
@@ -969,9 +969,9 @@ type GetEndpointConnectionLogOptionInput interface {
 }
 
 type GetEndpointConnectionLogOptionArgs struct {
-	CloudwatchLogGroup  pulumi.StringInput `pulumi:"cloudwatchLogGroup"`
-	CloudwatchLogStream pulumi.StringInput `pulumi:"cloudwatchLogStream"`
-	Enabled             pulumi.BoolInput   `pulumi:"enabled"`
+	CloudwatchLogGroup  pulumi.StringPtrInput `pulumi:"cloudwatchLogGroup"`
+	CloudwatchLogStream pulumi.StringPtrInput `pulumi:"cloudwatchLogStream"`
+	Enabled             pulumi.BoolPtrInput   `pulumi:"enabled"`
 }
 
 func (GetEndpointConnectionLogOptionArgs) ElementType() reflect.Type {
@@ -1025,16 +1025,16 @@ func (o GetEndpointConnectionLogOptionOutput) ToGetEndpointConnectionLogOptionOu
 	return o
 }
 
-func (o GetEndpointConnectionLogOptionOutput) CloudwatchLogGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointConnectionLogOption) string { return v.CloudwatchLogGroup }).(pulumi.StringOutput)
+func (o GetEndpointConnectionLogOptionOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointConnectionLogOption) *string { return v.CloudwatchLogGroup }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointConnectionLogOptionOutput) CloudwatchLogStream() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointConnectionLogOption) string { return v.CloudwatchLogStream }).(pulumi.StringOutput)
+func (o GetEndpointConnectionLogOptionOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointConnectionLogOption) *string { return v.CloudwatchLogStream }).(pulumi.StringPtrOutput)
 }
 
-func (o GetEndpointConnectionLogOptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEndpointConnectionLogOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetEndpointConnectionLogOptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointConnectionLogOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type GetEndpointConnectionLogOptionArrayOutput struct{ *pulumi.OutputState }

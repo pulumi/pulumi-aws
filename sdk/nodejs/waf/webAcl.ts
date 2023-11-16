@@ -115,7 +115,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * The ARN of the WAF WebACL.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */

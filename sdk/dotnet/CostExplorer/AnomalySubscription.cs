@@ -299,13 +299,13 @@ namespace Pulumi.Aws.CostExplorer
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the anomaly subscription.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.CostExplorer
         /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         /// </summary>
         [Output("thresholdExpression")]
-        public Output<Outputs.AnomalySubscriptionThresholdExpression> ThresholdExpression { get; private set; } = null!;
+        public Output<Outputs.AnomalySubscriptionThresholdExpression?> ThresholdExpression { get; private set; } = null!;
 
 
         /// <summary>

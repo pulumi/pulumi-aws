@@ -6,6 +6,8 @@ package com.pulumi.aws.workspaces.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageResult {
@@ -13,44 +15,44 @@ public final class GetImageResult {
      * @return The description of the image.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String imageId;
     /**
      * @return The name of the image.
      * 
      */
-    private String name;
-    private String operatingSystemType;
+    private @Nullable String name;
+    private @Nullable String operatingSystemType;
     /**
      * @return Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
      * 
      */
-    private String requiredTenancy;
+    private @Nullable String requiredTenancy;
     /**
      * @return The status of the image.
      * 
      */
-    private String state;
+    private @Nullable String state;
 
     private GetImageResult() {}
     /**
      * @return The description of the image.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String imageId() {
         return this.imageId;
@@ -59,25 +61,25 @@ public final class GetImageResult {
      * @return The name of the image.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public String operatingSystemType() {
-        return this.operatingSystemType;
+    public Optional<String> operatingSystemType() {
+        return Optional.ofNullable(this.operatingSystemType);
     }
     /**
      * @return Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
      * 
      */
-    public String requiredTenancy() {
-        return this.requiredTenancy;
+    public Optional<String> requiredTenancy() {
+        return Optional.ofNullable(this.requiredTenancy);
     }
     /**
      * @return The status of the image.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
 
     public static Builder builder() {
@@ -89,13 +91,13 @@ public final class GetImageResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String description;
-        private String id;
+        private @Nullable String description;
+        private @Nullable String id;
         private String imageId;
-        private String name;
-        private String operatingSystemType;
-        private String requiredTenancy;
-        private String state;
+        private @Nullable String name;
+        private @Nullable String operatingSystemType;
+        private @Nullable String requiredTenancy;
+        private @Nullable String state;
         public Builder() {}
         public Builder(GetImageResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -109,13 +111,13 @@ public final class GetImageResult {
         }
 
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -124,23 +126,23 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder operatingSystemType(String operatingSystemType) {
-            this.operatingSystemType = Objects.requireNonNull(operatingSystemType);
+        public Builder operatingSystemType(@Nullable String operatingSystemType) {
+            this.operatingSystemType = operatingSystemType;
             return this;
         }
         @CustomType.Setter
-        public Builder requiredTenancy(String requiredTenancy) {
-            this.requiredTenancy = Objects.requireNonNull(requiredTenancy);
+        public Builder requiredTenancy(@Nullable String requiredTenancy) {
+            this.requiredTenancy = requiredTenancy;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         public GetImageResult build() {

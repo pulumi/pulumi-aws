@@ -66,25 +66,25 @@ type Snapshot struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the EBS Snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
-	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
+	DataEncryptionKeyId pulumi.StringPtrOutput `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether the snapshot is encrypted.
-	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
+	OwnerAlias pulumi.StringPtrOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
+	StorageTier pulumi.StringPtrOutput `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -96,7 +96,7 @@ type Snapshot struct {
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
-	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
+	VolumeSize pulumi.IntPtrOutput `pulumi:"volumeSize"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -332,13 +332,13 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 }
 
 // Amazon Resource Name (ARN) of the EBS Snapshot.
-func (o SnapshotOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SnapshotOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The data encryption key identifier for the snapshot.
-func (o SnapshotOutput) DataEncryptionKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.DataEncryptionKeyId }).(pulumi.StringOutput)
+func (o SnapshotOutput) DataEncryptionKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.DataEncryptionKeyId }).(pulumi.StringPtrOutput)
 }
 
 // A description of what the snapshot is.
@@ -347,13 +347,13 @@ func (o SnapshotOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Whether the snapshot is encrypted.
-func (o SnapshotOutput) Encrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
+func (o SnapshotOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // The ARN for the KMS encryption key.
-func (o SnapshotOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o SnapshotOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
@@ -362,13 +362,13 @@ func (o SnapshotOutput) OutpostArn() pulumi.StringPtrOutput {
 }
 
 // Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-func (o SnapshotOutput) OwnerAlias() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.OwnerAlias }).(pulumi.StringOutput)
+func (o SnapshotOutput) OwnerAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.OwnerAlias }).(pulumi.StringPtrOutput)
 }
 
 // The AWS account ID of the EBS snapshot owner.
-func (o SnapshotOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o SnapshotOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether to permanently restore an archived snapshot.
@@ -377,8 +377,8 @@ func (o SnapshotOutput) PermanentRestore() pulumi.BoolPtrOutput {
 }
 
 // The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-func (o SnapshotOutput) StorageTier() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.StorageTier }).(pulumi.StringOutput)
+func (o SnapshotOutput) StorageTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.StorageTier }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -404,8 +404,8 @@ func (o SnapshotOutput) VolumeId() pulumi.StringOutput {
 }
 
 // The size of the drive in GiBs.
-func (o SnapshotOutput) VolumeSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.IntOutput { return v.VolumeSize }).(pulumi.IntOutput)
+func (o SnapshotOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.IntPtrOutput { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
 type SnapshotArrayOutput struct{ *pulumi.OutputState }

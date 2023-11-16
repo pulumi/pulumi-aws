@@ -62,7 +62,7 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * The user profile Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the associated Domain.
      */
@@ -70,7 +70,7 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
      */
-    public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string>;
+    public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string | undefined>;
     /**
      * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */

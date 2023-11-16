@@ -156,7 +156,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of strings representing object keys
         /// </summary>
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// If present, indicates that the requester was successfully charged for the request.
         /// </summary>
-        public readonly string RequestCharged;
+        public readonly string? RequestCharged;
         public readonly string? RequestPayer;
         public readonly string? StartAfter;
 
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.S3
 
             bool? fetchOwner,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> keys,
 
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.S3
 
             string? prefix,
 
-            string requestCharged,
+            string? requestCharged,
 
             string? requestPayer,
 

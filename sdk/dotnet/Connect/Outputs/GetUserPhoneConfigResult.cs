@@ -16,29 +16,29 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// The After Call Work (ACW) timeout setting, in seconds.
         /// </summary>
-        public readonly int AfterContactWorkTimeLimit;
+        public readonly int? AfterContactWorkTimeLimit;
         /// <summary>
         /// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
         /// </summary>
-        public readonly bool AutoAccept;
+        public readonly bool? AutoAccept;
         /// <summary>
         /// The phone number for the user's desk phone.
         /// </summary>
-        public readonly string DeskPhoneNumber;
+        public readonly string? DeskPhoneNumber;
         /// <summary>
         /// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
         /// </summary>
-        public readonly string PhoneType;
+        public readonly string? PhoneType;
 
         [OutputConstructor]
         private GetUserPhoneConfigResult(
-            int afterContactWorkTimeLimit,
+            int? afterContactWorkTimeLimit,
 
-            bool autoAccept,
+            bool? autoAccept,
 
-            string deskPhoneNumber,
+            string? deskPhoneNumber,
 
-            string phoneType)
+            string? phoneType)
         {
             AfterContactWorkTimeLimit = afterContactWorkTimeLimit;
             AutoAccept = autoAccept;

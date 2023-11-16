@@ -68,40 +68,40 @@ export interface GetTaskDefinitionResult {
     /**
      * ARN of the task definition.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      */
-    readonly arnWithoutRevision: string;
+    readonly arnWithoutRevision?: string;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker.
      */
-    readonly executionRoleArn: string;
+    readonly executionRoleArn?: string;
     /**
      * Family of this task definition.
      */
-    readonly family: string;
+    readonly family?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Docker networking mode to use for the containers in this task.
      */
-    readonly networkMode: string;
+    readonly networkMode?: string;
     /**
      * Revision of this task definition.
      */
-    readonly revision: number;
+    readonly revision?: number;
     /**
      * Status of this task definition.
      */
-    readonly status: string;
+    readonly status?: string;
     readonly taskDefinition: string;
     /**
      * ARN of the IAM role that containers in this task can assume.
      */
-    readonly taskRoleArn: string;
+    readonly taskRoleArn?: string;
 }
 /**
  * The ECS task definition data source allows access to details of

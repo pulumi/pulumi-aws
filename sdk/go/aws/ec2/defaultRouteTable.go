@@ -102,13 +102,13 @@ type DefaultRouteTable struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the route table.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ID of the default route table.
 	//
 	// The following arguments are optional:
 	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
 	// ID of the AWS account that owns the route table.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
 	// Set of objects. Detailed below
@@ -120,7 +120,7 @@ type DefaultRouteTable struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ID of the VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewDefaultRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -324,8 +324,8 @@ func (o DefaultRouteTableOutput) ToDefaultRouteTableOutputWithContext(ctx contex
 }
 
 // The ARN of the route table.
-func (o DefaultRouteTableOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DefaultRouteTableOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the default route table.
@@ -336,8 +336,8 @@ func (o DefaultRouteTableOutput) DefaultRouteTableId() pulumi.StringOutput {
 }
 
 // ID of the AWS account that owns the route table.
-func (o DefaultRouteTableOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o DefaultRouteTableOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // List of virtual gateways for propagation.
@@ -363,8 +363,8 @@ func (o DefaultRouteTableOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // ID of the VPC.
-func (o DefaultRouteTableOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o DefaultRouteTableOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type DefaultRouteTableArrayOutput struct{ *pulumi.OutputState }

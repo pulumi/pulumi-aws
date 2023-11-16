@@ -78,37 +78,37 @@ export interface GetManagedPrefixListResult {
     /**
      * Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
      */
-    readonly addressFamily: string;
+    readonly addressFamily?: string;
     /**
      * ARN of the selected prefix list.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
      */
-    readonly entries: outputs.ec2.GetManagedPrefixListEntry[];
+    readonly entries?: outputs.ec2.GetManagedPrefixListEntry[];
     readonly filters?: outputs.ec2.GetManagedPrefixListFilter[];
     /**
      * ID of the selected prefix list.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
      */
-    readonly maxEntries: number;
+    readonly maxEntries?: number;
     /**
      * Name of the selected prefix list.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * Map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
-    readonly version: number;
+    readonly tags?: {[key: string]: string};
+    readonly version?: number;
 }
 /**
  * `aws.ec2.ManagedPrefixList` provides details about a specific AWS prefix list or

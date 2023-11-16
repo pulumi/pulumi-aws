@@ -221,14 +221,14 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="acceptStatus", refs={String.class}, tree="[0]")
-    private Output<String> acceptStatus;
+    private Output</* @Nullable */ String> acceptStatus;
 
     /**
      * @return The status of the VPC Peering Connection request.
      * 
      */
-    public Output<String> acceptStatus() {
-        return this.acceptStatus;
+    public Output<Optional<String>> acceptStatus() {
+        return Codegen.optional(this.acceptStatus);
     }
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
@@ -236,15 +236,15 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accepter", refs={VpcPeeringConnectionAccepter.class}, tree="[0]")
-    private Output<VpcPeeringConnectionAccepter> accepter;
+    private Output</* @Nullable */ VpcPeeringConnectionAccepter> accepter;
 
     /**
      * @return An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      * 
      */
-    public Output<VpcPeeringConnectionAccepter> accepter() {
-        return this.accepter;
+    public Output<Optional<VpcPeeringConnectionAccepter>> accepter() {
+        return Codegen.optional(this.accepter);
     }
     /**
      * Accept the peering (both VPCs need to be in the same AWS account and region).
@@ -266,15 +266,15 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="peerOwnerId", refs={String.class}, tree="[0]")
-    private Output<String> peerOwnerId;
+    private Output</* @Nullable */ String> peerOwnerId;
 
     /**
      * @return The AWS account ID of the owner of the peer VPC.
      * Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    public Output<String> peerOwnerId() {
-        return this.peerOwnerId;
+    public Output<Optional<String>> peerOwnerId() {
+        return Codegen.optional(this.peerOwnerId);
     }
     /**
      * The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
@@ -282,15 +282,15 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="peerRegion", refs={String.class}, tree="[0]")
-    private Output<String> peerRegion;
+    private Output</* @Nullable */ String> peerRegion;
 
     /**
      * @return The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
      * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
      * 
      */
-    public Output<String> peerRegion() {
-        return this.peerRegion;
+    public Output<Optional<String>> peerRegion() {
+        return Codegen.optional(this.peerRegion);
     }
     /**
      * The ID of the VPC with which you are creating the VPC Peering Connection.
@@ -312,15 +312,15 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="requester", refs={VpcPeeringConnectionRequester.class}, tree="[0]")
-    private Output<VpcPeeringConnectionRequester> requester;
+    private Output</* @Nullable */ VpcPeeringConnectionRequester> requester;
 
     /**
      * @return A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      * 
      */
-    public Output<VpcPeeringConnectionRequester> requester() {
-        return this.requester;
+    public Output<Optional<VpcPeeringConnectionRequester>> requester() {
+        return Codegen.optional(this.requester);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

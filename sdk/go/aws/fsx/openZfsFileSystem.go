@@ -61,7 +61,7 @@ type OpenZfsFileSystem struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name of the file system.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
 	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
 	// The ID of the source backup to create the filesystem from.
@@ -71,27 +71,27 @@ type OpenZfsFileSystem struct {
 	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 	CopyTagsToVolumes pulumi.BoolPtrOutput `pulumi:"copyTagsToVolumes"`
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
+	DailyAutomaticBackupStartTime pulumi.StringPtrOutput `pulumi:"dailyAutomaticBackupStartTime"`
 	// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
 	DeploymentType pulumi.StringOutput `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
-	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
+	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationPtrOutput `pulumi:"diskIopsConfiguration"`
 	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
 	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
-	EndpointIpAddressRange pulumi.StringOutput `pulumi:"endpointIpAddressRange"`
+	EndpointIpAddressRange pulumi.StringPtrOutput `pulumi:"endpointIpAddressRange"`
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId pulumi.StringPtrOutput `pulumi:"preferredSubnetId"`
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
-	RootVolumeConfiguration OpenZfsFileSystemRootVolumeConfigurationOutput `pulumi:"rootVolumeConfiguration"`
+	RootVolumeConfiguration OpenZfsFileSystemRootVolumeConfigurationPtrOutput `pulumi:"rootVolumeConfiguration"`
 	// Identifier of the root volume, e.g., `fsvol-12345678`
-	RootVolumeId pulumi.StringOutput `pulumi:"rootVolumeId"`
+	RootVolumeId pulumi.StringPtrOutput `pulumi:"rootVolumeId"`
 	// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -111,9 +111,9 @@ type OpenZfsFileSystem struct {
 	// Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
 	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
 	// Identifier of the Virtual Private Cloud for the file system.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime pulumi.StringOutput `pulumi:"weeklyMaintenanceStartTime"`
+	WeeklyMaintenanceStartTime pulumi.StringPtrOutput `pulumi:"weeklyMaintenanceStartTime"`
 }
 
 // NewOpenZfsFileSystem registers a new resource with the given unique name, arguments, and options.
@@ -447,8 +447,8 @@ func (o OpenZfsFileSystemOutput) ToOpenZfsFileSystemOutputWithContext(ctx contex
 }
 
 // Amazon Resource Name of the file system.
-func (o OpenZfsFileSystemOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
@@ -472,8 +472,8 @@ func (o OpenZfsFileSystemOutput) CopyTagsToVolumes() pulumi.BoolPtrOutput {
 }
 
 // A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-func (o OpenZfsFileSystemOutput) DailyAutomaticBackupStartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.DailyAutomaticBackupStartTime }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.DailyAutomaticBackupStartTime }).(pulumi.StringPtrOutput)
 }
 
 // The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
@@ -482,25 +482,25 @@ func (o OpenZfsFileSystemOutput) DeploymentType() pulumi.StringOutput {
 }
 
 // The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
-func (o OpenZfsFileSystemOutput) DiskIopsConfiguration() OpenZfsFileSystemDiskIopsConfigurationOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) OpenZfsFileSystemDiskIopsConfigurationOutput {
+func (o OpenZfsFileSystemOutput) DiskIopsConfiguration() OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
 		return v.DiskIopsConfiguration
-	}).(OpenZfsFileSystemDiskIopsConfigurationOutput)
+	}).(OpenZfsFileSystemDiskIopsConfigurationPtrOutput)
 }
 
 // DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
-func (o OpenZfsFileSystemOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
-func (o OpenZfsFileSystemOutput) EndpointIpAddressRange() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.EndpointIpAddressRange }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) EndpointIpAddressRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.EndpointIpAddressRange }).(pulumi.StringPtrOutput)
 }
 
 // ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-func (o OpenZfsFileSystemOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
@@ -509,8 +509,8 @@ func (o OpenZfsFileSystemOutput) NetworkInterfaceIds() pulumi.StringArrayOutput 
 }
 
 // AWS account identifier that created the file system.
-func (o OpenZfsFileSystemOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
@@ -519,15 +519,15 @@ func (o OpenZfsFileSystemOutput) PreferredSubnetId() pulumi.StringPtrOutput {
 }
 
 // The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
-func (o OpenZfsFileSystemOutput) RootVolumeConfiguration() OpenZfsFileSystemRootVolumeConfigurationOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) OpenZfsFileSystemRootVolumeConfigurationOutput {
+func (o OpenZfsFileSystemOutput) RootVolumeConfiguration() OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
 		return v.RootVolumeConfiguration
-	}).(OpenZfsFileSystemRootVolumeConfigurationOutput)
+	}).(OpenZfsFileSystemRootVolumeConfigurationPtrOutput)
 }
 
 // Identifier of the root volume, e.g., `fsvol-12345678`
-func (o OpenZfsFileSystemOutput) RootVolumeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.RootVolumeId }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) RootVolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.RootVolumeId }).(pulumi.StringPtrOutput)
 }
 
 // (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
@@ -573,13 +573,13 @@ func (o OpenZfsFileSystemOutput) ThroughputCapacity() pulumi.IntOutput {
 }
 
 // Identifier of the Virtual Private Cloud for the file system.
-func (o OpenZfsFileSystemOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-func (o OpenZfsFileSystemOutput) WeeklyMaintenanceStartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.WeeklyMaintenanceStartTime }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
 }
 
 type OpenZfsFileSystemArrayOutput struct{ *pulumi.OutputState }

@@ -128,11 +128,11 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Timestamp for when the place index resource was created in ISO 8601 format.
         /// </summary>
-        public readonly string CreateTime;
+        public readonly string? CreateTime;
         /// <summary>
         /// Data provider of geospatial data.
         /// </summary>
-        public readonly string DataSource;
+        public readonly string? DataSource;
         /// <summary>
         /// List of configurations that specify data storage option for requesting Places.
         /// </summary>
@@ -140,44 +140,44 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Optional description for the place index resource.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN for the place index resource.
         /// </summary>
-        public readonly string IndexArn;
+        public readonly string? IndexArn;
         public readonly string IndexName;
         /// <summary>
         /// Key-value map of resource tags for the place index.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Timestamp for when the place index resource was last updated in ISO 8601 format.
         /// </summary>
-        public readonly string UpdateTime;
+        public readonly string? UpdateTime;
 
         [OutputConstructor]
         private GetPlaceIndexResult(
-            string createTime,
+            string? createTime,
 
-            string dataSource,
+            string? dataSource,
 
             ImmutableArray<Outputs.GetPlaceIndexDataSourceConfigurationResult> dataSourceConfigurations,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string indexArn,
+            string? indexArn,
 
             string indexName,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string updateTime)
+            string? updateTime)
         {
             CreateTime = createTime;
             DataSource = dataSource;

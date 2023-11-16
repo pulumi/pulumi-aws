@@ -20,35 +20,35 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Number of dedicated master nodes in the cluster.
         /// </summary>
-        public readonly int DedicatedMasterCount;
+        public readonly int? DedicatedMasterCount;
         /// <summary>
         /// Indicates whether dedicated master nodes are enabled for the cluster.
         /// </summary>
-        public readonly bool DedicatedMasterEnabled;
+        public readonly bool? DedicatedMasterEnabled;
         /// <summary>
         /// Instance type of the dedicated master nodes in the cluster.
         /// </summary>
-        public readonly string DedicatedMasterType;
+        public readonly string? DedicatedMasterType;
         /// <summary>
         /// Number of instances in the cluster.
         /// </summary>
-        public readonly int InstanceCount;
+        public readonly int? InstanceCount;
         /// <summary>
         /// Instance type of data nodes in the cluster.
         /// </summary>
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         /// <summary>
         /// The number of warm nodes in the cluster.
         /// </summary>
-        public readonly int WarmCount;
+        public readonly int? WarmCount;
         /// <summary>
         /// Warm storage is enabled.
         /// </summary>
-        public readonly bool WarmEnabled;
+        public readonly bool? WarmEnabled;
         /// <summary>
         /// The instance type for the Elasticsearch cluster's warm nodes.
         /// </summary>
-        public readonly string WarmType;
+        public readonly string? WarmType;
         /// <summary>
         /// Configuration block containing zone awareness settings.
         /// </summary>
@@ -56,31 +56,31 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Indicates whether zone awareness is enabled.
         /// </summary>
-        public readonly bool ZoneAwarenessEnabled;
+        public readonly bool? ZoneAwarenessEnabled;
 
         [OutputConstructor]
         private GetDomainClusterConfigResult(
             ImmutableArray<Outputs.GetDomainClusterConfigColdStorageOptionResult> coldStorageOptions,
 
-            int dedicatedMasterCount,
+            int? dedicatedMasterCount,
 
-            bool dedicatedMasterEnabled,
+            bool? dedicatedMasterEnabled,
 
-            string dedicatedMasterType,
+            string? dedicatedMasterType,
 
-            int instanceCount,
+            int? instanceCount,
 
-            string instanceType,
+            string? instanceType,
 
-            int warmCount,
+            int? warmCount,
 
-            bool warmEnabled,
+            bool? warmEnabled,
 
-            string warmType,
+            string? warmType,
 
             ImmutableArray<Outputs.GetDomainClusterConfigZoneAwarenessConfigResult> zoneAwarenessConfigs,
 
-            bool zoneAwarenessEnabled)
+            bool? zoneAwarenessEnabled)
         {
             ColdStorageOptions = coldStorageOptions;
             DedicatedMasterCount = dedicatedMasterCount;

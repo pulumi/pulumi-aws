@@ -5509,27 +5509,29 @@ class VpcConnectionTimeoutsArgs:
 @pulumi.input_type
 class GetDataSetColumnLevelPermissionRuleArgs:
     def __init__(__self__, *,
-                 column_names: Sequence[str],
-                 principals: Sequence[str]):
-        pulumi.set(__self__, "column_names", column_names)
-        pulumi.set(__self__, "principals", principals)
+                 column_names: Optional[Sequence[str]] = None,
+                 principals: Optional[Sequence[str]] = None):
+        if column_names is not None:
+            pulumi.set(__self__, "column_names", column_names)
+        if principals is not None:
+            pulumi.set(__self__, "principals", principals)
 
     @property
     @pulumi.getter(name="columnNames")
-    def column_names(self) -> Sequence[str]:
+    def column_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "column_names")
 
     @column_names.setter
-    def column_names(self, value: Sequence[str]):
+    def column_names(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "column_names", value)
 
     @property
     @pulumi.getter
-    def principals(self) -> Sequence[str]:
+    def principals(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Sequence[str]):
+    def principals(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "principals", value)
 
 

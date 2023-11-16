@@ -208,26 +208,26 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the Contact Flow.
         /// </summary>
-        public readonly string Arn;
-        public readonly string ContactFlowId;
+        public readonly string? Arn;
+        public readonly string? ContactFlowId;
         /// <summary>
         /// Logic of the Contact Flow.
         /// </summary>
-        public readonly string Content;
+        public readonly string? Content;
         /// <summary>
         /// Description of the Contact Flow.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Tags to assign to the Contact Flow.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of Contact Flow.
         /// </summary>
@@ -235,21 +235,21 @@ namespace Pulumi.Aws.Connect
 
         [OutputConstructor]
         private GetContactFlowResult(
-            string arn,
+            string? arn,
 
-            string contactFlowId,
+            string? contactFlowId,
 
-            string content,
+            string? content,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string instanceId,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? type)
         {

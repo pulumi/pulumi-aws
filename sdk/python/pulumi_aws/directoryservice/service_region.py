@@ -344,7 +344,7 @@ class ServiceRegion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
-    def desired_number_of_domain_controllers(self) -> pulumi.Output[int]:
+    def desired_number_of_domain_controllers(self) -> pulumi.Output[Optional[int]]:
         """
         The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         """

@@ -57,17 +57,17 @@ type ImagePipeline struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the image pipeline.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the container recipe.
 	ContainerRecipeArn pulumi.StringPtrOutput `pulumi:"containerRecipeArn"`
 	// Date the image pipeline was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
+	DateCreated pulumi.StringPtrOutput `pulumi:"dateCreated"`
 	// Date the image pipeline was last run.
-	DateLastRun pulumi.StringOutput `pulumi:"dateLastRun"`
+	DateLastRun pulumi.StringPtrOutput `pulumi:"dateLastRun"`
 	// Date the image pipeline will run next.
-	DateNextRun pulumi.StringOutput `pulumi:"dateNextRun"`
+	DateNextRun pulumi.StringPtrOutput `pulumi:"dateNextRun"`
 	// Date the image pipeline was updated.
-	DateUpdated pulumi.StringOutput `pulumi:"dateUpdated"`
+	DateUpdated pulumi.StringPtrOutput `pulumi:"dateUpdated"`
 	// Description of the image pipeline.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
@@ -77,9 +77,9 @@ type ImagePipeline struct {
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
 	// Configuration block with image scanning configuration. Detailed below.
-	ImageScanningConfiguration ImagePipelineImageScanningConfigurationOutput `pulumi:"imageScanningConfiguration"`
+	ImageScanningConfiguration ImagePipelineImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
-	ImageTestsConfiguration ImagePipelineImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
+	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrOutput `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
 	// Name of the image pipeline.
@@ -87,7 +87,7 @@ type ImagePipeline struct {
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Platform of the image pipeline.
-	Platform pulumi.StringOutput `pulumi:"platform"`
+	Platform pulumi.StringPtrOutput `pulumi:"platform"`
 	// Configuration block with schedule settings. Detailed below.
 	Schedule ImagePipelineSchedulePtrOutput `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -377,8 +377,8 @@ func (o ImagePipelineOutput) ToImagePipelineOutputWithContext(ctx context.Contex
 }
 
 // Amazon Resource Name (ARN) of the image pipeline.
-func (o ImagePipelineOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ImagePipelineOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the container recipe.
@@ -387,23 +387,23 @@ func (o ImagePipelineOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
 }
 
 // Date the image pipeline was created.
-func (o ImagePipelineOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
+func (o ImagePipelineOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Date the image pipeline was last run.
-func (o ImagePipelineOutput) DateLastRun() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.DateLastRun }).(pulumi.StringOutput)
+func (o ImagePipelineOutput) DateLastRun() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.DateLastRun }).(pulumi.StringPtrOutput)
 }
 
 // Date the image pipeline will run next.
-func (o ImagePipelineOutput) DateNextRun() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.DateNextRun }).(pulumi.StringOutput)
+func (o ImagePipelineOutput) DateNextRun() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.DateNextRun }).(pulumi.StringPtrOutput)
 }
 
 // Date the image pipeline was updated.
-func (o ImagePipelineOutput) DateUpdated() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.DateUpdated }).(pulumi.StringOutput)
+func (o ImagePipelineOutput) DateUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.DateUpdated }).(pulumi.StringPtrOutput)
 }
 
 // Description of the image pipeline.
@@ -427,15 +427,15 @@ func (o ImagePipelineOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 }
 
 // Configuration block with image scanning configuration. Detailed below.
-func (o ImagePipelineOutput) ImageScanningConfiguration() ImagePipelineImageScanningConfigurationOutput {
-	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageScanningConfigurationOutput {
+func (o ImagePipelineOutput) ImageScanningConfiguration() ImagePipelineImageScanningConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageScanningConfigurationPtrOutput {
 		return v.ImageScanningConfiguration
-	}).(ImagePipelineImageScanningConfigurationOutput)
+	}).(ImagePipelineImageScanningConfigurationPtrOutput)
 }
 
 // Configuration block with image tests configuration. Detailed below.
-func (o ImagePipelineOutput) ImageTestsConfiguration() ImagePipelineImageTestsConfigurationOutput {
-	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageTestsConfigurationOutput { return v.ImageTestsConfiguration }).(ImagePipelineImageTestsConfigurationOutput)
+func (o ImagePipelineOutput) ImageTestsConfiguration() ImagePipelineImageTestsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageTestsConfigurationPtrOutput { return v.ImageTestsConfiguration }).(ImagePipelineImageTestsConfigurationPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -451,8 +451,8 @@ func (o ImagePipelineOutput) Name() pulumi.StringOutput {
 }
 
 // Platform of the image pipeline.
-func (o ImagePipelineOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+func (o ImagePipelineOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block with schedule settings. Detailed below.

@@ -148,7 +148,7 @@ namespace Pulumi.Aws.CodePipeline
         /// The CodePipeline webhook's ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.CodePipeline
         /// The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>

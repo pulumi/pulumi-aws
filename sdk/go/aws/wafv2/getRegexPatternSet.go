@@ -60,12 +60,12 @@ type LookupRegexPatternSetArgs struct {
 // A collection of values returned by getRegexPatternSet.
 type LookupRegexPatternSetResult struct {
 	// ARN of the entity.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the set that helps with identification.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
 	RegularExpressions []GetRegexPatternSetRegularExpression `pulumi:"regularExpressions"`
 	Scope              string                                `pulumi:"scope"`
@@ -112,18 +112,18 @@ func (o LookupRegexPatternSetResultOutput) ToLookupRegexPatternSetResultOutputWi
 }
 
 // ARN of the entity.
-func (o LookupRegexPatternSetResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRegexPatternSetResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupRegexPatternSetResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegexPatternSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the set that helps with identification.
-func (o LookupRegexPatternSetResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRegexPatternSetResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupRegexPatternSetResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegexPatternSetResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupRegexPatternSetResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRegexPatternSetResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupRegexPatternSetResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegexPatternSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRegexPatternSetResultOutput) Name() pulumi.StringOutput {

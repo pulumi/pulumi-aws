@@ -110,7 +110,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of cluster
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      */
@@ -126,7 +126,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     /**
      * A custom endpoint for the Aurora cluster
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
      */

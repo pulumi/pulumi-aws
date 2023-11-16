@@ -120,7 +120,7 @@ export class HealthCheck extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Health Check.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
      */
@@ -149,11 +149,11 @@ export class HealthCheck extends pulumi.CustomResource {
     /**
      * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
      */
-    public readonly enableSni!: pulumi.Output<boolean>;
+    public readonly enableSni!: pulumi.Output<boolean | undefined>;
     /**
      * The number of consecutive health checks that an endpoint must pass or fail.
      */
-    public readonly failureThreshold!: pulumi.Output<number>;
+    public readonly failureThreshold!: pulumi.Output<number | undefined>;
     /**
      * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */

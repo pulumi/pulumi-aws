@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientP
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation {
-    private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames;
-    private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust> trusts;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames;
+    private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust> trusts;
 
     private GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation() {}
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames() {
-        return this.subjectAlternativeNames;
+        return this.subjectAlternativeNames == null ? List.of() : this.subjectAlternativeNames;
     }
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust> trusts() {
-        return this.trusts;
+        return this.trusts == null ? List.of() : this.trusts;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames;
-        private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust> trusts;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames;
+        private @Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust> trusts;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation {
         }
 
         @CustomType.Setter
-        public Builder subjectAlternativeNames(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+        public Builder subjectAlternativeNames(@Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames) {
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
         @CustomType.Setter
-        public Builder trusts(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust> trusts) {
-            this.trusts = Objects.requireNonNull(trusts);
+        public Builder trusts(@Nullable List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust> trusts) {
+            this.trusts = trusts;
             return this;
         }
         public Builder trusts(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust... trusts) {

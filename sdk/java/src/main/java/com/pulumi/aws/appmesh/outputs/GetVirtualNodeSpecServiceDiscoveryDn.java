@@ -6,22 +6,24 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecServiceDiscoveryDn {
-    private String hostname;
-    private String ipPreference;
-    private String responseType;
+    private @Nullable String hostname;
+    private @Nullable String ipPreference;
+    private @Nullable String responseType;
 
     private GetVirtualNodeSpecServiceDiscoveryDn() {}
-    public String hostname() {
-        return this.hostname;
+    public Optional<String> hostname() {
+        return Optional.ofNullable(this.hostname);
     }
-    public String ipPreference() {
-        return this.ipPreference;
+    public Optional<String> ipPreference() {
+        return Optional.ofNullable(this.ipPreference);
     }
-    public String responseType() {
-        return this.responseType;
+    public Optional<String> responseType() {
+        return Optional.ofNullable(this.responseType);
     }
 
     public static Builder builder() {
@@ -33,9 +35,9 @@ public final class GetVirtualNodeSpecServiceDiscoveryDn {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String hostname;
-        private String ipPreference;
-        private String responseType;
+        private @Nullable String hostname;
+        private @Nullable String ipPreference;
+        private @Nullable String responseType;
         public Builder() {}
         public Builder(GetVirtualNodeSpecServiceDiscoveryDn defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,18 +47,18 @@ public final class GetVirtualNodeSpecServiceDiscoveryDn {
         }
 
         @CustomType.Setter
-        public Builder hostname(String hostname) {
-            this.hostname = Objects.requireNonNull(hostname);
+        public Builder hostname(@Nullable String hostname) {
+            this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
-        public Builder ipPreference(String ipPreference) {
-            this.ipPreference = Objects.requireNonNull(ipPreference);
+        public Builder ipPreference(@Nullable String ipPreference) {
+            this.ipPreference = ipPreference;
             return this;
         }
         @CustomType.Setter
-        public Builder responseType(String responseType) {
-            this.responseType = Objects.requireNonNull(responseType);
+        public Builder responseType(@Nullable String responseType) {
+            this.responseType = responseType;
             return this;
         }
         public GetVirtualNodeSpecServiceDiscoveryDn build() {

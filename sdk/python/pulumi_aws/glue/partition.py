@@ -403,7 +403,7 @@ class Partition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> pulumi.Output[str]:
+    def catalog_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         """
@@ -411,7 +411,7 @@ class Partition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time at which the partition was created.
         """
@@ -427,7 +427,7 @@ class Partition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastAccessedTime")
-    def last_accessed_time(self) -> pulumi.Output[str]:
+    def last_accessed_time(self) -> pulumi.Output[Optional[str]]:
         """
         The last time at which the partition was accessed.
         """
@@ -435,7 +435,7 @@ class Partition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastAnalyzedTime")
-    def last_analyzed_time(self) -> pulumi.Output[str]:
+    def last_analyzed_time(self) -> pulumi.Output[Optional[str]]:
         """
         The last time at which column statistics were computed for this partition.
         """

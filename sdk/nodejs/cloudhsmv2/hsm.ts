@@ -63,7 +63,7 @@ export class Hsm extends pulumi.CustomResource {
     /**
      * The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
      */
@@ -71,23 +71,23 @@ export class Hsm extends pulumi.CustomResource {
     /**
      * The id of the ENI interface allocated for HSM module.
      */
-    public /*out*/ readonly hsmEniId!: pulumi.Output<string>;
+    public /*out*/ readonly hsmEniId!: pulumi.Output<string | undefined>;
     /**
      * The id of the HSM module.
      */
-    public /*out*/ readonly hsmId!: pulumi.Output<string>;
+    public /*out*/ readonly hsmId!: pulumi.Output<string | undefined>;
     /**
      * The state of the HSM module.
      */
-    public /*out*/ readonly hsmState!: pulumi.Output<string>;
+    public /*out*/ readonly hsmState!: pulumi.Output<string | undefined>;
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Hsm resource with the given unique name, arguments, and options.

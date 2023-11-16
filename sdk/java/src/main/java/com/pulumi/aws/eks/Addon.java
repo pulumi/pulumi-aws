@@ -197,29 +197,29 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="addonVersion", refs={String.class}, tree="[0]")
-    private Output<String> addonVersion;
+    private Output</* @Nullable */ String> addonVersion;
 
     /**
      * @return The version of the EKS add-on. The version must
      * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      * 
      */
-    public Output<String> addonVersion() {
-        return this.addonVersion;
+    public Output<Optional<String>> addonVersion() {
+        return Codegen.optional(this.addonVersion);
     }
     /**
      * Amazon Resource Name (ARN) of the EKS add-on.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the EKS add-on.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -244,42 +244,42 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configurationValues", refs={String.class}, tree="[0]")
-    private Output<String> configurationValues;
+    private Output</* @Nullable */ String> configurationValues;
 
     /**
      * @return custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      * 
      */
-    public Output<String> configurationValues() {
-        return this.configurationValues;
+    public Output<Optional<String>> configurationValues() {
+        return Codegen.optional(this.configurationValues);
     }
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
     @Export(name="modifiedAt", refs={String.class}, tree="[0]")
-    private Output<String> modifiedAt;
+    private Output</* @Nullable */ String> modifiedAt;
 
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
-    public Output<String> modifiedAt() {
-        return this.modifiedAt;
+    public Output<Optional<String>> modifiedAt() {
+        return Codegen.optional(this.modifiedAt);
     }
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.

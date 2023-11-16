@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Kendra
         /// ARN of the Experience.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.ExperienceConfiguration> Configuration { get; private set; } = null!;
+        public Output<Outputs.ExperienceConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// A description for your Amazon Kendra experience.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Kendra
         /// The unique identifier of the experience.
         /// </summary>
         [Output("experienceId")]
-        public Output<string> ExperienceId { get; private set; } = null!;
+        public Output<string?> ExperienceId { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the index for your Amazon Kendra experience.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Kendra
         /// The current processing status of your Amazon Kendra experience.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

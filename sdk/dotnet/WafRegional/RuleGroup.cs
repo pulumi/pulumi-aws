@@ -68,7 +68,7 @@ namespace Pulumi.Aws.WafRegional
         /// The ARN of the WAF Regional Rule Group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A friendly name for the metrics from the rule group

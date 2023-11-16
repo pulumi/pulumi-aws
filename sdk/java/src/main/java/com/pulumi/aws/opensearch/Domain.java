@@ -455,84 +455,84 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accessPolicies", refs={String.class}, tree="[0]")
-    private Output<String> accessPolicies;
+    private Output</* @Nullable */ String> accessPolicies;
 
     /**
      * @return IAM policy document specifying the access policies for the domain.
      * 
      */
-    public Output<String> accessPolicies() {
-        return this.accessPolicies;
+    public Output<Optional<String>> accessPolicies() {
+        return Codegen.optional(this.accessPolicies);
     }
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
      * 
      */
     @Export(name="advancedOptions", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> advancedOptions;
+    private Output</* @Nullable */ Map<String,String>> advancedOptions;
 
     /**
      * @return Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
      * 
      */
-    public Output<Map<String,String>> advancedOptions() {
-        return this.advancedOptions;
+    public Output<Optional<Map<String,String>>> advancedOptions() {
+        return Codegen.optional(this.advancedOptions);
     }
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      * 
      */
     @Export(name="advancedSecurityOptions", refs={DomainAdvancedSecurityOptions.class}, tree="[0]")
-    private Output<DomainAdvancedSecurityOptions> advancedSecurityOptions;
+    private Output</* @Nullable */ DomainAdvancedSecurityOptions> advancedSecurityOptions;
 
     /**
      * @return Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      * 
      */
-    public Output<DomainAdvancedSecurityOptions> advancedSecurityOptions() {
-        return this.advancedSecurityOptions;
+    public Output<Optional<DomainAdvancedSecurityOptions>> advancedSecurityOptions() {
+        return Codegen.optional(this.advancedSecurityOptions);
     }
     /**
      * ARN of the domain.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the domain.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      * 
      */
     @Export(name="autoTuneOptions", refs={DomainAutoTuneOptions.class}, tree="[0]")
-    private Output<DomainAutoTuneOptions> autoTuneOptions;
+    private Output</* @Nullable */ DomainAutoTuneOptions> autoTuneOptions;
 
     /**
      * @return Configuration block for the Auto-Tune options of the domain. Detailed below.
      * 
      */
-    public Output<DomainAutoTuneOptions> autoTuneOptions() {
-        return this.autoTuneOptions;
+    public Output<Optional<DomainAutoTuneOptions>> autoTuneOptions() {
+        return Codegen.optional(this.autoTuneOptions);
     }
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      * 
      */
     @Export(name="clusterConfig", refs={DomainClusterConfig.class}, tree="[0]")
-    private Output<DomainClusterConfig> clusterConfig;
+    private Output</* @Nullable */ DomainClusterConfig> clusterConfig;
 
     /**
      * @return Configuration block for the cluster of the domain. Detailed below.
      * 
      */
-    public Output<DomainClusterConfig> clusterConfig() {
-        return this.clusterConfig;
+    public Output<Optional<DomainClusterConfig>> clusterConfig() {
+        return Codegen.optional(this.clusterConfig);
     }
     /**
      * Configuration block for authenticating dashboard with Cognito. Detailed below.
@@ -553,42 +553,42 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dashboardEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> dashboardEndpoint;
+    private Output</* @Nullable */ String> dashboardEndpoint;
 
     /**
      * @return Domain-specific endpoint for Dashboard without https scheme.
      * 
      */
-    public Output<String> dashboardEndpoint() {
-        return this.dashboardEndpoint;
+    public Output<Optional<String>> dashboardEndpoint() {
+        return Codegen.optional(this.dashboardEndpoint);
     }
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      * 
      */
     @Export(name="domainEndpointOptions", refs={DomainDomainEndpointOptions.class}, tree="[0]")
-    private Output<DomainDomainEndpointOptions> domainEndpointOptions;
+    private Output</* @Nullable */ DomainDomainEndpointOptions> domainEndpointOptions;
 
     /**
      * @return Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      * 
      */
-    public Output<DomainDomainEndpointOptions> domainEndpointOptions() {
-        return this.domainEndpointOptions;
+    public Output<Optional<DomainDomainEndpointOptions>> domainEndpointOptions() {
+        return Codegen.optional(this.domainEndpointOptions);
     }
     /**
      * Unique identifier for the domain.
      * 
      */
     @Export(name="domainId", refs={String.class}, tree="[0]")
-    private Output<String> domainId;
+    private Output</* @Nullable */ String> domainId;
 
     /**
      * @return Unique identifier for the domain.
      * 
      */
-    public Output<String> domainId() {
-        return this.domainId;
+    public Output<Optional<String>> domainId() {
+        return Codegen.optional(this.domainId);
     }
     /**
      * Name of the domain.
@@ -613,42 +613,42 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsOptions", refs={DomainEbsOptions.class}, tree="[0]")
-    private Output<DomainEbsOptions> ebsOptions;
+    private Output</* @Nullable */ DomainEbsOptions> ebsOptions;
 
     /**
      * @return Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      * 
      */
-    public Output<DomainEbsOptions> ebsOptions() {
-        return this.ebsOptions;
+    public Output<Optional<DomainEbsOptions>> ebsOptions() {
+        return Codegen.optional(this.ebsOptions);
     }
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      * 
      */
     @Export(name="encryptAtRest", refs={DomainEncryptAtRest.class}, tree="[0]")
-    private Output<DomainEncryptAtRest> encryptAtRest;
+    private Output</* @Nullable */ DomainEncryptAtRest> encryptAtRest;
 
     /**
      * @return Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      * 
      */
-    public Output<DomainEncryptAtRest> encryptAtRest() {
-        return this.encryptAtRest;
+    public Output<Optional<DomainEncryptAtRest>> encryptAtRest() {
+        return Codegen.optional(this.encryptAtRest);
     }
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return Domain-specific endpoint used to submit index, search, and data upload requests.
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
@@ -657,7 +657,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
@@ -665,8 +665,8 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Defaults to the lastest version of OpenSearch.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
@@ -677,14 +677,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* use 'dashboard_endpoint' attribute instead */
     @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> kibanaEndpoint;
+    private Output</* @Nullable */ String> kibanaEndpoint;
 
     /**
      * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      */
-    public Output<String> kibanaEndpoint() {
-        return this.kibanaEndpoint;
+    public Output<Optional<String>> kibanaEndpoint() {
+        return Codegen.optional(this.kibanaEndpoint);
     }
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
@@ -705,28 +705,28 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="nodeToNodeEncryption", refs={DomainNodeToNodeEncryption.class}, tree="[0]")
-    private Output<DomainNodeToNodeEncryption> nodeToNodeEncryption;
+    private Output</* @Nullable */ DomainNodeToNodeEncryption> nodeToNodeEncryption;
 
     /**
      * @return Configuration block for node-to-node encryption options. Detailed below.
      * 
      */
-    public Output<DomainNodeToNodeEncryption> nodeToNodeEncryption() {
-        return this.nodeToNodeEncryption;
+    public Output<Optional<DomainNodeToNodeEncryption>> nodeToNodeEncryption() {
+        return Codegen.optional(this.nodeToNodeEncryption);
     }
     /**
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      * 
      */
     @Export(name="offPeakWindowOptions", refs={DomainOffPeakWindowOptions.class}, tree="[0]")
-    private Output<DomainOffPeakWindowOptions> offPeakWindowOptions;
+    private Output</* @Nullable */ DomainOffPeakWindowOptions> offPeakWindowOptions;
 
     /**
      * @return Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      * 
      */
-    public Output<DomainOffPeakWindowOptions> offPeakWindowOptions() {
-        return this.offPeakWindowOptions;
+    public Output<Optional<DomainOffPeakWindowOptions>> offPeakWindowOptions() {
+        return Codegen.optional(this.offPeakWindowOptions);
     }
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
@@ -747,14 +747,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="softwareUpdateOptions", refs={DomainSoftwareUpdateOptions.class}, tree="[0]")
-    private Output<DomainSoftwareUpdateOptions> softwareUpdateOptions;
+    private Output</* @Nullable */ DomainSoftwareUpdateOptions> softwareUpdateOptions;
 
     /**
      * @return Software update options for the domain. Detailed below.
      * 
      */
-    public Output<DomainSoftwareUpdateOptions> softwareUpdateOptions() {
-        return this.softwareUpdateOptions;
+    public Output<Optional<DomainSoftwareUpdateOptions>> softwareUpdateOptions() {
+        return Codegen.optional(this.softwareUpdateOptions);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

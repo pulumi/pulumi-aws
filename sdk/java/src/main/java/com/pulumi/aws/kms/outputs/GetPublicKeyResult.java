@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -15,66 +16,66 @@ public final class GetPublicKeyResult {
      * @return Key ARN of the asymmetric CMK from which the public key was downloaded.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Type of the public key that was downloaded.
      * 
      */
-    private String customerMasterKeySpec;
+    private @Nullable String customerMasterKeySpec;
     /**
      * @return Encryption algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `ENCRYPT_DECRYPT`.
      * 
      */
-    private List<String> encryptionAlgorithms;
+    private @Nullable List<String> encryptionAlgorithms;
     private @Nullable List<String> grantTokens;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String keyId;
     /**
      * @return Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
      * 
      */
-    private String keyUsage;
+    private @Nullable String keyUsage;
     /**
      * @return Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
      * 
      */
-    private String publicKey;
+    private @Nullable String publicKey;
     /**
      * @return Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
      * 
      */
-    private String publicKeyPem;
+    private @Nullable String publicKeyPem;
     /**
      * @return Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
      * 
      */
-    private List<String> signingAlgorithms;
+    private @Nullable List<String> signingAlgorithms;
 
     private GetPublicKeyResult() {}
     /**
      * @return Key ARN of the asymmetric CMK from which the public key was downloaded.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Type of the public key that was downloaded.
      * 
      */
-    public String customerMasterKeySpec() {
-        return this.customerMasterKeySpec;
+    public Optional<String> customerMasterKeySpec() {
+        return Optional.ofNullable(this.customerMasterKeySpec);
     }
     /**
      * @return Encryption algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `ENCRYPT_DECRYPT`.
      * 
      */
     public List<String> encryptionAlgorithms() {
-        return this.encryptionAlgorithms;
+        return this.encryptionAlgorithms == null ? List.of() : this.encryptionAlgorithms;
     }
     public List<String> grantTokens() {
         return this.grantTokens == null ? List.of() : this.grantTokens;
@@ -83,8 +84,8 @@ public final class GetPublicKeyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String keyId() {
         return this.keyId;
@@ -93,29 +94,29 @@ public final class GetPublicKeyResult {
      * @return Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
      * 
      */
-    public String keyUsage() {
-        return this.keyUsage;
+    public Optional<String> keyUsage() {
+        return Optional.ofNullable(this.keyUsage);
     }
     /**
      * @return Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
      * 
      */
-    public String publicKey() {
-        return this.publicKey;
+    public Optional<String> publicKey() {
+        return Optional.ofNullable(this.publicKey);
     }
     /**
      * @return Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
      * 
      */
-    public String publicKeyPem() {
-        return this.publicKeyPem;
+    public Optional<String> publicKeyPem() {
+        return Optional.ofNullable(this.publicKeyPem);
     }
     /**
      * @return Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
      * 
      */
     public List<String> signingAlgorithms() {
-        return this.signingAlgorithms;
+        return this.signingAlgorithms == null ? List.of() : this.signingAlgorithms;
     }
 
     public static Builder builder() {
@@ -127,16 +128,16 @@ public final class GetPublicKeyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String customerMasterKeySpec;
-        private List<String> encryptionAlgorithms;
+        private @Nullable String arn;
+        private @Nullable String customerMasterKeySpec;
+        private @Nullable List<String> encryptionAlgorithms;
         private @Nullable List<String> grantTokens;
-        private String id;
+        private @Nullable String id;
         private String keyId;
-        private String keyUsage;
-        private String publicKey;
-        private String publicKeyPem;
-        private List<String> signingAlgorithms;
+        private @Nullable String keyUsage;
+        private @Nullable String publicKey;
+        private @Nullable String publicKeyPem;
+        private @Nullable List<String> signingAlgorithms;
         public Builder() {}
         public Builder(GetPublicKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -153,18 +154,18 @@ public final class GetPublicKeyResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder customerMasterKeySpec(String customerMasterKeySpec) {
-            this.customerMasterKeySpec = Objects.requireNonNull(customerMasterKeySpec);
+        public Builder customerMasterKeySpec(@Nullable String customerMasterKeySpec) {
+            this.customerMasterKeySpec = customerMasterKeySpec;
             return this;
         }
         @CustomType.Setter
-        public Builder encryptionAlgorithms(List<String> encryptionAlgorithms) {
-            this.encryptionAlgorithms = Objects.requireNonNull(encryptionAlgorithms);
+        public Builder encryptionAlgorithms(@Nullable List<String> encryptionAlgorithms) {
+            this.encryptionAlgorithms = encryptionAlgorithms;
             return this;
         }
         public Builder encryptionAlgorithms(String... encryptionAlgorithms) {
@@ -179,8 +180,8 @@ public final class GetPublicKeyResult {
             return grantTokens(List.of(grantTokens));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -189,23 +190,23 @@ public final class GetPublicKeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder keyUsage(String keyUsage) {
-            this.keyUsage = Objects.requireNonNull(keyUsage);
+        public Builder keyUsage(@Nullable String keyUsage) {
+            this.keyUsage = keyUsage;
             return this;
         }
         @CustomType.Setter
-        public Builder publicKey(String publicKey) {
-            this.publicKey = Objects.requireNonNull(publicKey);
+        public Builder publicKey(@Nullable String publicKey) {
+            this.publicKey = publicKey;
             return this;
         }
         @CustomType.Setter
-        public Builder publicKeyPem(String publicKeyPem) {
-            this.publicKeyPem = Objects.requireNonNull(publicKeyPem);
+        public Builder publicKeyPem(@Nullable String publicKeyPem) {
+            this.publicKeyPem = publicKeyPem;
             return this;
         }
         @CustomType.Setter
-        public Builder signingAlgorithms(List<String> signingAlgorithms) {
-            this.signingAlgorithms = Objects.requireNonNull(signingAlgorithms);
+        public Builder signingAlgorithms(@Nullable List<String> signingAlgorithms) {
+            this.signingAlgorithms = signingAlgorithms;
             return this;
         }
         public Builder signingAlgorithms(String... signingAlgorithms) {

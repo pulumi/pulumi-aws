@@ -1336,7 +1336,7 @@ class TaskDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Full ARN of the Task Definition (including both `family` and `revision`).
         """
@@ -1344,7 +1344,7 @@ class TaskDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="arnWithoutRevision")
-    def arn_without_revision(self) -> pulumi.Output[str]:
+    def arn_without_revision(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         """
@@ -1418,7 +1418,7 @@ class TaskDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkMode")
-    def network_mode(self) -> pulumi.Output[str]:
+    def network_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         """
@@ -1458,7 +1458,7 @@ class TaskDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def revision(self) -> pulumi.Output[int]:
+    def revision(self) -> pulumi.Output[Optional[int]]:
         """
         Revision of the task in a particular family.
         """

@@ -70,7 +70,7 @@ export class S3Location extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the S3 Bucket.
      */
@@ -82,7 +82,7 @@ export class S3Location extends pulumi.CustomResource {
     /**
      * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      */
-    public readonly s3StorageClass!: pulumi.Output<string>;
+    public readonly s3StorageClass!: pulumi.Output<string | undefined>;
     /**
      * Prefix to perform actions as source or destination.
      */
@@ -97,7 +97,7 @@ export class S3Location extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a S3Location resource with the given unique name, arguments, and options.

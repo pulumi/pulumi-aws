@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ses
         /// The SES receipt filter ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The IP address or address range to filter, in CIDR notation

@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Scheduler
         /// ARN of the SQS queue specified as the destination for the dead-letter queue.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Brief description of the schedule.
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Scheduler
         /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
         /// </summary>
         [Output("groupName")]
-        public Output<string> GroupName { get; private set; } = null!;
+        public Output<string?> GroupName { get; private set; } = null!;
 
         /// <summary>
         /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Scheduler
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).

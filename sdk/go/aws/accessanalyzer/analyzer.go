@@ -95,7 +95,7 @@ type Analyzer struct {
 	// The following arguments are optional:
 	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
 	// ARN of the Analyzer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -298,8 +298,8 @@ func (o AnalyzerOutput) AnalyzerName() pulumi.StringOutput {
 }
 
 // ARN of the Analyzer.
-func (o AnalyzerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AnalyzerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analyzer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

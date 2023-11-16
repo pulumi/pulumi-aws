@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,29 +18,29 @@ public final class GetCoipPoolResult {
      * @return ARN of the COIP pool
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     private @Nullable List<GetCoipPoolFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String localGatewayRouteTableId;
+    private @Nullable String id;
+    private @Nullable String localGatewayRouteTableId;
     /**
      * @return Set of CIDR blocks in pool
      * 
      */
-    private List<String> poolCidrs;
-    private String poolId;
-    private Map<String,String> tags;
+    private @Nullable List<String> poolCidrs;
+    private @Nullable String poolId;
+    private @Nullable Map<String,String> tags;
 
     private GetCoipPoolResult() {}
     /**
      * @return ARN of the COIP pool
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public List<GetCoipPoolFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -48,24 +49,24 @@ public final class GetCoipPoolResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String localGatewayRouteTableId() {
-        return this.localGatewayRouteTableId;
+    public Optional<String> localGatewayRouteTableId() {
+        return Optional.ofNullable(this.localGatewayRouteTableId);
     }
     /**
      * @return Set of CIDR blocks in pool
      * 
      */
     public List<String> poolCidrs() {
-        return this.poolCidrs;
+        return this.poolCidrs == null ? List.of() : this.poolCidrs;
     }
-    public String poolId() {
-        return this.poolId;
+    public Optional<String> poolId() {
+        return Optional.ofNullable(this.poolId);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -77,13 +78,13 @@ public final class GetCoipPoolResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private @Nullable List<GetCoipPoolFilter> filters;
-        private String id;
-        private String localGatewayRouteTableId;
-        private List<String> poolCidrs;
-        private String poolId;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable String localGatewayRouteTableId;
+        private @Nullable List<String> poolCidrs;
+        private @Nullable String poolId;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetCoipPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,8 +98,8 @@ public final class GetCoipPoolResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -110,31 +111,31 @@ public final class GetCoipPoolResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder localGatewayRouteTableId(String localGatewayRouteTableId) {
-            this.localGatewayRouteTableId = Objects.requireNonNull(localGatewayRouteTableId);
+        public Builder localGatewayRouteTableId(@Nullable String localGatewayRouteTableId) {
+            this.localGatewayRouteTableId = localGatewayRouteTableId;
             return this;
         }
         @CustomType.Setter
-        public Builder poolCidrs(List<String> poolCidrs) {
-            this.poolCidrs = Objects.requireNonNull(poolCidrs);
+        public Builder poolCidrs(@Nullable List<String> poolCidrs) {
+            this.poolCidrs = poolCidrs;
             return this;
         }
         public Builder poolCidrs(String... poolCidrs) {
             return poolCidrs(List.of(poolCidrs));
         }
         @CustomType.Setter
-        public Builder poolId(String poolId) {
-            this.poolId = Objects.requireNonNull(poolId);
+        public Builder poolId(@Nullable String poolId) {
+            this.poolId = poolId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetCoipPoolResult build() {

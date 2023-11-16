@@ -93,7 +93,7 @@ type RegistryPolicy struct {
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The registry ID where the registry was created.
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	RegistryId pulumi.StringPtrOutput `pulumi:"registryId"`
 }
 
 // NewRegistryPolicy registers a new resource with the given unique name, arguments, and options.
@@ -250,8 +250,8 @@ func (o RegistryPolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // The registry ID where the registry was created.
-func (o RegistryPolicyOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+func (o RegistryPolicyOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringPtrOutput { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 type RegistryPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -58,70 +58,70 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
     /**
      * @return Timestamp when the access group was created.
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * Timestamp when the access group was deleted.
      * 
      */
     @Export(name="deletionTime", refs={String.class}, tree="[0]")
-    private Output<String> deletionTime;
+    private Output</* @Nullable */ String> deletionTime;
 
     /**
      * @return Timestamp when the access group was deleted.
      * 
      */
-    public Output<String> deletionTime() {
-        return this.deletionTime;
+    public Output<Optional<String>> deletionTime() {
+        return Codegen.optional(this.deletionTime);
     }
     /**
      * Description of the verified access group.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description of the verified access group.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Timestamp when the access group was last updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
+    private Output</* @Nullable */ String> lastUpdatedTime;
 
     /**
      * @return Timestamp when the access group was last updated.
      * 
      */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Output<Optional<String>> lastUpdatedTime() {
+        return Codegen.optional(this.lastUpdatedTime);
     }
     /**
      * AWS account number owning this resource.
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return AWS account number owning this resource.
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDocument;
@@ -160,28 +160,28 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="verifiedaccessGroupArn", refs={String.class}, tree="[0]")
-    private Output<String> verifiedaccessGroupArn;
+    private Output</* @Nullable */ String> verifiedaccessGroupArn;
 
     /**
      * @return ARN of this verified acess group.
      * 
      */
-    public Output<String> verifiedaccessGroupArn() {
-        return this.verifiedaccessGroupArn;
+    public Output<Optional<String>> verifiedaccessGroupArn() {
+        return Codegen.optional(this.verifiedaccessGroupArn);
     }
     /**
      * ID of this verified access group.
      * 
      */
     @Export(name="verifiedaccessGroupId", refs={String.class}, tree="[0]")
-    private Output<String> verifiedaccessGroupId;
+    private Output</* @Nullable */ String> verifiedaccessGroupId;
 
     /**
      * @return ID of this verified access group.
      * 
      */
-    public Output<String> verifiedaccessGroupId() {
-        return this.verifiedaccessGroupId;
+    public Output<Optional<String>> verifiedaccessGroupId() {
+        return Codegen.optional(this.verifiedaccessGroupId);
     }
     /**
      * The id of the verified access instance this group is associated with.

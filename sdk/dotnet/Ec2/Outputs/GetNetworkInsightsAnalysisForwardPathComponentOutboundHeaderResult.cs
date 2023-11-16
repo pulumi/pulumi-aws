@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly ImmutableArray<string> DestinationAddresses;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult> DestinationPortRanges;
-        public readonly string Protocol;
+        public readonly string? Protocol;
         public readonly ImmutableArray<string> SourceAddresses;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeResult> SourcePortRanges;
 
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult> destinationPortRanges,
 
-            string protocol,
+            string? protocol,
 
             ImmutableArray<string> sourceAddresses,
 

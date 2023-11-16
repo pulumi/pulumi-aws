@@ -102,79 +102,79 @@ export interface GetSnapshotResult {
     /**
      * Allocated storage size in gigabytes (GB).
      */
-    readonly allocatedStorage: number;
+    readonly allocatedStorage?: number;
     /**
      * Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      */
-    readonly availabilityZone: string;
+    readonly availabilityZone?: string;
     readonly dbInstanceIdentifier?: string;
     /**
      * ARN for the DB snapshot.
      */
-    readonly dbSnapshotArn: string;
+    readonly dbSnapshotArn?: string;
     readonly dbSnapshotIdentifier?: string;
     /**
      * Whether the DB snapshot is encrypted.
      */
-    readonly encrypted: boolean;
+    readonly encrypted?: boolean;
     /**
      * Name of the database engine.
      */
-    readonly engine: string;
+    readonly engine?: string;
     /**
      * Version of the database engine.
      */
-    readonly engineVersion: string;
+    readonly engineVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
      * Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      */
-    readonly iops: number;
+    readonly iops?: number;
     /**
      * ARN for the KMS encryption key.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     /**
      * License model information for the restored DB instance.
      */
-    readonly licenseModel: string;
+    readonly licenseModel?: string;
     readonly mostRecent?: boolean;
     /**
      * Provides the option group name for the DB snapshot.
      */
-    readonly optionGroupName: string;
-    readonly port: number;
+    readonly optionGroupName?: string;
+    readonly port?: number;
     /**
      * Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
      */
-    readonly snapshotCreateTime: string;
+    readonly snapshotCreateTime?: string;
     readonly snapshotType?: string;
     /**
      * DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      */
-    readonly sourceDbSnapshotIdentifier: string;
+    readonly sourceDbSnapshotIdentifier?: string;
     /**
      * Region that the DB snapshot was created in or copied from.
      */
-    readonly sourceRegion: string;
+    readonly sourceRegion?: string;
     /**
      * Status of this DB snapshot.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Storage type associated with DB snapshot.
      */
-    readonly storageType: string;
-    readonly tags: {[key: string]: string};
+    readonly storageType?: string;
+    readonly tags?: {[key: string]: string};
     /**
      * ID of the VPC associated with the DB snapshot.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
 }
 /**
  * Use this data source to get information about a DB Snapshot for use when provisioning DB instances

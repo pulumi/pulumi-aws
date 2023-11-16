@@ -143,9 +143,9 @@ type BudgetAction struct {
 	pulumi.CustomResourceState
 
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// The id of the budget action.
-	ActionId pulumi.StringOutput `pulumi:"actionId"`
+	ActionId pulumi.StringPtrOutput `pulumi:"actionId"`
 	// The trigger threshold of the action. See Action Threshold.
 	ActionThreshold BudgetActionActionThresholdOutput `pulumi:"actionThreshold"`
 	// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
@@ -153,7 +153,7 @@ type BudgetAction struct {
 	// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
 	ApprovalModel pulumi.StringOutput `pulumi:"approvalModel"`
 	// The ARN of the budget action.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of a budget.
 	BudgetName pulumi.StringOutput `pulumi:"budgetName"`
 	// Specifies all of the type-specific parameters. See Definition.
@@ -163,7 +163,7 @@ type BudgetAction struct {
 	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
 	// The status of the budget action.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A list of subscribers. See Subscriber.
 	Subscribers BudgetActionSubscriberArrayOutput `pulumi:"subscribers"`
 }
@@ -410,13 +410,13 @@ func (o BudgetActionOutput) ToBudgetActionOutputWithContext(ctx context.Context)
 }
 
 // The ID of the target account for budget. Will use current user's accountId by default if omitted.
-func (o BudgetActionOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+func (o BudgetActionOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetAction) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // The id of the budget action.
-func (o BudgetActionOutput) ActionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.ActionId }).(pulumi.StringOutput)
+func (o BudgetActionOutput) ActionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetAction) pulumi.StringPtrOutput { return v.ActionId }).(pulumi.StringPtrOutput)
 }
 
 // The trigger threshold of the action. See Action Threshold.
@@ -435,8 +435,8 @@ func (o BudgetActionOutput) ApprovalModel() pulumi.StringOutput {
 }
 
 // The ARN of the budget action.
-func (o BudgetActionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BudgetActionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetAction) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of a budget.
@@ -460,8 +460,8 @@ func (o BudgetActionOutput) NotificationType() pulumi.StringOutput {
 }
 
 // The status of the budget action.
-func (o BudgetActionOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o BudgetActionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetAction) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A list of subscribers. See Subscriber.

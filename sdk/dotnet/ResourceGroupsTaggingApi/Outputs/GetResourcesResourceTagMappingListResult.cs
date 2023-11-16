@@ -20,19 +20,19 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi.Outputs
         /// <summary>
         /// ARN of the resource.
         /// </summary>
-        public readonly string ResourceArn;
+        public readonly string? ResourceArn;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetResourcesResourceTagMappingListResult(
             ImmutableArray<Outputs.GetResourcesResourceTagMappingListComplianceDetailResult> complianceDetails,
 
-            string resourceArn,
+            string? resourceArn,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             ComplianceDetails = complianceDetails;
             ResourceArn = resourceArn;

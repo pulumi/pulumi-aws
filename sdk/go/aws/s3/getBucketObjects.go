@@ -56,7 +56,7 @@ type GetBucketObjectsResult struct {
 	EncodingType   *string  `pulumi:"encodingType"`
 	FetchOwner     *bool    `pulumi:"fetchOwner"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of strings representing object keys
 	Keys    []string `pulumi:"keys"`
 	MaxKeys *int     `pulumi:"maxKeys"`
@@ -141,8 +141,8 @@ func (o GetBucketObjectsResultOutput) FetchOwner() pulumi.BoolPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetBucketObjectsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketObjectsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetBucketObjectsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBucketObjectsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of strings representing object keys

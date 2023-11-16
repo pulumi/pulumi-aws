@@ -66,13 +66,13 @@ namespace Pulumi.Aws.ResourceExplorer
         /// Amazon Resource Name (ARN) of the Resource Explorer view.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
         /// </summary>
         [Output("defaultView")]
-        public Output<bool> DefaultView { get; private set; } = null!;
+        public Output<bool?> DefaultView { get; private set; } = null!;
 
         /// <summary>
         /// Specifies which resources are included in the results of queries made using this view. See Filters below for more details.

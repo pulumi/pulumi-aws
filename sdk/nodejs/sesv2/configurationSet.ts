@@ -79,7 +79,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * ARN of the Configuration Set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the configuration set.
      */
@@ -91,11 +91,11 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      */
-    public readonly reputationOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetReputationOptions>;
+    public readonly reputationOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetReputationOptions | undefined>;
     /**
      * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
      */
-    public readonly sendingOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetSendingOptions>;
+    public readonly sendingOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetSendingOptions | undefined>;
     /**
      * An object that contains information about the suppression list preferences for your account.
      */

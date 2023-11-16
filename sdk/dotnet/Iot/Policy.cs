@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Iot
         /// The ARN assigned by AWS to this policy.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The default version of this policy.
         /// </summary>
         [Output("defaultVersionId")]
-        public Output<string> DefaultVersionId { get; private set; } = null!;
+        public Output<string?> DefaultVersionId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the policy.

@@ -56,11 +56,11 @@ type MemberAssociation struct {
 	// ID of the account to associate
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Account ID of the delegated administrator account
-	DelegatedAdminAccountId pulumi.StringOutput `pulumi:"delegatedAdminAccountId"`
+	DelegatedAdminAccountId pulumi.StringPtrOutput `pulumi:"delegatedAdminAccountId"`
 	// Status of the member relationship
-	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
+	RelationshipStatus pulumi.StringPtrOutput `pulumi:"relationshipStatus"`
 	// Date and time of the last update of the relationship
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	UpdatedAt pulumi.StringPtrOutput `pulumi:"updatedAt"`
 }
 
 // NewMemberAssociation registers a new resource with the given unique name, arguments, and options.
@@ -225,18 +225,18 @@ func (o MemberAssociationOutput) AccountId() pulumi.StringOutput {
 }
 
 // Account ID of the delegated administrator account
-func (o MemberAssociationOutput) DelegatedAdminAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.DelegatedAdminAccountId }).(pulumi.StringOutput)
+func (o MemberAssociationOutput) DelegatedAdminAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberAssociation) pulumi.StringPtrOutput { return v.DelegatedAdminAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Status of the member relationship
-func (o MemberAssociationOutput) RelationshipStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
+func (o MemberAssociationOutput) RelationshipStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberAssociation) pulumi.StringPtrOutput { return v.RelationshipStatus }).(pulumi.StringPtrOutput)
 }
 
 // Date and time of the last update of the relationship
-func (o MemberAssociationOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o MemberAssociationOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberAssociation) pulumi.StringPtrOutput { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 type MemberAssociationArrayOutput struct{ *pulumi.OutputState }

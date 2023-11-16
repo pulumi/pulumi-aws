@@ -20,19 +20,19 @@ namespace Pulumi.Aws.DataPipeline.Outputs
         /// <summary>
         /// ID of the object.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the storage connector.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetPipelineDefinitionPipelineObjectResult(
             ImmutableArray<Outputs.GetPipelineDefinitionPipelineObjectFieldResult> fields,
 
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             Fields = fields;
             Id = id;

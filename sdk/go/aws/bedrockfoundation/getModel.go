@@ -63,22 +63,22 @@ type GetModelArgs struct {
 type GetModelResult struct {
 	// Customizations that the model supports.
 	CustomizationsSupporteds []string `pulumi:"customizationsSupporteds"`
-	Id                       string   `pulumi:"id"`
+	Id                       *string  `pulumi:"id"`
 	// Inference types that the model supports.
 	InferenceTypesSupporteds []string `pulumi:"inferenceTypesSupporteds"`
 	// Input modalities that the model supports.
 	InputModalities []string `pulumi:"inputModalities"`
 	// Model ARN.
-	ModelArn string `pulumi:"modelArn"`
-	ModelId  string `pulumi:"modelId"`
+	ModelArn *string `pulumi:"modelArn"`
+	ModelId  string  `pulumi:"modelId"`
 	// Model name.
-	ModelName string `pulumi:"modelName"`
+	ModelName *string `pulumi:"modelName"`
 	// Output modalities that the model supports.
 	OutputModalities []string `pulumi:"outputModalities"`
 	// Model provider name.
-	ProviderName string `pulumi:"providerName"`
+	ProviderName *string `pulumi:"providerName"`
 	// Indicates whether the model supports streaming.
-	ResponseStreamingSupported bool `pulumi:"responseStreamingSupported"`
+	ResponseStreamingSupported *bool `pulumi:"responseStreamingSupported"`
 }
 
 func GetModelOutput(ctx *pulumi.Context, args GetModelOutputArgs, opts ...pulumi.InvokeOption) GetModelResultOutput {
@@ -124,8 +124,8 @@ func (o GetModelResultOutput) CustomizationsSupporteds() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v GetModelResult) []string { return v.CustomizationsSupporteds }).(pulumi.StringArrayOutput)
 }
 
-func (o GetModelResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetModelResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetModelResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetModelResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Inference types that the model supports.
@@ -139,8 +139,8 @@ func (o GetModelResultOutput) InputModalities() pulumi.StringArrayOutput {
 }
 
 // Model ARN.
-func (o GetModelResultOutput) ModelArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetModelResult) string { return v.ModelArn }).(pulumi.StringOutput)
+func (o GetModelResultOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetModelResult) *string { return v.ModelArn }).(pulumi.StringPtrOutput)
 }
 
 func (o GetModelResultOutput) ModelId() pulumi.StringOutput {
@@ -148,8 +148,8 @@ func (o GetModelResultOutput) ModelId() pulumi.StringOutput {
 }
 
 // Model name.
-func (o GetModelResultOutput) ModelName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetModelResult) string { return v.ModelName }).(pulumi.StringOutput)
+func (o GetModelResultOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetModelResult) *string { return v.ModelName }).(pulumi.StringPtrOutput)
 }
 
 // Output modalities that the model supports.
@@ -158,13 +158,13 @@ func (o GetModelResultOutput) OutputModalities() pulumi.StringArrayOutput {
 }
 
 // Model provider name.
-func (o GetModelResultOutput) ProviderName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetModelResult) string { return v.ProviderName }).(pulumi.StringOutput)
+func (o GetModelResultOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetModelResult) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the model supports streaming.
-func (o GetModelResultOutput) ResponseStreamingSupported() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetModelResult) bool { return v.ResponseStreamingSupported }).(pulumi.BoolOutput)
+func (o GetModelResultOutput) ResponseStreamingSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetModelResult) *bool { return v.ResponseStreamingSupported }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

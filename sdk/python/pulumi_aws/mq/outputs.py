@@ -515,236 +515,263 @@ class BrokerUser(dict):
 @pulumi.output_type
 class GetBrokerConfigurationResult(dict):
     def __init__(__self__, *,
-                 id: str,
-                 revision: int):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "revision", revision)
+                 id: Optional[str] = None,
+                 revision: Optional[int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def revision(self) -> int:
+    def revision(self) -> Optional[int]:
         return pulumi.get(self, "revision")
 
 
 @pulumi.output_type
 class GetBrokerEncryptionOptionResult(dict):
     def __init__(__self__, *,
-                 kms_key_id: str,
-                 use_aws_owned_key: bool):
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "use_aws_owned_key", use_aws_owned_key)
+                 kms_key_id: Optional[str] = None,
+                 use_aws_owned_key: Optional[bool] = None):
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if use_aws_owned_key is not None:
+            pulumi.set(__self__, "use_aws_owned_key", use_aws_owned_key)
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="useAwsOwnedKey")
-    def use_aws_owned_key(self) -> bool:
+    def use_aws_owned_key(self) -> Optional[bool]:
         return pulumi.get(self, "use_aws_owned_key")
 
 
 @pulumi.output_type
 class GetBrokerInstanceResult(dict):
     def __init__(__self__, *,
-                 console_url: str,
-                 endpoints: Sequence[str],
-                 ip_address: str):
-        pulumi.set(__self__, "console_url", console_url)
-        pulumi.set(__self__, "endpoints", endpoints)
-        pulumi.set(__self__, "ip_address", ip_address)
+                 console_url: Optional[str] = None,
+                 endpoints: Optional[Sequence[str]] = None,
+                 ip_address: Optional[str] = None):
+        if console_url is not None:
+            pulumi.set(__self__, "console_url", console_url)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
 
     @property
     @pulumi.getter(name="consoleUrl")
-    def console_url(self) -> str:
+    def console_url(self) -> Optional[str]:
         return pulumi.get(self, "console_url")
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Sequence[str]:
+    def endpoints(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
+    def ip_address(self) -> Optional[str]:
         return pulumi.get(self, "ip_address")
 
 
 @pulumi.output_type
 class GetBrokerLdapServerMetadataResult(dict):
     def __init__(__self__, *,
-                 hosts: Sequence[str],
-                 role_base: str,
-                 role_name: str,
-                 role_search_matching: str,
-                 role_search_subtree: bool,
-                 service_account_password: str,
-                 service_account_username: str,
-                 user_base: str,
-                 user_role_name: str,
-                 user_search_matching: str,
-                 user_search_subtree: bool):
-        pulumi.set(__self__, "hosts", hosts)
-        pulumi.set(__self__, "role_base", role_base)
-        pulumi.set(__self__, "role_name", role_name)
-        pulumi.set(__self__, "role_search_matching", role_search_matching)
-        pulumi.set(__self__, "role_search_subtree", role_search_subtree)
-        pulumi.set(__self__, "service_account_password", service_account_password)
-        pulumi.set(__self__, "service_account_username", service_account_username)
-        pulumi.set(__self__, "user_base", user_base)
-        pulumi.set(__self__, "user_role_name", user_role_name)
-        pulumi.set(__self__, "user_search_matching", user_search_matching)
-        pulumi.set(__self__, "user_search_subtree", user_search_subtree)
+                 hosts: Optional[Sequence[str]] = None,
+                 role_base: Optional[str] = None,
+                 role_name: Optional[str] = None,
+                 role_search_matching: Optional[str] = None,
+                 role_search_subtree: Optional[bool] = None,
+                 service_account_password: Optional[str] = None,
+                 service_account_username: Optional[str] = None,
+                 user_base: Optional[str] = None,
+                 user_role_name: Optional[str] = None,
+                 user_search_matching: Optional[str] = None,
+                 user_search_subtree: Optional[bool] = None):
+        if hosts is not None:
+            pulumi.set(__self__, "hosts", hosts)
+        if role_base is not None:
+            pulumi.set(__self__, "role_base", role_base)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+        if role_search_matching is not None:
+            pulumi.set(__self__, "role_search_matching", role_search_matching)
+        if role_search_subtree is not None:
+            pulumi.set(__self__, "role_search_subtree", role_search_subtree)
+        if service_account_password is not None:
+            pulumi.set(__self__, "service_account_password", service_account_password)
+        if service_account_username is not None:
+            pulumi.set(__self__, "service_account_username", service_account_username)
+        if user_base is not None:
+            pulumi.set(__self__, "user_base", user_base)
+        if user_role_name is not None:
+            pulumi.set(__self__, "user_role_name", user_role_name)
+        if user_search_matching is not None:
+            pulumi.set(__self__, "user_search_matching", user_search_matching)
+        if user_search_subtree is not None:
+            pulumi.set(__self__, "user_search_subtree", user_search_subtree)
 
     @property
     @pulumi.getter
-    def hosts(self) -> Sequence[str]:
+    def hosts(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "hosts")
 
     @property
     @pulumi.getter(name="roleBase")
-    def role_base(self) -> str:
+    def role_base(self) -> Optional[str]:
         return pulumi.get(self, "role_base")
 
     @property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> str:
+    def role_name(self) -> Optional[str]:
         return pulumi.get(self, "role_name")
 
     @property
     @pulumi.getter(name="roleSearchMatching")
-    def role_search_matching(self) -> str:
+    def role_search_matching(self) -> Optional[str]:
         return pulumi.get(self, "role_search_matching")
 
     @property
     @pulumi.getter(name="roleSearchSubtree")
-    def role_search_subtree(self) -> bool:
+    def role_search_subtree(self) -> Optional[bool]:
         return pulumi.get(self, "role_search_subtree")
 
     @property
     @pulumi.getter(name="serviceAccountPassword")
-    def service_account_password(self) -> str:
+    def service_account_password(self) -> Optional[str]:
         return pulumi.get(self, "service_account_password")
 
     @property
     @pulumi.getter(name="serviceAccountUsername")
-    def service_account_username(self) -> str:
+    def service_account_username(self) -> Optional[str]:
         return pulumi.get(self, "service_account_username")
 
     @property
     @pulumi.getter(name="userBase")
-    def user_base(self) -> str:
+    def user_base(self) -> Optional[str]:
         return pulumi.get(self, "user_base")
 
     @property
     @pulumi.getter(name="userRoleName")
-    def user_role_name(self) -> str:
+    def user_role_name(self) -> Optional[str]:
         return pulumi.get(self, "user_role_name")
 
     @property
     @pulumi.getter(name="userSearchMatching")
-    def user_search_matching(self) -> str:
+    def user_search_matching(self) -> Optional[str]:
         return pulumi.get(self, "user_search_matching")
 
     @property
     @pulumi.getter(name="userSearchSubtree")
-    def user_search_subtree(self) -> bool:
+    def user_search_subtree(self) -> Optional[bool]:
         return pulumi.get(self, "user_search_subtree")
 
 
 @pulumi.output_type
 class GetBrokerLogsResult(dict):
     def __init__(__self__, *,
-                 audit: bool,
-                 general: bool):
-        pulumi.set(__self__, "audit", audit)
-        pulumi.set(__self__, "general", general)
+                 audit: Optional[bool] = None,
+                 general: Optional[bool] = None):
+        if audit is not None:
+            pulumi.set(__self__, "audit", audit)
+        if general is not None:
+            pulumi.set(__self__, "general", general)
 
     @property
     @pulumi.getter
-    def audit(self) -> bool:
+    def audit(self) -> Optional[bool]:
         return pulumi.get(self, "audit")
 
     @property
     @pulumi.getter
-    def general(self) -> bool:
+    def general(self) -> Optional[bool]:
         return pulumi.get(self, "general")
 
 
 @pulumi.output_type
 class GetBrokerMaintenanceWindowStartTimeResult(dict):
     def __init__(__self__, *,
-                 day_of_week: str,
-                 time_of_day: str,
-                 time_zone: str):
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "time_of_day", time_of_day)
-        pulumi.set(__self__, "time_zone", time_zone)
+                 day_of_week: Optional[str] = None,
+                 time_of_day: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if time_of_day is not None:
+            pulumi.set(__self__, "time_of_day", time_of_day)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> str:
+    def day_of_week(self) -> Optional[str]:
         return pulumi.get(self, "day_of_week")
 
     @property
     @pulumi.getter(name="timeOfDay")
-    def time_of_day(self) -> str:
+    def time_of_day(self) -> Optional[str]:
         return pulumi.get(self, "time_of_day")
 
     @property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> str:
+    def time_zone(self) -> Optional[str]:
         return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
 class GetBrokerUserResult(dict):
     def __init__(__self__, *,
-                 console_access: bool,
-                 groups: Sequence[str],
-                 replication_user: bool,
-                 username: str):
-        pulumi.set(__self__, "console_access", console_access)
-        pulumi.set(__self__, "groups", groups)
-        pulumi.set(__self__, "replication_user", replication_user)
-        pulumi.set(__self__, "username", username)
+                 console_access: Optional[bool] = None,
+                 groups: Optional[Sequence[str]] = None,
+                 replication_user: Optional[bool] = None,
+                 username: Optional[str] = None):
+        if console_access is not None:
+            pulumi.set(__self__, "console_access", console_access)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if replication_user is not None:
+            pulumi.set(__self__, "replication_user", replication_user)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="consoleAccess")
-    def console_access(self) -> bool:
+    def console_access(self) -> Optional[bool]:
         return pulumi.get(self, "console_access")
 
     @property
     @pulumi.getter
-    def groups(self) -> Sequence[str]:
+    def groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="replicationUser")
-    def replication_user(self) -> bool:
+    def replication_user(self) -> Optional[bool]:
         return pulumi.get(self, "replication_user")
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
 
 @pulumi.output_type
 class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
     def __init__(__self__, *,
-                 availability_zones: Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult'],
-                 engine_type: str,
-                 host_instance_type: str,
-                 storage_type: str,
-                 supported_deployment_modes: Sequence[str],
-                 supported_engine_versions: Sequence[str]):
+                 availability_zones: Optional[Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult']] = None,
+                 engine_type: Optional[str] = None,
+                 host_instance_type: Optional[str] = None,
+                 storage_type: Optional[str] = None,
+                 supported_deployment_modes: Optional[Sequence[str]] = None,
+                 supported_engine_versions: Optional[Sequence[str]] = None):
         """
         :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs'] availability_zones: List of available AZs. See Availability Zones. below
         :param str engine_type: Filter response by engine type.
@@ -753,16 +780,22 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
         :param Sequence[str] supported_deployment_modes: The list of supported deployment modes.
         :param Sequence[str] supported_engine_versions: The list of supported engine versions.
         """
-        pulumi.set(__self__, "availability_zones", availability_zones)
-        pulumi.set(__self__, "engine_type", engine_type)
-        pulumi.set(__self__, "host_instance_type", host_instance_type)
-        pulumi.set(__self__, "storage_type", storage_type)
-        pulumi.set(__self__, "supported_deployment_modes", supported_deployment_modes)
-        pulumi.set(__self__, "supported_engine_versions", supported_engine_versions)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if engine_type is not None:
+            pulumi.set(__self__, "engine_type", engine_type)
+        if host_instance_type is not None:
+            pulumi.set(__self__, "host_instance_type", host_instance_type)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+        if supported_deployment_modes is not None:
+            pulumi.set(__self__, "supported_deployment_modes", supported_deployment_modes)
+        if supported_engine_versions is not None:
+            pulumi.set(__self__, "supported_engine_versions", supported_engine_versions)
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult']:
+    def availability_zones(self) -> Optional[Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult']]:
         """
         List of available AZs. See Availability Zones. below
         """
@@ -770,7 +803,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
 
     @property
     @pulumi.getter(name="engineType")
-    def engine_type(self) -> str:
+    def engine_type(self) -> Optional[str]:
         """
         Filter response by engine type.
         """
@@ -778,7 +811,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
 
     @property
     @pulumi.getter(name="hostInstanceType")
-    def host_instance_type(self) -> str:
+    def host_instance_type(self) -> Optional[str]:
         """
         Filter response by host instance type.
         """
@@ -786,7 +819,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> str:
+    def storage_type(self) -> Optional[str]:
         """
         Filter response by storage type.
         """
@@ -794,7 +827,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
 
     @property
     @pulumi.getter(name="supportedDeploymentModes")
-    def supported_deployment_modes(self) -> Sequence[str]:
+    def supported_deployment_modes(self) -> Optional[Sequence[str]]:
         """
         The list of supported deployment modes.
         """
@@ -802,7 +835,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
 
     @property
     @pulumi.getter(name="supportedEngineVersions")
-    def supported_engine_versions(self) -> Sequence[str]:
+    def supported_engine_versions(self) -> Optional[Sequence[str]]:
         """
         The list of supported engine versions.
         """
@@ -812,15 +845,16 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
 @pulumi.output_type
 class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(dict):
     def __init__(__self__, *,
-                 name: str):
+                 name: Optional[str] = None):
         """
         :param str name: Name of the Availability Zone.
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the Availability Zone.
         """

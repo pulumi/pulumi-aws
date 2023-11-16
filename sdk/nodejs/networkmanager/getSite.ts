@@ -57,25 +57,25 @@ export interface GetSiteResult {
     /**
      * ARN of the site.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the site.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly globalNetworkId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Site location as documented below.
      */
-    readonly locations: outputs.networkmanager.GetSiteLocation[];
+    readonly locations?: outputs.networkmanager.GetSiteLocation[];
     readonly siteId: string;
     /**
      * Key-value tags for the Site.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Retrieve information about a site.

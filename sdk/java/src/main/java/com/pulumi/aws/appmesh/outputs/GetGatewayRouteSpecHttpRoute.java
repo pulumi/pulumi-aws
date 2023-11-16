@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttpRouteMatch;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecHttpRoute {
-    private List<GetGatewayRouteSpecHttpRouteAction> actions;
-    private List<GetGatewayRouteSpecHttpRouteMatch> matches;
+    private @Nullable List<GetGatewayRouteSpecHttpRouteAction> actions;
+    private @Nullable List<GetGatewayRouteSpecHttpRouteMatch> matches;
 
     private GetGatewayRouteSpecHttpRoute() {}
     public List<GetGatewayRouteSpecHttpRouteAction> actions() {
-        return this.actions;
+        return this.actions == null ? List.of() : this.actions;
     }
     public List<GetGatewayRouteSpecHttpRouteMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetGatewayRouteSpecHttpRoute {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGatewayRouteSpecHttpRouteAction> actions;
-        private List<GetGatewayRouteSpecHttpRouteMatch> matches;
+        private @Nullable List<GetGatewayRouteSpecHttpRouteAction> actions;
+        private @Nullable List<GetGatewayRouteSpecHttpRouteMatch> matches;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttpRoute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetGatewayRouteSpecHttpRoute {
         }
 
         @CustomType.Setter
-        public Builder actions(List<GetGatewayRouteSpecHttpRouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+        public Builder actions(@Nullable List<GetGatewayRouteSpecHttpRouteAction> actions) {
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetGatewayRouteSpecHttpRouteAction... actions) {
             return actions(List.of(actions));
         }
         @CustomType.Setter
-        public Builder matches(List<GetGatewayRouteSpecHttpRouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetGatewayRouteSpecHttpRouteMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetGatewayRouteSpecHttpRouteMatch... matches) {

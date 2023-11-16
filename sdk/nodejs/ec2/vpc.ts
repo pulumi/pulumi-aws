@@ -99,7 +99,7 @@ export class Vpc extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of VPC
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
      */
@@ -107,24 +107,24 @@ export class Vpc extends pulumi.CustomResource {
     /**
      * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      */
-    public readonly cidrBlock!: pulumi.Output<string>;
+    public readonly cidrBlock!: pulumi.Output<string | undefined>;
     /**
      * The ID of the network ACL created by default on VPC creation
      */
-    public /*out*/ readonly defaultNetworkAclId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultNetworkAclId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the route table created by default on VPC creation
      */
-    public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the security group created by default on VPC creation
      */
-    public /*out*/ readonly defaultSecurityGroupId!: pulumi.Output<string>;
-    public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultSecurityGroupId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string | undefined>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      */
-    public readonly enableDnsHostnames!: pulumi.Output<boolean>;
+    public readonly enableDnsHostnames!: pulumi.Output<boolean | undefined>;
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
      */
@@ -132,7 +132,7 @@ export class Vpc extends pulumi.CustomResource {
     /**
      * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
      */
-    public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean>;
+    public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean | undefined>;
     /**
      * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      */
@@ -148,15 +148,15 @@ export class Vpc extends pulumi.CustomResource {
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    public /*out*/ readonly ipv6AssociationId!: pulumi.Output<string>;
+    public /*out*/ readonly ipv6AssociationId!: pulumi.Output<string | undefined>;
     /**
      * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
      */
-    public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
      * By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
      */
-    public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string>;
+    public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string | undefined>;
     /**
      * IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
      */
@@ -170,11 +170,11 @@ export class Vpc extends pulumi.CustomResource {
      * this VPC. Note that you can change a VPC's main route table by using an
      * `aws.ec2.MainRouteTableAssociation`.
      */
-    public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
+    public /*out*/ readonly mainRouteTableId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the VPC.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

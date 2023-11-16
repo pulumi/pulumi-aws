@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetModelsModelSummary {
@@ -15,47 +17,47 @@ public final class GetModelsModelSummary {
      * @return Customizations that the model supports.
      * 
      */
-    private List<String> customizationsSupporteds;
+    private @Nullable List<String> customizationsSupporteds;
     /**
      * @return Inference types that the model supports.
      * 
      */
-    private List<String> inferenceTypesSupporteds;
+    private @Nullable List<String> inferenceTypesSupporteds;
     /**
      * @return Input modalities that the model supports.
      * 
      */
-    private List<String> inputModalities;
+    private @Nullable List<String> inputModalities;
     /**
      * @return Model ARN.
      * 
      */
-    private String modelArn;
+    private @Nullable String modelArn;
     /**
      * @return Model identifier.
      * 
      */
-    private String modelId;
+    private @Nullable String modelId;
     /**
      * @return Model name.
      * 
      */
-    private String modelName;
+    private @Nullable String modelName;
     /**
      * @return Output modalities that the model supports.
      * 
      */
-    private List<String> outputModalities;
+    private @Nullable List<String> outputModalities;
     /**
      * @return Model provider name.
      * 
      */
-    private String providerName;
+    private @Nullable String providerName;
     /**
      * @return Indicates whether the model supports streaming.
      * 
      */
-    private Boolean responseStreamingSupported;
+    private @Nullable Boolean responseStreamingSupported;
 
     private GetModelsModelSummary() {}
     /**
@@ -63,63 +65,63 @@ public final class GetModelsModelSummary {
      * 
      */
     public List<String> customizationsSupporteds() {
-        return this.customizationsSupporteds;
+        return this.customizationsSupporteds == null ? List.of() : this.customizationsSupporteds;
     }
     /**
      * @return Inference types that the model supports.
      * 
      */
     public List<String> inferenceTypesSupporteds() {
-        return this.inferenceTypesSupporteds;
+        return this.inferenceTypesSupporteds == null ? List.of() : this.inferenceTypesSupporteds;
     }
     /**
      * @return Input modalities that the model supports.
      * 
      */
     public List<String> inputModalities() {
-        return this.inputModalities;
+        return this.inputModalities == null ? List.of() : this.inputModalities;
     }
     /**
      * @return Model ARN.
      * 
      */
-    public String modelArn() {
-        return this.modelArn;
+    public Optional<String> modelArn() {
+        return Optional.ofNullable(this.modelArn);
     }
     /**
      * @return Model identifier.
      * 
      */
-    public String modelId() {
-        return this.modelId;
+    public Optional<String> modelId() {
+        return Optional.ofNullable(this.modelId);
     }
     /**
      * @return Model name.
      * 
      */
-    public String modelName() {
-        return this.modelName;
+    public Optional<String> modelName() {
+        return Optional.ofNullable(this.modelName);
     }
     /**
      * @return Output modalities that the model supports.
      * 
      */
     public List<String> outputModalities() {
-        return this.outputModalities;
+        return this.outputModalities == null ? List.of() : this.outputModalities;
     }
     /**
      * @return Model provider name.
      * 
      */
-    public String providerName() {
-        return this.providerName;
+    public Optional<String> providerName() {
+        return Optional.ofNullable(this.providerName);
     }
     /**
      * @return Indicates whether the model supports streaming.
      * 
      */
-    public Boolean responseStreamingSupported() {
-        return this.responseStreamingSupported;
+    public Optional<Boolean> responseStreamingSupported() {
+        return Optional.ofNullable(this.responseStreamingSupported);
     }
 
     public static Builder builder() {
@@ -131,15 +133,15 @@ public final class GetModelsModelSummary {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> customizationsSupporteds;
-        private List<String> inferenceTypesSupporteds;
-        private List<String> inputModalities;
-        private String modelArn;
-        private String modelId;
-        private String modelName;
-        private List<String> outputModalities;
-        private String providerName;
-        private Boolean responseStreamingSupported;
+        private @Nullable List<String> customizationsSupporteds;
+        private @Nullable List<String> inferenceTypesSupporteds;
+        private @Nullable List<String> inputModalities;
+        private @Nullable String modelArn;
+        private @Nullable String modelId;
+        private @Nullable String modelName;
+        private @Nullable List<String> outputModalities;
+        private @Nullable String providerName;
+        private @Nullable Boolean responseStreamingSupported;
         public Builder() {}
         public Builder(GetModelsModelSummary defaults) {
     	      Objects.requireNonNull(defaults);
@@ -155,60 +157,60 @@ public final class GetModelsModelSummary {
         }
 
         @CustomType.Setter
-        public Builder customizationsSupporteds(List<String> customizationsSupporteds) {
-            this.customizationsSupporteds = Objects.requireNonNull(customizationsSupporteds);
+        public Builder customizationsSupporteds(@Nullable List<String> customizationsSupporteds) {
+            this.customizationsSupporteds = customizationsSupporteds;
             return this;
         }
         public Builder customizationsSupporteds(String... customizationsSupporteds) {
             return customizationsSupporteds(List.of(customizationsSupporteds));
         }
         @CustomType.Setter
-        public Builder inferenceTypesSupporteds(List<String> inferenceTypesSupporteds) {
-            this.inferenceTypesSupporteds = Objects.requireNonNull(inferenceTypesSupporteds);
+        public Builder inferenceTypesSupporteds(@Nullable List<String> inferenceTypesSupporteds) {
+            this.inferenceTypesSupporteds = inferenceTypesSupporteds;
             return this;
         }
         public Builder inferenceTypesSupporteds(String... inferenceTypesSupporteds) {
             return inferenceTypesSupporteds(List.of(inferenceTypesSupporteds));
         }
         @CustomType.Setter
-        public Builder inputModalities(List<String> inputModalities) {
-            this.inputModalities = Objects.requireNonNull(inputModalities);
+        public Builder inputModalities(@Nullable List<String> inputModalities) {
+            this.inputModalities = inputModalities;
             return this;
         }
         public Builder inputModalities(String... inputModalities) {
             return inputModalities(List.of(inputModalities));
         }
         @CustomType.Setter
-        public Builder modelArn(String modelArn) {
-            this.modelArn = Objects.requireNonNull(modelArn);
+        public Builder modelArn(@Nullable String modelArn) {
+            this.modelArn = modelArn;
             return this;
         }
         @CustomType.Setter
-        public Builder modelId(String modelId) {
-            this.modelId = Objects.requireNonNull(modelId);
+        public Builder modelId(@Nullable String modelId) {
+            this.modelId = modelId;
             return this;
         }
         @CustomType.Setter
-        public Builder modelName(String modelName) {
-            this.modelName = Objects.requireNonNull(modelName);
+        public Builder modelName(@Nullable String modelName) {
+            this.modelName = modelName;
             return this;
         }
         @CustomType.Setter
-        public Builder outputModalities(List<String> outputModalities) {
-            this.outputModalities = Objects.requireNonNull(outputModalities);
+        public Builder outputModalities(@Nullable List<String> outputModalities) {
+            this.outputModalities = outputModalities;
             return this;
         }
         public Builder outputModalities(String... outputModalities) {
             return outputModalities(List.of(outputModalities));
         }
         @CustomType.Setter
-        public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+        public Builder providerName(@Nullable String providerName) {
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
-        public Builder responseStreamingSupported(Boolean responseStreamingSupported) {
-            this.responseStreamingSupported = Objects.requireNonNull(responseStreamingSupported);
+        public Builder responseStreamingSupported(@Nullable Boolean responseStreamingSupported) {
+            this.responseStreamingSupported = responseStreamingSupported;
             return this;
         }
         public GetModelsModelSummary build() {

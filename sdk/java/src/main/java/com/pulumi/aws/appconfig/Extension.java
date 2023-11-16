@@ -113,28 +113,28 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the AppConfig Extension.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Information about the extension.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Information about the extension.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
@@ -155,14 +155,14 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parameters", refs={List.class,ExtensionParameter.class}, tree="[0,1]")
-    private Output<List<ExtensionParameter>> parameters;
+    private Output</* @Nullable */ List<ExtensionParameter>> parameters;
 
     /**
      * @return The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      * 
      */
-    public Output<List<ExtensionParameter>> parameters() {
-        return this.parameters;
+    public Output<Optional<List<ExtensionParameter>>> parameters() {
+        return Codegen.optional(this.parameters);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -195,14 +195,14 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
-    private Output<Integer> version;
+    private Output</* @Nullable */ Integer> version;
 
     /**
      * @return The version number for the extension.
      * 
      */
-    public Output<Integer> version() {
-        return this.version;
+    public Output<Optional<Integer>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

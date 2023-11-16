@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Sns
         /// The maximum amount in USD that you are willing to spend each month to send SMS messages.
         /// </summary>
         [Output("monthlySpendLimit")]
-        public Output<int> MonthlySpendLimit { get; private set; } = null!;
+        public Output<int?> MonthlySpendLimit { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.

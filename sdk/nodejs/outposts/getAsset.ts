@@ -39,23 +39,23 @@ export interface GetAssetResult {
     /**
      * Type of the asset.
      */
-    readonly assetType: string;
+    readonly assetType?: string;
     /**
      * Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
      */
-    readonly hostId: string;
+    readonly hostId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Position of an asset in a rack measured in rack units.
      */
-    readonly rackElevation: number;
+    readonly rackElevation?: number;
     /**
      * Rack ID of the asset.
      */
-    readonly rackId: string;
+    readonly rackId?: string;
 }
 /**
  * Information about a specific hardware asset in an Outpost.

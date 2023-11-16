@@ -51,7 +51,7 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * The ARN of the attachment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Connect peer BGP options.
      */
@@ -59,12 +59,12 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * The configuration of the Connect peer.
      */
-    public /*out*/ readonly configurations!: pulumi.Output<outputs.networkmanager.ConnectPeerConfiguration[]>;
+    public /*out*/ readonly configurations!: pulumi.Output<outputs.networkmanager.ConnectPeerConfiguration[] | undefined>;
     /**
      * The ID of the connection attachment.
      */
     public readonly connectAttachmentId!: pulumi.Output<string>;
-    public /*out*/ readonly connectPeerId!: pulumi.Output<string>;
+    public /*out*/ readonly connectPeerId!: pulumi.Output<string | undefined>;
     /**
      * A Connect peer core network address.
      */
@@ -72,12 +72,12 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * The ID of a core network.
      */
-    public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The Region where the peer is located.
      */
-    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    public /*out*/ readonly edgeLocation!: pulumi.Output<string | undefined>;
     /**
      * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      */
@@ -91,7 +91,7 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * The state of the Connect peer.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      */

@@ -17,18 +17,18 @@ public final class GetIpRangesResult {
      * @return Lexically ordered list of CIDR blocks.
      * 
      */
-    private List<String> cidrBlocks;
+    private @Nullable List<String> cidrBlocks;
     /**
      * @return Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
      * 
      */
-    private String createDate;
-    private String id;
+    private @Nullable String createDate;
+    private @Nullable String id;
     /**
      * @return Lexically ordered list of IPv6 CIDR blocks.
      * 
      */
-    private List<String> ipv6CidrBlocks;
+    private @Nullable List<String> ipv6CidrBlocks;
     private @Nullable List<String> regions;
     private List<String> services;
     /**
@@ -36,7 +36,7 @@ public final class GetIpRangesResult {
      * (e.g., `1470267965`).
      * 
      */
-    private Integer syncToken;
+    private @Nullable Integer syncToken;
     private @Nullable String url;
 
     private GetIpRangesResult() {}
@@ -45,24 +45,24 @@ public final class GetIpRangesResult {
      * 
      */
     public List<String> cidrBlocks() {
-        return this.cidrBlocks;
+        return this.cidrBlocks == null ? List.of() : this.cidrBlocks;
     }
     /**
      * @return Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
      * 
      */
-    public String createDate() {
-        return this.createDate;
+    public Optional<String> createDate() {
+        return Optional.ofNullable(this.createDate);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Lexically ordered list of IPv6 CIDR blocks.
      * 
      */
     public List<String> ipv6CidrBlocks() {
-        return this.ipv6CidrBlocks;
+        return this.ipv6CidrBlocks == null ? List.of() : this.ipv6CidrBlocks;
     }
     public List<String> regions() {
         return this.regions == null ? List.of() : this.regions;
@@ -75,8 +75,8 @@ public final class GetIpRangesResult {
      * (e.g., `1470267965`).
      * 
      */
-    public Integer syncToken() {
-        return this.syncToken;
+    public Optional<Integer> syncToken() {
+        return Optional.ofNullable(this.syncToken);
     }
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
@@ -91,13 +91,13 @@ public final class GetIpRangesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> cidrBlocks;
-        private String createDate;
-        private String id;
-        private List<String> ipv6CidrBlocks;
+        private @Nullable List<String> cidrBlocks;
+        private @Nullable String createDate;
+        private @Nullable String id;
+        private @Nullable List<String> ipv6CidrBlocks;
         private @Nullable List<String> regions;
         private List<String> services;
-        private Integer syncToken;
+        private @Nullable Integer syncToken;
         private @Nullable String url;
         public Builder() {}
         public Builder(GetIpRangesResult defaults) {
@@ -113,26 +113,26 @@ public final class GetIpRangesResult {
         }
 
         @CustomType.Setter
-        public Builder cidrBlocks(List<String> cidrBlocks) {
-            this.cidrBlocks = Objects.requireNonNull(cidrBlocks);
+        public Builder cidrBlocks(@Nullable List<String> cidrBlocks) {
+            this.cidrBlocks = cidrBlocks;
             return this;
         }
         public Builder cidrBlocks(String... cidrBlocks) {
             return cidrBlocks(List.of(cidrBlocks));
         }
         @CustomType.Setter
-        public Builder createDate(String createDate) {
-            this.createDate = Objects.requireNonNull(createDate);
+        public Builder createDate(@Nullable String createDate) {
+            this.createDate = createDate;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6CidrBlocks(List<String> ipv6CidrBlocks) {
-            this.ipv6CidrBlocks = Objects.requireNonNull(ipv6CidrBlocks);
+        public Builder ipv6CidrBlocks(@Nullable List<String> ipv6CidrBlocks) {
+            this.ipv6CidrBlocks = ipv6CidrBlocks;
             return this;
         }
         public Builder ipv6CidrBlocks(String... ipv6CidrBlocks) {
@@ -155,8 +155,8 @@ public final class GetIpRangesResult {
             return services(List.of(services));
         }
         @CustomType.Setter
-        public Builder syncToken(Integer syncToken) {
-            this.syncToken = Objects.requireNonNull(syncToken);
+        public Builder syncToken(@Nullable Integer syncToken) {
+            this.syncToken = syncToken;
             return this;
         }
         @CustomType.Setter

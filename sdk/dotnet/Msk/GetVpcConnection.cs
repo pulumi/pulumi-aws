@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// The authentication type for the client VPC Connection.
         /// </summary>
-        public readonly string Authentication;
+        public readonly string? Authentication;
         /// <summary>
         /// The list of subnets in the client VPC.
         /// </summary>
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The security groups attached to the ENIs for the broker nodes.
         /// </summary>
@@ -145,33 +145,33 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// Map of key-value pairs assigned to the VPC Connection.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
-        public readonly string TargetClusterArn;
+        public readonly string? TargetClusterArn;
         /// <summary>
         /// The VPC ID of the remote client.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetVpcConnectionResult(
             string arn,
 
-            string authentication,
+            string? authentication,
 
             ImmutableArray<string> clientSubnets,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> securityGroups,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string targetClusterArn,
+            string? targetClusterArn,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             Authentication = authentication;

@@ -128,33 +128,33 @@ import (
 type Document struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
 	AttachmentsSources DocumentAttachmentsSourceArrayOutput `pulumi:"attachmentsSources"`
 	// The JSON or YAML content of the document.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The date the document was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// The default version of the document.
-	DefaultVersion pulumi.StringOutput `pulumi:"defaultVersion"`
+	DefaultVersion pulumi.StringPtrOutput `pulumi:"defaultVersion"`
 	// The description of the document.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The format of the document. Valid document types include: `JSON` and `YAML`
 	DocumentFormat pulumi.StringPtrOutput `pulumi:"documentFormat"`
 	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 	DocumentType pulumi.StringOutput `pulumi:"documentType"`
 	// The document version.
-	DocumentVersion pulumi.StringOutput `pulumi:"documentVersion"`
+	DocumentVersion pulumi.StringPtrOutput `pulumi:"documentVersion"`
 	// The sha1 or sha256 of the document content
-	Hash pulumi.StringOutput `pulumi:"hash"`
+	Hash pulumi.StringPtrOutput `pulumi:"hash"`
 	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
-	HashType pulumi.StringOutput `pulumi:"hashType"`
+	HashType pulumi.StringPtrOutput `pulumi:"hashType"`
 	// The latest version of the document.
-	LatestVersion pulumi.StringOutput `pulumi:"latestVersion"`
+	LatestVersion pulumi.StringPtrOutput `pulumi:"latestVersion"`
 	// The name of the document.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS user account of the person who created the document.
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// The parameters that are available to this document.
 	Parameters DocumentParameterArrayOutput `pulumi:"parameters"`
 	// Additional Permissions to attach to the document. See Permissions below for details.
@@ -162,9 +162,9 @@ type Document struct {
 	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
 	PlatformTypes pulumi.StringArrayOutput `pulumi:"platformTypes"`
 	// The schema version of the document.
-	SchemaVersion pulumi.StringOutput `pulumi:"schemaVersion"`
+	SchemaVersion pulumi.StringPtrOutput `pulumi:"schemaVersion"`
 	// "Creating", "Active" or "Deleting". The current status of the document.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -450,8 +450,8 @@ func (o DocumentOutput) ToDocumentOutputWithContext(ctx context.Context) Documen
 	return o
 }
 
-func (o DocumentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DocumentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // One or more configuration blocks describing attachments sources to a version of a document. Defined below.
@@ -465,18 +465,18 @@ func (o DocumentOutput) Content() pulumi.StringOutput {
 }
 
 // The date the document was created.
-func (o DocumentOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o DocumentOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The default version of the document.
-func (o DocumentOutput) DefaultVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.DefaultVersion }).(pulumi.StringOutput)
+func (o DocumentOutput) DefaultVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.DefaultVersion }).(pulumi.StringPtrOutput)
 }
 
 // The description of the document.
-func (o DocumentOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o DocumentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The format of the document. Valid document types include: `JSON` and `YAML`
@@ -490,23 +490,23 @@ func (o DocumentOutput) DocumentType() pulumi.StringOutput {
 }
 
 // The document version.
-func (o DocumentOutput) DocumentVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.DocumentVersion }).(pulumi.StringOutput)
+func (o DocumentOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.DocumentVersion }).(pulumi.StringPtrOutput)
 }
 
 // The sha1 or sha256 of the document content
-func (o DocumentOutput) Hash() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Hash }).(pulumi.StringOutput)
+func (o DocumentOutput) Hash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.Hash }).(pulumi.StringPtrOutput)
 }
 
 // "Sha1" "Sha256". The hashing algorithm used when hashing the content.
-func (o DocumentOutput) HashType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.HashType }).(pulumi.StringOutput)
+func (o DocumentOutput) HashType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.HashType }).(pulumi.StringPtrOutput)
 }
 
 // The latest version of the document.
-func (o DocumentOutput) LatestVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.LatestVersion }).(pulumi.StringOutput)
+func (o DocumentOutput) LatestVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.LatestVersion }).(pulumi.StringPtrOutput)
 }
 
 // The name of the document.
@@ -515,8 +515,8 @@ func (o DocumentOutput) Name() pulumi.StringOutput {
 }
 
 // The AWS user account of the person who created the document.
-func (o DocumentOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o DocumentOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // The parameters that are available to this document.
@@ -535,13 +535,13 @@ func (o DocumentOutput) PlatformTypes() pulumi.StringArrayOutput {
 }
 
 // The schema version of the document.
-func (o DocumentOutput) SchemaVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.SchemaVersion }).(pulumi.StringOutput)
+func (o DocumentOutput) SchemaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.SchemaVersion }).(pulumi.StringPtrOutput)
 }
 
 // "Creating", "Active" or "Deleting". The current status of the document.
-func (o DocumentOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o DocumentOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

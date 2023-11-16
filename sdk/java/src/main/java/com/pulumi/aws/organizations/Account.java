@@ -71,14 +71,14 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN for this account.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
@@ -127,14 +127,14 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="govcloudId", refs={String.class}, tree="[0]")
-    private Output<String> govcloudId;
+    private Output</* @Nullable */ String> govcloudId;
 
     /**
      * @return ID for a GovCloud account created with the account.
      * 
      */
-    public Output<String> govcloudId() {
-        return this.govcloudId;
+    public Output<Optional<String>> govcloudId() {
+        return Codegen.optional(this.govcloudId);
     }
     /**
      * If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
@@ -151,16 +151,16 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.iamUserAccessToBilling);
     }
     @Export(name="joinedMethod", refs={String.class}, tree="[0]")
-    private Output<String> joinedMethod;
+    private Output</* @Nullable */ String> joinedMethod;
 
-    public Output<String> joinedMethod() {
-        return this.joinedMethod;
+    public Output<Optional<String>> joinedMethod() {
+        return Codegen.optional(this.joinedMethod);
     }
     @Export(name="joinedTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> joinedTimestamp;
+    private Output</* @Nullable */ String> joinedTimestamp;
 
-    public Output<String> joinedTimestamp() {
-        return this.joinedTimestamp;
+    public Output<Optional<String>> joinedTimestamp() {
+        return Codegen.optional(this.joinedTimestamp);
     }
     /**
      * Friendly name for the member account.
@@ -185,14 +185,14 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parentId", refs={String.class}, tree="[0]")
-    private Output<String> parentId;
+    private Output</* @Nullable */ String> parentId;
 
     /**
      * @return Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
      * 
      */
-    public Output<String> parentId() {
-        return this.parentId;
+    public Output<Optional<String>> parentId() {
+        return Codegen.optional(this.parentId);
     }
     /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
@@ -209,10 +209,10 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.roleName);
     }
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

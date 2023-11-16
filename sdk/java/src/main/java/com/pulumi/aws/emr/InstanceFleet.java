@@ -162,15 +162,15 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="provisionedOnDemandCapacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> provisionedOnDemandCapacity;
+    private Output</* @Nullable */ Integer> provisionedOnDemandCapacity;
 
     /**
      * @return The number of On-Demand units that have been provisioned for the instance
      * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
      * 
      */
-    public Output<Integer> provisionedOnDemandCapacity() {
-        return this.provisionedOnDemandCapacity;
+    public Output<Optional<Integer>> provisionedOnDemandCapacity() {
+        return Codegen.optional(this.provisionedOnDemandCapacity);
     }
     /**
      * The number of Spot units that have been provisioned for this instance fleet
@@ -178,15 +178,15 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="provisionedSpotCapacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> provisionedSpotCapacity;
+    private Output</* @Nullable */ Integer> provisionedSpotCapacity;
 
     /**
      * @return The number of Spot units that have been provisioned for this instance fleet
      * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
      * 
      */
-    public Output<Integer> provisionedSpotCapacity() {
-        return this.provisionedSpotCapacity;
+    public Output<Optional<Integer>> provisionedSpotCapacity() {
+        return Codegen.optional(this.provisionedSpotCapacity);
     }
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.

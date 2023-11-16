@@ -51,59 +51,59 @@ export interface GetDirectoryResult {
     /**
      * Access URL for the directory/connector, such as http://alias.awsapps.com.
      */
-    readonly accessUrl: string;
+    readonly accessUrl?: string;
     /**
      * Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
      */
-    readonly alias: string;
-    readonly connectSettings: outputs.directoryservice.GetDirectoryConnectSetting[];
+    readonly alias?: string;
+    readonly connectSettings?: outputs.directoryservice.GetDirectoryConnectSetting[];
     /**
      * Textual description for the directory/connector.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly directoryId: string;
     /**
      * List of IP addresses of the DNS servers for the directory/connector.
      */
-    readonly dnsIpAddresses: string[];
+    readonly dnsIpAddresses?: string[];
     /**
      * (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
      */
-    readonly edition: string;
+    readonly edition?: string;
     /**
      * Directory/connector single-sign on status.
      */
-    readonly enableSso: boolean;
+    readonly enableSso?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Fully qualified name for the directory/connector.
      */
-    readonly name: string;
-    readonly radiusSettings: outputs.directoryservice.GetDirectoryRadiusSetting[];
+    readonly name?: string;
+    readonly radiusSettings?: outputs.directoryservice.GetDirectoryRadiusSetting[];
     /**
      * ID of the security group created by the directory/connector.
      */
-    readonly securityGroupId: string;
+    readonly securityGroupId?: string;
     /**
      * Short name of the directory/connector, such as `CORP`.
      */
-    readonly shortName: string;
+    readonly shortName?: string;
     /**
      * (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
      */
-    readonly size: string;
+    readonly size?: string;
     /**
      * A map of tags assigned to the directory/connector.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      */
-    readonly type: string;
-    readonly vpcSettings: outputs.directoryservice.GetDirectoryVpcSetting[];
+    readonly type?: string;
+    readonly vpcSettings?: outputs.directoryservice.GetDirectoryVpcSetting[];
 }
 /**
  * Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.

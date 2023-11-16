@@ -60,7 +60,7 @@ namespace Pulumi.Aws.ResourceGroups
         /// The ARN assigned by AWS for this resource group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.

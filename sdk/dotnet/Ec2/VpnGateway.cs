@@ -49,13 +49,13 @@ namespace Pulumi.Aws.Ec2
         /// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
         /// </summary>
         [Output("amazonSideAsn")]
-        public Output<string> AmazonSideAsn { get; private set; } = null!;
+        public Output<string?> AmazonSideAsn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPN Gateway.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Availability Zone for the virtual private gateway.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ec2
         /// The VPC ID to create in.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

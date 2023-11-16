@@ -144,53 +144,53 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// ARN of the ECS Service
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string ClusterArn;
         /// <summary>
         /// Number of tasks for the ECS Service
         /// </summary>
-        public readonly int DesiredCount;
+        public readonly int? DesiredCount;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Launch type for the ECS Service
         /// </summary>
-        public readonly string LaunchType;
+        public readonly string? LaunchType;
         /// <summary>
         /// Scheduling strategy for the ECS Service
         /// </summary>
-        public readonly string SchedulingStrategy;
+        public readonly string? SchedulingStrategy;
         public readonly string ServiceName;
         /// <summary>
         /// Resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Family for the latest ACTIVE revision or full ARN of the task definition.
         /// </summary>
-        public readonly string TaskDefinition;
+        public readonly string? TaskDefinition;
 
         [OutputConstructor]
         private GetServiceResult(
-            string arn,
+            string? arn,
 
             string clusterArn,
 
-            int desiredCount,
+            int? desiredCount,
 
-            string id,
+            string? id,
 
-            string launchType,
+            string? launchType,
 
-            string schedulingStrategy,
+            string? schedulingStrategy,
 
             string serviceName,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string taskDefinition)
+            string? taskDefinition)
         {
             Arn = arn;
             ClusterArn = clusterArn;

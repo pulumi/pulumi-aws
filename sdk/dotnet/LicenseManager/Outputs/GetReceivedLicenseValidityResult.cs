@@ -16,17 +16,17 @@ namespace Pulumi.Aws.LicenseManager.Outputs
         /// <summary>
         /// Start of the validity time range.
         /// </summary>
-        public readonly string Begin;
+        public readonly string? Begin;
         /// <summary>
         /// End of the validity time range.
         /// </summary>
-        public readonly string End;
+        public readonly string? End;
 
         [OutputConstructor]
         private GetReceivedLicenseValidityResult(
-            string begin,
+            string? begin,
 
-            string end)
+            string? end)
         {
             Begin = begin;
             End = end;

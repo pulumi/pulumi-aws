@@ -90,9 +90,9 @@ type StoredIscsiVolume struct {
 	pulumi.CustomResourceState
 
 	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether mutual CHAP is enabled for the iSCSI target.
-	ChapEnabled pulumi.BoolOutput `pulumi:"chapEnabled"`
+	ChapEnabled pulumi.BoolPtrOutput `pulumi:"chapEnabled"`
 	// The unique identifier for the gateway local disk that is configured as a stored volume.
 	DiskId pulumi.StringOutput `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
@@ -102,11 +102,11 @@ type StoredIscsiVolume struct {
 	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
 	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
 	// Logical disk number.
-	LunNumber pulumi.IntOutput `pulumi:"lunNumber"`
+	LunNumber pulumi.IntPtrOutput `pulumi:"lunNumber"`
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The port used to communicate with iSCSI targets.
-	NetworkInterfacePort pulumi.IntOutput `pulumi:"networkInterfacePort"`
+	NetworkInterfacePort pulumi.IntPtrOutput `pulumi:"networkInterfacePort"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolOutput `pulumi:"preserveExistingData"`
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
@@ -118,19 +118,19 @@ type StoredIscsiVolume struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
-	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
+	TargetArn pulumi.StringPtrOutput `pulumi:"targetArn"`
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName pulumi.StringOutput `pulumi:"targetName"`
 	// A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
-	VolumeAttachmentStatus pulumi.StringOutput `pulumi:"volumeAttachmentStatus"`
+	VolumeAttachmentStatus pulumi.StringPtrOutput `pulumi:"volumeAttachmentStatus"`
 	// Volume ID, e.g., `vol-12345678`.
-	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
+	VolumeId pulumi.StringPtrOutput `pulumi:"volumeId"`
 	// The size of the data stored on the volume in bytes.
-	VolumeSizeInBytes pulumi.IntOutput `pulumi:"volumeSizeInBytes"`
+	VolumeSizeInBytes pulumi.IntPtrOutput `pulumi:"volumeSizeInBytes"`
 	// indicates the state of the storage volume.
-	VolumeStatus pulumi.StringOutput `pulumi:"volumeStatus"`
+	VolumeStatus pulumi.StringPtrOutput `pulumi:"volumeStatus"`
 	// indicates the type of the volume.
-	VolumeType pulumi.StringOutput `pulumi:"volumeType"`
+	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
 }
 
 // NewStoredIscsiVolume registers a new resource with the given unique name, arguments, and options.
@@ -406,13 +406,13 @@ func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumeOutputWithContext(ctx contex
 }
 
 // Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-func (o StoredIscsiVolumeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StoredIscsiVolumeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether mutual CHAP is enabled for the iSCSI target.
-func (o StoredIscsiVolumeOutput) ChapEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.BoolOutput { return v.ChapEnabled }).(pulumi.BoolOutput)
+func (o StoredIscsiVolumeOutput) ChapEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.BoolPtrOutput { return v.ChapEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The unique identifier for the gateway local disk that is configured as a stored volume.
@@ -436,8 +436,8 @@ func (o StoredIscsiVolumeOutput) KmsKey() pulumi.StringPtrOutput {
 }
 
 // Logical disk number.
-func (o StoredIscsiVolumeOutput) LunNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.IntOutput { return v.LunNumber }).(pulumi.IntOutput)
+func (o StoredIscsiVolumeOutput) LunNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.IntPtrOutput { return v.LunNumber }).(pulumi.IntPtrOutput)
 }
 
 // The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
@@ -446,8 +446,8 @@ func (o StoredIscsiVolumeOutput) NetworkInterfaceId() pulumi.StringOutput {
 }
 
 // The port used to communicate with iSCSI targets.
-func (o StoredIscsiVolumeOutput) NetworkInterfacePort() pulumi.IntOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.IntOutput { return v.NetworkInterfacePort }).(pulumi.IntOutput)
+func (o StoredIscsiVolumeOutput) NetworkInterfacePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.IntPtrOutput { return v.NetworkInterfacePort }).(pulumi.IntPtrOutput)
 }
 
 // Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
@@ -473,8 +473,8 @@ func (o StoredIscsiVolumeOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
-func (o StoredIscsiVolumeOutput) TargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
+func (o StoredIscsiVolumeOutput) TargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringPtrOutput { return v.TargetArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
@@ -483,28 +483,28 @@ func (o StoredIscsiVolumeOutput) TargetName() pulumi.StringOutput {
 }
 
 // A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
-func (o StoredIscsiVolumeOutput) VolumeAttachmentStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.VolumeAttachmentStatus }).(pulumi.StringOutput)
+func (o StoredIscsiVolumeOutput) VolumeAttachmentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringPtrOutput { return v.VolumeAttachmentStatus }).(pulumi.StringPtrOutput)
 }
 
 // Volume ID, e.g., `vol-12345678`.
-func (o StoredIscsiVolumeOutput) VolumeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
+func (o StoredIscsiVolumeOutput) VolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringPtrOutput { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
 // The size of the data stored on the volume in bytes.
-func (o StoredIscsiVolumeOutput) VolumeSizeInBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.IntOutput { return v.VolumeSizeInBytes }).(pulumi.IntOutput)
+func (o StoredIscsiVolumeOutput) VolumeSizeInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.IntPtrOutput { return v.VolumeSizeInBytes }).(pulumi.IntPtrOutput)
 }
 
 // indicates the state of the storage volume.
-func (o StoredIscsiVolumeOutput) VolumeStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.VolumeStatus }).(pulumi.StringOutput)
+func (o StoredIscsiVolumeOutput) VolumeStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringPtrOutput { return v.VolumeStatus }).(pulumi.StringPtrOutput)
 }
 
 // indicates the type of the volume.
-func (o StoredIscsiVolumeOutput) VolumeType() pulumi.StringOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.VolumeType }).(pulumi.StringOutput)
+func (o StoredIscsiVolumeOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringPtrOutput { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
 type StoredIscsiVolumeArrayOutput struct{ *pulumi.OutputState }

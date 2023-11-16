@@ -110,13 +110,13 @@ namespace Pulumi.Aws.Ec2
         /// The type of notification.
         /// </summary>
         [Output("notificationType")]
-        public Output<string> NotificationType { get; private set; } = null!;
+        public Output<string?> NotificationType { get; private set; } = null!;
 
         /// <summary>
         /// The state of the notification.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the VPC Endpoint to receive notifications for.

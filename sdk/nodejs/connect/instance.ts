@@ -90,7 +90,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the instance.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
      */
@@ -106,7 +106,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * When the instance was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
      */
@@ -139,11 +139,11 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The service role of the instance.
      */
-    public /*out*/ readonly serviceRole!: pulumi.Output<string>;
+    public /*out*/ readonly serviceRole!: pulumi.Output<string | undefined>;
     /**
      * The state of the instance.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.

@@ -66,28 +66,28 @@ public class OrganizationalUnit extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accounts", refs={List.class,OrganizationalUnitAccount.class}, tree="[0,1]")
-    private Output<List<OrganizationalUnitAccount>> accounts;
+    private Output</* @Nullable */ List<OrganizationalUnitAccount>> accounts;
 
     /**
      * @return List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
      * 
      */
-    public Output<List<OrganizationalUnitAccount>> accounts() {
-        return this.accounts;
+    public Output<Optional<List<OrganizationalUnitAccount>>> accounts() {
+        return Codegen.optional(this.accounts);
     }
     /**
      * ARN of the organizational unit
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the organizational unit
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name for the organizational unit

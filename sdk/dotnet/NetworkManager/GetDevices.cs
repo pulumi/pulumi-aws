@@ -149,7 +149,7 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// IDs of the devices.
         /// </summary>
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.NetworkManager
         private GetDevicesResult(
             string globalNetworkId,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

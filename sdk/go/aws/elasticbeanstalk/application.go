@@ -63,7 +63,7 @@ type Application struct {
 
 	AppversionLifecycle ApplicationAppversionLifecyclePtrOutput `pulumi:"appversionLifecycle"`
 	// The ARN assigned by AWS for this Elastic Beanstalk Application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Short description of the application
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the application, must be unique within your account
@@ -258,8 +258,8 @@ func (o ApplicationOutput) AppversionLifecycle() ApplicationAppversionLifecycleP
 }
 
 // The ARN assigned by AWS for this Elastic Beanstalk Application.
-func (o ApplicationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ApplicationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Short description of the application

@@ -307,7 +307,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalIds")
-    def external_ids(self) -> pulumi.Output[Sequence['outputs.GroupExternalId']]:
+    def external_ids(self) -> pulumi.Output[Optional[Sequence['outputs.GroupExternalId']]]:
         """
         A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
         """
@@ -315,7 +315,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> pulumi.Output[str]:
+    def group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the newly created group in the identity store.
         """

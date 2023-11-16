@@ -80,34 +80,34 @@ public class LocationFsxOntapFileSystem extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the DataSync Location for the FSx Ontap File System.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * ARN of the FSx Ontap File System.
      * 
      */
     @Export(name="fsxFilesystemArn", refs={String.class}, tree="[0]")
-    private Output<String> fsxFilesystemArn;
+    private Output</* @Nullable */ String> fsxFilesystemArn;
 
     /**
      * @return ARN of the FSx Ontap File System.
      * 
      */
-    public Output<String> fsxFilesystemArn() {
-        return this.fsxFilesystemArn;
+    public Output<Optional<String>> fsxFilesystemArn() {
+        return Codegen.optional(this.fsxFilesystemArn);
     }
     /**
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
@@ -164,14 +164,14 @@ public class LocationFsxOntapFileSystem extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="subdirectory", refs={String.class}, tree="[0]")
-    private Output<String> subdirectory;
+    private Output</* @Nullable */ String> subdirectory;
 
     /**
      * @return Path to the file share in the SVM where you&#39;ll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
      * 
      */
-    public Output<String> subdirectory() {
-        return this.subdirectory;
+    public Output<Optional<String>> subdirectory() {
+        return Codegen.optional(this.subdirectory);
     }
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -204,14 +204,14 @@ public class LocationFsxOntapFileSystem extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="uri", refs={String.class}, tree="[0]")
-    private Output<String> uri;
+    private Output</* @Nullable */ String> uri;
 
     /**
      * @return URI of the FSx ONTAP file system location
      * 
      */
-    public Output<String> uri() {
-        return this.uri;
+    public Output<Optional<String>> uri() {
+        return Codegen.optional(this.uri);
     }
 
     /**

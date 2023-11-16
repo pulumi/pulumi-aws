@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTableServerSideEncryption {
-    private Boolean enabled;
-    private String kmsKeyArn;
+    private @Nullable Boolean enabled;
+    private @Nullable String kmsKeyArn;
 
     private GetTableServerSideEncryption() {}
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
-    public String kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<String> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetTableServerSideEncryption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private String kmsKeyArn;
+        private @Nullable Boolean enabled;
+        private @Nullable String kmsKeyArn;
         public Builder() {}
         public Builder(GetTableServerSideEncryption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetTableServerSideEncryption {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+        public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         public GetTableServerSideEncryption build() {

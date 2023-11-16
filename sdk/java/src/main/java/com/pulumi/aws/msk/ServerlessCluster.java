@@ -39,14 +39,14 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the serverless cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies client authentication information for the serverless cluster. See below.
@@ -81,14 +81,14 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clusterUuid", refs={String.class}, tree="[0]")
-    private Output<String> clusterUuid;
+    private Output</* @Nullable */ String> clusterUuid;
 
     /**
      * @return UUID of the serverless cluster, for use in IAM policies.
      * 
      */
-    public Output<String> clusterUuid() {
-        return this.clusterUuid;
+    public Output<Optional<String>> clusterUuid() {
+        return Codegen.optional(this.clusterUuid);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

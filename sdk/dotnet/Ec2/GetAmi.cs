@@ -328,11 +328,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// OS architecture of the AMI (ie: `i386` or `x86_64`).
         /// </summary>
-        public readonly string Architecture;
+        public readonly string? Architecture;
         /// <summary>
         /// ARN of the AMI.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Set of objects with block device mappings of the AMI.
         /// </summary>
@@ -340,80 +340,80 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Boot mode of the image.
         /// </summary>
-        public readonly string BootMode;
+        public readonly string? BootMode;
         /// <summary>
         /// Date and time the image was created.
         /// </summary>
-        public readonly string CreationDate;
+        public readonly string? CreationDate;
         /// <summary>
         /// Date and time when the image will be deprecated.
         /// </summary>
-        public readonly string DeprecationTime;
+        public readonly string? DeprecationTime;
         /// <summary>
         /// Description of the AMI that was provided during image
         /// creation.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Whether enhanced networking with ENA is enabled.
         /// </summary>
-        public readonly bool EnaSupport;
+        public readonly bool? EnaSupport;
         public readonly ImmutableArray<string> ExecutableUsers;
         public readonly ImmutableArray<Outputs.GetAmiFilterResult> Filters;
         /// <summary>
         /// Hypervisor type of the image.
         /// </summary>
-        public readonly string Hypervisor;
+        public readonly string? Hypervisor;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ID of the AMI. Should be the same as the resource `id`.
         /// </summary>
-        public readonly string ImageId;
+        public readonly string? ImageId;
         /// <summary>
         /// Location of the AMI.
         /// </summary>
-        public readonly string ImageLocation;
+        public readonly string? ImageLocation;
         /// <summary>
         /// AWS account alias (for example, `amazon`, `self`) or
         /// the AWS account ID of the AMI owner.
         /// </summary>
-        public readonly string ImageOwnerAlias;
+        public readonly string? ImageOwnerAlias;
         /// <summary>
         /// Type of image.
         /// </summary>
-        public readonly string ImageType;
+        public readonly string? ImageType;
         /// <summary>
         /// Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
         /// </summary>
-        public readonly string ImdsSupport;
+        public readonly string? ImdsSupport;
         public readonly bool? IncludeDeprecated;
         /// <summary>
         /// Kernel associated with the image, if any. Only applicable
         /// for machine images.
         /// </summary>
-        public readonly string KernelId;
+        public readonly string? KernelId;
         public readonly bool? MostRecent;
         /// <summary>
         /// Name of the AMI that was provided during image creation.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string? NameRegex;
         /// <summary>
         /// AWS account ID of the image owner.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         public readonly ImmutableArray<string> Owners;
         /// <summary>
         /// Value is Windows for `Windows` AMIs; otherwise blank.
         /// </summary>
-        public readonly string Platform;
+        public readonly string? Platform;
         /// <summary>
         /// Platform details associated with the billing code of the AMI.
         /// </summary>
-        public readonly string PlatformDetails;
+        public readonly string? PlatformDetails;
         /// <summary>
         /// Any product codes associated with the AMI.
         /// * `product_codes.#.product_code_id` - The product code.
@@ -423,139 +423,139 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `true` if the image has public launch permissions.
         /// </summary>
-        public readonly bool Public;
+        public readonly bool? Public;
         /// <summary>
         /// RAM disk associated with the image, if any. Only applicable
         /// for machine images.
         /// </summary>
-        public readonly string RamdiskId;
+        public readonly string? RamdiskId;
         /// <summary>
         /// Device name of the root device.
         /// </summary>
-        public readonly string RootDeviceName;
+        public readonly string? RootDeviceName;
         /// <summary>
         /// Type of root device (ie: `ebs` or `instance-store`).
         /// </summary>
-        public readonly string RootDeviceType;
+        public readonly string? RootDeviceType;
         /// <summary>
         /// Snapshot id associated with the root device, if any
         /// (only applies to `ebs` root devices).
         /// </summary>
-        public readonly string RootSnapshotId;
+        public readonly string? RootSnapshotId;
         /// <summary>
         /// Whether enhanced networking is enabled.
         /// </summary>
-        public readonly string SriovNetSupport;
+        public readonly string? SriovNetSupport;
         /// <summary>
         /// Current state of the AMI. If the state is `available`, the image
         /// is successfully registered and can be used to launch an instance.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// Describes a state change. Fields are `UNSET` if not available.
         /// * `state_reason.code` - The reason code for the state change.
         /// * `state_reason.message` - The message for the state change.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> StateReason;
+        public readonly ImmutableDictionary<string, string>? StateReason;
         /// <summary>
         /// Any tags assigned to the image.
         /// * `tags.#.key` - Key name of the tag.
         /// * `tags.#.value` - Value of the tag.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// If the image is configured for NitroTPM support, the value is `v2.0`.
         /// </summary>
-        public readonly string TpmSupport;
+        public readonly string? TpmSupport;
         /// <summary>
         /// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         /// </summary>
-        public readonly string UsageOperation;
+        public readonly string? UsageOperation;
         /// <summary>
         /// Type of virtualization of the AMI (ie: `hvm` or
         /// `paravirtual`).
         /// </summary>
-        public readonly string VirtualizationType;
+        public readonly string? VirtualizationType;
 
         [OutputConstructor]
         private GetAmiResult(
-            string architecture,
+            string? architecture,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetAmiBlockDeviceMappingResult> blockDeviceMappings,
 
-            string bootMode,
+            string? bootMode,
 
-            string creationDate,
+            string? creationDate,
 
-            string deprecationTime,
+            string? deprecationTime,
 
-            string description,
+            string? description,
 
-            bool enaSupport,
+            bool? enaSupport,
 
             ImmutableArray<string> executableUsers,
 
             ImmutableArray<Outputs.GetAmiFilterResult> filters,
 
-            string hypervisor,
+            string? hypervisor,
 
-            string id,
+            string? id,
 
-            string imageId,
+            string? imageId,
 
-            string imageLocation,
+            string? imageLocation,
 
-            string imageOwnerAlias,
+            string? imageOwnerAlias,
 
-            string imageType,
+            string? imageType,
 
-            string imdsSupport,
+            string? imdsSupport,
 
             bool? includeDeprecated,
 
-            string kernelId,
+            string? kernelId,
 
             bool? mostRecent,
 
-            string name,
+            string? name,
 
             string? nameRegex,
 
-            string ownerId,
+            string? ownerId,
 
             ImmutableArray<string> owners,
 
-            string platform,
+            string? platform,
 
-            string platformDetails,
+            string? platformDetails,
 
             ImmutableArray<Outputs.GetAmiProductCodeResult> productCodes,
 
-            bool @public,
+            bool? @public,
 
-            string ramdiskId,
+            string? ramdiskId,
 
-            string rootDeviceName,
+            string? rootDeviceName,
 
-            string rootDeviceType,
+            string? rootDeviceType,
 
-            string rootSnapshotId,
+            string? rootSnapshotId,
 
-            string sriovNetSupport,
+            string? sriovNetSupport,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> stateReason,
+            ImmutableDictionary<string, string>? stateReason,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string tpmSupport,
+            string? tpmSupport,
 
-            string usageOperation,
+            string? usageOperation,
 
-            string virtualizationType)
+            string? virtualizationType)
         {
             Architecture = architecture;
             Arn = arn;

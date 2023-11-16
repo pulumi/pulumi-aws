@@ -299,7 +299,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
         """
@@ -307,7 +307,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultAssociationRouteTable")
-    def default_association_route_table(self) -> pulumi.Output[bool]:
+    def default_association_route_table(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether this is the default association route table for the EC2 Transit Gateway.
         """
@@ -315,7 +315,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPropagationRouteTable")
-    def default_propagation_route_table(self) -> pulumi.Output[bool]:
+    def default_propagation_route_table(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
         """

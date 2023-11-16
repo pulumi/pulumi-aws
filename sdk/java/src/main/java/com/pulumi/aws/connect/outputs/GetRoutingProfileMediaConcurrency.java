@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRoutingProfileMediaConcurrency {
@@ -14,27 +16,27 @@ public final class GetRoutingProfileMediaConcurrency {
      * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
-    private String channel;
+    private @Nullable String channel;
     /**
      * @return Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
      * 
      */
-    private Integer concurrency;
+    private @Nullable Integer concurrency;
 
     private GetRoutingProfileMediaConcurrency() {}
     /**
      * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
-    public String channel() {
-        return this.channel;
+    public Optional<String> channel() {
+        return Optional.ofNullable(this.channel);
     }
     /**
      * @return Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
      * 
      */
-    public Integer concurrency() {
-        return this.concurrency;
+    public Optional<Integer> concurrency() {
+        return Optional.ofNullable(this.concurrency);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetRoutingProfileMediaConcurrency {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String channel;
-        private Integer concurrency;
+        private @Nullable String channel;
+        private @Nullable Integer concurrency;
         public Builder() {}
         public Builder(GetRoutingProfileMediaConcurrency defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetRoutingProfileMediaConcurrency {
         }
 
         @CustomType.Setter
-        public Builder channel(String channel) {
-            this.channel = Objects.requireNonNull(channel);
+        public Builder channel(@Nullable String channel) {
+            this.channel = channel;
             return this;
         }
         @CustomType.Setter
-        public Builder concurrency(Integer concurrency) {
-            this.concurrency = Objects.requireNonNull(concurrency);
+        public Builder concurrency(@Nullable Integer concurrency) {
+            this.concurrency = concurrency;
             return this;
         }
         public GetRoutingProfileMediaConcurrency build() {

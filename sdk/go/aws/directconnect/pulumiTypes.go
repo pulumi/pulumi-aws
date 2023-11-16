@@ -15,7 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 type GetRouterConfigurationRouter struct {
 	// Router platform
-	Platform string `pulumi:"platform"`
+	Platform *string `pulumi:"platform"`
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//
 	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
@@ -33,14 +33,14 @@ type GetRouterConfigurationRouter struct {
 	// 	})
 	// }
 	// ```
-	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
+	RouterTypeIdentifier *string `pulumi:"routerTypeIdentifier"`
 	// Router operating system
-	Software string `pulumi:"software"`
+	Software *string `pulumi:"software"`
 	// Router vendor
-	Vendor string `pulumi:"vendor"`
+	Vendor *string `pulumi:"vendor"`
 	// Router XSLT Template Name
-	XsltTemplateName          string `pulumi:"xsltTemplateName"`
-	XsltTemplateNameForMacSec string `pulumi:"xsltTemplateNameForMacSec"`
+	XsltTemplateName          *string `pulumi:"xsltTemplateName"`
+	XsltTemplateNameForMacSec *string `pulumi:"xsltTemplateNameForMacSec"`
 }
 
 // GetRouterConfigurationRouterInput is an input type that accepts GetRouterConfigurationRouterArgs and GetRouterConfigurationRouterOutput values.
@@ -56,7 +56,7 @@ type GetRouterConfigurationRouterInput interface {
 
 type GetRouterConfigurationRouterArgs struct {
 	// Router platform
-	Platform pulumi.StringInput `pulumi:"platform"`
+	Platform pulumi.StringPtrInput `pulumi:"platform"`
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//
 	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
@@ -74,14 +74,14 @@ type GetRouterConfigurationRouterArgs struct {
 	// 	})
 	// }
 	// ```
-	RouterTypeIdentifier pulumi.StringInput `pulumi:"routerTypeIdentifier"`
+	RouterTypeIdentifier pulumi.StringPtrInput `pulumi:"routerTypeIdentifier"`
 	// Router operating system
-	Software pulumi.StringInput `pulumi:"software"`
+	Software pulumi.StringPtrInput `pulumi:"software"`
 	// Router vendor
-	Vendor pulumi.StringInput `pulumi:"vendor"`
+	Vendor pulumi.StringPtrInput `pulumi:"vendor"`
 	// Router XSLT Template Name
-	XsltTemplateName          pulumi.StringInput `pulumi:"xsltTemplateName"`
-	XsltTemplateNameForMacSec pulumi.StringInput `pulumi:"xsltTemplateNameForMacSec"`
+	XsltTemplateName          pulumi.StringPtrInput `pulumi:"xsltTemplateName"`
+	XsltTemplateNameForMacSec pulumi.StringPtrInput `pulumi:"xsltTemplateNameForMacSec"`
 }
 
 func (GetRouterConfigurationRouterArgs) ElementType() reflect.Type {
@@ -136,8 +136,8 @@ func (o GetRouterConfigurationRouterOutput) ToGetRouterConfigurationRouterOutput
 }
 
 // Router platform
-func (o GetRouterConfigurationRouterOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.Platform }).(pulumi.StringOutput)
+func (o GetRouterConfigurationRouterOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouterConfigurationRouter) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
@@ -160,27 +160,27 @@ func (o GetRouterConfigurationRouterOutput) Platform() pulumi.StringOutput {
 //	}
 //
 // ```
-func (o GetRouterConfigurationRouterOutput) RouterTypeIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.RouterTypeIdentifier }).(pulumi.StringOutput)
+func (o GetRouterConfigurationRouterOutput) RouterTypeIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouterConfigurationRouter) *string { return v.RouterTypeIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Router operating system
-func (o GetRouterConfigurationRouterOutput) Software() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.Software }).(pulumi.StringOutput)
+func (o GetRouterConfigurationRouterOutput) Software() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouterConfigurationRouter) *string { return v.Software }).(pulumi.StringPtrOutput)
 }
 
 // Router vendor
-func (o GetRouterConfigurationRouterOutput) Vendor() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.Vendor }).(pulumi.StringOutput)
+func (o GetRouterConfigurationRouterOutput) Vendor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouterConfigurationRouter) *string { return v.Vendor }).(pulumi.StringPtrOutput)
 }
 
 // Router XSLT Template Name
-func (o GetRouterConfigurationRouterOutput) XsltTemplateName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.XsltTemplateName }).(pulumi.StringOutput)
+func (o GetRouterConfigurationRouterOutput) XsltTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouterConfigurationRouter) *string { return v.XsltTemplateName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouterConfigurationRouterOutput) XsltTemplateNameForMacSec() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.XsltTemplateNameForMacSec }).(pulumi.StringOutput)
+func (o GetRouterConfigurationRouterOutput) XsltTemplateNameForMacSec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouterConfigurationRouter) *string { return v.XsltTemplateNameForMacSec }).(pulumi.StringPtrOutput)
 }
 
 type GetRouterConfigurationRouterArrayOutput struct{ *pulumi.OutputState }

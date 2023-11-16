@@ -103,7 +103,7 @@ export class GlobalTable extends pulumi.CustomResource {
     /**
      * The ARN of the DynamoDB Global Table
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the global table. Must match underlying DynamoDB Table names in all regions.
      */

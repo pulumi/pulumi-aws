@@ -14,14 +14,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualNodeSpecListenerTlResult
     {
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerTlCertificateResult> Certificates;
-        public readonly string Mode;
+        public readonly string? Mode;
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerTlValidationResult> Validations;
 
         [OutputConstructor]
         private GetVirtualNodeSpecListenerTlResult(
             ImmutableArray<Outputs.GetVirtualNodeSpecListenerTlCertificateResult> certificates,
 
-            string mode,
+            string? mode,
 
             ImmutableArray<Outputs.GetVirtualNodeSpecListenerTlValidationResult> validations)
         {

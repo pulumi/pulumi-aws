@@ -57,7 +57,7 @@ type Gateway struct {
 	// The name of the connection.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// AWS Account ID of the gateway.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerAccountId pulumi.StringPtrOutput `pulumi:"ownerAccountId"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
@@ -227,8 +227,8 @@ func (o GatewayOutput) Name() pulumi.StringOutput {
 }
 
 // AWS Account ID of the gateway.
-func (o GatewayOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o GatewayOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 type GatewayArrayOutput struct{ *pulumi.OutputState }

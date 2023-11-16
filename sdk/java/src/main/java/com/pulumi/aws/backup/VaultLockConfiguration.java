@@ -67,14 +67,14 @@ public class VaultLockConfiguration extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
-    private Output<String> backupVaultArn;
+    private Output</* @Nullable */ String> backupVaultArn;
 
     /**
      * @return The ARN of the vault.
      * 
      */
-    public Output<String> backupVaultArn() {
-        return this.backupVaultArn;
+    public Output<Optional<String>> backupVaultArn() {
+        return Codegen.optional(this.backupVaultArn);
     }
     /**
      * Name of the backup vault to add a lock configuration for.

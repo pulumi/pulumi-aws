@@ -14,6 +14,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -144,14 +145,14 @@ public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policyAttributes", refs={List.class,LoadBalancerPolicyPolicyAttribute.class}, tree="[0,1]")
-    private Output<List<LoadBalancerPolicyPolicyAttribute>> policyAttributes;
+    private Output</* @Nullable */ List<LoadBalancerPolicyPolicyAttribute>> policyAttributes;
 
     /**
      * @return Policy attribute to apply to the policy.
      * 
      */
-    public Output<List<LoadBalancerPolicyPolicyAttribute>> policyAttributes() {
-        return this.policyAttributes;
+    public Output<Optional<List<LoadBalancerPolicyPolicyAttribute>>> policyAttributes() {
+        return Codegen.optional(this.policyAttributes);
     }
     /**
      * The name of the load balancer policy.

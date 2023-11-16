@@ -6,6 +6,8 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTablePartitionKey {
@@ -13,39 +15,39 @@ public final class GetCatalogTablePartitionKey {
      * @return Free-form text comment.
      * 
      */
-    private String comment;
+    private @Nullable String comment;
     /**
      * @return Name of the table.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Datatype of data in the Column.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetCatalogTablePartitionKey() {}
     /**
      * @return Free-form text comment.
      * 
      */
-    public String comment() {
-        return this.comment;
+    public Optional<String> comment() {
+        return Optional.ofNullable(this.comment);
     }
     /**
      * @return Name of the table.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Datatype of data in the Column.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetCatalogTablePartitionKey {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String name;
-        private String type;
+        private @Nullable String comment;
+        private @Nullable String name;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetCatalogTablePartitionKey defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetCatalogTablePartitionKey {
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+        public Builder comment(@Nullable String comment) {
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetCatalogTablePartitionKey build() {

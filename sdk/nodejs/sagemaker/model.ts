@@ -81,7 +81,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this model.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
@@ -97,7 +97,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
      */
-    public readonly inferenceExecutionConfig!: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig>;
+    public readonly inferenceExecutionConfig!: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig | undefined>;
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */

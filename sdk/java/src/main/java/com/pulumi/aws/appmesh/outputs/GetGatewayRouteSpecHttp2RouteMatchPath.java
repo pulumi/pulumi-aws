@@ -6,18 +6,20 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecHttp2RouteMatchPath {
-    private String exact;
-    private String regex;
+    private @Nullable String exact;
+    private @Nullable String regex;
 
     private GetGatewayRouteSpecHttp2RouteMatchPath() {}
-    public String exact() {
-        return this.exact;
+    public Optional<String> exact() {
+        return Optional.ofNullable(this.exact);
     }
-    public String regex() {
-        return this.regex;
+    public Optional<String> regex() {
+        return Optional.ofNullable(this.regex);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetGatewayRouteSpecHttp2RouteMatchPath {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String exact;
-        private String regex;
+        private @Nullable String exact;
+        private @Nullable String regex;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttp2RouteMatchPath defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetGatewayRouteSpecHttp2RouteMatchPath {
         }
 
         @CustomType.Setter
-        public Builder exact(String exact) {
-            this.exact = Objects.requireNonNull(exact);
+        public Builder exact(@Nullable String exact) {
+            this.exact = exact;
             return this;
         }
         @CustomType.Setter
-        public Builder regex(String regex) {
-            this.regex = Objects.requireNonNull(regex);
+        public Builder regex(@Nullable String regex) {
+            this.regex = regex;
             return this;
         }
         public GetGatewayRouteSpecHttp2RouteMatchPath build() {

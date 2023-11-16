@@ -71,7 +71,7 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * API key
      */
-    public /*out*/ readonly key!: pulumi.Output<string>;
+    public /*out*/ readonly key!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.

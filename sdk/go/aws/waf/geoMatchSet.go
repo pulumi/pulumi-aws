@@ -61,7 +61,7 @@ type GeoMatchSet struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
 	GeoMatchConstraints GeoMatchSetGeoMatchConstraintArrayOutput `pulumi:"geoMatchConstraints"`
 	// The name or description of the GeoMatchSet.
@@ -222,8 +222,8 @@ func (o GeoMatchSetOutput) ToGeoMatchSetOutputWithContext(ctx context.Context) G
 }
 
 // Amazon Resource Name (ARN)
-func (o GeoMatchSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GeoMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GeoMatchSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GeoMatchSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.

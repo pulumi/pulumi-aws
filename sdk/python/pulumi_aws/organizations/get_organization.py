@@ -59,7 +59,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter
-    def accounts(self) -> Sequence['outputs.GetOrganizationAccountResult']:
+    def accounts(self) -> Optional[Sequence['outputs.GetOrganizationAccountResult']]:
         """
         List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         """
@@ -67,7 +67,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the root
         """
@@ -75,7 +75,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="awsServiceAccessPrincipals")
-    def aws_service_access_principals(self) -> Sequence[str]:
+    def aws_service_access_principals(self) -> Optional[Sequence[str]]:
         """
         A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
         """
@@ -83,7 +83,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="enabledPolicyTypes")
-    def enabled_policy_types(self) -> Sequence[str]:
+    def enabled_policy_types(self) -> Optional[Sequence[str]]:
         """
         A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         """
@@ -91,7 +91,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="featureSet")
-    def feature_set(self) -> str:
+    def feature_set(self) -> Optional[str]:
         """
         FeatureSet of the organization.
         """
@@ -99,7 +99,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -107,7 +107,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="masterAccountArn")
-    def master_account_arn(self) -> str:
+    def master_account_arn(self) -> Optional[str]:
         """
         ARN of the account that is designated as the master account for the organization.
         """
@@ -115,7 +115,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="masterAccountEmail")
-    def master_account_email(self) -> str:
+    def master_account_email(self) -> Optional[str]:
         """
         The email address that is associated with the AWS account that is designated as the master account for the organization.
         """
@@ -123,7 +123,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="masterAccountId")
-    def master_account_id(self) -> str:
+    def master_account_id(self) -> Optional[str]:
         """
         Unique identifier (ID) of the master account of an organization.
         """
@@ -131,7 +131,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="nonMasterAccounts")
-    def non_master_accounts(self) -> Sequence['outputs.GetOrganizationNonMasterAccountResult']:
+    def non_master_accounts(self) -> Optional[Sequence['outputs.GetOrganizationNonMasterAccountResult']]:
         """
         List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         """
@@ -139,7 +139,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter
-    def roots(self) -> Sequence['outputs.GetOrganizationRootResult']:
+    def roots(self) -> Optional[Sequence['outputs.GetOrganizationRootResult']]:
         """
         List of organization roots. All elements have these attributes:
         """

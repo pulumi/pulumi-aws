@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetRowLevelPermissionTagConfiguration {
-    private String status;
-    private List<GetDataSetRowLevelPermissionTagConfigurationTagRule> tagRules;
+    private @Nullable String status;
+    private @Nullable List<GetDataSetRowLevelPermissionTagConfigurationTagRule> tagRules;
 
     private GetDataSetRowLevelPermissionTagConfiguration() {}
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     public List<GetDataSetRowLevelPermissionTagConfigurationTagRule> tagRules() {
-        return this.tagRules;
+        return this.tagRules == null ? List.of() : this.tagRules;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetDataSetRowLevelPermissionTagConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String status;
-        private List<GetDataSetRowLevelPermissionTagConfigurationTagRule> tagRules;
+        private @Nullable String status;
+        private @Nullable List<GetDataSetRowLevelPermissionTagConfigurationTagRule> tagRules;
         public Builder() {}
         public Builder(GetDataSetRowLevelPermissionTagConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetDataSetRowLevelPermissionTagConfiguration {
         }
 
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tagRules(List<GetDataSetRowLevelPermissionTagConfigurationTagRule> tagRules) {
-            this.tagRules = Objects.requireNonNull(tagRules);
+        public Builder tagRules(@Nullable List<GetDataSetRowLevelPermissionTagConfigurationTagRule> tagRules) {
+            this.tagRules = tagRules;
             return this;
         }
         public Builder tagRules(GetDataSetRowLevelPermissionTagConfigurationTagRule... tagRules) {

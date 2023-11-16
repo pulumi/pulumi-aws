@@ -62,7 +62,7 @@ type Canary struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Canary.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
 	ArtifactConfig CanaryArtifactConfigPtrOutput `pulumi:"artifactConfig"`
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
@@ -70,7 +70,7 @@ type Canary struct {
 	// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
 	DeleteLambda pulumi.BoolPtrOutput `pulumi:"deleteLambda"`
 	// ARN of the Lambda function that is used as your canary's engine.
-	EngineArn pulumi.StringOutput `pulumi:"engineArn"`
+	EngineArn pulumi.StringPtrOutput `pulumi:"engineArn"`
 	// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
@@ -80,7 +80,7 @@ type Canary struct {
 	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block for individual canary runs. Detailed below.
-	RunConfig CanaryRunConfigOutput `pulumi:"runConfig"`
+	RunConfig CanaryRunConfigPtrOutput `pulumi:"runConfig"`
 	// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
 	RuntimeVersion pulumi.StringOutput `pulumi:"runtimeVersion"`
 	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
@@ -94,11 +94,11 @@ type Canary struct {
 	// The following arguments are optional:
 	Schedule CanaryScheduleOutput `pulumi:"schedule"`
 	// ARN of the Lambda layer where Synthetics stores the canary script code.
-	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
+	SourceLocationArn pulumi.StringPtrOutput `pulumi:"sourceLocationArn"`
 	// Whether to run or stop the canary.
 	StartCanary pulumi.BoolPtrOutput `pulumi:"startCanary"`
 	// Canary status.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod pulumi.IntPtrOutput `pulumi:"successRetentionPeriod"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -448,8 +448,8 @@ func (o CanaryOutput) ToCanaryOutputWithContext(ctx context.Context) CanaryOutpu
 }
 
 // Amazon Resource Name (ARN) of the Canary.
-func (o CanaryOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CanaryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
@@ -468,8 +468,8 @@ func (o CanaryOutput) DeleteLambda() pulumi.BoolPtrOutput {
 }
 
 // ARN of the Lambda function that is used as your canary's engine.
-func (o CanaryOutput) EngineArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.EngineArn }).(pulumi.StringOutput)
+func (o CanaryOutput) EngineArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringPtrOutput { return v.EngineArn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
@@ -493,8 +493,8 @@ func (o CanaryOutput) Name() pulumi.StringOutput {
 }
 
 // Configuration block for individual canary runs. Detailed below.
-func (o CanaryOutput) RunConfig() CanaryRunConfigOutput {
-	return o.ApplyT(func(v *Canary) CanaryRunConfigOutput { return v.RunConfig }).(CanaryRunConfigOutput)
+func (o CanaryOutput) RunConfig() CanaryRunConfigPtrOutput {
+	return o.ApplyT(func(v *Canary) CanaryRunConfigPtrOutput { return v.RunConfig }).(CanaryRunConfigPtrOutput)
 }
 
 // Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
@@ -525,8 +525,8 @@ func (o CanaryOutput) Schedule() CanaryScheduleOutput {
 }
 
 // ARN of the Lambda layer where Synthetics stores the canary script code.
-func (o CanaryOutput) SourceLocationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.SourceLocationArn }).(pulumi.StringOutput)
+func (o CanaryOutput) SourceLocationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringPtrOutput { return v.SourceLocationArn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to run or stop the canary.
@@ -535,8 +535,8 @@ func (o CanaryOutput) StartCanary() pulumi.BoolPtrOutput {
 }
 
 // Canary status.
-func (o CanaryOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o CanaryOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.

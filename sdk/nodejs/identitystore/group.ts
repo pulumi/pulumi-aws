@@ -59,11 +59,11 @@ export class Group extends pulumi.CustomResource {
     /**
      * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
      */
-    public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.GroupExternalId[]>;
+    public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.GroupExternalId[] | undefined>;
     /**
      * The identifier of the newly created group in the identity store.
      */
-    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    public /*out*/ readonly groupId!: pulumi.Output<string | undefined>;
     /**
      * The globally unique identifier for the identity store.
      *

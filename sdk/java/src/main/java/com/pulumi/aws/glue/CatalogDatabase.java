@@ -104,42 +104,42 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Glue Catalog Database.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
-    private Output<String> catalogId;
+    private Output</* @Nullable */ String> catalogId;
 
     /**
      * @return ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Output<Optional<String>> catalogId() {
+        return Codegen.optional(this.catalogId);
     }
     /**
      * Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
      * 
      */
     @Export(name="createTableDefaultPermissions", refs={List.class,CatalogDatabaseCreateTableDefaultPermission.class}, tree="[0,1]")
-    private Output<List<CatalogDatabaseCreateTableDefaultPermission>> createTableDefaultPermissions;
+    private Output</* @Nullable */ List<CatalogDatabaseCreateTableDefaultPermission>> createTableDefaultPermissions;
 
     /**
      * @return Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
      * 
      */
-    public Output<List<CatalogDatabaseCreateTableDefaultPermission>> createTableDefaultPermissions() {
-        return this.createTableDefaultPermissions;
+    public Output<Optional<List<CatalogDatabaseCreateTableDefaultPermission>>> createTableDefaultPermissions() {
+        return Codegen.optional(this.createTableDefaultPermissions);
     }
     /**
      * Description of the database.
@@ -160,14 +160,14 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="locationUri", refs={String.class}, tree="[0]")
-    private Output<String> locationUri;
+    private Output</* @Nullable */ String> locationUri;
 
     /**
      * @return Location of the database (for example, an HDFS path).
      * 
      */
-    public Output<String> locationUri() {
-        return this.locationUri;
+    public Output<Optional<String>> locationUri() {
+        return Codegen.optional(this.locationUri);
     }
     /**
      * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.

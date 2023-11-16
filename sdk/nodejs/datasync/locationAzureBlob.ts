@@ -75,7 +75,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
      */
@@ -95,7 +95,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
     /**
      * Path segments if you want to limit your transfer to a virtual directory in the container.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -106,7 +106,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LocationAzureBlob resource with the given unique name, arguments, and options.

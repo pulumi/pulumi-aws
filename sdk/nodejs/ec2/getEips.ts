@@ -58,17 +58,17 @@ export interface GetEipsResult {
     /**
      * List of all the allocation IDs for address for use with EC2-VPC.
      */
-    readonly allocationIds: string[];
+    readonly allocationIds?: string[];
     readonly filters?: outputs.ec2.GetEipsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of all the Elastic IP addresses.
      */
-    readonly publicIps: string[];
-    readonly tags: {[key: string]: string};
+    readonly publicIps?: string[];
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides a list of Elastic IPs in a region.

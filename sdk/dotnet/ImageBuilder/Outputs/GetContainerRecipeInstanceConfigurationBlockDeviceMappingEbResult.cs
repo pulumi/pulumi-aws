@@ -16,53 +16,53 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
         /// </summary>
-        public readonly bool DeleteOnTermination;
+        public readonly bool? DeleteOnTermination;
         /// <summary>
         /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly bool? Encrypted;
         /// <summary>
         /// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
         /// </summary>
-        public readonly int Iops;
+        public readonly int? Iops;
         /// <summary>
         /// KMS key used to encrypt the container image.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// Identifier of the EC2 Volume Snapshot.
         /// </summary>
-        public readonly string SnapshotId;
+        public readonly string? SnapshotId;
         /// <summary>
         /// For GP3 volumes only. The throughput in MiB/s that the volume supports.
         /// </summary>
-        public readonly int Throughput;
+        public readonly int? Throughput;
         /// <summary>
         /// Size of the volume, in GiB.
         /// </summary>
-        public readonly int VolumeSize;
+        public readonly int? VolumeSize;
         /// <summary>
         /// Type of the volume. For example, `gp2` or `io2`.
         /// </summary>
-        public readonly string VolumeType;
+        public readonly string? VolumeType;
 
         [OutputConstructor]
         private GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult(
-            bool deleteOnTermination,
+            bool? deleteOnTermination,
 
-            bool encrypted,
+            bool? encrypted,
 
-            int iops,
+            int? iops,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string snapshotId,
+            string? snapshotId,
 
-            int throughput,
+            int? throughput,
 
-            int volumeSize,
+            int? volumeSize,
 
-            string volumeType)
+            string? volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
             Encrypted = encrypted;

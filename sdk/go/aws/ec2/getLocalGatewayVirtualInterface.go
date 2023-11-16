@@ -56,21 +56,21 @@ type GetLocalGatewayVirtualInterfaceArgs struct {
 // A collection of values returned by getLocalGatewayVirtualInterface.
 type GetLocalGatewayVirtualInterfaceResult struct {
 	Filters []GetLocalGatewayVirtualInterfaceFilter `pulumi:"filters"`
-	Id      string                                  `pulumi:"id"`
+	Id      *string                                 `pulumi:"id"`
 	// Local address.
-	LocalAddress string `pulumi:"localAddress"`
+	LocalAddress *string `pulumi:"localAddress"`
 	// Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
-	LocalBgpAsn int `pulumi:"localBgpAsn"`
+	LocalBgpAsn *int `pulumi:"localBgpAsn"`
 	// Identifier of the EC2 Local Gateway.
-	LocalGatewayId                  string   `pulumi:"localGatewayId"`
+	LocalGatewayId                  *string  `pulumi:"localGatewayId"`
 	LocalGatewayVirtualInterfaceIds []string `pulumi:"localGatewayVirtualInterfaceIds"`
 	// Peer address.
-	PeerAddress string `pulumi:"peerAddress"`
+	PeerAddress *string `pulumi:"peerAddress"`
 	// Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
-	PeerBgpAsn int               `pulumi:"peerBgpAsn"`
+	PeerBgpAsn *int              `pulumi:"peerBgpAsn"`
 	Tags       map[string]string `pulumi:"tags"`
 	// Virtual Local Area Network.
-	Vlan int `pulumi:"vlan"`
+	Vlan *int `pulumi:"vlan"`
 }
 
 func GetLocalGatewayVirtualInterfaceOutput(ctx *pulumi.Context, args GetLocalGatewayVirtualInterfaceOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayVirtualInterfaceResultOutput {
@@ -121,23 +121,23 @@ func (o GetLocalGatewayVirtualInterfaceResultOutput) Filters() GetLocalGatewayVi
 	}).(GetLocalGatewayVirtualInterfaceFilterArrayOutput)
 }
 
-func (o GetLocalGatewayVirtualInterfaceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocalGatewayVirtualInterfaceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Local address.
-func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) string { return v.LocalAddress }).(pulumi.StringOutput)
+func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) *string { return v.LocalAddress }).(pulumi.StringPtrOutput)
 }
 
 // Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
-func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalBgpAsn() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) int { return v.LocalBgpAsn }).(pulumi.IntOutput)
+func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalBgpAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) *int { return v.LocalBgpAsn }).(pulumi.IntPtrOutput)
 }
 
 // Identifier of the EC2 Local Gateway.
-func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) string { return v.LocalGatewayId }).(pulumi.StringOutput)
+func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) *string { return v.LocalGatewayId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalGatewayVirtualInterfaceIds() pulumi.StringArrayOutput {
@@ -145,13 +145,13 @@ func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalGatewayVirtualInterfac
 }
 
 // Peer address.
-func (o GetLocalGatewayVirtualInterfaceResultOutput) PeerAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) string { return v.PeerAddress }).(pulumi.StringOutput)
+func (o GetLocalGatewayVirtualInterfaceResultOutput) PeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
 }
 
 // Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
-func (o GetLocalGatewayVirtualInterfaceResultOutput) PeerBgpAsn() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) int { return v.PeerBgpAsn }).(pulumi.IntOutput)
+func (o GetLocalGatewayVirtualInterfaceResultOutput) PeerBgpAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) *int { return v.PeerBgpAsn }).(pulumi.IntPtrOutput)
 }
 
 func (o GetLocalGatewayVirtualInterfaceResultOutput) Tags() pulumi.StringMapOutput {
@@ -159,8 +159,8 @@ func (o GetLocalGatewayVirtualInterfaceResultOutput) Tags() pulumi.StringMapOutp
 }
 
 // Virtual Local Area Network.
-func (o GetLocalGatewayVirtualInterfaceResultOutput) Vlan() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) int { return v.Vlan }).(pulumi.IntOutput)
+func (o GetLocalGatewayVirtualInterfaceResultOutput) Vlan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) *int { return v.Vlan }).(pulumi.IntPtrOutput)
 }
 
 func init() {

@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * const sourceBucketV2 = new aws.s3.BucketV2("sourceBucketV2", {}, {
  *     provider: aws.central,
  * });
- * const replicationPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const replicationPolicyDocument = pulumi.all([sourceBucketV2.arn, sourceBucketV2.arn, destinationBucketV2.arn]).apply(([sourceBucketV2Arn, sourceBucketV2Arn1, destinationBucketV2Arn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *                 "s3:GetReplicationConfiguration",
  *                 "s3:ListBucket",
  *             ],
- *             resources: [sourceBucketV2.arn],
+ *             resources: [sourceBucketV2Arn],
  *         },
  *         {
  *             effect: "Allow",
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *                 "s3:GetObjectVersionAcl",
  *                 "s3:GetObjectVersionTagging",
  *             ],
- *             resources: [pulumi.interpolate`${sourceBucketV2.arn}/*`],
+ *             resources: [`${sourceBucketV2Arn1}/*`],
  *         },
  *         {
  *             effect: "Allow",
@@ -61,10 +61,10 @@ import * as utilities from "../utilities";
  *                 "s3:ReplicateDelete",
  *                 "s3:ReplicateTags",
  *             ],
- *             resources: [pulumi.interpolate`${destinationBucketV2.arn}/*`],
+ *             resources: [`${destinationBucketV2Arn}/*`],
  *         },
  *     ],
- * });
+ * }));
  * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: replicationPolicyDocument.apply(replicationPolicyDocument => replicationPolicyDocument.json)});
  * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment", {
  *     role: replicationRole.name,

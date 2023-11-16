@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableDictionary<string, string>?> ClientMetadata { get; private set; } = null!;
 
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Cognito
         public Output<bool?> ForceAliasCreation { get; private set; } = null!;
 
         [Output("lastModifiedDate")]
-        public Output<string> LastModifiedDate { get; private set; } = null!;
+        public Output<string?> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
         /// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
@@ -146,19 +146,19 @@ namespace Pulumi.Aws.Cognito
         public Output<string?> Password { get; private set; } = null!;
 
         [Output("preferredMfaSetting")]
-        public Output<string> PreferredMfaSetting { get; private set; } = null!;
+        public Output<string?> PreferredMfaSetting { get; private set; } = null!;
 
         /// <summary>
         /// current user status.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// unique user id that is never reassignable to another user.
         /// </summary>
         [Output("sub")]
-        public Output<string> Sub { get; private set; } = null!;
+        public Output<string?> Sub { get; private set; } = null!;
 
         /// <summary>
         /// The user's temporary password. Conflicts with `password`.

@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationSetSuppressionOption {
@@ -14,7 +15,7 @@ public final class GetConfigurationSetSuppressionOption {
      * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
      * 
      */
-    private List<String> suppressedReasons;
+    private @Nullable List<String> suppressedReasons;
 
     private GetConfigurationSetSuppressionOption() {}
     /**
@@ -22,7 +23,7 @@ public final class GetConfigurationSetSuppressionOption {
      * 
      */
     public List<String> suppressedReasons() {
-        return this.suppressedReasons;
+        return this.suppressedReasons == null ? List.of() : this.suppressedReasons;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetConfigurationSetSuppressionOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> suppressedReasons;
+        private @Nullable List<String> suppressedReasons;
         public Builder() {}
         public Builder(GetConfigurationSetSuppressionOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetConfigurationSetSuppressionOption {
         }
 
         @CustomType.Setter
-        public Builder suppressedReasons(List<String> suppressedReasons) {
-            this.suppressedReasons = Objects.requireNonNull(suppressedReasons);
+        public Builder suppressedReasons(@Nullable List<String> suppressedReasons) {
+            this.suppressedReasons = suppressedReasons;
             return this;
         }
         public Builder suppressedReasons(String... suppressedReasons) {

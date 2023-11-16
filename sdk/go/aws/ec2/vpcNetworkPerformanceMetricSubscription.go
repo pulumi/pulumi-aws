@@ -48,7 +48,7 @@ type VpcNetworkPerformanceMetricSubscription struct {
 	// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
 	Metric pulumi.StringPtrOutput `pulumi:"metric"`
 	// The data aggregation time for the subscription.
-	Period pulumi.StringOutput `pulumi:"period"`
+	Period pulumi.StringPtrOutput `pulumi:"period"`
 	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
 	Source pulumi.StringOutput `pulumi:"source"`
 	// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
@@ -241,8 +241,8 @@ func (o VpcNetworkPerformanceMetricSubscriptionOutput) Metric() pulumi.StringPtr
 }
 
 // The data aggregation time for the subscription.
-func (o VpcNetworkPerformanceMetricSubscriptionOutput) Period() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Period }).(pulumi.StringOutput)
+func (o VpcNetworkPerformanceMetricSubscriptionOutput) Period() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringPtrOutput { return v.Period }).(pulumi.StringPtrOutput)
 }
 
 // The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.

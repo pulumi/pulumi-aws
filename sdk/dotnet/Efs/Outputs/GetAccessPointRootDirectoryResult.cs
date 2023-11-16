@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Efs.Outputs
         /// <summary>
         /// Path exposed as the root directory
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
 
         [OutputConstructor]
         private GetAccessPointRootDirectoryResult(
             ImmutableArray<Outputs.GetAccessPointRootDirectoryCreationInfoResult> creationInfos,
 
-            string path)
+            string? path)
         {
             CreationInfos = creationInfos;
             Path = path;

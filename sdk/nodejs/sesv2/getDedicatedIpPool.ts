@@ -52,24 +52,24 @@ export interface GetDedicatedIpPoolResult {
     /**
      * ARN of the Dedicated IP Pool.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * A list of objects describing the pool's dedicated IP's. See `dedicatedIps`.
      */
-    readonly dedicatedIps: outputs.sesv2.GetDedicatedIpPoolDedicatedIp[];
+    readonly dedicatedIps?: outputs.sesv2.GetDedicatedIpPoolDedicatedIp[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly poolName: string;
     /**
      * (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
      */
-    readonly scalingMode: string;
+    readonly scalingMode?: string;
     /**
      * A map of tags attached to the pool.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.

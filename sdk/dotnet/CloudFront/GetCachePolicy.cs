@@ -160,24 +160,24 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Comment to describe the cache policy.
         /// </summary>
-        public readonly string Comment;
+        public readonly string? Comment;
         /// <summary>
         /// Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
-        public readonly int DefaultTtl;
+        public readonly int? DefaultTtl;
         /// <summary>
         /// Current version of the cache policy.
         /// </summary>
-        public readonly string Etag;
+        public readonly string? Etag;
         public readonly string? Id;
         /// <summary>
         /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
-        public readonly int MaxTtl;
+        public readonly int? MaxTtl;
         /// <summary>
         /// Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
-        public readonly int MinTtl;
+        public readonly int? MinTtl;
         public readonly string? Name;
         /// <summary>
         /// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
@@ -186,17 +186,17 @@ namespace Pulumi.Aws.CloudFront
 
         [OutputConstructor]
         private GetCachePolicyResult(
-            string comment,
+            string? comment,
 
-            int defaultTtl,
+            int? defaultTtl,
 
-            string etag,
+            string? etag,
 
             string? id,
 
-            int maxTtl,
+            int? maxTtl,
 
-            int minTtl,
+            int? minTtl,
 
             string? name,
 

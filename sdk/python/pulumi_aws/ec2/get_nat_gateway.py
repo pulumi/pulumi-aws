@@ -72,7 +72,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> str:
+    def allocation_id(self) -> Optional[str]:
         """
         ID of the EIP allocated to the selected NAT Gateway.
         """
@@ -80,7 +80,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> str:
+    def association_id(self) -> Optional[str]:
         """
         The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         """
@@ -88,7 +88,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="connectivityType")
-    def connectivity_type(self) -> str:
+    def connectivity_type(self) -> Optional[str]:
         """
         Connectivity type of the NAT Gateway.
         """
@@ -101,12 +101,12 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> Optional[str]:
         """
         The ID of the ENI allocated to the selected NAT Gateway.
         """
@@ -114,7 +114,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> str:
+    def private_ip(self) -> Optional[str]:
         """
         Private IP address of the selected NAT Gateway.
         """
@@ -122,7 +122,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> str:
+    def public_ip(self) -> Optional[str]:
         """
         Public IP (EIP) address of the selected NAT Gateway.
         """
@@ -130,7 +130,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="secondaryAllocationIds")
-    def secondary_allocation_ids(self) -> Sequence[str]:
+    def secondary_allocation_ids(self) -> Optional[Sequence[str]]:
         """
         Secondary allocation EIP IDs for the selected NAT Gateway.
         """
@@ -138,7 +138,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
-    def secondary_private_ip_address_count(self) -> int:
+    def secondary_private_ip_address_count(self) -> Optional[int]:
         """
         The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
         """
@@ -146,7 +146,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="secondaryPrivateIpAddresses")
-    def secondary_private_ip_addresses(self) -> Sequence[str]:
+    def secondary_private_ip_addresses(self) -> Optional[Sequence[str]]:
         """
         Secondary private IPv4 addresses assigned to the selected NAT Gateway.
         """
@@ -154,22 +154,22 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
 

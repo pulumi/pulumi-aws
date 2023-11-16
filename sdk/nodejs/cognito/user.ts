@@ -99,7 +99,7 @@ export class User extends pulumi.CustomResource {
      * A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `clientMetadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
      */
     public readonly clientMetadata!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
      */
@@ -112,25 +112,25 @@ export class User extends pulumi.CustomResource {
      * If this parameter is set to True and the `phoneNumber` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `forceAliasCreation` value. Defaults to `false`.
      */
     public readonly forceAliasCreation!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string | undefined>;
     /**
      * Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
      */
     public readonly messageAction!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly mfaSettingLists!: pulumi.Output<string[]>;
+    public /*out*/ readonly mfaSettingLists!: pulumi.Output<string[] | undefined>;
     /**
      * The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
      */
     public readonly password!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly preferredMfaSetting!: pulumi.Output<string>;
+    public /*out*/ readonly preferredMfaSetting!: pulumi.Output<string | undefined>;
     /**
      * current user status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * unique user id that is never reassignable to another user.
      */
-    public /*out*/ readonly sub!: pulumi.Output<string>;
+    public /*out*/ readonly sub!: pulumi.Output<string | undefined>;
     /**
      * The user's temporary password. Conflicts with `password`.
      */

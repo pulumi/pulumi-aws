@@ -75,7 +75,7 @@ type GetTaskExecutionResult struct {
 	EnableExecuteCommand       *bool                                      `pulumi:"enableExecuteCommand"`
 	Group                      *string                                    `pulumi:"group"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                   string                                `pulumi:"id"`
+	Id                   *string                               `pulumi:"id"`
 	LaunchType           *string                               `pulumi:"launchType"`
 	NetworkConfiguration *GetTaskExecutionNetworkConfiguration `pulumi:"networkConfiguration"`
 	Overrides            *GetTaskExecutionOverrides            `pulumi:"overrides"`
@@ -190,8 +190,8 @@ func (o GetTaskExecutionResultOutput) Group() pulumi.StringPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetTaskExecutionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTaskExecutionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetTaskExecutionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetTaskExecutionResultOutput) LaunchType() pulumi.StringPtrOutput {

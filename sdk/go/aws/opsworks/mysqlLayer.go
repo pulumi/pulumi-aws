@@ -43,7 +43,7 @@ type MysqlLayer struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -71,8 +71,8 @@ type MysqlLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput                  `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    MysqlLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                     `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    MysqlLayerLoadBasedAutoScalingPtrOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Root password to use for MySQL.
@@ -438,8 +438,8 @@ func (o MysqlLayerOutput) ToMysqlLayerOutputWithContext(ctx context.Context) Mys
 }
 
 // The Amazon Resource Name(ARN) of the layer.
-func (o MysqlLayerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MysqlLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MysqlLayerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MysqlLayer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
@@ -521,8 +521,8 @@ func (o MysqlLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MysqlLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o MysqlLayerOutput) LoadBasedAutoScaling() MysqlLayerLoadBasedAutoScalingOutput {
-	return o.ApplyT(func(v *MysqlLayer) MysqlLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(MysqlLayerLoadBasedAutoScalingOutput)
+func (o MysqlLayerOutput) LoadBasedAutoScaling() MysqlLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *MysqlLayer) MysqlLayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(MysqlLayerLoadBasedAutoScalingPtrOutput)
 }
 
 // A human-readable name for the layer.

@@ -43,7 +43,7 @@ class GetCustomPluginResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         the ARN of the custom plugin.
         """
@@ -51,7 +51,7 @@ class GetCustomPluginResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         a summary description of the custom plugin.
         """
@@ -59,7 +59,7 @@ class GetCustomPluginResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -67,7 +67,7 @@ class GetCustomPluginResult:
 
     @property
     @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> int:
+    def latest_revision(self) -> Optional[int]:
         """
         an ID of the latest successfully created revision of the custom plugin.
         """
@@ -80,7 +80,7 @@ class GetCustomPluginResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         the state of the custom plugin.
         """

@@ -484,7 +484,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the app.
         """
@@ -500,7 +500,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceSpec")
-    def resource_spec(self) -> pulumi.Output['outputs.AppResourceSpec']:
+    def resource_spec(self) -> pulumi.Output[Optional['outputs.AppResourceSpec']]:
         """
         The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
         """

@@ -121,15 +121,15 @@ type Table struct {
 	pulumi.CustomResourceState
 
 	// The ARN that uniquely identifies this table.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the Timestream database.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesOutput `pulumi:"magneticStoreWriteProperties"`
+	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesPtrOutput `pulumi:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
-	RetentionProperties TableRetentionPropertiesOutput `pulumi:"retentionProperties"`
+	RetentionProperties TableRetentionPropertiesPtrOutput `pulumi:"retentionProperties"`
 	// The schema of the table. See Schema below for more details.
-	Schema TableSchemaOutput `pulumi:"schema"`
+	Schema TableSchemaPtrOutput `pulumi:"schema"`
 	// The name of the Timestream table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -344,8 +344,8 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 }
 
 // The ARN that uniquely identifies this table.
-func (o TableOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TableOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Timestream database.
@@ -354,18 +354,18 @@ func (o TableOutput) DatabaseName() pulumi.StringOutput {
 }
 
 // Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-func (o TableOutput) MagneticStoreWriteProperties() TableMagneticStoreWritePropertiesOutput {
-	return o.ApplyT(func(v *Table) TableMagneticStoreWritePropertiesOutput { return v.MagneticStoreWriteProperties }).(TableMagneticStoreWritePropertiesOutput)
+func (o TableOutput) MagneticStoreWriteProperties() TableMagneticStoreWritePropertiesPtrOutput {
+	return o.ApplyT(func(v *Table) TableMagneticStoreWritePropertiesPtrOutput { return v.MagneticStoreWriteProperties }).(TableMagneticStoreWritePropertiesPtrOutput)
 }
 
 // The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
-func (o TableOutput) RetentionProperties() TableRetentionPropertiesOutput {
-	return o.ApplyT(func(v *Table) TableRetentionPropertiesOutput { return v.RetentionProperties }).(TableRetentionPropertiesOutput)
+func (o TableOutput) RetentionProperties() TableRetentionPropertiesPtrOutput {
+	return o.ApplyT(func(v *Table) TableRetentionPropertiesPtrOutput { return v.RetentionProperties }).(TableRetentionPropertiesPtrOutput)
 }
 
 // The schema of the table. See Schema below for more details.
-func (o TableOutput) Schema() TableSchemaOutput {
-	return o.ApplyT(func(v *Table) TableSchemaOutput { return v.Schema }).(TableSchemaOutput)
+func (o TableOutput) Schema() TableSchemaPtrOutput {
+	return o.ApplyT(func(v *Table) TableSchemaPtrOutput { return v.Schema }).(TableSchemaPtrOutput)
 }
 
 // The name of the Timestream table.

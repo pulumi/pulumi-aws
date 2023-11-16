@@ -153,7 +153,7 @@ namespace Pulumi.Aws.CodeDeploy
         /// The AWS Assigned deployment config id
         /// </summary>
         [Output("deploymentConfigId")]
-        public Output<string> DeploymentConfigId { get; private set; } = null!;
+        public Output<string?> DeploymentConfigId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the deployment config.

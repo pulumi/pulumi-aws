@@ -31,9 +31,9 @@ type Grant struct {
 	// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
 	GrantCreationTokens pulumi.StringArrayOutput `pulumi:"grantCreationTokens"`
 	// The unique identifier for the grant.
-	GrantId pulumi.StringOutput `pulumi:"grantId"`
+	GrantId pulumi.StringPtrOutput `pulumi:"grantId"`
 	// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
-	GrantToken pulumi.StringOutput `pulumi:"grantToken"`
+	GrantToken pulumi.StringPtrOutput `pulumi:"grantToken"`
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal pulumi.StringOutput `pulumi:"granteePrincipal"`
 	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
@@ -278,13 +278,13 @@ func (o GrantOutput) GrantCreationTokens() pulumi.StringArrayOutput {
 }
 
 // The unique identifier for the grant.
-func (o GrantOutput) GrantId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Grant) pulumi.StringOutput { return v.GrantId }).(pulumi.StringOutput)
+func (o GrantOutput) GrantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringPtrOutput { return v.GrantId }).(pulumi.StringPtrOutput)
 }
 
 // The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
-func (o GrantOutput) GrantToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *Grant) pulumi.StringOutput { return v.GrantToken }).(pulumi.StringOutput)
+func (o GrantOutput) GrantToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringPtrOutput { return v.GrantToken }).(pulumi.StringPtrOutput)
 }
 
 // The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.

@@ -50,25 +50,25 @@ export interface GetServerlessLifecyclePolicyResult {
     /**
      * The date the lifecycle policy was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Description of the policy. Typically used to store information about the permissions defined in the policy.
      */
-    readonly description: string;
-    readonly id: string;
+    readonly description?: string;
+    readonly id?: string;
     /**
      * The date the lifecycle policy was last modified.
      */
-    readonly lastModifiedDate: string;
+    readonly lastModifiedDate?: string;
     readonly name: string;
     /**
      * JSON policy document to use as the content for the new policy.
      */
-    readonly policy: string;
+    readonly policy?: string;
     /**
      * Version of the policy.
      */
-    readonly policyVersion: string;
+    readonly policyVersion?: string;
     readonly type: string;
 }
 /**

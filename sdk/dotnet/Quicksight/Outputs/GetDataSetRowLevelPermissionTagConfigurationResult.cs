@@ -13,12 +13,12 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetRowLevelPermissionTagConfigurationResult
     {
-        public readonly string Status;
+        public readonly string? Status;
         public readonly ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult> TagRules;
 
         [OutputConstructor]
         private GetDataSetRowLevelPermissionTagConfigurationResult(
-            string status,
+            string? status,
 
             ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult> tagRules)
         {

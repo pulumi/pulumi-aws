@@ -66,13 +66,13 @@ namespace Pulumi.Aws.Keyspaces
         /// The ARN of the table.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the read/write throughput capacity mode for the table.
         /// </summary>
         [Output("capacitySpecification")]
-        public Output<Outputs.TableCapacitySpecification> CapacitySpecification { get; private set; } = null!;
+        public Output<Outputs.TableCapacitySpecification?> CapacitySpecification { get; private set; } = null!;
 
         /// <summary>
         /// Enables client-side timestamps for the table. By default, the setting is disabled.
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Keyspaces
         /// A description of the table.
         /// </summary>
         [Output("comment")]
-        public Output<Outputs.TableComment> Comment { get; private set; } = null!;
+        public Output<Outputs.TableComment?> Comment { get; private set; } = null!;
 
         /// <summary>
         /// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Keyspaces
         /// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         /// </summary>
         [Output("encryptionSpecification")]
-        public Output<Outputs.TableEncryptionSpecification> EncryptionSpecification { get; private set; } = null!;
+        public Output<Outputs.TableEncryptionSpecification?> EncryptionSpecification { get; private set; } = null!;
 
         /// <summary>
         /// The name of the keyspace that the table is going to be created in.
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Keyspaces
         /// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         /// </summary>
         [Output("pointInTimeRecovery")]
-        public Output<Outputs.TablePointInTimeRecovery> PointInTimeRecovery { get; private set; } = null!;
+        public Output<Outputs.TablePointInTimeRecovery?> PointInTimeRecovery { get; private set; } = null!;
 
         /// <summary>
         /// Describes the schema of the table.

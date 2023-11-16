@@ -13,23 +13,23 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetLoadBalancerSubnetMappingResult
     {
-        public readonly string AllocationId;
-        public readonly string Ipv6Address;
-        public readonly string OutpostId;
-        public readonly string PrivateIpv4Address;
-        public readonly string SubnetId;
+        public readonly string? AllocationId;
+        public readonly string? Ipv6Address;
+        public readonly string? OutpostId;
+        public readonly string? PrivateIpv4Address;
+        public readonly string? SubnetId;
 
         [OutputConstructor]
         private GetLoadBalancerSubnetMappingResult(
-            string allocationId,
+            string? allocationId,
 
-            string ipv6Address,
+            string? ipv6Address,
 
-            string outpostId,
+            string? outpostId,
 
-            string privateIpv4Address,
+            string? privateIpv4Address,
 
-            string subnetId)
+            string? subnetId)
         {
             AllocationId = allocationId;
             Ipv6Address = ipv6Address;

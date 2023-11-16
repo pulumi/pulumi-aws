@@ -900,7 +900,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> pulumi.Output[str]:
+    def allocation_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
         """
@@ -916,7 +916,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> pulumi.Output[str]:
+    def association_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID representing the association of the address with an instance in a VPC.
         """
@@ -924,7 +924,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="carrierIp")
-    def carrier_ip(self) -> pulumi.Output[str]:
+    def carrier_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Carrier IP address.
         """
@@ -932,7 +932,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerOwnedIp")
-    def customer_owned_ip(self) -> pulumi.Output[str]:
+    def customer_owned_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Customer owned IP.
         """
@@ -948,7 +948,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> pulumi.Output[str]:
+    def domain(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates if this EIP is for use in VPC (`vpc`).
         """
@@ -956,7 +956,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instance(self) -> pulumi.Output[str]:
+    def instance(self) -> pulumi.Output[Optional[str]]:
         """
         EC2 instance ID.
         """
@@ -964,7 +964,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkBorderGroup")
-    def network_border_group(self) -> pulumi.Output[str]:
+    def network_border_group(self) -> pulumi.Output[Optional[str]]:
         """
         Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         """
@@ -972,7 +972,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> pulumi.Output[str]:
+    def network_interface(self) -> pulumi.Output[Optional[str]]:
         """
         Network interface ID to associate with.
         """
@@ -980,7 +980,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDns")
-    def private_dns(self) -> pulumi.Output[str]:
+    def private_dns(self) -> pulumi.Output[Optional[str]]:
         """
         The Private DNS associated with the Elastic IP address (if in VPC).
         """
@@ -988,7 +988,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> pulumi.Output[str]:
+    def private_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Contains the private IP address (if in VPC).
         """
@@ -996,7 +996,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicDns")
-    def public_dns(self) -> pulumi.Output[str]:
+    def public_dns(self) -> pulumi.Output[Optional[str]]:
         """
         Public DNS associated with the Elastic IP address.
         """
@@ -1004,7 +1004,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> pulumi.Output[str]:
+    def public_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Contains the public IP address.
         """
@@ -1012,7 +1012,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpv4Pool")
-    def public_ipv4_pool(self) -> pulumi.Output[str]:
+    def public_ipv4_pool(self) -> pulumi.Output[Optional[str]]:
         """
         EC2 IPv4 address pool identifier or `amazon`.
         This option is only available for VPC EIPs.
@@ -1040,7 +1040,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vpc(self) -> pulumi.Output[bool]:
+    def vpc(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean if the EIP is in a VPC or not. Use `domain` instead.
         Defaults to `true` unless the region supports EC2-Classic.

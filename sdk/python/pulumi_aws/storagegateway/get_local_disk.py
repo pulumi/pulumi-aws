@@ -40,7 +40,7 @@ class GetLocalDiskResult:
 
     @property
     @pulumi.getter(name="diskId")
-    def disk_id(self) -> str:
+    def disk_id(self) -> Optional[str]:
         """
         Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
         """
@@ -48,12 +48,12 @@ class GetLocalDiskResult:
 
     @property
     @pulumi.getter(name="diskNode")
-    def disk_node(self) -> str:
+    def disk_node(self) -> Optional[str]:
         return pulumi.get(self, "disk_node")
 
     @property
     @pulumi.getter(name="diskPath")
-    def disk_path(self) -> str:
+    def disk_path(self) -> Optional[str]:
         return pulumi.get(self, "disk_path")
 
     @property
@@ -63,7 +63,7 @@ class GetLocalDiskResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

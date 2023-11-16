@@ -216,47 +216,47 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the Key Pair.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Timestamp for when the key pair was created in ISO 8601 format.
         /// </summary>
-        public readonly string CreateTime;
+        public readonly string? CreateTime;
         public readonly ImmutableArray<Outputs.GetKeyPairFilterResult> Filters;
         /// <summary>
         /// SHA-1 digest of the DER encoded private key.
         /// </summary>
-        public readonly string Fingerprint;
+        public readonly string? Fingerprint;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? IncludePublicKey;
         public readonly string? KeyName;
         public readonly string? KeyPairId;
         /// <summary>
         /// Type of key pair.
         /// </summary>
-        public readonly string KeyType;
+        public readonly string? KeyType;
         /// <summary>
         /// Public key material.
         /// </summary>
-        public readonly string PublicKey;
+        public readonly string? PublicKey;
         /// <summary>
         /// Any tags assigned to the Key Pair.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetKeyPairResult(
-            string arn,
+            string? arn,
 
-            string createTime,
+            string? createTime,
 
             ImmutableArray<Outputs.GetKeyPairFilterResult> filters,
 
-            string fingerprint,
+            string? fingerprint,
 
-            string id,
+            string? id,
 
             bool? includePublicKey,
 
@@ -264,11 +264,11 @@ namespace Pulumi.Aws.Ec2
 
             string? keyPairId,
 
-            string keyType,
+            string? keyType,
 
-            string publicKey,
+            string? publicKey,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CreateTime = createTime;

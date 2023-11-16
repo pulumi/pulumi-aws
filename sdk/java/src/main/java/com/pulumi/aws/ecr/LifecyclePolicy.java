@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -154,14 +155,14 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="registryId", refs={String.class}, tree="[0]")
-    private Output<String> registryId;
+    private Output</* @Nullable */ String> registryId;
 
     /**
      * @return The registry ID where the repository was created.
      * 
      */
-    public Output<String> registryId() {
-        return this.registryId;
+    public Output<Optional<String>> registryId() {
+        return Codegen.optional(this.registryId);
     }
     /**
      * Name of the repository to apply the policy.

@@ -16,17 +16,17 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// <summary>
         /// DNS hostname of the node.
         /// </summary>
-        public readonly string Address;
+        public readonly string? Address;
         /// <summary>
         /// Port number that this node is listening on.
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
 
         [OutputConstructor]
         private GetClusterClusterEndpointResult(
-            string address,
+            string? address,
 
-            int port)
+            int? port)
         {
             Address = address;
             Port = port;

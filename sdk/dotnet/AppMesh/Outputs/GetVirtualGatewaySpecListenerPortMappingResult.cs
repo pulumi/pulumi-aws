@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecListenerPortMappingResult
     {
-        public readonly int Port;
-        public readonly string Protocol;
+        public readonly int? Port;
+        public readonly string? Protocol;
 
         [OutputConstructor]
         private GetVirtualGatewaySpecListenerPortMappingResult(
-            int port,
+            int? port,
 
-            string protocol)
+            string? protocol)
         {
             Port = port;
             Protocol = protocol;

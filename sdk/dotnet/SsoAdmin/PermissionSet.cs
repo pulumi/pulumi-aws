@@ -29,13 +29,13 @@ namespace Pulumi.Aws.SsoAdmin
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Permission Set.

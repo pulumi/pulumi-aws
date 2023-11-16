@@ -16,10 +16,10 @@ namespace Pulumi.Aws.LicenseManager.Outputs
         /// <summary>
         /// Maximum time for the provisional configuration, in minutes.
         /// </summary>
-        public readonly int MaxTimeToLiveInMinutes;
+        public readonly int? MaxTimeToLiveInMinutes;
 
         [OutputConstructor]
-        private GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult(int maxTimeToLiveInMinutes)
+        private GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult(int? maxTimeToLiveInMinutes)
         {
             MaxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
         }

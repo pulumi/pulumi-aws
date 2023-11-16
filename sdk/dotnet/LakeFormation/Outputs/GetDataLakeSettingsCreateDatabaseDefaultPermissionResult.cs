@@ -20,13 +20,13 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// <summary>
         /// Principal who is granted permissions.
         /// </summary>
-        public readonly string Principal;
+        public readonly string? Principal;
 
         [OutputConstructor]
         private GetDataLakeSettingsCreateDatabaseDefaultPermissionResult(
             ImmutableArray<string> permissions,
 
-            string principal)
+            string? principal)
         {
             Permissions = permissions;
             Principal = principal;

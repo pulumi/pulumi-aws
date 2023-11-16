@@ -822,7 +822,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[Mapping[str, str]]:
+    def outputs(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of outputs from the stack.
         """
@@ -830,7 +830,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of Parameter structures that specify input parameters for the stack.
         """
@@ -838,7 +838,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyBody")
-    def policy_body(self) -> pulumi.Output[str]:
+    def policy_body(self) -> pulumi.Output[Optional[str]]:
         """
         Structure containing the stack policy body.
         Conflicts w/ `policy_url`.
@@ -875,7 +875,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> pulumi.Output[str]:
+    def template_body(self) -> pulumi.Output[Optional[str]]:
         """
         Structure containing the template body (max size: 51,200 bytes).
         """

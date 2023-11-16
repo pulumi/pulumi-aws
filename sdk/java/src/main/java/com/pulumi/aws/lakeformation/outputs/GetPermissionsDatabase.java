@@ -6,6 +6,8 @@ package com.pulumi.aws.lakeformation.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPermissionsDatabase {
@@ -13,7 +15,7 @@ public final class GetPermissionsDatabase {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return Name of the database resource. Unique to the Data Catalog.
      * 
@@ -27,8 +29,8 @@ public final class GetPermissionsDatabase {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
     /**
      * @return Name of the database resource. Unique to the Data Catalog.
@@ -49,7 +51,7 @@ public final class GetPermissionsDatabase {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String catalogId;
+        private @Nullable String catalogId;
         private String name;
         public Builder() {}
         public Builder(GetPermissionsDatabase defaults) {
@@ -59,8 +61,8 @@ public final class GetPermissionsDatabase {
         }
 
         @CustomType.Setter
-        public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+        public Builder catalogId(@Nullable String catalogId) {
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter

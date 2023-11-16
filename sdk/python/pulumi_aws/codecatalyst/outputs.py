@@ -123,50 +123,55 @@ class DevEnvironmentRepository(dict):
 @pulumi.output_type
 class GetDevEnvironmentIdeResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 runtime: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "runtime", runtime)
+                 name: Optional[str] = None,
+                 runtime: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def runtime(self) -> str:
+    def runtime(self) -> Optional[str]:
         return pulumi.get(self, "runtime")
 
 
 @pulumi.output_type
 class GetDevEnvironmentPersistentStorageResult(dict):
     def __init__(__self__, *,
-                 size: int):
-        pulumi.set(__self__, "size", size)
+                 size: Optional[int] = None):
+        if size is not None:
+            pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
-    def size(self) -> int:
+    def size(self) -> Optional[int]:
         return pulumi.get(self, "size")
 
 
 @pulumi.output_type
 class GetDevEnvironmentRepositoryResult(dict):
     def __init__(__self__, *,
-                 branch_name: str,
-                 repository_name: str):
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "repository_name", repository_name)
+                 branch_name: Optional[str] = None,
+                 repository_name: Optional[str] = None):
+        if branch_name is not None:
+            pulumi.set(__self__, "branch_name", branch_name)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
 
     @property
     @pulumi.getter(name="branchName")
-    def branch_name(self) -> str:
+    def branch_name(self) -> Optional[str]:
         return pulumi.get(self, "branch_name")
 
     @property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> str:
+    def repository_name(self) -> Optional[str]:
         return pulumi.get(self, "repository_name")
 
 

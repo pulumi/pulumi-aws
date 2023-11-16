@@ -64,11 +64,11 @@ type ConnectPeer struct {
 	pulumi.CustomResourceState
 
 	// EC2 Transit Gateway Connect Peer ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
-	BgpAsn pulumi.StringOutput `pulumi:"bgpAsn"`
+	BgpAsn pulumi.StringPtrOutput `pulumi:"bgpAsn"`
 	// The IP address assigned to customer device, which is used as BGP IP address.
-	BgpPeerAddress pulumi.StringOutput `pulumi:"bgpPeerAddress"`
+	BgpPeerAddress pulumi.StringPtrOutput `pulumi:"bgpPeerAddress"`
 	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
 	BgpTransitGatewayAddresses pulumi.StringArrayOutput `pulumi:"bgpTransitGatewayAddresses"`
 	// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
@@ -82,7 +82,7 @@ type ConnectPeer struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
-	TransitGatewayAddress pulumi.StringOutput `pulumi:"transitGatewayAddress"`
+	TransitGatewayAddress pulumi.StringPtrOutput `pulumi:"transitGatewayAddress"`
 	// The Transit Gateway Connect
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 }
@@ -302,18 +302,18 @@ func (o ConnectPeerOutput) ToConnectPeerOutputWithContext(ctx context.Context) C
 }
 
 // EC2 Transit Gateway Connect Peer ARN
-func (o ConnectPeerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConnectPeerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
-func (o ConnectPeerOutput) BgpAsn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.BgpAsn }).(pulumi.StringOutput)
+func (o ConnectPeerOutput) BgpAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringPtrOutput { return v.BgpAsn }).(pulumi.StringPtrOutput)
 }
 
 // The IP address assigned to customer device, which is used as BGP IP address.
-func (o ConnectPeerOutput) BgpPeerAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.BgpPeerAddress }).(pulumi.StringOutput)
+func (o ConnectPeerOutput) BgpPeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringPtrOutput { return v.BgpPeerAddress }).(pulumi.StringPtrOutput)
 }
 
 // The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
@@ -344,8 +344,8 @@ func (o ConnectPeerOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
-func (o ConnectPeerOutput) TransitGatewayAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.TransitGatewayAddress }).(pulumi.StringOutput)
+func (o ConnectPeerOutput) TransitGatewayAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringPtrOutput { return v.TransitGatewayAddress }).(pulumi.StringPtrOutput)
 }
 
 // The Transit Gateway Connect

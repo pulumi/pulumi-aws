@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -79,28 +80,28 @@ public class ApplicationSnapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applicationVersionId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> applicationVersionId;
+    private Output</* @Nullable */ Integer> applicationVersionId;
 
     /**
      * @return The current application version ID when the snapshot was created.
      * 
      */
-    public Output<Integer> applicationVersionId() {
-        return this.applicationVersionId;
+    public Output<Optional<Integer>> applicationVersionId() {
+        return Codegen.optional(this.applicationVersionId);
     }
     /**
      * The timestamp of the application snapshot.
      * 
      */
     @Export(name="snapshotCreationTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> snapshotCreationTimestamp;
+    private Output</* @Nullable */ String> snapshotCreationTimestamp;
 
     /**
      * @return The timestamp of the application snapshot.
      * 
      */
-    public Output<String> snapshotCreationTimestamp() {
-        return this.snapshotCreationTimestamp;
+    public Output<Optional<String>> snapshotCreationTimestamp() {
+        return Codegen.optional(this.snapshotCreationTimestamp);
     }
     /**
      * The name of the application snapshot.

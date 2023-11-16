@@ -8,54 +8,56 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultActionAuthenticateOidc {
-    private Map<String,String> authenticationRequestExtraParams;
-    private String authorizationEndpoint;
-    private String clientId;
-    private String clientSecret;
-    private String issuer;
-    private String onUnauthenticatedRequest;
-    private String scope;
-    private String sessionCookieName;
-    private Integer sessionTimeout;
-    private String tokenEndpoint;
-    private String userInfoEndpoint;
+    private @Nullable Map<String,String> authenticationRequestExtraParams;
+    private @Nullable String authorizationEndpoint;
+    private @Nullable String clientId;
+    private @Nullable String clientSecret;
+    private @Nullable String issuer;
+    private @Nullable String onUnauthenticatedRequest;
+    private @Nullable String scope;
+    private @Nullable String sessionCookieName;
+    private @Nullable Integer sessionTimeout;
+    private @Nullable String tokenEndpoint;
+    private @Nullable String userInfoEndpoint;
 
     private GetListenerDefaultActionAuthenticateOidc() {}
     public Map<String,String> authenticationRequestExtraParams() {
-        return this.authenticationRequestExtraParams;
+        return this.authenticationRequestExtraParams == null ? Map.of() : this.authenticationRequestExtraParams;
     }
-    public String authorizationEndpoint() {
-        return this.authorizationEndpoint;
+    public Optional<String> authorizationEndpoint() {
+        return Optional.ofNullable(this.authorizationEndpoint);
     }
-    public String clientId() {
-        return this.clientId;
+    public Optional<String> clientId() {
+        return Optional.ofNullable(this.clientId);
     }
-    public String clientSecret() {
-        return this.clientSecret;
+    public Optional<String> clientSecret() {
+        return Optional.ofNullable(this.clientSecret);
     }
-    public String issuer() {
-        return this.issuer;
+    public Optional<String> issuer() {
+        return Optional.ofNullable(this.issuer);
     }
-    public String onUnauthenticatedRequest() {
-        return this.onUnauthenticatedRequest;
+    public Optional<String> onUnauthenticatedRequest() {
+        return Optional.ofNullable(this.onUnauthenticatedRequest);
     }
-    public String scope() {
-        return this.scope;
+    public Optional<String> scope() {
+        return Optional.ofNullable(this.scope);
     }
-    public String sessionCookieName() {
-        return this.sessionCookieName;
+    public Optional<String> sessionCookieName() {
+        return Optional.ofNullable(this.sessionCookieName);
     }
-    public Integer sessionTimeout() {
-        return this.sessionTimeout;
+    public Optional<Integer> sessionTimeout() {
+        return Optional.ofNullable(this.sessionTimeout);
     }
-    public String tokenEndpoint() {
-        return this.tokenEndpoint;
+    public Optional<String> tokenEndpoint() {
+        return Optional.ofNullable(this.tokenEndpoint);
     }
-    public String userInfoEndpoint() {
-        return this.userInfoEndpoint;
+    public Optional<String> userInfoEndpoint() {
+        return Optional.ofNullable(this.userInfoEndpoint);
     }
 
     public static Builder builder() {
@@ -67,17 +69,17 @@ public final class GetListenerDefaultActionAuthenticateOidc {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,String> authenticationRequestExtraParams;
-        private String authorizationEndpoint;
-        private String clientId;
-        private String clientSecret;
-        private String issuer;
-        private String onUnauthenticatedRequest;
-        private String scope;
-        private String sessionCookieName;
-        private Integer sessionTimeout;
-        private String tokenEndpoint;
-        private String userInfoEndpoint;
+        private @Nullable Map<String,String> authenticationRequestExtraParams;
+        private @Nullable String authorizationEndpoint;
+        private @Nullable String clientId;
+        private @Nullable String clientSecret;
+        private @Nullable String issuer;
+        private @Nullable String onUnauthenticatedRequest;
+        private @Nullable String scope;
+        private @Nullable String sessionCookieName;
+        private @Nullable Integer sessionTimeout;
+        private @Nullable String tokenEndpoint;
+        private @Nullable String userInfoEndpoint;
         public Builder() {}
         public Builder(GetListenerDefaultActionAuthenticateOidc defaults) {
     	      Objects.requireNonNull(defaults);
@@ -95,58 +97,58 @@ public final class GetListenerDefaultActionAuthenticateOidc {
         }
 
         @CustomType.Setter
-        public Builder authenticationRequestExtraParams(Map<String,String> authenticationRequestExtraParams) {
-            this.authenticationRequestExtraParams = Objects.requireNonNull(authenticationRequestExtraParams);
+        public Builder authenticationRequestExtraParams(@Nullable Map<String,String> authenticationRequestExtraParams) {
+            this.authenticationRequestExtraParams = authenticationRequestExtraParams;
             return this;
         }
         @CustomType.Setter
-        public Builder authorizationEndpoint(String authorizationEndpoint) {
-            this.authorizationEndpoint = Objects.requireNonNull(authorizationEndpoint);
+        public Builder authorizationEndpoint(@Nullable String authorizationEndpoint) {
+            this.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+        public Builder clientId(@Nullable String clientId) {
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
-        public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+        public Builder clientSecret(@Nullable String clientSecret) {
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
-        public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+        public Builder issuer(@Nullable String issuer) {
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
-        public Builder onUnauthenticatedRequest(String onUnauthenticatedRequest) {
-            this.onUnauthenticatedRequest = Objects.requireNonNull(onUnauthenticatedRequest);
+        public Builder onUnauthenticatedRequest(@Nullable String onUnauthenticatedRequest) {
+            this.onUnauthenticatedRequest = onUnauthenticatedRequest;
             return this;
         }
         @CustomType.Setter
-        public Builder scope(String scope) {
-            this.scope = Objects.requireNonNull(scope);
+        public Builder scope(@Nullable String scope) {
+            this.scope = scope;
             return this;
         }
         @CustomType.Setter
-        public Builder sessionCookieName(String sessionCookieName) {
-            this.sessionCookieName = Objects.requireNonNull(sessionCookieName);
+        public Builder sessionCookieName(@Nullable String sessionCookieName) {
+            this.sessionCookieName = sessionCookieName;
             return this;
         }
         @CustomType.Setter
-        public Builder sessionTimeout(Integer sessionTimeout) {
-            this.sessionTimeout = Objects.requireNonNull(sessionTimeout);
+        public Builder sessionTimeout(@Nullable Integer sessionTimeout) {
+            this.sessionTimeout = sessionTimeout;
             return this;
         }
         @CustomType.Setter
-        public Builder tokenEndpoint(String tokenEndpoint) {
-            this.tokenEndpoint = Objects.requireNonNull(tokenEndpoint);
+        public Builder tokenEndpoint(@Nullable String tokenEndpoint) {
+            this.tokenEndpoint = tokenEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder userInfoEndpoint(String userInfoEndpoint) {
-            this.userInfoEndpoint = Objects.requireNonNull(userInfoEndpoint);
+        public Builder userInfoEndpoint(@Nullable String userInfoEndpoint) {
+            this.userInfoEndpoint = userInfoEndpoint;
             return this;
         }
         public GetListenerDefaultActionAuthenticateOidc build() {

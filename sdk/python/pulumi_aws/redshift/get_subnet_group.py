@@ -43,7 +43,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Redshift Subnet Group name.
         """
@@ -51,7 +51,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Redshift Subnet group.
         """
@@ -59,7 +59,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -72,7 +72,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         An array of VPC subnet IDs.
         """
@@ -80,7 +80,7 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags associated to the Subnet Group
         """

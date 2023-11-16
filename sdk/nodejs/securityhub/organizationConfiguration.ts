@@ -70,7 +70,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
      */
-    public readonly autoEnableStandards!: pulumi.Output<string>;
+    public readonly autoEnableStandards!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.

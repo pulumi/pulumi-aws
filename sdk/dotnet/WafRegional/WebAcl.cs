@@ -161,7 +161,7 @@ namespace Pulumi.Aws.WafRegional
         /// Amazon Resource Name (ARN) of the WAF Regional WebACL.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Location
         /// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         /// </summary>
         [Output("calculatorArn")]
-        public Output<string> CalculatorArn { get; private set; } = null!;
+        public Output<string?> CalculatorArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the route calculator resource.
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the route calculator resource was created in ISO 8601 format.
         /// </summary>
         [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        public Output<string?> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the data provider of traffic and road network data.
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the route calculator resource was last update in ISO 8601.
         /// </summary>
         [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        public Output<string?> UpdateTime { get; private set; } = null!;
 
 
         /// <summary>

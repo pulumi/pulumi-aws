@@ -54,13 +54,13 @@ namespace Pulumi.Aws.Ec2
         /// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IPAM.
         /// </summary>
         [Output("ipamArn")]
-        public Output<string> IpamArn { get; private set; } = null!;
+        public Output<string?> IpamArn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the IPAM to associate.
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
         /// The home region of the IPAM.
         /// </summary>
         [Output("ipamRegion")]
-        public Output<string> IpamRegion { get; private set; } = null!;
+        public Output<string?> IpamRegion { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Resource Discovery to associate.
@@ -84,19 +84,19 @@ namespace Pulumi.Aws.Ec2
         /// A boolean to identify if the Resource Discovery is the accounts default resource discovery.
         /// </summary>
         [Output("isDefault")]
-        public Output<bool> IsDefault { get; private set; } = null!;
+        public Output<bool?> IsDefault { get; private set; } = null!;
 
         /// <summary>
         /// The account ID for the account that manages the Resource Discovery
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The lifecycle state of the association when you associate or disassociate a resource discovery.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to add to the IPAM resource discovery association resource.

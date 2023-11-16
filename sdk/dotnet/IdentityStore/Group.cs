@@ -47,7 +47,7 @@ namespace Pulumi.Aws.IdentityStore
         /// The identifier of the newly created group in the identity store.
         /// </summary>
         [Output("groupId")]
-        public Output<string> GroupId { get; private set; } = null!;
+        public Output<string?> GroupId { get; private set; } = null!;
 
         /// <summary>
         /// The globally unique identifier for the identity store.

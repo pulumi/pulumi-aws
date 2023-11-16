@@ -128,11 +128,11 @@ export class Route extends pulumi.CustomResource {
     /**
      * Identifier of an EC2 instance.
      */
-    public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    public /*out*/ readonly instanceId!: pulumi.Output<string | undefined>;
     /**
      * The AWS account ID of the owner of the EC2 instance.
      */
-    public /*out*/ readonly instanceOwnerId!: pulumi.Output<string>;
+    public /*out*/ readonly instanceOwnerId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of a Outpost local gateway.
      */
@@ -144,11 +144,11 @@ export class Route extends pulumi.CustomResource {
     /**
      * Identifier of an EC2 network interface.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
     /**
      * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      */
-    public /*out*/ readonly origin!: pulumi.Output<string>;
+    public /*out*/ readonly origin!: pulumi.Output<string | undefined>;
     /**
      * The ID of the routing table.
      *
@@ -158,7 +158,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * The state of the route - `active` or `blackhole`.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Identifier of an EC2 Transit Gateway.
      */

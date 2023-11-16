@@ -60,7 +60,7 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
+    public /*out*/ readonly backupVaultArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the backup vault to add a lock configuration for.
      */

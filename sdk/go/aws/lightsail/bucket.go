@@ -53,28 +53,28 @@ type Bucket struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the lightsail bucket.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// The timestamp when the bucket was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// The name for the bucket.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Web Services Region name.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
+	SupportCode pulumi.StringPtrOutput `pulumi:"supportCode"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Url     pulumi.StringOutput    `pulumi:"url"`
+	Url     pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -280,13 +280,13 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 }
 
 // The ARN of the lightsail bucket.
-func (o BucketOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BucketOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
-func (o BucketOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o BucketOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
@@ -295,8 +295,8 @@ func (o BucketOutput) BundleId() pulumi.StringOutput {
 }
 
 // The timestamp when the bucket was created.
-func (o BucketOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o BucketOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
@@ -310,13 +310,13 @@ func (o BucketOutput) Name() pulumi.StringOutput {
 }
 
 // The Amazon Web Services Region name.
-func (o BucketOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+func (o BucketOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-func (o BucketOutput) SupportCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
+func (o BucketOutput) SupportCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.SupportCode }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -331,8 +331,8 @@ func (o BucketOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-func (o BucketOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+func (o BucketOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 type BucketArrayOutput struct{ *pulumi.OutputState }

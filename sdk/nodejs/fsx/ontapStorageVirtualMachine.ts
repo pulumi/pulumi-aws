@@ -89,11 +89,11 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the storage virtual machine.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineEndpoint[] | undefined>;
     /**
      * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      */
@@ -109,7 +109,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
     /**
      * Describes the SVM's subtype, e.g. `DEFAULT`
      */
-    public /*out*/ readonly subtype!: pulumi.Output<string>;
+    public /*out*/ readonly subtype!: pulumi.Output<string | undefined>;
     public readonly svmAdminPassword!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -124,7 +124,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
     /**
      * The SVM's UUID (universally unique identifier).
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    public /*out*/ readonly uuid!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OntapStorageVirtualMachine resource with the given unique name, arguments, and options.

@@ -56,9 +56,9 @@ type RouteTableAssociation struct {
 	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
 	ReplaceExistingAssociation pulumi.BoolPtrOutput `pulumi:"replaceExistingAssociation"`
 	// Identifier of the resource
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// Type of the resource
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -242,13 +242,13 @@ func (o RouteTableAssociationOutput) ReplaceExistingAssociation() pulumi.BoolPtr
 }
 
 // Identifier of the resource
-func (o RouteTableAssociationOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+func (o RouteTableAssociationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Type of the resource
-func (o RouteTableAssociationOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+func (o RouteTableAssociationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of EC2 Transit Gateway Attachment.

@@ -229,7 +229,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// Description of the firewall policy.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The [policy][2] for the specified firewall policy.
         /// </summary>
@@ -237,32 +237,32 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? Name;
         /// <summary>
         /// Key-value tags for the firewall policy.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Token used for optimistic locking.
         /// </summary>
-        public readonly string UpdateToken;
+        public readonly string? UpdateToken;
 
         [OutputConstructor]
         private GetFirewallPolicyResult(
             string? arn,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyResult> firewallPolicies,
 
-            string id,
+            string? id,
 
             string? name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string updateToken)
+            string? updateToken)
         {
             Arn = arn;
             Description = description;

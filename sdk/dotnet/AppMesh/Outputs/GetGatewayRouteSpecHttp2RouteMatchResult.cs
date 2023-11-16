@@ -16,8 +16,8 @@ namespace Pulumi.Aws.AppMesh.Outputs
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderResult> Headers;
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteMatchHostnameResult> Hostnames;
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteMatchPathResult> Paths;
-        public readonly int Port;
-        public readonly string Prefix;
+        public readonly int? Port;
+        public readonly string? Prefix;
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult> QueryParameters;
 
         [OutputConstructor]
@@ -28,9 +28,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteMatchPathResult> paths,
 
-            int port,
+            int? port,
 
-            string prefix,
+            string? prefix,
 
             ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult> queryParameters)
         {

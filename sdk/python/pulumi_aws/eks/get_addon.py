@@ -60,7 +60,7 @@ class GetAddonResult:
 
     @property
     @pulumi.getter(name="addonVersion")
-    def addon_version(self) -> str:
+    def addon_version(self) -> Optional[str]:
         """
         Version of EKS add-on.
         """
@@ -68,7 +68,7 @@ class GetAddonResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the EKS add-on.
         """
@@ -81,7 +81,7 @@ class GetAddonResult:
 
     @property
     @pulumi.getter(name="configurationValues")
-    def configuration_values(self) -> str:
+    def configuration_values(self) -> Optional[str]:
         """
         Configuration values for the addon with a single JSON string.
         """
@@ -89,7 +89,7 @@ class GetAddonResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         """
@@ -97,7 +97,7 @@ class GetAddonResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -105,7 +105,7 @@ class GetAddonResult:
 
     @property
     @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> str:
+    def modified_at(self) -> Optional[str]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         """
@@ -113,7 +113,7 @@ class GetAddonResult:
 
     @property
     @pulumi.getter(name="serviceAccountRoleArn")
-    def service_account_role_arn(self) -> str:
+    def service_account_role_arn(self) -> Optional[str]:
         """
         ARN of IAM role used for EKS add-on. If value is empty -
         then add-on uses the IAM role assigned to the EKS Cluster node.
@@ -122,7 +122,7 @@ class GetAddonResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

@@ -140,23 +140,23 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// ARN for a Code Signing Configuration.
         /// </summary>
-        public readonly string CodeSigningConfigArn;
+        public readonly string? CodeSigningConfigArn;
         /// <summary>
         /// Configure the function's *dead letter queue*.
         /// </summary>
-        public readonly Outputs.GetFunctionDeadLetterConfigResult DeadLetterConfig;
+        public readonly Outputs.GetFunctionDeadLetterConfigResult? DeadLetterConfig;
         /// <summary>
         /// Description of what your Lambda Function does.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Lambda environment's configuration settings.
         /// </summary>
-        public readonly Outputs.GetFunctionEnvironmentResult Environment;
+        public readonly Outputs.GetFunctionEnvironmentResult? Environment;
         /// <summary>
         /// Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
         /// </summary>
@@ -169,27 +169,27 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Function entrypoint in your code.
         /// </summary>
-        public readonly string Handler;
+        public readonly string? Handler;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// URI of the container image.
         /// </summary>
-        public readonly string ImageUri;
+        public readonly string? ImageUri;
         /// <summary>
         /// ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
         /// </summary>
-        public readonly string InvokeArn;
+        public readonly string? InvokeArn;
         /// <summary>
         /// ARN for the KMS encryption key.
         /// </summary>
-        public readonly string KmsKeyArn;
+        public readonly string? KmsKeyArn;
         /// <summary>
         /// Date this resource was last modified.
         /// </summary>
-        public readonly string LastModified;
+        public readonly string? LastModified;
         /// <summary>
         /// List of Lambda Layer ARNs attached to your Lambda Function.
         /// </summary>
@@ -197,75 +197,75 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Amount of memory in MB your Lambda Function can use at runtime.
         /// </summary>
-        public readonly int MemorySize;
+        public readonly int? MemorySize;
         /// <summary>
         /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
         /// </summary>
-        public readonly string QualifiedArn;
+        public readonly string? QualifiedArn;
         /// <summary>
         /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
         /// </summary>
-        public readonly string QualifiedInvokeArn;
+        public readonly string? QualifiedInvokeArn;
         public readonly string? Qualifier;
         /// <summary>
         /// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
         /// </summary>
-        public readonly int ReservedConcurrentExecutions;
+        public readonly int? ReservedConcurrentExecutions;
         /// <summary>
         /// IAM role attached to the Lambda Function.
         /// </summary>
-        public readonly string Role;
+        public readonly string? Role;
         /// <summary>
         /// Runtime environment for the Lambda function.
         /// </summary>
-        public readonly string Runtime;
+        public readonly string? Runtime;
         /// <summary>
         /// ARN of a signing job.
         /// </summary>
-        public readonly string SigningJobArn;
+        public readonly string? SigningJobArn;
         /// <summary>
         /// The ARN for a signing profile version.
         /// </summary>
-        public readonly string SigningProfileVersionArn;
+        public readonly string? SigningProfileVersionArn;
         /// <summary>
         /// Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
-        public readonly string SourceCodeHash;
+        public readonly string? SourceCodeHash;
         /// <summary>
         /// Size in bytes of the function .zip file.
         /// </summary>
-        public readonly int SourceCodeSize;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly int? SourceCodeSize;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Function execution time at which Lambda should terminate the function.
         /// </summary>
-        public readonly int Timeout;
+        public readonly int? Timeout;
         /// <summary>
         /// Tracing settings of the function.
         /// </summary>
-        public readonly Outputs.GetFunctionTracingConfigResult TracingConfig;
+        public readonly Outputs.GetFunctionTracingConfigResult? TracingConfig;
         /// <summary>
         /// The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
         /// <summary>
         /// VPC configuration associated with your Lambda function.
         /// </summary>
-        public readonly Outputs.GetFunctionVpcConfigResult VpcConfig;
+        public readonly Outputs.GetFunctionVpcConfigResult? VpcConfig;
 
         [OutputConstructor]
         private GetFunctionResult(
             ImmutableArray<string> architectures,
 
-            string arn,
+            string? arn,
 
-            string codeSigningConfigArn,
+            string? codeSigningConfigArn,
 
-            Outputs.GetFunctionDeadLetterConfigResult deadLetterConfig,
+            Outputs.GetFunctionDeadLetterConfigResult? deadLetterConfig,
 
-            string description,
+            string? description,
 
-            Outputs.GetFunctionEnvironmentResult environment,
+            Outputs.GetFunctionEnvironmentResult? environment,
 
             ImmutableArray<Outputs.GetFunctionEphemeralStorageResult> ephemeralStorages,
 
@@ -273,51 +273,51 @@ namespace Pulumi.Aws.Lambda
 
             string functionName,
 
-            string handler,
+            string? handler,
 
-            string id,
+            string? id,
 
-            string imageUri,
+            string? imageUri,
 
-            string invokeArn,
+            string? invokeArn,
 
-            string kmsKeyArn,
+            string? kmsKeyArn,
 
-            string lastModified,
+            string? lastModified,
 
             ImmutableArray<string> layers,
 
-            int memorySize,
+            int? memorySize,
 
-            string qualifiedArn,
+            string? qualifiedArn,
 
-            string qualifiedInvokeArn,
+            string? qualifiedInvokeArn,
 
             string? qualifier,
 
-            int reservedConcurrentExecutions,
+            int? reservedConcurrentExecutions,
 
-            string role,
+            string? role,
 
-            string runtime,
+            string? runtime,
 
-            string signingJobArn,
+            string? signingJobArn,
 
-            string signingProfileVersionArn,
+            string? signingProfileVersionArn,
 
-            string sourceCodeHash,
+            string? sourceCodeHash,
 
-            int sourceCodeSize,
+            int? sourceCodeSize,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int timeout,
+            int? timeout,
 
-            Outputs.GetFunctionTracingConfigResult tracingConfig,
+            Outputs.GetFunctionTracingConfigResult? tracingConfig,
 
-            string version,
+            string? version,
 
-            Outputs.GetFunctionVpcConfigResult vpcConfig)
+            Outputs.GetFunctionVpcConfigResult? vpcConfig)
         {
             Architectures = architectures;
             Arn = arn;

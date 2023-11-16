@@ -51,9 +51,9 @@ type Group struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ID of the Group.
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
+	GroupId pulumi.StringPtrOutput `pulumi:"groupId"`
 	// Name of the group.
 	//
 	// The following arguments are optional:
@@ -244,13 +244,13 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 }
 
 // ARN of the Group.
-func (o GroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the Group.
-func (o GroupOutput) GroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+func (o GroupOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the group.

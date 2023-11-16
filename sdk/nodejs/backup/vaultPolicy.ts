@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleVault = new aws.backup.Vault("exampleVault", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const examplePolicyDocument = exampleVault.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -31,9 +31,9 @@ import * as utilities from "../utilities";
  *             "backup:GetBackupVaultNotifications",
  *             "backup:PutBackupVaultNotifications",
  *         ],
- *         resources: [exampleVault.arn],
+ *         resources: [arn],
  *     }],
- * });
+ * }));
  * const exampleVaultPolicy = new aws.backup.VaultPolicy("exampleVaultPolicy", {
  *     backupVaultName: exampleVault.name,
  *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
@@ -79,7 +79,7 @@ export class VaultPolicy extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
+    public /*out*/ readonly backupVaultArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the backup vault to add policy for.
      */

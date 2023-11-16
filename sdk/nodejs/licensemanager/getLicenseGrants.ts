@@ -56,12 +56,12 @@ export interface GetLicenseGrantsResult {
     /**
      * List of all the license grant ARNs found.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     readonly filters?: outputs.licensemanager.GetLicenseGrantsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * This resource can be used to get a set of license grant ARNs matching a filter.

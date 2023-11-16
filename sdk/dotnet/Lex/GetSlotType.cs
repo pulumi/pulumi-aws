@@ -119,15 +119,15 @@ namespace Pulumi.Aws.Lex
         /// Checksum identifying the version of the slot type that was created. The checksum is
         /// not included as an argument because the resource will add it automatically when updating the slot type.
         /// </summary>
-        public readonly string Checksum;
+        public readonly string? Checksum;
         /// <summary>
         /// Date when the slot type version was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Description of the slot type.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Set of EnumerationValue objects that defines the values that
         /// the slot type can take. Each value can have a set of synonyms, which are additional values that help
@@ -137,11 +137,11 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Date when the $LATEST version of this slot type was updated.
         /// </summary>
-        public readonly string LastUpdatedDate;
+        public readonly string? LastUpdatedDate;
         /// <summary>
         /// Name of the slot type. The name is not case sensitive.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Lex
         /// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
         /// if there is a resolution list for the slot, otherwise null is returned.
         /// </summary>
-        public readonly string ValueSelectionStrategy;
+        public readonly string? ValueSelectionStrategy;
         /// <summary>
         /// Version of the slot type.
         /// </summary>
@@ -160,21 +160,21 @@ namespace Pulumi.Aws.Lex
 
         [OutputConstructor]
         private GetSlotTypeResult(
-            string checksum,
+            string? checksum,
 
-            string createdDate,
+            string? createdDate,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetSlotTypeEnumerationValueResult> enumerationValues,
 
-            string id,
+            string? id,
 
-            string lastUpdatedDate,
+            string? lastUpdatedDate,
 
             string name,
 
-            string valueSelectionStrategy,
+            string? valueSelectionStrategy,
 
             string? version)
         {

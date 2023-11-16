@@ -276,13 +276,13 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The default character set for new instances of this engine version.
         /// </summary>
-        public readonly string DefaultCharacterSet;
+        public readonly string? DefaultCharacterSet;
         public readonly bool? DefaultOnly;
         public readonly string Engine;
         /// <summary>
         /// Description of the database engine.
         /// </summary>
-        public readonly string EngineDescription;
+        public readonly string? EngineDescription;
         /// <summary>
         /// Set of log types that the database engine has available for export to CloudWatch Logs.
         /// </summary>
@@ -291,14 +291,14 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? IncludeAll;
-        public readonly string ParameterGroupFamily;
+        public readonly string? ParameterGroupFamily;
         public readonly ImmutableArray<string> PreferredVersions;
         /// <summary>
         /// Status of the DB engine version, either available or deprecated.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Set of the character sets supported by this engine.
         /// </summary>
@@ -318,52 +318,52 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Indicates whether you can use Aurora global databases with a specific DB engine version.
         /// </summary>
-        public readonly bool SupportsGlobalDatabases;
+        public readonly bool? SupportsGlobalDatabases;
         /// <summary>
         /// Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
         /// </summary>
-        public readonly bool SupportsLogExportsToCloudwatch;
+        public readonly bool? SupportsLogExportsToCloudwatch;
         /// <summary>
         /// Indicates whether you can use Aurora parallel query with a specific DB engine version.
         /// </summary>
-        public readonly bool SupportsParallelQuery;
+        public readonly bool? SupportsParallelQuery;
         /// <summary>
         /// Indicates whether the database engine version supports read replicas.
         /// </summary>
-        public readonly bool SupportsReadReplica;
+        public readonly bool? SupportsReadReplica;
         /// <summary>
         /// Set of engine versions that this database engine version can be upgraded to.
         /// </summary>
         public readonly ImmutableArray<string> ValidUpgradeTargets;
-        public readonly string Version;
+        public readonly string? Version;
         /// <summary>
         /// Description of the database engine version.
         /// </summary>
-        public readonly string VersionDescription;
+        public readonly string? VersionDescription;
 
         [OutputConstructor]
         private GetEngineVersionResult(
-            string defaultCharacterSet,
+            string? defaultCharacterSet,
 
             bool? defaultOnly,
 
             string engine,
 
-            string engineDescription,
+            string? engineDescription,
 
             ImmutableArray<string> exportableLogTypes,
 
             ImmutableArray<Outputs.GetEngineVersionFilterResult> filters,
 
-            string id,
+            string? id,
 
             bool? includeAll,
 
-            string parameterGroupFamily,
+            string? parameterGroupFamily,
 
             ImmutableArray<string> preferredVersions,
 
-            string status,
+            string? status,
 
             ImmutableArray<string> supportedCharacterSets,
 
@@ -373,19 +373,19 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> supportedTimezones,
 
-            bool supportsGlobalDatabases,
+            bool? supportsGlobalDatabases,
 
-            bool supportsLogExportsToCloudwatch,
+            bool? supportsLogExportsToCloudwatch,
 
-            bool supportsParallelQuery,
+            bool? supportsParallelQuery,
 
-            bool supportsReadReplica,
+            bool? supportsReadReplica,
 
             ImmutableArray<string> validUpgradeTargets,
 
-            string version,
+            string? version,
 
-            string versionDescription)
+            string? versionDescription)
         {
             DefaultCharacterSet = defaultCharacterSet;
             DefaultOnly = defaultOnly;

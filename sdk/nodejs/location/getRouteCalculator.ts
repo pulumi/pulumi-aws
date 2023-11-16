@@ -48,32 +48,32 @@ export interface GetRouteCalculatorResult {
     /**
      * ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      */
-    readonly calculatorArn: string;
+    readonly calculatorArn?: string;
     readonly calculatorName: string;
     /**
      * Timestamp for when the route calculator resource was created in ISO 8601 format.
      */
-    readonly createTime: string;
+    readonly createTime?: string;
     /**
      * Data provider of traffic and road network data.
      */
-    readonly dataSource: string;
+    readonly dataSource?: string;
     /**
      * Optional description of the route calculator resource.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Key-value map of resource tags for the route calculator.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Timestamp for when the route calculator resource was last updated in ISO 8601 format.
      */
-    readonly updateTime: string;
+    readonly updateTime?: string;
 }
 /**
  * Retrieve information about a Location Service Route Calculator.

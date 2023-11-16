@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testRestApi = new aws.apigateway.RestApi("testRestApi", {});
- * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const testPolicyDocument = testRestApi.executionArn.apply(executionArn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -25,14 +25,14 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["execute-api:Invoke"],
- *         resources: [testRestApi.executionArn],
+ *         resources: [executionArn],
  *         conditions: [{
  *             test: "IpAddress",
  *             variable: "aws:SourceIp",
  *             values: ["123.123.123.123/32"],
  *         }],
  *     }],
- * });
+ * }));
  * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("testRestApiPolicy", {
  *     restApiId: testRestApi.id,
  *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),

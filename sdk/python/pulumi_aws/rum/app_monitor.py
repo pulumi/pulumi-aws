@@ -457,7 +457,7 @@ class AppMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appMonitorConfiguration")
-    def app_monitor_configuration(self) -> pulumi.Output['outputs.AppMonitorAppMonitorConfiguration']:
+    def app_monitor_configuration(self) -> pulumi.Output[Optional['outputs.AppMonitorAppMonitorConfiguration']]:
         """
         configuration data for the app monitor. See app_monitor_configuration below.
         """
@@ -465,7 +465,7 @@ class AppMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appMonitorId")
-    def app_monitor_id(self) -> pulumi.Output[str]:
+    def app_monitor_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique ID of the app monitor. Useful for JS templates.
         """
@@ -473,7 +473,7 @@ class AppMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) specifying the app monitor.
         """
@@ -481,7 +481,7 @@ class AppMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customEvents")
-    def custom_events(self) -> pulumi.Output['outputs.AppMonitorCustomEvents']:
+    def custom_events(self) -> pulumi.Output[Optional['outputs.AppMonitorCustomEvents']]:
         """
         Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         """
@@ -497,7 +497,7 @@ class AppMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cwLogGroup")
-    def cw_log_group(self) -> pulumi.Output[str]:
+    def cw_log_group(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the log group where the copies are stored.
         """

@@ -38,14 +38,14 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of IPAM
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
@@ -66,28 +66,28 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultResourceDiscoveryAssociationId", refs={String.class}, tree="[0]")
-    private Output<String> defaultResourceDiscoveryAssociationId;
+    private Output</* @Nullable */ String> defaultResourceDiscoveryAssociationId;
 
     /**
      * @return The IPAM&#39;s default resource discovery association ID.
      * 
      */
-    public Output<String> defaultResourceDiscoveryAssociationId() {
-        return this.defaultResourceDiscoveryAssociationId;
+    public Output<Optional<String>> defaultResourceDiscoveryAssociationId() {
+        return Codegen.optional(this.defaultResourceDiscoveryAssociationId);
     }
     /**
      * The IPAM&#39;s default resource discovery ID.
      * 
      */
     @Export(name="defaultResourceDiscoveryId", refs={String.class}, tree="[0]")
-    private Output<String> defaultResourceDiscoveryId;
+    private Output</* @Nullable */ String> defaultResourceDiscoveryId;
 
     /**
      * @return The IPAM&#39;s default resource discovery ID.
      * 
      */
-    public Output<String> defaultResourceDiscoveryId() {
-        return this.defaultResourceDiscoveryId;
+    public Output<Optional<String>> defaultResourceDiscoveryId() {
+        return Codegen.optional(this.defaultResourceDiscoveryId);
     }
     /**
      * A description for the IPAM.
@@ -122,14 +122,14 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateDefaultScopeId", refs={String.class}, tree="[0]")
-    private Output<String> privateDefaultScopeId;
+    private Output</* @Nullable */ String> privateDefaultScopeId;
 
     /**
      * @return The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
-    public Output<String> privateDefaultScopeId() {
-        return this.privateDefaultScopeId;
+    public Output<Optional<String>> privateDefaultScopeId() {
+        return Codegen.optional(this.privateDefaultScopeId);
     }
     /**
      * The ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
@@ -137,29 +137,29 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publicDefaultScopeId", refs={String.class}, tree="[0]")
-    private Output<String> publicDefaultScopeId;
+    private Output</* @Nullable */ String> publicDefaultScopeId;
 
     /**
      * @return The ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
      * IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
-    public Output<String> publicDefaultScopeId() {
-        return this.publicDefaultScopeId;
+    public Output<Optional<String>> publicDefaultScopeId() {
+        return Codegen.optional(this.publicDefaultScopeId);
     }
     /**
      * The number of scopes in the IPAM.
      * 
      */
     @Export(name="scopeCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> scopeCount;
+    private Output</* @Nullable */ Integer> scopeCount;
 
     /**
      * @return The number of scopes in the IPAM.
      * 
      */
-    public Output<Integer> scopeCount() {
-        return this.scopeCount;
+    public Output<Optional<Integer>> scopeCount() {
+        return Codegen.optional(this.scopeCount);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

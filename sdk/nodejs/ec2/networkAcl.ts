@@ -90,23 +90,23 @@ export class NetworkAcl extends pulumi.CustomResource {
     /**
      * The ARN of the network ACL
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    public readonly egress!: pulumi.Output<outputs.ec2.NetworkAclEgress[]>;
+    public readonly egress!: pulumi.Output<outputs.ec2.NetworkAclEgress[] | undefined>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    public readonly ingress!: pulumi.Output<outputs.ec2.NetworkAclIngress[]>;
+    public readonly ingress!: pulumi.Output<outputs.ec2.NetworkAclIngress[] | undefined>;
     /**
      * The ID of the AWS account that owns the network ACL.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * A list of Subnet IDs to apply the ACL to
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

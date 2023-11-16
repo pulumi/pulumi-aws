@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetControlsResult {
@@ -14,12 +16,12 @@ public final class GetControlsResult {
      * @return List of all the ARNs for the controls applied to the `target_identifier`.
      * 
      */
-    private List<String> enabledControls;
+    private @Nullable List<String> enabledControls;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String targetIdentifier;
 
     private GetControlsResult() {}
@@ -28,14 +30,14 @@ public final class GetControlsResult {
      * 
      */
     public List<String> enabledControls() {
-        return this.enabledControls;
+        return this.enabledControls == null ? List.of() : this.enabledControls;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String targetIdentifier() {
         return this.targetIdentifier;
@@ -50,8 +52,8 @@ public final class GetControlsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> enabledControls;
-        private String id;
+        private @Nullable List<String> enabledControls;
+        private @Nullable String id;
         private String targetIdentifier;
         public Builder() {}
         public Builder(GetControlsResult defaults) {
@@ -62,16 +64,16 @@ public final class GetControlsResult {
         }
 
         @CustomType.Setter
-        public Builder enabledControls(List<String> enabledControls) {
-            this.enabledControls = Objects.requireNonNull(enabledControls);
+        public Builder enabledControls(@Nullable List<String> enabledControls) {
+            this.enabledControls = enabledControls;
             return this;
         }
         public Builder enabledControls(String... enabledControls) {
             return enabledControls(List.of(enabledControls));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

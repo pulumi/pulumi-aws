@@ -79,7 +79,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The detector ID of the GuardDuty.
      */

@@ -76,7 +76,7 @@ type EipAssociation struct {
 	pulumi.CustomResourceState
 
 	// The allocation ID. This is required for EC2-VPC.
-	AllocationId pulumi.StringOutput `pulumi:"allocationId"`
+	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
 	// Whether to allow an Elastic IP to
 	// be re-associated. Defaults to `true` in VPC.
 	AllowReassociation pulumi.BoolPtrOutput `pulumi:"allowReassociation"`
@@ -84,18 +84,18 @@ type EipAssociation struct {
 	// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
 	// network interface ID, but not both. The operation fails if you specify an
 	// instance ID unless exactly one network interface is attached.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
 	// The ID of the network interface. If the
 	// instance has more than one network interface, you must specify a network
 	// interface ID.
-	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
 	// The primary or secondary private IP address
 	// to associate with the Elastic IP address. If no private IP address is
 	// specified, the Elastic IP address is associated with the primary private IP
 	// address.
-	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
+	PrivateIpAddress pulumi.StringPtrOutput `pulumi:"privateIpAddress"`
 	// The Elastic IP address. This is required for EC2-Classic.
-	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+	PublicIp pulumi.StringPtrOutput `pulumi:"publicIp"`
 }
 
 // NewEipAssociation registers a new resource with the given unique name, arguments, and options.
@@ -316,8 +316,8 @@ func (o EipAssociationOutput) ToEipAssociationOutputWithContext(ctx context.Cont
 }
 
 // The allocation ID. This is required for EC2-VPC.
-func (o EipAssociationOutput) AllocationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.AllocationId }).(pulumi.StringOutput)
+func (o EipAssociationOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
 // Whether to allow an Elastic IP to
@@ -330,28 +330,28 @@ func (o EipAssociationOutput) AllowReassociation() pulumi.BoolPtrOutput {
 // EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
 // network interface ID, but not both. The operation fails if you specify an
 // instance ID unless exactly one network interface is attached.
-func (o EipAssociationOutput) InstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+func (o EipAssociationOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the network interface. If the
 // instance has more than one network interface, you must specify a network
 // interface ID.
-func (o EipAssociationOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o EipAssociationOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // The primary or secondary private IP address
 // to associate with the Elastic IP address. If no private IP address is
 // specified, the Elastic IP address is associated with the primary private IP
 // address.
-func (o EipAssociationOutput) PrivateIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.PrivateIpAddress }).(pulumi.StringOutput)
+func (o EipAssociationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The Elastic IP address. This is required for EC2-Classic.
-func (o EipAssociationOutput) PublicIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
+func (o EipAssociationOutput) PublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.PublicIp }).(pulumi.StringPtrOutput)
 }
 
 type EipAssociationArrayOutput struct{ *pulumi.OutputState }

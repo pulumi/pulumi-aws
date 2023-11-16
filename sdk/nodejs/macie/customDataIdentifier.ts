@@ -64,11 +64,11 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the custom data identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * A custom description of the custom data identifier. The description can contain as many as 512 characters.
      */
@@ -84,7 +84,7 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
     /**
      * The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
      */
-    public readonly maximumMatchDistance!: pulumi.Output<number>;
+    public readonly maximumMatchDistance!: pulumi.Output<number | undefined>;
     /**
      * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -92,7 +92,7 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
      */

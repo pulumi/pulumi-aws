@@ -20,8 +20,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Summary of sync states for all availability zones in which the firewall is configured.
         /// </summary>
-        public readonly string ConfigurationSyncStateSummary;
-        public readonly string Status;
+        public readonly string? ConfigurationSyncStateSummary;
+        public readonly string? Status;
         /// <summary>
         /// Set of subnets configured for use by the firewall.
         /// </summary>
@@ -31,9 +31,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         private GetFirewallFirewallStatusResult(
             ImmutableArray<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult> capacityUsageSummaries,
 
-            string configurationSyncStateSummary,
+            string? configurationSyncStateSummary,
 
-            string status,
+            string? status,
 
             ImmutableArray<Outputs.GetFirewallFirewallStatusSyncStateResult> syncStates)
         {

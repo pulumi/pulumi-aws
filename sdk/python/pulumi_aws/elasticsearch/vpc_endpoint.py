@@ -266,7 +266,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The connection endpoint ID for connecting to the domain.
         """

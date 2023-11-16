@@ -51,20 +51,20 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the attachment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly attachmentId!: pulumi.Output<string | undefined>;
     /**
      * The policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number | undefined>;
     /**
      * The type of attachment.
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    public /*out*/ readonly attachmentType!: pulumi.Output<string | undefined>;
     /**
      * The ARN of a core network.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of a core network where you want to create the attachment.
      */
@@ -82,19 +82,19 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * The ID of the attachment account owner.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string | undefined>;
     /**
      * The attachment resource ARN.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the segment attachment.
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    public /*out*/ readonly segmentName!: pulumi.Output<string | undefined>;
     /**
      * The state of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

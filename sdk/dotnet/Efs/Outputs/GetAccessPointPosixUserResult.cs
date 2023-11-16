@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Efs.Outputs
         /// <summary>
         /// Group ID
         /// </summary>
-        public readonly int Gid;
+        public readonly int? Gid;
         /// <summary>
         /// Secondary group IDs
         /// </summary>
@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Efs.Outputs
         /// <summary>
         /// User Id
         /// </summary>
-        public readonly int Uid;
+        public readonly int? Uid;
 
         [OutputConstructor]
         private GetAccessPointPosixUserResult(
-            int gid,
+            int? gid,
 
             ImmutableArray<int> secondaryGids,
 
-            int uid)
+            int? uid)
         {
             Gid = gid;
             SecondaryGids = secondaryGids;

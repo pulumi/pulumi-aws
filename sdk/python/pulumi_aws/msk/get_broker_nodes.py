@@ -40,7 +40,7 @@ class GetBrokerNodesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -48,7 +48,7 @@ class GetBrokerNodesResult:
 
     @property
     @pulumi.getter(name="nodeInfoLists")
-    def node_info_lists(self) -> Sequence['outputs.GetBrokerNodesNodeInfoListResult']:
+    def node_info_lists(self) -> Optional[Sequence['outputs.GetBrokerNodesNodeInfoListResult']]:
         return pulumi.get(self, "node_info_lists")
 
 

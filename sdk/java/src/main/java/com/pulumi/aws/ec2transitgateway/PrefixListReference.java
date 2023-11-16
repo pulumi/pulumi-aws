@@ -122,10 +122,10 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
         return this.prefixListId;
     }
     @Export(name="prefixListOwnerId", refs={String.class}, tree="[0]")
-    private Output<String> prefixListOwnerId;
+    private Output</* @Nullable */ String> prefixListOwnerId;
 
-    public Output<String> prefixListOwnerId() {
-        return this.prefixListOwnerId;
+    public Output<Optional<String>> prefixListOwnerId() {
+        return Codegen.optional(this.prefixListOwnerId);
     }
     /**
      * Identifier of EC2 Transit Gateway Attachment.

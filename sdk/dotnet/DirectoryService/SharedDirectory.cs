@@ -81,7 +81,7 @@ namespace Pulumi.Aws.DirectoryService
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         /// </summary>
         [Output("sharedDirectoryId")]
-        public Output<string> SharedDirectoryId { get; private set; } = null!;
+        public Output<string?> SharedDirectoryId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.

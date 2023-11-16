@@ -29,7 +29,7 @@ type MatchmakingRuleSet struct {
 	pulumi.CustomResourceState
 
 	// Rule Set ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the matchmaking rule set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// JSON encoded string containing rule set data.
@@ -214,8 +214,8 @@ func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutputWithContext(ctx cont
 }
 
 // Rule Set ARN.
-func (o MatchmakingRuleSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MatchmakingRuleSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the matchmaking rule set.

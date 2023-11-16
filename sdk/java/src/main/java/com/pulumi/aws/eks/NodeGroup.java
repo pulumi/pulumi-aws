@@ -182,42 +182,42 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="amiType", refs={String.class}, tree="[0]")
-    private Output<String> amiType;
+    private Output</* @Nullable */ String> amiType;
 
     /**
      * @return Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<String> amiType() {
-        return this.amiType;
+    public Output<Optional<String>> amiType() {
+        return Codegen.optional(this.amiType);
     }
     /**
      * Amazon Resource Name (ARN) of the EKS Node Group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the EKS Node Group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="capacityType", refs={String.class}, tree="[0]")
-    private Output<String> capacityType;
+    private Output</* @Nullable */ String> capacityType;
 
     /**
      * @return Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<String> capacityType() {
-        return this.capacityType;
+    public Output<Optional<String>> capacityType() {
+        return Codegen.optional(this.capacityType);
     }
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -238,14 +238,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="diskSize", refs={Integer.class}, tree="[0]")
-    private Output<Integer> diskSize;
+    private Output</* @Nullable */ Integer> diskSize;
 
     /**
      * @return Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<Integer> diskSize() {
-        return this.diskSize;
+    public Output<Optional<Integer>> diskSize() {
+        return Codegen.optional(this.diskSize);
     }
     /**
      * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
@@ -266,14 +266,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="instanceTypes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> instanceTypes;
+    private Output</* @Nullable */ List<String>> instanceTypes;
 
     /**
      * @return List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<List<String>> instanceTypes() {
-        return this.instanceTypes;
+    public Output<Optional<List<String>>> instanceTypes() {
+        return Codegen.optional(this.instanceTypes);
     }
     /**
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
@@ -322,14 +322,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="nodeGroupNamePrefix", refs={String.class}, tree="[0]")
-    private Output<String> nodeGroupNamePrefix;
+    private Output</* @Nullable */ String> nodeGroupNamePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
      * 
      */
-    public Output<String> nodeGroupNamePrefix() {
-        return this.nodeGroupNamePrefix;
+    public Output<Optional<String>> nodeGroupNamePrefix() {
+        return Codegen.optional(this.nodeGroupNamePrefix);
     }
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
@@ -350,14 +350,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="releaseVersion", refs={String.class}, tree="[0]")
-    private Output<String> releaseVersion;
+    private Output</* @Nullable */ String> releaseVersion;
 
     /**
      * @return AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      * 
      */
-    public Output<String> releaseVersion() {
-        return this.releaseVersion;
+    public Output<Optional<String>> releaseVersion() {
+        return Codegen.optional(this.releaseVersion);
     }
     /**
      * Configuration block with remote access settings. See `remote_access` below for details.
@@ -378,14 +378,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resources", refs={List.class,NodeGroupResource.class}, tree="[0,1]")
-    private Output<List<NodeGroupResource>> resources;
+    private Output</* @Nullable */ List<NodeGroupResource>> resources;
 
     /**
      * @return List of objects containing information about underlying resources.
      * 
      */
-    public Output<List<NodeGroupResource>> resources() {
-        return this.resources;
+    public Output<Optional<List<NodeGroupResource>>> resources() {
+        return Codegen.optional(this.resources);
     }
     /**
      * Configuration block with scaling settings. See `scaling_config` below for details.
@@ -406,14 +406,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the EKS Node Group.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group.
@@ -484,28 +484,28 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateConfig", refs={NodeGroupUpdateConfig.class}, tree="[0]")
-    private Output<NodeGroupUpdateConfig> updateConfig;
+    private Output</* @Nullable */ NodeGroupUpdateConfig> updateConfig;
 
     /**
      * @return Configuration block with update settings. See `update_config` below for details.
      * 
      */
-    public Output<NodeGroupUpdateConfig> updateConfig() {
-        return this.updateConfig;
+    public Output<Optional<NodeGroupUpdateConfig>> updateConfig() {
+        return Codegen.optional(this.updateConfig);
     }
     /**
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

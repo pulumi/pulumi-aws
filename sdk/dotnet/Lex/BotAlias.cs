@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Lex
         /// The ARN of the bot alias.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the bot.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Lex
         /// Checksum of the bot alias.
         /// </summary>
         [Output("checksum")]
-        public Output<string> Checksum { get; private set; } = null!;
+        public Output<string?> Checksum { get; private set; } = null!;
 
         /// <summary>
         /// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Lex
         /// The date that the bot alias was created.
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// A description of the alias. Must be less than or equal to 200 characters in length.
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Lex
         /// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         /// </summary>
         [Output("lastUpdatedDate")]
-        public Output<string> LastUpdatedDate { get; private set; } = null!;
+        public Output<string?> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.

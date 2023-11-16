@@ -477,7 +477,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        acmpca_bucket_access = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "s3:GetBucketAcl",
                 "s3:GetBucketLocation",
@@ -485,14 +485,14 @@ class CertificateAuthority(pulumi.CustomResource):
                 "s3:PutObjectAcl",
             ],
             resources=[
-                example_bucket_v2.arn,
-                example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                example_bucket_v2_arn,
+                f"{example_bucket_v2_arn1}/*",
             ],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 identifiers=["acm-pca.amazonaws.com"],
                 type="Service",
             )],
-        )])
+        )]))
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket_v2.id,
             policy=acmpca_bucket_access.json)
@@ -586,7 +586,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        acmpca_bucket_access = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "s3:GetBucketAcl",
                 "s3:GetBucketLocation",
@@ -594,14 +594,14 @@ class CertificateAuthority(pulumi.CustomResource):
                 "s3:PutObjectAcl",
             ],
             resources=[
-                example_bucket_v2.arn,
-                example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                example_bucket_v2_arn,
+                f"{example_bucket_v2_arn1}/*",
             ],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 identifiers=["acm-pca.amazonaws.com"],
                 type="Service",
             )],
-        )])
+        )]))
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket_v2.id,
             policy=acmpca_bucket_access.json)
@@ -759,7 +759,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the certificate authority.
         """
@@ -767,7 +767,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificate(self) -> pulumi.Output[str]:
+    def certificate(self) -> pulumi.Output[Optional[str]]:
         """
         Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
         """
@@ -783,7 +783,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> pulumi.Output[str]:
+    def certificate_chain(self) -> pulumi.Output[Optional[str]]:
         """
         Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         """
@@ -791,7 +791,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateSigningRequest")
-    def certificate_signing_request(self) -> pulumi.Output[str]:
+    def certificate_signing_request(self) -> pulumi.Output[Optional[str]]:
         """
         The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         """
@@ -807,7 +807,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyStorageSecurityStandard")
-    def key_storage_security_standard(self) -> pulumi.Output[str]:
+    def key_storage_security_standard(self) -> pulumi.Output[Optional[str]]:
         """
         Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         """
@@ -815,7 +815,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notAfter")
-    def not_after(self) -> pulumi.Output[str]:
+    def not_after(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         """
@@ -823,7 +823,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> pulumi.Output[str]:
+    def not_before(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         """
@@ -847,7 +847,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def serial(self) -> pulumi.Output[str]:
+    def serial(self) -> pulumi.Output[Optional[str]]:
         """
         Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         """
@@ -882,7 +882,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageMode")
-    def usage_mode(self) -> pulumi.Output[str]:
+    def usage_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """

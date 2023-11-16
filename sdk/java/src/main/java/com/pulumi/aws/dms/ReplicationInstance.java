@@ -131,14 +131,14 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
-    private Output<Integer> allocatedStorage;
+    private Output</* @Nullable */ Integer> allocatedStorage;
 
     /**
      * @return The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      * 
      */
-    public Output<Integer> allocatedStorage() {
-        return this.allocatedStorage;
+    public Output<Optional<Integer>> allocatedStorage() {
+        return Codegen.optional(this.allocatedStorage);
     }
     /**
      * Indicates that major version upgrades are allowed.
@@ -173,84 +173,84 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> autoMinorVersionUpgrade;
+    private Output</* @Nullable */ Boolean> autoMinorVersionUpgrade;
 
     /**
      * @return Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      * 
      */
-    public Output<Boolean> autoMinorVersionUpgrade() {
-        return this.autoMinorVersionUpgrade;
+    public Output<Optional<Boolean>> autoMinorVersionUpgrade() {
+        return Codegen.optional(this.autoMinorVersionUpgrade);
     }
     /**
      * The EC2 Availability Zone that the replication instance will be created in.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The EC2 Availability Zone that the replication instance will be created in.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * The engine version number of the replication instance.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output<String> engineVersion;
+    private Output</* @Nullable */ String> engineVersion;
 
     /**
      * @return The engine version number of the replication instance.
      * 
      */
-    public Output<String> engineVersion() {
-        return this.engineVersion;
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
     }
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyArn;
+    private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
-    public Output<String> kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
      * 
      */
     @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> multiAz;
+    private Output</* @Nullable */ Boolean> multiAz;
 
     /**
      * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
      * 
      */
-    public Output<Boolean> multiAz() {
-        return this.multiAz;
+    public Output<Optional<Boolean>> multiAz() {
+        return Codegen.optional(this.multiAz);
     }
     /**
      * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
-    private Output<String> networkType;
+    private Output</* @Nullable */ String> networkType;
 
     /**
      * @return The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
      * 
      */
-    public Output<String> networkType() {
-        return this.networkType;
+    public Output<Optional<String>> networkType() {
+        return Codegen.optional(this.networkType);
     }
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -262,7 +262,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
-    private Output<String> preferredMaintenanceWindow;
+    private Output</* @Nullable */ String> preferredMaintenanceWindow;
 
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -273,36 +273,36 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * - Constraints: Minimum 30-minute window.
      * 
      */
-    public Output<String> preferredMaintenanceWindow() {
-        return this.preferredMaintenanceWindow;
+    public Output<Optional<String>> preferredMaintenanceWindow() {
+        return Codegen.optional(this.preferredMaintenanceWindow);
     }
     /**
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      * 
      */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> publiclyAccessible;
+    private Output</* @Nullable */ Boolean> publiclyAccessible;
 
     /**
      * @return Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      * 
      */
-    public Output<Boolean> publiclyAccessible() {
-        return this.publiclyAccessible;
+    public Output<Optional<Boolean>> publiclyAccessible() {
+        return Codegen.optional(this.publiclyAccessible);
     }
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      * 
      */
     @Export(name="replicationInstanceArn", refs={String.class}, tree="[0]")
-    private Output<String> replicationInstanceArn;
+    private Output</* @Nullable */ String> replicationInstanceArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the replication instance.
      * 
      */
-    public Output<String> replicationInstanceArn() {
-        return this.replicationInstanceArn;
+    public Output<Optional<String>> replicationInstanceArn() {
+        return Codegen.optional(this.replicationInstanceArn);
     }
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
@@ -347,42 +347,42 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="replicationInstancePrivateIps", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> replicationInstancePrivateIps;
+    private Output</* @Nullable */ List<String>> replicationInstancePrivateIps;
 
     /**
      * @return A list of the private IP addresses of the replication instance.
      * 
      */
-    public Output<List<String>> replicationInstancePrivateIps() {
-        return this.replicationInstancePrivateIps;
+    public Output<Optional<List<String>>> replicationInstancePrivateIps() {
+        return Codegen.optional(this.replicationInstancePrivateIps);
     }
     /**
      * A list of the public IP addresses of the replication instance.
      * 
      */
     @Export(name="replicationInstancePublicIps", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> replicationInstancePublicIps;
+    private Output</* @Nullable */ List<String>> replicationInstancePublicIps;
 
     /**
      * @return A list of the public IP addresses of the replication instance.
      * 
      */
-    public Output<List<String>> replicationInstancePublicIps() {
-        return this.replicationInstancePublicIps;
+    public Output<Optional<List<String>>> replicationInstancePublicIps() {
+        return Codegen.optional(this.replicationInstancePublicIps);
     }
     /**
      * A subnet group to associate with the replication instance.
      * 
      */
     @Export(name="replicationSubnetGroupId", refs={String.class}, tree="[0]")
-    private Output<String> replicationSubnetGroupId;
+    private Output</* @Nullable */ String> replicationSubnetGroupId;
 
     /**
      * @return A subnet group to associate with the replication instance.
      * 
      */
-    public Output<String> replicationSubnetGroupId() {
-        return this.replicationSubnetGroupId;
+    public Output<Optional<String>> replicationSubnetGroupId() {
+        return Codegen.optional(this.replicationSubnetGroupId);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -421,14 +421,14 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
 
     /**

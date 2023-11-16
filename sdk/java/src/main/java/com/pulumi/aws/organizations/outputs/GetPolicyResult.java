@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPolicyResult {
@@ -14,81 +16,81 @@ public final class GetPolicyResult {
      * @return The Amazon Resource Name of the policy.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Indicates if a policy is an AWS managed policy.
      * 
      */
-    private Boolean awsManaged;
+    private @Nullable Boolean awsManaged;
     /**
      * @return The text content of the policy.
      * 
      */
-    private String content;
+    private @Nullable String content;
     /**
      * @return The description of the policy.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The friendly name of the policy.
      * 
      */
-    private String name;
+    private @Nullable String name;
     private String policyId;
     /**
      * @return The type of policy values can be `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetPolicyResult() {}
     /**
      * @return The Amazon Resource Name of the policy.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Indicates if a policy is an AWS managed policy.
      * 
      */
-    public Boolean awsManaged() {
-        return this.awsManaged;
+    public Optional<Boolean> awsManaged() {
+        return Optional.ofNullable(this.awsManaged);
     }
     /**
      * @return The text content of the policy.
      * 
      */
-    public String content() {
-        return this.content;
+    public Optional<String> content() {
+        return Optional.ofNullable(this.content);
     }
     /**
      * @return The description of the policy.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The friendly name of the policy.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public String policyId() {
         return this.policyId;
@@ -97,8 +99,8 @@ public final class GetPolicyResult {
      * @return The type of policy values can be `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -110,14 +112,14 @@ public final class GetPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Boolean awsManaged;
-        private String content;
-        private String description;
-        private String id;
-        private String name;
+        private @Nullable String arn;
+        private @Nullable Boolean awsManaged;
+        private @Nullable String content;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String name;
         private String policyId;
-        private String type;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -132,33 +134,33 @@ public final class GetPolicyResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder awsManaged(Boolean awsManaged) {
-            this.awsManaged = Objects.requireNonNull(awsManaged);
+        public Builder awsManaged(@Nullable Boolean awsManaged) {
+            this.awsManaged = awsManaged;
             return this;
         }
         @CustomType.Setter
-        public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+        public Builder content(@Nullable String content) {
+            this.content = content;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -167,8 +169,8 @@ public final class GetPolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetPolicyResult build() {

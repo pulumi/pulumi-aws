@@ -71,14 +71,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
@@ -183,14 +183,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="readOnly", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> readOnly;
+    private Output</* @Nullable */ Boolean> readOnly;
 
     /**
      * @return specifies whether the volume is read-only. Default is false.
      * 
      */
-    public Output<Boolean> readOnly() {
-        return this.readOnly;
+    public Output<Optional<Boolean>> readOnly() {
+        return Codegen.optional(this.readOnly);
     }
     /**
      * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
@@ -211,28 +211,28 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageCapacityQuotaGib", refs={Integer.class}, tree="[0]")
-    private Output<Integer> storageCapacityQuotaGib;
+    private Output</* @Nullable */ Integer> storageCapacityQuotaGib;
 
     /**
      * @return The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
-    public Output<Integer> storageCapacityQuotaGib() {
-        return this.storageCapacityQuotaGib;
+    public Output<Optional<Integer>> storageCapacityQuotaGib() {
+        return Codegen.optional(this.storageCapacityQuotaGib);
     }
     /**
      * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
      * 
      */
     @Export(name="storageCapacityReservationGib", refs={Integer.class}, tree="[0]")
-    private Output<Integer> storageCapacityReservationGib;
+    private Output</* @Nullable */ Integer> storageCapacityReservationGib;
 
     /**
      * @return The amount of storage in gibibytes (GiB) to reserve from the parent volume.
      * 
      */
-    public Output<Integer> storageCapacityReservationGib() {
-        return this.storageCapacityReservationGib;
+    public Output<Optional<Integer>> storageCapacityReservationGib() {
+        return Codegen.optional(this.storageCapacityReservationGib);
     }
     /**
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -271,14 +271,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userAndGroupQuotas", refs={List.class,OpenZfsVolumeUserAndGroupQuota.class}, tree="[0,1]")
-    private Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas;
+    private Output</* @Nullable */ List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas;
 
     /**
      * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
-    public Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas() {
-        return this.userAndGroupQuotas;
+    public Output<Optional<List<OpenZfsVolumeUserAndGroupQuota>>> userAndGroupQuotas() {
+        return Codegen.optional(this.userAndGroupQuotas);
     }
     @Export(name="volumeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeType;

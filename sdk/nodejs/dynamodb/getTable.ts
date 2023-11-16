@@ -47,31 +47,31 @@ export interface GetTableArgs {
  * A collection of values returned by getTable.
  */
 export interface GetTableResult {
-    readonly arn: string;
-    readonly attributes: outputs.dynamodb.GetTableAttribute[];
-    readonly billingMode: string;
-    readonly deletionProtectionEnabled: boolean;
-    readonly globalSecondaryIndexes: outputs.dynamodb.GetTableGlobalSecondaryIndex[];
-    readonly hashKey: string;
+    readonly arn?: string;
+    readonly attributes?: outputs.dynamodb.GetTableAttribute[];
+    readonly billingMode?: string;
+    readonly deletionProtectionEnabled?: boolean;
+    readonly globalSecondaryIndexes?: outputs.dynamodb.GetTableGlobalSecondaryIndex[];
+    readonly hashKey?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly localSecondaryIndexes: outputs.dynamodb.GetTableLocalSecondaryIndex[];
+    readonly id?: string;
+    readonly localSecondaryIndexes?: outputs.dynamodb.GetTableLocalSecondaryIndex[];
     readonly name: string;
-    readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
-    readonly rangeKey: string;
-    readonly readCapacity: number;
-    readonly replicas: outputs.dynamodb.GetTableReplica[];
-    readonly serverSideEncryption: outputs.dynamodb.GetTableServerSideEncryption;
-    readonly streamArn: string;
-    readonly streamEnabled: boolean;
-    readonly streamLabel: string;
-    readonly streamViewType: string;
-    readonly tableClass: string;
-    readonly tags: {[key: string]: string};
-    readonly ttl: outputs.dynamodb.GetTableTtl;
-    readonly writeCapacity: number;
+    readonly pointInTimeRecovery?: outputs.dynamodb.GetTablePointInTimeRecovery;
+    readonly rangeKey?: string;
+    readonly readCapacity?: number;
+    readonly replicas?: outputs.dynamodb.GetTableReplica[];
+    readonly serverSideEncryption?: outputs.dynamodb.GetTableServerSideEncryption;
+    readonly streamArn?: string;
+    readonly streamEnabled?: boolean;
+    readonly streamLabel?: string;
+    readonly streamViewType?: string;
+    readonly tableClass?: string;
+    readonly tags?: {[key: string]: string};
+    readonly ttl?: outputs.dynamodb.GetTableTtl;
+    readonly writeCapacity?: number;
 }
 /**
  * Provides information about a DynamoDB table.

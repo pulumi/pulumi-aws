@@ -89,14 +89,14 @@ public class PortfolioShare extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accepted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> accepted;
+    private Output</* @Nullable */ Boolean> accepted;
 
     /**
      * @return Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
      * 
      */
-    public Output<Boolean> accepted() {
-        return this.accepted;
+    public Output<Optional<Boolean>> accepted() {
+        return Codegen.optional(this.accepted);
     }
     /**
      * Portfolio identifier.

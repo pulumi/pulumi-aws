@@ -69,7 +69,7 @@ export interface GetInstanceTypeOfferingsResult {
     /**
      * Option for host instance type. See Broker Instance Options below.
      */
-    readonly brokerInstanceOptions: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOption[];
+    readonly brokerInstanceOptions?: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOption[];
     /**
      * Broker's engine type.
      */
@@ -81,7 +81,7 @@ export interface GetInstanceTypeOfferingsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Broker's storage type.
      */

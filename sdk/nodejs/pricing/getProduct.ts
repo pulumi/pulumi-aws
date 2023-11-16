@@ -102,11 +102,11 @@ export interface GetProductResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set to the product returned from the API.
      */
-    readonly result: string;
+    readonly result?: string;
     readonly serviceCode: string;
 }
 /**

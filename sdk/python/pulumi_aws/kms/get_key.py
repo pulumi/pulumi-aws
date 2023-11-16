@@ -95,7 +95,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The key ARN of a primary or replica key of a multi-Region key.
         """
@@ -103,7 +103,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> str:
+    def aws_account_id(self) -> Optional[str]:
         """
         The twelve-digit account ID of the AWS account that owns the key
         """
@@ -111,7 +111,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="cloudHsmClusterId")
-    def cloud_hsm_cluster_id(self) -> str:
+    def cloud_hsm_cluster_id(self) -> Optional[str]:
         """
         The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
         """
@@ -119,7 +119,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> Optional[str]:
         """
         The date and time when the key was created
         """
@@ -127,7 +127,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="customKeyStoreId")
-    def custom_key_store_id(self) -> str:
+    def custom_key_store_id(self) -> Optional[str]:
         """
         A unique identifier for the custom key store that contains the KMS key.
         """
@@ -135,7 +135,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="customerMasterKeySpec")
-    def customer_master_key_spec(self) -> str:
+    def customer_master_key_spec(self) -> Optional[str]:
         """
         Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
         """
@@ -143,7 +143,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="deletionDate")
-    def deletion_date(self) -> str:
+    def deletion_date(self) -> Optional[str]:
         """
         The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
         """
@@ -151,7 +151,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The description of the key.
         """
@@ -159,7 +159,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
         """
@@ -167,7 +167,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="expirationModel")
-    def expiration_model(self) -> str:
+    def expiration_model(self) -> Optional[str]:
         """
         Specifies whether the Key's key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
         """
@@ -180,7 +180,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -193,7 +193,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="keyManager")
-    def key_manager(self) -> str:
+    def key_manager(self) -> Optional[str]:
         """
         The key's manager
         """
@@ -201,7 +201,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="keySpec")
-    def key_spec(self) -> str:
+    def key_spec(self) -> Optional[str]:
         """
         Describes the type of key material in the KMS key.
         """
@@ -209,7 +209,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="keyState")
-    def key_state(self) -> str:
+    def key_state(self) -> Optional[str]:
         """
         The state of the key
         """
@@ -217,7 +217,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> str:
+    def key_usage(self) -> Optional[str]:
         """
         Specifies the intended use of the key
         """
@@ -225,7 +225,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="multiRegion")
-    def multi_region(self) -> bool:
+    def multi_region(self) -> Optional[bool]:
         """
         Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
         """
@@ -233,7 +233,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="multiRegionConfigurations")
-    def multi_region_configurations(self) -> Sequence['outputs.GetKeyMultiRegionConfigurationResult']:
+    def multi_region_configurations(self) -> Optional[Sequence['outputs.GetKeyMultiRegionConfigurationResult']]:
         """
         Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
         """
@@ -241,7 +241,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def origin(self) -> str:
+    def origin(self) -> Optional[str]:
         """
         When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
         """
@@ -249,7 +249,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="pendingDeletionWindowInDays")
-    def pending_deletion_window_in_days(self) -> int:
+    def pending_deletion_window_in_days(self) -> Optional[int]:
         """
         The waiting period before the primary key in a multi-Region key is deleted.
         """
@@ -257,7 +257,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="validTo")
-    def valid_to(self) -> str:
+    def valid_to(self) -> Optional[str]:
         """
         The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
         """
@@ -265,7 +265,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="xksKeyConfigurations")
-    def xks_key_configurations(self) -> Sequence['outputs.GetKeyXksKeyConfigurationResult']:
+    def xks_key_configurations(self) -> Optional[Sequence['outputs.GetKeyXksKeyConfigurationResult']]:
         """
         Information about the external key that is associated with a KMS key in an external key store.
         """

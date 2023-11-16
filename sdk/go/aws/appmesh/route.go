@@ -214,19 +214,19 @@ type Route struct {
 	pulumi.CustomResourceState
 
 	// ARN of the route.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Creation date of the route.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// Last update date of the route.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate pulumi.StringPtrOutput `pulumi:"lastUpdatedDate"`
 	// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
 	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
+	MeshOwner pulumi.StringPtrOutput `pulumi:"meshOwner"`
 	// Name to use for the route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource owner's AWS account ID.
-	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
+	ResourceOwner pulumi.StringPtrOutput `pulumi:"resourceOwner"`
 	// Route specification to apply.
 	Spec RouteSpecOutput `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -458,18 +458,18 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 }
 
 // ARN of the route.
-func (o RouteOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RouteOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Creation date of the route.
-func (o RouteOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o RouteOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Last update date of the route.
-func (o RouteOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o RouteOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
@@ -478,8 +478,8 @@ func (o RouteOutput) MeshName() pulumi.StringOutput {
 }
 
 // AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-func (o RouteOutput) MeshOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
+func (o RouteOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.MeshOwner }).(pulumi.StringPtrOutput)
 }
 
 // Name to use for the route. Must be between 1 and 255 characters in length.
@@ -488,8 +488,8 @@ func (o RouteOutput) Name() pulumi.StringOutput {
 }
 
 // Resource owner's AWS account ID.
-func (o RouteOutput) ResourceOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+func (o RouteOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.ResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // Route specification to apply.

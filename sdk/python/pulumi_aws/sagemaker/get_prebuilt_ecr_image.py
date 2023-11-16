@@ -51,7 +51,7 @@ class GetPrebuiltEcrImageResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -69,7 +69,7 @@ class GetPrebuiltEcrImageResult:
 
     @property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> str:
+    def registry_id(self) -> Optional[str]:
         """
         Account ID containing the image. For example, `469771592824`.
         """
@@ -77,7 +77,7 @@ class GetPrebuiltEcrImageResult:
 
     @property
     @pulumi.getter(name="registryPath")
-    def registry_path(self) -> str:
+    def registry_path(self) -> Optional[str]:
         """
         Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
         """

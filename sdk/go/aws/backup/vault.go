@@ -52,15 +52,15 @@ type Vault struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the vault.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// The server-side encryption key that is used to protect your backups.
-	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of recovery points that are stored in a backup vault.
-	RecoveryPoints pulumi.IntOutput `pulumi:"recoveryPoints"`
+	RecoveryPoints pulumi.IntPtrOutput `pulumi:"recoveryPoints"`
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -255,8 +255,8 @@ func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 }
 
 // The ARN of the vault.
-func (o VaultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VaultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
@@ -265,8 +265,8 @@ func (o VaultOutput) ForceDestroy() pulumi.BoolPtrOutput {
 }
 
 // The server-side encryption key that is used to protect your backups.
-func (o VaultOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o VaultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the backup vault to create.
@@ -275,8 +275,8 @@ func (o VaultOutput) Name() pulumi.StringOutput {
 }
 
 // The number of recovery points that are stored in a backup vault.
-func (o VaultOutput) RecoveryPoints() pulumi.IntOutput {
-	return o.ApplyT(func(v *Vault) pulumi.IntOutput { return v.RecoveryPoints }).(pulumi.IntOutput)
+func (o VaultOutput) RecoveryPoints() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.IntPtrOutput { return v.RecoveryPoints }).(pulumi.IntPtrOutput)
 }
 
 // Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

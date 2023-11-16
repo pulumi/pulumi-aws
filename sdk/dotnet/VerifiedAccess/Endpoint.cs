@@ -119,7 +119,7 @@ namespace Pulumi.Aws.VerifiedAccess
         /// Returned if endpoint has a device trust provider attached.
         /// </summary>
         [Output("deviceValidationDomain")]
-        public Output<string> DeviceValidationDomain { get; private set; } = null!;
+        public Output<string?> DeviceValidationDomain { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.VerifiedAccess
         /// A DNS name that is generated for the endpoint.
         /// </summary>
         [Output("endpointDomain")]
-        public Output<string> EndpointDomain { get; private set; } = null!;
+        public Output<string?> EndpointDomain { get; private set; } = null!;
 
         /// <summary>
         /// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.VerifiedAccess
         /// The options in use for server side encryption.
         /// </summary>
         [Output("sseSpecification")]
-        public Output<Outputs.EndpointSseSpecification> SseSpecification { get; private set; } = null!;
+        public Output<Outputs.EndpointSseSpecification?> SseSpecification { get; private set; } = null!;
 
         /// <summary>
         /// Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string> VerifiedAccessGroupId { get; private set; } = null!;
 
         [Output("verifiedAccessInstanceId")]
-        public Output<string> VerifiedAccessInstanceId { get; private set; } = null!;
+        public Output<string?> VerifiedAccessInstanceId { get; private set; } = null!;
 
 
         /// <summary>

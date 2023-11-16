@@ -98,15 +98,15 @@ type UserHierarchyGroup struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the hierarchy group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The identifier for the hierarchy group.
-	HierarchyGroupId pulumi.StringOutput `pulumi:"hierarchyGroupId"`
+	HierarchyGroupId pulumi.StringPtrOutput `pulumi:"hierarchyGroupId"`
 	// A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
 	HierarchyPaths UserHierarchyGroupHierarchyPathArrayOutput `pulumi:"hierarchyPaths"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// The identifier of the level in the hierarchy group.
-	LevelId pulumi.StringOutput `pulumi:"levelId"`
+	LevelId pulumi.StringPtrOutput `pulumi:"levelId"`
 	// The name of the user hierarchy group. Must not be more than 100 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
@@ -321,13 +321,13 @@ func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutputWithContext(ctx cont
 }
 
 // The Amazon Resource Name (ARN) of the hierarchy group.
-func (o UserHierarchyGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserHierarchyGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier for the hierarchy group.
-func (o UserHierarchyGroupOutput) HierarchyGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.HierarchyGroupId }).(pulumi.StringOutput)
+func (o UserHierarchyGroupOutput) HierarchyGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringPtrOutput { return v.HierarchyGroupId }).(pulumi.StringPtrOutput)
 }
 
 // A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
@@ -341,8 +341,8 @@ func (o UserHierarchyGroupOutput) InstanceId() pulumi.StringOutput {
 }
 
 // The identifier of the level in the hierarchy group.
-func (o UserHierarchyGroupOutput) LevelId() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.LevelId }).(pulumi.StringOutput)
+func (o UserHierarchyGroupOutput) LevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringPtrOutput { return v.LevelId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the user hierarchy group. Must not be more than 100 characters.

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetProductResult {
@@ -16,12 +18,12 @@ public final class GetProductResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set to the product returned from the API.
      * 
      */
-    private String result;
+    private @Nullable String result;
     private String serviceCode;
 
     private GetProductResult() {}
@@ -32,15 +34,15 @@ public final class GetProductResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set to the product returned from the API.
      * 
      */
-    public String result() {
-        return this.result;
+    public Optional<String> result() {
+        return Optional.ofNullable(this.result);
     }
     public String serviceCode() {
         return this.serviceCode;
@@ -56,8 +58,8 @@ public final class GetProductResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetProductFilter> filters;
-        private String id;
-        private String result;
+        private @Nullable String id;
+        private @Nullable String result;
         private String serviceCode;
         public Builder() {}
         public Builder(GetProductResult defaults) {
@@ -77,13 +79,13 @@ public final class GetProductResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder result(String result) {
-            this.result = Objects.requireNonNull(result);
+        public Builder result(@Nullable String result) {
+            this.result = result;
             return this;
         }
         @CustomType.Setter

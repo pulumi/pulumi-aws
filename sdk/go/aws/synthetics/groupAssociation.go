@@ -55,10 +55,10 @@ type GroupAssociation struct {
 	pulumi.CustomResourceState
 
 	// ARN of the canary.
-	CanaryArn pulumi.StringOutput `pulumi:"canaryArn"`
-	GroupArn  pulumi.StringOutput `pulumi:"groupArn"`
+	CanaryArn pulumi.StringOutput    `pulumi:"canaryArn"`
+	GroupArn  pulumi.StringPtrOutput `pulumi:"groupArn"`
 	// ID of the Group.
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
+	GroupId pulumi.StringPtrOutput `pulumi:"groupId"`
 	// Name of the group that the canary will be associated with.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 }
@@ -229,13 +229,13 @@ func (o GroupAssociationOutput) CanaryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupAssociation) pulumi.StringOutput { return v.CanaryArn }).(pulumi.StringOutput)
 }
 
-func (o GroupAssociationOutput) GroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GroupAssociation) pulumi.StringOutput { return v.GroupArn }).(pulumi.StringOutput)
+func (o GroupAssociationOutput) GroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupAssociation) pulumi.StringPtrOutput { return v.GroupArn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the Group.
-func (o GroupAssociationOutput) GroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *GroupAssociation) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+func (o GroupAssociationOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupAssociation) pulumi.StringPtrOutput { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the group that the canary will be associated with.

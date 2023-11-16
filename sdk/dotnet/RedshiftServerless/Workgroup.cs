@@ -46,13 +46,13 @@ namespace Pulumi.Aws.RedshiftServerless
         /// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         /// </summary>
         [Output("baseCapacity")]
-        public Output<int> BaseCapacity { get; private set; } = null!;
+        public Output<int?> BaseCapacity { get; private set; } = null!;
 
         /// <summary>
         /// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The Redshift Workgroup ID.
         /// </summary>
         [Output("workgroupId")]
-        public Output<string> WorkgroupId { get; private set; } = null!;
+        public Output<string?> WorkgroupId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the workgroup.

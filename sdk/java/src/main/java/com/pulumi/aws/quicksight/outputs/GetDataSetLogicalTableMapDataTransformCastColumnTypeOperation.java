@@ -6,22 +6,24 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation {
-    private String columnName;
-    private String format;
-    private String newColumnType;
+    private @Nullable String columnName;
+    private @Nullable String format;
+    private @Nullable String newColumnType;
 
     private GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation() {}
-    public String columnName() {
-        return this.columnName;
+    public Optional<String> columnName() {
+        return Optional.ofNullable(this.columnName);
     }
-    public String format() {
-        return this.format;
+    public Optional<String> format() {
+        return Optional.ofNullable(this.format);
     }
-    public String newColumnType() {
-        return this.newColumnType;
+    public Optional<String> newColumnType() {
+        return Optional.ofNullable(this.newColumnType);
     }
 
     public static Builder builder() {
@@ -33,9 +35,9 @@ public final class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation
     }
     @CustomType.Builder
     public static final class Builder {
-        private String columnName;
-        private String format;
-        private String newColumnType;
+        private @Nullable String columnName;
+        private @Nullable String format;
+        private @Nullable String newColumnType;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,18 +47,18 @@ public final class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation
         }
 
         @CustomType.Setter
-        public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+        public Builder columnName(@Nullable String columnName) {
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
-        public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+        public Builder format(@Nullable String format) {
+            this.format = format;
             return this;
         }
         @CustomType.Setter
-        public Builder newColumnType(String newColumnType) {
-            this.newColumnType = Objects.requireNonNull(newColumnType);
+        public Builder newColumnType(@Nullable String newColumnType) {
+            this.newColumnType = newColumnType;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation build() {

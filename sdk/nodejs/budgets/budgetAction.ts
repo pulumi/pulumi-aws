@@ -108,11 +108,11 @@ export class BudgetAction extends pulumi.CustomResource {
     /**
      * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * The id of the budget action.
      */
-    public /*out*/ readonly actionId!: pulumi.Output<string>;
+    public /*out*/ readonly actionId!: pulumi.Output<string | undefined>;
     /**
      * The trigger threshold of the action. See Action Threshold.
      */
@@ -128,7 +128,7 @@ export class BudgetAction extends pulumi.CustomResource {
     /**
      * The ARN of the budget action.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of a budget.
      */
@@ -148,7 +148,7 @@ export class BudgetAction extends pulumi.CustomResource {
     /**
      * The status of the budget action.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * A list of subscribers. See Subscriber.
      */

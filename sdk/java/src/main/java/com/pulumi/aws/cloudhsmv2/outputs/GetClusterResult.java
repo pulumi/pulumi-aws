@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterResult {
@@ -21,29 +23,29 @@ public final class GetClusterResult {
      *   The number of available cluster certificates may vary depending on state of the cluster.
      * 
      */
-    private List<GetClusterClusterCertificate> clusterCertificates;
+    private @Nullable List<GetClusterClusterCertificate> clusterCertificates;
     private String clusterId;
-    private String clusterState;
+    private @Nullable String clusterState;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ID of the security group associated with the CloudHSM cluster.
      * 
      */
-    private String securityGroupId;
+    private @Nullable String securityGroupId;
     /**
      * @return IDs of subnets in which cluster operates.
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return ID of the VPC that the CloudHSM cluster resides in.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetClusterResult() {}
     /**
@@ -57,41 +59,41 @@ public final class GetClusterResult {
      * 
      */
     public List<GetClusterClusterCertificate> clusterCertificates() {
-        return this.clusterCertificates;
+        return this.clusterCertificates == null ? List.of() : this.clusterCertificates;
     }
     public String clusterId() {
         return this.clusterId;
     }
-    public String clusterState() {
-        return this.clusterState;
+    public Optional<String> clusterState() {
+        return Optional.ofNullable(this.clusterState);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ID of the security group associated with the CloudHSM cluster.
      * 
      */
-    public String securityGroupId() {
-        return this.securityGroupId;
+    public Optional<String> securityGroupId() {
+        return Optional.ofNullable(this.securityGroupId);
     }
     /**
      * @return IDs of subnets in which cluster operates.
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
      * @return ID of the VPC that the CloudHSM cluster resides in.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -103,13 +105,13 @@ public final class GetClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetClusterClusterCertificate> clusterCertificates;
+        private @Nullable List<GetClusterClusterCertificate> clusterCertificates;
         private String clusterId;
-        private String clusterState;
-        private String id;
-        private String securityGroupId;
-        private List<String> subnetIds;
-        private String vpcId;
+        private @Nullable String clusterState;
+        private @Nullable String id;
+        private @Nullable String securityGroupId;
+        private @Nullable List<String> subnetIds;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -123,8 +125,8 @@ public final class GetClusterResult {
         }
 
         @CustomType.Setter
-        public Builder clusterCertificates(List<GetClusterClusterCertificate> clusterCertificates) {
-            this.clusterCertificates = Objects.requireNonNull(clusterCertificates);
+        public Builder clusterCertificates(@Nullable List<GetClusterClusterCertificate> clusterCertificates) {
+            this.clusterCertificates = clusterCertificates;
             return this;
         }
         public Builder clusterCertificates(GetClusterClusterCertificate... clusterCertificates) {
@@ -136,31 +138,31 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder clusterState(String clusterState) {
-            this.clusterState = Objects.requireNonNull(clusterState);
+        public Builder clusterState(@Nullable String clusterState) {
+            this.clusterState = clusterState;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = Objects.requireNonNull(securityGroupId);
+        public Builder securityGroupId(@Nullable String securityGroupId) {
+            this.securityGroupId = securityGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetClusterResult build() {

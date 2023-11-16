@@ -261,14 +261,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cluster", refs={String.class}, tree="[0]")
-    private Output<String> cluster;
+    private Output</* @Nullable */ String> cluster;
 
     /**
      * @return ARN of an ECS cluster.
      * 
      */
-    public Output<String> cluster() {
-        return this.cluster;
+    public Output<Optional<String>> cluster() {
+        return Codegen.optional(this.cluster);
     }
     /**
      * Configuration block for deployment circuit breaker. See below.
@@ -401,28 +401,28 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="iamRole", refs={String.class}, tree="[0]")
-    private Output<String> iamRole;
+    private Output</* @Nullable */ String> iamRole;
 
     /**
      * @return ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
      * 
      */
-    public Output<String> iamRole() {
-        return this.iamRole;
+    public Output<Optional<String>> iamRole() {
+        return Codegen.optional(this.iamRole);
     }
     /**
      * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
     @Export(name="launchType", refs={String.class}, tree="[0]")
-    private Output<String> launchType;
+    private Output</* @Nullable */ String> launchType;
 
     /**
      * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
-    public Output<String> launchType() {
-        return this.launchType;
+    public Output<Optional<String>> launchType() {
+        return Codegen.optional(this.launchType);
     }
     /**
      * Configuration block for load balancers. See below.
@@ -503,14 +503,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="platformVersion", refs={String.class}, tree="[0]")
-    private Output<String> platformVersion;
+    private Output</* @Nullable */ String> platformVersion;
 
     /**
      * @return Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
-    public Output<String> platformVersion() {
-        return this.platformVersion;
+    public Output<Optional<String>> platformVersion() {
+        return Codegen.optional(this.platformVersion);
     }
     /**
      * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
@@ -619,14 +619,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> triggers;
+    private Output</* @Nullable */ Map<String,String>> triggers;
 
     /**
      * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
      * 
      */
-    public Output<Map<String,String>> triggers() {
-        return this.triggers;
+    public Output<Optional<Map<String,String>>> triggers() {
+        return Codegen.optional(this.triggers);
     }
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.

@@ -6,6 +6,8 @@ package com.pulumi.aws.organizations.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrganizationalUnitChildAccountsAccount {
@@ -13,63 +15,63 @@ public final class GetOrganizationalUnitChildAccountsAccount {
      * @return The Amazon Resource Name (ARN) of the account.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The email address associated with the AWS account.
      * 
      */
-    private String email;
+    private @Nullable String email;
     /**
      * @return Parent identifier of the organizational units.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The friendly name of the account.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The status of the account in the organization.
      * 
      */
-    private String status;
+    private @Nullable String status;
 
     private GetOrganizationalUnitChildAccountsAccount() {}
     /**
      * @return The Amazon Resource Name (ARN) of the account.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The email address associated with the AWS account.
      * 
      */
-    public String email() {
-        return this.email;
+    public Optional<String> email() {
+        return Optional.ofNullable(this.email);
     }
     /**
      * @return Parent identifier of the organizational units.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The friendly name of the account.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The status of the account in the organization.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -81,11 +83,11 @@ public final class GetOrganizationalUnitChildAccountsAccount {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String email;
-        private String id;
-        private String name;
-        private String status;
+        private @Nullable String arn;
+        private @Nullable String email;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetOrganizationalUnitChildAccountsAccount defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,28 +99,28 @@ public final class GetOrganizationalUnitChildAccountsAccount {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+        public Builder email(@Nullable String email) {
+            this.email = email;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetOrganizationalUnitChildAccountsAccount build() {

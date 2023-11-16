@@ -50,11 +50,11 @@ type CidrCollection struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the CIDR collection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Unique name for the CIDR collection.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The lastest version of the CIDR collection.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewCidrCollection registers a new resource with the given unique name, arguments, and options.
@@ -207,8 +207,8 @@ func (o CidrCollectionOutput) ToCidrCollectionOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name (ARN) of the CIDR collection.
-func (o CidrCollectionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CidrCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CidrCollectionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CidrCollection) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Unique name for the CIDR collection.
@@ -217,8 +217,8 @@ func (o CidrCollectionOutput) Name() pulumi.StringOutput {
 }
 
 // The lastest version of the CIDR collection.
-func (o CidrCollectionOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *CidrCollection) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o CidrCollectionOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CidrCollection) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type CidrCollectionArrayOutput struct{ *pulumi.OutputState }

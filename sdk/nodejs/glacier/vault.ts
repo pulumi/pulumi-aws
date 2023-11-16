@@ -93,11 +93,11 @@ export class Vault extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The URI of the vault that was created.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
      */

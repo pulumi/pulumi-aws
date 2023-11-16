@@ -64,7 +64,7 @@ type UsageLimit struct {
 	// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
 	Amount pulumi.IntOutput `pulumi:"amount"`
 	// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
 	BreachAction pulumi.StringPtrOutput `pulumi:"breachAction"`
 	// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
@@ -267,8 +267,8 @@ func (o UsageLimitOutput) Amount() pulumi.IntOutput {
 }
 
 // Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-func (o UsageLimitOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *UsageLimit) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UsageLimitOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UsageLimit) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.

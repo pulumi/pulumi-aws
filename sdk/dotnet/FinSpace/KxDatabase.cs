@@ -58,13 +58,13 @@ namespace Pulumi.Aws.FinSpace
         /// Amazon Resource Name (ARN) identifier of the KX database.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Output("createdTimestamp")]
-        public Output<string> CreatedTimestamp { get; private set; } = null!;
+        public Output<string?> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Description of the KX database.
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.FinSpace
         /// Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Output("lastModifiedTimestamp")]
-        public Output<string> LastModifiedTimestamp { get; private set; } = null!;
+        public Output<string?> LastModifiedTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Name of the KX database.

@@ -8,26 +8,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecHttp2RouteMatchQueryParameter {
-    private List<GetRouteSpecHttp2RouteMatchQueryParameterMatch> matches;
+    private @Nullable List<GetRouteSpecHttp2RouteMatchQueryParameterMatch> matches;
     /**
      * @return Name of the route.
      * 
      */
-    private String name;
+    private @Nullable String name;
 
     private GetRouteSpecHttp2RouteMatchQueryParameter() {}
     public List<GetRouteSpecHttp2RouteMatchQueryParameterMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
     /**
      * @return Name of the route.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -39,8 +41,8 @@ public final class GetRouteSpecHttp2RouteMatchQueryParameter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecHttp2RouteMatchQueryParameterMatch> matches;
-        private String name;
+        private @Nullable List<GetRouteSpecHttp2RouteMatchQueryParameterMatch> matches;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetRouteSpecHttp2RouteMatchQueryParameter defaults) {
     	      Objects.requireNonNull(defaults);
@@ -49,16 +51,16 @@ public final class GetRouteSpecHttp2RouteMatchQueryParameter {
         }
 
         @CustomType.Setter
-        public Builder matches(List<GetRouteSpecHttp2RouteMatchQueryParameterMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetRouteSpecHttp2RouteMatchQueryParameterMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecHttp2RouteMatchQueryParameterMatch... matches) {
             return matches(List.of(matches));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetRouteSpecHttp2RouteMatchQueryParameter build() {

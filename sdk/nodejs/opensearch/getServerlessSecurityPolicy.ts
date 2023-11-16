@@ -49,28 +49,28 @@ export interface GetServerlessSecurityPolicyResult {
     /**
      * The date the security policy was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Description of the security policy.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The date the security policy was last modified.
      */
-    readonly lastModifiedDate: string;
+    readonly lastModifiedDate?: string;
     readonly name: string;
     /**
      * The JSON policy document without any whitespaces.
      */
-    readonly policy: string;
+    readonly policy?: string;
     /**
      * Version of the policy.
      */
-    readonly policyVersion: string;
+    readonly policyVersion?: string;
     readonly type: string;
 }
 /**

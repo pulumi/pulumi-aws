@@ -586,7 +586,7 @@ class ContactFlowModule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Contact Flow Module.
         """
@@ -594,7 +594,7 @@ class ContactFlowModule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contactFlowModuleId")
-    def contact_flow_module_id(self) -> pulumi.Output[str]:
+    def contact_flow_module_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the Contact Flow Module.
         """
@@ -602,7 +602,7 @@ class ContactFlowModule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> pulumi.Output[str]:
+    def content(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
         """

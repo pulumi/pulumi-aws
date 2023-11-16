@@ -113,44 +113,44 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallDomainListResult
     {
-        public readonly string Arn;
-        public readonly string CreationTime;
-        public readonly string CreatorRequestId;
-        public readonly int DomainCount;
+        public readonly string? Arn;
+        public readonly string? CreationTime;
+        public readonly string? CreatorRequestId;
+        public readonly int? DomainCount;
         public readonly string FirewallDomainListId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string ManagedOwnerName;
-        public readonly string ModificationTime;
-        public readonly string Name;
-        public readonly string Status;
-        public readonly string StatusMessage;
+        public readonly string? Id;
+        public readonly string? ManagedOwnerName;
+        public readonly string? ModificationTime;
+        public readonly string? Name;
+        public readonly string? Status;
+        public readonly string? StatusMessage;
 
         [OutputConstructor]
         private GetResolverFirewallDomainListResult(
-            string arn,
+            string? arn,
 
-            string creationTime,
+            string? creationTime,
 
-            string creatorRequestId,
+            string? creatorRequestId,
 
-            int domainCount,
+            int? domainCount,
 
             string firewallDomainListId,
 
-            string id,
+            string? id,
 
-            string managedOwnerName,
+            string? managedOwnerName,
 
-            string modificationTime,
+            string? modificationTime,
 
-            string name,
+            string? name,
 
-            string status,
+            string? status,
 
-            string statusMessage)
+            string? statusMessage)
         {
             Arn = arn;
             CreationTime = creationTime;

@@ -851,7 +851,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appSources")
-    def app_sources(self) -> pulumi.Output[Sequence['outputs.ApplicationAppSource']]:
+    def app_sources(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationAppSource']]]:
         """
         SCM configuration of the app as described below.
         """
@@ -955,7 +955,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shortName")
-    def short_name(self) -> pulumi.Output[str]:
+    def short_name(self) -> pulumi.Output[Optional[str]]:
         """
         A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         """

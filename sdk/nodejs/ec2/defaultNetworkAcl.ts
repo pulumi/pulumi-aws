@@ -141,7 +141,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     /**
      * ARN of the Default Network ACL
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      *
@@ -159,7 +159,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     /**
      * ID of the AWS account that owns the Default Network ACL
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      */
@@ -177,7 +177,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     /**
      * ID of the associated VPC
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DefaultNetworkAcl resource with the given unique name, arguments, and options.

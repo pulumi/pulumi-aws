@@ -60,18 +60,18 @@ type LookupCertificateAuthorityArgs struct {
 type LookupCertificateAuthorityResult struct {
 	Arn string `pulumi:"arn"`
 	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-	Certificate string `pulumi:"certificate"`
+	Certificate *string `pulumi:"certificate"`
 	// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-	CertificateChain string `pulumi:"certificateChain"`
+	CertificateChain *string `pulumi:"certificateChain"`
 	// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-	CertificateSigningRequest string `pulumi:"certificateSigningRequest"`
+	CertificateSigningRequest *string `pulumi:"certificateSigningRequest"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                         string `pulumi:"id"`
-	KeyStorageSecurityStandard string `pulumi:"keyStorageSecurityStandard"`
+	Id                         *string `pulumi:"id"`
+	KeyStorageSecurityStandard *string `pulumi:"keyStorageSecurityStandard"`
 	// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotAfter string `pulumi:"notAfter"`
+	NotAfter *string `pulumi:"notAfter"`
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotBefore string `pulumi:"notBefore"`
+	NotBefore *string `pulumi:"notBefore"`
 	// Nested attribute containing revocation configuration.
 	// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
 	// * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
@@ -83,15 +83,15 @@ type LookupCertificateAuthorityResult struct {
 	// * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
 	RevocationConfigurations []GetCertificateAuthorityRevocationConfiguration `pulumi:"revocationConfigurations"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-	Serial string `pulumi:"serial"`
+	Serial *string `pulumi:"serial"`
 	// Status of the certificate authority.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the certificate authority.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
-	UsageMode string `pulumi:"usageMode"`
+	UsageMode *string `pulumi:"usageMode"`
 }
 
 func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificateAuthorityOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityResultOutput {
@@ -139,37 +139,37 @@ func (o LookupCertificateAuthorityResultOutput) Arn() pulumi.StringOutput {
 }
 
 // Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-func (o LookupCertificateAuthorityResultOutput) Certificate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Certificate }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
 // Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-func (o LookupCertificateAuthorityResultOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.CertificateChain }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
 // The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-func (o LookupCertificateAuthorityResultOutput) CertificateSigningRequest() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.CertificateSigningRequest }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) CertificateSigningRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.CertificateSigningRequest }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCertificateAuthorityResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCertificateAuthorityResultOutput) KeyStorageSecurityStandard() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.KeyStorageSecurityStandard }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) KeyStorageSecurityStandard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.KeyStorageSecurityStandard }).(pulumi.StringPtrOutput)
 }
 
 // Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-func (o LookupCertificateAuthorityResultOutput) NotAfter() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.NotAfter }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.NotAfter }).(pulumi.StringPtrOutput)
 }
 
 // Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-func (o LookupCertificateAuthorityResultOutput) NotBefore() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.NotBefore }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.NotBefore }).(pulumi.StringPtrOutput)
 }
 
 // Nested attribute containing revocation configuration.
@@ -188,13 +188,13 @@ func (o LookupCertificateAuthorityResultOutput) RevocationConfigurations() GetCe
 }
 
 // Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-func (o LookupCertificateAuthorityResultOutput) Serial() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Serial }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) Serial() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.Serial }).(pulumi.StringPtrOutput)
 }
 
 // Status of the certificate authority.
-func (o LookupCertificateAuthorityResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of user-defined tags that are attached to the certificate authority.
@@ -203,13 +203,13 @@ func (o LookupCertificateAuthorityResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Type of the certificate authority.
-func (o LookupCertificateAuthorityResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
-func (o LookupCertificateAuthorityResultOutput) UsageMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.UsageMode }).(pulumi.StringOutput)
+func (o LookupCertificateAuthorityResultOutput) UsageMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.UsageMode }).(pulumi.StringPtrOutput)
 }
 
 func init() {

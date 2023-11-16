@@ -695,7 +695,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the key.
         """
@@ -741,7 +741,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the key as viewed in AWS console.
         """
@@ -765,7 +765,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> pulumi.Output[str]:
+    def key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The globally unique identifier for the key.
         """
@@ -782,7 +782,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiRegion")
-    def multi_region(self) -> pulumi.Output[bool]:
+    def multi_region(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         """
@@ -790,7 +790,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
 

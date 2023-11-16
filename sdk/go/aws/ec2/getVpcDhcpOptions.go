@@ -100,24 +100,24 @@ type LookupVpcDhcpOptionsArgs struct {
 // A collection of values returned by getVpcDhcpOptions.
 type LookupVpcDhcpOptionsResult struct {
 	// ARN of the DHCP Options Set.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// EC2 DHCP Options ID
-	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
+	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// List of name servers.
 	DomainNameServers []string                  `pulumi:"domainNameServers"`
 	Filters           []GetVpcDhcpOptionsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of NETBIOS name servers.
 	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
 	// NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType string `pulumi:"netbiosNodeType"`
+	NetbiosNodeType *string `pulumi:"netbiosNodeType"`
 	// List of NTP servers.
 	NtpServers []string `pulumi:"ntpServers"`
 	// ID of the AWS account that owns the DHCP options set.
-	OwnerId string `pulumi:"ownerId"`
+	OwnerId *string `pulumi:"ownerId"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -165,18 +165,18 @@ func (o LookupVpcDhcpOptionsResultOutput) ToLookupVpcDhcpOptionsResultOutputWith
 }
 
 // ARN of the DHCP Options Set.
-func (o LookupVpcDhcpOptionsResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupVpcDhcpOptionsResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // EC2 DHCP Options ID
-func (o LookupVpcDhcpOptionsResultOutput) DhcpOptionsId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.DhcpOptionsId }).(pulumi.StringOutput)
+func (o LookupVpcDhcpOptionsResultOutput) DhcpOptionsId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) *string { return v.DhcpOptionsId }).(pulumi.StringPtrOutput)
 }
 
 // Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
-func (o LookupVpcDhcpOptionsResultOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.DomainName }).(pulumi.StringOutput)
+func (o LookupVpcDhcpOptionsResultOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // List of name servers.
@@ -189,8 +189,8 @@ func (o LookupVpcDhcpOptionsResultOutput) Filters() GetVpcDhcpOptionsFilterArray
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupVpcDhcpOptionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVpcDhcpOptionsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of NETBIOS name servers.
@@ -199,8 +199,8 @@ func (o LookupVpcDhcpOptionsResultOutput) NetbiosNameServers() pulumi.StringArra
 }
 
 // NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-func (o LookupVpcDhcpOptionsResultOutput) NetbiosNodeType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.NetbiosNodeType }).(pulumi.StringOutput)
+func (o LookupVpcDhcpOptionsResultOutput) NetbiosNodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) *string { return v.NetbiosNodeType }).(pulumi.StringPtrOutput)
 }
 
 // List of NTP servers.
@@ -209,8 +209,8 @@ func (o LookupVpcDhcpOptionsResultOutput) NtpServers() pulumi.StringArrayOutput 
 }
 
 // ID of the AWS account that owns the DHCP options set.
-func (o LookupVpcDhcpOptionsResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupVpcDhcpOptionsResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the resource.

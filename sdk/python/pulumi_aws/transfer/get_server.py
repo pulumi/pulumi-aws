@@ -67,7 +67,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of Transfer Server.
         """
@@ -75,7 +75,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def certificate(self) -> str:
+    def certificate(self) -> Optional[str]:
         """
         ARN of any certificate.
         """
@@ -83,7 +83,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def domain(self) -> str:
+    def domain(self) -> Optional[str]:
         """
         The domain of the storage system that is used for file transfers.
         """
@@ -91,7 +91,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> Optional[str]:
         """
         Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
         """
@@ -99,7 +99,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> str:
+    def endpoint_type(self) -> Optional[str]:
         """
         Type of endpoint that the server is connected to.
         """
@@ -107,7 +107,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -115,7 +115,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="identityProviderType")
-    def identity_provider_type(self) -> str:
+    def identity_provider_type(self) -> Optional[str]:
         """
         The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
         """
@@ -123,7 +123,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="invocationRole")
-    def invocation_role(self) -> str:
+    def invocation_role(self) -> Optional[str]:
         """
         ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         """
@@ -131,7 +131,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="loggingRole")
-    def logging_role(self) -> str:
+    def logging_role(self) -> Optional[str]:
         """
         ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         """
@@ -139,7 +139,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def protocols(self) -> Sequence[str]:
+    def protocols(self) -> Optional[Sequence[str]]:
         """
         File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
         """
@@ -147,7 +147,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="securityPolicyName")
-    def security_policy_name(self) -> str:
+    def security_policy_name(self) -> Optional[str]:
         """
         The name of the security policy that is attached to the server.
         """
@@ -160,7 +160,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="structuredLogDestinations")
-    def structured_log_destinations(self) -> Sequence[str]:
+    def structured_log_destinations(self) -> Optional[Sequence[str]]:
         """
         A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
         """
@@ -168,7 +168,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> Optional[str]:
         """
         URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """

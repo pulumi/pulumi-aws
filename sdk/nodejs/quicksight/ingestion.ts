@@ -60,11 +60,11 @@ export class Ingestion extends pulumi.CustomResource {
     /**
      * ARN of the Ingestion.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * ID of the dataset used in the ingestion.
      */
@@ -76,7 +76,7 @@ export class Ingestion extends pulumi.CustomResource {
     /**
      * Ingestion status.
      */
-    public /*out*/ readonly ingestionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly ingestionStatus!: pulumi.Output<string | undefined>;
     /**
      * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
      *

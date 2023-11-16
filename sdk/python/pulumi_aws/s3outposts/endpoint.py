@@ -418,7 +418,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessType")
-    def access_type(self) -> pulumi.Output[str]:
+    def access_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         """
@@ -426,7 +426,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the endpoint.
         """
@@ -434,7 +434,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Output[str]:
+    def cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         VPC CIDR block of the endpoint.
         """
@@ -442,7 +442,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -458,7 +458,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> pulumi.Output[Sequence['outputs.EndpointNetworkInterface']]:
+    def network_interfaces(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointNetworkInterface']]]:
         """
         Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         """

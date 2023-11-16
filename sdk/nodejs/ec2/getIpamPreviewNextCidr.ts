@@ -62,12 +62,12 @@ export interface GetIpamPreviewNextCidrResult {
     /**
      * Previewed CIDR from the pool.
      */
-    readonly cidr: string;
+    readonly cidr?: string;
     readonly disallowedCidrs?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly ipamPoolId: string;
     readonly netmaskLength?: number;
 }

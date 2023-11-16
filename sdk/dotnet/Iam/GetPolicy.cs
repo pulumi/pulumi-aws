@@ -202,53 +202,53 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// ARN of the policy.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the policy.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string Name;
+        public readonly string? Id;
+        public readonly string? Name;
         /// <summary>
         /// Path to the policy.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         public readonly string? PathPrefix;
         /// <summary>
         /// Policy document of the policy.
         /// </summary>
-        public readonly string Policy;
+        public readonly string? Policy;
         /// <summary>
         /// Policy's ID.
         /// </summary>
-        public readonly string PolicyId;
+        public readonly string? PolicyId;
         /// <summary>
         /// Key-value mapping of tags for the IAM Policy.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetPolicyResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string path,
+            string? path,
 
             string? pathPrefix,
 
-            string policy,
+            string? policy,
 
-            string policyId,
+            string? policyId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

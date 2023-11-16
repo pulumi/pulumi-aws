@@ -53,19 +53,19 @@ type InstanceConnectEndpoint struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Availability Zone of the EC2 Instance Connect Endpoint.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The DNS name of the EC2 Instance Connect Endpoint.
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
 	// The DNS name of the EC2 Instance Connect FIPS Endpoint.
-	FipsDnsName pulumi.StringOutput `pulumi:"fipsDnsName"`
+	FipsDnsName pulumi.StringPtrOutput `pulumi:"fipsDnsName"`
 	// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
-	PreserveClientIp pulumi.BoolOutput `pulumi:"preserveClientIp"`
+	PreserveClientIp pulumi.BoolPtrOutput `pulumi:"preserveClientIp"`
 	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
@@ -78,7 +78,7 @@ type InstanceConnectEndpoint struct {
 	TagsAll  pulumi.StringMapOutput                   `pulumi:"tagsAll"`
 	Timeouts InstanceConnectEndpointTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewInstanceConnectEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -294,23 +294,23 @@ func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutputWithContex
 }
 
 // The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
-func (o InstanceConnectEndpointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InstanceConnectEndpointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone of the EC2 Instance Connect Endpoint.
-func (o InstanceConnectEndpointOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o InstanceConnectEndpointOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The DNS name of the EC2 Instance Connect Endpoint.
-func (o InstanceConnectEndpointOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+func (o InstanceConnectEndpointOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // The DNS name of the EC2 Instance Connect FIPS Endpoint.
-func (o InstanceConnectEndpointOutput) FipsDnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.FipsDnsName }).(pulumi.StringOutput)
+func (o InstanceConnectEndpointOutput) FipsDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringPtrOutput { return v.FipsDnsName }).(pulumi.StringPtrOutput)
 }
 
 // The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
@@ -319,13 +319,13 @@ func (o InstanceConnectEndpointOutput) NetworkInterfaceIds() pulumi.StringArrayO
 }
 
 // The ID of the AWS account that created the EC2 Instance Connect Endpoint.
-func (o InstanceConnectEndpointOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o InstanceConnectEndpointOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether your client's IP address is preserved as the source. Default: `true`.
-func (o InstanceConnectEndpointOutput) PreserveClientIp() pulumi.BoolOutput {
-	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.BoolOutput { return v.PreserveClientIp }).(pulumi.BoolOutput)
+func (o InstanceConnectEndpointOutput) PreserveClientIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.BoolPtrOutput { return v.PreserveClientIp }).(pulumi.BoolPtrOutput)
 }
 
 // One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
@@ -355,8 +355,8 @@ func (o InstanceConnectEndpointOutput) Timeouts() InstanceConnectEndpointTimeout
 }
 
 // The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
-func (o InstanceConnectEndpointOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o InstanceConnectEndpointOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type InstanceConnectEndpointArrayOutput struct{ *pulumi.OutputState }

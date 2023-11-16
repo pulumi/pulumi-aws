@@ -47,19 +47,19 @@ export interface GetSecretRotationResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the secret.
      */
-    readonly rotationEnabled: boolean;
+    readonly rotationEnabled?: boolean;
     /**
      * Decrypted part of the protected secret information that was originally provided as a string.
      */
-    readonly rotationLambdaArn: string;
+    readonly rotationLambdaArn?: string;
     /**
      * Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      */
-    readonly rotationRules: outputs.secretsmanager.GetSecretRotationRotationRule[];
+    readonly rotationRules?: outputs.secretsmanager.GetSecretRotationRotationRule[];
     readonly secretId: string;
 }
 /**

@@ -92,11 +92,11 @@ export class TrustAnchor extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Trust Anchor
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether or not the Trust Anchor should be enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Trust Anchor.
      */

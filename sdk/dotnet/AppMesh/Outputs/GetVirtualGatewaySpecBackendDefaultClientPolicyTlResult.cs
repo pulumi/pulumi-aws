@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult
     {
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult> Certificates;
-        public readonly bool Enforce;
+        public readonly bool? Enforce;
         public readonly ImmutableArray<int> Ports;
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult> Validations;
 
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         private GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult(
             ImmutableArray<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult> certificates,
 
-            bool enforce,
+            bool? enforce,
 
             ImmutableArray<int> ports,
 

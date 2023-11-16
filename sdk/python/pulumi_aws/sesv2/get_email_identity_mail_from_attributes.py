@@ -37,7 +37,7 @@ class GetEmailIdentityMailFromAttributesResult:
 
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
-    def behavior_on_mx_failure(self) -> str:
+    def behavior_on_mx_failure(self) -> Optional[str]:
         """
         The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         """
@@ -50,7 +50,7 @@ class GetEmailIdentityMailFromAttributesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -58,7 +58,7 @@ class GetEmailIdentityMailFromAttributesResult:
 
     @property
     @pulumi.getter(name="mailFromDomain")
-    def mail_from_domain(self) -> str:
+    def mail_from_domain(self) -> Optional[str]:
         """
         The custom MAIL FROM domain that you want the verified identity to use.
         """

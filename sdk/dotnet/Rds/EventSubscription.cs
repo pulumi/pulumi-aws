@@ -78,13 +78,13 @@ namespace Pulumi.Aws.Rds
         /// The Amazon Resource Name of the RDS event notification subscription
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS customer account associated with the RDS event notification subscription
         /// </summary>
         [Output("customerAwsId")]
-        public Output<string> CustomerAwsId { get; private set; } = null!;
+        public Output<string?> CustomerAwsId { get; private set; } = null!;
 
         /// <summary>
         /// A boolean flag to enable/disable the subscription. Defaults to true.
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Rds
         /// The name of the DB event subscription. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The SNS topic to send events to.

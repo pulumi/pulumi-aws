@@ -8,6 +8,7 @@ import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationSheetTileLayout;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeConfigurationSheet {
@@ -15,12 +16,12 @@ public final class GetThemeConfigurationSheet {
      * @return The layout options for tiles. See tile_layout.
      * 
      */
-    private List<GetThemeConfigurationSheetTileLayout> tileLayouts;
+    private @Nullable List<GetThemeConfigurationSheetTileLayout> tileLayouts;
     /**
      * @return The display options for tiles. See tile.
      * 
      */
-    private List<GetThemeConfigurationSheetTile> tiles;
+    private @Nullable List<GetThemeConfigurationSheetTile> tiles;
 
     private GetThemeConfigurationSheet() {}
     /**
@@ -28,14 +29,14 @@ public final class GetThemeConfigurationSheet {
      * 
      */
     public List<GetThemeConfigurationSheetTileLayout> tileLayouts() {
-        return this.tileLayouts;
+        return this.tileLayouts == null ? List.of() : this.tileLayouts;
     }
     /**
      * @return The display options for tiles. See tile.
      * 
      */
     public List<GetThemeConfigurationSheetTile> tiles() {
-        return this.tiles;
+        return this.tiles == null ? List.of() : this.tiles;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetThemeConfigurationSheet {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetThemeConfigurationSheetTileLayout> tileLayouts;
-        private List<GetThemeConfigurationSheetTile> tiles;
+        private @Nullable List<GetThemeConfigurationSheetTileLayout> tileLayouts;
+        private @Nullable List<GetThemeConfigurationSheetTile> tiles;
         public Builder() {}
         public Builder(GetThemeConfigurationSheet defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetThemeConfigurationSheet {
         }
 
         @CustomType.Setter
-        public Builder tileLayouts(List<GetThemeConfigurationSheetTileLayout> tileLayouts) {
-            this.tileLayouts = Objects.requireNonNull(tileLayouts);
+        public Builder tileLayouts(@Nullable List<GetThemeConfigurationSheetTileLayout> tileLayouts) {
+            this.tileLayouts = tileLayouts;
             return this;
         }
         public Builder tileLayouts(GetThemeConfigurationSheetTileLayout... tileLayouts) {
             return tileLayouts(List.of(tileLayouts));
         }
         @CustomType.Setter
-        public Builder tiles(List<GetThemeConfigurationSheetTile> tiles) {
-            this.tiles = Objects.requireNonNull(tiles);
+        public Builder tiles(@Nullable List<GetThemeConfigurationSheetTile> tiles) {
+            this.tiles = tiles;
             return this;
         }
         public Builder tiles(GetThemeConfigurationSheetTile... tiles) {

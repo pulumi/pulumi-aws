@@ -47,11 +47,11 @@ export interface GetBucketPolicyResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IAM bucket policy.
      */
-    readonly policy: string;
+    readonly policy?: string;
 }
 /**
  * The bucket policy data source returns IAM policy of an S3 bucket.

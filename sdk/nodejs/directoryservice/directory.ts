@@ -151,11 +151,11 @@ export class Directory extends pulumi.CustomResource {
     /**
      * The access URL for the directory, such as `http://alias.awsapps.com`.
      */
-    public /*out*/ readonly accessUrl!: pulumi.Output<string>;
+    public /*out*/ readonly accessUrl!: pulumi.Output<string | undefined>;
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
      */
-    public readonly alias!: pulumi.Output<string>;
+    public readonly alias!: pulumi.Output<string | undefined>;
     /**
      * Connector related information about the directory. Fields documented below.
      */
@@ -167,15 +167,15 @@ export class Directory extends pulumi.CustomResource {
     /**
      * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
      */
-    public readonly desiredNumberOfDomainControllers!: pulumi.Output<number>;
+    public readonly desiredNumberOfDomainControllers!: pulumi.Output<number | undefined>;
     /**
      * A list of IP addresses of the DNS servers for the directory or connector.
      */
-    public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
+    public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      */
-    public readonly edition!: pulumi.Output<string>;
+    public readonly edition!: pulumi.Output<string | undefined>;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */
@@ -191,15 +191,15 @@ export class Directory extends pulumi.CustomResource {
     /**
      * The ID of the security group created by the directory.
      */
-    public /*out*/ readonly securityGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupId!: pulumi.Output<string | undefined>;
     /**
      * The short name of the directory, such as `CORP`.
      */
-    public readonly shortName!: pulumi.Output<string>;
+    public readonly shortName!: pulumi.Output<string | undefined>;
     /**
      * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      */
-    public readonly size!: pulumi.Output<string>;
+    public readonly size!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

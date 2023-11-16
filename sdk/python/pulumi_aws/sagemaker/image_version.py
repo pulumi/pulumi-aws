@@ -293,7 +293,7 @@ class ImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
         """
@@ -309,7 +309,7 @@ class ImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerImage")
-    def container_image(self) -> pulumi.Output[str]:
+    def container_image(self) -> pulumi.Output[Optional[str]]:
         """
         The registry path of the container image that contains this image version.
         """
@@ -317,7 +317,7 @@ class ImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageArn")
-    def image_arn(self) -> pulumi.Output[str]:
+    def image_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the image the version is based on.
         """
@@ -333,6 +333,6 @@ class ImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "version")
 

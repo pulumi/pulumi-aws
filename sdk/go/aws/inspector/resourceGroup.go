@@ -46,7 +46,7 @@ type ResourceGroup struct {
 	pulumi.CustomResourceState
 
 	// The resource group ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -200,8 +200,8 @@ func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Contex
 }
 
 // The resource group ARN.
-func (o ResourceGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResourceGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.

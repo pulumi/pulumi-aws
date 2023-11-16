@@ -82,13 +82,13 @@ type Api struct {
 	pulumi.CustomResourceState
 
 	// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
-	ApiEndpoint pulumi.StringOutput `pulumi:"apiEndpoint"`
+	ApiEndpoint pulumi.StringPtrOutput `pulumi:"apiEndpoint"`
 	// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
 	// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
 	// Applicable for WebSocket APIs.
 	ApiKeySelectionExpression pulumi.StringPtrOutput `pulumi:"apiKeySelectionExpression"`
 	// ARN of the API.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
 	Body pulumi.StringPtrOutput `pulumi:"body"`
 	// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
@@ -104,7 +104,7 @@ type Api struct {
 	// ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
+	ExecutionArn pulumi.StringPtrOutput `pulumi:"executionArn"`
 	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
 	FailOnWarnings pulumi.BoolPtrOutput `pulumi:"failOnWarnings"`
 	// Name of the API. Must be less than or equal to 128 characters in length.
@@ -435,8 +435,8 @@ func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 }
 
 // URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
-func (o ApiOutput) ApiEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiEndpoint }).(pulumi.StringOutput)
+func (o ApiOutput) ApiEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.ApiEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
@@ -447,8 +447,8 @@ func (o ApiOutput) ApiKeySelectionExpression() pulumi.StringPtrOutput {
 }
 
 // ARN of the API.
-func (o ApiOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ApiOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
@@ -481,8 +481,8 @@ func (o ApiOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
 // ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
 // or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 // See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-func (o ApiOutput) ExecutionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
+func (o ApiOutput) ExecutionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.ExecutionArn }).(pulumi.StringPtrOutput)
 }
 
 // Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.

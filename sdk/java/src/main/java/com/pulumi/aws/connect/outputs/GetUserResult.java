@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserResult {
@@ -17,90 +19,90 @@ public final class GetUserResult {
      * @return The Amazon Resource Name (ARN) of the User.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The identifier of the user account in the directory used for identity management.
      * 
      */
-    private String directoryUserId;
+    private @Nullable String directoryUserId;
     /**
      * @return The identifier of the hierarchy group for the user.
      * 
      */
-    private String hierarchyGroupId;
+    private @Nullable String hierarchyGroupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return A block that contains information about the identity of the user. Documented below.
      * 
      */
-    private List<GetUserIdentityInfo> identityInfos;
+    private @Nullable List<GetUserIdentityInfo> identityInfos;
     /**
      * @return Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
     private String instanceId;
-    private String name;
+    private @Nullable String name;
     /**
      * @return A block that contains information about the phone settings for the user. Documented below.
      * 
      */
-    private List<GetUserPhoneConfig> phoneConfigs;
+    private @Nullable List<GetUserPhoneConfig> phoneConfigs;
     /**
      * @return The identifier of the routing profile for the user.
      * 
      */
-    private String routingProfileId;
+    private @Nullable String routingProfileId;
     /**
      * @return A list of identifiers for the security profiles for the user.
      * 
      */
-    private List<String> securityProfileIds;
+    private @Nullable List<String> securityProfileIds;
     /**
      * @return A map of tags to assign to the User.
      * 
      */
-    private Map<String,String> tags;
-    private String userId;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String userId;
 
     private GetUserResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the User.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The identifier of the user account in the directory used for identity management.
      * 
      */
-    public String directoryUserId() {
-        return this.directoryUserId;
+    public Optional<String> directoryUserId() {
+        return Optional.ofNullable(this.directoryUserId);
     }
     /**
      * @return The identifier of the hierarchy group for the user.
      * 
      */
-    public String hierarchyGroupId() {
-        return this.hierarchyGroupId;
+    public Optional<String> hierarchyGroupId() {
+        return Optional.ofNullable(this.hierarchyGroupId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return A block that contains information about the identity of the user. Documented below.
      * 
      */
     public List<GetUserIdentityInfo> identityInfos() {
-        return this.identityInfos;
+        return this.identityInfos == null ? List.of() : this.identityInfos;
     }
     /**
      * @return Specifies the identifier of the hosting Amazon Connect Instance.
@@ -109,39 +111,39 @@ public final class GetUserResult {
     public String instanceId() {
         return this.instanceId;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return A block that contains information about the phone settings for the user. Documented below.
      * 
      */
     public List<GetUserPhoneConfig> phoneConfigs() {
-        return this.phoneConfigs;
+        return this.phoneConfigs == null ? List.of() : this.phoneConfigs;
     }
     /**
      * @return The identifier of the routing profile for the user.
      * 
      */
-    public String routingProfileId() {
-        return this.routingProfileId;
+    public Optional<String> routingProfileId() {
+        return Optional.ofNullable(this.routingProfileId);
     }
     /**
      * @return A list of identifiers for the security profiles for the user.
      * 
      */
     public List<String> securityProfileIds() {
-        return this.securityProfileIds;
+        return this.securityProfileIds == null ? List.of() : this.securityProfileIds;
     }
     /**
      * @return A map of tags to assign to the User.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String userId() {
-        return this.userId;
+    public Optional<String> userId() {
+        return Optional.ofNullable(this.userId);
     }
 
     public static Builder builder() {
@@ -153,18 +155,18 @@ public final class GetUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String directoryUserId;
-        private String hierarchyGroupId;
-        private String id;
-        private List<GetUserIdentityInfo> identityInfos;
+        private @Nullable String arn;
+        private @Nullable String directoryUserId;
+        private @Nullable String hierarchyGroupId;
+        private @Nullable String id;
+        private @Nullable List<GetUserIdentityInfo> identityInfos;
         private String instanceId;
-        private String name;
-        private List<GetUserPhoneConfig> phoneConfigs;
-        private String routingProfileId;
-        private List<String> securityProfileIds;
-        private Map<String,String> tags;
-        private String userId;
+        private @Nullable String name;
+        private @Nullable List<GetUserPhoneConfig> phoneConfigs;
+        private @Nullable String routingProfileId;
+        private @Nullable List<String> securityProfileIds;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String userId;
         public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -183,28 +185,28 @@ public final class GetUserResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder directoryUserId(String directoryUserId) {
-            this.directoryUserId = Objects.requireNonNull(directoryUserId);
+        public Builder directoryUserId(@Nullable String directoryUserId) {
+            this.directoryUserId = directoryUserId;
             return this;
         }
         @CustomType.Setter
-        public Builder hierarchyGroupId(String hierarchyGroupId) {
-            this.hierarchyGroupId = Objects.requireNonNull(hierarchyGroupId);
+        public Builder hierarchyGroupId(@Nullable String hierarchyGroupId) {
+            this.hierarchyGroupId = hierarchyGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder identityInfos(List<GetUserIdentityInfo> identityInfos) {
-            this.identityInfos = Objects.requireNonNull(identityInfos);
+        public Builder identityInfos(@Nullable List<GetUserIdentityInfo> identityInfos) {
+            this.identityInfos = identityInfos;
             return this;
         }
         public Builder identityInfos(GetUserIdentityInfo... identityInfos) {
@@ -216,39 +218,39 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder phoneConfigs(List<GetUserPhoneConfig> phoneConfigs) {
-            this.phoneConfigs = Objects.requireNonNull(phoneConfigs);
+        public Builder phoneConfigs(@Nullable List<GetUserPhoneConfig> phoneConfigs) {
+            this.phoneConfigs = phoneConfigs;
             return this;
         }
         public Builder phoneConfigs(GetUserPhoneConfig... phoneConfigs) {
             return phoneConfigs(List.of(phoneConfigs));
         }
         @CustomType.Setter
-        public Builder routingProfileId(String routingProfileId) {
-            this.routingProfileId = Objects.requireNonNull(routingProfileId);
+        public Builder routingProfileId(@Nullable String routingProfileId) {
+            this.routingProfileId = routingProfileId;
             return this;
         }
         @CustomType.Setter
-        public Builder securityProfileIds(List<String> securityProfileIds) {
-            this.securityProfileIds = Objects.requireNonNull(securityProfileIds);
+        public Builder securityProfileIds(@Nullable List<String> securityProfileIds) {
+            this.securityProfileIds = securityProfileIds;
             return this;
         }
         public Builder securityProfileIds(String... securityProfileIds) {
             return securityProfileIds(List.of(securityProfileIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+        public Builder userId(@Nullable String userId) {
+            this.userId = userId;
             return this;
         }
         public GetUserResult build() {

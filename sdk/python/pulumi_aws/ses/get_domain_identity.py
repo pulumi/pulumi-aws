@@ -37,7 +37,7 @@ class GetDomainIdentityResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the domain identity.
         """
@@ -53,7 +53,7 @@ class GetDomainIdentityResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -61,7 +61,7 @@ class GetDomainIdentityResult:
 
     @property
     @pulumi.getter(name="verificationToken")
-    def verification_token(self) -> str:
+    def verification_token(self) -> Optional[str]:
         """
         Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
         """

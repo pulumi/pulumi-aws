@@ -55,7 +55,7 @@ export class GlobalNetwork extends pulumi.CustomResource {
     /**
      * Global Network Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the Global Network.
      */

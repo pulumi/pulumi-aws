@@ -76,39 +76,39 @@ type SnapshotCopy struct {
 	pulumi.CustomResourceState
 
 	// Specifies the allocated storage size in gigabytes (GB).
-	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
+	AllocatedStorage pulumi.IntPtrOutput `pulumi:"allocatedStorage"`
 	// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags pulumi.BoolPtrOutput `pulumi:"copyTags"`
 	// The Amazon Resource Name (ARN) for the DB snapshot.
-	DbSnapshotArn pulumi.StringOutput `pulumi:"dbSnapshotArn"`
+	DbSnapshotArn pulumi.StringPtrOutput `pulumi:"dbSnapshotArn"`
 	// The Destination region to place snapshot copy.
 	DestinationRegion pulumi.StringPtrOutput `pulumi:"destinationRegion"`
 	// Specifies whether the DB snapshot is encrypted.
-	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// Specifies the name of the database engine.
-	Engine pulumi.StringOutput `pulumi:"engine"`
+	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// Specifies the version of the database engine.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-	Iops pulumi.IntOutput `pulumi:"iops"`
+	Iops pulumi.IntPtrOutput `pulumi:"iops"`
 	// KMS key ID.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// License model information for the restored DB instance.
-	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
+	LicenseModel pulumi.StringPtrOutput `pulumi:"licenseModel"`
 	// The name of an option group to associate with the copy of the snapshot.
-	OptionGroupName pulumi.StringOutput `pulumi:"optionGroupName"`
-	Port            pulumi.IntOutput    `pulumi:"port"`
+	OptionGroupName pulumi.StringPtrOutput `pulumi:"optionGroupName"`
+	Port            pulumi.IntPtrOutput    `pulumi:"port"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrOutput `pulumi:"presignedUrl"`
-	SnapshotType pulumi.StringOutput    `pulumi:"snapshotType"`
+	SnapshotType pulumi.StringPtrOutput `pulumi:"snapshotType"`
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier pulumi.StringOutput `pulumi:"sourceDbSnapshotIdentifier"`
 	// The region that the DB snapshot was created in or copied from.
-	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
+	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
 	// Specifies the storage type associated with DB snapshot.
-	StorageType pulumi.StringOutput `pulumi:"storageType"`
+	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -120,7 +120,7 @@ type SnapshotCopy struct {
 	// The Identifier for the snapshot.
 	TargetDbSnapshotIdentifier pulumi.StringOutput `pulumi:"targetDbSnapshotIdentifier"`
 	// Provides the VPC ID associated with the DB snapshot.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewSnapshotCopy registers a new resource with the given unique name, arguments, and options.
@@ -395,13 +395,13 @@ func (o SnapshotCopyOutput) ToSnapshotCopyOutputWithContext(ctx context.Context)
 }
 
 // Specifies the allocated storage size in gigabytes (GB).
-func (o SnapshotCopyOutput) AllocatedStorage() pulumi.IntOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntOutput { return v.AllocatedStorage }).(pulumi.IntOutput)
+func (o SnapshotCopyOutput) AllocatedStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntPtrOutput { return v.AllocatedStorage }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-func (o SnapshotCopyOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // Whether to copy existing tags. Defaults to `false`.
@@ -410,8 +410,8 @@ func (o SnapshotCopyOutput) CopyTags() pulumi.BoolPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) for the DB snapshot.
-func (o SnapshotCopyOutput) DbSnapshotArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.DbSnapshotArn }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) DbSnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.DbSnapshotArn }).(pulumi.StringPtrOutput)
 }
 
 // The Destination region to place snapshot copy.
@@ -420,23 +420,23 @@ func (o SnapshotCopyOutput) DestinationRegion() pulumi.StringPtrOutput {
 }
 
 // Specifies whether the DB snapshot is encrypted.
-func (o SnapshotCopyOutput) Encrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
+func (o SnapshotCopyOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the database engine.
-func (o SnapshotCopyOutput) Engine() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the version of the database engine.
-func (o SnapshotCopyOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-func (o SnapshotCopyOutput) Iops() pulumi.IntOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntOutput { return v.Iops }).(pulumi.IntOutput)
+func (o SnapshotCopyOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntPtrOutput { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 // KMS key ID.
@@ -445,17 +445,17 @@ func (o SnapshotCopyOutput) KmsKeyId() pulumi.StringPtrOutput {
 }
 
 // License model information for the restored DB instance.
-func (o SnapshotCopyOutput) LicenseModel() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.LicenseModel }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) LicenseModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.LicenseModel }).(pulumi.StringPtrOutput)
 }
 
 // The name of an option group to associate with the copy of the snapshot.
-func (o SnapshotCopyOutput) OptionGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.OptionGroupName }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) OptionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.OptionGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o SnapshotCopyOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+func (o SnapshotCopyOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // he URL that contains a Signature Version 4 signed request.
@@ -463,8 +463,8 @@ func (o SnapshotCopyOutput) PresignedUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.PresignedUrl }).(pulumi.StringPtrOutput)
 }
 
-func (o SnapshotCopyOutput) SnapshotType() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.SnapshotType }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) SnapshotType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.SnapshotType }).(pulumi.StringPtrOutput)
 }
 
 // Snapshot identifier of the source snapshot.
@@ -473,13 +473,13 @@ func (o SnapshotCopyOutput) SourceDbSnapshotIdentifier() pulumi.StringOutput {
 }
 
 // The region that the DB snapshot was created in or copied from.
-func (o SnapshotCopyOutput) SourceRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.SourceRegion }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) SourceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.SourceRegion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the storage type associated with DB snapshot.
-func (o SnapshotCopyOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -505,8 +505,8 @@ func (o SnapshotCopyOutput) TargetDbSnapshotIdentifier() pulumi.StringOutput {
 }
 
 // Provides the VPC ID associated with the DB snapshot.
-func (o SnapshotCopyOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o SnapshotCopyOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type SnapshotCopyArrayOutput struct{ *pulumi.OutputState }

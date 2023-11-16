@@ -18,12 +18,12 @@ namespace Pulumi.Aws.Budgets.Outputs
         /// 
         /// The following arguments are optional:
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
         private GetBudgetCostFilterResult(
-            string name,
+            string? name,
 
             ImmutableArray<string> values)
         {

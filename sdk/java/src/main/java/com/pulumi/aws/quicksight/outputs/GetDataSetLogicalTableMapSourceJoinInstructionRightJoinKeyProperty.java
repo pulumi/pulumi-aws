@@ -6,14 +6,16 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty {
-    private Boolean uniqueKey;
+    private @Nullable Boolean uniqueKey;
 
     private GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty() {}
-    public Boolean uniqueKey() {
-        return this.uniqueKey;
+    public Optional<Boolean> uniqueKey() {
+        return Optional.ofNullable(this.uniqueKey);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPro
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean uniqueKey;
+        private @Nullable Boolean uniqueKey;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPro
         }
 
         @CustomType.Setter
-        public Builder uniqueKey(Boolean uniqueKey) {
-            this.uniqueKey = Objects.requireNonNull(uniqueKey);
+        public Builder uniqueKey(@Nullable Boolean uniqueKey) {
+            this.uniqueKey = uniqueKey;
             return this;
         }
         public GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty build() {

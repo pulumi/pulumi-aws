@@ -192,36 +192,36 @@ type Eip struct {
 	// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
 	Address pulumi.StringPtrOutput `pulumi:"address"`
 	// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
-	AllocationId pulumi.StringOutput `pulumi:"allocationId"`
+	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
 	// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrOutput `pulumi:"associateWithPrivateIp"`
 	// ID representing the association of the address with an instance in a VPC.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
+	AssociationId pulumi.StringPtrOutput `pulumi:"associationId"`
 	// Carrier IP address.
-	CarrierIp pulumi.StringOutput `pulumi:"carrierIp"`
+	CarrierIp pulumi.StringPtrOutput `pulumi:"carrierIp"`
 	// Customer owned IP.
-	CustomerOwnedIp pulumi.StringOutput `pulumi:"customerOwnedIp"`
+	CustomerOwnedIp pulumi.StringPtrOutput `pulumi:"customerOwnedIp"`
 	// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// Indicates if this EIP is for use in VPC (`vpc`).
-	Domain pulumi.StringOutput `pulumi:"domain"`
+	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// EC2 instance ID.
-	Instance pulumi.StringOutput `pulumi:"instance"`
+	Instance pulumi.StringPtrOutput `pulumi:"instance"`
 	// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-	NetworkBorderGroup pulumi.StringOutput `pulumi:"networkBorderGroup"`
+	NetworkBorderGroup pulumi.StringPtrOutput `pulumi:"networkBorderGroup"`
 	// Network interface ID to associate with.
-	NetworkInterface pulumi.StringOutput `pulumi:"networkInterface"`
+	NetworkInterface pulumi.StringPtrOutput `pulumi:"networkInterface"`
 	// The Private DNS associated with the Elastic IP address (if in VPC).
-	PrivateDns pulumi.StringOutput `pulumi:"privateDns"`
+	PrivateDns pulumi.StringPtrOutput `pulumi:"privateDns"`
 	// Contains the private IP address (if in VPC).
-	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
+	PrivateIp pulumi.StringPtrOutput `pulumi:"privateIp"`
 	// Public DNS associated with the Elastic IP address.
-	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
+	PublicDns pulumi.StringPtrOutput `pulumi:"publicDns"`
 	// Contains the public IP address.
-	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+	PublicIp pulumi.StringPtrOutput `pulumi:"publicIp"`
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
-	PublicIpv4Pool pulumi.StringOutput `pulumi:"publicIpv4Pool"`
+	PublicIpv4Pool pulumi.StringPtrOutput `pulumi:"publicIpv4Pool"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -237,7 +237,7 @@ type Eip struct {
 	// case both options are defined as the api only requires one or the other.
 	//
 	// Deprecated: use domain attribute instead
-	Vpc pulumi.BoolOutput `pulumi:"vpc"`
+	Vpc pulumi.BoolPtrOutput `pulumi:"vpc"`
 }
 
 // NewEip registers a new resource with the given unique name, arguments, and options.
@@ -539,8 +539,8 @@ func (o EipOutput) Address() pulumi.StringPtrOutput {
 }
 
 // ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
-func (o EipOutput) AllocationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.AllocationId }).(pulumi.StringOutput)
+func (o EipOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
 // User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
@@ -549,18 +549,18 @@ func (o EipOutput) AssociateWithPrivateIp() pulumi.StringPtrOutput {
 }
 
 // ID representing the association of the address with an instance in a VPC.
-func (o EipOutput) AssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+func (o EipOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
 // Carrier IP address.
-func (o EipOutput) CarrierIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.CarrierIp }).(pulumi.StringOutput)
+func (o EipOutput) CarrierIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.CarrierIp }).(pulumi.StringPtrOutput)
 }
 
 // Customer owned IP.
-func (o EipOutput) CustomerOwnedIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.CustomerOwnedIp }).(pulumi.StringOutput)
+func (o EipOutput) CustomerOwnedIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.CustomerOwnedIp }).(pulumi.StringPtrOutput)
 }
 
 // ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
@@ -569,49 +569,49 @@ func (o EipOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
 }
 
 // Indicates if this EIP is for use in VPC (`vpc`).
-func (o EipOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+func (o EipOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
 // EC2 instance ID.
-func (o EipOutput) Instance() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.Instance }).(pulumi.StringOutput)
+func (o EipOutput) Instance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.Instance }).(pulumi.StringPtrOutput)
 }
 
 // Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-func (o EipOutput) NetworkBorderGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.NetworkBorderGroup }).(pulumi.StringOutput)
+func (o EipOutput) NetworkBorderGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.NetworkBorderGroup }).(pulumi.StringPtrOutput)
 }
 
 // Network interface ID to associate with.
-func (o EipOutput) NetworkInterface() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.NetworkInterface }).(pulumi.StringOutput)
+func (o EipOutput) NetworkInterface() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.NetworkInterface }).(pulumi.StringPtrOutput)
 }
 
 // The Private DNS associated with the Elastic IP address (if in VPC).
-func (o EipOutput) PrivateDns() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PrivateDns }).(pulumi.StringOutput)
+func (o EipOutput) PrivateDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.PrivateDns }).(pulumi.StringPtrOutput)
 }
 
 // Contains the private IP address (if in VPC).
-func (o EipOutput) PrivateIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
+func (o EipOutput) PrivateIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.PrivateIp }).(pulumi.StringPtrOutput)
 }
 
 // Public DNS associated with the Elastic IP address.
-func (o EipOutput) PublicDns() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PublicDns }).(pulumi.StringOutput)
+func (o EipOutput) PublicDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.PublicDns }).(pulumi.StringPtrOutput)
 }
 
 // Contains the public IP address.
-func (o EipOutput) PublicIp() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
+func (o EipOutput) PublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.PublicIp }).(pulumi.StringPtrOutput)
 }
 
 // EC2 IPv4 address pool identifier or `amazon`.
 // This option is only available for VPC EIPs.
-func (o EipOutput) PublicIpv4Pool() pulumi.StringOutput {
-	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PublicIpv4Pool }).(pulumi.StringOutput)
+func (o EipOutput) PublicIpv4Pool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.PublicIpv4Pool }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -635,8 +635,8 @@ func (o EipOutput) TagsAll() pulumi.StringMapOutput {
 // case both options are defined as the api only requires one or the other.
 //
 // Deprecated: use domain attribute instead
-func (o EipOutput) Vpc() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Eip) pulumi.BoolOutput { return v.Vpc }).(pulumi.BoolOutput)
+func (o EipOutput) Vpc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.BoolPtrOutput { return v.Vpc }).(pulumi.BoolPtrOutput)
 }
 
 type EipArrayOutput struct{ *pulumi.OutputState }

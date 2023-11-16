@@ -49,9 +49,9 @@ func LookupSerialConsoleAccess(ctx *pulumi.Context, opts ...pulumi.InvokeOption)
 // A collection of values returned by getSerialConsoleAccess.
 type LookupSerialConsoleAccessResult struct {
 	// Whether or not serial console access is enabled. Returns as `true` or `false`.
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func LookupSerialConsoleAccessOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupSerialConsoleAccessResultOutput {
@@ -81,13 +81,13 @@ func (o LookupSerialConsoleAccessResultOutput) ToLookupSerialConsoleAccessResult
 }
 
 // Whether or not serial console access is enabled. Returns as `true` or `false`.
-func (o LookupSerialConsoleAccessResultOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupSerialConsoleAccessResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o LookupSerialConsoleAccessResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSerialConsoleAccessResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSerialConsoleAccessResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSerialConsoleAccessResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSerialConsoleAccessResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSerialConsoleAccessResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

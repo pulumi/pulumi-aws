@@ -16,17 +16,17 @@ namespace Pulumi.Aws.GuardDuty.Outputs
         /// <summary>
         /// The name of the detector feature.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Current status of the detector.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetDetectorFeatureAdditionalConfigurationResult(
-            string name,
+            string? name,
 
-            string status)
+            string? status)
         {
             Name = name;
             Status = status;

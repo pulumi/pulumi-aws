@@ -991,7 +991,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the subscription.
         """
@@ -1007,7 +1007,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="confirmationWasAuthenticated")
-    def confirmation_was_authenticated(self) -> pulumi.Output[bool]:
+    def confirmation_was_authenticated(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the subscription confirmation request was authenticated.
         """
@@ -1047,7 +1047,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filterPolicyScope")
-    def filter_policy_scope(self) -> pulumi.Output[str]:
+    def filter_policy_scope(self) -> pulumi.Output[Optional[str]]:
         """
         Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         """
@@ -1055,7 +1055,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID of the subscription's owner.
         """
@@ -1063,7 +1063,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pendingConfirmation")
-    def pending_confirmation(self) -> pulumi.Output[bool]:
+    def pending_confirmation(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the subscription has not been confirmed.
         """

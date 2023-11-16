@@ -849,7 +849,7 @@ class MLTransform(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of Glue ML Transform.
         """
@@ -865,7 +865,7 @@ class MLTransform(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="glueVersion")
-    def glue_version(self) -> pulumi.Output[str]:
+    def glue_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         """
@@ -881,7 +881,7 @@ class MLTransform(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="labelCount")
-    def label_count(self) -> pulumi.Output[int]:
+    def label_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of labels available for this transform.
         """
@@ -889,7 +889,7 @@ class MLTransform(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> pulumi.Output[float]:
+    def max_capacity(self) -> pulumi.Output[Optional[float]]:
         """
         The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
         """
@@ -937,7 +937,7 @@ class MLTransform(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schemas(self) -> pulumi.Output[Sequence['outputs.MLTransformSchema']]:
+    def schemas(self) -> pulumi.Output[Optional[Sequence['outputs.MLTransformSchema']]]:
         """
         The object that represents the schema that this transform accepts. see Schema.
         """

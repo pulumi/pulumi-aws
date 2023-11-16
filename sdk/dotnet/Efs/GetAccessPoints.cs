@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of identifiers.
         /// </summary>
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Efs
 
             string fileSystemId,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids)
         {

@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         /// </summary>
-        public readonly bool EnableResourceNameDnsARecord;
+        public readonly bool? EnableResourceNameDnsARecord;
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         /// </summary>
-        public readonly bool EnableResourceNameDnsAaaaRecord;
+        public readonly bool? EnableResourceNameDnsAaaaRecord;
         /// <summary>
         /// Type of hostname for EC2 instances.
         /// </summary>
-        public readonly string HostnameType;
+        public readonly string? HostnameType;
 
         [OutputConstructor]
         private GetInstancePrivateDnsNameOptionResult(
-            bool enableResourceNameDnsARecord,
+            bool? enableResourceNameDnsARecord,
 
-            bool enableResourceNameDnsAaaaRecord,
+            bool? enableResourceNameDnsAaaaRecord,
 
-            string hostnameType)
+            string? hostnameType)
         {
             EnableResourceNameDnsARecord = enableResourceNameDnsARecord;
             EnableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;

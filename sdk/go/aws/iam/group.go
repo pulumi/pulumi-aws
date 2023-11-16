@@ -54,13 +54,13 @@ type Group struct {
 	pulumi.CustomResourceState
 
 	// The ARN assigned by AWS for this group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Path in which to create the group.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The [unique ID][1] assigned by AWS.
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	UniqueId pulumi.StringPtrOutput `pulumi:"uniqueId"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -221,8 +221,8 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 }
 
 // The ARN assigned by AWS for this group.
-func (o GroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
@@ -236,8 +236,8 @@ func (o GroupOutput) Path() pulumi.StringPtrOutput {
 }
 
 // The [unique ID][1] assigned by AWS.
-func (o GroupOutput) UniqueId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
+func (o GroupOutput) UniqueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.UniqueId }).(pulumi.StringPtrOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

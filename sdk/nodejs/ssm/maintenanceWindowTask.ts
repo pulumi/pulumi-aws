@@ -140,7 +140,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * The ARN of the maintenance window task.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
      */
@@ -152,11 +152,11 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    public readonly maxConcurrency!: pulumi.Output<string>;
+    public readonly maxConcurrency!: pulumi.Output<string | undefined>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    public readonly maxErrors!: pulumi.Output<string>;
+    public readonly maxErrors!: pulumi.Output<string | undefined>;
     /**
      * The name of the maintenance window task.
      */
@@ -168,7 +168,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
-    public readonly serviceRoleArn!: pulumi.Output<string>;
+    public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
@@ -192,7 +192,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * The ID of the maintenance window task.
      */
-    public /*out*/ readonly windowTaskId!: pulumi.Output<string>;
+    public /*out*/ readonly windowTaskId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MaintenanceWindowTask resource with the given unique name, arguments, and options.

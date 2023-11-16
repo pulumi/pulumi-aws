@@ -60,11 +60,11 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * ARN of the certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * PEM-encoded certificate value.
      */
-    public /*out*/ readonly certificate!: pulumi.Output<string>;
+    public /*out*/ readonly certificate!: pulumi.Output<string | undefined>;
     /**
      * ARN of the certificate authority.
      */
@@ -72,7 +72,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      */
-    public /*out*/ readonly certificateChain!: pulumi.Output<string>;
+    public /*out*/ readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
      * Certificate Signing Request in PEM format.
      */

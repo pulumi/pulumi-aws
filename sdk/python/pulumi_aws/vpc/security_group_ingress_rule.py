@@ -616,7 +616,7 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the security group rule.
         """
@@ -688,7 +688,7 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupRuleId")
-    def security_group_rule_id(self) -> pulumi.Output[str]:
+    def security_group_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the security group rule.
         """

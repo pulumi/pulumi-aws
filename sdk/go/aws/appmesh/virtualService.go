@@ -93,19 +93,19 @@ type VirtualService struct {
 	pulumi.CustomResourceState
 
 	// ARN of the virtual service.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Creation date of the virtual service.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// Last update date of the virtual service.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate pulumi.StringPtrOutput `pulumi:"lastUpdatedDate"`
 	// Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
 	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
+	MeshOwner pulumi.StringPtrOutput `pulumi:"meshOwner"`
 	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource owner's AWS account ID.
-	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
+	ResourceOwner pulumi.StringPtrOutput `pulumi:"resourceOwner"`
 	// Virtual service specification to apply.
 	Spec VirtualServiceSpecOutput `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -324,18 +324,18 @@ func (o VirtualServiceOutput) ToVirtualServiceOutputWithContext(ctx context.Cont
 }
 
 // ARN of the virtual service.
-func (o VirtualServiceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VirtualServiceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Creation date of the virtual service.
-func (o VirtualServiceOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o VirtualServiceOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Last update date of the virtual service.
-func (o VirtualServiceOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o VirtualServiceOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringPtrOutput { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
@@ -344,8 +344,8 @@ func (o VirtualServiceOutput) MeshName() pulumi.StringOutput {
 }
 
 // AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-func (o VirtualServiceOutput) MeshOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
+func (o VirtualServiceOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringPtrOutput { return v.MeshOwner }).(pulumi.StringPtrOutput)
 }
 
 // Name to use for the virtual service. Must be between 1 and 255 characters in length.
@@ -354,8 +354,8 @@ func (o VirtualServiceOutput) Name() pulumi.StringOutput {
 }
 
 // Resource owner's AWS account ID.
-func (o VirtualServiceOutput) ResourceOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+func (o VirtualServiceOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringPtrOutput { return v.ResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // Virtual service specification to apply.

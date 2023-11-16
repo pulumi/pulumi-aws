@@ -805,7 +805,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Kinesis Analytics Appliation.
         """
@@ -830,7 +830,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTimestamp")
-    def create_timestamp(self) -> pulumi.Output[str]:
+    def create_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         The Timestamp when the application version was created.
         """
@@ -854,7 +854,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdateTimestamp")
-    def last_update_timestamp(self) -> pulumi.Output[str]:
+    def last_update_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         The Timestamp when the application was last updated.
         """
@@ -896,7 +896,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The Status of the application.
         """
@@ -923,7 +923,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         The Version of the application.
         """

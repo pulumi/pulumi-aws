@@ -29,7 +29,7 @@ namespace Pulumi.Aws.DeviceFarm
         /// The Amazon Resource Name of this Test Grid Project.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Human-readable description of the project.

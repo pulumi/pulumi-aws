@@ -164,62 +164,62 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// ARN of the task definition.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         /// </summary>
-        public readonly string ArnWithoutRevision;
+        public readonly string? ArnWithoutRevision;
         /// <summary>
         /// ARN of the task execution role that the Amazon ECS container agent and the Docker.
         /// </summary>
-        public readonly string ExecutionRoleArn;
+        public readonly string? ExecutionRoleArn;
         /// <summary>
         /// Family of this task definition.
         /// </summary>
-        public readonly string Family;
+        public readonly string? Family;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Docker networking mode to use for the containers in this task.
         /// </summary>
-        public readonly string NetworkMode;
+        public readonly string? NetworkMode;
         /// <summary>
         /// Revision of this task definition.
         /// </summary>
-        public readonly int Revision;
+        public readonly int? Revision;
         /// <summary>
         /// Status of this task definition.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         public readonly string TaskDefinition;
         /// <summary>
         /// ARN of the IAM role that containers in this task can assume.
         /// </summary>
-        public readonly string TaskRoleArn;
+        public readonly string? TaskRoleArn;
 
         [OutputConstructor]
         private GetTaskDefinitionResult(
-            string arn,
+            string? arn,
 
-            string arnWithoutRevision,
+            string? arnWithoutRevision,
 
-            string executionRoleArn,
+            string? executionRoleArn,
 
-            string family,
+            string? family,
 
-            string id,
+            string? id,
 
-            string networkMode,
+            string? networkMode,
 
-            int revision,
+            int? revision,
 
-            string status,
+            string? status,
 
             string taskDefinition,
 
-            string taskRoleArn)
+            string? taskRoleArn)
         {
             Arn = arn;
             ArnWithoutRevision = arnWithoutRevision;

@@ -95,16 +95,16 @@ type LookupContactFlowArgs struct {
 // A collection of values returned by getContactFlow.
 type LookupContactFlowResult struct {
 	// ARN of the Contact Flow.
-	Arn           string `pulumi:"arn"`
-	ContactFlowId string `pulumi:"contactFlowId"`
+	Arn           *string `pulumi:"arn"`
+	ContactFlowId *string `pulumi:"contactFlowId"`
 	// Logic of the Contact Flow.
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// Description of the Contact Flow.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	Name       string `pulumi:"name"`
+	Id         *string `pulumi:"id"`
+	InstanceId string  `pulumi:"instanceId"`
+	Name       *string `pulumi:"name"`
 	// Tags to assign to the Contact Flow.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Contact Flow.
@@ -158,35 +158,35 @@ func (o LookupContactFlowResultOutput) ToLookupContactFlowResultOutputWithContex
 }
 
 // ARN of the Contact Flow.
-func (o LookupContactFlowResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupContactFlowResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupContactFlowResultOutput) ContactFlowId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactFlowResult) string { return v.ContactFlowId }).(pulumi.StringOutput)
+func (o LookupContactFlowResultOutput) ContactFlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) *string { return v.ContactFlowId }).(pulumi.StringPtrOutput)
 }
 
 // Logic of the Contact Flow.
-func (o LookupContactFlowResultOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Content }).(pulumi.StringOutput)
+func (o LookupContactFlowResultOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Contact Flow.
-func (o LookupContactFlowResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupContactFlowResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupContactFlowResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupContactFlowResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupContactFlowResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-func (o LookupContactFlowResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupContactFlowResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Tags to assign to the Contact Flow.

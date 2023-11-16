@@ -71,7 +71,7 @@ export class Permission extends pulumi.CustomResource {
     /**
      * IAM policy that is associated with the permission.
      */
-    public /*out*/ readonly policy!: pulumi.Output<string>;
+    public /*out*/ readonly policy!: pulumi.Output<string | undefined>;
     /**
      * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      */
@@ -79,7 +79,7 @@ export class Permission extends pulumi.CustomResource {
     /**
      * ID of the calling account
      */
-    public readonly sourceAccount!: pulumi.Output<string>;
+    public readonly sourceAccount!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Permission resource with the given unique name, arguments, and options.

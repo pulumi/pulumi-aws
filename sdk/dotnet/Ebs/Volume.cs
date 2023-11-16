@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ebs
         /// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AZ where the EBS volume will exist.
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ebs
         /// If true, the disk will be encrypted.
         /// </summary>
         [Output("encrypted")]
-        public Output<bool> Encrypted { get; private set; } = null!;
+        public Output<bool?> Encrypted { get; private set; } = null!;
 
         /// <summary>
         /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
@@ -76,13 +76,13 @@ namespace Pulumi.Aws.Ebs
         /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
         [Output("iops")]
-        public Output<int> Iops { get; private set; } = null!;
+        public Output<int?> Iops { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
@@ -100,13 +100,13 @@ namespace Pulumi.Aws.Ebs
         /// The size of the drive in GiBs.
         /// </summary>
         [Output("size")]
-        public Output<int> Size { get; private set; } = null!;
+        public Output<int?> Size { get; private set; } = null!;
 
         /// <summary>
         /// A snapshot to base the EBS volume off of.
         /// </summary>
         [Output("snapshotId")]
-        public Output<string> SnapshotId { get; private set; } = null!;
+        public Output<string?> SnapshotId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -126,13 +126,13 @@ namespace Pulumi.Aws.Ebs
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Output("throughput")]
-        public Output<int> Throughput { get; private set; } = null!;
+        public Output<int?> Throughput { get; private set; } = null!;
 
         /// <summary>
         /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

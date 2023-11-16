@@ -199,28 +199,28 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN for the branch.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A list of custom resources that are linked to this branch.
      * 
      */
     @Export(name="associatedResources", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> associatedResources;
+    private Output</* @Nullable */ List<String>> associatedResources;
 
     /**
      * @return A list of custom resources that are linked to this branch.
      * 
      */
-    public Output<List<String>> associatedResources() {
-        return this.associatedResources;
+    public Output<Optional<List<String>>> associatedResources() {
+        return Codegen.optional(this.associatedResources);
     }
     /**
      * ARN for a backend environment that is part of an Amplify app.
@@ -269,14 +269,14 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="customDomains", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> customDomains;
+    private Output</* @Nullable */ List<String>> customDomains;
 
     /**
      * @return Custom domains for the branch.
      * 
      */
-    public Output<List<String>> customDomains() {
-        return this.customDomains;
+    public Output<Optional<List<String>>> customDomains() {
+        return Codegen.optional(this.customDomains);
     }
     /**
      * Description for the branch.
@@ -297,28 +297,28 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="destinationBranch", refs={String.class}, tree="[0]")
-    private Output<String> destinationBranch;
+    private Output</* @Nullable */ String> destinationBranch;
 
     /**
      * @return Destination branch if the branch is a pull request branch.
      * 
      */
-    public Output<String> destinationBranch() {
-        return this.destinationBranch;
+    public Output<Optional<String>> destinationBranch() {
+        return Codegen.optional(this.destinationBranch);
     }
     /**
      * Display name for a branch. This is used as the default domain prefix.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
-    private Output<String> displayName;
+    private Output</* @Nullable */ String> displayName;
 
     /**
      * @return Display name for a branch. This is used as the default domain prefix.
      * 
      */
-    public Output<String> displayName() {
-        return this.displayName;
+    public Output<Optional<String>> displayName() {
+        return Codegen.optional(this.displayName);
     }
     /**
      * Enables auto building for the branch.
@@ -437,14 +437,14 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceBranch", refs={String.class}, tree="[0]")
-    private Output<String> sourceBranch;
+    private Output</* @Nullable */ String> sourceBranch;
 
     /**
      * @return Source branch if the branch is a pull request branch.
      * 
      */
-    public Output<String> sourceBranch() {
-        return this.sourceBranch;
+    public Output<Optional<String>> sourceBranch() {
+        return Codegen.optional(this.sourceBranch);
     }
     /**
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.

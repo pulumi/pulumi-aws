@@ -76,7 +76,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * ARN of the appstream fleet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the desired capacity of the fleet. See below.
      */
@@ -84,35 +84,35 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Description to display.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Amount of time that a streaming session remains active after users disconnect.
      */
-    public readonly disconnectTimeoutInSeconds!: pulumi.Output<number>;
+    public readonly disconnectTimeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
      * Human-readable friendly name for the AppStream fleet.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
      */
-    public readonly domainJoinInfo!: pulumi.Output<outputs.appstream.FleetDomainJoinInfo>;
+    public readonly domainJoinInfo!: pulumi.Output<outputs.appstream.FleetDomainJoinInfo | undefined>;
     /**
      * Enables or disables default internet access for the fleet.
      */
-    public readonly enableDefaultInternetAccess!: pulumi.Output<boolean>;
+    public readonly enableDefaultInternetAccess!: pulumi.Output<boolean | undefined>;
     /**
      * Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
      */
-    public readonly fleetType!: pulumi.Output<string>;
+    public readonly fleetType!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role to apply to the fleet.
      */
-    public readonly iamRoleArn!: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins.
      */
@@ -120,11 +120,11 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * ARN of the public, private, or shared image to use.
      */
-    public readonly imageArn!: pulumi.Output<string>;
+    public readonly imageArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the image used to create the fleet.
      */
-    public readonly imageName!: pulumi.Output<string>;
+    public readonly imageName!: pulumi.Output<string | undefined>;
     /**
      * Instance type to use when launching fleet instances.
      */
@@ -132,7 +132,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Maximum amount of time that a streaming session can remain active, in seconds.
      */
-    public readonly maxUserDurationInSeconds!: pulumi.Output<number>;
+    public readonly maxUserDurationInSeconds!: pulumi.Output<number | undefined>;
     /**
      * Unique name for the fleet.
      *
@@ -142,11 +142,11 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
      */
-    public readonly streamView!: pulumi.Output<string>;
+    public readonly streamView!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to attach to AppStream instances.
      */
@@ -158,7 +158,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.appstream.FleetVpcConfig>;
+    public readonly vpcConfig!: pulumi.Output<outputs.appstream.FleetVpcConfig | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.

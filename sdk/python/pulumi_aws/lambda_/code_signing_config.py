@@ -344,7 +344,7 @@ class CodeSigningConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the code signing configuration.
         """
@@ -352,7 +352,7 @@ class CodeSigningConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configId")
-    def config_id(self) -> pulumi.Output[str]:
+    def config_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique identifier for the code signing configuration.
         """
@@ -368,7 +368,7 @@ class CodeSigningConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> pulumi.Output[str]:
+    def last_modified(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that the code signing configuration was last modified.
         """
@@ -376,7 +376,7 @@ class CodeSigningConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policies(self) -> pulumi.Output['outputs.CodeSigningConfigPolicies']:
+    def policies(self) -> pulumi.Output[Optional['outputs.CodeSigningConfigPolicies']]:
         """
         A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         """

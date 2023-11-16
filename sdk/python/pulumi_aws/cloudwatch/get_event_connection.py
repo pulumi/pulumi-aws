@@ -40,7 +40,7 @@ class GetEventConnectionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN (Amazon Resource Name) for the connection.
         """
@@ -48,7 +48,7 @@ class GetEventConnectionResult:
 
     @property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> str:
+    def authorization_type(self) -> Optional[str]:
         """
         Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         """
@@ -56,7 +56,7 @@ class GetEventConnectionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -72,7 +72,7 @@ class GetEventConnectionResult:
 
     @property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> str:
+    def secret_arn(self) -> Optional[str]:
         """
         ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
         """

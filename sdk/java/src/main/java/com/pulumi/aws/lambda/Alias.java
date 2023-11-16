@@ -73,14 +73,14 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) identifying your Lambda function alias.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of the alias.
@@ -129,14 +129,14 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="invokeArn", refs={String.class}, tree="[0]")
-    private Output<String> invokeArn;
+    private Output</* @Nullable */ String> invokeArn;
 
     /**
      * @return The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
      * 
      */
-    public Output<String> invokeArn() {
-        return this.invokeArn;
+    public Output<Optional<String>> invokeArn() {
+        return Codegen.optional(this.invokeArn);
     }
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`

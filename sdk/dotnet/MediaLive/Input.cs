@@ -69,7 +69,7 @@ namespace Pulumi.Aws.MediaLive
         /// ARN of the Input.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Channels attached to Input.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.MediaLive
         /// The input class.
         /// </summary>
         [Output("inputClass")]
-        public Output<string> InputClass { get; private set; } = null!;
+        public Output<string?> InputClass { get; private set; } = null!;
 
         /// <summary>
         /// Settings for the devices. See Input Devices for more details.
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.MediaLive
         /// Source type of the input.
         /// </summary>
         [Output("inputSourceType")]
-        public Output<string> InputSourceType { get; private set; } = null!;
+        public Output<string?> InputSourceType { get; private set; } = null!;
 
         /// <summary>
         /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.MediaLive
         /// The ARN of the role this input assumes during and after creation.
         /// </summary>
         [Output("roleArn")]
-        public Output<string> RoleArn { get; private set; } = null!;
+        public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// The source URLs for a PULL-type input. See Sources for more details.

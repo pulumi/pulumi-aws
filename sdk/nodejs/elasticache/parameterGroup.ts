@@ -72,7 +72,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * The AWS ARN associated with the parameter group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
      */

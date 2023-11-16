@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -62,14 +63,14 @@ public class ManagedPolicyAttachment extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="managedPolicyName", refs={String.class}, tree="[0]")
-    private Output<String> managedPolicyName;
+    private Output</* @Nullable */ String> managedPolicyName;
 
     /**
      * @return The name of the IAM Managed Policy.
      * 
      */
-    public Output<String> managedPolicyName() {
-        return this.managedPolicyName;
+    public Output<Optional<String>> managedPolicyName() {
+        return Codegen.optional(this.managedPolicyName);
     }
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.

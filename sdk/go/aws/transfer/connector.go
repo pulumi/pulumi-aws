@@ -99,11 +99,11 @@ type Connector struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringOutput `pulumi:"accessRole"`
 	// The ARN of the connector.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	As2Config ConnectorAs2ConfigPtrOutput `pulumi:"as2Config"`
 	// The unique identifier for the AS2 profile or SFTP Profile.
-	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
+	ConnectorId pulumi.StringPtrOutput `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
@@ -325,8 +325,8 @@ func (o ConnectorOutput) AccessRole() pulumi.StringOutput {
 }
 
 // The ARN of the connector.
-func (o ConnectorOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConnectorOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
@@ -335,8 +335,8 @@ func (o ConnectorOutput) As2Config() ConnectorAs2ConfigPtrOutput {
 }
 
 // The unique identifier for the AS2 profile or SFTP Profile.
-func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorId }).(pulumi.StringOutput)
+func (o ConnectorOutput) ConnectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.ConnectorId }).(pulumi.StringPtrOutput)
 }
 
 // The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.

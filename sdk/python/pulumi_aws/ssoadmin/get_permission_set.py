@@ -52,17 +52,17 @@ class GetPermissionSetResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Permission Set.
         """
@@ -70,7 +70,7 @@ class GetPermissionSetResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -83,12 +83,12 @@ class GetPermissionSetResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="relayState")
-    def relay_state(self) -> str:
+    def relay_state(self) -> Optional[str]:
         """
         Relay state URL used to redirect users within the application during the federation authentication process.
         """
@@ -96,7 +96,7 @@ class GetPermissionSetResult:
 
     @property
     @pulumi.getter(name="sessionDuration")
-    def session_duration(self) -> str:
+    def session_duration(self) -> Optional[str]:
         """
         Length of time that the application user sessions are valid in the ISO-8601 standard.
         """
@@ -104,7 +104,7 @@ class GetPermissionSetResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags.
         """

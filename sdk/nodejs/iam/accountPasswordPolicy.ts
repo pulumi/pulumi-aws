@@ -70,15 +70,15 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
     /**
      * Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      */
-    public /*out*/ readonly expirePasswords!: pulumi.Output<boolean>;
+    public /*out*/ readonly expirePasswords!: pulumi.Output<boolean | undefined>;
     /**
      * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      */
-    public readonly hardExpiry!: pulumi.Output<boolean>;
+    public readonly hardExpiry!: pulumi.Output<boolean | undefined>;
     /**
      * The number of days that an user password is valid.
      */
-    public readonly maxPasswordAge!: pulumi.Output<number>;
+    public readonly maxPasswordAge!: pulumi.Output<number | undefined>;
     /**
      * Minimum length to require for user passwords.
      */
@@ -86,23 +86,23 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
     /**
      * The number of previous passwords that users are prevented from reusing.
      */
-    public readonly passwordReusePrevention!: pulumi.Output<number>;
+    public readonly passwordReusePrevention!: pulumi.Output<number | undefined>;
     /**
      * Whether to require lowercase characters for user passwords.
      */
-    public readonly requireLowercaseCharacters!: pulumi.Output<boolean>;
+    public readonly requireLowercaseCharacters!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to require numbers for user passwords.
      */
-    public readonly requireNumbers!: pulumi.Output<boolean>;
+    public readonly requireNumbers!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to require symbols for user passwords.
      */
-    public readonly requireSymbols!: pulumi.Output<boolean>;
+    public readonly requireSymbols!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to require uppercase characters for user passwords.
      */
-    public readonly requireUppercaseCharacters!: pulumi.Output<boolean>;
+    public readonly requireUppercaseCharacters!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AccountPasswordPolicy resource with the given unique name, arguments, and options.

@@ -10,94 +10,96 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkspaceResult {
-    private String bundleId;
+    private @Nullable String bundleId;
     /**
      * @return Name of the WorkSpace, as seen by the operating system.
      * 
      */
-    private String computerName;
-    private String directoryId;
+    private @Nullable String computerName;
+    private @Nullable String directoryId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return IP address of the WorkSpace.
      * 
      */
-    private String ipAddress;
-    private Boolean rootVolumeEncryptionEnabled;
+    private @Nullable String ipAddress;
+    private @Nullable Boolean rootVolumeEncryptionEnabled;
     /**
      * @return Operational state of the WorkSpace.
      * 
      */
-    private String state;
-    private Map<String,String> tags;
-    private String userName;
-    private Boolean userVolumeEncryptionEnabled;
-    private String volumeEncryptionKey;
-    private String workspaceId;
-    private List<GetWorkspaceWorkspaceProperty> workspaceProperties;
+    private @Nullable String state;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String userName;
+    private @Nullable Boolean userVolumeEncryptionEnabled;
+    private @Nullable String volumeEncryptionKey;
+    private @Nullable String workspaceId;
+    private @Nullable List<GetWorkspaceWorkspaceProperty> workspaceProperties;
 
     private GetWorkspaceResult() {}
-    public String bundleId() {
-        return this.bundleId;
+    public Optional<String> bundleId() {
+        return Optional.ofNullable(this.bundleId);
     }
     /**
      * @return Name of the WorkSpace, as seen by the operating system.
      * 
      */
-    public String computerName() {
-        return this.computerName;
+    public Optional<String> computerName() {
+        return Optional.ofNullable(this.computerName);
     }
-    public String directoryId() {
-        return this.directoryId;
+    public Optional<String> directoryId() {
+        return Optional.ofNullable(this.directoryId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IP address of the WorkSpace.
      * 
      */
-    public String ipAddress() {
-        return this.ipAddress;
+    public Optional<String> ipAddress() {
+        return Optional.ofNullable(this.ipAddress);
     }
-    public Boolean rootVolumeEncryptionEnabled() {
-        return this.rootVolumeEncryptionEnabled;
+    public Optional<Boolean> rootVolumeEncryptionEnabled() {
+        return Optional.ofNullable(this.rootVolumeEncryptionEnabled);
     }
     /**
      * @return Operational state of the WorkSpace.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String userName() {
-        return this.userName;
+    public Optional<String> userName() {
+        return Optional.ofNullable(this.userName);
     }
-    public Boolean userVolumeEncryptionEnabled() {
-        return this.userVolumeEncryptionEnabled;
+    public Optional<Boolean> userVolumeEncryptionEnabled() {
+        return Optional.ofNullable(this.userVolumeEncryptionEnabled);
     }
-    public String volumeEncryptionKey() {
-        return this.volumeEncryptionKey;
+    public Optional<String> volumeEncryptionKey() {
+        return Optional.ofNullable(this.volumeEncryptionKey);
     }
-    public String workspaceId() {
-        return this.workspaceId;
+    public Optional<String> workspaceId() {
+        return Optional.ofNullable(this.workspaceId);
     }
     public List<GetWorkspaceWorkspaceProperty> workspaceProperties() {
-        return this.workspaceProperties;
+        return this.workspaceProperties == null ? List.of() : this.workspaceProperties;
     }
 
     public static Builder builder() {
@@ -109,19 +111,19 @@ public final class GetWorkspaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bundleId;
-        private String computerName;
-        private String directoryId;
-        private String id;
-        private String ipAddress;
-        private Boolean rootVolumeEncryptionEnabled;
-        private String state;
-        private Map<String,String> tags;
-        private String userName;
-        private Boolean userVolumeEncryptionEnabled;
-        private String volumeEncryptionKey;
-        private String workspaceId;
-        private List<GetWorkspaceWorkspaceProperty> workspaceProperties;
+        private @Nullable String bundleId;
+        private @Nullable String computerName;
+        private @Nullable String directoryId;
+        private @Nullable String id;
+        private @Nullable String ipAddress;
+        private @Nullable Boolean rootVolumeEncryptionEnabled;
+        private @Nullable String state;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String userName;
+        private @Nullable Boolean userVolumeEncryptionEnabled;
+        private @Nullable String volumeEncryptionKey;
+        private @Nullable String workspaceId;
+        private @Nullable List<GetWorkspaceWorkspaceProperty> workspaceProperties;
         public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -141,68 +143,68 @@ public final class GetWorkspaceResult {
         }
 
         @CustomType.Setter
-        public Builder bundleId(String bundleId) {
-            this.bundleId = Objects.requireNonNull(bundleId);
+        public Builder bundleId(@Nullable String bundleId) {
+            this.bundleId = bundleId;
             return this;
         }
         @CustomType.Setter
-        public Builder computerName(String computerName) {
-            this.computerName = Objects.requireNonNull(computerName);
+        public Builder computerName(@Nullable String computerName) {
+            this.computerName = computerName;
             return this;
         }
         @CustomType.Setter
-        public Builder directoryId(String directoryId) {
-            this.directoryId = Objects.requireNonNull(directoryId);
+        public Builder directoryId(@Nullable String directoryId) {
+            this.directoryId = directoryId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+        public Builder ipAddress(@Nullable String ipAddress) {
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder rootVolumeEncryptionEnabled(Boolean rootVolumeEncryptionEnabled) {
-            this.rootVolumeEncryptionEnabled = Objects.requireNonNull(rootVolumeEncryptionEnabled);
+        public Builder rootVolumeEncryptionEnabled(@Nullable Boolean rootVolumeEncryptionEnabled) {
+            this.rootVolumeEncryptionEnabled = rootVolumeEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+        public Builder userName(@Nullable String userName) {
+            this.userName = userName;
             return this;
         }
         @CustomType.Setter
-        public Builder userVolumeEncryptionEnabled(Boolean userVolumeEncryptionEnabled) {
-            this.userVolumeEncryptionEnabled = Objects.requireNonNull(userVolumeEncryptionEnabled);
+        public Builder userVolumeEncryptionEnabled(@Nullable Boolean userVolumeEncryptionEnabled) {
+            this.userVolumeEncryptionEnabled = userVolumeEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeEncryptionKey(String volumeEncryptionKey) {
-            this.volumeEncryptionKey = Objects.requireNonNull(volumeEncryptionKey);
+        public Builder volumeEncryptionKey(@Nullable String volumeEncryptionKey) {
+            this.volumeEncryptionKey = volumeEncryptionKey;
             return this;
         }
         @CustomType.Setter
-        public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+        public Builder workspaceId(@Nullable String workspaceId) {
+            this.workspaceId = workspaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder workspaceProperties(List<GetWorkspaceWorkspaceProperty> workspaceProperties) {
-            this.workspaceProperties = Objects.requireNonNull(workspaceProperties);
+        public Builder workspaceProperties(@Nullable List<GetWorkspaceWorkspaceProperty> workspaceProperties) {
+            this.workspaceProperties = workspaceProperties;
             return this;
         }
         public Builder workspaceProperties(GetWorkspaceWorkspaceProperty... workspaceProperties) {

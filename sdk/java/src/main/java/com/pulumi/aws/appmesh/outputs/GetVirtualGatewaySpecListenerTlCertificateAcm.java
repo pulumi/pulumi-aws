@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTlCertificateAcm {
-    private String certificateArn;
+    private @Nullable String certificateArn;
 
     private GetVirtualGatewaySpecListenerTlCertificateAcm() {}
-    public String certificateArn() {
-        return this.certificateArn;
+    public Optional<String> certificateArn() {
+        return Optional.ofNullable(this.certificateArn);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetVirtualGatewaySpecListenerTlCertificateAcm {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String certificateArn;
+        private @Nullable String certificateArn;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecListenerTlCertificateAcm defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetVirtualGatewaySpecListenerTlCertificateAcm {
         }
 
         @CustomType.Setter
-        public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+        public Builder certificateArn(@Nullable String certificateArn) {
+            this.certificateArn = certificateArn;
             return this;
         }
         public GetVirtualGatewaySpecListenerTlCertificateAcm build() {

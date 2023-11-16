@@ -52,7 +52,7 @@ import (
 //			}
 //			_, err = s3control.NewAccessPointPolicy(ctx, "exampleAccessPointPolicy", &s3control.AccessPointPolicyArgs{
 //				AccessPointArn: exampleAccessPoint.Arn,
-//				Policy: exampleAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				Policy: exampleAccessPoint.Arn.ApplyT(func(arn *string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"Version": "2008-10-17",
@@ -98,7 +98,7 @@ type AccessPointPolicy struct {
 	// The ARN of the access point that you want to associate with the specified policy.
 	AccessPointArn pulumi.StringOutput `pulumi:"accessPointArn"`
 	// Indicates whether this access point currently has a policy that allows public access.
-	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
+	HasPublicAccessPolicy pulumi.BoolPtrOutput `pulumi:"hasPublicAccessPolicy"`
 	// The policy that you want to apply to the specified access point.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
@@ -268,8 +268,8 @@ func (o AccessPointPolicyOutput) AccessPointArn() pulumi.StringOutput {
 }
 
 // Indicates whether this access point currently has a policy that allows public access.
-func (o AccessPointPolicyOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
-	return o.ApplyT(func(v *AccessPointPolicy) pulumi.BoolOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolOutput)
+func (o AccessPointPolicyOutput) HasPublicAccessPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPolicy) pulumi.BoolPtrOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // The policy that you want to apply to the specified access point.

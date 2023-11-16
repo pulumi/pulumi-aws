@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// <summary>
         /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetFrameworkControlScopeResult(
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Backup.Outputs
 
             ImmutableArray<string> complianceResourceTypes,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             ComplianceResourceIds = complianceResourceIds;
             ComplianceResourceTypes = complianceResourceTypes;

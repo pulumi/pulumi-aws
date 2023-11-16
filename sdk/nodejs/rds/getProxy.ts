@@ -46,52 +46,52 @@ export interface GetProxyResult {
     /**
      * ARN of the DB Proxy.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
      */
-    readonly auths: outputs.rds.GetProxyAuth[];
+    readonly auths?: outputs.rds.GetProxyAuth[];
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs.
      */
-    readonly debugLogging: boolean;
+    readonly debugLogging?: boolean;
     /**
      * Endpoint that you can use to connect to the DB proxy.
      */
-    readonly endpoint: string;
+    readonly endpoint?: string;
     /**
      * Kinds of databases that the proxy can connect to.
      */
-    readonly engineFamily: string;
+    readonly engineFamily?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
      */
-    readonly idleClientTimeout: number;
+    readonly idleClientTimeout?: number;
     readonly name: string;
     /**
      * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
-    readonly requireTls: boolean;
+    readonly requireTls?: boolean;
     /**
      * ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
      */
-    readonly roleArn: string;
+    readonly roleArn?: string;
     /**
      * Provides the VPC ID of the DB proxy.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
     /**
      * Provides a list of VPC security groups that the proxy belongs to.
      */
-    readonly vpcSecurityGroupIds: string[];
+    readonly vpcSecurityGroupIds?: string[];
     /**
      * EC2 subnet IDs for the proxy.
      */
-    readonly vpcSubnetIds: string[];
+    readonly vpcSubnetIds?: string[];
 }
 /**
  * Use this data source to get information about a DB Proxy.

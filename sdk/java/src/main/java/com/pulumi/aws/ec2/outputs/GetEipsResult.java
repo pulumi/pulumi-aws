@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,19 +18,19 @@ public final class GetEipsResult {
      * @return List of all the allocation IDs for address for use with EC2-VPC.
      * 
      */
-    private List<String> allocationIds;
+    private @Nullable List<String> allocationIds;
     private @Nullable List<GetEipsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of all the Elastic IP addresses.
      * 
      */
-    private List<String> publicIps;
-    private Map<String,String> tags;
+    private @Nullable List<String> publicIps;
+    private @Nullable Map<String,String> tags;
 
     private GetEipsResult() {}
     /**
@@ -37,7 +38,7 @@ public final class GetEipsResult {
      * 
      */
     public List<String> allocationIds() {
-        return this.allocationIds;
+        return this.allocationIds == null ? List.of() : this.allocationIds;
     }
     public List<GetEipsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -46,18 +47,18 @@ public final class GetEipsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of all the Elastic IP addresses.
      * 
      */
     public List<String> publicIps() {
-        return this.publicIps;
+        return this.publicIps == null ? List.of() : this.publicIps;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -69,11 +70,11 @@ public final class GetEipsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> allocationIds;
+        private @Nullable List<String> allocationIds;
         private @Nullable List<GetEipsFilter> filters;
-        private String id;
-        private List<String> publicIps;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable List<String> publicIps;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetEipsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,8 +86,8 @@ public final class GetEipsResult {
         }
 
         @CustomType.Setter
-        public Builder allocationIds(List<String> allocationIds) {
-            this.allocationIds = Objects.requireNonNull(allocationIds);
+        public Builder allocationIds(@Nullable List<String> allocationIds) {
+            this.allocationIds = allocationIds;
             return this;
         }
         public Builder allocationIds(String... allocationIds) {
@@ -101,21 +102,21 @@ public final class GetEipsResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder publicIps(List<String> publicIps) {
-            this.publicIps = Objects.requireNonNull(publicIps);
+        public Builder publicIps(@Nullable List<String> publicIps) {
+            this.publicIps = publicIps;
             return this;
         }
         public Builder publicIps(String... publicIps) {
             return publicIps(List.of(publicIps));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetEipsResult build() {

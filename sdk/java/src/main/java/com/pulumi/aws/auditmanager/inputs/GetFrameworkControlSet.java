@@ -23,26 +23,26 @@ public final class GetFrameworkControlSet extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.controls);
     }
 
-    @Import(name="id", required=true)
-    private String id;
+    @Import(name="id")
+    private @Nullable String id;
 
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
      * Name of the framework.
      * 
      */
-    @Import(name="name", required=true)
-    private String name;
+    @Import(name="name")
+    private @Nullable String name;
 
     /**
      * @return Name of the framework.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     private GetFrameworkControlSet() {}
@@ -80,7 +80,7 @@ public final class GetFrameworkControlSet extends com.pulumi.resources.InvokeArg
             return controls(List.of(controls));
         }
 
-        public Builder id(String id) {
+        public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
@@ -91,14 +91,12 @@ public final class GetFrameworkControlSet extends com.pulumi.resources.InvokeArg
          * @return builder
          * 
          */
-        public Builder name(String name) {
+        public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
         public GetFrameworkControlSet build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

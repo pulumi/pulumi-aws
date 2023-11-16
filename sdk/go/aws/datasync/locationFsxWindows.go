@@ -58,9 +58,9 @@ type LocationFsxWindows struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The time that the FSx for Windows location was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
@@ -70,7 +70,7 @@ type LocationFsxWindows struct {
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
-	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
+	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -78,7 +78,7 @@ type LocationFsxWindows struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the FSx for Windows location that was described.
-	Uri pulumi.StringOutput `pulumi:"uri"`
+	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 	// The user who has the permissions to access files and folders in the FSx for Windows file system.
 	User pulumi.StringOutput `pulumi:"user"`
 }
@@ -313,13 +313,13 @@ func (o LocationFsxWindowsOutput) ToLocationFsxWindowsOutputWithContext(ctx cont
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (o LocationFsxWindowsOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LocationFsxWindowsOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The time that the FSx for Windows location was created.
-func (o LocationFsxWindowsOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o LocationFsxWindowsOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Windows domain that the FSx for Windows server belongs to.
@@ -343,8 +343,8 @@ func (o LocationFsxWindowsOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 }
 
 // Subdirectory to perform actions as source or destination.
-func (o LocationFsxWindowsOutput) Subdirectory() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
+func (o LocationFsxWindowsOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -360,8 +360,8 @@ func (o LocationFsxWindowsOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The URL of the FSx for Windows location that was described.
-func (o LocationFsxWindowsOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+func (o LocationFsxWindowsOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 // The user who has the permissions to access files and folders in the FSx for Windows file system.

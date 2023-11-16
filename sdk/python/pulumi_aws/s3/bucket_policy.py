@@ -108,7 +108,7 @@ class BucketPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketV2("example")
-        allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        allow_access_from_another_account_policy_document = pulumi.Output.all(example.arn, example.arn).apply(lambda exampleArn, exampleArn1: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
                 identifiers=["123456789012"],
@@ -118,10 +118,10 @@ class BucketPolicy(pulumi.CustomResource):
                 "s3:ListBucket",
             ],
             resources=[
-                example.arn,
-                example.arn.apply(lambda arn: f"{arn}/*"),
+                example_arn,
+                f"{example_arn1}/*",
             ],
-        )])
+        )]))
         allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy",
             bucket=example.id,
             policy=allow_access_from_another_account_policy_document.json)
@@ -157,7 +157,7 @@ class BucketPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketV2("example")
-        allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        allow_access_from_another_account_policy_document = pulumi.Output.all(example.arn, example.arn).apply(lambda exampleArn, exampleArn1: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
                 identifiers=["123456789012"],
@@ -167,10 +167,10 @@ class BucketPolicy(pulumi.CustomResource):
                 "s3:ListBucket",
             ],
             resources=[
-                example.arn,
-                example.arn.apply(lambda arn: f"{arn}/*"),
+                example_arn,
+                f"{example_arn1}/*",
             ],
-        )])
+        )]))
         allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy",
             bucket=example.id,
             policy=allow_access_from_another_account_policy_document.json)

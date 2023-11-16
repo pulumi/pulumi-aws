@@ -9,26 +9,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMap {
-    private String alias;
-    private List<GetDataSetLogicalTableMapDataTransform> dataTransforms;
-    private String logicalTableMapId;
-    private List<GetDataSetLogicalTableMapSource> sources;
+    private @Nullable String alias;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransform> dataTransforms;
+    private @Nullable String logicalTableMapId;
+    private @Nullable List<GetDataSetLogicalTableMapSource> sources;
 
     private GetDataSetLogicalTableMap() {}
-    public String alias() {
-        return this.alias;
+    public Optional<String> alias() {
+        return Optional.ofNullable(this.alias);
     }
     public List<GetDataSetLogicalTableMapDataTransform> dataTransforms() {
-        return this.dataTransforms;
+        return this.dataTransforms == null ? List.of() : this.dataTransforms;
     }
-    public String logicalTableMapId() {
-        return this.logicalTableMapId;
+    public Optional<String> logicalTableMapId() {
+        return Optional.ofNullable(this.logicalTableMapId);
     }
     public List<GetDataSetLogicalTableMapSource> sources() {
-        return this.sources;
+        return this.sources == null ? List.of() : this.sources;
     }
 
     public static Builder builder() {
@@ -40,10 +42,10 @@ public final class GetDataSetLogicalTableMap {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String alias;
-        private List<GetDataSetLogicalTableMapDataTransform> dataTransforms;
-        private String logicalTableMapId;
-        private List<GetDataSetLogicalTableMapSource> sources;
+        private @Nullable String alias;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransform> dataTransforms;
+        private @Nullable String logicalTableMapId;
+        private @Nullable List<GetDataSetLogicalTableMapSource> sources;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMap defaults) {
     	      Objects.requireNonNull(defaults);
@@ -54,26 +56,26 @@ public final class GetDataSetLogicalTableMap {
         }
 
         @CustomType.Setter
-        public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+        public Builder alias(@Nullable String alias) {
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
-        public Builder dataTransforms(List<GetDataSetLogicalTableMapDataTransform> dataTransforms) {
-            this.dataTransforms = Objects.requireNonNull(dataTransforms);
+        public Builder dataTransforms(@Nullable List<GetDataSetLogicalTableMapDataTransform> dataTransforms) {
+            this.dataTransforms = dataTransforms;
             return this;
         }
         public Builder dataTransforms(GetDataSetLogicalTableMapDataTransform... dataTransforms) {
             return dataTransforms(List.of(dataTransforms));
         }
         @CustomType.Setter
-        public Builder logicalTableMapId(String logicalTableMapId) {
-            this.logicalTableMapId = Objects.requireNonNull(logicalTableMapId);
+        public Builder logicalTableMapId(@Nullable String logicalTableMapId) {
+            this.logicalTableMapId = logicalTableMapId;
             return this;
         }
         @CustomType.Setter
-        public Builder sources(List<GetDataSetLogicalTableMapSource> sources) {
-            this.sources = Objects.requireNonNull(sources);
+        public Builder sources(@Nullable List<GetDataSetLogicalTableMapSource> sources) {
+            this.sources = sources;
             return this;
         }
         public Builder sources(GetDataSetLogicalTableMapSource... sources) {

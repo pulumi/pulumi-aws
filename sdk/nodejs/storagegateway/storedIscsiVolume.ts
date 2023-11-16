@@ -79,11 +79,11 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
     /**
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether mutual CHAP is enabled for the iSCSI target.
      */
-    public /*out*/ readonly chapEnabled!: pulumi.Output<boolean>;
+    public /*out*/ readonly chapEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The unique identifier for the gateway local disk that is configured as a stored volume.
      */
@@ -103,7 +103,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
     /**
      * Logical disk number.
      */
-    public /*out*/ readonly lunNumber!: pulumi.Output<number>;
+    public /*out*/ readonly lunNumber!: pulumi.Output<number | undefined>;
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      */
@@ -111,7 +111,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
     /**
      * The port used to communicate with iSCSI targets.
      */
-    public /*out*/ readonly networkInterfacePort!: pulumi.Output<number>;
+    public /*out*/ readonly networkInterfacePort!: pulumi.Output<number | undefined>;
     /**
      * Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
      */
@@ -133,7 +133,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
     /**
      * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
-    public /*out*/ readonly targetArn!: pulumi.Output<string>;
+    public /*out*/ readonly targetArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */
@@ -141,23 +141,23 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
     /**
      * A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
      */
-    public /*out*/ readonly volumeAttachmentStatus!: pulumi.Output<string>;
+    public /*out*/ readonly volumeAttachmentStatus!: pulumi.Output<string | undefined>;
     /**
      * Volume ID, e.g., `vol-12345678`.
      */
-    public /*out*/ readonly volumeId!: pulumi.Output<string>;
+    public /*out*/ readonly volumeId!: pulumi.Output<string | undefined>;
     /**
      * The size of the data stored on the volume in bytes.
      */
-    public /*out*/ readonly volumeSizeInBytes!: pulumi.Output<number>;
+    public /*out*/ readonly volumeSizeInBytes!: pulumi.Output<number | undefined>;
     /**
      * indicates the state of the storage volume.
      */
-    public /*out*/ readonly volumeStatus!: pulumi.Output<string>;
+    public /*out*/ readonly volumeStatus!: pulumi.Output<string | undefined>;
     /**
      * indicates the type of the volume.
      */
-    public /*out*/ readonly volumeType!: pulumi.Output<string>;
+    public /*out*/ readonly volumeType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StoredIscsiVolume resource with the given unique name, arguments, and options.

@@ -146,14 +146,14 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Hosted Zone.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A comment for the hosted zone. Defaults to &#39;Managed by Pulumi&#39;.
@@ -217,29 +217,29 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="nameServers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> nameServers;
+    private Output</* @Nullable */ List<String>> nameServers;
 
     /**
      * @return A list of name servers in associated (or default) delegation set.
      * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
      * 
      */
-    public Output<List<String>> nameServers() {
-        return this.nameServers;
+    public Output<Optional<List<String>>> nameServers() {
+        return Codegen.optional(this.nameServers);
     }
     /**
      * The Route 53 name server that created the SOA record.
      * 
      */
     @Export(name="primaryNameServer", refs={String.class}, tree="[0]")
-    private Output<String> primaryNameServer;
+    private Output</* @Nullable */ String> primaryNameServer;
 
     /**
      * @return The Route 53 name server that created the SOA record.
      * 
      */
-    public Output<String> primaryNameServer() {
-        return this.primaryNameServer;
+    public Output<Optional<String>> primaryNameServer() {
+        return Codegen.optional(this.primaryNameServer);
     }
     /**
      * A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -292,14 +292,14 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
-    private Output<String> zoneId;
+    private Output</* @Nullable */ String> zoneId;
 
     /**
      * @return The Hosted Zone ID. This can be referenced by zone records.
      * 
      */
-    public Output<String> zoneId() {
-        return this.zoneId;
+    public Output<Optional<String>> zoneId() {
+        return Codegen.optional(this.zoneId);
     }
 
     /**

@@ -57,16 +57,16 @@ export interface GetRegionResult {
     /**
      * Region's description in this format: "Location (Region name)".
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * EC2 endpoint for the selected region.
      */
-    readonly endpoint: string;
-    readonly id: string;
+    readonly endpoint?: string;
+    readonly id?: string;
     /**
      * Name of the selected region.
      */
-    readonly name: string;
+    readonly name?: string;
 }
 /**
  * `aws.getRegion` provides details about a specific AWS region.

@@ -92,23 +92,23 @@ type OntapVolume struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name of the volune.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	BypassSnaplockEnterpriseRetention pulumi.BoolPtrOutput `pulumi:"bypassSnaplockEnterpriseRetention"`
 	// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
 	CopyTagsToBackups pulumi.BoolPtrOutput `pulumi:"copyTagsToBackups"`
 	// Describes the file system for the volume, e.g. `fs-12345679`
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
+	FileSystemId pulumi.StringPtrOutput `pulumi:"fileSystemId"`
 	// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
-	FlexcacheEndpointType pulumi.StringOutput `pulumi:"flexcacheEndpointType"`
+	FlexcacheEndpointType pulumi.StringPtrOutput `pulumi:"flexcacheEndpointType"`
 	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
 	JunctionPath pulumi.StringPtrOutput `pulumi:"junctionPath"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
-	OntapVolumeType pulumi.StringOutput `pulumi:"ontapVolumeType"`
+	OntapVolumeType pulumi.StringPtrOutput `pulumi:"ontapVolumeType"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
-	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
+	SecurityStyle pulumi.StringPtrOutput `pulumi:"securityStyle"`
 	// Specifies the size of the volume, in megabytes (MB), that you are creating.
 	SizeInMegabytes pulumi.IntOutput `pulumi:"sizeInMegabytes"`
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -116,7 +116,7 @@ type OntapVolume struct {
 	// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
 	SnaplockConfiguration OntapVolumeSnaplockConfigurationPtrOutput `pulumi:"snaplockConfiguration"`
 	// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
-	SnapshotPolicy pulumi.StringOutput `pulumi:"snapshotPolicy"`
+	SnapshotPolicy pulumi.StringPtrOutput `pulumi:"snapshotPolicy"`
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 	StorageEfficiencyEnabled pulumi.BoolPtrOutput `pulumi:"storageEfficiencyEnabled"`
 	// Specifies the storage virtual machine in which to create the volume.
@@ -130,7 +130,7 @@ type OntapVolume struct {
 	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy OntapVolumeTieringPolicyPtrOutput `pulumi:"tieringPolicy"`
 	// The Volume's UUID (universally unique identifier).
-	Uuid pulumi.StringOutput `pulumi:"uuid"`
+	Uuid pulumi.StringPtrOutput `pulumi:"uuid"`
 	// The type of volume, currently the only valid value is `ONTAP`.
 	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
 }
@@ -423,8 +423,8 @@ func (o OntapVolumeOutput) ToOntapVolumeOutputWithContext(ctx context.Context) O
 }
 
 // Amazon Resource Name of the volune.
-func (o OntapVolumeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OntapVolumeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -438,13 +438,13 @@ func (o OntapVolumeOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
 }
 
 // Describes the file system for the volume, e.g. `fs-12345679`
-func (o OntapVolumeOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
+func (o OntapVolumeOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
-func (o OntapVolumeOutput) FlexcacheEndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.FlexcacheEndpointType }).(pulumi.StringOutput)
+func (o OntapVolumeOutput) FlexcacheEndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.FlexcacheEndpointType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
@@ -458,13 +458,13 @@ func (o OntapVolumeOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
-func (o OntapVolumeOutput) OntapVolumeType() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.OntapVolumeType }).(pulumi.StringOutput)
+func (o OntapVolumeOutput) OntapVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.OntapVolumeType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
-func (o OntapVolumeOutput) SecurityStyle() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.SecurityStyle }).(pulumi.StringOutput)
+func (o OntapVolumeOutput) SecurityStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.SecurityStyle }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the size of the volume, in megabytes (MB), that you are creating.
@@ -483,8 +483,8 @@ func (o OntapVolumeOutput) SnaplockConfiguration() OntapVolumeSnaplockConfigurat
 }
 
 // Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
-func (o OntapVolumeOutput) SnapshotPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.SnapshotPolicy }).(pulumi.StringOutput)
+func (o OntapVolumeOutput) SnapshotPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.SnapshotPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
@@ -515,8 +515,8 @@ func (o OntapVolumeOutput) TieringPolicy() OntapVolumeTieringPolicyPtrOutput {
 }
 
 // The Volume's UUID (universally unique identifier).
-func (o OntapVolumeOutput) Uuid() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+func (o OntapVolumeOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.Uuid }).(pulumi.StringPtrOutput)
 }
 
 // The type of volume, currently the only valid value is `ONTAP`.

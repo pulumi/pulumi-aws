@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -97,14 +98,14 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="autoEnableStandards", refs={String.class}, tree="[0]")
-    private Output<String> autoEnableStandards;
+    private Output</* @Nullable */ String> autoEnableStandards;
 
     /**
      * @return Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
      * 
      */
-    public Output<String> autoEnableStandards() {
-        return this.autoEnableStandards;
+    public Output<Optional<String>> autoEnableStandards() {
+        return Codegen.optional(this.autoEnableStandards);
     }
 
     /**

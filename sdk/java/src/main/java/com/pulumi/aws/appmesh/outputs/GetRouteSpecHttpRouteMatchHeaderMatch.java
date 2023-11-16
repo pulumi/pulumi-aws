@@ -8,30 +8,32 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecHttpRouteMatchHeaderMatch {
-    private String exact;
-    private String prefix;
-    private List<GetRouteSpecHttpRouteMatchHeaderMatchRange> ranges;
-    private String regex;
-    private String suffix;
+    private @Nullable String exact;
+    private @Nullable String prefix;
+    private @Nullable List<GetRouteSpecHttpRouteMatchHeaderMatchRange> ranges;
+    private @Nullable String regex;
+    private @Nullable String suffix;
 
     private GetRouteSpecHttpRouteMatchHeaderMatch() {}
-    public String exact() {
-        return this.exact;
+    public Optional<String> exact() {
+        return Optional.ofNullable(this.exact);
     }
-    public String prefix() {
-        return this.prefix;
+    public Optional<String> prefix() {
+        return Optional.ofNullable(this.prefix);
     }
     public List<GetRouteSpecHttpRouteMatchHeaderMatchRange> ranges() {
-        return this.ranges;
+        return this.ranges == null ? List.of() : this.ranges;
     }
-    public String regex() {
-        return this.regex;
+    public Optional<String> regex() {
+        return Optional.ofNullable(this.regex);
     }
-    public String suffix() {
-        return this.suffix;
+    public Optional<String> suffix() {
+        return Optional.ofNullable(this.suffix);
     }
 
     public static Builder builder() {
@@ -43,11 +45,11 @@ public final class GetRouteSpecHttpRouteMatchHeaderMatch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String exact;
-        private String prefix;
-        private List<GetRouteSpecHttpRouteMatchHeaderMatchRange> ranges;
-        private String regex;
-        private String suffix;
+        private @Nullable String exact;
+        private @Nullable String prefix;
+        private @Nullable List<GetRouteSpecHttpRouteMatchHeaderMatchRange> ranges;
+        private @Nullable String regex;
+        private @Nullable String suffix;
         public Builder() {}
         public Builder(GetRouteSpecHttpRouteMatchHeaderMatch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,31 +61,31 @@ public final class GetRouteSpecHttpRouteMatchHeaderMatch {
         }
 
         @CustomType.Setter
-        public Builder exact(String exact) {
-            this.exact = Objects.requireNonNull(exact);
+        public Builder exact(@Nullable String exact) {
+            this.exact = exact;
             return this;
         }
         @CustomType.Setter
-        public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+        public Builder prefix(@Nullable String prefix) {
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
-        public Builder ranges(List<GetRouteSpecHttpRouteMatchHeaderMatchRange> ranges) {
-            this.ranges = Objects.requireNonNull(ranges);
+        public Builder ranges(@Nullable List<GetRouteSpecHttpRouteMatchHeaderMatchRange> ranges) {
+            this.ranges = ranges;
             return this;
         }
         public Builder ranges(GetRouteSpecHttpRouteMatchHeaderMatchRange... ranges) {
             return ranges(List.of(ranges));
         }
         @CustomType.Setter
-        public Builder regex(String regex) {
-            this.regex = Objects.requireNonNull(regex);
+        public Builder regex(@Nullable String regex) {
+            this.regex = regex;
             return this;
         }
         @CustomType.Setter
-        public Builder suffix(String suffix) {
-            this.suffix = Objects.requireNonNull(suffix);
+        public Builder suffix(@Nullable String suffix) {
+            this.suffix = suffix;
             return this;
         }
         public GetRouteSpecHttpRouteMatchHeaderMatch build() {

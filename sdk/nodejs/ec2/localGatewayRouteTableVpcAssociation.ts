@@ -59,7 +59,7 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
         return obj['__pulumiType'] === LocalGatewayRouteTableVpcAssociation.__pulumiType;
     }
 
-    public /*out*/ readonly localGatewayId!: pulumi.Output<string>;
+    public /*out*/ readonly localGatewayId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of EC2 Local Gateway Route Table.
      */

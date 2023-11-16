@@ -46,10 +46,10 @@ export interface GetDelegationSetArgs {
  * A collection of values returned by getDelegationSet.
  */
 export interface GetDelegationSetResult {
-    readonly arn: string;
-    readonly callerReference: string;
+    readonly arn?: string;
+    readonly callerReference?: string;
     readonly id: string;
-    readonly nameServers: string[];
+    readonly nameServers?: string[];
 }
 /**
  * `aws.route53.DelegationSet` provides details about a specific Route 53 Delegation Set.

@@ -42,8 +42,8 @@ import (
 // return err
 // }
 // allowCloudtrailLoggingPolicyDocument := pulumi.All(bucket.Arn,bucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// bucketArn := _args[0].(string)
-// bucketArn1 := _args[1].(string)
+// bucketArn := _args[0].(*string)
+// bucketArn1 := _args[1].(*string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -78,7 +78,7 @@ import (
 // Actions: []string{
 // "s3:GetBucketAcl",
 // },
-// Resources: []string{
+// Resources: interface{}{
 // bucketArn1,
 // },
 // },
@@ -118,9 +118,9 @@ type GetServiceAccountArgs struct {
 // A collection of values returned by getServiceAccount.
 type GetServiceAccountResult struct {
 	// ARN of the AWS CloudTrail service account in the selected region.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string  `pulumi:"id"`
+	Id     *string `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
 
@@ -164,13 +164,13 @@ func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutputWithContex
 }
 
 // ARN of the AWS CloudTrail service account in the selected region.
-func (o GetServiceAccountResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetServiceAccountResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceAccountResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetServiceAccountResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetServiceAccountResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceAccountResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetServiceAccountResultOutput) Region() pulumi.StringPtrOutput {

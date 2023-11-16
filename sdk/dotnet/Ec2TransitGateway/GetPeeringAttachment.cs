@@ -218,40 +218,40 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class GetPeeringAttachmentResult
     {
         public readonly ImmutableArray<Outputs.GetPeeringAttachmentFilterResult> Filters;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Identifier of the peer AWS account
         /// </summary>
-        public readonly string PeerAccountId;
+        public readonly string? PeerAccountId;
         /// <summary>
         /// Identifier of the peer AWS region
         /// </summary>
-        public readonly string PeerRegion;
+        public readonly string? PeerRegion;
         /// <summary>
         /// Identifier of the peer EC2 Transit Gateway
         /// </summary>
-        public readonly string PeerTransitGatewayId;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? PeerTransitGatewayId;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Identifier of the local EC2 Transit Gateway
         /// </summary>
-        public readonly string TransitGatewayId;
+        public readonly string? TransitGatewayId;
 
         [OutputConstructor]
         private GetPeeringAttachmentResult(
             ImmutableArray<Outputs.GetPeeringAttachmentFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string peerAccountId,
+            string? peerAccountId,
 
-            string peerRegion,
+            string? peerRegion,
 
-            string peerTransitGatewayId,
+            string? peerTransitGatewayId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string transitGatewayId)
+            string? transitGatewayId)
         {
             Filters = filters;
             Id = id;

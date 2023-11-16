@@ -398,7 +398,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def address(self) -> pulumi.Output[str]:
+    def address(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS address of the endpoint.
         """
@@ -422,7 +422,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port number on which the cluster accepts incoming connections.
         """
@@ -430,7 +430,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceOwner")
-    def resource_owner(self) -> pulumi.Output[str]:
+    def resource_owner(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         """
@@ -446,7 +446,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpoints")
-    def vpc_endpoints(self) -> pulumi.Output[Sequence['outputs.EndpointAccessVpcEndpoint']]:
+    def vpc_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointAccessVpcEndpoint']]]:
         """
         The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
         """
@@ -454,7 +454,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """

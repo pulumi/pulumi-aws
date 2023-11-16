@@ -56,13 +56,13 @@ export interface GetKafkaVersionResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly preferredVersions?: string[];
     /**
      * Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
      */
-    readonly status: string;
-    readonly version: string;
+    readonly status?: string;
+    readonly version?: string;
 }
 /**
  * Get information on a Amazon MSK Kafka Version

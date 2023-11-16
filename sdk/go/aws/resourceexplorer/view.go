@@ -67,9 +67,9 @@ type View struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Resource Explorer view.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-	DefaultView pulumi.BoolOutput `pulumi:"defaultView"`
+	DefaultView pulumi.BoolPtrOutput `pulumi:"defaultView"`
 	// Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
 	Filters ViewFiltersPtrOutput `pulumi:"filters"`
 	// Optional fields to be included in search results from this view. See Included Properties below for more details.
@@ -274,13 +274,13 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 }
 
 // Amazon Resource Name (ARN) of the Resource Explorer view.
-func (o ViewOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ViewOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-func (o ViewOutput) DefaultView() pulumi.BoolOutput {
-	return o.ApplyT(func(v *View) pulumi.BoolOutput { return v.DefaultView }).(pulumi.BoolOutput)
+func (o ViewOutput) DefaultView() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.DefaultView }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies which resources are included in the results of queries made using this view. See Filters below for more details.

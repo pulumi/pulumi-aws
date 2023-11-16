@@ -66,11 +66,11 @@ export class InputSecurityGroup extends pulumi.CustomResource {
     /**
      * ARN of the InputSecurityGroup.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The list of inputs currently using this InputSecurityGroup.
      */
-    public /*out*/ readonly inputs!: pulumi.Output<string[]>;
+    public /*out*/ readonly inputs!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

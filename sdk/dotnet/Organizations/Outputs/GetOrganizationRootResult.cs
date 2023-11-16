@@ -16,15 +16,15 @@ namespace Pulumi.Aws.Organizations.Outputs
         /// <summary>
         /// ARN of the root
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Identifier of the root
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The name of the policy type
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// List of policy types enabled for this root. All elements have these attributes:
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Organizations.Outputs
 
         [OutputConstructor]
         private GetOrganizationRootResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetOrganizationRootPolicyTypeResult> policyTypes)
         {

@@ -47,28 +47,28 @@ export interface GetContactChannelResult {
     /**
      * Whether the contact channel is activated.
      */
-    readonly activationStatus: string;
+    readonly activationStatus?: string;
     readonly arn: string;
     /**
      * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
      */
-    readonly contactId: string;
+    readonly contactId?: string;
     /**
      * Details used to engage the contact channel.
      */
-    readonly deliveryAddresses: outputs.ssmcontacts.GetContactChannelDeliveryAddress[];
+    readonly deliveryAddresses?: outputs.ssmcontacts.GetContactChannelDeliveryAddress[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the contact channel.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Type of the contact channel.
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * Data source for managing an AWS SSM Contacts Contact Channel.

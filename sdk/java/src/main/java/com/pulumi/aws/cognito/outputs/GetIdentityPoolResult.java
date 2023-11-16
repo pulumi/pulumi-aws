@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIdentityPoolResult {
@@ -17,96 +19,96 @@ public final class GetIdentityPoolResult {
      * @return Whether the classic / basic authentication flow is enabled.
      * 
      */
-    private Boolean allowClassicFlow;
+    private @Nullable Boolean allowClassicFlow;
     /**
      * @return Whether the identity pool supports unauthenticated logins or not.
      * 
      */
-    private Boolean allowUnauthenticatedIdentities;
+    private @Nullable Boolean allowUnauthenticatedIdentities;
     /**
      * @return ARN of the Pool.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return An array of Amazon Cognito Identity user pools and their client IDs.
      * 
      */
-    private List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders;
+    private @Nullable List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders;
     /**
      * @return The &#34;domain&#34; by which Cognito will refer to your users.
      * 
      */
-    private String developerProviderName;
+    private @Nullable String developerProviderName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String identityPoolName;
     /**
      * @return Set of OpendID Connect provider ARNs.
      * 
      */
-    private List<String> openidConnectProviderArns;
+    private @Nullable List<String> openidConnectProviderArns;
     /**
      * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      * 
      */
-    private List<String> samlProviderArns;
+    private @Nullable List<String> samlProviderArns;
     /**
      * @return Key-Value pairs mapping provider names to provider app IDs.
      * 
      */
-    private Map<String,String> supportedLoginProviders;
+    private @Nullable Map<String,String> supportedLoginProviders;
     /**
      * @return A map of tags to assigned to the Identity Pool.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetIdentityPoolResult() {}
     /**
      * @return Whether the classic / basic authentication flow is enabled.
      * 
      */
-    public Boolean allowClassicFlow() {
-        return this.allowClassicFlow;
+    public Optional<Boolean> allowClassicFlow() {
+        return Optional.ofNullable(this.allowClassicFlow);
     }
     /**
      * @return Whether the identity pool supports unauthenticated logins or not.
      * 
      */
-    public Boolean allowUnauthenticatedIdentities() {
-        return this.allowUnauthenticatedIdentities;
+    public Optional<Boolean> allowUnauthenticatedIdentities() {
+        return Optional.ofNullable(this.allowUnauthenticatedIdentities);
     }
     /**
      * @return ARN of the Pool.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return An array of Amazon Cognito Identity user pools and their client IDs.
      * 
      */
     public List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders() {
-        return this.cognitoIdentityProviders;
+        return this.cognitoIdentityProviders == null ? List.of() : this.cognitoIdentityProviders;
     }
     /**
      * @return The &#34;domain&#34; by which Cognito will refer to your users.
      * 
      */
-    public String developerProviderName() {
-        return this.developerProviderName;
+    public Optional<String> developerProviderName() {
+        return Optional.ofNullable(this.developerProviderName);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String identityPoolName() {
         return this.identityPoolName;
@@ -116,28 +118,28 @@ public final class GetIdentityPoolResult {
      * 
      */
     public List<String> openidConnectProviderArns() {
-        return this.openidConnectProviderArns;
+        return this.openidConnectProviderArns == null ? List.of() : this.openidConnectProviderArns;
     }
     /**
      * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      * 
      */
     public List<String> samlProviderArns() {
-        return this.samlProviderArns;
+        return this.samlProviderArns == null ? List.of() : this.samlProviderArns;
     }
     /**
      * @return Key-Value pairs mapping provider names to provider app IDs.
      * 
      */
     public Map<String,String> supportedLoginProviders() {
-        return this.supportedLoginProviders;
+        return this.supportedLoginProviders == null ? Map.of() : this.supportedLoginProviders;
     }
     /**
      * @return A map of tags to assigned to the Identity Pool.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -149,17 +151,17 @@ public final class GetIdentityPoolResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean allowClassicFlow;
-        private Boolean allowUnauthenticatedIdentities;
-        private String arn;
-        private List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders;
-        private String developerProviderName;
-        private String id;
+        private @Nullable Boolean allowClassicFlow;
+        private @Nullable Boolean allowUnauthenticatedIdentities;
+        private @Nullable String arn;
+        private @Nullable List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders;
+        private @Nullable String developerProviderName;
+        private @Nullable String id;
         private String identityPoolName;
-        private List<String> openidConnectProviderArns;
-        private List<String> samlProviderArns;
-        private Map<String,String> supportedLoginProviders;
-        private Map<String,String> tags;
+        private @Nullable List<String> openidConnectProviderArns;
+        private @Nullable List<String> samlProviderArns;
+        private @Nullable Map<String,String> supportedLoginProviders;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetIdentityPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -177,36 +179,36 @@ public final class GetIdentityPoolResult {
         }
 
         @CustomType.Setter
-        public Builder allowClassicFlow(Boolean allowClassicFlow) {
-            this.allowClassicFlow = Objects.requireNonNull(allowClassicFlow);
+        public Builder allowClassicFlow(@Nullable Boolean allowClassicFlow) {
+            this.allowClassicFlow = allowClassicFlow;
             return this;
         }
         @CustomType.Setter
-        public Builder allowUnauthenticatedIdentities(Boolean allowUnauthenticatedIdentities) {
-            this.allowUnauthenticatedIdentities = Objects.requireNonNull(allowUnauthenticatedIdentities);
+        public Builder allowUnauthenticatedIdentities(@Nullable Boolean allowUnauthenticatedIdentities) {
+            this.allowUnauthenticatedIdentities = allowUnauthenticatedIdentities;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder cognitoIdentityProviders(List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders) {
-            this.cognitoIdentityProviders = Objects.requireNonNull(cognitoIdentityProviders);
+        public Builder cognitoIdentityProviders(@Nullable List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders) {
+            this.cognitoIdentityProviders = cognitoIdentityProviders;
             return this;
         }
         public Builder cognitoIdentityProviders(GetIdentityPoolCognitoIdentityProvider... cognitoIdentityProviders) {
             return cognitoIdentityProviders(List.of(cognitoIdentityProviders));
         }
         @CustomType.Setter
-        public Builder developerProviderName(String developerProviderName) {
-            this.developerProviderName = Objects.requireNonNull(developerProviderName);
+        public Builder developerProviderName(@Nullable String developerProviderName) {
+            this.developerProviderName = developerProviderName;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -215,29 +217,29 @@ public final class GetIdentityPoolResult {
             return this;
         }
         @CustomType.Setter
-        public Builder openidConnectProviderArns(List<String> openidConnectProviderArns) {
-            this.openidConnectProviderArns = Objects.requireNonNull(openidConnectProviderArns);
+        public Builder openidConnectProviderArns(@Nullable List<String> openidConnectProviderArns) {
+            this.openidConnectProviderArns = openidConnectProviderArns;
             return this;
         }
         public Builder openidConnectProviderArns(String... openidConnectProviderArns) {
             return openidConnectProviderArns(List.of(openidConnectProviderArns));
         }
         @CustomType.Setter
-        public Builder samlProviderArns(List<String> samlProviderArns) {
-            this.samlProviderArns = Objects.requireNonNull(samlProviderArns);
+        public Builder samlProviderArns(@Nullable List<String> samlProviderArns) {
+            this.samlProviderArns = samlProviderArns;
             return this;
         }
         public Builder samlProviderArns(String... samlProviderArns) {
             return samlProviderArns(List.of(samlProviderArns));
         }
         @CustomType.Setter
-        public Builder supportedLoginProviders(Map<String,String> supportedLoginProviders) {
-            this.supportedLoginProviders = Objects.requireNonNull(supportedLoginProviders);
+        public Builder supportedLoginProviders(@Nullable Map<String,String> supportedLoginProviders) {
+            this.supportedLoginProviders = supportedLoginProviders;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetIdentityPoolResult build() {

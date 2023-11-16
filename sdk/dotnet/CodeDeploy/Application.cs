@@ -80,13 +80,13 @@ namespace Pulumi.Aws.CodeDeploy
         /// The application ID.
         /// </summary>
         [Output("applicationId")]
-        public Output<string> ApplicationId { get; private set; } = null!;
+        public Output<string?> ApplicationId { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the CodeDeploy application.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
@@ -98,13 +98,13 @@ namespace Pulumi.Aws.CodeDeploy
         /// The name for a connection to a GitHub account.
         /// </summary>
         [Output("githubAccountName")]
-        public Output<string> GithubAccountName { get; private set; } = null!;
+        public Output<string?> GithubAccountName { get; private set; } = null!;
 
         /// <summary>
         /// Whether the user has authenticated with GitHub for the specified application.
         /// </summary>
         [Output("linkedToGithub")]
-        public Output<bool> LinkedToGithub { get; private set; } = null!;
+        public Output<bool?> LinkedToGithub { get; private set; } = null!;
 
         /// <summary>
         /// The name of the application.

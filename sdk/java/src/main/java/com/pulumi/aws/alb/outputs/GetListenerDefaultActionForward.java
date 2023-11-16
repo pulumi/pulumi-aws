@@ -8,18 +8,19 @@ import com.pulumi.aws.alb.outputs.GetListenerDefaultActionForwardTargetGroup;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultActionForward {
-    private List<GetListenerDefaultActionForwardStickiness> stickinesses;
-    private List<GetListenerDefaultActionForwardTargetGroup> targetGroups;
+    private @Nullable List<GetListenerDefaultActionForwardStickiness> stickinesses;
+    private @Nullable List<GetListenerDefaultActionForwardTargetGroup> targetGroups;
 
     private GetListenerDefaultActionForward() {}
     public List<GetListenerDefaultActionForwardStickiness> stickinesses() {
-        return this.stickinesses;
+        return this.stickinesses == null ? List.of() : this.stickinesses;
     }
     public List<GetListenerDefaultActionForwardTargetGroup> targetGroups() {
-        return this.targetGroups;
+        return this.targetGroups == null ? List.of() : this.targetGroups;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetListenerDefaultActionForward {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetListenerDefaultActionForwardStickiness> stickinesses;
-        private List<GetListenerDefaultActionForwardTargetGroup> targetGroups;
+        private @Nullable List<GetListenerDefaultActionForwardStickiness> stickinesses;
+        private @Nullable List<GetListenerDefaultActionForwardTargetGroup> targetGroups;
         public Builder() {}
         public Builder(GetListenerDefaultActionForward defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetListenerDefaultActionForward {
         }
 
         @CustomType.Setter
-        public Builder stickinesses(List<GetListenerDefaultActionForwardStickiness> stickinesses) {
-            this.stickinesses = Objects.requireNonNull(stickinesses);
+        public Builder stickinesses(@Nullable List<GetListenerDefaultActionForwardStickiness> stickinesses) {
+            this.stickinesses = stickinesses;
             return this;
         }
         public Builder stickinesses(GetListenerDefaultActionForwardStickiness... stickinesses) {
             return stickinesses(List.of(stickinesses));
         }
         @CustomType.Setter
-        public Builder targetGroups(List<GetListenerDefaultActionForwardTargetGroup> targetGroups) {
-            this.targetGroups = Objects.requireNonNull(targetGroups);
+        public Builder targetGroups(@Nullable List<GetListenerDefaultActionForwardTargetGroup> targetGroups) {
+            this.targetGroups = targetGroups;
             return this;
         }
         public Builder targetGroups(GetListenerDefaultActionForwardTargetGroup... targetGroups) {

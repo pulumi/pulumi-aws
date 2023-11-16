@@ -302,7 +302,7 @@ class TopicPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> pulumi.Output[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS Account ID of the SNS topic owner
         """

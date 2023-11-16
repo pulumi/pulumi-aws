@@ -6,6 +6,8 @@ package com.pulumi.aws.s3.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBucketResult {
@@ -13,51 +15,51 @@ public final class GetBucketResult {
      * @return ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     private String bucket;
     /**
      * @return Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      * 
      */
-    private String bucketDomainName;
+    private @Nullable String bucketDomainName;
     /**
      * @return The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      * 
      */
-    private String bucketRegionalDomainName;
+    private @Nullable String bucketRegionalDomainName;
     /**
      * @return The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket&#39;s region.
      * 
      */
-    private String hostedZoneId;
+    private @Nullable String hostedZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return AWS region this bucket resides in.
      * 
      */
-    private String region;
+    private @Nullable String region;
     /**
      * @return Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      * 
      */
-    private String websiteDomain;
+    private @Nullable String websiteDomain;
     /**
      * @return Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      * 
      */
-    private String websiteEndpoint;
+    private @Nullable String websiteEndpoint;
 
     private GetBucketResult() {}
     /**
      * @return ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public String bucket() {
         return this.bucket;
@@ -66,50 +68,50 @@ public final class GetBucketResult {
      * @return Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      * 
      */
-    public String bucketDomainName() {
-        return this.bucketDomainName;
+    public Optional<String> bucketDomainName() {
+        return Optional.ofNullable(this.bucketDomainName);
     }
     /**
      * @return The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      * 
      */
-    public String bucketRegionalDomainName() {
-        return this.bucketRegionalDomainName;
+    public Optional<String> bucketRegionalDomainName() {
+        return Optional.ofNullable(this.bucketRegionalDomainName);
     }
     /**
      * @return The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket&#39;s region.
      * 
      */
-    public String hostedZoneId() {
-        return this.hostedZoneId;
+    public Optional<String> hostedZoneId() {
+        return Optional.ofNullable(this.hostedZoneId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return AWS region this bucket resides in.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
     /**
      * @return Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      * 
      */
-    public String websiteDomain() {
-        return this.websiteDomain;
+    public Optional<String> websiteDomain() {
+        return Optional.ofNullable(this.websiteDomain);
     }
     /**
      * @return Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      * 
      */
-    public String websiteEndpoint() {
-        return this.websiteEndpoint;
+    public Optional<String> websiteEndpoint() {
+        return Optional.ofNullable(this.websiteEndpoint);
     }
 
     public static Builder builder() {
@@ -121,15 +123,15 @@ public final class GetBucketResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private String bucket;
-        private String bucketDomainName;
-        private String bucketRegionalDomainName;
-        private String hostedZoneId;
-        private String id;
-        private String region;
-        private String websiteDomain;
-        private String websiteEndpoint;
+        private @Nullable String bucketDomainName;
+        private @Nullable String bucketRegionalDomainName;
+        private @Nullable String hostedZoneId;
+        private @Nullable String id;
+        private @Nullable String region;
+        private @Nullable String websiteDomain;
+        private @Nullable String websiteEndpoint;
         public Builder() {}
         public Builder(GetBucketResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -145,8 +147,8 @@ public final class GetBucketResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -155,38 +157,38 @@ public final class GetBucketResult {
             return this;
         }
         @CustomType.Setter
-        public Builder bucketDomainName(String bucketDomainName) {
-            this.bucketDomainName = Objects.requireNonNull(bucketDomainName);
+        public Builder bucketDomainName(@Nullable String bucketDomainName) {
+            this.bucketDomainName = bucketDomainName;
             return this;
         }
         @CustomType.Setter
-        public Builder bucketRegionalDomainName(String bucketRegionalDomainName) {
-            this.bucketRegionalDomainName = Objects.requireNonNull(bucketRegionalDomainName);
+        public Builder bucketRegionalDomainName(@Nullable String bucketRegionalDomainName) {
+            this.bucketRegionalDomainName = bucketRegionalDomainName;
             return this;
         }
         @CustomType.Setter
-        public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+        public Builder hostedZoneId(@Nullable String hostedZoneId) {
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         @CustomType.Setter
-        public Builder websiteDomain(String websiteDomain) {
-            this.websiteDomain = Objects.requireNonNull(websiteDomain);
+        public Builder websiteDomain(@Nullable String websiteDomain) {
+            this.websiteDomain = websiteDomain;
             return this;
         }
         @CustomType.Setter
-        public Builder websiteEndpoint(String websiteEndpoint) {
-            this.websiteEndpoint = Objects.requireNonNull(websiteEndpoint);
+        public Builder websiteEndpoint(@Nullable String websiteEndpoint) {
+            this.websiteEndpoint = websiteEndpoint;
             return this;
         }
         public GetBucketResult build() {

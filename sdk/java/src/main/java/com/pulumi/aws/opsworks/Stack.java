@@ -77,20 +77,20 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
-    private Output<String> agentVersion;
+    private Output</* @Nullable */ String> agentVersion;
 
     /**
      * @return If set to `&#34;LATEST&#34;`, OpsWorks will automatically install the latest version.
      * 
      */
-    public Output<String> agentVersion() {
-        return this.agentVersion;
+    public Output<Optional<String>> agentVersion() {
+        return Codegen.optional(this.agentVersion);
     }
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
@@ -153,14 +153,14 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="customCookbooksSources", refs={List.class,StackCustomCookbooksSource.class}, tree="[0,1]")
-    private Output<List<StackCustomCookbooksSource>> customCookbooksSources;
+    private Output</* @Nullable */ List<StackCustomCookbooksSource>> customCookbooksSources;
 
     /**
      * @return When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
-    public Output<List<StackCustomCookbooksSource>> customCookbooksSources() {
-        return this.customCookbooksSources;
+    public Output<Optional<List<StackCustomCookbooksSource>>> customCookbooksSources() {
+        return Codegen.optional(this.customCookbooksSources);
     }
     /**
      * Custom JSON attributes to apply to the entire stack.
@@ -182,15 +182,15 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultAvailabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> defaultAvailabilityZone;
+    private Output</* @Nullable */ String> defaultAvailabilityZone;
 
     /**
      * @return Name of the availability zone where instances will be created by default.
      * Cannot be set when `vpc_id` is set.
      * 
      */
-    public Output<String> defaultAvailabilityZone() {
-        return this.defaultAvailabilityZone;
+    public Output<Optional<String>> defaultAvailabilityZone() {
+        return Codegen.optional(this.defaultAvailabilityZone);
     }
     /**
      * The ARN of an IAM Instance Profile that created instances will have by default.
@@ -254,15 +254,15 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultSubnetId", refs={String.class}, tree="[0]")
-    private Output<String> defaultSubnetId;
+    private Output</* @Nullable */ String> defaultSubnetId;
 
     /**
      * @return ID of the subnet in which instances will be created by default.
      * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
      * 
      */
-    public Output<String> defaultSubnetId() {
-        return this.defaultSubnetId;
+    public Output<Optional<String>> defaultSubnetId() {
+        return Codegen.optional(this.defaultSubnetId);
     }
     /**
      * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
@@ -335,10 +335,10 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.serviceRoleArn;
     }
     @Export(name="stackEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> stackEndpoint;
+    private Output</* @Nullable */ String> stackEndpoint;
 
-    public Output<String> stackEndpoint() {
-        return this.stackEndpoint;
+    public Output<Optional<String>> stackEndpoint() {
+        return Codegen.optional(this.stackEndpoint);
     }
     /**
      * A map of tags to assign to the resource.
@@ -408,15 +408,15 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return ID of the VPC that this stack belongs to.
      * Defaults to the region&#39;s default VPC.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

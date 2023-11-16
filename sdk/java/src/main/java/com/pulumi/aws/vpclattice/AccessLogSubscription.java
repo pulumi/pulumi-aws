@@ -67,14 +67,14 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the access log subscription.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Amazon Resource Name (ARN) of the log destination.
@@ -95,14 +95,14 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
-    private Output<String> resourceArn;
+    private Output</* @Nullable */ String> resourceArn;
 
     /**
      * @return Amazon Resource Name (ARN) of the service network or service.
      * 
      */
-    public Output<String> resourceArn() {
-        return this.resourceArn;
+    public Output<Optional<String>> resourceArn() {
+        return Codegen.optional(this.resourceArn);
     }
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.

@@ -117,41 +117,41 @@ namespace Pulumi.Aws.Kms
     [OutputType]
     public sealed class GetCustomKeyStoreResult
     {
-        public readonly string CloudHsmClusterId;
+        public readonly string? CloudHsmClusterId;
         /// <summary>
         /// Indicates whether the custom key store is connected to its CloudHSM cluster.
         /// </summary>
-        public readonly string ConnectionState;
+        public readonly string? ConnectionState;
         /// <summary>
         /// The date and time when the custom key store was created.
         /// </summary>
-        public readonly string CreationDate;
-        public readonly string CustomKeyStoreId;
-        public readonly string CustomKeyStoreName;
+        public readonly string? CreationDate;
+        public readonly string? CustomKeyStoreId;
+        public readonly string? CustomKeyStoreName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The trust anchor certificate of the associated CloudHSM cluster.
         /// </summary>
-        public readonly string TrustAnchorCertificate;
+        public readonly string? TrustAnchorCertificate;
 
         [OutputConstructor]
         private GetCustomKeyStoreResult(
-            string cloudHsmClusterId,
+            string? cloudHsmClusterId,
 
-            string connectionState,
+            string? connectionState,
 
-            string creationDate,
+            string? creationDate,
 
-            string customKeyStoreId,
+            string? customKeyStoreId,
 
-            string customKeyStoreName,
+            string? customKeyStoreName,
 
-            string id,
+            string? id,
 
-            string trustAnchorCertificate)
+            string? trustAnchorCertificate)
         {
             CloudHsmClusterId = cloudHsmClusterId;
             ConnectionState = connectionState;

@@ -55,7 +55,7 @@ export class EmailIdentity extends pulumi.CustomResource {
     /**
      * The ARN of the email identity.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The email address to assign to SES.
      */

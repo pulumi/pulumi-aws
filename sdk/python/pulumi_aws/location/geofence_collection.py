@@ -384,7 +384,7 @@ class GeofenceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="collectionArn")
-    def collection_arn(self) -> pulumi.Output[str]:
+    def collection_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
         """
@@ -402,7 +402,7 @@ class GeofenceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[str]:
+    def create_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the geofence collection resource was created in ISO 8601 format.
         """
@@ -442,7 +442,7 @@ class GeofenceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[str]:
+    def update_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         """

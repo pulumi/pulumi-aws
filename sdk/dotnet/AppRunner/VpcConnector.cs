@@ -55,7 +55,7 @@ namespace Pulumi.Aws.AppRunner
         /// ARN of VPC connector.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.AppRunner
         /// Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.AppRunner
         /// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         /// </summary>
         [Output("vpcConnectorRevision")]
-        public Output<int> VpcConnectorRevision { get; private set; } = null!;
+        public Output<int?> VpcConnectorRevision { get; private set; } = null!;
 
 
         /// <summary>

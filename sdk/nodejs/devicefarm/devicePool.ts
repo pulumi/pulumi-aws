@@ -65,7 +65,7 @@ export class DevicePool extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this Device Pool
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The device pool's description.
      */
@@ -96,7 +96,7 @@ export class DevicePool extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DevicePool resource with the given unique name, arguments, and options.

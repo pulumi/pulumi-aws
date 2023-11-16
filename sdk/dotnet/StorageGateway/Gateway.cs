@@ -171,13 +171,13 @@ namespace Pulumi.Aws.StorageGateway
         /// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         /// </summary>
         [Output("activationKey")]
-        public Output<string> ActivationKey { get; private set; } = null!;
+        public Output<string?> ActivationKey { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the gateway.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
@@ -201,25 +201,25 @@ namespace Pulumi.Aws.StorageGateway
         /// The ID of the Amazon EC2 instance that was used to launch the gateway.
         /// </summary>
         [Output("ec2InstanceId")]
-        public Output<string> Ec2InstanceId { get; private set; } = null!;
+        public Output<string?> Ec2InstanceId { get; private set; } = null!;
 
         /// <summary>
         /// The type of endpoint for your gateway.
         /// </summary>
         [Output("endpointType")]
-        public Output<string> EndpointType { get; private set; } = null!;
+        public Output<string?> EndpointType { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the gateway.
         /// </summary>
         [Output("gatewayId")]
-        public Output<string> GatewayId { get; private set; } = null!;
+        public Output<string?> GatewayId { get; private set; } = null!;
 
         /// <summary>
         /// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         /// </summary>
         [Output("gatewayIpAddress")]
-        public Output<string> GatewayIpAddress { get; private set; } = null!;
+        public Output<string?> GatewayIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// Name of the gateway.
@@ -255,13 +255,13 @@ namespace Pulumi.Aws.StorageGateway
         /// The type of hypervisor environment used by the host.
         /// </summary>
         [Output("hostEnvironment")]
-        public Output<string> HostEnvironment { get; private set; } = null!;
+        public Output<string?> HostEnvironment { get; private set; } = null!;
 
         /// <summary>
         /// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         /// </summary>
         [Output("maintenanceStartTime")]
-        public Output<Outputs.GatewayMaintenanceStartTime> MaintenanceStartTime { get; private set; } = null!;
+        public Output<Outputs.GatewayMaintenanceStartTime?> MaintenanceStartTime { get; private set; } = null!;
 
         /// <summary>
         /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.StorageGateway
         /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         /// </summary>
         [Output("smbSecurityStrategy")]
-        public Output<string> SmbSecurityStrategy { get; private set; } = null!;
+        public Output<string?> SmbSecurityStrategy { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

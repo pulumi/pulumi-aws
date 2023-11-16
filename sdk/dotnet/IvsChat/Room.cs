@@ -80,7 +80,7 @@ namespace Pulumi.Aws.IvsChat
         /// ARN of the Room.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// List of Logging Configuration
@@ -95,14 +95,14 @@ namespace Pulumi.Aws.IvsChat
         /// specifically to rune/code-point count, not number of bytes.
         /// </summary>
         [Output("maximumMessageLength")]
-        public Output<int> MaximumMessageLength { get; private set; } = null!;
+        public Output<int?> MaximumMessageLength { get; private set; } = null!;
 
         /// <summary>
         /// Maximum number of messages per
         /// second that can be sent to the room (by all clients).
         /// </summary>
         [Output("maximumMessageRatePerSecond")]
-        public Output<int> MaximumMessageRatePerSecond { get; private set; } = null!;
+        public Output<int?> MaximumMessageRatePerSecond { get; private set; } = null!;
 
         /// <summary>
         /// Configuration information for optional

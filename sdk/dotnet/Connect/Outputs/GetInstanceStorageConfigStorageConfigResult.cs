@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
         /// </summary>
-        public readonly string StorageType;
+        public readonly string? StorageType;
 
         [OutputConstructor]
         private GetInstanceStorageConfigStorageConfigResult(
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Connect.Outputs
 
             ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigS3ConfigResult> s3Configs,
 
-            string storageType)
+            string? storageType)
         {
             KinesisFirehoseConfigs = kinesisFirehoseConfigs;
             KinesisStreamConfigs = kinesisStreamConfigs;

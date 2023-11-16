@@ -57,17 +57,17 @@ type GetImageArgs struct {
 // A collection of values returned by getImage.
 type GetImageResult struct {
 	// The description of the image.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string `pulumi:"id"`
-	ImageId string `pulumi:"imageId"`
+	Id      *string `pulumi:"id"`
+	ImageId string  `pulumi:"imageId"`
 	// The name of the image.
-	Name                string `pulumi:"name"`
-	OperatingSystemType string `pulumi:"operatingSystemType"`
+	Name                *string `pulumi:"name"`
+	OperatingSystemType *string `pulumi:"operatingSystemType"`
 	// Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
-	RequiredTenancy string `pulumi:"requiredTenancy"`
+	RequiredTenancy *string `pulumi:"requiredTenancy"`
 	// The status of the image.
-	State string `pulumi:"state"`
+	State *string `pulumi:"state"`
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
@@ -109,13 +109,13 @@ func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Cont
 }
 
 // The description of the image.
-func (o GetImageResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetImageResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetImageResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetImageResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetImageResultOutput) ImageId() pulumi.StringOutput {
@@ -123,22 +123,22 @@ func (o GetImageResultOutput) ImageId() pulumi.StringOutput {
 }
 
 // The name of the image.
-func (o GetImageResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.Name }).(pulumi.StringOutput)
+func (o GetImageResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetImageResultOutput) OperatingSystemType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.OperatingSystemType }).(pulumi.StringOutput)
+func (o GetImageResultOutput) OperatingSystemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.OperatingSystemType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
-func (o GetImageResultOutput) RequiredTenancy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.RequiredTenancy }).(pulumi.StringOutput)
+func (o GetImageResultOutput) RequiredTenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.RequiredTenancy }).(pulumi.StringPtrOutput)
 }
 
 // The status of the image.
-func (o GetImageResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.State }).(pulumi.StringOutput)
+func (o GetImageResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 func init() {

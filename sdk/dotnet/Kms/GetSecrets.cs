@@ -72,18 +72,18 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Map containing each `secret` `name` as the key with its decrypted plaintext value
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Plaintext;
+        public readonly ImmutableDictionary<string, string>? Plaintext;
         public readonly ImmutableArray<Outputs.GetSecretsSecretResult> Secrets;
 
         [OutputConstructor]
         private GetSecretsResult(
-            string id,
+            string? id,
 
-            ImmutableDictionary<string, string> plaintext,
+            ImmutableDictionary<string, string>? plaintext,
 
             ImmutableArray<Outputs.GetSecretsSecretResult> secrets)
         {

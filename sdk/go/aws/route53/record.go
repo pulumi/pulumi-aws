@@ -187,18 +187,18 @@ import (
 //				Type:           pulumi.String("NS"),
 //				ZoneId:         exampleZone.ZoneId,
 //				Records: pulumi.StringArray{
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[0], nil
-//					}).(pulumi.StringOutput),
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[1], nil
-//					}).(pulumi.StringOutput),
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[2], nil
-//					}).(pulumi.StringOutput),
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[3], nil
-//					}).(pulumi.StringOutput),
+//					exampleZone.NameServers.ApplyT(func(nameServers interface{}) (*string, error) {
+//						return &nameServers[0], nil
+//					}).(pulumi.StringPtrOutput),
+//					exampleZone.NameServers.ApplyT(func(nameServers interface{}) (*string, error) {
+//						return &nameServers[1], nil
+//					}).(pulumi.StringPtrOutput),
+//					exampleZone.NameServers.ApplyT(func(nameServers interface{}) (*string, error) {
+//						return &nameServers[2], nil
+//					}).(pulumi.StringPtrOutput),
+//					exampleZone.NameServers.ApplyT(func(nameServers interface{}) (*string, error) {
+//						return &nameServers[3], nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {
@@ -242,13 +242,13 @@ type Record struct {
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	//
 	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
-	AllowOverwrite pulumi.BoolOutput `pulumi:"allowOverwrite"`
+	AllowOverwrite pulumi.BoolPtrOutput `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrOutput `pulumi:"cidrRoutingPolicy"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies RecordFailoverRoutingPolicyArrayOutput `pulumi:"failoverRoutingPolicies"`
 	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
 	GeolocationRoutingPolicies RecordGeolocationRoutingPolicyArrayOutput `pulumi:"geolocationRoutingPolicies"`
 	// The health check the record should be associated with.
@@ -560,8 +560,8 @@ func (o RecordOutput) Aliases() RecordAliasArrayOutput {
 // Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 //
 // Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
-func (o RecordOutput) AllowOverwrite() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Record) pulumi.BoolOutput { return v.AllowOverwrite }).(pulumi.BoolOutput)
+func (o RecordOutput) AllowOverwrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Record) pulumi.BoolPtrOutput { return v.AllowOverwrite }).(pulumi.BoolPtrOutput)
 }
 
 // A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
@@ -575,8 +575,8 @@ func (o RecordOutput) FailoverRoutingPolicies() RecordFailoverRoutingPolicyArray
 }
 
 // [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-func (o RecordOutput) Fqdn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Record) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
+func (o RecordOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Record) pulumi.StringPtrOutput { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
 // A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.

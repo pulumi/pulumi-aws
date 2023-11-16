@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Rds
         /// Amazon Resource Name (ARN) of cluster
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Rds
         /// A custom endpoint for the Aurora cluster
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.

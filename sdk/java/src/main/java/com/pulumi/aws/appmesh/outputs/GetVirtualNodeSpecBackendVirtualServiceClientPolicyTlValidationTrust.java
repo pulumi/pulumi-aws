@@ -9,22 +9,23 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendVirtualServiceCli
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust {
-    private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm> acms;
-    private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile> files;
-    private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd> sds;
+    private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm> acms;
+    private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile> files;
+    private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd> sds;
 
     private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust() {}
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm> acms() {
-        return this.acms;
+        return this.acms == null ? List.of() : this.acms;
     }
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile> files() {
-        return this.files;
+        return this.files == null ? List.of() : this.files;
     }
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd> sds() {
-        return this.sds;
+        return this.sds == null ? List.of() : this.sds;
     }
 
     public static Builder builder() {
@@ -36,9 +37,9 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidati
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm> acms;
-        private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile> files;
-        private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd> sds;
+        private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm> acms;
+        private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile> files;
+        private @Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd> sds;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,24 +49,24 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidati
         }
 
         @CustomType.Setter
-        public Builder acms(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm> acms) {
-            this.acms = Objects.requireNonNull(acms);
+        public Builder acms(@Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm> acms) {
+            this.acms = acms;
             return this;
         }
         public Builder acms(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm... acms) {
             return acms(List.of(acms));
         }
         @CustomType.Setter
-        public Builder files(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile> files) {
-            this.files = Objects.requireNonNull(files);
+        public Builder files(@Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile> files) {
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile... files) {
             return files(List.of(files));
         }
         @CustomType.Setter
-        public Builder sds(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+        public Builder sds(@Nullable List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd> sds) {
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd... sds) {

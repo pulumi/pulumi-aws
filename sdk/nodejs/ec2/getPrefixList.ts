@@ -28,9 +28,9 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc.foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
- * const privateS3PrefixList = aws.ec2.getPrefixListOutput({
- *     prefixListId: privateS3VpcEndpoint.prefixListId,
- * });
+ * const privateS3PrefixList = privateS3VpcEndpoint.prefixListId.apply(prefixListId => aws.ec2.getPrefixListOutput({
+ *     prefixListId: prefixListId,
+ * }));
  * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: aws_vpc.foo.id});
  * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("privateS3NetworkAclRule", {
  *     networkAclId: bar.id,
@@ -93,16 +93,16 @@ export interface GetPrefixListResult {
     /**
      * List of CIDR blocks for the AWS service associated with the prefix list.
      */
-    readonly cidrBlocks: string[];
+    readonly cidrBlocks?: string[];
     readonly filters?: outputs.ec2.GetPrefixListFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the selected prefix list.
      */
-    readonly name: string;
+    readonly name?: string;
     readonly prefixListId?: string;
 }
 /**
@@ -126,9 +126,9 @@ export interface GetPrefixListResult {
  *     vpcId: aws_vpc.foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
- * const privateS3PrefixList = aws.ec2.getPrefixListOutput({
- *     prefixListId: privateS3VpcEndpoint.prefixListId,
- * });
+ * const privateS3PrefixList = privateS3VpcEndpoint.prefixListId.apply(prefixListId => aws.ec2.getPrefixListOutput({
+ *     prefixListId: prefixListId,
+ * }));
  * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: aws_vpc.foo.id});
  * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("privateS3NetworkAclRule", {
  *     networkAclId: bar.id,

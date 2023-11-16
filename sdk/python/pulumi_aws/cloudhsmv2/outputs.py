@@ -87,40 +87,45 @@ class ClusterClusterCertificate(dict):
 @pulumi.output_type
 class GetClusterClusterCertificateResult(dict):
     def __init__(__self__, *,
-                 aws_hardware_certificate: str,
-                 cluster_certificate: str,
-                 cluster_csr: str,
-                 hsm_certificate: str,
-                 manufacturer_hardware_certificate: str):
-        pulumi.set(__self__, "aws_hardware_certificate", aws_hardware_certificate)
-        pulumi.set(__self__, "cluster_certificate", cluster_certificate)
-        pulumi.set(__self__, "cluster_csr", cluster_csr)
-        pulumi.set(__self__, "hsm_certificate", hsm_certificate)
-        pulumi.set(__self__, "manufacturer_hardware_certificate", manufacturer_hardware_certificate)
+                 aws_hardware_certificate: Optional[str] = None,
+                 cluster_certificate: Optional[str] = None,
+                 cluster_csr: Optional[str] = None,
+                 hsm_certificate: Optional[str] = None,
+                 manufacturer_hardware_certificate: Optional[str] = None):
+        if aws_hardware_certificate is not None:
+            pulumi.set(__self__, "aws_hardware_certificate", aws_hardware_certificate)
+        if cluster_certificate is not None:
+            pulumi.set(__self__, "cluster_certificate", cluster_certificate)
+        if cluster_csr is not None:
+            pulumi.set(__self__, "cluster_csr", cluster_csr)
+        if hsm_certificate is not None:
+            pulumi.set(__self__, "hsm_certificate", hsm_certificate)
+        if manufacturer_hardware_certificate is not None:
+            pulumi.set(__self__, "manufacturer_hardware_certificate", manufacturer_hardware_certificate)
 
     @property
     @pulumi.getter(name="awsHardwareCertificate")
-    def aws_hardware_certificate(self) -> str:
+    def aws_hardware_certificate(self) -> Optional[str]:
         return pulumi.get(self, "aws_hardware_certificate")
 
     @property
     @pulumi.getter(name="clusterCertificate")
-    def cluster_certificate(self) -> str:
+    def cluster_certificate(self) -> Optional[str]:
         return pulumi.get(self, "cluster_certificate")
 
     @property
     @pulumi.getter(name="clusterCsr")
-    def cluster_csr(self) -> str:
+    def cluster_csr(self) -> Optional[str]:
         return pulumi.get(self, "cluster_csr")
 
     @property
     @pulumi.getter(name="hsmCertificate")
-    def hsm_certificate(self) -> str:
+    def hsm_certificate(self) -> Optional[str]:
         return pulumi.get(self, "hsm_certificate")
 
     @property
     @pulumi.getter(name="manufacturerHardwareCertificate")
-    def manufacturer_hardware_certificate(self) -> str:
+    def manufacturer_hardware_certificate(self) -> Optional[str]:
         return pulumi.get(self, "manufacturer_hardware_certificate")
 
 

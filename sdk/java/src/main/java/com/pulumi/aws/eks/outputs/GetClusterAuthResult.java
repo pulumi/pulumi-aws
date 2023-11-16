@@ -6,6 +6,8 @@ package com.pulumi.aws.eks.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterAuthResult {
@@ -13,21 +15,21 @@ public final class GetClusterAuthResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return Token to use to authenticate with the cluster.
      * 
      */
-    private String token;
+    private @Nullable String token;
 
     private GetClusterAuthResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -36,8 +38,8 @@ public final class GetClusterAuthResult {
      * @return Token to use to authenticate with the cluster.
      * 
      */
-    public String token() {
-        return this.token;
+    public Optional<String> token() {
+        return Optional.ofNullable(this.token);
     }
 
     public static Builder builder() {
@@ -49,9 +51,9 @@ public final class GetClusterAuthResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private String name;
-        private String token;
+        private @Nullable String token;
         public Builder() {}
         public Builder(GetClusterAuthResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -61,8 +63,8 @@ public final class GetClusterAuthResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -71,8 +73,8 @@ public final class GetClusterAuthResult {
             return this;
         }
         @CustomType.Setter
-        public Builder token(String token) {
-            this.token = Objects.requireNonNull(token);
+        public Builder token(@Nullable String token) {
+            this.token = token;
             return this;
         }
         public GetClusterAuthResult build() {

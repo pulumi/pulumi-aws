@@ -85,7 +85,7 @@ type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the resource policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -265,8 +265,8 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 }
 
 // Amazon Resource Name (ARN) of the resource policy.
-func (o ResourcePolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResourcePolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.

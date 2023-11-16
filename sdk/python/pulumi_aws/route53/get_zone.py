@@ -67,7 +67,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Hosted Zone.
         """
@@ -75,7 +75,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> str:
+    def caller_reference(self) -> Optional[str]:
         """
         Caller Reference of the Hosted Zone.
         """
@@ -83,7 +83,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def comment(self) -> str:
+    def comment(self) -> Optional[str]:
         """
         Comment field of the Hosted Zone.
         """
@@ -91,7 +91,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -99,7 +99,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="linkedServiceDescription")
-    def linked_service_description(self) -> str:
+    def linked_service_description(self) -> Optional[str]:
         """
         The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
         """
@@ -107,7 +107,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="linkedServicePrincipal")
-    def linked_service_principal(self) -> str:
+    def linked_service_principal(self) -> Optional[str]:
         """
         The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
         """
@@ -115,12 +115,12 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> Sequence[str]:
+    def name_servers(self) -> Optional[Sequence[str]]:
         """
         List of DNS name servers for the Hosted Zone.
         """
@@ -128,7 +128,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="primaryNameServer")
-    def primary_name_server(self) -> str:
+    def primary_name_server(self) -> Optional[str]:
         """
         The Route 53 name server that created the SOA record.
         """
@@ -141,7 +141,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="resourceRecordSetCount")
-    def resource_record_set_count(self) -> int:
+    def resource_record_set_count(self) -> Optional[int]:
         """
         The number of Record Set in the Hosted Zone.
         """
@@ -149,17 +149,17 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> str:
+    def zone_id(self) -> Optional[str]:
         return pulumi.get(self, "zone_id")
 
 

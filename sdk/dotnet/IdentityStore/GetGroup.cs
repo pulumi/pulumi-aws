@@ -105,38 +105,38 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// Description of the specified group.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Group's display name value.
         /// </summary>
-        public readonly string DisplayName;
+        public readonly string? DisplayName;
         /// <summary>
         /// List of identifiers issued to this resource by an external identity provider.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupExternalIdResult> ExternalIds;
         public readonly Outputs.GetGroupFilterResult? Filter;
-        public readonly string GroupId;
+        public readonly string? GroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string IdentityStoreId;
 
         [OutputConstructor]
         private GetGroupResult(
             Outputs.GetGroupAlternateIdentifierResult? alternateIdentifier,
 
-            string description,
+            string? description,
 
-            string displayName,
+            string? displayName,
 
             ImmutableArray<Outputs.GetGroupExternalIdResult> externalIds,
 
             Outputs.GetGroupFilterResult? filter,
 
-            string groupId,
+            string? groupId,
 
-            string id,
+            string? id,
 
             string identityStoreId)
         {

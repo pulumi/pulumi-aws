@@ -29,7 +29,7 @@ type RoleAlias struct {
 	// The name of the role alias.
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// The ARN assigned by AWS to this role alias.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrOutput `pulumi:"credentialDuration"`
 	// The identity of the role to which the alias refers.
@@ -209,8 +209,8 @@ func (o RoleAliasOutput) Alias() pulumi.StringOutput {
 }
 
 // The ARN assigned by AWS to this role alias.
-func (o RoleAliasOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RoleAlias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RoleAliasOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAlias) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).

@@ -13,12 +13,12 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class GetOriginRequestPolicyQueryStringsConfigResult
     {
-        public readonly string QueryStringBehavior;
+        public readonly string? QueryStringBehavior;
         public readonly ImmutableArray<Outputs.GetOriginRequestPolicyQueryStringsConfigQueryStringResult> QueryStrings;
 
         [OutputConstructor]
         private GetOriginRequestPolicyQueryStringsConfigResult(
-            string queryStringBehavior,
+            string? queryStringBehavior,
 
             ImmutableArray<Outputs.GetOriginRequestPolicyQueryStringsConfigQueryStringResult> queryStrings)
         {

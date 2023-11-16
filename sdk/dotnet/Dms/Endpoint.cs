@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Dms
         /// ARN for the certificate.
         /// </summary>
         [Output("certificateArn")]
-        public Output<string> CertificateArn { get; private set; } = null!;
+        public Output<string?> CertificateArn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the endpoint database.
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Dms
         /// ARN for the endpoint.
         /// </summary>
         [Output("endpointArn")]
-        public Output<string> EndpointArn { get; private set; } = null!;
+        public Output<string?> EndpointArn { get; private set; } = null!;
 
         /// <summary>
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Dms
         /// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
         /// </summary>
         [Output("extraConnectionAttributes")]
-        public Output<string> ExtraConnectionAttributes { get; private set; } = null!;
+        public Output<string?> ExtraConnectionAttributes { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for Kafka settings. See below.
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Dms
         /// The following arguments are optional:
         /// </summary>
         [Output("kmsKeyArn")]
-        public Output<string> KmsKeyArn { get; private set; } = null!;
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for MongoDB settings. See below.
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Dms
         /// Configuration block for Redshift settings. See below.
         /// </summary>
         [Output("redshiftSettings")]
-        public Output<Outputs.EndpointRedshiftSettings> RedshiftSettings { get; private set; } = null!;
+        public Output<Outputs.EndpointRedshiftSettings?> RedshiftSettings { get; private set; } = null!;
 
         /// <summary>
         /// (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Dms
         /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         /// </summary>
         [Output("sslMode")]
-        public Output<string> SslMode { get; private set; } = null!;
+        public Output<string?> SslMode { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

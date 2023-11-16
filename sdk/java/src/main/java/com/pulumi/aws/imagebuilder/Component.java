@@ -70,14 +70,14 @@ public class Component extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return (Required) Amazon Resource Name (ARN) of the component.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Change description of the component.
@@ -98,28 +98,28 @@ public class Component extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="data", refs={String.class}, tree="[0]")
-    private Output<String> data;
+    private Output</* @Nullable */ String> data;
 
     /**
      * @return Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    public Output<String> data() {
-        return this.data;
+    public Output<Optional<String>> data() {
+        return Codegen.optional(this.data);
     }
     /**
      * Date the component was created.
      * 
      */
     @Export(name="dateCreated", refs={String.class}, tree="[0]")
-    private Output<String> dateCreated;
+    private Output</* @Nullable */ String> dateCreated;
 
     /**
      * @return Date the component was created.
      * 
      */
-    public Output<String> dateCreated() {
-        return this.dateCreated;
+    public Output<Optional<String>> dateCreated() {
+        return Codegen.optional(this.dateCreated);
     }
     /**
      * Description of the component.
@@ -140,14 +140,14 @@ public class Component extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> encrypted;
+    private Output</* @Nullable */ Boolean> encrypted;
 
     /**
      * @return Encryption status of the component.
      * 
      */
-    public Output<Boolean> encrypted() {
-        return this.encrypted;
+    public Output<Optional<Boolean>> encrypted() {
+        return Codegen.optional(this.encrypted);
     }
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
@@ -182,14 +182,14 @@ public class Component extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return Owner of the component.
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * Platform of the component.
@@ -270,14 +270,14 @@ public class Component extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return Type of the component.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.

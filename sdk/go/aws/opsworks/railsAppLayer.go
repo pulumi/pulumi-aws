@@ -45,7 +45,7 @@ type RailsAppLayer struct {
 	// Keyword for the app server to use. Defaults to "apachePassenger".
 	AppServer pulumi.StringPtrOutput `pulumi:"appServer"`
 	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -75,8 +75,8 @@ type RailsAppLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput                     `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    RailsAppLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                        `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    RailsAppLayerLoadBasedAutoScalingPtrOutput `pulumi:"loadBasedAutoScaling"`
 	// Whether OpsWorks should manage bundler. On by default.
 	ManageBundler pulumi.BoolPtrOutput `pulumi:"manageBundler"`
 	// A human-readable name for the layer.
@@ -483,8 +483,8 @@ func (o RailsAppLayerOutput) AppServer() pulumi.StringPtrOutput {
 }
 
 // The Amazon Resource Name(ARN) of the layer.
-func (o RailsAppLayerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RailsAppLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RailsAppLayerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
@@ -571,8 +571,8 @@ func (o RailsAppLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RailsAppLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o RailsAppLayerOutput) LoadBasedAutoScaling() RailsAppLayerLoadBasedAutoScalingOutput {
-	return o.ApplyT(func(v *RailsAppLayer) RailsAppLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(RailsAppLayerLoadBasedAutoScalingOutput)
+func (o RailsAppLayerOutput) LoadBasedAutoScaling() RailsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayer) RailsAppLayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(RailsAppLayerLoadBasedAutoScalingPtrOutput)
 }
 
 // Whether OpsWorks should manage bundler. On by default.

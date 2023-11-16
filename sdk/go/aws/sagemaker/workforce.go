@@ -112,16 +112,16 @@ type Workforce struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
 	CognitoConfig WorkforceCognitoConfigPtrOutput `pulumi:"cognitoConfig"`
 	// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
 	OidcConfig WorkforceOidcConfigPtrOutput `pulumi:"oidcConfig"`
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-	SourceIpConfig WorkforceSourceIpConfigOutput `pulumi:"sourceIpConfig"`
+	SourceIpConfig WorkforceSourceIpConfigPtrOutput `pulumi:"sourceIpConfig"`
 	// The subdomain for your OIDC Identity Provider.
 	// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
-	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
+	Subdomain pulumi.StringPtrOutput `pulumi:"subdomain"`
 	// The name of the Workforce (must be unique).
 	WorkforceName pulumi.StringOutput `pulumi:"workforceName"`
 	// configure a workforce using VPC. see Workforce VPC Config details below.
@@ -315,8 +315,8 @@ func (o WorkforceOutput) ToWorkforceOutputWithContext(ctx context.Context) Workf
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-func (o WorkforceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workforce) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WorkforceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workforce) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
@@ -330,14 +330,14 @@ func (o WorkforceOutput) OidcConfig() WorkforceOidcConfigPtrOutput {
 }
 
 // A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-func (o WorkforceOutput) SourceIpConfig() WorkforceSourceIpConfigOutput {
-	return o.ApplyT(func(v *Workforce) WorkforceSourceIpConfigOutput { return v.SourceIpConfig }).(WorkforceSourceIpConfigOutput)
+func (o WorkforceOutput) SourceIpConfig() WorkforceSourceIpConfigPtrOutput {
+	return o.ApplyT(func(v *Workforce) WorkforceSourceIpConfigPtrOutput { return v.SourceIpConfig }).(WorkforceSourceIpConfigPtrOutput)
 }
 
 // The subdomain for your OIDC Identity Provider.
 // * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
-func (o WorkforceOutput) Subdomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workforce) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
+func (o WorkforceOutput) Subdomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workforce) pulumi.StringPtrOutput { return v.Subdomain }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Workforce (must be unique).

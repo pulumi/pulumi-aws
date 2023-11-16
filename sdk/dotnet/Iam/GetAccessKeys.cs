@@ -110,14 +110,14 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string User;
 
         [OutputConstructor]
         private GetAccessKeysResult(
             ImmutableArray<Outputs.GetAccessKeysAccessKeyResult> accessKeys,
 
-            string id,
+            string? id,
 
             string user)
         {

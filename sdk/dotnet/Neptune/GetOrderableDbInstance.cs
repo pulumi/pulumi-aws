@@ -190,71 +190,71 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly string? Engine;
-        public readonly string EngineVersion;
+        public readonly string? EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string InstanceClass;
+        public readonly string? Id;
+        public readonly string? InstanceClass;
         public readonly string? LicenseModel;
         /// <summary>
         /// Maximum total provisioned IOPS for a DB instance.
         /// </summary>
-        public readonly int MaxIopsPerDbInstance;
+        public readonly int? MaxIopsPerDbInstance;
         /// <summary>
         /// Maximum provisioned IOPS per GiB for a DB instance.
         /// </summary>
-        public readonly double MaxIopsPerGib;
+        public readonly double? MaxIopsPerGib;
         /// <summary>
         /// Maximum storage size for a DB instance.
         /// </summary>
-        public readonly int MaxStorageSize;
+        public readonly int? MaxStorageSize;
         /// <summary>
         /// Minimum total provisioned IOPS for a DB instance.
         /// </summary>
-        public readonly int MinIopsPerDbInstance;
+        public readonly int? MinIopsPerDbInstance;
         /// <summary>
         /// Minimum provisioned IOPS per GiB for a DB instance.
         /// </summary>
-        public readonly double MinIopsPerGib;
+        public readonly double? MinIopsPerGib;
         /// <summary>
         /// Minimum storage size for a DB instance.
         /// </summary>
-        public readonly int MinStorageSize;
+        public readonly int? MinStorageSize;
         /// <summary>
         /// Whether a DB instance is Multi-AZ capable.
         /// </summary>
-        public readonly bool MultiAzCapable;
+        public readonly bool? MultiAzCapable;
         public readonly ImmutableArray<string> PreferredInstanceClasses;
         /// <summary>
         /// Whether a DB instance can have a read replica.
         /// </summary>
-        public readonly bool ReadReplicaCapable;
+        public readonly bool? ReadReplicaCapable;
         /// <summary>
         /// Storage type for a DB instance.
         /// </summary>
-        public readonly string StorageType;
+        public readonly string? StorageType;
         /// <summary>
         /// Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
         /// </summary>
-        public readonly bool SupportsEnhancedMonitoring;
+        public readonly bool? SupportsEnhancedMonitoring;
         /// <summary>
         /// Whether a DB instance supports IAM database authentication.
         /// </summary>
-        public readonly bool SupportsIamDatabaseAuthentication;
+        public readonly bool? SupportsIamDatabaseAuthentication;
         /// <summary>
         /// Whether a DB instance supports provisioned IOPS.
         /// </summary>
-        public readonly bool SupportsIops;
+        public readonly bool? SupportsIops;
         /// <summary>
         /// Whether a DB instance supports Performance Insights.
         /// </summary>
-        public readonly bool SupportsPerformanceInsights;
+        public readonly bool? SupportsPerformanceInsights;
         /// <summary>
         /// Whether a DB instance supports encrypted storage.
         /// </summary>
-        public readonly bool SupportsStorageEncryption;
-        public readonly bool Vpc;
+        public readonly bool? SupportsStorageEncryption;
+        public readonly bool? Vpc;
 
         [OutputConstructor]
         private GetOrderableDbInstanceResult(
@@ -262,45 +262,45 @@ namespace Pulumi.Aws.Neptune
 
             string? engine,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string id,
+            string? id,
 
-            string instanceClass,
+            string? instanceClass,
 
             string? licenseModel,
 
-            int maxIopsPerDbInstance,
+            int? maxIopsPerDbInstance,
 
-            double maxIopsPerGib,
+            double? maxIopsPerGib,
 
-            int maxStorageSize,
+            int? maxStorageSize,
 
-            int minIopsPerDbInstance,
+            int? minIopsPerDbInstance,
 
-            double minIopsPerGib,
+            double? minIopsPerGib,
 
-            int minStorageSize,
+            int? minStorageSize,
 
-            bool multiAzCapable,
+            bool? multiAzCapable,
 
             ImmutableArray<string> preferredInstanceClasses,
 
-            bool readReplicaCapable,
+            bool? readReplicaCapable,
 
-            string storageType,
+            string? storageType,
 
-            bool supportsEnhancedMonitoring,
+            bool? supportsEnhancedMonitoring,
 
-            bool supportsIamDatabaseAuthentication,
+            bool? supportsIamDatabaseAuthentication,
 
-            bool supportsIops,
+            bool? supportsIops,
 
-            bool supportsPerformanceInsights,
+            bool? supportsPerformanceInsights,
 
-            bool supportsStorageEncryption,
+            bool? supportsStorageEncryption,
 
-            bool vpc)
+            bool? vpc)
         {
             AvailabilityZones = availabilityZones;
             Engine = engine;

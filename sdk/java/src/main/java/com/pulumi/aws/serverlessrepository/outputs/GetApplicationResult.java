@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationResult {
@@ -19,28 +21,28 @@ public final class GetApplicationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the application.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return A list of capabilities describing the permissions needed to deploy the application.
      * 
      */
-    private List<String> requiredCapabilities;
-    private String semanticVersion;
+    private @Nullable List<String> requiredCapabilities;
+    private @Nullable String semanticVersion;
     /**
      * @return URL pointing to the source code of the application version.
      * 
      */
-    private String sourceCodeUrl;
+    private @Nullable String sourceCodeUrl;
     /**
      * @return URL pointing to the Cloud Formation template for the application version.
      * 
      */
-    private String templateUrl;
+    private @Nullable String templateUrl;
 
     private GetApplicationResult() {}
     /**
@@ -54,39 +56,39 @@ public final class GetApplicationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the application.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return A list of capabilities describing the permissions needed to deploy the application.
      * 
      */
     public List<String> requiredCapabilities() {
-        return this.requiredCapabilities;
+        return this.requiredCapabilities == null ? List.of() : this.requiredCapabilities;
     }
-    public String semanticVersion() {
-        return this.semanticVersion;
+    public Optional<String> semanticVersion() {
+        return Optional.ofNullable(this.semanticVersion);
     }
     /**
      * @return URL pointing to the source code of the application version.
      * 
      */
-    public String sourceCodeUrl() {
-        return this.sourceCodeUrl;
+    public Optional<String> sourceCodeUrl() {
+        return Optional.ofNullable(this.sourceCodeUrl);
     }
     /**
      * @return URL pointing to the Cloud Formation template for the application version.
      * 
      */
-    public String templateUrl() {
-        return this.templateUrl;
+    public Optional<String> templateUrl() {
+        return Optional.ofNullable(this.templateUrl);
     }
 
     public static Builder builder() {
@@ -99,12 +101,12 @@ public final class GetApplicationResult {
     @CustomType.Builder
     public static final class Builder {
         private String applicationId;
-        private String id;
-        private String name;
-        private List<String> requiredCapabilities;
-        private String semanticVersion;
-        private String sourceCodeUrl;
-        private String templateUrl;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable List<String> requiredCapabilities;
+        private @Nullable String semanticVersion;
+        private @Nullable String sourceCodeUrl;
+        private @Nullable String templateUrl;
         public Builder() {}
         public Builder(GetApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -123,36 +125,36 @@ public final class GetApplicationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder requiredCapabilities(List<String> requiredCapabilities) {
-            this.requiredCapabilities = Objects.requireNonNull(requiredCapabilities);
+        public Builder requiredCapabilities(@Nullable List<String> requiredCapabilities) {
+            this.requiredCapabilities = requiredCapabilities;
             return this;
         }
         public Builder requiredCapabilities(String... requiredCapabilities) {
             return requiredCapabilities(List.of(requiredCapabilities));
         }
         @CustomType.Setter
-        public Builder semanticVersion(String semanticVersion) {
-            this.semanticVersion = Objects.requireNonNull(semanticVersion);
+        public Builder semanticVersion(@Nullable String semanticVersion) {
+            this.semanticVersion = semanticVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceCodeUrl(String sourceCodeUrl) {
-            this.sourceCodeUrl = Objects.requireNonNull(sourceCodeUrl);
+        public Builder sourceCodeUrl(@Nullable String sourceCodeUrl) {
+            this.sourceCodeUrl = sourceCodeUrl;
             return this;
         }
         @CustomType.Setter
-        public Builder templateUrl(String templateUrl) {
-            this.templateUrl = Objects.requireNonNull(templateUrl);
+        public Builder templateUrl(@Nullable String templateUrl) {
+            this.templateUrl = templateUrl;
             return this;
         }
         public GetApplicationResult build() {

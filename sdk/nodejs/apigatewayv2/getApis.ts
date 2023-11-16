@@ -55,11 +55,11 @@ export interface GetApisResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of API identifiers.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly name?: string;
     readonly protocolType?: string;
     readonly tags?: {[key: string]: string};

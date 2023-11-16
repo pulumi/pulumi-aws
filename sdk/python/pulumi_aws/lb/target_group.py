@@ -1179,7 +1179,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Target Group (matches `id`).
         """
@@ -1187,7 +1187,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="arnSuffix")
-    def arn_suffix(self) -> pulumi.Output[str]:
+    def arn_suffix(self) -> pulumi.Output[Optional[str]]:
         """
         ARN suffix for use with CloudWatch Metrics.
         """
@@ -1195,7 +1195,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionTermination")
-    def connection_termination(self) -> pulumi.Output[bool]:
+    def connection_termination(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         """
@@ -1211,7 +1211,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> pulumi.Output['outputs.TargetGroupHealthCheck']:
+    def health_check(self) -> pulumi.Output[Optional['outputs.TargetGroupHealthCheck']]:
         """
         Health Check configuration block. Detailed below.
         """
@@ -1219,7 +1219,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> pulumi.Output[str]:
+    def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         """
@@ -1235,7 +1235,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingAlgorithmType")
-    def load_balancing_algorithm_type(self) -> pulumi.Output[str]:
+    def load_balancing_algorithm_type(self) -> pulumi.Output[Optional[str]]:
         """
         Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         """
@@ -1243,7 +1243,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingCrossZoneEnabled")
-    def load_balancing_cross_zone_enabled(self) -> pulumi.Output[str]:
+    def load_balancing_cross_zone_enabled(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         """
@@ -1259,7 +1259,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         """
@@ -1275,7 +1275,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preserveClientIp")
-    def preserve_client_ip(self) -> pulumi.Output[str]:
+    def preserve_client_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         """
@@ -1291,7 +1291,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protocolVersion")
-    def protocol_version(self) -> pulumi.Output[str]:
+    def protocol_version(self) -> pulumi.Output[Optional[str]]:
         """
         Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         """
@@ -1315,7 +1315,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stickiness(self) -> pulumi.Output['outputs.TargetGroupStickiness']:
+    def stickiness(self) -> pulumi.Output[Optional['outputs.TargetGroupStickiness']]:
         """
         Stickiness configuration block. Detailed below.
         """
@@ -1342,7 +1342,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetFailovers")
-    def target_failovers(self) -> pulumi.Output[Sequence['outputs.TargetGroupTargetFailover']]:
+    def target_failovers(self) -> pulumi.Output[Optional[Sequence['outputs.TargetGroupTargetFailover']]]:
         """
         Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         """
@@ -1350,7 +1350,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetHealthStates")
-    def target_health_states(self) -> pulumi.Output[Sequence['outputs.TargetGroupTargetHealthState']]:
+    def target_health_states(self) -> pulumi.Output[Optional[Sequence['outputs.TargetGroupTargetHealthState']]]:
         """
         Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         """

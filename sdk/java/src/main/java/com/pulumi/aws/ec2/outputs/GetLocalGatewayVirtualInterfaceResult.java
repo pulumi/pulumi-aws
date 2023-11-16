@@ -10,99 +10,100 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocalGatewayVirtualInterfaceResult {
     private @Nullable List<GetLocalGatewayVirtualInterfaceFilter> filters;
-    private String id;
+    private @Nullable String id;
     /**
      * @return Local address.
      * 
      */
-    private String localAddress;
+    private @Nullable String localAddress;
     /**
      * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
      * 
      */
-    private Integer localBgpAsn;
+    private @Nullable Integer localBgpAsn;
     /**
      * @return Identifier of the EC2 Local Gateway.
      * 
      */
-    private String localGatewayId;
-    private List<String> localGatewayVirtualInterfaceIds;
+    private @Nullable String localGatewayId;
+    private @Nullable List<String> localGatewayVirtualInterfaceIds;
     /**
      * @return Peer address.
      * 
      */
-    private String peerAddress;
+    private @Nullable String peerAddress;
     /**
      * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
      * 
      */
-    private Integer peerBgpAsn;
-    private Map<String,String> tags;
+    private @Nullable Integer peerBgpAsn;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Virtual Local Area Network.
      * 
      */
-    private Integer vlan;
+    private @Nullable Integer vlan;
 
     private GetLocalGatewayVirtualInterfaceResult() {}
     public List<GetLocalGatewayVirtualInterfaceFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Local address.
      * 
      */
-    public String localAddress() {
-        return this.localAddress;
+    public Optional<String> localAddress() {
+        return Optional.ofNullable(this.localAddress);
     }
     /**
      * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
      * 
      */
-    public Integer localBgpAsn() {
-        return this.localBgpAsn;
+    public Optional<Integer> localBgpAsn() {
+        return Optional.ofNullable(this.localBgpAsn);
     }
     /**
      * @return Identifier of the EC2 Local Gateway.
      * 
      */
-    public String localGatewayId() {
-        return this.localGatewayId;
+    public Optional<String> localGatewayId() {
+        return Optional.ofNullable(this.localGatewayId);
     }
     public List<String> localGatewayVirtualInterfaceIds() {
-        return this.localGatewayVirtualInterfaceIds;
+        return this.localGatewayVirtualInterfaceIds == null ? List.of() : this.localGatewayVirtualInterfaceIds;
     }
     /**
      * @return Peer address.
      * 
      */
-    public String peerAddress() {
-        return this.peerAddress;
+    public Optional<String> peerAddress() {
+        return Optional.ofNullable(this.peerAddress);
     }
     /**
      * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
      * 
      */
-    public Integer peerBgpAsn() {
-        return this.peerBgpAsn;
+    public Optional<Integer> peerBgpAsn() {
+        return Optional.ofNullable(this.peerBgpAsn);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Virtual Local Area Network.
      * 
      */
-    public Integer vlan() {
-        return this.vlan;
+    public Optional<Integer> vlan() {
+        return Optional.ofNullable(this.vlan);
     }
 
     public static Builder builder() {
@@ -115,15 +116,15 @@ public final class GetLocalGatewayVirtualInterfaceResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetLocalGatewayVirtualInterfaceFilter> filters;
-        private String id;
-        private String localAddress;
-        private Integer localBgpAsn;
-        private String localGatewayId;
-        private List<String> localGatewayVirtualInterfaceIds;
-        private String peerAddress;
-        private Integer peerBgpAsn;
-        private Map<String,String> tags;
-        private Integer vlan;
+        private @Nullable String id;
+        private @Nullable String localAddress;
+        private @Nullable Integer localBgpAsn;
+        private @Nullable String localGatewayId;
+        private @Nullable List<String> localGatewayVirtualInterfaceIds;
+        private @Nullable String peerAddress;
+        private @Nullable Integer peerBgpAsn;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Integer vlan;
         public Builder() {}
         public Builder(GetLocalGatewayVirtualInterfaceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -148,51 +149,51 @@ public final class GetLocalGatewayVirtualInterfaceResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder localAddress(String localAddress) {
-            this.localAddress = Objects.requireNonNull(localAddress);
+        public Builder localAddress(@Nullable String localAddress) {
+            this.localAddress = localAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder localBgpAsn(Integer localBgpAsn) {
-            this.localBgpAsn = Objects.requireNonNull(localBgpAsn);
+        public Builder localBgpAsn(@Nullable Integer localBgpAsn) {
+            this.localBgpAsn = localBgpAsn;
             return this;
         }
         @CustomType.Setter
-        public Builder localGatewayId(String localGatewayId) {
-            this.localGatewayId = Objects.requireNonNull(localGatewayId);
+        public Builder localGatewayId(@Nullable String localGatewayId) {
+            this.localGatewayId = localGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder localGatewayVirtualInterfaceIds(List<String> localGatewayVirtualInterfaceIds) {
-            this.localGatewayVirtualInterfaceIds = Objects.requireNonNull(localGatewayVirtualInterfaceIds);
+        public Builder localGatewayVirtualInterfaceIds(@Nullable List<String> localGatewayVirtualInterfaceIds) {
+            this.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
             return this;
         }
         public Builder localGatewayVirtualInterfaceIds(String... localGatewayVirtualInterfaceIds) {
             return localGatewayVirtualInterfaceIds(List.of(localGatewayVirtualInterfaceIds));
         }
         @CustomType.Setter
-        public Builder peerAddress(String peerAddress) {
-            this.peerAddress = Objects.requireNonNull(peerAddress);
+        public Builder peerAddress(@Nullable String peerAddress) {
+            this.peerAddress = peerAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder peerBgpAsn(Integer peerBgpAsn) {
-            this.peerBgpAsn = Objects.requireNonNull(peerBgpAsn);
+        public Builder peerBgpAsn(@Nullable Integer peerBgpAsn) {
+            this.peerBgpAsn = peerBgpAsn;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vlan(Integer vlan) {
-            this.vlan = Objects.requireNonNull(vlan);
+        public Builder vlan(@Nullable Integer vlan) {
+            this.vlan = vlan;
             return this;
         }
         public GetLocalGatewayVirtualInterfaceResult build() {

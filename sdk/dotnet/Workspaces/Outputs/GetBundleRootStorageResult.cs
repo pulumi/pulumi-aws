@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Workspaces.Outputs
         /// <summary>
         /// Size of the user storage.
         /// </summary>
-        public readonly string Capacity;
+        public readonly string? Capacity;
 
         [OutputConstructor]
-        private GetBundleRootStorageResult(string capacity)
+        private GetBundleRootStorageResult(string? capacity)
         {
             Capacity = capacity;
         }

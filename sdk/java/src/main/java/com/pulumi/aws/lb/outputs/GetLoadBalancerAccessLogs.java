@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLoadBalancerAccessLogs {
-    private String bucket;
-    private Boolean enabled;
-    private String prefix;
+    private @Nullable String bucket;
+    private @Nullable Boolean enabled;
+    private @Nullable String prefix;
 
     private GetLoadBalancerAccessLogs() {}
-    public String bucket() {
-        return this.bucket;
+    public Optional<String> bucket() {
+        return Optional.ofNullable(this.bucket);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
-    public String prefix() {
-        return this.prefix;
+    public Optional<String> prefix() {
+        return Optional.ofNullable(this.prefix);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetLoadBalancerAccessLogs {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bucket;
-        private Boolean enabled;
-        private String prefix;
+        private @Nullable String bucket;
+        private @Nullable Boolean enabled;
+        private @Nullable String prefix;
         public Builder() {}
         public Builder(GetLoadBalancerAccessLogs defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetLoadBalancerAccessLogs {
         }
 
         @CustomType.Setter
-        public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+        public Builder bucket(@Nullable String bucket) {
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+        public Builder prefix(@Nullable String prefix) {
+            this.prefix = prefix;
             return this;
         }
         public GetLoadBalancerAccessLogs build() {

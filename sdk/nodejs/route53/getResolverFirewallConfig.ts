@@ -46,12 +46,12 @@ export interface GetResolverFirewallConfigArgs {
  * A collection of values returned by getResolverFirewallConfig.
  */
 export interface GetResolverFirewallConfigResult {
-    readonly firewallFailOpen: string;
+    readonly firewallFailOpen?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly ownerId: string;
+    readonly id?: string;
+    readonly ownerId?: string;
     readonly resourceId: string;
 }
 /**

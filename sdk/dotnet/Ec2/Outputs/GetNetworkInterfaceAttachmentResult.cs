@@ -13,20 +13,20 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInterfaceAttachmentResult
     {
-        public readonly string AttachmentId;
-        public readonly int DeviceIndex;
-        public readonly string InstanceId;
-        public readonly string InstanceOwnerId;
+        public readonly string? AttachmentId;
+        public readonly int? DeviceIndex;
+        public readonly string? InstanceId;
+        public readonly string? InstanceOwnerId;
 
         [OutputConstructor]
         private GetNetworkInterfaceAttachmentResult(
-            string attachmentId,
+            string? attachmentId,
 
-            int deviceIndex,
+            int? deviceIndex,
 
-            string instanceId,
+            string? instanceId,
 
-            string instanceOwnerId)
+            string? instanceOwnerId)
         {
             AttachmentId = attachmentId;
             DeviceIndex = deviceIndex;

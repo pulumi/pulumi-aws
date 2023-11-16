@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Mq.Outputs
         /// <summary>
         /// Name of the Availability Zone.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
-        private GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(string name)
+        private GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(string? name)
         {
             Name = name;
         }

@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Route53
         /// The Amazon Resource Name (ARN) of the Delegation Set.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A list of authoritative name servers for the hosted zone

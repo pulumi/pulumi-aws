@@ -690,11 +690,11 @@ type Index struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Index.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
-	CapacityUnits IndexCapacityUnitsOutput `pulumi:"capacityUnits"`
+	CapacityUnits IndexCapacityUnitsPtrOutput `pulumi:"capacityUnits"`
 	// The Unix datetime that the index was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The description of the Index.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
@@ -702,7 +702,7 @@ type Index struct {
 	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
 	Edition pulumi.StringPtrOutput `pulumi:"edition"`
 	// When the Status field value is `FAILED`, this contains a message that explains why.
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
+	ErrorMessage pulumi.StringPtrOutput `pulumi:"errorMessage"`
 	// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
 	IndexStatistics IndexIndexStatisticArrayOutput `pulumi:"indexStatistics"`
 	// Specifies the name of the Index.
@@ -712,7 +712,7 @@ type Index struct {
 	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Tags to apply to the Index. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -721,7 +721,7 @@ type Index struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Unix datetime that the index was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	UpdatedAt pulumi.StringPtrOutput `pulumi:"updatedAt"`
 	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
 	UserContextPolicy pulumi.StringPtrOutput `pulumi:"userContextPolicy"`
 	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
@@ -995,18 +995,18 @@ func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 }
 
 // The Amazon Resource Name (ARN) of the Index.
-func (o IndexOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o IndexOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
-func (o IndexOutput) CapacityUnits() IndexCapacityUnitsOutput {
-	return o.ApplyT(func(v *Index) IndexCapacityUnitsOutput { return v.CapacityUnits }).(IndexCapacityUnitsOutput)
+func (o IndexOutput) CapacityUnits() IndexCapacityUnitsPtrOutput {
+	return o.ApplyT(func(v *Index) IndexCapacityUnitsPtrOutput { return v.CapacityUnits }).(IndexCapacityUnitsPtrOutput)
 }
 
 // The Unix datetime that the index was created.
-func (o IndexOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o IndexOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The description of the Index.
@@ -1027,8 +1027,8 @@ func (o IndexOutput) Edition() pulumi.StringPtrOutput {
 }
 
 // When the Status field value is `FAILED`, this contains a message that explains why.
-func (o IndexOutput) ErrorMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+func (o IndexOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
 // A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
@@ -1054,8 +1054,8 @@ func (o IndexOutput) ServerSideEncryptionConfiguration() IndexServerSideEncrypti
 }
 
 // The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
-func (o IndexOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o IndexOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the Index. If configured with a provider
@@ -1072,8 +1072,8 @@ func (o IndexOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The Unix datetime that the index was last updated.
-func (o IndexOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o IndexOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.

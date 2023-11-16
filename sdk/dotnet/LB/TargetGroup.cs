@@ -143,19 +143,19 @@ namespace Pulumi.Aws.LB
         /// ARN of the Target Group (matches `id`).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN suffix for use with CloudWatch Metrics.
         /// </summary>
         [Output("arnSuffix")]
-        public Output<string> ArnSuffix { get; private set; } = null!;
+        public Output<string?> ArnSuffix { get; private set; } = null!;
 
         /// <summary>
         /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         /// </summary>
         [Output("connectionTermination")]
-        public Output<bool> ConnectionTermination { get; private set; } = null!;
+        public Output<bool?> ConnectionTermination { get; private set; } = null!;
 
         /// <summary>
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
@@ -167,13 +167,13 @@ namespace Pulumi.Aws.LB
         /// Health Check configuration block. Detailed below.
         /// </summary>
         [Output("healthCheck")]
-        public Output<Outputs.TargetGroupHealthCheck> HealthCheck { get; private set; } = null!;
+        public Output<Outputs.TargetGroupHealthCheck?> HealthCheck { get; private set; } = null!;
 
         /// <summary>
         /// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         /// </summary>
         [Output("ipAddressType")]
-        public Output<string> IpAddressType { get; private set; } = null!;
+        public Output<string?> IpAddressType { get; private set; } = null!;
 
         /// <summary>
         /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
@@ -185,13 +185,13 @@ namespace Pulumi.Aws.LB
         /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         /// </summary>
         [Output("loadBalancingAlgorithmType")]
-        public Output<string> LoadBalancingAlgorithmType { get; private set; } = null!;
+        public Output<string?> LoadBalancingAlgorithmType { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         /// </summary>
         [Output("loadBalancingCrossZoneEnabled")]
-        public Output<string> LoadBalancingCrossZoneEnabled { get; private set; } = null!;
+        public Output<string?> LoadBalancingCrossZoneEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.LB
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.LB
         /// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         /// </summary>
         [Output("preserveClientIp")]
-        public Output<string> PreserveClientIp { get; private set; } = null!;
+        public Output<string?> PreserveClientIp { get; private set; } = null!;
 
         /// <summary>
         /// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.LB
         /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         /// </summary>
         [Output("protocolVersion")]
-        public Output<string> ProtocolVersion { get; private set; } = null!;
+        public Output<string?> ProtocolVersion { get; private set; } = null!;
 
         /// <summary>
         /// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.LB
         /// Stickiness configuration block. Detailed below.
         /// </summary>
         [Output("stickiness")]
-        public Output<Outputs.TargetGroupStickiness> Stickiness { get; private set; } = null!;
+        public Output<Outputs.TargetGroupStickiness?> Stickiness { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

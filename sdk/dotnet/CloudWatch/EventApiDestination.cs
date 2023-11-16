@@ -51,7 +51,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The Amazon Resource Name (ARN) of the event API Destination.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the EventBridge Connection to use for the API Destination.

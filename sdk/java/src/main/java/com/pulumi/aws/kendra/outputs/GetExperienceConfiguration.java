@@ -8,6 +8,7 @@ import com.pulumi.aws.kendra.outputs.GetExperienceConfigurationUserIdentityConfi
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExperienceConfiguration {
@@ -15,12 +16,12 @@ public final class GetExperienceConfiguration {
      * @return The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
      * 
      */
-    private List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations;
+    private @Nullable List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations;
     /**
      * @return The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
      * 
      */
-    private List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations;
+    private @Nullable List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations;
 
     private GetExperienceConfiguration() {}
     /**
@@ -28,14 +29,14 @@ public final class GetExperienceConfiguration {
      * 
      */
     public List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations() {
-        return this.contentSourceConfigurations;
+        return this.contentSourceConfigurations == null ? List.of() : this.contentSourceConfigurations;
     }
     /**
      * @return The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
      * 
      */
     public List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations() {
-        return this.userIdentityConfigurations;
+        return this.userIdentityConfigurations == null ? List.of() : this.userIdentityConfigurations;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetExperienceConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations;
-        private List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations;
+        private @Nullable List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations;
+        private @Nullable List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations;
         public Builder() {}
         public Builder(GetExperienceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetExperienceConfiguration {
         }
 
         @CustomType.Setter
-        public Builder contentSourceConfigurations(List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations) {
-            this.contentSourceConfigurations = Objects.requireNonNull(contentSourceConfigurations);
+        public Builder contentSourceConfigurations(@Nullable List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations) {
+            this.contentSourceConfigurations = contentSourceConfigurations;
             return this;
         }
         public Builder contentSourceConfigurations(GetExperienceConfigurationContentSourceConfiguration... contentSourceConfigurations) {
             return contentSourceConfigurations(List.of(contentSourceConfigurations));
         }
         @CustomType.Setter
-        public Builder userIdentityConfigurations(List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations) {
-            this.userIdentityConfigurations = Objects.requireNonNull(userIdentityConfigurations);
+        public Builder userIdentityConfigurations(@Nullable List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations) {
+            this.userIdentityConfigurations = userIdentityConfigurations;
             return this;
         }
         public Builder userIdentityConfigurations(GetExperienceConfigurationUserIdentityConfiguration... userIdentityConfigurations) {

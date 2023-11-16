@@ -67,7 +67,7 @@ type FeatureGroup struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A free-form description of a Feature Group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the feature that stores the EventTime of a Record in a Feature Group.
@@ -329,8 +329,8 @@ func (o FeatureGroupOutput) ToFeatureGroupOutputWithContext(ctx context.Context)
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
-func (o FeatureGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FeatureGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A free-form description of a Feature Group.

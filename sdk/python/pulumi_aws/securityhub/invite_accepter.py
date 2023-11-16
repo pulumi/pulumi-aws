@@ -212,7 +212,7 @@ class InviteAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> pulumi.Output[str]:
+    def invitation_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the invitation.
         """

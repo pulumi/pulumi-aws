@@ -14,13 +14,13 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     public sealed class GetCustomRoutingAcceleratorIpSetResult
     {
         public readonly ImmutableArray<string> IpAddresses;
-        public readonly string IpFamily;
+        public readonly string? IpFamily;
 
         [OutputConstructor]
         private GetCustomRoutingAcceleratorIpSetResult(
             ImmutableArray<string> ipAddresses,
 
-            string ipFamily)
+            string? ipFamily)
         {
             IpAddresses = ipAddresses;
             IpFamily = ipFamily;

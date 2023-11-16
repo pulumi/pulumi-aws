@@ -74,13 +74,13 @@ namespace Pulumi.Aws.CleanRooms
         /// The ARN of the configured table.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The date and time the configured table was created.
         /// </summary>
         [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        public Output<string?> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// A description for the configured table.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.CleanRooms
         /// The date and time the configured table was last updated.
         /// </summary>
         [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        public Output<string?> UpdateTime { get; private set; } = null!;
 
 
         /// <summary>

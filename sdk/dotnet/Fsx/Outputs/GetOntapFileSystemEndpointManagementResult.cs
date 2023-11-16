@@ -16,12 +16,12 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// <summary>
         /// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
         /// </summary>
-        public readonly string DnsName;
+        public readonly string? DnsName;
         public readonly ImmutableArray<string> IpAddresses;
 
         [OutputConstructor]
         private GetOntapFileSystemEndpointManagementResult(
-            string dnsName,
+            string? dnsName,
 
             ImmutableArray<string> ipAddresses)
         {

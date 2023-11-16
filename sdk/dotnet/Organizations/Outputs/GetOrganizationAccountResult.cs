@@ -16,35 +16,35 @@ namespace Pulumi.Aws.Organizations.Outputs
         /// <summary>
         /// ARN of the root
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Email of the account
         /// </summary>
-        public readonly string Email;
+        public readonly string? Email;
         /// <summary>
         /// Identifier of the root
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The name of the policy type
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The status of the policy type as it relates to the associated root
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetOrganizationAccountResult(
-            string arn,
+            string? arn,
 
-            string email,
+            string? email,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string status)
+            string? status)
         {
             Arn = arn;
             Email = email;

@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlanStage {
-    private Integer durationInMinutes;
-    private List<GetPlanStageTarget> targets;
+    private @Nullable Integer durationInMinutes;
+    private @Nullable List<GetPlanStageTarget> targets;
 
     private GetPlanStage() {}
-    public Integer durationInMinutes() {
-        return this.durationInMinutes;
+    public Optional<Integer> durationInMinutes() {
+        return Optional.ofNullable(this.durationInMinutes);
     }
     public List<GetPlanStageTarget> targets() {
-        return this.targets;
+        return this.targets == null ? List.of() : this.targets;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetPlanStage {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer durationInMinutes;
-        private List<GetPlanStageTarget> targets;
+        private @Nullable Integer durationInMinutes;
+        private @Nullable List<GetPlanStageTarget> targets;
         public Builder() {}
         public Builder(GetPlanStage defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetPlanStage {
         }
 
         @CustomType.Setter
-        public Builder durationInMinutes(Integer durationInMinutes) {
-            this.durationInMinutes = Objects.requireNonNull(durationInMinutes);
+        public Builder durationInMinutes(@Nullable Integer durationInMinutes) {
+            this.durationInMinutes = durationInMinutes;
             return this;
         }
         @CustomType.Setter
-        public Builder targets(List<GetPlanStageTarget> targets) {
-            this.targets = Objects.requireNonNull(targets);
+        public Builder targets(@Nullable List<GetPlanStageTarget> targets) {
+            this.targets = targets;
             return this;
         }
         public Builder targets(GetPlanStageTarget... targets) {

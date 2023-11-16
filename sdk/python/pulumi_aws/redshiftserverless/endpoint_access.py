@@ -377,7 +377,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def address(self) -> pulumi.Output[str]:
+    def address(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS address of the VPC endpoint.
         """
@@ -385,7 +385,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
         """
@@ -401,7 +401,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port that Amazon Redshift Serverless listens on.
         """
@@ -417,7 +417,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpoints")
-    def vpc_endpoints(self) -> pulumi.Output[Sequence['outputs.EndpointAccessVpcEndpoint']]:
+    def vpc_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointAccessVpcEndpoint']]]:
         """
         The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         """
@@ -425,7 +425,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An array of security group IDs to associate with the workgroup.
         """

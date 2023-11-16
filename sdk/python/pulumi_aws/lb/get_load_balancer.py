@@ -107,72 +107,72 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> 'outputs.GetLoadBalancerAccessLogsResult':
+    def access_logs(self) -> Optional['outputs.GetLoadBalancerAccessLogsResult']:
         return pulumi.get(self, "access_logs")
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="arnSuffix")
-    def arn_suffix(self) -> str:
+    def arn_suffix(self) -> Optional[str]:
         return pulumi.get(self, "arn_suffix")
 
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
-    def customer_owned_ipv4_pool(self) -> str:
+    def customer_owned_ipv4_pool(self) -> Optional[str]:
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
     @pulumi.getter(name="desyncMitigationMode")
-    def desync_mitigation_mode(self) -> str:
+    def desync_mitigation_mode(self) -> Optional[str]:
         return pulumi.get(self, "desync_mitigation_mode")
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> Optional[str]:
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="dropInvalidHeaderFields")
-    def drop_invalid_header_fields(self) -> bool:
+    def drop_invalid_header_fields(self) -> Optional[bool]:
         return pulumi.get(self, "drop_invalid_header_fields")
 
     @property
     @pulumi.getter(name="enableCrossZoneLoadBalancing")
-    def enable_cross_zone_load_balancing(self) -> bool:
+    def enable_cross_zone_load_balancing(self) -> Optional[bool]:
         return pulumi.get(self, "enable_cross_zone_load_balancing")
 
     @property
     @pulumi.getter(name="enableDeletionProtection")
-    def enable_deletion_protection(self) -> bool:
+    def enable_deletion_protection(self) -> Optional[bool]:
         return pulumi.get(self, "enable_deletion_protection")
 
     @property
     @pulumi.getter(name="enableHttp2")
-    def enable_http2(self) -> bool:
+    def enable_http2(self) -> Optional[bool]:
         return pulumi.get(self, "enable_http2")
 
     @property
     @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
-    def enable_tls_version_and_cipher_suite_headers(self) -> bool:
+    def enable_tls_version_and_cipher_suite_headers(self) -> Optional[bool]:
         return pulumi.get(self, "enable_tls_version_and_cipher_suite_headers")
 
     @property
     @pulumi.getter(name="enableWafFailOpen")
-    def enable_waf_fail_open(self) -> bool:
+    def enable_waf_fail_open(self) -> Optional[bool]:
         return pulumi.get(self, "enable_waf_fail_open")
 
     @property
     @pulumi.getter(name="enableXffClientPort")
-    def enable_xff_client_port(self) -> bool:
+    def enable_xff_client_port(self) -> Optional[bool]:
         return pulumi.get(self, "enable_xff_client_port")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -180,67 +180,67 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> int:
+    def idle_timeout(self) -> Optional[int]:
         return pulumi.get(self, "idle_timeout")
 
     @property
     @pulumi.getter
-    def internal(self) -> bool:
+    def internal(self) -> Optional[bool]:
         return pulumi.get(self, "internal")
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> str:
+    def ip_address_type(self) -> Optional[str]:
         return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="loadBalancerType")
-    def load_balancer_type(self) -> str:
+    def load_balancer_type(self) -> Optional[str]:
         return pulumi.get(self, "load_balancer_type")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="preserveHostHeader")
-    def preserve_host_header(self) -> bool:
+    def preserve_host_header(self) -> Optional[bool]:
         return pulumi.get(self, "preserve_host_header")
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Sequence[str]:
+    def security_groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="subnetMappings")
-    def subnet_mappings(self) -> Sequence['outputs.GetLoadBalancerSubnetMappingResult']:
+    def subnet_mappings(self) -> Optional[Sequence['outputs.GetLoadBalancerSubnetMappingResult']]:
         return pulumi.get(self, "subnet_mappings")
 
     @property
     @pulumi.getter
-    def subnets(self) -> Sequence[str]:
+    def subnets(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="xffHeaderProcessingMode")
-    def xff_header_processing_mode(self) -> str:
+    def xff_header_processing_mode(self) -> Optional[str]:
         return pulumi.get(self, "xff_header_processing_mode")
 
     @property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> str:
+    def zone_id(self) -> Optional[str]:
         return pulumi.get(self, "zone_id")
 
 

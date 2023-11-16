@@ -9177,8 +9177,8 @@ func (o UserDefinedFunctionResourceUriArrayOutput) Index(i pulumi.IntInput) User
 
 type GetCatalogTablePartitionIndex struct {
 	// Name of the partition index.
-	IndexName   string `pulumi:"indexName"`
-	IndexStatus string `pulumi:"indexStatus"`
+	IndexName   *string `pulumi:"indexName"`
+	IndexStatus *string `pulumi:"indexStatus"`
 	// Keys for the partition index.
 	Keys []string `pulumi:"keys"`
 }
@@ -9196,8 +9196,8 @@ type GetCatalogTablePartitionIndexInput interface {
 
 type GetCatalogTablePartitionIndexArgs struct {
 	// Name of the partition index.
-	IndexName   pulumi.StringInput `pulumi:"indexName"`
-	IndexStatus pulumi.StringInput `pulumi:"indexStatus"`
+	IndexName   pulumi.StringPtrInput `pulumi:"indexName"`
+	IndexStatus pulumi.StringPtrInput `pulumi:"indexStatus"`
 	// Keys for the partition index.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
 }
@@ -9254,12 +9254,12 @@ func (o GetCatalogTablePartitionIndexOutput) ToGetCatalogTablePartitionIndexOutp
 }
 
 // Name of the partition index.
-func (o GetCatalogTablePartitionIndexOutput) IndexName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTablePartitionIndex) string { return v.IndexName }).(pulumi.StringOutput)
+func (o GetCatalogTablePartitionIndexOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionIndex) *string { return v.IndexName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetCatalogTablePartitionIndexOutput) IndexStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTablePartitionIndex) string { return v.IndexStatus }).(pulumi.StringOutput)
+func (o GetCatalogTablePartitionIndexOutput) IndexStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionIndex) *string { return v.IndexStatus }).(pulumi.StringPtrOutput)
 }
 
 // Keys for the partition index.
@@ -9289,11 +9289,11 @@ func (o GetCatalogTablePartitionIndexArrayOutput) Index(i pulumi.IntInput) GetCa
 
 type GetCatalogTablePartitionKey struct {
 	// Free-form text comment.
-	Comment string `pulumi:"comment"`
+	Comment *string `pulumi:"comment"`
 	// Name of the table.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Datatype of data in the Column.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetCatalogTablePartitionKeyInput is an input type that accepts GetCatalogTablePartitionKeyArgs and GetCatalogTablePartitionKeyOutput values.
@@ -9309,11 +9309,11 @@ type GetCatalogTablePartitionKeyInput interface {
 
 type GetCatalogTablePartitionKeyArgs struct {
 	// Free-form text comment.
-	Comment pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// Name of the table.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Datatype of data in the Column.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetCatalogTablePartitionKeyArgs) ElementType() reflect.Type {
@@ -9368,18 +9368,18 @@ func (o GetCatalogTablePartitionKeyOutput) ToGetCatalogTablePartitionKeyOutputWi
 }
 
 // Free-form text comment.
-func (o GetCatalogTablePartitionKeyOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTablePartitionKey) string { return v.Comment }).(pulumi.StringOutput)
+func (o GetCatalogTablePartitionKeyOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionKey) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // Name of the table.
-func (o GetCatalogTablePartitionKeyOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTablePartitionKey) string { return v.Name }).(pulumi.StringOutput)
+func (o GetCatalogTablePartitionKeyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionKey) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Datatype of data in the Column.
-func (o GetCatalogTablePartitionKeyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTablePartitionKey) string { return v.Type }).(pulumi.StringOutput)
+func (o GetCatalogTablePartitionKeyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionKey) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetCatalogTablePartitionKeyArrayOutput struct{ *pulumi.OutputState }
@@ -9408,15 +9408,15 @@ type GetCatalogTableStorageDescriptor struct {
 	// Configuration block for columns in the table. See `columns` below.
 	Columns []GetCatalogTableStorageDescriptorColumn `pulumi:"columns"`
 	// Whether the data in the table is compressed.
-	Compressed bool `pulumi:"compressed"`
+	Compressed *bool `pulumi:"compressed"`
 	// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-	InputFormat string `pulumi:"inputFormat"`
+	InputFormat *string `pulumi:"inputFormat"`
 	// Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Is if the table contains any dimension columns.
-	NumberOfBuckets int `pulumi:"numberOfBuckets"`
+	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
 	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-	OutputFormat string `pulumi:"outputFormat"`
+	OutputFormat *string `pulumi:"outputFormat"`
 	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Object that references a schema stored in the AWS Glue Schema Registry. See `schemaReference` below.
@@ -9428,7 +9428,7 @@ type GetCatalogTableStorageDescriptor struct {
 	// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
 	SortColumns []GetCatalogTableStorageDescriptorSortColumn `pulumi:"sortColumns"`
 	// Whether the table data is stored in subdirectories.
-	StoredAsSubDirectories bool `pulumi:"storedAsSubDirectories"`
+	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
 }
 
 // GetCatalogTableStorageDescriptorInput is an input type that accepts GetCatalogTableStorageDescriptorArgs and GetCatalogTableStorageDescriptorOutput values.
@@ -9448,15 +9448,15 @@ type GetCatalogTableStorageDescriptorArgs struct {
 	// Configuration block for columns in the table. See `columns` below.
 	Columns GetCatalogTableStorageDescriptorColumnArrayInput `pulumi:"columns"`
 	// Whether the data in the table is compressed.
-	Compressed pulumi.BoolInput `pulumi:"compressed"`
+	Compressed pulumi.BoolPtrInput `pulumi:"compressed"`
 	// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-	InputFormat pulumi.StringInput `pulumi:"inputFormat"`
+	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
 	// Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-	Location pulumi.StringInput `pulumi:"location"`
+	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Is if the table contains any dimension columns.
-	NumberOfBuckets pulumi.IntInput `pulumi:"numberOfBuckets"`
+	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
 	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-	OutputFormat pulumi.StringInput `pulumi:"outputFormat"`
+	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
 	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Object that references a schema stored in the AWS Glue Schema Registry. See `schemaReference` below.
@@ -9468,7 +9468,7 @@ type GetCatalogTableStorageDescriptorArgs struct {
 	// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
 	SortColumns GetCatalogTableStorageDescriptorSortColumnArrayInput `pulumi:"sortColumns"`
 	// Whether the table data is stored in subdirectories.
-	StoredAsSubDirectories pulumi.BoolInput `pulumi:"storedAsSubDirectories"`
+	StoredAsSubDirectories pulumi.BoolPtrInput `pulumi:"storedAsSubDirectories"`
 }
 
 func (GetCatalogTableStorageDescriptorArgs) ElementType() reflect.Type {
@@ -9533,28 +9533,28 @@ func (o GetCatalogTableStorageDescriptorOutput) Columns() GetCatalogTableStorage
 }
 
 // Whether the data in the table is compressed.
-func (o GetCatalogTableStorageDescriptorOutput) Compressed() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) bool { return v.Compressed }).(pulumi.BoolOutput)
+func (o GetCatalogTableStorageDescriptorOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
 }
 
 // Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-func (o GetCatalogTableStorageDescriptorOutput) InputFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) string { return v.InputFormat }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
 }
 
 // Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-func (o GetCatalogTableStorageDescriptorOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) string { return v.Location }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // Is if the table contains any dimension columns.
-func (o GetCatalogTableStorageDescriptorOutput) NumberOfBuckets() pulumi.IntOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) int { return v.NumberOfBuckets }).(pulumi.IntOutput)
+func (o GetCatalogTableStorageDescriptorOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
 }
 
 // Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-func (o GetCatalogTableStorageDescriptorOutput) OutputFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) string { return v.OutputFormat }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
 
 // Map of initialization parameters for the SerDe, in key-value form.
@@ -9591,8 +9591,8 @@ func (o GetCatalogTableStorageDescriptorOutput) SortColumns() GetCatalogTableSto
 }
 
 // Whether the table data is stored in subdirectories.
-func (o GetCatalogTableStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) bool { return v.StoredAsSubDirectories }).(pulumi.BoolOutput)
+func (o GetCatalogTableStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
 }
 
 type GetCatalogTableStorageDescriptorArrayOutput struct{ *pulumi.OutputState }
@@ -9617,13 +9617,13 @@ func (o GetCatalogTableStorageDescriptorArrayOutput) Index(i pulumi.IntInput) Ge
 
 type GetCatalogTableStorageDescriptorColumn struct {
 	// Free-form text comment.
-	Comment string `pulumi:"comment"`
+	Comment *string `pulumi:"comment"`
 	// Name of the table.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Datatype of data in the Column.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetCatalogTableStorageDescriptorColumnInput is an input type that accepts GetCatalogTableStorageDescriptorColumnArgs and GetCatalogTableStorageDescriptorColumnOutput values.
@@ -9639,13 +9639,13 @@ type GetCatalogTableStorageDescriptorColumnInput interface {
 
 type GetCatalogTableStorageDescriptorColumnArgs struct {
 	// Free-form text comment.
-	Comment pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// Name of the table.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Datatype of data in the Column.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetCatalogTableStorageDescriptorColumnArgs) ElementType() reflect.Type {
@@ -9700,13 +9700,13 @@ func (o GetCatalogTableStorageDescriptorColumnOutput) ToGetCatalogTableStorageDe
 }
 
 // Free-form text comment.
-func (o GetCatalogTableStorageDescriptorColumnOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) string { return v.Comment }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // Name of the table.
-func (o GetCatalogTableStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorColumnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Map of initialization parameters for the SerDe, in key-value form.
@@ -9715,8 +9715,8 @@ func (o GetCatalogTableStorageDescriptorColumnOutput) Parameters() pulumi.String
 }
 
 // Datatype of data in the Column.
-func (o GetCatalogTableStorageDescriptorColumnOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) string { return v.Type }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetCatalogTableStorageDescriptorColumnArrayOutput struct{ *pulumi.OutputState }
@@ -9743,9 +9743,9 @@ type GetCatalogTableStorageDescriptorSchemaReference struct {
 	// Configuration block that contains schema identity fields. See `schemaId` below.
 	SchemaIds []GetCatalogTableStorageDescriptorSchemaReferenceSchemaId `pulumi:"schemaIds"`
 	// Unique ID assigned to a version of the schema.
-	SchemaVersionId string `pulumi:"schemaVersionId"`
+	SchemaVersionId *string `pulumi:"schemaVersionId"`
 	// Version number of the schema.
-	SchemaVersionNumber int `pulumi:"schemaVersionNumber"`
+	SchemaVersionNumber *int `pulumi:"schemaVersionNumber"`
 }
 
 // GetCatalogTableStorageDescriptorSchemaReferenceInput is an input type that accepts GetCatalogTableStorageDescriptorSchemaReferenceArgs and GetCatalogTableStorageDescriptorSchemaReferenceOutput values.
@@ -9763,9 +9763,9 @@ type GetCatalogTableStorageDescriptorSchemaReferenceArgs struct {
 	// Configuration block that contains schema identity fields. See `schemaId` below.
 	SchemaIds GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayInput `pulumi:"schemaIds"`
 	// Unique ID assigned to a version of the schema.
-	SchemaVersionId pulumi.StringInput `pulumi:"schemaVersionId"`
+	SchemaVersionId pulumi.StringPtrInput `pulumi:"schemaVersionId"`
 	// Version number of the schema.
-	SchemaVersionNumber pulumi.IntInput `pulumi:"schemaVersionNumber"`
+	SchemaVersionNumber pulumi.IntPtrInput `pulumi:"schemaVersionNumber"`
 }
 
 func (GetCatalogTableStorageDescriptorSchemaReferenceArgs) ElementType() reflect.Type {
@@ -9827,13 +9827,13 @@ func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) SchemaIds() GetCa
 }
 
 // Unique ID assigned to a version of the schema.
-func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReference) string { return v.SchemaVersionId }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReference) *string { return v.SchemaVersionId }).(pulumi.StringPtrOutput)
 }
 
 // Version number of the schema.
-func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReference) int { return v.SchemaVersionNumber }).(pulumi.IntOutput)
+func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReference) *int { return v.SchemaVersionNumber }).(pulumi.IntPtrOutput)
 }
 
 type GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput struct{ *pulumi.OutputState }
@@ -9858,11 +9858,11 @@ func (o GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput) Index(i pulu
 
 type GetCatalogTableStorageDescriptorSchemaReferenceSchemaId struct {
 	// Name of the schema registry that contains the schema.
-	RegistryName string `pulumi:"registryName"`
+	RegistryName *string `pulumi:"registryName"`
 	// ARN of the schema.
-	SchemaArn string `pulumi:"schemaArn"`
+	SchemaArn *string `pulumi:"schemaArn"`
 	// Name of the schema.
-	SchemaName string `pulumi:"schemaName"`
+	SchemaName *string `pulumi:"schemaName"`
 }
 
 // GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdInput is an input type that accepts GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs and GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput values.
@@ -9878,11 +9878,11 @@ type GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdInput interface {
 
 type GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs struct {
 	// Name of the schema registry that contains the schema.
-	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	RegistryName pulumi.StringPtrInput `pulumi:"registryName"`
 	// ARN of the schema.
-	SchemaArn pulumi.StringInput `pulumi:"schemaArn"`
+	SchemaArn pulumi.StringPtrInput `pulumi:"schemaArn"`
 	// Name of the schema.
-	SchemaName pulumi.StringInput `pulumi:"schemaName"`
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
 }
 
 func (GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) ElementType() reflect.Type {
@@ -9937,18 +9937,18 @@ func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToGetCata
 }
 
 // Name of the schema registry that contains the schema.
-func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) RegistryName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReferenceSchemaId) string { return v.RegistryName }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReferenceSchemaId) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the schema.
-func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReferenceSchemaId) string { return v.SchemaArn }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReferenceSchemaId) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the schema.
-func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReferenceSchemaId) string { return v.SchemaName }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReferenceSchemaId) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
 type GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput struct{ *pulumi.OutputState }
@@ -9973,11 +9973,11 @@ func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput) Inde
 
 type GetCatalogTableStorageDescriptorSerDeInfo struct {
 	// Name of the table.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-	SerializationLibrary string `pulumi:"serializationLibrary"`
+	SerializationLibrary *string `pulumi:"serializationLibrary"`
 }
 
 // GetCatalogTableStorageDescriptorSerDeInfoInput is an input type that accepts GetCatalogTableStorageDescriptorSerDeInfoArgs and GetCatalogTableStorageDescriptorSerDeInfoOutput values.
@@ -9993,11 +9993,11 @@ type GetCatalogTableStorageDescriptorSerDeInfoInput interface {
 
 type GetCatalogTableStorageDescriptorSerDeInfoArgs struct {
 	// Name of the table.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-	SerializationLibrary pulumi.StringInput `pulumi:"serializationLibrary"`
+	SerializationLibrary pulumi.StringPtrInput `pulumi:"serializationLibrary"`
 }
 
 func (GetCatalogTableStorageDescriptorSerDeInfoArgs) ElementType() reflect.Type {
@@ -10052,8 +10052,8 @@ func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) ToGetCatalogTableStorag
 }
 
 // Name of the table.
-func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSerDeInfo) string { return v.Name }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSerDeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Map of initialization parameters for the SerDe, in key-value form.
@@ -10062,8 +10062,8 @@ func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) Parameters() pulumi.Str
 }
 
 // Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) SerializationLibrary() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSerDeInfo) string { return v.SerializationLibrary }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSerDeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
 }
 
 type GetCatalogTableStorageDescriptorSerDeInfoArrayOutput struct{ *pulumi.OutputState }
@@ -10205,9 +10205,9 @@ func (o GetCatalogTableStorageDescriptorSkewedInfoArrayOutput) Index(i pulumi.In
 
 type GetCatalogTableStorageDescriptorSortColumn struct {
 	// Name of the column.
-	Column string `pulumi:"column"`
+	Column *string `pulumi:"column"`
 	// Whether the column is sorted in ascending (`1`) or descending order (`0`).
-	SortOrder int `pulumi:"sortOrder"`
+	SortOrder *int `pulumi:"sortOrder"`
 }
 
 // GetCatalogTableStorageDescriptorSortColumnInput is an input type that accepts GetCatalogTableStorageDescriptorSortColumnArgs and GetCatalogTableStorageDescriptorSortColumnOutput values.
@@ -10223,9 +10223,9 @@ type GetCatalogTableStorageDescriptorSortColumnInput interface {
 
 type GetCatalogTableStorageDescriptorSortColumnArgs struct {
 	// Name of the column.
-	Column pulumi.StringInput `pulumi:"column"`
+	Column pulumi.StringPtrInput `pulumi:"column"`
 	// Whether the column is sorted in ascending (`1`) or descending order (`0`).
-	SortOrder pulumi.IntInput `pulumi:"sortOrder"`
+	SortOrder pulumi.IntPtrInput `pulumi:"sortOrder"`
 }
 
 func (GetCatalogTableStorageDescriptorSortColumnArgs) ElementType() reflect.Type {
@@ -10280,13 +10280,13 @@ func (o GetCatalogTableStorageDescriptorSortColumnOutput) ToGetCatalogTableStora
 }
 
 // Name of the column.
-func (o GetCatalogTableStorageDescriptorSortColumnOutput) Column() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSortColumn) string { return v.Column }).(pulumi.StringOutput)
+func (o GetCatalogTableStorageDescriptorSortColumnOutput) Column() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSortColumn) *string { return v.Column }).(pulumi.StringPtrOutput)
 }
 
 // Whether the column is sorted in ascending (`1`) or descending order (`0`).
-func (o GetCatalogTableStorageDescriptorSortColumnOutput) SortOrder() pulumi.IntOutput {
-	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSortColumn) int { return v.SortOrder }).(pulumi.IntOutput)
+func (o GetCatalogTableStorageDescriptorSortColumnOutput) SortOrder() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSortColumn) *int { return v.SortOrder }).(pulumi.IntPtrOutput)
 }
 
 type GetCatalogTableStorageDescriptorSortColumnArrayOutput struct{ *pulumi.OutputState }
@@ -10311,11 +10311,11 @@ func (o GetCatalogTableStorageDescriptorSortColumnArrayOutput) Index(i pulumi.In
 
 type GetCatalogTableTargetTable struct {
 	// ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
-	CatalogId string `pulumi:"catalogId"`
+	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides.
-	DatabaseName string `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
 	// Name of the table.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetCatalogTableTargetTableInput is an input type that accepts GetCatalogTableTargetTableArgs and GetCatalogTableTargetTableOutput values.
@@ -10331,11 +10331,11 @@ type GetCatalogTableTargetTableInput interface {
 
 type GetCatalogTableTargetTableArgs struct {
 	// ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
-	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
 	// Name of the table.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetCatalogTableTargetTableArgs) ElementType() reflect.Type {
@@ -10390,18 +10390,18 @@ func (o GetCatalogTableTargetTableOutput) ToGetCatalogTableTargetTableOutputWith
 }
 
 // ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
-func (o GetCatalogTableTargetTableOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.CatalogId }).(pulumi.StringOutput)
+func (o GetCatalogTableTargetTableOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableTargetTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the metadata database where the table metadata resides.
-func (o GetCatalogTableTargetTableOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+func (o GetCatalogTableTargetTableOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableTargetTable) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
 // Name of the table.
-func (o GetCatalogTableTargetTableOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.Name }).(pulumi.StringOutput)
+func (o GetCatalogTableTargetTableOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCatalogTableTargetTable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetCatalogTableTargetTableArrayOutput struct{ *pulumi.OutputState }
@@ -10425,9 +10425,9 @@ func (o GetCatalogTableTargetTableArrayOutput) Index(i pulumi.IntInput) GetCatal
 }
 
 type GetConnectionPhysicalConnectionRequirement struct {
-	AvailabilityZone     string   `pulumi:"availabilityZone"`
+	AvailabilityZone     *string  `pulumi:"availabilityZone"`
 	SecurityGroupIdLists []string `pulumi:"securityGroupIdLists"`
-	SubnetId             string   `pulumi:"subnetId"`
+	SubnetId             *string  `pulumi:"subnetId"`
 }
 
 // GetConnectionPhysicalConnectionRequirementInput is an input type that accepts GetConnectionPhysicalConnectionRequirementArgs and GetConnectionPhysicalConnectionRequirementOutput values.
@@ -10442,9 +10442,9 @@ type GetConnectionPhysicalConnectionRequirementInput interface {
 }
 
 type GetConnectionPhysicalConnectionRequirementArgs struct {
-	AvailabilityZone     pulumi.StringInput      `pulumi:"availabilityZone"`
+	AvailabilityZone     pulumi.StringPtrInput   `pulumi:"availabilityZone"`
 	SecurityGroupIdLists pulumi.StringArrayInput `pulumi:"securityGroupIdLists"`
-	SubnetId             pulumi.StringInput      `pulumi:"subnetId"`
+	SubnetId             pulumi.StringPtrInput   `pulumi:"subnetId"`
 }
 
 func (GetConnectionPhysicalConnectionRequirementArgs) ElementType() reflect.Type {
@@ -10498,16 +10498,16 @@ func (o GetConnectionPhysicalConnectionRequirementOutput) ToGetConnectionPhysica
 	return o
 }
 
-func (o GetConnectionPhysicalConnectionRequirementOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o GetConnectionPhysicalConnectionRequirementOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 func (o GetConnectionPhysicalConnectionRequirementOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
 }
 
-func (o GetConnectionPhysicalConnectionRequirementOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o GetConnectionPhysicalConnectionRequirementOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 type GetConnectionPhysicalConnectionRequirementArrayOutput struct{ *pulumi.OutputState }
@@ -10642,9 +10642,9 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput)
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption struct {
 	// KMS key ARN that is used to encrypt the connection password.
-	AwsKmsKeyId string `pulumi:"awsKmsKeyId"`
+	AwsKmsKeyId *string `pulumi:"awsKmsKeyId"`
 	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
-	ReturnConnectionPasswordEncrypted bool `pulumi:"returnConnectionPasswordEncrypted"`
+	ReturnConnectionPasswordEncrypted *bool `pulumi:"returnConnectionPasswordEncrypted"`
 }
 
 // GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput values.
@@ -10660,9 +10660,9 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPassw
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs struct {
 	// KMS key ARN that is used to encrypt the connection password.
-	AwsKmsKeyId pulumi.StringInput `pulumi:"awsKmsKeyId"`
+	AwsKmsKeyId pulumi.StringPtrInput `pulumi:"awsKmsKeyId"`
 	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
-	ReturnConnectionPasswordEncrypted pulumi.BoolInput `pulumi:"returnConnectionPasswordEncrypted"`
+	ReturnConnectionPasswordEncrypted pulumi.BoolPtrInput `pulumi:"returnConnectionPasswordEncrypted"`
 }
 
 func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs) ElementType() reflect.Type {
@@ -10717,17 +10717,17 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPa
 }
 
 // KMS key ARN that is used to encrypt the connection password.
-func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) AwsKmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption) string {
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) AwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption) *string {
 		return v.AwsKmsKeyId
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
-func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption) bool {
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption) *bool {
 		return v.ReturnConnectionPasswordEncrypted
-	}).(pulumi.BoolOutput)
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput struct{ *pulumi.OutputState }
@@ -10752,9 +10752,9 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPa
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data.
-	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
+	CatalogEncryptionMode *string `pulumi:"catalogEncryptionMode"`
 	// ARN of the AWS KMS key to use for encryption at rest.
-	SseAwsKmsKeyId string `pulumi:"sseAwsKmsKeyId"`
+	SseAwsKmsKeyId *string `pulumi:"sseAwsKmsKeyId"`
 }
 
 // GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput values.
@@ -10770,9 +10770,9 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRes
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data.
-	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
+	CatalogEncryptionMode pulumi.StringPtrInput `pulumi:"catalogEncryptionMode"`
 	// ARN of the AWS KMS key to use for encryption at rest.
-	SseAwsKmsKeyId pulumi.StringInput `pulumi:"sseAwsKmsKeyId"`
+	SseAwsKmsKeyId pulumi.StringPtrInput `pulumi:"sseAwsKmsKeyId"`
 }
 
 func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs) ElementType() reflect.Type {
@@ -10827,17 +10827,17 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAt
 }
 
 // The encryption-at-rest mode for encrypting Data Catalog data.
-func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) string {
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) *string {
 		return v.CatalogEncryptionMode
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // ARN of the AWS KMS key to use for encryption at rest.
-func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) string {
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) *string {
 		return v.SseAwsKmsKeyId
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput struct{ *pulumi.OutputState }

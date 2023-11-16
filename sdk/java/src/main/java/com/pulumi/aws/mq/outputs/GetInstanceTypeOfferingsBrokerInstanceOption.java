@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceTypeOfferingsBrokerInstanceOption {
@@ -15,32 +17,32 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
      * @return List of available AZs. See Availability Zones. below
      * 
      */
-    private List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
+    private @Nullable List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
     /**
      * @return Filter response by engine type.
      * 
      */
-    private String engineType;
+    private @Nullable String engineType;
     /**
      * @return Filter response by host instance type.
      * 
      */
-    private String hostInstanceType;
+    private @Nullable String hostInstanceType;
     /**
      * @return Filter response by storage type.
      * 
      */
-    private String storageType;
+    private @Nullable String storageType;
     /**
      * @return The list of supported deployment modes.
      * 
      */
-    private List<String> supportedDeploymentModes;
+    private @Nullable List<String> supportedDeploymentModes;
     /**
      * @return The list of supported engine versions.
      * 
      */
-    private List<String> supportedEngineVersions;
+    private @Nullable List<String> supportedEngineVersions;
 
     private GetInstanceTypeOfferingsBrokerInstanceOption() {}
     /**
@@ -48,42 +50,42 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
      * 
      */
     public List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones() {
-        return this.availabilityZones;
+        return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
     /**
      * @return Filter response by engine type.
      * 
      */
-    public String engineType() {
-        return this.engineType;
+    public Optional<String> engineType() {
+        return Optional.ofNullable(this.engineType);
     }
     /**
      * @return Filter response by host instance type.
      * 
      */
-    public String hostInstanceType() {
-        return this.hostInstanceType;
+    public Optional<String> hostInstanceType() {
+        return Optional.ofNullable(this.hostInstanceType);
     }
     /**
      * @return Filter response by storage type.
      * 
      */
-    public String storageType() {
-        return this.storageType;
+    public Optional<String> storageType() {
+        return Optional.ofNullable(this.storageType);
     }
     /**
      * @return The list of supported deployment modes.
      * 
      */
     public List<String> supportedDeploymentModes() {
-        return this.supportedDeploymentModes;
+        return this.supportedDeploymentModes == null ? List.of() : this.supportedDeploymentModes;
     }
     /**
      * @return The list of supported engine versions.
      * 
      */
     public List<String> supportedEngineVersions() {
-        return this.supportedEngineVersions;
+        return this.supportedEngineVersions == null ? List.of() : this.supportedEngineVersions;
     }
 
     public static Builder builder() {
@@ -95,12 +97,12 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
-        private String engineType;
-        private String hostInstanceType;
-        private String storageType;
-        private List<String> supportedDeploymentModes;
-        private List<String> supportedEngineVersions;
+        private @Nullable List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
+        private @Nullable String engineType;
+        private @Nullable String hostInstanceType;
+        private @Nullable String storageType;
+        private @Nullable List<String> supportedDeploymentModes;
+        private @Nullable List<String> supportedEngineVersions;
         public Builder() {}
         public Builder(GetInstanceTypeOfferingsBrokerInstanceOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,39 +115,39 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
         }
 
         @CustomType.Setter
-        public Builder availabilityZones(List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+        public Builder availabilityZones(@Nullable List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones) {
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
         @CustomType.Setter
-        public Builder engineType(String engineType) {
-            this.engineType = Objects.requireNonNull(engineType);
+        public Builder engineType(@Nullable String engineType) {
+            this.engineType = engineType;
             return this;
         }
         @CustomType.Setter
-        public Builder hostInstanceType(String hostInstanceType) {
-            this.hostInstanceType = Objects.requireNonNull(hostInstanceType);
+        public Builder hostInstanceType(@Nullable String hostInstanceType) {
+            this.hostInstanceType = hostInstanceType;
             return this;
         }
         @CustomType.Setter
-        public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+        public Builder storageType(@Nullable String storageType) {
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
-        public Builder supportedDeploymentModes(List<String> supportedDeploymentModes) {
-            this.supportedDeploymentModes = Objects.requireNonNull(supportedDeploymentModes);
+        public Builder supportedDeploymentModes(@Nullable List<String> supportedDeploymentModes) {
+            this.supportedDeploymentModes = supportedDeploymentModes;
             return this;
         }
         public Builder supportedDeploymentModes(String... supportedDeploymentModes) {
             return supportedDeploymentModes(List.of(supportedDeploymentModes));
         }
         @CustomType.Setter
-        public Builder supportedEngineVersions(List<String> supportedEngineVersions) {
-            this.supportedEngineVersions = Objects.requireNonNull(supportedEngineVersions);
+        public Builder supportedEngineVersions(@Nullable List<String> supportedEngineVersions) {
+            this.supportedEngineVersions = supportedEngineVersions;
             return this;
         }
         public Builder supportedEngineVersions(String... supportedEngineVersions) {

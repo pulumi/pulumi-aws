@@ -86,7 +86,7 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// The ARN assigned by AWS for this user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// When destroying this user, destroy even if it
 	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
 	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
@@ -104,7 +104,7 @@ type User struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The [unique ID][1] assigned by AWS.
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	UniqueId pulumi.StringPtrOutput `pulumi:"uniqueId"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -309,8 +309,8 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 }
 
 // The ARN assigned by AWS for this user.
-func (o UserOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // When destroying this user, destroy even if it
@@ -348,8 +348,8 @@ func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The [unique ID][1] assigned by AWS.
-func (o UserOutput) UniqueId() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
+func (o UserOutput) UniqueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UniqueId }).(pulumi.StringPtrOutput)
 }
 
 type UserArrayOutput struct{ *pulumi.OutputState }

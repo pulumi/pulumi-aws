@@ -745,7 +745,7 @@ class ReceiptRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The SES receipt rule ARN.
         """
@@ -833,7 +833,7 @@ class ReceiptRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tlsPolicy")
-    def tls_policy(self) -> pulumi.Output[str]:
+    def tls_policy(self) -> pulumi.Output[Optional[str]]:
         """
         `Require` or `Optional`
         """

@@ -263,11 +263,11 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Standard JSON policy document rendered based on the arguments above.
         /// </summary>
-        public readonly string Json;
+        public readonly string? Json;
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetLogDataProtectionPolicyDocumentStatementResult> Statements;
         public readonly string? Version;
@@ -276,9 +276,9 @@ namespace Pulumi.Aws.CloudWatch
         private GetLogDataProtectionPolicyDocumentResult(
             string? description,
 
-            string id,
+            string? id,
 
-            string json,
+            string? json,
 
             string name,
 

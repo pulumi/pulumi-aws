@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Rbin
     public partial class Rule : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The retention rule description.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Information about the retention rule lock configuration. See `lock_configuration` below.
@@ -79,13 +79,13 @@ namespace Pulumi.Aws.Rbin
         /// (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
         /// </summary>
         [Output("lockEndTime")]
-        public Output<string> LockEndTime { get; private set; } = null!;
+        public Output<string?> LockEndTime { get; private set; } = null!;
 
         /// <summary>
         /// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
         /// </summary>
         [Output("lockState")]
-        public Output<string> LockState { get; private set; } = null!;
+        public Output<string?> LockState { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Rbin
         /// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;

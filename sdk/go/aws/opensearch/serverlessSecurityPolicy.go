@@ -348,7 +348,7 @@ type ServerlessSecurityPolicy struct {
 	// JSON policy document to use as the content for the new policy
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Version of the policy.
-	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
+	PolicyVersion pulumi.StringPtrOutput `pulumi:"policyVersion"`
 	// Type of security policy. One of `encryption` or `network`.
 	//
 	// The following arguments are optional:
@@ -554,8 +554,8 @@ func (o ServerlessSecurityPolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // Version of the policy.
-func (o ServerlessSecurityPolicyOutput) PolicyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessSecurityPolicy) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
+func (o ServerlessSecurityPolicyOutput) PolicyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityPolicy) pulumi.StringPtrOutput { return v.PolicyVersion }).(pulumi.StringPtrOutput)
 }
 
 // Type of security policy. One of `encryption` or `network`.

@@ -555,7 +555,7 @@ class CostCategory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the cost category.
         """
@@ -571,7 +571,7 @@ class CostCategory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="effectiveEnd")
-    def effective_end(self) -> pulumi.Output[str]:
+    def effective_end(self) -> pulumi.Output[Optional[str]]:
         """
         Effective end data of your Cost Category.
         """
@@ -579,7 +579,7 @@ class CostCategory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="effectiveStart")
-    def effective_start(self) -> pulumi.Output[str]:
+    def effective_start(self) -> pulumi.Output[Optional[str]]:
         """
         The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
 

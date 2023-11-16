@@ -426,7 +426,7 @@ class ProductSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
         """

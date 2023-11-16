@@ -494,7 +494,7 @@ class Workteam(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
         """
@@ -526,7 +526,7 @@ class Workteam(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdomain(self) -> pulumi.Output[str]:
+    def subdomain(self) -> pulumi.Output[Optional[str]]:
         """
         The subdomain for your OIDC Identity Provider.
         """

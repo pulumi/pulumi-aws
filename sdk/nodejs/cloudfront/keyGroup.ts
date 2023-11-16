@@ -67,7 +67,7 @@ export class KeyGroup extends pulumi.CustomResource {
     /**
      * The identifier for this version of the key group.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A list of the identifiers of the public keys in the key group.
      */

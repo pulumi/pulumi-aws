@@ -169,12 +169,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// ID of the API.
         /// </summary>
-        public readonly string Body;
+        public readonly string? Body;
         public readonly string? ExportVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? IncludeExtensions;
         public readonly string OutputType;
         public readonly string Specification;
@@ -184,11 +184,11 @@ namespace Pulumi.Aws.ApiGatewayV2
         private GetExportResult(
             string apiId,
 
-            string body,
+            string? body,
 
             string? exportVersion,
 
-            string id,
+            string? id,
 
             bool? includeExtensions,
 

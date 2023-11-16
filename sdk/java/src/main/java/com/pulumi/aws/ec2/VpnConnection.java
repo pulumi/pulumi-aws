@@ -213,56 +213,56 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the VPN Connection.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ARN of the core network.
      * 
      */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
-    private Output<String> coreNetworkArn;
+    private Output</* @Nullable */ String> coreNetworkArn;
 
     /**
      * @return The ARN of the core network.
      * 
      */
-    public Output<String> coreNetworkArn() {
-        return this.coreNetworkArn;
+    public Output<Optional<String>> coreNetworkArn() {
+        return Codegen.optional(this.coreNetworkArn);
     }
     /**
      * The ARN of the core network attachment.
      * 
      */
     @Export(name="coreNetworkAttachmentArn", refs={String.class}, tree="[0]")
-    private Output<String> coreNetworkAttachmentArn;
+    private Output</* @Nullable */ String> coreNetworkAttachmentArn;
 
     /**
      * @return The ARN of the core network attachment.
      * 
      */
-    public Output<String> coreNetworkAttachmentArn() {
-        return this.coreNetworkAttachmentArn;
+    public Output<Optional<String>> coreNetworkAttachmentArn() {
+        return Codegen.optional(this.coreNetworkAttachmentArn);
     }
     /**
      * The configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
      * 
      */
     @Export(name="customerGatewayConfiguration", refs={String.class}, tree="[0]")
-    private Output<String> customerGatewayConfiguration;
+    private Output</* @Nullable */ String> customerGatewayConfiguration;
 
     /**
      * @return The configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
      * 
      */
-    public Output<String> customerGatewayConfiguration() {
-        return this.customerGatewayConfiguration;
+    public Output<Optional<String>> customerGatewayConfiguration() {
+        return Codegen.optional(this.customerGatewayConfiguration);
     }
     /**
      * The ID of the customer gateway.
@@ -283,112 +283,112 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enableAcceleration", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableAcceleration;
+    private Output</* @Nullable */ Boolean> enableAcceleration;
 
     /**
      * @return Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      * 
      */
-    public Output<Boolean> enableAcceleration() {
-        return this.enableAcceleration;
+    public Output<Optional<Boolean>> enableAcceleration() {
+        return Codegen.optional(this.enableAcceleration);
     }
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     @Export(name="localIpv4NetworkCidr", refs={String.class}, tree="[0]")
-    private Output<String> localIpv4NetworkCidr;
+    private Output</* @Nullable */ String> localIpv4NetworkCidr;
 
     /**
      * @return The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    public Output<String> localIpv4NetworkCidr() {
-        return this.localIpv4NetworkCidr;
+    public Output<Optional<String>> localIpv4NetworkCidr() {
+        return Codegen.optional(this.localIpv4NetworkCidr);
     }
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     @Export(name="localIpv6NetworkCidr", refs={String.class}, tree="[0]")
-    private Output<String> localIpv6NetworkCidr;
+    private Output</* @Nullable */ String> localIpv6NetworkCidr;
 
     /**
      * @return The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    public Output<String> localIpv6NetworkCidr() {
-        return this.localIpv6NetworkCidr;
+    public Output<Optional<String>> localIpv6NetworkCidr() {
+        return Codegen.optional(this.localIpv6NetworkCidr);
     }
     /**
      * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
      * 
      */
     @Export(name="outsideIpAddressType", refs={String.class}, tree="[0]")
-    private Output<String> outsideIpAddressType;
+    private Output</* @Nullable */ String> outsideIpAddressType;
 
     /**
      * @return Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
      * 
      */
-    public Output<String> outsideIpAddressType() {
-        return this.outsideIpAddressType;
+    public Output<Optional<String>> outsideIpAddressType() {
+        return Codegen.optional(this.outsideIpAddressType);
     }
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
     @Export(name="remoteIpv4NetworkCidr", refs={String.class}, tree="[0]")
-    private Output<String> remoteIpv4NetworkCidr;
+    private Output</* @Nullable */ String> remoteIpv4NetworkCidr;
 
     /**
      * @return The IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
-    public Output<String> remoteIpv4NetworkCidr() {
-        return this.remoteIpv4NetworkCidr;
+    public Output<Optional<String>> remoteIpv4NetworkCidr() {
+        return Codegen.optional(this.remoteIpv4NetworkCidr);
     }
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     @Export(name="remoteIpv6NetworkCidr", refs={String.class}, tree="[0]")
-    private Output<String> remoteIpv6NetworkCidr;
+    private Output</* @Nullable */ String> remoteIpv6NetworkCidr;
 
     /**
      * @return The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    public Output<String> remoteIpv6NetworkCidr() {
-        return this.remoteIpv6NetworkCidr;
+    public Output<Optional<String>> remoteIpv6NetworkCidr() {
+        return Codegen.optional(this.remoteIpv6NetworkCidr);
     }
     /**
      * The static routes associated with the VPN connection. Detailed below.
      * 
      */
     @Export(name="routes", refs={List.class,VpnConnectionRoute.class}, tree="[0,1]")
-    private Output<List<VpnConnectionRoute>> routes;
+    private Output</* @Nullable */ List<VpnConnectionRoute>> routes;
 
     /**
      * @return The static routes associated with the VPN connection. Detailed below.
      * 
      */
-    public Output<List<VpnConnectionRoute>> routes() {
-        return this.routes;
+    public Output<Optional<List<VpnConnectionRoute>>> routes() {
+        return Codegen.optional(this.routes);
     }
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don&#39;t support BGP.
      * 
      */
     @Export(name="staticRoutesOnly", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> staticRoutesOnly;
+    private Output</* @Nullable */ Boolean> staticRoutesOnly;
 
     /**
      * @return Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don&#39;t support BGP.
      * 
      */
-    public Output<Boolean> staticRoutesOnly() {
-        return this.staticRoutesOnly;
+    public Output<Optional<Boolean>> staticRoutesOnly() {
+        return Codegen.optional(this.staticRoutesOnly);
     }
     /**
      * Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -427,14 +427,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
-    private Output<String> transitGatewayAttachmentId;
+    private Output</* @Nullable */ String> transitGatewayAttachmentId;
 
     /**
      * @return When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      * 
      */
-    public Output<String> transitGatewayAttachmentId() {
-        return this.transitGatewayAttachmentId;
+    public Output<Optional<String>> transitGatewayAttachmentId() {
+        return Codegen.optional(this.transitGatewayAttachmentId);
     }
     /**
      * The ID of the EC2 Transit Gateway.
@@ -469,56 +469,56 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tunnel1Address", refs={String.class}, tree="[0]")
-    private Output<String> tunnel1Address;
+    private Output</* @Nullable */ String> tunnel1Address;
 
     /**
      * @return The public IP address of the first VPN tunnel.
      * 
      */
-    public Output<String> tunnel1Address() {
-        return this.tunnel1Address;
+    public Output<Optional<String>> tunnel1Address() {
+        return Codegen.optional(this.tunnel1Address);
     }
     /**
      * The bgp asn number of the first VPN tunnel.
      * 
      */
     @Export(name="tunnel1BgpAsn", refs={String.class}, tree="[0]")
-    private Output<String> tunnel1BgpAsn;
+    private Output</* @Nullable */ String> tunnel1BgpAsn;
 
     /**
      * @return The bgp asn number of the first VPN tunnel.
      * 
      */
-    public Output<String> tunnel1BgpAsn() {
-        return this.tunnel1BgpAsn;
+    public Output<Optional<String>> tunnel1BgpAsn() {
+        return Codegen.optional(this.tunnel1BgpAsn);
     }
     /**
      * The bgp holdtime of the first VPN tunnel.
      * 
      */
     @Export(name="tunnel1BgpHoldtime", refs={Integer.class}, tree="[0]")
-    private Output<Integer> tunnel1BgpHoldtime;
+    private Output</* @Nullable */ Integer> tunnel1BgpHoldtime;
 
     /**
      * @return The bgp holdtime of the first VPN tunnel.
      * 
      */
-    public Output<Integer> tunnel1BgpHoldtime() {
-        return this.tunnel1BgpHoldtime;
+    public Output<Optional<Integer>> tunnel1BgpHoldtime() {
+        return Codegen.optional(this.tunnel1BgpHoldtime);
     }
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      * 
      */
     @Export(name="tunnel1CgwInsideAddress", refs={String.class}, tree="[0]")
-    private Output<String> tunnel1CgwInsideAddress;
+    private Output</* @Nullable */ String> tunnel1CgwInsideAddress;
 
     /**
      * @return The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      * 
      */
-    public Output<String> tunnel1CgwInsideAddress() {
-        return this.tunnel1CgwInsideAddress;
+    public Output<Optional<String>> tunnel1CgwInsideAddress() {
+        return Codegen.optional(this.tunnel1CgwInsideAddress);
     }
     /**
      * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -581,42 +581,42 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tunnel1InsideCidr", refs={String.class}, tree="[0]")
-    private Output<String> tunnel1InsideCidr;
+    private Output</* @Nullable */ String> tunnel1InsideCidr;
 
     /**
      * @return The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
-    public Output<String> tunnel1InsideCidr() {
-        return this.tunnel1InsideCidr;
+    public Output<Optional<String>> tunnel1InsideCidr() {
+        return Codegen.optional(this.tunnel1InsideCidr);
     }
     /**
      * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     @Export(name="tunnel1InsideIpv6Cidr", refs={String.class}, tree="[0]")
-    private Output<String> tunnel1InsideIpv6Cidr;
+    private Output</* @Nullable */ String> tunnel1InsideIpv6Cidr;
 
     /**
      * @return The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
-    public Output<String> tunnel1InsideIpv6Cidr() {
-        return this.tunnel1InsideIpv6Cidr;
+    public Output<Optional<String>> tunnel1InsideIpv6Cidr() {
+        return Codegen.optional(this.tunnel1InsideIpv6Cidr);
     }
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
     @Export(name="tunnel1LogOptions", refs={VpnConnectionTunnel1LogOptions.class}, tree="[0]")
-    private Output<VpnConnectionTunnel1LogOptions> tunnel1LogOptions;
+    private Output</* @Nullable */ VpnConnectionTunnel1LogOptions> tunnel1LogOptions;
 
     /**
      * @return Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
-    public Output<VpnConnectionTunnel1LogOptions> tunnel1LogOptions() {
-        return this.tunnel1LogOptions;
+    public Output<Optional<VpnConnectionTunnel1LogOptions>> tunnel1LogOptions() {
+        return Codegen.optional(this.tunnel1LogOptions);
     }
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
@@ -735,14 +735,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tunnel1PresharedKey", refs={String.class}, tree="[0]")
-    private Output<String> tunnel1PresharedKey;
+    private Output</* @Nullable */ String> tunnel1PresharedKey;
 
     /**
      * @return The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
-    public Output<String> tunnel1PresharedKey() {
-        return this.tunnel1PresharedKey;
+    public Output<Optional<String>> tunnel1PresharedKey() {
+        return Codegen.optional(this.tunnel1PresharedKey);
     }
     /**
      * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
@@ -805,70 +805,70 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tunnel1VgwInsideAddress", refs={String.class}, tree="[0]")
-    private Output<String> tunnel1VgwInsideAddress;
+    private Output</* @Nullable */ String> tunnel1VgwInsideAddress;
 
     /**
      * @return The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
      * 
      */
-    public Output<String> tunnel1VgwInsideAddress() {
-        return this.tunnel1VgwInsideAddress;
+    public Output<Optional<String>> tunnel1VgwInsideAddress() {
+        return Codegen.optional(this.tunnel1VgwInsideAddress);
     }
     /**
      * The public IP address of the second VPN tunnel.
      * 
      */
     @Export(name="tunnel2Address", refs={String.class}, tree="[0]")
-    private Output<String> tunnel2Address;
+    private Output</* @Nullable */ String> tunnel2Address;
 
     /**
      * @return The public IP address of the second VPN tunnel.
      * 
      */
-    public Output<String> tunnel2Address() {
-        return this.tunnel2Address;
+    public Output<Optional<String>> tunnel2Address() {
+        return Codegen.optional(this.tunnel2Address);
     }
     /**
      * The bgp asn number of the second VPN tunnel.
      * 
      */
     @Export(name="tunnel2BgpAsn", refs={String.class}, tree="[0]")
-    private Output<String> tunnel2BgpAsn;
+    private Output</* @Nullable */ String> tunnel2BgpAsn;
 
     /**
      * @return The bgp asn number of the second VPN tunnel.
      * 
      */
-    public Output<String> tunnel2BgpAsn() {
-        return this.tunnel2BgpAsn;
+    public Output<Optional<String>> tunnel2BgpAsn() {
+        return Codegen.optional(this.tunnel2BgpAsn);
     }
     /**
      * The bgp holdtime of the second VPN tunnel.
      * 
      */
     @Export(name="tunnel2BgpHoldtime", refs={Integer.class}, tree="[0]")
-    private Output<Integer> tunnel2BgpHoldtime;
+    private Output</* @Nullable */ Integer> tunnel2BgpHoldtime;
 
     /**
      * @return The bgp holdtime of the second VPN tunnel.
      * 
      */
-    public Output<Integer> tunnel2BgpHoldtime() {
-        return this.tunnel2BgpHoldtime;
+    public Output<Optional<Integer>> tunnel2BgpHoldtime() {
+        return Codegen.optional(this.tunnel2BgpHoldtime);
     }
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      * 
      */
     @Export(name="tunnel2CgwInsideAddress", refs={String.class}, tree="[0]")
-    private Output<String> tunnel2CgwInsideAddress;
+    private Output</* @Nullable */ String> tunnel2CgwInsideAddress;
 
     /**
      * @return The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      * 
      */
-    public Output<String> tunnel2CgwInsideAddress() {
-        return this.tunnel2CgwInsideAddress;
+    public Output<Optional<String>> tunnel2CgwInsideAddress() {
+        return Codegen.optional(this.tunnel2CgwInsideAddress);
     }
     /**
      * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -931,42 +931,42 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tunnel2InsideCidr", refs={String.class}, tree="[0]")
-    private Output<String> tunnel2InsideCidr;
+    private Output</* @Nullable */ String> tunnel2InsideCidr;
 
     /**
      * @return The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
-    public Output<String> tunnel2InsideCidr() {
-        return this.tunnel2InsideCidr;
+    public Output<Optional<String>> tunnel2InsideCidr() {
+        return Codegen.optional(this.tunnel2InsideCidr);
     }
     /**
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     @Export(name="tunnel2InsideIpv6Cidr", refs={String.class}, tree="[0]")
-    private Output<String> tunnel2InsideIpv6Cidr;
+    private Output</* @Nullable */ String> tunnel2InsideIpv6Cidr;
 
     /**
      * @return The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
-    public Output<String> tunnel2InsideIpv6Cidr() {
-        return this.tunnel2InsideIpv6Cidr;
+    public Output<Optional<String>> tunnel2InsideIpv6Cidr() {
+        return Codegen.optional(this.tunnel2InsideIpv6Cidr);
     }
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
     @Export(name="tunnel2LogOptions", refs={VpnConnectionTunnel2LogOptions.class}, tree="[0]")
-    private Output<VpnConnectionTunnel2LogOptions> tunnel2LogOptions;
+    private Output</* @Nullable */ VpnConnectionTunnel2LogOptions> tunnel2LogOptions;
 
     /**
      * @return Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
-    public Output<VpnConnectionTunnel2LogOptions> tunnel2LogOptions() {
-        return this.tunnel2LogOptions;
+    public Output<Optional<VpnConnectionTunnel2LogOptions>> tunnel2LogOptions() {
+        return Codegen.optional(this.tunnel2LogOptions);
     }
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
@@ -1085,14 +1085,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tunnel2PresharedKey", refs={String.class}, tree="[0]")
-    private Output<String> tunnel2PresharedKey;
+    private Output</* @Nullable */ String> tunnel2PresharedKey;
 
     /**
      * @return The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
-    public Output<String> tunnel2PresharedKey() {
-        return this.tunnel2PresharedKey;
+    public Output<Optional<String>> tunnel2PresharedKey() {
+        return Codegen.optional(this.tunnel2PresharedKey);
     }
     /**
      * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
@@ -1155,28 +1155,28 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tunnel2VgwInsideAddress", refs={String.class}, tree="[0]")
-    private Output<String> tunnel2VgwInsideAddress;
+    private Output</* @Nullable */ String> tunnel2VgwInsideAddress;
 
     /**
      * @return The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
      * 
      */
-    public Output<String> tunnel2VgwInsideAddress() {
-        return this.tunnel2VgwInsideAddress;
+    public Output<Optional<String>> tunnel2VgwInsideAddress() {
+        return Codegen.optional(this.tunnel2VgwInsideAddress);
     }
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      * 
      */
     @Export(name="tunnelInsideIpVersion", refs={String.class}, tree="[0]")
-    private Output<String> tunnelInsideIpVersion;
+    private Output</* @Nullable */ String> tunnelInsideIpVersion;
 
     /**
      * @return Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      * 
      */
-    public Output<String> tunnelInsideIpVersion() {
-        return this.tunnelInsideIpVersion;
+    public Output<Optional<String>> tunnelInsideIpVersion() {
+        return Codegen.optional(this.tunnelInsideIpVersion);
     }
     /**
      * The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
@@ -1197,14 +1197,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vgwTelemetries", refs={List.class,VpnConnectionVgwTelemetry.class}, tree="[0,1]")
-    private Output<List<VpnConnectionVgwTelemetry>> vgwTelemetries;
+    private Output</* @Nullable */ List<VpnConnectionVgwTelemetry>> vgwTelemetries;
 
     /**
      * @return Telemetry for the VPN tunnels. Detailed below.
      * 
      */
-    public Output<List<VpnConnectionVgwTelemetry>> vgwTelemetries() {
-        return this.vgwTelemetries;
+    public Output<Optional<List<VpnConnectionVgwTelemetry>>> vgwTelemetries() {
+        return Codegen.optional(this.vgwTelemetries);
     }
     /**
      * The ID of the Virtual Private Gateway.

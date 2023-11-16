@@ -166,14 +166,14 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the AppConfig  hosted configuration version.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration profile ID.
@@ -236,14 +236,14 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
-    private Output<Integer> versionNumber;
+    private Output</* @Nullable */ Integer> versionNumber;
 
     /**
      * @return Version number of the hosted configuration.
      * 
      */
-    public Output<Integer> versionNumber() {
-        return this.versionNumber;
+    public Output<Optional<Integer>> versionNumber() {
+        return Codegen.optional(this.versionNumber);
     }
 
     /**

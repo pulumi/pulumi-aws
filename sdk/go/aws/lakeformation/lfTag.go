@@ -58,7 +58,7 @@ type LfTag struct {
 	pulumi.CustomResourceState
 
 	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// Key-name for the tag.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// List of possible values an attribute can take.
@@ -229,8 +229,8 @@ func (o LfTagOutput) ToLfTagOutputWithContext(ctx context.Context) LfTagOutput {
 }
 
 // ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-func (o LfTagOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+func (o LfTagOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LfTag) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // Key-name for the tag.

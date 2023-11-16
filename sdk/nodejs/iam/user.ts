@@ -74,7 +74,7 @@ export class User extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this user.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * When destroying this user, destroy even if it
      * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
@@ -106,7 +106,7 @@ export class User extends pulumi.CustomResource {
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("lockToken")]
-        public Output<string> LockToken { get; private set; } = null!;
+        public Output<string?> LockToken { get; private set; } = null!;
 
         /// <summary>
         /// A friendly name of the rule group.
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Name { get; private set; } = null!;
 
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.

@@ -687,7 +687,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the route.
         """
@@ -695,7 +695,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         Creation date of the route.
         """
@@ -703,7 +703,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> pulumi.Output[str]:
+    def last_updated_date(self) -> pulumi.Output[Optional[str]]:
         """
         Last update date of the route.
         """
@@ -719,7 +719,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="meshOwner")
-    def mesh_owner(self) -> pulumi.Output[str]:
+    def mesh_owner(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         """
@@ -735,7 +735,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceOwner")
-    def resource_owner(self) -> pulumi.Output[str]:
+    def resource_owner(self) -> pulumi.Output[Optional[str]]:
         """
         Resource owner's AWS account ID.
         """

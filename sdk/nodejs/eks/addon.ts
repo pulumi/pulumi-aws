@@ -119,11 +119,11 @@ export class Addon extends pulumi.CustomResource {
      * The version of the EKS add-on. The version must
      * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
-    public readonly addonVersion!: pulumi.Output<string>;
+    public readonly addonVersion!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the EKS add-on.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      *
@@ -133,15 +133,15 @@ export class Addon extends pulumi.CustomResource {
     /**
      * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      */
-    public readonly configurationValues!: pulumi.Output<string>;
+    public readonly configurationValues!: pulumi.Output<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    public /*out*/ readonly modifiedAt!: pulumi.Output<string | undefined>;
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */

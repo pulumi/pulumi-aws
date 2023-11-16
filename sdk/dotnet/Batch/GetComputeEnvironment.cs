@@ -130,62 +130,62 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// ARN of the compute environment.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly string ComputeEnvironmentName;
         /// <summary>
         /// ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
-        public readonly string EcsClusterArn;
+        public readonly string? EcsClusterArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
-        public readonly string ServiceRole;
+        public readonly string? ServiceRole;
         /// <summary>
         /// State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// Current status of the compute environment (for example, `CREATING` or `VALID`).
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Short, human-readable string to provide additional details about the current status of the compute environment.
         /// </summary>
-        public readonly string StatusReason;
+        public readonly string? StatusReason;
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetComputeEnvironmentResult(
-            string arn,
+            string? arn,
 
             string computeEnvironmentName,
 
-            string ecsClusterArn,
+            string? ecsClusterArn,
 
-            string id,
+            string? id,
 
-            string serviceRole,
+            string? serviceRole,
 
-            string state,
+            string? state,
 
-            string status,
+            string? status,
 
-            string statusReason,
+            string? statusReason,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? type)
         {
             Arn = arn;
             ComputeEnvironmentName = computeEnvironmentName;

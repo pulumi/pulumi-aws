@@ -244,14 +244,14 @@ public class Invocation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="result", refs={String.class}, tree="[0]")
-    private Output<String> result;
+    private Output</* @Nullable */ String> result;
 
     /**
      * @return String result of the lambda function invocation.
      * 
      */
-    public Output<String> result() {
-        return this.result;
+    public Output<Optional<String>> result() {
+        return Codegen.optional(this.result);
     }
     @Export(name="terraformKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> terraformKey;

@@ -85,14 +85,14 @@ public class Member extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="administratorId", refs={String.class}, tree="[0]")
-    private Output<String> administratorId;
+    private Output</* @Nullable */ String> administratorId;
 
     /**
      * @return AWS account ID for the administrator account.
      * 
      */
-    public Output<String> administratorId() {
-        return this.administratorId;
+    public Output<Optional<String>> administratorId() {
+        return Codegen.optional(this.administratorId);
     }
     /**
      * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
@@ -109,10 +109,10 @@ public class Member extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.disableEmailNotification);
     }
     @Export(name="disabledReason", refs={String.class}, tree="[0]")
-    private Output<String> disabledReason;
+    private Output</* @Nullable */ String> disabledReason;
 
-    public Output<String> disabledReason() {
-        return this.disabledReason;
+    public Output<Optional<String>> disabledReason() {
+        return Codegen.optional(this.disabledReason);
     }
     /**
      * Email address for the account.
@@ -147,14 +147,14 @@ public class Member extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="invitedTime", refs={String.class}, tree="[0]")
-    private Output<String> invitedTime;
+    private Output</* @Nullable */ String> invitedTime;
 
     /**
      * @return Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
      * 
      */
-    public Output<String> invitedTime() {
-        return this.invitedTime;
+    public Output<Optional<String>> invitedTime() {
+        return Codegen.optional(this.invitedTime);
     }
     /**
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
@@ -175,42 +175,42 @@ public class Member extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Current membership status of the member account.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account&#39;s status.
      * 
      */
     @Export(name="updatedTime", refs={String.class}, tree="[0]")
-    private Output<String> updatedTime;
+    private Output</* @Nullable */ String> updatedTime;
 
     /**
      * @return Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account&#39;s status.
      * 
      */
-    public Output<String> updatedTime() {
-        return this.updatedTime;
+    public Output<Optional<String>> updatedTime() {
+        return Codegen.optional(this.updatedTime);
     }
     /**
      * Data volume in bytes per day for the member account.
      * 
      */
     @Export(name="volumeUsageInBytes", refs={String.class}, tree="[0]")
-    private Output<String> volumeUsageInBytes;
+    private Output</* @Nullable */ String> volumeUsageInBytes;
 
     /**
      * @return Data volume in bytes per day for the member account.
      * 
      */
-    public Output<String> volumeUsageInBytes() {
-        return this.volumeUsageInBytes;
+    public Output<Optional<String>> volumeUsageInBytes() {
+        return Codegen.optional(this.volumeUsageInBytes);
     }
 
     /**

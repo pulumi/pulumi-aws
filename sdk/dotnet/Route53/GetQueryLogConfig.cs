@@ -241,38 +241,38 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetQueryLogConfigResult
     {
-        public readonly string Arn;
-        public readonly string DestinationArn;
+        public readonly string? Arn;
+        public readonly string? DestinationArn;
         public readonly ImmutableArray<Outputs.GetQueryLogConfigFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? Name;
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         public readonly string? ResolverQueryLogConfigId;
-        public readonly string ShareStatus;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? ShareStatus;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetQueryLogConfigResult(
-            string arn,
+            string? arn,
 
-            string destinationArn,
+            string? destinationArn,
 
             ImmutableArray<Outputs.GetQueryLogConfigFilterResult> filters,
 
-            string id,
+            string? id,
 
             string? name,
 
-            string ownerId,
+            string? ownerId,
 
             string? resolverQueryLogConfigId,
 
-            string shareStatus,
+            string? shareStatus,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             DestinationArn = destinationArn;

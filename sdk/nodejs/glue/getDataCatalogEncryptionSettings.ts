@@ -36,11 +36,11 @@ export interface GetDataCatalogEncryptionSettingsResult {
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */
-    readonly dataCatalogEncryptionSettings: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting[];
+    readonly dataCatalogEncryptionSettings?: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.

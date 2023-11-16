@@ -544,7 +544,7 @@ class ConfigurationProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the AppConfig Configuration Profile.
         """
@@ -552,7 +552,7 @@ class ConfigurationProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationProfileId")
-    def configuration_profile_id(self) -> pulumi.Output[str]:
+    def configuration_profile_id(self) -> pulumi.Output[Optional[str]]:
         """
         The configuration profile ID.
         """

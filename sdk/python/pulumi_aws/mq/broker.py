@@ -1084,7 +1084,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the broker.
         """
@@ -1092,7 +1092,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationStrategy")
-    def authentication_strategy(self) -> pulumi.Output[str]:
+    def authentication_strategy(self) -> pulumi.Output[Optional[str]]:
         """
         Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         """
@@ -1116,7 +1116,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output['outputs.BrokerConfiguration']:
+    def configuration(self) -> pulumi.Output[Optional['outputs.BrokerConfiguration']]:
         """
         Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         """
@@ -1164,7 +1164,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> pulumi.Output[Sequence['outputs.BrokerInstance']]:
+    def instances(self) -> pulumi.Output[Optional[Sequence['outputs.BrokerInstance']]]:
         """
         List of information about allocated brokers (both active & standby).
         * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
@@ -1199,7 +1199,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindowStartTime")
-    def maintenance_window_start_time(self) -> pulumi.Output['outputs.BrokerMaintenanceWindowStartTime']:
+    def maintenance_window_start_time(self) -> pulumi.Output[Optional['outputs.BrokerMaintenanceWindowStartTime']]:
         """
         Configuration block for the maintenance window start time. Detailed below.
         """
@@ -1223,7 +1223,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> pulumi.Output[str]:
+    def storage_type(self) -> pulumi.Output[Optional[str]]:
         """
         Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         """
@@ -1231,7 +1231,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+    def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         """

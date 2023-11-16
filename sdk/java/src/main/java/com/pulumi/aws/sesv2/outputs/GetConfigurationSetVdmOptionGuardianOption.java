@@ -6,6 +6,8 @@ package com.pulumi.aws.sesv2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationSetVdmOptionGuardianOption {
@@ -13,15 +15,15 @@ public final class GetConfigurationSetVdmOptionGuardianOption {
      * @return Specifies the status of your VDM optimized shared delivery.
      * 
      */
-    private String optimizedSharedDelivery;
+    private @Nullable String optimizedSharedDelivery;
 
     private GetConfigurationSetVdmOptionGuardianOption() {}
     /**
      * @return Specifies the status of your VDM optimized shared delivery.
      * 
      */
-    public String optimizedSharedDelivery() {
-        return this.optimizedSharedDelivery;
+    public Optional<String> optimizedSharedDelivery() {
+        return Optional.ofNullable(this.optimizedSharedDelivery);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetConfigurationSetVdmOptionGuardianOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String optimizedSharedDelivery;
+        private @Nullable String optimizedSharedDelivery;
         public Builder() {}
         public Builder(GetConfigurationSetVdmOptionGuardianOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetConfigurationSetVdmOptionGuardianOption {
         }
 
         @CustomType.Setter
-        public Builder optimizedSharedDelivery(String optimizedSharedDelivery) {
-            this.optimizedSharedDelivery = Objects.requireNonNull(optimizedSharedDelivery);
+        public Builder optimizedSharedDelivery(@Nullable String optimizedSharedDelivery) {
+            this.optimizedSharedDelivery = optimizedSharedDelivery;
             return this;
         }
         public GetConfigurationSetVdmOptionGuardianOption build() {

@@ -6,18 +6,20 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecHttp2RouteActionRewritePrefix {
-    private String defaultPrefix;
-    private String value;
+    private @Nullable String defaultPrefix;
+    private @Nullable String value;
 
     private GetGatewayRouteSpecHttp2RouteActionRewritePrefix() {}
-    public String defaultPrefix() {
-        return this.defaultPrefix;
+    public Optional<String> defaultPrefix() {
+        return Optional.ofNullable(this.defaultPrefix);
     }
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetGatewayRouteSpecHttp2RouteActionRewritePrefix {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String defaultPrefix;
-        private String value;
+        private @Nullable String defaultPrefix;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttp2RouteActionRewritePrefix defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetGatewayRouteSpecHttp2RouteActionRewritePrefix {
         }
 
         @CustomType.Setter
-        public Builder defaultPrefix(String defaultPrefix) {
-            this.defaultPrefix = Objects.requireNonNull(defaultPrefix);
+        public Builder defaultPrefix(@Nullable String defaultPrefix) {
+            this.defaultPrefix = defaultPrefix;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetGatewayRouteSpecHttp2RouteActionRewritePrefix build() {

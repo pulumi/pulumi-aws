@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -84,14 +85,14 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="fingerprint", refs={String.class}, tree="[0]")
-    private Output<String> fingerprint;
+    private Output</* @Nullable */ String> fingerprint;
 
     /**
      * @return The MD5 message digest of the SSH public key.
      * 
      */
-    public Output<String> fingerprint() {
-        return this.fingerprint;
+    public Output<Optional<String>> fingerprint() {
+        return Codegen.optional(this.fingerprint);
     }
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
@@ -112,28 +113,28 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sshPublicKeyId", refs={String.class}, tree="[0]")
-    private Output<String> sshPublicKeyId;
+    private Output</* @Nullable */ String> sshPublicKeyId;
 
     /**
      * @return The unique identifier for the SSH public key.
      * 
      */
-    public Output<String> sshPublicKeyId() {
-        return this.sshPublicKeyId;
+    public Output<Optional<String>> sshPublicKeyId() {
+        return Codegen.optional(this.sshPublicKeyId);
     }
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * The name of the IAM user to associate the SSH public key with.

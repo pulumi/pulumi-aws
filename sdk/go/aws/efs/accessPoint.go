@@ -53,16 +53,16 @@ type AccessPoint struct {
 	pulumi.CustomResourceState
 
 	// ARN of the access point.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN of the file system.
-	FileSystemArn pulumi.StringOutput `pulumi:"fileSystemArn"`
+	FileSystemArn pulumi.StringPtrOutput `pulumi:"fileSystemArn"`
 	// ID of the file system for which the access point is intended.
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
-	OwnerId      pulumi.StringOutput `pulumi:"ownerId"`
+	FileSystemId pulumi.StringOutput    `pulumi:"fileSystemId"`
+	OwnerId      pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrOutput `pulumi:"posixUser"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-	RootDirectory AccessPointRootDirectoryOutput `pulumi:"rootDirectory"`
+	RootDirectory AccessPointRootDirectoryPtrOutput `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -262,13 +262,13 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 }
 
 // ARN of the access point.
-func (o AccessPointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AccessPointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the file system.
-func (o AccessPointOutput) FileSystemArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.FileSystemArn }).(pulumi.StringOutput)
+func (o AccessPointOutput) FileSystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.FileSystemArn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the file system for which the access point is intended.
@@ -276,8 +276,8 @@ func (o AccessPointOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-func (o AccessPointOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o AccessPointOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Operating system user and group applied to all file system requests made using the access point. Detailed below.
@@ -286,8 +286,8 @@ func (o AccessPointOutput) PosixUser() AccessPointPosixUserPtrOutput {
 }
 
 // Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-func (o AccessPointOutput) RootDirectory() AccessPointRootDirectoryOutput {
-	return o.ApplyT(func(v *AccessPoint) AccessPointRootDirectoryOutput { return v.RootDirectory }).(AccessPointRootDirectoryOutput)
+func (o AccessPointOutput) RootDirectory() AccessPointRootDirectoryPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointRootDirectoryPtrOutput { return v.RootDirectory }).(AccessPointRootDirectoryPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

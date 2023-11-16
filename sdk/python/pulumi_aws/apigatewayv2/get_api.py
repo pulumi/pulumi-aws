@@ -68,7 +68,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="apiEndpoint")
-    def api_endpoint(self) -> str:
+    def api_endpoint(self) -> Optional[str]:
         """
         URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         """
@@ -81,7 +81,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="apiKeySelectionExpression")
-    def api_key_selection_expression(self) -> str:
+    def api_key_selection_expression(self) -> Optional[str]:
         """
         An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
         Applicable for WebSocket APIs.
@@ -90,7 +90,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the API.
         """
@@ -98,7 +98,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="corsConfigurations")
-    def cors_configurations(self) -> Sequence['outputs.GetApiCorsConfigurationResult']:
+    def cors_configurations(self) -> Optional[Sequence['outputs.GetApiCorsConfigurationResult']]:
         """
         Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
         Applicable for HTTP APIs.
@@ -107,7 +107,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the API.
         """
@@ -115,7 +115,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="disableExecuteApiEndpoint")
-    def disable_execute_api_endpoint(self) -> bool:
+    def disable_execute_api_endpoint(self) -> Optional[bool]:
         """
         Whether clients can invoke the API by using the default `execute-api` endpoint.
         """
@@ -123,7 +123,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> str:
+    def execution_arn(self) -> Optional[str]:
         """
         ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
         or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
@@ -133,7 +133,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -141,7 +141,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the API.
         """
@@ -149,7 +149,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> str:
+    def protocol_type(self) -> Optional[str]:
         """
         API protocol.
         """
@@ -157,7 +157,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="routeSelectionExpression")
-    def route_selection_expression(self) -> str:
+    def route_selection_expression(self) -> Optional[str]:
         """
         The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         """
@@ -165,7 +165,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of resource tags.
         """
@@ -173,7 +173,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Version identifier for the API.
         """

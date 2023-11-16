@@ -40,7 +40,7 @@ class GetAliasResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name(ARN) of the key alias.
         """
@@ -48,7 +48,7 @@ class GetAliasResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -61,7 +61,7 @@ class GetAliasResult:
 
     @property
     @pulumi.getter(name="targetKeyArn")
-    def target_key_arn(self) -> str:
+    def target_key_arn(self) -> Optional[str]:
         """
         ARN pointed to by the alias.
         """
@@ -69,7 +69,7 @@ class GetAliasResult:
 
     @property
     @pulumi.getter(name="targetKeyId")
-    def target_key_id(self) -> str:
+    def target_key_id(self) -> Optional[str]:
         """
         Key identifier pointed to by the alias.
         """

@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerConnectionPoolTcpResult
     {
-        public readonly int MaxConnections;
+        public readonly int? MaxConnections;
 
         [OutputConstructor]
-        private GetVirtualNodeSpecListenerConnectionPoolTcpResult(int maxConnections)
+        private GetVirtualNodeSpecListenerConnectionPoolTcpResult(int? maxConnections)
         {
             MaxConnections = maxConnections;
         }

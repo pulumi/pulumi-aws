@@ -216,28 +216,28 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
-    private Output<String> alias;
+    private Output</* @Nullable */ String> alias;
 
     /**
      * @return The directory alias.
      * 
      */
-    public Output<String> alias() {
-        return this.alias;
+    public Output<Optional<String>> alias() {
+        return Codegen.optional(this.alias);
     }
     /**
      * The user name for the service account.
      * 
      */
     @Export(name="customerUserName", refs={String.class}, tree="[0]")
-    private Output<String> customerUserName;
+    private Output</* @Nullable */ String> customerUserName;
 
     /**
      * @return The user name for the service account.
      * 
      */
-    public Output<String> customerUserName() {
-        return this.customerUserName;
+    public Output<Optional<String>> customerUserName() {
+        return Codegen.optional(this.customerUserName);
     }
     /**
      * The directory identifier for registration in WorkSpaces service.
@@ -258,112 +258,112 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="directoryName", refs={String.class}, tree="[0]")
-    private Output<String> directoryName;
+    private Output</* @Nullable */ String> directoryName;
 
     /**
      * @return The name of the directory.
      * 
      */
-    public Output<String> directoryName() {
-        return this.directoryName;
+    public Output<Optional<String>> directoryName() {
+        return Codegen.optional(this.directoryName);
     }
     /**
      * The directory type.
      * 
      */
     @Export(name="directoryType", refs={String.class}, tree="[0]")
-    private Output<String> directoryType;
+    private Output</* @Nullable */ String> directoryType;
 
     /**
      * @return The directory type.
      * 
      */
-    public Output<String> directoryType() {
-        return this.directoryType;
+    public Output<Optional<String>> directoryType() {
+        return Codegen.optional(this.directoryType);
     }
     /**
      * The IP addresses of the DNS servers for the directory.
      * 
      */
     @Export(name="dnsIpAddresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> dnsIpAddresses;
+    private Output</* @Nullable */ List<String>> dnsIpAddresses;
 
     /**
      * @return The IP addresses of the DNS servers for the directory.
      * 
      */
-    public Output<List<String>> dnsIpAddresses() {
-        return this.dnsIpAddresses;
+    public Output<Optional<List<String>>> dnsIpAddresses() {
+        return Codegen.optional(this.dnsIpAddresses);
     }
     /**
      * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      * 
      */
     @Export(name="iamRoleId", refs={String.class}, tree="[0]")
-    private Output<String> iamRoleId;
+    private Output</* @Nullable */ String> iamRoleId;
 
     /**
      * @return The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      * 
      */
-    public Output<String> iamRoleId() {
-        return this.iamRoleId;
+    public Output<Optional<String>> iamRoleId() {
+        return Codegen.optional(this.iamRoleId);
     }
     /**
      * The identifiers of the IP access control groups associated with the directory.
      * 
      */
     @Export(name="ipGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> ipGroupIds;
+    private Output</* @Nullable */ List<String>> ipGroupIds;
 
     /**
      * @return The identifiers of the IP access control groups associated with the directory.
      * 
      */
-    public Output<List<String>> ipGroupIds() {
-        return this.ipGroupIds;
+    public Output<Optional<List<String>>> ipGroupIds() {
+        return Codegen.optional(this.ipGroupIds);
     }
     /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
      */
     @Export(name="registrationCode", refs={String.class}, tree="[0]")
-    private Output<String> registrationCode;
+    private Output</* @Nullable */ String> registrationCode;
 
     /**
      * @return The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
      */
-    public Output<String> registrationCode() {
-        return this.registrationCode;
+    public Output<Optional<String>> registrationCode() {
+        return Codegen.optional(this.registrationCode);
     }
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      * 
      */
     @Export(name="selfServicePermissions", refs={DirectorySelfServicePermissions.class}, tree="[0]")
-    private Output<DirectorySelfServicePermissions> selfServicePermissions;
+    private Output</* @Nullable */ DirectorySelfServicePermissions> selfServicePermissions;
 
     /**
      * @return Permissions to enable or disable self-service capabilities. Defined below.
      * 
      */
-    public Output<DirectorySelfServicePermissions> selfServicePermissions() {
-        return this.selfServicePermissions;
+    public Output<Optional<DirectorySelfServicePermissions>> selfServicePermissions() {
+        return Codegen.optional(this.selfServicePermissions);
     }
     /**
      * The identifiers of the subnets where the directory resides.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subnetIds;
+    private Output</* @Nullable */ List<String>> subnetIds;
 
     /**
      * @return The identifiers of the subnets where the directory resides.
      * 
      */
-    public Output<List<String>> subnetIds() {
-        return this.subnetIds;
+    public Output<Optional<List<String>>> subnetIds() {
+        return Codegen.optional(this.subnetIds);
     }
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -402,42 +402,42 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="workspaceAccessProperties", refs={DirectoryWorkspaceAccessProperties.class}, tree="[0]")
-    private Output<DirectoryWorkspaceAccessProperties> workspaceAccessProperties;
+    private Output</* @Nullable */ DirectoryWorkspaceAccessProperties> workspaceAccessProperties;
 
     /**
      * @return Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      * 
      */
-    public Output<DirectoryWorkspaceAccessProperties> workspaceAccessProperties() {
-        return this.workspaceAccessProperties;
+    public Output<Optional<DirectoryWorkspaceAccessProperties>> workspaceAccessProperties() {
+        return Codegen.optional(this.workspaceAccessProperties);
     }
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      * 
      */
     @Export(name="workspaceCreationProperties", refs={DirectoryWorkspaceCreationProperties.class}, tree="[0]")
-    private Output<DirectoryWorkspaceCreationProperties> workspaceCreationProperties;
+    private Output</* @Nullable */ DirectoryWorkspaceCreationProperties> workspaceCreationProperties;
 
     /**
      * @return Default properties that are used for creating WorkSpaces. Defined below.
      * 
      */
-    public Output<DirectoryWorkspaceCreationProperties> workspaceCreationProperties() {
-        return this.workspaceCreationProperties;
+    public Output<Optional<DirectoryWorkspaceCreationProperties>> workspaceCreationProperties() {
+        return Codegen.optional(this.workspaceCreationProperties);
     }
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      * 
      */
     @Export(name="workspaceSecurityGroupId", refs={String.class}, tree="[0]")
-    private Output<String> workspaceSecurityGroupId;
+    private Output</* @Nullable */ String> workspaceSecurityGroupId;
 
     /**
      * @return The identifier of the security group that is assigned to new WorkSpaces.
      * 
      */
-    public Output<String> workspaceSecurityGroupId() {
-        return this.workspaceSecurityGroupId;
+    public Output<Optional<String>> workspaceSecurityGroupId() {
+        return Codegen.optional(this.workspaceSecurityGroupId);
     }
 
     /**

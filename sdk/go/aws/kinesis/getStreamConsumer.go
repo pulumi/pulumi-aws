@@ -63,15 +63,15 @@ type LookupStreamConsumerArgs struct {
 
 // A collection of values returned by getStreamConsumer.
 type LookupStreamConsumerResult struct {
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-	CreationTimestamp string `pulumi:"creationTimestamp"`
+	CreationTimestamp *string `pulumi:"creationTimestamp"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
 	// Current status of the stream consumer.
-	Status    string `pulumi:"status"`
-	StreamArn string `pulumi:"streamArn"`
+	Status    *string `pulumi:"status"`
+	StreamArn string  `pulumi:"streamArn"`
 }
 
 func LookupStreamConsumerOutput(ctx *pulumi.Context, args LookupStreamConsumerOutputArgs, opts ...pulumi.InvokeOption) LookupStreamConsumerResultOutput {
@@ -116,27 +116,27 @@ func (o LookupStreamConsumerResultOutput) ToLookupStreamConsumerResultOutputWith
 	return o
 }
 
-func (o LookupStreamConsumerResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupStreamConsumerResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamConsumerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-func (o LookupStreamConsumerResultOutput) CreationTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.CreationTimestamp }).(pulumi.StringOutput)
+func (o LookupStreamConsumerResultOutput) CreationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamConsumerResult) *string { return v.CreationTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupStreamConsumerResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupStreamConsumerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamConsumerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupStreamConsumerResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupStreamConsumerResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamConsumerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Current status of the stream consumer.
-func (o LookupStreamConsumerResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupStreamConsumerResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamConsumerResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStreamConsumerResultOutput) StreamArn() pulumi.StringOutput {

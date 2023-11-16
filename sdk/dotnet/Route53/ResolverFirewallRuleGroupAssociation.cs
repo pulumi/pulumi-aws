@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Route53
         /// The ARN (Amazon Resource Name) of the firewall rule group association.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier of the firewall rule group.
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Route53
         /// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         [Output("mutationProtection")]
-        public Output<string> MutationProtection { get; private set; } = null!;
+        public Output<string?> MutationProtection { get; private set; } = null!;
 
         /// <summary>
         /// A name that lets you identify the rule group association, to manage and use it.

@@ -130,7 +130,7 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The auth policy. The policy string in JSON must not contain newlines or blank lines.
         /// </summary>
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.VpcLattice
 
         [OutputConstructor]
         private GetAuthPolicyResult(
-            string id,
+            string? id,
 
             string? policy,
 

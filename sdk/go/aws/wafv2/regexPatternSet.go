@@ -66,10 +66,10 @@ type RegexPatternSet struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) that identifies the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A friendly description of the regular expression pattern set.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
+	LockToken   pulumi.StringPtrOutput `pulumi:"lockToken"`
 	// A friendly name of the regular expression pattern set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
@@ -279,8 +279,8 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 }
 
 // The Amazon Resource Name (ARN) that identifies the cluster.
-func (o RegexPatternSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RegexPatternSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A friendly description of the regular expression pattern set.
@@ -288,8 +288,8 @@ func (o RegexPatternSetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o RegexPatternSetOutput) LockToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
+func (o RegexPatternSetOutput) LockToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringPtrOutput { return v.LockToken }).(pulumi.StringPtrOutput)
 }
 
 // A friendly name of the regular expression pattern set.

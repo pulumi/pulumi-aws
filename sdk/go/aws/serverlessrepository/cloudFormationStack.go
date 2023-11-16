@@ -82,7 +82,7 @@ type CloudFormationStack struct {
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The version of the application to deploy. If not supplied, deploys the latest version.
-	SemanticVersion pulumi.StringOutput `pulumi:"semanticVersion"`
+	SemanticVersion pulumi.StringPtrOutput `pulumi:"semanticVersion"`
 	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -320,8 +320,8 @@ func (o CloudFormationStackOutput) Parameters() pulumi.StringMapOutput {
 }
 
 // The version of the application to deploy. If not supplied, deploys the latest version.
-func (o CloudFormationStackOutput) SemanticVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringOutput { return v.SemanticVersion }).(pulumi.StringOutput)
+func (o CloudFormationStackOutput) SemanticVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringPtrOutput { return v.SemanticVersion }).(pulumi.StringPtrOutput)
 }
 
 // A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

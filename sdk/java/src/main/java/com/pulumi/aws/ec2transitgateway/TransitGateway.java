@@ -84,28 +84,28 @@ public class TransitGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return EC2 Transit Gateway Amazon Resource Name (ARN)
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Identifier of the default association route table
      * 
      */
     @Export(name="associationDefaultRouteTableId", refs={String.class}, tree="[0]")
-    private Output<String> associationDefaultRouteTableId;
+    private Output</* @Nullable */ String> associationDefaultRouteTableId;
 
     /**
      * @return Identifier of the default association route table
      * 
      */
-    public Output<String> associationDefaultRouteTableId() {
-        return this.associationDefaultRouteTableId;
+    public Output<Optional<String>> associationDefaultRouteTableId() {
+        return Codegen.optional(this.associationDefaultRouteTableId);
     }
     /**
      * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -196,28 +196,28 @@ public class TransitGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return Identifier of the AWS account that owns the EC2 Transit Gateway
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Identifier of the default propagation route table
      * 
      */
     @Export(name="propagationDefaultRouteTableId", refs={String.class}, tree="[0]")
-    private Output<String> propagationDefaultRouteTableId;
+    private Output</* @Nullable */ String> propagationDefaultRouteTableId;
 
     /**
      * @return Identifier of the default propagation route table
      * 
      */
-    public Output<String> propagationDefaultRouteTableId() {
-        return this.propagationDefaultRouteTableId;
+    public Output<Optional<String>> propagationDefaultRouteTableId() {
+        return Codegen.optional(this.propagationDefaultRouteTableId);
     }
     /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

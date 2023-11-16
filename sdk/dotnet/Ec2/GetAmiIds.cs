@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<string> Ids;
         public readonly bool? IncludeDeprecated;
         public readonly string? NameRegex;
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetAmiIdsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

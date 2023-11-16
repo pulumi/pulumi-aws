@@ -70,7 +70,7 @@ export class PackageAssociation extends pulumi.CustomResource {
      * Internal ID of the package to associate with a domain.
      */
     public readonly packageId!: pulumi.Output<string>;
-    public /*out*/ readonly referencePath!: pulumi.Output<string>;
+    public /*out*/ readonly referencePath!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PackageAssociation resource with the given unique name, arguments, and options.

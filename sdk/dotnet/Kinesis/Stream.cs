@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Kinesis
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Kinesis
         /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         /// </summary>
         [Output("streamModeDetails")]
-        public Output<Outputs.StreamStreamModeDetails> StreamModeDetails { get; private set; } = null!;
+        public Output<Outputs.StreamStreamModeDetails?> StreamModeDetails { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

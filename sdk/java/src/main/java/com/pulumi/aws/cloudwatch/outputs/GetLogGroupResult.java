@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLogGroupResult {
@@ -15,62 +17,62 @@ public final class GetLogGroupResult {
      * @return ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * 
      */
-    private Integer creationTime;
+    private @Nullable Integer creationTime;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of the KMS Key to use when encrypting log data.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     private String name;
     /**
      * @return Number of days log events retained in the specified log group.
      * 
      */
-    private Integer retentionInDays;
+    private @Nullable Integer retentionInDays;
     /**
      * @return Map of tags to assign to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetLogGroupResult() {}
     /**
      * @return ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * 
      */
-    public Integer creationTime() {
-        return this.creationTime;
+    public Optional<Integer> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of the KMS Key to use when encrypting log data.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     public String name() {
         return this.name;
@@ -79,15 +81,15 @@ public final class GetLogGroupResult {
      * @return Number of days log events retained in the specified log group.
      * 
      */
-    public Integer retentionInDays() {
-        return this.retentionInDays;
+    public Optional<Integer> retentionInDays() {
+        return Optional.ofNullable(this.retentionInDays);
     }
     /**
      * @return Map of tags to assign to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -99,13 +101,13 @@ public final class GetLogGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Integer creationTime;
-        private String id;
-        private String kmsKeyId;
+        private @Nullable String arn;
+        private @Nullable Integer creationTime;
+        private @Nullable String id;
+        private @Nullable String kmsKeyId;
         private String name;
-        private Integer retentionInDays;
-        private Map<String,String> tags;
+        private @Nullable Integer retentionInDays;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLogGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -119,23 +121,23 @@ public final class GetLogGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationTime(Integer creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable Integer creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
@@ -144,13 +146,13 @@ public final class GetLogGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder retentionInDays(Integer retentionInDays) {
-            this.retentionInDays = Objects.requireNonNull(retentionInDays);
+        public Builder retentionInDays(@Nullable Integer retentionInDays) {
+            this.retentionInDays = retentionInDays;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetLogGroupResult build() {

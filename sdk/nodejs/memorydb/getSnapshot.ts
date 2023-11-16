@@ -51,23 +51,23 @@ export interface GetSnapshotResult {
     /**
      * ARN of the snapshot.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The configuration of the cluster from which the snapshot was taken.
      */
-    readonly clusterConfigurations: outputs.memorydb.GetSnapshotClusterConfiguration[];
+    readonly clusterConfigurations?: outputs.memorydb.GetSnapshotClusterConfiguration[];
     /**
      * Name of the MemoryDB cluster that this snapshot was taken from.
      */
-    readonly clusterName: string;
+    readonly clusterName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the KMS key used to encrypt the snapshot at rest.
      */
-    readonly kmsKeyArn: string;
+    readonly kmsKeyArn?: string;
     /**
      * Name of the cluster.
      */
@@ -75,11 +75,11 @@ export interface GetSnapshotResult {
     /**
      * Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      */
-    readonly source: string;
+    readonly source?: string;
     /**
      * Map of tags assigned to the snapshot.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides information about a MemoryDB Snapshot.

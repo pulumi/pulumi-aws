@@ -355,28 +355,28 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
+    private Output</* @Nullable */ String> accountId;
 
     /**
      * @return The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
     }
     /**
      * The ARN of the budget.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the budget.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
@@ -411,56 +411,56 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="costFilters", refs={List.class,BudgetCostFilter.class}, tree="[0,1]")
-    private Output<List<BudgetCostFilter>> costFilters;
+    private Output</* @Nullable */ List<BudgetCostFilter>> costFilters;
 
     /**
      * @return A list of CostFilter name/values pair to apply to budget.
      * 
      */
-    public Output<List<BudgetCostFilter>> costFilters() {
-        return this.costFilters;
+    public Output<Optional<List<BudgetCostFilter>>> costFilters() {
+        return Codegen.optional(this.costFilters);
     }
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      * 
      */
     @Export(name="costTypes", refs={BudgetCostTypes.class}, tree="[0]")
-    private Output<BudgetCostTypes> costTypes;
+    private Output</* @Nullable */ BudgetCostTypes> costTypes;
 
     /**
      * @return Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      * 
      */
-    public Output<BudgetCostTypes> costTypes() {
-        return this.costTypes;
+    public Output<Optional<BudgetCostTypes>> costTypes() {
+        return Codegen.optional(this.costTypes);
     }
     /**
      * The amount of cost or usage being measured for a budget.
      * 
      */
     @Export(name="limitAmount", refs={String.class}, tree="[0]")
-    private Output<String> limitAmount;
+    private Output</* @Nullable */ String> limitAmount;
 
     /**
      * @return The amount of cost or usage being measured for a budget.
      * 
      */
-    public Output<String> limitAmount() {
-        return this.limitAmount;
+    public Output<Optional<String>> limitAmount() {
+        return Codegen.optional(this.limitAmount);
     }
     /**
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
     @Export(name="limitUnit", refs={String.class}, tree="[0]")
-    private Output<String> limitUnit;
+    private Output</* @Nullable */ String> limitUnit;
 
     /**
      * @return The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
-    public Output<String> limitUnit() {
-        return this.limitUnit;
+    public Output<Optional<String>> limitUnit() {
+        return Codegen.optional(this.limitUnit);
     }
     /**
      * The name of a budget. Unique within accounts.
@@ -481,14 +481,14 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return The prefix of the name of a budget. Unique within accounts.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
@@ -537,14 +537,14 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="timePeriodStart", refs={String.class}, tree="[0]")
-    private Output<String> timePeriodStart;
+    private Output</* @Nullable */ String> timePeriodStart;
 
     /**
      * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    public Output<String> timePeriodStart() {
-        return this.timePeriodStart;
+    public Output<Optional<String>> timePeriodStart() {
+        return Codegen.optional(this.timePeriodStart);
     }
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.

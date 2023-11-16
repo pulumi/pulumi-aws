@@ -6,6 +6,8 @@ package com.pulumi.aws.s3control.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMultiRegionAccessPointRegion {
@@ -13,39 +15,39 @@ public final class GetMultiRegionAccessPointRegion {
      * @return The name of the bucket.
      * 
      */
-    private String bucket;
+    private @Nullable String bucket;
     /**
      * @return The AWS account ID that owns the bucket.
      * 
      */
-    private String bucketAccountId;
+    private @Nullable String bucketAccountId;
     /**
      * @return The name of the region.
      * 
      */
-    private String region;
+    private @Nullable String region;
 
     private GetMultiRegionAccessPointRegion() {}
     /**
      * @return The name of the bucket.
      * 
      */
-    public String bucket() {
-        return this.bucket;
+    public Optional<String> bucket() {
+        return Optional.ofNullable(this.bucket);
     }
     /**
      * @return The AWS account ID that owns the bucket.
      * 
      */
-    public String bucketAccountId() {
-        return this.bucketAccountId;
+    public Optional<String> bucketAccountId() {
+        return Optional.ofNullable(this.bucketAccountId);
     }
     /**
      * @return The name of the region.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetMultiRegionAccessPointRegion {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bucket;
-        private String bucketAccountId;
-        private String region;
+        private @Nullable String bucket;
+        private @Nullable String bucketAccountId;
+        private @Nullable String region;
         public Builder() {}
         public Builder(GetMultiRegionAccessPointRegion defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetMultiRegionAccessPointRegion {
         }
 
         @CustomType.Setter
-        public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+        public Builder bucket(@Nullable String bucket) {
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
-        public Builder bucketAccountId(String bucketAccountId) {
-            this.bucketAccountId = Objects.requireNonNull(bucketAccountId);
+        public Builder bucketAccountId(@Nullable String bucketAccountId) {
+            this.bucketAccountId = bucketAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         public GetMultiRegionAccessPointRegion build() {

@@ -13,23 +13,23 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainAdvancedSecurityOptionResult
     {
-        public readonly bool AnonymousAuthEnabled;
+        public readonly bool? AnonymousAuthEnabled;
         /// <summary>
         /// Enabled disabled toggle for off-peak update window
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// Whether the internal user database is enabled.
         /// </summary>
-        public readonly bool InternalUserDatabaseEnabled;
+        public readonly bool? InternalUserDatabaseEnabled;
 
         [OutputConstructor]
         private GetDomainAdvancedSecurityOptionResult(
-            bool anonymousAuthEnabled,
+            bool? anonymousAuthEnabled,
 
-            bool enabled,
+            bool? enabled,
 
-            bool internalUserDatabaseEnabled)
+            bool? internalUserDatabaseEnabled)
         {
             AnonymousAuthEnabled = anonymousAuthEnabled;
             Enabled = enabled;

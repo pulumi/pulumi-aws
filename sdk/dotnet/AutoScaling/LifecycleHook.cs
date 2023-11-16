@@ -95,7 +95,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
         /// </summary>
         [Output("defaultResult")]
-        public Output<string> DefaultResult { get; private set; } = null!;
+        public Output<string?> DefaultResult { get; private set; } = null!;
 
         /// <summary>
         /// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter

@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEmailIdentityResult {
@@ -17,52 +19,52 @@ public final class GetEmailIdentityResult {
      * @return ARN of the Email Identity.
      * 
      */
-    private String arn;
-    private String configurationSetName;
+    private @Nullable String arn;
+    private @Nullable String configurationSetName;
     /**
      * @return A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
      * 
      */
-    private List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes;
+    private @Nullable List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes;
     private String emailIdentity;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
-    private String identityType;
+    private @Nullable String identityType;
     /**
      * @return Key-value mapping of resource tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Specifies whether or not the identity is verified.
      * 
      */
-    private Boolean verifiedForSendingStatus;
+    private @Nullable Boolean verifiedForSendingStatus;
 
     private GetEmailIdentityResult() {}
     /**
      * @return ARN of the Email Identity.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String configurationSetName() {
-        return this.configurationSetName;
+    public Optional<String> configurationSetName() {
+        return Optional.ofNullable(this.configurationSetName);
     }
     /**
      * @return A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
      * 
      */
     public List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes() {
-        return this.dkimSigningAttributes;
+        return this.dkimSigningAttributes == null ? List.of() : this.dkimSigningAttributes;
     }
     public String emailIdentity() {
         return this.emailIdentity;
@@ -71,29 +73,29 @@ public final class GetEmailIdentityResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
-    public String identityType() {
-        return this.identityType;
+    public Optional<String> identityType() {
+        return Optional.ofNullable(this.identityType);
     }
     /**
      * @return Key-value mapping of resource tags.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Specifies whether or not the identity is verified.
      * 
      */
-    public Boolean verifiedForSendingStatus() {
-        return this.verifiedForSendingStatus;
+    public Optional<Boolean> verifiedForSendingStatus() {
+        return Optional.ofNullable(this.verifiedForSendingStatus);
     }
 
     public static Builder builder() {
@@ -105,14 +107,14 @@ public final class GetEmailIdentityResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String configurationSetName;
-        private List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes;
+        private @Nullable String arn;
+        private @Nullable String configurationSetName;
+        private @Nullable List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes;
         private String emailIdentity;
-        private String id;
-        private String identityType;
-        private Map<String,String> tags;
-        private Boolean verifiedForSendingStatus;
+        private @Nullable String id;
+        private @Nullable String identityType;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Boolean verifiedForSendingStatus;
         public Builder() {}
         public Builder(GetEmailIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -127,18 +129,18 @@ public final class GetEmailIdentityResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder configurationSetName(String configurationSetName) {
-            this.configurationSetName = Objects.requireNonNull(configurationSetName);
+        public Builder configurationSetName(@Nullable String configurationSetName) {
+            this.configurationSetName = configurationSetName;
             return this;
         }
         @CustomType.Setter
-        public Builder dkimSigningAttributes(List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes) {
-            this.dkimSigningAttributes = Objects.requireNonNull(dkimSigningAttributes);
+        public Builder dkimSigningAttributes(@Nullable List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes) {
+            this.dkimSigningAttributes = dkimSigningAttributes;
             return this;
         }
         public Builder dkimSigningAttributes(GetEmailIdentityDkimSigningAttribute... dkimSigningAttributes) {
@@ -150,23 +152,23 @@ public final class GetEmailIdentityResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder identityType(String identityType) {
-            this.identityType = Objects.requireNonNull(identityType);
+        public Builder identityType(@Nullable String identityType) {
+            this.identityType = identityType;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder verifiedForSendingStatus(Boolean verifiedForSendingStatus) {
-            this.verifiedForSendingStatus = Objects.requireNonNull(verifiedForSendingStatus);
+        public Builder verifiedForSendingStatus(@Nullable Boolean verifiedForSendingStatus) {
+            this.verifiedForSendingStatus = verifiedForSendingStatus;
             return this;
         }
         public GetEmailIdentityResult build() {

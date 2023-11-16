@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Detective
         /// AWS account ID for the administrator account.
         /// </summary>
         [Output("administratorId")]
-        public Output<string> AdministratorId { get; private set; } = null!;
+        public Output<string?> AdministratorId { get; private set; } = null!;
 
         /// <summary>
         /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Detective
         public Output<bool?> DisableEmailNotification { get; private set; } = null!;
 
         [Output("disabledReason")]
-        public Output<string> DisabledReason { get; private set; } = null!;
+        public Output<string?> DisabledReason { get; private set; } = null!;
 
         /// <summary>
         /// Email address for the account.
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Detective
         /// Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
         /// </summary>
         [Output("invitedTime")]
-        public Output<string> InvitedTime { get; private set; } = null!;
+        public Output<string?> InvitedTime { get; private set; } = null!;
 
         /// <summary>
         /// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
@@ -96,19 +96,19 @@ namespace Pulumi.Aws.Detective
         /// Current membership status of the member account.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
         /// </summary>
         [Output("updatedTime")]
-        public Output<string> UpdatedTime { get; private set; } = null!;
+        public Output<string?> UpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Data volume in bytes per day for the member account.
         /// </summary>
         [Output("volumeUsageInBytes")]
-        public Output<string> VolumeUsageInBytes { get; private set; } = null!;
+        public Output<string?> VolumeUsageInBytes { get; private set; } = null!;
 
 
         /// <summary>

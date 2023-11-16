@@ -1192,7 +1192,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of Transfer Server
         """
@@ -1224,7 +1224,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
         """
@@ -1272,7 +1272,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostKeyFingerprint")
-    def host_key_fingerprint(self) -> pulumi.Output[str]:
+    def host_key_fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         This value contains the message-digest algorithm (MD5) hash of the server's host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
         """
@@ -1320,7 +1320,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protocolDetails")
-    def protocol_details(self) -> pulumi.Output['outputs.ServerProtocolDetails']:
+    def protocol_details(self) -> pulumi.Output[Optional['outputs.ServerProtocolDetails']]:
         """
         The protocol settings that are configured for your server.
         """
@@ -1328,7 +1328,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocols(self) -> pulumi.Output[Sequence[str]]:
+    def protocols(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
         """

@@ -47,7 +47,7 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -55,7 +55,7 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> Sequence[str]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         Set of EC2 Local Gateway Virtual Interface Group identifiers.
         """
@@ -63,7 +63,7 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
 
     @property
     @pulumi.getter(name="localGatewayVirtualInterfaceIds")
-    def local_gateway_virtual_interface_ids(self) -> Sequence[str]:
+    def local_gateway_virtual_interface_ids(self) -> Optional[Sequence[str]]:
         """
         Set of EC2 Local Gateway Virtual Interface identifiers.
         """
@@ -71,7 +71,7 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

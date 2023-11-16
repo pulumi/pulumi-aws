@@ -122,59 +122,59 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// ARN of the Service Network.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Authentication type for the service network. Either `NONE` or `AWS_IAM`.
         /// </summary>
-        public readonly string AuthType;
+        public readonly string? AuthType;
         /// <summary>
         /// Date and time the service network was created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Date and time the service network was last updated.
         /// </summary>
-        public readonly string LastUpdatedAt;
+        public readonly string? LastUpdatedAt;
         /// <summary>
         /// Name of the service network.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Number of services associated with this service network.
         /// </summary>
-        public readonly int NumberOfAssociatedServices;
+        public readonly int? NumberOfAssociatedServices;
         /// <summary>
         /// Number of VPCs associated with this service network.
         /// </summary>
-        public readonly int NumberOfAssociatedVpcs;
+        public readonly int? NumberOfAssociatedVpcs;
         public readonly string ServiceNetworkIdentifier;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetServiceNetworkResult(
-            string arn,
+            string? arn,
 
-            string authType,
+            string? authType,
 
-            string createdAt,
+            string? createdAt,
 
-            string id,
+            string? id,
 
-            string lastUpdatedAt,
+            string? lastUpdatedAt,
 
-            string name,
+            string? name,
 
-            int numberOfAssociatedServices,
+            int? numberOfAssociatedServices,
 
-            int numberOfAssociatedVpcs,
+            int? numberOfAssociatedVpcs,
 
             string serviceNetworkIdentifier,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             AuthType = authType;

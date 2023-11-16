@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Emr
         /// target number of instances for the instance group. defaults to 0.
         /// </summary>
         [Output("instanceCount")]
-        public Output<int> InstanceCount { get; private set; } = null!;
+        public Output<int?> InstanceCount { get; private set; } = null!;
 
         /// <summary>
         /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
@@ -137,13 +137,13 @@ namespace Pulumi.Aws.Emr
         /// The number of instances currently running in this instance group.
         /// </summary>
         [Output("runningInstanceCount")]
-        public Output<int> RunningInstanceCount { get; private set; } = null!;
+        public Output<int?> RunningInstanceCount { get; private set; } = null!;
 
         /// <summary>
         /// The current status of the instance group.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

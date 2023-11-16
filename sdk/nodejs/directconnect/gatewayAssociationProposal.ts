@@ -69,7 +69,7 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    public readonly allowedPrefixes!: pulumi.Output<string[]>;
+    public readonly allowedPrefixes!: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
@@ -77,11 +77,11 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
-    public /*out*/ readonly associatedGatewayOwnerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly associatedGatewayOwnerAccountId!: pulumi.Output<string | undefined>;
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      */
-    public /*out*/ readonly associatedGatewayType!: pulumi.Output<string>;
+    public /*out*/ readonly associatedGatewayType!: pulumi.Output<string | undefined>;
     /**
      * Direct Connect Gateway identifier.
      */

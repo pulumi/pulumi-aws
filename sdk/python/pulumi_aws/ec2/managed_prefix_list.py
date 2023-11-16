@@ -485,7 +485,7 @@ class ManagedPrefixList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the prefix list.
         """
@@ -493,7 +493,7 @@ class ManagedPrefixList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def entries(self) -> pulumi.Output[Sequence['outputs.ManagedPrefixListEntry']]:
+    def entries(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedPrefixListEntry']]]:
         """
         Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         """
@@ -517,7 +517,7 @@ class ManagedPrefixList(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the AWS account that owns this prefix list.
         """
@@ -544,7 +544,7 @@ class ManagedPrefixList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         Latest version of this prefix list.
         """

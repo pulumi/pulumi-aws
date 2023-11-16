@@ -221,24 +221,28 @@ class EnvironmentSetting(dict):
 @pulumi.output_type
 class GetApplicationAppversionLifecycleResult(dict):
     def __init__(__self__, *,
-                 delete_source_from_s3: bool,
-                 max_age_in_days: int,
-                 max_count: int,
-                 service_role: str):
+                 delete_source_from_s3: Optional[bool] = None,
+                 max_age_in_days: Optional[int] = None,
+                 max_count: Optional[int] = None,
+                 service_role: Optional[str] = None):
         """
         :param bool delete_source_from_s3: Specifies whether delete a version's source bundle from S3 when the application version is deleted.
         :param int max_age_in_days: Number of days to retain an application version.
         :param int max_count: Maximum number of application versions to retain.
         :param str service_role: ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
         """
-        pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
-        pulumi.set(__self__, "max_age_in_days", max_age_in_days)
-        pulumi.set(__self__, "max_count", max_count)
-        pulumi.set(__self__, "service_role", service_role)
+        if delete_source_from_s3 is not None:
+            pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
+        if max_age_in_days is not None:
+            pulumi.set(__self__, "max_age_in_days", max_age_in_days)
+        if max_count is not None:
+            pulumi.set(__self__, "max_count", max_count)
+        if service_role is not None:
+            pulumi.set(__self__, "service_role", service_role)
 
     @property
     @pulumi.getter(name="deleteSourceFromS3")
-    def delete_source_from_s3(self) -> bool:
+    def delete_source_from_s3(self) -> Optional[bool]:
         """
         Specifies whether delete a version's source bundle from S3 when the application version is deleted.
         """
@@ -246,7 +250,7 @@ class GetApplicationAppversionLifecycleResult(dict):
 
     @property
     @pulumi.getter(name="maxAgeInDays")
-    def max_age_in_days(self) -> int:
+    def max_age_in_days(self) -> Optional[int]:
         """
         Number of days to retain an application version.
         """
@@ -254,7 +258,7 @@ class GetApplicationAppversionLifecycleResult(dict):
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> int:
+    def max_count(self) -> Optional[int]:
         """
         Maximum number of application versions to retain.
         """
@@ -262,7 +266,7 @@ class GetApplicationAppversionLifecycleResult(dict):
 
     @property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> str:
+    def service_role(self) -> Optional[str]:
         """
         ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
         """

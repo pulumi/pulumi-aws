@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Iam
         /// The ARN assigned by AWS for this provider.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the provider to create.
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Iam
         /// The expiration date and time for the SAML provider in RFC1123 format, e.g., `Mon, 02 Jan 2006 15:04:05 MST`.
         /// </summary>
         [Output("validUntil")]
-        public Output<string> ValidUntil { get; private set; } = null!;
+        public Output<string?> ValidUntil { get; private set; } = null!;
 
 
         /// <summary>

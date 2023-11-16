@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteMatch;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayRouteSpecHttp2Route {
-    private List<GetGatewayRouteSpecHttp2RouteAction> actions;
-    private List<GetGatewayRouteSpecHttp2RouteMatch> matches;
+    private @Nullable List<GetGatewayRouteSpecHttp2RouteAction> actions;
+    private @Nullable List<GetGatewayRouteSpecHttp2RouteMatch> matches;
 
     private GetGatewayRouteSpecHttp2Route() {}
     public List<GetGatewayRouteSpecHttp2RouteAction> actions() {
-        return this.actions;
+        return this.actions == null ? List.of() : this.actions;
     }
     public List<GetGatewayRouteSpecHttp2RouteMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetGatewayRouteSpecHttp2Route {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGatewayRouteSpecHttp2RouteAction> actions;
-        private List<GetGatewayRouteSpecHttp2RouteMatch> matches;
+        private @Nullable List<GetGatewayRouteSpecHttp2RouteAction> actions;
+        private @Nullable List<GetGatewayRouteSpecHttp2RouteMatch> matches;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttp2Route defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetGatewayRouteSpecHttp2Route {
         }
 
         @CustomType.Setter
-        public Builder actions(List<GetGatewayRouteSpecHttp2RouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+        public Builder actions(@Nullable List<GetGatewayRouteSpecHttp2RouteAction> actions) {
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetGatewayRouteSpecHttp2RouteAction... actions) {
             return actions(List.of(actions));
         }
         @CustomType.Setter
-        public Builder matches(List<GetGatewayRouteSpecHttp2RouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetGatewayRouteSpecHttp2RouteMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetGatewayRouteSpecHttp2RouteMatch... matches) {

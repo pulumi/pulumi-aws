@@ -56,15 +56,15 @@ type Bucket struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the bucket.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// Identifier of the Outpost to contain this bucket.
 	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
 	// Boolean whether Public Access Block is enabled.
-	PublicAccessBlockEnabled pulumi.BoolOutput `pulumi:"publicAccessBlockEnabled"`
+	PublicAccessBlockEnabled pulumi.BoolPtrOutput `pulumi:"publicAccessBlockEnabled"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -261,8 +261,8 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 }
 
 // Amazon Resource Name (ARN) of the bucket.
-func (o BucketOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BucketOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the bucket.
@@ -271,8 +271,8 @@ func (o BucketOutput) Bucket() pulumi.StringOutput {
 }
 
 // UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-func (o BucketOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+func (o BucketOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the Outpost to contain this bucket.
@@ -281,8 +281,8 @@ func (o BucketOutput) OutpostId() pulumi.StringOutput {
 }
 
 // Boolean whether Public Access Block is enabled.
-func (o BucketOutput) PublicAccessBlockEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.BoolOutput { return v.PublicAccessBlockEnabled }).(pulumi.BoolOutput)
+func (o BucketOutput) PublicAccessBlockEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.BoolPtrOutput { return v.PublicAccessBlockEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

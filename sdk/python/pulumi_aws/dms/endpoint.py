@@ -1149,7 +1149,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> pulumi.Output[str]:
+    def certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the certificate.
         """
@@ -1173,7 +1173,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointArn")
-    def endpoint_arn(self) -> pulumi.Output[str]:
+    def endpoint_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the endpoint.
         """
@@ -1205,7 +1205,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extraConnectionAttributes")
-    def extra_connection_attributes(self) -> pulumi.Output[str]:
+    def extra_connection_attributes(self) -> pulumi.Output[Optional[str]]:
         """
         Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
         """
@@ -1229,7 +1229,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> pulumi.Output[str]:
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
 
@@ -1273,7 +1273,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redshiftSettings")
-    def redshift_settings(self) -> pulumi.Output['outputs.EndpointRedshiftSettings']:
+    def redshift_settings(self) -> pulumi.Output[Optional['outputs.EndpointRedshiftSettings']]:
         """
         Configuration block for Redshift settings. See below.
         """
@@ -1321,7 +1321,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> pulumi.Output[str]:
+    def ssl_mode(self) -> pulumi.Output[Optional[str]]:
         """
         SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         """

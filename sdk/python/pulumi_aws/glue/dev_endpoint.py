@@ -960,7 +960,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the endpoint.
         """
@@ -968,7 +968,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS availability zone where this endpoint is located.
         """
@@ -992,7 +992,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> pulumi.Output[str]:
+    def failure_reason(self) -> pulumi.Output[Optional[str]]:
         """
         The reason for a current failure in this endpoint.
         """
@@ -1032,7 +1032,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateAddress")
-    def private_address(self) -> pulumi.Output[str]:
+    def private_address(self) -> pulumi.Output[Optional[str]]:
         """
         A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
         """
@@ -1040,7 +1040,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicAddress")
-    def public_address(self) -> pulumi.Output[str]:
+    def public_address(self) -> pulumi.Output[Optional[str]]:
         """
         The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         """
@@ -1088,7 +1088,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of this endpoint.
         """
@@ -1123,7 +1123,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         he ID of the VPC used by this endpoint.
         """
@@ -1139,7 +1139,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="yarnEndpointAddress")
-    def yarn_endpoint_address(self) -> pulumi.Output[str]:
+    def yarn_endpoint_address(self) -> pulumi.Output[Optional[str]]:
         """
         The YARN endpoint address used by this endpoint.
         """
@@ -1147,7 +1147,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zeppelinRemoteSparkInterpreterPort")
-    def zeppelin_remote_spark_interpreter_port(self) -> pulumi.Output[int]:
+    def zeppelin_remote_spark_interpreter_port(self) -> pulumi.Output[Optional[int]]:
         """
         The Apache Zeppelin port for the remote Apache Spark interpreter.
         """

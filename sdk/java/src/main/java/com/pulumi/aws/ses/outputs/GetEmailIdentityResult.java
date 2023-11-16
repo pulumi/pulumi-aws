@@ -6,6 +6,8 @@ package com.pulumi.aws.ses.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEmailIdentityResult {
@@ -13,7 +15,7 @@ public final class GetEmailIdentityResult {
      * @return The ARN of the email identity.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Email identity.
      * 
@@ -23,15 +25,15 @@ public final class GetEmailIdentityResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetEmailIdentityResult() {}
     /**
      * @return The ARN of the email identity.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Email identity.
@@ -44,8 +46,8 @@ public final class GetEmailIdentityResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetEmailIdentityResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private String email;
-        private String id;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetEmailIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,8 +71,8 @@ public final class GetEmailIdentityResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -79,8 +81,8 @@ public final class GetEmailIdentityResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetEmailIdentityResult build() {

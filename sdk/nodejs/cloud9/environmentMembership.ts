@@ -73,7 +73,7 @@ export class EnvironmentMembership extends pulumi.CustomResource {
     /**
      * he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      */
-    public /*out*/ readonly userId!: pulumi.Output<string>;
+    public /*out*/ readonly userId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EnvironmentMembership resource with the given unique name, arguments, and options.

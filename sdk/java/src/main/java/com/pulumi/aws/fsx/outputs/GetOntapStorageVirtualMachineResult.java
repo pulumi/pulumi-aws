@@ -12,6 +12,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -20,59 +21,59 @@ public final class GetOntapStorageVirtualMachineResult {
      * @return The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
      * 
      */
-    private List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations;
+    private @Nullable List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations;
     /**
      * @return Amazon Resource Name of the SVM.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The time that the SVM was created.
      * 
      */
-    private String creationTime;
+    private @Nullable String creationTime;
     /**
      * @return The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
      * 
      */
-    private List<GetOntapStorageVirtualMachineEndpoint> endpoints;
+    private @Nullable List<GetOntapStorageVirtualMachineEndpoint> endpoints;
     /**
      * @return Identifier of the file system (e.g. `fs-12345678`).
      * 
      */
-    private String fileSystemId;
+    private @Nullable String fileSystemId;
     private @Nullable List<GetOntapStorageVirtualMachineFilter> filters;
     /**
      * @return The SVM&#39;s system generated unique ID.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The SVM&#39;s lifecycle status.
      * 
      */
-    private String lifecycleStatus;
+    private @Nullable String lifecycleStatus;
     /**
      * @return Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
      * 
      */
-    private List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons;
+    private @Nullable List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons;
     /**
      * @return The name of the SVM, if provisioned.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The SVM&#39;s subtype.
      * 
      */
-    private String subtype;
-    private Map<String,String> tags;
+    private @Nullable String subtype;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The SVM&#39;s UUID.
      * 
      */
-    private String uuid;
+    private @Nullable String uuid;
 
     private GetOntapStorageVirtualMachineResult() {}
     /**
@@ -80,35 +81,35 @@ public final class GetOntapStorageVirtualMachineResult {
      * 
      */
     public List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations() {
-        return this.activeDirectoryConfigurations;
+        return this.activeDirectoryConfigurations == null ? List.of() : this.activeDirectoryConfigurations;
     }
     /**
      * @return Amazon Resource Name of the SVM.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The time that the SVM was created.
      * 
      */
-    public String creationTime() {
-        return this.creationTime;
+    public Optional<String> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
     /**
      * @return The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
      * 
      */
     public List<GetOntapStorageVirtualMachineEndpoint> endpoints() {
-        return this.endpoints;
+        return this.endpoints == null ? List.of() : this.endpoints;
     }
     /**
      * @return Identifier of the file system (e.g. `fs-12345678`).
      * 
      */
-    public String fileSystemId() {
-        return this.fileSystemId;
+    public Optional<String> fileSystemId() {
+        return Optional.ofNullable(this.fileSystemId);
     }
     public List<GetOntapStorageVirtualMachineFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -117,46 +118,46 @@ public final class GetOntapStorageVirtualMachineResult {
      * @return The SVM&#39;s system generated unique ID.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The SVM&#39;s lifecycle status.
      * 
      */
-    public String lifecycleStatus() {
-        return this.lifecycleStatus;
+    public Optional<String> lifecycleStatus() {
+        return Optional.ofNullable(this.lifecycleStatus);
     }
     /**
      * @return Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
      * 
      */
     public List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons() {
-        return this.lifecycleTransitionReasons;
+        return this.lifecycleTransitionReasons == null ? List.of() : this.lifecycleTransitionReasons;
     }
     /**
      * @return The name of the SVM, if provisioned.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The SVM&#39;s subtype.
      * 
      */
-    public String subtype() {
-        return this.subtype;
+    public Optional<String> subtype() {
+        return Optional.ofNullable(this.subtype);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The SVM&#39;s UUID.
      * 
      */
-    public String uuid() {
-        return this.uuid;
+    public Optional<String> uuid() {
+        return Optional.ofNullable(this.uuid);
     }
 
     public static Builder builder() {
@@ -168,19 +169,19 @@ public final class GetOntapStorageVirtualMachineResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations;
-        private String arn;
-        private String creationTime;
-        private List<GetOntapStorageVirtualMachineEndpoint> endpoints;
-        private String fileSystemId;
+        private @Nullable List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations;
+        private @Nullable String arn;
+        private @Nullable String creationTime;
+        private @Nullable List<GetOntapStorageVirtualMachineEndpoint> endpoints;
+        private @Nullable String fileSystemId;
         private @Nullable List<GetOntapStorageVirtualMachineFilter> filters;
-        private String id;
-        private String lifecycleStatus;
-        private List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons;
-        private String name;
-        private String subtype;
-        private Map<String,String> tags;
-        private String uuid;
+        private @Nullable String id;
+        private @Nullable String lifecycleStatus;
+        private @Nullable List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons;
+        private @Nullable String name;
+        private @Nullable String subtype;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String uuid;
         public Builder() {}
         public Builder(GetOntapStorageVirtualMachineResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -200,34 +201,34 @@ public final class GetOntapStorageVirtualMachineResult {
         }
 
         @CustomType.Setter
-        public Builder activeDirectoryConfigurations(List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations) {
-            this.activeDirectoryConfigurations = Objects.requireNonNull(activeDirectoryConfigurations);
+        public Builder activeDirectoryConfigurations(@Nullable List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations) {
+            this.activeDirectoryConfigurations = activeDirectoryConfigurations;
             return this;
         }
         public Builder activeDirectoryConfigurations(GetOntapStorageVirtualMachineActiveDirectoryConfiguration... activeDirectoryConfigurations) {
             return activeDirectoryConfigurations(List.of(activeDirectoryConfigurations));
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable String creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoints(List<GetOntapStorageVirtualMachineEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+        public Builder endpoints(@Nullable List<GetOntapStorageVirtualMachineEndpoint> endpoints) {
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetOntapStorageVirtualMachineEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
         @CustomType.Setter
-        public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+        public Builder fileSystemId(@Nullable String fileSystemId) {
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
@@ -239,41 +240,41 @@ public final class GetOntapStorageVirtualMachineResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lifecycleStatus(String lifecycleStatus) {
-            this.lifecycleStatus = Objects.requireNonNull(lifecycleStatus);
+        public Builder lifecycleStatus(@Nullable String lifecycleStatus) {
+            this.lifecycleStatus = lifecycleStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder lifecycleTransitionReasons(List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons) {
-            this.lifecycleTransitionReasons = Objects.requireNonNull(lifecycleTransitionReasons);
+        public Builder lifecycleTransitionReasons(@Nullable List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons) {
+            this.lifecycleTransitionReasons = lifecycleTransitionReasons;
             return this;
         }
         public Builder lifecycleTransitionReasons(GetOntapStorageVirtualMachineLifecycleTransitionReason... lifecycleTransitionReasons) {
             return lifecycleTransitionReasons(List.of(lifecycleTransitionReasons));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder subtype(String subtype) {
-            this.subtype = Objects.requireNonNull(subtype);
+        public Builder subtype(@Nullable String subtype) {
+            this.subtype = subtype;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder uuid(String uuid) {
-            this.uuid = Objects.requireNonNull(uuid);
+        public Builder uuid(@Nullable String uuid) {
+            this.uuid = uuid;
             return this;
         }
         public GetOntapStorageVirtualMachineResult build() {

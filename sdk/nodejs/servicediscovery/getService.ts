@@ -64,27 +64,27 @@ export interface GetServiceResult {
     /**
      * ARN of the service.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the service.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    readonly dnsConfigs: outputs.servicediscovery.GetServiceDnsConfig[];
+    readonly dnsConfigs?: outputs.servicediscovery.GetServiceDnsConfig[];
     /**
      * Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    readonly healthCheckConfigs: outputs.servicediscovery.GetServiceHealthCheckConfig[];
+    readonly healthCheckConfigs?: outputs.servicediscovery.GetServiceHealthCheckConfig[];
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    readonly healthCheckCustomConfigs: outputs.servicediscovery.GetServiceHealthCheckCustomConfig[];
+    readonly healthCheckCustomConfigs?: outputs.servicediscovery.GetServiceHealthCheckCustomConfig[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * ID of the namespace to use for DNS configuration.
@@ -99,7 +99,7 @@ export interface GetServiceResult {
      *
      * @deprecated this attribute has been deprecated
      */
-    readonly tagsAll: {[key: string]: string};
+    readonly tagsAll?: {[key: string]: string};
 }
 /**
  * Retrieves information about a Service Discovery Service.

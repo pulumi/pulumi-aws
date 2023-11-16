@@ -9,6 +9,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkgroupResult {
@@ -16,43 +18,43 @@ public final class GetWorkgroupResult {
      * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The endpoint that is created from the workgroup. See `Endpoint` below.
      * 
      */
-    private List<GetWorkgroupEndpoint> endpoints;
+    private @Nullable List<GetWorkgroupEndpoint> endpoints;
     /**
      * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
-    private Boolean enhancedVpcRouting;
+    private @Nullable Boolean enhancedVpcRouting;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String namespaceName;
+    private @Nullable String id;
+    private @Nullable String namespaceName;
     /**
      * @return A value that specifies whether the workgroup can be accessed from a public network.
      * 
      */
-    private Boolean publiclyAccessible;
+    private @Nullable Boolean publiclyAccessible;
     /**
      * @return An array of security group IDs to associate with the workgroup.
      * 
      */
-    private List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return The Redshift Workgroup ID.
      * 
      */
-    private String workgroupId;
+    private @Nullable String workgroupId;
     private String workgroupName;
 
     private GetWorkgroupResult() {}
@@ -60,60 +62,60 @@ public final class GetWorkgroupResult {
      * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The endpoint that is created from the workgroup. See `Endpoint` below.
      * 
      */
     public List<GetWorkgroupEndpoint> endpoints() {
-        return this.endpoints;
+        return this.endpoints == null ? List.of() : this.endpoints;
     }
     /**
      * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
-    public Boolean enhancedVpcRouting() {
-        return this.enhancedVpcRouting;
+    public Optional<Boolean> enhancedVpcRouting() {
+        return Optional.ofNullable(this.enhancedVpcRouting);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String namespaceName() {
-        return this.namespaceName;
+    public Optional<String> namespaceName() {
+        return Optional.ofNullable(this.namespaceName);
     }
     /**
      * @return A value that specifies whether the workgroup can be accessed from a public network.
      * 
      */
-    public Boolean publiclyAccessible() {
-        return this.publiclyAccessible;
+    public Optional<Boolean> publiclyAccessible() {
+        return Optional.ofNullable(this.publiclyAccessible);
     }
     /**
      * @return An array of security group IDs to associate with the workgroup.
      * 
      */
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
      * @return An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
      * @return The Redshift Workgroup ID.
      * 
      */
-    public String workgroupId() {
-        return this.workgroupId;
+    public Optional<String> workgroupId() {
+        return Optional.ofNullable(this.workgroupId);
     }
     public String workgroupName() {
         return this.workgroupName;
@@ -128,15 +130,15 @@ public final class GetWorkgroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetWorkgroupEndpoint> endpoints;
-        private Boolean enhancedVpcRouting;
-        private String id;
-        private String namespaceName;
-        private Boolean publiclyAccessible;
-        private List<String> securityGroupIds;
-        private List<String> subnetIds;
-        private String workgroupId;
+        private @Nullable String arn;
+        private @Nullable List<GetWorkgroupEndpoint> endpoints;
+        private @Nullable Boolean enhancedVpcRouting;
+        private @Nullable String id;
+        private @Nullable String namespaceName;
+        private @Nullable Boolean publiclyAccessible;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable List<String> subnetIds;
+        private @Nullable String workgroupId;
         private String workgroupName;
         public Builder() {}
         public Builder(GetWorkgroupResult defaults) {
@@ -154,57 +156,57 @@ public final class GetWorkgroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoints(List<GetWorkgroupEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+        public Builder endpoints(@Nullable List<GetWorkgroupEndpoint> endpoints) {
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetWorkgroupEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
         @CustomType.Setter
-        public Builder enhancedVpcRouting(Boolean enhancedVpcRouting) {
-            this.enhancedVpcRouting = Objects.requireNonNull(enhancedVpcRouting);
+        public Builder enhancedVpcRouting(@Nullable Boolean enhancedVpcRouting) {
+            this.enhancedVpcRouting = enhancedVpcRouting;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder namespaceName(String namespaceName) {
-            this.namespaceName = Objects.requireNonNull(namespaceName);
+        public Builder namespaceName(@Nullable String namespaceName) {
+            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
-        public Builder publiclyAccessible(Boolean publiclyAccessible) {
-            this.publiclyAccessible = Objects.requireNonNull(publiclyAccessible);
+        public Builder publiclyAccessible(@Nullable Boolean publiclyAccessible) {
+            this.publiclyAccessible = publiclyAccessible;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder workgroupId(String workgroupId) {
-            this.workgroupId = Objects.requireNonNull(workgroupId);
+        public Builder workgroupId(@Nullable String workgroupId) {
+            this.workgroupId = workgroupId;
             return this;
         }
         @CustomType.Setter

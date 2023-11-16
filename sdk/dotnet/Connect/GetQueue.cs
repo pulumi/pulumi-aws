@@ -196,25 +196,25 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the Queue.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the Queue.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Specifies the identifier of the Hours of Operation.
         /// </summary>
-        public readonly string HoursOfOperationId;
+        public readonly string? HoursOfOperationId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
         /// <summary>
         /// Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         /// </summary>
-        public readonly int MaxContacts;
-        public readonly string Name;
+        public readonly int? MaxContacts;
+        public readonly string? Name;
         /// <summary>
         /// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         /// </summary>
@@ -222,39 +222,39 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Identifier for the Queue.
         /// </summary>
-        public readonly string QueueId;
+        public readonly string? QueueId;
         /// <summary>
         /// Description of the Queue. Values are `ENABLED` or `DISABLED`.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Map of tags assigned to the Queue.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetQueueResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string hoursOfOperationId,
+            string? hoursOfOperationId,
 
-            string id,
+            string? id,
 
             string instanceId,
 
-            int maxContacts,
+            int? maxContacts,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetQueueOutboundCallerConfigResult> outboundCallerConfigs,
 
-            string queueId,
+            string? queueId,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

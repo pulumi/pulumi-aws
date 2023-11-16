@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualClusterContainerProvider {
@@ -15,39 +17,39 @@ public final class GetVirtualClusterContainerProvider {
      * @return The name of the container provider that is running your EMR Containers cluster
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Nested list containing information about the configuration of the container provider
      * 
      */
-    private List<GetVirtualClusterContainerProviderInfo> infos;
+    private @Nullable List<GetVirtualClusterContainerProviderInfo> infos;
     /**
      * @return The type of the container provider
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetVirtualClusterContainerProvider() {}
     /**
      * @return The name of the container provider that is running your EMR Containers cluster
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Nested list containing information about the configuration of the container provider
      * 
      */
     public List<GetVirtualClusterContainerProviderInfo> infos() {
-        return this.infos;
+        return this.infos == null ? List.of() : this.infos;
     }
     /**
      * @return The type of the container provider
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetVirtualClusterContainerProvider {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private List<GetVirtualClusterContainerProviderInfo> infos;
-        private String type;
+        private @Nullable String id;
+        private @Nullable List<GetVirtualClusterContainerProviderInfo> infos;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetVirtualClusterContainerProvider defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetVirtualClusterContainerProvider {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder infos(List<GetVirtualClusterContainerProviderInfo> infos) {
-            this.infos = Objects.requireNonNull(infos);
+        public Builder infos(@Nullable List<GetVirtualClusterContainerProviderInfo> infos) {
+            this.infos = infos;
             return this;
         }
         public Builder infos(GetVirtualClusterContainerProviderInfo... infos) {
             return infos(List.of(infos));
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetVirtualClusterContainerProvider build() {

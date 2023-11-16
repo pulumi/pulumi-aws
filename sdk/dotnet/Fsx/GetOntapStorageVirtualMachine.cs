@@ -208,11 +208,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Amazon Resource Name of the SVM.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The time that the SVM was created.
         /// </summary>
-        public readonly string CreationTime;
+        public readonly string? CreationTime;
         /// <summary>
         /// The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
         /// </summary>
@@ -220,16 +220,16 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Identifier of the file system (e.g. `fs-12345678`).
         /// </summary>
-        public readonly string FileSystemId;
+        public readonly string? FileSystemId;
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineFilterResult> Filters;
         /// <summary>
         /// The SVM's system generated unique ID.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The SVM's lifecycle status.
         /// </summary>
-        public readonly string LifecycleStatus;
+        public readonly string? LifecycleStatus;
         /// <summary>
         /// Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
         /// </summary>
@@ -237,44 +237,44 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// The name of the SVM, if provisioned.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The SVM's subtype.
         /// </summary>
-        public readonly string Subtype;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? Subtype;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The SVM's UUID.
         /// </summary>
-        public readonly string Uuid;
+        public readonly string? Uuid;
 
         [OutputConstructor]
         private GetOntapStorageVirtualMachineResult(
             ImmutableArray<Outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult> activeDirectoryConfigurations,
 
-            string arn,
+            string? arn,
 
-            string creationTime,
+            string? creationTime,
 
             ImmutableArray<Outputs.GetOntapStorageVirtualMachineEndpointResult> endpoints,
 
-            string fileSystemId,
+            string? fileSystemId,
 
             ImmutableArray<Outputs.GetOntapStorageVirtualMachineFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string lifecycleStatus,
+            string? lifecycleStatus,
 
             ImmutableArray<Outputs.GetOntapStorageVirtualMachineLifecycleTransitionReasonResult> lifecycleTransitionReasons,
 
-            string name,
+            string? name,
 
-            string subtype,
+            string? subtype,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string uuid)
+            string? uuid)
         {
             ActiveDirectoryConfigurations = activeDirectoryConfigurations;
             Arn = arn;

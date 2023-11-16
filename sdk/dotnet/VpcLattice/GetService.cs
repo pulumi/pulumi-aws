@@ -142,19 +142,19 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// ARN of the service.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Type of IAM policy. Either `NONE` or `AWS_IAM`.
         /// </summary>
-        public readonly string AuthType;
+        public readonly string? AuthType;
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate.
         /// </summary>
-        public readonly string CertificateArn;
+        public readonly string? CertificateArn;
         /// <summary>
         /// Custom domain name of the service.
         /// </summary>
-        public readonly string CustomDomainName;
+        public readonly string? CustomDomainName;
         /// <summary>
         /// DNS name of the service.
         /// </summary>
@@ -162,39 +162,39 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string Name;
-        public readonly string ServiceIdentifier;
+        public readonly string? Id;
+        public readonly string? Name;
+        public readonly string? ServiceIdentifier;
         /// <summary>
         /// Status of the service.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// List of tags associated with the service.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetServiceResult(
-            string arn,
+            string? arn,
 
-            string authType,
+            string? authType,
 
-            string certificateArn,
+            string? certificateArn,
 
-            string customDomainName,
+            string? customDomainName,
 
             ImmutableArray<Outputs.GetServiceDnsEntryResult> dnsEntries,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string serviceIdentifier,
+            string? serviceIdentifier,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             AuthType = authType;

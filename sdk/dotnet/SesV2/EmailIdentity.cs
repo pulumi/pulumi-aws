@@ -110,7 +110,7 @@ namespace Pulumi.Aws.SesV2
         /// ARN of the Email Identity.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.SesV2
         /// The configuration of the DKIM authentication settings for an email domain identity.
         /// </summary>
         [Output("dkimSigningAttributes")]
-        public Output<Outputs.EmailIdentityDkimSigningAttributes> DkimSigningAttributes { get; private set; } = null!;
+        public Output<Outputs.EmailIdentityDkimSigningAttributes?> DkimSigningAttributes { get; private set; } = null!;
 
         /// <summary>
         /// The email address or domain to verify.
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.SesV2
         /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         /// </summary>
         [Output("identityType")]
-        public Output<string> IdentityType { get; private set; } = null!;
+        public Output<string?> IdentityType { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.SesV2
         /// Specifies whether or not the identity is verified.
         /// </summary>
         [Output("verifiedForSendingStatus")]
-        public Output<bool> VerifiedForSendingStatus { get; private set; } = null!;
+        public Output<bool?> VerifiedForSendingStatus { get; private set; } = null!;
 
 
         /// <summary>

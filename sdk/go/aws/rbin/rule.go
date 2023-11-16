@@ -67,15 +67,15 @@ import (
 type Rule struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The retention rule description.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Information about the retention rule lock configuration. See `lockConfiguration` below.
 	LockConfiguration RuleLockConfigurationPtrOutput `pulumi:"lockConfiguration"`
 	// (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-	LockEndTime pulumi.StringOutput `pulumi:"lockEndTime"`
+	LockEndTime pulumi.StringPtrOutput `pulumi:"lockEndTime"`
 	// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
-	LockState pulumi.StringOutput `pulumi:"lockState"`
+	LockState pulumi.StringPtrOutput `pulumi:"lockState"`
 	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags RuleResourceTagArrayOutput `pulumi:"resourceTags"`
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
@@ -85,7 +85,7 @@ type Rule struct {
 	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodOutput `pulumi:"retentionPeriod"`
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-	Status pulumi.StringOutput    `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -304,13 +304,13 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
 }
 
-func (o RuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The retention rule description.
-func (o RuleOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o RuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Information about the retention rule lock configuration. See `lockConfiguration` below.
@@ -319,13 +319,13 @@ func (o RuleOutput) LockConfiguration() RuleLockConfigurationPtrOutput {
 }
 
 // (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-func (o RuleOutput) LockEndTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.LockEndTime }).(pulumi.StringOutput)
+func (o RuleOutput) LockEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.LockEndTime }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
-func (o RuleOutput) LockState() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.LockState }).(pulumi.StringOutput)
+func (o RuleOutput) LockState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.LockState }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
@@ -346,8 +346,8 @@ func (o RuleOutput) RetentionPeriod() RuleRetentionPeriodOutput {
 }
 
 // (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-func (o RuleOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o RuleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o RuleOutput) Tags() pulumi.StringMapOutput {

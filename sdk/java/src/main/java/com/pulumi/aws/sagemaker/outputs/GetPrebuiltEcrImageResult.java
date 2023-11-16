@@ -16,19 +16,19 @@ public final class GetPrebuiltEcrImageResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String imageTag;
     private @Nullable String region;
     /**
      * @return Account ID containing the image. For example, `469771592824`.
      * 
      */
-    private String registryId;
+    private @Nullable String registryId;
     /**
      * @return Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
      * 
      */
-    private String registryPath;
+    private @Nullable String registryPath;
     private String repositoryName;
 
     private GetPrebuiltEcrImageResult() {}
@@ -39,8 +39,8 @@ public final class GetPrebuiltEcrImageResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> imageTag() {
         return Optional.ofNullable(this.imageTag);
@@ -52,15 +52,15 @@ public final class GetPrebuiltEcrImageResult {
      * @return Account ID containing the image. For example, `469771592824`.
      * 
      */
-    public String registryId() {
-        return this.registryId;
+    public Optional<String> registryId() {
+        return Optional.ofNullable(this.registryId);
     }
     /**
      * @return Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
      * 
      */
-    public String registryPath() {
-        return this.registryPath;
+    public Optional<String> registryPath() {
+        return Optional.ofNullable(this.registryPath);
     }
     public String repositoryName() {
         return this.repositoryName;
@@ -76,11 +76,11 @@ public final class GetPrebuiltEcrImageResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String dnsSuffix;
-        private String id;
+        private @Nullable String id;
         private @Nullable String imageTag;
         private @Nullable String region;
-        private String registryId;
-        private String registryPath;
+        private @Nullable String registryId;
+        private @Nullable String registryPath;
         private String repositoryName;
         public Builder() {}
         public Builder(GetPrebuiltEcrImageResult defaults) {
@@ -100,8 +100,8 @@ public final class GetPrebuiltEcrImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -115,13 +115,13 @@ public final class GetPrebuiltEcrImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+        public Builder registryId(@Nullable String registryId) {
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
-        public Builder registryPath(String registryPath) {
-            this.registryPath = Objects.requireNonNull(registryPath);
+        public Builder registryPath(@Nullable String registryPath) {
+            this.registryPath = registryPath;
             return this;
         }
         @CustomType.Setter

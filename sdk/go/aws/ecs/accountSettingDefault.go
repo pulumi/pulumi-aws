@@ -57,8 +57,8 @@ type AccountSettingDefault struct {
 	pulumi.CustomResourceState
 
 	// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
-	Name         pulumi.StringOutput `pulumi:"name"`
-	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	PrincipalArn pulumi.StringPtrOutput `pulumi:"principalArn"`
 	// State of the setting. Valid values are `enabled` and `disabled`.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
@@ -222,8 +222,8 @@ func (o AccountSettingDefaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o AccountSettingDefaultOutput) PrincipalArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
+func (o AccountSettingDefaultOutput) PrincipalArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringPtrOutput { return v.PrincipalArn }).(pulumi.StringPtrOutput)
 }
 
 // State of the setting. Valid values are `enabled` and `disabled`.

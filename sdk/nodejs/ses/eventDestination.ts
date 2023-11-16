@@ -108,7 +108,7 @@ export class EventDestination extends pulumi.CustomResource {
     /**
      * The SES event destination ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * CloudWatch destination for the events
      */

@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     });
  *     return {
  *         endpoint: example.endpoint,
- *         "kubeconfig-certificate-authority-data": example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data),
+ *         "kubeconfig-certificate-authority-data": example.certificateAuthority.apply(certificateAuthority => certificateAuthority?.data),
  *     };
  * }
  * ```
@@ -151,20 +151,20 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * ARN of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[] | undefined>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
+    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority | undefined>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    public /*out*/ readonly clusterId!: pulumi.Output<string | undefined>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     public readonly defaultAddonsToRemoves!: pulumi.Output<string[] | undefined>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -177,16 +177,16 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Endpoint for your Kubernetes API server.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      * * `kubernetes_network_config.service_ipv6_cidr` - The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
      */
-    public /*out*/ readonly identities!: pulumi.Output<outputs.eks.ClusterIdentity[]>;
+    public /*out*/ readonly identities!: pulumi.Output<outputs.eks.ClusterIdentity[] | undefined>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig>;
+    public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig | undefined>;
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
@@ -198,7 +198,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Platform version for the cluster.
      */
-    public /*out*/ readonly platformVersion!: pulumi.Output<string>;
+    public /*out*/ readonly platformVersion!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
@@ -206,7 +206,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -220,7 +220,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
-    public readonly version!: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
      *

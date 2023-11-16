@@ -74,12 +74,12 @@ type SlotType struct {
 
 	// Checksum identifying the version of the slot type that was created. The checksum is
 	// not included as an argument because the resource will add it automatically when updating the slot type.
-	Checksum pulumi.StringOutput `pulumi:"checksum"`
+	Checksum pulumi.StringPtrOutput `pulumi:"checksum"`
 	// Determines if a new slot type version is created when the initial resource is created and on each
 	// update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrOutput `pulumi:"createVersion"`
 	// The date when the slot type version was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// A description of the slot type. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A list of EnumerationValue objects that defines the values that
@@ -88,7 +88,7 @@ type SlotType struct {
 	// documented under enumeration_value.
 	EnumerationValues SlotTypeEnumerationValueArrayOutput `pulumi:"enumerationValues"`
 	// The date when the `$LATEST` version of this slot type was updated.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate pulumi.StringPtrOutput `pulumi:"lastUpdatedDate"`
 	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Determines the slot resolution strategy that Amazon Lex
@@ -97,7 +97,7 @@ type SlotType struct {
 	// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
 	ValueSelectionStrategy pulumi.StringPtrOutput `pulumi:"valueSelectionStrategy"`
 	// The version of the slot type.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewSlotType registers a new resource with the given unique name, arguments, and options.
@@ -324,8 +324,8 @@ func (o SlotTypeOutput) ToSlotTypeOutputWithContext(ctx context.Context) SlotTyp
 
 // Checksum identifying the version of the slot type that was created. The checksum is
 // not included as an argument because the resource will add it automatically when updating the slot type.
-func (o SlotTypeOutput) Checksum() pulumi.StringOutput {
-	return o.ApplyT(func(v *SlotType) pulumi.StringOutput { return v.Checksum }).(pulumi.StringOutput)
+func (o SlotTypeOutput) Checksum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlotType) pulumi.StringPtrOutput { return v.Checksum }).(pulumi.StringPtrOutput)
 }
 
 // Determines if a new slot type version is created when the initial resource is created and on each
@@ -335,8 +335,8 @@ func (o SlotTypeOutput) CreateVersion() pulumi.BoolPtrOutput {
 }
 
 // The date when the slot type version was created.
-func (o SlotTypeOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *SlotType) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o SlotTypeOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlotType) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // A description of the slot type. Must be less than or equal to 200 characters in length.
@@ -353,8 +353,8 @@ func (o SlotTypeOutput) EnumerationValues() SlotTypeEnumerationValueArrayOutput 
 }
 
 // The date when the `$LATEST` version of this slot type was updated.
-func (o SlotTypeOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *SlotType) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o SlotTypeOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlotType) pulumi.StringPtrOutput { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
@@ -371,8 +371,8 @@ func (o SlotTypeOutput) ValueSelectionStrategy() pulumi.StringPtrOutput {
 }
 
 // The version of the slot type.
-func (o SlotTypeOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *SlotType) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o SlotTypeOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlotType) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type SlotTypeArrayOutput struct{ *pulumi.OutputState }

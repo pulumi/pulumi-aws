@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// <summary>
         /// Specifies the number of frameworks a report covers.
         /// </summary>
-        public readonly int NumberOfFrameworks;
+        public readonly int? NumberOfFrameworks;
         /// <summary>
         /// (Optional) Specifies the list of Organizational Units a report covers.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// <summary>
         /// Identifies the report template for the report. Reports are built using a report template.
         /// </summary>
-        public readonly string ReportTemplate;
+        public readonly string? ReportTemplate;
 
         [OutputConstructor]
         private GetReportPlanReportSettingResult(
@@ -44,13 +44,13 @@ namespace Pulumi.Aws.Backup.Outputs
 
             ImmutableArray<string> frameworkArns,
 
-            int numberOfFrameworks,
+            int? numberOfFrameworks,
 
             ImmutableArray<string> organizationUnits,
 
             ImmutableArray<string> regions,
 
-            string reportTemplate)
+            string? reportTemplate)
         {
             Accounts = accounts;
             FrameworkArns = frameworkArns;

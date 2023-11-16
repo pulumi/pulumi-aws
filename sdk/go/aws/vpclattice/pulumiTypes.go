@@ -3024,7 +3024,7 @@ func (o GetListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) GetListene
 }
 
 type GetListenerDefaultActionFixedResponse struct {
-	StatusCode int `pulumi:"statusCode"`
+	StatusCode *int `pulumi:"statusCode"`
 }
 
 // GetListenerDefaultActionFixedResponseInput is an input type that accepts GetListenerDefaultActionFixedResponseArgs and GetListenerDefaultActionFixedResponseOutput values.
@@ -3039,7 +3039,7 @@ type GetListenerDefaultActionFixedResponseInput interface {
 }
 
 type GetListenerDefaultActionFixedResponseArgs struct {
-	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+	StatusCode pulumi.IntPtrInput `pulumi:"statusCode"`
 }
 
 func (GetListenerDefaultActionFixedResponseArgs) ElementType() reflect.Type {
@@ -3093,8 +3093,8 @@ func (o GetListenerDefaultActionFixedResponseOutput) ToGetListenerDefaultActionF
 	return o
 }
 
-func (o GetListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
+func (o GetListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) *int { return v.StatusCode }).(pulumi.IntPtrOutput)
 }
 
 type GetListenerDefaultActionFixedResponseArrayOutput struct{ *pulumi.OutputState }
@@ -3214,8 +3214,8 @@ func (o GetListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetListenerDefaultActionForwardTargetGroup struct {
-	TargetGroupIdentifier string `pulumi:"targetGroupIdentifier"`
-	Weight                int    `pulumi:"weight"`
+	TargetGroupIdentifier *string `pulumi:"targetGroupIdentifier"`
+	Weight                *int    `pulumi:"weight"`
 }
 
 // GetListenerDefaultActionForwardTargetGroupInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArgs and GetListenerDefaultActionForwardTargetGroupOutput values.
@@ -3230,8 +3230,8 @@ type GetListenerDefaultActionForwardTargetGroupInput interface {
 }
 
 type GetListenerDefaultActionForwardTargetGroupArgs struct {
-	TargetGroupIdentifier pulumi.StringInput `pulumi:"targetGroupIdentifier"`
-	Weight                pulumi.IntInput    `pulumi:"weight"`
+	TargetGroupIdentifier pulumi.StringPtrInput `pulumi:"targetGroupIdentifier"`
+	Weight                pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (GetListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
@@ -3285,12 +3285,12 @@ func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultAc
 	return o
 }
 
-func (o GetListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) string { return v.TargetGroupIdentifier }).(pulumi.StringOutput)
+func (o GetListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) *string { return v.TargetGroupIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o GetListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) int { return v.Weight }).(pulumi.IntOutput)
+func (o GetListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 type GetListenerDefaultActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }
@@ -3314,8 +3314,8 @@ func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.In
 }
 
 type GetServiceDnsEntry struct {
-	DomainName   string `pulumi:"domainName"`
-	HostedZoneId string `pulumi:"hostedZoneId"`
+	DomainName   *string `pulumi:"domainName"`
+	HostedZoneId *string `pulumi:"hostedZoneId"`
 }
 
 // GetServiceDnsEntryInput is an input type that accepts GetServiceDnsEntryArgs and GetServiceDnsEntryOutput values.
@@ -3330,8 +3330,8 @@ type GetServiceDnsEntryInput interface {
 }
 
 type GetServiceDnsEntryArgs struct {
-	DomainName   pulumi.StringInput `pulumi:"domainName"`
-	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
+	DomainName   pulumi.StringPtrInput `pulumi:"domainName"`
+	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
 }
 
 func (GetServiceDnsEntryArgs) ElementType() reflect.Type {
@@ -3385,12 +3385,12 @@ func (o GetServiceDnsEntryOutput) ToGetServiceDnsEntryOutputWithContext(ctx cont
 	return o
 }
 
-func (o GetServiceDnsEntryOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceDnsEntry) string { return v.DomainName }).(pulumi.StringOutput)
+func (o GetServiceDnsEntryOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDnsEntry) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o GetServiceDnsEntryOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDnsEntry) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 type GetServiceDnsEntryArrayOutput struct{ *pulumi.OutputState }

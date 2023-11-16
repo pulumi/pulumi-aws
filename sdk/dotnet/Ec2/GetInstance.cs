@@ -256,19 +256,19 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the AMI used to launch the instance.
         /// </summary>
-        public readonly string Ami;
+        public readonly string? Ami;
         /// <summary>
         /// ARN of the instance.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Whether or not the Instance is associated with a public IP address or not (Boolean).
         /// </summary>
-        public readonly bool AssociatePublicIpAddress;
+        public readonly bool? AssociatePublicIpAddress;
         /// <summary>
         /// Availability zone of the Instance.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// Credit specification of the Instance.
         /// </summary>
@@ -276,11 +276,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
         /// </summary>
-        public readonly bool DisableApiStop;
+        public readonly bool? DisableApiStop;
         /// <summary>
         /// Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
         /// </summary>
-        public readonly bool DisableApiTermination;
+        public readonly bool? DisableApiTermination;
         /// <summary>
         /// EBS block device mappings of the Instance.
         /// </summary>
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Whether the Instance is EBS optimized or not (Boolean).
         /// </summary>
-        public readonly bool EbsOptimized;
+        public readonly bool? EbsOptimized;
         /// <summary>
         /// Enclave options of the instance.
         /// </summary>
@@ -303,29 +303,29 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the dedicated host the instance will be assigned to.
         /// </summary>
-        public readonly string HostId;
+        public readonly string? HostId;
         /// <summary>
         /// ARN of the host resource group the instance is associated with.
         /// </summary>
-        public readonly string HostResourceGroupArn;
+        public readonly string? HostResourceGroupArn;
         /// <summary>
         /// Name of the instance profile associated with the Instance.
         /// </summary>
-        public readonly string IamInstanceProfile;
+        public readonly string? IamInstanceProfile;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? InstanceId;
         /// <summary>
         /// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         /// </summary>
-        public readonly string InstanceState;
-        public readonly ImmutableDictionary<string, string> InstanceTags;
+        public readonly string? InstanceState;
+        public readonly ImmutableDictionary<string, string>? InstanceTags;
         /// <summary>
         /// Type of the Instance.
         /// </summary>
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         /// <summary>
         /// IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
         /// </summary>
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Key name of the Instance.
         /// </summary>
-        public readonly string KeyName;
+        public readonly string? KeyName;
         /// <summary>
         /// Maintenance and recovery options for the instance.
         /// </summary>
@@ -345,31 +345,31 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
         /// </summary>
-        public readonly bool Monitoring;
+        public readonly bool? Monitoring;
         /// <summary>
         /// ID of the network interface that was created with the Instance.
         /// </summary>
-        public readonly string NetworkInterfaceId;
+        public readonly string? NetworkInterfaceId;
         /// <summary>
         /// ARN of the Outpost.
         /// </summary>
-        public readonly string OutpostArn;
+        public readonly string? OutpostArn;
         /// <summary>
         /// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
-        public readonly string PasswordData;
+        public readonly string? PasswordData;
         /// <summary>
         /// Placement group of the Instance.
         /// </summary>
-        public readonly string PlacementGroup;
+        public readonly string? PlacementGroup;
         /// <summary>
         /// Number of the partition the instance is in.
         /// </summary>
-        public readonly int PlacementPartitionNumber;
+        public readonly int? PlacementPartitionNumber;
         /// <summary>
         /// Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
-        public readonly string PrivateDns;
+        public readonly string? PrivateDns;
         /// <summary>
         /// Options for the instance hostname.
         /// </summary>
@@ -377,15 +377,15 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Private IP address assigned to the Instance.
         /// </summary>
-        public readonly string PrivateIp;
+        public readonly string? PrivateIp;
         /// <summary>
         /// Public DNS name assigned to the Instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
-        public readonly string PublicDns;
+        public readonly string? PublicDns;
         /// <summary>
         /// Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         /// </summary>
-        public readonly string PublicIp;
+        public readonly string? PublicIp;
         /// <summary>
         /// Root block device mappings of the Instance
         /// </summary>
@@ -401,27 +401,27 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Whether the network interface performs source/destination checking (Boolean).
         /// </summary>
-        public readonly bool SourceDestCheck;
+        public readonly bool? SourceDestCheck;
         /// <summary>
         /// VPC subnet ID.
         /// </summary>
-        public readonly string SubnetId;
+        public readonly string? SubnetId;
         /// <summary>
         /// Map of tags assigned to the Instance.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Tenancy of the instance: `dedicated`, `default`, `host`.
         /// </summary>
-        public readonly string Tenancy;
+        public readonly string? Tenancy;
         /// <summary>
         /// SHA-1 hash of User Data supplied to the Instance.
         /// </summary>
-        public readonly string UserData;
+        public readonly string? UserData;
         /// <summary>
         /// Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
         /// </summary>
-        public readonly string UserDataBase64;
+        public readonly string? UserDataBase64;
         /// <summary>
         /// Associated security groups in a non-default VPC.
         /// </summary>
@@ -429,23 +429,23 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetInstanceResult(
-            string ami,
+            string? ami,
 
-            string arn,
+            string? arn,
 
-            bool associatePublicIpAddress,
+            bool? associatePublicIpAddress,
 
-            string availabilityZone,
+            string? availabilityZone,
 
             ImmutableArray<Outputs.GetInstanceCreditSpecificationResult> creditSpecifications,
 
-            bool disableApiStop,
+            bool? disableApiStop,
 
-            bool disableApiTermination,
+            bool? disableApiTermination,
 
             ImmutableArray<Outputs.GetInstanceEbsBlockDeviceResult> ebsBlockDevices,
 
-            bool ebsOptimized,
+            bool? ebsOptimized,
 
             ImmutableArray<Outputs.GetInstanceEnclaveOptionResult> enclaveOptions,
 
@@ -457,51 +457,51 @@ namespace Pulumi.Aws.Ec2
 
             bool? getUserData,
 
-            string hostId,
+            string? hostId,
 
-            string hostResourceGroupArn,
+            string? hostResourceGroupArn,
 
-            string iamInstanceProfile,
+            string? iamInstanceProfile,
 
-            string id,
+            string? id,
 
             string? instanceId,
 
-            string instanceState,
+            string? instanceState,
 
-            ImmutableDictionary<string, string> instanceTags,
+            ImmutableDictionary<string, string>? instanceTags,
 
-            string instanceType,
+            string? instanceType,
 
             ImmutableArray<string> ipv6Addresses,
 
-            string keyName,
+            string? keyName,
 
             ImmutableArray<Outputs.GetInstanceMaintenanceOptionResult> maintenanceOptions,
 
             ImmutableArray<Outputs.GetInstanceMetadataOptionResult> metadataOptions,
 
-            bool monitoring,
+            bool? monitoring,
 
-            string networkInterfaceId,
+            string? networkInterfaceId,
 
-            string outpostArn,
+            string? outpostArn,
 
-            string passwordData,
+            string? passwordData,
 
-            string placementGroup,
+            string? placementGroup,
 
-            int placementPartitionNumber,
+            int? placementPartitionNumber,
 
-            string privateDns,
+            string? privateDns,
 
             ImmutableArray<Outputs.GetInstancePrivateDnsNameOptionResult> privateDnsNameOptions,
 
-            string privateIp,
+            string? privateIp,
 
-            string publicDns,
+            string? publicDns,
 
-            string publicIp,
+            string? publicIp,
 
             ImmutableArray<Outputs.GetInstanceRootBlockDeviceResult> rootBlockDevices,
 
@@ -509,17 +509,17 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> securityGroups,
 
-            bool sourceDestCheck,
+            bool? sourceDestCheck,
 
-            string subnetId,
+            string? subnetId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string tenancy,
+            string? tenancy,
 
-            string userData,
+            string? userData,
 
-            string userDataBase64,
+            string? userDataBase64,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

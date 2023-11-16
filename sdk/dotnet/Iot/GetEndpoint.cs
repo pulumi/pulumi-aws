@@ -171,20 +171,20 @@ namespace Pulumi.Aws.Iot
         /// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
         /// * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
         /// </summary>
-        public readonly string EndpointAddress;
+        public readonly string? EndpointAddress;
         public readonly string? EndpointType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetEndpointResult(
-            string endpointAddress,
+            string? endpointAddress,
 
             string? endpointType,
 
-            string id)
+            string? id)
         {
             EndpointAddress = endpointAddress;
             EndpointType = endpointType;

@@ -320,7 +320,7 @@ class Pipeline(pulumi.CustomResource):
         codepipeline_bucket_acl = aws.s3.BucketAclV2("codepipelineBucketAcl",
             bucket=codepipeline_bucket.id,
             acl="private")
-        codepipeline_policy_policy_document = aws.iam.get_policy_document_output(statements=[
+        codepipeline_policy_policy_document = pulumi.Output.all(codepipeline_bucket.arn, codepipeline_bucket.arn, example.arn).apply(lambda codepipelineBucketArn, codepipelineBucketArn1, exampleArn: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
@@ -331,14 +331,14 @@ class Pipeline(pulumi.CustomResource):
                     "s3:PutObject",
                 ],
                 resources=[
-                    codepipeline_bucket.arn,
-                    codepipeline_bucket.arn.apply(lambda arn: f"{arn}/*"),
+                    codepipeline_bucket_arn,
+                    f"{codepipeline_bucket_arn1}/*",
                 ],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["codestar-connections:UseConnection"],
-                resources=[example.arn],
+                resources=[example_arn],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
@@ -348,7 +348,7 @@ class Pipeline(pulumi.CustomResource):
                 ],
                 resources=["*"],
             ),
-        ])
+        ]))
         codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipelinePolicyRolePolicy",
             role=codepipeline_role.id,
             policy=codepipeline_policy_policy_document.json)
@@ -461,7 +461,7 @@ class Pipeline(pulumi.CustomResource):
         codepipeline_bucket_acl = aws.s3.BucketAclV2("codepipelineBucketAcl",
             bucket=codepipeline_bucket.id,
             acl="private")
-        codepipeline_policy_policy_document = aws.iam.get_policy_document_output(statements=[
+        codepipeline_policy_policy_document = pulumi.Output.all(codepipeline_bucket.arn, codepipeline_bucket.arn, example.arn).apply(lambda codepipelineBucketArn, codepipelineBucketArn1, exampleArn: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
@@ -472,14 +472,14 @@ class Pipeline(pulumi.CustomResource):
                     "s3:PutObject",
                 ],
                 resources=[
-                    codepipeline_bucket.arn,
-                    codepipeline_bucket.arn.apply(lambda arn: f"{arn}/*"),
+                    codepipeline_bucket_arn,
+                    f"{codepipeline_bucket_arn1}/*",
                 ],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["codestar-connections:UseConnection"],
-                resources=[example.arn],
+                resources=[example_arn],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
@@ -489,7 +489,7 @@ class Pipeline(pulumi.CustomResource):
                 ],
                 resources=["*"],
             ),
-        ])
+        ]))
         codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipelinePolicyRolePolicy",
             role=codepipeline_role.id,
             policy=codepipeline_policy_policy_document.json)
@@ -594,7 +594,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The codepipeline ARN.
         """

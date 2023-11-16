@@ -65,7 +65,7 @@ type GetMaintenanceWindowsArgs struct {
 type GetMaintenanceWindowsResult struct {
 	Filters []GetMaintenanceWindowsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of window IDs of the matched SSM maintenance windows.
 	Ids []string `pulumi:"ids"`
 }
@@ -113,8 +113,8 @@ func (o GetMaintenanceWindowsResultOutput) Filters() GetMaintenanceWindowsFilter
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetMaintenanceWindowsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMaintenanceWindowsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetMaintenanceWindowsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMaintenanceWindowsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of window IDs of the matched SSM maintenance windows.

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPoliciesForTargetResult {
@@ -15,12 +17,12 @@ public final class GetPoliciesForTargetResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of all the policy ids found.
      * 
      */
-    private List<String> ids;
+    private @Nullable List<String> ids;
     private String targetId;
 
     private GetPoliciesForTargetResult() {}
@@ -31,15 +33,15 @@ public final class GetPoliciesForTargetResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of all the policy ids found.
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     public String targetId() {
         return this.targetId;
@@ -55,8 +57,8 @@ public final class GetPoliciesForTargetResult {
     @CustomType.Builder
     public static final class Builder {
         private String filter;
-        private String id;
-        private List<String> ids;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
         private String targetId;
         public Builder() {}
         public Builder(GetPoliciesForTargetResult defaults) {
@@ -73,13 +75,13 @@ public final class GetPoliciesForTargetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {

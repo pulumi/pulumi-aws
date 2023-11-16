@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Auditmanager
         /// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Data mapping sources. See `control_mapping_sources` below.
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Type of control, such as a custom control or a standard control.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

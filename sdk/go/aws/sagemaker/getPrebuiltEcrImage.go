@@ -69,14 +69,14 @@ type GetPrebuiltEcrImageArgs struct {
 type GetPrebuiltEcrImageResult struct {
 	DnsSuffix *string `pulumi:"dnsSuffix"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string  `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	ImageTag *string `pulumi:"imageTag"`
 	Region   *string `pulumi:"region"`
 	// Account ID containing the image. For example, `469771592824`.
-	RegistryId string `pulumi:"registryId"`
+	RegistryId *string `pulumi:"registryId"`
 	// Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
-	RegistryPath   string `pulumi:"registryPath"`
-	RepositoryName string `pulumi:"repositoryName"`
+	RegistryPath   *string `pulumi:"registryPath"`
+	RepositoryName string  `pulumi:"repositoryName"`
 }
 
 func GetPrebuiltEcrImageOutput(ctx *pulumi.Context, args GetPrebuiltEcrImageOutputArgs, opts ...pulumi.InvokeOption) GetPrebuiltEcrImageResultOutput {
@@ -128,8 +128,8 @@ func (o GetPrebuiltEcrImageResultOutput) DnsSuffix() pulumi.StringPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetPrebuiltEcrImageResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrebuiltEcrImageResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPrebuiltEcrImageResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrebuiltEcrImageResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetPrebuiltEcrImageResultOutput) ImageTag() pulumi.StringPtrOutput {
@@ -141,13 +141,13 @@ func (o GetPrebuiltEcrImageResultOutput) Region() pulumi.StringPtrOutput {
 }
 
 // Account ID containing the image. For example, `469771592824`.
-func (o GetPrebuiltEcrImageResultOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrebuiltEcrImageResult) string { return v.RegistryId }).(pulumi.StringOutput)
+func (o GetPrebuiltEcrImageResultOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrebuiltEcrImageResult) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 // Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
-func (o GetPrebuiltEcrImageResultOutput) RegistryPath() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrebuiltEcrImageResult) string { return v.RegistryPath }).(pulumi.StringOutput)
+func (o GetPrebuiltEcrImageResultOutput) RegistryPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPrebuiltEcrImageResult) *string { return v.RegistryPath }).(pulumi.StringPtrOutput)
 }
 
 func (o GetPrebuiltEcrImageResultOutput) RepositoryName() pulumi.StringOutput {

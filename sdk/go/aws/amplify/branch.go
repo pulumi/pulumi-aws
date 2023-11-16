@@ -143,8 +143,8 @@ import (
 // return err
 // }
 // amplifyAppMasterPolicyDocument := pulumi.All(master.Arn,amplifyAppMasterTopic.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// masterArn := _args[0].(string)
-// amplifyAppMasterTopicArn := _args[1].(string)
+// masterArn := _args[0].(*string)
+// amplifyAppMasterTopicArn := _args[1].(*string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -205,7 +205,7 @@ type Branch struct {
 	// Unique ID for an Amplify app.
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// ARN for the branch.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A list of custom resources that are linked to this branch.
 	AssociatedResources pulumi.StringArrayOutput `pulumi:"associatedResources"`
 	// ARN for a backend environment that is part of an Amplify app.
@@ -219,9 +219,9 @@ type Branch struct {
 	// Description for the branch.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Destination branch if the branch is a pull request branch.
-	DestinationBranch pulumi.StringOutput `pulumi:"destinationBranch"`
+	DestinationBranch pulumi.StringPtrOutput `pulumi:"destinationBranch"`
 	// Display name for a branch. This is used as the default domain prefix.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Enables auto building for the branch.
 	EnableAutoBuild pulumi.BoolPtrOutput `pulumi:"enableAutoBuild"`
 	// Enables basic authorization for the branch.
@@ -239,7 +239,7 @@ type Branch struct {
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrOutput `pulumi:"pullRequestEnvironmentName"`
 	// Source branch if the branch is a pull request branch.
-	SourceBranch pulumi.StringOutput `pulumi:"sourceBranch"`
+	SourceBranch pulumi.StringPtrOutput `pulumi:"sourceBranch"`
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage pulumi.StringPtrOutput `pulumi:"stage"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -569,8 +569,8 @@ func (o BranchOutput) AppId() pulumi.StringOutput {
 }
 
 // ARN for the branch.
-func (o BranchOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BranchOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A list of custom resources that are linked to this branch.
@@ -604,13 +604,13 @@ func (o BranchOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Destination branch if the branch is a pull request branch.
-func (o BranchOutput) DestinationBranch() pulumi.StringOutput {
-	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.DestinationBranch }).(pulumi.StringOutput)
+func (o BranchOutput) DestinationBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.DestinationBranch }).(pulumi.StringPtrOutput)
 }
 
 // Display name for a branch. This is used as the default domain prefix.
-func (o BranchOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+func (o BranchOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Enables auto building for the branch.
@@ -654,8 +654,8 @@ func (o BranchOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 }
 
 // Source branch if the branch is a pull request branch.
-func (o BranchOutput) SourceBranch() pulumi.StringOutput {
-	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.SourceBranch }).(pulumi.StringOutput)
+func (o BranchOutput) SourceBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.SourceBranch }).(pulumi.StringPtrOutput)
 }
 
 // Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.

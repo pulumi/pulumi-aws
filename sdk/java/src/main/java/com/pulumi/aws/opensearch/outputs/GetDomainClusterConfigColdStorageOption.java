@@ -6,6 +6,8 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainClusterConfigColdStorageOption {
@@ -13,15 +15,15 @@ public final class GetDomainClusterConfigColdStorageOption {
      * @return Enabled disabled toggle for off-peak update window
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
 
     private GetDomainClusterConfigColdStorageOption() {}
     /**
      * @return Enabled disabled toggle for off-peak update window
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetDomainClusterConfigColdStorageOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
+        private @Nullable Boolean enabled;
         public Builder() {}
         public Builder(GetDomainClusterConfigColdStorageOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetDomainClusterConfigColdStorageOption {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         public GetDomainClusterConfigColdStorageOption build() {

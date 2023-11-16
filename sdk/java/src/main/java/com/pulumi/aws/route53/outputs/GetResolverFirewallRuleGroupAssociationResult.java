@@ -7,74 +7,76 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResolverFirewallRuleGroupAssociationResult {
-    private String arn;
-    private String creationTime;
-    private String creatorRequestId;
+    private @Nullable String arn;
+    private @Nullable String creationTime;
+    private @Nullable String creatorRequestId;
     private String firewallRuleGroupAssociationId;
-    private String firewallRuleGroupId;
+    private @Nullable String firewallRuleGroupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String managedOwnerName;
-    private String modificationTime;
-    private String mutationProtection;
-    private String name;
-    private Integer priority;
-    private String status;
-    private String statusMessage;
-    private String vpcId;
+    private @Nullable String id;
+    private @Nullable String managedOwnerName;
+    private @Nullable String modificationTime;
+    private @Nullable String mutationProtection;
+    private @Nullable String name;
+    private @Nullable Integer priority;
+    private @Nullable String status;
+    private @Nullable String statusMessage;
+    private @Nullable String vpcId;
 
     private GetResolverFirewallRuleGroupAssociationResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String creationTime() {
-        return this.creationTime;
+    public Optional<String> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
-    public String creatorRequestId() {
-        return this.creatorRequestId;
+    public Optional<String> creatorRequestId() {
+        return Optional.ofNullable(this.creatorRequestId);
     }
     public String firewallRuleGroupAssociationId() {
         return this.firewallRuleGroupAssociationId;
     }
-    public String firewallRuleGroupId() {
-        return this.firewallRuleGroupId;
+    public Optional<String> firewallRuleGroupId() {
+        return Optional.ofNullable(this.firewallRuleGroupId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String managedOwnerName() {
-        return this.managedOwnerName;
+    public Optional<String> managedOwnerName() {
+        return Optional.ofNullable(this.managedOwnerName);
     }
-    public String modificationTime() {
-        return this.modificationTime;
+    public Optional<String> modificationTime() {
+        return Optional.ofNullable(this.modificationTime);
     }
-    public String mutationProtection() {
-        return this.mutationProtection;
+    public Optional<String> mutationProtection() {
+        return Optional.ofNullable(this.mutationProtection);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public Integer priority() {
-        return this.priority;
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
     }
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
-    public String statusMessage() {
-        return this.statusMessage;
+    public Optional<String> statusMessage() {
+        return Optional.ofNullable(this.statusMessage);
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -86,20 +88,20 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String creationTime;
-        private String creatorRequestId;
+        private @Nullable String arn;
+        private @Nullable String creationTime;
+        private @Nullable String creatorRequestId;
         private String firewallRuleGroupAssociationId;
-        private String firewallRuleGroupId;
-        private String id;
-        private String managedOwnerName;
-        private String modificationTime;
-        private String mutationProtection;
-        private String name;
-        private Integer priority;
-        private String status;
-        private String statusMessage;
-        private String vpcId;
+        private @Nullable String firewallRuleGroupId;
+        private @Nullable String id;
+        private @Nullable String managedOwnerName;
+        private @Nullable String modificationTime;
+        private @Nullable String mutationProtection;
+        private @Nullable String name;
+        private @Nullable Integer priority;
+        private @Nullable String status;
+        private @Nullable String statusMessage;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetResolverFirewallRuleGroupAssociationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -120,18 +122,18 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable String creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder creatorRequestId(String creatorRequestId) {
-            this.creatorRequestId = Objects.requireNonNull(creatorRequestId);
+        public Builder creatorRequestId(@Nullable String creatorRequestId) {
+            this.creatorRequestId = creatorRequestId;
             return this;
         }
         @CustomType.Setter
@@ -140,53 +142,53 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder firewallRuleGroupId(String firewallRuleGroupId) {
-            this.firewallRuleGroupId = Objects.requireNonNull(firewallRuleGroupId);
+        public Builder firewallRuleGroupId(@Nullable String firewallRuleGroupId) {
+            this.firewallRuleGroupId = firewallRuleGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder managedOwnerName(String managedOwnerName) {
-            this.managedOwnerName = Objects.requireNonNull(managedOwnerName);
+        public Builder managedOwnerName(@Nullable String managedOwnerName) {
+            this.managedOwnerName = managedOwnerName;
             return this;
         }
         @CustomType.Setter
-        public Builder modificationTime(String modificationTime) {
-            this.modificationTime = Objects.requireNonNull(modificationTime);
+        public Builder modificationTime(@Nullable String modificationTime) {
+            this.modificationTime = modificationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder mutationProtection(String mutationProtection) {
-            this.mutationProtection = Objects.requireNonNull(mutationProtection);
+        public Builder mutationProtection(@Nullable String mutationProtection) {
+            this.mutationProtection = mutationProtection;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+        public Builder statusMessage(@Nullable String statusMessage) {
+            this.statusMessage = statusMessage;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetResolverFirewallRuleGroupAssociationResult build() {

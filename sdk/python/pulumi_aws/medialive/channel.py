@@ -845,7 +845,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Channel.
         """
@@ -869,7 +869,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelId")
-    def channel_id(self) -> pulumi.Output[str]:
+    def channel_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the channel in MediaPackage that is the destination for this output group.
         """
@@ -909,7 +909,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> pulumi.Output[str]:
+    def log_level(self) -> pulumi.Output[Optional[str]]:
         """
         The log level to write to Cloudwatch logs.
         """
@@ -917,7 +917,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def maintenance(self) -> pulumi.Output['outputs.ChannelMaintenance']:
+    def maintenance(self) -> pulumi.Output[Optional['outputs.ChannelMaintenance']]:
         """
         Maintenance settings for this channel. See Maintenance for more details.
         """

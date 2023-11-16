@@ -185,11 +185,11 @@ type Feature struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the feature.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date and time that the feature is created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-	DefaultVariation pulumi.StringOutput `pulumi:"defaultVariation"`
+	DefaultVariation pulumi.StringPtrOutput `pulumi:"defaultVariation"`
 	// Specifies the description of the feature.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
@@ -197,15 +197,15 @@ type Feature struct {
 	// One or more blocks that define the evaluation rules for the feature. Detailed below
 	EvaluationRules FeatureEvaluationRuleArrayOutput `pulumi:"evaluationRules"`
 	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-	EvaluationStrategy pulumi.StringOutput `pulumi:"evaluationStrategy"`
+	EvaluationStrategy pulumi.StringPtrOutput `pulumi:"evaluationStrategy"`
 	// The date and time that the feature was most recently updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name or ARN of the project that is to contain the new feature.
 	Project pulumi.StringOutput `pulumi:"project"`
 	// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -213,7 +213,7 @@ type Feature struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-	ValueType pulumi.StringOutput `pulumi:"valueType"`
+	ValueType pulumi.StringPtrOutput `pulumi:"valueType"`
 	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
 	Variations FeatureVariationArrayOutput `pulumi:"variations"`
 }
@@ -458,18 +458,18 @@ func (o FeatureOutput) ToFeatureOutputWithContext(ctx context.Context) FeatureOu
 }
 
 // The ARN of the feature.
-func (o FeatureOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FeatureOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that the feature is created.
-func (o FeatureOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o FeatureOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-func (o FeatureOutput) DefaultVariation() pulumi.StringOutput {
-	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.DefaultVariation }).(pulumi.StringOutput)
+func (o FeatureOutput) DefaultVariation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.DefaultVariation }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the description of the feature.
@@ -488,13 +488,13 @@ func (o FeatureOutput) EvaluationRules() FeatureEvaluationRuleArrayOutput {
 }
 
 // Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-func (o FeatureOutput) EvaluationStrategy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.EvaluationStrategy }).(pulumi.StringOutput)
+func (o FeatureOutput) EvaluationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.EvaluationStrategy }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that the feature was most recently updated.
-func (o FeatureOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o FeatureOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The name for the new feature. Minimum length of `1`. Maximum length of `127`.
@@ -508,8 +508,8 @@ func (o FeatureOutput) Project() pulumi.StringOutput {
 }
 
 // The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-func (o FeatureOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o FeatureOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -525,8 +525,8 @@ func (o FeatureOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-func (o FeatureOutput) ValueType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.ValueType }).(pulumi.StringOutput)
+func (o FeatureOutput) ValueType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.ValueType }).(pulumi.StringPtrOutput)
 }
 
 // One or more blocks that contain the configuration of the feature's different variations. Detailed below

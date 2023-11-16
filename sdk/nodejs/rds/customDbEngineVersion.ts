@@ -130,11 +130,11 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the custom engine version.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time that the CEV was created.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string | undefined>;
     /**
      * The name of the Amazon S3 bucket that contains the database installation files.
      */
@@ -146,7 +146,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     /**
      * The name of the DB parameter group family for the CEV.
      */
-    public /*out*/ readonly dbParameterGroupFamily!: pulumi.Output<string>;
+    public /*out*/ readonly dbParameterGroupFamily!: pulumi.Output<string | undefined>;
     /**
      * The description of the CEV.
      */
@@ -166,15 +166,15 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     /**
      * The ID of the AMI that was created with the CEV.
      */
-    public /*out*/ readonly imageId!: pulumi.Output<string>;
+    public /*out*/ readonly imageId!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The major version of the database engine.
      */
-    public /*out*/ readonly majorEngineVersion!: pulumi.Output<string>;
+    public /*out*/ readonly majorEngineVersion!: pulumi.Output<string | undefined>;
     /**
      * The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
      */
@@ -182,7 +182,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     /**
      * The returned manifest file, in JSON format, service generated and often different from input `manifest`.
      */
-    public /*out*/ readonly manifestComputed!: pulumi.Output<string>;
+    public /*out*/ readonly manifestComputed!: pulumi.Output<string | undefined>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
      */
@@ -194,7 +194,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     /**
      * The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

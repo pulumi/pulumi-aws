@@ -13,12 +13,12 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateCapacityReservationSpecificationResult
     {
-        public readonly string CapacityReservationPreference;
+        public readonly string? CapacityReservationPreference;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult> CapacityReservationTargets;
 
         [OutputConstructor]
         private GetLaunchTemplateCapacityReservationSpecificationResult(
-            string capacityReservationPreference,
+            string? capacityReservationPreference,
 
             ImmutableArray<Outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult> capacityReservationTargets)
         {

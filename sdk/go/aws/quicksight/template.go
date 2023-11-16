@@ -60,13 +60,13 @@ type Template struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the resource.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// The time that the template was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// The time that the template was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// Display name for the template.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
@@ -74,9 +74,9 @@ type Template struct {
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
 	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-	SourceEntityArn pulumi.StringOutput `pulumi:"sourceEntityArn"`
+	SourceEntityArn pulumi.StringPtrOutput `pulumi:"sourceEntityArn"`
 	// The template creation status.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -90,7 +90,7 @@ type Template struct {
 	// The following arguments are optional:
 	VersionDescription pulumi.StringOutput `pulumi:"versionDescription"`
 	// The version number of the template version.
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	VersionNumber pulumi.IntPtrOutput `pulumi:"versionNumber"`
 }
 
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
@@ -333,23 +333,23 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 }
 
 // The Amazon Resource Name (ARN) of the resource.
-func (o TemplateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TemplateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o TemplateOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o TemplateOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The time that the template was created.
-func (o TemplateOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o TemplateOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The time that the template was last updated.
-func (o TemplateOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o TemplateOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Display name for the template.
@@ -368,13 +368,13 @@ func (o TemplateOutput) SourceEntity() TemplateSourceEntityPtrOutput {
 }
 
 // Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-func (o TemplateOutput) SourceEntityArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.SourceEntityArn }).(pulumi.StringOutput)
+func (o TemplateOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
 }
 
 // The template creation status.
-func (o TemplateOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o TemplateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -402,8 +402,8 @@ func (o TemplateOutput) VersionDescription() pulumi.StringOutput {
 }
 
 // The version number of the template version.
-func (o TemplateOutput) VersionNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v *Template) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
+func (o TemplateOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Template) pulumi.IntPtrOutput { return v.VersionNumber }).(pulumi.IntPtrOutput)
 }
 
 type TemplateArrayOutput struct{ *pulumi.OutputState }

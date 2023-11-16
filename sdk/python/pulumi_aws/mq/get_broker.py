@@ -92,62 +92,62 @@ class GetBrokerResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authenticationStrategy")
-    def authentication_strategy(self) -> str:
+    def authentication_strategy(self) -> Optional[str]:
         return pulumi.get(self, "authentication_strategy")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> bool:
+    def auto_minor_version_upgrade(self) -> Optional[bool]:
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @property
     @pulumi.getter(name="brokerId")
-    def broker_id(self) -> str:
+    def broker_id(self) -> Optional[str]:
         return pulumi.get(self, "broker_id")
 
     @property
     @pulumi.getter(name="brokerName")
-    def broker_name(self) -> str:
+    def broker_name(self) -> Optional[str]:
         return pulumi.get(self, "broker_name")
 
     @property
     @pulumi.getter
-    def configuration(self) -> 'outputs.GetBrokerConfigurationResult':
+    def configuration(self) -> Optional['outputs.GetBrokerConfigurationResult']:
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="deploymentMode")
-    def deployment_mode(self) -> str:
+    def deployment_mode(self) -> Optional[str]:
         return pulumi.get(self, "deployment_mode")
 
     @property
     @pulumi.getter(name="encryptionOptions")
-    def encryption_options(self) -> Sequence['outputs.GetBrokerEncryptionOptionResult']:
+    def encryption_options(self) -> Optional[Sequence['outputs.GetBrokerEncryptionOptionResult']]:
         return pulumi.get(self, "encryption_options")
 
     @property
     @pulumi.getter(name="engineType")
-    def engine_type(self) -> str:
+    def engine_type(self) -> Optional[str]:
         return pulumi.get(self, "engine_type")
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> Optional[str]:
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="hostInstanceType")
-    def host_instance_type(self) -> str:
+    def host_instance_type(self) -> Optional[str]:
         return pulumi.get(self, "host_instance_type")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -155,52 +155,52 @@ class GetBrokerResult:
 
     @property
     @pulumi.getter
-    def instances(self) -> Sequence['outputs.GetBrokerInstanceResult']:
+    def instances(self) -> Optional[Sequence['outputs.GetBrokerInstanceResult']]:
         return pulumi.get(self, "instances")
 
     @property
     @pulumi.getter(name="ldapServerMetadatas")
-    def ldap_server_metadatas(self) -> Sequence['outputs.GetBrokerLdapServerMetadataResult']:
+    def ldap_server_metadatas(self) -> Optional[Sequence['outputs.GetBrokerLdapServerMetadataResult']]:
         return pulumi.get(self, "ldap_server_metadatas")
 
     @property
     @pulumi.getter
-    def logs(self) -> 'outputs.GetBrokerLogsResult':
+    def logs(self) -> Optional['outputs.GetBrokerLogsResult']:
         return pulumi.get(self, "logs")
 
     @property
     @pulumi.getter(name="maintenanceWindowStartTime")
-    def maintenance_window_start_time(self) -> 'outputs.GetBrokerMaintenanceWindowStartTimeResult':
+    def maintenance_window_start_time(self) -> Optional['outputs.GetBrokerMaintenanceWindowStartTimeResult']:
         return pulumi.get(self, "maintenance_window_start_time")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> bool:
+    def publicly_accessible(self) -> Optional[bool]:
         return pulumi.get(self, "publicly_accessible")
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Sequence[str]:
+    def security_groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> str:
+    def storage_type(self) -> Optional[str]:
         return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def users(self) -> Sequence['outputs.GetBrokerUserResult']:
+    def users(self) -> Optional[Sequence['outputs.GetBrokerUserResult']]:
         return pulumi.get(self, "users")
 
 

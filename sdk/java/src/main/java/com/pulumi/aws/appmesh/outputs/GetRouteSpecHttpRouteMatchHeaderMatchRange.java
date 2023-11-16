@@ -6,18 +6,20 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecHttpRouteMatchHeaderMatchRange {
-    private Integer end;
-    private Integer start;
+    private @Nullable Integer end;
+    private @Nullable Integer start;
 
     private GetRouteSpecHttpRouteMatchHeaderMatchRange() {}
-    public Integer end() {
-        return this.end;
+    public Optional<Integer> end() {
+        return Optional.ofNullable(this.end);
     }
-    public Integer start() {
-        return this.start;
+    public Optional<Integer> start() {
+        return Optional.ofNullable(this.start);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetRouteSpecHttpRouteMatchHeaderMatchRange {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer end;
-        private Integer start;
+        private @Nullable Integer end;
+        private @Nullable Integer start;
         public Builder() {}
         public Builder(GetRouteSpecHttpRouteMatchHeaderMatchRange defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetRouteSpecHttpRouteMatchHeaderMatchRange {
         }
 
         @CustomType.Setter
-        public Builder end(Integer end) {
-            this.end = Objects.requireNonNull(end);
+        public Builder end(@Nullable Integer end) {
+            this.end = end;
             return this;
         }
         @CustomType.Setter
-        public Builder start(Integer start) {
-            this.start = Objects.requireNonNull(start);
+        public Builder start(@Nullable Integer start) {
+            this.start = start;
             return this;
         }
         public GetRouteSpecHttpRouteMatchHeaderMatchRange build() {

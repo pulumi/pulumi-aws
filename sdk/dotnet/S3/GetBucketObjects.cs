@@ -148,7 +148,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of strings representing object keys
         /// </summary>
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.S3
 
             bool? fetchOwner,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> keys,
 

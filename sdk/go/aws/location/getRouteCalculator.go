@@ -59,20 +59,20 @@ type GetRouteCalculatorArgs struct {
 // A collection of values returned by getRouteCalculator.
 type GetRouteCalculatorResult struct {
 	// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-	CalculatorArn  string `pulumi:"calculatorArn"`
-	CalculatorName string `pulumi:"calculatorName"`
+	CalculatorArn  *string `pulumi:"calculatorArn"`
+	CalculatorName string  `pulumi:"calculatorName"`
 	// Timestamp for when the route calculator resource was created in ISO 8601 format.
-	CreateTime string `pulumi:"createTime"`
+	CreateTime *string `pulumi:"createTime"`
 	// Data provider of traffic and road network data.
-	DataSource string `pulumi:"dataSource"`
+	DataSource *string `pulumi:"dataSource"`
 	// Optional description of the route calculator resource.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Key-value map of resource tags for the route calculator.
 	Tags map[string]string `pulumi:"tags"`
 	// Timestamp for when the route calculator resource was last updated in ISO 8601 format.
-	UpdateTime string `pulumi:"updateTime"`
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func GetRouteCalculatorOutput(ctx *pulumi.Context, args GetRouteCalculatorOutputArgs, opts ...pulumi.InvokeOption) GetRouteCalculatorResultOutput {
@@ -116,8 +116,8 @@ func (o GetRouteCalculatorResultOutput) ToGetRouteCalculatorResultOutputWithCont
 }
 
 // ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-func (o GetRouteCalculatorResultOutput) CalculatorArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.CalculatorArn }).(pulumi.StringOutput)
+func (o GetRouteCalculatorResultOutput) CalculatorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteCalculatorResult) *string { return v.CalculatorArn }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRouteCalculatorResultOutput) CalculatorName() pulumi.StringOutput {
@@ -125,23 +125,23 @@ func (o GetRouteCalculatorResultOutput) CalculatorName() pulumi.StringOutput {
 }
 
 // Timestamp for when the route calculator resource was created in ISO 8601 format.
-func (o GetRouteCalculatorResultOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.CreateTime }).(pulumi.StringOutput)
+func (o GetRouteCalculatorResultOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteCalculatorResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // Data provider of traffic and road network data.
-func (o GetRouteCalculatorResultOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.DataSource }).(pulumi.StringOutput)
+func (o GetRouteCalculatorResultOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteCalculatorResult) *string { return v.DataSource }).(pulumi.StringPtrOutput)
 }
 
 // Optional description of the route calculator resource.
-func (o GetRouteCalculatorResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetRouteCalculatorResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteCalculatorResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetRouteCalculatorResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetRouteCalculatorResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteCalculatorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags for the route calculator.
@@ -150,8 +150,8 @@ func (o GetRouteCalculatorResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Timestamp for when the route calculator resource was last updated in ISO 8601 format.
-func (o GetRouteCalculatorResultOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.UpdateTime }).(pulumi.StringOutput)
+func (o GetRouteCalculatorResultOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteCalculatorResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 func init() {

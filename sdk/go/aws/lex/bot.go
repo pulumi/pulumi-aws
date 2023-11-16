@@ -85,10 +85,10 @@ type Bot struct {
 
 	// The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
 	AbortStatement BotAbortStatementOutput `pulumi:"abortStatement"`
-	Arn            pulumi.StringOutput     `pulumi:"arn"`
+	Arn            pulumi.StringPtrOutput  `pulumi:"arn"`
 	// Checksum identifying the version of the bot that was created. The checksum is not
 	// included as an argument because the resource will add it automatically when updating the bot.
-	Checksum pulumi.StringOutput `pulumi:"checksum"`
+	Checksum pulumi.StringPtrOutput `pulumi:"checksum"`
 	// By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
 	ChildDirected pulumi.BoolOutput `pulumi:"childDirected"`
 	// The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
@@ -96,7 +96,7 @@ type Bot struct {
 	// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrOutput `pulumi:"createVersion"`
 	// The date when the bot version was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
@@ -104,13 +104,13 @@ type Bot struct {
 	// Set to `true` to enable access to natural language understanding improvements. When you set the `enableModelImprovements` parameter to true you can use the `nluIntentConfidenceThreshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enableModelImprovements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
 	EnableModelImprovements pulumi.BoolPtrOutput `pulumi:"enableModelImprovements"`
 	// If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
-	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
+	FailureReason pulumi.StringPtrOutput `pulumi:"failureReason"`
 	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds pulumi.IntPtrOutput `pulumi:"idleSessionTtlInSeconds"`
 	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
 	Intents BotIntentArrayOutput `pulumi:"intents"`
 	// The date when the $LATEST version of this bot was updated.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate pulumi.StringPtrOutput `pulumi:"lastUpdatedDate"`
 	// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
 	Locale pulumi.StringPtrOutput `pulumi:"locale"`
 	// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
@@ -123,11 +123,11 @@ type Bot struct {
 	// element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
 	// build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
 	// failureReason response element.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The version of the bot.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 	// The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
-	VoiceId pulumi.StringOutput `pulumi:"voiceId"`
+	VoiceId pulumi.StringPtrOutput `pulumi:"voiceId"`
 }
 
 // NewBot registers a new resource with the given unique name, arguments, and options.
@@ -423,14 +423,14 @@ func (o BotOutput) AbortStatement() BotAbortStatementOutput {
 	return o.ApplyT(func(v *Bot) BotAbortStatementOutput { return v.AbortStatement }).(BotAbortStatementOutput)
 }
 
-func (o BotOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BotOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Checksum identifying the version of the bot that was created. The checksum is not
 // included as an argument because the resource will add it automatically when updating the bot.
-func (o BotOutput) Checksum() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Checksum }).(pulumi.StringOutput)
+func (o BotOutput) Checksum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Checksum }).(pulumi.StringPtrOutput)
 }
 
 // By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
@@ -449,8 +449,8 @@ func (o BotOutput) CreateVersion() pulumi.BoolPtrOutput {
 }
 
 // The date when the bot version was created.
-func (o BotOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o BotOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // A description of the bot. Must be less than or equal to 200 characters in length.
@@ -469,8 +469,8 @@ func (o BotOutput) EnableModelImprovements() pulumi.BoolPtrOutput {
 }
 
 // If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
-func (o BotOutput) FailureReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
+func (o BotOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.FailureReason }).(pulumi.StringPtrOutput)
 }
 
 // The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
@@ -484,8 +484,8 @@ func (o BotOutput) Intents() BotIntentArrayOutput {
 }
 
 // The date when the $LATEST version of this bot was updated.
-func (o BotOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o BotOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
@@ -512,18 +512,18 @@ func (o BotOutput) ProcessBehavior() pulumi.StringPtrOutput {
 // element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
 // build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
 // failureReason response element.
-func (o BotOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o BotOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The version of the bot.
-func (o BotOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o BotOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
-func (o BotOutput) VoiceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.VoiceId }).(pulumi.StringOutput)
+func (o BotOutput) VoiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.VoiceId }).(pulumi.StringPtrOutput)
 }
 
 type BotArrayOutput struct{ *pulumi.OutputState }

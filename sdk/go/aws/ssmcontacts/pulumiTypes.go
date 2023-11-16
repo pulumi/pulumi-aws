@@ -675,7 +675,7 @@ func (o PlanStageTargetContactTargetInfoPtrOutput) IsEssential() pulumi.BoolPtrO
 }
 
 type GetContactChannelDeliveryAddress struct {
-	SimpleAddress string `pulumi:"simpleAddress"`
+	SimpleAddress *string `pulumi:"simpleAddress"`
 }
 
 // GetContactChannelDeliveryAddressInput is an input type that accepts GetContactChannelDeliveryAddressArgs and GetContactChannelDeliveryAddressOutput values.
@@ -690,7 +690,7 @@ type GetContactChannelDeliveryAddressInput interface {
 }
 
 type GetContactChannelDeliveryAddressArgs struct {
-	SimpleAddress pulumi.StringInput `pulumi:"simpleAddress"`
+	SimpleAddress pulumi.StringPtrInput `pulumi:"simpleAddress"`
 }
 
 func (GetContactChannelDeliveryAddressArgs) ElementType() reflect.Type {
@@ -744,8 +744,8 @@ func (o GetContactChannelDeliveryAddressOutput) ToGetContactChannelDeliveryAddre
 	return o
 }
 
-func (o GetContactChannelDeliveryAddressOutput) SimpleAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContactChannelDeliveryAddress) string { return v.SimpleAddress }).(pulumi.StringOutput)
+func (o GetContactChannelDeliveryAddressOutput) SimpleAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContactChannelDeliveryAddress) *string { return v.SimpleAddress }).(pulumi.StringPtrOutput)
 }
 
 type GetContactChannelDeliveryAddressArrayOutput struct{ *pulumi.OutputState }
@@ -769,7 +769,7 @@ func (o GetContactChannelDeliveryAddressArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetPlanStage struct {
-	DurationInMinutes int                  `pulumi:"durationInMinutes"`
+	DurationInMinutes *int                 `pulumi:"durationInMinutes"`
 	Targets           []GetPlanStageTarget `pulumi:"targets"`
 }
 
@@ -785,7 +785,7 @@ type GetPlanStageInput interface {
 }
 
 type GetPlanStageArgs struct {
-	DurationInMinutes pulumi.IntInput              `pulumi:"durationInMinutes"`
+	DurationInMinutes pulumi.IntPtrInput           `pulumi:"durationInMinutes"`
 	Targets           GetPlanStageTargetArrayInput `pulumi:"targets"`
 }
 
@@ -840,8 +840,8 @@ func (o GetPlanStageOutput) ToGetPlanStageOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o GetPlanStageOutput) DurationInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetPlanStage) int { return v.DurationInMinutes }).(pulumi.IntOutput)
+func (o GetPlanStageOutput) DurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetPlanStage) *int { return v.DurationInMinutes }).(pulumi.IntPtrOutput)
 }
 
 func (o GetPlanStageOutput) Targets() GetPlanStageTargetArrayOutput {
@@ -969,8 +969,8 @@ func (o GetPlanStageTargetArrayOutput) Index(i pulumi.IntInput) GetPlanStageTarg
 }
 
 type GetPlanStageTargetChannelTargetInfo struct {
-	ContactChannelId       string `pulumi:"contactChannelId"`
-	RetryIntervalInMinutes int    `pulumi:"retryIntervalInMinutes"`
+	ContactChannelId       *string `pulumi:"contactChannelId"`
+	RetryIntervalInMinutes *int    `pulumi:"retryIntervalInMinutes"`
 }
 
 // GetPlanStageTargetChannelTargetInfoInput is an input type that accepts GetPlanStageTargetChannelTargetInfoArgs and GetPlanStageTargetChannelTargetInfoOutput values.
@@ -985,8 +985,8 @@ type GetPlanStageTargetChannelTargetInfoInput interface {
 }
 
 type GetPlanStageTargetChannelTargetInfoArgs struct {
-	ContactChannelId       pulumi.StringInput `pulumi:"contactChannelId"`
-	RetryIntervalInMinutes pulumi.IntInput    `pulumi:"retryIntervalInMinutes"`
+	ContactChannelId       pulumi.StringPtrInput `pulumi:"contactChannelId"`
+	RetryIntervalInMinutes pulumi.IntPtrInput    `pulumi:"retryIntervalInMinutes"`
 }
 
 func (GetPlanStageTargetChannelTargetInfoArgs) ElementType() reflect.Type {
@@ -1040,12 +1040,12 @@ func (o GetPlanStageTargetChannelTargetInfoOutput) ToGetPlanStageTargetChannelTa
 	return o
 }
 
-func (o GetPlanStageTargetChannelTargetInfoOutput) ContactChannelId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPlanStageTargetChannelTargetInfo) string { return v.ContactChannelId }).(pulumi.StringOutput)
+func (o GetPlanStageTargetChannelTargetInfoOutput) ContactChannelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPlanStageTargetChannelTargetInfo) *string { return v.ContactChannelId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetPlanStageTargetChannelTargetInfoOutput) RetryIntervalInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetPlanStageTargetChannelTargetInfo) int { return v.RetryIntervalInMinutes }).(pulumi.IntOutput)
+func (o GetPlanStageTargetChannelTargetInfoOutput) RetryIntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetPlanStageTargetChannelTargetInfo) *int { return v.RetryIntervalInMinutes }).(pulumi.IntPtrOutput)
 }
 
 type GetPlanStageTargetChannelTargetInfoArrayOutput struct{ *pulumi.OutputState }
@@ -1070,8 +1070,8 @@ func (o GetPlanStageTargetChannelTargetInfoArrayOutput) Index(i pulumi.IntInput)
 
 type GetPlanStageTargetContactTargetInfo struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId   string `pulumi:"contactId"`
-	IsEssential bool   `pulumi:"isEssential"`
+	ContactId   *string `pulumi:"contactId"`
+	IsEssential *bool   `pulumi:"isEssential"`
 }
 
 // GetPlanStageTargetContactTargetInfoInput is an input type that accepts GetPlanStageTargetContactTargetInfoArgs and GetPlanStageTargetContactTargetInfoOutput values.
@@ -1087,8 +1087,8 @@ type GetPlanStageTargetContactTargetInfoInput interface {
 
 type GetPlanStageTargetContactTargetInfoArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId   pulumi.StringInput `pulumi:"contactId"`
-	IsEssential pulumi.BoolInput   `pulumi:"isEssential"`
+	ContactId   pulumi.StringPtrInput `pulumi:"contactId"`
+	IsEssential pulumi.BoolPtrInput   `pulumi:"isEssential"`
 }
 
 func (GetPlanStageTargetContactTargetInfoArgs) ElementType() reflect.Type {
@@ -1143,12 +1143,12 @@ func (o GetPlanStageTargetContactTargetInfoOutput) ToGetPlanStageTargetContactTa
 }
 
 // The Amazon Resource Name (ARN) of the contact or escalation plan.
-func (o GetPlanStageTargetContactTargetInfoOutput) ContactId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPlanStageTargetContactTargetInfo) string { return v.ContactId }).(pulumi.StringOutput)
+func (o GetPlanStageTargetContactTargetInfoOutput) ContactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPlanStageTargetContactTargetInfo) *string { return v.ContactId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetPlanStageTargetContactTargetInfoOutput) IsEssential() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetPlanStageTargetContactTargetInfo) bool { return v.IsEssential }).(pulumi.BoolOutput)
+func (o GetPlanStageTargetContactTargetInfoOutput) IsEssential() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetPlanStageTargetContactTargetInfo) *bool { return v.IsEssential }).(pulumi.BoolPtrOutput)
 }
 
 type GetPlanStageTargetContactTargetInfoArrayOutput struct{ *pulumi.OutputState }

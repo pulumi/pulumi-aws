@@ -19,15 +19,15 @@ public final class GetPermissionsTable extends com.pulumi.resources.InvokeArgs {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    @Import(name="catalogId", required=true)
-    private String catalogId;
+    @Import(name="catalogId")
+    private @Nullable String catalogId;
 
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    public String catalogId() {
-        return this.catalogId;
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
 
     /**
@@ -53,15 +53,15 @@ public final class GetPermissionsTable extends com.pulumi.resources.InvokeArgs {
      * Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
-    @Import(name="name", required=true)
-    private String name;
+    @Import(name="name")
+    private @Nullable String name;
 
     /**
      * @return Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -112,7 +112,7 @@ public final class GetPermissionsTable extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder catalogId(String catalogId) {
+        public Builder catalogId(@Nullable String catalogId) {
             $.catalogId = catalogId;
             return this;
         }
@@ -136,7 +136,7 @@ public final class GetPermissionsTable extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder name(String name) {
+        public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
@@ -153,9 +153,7 @@ public final class GetPermissionsTable extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetPermissionsTable build() {
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
             $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

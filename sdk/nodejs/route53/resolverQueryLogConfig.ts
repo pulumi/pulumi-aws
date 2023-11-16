@@ -62,7 +62,7 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the resource that you want Route 53 Resolver to send query logs.
      * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
@@ -75,13 +75,13 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
     /**
      * The AWS account ID of the account that created the query logging configuration.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
      * Sharing is configured through AWS Resource Access Manager (AWS RAM).
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
-    public /*out*/ readonly shareStatus!: pulumi.Output<string>;
+    public /*out*/ readonly shareStatus!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

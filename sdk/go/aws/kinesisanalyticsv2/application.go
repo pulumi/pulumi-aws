@@ -302,19 +302,19 @@ type Application struct {
 	pulumi.CustomResourceState
 
 	// The application's configuration
-	ApplicationConfiguration ApplicationApplicationConfigurationOutput `pulumi:"applicationConfiguration"`
+	ApplicationConfiguration ApplicationApplicationConfigurationPtrOutput `pulumi:"applicationConfiguration"`
 	// The ARN of the application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A CloudWatch log stream to monitor application configuration errors.
 	CloudwatchLoggingOptions ApplicationCloudwatchLoggingOptionsPtrOutput `pulumi:"cloudwatchLoggingOptions"`
 	// The current timestamp when the application was created.
-	CreateTimestamp pulumi.StringOutput `pulumi:"createTimestamp"`
+	CreateTimestamp pulumi.StringPtrOutput `pulumi:"createTimestamp"`
 	// A summary description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether to force stop an unresponsive Flink-based application.
 	ForceStop pulumi.BoolPtrOutput `pulumi:"forceStop"`
 	// The current timestamp when the application was last updated.
-	LastUpdateTimestamp pulumi.StringOutput `pulumi:"lastUpdateTimestamp"`
+	LastUpdateTimestamp pulumi.StringPtrOutput `pulumi:"lastUpdateTimestamp"`
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.
@@ -324,7 +324,7 @@ type Application struct {
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The status of the application.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -332,7 +332,7 @@ type Application struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
-	VersionId pulumi.IntOutput `pulumi:"versionId"`
+	VersionId pulumi.IntPtrOutput `pulumi:"versionId"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -579,13 +579,13 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 }
 
 // The application's configuration
-func (o ApplicationOutput) ApplicationConfiguration() ApplicationApplicationConfigurationOutput {
-	return o.ApplyT(func(v *Application) ApplicationApplicationConfigurationOutput { return v.ApplicationConfiguration }).(ApplicationApplicationConfigurationOutput)
+func (o ApplicationOutput) ApplicationConfiguration() ApplicationApplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationApplicationConfigurationPtrOutput { return v.ApplicationConfiguration }).(ApplicationApplicationConfigurationPtrOutput)
 }
 
 // The ARN of the application.
-func (o ApplicationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ApplicationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A CloudWatch log stream to monitor application configuration errors.
@@ -594,8 +594,8 @@ func (o ApplicationOutput) CloudwatchLoggingOptions() ApplicationCloudwatchLoggi
 }
 
 // The current timestamp when the application was created.
-func (o ApplicationOutput) CreateTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.CreateTimestamp }).(pulumi.StringOutput)
+func (o ApplicationOutput) CreateTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.CreateTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // A summary description of the application.
@@ -609,8 +609,8 @@ func (o ApplicationOutput) ForceStop() pulumi.BoolPtrOutput {
 }
 
 // The current timestamp when the application was last updated.
-func (o ApplicationOutput) LastUpdateTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.LastUpdateTimestamp }).(pulumi.StringOutput)
+func (o ApplicationOutput) LastUpdateTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.LastUpdateTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // The name of the application.
@@ -634,8 +634,8 @@ func (o ApplicationOutput) StartApplication() pulumi.BoolPtrOutput {
 }
 
 // The status of the application.
-func (o ApplicationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ApplicationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -651,8 +651,8 @@ func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
-func (o ApplicationOutput) VersionId() pulumi.IntOutput {
-	return o.ApplyT(func(v *Application) pulumi.IntOutput { return v.VersionId }).(pulumi.IntOutput)
+func (o ApplicationOutput) VersionId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.IntPtrOutput { return v.VersionId }).(pulumi.IntPtrOutput)
 }
 
 type ApplicationArrayOutput struct{ *pulumi.OutputState }

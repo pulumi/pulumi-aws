@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class GetFrameworkControlSetControlResult
     {
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
-        private GetFrameworkControlSetControlResult(string id)
+        private GetFrameworkControlSetControlResult(string? id)
         {
             Id = id;
         }

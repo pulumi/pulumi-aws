@@ -17,78 +17,78 @@ public final class GetLayerVersionResult {
      * @return ARN of the Lambda Layer with version.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     private @Nullable String compatibleArchitecture;
     /**
      * @return A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
      * 
      */
-    private List<String> compatibleArchitectures;
+    private @Nullable List<String> compatibleArchitectures;
     private @Nullable String compatibleRuntime;
     /**
      * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
      * 
      */
-    private List<String> compatibleRuntimes;
+    private @Nullable List<String> compatibleRuntimes;
     /**
      * @return Date this resource was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return Description of the specific Lambda Layer version.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of the Lambda Layer without version.
      * 
      */
-    private String layerArn;
+    private @Nullable String layerArn;
     private String layerName;
     /**
      * @return License info associated with the specific Lambda Layer version.
      * 
      */
-    private String licenseInfo;
+    private @Nullable String licenseInfo;
     /**
      * @return ARN of a signing job.
      * 
      */
-    private String signingJobArn;
+    private @Nullable String signingJobArn;
     /**
      * @return The ARN for a signing profile version.
      * 
      */
-    private String signingProfileVersionArn;
+    private @Nullable String signingProfileVersionArn;
     /**
      * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      */
-    private String sourceCodeHash;
+    private @Nullable String sourceCodeHash;
     /**
      * @return Size in bytes of the function .zip file.
      * 
      */
-    private Integer sourceCodeSize;
+    private @Nullable Integer sourceCodeSize;
     /**
      * @return This Lamba Layer version.
      * 
      */
-    private Integer version;
+    private @Nullable Integer version;
 
     private GetLayerVersionResult() {}
     /**
      * @return ARN of the Lambda Layer with version.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public Optional<String> compatibleArchitecture() {
         return Optional.ofNullable(this.compatibleArchitecture);
@@ -98,7 +98,7 @@ public final class GetLayerVersionResult {
      * 
      */
     public List<String> compatibleArchitectures() {
-        return this.compatibleArchitectures;
+        return this.compatibleArchitectures == null ? List.of() : this.compatibleArchitectures;
     }
     public Optional<String> compatibleRuntime() {
         return Optional.ofNullable(this.compatibleRuntime);
@@ -108,35 +108,35 @@ public final class GetLayerVersionResult {
      * 
      */
     public List<String> compatibleRuntimes() {
-        return this.compatibleRuntimes;
+        return this.compatibleRuntimes == null ? List.of() : this.compatibleRuntimes;
     }
     /**
      * @return Date this resource was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Description of the specific Lambda Layer version.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of the Lambda Layer without version.
      * 
      */
-    public String layerArn() {
-        return this.layerArn;
+    public Optional<String> layerArn() {
+        return Optional.ofNullable(this.layerArn);
     }
     public String layerName() {
         return this.layerName;
@@ -145,43 +145,43 @@ public final class GetLayerVersionResult {
      * @return License info associated with the specific Lambda Layer version.
      * 
      */
-    public String licenseInfo() {
-        return this.licenseInfo;
+    public Optional<String> licenseInfo() {
+        return Optional.ofNullable(this.licenseInfo);
     }
     /**
      * @return ARN of a signing job.
      * 
      */
-    public String signingJobArn() {
-        return this.signingJobArn;
+    public Optional<String> signingJobArn() {
+        return Optional.ofNullable(this.signingJobArn);
     }
     /**
      * @return The ARN for a signing profile version.
      * 
      */
-    public String signingProfileVersionArn() {
-        return this.signingProfileVersionArn;
+    public Optional<String> signingProfileVersionArn() {
+        return Optional.ofNullable(this.signingProfileVersionArn);
     }
     /**
      * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      */
-    public String sourceCodeHash() {
-        return this.sourceCodeHash;
+    public Optional<String> sourceCodeHash() {
+        return Optional.ofNullable(this.sourceCodeHash);
     }
     /**
      * @return Size in bytes of the function .zip file.
      * 
      */
-    public Integer sourceCodeSize() {
-        return this.sourceCodeSize;
+    public Optional<Integer> sourceCodeSize() {
+        return Optional.ofNullable(this.sourceCodeSize);
     }
     /**
      * @return This Lamba Layer version.
      * 
      */
-    public Integer version() {
-        return this.version;
+    public Optional<Integer> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -193,22 +193,22 @@ public final class GetLayerVersionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private @Nullable String compatibleArchitecture;
-        private List<String> compatibleArchitectures;
+        private @Nullable List<String> compatibleArchitectures;
         private @Nullable String compatibleRuntime;
-        private List<String> compatibleRuntimes;
-        private String createdDate;
-        private String description;
-        private String id;
-        private String layerArn;
+        private @Nullable List<String> compatibleRuntimes;
+        private @Nullable String createdDate;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String layerArn;
         private String layerName;
-        private String licenseInfo;
-        private String signingJobArn;
-        private String signingProfileVersionArn;
-        private String sourceCodeHash;
-        private Integer sourceCodeSize;
-        private Integer version;
+        private @Nullable String licenseInfo;
+        private @Nullable String signingJobArn;
+        private @Nullable String signingProfileVersionArn;
+        private @Nullable String sourceCodeHash;
+        private @Nullable Integer sourceCodeSize;
+        private @Nullable Integer version;
         public Builder() {}
         public Builder(GetLayerVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -231,8 +231,8 @@ public final class GetLayerVersionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -241,8 +241,8 @@ public final class GetLayerVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder compatibleArchitectures(List<String> compatibleArchitectures) {
-            this.compatibleArchitectures = Objects.requireNonNull(compatibleArchitectures);
+        public Builder compatibleArchitectures(@Nullable List<String> compatibleArchitectures) {
+            this.compatibleArchitectures = compatibleArchitectures;
             return this;
         }
         public Builder compatibleArchitectures(String... compatibleArchitectures) {
@@ -254,31 +254,31 @@ public final class GetLayerVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder compatibleRuntimes(List<String> compatibleRuntimes) {
-            this.compatibleRuntimes = Objects.requireNonNull(compatibleRuntimes);
+        public Builder compatibleRuntimes(@Nullable List<String> compatibleRuntimes) {
+            this.compatibleRuntimes = compatibleRuntimes;
             return this;
         }
         public Builder compatibleRuntimes(String... compatibleRuntimes) {
             return compatibleRuntimes(List.of(compatibleRuntimes));
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder layerArn(String layerArn) {
-            this.layerArn = Objects.requireNonNull(layerArn);
+        public Builder layerArn(@Nullable String layerArn) {
+            this.layerArn = layerArn;
             return this;
         }
         @CustomType.Setter
@@ -287,33 +287,33 @@ public final class GetLayerVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder licenseInfo(String licenseInfo) {
-            this.licenseInfo = Objects.requireNonNull(licenseInfo);
+        public Builder licenseInfo(@Nullable String licenseInfo) {
+            this.licenseInfo = licenseInfo;
             return this;
         }
         @CustomType.Setter
-        public Builder signingJobArn(String signingJobArn) {
-            this.signingJobArn = Objects.requireNonNull(signingJobArn);
+        public Builder signingJobArn(@Nullable String signingJobArn) {
+            this.signingJobArn = signingJobArn;
             return this;
         }
         @CustomType.Setter
-        public Builder signingProfileVersionArn(String signingProfileVersionArn) {
-            this.signingProfileVersionArn = Objects.requireNonNull(signingProfileVersionArn);
+        public Builder signingProfileVersionArn(@Nullable String signingProfileVersionArn) {
+            this.signingProfileVersionArn = signingProfileVersionArn;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceCodeHash(String sourceCodeHash) {
-            this.sourceCodeHash = Objects.requireNonNull(sourceCodeHash);
+        public Builder sourceCodeHash(@Nullable String sourceCodeHash) {
+            this.sourceCodeHash = sourceCodeHash;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceCodeSize(Integer sourceCodeSize) {
-            this.sourceCodeSize = Objects.requireNonNull(sourceCodeSize);
+        public Builder sourceCodeSize(@Nullable Integer sourceCodeSize) {
+            this.sourceCodeSize = sourceCodeSize;
             return this;
         }
         @CustomType.Setter
-        public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable Integer version) {
+            this.version = version;
             return this;
         }
         public GetLayerVersionResult build() {

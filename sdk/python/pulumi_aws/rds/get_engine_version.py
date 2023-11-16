@@ -93,7 +93,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="defaultCharacterSet")
-    def default_character_set(self) -> str:
+    def default_character_set(self) -> Optional[str]:
         """
         The default character set for new instances of this engine version.
         """
@@ -111,7 +111,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="engineDescription")
-    def engine_description(self) -> str:
+    def engine_description(self) -> Optional[str]:
         """
         Description of the database engine.
         """
@@ -119,7 +119,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="exportableLogTypes")
-    def exportable_log_types(self) -> Sequence[str]:
+    def exportable_log_types(self) -> Optional[Sequence[str]]:
         """
         Set of log types that the database engine has available for export to CloudWatch Logs.
         """
@@ -132,7 +132,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -145,7 +145,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="parameterGroupFamily")
-    def parameter_group_family(self) -> str:
+    def parameter_group_family(self) -> Optional[str]:
         return pulumi.get(self, "parameter_group_family")
 
     @property
@@ -155,7 +155,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the DB engine version, either available or deprecated.
         """
@@ -163,7 +163,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="supportedCharacterSets")
-    def supported_character_sets(self) -> Sequence[str]:
+    def supported_character_sets(self) -> Optional[Sequence[str]]:
         """
         Set of the character sets supported by this engine.
         """
@@ -171,7 +171,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="supportedFeatureNames")
-    def supported_feature_names(self) -> Sequence[str]:
+    def supported_feature_names(self) -> Optional[Sequence[str]]:
         """
         Set of features supported by the DB engine.
         """
@@ -179,7 +179,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="supportedModes")
-    def supported_modes(self) -> Sequence[str]:
+    def supported_modes(self) -> Optional[Sequence[str]]:
         """
         Set of the supported DB engine modes.
         """
@@ -187,7 +187,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="supportedTimezones")
-    def supported_timezones(self) -> Sequence[str]:
+    def supported_timezones(self) -> Optional[Sequence[str]]:
         """
         Set of the time zones supported by this engine.
         """
@@ -195,7 +195,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="supportsGlobalDatabases")
-    def supports_global_databases(self) -> bool:
+    def supports_global_databases(self) -> Optional[bool]:
         """
         Indicates whether you can use Aurora global databases with a specific DB engine version.
         """
@@ -203,7 +203,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="supportsLogExportsToCloudwatch")
-    def supports_log_exports_to_cloudwatch(self) -> bool:
+    def supports_log_exports_to_cloudwatch(self) -> Optional[bool]:
         """
         Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
         """
@@ -211,7 +211,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="supportsParallelQuery")
-    def supports_parallel_query(self) -> bool:
+    def supports_parallel_query(self) -> Optional[bool]:
         """
         Indicates whether you can use Aurora parallel query with a specific DB engine version.
         """
@@ -219,7 +219,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="supportsReadReplica")
-    def supports_read_replica(self) -> bool:
+    def supports_read_replica(self) -> Optional[bool]:
         """
         Indicates whether the database engine version supports read replicas.
         """
@@ -227,7 +227,7 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter(name="validUpgradeTargets")
-    def valid_upgrade_targets(self) -> Sequence[str]:
+    def valid_upgrade_targets(self) -> Optional[Sequence[str]]:
         """
         Set of engine versions that this database engine version can be upgraded to.
         """
@@ -235,12 +235,12 @@ class GetEngineVersionResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="versionDescription")
-    def version_description(self) -> str:
+    def version_description(self) -> Optional[str]:
         """
         Description of the database engine version.
         """

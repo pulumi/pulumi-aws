@@ -62,13 +62,13 @@ type BackendEnvironment struct {
 	// Unique ID for an Amplify app.
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// ARN for a backend environment that is part of an Amplify app.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of deployment artifacts.
-	DeploymentArtifacts pulumi.StringOutput `pulumi:"deploymentArtifacts"`
+	DeploymentArtifacts pulumi.StringPtrOutput `pulumi:"deploymentArtifacts"`
 	// Name for the backend environment.
 	EnvironmentName pulumi.StringOutput `pulumi:"environmentName"`
 	// AWS CloudFormation stack name of a backend environment.
-	StackName pulumi.StringOutput `pulumi:"stackName"`
+	StackName pulumi.StringPtrOutput `pulumi:"stackName"`
 }
 
 // NewBackendEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -252,13 +252,13 @@ func (o BackendEnvironmentOutput) AppId() pulumi.StringOutput {
 }
 
 // ARN for a backend environment that is part of an Amplify app.
-func (o BackendEnvironmentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BackendEnvironmentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of deployment artifacts.
-func (o BackendEnvironmentOutput) DeploymentArtifacts() pulumi.StringOutput {
-	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.DeploymentArtifacts }).(pulumi.StringOutput)
+func (o BackendEnvironmentOutput) DeploymentArtifacts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringPtrOutput { return v.DeploymentArtifacts }).(pulumi.StringPtrOutput)
 }
 
 // Name for the backend environment.
@@ -267,8 +267,8 @@ func (o BackendEnvironmentOutput) EnvironmentName() pulumi.StringOutput {
 }
 
 // AWS CloudFormation stack name of a backend environment.
-func (o BackendEnvironmentOutput) StackName() pulumi.StringOutput {
-	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
+func (o BackendEnvironmentOutput) StackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringPtrOutput { return v.StackName }).(pulumi.StringPtrOutput)
 }
 
 type BackendEnvironmentArrayOutput struct{ *pulumi.OutputState }

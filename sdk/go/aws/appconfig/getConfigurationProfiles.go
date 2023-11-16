@@ -63,7 +63,7 @@ type GetConfigurationProfilesResult struct {
 	// Set of Configuration Profile IDs associated with the AppConfig Application.
 	ConfigurationProfileIds []string `pulumi:"configurationProfileIds"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetConfigurationProfilesOutput(ctx *pulumi.Context, args GetConfigurationProfilesOutputArgs, opts ...pulumi.InvokeOption) GetConfigurationProfilesResultOutput {
@@ -114,8 +114,8 @@ func (o GetConfigurationProfilesResultOutput) ConfigurationProfileIds() pulumi.S
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetConfigurationProfilesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationProfilesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetConfigurationProfilesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConfigurationProfilesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

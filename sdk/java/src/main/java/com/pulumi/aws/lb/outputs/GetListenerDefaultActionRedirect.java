@@ -6,42 +6,44 @@ package com.pulumi.aws.lb.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerDefaultActionRedirect {
-    private String host;
-    private String path;
+    private @Nullable String host;
+    private @Nullable String path;
     /**
      * @return Port of the listener. Required if `arn` is not set.
      * 
      */
-    private String port;
-    private String protocol;
-    private String query;
-    private String statusCode;
+    private @Nullable String port;
+    private @Nullable String protocol;
+    private @Nullable String query;
+    private @Nullable String statusCode;
 
     private GetListenerDefaultActionRedirect() {}
-    public String host() {
-        return this.host;
+    public Optional<String> host() {
+        return Optional.ofNullable(this.host);
     }
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     /**
      * @return Port of the listener. Required if `arn` is not set.
      * 
      */
-    public String port() {
-        return this.port;
+    public Optional<String> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
-    public String query() {
-        return this.query;
+    public Optional<String> query() {
+        return Optional.ofNullable(this.query);
     }
-    public String statusCode() {
-        return this.statusCode;
+    public Optional<String> statusCode() {
+        return Optional.ofNullable(this.statusCode);
     }
 
     public static Builder builder() {
@@ -53,12 +55,12 @@ public final class GetListenerDefaultActionRedirect {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String host;
-        private String path;
-        private String port;
-        private String protocol;
-        private String query;
-        private String statusCode;
+        private @Nullable String host;
+        private @Nullable String path;
+        private @Nullable String port;
+        private @Nullable String protocol;
+        private @Nullable String query;
+        private @Nullable String statusCode;
         public Builder() {}
         public Builder(GetListenerDefaultActionRedirect defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,33 +73,33 @@ public final class GetListenerDefaultActionRedirect {
         }
 
         @CustomType.Setter
-        public Builder host(String host) {
-            this.host = Objects.requireNonNull(host);
+        public Builder host(@Nullable String host) {
+            this.host = host;
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
-        public Builder port(String port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable String port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+        public Builder query(@Nullable String query) {
+            this.query = query;
             return this;
         }
         @CustomType.Setter
-        public Builder statusCode(String statusCode) {
-            this.statusCode = Objects.requireNonNull(statusCode);
+        public Builder statusCode(@Nullable String statusCode) {
+            this.statusCode = statusCode;
             return this;
         }
         public GetListenerDefaultActionRedirect build() {

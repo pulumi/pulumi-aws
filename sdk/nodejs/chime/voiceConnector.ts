@@ -58,7 +58,7 @@ export class VoiceConnector extends pulumi.CustomResource {
     /**
      * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      */
@@ -70,7 +70,7 @@ export class VoiceConnector extends pulumi.CustomResource {
     /**
      * The outbound host name for the Amazon Chime Voice Connector.
      */
-    public /*out*/ readonly outboundHostName!: pulumi.Output<string>;
+    public /*out*/ readonly outboundHostName!: pulumi.Output<string | undefined>;
     /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
      *

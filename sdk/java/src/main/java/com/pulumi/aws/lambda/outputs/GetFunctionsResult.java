@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFunctionsResult {
@@ -14,17 +16,17 @@ public final class GetFunctionsResult {
      * @return A list of Lambda Function ARNs.
      * 
      */
-    private List<String> functionArns;
+    private @Nullable List<String> functionArns;
     /**
      * @return A list of Lambda Function names.
      * 
      */
-    private List<String> functionNames;
+    private @Nullable List<String> functionNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetFunctionsResult() {}
     /**
@@ -32,21 +34,21 @@ public final class GetFunctionsResult {
      * 
      */
     public List<String> functionArns() {
-        return this.functionArns;
+        return this.functionArns == null ? List.of() : this.functionArns;
     }
     /**
      * @return A list of Lambda Function names.
      * 
      */
     public List<String> functionNames() {
-        return this.functionNames;
+        return this.functionNames == null ? List.of() : this.functionNames;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetFunctionsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> functionArns;
-        private List<String> functionNames;
-        private String id;
+        private @Nullable List<String> functionArns;
+        private @Nullable List<String> functionNames;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetFunctionsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,24 +72,24 @@ public final class GetFunctionsResult {
         }
 
         @CustomType.Setter
-        public Builder functionArns(List<String> functionArns) {
-            this.functionArns = Objects.requireNonNull(functionArns);
+        public Builder functionArns(@Nullable List<String> functionArns) {
+            this.functionArns = functionArns;
             return this;
         }
         public Builder functionArns(String... functionArns) {
             return functionArns(List.of(functionArns));
         }
         @CustomType.Setter
-        public Builder functionNames(List<String> functionNames) {
-            this.functionNames = Objects.requireNonNull(functionNames);
+        public Builder functionNames(@Nullable List<String> functionNames) {
+            this.functionNames = functionNames;
             return this;
         }
         public Builder functionNames(String... functionNames) {
             return functionNames(List.of(functionNames));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetFunctionsResult build() {

@@ -429,7 +429,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> pulumi.Output[Sequence['outputs.ConfigurationTemplateSetting']]:
+    def settings(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationTemplateSetting']]]:
         """
         Option settings to configure the new Environment. These
         override specific values that are set as defaults. The format is detailed

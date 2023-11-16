@@ -112,75 +112,75 @@ type LookupAmiArgs struct {
 // A collection of values returned by getAmi.
 type LookupAmiResult struct {
 	// OS architecture of the AMI (ie: `i386` or `x8664`).
-	Architecture string `pulumi:"architecture"`
+	Architecture *string `pulumi:"architecture"`
 	// ARN of the AMI.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Set of objects with block device mappings of the AMI.
 	BlockDeviceMappings []GetAmiBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// Boot mode of the image.
-	BootMode string `pulumi:"bootMode"`
+	BootMode *string `pulumi:"bootMode"`
 	// Date and time the image was created.
-	CreationDate string `pulumi:"creationDate"`
+	CreationDate *string `pulumi:"creationDate"`
 	// Date and time when the image will be deprecated.
-	DeprecationTime string `pulumi:"deprecationTime"`
+	DeprecationTime *string `pulumi:"deprecationTime"`
 	// Description of the AMI that was provided during image
 	// creation.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Whether enhanced networking with ENA is enabled.
-	EnaSupport      bool           `pulumi:"enaSupport"`
+	EnaSupport      *bool          `pulumi:"enaSupport"`
 	ExecutableUsers []string       `pulumi:"executableUsers"`
 	Filters         []GetAmiFilter `pulumi:"filters"`
 	// Hypervisor type of the image.
-	Hypervisor string `pulumi:"hypervisor"`
+	Hypervisor *string `pulumi:"hypervisor"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ID of the AMI. Should be the same as the resource `id`.
-	ImageId string `pulumi:"imageId"`
+	ImageId *string `pulumi:"imageId"`
 	// Location of the AMI.
-	ImageLocation string `pulumi:"imageLocation"`
+	ImageLocation *string `pulumi:"imageLocation"`
 	// AWS account alias (for example, `amazon`, `self`) or
 	// the AWS account ID of the AMI owner.
-	ImageOwnerAlias string `pulumi:"imageOwnerAlias"`
+	ImageOwnerAlias *string `pulumi:"imageOwnerAlias"`
 	// Type of image.
-	ImageType string `pulumi:"imageType"`
+	ImageType *string `pulumi:"imageType"`
 	// Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
-	ImdsSupport       string `pulumi:"imdsSupport"`
-	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
+	ImdsSupport       *string `pulumi:"imdsSupport"`
+	IncludeDeprecated *bool   `pulumi:"includeDeprecated"`
 	// Kernel associated with the image, if any. Only applicable
 	// for machine images.
-	KernelId   string `pulumi:"kernelId"`
-	MostRecent *bool  `pulumi:"mostRecent"`
+	KernelId   *string `pulumi:"kernelId"`
+	MostRecent *bool   `pulumi:"mostRecent"`
 	// Name of the AMI that was provided during image creation.
-	Name      string  `pulumi:"name"`
+	Name      *string `pulumi:"name"`
 	NameRegex *string `pulumi:"nameRegex"`
 	// AWS account ID of the image owner.
-	OwnerId string   `pulumi:"ownerId"`
+	OwnerId *string  `pulumi:"ownerId"`
 	Owners  []string `pulumi:"owners"`
 	// Value is Windows for `Windows` AMIs; otherwise blank.
-	Platform string `pulumi:"platform"`
+	Platform *string `pulumi:"platform"`
 	// Platform details associated with the billing code of the AMI.
-	PlatformDetails string `pulumi:"platformDetails"`
+	PlatformDetails *string `pulumi:"platformDetails"`
 	// Any product codes associated with the AMI.
 	// * `product_codes.#.product_code_id` - The product code.
 	// * `product_codes.#.product_code_type` - The type of product code.
 	ProductCodes []GetAmiProductCode `pulumi:"productCodes"`
 	// `true` if the image has public launch permissions.
-	Public bool `pulumi:"public"`
+	Public *bool `pulumi:"public"`
 	// RAM disk associated with the image, if any. Only applicable
 	// for machine images.
-	RamdiskId string `pulumi:"ramdiskId"`
+	RamdiskId *string `pulumi:"ramdiskId"`
 	// Device name of the root device.
-	RootDeviceName string `pulumi:"rootDeviceName"`
+	RootDeviceName *string `pulumi:"rootDeviceName"`
 	// Type of root device (ie: `ebs` or `instance-store`).
-	RootDeviceType string `pulumi:"rootDeviceType"`
+	RootDeviceType *string `pulumi:"rootDeviceType"`
 	// Snapshot id associated with the root device, if any
 	// (only applies to `ebs` root devices).
-	RootSnapshotId string `pulumi:"rootSnapshotId"`
+	RootSnapshotId *string `pulumi:"rootSnapshotId"`
 	// Whether enhanced networking is enabled.
-	SriovNetSupport string `pulumi:"sriovNetSupport"`
+	SriovNetSupport *string `pulumi:"sriovNetSupport"`
 	// Current state of the AMI. If the state is `available`, the image
 	// is successfully registered and can be used to launch an instance.
-	State string `pulumi:"state"`
+	State *string `pulumi:"state"`
 	// Describes a state change. Fields are `UNSET` if not available.
 	// * `state_reason.code` - The reason code for the state change.
 	// * `state_reason.message` - The message for the state change.
@@ -190,12 +190,12 @@ type LookupAmiResult struct {
 	// * `tags.#.value` - Value of the tag.
 	Tags map[string]string `pulumi:"tags"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`.
-	TpmSupport string `pulumi:"tpmSupport"`
+	TpmSupport *string `pulumi:"tpmSupport"`
 	// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
-	UsageOperation string `pulumi:"usageOperation"`
+	UsageOperation *string `pulumi:"usageOperation"`
 	// Type of virtualization of the AMI (ie: `hvm` or
 	// `paravirtual`).
-	VirtualizationType string `pulumi:"virtualizationType"`
+	VirtualizationType *string `pulumi:"virtualizationType"`
 }
 
 func LookupAmiOutput(ctx *pulumi.Context, args LookupAmiOutputArgs, opts ...pulumi.InvokeOption) LookupAmiResultOutput {
@@ -264,13 +264,13 @@ func (o LookupAmiResultOutput) ToLookupAmiResultOutputWithContext(ctx context.Co
 }
 
 // OS architecture of the AMI (ie: `i386` or `x8664`).
-func (o LookupAmiResultOutput) Architecture() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.Architecture }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) Architecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.Architecture }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the AMI.
-func (o LookupAmiResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Set of objects with block device mappings of the AMI.
@@ -279,29 +279,29 @@ func (o LookupAmiResultOutput) BlockDeviceMappings() GetAmiBlockDeviceMappingArr
 }
 
 // Boot mode of the image.
-func (o LookupAmiResultOutput) BootMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.BootMode }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) BootMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.BootMode }).(pulumi.StringPtrOutput)
 }
 
 // Date and time the image was created.
-func (o LookupAmiResultOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.CreationDate }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // Date and time when the image will be deprecated.
-func (o LookupAmiResultOutput) DeprecationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.DeprecationTime }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) DeprecationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.DeprecationTime }).(pulumi.StringPtrOutput)
 }
 
 // Description of the AMI that was provided during image
 // creation.
-func (o LookupAmiResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Whether enhanced networking with ENA is enabled.
-func (o LookupAmiResultOutput) EnaSupport() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAmiResult) bool { return v.EnaSupport }).(pulumi.BoolOutput)
+func (o LookupAmiResultOutput) EnaSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *bool { return v.EnaSupport }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupAmiResultOutput) ExecutableUsers() pulumi.StringArrayOutput {
@@ -313,39 +313,39 @@ func (o LookupAmiResultOutput) Filters() GetAmiFilterArrayOutput {
 }
 
 // Hypervisor type of the image.
-func (o LookupAmiResultOutput) Hypervisor() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.Hypervisor }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) Hypervisor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.Hypervisor }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAmiResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ID of the AMI. Should be the same as the resource `id`.
-func (o LookupAmiResultOutput) ImageId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.ImageId }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
 // Location of the AMI.
-func (o LookupAmiResultOutput) ImageLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.ImageLocation }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) ImageLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.ImageLocation }).(pulumi.StringPtrOutput)
 }
 
 // AWS account alias (for example, `amazon`, `self`) or
 // the AWS account ID of the AMI owner.
-func (o LookupAmiResultOutput) ImageOwnerAlias() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.ImageOwnerAlias }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) ImageOwnerAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.ImageOwnerAlias }).(pulumi.StringPtrOutput)
 }
 
 // Type of image.
-func (o LookupAmiResultOutput) ImageType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.ImageType }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) ImageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.ImageType }).(pulumi.StringPtrOutput)
 }
 
 // Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
-func (o LookupAmiResultOutput) ImdsSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.ImdsSupport }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) ImdsSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.ImdsSupport }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAmiResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
@@ -354,8 +354,8 @@ func (o LookupAmiResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
 
 // Kernel associated with the image, if any. Only applicable
 // for machine images.
-func (o LookupAmiResultOutput) KernelId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.KernelId }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.KernelId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAmiResultOutput) MostRecent() pulumi.BoolPtrOutput {
@@ -363,8 +363,8 @@ func (o LookupAmiResultOutput) MostRecent() pulumi.BoolPtrOutput {
 }
 
 // Name of the AMI that was provided during image creation.
-func (o LookupAmiResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAmiResultOutput) NameRegex() pulumi.StringPtrOutput {
@@ -372,8 +372,8 @@ func (o LookupAmiResultOutput) NameRegex() pulumi.StringPtrOutput {
 }
 
 // AWS account ID of the image owner.
-func (o LookupAmiResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAmiResultOutput) Owners() pulumi.StringArrayOutput {
@@ -381,13 +381,13 @@ func (o LookupAmiResultOutput) Owners() pulumi.StringArrayOutput {
 }
 
 // Value is Windows for `Windows` AMIs; otherwise blank.
-func (o LookupAmiResultOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.Platform }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // Platform details associated with the billing code of the AMI.
-func (o LookupAmiResultOutput) PlatformDetails() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.PlatformDetails }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) PlatformDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.PlatformDetails }).(pulumi.StringPtrOutput)
 }
 
 // Any product codes associated with the AMI.
@@ -398,41 +398,41 @@ func (o LookupAmiResultOutput) ProductCodes() GetAmiProductCodeArrayOutput {
 }
 
 // `true` if the image has public launch permissions.
-func (o LookupAmiResultOutput) Public() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAmiResult) bool { return v.Public }).(pulumi.BoolOutput)
+func (o LookupAmiResultOutput) Public() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *bool { return v.Public }).(pulumi.BoolPtrOutput)
 }
 
 // RAM disk associated with the image, if any. Only applicable
 // for machine images.
-func (o LookupAmiResultOutput) RamdiskId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.RamdiskId }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) RamdiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.RamdiskId }).(pulumi.StringPtrOutput)
 }
 
 // Device name of the root device.
-func (o LookupAmiResultOutput) RootDeviceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.RootDeviceName }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) RootDeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.RootDeviceName }).(pulumi.StringPtrOutput)
 }
 
 // Type of root device (ie: `ebs` or `instance-store`).
-func (o LookupAmiResultOutput) RootDeviceType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.RootDeviceType }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) RootDeviceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.RootDeviceType }).(pulumi.StringPtrOutput)
 }
 
 // Snapshot id associated with the root device, if any
 // (only applies to `ebs` root devices).
-func (o LookupAmiResultOutput) RootSnapshotId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.RootSnapshotId }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) RootSnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.RootSnapshotId }).(pulumi.StringPtrOutput)
 }
 
 // Whether enhanced networking is enabled.
-func (o LookupAmiResultOutput) SriovNetSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.SriovNetSupport }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) SriovNetSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.SriovNetSupport }).(pulumi.StringPtrOutput)
 }
 
 // Current state of the AMI. If the state is `available`, the image
 // is successfully registered and can be used to launch an instance.
-func (o LookupAmiResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.State }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Describes a state change. Fields are `UNSET` if not available.
@@ -450,19 +450,19 @@ func (o LookupAmiResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // If the image is configured for NitroTPM support, the value is `v2.0`.
-func (o LookupAmiResultOutput) TpmSupport() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.TpmSupport }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) TpmSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.TpmSupport }).(pulumi.StringPtrOutput)
 }
 
 // Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
-func (o LookupAmiResultOutput) UsageOperation() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.UsageOperation }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) UsageOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.UsageOperation }).(pulumi.StringPtrOutput)
 }
 
 // Type of virtualization of the AMI (ie: `hvm` or
 // `paravirtual`).
-func (o LookupAmiResultOutput) VirtualizationType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAmiResult) string { return v.VirtualizationType }).(pulumi.StringOutput)
+func (o LookupAmiResultOutput) VirtualizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *string { return v.VirtualizationType }).(pulumi.StringPtrOutput)
 }
 
 func init() {

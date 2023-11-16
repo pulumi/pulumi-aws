@@ -47,7 +47,7 @@ namespace Pulumi.Aws.RedShift
         /// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
@@ -71,14 +71,14 @@ namespace Pulumi.Aws.RedShift
         /// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Output("identifier")]
-        public Output<string> Identifier { get; private set; } = null!;
+        public Output<string?> Identifier { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique
         /// identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Output("identifierPrefix")]
-        public Output<string> IdentifierPrefix { get; private set; } = null!;
+        public Output<string?> IdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

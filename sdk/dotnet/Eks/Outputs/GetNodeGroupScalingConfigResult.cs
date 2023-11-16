@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// Desired number of worker nodes.
         /// </summary>
-        public readonly int DesiredSize;
+        public readonly int? DesiredSize;
         /// <summary>
         /// Maximum number of worker nodes.
         /// </summary>
-        public readonly int MaxSize;
+        public readonly int? MaxSize;
         /// <summary>
         /// Minimum number of worker nodes.
         /// </summary>
-        public readonly int MinSize;
+        public readonly int? MinSize;
 
         [OutputConstructor]
         private GetNodeGroupScalingConfigResult(
-            int desiredSize,
+            int? desiredSize,
 
-            int maxSize,
+            int? maxSize,
 
-            int minSize)
+            int? minSize)
         {
             DesiredSize = desiredSize;
             MaxSize = maxSize;

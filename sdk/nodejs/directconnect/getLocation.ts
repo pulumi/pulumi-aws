@@ -46,24 +46,24 @@ export interface GetLocationResult {
     /**
      * The available MAC Security (MACsec) port speeds for the location.
      */
-    readonly availableMacsecPortSpeeds: string[];
+    readonly availableMacsecPortSpeeds?: string[];
     /**
      * The available port speeds for the location.
      */
-    readonly availablePortSpeeds: string[];
+    readonly availablePortSpeeds?: string[];
     /**
      * Names of the service providers for the location.
      */
-    readonly availableProviders: string[];
+    readonly availableProviders?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly locationCode: string;
     /**
      * Name of the location. This includes the name of the colocation partner and the physical site of the building.
      */
-    readonly locationName: string;
+    readonly locationName?: string;
 }
 /**
  * Retrieve information about a specific AWS Direct Connect location in the current AWS Region.

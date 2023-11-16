@@ -66,7 +66,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the attachment.
         """
@@ -74,7 +74,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter(name="associationState")
-    def association_state(self) -> str:
+    def association_state(self) -> Optional[str]:
         """
         The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
         """
@@ -82,7 +82,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter(name="associationTransitGatewayRouteTableId")
-    def association_transit_gateway_route_table_id(self) -> str:
+    def association_transit_gateway_route_table_id(self) -> Optional[str]:
         """
         The ID of the route table for the transit gateway.
         """
@@ -95,7 +95,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -103,7 +103,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> Optional[str]:
         """
         ID of the resource.
         """
@@ -111,7 +111,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter(name="resourceOwnerId")
-    def resource_owner_id(self) -> str:
+    def resource_owner_id(self) -> Optional[str]:
         """
         ID of the AWS account that owns the resource.
         """
@@ -119,7 +119,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> str:
+    def resource_type(self) -> Optional[str]:
         """
         Resource type.
         """
@@ -127,7 +127,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         Attachment state.
         """
@@ -135,7 +135,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the attachment.
         """
@@ -143,12 +143,12 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> str:
+    def transit_gateway_attachment_id(self) -> Optional[str]:
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> Optional[str]:
         """
         ID of the transit gateway.
         """
@@ -156,7 +156,7 @@ class GetAttachmentResult:
 
     @property
     @pulumi.getter(name="transitGatewayOwnerId")
-    def transit_gateway_owner_id(self) -> str:
+    def transit_gateway_owner_id(self) -> Optional[str]:
         """
         The ID of the AWS account that owns the transit gateway.
         """

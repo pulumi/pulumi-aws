@@ -7,35 +7,37 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResolverFirewallRuleGroupResult {
-    private String arn;
-    private String creationTime;
-    private String creatorRequestId;
+    private @Nullable String arn;
+    private @Nullable String creationTime;
+    private @Nullable String creatorRequestId;
     private String firewallRuleGroupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String modificationTime;
-    private String name;
-    private String ownerId;
-    private Integer ruleCount;
-    private String shareStatus;
-    private String status;
-    private String statusMessage;
+    private @Nullable String id;
+    private @Nullable String modificationTime;
+    private @Nullable String name;
+    private @Nullable String ownerId;
+    private @Nullable Integer ruleCount;
+    private @Nullable String shareStatus;
+    private @Nullable String status;
+    private @Nullable String statusMessage;
 
     private GetResolverFirewallRuleGroupResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String creationTime() {
-        return this.creationTime;
+    public Optional<String> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
-    public String creatorRequestId() {
-        return this.creatorRequestId;
+    public Optional<String> creatorRequestId() {
+        return Optional.ofNullable(this.creatorRequestId);
     }
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
@@ -44,29 +46,29 @@ public final class GetResolverFirewallRuleGroupResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String modificationTime() {
-        return this.modificationTime;
+    public Optional<String> modificationTime() {
+        return Optional.ofNullable(this.modificationTime);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
-    public Integer ruleCount() {
-        return this.ruleCount;
+    public Optional<Integer> ruleCount() {
+        return Optional.ofNullable(this.ruleCount);
     }
-    public String shareStatus() {
-        return this.shareStatus;
+    public Optional<String> shareStatus() {
+        return Optional.ofNullable(this.shareStatus);
     }
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
-    public String statusMessage() {
-        return this.statusMessage;
+    public Optional<String> statusMessage() {
+        return Optional.ofNullable(this.statusMessage);
     }
 
     public static Builder builder() {
@@ -78,18 +80,18 @@ public final class GetResolverFirewallRuleGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String creationTime;
-        private String creatorRequestId;
+        private @Nullable String arn;
+        private @Nullable String creationTime;
+        private @Nullable String creatorRequestId;
         private String firewallRuleGroupId;
-        private String id;
-        private String modificationTime;
-        private String name;
-        private String ownerId;
-        private Integer ruleCount;
-        private String shareStatus;
-        private String status;
-        private String statusMessage;
+        private @Nullable String id;
+        private @Nullable String modificationTime;
+        private @Nullable String name;
+        private @Nullable String ownerId;
+        private @Nullable Integer ruleCount;
+        private @Nullable String shareStatus;
+        private @Nullable String status;
+        private @Nullable String statusMessage;
         public Builder() {}
         public Builder(GetResolverFirewallRuleGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -108,18 +110,18 @@ public final class GetResolverFirewallRuleGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable String creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder creatorRequestId(String creatorRequestId) {
-            this.creatorRequestId = Objects.requireNonNull(creatorRequestId);
+        public Builder creatorRequestId(@Nullable String creatorRequestId) {
+            this.creatorRequestId = creatorRequestId;
             return this;
         }
         @CustomType.Setter
@@ -128,43 +130,43 @@ public final class GetResolverFirewallRuleGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder modificationTime(String modificationTime) {
-            this.modificationTime = Objects.requireNonNull(modificationTime);
+        public Builder modificationTime(@Nullable String modificationTime) {
+            this.modificationTime = modificationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder ruleCount(Integer ruleCount) {
-            this.ruleCount = Objects.requireNonNull(ruleCount);
+        public Builder ruleCount(@Nullable Integer ruleCount) {
+            this.ruleCount = ruleCount;
             return this;
         }
         @CustomType.Setter
-        public Builder shareStatus(String shareStatus) {
-            this.shareStatus = Objects.requireNonNull(shareStatus);
+        public Builder shareStatus(@Nullable String shareStatus) {
+            this.shareStatus = shareStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+        public Builder statusMessage(@Nullable String statusMessage) {
+            this.statusMessage = statusMessage;
             return this;
         }
         public GetResolverFirewallRuleGroupResult build() {

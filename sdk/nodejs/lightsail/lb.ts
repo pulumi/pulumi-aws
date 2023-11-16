@@ -61,15 +61,15 @@ export class Lb extends pulumi.CustomResource {
     /**
      * The ARN of the Lightsail load balancer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The timestamp when the load balancer was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The DNS name of the load balancer.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * The health check path of the load balancer. Default value "/".
      */
@@ -86,15 +86,15 @@ export class Lb extends pulumi.CustomResource {
     /**
      * The protocol of the load balancer.
      */
-    public /*out*/ readonly protocol!: pulumi.Output<string>;
+    public /*out*/ readonly protocol!: pulumi.Output<string | undefined>;
     /**
      * The public ports of the load balancer.
      */
-    public /*out*/ readonly publicPorts!: pulumi.Output<number[]>;
+    public /*out*/ readonly publicPorts!: pulumi.Output<number[] | undefined>;
     /**
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

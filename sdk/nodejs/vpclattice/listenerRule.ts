@@ -124,7 +124,7 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * The ARN for the listener rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID or Amazon Resource Name (ARN) of the listener.
      */
@@ -146,7 +146,7 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * Unique identifier for the listener rule.
      */
-    public /*out*/ readonly ruleId!: pulumi.Output<string>;
+    public /*out*/ readonly ruleId!: pulumi.Output<string | undefined>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */

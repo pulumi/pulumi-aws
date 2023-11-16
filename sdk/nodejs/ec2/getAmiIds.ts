@@ -86,8 +86,8 @@ export interface GetAmiIdsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly ids: string[];
+    readonly id?: string;
+    readonly ids?: string[];
     readonly includeDeprecated?: boolean;
     readonly nameRegex?: string;
     readonly owners: string[];

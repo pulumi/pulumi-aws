@@ -65,7 +65,7 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the rule
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the rule
      */

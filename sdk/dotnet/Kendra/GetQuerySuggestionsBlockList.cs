@@ -142,41 +142,41 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// ARN of the block list.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Date-time a block list was created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// Description for the block list.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Error message containing details if there are issues processing the block list.
         /// </summary>
-        public readonly string ErrorMessage;
+        public readonly string? ErrorMessage;
         /// <summary>
         /// Current size of the block list text file in S3.
         /// </summary>
-        public readonly int FileSizeBytes;
+        public readonly int? FileSizeBytes;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string IndexId;
         /// <summary>
         /// Current number of valid, non-empty words or phrases in the block list text file.
         /// </summary>
-        public readonly int ItemCount;
+        public readonly int? ItemCount;
         /// <summary>
         /// Name of the block list.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string QuerySuggestionsBlockListId;
         /// <summary>
         /// ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// S3 location of the block list input data. Detailed below.
         /// </summary>
@@ -184,47 +184,47 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Metadata that helps organize the block list you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Date and time that the block list was last updated.
         /// </summary>
-        public readonly string UpdatedAt;
+        public readonly string? UpdatedAt;
 
         [OutputConstructor]
         private GetQuerySuggestionsBlockListResult(
-            string arn,
+            string? arn,
 
-            string createdAt,
+            string? createdAt,
 
-            string description,
+            string? description,
 
-            string errorMessage,
+            string? errorMessage,
 
-            int fileSizeBytes,
+            int? fileSizeBytes,
 
-            string id,
+            string? id,
 
             string indexId,
 
-            int itemCount,
+            int? itemCount,
 
-            string name,
+            string? name,
 
             string querySuggestionsBlockListId,
 
-            string roleArn,
+            string? roleArn,
 
             ImmutableArray<Outputs.GetQuerySuggestionsBlockListSourceS3PathResult> sourceS3Paths,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string updatedAt)
+            string? updatedAt)
         {
             Arn = arn;
             CreatedAt = createdAt;

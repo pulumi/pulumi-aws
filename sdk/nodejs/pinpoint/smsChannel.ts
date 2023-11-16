@@ -64,7 +64,7 @@ export class SmsChannel extends pulumi.CustomResource {
     /**
      * Maximum number of promotional messages that can be sent per second.
      */
-    public /*out*/ readonly promotionalMessagesPerSecond!: pulumi.Output<number>;
+    public /*out*/ readonly promotionalMessagesPerSecond!: pulumi.Output<number | undefined>;
     /**
      * Identifier of the sender for your messages.
      */
@@ -76,7 +76,7 @@ export class SmsChannel extends pulumi.CustomResource {
     /**
      * Maximum number of transactional messages per second that can be sent.
      */
-    public /*out*/ readonly transactionalMessagesPerSecond!: pulumi.Output<number>;
+    public /*out*/ readonly transactionalMessagesPerSecond!: pulumi.Output<number | undefined>;
 
     /**
      * Create a SmsChannel resource with the given unique name, arguments, and options.

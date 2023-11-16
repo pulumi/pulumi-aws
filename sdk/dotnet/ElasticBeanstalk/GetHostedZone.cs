@@ -98,7 +98,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Region of the hosted zone.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         [OutputConstructor]
         private GetHostedZoneResult(
-            string id,
+            string? id,
 
             string? region)
         {

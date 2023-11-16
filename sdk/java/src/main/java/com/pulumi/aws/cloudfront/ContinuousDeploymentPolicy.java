@@ -196,28 +196,28 @@ public class ContinuousDeploymentPolicy extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return Current version of the continuous distribution policy.
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * Date and time the continuous deployment policy was last modified.
      * 
      */
     @Export(name="lastModifiedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedTime;
+    private Output</* @Nullable */ String> lastModifiedTime;
 
     /**
      * @return Date and time the continuous deployment policy was last modified.
      * 
      */
-    public Output<String> lastModifiedTime() {
-        return this.lastModifiedTime;
+    public Output<Optional<String>> lastModifiedTime() {
+        return Codegen.optional(this.lastModifiedTime);
     }
     /**
      * CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.

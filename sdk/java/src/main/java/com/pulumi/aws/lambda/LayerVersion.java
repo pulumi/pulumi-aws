@@ -84,14 +84,14 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Lambda Layer with version.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Path to the function&#39;s deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
@@ -140,14 +140,14 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
-    private Output<String> createdDate;
+    private Output</* @Nullable */ String> createdDate;
 
     /**
      * @return Date this resource was created.
      * 
      */
-    public Output<String> createdDate() {
-        return this.createdDate;
+    public Output<Optional<String>> createdDate() {
+        return Codegen.optional(this.createdDate);
     }
     /**
      * Description of what your Lambda Layer does.
@@ -168,14 +168,14 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="layerArn", refs={String.class}, tree="[0]")
-    private Output<String> layerArn;
+    private Output</* @Nullable */ String> layerArn;
 
     /**
      * @return ARN of the Lambda Layer without version.
      * 
      */
-    public Output<String> layerArn() {
-        return this.layerArn;
+    public Output<Optional<String>> layerArn() {
+        return Codegen.optional(this.layerArn);
     }
     /**
      * Unique name for your Lambda Layer
@@ -256,28 +256,28 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="signingJobArn", refs={String.class}, tree="[0]")
-    private Output<String> signingJobArn;
+    private Output</* @Nullable */ String> signingJobArn;
 
     /**
      * @return ARN of a signing job.
      * 
      */
-    public Output<String> signingJobArn() {
-        return this.signingJobArn;
+    public Output<Optional<String>> signingJobArn() {
+        return Codegen.optional(this.signingJobArn);
     }
     /**
      * ARN for a signing profile version.
      * 
      */
     @Export(name="signingProfileVersionArn", refs={String.class}, tree="[0]")
-    private Output<String> signingProfileVersionArn;
+    private Output</* @Nullable */ String> signingProfileVersionArn;
 
     /**
      * @return ARN for a signing profile version.
      * 
      */
-    public Output<String> signingProfileVersionArn() {
-        return this.signingProfileVersionArn;
+    public Output<Optional<String>> signingProfileVersionArn() {
+        return Codegen.optional(this.signingProfileVersionArn);
     }
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
@@ -298,42 +298,42 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
-    private Output<String> sourceCodeHash;
+    private Output</* @Nullable */ String> sourceCodeHash;
 
     /**
      * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
-    public Output<String> sourceCodeHash() {
-        return this.sourceCodeHash;
+    public Output<Optional<String>> sourceCodeHash() {
+        return Codegen.optional(this.sourceCodeHash);
     }
     /**
      * Size in bytes of the function .zip file.
      * 
      */
     @Export(name="sourceCodeSize", refs={Integer.class}, tree="[0]")
-    private Output<Integer> sourceCodeSize;
+    private Output</* @Nullable */ Integer> sourceCodeSize;
 
     /**
      * @return Size in bytes of the function .zip file.
      * 
      */
-    public Output<Integer> sourceCodeSize() {
-        return this.sourceCodeSize;
+    public Output<Optional<Integer>> sourceCodeSize() {
+        return Codegen.optional(this.sourceCodeSize);
     }
     /**
      * Lambda Layer version.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return Lambda Layer version.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

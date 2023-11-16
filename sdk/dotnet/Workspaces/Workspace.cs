@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Workspaces
         /// The name of the WorkSpace, as seen by the operating system.
         /// </summary>
         [Output("computerName")]
-        public Output<string> ComputerName { get; private set; } = null!;
+        public Output<string?> ComputerName { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the directory for the WorkSpace.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Workspaces
         /// The IP address of the WorkSpace.
         /// </summary>
         [Output("ipAddress")]
-        public Output<string> IpAddress { get; private set; } = null!;
+        public Output<string?> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the data stored on the root volume is encrypted.
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Workspaces
         /// The operational state of the WorkSpace.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Workspaces
         /// The WorkSpace properties.
         /// </summary>
         [Output("workspaceProperties")]
-        public Output<Outputs.WorkspaceWorkspaceProperties> WorkspaceProperties { get; private set; } = null!;
+        public Output<Outputs.WorkspaceWorkspaceProperties?> WorkspaceProperties { get; private set; } = null!;
 
 
         /// <summary>

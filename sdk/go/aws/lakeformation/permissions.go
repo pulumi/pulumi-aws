@@ -274,13 +274,13 @@ type Permissions struct {
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrOutput `pulumi:"catalogResource"`
 	// Configuration block for a data location resource. Detailed below.
-	DataLocation PermissionsDataLocationOutput `pulumi:"dataLocation"`
+	DataLocation PermissionsDataLocationPtrOutput `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
-	Database PermissionsDatabaseOutput `pulumi:"database"`
+	Database PermissionsDatabasePtrOutput `pulumi:"database"`
 	// Configuration block for an LF-tag resource. Detailed below.
-	LfTag PermissionsLfTagOutput `pulumi:"lfTag"`
+	LfTag PermissionsLfTagPtrOutput `pulumi:"lfTag"`
 	// Configuration block for an LF-tag policy resource. Detailed below.
-	LfTagPolicy PermissionsLfTagPolicyOutput `pulumi:"lfTagPolicy"`
+	LfTagPolicy PermissionsLfTagPolicyPtrOutput `pulumi:"lfTagPolicy"`
 	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// Subset of `permissions` which the principal can pass.
@@ -292,11 +292,11 @@ type Permissions struct {
 	// One of the following is required:
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
-	Table PermissionsTableOutput `pulumi:"table"`
+	Table PermissionsTablePtrOutput `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
 	//
 	// The following arguments are optional:
-	TableWithColumns PermissionsTableWithColumnsOutput `pulumi:"tableWithColumns"`
+	TableWithColumns PermissionsTableWithColumnsPtrOutput `pulumi:"tableWithColumns"`
 }
 
 // NewPermissions registers a new resource with the given unique name, arguments, and options.
@@ -561,23 +561,23 @@ func (o PermissionsOutput) CatalogResource() pulumi.BoolPtrOutput {
 }
 
 // Configuration block for a data location resource. Detailed below.
-func (o PermissionsOutput) DataLocation() PermissionsDataLocationOutput {
-	return o.ApplyT(func(v *Permissions) PermissionsDataLocationOutput { return v.DataLocation }).(PermissionsDataLocationOutput)
+func (o PermissionsOutput) DataLocation() PermissionsDataLocationPtrOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsDataLocationPtrOutput { return v.DataLocation }).(PermissionsDataLocationPtrOutput)
 }
 
 // Configuration block for a database resource. Detailed below.
-func (o PermissionsOutput) Database() PermissionsDatabaseOutput {
-	return o.ApplyT(func(v *Permissions) PermissionsDatabaseOutput { return v.Database }).(PermissionsDatabaseOutput)
+func (o PermissionsOutput) Database() PermissionsDatabasePtrOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsDatabasePtrOutput { return v.Database }).(PermissionsDatabasePtrOutput)
 }
 
 // Configuration block for an LF-tag resource. Detailed below.
-func (o PermissionsOutput) LfTag() PermissionsLfTagOutput {
-	return o.ApplyT(func(v *Permissions) PermissionsLfTagOutput { return v.LfTag }).(PermissionsLfTagOutput)
+func (o PermissionsOutput) LfTag() PermissionsLfTagPtrOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsLfTagPtrOutput { return v.LfTag }).(PermissionsLfTagPtrOutput)
 }
 
 // Configuration block for an LF-tag policy resource. Detailed below.
-func (o PermissionsOutput) LfTagPolicy() PermissionsLfTagPolicyOutput {
-	return o.ApplyT(func(v *Permissions) PermissionsLfTagPolicyOutput { return v.LfTagPolicy }).(PermissionsLfTagPolicyOutput)
+func (o PermissionsOutput) LfTagPolicy() PermissionsLfTagPolicyPtrOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsLfTagPolicyPtrOutput { return v.LfTagPolicy }).(PermissionsLfTagPolicyPtrOutput)
 }
 
 // List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -600,15 +600,15 @@ func (o PermissionsOutput) Principal() pulumi.StringOutput {
 }
 
 // Configuration block for a table resource. Detailed below.
-func (o PermissionsOutput) Table() PermissionsTableOutput {
-	return o.ApplyT(func(v *Permissions) PermissionsTableOutput { return v.Table }).(PermissionsTableOutput)
+func (o PermissionsOutput) Table() PermissionsTablePtrOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsTablePtrOutput { return v.Table }).(PermissionsTablePtrOutput)
 }
 
 // Configuration block for a table with columns resource. Detailed below.
 //
 // The following arguments are optional:
-func (o PermissionsOutput) TableWithColumns() PermissionsTableWithColumnsOutput {
-	return o.ApplyT(func(v *Permissions) PermissionsTableWithColumnsOutput { return v.TableWithColumns }).(PermissionsTableWithColumnsOutput)
+func (o PermissionsOutput) TableWithColumns() PermissionsTableWithColumnsPtrOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsTableWithColumnsPtrOutput { return v.TableWithColumns }).(PermissionsTableWithColumnsPtrOutput)
 }
 
 type PermissionsArrayOutput struct{ *pulumi.OutputState }

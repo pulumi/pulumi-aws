@@ -74,28 +74,28 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the VocabularyFilter.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Generated download URI.
      * 
      */
     @Export(name="downloadUri", refs={String.class}, tree="[0]")
-    private Output<String> downloadUri;
+    private Output</* @Nullable */ String> downloadUri;
 
     /**
      * @return Generated download URI.
      * 
      */
-    public Output<String> downloadUri() {
-        return this.downloadUri;
+    public Output<Optional<String>> downloadUri() {
+        return Codegen.optional(this.downloadUri);
     }
     /**
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.

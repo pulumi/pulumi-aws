@@ -130,26 +130,26 @@ namespace Pulumi.Aws.StorageGateway
         /// <summary>
         /// Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
         /// </summary>
-        public readonly string DiskId;
-        public readonly string DiskNode;
-        public readonly string DiskPath;
+        public readonly string? DiskId;
+        public readonly string? DiskNode;
+        public readonly string? DiskPath;
         public readonly string GatewayArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetLocalDiskResult(
-            string diskId,
+            string? diskId,
 
-            string diskNode,
+            string? diskNode,
 
-            string diskPath,
+            string? diskPath,
 
             string gatewayArn,
 
-            string id)
+            string? id)
         {
             DiskId = diskId;
             DiskNode = diskNode;

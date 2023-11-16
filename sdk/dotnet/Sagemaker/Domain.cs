@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         /// </summary>
         [Output("homeEfsFileSystemId")]
-        public Output<string> HomeEfsFileSystemId { get; private set; } = null!;
+        public Output<string?> HomeEfsFileSystemId { get; private set; } = null!;
 
         /// <summary>
         /// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
@@ -212,13 +212,13 @@ namespace Pulumi.Aws.Sagemaker
         /// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         /// </summary>
         [Output("securityGroupIdForDomainBoundary")]
-        public Output<string> SecurityGroupIdForDomainBoundary { get; private set; } = null!;
+        public Output<string?> SecurityGroupIdForDomainBoundary { get; private set; } = null!;
 
         /// <summary>
         /// The SSO managed application instance ID.
         /// </summary>
         [Output("singleSignOnManagedApplicationInstanceId")]
-        public Output<string> SingleSignOnManagedApplicationInstanceId { get; private set; } = null!;
+        public Output<string?> SingleSignOnManagedApplicationInstanceId { get; private set; } = null!;
 
         /// <summary>
         /// The VPC subnets that Studio uses for communication.
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The domain's URL.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.

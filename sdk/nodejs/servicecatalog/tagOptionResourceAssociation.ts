@@ -61,15 +61,15 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
     /**
      * ARN of the resource.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string | undefined>;
     /**
      * Creation time of the resource.
      */
-    public /*out*/ readonly resourceCreatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly resourceCreatedTime!: pulumi.Output<string | undefined>;
     /**
      * Description of the resource.
      */
-    public /*out*/ readonly resourceDescription!: pulumi.Output<string>;
+    public /*out*/ readonly resourceDescription!: pulumi.Output<string | undefined>;
     /**
      * Resource identifier.
      */
@@ -77,7 +77,7 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
     /**
      * Description of the resource.
      */
-    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    public /*out*/ readonly resourceName!: pulumi.Output<string | undefined>;
     /**
      * Tag Option identifier.
      */

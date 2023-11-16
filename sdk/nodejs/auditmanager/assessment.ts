@@ -77,7 +77,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the assessment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
      */
@@ -101,7 +101,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
      */
-    public /*out*/ readonly rolesAlls!: pulumi.Output<outputs.auditmanager.AssessmentRolesAll[]>;
+    public /*out*/ readonly rolesAlls!: pulumi.Output<outputs.auditmanager.AssessmentRolesAll[] | undefined>;
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
      *
@@ -111,7 +111,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

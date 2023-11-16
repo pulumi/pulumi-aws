@@ -535,7 +535,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the secret.
         """
@@ -575,7 +575,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -583,7 +583,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         """
@@ -599,7 +599,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def replicas(self) -> pulumi.Output[Sequence['outputs.SecretReplica']]:
+    def replicas(self) -> pulumi.Output[Optional[Sequence['outputs.SecretReplica']]]:
         """
         Configuration block to support secret replication. See details below.
         """

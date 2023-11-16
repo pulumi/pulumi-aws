@@ -181,47 +181,47 @@ namespace Pulumi.Aws.CodeStarConnections
     [OutputType]
     public sealed class GetConnectionResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         /// </summary>
-        public readonly string ConnectionStatus;
+        public readonly string? ConnectionStatus;
         /// <summary>
         /// ARN of the host associated with the connection.
         /// </summary>
-        public readonly string HostArn;
+        public readonly string? HostArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the CodeStar Connection. The name is unique in the calling AWS account.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
         /// </summary>
-        public readonly string ProviderType;
+        public readonly string? ProviderType;
         /// <summary>
         /// Map of key-value resource tags to associate with the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetConnectionResult(
-            string arn,
+            string? arn,
 
-            string connectionStatus,
+            string? connectionStatus,
 
-            string hostArn,
+            string? hostArn,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string providerType,
+            string? providerType,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ConnectionStatus = connectionStatus;

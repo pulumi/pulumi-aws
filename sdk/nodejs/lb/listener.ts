@@ -242,7 +242,7 @@ export class Listener extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
      */
@@ -264,11 +264,11 @@ export class Listener extends pulumi.CustomResource {
     /**
      * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string | undefined>;
     /**
      * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      */
-    public readonly sslPolicy!: pulumi.Output<string>;
+    public readonly sslPolicy!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *

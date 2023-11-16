@@ -59,7 +59,7 @@ type GetDelegatedAdministratorsResult struct {
 	// The list of delegated administrators in your organization, which have the following attributes:
 	DelegatedAdministrators []GetDelegatedAdministratorsDelegatedAdministrator `pulumi:"delegatedAdministrators"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string  `pulumi:"id"`
+	Id               *string `pulumi:"id"`
 	ServicePrincipal *string `pulumi:"servicePrincipal"`
 }
 
@@ -109,8 +109,8 @@ func (o GetDelegatedAdministratorsResultOutput) DelegatedAdministrators() GetDel
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetDelegatedAdministratorsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDelegatedAdministratorsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetDelegatedAdministratorsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDelegatedAdministratorsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDelegatedAdministratorsResultOutput) ServicePrincipal() pulumi.StringPtrOutput {

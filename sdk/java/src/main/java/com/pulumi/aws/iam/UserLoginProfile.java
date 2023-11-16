@@ -77,42 +77,42 @@ public class UserLoginProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encryptedPassword", refs={String.class}, tree="[0]")
-    private Output<String> encryptedPassword;
+    private Output</* @Nullable */ String> encryptedPassword;
 
     /**
      * @return The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
      * 
      */
-    public Output<String> encryptedPassword() {
-        return this.encryptedPassword;
+    public Output<Optional<String>> encryptedPassword() {
+        return Codegen.optional(this.encryptedPassword);
     }
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
      * 
      */
     @Export(name="keyFingerprint", refs={String.class}, tree="[0]")
-    private Output<String> keyFingerprint;
+    private Output</* @Nullable */ String> keyFingerprint;
 
     /**
      * @return The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
      * 
      */
-    public Output<String> keyFingerprint() {
-        return this.keyFingerprint;
+    public Output<Optional<String>> keyFingerprint() {
+        return Codegen.optional(this.keyFingerprint);
     }
     /**
      * The plain text password, only available when `pgp_key` is not provided.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
-    private Output<String> password;
+    private Output</* @Nullable */ String> password;
 
     /**
      * @return The plain text password, only available when `pgp_key` is not provided.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Output<Optional<String>> password() {
+        return Codegen.optional(this.password);
     }
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
@@ -133,14 +133,14 @@ public class UserLoginProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="passwordResetRequired", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> passwordResetRequired;
+    private Output</* @Nullable */ Boolean> passwordResetRequired;
 
     /**
      * @return Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
      * 
      */
-    public Output<Boolean> passwordResetRequired() {
-        return this.passwordResetRequired;
+    public Output<Optional<Boolean>> passwordResetRequired() {
+        return Codegen.optional(this.passwordResetRequired);
     }
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.

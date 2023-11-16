@@ -104,18 +104,18 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Certificate string
         /// </summary>
-        public readonly string Certificate;
+        public readonly string? Certificate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string UserPoolId;
 
         [OutputConstructor]
         private GetUserPoolSigningCertificateResult(
-            string certificate,
+            string? certificate,
 
-            string id,
+            string? id,
 
             string userPoolId)
         {

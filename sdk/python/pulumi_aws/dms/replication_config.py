@@ -653,7 +653,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the serverless replication config.
         """
@@ -677,7 +677,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationSettings")
-    def replication_settings(self) -> pulumi.Output[str]:
+    def replication_settings(self) -> pulumi.Output[Optional[str]]:
         """
         An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         """
@@ -693,7 +693,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> pulumi.Output[str]:
+    def resource_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
         """

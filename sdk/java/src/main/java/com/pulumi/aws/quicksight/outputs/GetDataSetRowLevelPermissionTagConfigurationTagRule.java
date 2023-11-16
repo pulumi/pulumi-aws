@@ -6,26 +6,28 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetRowLevelPermissionTagConfigurationTagRule {
-    private String columnName;
-    private String matchAllValue;
-    private String tagKey;
-    private String tagMultiValueDelimiter;
+    private @Nullable String columnName;
+    private @Nullable String matchAllValue;
+    private @Nullable String tagKey;
+    private @Nullable String tagMultiValueDelimiter;
 
     private GetDataSetRowLevelPermissionTagConfigurationTagRule() {}
-    public String columnName() {
-        return this.columnName;
+    public Optional<String> columnName() {
+        return Optional.ofNullable(this.columnName);
     }
-    public String matchAllValue() {
-        return this.matchAllValue;
+    public Optional<String> matchAllValue() {
+        return Optional.ofNullable(this.matchAllValue);
     }
-    public String tagKey() {
-        return this.tagKey;
+    public Optional<String> tagKey() {
+        return Optional.ofNullable(this.tagKey);
     }
-    public String tagMultiValueDelimiter() {
-        return this.tagMultiValueDelimiter;
+    public Optional<String> tagMultiValueDelimiter() {
+        return Optional.ofNullable(this.tagMultiValueDelimiter);
     }
 
     public static Builder builder() {
@@ -37,10 +39,10 @@ public final class GetDataSetRowLevelPermissionTagConfigurationTagRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String columnName;
-        private String matchAllValue;
-        private String tagKey;
-        private String tagMultiValueDelimiter;
+        private @Nullable String columnName;
+        private @Nullable String matchAllValue;
+        private @Nullable String tagKey;
+        private @Nullable String tagMultiValueDelimiter;
         public Builder() {}
         public Builder(GetDataSetRowLevelPermissionTagConfigurationTagRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -51,23 +53,23 @@ public final class GetDataSetRowLevelPermissionTagConfigurationTagRule {
         }
 
         @CustomType.Setter
-        public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+        public Builder columnName(@Nullable String columnName) {
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
-        public Builder matchAllValue(String matchAllValue) {
-            this.matchAllValue = Objects.requireNonNull(matchAllValue);
+        public Builder matchAllValue(@Nullable String matchAllValue) {
+            this.matchAllValue = matchAllValue;
             return this;
         }
         @CustomType.Setter
-        public Builder tagKey(String tagKey) {
-            this.tagKey = Objects.requireNonNull(tagKey);
+        public Builder tagKey(@Nullable String tagKey) {
+            this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
-        public Builder tagMultiValueDelimiter(String tagMultiValueDelimiter) {
-            this.tagMultiValueDelimiter = Objects.requireNonNull(tagMultiValueDelimiter);
+        public Builder tagMultiValueDelimiter(@Nullable String tagMultiValueDelimiter) {
+            this.tagMultiValueDelimiter = tagMultiValueDelimiter;
             return this;
         }
         public GetDataSetRowLevelPermissionTagConfigurationTagRule build() {

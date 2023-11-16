@@ -20,15 +20,15 @@ public final class GetPermissionsTableArgs extends com.pulumi.resources.Resource
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    @Import(name="catalogId", required=true)
-    private Output<String> catalogId;
+    @Import(name="catalogId")
+    private @Nullable Output<String> catalogId;
 
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Optional<Output<String>> catalogId() {
+        return Optional.ofNullable(this.catalogId);
     }
 
     /**
@@ -54,15 +54,15 @@ public final class GetPermissionsTableArgs extends com.pulumi.resources.Resource
      * Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -113,7 +113,7 @@ public final class GetPermissionsTableArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder catalogId(Output<String> catalogId) {
+        public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
@@ -159,7 +159,7 @@ public final class GetPermissionsTableArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -196,9 +196,7 @@ public final class GetPermissionsTableArgs extends com.pulumi.resources.Resource
         }
 
         public GetPermissionsTableArgs build() {
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
             $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

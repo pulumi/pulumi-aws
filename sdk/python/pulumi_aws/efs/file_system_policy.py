@@ -148,7 +148,7 @@ class FileSystemPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_policy_document = fs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="ExampleStatement01",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -159,13 +159,13 @@ class FileSystemPolicy(pulumi.CustomResource):
                 "elasticfilesystem:ClientMount",
                 "elasticfilesystem:ClientWrite",
             ],
-            resources=[fs.arn],
+            resources=[arn],
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="Bool",
                 variable="aws:SecureTransport",
                 values=["true"],
             )],
-        )])
+        )]))
         policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
             file_system_id=fs.id,
             policy=policy_policy_document.json)
@@ -203,7 +203,7 @@ class FileSystemPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_policy_document = fs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="ExampleStatement01",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -214,13 +214,13 @@ class FileSystemPolicy(pulumi.CustomResource):
                 "elasticfilesystem:ClientMount",
                 "elasticfilesystem:ClientWrite",
             ],
-            resources=[fs.arn],
+            resources=[arn],
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="Bool",
                 variable="aws:SecureTransport",
                 values=["true"],
             )],
-        )])
+        )]))
         policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
             file_system_id=fs.id,
             policy=policy_policy_document.json)

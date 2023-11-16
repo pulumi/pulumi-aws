@@ -49,13 +49,13 @@ export interface GetSiteResult {
     /**
      * AWS Account identifier.
      */
-    readonly accountId: string;
+    readonly accountId?: string;
     /**
      * Description.
      */
-    readonly description: string;
-    readonly id: string;
-    readonly name: string;
+    readonly description?: string;
+    readonly id?: string;
+    readonly name?: string;
 }
 /**
  * Provides details about an Outposts Site.

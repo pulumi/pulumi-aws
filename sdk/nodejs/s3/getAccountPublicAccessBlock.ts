@@ -43,23 +43,23 @@ export interface GetAccountPublicAccessBlockResult {
     /**
      * Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
      */
-    readonly blockPublicAcls: boolean;
+    readonly blockPublicAcls?: boolean;
     /**
      * Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
      */
-    readonly blockPublicPolicy: boolean;
+    readonly blockPublicPolicy?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
      */
-    readonly ignorePublicAcls: boolean;
+    readonly ignorePublicAcls?: boolean;
     /**
      * Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
      */
-    readonly restrictPublicBuckets: boolean;
+    readonly restrictPublicBuckets?: boolean;
 }
 /**
  * The S3 account public access block data source returns account-level public access block configuration.

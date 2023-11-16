@@ -79,15 +79,15 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Date when the configuration was created.
      */
-    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string | undefined>;
     /**
      * Date when the configuration was updated.
      */
-    public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
+    public /*out*/ readonly dateUpdated!: pulumi.Output<string | undefined>;
     /**
      * Description for the configuration.
      */

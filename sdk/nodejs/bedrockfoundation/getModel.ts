@@ -45,37 +45,37 @@ export interface GetModelResult {
     /**
      * Customizations that the model supports.
      */
-    readonly customizationsSupporteds: string[];
-    readonly id: string;
+    readonly customizationsSupporteds?: string[];
+    readonly id?: string;
     /**
      * Inference types that the model supports.
      */
-    readonly inferenceTypesSupporteds: string[];
+    readonly inferenceTypesSupporteds?: string[];
     /**
      * Input modalities that the model supports.
      */
-    readonly inputModalities: string[];
+    readonly inputModalities?: string[];
     /**
      * Model ARN.
      */
-    readonly modelArn: string;
+    readonly modelArn?: string;
     readonly modelId: string;
     /**
      * Model name.
      */
-    readonly modelName: string;
+    readonly modelName?: string;
     /**
      * Output modalities that the model supports.
      */
-    readonly outputModalities: string[];
+    readonly outputModalities?: string[];
     /**
      * Model provider name.
      */
-    readonly providerName: string;
+    readonly providerName?: string;
     /**
      * Indicates whether the model supports streaming.
      */
-    readonly responseStreamingSupported: boolean;
+    readonly responseStreamingSupported?: boolean;
 }
 /**
  * Data source for managing an AWS Bedrock Foundation Model.

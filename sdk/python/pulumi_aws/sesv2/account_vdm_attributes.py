@@ -280,7 +280,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardAttributes")
-    def dashboard_attributes(self) -> pulumi.Output['outputs.AccountVdmAttributesDashboardAttributes']:
+    def dashboard_attributes(self) -> pulumi.Output[Optional['outputs.AccountVdmAttributesDashboardAttributes']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
@@ -288,7 +288,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="guardianAttributes")
-    def guardian_attributes(self) -> pulumi.Output['outputs.AccountVdmAttributesGuardianAttributes']:
+    def guardian_attributes(self) -> pulumi.Output[Optional['outputs.AccountVdmAttributesGuardianAttributes']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """

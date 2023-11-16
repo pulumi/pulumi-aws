@@ -82,7 +82,7 @@ type AccountRegistration struct {
 	// KMS key identifier.
 	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
 	// Status of the account registration request.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewAccountRegistration registers a new resource with the given unique name, arguments, and options.
@@ -262,8 +262,8 @@ func (o AccountRegistrationOutput) KmsKey() pulumi.StringPtrOutput {
 }
 
 // Status of the account registration request.
-func (o AccountRegistrationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccountRegistration) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o AccountRegistrationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountRegistration) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type AccountRegistrationArrayOutput struct{ *pulumi.OutputState }

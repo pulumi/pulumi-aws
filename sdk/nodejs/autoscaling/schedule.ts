@@ -72,7 +72,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * ARN assigned by AWS to the autoscaling schedule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the Auto Scaling group.
      */
@@ -80,23 +80,23 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
      */
-    public readonly desiredCapacity!: pulumi.Output<number>;
+    public readonly desiredCapacity!: pulumi.Output<number | undefined>;
     /**
      * The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
      */
-    public readonly endTime!: pulumi.Output<string>;
+    public readonly endTime!: pulumi.Output<string | undefined>;
     /**
      * The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
      */
-    public readonly maxSize!: pulumi.Output<number>;
+    public readonly maxSize!: pulumi.Output<number | undefined>;
     /**
      * The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
      */
-    public readonly minSize!: pulumi.Output<number>;
+    public readonly minSize!: pulumi.Output<number | undefined>;
     /**
      * The recurring schedule for this action specified using the Unix cron syntax format.
      */
-    public readonly recurrence!: pulumi.Output<string>;
+    public readonly recurrence!: pulumi.Output<string | undefined>;
     /**
      * The name of this scaling action.
      *
@@ -106,13 +106,13 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
      */
-    public readonly startTime!: pulumi.Output<string>;
+    public readonly startTime!: pulumi.Output<string | undefined>;
     /**
      * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
      *
      * > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    public readonly timeZone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.

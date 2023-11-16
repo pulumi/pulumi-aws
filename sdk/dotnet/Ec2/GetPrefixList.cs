@@ -265,11 +265,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the selected prefix list.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string? PrefixListId;
 
         [OutputConstructor]
@@ -278,9 +278,9 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetPrefixListFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             string? prefixListId)
         {

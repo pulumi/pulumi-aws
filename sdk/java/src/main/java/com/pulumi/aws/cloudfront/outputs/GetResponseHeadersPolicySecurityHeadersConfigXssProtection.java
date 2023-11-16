@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
@@ -14,51 +16,51 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
      * @return Whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
      * 
      */
-    private Boolean modeBlock;
+    private @Nullable Boolean modeBlock;
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private Boolean override;
+    private @Nullable Boolean override;
     /**
      * @return Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
      * 
      */
-    private Boolean protection;
+    private @Nullable Boolean protection;
     /**
      * @return Whether CloudFront sets a reporting URI in the X-XSS-Protection header.
      * 
      */
-    private String reportUri;
+    private @Nullable String reportUri;
 
     private GetResponseHeadersPolicySecurityHeadersConfigXssProtection() {}
     /**
      * @return Whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
      * 
      */
-    public Boolean modeBlock() {
-        return this.modeBlock;
+    public Optional<Boolean> modeBlock() {
+        return Optional.ofNullable(this.modeBlock);
     }
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    public Boolean override() {
-        return this.override;
+    public Optional<Boolean> override() {
+        return Optional.ofNullable(this.override);
     }
     /**
      * @return Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
      * 
      */
-    public Boolean protection() {
-        return this.protection;
+    public Optional<Boolean> protection() {
+        return Optional.ofNullable(this.protection);
     }
     /**
      * @return Whether CloudFront sets a reporting URI in the X-XSS-Protection header.
      * 
      */
-    public String reportUri() {
-        return this.reportUri;
+    public Optional<String> reportUri() {
+        return Optional.ofNullable(this.reportUri);
     }
 
     public static Builder builder() {
@@ -70,10 +72,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean modeBlock;
-        private Boolean override;
-        private Boolean protection;
-        private String reportUri;
+        private @Nullable Boolean modeBlock;
+        private @Nullable Boolean override;
+        private @Nullable Boolean protection;
+        private @Nullable String reportUri;
         public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfigXssProtection defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,23 +86,23 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
         }
 
         @CustomType.Setter
-        public Builder modeBlock(Boolean modeBlock) {
-            this.modeBlock = Objects.requireNonNull(modeBlock);
+        public Builder modeBlock(@Nullable Boolean modeBlock) {
+            this.modeBlock = modeBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+        public Builder override(@Nullable Boolean override) {
+            this.override = override;
             return this;
         }
         @CustomType.Setter
-        public Builder protection(Boolean protection) {
-            this.protection = Objects.requireNonNull(protection);
+        public Builder protection(@Nullable Boolean protection) {
+            this.protection = protection;
             return this;
         }
         @CustomType.Setter
-        public Builder reportUri(String reportUri) {
-            this.reportUri = Objects.requireNonNull(reportUri);
+        public Builder reportUri(@Nullable String reportUri) {
+            this.reportUri = reportUri;
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigXssProtection build() {

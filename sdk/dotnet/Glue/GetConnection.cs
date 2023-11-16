@@ -130,20 +130,20 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// ARN of the Glue Connection.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Catalog ID of the Glue Connection.
         /// </summary>
-        public readonly string CatalogId;
-        public readonly ImmutableDictionary<string, string> ConnectionProperties;
+        public readonly string? CatalogId;
+        public readonly ImmutableDictionary<string, string>? ConnectionProperties;
         /// <summary>
         /// Type of Glue Connection.
         /// </summary>
-        public readonly string ConnectionType;
+        public readonly string? ConnectionType;
         /// <summary>
         /// Description of the connection.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string Id;
         /// <summary>
         /// A list of criteria that can be used in selecting this connection.
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// Name of the Glue Connection.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// A map of physical connection requirements, such as VPC and SecurityGroup.
         /// </summary>
@@ -160,29 +160,29 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// Tags assigned to the resource
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetConnectionResult(
-            string arn,
+            string? arn,
 
-            string catalogId,
+            string? catalogId,
 
-            ImmutableDictionary<string, string> connectionProperties,
+            ImmutableDictionary<string, string>? connectionProperties,
 
-            string connectionType,
+            string? connectionType,
 
-            string description,
+            string? description,
 
             string id,
 
             ImmutableArray<string> matchCriterias,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> physicalConnectionRequirements,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CatalogId = catalogId;

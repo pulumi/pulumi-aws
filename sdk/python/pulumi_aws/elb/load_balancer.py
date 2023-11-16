@@ -1078,7 +1078,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the ELB
         """
@@ -1086,7 +1086,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The AZ's to serve traffic in.
         """
@@ -1126,7 +1126,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the ELB
         """
@@ -1134,7 +1134,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> pulumi.Output['outputs.LoadBalancerHealthCheck']:
+    def health_check(self) -> pulumi.Output[Optional['outputs.LoadBalancerHealthCheck']]:
         """
         A health_check block. Health Check documented below.
         """
@@ -1150,7 +1150,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> pulumi.Output[Sequence[str]]:
+    def instances(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of instance ids to place in the ELB pool.
         """
@@ -1158,7 +1158,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def internal(self) -> pulumi.Output[bool]:
+    def internal(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, ELB will be an internal ELB.
         """
@@ -1182,7 +1182,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -1191,7 +1191,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> pulumi.Output[Sequence[str]]:
+    def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of security group IDs to assign to the ELB.
         Only valid if creating an ELB within a VPC
@@ -1200,7 +1200,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceSecurityGroup")
-    def source_security_group(self) -> pulumi.Output[str]:
+    def source_security_group(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the security group that you can use as
         part of your inbound rules for your load balancer's back-end application
@@ -1210,7 +1210,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceSecurityGroupId")
-    def source_security_group_id(self) -> pulumi.Output[str]:
+    def source_security_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the security group that you can use as
         part of your inbound rules for your load balancer's back-end application
@@ -1220,7 +1220,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Output[Sequence[str]]:
+    def subnets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         """
@@ -1250,7 +1250,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> pulumi.Output[str]:
+    def zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
         """

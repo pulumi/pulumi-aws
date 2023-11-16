@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Kms
         /// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
@@ -95,19 +95,19 @@ namespace Pulumi.Aws.Kms
         /// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         /// </summary>
         [Output("enabled")]
-        public Output<bool> Enabled { get; private set; } = null!;
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
         /// </summary>
         [Output("expirationModel")]
-        public Output<string> ExpirationModel { get; private set; } = null!;
+        public Output<string?> ExpirationModel { get; private set; } = null!;
 
         /// <summary>
         /// The key ID of the replica key. Related multi-Region keys have the same key ID.
         /// </summary>
         [Output("keyId")]
-        public Output<string> KeyId { get; private set; } = null!;
+        public Output<string?> KeyId { get; private set; } = null!;
 
         /// <summary>
         /// Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
@@ -119,19 +119,19 @@ namespace Pulumi.Aws.Kms
         /// The state of the replica key.
         /// </summary>
         [Output("keyState")]
-        public Output<string> KeyState { get; private set; } = null!;
+        public Output<string?> KeyState { get; private set; } = null!;
 
         /// <summary>
         /// The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
         /// </summary>
         [Output("keyUsage")]
-        public Output<string> KeyUsage { get; private set; } = null!;
+        public Output<string?> KeyUsage { get; private set; } = null!;
 
         /// <summary>
         /// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.

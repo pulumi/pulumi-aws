@@ -185,7 +185,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the job definition.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
      * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
@@ -220,7 +220,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * The revision of the job definition.
      */
-    public /*out*/ readonly revision!: pulumi.Output<number>;
+    public /*out*/ readonly revision!: pulumi.Output<number | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

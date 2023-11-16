@@ -71,64 +71,64 @@ export interface GetTransitGatewayResult {
     /**
      * Private Autonomous System Number (ASN) for the Amazon side of a BGP session
      */
-    readonly amazonSideAsn: number;
+    readonly amazonSideAsn?: number;
     /**
      * EC2 Transit Gateway ARN
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Identifier of the default association route table
      */
-    readonly associationDefaultRouteTableId: string;
+    readonly associationDefaultRouteTableId?: string;
     /**
      * Whether resource attachment requests are automatically accepted
      */
-    readonly autoAcceptSharedAttachments: string;
+    readonly autoAcceptSharedAttachments?: string;
     /**
      * Whether resource attachments are automatically associated with the default association route table
      */
-    readonly defaultRouteTableAssociation: string;
+    readonly defaultRouteTableAssociation?: string;
     /**
      * Whether resource attachments automatically propagate routes to the default propagation route table
      */
-    readonly defaultRouteTablePropagation: string;
+    readonly defaultRouteTablePropagation?: string;
     /**
      * Description of the EC2 Transit Gateway
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Whether DNS support is enabled
      */
-    readonly dnsSupport: string;
+    readonly dnsSupport?: string;
     readonly filters?: outputs.ec2transitgateway.GetTransitGatewayFilter[];
     /**
      * EC2 Transit Gateway identifier
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Whether Multicast support is enabled
      */
-    readonly multicastSupport: string;
+    readonly multicastSupport?: string;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * Identifier of the default propagation route table
      */
-    readonly propagationDefaultRouteTableId: string;
+    readonly propagationDefaultRouteTableId?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The list of associated CIDR blocks
      */
-    readonly transitGatewayCidrBlocks: string[];
+    readonly transitGatewayCidrBlocks?: string[];
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled
      */
-    readonly vpnEcmpSupport: string;
+    readonly vpnEcmpSupport?: string;
 }
 /**
  * Get information on an EC2 Transit Gateway.

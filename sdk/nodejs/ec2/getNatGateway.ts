@@ -89,45 +89,45 @@ export interface GetNatGatewayResult {
     /**
      * ID of the EIP allocated to the selected NAT Gateway.
      */
-    readonly allocationId: string;
+    readonly allocationId?: string;
     /**
      * The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
      */
-    readonly associationId: string;
+    readonly associationId?: string;
     /**
      * Connectivity type of the NAT Gateway.
      */
-    readonly connectivityType: string;
+    readonly connectivityType?: string;
     readonly filters?: outputs.ec2.GetNatGatewayFilter[];
-    readonly id: string;
+    readonly id?: string;
     /**
      * The ID of the ENI allocated to the selected NAT Gateway.
      */
-    readonly networkInterfaceId: string;
+    readonly networkInterfaceId?: string;
     /**
      * Private IP address of the selected NAT Gateway.
      */
-    readonly privateIp: string;
+    readonly privateIp?: string;
     /**
      * Public IP (EIP) address of the selected NAT Gateway.
      */
-    readonly publicIp: string;
+    readonly publicIp?: string;
     /**
      * Secondary allocation EIP IDs for the selected NAT Gateway.
      */
-    readonly secondaryAllocationIds: string[];
+    readonly secondaryAllocationIds?: string[];
     /**
      * The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
      */
-    readonly secondaryPrivateIpAddressCount: number;
+    readonly secondaryPrivateIpAddressCount?: number;
     /**
      * Secondary private IPv4 addresses assigned to the selected NAT Gateway.
      */
-    readonly secondaryPrivateIpAddresses: string[];
-    readonly state: string;
-    readonly subnetId: string;
-    readonly tags: {[key: string]: string};
-    readonly vpcId: string;
+    readonly secondaryPrivateIpAddresses?: string[];
+    readonly state?: string;
+    readonly subnetId?: string;
+    readonly tags?: {[key: string]: string};
+    readonly vpcId?: string;
 }
 /**
  * Provides details about a specific VPC NAT Gateway.

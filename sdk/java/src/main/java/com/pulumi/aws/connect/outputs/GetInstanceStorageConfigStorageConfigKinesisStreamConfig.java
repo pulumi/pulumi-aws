@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfigKinesisStreamConfig {
@@ -13,15 +15,15 @@ public final class GetInstanceStorageConfigStorageConfigKinesisStreamConfig {
      * @return The Amazon Resource Name (ARN) of the data stream.
      * 
      */
-    private String streamArn;
+    private @Nullable String streamArn;
 
     private GetInstanceStorageConfigStorageConfigKinesisStreamConfig() {}
     /**
      * @return The Amazon Resource Name (ARN) of the data stream.
      * 
      */
-    public String streamArn() {
-        return this.streamArn;
+    public Optional<String> streamArn() {
+        return Optional.ofNullable(this.streamArn);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetInstanceStorageConfigStorageConfigKinesisStreamConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String streamArn;
+        private @Nullable String streamArn;
         public Builder() {}
         public Builder(GetInstanceStorageConfigStorageConfigKinesisStreamConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetInstanceStorageConfigStorageConfigKinesisStreamConfig {
         }
 
         @CustomType.Setter
-        public Builder streamArn(String streamArn) {
-            this.streamArn = Objects.requireNonNull(streamArn);
+        public Builder streamArn(@Nullable String streamArn) {
+            this.streamArn = streamArn;
             return this;
         }
         public GetInstanceStorageConfigStorageConfigKinesisStreamConfig build() {

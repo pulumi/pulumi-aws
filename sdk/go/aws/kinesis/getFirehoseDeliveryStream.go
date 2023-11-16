@@ -59,10 +59,10 @@ type LookupFirehoseDeliveryStreamArgs struct {
 // A collection of values returned by getFirehoseDeliveryStream.
 type LookupFirehoseDeliveryStreamResult struct {
 	// ARN of the Kinesis Stream (same as id).
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func LookupFirehoseDeliveryStreamOutput(ctx *pulumi.Context, args LookupFirehoseDeliveryStreamOutputArgs, opts ...pulumi.InvokeOption) LookupFirehoseDeliveryStreamResultOutput {
@@ -104,13 +104,13 @@ func (o LookupFirehoseDeliveryStreamResultOutput) ToLookupFirehoseDeliveryStream
 }
 
 // ARN of the Kinesis Stream (same as id).
-func (o LookupFirehoseDeliveryStreamResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirehoseDeliveryStreamResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupFirehoseDeliveryStreamResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirehoseDeliveryStreamResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupFirehoseDeliveryStreamResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFirehoseDeliveryStreamResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupFirehoseDeliveryStreamResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirehoseDeliveryStreamResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFirehoseDeliveryStreamResultOutput) Name() pulumi.StringOutput {

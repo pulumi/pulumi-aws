@@ -292,7 +292,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Group.
         """
@@ -300,7 +300,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> pulumi.Output[str]:
+    def group_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the Group.
         """

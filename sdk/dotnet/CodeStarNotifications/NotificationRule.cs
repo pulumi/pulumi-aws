@@ -99,7 +99,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         /// The codestar notification rule ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.

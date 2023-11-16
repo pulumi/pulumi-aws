@@ -66,14 +66,14 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="calculatorArn", refs={String.class}, tree="[0]")
-    private Output<String> calculatorArn;
+    private Output</* @Nullable */ String> calculatorArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
-    public Output<String> calculatorArn() {
-        return this.calculatorArn;
+    public Output<Optional<String>> calculatorArn() {
+        return Codegen.optional(this.calculatorArn);
     }
     /**
      * The name of the route calculator resource.
@@ -94,14 +94,14 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    private Output</* @Nullable */ String> createTime;
 
     /**
      * @return The timestamp for when the route calculator resource was created in ISO 8601 format.
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<Optional<String>> createTime() {
+        return Codegen.optional(this.createTime);
     }
     /**
      * Specifies the data provider of traffic and road network data.
@@ -172,14 +172,14 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    private Output</* @Nullable */ String> updateTime;
 
     /**
      * @return The timestamp for when the route calculator resource was last update in ISO 8601.
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<Optional<String>> updateTime() {
+        return Codegen.optional(this.updateTime);
     }
 
     /**

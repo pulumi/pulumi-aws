@@ -59,10 +59,10 @@ type LookupTopicArgs struct {
 // A collection of values returned by getTopic.
 type LookupTopicResult struct {
 	// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 }
 
 func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
@@ -104,13 +104,13 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx contex
 }
 
 // ARN of the found topic, suitable for referencing in other resources that support SNS topics.
-func (o LookupTopicResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTopicResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupTopicResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupTopicResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupTopicResultOutput) Name() pulumi.StringOutput {

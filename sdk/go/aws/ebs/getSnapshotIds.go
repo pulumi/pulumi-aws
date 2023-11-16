@@ -81,7 +81,7 @@ type GetSnapshotIdsArgs struct {
 type GetSnapshotIdsResult struct {
 	Filters []GetSnapshotIdsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of EBS snapshot IDs, sorted by creation time in descending order.
 	Ids                 []string `pulumi:"ids"`
 	Owners              []string `pulumi:"owners"`
@@ -137,8 +137,8 @@ func (o GetSnapshotIdsResultOutput) Filters() GetSnapshotIdsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSnapshotIdsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSnapshotIdsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSnapshotIdsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSnapshotIdsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of EBS snapshot IDs, sorted by creation time in descending order.

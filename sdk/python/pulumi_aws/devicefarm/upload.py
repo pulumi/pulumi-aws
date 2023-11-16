@@ -380,7 +380,7 @@ class Upload(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name of this upload.
         """
@@ -388,7 +388,7 @@ class Upload(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> pulumi.Output[str]:
+    def category(self) -> pulumi.Output[Optional[str]]:
         """
         The upload's category.
         """
@@ -404,7 +404,7 @@ class Upload(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[str]:
+    def metadata(self) -> pulumi.Output[Optional[str]]:
         """
         The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
         """
@@ -436,7 +436,7 @@ class Upload(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         The presigned Amazon S3 URL that was used to store a file using a PUT request.
         """

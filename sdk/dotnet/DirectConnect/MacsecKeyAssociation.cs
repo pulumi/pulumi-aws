@@ -84,7 +84,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
         /// </summary>
         [Output("ckn")]
-        public Output<string> Ckn { get; private set; } = null!;
+        public Output<string?> Ckn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
@@ -98,19 +98,19 @@ namespace Pulumi.Aws.DirectConnect
         /// &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
         /// </summary>
         [Output("secretArn")]
-        public Output<string> SecretArn { get; private set; } = null!;
+        public Output<string?> SecretArn { get; private set; } = null!;
 
         /// <summary>
         /// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
         /// </summary>
         [Output("startOn")]
-        public Output<string> StartOn { get; private set; } = null!;
+        public Output<string?> StartOn { get; private set; } = null!;
 
         /// <summary>
         /// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
 
         /// <summary>

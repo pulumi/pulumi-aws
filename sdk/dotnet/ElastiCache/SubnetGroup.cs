@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ElastiCache
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description for the cache subnet group. Defaults to "Managed by Pulumi".

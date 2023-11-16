@@ -438,7 +438,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -446,7 +446,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the FSx for openzfs location was created.
         """
@@ -478,7 +478,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> pulumi.Output[str]:
+    def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
         Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         """
@@ -505,7 +505,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> pulumi.Output[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URL of the FSx for openzfs location that was described.
         """

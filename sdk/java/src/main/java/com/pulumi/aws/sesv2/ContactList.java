@@ -100,10 +100,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sesv2/contactList:ContactList")
 public class ContactList extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the contact list.
@@ -128,14 +128,14 @@ public class ContactList extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> createdTimestamp;
+    private Output</* @Nullable */ String> createdTimestamp;
 
     /**
      * @return A timestamp noting when the contact list was created in ISO 8601 format.
      * 
      */
-    public Output<String> createdTimestamp() {
-        return this.createdTimestamp;
+    public Output<Optional<String>> createdTimestamp() {
+        return Codegen.optional(this.createdTimestamp);
     }
     /**
      * A description of what the contact list is about.
@@ -156,14 +156,14 @@ public class ContactList extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdatedTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTimestamp;
+    private Output</* @Nullable */ String> lastUpdatedTimestamp;
 
     /**
      * @return A timestamp noting the last time the contact list was updated in ISO 8601 format.
      * 
      */
-    public Output<String> lastUpdatedTimestamp() {
-        return this.lastUpdatedTimestamp;
+    public Output<Optional<String>> lastUpdatedTimestamp() {
+        return Codegen.optional(this.lastUpdatedTimestamp);
     }
     /**
      * Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

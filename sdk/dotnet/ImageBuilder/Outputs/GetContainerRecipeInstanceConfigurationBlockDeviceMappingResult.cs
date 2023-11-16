@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
         /// </summary>
-        public readonly string DeviceName;
+        public readonly string? DeviceName;
         /// <summary>
         /// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
         /// </summary>
@@ -24,21 +24,21 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Whether to remove a mapping from the parent image.
         /// </summary>
-        public readonly string NoDevice;
+        public readonly string? NoDevice;
         /// <summary>
         /// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         /// </summary>
-        public readonly string VirtualName;
+        public readonly string? VirtualName;
 
         [OutputConstructor]
         private GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult(
-            string deviceName,
+            string? deviceName,
 
             ImmutableArray<Outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult> ebs,
 
-            string noDevice,
+            string? noDevice,
 
-            string virtualName)
+            string? virtualName)
         {
             DeviceName = deviceName;
             Ebs = ebs;

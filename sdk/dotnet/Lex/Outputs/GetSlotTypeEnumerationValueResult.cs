@@ -14,13 +14,13 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class GetSlotTypeEnumerationValueResult
     {
         public readonly ImmutableArray<string> Synonyms;
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetSlotTypeEnumerationValueResult(
             ImmutableArray<string> synonyms,
 
-            string value)
+            string? value)
         {
             Synonyms = synonyms;
             Value = value;

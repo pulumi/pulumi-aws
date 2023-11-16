@@ -143,14 +143,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Queue.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies the description of the Queue.
@@ -241,14 +241,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="queueId", refs={String.class}, tree="[0]")
-    private Output<String> queueId;
+    private Output</* @Nullable */ String> queueId;
 
     /**
      * @return The identifier for the Queue.
      * 
      */
-    public Output<String> queueId() {
-        return this.queueId;
+    public Output<Optional<String>> queueId() {
+        return Codegen.optional(this.queueId);
     }
     /**
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
@@ -269,14 +269,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

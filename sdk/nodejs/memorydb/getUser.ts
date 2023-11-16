@@ -51,27 +51,27 @@ export interface GetUserResult {
     /**
      * Access permissions string used for this user.
      */
-    readonly accessString: string;
+    readonly accessString?: string;
     /**
      * ARN of the user.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Denotes the user's authentication properties.
      */
-    readonly authenticationModes: outputs.memorydb.GetUserAuthenticationMode[];
+    readonly authenticationModes?: outputs.memorydb.GetUserAuthenticationMode[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The minimum engine version supported for the user.
      */
-    readonly minimumEngineVersion: string;
+    readonly minimumEngineVersion?: string;
     /**
      * Map of tags assigned to the subnet group.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly userName: string;
 }
 /**

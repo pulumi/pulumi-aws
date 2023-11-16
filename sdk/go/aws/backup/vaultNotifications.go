@@ -33,7 +33,7 @@ import (
 // if err != nil {
 // return err
 // }
-// testPolicyDocument := testTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// testPolicyDocument := testTopic.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // PolicyId: "__default_policy_ID",
 // Statements: []iam.GetPolicyDocumentStatement{
@@ -96,7 +96,7 @@ type VaultNotifications struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the vault.
-	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
+	BackupVaultArn pulumi.StringPtrOutput `pulumi:"backupVaultArn"`
 	// An array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents pulumi.StringArrayOutput `pulumi:"backupVaultEvents"`
 	// Name of the backup vault to add notifications for.
@@ -276,8 +276,8 @@ func (o VaultNotificationsOutput) ToVaultNotificationsOutputWithContext(ctx cont
 }
 
 // The ARN of the vault.
-func (o VaultNotificationsOutput) BackupVaultArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
+func (o VaultNotificationsOutput) BackupVaultArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultNotifications) pulumi.StringPtrOutput { return v.BackupVaultArn }).(pulumi.StringPtrOutput)
 }
 
 // An array of events that indicate the status of jobs to back up resources to the backup vault.

@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,63 +18,63 @@ public final class GetVpcAttachmentResult {
      * @return Whether Appliance Mode support is enabled.
      * 
      */
-    private String applianceModeSupport;
+    private @Nullable String applianceModeSupport;
     /**
      * @return Whether DNS support is enabled.
      * 
      */
-    private String dnsSupport;
+    private @Nullable String dnsSupport;
     private @Nullable List<GetVpcAttachmentFilter> filters;
     /**
      * @return EC2 Transit Gateway VPC Attachment identifier
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Whether IPv6 support is enabled.
      * 
      */
-    private String ipv6Support;
+    private @Nullable String ipv6Support;
     /**
      * @return Identifiers of EC2 Subnets.
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return Key-value tags for the EC2 Transit Gateway VPC Attachment
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return EC2 Transit Gateway identifier
      * 
      */
-    private String transitGatewayId;
+    private @Nullable String transitGatewayId;
     /**
      * @return Identifier of EC2 VPC.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
     /**
      * @return Identifier of the AWS account that owns the EC2 VPC.
      * 
      */
-    private String vpcOwnerId;
+    private @Nullable String vpcOwnerId;
 
     private GetVpcAttachmentResult() {}
     /**
      * @return Whether Appliance Mode support is enabled.
      * 
      */
-    public String applianceModeSupport() {
-        return this.applianceModeSupport;
+    public Optional<String> applianceModeSupport() {
+        return Optional.ofNullable(this.applianceModeSupport);
     }
     /**
      * @return Whether DNS support is enabled.
      * 
      */
-    public String dnsSupport() {
-        return this.dnsSupport;
+    public Optional<String> dnsSupport() {
+        return Optional.ofNullable(this.dnsSupport);
     }
     public List<GetVpcAttachmentFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -82,50 +83,50 @@ public final class GetVpcAttachmentResult {
      * @return EC2 Transit Gateway VPC Attachment identifier
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Whether IPv6 support is enabled.
      * 
      */
-    public String ipv6Support() {
-        return this.ipv6Support;
+    public Optional<String> ipv6Support() {
+        return Optional.ofNullable(this.ipv6Support);
     }
     /**
      * @return Identifiers of EC2 Subnets.
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
      * @return Key-value tags for the EC2 Transit Gateway VPC Attachment
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return EC2 Transit Gateway identifier
      * 
      */
-    public String transitGatewayId() {
-        return this.transitGatewayId;
+    public Optional<String> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
     }
     /**
      * @return Identifier of EC2 VPC.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
     /**
      * @return Identifier of the AWS account that owns the EC2 VPC.
      * 
      */
-    public String vpcOwnerId() {
-        return this.vpcOwnerId;
+    public Optional<String> vpcOwnerId() {
+        return Optional.ofNullable(this.vpcOwnerId);
     }
 
     public static Builder builder() {
@@ -137,16 +138,16 @@ public final class GetVpcAttachmentResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String applianceModeSupport;
-        private String dnsSupport;
+        private @Nullable String applianceModeSupport;
+        private @Nullable String dnsSupport;
         private @Nullable List<GetVpcAttachmentFilter> filters;
-        private String id;
-        private String ipv6Support;
-        private List<String> subnetIds;
-        private Map<String,String> tags;
-        private String transitGatewayId;
-        private String vpcId;
-        private String vpcOwnerId;
+        private @Nullable String id;
+        private @Nullable String ipv6Support;
+        private @Nullable List<String> subnetIds;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String transitGatewayId;
+        private @Nullable String vpcId;
+        private @Nullable String vpcOwnerId;
         public Builder() {}
         public Builder(GetVpcAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -163,13 +164,13 @@ public final class GetVpcAttachmentResult {
         }
 
         @CustomType.Setter
-        public Builder applianceModeSupport(String applianceModeSupport) {
-            this.applianceModeSupport = Objects.requireNonNull(applianceModeSupport);
+        public Builder applianceModeSupport(@Nullable String applianceModeSupport) {
+            this.applianceModeSupport = applianceModeSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder dnsSupport(String dnsSupport) {
-            this.dnsSupport = Objects.requireNonNull(dnsSupport);
+        public Builder dnsSupport(@Nullable String dnsSupport) {
+            this.dnsSupport = dnsSupport;
             return this;
         }
         @CustomType.Setter
@@ -181,41 +182,41 @@ public final class GetVpcAttachmentResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6Support(String ipv6Support) {
-            this.ipv6Support = Objects.requireNonNull(ipv6Support);
+        public Builder ipv6Support(@Nullable String ipv6Support) {
+            this.ipv6Support = ipv6Support;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+        public Builder transitGatewayId(@Nullable String transitGatewayId) {
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcOwnerId(String vpcOwnerId) {
-            this.vpcOwnerId = Objects.requireNonNull(vpcOwnerId);
+        public Builder vpcOwnerId(@Nullable String vpcOwnerId) {
+            this.vpcOwnerId = vpcOwnerId;
             return this;
         }
         public GetVpcAttachmentResult build() {

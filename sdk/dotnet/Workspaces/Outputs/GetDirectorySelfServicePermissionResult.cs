@@ -16,35 +16,35 @@ namespace Pulumi.Aws.Workspaces.Outputs
         /// <summary>
         /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
         /// </summary>
-        public readonly bool ChangeComputeType;
+        public readonly bool? ChangeComputeType;
         /// <summary>
         /// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
         /// </summary>
-        public readonly bool IncreaseVolumeSize;
+        public readonly bool? IncreaseVolumeSize;
         /// <summary>
         /// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
         /// </summary>
-        public readonly bool RebuildWorkspace;
+        public readonly bool? RebuildWorkspace;
         /// <summary>
         /// Whether WorkSpaces directory users can restart their workspace.
         /// </summary>
-        public readonly bool RestartWorkspace;
+        public readonly bool? RestartWorkspace;
         /// <summary>
         /// Whether WorkSpaces directory users can switch the running mode of their workspace.
         /// </summary>
-        public readonly bool SwitchRunningMode;
+        public readonly bool? SwitchRunningMode;
 
         [OutputConstructor]
         private GetDirectorySelfServicePermissionResult(
-            bool changeComputeType,
+            bool? changeComputeType,
 
-            bool increaseVolumeSize,
+            bool? increaseVolumeSize,
 
-            bool rebuildWorkspace,
+            bool? rebuildWorkspace,
 
-            bool restartWorkspace,
+            bool? restartWorkspace,
 
-            bool switchRunningMode)
+            bool? switchRunningMode)
         {
             ChangeComputeType = changeComputeType;
             IncreaseVolumeSize = increaseVolumeSize;

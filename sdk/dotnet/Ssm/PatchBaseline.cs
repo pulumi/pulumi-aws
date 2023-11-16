@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Ssm
         /// The ARN of the patch baseline.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the patch baseline.
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Ssm
         /// Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
         [Output("rejectedPatchesAction")]
-        public Output<string> RejectedPatchesAction { get; private set; } = null!;
+        public Output<string?> RejectedPatchesAction { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with alternate sources for patches.

@@ -49,9 +49,9 @@ func LookupEncryptionByDefault(ctx *pulumi.Context, opts ...pulumi.InvokeOption)
 // A collection of values returned by getEncryptionByDefault.
 type LookupEncryptionByDefaultResult struct {
 	// Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func LookupEncryptionByDefaultOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupEncryptionByDefaultResultOutput {
@@ -81,13 +81,13 @@ func (o LookupEncryptionByDefaultResultOutput) ToLookupEncryptionByDefaultResult
 }
 
 // Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
-func (o LookupEncryptionByDefaultResultOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupEncryptionByDefaultResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o LookupEncryptionByDefaultResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupEncryptionByDefaultResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupEncryptionByDefaultResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEncryptionByDefaultResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupEncryptionByDefaultResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEncryptionByDefaultResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

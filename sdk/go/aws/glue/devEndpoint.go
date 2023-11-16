@@ -91,15 +91,15 @@ type DevEndpoint struct {
 	// A map of arguments used to configure the endpoint.
 	Arguments pulumi.StringMapOutput `pulumi:"arguments"`
 	// The ARN of the endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The AWS availability zone where this endpoint is located.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
 	ExtraJarsS3Path pulumi.StringPtrOutput `pulumi:"extraJarsS3Path"`
 	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
 	ExtraPythonLibsS3Path pulumi.StringPtrOutput `pulumi:"extraPythonLibsS3Path"`
 	// The reason for a current failure in this endpoint.
-	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
+	FailureReason pulumi.StringPtrOutput `pulumi:"failureReason"`
 	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
 	GlueVersion pulumi.StringPtrOutput `pulumi:"glueVersion"`
 	// The name of this endpoint. It must be unique in your account.
@@ -109,9 +109,9 @@ type DevEndpoint struct {
 	// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
 	NumberOfWorkers pulumi.IntPtrOutput `pulumi:"numberOfWorkers"`
 	// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
-	PrivateAddress pulumi.StringOutput `pulumi:"privateAddress"`
+	PrivateAddress pulumi.StringPtrOutput `pulumi:"privateAddress"`
 	// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
-	PublicAddress pulumi.StringOutput `pulumi:"publicAddress"`
+	PublicAddress pulumi.StringPtrOutput `pulumi:"publicAddress"`
 	// The public key to be used by this endpoint for authentication.
 	PublicKey pulumi.StringPtrOutput `pulumi:"publicKey"`
 	// A list of public keys to be used by this endpoint for authentication.
@@ -123,7 +123,7 @@ type DevEndpoint struct {
 	// Security group IDs for the security groups to be used by this endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The current status of this endpoint.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The subnet ID for the new endpoint to use.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -133,13 +133,13 @@ type DevEndpoint struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// he ID of the VPC used by this endpoint.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
 	// The YARN endpoint address used by this endpoint.
-	YarnEndpointAddress pulumi.StringOutput `pulumi:"yarnEndpointAddress"`
+	YarnEndpointAddress pulumi.StringPtrOutput `pulumi:"yarnEndpointAddress"`
 	// The Apache Zeppelin port for the remote Apache Spark interpreter.
-	ZeppelinRemoteSparkInterpreterPort pulumi.IntOutput `pulumi:"zeppelinRemoteSparkInterpreterPort"`
+	ZeppelinRemoteSparkInterpreterPort pulumi.IntPtrOutput `pulumi:"zeppelinRemoteSparkInterpreterPort"`
 }
 
 // NewDevEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -452,13 +452,13 @@ func (o DevEndpointOutput) Arguments() pulumi.StringMapOutput {
 }
 
 // The ARN of the endpoint.
-func (o DevEndpointOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DevEndpointOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The AWS availability zone where this endpoint is located.
-func (o DevEndpointOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o DevEndpointOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
@@ -472,8 +472,8 @@ func (o DevEndpointOutput) ExtraPythonLibsS3Path() pulumi.StringPtrOutput {
 }
 
 // The reason for a current failure in this endpoint.
-func (o DevEndpointOutput) FailureReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
+func (o DevEndpointOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.FailureReason }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
@@ -497,13 +497,13 @@ func (o DevEndpointOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 }
 
 // A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
-func (o DevEndpointOutput) PrivateAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.PrivateAddress }).(pulumi.StringOutput)
+func (o DevEndpointOutput) PrivateAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.PrivateAddress }).(pulumi.StringPtrOutput)
 }
 
 // The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
-func (o DevEndpointOutput) PublicAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.PublicAddress }).(pulumi.StringOutput)
+func (o DevEndpointOutput) PublicAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.PublicAddress }).(pulumi.StringPtrOutput)
 }
 
 // The public key to be used by this endpoint for authentication.
@@ -532,8 +532,8 @@ func (o DevEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 }
 
 // The current status of this endpoint.
-func (o DevEndpointOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o DevEndpointOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The subnet ID for the new endpoint to use.
@@ -554,8 +554,8 @@ func (o DevEndpointOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // he ID of the VPC used by this endpoint.
-func (o DevEndpointOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o DevEndpointOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
@@ -564,13 +564,13 @@ func (o DevEndpointOutput) WorkerType() pulumi.StringPtrOutput {
 }
 
 // The YARN endpoint address used by this endpoint.
-func (o DevEndpointOutput) YarnEndpointAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.YarnEndpointAddress }).(pulumi.StringOutput)
+func (o DevEndpointOutput) YarnEndpointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.YarnEndpointAddress }).(pulumi.StringPtrOutput)
 }
 
 // The Apache Zeppelin port for the remote Apache Spark interpreter.
-func (o DevEndpointOutput) ZeppelinRemoteSparkInterpreterPort() pulumi.IntOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.IntOutput { return v.ZeppelinRemoteSparkInterpreterPort }).(pulumi.IntOutput)
+func (o DevEndpointOutput) ZeppelinRemoteSparkInterpreterPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.IntPtrOutput { return v.ZeppelinRemoteSparkInterpreterPort }).(pulumi.IntPtrOutput)
 }
 
 type DevEndpointArrayOutput struct{ *pulumi.OutputState }

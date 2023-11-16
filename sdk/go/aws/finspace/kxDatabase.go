@@ -69,15 +69,15 @@ type KxDatabase struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) identifier of the KX database.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
+	CreatedTimestamp pulumi.StringPtrOutput `pulumi:"createdTimestamp"`
 	// Description of the KX database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Unique identifier for the KX environment.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
+	LastModifiedTimestamp pulumi.StringPtrOutput `pulumi:"lastModifiedTimestamp"`
 	// Name of the KX database.
 	//
 	// The following arguments are optional:
@@ -291,13 +291,13 @@ func (o KxDatabaseOutput) ToKxDatabaseOutputWithContext(ctx context.Context) KxD
 }
 
 // Amazon Resource Name (ARN) identifier of the KX database.
-func (o KxDatabaseOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o KxDatabaseOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxDatabase) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-func (o KxDatabaseOutput) CreatedTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
+func (o KxDatabaseOutput) CreatedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxDatabase) pulumi.StringPtrOutput { return v.CreatedTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // Description of the KX database.
@@ -311,8 +311,8 @@ func (o KxDatabaseOutput) EnvironmentId() pulumi.StringOutput {
 }
 
 // Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-func (o KxDatabaseOutput) LastModifiedTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.LastModifiedTimestamp }).(pulumi.StringOutput)
+func (o KxDatabaseOutput) LastModifiedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxDatabase) pulumi.StringPtrOutput { return v.LastModifiedTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // Name of the KX database.

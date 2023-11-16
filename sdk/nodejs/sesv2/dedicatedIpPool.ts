@@ -67,7 +67,7 @@ export class DedicatedIpPool extends pulumi.CustomResource {
     /**
      * ARN of the Dedicated IP Pool.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the dedicated IP pool.
      *
@@ -77,7 +77,7 @@ export class DedicatedIpPool extends pulumi.CustomResource {
     /**
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      */
-    public readonly scalingMode!: pulumi.Output<string>;
+    public readonly scalingMode!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

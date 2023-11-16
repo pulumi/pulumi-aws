@@ -53,7 +53,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ARN of the Lightsail domain
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the Lightsail domain to manage
      */

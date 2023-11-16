@@ -69,16 +69,16 @@ type GetApplicationResult struct {
 	// ARN of the application.
 	ApplicationId string `pulumi:"applicationId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Name of the application.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A list of capabilities describing the permissions needed to deploy the application.
 	RequiredCapabilities []string `pulumi:"requiredCapabilities"`
-	SemanticVersion      string   `pulumi:"semanticVersion"`
+	SemanticVersion      *string  `pulumi:"semanticVersion"`
 	// URL pointing to the source code of the application version.
-	SourceCodeUrl string `pulumi:"sourceCodeUrl"`
+	SourceCodeUrl *string `pulumi:"sourceCodeUrl"`
 	// URL pointing to the Cloud Formation template for the application version.
-	TemplateUrl string `pulumi:"templateUrl"`
+	TemplateUrl *string `pulumi:"templateUrl"`
 }
 
 func GetApplicationOutput(ctx *pulumi.Context, args GetApplicationOutputArgs, opts ...pulumi.InvokeOption) GetApplicationResultOutput {
@@ -127,13 +127,13 @@ func (o GetApplicationResultOutput) ApplicationId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetApplicationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetApplicationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Name of the application.
-func (o GetApplicationResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationResult) string { return v.Name }).(pulumi.StringOutput)
+func (o GetApplicationResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A list of capabilities describing the permissions needed to deploy the application.
@@ -141,18 +141,18 @@ func (o GetApplicationResultOutput) RequiredCapabilities() pulumi.StringArrayOut
 	return o.ApplyT(func(v GetApplicationResult) []string { return v.RequiredCapabilities }).(pulumi.StringArrayOutput)
 }
 
-func (o GetApplicationResultOutput) SemanticVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationResult) string { return v.SemanticVersion }).(pulumi.StringOutput)
+func (o GetApplicationResultOutput) SemanticVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationResult) *string { return v.SemanticVersion }).(pulumi.StringPtrOutput)
 }
 
 // URL pointing to the source code of the application version.
-func (o GetApplicationResultOutput) SourceCodeUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationResult) string { return v.SourceCodeUrl }).(pulumi.StringOutput)
+func (o GetApplicationResultOutput) SourceCodeUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationResult) *string { return v.SourceCodeUrl }).(pulumi.StringPtrOutput)
 }
 
 // URL pointing to the Cloud Formation template for the application version.
-func (o GetApplicationResultOutput) TemplateUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationResult) string { return v.TemplateUrl }).(pulumi.StringOutput)
+func (o GetApplicationResultOutput) TemplateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationResult) *string { return v.TemplateUrl }).(pulumi.StringPtrOutput)
 }
 
 func init() {

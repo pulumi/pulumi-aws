@@ -12,6 +12,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -20,57 +21,57 @@ public final class GetFirewallResult {
      * @return ARN of the firewall.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Boolean flag indicating whether it is possible to delete the firewall.
      * 
      */
-    private Boolean deleteProtection;
+    private @Nullable Boolean deleteProtection;
     /**
      * @return Description of the firewall.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
      * 
      */
-    private List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
+    private @Nullable List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
     /**
      * @return ARN of the VPC Firewall policy.
      * 
      */
-    private String firewallPolicyArn;
+    private @Nullable String firewallPolicyArn;
     /**
      * @return A boolean flag indicating whether it is possible to change the associated firewall policy.
      * 
      */
-    private Boolean firewallPolicyChangeProtection;
+    private @Nullable Boolean firewallPolicyChangeProtection;
     /**
      * @return Nested list of information about the current status of the firewall.
      * 
      */
-    private List<GetFirewallFirewallStatus> firewallStatuses;
+    private @Nullable List<GetFirewallFirewallStatus> firewallStatuses;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Descriptive name of the firewall.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return A boolean flag indicating whether it is possible to change the associated subnet(s).
      * 
      */
-    private Boolean subnetChangeProtection;
+    private @Nullable Boolean subnetChangeProtection;
     /**
      * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
      * 
      */
-    private List<GetFirewallSubnetMapping> subnetMappings;
+    private @Nullable List<GetFirewallSubnetMapping> subnetMappings;
     /**
      * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -80,90 +81,90 @@ public final class GetFirewallResult {
      * @return String token used when updating a firewall.
      * 
      */
-    private String updateToken;
+    private @Nullable String updateToken;
     /**
      * @return Unique identifier of the VPC where AWS Network Firewall should create the firewall.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
 
     private GetFirewallResult() {}
     /**
      * @return ARN of the firewall.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Boolean flag indicating whether it is possible to delete the firewall.
      * 
      */
-    public Boolean deleteProtection() {
-        return this.deleteProtection;
+    public Optional<Boolean> deleteProtection() {
+        return Optional.ofNullable(this.deleteProtection);
     }
     /**
      * @return Description of the firewall.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
      * 
      */
     public List<GetFirewallEncryptionConfiguration> encryptionConfigurations() {
-        return this.encryptionConfigurations;
+        return this.encryptionConfigurations == null ? List.of() : this.encryptionConfigurations;
     }
     /**
      * @return ARN of the VPC Firewall policy.
      * 
      */
-    public String firewallPolicyArn() {
-        return this.firewallPolicyArn;
+    public Optional<String> firewallPolicyArn() {
+        return Optional.ofNullable(this.firewallPolicyArn);
     }
     /**
      * @return A boolean flag indicating whether it is possible to change the associated firewall policy.
      * 
      */
-    public Boolean firewallPolicyChangeProtection() {
-        return this.firewallPolicyChangeProtection;
+    public Optional<Boolean> firewallPolicyChangeProtection() {
+        return Optional.ofNullable(this.firewallPolicyChangeProtection);
     }
     /**
      * @return Nested list of information about the current status of the firewall.
      * 
      */
     public List<GetFirewallFirewallStatus> firewallStatuses() {
-        return this.firewallStatuses;
+        return this.firewallStatuses == null ? List.of() : this.firewallStatuses;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Descriptive name of the firewall.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return A boolean flag indicating whether it is possible to change the associated subnet(s).
      * 
      */
-    public Boolean subnetChangeProtection() {
-        return this.subnetChangeProtection;
+    public Optional<Boolean> subnetChangeProtection() {
+        return Optional.ofNullable(this.subnetChangeProtection);
     }
     /**
      * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
      * 
      */
     public List<GetFirewallSubnetMapping> subnetMappings() {
-        return this.subnetMappings;
+        return this.subnetMappings == null ? List.of() : this.subnetMappings;
     }
     /**
      * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -176,15 +177,15 @@ public final class GetFirewallResult {
      * @return String token used when updating a firewall.
      * 
      */
-    public String updateToken() {
-        return this.updateToken;
+    public Optional<String> updateToken() {
+        return Optional.ofNullable(this.updateToken);
     }
     /**
      * @return Unique identifier of the VPC where AWS Network Firewall should create the firewall.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -196,20 +197,20 @@ public final class GetFirewallResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Boolean deleteProtection;
-        private String description;
-        private List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
-        private String firewallPolicyArn;
-        private Boolean firewallPolicyChangeProtection;
-        private List<GetFirewallFirewallStatus> firewallStatuses;
-        private String id;
-        private String name;
-        private Boolean subnetChangeProtection;
-        private List<GetFirewallSubnetMapping> subnetMappings;
+        private @Nullable String arn;
+        private @Nullable Boolean deleteProtection;
+        private @Nullable String description;
+        private @Nullable List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
+        private @Nullable String firewallPolicyArn;
+        private @Nullable Boolean firewallPolicyChangeProtection;
+        private @Nullable List<GetFirewallFirewallStatus> firewallStatuses;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable Boolean subnetChangeProtection;
+        private @Nullable List<GetFirewallSubnetMapping> subnetMappings;
         private @Nullable Map<String,String> tags;
-        private String updateToken;
-        private String vpcId;
+        private @Nullable String updateToken;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetFirewallResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -230,64 +231,64 @@ public final class GetFirewallResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder deleteProtection(Boolean deleteProtection) {
-            this.deleteProtection = Objects.requireNonNull(deleteProtection);
+        public Builder deleteProtection(@Nullable Boolean deleteProtection) {
+            this.deleteProtection = deleteProtection;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder encryptionConfigurations(List<GetFirewallEncryptionConfiguration> encryptionConfigurations) {
-            this.encryptionConfigurations = Objects.requireNonNull(encryptionConfigurations);
+        public Builder encryptionConfigurations(@Nullable List<GetFirewallEncryptionConfiguration> encryptionConfigurations) {
+            this.encryptionConfigurations = encryptionConfigurations;
             return this;
         }
         public Builder encryptionConfigurations(GetFirewallEncryptionConfiguration... encryptionConfigurations) {
             return encryptionConfigurations(List.of(encryptionConfigurations));
         }
         @CustomType.Setter
-        public Builder firewallPolicyArn(String firewallPolicyArn) {
-            this.firewallPolicyArn = Objects.requireNonNull(firewallPolicyArn);
+        public Builder firewallPolicyArn(@Nullable String firewallPolicyArn) {
+            this.firewallPolicyArn = firewallPolicyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder firewallPolicyChangeProtection(Boolean firewallPolicyChangeProtection) {
-            this.firewallPolicyChangeProtection = Objects.requireNonNull(firewallPolicyChangeProtection);
+        public Builder firewallPolicyChangeProtection(@Nullable Boolean firewallPolicyChangeProtection) {
+            this.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
             return this;
         }
         @CustomType.Setter
-        public Builder firewallStatuses(List<GetFirewallFirewallStatus> firewallStatuses) {
-            this.firewallStatuses = Objects.requireNonNull(firewallStatuses);
+        public Builder firewallStatuses(@Nullable List<GetFirewallFirewallStatus> firewallStatuses) {
+            this.firewallStatuses = firewallStatuses;
             return this;
         }
         public Builder firewallStatuses(GetFirewallFirewallStatus... firewallStatuses) {
             return firewallStatuses(List.of(firewallStatuses));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetChangeProtection(Boolean subnetChangeProtection) {
-            this.subnetChangeProtection = Objects.requireNonNull(subnetChangeProtection);
+        public Builder subnetChangeProtection(@Nullable Boolean subnetChangeProtection) {
+            this.subnetChangeProtection = subnetChangeProtection;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetMappings(List<GetFirewallSubnetMapping> subnetMappings) {
-            this.subnetMappings = Objects.requireNonNull(subnetMappings);
+        public Builder subnetMappings(@Nullable List<GetFirewallSubnetMapping> subnetMappings) {
+            this.subnetMappings = subnetMappings;
             return this;
         }
         public Builder subnetMappings(GetFirewallSubnetMapping... subnetMappings) {
@@ -299,13 +300,13 @@ public final class GetFirewallResult {
             return this;
         }
         @CustomType.Setter
-        public Builder updateToken(String updateToken) {
-            this.updateToken = Objects.requireNonNull(updateToken);
+        public Builder updateToken(@Nullable String updateToken) {
+            this.updateToken = updateToken;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetFirewallResult build() {

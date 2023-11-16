@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationProfilesResult {
@@ -15,12 +17,12 @@ public final class GetConfigurationProfilesResult {
      * @return Set of Configuration Profile IDs associated with the AppConfig Application.
      * 
      */
-    private List<String> configurationProfileIds;
+    private @Nullable List<String> configurationProfileIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetConfigurationProfilesResult() {}
     public String applicationId() {
@@ -31,14 +33,14 @@ public final class GetConfigurationProfilesResult {
      * 
      */
     public List<String> configurationProfileIds() {
-        return this.configurationProfileIds;
+        return this.configurationProfileIds == null ? List.of() : this.configurationProfileIds;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -51,8 +53,8 @@ public final class GetConfigurationProfilesResult {
     @CustomType.Builder
     public static final class Builder {
         private String applicationId;
-        private List<String> configurationProfileIds;
-        private String id;
+        private @Nullable List<String> configurationProfileIds;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetConfigurationProfilesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,16 +69,16 @@ public final class GetConfigurationProfilesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder configurationProfileIds(List<String> configurationProfileIds) {
-            this.configurationProfileIds = Objects.requireNonNull(configurationProfileIds);
+        public Builder configurationProfileIds(@Nullable List<String> configurationProfileIds) {
+            this.configurationProfileIds = configurationProfileIds;
             return this;
         }
         public Builder configurationProfileIds(String... configurationProfileIds) {
             return configurationProfileIds(List.of(configurationProfileIds));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetConfigurationProfilesResult build() {

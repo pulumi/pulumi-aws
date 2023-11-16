@@ -54,13 +54,13 @@ namespace Pulumi.Aws.Ec2
         /// The key pair ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         /// </summary>
         [Output("fingerprint")]
-        public Output<string> Fingerprint { get; private set; } = null!;
+        public Output<string?> Fingerprint { get; private set; } = null!;
 
         /// <summary>
         /// The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
@@ -72,19 +72,19 @@ namespace Pulumi.Aws.Ec2
         /// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         /// </summary>
         [Output("keyNamePrefix")]
-        public Output<string> KeyNamePrefix { get; private set; } = null!;
+        public Output<string?> KeyNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The key pair ID.
         /// </summary>
         [Output("keyPairId")]
-        public Output<string> KeyPairId { get; private set; } = null!;
+        public Output<string?> KeyPairId { get; private set; } = null!;
 
         /// <summary>
         /// The type of key pair.
         /// </summary>
         [Output("keyType")]
-        public Output<string> KeyType { get; private set; } = null!;
+        public Output<string?> KeyType { get; private set; } = null!;
 
         /// <summary>
         /// The public key material.

@@ -16,17 +16,17 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Condition when the pipeline should trigger a new image build.
         /// </summary>
-        public readonly string PipelineExecutionStartCondition;
+        public readonly string? PipelineExecutionStartCondition;
         /// <summary>
         /// Cron expression of how often the pipeline start condition is evaluated.
         /// </summary>
-        public readonly string ScheduleExpression;
+        public readonly string? ScheduleExpression;
 
         [OutputConstructor]
         private GetImagePipelineScheduleResult(
-            string pipelineExecutionStartCondition,
+            string? pipelineExecutionStartCondition,
 
-            string scheduleExpression)
+            string? scheduleExpression)
         {
             PipelineExecutionStartCondition = pipelineExecutionStartCondition;
             ScheduleExpression = scheduleExpression;

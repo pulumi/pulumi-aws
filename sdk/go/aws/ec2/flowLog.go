@@ -187,7 +187,7 @@ type FlowLog struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Flow Log.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
 	DeliverCrossAccountRole pulumi.StringPtrOutput `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
@@ -197,15 +197,15 @@ type FlowLog struct {
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
 	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
-	LogDestination pulumi.StringOutput `pulumi:"logDestination"`
+	LogDestination pulumi.StringPtrOutput `pulumi:"logDestination"`
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrOutput `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
-	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
+	LogFormat pulumi.StringPtrOutput `pulumi:"logFormat"`
 	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
-	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
+	LogGroupName pulumi.StringPtrOutput `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
 	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
@@ -519,8 +519,8 @@ func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOu
 }
 
 // The ARN of the Flow Log.
-func (o FlowLogOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FlowLogOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
@@ -544,8 +544,8 @@ func (o FlowLogOutput) IamRoleArn() pulumi.StringPtrOutput {
 }
 
 // The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
-func (o FlowLogOutput) LogDestination() pulumi.StringOutput {
-	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogDestination }).(pulumi.StringOutput)
+func (o FlowLogOutput) LogDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.LogDestination }).(pulumi.StringPtrOutput)
 }
 
 // The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
@@ -554,15 +554,15 @@ func (o FlowLogOutput) LogDestinationType() pulumi.StringPtrOutput {
 }
 
 // The fields to include in the flow log record, in the order in which they should appear.
-func (o FlowLogOutput) LogFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogFormat }).(pulumi.StringOutput)
+func (o FlowLogOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.LogFormat }).(pulumi.StringPtrOutput)
 }
 
 // **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 //
 // Deprecated: use 'log_destination' argument instead
-func (o FlowLogOutput) LogGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
+func (o FlowLogOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The maximum interval of time

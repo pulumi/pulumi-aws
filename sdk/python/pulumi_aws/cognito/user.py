@@ -779,7 +779,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "creation_date")
 
     @property
@@ -808,7 +808,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> pulumi.Output[str]:
+    def last_modified_date(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "last_modified_date")
 
     @property
@@ -821,7 +821,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mfaSettingLists")
-    def mfa_setting_lists(self) -> pulumi.Output[Sequence[str]]:
+    def mfa_setting_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "mfa_setting_lists")
 
     @property
@@ -834,12 +834,12 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredMfaSetting")
-    def preferred_mfa_setting(self) -> pulumi.Output[str]:
+    def preferred_mfa_setting(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "preferred_mfa_setting")
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         current user status.
         """
@@ -847,7 +847,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sub(self) -> pulumi.Output[str]:
+    def sub(self) -> pulumi.Output[Optional[str]]:
         """
         unique user id that is never reassignable to another user.
         """

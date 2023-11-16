@@ -89,11 +89,11 @@ export class ReportGroup extends pulumi.CustomResource {
     /**
      * The ARN of Report Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time this Report Group was created.
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    public /*out*/ readonly created!: pulumi.Output<string | undefined>;
     /**
      * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
      */

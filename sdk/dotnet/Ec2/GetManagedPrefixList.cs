@@ -230,11 +230,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
         /// </summary>
-        public readonly string AddressFamily;
+        public readonly string? AddressFamily;
         /// <summary>
         /// ARN of the selected prefix list.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
         /// </summary>
@@ -243,46 +243,46 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the selected prefix list.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
         /// </summary>
-        public readonly int MaxEntries;
+        public readonly int? MaxEntries;
         /// <summary>
         /// Name of the selected prefix list.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly int Version;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly int? Version;
 
         [OutputConstructor]
         private GetManagedPrefixListResult(
-            string addressFamily,
+            string? addressFamily,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetManagedPrefixListEntryResult> entries,
 
             ImmutableArray<Outputs.GetManagedPrefixListFilterResult> filters,
 
-            string id,
+            string? id,
 
-            int maxEntries,
+            int? maxEntries,
 
-            string name,
+            string? name,
 
-            string ownerId,
+            string? ownerId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int version)
+            int? version)
         {
             AddressFamily = addressFamily;
             Arn = arn;

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceQuotaUsageMetric {
@@ -15,22 +17,22 @@ public final class GetServiceQuotaUsageMetric {
      * @return The metric dimensions.
      * 
      */
-    private List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions;
+    private @Nullable List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions;
     /**
      * @return The name of the metric.
      * 
      */
-    private String metricName;
+    private @Nullable String metricName;
     /**
      * @return The namespace of the metric.
      * 
      */
-    private String metricNamespace;
+    private @Nullable String metricNamespace;
     /**
      * @return The metric statistic that AWS recommend you use when determining quota usage.
      * 
      */
-    private String metricStatisticRecommendation;
+    private @Nullable String metricStatisticRecommendation;
 
     private GetServiceQuotaUsageMetric() {}
     /**
@@ -38,28 +40,28 @@ public final class GetServiceQuotaUsageMetric {
      * 
      */
     public List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions() {
-        return this.metricDimensions;
+        return this.metricDimensions == null ? List.of() : this.metricDimensions;
     }
     /**
      * @return The name of the metric.
      * 
      */
-    public String metricName() {
-        return this.metricName;
+    public Optional<String> metricName() {
+        return Optional.ofNullable(this.metricName);
     }
     /**
      * @return The namespace of the metric.
      * 
      */
-    public String metricNamespace() {
-        return this.metricNamespace;
+    public Optional<String> metricNamespace() {
+        return Optional.ofNullable(this.metricNamespace);
     }
     /**
      * @return The metric statistic that AWS recommend you use when determining quota usage.
      * 
      */
-    public String metricStatisticRecommendation() {
-        return this.metricStatisticRecommendation;
+    public Optional<String> metricStatisticRecommendation() {
+        return Optional.ofNullable(this.metricStatisticRecommendation);
     }
 
     public static Builder builder() {
@@ -71,10 +73,10 @@ public final class GetServiceQuotaUsageMetric {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions;
-        private String metricName;
-        private String metricNamespace;
-        private String metricStatisticRecommendation;
+        private @Nullable List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions;
+        private @Nullable String metricName;
+        private @Nullable String metricNamespace;
+        private @Nullable String metricStatisticRecommendation;
         public Builder() {}
         public Builder(GetServiceQuotaUsageMetric defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,26 +87,26 @@ public final class GetServiceQuotaUsageMetric {
         }
 
         @CustomType.Setter
-        public Builder metricDimensions(List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions) {
-            this.metricDimensions = Objects.requireNonNull(metricDimensions);
+        public Builder metricDimensions(@Nullable List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions) {
+            this.metricDimensions = metricDimensions;
             return this;
         }
         public Builder metricDimensions(GetServiceQuotaUsageMetricMetricDimension... metricDimensions) {
             return metricDimensions(List.of(metricDimensions));
         }
         @CustomType.Setter
-        public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+        public Builder metricName(@Nullable String metricName) {
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
-        public Builder metricNamespace(String metricNamespace) {
-            this.metricNamespace = Objects.requireNonNull(metricNamespace);
+        public Builder metricNamespace(@Nullable String metricNamespace) {
+            this.metricNamespace = metricNamespace;
             return this;
         }
         @CustomType.Setter
-        public Builder metricStatisticRecommendation(String metricStatisticRecommendation) {
-            this.metricStatisticRecommendation = Objects.requireNonNull(metricStatisticRecommendation);
+        public Builder metricStatisticRecommendation(@Nullable String metricStatisticRecommendation) {
+            this.metricStatisticRecommendation = metricStatisticRecommendation;
             return this;
         }
         public GetServiceQuotaUsageMetric build() {

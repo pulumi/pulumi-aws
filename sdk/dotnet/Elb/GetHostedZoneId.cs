@@ -134,12 +134,12 @@ namespace Pulumi.Aws.Elb
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? Region;
 
         [OutputConstructor]
         private GetHostedZoneIdResult(
-            string id,
+            string? id,
 
             string? region)
         {

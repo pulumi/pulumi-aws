@@ -13,14 +13,14 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GetTableTtlResult
     {
-        public readonly string AttributeName;
-        public readonly bool Enabled;
+        public readonly string? AttributeName;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
         private GetTableTtlResult(
-            string attributeName,
+            string? attributeName,
 
-            bool enabled)
+            bool? enabled)
         {
             AttributeName = attributeName;
             Enabled = enabled;

@@ -54,7 +54,7 @@ type Ciphertext struct {
 	pulumi.CustomResourceState
 
 	// Base64 encoded ciphertext
-	CiphertextBlob pulumi.StringOutput `pulumi:"ciphertextBlob"`
+	CiphertextBlob pulumi.StringPtrOutput `pulumi:"ciphertextBlob"`
 	// An optional mapping that makes up the encryption context.
 	Context pulumi.StringMapOutput `pulumi:"context"`
 	// Globally unique key ID for the customer master key.
@@ -238,8 +238,8 @@ func (o CiphertextOutput) ToCiphertextOutputWithContext(ctx context.Context) Cip
 }
 
 // Base64 encoded ciphertext
-func (o CiphertextOutput) CiphertextBlob() pulumi.StringOutput {
-	return o.ApplyT(func(v *Ciphertext) pulumi.StringOutput { return v.CiphertextBlob }).(pulumi.StringOutput)
+func (o CiphertextOutput) CiphertextBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ciphertext) pulumi.StringPtrOutput { return v.CiphertextBlob }).(pulumi.StringPtrOutput)
 }
 
 // An optional mapping that makes up the encryption context.

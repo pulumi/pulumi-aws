@@ -1554,7 +1554,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> pulumi.Output[str]:
+    def client_token(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "client_token")
 
     @property
@@ -1642,7 +1642,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> pulumi.Output[Sequence[str]]:
+    def load_balancers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of elastic load balancer names to add to the Spot fleet.
         """
@@ -1698,7 +1698,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotRequestState")
-    def spot_request_state(self) -> pulumi.Output[str]:
+    def spot_request_state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the Spot fleet request.
         """
@@ -1743,7 +1743,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetGroupArns")
-    def target_group_arns(self) -> pulumi.Output[Sequence[str]]:
+    def target_group_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
         """

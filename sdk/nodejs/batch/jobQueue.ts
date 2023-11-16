@@ -90,7 +90,7 @@ export class JobQueue extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the job queue.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * List of compute environment ARNs mapped to a job queue.
      * The position of the compute environments in the list will dictate the order.

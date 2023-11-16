@@ -71,14 +71,14 @@ public class CustomLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name(ARN) of the layer.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
@@ -227,14 +227,14 @@ public class CustomLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsVolumes", refs={List.class,CustomLayerEbsVolume.class}, tree="[0,1]")
-    private Output<List<CustomLayerEbsVolume>> ebsVolumes;
+    private Output</* @Nullable */ List<CustomLayerEbsVolume>> ebsVolumes;
 
     /**
      * @return Will create an EBS volume and connect it to the layer&#39;s instances. See EBS Volume.
      * 
      */
-    public Output<List<CustomLayerEbsVolume>> ebsVolumes() {
-        return this.ebsVolumes;
+    public Output<Optional<List<CustomLayerEbsVolume>>> ebsVolumes() {
+        return Codegen.optional(this.ebsVolumes);
     }
     /**
      * Name of an Elastic Load Balancer to attach to this layer
@@ -283,14 +283,14 @@ public class CustomLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="loadBasedAutoScaling", refs={CustomLayerLoadBasedAutoScaling.class}, tree="[0]")
-    private Output<CustomLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+    private Output</* @Nullable */ CustomLayerLoadBasedAutoScaling> loadBasedAutoScaling;
 
     /**
      * @return Load-based auto scaling configuration. See Load Based AutoScaling
      * 
      */
-    public Output<CustomLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
-        return this.loadBasedAutoScaling;
+    public Output<Optional<CustomLayerLoadBasedAutoScaling>> loadBasedAutoScaling() {
+        return Codegen.optional(this.loadBasedAutoScaling);
     }
     /**
      * A human-readable name for the layer.

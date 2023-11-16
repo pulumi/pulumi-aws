@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) of the app.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The domain ID.
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
         /// </summary>
         [Output("resourceSpec")]
-        public Output<Outputs.AppResourceSpec> ResourceSpec { get; private set; } = null!;
+        public Output<Outputs.AppResourceSpec?> ResourceSpec { get; private set; } = null!;
 
         /// <summary>
         /// The name of the space. At least one of `user_profile_name` or `space_name` required.

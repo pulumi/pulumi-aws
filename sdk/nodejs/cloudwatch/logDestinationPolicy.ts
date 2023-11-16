@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     roleArn: aws_iam_role.iam_for_cloudwatch.arn,
  *     targetArn: aws_kinesis_stream.kinesis_for_cloudwatch.arn,
  * });
- * const testDestinationPolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const testDestinationPolicyPolicyDocument = testDestination.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -25,9 +25,9 @@ import * as utilities from "../utilities";
  *             identifiers: ["123456789012"],
  *         }],
  *         actions: ["logs:PutSubscriptionFilter"],
- *         resources: [testDestination.arn],
+ *         resources: [arn],
  *     }],
- * });
+ * }));
  * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", {
  *     destinationName: testDestination.name,
  *     accessPolicy: testDestinationPolicyPolicyDocument.apply(testDestinationPolicyPolicyDocument => testDestinationPolicyPolicyDocument.json),

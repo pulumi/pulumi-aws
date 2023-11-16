@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCostCategorySplitChargeRuleParameter {
@@ -14,27 +16,27 @@ public final class GetCostCategorySplitChargeRuleParameter {
      * @return Parameter type.
      * 
      */
-    private String type;
+    private @Nullable String type;
     /**
      * @return Parameter values.
      * 
      */
-    private List<String> values;
+    private @Nullable List<String> values;
 
     private GetCostCategorySplitChargeRuleParameter() {}
     /**
      * @return Parameter type.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
     /**
      * @return Parameter values.
      * 
      */
     public List<String> values() {
-        return this.values;
+        return this.values == null ? List.of() : this.values;
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetCostCategorySplitChargeRuleParameter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String type;
-        private List<String> values;
+        private @Nullable String type;
+        private @Nullable List<String> values;
         public Builder() {}
         public Builder(GetCostCategorySplitChargeRuleParameter defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetCostCategorySplitChargeRuleParameter {
         }
 
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+        public Builder values(@Nullable List<String> values) {
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {

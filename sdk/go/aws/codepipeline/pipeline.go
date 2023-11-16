@@ -31,192 +31,193 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := codestarconnections.NewConnection(ctx, "example", &codestarconnections.ConnectionArgs{
-//				ProviderType: pulumi.String("GitHub"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			codepipelineBucket, err := s3.NewBucketV2(ctx, "codepipelineBucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"codepipeline.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			codepipelineRole, err := iam.NewRole(ctx, "codepipelineRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			s3kmskey, err := kms.LookupAlias(ctx, &kms.LookupAliasArgs{
-//				Name: "alias/myKmsKey",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codepipeline.NewPipeline(ctx, "codepipeline", &codepipeline.PipelineArgs{
-//				RoleArn: codepipelineRole.Arn,
-//				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
-//					&codepipeline.PipelineArtifactStoreArgs{
-//						Location: codepipelineBucket.Bucket,
-//						Type:     pulumi.String("S3"),
-//						EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
-//							Id:   *pulumi.String(s3kmskey.Arn),
-//							Type: pulumi.String("KMS"),
-//						},
-//					},
-//				},
-//				Stages: codepipeline.PipelineStageArray{
-//					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Source"),
-//						Actions: codepipeline.PipelineStageActionArray{
-//							&codepipeline.PipelineStageActionArgs{
-//								Name:     pulumi.String("Source"),
-//								Category: pulumi.String("Source"),
-//								Owner:    pulumi.String("AWS"),
-//								Provider: pulumi.String("CodeStarSourceConnection"),
-//								Version:  pulumi.String("1"),
-//								OutputArtifacts: pulumi.StringArray{
-//									pulumi.String("source_output"),
-//								},
-//								Configuration: pulumi.StringMap{
-//									"ConnectionArn":    example.Arn,
-//									"FullRepositoryId": pulumi.String("my-organization/example"),
-//									"BranchName":       pulumi.String("main"),
-//								},
-//							},
-//						},
-//					},
-//					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Build"),
-//						Actions: codepipeline.PipelineStageActionArray{
-//							&codepipeline.PipelineStageActionArgs{
-//								Name:     pulumi.String("Build"),
-//								Category: pulumi.String("Build"),
-//								Owner:    pulumi.String("AWS"),
-//								Provider: pulumi.String("CodeBuild"),
-//								InputArtifacts: pulumi.StringArray{
-//									pulumi.String("source_output"),
-//								},
-//								OutputArtifacts: pulumi.StringArray{
-//									pulumi.String("build_output"),
-//								},
-//								Version: pulumi.String("1"),
-//								Configuration: pulumi.StringMap{
-//									"ProjectName": pulumi.String("test"),
-//								},
-//							},
-//						},
-//					},
-//					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Deploy"),
-//						Actions: codepipeline.PipelineStageActionArray{
-//							&codepipeline.PipelineStageActionArgs{
-//								Name:     pulumi.String("Deploy"),
-//								Category: pulumi.String("Deploy"),
-//								Owner:    pulumi.String("AWS"),
-//								Provider: pulumi.String("CloudFormation"),
-//								InputArtifacts: pulumi.StringArray{
-//									pulumi.String("build_output"),
-//								},
-//								Version: pulumi.String("1"),
-//								Configuration: pulumi.StringMap{
-//									"ActionMode":     pulumi.String("REPLACE_ON_FAILURE"),
-//									"Capabilities":   pulumi.String("CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM"),
-//									"OutputFileName": pulumi.String("CreateStackOutput.json"),
-//									"StackName":      pulumi.String("MyStack"),
-//									"TemplatePath":   pulumi.String("build_output::sam-templated.yaml"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "codepipelineBucketAcl", &s3.BucketAclV2Args{
-//				Bucket: codepipelineBucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			codepipelinePolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetObject"),
-//							pulumi.String("s3:GetObjectVersion"),
-//							pulumi.String("s3:GetBucketVersioning"),
-//							pulumi.String("s3:PutObjectAcl"),
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							codepipelineBucket.Arn,
-//							codepipelineBucket.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("codestar-connections:UseConnection"),
-//						},
-//						Resources: pulumi.StringArray{
-//							example.Arn,
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("codebuild:BatchGetBuilds"),
-//							pulumi.String("codebuild:StartBuild"),
-//						},
-//						Resources: pulumi.StringArray{
-//							pulumi.String("*"),
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "codepipelinePolicyRolePolicy", &iam.RolePolicyArgs{
-//				Role: codepipelineRole.ID(),
-//				Policy: codepipelinePolicyPolicyDocument.ApplyT(func(codepipelinePolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &codepipelinePolicyPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := codestarconnections.NewConnection(ctx, "example", &codestarconnections.ConnectionArgs{
+// ProviderType: pulumi.String("GitHub"),
+// })
+// if err != nil {
+// return err
+// }
+// codepipelineBucket, err := s3.NewBucketV2(ctx, "codepipelineBucket", nil)
+// if err != nil {
+// return err
+// }
+// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "codepipeline.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// codepipelineRole, err := iam.NewRole(ctx, "codepipelineRole", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// s3kmskey, err := kms.LookupAlias(ctx, &kms.LookupAliasArgs{
+// Name: "alias/myKmsKey",
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = codepipeline.NewPipeline(ctx, "codepipeline", &codepipeline.PipelineArgs{
+// RoleArn: codepipelineRole.Arn,
+// ArtifactStores: codepipeline.PipelineArtifactStoreArray{
+// &codepipeline.PipelineArtifactStoreArgs{
+// Location: codepipelineBucket.Bucket,
+// Type: pulumi.String("S3"),
+// EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
+// Id: *pulumi.String(s3kmskey.Arn),
+// Type: pulumi.String("KMS"),
+// },
+// },
+// },
+// Stages: codepipeline.PipelineStageArray{
+// &codepipeline.PipelineStageArgs{
+// Name: pulumi.String("Source"),
+// Actions: codepipeline.PipelineStageActionArray{
+// &codepipeline.PipelineStageActionArgs{
+// Name: pulumi.String("Source"),
+// Category: pulumi.String("Source"),
+// Owner: pulumi.String("AWS"),
+// Provider: pulumi.String("CodeStarSourceConnection"),
+// Version: pulumi.String("1"),
+// OutputArtifacts: pulumi.StringArray{
+// pulumi.String("source_output"),
+// },
+// Configuration: pulumi.StringMap{
+// "ConnectionArn": example.Arn,
+// "FullRepositoryId": pulumi.String("my-organization/example"),
+// "BranchName": pulumi.String("main"),
+// },
+// },
+// },
+// },
+// &codepipeline.PipelineStageArgs{
+// Name: pulumi.String("Build"),
+// Actions: codepipeline.PipelineStageActionArray{
+// &codepipeline.PipelineStageActionArgs{
+// Name: pulumi.String("Build"),
+// Category: pulumi.String("Build"),
+// Owner: pulumi.String("AWS"),
+// Provider: pulumi.String("CodeBuild"),
+// InputArtifacts: pulumi.StringArray{
+// pulumi.String("source_output"),
+// },
+// OutputArtifacts: pulumi.StringArray{
+// pulumi.String("build_output"),
+// },
+// Version: pulumi.String("1"),
+// Configuration: pulumi.StringMap{
+// "ProjectName": pulumi.String("test"),
+// },
+// },
+// },
+// },
+// &codepipeline.PipelineStageArgs{
+// Name: pulumi.String("Deploy"),
+// Actions: codepipeline.PipelineStageActionArray{
+// &codepipeline.PipelineStageActionArgs{
+// Name: pulumi.String("Deploy"),
+// Category: pulumi.String("Deploy"),
+// Owner: pulumi.String("AWS"),
+// Provider: pulumi.String("CloudFormation"),
+// InputArtifacts: pulumi.StringArray{
+// pulumi.String("build_output"),
+// },
+// Version: pulumi.String("1"),
+// Configuration: pulumi.StringMap{
+// "ActionMode": pulumi.String("REPLACE_ON_FAILURE"),
+// "Capabilities": pulumi.String("CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM"),
+// "OutputFileName": pulumi.String("CreateStackOutput.json"),
+// "StackName": pulumi.String("MyStack"),
+// "TemplatePath": pulumi.String("build_output::sam-templated.yaml"),
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3.NewBucketAclV2(ctx, "codepipelineBucketAcl", &s3.BucketAclV2Args{
+// Bucket: codepipelineBucket.ID(),
+// Acl: pulumi.String("private"),
+// })
+// if err != nil {
+// return err
+// }
+// codepipelinePolicyPolicyDocument := pulumi.All(codepipelineBucket.Arn,codepipelineBucket.Arn,example.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// codepipelineBucketArn := _args[0].(*string)
+// codepipelineBucketArn1 := _args[1].(*string)
+// exampleArn := _args[2].(*string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "s3:GetObject",
+// "s3:GetObjectVersion",
+// "s3:GetBucketVersioning",
+// "s3:PutObjectAcl",
+// "s3:PutObject",
+// },
+// Resources: interface{}{
+// codepipelineBucketArn,
+// fmt.Sprintf("%v/*", codepipelineBucketArn1),
+// },
+// },
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "codestar-connections:UseConnection",
+// },
+// Resources: interface{}{
+// exampleArn,
+// },
+// },
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "codebuild:BatchGetBuilds",
+// "codebuild:StartBuild",
+// },
+// Resources: []string{
+// "*",
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = iam.NewRolePolicy(ctx, "codepipelinePolicyRolePolicy", &iam.RolePolicyArgs{
+// Role: codepipelineRole.ID(),
+// Policy: codepipelinePolicyPolicyDocument.ApplyT(func(codepipelinePolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &codepipelinePolicyPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -232,7 +233,7 @@ type Pipeline struct {
 	pulumi.CustomResourceState
 
 	// The codepipeline ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayOutput `pulumi:"artifactStores"`
 	// The name of the pipeline.
@@ -448,8 +449,8 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 }
 
 // The codepipeline ARN.
-func (o PipelineOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PipelineOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // One or more artifactStore blocks. Artifact stores are documented below.

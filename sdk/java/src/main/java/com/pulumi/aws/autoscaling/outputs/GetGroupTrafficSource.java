@@ -6,6 +6,8 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupTrafficSource {
@@ -13,27 +15,27 @@ public final class GetGroupTrafficSource {
      * @return Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
      * 
      */
-    private String identifier;
+    private @Nullable String identifier;
     /**
      * @return Traffic source type.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetGroupTrafficSource() {}
     /**
      * @return Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
      * 
      */
-    public String identifier() {
-        return this.identifier;
+    public Optional<String> identifier() {
+        return Optional.ofNullable(this.identifier);
     }
     /**
      * @return Traffic source type.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetGroupTrafficSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String identifier;
-        private String type;
+        private @Nullable String identifier;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetGroupTrafficSource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetGroupTrafficSource {
         }
 
         @CustomType.Setter
-        public Builder identifier(String identifier) {
-            this.identifier = Objects.requireNonNull(identifier);
+        public Builder identifier(@Nullable String identifier) {
+            this.identifier = identifier;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetGroupTrafficSource build() {

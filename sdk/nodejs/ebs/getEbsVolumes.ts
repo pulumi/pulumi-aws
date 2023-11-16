@@ -70,12 +70,12 @@ export interface GetEbsVolumesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of all the EBS Volume IDs found. This data source will fail if
      * no volumes match the provided criteria.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     readonly tags?: {[key: string]: string};
 }
 /**

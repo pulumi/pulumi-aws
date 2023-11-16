@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionDeadLetterConfigResult
     {
-        public readonly string TargetArn;
+        public readonly string? TargetArn;
 
         [OutputConstructor]
-        private GetFunctionDeadLetterConfigResult(string targetArn)
+        private GetFunctionDeadLetterConfigResult(string? targetArn)
         {
             TargetArn = targetArn;
         }

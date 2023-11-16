@@ -101,7 +101,7 @@ namespace Pulumi.Aws.OpsWorks
         /// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
         /// </summary>
         [Output("amiId")]
-        public Output<string> AmiId { get; private set; } = null!;
+        public Output<string?> AmiId { get; private set; } = null!;
 
         /// <summary>
         /// Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
@@ -119,13 +119,13 @@ namespace Pulumi.Aws.OpsWorks
         /// Name of the availability zone where instances will be created by default.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// Time that the instance was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Whether to delete EBS volume on deletion. Default is `true`.
@@ -155,19 +155,19 @@ namespace Pulumi.Aws.OpsWorks
         /// EC2 instance ID.
         /// </summary>
         [Output("ec2InstanceId")]
-        public Output<string> Ec2InstanceId { get; private set; } = null!;
+        public Output<string?> Ec2InstanceId { get; private set; } = null!;
 
         /// <summary>
         /// ECS cluster's ARN for container instances.
         /// </summary>
         [Output("ecsClusterArn")]
-        public Output<string> EcsClusterArn { get; private set; } = null!;
+        public Output<string?> EcsClusterArn { get; private set; } = null!;
 
         /// <summary>
         /// Instance Elastic IP address.
         /// </summary>
         [Output("elasticIp")]
-        public Output<string> ElasticIp { get; private set; } = null!;
+        public Output<string?> ElasticIp { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
@@ -179,13 +179,13 @@ namespace Pulumi.Aws.OpsWorks
         /// Instance's host name.
         /// </summary>
         [Output("hostname")]
-        public Output<string> Hostname { get; private set; } = null!;
+        public Output<string?> Hostname { get; private set; } = null!;
 
         /// <summary>
         /// For registered instances, infrastructure class: ec2 or on-premises.
         /// </summary>
         [Output("infrastructureClass")]
-        public Output<string> InfrastructureClass { get; private set; } = null!;
+        public Output<string?> InfrastructureClass { get; private set; } = null!;
 
         /// <summary>
         /// Controls where to install OS and package updates when the instance boots.  Default is `true`.
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.OpsWorks
         /// ARN of the instance's IAM profile.
         /// </summary>
         [Output("instanceProfileArn")]
-        public Output<string> InstanceProfileArn { get; private set; } = null!;
+        public Output<string?> InstanceProfileArn { get; private set; } = null!;
 
         /// <summary>
         /// Type of instance to start.
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.OpsWorks
         /// ID of the last service error.
         /// </summary>
         [Output("lastServiceErrorId")]
-        public Output<string> LastServiceErrorId { get; private set; } = null!;
+        public Output<string?> LastServiceErrorId { get; private set; } = null!;
 
         /// <summary>
         /// List of the layers the instance will belong to.
@@ -221,67 +221,67 @@ namespace Pulumi.Aws.OpsWorks
         /// Name of operating system that will be installed.
         /// </summary>
         [Output("os")]
-        public Output<string> Os { get; private set; } = null!;
+        public Output<string?> Os { get; private set; } = null!;
 
         /// <summary>
         /// Instance's platform.
         /// </summary>
         [Output("platform")]
-        public Output<string> Platform { get; private set; } = null!;
+        public Output<string?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
         [Output("privateDns")]
-        public Output<string> PrivateDns { get; private set; } = null!;
+        public Output<string?> PrivateDns { get; private set; } = null!;
 
         /// <summary>
         /// Private IP address assigned to the instance.
         /// </summary>
         [Output("privateIp")]
-        public Output<string> PrivateIp { get; private set; } = null!;
+        public Output<string?> PrivateIp { get; private set; } = null!;
 
         /// <summary>
         /// Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
         [Output("publicDns")]
-        public Output<string> PublicDns { get; private set; } = null!;
+        public Output<string?> PublicDns { get; private set; } = null!;
 
         /// <summary>
         /// Public IP address assigned to the instance, if applicable.
         /// </summary>
         [Output("publicIp")]
-        public Output<string> PublicIp { get; private set; } = null!;
+        public Output<string?> PublicIp { get; private set; } = null!;
 
         /// <summary>
         /// For registered instances, who performed the registration.
         /// </summary>
         [Output("registeredBy")]
-        public Output<string> RegisteredBy { get; private set; } = null!;
+        public Output<string?> RegisteredBy { get; private set; } = null!;
 
         /// <summary>
         /// Instance's reported AWS OpsWorks Stacks agent version.
         /// </summary>
         [Output("reportedAgentVersion")]
-        public Output<string> ReportedAgentVersion { get; private set; } = null!;
+        public Output<string?> ReportedAgentVersion { get; private set; } = null!;
 
         /// <summary>
         /// For registered instances, the reported operating system family.
         /// </summary>
         [Output("reportedOsFamily")]
-        public Output<string> ReportedOsFamily { get; private set; } = null!;
+        public Output<string?> ReportedOsFamily { get; private set; } = null!;
 
         /// <summary>
         /// For registered instances, the reported operating system name.
         /// </summary>
         [Output("reportedOsName")]
-        public Output<string> ReportedOsName { get; private set; } = null!;
+        public Output<string?> ReportedOsName { get; private set; } = null!;
 
         /// <summary>
         /// For registered instances, the reported operating system version.
         /// </summary>
         [Output("reportedOsVersion")]
-        public Output<string> ReportedOsVersion { get; private set; } = null!;
+        public Output<string?> ReportedOsVersion { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the root block device of the instance. See Block Devices below.
@@ -293,13 +293,13 @@ namespace Pulumi.Aws.OpsWorks
         /// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
         /// </summary>
         [Output("rootDeviceType")]
-        public Output<string> RootDeviceType { get; private set; } = null!;
+        public Output<string?> RootDeviceType { get; private set; } = null!;
 
         /// <summary>
         /// Root device volume ID.
         /// </summary>
         [Output("rootDeviceVolumeId")]
-        public Output<string> RootDeviceVolumeId { get; private set; } = null!;
+        public Output<string?> RootDeviceVolumeId { get; private set; } = null!;
 
         /// <summary>
         /// Associated security groups.
@@ -311,19 +311,19 @@ namespace Pulumi.Aws.OpsWorks
         /// SSH key's Deep Security Agent (DSA) fingerprint.
         /// </summary>
         [Output("sshHostDsaKeyFingerprint")]
-        public Output<string> SshHostDsaKeyFingerprint { get; private set; } = null!;
+        public Output<string?> SshHostDsaKeyFingerprint { get; private set; } = null!;
 
         /// <summary>
         /// SSH key's RSA fingerprint.
         /// </summary>
         [Output("sshHostRsaKeyFingerprint")]
-        public Output<string> SshHostRsaKeyFingerprint { get; private set; } = null!;
+        public Output<string?> SshHostRsaKeyFingerprint { get; private set; } = null!;
 
         /// <summary>
         /// Name of the SSH keypair that instances will have by default.
         /// </summary>
         [Output("sshKeyName")]
-        public Output<string> SshKeyName { get; private set; } = null!;
+        public Output<string?> SshKeyName { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
@@ -343,25 +343,25 @@ namespace Pulumi.Aws.OpsWorks
         /// Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Subnet ID to attach to.
         /// </summary>
         [Output("subnetId")]
-        public Output<string> SubnetId { get; private set; } = null!;
+        public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
         /// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
         /// </summary>
         [Output("tenancy")]
-        public Output<string> Tenancy { get; private set; } = null!;
+        public Output<string?> Tenancy { get; private set; } = null!;
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
         /// </summary>
         [Output("virtualizationType")]
-        public Output<string> VirtualizationType { get; private set; } = null!;
+        public Output<string?> VirtualizationType { get; private set; } = null!;
 
 
         /// <summary>

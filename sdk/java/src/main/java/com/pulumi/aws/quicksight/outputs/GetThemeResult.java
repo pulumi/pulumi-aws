@@ -11,6 +11,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeResult {
@@ -18,138 +20,138 @@ public final class GetThemeResult {
      * @return ARN of the theme.
      * 
      */
-    private String arn;
-    private String awsAccountId;
+    private @Nullable String arn;
+    private @Nullable String awsAccountId;
     /**
      * @return The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
      * 
      */
-    private String baseThemeId;
+    private @Nullable String baseThemeId;
     /**
      * @return The theme configuration, which contains the theme display properties. See configuration.
      * 
      */
-    private List<GetThemeConfiguration> configurations;
+    private @Nullable List<GetThemeConfiguration> configurations;
     /**
      * @return The time that the theme was created.
      * 
      */
-    private String createdTime;
+    private @Nullable String createdTime;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The time that the theme was last updated.
      * 
      */
-    private String lastUpdatedTime;
+    private @Nullable String lastUpdatedTime;
     /**
      * @return Display name of the theme.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return A set of resource permissions on the theme. See permissions.
      * 
      */
-    private List<GetThemePermission> permissions;
+    private @Nullable List<GetThemePermission> permissions;
     /**
      * @return The theme creation status.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     private String themeId;
     /**
      * @return A description of the current theme version being created/updated.
      * 
      */
-    private String versionDescription;
+    private @Nullable String versionDescription;
     /**
      * @return The version number of the theme version.
      * 
      */
-    private Integer versionNumber;
+    private @Nullable Integer versionNumber;
 
     private GetThemeResult() {}
     /**
      * @return ARN of the theme.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String awsAccountId() {
-        return this.awsAccountId;
+    public Optional<String> awsAccountId() {
+        return Optional.ofNullable(this.awsAccountId);
     }
     /**
      * @return The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
      * 
      */
-    public String baseThemeId() {
-        return this.baseThemeId;
+    public Optional<String> baseThemeId() {
+        return Optional.ofNullable(this.baseThemeId);
     }
     /**
      * @return The theme configuration, which contains the theme display properties. See configuration.
      * 
      */
     public List<GetThemeConfiguration> configurations() {
-        return this.configurations;
+        return this.configurations == null ? List.of() : this.configurations;
     }
     /**
      * @return The time that the theme was created.
      * 
      */
-    public String createdTime() {
-        return this.createdTime;
+    public Optional<String> createdTime() {
+        return Optional.ofNullable(this.createdTime);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The time that the theme was last updated.
      * 
      */
-    public String lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Optional<String> lastUpdatedTime() {
+        return Optional.ofNullable(this.lastUpdatedTime);
     }
     /**
      * @return Display name of the theme.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return A set of resource permissions on the theme. See permissions.
      * 
      */
     public List<GetThemePermission> permissions() {
-        return this.permissions;
+        return this.permissions == null ? List.of() : this.permissions;
     }
     /**
      * @return The theme creation status.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public String themeId() {
         return this.themeId;
@@ -158,15 +160,15 @@ public final class GetThemeResult {
      * @return A description of the current theme version being created/updated.
      * 
      */
-    public String versionDescription() {
-        return this.versionDescription;
+    public Optional<String> versionDescription() {
+        return Optional.ofNullable(this.versionDescription);
     }
     /**
      * @return The version number of the theme version.
      * 
      */
-    public Integer versionNumber() {
-        return this.versionNumber;
+    public Optional<Integer> versionNumber() {
+        return Optional.ofNullable(this.versionNumber);
     }
 
     public static Builder builder() {
@@ -178,20 +180,20 @@ public final class GetThemeResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String awsAccountId;
-        private String baseThemeId;
-        private List<GetThemeConfiguration> configurations;
-        private String createdTime;
-        private String id;
-        private String lastUpdatedTime;
-        private String name;
-        private List<GetThemePermission> permissions;
-        private String status;
-        private Map<String,String> tags;
+        private @Nullable String arn;
+        private @Nullable String awsAccountId;
+        private @Nullable String baseThemeId;
+        private @Nullable List<GetThemeConfiguration> configurations;
+        private @Nullable String createdTime;
+        private @Nullable String id;
+        private @Nullable String lastUpdatedTime;
+        private @Nullable String name;
+        private @Nullable List<GetThemePermission> permissions;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
         private String themeId;
-        private String versionDescription;
-        private Integer versionNumber;
+        private @Nullable String versionDescription;
+        private @Nullable Integer versionNumber;
         public Builder() {}
         public Builder(GetThemeResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -212,64 +214,64 @@ public final class GetThemeResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
+        public Builder awsAccountId(@Nullable String awsAccountId) {
+            this.awsAccountId = awsAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder baseThemeId(String baseThemeId) {
-            this.baseThemeId = Objects.requireNonNull(baseThemeId);
+        public Builder baseThemeId(@Nullable String baseThemeId) {
+            this.baseThemeId = baseThemeId;
             return this;
         }
         @CustomType.Setter
-        public Builder configurations(List<GetThemeConfiguration> configurations) {
-            this.configurations = Objects.requireNonNull(configurations);
+        public Builder configurations(@Nullable List<GetThemeConfiguration> configurations) {
+            this.configurations = configurations;
             return this;
         }
         public Builder configurations(GetThemeConfiguration... configurations) {
             return configurations(List.of(configurations));
         }
         @CustomType.Setter
-        public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+        public Builder createdTime(@Nullable String createdTime) {
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedTime(String lastUpdatedTime) {
-            this.lastUpdatedTime = Objects.requireNonNull(lastUpdatedTime);
+        public Builder lastUpdatedTime(@Nullable String lastUpdatedTime) {
+            this.lastUpdatedTime = lastUpdatedTime;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder permissions(List<GetThemePermission> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+        public Builder permissions(@Nullable List<GetThemePermission> permissions) {
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(GetThemePermission... permissions) {
             return permissions(List.of(permissions));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
@@ -278,13 +280,13 @@ public final class GetThemeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder versionDescription(String versionDescription) {
-            this.versionDescription = Objects.requireNonNull(versionDescription);
+        public Builder versionDescription(@Nullable String versionDescription) {
+            this.versionDescription = versionDescription;
             return this;
         }
         @CustomType.Setter
-        public Builder versionNumber(Integer versionNumber) {
-            this.versionNumber = Objects.requireNonNull(versionNumber);
+        public Builder versionNumber(@Nullable Integer versionNumber) {
+            this.versionNumber = versionNumber;
             return this;
         }
         public GetThemeResult build() {

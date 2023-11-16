@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidationS
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName {
-    private List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches;
+    private @Nullable List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches;
 
     private GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName() {}
     public List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNa
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches;
+        private @Nullable List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNa
         }
 
         @CustomType.Setter
-        public Builder matches(List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch... matches) {

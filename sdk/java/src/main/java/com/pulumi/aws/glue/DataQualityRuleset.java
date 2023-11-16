@@ -161,28 +161,28 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Glue Data Quality Ruleset.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The time and date that this data quality ruleset was created.
      * 
      */
     @Export(name="createdOn", refs={String.class}, tree="[0]")
-    private Output<String> createdOn;
+    private Output</* @Nullable */ String> createdOn;
 
     /**
      * @return The time and date that this data quality ruleset was created.
      * 
      */
-    public Output<String> createdOn() {
-        return this.createdOn;
+    public Output<Optional<String>> createdOn() {
+        return Codegen.optional(this.createdOn);
     }
     /**
      * Description of the data quality ruleset.
@@ -203,14 +203,14 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModifiedOn", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedOn;
+    private Output</* @Nullable */ String> lastModifiedOn;
 
     /**
      * @return The time and date that this data quality ruleset was created.
      * 
      */
-    public Output<String> lastModifiedOn() {
-        return this.lastModifiedOn;
+    public Output<Optional<String>> lastModifiedOn() {
+        return Codegen.optional(this.lastModifiedOn);
     }
     /**
      * Name of the data quality ruleset.
@@ -231,14 +231,14 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="recommendationRunId", refs={String.class}, tree="[0]")
-    private Output<String> recommendationRunId;
+    private Output</* @Nullable */ String> recommendationRunId;
 
     /**
      * @return When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
      * 
      */
-    public Output<String> recommendationRunId() {
-        return this.recommendationRunId;
+    public Output<Optional<String>> recommendationRunId() {
+        return Codegen.optional(this.recommendationRunId);
     }
     /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.

@@ -71,7 +71,7 @@ export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
     /**
      * ARN of the Voice Profile Domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of Voice Profile Domain.
      */

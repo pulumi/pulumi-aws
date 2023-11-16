@@ -74,7 +74,7 @@ namespace Pulumi.Aws.DocDB
         /// Amazon Resource Name (ARN) of cluster
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A list of EC2 Availability Zones that
@@ -93,13 +93,13 @@ namespace Pulumi.Aws.DocDB
         /// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         /// </summary>
         [Output("clusterIdentifier")]
-        public Output<string> ClusterIdentifier { get; private set; } = null!;
+        public Output<string?> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
         [Output("clusterIdentifierPrefix")]
-        public Output<string> ClusterIdentifierPrefix { get; private set; } = null!;
+        public Output<string?> ClusterIdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
         /// List of DocumentDB Instances that are a part of this cluster
@@ -111,19 +111,19 @@ namespace Pulumi.Aws.DocDB
         /// The DocumentDB Cluster Resource ID
         /// </summary>
         [Output("clusterResourceId")]
-        public Output<string> ClusterResourceId { get; private set; } = null!;
+        public Output<string?> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
         [Output("dbClusterParameterGroupName")]
-        public Output<string> DbClusterParameterGroupName { get; private set; } = null!;
+        public Output<string?> DbClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A DB subnet group to associate with this DB instance.
         /// </summary>
         [Output("dbSubnetGroupName")]
-        public Output<string> DbSubnetGroupName { get; private set; } = null!;
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.DocDB
         /// The DNS address of the DocumentDB instance
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.DocDB
         /// The database engine version. Updating this argument results in an outage.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of your final DB snapshot
@@ -174,13 +174,13 @@ namespace Pulumi.Aws.DocDB
         /// The Route53 Hosted Zone ID of the endpoint
         /// </summary>
         [Output("hostedZoneId")]
-        public Output<string> HostedZoneId { get; private set; } = null!;
+        public Output<string?> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Password for the master DB user. Note that this may
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.DocDB
         /// Username for the master DB user.
         /// </summary>
         [Output("masterUsername")]
-        public Output<string> MasterUsername { get; private set; } = null!;
+        public Output<string?> MasterUsername { get; private set; } = null!;
 
         /// <summary>
         /// The port on which the DB accepts connections
@@ -206,19 +206,19 @@ namespace Pulumi.Aws.DocDB
         /// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Output("preferredBackupWindow")]
-        public Output<string> PreferredBackupWindow { get; private set; } = null!;
+        public Output<string?> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Output("preferredMaintenanceWindow")]
-        public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+        public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
         /// </summary>
         [Output("readerEndpoint")]
-        public Output<string> ReaderEndpoint { get; private set; } = null!;
+        public Output<string?> ReaderEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.

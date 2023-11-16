@@ -31,148 +31,148 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			gdBucket, err := s3.NewBucketV2(ctx, "gdBucket", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bucketPol := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid: pulumi.String("Allow PutObject"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							gdBucket.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("guardduty.amazonaws.com"),
-//								},
-//							},
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid: pulumi.String("Allow GetBucketLocation"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetBucketLocation"),
-//						},
-//						Resources: pulumi.StringArray{
-//							gdBucket.Arn,
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("guardduty.amazonaws.com"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			kmsPol, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid: pulumi.StringRef("Allow GuardDuty to encrypt findings"),
-//						Actions: []string{
-//							"kms:GenerateDataKey",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentRegion.Name, currentCallerIdentity.AccountId),
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"guardduty.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//					{
-//						Sid: pulumi.StringRef("Allow all users to modify/delete key (test only)"),
-//						Actions: []string{
-//							"kms:*",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentRegion.Name, currentCallerIdentity.AccountId),
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									fmt.Sprintf("arn:aws:iam::%v:root", currentCallerIdentity.AccountId),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testGd, err := guardduty.NewDetector(ctx, "testGd", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "gdBucketAcl", &s3.BucketAclV2Args{
-//				Bucket: gdBucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			gdBucketPolicy, err := s3.NewBucketPolicy(ctx, "gdBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: gdBucket.ID(),
-//				Policy: bucketPol.ApplyT(func(bucketPol iam.GetPolicyDocumentResult) (*string, error) {
-//					return &bucketPol.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			gdKey, err := kms.NewKey(ctx, "gdKey", &kms.KeyArgs{
-//				Description:          pulumi.String("Temporary key for AccTest of TF"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               *pulumi.String(kmsPol.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewPublishingDestination(ctx, "test", &guardduty.PublishingDestinationArgs{
-//				DetectorId:     testGd.ID(),
-//				DestinationArn: gdBucket.Arn,
-//				KmsKeyArn:      gdKey.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				gdBucketPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// currentRegion, err := aws.GetRegion(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// gdBucket, err := s3.NewBucketV2(ctx, "gdBucket", &s3.BucketV2Args{
+// ForceDestroy: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// bucketPol := pulumi.All(gdBucket.Arn,gdBucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// gdBucketArn := _args[0].(*string)
+// gdBucketArn1 := _args[1].(*string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: "Allow PutObject",
+// Actions: []string{
+// "s3:PutObject",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v/*", gdBucketArn),
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "guardduty.amazonaws.com",
+// },
+// },
+// },
+// },
+// {
+// Sid: "Allow GetBucketLocation",
+// Actions: []string{
+// "s3:GetBucketLocation",
+// },
+// Resources: interface{}{
+// gdBucketArn1,
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "guardduty.amazonaws.com",
+// },
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// kmsPol, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: pulumi.StringRef("Allow GuardDuty to encrypt findings"),
+// Actions: []string{
+// "kms:GenerateDataKey",
+// },
+// Resources: []string{
+// fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentRegion.Name, currentCallerIdentity.AccountId),
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "guardduty.amazonaws.com",
+// },
+// },
+// },
+// },
+// {
+// Sid: pulumi.StringRef("Allow all users to modify/delete key (test only)"),
+// Actions: []string{
+// "kms:*",
+// },
+// Resources: []string{
+// fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentRegion.Name, currentCallerIdentity.AccountId),
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// fmt.Sprintf("arn:aws:iam::%v:root", currentCallerIdentity.AccountId),
+// },
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// testGd, err := guardduty.NewDetector(ctx, "testGd", &guardduty.DetectorArgs{
+// Enable: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3.NewBucketAclV2(ctx, "gdBucketAcl", &s3.BucketAclV2Args{
+// Bucket: gdBucket.ID(),
+// Acl: pulumi.String("private"),
+// })
+// if err != nil {
+// return err
+// }
+// gdBucketPolicy, err := s3.NewBucketPolicy(ctx, "gdBucketPolicy", &s3.BucketPolicyArgs{
+// Bucket: gdBucket.ID(),
+// Policy: bucketPol.ApplyT(func(bucketPol iam.GetPolicyDocumentResult) (*string, error) {
+// return &bucketPol.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// gdKey, err := kms.NewKey(ctx, "gdKey", &kms.KeyArgs{
+// Description: pulumi.String("Temporary key for AccTest of TF"),
+// DeletionWindowInDays: pulumi.Int(7),
+// Policy: *pulumi.String(kmsPol.Json),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = guardduty.NewPublishingDestination(ctx, "test", &guardduty.PublishingDestinationArgs{
+// DetectorId: testGd.ID(),
+// DestinationArn: gdBucket.Arn,
+// KmsKeyArn: gdKey.Arn,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// gdBucketPolicy,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html

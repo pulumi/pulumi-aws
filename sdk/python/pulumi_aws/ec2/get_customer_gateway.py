@@ -54,7 +54,7 @@ class GetCustomerGatewayResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the customer gateway.
         """
@@ -62,7 +62,7 @@ class GetCustomerGatewayResult:
 
     @property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> int:
+    def bgp_asn(self) -> Optional[int]:
         """
         Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         """
@@ -70,7 +70,7 @@ class GetCustomerGatewayResult:
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> Optional[str]:
         """
         ARN for the customer gateway certificate.
         """
@@ -78,7 +78,7 @@ class GetCustomerGatewayResult:
 
     @property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> str:
+    def device_name(self) -> Optional[str]:
         """
         Name for the customer gateway device.
         """
@@ -91,12 +91,12 @@ class GetCustomerGatewayResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
+    def ip_address(self) -> Optional[str]:
         """
         IP address of the gateway's Internet-routable external interface.
         """
@@ -104,7 +104,7 @@ class GetCustomerGatewayResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of key-value pairs assigned to the gateway.
         """
@@ -112,7 +112,7 @@ class GetCustomerGatewayResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
         """

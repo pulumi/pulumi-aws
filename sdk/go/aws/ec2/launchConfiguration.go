@@ -269,13 +269,13 @@ type LaunchConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of the launch configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Associate a public ip address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrOutput `pulumi:"associatePublicIpAddress"`
 	// Additional EBS block devices to attach to the instance. See Block Devices below for details.
 	EbsBlockDevices LaunchConfigurationEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized pulumi.BoolOutput `pulumi:"ebsOptimized"`
+	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
 	// Enables/disables detailed monitoring. This is enabled by default.
 	EnableMonitoring pulumi.BoolPtrOutput `pulumi:"enableMonitoring"`
 	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
@@ -289,17 +289,17 @@ type LaunchConfiguration struct {
 	// The following arguments are optional:
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// The key name that should be used for the instance.
-	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
 	// The metadata options for the instance.
-	MetadataOptions LaunchConfigurationMetadataOptionsOutput `pulumi:"metadataOptions"`
+	MetadataOptions LaunchConfigurationMetadataOptionsPtrOutput `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy pulumi.StringPtrOutput `pulumi:"placementTenancy"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
-	RootBlockDevice LaunchConfigurationRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
+	RootBlockDevice LaunchConfigurationRootBlockDevicePtrOutput `pulumi:"rootBlockDevice"`
 	// A list of associated security group IDS.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The maximum price to use for reserving spot instances.
@@ -606,8 +606,8 @@ func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx co
 }
 
 // The Amazon Resource Name of the launch configuration.
-func (o LaunchConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LaunchConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Associate a public ip address with an instance in a VPC.
@@ -621,8 +621,8 @@ func (o LaunchConfigurationOutput) EbsBlockDevices() LaunchConfigurationEbsBlock
 }
 
 // If true, the launched EC2 instance will be EBS-optimized.
-func (o LaunchConfigurationOutput) EbsOptimized() pulumi.BoolOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.BoolOutput { return v.EbsOptimized }).(pulumi.BoolOutput)
+func (o LaunchConfigurationOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
 // Enables/disables detailed monitoring. This is enabled by default.
@@ -655,13 +655,13 @@ func (o LaunchConfigurationOutput) InstanceType() pulumi.StringOutput {
 }
 
 // The key name that should be used for the instance.
-func (o LaunchConfigurationOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
+func (o LaunchConfigurationOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
 // The metadata options for the instance.
-func (o LaunchConfigurationOutput) MetadataOptions() LaunchConfigurationMetadataOptionsOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) LaunchConfigurationMetadataOptionsOutput { return v.MetadataOptions }).(LaunchConfigurationMetadataOptionsOutput)
+func (o LaunchConfigurationOutput) MetadataOptions() LaunchConfigurationMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) LaunchConfigurationMetadataOptionsPtrOutput { return v.MetadataOptions }).(LaunchConfigurationMetadataOptionsPtrOutput)
 }
 
 // The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
@@ -670,8 +670,8 @@ func (o LaunchConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o LaunchConfigurationOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o LaunchConfigurationOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
@@ -680,8 +680,8 @@ func (o LaunchConfigurationOutput) PlacementTenancy() pulumi.StringPtrOutput {
 }
 
 // Customize details about the root block device of the instance. See Block Devices below for details.
-func (o LaunchConfigurationOutput) RootBlockDevice() LaunchConfigurationRootBlockDeviceOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) LaunchConfigurationRootBlockDeviceOutput { return v.RootBlockDevice }).(LaunchConfigurationRootBlockDeviceOutput)
+func (o LaunchConfigurationOutput) RootBlockDevice() LaunchConfigurationRootBlockDevicePtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) LaunchConfigurationRootBlockDevicePtrOutput { return v.RootBlockDevice }).(LaunchConfigurationRootBlockDevicePtrOutput)
 }
 
 // A list of associated security group IDS.

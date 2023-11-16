@@ -74,14 +74,14 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the image pipeline.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Amazon Resource Name (ARN) of the container recipe.
@@ -102,56 +102,56 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dateCreated", refs={String.class}, tree="[0]")
-    private Output<String> dateCreated;
+    private Output</* @Nullable */ String> dateCreated;
 
     /**
      * @return Date the image pipeline was created.
      * 
      */
-    public Output<String> dateCreated() {
-        return this.dateCreated;
+    public Output<Optional<String>> dateCreated() {
+        return Codegen.optional(this.dateCreated);
     }
     /**
      * Date the image pipeline was last run.
      * 
      */
     @Export(name="dateLastRun", refs={String.class}, tree="[0]")
-    private Output<String> dateLastRun;
+    private Output</* @Nullable */ String> dateLastRun;
 
     /**
      * @return Date the image pipeline was last run.
      * 
      */
-    public Output<String> dateLastRun() {
-        return this.dateLastRun;
+    public Output<Optional<String>> dateLastRun() {
+        return Codegen.optional(this.dateLastRun);
     }
     /**
      * Date the image pipeline will run next.
      * 
      */
     @Export(name="dateNextRun", refs={String.class}, tree="[0]")
-    private Output<String> dateNextRun;
+    private Output</* @Nullable */ String> dateNextRun;
 
     /**
      * @return Date the image pipeline will run next.
      * 
      */
-    public Output<String> dateNextRun() {
-        return this.dateNextRun;
+    public Output<Optional<String>> dateNextRun() {
+        return Codegen.optional(this.dateNextRun);
     }
     /**
      * Date the image pipeline was updated.
      * 
      */
     @Export(name="dateUpdated", refs={String.class}, tree="[0]")
-    private Output<String> dateUpdated;
+    private Output</* @Nullable */ String> dateUpdated;
 
     /**
      * @return Date the image pipeline was updated.
      * 
      */
-    public Output<String> dateUpdated() {
-        return this.dateUpdated;
+    public Output<Optional<String>> dateUpdated() {
+        return Codegen.optional(this.dateUpdated);
     }
     /**
      * Description of the image pipeline.
@@ -214,28 +214,28 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="imageScanningConfiguration", refs={ImagePipelineImageScanningConfiguration.class}, tree="[0]")
-    private Output<ImagePipelineImageScanningConfiguration> imageScanningConfiguration;
+    private Output</* @Nullable */ ImagePipelineImageScanningConfiguration> imageScanningConfiguration;
 
     /**
      * @return Configuration block with image scanning configuration. Detailed below.
      * 
      */
-    public Output<ImagePipelineImageScanningConfiguration> imageScanningConfiguration() {
-        return this.imageScanningConfiguration;
+    public Output<Optional<ImagePipelineImageScanningConfiguration>> imageScanningConfiguration() {
+        return Codegen.optional(this.imageScanningConfiguration);
     }
     /**
      * Configuration block with image tests configuration. Detailed below.
      * 
      */
     @Export(name="imageTestsConfiguration", refs={ImagePipelineImageTestsConfiguration.class}, tree="[0]")
-    private Output<ImagePipelineImageTestsConfiguration> imageTestsConfiguration;
+    private Output</* @Nullable */ ImagePipelineImageTestsConfiguration> imageTestsConfiguration;
 
     /**
      * @return Configuration block with image tests configuration. Detailed below.
      * 
      */
-    public Output<ImagePipelineImageTestsConfiguration> imageTestsConfiguration() {
-        return this.imageTestsConfiguration;
+    public Output<Optional<ImagePipelineImageTestsConfiguration>> imageTestsConfiguration() {
+        return Codegen.optional(this.imageTestsConfiguration);
     }
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -274,14 +274,14 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="platform", refs={String.class}, tree="[0]")
-    private Output<String> platform;
+    private Output</* @Nullable */ String> platform;
 
     /**
      * @return Platform of the image pipeline.
      * 
      */
-    public Output<String> platform() {
-        return this.platform;
+    public Output<Optional<String>> platform() {
+        return Codegen.optional(this.platform);
     }
     /**
      * Configuration block with schedule settings. Detailed below.

@@ -88,39 +88,39 @@ export interface GetVpcIpamPoolResult {
     /**
      * IP protocol assigned to this pool.
      */
-    readonly addressFamily: string;
+    readonly addressFamily?: string;
     /**
      * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
      */
-    readonly allocationDefaultNetmaskLength: number;
+    readonly allocationDefaultNetmaskLength?: number;
     /**
      * The maximum netmask length that will be required for CIDR allocations in this pool.
      */
-    readonly allocationMaxNetmaskLength: number;
+    readonly allocationMaxNetmaskLength?: number;
     /**
      * The minimum netmask length that will be required for CIDR allocations in this pool.
      */
-    readonly allocationMinNetmaskLength: number;
+    readonly allocationMinNetmaskLength?: number;
     /**
      * Tags that are required to create resources in using this pool.
      */
-    readonly allocationResourceTags: {[key: string]: string};
+    readonly allocationResourceTags?: {[key: string]: string};
     /**
      * ARN of the pool
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
      */
-    readonly autoImport: boolean;
+    readonly autoImport?: boolean;
     /**
      * Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
      */
-    readonly awsService: string;
+    readonly awsService?: string;
     /**
      * Description for the IPAM pool.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly filters?: outputs.ec2.GetVpcIpamPoolFilter[];
     /**
      * ID of the IPAM pool.
@@ -130,26 +130,26 @@ export interface GetVpcIpamPoolResult {
     /**
      * ID of the scope the pool belongs to.
      */
-    readonly ipamScopeId: string;
-    readonly ipamScopeType: string;
+    readonly ipamScopeId?: string;
+    readonly ipamScopeType?: string;
     /**
      * Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
      */
-    readonly locale: string;
-    readonly poolDepth: number;
+    readonly locale?: string;
+    readonly poolDepth?: number;
     /**
      * Defines whether or not IPv6 pool space is publicly advertisable over the internet.
      */
-    readonly publiclyAdvertisable: boolean;
+    readonly publiclyAdvertisable?: boolean;
     /**
      * ID of the source IPAM pool.
      */
-    readonly sourceIpamPoolId: string;
-    readonly state: string;
+    readonly sourceIpamPoolId?: string;
+    readonly state?: string;
     /**
      * Map of tags to assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.

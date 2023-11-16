@@ -56,9 +56,9 @@ type DedicatedHost struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Dedicated Host.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
-	AssetId pulumi.StringOutput `pulumi:"assetId"`
+	AssetId pulumi.StringPtrOutput `pulumi:"assetId"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
 	AutoPlacement pulumi.StringPtrOutput `pulumi:"autoPlacement"`
 	// The Availability Zone in which to allocate the Dedicated Host.
@@ -72,7 +72,7 @@ type DedicatedHost struct {
 	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Dedicated Host.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -302,13 +302,13 @@ func (o DedicatedHostOutput) ToDedicatedHostOutputWithContext(ctx context.Contex
 }
 
 // The ARN of the Dedicated Host.
-func (o DedicatedHostOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DedicatedHostOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
-func (o DedicatedHostOutput) AssetId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.AssetId }).(pulumi.StringOutput)
+func (o DedicatedHostOutput) AssetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.AssetId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
@@ -342,8 +342,8 @@ func (o DedicatedHostOutput) OutpostArn() pulumi.StringPtrOutput {
 }
 
 // The ID of the AWS account that owns the Dedicated Host.
-func (o DedicatedHostOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o DedicatedHostOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

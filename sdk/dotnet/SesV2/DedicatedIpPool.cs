@@ -64,7 +64,7 @@ namespace Pulumi.Aws.SesV2
         /// ARN of the Dedicated IP Pool.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the dedicated IP pool.
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.SesV2
         /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         /// </summary>
         [Output("scalingMode")]
-        public Output<string> ScalingMode { get; private set; } = null!;
+        public Output<string?> ScalingMode { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

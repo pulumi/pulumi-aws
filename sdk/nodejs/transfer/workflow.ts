@@ -94,7 +94,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * The Workflow ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A textual description for the workflow.
      */

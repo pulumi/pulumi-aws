@@ -31,11 +31,11 @@ export interface GetLinksResult {
     /**
      * Set of ARN of the Links.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Data source for managing an AWS CloudWatch Observability Access Manager Links.

@@ -144,7 +144,7 @@ namespace Pulumi.Aws.ApiGateway
         /// ARN of the API Gateway Authorizer
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.

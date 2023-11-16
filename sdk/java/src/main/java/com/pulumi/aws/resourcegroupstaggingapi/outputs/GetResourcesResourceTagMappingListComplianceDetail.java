@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResourcesResourceTagMappingListComplianceDetail {
@@ -17,9 +19,9 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
      * * ` non_compliant_keys  ` - Set of non-compliant tag keys.
      * 
      */
-    private Boolean complianceStatus;
-    private List<String> keysWithNoncompliantValues;
-    private List<String> nonCompliantKeys;
+    private @Nullable Boolean complianceStatus;
+    private @Nullable List<String> keysWithNoncompliantValues;
+    private @Nullable List<String> nonCompliantKeys;
 
     private GetResourcesResourceTagMappingListComplianceDetail() {}
     /**
@@ -28,14 +30,14 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
      * * ` non_compliant_keys  ` - Set of non-compliant tag keys.
      * 
      */
-    public Boolean complianceStatus() {
-        return this.complianceStatus;
+    public Optional<Boolean> complianceStatus() {
+        return Optional.ofNullable(this.complianceStatus);
     }
     public List<String> keysWithNoncompliantValues() {
-        return this.keysWithNoncompliantValues;
+        return this.keysWithNoncompliantValues == null ? List.of() : this.keysWithNoncompliantValues;
     }
     public List<String> nonCompliantKeys() {
-        return this.nonCompliantKeys;
+        return this.nonCompliantKeys == null ? List.of() : this.nonCompliantKeys;
     }
 
     public static Builder builder() {
@@ -47,9 +49,9 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean complianceStatus;
-        private List<String> keysWithNoncompliantValues;
-        private List<String> nonCompliantKeys;
+        private @Nullable Boolean complianceStatus;
+        private @Nullable List<String> keysWithNoncompliantValues;
+        private @Nullable List<String> nonCompliantKeys;
         public Builder() {}
         public Builder(GetResourcesResourceTagMappingListComplianceDetail defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,21 +61,21 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
         }
 
         @CustomType.Setter
-        public Builder complianceStatus(Boolean complianceStatus) {
-            this.complianceStatus = Objects.requireNonNull(complianceStatus);
+        public Builder complianceStatus(@Nullable Boolean complianceStatus) {
+            this.complianceStatus = complianceStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder keysWithNoncompliantValues(List<String> keysWithNoncompliantValues) {
-            this.keysWithNoncompliantValues = Objects.requireNonNull(keysWithNoncompliantValues);
+        public Builder keysWithNoncompliantValues(@Nullable List<String> keysWithNoncompliantValues) {
+            this.keysWithNoncompliantValues = keysWithNoncompliantValues;
             return this;
         }
         public Builder keysWithNoncompliantValues(String... keysWithNoncompliantValues) {
             return keysWithNoncompliantValues(List.of(keysWithNoncompliantValues));
         }
         @CustomType.Setter
-        public Builder nonCompliantKeys(List<String> nonCompliantKeys) {
-            this.nonCompliantKeys = Objects.requireNonNull(nonCompliantKeys);
+        public Builder nonCompliantKeys(@Nullable List<String> nonCompliantKeys) {
+            this.nonCompliantKeys = nonCompliantKeys;
             return this;
         }
         public Builder nonCompliantKeys(String... nonCompliantKeys) {

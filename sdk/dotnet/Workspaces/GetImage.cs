@@ -104,41 +104,41 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// The description of the image.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string ImageId;
         /// <summary>
         /// The name of the image.
         /// </summary>
-        public readonly string Name;
-        public readonly string OperatingSystemType;
+        public readonly string? Name;
+        public readonly string? OperatingSystemType;
         /// <summary>
         /// Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
         /// </summary>
-        public readonly string RequiredTenancy;
+        public readonly string? RequiredTenancy;
         /// <summary>
         /// The status of the image.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
 
         [OutputConstructor]
         private GetImageResult(
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string imageId,
 
-            string name,
+            string? name,
 
-            string operatingSystemType,
+            string? operatingSystemType,
 
-            string requiredTenancy,
+            string? requiredTenancy,
 
-            string state)
+            string? state)
         {
             Description = description;
             Id = id;

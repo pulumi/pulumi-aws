@@ -574,7 +574,7 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the theme.
         """
@@ -582,7 +582,7 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """
@@ -608,7 +608,7 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the theme was created.
         """
@@ -616,7 +616,7 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the theme was last updated.
         """
@@ -640,7 +640,7 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The theme creation status.
         """
@@ -683,7 +683,7 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionNumber")
-    def version_number(self) -> pulumi.Output[int]:
+    def version_number(self) -> pulumi.Output[Optional[int]]:
         """
         The version number of the theme version.
         """

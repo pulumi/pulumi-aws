@@ -65,14 +65,14 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name of this data set.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * An optional comment about the revision.
@@ -107,14 +107,14 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="revisionId", refs={String.class}, tree="[0]")
-    private Output<String> revisionId;
+    private Output</* @Nullable */ String> revisionId;
 
     /**
      * @return The Id of the revision.
      * 
      */
-    public Output<String> revisionId() {
-        return this.revisionId;
+    public Output<Optional<String>> revisionId() {
+        return Codegen.optional(this.revisionId);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

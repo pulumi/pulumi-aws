@@ -6,18 +6,20 @@ package com.pulumi.aws.dynamodb.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTableReplica {
-    private String kmsKeyArn;
-    private String regionName;
+    private @Nullable String kmsKeyArn;
+    private @Nullable String regionName;
 
     private GetTableReplica() {}
-    public String kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<String> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
-    public String regionName() {
-        return this.regionName;
+    public Optional<String> regionName() {
+        return Optional.ofNullable(this.regionName);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetTableReplica {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String kmsKeyArn;
-        private String regionName;
+        private @Nullable String kmsKeyArn;
+        private @Nullable String regionName;
         public Builder() {}
         public Builder(GetTableReplica defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetTableReplica {
         }
 
         @CustomType.Setter
-        public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+        public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder regionName(String regionName) {
-            this.regionName = Objects.requireNonNull(regionName);
+        public Builder regionName(@Nullable String regionName) {
+            this.regionName = regionName;
             return this;
         }
         public GetTableReplica build() {

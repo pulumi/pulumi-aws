@@ -65,28 +65,28 @@ public class Graph extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * ARN of the Detective Graph.
      * 
      */
     @Export(name="graphArn", refs={String.class}, tree="[0]")
-    private Output<String> graphArn;
+    private Output</* @Nullable */ String> graphArn;
 
     /**
      * @return ARN of the Detective Graph.
      * 
      */
-    public Output<String> graphArn() {
-        return this.graphArn;
+    public Output<Optional<String>> graphArn() {
+        return Codegen.optional(this.graphArn);
     }
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

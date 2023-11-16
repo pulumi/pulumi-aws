@@ -34,7 +34,7 @@ type LookupDataCatalogEncryptionSettingsResult struct {
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting `pulumi:"dataCatalogEncryptionSettings"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupDataCatalogEncryptionSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataCatalogEncryptionSettingsResultOutput {
@@ -87,8 +87,8 @@ func (o LookupDataCatalogEncryptionSettingsResultOutput) DataCatalogEncryptionSe
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDataCatalogEncryptionSettingsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDataCatalogEncryptionSettingsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

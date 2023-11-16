@@ -13,125 +13,125 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class GetEndpointS3SettingResult
     {
-        public readonly bool AddColumnName;
-        public readonly string BucketFolder;
-        public readonly string BucketName;
-        public readonly string CannedAclForObjects;
-        public readonly bool CdcInsertsAndUpdates;
-        public readonly bool CdcInsertsOnly;
-        public readonly int CdcMaxBatchInterval;
-        public readonly int CdcMinFileSize;
-        public readonly string CdcPath;
-        public readonly string CompressionType;
-        public readonly string CsvDelimiter;
-        public readonly string CsvNoSupValue;
-        public readonly string CsvNullValue;
-        public readonly string CsvRowDelimiter;
-        public readonly string DataFormat;
-        public readonly int DataPageSize;
-        public readonly string DatePartitionDelimiter;
-        public readonly bool DatePartitionEnabled;
-        public readonly string DatePartitionSequence;
-        public readonly int DictPageSizeLimit;
-        public readonly bool EnableStatistics;
-        public readonly string EncodingType;
-        public readonly string EncryptionMode;
-        public readonly string ExternalTableDefinition;
-        public readonly bool GlueCatalogGeneration;
-        public readonly int IgnoreHeaderRows;
-        public readonly int IgnoreHeadersRow;
-        public readonly bool IncludeOpForFullLoad;
-        public readonly int MaxFileSize;
-        public readonly bool ParquetTimestampInMillisecond;
-        public readonly string ParquetVersion;
-        public readonly bool PreserveTransactions;
-        public readonly bool Rfc4180;
-        public readonly int RowGroupLength;
-        public readonly string ServerSideEncryptionKmsKeyId;
-        public readonly string ServiceAccessRoleArn;
-        public readonly string TimestampColumnName;
-        public readonly bool UseCsvNoSupValue;
-        public readonly bool UseTaskStartTimeForFullLoadTimestamp;
+        public readonly bool? AddColumnName;
+        public readonly string? BucketFolder;
+        public readonly string? BucketName;
+        public readonly string? CannedAclForObjects;
+        public readonly bool? CdcInsertsAndUpdates;
+        public readonly bool? CdcInsertsOnly;
+        public readonly int? CdcMaxBatchInterval;
+        public readonly int? CdcMinFileSize;
+        public readonly string? CdcPath;
+        public readonly string? CompressionType;
+        public readonly string? CsvDelimiter;
+        public readonly string? CsvNoSupValue;
+        public readonly string? CsvNullValue;
+        public readonly string? CsvRowDelimiter;
+        public readonly string? DataFormat;
+        public readonly int? DataPageSize;
+        public readonly string? DatePartitionDelimiter;
+        public readonly bool? DatePartitionEnabled;
+        public readonly string? DatePartitionSequence;
+        public readonly int? DictPageSizeLimit;
+        public readonly bool? EnableStatistics;
+        public readonly string? EncodingType;
+        public readonly string? EncryptionMode;
+        public readonly string? ExternalTableDefinition;
+        public readonly bool? GlueCatalogGeneration;
+        public readonly int? IgnoreHeaderRows;
+        public readonly int? IgnoreHeadersRow;
+        public readonly bool? IncludeOpForFullLoad;
+        public readonly int? MaxFileSize;
+        public readonly bool? ParquetTimestampInMillisecond;
+        public readonly string? ParquetVersion;
+        public readonly bool? PreserveTransactions;
+        public readonly bool? Rfc4180;
+        public readonly int? RowGroupLength;
+        public readonly string? ServerSideEncryptionKmsKeyId;
+        public readonly string? ServiceAccessRoleArn;
+        public readonly string? TimestampColumnName;
+        public readonly bool? UseCsvNoSupValue;
+        public readonly bool? UseTaskStartTimeForFullLoadTimestamp;
 
         [OutputConstructor]
         private GetEndpointS3SettingResult(
-            bool addColumnName,
+            bool? addColumnName,
 
-            string bucketFolder,
+            string? bucketFolder,
 
-            string bucketName,
+            string? bucketName,
 
-            string cannedAclForObjects,
+            string? cannedAclForObjects,
 
-            bool cdcInsertsAndUpdates,
+            bool? cdcInsertsAndUpdates,
 
-            bool cdcInsertsOnly,
+            bool? cdcInsertsOnly,
 
-            int cdcMaxBatchInterval,
+            int? cdcMaxBatchInterval,
 
-            int cdcMinFileSize,
+            int? cdcMinFileSize,
 
-            string cdcPath,
+            string? cdcPath,
 
-            string compressionType,
+            string? compressionType,
 
-            string csvDelimiter,
+            string? csvDelimiter,
 
-            string csvNoSupValue,
+            string? csvNoSupValue,
 
-            string csvNullValue,
+            string? csvNullValue,
 
-            string csvRowDelimiter,
+            string? csvRowDelimiter,
 
-            string dataFormat,
+            string? dataFormat,
 
-            int dataPageSize,
+            int? dataPageSize,
 
-            string datePartitionDelimiter,
+            string? datePartitionDelimiter,
 
-            bool datePartitionEnabled,
+            bool? datePartitionEnabled,
 
-            string datePartitionSequence,
+            string? datePartitionSequence,
 
-            int dictPageSizeLimit,
+            int? dictPageSizeLimit,
 
-            bool enableStatistics,
+            bool? enableStatistics,
 
-            string encodingType,
+            string? encodingType,
 
-            string encryptionMode,
+            string? encryptionMode,
 
-            string externalTableDefinition,
+            string? externalTableDefinition,
 
-            bool glueCatalogGeneration,
+            bool? glueCatalogGeneration,
 
-            int ignoreHeaderRows,
+            int? ignoreHeaderRows,
 
-            int ignoreHeadersRow,
+            int? ignoreHeadersRow,
 
-            bool includeOpForFullLoad,
+            bool? includeOpForFullLoad,
 
-            int maxFileSize,
+            int? maxFileSize,
 
-            bool parquetTimestampInMillisecond,
+            bool? parquetTimestampInMillisecond,
 
-            string parquetVersion,
+            string? parquetVersion,
 
-            bool preserveTransactions,
+            bool? preserveTransactions,
 
-            bool rfc4180,
+            bool? rfc4180,
 
-            int rowGroupLength,
+            int? rowGroupLength,
 
-            string serverSideEncryptionKmsKeyId,
+            string? serverSideEncryptionKmsKeyId,
 
-            string serviceAccessRoleArn,
+            string? serviceAccessRoleArn,
 
-            string timestampColumnName,
+            string? timestampColumnName,
 
-            bool useCsvNoSupValue,
+            bool? useCsvNoSupValue,
 
-            bool useTaskStartTimeForFullLoadTimestamp)
+            bool? useTaskStartTimeForFullLoadTimestamp)
         {
             AddColumnName = addColumnName;
             BucketFolder = bucketFolder;

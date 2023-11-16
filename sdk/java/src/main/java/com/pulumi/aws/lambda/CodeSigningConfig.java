@@ -91,28 +91,28 @@ public class CodeSigningConfig extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the code signing configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Unique identifier for the code signing configuration.
      * 
      */
     @Export(name="configId", refs={String.class}, tree="[0]")
-    private Output<String> configId;
+    private Output</* @Nullable */ String> configId;
 
     /**
      * @return Unique identifier for the code signing configuration.
      * 
      */
-    public Output<String> configId() {
-        return this.configId;
+    public Output<Optional<String>> configId() {
+        return Codegen.optional(this.configId);
     }
     /**
      * Descriptive name for this code signing configuration.
@@ -133,28 +133,28 @@ public class CodeSigningConfig extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
-    private Output<String> lastModified;
+    private Output</* @Nullable */ String> lastModified;
 
     /**
      * @return The date and time that the code signing configuration was last modified.
      * 
      */
-    public Output<String> lastModified() {
-        return this.lastModified;
+    public Output<Optional<String>> lastModified() {
+        return Codegen.optional(this.lastModified);
     }
     /**
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      * 
      */
     @Export(name="policies", refs={CodeSigningConfigPolicies.class}, tree="[0]")
-    private Output<CodeSigningConfigPolicies> policies;
+    private Output</* @Nullable */ CodeSigningConfigPolicies> policies;
 
     /**
      * @return A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      * 
      */
-    public Output<CodeSigningConfigPolicies> policies() {
-        return this.policies;
+    public Output<Optional<CodeSigningConfigPolicies>> policies() {
+        return Codegen.optional(this.policies);
     }
 
     /**

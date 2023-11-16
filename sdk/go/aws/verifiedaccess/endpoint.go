@@ -116,11 +116,11 @@ type Endpoint struct {
 	// A description for the Verified Access endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Returned if endpoint has a device trust provider attached.
-	DeviceValidationDomain pulumi.StringOutput `pulumi:"deviceValidationDomain"`
+	DeviceValidationDomain pulumi.StringPtrOutput `pulumi:"deviceValidationDomain"`
 	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
 	DomainCertificateArn pulumi.StringOutput `pulumi:"domainCertificateArn"`
 	// A DNS name that is generated for the endpoint.
-	EndpointDomain pulumi.StringOutput `pulumi:"endpointDomain"`
+	EndpointDomain pulumi.StringPtrOutput `pulumi:"endpointDomain"`
 	// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
 	EndpointDomainPrefix pulumi.StringOutput `pulumi:"endpointDomainPrefix"`
 	// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
@@ -132,7 +132,7 @@ type Endpoint struct {
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
-	SseSpecification EndpointSseSpecificationOutput `pulumi:"sseSpecification"`
+	SseSpecification EndpointSseSpecificationPtrOutput `pulumi:"sseSpecification"`
 	// Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -140,8 +140,8 @@ type Endpoint struct {
 	// The ID of the Verified Access group to associate the endpoint with.
 	//
 	// The following arguments are optional:
-	VerifiedAccessGroupId    pulumi.StringOutput `pulumi:"verifiedAccessGroupId"`
-	VerifiedAccessInstanceId pulumi.StringOutput `pulumi:"verifiedAccessInstanceId"`
+	VerifiedAccessGroupId    pulumi.StringOutput    `pulumi:"verifiedAccessGroupId"`
+	VerifiedAccessInstanceId pulumi.StringPtrOutput `pulumi:"verifiedAccessInstanceId"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -433,8 +433,8 @@ func (o EndpointOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Returned if endpoint has a device trust provider attached.
-func (o EndpointOutput) DeviceValidationDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.DeviceValidationDomain }).(pulumi.StringOutput)
+func (o EndpointOutput) DeviceValidationDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.DeviceValidationDomain }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
@@ -443,8 +443,8 @@ func (o EndpointOutput) DomainCertificateArn() pulumi.StringOutput {
 }
 
 // A DNS name that is generated for the endpoint.
-func (o EndpointOutput) EndpointDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointDomain }).(pulumi.StringOutput)
+func (o EndpointOutput) EndpointDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointDomain }).(pulumi.StringPtrOutput)
 }
 
 // A custom identifier that is prepended to the DNS name that is generated for the endpoint.
@@ -473,8 +473,8 @@ func (o EndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 }
 
 // The options in use for server side encryption.
-func (o EndpointOutput) SseSpecification() EndpointSseSpecificationOutput {
-	return o.ApplyT(func(v *Endpoint) EndpointSseSpecificationOutput { return v.SseSpecification }).(EndpointSseSpecificationOutput)
+func (o EndpointOutput) SseSpecification() EndpointSseSpecificationPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointSseSpecificationPtrOutput { return v.SseSpecification }).(EndpointSseSpecificationPtrOutput)
 }
 
 // Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -494,8 +494,8 @@ func (o EndpointOutput) VerifiedAccessGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.VerifiedAccessGroupId }).(pulumi.StringOutput)
 }
 
-func (o EndpointOutput) VerifiedAccessInstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.VerifiedAccessInstanceId }).(pulumi.StringOutput)
+func (o EndpointOutput) VerifiedAccessInstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.VerifiedAccessInstanceId }).(pulumi.StringPtrOutput)
 }
 
 type EndpointArrayOutput struct{ *pulumi.OutputState }

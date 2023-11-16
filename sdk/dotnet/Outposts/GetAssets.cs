@@ -252,7 +252,7 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<string> StatusIdFilters;
 
         [OutputConstructor]
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Outposts
 
             ImmutableArray<string> hostIdFilters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> statusIdFilters)
         {

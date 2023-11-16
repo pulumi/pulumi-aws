@@ -104,7 +104,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of Authorizer identifiers.
         /// </summary>
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.ApiGateway
 
         [OutputConstructor]
         private GetAuthorizersResult(
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

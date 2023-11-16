@@ -60,16 +60,16 @@ type LookupContactArgs struct {
 // A collection of values returned by getContact.
 type LookupContactResult struct {
 	// A unique and identifiable alias of the contact or escalation plan.
-	Alias string `pulumi:"alias"`
-	Arn   string `pulumi:"arn"`
+	Alias *string `pulumi:"alias"`
+	Arn   string  `pulumi:"arn"`
 	// Full friendly name of the contact or escalation plan.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts ...pulumi.InvokeOption) LookupContactResultOutput {
@@ -113,8 +113,8 @@ func (o LookupContactResultOutput) ToLookupContactResultOutputWithContext(ctx co
 }
 
 // A unique and identifiable alias of the contact or escalation plan.
-func (o LookupContactResultOutput) Alias() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactResult) string { return v.Alias }).(pulumi.StringOutput)
+func (o LookupContactResultOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactResult) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupContactResultOutput) Arn() pulumi.StringOutput {
@@ -122,13 +122,13 @@ func (o LookupContactResultOutput) Arn() pulumi.StringOutput {
 }
 
 // Full friendly name of the contact or escalation plan.
-func (o LookupContactResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactResult) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o LookupContactResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupContactResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupContactResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the resource.
@@ -137,8 +137,8 @@ func (o LookupContactResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
-func (o LookupContactResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupContactResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupContactResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

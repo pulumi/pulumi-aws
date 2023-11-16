@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetPhysicalTableMapS3SourceUploadSettingResult
     {
-        public readonly bool ContainsHeader;
-        public readonly string Delimiter;
-        public readonly string Format;
-        public readonly int StartFromRow;
-        public readonly string TextQualifier;
+        public readonly bool? ContainsHeader;
+        public readonly string? Delimiter;
+        public readonly string? Format;
+        public readonly int? StartFromRow;
+        public readonly string? TextQualifier;
 
         [OutputConstructor]
         private GetDataSetPhysicalTableMapS3SourceUploadSettingResult(
-            bool containsHeader,
+            bool? containsHeader,
 
-            string delimiter,
+            string? delimiter,
 
-            string format,
+            string? format,
 
-            int startFromRow,
+            int? startFromRow,
 
-            string textQualifier)
+            string? textQualifier)
         {
             ContainsHeader = containsHeader;
             Delimiter = delimiter;

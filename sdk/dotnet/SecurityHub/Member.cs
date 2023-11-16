@@ -73,13 +73,13 @@ namespace Pulumi.Aws.SecurityHub
         /// The ID of the master Security Hub AWS account.
         /// </summary>
         [Output("masterId")]
-        public Output<string> MasterId { get; private set; } = null!;
+        public Output<string?> MasterId { get; private set; } = null!;
 
         /// <summary>
         /// The status of the member account relationship.
         /// </summary>
         [Output("memberStatus")]
-        public Output<string> MemberStatus { get; private set; } = null!;
+        public Output<string?> MemberStatus { get; private set; } = null!;
 
 
         /// <summary>

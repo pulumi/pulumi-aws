@@ -49,42 +49,42 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> Optional[str]:
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def partition(self) -> str:
+    def partition(self) -> Optional[str]:
         return pulumi.get(self, "partition")
 
     @property
     @pulumi.getter
-    def region(self) -> str:
+    def region(self) -> Optional[str]:
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="reverseDnsName")
-    def reverse_dns_name(self) -> str:
+    def reverse_dns_name(self) -> Optional[str]:
         return pulumi.get(self, "reverse_dns_name")
 
     @property
     @pulumi.getter(name="reverseDnsPrefix")
-    def reverse_dns_prefix(self) -> str:
+    def reverse_dns_prefix(self) -> Optional[str]:
         return pulumi.get(self, "reverse_dns_prefix")
 
     @property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> str:
+    def service_id(self) -> Optional[str]:
         return pulumi.get(self, "service_id")
 
     @property
     @pulumi.getter
-    def supported(self) -> bool:
+    def supported(self) -> Optional[bool]:
         """
         Whether the service is supported in the region's partition. New services may not be listed immediately as supported.
         """

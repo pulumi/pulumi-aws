@@ -442,7 +442,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the certificate.
         """
@@ -450,7 +450,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificate(self) -> pulumi.Output[str]:
+    def certificate(self) -> pulumi.Output[Optional[str]]:
         """
         PEM-encoded certificate value.
         """
@@ -466,7 +466,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> pulumi.Output[str]:
+    def certificate_chain(self) -> pulumi.Output[Optional[str]]:
         """
         PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         """

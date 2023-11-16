@@ -228,14 +228,14 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
-    private Output<String> allocationId;
+    private Output</* @Nullable */ String> allocationId;
 
     /**
      * @return ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
      * 
      */
-    public Output<String> allocationId() {
-        return this.allocationId;
+    public Output<Optional<String>> allocationId() {
+        return Codegen.optional(this.allocationId);
     }
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
@@ -256,42 +256,42 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="associationId", refs={String.class}, tree="[0]")
-    private Output<String> associationId;
+    private Output</* @Nullable */ String> associationId;
 
     /**
      * @return ID representing the association of the address with an instance in a VPC.
      * 
      */
-    public Output<String> associationId() {
-        return this.associationId;
+    public Output<Optional<String>> associationId() {
+        return Codegen.optional(this.associationId);
     }
     /**
      * Carrier IP address.
      * 
      */
     @Export(name="carrierIp", refs={String.class}, tree="[0]")
-    private Output<String> carrierIp;
+    private Output</* @Nullable */ String> carrierIp;
 
     /**
      * @return Carrier IP address.
      * 
      */
-    public Output<String> carrierIp() {
-        return this.carrierIp;
+    public Output<Optional<String>> carrierIp() {
+        return Codegen.optional(this.carrierIp);
     }
     /**
      * Customer owned IP.
      * 
      */
     @Export(name="customerOwnedIp", refs={String.class}, tree="[0]")
-    private Output<String> customerOwnedIp;
+    private Output</* @Nullable */ String> customerOwnedIp;
 
     /**
      * @return Customer owned IP.
      * 
      */
-    public Output<String> customerOwnedIp() {
-        return this.customerOwnedIp;
+    public Output<Optional<String>> customerOwnedIp() {
+        return Codegen.optional(this.customerOwnedIp);
     }
     /**
      * ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
@@ -312,112 +312,112 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
-    private Output<String> domain;
+    private Output</* @Nullable */ String> domain;
 
     /**
      * @return Indicates if this EIP is for use in VPC (`vpc`).
      * 
      */
-    public Output<String> domain() {
-        return this.domain;
+    public Output<Optional<String>> domain() {
+        return Codegen.optional(this.domain);
     }
     /**
      * EC2 instance ID.
      * 
      */
     @Export(name="instance", refs={String.class}, tree="[0]")
-    private Output<String> instance;
+    private Output</* @Nullable */ String> instance;
 
     /**
      * @return EC2 instance ID.
      * 
      */
-    public Output<String> instance() {
-        return this.instance;
+    public Output<Optional<String>> instance() {
+        return Codegen.optional(this.instance);
     }
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      * 
      */
     @Export(name="networkBorderGroup", refs={String.class}, tree="[0]")
-    private Output<String> networkBorderGroup;
+    private Output</* @Nullable */ String> networkBorderGroup;
 
     /**
      * @return Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      * 
      */
-    public Output<String> networkBorderGroup() {
-        return this.networkBorderGroup;
+    public Output<Optional<String>> networkBorderGroup() {
+        return Codegen.optional(this.networkBorderGroup);
     }
     /**
      * Network interface ID to associate with.
      * 
      */
     @Export(name="networkInterface", refs={String.class}, tree="[0]")
-    private Output<String> networkInterface;
+    private Output</* @Nullable */ String> networkInterface;
 
     /**
      * @return Network interface ID to associate with.
      * 
      */
-    public Output<String> networkInterface() {
-        return this.networkInterface;
+    public Output<Optional<String>> networkInterface() {
+        return Codegen.optional(this.networkInterface);
     }
     /**
      * The Private DNS associated with the Elastic IP address (if in VPC).
      * 
      */
     @Export(name="privateDns", refs={String.class}, tree="[0]")
-    private Output<String> privateDns;
+    private Output</* @Nullable */ String> privateDns;
 
     /**
      * @return The Private DNS associated with the Elastic IP address (if in VPC).
      * 
      */
-    public Output<String> privateDns() {
-        return this.privateDns;
+    public Output<Optional<String>> privateDns() {
+        return Codegen.optional(this.privateDns);
     }
     /**
      * Contains the private IP address (if in VPC).
      * 
      */
     @Export(name="privateIp", refs={String.class}, tree="[0]")
-    private Output<String> privateIp;
+    private Output</* @Nullable */ String> privateIp;
 
     /**
      * @return Contains the private IP address (if in VPC).
      * 
      */
-    public Output<String> privateIp() {
-        return this.privateIp;
+    public Output<Optional<String>> privateIp() {
+        return Codegen.optional(this.privateIp);
     }
     /**
      * Public DNS associated with the Elastic IP address.
      * 
      */
     @Export(name="publicDns", refs={String.class}, tree="[0]")
-    private Output<String> publicDns;
+    private Output</* @Nullable */ String> publicDns;
 
     /**
      * @return Public DNS associated with the Elastic IP address.
      * 
      */
-    public Output<String> publicDns() {
-        return this.publicDns;
+    public Output<Optional<String>> publicDns() {
+        return Codegen.optional(this.publicDns);
     }
     /**
      * Contains the public IP address.
      * 
      */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
-    private Output<String> publicIp;
+    private Output</* @Nullable */ String> publicIp;
 
     /**
      * @return Contains the public IP address.
      * 
      */
-    public Output<String> publicIp() {
-        return this.publicIp;
+    public Output<Optional<String>> publicIp() {
+        return Codegen.optional(this.publicIp);
     }
     /**
      * EC2 IPv4 address pool identifier or `amazon`.
@@ -425,15 +425,15 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publicIpv4Pool", refs={String.class}, tree="[0]")
-    private Output<String> publicIpv4Pool;
+    private Output</* @Nullable */ String> publicIpv4Pool;
 
     /**
      * @return EC2 IPv4 address pool identifier or `amazon`.
      * This option is only available for VPC EIPs.
      * 
      */
-    public Output<String> publicIpv4Pool() {
-        return this.publicIpv4Pool;
+    public Output<Optional<String>> publicIpv4Pool() {
+        return Codegen.optional(this.publicIpv4Pool);
     }
     /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -482,7 +482,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* use domain attribute instead */
     @Export(name="vpc", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> vpc;
+    private Output</* @Nullable */ Boolean> vpc;
 
     /**
      * @return Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -494,8 +494,8 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * case both options are defined as the api only requires one or the other.
      * 
      */
-    public Output<Boolean> vpc() {
-        return this.vpc;
+    public Output<Optional<Boolean>> vpc() {
+        return Codegen.optional(this.vpc);
     }
 
     /**

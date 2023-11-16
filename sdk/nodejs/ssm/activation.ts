@@ -77,7 +77,7 @@ export class Activation extends pulumi.CustomResource {
     /**
      * The code the system generates when it processes the activation.
      */
-    public /*out*/ readonly activationCode!: pulumi.Output<string>;
+    public /*out*/ readonly activationCode!: pulumi.Output<string | undefined>;
     /**
      * The description of the resource that you want to register.
      */
@@ -85,11 +85,11 @@ export class Activation extends pulumi.CustomResource {
     /**
      * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      */
-    public readonly expirationDate!: pulumi.Output<string>;
+    public readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
      * If the current activation has expired.
      */
-    public /*out*/ readonly expired!: pulumi.Output<boolean>;
+    public /*out*/ readonly expired!: pulumi.Output<boolean | undefined>;
     /**
      * The IAM Role to attach to the managed instance.
      */
@@ -101,7 +101,7 @@ export class Activation extends pulumi.CustomResource {
     /**
      * The number of managed instances that are currently registered using this activation.
      */
-    public /*out*/ readonly registrationCount!: pulumi.Output<number>;
+    public /*out*/ readonly registrationCount!: pulumi.Output<number | undefined>;
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      */

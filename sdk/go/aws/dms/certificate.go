@@ -57,7 +57,7 @@ type Certificate struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
+	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// The certificate identifier.
 	//
 	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
@@ -275,8 +275,8 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 }
 
 // The Amazon Resource Name (ARN) for the certificate.
-func (o CertificateOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
+func (o CertificateOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // The certificate identifier.

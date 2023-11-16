@@ -137,28 +137,28 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the segment.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date and time that the segment is created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return The date and time that the segment is created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Specifies the description of the segment.
@@ -179,42 +179,42 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="experimentCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> experimentCount;
+    private Output</* @Nullable */ Integer> experimentCount;
 
     /**
      * @return The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
      * 
      */
-    public Output<Integer> experimentCount() {
-        return this.experimentCount;
+    public Output<Optional<Integer>> experimentCount() {
+        return Codegen.optional(this.experimentCount);
     }
     /**
      * The date and time that this segment was most recently updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
+    private Output</* @Nullable */ String> lastUpdatedTime;
 
     /**
      * @return The date and time that this segment was most recently updated.
      * 
      */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Output<Optional<String>> lastUpdatedTime() {
+        return Codegen.optional(this.lastUpdatedTime);
     }
     /**
      * The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
      * 
      */
     @Export(name="launchCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> launchCount;
+    private Output</* @Nullable */ Integer> launchCount;
 
     /**
      * @return The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
      * 
      */
-    public Output<Integer> launchCount() {
-        return this.launchCount;
+    public Output<Optional<Integer>> launchCount() {
+        return Codegen.optional(this.launchCount);
     }
     /**
      * A name for the segment.

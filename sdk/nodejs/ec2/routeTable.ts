@@ -150,20 +150,20 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * The ARN of the route table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the route table.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * A list of virtual gateways for propagation.
      */
-    public readonly propagatingVgws!: pulumi.Output<string[]>;
+    public readonly propagatingVgws!: pulumi.Output<string[] | undefined>;
     /**
      * A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      */
-    public readonly routes!: pulumi.Output<outputs.ec2.RouteTableRoute[]>;
+    public readonly routes!: pulumi.Output<outputs.ec2.RouteTableRoute[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

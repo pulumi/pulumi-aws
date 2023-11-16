@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
         /// The ENI Attachment ID.
         /// </summary>
         [Output("attachmentId")]
-        public Output<string> AttachmentId { get; private set; } = null!;
+        public Output<string?> AttachmentId { get; private set; } = null!;
 
         /// <summary>
         /// Network interface index (int).
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Ec2
         /// The status of the Network Interface Attachment.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

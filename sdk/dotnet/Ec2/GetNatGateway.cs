@@ -242,29 +242,29 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the EIP allocated to the selected NAT Gateway.
         /// </summary>
-        public readonly string AllocationId;
+        public readonly string? AllocationId;
         /// <summary>
         /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         /// </summary>
-        public readonly string AssociationId;
+        public readonly string? AssociationId;
         /// <summary>
         /// Connectivity type of the NAT Gateway.
         /// </summary>
-        public readonly string ConnectivityType;
+        public readonly string? ConnectivityType;
         public readonly ImmutableArray<Outputs.GetNatGatewayFilterResult> Filters;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The ID of the ENI allocated to the selected NAT Gateway.
         /// </summary>
-        public readonly string NetworkInterfaceId;
+        public readonly string? NetworkInterfaceId;
         /// <summary>
         /// Private IP address of the selected NAT Gateway.
         /// </summary>
-        public readonly string PrivateIp;
+        public readonly string? PrivateIp;
         /// <summary>
         /// Public IP (EIP) address of the selected NAT Gateway.
         /// </summary>
-        public readonly string PublicIp;
+        public readonly string? PublicIp;
         /// <summary>
         /// Secondary allocation EIP IDs for the selected NAT Gateway.
         /// </summary>
@@ -272,47 +272,47 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
         /// </summary>
-        public readonly int SecondaryPrivateIpAddressCount;
+        public readonly int? SecondaryPrivateIpAddressCount;
         /// <summary>
         /// Secondary private IPv4 addresses assigned to the selected NAT Gateway.
         /// </summary>
         public readonly ImmutableArray<string> SecondaryPrivateIpAddresses;
-        public readonly string State;
-        public readonly string SubnetId;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string VpcId;
+        public readonly string? State;
+        public readonly string? SubnetId;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetNatGatewayResult(
-            string allocationId,
+            string? allocationId,
 
-            string associationId,
+            string? associationId,
 
-            string connectivityType,
+            string? connectivityType,
 
             ImmutableArray<Outputs.GetNatGatewayFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string networkInterfaceId,
+            string? networkInterfaceId,
 
-            string privateIp,
+            string? privateIp,
 
-            string publicIp,
+            string? publicIp,
 
             ImmutableArray<string> secondaryAllocationIds,
 
-            int secondaryPrivateIpAddressCount,
+            int? secondaryPrivateIpAddressCount,
 
             ImmutableArray<string> secondaryPrivateIpAddresses,
 
-            string state,
+            string? state,
 
-            string subnetId,
+            string? subnetId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             AllocationId = allocationId;
             AssociationId = associationId;

@@ -16,118 +16,120 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointResult {
-    private String certificateArn;
-    private String databaseName;
-    private List<GetEndpointElasticsearchSetting> elasticsearchSettings;
-    private String endpointArn;
+    private @Nullable String certificateArn;
+    private @Nullable String databaseName;
+    private @Nullable List<GetEndpointElasticsearchSetting> elasticsearchSettings;
+    private @Nullable String endpointArn;
     private String endpointId;
-    private String endpointType;
-    private String engineName;
-    private String extraConnectionAttributes;
+    private @Nullable String endpointType;
+    private @Nullable String engineName;
+    private @Nullable String extraConnectionAttributes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private List<GetEndpointKafkaSetting> kafkaSettings;
-    private List<GetEndpointKinesisSetting> kinesisSettings;
-    private String kmsKeyArn;
-    private List<GetEndpointMongodbSetting> mongodbSettings;
-    private String password;
-    private Integer port;
-    private List<GetEndpointRedisSetting> redisSettings;
-    private List<GetEndpointRedshiftSetting> redshiftSettings;
-    private List<GetEndpointS3Setting> s3Settings;
-    private String secretsManagerAccessRoleArn;
-    private String secretsManagerArn;
-    private String serverName;
-    private String serviceAccessRole;
-    private String sslMode;
-    private Map<String,String> tags;
-    private String username;
+    private @Nullable String id;
+    private @Nullable List<GetEndpointKafkaSetting> kafkaSettings;
+    private @Nullable List<GetEndpointKinesisSetting> kinesisSettings;
+    private @Nullable String kmsKeyArn;
+    private @Nullable List<GetEndpointMongodbSetting> mongodbSettings;
+    private @Nullable String password;
+    private @Nullable Integer port;
+    private @Nullable List<GetEndpointRedisSetting> redisSettings;
+    private @Nullable List<GetEndpointRedshiftSetting> redshiftSettings;
+    private @Nullable List<GetEndpointS3Setting> s3Settings;
+    private @Nullable String secretsManagerAccessRoleArn;
+    private @Nullable String secretsManagerArn;
+    private @Nullable String serverName;
+    private @Nullable String serviceAccessRole;
+    private @Nullable String sslMode;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String username;
 
     private GetEndpointResult() {}
-    public String certificateArn() {
-        return this.certificateArn;
+    public Optional<String> certificateArn() {
+        return Optional.ofNullable(this.certificateArn);
     }
-    public String databaseName() {
-        return this.databaseName;
+    public Optional<String> databaseName() {
+        return Optional.ofNullable(this.databaseName);
     }
     public List<GetEndpointElasticsearchSetting> elasticsearchSettings() {
-        return this.elasticsearchSettings;
+        return this.elasticsearchSettings == null ? List.of() : this.elasticsearchSettings;
     }
-    public String endpointArn() {
-        return this.endpointArn;
+    public Optional<String> endpointArn() {
+        return Optional.ofNullable(this.endpointArn);
     }
     public String endpointId() {
         return this.endpointId;
     }
-    public String endpointType() {
-        return this.endpointType;
+    public Optional<String> endpointType() {
+        return Optional.ofNullable(this.endpointType);
     }
-    public String engineName() {
-        return this.engineName;
+    public Optional<String> engineName() {
+        return Optional.ofNullable(this.engineName);
     }
-    public String extraConnectionAttributes() {
-        return this.extraConnectionAttributes;
+    public Optional<String> extraConnectionAttributes() {
+        return Optional.ofNullable(this.extraConnectionAttributes);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<GetEndpointKafkaSetting> kafkaSettings() {
-        return this.kafkaSettings;
+        return this.kafkaSettings == null ? List.of() : this.kafkaSettings;
     }
     public List<GetEndpointKinesisSetting> kinesisSettings() {
-        return this.kinesisSettings;
+        return this.kinesisSettings == null ? List.of() : this.kinesisSettings;
     }
-    public String kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<String> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
     public List<GetEndpointMongodbSetting> mongodbSettings() {
-        return this.mongodbSettings;
+        return this.mongodbSettings == null ? List.of() : this.mongodbSettings;
     }
-    public String password() {
-        return this.password;
+    public Optional<String> password() {
+        return Optional.ofNullable(this.password);
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     public List<GetEndpointRedisSetting> redisSettings() {
-        return this.redisSettings;
+        return this.redisSettings == null ? List.of() : this.redisSettings;
     }
     public List<GetEndpointRedshiftSetting> redshiftSettings() {
-        return this.redshiftSettings;
+        return this.redshiftSettings == null ? List.of() : this.redshiftSettings;
     }
     public List<GetEndpointS3Setting> s3Settings() {
-        return this.s3Settings;
+        return this.s3Settings == null ? List.of() : this.s3Settings;
     }
-    public String secretsManagerAccessRoleArn() {
-        return this.secretsManagerAccessRoleArn;
+    public Optional<String> secretsManagerAccessRoleArn() {
+        return Optional.ofNullable(this.secretsManagerAccessRoleArn);
     }
-    public String secretsManagerArn() {
-        return this.secretsManagerArn;
+    public Optional<String> secretsManagerArn() {
+        return Optional.ofNullable(this.secretsManagerArn);
     }
-    public String serverName() {
-        return this.serverName;
+    public Optional<String> serverName() {
+        return Optional.ofNullable(this.serverName);
     }
-    public String serviceAccessRole() {
-        return this.serviceAccessRole;
+    public Optional<String> serviceAccessRole() {
+        return Optional.ofNullable(this.serviceAccessRole);
     }
-    public String sslMode() {
-        return this.sslMode;
+    public Optional<String> sslMode() {
+        return Optional.ofNullable(this.sslMode);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String username() {
-        return this.username;
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
     }
 
     public static Builder builder() {
@@ -139,31 +141,31 @@ public final class GetEndpointResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String certificateArn;
-        private String databaseName;
-        private List<GetEndpointElasticsearchSetting> elasticsearchSettings;
-        private String endpointArn;
+        private @Nullable String certificateArn;
+        private @Nullable String databaseName;
+        private @Nullable List<GetEndpointElasticsearchSetting> elasticsearchSettings;
+        private @Nullable String endpointArn;
         private String endpointId;
-        private String endpointType;
-        private String engineName;
-        private String extraConnectionAttributes;
-        private String id;
-        private List<GetEndpointKafkaSetting> kafkaSettings;
-        private List<GetEndpointKinesisSetting> kinesisSettings;
-        private String kmsKeyArn;
-        private List<GetEndpointMongodbSetting> mongodbSettings;
-        private String password;
-        private Integer port;
-        private List<GetEndpointRedisSetting> redisSettings;
-        private List<GetEndpointRedshiftSetting> redshiftSettings;
-        private List<GetEndpointS3Setting> s3Settings;
-        private String secretsManagerAccessRoleArn;
-        private String secretsManagerArn;
-        private String serverName;
-        private String serviceAccessRole;
-        private String sslMode;
-        private Map<String,String> tags;
-        private String username;
+        private @Nullable String endpointType;
+        private @Nullable String engineName;
+        private @Nullable String extraConnectionAttributes;
+        private @Nullable String id;
+        private @Nullable List<GetEndpointKafkaSetting> kafkaSettings;
+        private @Nullable List<GetEndpointKinesisSetting> kinesisSettings;
+        private @Nullable String kmsKeyArn;
+        private @Nullable List<GetEndpointMongodbSetting> mongodbSettings;
+        private @Nullable String password;
+        private @Nullable Integer port;
+        private @Nullable List<GetEndpointRedisSetting> redisSettings;
+        private @Nullable List<GetEndpointRedshiftSetting> redshiftSettings;
+        private @Nullable List<GetEndpointS3Setting> s3Settings;
+        private @Nullable String secretsManagerAccessRoleArn;
+        private @Nullable String secretsManagerArn;
+        private @Nullable String serverName;
+        private @Nullable String serviceAccessRole;
+        private @Nullable String sslMode;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String username;
         public Builder() {}
         public Builder(GetEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -195,26 +197,26 @@ public final class GetEndpointResult {
         }
 
         @CustomType.Setter
-        public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+        public Builder certificateArn(@Nullable String certificateArn) {
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
-        public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+        public Builder databaseName(@Nullable String databaseName) {
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
-        public Builder elasticsearchSettings(List<GetEndpointElasticsearchSetting> elasticsearchSettings) {
-            this.elasticsearchSettings = Objects.requireNonNull(elasticsearchSettings);
+        public Builder elasticsearchSettings(@Nullable List<GetEndpointElasticsearchSetting> elasticsearchSettings) {
+            this.elasticsearchSettings = elasticsearchSettings;
             return this;
         }
         public Builder elasticsearchSettings(GetEndpointElasticsearchSetting... elasticsearchSettings) {
             return elasticsearchSettings(List.of(elasticsearchSettings));
         }
         @CustomType.Setter
-        public Builder endpointArn(String endpointArn) {
-            this.endpointArn = Objects.requireNonNull(endpointArn);
+        public Builder endpointArn(@Nullable String endpointArn) {
+            this.endpointArn = endpointArn;
             return this;
         }
         @CustomType.Setter
@@ -223,121 +225,121 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder endpointType(String endpointType) {
-            this.endpointType = Objects.requireNonNull(endpointType);
+        public Builder endpointType(@Nullable String endpointType) {
+            this.endpointType = endpointType;
             return this;
         }
         @CustomType.Setter
-        public Builder engineName(String engineName) {
-            this.engineName = Objects.requireNonNull(engineName);
+        public Builder engineName(@Nullable String engineName) {
+            this.engineName = engineName;
             return this;
         }
         @CustomType.Setter
-        public Builder extraConnectionAttributes(String extraConnectionAttributes) {
-            this.extraConnectionAttributes = Objects.requireNonNull(extraConnectionAttributes);
+        public Builder extraConnectionAttributes(@Nullable String extraConnectionAttributes) {
+            this.extraConnectionAttributes = extraConnectionAttributes;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kafkaSettings(List<GetEndpointKafkaSetting> kafkaSettings) {
-            this.kafkaSettings = Objects.requireNonNull(kafkaSettings);
+        public Builder kafkaSettings(@Nullable List<GetEndpointKafkaSetting> kafkaSettings) {
+            this.kafkaSettings = kafkaSettings;
             return this;
         }
         public Builder kafkaSettings(GetEndpointKafkaSetting... kafkaSettings) {
             return kafkaSettings(List.of(kafkaSettings));
         }
         @CustomType.Setter
-        public Builder kinesisSettings(List<GetEndpointKinesisSetting> kinesisSettings) {
-            this.kinesisSettings = Objects.requireNonNull(kinesisSettings);
+        public Builder kinesisSettings(@Nullable List<GetEndpointKinesisSetting> kinesisSettings) {
+            this.kinesisSettings = kinesisSettings;
             return this;
         }
         public Builder kinesisSettings(GetEndpointKinesisSetting... kinesisSettings) {
             return kinesisSettings(List.of(kinesisSettings));
         }
         @CustomType.Setter
-        public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+        public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder mongodbSettings(List<GetEndpointMongodbSetting> mongodbSettings) {
-            this.mongodbSettings = Objects.requireNonNull(mongodbSettings);
+        public Builder mongodbSettings(@Nullable List<GetEndpointMongodbSetting> mongodbSettings) {
+            this.mongodbSettings = mongodbSettings;
             return this;
         }
         public Builder mongodbSettings(GetEndpointMongodbSetting... mongodbSettings) {
             return mongodbSettings(List.of(mongodbSettings));
         }
         @CustomType.Setter
-        public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+        public Builder password(@Nullable String password) {
+            this.password = password;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder redisSettings(List<GetEndpointRedisSetting> redisSettings) {
-            this.redisSettings = Objects.requireNonNull(redisSettings);
+        public Builder redisSettings(@Nullable List<GetEndpointRedisSetting> redisSettings) {
+            this.redisSettings = redisSettings;
             return this;
         }
         public Builder redisSettings(GetEndpointRedisSetting... redisSettings) {
             return redisSettings(List.of(redisSettings));
         }
         @CustomType.Setter
-        public Builder redshiftSettings(List<GetEndpointRedshiftSetting> redshiftSettings) {
-            this.redshiftSettings = Objects.requireNonNull(redshiftSettings);
+        public Builder redshiftSettings(@Nullable List<GetEndpointRedshiftSetting> redshiftSettings) {
+            this.redshiftSettings = redshiftSettings;
             return this;
         }
         public Builder redshiftSettings(GetEndpointRedshiftSetting... redshiftSettings) {
             return redshiftSettings(List.of(redshiftSettings));
         }
         @CustomType.Setter
-        public Builder s3Settings(List<GetEndpointS3Setting> s3Settings) {
-            this.s3Settings = Objects.requireNonNull(s3Settings);
+        public Builder s3Settings(@Nullable List<GetEndpointS3Setting> s3Settings) {
+            this.s3Settings = s3Settings;
             return this;
         }
         public Builder s3Settings(GetEndpointS3Setting... s3Settings) {
             return s3Settings(List.of(s3Settings));
         }
         @CustomType.Setter
-        public Builder secretsManagerAccessRoleArn(String secretsManagerAccessRoleArn) {
-            this.secretsManagerAccessRoleArn = Objects.requireNonNull(secretsManagerAccessRoleArn);
+        public Builder secretsManagerAccessRoleArn(@Nullable String secretsManagerAccessRoleArn) {
+            this.secretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder secretsManagerArn(String secretsManagerArn) {
-            this.secretsManagerArn = Objects.requireNonNull(secretsManagerArn);
+        public Builder secretsManagerArn(@Nullable String secretsManagerArn) {
+            this.secretsManagerArn = secretsManagerArn;
             return this;
         }
         @CustomType.Setter
-        public Builder serverName(String serverName) {
-            this.serverName = Objects.requireNonNull(serverName);
+        public Builder serverName(@Nullable String serverName) {
+            this.serverName = serverName;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceAccessRole(String serviceAccessRole) {
-            this.serviceAccessRole = Objects.requireNonNull(serviceAccessRole);
+        public Builder serviceAccessRole(@Nullable String serviceAccessRole) {
+            this.serviceAccessRole = serviceAccessRole;
             return this;
         }
         @CustomType.Setter
-        public Builder sslMode(String sslMode) {
-            this.sslMode = Objects.requireNonNull(sslMode);
+        public Builder sslMode(@Nullable String sslMode) {
+            this.sslMode = sslMode;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+        public Builder username(@Nullable String username) {
+            this.username = username;
             return this;
         }
         public GetEndpointResult build() {

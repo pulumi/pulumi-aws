@@ -57,10 +57,10 @@ namespace Pulumi.Aws.OpsWorks
         /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
         /// </summary>
         [Output("agentVersion")]
-        public Output<string> AgentVersion { get; private set; } = null!;
+        public Output<string?> AgentVersion { get; private set; } = null!;
 
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.OpsWorks
         /// Cannot be set when `vpc_id` is set.
         /// </summary>
         [Output("defaultAvailabilityZone")]
-        public Output<string> DefaultAvailabilityZone { get; private set; } = null!;
+        public Output<string?> DefaultAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of an IAM Instance Profile that created instances will have by default.
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.OpsWorks
         /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         /// </summary>
         [Output("defaultSubnetId")]
-        public Output<string> DefaultSubnetId { get; private set; } = null!;
+        public Output<string?> DefaultSubnetId { get; private set; } = null!;
 
         /// <summary>
         /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<string> ServiceRoleArn { get; private set; } = null!;
 
         [Output("stackEndpoint")]
-        public Output<string> StackEndpoint { get; private set; } = null!;
+        public Output<string?> StackEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource.
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.OpsWorks
         /// Defaults to the region's default VPC.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

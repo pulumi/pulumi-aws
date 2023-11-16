@@ -564,7 +564,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Redshift event notification subscription
         """
@@ -572,7 +572,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerAwsId")
-    def customer_aws_id(self) -> pulumi.Output[str]:
+    def customer_aws_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS customer account associated with the Redshift event notification subscription
         """
@@ -636,7 +636,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property

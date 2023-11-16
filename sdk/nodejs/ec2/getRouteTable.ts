@@ -83,38 +83,38 @@ export interface GetRouteTableResult {
     /**
      * ARN of the route table.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * List of associations with attributes detailed below.
      */
-    readonly associations: outputs.ec2.GetRouteTableAssociation[];
+    readonly associations?: outputs.ec2.GetRouteTableAssociation[];
     readonly filters?: outputs.ec2.GetRouteTableFilter[];
     /**
      * Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
      */
-    readonly gatewayId: string;
+    readonly gatewayId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ID of the AWS account that owns the route table.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * Route Table ID.
      */
-    readonly routeTableId: string;
+    readonly routeTableId?: string;
     /**
      * List of routes with attributes detailed below.
      */
-    readonly routes: outputs.ec2.GetRouteTableRoute[];
+    readonly routes?: outputs.ec2.GetRouteTableRoute[];
     /**
      * Subnet ID. Only set when associated with a subnet.
      */
-    readonly subnetId: string;
-    readonly tags: {[key: string]: string};
-    readonly vpcId: string;
+    readonly subnetId?: string;
+    readonly tags?: {[key: string]: string};
+    readonly vpcId?: string;
 }
 /**
  * `aws.ec2.RouteTable` provides details about a specific Route Table.

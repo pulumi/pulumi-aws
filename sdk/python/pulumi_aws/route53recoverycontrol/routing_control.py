@@ -320,7 +320,7 @@ class RoutingControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the routing control.
         """
@@ -336,7 +336,7 @@ class RoutingControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="controlPanelArn")
-    def control_panel_arn(self) -> pulumi.Output[str]:
+    def control_panel_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the control panel in which this routing control will reside.
         """
@@ -354,7 +354,7 @@ class RoutingControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """

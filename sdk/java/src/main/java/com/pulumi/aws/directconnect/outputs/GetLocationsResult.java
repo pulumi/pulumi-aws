@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocationsResult {
@@ -14,27 +16,27 @@ public final class GetLocationsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Code for the locations.
      * 
      */
-    private List<String> locationCodes;
+    private @Nullable List<String> locationCodes;
 
     private GetLocationsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Code for the locations.
      * 
      */
     public List<String> locationCodes() {
-        return this.locationCodes;
+        return this.locationCodes == null ? List.of() : this.locationCodes;
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetLocationsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private List<String> locationCodes;
+        private @Nullable String id;
+        private @Nullable List<String> locationCodes;
         public Builder() {}
         public Builder(GetLocationsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetLocationsResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder locationCodes(List<String> locationCodes) {
-            this.locationCodes = Objects.requireNonNull(locationCodes);
+        public Builder locationCodes(@Nullable List<String> locationCodes) {
+            this.locationCodes = locationCodes;
             return this;
         }
         public Builder locationCodes(String... locationCodes) {

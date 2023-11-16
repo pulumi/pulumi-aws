@@ -289,7 +289,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? IncludeComplianceDetails;
         public readonly ImmutableArray<string> ResourceArnLists;
         /// <summary>
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private GetResourcesResult(
             bool? excludeCompliantResources,
 
-            string id,
+            string? id,
 
             bool? includeComplianceDetails,
 

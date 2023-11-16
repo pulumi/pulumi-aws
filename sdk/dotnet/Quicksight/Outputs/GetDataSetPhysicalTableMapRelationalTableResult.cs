@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetPhysicalTableMapRelationalTableResult
     {
-        public readonly string Catalog;
-        public readonly string DataSourceArn;
+        public readonly string? Catalog;
+        public readonly string? DataSourceArn;
         public readonly ImmutableArray<Outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult> InputColumns;
-        public readonly string Name;
-        public readonly string Schema;
+        public readonly string? Name;
+        public readonly string? Schema;
 
         [OutputConstructor]
         private GetDataSetPhysicalTableMapRelationalTableResult(
-            string catalog,
+            string? catalog,
 
-            string dataSourceArn,
+            string? dataSourceArn,
 
             ImmutableArray<Outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult> inputColumns,
 
-            string name,
+            string? name,
 
-            string schema)
+            string? schema)
         {
             Catalog = catalog;
             DataSourceArn = dataSourceArn;

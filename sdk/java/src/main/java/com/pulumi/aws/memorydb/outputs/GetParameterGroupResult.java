@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetParameterGroupResult {
@@ -16,22 +18,22 @@ public final class GetParameterGroupResult {
      * @return ARN of the parameter group.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the parameter group.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Engine version that the parameter group can be used with.
      * 
      */
-    private String family;
+    private @Nullable String family;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the parameter.
      * 
@@ -41,41 +43,41 @@ public final class GetParameterGroupResult {
      * @return Set of user-defined MemoryDB parameters applied by the parameter group.
      * 
      */
-    private List<GetParameterGroupParameter> parameters;
+    private @Nullable List<GetParameterGroupParameter> parameters;
     /**
      * @return Map of tags assigned to the parameter group.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetParameterGroupResult() {}
     /**
      * @return ARN of the parameter group.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the parameter group.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Engine version that the parameter group can be used with.
      * 
      */
-    public String family() {
-        return this.family;
+    public Optional<String> family() {
+        return Optional.ofNullable(this.family);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the parameter.
@@ -89,14 +91,14 @@ public final class GetParameterGroupResult {
      * 
      */
     public List<GetParameterGroupParameter> parameters() {
-        return this.parameters;
+        return this.parameters == null ? List.of() : this.parameters;
     }
     /**
      * @return Map of tags assigned to the parameter group.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -108,13 +110,13 @@ public final class GetParameterGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String family;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String family;
+        private @Nullable String id;
         private String name;
-        private List<GetParameterGroupParameter> parameters;
-        private Map<String,String> tags;
+        private @Nullable List<GetParameterGroupParameter> parameters;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetParameterGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -128,23 +130,23 @@ public final class GetParameterGroupResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder family(String family) {
-            this.family = Objects.requireNonNull(family);
+        public Builder family(@Nullable String family) {
+            this.family = family;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -153,16 +155,16 @@ public final class GetParameterGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(List<GetParameterGroupParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable List<GetParameterGroupParameter> parameters) {
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetParameterGroupParameter... parameters) {
             return parameters(List.of(parameters));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetParameterGroupResult build() {

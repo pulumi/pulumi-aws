@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallFirewallStatusSyncState {
@@ -15,12 +17,12 @@ public final class GetFirewallFirewallStatusSyncState {
      * @return Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
      * 
      */
-    private List<GetFirewallFirewallStatusSyncStateAttachment> attachments;
+    private @Nullable List<GetFirewallFirewallStatusSyncStateAttachment> attachments;
     /**
      * @return The Availability Zone where the subnet is configured.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
 
     private GetFirewallFirewallStatusSyncState() {}
     /**
@@ -28,14 +30,14 @@ public final class GetFirewallFirewallStatusSyncState {
      * 
      */
     public List<GetFirewallFirewallStatusSyncStateAttachment> attachments() {
-        return this.attachments;
+        return this.attachments == null ? List.of() : this.attachments;
     }
     /**
      * @return The Availability Zone where the subnet is configured.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetFirewallFirewallStatusSyncState {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetFirewallFirewallStatusSyncStateAttachment> attachments;
-        private String availabilityZone;
+        private @Nullable List<GetFirewallFirewallStatusSyncStateAttachment> attachments;
+        private @Nullable String availabilityZone;
         public Builder() {}
         public Builder(GetFirewallFirewallStatusSyncState defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +59,16 @@ public final class GetFirewallFirewallStatusSyncState {
         }
 
         @CustomType.Setter
-        public Builder attachments(List<GetFirewallFirewallStatusSyncStateAttachment> attachments) {
-            this.attachments = Objects.requireNonNull(attachments);
+        public Builder attachments(@Nullable List<GetFirewallFirewallStatusSyncStateAttachment> attachments) {
+            this.attachments = attachments;
             return this;
         }
         public Builder attachments(GetFirewallFirewallStatusSyncStateAttachment... attachments) {
             return attachments(List.of(attachments));
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         public GetFirewallFirewallStatusSyncState build() {

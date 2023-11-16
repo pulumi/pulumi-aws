@@ -6,6 +6,8 @@ package com.pulumi.aws.iam.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSessionContextResult {
@@ -14,27 +16,27 @@ public final class GetSessionContextResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.
      * 
      */
-    private String issuerArn;
+    private @Nullable String issuerArn;
     /**
      * @return Unique identifier of the IAM role that issues the STS assumed role.
      * 
      */
-    private String issuerId;
+    private @Nullable String issuerId;
     /**
      * @return Name of the source role. Only available if `arn` corresponds to an STS assumed role.
      * 
      */
-    private String issuerName;
+    private @Nullable String issuerName;
     /**
      * @return Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
      * 
      */
-    private String sessionName;
+    private @Nullable String sessionName;
 
     private GetSessionContextResult() {}
     public String arn() {
@@ -44,36 +46,36 @@ public final class GetSessionContextResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.
      * 
      */
-    public String issuerArn() {
-        return this.issuerArn;
+    public Optional<String> issuerArn() {
+        return Optional.ofNullable(this.issuerArn);
     }
     /**
      * @return Unique identifier of the IAM role that issues the STS assumed role.
      * 
      */
-    public String issuerId() {
-        return this.issuerId;
+    public Optional<String> issuerId() {
+        return Optional.ofNullable(this.issuerId);
     }
     /**
      * @return Name of the source role. Only available if `arn` corresponds to an STS assumed role.
      * 
      */
-    public String issuerName() {
-        return this.issuerName;
+    public Optional<String> issuerName() {
+        return Optional.ofNullable(this.issuerName);
     }
     /**
      * @return Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
      * 
      */
-    public String sessionName() {
-        return this.sessionName;
+    public Optional<String> sessionName() {
+        return Optional.ofNullable(this.sessionName);
     }
 
     public static Builder builder() {
@@ -86,11 +88,11 @@ public final class GetSessionContextResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String id;
-        private String issuerArn;
-        private String issuerId;
-        private String issuerName;
-        private String sessionName;
+        private @Nullable String id;
+        private @Nullable String issuerArn;
+        private @Nullable String issuerId;
+        private @Nullable String issuerName;
+        private @Nullable String sessionName;
         public Builder() {}
         public Builder(GetSessionContextResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -108,28 +110,28 @@ public final class GetSessionContextResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder issuerArn(String issuerArn) {
-            this.issuerArn = Objects.requireNonNull(issuerArn);
+        public Builder issuerArn(@Nullable String issuerArn) {
+            this.issuerArn = issuerArn;
             return this;
         }
         @CustomType.Setter
-        public Builder issuerId(String issuerId) {
-            this.issuerId = Objects.requireNonNull(issuerId);
+        public Builder issuerId(@Nullable String issuerId) {
+            this.issuerId = issuerId;
             return this;
         }
         @CustomType.Setter
-        public Builder issuerName(String issuerName) {
-            this.issuerName = Objects.requireNonNull(issuerName);
+        public Builder issuerName(@Nullable String issuerName) {
+            this.issuerName = issuerName;
             return this;
         }
         @CustomType.Setter
-        public Builder sessionName(String sessionName) {
-            this.sessionName = Objects.requireNonNull(sessionName);
+        public Builder sessionName(@Nullable String sessionName) {
+            this.sessionName = sessionName;
             return this;
         }
         public GetSessionContextResult build() {

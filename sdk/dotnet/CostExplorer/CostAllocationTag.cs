@@ -58,7 +58,7 @@ namespace Pulumi.Aws.CostExplorer
         /// The type of cost allocation tag.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

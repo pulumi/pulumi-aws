@@ -7,30 +7,32 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateInstanceMarketOptionSpotOption {
-    private Integer blockDurationMinutes;
-    private String instanceInterruptionBehavior;
-    private String maxPrice;
-    private String spotInstanceType;
-    private String validUntil;
+    private @Nullable Integer blockDurationMinutes;
+    private @Nullable String instanceInterruptionBehavior;
+    private @Nullable String maxPrice;
+    private @Nullable String spotInstanceType;
+    private @Nullable String validUntil;
 
     private GetLaunchTemplateInstanceMarketOptionSpotOption() {}
-    public Integer blockDurationMinutes() {
-        return this.blockDurationMinutes;
+    public Optional<Integer> blockDurationMinutes() {
+        return Optional.ofNullable(this.blockDurationMinutes);
     }
-    public String instanceInterruptionBehavior() {
-        return this.instanceInterruptionBehavior;
+    public Optional<String> instanceInterruptionBehavior() {
+        return Optional.ofNullable(this.instanceInterruptionBehavior);
     }
-    public String maxPrice() {
-        return this.maxPrice;
+    public Optional<String> maxPrice() {
+        return Optional.ofNullable(this.maxPrice);
     }
-    public String spotInstanceType() {
-        return this.spotInstanceType;
+    public Optional<String> spotInstanceType() {
+        return Optional.ofNullable(this.spotInstanceType);
     }
-    public String validUntil() {
-        return this.validUntil;
+    public Optional<String> validUntil() {
+        return Optional.ofNullable(this.validUntil);
     }
 
     public static Builder builder() {
@@ -42,11 +44,11 @@ public final class GetLaunchTemplateInstanceMarketOptionSpotOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer blockDurationMinutes;
-        private String instanceInterruptionBehavior;
-        private String maxPrice;
-        private String spotInstanceType;
-        private String validUntil;
+        private @Nullable Integer blockDurationMinutes;
+        private @Nullable String instanceInterruptionBehavior;
+        private @Nullable String maxPrice;
+        private @Nullable String spotInstanceType;
+        private @Nullable String validUntil;
         public Builder() {}
         public Builder(GetLaunchTemplateInstanceMarketOptionSpotOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,28 +60,28 @@ public final class GetLaunchTemplateInstanceMarketOptionSpotOption {
         }
 
         @CustomType.Setter
-        public Builder blockDurationMinutes(Integer blockDurationMinutes) {
-            this.blockDurationMinutes = Objects.requireNonNull(blockDurationMinutes);
+        public Builder blockDurationMinutes(@Nullable Integer blockDurationMinutes) {
+            this.blockDurationMinutes = blockDurationMinutes;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceInterruptionBehavior(String instanceInterruptionBehavior) {
-            this.instanceInterruptionBehavior = Objects.requireNonNull(instanceInterruptionBehavior);
+        public Builder instanceInterruptionBehavior(@Nullable String instanceInterruptionBehavior) {
+            this.instanceInterruptionBehavior = instanceInterruptionBehavior;
             return this;
         }
         @CustomType.Setter
-        public Builder maxPrice(String maxPrice) {
-            this.maxPrice = Objects.requireNonNull(maxPrice);
+        public Builder maxPrice(@Nullable String maxPrice) {
+            this.maxPrice = maxPrice;
             return this;
         }
         @CustomType.Setter
-        public Builder spotInstanceType(String spotInstanceType) {
-            this.spotInstanceType = Objects.requireNonNull(spotInstanceType);
+        public Builder spotInstanceType(@Nullable String spotInstanceType) {
+            this.spotInstanceType = spotInstanceType;
             return this;
         }
         @CustomType.Setter
-        public Builder validUntil(String validUntil) {
-            this.validUntil = Objects.requireNonNull(validUntil);
+        public Builder validUntil(@Nullable String validUntil) {
+            this.validUntil = validUntil;
             return this;
         }
         public GetLaunchTemplateInstanceMarketOptionSpotOption build() {

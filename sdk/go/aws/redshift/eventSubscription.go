@@ -79,9 +79,9 @@ type EventSubscription struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Redshift event notification subscription
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The AWS customer account associated with the Redshift event notification subscription
-	CustomerAwsId pulumi.StringOutput `pulumi:"customerAwsId"`
+	CustomerAwsId pulumi.StringPtrOutput `pulumi:"customerAwsId"`
 	// A boolean flag to enable/disable the subscription. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
@@ -96,7 +96,7 @@ type EventSubscription struct {
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
-	Status     pulumi.StringOutput    `pulumi:"status"`
+	Status     pulumi.StringPtrOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -328,13 +328,13 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx contex
 }
 
 // Amazon Resource Name (ARN) of the Redshift event notification subscription
-func (o EventSubscriptionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EventSubscriptionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The AWS customer account associated with the Redshift event notification subscription
-func (o EventSubscriptionOutput) CustomerAwsId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.CustomerAwsId }).(pulumi.StringOutput)
+func (o EventSubscriptionOutput) CustomerAwsId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.CustomerAwsId }).(pulumi.StringPtrOutput)
 }
 
 // A boolean flag to enable/disable the subscription. Defaults to `true`.
@@ -372,8 +372,8 @@ func (o EventSubscriptionOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.SourceType }).(pulumi.StringPtrOutput)
 }
 
-func (o EventSubscriptionOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o EventSubscriptionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

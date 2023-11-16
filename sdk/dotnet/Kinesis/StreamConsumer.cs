@@ -54,13 +54,13 @@ namespace Pulumi.Aws.Kinesis
         /// Amazon Resource Name (ARN) of the stream consumer.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         /// </summary>
         [Output("creationTimestamp")]
-        public Output<string> CreationTimestamp { get; private set; } = null!;
+        public Output<string?> CreationTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Name of the stream consumer.

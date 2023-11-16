@@ -67,17 +67,17 @@ class GetResolverFirewallRuleGroupAssociationResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> Optional[str]:
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
-    def creator_request_id(self) -> str:
+    def creator_request_id(self) -> Optional[str]:
         return pulumi.get(self, "creator_request_id")
 
     @property
@@ -87,12 +87,12 @@ class GetResolverFirewallRuleGroupAssociationResult:
 
     @property
     @pulumi.getter(name="firewallRuleGroupId")
-    def firewall_rule_group_id(self) -> str:
+    def firewall_rule_group_id(self) -> Optional[str]:
         return pulumi.get(self, "firewall_rule_group_id")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -100,42 +100,42 @@ class GetResolverFirewallRuleGroupAssociationResult:
 
     @property
     @pulumi.getter(name="managedOwnerName")
-    def managed_owner_name(self) -> str:
+    def managed_owner_name(self) -> Optional[str]:
         return pulumi.get(self, "managed_owner_name")
 
     @property
     @pulumi.getter(name="modificationTime")
-    def modification_time(self) -> str:
+    def modification_time(self) -> Optional[str]:
         return pulumi.get(self, "modification_time")
 
     @property
     @pulumi.getter(name="mutationProtection")
-    def mutation_protection(self) -> str:
+    def mutation_protection(self) -> Optional[str]:
         return pulumi.get(self, "mutation_protection")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def priority(self) -> int:
+    def priority(self) -> Optional[int]:
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> str:
+    def status_message(self) -> Optional[str]:
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
 

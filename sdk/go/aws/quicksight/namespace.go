@@ -54,15 +54,15 @@ type Namespace struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Namespace.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// Namespace AWS Region.
-	CapacityRegion pulumi.StringOutput `pulumi:"capacityRegion"`
+	CapacityRegion pulumi.StringPtrOutput `pulumi:"capacityRegion"`
 	// Creation status of the namespace.
-	CreationStatus pulumi.StringOutput `pulumi:"creationStatus"`
+	CreationStatus pulumi.StringPtrOutput `pulumi:"creationStatus"`
 	// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-	IdentityStore pulumi.StringOutput `pulumi:"identityStore"`
+	IdentityStore pulumi.StringPtrOutput `pulumi:"identityStore"`
 	// Name of the namespace.
 	//
 	// The following arguments are optional:
@@ -281,28 +281,28 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 }
 
 // ARN of the Namespace.
-func (o NamespaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o NamespaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o NamespaceOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o NamespaceOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Namespace AWS Region.
-func (o NamespaceOutput) CapacityRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.CapacityRegion }).(pulumi.StringOutput)
+func (o NamespaceOutput) CapacityRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.CapacityRegion }).(pulumi.StringPtrOutput)
 }
 
 // Creation status of the namespace.
-func (o NamespaceOutput) CreationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.CreationStatus }).(pulumi.StringOutput)
+func (o NamespaceOutput) CreationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.CreationStatus }).(pulumi.StringPtrOutput)
 }
 
 // User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-func (o NamespaceOutput) IdentityStore() pulumi.StringOutput {
-	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.IdentityStore }).(pulumi.StringOutput)
+func (o NamespaceOutput) IdentityStore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.IdentityStore }).(pulumi.StringPtrOutput)
 }
 
 // Name of the namespace.

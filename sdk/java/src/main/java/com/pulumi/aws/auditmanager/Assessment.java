@@ -89,14 +89,14 @@ public class Assessment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the assessment.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Assessment report storage destination configuration. See `assessment_reports_destination` below.
@@ -173,14 +173,14 @@ public class Assessment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="rolesAlls", refs={List.class,AssessmentRolesAll.class}, tree="[0,1]")
-    private Output<List<AssessmentRolesAll>> rolesAlls;
+    private Output</* @Nullable */ List<AssessmentRolesAll>> rolesAlls;
 
     /**
      * @return Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
      * 
      */
-    public Output<List<AssessmentRolesAll>> rolesAlls() {
-        return this.rolesAlls;
+    public Output<Optional<List<AssessmentRolesAll>>> rolesAlls() {
+        return Codegen.optional(this.rolesAlls);
     }
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -205,14 +205,14 @@ public class Assessment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

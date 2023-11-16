@@ -81,7 +81,7 @@ export class MacsecKeyAssociation extends pulumi.CustomResource {
     /**
      * The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
      */
-    public readonly ckn!: pulumi.Output<string>;
+    public readonly ckn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
      */
@@ -91,15 +91,15 @@ export class MacsecKeyAssociation extends pulumi.CustomResource {
      *
      * > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
      */
-    public readonly secretArn!: pulumi.Output<string>;
+    public readonly secretArn!: pulumi.Output<string | undefined>;
     /**
      * The date in UTC format that the MAC Security (MACsec) secret key takes effect.
      */
-    public /*out*/ readonly startOn!: pulumi.Output<string>;
+    public /*out*/ readonly startOn!: pulumi.Output<string | undefined>;
     /**
      * The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MacsecKeyAssociation resource with the given unique name, arguments, and options.

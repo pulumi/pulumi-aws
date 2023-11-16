@@ -382,7 +382,7 @@ class LocationFsxLustre(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -390,7 +390,7 @@ class LocationFsxLustre(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the FSx for Lustre location was created.
         """
@@ -414,7 +414,7 @@ class LocationFsxLustre(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> pulumi.Output[str]:
+    def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
         Subdirectory to perform actions as source or destination.
         """
@@ -441,7 +441,7 @@ class LocationFsxLustre(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> pulumi.Output[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URL of the FSx for Lustre location that was described.
         """

@@ -44,17 +44,17 @@ type LookupGroupArgs struct {
 type LookupGroupResult struct {
 	AlternateIdentifier *GetGroupAlternateIdentifier `pulumi:"alternateIdentifier"`
 	// Description of the specified group.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Group's display name value.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 	// List of identifiers issued to this resource by an external identity provider.
 	ExternalIds []GetGroupExternalId `pulumi:"externalIds"`
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter  *GetGroupFilter `pulumi:"filter"`
-	GroupId string          `pulumi:"groupId"`
+	GroupId *string         `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IdentityStoreId string `pulumi:"identityStoreId"`
+	Id              *string `pulumi:"id"`
+	IdentityStoreId string  `pulumi:"identityStoreId"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -112,13 +112,13 @@ func (o LookupGroupResultOutput) AlternateIdentifier() GetGroupAlternateIdentifi
 }
 
 // Description of the specified group.
-func (o LookupGroupResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupGroupResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Group's display name value.
-func (o LookupGroupResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupGroupResult) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o LookupGroupResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // List of identifiers issued to this resource by an external identity provider.
@@ -131,13 +131,13 @@ func (o LookupGroupResultOutput) Filter() GetGroupFilterPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *GetGroupFilter { return v.Filter }).(GetGroupFilterPtrOutput)
 }
 
-func (o LookupGroupResultOutput) GroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupGroupResult) string { return v.GroupId }).(pulumi.StringOutput)
+func (o LookupGroupResultOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGroupResultOutput) IdentityStoreId() pulumi.StringOutput {

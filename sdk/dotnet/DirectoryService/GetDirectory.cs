@@ -128,16 +128,16 @@ namespace Pulumi.Aws.DirectoryService
         /// <summary>
         /// Access URL for the directory/connector, such as http://alias.awsapps.com.
         /// </summary>
-        public readonly string AccessUrl;
+        public readonly string? AccessUrl;
         /// <summary>
         /// Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
         /// </summary>
-        public readonly string Alias;
+        public readonly string? Alias;
         public readonly ImmutableArray<Outputs.GetDirectoryConnectSettingResult> ConnectSettings;
         /// <summary>
         /// Textual description for the directory/connector.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string DirectoryId;
         /// <summary>
         /// List of IP addresses of the DNS servers for the directory/connector.
@@ -146,75 +146,75 @@ namespace Pulumi.Aws.DirectoryService
         /// <summary>
         /// (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
         /// </summary>
-        public readonly string Edition;
+        public readonly string? Edition;
         /// <summary>
         /// Directory/connector single-sign on status.
         /// </summary>
-        public readonly bool EnableSso;
+        public readonly bool? EnableSso;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Fully qualified name for the directory/connector.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly ImmutableArray<Outputs.GetDirectoryRadiusSettingResult> RadiusSettings;
         /// <summary>
         /// ID of the security group created by the directory/connector.
         /// </summary>
-        public readonly string SecurityGroupId;
+        public readonly string? SecurityGroupId;
         /// <summary>
         /// Short name of the directory/connector, such as `CORP`.
         /// </summary>
-        public readonly string ShortName;
+        public readonly string? ShortName;
         /// <summary>
         /// (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
         /// </summary>
-        public readonly string Size;
+        public readonly string? Size;
         /// <summary>
         /// A map of tags assigned to the directory/connector.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         public readonly ImmutableArray<Outputs.GetDirectoryVpcSettingResult> VpcSettings;
 
         [OutputConstructor]
         private GetDirectoryResult(
-            string accessUrl,
+            string? accessUrl,
 
-            string alias,
+            string? alias,
 
             ImmutableArray<Outputs.GetDirectoryConnectSettingResult> connectSettings,
 
-            string description,
+            string? description,
 
             string directoryId,
 
             ImmutableArray<string> dnsIpAddresses,
 
-            string edition,
+            string? edition,
 
-            bool enableSso,
+            bool? enableSso,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetDirectoryRadiusSettingResult> radiusSettings,
 
-            string securityGroupId,
+            string? securityGroupId,
 
-            string shortName,
+            string? shortName,
 
-            string size,
+            string? size,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type,
+            string? type,
 
             ImmutableArray<Outputs.GetDirectoryVpcSettingResult> vpcSettings)
         {

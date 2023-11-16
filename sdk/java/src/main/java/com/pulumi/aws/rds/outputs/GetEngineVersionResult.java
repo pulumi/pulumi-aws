@@ -18,92 +18,92 @@ public final class GetEngineVersionResult {
      * @return The default character set for new instances of this engine version.
      * 
      */
-    private String defaultCharacterSet;
+    private @Nullable String defaultCharacterSet;
     private @Nullable Boolean defaultOnly;
     private String engine;
     /**
      * @return Description of the database engine.
      * 
      */
-    private String engineDescription;
+    private @Nullable String engineDescription;
     /**
      * @return Set of log types that the database engine has available for export to CloudWatch Logs.
      * 
      */
-    private List<String> exportableLogTypes;
+    private @Nullable List<String> exportableLogTypes;
     private @Nullable List<GetEngineVersionFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean includeAll;
-    private String parameterGroupFamily;
+    private @Nullable String parameterGroupFamily;
     private @Nullable List<String> preferredVersions;
     /**
      * @return Status of the DB engine version, either available or deprecated.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Set of the character sets supported by this engine.
      * 
      */
-    private List<String> supportedCharacterSets;
+    private @Nullable List<String> supportedCharacterSets;
     /**
      * @return Set of features supported by the DB engine.
      * 
      */
-    private List<String> supportedFeatureNames;
+    private @Nullable List<String> supportedFeatureNames;
     /**
      * @return Set of the supported DB engine modes.
      * 
      */
-    private List<String> supportedModes;
+    private @Nullable List<String> supportedModes;
     /**
      * @return Set of the time zones supported by this engine.
      * 
      */
-    private List<String> supportedTimezones;
+    private @Nullable List<String> supportedTimezones;
     /**
      * @return Indicates whether you can use Aurora global databases with a specific DB engine version.
      * 
      */
-    private Boolean supportsGlobalDatabases;
+    private @Nullable Boolean supportsGlobalDatabases;
     /**
      * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
      */
-    private Boolean supportsLogExportsToCloudwatch;
+    private @Nullable Boolean supportsLogExportsToCloudwatch;
     /**
      * @return Indicates whether you can use Aurora parallel query with a specific DB engine version.
      * 
      */
-    private Boolean supportsParallelQuery;
+    private @Nullable Boolean supportsParallelQuery;
     /**
      * @return Indicates whether the database engine version supports read replicas.
      * 
      */
-    private Boolean supportsReadReplica;
+    private @Nullable Boolean supportsReadReplica;
     /**
      * @return Set of engine versions that this database engine version can be upgraded to.
      * 
      */
-    private List<String> validUpgradeTargets;
-    private String version;
+    private @Nullable List<String> validUpgradeTargets;
+    private @Nullable String version;
     /**
      * @return Description of the database engine version.
      * 
      */
-    private String versionDescription;
+    private @Nullable String versionDescription;
 
     private GetEngineVersionResult() {}
     /**
      * @return The default character set for new instances of this engine version.
      * 
      */
-    public String defaultCharacterSet() {
-        return this.defaultCharacterSet;
+    public Optional<String> defaultCharacterSet() {
+        return Optional.ofNullable(this.defaultCharacterSet);
     }
     public Optional<Boolean> defaultOnly() {
         return Optional.ofNullable(this.defaultOnly);
@@ -115,15 +115,15 @@ public final class GetEngineVersionResult {
      * @return Description of the database engine.
      * 
      */
-    public String engineDescription() {
-        return this.engineDescription;
+    public Optional<String> engineDescription() {
+        return Optional.ofNullable(this.engineDescription);
     }
     /**
      * @return Set of log types that the database engine has available for export to CloudWatch Logs.
      * 
      */
     public List<String> exportableLogTypes() {
-        return this.exportableLogTypes;
+        return this.exportableLogTypes == null ? List.of() : this.exportableLogTypes;
     }
     public List<GetEngineVersionFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -132,14 +132,14 @@ public final class GetEngineVersionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> includeAll() {
         return Optional.ofNullable(this.includeAll);
     }
-    public String parameterGroupFamily() {
-        return this.parameterGroupFamily;
+    public Optional<String> parameterGroupFamily() {
+        return Optional.ofNullable(this.parameterGroupFamily);
     }
     public List<String> preferredVersions() {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
@@ -148,81 +148,81 @@ public final class GetEngineVersionResult {
      * @return Status of the DB engine version, either available or deprecated.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Set of the character sets supported by this engine.
      * 
      */
     public List<String> supportedCharacterSets() {
-        return this.supportedCharacterSets;
+        return this.supportedCharacterSets == null ? List.of() : this.supportedCharacterSets;
     }
     /**
      * @return Set of features supported by the DB engine.
      * 
      */
     public List<String> supportedFeatureNames() {
-        return this.supportedFeatureNames;
+        return this.supportedFeatureNames == null ? List.of() : this.supportedFeatureNames;
     }
     /**
      * @return Set of the supported DB engine modes.
      * 
      */
     public List<String> supportedModes() {
-        return this.supportedModes;
+        return this.supportedModes == null ? List.of() : this.supportedModes;
     }
     /**
      * @return Set of the time zones supported by this engine.
      * 
      */
     public List<String> supportedTimezones() {
-        return this.supportedTimezones;
+        return this.supportedTimezones == null ? List.of() : this.supportedTimezones;
     }
     /**
      * @return Indicates whether you can use Aurora global databases with a specific DB engine version.
      * 
      */
-    public Boolean supportsGlobalDatabases() {
-        return this.supportsGlobalDatabases;
+    public Optional<Boolean> supportsGlobalDatabases() {
+        return Optional.ofNullable(this.supportsGlobalDatabases);
     }
     /**
      * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
      */
-    public Boolean supportsLogExportsToCloudwatch() {
-        return this.supportsLogExportsToCloudwatch;
+    public Optional<Boolean> supportsLogExportsToCloudwatch() {
+        return Optional.ofNullable(this.supportsLogExportsToCloudwatch);
     }
     /**
      * @return Indicates whether you can use Aurora parallel query with a specific DB engine version.
      * 
      */
-    public Boolean supportsParallelQuery() {
-        return this.supportsParallelQuery;
+    public Optional<Boolean> supportsParallelQuery() {
+        return Optional.ofNullable(this.supportsParallelQuery);
     }
     /**
      * @return Indicates whether the database engine version supports read replicas.
      * 
      */
-    public Boolean supportsReadReplica() {
-        return this.supportsReadReplica;
+    public Optional<Boolean> supportsReadReplica() {
+        return Optional.ofNullable(this.supportsReadReplica);
     }
     /**
      * @return Set of engine versions that this database engine version can be upgraded to.
      * 
      */
     public List<String> validUpgradeTargets() {
-        return this.validUpgradeTargets;
+        return this.validUpgradeTargets == null ? List.of() : this.validUpgradeTargets;
     }
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
     /**
      * @return Description of the database engine version.
      * 
      */
-    public String versionDescription() {
-        return this.versionDescription;
+    public Optional<String> versionDescription() {
+        return Optional.ofNullable(this.versionDescription);
     }
 
     public static Builder builder() {
@@ -234,28 +234,28 @@ public final class GetEngineVersionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String defaultCharacterSet;
+        private @Nullable String defaultCharacterSet;
         private @Nullable Boolean defaultOnly;
         private String engine;
-        private String engineDescription;
-        private List<String> exportableLogTypes;
+        private @Nullable String engineDescription;
+        private @Nullable List<String> exportableLogTypes;
         private @Nullable List<GetEngineVersionFilter> filters;
-        private String id;
+        private @Nullable String id;
         private @Nullable Boolean includeAll;
-        private String parameterGroupFamily;
+        private @Nullable String parameterGroupFamily;
         private @Nullable List<String> preferredVersions;
-        private String status;
-        private List<String> supportedCharacterSets;
-        private List<String> supportedFeatureNames;
-        private List<String> supportedModes;
-        private List<String> supportedTimezones;
-        private Boolean supportsGlobalDatabases;
-        private Boolean supportsLogExportsToCloudwatch;
-        private Boolean supportsParallelQuery;
-        private Boolean supportsReadReplica;
-        private List<String> validUpgradeTargets;
-        private String version;
-        private String versionDescription;
+        private @Nullable String status;
+        private @Nullable List<String> supportedCharacterSets;
+        private @Nullable List<String> supportedFeatureNames;
+        private @Nullable List<String> supportedModes;
+        private @Nullable List<String> supportedTimezones;
+        private @Nullable Boolean supportsGlobalDatabases;
+        private @Nullable Boolean supportsLogExportsToCloudwatch;
+        private @Nullable Boolean supportsParallelQuery;
+        private @Nullable Boolean supportsReadReplica;
+        private @Nullable List<String> validUpgradeTargets;
+        private @Nullable String version;
+        private @Nullable String versionDescription;
         public Builder() {}
         public Builder(GetEngineVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -284,8 +284,8 @@ public final class GetEngineVersionResult {
         }
 
         @CustomType.Setter
-        public Builder defaultCharacterSet(String defaultCharacterSet) {
-            this.defaultCharacterSet = Objects.requireNonNull(defaultCharacterSet);
+        public Builder defaultCharacterSet(@Nullable String defaultCharacterSet) {
+            this.defaultCharacterSet = defaultCharacterSet;
             return this;
         }
         @CustomType.Setter
@@ -299,13 +299,13 @@ public final class GetEngineVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder engineDescription(String engineDescription) {
-            this.engineDescription = Objects.requireNonNull(engineDescription);
+        public Builder engineDescription(@Nullable String engineDescription) {
+            this.engineDescription = engineDescription;
             return this;
         }
         @CustomType.Setter
-        public Builder exportableLogTypes(List<String> exportableLogTypes) {
-            this.exportableLogTypes = Objects.requireNonNull(exportableLogTypes);
+        public Builder exportableLogTypes(@Nullable List<String> exportableLogTypes) {
+            this.exportableLogTypes = exportableLogTypes;
             return this;
         }
         public Builder exportableLogTypes(String... exportableLogTypes) {
@@ -320,8 +320,8 @@ public final class GetEngineVersionResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -330,8 +330,8 @@ public final class GetEngineVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder parameterGroupFamily(String parameterGroupFamily) {
-            this.parameterGroupFamily = Objects.requireNonNull(parameterGroupFamily);
+        public Builder parameterGroupFamily(@Nullable String parameterGroupFamily) {
+            this.parameterGroupFamily = parameterGroupFamily;
             return this;
         }
         @CustomType.Setter
@@ -343,78 +343,78 @@ public final class GetEngineVersionResult {
             return preferredVersions(List.of(preferredVersions));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder supportedCharacterSets(List<String> supportedCharacterSets) {
-            this.supportedCharacterSets = Objects.requireNonNull(supportedCharacterSets);
+        public Builder supportedCharacterSets(@Nullable List<String> supportedCharacterSets) {
+            this.supportedCharacterSets = supportedCharacterSets;
             return this;
         }
         public Builder supportedCharacterSets(String... supportedCharacterSets) {
             return supportedCharacterSets(List.of(supportedCharacterSets));
         }
         @CustomType.Setter
-        public Builder supportedFeatureNames(List<String> supportedFeatureNames) {
-            this.supportedFeatureNames = Objects.requireNonNull(supportedFeatureNames);
+        public Builder supportedFeatureNames(@Nullable List<String> supportedFeatureNames) {
+            this.supportedFeatureNames = supportedFeatureNames;
             return this;
         }
         public Builder supportedFeatureNames(String... supportedFeatureNames) {
             return supportedFeatureNames(List.of(supportedFeatureNames));
         }
         @CustomType.Setter
-        public Builder supportedModes(List<String> supportedModes) {
-            this.supportedModes = Objects.requireNonNull(supportedModes);
+        public Builder supportedModes(@Nullable List<String> supportedModes) {
+            this.supportedModes = supportedModes;
             return this;
         }
         public Builder supportedModes(String... supportedModes) {
             return supportedModes(List.of(supportedModes));
         }
         @CustomType.Setter
-        public Builder supportedTimezones(List<String> supportedTimezones) {
-            this.supportedTimezones = Objects.requireNonNull(supportedTimezones);
+        public Builder supportedTimezones(@Nullable List<String> supportedTimezones) {
+            this.supportedTimezones = supportedTimezones;
             return this;
         }
         public Builder supportedTimezones(String... supportedTimezones) {
             return supportedTimezones(List.of(supportedTimezones));
         }
         @CustomType.Setter
-        public Builder supportsGlobalDatabases(Boolean supportsGlobalDatabases) {
-            this.supportsGlobalDatabases = Objects.requireNonNull(supportsGlobalDatabases);
+        public Builder supportsGlobalDatabases(@Nullable Boolean supportsGlobalDatabases) {
+            this.supportsGlobalDatabases = supportsGlobalDatabases;
             return this;
         }
         @CustomType.Setter
-        public Builder supportsLogExportsToCloudwatch(Boolean supportsLogExportsToCloudwatch) {
-            this.supportsLogExportsToCloudwatch = Objects.requireNonNull(supportsLogExportsToCloudwatch);
+        public Builder supportsLogExportsToCloudwatch(@Nullable Boolean supportsLogExportsToCloudwatch) {
+            this.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             return this;
         }
         @CustomType.Setter
-        public Builder supportsParallelQuery(Boolean supportsParallelQuery) {
-            this.supportsParallelQuery = Objects.requireNonNull(supportsParallelQuery);
+        public Builder supportsParallelQuery(@Nullable Boolean supportsParallelQuery) {
+            this.supportsParallelQuery = supportsParallelQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder supportsReadReplica(Boolean supportsReadReplica) {
-            this.supportsReadReplica = Objects.requireNonNull(supportsReadReplica);
+        public Builder supportsReadReplica(@Nullable Boolean supportsReadReplica) {
+            this.supportsReadReplica = supportsReadReplica;
             return this;
         }
         @CustomType.Setter
-        public Builder validUpgradeTargets(List<String> validUpgradeTargets) {
-            this.validUpgradeTargets = Objects.requireNonNull(validUpgradeTargets);
+        public Builder validUpgradeTargets(@Nullable List<String> validUpgradeTargets) {
+            this.validUpgradeTargets = validUpgradeTargets;
             return this;
         }
         public Builder validUpgradeTargets(String... validUpgradeTargets) {
             return validUpgradeTargets(List.of(validUpgradeTargets));
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         @CustomType.Setter
-        public Builder versionDescription(String versionDescription) {
-            this.versionDescription = Objects.requireNonNull(versionDescription);
+        public Builder versionDescription(@Nullable String versionDescription) {
+            this.versionDescription = versionDescription;
             return this;
         }
         public GetEngineVersionResult build() {

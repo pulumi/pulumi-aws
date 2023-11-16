@@ -257,7 +257,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="allowOverwrite", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> allowOverwrite;
+    private Output</* @Nullable */ Boolean> allowOverwrite;
 
     /**
      * @return Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
@@ -265,8 +265,8 @@ public class Record extends com.pulumi.resources.CustomResource {
      * Exactly one of `records` or `alias` must be specified: this determines whether it&#39;s an alias record.
      * 
      */
-    public Output<Boolean> allowOverwrite() {
-        return this.allowOverwrite;
+    public Output<Optional<Boolean>> allowOverwrite() {
+        return Codegen.optional(this.allowOverwrite);
     }
     /**
      * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
@@ -301,14 +301,14 @@ public class Record extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="fqdn", refs={String.class}, tree="[0]")
-    private Output<String> fqdn;
+    private Output</* @Nullable */ String> fqdn;
 
     /**
      * @return [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      * 
      */
-    public Output<String> fqdn() {
-        return this.fqdn;
+    public Output<Optional<String>> fqdn() {
+        return Codegen.optional(this.fqdn);
     }
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.

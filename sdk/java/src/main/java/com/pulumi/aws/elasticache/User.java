@@ -159,28 +159,28 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the created ElastiCache User.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Denotes the user&#39;s authentication properties. Detailed below.
      * 
      */
     @Export(name="authenticationMode", refs={UserAuthenticationMode.class}, tree="[0]")
-    private Output<UserAuthenticationMode> authenticationMode;
+    private Output</* @Nullable */ UserAuthenticationMode> authenticationMode;
 
     /**
      * @return Denotes the user&#39;s authentication properties. Detailed below.
      * 
      */
-    public Output<UserAuthenticationMode> authenticationMode() {
-        return this.authenticationMode;
+    public Output<Optional<UserAuthenticationMode>> authenticationMode() {
+        return Codegen.optional(this.authenticationMode);
     }
     /**
      * The current supported value is `REDIS`.

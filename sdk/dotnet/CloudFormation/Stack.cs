@@ -122,20 +122,20 @@ namespace Pulumi.Aws.CloudFormation
         /// A map of outputs from the stack.
         /// </summary>
         [Output("outputs")]
-        public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// A map of Parameter structures that specify input parameters for the stack.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Structure containing the stack policy body.
         /// Conflicts w/ `policy_url`.
         /// </summary>
         [Output("policyBody")]
-        public Output<string> PolicyBody { get; private set; } = null!;
+        public Output<string?> PolicyBody { get; private set; } = null!;
 
         /// <summary>
         /// Location of a file containing the stack policy.
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Structure containing the template body (max size: 51,200 bytes).
         /// </summary>
         [Output("templateBody")]
-        public Output<string> TemplateBody { get; private set; } = null!;
+        public Output<string?> TemplateBody { get; private set; } = null!;
 
         /// <summary>
         /// Location of a file containing the template body (max size: 460,800 bytes).

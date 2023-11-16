@@ -43,7 +43,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the repository
         """
@@ -51,7 +51,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="cloneUrlHttp")
-    def clone_url_http(self) -> str:
+    def clone_url_http(self) -> Optional[str]:
         """
         URL to use for cloning the repository over HTTPS.
         """
@@ -59,7 +59,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="cloneUrlSsh")
-    def clone_url_ssh(self) -> str:
+    def clone_url_ssh(self) -> Optional[str]:
         """
         URL to use for cloning the repository over SSH.
         """
@@ -67,7 +67,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -75,7 +75,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> str:
+    def repository_id(self) -> Optional[str]:
         """
         ID of the repository
         """

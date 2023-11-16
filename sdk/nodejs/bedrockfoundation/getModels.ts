@@ -80,7 +80,7 @@ export interface GetModelsResult {
     /**
      * AWS region.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of model summary objects. See `modelSummaries`.
      */

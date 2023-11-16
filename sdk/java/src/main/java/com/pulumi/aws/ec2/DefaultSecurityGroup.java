@@ -51,90 +51,90 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the security group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of this rule.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description of this rule.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Configuration block. Detailed below.
      * 
      */
     @Export(name="egress", refs={List.class,DefaultSecurityGroupEgress.class}, tree="[0,1]")
-    private Output<List<DefaultSecurityGroupEgress>> egress;
+    private Output</* @Nullable */ List<DefaultSecurityGroupEgress>> egress;
 
     /**
      * @return Configuration block. Detailed below.
      * 
      */
-    public Output<List<DefaultSecurityGroupEgress>> egress() {
-        return this.egress;
+    public Output<Optional<List<DefaultSecurityGroupEgress>>> egress() {
+        return Codegen.optional(this.egress);
     }
     /**
      * Configuration block. Detailed below.
      * 
      */
     @Export(name="ingress", refs={List.class,DefaultSecurityGroupIngress.class}, tree="[0,1]")
-    private Output<List<DefaultSecurityGroupIngress>> ingress;
+    private Output</* @Nullable */ List<DefaultSecurityGroupIngress>> ingress;
 
     /**
      * @return Configuration block. Detailed below.
      * 
      */
-    public Output<List<DefaultSecurityGroupIngress>> ingress() {
-        return this.ingress;
+    public Output<Optional<List<DefaultSecurityGroupIngress>>> ingress() {
+        return Codegen.optional(this.ingress);
     }
     /**
      * Name of the security group.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return Name of the security group.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Owner ID.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return Owner ID.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     @Export(name="revokeRulesOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revokeRulesOnDelete;
@@ -179,14 +179,14 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

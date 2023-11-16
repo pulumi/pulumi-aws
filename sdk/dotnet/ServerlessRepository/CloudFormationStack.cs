@@ -82,19 +82,19 @@ namespace Pulumi.Aws.ServerlessRepository
         /// A map of outputs from the stack.
         /// </summary>
         [Output("outputs")]
-        public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// A map of Parameter structures that specify input parameters for the stack.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
         [Output("semanticVersion")]
-        public Output<string> SemanticVersion { get; private set; } = null!;
+        public Output<string?> SemanticVersion { get; private set; } = null!;
 
         /// <summary>
         /// A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -1324,7 +1324,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="airflowVersion")
-    def airflow_version(self) -> pulumi.Output[str]:
+    def airflow_version(self) -> pulumi.Output[Optional[str]]:
         """
         Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         """
@@ -1332,7 +1332,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the MWAA Environment
         """
@@ -1340,7 +1340,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The Created At date of the MWAA Environment
         * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
@@ -1357,7 +1357,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentClass")
-    def environment_class(self) -> pulumi.Output[str]:
+    def environment_class(self) -> pulumi.Output[Optional[str]]:
         """
         Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         """
@@ -1381,12 +1381,12 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdateds")
-    def last_updateds(self) -> pulumi.Output[Sequence['outputs.EnvironmentLastUpdated']]:
+    def last_updateds(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentLastUpdated']]]:
         return pulumi.get(self, "last_updateds")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> pulumi.Output['outputs.EnvironmentLoggingConfiguration']:
+    def logging_configuration(self) -> pulumi.Output[Optional['outputs.EnvironmentLoggingConfiguration']]:
         """
         The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
         """
@@ -1394,7 +1394,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxWorkers")
-    def max_workers(self) -> pulumi.Output[int]:
+    def max_workers(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         """
@@ -1402,7 +1402,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minWorkers")
-    def min_workers(self) -> pulumi.Output[int]:
+    def min_workers(self) -> pulumi.Output[Optional[int]]:
         """
         The minimum number of workers that you want to run in your environment. Will be `1` by default.
         """
@@ -1426,7 +1426,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pluginsS3ObjectVersion")
-    def plugins_s3_object_version(self) -> pulumi.Output[str]:
+    def plugins_s3_object_version(self) -> pulumi.Output[Optional[str]]:
         """
         The plugins.zip file version you want to use.
         """
@@ -1442,7 +1442,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requirementsS3ObjectVersion")
-    def requirements_s3_object_version(self) -> pulumi.Output[str]:
+    def requirements_s3_object_version(self) -> pulumi.Output[Optional[str]]:
         """
         The requirements.txt file version you want to use.
         """
@@ -1458,7 +1458,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedulers(self) -> pulumi.Output[int]:
+    def schedulers(self) -> pulumi.Output[Optional[int]]:
         """
         The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         """
@@ -1466,7 +1466,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRoleArn")
-    def service_role_arn(self) -> pulumi.Output[str]:
+    def service_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Service Role ARN of the Amazon MWAA Environment
         """
@@ -1482,7 +1482,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startupScriptS3ObjectVersion")
-    def startup_script_s3_object_version(self) -> pulumi.Output[str]:
+    def startup_script_s3_object_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         """
@@ -1498,7 +1498,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the Amazon MWAA Environment
         """
@@ -1525,7 +1525,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webserverAccessMode")
-    def webserver_access_mode(self) -> pulumi.Output[str]:
+    def webserver_access_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         """
@@ -1533,7 +1533,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webserverUrl")
-    def webserver_url(self) -> pulumi.Output[str]:
+    def webserver_url(self) -> pulumi.Output[Optional[str]]:
         """
         The webserver URL of the MWAA Environment
         """
@@ -1541,7 +1541,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
-    def weekly_maintenance_window_start(self) -> pulumi.Output[str]:
+    def weekly_maintenance_window_start(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the start date for the weekly maintenance window.
         """

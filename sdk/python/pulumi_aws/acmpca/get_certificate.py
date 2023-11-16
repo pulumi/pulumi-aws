@@ -45,7 +45,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def certificate(self) -> str:
+    def certificate(self) -> Optional[str]:
         """
         PEM-encoded certificate value.
         """
@@ -58,7 +58,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> str:
+    def certificate_chain(self) -> Optional[str]:
         """
         PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         """
@@ -66,7 +66,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

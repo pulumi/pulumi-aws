@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessPointRootDirectory {
@@ -15,12 +17,12 @@ public final class GetAccessPointRootDirectory {
      * @return Single element list containing information on the creation permissions of the directory
      * 
      */
-    private List<GetAccessPointRootDirectoryCreationInfo> creationInfos;
+    private @Nullable List<GetAccessPointRootDirectoryCreationInfo> creationInfos;
     /**
      * @return Path exposed as the root directory
      * 
      */
-    private String path;
+    private @Nullable String path;
 
     private GetAccessPointRootDirectory() {}
     /**
@@ -28,14 +30,14 @@ public final class GetAccessPointRootDirectory {
      * 
      */
     public List<GetAccessPointRootDirectoryCreationInfo> creationInfos() {
-        return this.creationInfos;
+        return this.creationInfos == null ? List.of() : this.creationInfos;
     }
     /**
      * @return Path exposed as the root directory
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetAccessPointRootDirectory {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetAccessPointRootDirectoryCreationInfo> creationInfos;
-        private String path;
+        private @Nullable List<GetAccessPointRootDirectoryCreationInfo> creationInfos;
+        private @Nullable String path;
         public Builder() {}
         public Builder(GetAccessPointRootDirectory defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +59,16 @@ public final class GetAccessPointRootDirectory {
         }
 
         @CustomType.Setter
-        public Builder creationInfos(List<GetAccessPointRootDirectoryCreationInfo> creationInfos) {
-            this.creationInfos = Objects.requireNonNull(creationInfos);
+        public Builder creationInfos(@Nullable List<GetAccessPointRootDirectoryCreationInfo> creationInfos) {
+            this.creationInfos = creationInfos;
             return this;
         }
         public Builder creationInfos(GetAccessPointRootDirectoryCreationInfo... creationInfos) {
             return creationInfos(List.of(creationInfos));
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         public GetAccessPointRootDirectory build() {

@@ -639,7 +639,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
         """
@@ -655,7 +655,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="audioCodecOptions")
-    def audio_codec_options(self) -> pulumi.Output['outputs.PresetAudioCodecOptions']:
+    def audio_codec_options(self) -> pulumi.Output[Optional['outputs.PresetAudioCodecOptions']]:
         """
         Codec options for the audio parameters (documented below)
         """
@@ -695,7 +695,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "type")
 
     @property

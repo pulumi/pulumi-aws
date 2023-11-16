@@ -59,7 +59,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     /**
      * ARN of the Network Insights Path.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
@@ -67,7 +67,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     /**
      * ARN of the destination.
      */
-    public /*out*/ readonly destinationArn!: pulumi.Output<string>;
+    public /*out*/ readonly destinationArn!: pulumi.Output<string | undefined>;
     /**
      * IP address of the destination resource.
      */
@@ -89,7 +89,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     /**
      * ARN of the source.
      */
-    public /*out*/ readonly sourceArn!: pulumi.Output<string>;
+    public /*out*/ readonly sourceArn!: pulumi.Output<string | undefined>;
     /**
      * IP address of the source resource.
      */

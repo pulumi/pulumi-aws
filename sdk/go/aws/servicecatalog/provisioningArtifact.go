@@ -68,9 +68,9 @@ type ProvisioningArtifact struct {
 	// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// Time when the provisioning artifact was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
 	DisableTemplateValidation pulumi.BoolPtrOutput `pulumi:"disableTemplateValidation"`
 	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
@@ -80,7 +80,7 @@ type ProvisioningArtifact struct {
 	// Identifier of the product.
 	ProductId pulumi.StringOutput `pulumi:"productId"`
 	// Provisioning artifact identifier.
-	ProvisioningArtifactId pulumi.StringOutput `pulumi:"provisioningArtifactId"`
+	ProvisioningArtifactId pulumi.StringPtrOutput `pulumi:"provisioningArtifactId"`
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrOutput `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
@@ -334,13 +334,13 @@ func (o ProvisioningArtifactOutput) Active() pulumi.BoolPtrOutput {
 }
 
 // Time when the provisioning artifact was created.
-func (o ProvisioningArtifactOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o ProvisioningArtifactOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-func (o ProvisioningArtifactOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o ProvisioningArtifactOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
@@ -364,8 +364,8 @@ func (o ProvisioningArtifactOutput) ProductId() pulumi.StringOutput {
 }
 
 // Provisioning artifact identifier.
-func (o ProvisioningArtifactOutput) ProvisioningArtifactId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.ProvisioningArtifactId }).(pulumi.StringOutput)
+func (o ProvisioningArtifactOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.ProvisioningArtifactId }).(pulumi.StringPtrOutput)
 }
 
 // Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.

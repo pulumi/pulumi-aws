@@ -89,7 +89,7 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
     /**
      * The email assertion.
      */
-    public readonly emailAssertion!: pulumi.Output<string>;
+    public readonly emailAssertion!: pulumi.Output<string | undefined>;
     /**
      * The groups assertion.
      */
@@ -105,15 +105,15 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
     /**
      * The login assertion.
      */
-    public readonly loginAssertion!: pulumi.Output<string>;
+    public readonly loginAssertion!: pulumi.Output<string | undefined>;
     /**
      * The login validity duration.
      */
-    public readonly loginValidityDuration!: pulumi.Output<number>;
+    public readonly loginValidityDuration!: pulumi.Output<number | undefined>;
     /**
      * The name assertion.
      */
-    public readonly nameAssertion!: pulumi.Output<string>;
+    public readonly nameAssertion!: pulumi.Output<string | undefined>;
     /**
      * The org assertion.
      */
@@ -125,7 +125,7 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
     /**
      * The status of the SAML configuration.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * The workspace id.
      *

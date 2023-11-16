@@ -37,12 +37,12 @@ class GetResolverFirewallConfigResult:
 
     @property
     @pulumi.getter(name="firewallFailOpen")
-    def firewall_fail_open(self) -> str:
+    def firewall_fail_open(self) -> Optional[str]:
         return pulumi.get(self, "firewall_fail_open")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -50,7 +50,7 @@ class GetResolverFirewallConfigResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         return pulumi.get(self, "owner_id")
 
     @property

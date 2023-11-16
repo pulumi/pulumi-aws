@@ -128,48 +128,48 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Hostname of the RDS instance. See also `endpoint` and `port`.
         /// </summary>
-        public readonly string Address;
+        public readonly string? Address;
         /// <summary>
         /// Allocated storage size specified in gigabytes.
         /// </summary>
-        public readonly int AllocatedStorage;
+        public readonly int? AllocatedStorage;
         /// <summary>
         /// Indicates that minor version patches are applied automatically.
         /// </summary>
-        public readonly bool AutoMinorVersionUpgrade;
+        public readonly bool? AutoMinorVersionUpgrade;
         /// <summary>
         /// Name of the Availability Zone the DB instance is located in.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// Specifies the number of days for which automatic DB snapshots are retained.
         /// </summary>
-        public readonly int BackupRetentionPeriod;
+        public readonly int? BackupRetentionPeriod;
         /// <summary>
         /// Identifier of the CA certificate for the DB instance.
         /// </summary>
-        public readonly string CaCertIdentifier;
+        public readonly string? CaCertIdentifier;
         /// <summary>
         /// If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
         /// </summary>
-        public readonly string DbClusterIdentifier;
+        public readonly string? DbClusterIdentifier;
         /// <summary>
         /// ARN for the DB instance.
         /// </summary>
-        public readonly string DbInstanceArn;
+        public readonly string? DbInstanceArn;
         /// <summary>
         /// Contains the name of the compute and memory capacity class of the DB instance.
         /// </summary>
-        public readonly string DbInstanceClass;
-        public readonly string DbInstanceIdentifier;
+        public readonly string? DbInstanceClass;
+        public readonly string? DbInstanceIdentifier;
         /// <summary>
         /// Port that the DB instance listens on.
         /// </summary>
-        public readonly int DbInstancePort;
+        public readonly int? DbInstancePort;
         /// <summary>
         /// Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
         /// </summary>
-        public readonly string DbName;
+        public readonly string? DbName;
         /// <summary>
         /// Provides the list of DB parameter groups applied to this DB instance.
         /// </summary>
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Name of the subnet group associated with the DB instance.
         /// </summary>
-        public readonly string DbSubnetGroup;
+        public readonly string? DbSubnetGroup;
         /// <summary>
         /// List of log types to export to cloudwatch.
         /// </summary>
@@ -185,35 +185,35 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Connection endpoint in `address:port` format.
         /// </summary>
-        public readonly string Endpoint;
+        public readonly string? Endpoint;
         /// <summary>
         /// Provides the name of the database engine to be used for this DB instance.
         /// </summary>
-        public readonly string Engine;
+        public readonly string? Engine;
         /// <summary>
         /// Database engine version.
         /// </summary>
-        public readonly string EngineVersion;
+        public readonly string? EngineVersion;
         /// <summary>
         /// Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
         /// </summary>
-        public readonly string HostedZoneId;
+        public readonly string? HostedZoneId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Provisioned IOPS (I/O operations per second) value.
         /// </summary>
-        public readonly int Iops;
+        public readonly int? Iops;
         /// <summary>
         /// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// License model information for this DB instance.
         /// </summary>
-        public readonly string LicenseModel;
+        public readonly string? LicenseModel;
         /// <summary>
         /// Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         /// </summary>
@@ -221,27 +221,27 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Contains the master username for the DB instance.
         /// </summary>
-        public readonly string MasterUsername;
+        public readonly string? MasterUsername;
         /// <summary>
         /// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
         /// </summary>
-        public readonly int MaxAllocatedStorage;
+        public readonly int? MaxAllocatedStorage;
         /// <summary>
         /// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
         /// </summary>
-        public readonly int MonitoringInterval;
+        public readonly int? MonitoringInterval;
         /// <summary>
         /// ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
         /// </summary>
-        public readonly string MonitoringRoleArn;
+        public readonly string? MonitoringRoleArn;
         /// <summary>
         /// If the DB instance is a Multi-AZ deployment.
         /// </summary>
-        public readonly bool MultiAz;
+        public readonly bool? MultiAz;
         /// <summary>
         /// Network type of the DB instance.
         /// </summary>
-        public readonly string NetworkType;
+        public readonly string? NetworkType;
         /// <summary>
         /// Provides the list of option group memberships for this DB instance.
         /// </summary>
@@ -249,44 +249,44 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
         /// Specifies the daily time range during which automated backups are created.
         /// </summary>
-        public readonly string PreferredBackupWindow;
+        public readonly string? PreferredBackupWindow;
         /// <summary>
         /// Specifies the weekly time range during which system maintenance can occur in UTC.
         /// </summary>
-        public readonly string PreferredMaintenanceWindow;
+        public readonly string? PreferredMaintenanceWindow;
         /// <summary>
         /// Accessibility options for the DB instance.
         /// </summary>
-        public readonly bool PubliclyAccessible;
+        public readonly bool? PubliclyAccessible;
         /// <summary>
         /// Identifier of the source DB that this is a replica of.
         /// </summary>
-        public readonly string ReplicateSourceDb;
+        public readonly string? ReplicateSourceDb;
         /// <summary>
         /// RDS Resource ID of this instance.
         /// </summary>
-        public readonly string ResourceId;
+        public readonly string? ResourceId;
         /// <summary>
         /// Whether the DB instance is encrypted.
         /// </summary>
-        public readonly bool StorageEncrypted;
+        public readonly bool? StorageEncrypted;
         /// <summary>
         /// Storage throughput value for the DB instance.
         /// </summary>
-        public readonly int StorageThroughput;
+        public readonly int? StorageThroughput;
         /// <summary>
         /// Storage type associated with DB instance.
         /// </summary>
-        public readonly string StorageType;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? StorageType;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Time zone of the DB instance.
         /// </summary>
-        public readonly string Timezone;
+        public readonly string? Timezone;
         /// <summary>
         /// Provides a list of VPC security group elements that the DB instance belongs to.
         /// </summary>
@@ -294,89 +294,89 @@ namespace Pulumi.Aws.Rds
 
         [OutputConstructor]
         private GetInstanceResult(
-            string address,
+            string? address,
 
-            int allocatedStorage,
+            int? allocatedStorage,
 
-            bool autoMinorVersionUpgrade,
+            bool? autoMinorVersionUpgrade,
 
-            string availabilityZone,
+            string? availabilityZone,
 
-            int backupRetentionPeriod,
+            int? backupRetentionPeriod,
 
-            string caCertIdentifier,
+            string? caCertIdentifier,
 
-            string dbClusterIdentifier,
+            string? dbClusterIdentifier,
 
-            string dbInstanceArn,
+            string? dbInstanceArn,
 
-            string dbInstanceClass,
+            string? dbInstanceClass,
 
-            string dbInstanceIdentifier,
+            string? dbInstanceIdentifier,
 
-            int dbInstancePort,
+            int? dbInstancePort,
 
-            string dbName,
+            string? dbName,
 
             ImmutableArray<string> dbParameterGroups,
 
-            string dbSubnetGroup,
+            string? dbSubnetGroup,
 
             ImmutableArray<string> enabledCloudwatchLogsExports,
 
-            string endpoint,
+            string? endpoint,
 
-            string engine,
+            string? engine,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string hostedZoneId,
+            string? hostedZoneId,
 
-            string id,
+            string? id,
 
-            int iops,
+            int? iops,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string licenseModel,
+            string? licenseModel,
 
             ImmutableArray<Outputs.GetInstanceMasterUserSecretResult> masterUserSecrets,
 
-            string masterUsername,
+            string? masterUsername,
 
-            int maxAllocatedStorage,
+            int? maxAllocatedStorage,
 
-            int monitoringInterval,
+            int? monitoringInterval,
 
-            string monitoringRoleArn,
+            string? monitoringRoleArn,
 
-            bool multiAz,
+            bool? multiAz,
 
-            string networkType,
+            string? networkType,
 
             ImmutableArray<string> optionGroupMemberships,
 
-            int port,
+            int? port,
 
-            string preferredBackupWindow,
+            string? preferredBackupWindow,
 
-            string preferredMaintenanceWindow,
+            string? preferredMaintenanceWindow,
 
-            bool publiclyAccessible,
+            bool? publiclyAccessible,
 
-            string replicateSourceDb,
+            string? replicateSourceDb,
 
-            string resourceId,
+            string? resourceId,
 
-            bool storageEncrypted,
+            bool? storageEncrypted,
 
-            int storageThroughput,
+            int? storageThroughput,
 
-            string storageType,
+            string? storageType,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string timezone,
+            string? timezone,
 
             ImmutableArray<string> vpcSecurityGroups)
         {

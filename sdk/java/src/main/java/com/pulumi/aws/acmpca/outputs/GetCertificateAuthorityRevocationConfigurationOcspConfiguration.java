@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCertificateAuthorityRevocationConfigurationOcspConfiguration {
-    private Boolean enabled;
-    private String ocspCustomCname;
+    private @Nullable Boolean enabled;
+    private @Nullable String ocspCustomCname;
 
     private GetCertificateAuthorityRevocationConfigurationOcspConfiguration() {}
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
-    public String ocspCustomCname() {
-        return this.ocspCustomCname;
+    public Optional<String> ocspCustomCname() {
+        return Optional.ofNullable(this.ocspCustomCname);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetCertificateAuthorityRevocationConfigurationOcspConfigurati
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private String ocspCustomCname;
+        private @Nullable Boolean enabled;
+        private @Nullable String ocspCustomCname;
         public Builder() {}
         public Builder(GetCertificateAuthorityRevocationConfigurationOcspConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetCertificateAuthorityRevocationConfigurationOcspConfigurati
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder ocspCustomCname(String ocspCustomCname) {
-            this.ocspCustomCname = Objects.requireNonNull(ocspCustomCname);
+        public Builder ocspCustomCname(@Nullable String ocspCustomCname) {
+            this.ocspCustomCname = ocspCustomCname;
             return this;
         }
         public GetCertificateAuthorityRevocationConfigurationOcspConfiguration build() {

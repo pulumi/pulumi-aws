@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class GetDataSetPhysicalTableMapResult
     {
         public readonly ImmutableArray<Outputs.GetDataSetPhysicalTableMapCustomSqlResult> CustomSqls;
-        public readonly string PhysicalTableMapId;
+        public readonly string? PhysicalTableMapId;
         public readonly ImmutableArray<Outputs.GetDataSetPhysicalTableMapRelationalTableResult> RelationalTables;
         public readonly ImmutableArray<Outputs.GetDataSetPhysicalTableMapS3SourceResult> S3Sources;
 
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         private GetDataSetPhysicalTableMapResult(
             ImmutableArray<Outputs.GetDataSetPhysicalTableMapCustomSqlResult> customSqls,
 
-            string physicalTableMapId,
+            string? physicalTableMapId,
 
             ImmutableArray<Outputs.GetDataSetPhysicalTableMapRelationalTableResult> relationalTables,
 

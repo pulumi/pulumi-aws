@@ -63,14 +63,14 @@ export interface GetOrderableClusterResult {
     /**
      * List of Availability Zone names where the Redshift Cluster is available.
      */
-    readonly availabilityZones: string[];
-    readonly clusterType: string;
-    readonly clusterVersion: string;
+    readonly availabilityZones?: string[];
+    readonly clusterType?: string;
+    readonly clusterVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly nodeType: string;
+    readonly id?: string;
+    readonly nodeType?: string;
     readonly preferredNodeTypes?: string[];
 }
 /**

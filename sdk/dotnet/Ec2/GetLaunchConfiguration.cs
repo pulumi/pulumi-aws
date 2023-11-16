@@ -104,11 +104,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Amazon Resource Name of the launch configuration.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Whether a Public IP address is associated with the instance.
         /// </summary>
-        public readonly bool AssociatePublicIpAddress;
+        public readonly bool? AssociatePublicIpAddress;
         /// <summary>
         /// EBS Block Devices attached to the instance.
         /// </summary>
@@ -116,11 +116,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Whether the launched EC2 instance will be EBS-optimized.
         /// </summary>
-        public readonly bool EbsOptimized;
+        public readonly bool? EbsOptimized;
         /// <summary>
         /// Whether Detailed Monitoring is Enabled.
         /// </summary>
-        public readonly bool EnableMonitoring;
+        public readonly bool? EnableMonitoring;
         /// <summary>
         /// The Ephemeral volumes on the instance.
         /// </summary>
@@ -128,23 +128,23 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IAM Instance Profile to associate with launched instances.
         /// </summary>
-        public readonly string IamInstanceProfile;
+        public readonly string? IamInstanceProfile;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// EC2 Image ID of the instance.
         /// </summary>
-        public readonly string ImageId;
+        public readonly string? ImageId;
         /// <summary>
         /// Instance Type of the instance to launch.
         /// </summary>
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         /// <summary>
         /// Key Name that should be used for the instance.
         /// </summary>
-        public readonly string KeyName;
+        public readonly string? KeyName;
         /// <summary>
         /// Metadata options for the instance.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Tenancy of the instance.
         /// </summary>
-        public readonly string PlacementTenancy;
+        public readonly string? PlacementTenancy;
         /// <summary>
         /// Root Block Device of the instance.
         /// </summary>
@@ -168,49 +168,49 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Price to use for reserving Spot instances.
         /// </summary>
-        public readonly string SpotPrice;
+        public readonly string? SpotPrice;
         /// <summary>
         /// User Data of the instance.
         /// </summary>
-        public readonly string UserData;
+        public readonly string? UserData;
 
         [OutputConstructor]
         private GetLaunchConfigurationResult(
-            string arn,
+            string? arn,
 
-            bool associatePublicIpAddress,
+            bool? associatePublicIpAddress,
 
             ImmutableArray<Outputs.GetLaunchConfigurationEbsBlockDeviceResult> ebsBlockDevices,
 
-            bool ebsOptimized,
+            bool? ebsOptimized,
 
-            bool enableMonitoring,
+            bool? enableMonitoring,
 
             ImmutableArray<Outputs.GetLaunchConfigurationEphemeralBlockDeviceResult> ephemeralBlockDevices,
 
-            string iamInstanceProfile,
+            string? iamInstanceProfile,
 
-            string id,
+            string? id,
 
-            string imageId,
+            string? imageId,
 
-            string instanceType,
+            string? instanceType,
 
-            string keyName,
+            string? keyName,
 
             ImmutableArray<Outputs.GetLaunchConfigurationMetadataOptionResult> metadataOptions,
 
             string name,
 
-            string placementTenancy,
+            string? placementTenancy,
 
             ImmutableArray<Outputs.GetLaunchConfigurationRootBlockDeviceResult> rootBlockDevices,
 
             ImmutableArray<string> securityGroups,
 
-            string spotPrice,
+            string? spotPrice,
 
-            string userData)
+            string? userData)
         {
             Arn = arn;
             AssociatePublicIpAddress = associatePublicIpAddress;

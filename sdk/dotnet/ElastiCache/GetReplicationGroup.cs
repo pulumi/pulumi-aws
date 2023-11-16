@@ -104,27 +104,27 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// ARN of the created ElastiCache Replication Group.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Whether an AuthToken (password) is enabled.
         /// </summary>
-        public readonly bool AuthTokenEnabled;
+        public readonly bool? AuthTokenEnabled;
         /// <summary>
         /// A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
         /// </summary>
-        public readonly bool AutomaticFailoverEnabled;
+        public readonly bool? AutomaticFailoverEnabled;
         /// <summary>
         /// The configuration endpoint address to allow host discovery.
         /// </summary>
-        public readonly string ConfigurationEndpointAddress;
+        public readonly string? ConfigurationEndpointAddress;
         /// <summary>
         /// Description of the replication group.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
         /// </summary>
@@ -136,84 +136,84 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Whether Multi-AZ Support is enabled for the replication group.
         /// </summary>
-        public readonly bool MultiAzEnabled;
+        public readonly bool? MultiAzEnabled;
         /// <summary>
         /// The cluster node type.
         /// </summary>
-        public readonly string NodeType;
+        public readonly string? NodeType;
         /// <summary>
         /// The number of cache clusters that the replication group has.
         /// </summary>
-        public readonly int NumCacheClusters;
+        public readonly int? NumCacheClusters;
         /// <summary>
         /// Number of node groups (shards) for the replication group.
         /// </summary>
-        public readonly int NumNodeGroups;
+        public readonly int? NumNodeGroups;
         /// <summary>
         /// The port number on which the configuration endpoint will accept connections.
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
         /// The endpoint of the primary node in this node group (shard).
         /// </summary>
-        public readonly string PrimaryEndpointAddress;
+        public readonly string? PrimaryEndpointAddress;
         /// <summary>
         /// The endpoint of the reader node in this node group (shard).
         /// </summary>
-        public readonly string ReaderEndpointAddress;
+        public readonly string? ReaderEndpointAddress;
         /// <summary>
         /// Number of replica nodes in each node group.
         /// </summary>
-        public readonly int ReplicasPerNodeGroup;
+        public readonly int? ReplicasPerNodeGroup;
         public readonly string ReplicationGroupId;
         /// <summary>
         /// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
         /// </summary>
-        public readonly int SnapshotRetentionLimit;
+        public readonly int? SnapshotRetentionLimit;
         /// <summary>
         /// Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         /// </summary>
-        public readonly string SnapshotWindow;
+        public readonly string? SnapshotWindow;
 
         [OutputConstructor]
         private GetReplicationGroupResult(
-            string arn,
+            string? arn,
 
-            bool authTokenEnabled,
+            bool? authTokenEnabled,
 
-            bool automaticFailoverEnabled,
+            bool? automaticFailoverEnabled,
 
-            string configurationEndpointAddress,
+            string? configurationEndpointAddress,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetReplicationGroupLogDeliveryConfigurationResult> logDeliveryConfigurations,
 
             ImmutableArray<string> memberClusters,
 
-            bool multiAzEnabled,
+            bool? multiAzEnabled,
 
-            string nodeType,
+            string? nodeType,
 
-            int numCacheClusters,
+            int? numCacheClusters,
 
-            int numNodeGroups,
+            int? numNodeGroups,
 
-            int port,
+            int? port,
 
-            string primaryEndpointAddress,
+            string? primaryEndpointAddress,
 
-            string readerEndpointAddress,
+            string? readerEndpointAddress,
 
-            int replicasPerNodeGroup,
+            int? replicasPerNodeGroup,
 
             string replicationGroupId,
 
-            int snapshotRetentionLimit,
+            int? snapshotRetentionLimit,
 
-            string snapshotWindow)
+            string? snapshotWindow)
         {
             Arn = arn;
             AuthTokenEnabled = authTokenEnabled;

@@ -16,17 +16,17 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Name of the S3 Bucket for logging.
         /// </summary>
-        public readonly string S3BucketName;
+        public readonly string? S3BucketName;
         /// <summary>
         /// Key prefix for S3 Bucket logging.
         /// </summary>
-        public readonly string S3KeyPrefix;
+        public readonly string? S3KeyPrefix;
 
         [OutputConstructor]
         private GetInfrastructureConfigurationLoggingS3LogResult(
-            string s3BucketName,
+            string? s3BucketName,
 
-            string s3KeyPrefix)
+            string? s3KeyPrefix)
         {
             S3BucketName = s3BucketName;
             S3KeyPrefix = s3KeyPrefix;

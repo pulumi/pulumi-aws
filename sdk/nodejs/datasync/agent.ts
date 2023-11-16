@@ -57,15 +57,15 @@ export class Agent extends pulumi.CustomResource {
     /**
      * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
      */
-    public readonly activationKey!: pulumi.Output<string>;
+    public readonly activationKey!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Agent.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * Name of the DataSync Agent.
      */
@@ -73,7 +73,7 @@ export class Agent extends pulumi.CustomResource {
     /**
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      */
-    public readonly privateLinkEndpoint!: pulumi.Output<string>;
+    public readonly privateLinkEndpoint!: pulumi.Output<string | undefined>;
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */

@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Connect
         /// The Amazon Resource Name (ARN) of the Quick Connect.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the description of the Quick Connect.
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Connect
         /// The identifier for the Quick Connect.
         /// </summary>
         [Output("quickConnectId")]
-        public Output<string> QuickConnectId { get; private set; } = null!;
+        public Output<string?> QuickConnectId { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

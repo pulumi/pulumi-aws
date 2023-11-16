@@ -69,21 +69,21 @@ type Table struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the table.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies the read/write throughput capacity mode for the table.
-	CapacitySpecification TableCapacitySpecificationOutput `pulumi:"capacitySpecification"`
+	CapacitySpecification TableCapacitySpecificationPtrOutput `pulumi:"capacitySpecification"`
 	// Enables client-side timestamps for the table. By default, the setting is disabled.
 	ClientSideTimestamps TableClientSideTimestampsPtrOutput `pulumi:"clientSideTimestamps"`
 	// A description of the table.
-	Comment TableCommentOutput `pulumi:"comment"`
+	Comment TableCommentPtrOutput `pulumi:"comment"`
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
 	DefaultTimeToLive pulumi.IntPtrOutput `pulumi:"defaultTimeToLive"`
 	// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
-	EncryptionSpecification TableEncryptionSpecificationOutput `pulumi:"encryptionSpecification"`
+	EncryptionSpecification TableEncryptionSpecificationPtrOutput `pulumi:"encryptionSpecification"`
 	// The name of the keyspace that the table is going to be created in.
 	KeyspaceName pulumi.StringOutput `pulumi:"keyspaceName"`
 	// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
-	PointInTimeRecovery TablePointInTimeRecoveryOutput `pulumi:"pointInTimeRecovery"`
+	PointInTimeRecovery TablePointInTimeRecoveryPtrOutput `pulumi:"pointInTimeRecovery"`
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionOutput `pulumi:"schemaDefinition"`
 	// The name of the table.
@@ -355,13 +355,13 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 }
 
 // The ARN of the table.
-func (o TableOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TableOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the read/write throughput capacity mode for the table.
-func (o TableOutput) CapacitySpecification() TableCapacitySpecificationOutput {
-	return o.ApplyT(func(v *Table) TableCapacitySpecificationOutput { return v.CapacitySpecification }).(TableCapacitySpecificationOutput)
+func (o TableOutput) CapacitySpecification() TableCapacitySpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableCapacitySpecificationPtrOutput { return v.CapacitySpecification }).(TableCapacitySpecificationPtrOutput)
 }
 
 // Enables client-side timestamps for the table. By default, the setting is disabled.
@@ -370,8 +370,8 @@ func (o TableOutput) ClientSideTimestamps() TableClientSideTimestampsPtrOutput {
 }
 
 // A description of the table.
-func (o TableOutput) Comment() TableCommentOutput {
-	return o.ApplyT(func(v *Table) TableCommentOutput { return v.Comment }).(TableCommentOutput)
+func (o TableOutput) Comment() TableCommentPtrOutput {
+	return o.ApplyT(func(v *Table) TableCommentPtrOutput { return v.Comment }).(TableCommentPtrOutput)
 }
 
 // The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -380,8 +380,8 @@ func (o TableOutput) DefaultTimeToLive() pulumi.IntPtrOutput {
 }
 
 // Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
-func (o TableOutput) EncryptionSpecification() TableEncryptionSpecificationOutput {
-	return o.ApplyT(func(v *Table) TableEncryptionSpecificationOutput { return v.EncryptionSpecification }).(TableEncryptionSpecificationOutput)
+func (o TableOutput) EncryptionSpecification() TableEncryptionSpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableEncryptionSpecificationPtrOutput { return v.EncryptionSpecification }).(TableEncryptionSpecificationPtrOutput)
 }
 
 // The name of the keyspace that the table is going to be created in.
@@ -390,8 +390,8 @@ func (o TableOutput) KeyspaceName() pulumi.StringOutput {
 }
 
 // Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
-func (o TableOutput) PointInTimeRecovery() TablePointInTimeRecoveryOutput {
-	return o.ApplyT(func(v *Table) TablePointInTimeRecoveryOutput { return v.PointInTimeRecovery }).(TablePointInTimeRecoveryOutput)
+func (o TableOutput) PointInTimeRecovery() TablePointInTimeRecoveryPtrOutput {
+	return o.ApplyT(func(v *Table) TablePointInTimeRecoveryPtrOutput { return v.PointInTimeRecovery }).(TablePointInTimeRecoveryPtrOutput)
 }
 
 // Describes the schema of the table.

@@ -156,19 +156,19 @@ namespace Pulumi.Aws.CloudFormation
         /// <summary>
         /// Description of the stack
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Whether the rollback of the stack is disabled when stack creation fails
         /// </summary>
-        public readonly bool DisableRollback;
+        public readonly bool? DisableRollback;
         /// <summary>
         /// ARN of the IAM role used to create the stack.
         /// </summary>
-        public readonly string IamRoleArn;
+        public readonly string? IamRoleArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// List of SNS topic ARNs to publish stack related events
@@ -177,49 +177,49 @@ namespace Pulumi.Aws.CloudFormation
         /// <summary>
         /// Map of outputs from the stack.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Outputs;
+        public readonly ImmutableDictionary<string, string>? Outputs;
         /// <summary>
         /// Map of parameters that specify input parameters for the stack.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
         /// Map of tags associated with this stack.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Structure containing the template body.
         /// </summary>
-        public readonly string TemplateBody;
+        public readonly string? TemplateBody;
         /// <summary>
         /// Amount of time that can pass before the stack status becomes `CREATE_FAILED`
         /// </summary>
-        public readonly int TimeoutInMinutes;
+        public readonly int? TimeoutInMinutes;
 
         [OutputConstructor]
         private GetStackResult(
             ImmutableArray<string> capabilities,
 
-            string description,
+            string? description,
 
-            bool disableRollback,
+            bool? disableRollback,
 
-            string iamRoleArn,
+            string? iamRoleArn,
 
-            string id,
+            string? id,
 
             string name,
 
             ImmutableArray<string> notificationArns,
 
-            ImmutableDictionary<string, string> outputs,
+            ImmutableDictionary<string, string>? outputs,
 
-            ImmutableDictionary<string, string> parameters,
+            ImmutableDictionary<string, string>? parameters,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string templateBody,
+            string? templateBody,
 
-            int timeoutInMinutes)
+            int? timeoutInMinutes)
         {
             Capabilities = capabilities;
             Description = description;

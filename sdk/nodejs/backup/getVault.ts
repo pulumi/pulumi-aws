@@ -48,24 +48,24 @@ export interface GetVaultResult {
     /**
      * ARN of the vault.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Server-side encryption key that is used to protect your backups.
      */
-    readonly kmsKeyArn: string;
+    readonly kmsKeyArn?: string;
     readonly name: string;
     /**
      * Number of recovery points that are stored in a backup vault.
      */
-    readonly recoveryPoints: number;
+    readonly recoveryPoints?: number;
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get information on an existing backup vault.

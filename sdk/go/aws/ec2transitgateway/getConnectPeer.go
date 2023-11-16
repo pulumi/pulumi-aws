@@ -94,27 +94,27 @@ type LookupConnectPeerArgs struct {
 // A collection of values returned by getConnectPeer.
 type LookupConnectPeerResult struct {
 	// EC2 Transit Gateway Connect Peer ARN
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// BGP ASN number assigned customer device
-	BgpAsn string `pulumi:"bgpAsn"`
+	BgpAsn *string `pulumi:"bgpAsn"`
 	// The IP address assigned to customer device, which is used as BGP IP address.
-	BgpPeerAddress string `pulumi:"bgpPeerAddress"`
+	BgpPeerAddress *string `pulumi:"bgpPeerAddress"`
 	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
 	BgpTransitGatewayAddresses []string               `pulumi:"bgpTransitGatewayAddresses"`
 	Filters                    []GetConnectPeerFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// CIDR blocks that will be used for addressing within the tunnel.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// IP addressed assigned to customer device, which is used as tunnel endpoint
-	PeerAddress string `pulumi:"peerAddress"`
+	PeerAddress *string `pulumi:"peerAddress"`
 	// Key-value tags for the EC2 Transit Gateway Connect Peer
 	Tags map[string]string `pulumi:"tags"`
 	// The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
-	TransitGatewayAddress string `pulumi:"transitGatewayAddress"`
+	TransitGatewayAddress *string `pulumi:"transitGatewayAddress"`
 	// The Transit Gateway Connect
-	TransitGatewayAttachmentId  string `pulumi:"transitGatewayAttachmentId"`
-	TransitGatewayConnectPeerId string `pulumi:"transitGatewayConnectPeerId"`
+	TransitGatewayAttachmentId  *string `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayConnectPeerId *string `pulumi:"transitGatewayConnectPeerId"`
 }
 
 func LookupConnectPeerOutput(ctx *pulumi.Context, args LookupConnectPeerOutputArgs, opts ...pulumi.InvokeOption) LookupConnectPeerResultOutput {
@@ -160,18 +160,18 @@ func (o LookupConnectPeerResultOutput) ToLookupConnectPeerResultOutputWithContex
 }
 
 // EC2 Transit Gateway Connect Peer ARN
-func (o LookupConnectPeerResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupConnectPeerResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // BGP ASN number assigned customer device
-func (o LookupConnectPeerResultOutput) BgpAsn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.BgpAsn }).(pulumi.StringOutput)
+func (o LookupConnectPeerResultOutput) BgpAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) *string { return v.BgpAsn }).(pulumi.StringPtrOutput)
 }
 
 // The IP address assigned to customer device, which is used as BGP IP address.
-func (o LookupConnectPeerResultOutput) BgpPeerAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.BgpPeerAddress }).(pulumi.StringOutput)
+func (o LookupConnectPeerResultOutput) BgpPeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) *string { return v.BgpPeerAddress }).(pulumi.StringPtrOutput)
 }
 
 // The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
@@ -184,8 +184,8 @@ func (o LookupConnectPeerResultOutput) Filters() GetConnectPeerFilterArrayOutput
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupConnectPeerResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupConnectPeerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // CIDR blocks that will be used for addressing within the tunnel.
@@ -194,8 +194,8 @@ func (o LookupConnectPeerResultOutput) InsideCidrBlocks() pulumi.StringArrayOutp
 }
 
 // IP addressed assigned to customer device, which is used as tunnel endpoint
-func (o LookupConnectPeerResultOutput) PeerAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.PeerAddress }).(pulumi.StringOutput)
+func (o LookupConnectPeerResultOutput) PeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Connect Peer
@@ -204,17 +204,17 @@ func (o LookupConnectPeerResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
-func (o LookupConnectPeerResultOutput) TransitGatewayAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.TransitGatewayAddress }).(pulumi.StringOutput)
+func (o LookupConnectPeerResultOutput) TransitGatewayAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) *string { return v.TransitGatewayAddress }).(pulumi.StringPtrOutput)
 }
 
 // The Transit Gateway Connect
-func (o LookupConnectPeerResultOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+func (o LookupConnectPeerResultOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) *string { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupConnectPeerResultOutput) TransitGatewayConnectPeerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.TransitGatewayConnectPeerId }).(pulumi.StringOutput)
+func (o LookupConnectPeerResultOutput) TransitGatewayConnectPeerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) *string { return v.TransitGatewayConnectPeerId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

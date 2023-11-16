@@ -50,7 +50,7 @@ class GetMapResult:
 
     @property
     @pulumi.getter
-    def configurations(self) -> Sequence['outputs.GetMapConfigurationResult']:
+    def configurations(self) -> Optional[Sequence['outputs.GetMapConfigurationResult']]:
         """
         List of configurations that specify the map tile style selected from a partner data provider.
         """
@@ -58,7 +58,7 @@ class GetMapResult:
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> str:
+    def create_time(self) -> Optional[str]:
         """
         Timestamp for when the map resource was created in ISO 8601 format.
         """
@@ -66,7 +66,7 @@ class GetMapResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Optional description for the map resource.
         """
@@ -74,7 +74,7 @@ class GetMapResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -82,7 +82,7 @@ class GetMapResult:
 
     @property
     @pulumi.getter(name="mapArn")
-    def map_arn(self) -> str:
+    def map_arn(self) -> Optional[str]:
         """
         ARN for the map resource.
         """
@@ -95,7 +95,7 @@ class GetMapResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the map.
         """
@@ -103,7 +103,7 @@ class GetMapResult:
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> str:
+    def update_time(self) -> Optional[str]:
         """
         Timestamp for when the map resource was last updated in ISO 8601 format.
         """

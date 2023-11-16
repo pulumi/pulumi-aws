@@ -20,14 +20,14 @@ public final class GetResourcesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean includeComplianceDetails;
     private @Nullable List<String> resourceArnLists;
     /**
      * @return List of objects matching the search criteria.
      * 
      */
-    private List<GetResourcesResourceTagMappingList> resourceTagMappingLists;
+    private @Nullable List<GetResourcesResourceTagMappingList> resourceTagMappingLists;
     private @Nullable List<String> resourceTypeFilters;
     private @Nullable List<GetResourcesTagFilter> tagFilters;
 
@@ -39,8 +39,8 @@ public final class GetResourcesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> includeComplianceDetails() {
         return Optional.ofNullable(this.includeComplianceDetails);
@@ -53,7 +53,7 @@ public final class GetResourcesResult {
      * 
      */
     public List<GetResourcesResourceTagMappingList> resourceTagMappingLists() {
-        return this.resourceTagMappingLists;
+        return this.resourceTagMappingLists == null ? List.of() : this.resourceTagMappingLists;
     }
     public List<String> resourceTypeFilters() {
         return this.resourceTypeFilters == null ? List.of() : this.resourceTypeFilters;
@@ -72,10 +72,10 @@ public final class GetResourcesResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean excludeCompliantResources;
-        private String id;
+        private @Nullable String id;
         private @Nullable Boolean includeComplianceDetails;
         private @Nullable List<String> resourceArnLists;
-        private List<GetResourcesResourceTagMappingList> resourceTagMappingLists;
+        private @Nullable List<GetResourcesResourceTagMappingList> resourceTagMappingLists;
         private @Nullable List<String> resourceTypeFilters;
         private @Nullable List<GetResourcesTagFilter> tagFilters;
         public Builder() {}
@@ -96,8 +96,8 @@ public final class GetResourcesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -114,8 +114,8 @@ public final class GetResourcesResult {
             return resourceArnLists(List.of(resourceArnLists));
         }
         @CustomType.Setter
-        public Builder resourceTagMappingLists(List<GetResourcesResourceTagMappingList> resourceTagMappingLists) {
-            this.resourceTagMappingLists = Objects.requireNonNull(resourceTagMappingLists);
+        public Builder resourceTagMappingLists(@Nullable List<GetResourcesResourceTagMappingList> resourceTagMappingLists) {
+            this.resourceTagMappingLists = resourceTagMappingLists;
             return this;
         }
         public Builder resourceTagMappingLists(GetResourcesResourceTagMappingList... resourceTagMappingLists) {

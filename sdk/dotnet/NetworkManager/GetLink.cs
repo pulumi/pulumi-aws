@@ -142,7 +142,7 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// ARN of the link.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Upload speed and download speed of the link as documented below
         /// </summary>
@@ -150,51 +150,51 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Description of the link.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string GlobalNetworkId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string LinkId;
         /// <summary>
         /// Provider of the link.
         /// </summary>
-        public readonly string ProviderName;
+        public readonly string? ProviderName;
         /// <summary>
         /// ID of the site.
         /// </summary>
-        public readonly string SiteId;
+        public readonly string? SiteId;
         /// <summary>
         /// Key-value tags for the link.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of the link.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetLinkResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetLinkBandwidthResult> bandwidths,
 
-            string description,
+            string? description,
 
             string globalNetworkId,
 
-            string id,
+            string? id,
 
             string linkId,
 
-            string providerName,
+            string? providerName,
 
-            string siteId,
+            string? siteId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? type)
         {
             Arn = arn;
             Bandwidths = bandwidths;

@@ -1766,26 +1766,15 @@ class UserPhoneConfigArgs:
 @pulumi.input_type
 class GetBotAssociationLexBotArgs:
     def __init__(__self__, *,
-                 lex_region: str,
-                 name: str):
+                 name: str,
+                 lex_region: Optional[str] = None):
         """
-        :param str lex_region: Region that the Amazon Lex (V1) bot was created in.
         :param str name: Name of the Amazon Lex (V1) bot.
+        :param str lex_region: Region that the Amazon Lex (V1) bot was created in.
         """
-        pulumi.set(__self__, "lex_region", lex_region)
         pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="lexRegion")
-    def lex_region(self) -> str:
-        """
-        Region that the Amazon Lex (V1) bot was created in.
-        """
-        return pulumi.get(self, "lex_region")
-
-    @lex_region.setter
-    def lex_region(self, value: str):
-        pulumi.set(self, "lex_region", value)
+        if lex_region is not None:
+            pulumi.set(__self__, "lex_region", lex_region)
 
     @property
     @pulumi.getter
@@ -1798,5 +1787,17 @@ class GetBotAssociationLexBotArgs:
     @name.setter
     def name(self, value: str):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="lexRegion")
+    def lex_region(self) -> Optional[str]:
+        """
+        Region that the Amazon Lex (V1) bot was created in.
+        """
+        return pulumi.get(self, "lex_region")
+
+    @lex_region.setter
+    def lex_region(self, value: Optional[str]):
+        pulumi.set(self, "lex_region", value)
 
 

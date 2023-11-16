@@ -56,7 +56,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the service.
         """
@@ -64,7 +64,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the service.
         """
@@ -72,7 +72,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="dnsConfigs")
-    def dns_configs(self) -> Sequence['outputs.GetServiceDnsConfigResult']:
+    def dns_configs(self) -> Optional[Sequence['outputs.GetServiceDnsConfigResult']]:
         """
         Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
         """
@@ -80,7 +80,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="healthCheckConfigs")
-    def health_check_configs(self) -> Sequence['outputs.GetServiceHealthCheckConfigResult']:
+    def health_check_configs(self) -> Optional[Sequence['outputs.GetServiceHealthCheckConfigResult']]:
         """
         Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
         """
@@ -88,7 +88,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="healthCheckCustomConfigs")
-    def health_check_custom_configs(self) -> Sequence['outputs.GetServiceHealthCheckCustomConfigResult']:
+    def health_check_custom_configs(self) -> Optional[Sequence['outputs.GetServiceHealthCheckCustomConfigResult']]:
         """
         A complex type that contains settings for ECS managed health checks.
         """
@@ -96,7 +96,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -125,7 +125,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Mapping[str, str]:
+    def tags_all(self) -> Optional[Mapping[str, str]]:
         """
         (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

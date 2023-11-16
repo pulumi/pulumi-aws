@@ -6,30 +6,32 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetRowLevelPermissionDataSet {
-    private String arn;
-    private String formatVersion;
-    private String namespace;
-    private String permissionPolicy;
-    private String status;
+    private @Nullable String arn;
+    private @Nullable String formatVersion;
+    private @Nullable String namespace;
+    private @Nullable String permissionPolicy;
+    private @Nullable String status;
 
     private GetDataSetRowLevelPermissionDataSet() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String formatVersion() {
-        return this.formatVersion;
+    public Optional<String> formatVersion() {
+        return Optional.ofNullable(this.formatVersion);
     }
-    public String namespace() {
-        return this.namespace;
+    public Optional<String> namespace() {
+        return Optional.ofNullable(this.namespace);
     }
-    public String permissionPolicy() {
-        return this.permissionPolicy;
+    public Optional<String> permissionPolicy() {
+        return Optional.ofNullable(this.permissionPolicy);
     }
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -41,11 +43,11 @@ public final class GetDataSetRowLevelPermissionDataSet {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String formatVersion;
-        private String namespace;
-        private String permissionPolicy;
-        private String status;
+        private @Nullable String arn;
+        private @Nullable String formatVersion;
+        private @Nullable String namespace;
+        private @Nullable String permissionPolicy;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetDataSetRowLevelPermissionDataSet defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,28 +59,28 @@ public final class GetDataSetRowLevelPermissionDataSet {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder formatVersion(String formatVersion) {
-            this.formatVersion = Objects.requireNonNull(formatVersion);
+        public Builder formatVersion(@Nullable String formatVersion) {
+            this.formatVersion = formatVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+        public Builder namespace(@Nullable String namespace) {
+            this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
-        public Builder permissionPolicy(String permissionPolicy) {
-            this.permissionPolicy = Objects.requireNonNull(permissionPolicy);
+        public Builder permissionPolicy(@Nullable String permissionPolicy) {
+            this.permissionPolicy = permissionPolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetDataSetRowLevelPermissionDataSet build() {

@@ -102,7 +102,7 @@ type EventArchive struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the event archive.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the new event archive.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
@@ -296,8 +296,8 @@ func (o EventArchiveOutput) ToEventArchiveOutputWithContext(ctx context.Context)
 }
 
 // The Amazon Resource Name (ARN) of the event archive.
-func (o EventArchiveOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EventArchiveOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventArchive) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the new event archive.

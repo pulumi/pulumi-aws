@@ -95,41 +95,41 @@ type LookupClusterSnapshotArgs struct {
 // A collection of values returned by getClusterSnapshot.
 type LookupClusterSnapshotResult struct {
 	// Allocated storage size in gigabytes (GB).
-	AllocatedStorage int `pulumi:"allocatedStorage"`
+	AllocatedStorage *int `pulumi:"allocatedStorage"`
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// The ARN for the DB Cluster Snapshot.
-	DbClusterSnapshotArn        string  `pulumi:"dbClusterSnapshotArn"`
+	DbClusterSnapshotArn        *string `pulumi:"dbClusterSnapshotArn"`
 	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
 	// Name of the database engine.
-	Engine string `pulumi:"engine"`
+	Engine *string `pulumi:"engine"`
 	// Version of the database engine for this DB cluster snapshot.
-	EngineVersion string `pulumi:"engineVersion"`
+	EngineVersion *string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	IncludePublic *bool  `pulumi:"includePublic"`
-	IncludeShared *bool  `pulumi:"includeShared"`
+	Id            *string `pulumi:"id"`
+	IncludePublic *bool   `pulumi:"includePublic"`
+	IncludeShared *bool   `pulumi:"includeShared"`
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-	KmsKeyId string `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// License model information for the restored DB cluster.
-	LicenseModel string `pulumi:"licenseModel"`
-	MostRecent   *bool  `pulumi:"mostRecent"`
+	LicenseModel *string `pulumi:"licenseModel"`
+	MostRecent   *bool   `pulumi:"mostRecent"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port int `pulumi:"port"`
+	Port *int `pulumi:"port"`
 	// Time when the snapshot was taken, in Universal Coordinated Time (UTC).
-	SnapshotCreateTime         string  `pulumi:"snapshotCreateTime"`
+	SnapshotCreateTime         *string `pulumi:"snapshotCreateTime"`
 	SnapshotType               *string `pulumi:"snapshotType"`
-	SourceDbClusterSnapshotArn string  `pulumi:"sourceDbClusterSnapshotArn"`
+	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
 	// Status of this DB Cluster Snapshot.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Whether the DB cluster snapshot is encrypted.
-	StorageEncrypted bool `pulumi:"storageEncrypted"`
+	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// VPC ID associated with the DB cluster snapshot.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupClusterSnapshotOutput(ctx *pulumi.Context, args LookupClusterSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSnapshotResultOutput {
@@ -189,8 +189,8 @@ func (o LookupClusterSnapshotResultOutput) ToLookupClusterSnapshotResultOutputWi
 }
 
 // Allocated storage size in gigabytes (GB).
-func (o LookupClusterSnapshotResultOutput) AllocatedStorage() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) int { return v.AllocatedStorage }).(pulumi.IntOutput)
+func (o LookupClusterSnapshotResultOutput) AllocatedStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *int { return v.AllocatedStorage }).(pulumi.IntPtrOutput)
 }
 
 // List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
@@ -204,8 +204,8 @@ func (o LookupClusterSnapshotResultOutput) DbClusterIdentifier() pulumi.StringPt
 }
 
 // The ARN for the DB Cluster Snapshot.
-func (o LookupClusterSnapshotResultOutput) DbClusterSnapshotArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.DbClusterSnapshotArn }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) DbClusterSnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.DbClusterSnapshotArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterSnapshotResultOutput) DbClusterSnapshotIdentifier() pulumi.StringPtrOutput {
@@ -213,18 +213,18 @@ func (o LookupClusterSnapshotResultOutput) DbClusterSnapshotIdentifier() pulumi.
 }
 
 // Name of the database engine.
-func (o LookupClusterSnapshotResultOutput) Engine() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.Engine }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
 // Version of the database engine for this DB cluster snapshot.
-func (o LookupClusterSnapshotResultOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.EngineVersion }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupClusterSnapshotResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterSnapshotResultOutput) IncludePublic() pulumi.BoolPtrOutput {
@@ -236,13 +236,13 @@ func (o LookupClusterSnapshotResultOutput) IncludeShared() pulumi.BoolPtrOutput 
 }
 
 // If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-func (o LookupClusterSnapshotResultOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // License model information for the restored DB cluster.
-func (o LookupClusterSnapshotResultOutput) LicenseModel() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.LicenseModel }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) LicenseModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.LicenseModel }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
@@ -250,31 +250,31 @@ func (o LookupClusterSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
 }
 
 // Port that the DB cluster was listening on at the time of the snapshot.
-func (o LookupClusterSnapshotResultOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) int { return v.Port }).(pulumi.IntOutput)
+func (o LookupClusterSnapshotResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // Time when the snapshot was taken, in Universal Coordinated Time (UTC).
-func (o LookupClusterSnapshotResultOutput) SnapshotCreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.SnapshotCreateTime }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) SnapshotCreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.SnapshotCreateTime }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterSnapshotResultOutput) SnapshotType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.SnapshotType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterSnapshotResultOutput) SourceDbClusterSnapshotArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.SourceDbClusterSnapshotArn }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) SourceDbClusterSnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.SourceDbClusterSnapshotArn }).(pulumi.StringPtrOutput)
 }
 
 // Status of this DB Cluster Snapshot.
-func (o LookupClusterSnapshotResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Whether the DB cluster snapshot is encrypted.
-func (o LookupClusterSnapshotResultOutput) StorageEncrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) bool { return v.StorageEncrypted }).(pulumi.BoolOutput)
+func (o LookupClusterSnapshotResultOutput) StorageEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *bool { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
 // Map of tags for the resource.
@@ -283,8 +283,8 @@ func (o LookupClusterSnapshotResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // VPC ID associated with the DB cluster snapshot.
-func (o LookupClusterSnapshotResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupClusterSnapshotResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

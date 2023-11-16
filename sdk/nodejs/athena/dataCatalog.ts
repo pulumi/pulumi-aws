@@ -111,7 +111,7 @@ export class DataCatalog extends pulumi.CustomResource {
     /**
      * ARN of the data catalog.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the data catalog.
      */

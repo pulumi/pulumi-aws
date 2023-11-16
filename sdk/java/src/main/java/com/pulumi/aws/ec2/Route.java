@@ -234,28 +234,28 @@ public class Route extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
-    private Output<String> instanceId;
+    private Output</* @Nullable */ String> instanceId;
 
     /**
      * @return Identifier of an EC2 instance.
      * 
      */
-    public Output<String> instanceId() {
-        return this.instanceId;
+    public Output<Optional<String>> instanceId() {
+        return Codegen.optional(this.instanceId);
     }
     /**
      * The AWS account ID of the owner of the EC2 instance.
      * 
      */
     @Export(name="instanceOwnerId", refs={String.class}, tree="[0]")
-    private Output<String> instanceOwnerId;
+    private Output</* @Nullable */ String> instanceOwnerId;
 
     /**
      * @return The AWS account ID of the owner of the EC2 instance.
      * 
      */
-    public Output<String> instanceOwnerId() {
-        return this.instanceOwnerId;
+    public Output<Optional<String>> instanceOwnerId() {
+        return Codegen.optional(this.instanceOwnerId);
     }
     /**
      * Identifier of a Outpost local gateway.
@@ -290,28 +290,28 @@ public class Route extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
-    private Output<String> networkInterfaceId;
+    private Output</* @Nullable */ String> networkInterfaceId;
 
     /**
      * @return Identifier of an EC2 network interface.
      * 
      */
-    public Output<String> networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Output<Optional<String>> networkInterfaceId() {
+        return Codegen.optional(this.networkInterfaceId);
     }
     /**
      * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      * 
      */
     @Export(name="origin", refs={String.class}, tree="[0]")
-    private Output<String> origin;
+    private Output</* @Nullable */ String> origin;
 
     /**
      * @return How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      * 
      */
-    public Output<String> origin() {
-        return this.origin;
+    public Output<Optional<String>> origin() {
+        return Codegen.optional(this.origin);
     }
     /**
      * The ID of the routing table.
@@ -336,14 +336,14 @@ public class Route extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The state of the route - `active` or `blackhole`.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Identifier of an EC2 Transit Gateway.

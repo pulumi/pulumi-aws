@@ -118,15 +118,15 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly amiType!: pulumi.Output<string>;
+    public readonly amiType!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the EKS Node Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly capacityType!: pulumi.Output<string>;
+    public readonly capacityType!: pulumi.Output<string | undefined>;
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
@@ -134,7 +134,7 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly diskSize!: pulumi.Output<number>;
+    public readonly diskSize!: pulumi.Output<number | undefined>;
     /**
      * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
      */
@@ -142,7 +142,7 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly instanceTypes!: pulumi.Output<string[]>;
+    public readonly instanceTypes!: pulumi.Output<string[] | undefined>;
     /**
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
@@ -158,7 +158,7 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      */
-    public readonly nodeGroupNamePrefix!: pulumi.Output<string>;
+    public readonly nodeGroupNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
@@ -166,7 +166,7 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      */
-    public readonly releaseVersion!: pulumi.Output<string>;
+    public readonly releaseVersion!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with remote access settings. See `remoteAccess` below for details.
      */
@@ -174,7 +174,7 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * List of objects containing information about underlying resources.
      */
-    public /*out*/ readonly resources!: pulumi.Output<outputs.eks.NodeGroupResource[]>;
+    public /*out*/ readonly resources!: pulumi.Output<outputs.eks.NodeGroupResource[] | undefined>;
     /**
      * Configuration block with scaling settings. See `scalingConfig` below for details.
      */
@@ -182,7 +182,7 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * Status of the EKS Node Group.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group.
      *
@@ -206,11 +206,11 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * Configuration block with update settings. See `updateConfig` below for details.
      */
-    public readonly updateConfig!: pulumi.Output<outputs.eks.NodeGroupUpdateConfig>;
+    public readonly updateConfig!: pulumi.Output<outputs.eks.NodeGroupUpdateConfig | undefined>;
     /**
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly version!: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NodeGroup resource with the given unique name, arguments, and options.

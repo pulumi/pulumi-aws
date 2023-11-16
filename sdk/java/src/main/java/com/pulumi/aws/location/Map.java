@@ -83,14 +83,14 @@ public class Map extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    private Output</* @Nullable */ String> createTime;
 
     /**
      * @return The timestamp for when the map resource was created in ISO 8601 format.
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<Optional<String>> createTime() {
+        return Codegen.optional(this.createTime);
     }
     /**
      * An optional description for the map resource.
@@ -111,14 +111,14 @@ public class Map extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="mapArn", refs={String.class}, tree="[0]")
-    private Output<String> mapArn;
+    private Output</* @Nullable */ String> mapArn;
 
     /**
      * @return The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
      * 
      */
-    public Output<String> mapArn() {
-        return this.mapArn;
+    public Output<Optional<String>> mapArn() {
+        return Codegen.optional(this.mapArn);
     }
     /**
      * The name for the map resource.
@@ -175,14 +175,14 @@ public class Map extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    private Output</* @Nullable */ String> updateTime;
 
     /**
      * @return The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<Optional<String>> updateTime() {
+        return Codegen.optional(this.updateTime);
     }
 
     /**

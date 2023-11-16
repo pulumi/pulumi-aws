@@ -79,17 +79,17 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Alias associated with the AWS account.
         /// </summary>
-        public readonly string AccountAlias;
+        public readonly string? AccountAlias;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetAccountAliasResult(
-            string accountAlias,
+            string? accountAlias,
 
-            string id)
+            string? id)
         {
             AccountAlias = accountAlias;
             Id = id;

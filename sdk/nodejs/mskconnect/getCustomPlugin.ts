@@ -43,24 +43,24 @@ export interface GetCustomPluginResult {
     /**
      * the ARN of the custom plugin.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * a summary description of the custom plugin.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * an ID of the latest successfully created revision of the custom plugin.
      */
-    readonly latestRevision: number;
+    readonly latestRevision?: number;
     readonly name: string;
     /**
      * the state of the custom plugin.
      */
-    readonly state: string;
+    readonly state?: string;
 }
 /**
  * Get information on an Amazon MSK Connect custom plugin.

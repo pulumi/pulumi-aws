@@ -1755,8 +1755,8 @@ func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
 
 type GetTableAttribute struct {
 	// Name of the DynamoDB table.
-	Name string `pulumi:"name"`
-	Type string `pulumi:"type"`
+	Name *string `pulumi:"name"`
+	Type *string `pulumi:"type"`
 }
 
 // GetTableAttributeInput is an input type that accepts GetTableAttributeArgs and GetTableAttributeOutput values.
@@ -1772,8 +1772,8 @@ type GetTableAttributeInput interface {
 
 type GetTableAttributeArgs struct {
 	// Name of the DynamoDB table.
-	Name pulumi.StringInput `pulumi:"name"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetTableAttributeArgs) ElementType() reflect.Type {
@@ -1828,12 +1828,12 @@ func (o GetTableAttributeOutput) ToGetTableAttributeOutputWithContext(ctx contex
 }
 
 // Name of the DynamoDB table.
-func (o GetTableAttributeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableAttribute) string { return v.Name }).(pulumi.StringOutput)
+func (o GetTableAttributeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableAttribute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetTableAttributeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableAttribute) string { return v.Type }).(pulumi.StringOutput)
+func (o GetTableAttributeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableAttribute) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetTableAttributeArrayOutput struct{ *pulumi.OutputState }
@@ -1857,14 +1857,14 @@ func (o GetTableAttributeArrayOutput) Index(i pulumi.IntInput) GetTableAttribute
 }
 
 type GetTableGlobalSecondaryIndex struct {
-	HashKey string `pulumi:"hashKey"`
+	HashKey *string `pulumi:"hashKey"`
 	// Name of the DynamoDB table.
-	Name             string   `pulumi:"name"`
+	Name             *string  `pulumi:"name"`
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	ProjectionType   string   `pulumi:"projectionType"`
-	RangeKey         string   `pulumi:"rangeKey"`
-	ReadCapacity     int      `pulumi:"readCapacity"`
-	WriteCapacity    int      `pulumi:"writeCapacity"`
+	ProjectionType   *string  `pulumi:"projectionType"`
+	RangeKey         *string  `pulumi:"rangeKey"`
+	ReadCapacity     *int     `pulumi:"readCapacity"`
+	WriteCapacity    *int     `pulumi:"writeCapacity"`
 }
 
 // GetTableGlobalSecondaryIndexInput is an input type that accepts GetTableGlobalSecondaryIndexArgs and GetTableGlobalSecondaryIndexOutput values.
@@ -1879,14 +1879,14 @@ type GetTableGlobalSecondaryIndexInput interface {
 }
 
 type GetTableGlobalSecondaryIndexArgs struct {
-	HashKey pulumi.StringInput `pulumi:"hashKey"`
+	HashKey pulumi.StringPtrInput `pulumi:"hashKey"`
 	// Name of the DynamoDB table.
-	Name             pulumi.StringInput      `pulumi:"name"`
+	Name             pulumi.StringPtrInput   `pulumi:"name"`
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	ProjectionType   pulumi.StringInput      `pulumi:"projectionType"`
-	RangeKey         pulumi.StringInput      `pulumi:"rangeKey"`
-	ReadCapacity     pulumi.IntInput         `pulumi:"readCapacity"`
-	WriteCapacity    pulumi.IntInput         `pulumi:"writeCapacity"`
+	ProjectionType   pulumi.StringPtrInput   `pulumi:"projectionType"`
+	RangeKey         pulumi.StringPtrInput   `pulumi:"rangeKey"`
+	ReadCapacity     pulumi.IntPtrInput      `pulumi:"readCapacity"`
+	WriteCapacity    pulumi.IntPtrInput      `pulumi:"writeCapacity"`
 }
 
 func (GetTableGlobalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -1940,33 +1940,33 @@ func (o GetTableGlobalSecondaryIndexOutput) ToGetTableGlobalSecondaryIndexOutput
 	return o
 }
 
-func (o GetTableGlobalSecondaryIndexOutput) HashKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.HashKey }).(pulumi.StringOutput)
+func (o GetTableGlobalSecondaryIndexOutput) HashKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) *string { return v.HashKey }).(pulumi.StringPtrOutput)
 }
 
 // Name of the DynamoDB table.
-func (o GetTableGlobalSecondaryIndexOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
+func (o GetTableGlobalSecondaryIndexOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o GetTableGlobalSecondaryIndexOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
-func (o GetTableGlobalSecondaryIndexOutput) ProjectionType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.ProjectionType }).(pulumi.StringOutput)
+func (o GetTableGlobalSecondaryIndexOutput) ProjectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) *string { return v.ProjectionType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetTableGlobalSecondaryIndexOutput) RangeKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.RangeKey }).(pulumi.StringOutput)
+func (o GetTableGlobalSecondaryIndexOutput) RangeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) *string { return v.RangeKey }).(pulumi.StringPtrOutput)
 }
 
-func (o GetTableGlobalSecondaryIndexOutput) ReadCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) int { return v.ReadCapacity }).(pulumi.IntOutput)
+func (o GetTableGlobalSecondaryIndexOutput) ReadCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) *int { return v.ReadCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o GetTableGlobalSecondaryIndexOutput) WriteCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) int { return v.WriteCapacity }).(pulumi.IntOutput)
+func (o GetTableGlobalSecondaryIndexOutput) WriteCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) *int { return v.WriteCapacity }).(pulumi.IntPtrOutput)
 }
 
 type GetTableGlobalSecondaryIndexArrayOutput struct{ *pulumi.OutputState }
@@ -1991,10 +1991,10 @@ func (o GetTableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GetTab
 
 type GetTableLocalSecondaryIndex struct {
 	// Name of the DynamoDB table.
-	Name             string   `pulumi:"name"`
+	Name             *string  `pulumi:"name"`
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	ProjectionType   string   `pulumi:"projectionType"`
-	RangeKey         string   `pulumi:"rangeKey"`
+	ProjectionType   *string  `pulumi:"projectionType"`
+	RangeKey         *string  `pulumi:"rangeKey"`
 }
 
 // GetTableLocalSecondaryIndexInput is an input type that accepts GetTableLocalSecondaryIndexArgs and GetTableLocalSecondaryIndexOutput values.
@@ -2010,10 +2010,10 @@ type GetTableLocalSecondaryIndexInput interface {
 
 type GetTableLocalSecondaryIndexArgs struct {
 	// Name of the DynamoDB table.
-	Name             pulumi.StringInput      `pulumi:"name"`
+	Name             pulumi.StringPtrInput   `pulumi:"name"`
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	ProjectionType   pulumi.StringInput      `pulumi:"projectionType"`
-	RangeKey         pulumi.StringInput      `pulumi:"rangeKey"`
+	ProjectionType   pulumi.StringPtrInput   `pulumi:"projectionType"`
+	RangeKey         pulumi.StringPtrInput   `pulumi:"rangeKey"`
 }
 
 func (GetTableLocalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -2068,20 +2068,20 @@ func (o GetTableLocalSecondaryIndexOutput) ToGetTableLocalSecondaryIndexOutputWi
 }
 
 // Name of the DynamoDB table.
-func (o GetTableLocalSecondaryIndexOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableLocalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
+func (o GetTableLocalSecondaryIndexOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableLocalSecondaryIndex) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o GetTableLocalSecondaryIndexOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTableLocalSecondaryIndex) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
-func (o GetTableLocalSecondaryIndexOutput) ProjectionType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableLocalSecondaryIndex) string { return v.ProjectionType }).(pulumi.StringOutput)
+func (o GetTableLocalSecondaryIndexOutput) ProjectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableLocalSecondaryIndex) *string { return v.ProjectionType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetTableLocalSecondaryIndexOutput) RangeKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableLocalSecondaryIndex) string { return v.RangeKey }).(pulumi.StringOutput)
+func (o GetTableLocalSecondaryIndexOutput) RangeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableLocalSecondaryIndex) *string { return v.RangeKey }).(pulumi.StringPtrOutput)
 }
 
 type GetTableLocalSecondaryIndexArrayOutput struct{ *pulumi.OutputState }
@@ -2105,7 +2105,7 @@ func (o GetTableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GetTabl
 }
 
 type GetTablePointInTimeRecovery struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 }
 
 // GetTablePointInTimeRecoveryInput is an input type that accepts GetTablePointInTimeRecoveryArgs and GetTablePointInTimeRecoveryOutput values.
@@ -2120,7 +2120,7 @@ type GetTablePointInTimeRecoveryInput interface {
 }
 
 type GetTablePointInTimeRecoveryArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
 func (GetTablePointInTimeRecoveryArgs) ElementType() reflect.Type {
@@ -2133,6 +2133,47 @@ func (i GetTablePointInTimeRecoveryArgs) ToGetTablePointInTimeRecoveryOutput() G
 
 func (i GetTablePointInTimeRecoveryArgs) ToGetTablePointInTimeRecoveryOutputWithContext(ctx context.Context) GetTablePointInTimeRecoveryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetTablePointInTimeRecoveryOutput)
+}
+
+func (i GetTablePointInTimeRecoveryArgs) ToGetTablePointInTimeRecoveryPtrOutput() GetTablePointInTimeRecoveryPtrOutput {
+	return i.ToGetTablePointInTimeRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (i GetTablePointInTimeRecoveryArgs) ToGetTablePointInTimeRecoveryPtrOutputWithContext(ctx context.Context) GetTablePointInTimeRecoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTablePointInTimeRecoveryOutput).ToGetTablePointInTimeRecoveryPtrOutputWithContext(ctx)
+}
+
+// GetTablePointInTimeRecoveryPtrInput is an input type that accepts GetTablePointInTimeRecoveryArgs, GetTablePointInTimeRecoveryPtr and GetTablePointInTimeRecoveryPtrOutput values.
+// You can construct a concrete instance of `GetTablePointInTimeRecoveryPtrInput` via:
+//
+//	        GetTablePointInTimeRecoveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTablePointInTimeRecoveryPtrInput interface {
+	pulumi.Input
+
+	ToGetTablePointInTimeRecoveryPtrOutput() GetTablePointInTimeRecoveryPtrOutput
+	ToGetTablePointInTimeRecoveryPtrOutputWithContext(context.Context) GetTablePointInTimeRecoveryPtrOutput
+}
+
+type getTablePointInTimeRecoveryPtrType GetTablePointInTimeRecoveryArgs
+
+func GetTablePointInTimeRecoveryPtr(v *GetTablePointInTimeRecoveryArgs) GetTablePointInTimeRecoveryPtrInput {
+	return (*getTablePointInTimeRecoveryPtrType)(v)
+}
+
+func (*getTablePointInTimeRecoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTablePointInTimeRecovery)(nil)).Elem()
+}
+
+func (i *getTablePointInTimeRecoveryPtrType) ToGetTablePointInTimeRecoveryPtrOutput() GetTablePointInTimeRecoveryPtrOutput {
+	return i.ToGetTablePointInTimeRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *getTablePointInTimeRecoveryPtrType) ToGetTablePointInTimeRecoveryPtrOutputWithContext(ctx context.Context) GetTablePointInTimeRecoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTablePointInTimeRecoveryPtrOutput)
 }
 
 type GetTablePointInTimeRecoveryOutput struct{ *pulumi.OutputState }
@@ -2149,13 +2190,56 @@ func (o GetTablePointInTimeRecoveryOutput) ToGetTablePointInTimeRecoveryOutputWi
 	return o
 }
 
-func (o GetTablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetTablePointInTimeRecoveryOutput) ToGetTablePointInTimeRecoveryPtrOutput() GetTablePointInTimeRecoveryPtrOutput {
+	return o.ToGetTablePointInTimeRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (o GetTablePointInTimeRecoveryOutput) ToGetTablePointInTimeRecoveryPtrOutputWithContext(ctx context.Context) GetTablePointInTimeRecoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTablePointInTimeRecovery) *GetTablePointInTimeRecovery {
+		return &v
+	}).(GetTablePointInTimeRecoveryPtrOutput)
+}
+
+func (o GetTablePointInTimeRecoveryOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTablePointInTimeRecovery) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetTablePointInTimeRecoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTablePointInTimeRecoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTablePointInTimeRecovery)(nil)).Elem()
+}
+
+func (o GetTablePointInTimeRecoveryPtrOutput) ToGetTablePointInTimeRecoveryPtrOutput() GetTablePointInTimeRecoveryPtrOutput {
+	return o
+}
+
+func (o GetTablePointInTimeRecoveryPtrOutput) ToGetTablePointInTimeRecoveryPtrOutputWithContext(ctx context.Context) GetTablePointInTimeRecoveryPtrOutput {
+	return o
+}
+
+func (o GetTablePointInTimeRecoveryPtrOutput) Elem() GetTablePointInTimeRecoveryOutput {
+	return o.ApplyT(func(v *GetTablePointInTimeRecovery) GetTablePointInTimeRecovery {
+		if v != nil {
+			return *v
+		}
+		var ret GetTablePointInTimeRecovery
+		return ret
+	}).(GetTablePointInTimeRecoveryOutput)
+}
+
+func (o GetTablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetTablePointInTimeRecovery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetTableReplicaType struct {
-	KmsKeyArn  string `pulumi:"kmsKeyArn"`
-	RegionName string `pulumi:"regionName"`
+	KmsKeyArn  *string `pulumi:"kmsKeyArn"`
+	RegionName *string `pulumi:"regionName"`
 }
 
 // GetTableReplicaTypeInput is an input type that accepts GetTableReplicaTypeArgs and GetTableReplicaTypeOutput values.
@@ -2170,8 +2254,8 @@ type GetTableReplicaTypeInput interface {
 }
 
 type GetTableReplicaTypeArgs struct {
-	KmsKeyArn  pulumi.StringInput `pulumi:"kmsKeyArn"`
-	RegionName pulumi.StringInput `pulumi:"regionName"`
+	KmsKeyArn  pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	RegionName pulumi.StringPtrInput `pulumi:"regionName"`
 }
 
 func (GetTableReplicaTypeArgs) ElementType() reflect.Type {
@@ -2225,12 +2309,12 @@ func (o GetTableReplicaTypeOutput) ToGetTableReplicaTypeOutputWithContext(ctx co
 	return o
 }
 
-func (o GetTableReplicaTypeOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableReplicaType) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o GetTableReplicaTypeOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableReplicaType) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetTableReplicaTypeOutput) RegionName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableReplicaType) string { return v.RegionName }).(pulumi.StringOutput)
+func (o GetTableReplicaTypeOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableReplicaType) *string { return v.RegionName }).(pulumi.StringPtrOutput)
 }
 
 type GetTableReplicaTypeArrayOutput struct{ *pulumi.OutputState }
@@ -2254,8 +2338,8 @@ func (o GetTableReplicaTypeArrayOutput) Index(i pulumi.IntInput) GetTableReplica
 }
 
 type GetTableServerSideEncryption struct {
-	Enabled   bool   `pulumi:"enabled"`
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	Enabled   *bool   `pulumi:"enabled"`
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
 // GetTableServerSideEncryptionInput is an input type that accepts GetTableServerSideEncryptionArgs and GetTableServerSideEncryptionOutput values.
@@ -2270,8 +2354,8 @@ type GetTableServerSideEncryptionInput interface {
 }
 
 type GetTableServerSideEncryptionArgs struct {
-	Enabled   pulumi.BoolInput   `pulumi:"enabled"`
-	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	Enabled   pulumi.BoolPtrInput   `pulumi:"enabled"`
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (GetTableServerSideEncryptionArgs) ElementType() reflect.Type {
@@ -2351,12 +2435,12 @@ func (o GetTableServerSideEncryptionOutput) ToGetTableServerSideEncryptionPtrOut
 	}).(GetTableServerSideEncryptionPtrOutput)
 }
 
-func (o GetTableServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetTableServerSideEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTableServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetTableServerSideEncryptionOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableServerSideEncryption) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o GetTableServerSideEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableServerSideEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 type GetTableServerSideEncryptionPtrOutput struct{ *pulumi.OutputState }
@@ -2388,7 +2472,7 @@ func (o GetTableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2397,13 +2481,13 @@ func (o GetTableServerSideEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return &v.KmsKeyArn
+		return v.KmsKeyArn
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetTableTtl struct {
-	AttributeName string `pulumi:"attributeName"`
-	Enabled       bool   `pulumi:"enabled"`
+	AttributeName *string `pulumi:"attributeName"`
+	Enabled       *bool   `pulumi:"enabled"`
 }
 
 // GetTableTtlInput is an input type that accepts GetTableTtlArgs and GetTableTtlOutput values.
@@ -2418,8 +2502,8 @@ type GetTableTtlInput interface {
 }
 
 type GetTableTtlArgs struct {
-	AttributeName pulumi.StringInput `pulumi:"attributeName"`
-	Enabled       pulumi.BoolInput   `pulumi:"enabled"`
+	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
+	Enabled       pulumi.BoolPtrInput   `pulumi:"enabled"`
 }
 
 func (GetTableTtlArgs) ElementType() reflect.Type {
@@ -2432,6 +2516,47 @@ func (i GetTableTtlArgs) ToGetTableTtlOutput() GetTableTtlOutput {
 
 func (i GetTableTtlArgs) ToGetTableTtlOutputWithContext(ctx context.Context) GetTableTtlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableTtlOutput)
+}
+
+func (i GetTableTtlArgs) ToGetTableTtlPtrOutput() GetTableTtlPtrOutput {
+	return i.ToGetTableTtlPtrOutputWithContext(context.Background())
+}
+
+func (i GetTableTtlArgs) ToGetTableTtlPtrOutputWithContext(ctx context.Context) GetTableTtlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableTtlOutput).ToGetTableTtlPtrOutputWithContext(ctx)
+}
+
+// GetTableTtlPtrInput is an input type that accepts GetTableTtlArgs, GetTableTtlPtr and GetTableTtlPtrOutput values.
+// You can construct a concrete instance of `GetTableTtlPtrInput` via:
+//
+//	        GetTableTtlArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTableTtlPtrInput interface {
+	pulumi.Input
+
+	ToGetTableTtlPtrOutput() GetTableTtlPtrOutput
+	ToGetTableTtlPtrOutputWithContext(context.Context) GetTableTtlPtrOutput
+}
+
+type getTableTtlPtrType GetTableTtlArgs
+
+func GetTableTtlPtr(v *GetTableTtlArgs) GetTableTtlPtrInput {
+	return (*getTableTtlPtrType)(v)
+}
+
+func (*getTableTtlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTableTtl)(nil)).Elem()
+}
+
+func (i *getTableTtlPtrType) ToGetTableTtlPtrOutput() GetTableTtlPtrOutput {
+	return i.ToGetTableTtlPtrOutputWithContext(context.Background())
+}
+
+func (i *getTableTtlPtrType) ToGetTableTtlPtrOutputWithContext(ctx context.Context) GetTableTtlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableTtlPtrOutput)
 }
 
 type GetTableTtlOutput struct{ *pulumi.OutputState }
@@ -2448,12 +2573,64 @@ func (o GetTableTtlOutput) ToGetTableTtlOutputWithContext(ctx context.Context) G
 	return o
 }
 
-func (o GetTableTtlOutput) AttributeName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTableTtl) string { return v.AttributeName }).(pulumi.StringOutput)
+func (o GetTableTtlOutput) ToGetTableTtlPtrOutput() GetTableTtlPtrOutput {
+	return o.ToGetTableTtlPtrOutputWithContext(context.Background())
 }
 
-func (o GetTableTtlOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTableTtl) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetTableTtlOutput) ToGetTableTtlPtrOutputWithContext(ctx context.Context) GetTableTtlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTableTtl) *GetTableTtl {
+		return &v
+	}).(GetTableTtlPtrOutput)
+}
+
+func (o GetTableTtlOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTableTtl) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
+}
+
+func (o GetTableTtlOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTableTtl) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetTableTtlPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTableTtlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTableTtl)(nil)).Elem()
+}
+
+func (o GetTableTtlPtrOutput) ToGetTableTtlPtrOutput() GetTableTtlPtrOutput {
+	return o
+}
+
+func (o GetTableTtlPtrOutput) ToGetTableTtlPtrOutputWithContext(ctx context.Context) GetTableTtlPtrOutput {
+	return o
+}
+
+func (o GetTableTtlPtrOutput) Elem() GetTableTtlOutput {
+	return o.ApplyT(func(v *GetTableTtl) GetTableTtl {
+		if v != nil {
+			return *v
+		}
+		var ret GetTableTtl
+		return ret
+	}).(GetTableTtlOutput)
+}
+
+func (o GetTableTtlPtrOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTableTtl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AttributeName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetTableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetTableTtl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func init() {
@@ -2488,11 +2665,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableLocalSecondaryIndexInput)(nil)).Elem(), GetTableLocalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableLocalSecondaryIndexArrayInput)(nil)).Elem(), GetTableLocalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTablePointInTimeRecoveryInput)(nil)).Elem(), GetTablePointInTimeRecoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTablePointInTimeRecoveryPtrInput)(nil)).Elem(), GetTablePointInTimeRecoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableReplicaTypeInput)(nil)).Elem(), GetTableReplicaTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableReplicaTypeArrayInput)(nil)).Elem(), GetTableReplicaTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableServerSideEncryptionInput)(nil)).Elem(), GetTableServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableServerSideEncryptionPtrInput)(nil)).Elem(), GetTableServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableTtlInput)(nil)).Elem(), GetTableTtlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableTtlPtrInput)(nil)).Elem(), GetTableTtlArgs{})
 	pulumi.RegisterOutputType(GlobalTableReplicaOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaArrayOutput{})
 	pulumi.RegisterOutputType(TableAttributeOutput{})
@@ -2524,9 +2703,11 @@ func init() {
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(GetTablePointInTimeRecoveryOutput{})
+	pulumi.RegisterOutputType(GetTablePointInTimeRecoveryPtrOutput{})
 	pulumi.RegisterOutputType(GetTableReplicaTypeOutput{})
 	pulumi.RegisterOutputType(GetTableReplicaTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetTableServerSideEncryptionOutput{})
 	pulumi.RegisterOutputType(GetTableServerSideEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(GetTableTtlOutput{})
+	pulumi.RegisterOutputType(GetTableTtlPtrOutput{})
 }

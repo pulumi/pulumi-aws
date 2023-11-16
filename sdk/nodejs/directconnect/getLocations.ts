@@ -33,11 +33,11 @@ export interface GetLocationsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Code for the locations.
      */
-    readonly locationCodes: string[];
+    readonly locationCodes?: string[];
 }
 /**
  * Retrieve information about the AWS Direct Connect locations in the current AWS Region.

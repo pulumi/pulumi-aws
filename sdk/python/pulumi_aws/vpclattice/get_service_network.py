@@ -55,7 +55,7 @@ class GetServiceNetworkResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Service Network.
         """
@@ -63,7 +63,7 @@ class GetServiceNetworkResult:
 
     @property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> str:
+    def auth_type(self) -> Optional[str]:
         """
         Authentication type for the service network. Either `NONE` or `AWS_IAM`.
         """
@@ -71,7 +71,7 @@ class GetServiceNetworkResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Date and time the service network was created.
         """
@@ -79,7 +79,7 @@ class GetServiceNetworkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -87,7 +87,7 @@ class GetServiceNetworkResult:
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
-    def last_updated_at(self) -> str:
+    def last_updated_at(self) -> Optional[str]:
         """
         Date and time the service network was last updated.
         """
@@ -95,7 +95,7 @@ class GetServiceNetworkResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the service network.
         """
@@ -103,7 +103,7 @@ class GetServiceNetworkResult:
 
     @property
     @pulumi.getter(name="numberOfAssociatedServices")
-    def number_of_associated_services(self) -> int:
+    def number_of_associated_services(self) -> Optional[int]:
         """
         Number of services associated with this service network.
         """
@@ -111,7 +111,7 @@ class GetServiceNetworkResult:
 
     @property
     @pulumi.getter(name="numberOfAssociatedVpcs")
-    def number_of_associated_vpcs(self) -> int:
+    def number_of_associated_vpcs(self) -> Optional[int]:
         """
         Number of VPCs associated with this service network.
         """
@@ -124,7 +124,7 @@ class GetServiceNetworkResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

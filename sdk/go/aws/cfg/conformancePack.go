@@ -139,7 +139,7 @@ type ConformancePack struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the conformance pack.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
 	DeliveryS3Bucket pulumi.StringPtrOutput `pulumi:"deliveryS3Bucket"`
 	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
@@ -340,8 +340,8 @@ func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Co
 }
 
 // Amazon Resource Name (ARN) of the conformance pack.
-func (o ConformancePackOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConformancePack) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConformancePackOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.

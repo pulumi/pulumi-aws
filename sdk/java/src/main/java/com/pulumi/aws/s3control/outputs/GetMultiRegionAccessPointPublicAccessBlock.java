@@ -6,6 +6,8 @@ package com.pulumi.aws.s3control.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMultiRegionAccessPointPublicAccessBlock {
@@ -16,25 +18,25 @@ public final class GetMultiRegionAccessPointPublicAccessBlock {
      * * PUT Bucket calls fail if the request includes a public ACL.
      * 
      */
-    private Boolean blockPublicAcls;
+    private @Nullable Boolean blockPublicAcls;
     /**
      * @return Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      * 
      */
-    private Boolean blockPublicPolicy;
+    private @Nullable Boolean blockPublicPolicy;
     /**
      * @return Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
      * * Ignore all public ACLs on buckets in this account and any objects that they contain.
      * 
      */
-    private Boolean ignorePublicAcls;
+    private @Nullable Boolean ignorePublicAcls;
     /**
      * @return Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
      * * Only the bucket owner and AWS Services can access buckets with public policies.
      * 
      */
-    private Boolean restrictPublicBuckets;
+    private @Nullable Boolean restrictPublicBuckets;
 
     private GetMultiRegionAccessPointPublicAccessBlock() {}
     /**
@@ -44,32 +46,32 @@ public final class GetMultiRegionAccessPointPublicAccessBlock {
      * * PUT Bucket calls fail if the request includes a public ACL.
      * 
      */
-    public Boolean blockPublicAcls() {
-        return this.blockPublicAcls;
+    public Optional<Boolean> blockPublicAcls() {
+        return Optional.ofNullable(this.blockPublicAcls);
     }
     /**
      * @return Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      * 
      */
-    public Boolean blockPublicPolicy() {
-        return this.blockPublicPolicy;
+    public Optional<Boolean> blockPublicPolicy() {
+        return Optional.ofNullable(this.blockPublicPolicy);
     }
     /**
      * @return Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
      * * Ignore all public ACLs on buckets in this account and any objects that they contain.
      * 
      */
-    public Boolean ignorePublicAcls() {
-        return this.ignorePublicAcls;
+    public Optional<Boolean> ignorePublicAcls() {
+        return Optional.ofNullable(this.ignorePublicAcls);
     }
     /**
      * @return Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
      * * Only the bucket owner and AWS Services can access buckets with public policies.
      * 
      */
-    public Boolean restrictPublicBuckets() {
-        return this.restrictPublicBuckets;
+    public Optional<Boolean> restrictPublicBuckets() {
+        return Optional.ofNullable(this.restrictPublicBuckets);
     }
 
     public static Builder builder() {
@@ -81,10 +83,10 @@ public final class GetMultiRegionAccessPointPublicAccessBlock {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean blockPublicAcls;
-        private Boolean blockPublicPolicy;
-        private Boolean ignorePublicAcls;
-        private Boolean restrictPublicBuckets;
+        private @Nullable Boolean blockPublicAcls;
+        private @Nullable Boolean blockPublicPolicy;
+        private @Nullable Boolean ignorePublicAcls;
+        private @Nullable Boolean restrictPublicBuckets;
         public Builder() {}
         public Builder(GetMultiRegionAccessPointPublicAccessBlock defaults) {
     	      Objects.requireNonNull(defaults);
@@ -95,23 +97,23 @@ public final class GetMultiRegionAccessPointPublicAccessBlock {
         }
 
         @CustomType.Setter
-        public Builder blockPublicAcls(Boolean blockPublicAcls) {
-            this.blockPublicAcls = Objects.requireNonNull(blockPublicAcls);
+        public Builder blockPublicAcls(@Nullable Boolean blockPublicAcls) {
+            this.blockPublicAcls = blockPublicAcls;
             return this;
         }
         @CustomType.Setter
-        public Builder blockPublicPolicy(Boolean blockPublicPolicy) {
-            this.blockPublicPolicy = Objects.requireNonNull(blockPublicPolicy);
+        public Builder blockPublicPolicy(@Nullable Boolean blockPublicPolicy) {
+            this.blockPublicPolicy = blockPublicPolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder ignorePublicAcls(Boolean ignorePublicAcls) {
-            this.ignorePublicAcls = Objects.requireNonNull(ignorePublicAcls);
+        public Builder ignorePublicAcls(@Nullable Boolean ignorePublicAcls) {
+            this.ignorePublicAcls = ignorePublicAcls;
             return this;
         }
         @CustomType.Setter
-        public Builder restrictPublicBuckets(Boolean restrictPublicBuckets) {
-            this.restrictPublicBuckets = Objects.requireNonNull(restrictPublicBuckets);
+        public Builder restrictPublicBuckets(@Nullable Boolean restrictPublicBuckets) {
+            this.restrictPublicBuckets = restrictPublicBuckets;
             return this;
         }
         public GetMultiRegionAccessPointPublicAccessBlock build() {

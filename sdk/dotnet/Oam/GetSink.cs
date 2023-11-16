@@ -130,38 +130,38 @@ namespace Pulumi.Aws.Oam
         /// <summary>
         /// ARN of the sink.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the sink.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Random ID string that AWS generated as part of the sink ARN.
         /// </summary>
-        public readonly string SinkId;
+        public readonly string? SinkId;
         public readonly string SinkIdentifier;
         /// <summary>
         /// Tags assigned to the sink.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSinkResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string sinkId,
+            string? sinkId,
 
             string sinkIdentifier,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Id = id;

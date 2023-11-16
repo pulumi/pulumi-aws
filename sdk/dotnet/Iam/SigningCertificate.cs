@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Iam
         /// The ID for the signing certificate.
         /// </summary>
         [Output("certificateId")]
-        public Output<string> CertificateId { get; private set; } = null!;
+        public Output<string?> CertificateId { get; private set; } = null!;
 
         /// <summary>
         /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.

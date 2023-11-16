@@ -10,6 +10,7 @@ import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationUiColorPalette;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeConfiguration {
@@ -17,22 +18,22 @@ public final class GetThemeConfiguration {
      * @return Color properties that apply to chart data colors. See data_color_palette.
      * 
      */
-    private List<GetThemeConfigurationDataColorPalette> dataColorPalettes;
+    private @Nullable List<GetThemeConfigurationDataColorPalette> dataColorPalettes;
     /**
      * @return Display options related to sheets. See sheet.
      * 
      */
-    private List<GetThemeConfigurationSheet> sheets;
+    private @Nullable List<GetThemeConfigurationSheet> sheets;
     /**
      * @return Determines the typography options. See typography.
      * 
      */
-    private List<GetThemeConfigurationTypography> typographies;
+    private @Nullable List<GetThemeConfigurationTypography> typographies;
     /**
      * @return Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
      * 
      */
-    private List<GetThemeConfigurationUiColorPalette> uiColorPalettes;
+    private @Nullable List<GetThemeConfigurationUiColorPalette> uiColorPalettes;
 
     private GetThemeConfiguration() {}
     /**
@@ -40,28 +41,28 @@ public final class GetThemeConfiguration {
      * 
      */
     public List<GetThemeConfigurationDataColorPalette> dataColorPalettes() {
-        return this.dataColorPalettes;
+        return this.dataColorPalettes == null ? List.of() : this.dataColorPalettes;
     }
     /**
      * @return Display options related to sheets. See sheet.
      * 
      */
     public List<GetThemeConfigurationSheet> sheets() {
-        return this.sheets;
+        return this.sheets == null ? List.of() : this.sheets;
     }
     /**
      * @return Determines the typography options. See typography.
      * 
      */
     public List<GetThemeConfigurationTypography> typographies() {
-        return this.typographies;
+        return this.typographies == null ? List.of() : this.typographies;
     }
     /**
      * @return Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
      * 
      */
     public List<GetThemeConfigurationUiColorPalette> uiColorPalettes() {
-        return this.uiColorPalettes;
+        return this.uiColorPalettes == null ? List.of() : this.uiColorPalettes;
     }
 
     public static Builder builder() {
@@ -73,10 +74,10 @@ public final class GetThemeConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetThemeConfigurationDataColorPalette> dataColorPalettes;
-        private List<GetThemeConfigurationSheet> sheets;
-        private List<GetThemeConfigurationTypography> typographies;
-        private List<GetThemeConfigurationUiColorPalette> uiColorPalettes;
+        private @Nullable List<GetThemeConfigurationDataColorPalette> dataColorPalettes;
+        private @Nullable List<GetThemeConfigurationSheet> sheets;
+        private @Nullable List<GetThemeConfigurationTypography> typographies;
+        private @Nullable List<GetThemeConfigurationUiColorPalette> uiColorPalettes;
         public Builder() {}
         public Builder(GetThemeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -87,32 +88,32 @@ public final class GetThemeConfiguration {
         }
 
         @CustomType.Setter
-        public Builder dataColorPalettes(List<GetThemeConfigurationDataColorPalette> dataColorPalettes) {
-            this.dataColorPalettes = Objects.requireNonNull(dataColorPalettes);
+        public Builder dataColorPalettes(@Nullable List<GetThemeConfigurationDataColorPalette> dataColorPalettes) {
+            this.dataColorPalettes = dataColorPalettes;
             return this;
         }
         public Builder dataColorPalettes(GetThemeConfigurationDataColorPalette... dataColorPalettes) {
             return dataColorPalettes(List.of(dataColorPalettes));
         }
         @CustomType.Setter
-        public Builder sheets(List<GetThemeConfigurationSheet> sheets) {
-            this.sheets = Objects.requireNonNull(sheets);
+        public Builder sheets(@Nullable List<GetThemeConfigurationSheet> sheets) {
+            this.sheets = sheets;
             return this;
         }
         public Builder sheets(GetThemeConfigurationSheet... sheets) {
             return sheets(List.of(sheets));
         }
         @CustomType.Setter
-        public Builder typographies(List<GetThemeConfigurationTypography> typographies) {
-            this.typographies = Objects.requireNonNull(typographies);
+        public Builder typographies(@Nullable List<GetThemeConfigurationTypography> typographies) {
+            this.typographies = typographies;
             return this;
         }
         public Builder typographies(GetThemeConfigurationTypography... typographies) {
             return typographies(List.of(typographies));
         }
         @CustomType.Setter
-        public Builder uiColorPalettes(List<GetThemeConfigurationUiColorPalette> uiColorPalettes) {
-            this.uiColorPalettes = Objects.requireNonNull(uiColorPalettes);
+        public Builder uiColorPalettes(@Nullable List<GetThemeConfigurationUiColorPalette> uiColorPalettes) {
+            this.uiColorPalettes = uiColorPalettes;
             return this;
         }
         public Builder uiColorPalettes(GetThemeConfigurationUiColorPalette... uiColorPalettes) {

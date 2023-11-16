@@ -46,13 +46,13 @@ namespace Pulumi.Aws.NetworkManager
         /// Peering Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the core network.
         /// </summary>
         [Output("coreNetworkArn")]
-        public Output<string> CoreNetworkArn { get; private set; } = null!;
+        public Output<string?> CoreNetworkArn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of a core network.
@@ -64,25 +64,25 @@ namespace Pulumi.Aws.NetworkManager
         /// The edge location for the peer.
         /// </summary>
         [Output("edgeLocation")]
-        public Output<string> EdgeLocation { get; private set; } = null!;
+        public Output<string?> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the account owner.
         /// </summary>
         [Output("ownerAccountId")]
-        public Output<string> OwnerAccountId { get; private set; } = null!;
+        public Output<string?> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The type of peering. This will be `TRANSIT_GATEWAY`.
         /// </summary>
         [Output("peeringType")]
-        public Output<string> PeeringType { get; private set; } = null!;
+        public Output<string?> PeeringType { get; private set; } = null!;
 
         /// <summary>
         /// The resource ARN of the peer.
         /// </summary>
         [Output("resourceArn")]
-        public Output<string> ResourceArn { get; private set; } = null!;
+        public Output<string?> ResourceArn { get; private set; } = null!;
 
         /// <summary>
         /// Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.NetworkManager
         /// The ID of the transit gateway peering attachment.
         /// </summary>
         [Output("transitGatewayPeeringAttachmentId")]
-        public Output<string> TransitGatewayPeeringAttachmentId { get; private set; } = null!;
+        public Output<string?> TransitGatewayPeeringAttachmentId { get; private set; } = null!;
 
 
         /// <summary>

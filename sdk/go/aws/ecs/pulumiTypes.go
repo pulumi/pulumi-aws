@@ -5848,7 +5848,7 @@ func (o TaskSetServiceRegistriesPtrOutput) RegistryArn() pulumi.StringPtrOutput 
 }
 
 type GetClusterServiceConnectDefault struct {
-	Namespace string `pulumi:"namespace"`
+	Namespace *string `pulumi:"namespace"`
 }
 
 // GetClusterServiceConnectDefaultInput is an input type that accepts GetClusterServiceConnectDefaultArgs and GetClusterServiceConnectDefaultOutput values.
@@ -5863,7 +5863,7 @@ type GetClusterServiceConnectDefaultInput interface {
 }
 
 type GetClusterServiceConnectDefaultArgs struct {
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
 func (GetClusterServiceConnectDefaultArgs) ElementType() reflect.Type {
@@ -5917,8 +5917,8 @@ func (o GetClusterServiceConnectDefaultOutput) ToGetClusterServiceConnectDefault
 	return o
 }
 
-func (o GetClusterServiceConnectDefaultOutput) Namespace() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterServiceConnectDefault) string { return v.Namespace }).(pulumi.StringOutput)
+func (o GetClusterServiceConnectDefaultOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterServiceConnectDefault) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 type GetClusterServiceConnectDefaultArrayOutput struct{ *pulumi.OutputState }
@@ -5942,8 +5942,8 @@ func (o GetClusterServiceConnectDefaultArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetClusterSetting struct {
-	Name  string `pulumi:"name"`
-	Value string `pulumi:"value"`
+	Name  *string `pulumi:"name"`
+	Value *string `pulumi:"value"`
 }
 
 // GetClusterSettingInput is an input type that accepts GetClusterSettingArgs and GetClusterSettingOutput values.
@@ -5958,8 +5958,8 @@ type GetClusterSettingInput interface {
 }
 
 type GetClusterSettingArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetClusterSettingArgs) ElementType() reflect.Type {
@@ -6013,12 +6013,12 @@ func (o GetClusterSettingOutput) ToGetClusterSettingOutputWithContext(ctx contex
 	return o
 }
 
-func (o GetClusterSettingOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterSetting) string { return v.Name }).(pulumi.StringOutput)
+func (o GetClusterSettingOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterSetting) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterSettingOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterSetting) string { return v.Value }).(pulumi.StringOutput)
+func (o GetClusterSettingOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterSetting) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetClusterSettingArrayOutput struct{ *pulumi.OutputState }

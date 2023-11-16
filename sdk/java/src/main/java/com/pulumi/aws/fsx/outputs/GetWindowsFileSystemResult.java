@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWindowsFileSystemResult {
@@ -19,53 +21,53 @@ public final class GetWindowsFileSystemResult {
      * @return The ID for Microsoft Active Directory instance that the file system is join to.
      * 
      */
-    private String activeDirectoryId;
+    private @Nullable String activeDirectoryId;
     /**
      * @return An array DNS alias names associated with the Amazon FSx file system.
      * 
      */
-    private List<String> aliases;
+    private @Nullable List<String> aliases;
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
      * 
      */
-    private List<GetWindowsFileSystemAuditLogConfiguration> auditLogConfigurations;
+    private @Nullable List<GetWindowsFileSystemAuditLogConfiguration> auditLogConfigurations;
     /**
      * @return The number of days to retain automatic backups.
      * 
      */
-    private Integer automaticBackupRetentionDays;
-    private String backupId;
+    private @Nullable Integer automaticBackupRetentionDays;
+    private @Nullable String backupId;
     /**
      * @return A boolean flag indicating whether tags on the file system should be copied to backups.
      * 
      */
-    private Boolean copyTagsToBackups;
+    private @Nullable Boolean copyTagsToBackups;
     /**
      * @return The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
-    private String dailyAutomaticBackupStartTime;
+    private @Nullable String dailyAutomaticBackupStartTime;
     /**
      * @return The file system deployment type.
      * 
      */
-    private String deploymentType;
+    private @Nullable String deploymentType;
     /**
      * @return The SSD IOPS configuration for the file system.
      * 
      */
-    private List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations;
+    private @Nullable List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations;
     /**
      * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      * 
      */
-    private String dnsName;
+    private @Nullable String dnsName;
     /**
      * @return Identifier of the file system (e.g. `fs-12345678`).
      * 
@@ -75,134 +77,134 @@ public final class GetWindowsFileSystemResult {
      * @return ARN for the KMS Key to encrypt the file system at rest.
      * 
      */
-    private String kmsKeyId;
-    private List<String> networkInterfaceIds;
+    private @Nullable String kmsKeyId;
+    private @Nullable List<String> networkInterfaceIds;
     /**
      * @return AWS account identifier that created the file system.
      * 
      */
-    private String ownerId;
+    private @Nullable String ownerId;
     /**
      * @return The IP address of the primary, or preferred, file server.
      * 
      */
-    private String preferredFileServerIp;
+    private @Nullable String preferredFileServerIp;
     /**
      * @return Specifies the subnet in which you want the preferred file server to be located.
      * 
      */
-    private String preferredSubnetId;
-    private List<String> securityGroupIds;
-    private Boolean skipFinalBackup;
+    private @Nullable String preferredSubnetId;
+    private @Nullable List<String> securityGroupIds;
+    private @Nullable Boolean skipFinalBackup;
     /**
      * @return The storage capacity of the file system in gibibytes (GiB).
      * 
      */
-    private Integer storageCapacity;
+    private @Nullable Integer storageCapacity;
     /**
      * @return The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      * 
      */
-    private String storageType;
+    private @Nullable String storageType;
     /**
      * @return Specifies the IDs of the subnets that the file system is accessible from.
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return The tags to associate with the file system.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      * 
      */
-    private Integer throughputCapacity;
+    private @Nullable Integer throughputCapacity;
     /**
      * @return The ID of the primary virtual private cloud (VPC) for the file system.
      * 
      */
-    private String vpcId;
+    private @Nullable String vpcId;
     /**
      * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    private String weeklyMaintenanceStartTime;
+    private @Nullable String weeklyMaintenanceStartTime;
 
     private GetWindowsFileSystemResult() {}
     /**
      * @return The ID for Microsoft Active Directory instance that the file system is join to.
      * 
      */
-    public String activeDirectoryId() {
-        return this.activeDirectoryId;
+    public Optional<String> activeDirectoryId() {
+        return Optional.ofNullable(this.activeDirectoryId);
     }
     /**
      * @return An array DNS alias names associated with the Amazon FSx file system.
      * 
      */
     public List<String> aliases() {
-        return this.aliases;
+        return this.aliases == null ? List.of() : this.aliases;
     }
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
      * 
      */
     public List<GetWindowsFileSystemAuditLogConfiguration> auditLogConfigurations() {
-        return this.auditLogConfigurations;
+        return this.auditLogConfigurations == null ? List.of() : this.auditLogConfigurations;
     }
     /**
      * @return The number of days to retain automatic backups.
      * 
      */
-    public Integer automaticBackupRetentionDays() {
-        return this.automaticBackupRetentionDays;
+    public Optional<Integer> automaticBackupRetentionDays() {
+        return Optional.ofNullable(this.automaticBackupRetentionDays);
     }
-    public String backupId() {
-        return this.backupId;
+    public Optional<String> backupId() {
+        return Optional.ofNullable(this.backupId);
     }
     /**
      * @return A boolean flag indicating whether tags on the file system should be copied to backups.
      * 
      */
-    public Boolean copyTagsToBackups() {
-        return this.copyTagsToBackups;
+    public Optional<Boolean> copyTagsToBackups() {
+        return Optional.ofNullable(this.copyTagsToBackups);
     }
     /**
      * @return The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
-    public String dailyAutomaticBackupStartTime() {
-        return this.dailyAutomaticBackupStartTime;
+    public Optional<String> dailyAutomaticBackupStartTime() {
+        return Optional.ofNullable(this.dailyAutomaticBackupStartTime);
     }
     /**
      * @return The file system deployment type.
      * 
      */
-    public String deploymentType() {
-        return this.deploymentType;
+    public Optional<String> deploymentType() {
+        return Optional.ofNullable(this.deploymentType);
     }
     /**
      * @return The SSD IOPS configuration for the file system.
      * 
      */
     public List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations() {
-        return this.diskIopsConfigurations;
+        return this.diskIopsConfigurations == null ? List.of() : this.diskIopsConfigurations;
     }
     /**
      * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      * 
      */
-    public String dnsName() {
-        return this.dnsName;
+    public Optional<String> dnsName() {
+        return Optional.ofNullable(this.dnsName);
     }
     /**
      * @return Identifier of the file system (e.g. `fs-12345678`).
@@ -215,87 +217,87 @@ public final class GetWindowsFileSystemResult {
      * @return ARN for the KMS Key to encrypt the file system at rest.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     public List<String> networkInterfaceIds() {
-        return this.networkInterfaceIds;
+        return this.networkInterfaceIds == null ? List.of() : this.networkInterfaceIds;
     }
     /**
      * @return AWS account identifier that created the file system.
      * 
      */
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
      * @return The IP address of the primary, or preferred, file server.
      * 
      */
-    public String preferredFileServerIp() {
-        return this.preferredFileServerIp;
+    public Optional<String> preferredFileServerIp() {
+        return Optional.ofNullable(this.preferredFileServerIp);
     }
     /**
      * @return Specifies the subnet in which you want the preferred file server to be located.
      * 
      */
-    public String preferredSubnetId() {
-        return this.preferredSubnetId;
+    public Optional<String> preferredSubnetId() {
+        return Optional.ofNullable(this.preferredSubnetId);
     }
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    public Boolean skipFinalBackup() {
-        return this.skipFinalBackup;
+    public Optional<Boolean> skipFinalBackup() {
+        return Optional.ofNullable(this.skipFinalBackup);
     }
     /**
      * @return The storage capacity of the file system in gibibytes (GiB).
      * 
      */
-    public Integer storageCapacity() {
-        return this.storageCapacity;
+    public Optional<Integer> storageCapacity() {
+        return Optional.ofNullable(this.storageCapacity);
     }
     /**
      * @return The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      * 
      */
-    public String storageType() {
-        return this.storageType;
+    public Optional<String> storageType() {
+        return Optional.ofNullable(this.storageType);
     }
     /**
      * @return Specifies the IDs of the subnets that the file system is accessible from.
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
      * @return The tags to associate with the file system.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      * 
      */
-    public Integer throughputCapacity() {
-        return this.throughputCapacity;
+    public Optional<Integer> throughputCapacity() {
+        return Optional.ofNullable(this.throughputCapacity);
     }
     /**
      * @return The ID of the primary virtual private cloud (VPC) for the file system.
      * 
      */
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
     /**
      * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    public String weeklyMaintenanceStartTime() {
-        return this.weeklyMaintenanceStartTime;
+    public Optional<String> weeklyMaintenanceStartTime() {
+        return Optional.ofNullable(this.weeklyMaintenanceStartTime);
     }
 
     public static Builder builder() {
@@ -307,32 +309,32 @@ public final class GetWindowsFileSystemResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String activeDirectoryId;
-        private List<String> aliases;
-        private String arn;
-        private List<GetWindowsFileSystemAuditLogConfiguration> auditLogConfigurations;
-        private Integer automaticBackupRetentionDays;
-        private String backupId;
-        private Boolean copyTagsToBackups;
-        private String dailyAutomaticBackupStartTime;
-        private String deploymentType;
-        private List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations;
-        private String dnsName;
+        private @Nullable String activeDirectoryId;
+        private @Nullable List<String> aliases;
+        private @Nullable String arn;
+        private @Nullable List<GetWindowsFileSystemAuditLogConfiguration> auditLogConfigurations;
+        private @Nullable Integer automaticBackupRetentionDays;
+        private @Nullable String backupId;
+        private @Nullable Boolean copyTagsToBackups;
+        private @Nullable String dailyAutomaticBackupStartTime;
+        private @Nullable String deploymentType;
+        private @Nullable List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations;
+        private @Nullable String dnsName;
         private String id;
-        private String kmsKeyId;
-        private List<String> networkInterfaceIds;
-        private String ownerId;
-        private String preferredFileServerIp;
-        private String preferredSubnetId;
-        private List<String> securityGroupIds;
-        private Boolean skipFinalBackup;
-        private Integer storageCapacity;
-        private String storageType;
-        private List<String> subnetIds;
-        private Map<String,String> tags;
-        private Integer throughputCapacity;
-        private String vpcId;
-        private String weeklyMaintenanceStartTime;
+        private @Nullable String kmsKeyId;
+        private @Nullable List<String> networkInterfaceIds;
+        private @Nullable String ownerId;
+        private @Nullable String preferredFileServerIp;
+        private @Nullable String preferredSubnetId;
+        private @Nullable List<String> securityGroupIds;
+        private @Nullable Boolean skipFinalBackup;
+        private @Nullable Integer storageCapacity;
+        private @Nullable String storageType;
+        private @Nullable List<String> subnetIds;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Integer throughputCapacity;
+        private @Nullable String vpcId;
+        private @Nullable String weeklyMaintenanceStartTime;
         public Builder() {}
         public Builder(GetWindowsFileSystemResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -365,67 +367,67 @@ public final class GetWindowsFileSystemResult {
         }
 
         @CustomType.Setter
-        public Builder activeDirectoryId(String activeDirectoryId) {
-            this.activeDirectoryId = Objects.requireNonNull(activeDirectoryId);
+        public Builder activeDirectoryId(@Nullable String activeDirectoryId) {
+            this.activeDirectoryId = activeDirectoryId;
             return this;
         }
         @CustomType.Setter
-        public Builder aliases(List<String> aliases) {
-            this.aliases = Objects.requireNonNull(aliases);
+        public Builder aliases(@Nullable List<String> aliases) {
+            this.aliases = aliases;
             return this;
         }
         public Builder aliases(String... aliases) {
             return aliases(List.of(aliases));
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder auditLogConfigurations(List<GetWindowsFileSystemAuditLogConfiguration> auditLogConfigurations) {
-            this.auditLogConfigurations = Objects.requireNonNull(auditLogConfigurations);
+        public Builder auditLogConfigurations(@Nullable List<GetWindowsFileSystemAuditLogConfiguration> auditLogConfigurations) {
+            this.auditLogConfigurations = auditLogConfigurations;
             return this;
         }
         public Builder auditLogConfigurations(GetWindowsFileSystemAuditLogConfiguration... auditLogConfigurations) {
             return auditLogConfigurations(List.of(auditLogConfigurations));
         }
         @CustomType.Setter
-        public Builder automaticBackupRetentionDays(Integer automaticBackupRetentionDays) {
-            this.automaticBackupRetentionDays = Objects.requireNonNull(automaticBackupRetentionDays);
+        public Builder automaticBackupRetentionDays(@Nullable Integer automaticBackupRetentionDays) {
+            this.automaticBackupRetentionDays = automaticBackupRetentionDays;
             return this;
         }
         @CustomType.Setter
-        public Builder backupId(String backupId) {
-            this.backupId = Objects.requireNonNull(backupId);
+        public Builder backupId(@Nullable String backupId) {
+            this.backupId = backupId;
             return this;
         }
         @CustomType.Setter
-        public Builder copyTagsToBackups(Boolean copyTagsToBackups) {
-            this.copyTagsToBackups = Objects.requireNonNull(copyTagsToBackups);
+        public Builder copyTagsToBackups(@Nullable Boolean copyTagsToBackups) {
+            this.copyTagsToBackups = copyTagsToBackups;
             return this;
         }
         @CustomType.Setter
-        public Builder dailyAutomaticBackupStartTime(String dailyAutomaticBackupStartTime) {
-            this.dailyAutomaticBackupStartTime = Objects.requireNonNull(dailyAutomaticBackupStartTime);
+        public Builder dailyAutomaticBackupStartTime(@Nullable String dailyAutomaticBackupStartTime) {
+            this.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
             return this;
         }
         @CustomType.Setter
-        public Builder deploymentType(String deploymentType) {
-            this.deploymentType = Objects.requireNonNull(deploymentType);
+        public Builder deploymentType(@Nullable String deploymentType) {
+            this.deploymentType = deploymentType;
             return this;
         }
         @CustomType.Setter
-        public Builder diskIopsConfigurations(List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations) {
-            this.diskIopsConfigurations = Objects.requireNonNull(diskIopsConfigurations);
+        public Builder diskIopsConfigurations(@Nullable List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations) {
+            this.diskIopsConfigurations = diskIopsConfigurations;
             return this;
         }
         public Builder diskIopsConfigurations(GetWindowsFileSystemDiskIopsConfiguration... diskIopsConfigurations) {
             return diskIopsConfigurations(List.of(diskIopsConfigurations));
         }
         @CustomType.Setter
-        public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+        public Builder dnsName(@Nullable String dnsName) {
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
@@ -434,82 +436,82 @@ public final class GetWindowsFileSystemResult {
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceIds(List<String> networkInterfaceIds) {
-            this.networkInterfaceIds = Objects.requireNonNull(networkInterfaceIds);
+        public Builder networkInterfaceIds(@Nullable List<String> networkInterfaceIds) {
+            this.networkInterfaceIds = networkInterfaceIds;
             return this;
         }
         public Builder networkInterfaceIds(String... networkInterfaceIds) {
             return networkInterfaceIds(List.of(networkInterfaceIds));
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
-        public Builder preferredFileServerIp(String preferredFileServerIp) {
-            this.preferredFileServerIp = Objects.requireNonNull(preferredFileServerIp);
+        public Builder preferredFileServerIp(@Nullable String preferredFileServerIp) {
+            this.preferredFileServerIp = preferredFileServerIp;
             return this;
         }
         @CustomType.Setter
-        public Builder preferredSubnetId(String preferredSubnetId) {
-            this.preferredSubnetId = Objects.requireNonNull(preferredSubnetId);
+        public Builder preferredSubnetId(@Nullable String preferredSubnetId) {
+            this.preferredSubnetId = preferredSubnetId;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder skipFinalBackup(Boolean skipFinalBackup) {
-            this.skipFinalBackup = Objects.requireNonNull(skipFinalBackup);
+        public Builder skipFinalBackup(@Nullable Boolean skipFinalBackup) {
+            this.skipFinalBackup = skipFinalBackup;
             return this;
         }
         @CustomType.Setter
-        public Builder storageCapacity(Integer storageCapacity) {
-            this.storageCapacity = Objects.requireNonNull(storageCapacity);
+        public Builder storageCapacity(@Nullable Integer storageCapacity) {
+            this.storageCapacity = storageCapacity;
             return this;
         }
         @CustomType.Setter
-        public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+        public Builder storageType(@Nullable String storageType) {
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder throughputCapacity(Integer throughputCapacity) {
-            this.throughputCapacity = Objects.requireNonNull(throughputCapacity);
+        public Builder throughputCapacity(@Nullable Integer throughputCapacity) {
+            this.throughputCapacity = throughputCapacity;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
-        public Builder weeklyMaintenanceStartTime(String weeklyMaintenanceStartTime) {
-            this.weeklyMaintenanceStartTime = Objects.requireNonNull(weeklyMaintenanceStartTime);
+        public Builder weeklyMaintenanceStartTime(@Nullable String weeklyMaintenanceStartTime) {
+            this.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
             return this;
         }
         public GetWindowsFileSystemResult build() {

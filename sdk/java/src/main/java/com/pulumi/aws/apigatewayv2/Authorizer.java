@@ -153,7 +153,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="authorizerResultTtlInSeconds", refs={Integer.class}, tree="[0]")
-    private Output<Integer> authorizerResultTtlInSeconds;
+    private Output</* @Nullable */ Integer> authorizerResultTtlInSeconds;
 
     /**
      * @return Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
@@ -161,8 +161,8 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * Supported only for HTTP API Lambda authorizers.
      * 
      */
-    public Output<Integer> authorizerResultTtlInSeconds() {
-        return this.authorizerResultTtlInSeconds;
+    public Output<Optional<Integer>> authorizerResultTtlInSeconds() {
+        return Codegen.optional(this.authorizerResultTtlInSeconds);
     }
     /**
      * Authorizer type. Valid values: `JWT`, `REQUEST`.

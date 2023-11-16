@@ -57,7 +57,7 @@ class GetConstraintResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the constraint.
         """
@@ -70,7 +70,7 @@ class GetConstraintResult:
 
     @property
     @pulumi.getter
-    def owner(self) -> str:
+    def owner(self) -> Optional[str]:
         """
         Owner of the constraint.
         """
@@ -78,7 +78,7 @@ class GetConstraintResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> str:
+    def parameters(self) -> Optional[str]:
         """
         Constraint parameters in JSON format.
         """
@@ -86,7 +86,7 @@ class GetConstraintResult:
 
     @property
     @pulumi.getter(name="portfolioId")
-    def portfolio_id(self) -> str:
+    def portfolio_id(self) -> Optional[str]:
         """
         Portfolio identifier.
         """
@@ -94,7 +94,7 @@ class GetConstraintResult:
 
     @property
     @pulumi.getter(name="productId")
-    def product_id(self) -> str:
+    def product_id(self) -> Optional[str]:
         """
         Product identifier.
         """
@@ -102,7 +102,7 @@ class GetConstraintResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Constraint status.
         """
@@ -110,7 +110,7 @@ class GetConstraintResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
         """

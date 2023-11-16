@@ -56,62 +56,62 @@ export interface GetBudgetArgs {
  * A collection of values returned by getBudget.
  */
 export interface GetBudgetResult {
-    readonly accountId: string;
-    readonly arn: string;
+    readonly accountId?: string;
+    readonly arn?: string;
     /**
      * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      */
-    readonly autoAdjustDatas: outputs.budgets.GetBudgetAutoAdjustData[];
+    readonly autoAdjustDatas?: outputs.budgets.GetBudgetAutoAdjustData[];
     /**
      * Boolean indicating whether this budget has been exceeded.
      */
-    readonly budgetExceeded: boolean;
+    readonly budgetExceeded?: boolean;
     /**
      * The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
      */
-    readonly budgetLimits: outputs.budgets.GetBudgetBudgetLimit[];
+    readonly budgetLimits?: outputs.budgets.GetBudgetBudgetLimit[];
     /**
      * Whether this budget tracks monetary cost or usage.
      */
-    readonly budgetType: string;
+    readonly budgetType?: string;
     /**
      * The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.
      */
-    readonly calculatedSpends: outputs.budgets.GetBudgetCalculatedSpend[];
+    readonly calculatedSpends?: outputs.budgets.GetBudgetCalculatedSpend[];
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */
-    readonly costFilters: outputs.budgets.GetBudgetCostFilter[];
+    readonly costFilters?: outputs.budgets.GetBudgetCostFilter[];
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
-    readonly costTypes: outputs.budgets.GetBudgetCostType[];
+    readonly costTypes?: outputs.budgets.GetBudgetCostType[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     readonly namePrefix?: string;
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
-    readonly notifications: outputs.budgets.GetBudgetNotification[];
+    readonly notifications?: outputs.budgets.GetBudgetNotification[];
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
-    readonly plannedLimits: outputs.budgets.GetBudgetPlannedLimit[];
+    readonly plannedLimits?: outputs.budgets.GetBudgetPlannedLimit[];
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
-    readonly timePeriodEnd: string;
+    readonly timePeriodEnd?: string;
     /**
      * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      */
-    readonly timePeriodStart: string;
+    readonly timePeriodStart?: string;
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      */
-    readonly timeUnit: string;
+    readonly timeUnit?: string;
 }
 /**
  * Data source for managing an AWS Web Services Budgets Budget.

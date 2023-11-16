@@ -50,7 +50,7 @@ class GetVirtualClusterResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the cluster.
         """
@@ -58,7 +58,7 @@ class GetVirtualClusterResult:
 
     @property
     @pulumi.getter(name="containerProviders")
-    def container_providers(self) -> Sequence['outputs.GetVirtualClusterContainerProviderResult']:
+    def container_providers(self) -> Optional[Sequence['outputs.GetVirtualClusterContainerProviderResult']]:
         """
         Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
         """
@@ -66,7 +66,7 @@ class GetVirtualClusterResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Unix epoch time stamp in seconds for when the cluster was created.
         """
@@ -74,7 +74,7 @@ class GetVirtualClusterResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -82,7 +82,7 @@ class GetVirtualClusterResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the cluster.
         """
@@ -90,7 +90,7 @@ class GetVirtualClusterResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
         """
@@ -98,7 +98,7 @@ class GetVirtualClusterResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value mapping of resource tags.
         """

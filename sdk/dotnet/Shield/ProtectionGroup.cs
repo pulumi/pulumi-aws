@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Shield
         /// The ARN (Amazon Resource Name) of the protection group.
         /// </summary>
         [Output("protectionGroupArn")]
-        public Output<string> ProtectionGroupArn { get; private set; } = null!;
+        public Output<string?> ProtectionGroupArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the protection group.

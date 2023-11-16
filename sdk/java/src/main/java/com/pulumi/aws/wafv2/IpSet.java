@@ -88,14 +88,14 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the IP set.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A friendly description of the IP set.
@@ -126,10 +126,10 @@ public class IpSet extends com.pulumi.resources.CustomResource {
         return this.ipAddressVersion;
     }
     @Export(name="lockToken", refs={String.class}, tree="[0]")
-    private Output<String> lockToken;
+    private Output</* @Nullable */ String> lockToken;
 
-    public Output<String> lockToken() {
-        return this.lockToken;
+    public Output<Optional<String>> lockToken() {
+        return Codegen.optional(this.lockToken);
     }
     /**
      * A friendly name of the IP set.

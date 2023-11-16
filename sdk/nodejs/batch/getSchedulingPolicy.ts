@@ -49,19 +49,19 @@ export interface GetSchedulingPolicyArgs {
  */
 export interface GetSchedulingPolicyResult {
     readonly arn: string;
-    readonly fairSharePolicies: outputs.batch.GetSchedulingPolicyFairSharePolicy[];
+    readonly fairSharePolicies?: outputs.batch.GetSchedulingPolicyFairSharePolicy[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the scheduling policy.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Key-value map of resource tags
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.RedShift
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the HSM client certificate.
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.RedShift
         /// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
         /// </summary>
         [Output("hsmClientCertificatePublicKey")]
-        public Output<string> HsmClientCertificatePublicKey { get; private set; } = null!;
+        public Output<string?> HsmClientCertificatePublicKey { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

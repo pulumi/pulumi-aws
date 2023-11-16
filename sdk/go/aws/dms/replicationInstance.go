@@ -136,34 +136,34 @@ type ReplicationInstance struct {
 	pulumi.CustomResourceState
 
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
-	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
+	AllocatedStorage pulumi.IntPtrOutput `pulumi:"allocatedStorage"`
 	// Indicates that major version upgrades are allowed.
 	AllowMajorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"allowMajorVersionUpgrade"`
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
-	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the replication instance will be created in.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The engine version number of the replication instance.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
-	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
+	MultiAz pulumi.BoolPtrOutput `pulumi:"multiAz"`
 	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
-	NetworkType pulumi.StringOutput `pulumi:"networkType"`
+	NetworkType pulumi.StringPtrOutput `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
 	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
 	// - Constraints: Minimum 30-minute window.
-	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
+	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// The Amazon Resource Name (ARN) of the replication instance.
-	ReplicationInstanceArn pulumi.StringOutput `pulumi:"replicationInstanceArn"`
+	ReplicationInstanceArn pulumi.StringPtrOutput `pulumi:"replicationInstanceArn"`
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringOutput `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
@@ -178,7 +178,7 @@ type ReplicationInstance struct {
 	// A list of the public IP addresses of the replication instance.
 	ReplicationInstancePublicIps pulumi.StringArrayOutput `pulumi:"replicationInstancePublicIps"`
 	// A subnet group to associate with the replication instance.
-	ReplicationSubnetGroupId pulumi.StringOutput `pulumi:"replicationSubnetGroupId"`
+	ReplicationSubnetGroupId pulumi.StringPtrOutput `pulumi:"replicationSubnetGroupId"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -521,8 +521,8 @@ func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx co
 }
 
 // The amount of storage (in gigabytes) to be initially allocated for the replication instance.
-func (o ReplicationInstanceOutput) AllocatedStorage() pulumi.IntOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.IntOutput { return v.AllocatedStorage }).(pulumi.IntOutput)
+func (o ReplicationInstanceOutput) AllocatedStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.IntPtrOutput { return v.AllocatedStorage }).(pulumi.IntPtrOutput)
 }
 
 // Indicates that major version upgrades are allowed.
@@ -536,33 +536,33 @@ func (o ReplicationInstanceOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 }
 
 // Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
-func (o ReplicationInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
+func (o ReplicationInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
 // The EC2 Availability Zone that the replication instance will be created in.
-func (o ReplicationInstanceOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o ReplicationInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The engine version number of the replication instance.
-func (o ReplicationInstanceOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o ReplicationInstanceOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-func (o ReplicationInstanceOutput) KmsKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+func (o ReplicationInstanceOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
-func (o ReplicationInstanceOutput) MultiAz() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolOutput { return v.MultiAz }).(pulumi.BoolOutput)
+func (o ReplicationInstanceOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolPtrOutput { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
 // The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
-func (o ReplicationInstanceOutput) NetworkType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
+func (o ReplicationInstanceOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.NetworkType }).(pulumi.StringPtrOutput)
 }
 
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -571,18 +571,18 @@ func (o ReplicationInstanceOutput) NetworkType() pulumi.StringOutput {
 // - Format: `ddd:hh24:mi-ddd:hh24:mi`
 // - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
 // - Constraints: Minimum 30-minute window.
-func (o ReplicationInstanceOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+func (o ReplicationInstanceOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-func (o ReplicationInstanceOutput) PubliclyAccessible() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+func (o ReplicationInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the replication instance.
-func (o ReplicationInstanceOutput) ReplicationInstanceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.ReplicationInstanceArn }).(pulumi.StringOutput)
+func (o ReplicationInstanceOutput) ReplicationInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.ReplicationInstanceArn }).(pulumi.StringPtrOutput)
 }
 
 // The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
@@ -611,8 +611,8 @@ func (o ReplicationInstanceOutput) ReplicationInstancePublicIps() pulumi.StringA
 }
 
 // A subnet group to associate with the replication instance.
-func (o ReplicationInstanceOutput) ReplicationSubnetGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.ReplicationSubnetGroupId }).(pulumi.StringOutput)
+func (o ReplicationInstanceOutput) ReplicationSubnetGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.ReplicationSubnetGroupId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

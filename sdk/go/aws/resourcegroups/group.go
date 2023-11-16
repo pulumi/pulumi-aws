@@ -67,7 +67,7 @@ type Group struct {
 	pulumi.CustomResourceState
 
 	// The ARN assigned by AWS for this resource group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
 	Configurations GroupConfigurationArrayOutput `pulumi:"configurations"`
 	// A description of the resource group.
@@ -274,8 +274,8 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 }
 
 // The ARN assigned by AWS for this resource group.
-func (o GroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.

@@ -47,7 +47,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="accessString")
-    def access_string(self) -> str:
+    def access_string(self) -> Optional[str]:
         """
         Access permissions string used for this user.
         """
@@ -55,7 +55,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the user.
         """
@@ -63,7 +63,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="authenticationModes")
-    def authentication_modes(self) -> Sequence['outputs.GetUserAuthenticationModeResult']:
+    def authentication_modes(self) -> Optional[Sequence['outputs.GetUserAuthenticationModeResult']]:
         """
         Denotes the user's authentication properties.
         """
@@ -71,7 +71,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -79,7 +79,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="minimumEngineVersion")
-    def minimum_engine_version(self) -> str:
+    def minimum_engine_version(self) -> Optional[str]:
         """
         The minimum engine version supported for the user.
         """
@@ -87,7 +87,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the subnet group.
         """

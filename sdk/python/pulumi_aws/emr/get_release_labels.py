@@ -41,7 +41,7 @@ class GetReleaseLabelsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -49,7 +49,7 @@ class GetReleaseLabelsResult:
 
     @property
     @pulumi.getter(name="releaseLabels")
-    def release_labels(self) -> Sequence[str]:
+    def release_labels(self) -> Optional[Sequence[str]]:
         """
         Returned release labels.
         """

@@ -182,51 +182,51 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// ARN (Amazon Resource Name) for the resolver rule.
         /// </summary>
-        public readonly string Arn;
-        public readonly string DomainName;
+        public readonly string? Arn;
+        public readonly string? DomainName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string Name;
+        public readonly string? Id;
+        public readonly string? Name;
         /// <summary>
         /// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
         /// </summary>
-        public readonly string OwnerId;
-        public readonly string ResolverEndpointId;
-        public readonly string ResolverRuleId;
-        public readonly string RuleType;
+        public readonly string? OwnerId;
+        public readonly string? ResolverEndpointId;
+        public readonly string? ResolverRuleId;
+        public readonly string? RuleType;
         /// <summary>
         /// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
         /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
         /// </summary>
-        public readonly string ShareStatus;
+        public readonly string? ShareStatus;
         /// <summary>
         /// Map of tags assigned to the resolver rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetResolverRuleResult(
-            string arn,
+            string? arn,
 
-            string domainName,
+            string? domainName,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string ownerId,
+            string? ownerId,
 
-            string resolverEndpointId,
+            string? resolverEndpointId,
 
-            string resolverRuleId,
+            string? resolverRuleId,
 
-            string ruleType,
+            string? ruleType,
 
-            string shareStatus,
+            string? shareStatus,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             DomainName = domainName;

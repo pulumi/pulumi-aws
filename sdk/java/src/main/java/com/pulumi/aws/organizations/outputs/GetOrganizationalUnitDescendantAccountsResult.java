@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrganizationalUnitDescendantAccountsResult {
@@ -15,12 +17,12 @@ public final class GetOrganizationalUnitDescendantAccountsResult {
      * @return List of child accounts, which have the following attributes:
      * 
      */
-    private List<GetOrganizationalUnitDescendantAccountsAccount> accounts;
+    private @Nullable List<GetOrganizationalUnitDescendantAccountsAccount> accounts;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String parentId;
 
     private GetOrganizationalUnitDescendantAccountsResult() {}
@@ -29,14 +31,14 @@ public final class GetOrganizationalUnitDescendantAccountsResult {
      * 
      */
     public List<GetOrganizationalUnitDescendantAccountsAccount> accounts() {
-        return this.accounts;
+        return this.accounts == null ? List.of() : this.accounts;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String parentId() {
         return this.parentId;
@@ -51,8 +53,8 @@ public final class GetOrganizationalUnitDescendantAccountsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetOrganizationalUnitDescendantAccountsAccount> accounts;
-        private String id;
+        private @Nullable List<GetOrganizationalUnitDescendantAccountsAccount> accounts;
+        private @Nullable String id;
         private String parentId;
         public Builder() {}
         public Builder(GetOrganizationalUnitDescendantAccountsResult defaults) {
@@ -63,16 +65,16 @@ public final class GetOrganizationalUnitDescendantAccountsResult {
         }
 
         @CustomType.Setter
-        public Builder accounts(List<GetOrganizationalUnitDescendantAccountsAccount> accounts) {
-            this.accounts = Objects.requireNonNull(accounts);
+        public Builder accounts(@Nullable List<GetOrganizationalUnitDescendantAccountsAccount> accounts) {
+            this.accounts = accounts;
             return this;
         }
         public Builder accounts(GetOrganizationalUnitDescendantAccountsAccount... accounts) {
             return accounts(List.of(accounts));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

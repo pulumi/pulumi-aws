@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRestApiResult {
@@ -16,115 +18,115 @@ public final class GetRestApiResult {
      * @return Source of the API key for requests.
      * 
      */
-    private String apiKeySource;
+    private @Nullable String apiKeySource;
     /**
      * @return ARN of the REST API.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return List of binary media types supported by the REST API.
      * 
      */
-    private List<String> binaryMediaTypes;
+    private @Nullable List<String> binaryMediaTypes;
     /**
      * @return Description of the REST API.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The endpoint configuration of this RestApi showing the endpoint types of the API.
      * 
      */
-    private List<GetRestApiEndpointConfiguration> endpointConfigurations;
+    private @Nullable List<GetRestApiEndpointConfiguration> endpointConfigurations;
     /**
      * @return Execution ARN part to be used in `lambda_permission`&#39;s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
      */
-    private String executionArn;
+    private @Nullable String executionArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Minimum response size to compress for the REST API.
      * 
      */
-    private String minimumCompressionSize;
+    private @Nullable String minimumCompressionSize;
     private String name;
     /**
      * @return JSON formatted policy document that controls access to the API Gateway.
      * 
      */
-    private String policy;
+    private @Nullable String policy;
     /**
      * @return Set to the ID of the API Gateway Resource on the found REST API where the route matches &#39;/&#39;.
      * 
      */
-    private String rootResourceId;
+    private @Nullable String rootResourceId;
     /**
      * @return Key-value map of resource tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetRestApiResult() {}
     /**
      * @return Source of the API key for requests.
      * 
      */
-    public String apiKeySource() {
-        return this.apiKeySource;
+    public Optional<String> apiKeySource() {
+        return Optional.ofNullable(this.apiKeySource);
     }
     /**
      * @return ARN of the REST API.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return List of binary media types supported by the REST API.
      * 
      */
     public List<String> binaryMediaTypes() {
-        return this.binaryMediaTypes;
+        return this.binaryMediaTypes == null ? List.of() : this.binaryMediaTypes;
     }
     /**
      * @return Description of the REST API.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The endpoint configuration of this RestApi showing the endpoint types of the API.
      * 
      */
     public List<GetRestApiEndpointConfiguration> endpointConfigurations() {
-        return this.endpointConfigurations;
+        return this.endpointConfigurations == null ? List.of() : this.endpointConfigurations;
     }
     /**
      * @return Execution ARN part to be used in `lambda_permission`&#39;s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
      */
-    public String executionArn() {
-        return this.executionArn;
+    public Optional<String> executionArn() {
+        return Optional.ofNullable(this.executionArn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Minimum response size to compress for the REST API.
      * 
      */
-    public String minimumCompressionSize() {
-        return this.minimumCompressionSize;
+    public Optional<String> minimumCompressionSize() {
+        return Optional.ofNullable(this.minimumCompressionSize);
     }
     public String name() {
         return this.name;
@@ -133,22 +135,22 @@ public final class GetRestApiResult {
      * @return JSON formatted policy document that controls access to the API Gateway.
      * 
      */
-    public String policy() {
-        return this.policy;
+    public Optional<String> policy() {
+        return Optional.ofNullable(this.policy);
     }
     /**
      * @return Set to the ID of the API Gateway Resource on the found REST API where the route matches &#39;/&#39;.
      * 
      */
-    public String rootResourceId() {
-        return this.rootResourceId;
+    public Optional<String> rootResourceId() {
+        return Optional.ofNullable(this.rootResourceId);
     }
     /**
      * @return Key-value map of resource tags.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -160,18 +162,18 @@ public final class GetRestApiResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String apiKeySource;
-        private String arn;
-        private List<String> binaryMediaTypes;
-        private String description;
-        private List<GetRestApiEndpointConfiguration> endpointConfigurations;
-        private String executionArn;
-        private String id;
-        private String minimumCompressionSize;
+        private @Nullable String apiKeySource;
+        private @Nullable String arn;
+        private @Nullable List<String> binaryMediaTypes;
+        private @Nullable String description;
+        private @Nullable List<GetRestApiEndpointConfiguration> endpointConfigurations;
+        private @Nullable String executionArn;
+        private @Nullable String id;
+        private @Nullable String minimumCompressionSize;
         private String name;
-        private String policy;
-        private String rootResourceId;
-        private Map<String,String> tags;
+        private @Nullable String policy;
+        private @Nullable String rootResourceId;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetRestApiResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -190,49 +192,49 @@ public final class GetRestApiResult {
         }
 
         @CustomType.Setter
-        public Builder apiKeySource(String apiKeySource) {
-            this.apiKeySource = Objects.requireNonNull(apiKeySource);
+        public Builder apiKeySource(@Nullable String apiKeySource) {
+            this.apiKeySource = apiKeySource;
             return this;
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder binaryMediaTypes(List<String> binaryMediaTypes) {
-            this.binaryMediaTypes = Objects.requireNonNull(binaryMediaTypes);
+        public Builder binaryMediaTypes(@Nullable List<String> binaryMediaTypes) {
+            this.binaryMediaTypes = binaryMediaTypes;
             return this;
         }
         public Builder binaryMediaTypes(String... binaryMediaTypes) {
             return binaryMediaTypes(List.of(binaryMediaTypes));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder endpointConfigurations(List<GetRestApiEndpointConfiguration> endpointConfigurations) {
-            this.endpointConfigurations = Objects.requireNonNull(endpointConfigurations);
+        public Builder endpointConfigurations(@Nullable List<GetRestApiEndpointConfiguration> endpointConfigurations) {
+            this.endpointConfigurations = endpointConfigurations;
             return this;
         }
         public Builder endpointConfigurations(GetRestApiEndpointConfiguration... endpointConfigurations) {
             return endpointConfigurations(List.of(endpointConfigurations));
         }
         @CustomType.Setter
-        public Builder executionArn(String executionArn) {
-            this.executionArn = Objects.requireNonNull(executionArn);
+        public Builder executionArn(@Nullable String executionArn) {
+            this.executionArn = executionArn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder minimumCompressionSize(String minimumCompressionSize) {
-            this.minimumCompressionSize = Objects.requireNonNull(minimumCompressionSize);
+        public Builder minimumCompressionSize(@Nullable String minimumCompressionSize) {
+            this.minimumCompressionSize = minimumCompressionSize;
             return this;
         }
         @CustomType.Setter
@@ -241,18 +243,18 @@ public final class GetRestApiResult {
             return this;
         }
         @CustomType.Setter
-        public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+        public Builder policy(@Nullable String policy) {
+            this.policy = policy;
             return this;
         }
         @CustomType.Setter
-        public Builder rootResourceId(String rootResourceId) {
-            this.rootResourceId = Objects.requireNonNull(rootResourceId);
+        public Builder rootResourceId(@Nullable String rootResourceId) {
+            this.rootResourceId = rootResourceId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetRestApiResult build() {

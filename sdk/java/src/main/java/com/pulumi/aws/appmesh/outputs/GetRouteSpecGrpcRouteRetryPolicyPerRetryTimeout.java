@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
-    private String unit;
-    private Integer value;
+    private @Nullable String unit;
+    private @Nullable Integer value;
 
     private GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout() {}
-    public String unit() {
-        return this.unit;
+    public Optional<String> unit() {
+        return Optional.ofNullable(this.unit);
     }
-    public Integer value() {
-        return this.value;
+    public Optional<Integer> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String unit;
-        private Integer value;
+        private @Nullable String unit;
+        private @Nullable Integer value;
         public Builder() {}
         public Builder(GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
         }
 
         @CustomType.Setter
-        public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+        public Builder unit(@Nullable String unit) {
+            this.unit = unit;
             return this;
         }
         @CustomType.Setter
-        public Builder value(Integer value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable Integer value) {
+            this.value = value;
             return this;
         }
         public GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout build() {

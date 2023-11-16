@@ -61,8 +61,8 @@ type LookupLambdaFunctionAssociationArgs struct {
 type LookupLambdaFunctionAssociationResult struct {
 	FunctionArn string `pulumi:"functionArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
+	Id         *string `pulumi:"id"`
+	InstanceId string  `pulumi:"instanceId"`
 }
 
 func LookupLambdaFunctionAssociationOutput(ctx *pulumi.Context, args LookupLambdaFunctionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLambdaFunctionAssociationResultOutput {
@@ -110,8 +110,8 @@ func (o LookupLambdaFunctionAssociationResultOutput) FunctionArn() pulumi.String
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupLambdaFunctionAssociationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLambdaFunctionAssociationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupLambdaFunctionAssociationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLambdaFunctionAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLambdaFunctionAssociationResultOutput) InstanceId() pulumi.StringOutput {

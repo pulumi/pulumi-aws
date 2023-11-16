@@ -56,10 +56,10 @@ type PeeringAttachmentAccepter struct {
 	pulumi.CustomResourceState
 
 	// Identifier of the AWS account that owns the EC2 TGW peering.
-	PeerAccountId pulumi.StringOutput `pulumi:"peerAccountId"`
-	PeerRegion    pulumi.StringOutput `pulumi:"peerRegion"`
+	PeerAccountId pulumi.StringPtrOutput `pulumi:"peerAccountId"`
+	PeerRegion    pulumi.StringPtrOutput `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId pulumi.StringOutput `pulumi:"peerTransitGatewayId"`
+	PeerTransitGatewayId pulumi.StringPtrOutput `pulumi:"peerTransitGatewayId"`
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -69,7 +69,7 @@ type PeeringAttachmentAccepter struct {
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 }
 
 // NewPeeringAttachmentAccepter registers a new resource with the given unique name, arguments, and options.
@@ -257,17 +257,17 @@ func (o PeeringAttachmentAccepterOutput) ToPeeringAttachmentAccepterOutputWithCo
 }
 
 // Identifier of the AWS account that owns the EC2 TGW peering.
-func (o PeeringAttachmentAccepterOutput) PeerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *PeeringAttachmentAccepter) pulumi.StringOutput { return v.PeerAccountId }).(pulumi.StringOutput)
+func (o PeeringAttachmentAccepterOutput) PeerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringAttachmentAccepter) pulumi.StringPtrOutput { return v.PeerAccountId }).(pulumi.StringPtrOutput)
 }
 
-func (o PeeringAttachmentAccepterOutput) PeerRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *PeeringAttachmentAccepter) pulumi.StringOutput { return v.PeerRegion }).(pulumi.StringOutput)
+func (o PeeringAttachmentAccepterOutput) PeerRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringAttachmentAccepter) pulumi.StringPtrOutput { return v.PeerRegion }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of EC2 Transit Gateway to peer with.
-func (o PeeringAttachmentAccepterOutput) PeerTransitGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v *PeeringAttachmentAccepter) pulumi.StringOutput { return v.PeerTransitGatewayId }).(pulumi.StringOutput)
+func (o PeeringAttachmentAccepterOutput) PeerTransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringAttachmentAccepter) pulumi.StringPtrOutput { return v.PeerTransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -288,8 +288,8 @@ func (o PeeringAttachmentAccepterOutput) TransitGatewayAttachmentId() pulumi.Str
 }
 
 // Identifier of EC2 Transit Gateway.
-func (o PeeringAttachmentAccepterOutput) TransitGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v *PeeringAttachmentAccepter) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+func (o PeeringAttachmentAccepterOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringAttachmentAccepter) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
 type PeeringAttachmentAccepterArrayOutput struct{ *pulumi.OutputState }

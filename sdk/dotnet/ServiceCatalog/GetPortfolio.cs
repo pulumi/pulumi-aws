@@ -145,46 +145,46 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Portfolio ARN.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Time the portfolio was created.
         /// </summary>
-        public readonly string CreatedTime;
+        public readonly string? CreatedTime;
         /// <summary>
         /// Description of the portfolio
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string Id;
         /// <summary>
         /// Portfolio name.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Name of the person or organization who owns the portfolio.
         /// </summary>
-        public readonly string ProviderName;
+        public readonly string? ProviderName;
         /// <summary>
         /// Tags applied to the portfolio.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetPortfolioResult(
             string? acceptLanguage,
 
-            string arn,
+            string? arn,
 
-            string createdTime,
+            string? createdTime,
 
-            string description,
+            string? description,
 
             string id,
 
-            string name,
+            string? name,
 
-            string providerName,
+            string? providerName,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AcceptLanguage = acceptLanguage;
             Arn = arn;

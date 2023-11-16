@@ -46,7 +46,7 @@ export class BucketAccessKey extends pulumi.CustomResource {
     /**
      * The ID of the access key.
      */
-    public /*out*/ readonly accessKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly accessKeyId!: pulumi.Output<string | undefined>;
     /**
      * The name of the bucket that the new access key will belong to, and grant access to.
      */
@@ -54,15 +54,15 @@ export class BucketAccessKey extends pulumi.CustomResource {
     /**
      * The timestamp when the access key was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      */
-    public /*out*/ readonly secretAccessKey!: pulumi.Output<string>;
+    public /*out*/ readonly secretAccessKey!: pulumi.Output<string | undefined>;
     /**
      * The status of the access key.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BucketAccessKey resource with the given unique name, arguments, and options.

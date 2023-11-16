@@ -29,13 +29,13 @@ type ServerlessCluster struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the serverless cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
 	// The name of the serverless cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// UUID of the serverless cluster, for use in IAM policies.
-	ClusterUuid pulumi.StringOutput `pulumi:"clusterUuid"`
+	ClusterUuid pulumi.StringPtrOutput `pulumi:"clusterUuid"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -238,8 +238,8 @@ func (o ServerlessClusterOutput) ToServerlessClusterOutputWithContext(ctx contex
 }
 
 // The ARN of the serverless cluster.
-func (o ServerlessClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServerlessClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies client authentication information for the serverless cluster. See below.
@@ -253,8 +253,8 @@ func (o ServerlessClusterOutput) ClusterName() pulumi.StringOutput {
 }
 
 // UUID of the serverless cluster, for use in IAM policies.
-func (o ServerlessClusterOutput) ClusterUuid() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.ClusterUuid }).(pulumi.StringOutput)
+func (o ServerlessClusterOutput) ClusterUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringPtrOutput { return v.ClusterUuid }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

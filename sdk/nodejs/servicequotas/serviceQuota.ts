@@ -66,15 +66,15 @@ export class ServiceQuota extends pulumi.CustomResource {
     /**
      * Whether the service quota can be increased.
      */
-    public /*out*/ readonly adjustable!: pulumi.Output<boolean>;
+    public /*out*/ readonly adjustable!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the service quota.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Default value of the service quota.
      */
-    public /*out*/ readonly defaultValue!: pulumi.Output<number>;
+    public /*out*/ readonly defaultValue!: pulumi.Output<number | undefined>;
     /**
      * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      */
@@ -82,9 +82,9 @@ export class ServiceQuota extends pulumi.CustomResource {
     /**
      * Name of the quota.
      */
-    public /*out*/ readonly quotaName!: pulumi.Output<string>;
-    public /*out*/ readonly requestId!: pulumi.Output<string>;
-    public /*out*/ readonly requestStatus!: pulumi.Output<string>;
+    public /*out*/ readonly quotaName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly requestId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly requestStatus!: pulumi.Output<string | undefined>;
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
@@ -92,11 +92,11 @@ export class ServiceQuota extends pulumi.CustomResource {
     /**
      * Name of the service.
      */
-    public /*out*/ readonly serviceName!: pulumi.Output<string>;
+    public /*out*/ readonly serviceName!: pulumi.Output<string | undefined>;
     /**
      * Information about the measurement.
      */
-    public /*out*/ readonly usageMetrics!: pulumi.Output<outputs.servicequotas.ServiceQuotaUsageMetric[]>;
+    public /*out*/ readonly usageMetrics!: pulumi.Output<outputs.servicequotas.ServiceQuotaUsageMetric[] | undefined>;
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      */

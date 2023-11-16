@@ -179,14 +179,14 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="associationId", refs={String.class}, tree="[0]")
-    private Output<String> associationId;
+    private Output</* @Nullable */ String> associationId;
 
     /**
      * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
-    public Output<String> associationId() {
-        return this.associationId;
+    public Output<Optional<String>> associationId() {
+        return Codegen.optional(this.associationId);
     }
     /**
      * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
@@ -207,42 +207,42 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
-    private Output<String> networkInterfaceId;
+    private Output</* @Nullable */ String> networkInterfaceId;
 
     /**
      * @return The ID of the network interface associated with the NAT Gateway.
      * 
      */
-    public Output<String> networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Output<Optional<String>> networkInterfaceId() {
+        return Codegen.optional(this.networkInterfaceId);
     }
     /**
      * The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
     @Export(name="privateIp", refs={String.class}, tree="[0]")
-    private Output<String> privateIp;
+    private Output</* @Nullable */ String> privateIp;
 
     /**
      * @return The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
-    public Output<String> privateIp() {
-        return this.privateIp;
+    public Output<Optional<String>> privateIp() {
+        return Codegen.optional(this.privateIp);
     }
     /**
      * The Elastic IP address associated with the NAT Gateway.
      * 
      */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
-    private Output<String> publicIp;
+    private Output</* @Nullable */ String> publicIp;
 
     /**
      * @return The Elastic IP address associated with the NAT Gateway.
      * 
      */
-    public Output<String> publicIp() {
-        return this.publicIp;
+    public Output<Optional<String>> publicIp() {
+        return Codegen.optional(this.publicIp);
     }
     /**
      * A list of secondary allocation EIP IDs for this NAT Gateway.
@@ -263,28 +263,28 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="secondaryPrivateIpAddressCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> secondaryPrivateIpAddressCount;
+    private Output</* @Nullable */ Integer> secondaryPrivateIpAddressCount;
 
     /**
      * @return [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
      * 
      */
-    public Output<Integer> secondaryPrivateIpAddressCount() {
-        return this.secondaryPrivateIpAddressCount;
+    public Output<Optional<Integer>> secondaryPrivateIpAddressCount() {
+        return Codegen.optional(this.secondaryPrivateIpAddressCount);
     }
     /**
      * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
      * 
      */
     @Export(name="secondaryPrivateIpAddresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> secondaryPrivateIpAddresses;
+    private Output</* @Nullable */ List<String>> secondaryPrivateIpAddresses;
 
     /**
      * @return A list of secondary private IPv4 addresses to assign to the NAT Gateway.
      * 
      */
-    public Output<List<String>> secondaryPrivateIpAddresses() {
-        return this.secondaryPrivateIpAddresses;
+    public Output<Optional<List<String>>> secondaryPrivateIpAddresses() {
+        return Codegen.optional(this.secondaryPrivateIpAddresses);
     }
     /**
      * The Subnet ID of the subnet in which to place the NAT Gateway.

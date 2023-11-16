@@ -34,7 +34,7 @@ class GetActiveReceiptRuleSetResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         SES receipt rule set ARN.
         """
@@ -42,7 +42,7 @@ class GetActiveReceiptRuleSetResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -50,7 +50,7 @@ class GetActiveReceiptRuleSetResult:
 
     @property
     @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> str:
+    def rule_set_name(self) -> Optional[str]:
         """
         Name of the rule set
         """

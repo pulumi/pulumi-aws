@@ -130,7 +130,7 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// ARN of the Dedicated IP Pool.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// A list of objects describing the pool's dedicated IP's. See `dedicated_ips`.
         /// </summary>
@@ -138,30 +138,30 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string PoolName;
         /// <summary>
         /// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
         /// </summary>
-        public readonly string ScalingMode;
+        public readonly string? ScalingMode;
         /// <summary>
         /// A map of tags attached to the pool.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetDedicatedIpPoolResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetDedicatedIpPoolDedicatedIpResult> dedicatedIps,
 
-            string id,
+            string? id,
 
             string poolName,
 
-            string scalingMode,
+            string? scalingMode,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             DedicatedIps = dedicatedIps;

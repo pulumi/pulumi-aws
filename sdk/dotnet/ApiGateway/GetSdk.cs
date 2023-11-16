@@ -166,19 +166,19 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// SDK as a string.
         /// </summary>
-        public readonly string Body;
+        public readonly string? Body;
         /// <summary>
         /// Content-disposition header value in the HTTP response.
         /// </summary>
-        public readonly string ContentDisposition;
+        public readonly string? ContentDisposition;
         /// <summary>
         /// Content-type header value in the HTTP response.
         /// </summary>
-        public readonly string ContentType;
+        public readonly string? ContentType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableDictionary<string, string>? Parameters;
         public readonly string RestApiId;
         public readonly string SdkType;
@@ -186,13 +186,13 @@ namespace Pulumi.Aws.ApiGateway
 
         [OutputConstructor]
         private GetSdkResult(
-            string body,
+            string? body,
 
-            string contentDisposition,
+            string? contentDisposition,
 
-            string contentType,
+            string? contentType,
 
-            string id,
+            string? id,
 
             ImmutableDictionary<string, string>? parameters,
 

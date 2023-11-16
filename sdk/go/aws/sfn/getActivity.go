@@ -58,12 +58,12 @@ type LookupActivityArgs struct {
 
 // A collection of values returned by getActivity.
 type LookupActivityResult struct {
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Date the activity was created.
-	CreationDate string `pulumi:"creationDate"`
+	CreationDate *string `pulumi:"creationDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
 }
 
 func LookupActivityOutput(ctx *pulumi.Context, args LookupActivityOutputArgs, opts ...pulumi.InvokeOption) LookupActivityResultOutput {
@@ -106,22 +106,22 @@ func (o LookupActivityResultOutput) ToLookupActivityResultOutputWithContext(ctx 
 	return o
 }
 
-func (o LookupActivityResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupActivityResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupActivityResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActivityResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date the activity was created.
-func (o LookupActivityResultOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupActivityResult) string { return v.CreationDate }).(pulumi.StringOutput)
+func (o LookupActivityResultOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActivityResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupActivityResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupActivityResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupActivityResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActivityResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupActivityResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupActivityResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupActivityResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActivityResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -57,16 +57,16 @@ type LookupWorkerConfigurationArgs struct {
 // A collection of values returned by getWorkerConfiguration.
 type LookupWorkerConfigurationResult struct {
 	// the ARN of the worker configuration.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// a summary description of the worker configuration.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// an ID of the latest successfully created revision of the worker configuration.
-	LatestRevision int    `pulumi:"latestRevision"`
+	LatestRevision *int   `pulumi:"latestRevision"`
 	Name           string `pulumi:"name"`
 	// contents of connect-distributed.properties file.
-	PropertiesFileContent string `pulumi:"propertiesFileContent"`
+	PropertiesFileContent *string `pulumi:"propertiesFileContent"`
 }
 
 func LookupWorkerConfigurationOutput(ctx *pulumi.Context, args LookupWorkerConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupWorkerConfigurationResultOutput {
@@ -108,23 +108,23 @@ func (o LookupWorkerConfigurationResultOutput) ToLookupWorkerConfigurationResult
 }
 
 // the ARN of the worker configuration.
-func (o LookupWorkerConfigurationResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupWorkerConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkerConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // a summary description of the worker configuration.
-func (o LookupWorkerConfigurationResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupWorkerConfigurationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkerConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupWorkerConfigurationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupWorkerConfigurationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkerConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // an ID of the latest successfully created revision of the worker configuration.
-func (o LookupWorkerConfigurationResultOutput) LatestRevision() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupWorkerConfigurationResult) int { return v.LatestRevision }).(pulumi.IntOutput)
+func (o LookupWorkerConfigurationResultOutput) LatestRevision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWorkerConfigurationResult) *int { return v.LatestRevision }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupWorkerConfigurationResultOutput) Name() pulumi.StringOutput {
@@ -132,8 +132,8 @@ func (o LookupWorkerConfigurationResultOutput) Name() pulumi.StringOutput {
 }
 
 // contents of connect-distributed.properties file.
-func (o LookupWorkerConfigurationResultOutput) PropertiesFileContent() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.PropertiesFileContent }).(pulumi.StringOutput)
+func (o LookupWorkerConfigurationResultOutput) PropertiesFileContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkerConfigurationResult) *string { return v.PropertiesFileContent }).(pulumi.StringPtrOutput)
 }
 
 func init() {

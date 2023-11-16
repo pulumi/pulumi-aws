@@ -52,20 +52,20 @@ export interface GetServerlessSecurityConfigResult {
     /**
      * The version of the security configuration.
      */
-    readonly configVersion: string;
+    readonly configVersion?: string;
     /**
      * The date the configuration was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * The description of the security configuration.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly id: string;
     /**
      * The date the configuration was last modified.
      */
-    readonly lastModifiedDate: string;
+    readonly lastModifiedDate?: string;
     /**
      * SAML options for the security configuration.
      */
@@ -73,7 +73,7 @@ export interface GetServerlessSecurityConfigResult {
     /**
      * The type of security configuration.
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * Data source for managing an AWS OpenSearch Serverless Security Config.

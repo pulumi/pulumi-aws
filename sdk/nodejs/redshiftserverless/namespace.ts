@@ -59,15 +59,15 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * The username of the administrator for the first database created in the namespace.
      */
-    public readonly adminUsername!: pulumi.Output<string>;
+    public readonly adminUsername!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The name of the first database created in the namespace.
      */
-    public readonly dbName!: pulumi.Output<string>;
+    public readonly dbName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
@@ -75,11 +75,11 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * A list of IAM roles to associate with the namespace.
      */
-    public readonly iamRoles!: pulumi.Output<string[]>;
+    public readonly iamRoles!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      */
@@ -87,7 +87,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * The Redshift Namespace ID.
      */
-    public /*out*/ readonly namespaceId!: pulumi.Output<string>;
+    public /*out*/ readonly namespaceId!: pulumi.Output<string | undefined>;
     /**
      * The name of the namespace.
      */

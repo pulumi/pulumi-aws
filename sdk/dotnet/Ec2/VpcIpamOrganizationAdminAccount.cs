@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2
         /// The Organizations ARN for the delegate account.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("delegatedAdminAccountId")]
         public Output<string> DelegatedAdminAccountId { get; private set; } = null!;
@@ -61,19 +61,19 @@ namespace Pulumi.Aws.Ec2
         /// The Organizations email for the delegate account.
         /// </summary>
         [Output("email")]
-        public Output<string> Email { get; private set; } = null!;
+        public Output<string?> Email { get; private set; } = null!;
 
         /// <summary>
         /// The Organizations name for the delegate account.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The AWS service principal.
         /// </summary>
         [Output("servicePrincipal")]
-        public Output<string> ServicePrincipal { get; private set; } = null!;
+        public Output<string?> ServicePrincipal { get; private set; } = null!;
 
 
         /// <summary>

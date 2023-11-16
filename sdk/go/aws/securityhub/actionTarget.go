@@ -60,7 +60,7 @@ type ActionTarget struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Security Hub custom action target.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the custom action target.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The ID for the custom action target.
@@ -237,8 +237,8 @@ func (o ActionTargetOutput) ToActionTargetOutputWithContext(ctx context.Context)
 }
 
 // Amazon Resource Name (ARN) of the Security Hub custom action target.
-func (o ActionTargetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ActionTargetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionTarget) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the custom action target.

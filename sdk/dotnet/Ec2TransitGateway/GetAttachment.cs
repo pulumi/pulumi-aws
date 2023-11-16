@@ -188,77 +188,77 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// ARN of the attachment.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
         /// </summary>
-        public readonly string AssociationState;
+        public readonly string? AssociationState;
         /// <summary>
         /// The ID of the route table for the transit gateway.
         /// </summary>
-        public readonly string AssociationTransitGatewayRouteTableId;
+        public readonly string? AssociationTransitGatewayRouteTableId;
         public readonly ImmutableArray<Outputs.GetAttachmentFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ID of the resource.
         /// </summary>
-        public readonly string ResourceId;
+        public readonly string? ResourceId;
         /// <summary>
         /// ID of the AWS account that owns the resource.
         /// </summary>
-        public readonly string ResourceOwnerId;
+        public readonly string? ResourceOwnerId;
         /// <summary>
         /// Resource type.
         /// </summary>
-        public readonly string ResourceType;
+        public readonly string? ResourceType;
         /// <summary>
         /// Attachment state.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// Key-value tags for the attachment.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string TransitGatewayAttachmentId;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? TransitGatewayAttachmentId;
         /// <summary>
         /// ID of the transit gateway.
         /// </summary>
-        public readonly string TransitGatewayId;
+        public readonly string? TransitGatewayId;
         /// <summary>
         /// The ID of the AWS account that owns the transit gateway.
         /// </summary>
-        public readonly string TransitGatewayOwnerId;
+        public readonly string? TransitGatewayOwnerId;
 
         [OutputConstructor]
         private GetAttachmentResult(
-            string arn,
+            string? arn,
 
-            string associationState,
+            string? associationState,
 
-            string associationTransitGatewayRouteTableId,
+            string? associationTransitGatewayRouteTableId,
 
             ImmutableArray<Outputs.GetAttachmentFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string resourceId,
+            string? resourceId,
 
-            string resourceOwnerId,
+            string? resourceOwnerId,
 
-            string resourceType,
+            string? resourceType,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string transitGatewayAttachmentId,
+            string? transitGatewayAttachmentId,
 
-            string transitGatewayId,
+            string? transitGatewayId,
 
-            string transitGatewayOwnerId)
+            string? transitGatewayOwnerId)
         {
             Arn = arn;
             AssociationState = associationState;

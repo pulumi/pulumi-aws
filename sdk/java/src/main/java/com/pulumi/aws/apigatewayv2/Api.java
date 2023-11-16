@@ -100,14 +100,14 @@ public class Api extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="apiEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> apiEndpoint;
+    private Output</* @Nullable */ String> apiEndpoint;
 
     /**
      * @return URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
-    public Output<String> apiEndpoint() {
-        return this.apiEndpoint;
+    public Output<Optional<String>> apiEndpoint() {
+        return Codegen.optional(this.apiEndpoint);
     }
     /**
      * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
@@ -132,14 +132,14 @@ public class Api extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the API.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
@@ -222,7 +222,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="executionArn", refs={String.class}, tree="[0]")
-    private Output<String> executionArn;
+    private Output</* @Nullable */ String> executionArn;
 
     /**
      * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
@@ -230,8 +230,8 @@ public class Api extends com.pulumi.resources.CustomResource {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    public Output<String> executionArn() {
-        return this.executionArn;
+    public Output<Optional<String>> executionArn() {
+        return Codegen.optional(this.executionArn);
     }
     /**
      * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.

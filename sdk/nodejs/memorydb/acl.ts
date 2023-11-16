@@ -60,11 +60,11 @@ export class Acl extends pulumi.CustomResource {
     /**
      * The ARN of the ACL.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The minimum engine version supported by the ACL.
      */
-    public /*out*/ readonly minimumEngineVersion!: pulumi.Output<string>;
+    public /*out*/ readonly minimumEngineVersion!: pulumi.Output<string | undefined>;
     /**
      * Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -72,7 +72,7 @@ export class Acl extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

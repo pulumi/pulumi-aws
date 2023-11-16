@@ -48,28 +48,28 @@ export interface GetLogGroupResult {
     /**
      * ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      */
-    readonly creationTime: number;
+    readonly creationTime?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the KMS Key to use when encrypting log data.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     readonly name: string;
     /**
      * Number of days log events retained in the specified log group.
      */
-    readonly retentionInDays: number;
+    readonly retentionInDays?: number;
     /**
      * Map of tags to assign to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get information about an AWS Cloudwatch Log Group

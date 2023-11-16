@@ -48,20 +48,20 @@ type BgpPeer struct {
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon.
 	// Required for IPv4 BGP peers on public virtual interfaces.
-	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
+	AmazonAddress pulumi.StringPtrOutput `pulumi:"amazonAddress"`
 	// The Direct Connect endpoint on which the BGP peer terminates.
-	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
+	AwsDevice pulumi.StringPtrOutput `pulumi:"awsDevice"`
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
 	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
+	BgpAuthKey pulumi.StringPtrOutput `pulumi:"bgpAuthKey"`
 	// The ID of the BGP peer.
-	BgpPeerId pulumi.StringOutput `pulumi:"bgpPeerId"`
+	BgpPeerId pulumi.StringPtrOutput `pulumi:"bgpPeerId"`
 	// The Up/Down state of the BGP peer.
-	BgpStatus pulumi.StringOutput `pulumi:"bgpStatus"`
+	BgpStatus pulumi.StringPtrOutput `pulumi:"bgpStatus"`
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
-	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
+	CustomerAddress pulumi.StringPtrOutput `pulumi:"customerAddress"`
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
 }
@@ -283,13 +283,13 @@ func (o BgpPeerOutput) AddressFamily() pulumi.StringOutput {
 
 // The IPv4 CIDR address to use to send traffic to Amazon.
 // Required for IPv4 BGP peers on public virtual interfaces.
-func (o BgpPeerOutput) AmazonAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.AmazonAddress }).(pulumi.StringOutput)
+func (o BgpPeerOutput) AmazonAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.StringPtrOutput { return v.AmazonAddress }).(pulumi.StringPtrOutput)
 }
 
 // The Direct Connect endpoint on which the BGP peer terminates.
-func (o BgpPeerOutput) AwsDevice() pulumi.StringOutput {
-	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
+func (o BgpPeerOutput) AwsDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.StringPtrOutput { return v.AwsDevice }).(pulumi.StringPtrOutput)
 }
 
 // The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -298,24 +298,24 @@ func (o BgpPeerOutput) BgpAsn() pulumi.IntOutput {
 }
 
 // The authentication key for BGP configuration.
-func (o BgpPeerOutput) BgpAuthKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.BgpAuthKey }).(pulumi.StringOutput)
+func (o BgpPeerOutput) BgpAuthKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.StringPtrOutput { return v.BgpAuthKey }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the BGP peer.
-func (o BgpPeerOutput) BgpPeerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.BgpPeerId }).(pulumi.StringOutput)
+func (o BgpPeerOutput) BgpPeerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.StringPtrOutput { return v.BgpPeerId }).(pulumi.StringPtrOutput)
 }
 
 // The Up/Down state of the BGP peer.
-func (o BgpPeerOutput) BgpStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.BgpStatus }).(pulumi.StringOutput)
+func (o BgpPeerOutput) BgpStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.StringPtrOutput { return v.BgpStatus }).(pulumi.StringPtrOutput)
 }
 
 // The IPv4 CIDR destination address to which Amazon should send traffic.
 // Required for IPv4 BGP peers on public virtual interfaces.
-func (o BgpPeerOutput) CustomerAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.CustomerAddress }).(pulumi.StringOutput)
+func (o BgpPeerOutput) CustomerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.StringPtrOutput { return v.CustomerAddress }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Direct Connect virtual interface on which to create the BGP peer.

@@ -105,50 +105,50 @@ namespace Pulumi.Aws.SsoAdmin
     [OutputType]
     public sealed class GetPermissionSetResult
     {
-        public readonly string Arn;
-        public readonly string CreatedDate;
+        public readonly string? Arn;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Description of the Permission Set.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceArn;
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Relay state URL used to redirect users within the application during the federation authentication process.
         /// </summary>
-        public readonly string RelayState;
+        public readonly string? RelayState;
         /// <summary>
         /// Length of time that the application user sessions are valid in the ISO-8601 standard.
         /// </summary>
-        public readonly string SessionDuration;
+        public readonly string? SessionDuration;
         /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetPermissionSetResult(
-            string arn,
+            string? arn,
 
-            string createdDate,
+            string? createdDate,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string instanceArn,
 
-            string name,
+            string? name,
 
-            string relayState,
+            string? relayState,
 
-            string sessionDuration,
+            string? sessionDuration,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CreatedDate = createdDate;

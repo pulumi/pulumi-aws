@@ -91,7 +91,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The ARN of the connector.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      */
@@ -99,7 +99,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The unique identifier for the AS2 profile or SFTP Profile.
      */
-    public /*out*/ readonly connectorId!: pulumi.Output<string>;
+    public /*out*/ readonly connectorId!: pulumi.Output<string | undefined>;
     /**
      * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
      */

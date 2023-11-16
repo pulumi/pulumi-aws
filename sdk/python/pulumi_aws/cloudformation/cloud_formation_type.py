@@ -585,7 +585,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
         """
@@ -593,7 +593,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVersionId")
-    def default_version_id(self) -> pulumi.Output[str]:
+    def default_version_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the CloudFormation Type default version.
         """
@@ -601,7 +601,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deprecatedStatus")
-    def deprecated_status(self) -> pulumi.Output[str]:
+    def deprecated_status(self) -> pulumi.Output[Optional[str]]:
         """
         Deprecation status of the version.
         """
@@ -609,7 +609,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the version.
         """
@@ -617,7 +617,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentationUrl")
-    def documentation_url(self) -> pulumi.Output[str]:
+    def documentation_url(self) -> pulumi.Output[Optional[str]]:
         """
         URL of the documentation for the CloudFormation Type.
         """
@@ -633,7 +633,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isDefaultVersion")
-    def is_default_version(self) -> pulumi.Output[bool]:
+    def is_default_version(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the CloudFormation Type version is the default version.
         """
@@ -649,7 +649,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningType")
-    def provisioning_type(self) -> pulumi.Output[str]:
+    def provisioning_type(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning behavior of the CloudFormation Type.
         """
@@ -657,7 +657,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schema(self) -> pulumi.Output[str]:
+    def schema(self) -> pulumi.Output[Optional[str]]:
         """
         JSON document of the CloudFormation Type schema.
         """
@@ -673,7 +673,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceUrl")
-    def source_url(self) -> pulumi.Output[str]:
+    def source_url(self) -> pulumi.Output[Optional[str]]:
         """
         URL of the source code for the CloudFormation Type.
         """
@@ -681,7 +681,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         """
@@ -689,7 +689,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="typeArn")
-    def type_arn(self) -> pulumi.Output[str]:
+    def type_arn(self) -> pulumi.Output[Optional[str]]:
         """
         (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
         """
@@ -705,7 +705,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> pulumi.Output[str]:
+    def version_id(self) -> pulumi.Output[Optional[str]]:
         """
         (Optional) Identifier of the CloudFormation Type version.
         """
@@ -713,7 +713,7 @@ class CloudFormationType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def visibility(self) -> pulumi.Output[str]:
+    def visibility(self) -> pulumi.Output[Optional[str]]:
         """
         Scope of the CloudFormation Type.
         """

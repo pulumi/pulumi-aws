@@ -144,28 +144,28 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Glue Table.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
-    private Output<String> catalogId;
+    private Output</* @Nullable */ String> catalogId;
 
     /**
      * @return ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Output<Optional<String>> catalogId() {
+        return Codegen.optional(this.catalogId);
     }
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -260,14 +260,14 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="partitionIndices", refs={List.class,CatalogTablePartitionIndex.class}, tree="[0,1]")
-    private Output<List<CatalogTablePartitionIndex>> partitionIndices;
+    private Output</* @Nullable */ List<CatalogTablePartitionIndex>> partitionIndices;
 
     /**
      * @return Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
      * 
      */
-    public Output<List<CatalogTablePartitionIndex>> partitionIndices() {
-        return this.partitionIndices;
+    public Output<Optional<List<CatalogTablePartitionIndex>>> partitionIndices() {
+        return Codegen.optional(this.partitionIndices);
     }
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.

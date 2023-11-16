@@ -54,14 +54,14 @@ export interface GetLocalDiskResult {
     /**
      * Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
      */
-    readonly diskId: string;
-    readonly diskNode: string;
-    readonly diskPath: string;
+    readonly diskId?: string;
+    readonly diskNode?: string;
+    readonly diskPath?: string;
     readonly gatewayArn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.

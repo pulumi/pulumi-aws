@@ -54,6 +54,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
@@ -61,139 +62,139 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "export.rds.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:ListAllMyBuckets"),
-//						},
-//						Resources: pulumi.StringArray{
-//							pulumi.String("*"),
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetBucketLocation"),
-//							pulumi.String("s3:ListBucket"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn,
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetObject"),
-//							pulumi.String("s3:PutObject"),
-//							pulumi.String("s3:DeleteObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      exampleRole.Name,
-//				PolicyArn: examplePolicy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				DeletionWindowInDays: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
-//				Identifier:         pulumi.String("example"),
-//				AllocatedStorage:   pulumi.Int(10),
-//				DbName:             pulumi.String("test"),
-//				Engine:             pulumi.String("mysql"),
-//				EngineVersion:      pulumi.String("5.7"),
-//				InstanceClass:      pulumi.String("db.t3.micro"),
-//				Username:           pulumi.String("foo"),
-//				Password:           pulumi.String("foobarbaz"),
-//				ParameterGroupName: pulumi.String("default.mysql5.7"),
-//				SkipFinalSnapshot:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSnapshot, err := rds.NewSnapshot(ctx, "exampleSnapshot", &rds.SnapshotArgs{
-//				DbInstanceIdentifier: exampleInstance.Identifier,
-//				DbSnapshotIdentifier: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewExportTask(ctx, "exampleExportTask", &rds.ExportTaskArgs{
-//				ExportTaskIdentifier: pulumi.String("example"),
-//				SourceArn:            exampleSnapshot.DbSnapshotArn,
-//				S3BucketName:         exampleBucketV2.ID(),
-//				IamRoleArn:           exampleRole.Arn,
-//				KmsKeyId:             exampleKey.Arn,
-//				ExportOnlies: pulumi.StringArray{
-//					pulumi.String("database"),
-//				},
-//				S3Prefix: pulumi.String("my_prefix/example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// ForceDestroy: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+// Bucket: exampleBucketV2.ID(),
+// Acl: pulumi.String("private"),
+// })
+// if err != nil {
+// return err
+// }
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "Version": "2012-10-17",
+// "Statement": []map[string]interface{}{
+// map[string]interface{}{
+// "Action": "sts:AssumeRole",
+// "Effect": "Allow",
+// "Sid": "",
+// "Principal": map[string]interface{}{
+// "Service": "export.rds.amazonaws.com",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+// AssumeRolePolicy: pulumi.String(json0),
+// })
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument := pulumi.All(exampleBucketV2.Arn,exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// exampleBucketV2Arn := _args[0].(*string)
+// exampleBucketV2Arn1 := _args[1].(*string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "s3:ListAllMyBuckets",
+// },
+// Resources: []string{
+// "*",
+// },
+// },
+// {
+// Actions: []string{
+// "s3:GetBucketLocation",
+// "s3:ListBucket",
+// },
+// Resources: interface{}{
+// exampleBucketV2Arn,
+// },
+// },
+// {
+// Actions: []string{
+// "s3:GetObject",
+// "s3:PutObject",
+// "s3:DeleteObject",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v/*", exampleBucketV2Arn1),
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
+// Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &examplePolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+// Role: exampleRole.Name,
+// PolicyArn: examplePolicy.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+// DeletionWindowInDays: pulumi.Int(10),
+// })
+// if err != nil {
+// return err
+// }
+// exampleInstance, err := rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
+// Identifier: pulumi.String("example"),
+// AllocatedStorage: pulumi.Int(10),
+// DbName: pulumi.String("test"),
+// Engine: pulumi.String("mysql"),
+// EngineVersion: pulumi.String("5.7"),
+// InstanceClass: pulumi.String("db.t3.micro"),
+// Username: pulumi.String("foo"),
+// Password: pulumi.String("foobarbaz"),
+// ParameterGroupName: pulumi.String("default.mysql5.7"),
+// SkipFinalSnapshot: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// exampleSnapshot, err := rds.NewSnapshot(ctx, "exampleSnapshot", &rds.SnapshotArgs{
+// DbInstanceIdentifier: exampleInstance.Identifier,
+// DbSnapshotIdentifier: pulumi.String("example"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds.NewExportTask(ctx, "exampleExportTask", &rds.ExportTaskArgs{
+// ExportTaskIdentifier: pulumi.String("example"),
+// SourceArn: exampleSnapshot.DbSnapshotArn,
+// S3BucketName: exampleBucketV2.ID(),
+// IamRoleArn: exampleRole.Arn,
+// KmsKeyId: exampleKey.Arn,
+// ExportOnlies: pulumi.StringArray{
+// pulumi.String("database"),
+// },
+// S3Prefix: pulumi.String("my_prefix/example"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -213,34 +214,34 @@ type ExportTask struct {
 	// Unique identifier for the snapshot export task.
 	ExportTaskIdentifier pulumi.StringOutput `pulumi:"exportTaskIdentifier"`
 	// Reason the export failed, if it failed.
-	FailureCause pulumi.StringOutput `pulumi:"failureCause"`
+	FailureCause pulumi.StringPtrOutput `pulumi:"failureCause"`
 	// ARN of the IAM role to use for writing to the Amazon S3 bucket.
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
 	// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Progress of the snapshot export task as a percentage.
-	PercentProgress pulumi.IntOutput `pulumi:"percentProgress"`
+	PercentProgress pulumi.IntPtrOutput `pulumi:"percentProgress"`
 	// Name of the Amazon S3 bucket to export the snapshot to.
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-	S3Prefix pulumi.StringOutput `pulumi:"s3Prefix"`
+	S3Prefix pulumi.StringPtrOutput `pulumi:"s3Prefix"`
 	// Time that the snapshot was created.
-	SnapshotTime pulumi.StringOutput `pulumi:"snapshotTime"`
+	SnapshotTime pulumi.StringPtrOutput `pulumi:"snapshotTime"`
 	// Amazon Resource Name (ARN) of the snapshot to export.
 	//
 	// The following arguments are optional:
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// Type of source for the export.
-	SourceType pulumi.StringOutput `pulumi:"sourceType"`
+	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
 	// Status of the export task.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Time that the snapshot export task completed.
-	TaskEndTime pulumi.StringOutput `pulumi:"taskEndTime"`
+	TaskEndTime pulumi.StringPtrOutput `pulumi:"taskEndTime"`
 	// Time that the snapshot export task started.
-	TaskStartTime pulumi.StringOutput         `pulumi:"taskStartTime"`
+	TaskStartTime pulumi.StringPtrOutput      `pulumi:"taskStartTime"`
 	Timeouts      ExportTaskTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Warning about the snapshot export task, if any.
-	WarningMessage pulumi.StringOutput `pulumi:"warningMessage"`
+	WarningMessage pulumi.StringPtrOutput `pulumi:"warningMessage"`
 }
 
 // NewExportTask registers a new resource with the given unique name, arguments, and options.
@@ -502,8 +503,8 @@ func (o ExportTaskOutput) ExportTaskIdentifier() pulumi.StringOutput {
 }
 
 // Reason the export failed, if it failed.
-func (o ExportTaskOutput) FailureCause() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.FailureCause }).(pulumi.StringOutput)
+func (o ExportTaskOutput) FailureCause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.StringPtrOutput { return v.FailureCause }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM role to use for writing to the Amazon S3 bucket.
@@ -517,8 +518,8 @@ func (o ExportTaskOutput) KmsKeyId() pulumi.StringOutput {
 }
 
 // Progress of the snapshot export task as a percentage.
-func (o ExportTaskOutput) PercentProgress() pulumi.IntOutput {
-	return o.ApplyT(func(v *ExportTask) pulumi.IntOutput { return v.PercentProgress }).(pulumi.IntOutput)
+func (o ExportTaskOutput) PercentProgress() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.IntPtrOutput { return v.PercentProgress }).(pulumi.IntPtrOutput)
 }
 
 // Name of the Amazon S3 bucket to export the snapshot to.
@@ -527,13 +528,13 @@ func (o ExportTaskOutput) S3BucketName() pulumi.StringOutput {
 }
 
 // Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-func (o ExportTaskOutput) S3Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.S3Prefix }).(pulumi.StringOutput)
+func (o ExportTaskOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.StringPtrOutput { return v.S3Prefix }).(pulumi.StringPtrOutput)
 }
 
 // Time that the snapshot was created.
-func (o ExportTaskOutput) SnapshotTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.SnapshotTime }).(pulumi.StringOutput)
+func (o ExportTaskOutput) SnapshotTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.StringPtrOutput { return v.SnapshotTime }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the snapshot to export.
@@ -544,23 +545,23 @@ func (o ExportTaskOutput) SourceArn() pulumi.StringOutput {
 }
 
 // Type of source for the export.
-func (o ExportTaskOutput) SourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
+func (o ExportTaskOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.StringPtrOutput { return v.SourceType }).(pulumi.StringPtrOutput)
 }
 
 // Status of the export task.
-func (o ExportTaskOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ExportTaskOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Time that the snapshot export task completed.
-func (o ExportTaskOutput) TaskEndTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.TaskEndTime }).(pulumi.StringOutput)
+func (o ExportTaskOutput) TaskEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.StringPtrOutput { return v.TaskEndTime }).(pulumi.StringPtrOutput)
 }
 
 // Time that the snapshot export task started.
-func (o ExportTaskOutput) TaskStartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.TaskStartTime }).(pulumi.StringOutput)
+func (o ExportTaskOutput) TaskStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.StringPtrOutput { return v.TaskStartTime }).(pulumi.StringPtrOutput)
 }
 
 func (o ExportTaskOutput) Timeouts() ExportTaskTimeoutsPtrOutput {
@@ -568,8 +569,8 @@ func (o ExportTaskOutput) Timeouts() ExportTaskTimeoutsPtrOutput {
 }
 
 // Warning about the snapshot export task, if any.
-func (o ExportTaskOutput) WarningMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.WarningMessage }).(pulumi.StringOutput)
+func (o ExportTaskOutput) WarningMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTask) pulumi.StringPtrOutput { return v.WarningMessage }).(pulumi.StringPtrOutput)
 }
 
 type ExportTaskArrayOutput struct{ *pulumi.OutputState }

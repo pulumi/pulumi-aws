@@ -61,11 +61,11 @@ type App struct {
 	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
 	AppType pulumi.StringOutput `pulumi:"appType"`
 	// The Amazon Resource Name (ARN) of the app.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The domain ID.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
-	ResourceSpec AppResourceSpecOutput `pulumi:"resourceSpec"`
+	ResourceSpec AppResourceSpecPtrOutput `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrOutput `pulumi:"spaceName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -303,8 +303,8 @@ func (o AppOutput) AppType() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of the app.
-func (o AppOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AppOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The domain ID.
@@ -313,8 +313,8 @@ func (o AppOutput) DomainId() pulumi.StringOutput {
 }
 
 // The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
-func (o AppOutput) ResourceSpec() AppResourceSpecOutput {
-	return o.ApplyT(func(v *App) AppResourceSpecOutput { return v.ResourceSpec }).(AppResourceSpecOutput)
+func (o AppOutput) ResourceSpec() AppResourceSpecPtrOutput {
+	return o.ApplyT(func(v *App) AppResourceSpecPtrOutput { return v.ResourceSpec }).(AppResourceSpecPtrOutput)
 }
 
 // The name of the space. At least one of `userProfileName` or `spaceName` required.

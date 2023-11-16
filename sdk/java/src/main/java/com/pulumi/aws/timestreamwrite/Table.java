@@ -145,14 +145,14 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN that uniquely identifies this table.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the Timestream database.
@@ -173,42 +173,42 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="magneticStoreWriteProperties", refs={TableMagneticStoreWriteProperties.class}, tree="[0]")
-    private Output<TableMagneticStoreWriteProperties> magneticStoreWriteProperties;
+    private Output</* @Nullable */ TableMagneticStoreWriteProperties> magneticStoreWriteProperties;
 
     /**
      * @return Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      * 
      */
-    public Output<TableMagneticStoreWriteProperties> magneticStoreWriteProperties() {
-        return this.magneticStoreWriteProperties;
+    public Output<Optional<TableMagneticStoreWriteProperties>> magneticStoreWriteProperties() {
+        return Codegen.optional(this.magneticStoreWriteProperties);
     }
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
      * 
      */
     @Export(name="retentionProperties", refs={TableRetentionProperties.class}, tree="[0]")
-    private Output<TableRetentionProperties> retentionProperties;
+    private Output</* @Nullable */ TableRetentionProperties> retentionProperties;
 
     /**
      * @return The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
      * 
      */
-    public Output<TableRetentionProperties> retentionProperties() {
-        return this.retentionProperties;
+    public Output<Optional<TableRetentionProperties>> retentionProperties() {
+        return Codegen.optional(this.retentionProperties);
     }
     /**
      * The schema of the table. See Schema below for more details.
      * 
      */
     @Export(name="schema", refs={TableSchema.class}, tree="[0]")
-    private Output<TableSchema> schema;
+    private Output</* @Nullable */ TableSchema> schema;
 
     /**
      * @return The schema of the table. See Schema below for more details.
      * 
      */
-    public Output<TableSchema> schema() {
-        return this.schema;
+    public Output<Optional<TableSchema>> schema() {
+        return Codegen.optional(this.schema);
     }
     /**
      * The name of the Timestream table.

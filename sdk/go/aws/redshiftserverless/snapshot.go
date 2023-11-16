@@ -58,17 +58,17 @@ type Snapshot struct {
 	// All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
 	AccountsWithRestoreAccesses pulumi.StringArrayOutput `pulumi:"accountsWithRestoreAccesses"`
 	// The username of the database within a snapshot.
-	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
+	AdminUsername pulumi.StringPtrOutput `pulumi:"adminUsername"`
 	// The Amazon Resource Name (ARN) of the snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The unique identifier of the KMS key used to encrypt the snapshot.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
-	NamespaceArn pulumi.StringOutput `pulumi:"namespaceArn"`
+	NamespaceArn pulumi.StringPtrOutput `pulumi:"namespaceArn"`
 	// The namespace to create a snapshot for.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The owner Amazon Web Services; account of the snapshot.
-	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
+	OwnerAccount pulumi.StringPtrOutput `pulumi:"ownerAccount"`
 	// How long to retain the created snapshot. Default value is `-1`.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// The name of the snapshot.
@@ -277,23 +277,23 @@ func (o SnapshotOutput) AccountsWithRestoreAccesses() pulumi.StringArrayOutput {
 }
 
 // The username of the database within a snapshot.
-func (o SnapshotOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
+func (o SnapshotOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.AdminUsername }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the snapshot.
-func (o SnapshotOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SnapshotOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of the KMS key used to encrypt the snapshot.
-func (o SnapshotOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o SnapshotOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
-func (o SnapshotOutput) NamespaceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.NamespaceArn }).(pulumi.StringOutput)
+func (o SnapshotOutput) NamespaceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.NamespaceArn }).(pulumi.StringPtrOutput)
 }
 
 // The namespace to create a snapshot for.
@@ -302,8 +302,8 @@ func (o SnapshotOutput) NamespaceName() pulumi.StringOutput {
 }
 
 // The owner Amazon Web Services; account of the snapshot.
-func (o SnapshotOutput) OwnerAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.OwnerAccount }).(pulumi.StringOutput)
+func (o SnapshotOutput) OwnerAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.OwnerAccount }).(pulumi.StringPtrOutput)
 }
 
 // How long to retain the created snapshot. Default value is `-1`.

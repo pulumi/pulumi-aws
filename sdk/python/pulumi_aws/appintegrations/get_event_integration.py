@@ -47,7 +47,7 @@ class GetEventIntegrationResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The ARN of the AppIntegrations Event Integration.
         """
@@ -55,7 +55,7 @@ class GetEventIntegrationResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The description of the Event Integration.
         """
@@ -63,7 +63,7 @@ class GetEventIntegrationResult:
 
     @property
     @pulumi.getter(name="eventFilters")
-    def event_filters(self) -> Sequence['outputs.GetEventIntegrationEventFilterResult']:
+    def event_filters(self) -> Optional[Sequence['outputs.GetEventIntegrationEventFilterResult']]:
         """
         A block that defines the configuration information for the event filter. The Event Filter block is documented below.
         """
@@ -71,7 +71,7 @@ class GetEventIntegrationResult:
 
     @property
     @pulumi.getter(name="eventbridgeBus")
-    def eventbridge_bus(self) -> str:
+    def eventbridge_bus(self) -> Optional[str]:
         """
         The EventBridge bus.
         """
@@ -79,7 +79,7 @@ class GetEventIntegrationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -92,7 +92,7 @@ class GetEventIntegrationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Metadata that you can assign to help organize the report plans you create.
         """

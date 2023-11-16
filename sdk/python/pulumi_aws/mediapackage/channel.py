@@ -330,7 +330,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the channel
         """
@@ -354,7 +354,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hlsIngests")
-    def hls_ingests(self) -> pulumi.Output[Sequence['outputs.ChannelHlsIngest']]:
+    def hls_ingests(self) -> pulumi.Output[Optional[Sequence['outputs.ChannelHlsIngest']]]:
         """
         A single item list of HLS ingest information
         """

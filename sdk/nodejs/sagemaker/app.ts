@@ -72,7 +72,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the app.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The domain ID.
      */
@@ -80,7 +80,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
      */
-    public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec>;
+    public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec | undefined>;
     /**
      * The name of the space. At least one of `userProfileName` or `spaceName` required.
      */

@@ -17,27 +17,27 @@ public final class GetAccountPublicAccessBlockResult {
      * @return Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
      * 
      */
-    private Boolean blockPublicAcls;
+    private @Nullable Boolean blockPublicAcls;
     /**
      * @return Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
      * 
      */
-    private Boolean blockPublicPolicy;
+    private @Nullable Boolean blockPublicPolicy;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
      * 
      */
-    private Boolean ignorePublicAcls;
+    private @Nullable Boolean ignorePublicAcls;
     /**
      * @return Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
      * 
      */
-    private Boolean restrictPublicBuckets;
+    private @Nullable Boolean restrictPublicBuckets;
 
     private GetAccountPublicAccessBlockResult() {}
     public Optional<String> accountId() {
@@ -47,36 +47,36 @@ public final class GetAccountPublicAccessBlockResult {
      * @return Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
      * 
      */
-    public Boolean blockPublicAcls() {
-        return this.blockPublicAcls;
+    public Optional<Boolean> blockPublicAcls() {
+        return Optional.ofNullable(this.blockPublicAcls);
     }
     /**
      * @return Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
      * 
      */
-    public Boolean blockPublicPolicy() {
-        return this.blockPublicPolicy;
+    public Optional<Boolean> blockPublicPolicy() {
+        return Optional.ofNullable(this.blockPublicPolicy);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
      * 
      */
-    public Boolean ignorePublicAcls() {
-        return this.ignorePublicAcls;
+    public Optional<Boolean> ignorePublicAcls() {
+        return Optional.ofNullable(this.ignorePublicAcls);
     }
     /**
      * @return Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
      * 
      */
-    public Boolean restrictPublicBuckets() {
-        return this.restrictPublicBuckets;
+    public Optional<Boolean> restrictPublicBuckets() {
+        return Optional.ofNullable(this.restrictPublicBuckets);
     }
 
     public static Builder builder() {
@@ -89,11 +89,11 @@ public final class GetAccountPublicAccessBlockResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String accountId;
-        private Boolean blockPublicAcls;
-        private Boolean blockPublicPolicy;
-        private String id;
-        private Boolean ignorePublicAcls;
-        private Boolean restrictPublicBuckets;
+        private @Nullable Boolean blockPublicAcls;
+        private @Nullable Boolean blockPublicPolicy;
+        private @Nullable String id;
+        private @Nullable Boolean ignorePublicAcls;
+        private @Nullable Boolean restrictPublicBuckets;
         public Builder() {}
         public Builder(GetAccountPublicAccessBlockResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -111,28 +111,28 @@ public final class GetAccountPublicAccessBlockResult {
             return this;
         }
         @CustomType.Setter
-        public Builder blockPublicAcls(Boolean blockPublicAcls) {
-            this.blockPublicAcls = Objects.requireNonNull(blockPublicAcls);
+        public Builder blockPublicAcls(@Nullable Boolean blockPublicAcls) {
+            this.blockPublicAcls = blockPublicAcls;
             return this;
         }
         @CustomType.Setter
-        public Builder blockPublicPolicy(Boolean blockPublicPolicy) {
-            this.blockPublicPolicy = Objects.requireNonNull(blockPublicPolicy);
+        public Builder blockPublicPolicy(@Nullable Boolean blockPublicPolicy) {
+            this.blockPublicPolicy = blockPublicPolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ignorePublicAcls(Boolean ignorePublicAcls) {
-            this.ignorePublicAcls = Objects.requireNonNull(ignorePublicAcls);
+        public Builder ignorePublicAcls(@Nullable Boolean ignorePublicAcls) {
+            this.ignorePublicAcls = ignorePublicAcls;
             return this;
         }
         @CustomType.Setter
-        public Builder restrictPublicBuckets(Boolean restrictPublicBuckets) {
-            this.restrictPublicBuckets = Objects.requireNonNull(restrictPublicBuckets);
+        public Builder restrictPublicBuckets(@Nullable Boolean restrictPublicBuckets) {
+            this.restrictPublicBuckets = restrictPublicBuckets;
             return this;
         }
         public GetAccountPublicAccessBlockResult build() {

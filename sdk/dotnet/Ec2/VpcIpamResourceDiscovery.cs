@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ec2
         /// Amazon Resource Name (ARN) of IPAM Resource Discovery
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description for the IPAM Resource Discovery.
@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Ec2
         /// The home region of the Resource Discovery
         /// </summary>
         [Output("ipamResourceDiscoveryRegion")]
-        public Output<string> IpamResourceDiscoveryRegion { get; private set; } = null!;
+        public Output<string?> IpamResourceDiscoveryRegion { get; private set; } = null!;
 
         /// <summary>
         /// A boolean to identify if the Resource Discovery is the accounts default resource discovery
         /// </summary>
         [Output("isDefault")]
-        public Output<bool> IsDefault { get; private set; } = null!;
+        public Output<bool?> IsDefault { get; private set; } = null!;
 
         /// <summary>
         /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ec2
         /// The account ID for the account that manages the Resource Discovery
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

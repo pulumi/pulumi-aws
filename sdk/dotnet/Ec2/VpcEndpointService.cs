@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ec2
         /// The Amazon Resource Name (ARN) of the VPC endpoint service.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A set of Availability Zones in which the service is available.
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Ec2
         /// Whether or not the service manages its VPC endpoints - `true` or `false`.
         /// </summary>
         [Output("managesVpcEndpoints")]
-        public Output<bool> ManagesVpcEndpoints { get; private set; } = null!;
+        public Output<bool?> ManagesVpcEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Ec2
         /// The private DNS name for the service.
         /// </summary>
         [Output("privateDnsName")]
-        public Output<string> PrivateDnsName { get; private set; } = null!;
+        public Output<string?> PrivateDnsName { get; private set; } = null!;
 
         /// <summary>
         /// List of objects containing information about the endpoint service private DNS name configuration.
@@ -138,19 +138,19 @@ namespace Pulumi.Aws.Ec2
         /// The service name.
         /// </summary>
         [Output("serviceName")]
-        public Output<string> ServiceName { get; private set; } = null!;
+        public Output<string?> ServiceName { get; private set; } = null!;
 
         /// <summary>
         /// The service type, `Gateway` or `Interface`.
         /// </summary>
         [Output("serviceType")]
-        public Output<string> ServiceType { get; private set; } = null!;
+        public Output<string?> ServiceType { get; private set; } = null!;
 
         /// <summary>
         /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The supported IP address types. The possible values are `ipv4` and `ipv6`.

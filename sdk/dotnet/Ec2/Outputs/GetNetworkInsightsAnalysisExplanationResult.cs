@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationAclRuleResult> AclRules;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationAclResult> Acls;
-        public readonly string Address;
+        public readonly string? Address;
         public readonly ImmutableArray<string> Addresses;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationAttachedToResult> AttachedTos;
         public readonly ImmutableArray<string> AvailabilityZones;
@@ -25,21 +25,21 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationCustomerGatewayResult> CustomerGateways;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationDestinationVpcResult> DestinationVpcs;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationDestinationResult> Destinations;
-        public readonly string Direction;
+        public readonly string? Direction;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult> ElasticLoadBalancerListeners;
-        public readonly string ExplanationCode;
+        public readonly string? ExplanationCode;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationIngressRouteTableResult> IngressRouteTables;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationInternetGatewayResult> InternetGateways;
-        public readonly string LoadBalancerArn;
-        public readonly int LoadBalancerListenerPort;
+        public readonly string? LoadBalancerArn;
+        public readonly int? LoadBalancerListenerPort;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult> LoadBalancerTargetGroup;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult> LoadBalancerTargetGroups;
-        public readonly int LoadBalancerTargetPort;
-        public readonly string MissingComponent;
+        public readonly int? LoadBalancerTargetPort;
+        public readonly string? MissingComponent;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationNatGatewayResult> NatGateways;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult> NetworkInterfaces;
-        public readonly string PacketField;
-        public readonly int Port;
+        public readonly string? PacketField;
+        public readonly int? Port;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationPortRangeResult> PortRanges;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationPrefixListResult> PrefixLists;
         public readonly ImmutableArray<string> Protocols;
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult> SecurityGroupRules;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult> SecurityGroups;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSourceVpcResult> SourceVpcs;
-        public readonly string State;
+        public readonly string? State;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult> SubnetRouteTables;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSubnetResult> Subnets;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult> TransitGatewayAttachments;
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationAclResult> acls,
 
-            string address,
+            string? address,
 
             ImmutableArray<string> addresses,
 
@@ -88,35 +88,35 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationDestinationResult> destinations,
 
-            string direction,
+            string? direction,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult> elasticLoadBalancerListeners,
 
-            string explanationCode,
+            string? explanationCode,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationIngressRouteTableResult> ingressRouteTables,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationInternetGatewayResult> internetGateways,
 
-            string loadBalancerArn,
+            string? loadBalancerArn,
 
-            int loadBalancerListenerPort,
+            int? loadBalancerListenerPort,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult> loadBalancerTargetGroup,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult> loadBalancerTargetGroups,
 
-            int loadBalancerTargetPort,
+            int? loadBalancerTargetPort,
 
-            string missingComponent,
+            string? missingComponent,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationNatGatewayResult> natGateways,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult> networkInterfaces,
 
-            string packetField,
+            string? packetField,
 
-            int port,
+            int? port,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationPortRangeResult> portRanges,
 
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSourceVpcResult> sourceVpcs,
 
-            string state,
+            string? state,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult> subnetRouteTables,
 

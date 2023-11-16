@@ -122,14 +122,14 @@ namespace Pulumi.Aws.ControlTower
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string TargetIdentifier;
 
         [OutputConstructor]
         private GetControlsResult(
             ImmutableArray<string> enabledControls,
 
-            string id,
+            string? id,
 
             string targetIdentifier)
         {

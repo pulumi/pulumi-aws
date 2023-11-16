@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Schemas
         /// The Amazon Resource Name (ARN) of the discoverer.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The schema specification. Must be a valid Open API 3.0 spec.
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Schemas
         /// The last modified date of the schema.
         /// </summary>
         [Output("lastModified")]
-        public Output<string> LastModified { get; private set; } = null!;
+        public Output<string?> LastModified { get; private set; } = null!;
 
         /// <summary>
         /// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
@@ -135,13 +135,13 @@ namespace Pulumi.Aws.Schemas
         /// The version of the schema.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
         /// <summary>
         /// The created date of the version of the schema.
         /// </summary>
         [Output("versionCreatedDate")]
-        public Output<string> VersionCreatedDate { get; private set; } = null!;
+        public Output<string?> VersionCreatedDate { get; private set; } = null!;
 
 
         /// <summary>

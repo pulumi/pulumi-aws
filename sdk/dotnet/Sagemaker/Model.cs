@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this model.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Sagemaker
         /// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
         /// </summary>
         [Output("inferenceExecutionConfig")]
-        public Output<Outputs.ModelInferenceExecutionConfig> InferenceExecutionConfig { get; private set; } = null!;
+        public Output<Outputs.ModelInferenceExecutionConfig?> InferenceExecutionConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.

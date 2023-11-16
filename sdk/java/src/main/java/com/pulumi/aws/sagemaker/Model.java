@@ -103,14 +103,14 @@ public class Model extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this model.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
@@ -159,14 +159,14 @@ public class Model extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="inferenceExecutionConfig", refs={ModelInferenceExecutionConfig.class}, tree="[0]")
-    private Output<ModelInferenceExecutionConfig> inferenceExecutionConfig;
+    private Output</* @Nullable */ ModelInferenceExecutionConfig> inferenceExecutionConfig;
 
     /**
      * @return Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
      * 
      */
-    public Output<ModelInferenceExecutionConfig> inferenceExecutionConfig() {
-        return this.inferenceExecutionConfig;
+    public Output<Optional<ModelInferenceExecutionConfig>> inferenceExecutionConfig() {
+        return Codegen.optional(this.inferenceExecutionConfig);
     }
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.

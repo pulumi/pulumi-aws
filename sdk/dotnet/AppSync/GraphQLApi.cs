@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppSync
         /// ARN
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.AppSync
         /// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         /// </summary>
         [Output("uris")]
-        public Output<ImmutableDictionary<string, string>> Uris { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Uris { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Cognito User Pool configuration. Defined below.

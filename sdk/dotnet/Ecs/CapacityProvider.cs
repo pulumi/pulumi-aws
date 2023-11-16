@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ecs
         /// ARN that identifies the capacity provider.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the provider for the ECS auto scaling group. Detailed below.

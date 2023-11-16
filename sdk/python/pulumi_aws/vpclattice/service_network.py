@@ -311,7 +311,7 @@ class ServiceNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Service Network.
         """
@@ -319,7 +319,7 @@ class ServiceNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> pulumi.Output[str]:
+    def auth_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of IAM policy. Either `NONE` or `AWS_IAM`.
         """

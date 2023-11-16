@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecTcpRouteMatchResult
     {
-        public readonly int Port;
+        public readonly int? Port;
 
         [OutputConstructor]
-        private GetRouteSpecTcpRouteMatchResult(int port)
+        private GetRouteSpecTcpRouteMatchResult(int? port)
         {
             Port = port;
         }

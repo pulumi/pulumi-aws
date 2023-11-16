@@ -16,29 +16,29 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Enabled disabled toggle for off-peak update window
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// Cognito Identity pool used by the domain.
         /// </summary>
-        public readonly string IdentityPoolId;
+        public readonly string? IdentityPoolId;
         /// <summary>
         /// IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// Cognito User pool used by the domain.
         /// </summary>
-        public readonly string UserPoolId;
+        public readonly string? UserPoolId;
 
         [OutputConstructor]
         private GetDomainCognitoOptionResult(
-            bool enabled,
+            bool? enabled,
 
-            string identityPoolId,
+            string? identityPoolId,
 
-            string roleArn,
+            string? roleArn,
 
-            string userPoolId)
+            string? userPoolId)
         {
             Enabled = enabled;
             IdentityPoolId = identityPoolId;

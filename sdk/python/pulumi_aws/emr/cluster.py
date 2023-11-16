@@ -2053,7 +2053,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the cluster.
         """
@@ -2085,7 +2085,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterState")
-    def cluster_state(self) -> pulumi.Output[str]:
+    def cluster_state(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "cluster_state")
 
     @property
@@ -2130,7 +2130,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreInstanceFleet")
-    def core_instance_fleet(self) -> pulumi.Output['outputs.ClusterCoreInstanceFleet']:
+    def core_instance_fleet(self) -> pulumi.Output[Optional['outputs.ClusterCoreInstanceFleet']]:
         """
         Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         """
@@ -2138,7 +2138,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreInstanceGroup")
-    def core_instance_group(self) -> pulumi.Output['outputs.ClusterCoreInstanceGroup']:
+    def core_instance_group(self) -> pulumi.Output[Optional['outputs.ClusterCoreInstanceGroup']]:
         """
         Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         """
@@ -2170,7 +2170,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keepJobFlowAliveWhenNoSteps")
-    def keep_job_flow_alive_when_no_steps(self) -> pulumi.Output[bool]:
+    def keep_job_flow_alive_when_no_steps(self) -> pulumi.Output[Optional[bool]]:
         """
         Switch on/off run cluster with no steps or when all steps are complete (default is on)
         """
@@ -2210,7 +2210,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterInstanceFleet")
-    def master_instance_fleet(self) -> pulumi.Output['outputs.ClusterMasterInstanceFleet']:
+    def master_instance_fleet(self) -> pulumi.Output[Optional['outputs.ClusterMasterInstanceFleet']]:
         """
         Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         """
@@ -2218,7 +2218,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterInstanceGroup")
-    def master_instance_group(self) -> pulumi.Output['outputs.ClusterMasterInstanceGroup']:
+    def master_instance_group(self) -> pulumi.Output[Optional['outputs.ClusterMasterInstanceGroup']]:
         """
         Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         """
@@ -2226,7 +2226,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterPublicDns")
-    def master_public_dns(self) -> pulumi.Output[str]:
+    def master_public_dns(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         """
@@ -2258,7 +2258,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleDownBehavior")
-    def scale_down_behavior(self) -> pulumi.Output[str]:
+    def scale_down_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         """
@@ -2292,7 +2292,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def steps(self) -> pulumi.Output[Sequence['outputs.ClusterStep']]:
+    def steps(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterStep']]]:
         """
         List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         """
@@ -2319,7 +2319,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="terminationProtection")
-    def termination_protection(self) -> pulumi.Output[bool]:
+    def termination_protection(self) -> pulumi.Output[Optional[bool]]:
         """
         Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         """

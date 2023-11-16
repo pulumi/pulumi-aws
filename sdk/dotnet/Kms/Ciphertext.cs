@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Kms
         /// Base64 encoded ciphertext
         /// </summary>
         [Output("ciphertextBlob")]
-        public Output<string> CiphertextBlob { get; private set; } = null!;
+        public Output<string?> CiphertextBlob { get; private set; } = null!;
 
         /// <summary>
         /// An optional mapping that makes up the encryption context.

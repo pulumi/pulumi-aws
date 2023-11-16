@@ -308,11 +308,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         /// </summary>
-        public readonly bool AcceptanceRequired;
+        public readonly bool? AcceptanceRequired;
         /// <summary>
         /// ARN of the VPC endpoint service.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Availability Zones in which the service is available.
         /// </summary>
@@ -325,26 +325,26 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Whether or not the service manages its VPC endpoints - `true` or `false`.
         /// </summary>
-        public readonly bool ManagesVpcEndpoints;
+        public readonly bool? ManagesVpcEndpoints;
         /// <summary>
         /// AWS account ID of the service owner or `amazon`.
         /// </summary>
-        public readonly string Owner;
+        public readonly string? Owner;
         /// <summary>
         /// Private DNS name for the service.
         /// </summary>
-        public readonly string PrivateDnsName;
+        public readonly string? PrivateDnsName;
         public readonly string? Service;
         /// <summary>
         /// ID of the endpoint service.
         /// </summary>
-        public readonly string ServiceId;
-        public readonly string ServiceName;
-        public readonly string ServiceType;
+        public readonly string? ServiceId;
+        public readonly string? ServiceName;
+        public readonly string? ServiceType;
         /// <summary>
         /// The supported IP address types.
         /// </summary>
@@ -352,17 +352,17 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Whether or not the service supports endpoint policies - `true` or `false`.
         /// </summary>
-        public readonly bool VpcEndpointPolicySupported;
+        public readonly bool? VpcEndpointPolicySupported;
 
         [OutputConstructor]
         private GetVpcEndpointServiceResult(
-            bool acceptanceRequired,
+            bool? acceptanceRequired,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<string> availabilityZones,
 
@@ -370,27 +370,27 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetVpcEndpointServiceFilterResult> filters,
 
-            string id,
+            string? id,
 
-            bool managesVpcEndpoints,
+            bool? managesVpcEndpoints,
 
-            string owner,
+            string? owner,
 
-            string privateDnsName,
+            string? privateDnsName,
 
             string? service,
 
-            string serviceId,
+            string? serviceId,
 
-            string serviceName,
+            string? serviceName,
 
-            string serviceType,
+            string? serviceType,
 
             ImmutableArray<string> supportedIpAddressTypes,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            bool vpcEndpointPolicySupported)
+            bool? vpcEndpointPolicySupported)
         {
             AcceptanceRequired = acceptanceRequired;
             Arn = arn;

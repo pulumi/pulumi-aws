@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the traffic mirror session.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the traffic mirror session.
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2
         /// The AWS account ID of the session owner.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Ec2
         /// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         /// </summary>
         [Output("virtualNetworkId")]
-        public Output<int> VirtualNetworkId { get; private set; } = null!;
+        public Output<int?> VirtualNetworkId { get; private set; } = null!;
 
 
         /// <summary>

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPatchBaselineSource {
@@ -14,39 +16,39 @@ public final class GetPatchBaselineSource {
      * @return The value of the yum repo configuration.
      * 
      */
-    private String configuration;
+    private @Nullable String configuration;
     /**
      * @return The name specified to identify the patch source.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The specific operating system versions a patch repository applies to.
      * 
      */
-    private List<String> products;
+    private @Nullable List<String> products;
 
     private GetPatchBaselineSource() {}
     /**
      * @return The value of the yum repo configuration.
      * 
      */
-    public String configuration() {
-        return this.configuration;
+    public Optional<String> configuration() {
+        return Optional.ofNullable(this.configuration);
     }
     /**
      * @return The name specified to identify the patch source.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The specific operating system versions a patch repository applies to.
      * 
      */
     public List<String> products() {
-        return this.products;
+        return this.products == null ? List.of() : this.products;
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetPatchBaselineSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String configuration;
-        private String name;
-        private List<String> products;
+        private @Nullable String configuration;
+        private @Nullable String name;
+        private @Nullable List<String> products;
         public Builder() {}
         public Builder(GetPatchBaselineSource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetPatchBaselineSource {
         }
 
         @CustomType.Setter
-        public Builder configuration(String configuration) {
-            this.configuration = Objects.requireNonNull(configuration);
+        public Builder configuration(@Nullable String configuration) {
+            this.configuration = configuration;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder products(List<String> products) {
-            this.products = Objects.requireNonNull(products);
+        public Builder products(@Nullable List<String> products) {
+            this.products = products;
             return this;
         }
         public Builder products(String... products) {

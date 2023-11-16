@@ -59,12 +59,12 @@ type LookupSubnetGroupArgs struct {
 // A collection of values returned by getSubnetGroup.
 type LookupSubnetGroupResult struct {
 	// ARN of the Redshift Subnet Group name.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the Redshift Subnet group.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// An array of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Tags associated to the Subnet Group
@@ -112,18 +112,18 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContex
 }
 
 // ARN of the Redshift Subnet Group name.
-func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Redshift Subnet group.
-func (o LookupSubnetGroupResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSubnetGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSubnetGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSubnetGroupResultOutput) Name() pulumi.StringOutput {

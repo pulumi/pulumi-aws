@@ -178,7 +178,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Creation date of the deployment
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// Description of the deployment
@@ -192,14 +192,14 @@ namespace Pulumi.Aws.ApiGateway
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
         [Output("executionArn")]
-        public Output<string> ExecutionArn { get; private set; } = null!;
+        public Output<string?> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
         /// URL to invoke the API pointing to the stage,
         /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         /// </summary>
         [Output("invokeUrl")]
-        public Output<string> InvokeUrl { get; private set; } = null!;
+        public Output<string?> InvokeUrl { get; private set; } = null!;
 
         /// <summary>
         /// REST API identifier.

@@ -135,28 +135,28 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN that identifies the provisioning template.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The default version of the fleet provisioning template.
      * 
      */
     @Export(name="defaultVersionId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> defaultVersionId;
+    private Output</* @Nullable */ Integer> defaultVersionId;
 
     /**
      * @return The default version of the fleet provisioning template.
      * 
      */
-    public Output<Integer> defaultVersionId() {
-        return this.defaultVersionId;
+    public Output<Optional<Integer>> defaultVersionId() {
+        return Codegen.optional(this.defaultVersionId);
     }
     /**
      * The description of the fleet provisioning template.
@@ -279,14 +279,14 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return The type you define in a provisioning template.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

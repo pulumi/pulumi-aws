@@ -7,42 +7,44 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplatePlacement {
-    private String affinity;
-    private String availabilityZone;
-    private String groupName;
-    private String hostId;
-    private String hostResourceGroupArn;
-    private Integer partitionNumber;
-    private String spreadDomain;
-    private String tenancy;
+    private @Nullable String affinity;
+    private @Nullable String availabilityZone;
+    private @Nullable String groupName;
+    private @Nullable String hostId;
+    private @Nullable String hostResourceGroupArn;
+    private @Nullable Integer partitionNumber;
+    private @Nullable String spreadDomain;
+    private @Nullable String tenancy;
 
     private GetLaunchTemplatePlacement() {}
-    public String affinity() {
-        return this.affinity;
+    public Optional<String> affinity() {
+        return Optional.ofNullable(this.affinity);
     }
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
-    public String groupName() {
-        return this.groupName;
+    public Optional<String> groupName() {
+        return Optional.ofNullable(this.groupName);
     }
-    public String hostId() {
-        return this.hostId;
+    public Optional<String> hostId() {
+        return Optional.ofNullable(this.hostId);
     }
-    public String hostResourceGroupArn() {
-        return this.hostResourceGroupArn;
+    public Optional<String> hostResourceGroupArn() {
+        return Optional.ofNullable(this.hostResourceGroupArn);
     }
-    public Integer partitionNumber() {
-        return this.partitionNumber;
+    public Optional<Integer> partitionNumber() {
+        return Optional.ofNullable(this.partitionNumber);
     }
-    public String spreadDomain() {
-        return this.spreadDomain;
+    public Optional<String> spreadDomain() {
+        return Optional.ofNullable(this.spreadDomain);
     }
-    public String tenancy() {
-        return this.tenancy;
+    public Optional<String> tenancy() {
+        return Optional.ofNullable(this.tenancy);
     }
 
     public static Builder builder() {
@@ -54,14 +56,14 @@ public final class GetLaunchTemplatePlacement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String affinity;
-        private String availabilityZone;
-        private String groupName;
-        private String hostId;
-        private String hostResourceGroupArn;
-        private Integer partitionNumber;
-        private String spreadDomain;
-        private String tenancy;
+        private @Nullable String affinity;
+        private @Nullable String availabilityZone;
+        private @Nullable String groupName;
+        private @Nullable String hostId;
+        private @Nullable String hostResourceGroupArn;
+        private @Nullable Integer partitionNumber;
+        private @Nullable String spreadDomain;
+        private @Nullable String tenancy;
         public Builder() {}
         public Builder(GetLaunchTemplatePlacement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,43 +78,43 @@ public final class GetLaunchTemplatePlacement {
         }
 
         @CustomType.Setter
-        public Builder affinity(String affinity) {
-            this.affinity = Objects.requireNonNull(affinity);
+        public Builder affinity(@Nullable String affinity) {
+            this.affinity = affinity;
             return this;
         }
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder groupName(String groupName) {
-            this.groupName = Objects.requireNonNull(groupName);
+        public Builder groupName(@Nullable String groupName) {
+            this.groupName = groupName;
             return this;
         }
         @CustomType.Setter
-        public Builder hostId(String hostId) {
-            this.hostId = Objects.requireNonNull(hostId);
+        public Builder hostId(@Nullable String hostId) {
+            this.hostId = hostId;
             return this;
         }
         @CustomType.Setter
-        public Builder hostResourceGroupArn(String hostResourceGroupArn) {
-            this.hostResourceGroupArn = Objects.requireNonNull(hostResourceGroupArn);
+        public Builder hostResourceGroupArn(@Nullable String hostResourceGroupArn) {
+            this.hostResourceGroupArn = hostResourceGroupArn;
             return this;
         }
         @CustomType.Setter
-        public Builder partitionNumber(Integer partitionNumber) {
-            this.partitionNumber = Objects.requireNonNull(partitionNumber);
+        public Builder partitionNumber(@Nullable Integer partitionNumber) {
+            this.partitionNumber = partitionNumber;
             return this;
         }
         @CustomType.Setter
-        public Builder spreadDomain(String spreadDomain) {
-            this.spreadDomain = Objects.requireNonNull(spreadDomain);
+        public Builder spreadDomain(@Nullable String spreadDomain) {
+            this.spreadDomain = spreadDomain;
             return this;
         }
         @CustomType.Setter
-        public Builder tenancy(String tenancy) {
-            this.tenancy = Objects.requireNonNull(tenancy);
+        public Builder tenancy(@Nullable String tenancy) {
+            this.tenancy = tenancy;
             return this;
         }
         public GetLaunchTemplatePlacement build() {

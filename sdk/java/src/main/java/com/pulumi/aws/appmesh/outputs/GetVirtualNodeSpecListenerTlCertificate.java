@@ -9,22 +9,23 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlCertificateSd;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTlCertificate {
-    private List<GetVirtualNodeSpecListenerTlCertificateAcm> acms;
-    private List<GetVirtualNodeSpecListenerTlCertificateFile> files;
-    private List<GetVirtualNodeSpecListenerTlCertificateSd> sds;
+    private @Nullable List<GetVirtualNodeSpecListenerTlCertificateAcm> acms;
+    private @Nullable List<GetVirtualNodeSpecListenerTlCertificateFile> files;
+    private @Nullable List<GetVirtualNodeSpecListenerTlCertificateSd> sds;
 
     private GetVirtualNodeSpecListenerTlCertificate() {}
     public List<GetVirtualNodeSpecListenerTlCertificateAcm> acms() {
-        return this.acms;
+        return this.acms == null ? List.of() : this.acms;
     }
     public List<GetVirtualNodeSpecListenerTlCertificateFile> files() {
-        return this.files;
+        return this.files == null ? List.of() : this.files;
     }
     public List<GetVirtualNodeSpecListenerTlCertificateSd> sds() {
-        return this.sds;
+        return this.sds == null ? List.of() : this.sds;
     }
 
     public static Builder builder() {
@@ -36,9 +37,9 @@ public final class GetVirtualNodeSpecListenerTlCertificate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerTlCertificateAcm> acms;
-        private List<GetVirtualNodeSpecListenerTlCertificateFile> files;
-        private List<GetVirtualNodeSpecListenerTlCertificateSd> sds;
+        private @Nullable List<GetVirtualNodeSpecListenerTlCertificateAcm> acms;
+        private @Nullable List<GetVirtualNodeSpecListenerTlCertificateFile> files;
+        private @Nullable List<GetVirtualNodeSpecListenerTlCertificateSd> sds;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTlCertificate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -48,24 +49,24 @@ public final class GetVirtualNodeSpecListenerTlCertificate {
         }
 
         @CustomType.Setter
-        public Builder acms(List<GetVirtualNodeSpecListenerTlCertificateAcm> acms) {
-            this.acms = Objects.requireNonNull(acms);
+        public Builder acms(@Nullable List<GetVirtualNodeSpecListenerTlCertificateAcm> acms) {
+            this.acms = acms;
             return this;
         }
         public Builder acms(GetVirtualNodeSpecListenerTlCertificateAcm... acms) {
             return acms(List.of(acms));
         }
         @CustomType.Setter
-        public Builder files(List<GetVirtualNodeSpecListenerTlCertificateFile> files) {
-            this.files = Objects.requireNonNull(files);
+        public Builder files(@Nullable List<GetVirtualNodeSpecListenerTlCertificateFile> files) {
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecListenerTlCertificateFile... files) {
             return files(List.of(files));
         }
         @CustomType.Setter
-        public Builder sds(List<GetVirtualNodeSpecListenerTlCertificateSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+        public Builder sds(@Nullable List<GetVirtualNodeSpecListenerTlCertificateSd> sds) {
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecListenerTlCertificateSd... sds) {

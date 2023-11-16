@@ -17,6 +17,88 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
         /// The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = Aws.RedShift.GetServiceAccount.Invoke();
+        /// 
+        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+        ///     {
+        ///         ForceDestroy = true,
+        ///     });
+        /// 
+        ///     var allowAuditLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Put bucket policy needed for audit logging",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:PutObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"{bucket.Arn}/*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Get bucket policy needed for audit logging",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:GetBucketAcl",
+        ///                 },
+        ///                 Resources = bucket.Arn,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var allowAuditLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowAuditLoggingBucketPolicy", new()
+        ///     {
+        ///         Bucket = bucket.Id,
+        ///         Policy = allowAuditLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceAccountResult> InvokeAsync(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:redshift/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithDefaults());
@@ -27,6 +109,88 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
         /// The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = Aws.RedShift.GetServiceAccount.Invoke();
+        /// 
+        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+        ///     {
+        ///         ForceDestroy = true,
+        ///     });
+        /// 
+        ///     var allowAuditLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Put bucket policy needed for audit logging",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:PutObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"{bucket.Arn}/*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Get bucket policy needed for audit logging",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:GetBucketAcl",
+        ///                 },
+        ///                 Resources = bucket.Arn,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var allowAuditLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowAuditLoggingBucketPolicy", new()
+        ///     {
+        ///         Bucket = bucket.Id,
+        ///         Policy = allowAuditLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("aws:redshift/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
@@ -70,18 +234,18 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// ARN of the AWS Redshift service account in the selected region.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? Region;
 
         [OutputConstructor]
         private GetServiceAccountResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
             string? region)
         {

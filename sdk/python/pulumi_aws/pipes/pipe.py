@@ -821,7 +821,7 @@ class Pipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         """
@@ -869,7 +869,7 @@ class Pipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -893,7 +893,7 @@ class Pipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceParameters")
-    def source_parameters(self) -> pulumi.Output['outputs.PipeSourceParameters']:
+    def source_parameters(self) -> pulumi.Output[Optional['outputs.PipeSourceParameters']]:
         """
         Parameters to configure a source for the pipe. Detailed below.
         """

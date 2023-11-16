@@ -96,15 +96,15 @@ export class VpcConnection extends pulumi.CustomResource {
     /**
      * ARN of the VPC connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      */
-    public /*out*/ readonly availabilityStatus!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityStatus!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.
      */

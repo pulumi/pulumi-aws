@@ -76,23 +76,23 @@ export interface GetHoursOfOperationResult {
     /**
      * ARN of the Hours of Operation.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
      */
-    readonly configs: outputs.connect.GetHoursOfOperationConfig[];
+    readonly configs?: outputs.connect.GetHoursOfOperationConfig[];
     /**
      * Description of the Hours of Operation.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The identifier for the hours of operation.
      */
-    readonly hoursOfOperationId: string;
+    readonly hoursOfOperationId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Identifier of the hosting Amazon Connect Instance.
      */
@@ -100,15 +100,15 @@ export interface GetHoursOfOperationResult {
     /**
      * Name of the Hours of Operation.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Map of tags to assign to the Hours of Operation.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Time zone of the Hours of Operation.
      */
-    readonly timeZone: string;
+    readonly timeZone?: string;
 }
 /**
  * Provides details about a specific Amazon Connect Hours of Operation.

@@ -133,35 +133,35 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// MD5 message digest of the SSH public key.
         /// </summary>
-        public readonly string Fingerprint;
+        public readonly string? Fingerprint;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// SSH public key.
         /// </summary>
-        public readonly string PublicKey;
+        public readonly string? PublicKey;
         public readonly string SshPublicKeyId;
         /// <summary>
         /// Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         public readonly string Username;
 
         [OutputConstructor]
         private GetUserSshKeyResult(
             string encoding,
 
-            string fingerprint,
+            string? fingerprint,
 
-            string id,
+            string? id,
 
-            string publicKey,
+            string? publicKey,
 
             string sshPublicKeyId,
 
-            string status,
+            string? status,
 
             string username)
         {

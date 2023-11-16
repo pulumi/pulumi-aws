@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDedicatedIpPoolDedicatedIp {
@@ -14,39 +16,39 @@ public final class GetDedicatedIpPoolDedicatedIp {
      * @return IPv4 address.
      * 
      */
-    private String ip;
+    private @Nullable String ip;
     /**
      * @return Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
      * 
      */
-    private Integer warmupPercentage;
+    private @Nullable Integer warmupPercentage;
     /**
      * @return The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
      * 
      */
-    private String warmupStatus;
+    private @Nullable String warmupStatus;
 
     private GetDedicatedIpPoolDedicatedIp() {}
     /**
      * @return IPv4 address.
      * 
      */
-    public String ip() {
-        return this.ip;
+    public Optional<String> ip() {
+        return Optional.ofNullable(this.ip);
     }
     /**
      * @return Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
      * 
      */
-    public Integer warmupPercentage() {
-        return this.warmupPercentage;
+    public Optional<Integer> warmupPercentage() {
+        return Optional.ofNullable(this.warmupPercentage);
     }
     /**
      * @return The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
      * 
      */
-    public String warmupStatus() {
-        return this.warmupStatus;
+    public Optional<String> warmupStatus() {
+        return Optional.ofNullable(this.warmupStatus);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetDedicatedIpPoolDedicatedIp {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String ip;
-        private Integer warmupPercentage;
-        private String warmupStatus;
+        private @Nullable String ip;
+        private @Nullable Integer warmupPercentage;
+        private @Nullable String warmupStatus;
         public Builder() {}
         public Builder(GetDedicatedIpPoolDedicatedIp defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetDedicatedIpPoolDedicatedIp {
         }
 
         @CustomType.Setter
-        public Builder ip(String ip) {
-            this.ip = Objects.requireNonNull(ip);
+        public Builder ip(@Nullable String ip) {
+            this.ip = ip;
             return this;
         }
         @CustomType.Setter
-        public Builder warmupPercentage(Integer warmupPercentage) {
-            this.warmupPercentage = Objects.requireNonNull(warmupPercentage);
+        public Builder warmupPercentage(@Nullable Integer warmupPercentage) {
+            this.warmupPercentage = warmupPercentage;
             return this;
         }
         @CustomType.Setter
-        public Builder warmupStatus(String warmupStatus) {
-            this.warmupStatus = Objects.requireNonNull(warmupStatus);
+        public Builder warmupStatus(@Nullable String warmupStatus) {
+            this.warmupStatus = warmupStatus;
             return this;
         }
         public GetDedicatedIpPoolDedicatedIp build() {

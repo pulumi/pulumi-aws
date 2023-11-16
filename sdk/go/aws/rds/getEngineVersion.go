@@ -109,21 +109,21 @@ type GetEngineVersionArgs struct {
 // A collection of values returned by getEngineVersion.
 type GetEngineVersionResult struct {
 	// The default character set for new instances of this engine version.
-	DefaultCharacterSet string `pulumi:"defaultCharacterSet"`
-	DefaultOnly         *bool  `pulumi:"defaultOnly"`
-	Engine              string `pulumi:"engine"`
+	DefaultCharacterSet *string `pulumi:"defaultCharacterSet"`
+	DefaultOnly         *bool   `pulumi:"defaultOnly"`
+	Engine              string  `pulumi:"engine"`
 	// Description of the database engine.
-	EngineDescription string `pulumi:"engineDescription"`
+	EngineDescription *string `pulumi:"engineDescription"`
 	// Set of log types that the database engine has available for export to CloudWatch Logs.
 	ExportableLogTypes []string                 `pulumi:"exportableLogTypes"`
 	Filters            []GetEngineVersionFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                   string   `pulumi:"id"`
+	Id                   *string  `pulumi:"id"`
 	IncludeAll           *bool    `pulumi:"includeAll"`
-	ParameterGroupFamily string   `pulumi:"parameterGroupFamily"`
+	ParameterGroupFamily *string  `pulumi:"parameterGroupFamily"`
 	PreferredVersions    []string `pulumi:"preferredVersions"`
 	// Status of the DB engine version, either available or deprecated.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Set of the character sets supported by this engine.
 	SupportedCharacterSets []string `pulumi:"supportedCharacterSets"`
 	// Set of features supported by the DB engine.
@@ -133,18 +133,18 @@ type GetEngineVersionResult struct {
 	// Set of the time zones supported by this engine.
 	SupportedTimezones []string `pulumi:"supportedTimezones"`
 	// Indicates whether you can use Aurora global databases with a specific DB engine version.
-	SupportsGlobalDatabases bool `pulumi:"supportsGlobalDatabases"`
+	SupportsGlobalDatabases *bool `pulumi:"supportsGlobalDatabases"`
 	// Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
-	SupportsLogExportsToCloudwatch bool `pulumi:"supportsLogExportsToCloudwatch"`
+	SupportsLogExportsToCloudwatch *bool `pulumi:"supportsLogExportsToCloudwatch"`
 	// Indicates whether you can use Aurora parallel query with a specific DB engine version.
-	SupportsParallelQuery bool `pulumi:"supportsParallelQuery"`
+	SupportsParallelQuery *bool `pulumi:"supportsParallelQuery"`
 	// Indicates whether the database engine version supports read replicas.
-	SupportsReadReplica bool `pulumi:"supportsReadReplica"`
+	SupportsReadReplica *bool `pulumi:"supportsReadReplica"`
 	// Set of engine versions that this database engine version can be upgraded to.
 	ValidUpgradeTargets []string `pulumi:"validUpgradeTargets"`
-	Version             string   `pulumi:"version"`
+	Version             *string  `pulumi:"version"`
 	// Description of the database engine version.
-	VersionDescription string `pulumi:"versionDescription"`
+	VersionDescription *string `pulumi:"versionDescription"`
 }
 
 func GetEngineVersionOutput(ctx *pulumi.Context, args GetEngineVersionOutputArgs, opts ...pulumi.InvokeOption) GetEngineVersionResultOutput {
@@ -198,8 +198,8 @@ func (o GetEngineVersionResultOutput) ToGetEngineVersionResultOutputWithContext(
 }
 
 // The default character set for new instances of this engine version.
-func (o GetEngineVersionResultOutput) DefaultCharacterSet() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) string { return v.DefaultCharacterSet }).(pulumi.StringOutput)
+func (o GetEngineVersionResultOutput) DefaultCharacterSet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *string { return v.DefaultCharacterSet }).(pulumi.StringPtrOutput)
 }
 
 func (o GetEngineVersionResultOutput) DefaultOnly() pulumi.BoolPtrOutput {
@@ -211,8 +211,8 @@ func (o GetEngineVersionResultOutput) Engine() pulumi.StringOutput {
 }
 
 // Description of the database engine.
-func (o GetEngineVersionResultOutput) EngineDescription() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) string { return v.EngineDescription }).(pulumi.StringOutput)
+func (o GetEngineVersionResultOutput) EngineDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *string { return v.EngineDescription }).(pulumi.StringPtrOutput)
 }
 
 // Set of log types that the database engine has available for export to CloudWatch Logs.
@@ -225,16 +225,16 @@ func (o GetEngineVersionResultOutput) Filters() GetEngineVersionFilterArrayOutpu
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetEngineVersionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetEngineVersionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetEngineVersionResultOutput) IncludeAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) *bool { return v.IncludeAll }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetEngineVersionResultOutput) ParameterGroupFamily() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) string { return v.ParameterGroupFamily }).(pulumi.StringOutput)
+func (o GetEngineVersionResultOutput) ParameterGroupFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *string { return v.ParameterGroupFamily }).(pulumi.StringPtrOutput)
 }
 
 func (o GetEngineVersionResultOutput) PreferredVersions() pulumi.StringArrayOutput {
@@ -242,8 +242,8 @@ func (o GetEngineVersionResultOutput) PreferredVersions() pulumi.StringArrayOutp
 }
 
 // Status of the DB engine version, either available or deprecated.
-func (o GetEngineVersionResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Status }).(pulumi.StringOutput)
+func (o GetEngineVersionResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Set of the character sets supported by this engine.
@@ -267,23 +267,23 @@ func (o GetEngineVersionResultOutput) SupportedTimezones() pulumi.StringArrayOut
 }
 
 // Indicates whether you can use Aurora global databases with a specific DB engine version.
-func (o GetEngineVersionResultOutput) SupportsGlobalDatabases() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsGlobalDatabases }).(pulumi.BoolOutput)
+func (o GetEngineVersionResultOutput) SupportsGlobalDatabases() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *bool { return v.SupportsGlobalDatabases }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
-func (o GetEngineVersionResultOutput) SupportsLogExportsToCloudwatch() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsLogExportsToCloudwatch }).(pulumi.BoolOutput)
+func (o GetEngineVersionResultOutput) SupportsLogExportsToCloudwatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *bool { return v.SupportsLogExportsToCloudwatch }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether you can use Aurora parallel query with a specific DB engine version.
-func (o GetEngineVersionResultOutput) SupportsParallelQuery() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsParallelQuery }).(pulumi.BoolOutput)
+func (o GetEngineVersionResultOutput) SupportsParallelQuery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *bool { return v.SupportsParallelQuery }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether the database engine version supports read replicas.
-func (o GetEngineVersionResultOutput) SupportsReadReplica() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsReadReplica }).(pulumi.BoolOutput)
+func (o GetEngineVersionResultOutput) SupportsReadReplica() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *bool { return v.SupportsReadReplica }).(pulumi.BoolPtrOutput)
 }
 
 // Set of engine versions that this database engine version can be upgraded to.
@@ -291,13 +291,13 @@ func (o GetEngineVersionResultOutput) ValidUpgradeTargets() pulumi.StringArrayOu
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.ValidUpgradeTargets }).(pulumi.StringArrayOutput)
 }
 
-func (o GetEngineVersionResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Version }).(pulumi.StringOutput)
+func (o GetEngineVersionResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // Description of the database engine version.
-func (o GetEngineVersionResultOutput) VersionDescription() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEngineVersionResult) string { return v.VersionDescription }).(pulumi.StringOutput)
+func (o GetEngineVersionResultOutput) VersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *string { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -123,7 +123,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
@@ -145,7 +145,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * Default Version of the launch template.
      */
-    public readonly defaultVersion!: pulumi.Output<number>;
+    public readonly defaultVersion!: pulumi.Output<number | undefined>;
     /**
      * Description of the launch template.
      */
@@ -218,7 +218,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * The latest version of the launch template.
      */
-    public /*out*/ readonly latestVersion!: pulumi.Output<number>;
+    public /*out*/ readonly latestVersion!: pulumi.Output<number | undefined>;
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
@@ -230,7 +230,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */
-    public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchTemplateMetadataOptions>;
+    public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchTemplateMetadataOptions | undefined>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
@@ -242,7 +242,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.

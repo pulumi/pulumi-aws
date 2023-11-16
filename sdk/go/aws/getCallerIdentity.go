@@ -59,13 +59,13 @@ type GetCallerIdentityArgs struct {
 // A collection of values returned by getCallerIdentity.
 type GetCallerIdentityResult struct {
 	// AWS Account ID number of the account that owns or contains the calling entity.
-	AccountId string `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// ARN associated with the calling entity.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Account ID number of the account that owns or contains the calling entity.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Unique identifier of the calling entity.
-	UserId string `pulumi:"userId"`
+	UserId *string `pulumi:"userId"`
 }
 
 func GetCallerIdentityOutput(ctx *pulumi.Context, args GetCallerIdentityOutputArgs, opts ...pulumi.InvokeOption) GetCallerIdentityResultOutput {
@@ -107,23 +107,23 @@ func (o GetCallerIdentityResultOutput) ToGetCallerIdentityResultOutputWithContex
 }
 
 // AWS Account ID number of the account that owns or contains the calling entity.
-func (o GetCallerIdentityResultOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCallerIdentityResult) string { return v.AccountId }).(pulumi.StringOutput)
+func (o GetCallerIdentityResultOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCallerIdentityResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // ARN associated with the calling entity.
-func (o GetCallerIdentityResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCallerIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetCallerIdentityResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCallerIdentityResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Account ID number of the account that owns or contains the calling entity.
-func (o GetCallerIdentityResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCallerIdentityResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetCallerIdentityResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCallerIdentityResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier of the calling entity.
-func (o GetCallerIdentityResultOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCallerIdentityResult) string { return v.UserId }).(pulumi.StringOutput)
+func (o GetCallerIdentityResultOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCallerIdentityResult) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

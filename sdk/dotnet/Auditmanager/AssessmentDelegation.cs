@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Unique identifier for the delegation.
         /// </summary>
         [Output("delegationId")]
-        public Output<string> DelegationId { get; private set; } = null!;
+        public Output<string?> DelegationId { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Status of the delegation.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

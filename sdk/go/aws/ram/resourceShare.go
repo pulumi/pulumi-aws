@@ -57,7 +57,7 @@ type ResourceShare struct {
 	// Indicates whether principals outside your organization can be associated with a resource share.
 	AllowExternalPrincipals pulumi.BoolPtrOutput `pulumi:"allowExternalPrincipals"`
 	// The Amazon Resource Name (ARN) of the resource share.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the resource share.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
@@ -257,8 +257,8 @@ func (o ResourceShareOutput) AllowExternalPrincipals() pulumi.BoolPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) of the resource share.
-func (o ResourceShareOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResourceShareOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource share.

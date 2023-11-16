@@ -80,7 +80,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Redshift Subnet group name
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
      */

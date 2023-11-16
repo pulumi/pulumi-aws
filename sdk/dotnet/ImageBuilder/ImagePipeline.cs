@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Amazon Resource Name (ARN) of the image pipeline.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the container recipe.
@@ -62,25 +62,25 @@ namespace Pulumi.Aws.ImageBuilder
         /// Date the image pipeline was created.
         /// </summary>
         [Output("dateCreated")]
-        public Output<string> DateCreated { get; private set; } = null!;
+        public Output<string?> DateCreated { get; private set; } = null!;
 
         /// <summary>
         /// Date the image pipeline was last run.
         /// </summary>
         [Output("dateLastRun")]
-        public Output<string> DateLastRun { get; private set; } = null!;
+        public Output<string?> DateLastRun { get; private set; } = null!;
 
         /// <summary>
         /// Date the image pipeline will run next.
         /// </summary>
         [Output("dateNextRun")]
-        public Output<string> DateNextRun { get; private set; } = null!;
+        public Output<string?> DateNextRun { get; private set; } = null!;
 
         /// <summary>
         /// Date the image pipeline was updated.
         /// </summary>
         [Output("dateUpdated")]
-        public Output<string> DateUpdated { get; private set; } = null!;
+        public Output<string?> DateUpdated { get; private set; } = null!;
 
         /// <summary>
         /// Description of the image pipeline.
@@ -110,13 +110,13 @@ namespace Pulumi.Aws.ImageBuilder
         /// Configuration block with image scanning configuration. Detailed below.
         /// </summary>
         [Output("imageScanningConfiguration")]
-        public Output<Outputs.ImagePipelineImageScanningConfiguration> ImageScanningConfiguration { get; private set; } = null!;
+        public Output<Outputs.ImagePipelineImageScanningConfiguration?> ImageScanningConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
         [Output("imageTestsConfiguration")]
-        public Output<Outputs.ImagePipelineImageTestsConfiguration> ImageTestsConfiguration { get; private set; } = null!;
+        public Output<Outputs.ImagePipelineImageTestsConfiguration?> ImageTestsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Platform of the image pipeline.
         /// </summary>
         [Output("platform")]
-        public Output<string> Platform { get; private set; } = null!;
+        public Output<string?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with schedule settings. Detailed below.

@@ -88,13 +88,13 @@ namespace Pulumi.Aws.DirectConnect
         /// The ARN of the connection.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Direct Connect endpoint on which the physical connection terminates.
         /// </summary>
         [Output("awsDevice")]
-        public Output<string> AwsDevice { get; private set; } = null!;
+        public Output<string?> AwsDevice { get; private set; } = null!;
 
         /// <summary>
         /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
@@ -106,19 +106,19 @@ namespace Pulumi.Aws.DirectConnect
         /// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
         /// </summary>
         [Output("encryptionMode")]
-        public Output<string> EncryptionMode { get; private set; } = null!;
+        public Output<string?> EncryptionMode { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
         [Output("hasLogicalRedundancy")]
-        public Output<string> HasLogicalRedundancy { get; private set; } = null!;
+        public Output<string?> HasLogicalRedundancy { get; private set; } = null!;
 
         /// <summary>
         /// Boolean value representing if jumbo frames have been enabled for this connection.
         /// </summary>
         [Output("jumboFrameCapable")]
-        public Output<bool> JumboFrameCapable { get; private set; } = null!;
+        public Output<bool?> JumboFrameCapable { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.DirectConnect
         /// Boolean value indicating whether the connection supports MAC Security (MACsec).
         /// </summary>
         [Output("macsecCapable")]
-        public Output<bool> MacsecCapable { get; private set; } = null!;
+        public Output<bool?> MacsecCapable { get; private set; } = null!;
 
         /// <summary>
         /// The name of the connection.
@@ -142,25 +142,25 @@ namespace Pulumi.Aws.DirectConnect
         /// The ID of the AWS account that owns the connection.
         /// </summary>
         [Output("ownerAccountId")]
-        public Output<string> OwnerAccountId { get; private set; } = null!;
+        public Output<string?> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the AWS Direct Connect service provider associated with the connection.
         /// </summary>
         [Output("partnerName")]
-        public Output<string> PartnerName { get; private set; } = null!;
+        public Output<string?> PartnerName { get; private set; } = null!;
 
         /// <summary>
         /// The MAC Security (MACsec) port link status of the connection.
         /// </summary>
         [Output("portEncryptionStatus")]
-        public Output<string> PortEncryptionStatus { get; private set; } = null!;
+        public Output<string?> PortEncryptionStatus { get; private set; } = null!;
 
         /// <summary>
         /// The name of the service provider associated with the connection.
         /// </summary>
         [Output("providerName")]
-        public Output<string> ProviderName { get; private set; } = null!;
+        public Output<string?> ProviderName { get; private set; } = null!;
 
         /// <summary>
         /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The VLAN ID.
         /// </summary>
         [Output("vlanId")]
-        public Output<int> VlanId { get; private set; } = null!;
+        public Output<int?> VlanId { get; private set; } = null!;
 
 
         /// <summary>

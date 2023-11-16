@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplatePrivateDnsNameOptionResult
     {
-        public readonly bool EnableResourceNameDnsARecord;
-        public readonly bool EnableResourceNameDnsAaaaRecord;
-        public readonly string HostnameType;
+        public readonly bool? EnableResourceNameDnsARecord;
+        public readonly bool? EnableResourceNameDnsAaaaRecord;
+        public readonly string? HostnameType;
 
         [OutputConstructor]
         private GetLaunchTemplatePrivateDnsNameOptionResult(
-            bool enableResourceNameDnsARecord,
+            bool? enableResourceNameDnsARecord,
 
-            bool enableResourceNameDnsAaaaRecord,
+            bool? enableResourceNameDnsAaaaRecord,
 
-            string hostnameType)
+            string? hostnameType)
         {
             EnableResourceNameDnsARecord = enableResourceNameDnsARecord;
             EnableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;

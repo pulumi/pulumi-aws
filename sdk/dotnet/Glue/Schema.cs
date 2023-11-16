@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Glue
         /// Amazon Resource Name (ARN) of the schema.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
@@ -73,31 +73,31 @@ namespace Pulumi.Aws.Glue
         /// The latest version of the schema associated with the returned schema definition.
         /// </summary>
         [Output("latestSchemaVersion")]
-        public Output<int> LatestSchemaVersion { get; private set; } = null!;
+        public Output<int?> LatestSchemaVersion { get; private set; } = null!;
 
         /// <summary>
         /// The next version of the schema associated with the returned schema definition.
         /// </summary>
         [Output("nextSchemaVersion")]
-        public Output<int> NextSchemaVersion { get; private set; } = null!;
+        public Output<int?> NextSchemaVersion { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Glue Registry to create the schema in.
         /// </summary>
         [Output("registryArn")]
-        public Output<string> RegistryArn { get; private set; } = null!;
+        public Output<string?> RegistryArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Glue Registry.
         /// </summary>
         [Output("registryName")]
-        public Output<string> RegistryName { get; private set; } = null!;
+        public Output<string?> RegistryName { get; private set; } = null!;
 
         /// <summary>
         /// The version number of the checkpoint (the last time the compatibility mode was changed).
         /// </summary>
         [Output("schemaCheckpoint")]
-        public Output<int> SchemaCheckpoint { get; private set; } = null!;
+        public Output<int?> SchemaCheckpoint { get; private set; } = null!;
 
         /// <summary>
         /// The schema definition using the `data_format` setting for `schema_name`.

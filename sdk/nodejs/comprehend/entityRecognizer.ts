@@ -84,7 +84,7 @@ export class EntityRecognizer extends pulumi.CustomResource {
     /**
      * ARN of the Entity Recognizer version.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
      */
@@ -130,14 +130,14 @@ export class EntityRecognizer extends pulumi.CustomResource {
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionNamePrefix`.
      */
-    public readonly versionName!: pulumi.Output<string>;
+    public readonly versionName!: pulumi.Output<string | undefined>;
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionName`.
      */
-    public readonly versionNamePrefix!: pulumi.Output<string>;
+    public readonly versionNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
      */

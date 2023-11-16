@@ -53,9 +53,9 @@ type ServiceNetwork struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Service Network.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType pulumi.StringOutput `pulumi:"authType"`
+	AuthType pulumi.StringPtrOutput `pulumi:"authType"`
 	// Name of the service network
 	//
 	// The following arguments are optional:
@@ -250,13 +250,13 @@ func (o ServiceNetworkOutput) ToServiceNetworkOutputWithContext(ctx context.Cont
 }
 
 // ARN of the Service Network.
-func (o ServiceNetworkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServiceNetworkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Type of IAM policy. Either `NONE` or `AWS_IAM`.
-func (o ServiceNetworkOutput) AuthType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
+func (o ServiceNetworkOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringPtrOutput { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
 // Name of the service network

@@ -47,11 +47,11 @@ export interface GetDelegatedAdministratorsResult {
     /**
      * The list of delegated administrators in your organization, which have the following attributes:
      */
-    readonly delegatedAdministrators: outputs.organizations.GetDelegatedAdministratorsDelegatedAdministrator[];
+    readonly delegatedAdministrators?: outputs.organizations.GetDelegatedAdministratorsDelegatedAdministrator[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly servicePrincipal?: string;
 }
 /**

@@ -30,11 +30,11 @@ export interface GetSerialConsoleAccessResult {
     /**
      * Whether or not serial console access is enabled. Returns as `true` or `false`.
      */
-    readonly enabled: boolean;
+    readonly enabled?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.

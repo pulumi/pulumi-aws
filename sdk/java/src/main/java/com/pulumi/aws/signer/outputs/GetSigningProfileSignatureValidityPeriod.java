@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSigningProfileSignatureValidityPeriod {
-    private String type;
-    private Integer value;
+    private @Nullable String type;
+    private @Nullable Integer value;
 
     private GetSigningProfileSignatureValidityPeriod() {}
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
-    public Integer value() {
-        return this.value;
+    public Optional<Integer> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetSigningProfileSignatureValidityPeriod {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String type;
-        private Integer value;
+        private @Nullable String type;
+        private @Nullable Integer value;
         public Builder() {}
         public Builder(GetSigningProfileSignatureValidityPeriod defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetSigningProfileSignatureValidityPeriod {
         }
 
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder value(Integer value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable Integer value) {
+            this.value = value;
             return this;
         }
         public GetSigningProfileSignatureValidityPeriod build() {

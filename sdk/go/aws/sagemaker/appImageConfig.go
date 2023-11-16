@@ -92,7 +92,7 @@ type AppImageConfig struct {
 	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringOutput `pulumi:"appImageConfigName"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrOutput `pulumi:"kernelGatewayImageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -285,8 +285,8 @@ func (o AppImageConfigOutput) AppImageConfigName() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-func (o AppImageConfigOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AppImageConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AppImageConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppImageConfig) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.

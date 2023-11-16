@@ -102,11 +102,11 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      */
-    public readonly auditLogConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemAuditLogConfiguration>;
+    public readonly auditLogConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemAuditLogConfiguration | undefined>;
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
@@ -122,7 +122,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
-    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
+    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string | undefined>;
     /**
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
@@ -130,35 +130,35 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
      */
-    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
+    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemDiskIopsConfiguration | undefined>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[] | undefined>;
     /**
      * AWS account identifier that created the file system.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The IP address of the primary, or preferred, file server.
      */
-    public /*out*/ readonly preferredFileServerIp!: pulumi.Output<string>;
+    public /*out*/ readonly preferredFileServerIp!: pulumi.Output<string | undefined>;
     /**
      * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      */
-    public readonly preferredSubnetId!: pulumi.Output<string>;
+    public readonly preferredSubnetId!: pulumi.Output<string | undefined>;
     /**
      * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      */
-    public /*out*/ readonly remoteAdministrationEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly remoteAdministrationEndpoint!: pulumi.Output<string | undefined>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -174,7 +174,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      */
-    public readonly storageCapacity!: pulumi.Output<number>;
+    public readonly storageCapacity!: pulumi.Output<number | undefined>;
     /**
      * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
@@ -202,11 +202,11 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string>;
+    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WindowsFileSystem resource with the given unique name, arguments, and options.

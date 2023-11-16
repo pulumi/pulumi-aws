@@ -60,53 +60,53 @@ type LookupWindowsFileSystemArgs struct {
 // A collection of values returned by getWindowsFileSystem.
 type LookupWindowsFileSystemResult struct {
 	// The ID for Microsoft Active Directory instance that the file system is join to.
-	ActiveDirectoryId string `pulumi:"activeDirectoryId"`
+	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// An array DNS alias names associated with the Amazon FSx file system.
 	Aliases []string `pulumi:"aliases"`
 	// Amazon Resource Name of the file system.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
 	AuditLogConfigurations []GetWindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfigurations"`
 	// The number of days to retain automatic backups.
-	AutomaticBackupRetentionDays int    `pulumi:"automaticBackupRetentionDays"`
-	BackupId                     string `pulumi:"backupId"`
+	AutomaticBackupRetentionDays *int    `pulumi:"automaticBackupRetentionDays"`
+	BackupId                     *string `pulumi:"backupId"`
 	// A boolean flag indicating whether tags on the file system should be copied to backups.
-	CopyTagsToBackups bool `pulumi:"copyTagsToBackups"`
+	CopyTagsToBackups *bool `pulumi:"copyTagsToBackups"`
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
-	DailyAutomaticBackupStartTime string `pulumi:"dailyAutomaticBackupStartTime"`
+	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// The file system deployment type.
-	DeploymentType string `pulumi:"deploymentType"`
+	DeploymentType *string `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the file system.
 	DiskIopsConfigurations []GetWindowsFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfigurations"`
 	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
-	DnsName string `pulumi:"dnsName"`
+	DnsName *string `pulumi:"dnsName"`
 	// Identifier of the file system (e.g. `fs-12345678`).
 	Id string `pulumi:"id"`
 	// ARN for the KMS Key to encrypt the file system at rest.
-	KmsKeyId            string   `pulumi:"kmsKeyId"`
+	KmsKeyId            *string  `pulumi:"kmsKeyId"`
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
-	OwnerId string `pulumi:"ownerId"`
+	OwnerId *string `pulumi:"ownerId"`
 	// The IP address of the primary, or preferred, file server.
-	PreferredFileServerIp string `pulumi:"preferredFileServerIp"`
+	PreferredFileServerIp *string `pulumi:"preferredFileServerIp"`
 	// Specifies the subnet in which you want the preferred file server to be located.
-	PreferredSubnetId string   `pulumi:"preferredSubnetId"`
+	PreferredSubnetId *string  `pulumi:"preferredSubnetId"`
 	SecurityGroupIds  []string `pulumi:"securityGroupIds"`
-	SkipFinalBackup   bool     `pulumi:"skipFinalBackup"`
+	SkipFinalBackup   *bool    `pulumi:"skipFinalBackup"`
 	// The storage capacity of the file system in gibibytes (GiB).
-	StorageCapacity int `pulumi:"storageCapacity"`
+	StorageCapacity *int `pulumi:"storageCapacity"`
 	// The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
-	StorageType string `pulumi:"storageType"`
+	StorageType *string `pulumi:"storageType"`
 	// Specifies the IDs of the subnets that the file system is accessible from.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The tags to associate with the file system.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
-	ThroughputCapacity int `pulumi:"throughputCapacity"`
+	ThroughputCapacity *int `pulumi:"throughputCapacity"`
 	// The ID of the primary virtual private cloud (VPC) for the file system.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime string `pulumi:"weeklyMaintenanceStartTime"`
+	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
 }
 
 func LookupWindowsFileSystemOutput(ctx *pulumi.Context, args LookupWindowsFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsFileSystemResultOutput {
@@ -150,8 +150,8 @@ func (o LookupWindowsFileSystemResultOutput) ToLookupWindowsFileSystemResultOutp
 }
 
 // The ID for Microsoft Active Directory instance that the file system is join to.
-func (o LookupWindowsFileSystemResultOutput) ActiveDirectoryId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.ActiveDirectoryId }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
 // An array DNS alias names associated with the Amazon FSx file system.
@@ -160,8 +160,8 @@ func (o LookupWindowsFileSystemResultOutput) Aliases() pulumi.StringArrayOutput 
 }
 
 // Amazon Resource Name of the file system.
-func (o LookupWindowsFileSystemResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
@@ -172,27 +172,27 @@ func (o LookupWindowsFileSystemResultOutput) AuditLogConfigurations() GetWindows
 }
 
 // The number of days to retain automatic backups.
-func (o LookupWindowsFileSystemResultOutput) AutomaticBackupRetentionDays() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) int { return v.AutomaticBackupRetentionDays }).(pulumi.IntOutput)
+func (o LookupWindowsFileSystemResultOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *int { return v.AutomaticBackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupWindowsFileSystemResultOutput) BackupId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.BackupId }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.BackupId }).(pulumi.StringPtrOutput)
 }
 
 // A boolean flag indicating whether tags on the file system should be copied to backups.
-func (o LookupWindowsFileSystemResultOutput) CopyTagsToBackups() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) bool { return v.CopyTagsToBackups }).(pulumi.BoolOutput)
+func (o LookupWindowsFileSystemResultOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *bool { return v.CopyTagsToBackups }).(pulumi.BoolPtrOutput)
 }
 
 // The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
-func (o LookupWindowsFileSystemResultOutput) DailyAutomaticBackupStartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.DailyAutomaticBackupStartTime }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.DailyAutomaticBackupStartTime }).(pulumi.StringPtrOutput)
 }
 
 // The file system deployment type.
-func (o LookupWindowsFileSystemResultOutput) DeploymentType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.DeploymentType }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) DeploymentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
 }
 
 // The SSD IOPS configuration for the file system.
@@ -203,8 +203,8 @@ func (o LookupWindowsFileSystemResultOutput) DiskIopsConfigurations() GetWindows
 }
 
 // DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
-func (o LookupWindowsFileSystemResultOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.DnsName }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the file system (e.g. `fs-12345678`).
@@ -213,8 +213,8 @@ func (o LookupWindowsFileSystemResultOutput) Id() pulumi.StringOutput {
 }
 
 // ARN for the KMS Key to encrypt the file system at rest.
-func (o LookupWindowsFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupWindowsFileSystemResultOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
@@ -222,36 +222,36 @@ func (o LookupWindowsFileSystemResultOutput) NetworkInterfaceIds() pulumi.String
 }
 
 // AWS account identifier that created the file system.
-func (o LookupWindowsFileSystemResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // The IP address of the primary, or preferred, file server.
-func (o LookupWindowsFileSystemResultOutput) PreferredFileServerIp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.PreferredFileServerIp }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) PreferredFileServerIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.PreferredFileServerIp }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the subnet in which you want the preferred file server to be located.
-func (o LookupWindowsFileSystemResultOutput) PreferredSubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.PreferredSubnetId }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) PreferredSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.PreferredSubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupWindowsFileSystemResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWindowsFileSystemResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupWindowsFileSystemResultOutput) SkipFinalBackup() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) bool { return v.SkipFinalBackup }).(pulumi.BoolOutput)
+func (o LookupWindowsFileSystemResultOutput) SkipFinalBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *bool { return v.SkipFinalBackup }).(pulumi.BoolPtrOutput)
 }
 
 // The storage capacity of the file system in gibibytes (GiB).
-func (o LookupWindowsFileSystemResultOutput) StorageCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) int { return v.StorageCapacity }).(pulumi.IntOutput)
+func (o LookupWindowsFileSystemResultOutput) StorageCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *int { return v.StorageCapacity }).(pulumi.IntPtrOutput)
 }
 
 // The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
-func (o LookupWindowsFileSystemResultOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.StorageType }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the IDs of the subnets that the file system is accessible from.
@@ -265,18 +265,18 @@ func (o LookupWindowsFileSystemResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
-func (o LookupWindowsFileSystemResultOutput) ThroughputCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) int { return v.ThroughputCapacity }).(pulumi.IntOutput)
+func (o LookupWindowsFileSystemResultOutput) ThroughputCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *int { return v.ThroughputCapacity }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the primary virtual private cloud (VPC) for the file system.
-func (o LookupWindowsFileSystemResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-func (o LookupWindowsFileSystemResultOutput) WeeklyMaintenanceStartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringOutput)
+func (o LookupWindowsFileSystemResultOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) *string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
 }
 
 func init() {

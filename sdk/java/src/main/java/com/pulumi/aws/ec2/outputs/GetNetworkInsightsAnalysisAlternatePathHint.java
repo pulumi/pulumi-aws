@@ -6,18 +6,20 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisAlternatePathHint {
-    private String componentArn;
-    private String componentId;
+    private @Nullable String componentArn;
+    private @Nullable String componentId;
 
     private GetNetworkInsightsAnalysisAlternatePathHint() {}
-    public String componentArn() {
-        return this.componentArn;
+    public Optional<String> componentArn() {
+        return Optional.ofNullable(this.componentArn);
     }
-    public String componentId() {
-        return this.componentId;
+    public Optional<String> componentId() {
+        return Optional.ofNullable(this.componentId);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetNetworkInsightsAnalysisAlternatePathHint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String componentArn;
-        private String componentId;
+        private @Nullable String componentArn;
+        private @Nullable String componentId;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisAlternatePathHint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetNetworkInsightsAnalysisAlternatePathHint {
         }
 
         @CustomType.Setter
-        public Builder componentArn(String componentArn) {
-            this.componentArn = Objects.requireNonNull(componentArn);
+        public Builder componentArn(@Nullable String componentArn) {
+            this.componentArn = componentArn;
             return this;
         }
         @CustomType.Setter
-        public Builder componentId(String componentId) {
-            this.componentId = Objects.requireNonNull(componentId);
+        public Builder componentId(@Nullable String componentId) {
+            this.componentId = componentId;
             return this;
         }
         public GetNetworkInsightsAnalysisAlternatePathHint build() {

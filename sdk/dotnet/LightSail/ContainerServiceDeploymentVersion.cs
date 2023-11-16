@@ -87,7 +87,7 @@ namespace Pulumi.Aws.LightSail
         /// The timestamp when the deployment was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
@@ -105,13 +105,13 @@ namespace Pulumi.Aws.LightSail
         /// The current state of the container service.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The version number of the deployment.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>

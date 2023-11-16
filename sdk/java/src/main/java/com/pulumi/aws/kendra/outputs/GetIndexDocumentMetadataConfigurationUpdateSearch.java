@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
@@ -13,51 +15,51 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
      * @return Determines whether the field is returned in the query response. The default is `true`.
      * 
      */
-    private Boolean displayable;
+    private @Nullable Boolean displayable;
     /**
      * @return Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
      * 
      */
-    private Boolean facetable;
+    private @Nullable Boolean facetable;
     /**
      * @return Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
      * 
      */
-    private Boolean searchable;
+    private @Nullable Boolean searchable;
     /**
      * @return Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
      * 
      */
-    private Boolean sortable;
+    private @Nullable Boolean sortable;
 
     private GetIndexDocumentMetadataConfigurationUpdateSearch() {}
     /**
      * @return Determines whether the field is returned in the query response. The default is `true`.
      * 
      */
-    public Boolean displayable() {
-        return this.displayable;
+    public Optional<Boolean> displayable() {
+        return Optional.ofNullable(this.displayable);
     }
     /**
      * @return Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
      * 
      */
-    public Boolean facetable() {
-        return this.facetable;
+    public Optional<Boolean> facetable() {
+        return Optional.ofNullable(this.facetable);
     }
     /**
      * @return Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
      * 
      */
-    public Boolean searchable() {
-        return this.searchable;
+    public Optional<Boolean> searchable() {
+        return Optional.ofNullable(this.searchable);
     }
     /**
      * @return Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
      * 
      */
-    public Boolean sortable() {
-        return this.sortable;
+    public Optional<Boolean> sortable() {
+        return Optional.ofNullable(this.sortable);
     }
 
     public static Builder builder() {
@@ -69,10 +71,10 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean displayable;
-        private Boolean facetable;
-        private Boolean searchable;
-        private Boolean sortable;
+        private @Nullable Boolean displayable;
+        private @Nullable Boolean facetable;
+        private @Nullable Boolean searchable;
+        private @Nullable Boolean sortable;
         public Builder() {}
         public Builder(GetIndexDocumentMetadataConfigurationUpdateSearch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,23 +85,23 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
         }
 
         @CustomType.Setter
-        public Builder displayable(Boolean displayable) {
-            this.displayable = Objects.requireNonNull(displayable);
+        public Builder displayable(@Nullable Boolean displayable) {
+            this.displayable = displayable;
             return this;
         }
         @CustomType.Setter
-        public Builder facetable(Boolean facetable) {
-            this.facetable = Objects.requireNonNull(facetable);
+        public Builder facetable(@Nullable Boolean facetable) {
+            this.facetable = facetable;
             return this;
         }
         @CustomType.Setter
-        public Builder searchable(Boolean searchable) {
-            this.searchable = Objects.requireNonNull(searchable);
+        public Builder searchable(@Nullable Boolean searchable) {
+            this.searchable = searchable;
             return this;
         }
         @CustomType.Setter
-        public Builder sortable(Boolean sortable) {
-            this.sortable = Objects.requireNonNull(sortable);
+        public Builder sortable(@Nullable Boolean sortable) {
+            this.sortable = sortable;
             return this;
         }
         public GetIndexDocumentMetadataConfigurationUpdateSearch build() {

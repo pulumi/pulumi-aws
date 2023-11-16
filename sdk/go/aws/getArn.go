@@ -58,19 +58,19 @@ type GetArnArgs struct {
 // A collection of values returned by getArn.
 type GetArnResult struct {
 	// The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
-	Account string `pulumi:"account"`
-	Arn     string `pulumi:"arn"`
-	Id      string `pulumi:"id"`
+	Account *string `pulumi:"account"`
+	Arn     string  `pulumi:"arn"`
+	Id      *string `pulumi:"id"`
 	// Partition that the resource is in.
-	Partition string `pulumi:"partition"`
+	Partition *string `pulumi:"partition"`
 	// Region the resource resides in.
 	// Note that the ARNs for some resources do not require a region, so this component might be omitted.
-	Region string `pulumi:"region"`
+	Region *string `pulumi:"region"`
 	// Content of this part of the ARN varies by service.
 	// It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
-	Resource string `pulumi:"resource"`
+	Resource *string `pulumi:"resource"`
 	// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
-	Service string `pulumi:"service"`
+	Service *string `pulumi:"service"`
 }
 
 func GetArnOutput(ctx *pulumi.Context, args GetArnOutputArgs, opts ...pulumi.InvokeOption) GetArnResultOutput {
@@ -113,38 +113,38 @@ func (o GetArnResultOutput) ToGetArnResultOutputWithContext(ctx context.Context)
 }
 
 // The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
-func (o GetArnResultOutput) Account() pulumi.StringOutput {
-	return o.ApplyT(func(v GetArnResult) string { return v.Account }).(pulumi.StringOutput)
+func (o GetArnResultOutput) Account() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetArnResult) *string { return v.Account }).(pulumi.StringPtrOutput)
 }
 
 func (o GetArnResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o GetArnResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetArnResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetArnResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetArnResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Partition that the resource is in.
-func (o GetArnResultOutput) Partition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetArnResult) string { return v.Partition }).(pulumi.StringOutput)
+func (o GetArnResultOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetArnResult) *string { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
 // Region the resource resides in.
 // Note that the ARNs for some resources do not require a region, so this component might be omitted.
-func (o GetArnResultOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetArnResult) string { return v.Region }).(pulumi.StringOutput)
+func (o GetArnResultOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetArnResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // Content of this part of the ARN varies by service.
 // It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
-func (o GetArnResultOutput) Resource() pulumi.StringOutput {
-	return o.ApplyT(func(v GetArnResult) string { return v.Resource }).(pulumi.StringOutput)
+func (o GetArnResultOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetArnResult) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
 // The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
-func (o GetArnResultOutput) Service() pulumi.StringOutput {
-	return o.ApplyT(func(v GetArnResult) string { return v.Service }).(pulumi.StringOutput)
+func (o GetArnResultOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetArnResult) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
 
 func init() {

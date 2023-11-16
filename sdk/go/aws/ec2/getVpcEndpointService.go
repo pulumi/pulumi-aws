@@ -140,33 +140,33 @@ type LookupVpcEndpointServiceArgs struct {
 // A collection of values returned by getVpcEndpointService.
 type LookupVpcEndpointServiceResult struct {
 	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
+	AcceptanceRequired *bool `pulumi:"acceptanceRequired"`
 	// ARN of the VPC endpoint service.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Availability Zones in which the service is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DNS names for the service.
 	BaseEndpointDnsNames []string                      `pulumi:"baseEndpointDnsNames"`
 	Filters              []GetVpcEndpointServiceFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.
-	ManagesVpcEndpoints bool `pulumi:"managesVpcEndpoints"`
+	ManagesVpcEndpoints *bool `pulumi:"managesVpcEndpoints"`
 	// AWS account ID of the service owner or `amazon`.
-	Owner string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
 	// Private DNS name for the service.
-	PrivateDnsName string  `pulumi:"privateDnsName"`
+	PrivateDnsName *string `pulumi:"privateDnsName"`
 	Service        *string `pulumi:"service"`
 	// ID of the endpoint service.
-	ServiceId   string `pulumi:"serviceId"`
-	ServiceName string `pulumi:"serviceName"`
-	ServiceType string `pulumi:"serviceType"`
+	ServiceId   *string `pulumi:"serviceId"`
+	ServiceName *string `pulumi:"serviceName"`
+	ServiceType *string `pulumi:"serviceType"`
 	// The supported IP address types.
 	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not the service supports endpoint policies - `true` or `false`.
-	VpcEndpointPolicySupported bool `pulumi:"vpcEndpointPolicySupported"`
+	VpcEndpointPolicySupported *bool `pulumi:"vpcEndpointPolicySupported"`
 }
 
 func LookupVpcEndpointServiceOutput(ctx *pulumi.Context, args LookupVpcEndpointServiceOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointServiceResultOutput {
@@ -218,13 +218,13 @@ func (o LookupVpcEndpointServiceResultOutput) ToLookupVpcEndpointServiceResultOu
 }
 
 // Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-func (o LookupVpcEndpointServiceResultOutput) AcceptanceRequired() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) bool { return v.AcceptanceRequired }).(pulumi.BoolOutput)
+func (o LookupVpcEndpointServiceResultOutput) AcceptanceRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *bool { return v.AcceptanceRequired }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the VPC endpoint service.
-func (o LookupVpcEndpointServiceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupVpcEndpointServiceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Availability Zones in which the service is available.
@@ -242,23 +242,23 @@ func (o LookupVpcEndpointServiceResultOutput) Filters() GetVpcEndpointServiceFil
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupVpcEndpointServiceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVpcEndpointServiceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Whether or not the service manages its VPC endpoints - `true` or `false`.
-func (o LookupVpcEndpointServiceResultOutput) ManagesVpcEndpoints() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) bool { return v.ManagesVpcEndpoints }).(pulumi.BoolOutput)
+func (o LookupVpcEndpointServiceResultOutput) ManagesVpcEndpoints() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *bool { return v.ManagesVpcEndpoints }).(pulumi.BoolPtrOutput)
 }
 
 // AWS account ID of the service owner or `amazon`.
-func (o LookupVpcEndpointServiceResultOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.Owner }).(pulumi.StringOutput)
+func (o LookupVpcEndpointServiceResultOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // Private DNS name for the service.
-func (o LookupVpcEndpointServiceResultOutput) PrivateDnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.PrivateDnsName }).(pulumi.StringOutput)
+func (o LookupVpcEndpointServiceResultOutput) PrivateDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.PrivateDnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVpcEndpointServiceResultOutput) Service() pulumi.StringPtrOutput {
@@ -266,16 +266,16 @@ func (o LookupVpcEndpointServiceResultOutput) Service() pulumi.StringPtrOutput {
 }
 
 // ID of the endpoint service.
-func (o LookupVpcEndpointServiceResultOutput) ServiceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.ServiceId }).(pulumi.StringOutput)
+func (o LookupVpcEndpointServiceResultOutput) ServiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpcEndpointServiceResultOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.ServiceName }).(pulumi.StringOutput)
+func (o LookupVpcEndpointServiceResultOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpcEndpointServiceResultOutput) ServiceType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.ServiceType }).(pulumi.StringOutput)
+func (o LookupVpcEndpointServiceResultOutput) ServiceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.ServiceType }).(pulumi.StringPtrOutput)
 }
 
 // The supported IP address types.
@@ -289,8 +289,8 @@ func (o LookupVpcEndpointServiceResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Whether or not the service supports endpoint policies - `true` or `false`.
-func (o LookupVpcEndpointServiceResultOutput) VpcEndpointPolicySupported() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupVpcEndpointServiceResult) bool { return v.VpcEndpointPolicySupported }).(pulumi.BoolOutput)
+func (o LookupVpcEndpointServiceResultOutput) VpcEndpointPolicySupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *bool { return v.VpcEndpointPolicySupported }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

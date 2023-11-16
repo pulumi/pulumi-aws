@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Lambda
         /// The Amazon Resource Name (ARN) of the function.
         /// </summary>
         [Output("functionArn")]
-        public Output<string> FunctionArn { get; private set; } = null!;
+        public Output<string?> FunctionArn { get; private set; } = null!;
 
         /// <summary>
         /// The name (or ARN) of the Lambda function.
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Lambda
         /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
         /// </summary>
         [Output("functionUrl")]
-        public Output<string> FunctionUrlResult { get; private set; } = null!;
+        public Output<string?> FunctionUrlResult { get; private set; } = null!;
 
         /// <summary>
         /// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Lambda
         /// A generated ID for the endpoint.
         /// </summary>
         [Output("urlId")]
-        public Output<string> UrlId { get; private set; } = null!;
+        public Output<string?> UrlId { get; private set; } = null!;
 
 
         /// <summary>

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult
     {
-        public readonly string Unit;
-        public readonly int Value;
+        public readonly string? Unit;
+        public readonly int? Value;
 
         [OutputConstructor]
         private GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult(
-            string unit,
+            string? unit,
 
-            int value)
+            int? value)
         {
             Unit = unit;
             Value = value;

@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -15,13 +16,13 @@ public final class GetCipherTextResult {
      * @return Base64 encoded ciphertext
      * 
      */
-    private String ciphertextBlob;
+    private @Nullable String ciphertextBlob;
     private @Nullable Map<String,String> context;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String keyId;
     private String plaintext;
 
@@ -30,8 +31,8 @@ public final class GetCipherTextResult {
      * @return Base64 encoded ciphertext
      * 
      */
-    public String ciphertextBlob() {
-        return this.ciphertextBlob;
+    public Optional<String> ciphertextBlob() {
+        return Optional.ofNullable(this.ciphertextBlob);
     }
     public Map<String,String> context() {
         return this.context == null ? Map.of() : this.context;
@@ -40,8 +41,8 @@ public final class GetCipherTextResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String keyId() {
         return this.keyId;
@@ -59,9 +60,9 @@ public final class GetCipherTextResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String ciphertextBlob;
+        private @Nullable String ciphertextBlob;
         private @Nullable Map<String,String> context;
-        private String id;
+        private @Nullable String id;
         private String keyId;
         private String plaintext;
         public Builder() {}
@@ -75,8 +76,8 @@ public final class GetCipherTextResult {
         }
 
         @CustomType.Setter
-        public Builder ciphertextBlob(String ciphertextBlob) {
-            this.ciphertextBlob = Objects.requireNonNull(ciphertextBlob);
+        public Builder ciphertextBlob(@Nullable String ciphertextBlob) {
+            this.ciphertextBlob = ciphertextBlob;
             return this;
         }
         @CustomType.Setter
@@ -85,8 +86,8 @@ public final class GetCipherTextResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

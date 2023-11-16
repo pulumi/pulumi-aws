@@ -93,7 +93,7 @@ type ThreatIntelSet struct {
 	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate pulumi.BoolOutput `pulumi:"activate"`
 	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
@@ -325,8 +325,8 @@ func (o ThreatIntelSetOutput) Activate() pulumi.BoolOutput {
 }
 
 // Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
-func (o ThreatIntelSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ThreatIntelSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The detector ID of the GuardDuty.

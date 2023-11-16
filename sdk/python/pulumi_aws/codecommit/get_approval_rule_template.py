@@ -52,7 +52,7 @@ class GetApprovalRuleTemplateResult:
 
     @property
     @pulumi.getter(name="approvalRuleTemplateId")
-    def approval_rule_template_id(self) -> str:
+    def approval_rule_template_id(self) -> Optional[str]:
         """
         The ID of the approval rule template.
         """
@@ -60,7 +60,7 @@ class GetApprovalRuleTemplateResult:
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> Optional[str]:
         """
         Content of the approval rule template.
         """
@@ -68,7 +68,7 @@ class GetApprovalRuleTemplateResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> Optional[str]:
         """
         Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -76,7 +76,7 @@ class GetApprovalRuleTemplateResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the approval rule template.
         """
@@ -84,7 +84,7 @@ class GetApprovalRuleTemplateResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -92,7 +92,7 @@ class GetApprovalRuleTemplateResult:
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> str:
+    def last_modified_date(self) -> Optional[str]:
         """
         Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -100,7 +100,7 @@ class GetApprovalRuleTemplateResult:
 
     @property
     @pulumi.getter(name="lastModifiedUser")
-    def last_modified_user(self) -> str:
+    def last_modified_user(self) -> Optional[str]:
         """
         ARN of the user who made the most recent changes to the approval rule template.
         """
@@ -113,7 +113,7 @@ class GetApprovalRuleTemplateResult:
 
     @property
     @pulumi.getter(name="ruleContentSha256")
-    def rule_content_sha256(self) -> str:
+    def rule_content_sha256(self) -> Optional[str]:
         """
         SHA-256 hash signature for the content of the approval rule template.
         """

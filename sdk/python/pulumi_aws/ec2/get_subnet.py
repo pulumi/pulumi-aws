@@ -102,7 +102,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the subnet.
         """
@@ -110,7 +110,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
-    def assign_ipv6_address_on_creation(self) -> bool:
+    def assign_ipv6_address_on_creation(self) -> Optional[bool]:
         """
         Whether an IPv6 address is assigned on creation.
         """
@@ -118,17 +118,17 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> str:
+    def availability_zone_id(self) -> Optional[str]:
         return pulumi.get(self, "availability_zone_id")
 
     @property
     @pulumi.getter(name="availableIpAddressCount")
-    def available_ip_address_count(self) -> int:
+    def available_ip_address_count(self) -> Optional[int]:
         """
         Available IP addresses of the subnet.
         """
@@ -136,12 +136,12 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> Optional[str]:
         return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
-    def customer_owned_ipv4_pool(self) -> str:
+    def customer_owned_ipv4_pool(self) -> Optional[str]:
         """
         Identifier of customer owned IPv4 address pool.
         """
@@ -149,12 +149,12 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="defaultForAz")
-    def default_for_az(self) -> bool:
+    def default_for_az(self) -> Optional[bool]:
         return pulumi.get(self, "default_for_az")
 
     @property
     @pulumi.getter(name="enableDns64")
-    def enable_dns64(self) -> bool:
+    def enable_dns64(self) -> Optional[bool]:
         """
         Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
         """
@@ -162,7 +162,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="enableLniAtDeviceIndex")
-    def enable_lni_at_device_index(self) -> int:
+    def enable_lni_at_device_index(self) -> Optional[int]:
         """
         Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         """
@@ -170,7 +170,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
-    def enable_resource_name_dns_a_record_on_launch(self) -> bool:
+    def enable_resource_name_dns_a_record_on_launch(self) -> Optional[bool]:
         """
         Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         """
@@ -178,7 +178,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="enableResourceNameDnsAaaaRecordOnLaunch")
-    def enable_resource_name_dns_aaaa_record_on_launch(self) -> bool:
+    def enable_resource_name_dns_aaaa_record_on_launch(self) -> Optional[bool]:
         """
         Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         """
@@ -191,17 +191,17 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> str:
+    def ipv6_cidr_block(self) -> Optional[str]:
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
-    def ipv6_cidr_block_association_id(self) -> str:
+    def ipv6_cidr_block_association_id(self) -> Optional[str]:
         """
         Association ID of the IPv6 CIDR block.
         """
@@ -209,7 +209,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="ipv6Native")
-    def ipv6_native(self) -> bool:
+    def ipv6_native(self) -> Optional[bool]:
         """
         Whether this is an IPv6-only subnet.
         """
@@ -217,7 +217,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
-    def map_customer_owned_ip_on_launch(self) -> bool:
+    def map_customer_owned_ip_on_launch(self) -> Optional[bool]:
         """
         Whether customer owned IP addresses are assigned on network interface creation.
         """
@@ -225,7 +225,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
-    def map_public_ip_on_launch(self) -> bool:
+    def map_public_ip_on_launch(self) -> Optional[bool]:
         """
         Whether public IP addresses are assigned on instance launch.
         """
@@ -233,7 +233,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> str:
+    def outpost_arn(self) -> Optional[str]:
         """
         ARN of the Outpost.
         """
@@ -241,7 +241,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         """
         ID of the AWS account that owns the subnet.
         """
@@ -249,7 +249,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
-    def private_dns_hostname_type_on_launch(self) -> str:
+    def private_dns_hostname_type_on_launch(self) -> Optional[str]:
         """
         The type of hostnames assigned to instances in the subnet at launch.
         """
@@ -257,17 +257,17 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
 

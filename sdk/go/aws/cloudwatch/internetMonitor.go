@@ -53,7 +53,7 @@ type InternetMonitor struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Monitor.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
 	HealthEventsConfig InternetMonitorHealthEventsConfigPtrOutput `pulumi:"healthEventsConfig"`
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
@@ -303,8 +303,8 @@ func (o InternetMonitorOutput) ToInternetMonitorOutputWithContext(ctx context.Co
 }
 
 // ARN of the Monitor.
-func (o InternetMonitorOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InternetMonitorOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InternetMonitor) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.

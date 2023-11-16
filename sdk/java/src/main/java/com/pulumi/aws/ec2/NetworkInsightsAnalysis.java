@@ -78,42 +78,42 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="alternatePathHints", refs={List.class,NetworkInsightsAnalysisAlternatePathHint.class}, tree="[0,1]")
-    private Output<List<NetworkInsightsAnalysisAlternatePathHint>> alternatePathHints;
+    private Output</* @Nullable */ List<NetworkInsightsAnalysisAlternatePathHint>> alternatePathHints;
 
     /**
      * @return Potential intermediate components of a feasible path. Described below.
      * 
      */
-    public Output<List<NetworkInsightsAnalysisAlternatePathHint>> alternatePathHints() {
-        return this.alternatePathHints;
+    public Output<Optional<List<NetworkInsightsAnalysisAlternatePathHint>>> alternatePathHints() {
+        return Codegen.optional(this.alternatePathHints);
     }
     /**
      * ARN of the Network Insights Analysis.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Network Insights Analysis.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      * 
      */
     @Export(name="explanations", refs={List.class,NetworkInsightsAnalysisExplanation.class}, tree="[0,1]")
-    private Output<List<NetworkInsightsAnalysisExplanation>> explanations;
+    private Output</* @Nullable */ List<NetworkInsightsAnalysisExplanation>> explanations;
 
     /**
      * @return Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      * 
      */
-    public Output<List<NetworkInsightsAnalysisExplanation>> explanations() {
-        return this.explanations;
+    public Output<Optional<List<NetworkInsightsAnalysisExplanation>>> explanations() {
+        return Codegen.optional(this.explanations);
     }
     /**
      * A list of ARNs for resources the path must traverse.
@@ -134,14 +134,14 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="forwardPathComponents", refs={List.class,NetworkInsightsAnalysisForwardPathComponent.class}, tree="[0,1]")
-    private Output<List<NetworkInsightsAnalysisForwardPathComponent>> forwardPathComponents;
+    private Output</* @Nullable */ List<NetworkInsightsAnalysisForwardPathComponent>> forwardPathComponents;
 
     /**
      * @return The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
-    public Output<List<NetworkInsightsAnalysisForwardPathComponent>> forwardPathComponents() {
-        return this.forwardPathComponents;
+    public Output<Optional<List<NetworkInsightsAnalysisForwardPathComponent>>> forwardPathComponents() {
+        return Codegen.optional(this.forwardPathComponents);
     }
     /**
      * ID of the Network Insights Path to run an analysis on.
@@ -166,70 +166,70 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="pathFound", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> pathFound;
+    private Output</* @Nullable */ Boolean> pathFound;
 
     /**
      * @return Set to `true` if the destination was reachable.
      * 
      */
-    public Output<Boolean> pathFound() {
-        return this.pathFound;
+    public Output<Optional<Boolean>> pathFound() {
+        return Codegen.optional(this.pathFound);
     }
     /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
     @Export(name="returnPathComponents", refs={List.class,NetworkInsightsAnalysisReturnPathComponent.class}, tree="[0,1]")
-    private Output<List<NetworkInsightsAnalysisReturnPathComponent>> returnPathComponents;
+    private Output</* @Nullable */ List<NetworkInsightsAnalysisReturnPathComponent>> returnPathComponents;
 
     /**
      * @return The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
-    public Output<List<NetworkInsightsAnalysisReturnPathComponent>> returnPathComponents() {
-        return this.returnPathComponents;
+    public Output<Optional<List<NetworkInsightsAnalysisReturnPathComponent>>> returnPathComponents() {
+        return Codegen.optional(this.returnPathComponents);
     }
     /**
      * The date/time the analysis was started.
      * 
      */
     @Export(name="startDate", refs={String.class}, tree="[0]")
-    private Output<String> startDate;
+    private Output</* @Nullable */ String> startDate;
 
     /**
      * @return The date/time the analysis was started.
      * 
      */
-    public Output<String> startDate() {
-        return this.startDate;
+    public Output<Optional<String>> startDate() {
+        return Codegen.optional(this.startDate);
     }
     /**
      * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A message to provide more context when the `status` is `failed`.
      * 
      */
     @Export(name="statusMessage", refs={String.class}, tree="[0]")
-    private Output<String> statusMessage;
+    private Output</* @Nullable */ String> statusMessage;
 
     /**
      * @return A message to provide more context when the `status` is `failed`.
      * 
      */
-    public Output<String> statusMessage() {
-        return this.statusMessage;
+    public Output<Optional<String>> statusMessage() {
+        return Codegen.optional(this.statusMessage);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -282,14 +282,14 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="warningMessage", refs={String.class}, tree="[0]")
-    private Output<String> warningMessage;
+    private Output</* @Nullable */ String> warningMessage;
 
     /**
      * @return The warning message.
      * 
      */
-    public Output<String> warningMessage() {
-        return this.warningMessage;
+    public Output<Optional<String>> warningMessage() {
+        return Codegen.optional(this.warningMessage);
     }
 
     /**

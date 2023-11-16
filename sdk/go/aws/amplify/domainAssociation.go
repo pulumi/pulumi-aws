@@ -85,9 +85,9 @@ type DomainAssociation struct {
 	// Unique ID for an Amplify app.
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// ARN for the domain association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The DNS record for certificate verification.
-	CertificateVerificationDnsRecord pulumi.StringOutput `pulumi:"certificateVerificationDnsRecord"`
+	CertificateVerificationDnsRecord pulumi.StringPtrOutput `pulumi:"certificateVerificationDnsRecord"`
 	// Domain name for the domain association.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Enables the automated creation of subdomains for branches.
@@ -294,13 +294,13 @@ func (o DomainAssociationOutput) AppId() pulumi.StringOutput {
 }
 
 // ARN for the domain association.
-func (o DomainAssociationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DomainAssociationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAssociation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The DNS record for certificate verification.
-func (o DomainAssociationOutput) CertificateVerificationDnsRecord() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.CertificateVerificationDnsRecord }).(pulumi.StringOutput)
+func (o DomainAssociationOutput) CertificateVerificationDnsRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAssociation) pulumi.StringPtrOutput { return v.CertificateVerificationDnsRecord }).(pulumi.StringPtrOutput)
 }
 
 // Domain name for the domain association.

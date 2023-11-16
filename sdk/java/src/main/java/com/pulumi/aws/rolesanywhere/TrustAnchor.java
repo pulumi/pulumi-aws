@@ -119,28 +119,28 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Trust Anchor
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Whether or not the Trust Anchor should be enabled.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enabled;
+    private Output</* @Nullable */ Boolean> enabled;
 
     /**
      * @return Whether or not the Trust Anchor should be enabled.
      * 
      */
-    public Output<Boolean> enabled() {
-        return this.enabled;
+    public Output<Optional<Boolean>> enabled() {
+        return Codegen.optional(this.enabled);
     }
     /**
      * The name of the Trust Anchor.

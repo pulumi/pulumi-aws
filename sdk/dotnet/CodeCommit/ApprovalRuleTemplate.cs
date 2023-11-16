@@ -66,7 +66,7 @@ namespace Pulumi.Aws.CodeCommit
         /// The ID of the approval rule template
         /// </summary>
         [Output("approvalRuleTemplateId")]
-        public Output<string> ApprovalRuleTemplateId { get; private set; } = null!;
+        public Output<string?> ApprovalRuleTemplateId { get; private set; } = null!;
 
         /// <summary>
         /// The content of the approval rule template. Maximum of 3000 characters.
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.CodeCommit
         /// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The description of the approval rule template. Maximum of 1000 characters.
@@ -90,13 +90,13 @@ namespace Pulumi.Aws.CodeCommit
         /// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Output("lastModifiedDate")]
-        public Output<string> LastModifiedDate { get; private set; } = null!;
+        public Output<string?> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
         /// </summary>
         [Output("lastModifiedUser")]
-        public Output<string> LastModifiedUser { get; private set; } = null!;
+        public Output<string?> LastModifiedUser { get; private set; } = null!;
 
         /// <summary>
         /// The name for the approval rule template. Maximum of 100 characters.
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.CodeCommit
         /// The SHA-256 hash signature for the content of the approval rule template.
         /// </summary>
         [Output("ruleContentSha256")]
-        public Output<string> RuleContentSha256 { get; private set; } = null!;
+        public Output<string?> RuleContentSha256 { get; private set; } = null!;
 
 
         /// <summary>

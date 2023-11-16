@@ -6,6 +6,8 @@ package com.pulumi.aws.sesv2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationSetSendingOption {
@@ -13,15 +15,15 @@ public final class GetConfigurationSetSendingOption {
      * @return Specifies whether email sending is enabled.
      * 
      */
-    private Boolean sendingEnabled;
+    private @Nullable Boolean sendingEnabled;
 
     private GetConfigurationSetSendingOption() {}
     /**
      * @return Specifies whether email sending is enabled.
      * 
      */
-    public Boolean sendingEnabled() {
-        return this.sendingEnabled;
+    public Optional<Boolean> sendingEnabled() {
+        return Optional.ofNullable(this.sendingEnabled);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetConfigurationSetSendingOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean sendingEnabled;
+        private @Nullable Boolean sendingEnabled;
         public Builder() {}
         public Builder(GetConfigurationSetSendingOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetConfigurationSetSendingOption {
         }
 
         @CustomType.Setter
-        public Builder sendingEnabled(Boolean sendingEnabled) {
-            this.sendingEnabled = Objects.requireNonNull(sendingEnabled);
+        public Builder sendingEnabled(@Nullable Boolean sendingEnabled) {
+            this.sendingEnabled = sendingEnabled;
             return this;
         }
         public GetConfigurationSetSendingOption build() {

@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// The effect of the taint.
         /// </summary>
-        public readonly string Effect;
+        public readonly string? Effect;
         /// <summary>
         /// The key of the taint.
         /// </summary>
-        public readonly string Key;
+        public readonly string? Key;
         /// <summary>
         /// The value of the taint.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetNodeGroupTaintResult(
-            string effect,
+            string? effect,
 
-            string key,
+            string? key,
 
-            string value)
+            string? value)
         {
             Effect = effect;
             Key = key;

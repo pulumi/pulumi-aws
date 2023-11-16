@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -99,10 +100,10 @@ public class ClusterPolicy extends com.pulumi.resources.CustomResource {
         return this.clusterArn;
     }
     @Export(name="currentVersion", refs={String.class}, tree="[0]")
-    private Output<String> currentVersion;
+    private Output</* @Nullable */ String> currentVersion;
 
-    public Output<String> currentVersion() {
-        return this.currentVersion;
+    public Output<Optional<String>> currentVersion() {
+        return Codegen.optional(this.currentVersion);
     }
     /**
      * Resource policy for cluster.

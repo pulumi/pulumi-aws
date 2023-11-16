@@ -2463,7 +2463,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for this Auto Scaling Group
         """
@@ -2471,7 +2471,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         """
@@ -2495,7 +2495,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultCooldown")
-    def default_cooldown(self) -> pulumi.Output[int]:
+    def default_cooldown(self) -> pulumi.Output[Optional[int]]:
         """
         Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         """
@@ -2511,7 +2511,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="desiredCapacity")
-    def desired_capacity(self) -> pulumi.Output[int]:
+    def desired_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         Number of Amazon EC2 instances that
         should be running in the group. (See also Waiting for
@@ -2565,7 +2565,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckType")
-    def health_check_type(self) -> pulumi.Output[str]:
+    def health_check_type(self) -> pulumi.Output[Optional[str]]:
         """
         "EC2" or "ELB". Controls how health checking is done.
         """
@@ -2613,7 +2613,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> pulumi.Output['outputs.GroupLaunchTemplate']:
+    def launch_template(self) -> pulumi.Output[Optional['outputs.GroupLaunchTemplate']]:
         """
         Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         """
@@ -2621,7 +2621,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> pulumi.Output[Sequence[str]]:
+    def load_balancers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of elastic load balancer names to add to the autoscaling
         group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
@@ -2674,7 +2674,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mixedInstancesPolicy")
-    def mixed_instances_policy(self) -> pulumi.Output['outputs.GroupMixedInstancesPolicy']:
+    def mixed_instances_policy(self) -> pulumi.Output[Optional['outputs.GroupMixedInstancesPolicy']]:
         """
         Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         """
@@ -2690,7 +2690,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -2707,7 +2707,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="predictedCapacity")
-    def predicted_capacity(self) -> pulumi.Output[int]:
+    def predicted_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         Predicted capacity of the group.
         """
@@ -2727,7 +2727,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLinkedRoleArn")
-    def service_linked_role_arn(self) -> pulumi.Output[str]:
+    def service_linked_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the service-linked role that the ASG will use to call other AWS services
         """
@@ -2752,7 +2752,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetGroupArns")
-    def target_group_arns(self) -> pulumi.Output[Sequence[str]]:
+    def target_group_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         """
@@ -2768,7 +2768,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficSources")
-    def traffic_sources(self) -> pulumi.Output[Sequence['outputs.GroupTrafficSource']]:
+    def traffic_sources(self) -> pulumi.Output[Optional[Sequence['outputs.GroupTrafficSource']]]:
         """
         Attaches one or more traffic sources to the specified Auto Scaling group.
         """
@@ -2776,7 +2776,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcZoneIdentifiers")
-    def vpc_zone_identifiers(self) -> pulumi.Output[Sequence[str]]:
+    def vpc_zone_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         """
@@ -2817,7 +2817,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="warmPoolSize")
-    def warm_pool_size(self) -> pulumi.Output[int]:
+    def warm_pool_size(self) -> pulumi.Output[Optional[int]]:
         """
         Current size of the warm pool.
         """

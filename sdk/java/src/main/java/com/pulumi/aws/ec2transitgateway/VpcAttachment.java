@@ -156,28 +156,28 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="transitGatewayDefaultRouteTableAssociation", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> transitGatewayDefaultRouteTableAssociation;
+    private Output</* @Nullable */ Boolean> transitGatewayDefaultRouteTableAssociation;
 
     /**
      * @return Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    public Output<Boolean> transitGatewayDefaultRouteTableAssociation() {
-        return this.transitGatewayDefaultRouteTableAssociation;
+    public Output<Optional<Boolean>> transitGatewayDefaultRouteTableAssociation() {
+        return Codegen.optional(this.transitGatewayDefaultRouteTableAssociation);
     }
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
     @Export(name="transitGatewayDefaultRouteTablePropagation", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> transitGatewayDefaultRouteTablePropagation;
+    private Output</* @Nullable */ Boolean> transitGatewayDefaultRouteTablePropagation;
 
     /**
      * @return Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    public Output<Boolean> transitGatewayDefaultRouteTablePropagation() {
-        return this.transitGatewayDefaultRouteTablePropagation;
+    public Output<Optional<Boolean>> transitGatewayDefaultRouteTablePropagation() {
+        return Codegen.optional(this.transitGatewayDefaultRouteTablePropagation);
     }
     /**
      * Identifier of EC2 Transit Gateway.
@@ -212,14 +212,14 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcOwnerId", refs={String.class}, tree="[0]")
-    private Output<String> vpcOwnerId;
+    private Output</* @Nullable */ String> vpcOwnerId;
 
     /**
      * @return Identifier of the AWS account that owns the EC2 VPC.
      * 
      */
-    public Output<String> vpcOwnerId() {
-        return this.vpcOwnerId;
+    public Output<Optional<String>> vpcOwnerId() {
+        return Codegen.optional(this.vpcOwnerId);
     }
 
     /**

@@ -128,19 +128,19 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// ARN of the parameter group.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the parameter group.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Engine version that the parameter group can be used with.
         /// </summary>
-        public readonly string Family;
+        public readonly string? Family;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the parameter.
         /// </summary>
@@ -152,23 +152,23 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// Map of tags assigned to the parameter group.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetParameterGroupResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string family,
+            string? family,
 
-            string id,
+            string? id,
 
             string name,
 
             ImmutableArray<Outputs.GetParameterGroupParameterResult> parameters,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

@@ -36,16 +36,16 @@ import * as utilities from "../utilities";
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
  * });
  * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
- * const policyDocument = aws.iam.getPolicyDocumentOutput({
+ * const policyDocument = pulumi.all([bucketV2.arn, bucketV2.arn]).apply(([bucketV2Arn, bucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["s3:*"],
  *         resources: [
- *             bucketV2.arn,
- *             pulumi.interpolate`${bucketV2.arn}/*`,
+ *             bucketV2Arn,
+ *             `${bucketV2Arn1}/*`,
  *         ],
  *     }],
- * });
+ * }));
  * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
  *     role: role.id,
  *     policy: policyDocument.apply(policyDocument => policyDocument.json),

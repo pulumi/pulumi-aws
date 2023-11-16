@@ -58,7 +58,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the environment.
         """
@@ -66,7 +66,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Name of the environment.
         """
@@ -79,7 +79,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -87,7 +87,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def monitors(self) -> Sequence['outputs.GetEnvironmentMonitorResult']:
+    def monitors(self) -> Optional[Sequence['outputs.GetEnvironmentMonitorResult']]:
         """
         Set of Amazon CloudWatch alarms to monitor during the deployment process.
         """
@@ -95,7 +95,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the environment.
         """
@@ -103,7 +103,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
         or `ROLLED_BACK`.
@@ -112,7 +112,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags for the resource.
         """

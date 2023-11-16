@@ -2348,7 +2348,7 @@ class S3Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> pulumi.Output[str]:
+    def certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the certificate.
         """
@@ -2484,7 +2484,7 @@ class S3Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointArn")
-    def endpoint_arn(self) -> pulumi.Output[str]:
+    def endpoint_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the endpoint.
         """
@@ -2508,7 +2508,7 @@ class S3Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineDisplayName")
-    def engine_display_name(self) -> pulumi.Output[str]:
+    def engine_display_name(self) -> pulumi.Output[Optional[str]]:
         """
         Expanded name for the engine name.
         """
@@ -2524,7 +2524,7 @@ class S3Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> pulumi.Output[str]:
+    def external_id(self) -> pulumi.Output[Optional[str]]:
         """
         Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
         """
@@ -2564,7 +2564,7 @@ class S3Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> pulumi.Output[str]:
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         """
@@ -2638,7 +2638,7 @@ class S3Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> pulumi.Output[str]:
+    def ssl_mode(self) -> pulumi.Output[Optional[str]]:
         """
         SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         """
@@ -2646,7 +2646,7 @@ class S3Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the endpoint.
         """

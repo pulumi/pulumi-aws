@@ -67,8 +67,8 @@ type PackageAssociation struct {
 	// Name of the domain to associate the package with.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Internal ID of the package to associate with a domain.
-	PackageId     pulumi.StringOutput `pulumi:"packageId"`
-	ReferencePath pulumi.StringOutput `pulumi:"referencePath"`
+	PackageId     pulumi.StringOutput    `pulumi:"packageId"`
+	ReferencePath pulumi.StringPtrOutput `pulumi:"referencePath"`
 }
 
 // NewPackageAssociation registers a new resource with the given unique name, arguments, and options.
@@ -238,8 +238,8 @@ func (o PackageAssociationOutput) PackageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.PackageId }).(pulumi.StringOutput)
 }
 
-func (o PackageAssociationOutput) ReferencePath() pulumi.StringOutput {
-	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.ReferencePath }).(pulumi.StringOutput)
+func (o PackageAssociationOutput) ReferencePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageAssociation) pulumi.StringPtrOutput { return v.ReferencePath }).(pulumi.StringPtrOutput)
 }
 
 type PackageAssociationArrayOutput struct{ *pulumi.OutputState }

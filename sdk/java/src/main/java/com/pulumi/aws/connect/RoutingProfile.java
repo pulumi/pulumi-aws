@@ -83,14 +83,14 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Routing Profile.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies the default outbound queue for the Routing Profile.
@@ -181,14 +181,14 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="routingProfileId", refs={String.class}, tree="[0]")
-    private Output<String> routingProfileId;
+    private Output</* @Nullable */ String> routingProfileId;
 
     /**
      * @return The identifier for the Routing Profile.
      * 
      */
-    public Output<String> routingProfileId() {
-        return this.routingProfileId;
+    public Output<Optional<String>> routingProfileId() {
+        return Codegen.optional(this.routingProfileId);
     }
     /**
      * Tags to apply to the Routing Profile. If configured with a provider

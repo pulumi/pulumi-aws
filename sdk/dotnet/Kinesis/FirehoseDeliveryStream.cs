@@ -815,7 +815,7 @@ namespace Pulumi.Aws.Kinesis
         /// The Amazon Resource Name (ARN) specifying the Stream
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
@@ -825,7 +825,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Destination { get; private set; } = null!;
 
         [Output("destinationId")]
-        public Output<string> DestinationId { get; private set; } = null!;
+        public Output<string?> DestinationId { get; private set; } = null!;
 
         /// <summary>
         /// Configuration options when `destination` is `elasticsearch`. More details are given below.
@@ -910,7 +910,7 @@ namespace Pulumi.Aws.Kinesis
         /// Specifies the table version for the output data schema. Defaults to `LATEST`.
         /// </summary>
         [Output("versionId")]
-        public Output<string> VersionId { get; private set; } = null!;
+        public Output<string?> VersionId { get; private set; } = null!;
 
 
         /// <summary>

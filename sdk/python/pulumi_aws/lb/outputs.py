@@ -2132,285 +2132,321 @@ class TargetGroupTargetHealthState(dict):
 @pulumi.output_type
 class GetListenerDefaultActionResult(dict):
     def __init__(__self__, *,
-                 authenticate_cognitos: Sequence['outputs.GetListenerDefaultActionAuthenticateCognitoResult'],
-                 authenticate_oidcs: Sequence['outputs.GetListenerDefaultActionAuthenticateOidcResult'],
-                 fixed_responses: Sequence['outputs.GetListenerDefaultActionFixedResponseResult'],
-                 forwards: Sequence['outputs.GetListenerDefaultActionForwardResult'],
-                 order: int,
-                 redirects: Sequence['outputs.GetListenerDefaultActionRedirectResult'],
-                 target_group_arn: str,
-                 type: str):
-        pulumi.set(__self__, "authenticate_cognitos", authenticate_cognitos)
-        pulumi.set(__self__, "authenticate_oidcs", authenticate_oidcs)
-        pulumi.set(__self__, "fixed_responses", fixed_responses)
-        pulumi.set(__self__, "forwards", forwards)
-        pulumi.set(__self__, "order", order)
-        pulumi.set(__self__, "redirects", redirects)
-        pulumi.set(__self__, "target_group_arn", target_group_arn)
-        pulumi.set(__self__, "type", type)
+                 authenticate_cognitos: Optional[Sequence['outputs.GetListenerDefaultActionAuthenticateCognitoResult']] = None,
+                 authenticate_oidcs: Optional[Sequence['outputs.GetListenerDefaultActionAuthenticateOidcResult']] = None,
+                 fixed_responses: Optional[Sequence['outputs.GetListenerDefaultActionFixedResponseResult']] = None,
+                 forwards: Optional[Sequence['outputs.GetListenerDefaultActionForwardResult']] = None,
+                 order: Optional[int] = None,
+                 redirects: Optional[Sequence['outputs.GetListenerDefaultActionRedirectResult']] = None,
+                 target_group_arn: Optional[str] = None,
+                 type: Optional[str] = None):
+        if authenticate_cognitos is not None:
+            pulumi.set(__self__, "authenticate_cognitos", authenticate_cognitos)
+        if authenticate_oidcs is not None:
+            pulumi.set(__self__, "authenticate_oidcs", authenticate_oidcs)
+        if fixed_responses is not None:
+            pulumi.set(__self__, "fixed_responses", fixed_responses)
+        if forwards is not None:
+            pulumi.set(__self__, "forwards", forwards)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if redirects is not None:
+            pulumi.set(__self__, "redirects", redirects)
+        if target_group_arn is not None:
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="authenticateCognitos")
-    def authenticate_cognitos(self) -> Sequence['outputs.GetListenerDefaultActionAuthenticateCognitoResult']:
+    def authenticate_cognitos(self) -> Optional[Sequence['outputs.GetListenerDefaultActionAuthenticateCognitoResult']]:
         return pulumi.get(self, "authenticate_cognitos")
 
     @property
     @pulumi.getter(name="authenticateOidcs")
-    def authenticate_oidcs(self) -> Sequence['outputs.GetListenerDefaultActionAuthenticateOidcResult']:
+    def authenticate_oidcs(self) -> Optional[Sequence['outputs.GetListenerDefaultActionAuthenticateOidcResult']]:
         return pulumi.get(self, "authenticate_oidcs")
 
     @property
     @pulumi.getter(name="fixedResponses")
-    def fixed_responses(self) -> Sequence['outputs.GetListenerDefaultActionFixedResponseResult']:
+    def fixed_responses(self) -> Optional[Sequence['outputs.GetListenerDefaultActionFixedResponseResult']]:
         return pulumi.get(self, "fixed_responses")
 
     @property
     @pulumi.getter
-    def forwards(self) -> Sequence['outputs.GetListenerDefaultActionForwardResult']:
+    def forwards(self) -> Optional[Sequence['outputs.GetListenerDefaultActionForwardResult']]:
         return pulumi.get(self, "forwards")
 
     @property
     @pulumi.getter
-    def order(self) -> int:
+    def order(self) -> Optional[int]:
         return pulumi.get(self, "order")
 
     @property
     @pulumi.getter
-    def redirects(self) -> Sequence['outputs.GetListenerDefaultActionRedirectResult']:
+    def redirects(self) -> Optional[Sequence['outputs.GetListenerDefaultActionRedirectResult']]:
         return pulumi.get(self, "redirects")
 
     @property
     @pulumi.getter(name="targetGroupArn")
-    def target_group_arn(self) -> str:
+    def target_group_arn(self) -> Optional[str]:
         return pulumi.get(self, "target_group_arn")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionAuthenticateCognitoResult(dict):
     def __init__(__self__, *,
-                 authentication_request_extra_params: Mapping[str, str],
-                 on_unauthenticated_request: str,
-                 scope: str,
-                 session_cookie_name: str,
-                 session_timeout: int,
-                 user_pool_arn: str,
-                 user_pool_client_id: str,
-                 user_pool_domain: str):
-        pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
-        pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "session_cookie_name", session_cookie_name)
-        pulumi.set(__self__, "session_timeout", session_timeout)
-        pulumi.set(__self__, "user_pool_arn", user_pool_arn)
-        pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
-        pulumi.set(__self__, "user_pool_domain", user_pool_domain)
+                 authentication_request_extra_params: Optional[Mapping[str, str]] = None,
+                 on_unauthenticated_request: Optional[str] = None,
+                 scope: Optional[str] = None,
+                 session_cookie_name: Optional[str] = None,
+                 session_timeout: Optional[int] = None,
+                 user_pool_arn: Optional[str] = None,
+                 user_pool_client_id: Optional[str] = None,
+                 user_pool_domain: Optional[str] = None):
+        if authentication_request_extra_params is not None:
+            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+        if on_unauthenticated_request is not None:
+            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if session_cookie_name is not None:
+            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
+        if session_timeout is not None:
+            pulumi.set(__self__, "session_timeout", session_timeout)
+        if user_pool_arn is not None:
+            pulumi.set(__self__, "user_pool_arn", user_pool_arn)
+        if user_pool_client_id is not None:
+            pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
+        if user_pool_domain is not None:
+            pulumi.set(__self__, "user_pool_domain", user_pool_domain)
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Mapping[str, str]:
+    def authentication_request_extra_params(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @property
     @pulumi.getter(name="onUnauthenticatedRequest")
-    def on_unauthenticated_request(self) -> str:
+    def on_unauthenticated_request(self) -> Optional[str]:
         return pulumi.get(self, "on_unauthenticated_request")
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> Optional[str]:
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter(name="sessionCookieName")
-    def session_cookie_name(self) -> str:
+    def session_cookie_name(self) -> Optional[str]:
         return pulumi.get(self, "session_cookie_name")
 
     @property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> int:
+    def session_timeout(self) -> Optional[int]:
         return pulumi.get(self, "session_timeout")
 
     @property
     @pulumi.getter(name="userPoolArn")
-    def user_pool_arn(self) -> str:
+    def user_pool_arn(self) -> Optional[str]:
         return pulumi.get(self, "user_pool_arn")
 
     @property
     @pulumi.getter(name="userPoolClientId")
-    def user_pool_client_id(self) -> str:
+    def user_pool_client_id(self) -> Optional[str]:
         return pulumi.get(self, "user_pool_client_id")
 
     @property
     @pulumi.getter(name="userPoolDomain")
-    def user_pool_domain(self) -> str:
+    def user_pool_domain(self) -> Optional[str]:
         return pulumi.get(self, "user_pool_domain")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionAuthenticateOidcResult(dict):
     def __init__(__self__, *,
-                 authentication_request_extra_params: Mapping[str, str],
-                 authorization_endpoint: str,
-                 client_id: str,
-                 client_secret: str,
-                 issuer: str,
-                 on_unauthenticated_request: str,
-                 scope: str,
-                 session_cookie_name: str,
-                 session_timeout: int,
-                 token_endpoint: str,
-                 user_info_endpoint: str):
-        pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
-        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "session_cookie_name", session_cookie_name)
-        pulumi.set(__self__, "session_timeout", session_timeout)
-        pulumi.set(__self__, "token_endpoint", token_endpoint)
-        pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+                 authentication_request_extra_params: Optional[Mapping[str, str]] = None,
+                 authorization_endpoint: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 issuer: Optional[str] = None,
+                 on_unauthenticated_request: Optional[str] = None,
+                 scope: Optional[str] = None,
+                 session_cookie_name: Optional[str] = None,
+                 session_timeout: Optional[int] = None,
+                 token_endpoint: Optional[str] = None,
+                 user_info_endpoint: Optional[str] = None):
+        if authentication_request_extra_params is not None:
+            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if on_unauthenticated_request is not None:
+            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if session_cookie_name is not None:
+            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
+        if session_timeout is not None:
+            pulumi.set(__self__, "session_timeout", session_timeout)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if user_info_endpoint is not None:
+            pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Mapping[str, str]:
+    def authentication_request_extra_params(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
-    def authorization_endpoint(self) -> str:
+    def authorization_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "authorization_endpoint")
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> Optional[str]:
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> Optional[str]:
         return pulumi.get(self, "client_secret")
 
     @property
     @pulumi.getter
-    def issuer(self) -> str:
+    def issuer(self) -> Optional[str]:
         return pulumi.get(self, "issuer")
 
     @property
     @pulumi.getter(name="onUnauthenticatedRequest")
-    def on_unauthenticated_request(self) -> str:
+    def on_unauthenticated_request(self) -> Optional[str]:
         return pulumi.get(self, "on_unauthenticated_request")
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> Optional[str]:
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter(name="sessionCookieName")
-    def session_cookie_name(self) -> str:
+    def session_cookie_name(self) -> Optional[str]:
         return pulumi.get(self, "session_cookie_name")
 
     @property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> int:
+    def session_timeout(self) -> Optional[int]:
         return pulumi.get(self, "session_timeout")
 
     @property
     @pulumi.getter(name="tokenEndpoint")
-    def token_endpoint(self) -> str:
+    def token_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "token_endpoint")
 
     @property
     @pulumi.getter(name="userInfoEndpoint")
-    def user_info_endpoint(self) -> str:
+    def user_info_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "user_info_endpoint")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionFixedResponseResult(dict):
     def __init__(__self__, *,
-                 content_type: str,
-                 message_body: str,
-                 status_code: str):
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "message_body", message_body)
-        pulumi.set(__self__, "status_code", status_code)
+                 content_type: Optional[str] = None,
+                 message_body: Optional[str] = None,
+                 status_code: Optional[str] = None):
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if message_body is not None:
+            pulumi.set(__self__, "message_body", message_body)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> str:
+    def content_type(self) -> Optional[str]:
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter(name="messageBody")
-    def message_body(self) -> str:
+    def message_body(self) -> Optional[str]:
         return pulumi.get(self, "message_body")
 
     @property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> str:
+    def status_code(self) -> Optional[str]:
         return pulumi.get(self, "status_code")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionForwardResult(dict):
     def __init__(__self__, *,
-                 stickinesses: Sequence['outputs.GetListenerDefaultActionForwardStickinessResult'],
-                 target_groups: Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']):
-        pulumi.set(__self__, "stickinesses", stickinesses)
-        pulumi.set(__self__, "target_groups", target_groups)
+                 stickinesses: Optional[Sequence['outputs.GetListenerDefaultActionForwardStickinessResult']] = None,
+                 target_groups: Optional[Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']] = None):
+        if stickinesses is not None:
+            pulumi.set(__self__, "stickinesses", stickinesses)
+        if target_groups is not None:
+            pulumi.set(__self__, "target_groups", target_groups)
 
     @property
     @pulumi.getter
-    def stickinesses(self) -> Sequence['outputs.GetListenerDefaultActionForwardStickinessResult']:
+    def stickinesses(self) -> Optional[Sequence['outputs.GetListenerDefaultActionForwardStickinessResult']]:
         return pulumi.get(self, "stickinesses")
 
     @property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']:
+    def target_groups(self) -> Optional[Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']]:
         return pulumi.get(self, "target_groups")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionForwardStickinessResult(dict):
     def __init__(__self__, *,
-                 duration: int,
-                 enabled: bool):
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "enabled", enabled)
+                 duration: Optional[int] = None,
+                 enabled: Optional[bool] = None):
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def duration(self) -> int:
+    def duration(self) -> Optional[int]:
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionForwardTargetGroupResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 weight: int):
+                 arn: Optional[str] = None,
+                 weight: Optional[int] = None):
         """
         :param str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "weight", weight)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
         """
@@ -2418,42 +2454,48 @@ class GetListenerDefaultActionForwardTargetGroupResult(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> int:
+    def weight(self) -> Optional[int]:
         return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
 class GetListenerDefaultActionRedirectResult(dict):
     def __init__(__self__, *,
-                 host: str,
-                 path: str,
-                 port: str,
-                 protocol: str,
-                 query: str,
-                 status_code: str):
+                 host: Optional[str] = None,
+                 path: Optional[str] = None,
+                 port: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 query: Optional[str] = None,
+                 status_code: Optional[str] = None):
         """
         :param str port: Port of the listener. Required if `arn` is not set.
         """
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "status_code", status_code)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
 
     @property
     @pulumi.getter
-    def host(self) -> str:
+    def host(self) -> Optional[str]:
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
-    def port(self) -> str:
+    def port(self) -> Optional[str]:
         """
         Port of the listener. Required if `arn` is not set.
         """
@@ -2461,184 +2503,205 @@ class GetListenerDefaultActionRedirectResult(dict):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def query(self) -> Optional[str]:
         return pulumi.get(self, "query")
 
     @property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> str:
+    def status_code(self) -> Optional[str]:
         return pulumi.get(self, "status_code")
 
 
 @pulumi.output_type
 class GetLoadBalancerAccessLogsResult(dict):
     def __init__(__self__, *,
-                 bucket: str,
-                 enabled: bool,
-                 prefix: str):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "prefix", prefix)
+                 bucket: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 prefix: Optional[str] = None):
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> Optional[str]:
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type
 class GetLoadBalancerSubnetMappingResult(dict):
     def __init__(__self__, *,
-                 allocation_id: str,
-                 ipv6_address: str,
-                 outpost_id: str,
-                 private_ipv4_address: str,
-                 subnet_id: str):
-        pulumi.set(__self__, "allocation_id", allocation_id)
-        pulumi.set(__self__, "ipv6_address", ipv6_address)
-        pulumi.set(__self__, "outpost_id", outpost_id)
-        pulumi.set(__self__, "private_ipv4_address", private_ipv4_address)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+                 allocation_id: Optional[str] = None,
+                 ipv6_address: Optional[str] = None,
+                 outpost_id: Optional[str] = None,
+                 private_ipv4_address: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        if allocation_id is not None:
+            pulumi.set(__self__, "allocation_id", allocation_id)
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
+        if outpost_id is not None:
+            pulumi.set(__self__, "outpost_id", outpost_id)
+        if private_ipv4_address is not None:
+            pulumi.set(__self__, "private_ipv4_address", private_ipv4_address)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> str:
+    def allocation_id(self) -> Optional[str]:
         return pulumi.get(self, "allocation_id")
 
     @property
     @pulumi.getter(name="ipv6Address")
-    def ipv6_address(self) -> str:
+    def ipv6_address(self) -> Optional[str]:
         return pulumi.get(self, "ipv6_address")
 
     @property
     @pulumi.getter(name="outpostId")
-    def outpost_id(self) -> str:
+    def outpost_id(self) -> Optional[str]:
         return pulumi.get(self, "outpost_id")
 
     @property
     @pulumi.getter(name="privateIpv4Address")
-    def private_ipv4_address(self) -> str:
+    def private_ipv4_address(self) -> Optional[str]:
         return pulumi.get(self, "private_ipv4_address")
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
 class GetTargetGroupHealthCheckResult(dict):
     def __init__(__self__, *,
-                 enabled: bool,
-                 healthy_threshold: int,
-                 interval: int,
-                 matcher: str,
-                 path: str,
-                 port: str,
-                 protocol: str,
-                 timeout: int,
-                 unhealthy_threshold: int):
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "matcher", matcher)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+                 enabled: Optional[bool] = None,
+                 healthy_threshold: Optional[int] = None,
+                 interval: Optional[int] = None,
+                 matcher: Optional[str] = None,
+                 path: Optional[str] = None,
+                 port: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 timeout: Optional[int] = None,
+                 unhealthy_threshold: Optional[int] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if healthy_threshold is not None:
+            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if matcher is not None:
+            pulumi.set(__self__, "matcher", matcher)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if unhealthy_threshold is not None:
+            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> int:
+    def healthy_threshold(self) -> Optional[int]:
         return pulumi.get(self, "healthy_threshold")
 
     @property
     @pulumi.getter
-    def interval(self) -> int:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter
-    def matcher(self) -> str:
+    def matcher(self) -> Optional[str]:
         return pulumi.get(self, "matcher")
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
-    def port(self) -> str:
+    def port(self) -> Optional[str]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter
-    def timeout(self) -> int:
+    def timeout(self) -> Optional[int]:
         return pulumi.get(self, "timeout")
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> int:
+    def unhealthy_threshold(self) -> Optional[int]:
         return pulumi.get(self, "unhealthy_threshold")
 
 
 @pulumi.output_type
 class GetTargetGroupStickinessResult(dict):
     def __init__(__self__, *,
-                 cookie_duration: int,
-                 cookie_name: str,
-                 enabled: bool,
-                 type: str):
-        pulumi.set(__self__, "cookie_duration", cookie_duration)
-        pulumi.set(__self__, "cookie_name", cookie_name)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "type", type)
+                 cookie_duration: Optional[int] = None,
+                 cookie_name: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 type: Optional[str] = None):
+        if cookie_duration is not None:
+            pulumi.set(__self__, "cookie_duration", cookie_duration)
+        if cookie_name is not None:
+            pulumi.set(__self__, "cookie_name", cookie_name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="cookieDuration")
-    def cookie_duration(self) -> int:
+    def cookie_duration(self) -> Optional[int]:
         return pulumi.get(self, "cookie_duration")
 
     @property
     @pulumi.getter(name="cookieName")
-    def cookie_name(self) -> str:
+    def cookie_name(self) -> Optional[str]:
         return pulumi.get(self, "cookie_name")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 

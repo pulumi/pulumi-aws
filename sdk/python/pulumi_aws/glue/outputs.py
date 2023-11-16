@@ -3741,20 +3741,23 @@ class UserDefinedFunctionResourceUri(dict):
 @pulumi.output_type
 class GetCatalogTablePartitionIndexResult(dict):
     def __init__(__self__, *,
-                 index_name: str,
-                 index_status: str,
-                 keys: Sequence[str]):
+                 index_name: Optional[str] = None,
+                 index_status: Optional[str] = None,
+                 keys: Optional[Sequence[str]] = None):
         """
         :param str index_name: Name of the partition index.
         :param Sequence[str] keys: Keys for the partition index.
         """
-        pulumi.set(__self__, "index_name", index_name)
-        pulumi.set(__self__, "index_status", index_status)
-        pulumi.set(__self__, "keys", keys)
+        if index_name is not None:
+            pulumi.set(__self__, "index_name", index_name)
+        if index_status is not None:
+            pulumi.set(__self__, "index_status", index_status)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
 
     @property
     @pulumi.getter(name="indexName")
-    def index_name(self) -> str:
+    def index_name(self) -> Optional[str]:
         """
         Name of the partition index.
         """
@@ -3762,12 +3765,12 @@ class GetCatalogTablePartitionIndexResult(dict):
 
     @property
     @pulumi.getter(name="indexStatus")
-    def index_status(self) -> str:
+    def index_status(self) -> Optional[str]:
         return pulumi.get(self, "index_status")
 
     @property
     @pulumi.getter
-    def keys(self) -> Sequence[str]:
+    def keys(self) -> Optional[Sequence[str]]:
         """
         Keys for the partition index.
         """
@@ -3777,21 +3780,24 @@ class GetCatalogTablePartitionIndexResult(dict):
 @pulumi.output_type
 class GetCatalogTablePartitionKeyResult(dict):
     def __init__(__self__, *,
-                 comment: str,
-                 name: str,
-                 type: str):
+                 comment: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param str comment: Free-form text comment.
         :param str name: Name of the table.
         :param str type: Datatype of data in the Column.
         """
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def comment(self) -> str:
+    def comment(self) -> Optional[str]:
         """
         Free-form text comment.
         """
@@ -3799,7 +3805,7 @@ class GetCatalogTablePartitionKeyResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the table.
         """
@@ -3807,7 +3813,7 @@ class GetCatalogTablePartitionKeyResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Datatype of data in the Column.
         """
@@ -3817,19 +3823,19 @@ class GetCatalogTablePartitionKeyResult(dict):
 @pulumi.output_type
 class GetCatalogTableStorageDescriptorResult(dict):
     def __init__(__self__, *,
-                 bucket_columns: Sequence[str],
-                 columns: Sequence['outputs.GetCatalogTableStorageDescriptorColumnResult'],
-                 compressed: bool,
-                 input_format: str,
-                 location: str,
-                 number_of_buckets: int,
-                 output_format: str,
-                 parameters: Mapping[str, str],
-                 schema_references: Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult'],
-                 ser_de_infos: Sequence['outputs.GetCatalogTableStorageDescriptorSerDeInfoResult'],
-                 skewed_infos: Sequence['outputs.GetCatalogTableStorageDescriptorSkewedInfoResult'],
-                 sort_columns: Sequence['outputs.GetCatalogTableStorageDescriptorSortColumnResult'],
-                 stored_as_sub_directories: bool):
+                 bucket_columns: Optional[Sequence[str]] = None,
+                 columns: Optional[Sequence['outputs.GetCatalogTableStorageDescriptorColumnResult']] = None,
+                 compressed: Optional[bool] = None,
+                 input_format: Optional[str] = None,
+                 location: Optional[str] = None,
+                 number_of_buckets: Optional[int] = None,
+                 output_format: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 schema_references: Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult']] = None,
+                 ser_de_infos: Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSerDeInfoResult']] = None,
+                 skewed_infos: Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSkewedInfoResult']] = None,
+                 sort_columns: Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSortColumnResult']] = None,
+                 stored_as_sub_directories: Optional[bool] = None):
         """
         :param Sequence[str] bucket_columns: List of reducer grouping columns, clustering columns, and bucketing columns in the table.
         :param Sequence['GetCatalogTableStorageDescriptorColumnArgs'] columns: Configuration block for columns in the table. See `columns` below.
@@ -3845,23 +3851,36 @@ class GetCatalogTableStorageDescriptorResult(dict):
         :param Sequence['GetCatalogTableStorageDescriptorSortColumnArgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         :param bool stored_as_sub_directories: Whether the table data is stored in subdirectories.
         """
-        pulumi.set(__self__, "bucket_columns", bucket_columns)
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "compressed", compressed)
-        pulumi.set(__self__, "input_format", input_format)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "number_of_buckets", number_of_buckets)
-        pulumi.set(__self__, "output_format", output_format)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "schema_references", schema_references)
-        pulumi.set(__self__, "ser_de_infos", ser_de_infos)
-        pulumi.set(__self__, "skewed_infos", skewed_infos)
-        pulumi.set(__self__, "sort_columns", sort_columns)
-        pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+        if bucket_columns is not None:
+            pulumi.set(__self__, "bucket_columns", bucket_columns)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if compressed is not None:
+            pulumi.set(__self__, "compressed", compressed)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if number_of_buckets is not None:
+            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema_references is not None:
+            pulumi.set(__self__, "schema_references", schema_references)
+        if ser_de_infos is not None:
+            pulumi.set(__self__, "ser_de_infos", ser_de_infos)
+        if skewed_infos is not None:
+            pulumi.set(__self__, "skewed_infos", skewed_infos)
+        if sort_columns is not None:
+            pulumi.set(__self__, "sort_columns", sort_columns)
+        if stored_as_sub_directories is not None:
+            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
 
     @property
     @pulumi.getter(name="bucketColumns")
-    def bucket_columns(self) -> Sequence[str]:
+    def bucket_columns(self) -> Optional[Sequence[str]]:
         """
         List of reducer grouping columns, clustering columns, and bucketing columns in the table.
         """
@@ -3869,7 +3888,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter
-    def columns(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorColumnResult']:
+    def columns(self) -> Optional[Sequence['outputs.GetCatalogTableStorageDescriptorColumnResult']]:
         """
         Configuration block for columns in the table. See `columns` below.
         """
@@ -3877,7 +3896,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter
-    def compressed(self) -> bool:
+    def compressed(self) -> Optional[bool]:
         """
         Whether the data in the table is compressed.
         """
@@ -3885,7 +3904,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter(name="inputFormat")
-    def input_format(self) -> str:
+    def input_format(self) -> Optional[str]:
         """
         Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         """
@@ -3893,7 +3912,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
         Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         """
@@ -3901,7 +3920,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter(name="numberOfBuckets")
-    def number_of_buckets(self) -> int:
+    def number_of_buckets(self) -> Optional[int]:
         """
         Is if the table contains any dimension columns.
         """
@@ -3909,7 +3928,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter(name="outputFormat")
-    def output_format(self) -> str:
+    def output_format(self) -> Optional[str]:
         """
         Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         """
@@ -3917,7 +3936,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, str]:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         """
         Map of initialization parameters for the SerDe, in key-value form.
         """
@@ -3925,7 +3944,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter(name="schemaReferences")
-    def schema_references(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult']:
+    def schema_references(self) -> Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult']]:
         """
         Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
         """
@@ -3933,7 +3952,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter(name="serDeInfos")
-    def ser_de_infos(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSerDeInfoResult']:
+    def ser_de_infos(self) -> Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSerDeInfoResult']]:
         """
         Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
         """
@@ -3941,7 +3960,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter(name="skewedInfos")
-    def skewed_infos(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSkewedInfoResult']:
+    def skewed_infos(self) -> Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSkewedInfoResult']]:
         """
         Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
         """
@@ -3949,7 +3968,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter(name="sortColumns")
-    def sort_columns(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSortColumnResult']:
+    def sort_columns(self) -> Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSortColumnResult']]:
         """
         Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         """
@@ -3957,7 +3976,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
     @property
     @pulumi.getter(name="storedAsSubDirectories")
-    def stored_as_sub_directories(self) -> bool:
+    def stored_as_sub_directories(self) -> Optional[bool]:
         """
         Whether the table data is stored in subdirectories.
         """
@@ -3967,24 +3986,28 @@ class GetCatalogTableStorageDescriptorResult(dict):
 @pulumi.output_type
 class GetCatalogTableStorageDescriptorColumnResult(dict):
     def __init__(__self__, *,
-                 comment: str,
-                 name: str,
-                 parameters: Mapping[str, str],
-                 type: str):
+                 comment: Optional[str] = None,
+                 name: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 type: Optional[str] = None):
         """
         :param str comment: Free-form text comment.
         :param str name: Name of the table.
         :param Mapping[str, str] parameters: Map of initialization parameters for the SerDe, in key-value form.
         :param str type: Datatype of data in the Column.
         """
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "type", type)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def comment(self) -> str:
+    def comment(self) -> Optional[str]:
         """
         Free-form text comment.
         """
@@ -3992,7 +4015,7 @@ class GetCatalogTableStorageDescriptorColumnResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the table.
         """
@@ -4000,7 +4023,7 @@ class GetCatalogTableStorageDescriptorColumnResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, str]:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         """
         Map of initialization parameters for the SerDe, in key-value form.
         """
@@ -4008,7 +4031,7 @@ class GetCatalogTableStorageDescriptorColumnResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Datatype of data in the Column.
         """
@@ -4018,21 +4041,24 @@ class GetCatalogTableStorageDescriptorColumnResult(dict):
 @pulumi.output_type
 class GetCatalogTableStorageDescriptorSchemaReferenceResult(dict):
     def __init__(__self__, *,
-                 schema_ids: Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult'],
-                 schema_version_id: str,
-                 schema_version_number: int):
+                 schema_ids: Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult']] = None,
+                 schema_version_id: Optional[str] = None,
+                 schema_version_number: Optional[int] = None):
         """
         :param Sequence['GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs'] schema_ids: Configuration block that contains schema identity fields. See `schema_id` below.
         :param str schema_version_id: Unique ID assigned to a version of the schema.
         :param int schema_version_number: Version number of the schema.
         """
-        pulumi.set(__self__, "schema_ids", schema_ids)
-        pulumi.set(__self__, "schema_version_id", schema_version_id)
-        pulumi.set(__self__, "schema_version_number", schema_version_number)
+        if schema_ids is not None:
+            pulumi.set(__self__, "schema_ids", schema_ids)
+        if schema_version_id is not None:
+            pulumi.set(__self__, "schema_version_id", schema_version_id)
+        if schema_version_number is not None:
+            pulumi.set(__self__, "schema_version_number", schema_version_number)
 
     @property
     @pulumi.getter(name="schemaIds")
-    def schema_ids(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult']:
+    def schema_ids(self) -> Optional[Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult']]:
         """
         Configuration block that contains schema identity fields. See `schema_id` below.
         """
@@ -4040,7 +4066,7 @@ class GetCatalogTableStorageDescriptorSchemaReferenceResult(dict):
 
     @property
     @pulumi.getter(name="schemaVersionId")
-    def schema_version_id(self) -> str:
+    def schema_version_id(self) -> Optional[str]:
         """
         Unique ID assigned to a version of the schema.
         """
@@ -4048,7 +4074,7 @@ class GetCatalogTableStorageDescriptorSchemaReferenceResult(dict):
 
     @property
     @pulumi.getter(name="schemaVersionNumber")
-    def schema_version_number(self) -> int:
+    def schema_version_number(self) -> Optional[int]:
         """
         Version number of the schema.
         """
@@ -4058,21 +4084,24 @@ class GetCatalogTableStorageDescriptorSchemaReferenceResult(dict):
 @pulumi.output_type
 class GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult(dict):
     def __init__(__self__, *,
-                 registry_name: str,
-                 schema_arn: str,
-                 schema_name: str):
+                 registry_name: Optional[str] = None,
+                 schema_arn: Optional[str] = None,
+                 schema_name: Optional[str] = None):
         """
         :param str registry_name: Name of the schema registry that contains the schema.
         :param str schema_arn: ARN of the schema.
         :param str schema_name: Name of the schema.
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "schema_arn", schema_arn)
-        pulumi.set(__self__, "schema_name", schema_name)
+        if registry_name is not None:
+            pulumi.set(__self__, "registry_name", registry_name)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
 
     @property
     @pulumi.getter(name="registryName")
-    def registry_name(self) -> str:
+    def registry_name(self) -> Optional[str]:
         """
         Name of the schema registry that contains the schema.
         """
@@ -4080,7 +4109,7 @@ class GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult(dict):
 
     @property
     @pulumi.getter(name="schemaArn")
-    def schema_arn(self) -> str:
+    def schema_arn(self) -> Optional[str]:
         """
         ARN of the schema.
         """
@@ -4088,7 +4117,7 @@ class GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult(dict):
 
     @property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> str:
+    def schema_name(self) -> Optional[str]:
         """
         Name of the schema.
         """
@@ -4098,21 +4127,24 @@ class GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult(dict):
 @pulumi.output_type
 class GetCatalogTableStorageDescriptorSerDeInfoResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 parameters: Mapping[str, str],
-                 serialization_library: str):
+                 name: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 serialization_library: Optional[str] = None):
         """
         :param str name: Name of the table.
         :param Mapping[str, str] parameters: Map of initialization parameters for the SerDe, in key-value form.
         :param str serialization_library: Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "serialization_library", serialization_library)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if serialization_library is not None:
+            pulumi.set(__self__, "serialization_library", serialization_library)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the table.
         """
@@ -4120,7 +4152,7 @@ class GetCatalogTableStorageDescriptorSerDeInfoResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, str]:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         """
         Map of initialization parameters for the SerDe, in key-value form.
         """
@@ -4128,7 +4160,7 @@ class GetCatalogTableStorageDescriptorSerDeInfoResult(dict):
 
     @property
     @pulumi.getter(name="serializationLibrary")
-    def serialization_library(self) -> str:
+    def serialization_library(self) -> Optional[str]:
         """
         Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
         """
@@ -4138,21 +4170,24 @@ class GetCatalogTableStorageDescriptorSerDeInfoResult(dict):
 @pulumi.output_type
 class GetCatalogTableStorageDescriptorSkewedInfoResult(dict):
     def __init__(__self__, *,
-                 skewed_column_names: Sequence[str],
-                 skewed_column_value_location_maps: Mapping[str, str],
-                 skewed_column_values: Sequence[str]):
+                 skewed_column_names: Optional[Sequence[str]] = None,
+                 skewed_column_value_location_maps: Optional[Mapping[str, str]] = None,
+                 skewed_column_values: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] skewed_column_names: List of names of columns that contain skewed values.
         :param Mapping[str, str] skewed_column_value_location_maps: List of values that appear so frequently as to be considered skewed.
         :param Sequence[str] skewed_column_values: Map of skewed values to the columns that contain them.
         """
-        pulumi.set(__self__, "skewed_column_names", skewed_column_names)
-        pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
-        pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+        if skewed_column_names is not None:
+            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+        if skewed_column_value_location_maps is not None:
+            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+        if skewed_column_values is not None:
+            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
 
     @property
     @pulumi.getter(name="skewedColumnNames")
-    def skewed_column_names(self) -> Sequence[str]:
+    def skewed_column_names(self) -> Optional[Sequence[str]]:
         """
         List of names of columns that contain skewed values.
         """
@@ -4160,7 +4195,7 @@ class GetCatalogTableStorageDescriptorSkewedInfoResult(dict):
 
     @property
     @pulumi.getter(name="skewedColumnValueLocationMaps")
-    def skewed_column_value_location_maps(self) -> Mapping[str, str]:
+    def skewed_column_value_location_maps(self) -> Optional[Mapping[str, str]]:
         """
         List of values that appear so frequently as to be considered skewed.
         """
@@ -4168,7 +4203,7 @@ class GetCatalogTableStorageDescriptorSkewedInfoResult(dict):
 
     @property
     @pulumi.getter(name="skewedColumnValues")
-    def skewed_column_values(self) -> Sequence[str]:
+    def skewed_column_values(self) -> Optional[Sequence[str]]:
         """
         Map of skewed values to the columns that contain them.
         """
@@ -4178,18 +4213,20 @@ class GetCatalogTableStorageDescriptorSkewedInfoResult(dict):
 @pulumi.output_type
 class GetCatalogTableStorageDescriptorSortColumnResult(dict):
     def __init__(__self__, *,
-                 column: str,
-                 sort_order: int):
+                 column: Optional[str] = None,
+                 sort_order: Optional[int] = None):
         """
         :param str column: Name of the column.
         :param int sort_order: Whether the column is sorted in ascending (`1`) or descending order (`0`).
         """
-        pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "sort_order", sort_order)
+        if column is not None:
+            pulumi.set(__self__, "column", column)
+        if sort_order is not None:
+            pulumi.set(__self__, "sort_order", sort_order)
 
     @property
     @pulumi.getter
-    def column(self) -> str:
+    def column(self) -> Optional[str]:
         """
         Name of the column.
         """
@@ -4197,7 +4234,7 @@ class GetCatalogTableStorageDescriptorSortColumnResult(dict):
 
     @property
     @pulumi.getter(name="sortOrder")
-    def sort_order(self) -> int:
+    def sort_order(self) -> Optional[int]:
         """
         Whether the column is sorted in ascending (`1`) or descending order (`0`).
         """
@@ -4207,21 +4244,24 @@ class GetCatalogTableStorageDescriptorSortColumnResult(dict):
 @pulumi.output_type
 class GetCatalogTableTargetTableResult(dict):
     def __init__(__self__, *,
-                 catalog_id: str,
-                 database_name: str,
-                 name: str):
+                 catalog_id: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
         :param str database_name: Name of the metadata database where the table metadata resides.
         :param str name: Name of the table.
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> str:
+    def catalog_id(self) -> Optional[str]:
         """
         ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
         """
@@ -4229,7 +4269,7 @@ class GetCatalogTableTargetTableResult(dict):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> Optional[str]:
         """
         Name of the metadata database where the table metadata resides.
         """
@@ -4237,7 +4277,7 @@ class GetCatalogTableTargetTableResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the table.
         """
@@ -4247,44 +4287,49 @@ class GetCatalogTableTargetTableResult(dict):
 @pulumi.output_type
 class GetConnectionPhysicalConnectionRequirementResult(dict):
     def __init__(__self__, *,
-                 availability_zone: str,
-                 security_group_id_lists: Sequence[str],
-                 subnet_id: str):
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "security_group_id_lists", security_group_id_lists)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+                 availability_zone: Optional[str] = None,
+                 security_group_id_lists: Optional[Sequence[str]] = None,
+                 subnet_id: Optional[str] = None):
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if security_group_id_lists is not None:
+            pulumi.set(__self__, "security_group_id_lists", security_group_id_lists)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="securityGroupIdLists")
-    def security_group_id_lists(self) -> Sequence[str]:
+    def security_group_id_lists(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "security_group_id_lists")
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
 class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult(dict):
     def __init__(__self__, *,
-                 connection_password_encryptions: Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult'],
-                 encryption_at_rests: Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult']):
+                 connection_password_encryptions: Optional[Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult']] = None,
+                 encryption_at_rests: Optional[Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult']] = None):
         """
         :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs'] connection_password_encryptions: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
         :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs'] encryption_at_rests: Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
-        pulumi.set(__self__, "connection_password_encryptions", connection_password_encryptions)
-        pulumi.set(__self__, "encryption_at_rests", encryption_at_rests)
+        if connection_password_encryptions is not None:
+            pulumi.set(__self__, "connection_password_encryptions", connection_password_encryptions)
+        if encryption_at_rests is not None:
+            pulumi.set(__self__, "encryption_at_rests", encryption_at_rests)
 
     @property
     @pulumi.getter(name="connectionPasswordEncryptions")
-    def connection_password_encryptions(self) -> Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult']:
+    def connection_password_encryptions(self) -> Optional[Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult']]:
         """
         When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
         """
@@ -4292,7 +4337,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult(dict):
 
     @property
     @pulumi.getter(name="encryptionAtRests")
-    def encryption_at_rests(self) -> Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult']:
+    def encryption_at_rests(self) -> Optional[Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult']]:
         """
         Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
@@ -4302,18 +4347,20 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult(dict):
 @pulumi.output_type
 class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult(dict):
     def __init__(__self__, *,
-                 aws_kms_key_id: str,
-                 return_connection_password_encrypted: bool):
+                 aws_kms_key_id: Optional[str] = None,
+                 return_connection_password_encrypted: Optional[bool] = None):
         """
         :param str aws_kms_key_id: KMS key ARN that is used to encrypt the connection password.
         :param bool return_connection_password_encrypted: When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
         """
-        pulumi.set(__self__, "aws_kms_key_id", aws_kms_key_id)
-        pulumi.set(__self__, "return_connection_password_encrypted", return_connection_password_encrypted)
+        if aws_kms_key_id is not None:
+            pulumi.set(__self__, "aws_kms_key_id", aws_kms_key_id)
+        if return_connection_password_encrypted is not None:
+            pulumi.set(__self__, "return_connection_password_encrypted", return_connection_password_encrypted)
 
     @property
     @pulumi.getter(name="awsKmsKeyId")
-    def aws_kms_key_id(self) -> str:
+    def aws_kms_key_id(self) -> Optional[str]:
         """
         KMS key ARN that is used to encrypt the connection password.
         """
@@ -4321,7 +4368,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPass
 
     @property
     @pulumi.getter(name="returnConnectionPasswordEncrypted")
-    def return_connection_password_encrypted(self) -> bool:
+    def return_connection_password_encrypted(self) -> Optional[bool]:
         """
         When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
         """
@@ -4331,18 +4378,20 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPass
 @pulumi.output_type
 class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult(dict):
     def __init__(__self__, *,
-                 catalog_encryption_mode: str,
-                 sse_aws_kms_key_id: str):
+                 catalog_encryption_mode: Optional[str] = None,
+                 sse_aws_kms_key_id: Optional[str] = None):
         """
         :param str catalog_encryption_mode: The encryption-at-rest mode for encrypting Data Catalog data.
         :param str sse_aws_kms_key_id: ARN of the AWS KMS key to use for encryption at rest.
         """
-        pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
-        pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
+        if catalog_encryption_mode is not None:
+            pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+        if sse_aws_kms_key_id is not None:
+            pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
 
     @property
     @pulumi.getter(name="catalogEncryptionMode")
-    def catalog_encryption_mode(self) -> str:
+    def catalog_encryption_mode(self) -> Optional[str]:
         """
         The encryption-at-rest mode for encrypting Data Catalog data.
         """
@@ -4350,7 +4399,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRe
 
     @property
     @pulumi.getter(name="sseAwsKmsKeyId")
-    def sse_aws_kms_key_id(self) -> str:
+    def sse_aws_kms_key_id(self) -> Optional[str]:
         """
         ARN of the AWS KMS key to use for encryption at rest.
         """

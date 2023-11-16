@@ -69,21 +69,21 @@ export interface GetDocumentResult {
     /**
      * ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Contents of the document.
      */
-    readonly content: string;
+    readonly content?: string;
     readonly documentFormat?: string;
     /**
      * Type of the document.
      */
-    readonly documentType: string;
+    readonly documentType?: string;
     readonly documentVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
 }
 /**

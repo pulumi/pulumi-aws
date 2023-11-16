@@ -54,7 +54,7 @@ namespace Pulumi.Aws.CodeCommit
         /// System-generated unique identifier.
         /// </summary>
         [Output("configurationId")]
-        public Output<string> ConfigurationId { get; private set; } = null!;
+        public Output<string?> ConfigurationId { get; private set; } = null!;
 
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.

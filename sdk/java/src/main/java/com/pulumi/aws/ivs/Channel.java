@@ -64,56 +64,56 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Channel.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * If `true`, channel is private (enabled for playback authorization).
      * 
      */
     @Export(name="authorized", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> authorized;
+    private Output</* @Nullable */ Boolean> authorized;
 
     /**
      * @return If `true`, channel is private (enabled for playback authorization).
      * 
      */
-    public Output<Boolean> authorized() {
-        return this.authorized;
+    public Output<Optional<Boolean>> authorized() {
+        return Codegen.optional(this.authorized);
     }
     /**
      * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
      * 
      */
     @Export(name="ingestEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> ingestEndpoint;
+    private Output</* @Nullable */ String> ingestEndpoint;
 
     /**
      * @return Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
      * 
      */
-    public Output<String> ingestEndpoint() {
-        return this.ingestEndpoint;
+    public Output<Optional<String>> ingestEndpoint() {
+        return Codegen.optional(this.ingestEndpoint);
     }
     /**
      * Channel latency mode. Valid values: `NORMAL`, `LOW`.
      * 
      */
     @Export(name="latencyMode", refs={String.class}, tree="[0]")
-    private Output<String> latencyMode;
+    private Output</* @Nullable */ String> latencyMode;
 
     /**
      * @return Channel latency mode. Valid values: `NORMAL`, `LOW`.
      * 
      */
-    public Output<String> latencyMode() {
-        return this.latencyMode;
+    public Output<Optional<String>> latencyMode() {
+        return Codegen.optional(this.latencyMode);
     }
     /**
      * Channel name.
@@ -134,28 +134,28 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="playbackUrl", refs={String.class}, tree="[0]")
-    private Output<String> playbackUrl;
+    private Output</* @Nullable */ String> playbackUrl;
 
     /**
      * @return Channel playback URL.
      * 
      */
-    public Output<String> playbackUrl() {
-        return this.playbackUrl;
+    public Output<Optional<String>> playbackUrl() {
+        return Codegen.optional(this.playbackUrl);
     }
     /**
      * Recording configuration ARN.
      * 
      */
     @Export(name="recordingConfigurationArn", refs={String.class}, tree="[0]")
-    private Output<String> recordingConfigurationArn;
+    private Output</* @Nullable */ String> recordingConfigurationArn;
 
     /**
      * @return Recording configuration ARN.
      * 
      */
-    public Output<String> recordingConfigurationArn() {
-        return this.recordingConfigurationArn;
+    public Output<Optional<String>> recordingConfigurationArn() {
+        return Codegen.optional(this.recordingConfigurationArn);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -194,14 +194,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

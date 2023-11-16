@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterShardNode {
@@ -15,43 +17,43 @@ public final class GetClusterShardNode {
      * @return The Availability Zone in which the node resides.
      * 
      */
-    private String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
-    private String createTime;
-    private List<GetClusterShardNodeEndpoint> endpoints;
+    private @Nullable String createTime;
+    private @Nullable List<GetClusterShardNodeEndpoint> endpoints;
     /**
      * @return Name of the cluster.
      * 
      */
-    private String name;
+    private @Nullable String name;
 
     private GetClusterShardNode() {}
     /**
      * @return The Availability Zone in which the node resides.
      * 
      */
-    public String availabilityZone() {
-        return this.availabilityZone;
+    public Optional<String> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
     /**
      * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
-    public String createTime() {
-        return this.createTime;
+    public Optional<String> createTime() {
+        return Optional.ofNullable(this.createTime);
     }
     public List<GetClusterShardNodeEndpoint> endpoints() {
-        return this.endpoints;
+        return this.endpoints == null ? List.of() : this.endpoints;
     }
     /**
      * @return Name of the cluster.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -63,10 +65,10 @@ public final class GetClusterShardNode {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String availabilityZone;
-        private String createTime;
-        private List<GetClusterShardNodeEndpoint> endpoints;
-        private String name;
+        private @Nullable String availabilityZone;
+        private @Nullable String createTime;
+        private @Nullable List<GetClusterShardNodeEndpoint> endpoints;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetClusterShardNode defaults) {
     	      Objects.requireNonNull(defaults);
@@ -77,26 +79,26 @@ public final class GetClusterShardNode {
         }
 
         @CustomType.Setter
-        public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+        public Builder availabilityZone(@Nullable String availabilityZone) {
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
-        public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+        public Builder createTime(@Nullable String createTime) {
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoints(List<GetClusterShardNodeEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+        public Builder endpoints(@Nullable List<GetClusterShardNodeEndpoint> endpoints) {
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetClusterShardNodeEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetClusterShardNode build() {

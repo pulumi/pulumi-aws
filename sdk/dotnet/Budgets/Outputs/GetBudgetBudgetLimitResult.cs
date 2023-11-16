@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Budgets.Outputs
         /// <summary>
         /// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         /// </summary>
-        public readonly string Amount;
+        public readonly string? Amount;
         /// <summary>
         /// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         /// </summary>
-        public readonly string Unit;
+        public readonly string? Unit;
 
         [OutputConstructor]
         private GetBudgetBudgetLimitResult(
-            string amount,
+            string? amount,
 
-            string unit)
+            string? unit)
         {
             Amount = amount;
             Unit = unit;

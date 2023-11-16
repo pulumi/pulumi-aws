@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Xray
         /// The ARN of the sampling rule.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Matches attributes derived from the request.

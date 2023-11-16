@@ -931,7 +931,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the DAX cluster
         """
@@ -948,7 +948,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterAddress")
-    def cluster_address(self) -> pulumi.Output[str]:
+    def cluster_address(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the DAX cluster without the port appended
         """
@@ -975,7 +975,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationEndpoint")
-    def configuration_endpoint(self) -> pulumi.Output[str]:
+    def configuration_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The configuration endpoint for this DAX cluster,
         consisting of a DNS name and a port number
@@ -1002,7 +1002,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> pulumi.Output[str]:
+    def maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the weekly time range for when
         maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
@@ -1022,7 +1022,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nodes(self) -> pulumi.Output[Sequence['outputs.ClusterNode']]:
+    def nodes(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterNode']]]:
         """
         List of node objects including `id`, `address`, `port` and
         `availability_zone`. Referenceable e.g., as
@@ -1042,7 +1042,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> pulumi.Output[str]:
+    def parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the parameter group to associate
         with this DAX cluster
@@ -1051,7 +1051,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port used by the configuration endpoint
         """
@@ -1069,7 +1069,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         One or more VPC security groups associated
         with the cluster
@@ -1086,7 +1086,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> pulumi.Output[str]:
+    def subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the subnet group to be used for the
         cluster

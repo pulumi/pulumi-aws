@@ -47,7 +47,7 @@ namespace Pulumi.Aws.NetworkManager
         /// Site Amazon Resource Name (ARN)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the Site.

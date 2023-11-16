@@ -8,6 +8,8 @@ import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBrokerNodesNodeInfoList {
@@ -15,75 +17,75 @@ public final class GetBrokerNodesNodeInfoList {
      * @return Attached elastic network interface of the broker
      * 
      */
-    private String attachedEniId;
+    private @Nullable String attachedEniId;
     /**
      * @return ID of the broker
      * 
      */
-    private Double brokerId;
+    private @Nullable Double brokerId;
     /**
      * @return Client subnet to which this broker node belongs
      * 
      */
-    private String clientSubnet;
+    private @Nullable String clientSubnet;
     /**
      * @return The client virtual private cloud (VPC) IP address
      * 
      */
-    private String clientVpcIpAddress;
+    private @Nullable String clientVpcIpAddress;
     /**
      * @return Set of endpoints for accessing the broker. This does not include ports
      * 
      */
-    private List<String> endpoints;
+    private @Nullable List<String> endpoints;
     /**
      * @return ARN of the node
      * 
      */
-    private String nodeArn;
+    private @Nullable String nodeArn;
 
     private GetBrokerNodesNodeInfoList() {}
     /**
      * @return Attached elastic network interface of the broker
      * 
      */
-    public String attachedEniId() {
-        return this.attachedEniId;
+    public Optional<String> attachedEniId() {
+        return Optional.ofNullable(this.attachedEniId);
     }
     /**
      * @return ID of the broker
      * 
      */
-    public Double brokerId() {
-        return this.brokerId;
+    public Optional<Double> brokerId() {
+        return Optional.ofNullable(this.brokerId);
     }
     /**
      * @return Client subnet to which this broker node belongs
      * 
      */
-    public String clientSubnet() {
-        return this.clientSubnet;
+    public Optional<String> clientSubnet() {
+        return Optional.ofNullable(this.clientSubnet);
     }
     /**
      * @return The client virtual private cloud (VPC) IP address
      * 
      */
-    public String clientVpcIpAddress() {
-        return this.clientVpcIpAddress;
+    public Optional<String> clientVpcIpAddress() {
+        return Optional.ofNullable(this.clientVpcIpAddress);
     }
     /**
      * @return Set of endpoints for accessing the broker. This does not include ports
      * 
      */
     public List<String> endpoints() {
-        return this.endpoints;
+        return this.endpoints == null ? List.of() : this.endpoints;
     }
     /**
      * @return ARN of the node
      * 
      */
-    public String nodeArn() {
-        return this.nodeArn;
+    public Optional<String> nodeArn() {
+        return Optional.ofNullable(this.nodeArn);
     }
 
     public static Builder builder() {
@@ -95,12 +97,12 @@ public final class GetBrokerNodesNodeInfoList {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String attachedEniId;
-        private Double brokerId;
-        private String clientSubnet;
-        private String clientVpcIpAddress;
-        private List<String> endpoints;
-        private String nodeArn;
+        private @Nullable String attachedEniId;
+        private @Nullable Double brokerId;
+        private @Nullable String clientSubnet;
+        private @Nullable String clientVpcIpAddress;
+        private @Nullable List<String> endpoints;
+        private @Nullable String nodeArn;
         public Builder() {}
         public Builder(GetBrokerNodesNodeInfoList defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,36 +115,36 @@ public final class GetBrokerNodesNodeInfoList {
         }
 
         @CustomType.Setter
-        public Builder attachedEniId(String attachedEniId) {
-            this.attachedEniId = Objects.requireNonNull(attachedEniId);
+        public Builder attachedEniId(@Nullable String attachedEniId) {
+            this.attachedEniId = attachedEniId;
             return this;
         }
         @CustomType.Setter
-        public Builder brokerId(Double brokerId) {
-            this.brokerId = Objects.requireNonNull(brokerId);
+        public Builder brokerId(@Nullable Double brokerId) {
+            this.brokerId = brokerId;
             return this;
         }
         @CustomType.Setter
-        public Builder clientSubnet(String clientSubnet) {
-            this.clientSubnet = Objects.requireNonNull(clientSubnet);
+        public Builder clientSubnet(@Nullable String clientSubnet) {
+            this.clientSubnet = clientSubnet;
             return this;
         }
         @CustomType.Setter
-        public Builder clientVpcIpAddress(String clientVpcIpAddress) {
-            this.clientVpcIpAddress = Objects.requireNonNull(clientVpcIpAddress);
+        public Builder clientVpcIpAddress(@Nullable String clientVpcIpAddress) {
+            this.clientVpcIpAddress = clientVpcIpAddress;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoints(List<String> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+        public Builder endpoints(@Nullable List<String> endpoints) {
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(String... endpoints) {
             return endpoints(List.of(endpoints));
         }
         @CustomType.Setter
-        public Builder nodeArn(String nodeArn) {
-            this.nodeArn = Objects.requireNonNull(nodeArn);
+        public Builder nodeArn(@Nullable String nodeArn) {
+            this.nodeArn = nodeArn;
             return this;
         }
         public GetBrokerNodesNodeInfoList build() {

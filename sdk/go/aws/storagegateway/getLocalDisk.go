@@ -62,12 +62,12 @@ type GetLocalDiskArgs struct {
 // A collection of values returned by getLocalDisk.
 type GetLocalDiskResult struct {
 	// Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
-	DiskId     string `pulumi:"diskId"`
-	DiskNode   string `pulumi:"diskNode"`
-	DiskPath   string `pulumi:"diskPath"`
-	GatewayArn string `pulumi:"gatewayArn"`
+	DiskId     *string `pulumi:"diskId"`
+	DiskNode   *string `pulumi:"diskNode"`
+	DiskPath   *string `pulumi:"diskPath"`
+	GatewayArn string  `pulumi:"gatewayArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetLocalDiskOutput(ctx *pulumi.Context, args GetLocalDiskOutputArgs, opts ...pulumi.InvokeOption) GetLocalDiskResultOutput {
@@ -113,16 +113,16 @@ func (o GetLocalDiskResultOutput) ToGetLocalDiskResultOutputWithContext(ctx cont
 }
 
 // Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
-func (o GetLocalDiskResultOutput) DiskId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalDiskResult) string { return v.DiskId }).(pulumi.StringOutput)
+func (o GetLocalDiskResultOutput) DiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalDiskResult) *string { return v.DiskId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLocalDiskResultOutput) DiskNode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalDiskResult) string { return v.DiskNode }).(pulumi.StringOutput)
+func (o GetLocalDiskResultOutput) DiskNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalDiskResult) *string { return v.DiskNode }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLocalDiskResultOutput) DiskPath() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalDiskResult) string { return v.DiskPath }).(pulumi.StringOutput)
+func (o GetLocalDiskResultOutput) DiskPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalDiskResult) *string { return v.DiskPath }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLocalDiskResultOutput) GatewayArn() pulumi.StringOutput {
@@ -130,8 +130,8 @@ func (o GetLocalDiskResultOutput) GatewayArn() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLocalDiskResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalDiskResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocalDiskResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalDiskResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

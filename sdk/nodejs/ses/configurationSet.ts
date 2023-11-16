@@ -68,7 +68,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * SES configuration set ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether messages that use the configuration set are required to use TLS. See below.
      */
@@ -76,7 +76,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      */
-    public /*out*/ readonly lastFreshStart!: pulumi.Output<string>;
+    public /*out*/ readonly lastFreshStart!: pulumi.Output<string | undefined>;
     /**
      * Name of the configuration set.
      *

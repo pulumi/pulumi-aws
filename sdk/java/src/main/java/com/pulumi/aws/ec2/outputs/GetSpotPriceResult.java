@@ -19,18 +19,18 @@ public final class GetSpotPriceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String instanceType;
     /**
      * @return Most recent Spot Price value for the given instance type and AZ.
      * 
      */
-    private String spotPrice;
+    private @Nullable String spotPrice;
     /**
      * @return The timestamp at which the Spot Price value was published.
      * 
      */
-    private String spotPriceTimestamp;
+    private @Nullable String spotPriceTimestamp;
 
     private GetSpotPriceResult() {}
     public Optional<String> availabilityZone() {
@@ -43,8 +43,8 @@ public final class GetSpotPriceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
@@ -53,15 +53,15 @@ public final class GetSpotPriceResult {
      * @return Most recent Spot Price value for the given instance type and AZ.
      * 
      */
-    public String spotPrice() {
-        return this.spotPrice;
+    public Optional<String> spotPrice() {
+        return Optional.ofNullable(this.spotPrice);
     }
     /**
      * @return The timestamp at which the Spot Price value was published.
      * 
      */
-    public String spotPriceTimestamp() {
-        return this.spotPriceTimestamp;
+    public Optional<String> spotPriceTimestamp() {
+        return Optional.ofNullable(this.spotPriceTimestamp);
     }
 
     public static Builder builder() {
@@ -75,10 +75,10 @@ public final class GetSpotPriceResult {
     public static final class Builder {
         private @Nullable String availabilityZone;
         private @Nullable List<GetSpotPriceFilter> filters;
-        private String id;
+        private @Nullable String id;
         private @Nullable String instanceType;
-        private String spotPrice;
-        private String spotPriceTimestamp;
+        private @Nullable String spotPrice;
+        private @Nullable String spotPriceTimestamp;
         public Builder() {}
         public Builder(GetSpotPriceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,8 +104,8 @@ public final class GetSpotPriceResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -114,13 +114,13 @@ public final class GetSpotPriceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder spotPrice(String spotPrice) {
-            this.spotPrice = Objects.requireNonNull(spotPrice);
+        public Builder spotPrice(@Nullable String spotPrice) {
+            this.spotPrice = spotPrice;
             return this;
         }
         @CustomType.Setter
-        public Builder spotPriceTimestamp(String spotPriceTimestamp) {
-            this.spotPriceTimestamp = Objects.requireNonNull(spotPriceTimestamp);
+        public Builder spotPriceTimestamp(@Nullable String spotPriceTimestamp) {
+            this.spotPriceTimestamp = spotPriceTimestamp;
             return this;
         }
         public GetSpotPriceResult build() {

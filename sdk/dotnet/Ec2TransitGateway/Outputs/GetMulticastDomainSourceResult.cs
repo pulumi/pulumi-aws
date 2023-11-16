@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
         /// </summary>
-        public readonly string GroupIpAddress;
+        public readonly string? GroupIpAddress;
         /// <summary>
         /// The group members' network interface ID.
         /// </summary>
-        public readonly string NetworkInterfaceId;
+        public readonly string? NetworkInterfaceId;
 
         [OutputConstructor]
         private GetMulticastDomainSourceResult(
-            string groupIpAddress,
+            string? groupIpAddress,
 
-            string networkInterfaceId)
+            string? networkInterfaceId)
         {
             GroupIpAddress = groupIpAddress;
             NetworkInterfaceId = networkInterfaceId;

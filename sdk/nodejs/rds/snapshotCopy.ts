@@ -74,11 +74,11 @@ export class SnapshotCopy extends pulumi.CustomResource {
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
-    public /*out*/ readonly allocatedStorage!: pulumi.Output<number>;
+    public /*out*/ readonly allocatedStorage!: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      */
-    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * Whether to copy existing tags. Defaults to `false`.
      */
@@ -86,7 +86,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the DB snapshot.
      */
-    public /*out*/ readonly dbSnapshotArn!: pulumi.Output<string>;
+    public /*out*/ readonly dbSnapshotArn!: pulumi.Output<string | undefined>;
     /**
      * The Destination region to place snapshot copy.
      */
@@ -94,19 +94,19 @@ export class SnapshotCopy extends pulumi.CustomResource {
     /**
      * Specifies whether the DB snapshot is encrypted.
      */
-    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
+    public /*out*/ readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the database engine.
      */
-    public /*out*/ readonly engine!: pulumi.Output<string>;
+    public /*out*/ readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Specifies the version of the database engine.
      */
-    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      */
-    public /*out*/ readonly iops!: pulumi.Output<number>;
+    public /*out*/ readonly iops!: pulumi.Output<number | undefined>;
     /**
      * KMS key ID.
      */
@@ -114,17 +114,17 @@ export class SnapshotCopy extends pulumi.CustomResource {
     /**
      * License model information for the restored DB instance.
      */
-    public /*out*/ readonly licenseModel!: pulumi.Output<string>;
+    public /*out*/ readonly licenseModel!: pulumi.Output<string | undefined>;
     /**
      * The name of an option group to associate with the copy of the snapshot.
      */
-    public readonly optionGroupName!: pulumi.Output<string>;
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    public readonly optionGroupName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
     /**
      * he URL that contains a Signature Version 4 signed request.
      */
     public readonly presignedUrl!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly snapshotType!: pulumi.Output<string>;
+    public /*out*/ readonly snapshotType!: pulumi.Output<string | undefined>;
     /**
      * Snapshot identifier of the source snapshot.
      */
@@ -132,11 +132,11 @@ export class SnapshotCopy extends pulumi.CustomResource {
     /**
      * The region that the DB snapshot was created in or copied from.
      */
-    public /*out*/ readonly sourceRegion!: pulumi.Output<string>;
+    public /*out*/ readonly sourceRegion!: pulumi.Output<string | undefined>;
     /**
      * Specifies the storage type associated with DB snapshot.
      */
-    public /*out*/ readonly storageType!: pulumi.Output<string>;
+    public /*out*/ readonly storageType!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -158,7 +158,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
     /**
      * Provides the VPC ID associated with the DB snapshot.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SnapshotCopy resource with the given unique name, arguments, and options.

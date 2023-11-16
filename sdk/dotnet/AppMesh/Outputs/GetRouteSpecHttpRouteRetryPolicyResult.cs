@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetRouteSpecHttpRouteRetryPolicyResult
     {
         public readonly ImmutableArray<string> HttpRetryEvents;
-        public readonly int MaxRetries;
+        public readonly int? MaxRetries;
         public readonly ImmutableArray<Outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult> PerRetryTimeouts;
         public readonly ImmutableArray<string> TcpRetryEvents;
 
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         private GetRouteSpecHttpRouteRetryPolicyResult(
             ImmutableArray<string> httpRetryEvents,
 
-            int maxRetries,
+            int? maxRetries,
 
             ImmutableArray<Outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult> perRetryTimeouts,
 

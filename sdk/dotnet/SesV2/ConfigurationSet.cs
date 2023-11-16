@@ -70,7 +70,7 @@ namespace Pulumi.Aws.SesV2
         /// ARN of the Configuration Set.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the configuration set.
@@ -88,13 +88,13 @@ namespace Pulumi.Aws.SesV2
         /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         /// </summary>
         [Output("reputationOptions")]
-        public Output<Outputs.ConfigurationSetReputationOptions> ReputationOptions { get; private set; } = null!;
+        public Output<Outputs.ConfigurationSetReputationOptions?> ReputationOptions { get; private set; } = null!;
 
         /// <summary>
         /// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         /// </summary>
         [Output("sendingOptions")]
-        public Output<Outputs.ConfigurationSetSendingOptions> SendingOptions { get; private set; } = null!;
+        public Output<Outputs.ConfigurationSetSendingOptions?> SendingOptions { get; private set; } = null!;
 
         /// <summary>
         /// An object that contains information about the suppression list preferences for your account.

@@ -13,17 +13,17 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class GetWindowsFileSystemAuditLogConfigurationResult
     {
-        public readonly string AuditLogDestination;
-        public readonly string FileAccessAuditLogLevel;
-        public readonly string FileShareAccessAuditLogLevel;
+        public readonly string? AuditLogDestination;
+        public readonly string? FileAccessAuditLogLevel;
+        public readonly string? FileShareAccessAuditLogLevel;
 
         [OutputConstructor]
         private GetWindowsFileSystemAuditLogConfigurationResult(
-            string auditLogDestination,
+            string? auditLogDestination,
 
-            string fileAccessAuditLogLevel,
+            string? fileAccessAuditLogLevel,
 
-            string fileShareAccessAuditLogLevel)
+            string? fileShareAccessAuditLogLevel)
         {
             AuditLogDestination = auditLogDestination;
             FileAccessAuditLogLevel = fileAccessAuditLogLevel;

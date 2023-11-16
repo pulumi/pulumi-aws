@@ -61,9 +61,9 @@ type Agreement struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringOutput `pulumi:"accessRole"`
 	// The unique identifier for the AS2 agreement.
-	AgreementId pulumi.StringOutput `pulumi:"agreementId"`
+	AgreementId pulumi.StringPtrOutput `pulumi:"agreementId"`
 	// The ARN of the agreement.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The landing directory for the files transferred by using the AS2 protocol.
 	BaseDirectory pulumi.StringOutput `pulumi:"baseDirectory"`
 	// The Optional description of the transdfer.
@@ -73,8 +73,8 @@ type Agreement struct {
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringOutput `pulumi:"partnerProfileId"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
-	ServerId pulumi.StringOutput `pulumi:"serverId"`
-	Status   pulumi.StringOutput `pulumi:"status"`
+	ServerId pulumi.StringOutput    `pulumi:"serverId"`
+	Status   pulumi.StringPtrOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -309,13 +309,13 @@ func (o AgreementOutput) AccessRole() pulumi.StringOutput {
 }
 
 // The unique identifier for the AS2 agreement.
-func (o AgreementOutput) AgreementId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.AgreementId }).(pulumi.StringOutput)
+func (o AgreementOutput) AgreementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringPtrOutput { return v.AgreementId }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the agreement.
-func (o AgreementOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AgreementOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The landing directory for the files transferred by using the AS2 protocol.
@@ -343,8 +343,8 @@ func (o AgreementOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }
 
-func (o AgreementOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o AgreementOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

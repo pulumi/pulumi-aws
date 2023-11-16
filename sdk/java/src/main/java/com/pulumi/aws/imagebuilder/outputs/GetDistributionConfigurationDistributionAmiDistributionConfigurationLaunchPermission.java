@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
@@ -14,22 +15,22 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
      * @return Set of AWS Organization ARNs.
      * 
      */
-    private List<String> organizationArns;
+    private @Nullable List<String> organizationArns;
     /**
      * @return Set of AWS Organizational Unit ARNs.
      * 
      */
-    private List<String> organizationalUnitArns;
+    private @Nullable List<String> organizationalUnitArns;
     /**
      * @return Set of EC2 launch permission user groups.
      * 
      */
-    private List<String> userGroups;
+    private @Nullable List<String> userGroups;
     /**
      * @return Set of AWS Account identifiers.
      * 
      */
-    private List<String> userIds;
+    private @Nullable List<String> userIds;
 
     private GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission() {}
     /**
@@ -37,28 +38,28 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
      * 
      */
     public List<String> organizationArns() {
-        return this.organizationArns;
+        return this.organizationArns == null ? List.of() : this.organizationArns;
     }
     /**
      * @return Set of AWS Organizational Unit ARNs.
      * 
      */
     public List<String> organizationalUnitArns() {
-        return this.organizationalUnitArns;
+        return this.organizationalUnitArns == null ? List.of() : this.organizationalUnitArns;
     }
     /**
      * @return Set of EC2 launch permission user groups.
      * 
      */
     public List<String> userGroups() {
-        return this.userGroups;
+        return this.userGroups == null ? List.of() : this.userGroups;
     }
     /**
      * @return Set of AWS Account identifiers.
      * 
      */
     public List<String> userIds() {
-        return this.userIds;
+        return this.userIds == null ? List.of() : this.userIds;
     }
 
     public static Builder builder() {
@@ -70,10 +71,10 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> organizationArns;
-        private List<String> organizationalUnitArns;
-        private List<String> userGroups;
-        private List<String> userIds;
+        private @Nullable List<String> organizationArns;
+        private @Nullable List<String> organizationalUnitArns;
+        private @Nullable List<String> userGroups;
+        private @Nullable List<String> userIds;
         public Builder() {}
         public Builder(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,32 +85,32 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
         }
 
         @CustomType.Setter
-        public Builder organizationArns(List<String> organizationArns) {
-            this.organizationArns = Objects.requireNonNull(organizationArns);
+        public Builder organizationArns(@Nullable List<String> organizationArns) {
+            this.organizationArns = organizationArns;
             return this;
         }
         public Builder organizationArns(String... organizationArns) {
             return organizationArns(List.of(organizationArns));
         }
         @CustomType.Setter
-        public Builder organizationalUnitArns(List<String> organizationalUnitArns) {
-            this.organizationalUnitArns = Objects.requireNonNull(organizationalUnitArns);
+        public Builder organizationalUnitArns(@Nullable List<String> organizationalUnitArns) {
+            this.organizationalUnitArns = organizationalUnitArns;
             return this;
         }
         public Builder organizationalUnitArns(String... organizationalUnitArns) {
             return organizationalUnitArns(List.of(organizationalUnitArns));
         }
         @CustomType.Setter
-        public Builder userGroups(List<String> userGroups) {
-            this.userGroups = Objects.requireNonNull(userGroups);
+        public Builder userGroups(@Nullable List<String> userGroups) {
+            this.userGroups = userGroups;
             return this;
         }
         public Builder userGroups(String... userGroups) {
             return userGroups(List.of(userGroups));
         }
         @CustomType.Setter
-        public Builder userIds(List<String> userIds) {
-            this.userIds = Objects.requireNonNull(userIds);
+        public Builder userIds(@Nullable List<String> userIds) {
+            this.userIds = userIds;
             return this;
         }
         public Builder userIds(String... userIds) {

@@ -209,7 +209,7 @@ import (
 //				PlatformCapabilities: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
 //				},
-//				ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn *string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"command": []string{
@@ -262,7 +262,7 @@ type JobDefinition struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of the job definition.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
 	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
 	ContainerProperties pulumi.StringPtrOutput `pulumi:"containerProperties"`
@@ -281,7 +281,7 @@ type JobDefinition struct {
 	// Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
 	// The revision of the job definition.
-	Revision pulumi.IntOutput `pulumi:"revision"`
+	Revision pulumi.IntPtrOutput `pulumi:"revision"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -553,8 +553,8 @@ func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Contex
 }
 
 // The Amazon Resource Name of the job definition.
-func (o JobDefinitionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o JobDefinitionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -596,8 +596,8 @@ func (o JobDefinitionOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput
 }
 
 // The revision of the job definition.
-func (o JobDefinitionOutput) Revision() pulumi.IntOutput {
-	return o.ApplyT(func(v *JobDefinition) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
+func (o JobDefinitionOutput) Revision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.IntPtrOutput { return v.Revision }).(pulumi.IntPtrOutput)
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -278,7 +278,7 @@ class GroupMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="membershipId")
-    def membership_id(self) -> pulumi.Output[str]:
+    def membership_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the newly created group membership in the Identity Store.
         """

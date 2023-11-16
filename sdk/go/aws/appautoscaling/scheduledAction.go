@@ -103,7 +103,7 @@ type ScheduledAction struct {
 	pulumi.CustomResourceState
 
 	// ARN of the scheduled action.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
 	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
 	// Name of the scheduled action.
@@ -349,8 +349,8 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 }
 
 // ARN of the scheduled action.
-func (o ScheduledActionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ScheduledActionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.

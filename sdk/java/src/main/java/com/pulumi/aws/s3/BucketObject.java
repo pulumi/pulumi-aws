@@ -274,14 +274,14 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bucketKeyEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> bucketKeyEnabled;
+    private Output</* @Nullable */ Boolean> bucketKeyEnabled;
 
     /**
      * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
-    public Output<Boolean> bucketKeyEnabled() {
-        return this.bucketKeyEnabled;
+    public Output<Optional<Boolean>> bucketKeyEnabled() {
+        return Codegen.optional(this.bucketKeyEnabled);
     }
     /**
      * Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -372,28 +372,28 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="contentType", refs={String.class}, tree="[0]")
-    private Output<String> contentType;
+    private Output</* @Nullable */ String> contentType;
 
     /**
      * @return Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      * 
      */
-    public Output<String> contentType() {
-        return this.contentType;
+    public Output<Optional<String>> contentType() {
+        return Codegen.optional(this.contentType);
     }
     /**
      * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
@@ -432,14 +432,14 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -502,14 +502,14 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serverSideEncryption", refs={String.class}, tree="[0]")
-    private Output<String> serverSideEncryption;
+    private Output</* @Nullable */ String> serverSideEncryption;
 
     /**
      * @return Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
      * 
      */
-    public Output<String> serverSideEncryption() {
-        return this.serverSideEncryption;
+    public Output<Optional<String>> serverSideEncryption() {
+        return Codegen.optional(this.serverSideEncryption);
     }
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -544,14 +544,14 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageClass", refs={String.class}, tree="[0]")
-    private Output<String> storageClass;
+    private Output</* @Nullable */ String> storageClass;
 
     /**
      * @return [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to &#34;`STANDARD`&#34;.
      * 
      */
-    public Output<String> storageClass() {
-        return this.storageClass;
+    public Output<Optional<String>> storageClass() {
+        return Codegen.optional(this.storageClass);
     }
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -590,14 +590,14 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionId", refs={String.class}, tree="[0]")
-    private Output<String> versionId;
+    private Output</* @Nullable */ String> versionId;
 
     /**
      * @return Unique version ID value for the object, if bucket versioning is enabled.
      * 
      */
-    public Output<String> versionId() {
-        return this.versionId;
+    public Output<Optional<String>> versionId() {
+        return Codegen.optional(this.versionId);
     }
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).

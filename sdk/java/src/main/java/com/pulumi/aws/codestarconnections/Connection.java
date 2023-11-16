@@ -101,28 +101,28 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The codestar connection ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
     @Export(name="connectionStatus", refs={String.class}, tree="[0]")
-    private Output<String> connectionStatus;
+    private Output</* @Nullable */ String> connectionStatus;
 
     /**
      * @return The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
-    public Output<String> connectionStatus() {
-        return this.connectionStatus;
+    public Output<Optional<String>> connectionStatus() {
+        return Codegen.optional(this.connectionStatus);
     }
     /**
      * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
@@ -157,14 +157,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="providerType", refs={String.class}, tree="[0]")
-    private Output<String> providerType;
+    private Output</* @Nullable */ String> providerType;
 
     /**
      * @return The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
      * 
      */
-    public Output<String> providerType() {
-        return this.providerType;
+    public Output<Optional<String>> providerType() {
+        return Codegen.optional(this.providerType);
     }
     /**
      * Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

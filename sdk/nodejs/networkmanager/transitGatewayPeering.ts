@@ -58,11 +58,11 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
     /**
      * Peering Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the core network.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of a core network.
      */
@@ -70,19 +70,19 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
     /**
      * The edge location for the peer.
      */
-    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    public /*out*/ readonly edgeLocation!: pulumi.Output<string | undefined>;
     /**
      * The ID of the account owner.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string | undefined>;
     /**
      * The type of peering. This will be `TRANSIT_GATEWAY`.
      */
-    public /*out*/ readonly peeringType!: pulumi.Output<string>;
+    public /*out*/ readonly peeringType!: pulumi.Output<string | undefined>;
     /**
      * The resource ARN of the peer.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -100,7 +100,7 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
     /**
      * The ID of the transit gateway peering attachment.
      */
-    public /*out*/ readonly transitGatewayPeeringAttachmentId!: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayPeeringAttachmentId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a TransitGatewayPeering resource with the given unique name, arguments, and options.

@@ -62,7 +62,7 @@ import (
 //				Principal: aws_iam_role.Workflow_role.Arn,
 //				Database: lakeformation.GetPermissionsDatabase{
 //					Name:      aws_glue_catalog_database.Test.Name,
-//					CatalogId: "110376042874",
+//					CatalogId: pulumi.StringRef("110376042874"),
 //				},
 //			}, nil)
 //			if err != nil {
@@ -154,21 +154,21 @@ type LookupPermissionsArgs struct {
 
 // A collection of values returned by getPermissions.
 type LookupPermissionsResult struct {
-	CatalogId       *string                    `pulumi:"catalogId"`
-	CatalogResource *bool                      `pulumi:"catalogResource"`
-	DataLocation    GetPermissionsDataLocation `pulumi:"dataLocation"`
-	Database        GetPermissionsDatabase     `pulumi:"database"`
+	CatalogId       *string                     `pulumi:"catalogId"`
+	CatalogResource *bool                       `pulumi:"catalogResource"`
+	DataLocation    *GetPermissionsDataLocation `pulumi:"dataLocation"`
+	Database        *GetPermissionsDatabase     `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string                    `pulumi:"id"`
-	LfTag       GetPermissionsLfTag       `pulumi:"lfTag"`
-	LfTagPolicy GetPermissionsLfTagPolicy `pulumi:"lfTagPolicy"`
+	Id          *string                    `pulumi:"id"`
+	LfTag       *GetPermissionsLfTag       `pulumi:"lfTag"`
+	LfTagPolicy *GetPermissionsLfTagPolicy `pulumi:"lfTagPolicy"`
 	// List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions []string `pulumi:"permissions"`
 	// Subset of `permissions` which the principal can pass.
-	PermissionsWithGrantOptions []string                       `pulumi:"permissionsWithGrantOptions"`
-	Principal                   string                         `pulumi:"principal"`
-	Table                       GetPermissionsTable            `pulumi:"table"`
-	TableWithColumns            GetPermissionsTableWithColumns `pulumi:"tableWithColumns"`
+	PermissionsWithGrantOptions []string                        `pulumi:"permissionsWithGrantOptions"`
+	Principal                   string                          `pulumi:"principal"`
+	Table                       *GetPermissionsTable            `pulumi:"table"`
+	TableWithColumns            *GetPermissionsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
 func LookupPermissionsOutput(ctx *pulumi.Context, args LookupPermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionsResultOutput {
@@ -237,25 +237,25 @@ func (o LookupPermissionsResultOutput) CatalogResource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPermissionsResult) *bool { return v.CatalogResource }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupPermissionsResultOutput) DataLocation() GetPermissionsDataLocationOutput {
-	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsDataLocation { return v.DataLocation }).(GetPermissionsDataLocationOutput)
+func (o LookupPermissionsResultOutput) DataLocation() GetPermissionsDataLocationPtrOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) *GetPermissionsDataLocation { return v.DataLocation }).(GetPermissionsDataLocationPtrOutput)
 }
 
-func (o LookupPermissionsResultOutput) Database() GetPermissionsDatabaseOutput {
-	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsDatabase { return v.Database }).(GetPermissionsDatabaseOutput)
+func (o LookupPermissionsResultOutput) Database() GetPermissionsDatabasePtrOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) *GetPermissionsDatabase { return v.Database }).(GetPermissionsDatabasePtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupPermissionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPermissionsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupPermissionsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPermissionsResultOutput) LfTag() GetPermissionsLfTagOutput {
-	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsLfTag { return v.LfTag }).(GetPermissionsLfTagOutput)
+func (o LookupPermissionsResultOutput) LfTag() GetPermissionsLfTagPtrOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) *GetPermissionsLfTag { return v.LfTag }).(GetPermissionsLfTagPtrOutput)
 }
 
-func (o LookupPermissionsResultOutput) LfTagPolicy() GetPermissionsLfTagPolicyOutput {
-	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsLfTagPolicy { return v.LfTagPolicy }).(GetPermissionsLfTagPolicyOutput)
+func (o LookupPermissionsResultOutput) LfTagPolicy() GetPermissionsLfTagPolicyPtrOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) *GetPermissionsLfTagPolicy { return v.LfTagPolicy }).(GetPermissionsLfTagPolicyPtrOutput)
 }
 
 // List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -272,12 +272,12 @@ func (o LookupPermissionsResultOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionsResult) string { return v.Principal }).(pulumi.StringOutput)
 }
 
-func (o LookupPermissionsResultOutput) Table() GetPermissionsTableOutput {
-	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsTable { return v.Table }).(GetPermissionsTableOutput)
+func (o LookupPermissionsResultOutput) Table() GetPermissionsTablePtrOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) *GetPermissionsTable { return v.Table }).(GetPermissionsTablePtrOutput)
 }
 
-func (o LookupPermissionsResultOutput) TableWithColumns() GetPermissionsTableWithColumnsOutput {
-	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsTableWithColumns { return v.TableWithColumns }).(GetPermissionsTableWithColumnsOutput)
+func (o LookupPermissionsResultOutput) TableWithColumns() GetPermissionsTableWithColumnsPtrOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) *GetPermissionsTableWithColumns { return v.TableWithColumns }).(GetPermissionsTableWithColumnsPtrOutput)
 }
 
 func init() {

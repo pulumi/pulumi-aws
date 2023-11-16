@@ -418,28 +418,28 @@ public class Launch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the launch.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The date and time that the launch is created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return The date and time that the launch is created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Specifies the description of the launch.
@@ -460,14 +460,14 @@ public class Launch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="executions", refs={List.class,LaunchExecution.class}, tree="[0,1]")
-    private Output<List<LaunchExecution>> executions;
+    private Output</* @Nullable */ List<LaunchExecution>> executions;
 
     /**
      * @return A block that contains information about the start and end times of the launch. Detailed below
      * 
      */
-    public Output<List<LaunchExecution>> executions() {
-        return this.executions;
+    public Output<Optional<List<LaunchExecution>>> executions() {
+        return Codegen.optional(this.executions);
     }
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
@@ -488,14 +488,14 @@ public class Launch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
+    private Output</* @Nullable */ String> lastUpdatedTime;
 
     /**
      * @return The date and time that the launch was most recently updated.
      * 
      */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
+    public Output<Optional<String>> lastUpdatedTime() {
+        return Codegen.optional(this.lastUpdatedTime);
     }
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
@@ -572,28 +572,28 @@ public class Launch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
      * 
      */
     @Export(name="statusReason", refs={String.class}, tree="[0]")
-    private Output<String> statusReason;
+    private Output</* @Nullable */ String> statusReason;
 
     /**
      * @return If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
      * 
      */
-    public Output<String> statusReason() {
-        return this.statusReason;
+    public Output<Optional<String>> statusReason() {
+        return Codegen.optional(this.statusReason);
     }
     /**
      * Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -632,14 +632,14 @@ public class Launch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return The type of launch.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

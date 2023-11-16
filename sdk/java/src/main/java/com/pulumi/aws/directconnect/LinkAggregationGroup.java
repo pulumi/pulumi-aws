@@ -70,14 +70,14 @@ public class LinkAggregationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the LAG.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ID of an existing dedicated connection to migrate to the LAG.
@@ -126,28 +126,28 @@ public class LinkAggregationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hasLogicalRedundancy", refs={String.class}, tree="[0]")
-    private Output<String> hasLogicalRedundancy;
+    private Output</* @Nullable */ String> hasLogicalRedundancy;
 
     /**
      * @return Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    public Output<String> hasLogicalRedundancy() {
-        return this.hasLogicalRedundancy;
+    public Output<Optional<String>> hasLogicalRedundancy() {
+        return Codegen.optional(this.hasLogicalRedundancy);
     }
     /**
      * Indicates whether jumbo frames (9001 MTU) are supported.
      * 
      */
     @Export(name="jumboFrameCapable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> jumboFrameCapable;
+    private Output</* @Nullable */ Boolean> jumboFrameCapable;
 
     /**
      * @return Indicates whether jumbo frames (9001 MTU) are supported.
      * 
      */
-    public Output<Boolean> jumboFrameCapable() {
-        return this.jumboFrameCapable;
+    public Output<Optional<Boolean>> jumboFrameCapable() {
+        return Codegen.optional(this.jumboFrameCapable);
     }
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
@@ -182,28 +182,28 @@ public class LinkAggregationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> ownerAccountId;
+    private Output</* @Nullable */ String> ownerAccountId;
 
     /**
      * @return The ID of the AWS account that owns the LAG.
      * 
      */
-    public Output<String> ownerAccountId() {
-        return this.ownerAccountId;
+    public Output<Optional<String>> ownerAccountId() {
+        return Codegen.optional(this.ownerAccountId);
     }
     /**
      * The name of the service provider associated with the LAG.
      * 
      */
     @Export(name="providerName", refs={String.class}, tree="[0]")
-    private Output<String> providerName;
+    private Output</* @Nullable */ String> providerName;
 
     /**
      * @return The name of the service provider associated with the LAG.
      * 
      */
-    public Output<String> providerName() {
-        return this.providerName;
+    public Output<Optional<String>> providerName() {
+        return Codegen.optional(this.providerName);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

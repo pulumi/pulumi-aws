@@ -120,20 +120,20 @@ export class Listener extends pulumi.CustomResource {
     /**
      * ARN of the listener.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Date and time that the listener was created, specified in ISO-8601 format.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * Default action block for the default listener rule. Default action blocks are defined below.
      */
     public readonly defaultAction!: pulumi.Output<outputs.vpclattice.ListenerDefaultAction>;
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string | undefined>;
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
      */
-    public /*out*/ readonly listenerId!: pulumi.Output<string>;
+    public /*out*/ readonly listenerId!: pulumi.Output<string | undefined>;
     /**
      * Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
@@ -141,7 +141,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
      */
-    public readonly port!: pulumi.Output<number>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * Protocol for the listener. Supported values are `HTTP` or `HTTPS`
      */
@@ -149,12 +149,12 @@ export class Listener extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      */
-    public readonly serviceArn!: pulumi.Output<string>;
+    public readonly serviceArn!: pulumi.Output<string | undefined>;
     /**
      * ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
      */
-    public readonly serviceIdentifier!: pulumi.Output<string>;
+    public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

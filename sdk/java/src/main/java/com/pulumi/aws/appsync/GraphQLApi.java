@@ -43,14 +43,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
@@ -173,14 +173,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uris", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> uris;
+    private Output</* @Nullable */ Map<String,String>> uris;
 
     /**
      * @return Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      * 
      */
-    public Output<Map<String,String>> uris() {
-        return this.uris;
+    public Output<Optional<Map<String,String>>> uris() {
+        return Codegen.optional(this.uris);
     }
     /**
      * Amazon Cognito User Pool configuration. Defined below.

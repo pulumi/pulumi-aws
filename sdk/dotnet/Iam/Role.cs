@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Iam
         /// Amazon Resource Name (ARN) specifying the role.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Iam
         /// Creation date of the IAM role.
         /// </summary>
         [Output("createDate")]
-        public Output<string> CreateDate { get; private set; } = null!;
+        public Output<string?> CreateDate { get; private set; } = null!;
 
         /// <summary>
         /// Description of the role.
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.Iam
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -375,7 +375,7 @@ namespace Pulumi.Aws.Iam
         /// Stable and unique string identifying the role.
         /// </summary>
         [Output("uniqueId")]
-        public Output<string> UniqueId { get; private set; } = null!;
+        public Output<string?> UniqueId { get; private set; } = null!;
 
 
         /// <summary>

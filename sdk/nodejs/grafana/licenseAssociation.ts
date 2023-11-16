@@ -76,11 +76,11 @@ export class LicenseAssociation extends pulumi.CustomResource {
     /**
      * If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      */
-    public /*out*/ readonly freeTrialExpiration!: pulumi.Output<string>;
+    public /*out*/ readonly freeTrialExpiration!: pulumi.Output<string | undefined>;
     /**
      * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      */
-    public /*out*/ readonly licenseExpiration!: pulumi.Output<string>;
+    public /*out*/ readonly licenseExpiration!: pulumi.Output<string | undefined>;
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      */

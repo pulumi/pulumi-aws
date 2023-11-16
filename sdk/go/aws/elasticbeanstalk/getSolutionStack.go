@@ -67,11 +67,11 @@ type GetSolutionStackArgs struct {
 // A collection of values returned by getSolutionStack.
 type GetSolutionStackResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	MostRecent *bool  `pulumi:"mostRecent"`
+	Id         *string `pulumi:"id"`
+	MostRecent *bool   `pulumi:"mostRecent"`
 	// Name of the solution stack.
-	Name      string `pulumi:"name"`
-	NameRegex string `pulumi:"nameRegex"`
+	Name      *string `pulumi:"name"`
+	NameRegex string  `pulumi:"nameRegex"`
 }
 
 func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs, opts ...pulumi.InvokeOption) GetSolutionStackResultOutput {
@@ -122,8 +122,8 @@ func (o GetSolutionStackResultOutput) ToGetSolutionStackResultOutputWithContext(
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSolutionStackResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSolutionStackResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSolutionStackResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSolutionStackResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSolutionStackResultOutput) MostRecent() pulumi.BoolPtrOutput {
@@ -131,8 +131,8 @@ func (o GetSolutionStackResultOutput) MostRecent() pulumi.BoolPtrOutput {
 }
 
 // Name of the solution stack.
-func (o GetSolutionStackResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSolutionStackResult) string { return v.Name }).(pulumi.StringOutput)
+func (o GetSolutionStackResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSolutionStackResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSolutionStackResultOutput) NameRegex() pulumi.StringOutput {

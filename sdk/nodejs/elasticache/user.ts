@@ -103,11 +103,11 @@ export class User extends pulumi.CustomResource {
     /**
      * The ARN of the created ElastiCache User.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Denotes the user's authentication properties. Detailed below.
      */
-    public readonly authenticationMode!: pulumi.Output<outputs.elasticache.UserAuthenticationMode>;
+    public readonly authenticationMode!: pulumi.Output<outputs.elasticache.UserAuthenticationMode | undefined>;
     /**
      * The current supported value is `REDIS`.
      */

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterOutpostConfig {
@@ -15,39 +17,39 @@ public final class GetClusterOutpostConfig {
      * @return The Amazon EC2 instance type for all Kubernetes control plane instances.
      * 
      */
-    private String controlPlaneInstanceType;
+    private @Nullable String controlPlaneInstanceType;
     /**
      * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
      * 
      */
-    private List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements;
+    private @Nullable List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements;
     /**
      * @return List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
      * 
      */
-    private List<String> outpostArns;
+    private @Nullable List<String> outpostArns;
 
     private GetClusterOutpostConfig() {}
     /**
      * @return The Amazon EC2 instance type for all Kubernetes control plane instances.
      * 
      */
-    public String controlPlaneInstanceType() {
-        return this.controlPlaneInstanceType;
+    public Optional<String> controlPlaneInstanceType() {
+        return Optional.ofNullable(this.controlPlaneInstanceType);
     }
     /**
      * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
      * 
      */
     public List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements() {
-        return this.controlPlanePlacements;
+        return this.controlPlanePlacements == null ? List.of() : this.controlPlanePlacements;
     }
     /**
      * @return List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
      * 
      */
     public List<String> outpostArns() {
-        return this.outpostArns;
+        return this.outpostArns == null ? List.of() : this.outpostArns;
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetClusterOutpostConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String controlPlaneInstanceType;
-        private List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements;
-        private List<String> outpostArns;
+        private @Nullable String controlPlaneInstanceType;
+        private @Nullable List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements;
+        private @Nullable List<String> outpostArns;
         public Builder() {}
         public Builder(GetClusterOutpostConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetClusterOutpostConfig {
         }
 
         @CustomType.Setter
-        public Builder controlPlaneInstanceType(String controlPlaneInstanceType) {
-            this.controlPlaneInstanceType = Objects.requireNonNull(controlPlaneInstanceType);
+        public Builder controlPlaneInstanceType(@Nullable String controlPlaneInstanceType) {
+            this.controlPlaneInstanceType = controlPlaneInstanceType;
             return this;
         }
         @CustomType.Setter
-        public Builder controlPlanePlacements(List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements) {
-            this.controlPlanePlacements = Objects.requireNonNull(controlPlanePlacements);
+        public Builder controlPlanePlacements(@Nullable List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements) {
+            this.controlPlanePlacements = controlPlanePlacements;
             return this;
         }
         public Builder controlPlanePlacements(GetClusterOutpostConfigControlPlanePlacement... controlPlanePlacements) {
             return controlPlanePlacements(List.of(controlPlanePlacements));
         }
         @CustomType.Setter
-        public Builder outpostArns(List<String> outpostArns) {
-            this.outpostArns = Objects.requireNonNull(outpostArns);
+        public Builder outpostArns(@Nullable List<String> outpostArns) {
+            this.outpostArns = outpostArns;
             return this;
         }
         public Builder outpostArns(String... outpostArns) {

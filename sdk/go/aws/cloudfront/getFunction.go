@@ -62,23 +62,23 @@ type LookupFunctionArgs struct {
 // A collection of values returned by getFunction.
 type LookupFunctionResult struct {
 	// ARN identifying your CloudFront Function.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Source code of the function
-	Code string `pulumi:"code"`
+	Code *string `pulumi:"code"`
 	// Comment.
-	Comment string `pulumi:"comment"`
+	Comment *string `pulumi:"comment"`
 	// ETag hash of the function
-	Etag string `pulumi:"etag"`
+	Etag *string `pulumi:"etag"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// When this resource was last modified.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	Name             string `pulumi:"name"`
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	Name             string  `pulumi:"name"`
 	// Identifier of the function's runtime.
-	Runtime string `pulumi:"runtime"`
-	Stage   string `pulumi:"stage"`
+	Runtime *string `pulumi:"runtime"`
+	Stage   string  `pulumi:"stage"`
 	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
@@ -122,33 +122,33 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 }
 
 // ARN identifying your CloudFront Function.
-func (o LookupFunctionResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Source code of the function
-func (o LookupFunctionResultOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Code }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
 // Comment.
-func (o LookupFunctionResultOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Comment }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // ETag hash of the function
-func (o LookupFunctionResultOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Etag }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupFunctionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // When this resource was last modified.
-func (o LookupFunctionResultOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFunctionResultOutput) Name() pulumi.StringOutput {
@@ -156,8 +156,8 @@ func (o LookupFunctionResultOutput) Name() pulumi.StringOutput {
 }
 
 // Identifier of the function's runtime.
-func (o LookupFunctionResultOutput) Runtime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Runtime }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFunctionResultOutput) Stage() pulumi.StringOutput {
@@ -165,8 +165,8 @@ func (o LookupFunctionResultOutput) Stage() pulumi.StringOutput {
 }
 
 // Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-func (o LookupFunctionResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFunctionResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupFunctionResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func init() {

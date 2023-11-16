@@ -15,26 +15,26 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         /// <summary>
         /// Group attribute for this SAML integration.
         /// </summary>
-        [Input("groupAttribute", required: true)]
-        public Input<string> GroupAttribute { get; set; } = null!;
+        [Input("groupAttribute")]
+        public Input<string>? GroupAttribute { get; set; }
 
         /// <summary>
         /// The XML IdP metadata file generated from your identity provider.
         /// </summary>
-        [Input("metadata", required: true)]
-        public Input<string> Metadata { get; set; } = null!;
+        [Input("metadata")]
+        public Input<string>? Metadata { get; set; }
 
         /// <summary>
         /// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         /// </summary>
-        [Input("sessionTimeout", required: true)]
-        public Input<int> SessionTimeout { get; set; } = null!;
+        [Input("sessionTimeout")]
+        public Input<int>? SessionTimeout { get; set; }
 
         /// <summary>
         /// User attribute for this SAML integration.
         /// </summary>
-        [Input("userAttribute", required: true)]
-        public Input<string> UserAttribute { get; set; } = null!;
+        [Input("userAttribute")]
+        public Input<string>? UserAttribute { get; set; }
 
         public GetServerlessSecurityConfigSamlOptionsInputArgs()
         {

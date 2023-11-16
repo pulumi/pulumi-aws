@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStateMachineVersionsResult {
@@ -14,21 +16,21 @@ public final class GetStateMachineVersionsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String statemachineArn;
     /**
      * @return ARN List identifying the statemachine versions.
      * 
      */
-    private List<String> statemachineVersions;
+    private @Nullable List<String> statemachineVersions;
 
     private GetStateMachineVersionsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String statemachineArn() {
         return this.statemachineArn;
@@ -38,7 +40,7 @@ public final class GetStateMachineVersionsResult {
      * 
      */
     public List<String> statemachineVersions() {
-        return this.statemachineVersions;
+        return this.statemachineVersions == null ? List.of() : this.statemachineVersions;
     }
 
     public static Builder builder() {
@@ -50,9 +52,9 @@ public final class GetStateMachineVersionsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private String statemachineArn;
-        private List<String> statemachineVersions;
+        private @Nullable List<String> statemachineVersions;
         public Builder() {}
         public Builder(GetStateMachineVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -62,8 +64,8 @@ public final class GetStateMachineVersionsResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -72,8 +74,8 @@ public final class GetStateMachineVersionsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder statemachineVersions(List<String> statemachineVersions) {
-            this.statemachineVersions = Objects.requireNonNull(statemachineVersions);
+        public Builder statemachineVersions(@Nullable List<String> statemachineVersions) {
+            this.statemachineVersions = statemachineVersions;
             return this;
         }
         public Builder statemachineVersions(String... statemachineVersions) {

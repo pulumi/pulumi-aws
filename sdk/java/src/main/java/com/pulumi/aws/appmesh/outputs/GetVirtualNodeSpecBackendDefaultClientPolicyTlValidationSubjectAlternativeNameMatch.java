@@ -7,14 +7,15 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch {
-    private List<String> exacts;
+    private @Nullable List<String> exacts;
 
     private GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch() {}
     public List<String> exacts() {
-        return this.exacts;
+        return this.exacts == null ? List.of() : this.exacts;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubje
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> exacts;
+        private @Nullable List<String> exacts;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubje
         }
 
         @CustomType.Setter
-        public Builder exacts(List<String> exacts) {
-            this.exacts = Objects.requireNonNull(exacts);
+        public Builder exacts(@Nullable List<String> exacts) {
+            this.exacts = exacts;
             return this;
         }
         public Builder exacts(String... exacts) {

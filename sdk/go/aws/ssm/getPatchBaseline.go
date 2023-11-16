@@ -100,25 +100,25 @@ type LookupPatchBaselineResult struct {
 	// List of explicitly approved patches for the baseline.
 	ApprovedPatches []string `pulumi:"approvedPatches"`
 	// The compliance level for approved patches.
-	ApprovedPatchesComplianceLevel string `pulumi:"approvedPatchesComplianceLevel"`
+	ApprovedPatchesComplianceLevel *string `pulumi:"approvedPatchesComplianceLevel"`
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-	ApprovedPatchesEnableNonSecurity bool  `pulumi:"approvedPatchesEnableNonSecurity"`
+	ApprovedPatchesEnableNonSecurity *bool `pulumi:"approvedPatchesEnableNonSecurity"`
 	DefaultBaseline                  *bool `pulumi:"defaultBaseline"`
 	// Description of the baseline.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// Set of global filters used to exclude patches from the baseline.
 	GlobalFilters []GetPatchBaselineGlobalFilter `pulumi:"globalFilters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The name specified to identify the patch source.
-	Name            string  `pulumi:"name"`
+	Name            *string `pulumi:"name"`
 	NamePrefix      *string `pulumi:"namePrefix"`
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	Owner           string  `pulumi:"owner"`
 	// List of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
 	// The action specified to take on patches included in the `rejectedPatches` list.
-	RejectedPatchesAction string `pulumi:"rejectedPatchesAction"`
+	RejectedPatchesAction *string `pulumi:"rejectedPatchesAction"`
 	// Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
 	Sources []GetPatchBaselineSource `pulumi:"sources"`
 }
@@ -178,13 +178,13 @@ func (o LookupPatchBaselineResultOutput) ApprovedPatches() pulumi.StringArrayOut
 }
 
 // The compliance level for approved patches.
-func (o LookupPatchBaselineResultOutput) ApprovedPatchesComplianceLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.ApprovedPatchesComplianceLevel }).(pulumi.StringOutput)
+func (o LookupPatchBaselineResultOutput) ApprovedPatchesComplianceLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *string { return v.ApprovedPatchesComplianceLevel }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-func (o LookupPatchBaselineResultOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupPatchBaselineResult) bool { return v.ApprovedPatchesEnableNonSecurity }).(pulumi.BoolOutput)
+func (o LookupPatchBaselineResultOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *bool { return v.ApprovedPatchesEnableNonSecurity }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupPatchBaselineResultOutput) DefaultBaseline() pulumi.BoolPtrOutput {
@@ -192,8 +192,8 @@ func (o LookupPatchBaselineResultOutput) DefaultBaseline() pulumi.BoolPtrOutput 
 }
 
 // Description of the baseline.
-func (o LookupPatchBaselineResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupPatchBaselineResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Set of global filters used to exclude patches from the baseline.
@@ -202,13 +202,13 @@ func (o LookupPatchBaselineResultOutput) GlobalFilters() GetPatchBaselineGlobalF
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupPatchBaselineResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupPatchBaselineResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The name specified to identify the patch source.
-func (o LookupPatchBaselineResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupPatchBaselineResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupPatchBaselineResultOutput) NamePrefix() pulumi.StringPtrOutput {
@@ -229,8 +229,8 @@ func (o LookupPatchBaselineResultOutput) RejectedPatches() pulumi.StringArrayOut
 }
 
 // The action specified to take on patches included in the `rejectedPatches` list.
-func (o LookupPatchBaselineResultOutput) RejectedPatchesAction() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.RejectedPatchesAction }).(pulumi.StringOutput)
+func (o LookupPatchBaselineResultOutput) RejectedPatchesAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *string { return v.RejectedPatchesAction }).(pulumi.StringPtrOutput)
 }
 
 // Information about the patches to use to update the managed nodes, including target operating systems and source repositories.

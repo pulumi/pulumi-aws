@@ -189,7 +189,7 @@ type Resolver struct {
 	// API ID for the GraphQL API.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Caching Config. See Caching Config.
 	CachingConfig ResolverCachingConfigPtrOutput `pulumi:"cachingConfig"`
 	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
@@ -472,8 +472,8 @@ func (o ResolverOutput) ApiId() pulumi.StringOutput {
 }
 
 // ARN
-func (o ResolverOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResolverOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Caching Config. See Caching Config.

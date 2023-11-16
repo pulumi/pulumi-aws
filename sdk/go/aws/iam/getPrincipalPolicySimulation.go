@@ -72,10 +72,10 @@ type LookupPrincipalPolicySimulationResult struct {
 	ActionNames             []string `pulumi:"actionNames"`
 	AdditionalPoliciesJsons []string `pulumi:"additionalPoliciesJsons"`
 	// `true` if all of the simulation results have decision "allowed", or `false` otherwise.
-	AllAllowed                       bool                                  `pulumi:"allAllowed"`
+	AllAllowed                       *bool                                 `pulumi:"allAllowed"`
 	CallerArn                        *string                               `pulumi:"callerArn"`
 	Contexts                         []GetPrincipalPolicySimulationContext `pulumi:"contexts"`
-	Id                               string                                `pulumi:"id"`
+	Id                               *string                               `pulumi:"id"`
 	PermissionsBoundaryPoliciesJsons []string                              `pulumi:"permissionsBoundaryPoliciesJsons"`
 	PolicySourceArn                  string                                `pulumi:"policySourceArn"`
 	ResourceArns                     []string                              `pulumi:"resourceArns"`
@@ -165,8 +165,8 @@ func (o LookupPrincipalPolicySimulationResultOutput) AdditionalPoliciesJsons() p
 }
 
 // `true` if all of the simulation results have decision "allowed", or `false` otherwise.
-func (o LookupPrincipalPolicySimulationResultOutput) AllAllowed() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupPrincipalPolicySimulationResult) bool { return v.AllAllowed }).(pulumi.BoolOutput)
+func (o LookupPrincipalPolicySimulationResultOutput) AllAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPrincipalPolicySimulationResult) *bool { return v.AllAllowed }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupPrincipalPolicySimulationResultOutput) CallerArn() pulumi.StringPtrOutput {
@@ -177,8 +177,8 @@ func (o LookupPrincipalPolicySimulationResultOutput) Contexts() GetPrincipalPoli
 	return o.ApplyT(func(v LookupPrincipalPolicySimulationResult) []GetPrincipalPolicySimulationContext { return v.Contexts }).(GetPrincipalPolicySimulationContextArrayOutput)
 }
 
-func (o LookupPrincipalPolicySimulationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPrincipalPolicySimulationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupPrincipalPolicySimulationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrincipalPolicySimulationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupPrincipalPolicySimulationResultOutput) PermissionsBoundaryPoliciesJsons() pulumi.StringArrayOutput {

@@ -180,36 +180,36 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Contents of the document.
         /// </summary>
-        public readonly string Content;
+        public readonly string? Content;
         public readonly string? DocumentFormat;
         /// <summary>
         /// Type of the document.
         /// </summary>
-        public readonly string DocumentType;
+        public readonly string? DocumentType;
         public readonly string? DocumentVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
 
         [OutputConstructor]
         private GetDocumentResult(
-            string arn,
+            string? arn,
 
-            string content,
+            string? content,
 
             string? documentFormat,
 
-            string documentType,
+            string? documentType,
 
             string? documentVersion,
 
-            string id,
+            string? id,
 
             string name)
         {

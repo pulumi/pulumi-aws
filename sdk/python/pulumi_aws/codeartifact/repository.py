@@ -553,7 +553,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorAccount")
-    def administrator_account(self) -> pulumi.Output[str]:
+    def administrator_account(self) -> pulumi.Output[Optional[str]]:
         """
         The account number of the AWS account that manages the repository.
         """
@@ -561,7 +561,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the repository.
         """
@@ -585,7 +585,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> pulumi.Output[str]:
+    def domain_owner(self) -> pulumi.Output[Optional[str]]:
         """
         The account number of the AWS account that owns the domain.
         """

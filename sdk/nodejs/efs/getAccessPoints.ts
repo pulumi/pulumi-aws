@@ -43,16 +43,16 @@ export interface GetAccessPointsResult {
     /**
      * Set of Amazon Resource Names (ARNs).
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     readonly fileSystemId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of identifiers.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
 }
 /**
  * Provides information about multiple Elastic File System (EFS) Access Points.

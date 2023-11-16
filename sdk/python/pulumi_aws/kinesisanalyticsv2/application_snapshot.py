@@ -266,7 +266,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationVersionId")
-    def application_version_id(self) -> pulumi.Output[int]:
+    def application_version_id(self) -> pulumi.Output[Optional[int]]:
         """
         The current application version ID when the snapshot was created.
         """
@@ -274,7 +274,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotCreationTimestamp")
-    def snapshot_creation_timestamp(self) -> pulumi.Output[str]:
+    def snapshot_creation_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp of the application snapshot.
         """

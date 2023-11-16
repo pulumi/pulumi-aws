@@ -119,66 +119,66 @@ namespace Pulumi.Aws.Dms
     [OutputType]
     public sealed class GetEndpointResult
     {
-        public readonly string CertificateArn;
-        public readonly string DatabaseName;
+        public readonly string? CertificateArn;
+        public readonly string? DatabaseName;
         public readonly ImmutableArray<Outputs.GetEndpointElasticsearchSettingResult> ElasticsearchSettings;
-        public readonly string EndpointArn;
+        public readonly string? EndpointArn;
         public readonly string EndpointId;
-        public readonly string EndpointType;
-        public readonly string EngineName;
-        public readonly string ExtraConnectionAttributes;
+        public readonly string? EndpointType;
+        public readonly string? EngineName;
+        public readonly string? ExtraConnectionAttributes;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableArray<Outputs.GetEndpointKafkaSettingResult> KafkaSettings;
         public readonly ImmutableArray<Outputs.GetEndpointKinesisSettingResult> KinesisSettings;
-        public readonly string KmsKeyArn;
+        public readonly string? KmsKeyArn;
         public readonly ImmutableArray<Outputs.GetEndpointMongodbSettingResult> MongodbSettings;
-        public readonly string Password;
-        public readonly int Port;
+        public readonly string? Password;
+        public readonly int? Port;
         public readonly ImmutableArray<Outputs.GetEndpointRedisSettingResult> RedisSettings;
         public readonly ImmutableArray<Outputs.GetEndpointRedshiftSettingResult> RedshiftSettings;
         public readonly ImmutableArray<Outputs.GetEndpointS3SettingResult> S3Settings;
-        public readonly string SecretsManagerAccessRoleArn;
-        public readonly string SecretsManagerArn;
-        public readonly string ServerName;
-        public readonly string ServiceAccessRole;
-        public readonly string SslMode;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string Username;
+        public readonly string? SecretsManagerAccessRoleArn;
+        public readonly string? SecretsManagerArn;
+        public readonly string? ServerName;
+        public readonly string? ServiceAccessRole;
+        public readonly string? SslMode;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? Username;
 
         [OutputConstructor]
         private GetEndpointResult(
-            string certificateArn,
+            string? certificateArn,
 
-            string databaseName,
+            string? databaseName,
 
             ImmutableArray<Outputs.GetEndpointElasticsearchSettingResult> elasticsearchSettings,
 
-            string endpointArn,
+            string? endpointArn,
 
             string endpointId,
 
-            string endpointType,
+            string? endpointType,
 
-            string engineName,
+            string? engineName,
 
-            string extraConnectionAttributes,
+            string? extraConnectionAttributes,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetEndpointKafkaSettingResult> kafkaSettings,
 
             ImmutableArray<Outputs.GetEndpointKinesisSettingResult> kinesisSettings,
 
-            string kmsKeyArn,
+            string? kmsKeyArn,
 
             ImmutableArray<Outputs.GetEndpointMongodbSettingResult> mongodbSettings,
 
-            string password,
+            string? password,
 
-            int port,
+            int? port,
 
             ImmutableArray<Outputs.GetEndpointRedisSettingResult> redisSettings,
 
@@ -186,19 +186,19 @@ namespace Pulumi.Aws.Dms
 
             ImmutableArray<Outputs.GetEndpointS3SettingResult> s3Settings,
 
-            string secretsManagerAccessRoleArn,
+            string? secretsManagerAccessRoleArn,
 
-            string secretsManagerArn,
+            string? secretsManagerArn,
 
-            string serverName,
+            string? serverName,
 
-            string serviceAccessRole,
+            string? serviceAccessRole,
 
-            string sslMode,
+            string? sslMode,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string username)
+            string? username)
         {
             CertificateArn = certificateArn;
             DatabaseName = databaseName;

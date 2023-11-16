@@ -59,7 +59,7 @@ type SubnetCidrReservation struct {
 	// A brief description of the reservation.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ID of the AWS account that owns this CIDR reservation.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
 	// The type of reservation to create. Valid values: `explicit`, `prefix`
 	ReservationType pulumi.StringOutput `pulumi:"reservationType"`
 	// The ID of the subnet to create the reservation for.
@@ -255,8 +255,8 @@ func (o SubnetCidrReservationOutput) Description() pulumi.StringPtrOutput {
 }
 
 // ID of the AWS account that owns this CIDR reservation.
-func (o SubnetCidrReservationOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o SubnetCidrReservationOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // The type of reservation to create. Valid values: `explicit`, `prefix`

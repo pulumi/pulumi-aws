@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the work team.
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The subdomain for your OIDC Identity Provider.
         /// </summary>
         [Output("subdomain")]
-        public Output<string> Subdomain { get; private set; } = null!;
+        public Output<string?> Subdomain { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

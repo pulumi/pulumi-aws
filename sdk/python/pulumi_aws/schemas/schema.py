@@ -531,7 +531,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the discoverer.
         """
@@ -555,7 +555,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> pulumi.Output[str]:
+    def last_modified(self) -> pulumi.Output[Optional[str]]:
         """
         The last modified date of the schema.
         """
@@ -606,7 +606,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the schema.
         """
@@ -614,7 +614,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionCreatedDate")
-    def version_created_date(self) -> pulumi.Output[str]:
+    def version_created_date(self) -> pulumi.Output[Optional[str]]:
         """
         The created date of the version of the schema.
         """

@@ -128,68 +128,68 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// ARN of the connection.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Direct Connect endpoint on which the physical connection terminates.
         /// </summary>
-        public readonly string AwsDevice;
+        public readonly string? AwsDevice;
         /// <summary>
         /// Bandwidth of the connection.
         /// </summary>
-        public readonly string Bandwidth;
+        public readonly string? Bandwidth;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// AWS Direct Connect location where the connection is located.
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
         public readonly string Name;
         /// <summary>
         /// ID of the AWS account that owns the connection.
         /// </summary>
-        public readonly string OwnerAccountId;
+        public readonly string? OwnerAccountId;
         /// <summary>
         /// The name of the AWS Direct Connect service provider associated with the connection.
         /// </summary>
-        public readonly string PartnerName;
+        public readonly string? PartnerName;
         /// <summary>
         /// Name of the service provider associated with the connection.
         /// </summary>
-        public readonly string ProviderName;
+        public readonly string? ProviderName;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The VLAN ID.
         /// </summary>
-        public readonly int VlanId;
+        public readonly int? VlanId;
 
         [OutputConstructor]
         private GetConnectionResult(
-            string arn,
+            string? arn,
 
-            string awsDevice,
+            string? awsDevice,
 
-            string bandwidth,
+            string? bandwidth,
 
-            string id,
+            string? id,
 
-            string location,
+            string? location,
 
             string name,
 
-            string ownerAccountId,
+            string? ownerAccountId,
 
-            string partnerName,
+            string? partnerName,
 
-            string providerName,
+            string? providerName,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int vlanId)
+            int? vlanId)
         {
             Arn = arn;
             AwsDevice = awsDevice;

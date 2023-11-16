@@ -37,7 +37,7 @@ class GetExportResult:
 
     @property
     @pulumi.getter(name="exportingStackId")
-    def exporting_stack_id(self) -> str:
+    def exporting_stack_id(self) -> Optional[str]:
         """
         ARN of stack that contains the exported output name and value.
         """
@@ -45,7 +45,7 @@ class GetExportResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -58,7 +58,7 @@ class GetExportResult:
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         """

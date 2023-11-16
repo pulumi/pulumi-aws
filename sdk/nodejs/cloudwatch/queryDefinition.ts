@@ -73,7 +73,7 @@ export class QueryDefinition extends pulumi.CustomResource {
     /**
      * The query definition ID.
      */
-    public /*out*/ readonly queryDefinitionId!: pulumi.Output<string>;
+    public /*out*/ readonly queryDefinitionId!: pulumi.Output<string | undefined>;
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      */

@@ -7,14 +7,15 @@ import com.pulumi.aws.budgets.outputs.GetBudgetCalculatedSpendActualSpend;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBudgetCalculatedSpend {
-    private List<GetBudgetCalculatedSpendActualSpend> actualSpends;
+    private @Nullable List<GetBudgetCalculatedSpendActualSpend> actualSpends;
 
     private GetBudgetCalculatedSpend() {}
     public List<GetBudgetCalculatedSpendActualSpend> actualSpends() {
-        return this.actualSpends;
+        return this.actualSpends == null ? List.of() : this.actualSpends;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetBudgetCalculatedSpend {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetBudgetCalculatedSpendActualSpend> actualSpends;
+        private @Nullable List<GetBudgetCalculatedSpendActualSpend> actualSpends;
         public Builder() {}
         public Builder(GetBudgetCalculatedSpend defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetBudgetCalculatedSpend {
         }
 
         @CustomType.Setter
-        public Builder actualSpends(List<GetBudgetCalculatedSpendActualSpend> actualSpends) {
-            this.actualSpends = Objects.requireNonNull(actualSpends);
+        public Builder actualSpends(@Nullable List<GetBudgetCalculatedSpendActualSpend> actualSpends) {
+            this.actualSpends = actualSpends;
             return this;
         }
         public Builder actualSpends(GetBudgetCalculatedSpendActualSpend... actualSpends) {

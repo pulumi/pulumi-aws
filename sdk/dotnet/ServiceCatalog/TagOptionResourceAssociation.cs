@@ -49,19 +49,19 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ARN of the resource.
         /// </summary>
         [Output("resourceArn")]
-        public Output<string> ResourceArn { get; private set; } = null!;
+        public Output<string?> ResourceArn { get; private set; } = null!;
 
         /// <summary>
         /// Creation time of the resource.
         /// </summary>
         [Output("resourceCreatedTime")]
-        public Output<string> ResourceCreatedTime { get; private set; } = null!;
+        public Output<string?> ResourceCreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Description of the resource.
         /// </summary>
         [Output("resourceDescription")]
-        public Output<string> ResourceDescription { get; private set; } = null!;
+        public Output<string?> ResourceDescription { get; private set; } = null!;
 
         /// <summary>
         /// Resource identifier.
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Description of the resource.
         /// </summary>
         [Output("resourceName")]
-        public Output<string> ResourceName { get; private set; } = null!;
+        public Output<string?> ResourceName { get; private set; } = null!;
 
         /// <summary>
         /// Tag Option identifier.

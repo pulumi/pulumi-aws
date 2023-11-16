@@ -46,7 +46,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the VPC link.
         """
@@ -54,7 +54,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Set to the ID of the found API Gateway VPC Link.
         """
@@ -67,7 +67,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the VPC link.
         """
@@ -75,7 +75,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> str:
+    def status_message(self) -> Optional[str]:
         """
         Status message of the VPC link.
         """
@@ -83,7 +83,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags
         """
@@ -91,7 +91,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter(name="targetArns")
-    def target_arns(self) -> Sequence[str]:
+    def target_arns(self) -> Optional[Sequence[str]]:
         """
         List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """

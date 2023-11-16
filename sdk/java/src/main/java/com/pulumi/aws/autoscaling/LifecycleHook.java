@@ -114,14 +114,14 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultResult", refs={String.class}, tree="[0]")
-    private Output<String> defaultResult;
+    private Output</* @Nullable */ String> defaultResult;
 
     /**
      * @return Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
      * 
      */
-    public Output<String> defaultResult() {
-        return this.defaultResult;
+    public Output<Optional<String>> defaultResult() {
+        return Codegen.optional(this.defaultResult);
     }
     /**
      * Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter

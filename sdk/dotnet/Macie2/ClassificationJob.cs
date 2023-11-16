@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Macie2
         /// The date and time, in UTC and extended RFC 3339 format, when the job was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The custom data identifiers to use for data analysis and classification.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Macie2
         /// A custom description of the job. The description can contain as many as 200 characters.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
@@ -88,16 +88,16 @@ namespace Pulumi.Aws.Macie2
         public Output<bool?> InitialRun { get; private set; } = null!;
 
         [Output("jobArn")]
-        public Output<string> JobArn { get; private set; } = null!;
+        public Output<string?> JobArn { get; private set; } = null!;
 
         [Output("jobId")]
-        public Output<string> JobId { get; private set; } = null!;
+        public Output<string?> JobId { get; private set; } = null!;
 
         /// <summary>
         /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
         /// </summary>
         [Output("jobStatus")]
-        public Output<string> JobStatus { get; private set; } = null!;
+        public Output<string?> JobStatus { get; private set; } = null!;
 
         /// <summary>
         /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Macie2
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
@@ -127,13 +127,13 @@ namespace Pulumi.Aws.Macie2
         /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         /// </summary>
         [Output("samplingPercentage")]
-        public Output<int> SamplingPercentage { get; private set; } = null!;
+        public Output<int?> SamplingPercentage { get; private set; } = null!;
 
         /// <summary>
         /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         /// </summary>
         [Output("scheduleFrequency")]
-        public Output<Outputs.ClassificationJobScheduleFrequency> ScheduleFrequency { get; private set; } = null!;
+        public Output<Outputs.ClassificationJobScheduleFrequency?> ScheduleFrequency { get; private set; } = null!;
 
         /// <summary>
         /// A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.

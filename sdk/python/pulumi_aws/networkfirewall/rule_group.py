@@ -736,7 +736,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) that identifies the rule group.
         """
@@ -776,7 +776,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleGroup")
-    def rule_group(self) -> pulumi.Output['outputs.RuleGroupRuleGroup']:
+    def rule_group(self) -> pulumi.Output[Optional['outputs.RuleGroupRuleGroup']]:
         """
         A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         """
@@ -819,7 +819,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateToken")
-    def update_token(self) -> pulumi.Output[str]:
+    def update_token(self) -> pulumi.Output[Optional[str]]:
         """
         A string token used when updating the rule group.
         """

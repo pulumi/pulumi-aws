@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSlotTypeEnumerationValue {
-    private List<String> synonyms;
-    private String value;
+    private @Nullable List<String> synonyms;
+    private @Nullable String value;
 
     private GetSlotTypeEnumerationValue() {}
     public List<String> synonyms() {
-        return this.synonyms;
+        return this.synonyms == null ? List.of() : this.synonyms;
     }
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetSlotTypeEnumerationValue {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> synonyms;
-        private String value;
+        private @Nullable List<String> synonyms;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetSlotTypeEnumerationValue defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,16 +42,16 @@ public final class GetSlotTypeEnumerationValue {
         }
 
         @CustomType.Setter
-        public Builder synonyms(List<String> synonyms) {
-            this.synonyms = Objects.requireNonNull(synonyms);
+        public Builder synonyms(@Nullable List<String> synonyms) {
+            this.synonyms = synonyms;
             return this;
         }
         public Builder synonyms(String... synonyms) {
             return synonyms(List.of(synonyms));
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetSlotTypeEnumerationValue build() {

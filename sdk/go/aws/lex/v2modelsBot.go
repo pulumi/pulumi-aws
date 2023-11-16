@@ -59,7 +59,7 @@ import (
 type V2modelsBot struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
 	DataPrivacies V2modelsBotDataPrivacyArrayOutput `pulumi:"dataPrivacies"`
 	// Description of the bot. It appears in lists to help you identify a particular bot.
@@ -80,7 +80,7 @@ type V2modelsBot struct {
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags pulumi.StringMapOutput       `pulumi:"testBotAliasTags"`
 	Timeouts         V2modelsBotTimeoutsPtrOutput `pulumi:"timeouts"`
-	Type             pulumi.StringOutput          `pulumi:"type"`
+	Type             pulumi.StringPtrOutput       `pulumi:"type"`
 }
 
 // NewV2modelsBot registers a new resource with the given unique name, arguments, and options.
@@ -308,8 +308,8 @@ func (o V2modelsBotOutput) ToV2modelsBotOutputWithContext(ctx context.Context) V
 	return o
 }
 
-func (o V2modelsBotOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o V2modelsBotOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBot) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
@@ -362,8 +362,8 @@ func (o V2modelsBotOutput) Timeouts() V2modelsBotTimeoutsPtrOutput {
 	return o.ApplyT(func(v *V2modelsBot) V2modelsBotTimeoutsPtrOutput { return v.Timeouts }).(V2modelsBotTimeoutsPtrOutput)
 }
 
-func (o V2modelsBotOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o V2modelsBotOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBot) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type V2modelsBotArrayOutput struct{ *pulumi.OutputState }

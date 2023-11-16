@@ -6,6 +6,8 @@ package com.pulumi.aws.s3.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBucketPolicyResult {
@@ -14,12 +16,12 @@ public final class GetBucketPolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return IAM bucket policy.
      * 
      */
-    private String policy;
+    private @Nullable String policy;
 
     private GetBucketPolicyResult() {}
     public String bucket() {
@@ -29,15 +31,15 @@ public final class GetBucketPolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IAM bucket policy.
      * 
      */
-    public String policy() {
-        return this.policy;
+    public Optional<String> policy() {
+        return Optional.ofNullable(this.policy);
     }
 
     public static Builder builder() {
@@ -50,8 +52,8 @@ public final class GetBucketPolicyResult {
     @CustomType.Builder
     public static final class Builder {
         private String bucket;
-        private String id;
-        private String policy;
+        private @Nullable String id;
+        private @Nullable String policy;
         public Builder() {}
         public Builder(GetBucketPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,13 +68,13 @@ public final class GetBucketPolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+        public Builder policy(@Nullable String policy) {
+            this.policy = policy;
             return this;
         }
         public GetBucketPolicyResult build() {

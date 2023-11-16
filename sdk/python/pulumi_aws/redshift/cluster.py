@@ -2060,7 +2060,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aquaConfigurationStatus")
-    def aqua_configuration_status(self) -> pulumi.Output[str]:
+    def aqua_configuration_status(self) -> pulumi.Output[Optional[str]]:
         """
         The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
         No longer supported by the AWS API.
@@ -2073,7 +2073,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of cluster
         """
@@ -2089,7 +2089,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         """
@@ -2113,7 +2113,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterNamespaceArn")
-    def cluster_namespace_arn(self) -> pulumi.Output[str]:
+    def cluster_namespace_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The namespace Amazon Resource Name (ARN) of the cluster
         """
@@ -2121,7 +2121,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterNodes")
-    def cluster_nodes(self) -> pulumi.Output[Sequence['outputs.ClusterClusterNode']]:
+    def cluster_nodes(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterClusterNode']]]:
         """
         The nodes in the cluster. Cluster node blocks are documented below
         """
@@ -2129,7 +2129,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterParameterGroupName")
-    def cluster_parameter_group_name(self) -> pulumi.Output[str]:
+    def cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the parameter group to be associated with this cluster.
         """
@@ -2137,7 +2137,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterPublicKey")
-    def cluster_public_key(self) -> pulumi.Output[str]:
+    def cluster_public_key(self) -> pulumi.Output[Optional[str]]:
         """
         The public key for the cluster
         """
@@ -2145,7 +2145,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterRevisionNumber")
-    def cluster_revision_number(self) -> pulumi.Output[str]:
+    def cluster_revision_number(self) -> pulumi.Output[Optional[str]]:
         """
         The specific revision number of the database in the cluster
         """
@@ -2153,7 +2153,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterSubnetGroupName")
-    def cluster_subnet_group_name(self) -> pulumi.Output[str]:
+    def cluster_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         """
@@ -2161,7 +2161,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> pulumi.Output[str]:
+    def cluster_type(self) -> pulumi.Output[Optional[str]]:
         """
         The cluster type to use. Either `single-node` or `multi-node`.
         """
@@ -2178,7 +2178,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Output[str]:
+    def database_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the first database to be created when the cluster is created.
         If you do not provide a name, Amazon Redshift will create a default database called `dev`.
@@ -2187,7 +2187,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultIamRoleArn")
-    def default_iam_role_arn(self) -> pulumi.Output[str]:
+    def default_iam_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         """
@@ -2195,7 +2195,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the cluster
         """
@@ -2219,7 +2219,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The connection endpoint
         """
@@ -2227,7 +2227,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
-    def enhanced_vpc_routing(self) -> pulumi.Output[bool]:
+    def enhanced_vpc_routing(self) -> pulumi.Output[Optional[bool]]:
         """
         If true , enhanced VPC routing is enabled.
         """
@@ -2243,7 +2243,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> pulumi.Output[Sequence[str]]:
+    def iam_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """
@@ -2251,7 +2251,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         """
@@ -2305,7 +2305,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterPasswordSecretArn")
-    def master_password_secret_arn(self) -> pulumi.Output[str]:
+    def master_password_secret_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the cluster admin credentials secret
         """
@@ -2313,7 +2313,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterPasswordSecretKmsKeyId")
-    def master_password_secret_kms_key_id(self) -> pulumi.Output[str]:
+    def master_password_secret_kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the KMS key used to encrypt the cluster admin credentials secret.
         """
@@ -2364,7 +2364,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> pulumi.Output[str]:
+    def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         The weekly time range (in UTC) during which automated cluster maintenance can occur.
         Format: ddd:hh24:mi-ddd:hh24:mi
@@ -2440,7 +2440,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """

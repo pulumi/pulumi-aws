@@ -77,7 +77,7 @@ export class LicenseConfiguration extends pulumi.CustomResource {
     /**
      * The license configuration ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the license configuration.
      */
@@ -105,7 +105,7 @@ export class LicenseConfiguration extends pulumi.CustomResource {
     /**
      * Account ID of the owner of the license configuration.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -377,7 +377,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ckn(self) -> pulumi.Output[str]:
+    def ckn(self) -> pulumi.Output[Optional[str]]:
         """
         The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
         """
@@ -393,7 +393,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> pulumi.Output[str]:
+    def secret_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 
@@ -403,7 +403,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startOn")
-    def start_on(self) -> pulumi.Output[str]:
+    def start_on(self) -> pulumi.Output[Optional[str]]:
         """
         The date in UTC format that the MAC Security (MACsec) secret key takes effect.
         """
@@ -411,7 +411,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
         """

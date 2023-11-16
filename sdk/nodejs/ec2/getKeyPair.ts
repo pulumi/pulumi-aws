@@ -77,35 +77,35 @@ export interface GetKeyPairResult {
     /**
      * ARN of the Key Pair.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Timestamp for when the key pair was created in ISO 8601 format.
      */
-    readonly createTime: string;
+    readonly createTime?: string;
     readonly filters?: outputs.ec2.GetKeyPairFilter[];
     /**
      * SHA-1 digest of the DER encoded private key.
      */
-    readonly fingerprint: string;
+    readonly fingerprint?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly includePublicKey?: boolean;
     readonly keyName?: string;
     readonly keyPairId?: string;
     /**
      * Type of key pair.
      */
-    readonly keyType: string;
+    readonly keyType?: string;
     /**
      * Public key material.
      */
-    readonly publicKey: string;
+    readonly publicKey?: string;
     /**
      * Any tags assigned to the Key Pair.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get information about a specific EC2 Key Pair.

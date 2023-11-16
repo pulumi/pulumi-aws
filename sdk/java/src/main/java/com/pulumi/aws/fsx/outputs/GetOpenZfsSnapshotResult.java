@@ -19,18 +19,18 @@ public final class GetOpenZfsSnapshotResult {
      * @return Amazon Resource Name of the snapshot.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Time that the resource was created.
      * 
      */
-    private String creationTime;
+    private @Nullable String creationTime;
     private @Nullable List<GetOpenZfsSnapshotFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean mostRecent;
     /**
      * @return Name of the snapshot.
@@ -41,33 +41,33 @@ public final class GetOpenZfsSnapshotResult {
      * @return ID of the snapshot.
      * 
      */
-    private String snapshotId;
+    private @Nullable String snapshotId;
     private @Nullable List<String> snapshotIds;
     /**
      * @return List of Tag values, with a maximum of 50 elements.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return ID of the volume that the snapshot is of.
      * 
      */
-    private String volumeId;
+    private @Nullable String volumeId;
 
     private GetOpenZfsSnapshotResult() {}
     /**
      * @return Amazon Resource Name of the snapshot.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Time that the resource was created.
      * 
      */
-    public String creationTime() {
-        return this.creationTime;
+    public Optional<String> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
     public List<GetOpenZfsSnapshotFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -76,8 +76,8 @@ public final class GetOpenZfsSnapshotResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
@@ -93,8 +93,8 @@ public final class GetOpenZfsSnapshotResult {
      * @return ID of the snapshot.
      * 
      */
-    public String snapshotId() {
-        return this.snapshotId;
+    public Optional<String> snapshotId() {
+        return Optional.ofNullable(this.snapshotId);
     }
     public List<String> snapshotIds() {
         return this.snapshotIds == null ? List.of() : this.snapshotIds;
@@ -104,14 +104,14 @@ public final class GetOpenZfsSnapshotResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return ID of the volume that the snapshot is of.
      * 
      */
-    public String volumeId() {
-        return this.volumeId;
+    public Optional<String> volumeId() {
+        return Optional.ofNullable(this.volumeId);
     }
 
     public static Builder builder() {
@@ -123,16 +123,16 @@ public final class GetOpenZfsSnapshotResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String creationTime;
+        private @Nullable String arn;
+        private @Nullable String creationTime;
         private @Nullable List<GetOpenZfsSnapshotFilter> filters;
-        private String id;
+        private @Nullable String id;
         private @Nullable Boolean mostRecent;
         private @Nullable String name;
-        private String snapshotId;
+        private @Nullable String snapshotId;
         private @Nullable List<String> snapshotIds;
-        private Map<String,String> tags;
-        private String volumeId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String volumeId;
         public Builder() {}
         public Builder(GetOpenZfsSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -149,13 +149,13 @@ public final class GetOpenZfsSnapshotResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable String creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
@@ -167,8 +167,8 @@ public final class GetOpenZfsSnapshotResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -182,8 +182,8 @@ public final class GetOpenZfsSnapshotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotId(String snapshotId) {
-            this.snapshotId = Objects.requireNonNull(snapshotId);
+        public Builder snapshotId(@Nullable String snapshotId) {
+            this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
@@ -195,13 +195,13 @@ public final class GetOpenZfsSnapshotResult {
             return snapshotIds(List.of(snapshotIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeId(String volumeId) {
-            this.volumeId = Objects.requireNonNull(volumeId);
+        public Builder volumeId(@Nullable String volumeId) {
+            this.volumeId = volumeId;
             return this;
         }
         public GetOpenZfsSnapshotResult build() {

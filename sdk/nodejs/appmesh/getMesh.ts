@@ -67,33 +67,33 @@ export interface GetMeshResult {
     /**
      * ARN of the service mesh.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Creation date of the service mesh.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Last update date of the service mesh.
      */
-    readonly lastUpdatedDate: string;
-    readonly meshOwner: string;
+    readonly lastUpdatedDate?: string;
+    readonly meshOwner?: string;
     readonly name: string;
     /**
      * Resource owner's AWS account ID.
      */
-    readonly resourceOwner: string;
+    readonly resourceOwner?: string;
     /**
      * Service mesh specification. See the `aws.appmesh.Mesh` resource for details.
      */
-    readonly specs: outputs.appmesh.GetMeshSpec[];
+    readonly specs?: outputs.appmesh.GetMeshSpec[];
     /**
      * Map of tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.

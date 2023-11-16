@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ARN of the network interface.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
         /// </summary>
@@ -161,17 +161,17 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Availability Zone.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// Description of the network interface.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceFilterResult> Filters;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Type of interface.
         /// </summary>
-        public readonly string InterfaceType;
+        public readonly string? InterfaceType;
         /// <summary>
         /// List of IPv6 addresses to assign to the ENI.
         /// </summary>
@@ -179,23 +179,23 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// MAC address.
         /// </summary>
-        public readonly string MacAddress;
+        public readonly string? MacAddress;
         /// <summary>
         /// ARN of the Outpost.
         /// </summary>
-        public readonly string OutpostArn;
+        public readonly string? OutpostArn;
         /// <summary>
         /// AWS account ID of the owner of the network interface.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// Private DNS name.
         /// </summary>
-        public readonly string PrivateDnsName;
+        public readonly string? PrivateDnsName;
         /// <summary>
         /// Private IPv4 address of the network interface within the subnet.
         /// </summary>
-        public readonly string PrivateIp;
+        public readonly string? PrivateIp;
         /// <summary>
         /// Private IPv4 addresses associated with the network interface.
         /// </summary>
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the entity that launched the instance on your behalf.
         /// </summary>
-        public readonly string RequesterId;
+        public readonly string? RequesterId;
         /// <summary>
         /// List of security groups for the network interface.
         /// </summary>
@@ -211,57 +211,57 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the subnet.
         /// </summary>
-        public readonly string SubnetId;
+        public readonly string? SubnetId;
         /// <summary>
         /// Any tags assigned to the network interface.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// ID of the VPC.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetNetworkInterfaceAssociationResult> associations,
 
             ImmutableArray<Outputs.GetNetworkInterfaceAttachmentResult> attachments,
 
-            string availabilityZone,
+            string? availabilityZone,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetNetworkInterfaceFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string interfaceType,
+            string? interfaceType,
 
             ImmutableArray<string> ipv6Addresses,
 
-            string macAddress,
+            string? macAddress,
 
-            string outpostArn,
+            string? outpostArn,
 
-            string ownerId,
+            string? ownerId,
 
-            string privateDnsName,
+            string? privateDnsName,
 
-            string privateIp,
+            string? privateIp,
 
             ImmutableArray<string> privateIps,
 
-            string requesterId,
+            string? requesterId,
 
             ImmutableArray<string> securityGroups,
 
-            string subnetId,
+            string? subnetId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             Associations = associations;

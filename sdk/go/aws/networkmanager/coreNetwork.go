@@ -585,7 +585,7 @@ type CoreNetwork struct {
 	pulumi.CustomResourceState
 
 	// Core Network Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	BasePolicyDocument pulumi.StringPtrOutput `pulumi:"basePolicyDocument"`
 	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
@@ -611,7 +611,7 @@ type CoreNetwork struct {
 	// ```
 	CreateBasePolicy pulumi.BoolPtrOutput `pulumi:"createBasePolicy"`
 	// Timestamp when a core network was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// Description of the Core Network.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// One or more blocks detailing the edges within a core network. Detailed below.
@@ -621,7 +621,7 @@ type CoreNetwork struct {
 	// One or more blocks detailing the segments within a core network. Detailed below.
 	Segments CoreNetworkSegmentArrayOutput `pulumi:"segments"`
 	// Current state of a core network.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -919,8 +919,8 @@ func (o CoreNetworkOutput) ToCoreNetworkOutputWithContext(ctx context.Context) C
 }
 
 // Core Network Amazon Resource Name (ARN).
-func (o CoreNetworkOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CoreNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CoreNetworkOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CoreNetwork) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
@@ -963,8 +963,8 @@ func (o CoreNetworkOutput) CreateBasePolicy() pulumi.BoolPtrOutput {
 }
 
 // Timestamp when a core network was created.
-func (o CoreNetworkOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *CoreNetwork) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o CoreNetworkOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CoreNetwork) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Core Network.
@@ -988,8 +988,8 @@ func (o CoreNetworkOutput) Segments() CoreNetworkSegmentArrayOutput {
 }
 
 // Current state of a core network.
-func (o CoreNetworkOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *CoreNetwork) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o CoreNetworkOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CoreNetwork) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -93,25 +93,25 @@ type LookupVocabularyArgs struct {
 // A collection of values returned by getVocabulary.
 type LookupVocabularyResult struct {
 	// The Amazon Resource Name (ARN) of the Vocabulary.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// The reason why the custom vocabulary was not created.
-	FailureReason string `pulumi:"failureReason"`
+	FailureReason *string `pulumi:"failureReason"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
+	Id         *string `pulumi:"id"`
+	InstanceId string  `pulumi:"instanceId"`
 	// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
-	LanguageCode string `pulumi:"languageCode"`
+	LanguageCode *string `pulumi:"languageCode"`
 	// The timestamp when the custom vocabulary was last modified.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	Name             string `pulumi:"name"`
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	Name             *string `pulumi:"name"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State string `pulumi:"state"`
+	State *string `pulumi:"state"`
 	// A map of tags to assign to the Vocabulary.
 	Tags map[string]string `pulumi:"tags"`
 	// The identifier of the custom vocabulary.
-	VocabularyId string `pulumi:"vocabularyId"`
+	VocabularyId *string `pulumi:"vocabularyId"`
 }
 
 func LookupVocabularyOutput(ctx *pulumi.Context, args LookupVocabularyOutputArgs, opts ...pulumi.InvokeOption) LookupVocabularyResultOutput {
@@ -159,23 +159,23 @@ func (o LookupVocabularyResultOutput) ToLookupVocabularyResultOutputWithContext(
 }
 
 // The Amazon Resource Name (ARN) of the Vocabulary.
-func (o LookupVocabularyResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVocabularyResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupVocabularyResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
-func (o LookupVocabularyResultOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVocabularyResult) string { return v.Content }).(pulumi.StringOutput)
+func (o LookupVocabularyResultOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // The reason why the custom vocabulary was not created.
-func (o LookupVocabularyResultOutput) FailureReason() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVocabularyResult) string { return v.FailureReason }).(pulumi.StringOutput)
+func (o LookupVocabularyResultOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupVocabularyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVocabularyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVocabularyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVocabularyResultOutput) InstanceId() pulumi.StringOutput {
@@ -183,22 +183,22 @@ func (o LookupVocabularyResultOutput) InstanceId() pulumi.StringOutput {
 }
 
 // The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
-func (o LookupVocabularyResultOutput) LanguageCode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVocabularyResult) string { return v.LanguageCode }).(pulumi.StringOutput)
+func (o LookupVocabularyResultOutput) LanguageCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp when the custom vocabulary was last modified.
-func (o LookupVocabularyResultOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVocabularyResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+func (o LookupVocabularyResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVocabularyResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVocabularyResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupVocabularyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-func (o LookupVocabularyResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVocabularyResult) string { return v.State }).(pulumi.StringOutput)
+func (o LookupVocabularyResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the Vocabulary.
@@ -207,8 +207,8 @@ func (o LookupVocabularyResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The identifier of the custom vocabulary.
-func (o LookupVocabularyResultOutput) VocabularyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVocabularyResult) string { return v.VocabularyId }).(pulumi.StringOutput)
+func (o LookupVocabularyResultOutput) VocabularyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) *string { return v.VocabularyId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

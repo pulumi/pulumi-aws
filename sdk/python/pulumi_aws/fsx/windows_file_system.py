@@ -1180,7 +1180,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the file system.
         """
@@ -1188,7 +1188,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="auditLogConfiguration")
-    def audit_log_configuration(self) -> pulumi.Output['outputs.WindowsFileSystemAuditLogConfiguration']:
+    def audit_log_configuration(self) -> pulumi.Output[Optional['outputs.WindowsFileSystemAuditLogConfiguration']]:
         """
         The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
         """
@@ -1220,7 +1220,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> pulumi.Output[str]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         """
@@ -1236,7 +1236,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIopsConfiguration")
-    def disk_iops_configuration(self) -> pulumi.Output['outputs.WindowsFileSystemDiskIopsConfiguration']:
+    def disk_iops_configuration(self) -> pulumi.Output[Optional['outputs.WindowsFileSystemDiskIopsConfiguration']]:
         """
         The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
         """
@@ -1244,7 +1244,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
         """
@@ -1252,7 +1252,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         """
@@ -1260,7 +1260,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
+    def network_interface_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of Elastic Network Interface identifiers from which the file system is accessible.
         """
@@ -1268,7 +1268,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account identifier that created the file system.
         """
@@ -1276,7 +1276,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredFileServerIp")
-    def preferred_file_server_ip(self) -> pulumi.Output[str]:
+    def preferred_file_server_ip(self) -> pulumi.Output[Optional[str]]:
         """
         The IP address of the primary, or preferred, file server.
         """
@@ -1284,7 +1284,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredSubnetId")
-    def preferred_subnet_id(self) -> pulumi.Output[str]:
+    def preferred_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         """
@@ -1292,7 +1292,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remoteAdministrationEndpoint")
-    def remote_administration_endpoint(self) -> pulumi.Output[str]:
+    def remote_administration_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
         """
@@ -1324,7 +1324,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> pulumi.Output[int]:
+    def storage_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         """
@@ -1377,7 +1377,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the Virtual Private Cloud for the file system.
         """
@@ -1385,7 +1385,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> pulumi.Output[str]:
+    def weekly_maintenance_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """

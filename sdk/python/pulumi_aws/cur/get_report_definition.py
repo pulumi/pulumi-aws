@@ -61,7 +61,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="additionalArtifacts")
-    def additional_artifacts(self) -> Sequence[str]:
+    def additional_artifacts(self) -> Optional[Sequence[str]]:
         """
         A list of additional artifacts.
         """
@@ -69,7 +69,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="additionalSchemaElements")
-    def additional_schema_elements(self) -> Sequence[str]:
+    def additional_schema_elements(self) -> Optional[Sequence[str]]:
         """
         A list of schema elements.
         """
@@ -77,7 +77,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter
-    def compression(self) -> str:
+    def compression(self) -> Optional[str]:
         """
         Preferred format for report.
         """
@@ -85,7 +85,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter
-    def format(self) -> str:
+    def format(self) -> Optional[str]:
         """
         Preferred compression format for report.
         """
@@ -93,7 +93,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -101,7 +101,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="refreshClosedReports")
-    def refresh_closed_reports(self) -> bool:
+    def refresh_closed_reports(self) -> Optional[bool]:
         """
         If true reports are updated after they have been finalized.
         """
@@ -114,7 +114,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="reportVersioning")
-    def report_versioning(self) -> str:
+    def report_versioning(self) -> Optional[str]:
         """
         Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
         """
@@ -122,7 +122,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> str:
+    def s3_bucket(self) -> Optional[str]:
         """
         Name of customer S3 bucket.
         """
@@ -130,7 +130,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> str:
+    def s3_prefix(self) -> Optional[str]:
         """
         Preferred report path prefix.
         """
@@ -138,7 +138,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="s3Region")
-    def s3_region(self) -> str:
+    def s3_region(self) -> Optional[str]:
         """
         Region of customer S3 bucket.
         """
@@ -146,7 +146,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> str:
+    def time_unit(self) -> Optional[str]:
         """
         Frequency on which report data are measured and displayed.
         """

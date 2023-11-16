@@ -90,7 +90,7 @@ export class Filter extends pulumi.CustomResource {
     /**
      * The ARN of the GuardDuty filter.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the filter.
      */

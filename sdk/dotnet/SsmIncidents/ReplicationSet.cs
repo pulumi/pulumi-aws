@@ -144,25 +144,25 @@ namespace Pulumi.Aws.SsmIncidents
         /// The ARN of the replication set.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the user who created the replication set.
         /// </summary>
         [Output("createdBy")]
-        public Output<string> CreatedBy { get; private set; } = null!;
+        public Output<string?> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// If `true`, the last region in a replication set cannot be deleted.
         /// </summary>
         [Output("deletionProtected")]
-        public Output<bool> DeletionProtected { get; private set; } = null!;
+        public Output<bool?> DeletionProtected { get; private set; } = null!;
 
         /// <summary>
         /// A timestamp showing when the replication set was last modified.
         /// </summary>
         [Output("lastModifiedBy")]
-        public Output<string> LastModifiedBy { get; private set; } = null!;
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
 
         [Output("regions")]
         public Output<ImmutableArray<Outputs.ReplicationSetRegion>> Regions { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Tags applied to the replication set.

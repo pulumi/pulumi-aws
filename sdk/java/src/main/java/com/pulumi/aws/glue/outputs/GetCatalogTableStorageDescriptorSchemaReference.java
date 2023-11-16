@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorSchemaReference {
@@ -16,17 +18,17 @@ public final class GetCatalogTableStorageDescriptorSchemaReference {
      * @return Configuration block that contains schema identity fields. See `schema_id` below.
      * 
      */
-    private List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds;
+    private @Nullable List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds;
     /**
      * @return Unique ID assigned to a version of the schema.
      * 
      */
-    private String schemaVersionId;
+    private @Nullable String schemaVersionId;
     /**
      * @return Version number of the schema.
      * 
      */
-    private Integer schemaVersionNumber;
+    private @Nullable Integer schemaVersionNumber;
 
     private GetCatalogTableStorageDescriptorSchemaReference() {}
     /**
@@ -34,21 +36,21 @@ public final class GetCatalogTableStorageDescriptorSchemaReference {
      * 
      */
     public List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds() {
-        return this.schemaIds;
+        return this.schemaIds == null ? List.of() : this.schemaIds;
     }
     /**
      * @return Unique ID assigned to a version of the schema.
      * 
      */
-    public String schemaVersionId() {
-        return this.schemaVersionId;
+    public Optional<String> schemaVersionId() {
+        return Optional.ofNullable(this.schemaVersionId);
     }
     /**
      * @return Version number of the schema.
      * 
      */
-    public Integer schemaVersionNumber() {
-        return this.schemaVersionNumber;
+    public Optional<Integer> schemaVersionNumber() {
+        return Optional.ofNullable(this.schemaVersionNumber);
     }
 
     public static Builder builder() {
@@ -60,9 +62,9 @@ public final class GetCatalogTableStorageDescriptorSchemaReference {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds;
-        private String schemaVersionId;
-        private Integer schemaVersionNumber;
+        private @Nullable List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds;
+        private @Nullable String schemaVersionId;
+        private @Nullable Integer schemaVersionNumber;
         public Builder() {}
         public Builder(GetCatalogTableStorageDescriptorSchemaReference defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,21 +74,21 @@ public final class GetCatalogTableStorageDescriptorSchemaReference {
         }
 
         @CustomType.Setter
-        public Builder schemaIds(List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds) {
-            this.schemaIds = Objects.requireNonNull(schemaIds);
+        public Builder schemaIds(@Nullable List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds) {
+            this.schemaIds = schemaIds;
             return this;
         }
         public Builder schemaIds(GetCatalogTableStorageDescriptorSchemaReferenceSchemaId... schemaIds) {
             return schemaIds(List.of(schemaIds));
         }
         @CustomType.Setter
-        public Builder schemaVersionId(String schemaVersionId) {
-            this.schemaVersionId = Objects.requireNonNull(schemaVersionId);
+        public Builder schemaVersionId(@Nullable String schemaVersionId) {
+            this.schemaVersionId = schemaVersionId;
             return this;
         }
         @CustomType.Setter
-        public Builder schemaVersionNumber(Integer schemaVersionNumber) {
-            this.schemaVersionNumber = Objects.requireNonNull(schemaVersionNumber);
+        public Builder schemaVersionNumber(@Nullable Integer schemaVersionNumber) {
+            this.schemaVersionNumber = schemaVersionNumber;
             return this;
         }
         public GetCatalogTableStorageDescriptorSchemaReference build() {

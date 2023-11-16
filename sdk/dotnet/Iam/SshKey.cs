@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Iam
         /// The MD5 message digest of the SSH public key.
         /// </summary>
         [Output("fingerprint")]
-        public Output<string> Fingerprint { get; private set; } = null!;
+        public Output<string?> Fingerprint { get; private set; } = null!;
 
         /// <summary>
         /// The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
@@ -70,13 +70,13 @@ namespace Pulumi.Aws.Iam
         /// The unique identifier for the SSH public key.
         /// </summary>
         [Output("sshPublicKeyId")]
-        public Output<string> SshPublicKeyId { get; private set; } = null!;
+        public Output<string?> SshPublicKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The name of the IAM user to associate the SSH public key with.

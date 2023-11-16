@@ -363,7 +363,7 @@ class PrefixListReference(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="prefixListOwnerId")
-    def prefix_list_owner_id(self) -> pulumi.Output[str]:
+    def prefix_list_owner_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "prefix_list_owner_id")
 
     @property

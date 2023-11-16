@@ -107,26 +107,26 @@ export class Environment extends pulumi.CustomResource {
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
-    public /*out*/ readonly allSettings!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentAllSetting[]>;
+    public /*out*/ readonly allSettings!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentAllSetting[] | undefined>;
     /**
      * Name of the application that contains the version
      * to be deployed
      */
     public readonly application!: pulumi.Output<string>;
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The autoscaling groups used by this Environment.
      */
-    public /*out*/ readonly autoscalingGroups!: pulumi.Output<string[]>;
+    public /*out*/ readonly autoscalingGroups!: pulumi.Output<string[] | undefined>;
     /**
      * Fully qualified DNS name for this Environment.
      */
-    public /*out*/ readonly cname!: pulumi.Output<string>;
+    public /*out*/ readonly cname!: pulumi.Output<string | undefined>;
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.
      */
-    public readonly cnamePrefix!: pulumi.Output<string>;
+    public readonly cnamePrefix!: pulumi.Output<string | undefined>;
     /**
      * Short description of the Environment
      */
@@ -134,19 +134,19 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The URL to the Load Balancer for this Environment
      */
-    public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
+    public /*out*/ readonly endpointUrl!: pulumi.Output<string | undefined>;
     /**
      * Instances used by this Environment.
      */
-    public /*out*/ readonly instances!: pulumi.Output<string[]>;
+    public /*out*/ readonly instances!: pulumi.Output<string[] | undefined>;
     /**
      * Launch configurations in use by this Environment.
      */
-    public /*out*/ readonly launchConfigurations!: pulumi.Output<string[]>;
+    public /*out*/ readonly launchConfigurations!: pulumi.Output<string[] | undefined>;
     /**
      * Elastic load balancers in use by this Environment.
      */
-    public /*out*/ readonly loadBalancers!: pulumi.Output<string[]>;
+    public /*out*/ readonly loadBalancers!: pulumi.Output<string[] | undefined>;
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
@@ -156,7 +156,7 @@ export class Environment extends pulumi.CustomResource {
      * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      */
-    public readonly platformArn!: pulumi.Output<string>;
+    public readonly platformArn!: pulumi.Output<string | undefined>;
     /**
      * The time between polling the AWS API to
      * check if changes have been applied. Use this to adjust the rate of API calls
@@ -167,7 +167,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * SQS queues in use by this Environment.
      */
-    public /*out*/ readonly queues!: pulumi.Output<string[]>;
+    public /*out*/ readonly queues!: pulumi.Output<string[] | undefined>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
@@ -178,7 +178,7 @@ export class Environment extends pulumi.CustomResource {
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
-    public readonly solutionStackName!: pulumi.Output<string>;
+    public readonly solutionStackName!: pulumi.Output<string | undefined>;
     /**
      * A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -202,12 +202,12 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Autoscaling triggers in use by this Environment.
      */
-    public /*out*/ readonly triggers!: pulumi.Output<string[]>;
+    public /*out*/ readonly triggers!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      */
-    public readonly version!: pulumi.Output<ApplicationVersion>;
+    public readonly version!: pulumi.Output<ApplicationVersion | undefined>;
     /**
      * The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should

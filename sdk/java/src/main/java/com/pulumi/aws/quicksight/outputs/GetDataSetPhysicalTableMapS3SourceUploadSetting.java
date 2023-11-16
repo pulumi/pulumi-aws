@@ -8,30 +8,32 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetPhysicalTableMapS3SourceUploadSetting {
-    private Boolean containsHeader;
-    private String delimiter;
-    private String format;
-    private Integer startFromRow;
-    private String textQualifier;
+    private @Nullable Boolean containsHeader;
+    private @Nullable String delimiter;
+    private @Nullable String format;
+    private @Nullable Integer startFromRow;
+    private @Nullable String textQualifier;
 
     private GetDataSetPhysicalTableMapS3SourceUploadSetting() {}
-    public Boolean containsHeader() {
-        return this.containsHeader;
+    public Optional<Boolean> containsHeader() {
+        return Optional.ofNullable(this.containsHeader);
     }
-    public String delimiter() {
-        return this.delimiter;
+    public Optional<String> delimiter() {
+        return Optional.ofNullable(this.delimiter);
     }
-    public String format() {
-        return this.format;
+    public Optional<String> format() {
+        return Optional.ofNullable(this.format);
     }
-    public Integer startFromRow() {
-        return this.startFromRow;
+    public Optional<Integer> startFromRow() {
+        return Optional.ofNullable(this.startFromRow);
     }
-    public String textQualifier() {
-        return this.textQualifier;
+    public Optional<String> textQualifier() {
+        return Optional.ofNullable(this.textQualifier);
     }
 
     public static Builder builder() {
@@ -43,11 +45,11 @@ public final class GetDataSetPhysicalTableMapS3SourceUploadSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean containsHeader;
-        private String delimiter;
-        private String format;
-        private Integer startFromRow;
-        private String textQualifier;
+        private @Nullable Boolean containsHeader;
+        private @Nullable String delimiter;
+        private @Nullable String format;
+        private @Nullable Integer startFromRow;
+        private @Nullable String textQualifier;
         public Builder() {}
         public Builder(GetDataSetPhysicalTableMapS3SourceUploadSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,28 +61,28 @@ public final class GetDataSetPhysicalTableMapS3SourceUploadSetting {
         }
 
         @CustomType.Setter
-        public Builder containsHeader(Boolean containsHeader) {
-            this.containsHeader = Objects.requireNonNull(containsHeader);
+        public Builder containsHeader(@Nullable Boolean containsHeader) {
+            this.containsHeader = containsHeader;
             return this;
         }
         @CustomType.Setter
-        public Builder delimiter(String delimiter) {
-            this.delimiter = Objects.requireNonNull(delimiter);
+        public Builder delimiter(@Nullable String delimiter) {
+            this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
-        public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+        public Builder format(@Nullable String format) {
+            this.format = format;
             return this;
         }
         @CustomType.Setter
-        public Builder startFromRow(Integer startFromRow) {
-            this.startFromRow = Objects.requireNonNull(startFromRow);
+        public Builder startFromRow(@Nullable Integer startFromRow) {
+            this.startFromRow = startFromRow;
             return this;
         }
         @CustomType.Setter
-        public Builder textQualifier(String textQualifier) {
-            this.textQualifier = Objects.requireNonNull(textQualifier);
+        public Builder textQualifier(@Nullable String textQualifier) {
+            this.textQualifier = textQualifier;
             return this;
         }
         public GetDataSetPhysicalTableMapS3SourceUploadSetting build() {

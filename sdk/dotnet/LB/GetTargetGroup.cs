@@ -161,71 +161,71 @@ namespace Pulumi.Aws.LB
     [OutputType]
     public sealed class GetTargetGroupResult
     {
-        public readonly string Arn;
-        public readonly string ArnSuffix;
-        public readonly bool ConnectionTermination;
-        public readonly int DeregistrationDelay;
-        public readonly Outputs.GetTargetGroupHealthCheckResult HealthCheck;
+        public readonly string? Arn;
+        public readonly string? ArnSuffix;
+        public readonly bool? ConnectionTermination;
+        public readonly int? DeregistrationDelay;
+        public readonly Outputs.GetTargetGroupHealthCheckResult? HealthCheck;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly bool LambdaMultiValueHeadersEnabled;
-        public readonly string LoadBalancingAlgorithmType;
-        public readonly string LoadBalancingCrossZoneEnabled;
-        public readonly string Name;
-        public readonly int Port;
-        public readonly string PreserveClientIp;
-        public readonly string Protocol;
-        public readonly string ProtocolVersion;
-        public readonly bool ProxyProtocolV2;
-        public readonly int SlowStart;
-        public readonly Outputs.GetTargetGroupStickinessResult Stickiness;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string TargetType;
-        public readonly string VpcId;
+        public readonly string? Id;
+        public readonly bool? LambdaMultiValueHeadersEnabled;
+        public readonly string? LoadBalancingAlgorithmType;
+        public readonly string? LoadBalancingCrossZoneEnabled;
+        public readonly string? Name;
+        public readonly int? Port;
+        public readonly string? PreserveClientIp;
+        public readonly string? Protocol;
+        public readonly string? ProtocolVersion;
+        public readonly bool? ProxyProtocolV2;
+        public readonly int? SlowStart;
+        public readonly Outputs.GetTargetGroupStickinessResult? Stickiness;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? TargetType;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetTargetGroupResult(
-            string arn,
+            string? arn,
 
-            string arnSuffix,
+            string? arnSuffix,
 
-            bool connectionTermination,
+            bool? connectionTermination,
 
-            int deregistrationDelay,
+            int? deregistrationDelay,
 
-            Outputs.GetTargetGroupHealthCheckResult healthCheck,
+            Outputs.GetTargetGroupHealthCheckResult? healthCheck,
 
-            string id,
+            string? id,
 
-            bool lambdaMultiValueHeadersEnabled,
+            bool? lambdaMultiValueHeadersEnabled,
 
-            string loadBalancingAlgorithmType,
+            string? loadBalancingAlgorithmType,
 
-            string loadBalancingCrossZoneEnabled,
+            string? loadBalancingCrossZoneEnabled,
 
-            string name,
+            string? name,
 
-            int port,
+            int? port,
 
-            string preserveClientIp,
+            string? preserveClientIp,
 
-            string protocol,
+            string? protocol,
 
-            string protocolVersion,
+            string? protocolVersion,
 
-            bool proxyProtocolV2,
+            bool? proxyProtocolV2,
 
-            int slowStart,
+            int? slowStart,
 
-            Outputs.GetTargetGroupStickinessResult stickiness,
+            Outputs.GetTargetGroupStickinessResult? stickiness,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string targetType,
+            string? targetType,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             ArnSuffix = arnSuffix;

@@ -104,15 +104,15 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// The date the endpoint was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The name of the endpoint.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         /// </summary>
@@ -125,15 +125,15 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// The ID of the VPC from which you access OpenSearch Serverless.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetServerlessVpcEndpointResult(
-            string createdDate,
+            string? createdDate,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             ImmutableArray<string> securityGroupIds,
 
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.OpenSearch
 
             string vpcEndpointId,
 
-            string vpcId)
+            string? vpcId)
         {
             CreatedDate = createdDate;
             Id = id;

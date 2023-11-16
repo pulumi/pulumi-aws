@@ -242,11 +242,11 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> pulumi.Output[str]:
+    def status_reason(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status_reason")
 

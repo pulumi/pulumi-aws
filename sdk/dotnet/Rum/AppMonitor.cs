@@ -45,25 +45,25 @@ namespace Pulumi.Aws.Rum
         /// configuration data for the app monitor. See app_monitor_configuration below.
         /// </summary>
         [Output("appMonitorConfiguration")]
-        public Output<Outputs.AppMonitorAppMonitorConfiguration> AppMonitorConfiguration { get; private set; } = null!;
+        public Output<Outputs.AppMonitorAppMonitorConfiguration?> AppMonitorConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The unique ID of the app monitor. Useful for JS templates.
         /// </summary>
         [Output("appMonitorId")]
-        public Output<string> AppMonitorId { get; private set; } = null!;
+        public Output<string?> AppMonitorId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the app monitor.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         /// </summary>
         [Output("customEvents")]
-        public Output<Outputs.AppMonitorCustomEvents> CustomEvents { get; private set; } = null!;
+        public Output<Outputs.AppMonitorCustomEvents?> CustomEvents { get; private set; } = null!;
 
         /// <summary>
         /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Rum
         /// The name of the log group where the copies are stored.
         /// </summary>
         [Output("cwLogGroup")]
-        public Output<string> CwLogGroup { get; private set; } = null!;
+        public Output<string?> CwLogGroup { get; private set; } = null!;
 
         /// <summary>
         /// The top-level internet domain name for which your application has administrative authority.

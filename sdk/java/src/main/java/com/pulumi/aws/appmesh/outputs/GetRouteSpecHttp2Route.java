@@ -10,26 +10,27 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteTimeout;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecHttp2Route {
-    private List<GetRouteSpecHttp2RouteAction> actions;
-    private List<GetRouteSpecHttp2RouteMatch> matches;
-    private List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies;
-    private List<GetRouteSpecHttp2RouteTimeout> timeouts;
+    private @Nullable List<GetRouteSpecHttp2RouteAction> actions;
+    private @Nullable List<GetRouteSpecHttp2RouteMatch> matches;
+    private @Nullable List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies;
+    private @Nullable List<GetRouteSpecHttp2RouteTimeout> timeouts;
 
     private GetRouteSpecHttp2Route() {}
     public List<GetRouteSpecHttp2RouteAction> actions() {
-        return this.actions;
+        return this.actions == null ? List.of() : this.actions;
     }
     public List<GetRouteSpecHttp2RouteMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
     public List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies() {
-        return this.retryPolicies;
+        return this.retryPolicies == null ? List.of() : this.retryPolicies;
     }
     public List<GetRouteSpecHttp2RouteTimeout> timeouts() {
-        return this.timeouts;
+        return this.timeouts == null ? List.of() : this.timeouts;
     }
 
     public static Builder builder() {
@@ -41,10 +42,10 @@ public final class GetRouteSpecHttp2Route {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecHttp2RouteAction> actions;
-        private List<GetRouteSpecHttp2RouteMatch> matches;
-        private List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies;
-        private List<GetRouteSpecHttp2RouteTimeout> timeouts;
+        private @Nullable List<GetRouteSpecHttp2RouteAction> actions;
+        private @Nullable List<GetRouteSpecHttp2RouteMatch> matches;
+        private @Nullable List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies;
+        private @Nullable List<GetRouteSpecHttp2RouteTimeout> timeouts;
         public Builder() {}
         public Builder(GetRouteSpecHttp2Route defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,32 +56,32 @@ public final class GetRouteSpecHttp2Route {
         }
 
         @CustomType.Setter
-        public Builder actions(List<GetRouteSpecHttp2RouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+        public Builder actions(@Nullable List<GetRouteSpecHttp2RouteAction> actions) {
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetRouteSpecHttp2RouteAction... actions) {
             return actions(List.of(actions));
         }
         @CustomType.Setter
-        public Builder matches(List<GetRouteSpecHttp2RouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetRouteSpecHttp2RouteMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecHttp2RouteMatch... matches) {
             return matches(List.of(matches));
         }
         @CustomType.Setter
-        public Builder retryPolicies(List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies) {
-            this.retryPolicies = Objects.requireNonNull(retryPolicies);
+        public Builder retryPolicies(@Nullable List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies) {
+            this.retryPolicies = retryPolicies;
             return this;
         }
         public Builder retryPolicies(GetRouteSpecHttp2RouteRetryPolicy... retryPolicies) {
             return retryPolicies(List.of(retryPolicies));
         }
         @CustomType.Setter
-        public Builder timeouts(List<GetRouteSpecHttp2RouteTimeout> timeouts) {
-            this.timeouts = Objects.requireNonNull(timeouts);
+        public Builder timeouts(@Nullable List<GetRouteSpecHttp2RouteTimeout> timeouts) {
+            this.timeouts = timeouts;
             return this;
         }
         public Builder timeouts(GetRouteSpecHttp2RouteTimeout... timeouts) {

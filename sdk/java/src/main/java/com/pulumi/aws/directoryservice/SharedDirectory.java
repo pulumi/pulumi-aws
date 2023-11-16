@@ -126,14 +126,14 @@ public class SharedDirectory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sharedDirectoryId", refs={String.class}, tree="[0]")
-    private Output<String> sharedDirectoryId;
+    private Output</* @Nullable */ String> sharedDirectoryId;
 
     /**
      * @return Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      * 
      */
-    public Output<String> sharedDirectoryId() {
-        return this.sharedDirectoryId;
+    public Output<Optional<String>> sharedDirectoryId() {
+        return Codegen.optional(this.sharedDirectoryId);
     }
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.

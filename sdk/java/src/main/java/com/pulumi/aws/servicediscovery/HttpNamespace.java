@@ -63,14 +63,14 @@ public class HttpNamespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN that Amazon Route 53 assigns to the namespace when you create it.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The description that you specify for the namespace when you create it.
@@ -91,14 +91,14 @@ public class HttpNamespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="httpName", refs={String.class}, tree="[0]")
-    private Output<String> httpName;
+    private Output</* @Nullable */ String> httpName;
 
     /**
      * @return The name of an HTTP namespace.
      * 
      */
-    public Output<String> httpName() {
-        return this.httpName;
+    public Output<Optional<String>> httpName() {
+        return Codegen.optional(this.httpName);
     }
     /**
      * The name of the http namespace.

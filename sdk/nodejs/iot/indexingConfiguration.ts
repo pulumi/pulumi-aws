@@ -76,11 +76,11 @@ export class IndexingConfiguration extends pulumi.CustomResource {
     /**
      * Thing group indexing configuration. See below.
      */
-    public readonly thingGroupIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
+    public readonly thingGroupIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingGroupIndexingConfiguration | undefined>;
     /**
      * Thing indexing configuration. See below.
      */
-    public readonly thingIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingIndexingConfiguration>;
+    public readonly thingIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingIndexingConfiguration | undefined>;
 
     /**
      * Create a IndexingConfiguration resource with the given unique name, arguments, and options.

@@ -69,12 +69,12 @@ type GetExportArgs struct {
 // A collection of values returned by getExport.
 type GetExportResult struct {
 	// ARN of stack that contains the exported output name and value.
-	ExportingStackId string `pulumi:"exportingStackId"`
+	ExportingStackId *string `pulumi:"exportingStackId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 func GetExportOutput(ctx *pulumi.Context, args GetExportOutputArgs, opts ...pulumi.InvokeOption) GetExportResultOutput {
@@ -116,13 +116,13 @@ func (o GetExportResultOutput) ToGetExportResultOutputWithContext(ctx context.Co
 }
 
 // ARN of stack that contains the exported output name and value.
-func (o GetExportResultOutput) ExportingStackId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetExportResult) string { return v.ExportingStackId }).(pulumi.StringOutput)
+func (o GetExportResultOutput) ExportingStackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetExportResult) *string { return v.ExportingStackId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetExportResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetExportResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetExportResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetExportResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetExportResultOutput) Name() pulumi.StringOutput {
@@ -130,8 +130,8 @@ func (o GetExportResultOutput) Name() pulumi.StringOutput {
 }
 
 // Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
-func (o GetExportResultOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetExportResult) string { return v.Value }).(pulumi.StringOutput)
+func (o GetExportResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetExportResult) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 func init() {

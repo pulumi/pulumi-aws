@@ -295,56 +295,56 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetRouteResult
     {
-        public readonly string CarrierGatewayId;
-        public readonly string CoreNetworkArn;
-        public readonly string DestinationCidrBlock;
-        public readonly string DestinationIpv6CidrBlock;
-        public readonly string DestinationPrefixListId;
-        public readonly string EgressOnlyGatewayId;
-        public readonly string GatewayId;
+        public readonly string? CarrierGatewayId;
+        public readonly string? CoreNetworkArn;
+        public readonly string? DestinationCidrBlock;
+        public readonly string? DestinationIpv6CidrBlock;
+        public readonly string? DestinationPrefixListId;
+        public readonly string? EgressOnlyGatewayId;
+        public readonly string? GatewayId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string InstanceId;
-        public readonly string LocalGatewayId;
-        public readonly string NatGatewayId;
-        public readonly string NetworkInterfaceId;
+        public readonly string? Id;
+        public readonly string? InstanceId;
+        public readonly string? LocalGatewayId;
+        public readonly string? NatGatewayId;
+        public readonly string? NetworkInterfaceId;
         public readonly string RouteTableId;
-        public readonly string TransitGatewayId;
-        public readonly string VpcPeeringConnectionId;
+        public readonly string? TransitGatewayId;
+        public readonly string? VpcPeeringConnectionId;
 
         [OutputConstructor]
         private GetRouteResult(
-            string carrierGatewayId,
+            string? carrierGatewayId,
 
-            string coreNetworkArn,
+            string? coreNetworkArn,
 
-            string destinationCidrBlock,
+            string? destinationCidrBlock,
 
-            string destinationIpv6CidrBlock,
+            string? destinationIpv6CidrBlock,
 
-            string destinationPrefixListId,
+            string? destinationPrefixListId,
 
-            string egressOnlyGatewayId,
+            string? egressOnlyGatewayId,
 
-            string gatewayId,
+            string? gatewayId,
 
-            string id,
+            string? id,
 
-            string instanceId,
+            string? instanceId,
 
-            string localGatewayId,
+            string? localGatewayId,
 
-            string natGatewayId,
+            string? natGatewayId,
 
-            string networkInterfaceId,
+            string? networkInterfaceId,
 
             string routeTableId,
 
-            string transitGatewayId,
+            string? transitGatewayId,
 
-            string vpcPeeringConnectionId)
+            string? vpcPeeringConnectionId)
         {
             CarrierGatewayId = carrierGatewayId;
             CoreNetworkArn = coreNetworkArn;

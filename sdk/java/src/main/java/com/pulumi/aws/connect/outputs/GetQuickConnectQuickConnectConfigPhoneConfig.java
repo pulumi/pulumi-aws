@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQuickConnectQuickConnectConfigPhoneConfig {
@@ -13,15 +15,15 @@ public final class GetQuickConnectQuickConnectConfigPhoneConfig {
      * @return Phone number in in E.164 format.
      * 
      */
-    private String phoneNumber;
+    private @Nullable String phoneNumber;
 
     private GetQuickConnectQuickConnectConfigPhoneConfig() {}
     /**
      * @return Phone number in in E.164 format.
      * 
      */
-    public String phoneNumber() {
-        return this.phoneNumber;
+    public Optional<String> phoneNumber() {
+        return Optional.ofNullable(this.phoneNumber);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetQuickConnectQuickConnectConfigPhoneConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String phoneNumber;
+        private @Nullable String phoneNumber;
         public Builder() {}
         public Builder(GetQuickConnectQuickConnectConfigPhoneConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetQuickConnectQuickConnectConfigPhoneConfig {
         }
 
         @CustomType.Setter
-        public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = Objects.requireNonNull(phoneNumber);
+        public Builder phoneNumber(@Nullable String phoneNumber) {
+            this.phoneNumber = phoneNumber;
             return this;
         }
         public GetQuickConnectQuickConnectConfigPhoneConfig build() {

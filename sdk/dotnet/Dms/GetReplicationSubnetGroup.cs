@@ -122,41 +122,41 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string ReplicationSubnetGroupArn;
+        public readonly string? Id;
+        public readonly string? ReplicationSubnetGroupArn;
         /// <summary>
         /// Description for the subnet group.
         /// </summary>
-        public readonly string ReplicationSubnetGroupDescription;
+        public readonly string? ReplicationSubnetGroupDescription;
         public readonly string ReplicationSubnetGroupId;
-        public readonly string SubnetGroupStatus;
+        public readonly string? SubnetGroupStatus;
         /// <summary>
         /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The ID of the VPC the subnet group is in.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetReplicationSubnetGroupResult(
-            string id,
+            string? id,
 
-            string replicationSubnetGroupArn,
+            string? replicationSubnetGroupArn,
 
-            string replicationSubnetGroupDescription,
+            string? replicationSubnetGroupDescription,
 
             string replicationSubnetGroupId,
 
-            string subnetGroupStatus,
+            string? subnetGroupStatus,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vpcId)
+            string? vpcId)
         {
             Id = id;
             ReplicationSubnetGroupArn = replicationSubnetGroupArn;

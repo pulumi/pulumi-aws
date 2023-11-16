@@ -79,7 +79,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Grafana workspace.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      */
@@ -87,7 +87,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      */
-    public readonly configuration!: pulumi.Output<string>;
+    public readonly configuration!: pulumi.Output<string | undefined>;
     /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      */
@@ -99,11 +99,11 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The endpoint of the Grafana workspace.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      */
-    public readonly grafanaVersion!: pulumi.Output<string>;
+    public readonly grafanaVersion!: pulumi.Output<string | undefined>;
     /**
      * The Grafana workspace name.
      */
@@ -134,7 +134,7 @@ export class Workspace extends pulumi.CustomResource {
      * The IAM role ARN that the workspace assumes.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly samlConfigurationStatus!: pulumi.Output<string>;
+    public /*out*/ readonly samlConfigurationStatus!: pulumi.Output<string | undefined>;
     /**
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      */

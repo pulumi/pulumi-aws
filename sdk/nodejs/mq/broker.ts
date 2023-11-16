@@ -106,11 +106,11 @@ export class Broker extends pulumi.CustomResource {
     /**
      * ARN of the broker.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
      */
-    public readonly authenticationStrategy!: pulumi.Output<string>;
+    public readonly authenticationStrategy!: pulumi.Output<string | undefined>;
     /**
      * Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
      */
@@ -122,7 +122,7 @@ export class Broker extends pulumi.CustomResource {
     /**
      * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      */
-    public readonly configuration!: pulumi.Output<outputs.mq.BrokerConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.mq.BrokerConfiguration | undefined>;
     /**
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      */
@@ -157,7 +157,7 @@ export class Broker extends pulumi.CustomResource {
      * * For `RabbitMQ`:
      * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
      */
-    public /*out*/ readonly instances!: pulumi.Output<outputs.mq.BrokerInstance[]>;
+    public /*out*/ readonly instances!: pulumi.Output<outputs.mq.BrokerInstance[] | undefined>;
     /**
      * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
      */
@@ -169,7 +169,7 @@ export class Broker extends pulumi.CustomResource {
     /**
      * Configuration block for the maintenance window start time. Detailed below.
      */
-    public readonly maintenanceWindowStartTime!: pulumi.Output<outputs.mq.BrokerMaintenanceWindowStartTime>;
+    public readonly maintenanceWindowStartTime!: pulumi.Output<outputs.mq.BrokerMaintenanceWindowStartTime | undefined>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
@@ -181,11 +181,11 @@ export class Broker extends pulumi.CustomResource {
     /**
      * Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      */
-    public readonly storageType!: pulumi.Output<string>;
+    public readonly storageType!: pulumi.Output<string | undefined>;
     /**
      * List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
      * Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

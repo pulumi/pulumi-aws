@@ -62,7 +62,7 @@ export class Key extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the key.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
      * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
@@ -88,7 +88,7 @@ export class Key extends pulumi.CustomResource {
     /**
      * The description of the key as viewed in AWS console.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      */
@@ -100,7 +100,7 @@ export class Key extends pulumi.CustomResource {
     /**
      * The globally unique identifier for the key.
      */
-    public /*out*/ readonly keyId!: pulumi.Output<string>;
+    public /*out*/ readonly keyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
@@ -109,13 +109,13 @@ export class Key extends pulumi.CustomResource {
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      */
-    public readonly multiRegion!: pulumi.Output<boolean>;
+    public readonly multiRegion!: pulumi.Output<boolean | undefined>;
     /**
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
      *
      * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
-    public readonly policy!: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

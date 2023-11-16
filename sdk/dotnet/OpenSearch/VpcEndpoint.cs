@@ -65,7 +65,7 @@ namespace Pulumi.Aws.OpenSearch
         /// The connection endpoint ID for connecting to the domain.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// Options to specify the subnets and security groups for the endpoint.

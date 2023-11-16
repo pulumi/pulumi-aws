@@ -42,13 +42,13 @@ namespace Pulumi.Aws.MediaStore
         /// The ARN of the container.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The DNS endpoint of the container.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name of the container. Must contain alphanumeric characters or underscores.

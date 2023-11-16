@@ -74,7 +74,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
     /**
      * Name of a usage plan key.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * Id of the usage plan resource representing to associate the key to.
      */
@@ -82,7 +82,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
     /**
      * Value of a usage plan key.
      */
-    public /*out*/ readonly value!: pulumi.Output<string>;
+    public /*out*/ readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a UsagePlanKey resource with the given unique name, arguments, and options.

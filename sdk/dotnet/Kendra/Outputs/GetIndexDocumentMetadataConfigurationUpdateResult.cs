@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// Name of the index field. Minimum length of 1. Maximum length of 30.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetIndexDocumentMetadataConfigurationUpdateResult(
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetIndexDocumentMetadataConfigurationUpdateRelevanceResult> relevances,
 
             ImmutableArray<Outputs.GetIndexDocumentMetadataConfigurationUpdateSearchResult> searches,
 
-            string type)
+            string? type)
         {
             Name = name;
             Relevances = relevances;

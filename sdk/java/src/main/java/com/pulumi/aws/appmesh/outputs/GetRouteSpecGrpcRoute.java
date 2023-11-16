@@ -10,26 +10,27 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecGrpcRouteTimeout;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecGrpcRoute {
-    private List<GetRouteSpecGrpcRouteAction> actions;
-    private List<GetRouteSpecGrpcRouteMatch> matches;
-    private List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies;
-    private List<GetRouteSpecGrpcRouteTimeout> timeouts;
+    private @Nullable List<GetRouteSpecGrpcRouteAction> actions;
+    private @Nullable List<GetRouteSpecGrpcRouteMatch> matches;
+    private @Nullable List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies;
+    private @Nullable List<GetRouteSpecGrpcRouteTimeout> timeouts;
 
     private GetRouteSpecGrpcRoute() {}
     public List<GetRouteSpecGrpcRouteAction> actions() {
-        return this.actions;
+        return this.actions == null ? List.of() : this.actions;
     }
     public List<GetRouteSpecGrpcRouteMatch> matches() {
-        return this.matches;
+        return this.matches == null ? List.of() : this.matches;
     }
     public List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies() {
-        return this.retryPolicies;
+        return this.retryPolicies == null ? List.of() : this.retryPolicies;
     }
     public List<GetRouteSpecGrpcRouteTimeout> timeouts() {
-        return this.timeouts;
+        return this.timeouts == null ? List.of() : this.timeouts;
     }
 
     public static Builder builder() {
@@ -41,10 +42,10 @@ public final class GetRouteSpecGrpcRoute {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecGrpcRouteAction> actions;
-        private List<GetRouteSpecGrpcRouteMatch> matches;
-        private List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies;
-        private List<GetRouteSpecGrpcRouteTimeout> timeouts;
+        private @Nullable List<GetRouteSpecGrpcRouteAction> actions;
+        private @Nullable List<GetRouteSpecGrpcRouteMatch> matches;
+        private @Nullable List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies;
+        private @Nullable List<GetRouteSpecGrpcRouteTimeout> timeouts;
         public Builder() {}
         public Builder(GetRouteSpecGrpcRoute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,32 +56,32 @@ public final class GetRouteSpecGrpcRoute {
         }
 
         @CustomType.Setter
-        public Builder actions(List<GetRouteSpecGrpcRouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+        public Builder actions(@Nullable List<GetRouteSpecGrpcRouteAction> actions) {
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetRouteSpecGrpcRouteAction... actions) {
             return actions(List.of(actions));
         }
         @CustomType.Setter
-        public Builder matches(List<GetRouteSpecGrpcRouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+        public Builder matches(@Nullable List<GetRouteSpecGrpcRouteMatch> matches) {
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecGrpcRouteMatch... matches) {
             return matches(List.of(matches));
         }
         @CustomType.Setter
-        public Builder retryPolicies(List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies) {
-            this.retryPolicies = Objects.requireNonNull(retryPolicies);
+        public Builder retryPolicies(@Nullable List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies) {
+            this.retryPolicies = retryPolicies;
             return this;
         }
         public Builder retryPolicies(GetRouteSpecGrpcRouteRetryPolicy... retryPolicies) {
             return retryPolicies(List.of(retryPolicies));
         }
         @CustomType.Setter
-        public Builder timeouts(List<GetRouteSpecGrpcRouteTimeout> timeouts) {
-            this.timeouts = Objects.requireNonNull(timeouts);
+        public Builder timeouts(@Nullable List<GetRouteSpecGrpcRouteTimeout> timeouts) {
+            this.timeouts = timeouts;
             return this;
         }
         public Builder timeouts(GetRouteSpecGrpcRouteTimeout... timeouts) {

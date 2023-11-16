@@ -69,7 +69,7 @@ type LookupUserResult struct {
 	AuthenticationModes []GetUserAuthenticationMode `pulumi:"authenticationModes"`
 	Engine              *string                     `pulumi:"engine"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string   `pulumi:"id"`
+	Id                 *string  `pulumi:"id"`
 	NoPasswordRequired *bool    `pulumi:"noPasswordRequired"`
 	Passwords          []string `pulumi:"passwords"`
 	// Identifier for the user.
@@ -138,8 +138,8 @@ func (o LookupUserResultOutput) Engine() pulumi.StringPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupUserResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupUserResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserResultOutput) NoPasswordRequired() pulumi.BoolPtrOutput {

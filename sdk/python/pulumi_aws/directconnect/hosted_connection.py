@@ -523,7 +523,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsDevice")
-    def aws_device(self) -> pulumi.Output[str]:
+    def aws_device(self) -> pulumi.Output[Optional[str]]:
         """
         The Direct Connect endpoint on which the physical connection terminates.
         """
@@ -547,7 +547,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasLogicalRedundancy")
-    def has_logical_redundancy(self) -> pulumi.Output[str]:
+    def has_logical_redundancy(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         """
@@ -555,7 +555,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jumboFrameCapable")
-    def jumbo_frame_capable(self) -> pulumi.Output[bool]:
+    def jumbo_frame_capable(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean value representing if jumbo frames have been enabled for this connection.
         """
@@ -563,7 +563,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lagId")
-    def lag_id(self) -> pulumi.Output[str]:
+    def lag_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the LAG.
         """
@@ -571,7 +571,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loaIssueTime")
-    def loa_issue_time(self) -> pulumi.Output[str]:
+    def loa_issue_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
         """
@@ -579,7 +579,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the connection.
         """
@@ -603,7 +603,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerName")
-    def partner_name(self) -> pulumi.Output[str]:
+    def partner_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the AWS Direct Connect service provider associated with the connection.
         """
@@ -611,7 +611,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> pulumi.Output[str]:
+    def provider_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the service provider associated with the connection.
         """
@@ -619,7 +619,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[str]:
+    def region(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS Region where the connection is located.
         """
@@ -627,7 +627,7 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
         """

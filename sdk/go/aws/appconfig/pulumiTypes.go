@@ -709,9 +709,9 @@ func (o ExtensionParameterArrayOutput) Index(i pulumi.IntInput) ExtensionParamet
 
 type GetConfigurationProfileValidator struct {
 	// Either the JSON Schema content or the ARN of an AWS Lambda function.
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetConfigurationProfileValidatorInput is an input type that accepts GetConfigurationProfileValidatorArgs and GetConfigurationProfileValidatorOutput values.
@@ -727,9 +727,9 @@ type GetConfigurationProfileValidatorInput interface {
 
 type GetConfigurationProfileValidatorArgs struct {
 	// Either the JSON Schema content or the ARN of an AWS Lambda function.
-	Content pulumi.StringInput `pulumi:"content"`
+	Content pulumi.StringPtrInput `pulumi:"content"`
 	// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetConfigurationProfileValidatorArgs) ElementType() reflect.Type {
@@ -784,13 +784,13 @@ func (o GetConfigurationProfileValidatorOutput) ToGetConfigurationProfileValidat
 }
 
 // Either the JSON Schema content or the ARN of an AWS Lambda function.
-func (o GetConfigurationProfileValidatorOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationProfileValidator) string { return v.Content }).(pulumi.StringOutput)
+func (o GetConfigurationProfileValidatorOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConfigurationProfileValidator) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-func (o GetConfigurationProfileValidatorOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationProfileValidator) string { return v.Type }).(pulumi.StringOutput)
+func (o GetConfigurationProfileValidatorOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConfigurationProfileValidator) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetConfigurationProfileValidatorArrayOutput struct{ *pulumi.OutputState }
@@ -815,9 +815,9 @@ func (o GetConfigurationProfileValidatorArrayOutput) Index(i pulumi.IntInput) Ge
 
 type GetEnvironmentMonitor struct {
 	// ARN of the Amazon CloudWatch alarm.
-	AlarmArn string `pulumi:"alarmArn"`
+	AlarmArn *string `pulumi:"alarmArn"`
 	// ARN of an IAM role for AWS AppConfig to monitor.
-	AlarmRoleArn string `pulumi:"alarmRoleArn"`
+	AlarmRoleArn *string `pulumi:"alarmRoleArn"`
 }
 
 // GetEnvironmentMonitorInput is an input type that accepts GetEnvironmentMonitorArgs and GetEnvironmentMonitorOutput values.
@@ -833,9 +833,9 @@ type GetEnvironmentMonitorInput interface {
 
 type GetEnvironmentMonitorArgs struct {
 	// ARN of the Amazon CloudWatch alarm.
-	AlarmArn pulumi.StringInput `pulumi:"alarmArn"`
+	AlarmArn pulumi.StringPtrInput `pulumi:"alarmArn"`
 	// ARN of an IAM role for AWS AppConfig to monitor.
-	AlarmRoleArn pulumi.StringInput `pulumi:"alarmRoleArn"`
+	AlarmRoleArn pulumi.StringPtrInput `pulumi:"alarmRoleArn"`
 }
 
 func (GetEnvironmentMonitorArgs) ElementType() reflect.Type {
@@ -890,13 +890,13 @@ func (o GetEnvironmentMonitorOutput) ToGetEnvironmentMonitorOutputWithContext(ct
 }
 
 // ARN of the Amazon CloudWatch alarm.
-func (o GetEnvironmentMonitorOutput) AlarmArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEnvironmentMonitor) string { return v.AlarmArn }).(pulumi.StringOutput)
+func (o GetEnvironmentMonitorOutput) AlarmArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEnvironmentMonitor) *string { return v.AlarmArn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of an IAM role for AWS AppConfig to monitor.
-func (o GetEnvironmentMonitorOutput) AlarmRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEnvironmentMonitor) string { return v.AlarmRoleArn }).(pulumi.StringOutput)
+func (o GetEnvironmentMonitorOutput) AlarmRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEnvironmentMonitor) *string { return v.AlarmRoleArn }).(pulumi.StringPtrOutput)
 }
 
 type GetEnvironmentMonitorArrayOutput struct{ *pulumi.OutputState }

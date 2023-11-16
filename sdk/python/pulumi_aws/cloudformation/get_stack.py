@@ -61,7 +61,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Sequence[str]:
+    def capabilities(self) -> Optional[Sequence[str]]:
         """
         List of capabilities
         """
@@ -69,7 +69,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the stack
         """
@@ -77,7 +77,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter(name="disableRollback")
-    def disable_rollback(self) -> bool:
+    def disable_rollback(self) -> Optional[bool]:
         """
         Whether the rollback of the stack is disabled when stack creation fails
         """
@@ -85,7 +85,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> str:
+    def iam_role_arn(self) -> Optional[str]:
         """
         ARN of the IAM role used to create the stack.
         """
@@ -93,7 +93,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -106,7 +106,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter(name="notificationArns")
-    def notification_arns(self) -> Sequence[str]:
+    def notification_arns(self) -> Optional[Sequence[str]]:
         """
         List of SNS topic ARNs to publish stack related events
         """
@@ -114,7 +114,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, str]:
+    def outputs(self) -> Optional[Mapping[str, str]]:
         """
         Map of outputs from the stack.
         """
@@ -122,7 +122,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, str]:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         """
         Map of parameters that specify input parameters for the stack.
         """
@@ -130,7 +130,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags associated with this stack.
         """
@@ -138,7 +138,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> str:
+    def template_body(self) -> Optional[str]:
         """
         Structure containing the template body.
         """
@@ -146,7 +146,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter(name="timeoutInMinutes")
-    def timeout_in_minutes(self) -> int:
+    def timeout_in_minutes(self) -> Optional[int]:
         """
         Amount of time that can pass before the stack status becomes `CREATE_FAILED`
         """

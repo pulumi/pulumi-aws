@@ -172,14 +172,14 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) specifying the server certificate.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The contents of the public key certificate in
@@ -220,14 +220,14 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="expiration", refs={String.class}, tree="[0]")
-    private Output<String> expiration;
+    private Output</* @Nullable */ String> expiration;
 
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
      * 
      */
-    public Output<String> expiration() {
-        return this.expiration;
+    public Output<Optional<String>> expiration() {
+        return Codegen.optional(this.expiration);
     }
     /**
      * The name of the Server Certificate. Do not include the
@@ -251,15 +251,15 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The IAM path for the server certificate.  If it is not
@@ -336,14 +336,14 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="uploadDate", refs={String.class}, tree="[0]")
-    private Output<String> uploadDate;
+    private Output</* @Nullable */ String> uploadDate;
 
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
      * 
      */
-    public Output<String> uploadDate() {
-        return this.uploadDate;
+    public Output<Optional<String>> uploadDate() {
+        return Codegen.optional(this.uploadDate);
     }
 
     /**

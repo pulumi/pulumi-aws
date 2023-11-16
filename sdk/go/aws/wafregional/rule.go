@@ -82,7 +82,7 @@ type Rule struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the WAF Regional Rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name or description for the Amazon CloudWatch metric of this rule.
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
 	// The name or description of the rule.
@@ -282,8 +282,8 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 }
 
 // The ARN of the WAF Regional Rule.
-func (o RuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name or description for the Amazon CloudWatch metric of this rule.

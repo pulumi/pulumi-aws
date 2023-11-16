@@ -166,15 +166,15 @@ export class Route extends pulumi.CustomResource {
     /**
      * ARN of the route.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Creation date of the route.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * Last update date of the route.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string | undefined>;
     /**
      * Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
      */
@@ -182,7 +182,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
-    public readonly meshOwner!: pulumi.Output<string>;
+    public readonly meshOwner!: pulumi.Output<string | undefined>;
     /**
      * Name to use for the route. Must be between 1 and 255 characters in length.
      */
@@ -190,7 +190,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * Resource owner's AWS account ID.
      */
-    public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
+    public /*out*/ readonly resourceOwner!: pulumi.Output<string | undefined>;
     /**
      * Route specification to apply.
      */

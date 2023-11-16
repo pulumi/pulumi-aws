@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexResult {
@@ -21,37 +23,37 @@ public final class GetIndexResult {
      * @return ARN of the Index.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
      * 
      */
-    private List<GetIndexCapacityUnit> capacityUnits;
+    private @Nullable List<GetIndexCapacityUnit> capacityUnits;
     /**
      * @return Unix datetime that the index was created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return Description of the Index.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
      * 
      */
-    private List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
+    private @Nullable List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
     /**
      * @return Amazon Kendra edition for the index.
      * 
      */
-    private String edition;
+    private @Nullable String edition;
     /**
      * @return When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    private String errorMessage;
+    private @Nullable String errorMessage;
     /**
      * @return Identifier of the Index.
      * 
@@ -61,102 +63,102 @@ public final class GetIndexResult {
      * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
      * 
      */
-    private List<GetIndexIndexStatistic> indexStatistics;
+    private @Nullable List<GetIndexIndexStatistic> indexStatistics;
     /**
      * @return Name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
      * 
      */
-    private List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
+    private @Nullable List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
     /**
      * @return Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Metadata that helps organize the Indices you create.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Unix datetime that the index was last updated.
      * 
      */
-    private String updatedAt;
+    private @Nullable String updatedAt;
     /**
      * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
      * 
      */
-    private String userContextPolicy;
+    private @Nullable String userContextPolicy;
     /**
      * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
      * 
      */
-    private List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations;
+    private @Nullable List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations;
     /**
      * @return A block that specifies the user token configuration. Documented below.
      * 
      */
-    private List<GetIndexUserTokenConfiguration> userTokenConfigurations;
+    private @Nullable List<GetIndexUserTokenConfiguration> userTokenConfigurations;
 
     private GetIndexResult() {}
     /**
      * @return ARN of the Index.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
      * 
      */
     public List<GetIndexCapacityUnit> capacityUnits() {
-        return this.capacityUnits;
+        return this.capacityUnits == null ? List.of() : this.capacityUnits;
     }
     /**
      * @return Unix datetime that the index was created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return Description of the Index.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
      * 
      */
     public List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates() {
-        return this.documentMetadataConfigurationUpdates;
+        return this.documentMetadataConfigurationUpdates == null ? List.of() : this.documentMetadataConfigurationUpdates;
     }
     /**
      * @return Amazon Kendra edition for the index.
      * 
      */
-    public String edition() {
-        return this.edition;
+    public Optional<String> edition() {
+        return Optional.ofNullable(this.edition);
     }
     /**
      * @return When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    public String errorMessage() {
-        return this.errorMessage;
+    public Optional<String> errorMessage() {
+        return Optional.ofNullable(this.errorMessage);
     }
     /**
      * @return Identifier of the Index.
@@ -170,70 +172,70 @@ public final class GetIndexResult {
      * 
      */
     public List<GetIndexIndexStatistic> indexStatistics() {
-        return this.indexStatistics;
+        return this.indexStatistics == null ? List.of() : this.indexStatistics;
     }
     /**
      * @return Name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
      * 
      */
     public List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations() {
-        return this.serverSideEncryptionConfigurations;
+        return this.serverSideEncryptionConfigurations == null ? List.of() : this.serverSideEncryptionConfigurations;
     }
     /**
      * @return Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Metadata that helps organize the Indices you create.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Unix datetime that the index was last updated.
      * 
      */
-    public String updatedAt() {
-        return this.updatedAt;
+    public Optional<String> updatedAt() {
+        return Optional.ofNullable(this.updatedAt);
     }
     /**
      * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
      * 
      */
-    public String userContextPolicy() {
-        return this.userContextPolicy;
+    public Optional<String> userContextPolicy() {
+        return Optional.ofNullable(this.userContextPolicy);
     }
     /**
      * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
      * 
      */
     public List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations() {
-        return this.userGroupResolutionConfigurations;
+        return this.userGroupResolutionConfigurations == null ? List.of() : this.userGroupResolutionConfigurations;
     }
     /**
      * @return A block that specifies the user token configuration. Documented below.
      * 
      */
     public List<GetIndexUserTokenConfiguration> userTokenConfigurations() {
-        return this.userTokenConfigurations;
+        return this.userTokenConfigurations == null ? List.of() : this.userTokenConfigurations;
     }
 
     public static Builder builder() {
@@ -245,24 +247,24 @@ public final class GetIndexResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetIndexCapacityUnit> capacityUnits;
-        private String createdAt;
-        private String description;
-        private List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
-        private String edition;
-        private String errorMessage;
+        private @Nullable String arn;
+        private @Nullable List<GetIndexCapacityUnit> capacityUnits;
+        private @Nullable String createdAt;
+        private @Nullable String description;
+        private @Nullable List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
+        private @Nullable String edition;
+        private @Nullable String errorMessage;
         private String id;
-        private List<GetIndexIndexStatistic> indexStatistics;
-        private String name;
-        private String roleArn;
-        private List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
-        private String status;
-        private Map<String,String> tags;
-        private String updatedAt;
-        private String userContextPolicy;
-        private List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations;
-        private List<GetIndexUserTokenConfiguration> userTokenConfigurations;
+        private @Nullable List<GetIndexIndexStatistic> indexStatistics;
+        private @Nullable String name;
+        private @Nullable String roleArn;
+        private @Nullable List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String updatedAt;
+        private @Nullable String userContextPolicy;
+        private @Nullable List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations;
+        private @Nullable List<GetIndexUserTokenConfiguration> userTokenConfigurations;
         public Builder() {}
         public Builder(GetIndexResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -287,44 +289,44 @@ public final class GetIndexResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder capacityUnits(List<GetIndexCapacityUnit> capacityUnits) {
-            this.capacityUnits = Objects.requireNonNull(capacityUnits);
+        public Builder capacityUnits(@Nullable List<GetIndexCapacityUnit> capacityUnits) {
+            this.capacityUnits = capacityUnits;
             return this;
         }
         public Builder capacityUnits(GetIndexCapacityUnit... capacityUnits) {
             return capacityUnits(List.of(capacityUnits));
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder documentMetadataConfigurationUpdates(List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates) {
-            this.documentMetadataConfigurationUpdates = Objects.requireNonNull(documentMetadataConfigurationUpdates);
+        public Builder documentMetadataConfigurationUpdates(@Nullable List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates) {
+            this.documentMetadataConfigurationUpdates = documentMetadataConfigurationUpdates;
             return this;
         }
         public Builder documentMetadataConfigurationUpdates(GetIndexDocumentMetadataConfigurationUpdate... documentMetadataConfigurationUpdates) {
             return documentMetadataConfigurationUpdates(List.of(documentMetadataConfigurationUpdates));
         }
         @CustomType.Setter
-        public Builder edition(String edition) {
-            this.edition = Objects.requireNonNull(edition);
+        public Builder edition(@Nullable String edition) {
+            this.edition = edition;
             return this;
         }
         @CustomType.Setter
-        public Builder errorMessage(String errorMessage) {
-            this.errorMessage = Objects.requireNonNull(errorMessage);
+        public Builder errorMessage(@Nullable String errorMessage) {
+            this.errorMessage = errorMessage;
             return this;
         }
         @CustomType.Setter
@@ -333,62 +335,62 @@ public final class GetIndexResult {
             return this;
         }
         @CustomType.Setter
-        public Builder indexStatistics(List<GetIndexIndexStatistic> indexStatistics) {
-            this.indexStatistics = Objects.requireNonNull(indexStatistics);
+        public Builder indexStatistics(@Nullable List<GetIndexIndexStatistic> indexStatistics) {
+            this.indexStatistics = indexStatistics;
             return this;
         }
         public Builder indexStatistics(GetIndexIndexStatistic... indexStatistics) {
             return indexStatistics(List.of(indexStatistics));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder serverSideEncryptionConfigurations(List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations) {
-            this.serverSideEncryptionConfigurations = Objects.requireNonNull(serverSideEncryptionConfigurations);
+        public Builder serverSideEncryptionConfigurations(@Nullable List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations) {
+            this.serverSideEncryptionConfigurations = serverSideEncryptionConfigurations;
             return this;
         }
         public Builder serverSideEncryptionConfigurations(GetIndexServerSideEncryptionConfiguration... serverSideEncryptionConfigurations) {
             return serverSideEncryptionConfigurations(List.of(serverSideEncryptionConfigurations));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+        public Builder updatedAt(@Nullable String updatedAt) {
+            this.updatedAt = updatedAt;
             return this;
         }
         @CustomType.Setter
-        public Builder userContextPolicy(String userContextPolicy) {
-            this.userContextPolicy = Objects.requireNonNull(userContextPolicy);
+        public Builder userContextPolicy(@Nullable String userContextPolicy) {
+            this.userContextPolicy = userContextPolicy;
             return this;
         }
         @CustomType.Setter
-        public Builder userGroupResolutionConfigurations(List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations) {
-            this.userGroupResolutionConfigurations = Objects.requireNonNull(userGroupResolutionConfigurations);
+        public Builder userGroupResolutionConfigurations(@Nullable List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations) {
+            this.userGroupResolutionConfigurations = userGroupResolutionConfigurations;
             return this;
         }
         public Builder userGroupResolutionConfigurations(GetIndexUserGroupResolutionConfiguration... userGroupResolutionConfigurations) {
             return userGroupResolutionConfigurations(List.of(userGroupResolutionConfigurations));
         }
         @CustomType.Setter
-        public Builder userTokenConfigurations(List<GetIndexUserTokenConfiguration> userTokenConfigurations) {
-            this.userTokenConfigurations = Objects.requireNonNull(userTokenConfigurations);
+        public Builder userTokenConfigurations(@Nullable List<GetIndexUserTokenConfiguration> userTokenConfigurations) {
+            this.userTokenConfigurations = userTokenConfigurations;
             return this;
         }
         public Builder userTokenConfigurations(GetIndexUserTokenConfiguration... userTokenConfigurations) {

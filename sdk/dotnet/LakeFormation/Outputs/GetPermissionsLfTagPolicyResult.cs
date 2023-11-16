@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        public readonly string CatalogId;
+        public readonly string? CatalogId;
         /// <summary>
         /// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
         /// 
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
 
         [OutputConstructor]
         private GetPermissionsLfTagPolicyResult(
-            string catalogId,
+            string? catalogId,
 
             ImmutableArray<Outputs.GetPermissionsLfTagPolicyExpressionResult> expressions,
 

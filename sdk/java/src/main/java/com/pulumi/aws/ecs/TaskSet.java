@@ -117,14 +117,14 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) that identifies the task set.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
@@ -159,14 +159,14 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="externalId", refs={String.class}, tree="[0]")
-    private Output<String> externalId;
+    private Output</* @Nullable */ String> externalId;
 
     /**
      * @return The external ID associated with the task set.
      * 
      */
-    public Output<String> externalId() {
-        return this.externalId;
+    public Output<Optional<String>> externalId() {
+        return Codegen.optional(this.externalId);
     }
     /**
      * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
@@ -187,14 +187,14 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="launchType", refs={String.class}, tree="[0]")
-    private Output<String> launchType;
+    private Output</* @Nullable */ String> launchType;
 
     /**
      * @return The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
-    public Output<String> launchType() {
-        return this.launchType;
+    public Output<Optional<String>> launchType() {
+        return Codegen.optional(this.launchType);
     }
     /**
      * Details on load balancers that are used with a task set. Detailed below.
@@ -229,28 +229,28 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="platformVersion", refs={String.class}, tree="[0]")
-    private Output<String> platformVersion;
+    private Output</* @Nullable */ String> platformVersion;
 
     /**
      * @return The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
-    public Output<String> platformVersion() {
-        return this.platformVersion;
+    public Output<Optional<String>> platformVersion() {
+        return Codegen.optional(this.platformVersion);
     }
     /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      * 
      */
     @Export(name="scale", refs={TaskSetScale.class}, tree="[0]")
-    private Output<TaskSetScale> scale;
+    private Output</* @Nullable */ TaskSetScale> scale;
 
     /**
      * @return A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      * 
      */
-    public Output<TaskSetScale> scale() {
-        return this.scale;
+    public Output<Optional<TaskSetScale>> scale() {
+        return Codegen.optional(this.scale);
     }
     /**
      * The short name or ARN of the ECS service.
@@ -285,28 +285,28 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="stabilityStatus", refs={String.class}, tree="[0]")
-    private Output<String> stabilityStatus;
+    private Output</* @Nullable */ String> stabilityStatus;
 
     /**
      * @return The stability status. This indicates whether the task set has reached a steady state.
      * 
      */
-    public Output<String> stabilityStatus() {
-        return this.stabilityStatus;
+    public Output<Optional<String>> stabilityStatus() {
+        return Codegen.optional(this.stabilityStatus);
     }
     /**
      * The status of the task set.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The status of the task set.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
@@ -363,14 +363,14 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="taskSetId", refs={String.class}, tree="[0]")
-    private Output<String> taskSetId;
+    private Output</* @Nullable */ String> taskSetId;
 
     /**
      * @return The ID of the task set.
      * 
      */
-    public Output<String> taskSetId() {
-        return this.taskSetId;
+    public Output<Optional<String>> taskSetId() {
+        return Codegen.optional(this.taskSetId);
     }
     /**
      * Whether the provider should wait until the task set has reached `STEADY_STATE`.

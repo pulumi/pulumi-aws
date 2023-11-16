@@ -132,27 +132,27 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// ARN assigned by AWS for this user.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Path in which this user was created.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         /// <summary>
         /// The ARN of the policy that is used to set the permissions boundary for the user.
         /// </summary>
-        public readonly string PermissionsBoundary;
+        public readonly string? PermissionsBoundary;
         /// <summary>
         /// Map of key-value pairs associated with the user.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Unique ID assigned by AWS for this user.
         /// </summary>
-        public readonly string UserId;
+        public readonly string? UserId;
         /// <summary>
         /// Name associated to this User
         /// </summary>
@@ -160,17 +160,17 @@ namespace Pulumi.Aws.Iam
 
         [OutputConstructor]
         private GetUserResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string path,
+            string? path,
 
-            string permissionsBoundary,
+            string? permissionsBoundary,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string userId,
+            string? userId,
 
             string userName)
         {

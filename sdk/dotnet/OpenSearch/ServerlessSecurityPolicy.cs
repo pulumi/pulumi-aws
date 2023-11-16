@@ -315,7 +315,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Version of the policy.
         /// </summary>
         [Output("policyVersion")]
-        public Output<string> PolicyVersion { get; private set; } = null!;
+        public Output<string?> PolicyVersion { get; private set; } = null!;
 
         /// <summary>
         /// Type of security policy. One of `encryption` or `network`.

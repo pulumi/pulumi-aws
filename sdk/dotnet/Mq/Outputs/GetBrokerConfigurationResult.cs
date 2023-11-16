@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerConfigurationResult
     {
-        public readonly string Id;
-        public readonly int Revision;
+        public readonly string? Id;
+        public readonly int? Revision;
 
         [OutputConstructor]
         private GetBrokerConfigurationResult(
-            string id,
+            string? id,
 
-            int revision)
+            int? revision)
         {
             Id = id;
             Revision = revision;

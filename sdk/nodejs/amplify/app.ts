@@ -176,11 +176,11 @@ export class App extends pulumi.CustomResource {
     /**
      * ARN of the Amplify app.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
      */
-    public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig>;
+    public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig | undefined>;
     /**
      * Automated branch creation glob patterns for an Amplify app.
      */
@@ -192,11 +192,11 @@ export class App extends pulumi.CustomResource {
     /**
      * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
      */
-    public readonly buildSpec!: pulumi.Output<string>;
+    public readonly buildSpec!: pulumi.Output<string | undefined>;
     /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      */
-    public readonly customHeaders!: pulumi.Output<string>;
+    public readonly customHeaders!: pulumi.Output<string | undefined>;
     /**
      * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
      */
@@ -204,7 +204,7 @@ export class App extends pulumi.CustomResource {
     /**
      * Default domain for the Amplify app.
      */
-    public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
+    public /*out*/ readonly defaultDomain!: pulumi.Output<string | undefined>;
     /**
      * Description for an Amplify app.
      */
@@ -248,7 +248,7 @@ export class App extends pulumi.CustomResource {
     /**
      * Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
      */
-    public /*out*/ readonly productionBranches!: pulumi.Output<outputs.amplify.AppProductionBranch[]>;
+    public /*out*/ readonly productionBranches!: pulumi.Output<outputs.amplify.AppProductionBranch[] | undefined>;
     /**
      * Repository for an Amplify app.
      */

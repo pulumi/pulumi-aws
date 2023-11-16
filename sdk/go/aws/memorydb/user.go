@@ -74,11 +74,11 @@ type User struct {
 	// The access permissions string used for this user.
 	AccessString pulumi.StringOutput `pulumi:"accessString"`
 	// The ARN of the user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModeOutput `pulumi:"authenticationMode"`
 	// The minimum engine version supported for the user.
-	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
+	MinimumEngineVersion pulumi.StringPtrOutput `pulumi:"minimumEngineVersion"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -299,8 +299,8 @@ func (o UserOutput) AccessString() pulumi.StringOutput {
 }
 
 // The ARN of the user.
-func (o UserOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o UserOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Denotes the user's authentication properties. Detailed below.
@@ -309,8 +309,8 @@ func (o UserOutput) AuthenticationMode() UserAuthenticationModeOutput {
 }
 
 // The minimum engine version supported for the user.
-func (o UserOutput) MinimumEngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.MinimumEngineVersion }).(pulumi.StringOutput)
+func (o UserOutput) MinimumEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.MinimumEngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

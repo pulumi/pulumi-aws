@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Organizations.Outputs
         /// <summary>
         /// ARN of the organizational unit
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Parent identifier of the organizational units.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the organizational unit
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetOrganizationalUnitsChildResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             Arn = arn;
             Id = id;

@@ -274,7 +274,7 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpointState")
-    def vpc_endpoint_state(self) -> pulumi.Output[str]:
+    def vpc_endpoint_state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the VPC Endpoint.
         """

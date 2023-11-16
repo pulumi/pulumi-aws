@@ -64,7 +64,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Whether your configuration reached the max account limit.
      */
-    public /*out*/ readonly maxAccountLimitReached!: pulumi.Output<boolean>;
+    public /*out*/ readonly maxAccountLimitReached!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.

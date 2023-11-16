@@ -68,7 +68,7 @@ export class Thesaurus extends pulumi.CustomResource {
     /**
      * ARN of the thesaurus.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description for a thesaurus.
      */
@@ -94,7 +94,7 @@ export class Thesaurus extends pulumi.CustomResource {
     /**
      * The current status of the thesaurus.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -105,7 +105,7 @@ export class Thesaurus extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly thesaurusId!: pulumi.Output<string>;
+    public /*out*/ readonly thesaurusId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Thesaurus resource with the given unique name, arguments, and options.

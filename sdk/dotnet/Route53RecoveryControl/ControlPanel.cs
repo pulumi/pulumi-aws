@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// ARN of the control panel.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the cluster in which this control panel will reside.
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// Whether a control panel is default.
         /// </summary>
         [Output("defaultControlPanel")]
-        public Output<bool> DefaultControlPanel { get; private set; } = null!;
+        public Output<bool?> DefaultControlPanel { get; private set; } = null!;
 
         /// <summary>
         /// Name describing the control panel.
@@ -69,13 +69,13 @@ namespace Pulumi.Aws.Route53RecoveryControl
         /// Number routing controls in a control panel.
         /// </summary>
         [Output("routingControlCount")]
-        public Output<int> RoutingControlCount { get; private set; } = null!;
+        public Output<int?> RoutingControlCount { get; private set; } = null!;
 
         /// <summary>
         /// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

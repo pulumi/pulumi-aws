@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
         /// </summary>
-        public readonly int AccessTokenValidity;
+        public readonly int? AccessTokenValidity;
         /// <summary>
         /// (Optional) List of allowed OAuth flows (code, implicit, client_credentials).
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// (Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         /// </summary>
-        public readonly bool AllowedOauthFlowsUserPoolClient;
+        public readonly bool? AllowedOauthFlowsUserPoolClient;
         /// <summary>
         /// (Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         /// </summary>
@@ -143,16 +143,16 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Client secret of the user pool client.
         /// </summary>
-        public readonly string ClientSecret;
+        public readonly string? ClientSecret;
         /// <summary>
         /// (Optional) Default redirect URI. Must be in the list of callback URLs.
         /// </summary>
-        public readonly string DefaultRedirectUri;
-        public readonly bool EnablePropagateAdditionalUserContextData;
+        public readonly string? DefaultRedirectUri;
+        public readonly bool? EnablePropagateAdditionalUserContextData;
         /// <summary>
         /// (Optional) Enables or disables token revocation.
         /// </summary>
-        public readonly bool EnableTokenRevocation;
+        public readonly bool? EnableTokenRevocation;
         /// <summary>
         /// (Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         /// </summary>
@@ -160,24 +160,24 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// (Optional) Should an application secret be generated.
         /// </summary>
-        public readonly bool GenerateSecret;
+        public readonly bool? GenerateSecret;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
         /// </summary>
-        public readonly int IdTokenValidity;
+        public readonly int? IdTokenValidity;
         /// <summary>
         /// (Optional) List of allowed logout URLs for the identity providers.
         /// </summary>
         public readonly ImmutableArray<string> LogoutUrls;
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// (Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
         /// </summary>
-        public readonly string PreventUserExistenceErrors;
+        public readonly string? PreventUserExistenceErrors;
         /// <summary>
         /// (Optional) List of user pool attributes the application client can read from.
         /// </summary>
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// (Optional) Time limit in days refresh tokens are valid for.
         /// </summary>
-        public readonly int RefreshTokenValidity;
+        public readonly int? RefreshTokenValidity;
         /// <summary>
         /// (Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
@@ -202,11 +202,11 @@ namespace Pulumi.Aws.Cognito
 
         [OutputConstructor]
         private GetUserPoolClientResult(
-            int accessTokenValidity,
+            int? accessTokenValidity,
 
             ImmutableArray<string> allowedOauthFlows,
 
-            bool allowedOauthFlowsUserPoolClient,
+            bool? allowedOauthFlowsUserPoolClient,
 
             ImmutableArray<string> allowedOauthScopes,
 
@@ -216,31 +216,31 @@ namespace Pulumi.Aws.Cognito
 
             string clientId,
 
-            string clientSecret,
+            string? clientSecret,
 
-            string defaultRedirectUri,
+            string? defaultRedirectUri,
 
-            bool enablePropagateAdditionalUserContextData,
+            bool? enablePropagateAdditionalUserContextData,
 
-            bool enableTokenRevocation,
+            bool? enableTokenRevocation,
 
             ImmutableArray<string> explicitAuthFlows,
 
-            bool generateSecret,
+            bool? generateSecret,
 
-            string id,
+            string? id,
 
-            int idTokenValidity,
+            int? idTokenValidity,
 
             ImmutableArray<string> logoutUrls,
 
-            string name,
+            string? name,
 
-            string preventUserExistenceErrors,
+            string? preventUserExistenceErrors,
 
             ImmutableArray<string> readAttributes,
 
-            int refreshTokenValidity,
+            int? refreshTokenValidity,
 
             ImmutableArray<string> supportedIdentityProviders,
 

@@ -110,7 +110,7 @@ type RegistryScanningConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The registry ID the scanning configuration applies to.
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	RegistryId pulumi.StringPtrOutput `pulumi:"registryId"`
 	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
 	Rules RegistryScanningConfigurationRuleArrayOutput `pulumi:"rules"`
 	// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
@@ -274,8 +274,8 @@ func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutp
 }
 
 // The registry ID the scanning configuration applies to.
-func (o RegistryScanningConfigurationOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegistryScanningConfiguration) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+func (o RegistryScanningConfigurationOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryScanningConfiguration) pulumi.StringPtrOutput { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 // One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.

@@ -235,14 +235,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the SQS queue
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
@@ -263,14 +263,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="deduplicationScope", refs={String.class}, tree="[0]")
-    private Output<String> deduplicationScope;
+    private Output</* @Nullable */ String> deduplicationScope;
 
     /**
      * @return Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
      * 
      */
-    public Output<String> deduplicationScope() {
-        return this.deduplicationScope;
+    public Output<Optional<String>> deduplicationScope() {
+        return Codegen.optional(this.deduplicationScope);
     }
     /**
      * The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
@@ -305,28 +305,28 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="fifoThroughputLimit", refs={String.class}, tree="[0]")
-    private Output<String> fifoThroughputLimit;
+    private Output</* @Nullable */ String> fifoThroughputLimit;
 
     /**
      * @return Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
      * 
      */
-    public Output<String> fifoThroughputLimit() {
-        return this.fifoThroughputLimit;
+    public Output<Optional<String>> fifoThroughputLimit() {
+        return Codegen.optional(this.fifoThroughputLimit);
     }
     /**
      * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      * 
      */
     @Export(name="kmsDataKeyReusePeriodSeconds", refs={Integer.class}, tree="[0]")
-    private Output<Integer> kmsDataKeyReusePeriodSeconds;
+    private Output</* @Nullable */ Integer> kmsDataKeyReusePeriodSeconds;
 
     /**
      * @return The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      * 
      */
-    public Output<Integer> kmsDataKeyReusePeriodSeconds() {
-        return this.kmsDataKeyReusePeriodSeconds;
+    public Output<Optional<Integer>> kmsDataKeyReusePeriodSeconds() {
+        return Codegen.optional(this.kmsDataKeyReusePeriodSeconds);
     }
     /**
      * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
@@ -389,28 +389,28 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The JSON policy for the SQS queue.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return The JSON policy for the SQS queue.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
@@ -431,42 +431,42 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="redriveAllowPolicy", refs={String.class}, tree="[0]")
-    private Output<String> redriveAllowPolicy;
+    private Output</* @Nullable */ String> redriveAllowPolicy;
 
     /**
      * @return The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
      * 
      */
-    public Output<String> redriveAllowPolicy() {
-        return this.redriveAllowPolicy;
+    public Output<Optional<String>> redriveAllowPolicy() {
+        return Codegen.optional(this.redriveAllowPolicy);
     }
     /**
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
      * 
      */
     @Export(name="redrivePolicy", refs={String.class}, tree="[0]")
-    private Output<String> redrivePolicy;
+    private Output</* @Nullable */ String> redrivePolicy;
 
     /**
      * @return The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
      * 
      */
-    public Output<String> redrivePolicy() {
-        return this.redrivePolicy;
+    public Output<Optional<String>> redrivePolicy() {
+        return Codegen.optional(this.redrivePolicy);
     }
     /**
      * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     @Export(name="sqsManagedSseEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> sqsManagedSseEnabled;
+    private Output</* @Nullable */ Boolean> sqsManagedSseEnabled;
 
     /**
      * @return Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    public Output<Boolean> sqsManagedSseEnabled() {
-        return this.sqsManagedSseEnabled;
+    public Output<Optional<Boolean>> sqsManagedSseEnabled() {
+        return Codegen.optional(this.sqsManagedSseEnabled);
     }
     /**
      * A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -505,14 +505,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
      * @return Same as `id`: The URL for the created Amazon SQS queue.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).

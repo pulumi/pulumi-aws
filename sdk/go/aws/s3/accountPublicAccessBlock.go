@@ -57,7 +57,7 @@ type AccountPublicAccessBlock struct {
 	pulumi.CustomResourceState
 
 	// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
 	// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
 	// * PUT Object calls fail if the request includes a public ACL.
@@ -267,8 +267,8 @@ func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockOutputWithCont
 }
 
 // AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
-func (o AccountPublicAccessBlockOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccountPublicAccessBlock) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+func (o AccountPublicAccessBlockOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountPublicAccessBlock) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.SsmContacts.Outputs
     [OutputType]
     public sealed class GetPlanStageTargetChannelTargetInfoResult
     {
-        public readonly string ContactChannelId;
-        public readonly int RetryIntervalInMinutes;
+        public readonly string? ContactChannelId;
+        public readonly int? RetryIntervalInMinutes;
 
         [OutputConstructor]
         private GetPlanStageTargetChannelTargetInfoResult(
-            string contactChannelId,
+            string? contactChannelId,
 
-            int retryIntervalInMinutes)
+            int? retryIntervalInMinutes)
         {
             ContactChannelId = contactChannelId;
             RetryIntervalInMinutes = retryIntervalInMinutes;

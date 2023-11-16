@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -74,14 +75,14 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="membershipId", refs={String.class}, tree="[0]")
-    private Output<String> membershipId;
+    private Output</* @Nullable */ String> membershipId;
 
     /**
      * @return The identifier of the newly created group membership in the Identity Store.
      * 
      */
-    public Output<String> membershipId() {
-        return this.membershipId;
+    public Output<Optional<String>> membershipId() {
+        return Codegen.optional(this.membershipId);
     }
 
     /**

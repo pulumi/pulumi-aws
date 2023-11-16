@@ -39,14 +39,14 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the attachment.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Connect peer BGP options.
@@ -67,14 +67,14 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configurations", refs={List.class,ConnectPeerConfiguration.class}, tree="[0,1]")
-    private Output<List<ConnectPeerConfiguration>> configurations;
+    private Output</* @Nullable */ List<ConnectPeerConfiguration>> configurations;
 
     /**
      * @return The configuration of the Connect peer.
      * 
      */
-    public Output<List<ConnectPeerConfiguration>> configurations() {
-        return this.configurations;
+    public Output<Optional<List<ConnectPeerConfiguration>>> configurations() {
+        return Codegen.optional(this.configurations);
     }
     /**
      * The ID of the connection attachment.
@@ -91,10 +91,10 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
         return this.connectAttachmentId;
     }
     @Export(name="connectPeerId", refs={String.class}, tree="[0]")
-    private Output<String> connectPeerId;
+    private Output</* @Nullable */ String> connectPeerId;
 
-    public Output<String> connectPeerId() {
-        return this.connectPeerId;
+    public Output<Optional<String>> connectPeerId() {
+        return Codegen.optional(this.connectPeerId);
     }
     /**
      * A Connect peer core network address.
@@ -115,34 +115,34 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
-    private Output<String> coreNetworkId;
+    private Output</* @Nullable */ String> coreNetworkId;
 
     /**
      * @return The ID of a core network.
      * 
      */
-    public Output<String> coreNetworkId() {
-        return this.coreNetworkId;
+    public Output<Optional<String>> coreNetworkId() {
+        return Codegen.optional(this.coreNetworkId);
     }
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * The Region where the peer is located.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
-    private Output<String> edgeLocation;
+    private Output</* @Nullable */ String> edgeLocation;
 
     /**
      * @return The Region where the peer is located.
      * 
      */
-    public Output<String> edgeLocation() {
-        return this.edgeLocation;
+    public Output<Optional<String>> edgeLocation() {
+        return Codegen.optional(this.edgeLocation);
     }
     /**
      * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
@@ -181,14 +181,14 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The state of the Connect peer.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.

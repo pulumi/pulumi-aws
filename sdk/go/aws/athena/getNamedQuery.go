@@ -59,13 +59,13 @@ type LookupNamedQueryArgs struct {
 // A collection of values returned by getNamedQuery.
 type LookupNamedQueryResult struct {
 	// Database to which the query belongs.
-	Database string `pulumi:"database"`
+	Database *string `pulumi:"database"`
 	// Brief explanation of the query.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string  `pulumi:"id"`
+	Id          *string `pulumi:"id"`
 	Name        string  `pulumi:"name"`
-	Querystring string  `pulumi:"querystring"`
+	Querystring *string `pulumi:"querystring"`
 	Workgroup   *string `pulumi:"workgroup"`
 }
 
@@ -110,26 +110,26 @@ func (o LookupNamedQueryResultOutput) ToLookupNamedQueryResultOutputWithContext(
 }
 
 // Database to which the query belongs.
-func (o LookupNamedQueryResultOutput) Database() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Database }).(pulumi.StringOutput)
+func (o LookupNamedQueryResultOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamedQueryResult) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
 // Brief explanation of the query.
-func (o LookupNamedQueryResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupNamedQueryResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamedQueryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupNamedQueryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupNamedQueryResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamedQueryResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNamedQueryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupNamedQueryResultOutput) Querystring() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Querystring }).(pulumi.StringOutput)
+func (o LookupNamedQueryResultOutput) Querystring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamedQueryResult) *string { return v.Querystring }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNamedQueryResultOutput) Workgroup() pulumi.StringPtrOutput {

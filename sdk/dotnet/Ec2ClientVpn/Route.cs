@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
         /// </summary>
         [Output("origin")]
-        public Output<string> Origin { get; private set; } = null!;
+        public Output<string?> Origin { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// The type of the route.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>

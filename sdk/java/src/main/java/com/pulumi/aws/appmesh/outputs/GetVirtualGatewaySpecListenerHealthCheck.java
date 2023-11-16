@@ -7,38 +7,40 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerHealthCheck {
-    private Integer healthyThreshold;
-    private Integer intervalMillis;
-    private String path;
-    private Integer port;
-    private String protocol;
-    private Integer timeoutMillis;
-    private Integer unhealthyThreshold;
+    private @Nullable Integer healthyThreshold;
+    private @Nullable Integer intervalMillis;
+    private @Nullable String path;
+    private @Nullable Integer port;
+    private @Nullable String protocol;
+    private @Nullable Integer timeoutMillis;
+    private @Nullable Integer unhealthyThreshold;
 
     private GetVirtualGatewaySpecListenerHealthCheck() {}
-    public Integer healthyThreshold() {
-        return this.healthyThreshold;
+    public Optional<Integer> healthyThreshold() {
+        return Optional.ofNullable(this.healthyThreshold);
     }
-    public Integer intervalMillis() {
-        return this.intervalMillis;
+    public Optional<Integer> intervalMillis() {
+        return Optional.ofNullable(this.intervalMillis);
     }
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
-    public Integer timeoutMillis() {
-        return this.timeoutMillis;
+    public Optional<Integer> timeoutMillis() {
+        return Optional.ofNullable(this.timeoutMillis);
     }
-    public Integer unhealthyThreshold() {
-        return this.unhealthyThreshold;
+    public Optional<Integer> unhealthyThreshold() {
+        return Optional.ofNullable(this.unhealthyThreshold);
     }
 
     public static Builder builder() {
@@ -50,13 +52,13 @@ public final class GetVirtualGatewaySpecListenerHealthCheck {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer healthyThreshold;
-        private Integer intervalMillis;
-        private String path;
-        private Integer port;
-        private String protocol;
-        private Integer timeoutMillis;
-        private Integer unhealthyThreshold;
+        private @Nullable Integer healthyThreshold;
+        private @Nullable Integer intervalMillis;
+        private @Nullable String path;
+        private @Nullable Integer port;
+        private @Nullable String protocol;
+        private @Nullable Integer timeoutMillis;
+        private @Nullable Integer unhealthyThreshold;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecListenerHealthCheck defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,38 +72,38 @@ public final class GetVirtualGatewaySpecListenerHealthCheck {
         }
 
         @CustomType.Setter
-        public Builder healthyThreshold(Integer healthyThreshold) {
-            this.healthyThreshold = Objects.requireNonNull(healthyThreshold);
+        public Builder healthyThreshold(@Nullable Integer healthyThreshold) {
+            this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
-        public Builder intervalMillis(Integer intervalMillis) {
-            this.intervalMillis = Objects.requireNonNull(intervalMillis);
+        public Builder intervalMillis(@Nullable Integer intervalMillis) {
+            this.intervalMillis = intervalMillis;
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder timeoutMillis(Integer timeoutMillis) {
-            this.timeoutMillis = Objects.requireNonNull(timeoutMillis);
+        public Builder timeoutMillis(@Nullable Integer timeoutMillis) {
+            this.timeoutMillis = timeoutMillis;
             return this;
         }
         @CustomType.Setter
-        public Builder unhealthyThreshold(Integer unhealthyThreshold) {
-            this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
+        public Builder unhealthyThreshold(@Nullable Integer unhealthyThreshold) {
+            this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
         public GetVirtualGatewaySpecListenerHealthCheck build() {

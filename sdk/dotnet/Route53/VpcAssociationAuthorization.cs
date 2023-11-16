@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Route53
         /// The VPC's region. Defaults to the region of the AWS provider.
         /// </summary>
         [Output("vpcRegion")]
-        public Output<string> VpcRegion { get; private set; } = null!;
+        public Output<string?> VpcRegion { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the private hosted zone that you want to authorize associating a VPC with.

@@ -6,18 +6,20 @@ package com.pulumi.aws.codecatalyst.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDevEnvironmentRepository {
-    private String branchName;
-    private String repositoryName;
+    private @Nullable String branchName;
+    private @Nullable String repositoryName;
 
     private GetDevEnvironmentRepository() {}
-    public String branchName() {
-        return this.branchName;
+    public Optional<String> branchName() {
+        return Optional.ofNullable(this.branchName);
     }
-    public String repositoryName() {
-        return this.repositoryName;
+    public Optional<String> repositoryName() {
+        return Optional.ofNullable(this.repositoryName);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetDevEnvironmentRepository {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String branchName;
-        private String repositoryName;
+        private @Nullable String branchName;
+        private @Nullable String repositoryName;
         public Builder() {}
         public Builder(GetDevEnvironmentRepository defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetDevEnvironmentRepository {
         }
 
         @CustomType.Setter
-        public Builder branchName(String branchName) {
-            this.branchName = Objects.requireNonNull(branchName);
+        public Builder branchName(@Nullable String branchName) {
+            this.branchName = branchName;
             return this;
         }
         @CustomType.Setter
-        public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+        public Builder repositoryName(@Nullable String repositoryName) {
+            this.repositoryName = repositoryName;
             return this;
         }
         public GetDevEnvironmentRepository build() {

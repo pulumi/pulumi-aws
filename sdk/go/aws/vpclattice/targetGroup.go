@@ -165,13 +165,13 @@ type TargetGroup struct {
 	pulumi.CustomResourceState
 
 	// ARN of the target group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The target group configuration.
 	Config TargetGroupConfigPtrOutput `pulumi:"config"`
 	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the target group.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -381,8 +381,8 @@ func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) T
 }
 
 // ARN of the target group.
-func (o TargetGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TargetGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The target group configuration.
@@ -396,8 +396,8 @@ func (o TargetGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Status of the target group.
-func (o TargetGroupOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o TargetGroupOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

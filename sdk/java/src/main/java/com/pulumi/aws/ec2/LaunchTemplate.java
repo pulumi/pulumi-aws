@@ -161,14 +161,14 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
@@ -235,14 +235,14 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultVersion", refs={Integer.class}, tree="[0]")
-    private Output<Integer> defaultVersion;
+    private Output</* @Nullable */ Integer> defaultVersion;
 
     /**
      * @return Default Version of the launch template.
      * 
      */
-    public Output<Integer> defaultVersion() {
-        return this.defaultVersion;
+    public Output<Optional<Integer>> defaultVersion() {
+        return Codegen.optional(this.defaultVersion);
     }
     /**
      * Description of the launch template.
@@ -483,14 +483,14 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="latestVersion", refs={Integer.class}, tree="[0]")
-    private Output<Integer> latestVersion;
+    private Output</* @Nullable */ Integer> latestVersion;
 
     /**
      * @return The latest version of the launch template.
      * 
      */
-    public Output<Integer> latestVersion() {
-        return this.latestVersion;
+    public Output<Optional<Integer>> latestVersion() {
+        return Codegen.optional(this.latestVersion);
     }
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
@@ -525,14 +525,14 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="metadataOptions", refs={LaunchTemplateMetadataOptions.class}, tree="[0]")
-    private Output<LaunchTemplateMetadataOptions> metadataOptions;
+    private Output</* @Nullable */ LaunchTemplateMetadataOptions> metadataOptions;
 
     /**
      * @return Customize the metadata options for the instance. See Metadata Options below for more details.
      * 
      */
-    public Output<LaunchTemplateMetadataOptions> metadataOptions() {
-        return this.metadataOptions;
+    public Output<Optional<LaunchTemplateMetadataOptions>> metadataOptions() {
+        return Codegen.optional(this.metadataOptions);
     }
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
@@ -567,14 +567,14 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Customize network interfaces to be attached at instance boot time. See Network

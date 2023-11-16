@@ -77,13 +77,13 @@ namespace Pulumi.Aws.Ram
         /// The ARN of the resource share invitation.
         /// </summary>
         [Output("invitationArn")]
-        public Output<string> InvitationArn { get; private set; } = null!;
+        public Output<string?> InvitationArn { get; private set; } = null!;
 
         /// <summary>
         /// The account ID of the receiver account which accepts the invitation.
         /// </summary>
         [Output("receiverAccountId")]
-        public Output<string> ReceiverAccountId { get; private set; } = null!;
+        public Output<string?> ReceiverAccountId { get; private set; } = null!;
 
         /// <summary>
         /// A list of the resource ARNs shared via the resource share.
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Ram
         /// The account ID of the sender account which submits the invitation.
         /// </summary>
         [Output("senderAccountId")]
-        public Output<string> SenderAccountId { get; private set; } = null!;
+        public Output<string?> SenderAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the resource share.
@@ -107,19 +107,19 @@ namespace Pulumi.Aws.Ram
         /// The ID of the resource share as displayed in the console.
         /// </summary>
         [Output("shareId")]
-        public Output<string> ShareId { get; private set; } = null!;
+        public Output<string?> ShareId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource share.
         /// </summary>
         [Output("shareName")]
-        public Output<string> ShareName { get; private set; } = null!;
+        public Output<string?> ShareName { get; private set; } = null!;
 
         /// <summary>
         /// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

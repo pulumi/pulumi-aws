@@ -300,7 +300,7 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set.
         """

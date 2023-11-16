@@ -72,12 +72,12 @@ type GetSpotPriceResult struct {
 	AvailabilityZone *string              `pulumi:"availabilityZone"`
 	Filters          []GetSpotPriceFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string  `pulumi:"id"`
+	Id           *string `pulumi:"id"`
 	InstanceType *string `pulumi:"instanceType"`
 	// Most recent Spot Price value for the given instance type and AZ.
-	SpotPrice string `pulumi:"spotPrice"`
+	SpotPrice *string `pulumi:"spotPrice"`
 	// The timestamp at which the Spot Price value was published.
-	SpotPriceTimestamp string `pulumi:"spotPriceTimestamp"`
+	SpotPriceTimestamp *string `pulumi:"spotPriceTimestamp"`
 }
 
 func GetSpotPriceOutput(ctx *pulumi.Context, args GetSpotPriceOutputArgs, opts ...pulumi.InvokeOption) GetSpotPriceResultOutput {
@@ -131,8 +131,8 @@ func (o GetSpotPriceResultOutput) Filters() GetSpotPriceFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSpotPriceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSpotPriceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSpotPriceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSpotPriceResultOutput) InstanceType() pulumi.StringPtrOutput {
@@ -140,13 +140,13 @@ func (o GetSpotPriceResultOutput) InstanceType() pulumi.StringPtrOutput {
 }
 
 // Most recent Spot Price value for the given instance type and AZ.
-func (o GetSpotPriceResultOutput) SpotPrice() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSpotPriceResult) string { return v.SpotPrice }).(pulumi.StringOutput)
+func (o GetSpotPriceResultOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp at which the Spot Price value was published.
-func (o GetSpotPriceResultOutput) SpotPriceTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSpotPriceResult) string { return v.SpotPriceTimestamp }).(pulumi.StringOutput)
+func (o GetSpotPriceResultOutput) SpotPriceTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) *string { return v.SpotPriceTimestamp }).(pulumi.StringPtrOutput)
 }
 
 func init() {

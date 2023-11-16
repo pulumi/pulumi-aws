@@ -50,17 +50,17 @@ export interface GetServerlessAccessPolicyResult {
     /**
      * Description of the policy. Typically used to store information about the permissions defined in the policy.
      */
-    readonly description: string;
-    readonly id: string;
+    readonly description?: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * JSON policy document to use as the content for the new policy.
      */
-    readonly policy: string;
+    readonly policy?: string;
     /**
      * Version of the policy.
      */
-    readonly policyVersion: string;
+    readonly policyVersion?: string;
     readonly type: string;
 }
 /**

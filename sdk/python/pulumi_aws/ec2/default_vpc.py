@@ -658,7 +658,7 @@ class DefaultVpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "arn")
 
     @property
@@ -668,7 +668,7 @@ class DefaultVpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Output[str]:
+    def cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The primary IPv4 CIDR block for the VPC
         """
@@ -676,22 +676,22 @@ class DefaultVpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultNetworkAclId")
-    def default_network_acl_id(self) -> pulumi.Output[str]:
+    def default_network_acl_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "default_network_acl_id")
 
     @property
     @pulumi.getter(name="defaultRouteTableId")
-    def default_route_table_id(self) -> pulumi.Output[str]:
+    def default_route_table_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "default_route_table_id")
 
     @property
     @pulumi.getter(name="defaultSecurityGroupId")
-    def default_security_group_id(self) -> pulumi.Output[str]:
+    def default_security_group_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "default_security_group_id")
 
     @property
     @pulumi.getter(name="dhcpOptionsId")
-    def dhcp_options_id(self) -> pulumi.Output[str]:
+    def dhcp_options_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "dhcp_options_id")
 
     @property
@@ -706,12 +706,12 @@ class DefaultVpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
-    def enable_network_address_usage_metrics(self) -> pulumi.Output[bool]:
+    def enable_network_address_usage_metrics(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @property
     @pulumi.getter(name="existingDefaultVpc")
-    def existing_default_vpc(self) -> pulumi.Output[bool]:
+    def existing_default_vpc(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "existing_default_vpc")
 
     @property
@@ -724,7 +724,7 @@ class DefaultVpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceTenancy")
-    def instance_tenancy(self) -> pulumi.Output[str]:
+    def instance_tenancy(self) -> pulumi.Output[Optional[str]]:
         """
         The allowed tenancy of instances launched into the VPC
         """
@@ -732,17 +732,17 @@ class DefaultVpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6AssociationId")
-    def ipv6_association_id(self) -> pulumi.Output[str]:
+    def ipv6_association_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipv6_association_id")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
-    def ipv6_cidr_block_network_border_group(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block_network_border_group(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipv6_cidr_block_network_border_group")
 
     @property
@@ -757,12 +757,12 @@ class DefaultVpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mainRouteTableId")
-    def main_route_table_id(self) -> pulumi.Output[str]:
+    def main_route_table_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "main_route_table_id")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "owner_id")
 
     @property

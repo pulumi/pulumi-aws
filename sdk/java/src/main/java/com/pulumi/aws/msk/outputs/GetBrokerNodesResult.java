@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBrokerNodesResult {
@@ -16,8 +18,8 @@ public final class GetBrokerNodesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private List<GetBrokerNodesNodeInfoList> nodeInfoLists;
+    private @Nullable String id;
+    private @Nullable List<GetBrokerNodesNodeInfoList> nodeInfoLists;
 
     private GetBrokerNodesResult() {}
     public String clusterArn() {
@@ -27,11 +29,11 @@ public final class GetBrokerNodesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<GetBrokerNodesNodeInfoList> nodeInfoLists() {
-        return this.nodeInfoLists;
+        return this.nodeInfoLists == null ? List.of() : this.nodeInfoLists;
     }
 
     public static Builder builder() {
@@ -44,8 +46,8 @@ public final class GetBrokerNodesResult {
     @CustomType.Builder
     public static final class Builder {
         private String clusterArn;
-        private String id;
-        private List<GetBrokerNodesNodeInfoList> nodeInfoLists;
+        private @Nullable String id;
+        private @Nullable List<GetBrokerNodesNodeInfoList> nodeInfoLists;
         public Builder() {}
         public Builder(GetBrokerNodesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,13 +62,13 @@ public final class GetBrokerNodesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder nodeInfoLists(List<GetBrokerNodesNodeInfoList> nodeInfoLists) {
-            this.nodeInfoLists = Objects.requireNonNull(nodeInfoLists);
+        public Builder nodeInfoLists(@Nullable List<GetBrokerNodesNodeInfoList> nodeInfoLists) {
+            this.nodeInfoLists = nodeInfoLists;
             return this;
         }
         public Builder nodeInfoLists(GetBrokerNodesNodeInfoList... nodeInfoLists) {

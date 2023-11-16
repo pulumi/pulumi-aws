@@ -49,31 +49,31 @@ export interface GetWorkspaceResult {
     /**
      * Prometheus workspace alias.
      */
-    readonly alias: string;
+    readonly alias?: string;
     /**
      * ARN of the Prometheus workspace.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Creation date of the Prometheus workspace.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Endpoint of the Prometheus workspace.
      */
-    readonly prometheusEndpoint: string;
+    readonly prometheusEndpoint?: string;
     /**
      * Status of the Prometheus workspace.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly workspaceId: string;
 }
 /**

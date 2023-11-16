@@ -50,41 +50,41 @@ export interface GetServerlessCollectionResult {
     /**
      * Amazon Resource Name (ARN) of the collection.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      */
-    readonly collectionEndpoint: string;
+    readonly collectionEndpoint?: string;
     /**
      * Date the Collection was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      */
-    readonly dashboardEndpoint: string;
+    readonly dashboardEndpoint?: string;
     /**
      * Description of the collection.
      */
-    readonly description: string;
-    readonly id: string;
+    readonly description?: string;
+    readonly id?: string;
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      */
-    readonly kmsKeyArn: string;
+    readonly kmsKeyArn?: string;
     /**
      * Date the Collection was last modified.
      */
-    readonly lastModifiedDate: string;
-    readonly name: string;
+    readonly lastModifiedDate?: string;
+    readonly name?: string;
     /**
      * A map of tags to assign to the collection.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Type of collection.
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * Data source for managing an AWS OpenSearch Serverless Collection.

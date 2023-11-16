@@ -82,7 +82,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * (Required) Amazon Resource Name (ARN) of the image recipe.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      */
@@ -94,7 +94,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * Date the image recipe was created.
      */
-    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string | undefined>;
     /**
      * Description of the image recipe.
      */
@@ -106,7 +106,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * Owner of the image recipe.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      */
@@ -114,11 +114,11 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * Platform of the image recipe.
      */
-    public /*out*/ readonly platform!: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      */
-    public readonly systemsManagerAgent!: pulumi.Output<outputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
+    public readonly systemsManagerAgent!: pulumi.Output<outputs.imagebuilder.ImageRecipeSystemsManagerAgent | undefined>;
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -132,7 +132,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
      */
-    public readonly userDataBase64!: pulumi.Output<string>;
+    public readonly userDataBase64!: pulumi.Output<string | undefined>;
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      *

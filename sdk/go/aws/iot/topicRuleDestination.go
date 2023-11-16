@@ -25,7 +25,7 @@ type TopicRuleDestination struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the topic rule destination
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether or not to enable the destination. Default: `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
@@ -189,8 +189,8 @@ func (o TopicRuleDestinationOutput) ToTopicRuleDestinationOutputWithContext(ctx 
 }
 
 // The ARN of the topic rule destination
-func (o TopicRuleDestinationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TopicRuleDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TopicRuleDestinationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestination) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether or not to enable the destination. Default: `true`.

@@ -8,6 +8,7 @@ import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemp
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplate {
@@ -15,12 +16,12 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplate {
      * @return List of overriding launch template specification objects.
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications;
     /**
      * @return List of properties overriding the same properties in the launch template.
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides;
 
     private GetGroupMixedInstancesPolicyLaunchTemplate() {}
     /**
@@ -28,14 +29,14 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplate {
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications() {
-        return this.launchTemplateSpecifications;
+        return this.launchTemplateSpecifications == null ? List.of() : this.launchTemplateSpecifications;
     }
     /**
      * @return List of properties overriding the same properties in the launch template.
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides() {
-        return this.overrides;
+        return this.overrides == null ? List.of() : this.overrides;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides;
         public Builder() {}
         public Builder(GetGroupMixedInstancesPolicyLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplate {
         }
 
         @CustomType.Setter
-        public Builder launchTemplateSpecifications(List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications) {
-            this.launchTemplateSpecifications = Objects.requireNonNull(launchTemplateSpecifications);
+        public Builder launchTemplateSpecifications(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications) {
+            this.launchTemplateSpecifications = launchTemplateSpecifications;
             return this;
         }
         public Builder launchTemplateSpecifications(GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification... launchTemplateSpecifications) {
             return launchTemplateSpecifications(List.of(launchTemplateSpecifications));
         }
         @CustomType.Setter
-        public Builder overrides(List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides) {
-            this.overrides = Objects.requireNonNull(overrides);
+        public Builder overrides(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides) {
+            this.overrides = overrides;
             return this;
         }
         public Builder overrides(GetGroupMixedInstancesPolicyLaunchTemplateOverride... overrides) {

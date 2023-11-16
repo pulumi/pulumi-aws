@@ -44,30 +44,30 @@ export interface GetPermissionSetArgs {
  * A collection of values returned by getPermissionSet.
  */
 export interface GetPermissionSetResult {
-    readonly arn: string;
-    readonly createdDate: string;
+    readonly arn?: string;
+    readonly createdDate?: string;
     /**
      * Description of the Permission Set.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly instanceArn: string;
-    readonly name: string;
+    readonly name?: string;
     /**
      * Relay state URL used to redirect users within the application during the federation authentication process.
      */
-    readonly relayState: string;
+    readonly relayState?: string;
     /**
      * Length of time that the application user sessions are valid in the ISO-8601 standard.
      */
-    readonly sessionDuration: string;
+    readonly sessionDuration?: string;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Use this data source to get a Single Sign-On (SSO) Permission Set.

@@ -74,42 +74,42 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
     @Export(name="autoImportPolicy", refs={String.class}, tree="[0]")
-    private Output<String> autoImportPolicy;
+    private Output</* @Nullable */ String> autoImportPolicy;
 
     /**
      * @return How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    public Output<String> autoImportPolicy() {
-        return this.autoImportPolicy;
+    public Output<Optional<String>> autoImportPolicy() {
+        return Codegen.optional(this.autoImportPolicy);
     }
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      * 
      */
     @Export(name="automaticBackupRetentionDays", refs={Integer.class}, tree="[0]")
-    private Output<Integer> automaticBackupRetentionDays;
+    private Output</* @Nullable */ Integer> automaticBackupRetentionDays;
 
     /**
      * @return The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      * 
      */
-    public Output<Integer> automaticBackupRetentionDays() {
-        return this.automaticBackupRetentionDays;
+    public Output<Optional<Integer>> automaticBackupRetentionDays() {
+        return Codegen.optional(this.automaticBackupRetentionDays);
     }
     /**
      * The ID of the source backup to create the filesystem from.
@@ -144,14 +144,14 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dailyAutomaticBackupStartTime", refs={String.class}, tree="[0]")
-    private Output<String> dailyAutomaticBackupStartTime;
+    private Output</* @Nullable */ String> dailyAutomaticBackupStartTime;
 
     /**
      * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
      * 
      */
-    public Output<String> dailyAutomaticBackupStartTime() {
-        return this.dailyAutomaticBackupStartTime;
+    public Output<Optional<String>> dailyAutomaticBackupStartTime() {
+        return Codegen.optional(this.dailyAutomaticBackupStartTime);
     }
     /**
      * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
@@ -186,14 +186,14 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
@@ -214,28 +214,28 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="exportPath", refs={String.class}, tree="[0]")
-    private Output<String> exportPath;
+    private Output</* @Nullable */ String> exportPath;
 
     /**
      * @return S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    public Output<String> exportPath() {
-        return this.exportPath;
+    public Output<Optional<String>> exportPath() {
+        return Codegen.optional(this.exportPath);
     }
     /**
      * Sets the Lustre version for the file system that you&#39;re creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
      * 
      */
     @Export(name="fileSystemTypeVersion", refs={String.class}, tree="[0]")
-    private Output<String> fileSystemTypeVersion;
+    private Output</* @Nullable */ String> fileSystemTypeVersion;
 
     /**
      * @return Sets the Lustre version for the file system that you&#39;re creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
      * 
      */
-    public Output<String> fileSystemTypeVersion() {
-        return this.fileSystemTypeVersion;
+    public Output<Optional<String>> fileSystemTypeVersion() {
+        return Codegen.optional(this.fileSystemTypeVersion);
     }
     /**
      * S3 URI (with optional prefix) that you&#39;re using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
@@ -256,84 +256,84 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="importedFileChunkSize", refs={Integer.class}, tree="[0]")
-    private Output<Integer> importedFileChunkSize;
+    private Output</* @Nullable */ Integer> importedFileChunkSize;
 
     /**
      * @return For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    public Output<Integer> importedFileChunkSize() {
-        return this.importedFileChunkSize;
+    public Output<Optional<Integer>> importedFileChunkSize() {
+        return Codegen.optional(this.importedFileChunkSize);
     }
     /**
      * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
      * 
      */
     @Export(name="logConfiguration", refs={LustreFileSystemLogConfiguration.class}, tree="[0]")
-    private Output<LustreFileSystemLogConfiguration> logConfiguration;
+    private Output</* @Nullable */ LustreFileSystemLogConfiguration> logConfiguration;
 
     /**
      * @return The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
      * 
      */
-    public Output<LustreFileSystemLogConfiguration> logConfiguration() {
-        return this.logConfiguration;
+    public Output<Optional<LustreFileSystemLogConfiguration>> logConfiguration() {
+        return Codegen.optional(this.logConfiguration);
     }
     /**
      * The value to be used when mounting the filesystem.
      * 
      */
     @Export(name="mountName", refs={String.class}, tree="[0]")
-    private Output<String> mountName;
+    private Output</* @Nullable */ String> mountName;
 
     /**
      * @return The value to be used when mounting the filesystem.
      * 
      */
-    public Output<String> mountName() {
-        return this.mountName;
+    public Output<Optional<String>> mountName() {
+        return Codegen.optional(this.mountName);
     }
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
      * 
      */
     @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> networkInterfaceIds;
+    private Output</* @Nullable */ List<String>> networkInterfaceIds;
 
     /**
      * @return Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
      * 
      */
-    public Output<List<String>> networkInterfaceIds() {
-        return this.networkInterfaceIds;
+    public Output<Optional<List<String>>> networkInterfaceIds() {
+        return Codegen.optional(this.networkInterfaceIds);
     }
     /**
      * AWS account identifier that created the file system.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return AWS account identifier that created the file system.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and `  SSD ` storage_type are 125, 250, 500, 1000.
@@ -456,28 +456,28 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return Identifier of the Virtual Private Cloud for the file system.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Export(name="weeklyMaintenanceStartTime", refs={String.class}, tree="[0]")
-    private Output<String> weeklyMaintenanceStartTime;
+    private Output</* @Nullable */ String> weeklyMaintenanceStartTime;
 
     /**
      * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    public Output<String> weeklyMaintenanceStartTime() {
-        return this.weeklyMaintenanceStartTime;
+    public Output<Optional<String>> weeklyMaintenanceStartTime() {
+        return Codegen.optional(this.weeklyMaintenanceStartTime);
     }
 
     /**

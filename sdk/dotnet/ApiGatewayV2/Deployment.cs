@@ -57,7 +57,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// Whether the deployment was automatically released.
         /// </summary>
         [Output("autoDeployed")]
-        public Output<bool> AutoDeployed { get; private set; } = null!;
+        public Output<bool?> AutoDeployed { get; private set; } = null!;
 
         /// <summary>
         /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.

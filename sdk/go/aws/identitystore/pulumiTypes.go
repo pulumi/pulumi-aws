@@ -1565,9 +1565,9 @@ func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) AttributeValue() pu
 
 type GetGroupExternalId struct {
 	// The identifier issued to this resource by an external identity provider.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The issuer for an external identifier.
-	Issuer string `pulumi:"issuer"`
+	Issuer *string `pulumi:"issuer"`
 }
 
 // GetGroupExternalIdInput is an input type that accepts GetGroupExternalIdArgs and GetGroupExternalIdOutput values.
@@ -1583,9 +1583,9 @@ type GetGroupExternalIdInput interface {
 
 type GetGroupExternalIdArgs struct {
 	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The issuer for an external identifier.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 }
 
 func (GetGroupExternalIdArgs) ElementType() reflect.Type {
@@ -1640,13 +1640,13 @@ func (o GetGroupExternalIdOutput) ToGetGroupExternalIdOutputWithContext(ctx cont
 }
 
 // The identifier issued to this resource by an external identity provider.
-func (o GetGroupExternalIdOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupExternalId) string { return v.Id }).(pulumi.StringOutput)
+func (o GetGroupExternalIdOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupExternalId) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The issuer for an external identifier.
-func (o GetGroupExternalIdOutput) Issuer() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupExternalId) string { return v.Issuer }).(pulumi.StringOutput)
+func (o GetGroupExternalIdOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupExternalId) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
 type GetGroupExternalIdArrayOutput struct{ *pulumi.OutputState }
@@ -1827,21 +1827,21 @@ func (o GetGroupFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
 
 type GetUserAddress struct {
 	// The country that this address is in.
-	Country string `pulumi:"country"`
+	Country *string `pulumi:"country"`
 	// The name that is typically displayed when the name is shown for display.
-	Formatted string `pulumi:"formatted"`
+	Formatted *string `pulumi:"formatted"`
 	// The address locality.
-	Locality string `pulumi:"locality"`
+	Locality *string `pulumi:"locality"`
 	// The postal code of the address.
-	PostalCode string `pulumi:"postalCode"`
+	PostalCode *string `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
-	Primary bool `pulumi:"primary"`
+	Primary *bool `pulumi:"primary"`
 	// The region of the address.
-	Region string `pulumi:"region"`
+	Region *string `pulumi:"region"`
 	// The street of the address.
-	StreetAddress string `pulumi:"streetAddress"`
+	StreetAddress *string `pulumi:"streetAddress"`
 	// The type of phone number.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetUserAddressInput is an input type that accepts GetUserAddressArgs and GetUserAddressOutput values.
@@ -1857,21 +1857,21 @@ type GetUserAddressInput interface {
 
 type GetUserAddressArgs struct {
 	// The country that this address is in.
-	Country pulumi.StringInput `pulumi:"country"`
+	Country pulumi.StringPtrInput `pulumi:"country"`
 	// The name that is typically displayed when the name is shown for display.
-	Formatted pulumi.StringInput `pulumi:"formatted"`
+	Formatted pulumi.StringPtrInput `pulumi:"formatted"`
 	// The address locality.
-	Locality pulumi.StringInput `pulumi:"locality"`
+	Locality pulumi.StringPtrInput `pulumi:"locality"`
 	// The postal code of the address.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
-	Primary pulumi.BoolInput `pulumi:"primary"`
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 	// The region of the address.
-	Region pulumi.StringInput `pulumi:"region"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The street of the address.
-	StreetAddress pulumi.StringInput `pulumi:"streetAddress"`
+	StreetAddress pulumi.StringPtrInput `pulumi:"streetAddress"`
 	// The type of phone number.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetUserAddressArgs) ElementType() reflect.Type {
@@ -1926,43 +1926,43 @@ func (o GetUserAddressOutput) ToGetUserAddressOutputWithContext(ctx context.Cont
 }
 
 // The country that this address is in.
-func (o GetUserAddressOutput) Country() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserAddress) string { return v.Country }).(pulumi.StringOutput)
+func (o GetUserAddressOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserAddress) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
 // The name that is typically displayed when the name is shown for display.
-func (o GetUserAddressOutput) Formatted() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserAddress) string { return v.Formatted }).(pulumi.StringOutput)
+func (o GetUserAddressOutput) Formatted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserAddress) *string { return v.Formatted }).(pulumi.StringPtrOutput)
 }
 
 // The address locality.
-func (o GetUserAddressOutput) Locality() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserAddress) string { return v.Locality }).(pulumi.StringOutput)
+func (o GetUserAddressOutput) Locality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserAddress) *string { return v.Locality }).(pulumi.StringPtrOutput)
 }
 
 // The postal code of the address.
-func (o GetUserAddressOutput) PostalCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserAddress) string { return v.PostalCode }).(pulumi.StringOutput)
+func (o GetUserAddressOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserAddress) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
 // When `true`, this is the primary phone number associated with the user.
-func (o GetUserAddressOutput) Primary() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetUserAddress) bool { return v.Primary }).(pulumi.BoolOutput)
+func (o GetUserAddressOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetUserAddress) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
 // The region of the address.
-func (o GetUserAddressOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserAddress) string { return v.Region }).(pulumi.StringOutput)
+func (o GetUserAddressOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserAddress) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // The street of the address.
-func (o GetUserAddressOutput) StreetAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserAddress) string { return v.StreetAddress }).(pulumi.StringOutput)
+func (o GetUserAddressOutput) StreetAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserAddress) *string { return v.StreetAddress }).(pulumi.StringPtrOutput)
 }
 
 // The type of phone number.
-func (o GetUserAddressOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserAddress) string { return v.Type }).(pulumi.StringOutput)
+func (o GetUserAddressOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserAddress) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetUserAddressArrayOutput struct{ *pulumi.OutputState }
@@ -2465,11 +2465,11 @@ func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) AttributeValue() pul
 
 type GetUserEmail struct {
 	// When `true`, this is the primary phone number associated with the user.
-	Primary bool `pulumi:"primary"`
+	Primary *bool `pulumi:"primary"`
 	// The type of phone number.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The user's phone number.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetUserEmailInput is an input type that accepts GetUserEmailArgs and GetUserEmailOutput values.
@@ -2485,11 +2485,11 @@ type GetUserEmailInput interface {
 
 type GetUserEmailArgs struct {
 	// When `true`, this is the primary phone number associated with the user.
-	Primary pulumi.BoolInput `pulumi:"primary"`
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 	// The type of phone number.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The user's phone number.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetUserEmailArgs) ElementType() reflect.Type {
@@ -2544,18 +2544,18 @@ func (o GetUserEmailOutput) ToGetUserEmailOutputWithContext(ctx context.Context)
 }
 
 // When `true`, this is the primary phone number associated with the user.
-func (o GetUserEmailOutput) Primary() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetUserEmail) bool { return v.Primary }).(pulumi.BoolOutput)
+func (o GetUserEmailOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetUserEmail) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
 // The type of phone number.
-func (o GetUserEmailOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserEmail) string { return v.Type }).(pulumi.StringOutput)
+func (o GetUserEmailOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserEmail) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The user's phone number.
-func (o GetUserEmailOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserEmail) string { return v.Value }).(pulumi.StringOutput)
+func (o GetUserEmailOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserEmail) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetUserEmailArrayOutput struct{ *pulumi.OutputState }
@@ -2580,9 +2580,9 @@ func (o GetUserEmailArrayOutput) Index(i pulumi.IntInput) GetUserEmailOutput {
 
 type GetUserExternalId struct {
 	// The identifier issued to this resource by an external identity provider.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The issuer for an external identifier.
-	Issuer string `pulumi:"issuer"`
+	Issuer *string `pulumi:"issuer"`
 }
 
 // GetUserExternalIdInput is an input type that accepts GetUserExternalIdArgs and GetUserExternalIdOutput values.
@@ -2598,9 +2598,9 @@ type GetUserExternalIdInput interface {
 
 type GetUserExternalIdArgs struct {
 	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The issuer for an external identifier.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 }
 
 func (GetUserExternalIdArgs) ElementType() reflect.Type {
@@ -2655,13 +2655,13 @@ func (o GetUserExternalIdOutput) ToGetUserExternalIdOutputWithContext(ctx contex
 }
 
 // The identifier issued to this resource by an external identity provider.
-func (o GetUserExternalIdOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserExternalId) string { return v.Id }).(pulumi.StringOutput)
+func (o GetUserExternalIdOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserExternalId) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The issuer for an external identifier.
-func (o GetUserExternalIdOutput) Issuer() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserExternalId) string { return v.Issuer }).(pulumi.StringOutput)
+func (o GetUserExternalIdOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserExternalId) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
 type GetUserExternalIdArrayOutput struct{ *pulumi.OutputState }
@@ -2842,17 +2842,17 @@ func (o GetUserFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
 
 type GetUserName struct {
 	// The family name of the user.
-	FamilyName string `pulumi:"familyName"`
+	FamilyName *string `pulumi:"familyName"`
 	// The name that is typically displayed when the name is shown for display.
-	Formatted string `pulumi:"formatted"`
+	Formatted *string `pulumi:"formatted"`
 	// The given name of the user.
-	GivenName string `pulumi:"givenName"`
+	GivenName *string `pulumi:"givenName"`
 	// The honorific prefix of the user.
-	HonorificPrefix string `pulumi:"honorificPrefix"`
+	HonorificPrefix *string `pulumi:"honorificPrefix"`
 	// The honorific suffix of the user.
-	HonorificSuffix string `pulumi:"honorificSuffix"`
+	HonorificSuffix *string `pulumi:"honorificSuffix"`
 	// The middle name of the user.
-	MiddleName string `pulumi:"middleName"`
+	MiddleName *string `pulumi:"middleName"`
 }
 
 // GetUserNameInput is an input type that accepts GetUserNameArgs and GetUserNameOutput values.
@@ -2868,17 +2868,17 @@ type GetUserNameInput interface {
 
 type GetUserNameArgs struct {
 	// The family name of the user.
-	FamilyName pulumi.StringInput `pulumi:"familyName"`
+	FamilyName pulumi.StringPtrInput `pulumi:"familyName"`
 	// The name that is typically displayed when the name is shown for display.
-	Formatted pulumi.StringInput `pulumi:"formatted"`
+	Formatted pulumi.StringPtrInput `pulumi:"formatted"`
 	// The given name of the user.
-	GivenName pulumi.StringInput `pulumi:"givenName"`
+	GivenName pulumi.StringPtrInput `pulumi:"givenName"`
 	// The honorific prefix of the user.
-	HonorificPrefix pulumi.StringInput `pulumi:"honorificPrefix"`
+	HonorificPrefix pulumi.StringPtrInput `pulumi:"honorificPrefix"`
 	// The honorific suffix of the user.
-	HonorificSuffix pulumi.StringInput `pulumi:"honorificSuffix"`
+	HonorificSuffix pulumi.StringPtrInput `pulumi:"honorificSuffix"`
 	// The middle name of the user.
-	MiddleName pulumi.StringInput `pulumi:"middleName"`
+	MiddleName pulumi.StringPtrInput `pulumi:"middleName"`
 }
 
 func (GetUserNameArgs) ElementType() reflect.Type {
@@ -2933,33 +2933,33 @@ func (o GetUserNameOutput) ToGetUserNameOutputWithContext(ctx context.Context) G
 }
 
 // The family name of the user.
-func (o GetUserNameOutput) FamilyName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserName) string { return v.FamilyName }).(pulumi.StringOutput)
+func (o GetUserNameOutput) FamilyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserName) *string { return v.FamilyName }).(pulumi.StringPtrOutput)
 }
 
 // The name that is typically displayed when the name is shown for display.
-func (o GetUserNameOutput) Formatted() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserName) string { return v.Formatted }).(pulumi.StringOutput)
+func (o GetUserNameOutput) Formatted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserName) *string { return v.Formatted }).(pulumi.StringPtrOutput)
 }
 
 // The given name of the user.
-func (o GetUserNameOutput) GivenName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserName) string { return v.GivenName }).(pulumi.StringOutput)
+func (o GetUserNameOutput) GivenName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserName) *string { return v.GivenName }).(pulumi.StringPtrOutput)
 }
 
 // The honorific prefix of the user.
-func (o GetUserNameOutput) HonorificPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserName) string { return v.HonorificPrefix }).(pulumi.StringOutput)
+func (o GetUserNameOutput) HonorificPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserName) *string { return v.HonorificPrefix }).(pulumi.StringPtrOutput)
 }
 
 // The honorific suffix of the user.
-func (o GetUserNameOutput) HonorificSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserName) string { return v.HonorificSuffix }).(pulumi.StringOutput)
+func (o GetUserNameOutput) HonorificSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserName) *string { return v.HonorificSuffix }).(pulumi.StringPtrOutput)
 }
 
 // The middle name of the user.
-func (o GetUserNameOutput) MiddleName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserName) string { return v.MiddleName }).(pulumi.StringOutput)
+func (o GetUserNameOutput) MiddleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserName) *string { return v.MiddleName }).(pulumi.StringPtrOutput)
 }
 
 type GetUserNameArrayOutput struct{ *pulumi.OutputState }
@@ -2984,11 +2984,11 @@ func (o GetUserNameArrayOutput) Index(i pulumi.IntInput) GetUserNameOutput {
 
 type GetUserPhoneNumber struct {
 	// When `true`, this is the primary phone number associated with the user.
-	Primary bool `pulumi:"primary"`
+	Primary *bool `pulumi:"primary"`
 	// The type of phone number.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The user's phone number.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetUserPhoneNumberInput is an input type that accepts GetUserPhoneNumberArgs and GetUserPhoneNumberOutput values.
@@ -3004,11 +3004,11 @@ type GetUserPhoneNumberInput interface {
 
 type GetUserPhoneNumberArgs struct {
 	// When `true`, this is the primary phone number associated with the user.
-	Primary pulumi.BoolInput `pulumi:"primary"`
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 	// The type of phone number.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The user's phone number.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetUserPhoneNumberArgs) ElementType() reflect.Type {
@@ -3063,18 +3063,18 @@ func (o GetUserPhoneNumberOutput) ToGetUserPhoneNumberOutputWithContext(ctx cont
 }
 
 // When `true`, this is the primary phone number associated with the user.
-func (o GetUserPhoneNumberOutput) Primary() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetUserPhoneNumber) bool { return v.Primary }).(pulumi.BoolOutput)
+func (o GetUserPhoneNumberOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetUserPhoneNumber) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
 // The type of phone number.
-func (o GetUserPhoneNumberOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPhoneNumber) string { return v.Type }).(pulumi.StringOutput)
+func (o GetUserPhoneNumberOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPhoneNumber) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The user's phone number.
-func (o GetUserPhoneNumberOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPhoneNumber) string { return v.Value }).(pulumi.StringOutput)
+func (o GetUserPhoneNumberOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPhoneNumber) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetUserPhoneNumberArrayOutput struct{ *pulumi.OutputState }

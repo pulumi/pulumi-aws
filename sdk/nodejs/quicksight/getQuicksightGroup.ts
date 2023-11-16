@@ -58,22 +58,22 @@ export interface GetQuicksightGroupResult {
     /**
      * The Amazon Resource Name (ARN) for the group.
      */
-    readonly arn: string;
-    readonly awsAccountId: string;
+    readonly arn?: string;
+    readonly awsAccountId?: string;
     /**
      * The group description.
      */
-    readonly description: string;
+    readonly description?: string;
     readonly groupName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly namespace?: string;
     /**
      * The principal ID of the group.
      */
-    readonly principalId: string;
+    readonly principalId?: string;
 }
 /**
  * This data source can be used to fetch information about a specific

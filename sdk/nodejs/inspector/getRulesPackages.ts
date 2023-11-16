@@ -42,11 +42,11 @@ export interface GetRulesPackagesResult {
     /**
      * List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS

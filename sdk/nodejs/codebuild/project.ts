@@ -227,7 +227,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * ARN of the CodeBuild project.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */
@@ -239,7 +239,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * URL of the build badge when `badgeEnabled` is enabled.
      */
-    public /*out*/ readonly badgeUrl!: pulumi.Output<string>;
+    public /*out*/ readonly badgeUrl!: pulumi.Output<string | undefined>;
     /**
      * Defines the batch build options for the project.
      */
@@ -259,11 +259,11 @@ export class Project extends pulumi.CustomResource {
     /**
      * Short description of the project.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
      */
-    public readonly encryptionKey!: pulumi.Output<string>;
+    public readonly encryptionKey!: pulumi.Output<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */
@@ -287,7 +287,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The project identifier used with the public build APIs.
      */
-    public /*out*/ readonly publicProjectAlias!: pulumi.Output<string>;
+    public /*out*/ readonly publicProjectAlias!: pulumi.Output<string | undefined>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
      */

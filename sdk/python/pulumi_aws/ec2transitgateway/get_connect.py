@@ -53,7 +53,7 @@ class GetConnectResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -61,7 +61,7 @@ class GetConnectResult:
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         """
         Tunnel protocol
         """
@@ -69,7 +69,7 @@ class GetConnectResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the EC2 Transit Gateway Connect
         """
@@ -77,12 +77,12 @@ class GetConnectResult:
 
     @property
     @pulumi.getter(name="transitGatewayConnectId")
-    def transit_gateway_connect_id(self) -> str:
+    def transit_gateway_connect_id(self) -> Optional[str]:
         return pulumi.get(self, "transit_gateway_connect_id")
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> Optional[str]:
         """
         EC2 Transit Gateway identifier
         """
@@ -90,7 +90,7 @@ class GetConnectResult:
 
     @property
     @pulumi.getter(name="transportAttachmentId")
-    def transport_attachment_id(self) -> str:
+    def transport_attachment_id(self) -> Optional[str]:
         """
         The underlaying VPC attachment
         """

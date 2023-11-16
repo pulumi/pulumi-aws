@@ -59,7 +59,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this provider.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
      */

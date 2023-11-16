@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualNodeSpecBackendDefaultClientPolicyTlResult
     {
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult> Certificates;
-        public readonly bool Enforce;
+        public readonly bool? Enforce;
         public readonly ImmutableArray<int> Ports;
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult> Validations;
 
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         private GetVirtualNodeSpecBackendDefaultClientPolicyTlResult(
             ImmutableArray<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult> certificates,
 
-            bool enforce,
+            bool? enforce,
 
             ImmutableArray<int> ports,
 

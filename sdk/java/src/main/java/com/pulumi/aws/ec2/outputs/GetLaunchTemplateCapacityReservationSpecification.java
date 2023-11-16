@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateCapacityReservationSpecification {
-    private String capacityReservationPreference;
-    private List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets;
+    private @Nullable String capacityReservationPreference;
+    private @Nullable List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets;
 
     private GetLaunchTemplateCapacityReservationSpecification() {}
-    public String capacityReservationPreference() {
-        return this.capacityReservationPreference;
+    public Optional<String> capacityReservationPreference() {
+        return Optional.ofNullable(this.capacityReservationPreference);
     }
     public List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets() {
-        return this.capacityReservationTargets;
+        return this.capacityReservationTargets == null ? List.of() : this.capacityReservationTargets;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetLaunchTemplateCapacityReservationSpecification {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String capacityReservationPreference;
-        private List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets;
+        private @Nullable String capacityReservationPreference;
+        private @Nullable List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets;
         public Builder() {}
         public Builder(GetLaunchTemplateCapacityReservationSpecification defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetLaunchTemplateCapacityReservationSpecification {
         }
 
         @CustomType.Setter
-        public Builder capacityReservationPreference(String capacityReservationPreference) {
-            this.capacityReservationPreference = Objects.requireNonNull(capacityReservationPreference);
+        public Builder capacityReservationPreference(@Nullable String capacityReservationPreference) {
+            this.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
         @CustomType.Setter
-        public Builder capacityReservationTargets(List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets) {
-            this.capacityReservationTargets = Objects.requireNonNull(capacityReservationTargets);
+        public Builder capacityReservationTargets(@Nullable List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets) {
+            this.capacityReservationTargets = capacityReservationTargets;
             return this;
         }
         public Builder capacityReservationTargets(GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget... capacityReservationTargets) {

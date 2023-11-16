@@ -1219,29 +1219,29 @@ func (o GetResolverEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetResolv
 
 type GetResolverFirewallRulesFirewallRule struct {
 	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-	Action string `pulumi:"action"`
+	Action *string `pulumi:"action"`
 	// The DNS record's type.
-	BlockOverrideDnsType string `pulumi:"blockOverrideDnsType"`
+	BlockOverrideDnsType *string `pulumi:"blockOverrideDnsType"`
 	// The custom DNS record to send back in response to the query.
-	BlockOverrideDomain string `pulumi:"blockOverrideDomain"`
+	BlockOverrideDomain *string `pulumi:"blockOverrideDomain"`
 	// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
-	BlockOverrideTtl int `pulumi:"blockOverrideTtl"`
+	BlockOverrideTtl *int `pulumi:"blockOverrideTtl"`
 	// The way that you want DNS Firewall to block the request.
-	BlockResponse string `pulumi:"blockResponse"`
+	BlockResponse *string `pulumi:"blockResponse"`
 	// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
-	CreationTime string `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
 	// A unique string defined by you to identify the request.
-	CreatorRequestId string `pulumi:"creatorRequestId"`
+	CreatorRequestId *string `pulumi:"creatorRequestId"`
 	// The ID of the domain list that's used in the rule.
-	FirewallDomainListId string `pulumi:"firewallDomainListId"`
+	FirewallDomainListId *string `pulumi:"firewallDomainListId"`
 	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
-	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
+	FirewallRuleGroupId *string `pulumi:"firewallRuleGroupId"`
 	// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
-	ModificationTime string `pulumi:"modificationTime"`
+	ModificationTime *string `pulumi:"modificationTime"`
 	// The name of the rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The setting that determines the processing order of the rules in a rule group.
-	Priority int `pulumi:"priority"`
+	Priority *int `pulumi:"priority"`
 }
 
 // GetResolverFirewallRulesFirewallRuleInput is an input type that accepts GetResolverFirewallRulesFirewallRuleArgs and GetResolverFirewallRulesFirewallRuleOutput values.
@@ -1257,29 +1257,29 @@ type GetResolverFirewallRulesFirewallRuleInput interface {
 
 type GetResolverFirewallRulesFirewallRuleArgs struct {
 	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-	Action pulumi.StringInput `pulumi:"action"`
+	Action pulumi.StringPtrInput `pulumi:"action"`
 	// The DNS record's type.
-	BlockOverrideDnsType pulumi.StringInput `pulumi:"blockOverrideDnsType"`
+	BlockOverrideDnsType pulumi.StringPtrInput `pulumi:"blockOverrideDnsType"`
 	// The custom DNS record to send back in response to the query.
-	BlockOverrideDomain pulumi.StringInput `pulumi:"blockOverrideDomain"`
+	BlockOverrideDomain pulumi.StringPtrInput `pulumi:"blockOverrideDomain"`
 	// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
-	BlockOverrideTtl pulumi.IntInput `pulumi:"blockOverrideTtl"`
+	BlockOverrideTtl pulumi.IntPtrInput `pulumi:"blockOverrideTtl"`
 	// The way that you want DNS Firewall to block the request.
-	BlockResponse pulumi.StringInput `pulumi:"blockResponse"`
+	BlockResponse pulumi.StringPtrInput `pulumi:"blockResponse"`
 	// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
-	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
 	// A unique string defined by you to identify the request.
-	CreatorRequestId pulumi.StringInput `pulumi:"creatorRequestId"`
+	CreatorRequestId pulumi.StringPtrInput `pulumi:"creatorRequestId"`
 	// The ID of the domain list that's used in the rule.
-	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
+	FirewallDomainListId pulumi.StringPtrInput `pulumi:"firewallDomainListId"`
 	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
-	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
+	FirewallRuleGroupId pulumi.StringPtrInput `pulumi:"firewallRuleGroupId"`
 	// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
-	ModificationTime pulumi.StringInput `pulumi:"modificationTime"`
+	ModificationTime pulumi.StringPtrInput `pulumi:"modificationTime"`
 	// The name of the rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The setting that determines the processing order of the rules in a rule group.
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
 }
 
 func (GetResolverFirewallRulesFirewallRuleArgs) ElementType() reflect.Type {
@@ -1334,63 +1334,63 @@ func (o GetResolverFirewallRulesFirewallRuleOutput) ToGetResolverFirewallRulesFi
 }
 
 // The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-func (o GetResolverFirewallRulesFirewallRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.Action }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 // The DNS record's type.
-func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideDnsType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockOverrideDnsType }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideDnsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.BlockOverrideDnsType }).(pulumi.StringPtrOutput)
 }
 
 // The custom DNS record to send back in response to the query.
-func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockOverrideDomain }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.BlockOverrideDomain }).(pulumi.StringPtrOutput)
 }
 
 // The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
-func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideTtl() pulumi.IntOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) int { return v.BlockOverrideTtl }).(pulumi.IntOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *int { return v.BlockOverrideTtl }).(pulumi.IntPtrOutput)
 }
 
 // The way that you want DNS Firewall to block the request.
-func (o GetResolverFirewallRulesFirewallRuleOutput) BlockResponse() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockResponse }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) BlockResponse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.BlockResponse }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
-func (o GetResolverFirewallRulesFirewallRuleOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
 // A unique string defined by you to identify the request.
-func (o GetResolverFirewallRulesFirewallRuleOutput) CreatorRequestId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.CreatorRequestId }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) CreatorRequestId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.CreatorRequestId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the domain list that's used in the rule.
-func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallDomainListId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallDomainListId }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallDomainListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.FirewallDomainListId }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of the firewall rule group that you want to retrieve the rules for.
-func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallRuleGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallRuleGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.FirewallRuleGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
-func (o GetResolverFirewallRulesFirewallRuleOutput) ModificationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.ModificationTime }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) ModificationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.ModificationTime }).(pulumi.StringPtrOutput)
 }
 
 // The name of the rule.
-func (o GetResolverFirewallRulesFirewallRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.Name }).(pulumi.StringOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The setting that determines the processing order of the rules in a rule group.
-func (o GetResolverFirewallRulesFirewallRuleOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) int { return v.Priority }).(pulumi.IntOutput)
+func (o GetResolverFirewallRulesFirewallRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 type GetResolverFirewallRulesFirewallRuleArrayOutput struct{ *pulumi.OutputState }

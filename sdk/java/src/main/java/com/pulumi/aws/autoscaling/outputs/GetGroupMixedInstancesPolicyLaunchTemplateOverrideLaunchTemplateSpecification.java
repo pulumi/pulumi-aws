@@ -6,6 +6,8 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
@@ -13,39 +15,39 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTempl
      * @return ID of the launch template.
      * 
      */
-    private String launchTemplateId;
+    private @Nullable String launchTemplateId;
     /**
      * @return Name of the launch template.
      * 
      */
-    private String launchTemplateName;
+    private @Nullable String launchTemplateName;
     /**
      * @return Template version.
      * 
      */
-    private String version;
+    private @Nullable String version;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification() {}
     /**
      * @return ID of the launch template.
      * 
      */
-    public String launchTemplateId() {
-        return this.launchTemplateId;
+    public Optional<String> launchTemplateId() {
+        return Optional.ofNullable(this.launchTemplateId);
     }
     /**
      * @return Name of the launch template.
      * 
      */
-    public String launchTemplateName() {
-        return this.launchTemplateName;
+    public Optional<String> launchTemplateName() {
+        return Optional.ofNullable(this.launchTemplateName);
     }
     /**
      * @return Template version.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTempl
     }
     @CustomType.Builder
     public static final class Builder {
-        private String launchTemplateId;
-        private String launchTemplateName;
-        private String version;
+        private @Nullable String launchTemplateId;
+        private @Nullable String launchTemplateName;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTempl
         }
 
         @CustomType.Setter
-        public Builder launchTemplateId(String launchTemplateId) {
-            this.launchTemplateId = Objects.requireNonNull(launchTemplateId);
+        public Builder launchTemplateId(@Nullable String launchTemplateId) {
+            this.launchTemplateId = launchTemplateId;
             return this;
         }
         @CustomType.Setter
-        public Builder launchTemplateName(String launchTemplateName) {
-            this.launchTemplateName = Objects.requireNonNull(launchTemplateName);
+        public Builder launchTemplateName(@Nullable String launchTemplateName) {
+            this.launchTemplateName = launchTemplateName;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification build() {

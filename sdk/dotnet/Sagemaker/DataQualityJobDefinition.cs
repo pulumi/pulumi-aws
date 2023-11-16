@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the container that runs the monitoring job. Fields are documented below.
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Sagemaker
         /// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
         /// </summary>
         [Output("stoppingCondition")]
-        public Output<Outputs.DataQualityJobDefinitionStoppingCondition> StoppingCondition { get; private set; } = null!;
+        public Output<Outputs.DataQualityJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

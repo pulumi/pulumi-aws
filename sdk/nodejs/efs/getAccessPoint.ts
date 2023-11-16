@@ -52,28 +52,28 @@ export interface GetAccessPointResult {
     /**
      * Amazon Resource Name of the file system.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Amazon Resource Name of the file system.
      */
-    readonly fileSystemArn: string;
+    readonly fileSystemArn?: string;
     /**
      * ID of the file system for which the access point is intended.
      */
-    readonly fileSystemId: string;
+    readonly fileSystemId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly ownerId: string;
+    readonly id?: string;
+    readonly ownerId?: string;
     /**
      * Single element list containing operating system user and group applied to all file system requests made using the access point.
      */
-    readonly posixUsers: outputs.efs.GetAccessPointPosixUser[];
+    readonly posixUsers?: outputs.efs.GetAccessPointPosixUser[];
     /**
      * Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      */
-    readonly rootDirectories: outputs.efs.GetAccessPointRootDirectory[];
+    readonly rootDirectories?: outputs.efs.GetAccessPointRootDirectory[];
     /**
      * Key-value mapping of resource tags.
      */

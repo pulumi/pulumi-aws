@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQuickConnectQuickConnectConfigUserConfig {
@@ -13,27 +15,27 @@ public final class GetQuickConnectQuickConnectConfigUserConfig {
      * @return Identifier of the contact flow.
      * 
      */
-    private String contactFlowId;
+    private @Nullable String contactFlowId;
     /**
      * @return Identifier for the user.
      * 
      */
-    private String userId;
+    private @Nullable String userId;
 
     private GetQuickConnectQuickConnectConfigUserConfig() {}
     /**
      * @return Identifier of the contact flow.
      * 
      */
-    public String contactFlowId() {
-        return this.contactFlowId;
+    public Optional<String> contactFlowId() {
+        return Optional.ofNullable(this.contactFlowId);
     }
     /**
      * @return Identifier for the user.
      * 
      */
-    public String userId() {
-        return this.userId;
+    public Optional<String> userId() {
+        return Optional.ofNullable(this.userId);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetQuickConnectQuickConnectConfigUserConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String contactFlowId;
-        private String userId;
+        private @Nullable String contactFlowId;
+        private @Nullable String userId;
         public Builder() {}
         public Builder(GetQuickConnectQuickConnectConfigUserConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetQuickConnectQuickConnectConfigUserConfig {
         }
 
         @CustomType.Setter
-        public Builder contactFlowId(String contactFlowId) {
-            this.contactFlowId = Objects.requireNonNull(contactFlowId);
+        public Builder contactFlowId(@Nullable String contactFlowId) {
+            this.contactFlowId = contactFlowId;
             return this;
         }
         @CustomType.Setter
-        public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+        public Builder userId(@Nullable String userId) {
+            this.userId = userId;
             return this;
         }
         public GetQuickConnectQuickConnectConfigUserConfig build() {

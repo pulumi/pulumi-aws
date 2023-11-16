@@ -731,7 +731,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
@@ -739,7 +739,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="chapEnabled")
-    def chap_enabled(self) -> pulumi.Output[bool]:
+    def chap_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether mutual CHAP is enabled for the iSCSI target.
         """
@@ -771,7 +771,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lunNumber")
-    def lun_number(self) -> pulumi.Output[int]:
+    def lun_number(self) -> pulumi.Output[Optional[int]]:
         """
         Logical disk number.
         """
@@ -787,7 +787,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfacePort")
-    def network_interface_port(self) -> pulumi.Output[int]:
+    def network_interface_port(self) -> pulumi.Output[Optional[int]]:
         """
         The port used to communicate with iSCSI targets.
         """
@@ -830,7 +830,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> pulumi.Output[str]:
+    def target_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
@@ -846,7 +846,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeArn")
-    def volume_arn(self) -> pulumi.Output[str]:
+    def volume_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
@@ -854,7 +854,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> pulumi.Output[str]:
+    def volume_id(self) -> pulumi.Output[Optional[str]]:
         """
         Volume ID, e.g., `vol-12345678`.
         """

@@ -61,7 +61,7 @@ type AssessmentTarget struct {
 	pulumi.CustomResourceState
 
 	// The target assessment ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the assessment target.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
@@ -222,8 +222,8 @@ func (o AssessmentTargetOutput) ToAssessmentTargetOutputWithContext(ctx context.
 }
 
 // The target assessment ARN.
-func (o AssessmentTargetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AssessmentTarget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AssessmentTargetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentTarget) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the assessment target.

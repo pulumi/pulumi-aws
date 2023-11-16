@@ -72,19 +72,19 @@ namespace Pulumi.Aws.Efs
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
         /// </summary>
         [Output("availabilityZoneId")]
-        public Output<string> AvailabilityZoneId { get; private set; } = null!;
+        public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
         /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
         /// </summary>
         [Output("availabilityZoneName")]
-        public Output<string> AvailabilityZoneName { get; private set; } = null!;
+        public Output<string?> AvailabilityZoneName { get; private set; } = null!;
 
         /// <summary>
         /// A unique name (a maximum of 64 characters are allowed)
@@ -99,19 +99,19 @@ namespace Pulumi.Aws.Efs
         /// The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         /// </summary>
         [Output("dnsName")]
-        public Output<string> DnsName { get; private set; } = null!;
+        public Output<string?> DnsName { get; private set; } = null!;
 
         /// <summary>
         /// If true, the disk will be encrypted.
         /// </summary>
         [Output("encrypted")]
-        public Output<bool> Encrypted { get; private set; } = null!;
+        public Output<bool?> Encrypted { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
@@ -123,25 +123,25 @@ namespace Pulumi.Aws.Efs
         /// The value of the file system's `Name` tag.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The current number of mount targets that the file system has.
         /// </summary>
         [Output("numberOfMountTargets")]
-        public Output<int> NumberOfMountTargets { get; private set; } = null!;
+        public Output<int?> NumberOfMountTargets { get; private set; } = null!;
 
         /// <summary>
         /// The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         /// </summary>
         [Output("performanceMode")]
-        public Output<string> PerformanceMode { get; private set; } = null!;
+        public Output<string?> PerformanceMode { get; private set; } = null!;
 
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.

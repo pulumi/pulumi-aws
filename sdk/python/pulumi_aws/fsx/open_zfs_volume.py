@@ -721,7 +721,7 @@ class OpenZfsVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the file system.
         """
@@ -785,7 +785,7 @@ class OpenZfsVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> pulumi.Output[bool]:
+    def read_only(self) -> pulumi.Output[Optional[bool]]:
         """
         specifies whether the volume is read-only. Default is false.
         """
@@ -801,7 +801,7 @@ class OpenZfsVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageCapacityQuotaGib")
-    def storage_capacity_quota_gib(self) -> pulumi.Output[int]:
+    def storage_capacity_quota_gib(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         """
@@ -809,7 +809,7 @@ class OpenZfsVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageCapacityReservationGib")
-    def storage_capacity_reservation_gib(self) -> pulumi.Output[int]:
+    def storage_capacity_reservation_gib(self) -> pulumi.Output[Optional[int]]:
         """
         The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         """
@@ -836,7 +836,7 @@ class OpenZfsVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userAndGroupQuotas")
-    def user_and_group_quotas(self) -> pulumi.Output[Sequence['outputs.OpenZfsVolumeUserAndGroupQuota']]:
+    def user_and_group_quotas(self) -> pulumi.Output[Optional[Sequence['outputs.OpenZfsVolumeUserAndGroupQuota']]]:
         """
         Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """

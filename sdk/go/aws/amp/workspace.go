@@ -64,7 +64,7 @@ import (
 //			}
 //			_, err = amp.NewWorkspace(ctx, "exampleWorkspace", &amp.WorkspaceArgs{
 //				LoggingConfiguration: &amp.WorkspaceLoggingConfigurationArgs{
-//					LogGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//					LogGroupArn: exampleLogGroup.Arn.ApplyT(func(arn *string) (string, error) {
 //						return fmt.Sprintf("%v:*", arn), nil
 //					}).(pulumi.StringOutput),
 //				},
@@ -93,11 +93,11 @@ type Workspace struct {
 	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
 	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// Amazon Resource Name (ARN) of the workspace.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Logging configuration for the workspace. See Logging Configuration below for details.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// Prometheus endpoint available for this workspace.
-	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint pulumi.StringPtrOutput `pulumi:"prometheusEndpoint"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -289,8 +289,8 @@ func (o WorkspaceOutput) Alias() pulumi.StringPtrOutput {
 }
 
 // Amazon Resource Name (ARN) of the workspace.
-func (o WorkspaceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WorkspaceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Logging configuration for the workspace. See Logging Configuration below for details.
@@ -299,8 +299,8 @@ func (o WorkspaceOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtr
 }
 
 // Prometheus endpoint available for this workspace.
-func (o WorkspaceOutput) PrometheusEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.PrometheusEndpoint }).(pulumi.StringOutput)
+func (o WorkspaceOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.PrometheusEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

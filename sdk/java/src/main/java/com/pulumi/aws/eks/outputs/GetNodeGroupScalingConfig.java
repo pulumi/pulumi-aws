@@ -6,6 +6,8 @@ package com.pulumi.aws.eks.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNodeGroupScalingConfig {
@@ -13,39 +15,39 @@ public final class GetNodeGroupScalingConfig {
      * @return Desired number of worker nodes.
      * 
      */
-    private Integer desiredSize;
+    private @Nullable Integer desiredSize;
     /**
      * @return Maximum number of worker nodes.
      * 
      */
-    private Integer maxSize;
+    private @Nullable Integer maxSize;
     /**
      * @return Minimum number of worker nodes.
      * 
      */
-    private Integer minSize;
+    private @Nullable Integer minSize;
 
     private GetNodeGroupScalingConfig() {}
     /**
      * @return Desired number of worker nodes.
      * 
      */
-    public Integer desiredSize() {
-        return this.desiredSize;
+    public Optional<Integer> desiredSize() {
+        return Optional.ofNullable(this.desiredSize);
     }
     /**
      * @return Maximum number of worker nodes.
      * 
      */
-    public Integer maxSize() {
-        return this.maxSize;
+    public Optional<Integer> maxSize() {
+        return Optional.ofNullable(this.maxSize);
     }
     /**
      * @return Minimum number of worker nodes.
      * 
      */
-    public Integer minSize() {
-        return this.minSize;
+    public Optional<Integer> minSize() {
+        return Optional.ofNullable(this.minSize);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetNodeGroupScalingConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer desiredSize;
-        private Integer maxSize;
-        private Integer minSize;
+        private @Nullable Integer desiredSize;
+        private @Nullable Integer maxSize;
+        private @Nullable Integer minSize;
         public Builder() {}
         public Builder(GetNodeGroupScalingConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetNodeGroupScalingConfig {
         }
 
         @CustomType.Setter
-        public Builder desiredSize(Integer desiredSize) {
-            this.desiredSize = Objects.requireNonNull(desiredSize);
+        public Builder desiredSize(@Nullable Integer desiredSize) {
+            this.desiredSize = desiredSize;
             return this;
         }
         @CustomType.Setter
-        public Builder maxSize(Integer maxSize) {
-            this.maxSize = Objects.requireNonNull(maxSize);
+        public Builder maxSize(@Nullable Integer maxSize) {
+            this.maxSize = maxSize;
             return this;
         }
         @CustomType.Setter
-        public Builder minSize(Integer minSize) {
-            this.minSize = Objects.requireNonNull(minSize);
+        public Builder minSize(@Nullable Integer minSize) {
+            this.minSize = minSize;
             return this;
         }
         public GetNodeGroupScalingConfig build() {

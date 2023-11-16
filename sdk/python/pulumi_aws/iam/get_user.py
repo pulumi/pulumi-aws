@@ -46,7 +46,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN assigned by AWS for this user.
         """
@@ -54,7 +54,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -62,7 +62,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
         Path in which this user was created.
         """
@@ -70,7 +70,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="permissionsBoundary")
-    def permissions_boundary(self) -> str:
+    def permissions_boundary(self) -> Optional[str]:
         """
         The ARN of the policy that is used to set the permissions boundary for the user.
         """
@@ -78,7 +78,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of key-value pairs associated with the user.
         """
@@ -86,7 +86,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> Optional[str]:
         """
         Unique ID assigned by AWS for this user.
         """

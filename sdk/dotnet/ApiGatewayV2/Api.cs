@@ -66,7 +66,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         /// </summary>
         [Output("apiEndpoint")]
-        public Output<string> ApiEndpoint { get; private set; } = null!;
+        public Output<string?> ApiEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// ARN of the API.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
         [Output("executionArn")]
-        public Output<string> ExecutionArn { get; private set; } = null!;
+        public Output<string?> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
         /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.

@@ -69,16 +69,16 @@ export interface GetInstancesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARNs of the matched RDS instances.
      */
-    readonly instanceArns: string[];
+    readonly instanceArns?: string[];
     /**
      * Identifiers of the matched RDS instances.
      */
-    readonly instanceIdentifiers: string[];
-    readonly tags: {[key: string]: string};
+    readonly instanceIdentifiers?: string[];
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for listing RDS Database Instances.

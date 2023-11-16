@@ -88,11 +88,11 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * ARN of the configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
      */
-    public readonly authenticationStrategy!: pulumi.Output<string>;
+    public readonly authenticationStrategy!: pulumi.Output<string | undefined>;
     /**
      * Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      */
@@ -112,7 +112,7 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * Latest revision of the configuration.
      */
-    public /*out*/ readonly latestRevision!: pulumi.Output<number>;
+    public /*out*/ readonly latestRevision!: pulumi.Output<number | undefined>;
     /**
      * Name of the configuration.
      *

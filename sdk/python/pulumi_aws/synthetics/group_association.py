@@ -261,12 +261,12 @@ class GroupAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupArn")
-    def group_arn(self) -> pulumi.Output[str]:
+    def group_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "group_arn")
 
     @property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> pulumi.Output[str]:
+    def group_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the Group.
         """

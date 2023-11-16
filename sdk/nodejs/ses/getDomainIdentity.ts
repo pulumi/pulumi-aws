@@ -43,7 +43,7 @@ export interface GetDomainIdentityResult {
     /**
      * ARN of the domain identity.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Name of the domain
      */
@@ -51,11 +51,11 @@ export interface GetDomainIdentityResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      */
-    readonly verificationToken: string;
+    readonly verificationToken?: string;
 }
 /**
  * Retrieve the SES domain identity

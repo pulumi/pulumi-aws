@@ -81,21 +81,21 @@ type GetPublicKeyArgs struct {
 // A collection of values returned by getPublicKey.
 type GetPublicKeyResult struct {
 	// Key ARN of the asymmetric CMK from which the public key was downloaded.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Type of the public key that was downloaded.
-	CustomerMasterKeySpec string `pulumi:"customerMasterKeySpec"`
+	CustomerMasterKeySpec *string `pulumi:"customerMasterKeySpec"`
 	// Encryption algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `ENCRYPT_DECRYPT`.
 	EncryptionAlgorithms []string `pulumi:"encryptionAlgorithms"`
 	GrantTokens          []string `pulumi:"grantTokens"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string `pulumi:"id"`
-	KeyId string `pulumi:"keyId"`
+	Id    *string `pulumi:"id"`
+	KeyId string  `pulumi:"keyId"`
 	// Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
-	KeyUsage string `pulumi:"keyUsage"`
+	KeyUsage *string `pulumi:"keyUsage"`
 	// Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
-	PublicKey string `pulumi:"publicKey"`
+	PublicKey *string `pulumi:"publicKey"`
 	// Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
-	PublicKeyPem string `pulumi:"publicKeyPem"`
+	PublicKeyPem *string `pulumi:"publicKeyPem"`
 	// Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
 	SigningAlgorithms []string `pulumi:"signingAlgorithms"`
 }
@@ -145,13 +145,13 @@ func (o GetPublicKeyResultOutput) ToGetPublicKeyResultOutputWithContext(ctx cont
 }
 
 // Key ARN of the asymmetric CMK from which the public key was downloaded.
-func (o GetPublicKeyResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicKeyResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetPublicKeyResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicKeyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Type of the public key that was downloaded.
-func (o GetPublicKeyResultOutput) CustomerMasterKeySpec() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicKeyResult) string { return v.CustomerMasterKeySpec }).(pulumi.StringOutput)
+func (o GetPublicKeyResultOutput) CustomerMasterKeySpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicKeyResult) *string { return v.CustomerMasterKeySpec }).(pulumi.StringPtrOutput)
 }
 
 // Encryption algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `ENCRYPT_DECRYPT`.
@@ -164,8 +164,8 @@ func (o GetPublicKeyResultOutput) GrantTokens() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetPublicKeyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicKeyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPublicKeyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetPublicKeyResultOutput) KeyId() pulumi.StringOutput {
@@ -173,18 +173,18 @@ func (o GetPublicKeyResultOutput) KeyId() pulumi.StringOutput {
 }
 
 // Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
-func (o GetPublicKeyResultOutput) KeyUsage() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicKeyResult) string { return v.KeyUsage }).(pulumi.StringOutput)
+func (o GetPublicKeyResultOutput) KeyUsage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicKeyResult) *string { return v.KeyUsage }).(pulumi.StringPtrOutput)
 }
 
 // Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
-func (o GetPublicKeyResultOutput) PublicKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicKeyResult) string { return v.PublicKey }).(pulumi.StringOutput)
+func (o GetPublicKeyResultOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicKeyResult) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
 }
 
 // Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
-func (o GetPublicKeyResultOutput) PublicKeyPem() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPublicKeyResult) string { return v.PublicKeyPem }).(pulumi.StringOutput)
+func (o GetPublicKeyResultOutput) PublicKeyPem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicKeyResult) *string { return v.PublicKeyPem }).(pulumi.StringPtrOutput)
 }
 
 // Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.

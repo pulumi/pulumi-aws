@@ -6,31 +6,33 @@ package com.pulumi.aws.route53.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResolverFirewallConfigResult {
-    private String firewallFailOpen;
+    private @Nullable String firewallFailOpen;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String ownerId;
+    private @Nullable String id;
+    private @Nullable String ownerId;
     private String resourceId;
 
     private GetResolverFirewallConfigResult() {}
-    public String firewallFailOpen() {
-        return this.firewallFailOpen;
+    public Optional<String> firewallFailOpen() {
+        return Optional.ofNullable(this.firewallFailOpen);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     public String resourceId() {
         return this.resourceId;
@@ -45,9 +47,9 @@ public final class GetResolverFirewallConfigResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String firewallFailOpen;
-        private String id;
-        private String ownerId;
+        private @Nullable String firewallFailOpen;
+        private @Nullable String id;
+        private @Nullable String ownerId;
         private String resourceId;
         public Builder() {}
         public Builder(GetResolverFirewallConfigResult defaults) {
@@ -59,18 +61,18 @@ public final class GetResolverFirewallConfigResult {
         }
 
         @CustomType.Setter
-        public Builder firewallFailOpen(String firewallFailOpen) {
-            this.firewallFailOpen = Objects.requireNonNull(firewallFailOpen);
+        public Builder firewallFailOpen(@Nullable String firewallFailOpen) {
+            this.firewallFailOpen = firewallFailOpen;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter

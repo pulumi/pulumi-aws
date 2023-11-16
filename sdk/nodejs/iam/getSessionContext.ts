@@ -62,23 +62,23 @@ export interface GetSessionContextResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuerArn` is equal to `arn`.
      */
-    readonly issuerArn: string;
+    readonly issuerArn?: string;
     /**
      * Unique identifier of the IAM role that issues the STS assumed role.
      */
-    readonly issuerId: string;
+    readonly issuerId?: string;
     /**
      * Name of the source role. Only available if `arn` corresponds to an STS assumed role.
      */
-    readonly issuerName: string;
+    readonly issuerName?: string;
     /**
      * Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
      */
-    readonly sessionName: string;
+    readonly sessionName?: string;
 }
 /**
  * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuerArn`.

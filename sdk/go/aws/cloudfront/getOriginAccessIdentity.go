@@ -60,24 +60,24 @@ type LookupOriginAccessIdentityArgs struct {
 type LookupOriginAccessIdentityResult struct {
 	// Internal value used by CloudFront to allow future
 	// updates to the origin access identity.
-	CallerReference string `pulumi:"callerReference"`
+	CallerReference *string `pulumi:"callerReference"`
 	// A shortcut to the full path for the
 	// origin access identity to use in CloudFront, see below.
-	CloudfrontAccessIdentityPath string `pulumi:"cloudfrontAccessIdentityPath"`
+	CloudfrontAccessIdentityPath *string `pulumi:"cloudfrontAccessIdentityPath"`
 	// An optional comment for the origin access identity.
-	Comment string `pulumi:"comment"`
+	Comment *string `pulumi:"comment"`
 	// Current version of the origin access identity's information.
 	// For example: `E2QWRUHAPOMQZL`.
-	Etag string `pulumi:"etag"`
+	Etag *string `pulumi:"etag"`
 	// Pre-generated ARN for use in S3 bucket policies (see below).
 	// Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
 	// E2QWRUHAPOMQZL`.
-	IamArn string `pulumi:"iamArn"`
-	Id     string `pulumi:"id"`
+	IamArn *string `pulumi:"iamArn"`
+	Id     string  `pulumi:"id"`
 	// The Amazon S3 canonical user ID for the origin
 	// access identity, which you use when giving the origin access identity read
 	// permission to an object in Amazon S3.
-	S3CanonicalUserId string `pulumi:"s3CanonicalUserId"`
+	S3CanonicalUserId *string `pulumi:"s3CanonicalUserId"`
 }
 
 func LookupOriginAccessIdentityOutput(ctx *pulumi.Context, args LookupOriginAccessIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupOriginAccessIdentityResultOutput {
@@ -120,32 +120,32 @@ func (o LookupOriginAccessIdentityResultOutput) ToLookupOriginAccessIdentityResu
 
 // Internal value used by CloudFront to allow future
 // updates to the origin access identity.
-func (o LookupOriginAccessIdentityResultOutput) CallerReference() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOriginAccessIdentityResult) string { return v.CallerReference }).(pulumi.StringOutput)
+func (o LookupOriginAccessIdentityResultOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginAccessIdentityResult) *string { return v.CallerReference }).(pulumi.StringPtrOutput)
 }
 
 // A shortcut to the full path for the
 // origin access identity to use in CloudFront, see below.
-func (o LookupOriginAccessIdentityResultOutput) CloudfrontAccessIdentityPath() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOriginAccessIdentityResult) string { return v.CloudfrontAccessIdentityPath }).(pulumi.StringOutput)
+func (o LookupOriginAccessIdentityResultOutput) CloudfrontAccessIdentityPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginAccessIdentityResult) *string { return v.CloudfrontAccessIdentityPath }).(pulumi.StringPtrOutput)
 }
 
 // An optional comment for the origin access identity.
-func (o LookupOriginAccessIdentityResultOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOriginAccessIdentityResult) string { return v.Comment }).(pulumi.StringOutput)
+func (o LookupOriginAccessIdentityResultOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginAccessIdentityResult) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // Current version of the origin access identity's information.
 // For example: `E2QWRUHAPOMQZL`.
-func (o LookupOriginAccessIdentityResultOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOriginAccessIdentityResult) string { return v.Etag }).(pulumi.StringOutput)
+func (o LookupOriginAccessIdentityResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginAccessIdentityResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Pre-generated ARN for use in S3 bucket policies (see below).
 // Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
 // E2QWRUHAPOMQZL`.
-func (o LookupOriginAccessIdentityResultOutput) IamArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOriginAccessIdentityResult) string { return v.IamArn }).(pulumi.StringOutput)
+func (o LookupOriginAccessIdentityResultOutput) IamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginAccessIdentityResult) *string { return v.IamArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupOriginAccessIdentityResultOutput) Id() pulumi.StringOutput {
@@ -155,8 +155,8 @@ func (o LookupOriginAccessIdentityResultOutput) Id() pulumi.StringOutput {
 // The Amazon S3 canonical user ID for the origin
 // access identity, which you use when giving the origin access identity read
 // permission to an object in Amazon S3.
-func (o LookupOriginAccessIdentityResultOutput) S3CanonicalUserId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOriginAccessIdentityResult) string { return v.S3CanonicalUserId }).(pulumi.StringOutput)
+func (o LookupOriginAccessIdentityResultOutput) S3CanonicalUserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginAccessIdentityResult) *string { return v.S3CanonicalUserId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

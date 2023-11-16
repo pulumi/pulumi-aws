@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceResult {
@@ -15,47 +17,47 @@ public final class GetServiceResult {
      * @return ARN of the ECS Service
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     private String clusterArn;
     /**
      * @return Number of tasks for the ECS Service
      * 
      */
-    private Integer desiredCount;
+    private @Nullable Integer desiredCount;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Launch type for the ECS Service
      * 
      */
-    private String launchType;
+    private @Nullable String launchType;
     /**
      * @return Scheduling strategy for the ECS Service
      * 
      */
-    private String schedulingStrategy;
+    private @Nullable String schedulingStrategy;
     private String serviceName;
     /**
      * @return Resource tags.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Family for the latest ACTIVE revision or full ARN of the task definition.
      * 
      */
-    private String taskDefinition;
+    private @Nullable String taskDefinition;
 
     private GetServiceResult() {}
     /**
      * @return ARN of the ECS Service
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public String clusterArn() {
         return this.clusterArn;
@@ -64,29 +66,29 @@ public final class GetServiceResult {
      * @return Number of tasks for the ECS Service
      * 
      */
-    public Integer desiredCount() {
-        return this.desiredCount;
+    public Optional<Integer> desiredCount() {
+        return Optional.ofNullable(this.desiredCount);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Launch type for the ECS Service
      * 
      */
-    public String launchType() {
-        return this.launchType;
+    public Optional<String> launchType() {
+        return Optional.ofNullable(this.launchType);
     }
     /**
      * @return Scheduling strategy for the ECS Service
      * 
      */
-    public String schedulingStrategy() {
-        return this.schedulingStrategy;
+    public Optional<String> schedulingStrategy() {
+        return Optional.ofNullable(this.schedulingStrategy);
     }
     public String serviceName() {
         return this.serviceName;
@@ -96,14 +98,14 @@ public final class GetServiceResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Family for the latest ACTIVE revision or full ARN of the task definition.
      * 
      */
-    public String taskDefinition() {
-        return this.taskDefinition;
+    public Optional<String> taskDefinition() {
+        return Optional.ofNullable(this.taskDefinition);
     }
 
     public static Builder builder() {
@@ -115,15 +117,15 @@ public final class GetServiceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private String clusterArn;
-        private Integer desiredCount;
-        private String id;
-        private String launchType;
-        private String schedulingStrategy;
+        private @Nullable Integer desiredCount;
+        private @Nullable String id;
+        private @Nullable String launchType;
+        private @Nullable String schedulingStrategy;
         private String serviceName;
-        private Map<String,String> tags;
-        private String taskDefinition;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String taskDefinition;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -139,8 +141,8 @@ public final class GetServiceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -149,23 +151,23 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder desiredCount(Integer desiredCount) {
-            this.desiredCount = Objects.requireNonNull(desiredCount);
+        public Builder desiredCount(@Nullable Integer desiredCount) {
+            this.desiredCount = desiredCount;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder launchType(String launchType) {
-            this.launchType = Objects.requireNonNull(launchType);
+        public Builder launchType(@Nullable String launchType) {
+            this.launchType = launchType;
             return this;
         }
         @CustomType.Setter
-        public Builder schedulingStrategy(String schedulingStrategy) {
-            this.schedulingStrategy = Objects.requireNonNull(schedulingStrategy);
+        public Builder schedulingStrategy(@Nullable String schedulingStrategy) {
+            this.schedulingStrategy = schedulingStrategy;
             return this;
         }
         @CustomType.Setter
@@ -174,13 +176,13 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder taskDefinition(String taskDefinition) {
-            this.taskDefinition = Objects.requireNonNull(taskDefinition);
+        public Builder taskDefinition(@Nullable String taskDefinition) {
+            this.taskDefinition = taskDefinition;
             return this;
         }
         public GetServiceResult build() {

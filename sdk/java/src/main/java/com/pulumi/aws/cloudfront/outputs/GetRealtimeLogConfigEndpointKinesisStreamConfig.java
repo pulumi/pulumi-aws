@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudfront.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRealtimeLogConfigEndpointKinesisStreamConfig {
@@ -14,12 +16,12 @@ public final class GetRealtimeLogConfigEndpointKinesisStreamConfig {
      * See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return (Required) ARN of the Kinesis data stream.
      * 
      */
-    private String streamArn;
+    private @Nullable String streamArn;
 
     private GetRealtimeLogConfigEndpointKinesisStreamConfig() {}
     /**
@@ -27,15 +29,15 @@ public final class GetRealtimeLogConfigEndpointKinesisStreamConfig {
      * See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return (Required) ARN of the Kinesis data stream.
      * 
      */
-    public String streamArn() {
-        return this.streamArn;
+    public Optional<String> streamArn() {
+        return Optional.ofNullable(this.streamArn);
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetRealtimeLogConfigEndpointKinesisStreamConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String roleArn;
-        private String streamArn;
+        private @Nullable String roleArn;
+        private @Nullable String streamArn;
         public Builder() {}
         public Builder(GetRealtimeLogConfigEndpointKinesisStreamConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,13 +59,13 @@ public final class GetRealtimeLogConfigEndpointKinesisStreamConfig {
         }
 
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder streamArn(String streamArn) {
-            this.streamArn = Objects.requireNonNull(streamArn);
+        public Builder streamArn(@Nullable String streamArn) {
+            this.streamArn = streamArn;
             return this;
         }
         public GetRealtimeLogConfigEndpointKinesisStreamConfig build() {

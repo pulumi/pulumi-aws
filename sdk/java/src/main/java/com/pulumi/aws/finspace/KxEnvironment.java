@@ -128,42 +128,42 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) identifier of the KX environment.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> availabilityZones;
+    private Output</* @Nullable */ List<String>> availabilityZones;
 
     /**
      * @return AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
      * 
      */
-    public Output<List<String>> availabilityZones() {
-        return this.availabilityZones;
+    public Output<Optional<List<String>>> availabilityZones() {
+        return Codegen.optional(this.availabilityZones);
     }
     /**
      * Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
     @Export(name="createdTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> createdTimestamp;
+    private Output</* @Nullable */ String> createdTimestamp;
 
     /**
      * @return Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public Output<String> createdTimestamp() {
-        return this.createdTimestamp;
+    public Output<Optional<String>> createdTimestamp() {
+        return Codegen.optional(this.createdTimestamp);
     }
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
@@ -198,14 +198,14 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="infrastructureAccountId", refs={String.class}, tree="[0]")
-    private Output<String> infrastructureAccountId;
+    private Output</* @Nullable */ String> infrastructureAccountId;
 
     /**
      * @return Unique identifier for the AWS environment infrastructure account.
      * 
      */
-    public Output<String> infrastructureAccountId() {
-        return this.infrastructureAccountId;
+    public Output<Optional<String>> infrastructureAccountId() {
+        return Codegen.optional(this.infrastructureAccountId);
     }
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
@@ -230,14 +230,14 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModifiedTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedTimestamp;
+    private Output</* @Nullable */ String> lastModifiedTimestamp;
 
     /**
      * @return Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public Output<String> lastModifiedTimestamp() {
-        return this.lastModifiedTimestamp;
+    public Output<Optional<String>> lastModifiedTimestamp() {
+        return Codegen.optional(this.lastModifiedTimestamp);
     }
     /**
      * Name of the KX environment that you want to create.
@@ -258,14 +258,14 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of environment creation
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

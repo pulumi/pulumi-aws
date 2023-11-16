@@ -391,7 +391,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> pulumi.Output[str]:
+    def application_id(self) -> pulumi.Output[Optional[str]]:
         """
         The application ID.
         """
@@ -399,7 +399,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the CodeDeploy application.
         """
@@ -415,7 +415,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="githubAccountName")
-    def github_account_name(self) -> pulumi.Output[str]:
+    def github_account_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name for a connection to a GitHub account.
         """
@@ -423,7 +423,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedToGithub")
-    def linked_to_github(self) -> pulumi.Output[bool]:
+    def linked_to_github(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the user has authenticated with GitHub for the specified application.
         """

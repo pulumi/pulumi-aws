@@ -68,28 +68,28 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the service. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Type of IAM policy. Either `NONE` or `AWS_IAM`.
      * 
      */
     @Export(name="authType", refs={String.class}, tree="[0]")
-    private Output<String> authType;
+    private Output</* @Nullable */ String> authType;
 
     /**
      * @return Type of IAM policy. Either `NONE` or `AWS_IAM`.
      * 
      */
-    public Output<String> authType() {
-        return this.authType;
+    public Output<Optional<String>> authType() {
+        return Codegen.optional(this.authType);
     }
     /**
      * Amazon Resource Name (ARN) of the certificate.
@@ -124,14 +124,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dnsEntries", refs={List.class,ServiceDnsEntry.class}, tree="[0,1]")
-    private Output<List<ServiceDnsEntry>> dnsEntries;
+    private Output</* @Nullable */ List<ServiceDnsEntry>> dnsEntries;
 
     /**
      * @return Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
      * 
      */
-    public Output<List<ServiceDnsEntry>> dnsEntries() {
-        return this.dnsEntries;
+    public Output<Optional<List<ServiceDnsEntry>>> dnsEntries() {
+        return Codegen.optional(this.dnsEntries);
     }
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
@@ -156,14 +156,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Status of the service.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

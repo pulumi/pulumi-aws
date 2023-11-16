@@ -40,7 +40,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the queue.
         """
@@ -48,7 +48,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -61,7 +61,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags for the resource.
         """
@@ -69,7 +69,7 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> Optional[str]:
         """
         URL of the queue.
         """

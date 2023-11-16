@@ -219,16 +219,16 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetLaunchTemplateResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingResult> BlockDeviceMappings;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateCapacityReservationSpecificationResult> CapacityReservationSpecifications;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateCpuOptionResult> CpuOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateCreditSpecificationResult> CreditSpecifications;
-        public readonly int DefaultVersion;
-        public readonly string Description;
-        public readonly bool DisableApiStop;
-        public readonly bool DisableApiTermination;
-        public readonly string EbsOptimized;
+        public readonly int? DefaultVersion;
+        public readonly string? Description;
+        public readonly bool? DisableApiStop;
+        public readonly bool? DisableApiTermination;
+        public readonly string? EbsOptimized;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> ElasticGpuSpecifications;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticInferenceAcceleratorResult> ElasticInferenceAccelerators;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateEnclaveOptionResult> EnclaveOptions;
@@ -238,33 +238,33 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the launch template.
         /// </summary>
-        public readonly string Id;
-        public readonly string ImageId;
-        public readonly string InstanceInitiatedShutdownBehavior;
+        public readonly string? Id;
+        public readonly string? ImageId;
+        public readonly string? InstanceInitiatedShutdownBehavior;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionResult> InstanceMarketOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementResult> InstanceRequirements;
-        public readonly string InstanceType;
-        public readonly string KernelId;
-        public readonly string KeyName;
-        public readonly int LatestVersion;
+        public readonly string? InstanceType;
+        public readonly string? KernelId;
+        public readonly string? KeyName;
+        public readonly int? LatestVersion;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateLicenseSpecificationResult> LicenseSpecifications;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMaintenanceOptionResult> MaintenanceOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionResult> MetadataOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> Monitorings;
-        public readonly string Name;
+        public readonly string? Name;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceResult> NetworkInterfaces;
         public readonly ImmutableArray<Outputs.GetLaunchTemplatePlacementResult> Placements;
         public readonly ImmutableArray<Outputs.GetLaunchTemplatePrivateDnsNameOptionResult> PrivateDnsNameOptions;
-        public readonly string RamDiskId;
+        public readonly string? RamDiskId;
         public readonly ImmutableArray<string> SecurityGroupNames;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> TagSpecifications;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string UserData;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? UserData;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
         private GetLaunchTemplateResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingResult> blockDeviceMappings,
 
@@ -274,15 +274,15 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetLaunchTemplateCreditSpecificationResult> creditSpecifications,
 
-            int defaultVersion,
+            int? defaultVersion,
 
-            string description,
+            string? description,
 
-            bool disableApiStop,
+            bool? disableApiStop,
 
-            bool disableApiTermination,
+            bool? disableApiTermination,
 
-            string ebsOptimized,
+            string? ebsOptimized,
 
             ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> elasticGpuSpecifications,
 
@@ -296,23 +296,23 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfileResult> iamInstanceProfiles,
 
-            string id,
+            string? id,
 
-            string imageId,
+            string? imageId,
 
-            string instanceInitiatedShutdownBehavior,
+            string? instanceInitiatedShutdownBehavior,
 
             ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionResult> instanceMarketOptions,
 
             ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementResult> instanceRequirements,
 
-            string instanceType,
+            string? instanceType,
 
-            string kernelId,
+            string? kernelId,
 
-            string keyName,
+            string? keyName,
 
-            int latestVersion,
+            int? latestVersion,
 
             ImmutableArray<Outputs.GetLaunchTemplateLicenseSpecificationResult> licenseSpecifications,
 
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> monitorings,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceResult> networkInterfaces,
 
@@ -330,15 +330,15 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetLaunchTemplatePrivateDnsNameOptionResult> privateDnsNameOptions,
 
-            string ramDiskId,
+            string? ramDiskId,
 
             ImmutableArray<string> securityGroupNames,
 
             ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> tagSpecifications,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string userData,
+            string? userData,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTaskDefinitionResult {
@@ -14,105 +16,105 @@ public final class GetTaskDefinitionResult {
      * @return ARN of the task definition.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      * 
      */
-    private String arnWithoutRevision;
+    private @Nullable String arnWithoutRevision;
     /**
      * @return ARN of the task execution role that the Amazon ECS container agent and the Docker.
      * 
      */
-    private String executionRoleArn;
+    private @Nullable String executionRoleArn;
     /**
      * @return Family of this task definition.
      * 
      */
-    private String family;
+    private @Nullable String family;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Docker networking mode to use for the containers in this task.
      * 
      */
-    private String networkMode;
+    private @Nullable String networkMode;
     /**
      * @return Revision of this task definition.
      * 
      */
-    private Integer revision;
+    private @Nullable Integer revision;
     /**
      * @return Status of this task definition.
      * 
      */
-    private String status;
+    private @Nullable String status;
     private String taskDefinition;
     /**
      * @return ARN of the IAM role that containers in this task can assume.
      * 
      */
-    private String taskRoleArn;
+    private @Nullable String taskRoleArn;
 
     private GetTaskDefinitionResult() {}
     /**
      * @return ARN of the task definition.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      * 
      */
-    public String arnWithoutRevision() {
-        return this.arnWithoutRevision;
+    public Optional<String> arnWithoutRevision() {
+        return Optional.ofNullable(this.arnWithoutRevision);
     }
     /**
      * @return ARN of the task execution role that the Amazon ECS container agent and the Docker.
      * 
      */
-    public String executionRoleArn() {
-        return this.executionRoleArn;
+    public Optional<String> executionRoleArn() {
+        return Optional.ofNullable(this.executionRoleArn);
     }
     /**
      * @return Family of this task definition.
      * 
      */
-    public String family() {
-        return this.family;
+    public Optional<String> family() {
+        return Optional.ofNullable(this.family);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Docker networking mode to use for the containers in this task.
      * 
      */
-    public String networkMode() {
-        return this.networkMode;
+    public Optional<String> networkMode() {
+        return Optional.ofNullable(this.networkMode);
     }
     /**
      * @return Revision of this task definition.
      * 
      */
-    public Integer revision() {
-        return this.revision;
+    public Optional<Integer> revision() {
+        return Optional.ofNullable(this.revision);
     }
     /**
      * @return Status of this task definition.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     public String taskDefinition() {
         return this.taskDefinition;
@@ -121,8 +123,8 @@ public final class GetTaskDefinitionResult {
      * @return ARN of the IAM role that containers in this task can assume.
      * 
      */
-    public String taskRoleArn() {
-        return this.taskRoleArn;
+    public Optional<String> taskRoleArn() {
+        return Optional.ofNullable(this.taskRoleArn);
     }
 
     public static Builder builder() {
@@ -134,16 +136,16 @@ public final class GetTaskDefinitionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String arnWithoutRevision;
-        private String executionRoleArn;
-        private String family;
-        private String id;
-        private String networkMode;
-        private Integer revision;
-        private String status;
+        private @Nullable String arn;
+        private @Nullable String arnWithoutRevision;
+        private @Nullable String executionRoleArn;
+        private @Nullable String family;
+        private @Nullable String id;
+        private @Nullable String networkMode;
+        private @Nullable Integer revision;
+        private @Nullable String status;
         private String taskDefinition;
-        private String taskRoleArn;
+        private @Nullable String taskRoleArn;
         public Builder() {}
         public Builder(GetTaskDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -160,43 +162,43 @@ public final class GetTaskDefinitionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder arnWithoutRevision(String arnWithoutRevision) {
-            this.arnWithoutRevision = Objects.requireNonNull(arnWithoutRevision);
+        public Builder arnWithoutRevision(@Nullable String arnWithoutRevision) {
+            this.arnWithoutRevision = arnWithoutRevision;
             return this;
         }
         @CustomType.Setter
-        public Builder executionRoleArn(String executionRoleArn) {
-            this.executionRoleArn = Objects.requireNonNull(executionRoleArn);
+        public Builder executionRoleArn(@Nullable String executionRoleArn) {
+            this.executionRoleArn = executionRoleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder family(String family) {
-            this.family = Objects.requireNonNull(family);
+        public Builder family(@Nullable String family) {
+            this.family = family;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder networkMode(String networkMode) {
-            this.networkMode = Objects.requireNonNull(networkMode);
+        public Builder networkMode(@Nullable String networkMode) {
+            this.networkMode = networkMode;
             return this;
         }
         @CustomType.Setter
-        public Builder revision(Integer revision) {
-            this.revision = Objects.requireNonNull(revision);
+        public Builder revision(@Nullable Integer revision) {
+            this.revision = revision;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
@@ -205,8 +207,8 @@ public final class GetTaskDefinitionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder taskRoleArn(String taskRoleArn) {
-            this.taskRoleArn = Objects.requireNonNull(taskRoleArn);
+        public Builder taskRoleArn(@Nullable String taskRoleArn) {
+            this.taskRoleArn = taskRoleArn;
             return this;
         }
         public GetTaskDefinitionResult build() {

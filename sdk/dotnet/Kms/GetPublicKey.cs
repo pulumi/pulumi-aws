@@ -166,11 +166,11 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// Key ARN of the asymmetric CMK from which the public key was downloaded.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Type of the public key that was downloaded.
         /// </summary>
-        public readonly string CustomerMasterKeySpec;
+        public readonly string? CustomerMasterKeySpec;
         /// <summary>
         /// Encryption algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `ENCRYPT_DECRYPT`.
         /// </summary>
@@ -179,20 +179,20 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string KeyId;
         /// <summary>
         /// Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
         /// </summary>
-        public readonly string KeyUsage;
+        public readonly string? KeyUsage;
         /// <summary>
         /// Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
         /// </summary>
-        public readonly string PublicKey;
+        public readonly string? PublicKey;
         /// <summary>
         /// Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
         /// </summary>
-        public readonly string PublicKeyPem;
+        public readonly string? PublicKeyPem;
         /// <summary>
         /// Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
         /// </summary>
@@ -200,23 +200,23 @@ namespace Pulumi.Aws.Kms
 
         [OutputConstructor]
         private GetPublicKeyResult(
-            string arn,
+            string? arn,
 
-            string customerMasterKeySpec,
+            string? customerMasterKeySpec,
 
             ImmutableArray<string> encryptionAlgorithms,
 
             ImmutableArray<string> grantTokens,
 
-            string id,
+            string? id,
 
             string keyId,
 
-            string keyUsage,
+            string? keyUsage,
 
-            string publicKey,
+            string? publicKey,
 
-            string publicKeyPem,
+            string? publicKeyPem,
 
             ImmutableArray<string> signingAlgorithms)
         {

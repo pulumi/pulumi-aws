@@ -1140,7 +1140,7 @@ class GangliaLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name(ARN) of the layer.
         """
@@ -1234,7 +1234,7 @@ class GangliaLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.GangliaLayerEbsVolume']]:
+    def ebs_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.GangliaLayerEbsVolume']]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
@@ -1266,7 +1266,7 @@ class GangliaLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> pulumi.Output['outputs.GangliaLayerLoadBasedAutoScaling']:
+    def load_based_auto_scaling(self) -> pulumi.Output[Optional['outputs.GangliaLayerLoadBasedAutoScaling']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @property

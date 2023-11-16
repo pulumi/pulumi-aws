@@ -75,11 +75,11 @@ export class DevEndpoint extends pulumi.CustomResource {
     /**
      * The ARN of the endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The AWS availability zone where this endpoint is located.
      */
-    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
      */
@@ -91,7 +91,7 @@ export class DevEndpoint extends pulumi.CustomResource {
     /**
      * The reason for a current failure in this endpoint.
      */
-    public /*out*/ readonly failureReason!: pulumi.Output<string>;
+    public /*out*/ readonly failureReason!: pulumi.Output<string | undefined>;
     /**
      * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      */
@@ -111,11 +111,11 @@ export class DevEndpoint extends pulumi.CustomResource {
     /**
      * A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      */
-    public /*out*/ readonly privateAddress!: pulumi.Output<string>;
+    public /*out*/ readonly privateAddress!: pulumi.Output<string | undefined>;
     /**
      * The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      */
-    public /*out*/ readonly publicAddress!: pulumi.Output<string>;
+    public /*out*/ readonly publicAddress!: pulumi.Output<string | undefined>;
     /**
      * The public key to be used by this endpoint for authentication.
      */
@@ -139,7 +139,7 @@ export class DevEndpoint extends pulumi.CustomResource {
     /**
      * The current status of this endpoint.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * The subnet ID for the new endpoint to use.
      */
@@ -157,7 +157,7 @@ export class DevEndpoint extends pulumi.CustomResource {
     /**
      * he ID of the VPC used by this endpoint.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      */
@@ -165,11 +165,11 @@ export class DevEndpoint extends pulumi.CustomResource {
     /**
      * The YARN endpoint address used by this endpoint.
      */
-    public /*out*/ readonly yarnEndpointAddress!: pulumi.Output<string>;
+    public /*out*/ readonly yarnEndpointAddress!: pulumi.Output<string | undefined>;
     /**
      * The Apache Zeppelin port for the remote Apache Spark interpreter.
      */
-    public /*out*/ readonly zeppelinRemoteSparkInterpreterPort!: pulumi.Output<number>;
+    public /*out*/ readonly zeppelinRemoteSparkInterpreterPort!: pulumi.Output<number | undefined>;
 
     /**
      * Create a DevEndpoint resource with the given unique name, arguments, and options.

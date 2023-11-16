@@ -66,7 +66,7 @@ type ApiKey struct {
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires pulumi.StringPtrOutput `pulumi:"expires"`
 	// API key
-	Key pulumi.StringOutput `pulumi:"key"`
+	Key pulumi.StringPtrOutput `pulumi:"key"`
 }
 
 // NewApiKey registers a new resource with the given unique name, arguments, and options.
@@ -256,8 +256,8 @@ func (o ApiKeyOutput) Expires() pulumi.StringPtrOutput {
 }
 
 // API key
-func (o ApiKeyOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+func (o ApiKeyOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 type ApiKeyArrayOutput struct{ *pulumi.OutputState }

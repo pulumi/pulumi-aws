@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Ec2
         /// The Amazon Resource Name of the launch configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Associate a public ip address with an instance in a VPC.
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Ec2
         /// If true, the launched EC2 instance will be EBS-optimized.
         /// </summary>
         [Output("ebsOptimized")]
-        public Output<bool> EbsOptimized { get; private set; } = null!;
+        public Output<bool?> EbsOptimized { get; private set; } = null!;
 
         /// <summary>
         /// Enables/disables detailed monitoring. This is enabled by default.
@@ -312,13 +312,13 @@ namespace Pulumi.Aws.Ec2
         /// The key name that should be used for the instance.
         /// </summary>
         [Output("keyName")]
-        public Output<string> KeyName { get; private set; } = null!;
+        public Output<string?> KeyName { get; private set; } = null!;
 
         /// <summary>
         /// The metadata options for the instance.
         /// </summary>
         [Output("metadataOptions")]
-        public Output<Outputs.LaunchConfigurationMetadataOptions> MetadataOptions { get; private set; } = null!;
+        public Output<Outputs.LaunchConfigurationMetadataOptions?> MetadataOptions { get; private set; } = null!;
 
         /// <summary>
         /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Ec2
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Ec2
         /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
         [Output("rootBlockDevice")]
-        public Output<Outputs.LaunchConfigurationRootBlockDevice> RootBlockDevice { get; private set; } = null!;
+        public Output<Outputs.LaunchConfigurationRootBlockDevice?> RootBlockDevice { get; private set; } = null!;
 
         /// <summary>
         /// A list of associated security group IDS.

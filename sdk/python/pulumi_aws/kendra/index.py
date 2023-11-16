@@ -1802,7 +1802,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Index.
         """
@@ -1810,7 +1810,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="capacityUnits")
-    def capacity_units(self) -> pulumi.Output['outputs.IndexCapacityUnits']:
+    def capacity_units(self) -> pulumi.Output[Optional['outputs.IndexCapacityUnits']]:
         """
         A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         """
@@ -1818,7 +1818,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The Unix datetime that the index was created.
         """
@@ -1834,7 +1834,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentMetadataConfigurationUpdates")
-    def document_metadata_configuration_updates(self) -> pulumi.Output[Sequence['outputs.IndexDocumentMetadataConfigurationUpdate']]:
+    def document_metadata_configuration_updates(self) -> pulumi.Output[Optional[Sequence['outputs.IndexDocumentMetadataConfigurationUpdate']]]:
         """
         One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         """
@@ -1850,7 +1850,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> pulumi.Output[str]:
+    def error_message(self) -> pulumi.Output[Optional[str]]:
         """
         When the Status field value is `FAILED`, this contains a message that explains why.
         """
@@ -1858,7 +1858,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="indexStatistics")
-    def index_statistics(self) -> pulumi.Output[Sequence['outputs.IndexIndexStatistic']]:
+    def index_statistics(self) -> pulumi.Output[Optional[Sequence['outputs.IndexIndexStatistic']]]:
         """
         A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         """
@@ -1890,7 +1890,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         """
@@ -1918,7 +1918,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> pulumi.Output[str]:
+    def updated_at(self) -> pulumi.Output[Optional[str]]:
         """
         The Unix datetime that the index was last updated.
         """

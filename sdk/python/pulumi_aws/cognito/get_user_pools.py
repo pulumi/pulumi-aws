@@ -37,7 +37,7 @@ class GetUserPoolsResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         Set of cognito user pool Amazon Resource Names (ARNs).
         """
@@ -45,7 +45,7 @@ class GetUserPoolsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -53,7 +53,7 @@ class GetUserPoolsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> Sequence[str]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         Set of cognito user pool ids.
         """

@@ -139,35 +139,35 @@ namespace Pulumi.Aws.CloudFormation
     [OutputType]
     public sealed class GetCloudFormationTypeResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Identifier of the CloudFormation Type default version.
         /// </summary>
-        public readonly string DefaultVersionId;
+        public readonly string? DefaultVersionId;
         /// <summary>
         /// Deprecation status of the CloudFormation Type.
         /// </summary>
-        public readonly string DeprecatedStatus;
+        public readonly string? DeprecatedStatus;
         /// <summary>
         /// Description of the CloudFormation Type.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// URL of the documentation for the CloudFormation Type.
         /// </summary>
-        public readonly string DocumentationUrl;
+        public readonly string? DocumentationUrl;
         /// <summary>
         /// ARN of the IAM Role used to register the CloudFormation Type.
         /// </summary>
-        public readonly string ExecutionRoleArn;
+        public readonly string? ExecutionRoleArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Whether the CloudFormation Type version is the default version.
         /// </summary>
-        public readonly bool IsDefaultVersion;
+        public readonly bool? IsDefaultVersion;
         /// <summary>
         /// List of objects containing logging configuration.
         /// </summary>
@@ -175,59 +175,59 @@ namespace Pulumi.Aws.CloudFormation
         /// <summary>
         /// Provisioning behavior of the CloudFormation Type.
         /// </summary>
-        public readonly string ProvisioningType;
+        public readonly string? ProvisioningType;
         /// <summary>
         /// JSON document of the CloudFormation Type schema.
         /// </summary>
-        public readonly string Schema;
+        public readonly string? Schema;
         /// <summary>
         /// URL of the source code for the CloudFormation Type.
         /// </summary>
-        public readonly string SourceUrl;
-        public readonly string Type;
-        public readonly string TypeArn;
-        public readonly string TypeName;
+        public readonly string? SourceUrl;
+        public readonly string? Type;
+        public readonly string? TypeArn;
+        public readonly string? TypeName;
         public readonly string? VersionId;
         /// <summary>
         /// Scope of the CloudFormation Type.
         /// </summary>
-        public readonly string Visibility;
+        public readonly string? Visibility;
 
         [OutputConstructor]
         private GetCloudFormationTypeResult(
-            string arn,
+            string? arn,
 
-            string defaultVersionId,
+            string? defaultVersionId,
 
-            string deprecatedStatus,
+            string? deprecatedStatus,
 
-            string description,
+            string? description,
 
-            string documentationUrl,
+            string? documentationUrl,
 
-            string executionRoleArn,
+            string? executionRoleArn,
 
-            string id,
+            string? id,
 
-            bool isDefaultVersion,
+            bool? isDefaultVersion,
 
             ImmutableArray<Outputs.GetCloudFormationTypeLoggingConfigResult> loggingConfigs,
 
-            string provisioningType,
+            string? provisioningType,
 
-            string schema,
+            string? schema,
 
-            string sourceUrl,
+            string? sourceUrl,
 
-            string type,
+            string? type,
 
-            string typeArn,
+            string? typeArn,
 
-            string typeName,
+            string? typeName,
 
             string? versionId,
 
-            string visibility)
+            string? visibility)
         {
             Arn = arn;
             DefaultVersionId = defaultVersionId;

@@ -111,9 +111,9 @@ type GetLogDataProtectionPolicyDocumentArgs struct {
 type GetLogDataProtectionPolicyDocumentResult struct {
 	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Standard JSON policy document rendered based on the arguments above.
-	Json       string                                        `pulumi:"json"`
+	Json       *string                                       `pulumi:"json"`
 	Name       string                                        `pulumi:"name"`
 	Statements []GetLogDataProtectionPolicyDocumentStatement `pulumi:"statements"`
 	Version    *string                                       `pulumi:"version"`
@@ -170,13 +170,13 @@ func (o GetLogDataProtectionPolicyDocumentResultOutput) Description() pulumi.Str
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLogDataProtectionPolicyDocumentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLogDataProtectionPolicyDocumentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Standard JSON policy document rendered based on the arguments above.
-func (o GetLogDataProtectionPolicyDocumentResultOutput) Json() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentResult) string { return v.Json }).(pulumi.StringOutput)
+func (o GetLogDataProtectionPolicyDocumentResultOutput) Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentResult) *string { return v.Json }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLogDataProtectionPolicyDocumentResultOutput) Name() pulumi.StringOutput {

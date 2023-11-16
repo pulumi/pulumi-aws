@@ -87,7 +87,7 @@ export class FileCache extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the resource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
      */
@@ -95,7 +95,7 @@ export class FileCache extends pulumi.CustomResource {
     /**
      * A list of IDs of data repository associations that are associated with this cache.
      */
-    public /*out*/ readonly dataRepositoryAssociationIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly dataRepositoryAssociationIds!: pulumi.Output<string[] | undefined>;
     /**
      * See the `dataRepositoryAssociation` configuration block. Max of 8.
      * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
@@ -104,11 +104,11 @@ export class FileCache extends pulumi.CustomResource {
     /**
      * The Domain Name System (DNS) name for the cache.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * The system-generated, unique ID of the cache.
      */
-    public /*out*/ readonly fileCacheId!: pulumi.Output<string>;
+    public /*out*/ readonly fileCacheId!: pulumi.Output<string | undefined>;
     /**
      * The type of cache that you're creating. The only supported value is `LUSTRE`.
      */
@@ -120,7 +120,7 @@ export class FileCache extends pulumi.CustomResource {
     /**
      * Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
      */
@@ -128,8 +128,8 @@ export class FileCache extends pulumi.CustomResource {
     /**
      * A list of network interface IDs.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      */
@@ -155,7 +155,7 @@ export class FileCache extends pulumi.CustomResource {
     /**
      * The ID of your virtual private cloud (VPC).
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FileCache resource with the given unique name, arguments, and options.

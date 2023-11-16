@@ -16,10 +16,10 @@ namespace Pulumi.Aws.SesV2.Outputs
         /// <summary>
         /// Specifies the status of your VDM optimized shared delivery.
         /// </summary>
-        public readonly string OptimizedSharedDelivery;
+        public readonly string? OptimizedSharedDelivery;
 
         [OutputConstructor]
-        private GetConfigurationSetVdmOptionGuardianOptionResult(string optimizedSharedDelivery)
+        private GetConfigurationSetVdmOptionGuardianOptionResult(string? optimizedSharedDelivery)
         {
             OptimizedSharedDelivery = optimizedSharedDelivery;
         }

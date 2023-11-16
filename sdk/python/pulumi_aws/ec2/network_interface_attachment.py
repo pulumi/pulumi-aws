@@ -298,7 +298,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attachmentId")
-    def attachment_id(self) -> pulumi.Output[str]:
+    def attachment_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ENI Attachment ID.
         """
@@ -330,7 +330,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the Network Interface Attachment.
         """

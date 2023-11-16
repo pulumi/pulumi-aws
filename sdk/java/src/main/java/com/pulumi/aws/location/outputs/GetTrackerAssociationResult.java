@@ -6,6 +6,8 @@ package com.pulumi.aws.location.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrackerAssociationResult {
@@ -14,7 +16,7 @@ public final class GetTrackerAssociationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String trackerName;
 
     private GetTrackerAssociationResult() {}
@@ -25,8 +27,8 @@ public final class GetTrackerAssociationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String trackerName() {
         return this.trackerName;
@@ -42,7 +44,7 @@ public final class GetTrackerAssociationResult {
     @CustomType.Builder
     public static final class Builder {
         private String consumerArn;
-        private String id;
+        private @Nullable String id;
         private String trackerName;
         public Builder() {}
         public Builder(GetTrackerAssociationResult defaults) {
@@ -58,8 +60,8 @@ public final class GetTrackerAssociationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

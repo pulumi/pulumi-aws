@@ -16,17 +16,17 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Name of the container repository where the output container image is stored.
         /// </summary>
-        public readonly string RepositoryName;
+        public readonly string? RepositoryName;
         /// <summary>
         /// Service in which the image is registered.
         /// </summary>
-        public readonly string Service;
+        public readonly string? Service;
 
         [OutputConstructor]
         private GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult(
-            string repositoryName,
+            string? repositoryName,
 
-            string service)
+            string? service)
         {
             RepositoryName = repositoryName;
             Service = service;

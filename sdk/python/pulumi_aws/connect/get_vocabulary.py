@@ -58,7 +58,7 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the Vocabulary.
         """
@@ -66,7 +66,7 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> Optional[str]:
         """
         The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
         """
@@ -74,7 +74,7 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> str:
+    def failure_reason(self) -> Optional[str]:
         """
         The reason why the custom vocabulary was not created.
         """
@@ -82,7 +82,7 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -95,7 +95,7 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter(name="languageCode")
-    def language_code(self) -> str:
+    def language_code(self) -> Optional[str]:
         """
         The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
         """
@@ -103,7 +103,7 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> Optional[str]:
         """
         The timestamp when the custom vocabulary was last modified.
         """
@@ -111,12 +111,12 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
         """
@@ -124,7 +124,7 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of tags to assign to the Vocabulary.
         """
@@ -132,7 +132,7 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter(name="vocabularyId")
-    def vocabulary_id(self) -> str:
+    def vocabulary_id(self) -> Optional[str]:
         """
         The identifier of the custom vocabulary.
         """

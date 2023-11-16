@@ -63,7 +63,7 @@ export class StaticIpAttachment extends pulumi.CustomResource {
     /**
      * The allocated static IP address
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * The name of the allocated static IP
      */

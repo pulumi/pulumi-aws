@@ -49,14 +49,14 @@ export interface GetFrameworkArgs {
  * A collection of values returned by getFramework.
  */
 export interface GetFrameworkResult {
-    readonly arn: string;
-    readonly complianceType: string;
+    readonly arn?: string;
+    readonly complianceType?: string;
     readonly controlSets?: outputs.auditmanager.GetFrameworkControlSet[];
-    readonly description: string;
+    readonly description?: string;
     readonly frameworkType: string;
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS Audit Manager Framework.

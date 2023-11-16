@@ -194,28 +194,28 @@ public class Association extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the SSM association
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ID of the SSM association.
      * 
      */
     @Export(name="associationId", refs={String.class}, tree="[0]")
-    private Output<String> associationId;
+    private Output</* @Nullable */ String> associationId;
 
     /**
      * @return The ID of the SSM association.
      * 
      */
-    public Output<String> associationId() {
-        return this.associationId;
+    public Output<Optional<String>> associationId() {
+        return Codegen.optional(this.associationId);
     }
     /**
      * The descriptive name for the association.
@@ -264,14 +264,14 @@ public class Association extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="documentVersion", refs={String.class}, tree="[0]")
-    private Output<String> documentVersion;
+    private Output</* @Nullable */ String> documentVersion;
 
     /**
      * @return The document version you want to associate with the target(s). Can be a specific version or the default version.
      * 
      */
-    public Output<String> documentVersion() {
-        return this.documentVersion;
+    public Output<Optional<String>> documentVersion() {
+        return Codegen.optional(this.documentVersion);
     }
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
@@ -352,14 +352,14 @@ public class Association extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> parameters;
+    private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
      * @return A block of arbitrary string parameters to pass to the SSM document.
      * 
      */
-    public Output<Map<String,String>> parameters() {
-        return this.parameters;
+    public Output<Optional<Map<String,String>>> parameters() {
+        return Codegen.optional(this.parameters);
     }
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
@@ -394,14 +394,14 @@ public class Association extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="targets", refs={List.class,AssociationTarget.class}, tree="[0,1]")
-    private Output<List<AssociationTarget>> targets;
+    private Output</* @Nullable */ List<AssociationTarget>> targets;
 
     /**
      * @return A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      * 
      */
-    public Output<List<AssociationTarget>> targets() {
-        return this.targets;
+    public Output<Optional<List<AssociationTarget>>> targets() {
+        return Codegen.optional(this.targets);
     }
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.

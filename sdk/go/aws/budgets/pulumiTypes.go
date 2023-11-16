@@ -1981,11 +1981,11 @@ func (o BudgetPlannedLimitArrayOutput) Index(i pulumi.IntInput) BudgetPlannedLim
 
 type GetBudgetAutoAdjustData struct {
 	// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
-	AutoAdjustType string `pulumi:"autoAdjustType"`
+	AutoAdjustType *string `pulumi:"autoAdjustType"`
 	// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
 	HistoricalOptions []GetBudgetAutoAdjustDataHistoricalOption `pulumi:"historicalOptions"`
 	// (Optional) - The last time that your budget was auto-adjusted.
-	LastAutoAdjustTime string `pulumi:"lastAutoAdjustTime"`
+	LastAutoAdjustTime *string `pulumi:"lastAutoAdjustTime"`
 }
 
 // GetBudgetAutoAdjustDataInput is an input type that accepts GetBudgetAutoAdjustDataArgs and GetBudgetAutoAdjustDataOutput values.
@@ -2001,11 +2001,11 @@ type GetBudgetAutoAdjustDataInput interface {
 
 type GetBudgetAutoAdjustDataArgs struct {
 	// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
-	AutoAdjustType pulumi.StringInput `pulumi:"autoAdjustType"`
+	AutoAdjustType pulumi.StringPtrInput `pulumi:"autoAdjustType"`
 	// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
 	HistoricalOptions GetBudgetAutoAdjustDataHistoricalOptionArrayInput `pulumi:"historicalOptions"`
 	// (Optional) - The last time that your budget was auto-adjusted.
-	LastAutoAdjustTime pulumi.StringInput `pulumi:"lastAutoAdjustTime"`
+	LastAutoAdjustTime pulumi.StringPtrInput `pulumi:"lastAutoAdjustTime"`
 }
 
 func (GetBudgetAutoAdjustDataArgs) ElementType() reflect.Type {
@@ -2060,8 +2060,8 @@ func (o GetBudgetAutoAdjustDataOutput) ToGetBudgetAutoAdjustDataOutputWithContex
 }
 
 // (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
-func (o GetBudgetAutoAdjustDataOutput) AutoAdjustType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetAutoAdjustData) string { return v.AutoAdjustType }).(pulumi.StringOutput)
+func (o GetBudgetAutoAdjustDataOutput) AutoAdjustType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetAutoAdjustData) *string { return v.AutoAdjustType }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
@@ -2070,8 +2070,8 @@ func (o GetBudgetAutoAdjustDataOutput) HistoricalOptions() GetBudgetAutoAdjustDa
 }
 
 // (Optional) - The last time that your budget was auto-adjusted.
-func (o GetBudgetAutoAdjustDataOutput) LastAutoAdjustTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetAutoAdjustData) string { return v.LastAutoAdjustTime }).(pulumi.StringOutput)
+func (o GetBudgetAutoAdjustDataOutput) LastAutoAdjustTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetAutoAdjustData) *string { return v.LastAutoAdjustTime }).(pulumi.StringPtrOutput)
 }
 
 type GetBudgetAutoAdjustDataArrayOutput struct{ *pulumi.OutputState }
@@ -2096,9 +2096,9 @@ func (o GetBudgetAutoAdjustDataArrayOutput) Index(i pulumi.IntInput) GetBudgetAu
 
 type GetBudgetAutoAdjustDataHistoricalOption struct {
 	// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
-	BudgetAdjustmentPeriod int `pulumi:"budgetAdjustmentPeriod"`
+	BudgetAdjustmentPeriod *int `pulumi:"budgetAdjustmentPeriod"`
 	// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
-	LookbackAvailablePeriods int `pulumi:"lookbackAvailablePeriods"`
+	LookbackAvailablePeriods *int `pulumi:"lookbackAvailablePeriods"`
 }
 
 // GetBudgetAutoAdjustDataHistoricalOptionInput is an input type that accepts GetBudgetAutoAdjustDataHistoricalOptionArgs and GetBudgetAutoAdjustDataHistoricalOptionOutput values.
@@ -2114,9 +2114,9 @@ type GetBudgetAutoAdjustDataHistoricalOptionInput interface {
 
 type GetBudgetAutoAdjustDataHistoricalOptionArgs struct {
 	// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
-	BudgetAdjustmentPeriod pulumi.IntInput `pulumi:"budgetAdjustmentPeriod"`
+	BudgetAdjustmentPeriod pulumi.IntPtrInput `pulumi:"budgetAdjustmentPeriod"`
 	// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
-	LookbackAvailablePeriods pulumi.IntInput `pulumi:"lookbackAvailablePeriods"`
+	LookbackAvailablePeriods pulumi.IntPtrInput `pulumi:"lookbackAvailablePeriods"`
 }
 
 func (GetBudgetAutoAdjustDataHistoricalOptionArgs) ElementType() reflect.Type {
@@ -2171,13 +2171,13 @@ func (o GetBudgetAutoAdjustDataHistoricalOptionOutput) ToGetBudgetAutoAdjustData
 }
 
 // (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
-func (o GetBudgetAutoAdjustDataHistoricalOptionOutput) BudgetAdjustmentPeriod() pulumi.IntOutput {
-	return o.ApplyT(func(v GetBudgetAutoAdjustDataHistoricalOption) int { return v.BudgetAdjustmentPeriod }).(pulumi.IntOutput)
+func (o GetBudgetAutoAdjustDataHistoricalOptionOutput) BudgetAdjustmentPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetBudgetAutoAdjustDataHistoricalOption) *int { return v.BudgetAdjustmentPeriod }).(pulumi.IntPtrOutput)
 }
 
 // (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
-func (o GetBudgetAutoAdjustDataHistoricalOptionOutput) LookbackAvailablePeriods() pulumi.IntOutput {
-	return o.ApplyT(func(v GetBudgetAutoAdjustDataHistoricalOption) int { return v.LookbackAvailablePeriods }).(pulumi.IntOutput)
+func (o GetBudgetAutoAdjustDataHistoricalOptionOutput) LookbackAvailablePeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetBudgetAutoAdjustDataHistoricalOption) *int { return v.LookbackAvailablePeriods }).(pulumi.IntPtrOutput)
 }
 
 type GetBudgetAutoAdjustDataHistoricalOptionArrayOutput struct{ *pulumi.OutputState }
@@ -2202,9 +2202,9 @@ func (o GetBudgetAutoAdjustDataHistoricalOptionArrayOutput) Index(i pulumi.IntIn
 
 type GetBudgetBudgetLimit struct {
 	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Amount string `pulumi:"amount"`
+	Amount *string `pulumi:"amount"`
 	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Unit string `pulumi:"unit"`
+	Unit *string `pulumi:"unit"`
 }
 
 // GetBudgetBudgetLimitInput is an input type that accepts GetBudgetBudgetLimitArgs and GetBudgetBudgetLimitOutput values.
@@ -2220,9 +2220,9 @@ type GetBudgetBudgetLimitInput interface {
 
 type GetBudgetBudgetLimitArgs struct {
 	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Amount pulumi.StringInput `pulumi:"amount"`
+	Amount pulumi.StringPtrInput `pulumi:"amount"`
 	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
 func (GetBudgetBudgetLimitArgs) ElementType() reflect.Type {
@@ -2277,13 +2277,13 @@ func (o GetBudgetBudgetLimitOutput) ToGetBudgetBudgetLimitOutputWithContext(ctx 
 }
 
 // The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-func (o GetBudgetBudgetLimitOutput) Amount() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetBudgetLimit) string { return v.Amount }).(pulumi.StringOutput)
+func (o GetBudgetBudgetLimitOutput) Amount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetBudgetLimit) *string { return v.Amount }).(pulumi.StringPtrOutput)
 }
 
 // The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-func (o GetBudgetBudgetLimitOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetBudgetLimit) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetBudgetBudgetLimitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetBudgetLimit) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
 type GetBudgetBudgetLimitArrayOutput struct{ *pulumi.OutputState }
@@ -2402,9 +2402,9 @@ func (o GetBudgetCalculatedSpendArrayOutput) Index(i pulumi.IntInput) GetBudgetC
 
 type GetBudgetCalculatedSpendActualSpend struct {
 	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Amount string `pulumi:"amount"`
+	Amount *string `pulumi:"amount"`
 	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Unit string `pulumi:"unit"`
+	Unit *string `pulumi:"unit"`
 }
 
 // GetBudgetCalculatedSpendActualSpendInput is an input type that accepts GetBudgetCalculatedSpendActualSpendArgs and GetBudgetCalculatedSpendActualSpendOutput values.
@@ -2420,9 +2420,9 @@ type GetBudgetCalculatedSpendActualSpendInput interface {
 
 type GetBudgetCalculatedSpendActualSpendArgs struct {
 	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Amount pulumi.StringInput `pulumi:"amount"`
+	Amount pulumi.StringPtrInput `pulumi:"amount"`
 	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
 func (GetBudgetCalculatedSpendActualSpendArgs) ElementType() reflect.Type {
@@ -2477,13 +2477,13 @@ func (o GetBudgetCalculatedSpendActualSpendOutput) ToGetBudgetCalculatedSpendAct
 }
 
 // The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-func (o GetBudgetCalculatedSpendActualSpendOutput) Amount() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetCalculatedSpendActualSpend) string { return v.Amount }).(pulumi.StringOutput)
+func (o GetBudgetCalculatedSpendActualSpendOutput) Amount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetCalculatedSpendActualSpend) *string { return v.Amount }).(pulumi.StringPtrOutput)
 }
 
 // The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-func (o GetBudgetCalculatedSpendActualSpendOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetCalculatedSpendActualSpend) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetBudgetCalculatedSpendActualSpendOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetCalculatedSpendActualSpend) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
 type GetBudgetCalculatedSpendActualSpendArrayOutput struct{ *pulumi.OutputState }
@@ -2510,7 +2510,7 @@ type GetBudgetCostFilter struct {
 	// The name of a budget. Unique within accounts.
 	//
 	// The following arguments are optional:
-	Name   string   `pulumi:"name"`
+	Name   *string  `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -2529,7 +2529,7 @@ type GetBudgetCostFilterArgs struct {
 	// The name of a budget. Unique within accounts.
 	//
 	// The following arguments are optional:
-	Name   pulumi.StringInput      `pulumi:"name"`
+	Name   pulumi.StringPtrInput   `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2587,8 +2587,8 @@ func (o GetBudgetCostFilterOutput) ToGetBudgetCostFilterOutputWithContext(ctx co
 // The name of a budget. Unique within accounts.
 //
 // The following arguments are optional:
-func (o GetBudgetCostFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetCostFilter) string { return v.Name }).(pulumi.StringOutput)
+func (o GetBudgetCostFilterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostFilter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o GetBudgetCostFilterOutput) Values() pulumi.StringArrayOutput {
@@ -2617,27 +2617,27 @@ func (o GetBudgetCostFilterArrayOutput) Index(i pulumi.IntInput) GetBudgetCostFi
 
 type GetBudgetCostType struct {
 	// A boolean value whether to include credits in the cost budget. Defaults to `true`.
-	IncludeCredit bool `pulumi:"includeCredit"`
+	IncludeCredit *bool `pulumi:"includeCredit"`
 	// Whether a budget includes discounts. Defaults to `true`.
-	IncludeDiscount bool `pulumi:"includeDiscount"`
+	IncludeDiscount *bool `pulumi:"includeDiscount"`
 	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
-	IncludeOtherSubscription bool `pulumi:"includeOtherSubscription"`
+	IncludeOtherSubscription *bool `pulumi:"includeOtherSubscription"`
 	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
-	IncludeRecurring bool `pulumi:"includeRecurring"`
+	IncludeRecurring *bool `pulumi:"includeRecurring"`
 	// A boolean value whether to include refunds in the cost budget. Defaults to `true`.
-	IncludeRefund bool `pulumi:"includeRefund"`
+	IncludeRefund *bool `pulumi:"includeRefund"`
 	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
-	IncludeSubscription bool `pulumi:"includeSubscription"`
+	IncludeSubscription *bool `pulumi:"includeSubscription"`
 	// A boolean value whether to include support costs in the cost budget. Defaults to `true`.
-	IncludeSupport bool `pulumi:"includeSupport"`
+	IncludeSupport *bool `pulumi:"includeSupport"`
 	// A boolean value whether to include tax in the cost budget. Defaults to `true`.
-	IncludeTax bool `pulumi:"includeTax"`
+	IncludeTax *bool `pulumi:"includeTax"`
 	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
-	IncludeUpfront bool `pulumi:"includeUpfront"`
+	IncludeUpfront *bool `pulumi:"includeUpfront"`
 	// Whether a budget uses the amortized rate. Defaults to `false`.
-	UseAmortized bool `pulumi:"useAmortized"`
+	UseAmortized *bool `pulumi:"useAmortized"`
 	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
-	UseBlended bool `pulumi:"useBlended"`
+	UseBlended *bool `pulumi:"useBlended"`
 }
 
 // GetBudgetCostTypeInput is an input type that accepts GetBudgetCostTypeArgs and GetBudgetCostTypeOutput values.
@@ -2653,27 +2653,27 @@ type GetBudgetCostTypeInput interface {
 
 type GetBudgetCostTypeArgs struct {
 	// A boolean value whether to include credits in the cost budget. Defaults to `true`.
-	IncludeCredit pulumi.BoolInput `pulumi:"includeCredit"`
+	IncludeCredit pulumi.BoolPtrInput `pulumi:"includeCredit"`
 	// Whether a budget includes discounts. Defaults to `true`.
-	IncludeDiscount pulumi.BoolInput `pulumi:"includeDiscount"`
+	IncludeDiscount pulumi.BoolPtrInput `pulumi:"includeDiscount"`
 	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
-	IncludeOtherSubscription pulumi.BoolInput `pulumi:"includeOtherSubscription"`
+	IncludeOtherSubscription pulumi.BoolPtrInput `pulumi:"includeOtherSubscription"`
 	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
-	IncludeRecurring pulumi.BoolInput `pulumi:"includeRecurring"`
+	IncludeRecurring pulumi.BoolPtrInput `pulumi:"includeRecurring"`
 	// A boolean value whether to include refunds in the cost budget. Defaults to `true`.
-	IncludeRefund pulumi.BoolInput `pulumi:"includeRefund"`
+	IncludeRefund pulumi.BoolPtrInput `pulumi:"includeRefund"`
 	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
-	IncludeSubscription pulumi.BoolInput `pulumi:"includeSubscription"`
+	IncludeSubscription pulumi.BoolPtrInput `pulumi:"includeSubscription"`
 	// A boolean value whether to include support costs in the cost budget. Defaults to `true`.
-	IncludeSupport pulumi.BoolInput `pulumi:"includeSupport"`
+	IncludeSupport pulumi.BoolPtrInput `pulumi:"includeSupport"`
 	// A boolean value whether to include tax in the cost budget. Defaults to `true`.
-	IncludeTax pulumi.BoolInput `pulumi:"includeTax"`
+	IncludeTax pulumi.BoolPtrInput `pulumi:"includeTax"`
 	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
-	IncludeUpfront pulumi.BoolInput `pulumi:"includeUpfront"`
+	IncludeUpfront pulumi.BoolPtrInput `pulumi:"includeUpfront"`
 	// Whether a budget uses the amortized rate. Defaults to `false`.
-	UseAmortized pulumi.BoolInput `pulumi:"useAmortized"`
+	UseAmortized pulumi.BoolPtrInput `pulumi:"useAmortized"`
 	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
-	UseBlended pulumi.BoolInput `pulumi:"useBlended"`
+	UseBlended pulumi.BoolPtrInput `pulumi:"useBlended"`
 }
 
 func (GetBudgetCostTypeArgs) ElementType() reflect.Type {
@@ -2728,58 +2728,58 @@ func (o GetBudgetCostTypeOutput) ToGetBudgetCostTypeOutputWithContext(ctx contex
 }
 
 // A boolean value whether to include credits in the cost budget. Defaults to `true`.
-func (o GetBudgetCostTypeOutput) IncludeCredit() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeCredit }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) IncludeCredit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.IncludeCredit }).(pulumi.BoolPtrOutput)
 }
 
 // Whether a budget includes discounts. Defaults to `true`.
-func (o GetBudgetCostTypeOutput) IncludeDiscount() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeDiscount }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) IncludeDiscount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.IncludeDiscount }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
-func (o GetBudgetCostTypeOutput) IncludeOtherSubscription() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeOtherSubscription }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.IncludeOtherSubscription }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
-func (o GetBudgetCostTypeOutput) IncludeRecurring() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeRecurring }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) IncludeRecurring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.IncludeRecurring }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include refunds in the cost budget. Defaults to `true`.
-func (o GetBudgetCostTypeOutput) IncludeRefund() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeRefund }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) IncludeRefund() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.IncludeRefund }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
-func (o GetBudgetCostTypeOutput) IncludeSubscription() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeSubscription }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) IncludeSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.IncludeSubscription }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include support costs in the cost budget. Defaults to `true`.
-func (o GetBudgetCostTypeOutput) IncludeSupport() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeSupport }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) IncludeSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.IncludeSupport }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include tax in the cost budget. Defaults to `true`.
-func (o GetBudgetCostTypeOutput) IncludeTax() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeTax }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) IncludeTax() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.IncludeTax }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
-func (o GetBudgetCostTypeOutput) IncludeUpfront() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeUpfront }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) IncludeUpfront() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.IncludeUpfront }).(pulumi.BoolPtrOutput)
 }
 
 // Whether a budget uses the amortized rate. Defaults to `false`.
-func (o GetBudgetCostTypeOutput) UseAmortized() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.UseAmortized }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) UseAmortized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.UseAmortized }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
-func (o GetBudgetCostTypeOutput) UseBlended() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBudgetCostType) bool { return v.UseBlended }).(pulumi.BoolOutput)
+func (o GetBudgetCostTypeOutput) UseBlended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetBudgetCostType) *bool { return v.UseBlended }).(pulumi.BoolPtrOutput)
 }
 
 type GetBudgetCostTypeArrayOutput struct{ *pulumi.OutputState }
@@ -2804,17 +2804,17 @@ func (o GetBudgetCostTypeArrayOutput) Index(i pulumi.IntInput) GetBudgetCostType
 
 type GetBudgetNotification struct {
 	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-	ComparisonOperator string `pulumi:"comparisonOperator"`
+	ComparisonOperator *string `pulumi:"comparisonOperator"`
 	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
-	NotificationType string `pulumi:"notificationType"`
+	NotificationType *string `pulumi:"notificationType"`
 	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
 	SubscriberEmailAddresses []string `pulumi:"subscriberEmailAddresses"`
 	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
 	SubscriberSnsTopicArns []string `pulumi:"subscriberSnsTopicArns"`
 	// (Required) Threshold when the notification should be sent.
-	Threshold float64 `pulumi:"threshold"`
+	Threshold *float64 `pulumi:"threshold"`
 	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-	ThresholdType string `pulumi:"thresholdType"`
+	ThresholdType *string `pulumi:"thresholdType"`
 }
 
 // GetBudgetNotificationInput is an input type that accepts GetBudgetNotificationArgs and GetBudgetNotificationOutput values.
@@ -2830,17 +2830,17 @@ type GetBudgetNotificationInput interface {
 
 type GetBudgetNotificationArgs struct {
 	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
+	ComparisonOperator pulumi.StringPtrInput `pulumi:"comparisonOperator"`
 	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
-	NotificationType pulumi.StringInput `pulumi:"notificationType"`
+	NotificationType pulumi.StringPtrInput `pulumi:"notificationType"`
 	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
 	SubscriberEmailAddresses pulumi.StringArrayInput `pulumi:"subscriberEmailAddresses"`
 	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
 	SubscriberSnsTopicArns pulumi.StringArrayInput `pulumi:"subscriberSnsTopicArns"`
 	// (Required) Threshold when the notification should be sent.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-	ThresholdType pulumi.StringInput `pulumi:"thresholdType"`
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
 }
 
 func (GetBudgetNotificationArgs) ElementType() reflect.Type {
@@ -2895,13 +2895,13 @@ func (o GetBudgetNotificationOutput) ToGetBudgetNotificationOutputWithContext(ct
 }
 
 // (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-func (o GetBudgetNotificationOutput) ComparisonOperator() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetNotification) string { return v.ComparisonOperator }).(pulumi.StringOutput)
+func (o GetBudgetNotificationOutput) ComparisonOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetNotification) *string { return v.ComparisonOperator }).(pulumi.StringPtrOutput)
 }
 
 // (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
-func (o GetBudgetNotificationOutput) NotificationType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetNotification) string { return v.NotificationType }).(pulumi.StringOutput)
+func (o GetBudgetNotificationOutput) NotificationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetNotification) *string { return v.NotificationType }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
@@ -2915,13 +2915,13 @@ func (o GetBudgetNotificationOutput) SubscriberSnsTopicArns() pulumi.StringArray
 }
 
 // (Required) Threshold when the notification should be sent.
-func (o GetBudgetNotificationOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v GetBudgetNotification) float64 { return v.Threshold }).(pulumi.Float64Output)
+func (o GetBudgetNotificationOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetBudgetNotification) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
 // (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-func (o GetBudgetNotificationOutput) ThresholdType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetNotification) string { return v.ThresholdType }).(pulumi.StringOutput)
+func (o GetBudgetNotificationOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetNotification) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
 }
 
 type GetBudgetNotificationArrayOutput struct{ *pulumi.OutputState }
@@ -2946,11 +2946,11 @@ func (o GetBudgetNotificationArrayOutput) Index(i pulumi.IntInput) GetBudgetNoti
 
 type GetBudgetPlannedLimit struct {
 	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Amount string `pulumi:"amount"`
+	Amount *string `pulumi:"amount"`
 	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-	StartTime string `pulumi:"startTime"`
+	StartTime *string `pulumi:"startTime"`
 	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Unit string `pulumi:"unit"`
+	Unit *string `pulumi:"unit"`
 }
 
 // GetBudgetPlannedLimitInput is an input type that accepts GetBudgetPlannedLimitArgs and GetBudgetPlannedLimitOutput values.
@@ -2966,11 +2966,11 @@ type GetBudgetPlannedLimitInput interface {
 
 type GetBudgetPlannedLimitArgs struct {
 	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Amount pulumi.StringInput `pulumi:"amount"`
+	Amount pulumi.StringPtrInput `pulumi:"amount"`
 	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-	StartTime pulumi.StringInput `pulumi:"startTime"`
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
 func (GetBudgetPlannedLimitArgs) ElementType() reflect.Type {
@@ -3025,18 +3025,18 @@ func (o GetBudgetPlannedLimitOutput) ToGetBudgetPlannedLimitOutputWithContext(ct
 }
 
 // The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-func (o GetBudgetPlannedLimitOutput) Amount() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetPlannedLimit) string { return v.Amount }).(pulumi.StringOutput)
+func (o GetBudgetPlannedLimitOutput) Amount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetPlannedLimit) *string { return v.Amount }).(pulumi.StringPtrOutput)
 }
 
 // (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-func (o GetBudgetPlannedLimitOutput) StartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetPlannedLimit) string { return v.StartTime }).(pulumi.StringOutput)
+func (o GetBudgetPlannedLimitOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetPlannedLimit) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
 // The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-func (o GetBudgetPlannedLimitOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBudgetPlannedLimit) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetBudgetPlannedLimitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBudgetPlannedLimit) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
 type GetBudgetPlannedLimitArrayOutput struct{ *pulumi.OutputState }

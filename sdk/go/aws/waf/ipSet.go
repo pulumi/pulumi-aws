@@ -61,7 +61,7 @@ type IpSet struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the WAF IPSet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
 	IpSetDescriptors IpSetIpSetDescriptorArrayOutput `pulumi:"ipSetDescriptors"`
 	// The name or description of the IPSet.
@@ -222,8 +222,8 @@ func (o IpSetOutput) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 }
 
 // The ARN of the WAF IPSet.
-func (o IpSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o IpSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.

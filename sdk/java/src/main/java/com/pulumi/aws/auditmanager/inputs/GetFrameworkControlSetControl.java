@@ -6,17 +6,19 @@ package com.pulumi.aws.auditmanager.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFrameworkControlSetControl extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFrameworkControlSetControl Empty = new GetFrameworkControlSetControl();
 
-    @Import(name="id", required=true)
-    private String id;
+    @Import(name="id")
+    private @Nullable String id;
 
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     private GetFrameworkControlSetControl() {}
@@ -43,13 +45,12 @@ public final class GetFrameworkControlSetControl extends com.pulumi.resources.In
             $ = new GetFrameworkControlSetControl(Objects.requireNonNull(defaults));
         }
 
-        public Builder id(String id) {
+        public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
         public GetFrameworkControlSetControl build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
             return $;
         }
     }

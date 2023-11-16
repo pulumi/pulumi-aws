@@ -45,19 +45,19 @@ export interface GetInstanceProfilesResult {
     /**
      * Set of ARNs of instance profiles.
      */
-    readonly arns: string[];
+    readonly arns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of IAM instance profile names.
      */
-    readonly names: string[];
+    readonly names?: string[];
     /**
      * Set of IAM instance profile paths.
      */
-    readonly paths: string[];
+    readonly paths?: string[];
     readonly roleName: string;
 }
 /**

@@ -67,56 +67,56 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accessType", refs={String.class}, tree="[0]")
-    private Output<String> accessType;
+    private Output</* @Nullable */ String> accessType;
 
     /**
      * @return Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
      * 
      */
-    public Output<String> accessType() {
-        return this.accessType;
+    public Output<Optional<String>> accessType() {
+        return Codegen.optional(this.accessType);
     }
     /**
      * Amazon Resource Name (ARN) of the endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the endpoint.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * VPC CIDR block of the endpoint.
      * 
      */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
-    private Output<String> cidrBlock;
+    private Output</* @Nullable */ String> cidrBlock;
 
     /**
      * @return VPC CIDR block of the endpoint.
      * 
      */
-    public Output<String> cidrBlock() {
-        return this.cidrBlock;
+    public Output<Optional<String>> cidrBlock() {
+        return Codegen.optional(this.cidrBlock);
     }
     /**
      * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    private Output</* @Nullable */ String> creationTime;
 
     /**
      * @return UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<Optional<String>> creationTime() {
+        return Codegen.optional(this.creationTime);
     }
     /**
      * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
@@ -137,14 +137,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,EndpointNetworkInterface.class}, tree="[0,1]")
-    private Output<List<EndpointNetworkInterface>> networkInterfaces;
+    private Output</* @Nullable */ List<EndpointNetworkInterface>> networkInterfaces;
 
     /**
      * @return Set of nested attributes for associated Elastic Network Interfaces (ENIs).
      * 
      */
-    public Output<List<EndpointNetworkInterface>> networkInterfaces() {
-        return this.networkInterfaces;
+    public Output<Optional<List<EndpointNetworkInterface>>> networkInterfaces() {
+        return Codegen.optional(this.networkInterfaces);
     }
     /**
      * Identifier of the Outpost to contain this endpoint.

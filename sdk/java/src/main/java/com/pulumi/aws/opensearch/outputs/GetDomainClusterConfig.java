@@ -20,38 +20,38 @@ public final class GetDomainClusterConfig {
      * @return Configuration block containing cold storage configuration.
      * 
      */
-    private List<GetDomainClusterConfigColdStorageOption> coldStorageOptions;
+    private @Nullable List<GetDomainClusterConfigColdStorageOption> coldStorageOptions;
     /**
      * @return Number of dedicated master nodes in the cluster.
      * 
      */
-    private Integer dedicatedMasterCount;
+    private @Nullable Integer dedicatedMasterCount;
     /**
      * @return Indicates whether dedicated master nodes are enabled for the cluster.
      * 
      */
-    private Boolean dedicatedMasterEnabled;
+    private @Nullable Boolean dedicatedMasterEnabled;
     /**
      * @return Instance type of the dedicated master nodes in the cluster.
      * 
      */
-    private String dedicatedMasterType;
+    private @Nullable String dedicatedMasterType;
     /**
      * @return Number of instances in the cluster.
      * 
      */
-    private Integer instanceCount;
+    private @Nullable Integer instanceCount;
     /**
      * @return Instance type of data nodes in the cluster.
      * 
      */
-    private String instanceType;
-    private Boolean multiAzWithStandbyEnabled;
+    private @Nullable String instanceType;
+    private @Nullable Boolean multiAzWithStandbyEnabled;
     /**
      * @return Number of warm nodes in the cluster.
      * 
      */
-    private Integer warmCount;
+    private @Nullable Integer warmCount;
     /**
      * @return Warm storage is enabled.
      * 
@@ -61,17 +61,17 @@ public final class GetDomainClusterConfig {
      * @return Instance type for the OpenSearch cluster&#39;s warm nodes.
      * 
      */
-    private String warmType;
+    private @Nullable String warmType;
     /**
      * @return Configuration block containing zone awareness settings.
      * 
      */
-    private List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs;
+    private @Nullable List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs;
     /**
      * @return Indicates whether zone awareness is enabled.
      * 
      */
-    private Boolean zoneAwarenessEnabled;
+    private @Nullable Boolean zoneAwarenessEnabled;
 
     private GetDomainClusterConfig() {}
     /**
@@ -79,52 +79,52 @@ public final class GetDomainClusterConfig {
      * 
      */
     public List<GetDomainClusterConfigColdStorageOption> coldStorageOptions() {
-        return this.coldStorageOptions;
+        return this.coldStorageOptions == null ? List.of() : this.coldStorageOptions;
     }
     /**
      * @return Number of dedicated master nodes in the cluster.
      * 
      */
-    public Integer dedicatedMasterCount() {
-        return this.dedicatedMasterCount;
+    public Optional<Integer> dedicatedMasterCount() {
+        return Optional.ofNullable(this.dedicatedMasterCount);
     }
     /**
      * @return Indicates whether dedicated master nodes are enabled for the cluster.
      * 
      */
-    public Boolean dedicatedMasterEnabled() {
-        return this.dedicatedMasterEnabled;
+    public Optional<Boolean> dedicatedMasterEnabled() {
+        return Optional.ofNullable(this.dedicatedMasterEnabled);
     }
     /**
      * @return Instance type of the dedicated master nodes in the cluster.
      * 
      */
-    public String dedicatedMasterType() {
-        return this.dedicatedMasterType;
+    public Optional<String> dedicatedMasterType() {
+        return Optional.ofNullable(this.dedicatedMasterType);
     }
     /**
      * @return Number of instances in the cluster.
      * 
      */
-    public Integer instanceCount() {
-        return this.instanceCount;
+    public Optional<Integer> instanceCount() {
+        return Optional.ofNullable(this.instanceCount);
     }
     /**
      * @return Instance type of data nodes in the cluster.
      * 
      */
-    public String instanceType() {
-        return this.instanceType;
+    public Optional<String> instanceType() {
+        return Optional.ofNullable(this.instanceType);
     }
-    public Boolean multiAzWithStandbyEnabled() {
-        return this.multiAzWithStandbyEnabled;
+    public Optional<Boolean> multiAzWithStandbyEnabled() {
+        return Optional.ofNullable(this.multiAzWithStandbyEnabled);
     }
     /**
      * @return Number of warm nodes in the cluster.
      * 
      */
-    public Integer warmCount() {
-        return this.warmCount;
+    public Optional<Integer> warmCount() {
+        return Optional.ofNullable(this.warmCount);
     }
     /**
      * @return Warm storage is enabled.
@@ -137,22 +137,22 @@ public final class GetDomainClusterConfig {
      * @return Instance type for the OpenSearch cluster&#39;s warm nodes.
      * 
      */
-    public String warmType() {
-        return this.warmType;
+    public Optional<String> warmType() {
+        return Optional.ofNullable(this.warmType);
     }
     /**
      * @return Configuration block containing zone awareness settings.
      * 
      */
     public List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs() {
-        return this.zoneAwarenessConfigs;
+        return this.zoneAwarenessConfigs == null ? List.of() : this.zoneAwarenessConfigs;
     }
     /**
      * @return Indicates whether zone awareness is enabled.
      * 
      */
-    public Boolean zoneAwarenessEnabled() {
-        return this.zoneAwarenessEnabled;
+    public Optional<Boolean> zoneAwarenessEnabled() {
+        return Optional.ofNullable(this.zoneAwarenessEnabled);
     }
 
     public static Builder builder() {
@@ -164,18 +164,18 @@ public final class GetDomainClusterConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDomainClusterConfigColdStorageOption> coldStorageOptions;
-        private Integer dedicatedMasterCount;
-        private Boolean dedicatedMasterEnabled;
-        private String dedicatedMasterType;
-        private Integer instanceCount;
-        private String instanceType;
-        private Boolean multiAzWithStandbyEnabled;
-        private Integer warmCount;
+        private @Nullable List<GetDomainClusterConfigColdStorageOption> coldStorageOptions;
+        private @Nullable Integer dedicatedMasterCount;
+        private @Nullable Boolean dedicatedMasterEnabled;
+        private @Nullable String dedicatedMasterType;
+        private @Nullable Integer instanceCount;
+        private @Nullable String instanceType;
+        private @Nullable Boolean multiAzWithStandbyEnabled;
+        private @Nullable Integer warmCount;
         private @Nullable Boolean warmEnabled;
-        private String warmType;
-        private List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs;
-        private Boolean zoneAwarenessEnabled;
+        private @Nullable String warmType;
+        private @Nullable List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs;
+        private @Nullable Boolean zoneAwarenessEnabled;
         public Builder() {}
         public Builder(GetDomainClusterConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -194,46 +194,46 @@ public final class GetDomainClusterConfig {
         }
 
         @CustomType.Setter
-        public Builder coldStorageOptions(List<GetDomainClusterConfigColdStorageOption> coldStorageOptions) {
-            this.coldStorageOptions = Objects.requireNonNull(coldStorageOptions);
+        public Builder coldStorageOptions(@Nullable List<GetDomainClusterConfigColdStorageOption> coldStorageOptions) {
+            this.coldStorageOptions = coldStorageOptions;
             return this;
         }
         public Builder coldStorageOptions(GetDomainClusterConfigColdStorageOption... coldStorageOptions) {
             return coldStorageOptions(List.of(coldStorageOptions));
         }
         @CustomType.Setter
-        public Builder dedicatedMasterCount(Integer dedicatedMasterCount) {
-            this.dedicatedMasterCount = Objects.requireNonNull(dedicatedMasterCount);
+        public Builder dedicatedMasterCount(@Nullable Integer dedicatedMasterCount) {
+            this.dedicatedMasterCount = dedicatedMasterCount;
             return this;
         }
         @CustomType.Setter
-        public Builder dedicatedMasterEnabled(Boolean dedicatedMasterEnabled) {
-            this.dedicatedMasterEnabled = Objects.requireNonNull(dedicatedMasterEnabled);
+        public Builder dedicatedMasterEnabled(@Nullable Boolean dedicatedMasterEnabled) {
+            this.dedicatedMasterEnabled = dedicatedMasterEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder dedicatedMasterType(String dedicatedMasterType) {
-            this.dedicatedMasterType = Objects.requireNonNull(dedicatedMasterType);
+        public Builder dedicatedMasterType(@Nullable String dedicatedMasterType) {
+            this.dedicatedMasterType = dedicatedMasterType;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceCount(Integer instanceCount) {
-            this.instanceCount = Objects.requireNonNull(instanceCount);
+        public Builder instanceCount(@Nullable Integer instanceCount) {
+            this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+        public Builder instanceType(@Nullable String instanceType) {
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
-        public Builder multiAzWithStandbyEnabled(Boolean multiAzWithStandbyEnabled) {
-            this.multiAzWithStandbyEnabled = Objects.requireNonNull(multiAzWithStandbyEnabled);
+        public Builder multiAzWithStandbyEnabled(@Nullable Boolean multiAzWithStandbyEnabled) {
+            this.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder warmCount(Integer warmCount) {
-            this.warmCount = Objects.requireNonNull(warmCount);
+        public Builder warmCount(@Nullable Integer warmCount) {
+            this.warmCount = warmCount;
             return this;
         }
         @CustomType.Setter
@@ -242,21 +242,21 @@ public final class GetDomainClusterConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder warmType(String warmType) {
-            this.warmType = Objects.requireNonNull(warmType);
+        public Builder warmType(@Nullable String warmType) {
+            this.warmType = warmType;
             return this;
         }
         @CustomType.Setter
-        public Builder zoneAwarenessConfigs(List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs) {
-            this.zoneAwarenessConfigs = Objects.requireNonNull(zoneAwarenessConfigs);
+        public Builder zoneAwarenessConfigs(@Nullable List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs) {
+            this.zoneAwarenessConfigs = zoneAwarenessConfigs;
             return this;
         }
         public Builder zoneAwarenessConfigs(GetDomainClusterConfigZoneAwarenessConfig... zoneAwarenessConfigs) {
             return zoneAwarenessConfigs(List.of(zoneAwarenessConfigs));
         }
         @CustomType.Setter
-        public Builder zoneAwarenessEnabled(Boolean zoneAwarenessEnabled) {
-            this.zoneAwarenessEnabled = Objects.requireNonNull(zoneAwarenessEnabled);
+        public Builder zoneAwarenessEnabled(@Nullable Boolean zoneAwarenessEnabled) {
+            this.zoneAwarenessEnabled = zoneAwarenessEnabled;
             return this;
         }
         public GetDomainClusterConfig build() {

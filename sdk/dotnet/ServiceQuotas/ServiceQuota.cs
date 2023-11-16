@@ -51,19 +51,19 @@ namespace Pulumi.Aws.ServiceQuotas
         /// Whether the service quota can be increased.
         /// </summary>
         [Output("adjustable")]
-        public Output<bool> Adjustable { get; private set; } = null!;
+        public Output<bool?> Adjustable { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the service quota.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Default value of the service quota.
         /// </summary>
         [Output("defaultValue")]
-        public Output<double> DefaultValue { get; private set; } = null!;
+        public Output<double?> DefaultValue { get; private set; } = null!;
 
         /// <summary>
         /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
@@ -75,13 +75,13 @@ namespace Pulumi.Aws.ServiceQuotas
         /// Name of the quota.
         /// </summary>
         [Output("quotaName")]
-        public Output<string> QuotaName { get; private set; } = null!;
+        public Output<string?> QuotaName { get; private set; } = null!;
 
         [Output("requestId")]
-        public Output<string> RequestId { get; private set; } = null!;
+        public Output<string?> RequestId { get; private set; } = null!;
 
         [Output("requestStatus")]
-        public Output<string> RequestStatus { get; private set; } = null!;
+        public Output<string?> RequestStatus { get; private set; } = null!;
 
         /// <summary>
         /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.ServiceQuotas
         /// Name of the service.
         /// </summary>
         [Output("serviceName")]
-        public Output<string> ServiceName { get; private set; } = null!;
+        public Output<string?> ServiceName { get; private set; } = null!;
 
         /// <summary>
         /// Information about the measurement.

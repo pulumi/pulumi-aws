@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -82,28 +83,28 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN for a backend environment that is part of an Amplify app.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Name of deployment artifacts.
      * 
      */
     @Export(name="deploymentArtifacts", refs={String.class}, tree="[0]")
-    private Output<String> deploymentArtifacts;
+    private Output</* @Nullable */ String> deploymentArtifacts;
 
     /**
      * @return Name of deployment artifacts.
      * 
      */
-    public Output<String> deploymentArtifacts() {
-        return this.deploymentArtifacts;
+    public Output<Optional<String>> deploymentArtifacts() {
+        return Codegen.optional(this.deploymentArtifacts);
     }
     /**
      * Name for the backend environment.
@@ -124,14 +125,14 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="stackName", refs={String.class}, tree="[0]")
-    private Output<String> stackName;
+    private Output</* @Nullable */ String> stackName;
 
     /**
      * @return AWS CloudFormation stack name of a backend environment.
      * 
      */
-    public Output<String> stackName() {
-        return this.stackName;
+    public Output<Optional<String>> stackName() {
+        return Codegen.optional(this.stackName);
     }
 
     /**

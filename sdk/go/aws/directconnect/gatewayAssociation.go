@@ -171,18 +171,18 @@ type GatewayAssociation struct {
 	AllowedPrefixes pulumi.StringArrayOutput `pulumi:"allowedPrefixes"`
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
-	AssociatedGatewayId pulumi.StringOutput `pulumi:"associatedGatewayId"`
+	AssociatedGatewayId pulumi.StringPtrOutput `pulumi:"associatedGatewayId"`
 	// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for cross-account Direct Connect gateway associations.
-	AssociatedGatewayOwnerAccountId pulumi.StringOutput `pulumi:"associatedGatewayOwnerAccountId"`
+	AssociatedGatewayOwnerAccountId pulumi.StringPtrOutput `pulumi:"associatedGatewayOwnerAccountId"`
 	// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-	AssociatedGatewayType pulumi.StringOutput `pulumi:"associatedGatewayType"`
+	AssociatedGatewayType pulumi.StringPtrOutput `pulumi:"associatedGatewayType"`
 	// The ID of the Direct Connect gateway association.
-	DxGatewayAssociationId pulumi.StringOutput `pulumi:"dxGatewayAssociationId"`
+	DxGatewayAssociationId pulumi.StringPtrOutput `pulumi:"dxGatewayAssociationId"`
 	// The ID of the Direct Connect gateway.
 	DxGatewayId pulumi.StringOutput `pulumi:"dxGatewayId"`
 	// The ID of the AWS account that owns the Direct Connect gateway.
-	DxGatewayOwnerAccountId pulumi.StringOutput `pulumi:"dxGatewayOwnerAccountId"`
+	DxGatewayOwnerAccountId pulumi.StringPtrOutput `pulumi:"dxGatewayOwnerAccountId"`
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrOutput `pulumi:"proposalId"`
@@ -405,24 +405,24 @@ func (o GatewayAssociationOutput) AllowedPrefixes() pulumi.StringArrayOutput {
 
 // The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 // Used for single account Direct Connect gateway associations.
-func (o GatewayAssociationOutput) AssociatedGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringOutput { return v.AssociatedGatewayId }).(pulumi.StringOutput)
+func (o GatewayAssociationOutput) AssociatedGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.AssociatedGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
 // Used for cross-account Direct Connect gateway associations.
-func (o GatewayAssociationOutput) AssociatedGatewayOwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringOutput { return v.AssociatedGatewayOwnerAccountId }).(pulumi.StringOutput)
+func (o GatewayAssociationOutput) AssociatedGatewayOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.AssociatedGatewayOwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-func (o GatewayAssociationOutput) AssociatedGatewayType() pulumi.StringOutput {
-	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringOutput { return v.AssociatedGatewayType }).(pulumi.StringOutput)
+func (o GatewayAssociationOutput) AssociatedGatewayType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.AssociatedGatewayType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Direct Connect gateway association.
-func (o GatewayAssociationOutput) DxGatewayAssociationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringOutput { return v.DxGatewayAssociationId }).(pulumi.StringOutput)
+func (o GatewayAssociationOutput) DxGatewayAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.DxGatewayAssociationId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Direct Connect gateway.
@@ -431,8 +431,8 @@ func (o GatewayAssociationOutput) DxGatewayId() pulumi.StringOutput {
 }
 
 // The ID of the AWS account that owns the Direct Connect gateway.
-func (o GatewayAssociationOutput) DxGatewayOwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringOutput { return v.DxGatewayOwnerAccountId }).(pulumi.StringOutput)
+func (o GatewayAssociationOutput) DxGatewayOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.DxGatewayOwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Direct Connect gateway association proposal.

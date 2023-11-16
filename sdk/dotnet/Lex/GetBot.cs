@@ -118,51 +118,51 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// ARN of the bot.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
         /// </summary>
-        public readonly string Checksum;
+        public readonly string? Checksum;
         /// <summary>
         /// If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
         /// </summary>
-        public readonly bool ChildDirected;
+        public readonly bool? ChildDirected;
         /// <summary>
         /// Date that the bot was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Description of the bot.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
         /// </summary>
-        public readonly bool DetectSentiment;
+        public readonly bool? DetectSentiment;
         /// <summary>
         /// Set to true if natural language understanding improvements are enabled.
         /// </summary>
-        public readonly bool EnableModelImprovements;
+        public readonly bool? EnableModelImprovements;
         /// <summary>
         /// If the `status` is `FAILED`, the reason why the bot failed to build.
         /// </summary>
-        public readonly string FailureReason;
+        public readonly string? FailureReason;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
         /// </summary>
-        public readonly int IdleSessionTtlInSeconds;
+        public readonly int? IdleSessionTtlInSeconds;
         /// <summary>
         /// Date that the bot was updated.
         /// </summary>
-        public readonly string LastUpdatedDate;
+        public readonly string? LastUpdatedDate;
         /// <summary>
         /// Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
         /// </summary>
-        public readonly string Locale;
+        public readonly string? Locale;
         /// <summary>
         /// Name of the bot, case sensitive.
         /// </summary>
@@ -170,11 +170,11 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
         /// </summary>
-        public readonly double NluIntentConfidenceThreshold;
+        public readonly double? NluIntentConfidenceThreshold;
         /// <summary>
         /// Status of the bot.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Version of the bot. For a new bot, the version is always `$LATEST`.
         /// </summary>
@@ -182,43 +182,43 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
         /// </summary>
-        public readonly string VoiceId;
+        public readonly string? VoiceId;
 
         [OutputConstructor]
         private GetBotResult(
-            string arn,
+            string? arn,
 
-            string checksum,
+            string? checksum,
 
-            bool childDirected,
+            bool? childDirected,
 
-            string createdDate,
+            string? createdDate,
 
-            string description,
+            string? description,
 
-            bool detectSentiment,
+            bool? detectSentiment,
 
-            bool enableModelImprovements,
+            bool? enableModelImprovements,
 
-            string failureReason,
+            string? failureReason,
 
-            string id,
+            string? id,
 
-            int idleSessionTtlInSeconds,
+            int? idleSessionTtlInSeconds,
 
-            string lastUpdatedDate,
+            string? lastUpdatedDate,
 
-            string locale,
+            string? locale,
 
             string name,
 
-            double nluIntentConfidenceThreshold,
+            double? nluIntentConfidenceThreshold,
 
-            string status,
+            string? status,
 
             string? version,
 
-            string voiceId)
+            string? voiceId)
         {
             Arn = arn;
             Checksum = checksum;

@@ -62,7 +62,7 @@ type GetApisArgs struct {
 // A collection of values returned by getApis.
 type GetApisResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of API identifiers.
 	Ids          []string          `pulumi:"ids"`
 	Name         *string           `pulumi:"name"`
@@ -114,8 +114,8 @@ func (o GetApisResultOutput) ToGetApisResultOutputWithContext(ctx context.Contex
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetApisResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApisResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetApisResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApisResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of API identifiers.

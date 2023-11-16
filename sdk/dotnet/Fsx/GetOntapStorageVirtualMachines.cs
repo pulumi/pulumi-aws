@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of all SVM IDs found.
         /// </summary>
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Fsx
         private GetOntapStorageVirtualMachinesResult(
             ImmutableArray<Outputs.GetOntapStorageVirtualMachinesFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids)
         {

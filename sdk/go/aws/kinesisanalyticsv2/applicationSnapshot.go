@@ -57,9 +57,9 @@ type ApplicationSnapshot struct {
 	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
 	// The current application version ID when the snapshot was created.
-	ApplicationVersionId pulumi.IntOutput `pulumi:"applicationVersionId"`
+	ApplicationVersionId pulumi.IntPtrOutput `pulumi:"applicationVersionId"`
 	// The timestamp of the application snapshot.
-	SnapshotCreationTimestamp pulumi.StringOutput `pulumi:"snapshotCreationTimestamp"`
+	SnapshotCreationTimestamp pulumi.StringPtrOutput `pulumi:"snapshotCreationTimestamp"`
 	// The name of the application snapshot.
 	SnapshotName pulumi.StringOutput `pulumi:"snapshotName"`
 }
@@ -233,13 +233,13 @@ func (o ApplicationSnapshotOutput) ApplicationName() pulumi.StringOutput {
 }
 
 // The current application version ID when the snapshot was created.
-func (o ApplicationSnapshotOutput) ApplicationVersionId() pulumi.IntOutput {
-	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.IntOutput { return v.ApplicationVersionId }).(pulumi.IntOutput)
+func (o ApplicationSnapshotOutput) ApplicationVersionId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.IntPtrOutput { return v.ApplicationVersionId }).(pulumi.IntPtrOutput)
 }
 
 // The timestamp of the application snapshot.
-func (o ApplicationSnapshotOutput) SnapshotCreationTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringOutput { return v.SnapshotCreationTimestamp }).(pulumi.StringOutput)
+func (o ApplicationSnapshotOutput) SnapshotCreationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringPtrOutput { return v.SnapshotCreationTimestamp }).(pulumi.StringPtrOutput)
 }
 
 // The name of the application snapshot.

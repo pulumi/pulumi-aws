@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateHibernationOptionResult
     {
-        public readonly bool Configured;
+        public readonly bool? Configured;
 
         [OutputConstructor]
-        private GetLaunchTemplateHibernationOptionResult(bool configured)
+        private GetLaunchTemplateHibernationOptionResult(bool? configured)
         {
             Configured = configured;
         }

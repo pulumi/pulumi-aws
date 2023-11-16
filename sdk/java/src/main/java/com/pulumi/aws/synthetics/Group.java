@@ -63,28 +63,28 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ID of the Group.
      * 
      */
     @Export(name="groupId", refs={String.class}, tree="[0]")
-    private Output<String> groupId;
+    private Output</* @Nullable */ String> groupId;
 
     /**
      * @return ID of the Group.
      * 
      */
-    public Output<String> groupId() {
-        return this.groupId;
+    public Output<Optional<String>> groupId() {
+        return Codegen.optional(this.groupId);
     }
     /**
      * Name of the group.

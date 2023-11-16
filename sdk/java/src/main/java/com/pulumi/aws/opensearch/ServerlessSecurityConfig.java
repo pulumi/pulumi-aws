@@ -69,14 +69,14 @@ public class ServerlessSecurityConfig extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="configVersion", refs={String.class}, tree="[0]")
-    private Output<String> configVersion;
+    private Output</* @Nullable */ String> configVersion;
 
     /**
      * @return Version of the configuration.
      * 
      */
-    public Output<String> configVersion() {
-        return this.configVersion;
+    public Output<Optional<String>> configVersion() {
+        return Codegen.optional(this.configVersion);
     }
     /**
      * Description of the security configuration.

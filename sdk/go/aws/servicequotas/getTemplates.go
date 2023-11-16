@@ -59,7 +59,7 @@ type GetTemplatesArgs struct {
 
 // A collection of values returned by getTemplates.
 type GetTemplatesResult struct {
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// AWS Region to which the template applies.
 	Region string `pulumi:"region"`
 	// A list of quota increase templates for specified region. See `templates`.
@@ -106,8 +106,8 @@ func (o GetTemplatesResultOutput) ToGetTemplatesResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o GetTemplatesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTemplatesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetTemplatesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTemplatesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // AWS Region to which the template applies.

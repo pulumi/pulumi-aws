@@ -416,7 +416,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assignmentId")
-    def assignment_id(self) -> pulumi.Output[str]:
+    def assignment_id(self) -> pulumi.Output[Optional[str]]:
         """
         Assignment ID.
         """
@@ -442,7 +442,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """
@@ -458,7 +458,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def namespace(self) -> pulumi.Output[str]:
+    def namespace(self) -> pulumi.Output[Optional[str]]:
         """
         Namespace that contains the assignment. Defaults to `default`.
         """

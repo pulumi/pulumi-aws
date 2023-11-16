@@ -50,7 +50,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * The resource group ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      */

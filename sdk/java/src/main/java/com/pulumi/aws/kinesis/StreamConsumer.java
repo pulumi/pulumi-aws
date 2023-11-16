@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -72,28 +73,28 @@ public class StreamConsumer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the stream consumer.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      * 
      */
     @Export(name="creationTimestamp", refs={String.class}, tree="[0]")
-    private Output<String> creationTimestamp;
+    private Output</* @Nullable */ String> creationTimestamp;
 
     /**
      * @return Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      * 
      */
-    public Output<String> creationTimestamp() {
-        return this.creationTimestamp;
+    public Output<Optional<String>> creationTimestamp() {
+        return Codegen.optional(this.creationTimestamp);
     }
     /**
      * Name of the stream consumer.

@@ -52,7 +52,7 @@ class GetTrackerResult:
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> str:
+    def create_time(self) -> Optional[str]:
         """
         Timestamp for when the tracker resource was created in ISO 8601 format.
         """
@@ -60,7 +60,7 @@ class GetTrackerResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Optional description for the tracker resource.
         """
@@ -68,7 +68,7 @@ class GetTrackerResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -76,7 +76,7 @@ class GetTrackerResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         """
@@ -84,7 +84,7 @@ class GetTrackerResult:
 
     @property
     @pulumi.getter(name="positionFiltering")
-    def position_filtering(self) -> str:
+    def position_filtering(self) -> Optional[str]:
         """
         Position filtering method of the tracker resource.
         """
@@ -92,7 +92,7 @@ class GetTrackerResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the tracker.
         """
@@ -100,7 +100,7 @@ class GetTrackerResult:
 
     @property
     @pulumi.getter(name="trackerArn")
-    def tracker_arn(self) -> str:
+    def tracker_arn(self) -> Optional[str]:
         """
         ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         """
@@ -113,7 +113,7 @@ class GetTrackerResult:
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> str:
+    def update_time(self) -> Optional[str]:
         """
         Timestamp for when the tracker resource was last updated in ISO 8601 format.
         """

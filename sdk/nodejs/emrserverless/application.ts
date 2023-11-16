@@ -102,19 +102,19 @@ export class Application extends pulumi.CustomResource {
     /**
      * ARN of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The configuration for an application to automatically start on job submission.
      */
-    public readonly autoStartConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStartConfiguration>;
+    public readonly autoStartConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStartConfiguration | undefined>;
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      */
-    public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration>;
+    public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration | undefined>;
     /**
      * The image configuration applied to all worker types.
      */
-    public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfiguration>;
+    public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfiguration | undefined>;
     /**
      * The capacity to initialize when the application is created.
      */
@@ -122,7 +122,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
-    public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity>;
+    public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity | undefined>;
     /**
      * The name of the application.
      */

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisAlternatePathHintResult
     {
-        public readonly string ComponentArn;
-        public readonly string ComponentId;
+        public readonly string? ComponentArn;
+        public readonly string? ComponentId;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisAlternatePathHintResult(
-            string componentArn,
+            string? componentArn,
 
-            string componentId)
+            string? componentId)
         {
             ComponentArn = componentArn;
             ComponentId = componentId;

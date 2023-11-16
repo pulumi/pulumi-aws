@@ -86,32 +86,32 @@ class GetTargetGroupResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="arnSuffix")
-    def arn_suffix(self) -> str:
+    def arn_suffix(self) -> Optional[str]:
         return pulumi.get(self, "arn_suffix")
 
     @property
     @pulumi.getter(name="connectionTermination")
-    def connection_termination(self) -> bool:
+    def connection_termination(self) -> Optional[bool]:
         return pulumi.get(self, "connection_termination")
 
     @property
     @pulumi.getter(name="deregistrationDelay")
-    def deregistration_delay(self) -> int:
+    def deregistration_delay(self) -> Optional[int]:
         return pulumi.get(self, "deregistration_delay")
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> 'outputs.GetTargetGroupHealthCheckResult':
+    def health_check(self) -> Optional['outputs.GetTargetGroupHealthCheckResult']:
         return pulumi.get(self, "health_check")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -119,72 +119,72 @@ class GetTargetGroupResult:
 
     @property
     @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
-    def lambda_multi_value_headers_enabled(self) -> bool:
+    def lambda_multi_value_headers_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "lambda_multi_value_headers_enabled")
 
     @property
     @pulumi.getter(name="loadBalancingAlgorithmType")
-    def load_balancing_algorithm_type(self) -> str:
+    def load_balancing_algorithm_type(self) -> Optional[str]:
         return pulumi.get(self, "load_balancing_algorithm_type")
 
     @property
     @pulumi.getter(name="loadBalancingCrossZoneEnabled")
-    def load_balancing_cross_zone_enabled(self) -> str:
+    def load_balancing_cross_zone_enabled(self) -> Optional[str]:
         return pulumi.get(self, "load_balancing_cross_zone_enabled")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="preserveClientIp")
-    def preserve_client_ip(self) -> str:
+    def preserve_client_ip(self) -> Optional[str]:
         return pulumi.get(self, "preserve_client_ip")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="protocolVersion")
-    def protocol_version(self) -> str:
+    def protocol_version(self) -> Optional[str]:
         return pulumi.get(self, "protocol_version")
 
     @property
     @pulumi.getter(name="proxyProtocolV2")
-    def proxy_protocol_v2(self) -> bool:
+    def proxy_protocol_v2(self) -> Optional[bool]:
         return pulumi.get(self, "proxy_protocol_v2")
 
     @property
     @pulumi.getter(name="slowStart")
-    def slow_start(self) -> int:
+    def slow_start(self) -> Optional[int]:
         return pulumi.get(self, "slow_start")
 
     @property
     @pulumi.getter
-    def stickiness(self) -> 'outputs.GetTargetGroupStickinessResult':
+    def stickiness(self) -> Optional['outputs.GetTargetGroupStickinessResult']:
         return pulumi.get(self, "stickiness")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> str:
+    def target_type(self) -> Optional[str]:
         return pulumi.get(self, "target_type")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
 

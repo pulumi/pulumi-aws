@@ -64,7 +64,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultSubnet.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     public readonly assignIpv6AddressOnCreation!: pulumi.Output<boolean | undefined>;
     /**
      * is required
@@ -77,29 +77,29 @@ export class DefaultSubnet extends pulumi.CustomResource {
     /**
      * The AZ ID of the subnet
      */
-    public /*out*/ readonly availabilityZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZoneId!: pulumi.Output<string | undefined>;
     /**
      * The IPv4 CIDR block assigned to the subnet
      */
-    public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
+    public /*out*/ readonly cidrBlock!: pulumi.Output<string | undefined>;
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     public readonly enableDns64!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly enableLniAtDeviceIndex!: pulumi.Output<number>;
+    public /*out*/ readonly enableLniAtDeviceIndex!: pulumi.Output<number | undefined>;
     public readonly enableResourceNameDnsARecordOnLaunch!: pulumi.Output<boolean | undefined>;
     public readonly enableResourceNameDnsAaaaRecordOnLaunch!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly existingDefaultSubnet!: pulumi.Output<boolean>;
+    public /*out*/ readonly existingDefaultSubnet!: pulumi.Output<boolean | undefined>;
     /**
      * Whether destroying the resource deletes the default subnet. Default: `false`
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
-    public readonly ipv6CidrBlock!: pulumi.Output<string>;
-    public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string | undefined>;
     public readonly ipv6Native!: pulumi.Output<boolean | undefined>;
     public readonly mapCustomerOwnedIpOnLaunch!: pulumi.Output<boolean | undefined>;
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
+    public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.
@@ -108,7 +108,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
     /**
      * The ID of the VPC the subnet is in
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DefaultSubnet resource with the given unique name, arguments, and options.

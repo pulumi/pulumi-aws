@@ -56,7 +56,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Bucket.
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.DataSync
         /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         /// </summary>
         [Output("s3StorageClass")]
-        public Output<string> S3StorageClass { get; private set; } = null!;
+        public Output<string?> S3StorageClass { get; private set; } = null!;
 
         /// <summary>
         /// Prefix to perform actions as source or destination.
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("uri")]
-        public Output<string> Uri { get; private set; } = null!;
+        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

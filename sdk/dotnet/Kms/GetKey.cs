@@ -172,69 +172,69 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// The key ARN of a primary or replica key of a multi-Region key.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The twelve-digit account ID of the AWS account that owns the key
         /// </summary>
-        public readonly string AwsAccountId;
+        public readonly string? AwsAccountId;
         /// <summary>
         /// The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
         /// </summary>
-        public readonly string CloudHsmClusterId;
+        public readonly string? CloudHsmClusterId;
         /// <summary>
         /// The date and time when the key was created
         /// </summary>
-        public readonly string CreationDate;
+        public readonly string? CreationDate;
         /// <summary>
         /// A unique identifier for the custom key store that contains the KMS key.
         /// </summary>
-        public readonly string CustomKeyStoreId;
+        public readonly string? CustomKeyStoreId;
         /// <summary>
         /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
         /// </summary>
-        public readonly string CustomerMasterKeySpec;
+        public readonly string? CustomerMasterKeySpec;
         /// <summary>
         /// The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
         /// </summary>
-        public readonly string DeletionDate;
+        public readonly string? DeletionDate;
         /// <summary>
         /// The description of the key.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// Specifies whether the Key's key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
         /// </summary>
-        public readonly string ExpirationModel;
+        public readonly string? ExpirationModel;
         public readonly ImmutableArray<string> GrantTokens;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string KeyId;
         /// <summary>
         /// The key's manager
         /// </summary>
-        public readonly string KeyManager;
+        public readonly string? KeyManager;
         /// <summary>
         /// Describes the type of key material in the KMS key.
         /// </summary>
-        public readonly string KeySpec;
+        public readonly string? KeySpec;
         /// <summary>
         /// The state of the key
         /// </summary>
-        public readonly string KeyState;
+        public readonly string? KeyState;
         /// <summary>
         /// Specifies the intended use of the key
         /// </summary>
-        public readonly string KeyUsage;
+        public readonly string? KeyUsage;
         /// <summary>
         /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
         /// </summary>
-        public readonly bool MultiRegion;
+        public readonly bool? MultiRegion;
         /// <summary>
         /// Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
         /// </summary>
@@ -242,15 +242,15 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
         /// </summary>
-        public readonly string Origin;
+        public readonly string? Origin;
         /// <summary>
         /// The waiting period before the primary key in a multi-Region key is deleted.
         /// </summary>
-        public readonly int PendingDeletionWindowInDays;
+        public readonly int? PendingDeletionWindowInDays;
         /// <summary>
         /// The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
         /// </summary>
-        public readonly string ValidTo;
+        public readonly string? ValidTo;
         /// <summary>
         /// Information about the external key that is associated with a KMS key in an external key store.
         /// </summary>
@@ -258,49 +258,49 @@ namespace Pulumi.Aws.Kms
 
         [OutputConstructor]
         private GetKeyResult(
-            string arn,
+            string? arn,
 
-            string awsAccountId,
+            string? awsAccountId,
 
-            string cloudHsmClusterId,
+            string? cloudHsmClusterId,
 
-            string creationDate,
+            string? creationDate,
 
-            string customKeyStoreId,
+            string? customKeyStoreId,
 
-            string customerMasterKeySpec,
+            string? customerMasterKeySpec,
 
-            string deletionDate,
+            string? deletionDate,
 
-            string description,
+            string? description,
 
-            bool enabled,
+            bool? enabled,
 
-            string expirationModel,
+            string? expirationModel,
 
             ImmutableArray<string> grantTokens,
 
-            string id,
+            string? id,
 
             string keyId,
 
-            string keyManager,
+            string? keyManager,
 
-            string keySpec,
+            string? keySpec,
 
-            string keyState,
+            string? keyState,
 
-            string keyUsage,
+            string? keyUsage,
 
-            bool multiRegion,
+            bool? multiRegion,
 
             ImmutableArray<Outputs.GetKeyMultiRegionConfigurationResult> multiRegionConfigurations,
 
-            string origin,
+            string? origin,
 
-            int pendingDeletionWindowInDays,
+            int? pendingDeletionWindowInDays,
 
-            string validTo,
+            string? validTo,
 
             ImmutableArray<Outputs.GetKeyXksKeyConfigurationResult> xksKeyConfigurations)
         {

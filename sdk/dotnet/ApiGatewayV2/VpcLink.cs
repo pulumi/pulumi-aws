@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// VPC Link ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the VPC Link. Must be between 1 and 128 characters in length.

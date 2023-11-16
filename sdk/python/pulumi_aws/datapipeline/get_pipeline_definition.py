@@ -42,7 +42,7 @@ class GetPipelineDefinitionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -50,7 +50,7 @@ class GetPipelineDefinitionResult:
 
     @property
     @pulumi.getter(name="parameterObjects")
-    def parameter_objects(self) -> Sequence['outputs.GetPipelineDefinitionParameterObjectResult']:
+    def parameter_objects(self) -> Optional[Sequence['outputs.GetPipelineDefinitionParameterObjectResult']]:
         """
         Parameter objects used in the pipeline definition. See below
         """
@@ -71,7 +71,7 @@ class GetPipelineDefinitionResult:
 
     @property
     @pulumi.getter(name="pipelineObjects")
-    def pipeline_objects(self) -> Sequence['outputs.GetPipelineDefinitionPipelineObjectResult']:
+    def pipeline_objects(self) -> Optional[Sequence['outputs.GetPipelineDefinitionPipelineObjectResult']]:
         """
         Objects defined in the pipeline. See below
         """

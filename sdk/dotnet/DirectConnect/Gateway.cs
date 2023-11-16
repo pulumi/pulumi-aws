@@ -57,7 +57,7 @@ namespace Pulumi.Aws.DirectConnect
         /// AWS Account ID of the gateway.
         /// </summary>
         [Output("ownerAccountId")]
-        public Output<string> OwnerAccountId { get; private set; } = null!;
+        public Output<string?> OwnerAccountId { get; private set; } = null!;
 
 
         /// <summary>

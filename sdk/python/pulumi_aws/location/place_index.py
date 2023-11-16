@@ -435,7 +435,7 @@ class PlaceIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[str]:
+    def create_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the place index resource was created in ISO 8601 format.
         """
@@ -451,7 +451,7 @@ class PlaceIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
-    def data_source_configuration(self) -> pulumi.Output['outputs.PlaceIndexDataSourceConfiguration']:
+    def data_source_configuration(self) -> pulumi.Output[Optional['outputs.PlaceIndexDataSourceConfiguration']]:
         """
         Configuration block with the data storage option chosen for requesting Places. Detailed below.
         """
@@ -467,7 +467,7 @@ class PlaceIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="indexArn")
-    def index_arn(self) -> pulumi.Output[str]:
+    def index_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
         """
@@ -504,7 +504,7 @@ class PlaceIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[str]:
+    def update_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the place index resource was last update in ISO 8601.
         """

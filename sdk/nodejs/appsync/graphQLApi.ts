@@ -42,7 +42,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      */
@@ -80,7 +80,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
-    public /*out*/ readonly uris!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly uris!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Amazon Cognito User Pool configuration. Defined below.
      */

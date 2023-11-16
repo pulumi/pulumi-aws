@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVocabularyResult {
@@ -14,78 +16,78 @@ public final class GetVocabularyResult {
      * @return The Amazon Resource Name (ARN) of the Vocabulary.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
      * 
      */
-    private String content;
+    private @Nullable String content;
     /**
      * @return The reason why the custom vocabulary was not created.
      * 
      */
-    private String failureReason;
+    private @Nullable String failureReason;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String instanceId;
     /**
      * @return The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
      * 
      */
-    private String languageCode;
+    private @Nullable String languageCode;
     /**
      * @return The timestamp when the custom vocabulary was last modified.
      * 
      */
-    private String lastModifiedTime;
-    private String name;
+    private @Nullable String lastModifiedTime;
+    private @Nullable String name;
     /**
      * @return The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return A map of tags to assign to the Vocabulary.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The identifier of the custom vocabulary.
      * 
      */
-    private String vocabularyId;
+    private @Nullable String vocabularyId;
 
     private GetVocabularyResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Vocabulary.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
      * 
      */
-    public String content() {
-        return this.content;
+    public Optional<String> content() {
+        return Optional.ofNullable(this.content);
     }
     /**
      * @return The reason why the custom vocabulary was not created.
      * 
      */
-    public String failureReason() {
-        return this.failureReason;
+    public Optional<String> failureReason() {
+        return Optional.ofNullable(this.failureReason);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String instanceId() {
         return this.instanceId;
@@ -94,39 +96,39 @@ public final class GetVocabularyResult {
      * @return The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
      * 
      */
-    public String languageCode() {
-        return this.languageCode;
+    public Optional<String> languageCode() {
+        return Optional.ofNullable(this.languageCode);
     }
     /**
      * @return The timestamp when the custom vocabulary was last modified.
      * 
      */
-    public String lastModifiedTime() {
-        return this.lastModifiedTime;
+    public Optional<String> lastModifiedTime() {
+        return Optional.ofNullable(this.lastModifiedTime);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return A map of tags to assign to the Vocabulary.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return The identifier of the custom vocabulary.
      * 
      */
-    public String vocabularyId() {
-        return this.vocabularyId;
+    public Optional<String> vocabularyId() {
+        return Optional.ofNullable(this.vocabularyId);
     }
 
     public static Builder builder() {
@@ -138,17 +140,17 @@ public final class GetVocabularyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String content;
-        private String failureReason;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String content;
+        private @Nullable String failureReason;
+        private @Nullable String id;
         private String instanceId;
-        private String languageCode;
-        private String lastModifiedTime;
-        private String name;
-        private String state;
-        private Map<String,String> tags;
-        private String vocabularyId;
+        private @Nullable String languageCode;
+        private @Nullable String lastModifiedTime;
+        private @Nullable String name;
+        private @Nullable String state;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String vocabularyId;
         public Builder() {}
         public Builder(GetVocabularyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -166,23 +168,23 @@ public final class GetVocabularyResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+        public Builder content(@Nullable String content) {
+            this.content = content;
             return this;
         }
         @CustomType.Setter
-        public Builder failureReason(String failureReason) {
-            this.failureReason = Objects.requireNonNull(failureReason);
+        public Builder failureReason(@Nullable String failureReason) {
+            this.failureReason = failureReason;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -191,33 +193,33 @@ public final class GetVocabularyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder languageCode(String languageCode) {
-            this.languageCode = Objects.requireNonNull(languageCode);
+        public Builder languageCode(@Nullable String languageCode) {
+            this.languageCode = languageCode;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedTime(String lastModifiedTime) {
-            this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
+        public Builder lastModifiedTime(@Nullable String lastModifiedTime) {
+            this.lastModifiedTime = lastModifiedTime;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder vocabularyId(String vocabularyId) {
-            this.vocabularyId = Objects.requireNonNull(vocabularyId);
+        public Builder vocabularyId(@Nullable String vocabularyId) {
+            this.vocabularyId = vocabularyId;
             return this;
         }
         public GetVocabularyResult build() {

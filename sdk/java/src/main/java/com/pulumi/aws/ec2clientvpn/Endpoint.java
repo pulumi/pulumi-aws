@@ -85,14 +85,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Client VPN endpoint.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Information about the authentication method to be used to authenticate clients.
@@ -127,28 +127,28 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clientConnectOptions", refs={EndpointClientConnectOptions.class}, tree="[0]")
-    private Output<EndpointClientConnectOptions> clientConnectOptions;
+    private Output</* @Nullable */ EndpointClientConnectOptions> clientConnectOptions;
 
     /**
      * @return The options for managing connection authorization for new client connections.
      * 
      */
-    public Output<EndpointClientConnectOptions> clientConnectOptions() {
-        return this.clientConnectOptions;
+    public Output<Optional<EndpointClientConnectOptions>> clientConnectOptions() {
+        return Codegen.optional(this.clientConnectOptions);
     }
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      * 
      */
     @Export(name="clientLoginBannerOptions", refs={EndpointClientLoginBannerOptions.class}, tree="[0]")
-    private Output<EndpointClientLoginBannerOptions> clientLoginBannerOptions;
+    private Output</* @Nullable */ EndpointClientLoginBannerOptions> clientLoginBannerOptions;
 
     /**
      * @return Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      * 
      */
-    public Output<EndpointClientLoginBannerOptions> clientLoginBannerOptions() {
-        return this.clientLoginBannerOptions;
+    public Output<Optional<EndpointClientLoginBannerOptions>> clientLoginBannerOptions() {
+        return Codegen.optional(this.clientLoginBannerOptions);
     }
     /**
      * Information about the client connection logging options.
@@ -183,14 +183,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name to be used by clients when establishing their VPN session.
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
@@ -211,14 +211,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupIds;
+    private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
      * @return The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
      * 
      */
-    public Output<List<String>> securityGroupIds() {
-        return this.securityGroupIds;
+    public Output<Optional<List<String>>> securityGroupIds() {
+        return Codegen.optional(this.securityGroupIds);
     }
     /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -239,14 +239,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="selfServicePortalUrl", refs={String.class}, tree="[0]")
-    private Output<String> selfServicePortalUrl;
+    private Output</* @Nullable */ String> selfServicePortalUrl;
 
     /**
      * @return The URL of the self-service portal.
      * 
      */
-    public Output<String> selfServicePortalUrl() {
-        return this.selfServicePortalUrl;
+    public Output<Optional<String>> selfServicePortalUrl() {
+        return Codegen.optional(this.selfServicePortalUrl);
     }
     /**
      * The ARN of the ACM server certificate.
@@ -341,14 +341,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
     /**
      * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.

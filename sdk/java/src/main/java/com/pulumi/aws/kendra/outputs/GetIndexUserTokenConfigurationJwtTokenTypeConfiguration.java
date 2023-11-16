@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
@@ -13,87 +15,87 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
      * @return Regular expression that identifies the claim.
      * 
      */
-    private String claimRegex;
+    private @Nullable String claimRegex;
     /**
      * @return The group attribute field.
      * 
      */
-    private String groupAttributeField;
+    private @Nullable String groupAttributeField;
     /**
      * @return Issuer of the token.
      * 
      */
-    private String issuer;
+    private @Nullable String issuer;
     /**
      * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`
      * 
      */
-    private String keyLocation;
+    private @Nullable String keyLocation;
     /**
      * @return ARN of the secret.
      * 
      */
-    private String secretsManagerArn;
+    private @Nullable String secretsManagerArn;
     /**
      * @return Signing key URL.
      * 
      */
-    private String url;
+    private @Nullable String url;
     /**
      * @return The user name attribute field.
      * 
      */
-    private String userNameAttributeField;
+    private @Nullable String userNameAttributeField;
 
     private GetIndexUserTokenConfigurationJwtTokenTypeConfiguration() {}
     /**
      * @return Regular expression that identifies the claim.
      * 
      */
-    public String claimRegex() {
-        return this.claimRegex;
+    public Optional<String> claimRegex() {
+        return Optional.ofNullable(this.claimRegex);
     }
     /**
      * @return The group attribute field.
      * 
      */
-    public String groupAttributeField() {
-        return this.groupAttributeField;
+    public Optional<String> groupAttributeField() {
+        return Optional.ofNullable(this.groupAttributeField);
     }
     /**
      * @return Issuer of the token.
      * 
      */
-    public String issuer() {
-        return this.issuer;
+    public Optional<String> issuer() {
+        return Optional.ofNullable(this.issuer);
     }
     /**
      * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`
      * 
      */
-    public String keyLocation() {
-        return this.keyLocation;
+    public Optional<String> keyLocation() {
+        return Optional.ofNullable(this.keyLocation);
     }
     /**
      * @return ARN of the secret.
      * 
      */
-    public String secretsManagerArn() {
-        return this.secretsManagerArn;
+    public Optional<String> secretsManagerArn() {
+        return Optional.ofNullable(this.secretsManagerArn);
     }
     /**
      * @return Signing key URL.
      * 
      */
-    public String url() {
-        return this.url;
+    public Optional<String> url() {
+        return Optional.ofNullable(this.url);
     }
     /**
      * @return The user name attribute field.
      * 
      */
-    public String userNameAttributeField() {
-        return this.userNameAttributeField;
+    public Optional<String> userNameAttributeField() {
+        return Optional.ofNullable(this.userNameAttributeField);
     }
 
     public static Builder builder() {
@@ -105,13 +107,13 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String claimRegex;
-        private String groupAttributeField;
-        private String issuer;
-        private String keyLocation;
-        private String secretsManagerArn;
-        private String url;
-        private String userNameAttributeField;
+        private @Nullable String claimRegex;
+        private @Nullable String groupAttributeField;
+        private @Nullable String issuer;
+        private @Nullable String keyLocation;
+        private @Nullable String secretsManagerArn;
+        private @Nullable String url;
+        private @Nullable String userNameAttributeField;
         public Builder() {}
         public Builder(GetIndexUserTokenConfigurationJwtTokenTypeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -125,38 +127,38 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
         }
 
         @CustomType.Setter
-        public Builder claimRegex(String claimRegex) {
-            this.claimRegex = Objects.requireNonNull(claimRegex);
+        public Builder claimRegex(@Nullable String claimRegex) {
+            this.claimRegex = claimRegex;
             return this;
         }
         @CustomType.Setter
-        public Builder groupAttributeField(String groupAttributeField) {
-            this.groupAttributeField = Objects.requireNonNull(groupAttributeField);
+        public Builder groupAttributeField(@Nullable String groupAttributeField) {
+            this.groupAttributeField = groupAttributeField;
             return this;
         }
         @CustomType.Setter
-        public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+        public Builder issuer(@Nullable String issuer) {
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
-        public Builder keyLocation(String keyLocation) {
-            this.keyLocation = Objects.requireNonNull(keyLocation);
+        public Builder keyLocation(@Nullable String keyLocation) {
+            this.keyLocation = keyLocation;
             return this;
         }
         @CustomType.Setter
-        public Builder secretsManagerArn(String secretsManagerArn) {
-            this.secretsManagerArn = Objects.requireNonNull(secretsManagerArn);
+        public Builder secretsManagerArn(@Nullable String secretsManagerArn) {
+            this.secretsManagerArn = secretsManagerArn;
             return this;
         }
         @CustomType.Setter
-        public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+        public Builder url(@Nullable String url) {
+            this.url = url;
             return this;
         }
         @CustomType.Setter
-        public Builder userNameAttributeField(String userNameAttributeField) {
-            this.userNameAttributeField = Objects.requireNonNull(userNameAttributeField);
+        public Builder userNameAttributeField(@Nullable String userNameAttributeField) {
+            this.userNameAttributeField = userNameAttributeField;
             return this;
         }
         public GetIndexUserTokenConfigurationJwtTokenTypeConfiguration build() {

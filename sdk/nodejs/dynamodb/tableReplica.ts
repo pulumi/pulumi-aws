@@ -84,7 +84,7 @@ export class TableReplica extends pulumi.CustomResource {
     /**
      * ARN of the table replica.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the _main_ or global table which this resource will replicate.
      *
@@ -94,7 +94,7 @@ export class TableReplica extends pulumi.CustomResource {
     /**
      * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      */

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Eks
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
     ///         ["endpoint"] = example.Endpoint,
-    ///         ["kubeconfig-certificate-authority-data"] = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority.Data),
+    ///         ["kubeconfig-certificate-authority-data"] = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority?.Data),
     ///     };
     /// });
     /// ```
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Eks
         /// ARN of the cluster.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("certificateAuthorities")]
         public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthorities { get; private set; } = null!;
@@ -211,19 +211,19 @@ namespace Pulumi.Aws.Eks
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
         [Output("certificateAuthority")]
-        public Output<Outputs.ClusterCertificateAuthority> CertificateAuthority { get; private set; } = null!;
+        public Output<Outputs.ClusterCertificateAuthority?> CertificateAuthority { get; private set; } = null!;
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         /// </summary>
         [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
+        public Output<string?> ClusterId { get; private set; } = null!;
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         [Output("defaultAddonsToRemoves")]
         public Output<ImmutableArray<string>> DefaultAddonsToRemoves { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Eks
         /// Endpoint for your Kubernetes API server.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Eks
         /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("kubernetesNetworkConfig")]
-        public Output<Outputs.ClusterKubernetesNetworkConfig> KubernetesNetworkConfig { get; private set; } = null!;
+        public Output<Outputs.ClusterKubernetesNetworkConfig?> KubernetesNetworkConfig { get; private set; } = null!;
 
         /// <summary>
         /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Eks
         /// Platform version for the cluster.
         /// </summary>
         [Output("platformVersion")]
-        public Output<string> PlatformVersion { get; private set; } = null!;
+        public Output<string?> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Eks
         /// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.Eks
         /// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.

@@ -61,7 +61,7 @@ export class StandardsControl extends pulumi.CustomResource {
     /**
      * The identifier of the security standard control.
      */
-    public /*out*/ readonly controlId!: pulumi.Output<string>;
+    public /*out*/ readonly controlId!: pulumi.Output<string | undefined>;
     /**
      * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
      */
@@ -69,27 +69,27 @@ export class StandardsControl extends pulumi.CustomResource {
     /**
      * The date and time that the status of the security standard control was most recently updated.
      */
-    public /*out*/ readonly controlStatusUpdatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly controlStatusUpdatedAt!: pulumi.Output<string | undefined>;
     /**
      * The standard control longer description. Provides information about what the control is checking for.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
      */
-    public readonly disabledReason!: pulumi.Output<string>;
+    public readonly disabledReason!: pulumi.Output<string | undefined>;
     /**
      * The list of requirements that are related to this control.
      */
-    public /*out*/ readonly relatedRequirements!: pulumi.Output<string[]>;
+    public /*out*/ readonly relatedRequirements!: pulumi.Output<string[] | undefined>;
     /**
      * A link to remediation information for the control in the Security Hub user documentation.
      */
-    public /*out*/ readonly remediationUrl!: pulumi.Output<string>;
+    public /*out*/ readonly remediationUrl!: pulumi.Output<string | undefined>;
     /**
      * The severity of findings generated from this security standard control.
      */
-    public /*out*/ readonly severityRating!: pulumi.Output<string>;
+    public /*out*/ readonly severityRating!: pulumi.Output<string | undefined>;
     /**
      * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      */
@@ -97,7 +97,7 @@ export class StandardsControl extends pulumi.CustomResource {
     /**
      * The standard control title.
      */
-    public /*out*/ readonly title!: pulumi.Output<string>;
+    public /*out*/ readonly title!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StandardsControl resource with the given unique name, arguments, and options.

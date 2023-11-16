@@ -57,7 +57,7 @@ export class ResolverFirewallDomainList extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) of the domain list.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A array of domains for the firewall domain list.
      */

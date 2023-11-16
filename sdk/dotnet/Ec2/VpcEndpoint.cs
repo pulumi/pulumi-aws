@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Ec2
         /// The Amazon Resource Name (ARN) of the VPC endpoint.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
@@ -163,13 +163,13 @@ namespace Pulumi.Aws.Ec2
         /// The DNS options for the endpoint. See dns_options below.
         /// </summary>
         [Output("dnsOptions")]
-        public Output<Outputs.VpcEndpointDnsOptions> DnsOptions { get; private set; } = null!;
+        public Output<Outputs.VpcEndpointDnsOptions?> DnsOptions { get; private set; } = null!;
 
         /// <summary>
         /// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         /// </summary>
         [Output("ipAddressType")]
-        public Output<string> IpAddressType { get; private set; } = null!;
+        public Output<string?> IpAddressType { get; private set; } = null!;
 
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -181,19 +181,19 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the AWS account that owns the VPC endpoint.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         /// </summary>
         [Output("prefixListId")]
-        public Output<string> PrefixListId { get; private set; } = null!;
+        public Output<string?> PrefixListId { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Ec2
         /// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         /// </summary>
         [Output("requesterManaged")]
-        public Output<bool> RequesterManaged { get; private set; } = null!;
+        public Output<bool?> RequesterManaged { get; private set; } = null!;
 
         /// <summary>
         /// One or more route table IDs. Applicable for endpoints of type `Gateway`.
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Ec2
         /// The state of the VPC endpoint.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.

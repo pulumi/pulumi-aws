@@ -52,7 +52,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the policy.
         """
@@ -60,7 +60,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the policy.
         """
@@ -68,7 +68,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -76,12 +76,12 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
         Path to the policy.
         """
@@ -94,7 +94,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> Optional[str]:
         """
         Policy document of the policy.
         """
@@ -102,7 +102,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> str:
+    def policy_id(self) -> Optional[str]:
         """
         Policy's ID.
         """
@@ -110,7 +110,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value mapping of tags for the IAM Policy.
         """

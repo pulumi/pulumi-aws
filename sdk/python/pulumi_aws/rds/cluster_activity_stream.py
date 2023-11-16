@@ -379,7 +379,7 @@ class ClusterActivityStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kinesisStreamName")
-    def kinesis_stream_name(self) -> pulumi.Output[str]:
+    def kinesis_stream_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Amazon Kinesis data stream to be used for the database activity stream.
         """

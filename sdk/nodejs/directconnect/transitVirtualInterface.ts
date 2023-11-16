@@ -67,16 +67,16 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    public readonly amazonAddress!: pulumi.Output<string>;
-    public /*out*/ readonly amazonSideAsn!: pulumi.Output<string>;
+    public readonly amazonAddress!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly amazonSideAsn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the virtual interface.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      */
-    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice!: pulumi.Output<string | undefined>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
@@ -84,7 +84,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
     /**
      * The authentication key for BGP configuration.
      */
-    public readonly bgpAuthKey!: pulumi.Output<string>;
+    public readonly bgpAuthKey!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
@@ -92,7 +92,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    public readonly customerAddress!: pulumi.Output<string>;
+    public readonly customerAddress!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
@@ -100,7 +100,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
     /**
      * Indicates whether jumbo frames (8500 MTU) are supported.
      */
-    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
+    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean | undefined>;
     /**
      * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
      * The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.

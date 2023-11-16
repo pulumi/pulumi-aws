@@ -65,24 +65,24 @@ type LookupReportDefinitionResult struct {
 	// A list of schema elements.
 	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
 	// Preferred format for report.
-	Compression string `pulumi:"compression"`
+	Compression *string `pulumi:"compression"`
 	// Preferred compression format for report.
-	Format string `pulumi:"format"`
+	Format *string `pulumi:"format"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// If true reports are updated after they have been finalized.
-	RefreshClosedReports bool   `pulumi:"refreshClosedReports"`
+	RefreshClosedReports *bool  `pulumi:"refreshClosedReports"`
 	ReportName           string `pulumi:"reportName"`
 	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
-	ReportVersioning string `pulumi:"reportVersioning"`
+	ReportVersioning *string `pulumi:"reportVersioning"`
 	// Name of customer S3 bucket.
-	S3Bucket string `pulumi:"s3Bucket"`
+	S3Bucket *string `pulumi:"s3Bucket"`
 	// Preferred report path prefix.
-	S3Prefix string `pulumi:"s3Prefix"`
+	S3Prefix *string `pulumi:"s3Prefix"`
 	// Region of customer S3 bucket.
-	S3Region string `pulumi:"s3Region"`
+	S3Region *string `pulumi:"s3Region"`
 	// Frequency on which report data are measured and displayed.
-	TimeUnit string `pulumi:"timeUnit"`
+	TimeUnit *string `pulumi:"timeUnit"`
 }
 
 func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupReportDefinitionResultOutput {
@@ -134,23 +134,23 @@ func (o LookupReportDefinitionResultOutput) AdditionalSchemaElements() pulumi.St
 }
 
 // Preferred format for report.
-func (o LookupReportDefinitionResultOutput) Compression() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Compression }).(pulumi.StringOutput)
+func (o LookupReportDefinitionResultOutput) Compression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) *string { return v.Compression }).(pulumi.StringPtrOutput)
 }
 
 // Preferred compression format for report.
-func (o LookupReportDefinitionResultOutput) Format() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Format }).(pulumi.StringOutput)
+func (o LookupReportDefinitionResultOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupReportDefinitionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupReportDefinitionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // If true reports are updated after they have been finalized.
-func (o LookupReportDefinitionResultOutput) RefreshClosedReports() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) bool { return v.RefreshClosedReports }).(pulumi.BoolOutput)
+func (o LookupReportDefinitionResultOutput) RefreshClosedReports() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) *bool { return v.RefreshClosedReports }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupReportDefinitionResultOutput) ReportName() pulumi.StringOutput {
@@ -158,28 +158,28 @@ func (o LookupReportDefinitionResultOutput) ReportName() pulumi.StringOutput {
 }
 
 // Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
-func (o LookupReportDefinitionResultOutput) ReportVersioning() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.ReportVersioning }).(pulumi.StringOutput)
+func (o LookupReportDefinitionResultOutput) ReportVersioning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) *string { return v.ReportVersioning }).(pulumi.StringPtrOutput)
 }
 
 // Name of customer S3 bucket.
-func (o LookupReportDefinitionResultOutput) S3Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Bucket }).(pulumi.StringOutput)
+func (o LookupReportDefinitionResultOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) *string { return v.S3Bucket }).(pulumi.StringPtrOutput)
 }
 
 // Preferred report path prefix.
-func (o LookupReportDefinitionResultOutput) S3Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Prefix }).(pulumi.StringOutput)
+func (o LookupReportDefinitionResultOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) *string { return v.S3Prefix }).(pulumi.StringPtrOutput)
 }
 
 // Region of customer S3 bucket.
-func (o LookupReportDefinitionResultOutput) S3Region() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Region }).(pulumi.StringOutput)
+func (o LookupReportDefinitionResultOutput) S3Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) *string { return v.S3Region }).(pulumi.StringPtrOutput)
 }
 
 // Frequency on which report data are measured and displayed.
-func (o LookupReportDefinitionResultOutput) TimeUnit() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.TimeUnit }).(pulumi.StringOutput)
+func (o LookupReportDefinitionResultOutput) TimeUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) *string { return v.TimeUnit }).(pulumi.StringPtrOutput)
 }
 
 func init() {

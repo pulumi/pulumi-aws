@@ -21,7 +21,7 @@ public final class GetModelsResult {
      * @return AWS region.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of model summary objects. See `model_summaries`.
      * 
@@ -45,8 +45,8 @@ public final class GetModelsResult {
      * @return AWS region.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of model summary objects. See `model_summaries`.
@@ -69,7 +69,7 @@ public final class GetModelsResult {
         private @Nullable String byInferenceType;
         private @Nullable String byOutputModality;
         private @Nullable String byProvider;
-        private String id;
+        private @Nullable String id;
         private @Nullable List<GetModelsModelSummary> modelSummaries;
         public Builder() {}
         public Builder(GetModelsResult defaults) {
@@ -103,8 +103,8 @@ public final class GetModelsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

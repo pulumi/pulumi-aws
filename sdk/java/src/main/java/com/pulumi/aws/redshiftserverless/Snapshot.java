@@ -66,84 +66,84 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accountsWithProvisionedRestoreAccesses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> accountsWithProvisionedRestoreAccesses;
+    private Output</* @Nullable */ List<String>> accountsWithProvisionedRestoreAccesses;
 
     /**
      * @return All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
      * 
      */
-    public Output<List<String>> accountsWithProvisionedRestoreAccesses() {
-        return this.accountsWithProvisionedRestoreAccesses;
+    public Output<Optional<List<String>>> accountsWithProvisionedRestoreAccesses() {
+        return Codegen.optional(this.accountsWithProvisionedRestoreAccesses);
     }
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
      * 
      */
     @Export(name="accountsWithRestoreAccesses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> accountsWithRestoreAccesses;
+    private Output</* @Nullable */ List<String>> accountsWithRestoreAccesses;
 
     /**
      * @return All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
      * 
      */
-    public Output<List<String>> accountsWithRestoreAccesses() {
-        return this.accountsWithRestoreAccesses;
+    public Output<Optional<List<String>>> accountsWithRestoreAccesses() {
+        return Codegen.optional(this.accountsWithRestoreAccesses);
     }
     /**
      * The username of the database within a snapshot.
      * 
      */
     @Export(name="adminUsername", refs={String.class}, tree="[0]")
-    private Output<String> adminUsername;
+    private Output</* @Nullable */ String> adminUsername;
 
     /**
      * @return The username of the database within a snapshot.
      * 
      */
-    public Output<String> adminUsername() {
-        return this.adminUsername;
+    public Output<Optional<String>> adminUsername() {
+        return Codegen.optional(this.adminUsername);
     }
     /**
      * The Amazon Resource Name (ARN) of the snapshot.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the snapshot.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The unique identifier of the KMS key used to encrypt the snapshot.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return The unique identifier of the KMS key used to encrypt the snapshot.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
      * 
      */
     @Export(name="namespaceArn", refs={String.class}, tree="[0]")
-    private Output<String> namespaceArn;
+    private Output</* @Nullable */ String> namespaceArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
      * 
      */
-    public Output<String> namespaceArn() {
-        return this.namespaceArn;
+    public Output<Optional<String>> namespaceArn() {
+        return Codegen.optional(this.namespaceArn);
     }
     /**
      * The namespace to create a snapshot for.
@@ -164,14 +164,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerAccount", refs={String.class}, tree="[0]")
-    private Output<String> ownerAccount;
+    private Output</* @Nullable */ String> ownerAccount;
 
     /**
      * @return The owner Amazon Web Services; account of the snapshot.
      * 
      */
-    public Output<String> ownerAccount() {
-        return this.ownerAccount;
+    public Output<Optional<String>> ownerAccount() {
+        return Codegen.optional(this.ownerAccount);
     }
     /**
      * How long to retain the created snapshot. Default value is `-1`.

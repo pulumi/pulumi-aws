@@ -17,12 +17,12 @@ public final class GetDelegatedAdministratorsResult {
      * @return The list of delegated administrators in your organization, which have the following attributes:
      * 
      */
-    private List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators;
+    private @Nullable List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String servicePrincipal;
 
     private GetDelegatedAdministratorsResult() {}
@@ -31,14 +31,14 @@ public final class GetDelegatedAdministratorsResult {
      * 
      */
     public List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators() {
-        return this.delegatedAdministrators;
+        return this.delegatedAdministrators == null ? List.of() : this.delegatedAdministrators;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> servicePrincipal() {
         return Optional.ofNullable(this.servicePrincipal);
@@ -53,8 +53,8 @@ public final class GetDelegatedAdministratorsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators;
-        private String id;
+        private @Nullable List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators;
+        private @Nullable String id;
         private @Nullable String servicePrincipal;
         public Builder() {}
         public Builder(GetDelegatedAdministratorsResult defaults) {
@@ -65,16 +65,16 @@ public final class GetDelegatedAdministratorsResult {
         }
 
         @CustomType.Setter
-        public Builder delegatedAdministrators(List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators) {
-            this.delegatedAdministrators = Objects.requireNonNull(delegatedAdministrators);
+        public Builder delegatedAdministrators(@Nullable List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators) {
+            this.delegatedAdministrators = delegatedAdministrators;
             return this;
         }
         public Builder delegatedAdministrators(GetDelegatedAdministratorsDelegatedAdministrator... delegatedAdministrators) {
             return delegatedAdministrators(List.of(delegatedAdministrators));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

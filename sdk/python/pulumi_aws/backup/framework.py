@@ -551,7 +551,7 @@ class Framework(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the backup framework.
         """
@@ -567,7 +567,7 @@ class Framework(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         """
@@ -575,7 +575,7 @@ class Framework(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentStatus")
-    def deployment_status(self) -> pulumi.Output[str]:
+    def deployment_status(self) -> pulumi.Output[Optional[str]]:
         """
         The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
         """
@@ -599,7 +599,7 @@ class Framework(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         """

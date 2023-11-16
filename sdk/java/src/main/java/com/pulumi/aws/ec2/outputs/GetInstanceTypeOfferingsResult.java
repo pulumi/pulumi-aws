@@ -18,23 +18,23 @@ public final class GetInstanceTypeOfferingsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of EC2 Instance Types.
      * 
      */
-    private List<String> instanceTypes;
+    private @Nullable List<String> instanceTypes;
     private @Nullable String locationType;
     /**
      * @return List of location types.
      * 
      */
-    private List<String> locationTypes;
+    private @Nullable List<String> locationTypes;
     /**
      * @return List of locations.
      * 
      */
-    private List<String> locations;
+    private @Nullable List<String> locations;
 
     private GetInstanceTypeOfferingsResult() {}
     public List<GetInstanceTypeOfferingsFilter> filters() {
@@ -44,15 +44,15 @@ public final class GetInstanceTypeOfferingsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of EC2 Instance Types.
      * 
      */
     public List<String> instanceTypes() {
-        return this.instanceTypes;
+        return this.instanceTypes == null ? List.of() : this.instanceTypes;
     }
     public Optional<String> locationType() {
         return Optional.ofNullable(this.locationType);
@@ -62,14 +62,14 @@ public final class GetInstanceTypeOfferingsResult {
      * 
      */
     public List<String> locationTypes() {
-        return this.locationTypes;
+        return this.locationTypes == null ? List.of() : this.locationTypes;
     }
     /**
      * @return List of locations.
      * 
      */
     public List<String> locations() {
-        return this.locations;
+        return this.locations == null ? List.of() : this.locations;
     }
 
     public static Builder builder() {
@@ -82,11 +82,11 @@ public final class GetInstanceTypeOfferingsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetInstanceTypeOfferingsFilter> filters;
-        private String id;
-        private List<String> instanceTypes;
+        private @Nullable String id;
+        private @Nullable List<String> instanceTypes;
         private @Nullable String locationType;
-        private List<String> locationTypes;
-        private List<String> locations;
+        private @Nullable List<String> locationTypes;
+        private @Nullable List<String> locations;
         public Builder() {}
         public Builder(GetInstanceTypeOfferingsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -107,13 +107,13 @@ public final class GetInstanceTypeOfferingsResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceTypes(List<String> instanceTypes) {
-            this.instanceTypes = Objects.requireNonNull(instanceTypes);
+        public Builder instanceTypes(@Nullable List<String> instanceTypes) {
+            this.instanceTypes = instanceTypes;
             return this;
         }
         public Builder instanceTypes(String... instanceTypes) {
@@ -125,16 +125,16 @@ public final class GetInstanceTypeOfferingsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder locationTypes(List<String> locationTypes) {
-            this.locationTypes = Objects.requireNonNull(locationTypes);
+        public Builder locationTypes(@Nullable List<String> locationTypes) {
+            this.locationTypes = locationTypes;
             return this;
         }
         public Builder locationTypes(String... locationTypes) {
             return locationTypes(List.of(locationTypes));
         }
         @CustomType.Setter
-        public Builder locations(List<String> locations) {
-            this.locations = Objects.requireNonNull(locations);
+        public Builder locations(@Nullable List<String> locations) {
+            this.locations = locations;
             return this;
         }
         public Builder locations(String... locations) {

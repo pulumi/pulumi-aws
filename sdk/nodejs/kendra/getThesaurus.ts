@@ -57,61 +57,61 @@ export interface GetThesaurusResult {
     /**
      * ARN of the Thesaurus.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Unix datetime that the Thesaurus was created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * Description of the Thesaurus.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * When the `status` field value is `FAILED`, this contains a message that explains why.
      */
-    readonly errorMessage: string;
+    readonly errorMessage?: string;
     /**
      * Size of the Thesaurus file in bytes.
      */
-    readonly fileSizeBytes: number;
+    readonly fileSizeBytes?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly indexId: string;
     /**
      * Name of the Thesaurus.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
-    readonly roleArn: string;
+    readonly roleArn?: string;
     /**
      * S3 location of the Thesaurus input data. Detailed below.
      */
-    readonly sourceS3Paths: outputs.kendra.GetThesaurusSourceS3Path[];
+    readonly sourceS3Paths?: outputs.kendra.GetThesaurusSourceS3Path[];
     /**
      * Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Number of synonym rules in the Thesaurus file.
      */
-    readonly synonymRuleCount: number;
+    readonly synonymRuleCount?: number;
     /**
      * Metadata that helps organize the Thesaurus you create.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4.
      */
-    readonly termCount: number;
+    readonly termCount?: number;
     readonly thesaurusId: string;
     /**
      * Date and time that the Thesaurus was last updated.
      */
-    readonly updatedAt: string;
+    readonly updatedAt?: string;
 }
 /**
  * Provides details about a specific Amazon Kendra Thesaurus.

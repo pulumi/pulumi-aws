@@ -101,7 +101,7 @@ import {RestApi} from "./index";
  *     action: "lambda:InvokeFunction",
  *     "function": lambda.name,
  *     principal: "apigateway.amazonaws.com",
- *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
+ *     sourceArn: pulumi.all([api.id, method.httpMethod, resource.path]).apply(([id, httpMethod, path]) => `arn:aws:execute-api:${myregion}:${accountId}:${id}/*&#47;${httpMethod}${path}`),
  * });
  * ```
  *
@@ -148,7 +148,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Integration's cache namespace.
      */
-    public readonly cacheNamespace!: pulumi.Output<string>;
+    public readonly cacheNamespace!: pulumi.Output<string | undefined>;
     /**
      * ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      */
@@ -181,7 +181,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      */
-    public readonly passthroughBehavior!: pulumi.Output<string>;
+    public readonly passthroughBehavior!: pulumi.Output<string | undefined>;
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`

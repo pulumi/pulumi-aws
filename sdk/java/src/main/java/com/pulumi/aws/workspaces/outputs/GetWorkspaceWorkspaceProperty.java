@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkspaceWorkspaceProperty {
@@ -14,63 +16,63 @@ public final class GetWorkspaceWorkspaceProperty {
      * @return Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
      * 
      */
-    private String computeTypeName;
+    private @Nullable String computeTypeName;
     /**
      * @return Size of the root volume.
      * 
      */
-    private Integer rootVolumeSizeGib;
+    private @Nullable Integer rootVolumeSizeGib;
     /**
      * @return Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
      * 
      */
-    private String runningMode;
+    private @Nullable String runningMode;
     /**
      * @return Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
      * 
      */
-    private Integer runningModeAutoStopTimeoutInMinutes;
+    private @Nullable Integer runningModeAutoStopTimeoutInMinutes;
     /**
      * @return Size of the user storage.
      * 
      */
-    private Integer userVolumeSizeGib;
+    private @Nullable Integer userVolumeSizeGib;
 
     private GetWorkspaceWorkspaceProperty() {}
     /**
      * @return Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
      * 
      */
-    public String computeTypeName() {
-        return this.computeTypeName;
+    public Optional<String> computeTypeName() {
+        return Optional.ofNullable(this.computeTypeName);
     }
     /**
      * @return Size of the root volume.
      * 
      */
-    public Integer rootVolumeSizeGib() {
-        return this.rootVolumeSizeGib;
+    public Optional<Integer> rootVolumeSizeGib() {
+        return Optional.ofNullable(this.rootVolumeSizeGib);
     }
     /**
      * @return Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
      * 
      */
-    public String runningMode() {
-        return this.runningMode;
+    public Optional<String> runningMode() {
+        return Optional.ofNullable(this.runningMode);
     }
     /**
      * @return Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
      * 
      */
-    public Integer runningModeAutoStopTimeoutInMinutes() {
-        return this.runningModeAutoStopTimeoutInMinutes;
+    public Optional<Integer> runningModeAutoStopTimeoutInMinutes() {
+        return Optional.ofNullable(this.runningModeAutoStopTimeoutInMinutes);
     }
     /**
      * @return Size of the user storage.
      * 
      */
-    public Integer userVolumeSizeGib() {
-        return this.userVolumeSizeGib;
+    public Optional<Integer> userVolumeSizeGib() {
+        return Optional.ofNullable(this.userVolumeSizeGib);
     }
 
     public static Builder builder() {
@@ -82,11 +84,11 @@ public final class GetWorkspaceWorkspaceProperty {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String computeTypeName;
-        private Integer rootVolumeSizeGib;
-        private String runningMode;
-        private Integer runningModeAutoStopTimeoutInMinutes;
-        private Integer userVolumeSizeGib;
+        private @Nullable String computeTypeName;
+        private @Nullable Integer rootVolumeSizeGib;
+        private @Nullable String runningMode;
+        private @Nullable Integer runningModeAutoStopTimeoutInMinutes;
+        private @Nullable Integer userVolumeSizeGib;
         public Builder() {}
         public Builder(GetWorkspaceWorkspaceProperty defaults) {
     	      Objects.requireNonNull(defaults);
@@ -98,28 +100,28 @@ public final class GetWorkspaceWorkspaceProperty {
         }
 
         @CustomType.Setter
-        public Builder computeTypeName(String computeTypeName) {
-            this.computeTypeName = Objects.requireNonNull(computeTypeName);
+        public Builder computeTypeName(@Nullable String computeTypeName) {
+            this.computeTypeName = computeTypeName;
             return this;
         }
         @CustomType.Setter
-        public Builder rootVolumeSizeGib(Integer rootVolumeSizeGib) {
-            this.rootVolumeSizeGib = Objects.requireNonNull(rootVolumeSizeGib);
+        public Builder rootVolumeSizeGib(@Nullable Integer rootVolumeSizeGib) {
+            this.rootVolumeSizeGib = rootVolumeSizeGib;
             return this;
         }
         @CustomType.Setter
-        public Builder runningMode(String runningMode) {
-            this.runningMode = Objects.requireNonNull(runningMode);
+        public Builder runningMode(@Nullable String runningMode) {
+            this.runningMode = runningMode;
             return this;
         }
         @CustomType.Setter
-        public Builder runningModeAutoStopTimeoutInMinutes(Integer runningModeAutoStopTimeoutInMinutes) {
-            this.runningModeAutoStopTimeoutInMinutes = Objects.requireNonNull(runningModeAutoStopTimeoutInMinutes);
+        public Builder runningModeAutoStopTimeoutInMinutes(@Nullable Integer runningModeAutoStopTimeoutInMinutes) {
+            this.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
-        public Builder userVolumeSizeGib(Integer userVolumeSizeGib) {
-            this.userVolumeSizeGib = Objects.requireNonNull(userVolumeSizeGib);
+        public Builder userVolumeSizeGib(@Nullable Integer userVolumeSizeGib) {
+            this.userVolumeSizeGib = userVolumeSizeGib;
             return this;
         }
         public GetWorkspaceWorkspaceProperty build() {

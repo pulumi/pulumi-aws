@@ -230,19 +230,19 @@ namespace Pulumi.Aws.Batch
         /// The Amazon Resource Name (ARN) of the compute environment.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("computeEnvironmentName")]
-        public Output<string> ComputeEnvironmentName { get; private set; } = null!;
+        public Output<string?> ComputeEnvironmentName { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         /// </summary>
         [Output("computeEnvironmentNamePrefix")]
-        public Output<string> ComputeEnvironmentNamePrefix { get; private set; } = null!;
+        public Output<string?> ComputeEnvironmentNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Batch
         /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         [Output("ecsClusterArn")]
-        public Output<string> EcsClusterArn { get; private set; } = null!;
+        public Output<string?> EcsClusterArn { get; private set; } = null!;
 
         /// <summary>
         /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Batch
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Output("serviceRole")]
-        public Output<string> ServiceRole { get; private set; } = null!;
+        public Output<string?> ServiceRole { get; private set; } = null!;
 
         /// <summary>
         /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -278,13 +278,13 @@ namespace Pulumi.Aws.Batch
         /// The current status of the compute environment (for example, CREATING or VALID).
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A short, human-readable string to provide additional details about the current status of the compute environment.
         /// </summary>
         [Output("statusReason")]
-        public Output<string> StatusReason { get; private set; } = null!;
+        public Output<string?> StatusReason { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

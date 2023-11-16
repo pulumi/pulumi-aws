@@ -48,13 +48,13 @@ export interface GetInvocationResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly input: string;
     readonly qualifier?: string;
     /**
      * String result of the lambda function invocation.
      */
-    readonly result: string;
+    readonly result?: string;
 }
 /**
  * Use this data source to invoke custom lambda functions as data source.

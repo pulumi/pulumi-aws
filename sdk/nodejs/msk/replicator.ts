@@ -51,8 +51,8 @@ export class Replicator extends pulumi.CustomResource {
     /**
      * ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly currentVersion!: pulumi.Output<string | undefined>;
     /**
      * A summary description of the replicator.
      */

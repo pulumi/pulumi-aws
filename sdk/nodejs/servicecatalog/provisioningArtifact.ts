@@ -74,11 +74,11 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
     /**
      * Time when the provisioning artifact was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
      */
@@ -98,7 +98,7 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
     /**
      * Provisioning artifact identifier.
      */
-    public /*out*/ readonly provisioningArtifactId!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningArtifactId!: pulumi.Output<string | undefined>;
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      */

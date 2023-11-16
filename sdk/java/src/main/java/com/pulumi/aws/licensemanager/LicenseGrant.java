@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -86,28 +87,28 @@ public class LicenseGrant extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The grant ARN.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The home region for the license.
      * 
      */
     @Export(name="homeRegion", refs={String.class}, tree="[0]")
-    private Output<String> homeRegion;
+    private Output</* @Nullable */ String> homeRegion;
 
     /**
      * @return The home region for the license.
      * 
      */
-    public Output<String> homeRegion() {
-        return this.homeRegion;
+    public Output<Optional<String>> homeRegion() {
+        return Codegen.optional(this.homeRegion);
     }
     /**
      * The ARN of the license to grant.
@@ -142,14 +143,14 @@ public class LicenseGrant extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parentArn", refs={String.class}, tree="[0]")
-    private Output<String> parentArn;
+    private Output</* @Nullable */ String> parentArn;
 
     /**
      * @return The parent ARN.
      * 
      */
-    public Output<String> parentArn() {
-        return this.parentArn;
+    public Output<Optional<String>> parentArn() {
+        return Codegen.optional(this.parentArn);
     }
     /**
      * The target account for the grant in the form of the ARN for an account principal of the root user.
@@ -170,28 +171,28 @@ public class LicenseGrant extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The grant status.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * The grant version.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return The grant version.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
 
     /**

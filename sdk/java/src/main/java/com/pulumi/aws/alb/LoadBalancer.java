@@ -136,28 +136,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the load balancer (matches `id`).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ARN suffix for use with CloudWatch Metrics.
      * 
      */
     @Export(name="arnSuffix", refs={String.class}, tree="[0]")
-    private Output<String> arnSuffix;
+    private Output</* @Nullable */ String> arnSuffix;
 
     /**
      * @return The ARN suffix for use with CloudWatch Metrics.
      * 
      */
-    public Output<String> arnSuffix() {
-        return this.arnSuffix;
+    public Output<Optional<String>> arnSuffix() {
+        return Codegen.optional(this.arnSuffix);
     }
     /**
      * The ID of the customer owned ipv4 pool to use for this load balancer.
@@ -192,14 +192,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name of the load balancer.
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
@@ -332,28 +332,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="internal", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> internal;
+    private Output</* @Nullable */ Boolean> internal;
 
     /**
      * @return If true, the LB will be internal. Defaults to `false`.
      * 
      */
-    public Output<Boolean> internal() {
-        return this.internal;
+    public Output<Optional<Boolean>> internal() {
+        return Codegen.optional(this.internal);
     }
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
-    private Output<String> ipAddressType;
+    private Output</* @Nullable */ String> ipAddressType;
 
     /**
      * @return The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
-    public Output<String> ipAddressType() {
-        return this.ipAddressType;
+    public Output<Optional<String>> ipAddressType() {
+        return Codegen.optional(this.ipAddressType);
     }
     /**
      * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
@@ -392,14 +392,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -420,28 +420,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroups;
+    private Output</* @Nullable */ List<String>> securityGroups;
 
     /**
      * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
-    public Output<List<String>> securityGroups() {
-        return this.securityGroups;
+    public Output<Optional<List<String>>> securityGroups() {
+        return Codegen.optional(this.securityGroups);
     }
     /**
      * A subnet mapping block as documented below.
      * 
      */
     @Export(name="subnetMappings", refs={List.class,LoadBalancerSubnetMapping.class}, tree="[0,1]")
-    private Output<List<LoadBalancerSubnetMapping>> subnetMappings;
+    private Output</* @Nullable */ List<LoadBalancerSubnetMapping>> subnetMappings;
 
     /**
      * @return A subnet mapping block as documented below.
      * 
      */
-    public Output<List<LoadBalancerSubnetMapping>> subnetMappings() {
-        return this.subnetMappings;
+    public Output<Optional<List<LoadBalancerSubnetMapping>>> subnetMappings() {
+        return Codegen.optional(this.subnetMappings);
     }
     /**
      * A list of subnet IDs to attach to the LB. Subnets
@@ -450,7 +450,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subnets", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subnets;
+    private Output</* @Nullable */ List<String>> subnets;
 
     /**
      * @return A list of subnet IDs to attach to the LB. Subnets
@@ -458,8 +458,8 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * for load balancers of type `network` will force a recreation of the resource.
      * 
      */
-    public Output<List<String>> subnets() {
-        return this.subnets;
+    public Output<Optional<List<String>>> subnets() {
+        return Codegen.optional(this.subnets);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -494,10 +494,10 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
     /**
      * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
@@ -518,14 +518,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
-    private Output<String> zoneId;
+    private Output</* @Nullable */ String> zoneId;
 
     /**
      * @return The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      * 
      */
-    public Output<String> zoneId() {
-        return this.zoneId;
+    public Output<Optional<String>> zoneId() {
+        return Codegen.optional(this.zoneId);
     }
 
     /**

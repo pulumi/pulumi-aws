@@ -59,19 +59,19 @@ namespace Pulumi.Aws.Iam
         /// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
         /// </summary>
         [Output("encryptedPassword")]
-        public Output<string> EncryptedPassword { get; private set; } = null!;
+        public Output<string?> EncryptedPassword { get; private set; } = null!;
 
         /// <summary>
         /// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
         /// </summary>
         [Output("keyFingerprint")]
-        public Output<string> KeyFingerprint { get; private set; } = null!;
+        public Output<string?> KeyFingerprint { get; private set; } = null!;
 
         /// <summary>
         /// The plain text password, only available when `pgp_key` is not provided.
         /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
         /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Iam
         /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         /// </summary>
         [Output("passwordResetRequired")]
-        public Output<bool> PasswordResetRequired { get; private set; } = null!;
+        public Output<bool?> PasswordResetRequired { get; private set; } = null!;
 
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.

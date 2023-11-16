@@ -339,7 +339,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the profile.
         """
@@ -363,7 +363,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profileId")
-    def profile_id(self) -> pulumi.Output[str]:
+    def profile_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier for the AS2 profile.
         """

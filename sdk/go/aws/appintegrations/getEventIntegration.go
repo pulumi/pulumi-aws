@@ -59,16 +59,16 @@ type GetEventIntegrationArgs struct {
 // A collection of values returned by getEventIntegration.
 type GetEventIntegrationResult struct {
 	// The ARN of the AppIntegrations Event Integration.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The description of the Event Integration.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
 	EventFilters []GetEventIntegrationEventFilter `pulumi:"eventFilters"`
 	// The EventBridge bus.
-	EventbridgeBus string `pulumi:"eventbridgeBus"`
+	EventbridgeBus *string `pulumi:"eventbridgeBus"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -114,13 +114,13 @@ func (o GetEventIntegrationResultOutput) ToGetEventIntegrationResultOutputWithCo
 }
 
 // The ARN of the AppIntegrations Event Integration.
-func (o GetEventIntegrationResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetEventIntegrationResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEventIntegrationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the Event Integration.
-func (o GetEventIntegrationResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetEventIntegrationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEventIntegrationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // A block that defines the configuration information for the event filter. The Event Filter block is documented below.
@@ -129,13 +129,13 @@ func (o GetEventIntegrationResultOutput) EventFilters() GetEventIntegrationEvent
 }
 
 // The EventBridge bus.
-func (o GetEventIntegrationResultOutput) EventbridgeBus() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.EventbridgeBus }).(pulumi.StringOutput)
+func (o GetEventIntegrationResultOutput) EventbridgeBus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEventIntegrationResult) *string { return v.EventbridgeBus }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetEventIntegrationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetEventIntegrationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEventIntegrationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetEventIntegrationResultOutput) Name() pulumi.StringOutput {

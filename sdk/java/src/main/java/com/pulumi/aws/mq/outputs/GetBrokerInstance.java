@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBrokerInstance {
-    private String consoleUrl;
-    private List<String> endpoints;
-    private String ipAddress;
+    private @Nullable String consoleUrl;
+    private @Nullable List<String> endpoints;
+    private @Nullable String ipAddress;
 
     private GetBrokerInstance() {}
-    public String consoleUrl() {
-        return this.consoleUrl;
+    public Optional<String> consoleUrl() {
+        return Optional.ofNullable(this.consoleUrl);
     }
     public List<String> endpoints() {
-        return this.endpoints;
+        return this.endpoints == null ? List.of() : this.endpoints;
     }
-    public String ipAddress() {
-        return this.ipAddress;
+    public Optional<String> ipAddress() {
+        return Optional.ofNullable(this.ipAddress);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetBrokerInstance {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String consoleUrl;
-        private List<String> endpoints;
-        private String ipAddress;
+        private @Nullable String consoleUrl;
+        private @Nullable List<String> endpoints;
+        private @Nullable String ipAddress;
         public Builder() {}
         public Builder(GetBrokerInstance defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,21 +48,21 @@ public final class GetBrokerInstance {
         }
 
         @CustomType.Setter
-        public Builder consoleUrl(String consoleUrl) {
-            this.consoleUrl = Objects.requireNonNull(consoleUrl);
+        public Builder consoleUrl(@Nullable String consoleUrl) {
+            this.consoleUrl = consoleUrl;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoints(List<String> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+        public Builder endpoints(@Nullable List<String> endpoints) {
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(String... endpoints) {
             return endpoints(List.of(endpoints));
         }
         @CustomType.Setter
-        public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+        public Builder ipAddress(@Nullable String ipAddress) {
+            this.ipAddress = ipAddress;
             return this;
         }
         public GetBrokerInstance build() {

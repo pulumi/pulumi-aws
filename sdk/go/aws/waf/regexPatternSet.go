@@ -55,7 +55,7 @@ type RegexPatternSet struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name or description of the Regex Pattern Set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
@@ -216,8 +216,8 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 }
 
 // Amazon Resource Name (ARN)
-func (o RegexPatternSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RegexPatternSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name or description of the Regex Pattern Set.

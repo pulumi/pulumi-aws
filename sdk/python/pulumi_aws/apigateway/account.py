@@ -287,7 +287,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiKeyVersion")
-    def api_key_version(self) -> pulumi.Output[str]:
+    def api_key_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the API keys used for the account.
         """
@@ -303,7 +303,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> pulumi.Output[Sequence[str]]:
+    def features(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of features supported for the account.
         """
@@ -311,7 +311,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="throttleSettings")
-    def throttle_settings(self) -> pulumi.Output[Sequence['outputs.AccountThrottleSetting']]:
+    def throttle_settings(self) -> pulumi.Output[Optional[Sequence['outputs.AccountThrottleSetting']]]:
         """
         Account-Level throttle settings. See exported fields below.
         """

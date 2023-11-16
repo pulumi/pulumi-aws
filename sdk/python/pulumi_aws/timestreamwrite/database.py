@@ -346,7 +346,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN that uniquely identifies this database.
         """
@@ -362,7 +362,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
         """
@@ -370,7 +370,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableCount")
-    def table_count(self) -> pulumi.Output[int]:
+    def table_count(self) -> pulumi.Output[Optional[int]]:
         """
         The total number of tables found within the Timestream database.
         """

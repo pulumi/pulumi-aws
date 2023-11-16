@@ -6,6 +6,8 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRegexPatternSetRegularExpression {
@@ -13,15 +15,15 @@ public final class GetRegexPatternSetRegularExpression {
      * @return (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
      * 
      */
-    private String regexString;
+    private @Nullable String regexString;
 
     private GetRegexPatternSetRegularExpression() {}
     /**
      * @return (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
      * 
      */
-    public String regexString() {
-        return this.regexString;
+    public Optional<String> regexString() {
+        return Optional.ofNullable(this.regexString);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetRegexPatternSetRegularExpression {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String regexString;
+        private @Nullable String regexString;
         public Builder() {}
         public Builder(GetRegexPatternSetRegularExpression defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetRegexPatternSetRegularExpression {
         }
 
         @CustomType.Setter
-        public Builder regexString(String regexString) {
-            this.regexString = Objects.requireNonNull(regexString);
+        public Builder regexString(@Nullable String regexString) {
+            this.regexString = regexString;
             return this;
         }
         public GetRegexPatternSetRegularExpression build() {

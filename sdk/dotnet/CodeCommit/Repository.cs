@@ -46,19 +46,19 @@ namespace Pulumi.Aws.CodeCommit
         /// The ARN of the repository
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The URL to use for cloning the repository over HTTPS.
         /// </summary>
         [Output("cloneUrlHttp")]
-        public Output<string> CloneUrlHttp { get; private set; } = null!;
+        public Output<string?> CloneUrlHttp { get; private set; } = null!;
 
         /// <summary>
         /// The URL to use for cloning the repository over SSH.
         /// </summary>
         [Output("cloneUrlSsh")]
-        public Output<string> CloneUrlSsh { get; private set; } = null!;
+        public Output<string?> CloneUrlSsh { get; private set; } = null!;
 
         /// <summary>
         /// The default branch of the repository. The branch specified here needs to exist.
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CodeCommit
         /// The ID of the repository
         /// </summary>
         [Output("repositoryId")]
-        public Output<string> RepositoryId { get; private set; } = null!;
+        public Output<string?> RepositoryId { get; private set; } = null!;
 
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.

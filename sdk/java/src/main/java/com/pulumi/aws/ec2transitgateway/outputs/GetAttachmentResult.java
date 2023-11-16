@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,81 +18,81 @@ public final class GetAttachmentResult {
      * @return ARN of the attachment.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
      * 
      */
-    private String associationState;
+    private @Nullable String associationState;
     /**
      * @return The ID of the route table for the transit gateway.
      * 
      */
-    private String associationTransitGatewayRouteTableId;
+    private @Nullable String associationTransitGatewayRouteTableId;
     private @Nullable List<GetAttachmentFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ID of the resource.
      * 
      */
-    private String resourceId;
+    private @Nullable String resourceId;
     /**
      * @return ID of the AWS account that owns the resource.
      * 
      */
-    private String resourceOwnerId;
+    private @Nullable String resourceOwnerId;
     /**
      * @return Resource type.
      * 
      */
-    private String resourceType;
+    private @Nullable String resourceType;
     /**
      * @return Attachment state.
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return Key-value tags for the attachment.
      * 
      */
-    private Map<String,String> tags;
-    private String transitGatewayAttachmentId;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String transitGatewayAttachmentId;
     /**
      * @return ID of the transit gateway.
      * 
      */
-    private String transitGatewayId;
+    private @Nullable String transitGatewayId;
     /**
      * @return The ID of the AWS account that owns the transit gateway.
      * 
      */
-    private String transitGatewayOwnerId;
+    private @Nullable String transitGatewayOwnerId;
 
     private GetAttachmentResult() {}
     /**
      * @return ARN of the attachment.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
      * 
      */
-    public String associationState() {
-        return this.associationState;
+    public Optional<String> associationState() {
+        return Optional.ofNullable(this.associationState);
     }
     /**
      * @return The ID of the route table for the transit gateway.
      * 
      */
-    public String associationTransitGatewayRouteTableId() {
-        return this.associationTransitGatewayRouteTableId;
+    public Optional<String> associationTransitGatewayRouteTableId() {
+        return Optional.ofNullable(this.associationTransitGatewayRouteTableId);
     }
     public List<GetAttachmentFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -100,60 +101,60 @@ public final class GetAttachmentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ID of the resource.
      * 
      */
-    public String resourceId() {
-        return this.resourceId;
+    public Optional<String> resourceId() {
+        return Optional.ofNullable(this.resourceId);
     }
     /**
      * @return ID of the AWS account that owns the resource.
      * 
      */
-    public String resourceOwnerId() {
-        return this.resourceOwnerId;
+    public Optional<String> resourceOwnerId() {
+        return Optional.ofNullable(this.resourceOwnerId);
     }
     /**
      * @return Resource type.
      * 
      */
-    public String resourceType() {
-        return this.resourceType;
+    public Optional<String> resourceType() {
+        return Optional.ofNullable(this.resourceType);
     }
     /**
      * @return Attachment state.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return Key-value tags for the attachment.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String transitGatewayAttachmentId() {
-        return this.transitGatewayAttachmentId;
+    public Optional<String> transitGatewayAttachmentId() {
+        return Optional.ofNullable(this.transitGatewayAttachmentId);
     }
     /**
      * @return ID of the transit gateway.
      * 
      */
-    public String transitGatewayId() {
-        return this.transitGatewayId;
+    public Optional<String> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
     }
     /**
      * @return The ID of the AWS account that owns the transit gateway.
      * 
      */
-    public String transitGatewayOwnerId() {
-        return this.transitGatewayOwnerId;
+    public Optional<String> transitGatewayOwnerId() {
+        return Optional.ofNullable(this.transitGatewayOwnerId);
     }
 
     public static Builder builder() {
@@ -165,19 +166,19 @@ public final class GetAttachmentResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String associationState;
-        private String associationTransitGatewayRouteTableId;
+        private @Nullable String arn;
+        private @Nullable String associationState;
+        private @Nullable String associationTransitGatewayRouteTableId;
         private @Nullable List<GetAttachmentFilter> filters;
-        private String id;
-        private String resourceId;
-        private String resourceOwnerId;
-        private String resourceType;
-        private String state;
-        private Map<String,String> tags;
-        private String transitGatewayAttachmentId;
-        private String transitGatewayId;
-        private String transitGatewayOwnerId;
+        private @Nullable String id;
+        private @Nullable String resourceId;
+        private @Nullable String resourceOwnerId;
+        private @Nullable String resourceType;
+        private @Nullable String state;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String transitGatewayAttachmentId;
+        private @Nullable String transitGatewayId;
+        private @Nullable String transitGatewayOwnerId;
         public Builder() {}
         public Builder(GetAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -197,18 +198,18 @@ public final class GetAttachmentResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder associationState(String associationState) {
-            this.associationState = Objects.requireNonNull(associationState);
+        public Builder associationState(@Nullable String associationState) {
+            this.associationState = associationState;
             return this;
         }
         @CustomType.Setter
-        public Builder associationTransitGatewayRouteTableId(String associationTransitGatewayRouteTableId) {
-            this.associationTransitGatewayRouteTableId = Objects.requireNonNull(associationTransitGatewayRouteTableId);
+        public Builder associationTransitGatewayRouteTableId(@Nullable String associationTransitGatewayRouteTableId) {
+            this.associationTransitGatewayRouteTableId = associationTransitGatewayRouteTableId;
             return this;
         }
         @CustomType.Setter
@@ -220,48 +221,48 @@ public final class GetAttachmentResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+        public Builder resourceId(@Nullable String resourceId) {
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
-        public Builder resourceOwnerId(String resourceOwnerId) {
-            this.resourceOwnerId = Objects.requireNonNull(resourceOwnerId);
+        public Builder resourceOwnerId(@Nullable String resourceOwnerId) {
+            this.resourceOwnerId = resourceOwnerId;
             return this;
         }
         @CustomType.Setter
-        public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+        public Builder resourceType(@Nullable String resourceType) {
+            this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
-            this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
+        public Builder transitGatewayAttachmentId(@Nullable String transitGatewayAttachmentId) {
+            this.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+        public Builder transitGatewayId(@Nullable String transitGatewayId) {
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayOwnerId(String transitGatewayOwnerId) {
-            this.transitGatewayOwnerId = Objects.requireNonNull(transitGatewayOwnerId);
+        public Builder transitGatewayOwnerId(@Nullable String transitGatewayOwnerId) {
+            this.transitGatewayOwnerId = transitGatewayOwnerId;
             return this;
         }
         public GetAttachmentResult build() {

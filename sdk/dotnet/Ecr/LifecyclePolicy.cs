@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ecr
         /// The registry ID where the repository was created.
         /// </summary>
         [Output("registryId")]
-        public Output<string> RegistryId { get; private set; } = null!;
+        public Output<string?> RegistryId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the repository to apply the policy.

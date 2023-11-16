@@ -95,13 +95,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         /// </summary>
         [Output("apiMappingSelectionExpression")]
-        public Output<string> ApiMappingSelectionExpression { get; private set; } = null!;
+        public Output<string?> ApiMappingSelectionExpression { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the domain name.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Domain name. Must be between 1 and 512 characters in length.

@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResourcesResourceTagMappingList {
@@ -16,17 +18,17 @@ public final class GetResourcesResourceTagMappingList {
      * @return List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
      * 
      */
-    private List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails;
+    private @Nullable List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails;
     /**
      * @return ARN of the resource.
      * 
      */
-    private String resourceArn;
+    private @Nullable String resourceArn;
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetResourcesResourceTagMappingList() {}
     /**
@@ -34,21 +36,21 @@ public final class GetResourcesResourceTagMappingList {
      * 
      */
     public List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails() {
-        return this.complianceDetails;
+        return this.complianceDetails == null ? List.of() : this.complianceDetails;
     }
     /**
      * @return ARN of the resource.
      * 
      */
-    public String resourceArn() {
-        return this.resourceArn;
+    public Optional<String> resourceArn() {
+        return Optional.ofNullable(this.resourceArn);
     }
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -60,9 +62,9 @@ public final class GetResourcesResourceTagMappingList {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails;
-        private String resourceArn;
-        private Map<String,String> tags;
+        private @Nullable List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails;
+        private @Nullable String resourceArn;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetResourcesResourceTagMappingList defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,21 +74,21 @@ public final class GetResourcesResourceTagMappingList {
         }
 
         @CustomType.Setter
-        public Builder complianceDetails(List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails) {
-            this.complianceDetails = Objects.requireNonNull(complianceDetails);
+        public Builder complianceDetails(@Nullable List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails) {
+            this.complianceDetails = complianceDetails;
             return this;
         }
         public Builder complianceDetails(GetResourcesResourceTagMappingListComplianceDetail... complianceDetails) {
             return complianceDetails(List.of(complianceDetails));
         }
         @CustomType.Setter
-        public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+        public Builder resourceArn(@Nullable String resourceArn) {
+            this.resourceArn = resourceArn;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetResourcesResourceTagMappingList build() {

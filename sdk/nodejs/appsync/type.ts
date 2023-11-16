@@ -70,7 +70,7 @@ export class Type extends pulumi.CustomResource {
     /**
      * The ARN of the type.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The type definition.
      */
@@ -78,7 +78,7 @@ export class Type extends pulumi.CustomResource {
     /**
      * The type description.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * The type format: `SDL` or `JSON`.
      */
@@ -86,7 +86,7 @@ export class Type extends pulumi.CustomResource {
     /**
      * The type name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Type resource with the given unique name, arguments, and options.

@@ -49,28 +49,28 @@ export interface GetIntentResult {
     /**
      * ARN of the Lex intent.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Checksum identifying the version of the intent that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the intent.
      */
-    readonly checksum: string;
+    readonly checksum?: string;
     /**
      * Date when the intent version was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Description of the intent.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Date when the $LATEST version of this intent was updated.
      */
-    readonly lastUpdatedDate: string;
+    readonly lastUpdatedDate?: string;
     /**
      * Name of the intent, not case sensitive.
      */
@@ -81,7 +81,7 @@ export interface GetIntentResult {
      * [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
      * in the Alexa Skills Kit.
      */
-    readonly parentIntentSignature: string;
+    readonly parentIntentSignature?: string;
     /**
      * Version of the bot.
      */

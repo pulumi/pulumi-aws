@@ -93,17 +93,17 @@ type LookupQuickConnectArgs struct {
 // A collection of values returned by getQuickConnect.
 type LookupQuickConnectResult struct {
 	// ARN of the Quick Connect.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the Quick Connect.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	Name       string `pulumi:"name"`
+	Id         *string `pulumi:"id"`
+	InstanceId string  `pulumi:"instanceId"`
+	Name       *string `pulumi:"name"`
 	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
 	QuickConnectConfigs []GetQuickConnectQuickConnectConfig `pulumi:"quickConnectConfigs"`
 	// Identifier for the Quick Connect.
-	QuickConnectId string `pulumi:"quickConnectId"`
+	QuickConnectId *string `pulumi:"quickConnectId"`
 	// Map of tags to assign to the Quick Connect.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -153,26 +153,26 @@ func (o LookupQuickConnectResultOutput) ToLookupQuickConnectResultOutputWithCont
 }
 
 // ARN of the Quick Connect.
-func (o LookupQuickConnectResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupQuickConnectResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQuickConnectResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Quick Connect.
-func (o LookupQuickConnectResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupQuickConnectResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQuickConnectResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupQuickConnectResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupQuickConnectResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQuickConnectResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupQuickConnectResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-func (o LookupQuickConnectResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupQuickConnectResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQuickConnectResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
@@ -181,8 +181,8 @@ func (o LookupQuickConnectResultOutput) QuickConnectConfigs() GetQuickConnectQui
 }
 
 // Identifier for the Quick Connect.
-func (o LookupQuickConnectResultOutput) QuickConnectId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.QuickConnectId }).(pulumi.StringOutput)
+func (o LookupQuickConnectResultOutput) QuickConnectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQuickConnectResult) *string { return v.QuickConnectId }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the Quick Connect.

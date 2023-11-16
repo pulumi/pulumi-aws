@@ -100,7 +100,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The ARN of the service.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the service.
      */
@@ -128,7 +128,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The ID of the namespace that you want to use to create the service.
      */
-    public readonly namespaceId!: pulumi.Output<string>;
+    public readonly namespaceId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -142,7 +142,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.

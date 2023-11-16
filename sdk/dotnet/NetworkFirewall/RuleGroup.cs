@@ -229,7 +229,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// The Amazon Resource Name (ARN) that identifies the rule group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         /// </summary>
         [Output("ruleGroup")]
-        public Output<Outputs.RuleGroupRuleGroup> RuleGroupConfiguration { get; private set; } = null!;
+        public Output<Outputs.RuleGroupRuleGroup?> RuleGroupConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// A string token used when updating the rule group.
         /// </summary>
         [Output("updateToken")]
-        public Output<string> UpdateToken { get; private set; } = null!;
+        public Output<string?> UpdateToken { get; private set; } = null!;
 
 
         /// <summary>

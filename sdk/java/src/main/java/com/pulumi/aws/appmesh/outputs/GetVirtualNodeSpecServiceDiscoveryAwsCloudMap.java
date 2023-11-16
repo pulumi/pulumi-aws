@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecServiceDiscoveryAwsCloudMap {
-    private Map<String,String> attributes;
-    private String namespaceName;
-    private String serviceName;
+    private @Nullable Map<String,String> attributes;
+    private @Nullable String namespaceName;
+    private @Nullable String serviceName;
 
     private GetVirtualNodeSpecServiceDiscoveryAwsCloudMap() {}
     public Map<String,String> attributes() {
-        return this.attributes;
+        return this.attributes == null ? Map.of() : this.attributes;
     }
-    public String namespaceName() {
-        return this.namespaceName;
+    public Optional<String> namespaceName() {
+        return Optional.ofNullable(this.namespaceName);
     }
-    public String serviceName() {
-        return this.serviceName;
+    public Optional<String> serviceName() {
+        return Optional.ofNullable(this.serviceName);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetVirtualNodeSpecServiceDiscoveryAwsCloudMap {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,String> attributes;
-        private String namespaceName;
-        private String serviceName;
+        private @Nullable Map<String,String> attributes;
+        private @Nullable String namespaceName;
+        private @Nullable String serviceName;
         public Builder() {}
         public Builder(GetVirtualNodeSpecServiceDiscoveryAwsCloudMap defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetVirtualNodeSpecServiceDiscoveryAwsCloudMap {
         }
 
         @CustomType.Setter
-        public Builder attributes(Map<String,String> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+        public Builder attributes(@Nullable Map<String,String> attributes) {
+            this.attributes = attributes;
             return this;
         }
         @CustomType.Setter
-        public Builder namespaceName(String namespaceName) {
-            this.namespaceName = Objects.requireNonNull(namespaceName);
+        public Builder namespaceName(@Nullable String namespaceName) {
+            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+        public Builder serviceName(@Nullable String serviceName) {
+            this.serviceName = serviceName;
             return this;
         }
         public GetVirtualNodeSpecServiceDiscoveryAwsCloudMap build() {

@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionTracingConfigResult
     {
-        public readonly string Mode;
+        public readonly string? Mode;
 
         [OutputConstructor]
-        private GetFunctionTracingConfigResult(string mode)
+        private GetFunctionTracingConfigResult(string? mode)
         {
             Mode = mode;
         }

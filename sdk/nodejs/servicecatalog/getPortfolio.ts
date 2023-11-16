@@ -56,28 +56,28 @@ export interface GetPortfolioResult {
     /**
      * Portfolio ARN.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Time the portfolio was created.
      */
-    readonly createdTime: string;
+    readonly createdTime?: string;
     /**
      * Description of the portfolio
      */
-    readonly description: string;
+    readonly description?: string;
     readonly id: string;
     /**
      * Portfolio name.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * Name of the person or organization who owns the portfolio.
      */
-    readonly providerName: string;
+    readonly providerName?: string;
     /**
      * Tags applied to the portfolio.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides information for a Service Catalog Portfolio.

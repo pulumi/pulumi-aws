@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetHoursOfOperationResult {
@@ -16,27 +18,27 @@ public final class GetHoursOfOperationResult {
      * @return ARN of the Hours of Operation.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
      * 
      */
-    private List<GetHoursOfOperationConfig> configs;
+    private @Nullable List<GetHoursOfOperationConfig> configs;
     /**
      * @return Description of the Hours of Operation.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The identifier for the hours of operation.
      * 
      */
-    private String hoursOfOperationId;
+    private @Nullable String hoursOfOperationId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Identifier of the hosting Amazon Connect Instance.
      * 
@@ -46,53 +48,53 @@ public final class GetHoursOfOperationResult {
      * @return Name of the Hours of Operation.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Map of tags to assign to the Hours of Operation.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Time zone of the Hours of Operation.
      * 
      */
-    private String timeZone;
+    private @Nullable String timeZone;
 
     private GetHoursOfOperationResult() {}
     /**
      * @return ARN of the Hours of Operation.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
      * 
      */
     public List<GetHoursOfOperationConfig> configs() {
-        return this.configs;
+        return this.configs == null ? List.of() : this.configs;
     }
     /**
      * @return Description of the Hours of Operation.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The identifier for the hours of operation.
      * 
      */
-    public String hoursOfOperationId() {
-        return this.hoursOfOperationId;
+    public Optional<String> hoursOfOperationId() {
+        return Optional.ofNullable(this.hoursOfOperationId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Identifier of the hosting Amazon Connect Instance.
@@ -105,22 +107,22 @@ public final class GetHoursOfOperationResult {
      * @return Name of the Hours of Operation.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Map of tags to assign to the Hours of Operation.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Time zone of the Hours of Operation.
      * 
      */
-    public String timeZone() {
-        return this.timeZone;
+    public Optional<String> timeZone() {
+        return Optional.ofNullable(this.timeZone);
     }
 
     public static Builder builder() {
@@ -132,15 +134,15 @@ public final class GetHoursOfOperationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetHoursOfOperationConfig> configs;
-        private String description;
-        private String hoursOfOperationId;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable List<GetHoursOfOperationConfig> configs;
+        private @Nullable String description;
+        private @Nullable String hoursOfOperationId;
+        private @Nullable String id;
         private String instanceId;
-        private String name;
-        private Map<String,String> tags;
-        private String timeZone;
+        private @Nullable String name;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String timeZone;
         public Builder() {}
         public Builder(GetHoursOfOperationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -156,31 +158,31 @@ public final class GetHoursOfOperationResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder configs(List<GetHoursOfOperationConfig> configs) {
-            this.configs = Objects.requireNonNull(configs);
+        public Builder configs(@Nullable List<GetHoursOfOperationConfig> configs) {
+            this.configs = configs;
             return this;
         }
         public Builder configs(GetHoursOfOperationConfig... configs) {
             return configs(List.of(configs));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder hoursOfOperationId(String hoursOfOperationId) {
-            this.hoursOfOperationId = Objects.requireNonNull(hoursOfOperationId);
+        public Builder hoursOfOperationId(@Nullable String hoursOfOperationId) {
+            this.hoursOfOperationId = hoursOfOperationId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -189,18 +191,18 @@ public final class GetHoursOfOperationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+        public Builder timeZone(@Nullable String timeZone) {
+            this.timeZone = timeZone;
             return this;
         }
         public GetHoursOfOperationResult build() {

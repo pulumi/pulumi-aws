@@ -6,6 +6,8 @@ package com.pulumi.aws.iam.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountAliasResult {
@@ -13,27 +15,27 @@ public final class GetAccountAliasResult {
      * @return Alias associated with the AWS account.
      * 
      */
-    private String accountAlias;
+    private @Nullable String accountAlias;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetAccountAliasResult() {}
     /**
      * @return Alias associated with the AWS account.
      * 
      */
-    public String accountAlias() {
-        return this.accountAlias;
+    public Optional<String> accountAlias() {
+        return Optional.ofNullable(this.accountAlias);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetAccountAliasResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountAlias;
-        private String id;
+        private @Nullable String accountAlias;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetAccountAliasResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetAccountAliasResult {
         }
 
         @CustomType.Setter
-        public Builder accountAlias(String accountAlias) {
-            this.accountAlias = Objects.requireNonNull(accountAlias);
+        public Builder accountAlias(@Nullable String accountAlias) {
+            this.accountAlias = accountAlias;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetAccountAliasResult build() {

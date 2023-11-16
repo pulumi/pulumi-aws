@@ -67,7 +67,7 @@ export class VirtualCluster extends pulumi.CustomResource {
     /**
      * ARN of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the container provider associated with your cluster.
      */

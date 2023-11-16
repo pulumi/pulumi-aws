@@ -56,7 +56,7 @@ type Connection struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID of the second device in the connection.
 	ConnectedDeviceId pulumi.StringOutput `pulumi:"connectedDeviceId"`
 	// The ID of the link for the second device.
@@ -292,8 +292,8 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 }
 
 // The Amazon Resource Name (ARN) of the connection.
-func (o ConnectionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConnectionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the second device in the connection.

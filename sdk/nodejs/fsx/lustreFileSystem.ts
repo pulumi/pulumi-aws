@@ -65,15 +65,15 @@ export class LustreFileSystem extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
      */
-    public readonly autoImportPolicy!: pulumi.Output<string>;
+    public readonly autoImportPolicy!: pulumi.Output<string | undefined>;
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      */
-    public readonly automaticBackupRetentionDays!: pulumi.Output<number>;
+    public readonly automaticBackupRetentionDays!: pulumi.Output<number | undefined>;
     /**
      * The ID of the source backup to create the filesystem from.
      */
@@ -85,7 +85,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      */
-    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
+    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string | undefined>;
     /**
      * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
      */
@@ -97,7 +97,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      */
@@ -105,11 +105,11 @@ export class LustreFileSystem extends pulumi.CustomResource {
     /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      */
-    public readonly exportPath!: pulumi.Output<string>;
+    public readonly exportPath!: pulumi.Output<string | undefined>;
     /**
      * Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
      */
-    public readonly fileSystemTypeVersion!: pulumi.Output<string>;
+    public readonly fileSystemTypeVersion!: pulumi.Output<string | undefined>;
     /**
      * S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
      */
@@ -117,27 +117,27 @@ export class LustreFileSystem extends pulumi.CustomResource {
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
      */
-    public readonly importedFileChunkSize!: pulumi.Output<number>;
+    public readonly importedFileChunkSize!: pulumi.Output<number | undefined>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemLogConfiguration>;
+    public readonly logConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemLogConfiguration | undefined>;
     /**
      * The value to be used when mounting the filesystem.
      */
-    public /*out*/ readonly mountName!: pulumi.Output<string>;
+    public /*out*/ readonly mountName!: pulumi.Output<string | undefined>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[] | undefined>;
     /**
      * AWS account identifier that created the file system.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and ` SSD` storageType are 125, 250, 500, 1000.
      */
@@ -175,11 +175,11 @@ export class LustreFileSystem extends pulumi.CustomResource {
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string>;
+    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LustreFileSystem resource with the given unique name, arguments, and options.

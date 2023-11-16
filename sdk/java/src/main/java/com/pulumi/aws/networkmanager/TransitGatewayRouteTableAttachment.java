@@ -67,98 +67,98 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Attachment Amazon Resource Name (ARN).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The policy rule number associated with the attachment.
      * 
      */
     @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
-    private Output<Integer> attachmentPolicyRuleNumber;
+    private Output</* @Nullable */ Integer> attachmentPolicyRuleNumber;
 
     /**
      * @return The policy rule number associated with the attachment.
      * 
      */
-    public Output<Integer> attachmentPolicyRuleNumber() {
-        return this.attachmentPolicyRuleNumber;
+    public Output<Optional<Integer>> attachmentPolicyRuleNumber() {
+        return Codegen.optional(this.attachmentPolicyRuleNumber);
     }
     /**
      * The type of attachment.
      * 
      */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
-    private Output<String> attachmentType;
+    private Output</* @Nullable */ String> attachmentType;
 
     /**
      * @return The type of attachment.
      * 
      */
-    public Output<String> attachmentType() {
-        return this.attachmentType;
+    public Output<Optional<String>> attachmentType() {
+        return Codegen.optional(this.attachmentType);
     }
     /**
      * The ARN of the core network.
      * 
      */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
-    private Output<String> coreNetworkArn;
+    private Output</* @Nullable */ String> coreNetworkArn;
 
     /**
      * @return The ARN of the core network.
      * 
      */
-    public Output<String> coreNetworkArn() {
-        return this.coreNetworkArn;
+    public Output<Optional<String>> coreNetworkArn() {
+        return Codegen.optional(this.coreNetworkArn);
     }
     /**
      * The ID of the core network.
      * 
      */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
-    private Output<String> coreNetworkId;
+    private Output</* @Nullable */ String> coreNetworkId;
 
     /**
      * @return The ID of the core network.
      * 
      */
-    public Output<String> coreNetworkId() {
-        return this.coreNetworkId;
+    public Output<Optional<String>> coreNetworkId() {
+        return Codegen.optional(this.coreNetworkId);
     }
     /**
      * The edge location for the peer.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
-    private Output<String> edgeLocation;
+    private Output</* @Nullable */ String> edgeLocation;
 
     /**
      * @return The edge location for the peer.
      * 
      */
-    public Output<String> edgeLocation() {
-        return this.edgeLocation;
+    public Output<Optional<String>> edgeLocation() {
+        return Codegen.optional(this.edgeLocation);
     }
     /**
      * The ID of the attachment account owner.
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> ownerAccountId;
+    private Output</* @Nullable */ String> ownerAccountId;
 
     /**
      * @return The ID of the attachment account owner.
      * 
      */
-    public Output<String> ownerAccountId() {
-        return this.ownerAccountId;
+    public Output<Optional<String>> ownerAccountId() {
+        return Codegen.optional(this.ownerAccountId);
     }
     /**
      * The ID of the peer for the attachment.
@@ -179,42 +179,42 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
-    private Output<String> resourceArn;
+    private Output</* @Nullable */ String> resourceArn;
 
     /**
      * @return The attachment resource ARN.
      * 
      */
-    public Output<String> resourceArn() {
-        return this.resourceArn;
+    public Output<Optional<String>> resourceArn() {
+        return Codegen.optional(this.resourceArn);
     }
     /**
      * The name of the segment attachment.
      * 
      */
     @Export(name="segmentName", refs={String.class}, tree="[0]")
-    private Output<String> segmentName;
+    private Output</* @Nullable */ String> segmentName;
 
     /**
      * @return The name of the segment attachment.
      * 
      */
-    public Output<String> segmentName() {
-        return this.segmentName;
+    public Output<Optional<String>> segmentName() {
+        return Codegen.optional(this.segmentName);
     }
     /**
      * The state of the attachment.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The state of the attachment.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

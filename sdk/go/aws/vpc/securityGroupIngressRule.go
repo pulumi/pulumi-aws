@@ -64,7 +64,7 @@ type SecurityGroupIngressRule struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the security group rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The source IPv4 CIDR range.
 	CidrIpv4 pulumi.StringPtrOutput `pulumi:"cidrIpv4"`
 	// The source IPv6 CIDR range.
@@ -82,7 +82,7 @@ type SecurityGroupIngressRule struct {
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// The ID of the security group rule.
-	SecurityGroupRuleId pulumi.StringOutput `pulumi:"securityGroupRuleId"`
+	SecurityGroupRuleId pulumi.StringPtrOutput `pulumi:"securityGroupRuleId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -333,8 +333,8 @@ func (o SecurityGroupIngressRuleOutput) ToSecurityGroupIngressRuleOutputWithCont
 }
 
 // The Amazon Resource Name (ARN) of the security group rule.
-func (o SecurityGroupIngressRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SecurityGroupIngressRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The source IPv4 CIDR range.
@@ -378,8 +378,8 @@ func (o SecurityGroupIngressRuleOutput) SecurityGroupId() pulumi.StringOutput {
 }
 
 // The ID of the security group rule.
-func (o SecurityGroupIngressRuleOutput) SecurityGroupRuleId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.StringOutput { return v.SecurityGroupRuleId }).(pulumi.StringOutput)
+func (o SecurityGroupIngressRuleOutput) SecurityGroupRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.StringPtrOutput { return v.SecurityGroupRuleId }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

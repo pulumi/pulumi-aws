@@ -6,26 +6,28 @@ package com.pulumi.aws.servicequotas.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceQuotaUsageMetricMetricDimension {
-    private String class_;
-    private String resource;
-    private String service;
-    private String type;
+    private @Nullable String class_;
+    private @Nullable String resource;
+    private @Nullable String service;
+    private @Nullable String type;
 
     private GetServiceQuotaUsageMetricMetricDimension() {}
-    public String class_() {
-        return this.class_;
+    public Optional<String> class_() {
+        return Optional.ofNullable(this.class_);
     }
-    public String resource() {
-        return this.resource;
+    public Optional<String> resource() {
+        return Optional.ofNullable(this.resource);
     }
-    public String service() {
-        return this.service;
+    public Optional<String> service() {
+        return Optional.ofNullable(this.service);
     }
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -37,10 +39,10 @@ public final class GetServiceQuotaUsageMetricMetricDimension {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String class_;
-        private String resource;
-        private String service;
-        private String type;
+        private @Nullable String class_;
+        private @Nullable String resource;
+        private @Nullable String service;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetServiceQuotaUsageMetricMetricDimension defaults) {
     	      Objects.requireNonNull(defaults);
@@ -51,23 +53,23 @@ public final class GetServiceQuotaUsageMetricMetricDimension {
         }
 
         @CustomType.Setter("class")
-        public Builder class_(String class_) {
-            this.class_ = Objects.requireNonNull(class_);
+        public Builder class_(@Nullable String class_) {
+            this.class_ = class_;
             return this;
         }
         @CustomType.Setter
-        public Builder resource(String resource) {
-            this.resource = Objects.requireNonNull(resource);
+        public Builder resource(@Nullable String resource) {
+            this.resource = resource;
             return this;
         }
         @CustomType.Setter
-        public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+        public Builder service(@Nullable String service) {
+            this.service = service;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetServiceQuotaUsageMetricMetricDimension build() {

@@ -142,7 +142,7 @@ type PartitionIndex struct {
 	pulumi.CustomResourceState
 
 	// The catalog ID where the table resides.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Configuration block for a partition index. See `partitionIndex` below.
@@ -326,8 +326,8 @@ func (o PartitionIndexOutput) ToPartitionIndexOutputWithContext(ctx context.Cont
 }
 
 // The catalog ID where the table resides.
-func (o PartitionIndexOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v *PartitionIndex) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+func (o PartitionIndexOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionIndex) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.

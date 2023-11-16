@@ -137,31 +137,31 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Date the image recipe was created.
         /// </summary>
-        public readonly string DateCreated;
+        public readonly string? DateCreated;
         /// <summary>
         /// Description of the image recipe.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the image recipe.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Owner of the image recipe.
         /// </summary>
-        public readonly string Owner;
+        public readonly string? Owner;
         /// <summary>
         /// Base image of the image recipe.
         /// </summary>
-        public readonly string ParentImage;
+        public readonly string? ParentImage;
         /// <summary>
         /// Platform of the image recipe.
         /// </summary>
-        public readonly string Platform;
+        public readonly string? Platform;
         /// <summary>
         /// Key-value map of resource tags for the image recipe.
         /// </summary>
@@ -169,15 +169,15 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
         /// </summary>
-        public readonly string UserDataBase64;
+        public readonly string? UserDataBase64;
         /// <summary>
         /// Version of the image recipe.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
         /// <summary>
         /// Working directory used during build and test workflows.
         /// </summary>
-        public readonly string WorkingDirectory;
+        public readonly string? WorkingDirectory;
 
         [OutputConstructor]
         private GetImageRecipeResult(
@@ -187,27 +187,27 @@ namespace Pulumi.Aws.ImageBuilder
 
             ImmutableArray<Outputs.GetImageRecipeComponentResult> components,
 
-            string dateCreated,
+            string? dateCreated,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            string owner,
+            string? owner,
 
-            string parentImage,
+            string? parentImage,
 
-            string platform,
+            string? platform,
 
             ImmutableDictionary<string, string>? tags,
 
-            string userDataBase64,
+            string? userDataBase64,
 
-            string version,
+            string? version,
 
-            string workingDirectory)
+            string? workingDirectory)
         {
             Arn = arn;
             BlockDeviceMappings = blockDeviceMappings;

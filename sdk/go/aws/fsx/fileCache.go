@@ -90,7 +90,7 @@ type FileCache struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the resource.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
 	CopyTagsToDataRepositoryAssociations pulumi.BoolPtrOutput `pulumi:"copyTagsToDataRepositoryAssociations"`
 	// A list of IDs of data repository associations that are associated with this cache.
@@ -99,20 +99,20 @@ type FileCache struct {
 	// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
 	DataRepositoryAssociations FileCacheDataRepositoryAssociationArrayOutput `pulumi:"dataRepositoryAssociations"`
 	// The Domain Name System (DNS) name for the cache.
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
 	// The system-generated, unique ID of the cache.
-	FileCacheId pulumi.StringOutput `pulumi:"fileCacheId"`
+	FileCacheId pulumi.StringPtrOutput `pulumi:"fileCacheId"`
 	// The type of cache that you're creating. The only supported value is `LUSTRE`.
 	FileCacheType pulumi.StringOutput `pulumi:"fileCacheType"`
 	// The version for the type of cache that you're creating. The only supported value is `2.12`.
 	FileCacheTypeVersion pulumi.StringOutput `pulumi:"fileCacheTypeVersion"`
 	// Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
 	LustreConfigurations FileCacheLustreConfigurationArrayOutput `pulumi:"lustreConfigurations"`
 	// A list of network interface IDs.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
-	OwnerId             pulumi.StringOutput      `pulumi:"ownerId"`
+	OwnerId             pulumi.StringPtrOutput   `pulumi:"ownerId"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -126,7 +126,7 @@ type FileCache struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of your virtual private cloud (VPC).
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewFileCache registers a new resource with the given unique name, arguments, and options.
@@ -401,8 +401,8 @@ func (o FileCacheOutput) ToFileCacheOutputWithContext(ctx context.Context) FileC
 }
 
 // The Amazon Resource Name (ARN) for the resource.
-func (o FileCacheOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FileCacheOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileCache) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
@@ -422,13 +422,13 @@ func (o FileCacheOutput) DataRepositoryAssociations() FileCacheDataRepositoryAss
 }
 
 // The Domain Name System (DNS) name for the cache.
-func (o FileCacheOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+func (o FileCacheOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileCache) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // The system-generated, unique ID of the cache.
-func (o FileCacheOutput) FileCacheId() pulumi.StringOutput {
-	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.FileCacheId }).(pulumi.StringOutput)
+func (o FileCacheOutput) FileCacheId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileCache) pulumi.StringPtrOutput { return v.FileCacheId }).(pulumi.StringPtrOutput)
 }
 
 // The type of cache that you're creating. The only supported value is `LUSTRE`.
@@ -442,8 +442,8 @@ func (o FileCacheOutput) FileCacheTypeVersion() pulumi.StringOutput {
 }
 
 // Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
-func (o FileCacheOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o FileCacheOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileCache) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
@@ -456,8 +456,8 @@ func (o FileCacheOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }
 
-func (o FileCacheOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+func (o FileCacheOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileCache) pulumi.StringPtrOutput { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
@@ -488,8 +488,8 @@ func (o FileCacheOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The ID of your virtual private cloud (VPC).
-func (o FileCacheOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o FileCacheOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileCache) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type FileCacheArrayOutput struct{ *pulumi.OutputState }

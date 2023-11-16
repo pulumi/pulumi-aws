@@ -50,11 +50,11 @@ export interface GetConfigurationProfilesResult {
     /**
      * Set of Configuration Profile IDs associated with the AppConfig Application.
      */
-    readonly configurationProfileIds: string[];
+    readonly configurationProfileIds?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration

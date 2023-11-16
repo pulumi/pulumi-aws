@@ -72,13 +72,13 @@ export interface GetAddonVersionResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly kubernetesVersion: string;
     readonly mostRecent?: boolean;
     /**
      * Version of the EKS add-on.
      */
-    readonly version: string;
+    readonly version?: string;
 }
 /**
  * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.

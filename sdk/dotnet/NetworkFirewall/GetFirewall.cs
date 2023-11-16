@@ -220,15 +220,15 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// ARN of the firewall.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Boolean flag indicating whether it is possible to delete the firewall.
         /// </summary>
-        public readonly bool DeleteProtection;
+        public readonly bool? DeleteProtection;
         /// <summary>
         /// Description of the firewall.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
         /// </summary>
@@ -236,11 +236,11 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// ARN of the VPC Firewall policy.
         /// </summary>
-        public readonly string FirewallPolicyArn;
+        public readonly string? FirewallPolicyArn;
         /// <summary>
         /// A boolean flag indicating whether it is possible to change the associated firewall policy.
         /// </summary>
-        public readonly bool FirewallPolicyChangeProtection;
+        public readonly bool? FirewallPolicyChangeProtection;
         /// <summary>
         /// Nested list of information about the current status of the firewall.
         /// </summary>
@@ -248,15 +248,15 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Descriptive name of the firewall.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// A boolean flag indicating whether it is possible to change the associated subnet(s).
         /// </summary>
-        public readonly bool SubnetChangeProtection;
+        public readonly bool? SubnetChangeProtection;
         /// <summary>
         /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
         /// </summary>
@@ -268,41 +268,41 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// String token used when updating a firewall.
         /// </summary>
-        public readonly string UpdateToken;
+        public readonly string? UpdateToken;
         /// <summary>
         /// Unique identifier of the VPC where AWS Network Firewall should create the firewall.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetFirewallResult(
-            string arn,
+            string? arn,
 
-            bool deleteProtection,
+            bool? deleteProtection,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetFirewallEncryptionConfigurationResult> encryptionConfigurations,
 
-            string firewallPolicyArn,
+            string? firewallPolicyArn,
 
-            bool firewallPolicyChangeProtection,
+            bool? firewallPolicyChangeProtection,
 
             ImmutableArray<Outputs.GetFirewallFirewallStatusResult> firewallStatuses,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
-            bool subnetChangeProtection,
+            bool? subnetChangeProtection,
 
             ImmutableArray<Outputs.GetFirewallSubnetMappingResult> subnetMappings,
 
             ImmutableDictionary<string, string>? tags,
 
-            string updateToken,
+            string? updateToken,
 
-            string vpcId)
+            string? vpcId)
         {
             Arn = arn;
             DeleteProtection = deleteProtection;

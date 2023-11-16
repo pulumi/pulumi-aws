@@ -29,9 +29,9 @@ type InstanceAccessControlAttributes struct {
 	// See AccessControlAttribute for more details.
 	Attributes InstanceAccessControlAttributesAttributeArrayOutput `pulumi:"attributes"`
 	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn  pulumi.StringOutput `pulumi:"instanceArn"`
-	Status       pulumi.StringOutput `pulumi:"status"`
-	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
+	InstanceArn  pulumi.StringOutput    `pulumi:"instanceArn"`
+	Status       pulumi.StringPtrOutput `pulumi:"status"`
+	StatusReason pulumi.StringPtrOutput `pulumi:"statusReason"`
 }
 
 // NewInstanceAccessControlAttributes registers a new resource with the given unique name, arguments, and options.
@@ -205,12 +205,12 @@ func (o InstanceAccessControlAttributesOutput) InstanceArn() pulumi.StringOutput
 	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-func (o InstanceAccessControlAttributesOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o InstanceAccessControlAttributesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-func (o InstanceAccessControlAttributesOutput) StatusReason() pulumi.StringOutput {
-	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
+func (o InstanceAccessControlAttributesOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringPtrOutput { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
 type InstanceAccessControlAttributesArrayOutput struct{ *pulumi.OutputState }

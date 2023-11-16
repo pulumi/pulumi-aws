@@ -77,44 +77,44 @@ export interface GetVpcDhcpOptionsResult {
     /**
      * ARN of the DHCP Options Set.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * EC2 DHCP Options ID
      */
-    readonly dhcpOptionsId: string;
+    readonly dhcpOptionsId?: string;
     /**
      * Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
      */
-    readonly domainName: string;
+    readonly domainName?: string;
     /**
      * List of name servers.
      */
-    readonly domainNameServers: string[];
+    readonly domainNameServers?: string[];
     readonly filters?: outputs.ec2.GetVpcDhcpOptionsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of NETBIOS name servers.
      */
-    readonly netbiosNameServers: string[];
+    readonly netbiosNameServers?: string[];
     /**
      * NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    readonly netbiosNodeType: string;
+    readonly netbiosNodeType?: string;
     /**
      * List of NTP servers.
      */
-    readonly ntpServers: string[];
+    readonly ntpServers?: string[];
     /**
      * ID of the AWS account that owns the DHCP options set.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * Map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Retrieve information about an EC2 DHCP Options configuration.

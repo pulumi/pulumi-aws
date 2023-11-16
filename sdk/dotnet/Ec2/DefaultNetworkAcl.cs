@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Ec2
         /// ARN of the Default Network ACL
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns the Default Network ACL
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the associated VPC
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

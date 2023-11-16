@@ -75,7 +75,7 @@ import (
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
@@ -275,8 +275,8 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SubnetGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description for the cache subnet group. Defaults to "Managed by Pulumi".

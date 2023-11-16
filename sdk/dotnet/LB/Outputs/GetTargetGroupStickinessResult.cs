@@ -13,20 +13,20 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetTargetGroupStickinessResult
     {
-        public readonly int CookieDuration;
-        public readonly string CookieName;
-        public readonly bool Enabled;
-        public readonly string Type;
+        public readonly int? CookieDuration;
+        public readonly string? CookieName;
+        public readonly bool? Enabled;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetTargetGroupStickinessResult(
-            int cookieDuration,
+            int? cookieDuration,
 
-            string cookieName,
+            string? cookieName,
 
-            bool enabled,
+            bool? enabled,
 
-            string type)
+            string? type)
         {
             CookieDuration = cookieDuration;
             CookieName = cookieName;

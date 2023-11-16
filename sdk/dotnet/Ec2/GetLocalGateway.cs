@@ -180,34 +180,34 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetLocalGatewayResult
     {
         public readonly ImmutableArray<Outputs.GetLocalGatewayFilterResult> Filters;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of Outpost
         /// </summary>
-        public readonly string OutpostArn;
+        public readonly string? OutpostArn;
         /// <summary>
         /// AWS account identifier that owns the Local Gateway.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// State of the local gateway.
         /// </summary>
-        public readonly string State;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? State;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLocalGatewayResult(
             ImmutableArray<Outputs.GetLocalGatewayFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string outpostArn,
+            string? outpostArn,
 
-            string ownerId,
+            string? ownerId,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;

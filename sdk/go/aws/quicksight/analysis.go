@@ -67,20 +67,20 @@ type Analysis struct {
 	// Identifier for the analysis.
 	AnalysisId pulumi.StringOutput `pulumi:"analysisId"`
 	// The Amazon Resource Name (ARN) of the resource.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// The time that the analysis was created.
-	CreatedTime       pulumi.StringOutput `pulumi:"createdTime"`
-	LastPublishedTime pulumi.StringOutput `pulumi:"lastPublishedTime"`
+	CreatedTime       pulumi.StringPtrOutput `pulumi:"createdTime"`
+	LastPublishedTime pulumi.StringPtrOutput `pulumi:"lastPublishedTime"`
 	// The time that the analysis was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// Display name for the analysis.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters AnalysisParametersOutput `pulumi:"parameters"`
+	Parameters AnalysisParametersPtrOutput `pulumi:"parameters"`
 	// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
 	Permissions AnalysisPermissionArrayOutput `pulumi:"permissions"`
 	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
@@ -88,7 +88,7 @@ type Analysis struct {
 	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity AnalysisSourceEntityPtrOutput `pulumi:"sourceEntity"`
 	// The analysis creation status.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -351,27 +351,27 @@ func (o AnalysisOutput) AnalysisId() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of the resource.
-func (o AnalysisOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AnalysisOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o AnalysisOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o AnalysisOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The time that the analysis was created.
-func (o AnalysisOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o AnalysisOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o AnalysisOutput) LastPublishedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.LastPublishedTime }).(pulumi.StringOutput)
+func (o AnalysisOutput) LastPublishedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.LastPublishedTime }).(pulumi.StringPtrOutput)
 }
 
 // The time that the analysis was last updated.
-func (o AnalysisOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o AnalysisOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Display name for the analysis.
@@ -382,8 +382,8 @@ func (o AnalysisOutput) Name() pulumi.StringOutput {
 }
 
 // The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-func (o AnalysisOutput) Parameters() AnalysisParametersOutput {
-	return o.ApplyT(func(v *Analysis) AnalysisParametersOutput { return v.Parameters }).(AnalysisParametersOutput)
+func (o AnalysisOutput) Parameters() AnalysisParametersPtrOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisParametersPtrOutput { return v.Parameters }).(AnalysisParametersPtrOutput)
 }
 
 // A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
@@ -402,8 +402,8 @@ func (o AnalysisOutput) SourceEntity() AnalysisSourceEntityPtrOutput {
 }
 
 // The analysis creation status.
-func (o AnalysisOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o AnalysisOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

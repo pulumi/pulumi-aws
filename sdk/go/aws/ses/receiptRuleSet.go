@@ -53,7 +53,7 @@ type ReceiptRuleSet struct {
 	pulumi.CustomResourceState
 
 	// SES receipt rule set ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the rule set.
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 }
@@ -207,8 +207,8 @@ func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Cont
 }
 
 // SES receipt rule set ARN.
-func (o ReceiptRuleSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReceiptRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReceiptRuleSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the rule set.

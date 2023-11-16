@@ -292,7 +292,7 @@ class LicenseAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="freeTrialExpiration")
-    def free_trial_expiration(self) -> pulumi.Output[str]:
+    def free_trial_expiration(self) -> pulumi.Output[Optional[str]]:
         """
         If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
         """
@@ -300,7 +300,7 @@ class LicenseAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseExpiration")
-    def license_expiration(self) -> pulumi.Output[str]:
+    def license_expiration(self) -> pulumi.Output[Optional[str]]:
         """
         If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         """

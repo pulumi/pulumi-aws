@@ -85,70 +85,70 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN for the reserved DB instance.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Currency code for the reserved DB instance.
      * 
      */
     @Export(name="currencyCode", refs={String.class}, tree="[0]")
-    private Output<String> currencyCode;
+    private Output</* @Nullable */ String> currencyCode;
 
     /**
      * @return Currency code for the reserved DB instance.
      * 
      */
-    public Output<String> currencyCode() {
-        return this.currencyCode;
+    public Output<Optional<String>> currencyCode() {
+        return Codegen.optional(this.currencyCode);
     }
     /**
      * DB instance class for the reserved DB instance.
      * 
      */
     @Export(name="dbInstanceClass", refs={String.class}, tree="[0]")
-    private Output<String> dbInstanceClass;
+    private Output</* @Nullable */ String> dbInstanceClass;
 
     /**
      * @return DB instance class for the reserved DB instance.
      * 
      */
-    public Output<String> dbInstanceClass() {
-        return this.dbInstanceClass;
+    public Output<Optional<String>> dbInstanceClass() {
+        return Codegen.optional(this.dbInstanceClass);
     }
     /**
      * Duration of the reservation in seconds.
      * 
      */
     @Export(name="duration", refs={Integer.class}, tree="[0]")
-    private Output<Integer> duration;
+    private Output</* @Nullable */ Integer> duration;
 
     /**
      * @return Duration of the reservation in seconds.
      * 
      */
-    public Output<Integer> duration() {
-        return this.duration;
+    public Output<Optional<Integer>> duration() {
+        return Codegen.optional(this.duration);
     }
     /**
      * Fixed price charged for this reserved DB instance.
      * 
      */
     @Export(name="fixedPrice", refs={Double.class}, tree="[0]")
-    private Output<Double> fixedPrice;
+    private Output</* @Nullable */ Double> fixedPrice;
 
     /**
      * @return Fixed price charged for this reserved DB instance.
      * 
      */
-    public Output<Double> fixedPrice() {
-        return this.fixedPrice;
+    public Output<Optional<Double>> fixedPrice() {
+        return Codegen.optional(this.fixedPrice);
     }
     /**
      * Number of instances to reserve. Default value is `1`.
@@ -169,28 +169,28 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="leaseId", refs={String.class}, tree="[0]")
-    private Output<String> leaseId;
+    private Output</* @Nullable */ String> leaseId;
 
     /**
      * @return Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
      * 
      */
-    public Output<String> leaseId() {
-        return this.leaseId;
+    public Output<Optional<String>> leaseId() {
+        return Codegen.optional(this.leaseId);
     }
     /**
      * Whether the reservation applies to Multi-AZ deployments.
      * 
      */
     @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> multiAz;
+    private Output</* @Nullable */ Boolean> multiAz;
 
     /**
      * @return Whether the reservation applies to Multi-AZ deployments.
      * 
      */
-    public Output<Boolean> multiAz() {
-        return this.multiAz;
+    public Output<Optional<Boolean>> multiAz() {
+        return Codegen.optional(this.multiAz);
     }
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
@@ -215,42 +215,42 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="offeringType", refs={String.class}, tree="[0]")
-    private Output<String> offeringType;
+    private Output</* @Nullable */ String> offeringType;
 
     /**
      * @return Offering type of this reserved DB instance.
      * 
      */
-    public Output<String> offeringType() {
-        return this.offeringType;
+    public Output<Optional<String>> offeringType() {
+        return Codegen.optional(this.offeringType);
     }
     /**
      * Description of the reserved DB instance.
      * 
      */
     @Export(name="productDescription", refs={String.class}, tree="[0]")
-    private Output<String> productDescription;
+    private Output</* @Nullable */ String> productDescription;
 
     /**
      * @return Description of the reserved DB instance.
      * 
      */
-    public Output<String> productDescription() {
-        return this.productDescription;
+    public Output<Optional<String>> productDescription() {
+        return Codegen.optional(this.productDescription);
     }
     /**
      * Recurring price charged to run this reserved DB instance.
      * 
      */
     @Export(name="recurringCharges", refs={List.class,ReservedInstanceRecurringCharge.class}, tree="[0,1]")
-    private Output<List<ReservedInstanceRecurringCharge>> recurringCharges;
+    private Output</* @Nullable */ List<ReservedInstanceRecurringCharge>> recurringCharges;
 
     /**
      * @return Recurring price charged to run this reserved DB instance.
      * 
      */
-    public Output<List<ReservedInstanceRecurringCharge>> recurringCharges() {
-        return this.recurringCharges;
+    public Output<Optional<List<ReservedInstanceRecurringCharge>>> recurringCharges() {
+        return Codegen.optional(this.recurringCharges);
     }
     /**
      * Customer-specified identifier to track this reservation.
@@ -271,28 +271,28 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="startTime", refs={String.class}, tree="[0]")
-    private Output<String> startTime;
+    private Output</* @Nullable */ String> startTime;
 
     /**
      * @return Time the reservation started.
      * 
      */
-    public Output<String> startTime() {
-        return this.startTime;
+    public Output<Optional<String>> startTime() {
+        return Codegen.optional(this.startTime);
     }
     /**
      * State of the reserved DB instance.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return State of the reserved DB instance.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -331,14 +331,14 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="usagePrice", refs={Double.class}, tree="[0]")
-    private Output<Double> usagePrice;
+    private Output</* @Nullable */ Double> usagePrice;
 
     /**
      * @return Hourly price charged for this reserved DB instance.
      * 
      */
-    public Output<Double> usagePrice() {
-        return this.usagePrice;
+    public Output<Optional<Double>> usagePrice() {
+        return Codegen.optional(this.usagePrice);
     }
 
     /**

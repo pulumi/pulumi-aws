@@ -72,70 +72,70 @@ public class CloudFormationType extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Identifier of the CloudFormation Type default version.
      * 
      */
     @Export(name="defaultVersionId", refs={String.class}, tree="[0]")
-    private Output<String> defaultVersionId;
+    private Output</* @Nullable */ String> defaultVersionId;
 
     /**
      * @return Identifier of the CloudFormation Type default version.
      * 
      */
-    public Output<String> defaultVersionId() {
-        return this.defaultVersionId;
+    public Output<Optional<String>> defaultVersionId() {
+        return Codegen.optional(this.defaultVersionId);
     }
     /**
      * Deprecation status of the version.
      * 
      */
     @Export(name="deprecatedStatus", refs={String.class}, tree="[0]")
-    private Output<String> deprecatedStatus;
+    private Output</* @Nullable */ String> deprecatedStatus;
 
     /**
      * @return Deprecation status of the version.
      * 
      */
-    public Output<String> deprecatedStatus() {
-        return this.deprecatedStatus;
+    public Output<Optional<String>> deprecatedStatus() {
+        return Codegen.optional(this.deprecatedStatus);
     }
     /**
      * Description of the version.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description of the version.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * URL of the documentation for the CloudFormation Type.
      * 
      */
     @Export(name="documentationUrl", refs={String.class}, tree="[0]")
-    private Output<String> documentationUrl;
+    private Output</* @Nullable */ String> documentationUrl;
 
     /**
      * @return URL of the documentation for the CloudFormation Type.
      * 
      */
-    public Output<String> documentationUrl() {
-        return this.documentationUrl;
+    public Output<Optional<String>> documentationUrl() {
+        return Codegen.optional(this.documentationUrl);
     }
     /**
      * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
@@ -156,14 +156,14 @@ public class CloudFormationType extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="isDefaultVersion", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> isDefaultVersion;
+    private Output</* @Nullable */ Boolean> isDefaultVersion;
 
     /**
      * @return Whether the CloudFormation Type version is the default version.
      * 
      */
-    public Output<Boolean> isDefaultVersion() {
-        return this.isDefaultVersion;
+    public Output<Optional<Boolean>> isDefaultVersion() {
+        return Codegen.optional(this.isDefaultVersion);
     }
     /**
      * Configuration block containing logging configuration.
@@ -184,28 +184,28 @@ public class CloudFormationType extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="provisioningType", refs={String.class}, tree="[0]")
-    private Output<String> provisioningType;
+    private Output</* @Nullable */ String> provisioningType;
 
     /**
      * @return Provisioning behavior of the CloudFormation Type.
      * 
      */
-    public Output<String> provisioningType() {
-        return this.provisioningType;
+    public Output<Optional<String>> provisioningType() {
+        return Codegen.optional(this.provisioningType);
     }
     /**
      * JSON document of the CloudFormation Type schema.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
-    private Output<String> schema;
+    private Output</* @Nullable */ String> schema;
 
     /**
      * @return JSON document of the CloudFormation Type schema.
      * 
      */
-    public Output<String> schema() {
-        return this.schema;
+    public Output<Optional<String>> schema() {
+        return Codegen.optional(this.schema);
     }
     /**
      * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
@@ -226,42 +226,42 @@ public class CloudFormationType extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceUrl", refs={String.class}, tree="[0]")
-    private Output<String> sourceUrl;
+    private Output</* @Nullable */ String> sourceUrl;
 
     /**
      * @return URL of the source code for the CloudFormation Type.
      * 
      */
-    public Output<String> sourceUrl() {
-        return this.sourceUrl;
+    public Output<Optional<String>> sourceUrl() {
+        return Codegen.optional(this.sourceUrl);
     }
     /**
      * CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
     /**
      * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
      * 
      */
     @Export(name="typeArn", refs={String.class}, tree="[0]")
-    private Output<String> typeArn;
+    private Output</* @Nullable */ String> typeArn;
 
     /**
      * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
      * 
      */
-    public Output<String> typeArn() {
-        return this.typeArn;
+    public Output<Optional<String>> typeArn() {
+        return Codegen.optional(this.typeArn);
     }
     /**
      * CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
@@ -282,28 +282,28 @@ public class CloudFormationType extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionId", refs={String.class}, tree="[0]")
-    private Output<String> versionId;
+    private Output</* @Nullable */ String> versionId;
 
     /**
      * @return (Optional) Identifier of the CloudFormation Type version.
      * 
      */
-    public Output<String> versionId() {
-        return this.versionId;
+    public Output<Optional<String>> versionId() {
+        return Codegen.optional(this.versionId);
     }
     /**
      * Scope of the CloudFormation Type.
      * 
      */
     @Export(name="visibility", refs={String.class}, tree="[0]")
-    private Output<String> visibility;
+    private Output</* @Nullable */ String> visibility;
 
     /**
      * @return Scope of the CloudFormation Type.
      * 
      */
-    public Output<String> visibility() {
-        return this.visibility;
+    public Output<Optional<String>> visibility() {
+        return Codegen.optional(this.visibility);
     }
 
     /**

@@ -229,7 +229,7 @@ type Insight struct {
 	pulumi.CustomResourceState
 
 	// ARN of the insight.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
 	Filters InsightFiltersOutput `pulumi:"filters"`
 	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
@@ -406,8 +406,8 @@ func (o InsightOutput) ToInsightOutputWithContext(ctx context.Context) InsightOu
 }
 
 // ARN of the insight.
-func (o InsightOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Insight) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InsightOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Insight) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.

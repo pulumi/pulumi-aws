@@ -67,7 +67,7 @@ type LogSubscriptionFilter struct {
 	// A name for the subscription filter
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 }
 
 // NewLogSubscriptionFilter registers a new resource with the given unique name, arguments, and options.
@@ -286,8 +286,8 @@ func (o LogSubscriptionFilterOutput) Name() pulumi.StringOutput {
 }
 
 // The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
-func (o LogSubscriptionFilterOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LogSubscriptionFilter) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+func (o LogSubscriptionFilterOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogSubscriptionFilter) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 type LogSubscriptionFilterArrayOutput struct{ *pulumi.OutputState }

@@ -68,7 +68,7 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the custom routing endpoint group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
      */
@@ -80,7 +80,7 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      */
-    public readonly endpointGroupRegion!: pulumi.Output<string>;
+    public readonly endpointGroupRegion!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the custom routing listener.
      */

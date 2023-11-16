@@ -6,70 +6,72 @@ package com.pulumi.aws.kms.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCustomKeyStoreResult {
-    private String cloudHsmClusterId;
+    private @Nullable String cloudHsmClusterId;
     /**
      * @return Indicates whether the custom key store is connected to its CloudHSM cluster.
      * 
      */
-    private String connectionState;
+    private @Nullable String connectionState;
     /**
      * @return The date and time when the custom key store was created.
      * 
      */
-    private String creationDate;
-    private String customKeyStoreId;
-    private String customKeyStoreName;
+    private @Nullable String creationDate;
+    private @Nullable String customKeyStoreId;
+    private @Nullable String customKeyStoreName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The trust anchor certificate of the associated CloudHSM cluster.
      * 
      */
-    private String trustAnchorCertificate;
+    private @Nullable String trustAnchorCertificate;
 
     private GetCustomKeyStoreResult() {}
-    public String cloudHsmClusterId() {
-        return this.cloudHsmClusterId;
+    public Optional<String> cloudHsmClusterId() {
+        return Optional.ofNullable(this.cloudHsmClusterId);
     }
     /**
      * @return Indicates whether the custom key store is connected to its CloudHSM cluster.
      * 
      */
-    public String connectionState() {
-        return this.connectionState;
+    public Optional<String> connectionState() {
+        return Optional.ofNullable(this.connectionState);
     }
     /**
      * @return The date and time when the custom key store was created.
      * 
      */
-    public String creationDate() {
-        return this.creationDate;
+    public Optional<String> creationDate() {
+        return Optional.ofNullable(this.creationDate);
     }
-    public String customKeyStoreId() {
-        return this.customKeyStoreId;
+    public Optional<String> customKeyStoreId() {
+        return Optional.ofNullable(this.customKeyStoreId);
     }
-    public String customKeyStoreName() {
-        return this.customKeyStoreName;
+    public Optional<String> customKeyStoreName() {
+        return Optional.ofNullable(this.customKeyStoreName);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The trust anchor certificate of the associated CloudHSM cluster.
      * 
      */
-    public String trustAnchorCertificate() {
-        return this.trustAnchorCertificate;
+    public Optional<String> trustAnchorCertificate() {
+        return Optional.ofNullable(this.trustAnchorCertificate);
     }
 
     public static Builder builder() {
@@ -81,13 +83,13 @@ public final class GetCustomKeyStoreResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cloudHsmClusterId;
-        private String connectionState;
-        private String creationDate;
-        private String customKeyStoreId;
-        private String customKeyStoreName;
-        private String id;
-        private String trustAnchorCertificate;
+        private @Nullable String cloudHsmClusterId;
+        private @Nullable String connectionState;
+        private @Nullable String creationDate;
+        private @Nullable String customKeyStoreId;
+        private @Nullable String customKeyStoreName;
+        private @Nullable String id;
+        private @Nullable String trustAnchorCertificate;
         public Builder() {}
         public Builder(GetCustomKeyStoreResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -101,38 +103,38 @@ public final class GetCustomKeyStoreResult {
         }
 
         @CustomType.Setter
-        public Builder cloudHsmClusterId(String cloudHsmClusterId) {
-            this.cloudHsmClusterId = Objects.requireNonNull(cloudHsmClusterId);
+        public Builder cloudHsmClusterId(@Nullable String cloudHsmClusterId) {
+            this.cloudHsmClusterId = cloudHsmClusterId;
             return this;
         }
         @CustomType.Setter
-        public Builder connectionState(String connectionState) {
-            this.connectionState = Objects.requireNonNull(connectionState);
+        public Builder connectionState(@Nullable String connectionState) {
+            this.connectionState = connectionState;
             return this;
         }
         @CustomType.Setter
-        public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+        public Builder creationDate(@Nullable String creationDate) {
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
-        public Builder customKeyStoreId(String customKeyStoreId) {
-            this.customKeyStoreId = Objects.requireNonNull(customKeyStoreId);
+        public Builder customKeyStoreId(@Nullable String customKeyStoreId) {
+            this.customKeyStoreId = customKeyStoreId;
             return this;
         }
         @CustomType.Setter
-        public Builder customKeyStoreName(String customKeyStoreName) {
-            this.customKeyStoreName = Objects.requireNonNull(customKeyStoreName);
+        public Builder customKeyStoreName(@Nullable String customKeyStoreName) {
+            this.customKeyStoreName = customKeyStoreName;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder trustAnchorCertificate(String trustAnchorCertificate) {
-            this.trustAnchorCertificate = Objects.requireNonNull(trustAnchorCertificate);
+        public Builder trustAnchorCertificate(@Nullable String trustAnchorCertificate) {
+            this.trustAnchorCertificate = trustAnchorCertificate;
             return this;
         }
         public GetCustomKeyStoreResult build() {

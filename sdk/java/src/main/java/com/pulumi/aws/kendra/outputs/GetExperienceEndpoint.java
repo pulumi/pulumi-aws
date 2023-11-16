@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExperienceEndpoint {
@@ -13,27 +15,27 @@ public final class GetExperienceEndpoint {
      * @return Endpoint of your Amazon Kendra Experience.
      * 
      */
-    private String endpoint;
+    private @Nullable String endpoint;
     /**
      * @return Type of endpoint for your Amazon Kendra Experience.
      * 
      */
-    private String endpointType;
+    private @Nullable String endpointType;
 
     private GetExperienceEndpoint() {}
     /**
      * @return Endpoint of your Amazon Kendra Experience.
      * 
      */
-    public String endpoint() {
-        return this.endpoint;
+    public Optional<String> endpoint() {
+        return Optional.ofNullable(this.endpoint);
     }
     /**
      * @return Type of endpoint for your Amazon Kendra Experience.
      * 
      */
-    public String endpointType() {
-        return this.endpointType;
+    public Optional<String> endpointType() {
+        return Optional.ofNullable(this.endpointType);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetExperienceEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String endpoint;
-        private String endpointType;
+        private @Nullable String endpoint;
+        private @Nullable String endpointType;
         public Builder() {}
         public Builder(GetExperienceEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetExperienceEndpoint {
         }
 
         @CustomType.Setter
-        public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+        public Builder endpoint(@Nullable String endpoint) {
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder endpointType(String endpointType) {
-            this.endpointType = Objects.requireNonNull(endpointType);
+        public Builder endpointType(@Nullable String endpointType) {
+            this.endpointType = endpointType;
             return this;
         }
         public GetExperienceEndpoint build() {

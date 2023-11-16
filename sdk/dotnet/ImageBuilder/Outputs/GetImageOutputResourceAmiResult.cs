@@ -16,35 +16,35 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Account identifier of the AMI.
         /// </summary>
-        public readonly string AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// Description of the AMI.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Identifier of the AMI.
         /// </summary>
-        public readonly string Image;
+        public readonly string? Image;
         /// <summary>
         /// Name of the AMI.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Region of the container image.
         /// </summary>
-        public readonly string Region;
+        public readonly string? Region;
 
         [OutputConstructor]
         private GetImageOutputResourceAmiResult(
-            string accountId,
+            string? accountId,
 
-            string description,
+            string? description,
 
-            string image,
+            string? image,
 
-            string name,
+            string? name,
 
-            string region)
+            string? region)
         {
             AccountId = accountId;
             Description = description;

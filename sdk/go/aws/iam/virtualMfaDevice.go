@@ -61,15 +61,15 @@ type VirtualMfaDevice struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) specifying the virtual mfa device.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
-	Base32StringSeed pulumi.StringOutput `pulumi:"base32StringSeed"`
+	Base32StringSeed pulumi.StringPtrOutput `pulumi:"base32StringSeed"`
 	// The date and time when the virtual MFA device was enabled.
-	EnableDate pulumi.StringOutput `pulumi:"enableDate"`
+	EnableDate pulumi.StringPtrOutput `pulumi:"enableDate"`
 	// The path for the virtual MFA device.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
-	QrCodePng pulumi.StringOutput `pulumi:"qrCodePng"`
+	QrCodePng pulumi.StringPtrOutput `pulumi:"qrCodePng"`
 	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -77,7 +77,7 @@ type VirtualMfaDevice struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The associated IAM User name if the virtual MFA device is enabled.
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	UserName pulumi.StringPtrOutput `pulumi:"userName"`
 	// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	VirtualMfaDeviceName pulumi.StringOutput `pulumi:"virtualMfaDeviceName"`
 }
@@ -275,18 +275,18 @@ func (o VirtualMfaDeviceOutput) ToVirtualMfaDeviceOutputWithContext(ctx context.
 }
 
 // The Amazon Resource Name (ARN) specifying the virtual mfa device.
-func (o VirtualMfaDeviceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o VirtualMfaDeviceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
-func (o VirtualMfaDeviceOutput) Base32StringSeed() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringOutput { return v.Base32StringSeed }).(pulumi.StringOutput)
+func (o VirtualMfaDeviceOutput) Base32StringSeed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringPtrOutput { return v.Base32StringSeed }).(pulumi.StringPtrOutput)
 }
 
 // The date and time when the virtual MFA device was enabled.
-func (o VirtualMfaDeviceOutput) EnableDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringOutput { return v.EnableDate }).(pulumi.StringOutput)
+func (o VirtualMfaDeviceOutput) EnableDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringPtrOutput { return v.EnableDate }).(pulumi.StringPtrOutput)
 }
 
 // The path for the virtual MFA device.
@@ -295,8 +295,8 @@ func (o VirtualMfaDeviceOutput) Path() pulumi.StringPtrOutput {
 }
 
 // A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
-func (o VirtualMfaDeviceOutput) QrCodePng() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringOutput { return v.QrCodePng }).(pulumi.StringOutput)
+func (o VirtualMfaDeviceOutput) QrCodePng() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringPtrOutput { return v.QrCodePng }).(pulumi.StringPtrOutput)
 }
 
 // Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -312,8 +312,8 @@ func (o VirtualMfaDeviceOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The associated IAM User name if the virtual MFA device is enabled.
-func (o VirtualMfaDeviceOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+func (o VirtualMfaDeviceOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.

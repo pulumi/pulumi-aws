@@ -108,7 +108,7 @@ namespace Pulumi.Aws.LicenseManager
         /// <summary>
         /// Granted license beneficiary. This is in the form of the ARN of the root user of the account.
         /// </summary>
-        public readonly string Beneficiary;
+        public readonly string? Beneficiary;
         /// <summary>
         /// Configuration for consumption of the license. Detailed below
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.LicenseManager
         /// <summary>
         /// Creation time of the granted license in RFC 3339 format.
         /// </summary>
-        public readonly string CreateTime;
+        public readonly string? CreateTime;
         /// <summary>
         /// License entitlements. Detailed below
         /// </summary>
@@ -124,11 +124,11 @@ namespace Pulumi.Aws.LicenseManager
         /// <summary>
         /// Home Region of the granted license.
         /// </summary>
-        public readonly string HomeRegion;
+        public readonly string? HomeRegion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Granted license issuer. Detailed below
         /// </summary>
@@ -144,13 +144,13 @@ namespace Pulumi.Aws.LicenseManager
         /// <summary>
         /// License name.
         /// </summary>
-        public readonly string LicenseName;
+        public readonly string? LicenseName;
         /// <summary>
         /// Product name.
         /// * `product_sku ` - Product SKU.
         /// </summary>
-        public readonly string ProductName;
-        public readonly string ProductSku;
+        public readonly string? ProductName;
+        public readonly string? ProductSku;
         /// <summary>
         /// Granted license received metadata. Detailed below
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.LicenseManager
         /// <summary>
         /// Granted license status.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
         /// </summary>
@@ -166,21 +166,21 @@ namespace Pulumi.Aws.LicenseManager
         /// <summary>
         /// Version of the granted license.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetReceivedLicenseResult(
-            string beneficiary,
+            string? beneficiary,
 
             ImmutableArray<Outputs.GetReceivedLicenseConsumptionConfigurationResult> consumptionConfigurations,
 
-            string createTime,
+            string? createTime,
 
             ImmutableArray<Outputs.GetReceivedLicenseEntitlementResult> entitlements,
 
-            string homeRegion,
+            string? homeRegion,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetReceivedLicenseIssuerResult> issuers,
 
@@ -188,19 +188,19 @@ namespace Pulumi.Aws.LicenseManager
 
             ImmutableArray<Outputs.GetReceivedLicenseLicenseMetadataResult> licenseMetadatas,
 
-            string licenseName,
+            string? licenseName,
 
-            string productName,
+            string? productName,
 
-            string productSku,
+            string? productSku,
 
             ImmutableArray<Outputs.GetReceivedLicenseReceivedMetadataResult> receivedMetadatas,
 
-            string status,
+            string? status,
 
             ImmutableArray<Outputs.GetReceivedLicenseValidityResult> validities,
 
-            string version)
+            string? version)
         {
             Beneficiary = beneficiary;
             ConsumptionConfigurations = consumptionConfigurations;

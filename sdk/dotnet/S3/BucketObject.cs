@@ -189,7 +189,7 @@ namespace Pulumi.Aws.S3
         /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         /// </summary>
         [Output("bucketKeyEnabled")]
-        public Output<bool> BucketKeyEnabled { get; private set; } = null!;
+        public Output<bool?> BucketKeyEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -231,13 +231,13 @@ namespace Pulumi.Aws.S3
         /// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         /// </summary>
         [Output("contentType")]
-        public Output<string> ContentType { get; private set; } = null!;
+        public Output<string?> ContentType { get; private set; } = null!;
 
         /// <summary>
         /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.S3
         /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.S3
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         /// </summary>
         [Output("serverSideEncryption")]
-        public Output<string> ServerSideEncryption { get; private set; } = null!;
+        public Output<string?> ServerSideEncryption { get; private set; } = null!;
 
         /// <summary>
         /// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.S3
         /// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         /// </summary>
         [Output("storageClass")]
-        public Output<string> StorageClass { get; private set; } = null!;
+        public Output<string?> StorageClass { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.S3
         /// Unique version ID value for the object, if bucket versioning is enabled.
         /// </summary>
         [Output("versionId")]
-        public Output<string> VersionId { get; private set; } = null!;
+        public Output<string?> VersionId { get; private set; } = null!;
 
         /// <summary>
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).

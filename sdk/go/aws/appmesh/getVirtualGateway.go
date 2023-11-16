@@ -37,18 +37,18 @@ type LookupVirtualGatewayArgs struct {
 // A collection of values returned by getVirtualGateway.
 type LookupVirtualGatewayResult struct {
 	// ARN of the virtual gateway.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Creation date of the virtual gateway.
-	CreatedDate string `pulumi:"createdDate"`
+	CreatedDate *string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Last update date of the virtual gateway.
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
-	MeshName        string `pulumi:"meshName"`
-	MeshOwner       string `pulumi:"meshOwner"`
-	Name            string `pulumi:"name"`
+	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
+	MeshName        string  `pulumi:"meshName"`
+	MeshOwner       *string `pulumi:"meshOwner"`
+	Name            string  `pulumi:"name"`
 	// Resource owner's AWS account ID.
-	ResourceOwner string `pulumi:"resourceOwner"`
+	ResourceOwner *string `pulumi:"resourceOwner"`
 	// Virtual gateway specification. See the `appmesh.VirtualGateway` resource for details.
 	Specs []GetVirtualGatewaySpec `pulumi:"specs"`
 	// Map of tags.
@@ -98,31 +98,31 @@ func (o LookupVirtualGatewayResultOutput) ToLookupVirtualGatewayResultOutputWith
 }
 
 // ARN of the virtual gateway.
-func (o LookupVirtualGatewayResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupVirtualGatewayResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualGatewayResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Creation date of the virtual gateway.
-func (o LookupVirtualGatewayResultOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LookupVirtualGatewayResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualGatewayResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupVirtualGatewayResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupVirtualGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Last update date of the virtual gateway.
-func (o LookupVirtualGatewayResultOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o LookupVirtualGatewayResultOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualGatewayResult) *string { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVirtualGatewayResultOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.MeshName }).(pulumi.StringOutput)
 }
 
-func (o LookupVirtualGatewayResultOutput) MeshOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.MeshOwner }).(pulumi.StringOutput)
+func (o LookupVirtualGatewayResultOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualGatewayResult) *string { return v.MeshOwner }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVirtualGatewayResultOutput) Name() pulumi.StringOutput {
@@ -130,8 +130,8 @@ func (o LookupVirtualGatewayResultOutput) Name() pulumi.StringOutput {
 }
 
 // Resource owner's AWS account ID.
-func (o LookupVirtualGatewayResultOutput) ResourceOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
+func (o LookupVirtualGatewayResultOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualGatewayResult) *string { return v.ResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // Virtual gateway specification. See the `appmesh.VirtualGateway` resource for details.

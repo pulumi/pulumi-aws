@@ -103,10 +103,10 @@ export interface GetPrincipalPolicySimulationResult {
     /**
      * `true` if all of the simulation results have decision "allowed", or `false` otherwise.
      */
-    readonly allAllowed: boolean;
+    readonly allAllowed?: boolean;
     readonly callerArn?: string;
     readonly contexts?: outputs.iam.GetPrincipalPolicySimulationContext[];
-    readonly id: string;
+    readonly id?: string;
     readonly permissionsBoundaryPoliciesJsons?: string[];
     readonly policySourceArn: string;
     readonly resourceArns?: string[];
@@ -116,7 +116,7 @@ export interface GetPrincipalPolicySimulationResult {
     /**
      * A set of result objects, one for each of the simulated requests, with the following nested attributes:
      */
-    readonly results: outputs.iam.GetPrincipalPolicySimulationResult[];
+    readonly results?: outputs.iam.GetPrincipalPolicySimulationResult[];
 }
 /**
  * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.

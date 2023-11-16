@@ -309,7 +309,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) representing the target group.
         """
@@ -317,7 +317,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionPoolConfig")
-    def connection_pool_config(self) -> pulumi.Output['outputs.ProxyDefaultTargetGroupConnectionPoolConfig']:
+    def connection_pool_config(self) -> pulumi.Output[Optional['outputs.ProxyDefaultTargetGroupConnectionPoolConfig']]:
         """
         The settings that determine the size and behavior of the connection pool for the target group.
         """
@@ -333,7 +333,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the default target group.
         """

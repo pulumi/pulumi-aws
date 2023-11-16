@@ -308,7 +308,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> pulumi.Output[str]:
+    def key(self) -> pulumi.Output[Optional[str]]:
         """
         API key
         """

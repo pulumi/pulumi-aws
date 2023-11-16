@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// The group attribute field.
         /// </summary>
-        public readonly string GroupAttributeField;
+        public readonly string? GroupAttributeField;
         /// <summary>
         /// The user name attribute field.
         /// </summary>
-        public readonly string UserNameAttributeField;
+        public readonly string? UserNameAttributeField;
 
         [OutputConstructor]
         private GetIndexUserTokenConfigurationJsonTokenTypeConfigurationResult(
-            string groupAttributeField,
+            string? groupAttributeField,
 
-            string userNameAttributeField)
+            string? userNameAttributeField)
         {
             GroupAttributeField = groupAttributeField;
             UserNameAttributeField = userNameAttributeField;

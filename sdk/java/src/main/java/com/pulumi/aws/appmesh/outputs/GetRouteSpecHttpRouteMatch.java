@@ -11,38 +11,40 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecHttpRouteMatch {
-    private List<GetRouteSpecHttpRouteMatchHeader> headers;
-    private String method;
-    private List<GetRouteSpecHttpRouteMatchPath> paths;
-    private Integer port;
-    private String prefix;
-    private List<GetRouteSpecHttpRouteMatchQueryParameter> queryParameters;
-    private String scheme;
+    private @Nullable List<GetRouteSpecHttpRouteMatchHeader> headers;
+    private @Nullable String method;
+    private @Nullable List<GetRouteSpecHttpRouteMatchPath> paths;
+    private @Nullable Integer port;
+    private @Nullable String prefix;
+    private @Nullable List<GetRouteSpecHttpRouteMatchQueryParameter> queryParameters;
+    private @Nullable String scheme;
 
     private GetRouteSpecHttpRouteMatch() {}
     public List<GetRouteSpecHttpRouteMatchHeader> headers() {
-        return this.headers;
+        return this.headers == null ? List.of() : this.headers;
     }
-    public String method() {
-        return this.method;
+    public Optional<String> method() {
+        return Optional.ofNullable(this.method);
     }
     public List<GetRouteSpecHttpRouteMatchPath> paths() {
-        return this.paths;
+        return this.paths == null ? List.of() : this.paths;
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
-    public String prefix() {
-        return this.prefix;
+    public Optional<String> prefix() {
+        return Optional.ofNullable(this.prefix);
     }
     public List<GetRouteSpecHttpRouteMatchQueryParameter> queryParameters() {
-        return this.queryParameters;
+        return this.queryParameters == null ? List.of() : this.queryParameters;
     }
-    public String scheme() {
-        return this.scheme;
+    public Optional<String> scheme() {
+        return Optional.ofNullable(this.scheme);
     }
 
     public static Builder builder() {
@@ -54,13 +56,13 @@ public final class GetRouteSpecHttpRouteMatch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecHttpRouteMatchHeader> headers;
-        private String method;
-        private List<GetRouteSpecHttpRouteMatchPath> paths;
-        private Integer port;
-        private String prefix;
-        private List<GetRouteSpecHttpRouteMatchQueryParameter> queryParameters;
-        private String scheme;
+        private @Nullable List<GetRouteSpecHttpRouteMatchHeader> headers;
+        private @Nullable String method;
+        private @Nullable List<GetRouteSpecHttpRouteMatchPath> paths;
+        private @Nullable Integer port;
+        private @Nullable String prefix;
+        private @Nullable List<GetRouteSpecHttpRouteMatchQueryParameter> queryParameters;
+        private @Nullable String scheme;
         public Builder() {}
         public Builder(GetRouteSpecHttpRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -74,47 +76,47 @@ public final class GetRouteSpecHttpRouteMatch {
         }
 
         @CustomType.Setter
-        public Builder headers(List<GetRouteSpecHttpRouteMatchHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+        public Builder headers(@Nullable List<GetRouteSpecHttpRouteMatchHeader> headers) {
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetRouteSpecHttpRouteMatchHeader... headers) {
             return headers(List.of(headers));
         }
         @CustomType.Setter
-        public Builder method(String method) {
-            this.method = Objects.requireNonNull(method);
+        public Builder method(@Nullable String method) {
+            this.method = method;
             return this;
         }
         @CustomType.Setter
-        public Builder paths(List<GetRouteSpecHttpRouteMatchPath> paths) {
-            this.paths = Objects.requireNonNull(paths);
+        public Builder paths(@Nullable List<GetRouteSpecHttpRouteMatchPath> paths) {
+            this.paths = paths;
             return this;
         }
         public Builder paths(GetRouteSpecHttpRouteMatchPath... paths) {
             return paths(List.of(paths));
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+        public Builder prefix(@Nullable String prefix) {
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
-        public Builder queryParameters(List<GetRouteSpecHttpRouteMatchQueryParameter> queryParameters) {
-            this.queryParameters = Objects.requireNonNull(queryParameters);
+        public Builder queryParameters(@Nullable List<GetRouteSpecHttpRouteMatchQueryParameter> queryParameters) {
+            this.queryParameters = queryParameters;
             return this;
         }
         public Builder queryParameters(GetRouteSpecHttpRouteMatchQueryParameter... queryParameters) {
             return queryParameters(List.of(queryParameters));
         }
         @CustomType.Setter
-        public Builder scheme(String scheme) {
-            this.scheme = Objects.requireNonNull(scheme);
+        public Builder scheme(@Nullable String scheme) {
+            this.scheme = scheme;
             return this;
         }
         public GetRouteSpecHttpRouteMatch build() {

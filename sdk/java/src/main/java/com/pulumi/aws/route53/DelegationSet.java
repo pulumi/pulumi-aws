@@ -74,14 +74,14 @@ public class DelegationSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Delegation Set.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A list of authoritative name servers for the hosted zone
@@ -89,15 +89,15 @@ public class DelegationSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="nameServers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> nameServers;
+    private Output</* @Nullable */ List<String>> nameServers;
 
     /**
      * @return A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      * 
      */
-    public Output<List<String>> nameServers() {
-        return this.nameServers;
+    public Output<Optional<List<String>>> nameServers() {
+        return Codegen.optional(this.nameServers);
     }
     /**
      * This is a reference name used in Caller Reference

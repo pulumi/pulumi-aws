@@ -318,7 +318,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
@@ -326,7 +326,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasPublicAccessPolicy")
-    def has_public_access_policy(self) -> pulumi.Output[bool]:
+    def has_public_access_policy(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this access point currently has a policy that allows public access.
         """

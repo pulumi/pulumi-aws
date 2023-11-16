@@ -57,16 +57,16 @@ type LookupCustomPluginArgs struct {
 // A collection of values returned by getCustomPlugin.
 type LookupCustomPluginResult struct {
 	// the ARN of the custom plugin.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// a summary description of the custom plugin.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// an ID of the latest successfully created revision of the custom plugin.
-	LatestRevision int    `pulumi:"latestRevision"`
+	LatestRevision *int   `pulumi:"latestRevision"`
 	Name           string `pulumi:"name"`
 	// the state of the custom plugin.
-	State string `pulumi:"state"`
+	State *string `pulumi:"state"`
 }
 
 func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutputArgs, opts ...pulumi.InvokeOption) LookupCustomPluginResultOutput {
@@ -108,23 +108,23 @@ func (o LookupCustomPluginResultOutput) ToLookupCustomPluginResultOutputWithCont
 }
 
 // the ARN of the custom plugin.
-func (o LookupCustomPluginResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupCustomPluginResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomPluginResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // a summary description of the custom plugin.
-func (o LookupCustomPluginResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupCustomPluginResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomPluginResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCustomPluginResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCustomPluginResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomPluginResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // an ID of the latest successfully created revision of the custom plugin.
-func (o LookupCustomPluginResultOutput) LatestRevision() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupCustomPluginResult) int { return v.LatestRevision }).(pulumi.IntOutput)
+func (o LookupCustomPluginResultOutput) LatestRevision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupCustomPluginResult) *int { return v.LatestRevision }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupCustomPluginResultOutput) Name() pulumi.StringOutput {
@@ -132,8 +132,8 @@ func (o LookupCustomPluginResultOutput) Name() pulumi.StringOutput {
 }
 
 // the state of the custom plugin.
-func (o LookupCustomPluginResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.State }).(pulumi.StringOutput)
+func (o LookupCustomPluginResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomPluginResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 func init() {

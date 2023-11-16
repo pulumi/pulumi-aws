@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceProfilesResult {
@@ -14,22 +16,22 @@ public final class GetInstanceProfilesResult {
      * @return Set of ARNs of instance profiles.
      * 
      */
-    private List<String> arns;
+    private @Nullable List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Set of IAM instance profile names.
      * 
      */
-    private List<String> names;
+    private @Nullable List<String> names;
     /**
      * @return Set of IAM instance profile paths.
      * 
      */
-    private List<String> paths;
+    private @Nullable List<String> paths;
     private String roleName;
 
     private GetInstanceProfilesResult() {}
@@ -38,28 +40,28 @@ public final class GetInstanceProfilesResult {
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Set of IAM instance profile names.
      * 
      */
     public List<String> names() {
-        return this.names;
+        return this.names == null ? List.of() : this.names;
     }
     /**
      * @return Set of IAM instance profile paths.
      * 
      */
     public List<String> paths() {
-        return this.paths;
+        return this.paths == null ? List.of() : this.paths;
     }
     public String roleName() {
         return this.roleName;
@@ -74,10 +76,10 @@ public final class GetInstanceProfilesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> arns;
-        private String id;
-        private List<String> names;
-        private List<String> paths;
+        private @Nullable List<String> arns;
+        private @Nullable String id;
+        private @Nullable List<String> names;
+        private @Nullable List<String> paths;
         private String roleName;
         public Builder() {}
         public Builder(GetInstanceProfilesResult defaults) {
@@ -90,29 +92,29 @@ public final class GetInstanceProfilesResult {
         }
 
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+        public Builder names(@Nullable List<String> names) {
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
             return names(List.of(names));
         }
         @CustomType.Setter
-        public Builder paths(List<String> paths) {
-            this.paths = Objects.requireNonNull(paths);
+        public Builder paths(@Nullable List<String> paths) {
+            this.paths = paths;
             return this;
         }
         public Builder paths(String... paths) {

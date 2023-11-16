@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessPointPosixUser {
@@ -14,39 +16,39 @@ public final class GetAccessPointPosixUser {
      * @return Group ID
      * 
      */
-    private Integer gid;
+    private @Nullable Integer gid;
     /**
      * @return Secondary group IDs
      * 
      */
-    private List<Integer> secondaryGids;
+    private @Nullable List<Integer> secondaryGids;
     /**
      * @return User Id
      * 
      */
-    private Integer uid;
+    private @Nullable Integer uid;
 
     private GetAccessPointPosixUser() {}
     /**
      * @return Group ID
      * 
      */
-    public Integer gid() {
-        return this.gid;
+    public Optional<Integer> gid() {
+        return Optional.ofNullable(this.gid);
     }
     /**
      * @return Secondary group IDs
      * 
      */
     public List<Integer> secondaryGids() {
-        return this.secondaryGids;
+        return this.secondaryGids == null ? List.of() : this.secondaryGids;
     }
     /**
      * @return User Id
      * 
      */
-    public Integer uid() {
-        return this.uid;
+    public Optional<Integer> uid() {
+        return Optional.ofNullable(this.uid);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetAccessPointPosixUser {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer gid;
-        private List<Integer> secondaryGids;
-        private Integer uid;
+        private @Nullable Integer gid;
+        private @Nullable List<Integer> secondaryGids;
+        private @Nullable Integer uid;
         public Builder() {}
         public Builder(GetAccessPointPosixUser defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,21 +72,21 @@ public final class GetAccessPointPosixUser {
         }
 
         @CustomType.Setter
-        public Builder gid(Integer gid) {
-            this.gid = Objects.requireNonNull(gid);
+        public Builder gid(@Nullable Integer gid) {
+            this.gid = gid;
             return this;
         }
         @CustomType.Setter
-        public Builder secondaryGids(List<Integer> secondaryGids) {
-            this.secondaryGids = Objects.requireNonNull(secondaryGids);
+        public Builder secondaryGids(@Nullable List<Integer> secondaryGids) {
+            this.secondaryGids = secondaryGids;
             return this;
         }
         public Builder secondaryGids(Integer... secondaryGids) {
             return secondaryGids(List.of(secondaryGids));
         }
         @CustomType.Setter
-        public Builder uid(Integer uid) {
-            this.uid = Objects.requireNonNull(uid);
+        public Builder uid(@Nullable Integer uid) {
+            this.uid = uid;
             return this;
         }
         public GetAccessPointPosixUser build() {

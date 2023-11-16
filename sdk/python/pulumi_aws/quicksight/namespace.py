@@ -422,7 +422,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Namespace.
         """
@@ -430,7 +430,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """
@@ -438,7 +438,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="capacityRegion")
-    def capacity_region(self) -> pulumi.Output[str]:
+    def capacity_region(self) -> pulumi.Output[Optional[str]]:
         """
         Namespace AWS Region.
         """
@@ -446,7 +446,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationStatus")
-    def creation_status(self) -> pulumi.Output[str]:
+    def creation_status(self) -> pulumi.Output[Optional[str]]:
         """
         Creation status of the namespace.
         """
@@ -454,7 +454,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityStore")
-    def identity_store(self) -> pulumi.Output[str]:
+    def identity_store(self) -> pulumi.Output[Optional[str]]:
         """
         User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         """

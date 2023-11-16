@@ -78,17 +78,17 @@ type RoutingControl struct {
 	pulumi.CustomResourceState
 
 	// ARN of the routing control.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN of the cluster in which this routing control will reside.
 	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
 	// ARN of the control panel in which this routing control will reside.
-	ControlPanelArn pulumi.StringOutput `pulumi:"controlPanelArn"`
+	ControlPanelArn pulumi.StringPtrOutput `pulumi:"controlPanelArn"`
 	// The name describing the routing control.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewRoutingControl registers a new resource with the given unique name, arguments, and options.
@@ -268,8 +268,8 @@ func (o RoutingControlOutput) ToRoutingControlOutputWithContext(ctx context.Cont
 }
 
 // ARN of the routing control.
-func (o RoutingControlOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RoutingControl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RoutingControlOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingControl) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the cluster in which this routing control will reside.
@@ -278,8 +278,8 @@ func (o RoutingControlOutput) ClusterArn() pulumi.StringOutput {
 }
 
 // ARN of the control panel in which this routing control will reside.
-func (o RoutingControlOutput) ControlPanelArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RoutingControl) pulumi.StringOutput { return v.ControlPanelArn }).(pulumi.StringOutput)
+func (o RoutingControlOutput) ControlPanelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingControl) pulumi.StringPtrOutput { return v.ControlPanelArn }).(pulumi.StringPtrOutput)
 }
 
 // The name describing the routing control.
@@ -290,8 +290,8 @@ func (o RoutingControlOutput) Name() pulumi.StringOutput {
 }
 
 // Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-func (o RoutingControlOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *RoutingControl) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o RoutingControlOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingControl) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type RoutingControlArrayOutput struct{ *pulumi.OutputState }

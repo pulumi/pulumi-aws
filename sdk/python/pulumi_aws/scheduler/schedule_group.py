@@ -365,7 +365,7 @@ class ScheduleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the schedule group.
         """
@@ -373,7 +373,7 @@ class ScheduleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         Time at which the schedule group was created.
         """
@@ -381,7 +381,7 @@ class ScheduleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModificationDate")
-    def last_modification_date(self) -> pulumi.Output[str]:
+    def last_modification_date(self) -> pulumi.Output[Optional[str]]:
         """
         Time at which the schedule group was last modified.
         """
@@ -397,7 +397,7 @@ class ScheduleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -405,7 +405,7 @@ class ScheduleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the schedule group. Can be `ACTIVE` or `DELETING`.
         """

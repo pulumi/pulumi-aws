@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVaultResult {
@@ -15,50 +17,50 @@ public final class GetVaultResult {
      * @return ARN of the vault.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Server-side encryption key that is used to protect your backups.
      * 
      */
-    private String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     private String name;
     /**
      * @return Number of recovery points that are stored in a backup vault.
      * 
      */
-    private Integer recoveryPoints;
+    private @Nullable Integer recoveryPoints;
     /**
      * @return Metadata that you can assign to help organize the resources that you create.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetVaultResult() {}
     /**
      * @return ARN of the vault.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Server-side encryption key that is used to protect your backups.
      * 
      */
-    public String kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<String> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
     public String name() {
         return this.name;
@@ -67,15 +69,15 @@ public final class GetVaultResult {
      * @return Number of recovery points that are stored in a backup vault.
      * 
      */
-    public Integer recoveryPoints() {
-        return this.recoveryPoints;
+    public Optional<Integer> recoveryPoints() {
+        return Optional.ofNullable(this.recoveryPoints);
     }
     /**
      * @return Metadata that you can assign to help organize the resources that you create.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -87,12 +89,12 @@ public final class GetVaultResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String kmsKeyArn;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String kmsKeyArn;
         private String name;
-        private Integer recoveryPoints;
-        private Map<String,String> tags;
+        private @Nullable Integer recoveryPoints;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetVaultResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -105,18 +107,18 @@ public final class GetVaultResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+        public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
@@ -125,13 +127,13 @@ public final class GetVaultResult {
             return this;
         }
         @CustomType.Setter
-        public Builder recoveryPoints(Integer recoveryPoints) {
-            this.recoveryPoints = Objects.requireNonNull(recoveryPoints);
+        public Builder recoveryPoints(@Nullable Integer recoveryPoints) {
+            this.recoveryPoints = recoveryPoints;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetVaultResult build() {

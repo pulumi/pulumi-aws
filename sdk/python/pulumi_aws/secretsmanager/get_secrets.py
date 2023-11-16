@@ -39,7 +39,7 @@ class GetSecretsResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         Set of ARNs of the matched Secrets Manager secrets.
         """
@@ -52,7 +52,7 @@ class GetSecretsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -60,7 +60,7 @@ class GetSecretsResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         Set of names of the matched Secrets Manager secrets.
         """

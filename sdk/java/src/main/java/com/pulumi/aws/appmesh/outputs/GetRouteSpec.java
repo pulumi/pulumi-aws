@@ -11,30 +11,32 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpec {
-    private List<GetRouteSpecGrpcRoute> grpcRoutes;
-    private List<GetRouteSpecHttp2Route> http2Routes;
-    private List<GetRouteSpecHttpRoute> httpRoutes;
-    private Integer priority;
-    private List<GetRouteSpecTcpRoute> tcpRoutes;
+    private @Nullable List<GetRouteSpecGrpcRoute> grpcRoutes;
+    private @Nullable List<GetRouteSpecHttp2Route> http2Routes;
+    private @Nullable List<GetRouteSpecHttpRoute> httpRoutes;
+    private @Nullable Integer priority;
+    private @Nullable List<GetRouteSpecTcpRoute> tcpRoutes;
 
     private GetRouteSpec() {}
     public List<GetRouteSpecGrpcRoute> grpcRoutes() {
-        return this.grpcRoutes;
+        return this.grpcRoutes == null ? List.of() : this.grpcRoutes;
     }
     public List<GetRouteSpecHttp2Route> http2Routes() {
-        return this.http2Routes;
+        return this.http2Routes == null ? List.of() : this.http2Routes;
     }
     public List<GetRouteSpecHttpRoute> httpRoutes() {
-        return this.httpRoutes;
+        return this.httpRoutes == null ? List.of() : this.httpRoutes;
     }
-    public Integer priority() {
-        return this.priority;
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
     }
     public List<GetRouteSpecTcpRoute> tcpRoutes() {
-        return this.tcpRoutes;
+        return this.tcpRoutes == null ? List.of() : this.tcpRoutes;
     }
 
     public static Builder builder() {
@@ -46,11 +48,11 @@ public final class GetRouteSpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecGrpcRoute> grpcRoutes;
-        private List<GetRouteSpecHttp2Route> http2Routes;
-        private List<GetRouteSpecHttpRoute> httpRoutes;
-        private Integer priority;
-        private List<GetRouteSpecTcpRoute> tcpRoutes;
+        private @Nullable List<GetRouteSpecGrpcRoute> grpcRoutes;
+        private @Nullable List<GetRouteSpecHttp2Route> http2Routes;
+        private @Nullable List<GetRouteSpecHttpRoute> httpRoutes;
+        private @Nullable Integer priority;
+        private @Nullable List<GetRouteSpecTcpRoute> tcpRoutes;
         public Builder() {}
         public Builder(GetRouteSpec defaults) {
     	      Objects.requireNonNull(defaults);
@@ -62,37 +64,37 @@ public final class GetRouteSpec {
         }
 
         @CustomType.Setter
-        public Builder grpcRoutes(List<GetRouteSpecGrpcRoute> grpcRoutes) {
-            this.grpcRoutes = Objects.requireNonNull(grpcRoutes);
+        public Builder grpcRoutes(@Nullable List<GetRouteSpecGrpcRoute> grpcRoutes) {
+            this.grpcRoutes = grpcRoutes;
             return this;
         }
         public Builder grpcRoutes(GetRouteSpecGrpcRoute... grpcRoutes) {
             return grpcRoutes(List.of(grpcRoutes));
         }
         @CustomType.Setter
-        public Builder http2Routes(List<GetRouteSpecHttp2Route> http2Routes) {
-            this.http2Routes = Objects.requireNonNull(http2Routes);
+        public Builder http2Routes(@Nullable List<GetRouteSpecHttp2Route> http2Routes) {
+            this.http2Routes = http2Routes;
             return this;
         }
         public Builder http2Routes(GetRouteSpecHttp2Route... http2Routes) {
             return http2Routes(List.of(http2Routes));
         }
         @CustomType.Setter
-        public Builder httpRoutes(List<GetRouteSpecHttpRoute> httpRoutes) {
-            this.httpRoutes = Objects.requireNonNull(httpRoutes);
+        public Builder httpRoutes(@Nullable List<GetRouteSpecHttpRoute> httpRoutes) {
+            this.httpRoutes = httpRoutes;
             return this;
         }
         public Builder httpRoutes(GetRouteSpecHttpRoute... httpRoutes) {
             return httpRoutes(List.of(httpRoutes));
         }
         @CustomType.Setter
-        public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
-        public Builder tcpRoutes(List<GetRouteSpecTcpRoute> tcpRoutes) {
-            this.tcpRoutes = Objects.requireNonNull(tcpRoutes);
+        public Builder tcpRoutes(@Nullable List<GetRouteSpecTcpRoute> tcpRoutes) {
+            this.tcpRoutes = tcpRoutes;
             return this;
         }
         public Builder tcpRoutes(GetRouteSpecTcpRoute... tcpRoutes) {

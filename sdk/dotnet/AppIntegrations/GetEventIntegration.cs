@@ -128,11 +128,11 @@ namespace Pulumi.Aws.AppIntegrations
         /// <summary>
         /// The ARN of the AppIntegrations Event Integration.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The description of the Event Integration.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
         /// </summary>
@@ -140,32 +140,32 @@ namespace Pulumi.Aws.AppIntegrations
         /// <summary>
         /// The EventBridge bus.
         /// </summary>
-        public readonly string EventbridgeBus;
+        public readonly string? EventbridgeBus;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Metadata that you can assign to help organize the report plans you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetEventIntegrationResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetEventIntegrationEventFilterResult> eventFilters,
 
-            string eventbridgeBus,
+            string? eventbridgeBus,
 
-            string id,
+            string? id,
 
             string name,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

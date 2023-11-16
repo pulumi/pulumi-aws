@@ -6,6 +6,8 @@ package com.pulumi.aws.lambda.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAliasResult {
@@ -13,28 +15,28 @@ public final class GetAliasResult {
      * @return ARN identifying the Lambda function alias.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of alias.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String functionName;
     /**
      * @return Lambda function version which the alias uses.
      * 
      */
-    private String functionVersion;
+    private @Nullable String functionVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration&#39;s `uri`.
      * 
      */
-    private String invokeArn;
+    private @Nullable String invokeArn;
     private String name;
 
     private GetAliasResult() {}
@@ -42,15 +44,15 @@ public final class GetAliasResult {
      * @return ARN identifying the Lambda function alias.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of alias.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String functionName() {
         return this.functionName;
@@ -59,22 +61,22 @@ public final class GetAliasResult {
      * @return Lambda function version which the alias uses.
      * 
      */
-    public String functionVersion() {
-        return this.functionVersion;
+    public Optional<String> functionVersion() {
+        return Optional.ofNullable(this.functionVersion);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration&#39;s `uri`.
      * 
      */
-    public String invokeArn() {
-        return this.invokeArn;
+    public Optional<String> invokeArn() {
+        return Optional.ofNullable(this.invokeArn);
     }
     public String name() {
         return this.name;
@@ -89,12 +91,12 @@ public final class GetAliasResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable String description;
         private String functionName;
-        private String functionVersion;
-        private String id;
-        private String invokeArn;
+        private @Nullable String functionVersion;
+        private @Nullable String id;
+        private @Nullable String invokeArn;
         private String name;
         public Builder() {}
         public Builder(GetAliasResult defaults) {
@@ -109,13 +111,13 @@ public final class GetAliasResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -124,18 +126,18 @@ public final class GetAliasResult {
             return this;
         }
         @CustomType.Setter
-        public Builder functionVersion(String functionVersion) {
-            this.functionVersion = Objects.requireNonNull(functionVersion);
+        public Builder functionVersion(@Nullable String functionVersion) {
+            this.functionVersion = functionVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder invokeArn(String invokeArn) {
-            this.invokeArn = Objects.requireNonNull(invokeArn);
+        public Builder invokeArn(@Nullable String invokeArn) {
+            this.invokeArn = invokeArn;
             return this;
         }
         @CustomType.Setter

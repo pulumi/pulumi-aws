@@ -274,154 +274,154 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokers", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokers;
+    private Output</* @Nullable */ String> bootstrapBrokers;
 
     /**
      * @return Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokers() {
-        return this.bootstrapBrokers;
+    public Output<Optional<String>> bootstrapBrokers() {
+        return Codegen.optional(this.bootstrapBrokers);
     }
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersPublicSaslIam", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokersPublicSaslIam;
+    private Output</* @Nullable */ String> bootstrapBrokersPublicSaslIam;
 
     /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokersPublicSaslIam() {
-        return this.bootstrapBrokersPublicSaslIam;
+    public Output<Optional<String>> bootstrapBrokersPublicSaslIam() {
+        return Codegen.optional(this.bootstrapBrokersPublicSaslIam);
     }
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersPublicSaslScram", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokersPublicSaslScram;
+    private Output</* @Nullable */ String> bootstrapBrokersPublicSaslScram;
 
     /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokersPublicSaslScram() {
-        return this.bootstrapBrokersPublicSaslScram;
+    public Output<Optional<String>> bootstrapBrokersPublicSaslScram() {
+        return Codegen.optional(this.bootstrapBrokersPublicSaslScram);
     }
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersPublicTls", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokersPublicTls;
+    private Output</* @Nullable */ String> bootstrapBrokersPublicTls;
 
     /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokersPublicTls() {
-        return this.bootstrapBrokersPublicTls;
+    public Output<Optional<String>> bootstrapBrokersPublicTls() {
+        return Codegen.optional(this.bootstrapBrokersPublicTls);
     }
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersSaslIam", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokersSaslIam;
+    private Output</* @Nullable */ String> bootstrapBrokersSaslIam;
 
     /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokersSaslIam() {
-        return this.bootstrapBrokersSaslIam;
+    public Output<Optional<String>> bootstrapBrokersSaslIam() {
+        return Codegen.optional(this.bootstrapBrokersSaslIam);
     }
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersSaslScram", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokersSaslScram;
+    private Output</* @Nullable */ String> bootstrapBrokersSaslScram;
 
     /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokersSaslScram() {
-        return this.bootstrapBrokersSaslScram;
+    public Output<Optional<String>> bootstrapBrokersSaslScram() {
+        return Codegen.optional(this.bootstrapBrokersSaslScram);
     }
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersTls", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokersTls;
+    private Output</* @Nullable */ String> bootstrapBrokersTls;
 
     /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokersTls() {
-        return this.bootstrapBrokersTls;
+    public Output<Optional<String>> bootstrapBrokersTls() {
+        return Codegen.optional(this.bootstrapBrokersTls);
     }
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersVpcConnectivitySaslIam", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokersVpcConnectivitySaslIam;
+    private Output</* @Nullable */ String> bootstrapBrokersVpcConnectivitySaslIam;
 
     /**
      * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokersVpcConnectivitySaslIam() {
-        return this.bootstrapBrokersVpcConnectivitySaslIam;
+    public Output<Optional<String>> bootstrapBrokersVpcConnectivitySaslIam() {
+        return Codegen.optional(this.bootstrapBrokersVpcConnectivitySaslIam);
     }
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersVpcConnectivitySaslScram", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokersVpcConnectivitySaslScram;
+    private Output</* @Nullable */ String> bootstrapBrokersVpcConnectivitySaslScram;
 
     /**
      * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokersVpcConnectivitySaslScram() {
-        return this.bootstrapBrokersVpcConnectivitySaslScram;
+    public Output<Optional<String>> bootstrapBrokersVpcConnectivitySaslScram() {
+        return Codegen.optional(this.bootstrapBrokersVpcConnectivitySaslScram);
     }
     /**
      * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersVpcConnectivityTls", refs={String.class}, tree="[0]")
-    private Output<String> bootstrapBrokersVpcConnectivityTls;
+    private Output</* @Nullable */ String> bootstrapBrokersVpcConnectivityTls;
 
     /**
      * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public Output<String> bootstrapBrokersVpcConnectivityTls() {
-        return this.bootstrapBrokersVpcConnectivityTls;
+    public Output<Optional<String>> bootstrapBrokersVpcConnectivityTls() {
+        return Codegen.optional(this.bootstrapBrokersVpcConnectivityTls);
     }
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
@@ -470,14 +470,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clusterUuid", refs={String.class}, tree="[0]")
-    private Output<String> clusterUuid;
+    private Output</* @Nullable */ String> clusterUuid;
 
     /**
      * @return UUID of the MSK cluster, for use in IAM policies.
      * 
      */
-    public Output<String> clusterUuid() {
-        return this.clusterUuid;
+    public Output<Optional<String>> clusterUuid() {
+        return Codegen.optional(this.clusterUuid);
     }
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
@@ -499,15 +499,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="currentVersion", refs={String.class}, tree="[0]")
-    private Output<String> currentVersion;
+    private Output</* @Nullable */ String> currentVersion;
 
     /**
      * @return Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      * 
      */
-    public Output<String> currentVersion() {
-        return this.currentVersion;
+    public Output<Optional<String>> currentVersion() {
+        return Codegen.optional(this.currentVersion);
     }
     /**
      * Configuration block for specifying encryption. See below.
@@ -598,14 +598,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageMode", refs={String.class}, tree="[0]")
-    private Output<String> storageMode;
+    private Output</* @Nullable */ String> storageMode;
 
     /**
      * @return Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      * 
      */
-    public Output<String> storageMode() {
-        return this.storageMode;
+    public Output<Optional<String>> storageMode() {
+        return Codegen.optional(this.storageMode);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -644,28 +644,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="zookeeperConnectString", refs={String.class}, tree="[0]")
-    private Output<String> zookeeperConnectString;
+    private Output</* @Nullable */ String> zookeeperConnectString;
 
     /**
      * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    public Output<String> zookeeperConnectString() {
-        return this.zookeeperConnectString;
+    public Output<Optional<String>> zookeeperConnectString() {
+        return Codegen.optional(this.zookeeperConnectString);
     }
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     @Export(name="zookeeperConnectStringTls", refs={String.class}, tree="[0]")
-    private Output<String> zookeeperConnectStringTls;
+    private Output</* @Nullable */ String> zookeeperConnectStringTls;
 
     /**
      * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    public Output<String> zookeeperConnectStringTls() {
-        return this.zookeeperConnectStringTls;
+    public Output<Optional<String>> zookeeperConnectStringTls() {
+        return Codegen.optional(this.zookeeperConnectStringTls);
     }
 
     /**

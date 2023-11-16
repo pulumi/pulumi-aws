@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
@@ -13,27 +15,27 @@ public final class GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
      * @return The group attribute field.
      * 
      */
-    private String groupAttributeField;
+    private @Nullable String groupAttributeField;
     /**
      * @return The user name attribute field.
      * 
      */
-    private String userNameAttributeField;
+    private @Nullable String userNameAttributeField;
 
     private GetIndexUserTokenConfigurationJsonTokenTypeConfiguration() {}
     /**
      * @return The group attribute field.
      * 
      */
-    public String groupAttributeField() {
-        return this.groupAttributeField;
+    public Optional<String> groupAttributeField() {
+        return Optional.ofNullable(this.groupAttributeField);
     }
     /**
      * @return The user name attribute field.
      * 
      */
-    public String userNameAttributeField() {
-        return this.userNameAttributeField;
+    public Optional<String> userNameAttributeField() {
+        return Optional.ofNullable(this.userNameAttributeField);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String groupAttributeField;
-        private String userNameAttributeField;
+        private @Nullable String groupAttributeField;
+        private @Nullable String userNameAttributeField;
         public Builder() {}
         public Builder(GetIndexUserTokenConfigurationJsonTokenTypeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
         }
 
         @CustomType.Setter
-        public Builder groupAttributeField(String groupAttributeField) {
-            this.groupAttributeField = Objects.requireNonNull(groupAttributeField);
+        public Builder groupAttributeField(@Nullable String groupAttributeField) {
+            this.groupAttributeField = groupAttributeField;
             return this;
         }
         @CustomType.Setter
-        public Builder userNameAttributeField(String userNameAttributeField) {
-            this.userNameAttributeField = Objects.requireNonNull(userNameAttributeField);
+        public Builder userNameAttributeField(@Nullable String userNameAttributeField) {
+            this.userNameAttributeField = userNameAttributeField;
             return this;
         }
         public GetIndexUserTokenConfigurationJsonTokenTypeConfiguration build() {

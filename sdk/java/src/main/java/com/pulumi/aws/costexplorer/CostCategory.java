@@ -101,14 +101,14 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the cost category.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Default value for the cost category.
@@ -129,14 +129,14 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="effectiveEnd", refs={String.class}, tree="[0]")
-    private Output<String> effectiveEnd;
+    private Output</* @Nullable */ String> effectiveEnd;
 
     /**
      * @return Effective end data of your Cost Category.
      * 
      */
-    public Output<String> effectiveEnd() {
-        return this.effectiveEnd;
+    public Output<Optional<String>> effectiveEnd() {
+        return Codegen.optional(this.effectiveEnd);
     }
     /**
      * The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
@@ -145,7 +145,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="effectiveStart", refs={String.class}, tree="[0]")
-    private Output<String> effectiveStart;
+    private Output</* @Nullable */ String> effectiveStart;
 
     /**
      * @return The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
@@ -153,8 +153,8 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<String> effectiveStart() {
-        return this.effectiveStart;
+    public Output<Optional<String>> effectiveStart() {
+        return Codegen.optional(this.effectiveStart);
     }
     /**
      * Unique name for the Cost Category.

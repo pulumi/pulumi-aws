@@ -63,7 +63,7 @@ type GetSitesArgs struct {
 type GetSitesResult struct {
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// IDs of the sites.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -114,8 +114,8 @@ func (o GetSitesResultOutput) GlobalNetworkId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetSitesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSitesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetSitesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSitesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // IDs of the sites.

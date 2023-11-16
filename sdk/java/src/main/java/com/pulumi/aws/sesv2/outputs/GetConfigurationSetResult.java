@@ -14,55 +14,57 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationSetResult {
-    private String arn;
+    private @Nullable String arn;
     private String configurationSetName;
     /**
      * @return An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
      * 
      */
-    private List<GetConfigurationSetDeliveryOption> deliveryOptions;
+    private @Nullable List<GetConfigurationSetDeliveryOption> deliveryOptions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      * 
      */
-    private List<GetConfigurationSetReputationOption> reputationOptions;
+    private @Nullable List<GetConfigurationSetReputationOption> reputationOptions;
     /**
      * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set.
      * 
      */
-    private List<GetConfigurationSetSendingOption> sendingOptions;
+    private @Nullable List<GetConfigurationSetSendingOption> sendingOptions;
     /**
      * @return An object that contains information about the suppression list preferences for your account.
      * 
      */
-    private List<GetConfigurationSetSuppressionOption> suppressionOptions;
+    private @Nullable List<GetConfigurationSetSuppressionOption> suppressionOptions;
     /**
      * @return Key-value map of resource tags for the container recipe.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return An object that defines the open and click tracking options for emails that you send using the configuration set.
      * 
      */
-    private List<GetConfigurationSetTrackingOption> trackingOptions;
+    private @Nullable List<GetConfigurationSetTrackingOption> trackingOptions;
     /**
      * @return An object that contains information about the VDM preferences for your configuration set.
      * 
      */
-    private List<GetConfigurationSetVdmOption> vdmOptions;
+    private @Nullable List<GetConfigurationSetVdmOption> vdmOptions;
 
     private GetConfigurationSetResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public String configurationSetName() {
         return this.configurationSetName;
@@ -72,56 +74,56 @@ public final class GetConfigurationSetResult {
      * 
      */
     public List<GetConfigurationSetDeliveryOption> deliveryOptions() {
-        return this.deliveryOptions;
+        return this.deliveryOptions == null ? List.of() : this.deliveryOptions;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      * 
      */
     public List<GetConfigurationSetReputationOption> reputationOptions() {
-        return this.reputationOptions;
+        return this.reputationOptions == null ? List.of() : this.reputationOptions;
     }
     /**
      * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set.
      * 
      */
     public List<GetConfigurationSetSendingOption> sendingOptions() {
-        return this.sendingOptions;
+        return this.sendingOptions == null ? List.of() : this.sendingOptions;
     }
     /**
      * @return An object that contains information about the suppression list preferences for your account.
      * 
      */
     public List<GetConfigurationSetSuppressionOption> suppressionOptions() {
-        return this.suppressionOptions;
+        return this.suppressionOptions == null ? List.of() : this.suppressionOptions;
     }
     /**
      * @return Key-value map of resource tags for the container recipe.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return An object that defines the open and click tracking options for emails that you send using the configuration set.
      * 
      */
     public List<GetConfigurationSetTrackingOption> trackingOptions() {
-        return this.trackingOptions;
+        return this.trackingOptions == null ? List.of() : this.trackingOptions;
     }
     /**
      * @return An object that contains information about the VDM preferences for your configuration set.
      * 
      */
     public List<GetConfigurationSetVdmOption> vdmOptions() {
-        return this.vdmOptions;
+        return this.vdmOptions == null ? List.of() : this.vdmOptions;
     }
 
     public static Builder builder() {
@@ -133,16 +135,16 @@ public final class GetConfigurationSetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private String configurationSetName;
-        private List<GetConfigurationSetDeliveryOption> deliveryOptions;
-        private String id;
-        private List<GetConfigurationSetReputationOption> reputationOptions;
-        private List<GetConfigurationSetSendingOption> sendingOptions;
-        private List<GetConfigurationSetSuppressionOption> suppressionOptions;
-        private Map<String,String> tags;
-        private List<GetConfigurationSetTrackingOption> trackingOptions;
-        private List<GetConfigurationSetVdmOption> vdmOptions;
+        private @Nullable List<GetConfigurationSetDeliveryOption> deliveryOptions;
+        private @Nullable String id;
+        private @Nullable List<GetConfigurationSetReputationOption> reputationOptions;
+        private @Nullable List<GetConfigurationSetSendingOption> sendingOptions;
+        private @Nullable List<GetConfigurationSetSuppressionOption> suppressionOptions;
+        private @Nullable Map<String,String> tags;
+        private @Nullable List<GetConfigurationSetTrackingOption> trackingOptions;
+        private @Nullable List<GetConfigurationSetVdmOption> vdmOptions;
         public Builder() {}
         public Builder(GetConfigurationSetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -159,8 +161,8 @@ public final class GetConfigurationSetResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -169,58 +171,58 @@ public final class GetConfigurationSetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder deliveryOptions(List<GetConfigurationSetDeliveryOption> deliveryOptions) {
-            this.deliveryOptions = Objects.requireNonNull(deliveryOptions);
+        public Builder deliveryOptions(@Nullable List<GetConfigurationSetDeliveryOption> deliveryOptions) {
+            this.deliveryOptions = deliveryOptions;
             return this;
         }
         public Builder deliveryOptions(GetConfigurationSetDeliveryOption... deliveryOptions) {
             return deliveryOptions(List.of(deliveryOptions));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder reputationOptions(List<GetConfigurationSetReputationOption> reputationOptions) {
-            this.reputationOptions = Objects.requireNonNull(reputationOptions);
+        public Builder reputationOptions(@Nullable List<GetConfigurationSetReputationOption> reputationOptions) {
+            this.reputationOptions = reputationOptions;
             return this;
         }
         public Builder reputationOptions(GetConfigurationSetReputationOption... reputationOptions) {
             return reputationOptions(List.of(reputationOptions));
         }
         @CustomType.Setter
-        public Builder sendingOptions(List<GetConfigurationSetSendingOption> sendingOptions) {
-            this.sendingOptions = Objects.requireNonNull(sendingOptions);
+        public Builder sendingOptions(@Nullable List<GetConfigurationSetSendingOption> sendingOptions) {
+            this.sendingOptions = sendingOptions;
             return this;
         }
         public Builder sendingOptions(GetConfigurationSetSendingOption... sendingOptions) {
             return sendingOptions(List.of(sendingOptions));
         }
         @CustomType.Setter
-        public Builder suppressionOptions(List<GetConfigurationSetSuppressionOption> suppressionOptions) {
-            this.suppressionOptions = Objects.requireNonNull(suppressionOptions);
+        public Builder suppressionOptions(@Nullable List<GetConfigurationSetSuppressionOption> suppressionOptions) {
+            this.suppressionOptions = suppressionOptions;
             return this;
         }
         public Builder suppressionOptions(GetConfigurationSetSuppressionOption... suppressionOptions) {
             return suppressionOptions(List.of(suppressionOptions));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder trackingOptions(List<GetConfigurationSetTrackingOption> trackingOptions) {
-            this.trackingOptions = Objects.requireNonNull(trackingOptions);
+        public Builder trackingOptions(@Nullable List<GetConfigurationSetTrackingOption> trackingOptions) {
+            this.trackingOptions = trackingOptions;
             return this;
         }
         public Builder trackingOptions(GetConfigurationSetTrackingOption... trackingOptions) {
             return trackingOptions(List.of(trackingOptions));
         }
         @CustomType.Setter
-        public Builder vdmOptions(List<GetConfigurationSetVdmOption> vdmOptions) {
-            this.vdmOptions = Objects.requireNonNull(vdmOptions);
+        public Builder vdmOptions(@Nullable List<GetConfigurationSetVdmOption> vdmOptions) {
+            this.vdmOptions = vdmOptions;
             return this;
         }
         public Builder vdmOptions(GetConfigurationSetVdmOption... vdmOptions) {

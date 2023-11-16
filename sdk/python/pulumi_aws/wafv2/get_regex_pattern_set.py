@@ -44,7 +44,7 @@ class GetRegexPatternSetResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the entity.
         """
@@ -52,7 +52,7 @@ class GetRegexPatternSetResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the set that helps with identification.
         """
@@ -60,7 +60,7 @@ class GetRegexPatternSetResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -73,7 +73,7 @@ class GetRegexPatternSetResult:
 
     @property
     @pulumi.getter(name="regularExpressions")
-    def regular_expressions(self) -> Sequence['outputs.GetRegexPatternSetRegularExpressionResult']:
+    def regular_expressions(self) -> Optional[Sequence['outputs.GetRegexPatternSetRegularExpressionResult']]:
         """
         One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
         """

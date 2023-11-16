@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResolverEndpointResult {
-    private String arn;
-    private String direction;
+    private @Nullable String arn;
+    private @Nullable String direction;
     private @Nullable List<GetResolverEndpointFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private List<String> ipAddresses;
-    private String name;
+    private @Nullable String id;
+    private @Nullable List<String> ipAddresses;
+    private @Nullable String name;
     private @Nullable String resolverEndpointId;
-    private String status;
-    private String vpcId;
+    private @Nullable String status;
+    private @Nullable String vpcId;
 
     private GetResolverEndpointResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String direction() {
-        return this.direction;
+    public Optional<String> direction() {
+        return Optional.ofNullable(this.direction);
     }
     public List<GetResolverEndpointFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -41,23 +41,23 @@ public final class GetResolverEndpointResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public List<String> ipAddresses() {
-        return this.ipAddresses;
+        return this.ipAddresses == null ? List.of() : this.ipAddresses;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public Optional<String> resolverEndpointId() {
         return Optional.ofNullable(this.resolverEndpointId);
     }
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
-    public String vpcId() {
-        return this.vpcId;
+    public Optional<String> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     public static Builder builder() {
@@ -69,15 +69,15 @@ public final class GetResolverEndpointResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String direction;
+        private @Nullable String arn;
+        private @Nullable String direction;
         private @Nullable List<GetResolverEndpointFilter> filters;
-        private String id;
-        private List<String> ipAddresses;
-        private String name;
+        private @Nullable String id;
+        private @Nullable List<String> ipAddresses;
+        private @Nullable String name;
         private @Nullable String resolverEndpointId;
-        private String status;
-        private String vpcId;
+        private @Nullable String status;
+        private @Nullable String vpcId;
         public Builder() {}
         public Builder(GetResolverEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -93,13 +93,13 @@ public final class GetResolverEndpointResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+        public Builder direction(@Nullable String direction) {
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
@@ -111,21 +111,21 @@ public final class GetResolverEndpointResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddresses(List<String> ipAddresses) {
-            this.ipAddresses = Objects.requireNonNull(ipAddresses);
+        public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+            this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -134,13 +134,13 @@ public final class GetResolverEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+        public Builder vpcId(@Nullable String vpcId) {
+            this.vpcId = vpcId;
             return this;
         }
         public GetResolverEndpointResult build() {

@@ -476,7 +476,7 @@ class Lb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Lightsail load balancer.
         """
@@ -484,7 +484,7 @@ class Lb(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the load balancer was created.
         """
@@ -492,7 +492,7 @@ class Lb(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the load balancer.
         """
@@ -529,7 +529,7 @@ class Lb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[str]:
+    def protocol(self) -> pulumi.Output[Optional[str]]:
         """
         The protocol of the load balancer.
         """
@@ -537,7 +537,7 @@ class Lb(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicPorts")
-    def public_ports(self) -> pulumi.Output[Sequence[int]]:
+    def public_ports(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
         The public ports of the load balancer.
         """
@@ -545,7 +545,7 @@ class Lb(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportCode")
-    def support_code(self) -> pulumi.Output[str]:
+    def support_code(self) -> pulumi.Output[Optional[str]]:
         """
         The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """

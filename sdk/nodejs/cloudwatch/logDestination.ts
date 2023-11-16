@@ -58,7 +58,7 @@ export class LogDestination extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the log destination.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A name for the log destination.
      */

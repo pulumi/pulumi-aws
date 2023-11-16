@@ -98,7 +98,7 @@ namespace Pulumi.Aws.GuardDuty
         /// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         /// </summary>
         [Output("relationshipStatus")]
-        public Output<string> RelationshipStatus { get; private set; } = null!;
+        public Output<string?> RelationshipStatus { get; private set; } = null!;
 
 
         /// <summary>

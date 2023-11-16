@@ -670,7 +670,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acceptStatus")
-    def accept_status(self) -> pulumi.Output[str]:
+    def accept_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the VPC Peering Connection request.
         """
@@ -678,7 +678,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accepter(self) -> pulumi.Output['outputs.VpcPeeringConnectionAccepter']:
+    def accepter(self) -> pulumi.Output[Optional['outputs.VpcPeeringConnectionAccepter']]:
         """
         An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
         the peering connection (a maximum of one).
@@ -695,7 +695,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerOwnerId")
-    def peer_owner_id(self) -> pulumi.Output[str]:
+    def peer_owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID of the owner of the peer VPC.
         Defaults to the account ID the AWS provider is currently connected to.
@@ -704,7 +704,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerRegion")
-    def peer_region(self) -> pulumi.Output[str]:
+    def peer_region(self) -> pulumi.Output[Optional[str]]:
         """
         The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
         and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -721,7 +721,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def requester(self) -> pulumi.Output['outputs.VpcPeeringConnectionRequester']:
+    def requester(self) -> pulumi.Output[Optional['outputs.VpcPeeringConnectionRequester']]:
         """
         A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
         the peering connection (a maximum of one).

@@ -68,7 +68,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS to this policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the IAM policy.
      */
@@ -80,7 +80,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Path in which to create the policy.
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -93,7 +93,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The policy's ID.
      */
-    public /*out*/ readonly policyId!: pulumi.Output<string>;
+    public /*out*/ readonly policyId!: pulumi.Output<string | undefined>;
     /**
      * Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

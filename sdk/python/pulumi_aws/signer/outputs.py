@@ -335,140 +335,155 @@ class SigningProfileSigningMaterial(dict):
 @pulumi.output_type
 class GetSigningJobRevocationRecordResult(dict):
     def __init__(__self__, *,
-                 reason: str,
-                 revoked_at: str,
-                 revoked_by: str):
-        pulumi.set(__self__, "reason", reason)
-        pulumi.set(__self__, "revoked_at", revoked_at)
-        pulumi.set(__self__, "revoked_by", revoked_by)
+                 reason: Optional[str] = None,
+                 revoked_at: Optional[str] = None,
+                 revoked_by: Optional[str] = None):
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if revoked_at is not None:
+            pulumi.set(__self__, "revoked_at", revoked_at)
+        if revoked_by is not None:
+            pulumi.set(__self__, "revoked_by", revoked_by)
 
     @property
     @pulumi.getter
-    def reason(self) -> str:
+    def reason(self) -> Optional[str]:
         return pulumi.get(self, "reason")
 
     @property
     @pulumi.getter(name="revokedAt")
-    def revoked_at(self) -> str:
+    def revoked_at(self) -> Optional[str]:
         return pulumi.get(self, "revoked_at")
 
     @property
     @pulumi.getter(name="revokedBy")
-    def revoked_by(self) -> str:
+    def revoked_by(self) -> Optional[str]:
         return pulumi.get(self, "revoked_by")
 
 
 @pulumi.output_type
 class GetSigningJobSignedObjectResult(dict):
     def __init__(__self__, *,
-                 s3s: Sequence['outputs.GetSigningJobSignedObjectS3Result']):
-        pulumi.set(__self__, "s3s", s3s)
+                 s3s: Optional[Sequence['outputs.GetSigningJobSignedObjectS3Result']] = None):
+        if s3s is not None:
+            pulumi.set(__self__, "s3s", s3s)
 
     @property
     @pulumi.getter
-    def s3s(self) -> Sequence['outputs.GetSigningJobSignedObjectS3Result']:
+    def s3s(self) -> Optional[Sequence['outputs.GetSigningJobSignedObjectS3Result']]:
         return pulumi.get(self, "s3s")
 
 
 @pulumi.output_type
 class GetSigningJobSignedObjectS3Result(dict):
     def __init__(__self__, *,
-                 bucket: str,
-                 key: str):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
+                 bucket: Optional[str] = None,
+                 key: Optional[str] = None):
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> Optional[str]:
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         return pulumi.get(self, "key")
 
 
 @pulumi.output_type
 class GetSigningJobSourceResult(dict):
     def __init__(__self__, *,
-                 s3s: Sequence['outputs.GetSigningJobSourceS3Result']):
-        pulumi.set(__self__, "s3s", s3s)
+                 s3s: Optional[Sequence['outputs.GetSigningJobSourceS3Result']] = None):
+        if s3s is not None:
+            pulumi.set(__self__, "s3s", s3s)
 
     @property
     @pulumi.getter
-    def s3s(self) -> Sequence['outputs.GetSigningJobSourceS3Result']:
+    def s3s(self) -> Optional[Sequence['outputs.GetSigningJobSourceS3Result']]:
         return pulumi.get(self, "s3s")
 
 
 @pulumi.output_type
 class GetSigningJobSourceS3Result(dict):
     def __init__(__self__, *,
-                 bucket: str,
-                 key: str,
-                 version: str):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "version", version)
+                 bucket: Optional[str] = None,
+                 key: Optional[str] = None,
+                 version: Optional[str] = None):
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> Optional[str]:
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> Optional[str]:
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
 
 
 @pulumi.output_type
 class GetSigningProfileRevocationRecordResult(dict):
     def __init__(__self__, *,
-                 revocation_effective_from: str,
-                 revoked_at: str,
-                 revoked_by: str):
-        pulumi.set(__self__, "revocation_effective_from", revocation_effective_from)
-        pulumi.set(__self__, "revoked_at", revoked_at)
-        pulumi.set(__self__, "revoked_by", revoked_by)
+                 revocation_effective_from: Optional[str] = None,
+                 revoked_at: Optional[str] = None,
+                 revoked_by: Optional[str] = None):
+        if revocation_effective_from is not None:
+            pulumi.set(__self__, "revocation_effective_from", revocation_effective_from)
+        if revoked_at is not None:
+            pulumi.set(__self__, "revoked_at", revoked_at)
+        if revoked_by is not None:
+            pulumi.set(__self__, "revoked_by", revoked_by)
 
     @property
     @pulumi.getter(name="revocationEffectiveFrom")
-    def revocation_effective_from(self) -> str:
+    def revocation_effective_from(self) -> Optional[str]:
         return pulumi.get(self, "revocation_effective_from")
 
     @property
     @pulumi.getter(name="revokedAt")
-    def revoked_at(self) -> str:
+    def revoked_at(self) -> Optional[str]:
         return pulumi.get(self, "revoked_at")
 
     @property
     @pulumi.getter(name="revokedBy")
-    def revoked_by(self) -> str:
+    def revoked_by(self) -> Optional[str]:
         return pulumi.get(self, "revoked_by")
 
 
 @pulumi.output_type
 class GetSigningProfileSignatureValidityPeriodResult(dict):
     def __init__(__self__, *,
-                 type: str,
-                 value: int):
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+                 type: Optional[str] = None,
+                 value: Optional[int] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> Optional[int]:
         return pulumi.get(self, "value")
 
 

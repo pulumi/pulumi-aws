@@ -97,70 +97,70 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the network ACL
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies an egress rule. Parameters defined below.
      * 
      */
     @Export(name="egress", refs={List.class,NetworkAclEgress.class}, tree="[0,1]")
-    private Output<List<NetworkAclEgress>> egress;
+    private Output</* @Nullable */ List<NetworkAclEgress>> egress;
 
     /**
      * @return Specifies an egress rule. Parameters defined below.
      * 
      */
-    public Output<List<NetworkAclEgress>> egress() {
-        return this.egress;
+    public Output<Optional<List<NetworkAclEgress>>> egress() {
+        return Codegen.optional(this.egress);
     }
     /**
      * Specifies an ingress rule. Parameters defined below.
      * 
      */
     @Export(name="ingress", refs={List.class,NetworkAclIngress.class}, tree="[0,1]")
-    private Output<List<NetworkAclIngress>> ingress;
+    private Output</* @Nullable */ List<NetworkAclIngress>> ingress;
 
     /**
      * @return Specifies an ingress rule. Parameters defined below.
      * 
      */
-    public Output<List<NetworkAclIngress>> ingress() {
-        return this.ingress;
+    public Output<Optional<List<NetworkAclIngress>>> ingress() {
+        return Codegen.optional(this.ingress);
     }
     /**
      * The ID of the AWS account that owns the network ACL.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The ID of the AWS account that owns the network ACL.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * A list of Subnet IDs to apply the ACL to
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> subnetIds;
+    private Output</* @Nullable */ List<String>> subnetIds;
 
     /**
      * @return A list of Subnet IDs to apply the ACL to
      * 
      */
-    public Output<List<String>> subnetIds() {
-        return this.subnetIds;
+    public Output<Optional<List<String>>> subnetIds() {
+        return Codegen.optional(this.subnetIds);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

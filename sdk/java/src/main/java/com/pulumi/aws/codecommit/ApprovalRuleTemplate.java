@@ -74,14 +74,14 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="approvalRuleTemplateId", refs={String.class}, tree="[0]")
-    private Output<String> approvalRuleTemplateId;
+    private Output</* @Nullable */ String> approvalRuleTemplateId;
 
     /**
      * @return The ID of the approval rule template
      * 
      */
-    public Output<String> approvalRuleTemplateId() {
-        return this.approvalRuleTemplateId;
+    public Output<Optional<String>> approvalRuleTemplateId() {
+        return Codegen.optional(this.approvalRuleTemplateId);
     }
     /**
      * The content of the approval rule template. Maximum of 3000 characters.
@@ -102,14 +102,14 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
-    private Output<String> creationDate;
+    private Output</* @Nullable */ String> creationDate;
 
     /**
      * @return The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public Output<String> creationDate() {
-        return this.creationDate;
+    public Output<Optional<String>> creationDate() {
+        return Codegen.optional(this.creationDate);
     }
     /**
      * The description of the approval rule template. Maximum of 1000 characters.
@@ -130,28 +130,28 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModifiedDate", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedDate;
+    private Output</* @Nullable */ String> lastModifiedDate;
 
     /**
      * @return The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public Output<String> lastModifiedDate() {
-        return this.lastModifiedDate;
+    public Output<Optional<String>> lastModifiedDate() {
+        return Codegen.optional(this.lastModifiedDate);
     }
     /**
      * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
      * 
      */
     @Export(name="lastModifiedUser", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedUser;
+    private Output</* @Nullable */ String> lastModifiedUser;
 
     /**
      * @return The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
      * 
      */
-    public Output<String> lastModifiedUser() {
-        return this.lastModifiedUser;
+    public Output<Optional<String>> lastModifiedUser() {
+        return Codegen.optional(this.lastModifiedUser);
     }
     /**
      * The name for the approval rule template. Maximum of 100 characters.
@@ -172,14 +172,14 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ruleContentSha256", refs={String.class}, tree="[0]")
-    private Output<String> ruleContentSha256;
+    private Output</* @Nullable */ String> ruleContentSha256;
 
     /**
      * @return The SHA-256 hash signature for the content of the approval rule template.
      * 
      */
-    public Output<String> ruleContentSha256() {
-        return this.ruleContentSha256;
+    public Output<Optional<String>> ruleContentSha256() {
+        return Codegen.optional(this.ruleContentSha256);
     }
 
     /**

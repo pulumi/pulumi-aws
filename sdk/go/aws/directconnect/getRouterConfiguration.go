@@ -77,15 +77,15 @@ type GetRouterConfigurationArgs struct {
 // A collection of values returned by getRouterConfiguration.
 type GetRouterConfigurationResult struct {
 	// Instructions for configuring your router
-	CustomerRouterConfig string `pulumi:"customerRouterConfig"`
+	CustomerRouterConfig *string `pulumi:"customerRouterConfig"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Router type identifier
 	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
 	// Block of the router type details
 	Routers              []GetRouterConfigurationRouter `pulumi:"routers"`
 	VirtualInterfaceId   string                         `pulumi:"virtualInterfaceId"`
-	VirtualInterfaceName string                         `pulumi:"virtualInterfaceName"`
+	VirtualInterfaceName *string                        `pulumi:"virtualInterfaceName"`
 }
 
 func GetRouterConfigurationOutput(ctx *pulumi.Context, args GetRouterConfigurationOutputArgs, opts ...pulumi.InvokeOption) GetRouterConfigurationResultOutput {
@@ -145,13 +145,13 @@ func (o GetRouterConfigurationResultOutput) ToGetRouterConfigurationResultOutput
 }
 
 // Instructions for configuring your router
-func (o GetRouterConfigurationResultOutput) CustomerRouterConfig() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.CustomerRouterConfig }).(pulumi.StringOutput)
+func (o GetRouterConfigurationResultOutput) CustomerRouterConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouterConfigurationResult) *string { return v.CustomerRouterConfig }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetRouterConfigurationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetRouterConfigurationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouterConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Router type identifier
@@ -168,8 +168,8 @@ func (o GetRouterConfigurationResultOutput) VirtualInterfaceId() pulumi.StringOu
 	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.VirtualInterfaceId }).(pulumi.StringOutput)
 }
 
-func (o GetRouterConfigurationResultOutput) VirtualInterfaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.VirtualInterfaceName }).(pulumi.StringOutput)
+func (o GetRouterConfigurationResultOutput) VirtualInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouterConfigurationResult) *string { return v.VirtualInterfaceName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

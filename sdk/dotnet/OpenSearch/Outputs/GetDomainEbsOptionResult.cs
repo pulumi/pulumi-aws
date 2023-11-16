@@ -16,35 +16,35 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Whether EBS volumes are attached to data nodes in the domain.
         /// </summary>
-        public readonly bool EbsEnabled;
+        public readonly bool? EbsEnabled;
         /// <summary>
         /// Baseline input/output (I/O) performance of EBS volumes attached to data nodes.
         /// </summary>
-        public readonly int Iops;
+        public readonly int? Iops;
         /// <summary>
         /// The throughput (in MiB/s) of the EBS volumes attached to data nodes.
         /// </summary>
-        public readonly int Throughput;
+        public readonly int? Throughput;
         /// <summary>
         /// Size of EBS volumes attached to data nodes (in GB).
         /// </summary>
-        public readonly int VolumeSize;
+        public readonly int? VolumeSize;
         /// <summary>
         /// Type of EBS volumes attached to data nodes.
         /// </summary>
-        public readonly string VolumeType;
+        public readonly string? VolumeType;
 
         [OutputConstructor]
         private GetDomainEbsOptionResult(
-            bool ebsEnabled,
+            bool? ebsEnabled,
 
-            int iops,
+            int? iops,
 
-            int throughput,
+            int? throughput,
 
-            int volumeSize,
+            int? volumeSize,
 
-            string volumeType)
+            string? volumeType)
         {
             EbsEnabled = ebsEnabled;
             Iops = iops;

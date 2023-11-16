@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of Transit Gateway Routes.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private GetRouteTableRoutesResult(
             ImmutableArray<Outputs.GetRouteTableRoutesFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetRouteTableRoutesRouteResult> routes,
 

@@ -401,7 +401,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the repository
         """
@@ -409,7 +409,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloneUrlHttp")
-    def clone_url_http(self) -> pulumi.Output[str]:
+    def clone_url_http(self) -> pulumi.Output[Optional[str]]:
         """
         The URL to use for cloning the repository over HTTPS.
         """
@@ -417,7 +417,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloneUrlSsh")
-    def clone_url_ssh(self) -> pulumi.Output[str]:
+    def clone_url_ssh(self) -> pulumi.Output[Optional[str]]:
         """
         The URL to use for cloning the repository over SSH.
         """
@@ -441,7 +441,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> pulumi.Output[str]:
+    def repository_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the repository
         """

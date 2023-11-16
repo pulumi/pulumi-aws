@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReceivedLicenseConsumptionConfiguration {
@@ -16,13 +18,13 @@ public final class GetReceivedLicenseConsumptionConfiguration {
      * @return Details about a borrow configuration. Detailed below
      * 
      */
-    private List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations;
+    private @Nullable List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations;
     /**
      * @return Details about a provisional configuration. Detailed below
      * 
      */
-    private List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations;
-    private String renewType;
+    private @Nullable List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations;
+    private @Nullable String renewType;
 
     private GetReceivedLicenseConsumptionConfiguration() {}
     /**
@@ -30,17 +32,17 @@ public final class GetReceivedLicenseConsumptionConfiguration {
      * 
      */
     public List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations() {
-        return this.borrowConfigurations;
+        return this.borrowConfigurations == null ? List.of() : this.borrowConfigurations;
     }
     /**
      * @return Details about a provisional configuration. Detailed below
      * 
      */
     public List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations() {
-        return this.provisionalConfigurations;
+        return this.provisionalConfigurations == null ? List.of() : this.provisionalConfigurations;
     }
-    public String renewType() {
-        return this.renewType;
+    public Optional<String> renewType() {
+        return Optional.ofNullable(this.renewType);
     }
 
     public static Builder builder() {
@@ -52,9 +54,9 @@ public final class GetReceivedLicenseConsumptionConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations;
-        private List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations;
-        private String renewType;
+        private @Nullable List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations;
+        private @Nullable List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations;
+        private @Nullable String renewType;
         public Builder() {}
         public Builder(GetReceivedLicenseConsumptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,24 +66,24 @@ public final class GetReceivedLicenseConsumptionConfiguration {
         }
 
         @CustomType.Setter
-        public Builder borrowConfigurations(List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations) {
-            this.borrowConfigurations = Objects.requireNonNull(borrowConfigurations);
+        public Builder borrowConfigurations(@Nullable List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations) {
+            this.borrowConfigurations = borrowConfigurations;
             return this;
         }
         public Builder borrowConfigurations(GetReceivedLicenseConsumptionConfigurationBorrowConfiguration... borrowConfigurations) {
             return borrowConfigurations(List.of(borrowConfigurations));
         }
         @CustomType.Setter
-        public Builder provisionalConfigurations(List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations) {
-            this.provisionalConfigurations = Objects.requireNonNull(provisionalConfigurations);
+        public Builder provisionalConfigurations(@Nullable List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations) {
+            this.provisionalConfigurations = provisionalConfigurations;
             return this;
         }
         public Builder provisionalConfigurations(GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration... provisionalConfigurations) {
             return provisionalConfigurations(List.of(provisionalConfigurations));
         }
         @CustomType.Setter
-        public Builder renewType(String renewType) {
-            this.renewType = Objects.requireNonNull(renewType);
+        public Builder renewType(@Nullable String renewType) {
+            this.renewType = renewType;
             return this;
         }
         public GetReceivedLicenseConsumptionConfiguration build() {

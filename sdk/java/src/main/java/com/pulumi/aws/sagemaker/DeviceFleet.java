@@ -73,14 +73,14 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A description of the fleet.
@@ -125,10 +125,10 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableIotRoleAlias);
     }
     @Export(name="iotRoleAlias", refs={String.class}, tree="[0]")
-    private Output<String> iotRoleAlias;
+    private Output</* @Nullable */ String> iotRoleAlias;
 
-    public Output<String> iotRoleAlias() {
-        return this.iotRoleAlias;
+    public Output<Optional<String>> iotRoleAlias() {
+        return Codegen.optional(this.iotRoleAlias);
     }
     /**
      * Specifies details about the repository. see Output Config details below.

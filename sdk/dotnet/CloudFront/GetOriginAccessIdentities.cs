@@ -167,7 +167,7 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of ids of the matched origin access identities.
         /// </summary>
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.CloudFront
 
             ImmutableArray<string> iamArns,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

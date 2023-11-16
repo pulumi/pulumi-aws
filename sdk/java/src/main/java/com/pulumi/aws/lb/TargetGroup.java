@@ -217,42 +217,42 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Target Group (matches `id`).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN suffix for use with CloudWatch Metrics.
      * 
      */
     @Export(name="arnSuffix", refs={String.class}, tree="[0]")
-    private Output<String> arnSuffix;
+    private Output</* @Nullable */ String> arnSuffix;
 
     /**
      * @return ARN suffix for use with CloudWatch Metrics.
      * 
      */
-    public Output<String> arnSuffix() {
-        return this.arnSuffix;
+    public Output<Optional<String>> arnSuffix() {
+        return Codegen.optional(this.arnSuffix);
     }
     /**
      * Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
      * 
      */
     @Export(name="connectionTermination", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> connectionTermination;
+    private Output</* @Nullable */ Boolean> connectionTermination;
 
     /**
      * @return Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
      * 
      */
-    public Output<Boolean> connectionTermination() {
-        return this.connectionTermination;
+    public Output<Optional<Boolean>> connectionTermination() {
+        return Codegen.optional(this.connectionTermination);
     }
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
@@ -273,28 +273,28 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="healthCheck", refs={TargetGroupHealthCheck.class}, tree="[0]")
-    private Output<TargetGroupHealthCheck> healthCheck;
+    private Output</* @Nullable */ TargetGroupHealthCheck> healthCheck;
 
     /**
      * @return Health Check configuration block. Detailed below.
      * 
      */
-    public Output<TargetGroupHealthCheck> healthCheck() {
-        return this.healthCheck;
+    public Output<Optional<TargetGroupHealthCheck>> healthCheck() {
+        return Codegen.optional(this.healthCheck);
     }
     /**
      * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
-    private Output<String> ipAddressType;
+    private Output</* @Nullable */ String> ipAddressType;
 
     /**
      * @return The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
      * 
      */
-    public Output<String> ipAddressType() {
-        return this.ipAddressType;
+    public Output<Optional<String>> ipAddressType() {
+        return Codegen.optional(this.ipAddressType);
     }
     /**
      * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
@@ -315,28 +315,28 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="loadBalancingAlgorithmType", refs={String.class}, tree="[0]")
-    private Output<String> loadBalancingAlgorithmType;
+    private Output</* @Nullable */ String> loadBalancingAlgorithmType;
 
     /**
      * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
      * 
      */
-    public Output<String> loadBalancingAlgorithmType() {
-        return this.loadBalancingAlgorithmType;
+    public Output<Optional<String>> loadBalancingAlgorithmType() {
+        return Codegen.optional(this.loadBalancingAlgorithmType);
     }
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
      * 
      */
     @Export(name="loadBalancingCrossZoneEnabled", refs={String.class}, tree="[0]")
-    private Output<String> loadBalancingCrossZoneEnabled;
+    private Output</* @Nullable */ String> loadBalancingCrossZoneEnabled;
 
     /**
      * @return Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
      * 
      */
-    public Output<String> loadBalancingCrossZoneEnabled() {
-        return this.loadBalancingCrossZoneEnabled;
+    public Output<Optional<String>> loadBalancingCrossZoneEnabled() {
+        return Codegen.optional(this.loadBalancingCrossZoneEnabled);
     }
     /**
      * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
@@ -357,14 +357,14 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
@@ -385,14 +385,14 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="preserveClientIp", refs={String.class}, tree="[0]")
-    private Output<String> preserveClientIp;
+    private Output</* @Nullable */ String> preserveClientIp;
 
     /**
      * @return Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
      * 
      */
-    public Output<String> preserveClientIp() {
-        return this.preserveClientIp;
+    public Output<Optional<String>> preserveClientIp() {
+        return Codegen.optional(this.preserveClientIp);
     }
     /**
      * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
@@ -413,14 +413,14 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="protocolVersion", refs={String.class}, tree="[0]")
-    private Output<String> protocolVersion;
+    private Output</* @Nullable */ String> protocolVersion;
 
     /**
      * @return Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
      * 
      */
-    public Output<String> protocolVersion() {
-        return this.protocolVersion;
+    public Output<Optional<String>> protocolVersion() {
+        return Codegen.optional(this.protocolVersion);
     }
     /**
      * Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
@@ -455,14 +455,14 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="stickiness", refs={TargetGroupStickiness.class}, tree="[0]")
-    private Output<TargetGroupStickiness> stickiness;
+    private Output</* @Nullable */ TargetGroupStickiness> stickiness;
 
     /**
      * @return Stickiness configuration block. Detailed below.
      * 
      */
-    public Output<TargetGroupStickiness> stickiness() {
-        return this.stickiness;
+    public Output<Optional<TargetGroupStickiness>> stickiness() {
+        return Codegen.optional(this.stickiness);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -501,28 +501,28 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="targetFailovers", refs={List.class,TargetGroupTargetFailover.class}, tree="[0,1]")
-    private Output<List<TargetGroupTargetFailover>> targetFailovers;
+    private Output</* @Nullable */ List<TargetGroupTargetFailover>> targetFailovers;
 
     /**
      * @return Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
      * 
      */
-    public Output<List<TargetGroupTargetFailover>> targetFailovers() {
-        return this.targetFailovers;
+    public Output<Optional<List<TargetGroupTargetFailover>>> targetFailovers() {
+        return Codegen.optional(this.targetFailovers);
     }
     /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
      * 
      */
     @Export(name="targetHealthStates", refs={List.class,TargetGroupTargetHealthState.class}, tree="[0,1]")
-    private Output<List<TargetGroupTargetHealthState>> targetHealthStates;
+    private Output</* @Nullable */ List<TargetGroupTargetHealthState>> targetHealthStates;
 
     /**
      * @return Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
      * 
      */
-    public Output<List<TargetGroupTargetHealthState>> targetHealthStates() {
-        return this.targetHealthStates;
+    public Output<Optional<List<TargetGroupTargetHealthState>>> targetHealthStates() {
+        return Codegen.optional(this.targetHealthStates);
     }
     /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserPoolClientsResult {
@@ -14,17 +16,17 @@ public final class GetUserPoolClientsResult {
      * @return List of Cognito user pool client IDs.
      * 
      */
-    private List<String> clientIds;
+    private @Nullable List<String> clientIds;
     /**
      * @return List of Cognito user pool client names.
      * 
      */
-    private List<String> clientNames;
+    private @Nullable List<String> clientNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String userPoolId;
 
     private GetUserPoolClientsResult() {}
@@ -33,21 +35,21 @@ public final class GetUserPoolClientsResult {
      * 
      */
     public List<String> clientIds() {
-        return this.clientIds;
+        return this.clientIds == null ? List.of() : this.clientIds;
     }
     /**
      * @return List of Cognito user pool client names.
      * 
      */
     public List<String> clientNames() {
-        return this.clientNames;
+        return this.clientNames == null ? List.of() : this.clientNames;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String userPoolId() {
         return this.userPoolId;
@@ -62,9 +64,9 @@ public final class GetUserPoolClientsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> clientIds;
-        private List<String> clientNames;
-        private String id;
+        private @Nullable List<String> clientIds;
+        private @Nullable List<String> clientNames;
+        private @Nullable String id;
         private String userPoolId;
         public Builder() {}
         public Builder(GetUserPoolClientsResult defaults) {
@@ -76,24 +78,24 @@ public final class GetUserPoolClientsResult {
         }
 
         @CustomType.Setter
-        public Builder clientIds(List<String> clientIds) {
-            this.clientIds = Objects.requireNonNull(clientIds);
+        public Builder clientIds(@Nullable List<String> clientIds) {
+            this.clientIds = clientIds;
             return this;
         }
         public Builder clientIds(String... clientIds) {
             return clientIds(List.of(clientIds));
         }
         @CustomType.Setter
-        public Builder clientNames(List<String> clientNames) {
-            this.clientNames = Objects.requireNonNull(clientNames);
+        public Builder clientNames(@Nullable List<String> clientNames) {
+            this.clientNames = clientNames;
             return this;
         }
         public Builder clientNames(String... clientNames) {
             return clientNames(List.of(clientNames));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

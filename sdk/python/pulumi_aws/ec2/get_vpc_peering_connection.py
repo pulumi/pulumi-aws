@@ -75,7 +75,7 @@ class GetVpcPeeringConnectionResult:
 
     @property
     @pulumi.getter
-    def accepter(self) -> Mapping[str, bool]:
+    def accepter(self) -> Optional[Mapping[str, bool]]:
         """
         Configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
@@ -84,7 +84,7 @@ class GetVpcPeeringConnectionResult:
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> Optional[str]:
         """
         CIDR block associated to the VPC of the specific VPC Peering Connection.
         """
@@ -92,7 +92,7 @@ class GetVpcPeeringConnectionResult:
 
     @property
     @pulumi.getter(name="cidrBlockSets")
-    def cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionCidrBlockSetResult']:
+    def cidr_block_sets(self) -> Optional[Sequence['outputs.GetVpcPeeringConnectionCidrBlockSetResult']]:
         """
         List of objects with CIDR blocks of the requester VPC.
         """
@@ -105,22 +105,22 @@ class GetVpcPeeringConnectionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="peerCidrBlock")
-    def peer_cidr_block(self) -> str:
+    def peer_cidr_block(self) -> Optional[str]:
         return pulumi.get(self, "peer_cidr_block")
 
     @property
     @pulumi.getter(name="peerCidrBlockSets")
-    def peer_cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult']:
+    def peer_cidr_block_sets(self) -> Optional[Sequence['outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult']]:
         """
         List of objects with CIDR blocks of the accepter VPC.
         """
@@ -128,27 +128,27 @@ class GetVpcPeeringConnectionResult:
 
     @property
     @pulumi.getter(name="peerOwnerId")
-    def peer_owner_id(self) -> str:
+    def peer_owner_id(self) -> Optional[str]:
         return pulumi.get(self, "peer_owner_id")
 
     @property
     @pulumi.getter(name="peerRegion")
-    def peer_region(self) -> str:
+    def peer_region(self) -> Optional[str]:
         return pulumi.get(self, "peer_region")
 
     @property
     @pulumi.getter(name="peerVpcId")
-    def peer_vpc_id(self) -> str:
+    def peer_vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "peer_vpc_id")
 
     @property
     @pulumi.getter
-    def region(self) -> str:
+    def region(self) -> Optional[str]:
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
-    def requester(self) -> Mapping[str, bool]:
+    def requester(self) -> Optional[Mapping[str, bool]]:
         """
         Configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
@@ -157,17 +157,17 @@ class GetVpcPeeringConnectionResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
 

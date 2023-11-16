@@ -256,14 +256,14 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of domain name.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
@@ -340,42 +340,42 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="certificateUploadDate", refs={String.class}, tree="[0]")
-    private Output<String> certificateUploadDate;
+    private Output</* @Nullable */ String> certificateUploadDate;
 
     /**
      * @return Upload date associated with the domain certificate.
      * 
      */
-    public Output<String> certificateUploadDate() {
-        return this.certificateUploadDate;
+    public Output<Optional<String>> certificateUploadDate() {
+        return Codegen.optional(this.certificateUploadDate);
     }
     /**
      * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
      * 
      */
     @Export(name="cloudfrontDomainName", refs={String.class}, tree="[0]")
-    private Output<String> cloudfrontDomainName;
+    private Output</* @Nullable */ String> cloudfrontDomainName;
 
     /**
      * @return Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
      * 
      */
-    public Output<String> cloudfrontDomainName() {
-        return this.cloudfrontDomainName;
+    public Output<Optional<String>> cloudfrontDomainName() {
+        return Codegen.optional(this.cloudfrontDomainName);
     }
     /**
      * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
      * 
      */
     @Export(name="cloudfrontZoneId", refs={String.class}, tree="[0]")
-    private Output<String> cloudfrontZoneId;
+    private Output</* @Nullable */ String> cloudfrontZoneId;
 
     /**
      * @return For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
      * 
      */
-    public Output<String> cloudfrontZoneId() {
-        return this.cloudfrontZoneId;
+    public Output<Optional<String>> cloudfrontZoneId() {
+        return Codegen.optional(this.cloudfrontZoneId);
     }
     /**
      * Fully-qualified domain name to register.
@@ -396,14 +396,14 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointConfiguration", refs={DomainNameEndpointConfiguration.class}, tree="[0]")
-    private Output<DomainNameEndpointConfiguration> endpointConfiguration;
+    private Output</* @Nullable */ DomainNameEndpointConfiguration> endpointConfiguration;
 
     /**
      * @return Configuration block defining API endpoint information including type. See below.
      * 
      */
-    public Output<DomainNameEndpointConfiguration> endpointConfiguration() {
-        return this.endpointConfiguration;
+    public Output<Optional<DomainNameEndpointConfiguration>> endpointConfiguration() {
+        return Codegen.optional(this.endpointConfiguration);
     }
     /**
      * Mutual TLS authentication configuration for the domain name. See below.
@@ -424,14 +424,14 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownershipVerificationCertificateArn", refs={String.class}, tree="[0]")
-    private Output<String> ownershipVerificationCertificateArn;
+    private Output</* @Nullable */ String> ownershipVerificationCertificateArn;
 
     /**
      * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
      * 
      */
-    public Output<String> ownershipVerificationCertificateArn() {
-        return this.ownershipVerificationCertificateArn;
+    public Output<Optional<String>> ownershipVerificationCertificateArn() {
+        return Codegen.optional(this.ownershipVerificationCertificateArn);
     }
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
@@ -470,42 +470,42 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="regionalDomainName", refs={String.class}, tree="[0]")
-    private Output<String> regionalDomainName;
+    private Output</* @Nullable */ String> regionalDomainName;
 
     /**
      * @return Hostname for the custom domain&#39;s regional endpoint.
      * 
      */
-    public Output<String> regionalDomainName() {
-        return this.regionalDomainName;
+    public Output<Optional<String>> regionalDomainName() {
+        return Codegen.optional(this.regionalDomainName);
     }
     /**
      * Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      * 
      */
     @Export(name="regionalZoneId", refs={String.class}, tree="[0]")
-    private Output<String> regionalZoneId;
+    private Output</* @Nullable */ String> regionalZoneId;
 
     /**
      * @return Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      * 
      */
-    public Output<String> regionalZoneId() {
-        return this.regionalZoneId;
+    public Output<Optional<String>> regionalZoneId() {
+        return Codegen.optional(this.regionalZoneId);
     }
     /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      * 
      */
     @Export(name="securityPolicy", refs={String.class}, tree="[0]")
-    private Output<String> securityPolicy;
+    private Output</* @Nullable */ String> securityPolicy;
 
     /**
      * @return Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      * 
      */
-    public Output<String> securityPolicy() {
-        return this.securityPolicy;
+    public Output<Optional<String>> securityPolicy() {
+        return Codegen.optional(this.securityPolicy);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

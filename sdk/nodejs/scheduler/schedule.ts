@@ -95,7 +95,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * ARN of the SQS queue specified as the destination for the dead-letter queue.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Brief description of the schedule.
      */
@@ -111,7 +111,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    public readonly groupName!: pulumi.Output<string | undefined>;
     /**
      * ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
      */
@@ -123,7 +123,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
      */

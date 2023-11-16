@@ -829,7 +829,7 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addonVersion")
-    def addon_version(self) -> pulumi.Output[str]:
+    def addon_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the EKS add-on. The version must
         match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -838,7 +838,7 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the EKS add-on.
         """
@@ -856,7 +856,7 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationValues")
-    def configuration_values(self) -> pulumi.Output[str]:
+    def configuration_values(self) -> pulumi.Output[Optional[str]]:
         """
         custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         """
@@ -864,7 +864,7 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         """
@@ -872,7 +872,7 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> pulumi.Output[str]:
+    def modified_at(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         """

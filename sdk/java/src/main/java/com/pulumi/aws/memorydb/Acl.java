@@ -69,28 +69,28 @@ public class Acl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the ACL.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The minimum engine version supported by the ACL.
      * 
      */
     @Export(name="minimumEngineVersion", refs={String.class}, tree="[0]")
-    private Output<String> minimumEngineVersion;
+    private Output</* @Nullable */ String> minimumEngineVersion;
 
     /**
      * @return The minimum engine version supported by the ACL.
      * 
      */
-    public Output<String> minimumEngineVersion() {
-        return this.minimumEngineVersion;
+    public Output<Optional<String>> minimumEngineVersion() {
+        return Codegen.optional(this.minimumEngineVersion);
     }
     /**
      * Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -111,14 +111,14 @@ public class Acl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

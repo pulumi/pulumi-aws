@@ -73,21 +73,21 @@ type ProvisionedProduct struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
 	// ARN of the provisioned product.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Set of CloudWatch dashboards that were created when provisioning the product.
 	CloudwatchDashboardNames pulumi.StringArrayOutput `pulumi:"cloudwatchDashboardNames"`
 	// Time when the provisioned product was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
 	IgnoreErrors pulumi.BoolPtrOutput `pulumi:"ignoreErrors"`
 	// Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-	LastProvisioningRecordId pulumi.StringOutput `pulumi:"lastProvisioningRecordId"`
+	LastProvisioningRecordId pulumi.StringPtrOutput `pulumi:"lastProvisioningRecordId"`
 	// Record identifier of the last request performed on this provisioned product.
-	LastRecordId pulumi.StringOutput `pulumi:"lastRecordId"`
+	LastRecordId pulumi.StringPtrOutput `pulumi:"lastRecordId"`
 	// Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-	LastSuccessfulProvisioningRecordId pulumi.StringOutput `pulumi:"lastSuccessfulProvisioningRecordId"`
+	LastSuccessfulProvisioningRecordId pulumi.StringPtrOutput `pulumi:"lastSuccessfulProvisioningRecordId"`
 	// ARN of the launch role associated with the provisioned product.
-	LaunchRoleArn pulumi.StringOutput `pulumi:"launchRoleArn"`
+	LaunchRoleArn pulumi.StringPtrOutput `pulumi:"launchRoleArn"`
 	// User-friendly name of the provisioned product.
 	//
 	// The following arguments are optional:
@@ -97,15 +97,15 @@ type ProvisionedProduct struct {
 	// The set of outputs for the product created.
 	Outputs ProvisionedProductOutputTypeArrayOutput `pulumi:"outputs"`
 	// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
-	PathId pulumi.StringOutput `pulumi:"pathId"`
+	PathId pulumi.StringPtrOutput `pulumi:"pathId"`
 	// Name of the path. You must provide `pathId` or `pathName`, but not both.
 	PathName pulumi.StringPtrOutput `pulumi:"pathName"`
 	// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
-	ProductId pulumi.StringOutput `pulumi:"productId"`
+	ProductId pulumi.StringPtrOutput `pulumi:"productId"`
 	// Name of the product. You must provide `productId` or `productName`, but not both.
 	ProductName pulumi.StringPtrOutput `pulumi:"productName"`
 	// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
-	ProvisioningArtifactId pulumi.StringOutput `pulumi:"provisioningArtifactId"`
+	ProvisioningArtifactId pulumi.StringPtrOutput `pulumi:"provisioningArtifactId"`
 	// Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
 	ProvisioningArtifactName pulumi.StringPtrOutput `pulumi:"provisioningArtifactName"`
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
@@ -115,9 +115,9 @@ type ProvisionedProduct struct {
 	// Configuration block with information about the provisioning preferences for a stack set. See details below.
 	StackSetProvisioningPreferences ProvisionedProductStackSetProvisioningPreferencesPtrOutput `pulumi:"stackSetProvisioningPreferences"`
 	// Current status of the provisioned product. See meanings below.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Current status message of the provisioned product.
-	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	StatusMessage pulumi.StringPtrOutput `pulumi:"statusMessage"`
 	// Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -125,7 +125,7 @@ type ProvisionedProduct struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewProvisionedProduct registers a new resource with the given unique name, arguments, and options.
@@ -443,8 +443,8 @@ func (o ProvisionedProductOutput) AcceptLanguage() pulumi.StringPtrOutput {
 }
 
 // ARN of the provisioned product.
-func (o ProvisionedProductOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Set of CloudWatch dashboards that were created when provisioning the product.
@@ -453,8 +453,8 @@ func (o ProvisionedProductOutput) CloudwatchDashboardNames() pulumi.StringArrayO
 }
 
 // Time when the provisioned product was created.
-func (o ProvisionedProductOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
@@ -463,23 +463,23 @@ func (o ProvisionedProductOutput) IgnoreErrors() pulumi.BoolPtrOutput {
 }
 
 // Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-func (o ProvisionedProductOutput) LastProvisioningRecordId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.LastProvisioningRecordId }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) LastProvisioningRecordId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.LastProvisioningRecordId }).(pulumi.StringPtrOutput)
 }
 
 // Record identifier of the last request performed on this provisioned product.
-func (o ProvisionedProductOutput) LastRecordId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.LastRecordId }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) LastRecordId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.LastRecordId }).(pulumi.StringPtrOutput)
 }
 
 // Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-func (o ProvisionedProductOutput) LastSuccessfulProvisioningRecordId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.LastSuccessfulProvisioningRecordId }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) LastSuccessfulProvisioningRecordId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.LastSuccessfulProvisioningRecordId }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the launch role associated with the provisioned product.
-func (o ProvisionedProductOutput) LaunchRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.LaunchRoleArn }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) LaunchRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.LaunchRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // User-friendly name of the provisioned product.
@@ -500,8 +500,8 @@ func (o ProvisionedProductOutput) Outputs() ProvisionedProductOutputTypeArrayOut
 }
 
 // Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
-func (o ProvisionedProductOutput) PathId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.PathId }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) PathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.PathId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the path. You must provide `pathId` or `pathName`, but not both.
@@ -510,8 +510,8 @@ func (o ProvisionedProductOutput) PathName() pulumi.StringPtrOutput {
 }
 
 // Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
-func (o ProvisionedProductOutput) ProductId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) ProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.ProductId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the product. You must provide `productId` or `productName`, but not both.
@@ -520,8 +520,8 @@ func (o ProvisionedProductOutput) ProductName() pulumi.StringPtrOutput {
 }
 
 // Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
-func (o ProvisionedProductOutput) ProvisioningArtifactId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.ProvisioningArtifactId }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.ProvisioningArtifactId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
@@ -549,13 +549,13 @@ func (o ProvisionedProductOutput) StackSetProvisioningPreferences() ProvisionedP
 }
 
 // Current status of the provisioned product. See meanings below.
-func (o ProvisionedProductOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Current status message of the provisioned product.
-func (o ProvisionedProductOutput) StatusMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -571,8 +571,8 @@ func (o ProvisionedProductOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
-func (o ProvisionedProductOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o ProvisionedProductOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ProvisionedProductArrayOutput struct{ *pulumi.OutputState }

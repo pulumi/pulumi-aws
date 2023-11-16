@@ -77,7 +77,7 @@ type GetVpcIamPoolsArgs struct {
 type GetVpcIamPoolsResult struct {
 	Filters []GetVpcIamPoolsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of IPAM pools and their attributes. See below for details
 	IpamPools []GetVpcIamPoolsIpamPool `pulumi:"ipamPools"`
 }
@@ -125,8 +125,8 @@ func (o GetVpcIamPoolsResultOutput) Filters() GetVpcIamPoolsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetVpcIamPoolsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetVpcIamPoolsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of IPAM pools and their attributes. See below for details

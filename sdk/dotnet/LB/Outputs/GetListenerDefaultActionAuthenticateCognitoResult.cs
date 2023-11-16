@@ -13,32 +13,32 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionAuthenticateCognitoResult
     {
-        public readonly ImmutableDictionary<string, string> AuthenticationRequestExtraParams;
-        public readonly string OnUnauthenticatedRequest;
-        public readonly string Scope;
-        public readonly string SessionCookieName;
-        public readonly int SessionTimeout;
-        public readonly string UserPoolArn;
-        public readonly string UserPoolClientId;
-        public readonly string UserPoolDomain;
+        public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
+        public readonly string? OnUnauthenticatedRequest;
+        public readonly string? Scope;
+        public readonly string? SessionCookieName;
+        public readonly int? SessionTimeout;
+        public readonly string? UserPoolArn;
+        public readonly string? UserPoolClientId;
+        public readonly string? UserPoolDomain;
 
         [OutputConstructor]
         private GetListenerDefaultActionAuthenticateCognitoResult(
-            ImmutableDictionary<string, string> authenticationRequestExtraParams,
+            ImmutableDictionary<string, string>? authenticationRequestExtraParams,
 
-            string onUnauthenticatedRequest,
+            string? onUnauthenticatedRequest,
 
-            string scope,
+            string? scope,
 
-            string sessionCookieName,
+            string? sessionCookieName,
 
-            int sessionTimeout,
+            int? sessionTimeout,
 
-            string userPoolArn,
+            string? userPoolArn,
 
-            string userPoolClientId,
+            string? userPoolClientId,
 
-            string userPoolDomain)
+            string? userPoolDomain)
         {
             AuthenticationRequestExtraParams = authenticationRequestExtraParams;
             OnUnauthenticatedRequest = onUnauthenticatedRequest;

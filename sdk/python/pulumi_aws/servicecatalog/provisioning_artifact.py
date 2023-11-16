@@ -611,7 +611,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Time when the provisioning artifact was created.
         """
@@ -619,7 +619,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
         """
@@ -659,7 +659,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningArtifactId")
-    def provisioning_artifact_id(self) -> pulumi.Output[str]:
+    def provisioning_artifact_id(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning artifact identifier.
         """

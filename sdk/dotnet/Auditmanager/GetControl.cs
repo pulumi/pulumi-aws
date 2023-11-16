@@ -243,36 +243,36 @@ namespace Pulumi.Aws.Auditmanager
     [OutputType]
     public sealed class GetControlResult
     {
-        public readonly string ActionPlanInstructions;
-        public readonly string ActionPlanTitle;
-        public readonly string Arn;
+        public readonly string? ActionPlanInstructions;
+        public readonly string? ActionPlanTitle;
+        public readonly string? Arn;
         public readonly ImmutableArray<Outputs.GetControlControlMappingSourceResult> ControlMappingSources;
-        public readonly string Description;
-        public readonly string Id;
+        public readonly string? Description;
+        public readonly string? Id;
         public readonly string Name;
-        public readonly ImmutableDictionary<string, string> Tags;
-        public readonly string TestingInformation;
+        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string? TestingInformation;
         public readonly string Type;
 
         [OutputConstructor]
         private GetControlResult(
-            string actionPlanInstructions,
+            string? actionPlanInstructions,
 
-            string actionPlanTitle,
+            string? actionPlanTitle,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetControlControlMappingSourceResult> controlMappingSources,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
             string name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string testingInformation,
+            string? testingInformation,
 
             string type)
         {

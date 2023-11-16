@@ -76,13 +76,13 @@ namespace Pulumi.Aws.Glue
         /// ARN of the Glue Catalog Database.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
         [Output("catalogId")]
-        public Output<string> CatalogId { get; private set; } = null!;
+        public Output<string?> CatalogId { get; private set; } = null!;
 
         /// <summary>
         /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Glue
         /// Location of the database (for example, an HDFS path).
         /// </summary>
         [Output("locationUri")]
-        public Output<string> LocationUri { get; private set; } = null!;
+        public Output<string?> LocationUri { get; private set; } = null!;
 
         /// <summary>
         /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.

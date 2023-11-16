@@ -6,6 +6,8 @@ package com.pulumi.aws.ecr.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoryEncryptionConfiguration {
@@ -13,27 +15,27 @@ public final class GetRepositoryEncryptionConfiguration {
      * @return Encryption type to use for the repository, either `AES256` or `KMS`.
      * 
      */
-    private String encryptionType;
+    private @Nullable String encryptionType;
     /**
      * @return If `encryption_type` is `KMS`, the ARN of the KMS key used.
      * 
      */
-    private String kmsKey;
+    private @Nullable String kmsKey;
 
     private GetRepositoryEncryptionConfiguration() {}
     /**
      * @return Encryption type to use for the repository, either `AES256` or `KMS`.
      * 
      */
-    public String encryptionType() {
-        return this.encryptionType;
+    public Optional<String> encryptionType() {
+        return Optional.ofNullable(this.encryptionType);
     }
     /**
      * @return If `encryption_type` is `KMS`, the ARN of the KMS key used.
      * 
      */
-    public String kmsKey() {
-        return this.kmsKey;
+    public Optional<String> kmsKey() {
+        return Optional.ofNullable(this.kmsKey);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetRepositoryEncryptionConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String encryptionType;
-        private String kmsKey;
+        private @Nullable String encryptionType;
+        private @Nullable String kmsKey;
         public Builder() {}
         public Builder(GetRepositoryEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetRepositoryEncryptionConfiguration {
         }
 
         @CustomType.Setter
-        public Builder encryptionType(String encryptionType) {
-            this.encryptionType = Objects.requireNonNull(encryptionType);
+        public Builder encryptionType(@Nullable String encryptionType) {
+            this.encryptionType = encryptionType;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKey(String kmsKey) {
-            this.kmsKey = Objects.requireNonNull(kmsKey);
+        public Builder kmsKey(@Nullable String kmsKey) {
+            this.kmsKey = kmsKey;
             return this;
         }
         public GetRepositoryEncryptionConfiguration build() {

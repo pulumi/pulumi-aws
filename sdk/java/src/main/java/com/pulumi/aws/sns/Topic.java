@@ -233,28 +233,28 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the SNS topic, as a more obvious property (clone of id)
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The oldest timestamp at which a FIFO topic subscriber can start a replay.
      * 
      */
     @Export(name="beginningArchiveTime", refs={String.class}, tree="[0]")
-    private Output<String> beginningArchiveTime;
+    private Output</* @Nullable */ String> beginningArchiveTime;
 
     /**
      * @return The oldest timestamp at which a FIFO topic subscriber can start a replay.
      * 
      */
-    public Output<String> beginningArchiveTime() {
-        return this.beginningArchiveTime;
+    public Output<Optional<String>> beginningArchiveTime() {
+        return Codegen.optional(this.beginningArchiveTime);
     }
     /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -471,56 +471,56 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * The AWS Account ID of the SNS topic owner
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return The AWS Account ID of the SNS topic owner
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * The fully-formed AWS policy as JSON.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
-    private Output<String> policy;
+    private Output</* @Nullable */ String> policy;
 
     /**
      * @return The fully-formed AWS policy as JSON.
      * 
      */
-    public Output<String> policy() {
-        return this.policy;
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
      * 
      */
     @Export(name="signatureVersion", refs={Integer.class}, tree="[0]")
-    private Output<Integer> signatureVersion;
+    private Output</* @Nullable */ Integer> signatureVersion;
 
     /**
      * @return If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
      * 
      */
-    public Output<Integer> signatureVersion() {
-        return this.signatureVersion;
+    public Output<Optional<Integer>> signatureVersion() {
+        return Codegen.optional(this.signatureVersion);
     }
     /**
      * IAM role for failure feedback
@@ -601,14 +601,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tracingConfig", refs={String.class}, tree="[0]")
-    private Output<String> tracingConfig;
+    private Output</* @Nullable */ String> tracingConfig;
 
     /**
      * @return Tracing mode of an Amazon SNS topic. Valid values: `&#34;PassThrough&#34;`, `&#34;Active&#34;`.
      * 
      */
-    public Output<String> tracingConfig() {
-        return this.tracingConfig;
+    public Output<Optional<String>> tracingConfig() {
+        return Codegen.optional(this.tracingConfig);
     }
 
     /**

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetComputeEnvironmentResult {
@@ -14,56 +16,56 @@ public final class GetComputeEnvironmentResult {
      * @return ARN of the compute environment.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     private String computeEnvironmentName;
     /**
      * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
-    private String ecsClusterArn;
+    private @Nullable String ecsClusterArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
-    private String serviceRole;
+    private @Nullable String serviceRole;
     /**
      * @return State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
      * 
      */
-    private String state;
+    private @Nullable String state;
     /**
      * @return Current status of the compute environment (for example, `CREATING` or `VALID`).
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
-    private String statusReason;
+    private @Nullable String statusReason;
     /**
      * @return Key-value map of resource tags
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetComputeEnvironmentResult() {}
     /**
      * @return ARN of the compute environment.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public String computeEnvironmentName() {
         return this.computeEnvironmentName;
@@ -72,57 +74,57 @@ public final class GetComputeEnvironmentResult {
      * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
-    public String ecsClusterArn() {
-        return this.ecsClusterArn;
+    public Optional<String> ecsClusterArn() {
+        return Optional.ofNullable(this.ecsClusterArn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
-    public String serviceRole() {
-        return this.serviceRole;
+    public Optional<String> serviceRole() {
+        return Optional.ofNullable(this.serviceRole);
     }
     /**
      * @return State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
      * 
      */
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     /**
      * @return Current status of the compute environment (for example, `CREATING` or `VALID`).
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
-    public String statusReason() {
-        return this.statusReason;
+    public Optional<String> statusReason() {
+        return Optional.ofNullable(this.statusReason);
     }
     /**
      * @return Key-value map of resource tags
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -134,16 +136,16 @@ public final class GetComputeEnvironmentResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
+        private @Nullable String arn;
         private String computeEnvironmentName;
-        private String ecsClusterArn;
-        private String id;
-        private String serviceRole;
-        private String state;
-        private String status;
-        private String statusReason;
-        private Map<String,String> tags;
-        private String type;
+        private @Nullable String ecsClusterArn;
+        private @Nullable String id;
+        private @Nullable String serviceRole;
+        private @Nullable String state;
+        private @Nullable String status;
+        private @Nullable String statusReason;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetComputeEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -160,8 +162,8 @@ public final class GetComputeEnvironmentResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -170,43 +172,43 @@ public final class GetComputeEnvironmentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ecsClusterArn(String ecsClusterArn) {
-            this.ecsClusterArn = Objects.requireNonNull(ecsClusterArn);
+        public Builder ecsClusterArn(@Nullable String ecsClusterArn) {
+            this.ecsClusterArn = ecsClusterArn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceRole(String serviceRole) {
-            this.serviceRole = Objects.requireNonNull(serviceRole);
+        public Builder serviceRole(@Nullable String serviceRole) {
+            this.serviceRole = serviceRole;
             return this;
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder statusReason(String statusReason) {
-            this.statusReason = Objects.requireNonNull(statusReason);
+        public Builder statusReason(@Nullable String statusReason) {
+            this.statusReason = statusReason;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetComputeEnvironmentResult build() {

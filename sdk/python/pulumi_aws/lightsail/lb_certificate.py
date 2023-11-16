@@ -377,7 +377,7 @@ class LbCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the lightsail certificate.
         """
@@ -385,7 +385,7 @@ class LbCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the instance was created.
         """
@@ -393,7 +393,7 @@ class LbCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The domain name (e.g., example.com) for your SSL/TLS certificate.
         """
@@ -401,7 +401,7 @@ class LbCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainValidationRecords")
-    def domain_validation_records(self) -> pulumi.Output[Sequence['outputs.LbCertificateDomainValidationRecord']]:
+    def domain_validation_records(self) -> pulumi.Output[Optional[Sequence['outputs.LbCertificateDomainValidationRecord']]]:
         return pulumi.get(self, "domain_validation_records")
 
     @property
@@ -422,7 +422,7 @@ class LbCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> pulumi.Output[Sequence[str]]:
+    def subject_alternative_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
@@ -430,6 +430,6 @@ class LbCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportCode")
-    def support_code(self) -> pulumi.Output[str]:
+    def support_code(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "support_code")
 

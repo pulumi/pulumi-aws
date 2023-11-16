@@ -59,23 +59,23 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * ARN of the Namespace.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * Namespace AWS Region.
      */
-    public /*out*/ readonly capacityRegion!: pulumi.Output<string>;
+    public /*out*/ readonly capacityRegion!: pulumi.Output<string | undefined>;
     /**
      * Creation status of the namespace.
      */
-    public /*out*/ readonly creationStatus!: pulumi.Output<string>;
+    public /*out*/ readonly creationStatus!: pulumi.Output<string | undefined>;
     /**
      * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
      */
-    public readonly identityStore!: pulumi.Output<string>;
+    public readonly identityStore!: pulumi.Output<string | undefined>;
     /**
      * Name of the namespace.
      *

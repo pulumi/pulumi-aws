@@ -83,7 +83,7 @@ export class AnomalyMonitor extends pulumi.CustomResource {
     /**
      * ARN of the anomaly monitor.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The dimensions to evaluate. Valid values: `SERVICE`.
      */

@@ -19,28 +19,28 @@ public final class GetFirewallPolicyResult {
      * @return Description of the firewall policy.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The [policy][2] for the specified firewall policy.
      * 
      */
-    private List<GetFirewallPolicyFirewallPolicy> firewallPolicies;
+    private @Nullable List<GetFirewallPolicyFirewallPolicy> firewallPolicies;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String name;
     /**
      * @return Key-value tags for the firewall policy.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Token used for optimistic locking.
      * 
      */
-    private String updateToken;
+    private @Nullable String updateToken;
 
     private GetFirewallPolicyResult() {}
     public Optional<String> arn() {
@@ -50,22 +50,22 @@ public final class GetFirewallPolicyResult {
      * @return Description of the firewall policy.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The [policy][2] for the specified firewall policy.
      * 
      */
     public List<GetFirewallPolicyFirewallPolicy> firewallPolicies() {
-        return this.firewallPolicies;
+        return this.firewallPolicies == null ? List.of() : this.firewallPolicies;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -75,14 +75,14 @@ public final class GetFirewallPolicyResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Token used for optimistic locking.
      * 
      */
-    public String updateToken() {
-        return this.updateToken;
+    public Optional<String> updateToken() {
+        return Optional.ofNullable(this.updateToken);
     }
 
     public static Builder builder() {
@@ -95,12 +95,12 @@ public final class GetFirewallPolicyResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
-        private String description;
-        private List<GetFirewallPolicyFirewallPolicy> firewallPolicies;
-        private String id;
+        private @Nullable String description;
+        private @Nullable List<GetFirewallPolicyFirewallPolicy> firewallPolicies;
+        private @Nullable String id;
         private @Nullable String name;
-        private Map<String,String> tags;
-        private String updateToken;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String updateToken;
         public Builder() {}
         public Builder(GetFirewallPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -119,21 +119,21 @@ public final class GetFirewallPolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder firewallPolicies(List<GetFirewallPolicyFirewallPolicy> firewallPolicies) {
-            this.firewallPolicies = Objects.requireNonNull(firewallPolicies);
+        public Builder firewallPolicies(@Nullable List<GetFirewallPolicyFirewallPolicy> firewallPolicies) {
+            this.firewallPolicies = firewallPolicies;
             return this;
         }
         public Builder firewallPolicies(GetFirewallPolicyFirewallPolicy... firewallPolicies) {
             return firewallPolicies(List.of(firewallPolicies));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -142,13 +142,13 @@ public final class GetFirewallPolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder updateToken(String updateToken) {
-            this.updateToken = Objects.requireNonNull(updateToken);
+        public Builder updateToken(@Nullable String updateToken) {
+            this.updateToken = updateToken;
             return this;
         }
         public GetFirewallPolicyResult build() {

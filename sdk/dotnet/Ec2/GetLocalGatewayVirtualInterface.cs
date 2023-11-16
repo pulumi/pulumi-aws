@@ -156,55 +156,55 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetLocalGatewayVirtualInterfaceResult
     {
         public readonly ImmutableArray<Outputs.GetLocalGatewayVirtualInterfaceFilterResult> Filters;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Local address.
         /// </summary>
-        public readonly string LocalAddress;
+        public readonly string? LocalAddress;
         /// <summary>
         /// Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
         /// </summary>
-        public readonly int LocalBgpAsn;
+        public readonly int? LocalBgpAsn;
         /// <summary>
         /// Identifier of the EC2 Local Gateway.
         /// </summary>
-        public readonly string LocalGatewayId;
+        public readonly string? LocalGatewayId;
         public readonly ImmutableArray<string> LocalGatewayVirtualInterfaceIds;
         /// <summary>
         /// Peer address.
         /// </summary>
-        public readonly string PeerAddress;
+        public readonly string? PeerAddress;
         /// <summary>
         /// Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
         /// </summary>
-        public readonly int PeerBgpAsn;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly int? PeerBgpAsn;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Virtual Local Area Network.
         /// </summary>
-        public readonly int Vlan;
+        public readonly int? Vlan;
 
         [OutputConstructor]
         private GetLocalGatewayVirtualInterfaceResult(
             ImmutableArray<Outputs.GetLocalGatewayVirtualInterfaceFilterResult> filters,
 
-            string id,
+            string? id,
 
-            string localAddress,
+            string? localAddress,
 
-            int localBgpAsn,
+            int? localBgpAsn,
 
-            string localGatewayId,
+            string? localGatewayId,
 
             ImmutableArray<string> localGatewayVirtualInterfaceIds,
 
-            string peerAddress,
+            string? peerAddress,
 
-            int peerBgpAsn,
+            int? peerBgpAsn,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int vlan)
+            int? vlan)
         {
             Filters = filters;
             Id = id;

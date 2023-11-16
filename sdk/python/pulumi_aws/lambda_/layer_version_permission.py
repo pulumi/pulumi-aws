@@ -492,7 +492,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         Full Lambda Layer Permission policy.
         """
@@ -508,7 +508,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="revisionId")
-    def revision_id(self) -> pulumi.Output[str]:
+    def revision_id(self) -> pulumi.Output[Optional[str]]:
         """
         A unique identifier for the current revision of the policy.
         """

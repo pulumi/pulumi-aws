@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// ARN of the DB Proxy.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
         /// </summary>
@@ -112,36 +112,36 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Whether the proxy includes detailed information about SQL statements in its logs.
         /// </summary>
-        public readonly bool DebugLogging;
+        public readonly bool? DebugLogging;
         /// <summary>
         /// Endpoint that you can use to connect to the DB proxy.
         /// </summary>
-        public readonly string Endpoint;
+        public readonly string? Endpoint;
         /// <summary>
         /// Kinds of databases that the proxy can connect to.
         /// </summary>
-        public readonly string EngineFamily;
+        public readonly string? EngineFamily;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
         /// </summary>
-        public readonly int IdleClientTimeout;
+        public readonly int? IdleClientTimeout;
         public readonly string Name;
         /// <summary>
         /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         /// </summary>
-        public readonly bool RequireTls;
+        public readonly bool? RequireTls;
         /// <summary>
         /// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// Provides the VPC ID of the DB proxy.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
         /// <summary>
         /// Provides a list of VPC security groups that the proxy belongs to.
         /// </summary>
@@ -153,27 +153,27 @@ namespace Pulumi.Aws.Rds
 
         [OutputConstructor]
         private GetProxyResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetProxyAuthResult> auths,
 
-            bool debugLogging,
+            bool? debugLogging,
 
-            string endpoint,
+            string? endpoint,
 
-            string engineFamily,
+            string? engineFamily,
 
-            string id,
+            string? id,
 
-            int idleClientTimeout,
+            int? idleClientTimeout,
 
             string name,
 
-            bool requireTls,
+            bool? requireTls,
 
-            string roleArn,
+            string? roleArn,
 
-            string vpcId,
+            string? vpcId,
 
             ImmutableArray<string> vpcSecurityGroupIds,
 

@@ -391,7 +391,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origin(self) -> pulumi.Output[str]:
+    def origin(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
         """
@@ -407,7 +407,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the route.
         """

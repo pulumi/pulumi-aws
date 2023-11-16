@@ -144,7 +144,7 @@ type FileSystemAssociation struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the newly created file system association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// Refresh cache information. see Cache Attributes for more details.
@@ -387,8 +387,8 @@ func (o FileSystemAssociationOutput) ToFileSystemAssociationOutputWithContext(ct
 }
 
 // Amazon Resource Name (ARN) of the newly created file system association.
-func (o FileSystemAssociationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o FileSystemAssociationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the storage used for the audit logs.

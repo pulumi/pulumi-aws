@@ -54,15 +54,15 @@ type Agent struct {
 	pulumi.CustomResourceState
 
 	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
-	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
+	ActivationKey pulumi.StringPtrOutput `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the DataSync Agent.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
 	// Name of the DataSync Agent.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
-	PrivateLinkEndpoint pulumi.StringOutput `pulumi:"privateLinkEndpoint"`
+	PrivateLinkEndpoint pulumi.StringPtrOutput `pulumi:"privateLinkEndpoint"`
 	// The ARNs of the security groups used to protect your data transfer task subnets.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
@@ -291,18 +291,18 @@ func (o AgentOutput) ToAgentOutputWithContext(ctx context.Context) AgentOutput {
 }
 
 // DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
-func (o AgentOutput) ActivationKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.ActivationKey }).(pulumi.StringOutput)
+func (o AgentOutput) ActivationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.ActivationKey }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the DataSync Agent.
-func (o AgentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AgentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
-func (o AgentOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+func (o AgentOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // Name of the DataSync Agent.
@@ -311,8 +311,8 @@ func (o AgentOutput) Name() pulumi.StringOutput {
 }
 
 // The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
-func (o AgentOutput) PrivateLinkEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.PrivateLinkEndpoint }).(pulumi.StringOutput)
+func (o AgentOutput) PrivateLinkEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.PrivateLinkEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // The ARNs of the security groups used to protect your data transfer task subnets.

@@ -133,7 +133,7 @@ import (
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
 
-	ReplicationSubnetGroupArn pulumi.StringOutput `pulumi:"replicationSubnetGroupArn"`
+	ReplicationSubnetGroupArn pulumi.StringPtrOutput `pulumi:"replicationSubnetGroupArn"`
 	// Description for the subnet group.
 	ReplicationSubnetGroupDescription pulumi.StringOutput `pulumi:"replicationSubnetGroupDescription"`
 	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
@@ -147,7 +147,7 @@ type ReplicationSubnetGroup struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet group is in.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewReplicationSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -342,8 +342,8 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(
 	return o
 }
 
-func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.ReplicationSubnetGroupArn }).(pulumi.StringOutput)
+func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringPtrOutput { return v.ReplicationSubnetGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // Description for the subnet group.
@@ -374,8 +374,8 @@ func (o ReplicationSubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The ID of the VPC the subnet group is in.
-func (o ReplicationSubnetGroupOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o ReplicationSubnetGroupOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type ReplicationSubnetGroupArrayOutput struct{ *pulumi.OutputState }

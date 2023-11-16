@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceHealthCheckConfig {
@@ -14,39 +16,39 @@ public final class GetServiceHealthCheckConfig {
      * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
      * 
      */
-    private Integer failureThreshold;
+    private @Nullable Integer failureThreshold;
     /**
      * @return Path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don&#39;t specify a value, the default value is /.
      * 
      */
-    private String resourcePath;
+    private @Nullable String resourcePath;
     /**
      * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetServiceHealthCheckConfig() {}
     /**
      * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
      * 
      */
-    public Integer failureThreshold() {
-        return this.failureThreshold;
+    public Optional<Integer> failureThreshold() {
+        return Optional.ofNullable(this.failureThreshold);
     }
     /**
      * @return Path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don&#39;t specify a value, the default value is /.
      * 
      */
-    public String resourcePath() {
-        return this.resourcePath;
+    public Optional<String> resourcePath() {
+        return Optional.ofNullable(this.resourcePath);
     }
     /**
      * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetServiceHealthCheckConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer failureThreshold;
-        private String resourcePath;
-        private String type;
+        private @Nullable Integer failureThreshold;
+        private @Nullable String resourcePath;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetServiceHealthCheckConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetServiceHealthCheckConfig {
         }
 
         @CustomType.Setter
-        public Builder failureThreshold(Integer failureThreshold) {
-            this.failureThreshold = Objects.requireNonNull(failureThreshold);
+        public Builder failureThreshold(@Nullable Integer failureThreshold) {
+            this.failureThreshold = failureThreshold;
             return this;
         }
         @CustomType.Setter
-        public Builder resourcePath(String resourcePath) {
-            this.resourcePath = Objects.requireNonNull(resourcePath);
+        public Builder resourcePath(@Nullable String resourcePath) {
+            this.resourcePath = resourcePath;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetServiceHealthCheckConfig build() {

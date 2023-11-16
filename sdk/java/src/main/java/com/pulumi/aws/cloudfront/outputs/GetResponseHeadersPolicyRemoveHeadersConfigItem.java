@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudfront.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicyRemoveHeadersConfigItem {
@@ -13,15 +15,15 @@ public final class GetResponseHeadersPolicyRemoveHeadersConfigItem {
      * @return The HTTP header name.
      * 
      */
-    private String header;
+    private @Nullable String header;
 
     private GetResponseHeadersPolicyRemoveHeadersConfigItem() {}
     /**
      * @return The HTTP header name.
      * 
      */
-    public String header() {
-        return this.header;
+    public Optional<String> header() {
+        return Optional.ofNullable(this.header);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetResponseHeadersPolicyRemoveHeadersConfigItem {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String header;
+        private @Nullable String header;
         public Builder() {}
         public Builder(GetResponseHeadersPolicyRemoveHeadersConfigItem defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetResponseHeadersPolicyRemoveHeadersConfigItem {
         }
 
         @CustomType.Setter
-        public Builder header(String header) {
-            this.header = Objects.requireNonNull(header);
+        public Builder header(@Nullable String header) {
+            this.header = header;
             return this;
         }
         public GetResponseHeadersPolicyRemoveHeadersConfigItem build() {

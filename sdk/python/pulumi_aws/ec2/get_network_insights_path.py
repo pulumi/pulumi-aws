@@ -66,7 +66,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Path.
         """
@@ -74,7 +74,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter
-    def destination(self) -> str:
+    def destination(self) -> Optional[str]:
         """
         AWS resource that is the destination of the path.
         """
@@ -82,7 +82,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> str:
+    def destination_arn(self) -> Optional[str]:
         """
         ARN of the destination.
         """
@@ -90,7 +90,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter(name="destinationIp")
-    def destination_ip(self) -> str:
+    def destination_ip(self) -> Optional[str]:
         """
         IP address of the AWS resource that is the destination of the path.
         """
@@ -98,7 +98,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> int:
+    def destination_port(self) -> Optional[int]:
         """
         Destination port.
         """
@@ -111,7 +111,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -119,12 +119,12 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter(name="networkInsightsPathId")
-    def network_insights_path_id(self) -> str:
+    def network_insights_path_id(self) -> Optional[str]:
         return pulumi.get(self, "network_insights_path_id")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         """
         Protocol.
         """
@@ -132,7 +132,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter
-    def source(self) -> str:
+    def source(self) -> Optional[str]:
         """
         AWS resource that is the source of the path.
         """
@@ -140,7 +140,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter(name="sourceArn")
-    def source_arn(self) -> str:
+    def source_arn(self) -> Optional[str]:
         """
         ARN of the source.
         """
@@ -148,7 +148,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter(name="sourceIp")
-    def source_ip(self) -> str:
+    def source_ip(self) -> Optional[str]:
         """
         IP address of the AWS resource that is the source of the path.
         """
@@ -156,7 +156,7 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the resource.
         """

@@ -73,9 +73,9 @@ type GatewayAssociationProposal struct {
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	AssociatedGatewayId pulumi.StringOutput `pulumi:"associatedGatewayId"`
 	// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-	AssociatedGatewayOwnerAccountId pulumi.StringOutput `pulumi:"associatedGatewayOwnerAccountId"`
+	AssociatedGatewayOwnerAccountId pulumi.StringPtrOutput `pulumi:"associatedGatewayOwnerAccountId"`
 	// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-	AssociatedGatewayType pulumi.StringOutput `pulumi:"associatedGatewayType"`
+	AssociatedGatewayType pulumi.StringPtrOutput `pulumi:"associatedGatewayType"`
 	// Direct Connect Gateway identifier.
 	DxGatewayId pulumi.StringOutput `pulumi:"dxGatewayId"`
 	// AWS Account identifier of the Direct Connect Gateway's owner.
@@ -275,13 +275,13 @@ func (o GatewayAssociationProposalOutput) AssociatedGatewayId() pulumi.StringOut
 }
 
 // The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-func (o GatewayAssociationProposalOutput) AssociatedGatewayOwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.AssociatedGatewayOwnerAccountId }).(pulumi.StringOutput)
+func (o GatewayAssociationProposalOutput) AssociatedGatewayOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringPtrOutput { return v.AssociatedGatewayOwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-func (o GatewayAssociationProposalOutput) AssociatedGatewayType() pulumi.StringOutput {
-	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.AssociatedGatewayType }).(pulumi.StringOutput)
+func (o GatewayAssociationProposalOutput) AssociatedGatewayType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringPtrOutput { return v.AssociatedGatewayType }).(pulumi.StringPtrOutput)
 }
 
 // Direct Connect Gateway identifier.

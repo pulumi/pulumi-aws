@@ -55,7 +55,7 @@ type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState
 
 	// The ENI Attachment ID.
-	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
+	AttachmentId pulumi.StringPtrOutput `pulumi:"attachmentId"`
 	// Network interface index (int).
 	DeviceIndex pulumi.IntOutput `pulumi:"deviceIndex"`
 	// Instance ID to attach.
@@ -63,7 +63,7 @@ type NetworkInterfaceAttachment struct {
 	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The status of the Network Interface Attachment.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewNetworkInterfaceAttachment registers a new resource with the given unique name, arguments, and options.
@@ -241,8 +241,8 @@ func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWith
 }
 
 // The ENI Attachment ID.
-func (o NetworkInterfaceAttachmentOutput) AttachmentId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.AttachmentId }).(pulumi.StringOutput)
+func (o NetworkInterfaceAttachmentOutput) AttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringPtrOutput { return v.AttachmentId }).(pulumi.StringPtrOutput)
 }
 
 // Network interface index (int).
@@ -261,8 +261,8 @@ func (o NetworkInterfaceAttachmentOutput) NetworkInterfaceId() pulumi.StringOutp
 }
 
 // The status of the Network Interface Attachment.
-func (o NetworkInterfaceAttachmentOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o NetworkInterfaceAttachmentOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type NetworkInterfaceAttachmentArrayOutput struct{ *pulumi.OutputState }

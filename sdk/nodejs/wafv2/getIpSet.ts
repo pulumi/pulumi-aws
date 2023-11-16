@@ -49,23 +49,23 @@ export interface GetIpSetResult {
     /**
      * An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
      */
-    readonly addresses: string[];
+    readonly addresses?: string[];
     /**
      * ARN of the entity.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Description of the set that helps with identification.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IP address version of the set.
      */
-    readonly ipAddressVersion: string;
+    readonly ipAddressVersion?: string;
     readonly name: string;
     readonly scope: string;
 }

@@ -417,7 +417,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) specifying the role.
         """
@@ -433,7 +433,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> pulumi.Output[str]:
+    def create_date(self) -> pulumi.Output[Optional[str]]:
         """
         The creation date of the IAM role.
         """
@@ -457,7 +457,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the role.
         """
@@ -465,7 +465,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> pulumi.Output[str]:
+    def path(self) -> pulumi.Output[Optional[str]]:
         """
         The path of the role.
         """
@@ -492,7 +492,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> pulumi.Output[str]:
+    def unique_id(self) -> pulumi.Output[Optional[str]]:
         """
         The stable and unique string identifying the role.
         """

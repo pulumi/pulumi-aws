@@ -59,7 +59,7 @@ class GetServiceQuotaResult:
 
     @property
     @pulumi.getter
-    def adjustable(self) -> bool:
+    def adjustable(self) -> Optional[bool]:
         """
         Whether the service quota is adjustable.
         """
@@ -67,7 +67,7 @@ class GetServiceQuotaResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the service quota.
         """
@@ -75,7 +75,7 @@ class GetServiceQuotaResult:
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> float:
+    def default_value(self) -> Optional[float]:
         """
         Default value of the service quota.
         """
@@ -83,7 +83,7 @@ class GetServiceQuotaResult:
 
     @property
     @pulumi.getter(name="globalQuota")
-    def global_quota(self) -> bool:
+    def global_quota(self) -> Optional[bool]:
         """
         Whether the service quota is global for the AWS account.
         """
@@ -91,7 +91,7 @@ class GetServiceQuotaResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -99,12 +99,12 @@ class GetServiceQuotaResult:
 
     @property
     @pulumi.getter(name="quotaCode")
-    def quota_code(self) -> str:
+    def quota_code(self) -> Optional[str]:
         return pulumi.get(self, "quota_code")
 
     @property
     @pulumi.getter(name="quotaName")
-    def quota_name(self) -> str:
+    def quota_name(self) -> Optional[str]:
         return pulumi.get(self, "quota_name")
 
     @property
@@ -114,7 +114,7 @@ class GetServiceQuotaResult:
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> Optional[str]:
         """
         Name of the service.
         """
@@ -122,7 +122,7 @@ class GetServiceQuotaResult:
 
     @property
     @pulumi.getter(name="usageMetrics")
-    def usage_metrics(self) -> Sequence['outputs.GetServiceQuotaUsageMetricResult']:
+    def usage_metrics(self) -> Optional[Sequence['outputs.GetServiceQuotaUsageMetricResult']]:
         """
         Information about the measurement.
         """
@@ -130,7 +130,7 @@ class GetServiceQuotaResult:
 
     @property
     @pulumi.getter
-    def value(self) -> float:
+    def value(self) -> Optional[float]:
         """
         Current value of the service quota.
         """

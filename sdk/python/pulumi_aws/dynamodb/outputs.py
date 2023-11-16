@@ -720,17 +720,19 @@ class TableTtl(dict):
 @pulumi.output_type
 class GetTableAttributeResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 type: str):
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param str name: Name of the DynamoDB table.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the DynamoDB table.
         """
@@ -738,39 +740,46 @@ class GetTableAttributeResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetTableGlobalSecondaryIndexResult(dict):
     def __init__(__self__, *,
-                 hash_key: str,
-                 name: str,
-                 non_key_attributes: Sequence[str],
-                 projection_type: str,
-                 range_key: str,
-                 read_capacity: int,
-                 write_capacity: int):
+                 hash_key: Optional[str] = None,
+                 name: Optional[str] = None,
+                 non_key_attributes: Optional[Sequence[str]] = None,
+                 projection_type: Optional[str] = None,
+                 range_key: Optional[str] = None,
+                 read_capacity: Optional[int] = None,
+                 write_capacity: Optional[int] = None):
         """
         :param str name: Name of the DynamoDB table.
         """
-        pulumi.set(__self__, "hash_key", hash_key)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "non_key_attributes", non_key_attributes)
-        pulumi.set(__self__, "projection_type", projection_type)
-        pulumi.set(__self__, "range_key", range_key)
-        pulumi.set(__self__, "read_capacity", read_capacity)
-        pulumi.set(__self__, "write_capacity", write_capacity)
+        if hash_key is not None:
+            pulumi.set(__self__, "hash_key", hash_key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if non_key_attributes is not None:
+            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+        if projection_type is not None:
+            pulumi.set(__self__, "projection_type", projection_type)
+        if range_key is not None:
+            pulumi.set(__self__, "range_key", range_key)
+        if read_capacity is not None:
+            pulumi.set(__self__, "read_capacity", read_capacity)
+        if write_capacity is not None:
+            pulumi.set(__self__, "write_capacity", write_capacity)
 
     @property
     @pulumi.getter(name="hashKey")
-    def hash_key(self) -> str:
+    def hash_key(self) -> Optional[str]:
         return pulumi.get(self, "hash_key")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the DynamoDB table.
         """
@@ -778,48 +787,52 @@ class GetTableGlobalSecondaryIndexResult(dict):
 
     @property
     @pulumi.getter(name="nonKeyAttributes")
-    def non_key_attributes(self) -> Sequence[str]:
+    def non_key_attributes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "non_key_attributes")
 
     @property
     @pulumi.getter(name="projectionType")
-    def projection_type(self) -> str:
+    def projection_type(self) -> Optional[str]:
         return pulumi.get(self, "projection_type")
 
     @property
     @pulumi.getter(name="rangeKey")
-    def range_key(self) -> str:
+    def range_key(self) -> Optional[str]:
         return pulumi.get(self, "range_key")
 
     @property
     @pulumi.getter(name="readCapacity")
-    def read_capacity(self) -> int:
+    def read_capacity(self) -> Optional[int]:
         return pulumi.get(self, "read_capacity")
 
     @property
     @pulumi.getter(name="writeCapacity")
-    def write_capacity(self) -> int:
+    def write_capacity(self) -> Optional[int]:
         return pulumi.get(self, "write_capacity")
 
 
 @pulumi.output_type
 class GetTableLocalSecondaryIndexResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 non_key_attributes: Sequence[str],
-                 projection_type: str,
-                 range_key: str):
+                 name: Optional[str] = None,
+                 non_key_attributes: Optional[Sequence[str]] = None,
+                 projection_type: Optional[str] = None,
+                 range_key: Optional[str] = None):
         """
         :param str name: Name of the DynamoDB table.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "non_key_attributes", non_key_attributes)
-        pulumi.set(__self__, "projection_type", projection_type)
-        pulumi.set(__self__, "range_key", range_key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if non_key_attributes is not None:
+            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+        if projection_type is not None:
+            pulumi.set(__self__, "projection_type", projection_type)
+        if range_key is not None:
+            pulumi.set(__self__, "range_key", range_key)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the DynamoDB table.
         """
@@ -827,86 +840,93 @@ class GetTableLocalSecondaryIndexResult(dict):
 
     @property
     @pulumi.getter(name="nonKeyAttributes")
-    def non_key_attributes(self) -> Sequence[str]:
+    def non_key_attributes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "non_key_attributes")
 
     @property
     @pulumi.getter(name="projectionType")
-    def projection_type(self) -> str:
+    def projection_type(self) -> Optional[str]:
         return pulumi.get(self, "projection_type")
 
     @property
     @pulumi.getter(name="rangeKey")
-    def range_key(self) -> str:
+    def range_key(self) -> Optional[str]:
         return pulumi.get(self, "range_key")
 
 
 @pulumi.output_type
 class GetTablePointInTimeRecoveryResult(dict):
     def __init__(__self__, *,
-                 enabled: bool):
-        pulumi.set(__self__, "enabled", enabled)
+                 enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
 class GetTableReplicaResult(dict):
     def __init__(__self__, *,
-                 kms_key_arn: str,
-                 region_name: str):
-        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
-        pulumi.set(__self__, "region_name", region_name)
+                 kms_key_arn: Optional[str] = None,
+                 region_name: Optional[str] = None):
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if region_name is not None:
+            pulumi.set(__self__, "region_name", region_name)
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="regionName")
-    def region_name(self) -> str:
+    def region_name(self) -> Optional[str]:
         return pulumi.get(self, "region_name")
 
 
 @pulumi.output_type
 class GetTableServerSideEncryptionResult(dict):
     def __init__(__self__, *,
-                 enabled: bool,
-                 kms_key_arn: str):
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+                 enabled: Optional[bool] = None,
+                 kms_key_arn: Optional[str] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type
 class GetTableTtlResult(dict):
     def __init__(__self__, *,
-                 attribute_name: str,
-                 enabled: bool):
-        pulumi.set(__self__, "attribute_name", attribute_name)
-        pulumi.set(__self__, "enabled", enabled)
+                 attribute_name: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        if attribute_name is not None:
+            pulumi.set(__self__, "attribute_name", attribute_name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> str:
+    def attribute_name(self) -> Optional[str]:
         return pulumi.get(self, "attribute_name")
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
 

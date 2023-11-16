@@ -75,13 +75,13 @@ namespace Pulumi.Aws.Oam
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetLinksResult(
             ImmutableArray<string> arns,
 
-            string id)
+            string? id)
         {
             Arns = arns;
             Id = id;

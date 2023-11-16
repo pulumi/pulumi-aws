@@ -286,37 +286,37 @@ namespace Pulumi.Aws.ElasticSearch
         /// IAM policy document specifying the access policies for the domain.
         /// </summary>
         [Output("accessPolicies")]
-        public Output<string> AccessPolicies { get; private set; } = null!;
+        public Output<string?> AccessPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         /// </summary>
         [Output("advancedOptions")]
-        public Output<ImmutableDictionary<string, string>> AdvancedOptions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> AdvancedOptions { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         /// </summary>
         [Output("advancedSecurityOptions")]
-        public Output<Outputs.DomainAdvancedSecurityOptions> AdvancedSecurityOptions { get; private set; } = null!;
+        public Output<Outputs.DomainAdvancedSecurityOptions?> AdvancedSecurityOptions { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the domain.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the Auto-Tune options of the domain. Detailed below.
         /// </summary>
         [Output("autoTuneOptions")]
-        public Output<Outputs.DomainAutoTuneOptions> AutoTuneOptions { get; private set; } = null!;
+        public Output<Outputs.DomainAutoTuneOptions?> AutoTuneOptions { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the cluster of the domain. Detailed below.
         /// </summary>
         [Output("clusterConfig")]
-        public Output<Outputs.DomainClusterConfig> ClusterConfig { get; private set; } = null!;
+        public Output<Outputs.DomainClusterConfig?> ClusterConfig { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for authenticating Kibana with Cognito. Detailed below.
@@ -328,13 +328,13 @@ namespace Pulumi.Aws.ElasticSearch
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
         [Output("domainEndpointOptions")]
-        public Output<Outputs.DomainDomainEndpointOptions> DomainEndpointOptions { get; private set; } = null!;
+        public Output<Outputs.DomainDomainEndpointOptions?> DomainEndpointOptions { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier for the domain.
         /// </summary>
         [Output("domainId")]
-        public Output<string> DomainId { get; private set; } = null!;
+        public Output<string?> DomainId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the domain.
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         /// </summary>
         [Output("ebsOptions")]
-        public Output<Outputs.DomainEbsOptions> EbsOptions { get; private set; } = null!;
+        public Output<Outputs.DomainEbsOptions?> EbsOptions { get; private set; } = null!;
 
         /// <summary>
         /// Version of Elasticsearch to deploy. Defaults to `1.5`.
@@ -360,19 +360,19 @@ namespace Pulumi.Aws.ElasticSearch
         /// Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         /// </summary>
         [Output("encryptAtRest")]
-        public Output<Outputs.DomainEncryptAtRest> EncryptAtRest { get; private set; } = null!;
+        public Output<Outputs.DomainEncryptAtRest?> EncryptAtRest { get; private set; } = null!;
 
         /// <summary>
         /// Domain-specific endpoint used to submit index, search, and data upload requests.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// Domain-specific endpoint for kibana without https scheme.
         /// </summary>
         [Output("kibanaEndpoint")]
-        public Output<string> KibanaEndpoint { get; private set; } = null!;
+        public Output<string?> KibanaEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
@@ -384,7 +384,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// Configuration block for node-to-node encryption options. Detailed below.
         /// </summary>
         [Output("nodeToNodeEncryption")]
-        public Output<Outputs.DomainNodeToNodeEncryption> NodeToNodeEncryption { get; private set; } = null!;
+        public Output<Outputs.DomainNodeToNodeEncryption?> NodeToNodeEncryption { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.

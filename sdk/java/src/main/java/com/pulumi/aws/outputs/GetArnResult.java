@@ -6,6 +6,8 @@ package com.pulumi.aws.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetArnResult {
@@ -13,75 +15,75 @@ public final class GetArnResult {
      * @return The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
      * 
      */
-    private String account;
+    private @Nullable String account;
     private String arn;
-    private String id;
+    private @Nullable String id;
     /**
      * @return Partition that the resource is in.
      * 
      */
-    private String partition;
+    private @Nullable String partition;
     /**
      * @return Region the resource resides in.
      * Note that the ARNs for some resources do not require a region, so this component might be omitted.
      * 
      */
-    private String region;
+    private @Nullable String region;
     /**
      * @return Content of this part of the ARN varies by service.
      * It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
      * 
      */
-    private String resource;
+    private @Nullable String resource;
     /**
      * @return The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
      * 
      */
-    private String service;
+    private @Nullable String service;
 
     private GetArnResult() {}
     /**
      * @return The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
      * 
      */
-    public String account() {
-        return this.account;
+    public Optional<String> account() {
+        return Optional.ofNullable(this.account);
     }
     public String arn() {
         return this.arn;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Partition that the resource is in.
      * 
      */
-    public String partition() {
-        return this.partition;
+    public Optional<String> partition() {
+        return Optional.ofNullable(this.partition);
     }
     /**
      * @return Region the resource resides in.
      * Note that the ARNs for some resources do not require a region, so this component might be omitted.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
     /**
      * @return Content of this part of the ARN varies by service.
      * It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
      * 
      */
-    public String resource() {
-        return this.resource;
+    public Optional<String> resource() {
+        return Optional.ofNullable(this.resource);
     }
     /**
      * @return The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
      * 
      */
-    public String service() {
-        return this.service;
+    public Optional<String> service() {
+        return Optional.ofNullable(this.service);
     }
 
     public static Builder builder() {
@@ -93,13 +95,13 @@ public final class GetArnResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String account;
+        private @Nullable String account;
         private String arn;
-        private String id;
-        private String partition;
-        private String region;
-        private String resource;
-        private String service;
+        private @Nullable String id;
+        private @Nullable String partition;
+        private @Nullable String region;
+        private @Nullable String resource;
+        private @Nullable String service;
         public Builder() {}
         public Builder(GetArnResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,8 +115,8 @@ public final class GetArnResult {
         }
 
         @CustomType.Setter
-        public Builder account(String account) {
-            this.account = Objects.requireNonNull(account);
+        public Builder account(@Nullable String account) {
+            this.account = account;
             return this;
         }
         @CustomType.Setter
@@ -123,28 +125,28 @@ public final class GetArnResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+        public Builder partition(@Nullable String partition) {
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         @CustomType.Setter
-        public Builder resource(String resource) {
-            this.resource = Objects.requireNonNull(resource);
+        public Builder resource(@Nullable String resource) {
+            this.resource = resource;
             return this;
         }
         @CustomType.Setter
-        public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+        public Builder service(@Nullable String service) {
+            this.service = service;
             return this;
         }
         public GetArnResult build() {

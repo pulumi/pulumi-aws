@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ses
         /// SES receipt rule set ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the rule set.

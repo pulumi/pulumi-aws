@@ -369,7 +369,7 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         """

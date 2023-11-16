@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceResult {
@@ -14,159 +16,159 @@ public final class GetInstanceResult {
      * @return ARN of the instance.
      * 
      */
-    private String arn;
-    private Boolean autoResolveBestVoicesEnabled;
+    private @Nullable String arn;
+    private @Nullable Boolean autoResolveBestVoicesEnabled;
     /**
      * @return Whether contact flow logs are enabled.
      * 
      */
-    private Boolean contactFlowLogsEnabled;
+    private @Nullable Boolean contactFlowLogsEnabled;
     /**
      * @return Whether contact lens is enabled.
      * 
      */
-    private Boolean contactLensEnabled;
+    private @Nullable Boolean contactLensEnabled;
     /**
      * @return When the instance was created.
      * 
      */
-    private String createdTime;
+    private @Nullable String createdTime;
     /**
      * @return Whether early media for outbound calls is enabled .
      * 
      */
-    private Boolean earlyMediaEnabled;
+    private @Nullable Boolean earlyMediaEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Specifies The identity management type attached to the instance.
      * 
      */
-    private String identityManagementType;
+    private @Nullable String identityManagementType;
     /**
      * @return Whether inbound calls are enabled.
      * 
      */
-    private Boolean inboundCallsEnabled;
-    private String instanceAlias;
-    private String instanceId;
+    private @Nullable Boolean inboundCallsEnabled;
+    private @Nullable String instanceAlias;
+    private @Nullable String instanceId;
     /**
      * @return Whether multi-party calls/conference is enabled.
      * 
      */
-    private Boolean multiPartyConferenceEnabled;
+    private @Nullable Boolean multiPartyConferenceEnabled;
     /**
      * @return Whether outbound calls are enabled.
      * 
      */
-    private Boolean outboundCallsEnabled;
+    private @Nullable Boolean outboundCallsEnabled;
     /**
      * @return Service role of the instance.
      * 
      */
-    private String serviceRole;
+    private @Nullable String serviceRole;
     /**
      * @return State of the instance.
      * 
      */
-    private String status;
+    private @Nullable String status;
 
     private GetInstanceResult() {}
     /**
      * @return ARN of the instance.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public Boolean autoResolveBestVoicesEnabled() {
-        return this.autoResolveBestVoicesEnabled;
+    public Optional<Boolean> autoResolveBestVoicesEnabled() {
+        return Optional.ofNullable(this.autoResolveBestVoicesEnabled);
     }
     /**
      * @return Whether contact flow logs are enabled.
      * 
      */
-    public Boolean contactFlowLogsEnabled() {
-        return this.contactFlowLogsEnabled;
+    public Optional<Boolean> contactFlowLogsEnabled() {
+        return Optional.ofNullable(this.contactFlowLogsEnabled);
     }
     /**
      * @return Whether contact lens is enabled.
      * 
      */
-    public Boolean contactLensEnabled() {
-        return this.contactLensEnabled;
+    public Optional<Boolean> contactLensEnabled() {
+        return Optional.ofNullable(this.contactLensEnabled);
     }
     /**
      * @return When the instance was created.
      * 
      */
-    public String createdTime() {
-        return this.createdTime;
+    public Optional<String> createdTime() {
+        return Optional.ofNullable(this.createdTime);
     }
     /**
      * @return Whether early media for outbound calls is enabled .
      * 
      */
-    public Boolean earlyMediaEnabled() {
-        return this.earlyMediaEnabled;
+    public Optional<Boolean> earlyMediaEnabled() {
+        return Optional.ofNullable(this.earlyMediaEnabled);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Specifies The identity management type attached to the instance.
      * 
      */
-    public String identityManagementType() {
-        return this.identityManagementType;
+    public Optional<String> identityManagementType() {
+        return Optional.ofNullable(this.identityManagementType);
     }
     /**
      * @return Whether inbound calls are enabled.
      * 
      */
-    public Boolean inboundCallsEnabled() {
-        return this.inboundCallsEnabled;
+    public Optional<Boolean> inboundCallsEnabled() {
+        return Optional.ofNullable(this.inboundCallsEnabled);
     }
-    public String instanceAlias() {
-        return this.instanceAlias;
+    public Optional<String> instanceAlias() {
+        return Optional.ofNullable(this.instanceAlias);
     }
-    public String instanceId() {
-        return this.instanceId;
+    public Optional<String> instanceId() {
+        return Optional.ofNullable(this.instanceId);
     }
     /**
      * @return Whether multi-party calls/conference is enabled.
      * 
      */
-    public Boolean multiPartyConferenceEnabled() {
-        return this.multiPartyConferenceEnabled;
+    public Optional<Boolean> multiPartyConferenceEnabled() {
+        return Optional.ofNullable(this.multiPartyConferenceEnabled);
     }
     /**
      * @return Whether outbound calls are enabled.
      * 
      */
-    public Boolean outboundCallsEnabled() {
-        return this.outboundCallsEnabled;
+    public Optional<Boolean> outboundCallsEnabled() {
+        return Optional.ofNullable(this.outboundCallsEnabled);
     }
     /**
      * @return Service role of the instance.
      * 
      */
-    public String serviceRole() {
-        return this.serviceRole;
+    public Optional<String> serviceRole() {
+        return Optional.ofNullable(this.serviceRole);
     }
     /**
      * @return State of the instance.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -178,21 +180,21 @@ public final class GetInstanceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private Boolean autoResolveBestVoicesEnabled;
-        private Boolean contactFlowLogsEnabled;
-        private Boolean contactLensEnabled;
-        private String createdTime;
-        private Boolean earlyMediaEnabled;
-        private String id;
-        private String identityManagementType;
-        private Boolean inboundCallsEnabled;
-        private String instanceAlias;
-        private String instanceId;
-        private Boolean multiPartyConferenceEnabled;
-        private Boolean outboundCallsEnabled;
-        private String serviceRole;
-        private String status;
+        private @Nullable String arn;
+        private @Nullable Boolean autoResolveBestVoicesEnabled;
+        private @Nullable Boolean contactFlowLogsEnabled;
+        private @Nullable Boolean contactLensEnabled;
+        private @Nullable String createdTime;
+        private @Nullable Boolean earlyMediaEnabled;
+        private @Nullable String id;
+        private @Nullable String identityManagementType;
+        private @Nullable Boolean inboundCallsEnabled;
+        private @Nullable String instanceAlias;
+        private @Nullable String instanceId;
+        private @Nullable Boolean multiPartyConferenceEnabled;
+        private @Nullable Boolean outboundCallsEnabled;
+        private @Nullable String serviceRole;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -214,78 +216,78 @@ public final class GetInstanceResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder autoResolveBestVoicesEnabled(Boolean autoResolveBestVoicesEnabled) {
-            this.autoResolveBestVoicesEnabled = Objects.requireNonNull(autoResolveBestVoicesEnabled);
+        public Builder autoResolveBestVoicesEnabled(@Nullable Boolean autoResolveBestVoicesEnabled) {
+            this.autoResolveBestVoicesEnabled = autoResolveBestVoicesEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder contactFlowLogsEnabled(Boolean contactFlowLogsEnabled) {
-            this.contactFlowLogsEnabled = Objects.requireNonNull(contactFlowLogsEnabled);
+        public Builder contactFlowLogsEnabled(@Nullable Boolean contactFlowLogsEnabled) {
+            this.contactFlowLogsEnabled = contactFlowLogsEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder contactLensEnabled(Boolean contactLensEnabled) {
-            this.contactLensEnabled = Objects.requireNonNull(contactLensEnabled);
+        public Builder contactLensEnabled(@Nullable Boolean contactLensEnabled) {
+            this.contactLensEnabled = contactLensEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+        public Builder createdTime(@Nullable String createdTime) {
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
-        public Builder earlyMediaEnabled(Boolean earlyMediaEnabled) {
-            this.earlyMediaEnabled = Objects.requireNonNull(earlyMediaEnabled);
+        public Builder earlyMediaEnabled(@Nullable Boolean earlyMediaEnabled) {
+            this.earlyMediaEnabled = earlyMediaEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder identityManagementType(String identityManagementType) {
-            this.identityManagementType = Objects.requireNonNull(identityManagementType);
+        public Builder identityManagementType(@Nullable String identityManagementType) {
+            this.identityManagementType = identityManagementType;
             return this;
         }
         @CustomType.Setter
-        public Builder inboundCallsEnabled(Boolean inboundCallsEnabled) {
-            this.inboundCallsEnabled = Objects.requireNonNull(inboundCallsEnabled);
+        public Builder inboundCallsEnabled(@Nullable Boolean inboundCallsEnabled) {
+            this.inboundCallsEnabled = inboundCallsEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceAlias(String instanceAlias) {
-            this.instanceAlias = Objects.requireNonNull(instanceAlias);
+        public Builder instanceAlias(@Nullable String instanceAlias) {
+            this.instanceAlias = instanceAlias;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+        public Builder instanceId(@Nullable String instanceId) {
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
-        public Builder multiPartyConferenceEnabled(Boolean multiPartyConferenceEnabled) {
-            this.multiPartyConferenceEnabled = Objects.requireNonNull(multiPartyConferenceEnabled);
+        public Builder multiPartyConferenceEnabled(@Nullable Boolean multiPartyConferenceEnabled) {
+            this.multiPartyConferenceEnabled = multiPartyConferenceEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder outboundCallsEnabled(Boolean outboundCallsEnabled) {
-            this.outboundCallsEnabled = Objects.requireNonNull(outboundCallsEnabled);
+        public Builder outboundCallsEnabled(@Nullable Boolean outboundCallsEnabled) {
+            this.outboundCallsEnabled = outboundCallsEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceRole(String serviceRole) {
-            this.serviceRole = Objects.requireNonNull(serviceRole);
+        public Builder serviceRole(@Nullable String serviceRole) {
+            this.serviceRole = serviceRole;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetInstanceResult build() {

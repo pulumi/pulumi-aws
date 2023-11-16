@@ -65,7 +65,7 @@ type GetTransitGatewayRouteTablesArgs struct {
 type GetTransitGatewayRouteTablesResult struct {
 	Filters []GetTransitGatewayRouteTablesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of Transit Gateway Route Table identifiers.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -120,8 +120,8 @@ func (o GetTransitGatewayRouteTablesResultOutput) Filters() GetTransitGatewayRou
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetTransitGatewayRouteTablesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTransitGatewayRouteTablesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetTransitGatewayRouteTablesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of Transit Gateway Route Table identifiers.

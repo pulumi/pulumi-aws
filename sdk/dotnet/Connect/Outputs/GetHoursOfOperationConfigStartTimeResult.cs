@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// Hour of opening.
         /// </summary>
-        public readonly int Hours;
+        public readonly int? Hours;
         /// <summary>
         /// Minute of opening.
         /// </summary>
-        public readonly int Minutes;
+        public readonly int? Minutes;
 
         [OutputConstructor]
         private GetHoursOfOperationConfigStartTimeResult(
-            int hours,
+            int? hours,
 
-            int minutes)
+            int? minutes)
         {
             Hours = hours;
             Minutes = minutes;

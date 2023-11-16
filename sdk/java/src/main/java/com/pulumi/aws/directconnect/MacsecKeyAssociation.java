@@ -125,14 +125,14 @@ public class MacsecKeyAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ckn", refs={String.class}, tree="[0]")
-    private Output<String> ckn;
+    private Output</* @Nullable */ String> ckn;
 
     /**
      * @return The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
      * 
      */
-    public Output<String> ckn() {
-        return this.ckn;
+    public Output<Optional<String>> ckn() {
+        return Codegen.optional(this.ckn);
     }
     /**
      * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
@@ -155,7 +155,7 @@ public class MacsecKeyAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
-    private Output<String> secretArn;
+    private Output</* @Nullable */ String> secretArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
@@ -163,36 +163,36 @@ public class MacsecKeyAssociation extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
      * 
      */
-    public Output<String> secretArn() {
-        return this.secretArn;
+    public Output<Optional<String>> secretArn() {
+        return Codegen.optional(this.secretArn);
     }
     /**
      * The date in UTC format that the MAC Security (MACsec) secret key takes effect.
      * 
      */
     @Export(name="startOn", refs={String.class}, tree="[0]")
-    private Output<String> startOn;
+    private Output</* @Nullable */ String> startOn;
 
     /**
      * @return The date in UTC format that the MAC Security (MACsec) secret key takes effect.
      * 
      */
-    public Output<String> startOn() {
-        return this.startOn;
+    public Output<Optional<String>> startOn() {
+        return Codegen.optional(this.startOn);
     }
     /**
      * The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
 
     /**

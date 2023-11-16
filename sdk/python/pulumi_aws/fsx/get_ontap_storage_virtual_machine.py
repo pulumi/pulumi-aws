@@ -66,7 +66,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter(name="activeDirectoryConfigurations")
-    def active_directory_configurations(self) -> Sequence['outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult']:
+    def active_directory_configurations(self) -> Optional[Sequence['outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult']]:
         """
         The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
         """
@@ -74,7 +74,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name of the SVM.
         """
@@ -82,7 +82,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> Optional[str]:
         """
         The time that the SVM was created.
         """
@@ -90,7 +90,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointResult']:
+    def endpoints(self) -> Optional[Sequence['outputs.GetOntapStorageVirtualMachineEndpointResult']]:
         """
         The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
         """
@@ -98,7 +98,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> str:
+    def file_system_id(self) -> Optional[str]:
         """
         Identifier of the file system (e.g. `fs-12345678`).
         """
@@ -111,7 +111,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The SVM's system generated unique ID.
         """
@@ -119,7 +119,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter(name="lifecycleStatus")
-    def lifecycle_status(self) -> str:
+    def lifecycle_status(self) -> Optional[str]:
         """
         The SVM's lifecycle status.
         """
@@ -127,7 +127,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter(name="lifecycleTransitionReasons")
-    def lifecycle_transition_reasons(self) -> Sequence['outputs.GetOntapStorageVirtualMachineLifecycleTransitionReasonResult']:
+    def lifecycle_transition_reasons(self) -> Optional[Sequence['outputs.GetOntapStorageVirtualMachineLifecycleTransitionReasonResult']]:
         """
         Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
         """
@@ -135,7 +135,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the SVM, if provisioned.
         """
@@ -143,7 +143,7 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def subtype(self) -> str:
+    def subtype(self) -> Optional[str]:
         """
         The SVM's subtype.
         """
@@ -151,12 +151,12 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def uuid(self) -> str:
+    def uuid(self) -> Optional[str]:
         """
         The SVM's UUID.
         """

@@ -397,7 +397,7 @@ class VpcConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of VPC connector.
         """
@@ -413,7 +413,7 @@ class VpcConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
         """
@@ -456,7 +456,7 @@ class VpcConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcConnectorRevision")
-    def vpc_connector_revision(self) -> pulumi.Output[int]:
+    def vpc_connector_revision(self) -> pulumi.Output[Optional[int]]:
         """
         The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         """

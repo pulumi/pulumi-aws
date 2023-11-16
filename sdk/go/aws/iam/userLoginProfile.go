@@ -66,15 +66,15 @@ type UserLoginProfile struct {
 	pulumi.CustomResourceState
 
 	// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-	EncryptedPassword pulumi.StringOutput `pulumi:"encryptedPassword"`
+	EncryptedPassword pulumi.StringPtrOutput `pulumi:"encryptedPassword"`
 	// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-	KeyFingerprint pulumi.StringOutput `pulumi:"keyFingerprint"`
+	KeyFingerprint pulumi.StringPtrOutput `pulumi:"keyFingerprint"`
 	// The plain text password, only available when `pgpKey` is not provided.
-	Password pulumi.StringOutput `pulumi:"password"`
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
 	PasswordLength pulumi.IntPtrOutput `pulumi:"passwordLength"`
 	// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-	PasswordResetRequired pulumi.BoolOutput `pulumi:"passwordResetRequired"`
+	PasswordResetRequired pulumi.BoolPtrOutput `pulumi:"passwordResetRequired"`
 	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
 	PgpKey pulumi.StringPtrOutput `pulumi:"pgpKey"`
 	// The IAM user's name.
@@ -262,18 +262,18 @@ func (o UserLoginProfileOutput) ToUserLoginProfileOutputWithContext(ctx context.
 }
 
 // The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-func (o UserLoginProfileOutput) EncryptedPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringOutput { return v.EncryptedPassword }).(pulumi.StringOutput)
+func (o UserLoginProfileOutput) EncryptedPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringPtrOutput { return v.EncryptedPassword }).(pulumi.StringPtrOutput)
 }
 
 // The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-func (o UserLoginProfileOutput) KeyFingerprint() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringOutput { return v.KeyFingerprint }).(pulumi.StringOutput)
+func (o UserLoginProfileOutput) KeyFingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringPtrOutput { return v.KeyFingerprint }).(pulumi.StringPtrOutput)
 }
 
 // The plain text password, only available when `pgpKey` is not provided.
-func (o UserLoginProfileOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+func (o UserLoginProfileOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
@@ -282,8 +282,8 @@ func (o UserLoginProfileOutput) PasswordLength() pulumi.IntPtrOutput {
 }
 
 // Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-func (o UserLoginProfileOutput) PasswordResetRequired() pulumi.BoolOutput {
-	return o.ApplyT(func(v *UserLoginProfile) pulumi.BoolOutput { return v.PasswordResetRequired }).(pulumi.BoolOutput)
+func (o UserLoginProfileOutput) PasswordResetRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserLoginProfile) pulumi.BoolPtrOutput { return v.PasswordResetRequired }).(pulumi.BoolPtrOutput)
 }
 
 // Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.

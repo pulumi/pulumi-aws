@@ -111,7 +111,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// Customizations that the model supports.
         /// </summary>
         public readonly ImmutableArray<string> CustomizationsSupporteds;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Inference types that the model supports.
         /// </summary>
@@ -123,12 +123,12 @@ namespace Pulumi.Aws.BedrockFoundation
         /// <summary>
         /// Model ARN.
         /// </summary>
-        public readonly string ModelArn;
+        public readonly string? ModelArn;
         public readonly string ModelId;
         /// <summary>
         /// Model name.
         /// </summary>
-        public readonly string ModelName;
+        public readonly string? ModelName;
         /// <summary>
         /// Output modalities that the model supports.
         /// </summary>
@@ -136,33 +136,33 @@ namespace Pulumi.Aws.BedrockFoundation
         /// <summary>
         /// Model provider name.
         /// </summary>
-        public readonly string ProviderName;
+        public readonly string? ProviderName;
         /// <summary>
         /// Indicates whether the model supports streaming.
         /// </summary>
-        public readonly bool ResponseStreamingSupported;
+        public readonly bool? ResponseStreamingSupported;
 
         [OutputConstructor]
         private GetModelResult(
             ImmutableArray<string> customizationsSupporteds,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> inferenceTypesSupporteds,
 
             ImmutableArray<string> inputModalities,
 
-            string modelArn,
+            string? modelArn,
 
             string modelId,
 
-            string modelName,
+            string? modelName,
 
             ImmutableArray<string> outputModalities,
 
-            string providerName,
+            string? providerName,
 
-            bool responseStreamingSupported)
+            bool? responseStreamingSupported)
         {
             CustomizationsSupporteds = customizationsSupporteds;
             Id = id;

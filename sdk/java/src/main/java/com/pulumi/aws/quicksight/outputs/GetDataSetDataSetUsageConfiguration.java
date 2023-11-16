@@ -6,18 +6,20 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetDataSetUsageConfiguration {
-    private Boolean disableUseAsDirectQuerySource;
-    private Boolean disableUseAsImportedSource;
+    private @Nullable Boolean disableUseAsDirectQuerySource;
+    private @Nullable Boolean disableUseAsImportedSource;
 
     private GetDataSetDataSetUsageConfiguration() {}
-    public Boolean disableUseAsDirectQuerySource() {
-        return this.disableUseAsDirectQuerySource;
+    public Optional<Boolean> disableUseAsDirectQuerySource() {
+        return Optional.ofNullable(this.disableUseAsDirectQuerySource);
     }
-    public Boolean disableUseAsImportedSource() {
-        return this.disableUseAsImportedSource;
+    public Optional<Boolean> disableUseAsImportedSource() {
+        return Optional.ofNullable(this.disableUseAsImportedSource);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetDataSetDataSetUsageConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean disableUseAsDirectQuerySource;
-        private Boolean disableUseAsImportedSource;
+        private @Nullable Boolean disableUseAsDirectQuerySource;
+        private @Nullable Boolean disableUseAsImportedSource;
         public Builder() {}
         public Builder(GetDataSetDataSetUsageConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetDataSetDataSetUsageConfiguration {
         }
 
         @CustomType.Setter
-        public Builder disableUseAsDirectQuerySource(Boolean disableUseAsDirectQuerySource) {
-            this.disableUseAsDirectQuerySource = Objects.requireNonNull(disableUseAsDirectQuerySource);
+        public Builder disableUseAsDirectQuerySource(@Nullable Boolean disableUseAsDirectQuerySource) {
+            this.disableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
             return this;
         }
         @CustomType.Setter
-        public Builder disableUseAsImportedSource(Boolean disableUseAsImportedSource) {
-            this.disableUseAsImportedSource = Objects.requireNonNull(disableUseAsImportedSource);
+        public Builder disableUseAsImportedSource(@Nullable Boolean disableUseAsImportedSource) {
+            this.disableUseAsImportedSource = disableUseAsImportedSource;
             return this;
         }
         public GetDataSetDataSetUsageConfiguration build() {

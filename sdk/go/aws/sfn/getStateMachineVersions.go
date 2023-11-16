@@ -58,8 +58,8 @@ type GetStateMachineVersionsArgs struct {
 // A collection of values returned by getStateMachineVersions.
 type GetStateMachineVersionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	StatemachineArn string `pulumi:"statemachineArn"`
+	Id              *string `pulumi:"id"`
+	StatemachineArn string  `pulumi:"statemachineArn"`
 	// ARN List identifying the statemachine versions.
 	StatemachineVersions []string `pulumi:"statemachineVersions"`
 }
@@ -103,8 +103,8 @@ func (o GetStateMachineVersionsResultOutput) ToGetStateMachineVersionsResultOutp
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetStateMachineVersionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStateMachineVersionsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetStateMachineVersionsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStateMachineVersionsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetStateMachineVersionsResultOutput) StatemachineArn() pulumi.StringOutput {

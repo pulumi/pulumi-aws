@@ -76,7 +76,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the scheduling policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     public readonly fairSharePolicy!: pulumi.Output<outputs.batch.SchedulingPolicyFairSharePolicy | undefined>;
     /**
      * Specifies the name of the scheduling policy.

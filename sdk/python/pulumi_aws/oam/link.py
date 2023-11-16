@@ -420,7 +420,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the link.
         """
@@ -428,7 +428,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> pulumi.Output[str]:
+    def label(self) -> pulumi.Output[Optional[str]]:
         """
         Label that is assigned to this link.
         """
@@ -444,7 +444,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkId")
-    def link_id(self) -> pulumi.Output[str]:
+    def link_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID string that AWS generated as part of the link ARN.
         """
@@ -460,7 +460,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sinkArn")
-    def sink_arn(self) -> pulumi.Output[str]:
+    def sink_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the sink that is used for this link.
         """

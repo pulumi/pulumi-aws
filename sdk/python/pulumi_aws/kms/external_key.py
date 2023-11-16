@@ -593,7 +593,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the key.
         """
@@ -625,7 +625,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         """
@@ -633,7 +633,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationModel")
-    def expiration_model(self) -> pulumi.Output[str]:
+    def expiration_model(self) -> pulumi.Output[Optional[str]]:
         """
         Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
         """
@@ -649,7 +649,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyState")
-    def key_state(self) -> pulumi.Output[str]:
+    def key_state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the CMK.
         """
@@ -657,7 +657,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> pulumi.Output[str]:
+    def key_usage(self) -> pulumi.Output[Optional[str]]:
         """
         The cryptographic operations for which you can use the CMK.
         """
@@ -665,7 +665,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiRegion")
-    def multi_region(self) -> pulumi.Output[bool]:
+    def multi_region(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         """
@@ -673,7 +673,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         """

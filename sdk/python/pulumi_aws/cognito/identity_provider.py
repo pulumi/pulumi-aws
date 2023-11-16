@@ -396,7 +396,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attributeMapping")
-    def attribute_mapping(self) -> pulumi.Output[Mapping[str, str]]:
+    def attribute_mapping(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         """

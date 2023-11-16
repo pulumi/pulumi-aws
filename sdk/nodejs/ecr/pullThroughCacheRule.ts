@@ -65,7 +65,7 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
     /**
      * The registry ID where the repository was created.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string | undefined>;
     /**
      * The registry URL of the upstream public registry to use as the source.
      */

@@ -55,7 +55,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> str:
+    def admin_username(self) -> Optional[str]:
         """
         The username of the administrator for the first database created in the namespace.
         """
@@ -63,7 +63,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
         """
@@ -71,7 +71,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter(name="dbName")
-    def db_name(self) -> str:
+    def db_name(self) -> Optional[str]:
         """
         The name of the first database created in the namespace.
         """
@@ -79,7 +79,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter(name="defaultIamRoleArn")
-    def default_iam_role_arn(self) -> str:
+    def default_iam_role_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         """
@@ -87,7 +87,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> Sequence[str]:
+    def iam_roles(self) -> Optional[Sequence[str]]:
         """
         A list of IAM roles to associate with the namespace.
         """
@@ -95,7 +95,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -103,7 +103,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         """
         The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         """
@@ -111,7 +111,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter(name="logExports")
-    def log_exports(self) -> Sequence[str]:
+    def log_exports(self) -> Optional[Sequence[str]]:
         """
         The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
         """
@@ -119,7 +119,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> str:
+    def namespace_id(self) -> Optional[str]:
         """
         The Redshift Namespace ID.
         """

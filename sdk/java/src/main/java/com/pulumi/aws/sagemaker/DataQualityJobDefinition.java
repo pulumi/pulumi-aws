@@ -104,14 +104,14 @@ public class DataQualityJobDefinition extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies the container that runs the monitoring job. Fields are documented below.
@@ -230,14 +230,14 @@ public class DataQualityJobDefinition extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="stoppingCondition", refs={DataQualityJobDefinitionStoppingCondition.class}, tree="[0]")
-    private Output<DataQualityJobDefinitionStoppingCondition> stoppingCondition;
+    private Output</* @Nullable */ DataQualityJobDefinitionStoppingCondition> stoppingCondition;
 
     /**
      * @return A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      * 
      */
-    public Output<DataQualityJobDefinitionStoppingCondition> stoppingCondition() {
-        return this.stoppingCondition;
+    public Output<Optional<DataQualityJobDefinitionStoppingCondition>> stoppingCondition() {
+        return Codegen.optional(this.stoppingCondition);
     }
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

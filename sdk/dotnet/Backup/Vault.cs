@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Backup
         /// The ARN of the vault.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Backup
         /// The server-side encryption key that is used to protect your backups.
         /// </summary>
         [Output("kmsKeyArn")]
-        public Output<string> KmsKeyArn { get; private set; } = null!;
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the backup vault to create.
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Backup
         /// The number of recovery points that are stored in a backup vault.
         /// </summary>
         [Output("recoveryPoints")]
-        public Output<int> RecoveryPoints { get; private set; } = null!;
+        public Output<int?> RecoveryPoints { get; private set; } = null!;
 
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

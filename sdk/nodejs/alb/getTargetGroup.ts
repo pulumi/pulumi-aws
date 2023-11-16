@@ -66,29 +66,29 @@ export interface GetTargetGroupArgs {
  * A collection of values returned by getTargetGroup.
  */
 export interface GetTargetGroupResult {
-    readonly arn: string;
-    readonly arnSuffix: string;
-    readonly connectionTermination: boolean;
-    readonly deregistrationDelay: number;
-    readonly healthCheck: outputs.alb.GetTargetGroupHealthCheck;
+    readonly arn?: string;
+    readonly arnSuffix?: string;
+    readonly connectionTermination?: boolean;
+    readonly deregistrationDelay?: number;
+    readonly healthCheck?: outputs.alb.GetTargetGroupHealthCheck;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly lambdaMultiValueHeadersEnabled: boolean;
-    readonly loadBalancingAlgorithmType: string;
-    readonly loadBalancingCrossZoneEnabled: string;
-    readonly name: string;
-    readonly port: number;
-    readonly preserveClientIp: string;
-    readonly protocol: string;
-    readonly protocolVersion: string;
-    readonly proxyProtocolV2: boolean;
-    readonly slowStart: number;
-    readonly stickiness: outputs.alb.GetTargetGroupStickiness;
-    readonly tags: {[key: string]: string};
-    readonly targetType: string;
-    readonly vpcId: string;
+    readonly id?: string;
+    readonly lambdaMultiValueHeadersEnabled?: boolean;
+    readonly loadBalancingAlgorithmType?: string;
+    readonly loadBalancingCrossZoneEnabled?: string;
+    readonly name?: string;
+    readonly port?: number;
+    readonly preserveClientIp?: string;
+    readonly protocol?: string;
+    readonly protocolVersion?: string;
+    readonly proxyProtocolV2?: boolean;
+    readonly slowStart?: number;
+    readonly stickiness?: outputs.alb.GetTargetGroupStickiness;
+    readonly tags?: {[key: string]: string};
+    readonly targetType?: string;
+    readonly vpcId?: string;
 }
 /**
  * > **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.

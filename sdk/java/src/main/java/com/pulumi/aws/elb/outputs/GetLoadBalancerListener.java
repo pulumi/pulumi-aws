@@ -7,30 +7,32 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLoadBalancerListener {
-    private Integer instancePort;
-    private String instanceProtocol;
-    private Integer lbPort;
-    private String lbProtocol;
-    private String sslCertificateId;
+    private @Nullable Integer instancePort;
+    private @Nullable String instanceProtocol;
+    private @Nullable Integer lbPort;
+    private @Nullable String lbProtocol;
+    private @Nullable String sslCertificateId;
 
     private GetLoadBalancerListener() {}
-    public Integer instancePort() {
-        return this.instancePort;
+    public Optional<Integer> instancePort() {
+        return Optional.ofNullable(this.instancePort);
     }
-    public String instanceProtocol() {
-        return this.instanceProtocol;
+    public Optional<String> instanceProtocol() {
+        return Optional.ofNullable(this.instanceProtocol);
     }
-    public Integer lbPort() {
-        return this.lbPort;
+    public Optional<Integer> lbPort() {
+        return Optional.ofNullable(this.lbPort);
     }
-    public String lbProtocol() {
-        return this.lbProtocol;
+    public Optional<String> lbProtocol() {
+        return Optional.ofNullable(this.lbProtocol);
     }
-    public String sslCertificateId() {
-        return this.sslCertificateId;
+    public Optional<String> sslCertificateId() {
+        return Optional.ofNullable(this.sslCertificateId);
     }
 
     public static Builder builder() {
@@ -42,11 +44,11 @@ public final class GetLoadBalancerListener {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer instancePort;
-        private String instanceProtocol;
-        private Integer lbPort;
-        private String lbProtocol;
-        private String sslCertificateId;
+        private @Nullable Integer instancePort;
+        private @Nullable String instanceProtocol;
+        private @Nullable Integer lbPort;
+        private @Nullable String lbProtocol;
+        private @Nullable String sslCertificateId;
         public Builder() {}
         public Builder(GetLoadBalancerListener defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,28 +60,28 @@ public final class GetLoadBalancerListener {
         }
 
         @CustomType.Setter
-        public Builder instancePort(Integer instancePort) {
-            this.instancePort = Objects.requireNonNull(instancePort);
+        public Builder instancePort(@Nullable Integer instancePort) {
+            this.instancePort = instancePort;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceProtocol(String instanceProtocol) {
-            this.instanceProtocol = Objects.requireNonNull(instanceProtocol);
+        public Builder instanceProtocol(@Nullable String instanceProtocol) {
+            this.instanceProtocol = instanceProtocol;
             return this;
         }
         @CustomType.Setter
-        public Builder lbPort(Integer lbPort) {
-            this.lbPort = Objects.requireNonNull(lbPort);
+        public Builder lbPort(@Nullable Integer lbPort) {
+            this.lbPort = lbPort;
             return this;
         }
         @CustomType.Setter
-        public Builder lbProtocol(String lbProtocol) {
-            this.lbProtocol = Objects.requireNonNull(lbProtocol);
+        public Builder lbProtocol(@Nullable String lbProtocol) {
+            this.lbProtocol = lbProtocol;
             return this;
         }
         @CustomType.Setter
-        public Builder sslCertificateId(String sslCertificateId) {
-            this.sslCertificateId = Objects.requireNonNull(sslCertificateId);
+        public Builder sslCertificateId(@Nullable String sslCertificateId) {
+            this.sslCertificateId = sslCertificateId;
             return this;
         }
         public GetLoadBalancerListener build() {

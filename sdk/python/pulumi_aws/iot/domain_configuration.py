@@ -549,7 +549,7 @@ class DomainConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the domain configuration.
         """
@@ -573,7 +573,7 @@ class DomainConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainType")
-    def domain_type(self) -> pulumi.Output[str]:
+    def domain_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the domain.
         """
@@ -629,7 +629,7 @@ class DomainConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tlsConfig")
-    def tls_config(self) -> pulumi.Output['outputs.DomainConfigurationTlsConfig']:
+    def tls_config(self) -> pulumi.Output[Optional['outputs.DomainConfigurationTlsConfig']]:
         """
         An object that specifies the TLS configuration for a domain. See below.
         """

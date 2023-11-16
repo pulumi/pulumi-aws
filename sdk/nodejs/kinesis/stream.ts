@@ -74,7 +74,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      */
-    public readonly arn!: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      */
@@ -107,7 +107,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      */
-    public readonly streamModeDetails!: pulumi.Output<outputs.kinesis.StreamStreamModeDetails>;
+    public readonly streamModeDetails!: pulumi.Output<outputs.kinesis.StreamStreamModeDetails | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

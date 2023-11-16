@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Lex
         /// not included as an argument because the resource will add it automatically when updating the slot type.
         /// </summary>
         [Output("checksum")]
-        public Output<string> Checksum { get; private set; } = null!;
+        public Output<string?> Checksum { get; private set; } = null!;
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial resource is created and on each
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Lex
         /// The date when the slot type version was created.
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// A description of the slot type. Must be less than or equal to 200 characters in length.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Lex
         /// The date when the `$LATEST` version of this slot type was updated.
         /// </summary>
         [Output("lastUpdatedDate")]
-        public Output<string> LastUpdatedDate { get; private set; } = null!;
+        public Output<string?> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Lex
         /// The version of the slot type.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

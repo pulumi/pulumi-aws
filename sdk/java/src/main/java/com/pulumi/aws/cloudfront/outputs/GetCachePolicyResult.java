@@ -18,56 +18,56 @@ public final class GetCachePolicyResult {
      * @return Comment to describe the cache policy.
      * 
      */
-    private String comment;
+    private @Nullable String comment;
     /**
      * @return Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    private Integer defaultTtl;
+    private @Nullable Integer defaultTtl;
     /**
      * @return Current version of the cache policy.
      * 
      */
-    private String etag;
+    private @Nullable String etag;
     private @Nullable String id;
     /**
      * @return Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    private Integer maxTtl;
+    private @Nullable Integer maxTtl;
     /**
      * @return Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    private Integer minTtl;
+    private @Nullable Integer minTtl;
     private @Nullable String name;
     /**
      * @return The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
      * 
      */
-    private List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins;
+    private @Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins;
 
     private GetCachePolicyResult() {}
     /**
      * @return Comment to describe the cache policy.
      * 
      */
-    public String comment() {
-        return this.comment;
+    public Optional<String> comment() {
+        return Optional.ofNullable(this.comment);
     }
     /**
      * @return Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    public Integer defaultTtl() {
-        return this.defaultTtl;
+    public Optional<Integer> defaultTtl() {
+        return Optional.ofNullable(this.defaultTtl);
     }
     /**
      * @return Current version of the cache policy.
      * 
      */
-    public String etag() {
-        return this.etag;
+    public Optional<String> etag() {
+        return Optional.ofNullable(this.etag);
     }
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -76,15 +76,15 @@ public final class GetCachePolicyResult {
      * @return Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    public Integer maxTtl() {
-        return this.maxTtl;
+    public Optional<Integer> maxTtl() {
+        return Optional.ofNullable(this.maxTtl);
     }
     /**
      * @return Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    public Integer minTtl() {
-        return this.minTtl;
+    public Optional<Integer> minTtl() {
+        return Optional.ofNullable(this.minTtl);
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -94,7 +94,7 @@ public final class GetCachePolicyResult {
      * 
      */
     public List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins() {
-        return this.parametersInCacheKeyAndForwardedToOrigins;
+        return this.parametersInCacheKeyAndForwardedToOrigins == null ? List.of() : this.parametersInCacheKeyAndForwardedToOrigins;
     }
 
     public static Builder builder() {
@@ -106,14 +106,14 @@ public final class GetCachePolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private Integer defaultTtl;
-        private String etag;
+        private @Nullable String comment;
+        private @Nullable Integer defaultTtl;
+        private @Nullable String etag;
         private @Nullable String id;
-        private Integer maxTtl;
-        private Integer minTtl;
+        private @Nullable Integer maxTtl;
+        private @Nullable Integer minTtl;
         private @Nullable String name;
-        private List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins;
+        private @Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins;
         public Builder() {}
         public Builder(GetCachePolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -128,18 +128,18 @@ public final class GetCachePolicyResult {
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+        public Builder comment(@Nullable String comment) {
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
-        public Builder defaultTtl(Integer defaultTtl) {
-            this.defaultTtl = Objects.requireNonNull(defaultTtl);
+        public Builder defaultTtl(@Nullable Integer defaultTtl) {
+            this.defaultTtl = defaultTtl;
             return this;
         }
         @CustomType.Setter
-        public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+        public Builder etag(@Nullable String etag) {
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
@@ -148,13 +148,13 @@ public final class GetCachePolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder maxTtl(Integer maxTtl) {
-            this.maxTtl = Objects.requireNonNull(maxTtl);
+        public Builder maxTtl(@Nullable Integer maxTtl) {
+            this.maxTtl = maxTtl;
             return this;
         }
         @CustomType.Setter
-        public Builder minTtl(Integer minTtl) {
-            this.minTtl = Objects.requireNonNull(minTtl);
+        public Builder minTtl(@Nullable Integer minTtl) {
+            this.minTtl = minTtl;
             return this;
         }
         @CustomType.Setter
@@ -163,8 +163,8 @@ public final class GetCachePolicyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder parametersInCacheKeyAndForwardedToOrigins(List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins) {
-            this.parametersInCacheKeyAndForwardedToOrigins = Objects.requireNonNull(parametersInCacheKeyAndForwardedToOrigins);
+        public Builder parametersInCacheKeyAndForwardedToOrigins(@Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins) {
+            this.parametersInCacheKeyAndForwardedToOrigins = parametersInCacheKeyAndForwardedToOrigins;
             return this;
         }
         public Builder parametersInCacheKeyAndForwardedToOrigins(GetCachePolicyParametersInCacheKeyAndForwardedToOrigin... parametersInCacheKeyAndForwardedToOrigins) {

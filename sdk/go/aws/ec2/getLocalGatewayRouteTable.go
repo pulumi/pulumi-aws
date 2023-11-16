@@ -79,11 +79,11 @@ type GetLocalGatewayRouteTableArgs struct {
 type GetLocalGatewayRouteTableResult struct {
 	Filters []GetLocalGatewayRouteTableFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string            `pulumi:"id"`
-	LocalGatewayId           string            `pulumi:"localGatewayId"`
-	LocalGatewayRouteTableId string            `pulumi:"localGatewayRouteTableId"`
-	OutpostArn               string            `pulumi:"outpostArn"`
-	State                    string            `pulumi:"state"`
+	Id                       *string           `pulumi:"id"`
+	LocalGatewayId           *string           `pulumi:"localGatewayId"`
+	LocalGatewayRouteTableId *string           `pulumi:"localGatewayRouteTableId"`
+	OutpostArn               *string           `pulumi:"outpostArn"`
+	State                    *string           `pulumi:"state"`
 	Tags                     map[string]string `pulumi:"tags"`
 }
 
@@ -143,24 +143,24 @@ func (o GetLocalGatewayRouteTableResultOutput) Filters() GetLocalGatewayRouteTab
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLocalGatewayRouteTableResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocalGatewayRouteTableResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) LocalGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.LocalGatewayId }).(pulumi.StringOutput)
+func (o GetLocalGatewayRouteTableResultOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) *string { return v.LocalGatewayId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) LocalGatewayRouteTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
+func (o GetLocalGatewayRouteTableResultOutput) LocalGatewayRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) *string { return v.LocalGatewayRouteTableId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+func (o GetLocalGatewayRouteTableResultOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.State }).(pulumi.StringOutput)
+func (o GetLocalGatewayRouteTableResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLocalGatewayRouteTableResultOutput) Tags() pulumi.StringMapOutput {

@@ -94,7 +94,7 @@ export class QueryLog extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Query Logging Config.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * CloudWatch log group ARN to send query logs.
      */

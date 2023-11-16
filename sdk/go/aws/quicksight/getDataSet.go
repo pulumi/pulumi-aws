@@ -65,18 +65,18 @@ type LookupDataSetArgs struct {
 
 // A collection of values returned by getDataSet.
 type LookupDataSetResult struct {
-	Arn                        string                                `pulumi:"arn"`
-	AwsAccountId               string                                `pulumi:"awsAccountId"`
+	Arn                        *string                               `pulumi:"arn"`
+	AwsAccountId               *string                               `pulumi:"awsAccountId"`
 	ColumnGroups               []GetDataSetColumnGroup               `pulumi:"columnGroups"`
 	ColumnLevelPermissionRules []GetDataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
 	DataSetId                  string                                `pulumi:"dataSetId"`
 	DataSetUsageConfigurations []GetDataSetDataSetUsageConfiguration `pulumi:"dataSetUsageConfigurations"`
 	FieldFolders               []GetDataSetFieldFolder               `pulumi:"fieldFolders"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                                  string                                         `pulumi:"id"`
-	ImportMode                          string                                         `pulumi:"importMode"`
+	Id                                  *string                                        `pulumi:"id"`
+	ImportMode                          *string                                        `pulumi:"importMode"`
 	LogicalTableMaps                    []GetDataSetLogicalTableMap                    `pulumi:"logicalTableMaps"`
-	Name                                string                                         `pulumi:"name"`
+	Name                                *string                                        `pulumi:"name"`
 	Permissions                         []GetDataSetPermission                         `pulumi:"permissions"`
 	PhysicalTableMaps                   []GetDataSetPhysicalTableMap                   `pulumi:"physicalTableMaps"`
 	RowLevelPermissionDataSets          []GetDataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSets"`
@@ -132,12 +132,12 @@ func (o LookupDataSetResultOutput) ToLookupDataSetResultOutputWithContext(ctx co
 	return o
 }
 
-func (o LookupDataSetResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDataSetResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupDataSetResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDataSetResultOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDataSetResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o LookupDataSetResultOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *string { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDataSetResultOutput) ColumnGroups() GetDataSetColumnGroupArrayOutput {
@@ -161,20 +161,20 @@ func (o LookupDataSetResultOutput) FieldFolders() GetDataSetFieldFolderArrayOutp
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupDataSetResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDataSetResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDataSetResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDataSetResultOutput) ImportMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDataSetResult) string { return v.ImportMode }).(pulumi.StringOutput)
+func (o LookupDataSetResultOutput) ImportMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *string { return v.ImportMode }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDataSetResultOutput) LogicalTableMaps() GetDataSetLogicalTableMapArrayOutput {
 	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetLogicalTableMap { return v.LogicalTableMaps }).(GetDataSetLogicalTableMapArrayOutput)
 }
 
-func (o LookupDataSetResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDataSetResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupDataSetResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDataSetResultOutput) Permissions() GetDataSetPermissionArrayOutput {

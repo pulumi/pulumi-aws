@@ -12,8 +12,8 @@ namespace Pulumi.Aws.Auditmanager.Inputs
 
     public sealed class GetFrameworkControlSetControlInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         public GetFrameworkControlSetControlInputArgs()
         {

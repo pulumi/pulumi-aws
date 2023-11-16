@@ -6,22 +6,24 @@ package com.pulumi.aws.signer.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSigningProfileRevocationRecord {
-    private String revocationEffectiveFrom;
-    private String revokedAt;
-    private String revokedBy;
+    private @Nullable String revocationEffectiveFrom;
+    private @Nullable String revokedAt;
+    private @Nullable String revokedBy;
 
     private GetSigningProfileRevocationRecord() {}
-    public String revocationEffectiveFrom() {
-        return this.revocationEffectiveFrom;
+    public Optional<String> revocationEffectiveFrom() {
+        return Optional.ofNullable(this.revocationEffectiveFrom);
     }
-    public String revokedAt() {
-        return this.revokedAt;
+    public Optional<String> revokedAt() {
+        return Optional.ofNullable(this.revokedAt);
     }
-    public String revokedBy() {
-        return this.revokedBy;
+    public Optional<String> revokedBy() {
+        return Optional.ofNullable(this.revokedBy);
     }
 
     public static Builder builder() {
@@ -33,9 +35,9 @@ public final class GetSigningProfileRevocationRecord {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String revocationEffectiveFrom;
-        private String revokedAt;
-        private String revokedBy;
+        private @Nullable String revocationEffectiveFrom;
+        private @Nullable String revokedAt;
+        private @Nullable String revokedBy;
         public Builder() {}
         public Builder(GetSigningProfileRevocationRecord defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,18 +47,18 @@ public final class GetSigningProfileRevocationRecord {
         }
 
         @CustomType.Setter
-        public Builder revocationEffectiveFrom(String revocationEffectiveFrom) {
-            this.revocationEffectiveFrom = Objects.requireNonNull(revocationEffectiveFrom);
+        public Builder revocationEffectiveFrom(@Nullable String revocationEffectiveFrom) {
+            this.revocationEffectiveFrom = revocationEffectiveFrom;
             return this;
         }
         @CustomType.Setter
-        public Builder revokedAt(String revokedAt) {
-            this.revokedAt = Objects.requireNonNull(revokedAt);
+        public Builder revokedAt(@Nullable String revokedAt) {
+            this.revokedAt = revokedAt;
             return this;
         }
         @CustomType.Setter
-        public Builder revokedBy(String revokedBy) {
-            this.revokedBy = Objects.requireNonNull(revokedBy);
+        public Builder revokedBy(@Nullable String revokedBy) {
+            this.revokedBy = revokedBy;
             return this;
         }
         public GetSigningProfileRevocationRecord build() {

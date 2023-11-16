@@ -94,19 +94,19 @@ type Activation struct {
 	pulumi.CustomResourceState
 
 	// The code the system generates when it processes the activation.
-	ActivationCode pulumi.StringOutput `pulumi:"activationCode"`
+	ActivationCode pulumi.StringPtrOutput `pulumi:"activationCode"`
 	// The description of the resource that you want to register.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
+	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
 	// If the current activation has expired.
-	Expired pulumi.BoolOutput `pulumi:"expired"`
+	Expired pulumi.BoolPtrOutput `pulumi:"expired"`
 	// The IAM Role to attach to the managed instance.
 	IamRole pulumi.StringOutput `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of managed instances that are currently registered using this activation.
-	RegistrationCount pulumi.IntOutput `pulumi:"registrationCount"`
+	RegistrationCount pulumi.IntPtrOutput `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrOutput `pulumi:"registrationLimit"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -326,8 +326,8 @@ func (o ActivationOutput) ToActivationOutputWithContext(ctx context.Context) Act
 }
 
 // The code the system generates when it processes the activation.
-func (o ActivationOutput) ActivationCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.ActivationCode }).(pulumi.StringOutput)
+func (o ActivationOutput) ActivationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Activation) pulumi.StringPtrOutput { return v.ActivationCode }).(pulumi.StringPtrOutput)
 }
 
 // The description of the resource that you want to register.
@@ -336,13 +336,13 @@ func (o ActivationOutput) Description() pulumi.StringPtrOutput {
 }
 
 // UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-func (o ActivationOutput) ExpirationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
+func (o ActivationOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Activation) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
 // If the current activation has expired.
-func (o ActivationOutput) Expired() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Activation) pulumi.BoolOutput { return v.Expired }).(pulumi.BoolOutput)
+func (o ActivationOutput) Expired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Activation) pulumi.BoolPtrOutput { return v.Expired }).(pulumi.BoolPtrOutput)
 }
 
 // The IAM Role to attach to the managed instance.
@@ -356,8 +356,8 @@ func (o ActivationOutput) Name() pulumi.StringOutput {
 }
 
 // The number of managed instances that are currently registered using this activation.
-func (o ActivationOutput) RegistrationCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Activation) pulumi.IntOutput { return v.RegistrationCount }).(pulumi.IntOutput)
+func (o ActivationOutput) RegistrationCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Activation) pulumi.IntPtrOutput { return v.RegistrationCount }).(pulumi.IntPtrOutput)
 }
 
 // The maximum number of managed instances you want to register. The default value is 1 instance.

@@ -16,17 +16,17 @@ namespace Pulumi.Aws.LicenseManager.Outputs
         /// <summary>
         /// The key name.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The value.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetReceivedLicenseLicenseMetadataResult(
-            string name,
+            string? name,
 
-            string value)
+            string? value)
         {
             Name = name;
             Value = value;

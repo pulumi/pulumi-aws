@@ -274,7 +274,7 @@ type Policy struct {
 	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 	AdjustmentType pulumi.StringPtrOutput `pulumi:"adjustmentType"`
 	// ARN assigned by AWS to the scaling policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the autoscaling group.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
@@ -286,7 +286,7 @@ type Policy struct {
 	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrOutput `pulumi:"estimatedInstanceWarmup"`
 	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-	MetricAggregationType pulumi.StringOutput `pulumi:"metricAggregationType"`
+	MetricAggregationType pulumi.StringPtrOutput `pulumi:"metricAggregationType"`
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
 	//
 	// The following arguments are only available to "SimpleScaling" type policies:
@@ -896,8 +896,8 @@ func (o PolicyOutput) AdjustmentType() pulumi.StringPtrOutput {
 }
 
 // ARN assigned by AWS to the scaling policy.
-func (o PolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the autoscaling group.
@@ -923,8 +923,8 @@ func (o PolicyOutput) EstimatedInstanceWarmup() pulumi.IntPtrOutput {
 }
 
 // Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-func (o PolicyOutput) MetricAggregationType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.MetricAggregationType }).(pulumi.StringOutput)
+func (o PolicyOutput) MetricAggregationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.MetricAggregationType }).(pulumi.StringPtrOutput)
 }
 
 // Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.

@@ -17,13 +17,13 @@ public final class GetExportResult {
      * @return ID of the API.
      * 
      */
-    private String body;
+    private @Nullable String body;
     private @Nullable String exportVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean includeExtensions;
     private String outputType;
     private String specification;
@@ -37,8 +37,8 @@ public final class GetExportResult {
      * @return ID of the API.
      * 
      */
-    public String body() {
-        return this.body;
+    public Optional<String> body() {
+        return Optional.ofNullable(this.body);
     }
     public Optional<String> exportVersion() {
         return Optional.ofNullable(this.exportVersion);
@@ -47,8 +47,8 @@ public final class GetExportResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> includeExtensions() {
         return Optional.ofNullable(this.includeExtensions);
@@ -73,9 +73,9 @@ public final class GetExportResult {
     @CustomType.Builder
     public static final class Builder {
         private String apiId;
-        private String body;
+        private @Nullable String body;
         private @Nullable String exportVersion;
-        private String id;
+        private @Nullable String id;
         private @Nullable Boolean includeExtensions;
         private String outputType;
         private String specification;
@@ -99,8 +99,8 @@ public final class GetExportResult {
             return this;
         }
         @CustomType.Setter
-        public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+        public Builder body(@Nullable String body) {
+            this.body = body;
             return this;
         }
         @CustomType.Setter
@@ -109,8 +109,8 @@ public final class GetExportResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

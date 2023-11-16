@@ -43,36 +43,36 @@ export interface GetApprovalRuleTemplateResult {
     /**
      * The ID of the approval rule template.
      */
-    readonly approvalRuleTemplateId: string;
+    readonly approvalRuleTemplateId?: string;
     /**
      * Content of the approval rule template.
      */
-    readonly content: string;
+    readonly content?: string;
     /**
      * Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly creationDate: string;
+    readonly creationDate?: string;
     /**
      * Description of the approval rule template.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly lastModifiedDate: string;
+    readonly lastModifiedDate?: string;
     /**
      * ARN of the user who made the most recent changes to the approval rule template.
      */
-    readonly lastModifiedUser: string;
+    readonly lastModifiedUser?: string;
     readonly name: string;
     /**
      * SHA-256 hash signature for the content of the approval rule template.
      */
-    readonly ruleContentSha256: string;
+    readonly ruleContentSha256?: string;
 }
 /**
  * Provides details about a specific CodeCommit Approval Rule Template.

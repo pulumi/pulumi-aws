@@ -135,14 +135,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the instance.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
@@ -191,14 +191,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return When the instance was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
@@ -305,28 +305,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
-    private Output<String> serviceRole;
+    private Output</* @Nullable */ String> serviceRole;
 
     /**
      * @return The service role of the instance.
      * 
      */
-    public Output<String> serviceRole() {
-        return this.serviceRole;
+    public Output<Optional<String>> serviceRole() {
+        return Codegen.optional(this.serviceRole);
     }
     /**
      * The state of the instance.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The state of the instance.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
 
     /**

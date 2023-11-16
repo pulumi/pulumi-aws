@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentPartition = aws.getPartition({});
  * const currentRegion = aws.getRegion({});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const examplePolicyDocument = pulumi.all([exampleBucketV2.arn, currentPartition, currentRegion, currentCallerIdentity, exampleBucketV2.arn, currentCallerIdentity, currentPartition, currentRegion, currentCallerIdentity]).apply(([exampleBucketV2Arn, currentPartition, currentRegion, currentCallerIdentity, exampleBucketV2Arn1, currentCallerIdentity1, currentPartition1, currentRegion1, currentCallerIdentity2]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "AWSCloudTrailAclCheck",
@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:GetBucketAcl"],
- *             resources: [exampleBucketV2.arn],
+ *             resources: [exampleBucketV2Arn],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:SourceArn",
- *                 values: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudtrail:${currentRegion.name}:${currentCallerIdentity.accountId}:trail/example`)],
+ *                 values: [`arn:${currentPartition.partition}:cloudtrail:${currentRegion.name}:${currentCallerIdentity.accountId}:trail/example`],
  *             }],
  *         },
  *         {
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: [pulumi.all([exampleBucketV2.arn, currentCallerIdentity]).apply(([arn, currentCallerIdentity]) => `${arn}/prefix/AWSLogs/${currentCallerIdentity.accountId}/*`)],
+ *             resources: [`${exampleBucketV2Arn1}/prefix/AWSLogs/${currentCallerIdentity1.accountId}/*`],
  *             conditions: [
  *                 {
  *                     test: "StringEquals",
@@ -63,12 +63,12 @@ import * as utilities from "../utilities";
  *                 {
  *                     test: "StringEquals",
  *                     variable: "aws:SourceArn",
- *                     values: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudtrail:${currentRegion.name}:${currentCallerIdentity.accountId}:trail/example`)],
+ *                     values: [`arn:${currentPartition1.partition}:cloudtrail:${currentRegion1.name}:${currentCallerIdentity2.accountId}:trail/example`],
  *                 },
  *             ],
  *         },
  *     ],
- * });
+ * }));
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
  *     bucket: exampleBucketV2.id,
  *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
@@ -142,7 +142,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {cloudWatchLogsGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`});
+ * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {cloudWatchLogsGroupArn: exampleLogGroup.arn.apply(arn => `${arn}:*`)});
  * // CloudTrail requires the Log Stream wildcard
  * ```
  *
@@ -189,7 +189,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * ARN of the trail.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      */
@@ -213,7 +213,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * Region in which the trail was created.
      */
-    public /*out*/ readonly homeRegion!: pulumi.Output<string>;
+    public /*out*/ readonly homeRegion!: pulumi.Output<string | undefined>;
     /**
      * Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
      */

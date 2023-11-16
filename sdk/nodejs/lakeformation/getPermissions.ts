@@ -135,25 +135,25 @@ export interface GetPermissionsArgs {
 export interface GetPermissionsResult {
     readonly catalogId?: string;
     readonly catalogResource?: boolean;
-    readonly dataLocation: outputs.lakeformation.GetPermissionsDataLocation;
-    readonly database: outputs.lakeformation.GetPermissionsDatabase;
+    readonly dataLocation?: outputs.lakeformation.GetPermissionsDataLocation;
+    readonly database?: outputs.lakeformation.GetPermissionsDatabase;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly lfTag: outputs.lakeformation.GetPermissionsLfTag;
-    readonly lfTagPolicy: outputs.lakeformation.GetPermissionsLfTagPolicy;
+    readonly id?: string;
+    readonly lfTag?: outputs.lakeformation.GetPermissionsLfTag;
+    readonly lfTagPolicy?: outputs.lakeformation.GetPermissionsLfTagPolicy;
     /**
      * List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
-    readonly permissions: string[];
+    readonly permissions?: string[];
     /**
      * Subset of `permissions` which the principal can pass.
      */
-    readonly permissionsWithGrantOptions: string[];
+    readonly permissionsWithGrantOptions?: string[];
     readonly principal: string;
-    readonly table: outputs.lakeformation.GetPermissionsTable;
-    readonly tableWithColumns: outputs.lakeformation.GetPermissionsTableWithColumns;
+    readonly table?: outputs.lakeformation.GetPermissionsTable;
+    readonly tableWithColumns?: outputs.lakeformation.GetPermissionsTableWithColumns;
 }
 /**
  * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).

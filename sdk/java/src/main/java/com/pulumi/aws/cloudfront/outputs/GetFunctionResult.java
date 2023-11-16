@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudfront.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFunctionResult {
@@ -13,87 +15,87 @@ public final class GetFunctionResult {
      * @return ARN identifying your CloudFront Function.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Source code of the function
      * 
      */
-    private String code;
+    private @Nullable String code;
     /**
      * @return Comment.
      * 
      */
-    private String comment;
+    private @Nullable String comment;
     /**
      * @return ETag hash of the function
      * 
      */
-    private String etag;
+    private @Nullable String etag;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return When this resource was last modified.
      * 
      */
-    private String lastModifiedTime;
+    private @Nullable String lastModifiedTime;
     private String name;
     /**
      * @return Identifier of the function&#39;s runtime.
      * 
      */
-    private String runtime;
+    private @Nullable String runtime;
     private String stage;
     /**
      * @return Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      * 
      */
-    private String status;
+    private @Nullable String status;
 
     private GetFunctionResult() {}
     /**
      * @return ARN identifying your CloudFront Function.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Source code of the function
      * 
      */
-    public String code() {
-        return this.code;
+    public Optional<String> code() {
+        return Optional.ofNullable(this.code);
     }
     /**
      * @return Comment.
      * 
      */
-    public String comment() {
-        return this.comment;
+    public Optional<String> comment() {
+        return Optional.ofNullable(this.comment);
     }
     /**
      * @return ETag hash of the function
      * 
      */
-    public String etag() {
-        return this.etag;
+    public Optional<String> etag() {
+        return Optional.ofNullable(this.etag);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return When this resource was last modified.
      * 
      */
-    public String lastModifiedTime() {
-        return this.lastModifiedTime;
+    public Optional<String> lastModifiedTime() {
+        return Optional.ofNullable(this.lastModifiedTime);
     }
     public String name() {
         return this.name;
@@ -102,8 +104,8 @@ public final class GetFunctionResult {
      * @return Identifier of the function&#39;s runtime.
      * 
      */
-    public String runtime() {
-        return this.runtime;
+    public Optional<String> runtime() {
+        return Optional.ofNullable(this.runtime);
     }
     public String stage() {
         return this.stage;
@@ -112,8 +114,8 @@ public final class GetFunctionResult {
      * @return Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -125,16 +127,16 @@ public final class GetFunctionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String code;
-        private String comment;
-        private String etag;
-        private String id;
-        private String lastModifiedTime;
+        private @Nullable String arn;
+        private @Nullable String code;
+        private @Nullable String comment;
+        private @Nullable String etag;
+        private @Nullable String id;
+        private @Nullable String lastModifiedTime;
         private String name;
-        private String runtime;
+        private @Nullable String runtime;
         private String stage;
-        private String status;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetFunctionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -151,33 +153,33 @@ public final class GetFunctionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder code(String code) {
-            this.code = Objects.requireNonNull(code);
+        public Builder code(@Nullable String code) {
+            this.code = code;
             return this;
         }
         @CustomType.Setter
-        public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+        public Builder comment(@Nullable String comment) {
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
-        public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+        public Builder etag(@Nullable String etag) {
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedTime(String lastModifiedTime) {
-            this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
+        public Builder lastModifiedTime(@Nullable String lastModifiedTime) {
+            this.lastModifiedTime = lastModifiedTime;
             return this;
         }
         @CustomType.Setter
@@ -186,8 +188,8 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder runtime(String runtime) {
-            this.runtime = Objects.requireNonNull(runtime);
+        public Builder runtime(@Nullable String runtime) {
+            this.runtime = runtime;
             return this;
         }
         @CustomType.Setter
@@ -196,8 +198,8 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetFunctionResult build() {

@@ -57,19 +57,19 @@ type LicenseGrantAccepter struct {
 	// The ARN of the grant to accept.
 	GrantArn pulumi.StringOutput `pulumi:"grantArn"`
 	// The home region for the license.
-	HomeRegion pulumi.StringOutput `pulumi:"homeRegion"`
+	HomeRegion pulumi.StringPtrOutput `pulumi:"homeRegion"`
 	// The ARN of the license for the grant.
-	LicenseArn pulumi.StringOutput `pulumi:"licenseArn"`
+	LicenseArn pulumi.StringPtrOutput `pulumi:"licenseArn"`
 	// The Name of the grant.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The parent ARN.
-	ParentArn pulumi.StringOutput `pulumi:"parentArn"`
+	ParentArn pulumi.StringPtrOutput `pulumi:"parentArn"`
 	// The target account for the grant.
-	Principal pulumi.StringOutput `pulumi:"principal"`
+	Principal pulumi.StringPtrOutput `pulumi:"principal"`
 	// The grant status.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The grant version.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewLicenseGrantAccepter registers a new resource with the given unique name, arguments, and options.
@@ -259,38 +259,38 @@ func (o LicenseGrantAccepterOutput) GrantArn() pulumi.StringOutput {
 }
 
 // The home region for the license.
-func (o LicenseGrantAccepterOutput) HomeRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringOutput { return v.HomeRegion }).(pulumi.StringOutput)
+func (o LicenseGrantAccepterOutput) HomeRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringPtrOutput { return v.HomeRegion }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the license for the grant.
-func (o LicenseGrantAccepterOutput) LicenseArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringOutput { return v.LicenseArn }).(pulumi.StringOutput)
+func (o LicenseGrantAccepterOutput) LicenseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringPtrOutput { return v.LicenseArn }).(pulumi.StringPtrOutput)
 }
 
 // The Name of the grant.
-func (o LicenseGrantAccepterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o LicenseGrantAccepterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The parent ARN.
-func (o LicenseGrantAccepterOutput) ParentArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringOutput { return v.ParentArn }).(pulumi.StringOutput)
+func (o LicenseGrantAccepterOutput) ParentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringPtrOutput { return v.ParentArn }).(pulumi.StringPtrOutput)
 }
 
 // The target account for the grant.
-func (o LicenseGrantAccepterOutput) Principal() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+func (o LicenseGrantAccepterOutput) Principal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringPtrOutput { return v.Principal }).(pulumi.StringPtrOutput)
 }
 
 // The grant status.
-func (o LicenseGrantAccepterOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o LicenseGrantAccepterOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The grant version.
-func (o LicenseGrantAccepterOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o LicenseGrantAccepterOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type LicenseGrantAccepterArrayOutput struct{ *pulumi.OutputState }

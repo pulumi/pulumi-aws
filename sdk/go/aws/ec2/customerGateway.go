@@ -58,7 +58,7 @@ type CustomerGateway struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the customer gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn pulumi.StringOutput `pulumi:"bgpAsn"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
@@ -286,8 +286,8 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Co
 }
 
 // The ARN of the customer gateway.
-func (o CustomerGatewayOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CustomerGatewayOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).

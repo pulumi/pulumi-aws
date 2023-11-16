@@ -54,13 +54,13 @@ type EndpointAccess struct {
 	pulumi.CustomResourceState
 
 	// The DNS address of the VPC endpoint.
-	Address pulumi.StringOutput `pulumi:"address"`
+	Address pulumi.StringPtrOutput `pulumi:"address"`
 	// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the endpoint.
 	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
 	// The port that Amazon Redshift Serverless listens on.
-	Port pulumi.IntOutput `pulumi:"port"`
+	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// An array of VPC subnet IDs to associate with the endpoint.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
@@ -262,13 +262,13 @@ func (o EndpointAccessOutput) ToEndpointAccessOutputWithContext(ctx context.Cont
 }
 
 // The DNS address of the VPC endpoint.
-func (o EndpointAccessOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
+func (o EndpointAccessOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-func (o EndpointAccessOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EndpointAccessOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the endpoint.
@@ -277,8 +277,8 @@ func (o EndpointAccessOutput) EndpointName() pulumi.StringOutput {
 }
 
 // The port that Amazon Redshift Serverless listens on.
-func (o EndpointAccessOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v *EndpointAccess) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+func (o EndpointAccessOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // An array of VPC subnet IDs to associate with the endpoint.

@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudformation.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCloudFormationTypeLoggingConfig {
@@ -13,27 +15,27 @@ public final class GetCloudFormationTypeLoggingConfig {
      * @return Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type&#39;s handlers.
      * 
      */
-    private String logGroupName;
+    private @Nullable String logGroupName;
     /**
      * @return ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
      * 
      */
-    private String logRoleArn;
+    private @Nullable String logRoleArn;
 
     private GetCloudFormationTypeLoggingConfig() {}
     /**
      * @return Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type&#39;s handlers.
      * 
      */
-    public String logGroupName() {
-        return this.logGroupName;
+    public Optional<String> logGroupName() {
+        return Optional.ofNullable(this.logGroupName);
     }
     /**
      * @return ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
      * 
      */
-    public String logRoleArn() {
-        return this.logRoleArn;
+    public Optional<String> logRoleArn() {
+        return Optional.ofNullable(this.logRoleArn);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetCloudFormationTypeLoggingConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String logGroupName;
-        private String logRoleArn;
+        private @Nullable String logGroupName;
+        private @Nullable String logRoleArn;
         public Builder() {}
         public Builder(GetCloudFormationTypeLoggingConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetCloudFormationTypeLoggingConfig {
         }
 
         @CustomType.Setter
-        public Builder logGroupName(String logGroupName) {
-            this.logGroupName = Objects.requireNonNull(logGroupName);
+        public Builder logGroupName(@Nullable String logGroupName) {
+            this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
-        public Builder logRoleArn(String logRoleArn) {
-            this.logRoleArn = Objects.requireNonNull(logRoleArn);
+        public Builder logRoleArn(@Nullable String logRoleArn) {
+            this.logRoleArn = logRoleArn;
             return this;
         }
         public GetCloudFormationTypeLoggingConfig build() {

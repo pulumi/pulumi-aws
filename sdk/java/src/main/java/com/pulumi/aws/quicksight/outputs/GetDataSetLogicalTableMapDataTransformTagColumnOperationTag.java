@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTag {
-    private List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescriptions;
-    private String columnGeographicRole;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescriptions;
+    private @Nullable String columnGeographicRole;
 
     private GetDataSetLogicalTableMapDataTransformTagColumnOperationTag() {}
     public List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescriptions() {
-        return this.columnDescriptions;
+        return this.columnDescriptions == null ? List.of() : this.columnDescriptions;
     }
-    public String columnGeographicRole() {
-        return this.columnGeographicRole;
+    public Optional<String> columnGeographicRole() {
+        return Optional.ofNullable(this.columnGeographicRole);
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTag {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescriptions;
-        private String columnGeographicRole;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescriptions;
+        private @Nullable String columnGeographicRole;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransformTagColumnOperationTag defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +43,16 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTag {
         }
 
         @CustomType.Setter
-        public Builder columnDescriptions(List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescriptions) {
-            this.columnDescriptions = Objects.requireNonNull(columnDescriptions);
+        public Builder columnDescriptions(@Nullable List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescriptions) {
+            this.columnDescriptions = columnDescriptions;
             return this;
         }
         public Builder columnDescriptions(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription... columnDescriptions) {
             return columnDescriptions(List.of(columnDescriptions));
         }
         @CustomType.Setter
-        public Builder columnGeographicRole(String columnGeographicRole) {
-            this.columnGeographicRole = Objects.requireNonNull(columnGeographicRole);
+        public Builder columnGeographicRole(@Nullable String columnGeographicRole) {
+            this.columnGeographicRole = columnGeographicRole;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformTagColumnOperationTag build() {

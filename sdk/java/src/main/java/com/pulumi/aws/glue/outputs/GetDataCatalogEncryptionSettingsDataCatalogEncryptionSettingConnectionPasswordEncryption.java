@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption {
@@ -14,27 +16,27 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingC
      * @return KMS key ARN that is used to encrypt the connection password.
      * 
      */
-    private String awsKmsKeyId;
+    private @Nullable String awsKmsKeyId;
     /**
      * @return When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
      * 
      */
-    private Boolean returnConnectionPasswordEncrypted;
+    private @Nullable Boolean returnConnectionPasswordEncrypted;
 
     private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption() {}
     /**
      * @return KMS key ARN that is used to encrypt the connection password.
      * 
      */
-    public String awsKmsKeyId() {
-        return this.awsKmsKeyId;
+    public Optional<String> awsKmsKeyId() {
+        return Optional.ofNullable(this.awsKmsKeyId);
     }
     /**
      * @return When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
      * 
      */
-    public Boolean returnConnectionPasswordEncrypted() {
-        return this.returnConnectionPasswordEncrypted;
+    public Optional<Boolean> returnConnectionPasswordEncrypted() {
+        return Optional.ofNullable(this.returnConnectionPasswordEncrypted);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingC
     }
     @CustomType.Builder
     public static final class Builder {
-        private String awsKmsKeyId;
-        private Boolean returnConnectionPasswordEncrypted;
+        private @Nullable String awsKmsKeyId;
+        private @Nullable Boolean returnConnectionPasswordEncrypted;
         public Builder() {}
         public Builder(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingC
         }
 
         @CustomType.Setter
-        public Builder awsKmsKeyId(String awsKmsKeyId) {
-            this.awsKmsKeyId = Objects.requireNonNull(awsKmsKeyId);
+        public Builder awsKmsKeyId(@Nullable String awsKmsKeyId) {
+            this.awsKmsKeyId = awsKmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder returnConnectionPasswordEncrypted(Boolean returnConnectionPasswordEncrypted) {
-            this.returnConnectionPasswordEncrypted = Objects.requireNonNull(returnConnectionPasswordEncrypted);
+        public Builder returnConnectionPasswordEncrypted(@Nullable Boolean returnConnectionPasswordEncrypted) {
+            this.returnConnectionPasswordEncrypted = returnConnectionPasswordEncrypted;
             return this;
         }
         public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption build() {

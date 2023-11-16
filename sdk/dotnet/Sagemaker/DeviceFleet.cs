@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the fleet.
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<bool?> EnableIotRoleAlias { get; private set; } = null!;
 
         [Output("iotRoleAlias")]
-        public Output<string> IotRoleAlias { get; private set; } = null!;
+        public Output<string?> IotRoleAlias { get; private set; } = null!;
 
         /// <summary>
         /// Specifies details about the repository. see Output Config details below.

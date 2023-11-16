@@ -194,15 +194,15 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly string? Engine;
-        public readonly string EngineVersion;
+        public readonly string? EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string InstanceClass;
+        public readonly string? Id;
+        public readonly string? InstanceClass;
         public readonly string? LicenseModel;
         public readonly ImmutableArray<string> PreferredInstanceClasses;
-        public readonly bool Vpc;
+        public readonly bool? Vpc;
 
         [OutputConstructor]
         private GetOrderableDbInstanceResult(
@@ -210,17 +210,17 @@ namespace Pulumi.Aws.DocDB
 
             string? engine,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string id,
+            string? id,
 
-            string instanceClass,
+            string? instanceClass,
 
             string? licenseModel,
 
             ImmutableArray<string> preferredInstanceClasses,
 
-            bool vpc)
+            bool? vpc)
         {
             AvailabilityZones = availabilityZones;
             Engine = engine;

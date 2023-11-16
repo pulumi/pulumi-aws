@@ -127,7 +127,7 @@ type ConfigurationAggregator struct {
 	// The account(s) to aggregate config data from as documented below.
 	AccountAggregationSource ConfigurationAggregatorAccountAggregationSourcePtrOutput `pulumi:"accountAggregationSource"`
 	// The ARN of the aggregator
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the configuration aggregator.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
@@ -339,8 +339,8 @@ func (o ConfigurationAggregatorOutput) AccountAggregationSource() ConfigurationA
 }
 
 // The ARN of the aggregator
-func (o ConfigurationAggregatorOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConfigurationAggregatorOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the configuration aggregator.

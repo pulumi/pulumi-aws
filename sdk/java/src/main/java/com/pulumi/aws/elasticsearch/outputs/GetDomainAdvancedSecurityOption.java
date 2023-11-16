@@ -6,6 +6,8 @@ package com.pulumi.aws.elasticsearch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainAdvancedSecurityOption {
@@ -13,27 +15,27 @@ public final class GetDomainAdvancedSecurityOption {
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Whether the internal user database is enabled.
      * 
      */
-    private Boolean internalUserDatabaseEnabled;
+    private @Nullable Boolean internalUserDatabaseEnabled;
 
     private GetDomainAdvancedSecurityOption() {}
     /**
      * @return Whether node to node encryption is enabled.
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return Whether the internal user database is enabled.
      * 
      */
-    public Boolean internalUserDatabaseEnabled() {
-        return this.internalUserDatabaseEnabled;
+    public Optional<Boolean> internalUserDatabaseEnabled() {
+        return Optional.ofNullable(this.internalUserDatabaseEnabled);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetDomainAdvancedSecurityOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private Boolean internalUserDatabaseEnabled;
+        private @Nullable Boolean enabled;
+        private @Nullable Boolean internalUserDatabaseEnabled;
         public Builder() {}
         public Builder(GetDomainAdvancedSecurityOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetDomainAdvancedSecurityOption {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder internalUserDatabaseEnabled(Boolean internalUserDatabaseEnabled) {
-            this.internalUserDatabaseEnabled = Objects.requireNonNull(internalUserDatabaseEnabled);
+        public Builder internalUserDatabaseEnabled(@Nullable Boolean internalUserDatabaseEnabled) {
+            this.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             return this;
         }
         public GetDomainAdvancedSecurityOption build() {

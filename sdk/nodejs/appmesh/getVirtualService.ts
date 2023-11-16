@@ -74,34 +74,34 @@ export interface GetVirtualServiceResult {
     /**
      * ARN of the virtual service.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Creation date of the virtual service.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Last update date of the virtual service.
      */
-    readonly lastUpdatedDate: string;
+    readonly lastUpdatedDate?: string;
     readonly meshName: string;
-    readonly meshOwner: string;
+    readonly meshOwner?: string;
     readonly name: string;
     /**
      * Resource owner's AWS account ID.
      */
-    readonly resourceOwner: string;
+    readonly resourceOwner?: string;
     /**
      * Virtual service specification. See the `aws.appmesh.VirtualService` resource for details.
      */
-    readonly specs: outputs.appmesh.GetVirtualServiceSpec[];
+    readonly specs?: outputs.appmesh.GetVirtualServiceSpec[];
     /**
      * Map of tags.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.

@@ -56,13 +56,13 @@ namespace Pulumi.Aws.Amplify
         /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of deployment artifacts.
         /// </summary>
         [Output("deploymentArtifacts")]
-        public Output<string> DeploymentArtifacts { get; private set; } = null!;
+        public Output<string?> DeploymentArtifacts { get; private set; } = null!;
 
         /// <summary>
         /// Name for the backend environment.
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Amplify
         /// AWS CloudFormation stack name of a backend environment.
         /// </summary>
         [Output("stackName")]
-        public Output<string> StackName { get; private set; } = null!;
+        public Output<string?> StackName { get; private set; } = null!;
 
 
         /// <summary>

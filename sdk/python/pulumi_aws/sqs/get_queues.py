@@ -34,7 +34,7 @@ class GetQueuesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -47,7 +47,7 @@ class GetQueuesResult:
 
     @property
     @pulumi.getter(name="queueUrls")
-    def queue_urls(self) -> Sequence[str]:
+    def queue_urls(self) -> Optional[Sequence[str]]:
         """
         A list of queue URLs.
         """

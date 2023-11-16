@@ -6,6 +6,8 @@ package com.pulumi.aws.rds.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceMasterUserSecret {
@@ -13,39 +15,39 @@ public final class GetInstanceMasterUserSecret {
      * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return The Amazon Resource Name (ARN) of the secret.
      * 
      */
-    private String secretArn;
+    private @Nullable String secretArn;
     /**
      * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
-    private String secretStatus;
+    private @Nullable String secretStatus;
 
     private GetInstanceMasterUserSecret() {}
     /**
      * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return The Amazon Resource Name (ARN) of the secret.
      * 
      */
-    public String secretArn() {
-        return this.secretArn;
+    public Optional<String> secretArn() {
+        return Optional.ofNullable(this.secretArn);
     }
     /**
      * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
-    public String secretStatus() {
-        return this.secretStatus;
+    public Optional<String> secretStatus() {
+        return Optional.ofNullable(this.secretStatus);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetInstanceMasterUserSecret {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String kmsKeyId;
-        private String secretArn;
-        private String secretStatus;
+        private @Nullable String kmsKeyId;
+        private @Nullable String secretArn;
+        private @Nullable String secretStatus;
         public Builder() {}
         public Builder(GetInstanceMasterUserSecret defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetInstanceMasterUserSecret {
         }
 
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder secretArn(String secretArn) {
-            this.secretArn = Objects.requireNonNull(secretArn);
+        public Builder secretArn(@Nullable String secretArn) {
+            this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
-        public Builder secretStatus(String secretStatus) {
-            this.secretStatus = Objects.requireNonNull(secretStatus);
+        public Builder secretStatus(@Nullable String secretStatus) {
+            this.secretStatus = secretStatus;
             return this;
         }
         public GetInstanceMasterUserSecret build() {

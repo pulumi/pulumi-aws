@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainAutoTuneOptionMaintenanceSchedule {
@@ -15,39 +17,39 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
      * @return Cron expression for an Auto-Tune maintenance schedule.
      * 
      */
-    private String cronExpressionForRecurrence;
+    private @Nullable String cronExpressionForRecurrence;
     /**
      * @return Configuration block for the duration of the Auto-Tune maintenance window.
      * 
      */
-    private List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations;
+    private @Nullable List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations;
     /**
      * @return Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private String startAt;
+    private @Nullable String startAt;
 
     private GetDomainAutoTuneOptionMaintenanceSchedule() {}
     /**
      * @return Cron expression for an Auto-Tune maintenance schedule.
      * 
      */
-    public String cronExpressionForRecurrence() {
-        return this.cronExpressionForRecurrence;
+    public Optional<String> cronExpressionForRecurrence() {
+        return Optional.ofNullable(this.cronExpressionForRecurrence);
     }
     /**
      * @return Configuration block for the duration of the Auto-Tune maintenance window.
      * 
      */
     public List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations() {
-        return this.durations;
+        return this.durations == null ? List.of() : this.durations;
     }
     /**
      * @return Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String startAt() {
-        return this.startAt;
+    public Optional<String> startAt() {
+        return Optional.ofNullable(this.startAt);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cronExpressionForRecurrence;
-        private List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations;
-        private String startAt;
+        private @Nullable String cronExpressionForRecurrence;
+        private @Nullable List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations;
+        private @Nullable String startAt;
         public Builder() {}
         public Builder(GetDomainAutoTuneOptionMaintenanceSchedule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
         }
 
         @CustomType.Setter
-        public Builder cronExpressionForRecurrence(String cronExpressionForRecurrence) {
-            this.cronExpressionForRecurrence = Objects.requireNonNull(cronExpressionForRecurrence);
+        public Builder cronExpressionForRecurrence(@Nullable String cronExpressionForRecurrence) {
+            this.cronExpressionForRecurrence = cronExpressionForRecurrence;
             return this;
         }
         @CustomType.Setter
-        public Builder durations(List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations) {
-            this.durations = Objects.requireNonNull(durations);
+        public Builder durations(@Nullable List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations) {
+            this.durations = durations;
             return this;
         }
         public Builder durations(GetDomainAutoTuneOptionMaintenanceScheduleDuration... durations) {
             return durations(List.of(durations));
         }
         @CustomType.Setter
-        public Builder startAt(String startAt) {
-            this.startAt = Objects.requireNonNull(startAt);
+        public Builder startAt(@Nullable String startAt) {
+            this.startAt = startAt;
             return this;
         }
         public GetDomainAutoTuneOptionMaintenanceSchedule build() {

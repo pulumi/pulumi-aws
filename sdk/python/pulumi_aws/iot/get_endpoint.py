@@ -34,7 +34,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="endpointAddress")
-    def endpoint_address(self) -> str:
+    def endpoint_address(self) -> Optional[str]:
         """
         Endpoint based on `endpoint_type`:
         * No `endpoint_type`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
@@ -52,7 +52,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

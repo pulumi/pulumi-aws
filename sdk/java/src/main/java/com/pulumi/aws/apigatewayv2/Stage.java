@@ -102,14 +102,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the stage.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
@@ -160,14 +160,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="deploymentId", refs={String.class}, tree="[0]")
-    private Output<String> deploymentId;
+    private Output</* @Nullable */ String> deploymentId;
 
     /**
      * @return Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      * 
      */
-    public Output<String> deploymentId() {
-        return this.deploymentId;
+    public Output<Optional<String>> deploymentId() {
+        return Codegen.optional(this.deploymentId);
     }
     /**
      * Description for the stage. Must be less than or equal to 1024 characters in length.
@@ -190,7 +190,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="executionArn", refs={String.class}, tree="[0]")
-    private Output<String> executionArn;
+    private Output</* @Nullable */ String> executionArn;
 
     /**
      * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute.
@@ -198,8 +198,8 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    public Output<String> executionArn() {
-        return this.executionArn;
+    public Output<Optional<String>> executionArn() {
+        return Codegen.optional(this.executionArn);
     }
     /**
      * URL to invoke the API pointing to the stage,
@@ -207,15 +207,15 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="invokeUrl", refs={String.class}, tree="[0]")
-    private Output<String> invokeUrl;
+    private Output</* @Nullable */ String> invokeUrl;
 
     /**
      * @return URL to invoke the API pointing to the stage,
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      * 
      */
-    public Output<String> invokeUrl() {
-        return this.invokeUrl;
+    public Output<Optional<String>> invokeUrl() {
+        return Codegen.optional(this.invokeUrl);
     }
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.

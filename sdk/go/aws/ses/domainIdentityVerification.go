@@ -74,7 +74,7 @@ type DomainIdentityVerification struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the domain identity.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The domain name of the SES domain identity to verify.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 }
@@ -228,8 +228,8 @@ func (o DomainIdentityVerificationOutput) ToDomainIdentityVerificationOutputWith
 }
 
 // The ARN of the domain identity.
-func (o DomainIdentityVerificationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainIdentityVerification) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DomainIdentityVerificationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityVerification) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The domain name of the SES domain identity to verify.

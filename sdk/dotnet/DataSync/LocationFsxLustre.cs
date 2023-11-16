@@ -49,13 +49,13 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The time that the FSx for Lustre location was created.
         /// </summary>
         [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        public Output<string?> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.DataSync
         /// Subdirectory to perform actions as source or destination.
         /// </summary>
         [Output("subdirectory")]
-        public Output<string> Subdirectory { get; private set; } = null!;
+        public Output<string?> Subdirectory { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.DataSync
         /// The URL of the FSx for Lustre location that was described.
         /// </summary>
         [Output("uri")]
-        public Output<string> Uri { get; private set; } = null!;
+        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

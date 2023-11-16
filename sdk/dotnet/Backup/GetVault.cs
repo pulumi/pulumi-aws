@@ -128,38 +128,38 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// ARN of the vault.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Server-side encryption key that is used to protect your backups.
         /// </summary>
-        public readonly string KmsKeyArn;
+        public readonly string? KmsKeyArn;
         public readonly string Name;
         /// <summary>
         /// Number of recovery points that are stored in a backup vault.
         /// </summary>
-        public readonly int RecoveryPoints;
+        public readonly int? RecoveryPoints;
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetVaultResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string kmsKeyArn,
+            string? kmsKeyArn,
 
             string name,
 
-            int recoveryPoints,
+            int? recoveryPoints,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Id = id;

@@ -16,14 +16,14 @@ namespace Pulumi.Aws.LB.Outputs
         /// <summary>
         /// ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
         /// </summary>
-        public readonly string Arn;
-        public readonly int Weight;
+        public readonly string? Arn;
+        public readonly int? Weight;
 
         [OutputConstructor]
         private GetListenerDefaultActionForwardTargetGroupResult(
-            string arn,
+            string? arn,
 
-            int weight)
+            int? weight)
         {
             Arn = arn;
             Weight = weight;

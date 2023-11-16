@@ -439,7 +439,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) identifying your CloudFront Function.
         """
@@ -463,7 +463,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         """
@@ -471,7 +471,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="liveStageEtag")
-    def live_stage_etag(self) -> pulumi.Output[str]:
+    def live_stage_etag(self) -> pulumi.Output[Optional[str]]:
         """
         ETag hash of any `LIVE` stage of the function.
         """
@@ -505,7 +505,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         """

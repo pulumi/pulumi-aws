@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -71,14 +72,14 @@ public class Hsm extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
@@ -99,70 +100,70 @@ public class Hsm extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hsmEniId", refs={String.class}, tree="[0]")
-    private Output<String> hsmEniId;
+    private Output</* @Nullable */ String> hsmEniId;
 
     /**
      * @return The id of the ENI interface allocated for HSM module.
      * 
      */
-    public Output<String> hsmEniId() {
-        return this.hsmEniId;
+    public Output<Optional<String>> hsmEniId() {
+        return Codegen.optional(this.hsmEniId);
     }
     /**
      * The id of the HSM module.
      * 
      */
     @Export(name="hsmId", refs={String.class}, tree="[0]")
-    private Output<String> hsmId;
+    private Output</* @Nullable */ String> hsmId;
 
     /**
      * @return The id of the HSM module.
      * 
      */
-    public Output<String> hsmId() {
-        return this.hsmId;
+    public Output<Optional<String>> hsmId() {
+        return Codegen.optional(this.hsmId);
     }
     /**
      * The state of the HSM module.
      * 
      */
     @Export(name="hsmState", refs={String.class}, tree="[0]")
-    private Output<String> hsmState;
+    private Output</* @Nullable */ String> hsmState;
 
     /**
      * @return The state of the HSM module.
      * 
      */
-    public Output<String> hsmState() {
-        return this.hsmState;
+    public Output<Optional<String>> hsmState() {
+        return Codegen.optional(this.hsmState);
     }
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
-    private Output<String> ipAddress;
+    private Output</* @Nullable */ String> ipAddress;
 
     /**
      * @return The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Output<Optional<String>> ipAddress() {
+        return Codegen.optional(this.ipAddress);
     }
     /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
-    private Output<String> subnetId;
+    private Output</* @Nullable */ String> subnetId;
 
     /**
      * @return The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
      * 
      */
-    public Output<String> subnetId() {
-        return this.subnetId;
+    public Output<Optional<String>> subnetId() {
+        return Codegen.optional(this.subnetId);
     }
 
     /**

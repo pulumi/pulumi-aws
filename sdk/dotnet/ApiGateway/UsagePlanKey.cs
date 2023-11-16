@@ -76,7 +76,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Name of a usage plan key.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// Id of the usage plan resource representing to associate the key to.
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Value of a usage plan key.
         /// </summary>
         [Output("value")]
-        public Output<string> Value { get; private set; } = null!;
+        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>

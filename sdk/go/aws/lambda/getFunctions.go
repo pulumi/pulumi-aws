@@ -53,7 +53,7 @@ type GetFunctionsResult struct {
 	// A list of Lambda Function names.
 	FunctionNames []string `pulumi:"functionNames"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetFunctionsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetFunctionsResultOutput {
@@ -93,8 +93,8 @@ func (o GetFunctionsResultOutput) FunctionNames() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetFunctionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFunctionsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetFunctionsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFunctionsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -239,35 +239,35 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetServiceResult
     {
-        public readonly string DnsName;
-        public readonly string Id;
-        public readonly string Partition;
-        public readonly string Region;
-        public readonly string ReverseDnsName;
-        public readonly string ReverseDnsPrefix;
-        public readonly string ServiceId;
+        public readonly string? DnsName;
+        public readonly string? Id;
+        public readonly string? Partition;
+        public readonly string? Region;
+        public readonly string? ReverseDnsName;
+        public readonly string? ReverseDnsPrefix;
+        public readonly string? ServiceId;
         /// <summary>
         /// Whether the service is supported in the region's partition. New services may not be listed immediately as supported.
         /// </summary>
-        public readonly bool Supported;
+        public readonly bool? Supported;
 
         [OutputConstructor]
         private GetServiceResult(
-            string dnsName,
+            string? dnsName,
 
-            string id,
+            string? id,
 
-            string partition,
+            string? partition,
 
-            string region,
+            string? region,
 
-            string reverseDnsName,
+            string? reverseDnsName,
 
-            string reverseDnsPrefix,
+            string? reverseDnsPrefix,
 
-            string serviceId,
+            string? serviceId,
 
-            bool supported)
+            bool? supported)
         {
             DnsName = dnsName;
             Id = id;

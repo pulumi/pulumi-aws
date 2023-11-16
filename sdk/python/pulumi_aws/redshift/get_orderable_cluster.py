@@ -43,7 +43,7 @@ class GetOrderableClusterResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         List of Availability Zone names where the Redshift Cluster is available.
         """
@@ -51,17 +51,17 @@ class GetOrderableClusterResult:
 
     @property
     @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> str:
+    def cluster_type(self) -> Optional[str]:
         return pulumi.get(self, "cluster_type")
 
     @property
     @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> str:
+    def cluster_version(self) -> Optional[str]:
         return pulumi.get(self, "cluster_version")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -69,7 +69,7 @@ class GetOrderableClusterResult:
 
     @property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> str:
+    def node_type(self) -> Optional[str]:
         return pulumi.get(self, "node_type")
 
     @property

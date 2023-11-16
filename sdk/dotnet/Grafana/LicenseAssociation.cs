@@ -80,13 +80,13 @@ namespace Pulumi.Aws.Grafana
         /// If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
         /// </summary>
         [Output("freeTrialExpiration")]
-        public Output<string> FreeTrialExpiration { get; private set; } = null!;
+        public Output<string?> FreeTrialExpiration { get; private set; } = null!;
 
         /// <summary>
         /// If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         /// </summary>
         [Output("licenseExpiration")]
-        public Output<string> LicenseExpiration { get; private set; } = null!;
+        public Output<string?> LicenseExpiration { get; private set; } = null!;
 
         /// <summary>
         /// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.

@@ -63,11 +63,11 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
     /**
      * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      */
-    public /*out*/ readonly certificateValidationRecords!: pulumi.Output<outputs.apprunner.CustomDomainAssociationCertificateValidationRecord[]>;
+    public /*out*/ readonly certificateValidationRecords!: pulumi.Output<outputs.apprunner.CustomDomainAssociationCertificateValidationRecord[] | undefined>;
     /**
      * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      */
-    public /*out*/ readonly dnsTarget!: pulumi.Output<string>;
+    public /*out*/ readonly dnsTarget!: pulumi.Output<string | undefined>;
     /**
      * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      */
@@ -83,7 +83,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
     /**
      * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomDomainAssociation resource with the given unique name, arguments, and options.

@@ -119,20 +119,20 @@ export interface GetAvailabilityZonesResult {
     /**
      * A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
      */
-    readonly groupNames: string[];
+    readonly groupNames?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of the Availability Zone names available to the account.
      */
-    readonly names: string[];
+    readonly names?: string[];
     readonly state?: string;
     /**
      * List of the Availability Zone IDs available to the account.
      */
-    readonly zoneIds: string[];
+    readonly zoneIds?: string[];
 }
 /**
  * The Availability Zones data source allows access to the list of AWS

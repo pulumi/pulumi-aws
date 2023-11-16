@@ -75,7 +75,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the product.
         """
@@ -83,7 +83,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> Optional[str]:
         """
         Time when the product was created.
         """
@@ -91,7 +91,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the product.
         """
@@ -99,7 +99,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def distributor(self) -> str:
+    def distributor(self) -> Optional[str]:
         """
         Vendor of the product.
         """
@@ -107,7 +107,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter(name="hasDefaultPath")
-    def has_default_path(self) -> bool:
+    def has_default_path(self) -> Optional[bool]:
         """
         Whether the product has a default path.
         """
@@ -120,7 +120,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the product.
         """
@@ -128,7 +128,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def owner(self) -> str:
+    def owner(self) -> Optional[str]:
         """
         Owner of the product.
         """
@@ -136,7 +136,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the product.
         """
@@ -144,7 +144,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter(name="supportDescription")
-    def support_description(self) -> str:
+    def support_description(self) -> Optional[str]:
         """
         Field that provides support information about the product.
         """
@@ -152,7 +152,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter(name="supportEmail")
-    def support_email(self) -> str:
+    def support_email(self) -> Optional[str]:
         """
         Contact email for product support.
         """
@@ -160,7 +160,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter(name="supportUrl")
-    def support_url(self) -> str:
+    def support_url(self) -> Optional[str]:
         """
         Contact URL for product support.
         """
@@ -168,7 +168,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags applied to the product.
         """
@@ -176,7 +176,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of product.
         """

@@ -323,7 +323,7 @@ export class CoreNetworkPolicyAttachment extends pulumi.CustomResource {
     /**
      * Current state of a core network.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CoreNetworkPolicyAttachment resource with the given unique name, arguments, and options.

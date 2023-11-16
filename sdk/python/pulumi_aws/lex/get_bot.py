@@ -76,7 +76,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the bot.
         """
@@ -84,7 +84,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def checksum(self) -> str:
+    def checksum(self) -> Optional[str]:
         """
         Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
         """
@@ -92,7 +92,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="childDirected")
-    def child_directed(self) -> bool:
+    def child_directed(self) -> Optional[bool]:
         """
         If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
         """
@@ -100,7 +100,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Date that the bot was created.
         """
@@ -108,7 +108,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the bot.
         """
@@ -116,7 +116,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="detectSentiment")
-    def detect_sentiment(self) -> bool:
+    def detect_sentiment(self) -> Optional[bool]:
         """
         When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
         """
@@ -124,7 +124,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="enableModelImprovements")
-    def enable_model_improvements(self) -> bool:
+    def enable_model_improvements(self) -> Optional[bool]:
         """
         Set to true if natural language understanding improvements are enabled.
         """
@@ -132,7 +132,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> str:
+    def failure_reason(self) -> Optional[str]:
         """
         If the `status` is `FAILED`, the reason why the bot failed to build.
         """
@@ -140,7 +140,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -148,7 +148,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")
-    def idle_session_ttl_in_seconds(self) -> int:
+    def idle_session_ttl_in_seconds(self) -> Optional[int]:
         """
         The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
         """
@@ -156,7 +156,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> Optional[str]:
         """
         Date that the bot was updated.
         """
@@ -164,7 +164,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def locale(self) -> str:
+    def locale(self) -> Optional[str]:
         """
         Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
         """
@@ -180,7 +180,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="nluIntentConfidenceThreshold")
-    def nlu_intent_confidence_threshold(self) -> float:
+    def nlu_intent_confidence_threshold(self) -> Optional[float]:
         """
         The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
         """
@@ -188,7 +188,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the bot.
         """
@@ -204,7 +204,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="voiceId")
-    def voice_id(self) -> str:
+    def voice_id(self) -> Optional[str]:
         """
         Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
         """

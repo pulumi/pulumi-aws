@@ -719,7 +719,7 @@ class EntityRecognizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Entity Recognizer version.
         """
@@ -792,7 +792,7 @@ class EntityRecognizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> pulumi.Output[str]:
+    def version_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name for the version of the Entity Recognizer.
         Each version must have a unique name within the Entity Recognizer.
@@ -806,7 +806,7 @@ class EntityRecognizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionNamePrefix")
-    def version_name_prefix(self) -> pulumi.Output[str]:
+    def version_name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique version name beginning with the specified prefix.
         Has a maximum length of 37 characters.

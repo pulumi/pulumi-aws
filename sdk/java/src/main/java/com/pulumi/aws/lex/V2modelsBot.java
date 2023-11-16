@@ -71,10 +71,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lex/v2modelsBot:V2modelsBot")
 public class V2modelsBot extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `data_privacy`
@@ -203,10 +203,10 @@ public class V2modelsBot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

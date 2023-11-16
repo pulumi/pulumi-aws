@@ -13,12 +13,12 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateInstanceMarketOptionResult
     {
-        public readonly string MarketType;
+        public readonly string? MarketType;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult> SpotOptions;
 
         [OutputConstructor]
         private GetLaunchTemplateInstanceMarketOptionResult(
-            string marketType,
+            string? marketType,
 
             ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult> spotOptions)
         {

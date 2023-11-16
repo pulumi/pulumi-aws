@@ -139,23 +139,23 @@ type Route struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
 	// The AWS account ID of the owner of the EC2 instance.
-	InstanceOwnerId pulumi.StringOutput `pulumi:"instanceOwnerId"`
+	InstanceOwnerId pulumi.StringPtrOutput `pulumi:"instanceOwnerId"`
 	// Identifier of a Outpost local gateway.
 	LocalGatewayId pulumi.StringPtrOutput `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId pulumi.StringPtrOutput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
-	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
-	Origin pulumi.StringOutput `pulumi:"origin"`
+	Origin pulumi.StringPtrOutput `pulumi:"origin"`
 	// The ID of the routing table.
 	//
 	// One of the following destination arguments must be supplied:
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
 	// The state of the route - `active` or `blackhole`.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// Identifier of a VPC Endpoint.
@@ -492,13 +492,13 @@ func (o RouteOutput) GatewayId() pulumi.StringPtrOutput {
 }
 
 // Identifier of an EC2 instance.
-func (o RouteOutput) InstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+func (o RouteOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS account ID of the owner of the EC2 instance.
-func (o RouteOutput) InstanceOwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.InstanceOwnerId }).(pulumi.StringOutput)
+func (o RouteOutput) InstanceOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.InstanceOwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of a Outpost local gateway.
@@ -512,13 +512,13 @@ func (o RouteOutput) NatGatewayId() pulumi.StringPtrOutput {
 }
 
 // Identifier of an EC2 network interface.
-func (o RouteOutput) NetworkInterfaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+func (o RouteOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
-func (o RouteOutput) Origin() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Origin }).(pulumi.StringOutput)
+func (o RouteOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Origin }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the routing table.
@@ -529,8 +529,8 @@ func (o RouteOutput) RouteTableId() pulumi.StringOutput {
 }
 
 // The state of the route - `active` or `blackhole`.
-func (o RouteOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o RouteOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of an EC2 Transit Gateway.

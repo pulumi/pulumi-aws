@@ -83,11 +83,11 @@ export class ContactChannel extends pulumi.CustomResource {
     /**
      * Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
      */
-    public /*out*/ readonly activationStatus!: pulumi.Output<string>;
+    public /*out*/ readonly activationStatus!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the contact channel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
      */

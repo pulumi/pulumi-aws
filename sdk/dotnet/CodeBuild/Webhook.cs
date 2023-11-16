@@ -129,7 +129,7 @@ namespace Pulumi.Aws.CodeBuild
         /// The CodeBuild endpoint where webhook events are sent.
         /// </summary>
         [Output("payloadUrl")]
-        public Output<string> PayloadUrl { get; private set; } = null!;
+        public Output<string?> PayloadUrl { get; private set; } = null!;
 
         /// <summary>
         /// The name of the build project.
@@ -141,13 +141,13 @@ namespace Pulumi.Aws.CodeBuild
         /// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         /// </summary>
         [Output("secret")]
-        public Output<string> Secret { get; private set; } = null!;
+        public Output<string?> Secret { get; private set; } = null!;
 
         /// <summary>
         /// The URL to the webhook.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>

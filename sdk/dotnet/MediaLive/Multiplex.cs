@@ -67,7 +67,7 @@ namespace Pulumi.Aws.MediaLive
         /// ARN of the Multiplex.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A list of availability zones. You must specify exactly two.

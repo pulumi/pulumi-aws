@@ -465,7 +465,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorId")
-    def administrator_id(self) -> pulumi.Output[str]:
+    def administrator_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID for the administrator account.
         """
@@ -481,7 +481,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disabledReason")
-    def disabled_reason(self) -> pulumi.Output[str]:
+    def disabled_reason(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "disabled_reason")
 
     @property
@@ -502,7 +502,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitedTime")
-    def invited_time(self) -> pulumi.Output[str]:
+    def invited_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
         """
@@ -518,7 +518,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Current membership status of the member account.
         """
@@ -526,7 +526,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedTime")
-    def updated_time(self) -> pulumi.Output[str]:
+    def updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
         """
@@ -534,7 +534,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeUsageInBytes")
-    def volume_usage_in_bytes(self) -> pulumi.Output[str]:
+    def volume_usage_in_bytes(self) -> pulumi.Output[Optional[str]]:
         """
         Data volume in bytes per day for the member account.
         """

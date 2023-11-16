@@ -16,19 +16,19 @@ namespace Pulumi.Aws.Iam.Outputs
         /// <summary>
         /// The name of the single IAM action used for this particular request.
         /// </summary>
-        public readonly string ActionName;
+        public readonly string? ActionName;
         /// <summary>
         /// `true` if `decision` is "allowed", and `false` otherwise.
         /// </summary>
-        public readonly bool Allowed;
+        public readonly bool? Allowed;
         /// <summary>
         /// The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
         /// </summary>
-        public readonly string Decision;
+        public readonly string? Decision;
         /// <summary>
         /// A map of arbitrary metadata entries returned by the policy simulator for this request.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> DecisionDetails;
+        public readonly ImmutableDictionary<string, string>? DecisionDetails;
         /// <summary>
         /// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
         /// </summary>
@@ -40,23 +40,23 @@ namespace Pulumi.Aws.Iam.Outputs
         /// <summary>
         /// ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
         /// </summary>
-        public readonly string ResourceArn;
+        public readonly string? ResourceArn;
 
         [OutputConstructor]
         private GetPrincipalPolicySimulationResultResult(
-            string actionName,
+            string? actionName,
 
-            bool allowed,
+            bool? allowed,
 
-            string decision,
+            string? decision,
 
-            ImmutableDictionary<string, string> decisionDetails,
+            ImmutableDictionary<string, string>? decisionDetails,
 
             ImmutableArray<Outputs.GetPrincipalPolicySimulationResultMatchedStatementResult> matchedStatements,
 
             ImmutableArray<string> missingContextKeys,
 
-            string resourceArn)
+            string? resourceArn)
         {
             ActionName = actionName;
             Allowed = allowed;

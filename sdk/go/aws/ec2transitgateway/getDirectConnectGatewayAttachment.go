@@ -67,7 +67,7 @@ type GetDirectConnectGatewayAttachmentResult struct {
 	DxGatewayId *string                                   `pulumi:"dxGatewayId"`
 	Filters     []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway Attachment
 	Tags             map[string]string `pulumi:"tags"`
 	TransitGatewayId *string           `pulumi:"transitGatewayId"`
@@ -128,8 +128,8 @@ func (o GetDirectConnectGatewayAttachmentResultOutput) Filters() GetDirectConnec
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetDirectConnectGatewayAttachmentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetDirectConnectGatewayAttachmentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Attachment

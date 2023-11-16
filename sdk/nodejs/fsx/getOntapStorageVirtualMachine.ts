@@ -68,49 +68,49 @@ export interface GetOntapStorageVirtualMachineResult {
     /**
      * The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
      */
-    readonly activeDirectoryConfigurations: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfiguration[];
+    readonly activeDirectoryConfigurations?: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfiguration[];
     /**
      * Amazon Resource Name of the SVM.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The time that the SVM was created.
      */
-    readonly creationTime: string;
+    readonly creationTime?: string;
     /**
      * The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
      */
-    readonly endpoints: outputs.fsx.GetOntapStorageVirtualMachineEndpoint[];
+    readonly endpoints?: outputs.fsx.GetOntapStorageVirtualMachineEndpoint[];
     /**
      * Identifier of the file system (e.g. `fs-12345678`).
      */
-    readonly fileSystemId: string;
+    readonly fileSystemId?: string;
     readonly filters?: outputs.fsx.GetOntapStorageVirtualMachineFilter[];
     /**
      * The SVM's system generated unique ID.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The SVM's lifecycle status.
      */
-    readonly lifecycleStatus: string;
+    readonly lifecycleStatus?: string;
     /**
      * Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
      */
-    readonly lifecycleTransitionReasons: outputs.fsx.GetOntapStorageVirtualMachineLifecycleTransitionReason[];
+    readonly lifecycleTransitionReasons?: outputs.fsx.GetOntapStorageVirtualMachineLifecycleTransitionReason[];
     /**
      * The name of the SVM, if provisioned.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * The SVM's subtype.
      */
-    readonly subtype: string;
-    readonly tags: {[key: string]: string};
+    readonly subtype?: string;
+    readonly tags?: {[key: string]: string};
     /**
      * The SVM's UUID.
      */
-    readonly uuid: string;
+    readonly uuid?: string;
 }
 /**
  * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).

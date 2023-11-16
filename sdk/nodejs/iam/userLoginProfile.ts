@@ -66,15 +66,15 @@ export class UserLoginProfile extends pulumi.CustomResource {
     /**
      * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
      */
-    public /*out*/ readonly encryptedPassword!: pulumi.Output<string>;
+    public /*out*/ readonly encryptedPassword!: pulumi.Output<string | undefined>;
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
      */
-    public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
+    public /*out*/ readonly keyFingerprint!: pulumi.Output<string | undefined>;
     /**
      * The plain text password, only available when `pgpKey` is not provided.
      */
-    public /*out*/ readonly password!: pulumi.Output<string>;
+    public /*out*/ readonly password!: pulumi.Output<string | undefined>;
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
      */
@@ -82,7 +82,7 @@ export class UserLoginProfile extends pulumi.CustomResource {
     /**
      * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
      */
-    public readonly passwordResetRequired!: pulumi.Output<boolean>;
+    public readonly passwordResetRequired!: pulumi.Output<boolean | undefined>;
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      */

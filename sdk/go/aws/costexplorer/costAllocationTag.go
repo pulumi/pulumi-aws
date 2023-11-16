@@ -58,7 +58,7 @@ type CostAllocationTag struct {
 	// The key for the cost allocation tag.
 	TagKey pulumi.StringOutput `pulumi:"tagKey"`
 	// The type of cost allocation tag.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewCostAllocationTag registers a new resource with the given unique name, arguments, and options.
@@ -231,8 +231,8 @@ func (o CostAllocationTagOutput) TagKey() pulumi.StringOutput {
 }
 
 // The type of cost allocation tag.
-func (o CostAllocationTagOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *CostAllocationTag) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o CostAllocationTagOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostAllocationTag) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type CostAllocationTagArrayOutput struct{ *pulumi.OutputState }

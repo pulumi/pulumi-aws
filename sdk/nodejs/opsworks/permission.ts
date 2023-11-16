@@ -53,15 +53,15 @@ export class Permission extends pulumi.CustomResource {
     /**
      * Whether the user is allowed to use SSH to communicate with the instance
      */
-    public readonly allowSsh!: pulumi.Output<boolean>;
+    public readonly allowSsh!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      */
-    public readonly allowSudo!: pulumi.Output<boolean>;
+    public readonly allowSudo!: pulumi.Output<boolean | undefined>;
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
      */
-    public readonly level!: pulumi.Output<string>;
+    public readonly level!: pulumi.Output<string | undefined>;
     /**
      * The stack to set the permissions for
      */

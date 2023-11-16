@@ -6,6 +6,8 @@ package com.pulumi.aws.datapipeline.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPipelineDefinitionParameterValue {
@@ -13,27 +15,27 @@ public final class GetPipelineDefinitionParameterValue {
      * @return ID of the object.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    private String stringValue;
+    private @Nullable String stringValue;
 
     private GetPipelineDefinitionParameterValue() {}
     /**
      * @return ID of the object.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    public String stringValue() {
-        return this.stringValue;
+    public Optional<String> stringValue() {
+        return Optional.ofNullable(this.stringValue);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetPipelineDefinitionParameterValue {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private String stringValue;
+        private @Nullable String id;
+        private @Nullable String stringValue;
         public Builder() {}
         public Builder(GetPipelineDefinitionParameterValue defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetPipelineDefinitionParameterValue {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder stringValue(String stringValue) {
-            this.stringValue = Objects.requireNonNull(stringValue);
+        public Builder stringValue(@Nullable String stringValue) {
+            this.stringValue = stringValue;
             return this;
         }
         public GetPipelineDefinitionParameterValue build() {

@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,114 +18,114 @@ public final class GetElasticIpResult {
      * @return ID representing the association of the address with an instance in a VPC.
      * 
      */
-    private String associationId;
+    private @Nullable String associationId;
     /**
      * @return Carrier IP address.
      * 
      */
-    private String carrierIp;
+    private @Nullable String carrierIp;
     /**
      * @return Customer Owned IP.
      * 
      */
-    private String customerOwnedIp;
+    private @Nullable String customerOwnedIp;
     /**
      * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
      * 
      */
-    private String customerOwnedIpv4Pool;
+    private @Nullable String customerOwnedIpv4Pool;
     /**
      * @return Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      * 
      */
-    private String domain;
+    private @Nullable String domain;
     private @Nullable List<GetElasticIpFilter> filters;
     /**
      * @return If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ID of the instance that the address is associated with (if any).
      * 
      */
-    private String instanceId;
+    private @Nullable String instanceId;
     /**
      * @return The ID of the network interface.
      * 
      */
-    private String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
     /**
      * @return The ID of the AWS account that owns the network interface.
      * 
      */
-    private String networkInterfaceOwnerId;
+    private @Nullable String networkInterfaceOwnerId;
     /**
      * @return Private DNS associated with the Elastic IP address.
      * 
      */
-    private String privateDns;
+    private @Nullable String privateDns;
     /**
      * @return Private IP address associated with the Elastic IP address.
      * 
      */
-    private String privateIp;
+    private @Nullable String privateIp;
     /**
      * @return Public DNS associated with the Elastic IP address.
      * 
      */
-    private String publicDns;
+    private @Nullable String publicDns;
     /**
      * @return Public IP address of Elastic IP.
      * 
      */
-    private String publicIp;
+    private @Nullable String publicIp;
     /**
      * @return ID of an address pool.
      * 
      */
-    private String publicIpv4Pool;
+    private @Nullable String publicIpv4Pool;
     /**
      * @return Key-value map of tags associated with Elastic IP.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetElasticIpResult() {}
     /**
      * @return ID representing the association of the address with an instance in a VPC.
      * 
      */
-    public String associationId() {
-        return this.associationId;
+    public Optional<String> associationId() {
+        return Optional.ofNullable(this.associationId);
     }
     /**
      * @return Carrier IP address.
      * 
      */
-    public String carrierIp() {
-        return this.carrierIp;
+    public Optional<String> carrierIp() {
+        return Optional.ofNullable(this.carrierIp);
     }
     /**
      * @return Customer Owned IP.
      * 
      */
-    public String customerOwnedIp() {
-        return this.customerOwnedIp;
+    public Optional<String> customerOwnedIp() {
+        return Optional.ofNullable(this.customerOwnedIp);
     }
     /**
      * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
      * 
      */
-    public String customerOwnedIpv4Pool() {
-        return this.customerOwnedIpv4Pool;
+    public Optional<String> customerOwnedIpv4Pool() {
+        return Optional.ofNullable(this.customerOwnedIpv4Pool);
     }
     /**
      * @return Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      * 
      */
-    public String domain() {
-        return this.domain;
+    public Optional<String> domain() {
+        return Optional.ofNullable(this.domain);
     }
     public List<GetElasticIpFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -133,71 +134,71 @@ public final class GetElasticIpResult {
      * @return If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ID of the instance that the address is associated with (if any).
      * 
      */
-    public String instanceId() {
-        return this.instanceId;
+    public Optional<String> instanceId() {
+        return Optional.ofNullable(this.instanceId);
     }
     /**
      * @return The ID of the network interface.
      * 
      */
-    public String networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Optional<String> networkInterfaceId() {
+        return Optional.ofNullable(this.networkInterfaceId);
     }
     /**
      * @return The ID of the AWS account that owns the network interface.
      * 
      */
-    public String networkInterfaceOwnerId() {
-        return this.networkInterfaceOwnerId;
+    public Optional<String> networkInterfaceOwnerId() {
+        return Optional.ofNullable(this.networkInterfaceOwnerId);
     }
     /**
      * @return Private DNS associated with the Elastic IP address.
      * 
      */
-    public String privateDns() {
-        return this.privateDns;
+    public Optional<String> privateDns() {
+        return Optional.ofNullable(this.privateDns);
     }
     /**
      * @return Private IP address associated with the Elastic IP address.
      * 
      */
-    public String privateIp() {
-        return this.privateIp;
+    public Optional<String> privateIp() {
+        return Optional.ofNullable(this.privateIp);
     }
     /**
      * @return Public DNS associated with the Elastic IP address.
      * 
      */
-    public String publicDns() {
-        return this.publicDns;
+    public Optional<String> publicDns() {
+        return Optional.ofNullable(this.publicDns);
     }
     /**
      * @return Public IP address of Elastic IP.
      * 
      */
-    public String publicIp() {
-        return this.publicIp;
+    public Optional<String> publicIp() {
+        return Optional.ofNullable(this.publicIp);
     }
     /**
      * @return ID of an address pool.
      * 
      */
-    public String publicIpv4Pool() {
-        return this.publicIpv4Pool;
+    public Optional<String> publicIpv4Pool() {
+        return Optional.ofNullable(this.publicIpv4Pool);
     }
     /**
      * @return Key-value map of tags associated with Elastic IP.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -209,22 +210,22 @@ public final class GetElasticIpResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String associationId;
-        private String carrierIp;
-        private String customerOwnedIp;
-        private String customerOwnedIpv4Pool;
-        private String domain;
+        private @Nullable String associationId;
+        private @Nullable String carrierIp;
+        private @Nullable String customerOwnedIp;
+        private @Nullable String customerOwnedIpv4Pool;
+        private @Nullable String domain;
         private @Nullable List<GetElasticIpFilter> filters;
-        private String id;
-        private String instanceId;
-        private String networkInterfaceId;
-        private String networkInterfaceOwnerId;
-        private String privateDns;
-        private String privateIp;
-        private String publicDns;
-        private String publicIp;
-        private String publicIpv4Pool;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable String instanceId;
+        private @Nullable String networkInterfaceId;
+        private @Nullable String networkInterfaceOwnerId;
+        private @Nullable String privateDns;
+        private @Nullable String privateIp;
+        private @Nullable String publicDns;
+        private @Nullable String publicIp;
+        private @Nullable String publicIpv4Pool;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetElasticIpResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -247,28 +248,28 @@ public final class GetElasticIpResult {
         }
 
         @CustomType.Setter
-        public Builder associationId(String associationId) {
-            this.associationId = Objects.requireNonNull(associationId);
+        public Builder associationId(@Nullable String associationId) {
+            this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
-        public Builder carrierIp(String carrierIp) {
-            this.carrierIp = Objects.requireNonNull(carrierIp);
+        public Builder carrierIp(@Nullable String carrierIp) {
+            this.carrierIp = carrierIp;
             return this;
         }
         @CustomType.Setter
-        public Builder customerOwnedIp(String customerOwnedIp) {
-            this.customerOwnedIp = Objects.requireNonNull(customerOwnedIp);
+        public Builder customerOwnedIp(@Nullable String customerOwnedIp) {
+            this.customerOwnedIp = customerOwnedIp;
             return this;
         }
         @CustomType.Setter
-        public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
-            this.customerOwnedIpv4Pool = Objects.requireNonNull(customerOwnedIpv4Pool);
+        public Builder customerOwnedIpv4Pool(@Nullable String customerOwnedIpv4Pool) {
+            this.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
             return this;
         }
         @CustomType.Setter
-        public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+        public Builder domain(@Nullable String domain) {
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
@@ -280,53 +281,53 @@ public final class GetElasticIpResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+        public Builder instanceId(@Nullable String instanceId) {
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+        public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceOwnerId(String networkInterfaceOwnerId) {
-            this.networkInterfaceOwnerId = Objects.requireNonNull(networkInterfaceOwnerId);
+        public Builder networkInterfaceOwnerId(@Nullable String networkInterfaceOwnerId) {
+            this.networkInterfaceOwnerId = networkInterfaceOwnerId;
             return this;
         }
         @CustomType.Setter
-        public Builder privateDns(String privateDns) {
-            this.privateDns = Objects.requireNonNull(privateDns);
+        public Builder privateDns(@Nullable String privateDns) {
+            this.privateDns = privateDns;
             return this;
         }
         @CustomType.Setter
-        public Builder privateIp(String privateIp) {
-            this.privateIp = Objects.requireNonNull(privateIp);
+        public Builder privateIp(@Nullable String privateIp) {
+            this.privateIp = privateIp;
             return this;
         }
         @CustomType.Setter
-        public Builder publicDns(String publicDns) {
-            this.publicDns = Objects.requireNonNull(publicDns);
+        public Builder publicDns(@Nullable String publicDns) {
+            this.publicDns = publicDns;
             return this;
         }
         @CustomType.Setter
-        public Builder publicIp(String publicIp) {
-            this.publicIp = Objects.requireNonNull(publicIp);
+        public Builder publicIp(@Nullable String publicIp) {
+            this.publicIp = publicIp;
             return this;
         }
         @CustomType.Setter
-        public Builder publicIpv4Pool(String publicIpv4Pool) {
-            this.publicIpv4Pool = Objects.requireNonNull(publicIpv4Pool);
+        public Builder publicIpv4Pool(@Nullable String publicIpv4Pool) {
+            this.publicIpv4Pool = publicIpv4Pool;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetElasticIpResult build() {

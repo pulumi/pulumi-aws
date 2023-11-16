@@ -7,14 +7,15 @@ import com.pulumi.aws.signer.outputs.GetSigningJobSourceS3;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSigningJobSource {
-    private List<GetSigningJobSourceS3> s3s;
+    private @Nullable List<GetSigningJobSourceS3> s3s;
 
     private GetSigningJobSource() {}
     public List<GetSigningJobSourceS3> s3s() {
-        return this.s3s;
+        return this.s3s == null ? List.of() : this.s3s;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetSigningJobSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetSigningJobSourceS3> s3s;
+        private @Nullable List<GetSigningJobSourceS3> s3s;
         public Builder() {}
         public Builder(GetSigningJobSource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetSigningJobSource {
         }
 
         @CustomType.Setter
-        public Builder s3s(List<GetSigningJobSourceS3> s3s) {
-            this.s3s = Objects.requireNonNull(s3s);
+        public Builder s3s(@Nullable List<GetSigningJobSourceS3> s3s) {
+            this.s3s = s3s;
             return this;
         }
         public Builder s3s(GetSigningJobSourceS3... s3s) {

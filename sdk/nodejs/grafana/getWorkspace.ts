@@ -49,80 +49,80 @@ export interface GetWorkspaceResult {
     /**
      * (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      */
-    readonly accountAccessType: string;
+    readonly accountAccessType?: string;
     /**
      * ARN of the Grafana workspace.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      */
-    readonly authenticationProviders: string[];
+    readonly authenticationProviders?: string[];
     /**
      * Creation date of the Grafana workspace.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Data sources for the workspace.
      */
-    readonly dataSources: string[];
+    readonly dataSources?: string[];
     /**
      * Workspace description.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Endpoint of the Grafana workspace.
      */
-    readonly endpoint: string;
+    readonly endpoint?: string;
     /**
      * Version of Grafana running on the workspace.
      */
-    readonly grafanaVersion: string;
+    readonly grafanaVersion?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Last updated date of the Grafana workspace.
      */
-    readonly lastUpdatedDate: string;
+    readonly lastUpdatedDate?: string;
     /**
      * Grafana workspace name.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * The notification destinations.
      */
-    readonly notificationDestinations: string[];
+    readonly notificationDestinations?: string[];
     /**
      * The role name that the workspace uses to access resources through Amazon Organizations.
      */
-    readonly organizationRoleName: string;
+    readonly organizationRoleName?: string;
     /**
      * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      */
-    readonly organizationalUnits: string[];
+    readonly organizationalUnits?: string[];
     /**
      * Permission type of the workspace.
      */
-    readonly permissionType: string;
+    readonly permissionType?: string;
     /**
      * IAM role ARN that the workspace assumes.
      */
-    readonly roleArn: string;
-    readonly samlConfigurationStatus: string;
+    readonly roleArn?: string;
+    readonly samlConfigurationStatus?: string;
     /**
      * AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      */
-    readonly stackSetName: string;
+    readonly stackSetName?: string;
     /**
      * Status of the Grafana workspace.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Tags assigned to the resource
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly workspaceId: string;
 }
 /**

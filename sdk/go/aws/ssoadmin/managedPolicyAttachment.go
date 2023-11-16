@@ -33,7 +33,7 @@ type ManagedPolicyAttachment struct {
 	// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
 	ManagedPolicyArn pulumi.StringOutput `pulumi:"managedPolicyArn"`
 	// The name of the IAM Managed Policy.
-	ManagedPolicyName pulumi.StringOutput `pulumi:"managedPolicyName"`
+	ManagedPolicyName pulumi.StringPtrOutput `pulumi:"managedPolicyName"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
 }
@@ -219,8 +219,8 @@ func (o ManagedPolicyAttachmentOutput) ManagedPolicyArn() pulumi.StringOutput {
 }
 
 // The name of the IAM Managed Policy.
-func (o ManagedPolicyAttachmentOutput) ManagedPolicyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ManagedPolicyAttachment) pulumi.StringOutput { return v.ManagedPolicyName }).(pulumi.StringOutput)
+func (o ManagedPolicyAttachmentOutput) ManagedPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPolicyAttachment) pulumi.StringPtrOutput { return v.ManagedPolicyName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Permission Set.

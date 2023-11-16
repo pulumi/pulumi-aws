@@ -80,7 +80,7 @@ class GetRandomPasswordResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -98,7 +98,7 @@ class GetRandomPasswordResult:
 
     @property
     @pulumi.getter(name="randomPassword")
-    def random_password(self) -> str:
+    def random_password(self) -> Optional[str]:
         """
         Random password.
         """

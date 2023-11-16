@@ -87,15 +87,15 @@ type CatalogDatabase struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Glue Catalog Database.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Location of the database (for example, an HDFS path).
-	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	LocationUri pulumi.StringPtrOutput `pulumi:"locationUri"`
 	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of key-value pairs that define parameters and properties of the database.
@@ -324,13 +324,13 @@ func (o CatalogDatabaseOutput) ToCatalogDatabaseOutputWithContext(ctx context.Co
 }
 
 // ARN of the Glue Catalog Database.
-func (o CatalogDatabaseOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CatalogDatabaseOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-func (o CatalogDatabaseOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+func (o CatalogDatabaseOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
@@ -346,8 +346,8 @@ func (o CatalogDatabaseOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Location of the database (for example, an HDFS path).
-func (o CatalogDatabaseOutput) LocationUri() pulumi.StringOutput {
-	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+func (o CatalogDatabaseOutput) LocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringPtrOutput { return v.LocationUri }).(pulumi.StringPtrOutput)
 }
 
 // Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.

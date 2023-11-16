@@ -78,17 +78,17 @@ class GetDataSetResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> str:
+    def aws_account_id(self) -> Optional[str]:
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="columnGroups")
-    def column_groups(self) -> Sequence['outputs.GetDataSetColumnGroupResult']:
+    def column_groups(self) -> Optional[Sequence['outputs.GetDataSetColumnGroupResult']]:
         return pulumi.get(self, "column_groups")
 
     @property
@@ -103,17 +103,17 @@ class GetDataSetResult:
 
     @property
     @pulumi.getter(name="dataSetUsageConfigurations")
-    def data_set_usage_configurations(self) -> Sequence['outputs.GetDataSetDataSetUsageConfigurationResult']:
+    def data_set_usage_configurations(self) -> Optional[Sequence['outputs.GetDataSetDataSetUsageConfigurationResult']]:
         return pulumi.get(self, "data_set_usage_configurations")
 
     @property
     @pulumi.getter(name="fieldFolders")
-    def field_folders(self) -> Sequence['outputs.GetDataSetFieldFolderResult']:
+    def field_folders(self) -> Optional[Sequence['outputs.GetDataSetFieldFolderResult']]:
         return pulumi.get(self, "field_folders")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -121,47 +121,47 @@ class GetDataSetResult:
 
     @property
     @pulumi.getter(name="importMode")
-    def import_mode(self) -> str:
+    def import_mode(self) -> Optional[str]:
         return pulumi.get(self, "import_mode")
 
     @property
     @pulumi.getter(name="logicalTableMaps")
-    def logical_table_maps(self) -> Sequence['outputs.GetDataSetLogicalTableMapResult']:
+    def logical_table_maps(self) -> Optional[Sequence['outputs.GetDataSetLogicalTableMapResult']]:
         return pulumi.get(self, "logical_table_maps")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def permissions(self) -> Sequence['outputs.GetDataSetPermissionResult']:
+    def permissions(self) -> Optional[Sequence['outputs.GetDataSetPermissionResult']]:
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="physicalTableMaps")
-    def physical_table_maps(self) -> Sequence['outputs.GetDataSetPhysicalTableMapResult']:
+    def physical_table_maps(self) -> Optional[Sequence['outputs.GetDataSetPhysicalTableMapResult']]:
         return pulumi.get(self, "physical_table_maps")
 
     @property
     @pulumi.getter(name="rowLevelPermissionDataSets")
-    def row_level_permission_data_sets(self) -> Sequence['outputs.GetDataSetRowLevelPermissionDataSetResult']:
+    def row_level_permission_data_sets(self) -> Optional[Sequence['outputs.GetDataSetRowLevelPermissionDataSetResult']]:
         return pulumi.get(self, "row_level_permission_data_sets")
 
     @property
     @pulumi.getter(name="rowLevelPermissionTagConfigurations")
-    def row_level_permission_tag_configurations(self) -> Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationResult']:
+    def row_level_permission_tag_configurations(self) -> Optional[Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationResult']]:
         return pulumi.get(self, "row_level_permission_tag_configurations")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Mapping[str, str]:
+    def tags_all(self) -> Optional[Mapping[str, str]]:
         warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
         pulumi.log.warn("""tags_all is deprecated: this attribute has been deprecated""")
 

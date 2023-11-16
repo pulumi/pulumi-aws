@@ -66,11 +66,11 @@ type Permission struct {
 	// ARN of the CA that grants the permissions.
 	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
 	// IAM policy that is associated with the permission.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// ID of the calling account
-	SourceAccount pulumi.StringOutput `pulumi:"sourceAccount"`
+	SourceAccount pulumi.StringPtrOutput `pulumi:"sourceAccount"`
 }
 
 // NewPermission registers a new resource with the given unique name, arguments, and options.
@@ -262,8 +262,8 @@ func (o PermissionOutput) CertificateAuthorityArn() pulumi.StringOutput {
 }
 
 // IAM policy that is associated with the permission.
-func (o PermissionOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o PermissionOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
@@ -272,8 +272,8 @@ func (o PermissionOutput) Principal() pulumi.StringOutput {
 }
 
 // ID of the calling account
-func (o PermissionOutput) SourceAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.SourceAccount }).(pulumi.StringOutput)
+func (o PermissionOutput) SourceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.SourceAccount }).(pulumi.StringPtrOutput)
 }
 
 type PermissionArrayOutput struct{ *pulumi.OutputState }

@@ -128,7 +128,7 @@ namespace Pulumi.Aws.DataPipeline
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Parameter objects used in the pipeline definition. See below
         /// </summary>
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.DataPipeline
 
         [OutputConstructor]
         private GetPipelineDefinitionResult(
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetPipelineDefinitionParameterObjectResult> parameterObjects,
 

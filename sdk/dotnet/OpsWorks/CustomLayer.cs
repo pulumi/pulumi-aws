@@ -46,7 +46,7 @@ namespace Pulumi.Aws.OpsWorks
         /// The Amazon Resource Name(ARN) of the layer.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.OpsWorks
         /// Load-based auto scaling configuration. See Load Based AutoScaling
         /// </summary>
         [Output("loadBasedAutoScaling")]
-        public Output<Outputs.CustomLayerLoadBasedAutoScaling> LoadBasedAutoScaling { get; private set; } = null!;
+        public Output<Outputs.CustomLayerLoadBasedAutoScaling?> LoadBasedAutoScaling { get; private set; } = null!;
 
         /// <summary>
         /// A human-readable name for the layer.

@@ -127,32 +127,32 @@ namespace Pulumi.Aws.Auditmanager
     [OutputType]
     public sealed class GetFrameworkResult
     {
-        public readonly string Arn;
-        public readonly string ComplianceType;
+        public readonly string? Arn;
+        public readonly string? ComplianceType;
         public readonly ImmutableArray<Outputs.GetFrameworkControlSetResult> ControlSets;
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string FrameworkType;
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetFrameworkResult(
-            string arn,
+            string? arn,
 
-            string complianceType,
+            string? complianceType,
 
             ImmutableArray<Outputs.GetFrameworkControlSetResult> controlSets,
 
-            string description,
+            string? description,
 
             string frameworkType,
 
-            string id,
+            string? id,
 
             string name,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ComplianceType = complianceType;

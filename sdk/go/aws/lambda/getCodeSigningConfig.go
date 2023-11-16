@@ -64,13 +64,13 @@ type LookupCodeSigningConfigResult struct {
 	AllowedPublishers []GetCodeSigningConfigAllowedPublisher `pulumi:"allowedPublishers"`
 	Arn               string                                 `pulumi:"arn"`
 	// Unique identifier for the code signing configuration.
-	ConfigId string `pulumi:"configId"`
+	ConfigId *string `pulumi:"configId"`
 	// Code signing configuration description.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Date and time that the code signing configuration was last modified.
-	LastModified string `pulumi:"lastModified"`
+	LastModified *string `pulumi:"lastModified"`
 	// List of code signing policies that control the validation failure action for signature mismatch or expiry.
 	Policies []GetCodeSigningConfigPolicy `pulumi:"policies"`
 }
@@ -125,23 +125,23 @@ func (o LookupCodeSigningConfigResultOutput) Arn() pulumi.StringOutput {
 }
 
 // Unique identifier for the code signing configuration.
-func (o LookupCodeSigningConfigResultOutput) ConfigId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.ConfigId }).(pulumi.StringOutput)
+func (o LookupCodeSigningConfigResultOutput) ConfigId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCodeSigningConfigResult) *string { return v.ConfigId }).(pulumi.StringPtrOutput)
 }
 
 // Code signing configuration description.
-func (o LookupCodeSigningConfigResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupCodeSigningConfigResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCodeSigningConfigResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCodeSigningConfigResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCodeSigningConfigResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCodeSigningConfigResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Date and time that the code signing configuration was last modified.
-func (o LookupCodeSigningConfigResultOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.LastModified }).(pulumi.StringOutput)
+func (o LookupCodeSigningConfigResultOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCodeSigningConfigResult) *string { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
 // List of code signing policies that control the validation failure action for signature mismatch or expiry.

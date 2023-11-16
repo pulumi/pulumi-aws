@@ -246,14 +246,14 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the target group.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
@@ -288,14 +288,14 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
-    private Output<Integer> priority;
+    private Output</* @Nullable */ Integer> priority;
 
     /**
      * @return The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
      * 
      */
-    public Output<Integer> priority() {
-        return this.priority;
+    public Output<Optional<Integer>> priority() {
+        return Codegen.optional(this.priority);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

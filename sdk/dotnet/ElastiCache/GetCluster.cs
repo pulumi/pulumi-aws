@@ -125,11 +125,11 @@ namespace Pulumi.Aws.ElastiCache
     [OutputType]
     public sealed class GetClusterResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Availability Zone for the cache cluster.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
         /// Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
@@ -138,28 +138,28 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// (Memcached only) DNS name of the cache cluster without the port appended.
         /// </summary>
-        public readonly string ClusterAddress;
+        public readonly string? ClusterAddress;
         public readonly string ClusterId;
         /// <summary>
         /// (Memcached only) Configuration endpoint to allow host discovery.
         /// </summary>
-        public readonly string ConfigurationEndpoint;
+        public readonly string? ConfigurationEndpoint;
         /// <summary>
         /// Name of the cache engine.
         /// </summary>
-        public readonly string Engine;
+        public readonly string? Engine;
         /// <summary>
         /// Version number of the cache engine.
         /// </summary>
-        public readonly string EngineVersion;
+        public readonly string? EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The IP version advertised in the discovery protocol.
         /// </summary>
-        public readonly string IpDiscovery;
+        public readonly string? IpDiscovery;
         /// <summary>
         /// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
         /// </summary>
@@ -168,41 +168,41 @@ namespace Pulumi.Aws.ElastiCache
         /// Specifies the weekly time range for when maintenance
         /// on the cache cluster is performed.
         /// </summary>
-        public readonly string MaintenanceWindow;
+        public readonly string? MaintenanceWindow;
         /// <summary>
         /// The IP versions for cache cluster connections.
         /// </summary>
-        public readonly string NetworkType;
+        public readonly string? NetworkType;
         /// <summary>
         /// The cluster node type.
         /// </summary>
-        public readonly string NodeType;
+        public readonly string? NodeType;
         /// <summary>
         /// An ARN of an
         /// SNS topic that ElastiCache notifications get sent to.
         /// </summary>
-        public readonly string NotificationTopicArn;
+        public readonly string? NotificationTopicArn;
         /// <summary>
         /// The number of cache nodes that the cache cluster has.
         /// </summary>
-        public readonly int NumCacheNodes;
+        public readonly int? NumCacheNodes;
         /// <summary>
         /// Name of the parameter group associated with this cache cluster.
         /// </summary>
-        public readonly string ParameterGroupName;
+        public readonly string? ParameterGroupName;
         /// <summary>
         /// The port number on which each of the cache nodes will
         /// accept connections.
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
         /// The outpost ARN in which the cache cluster was created if created in outpost.
         /// </summary>
-        public readonly string PreferredOutpostArn;
+        public readonly string? PreferredOutpostArn;
         /// <summary>
         /// The replication group to which this cache cluster belongs.
         /// </summary>
-        public readonly string ReplicationGroupId;
+        public readonly string? ReplicationGroupId;
         /// <summary>
         /// List VPC security groups associated with the cache cluster.
         /// </summary>
@@ -211,72 +211,72 @@ namespace Pulumi.Aws.ElastiCache
         /// The number of days for which ElastiCache will
         /// retain automatic cache cluster snapshots before deleting them.
         /// </summary>
-        public readonly int SnapshotRetentionLimit;
+        public readonly int? SnapshotRetentionLimit;
         /// <summary>
         /// Daily time range (in UTC) during which ElastiCache will
         /// begin taking a daily snapshot of the cache cluster.
         /// </summary>
-        public readonly string SnapshotWindow;
+        public readonly string? SnapshotWindow;
         /// <summary>
         /// Name of the subnet group associated to the cache cluster.
         /// </summary>
-        public readonly string SubnetGroupName;
+        public readonly string? SubnetGroupName;
         /// <summary>
         /// Tags assigned to the resource
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetClusterResult(
-            string arn,
+            string? arn,
 
-            string availabilityZone,
+            string? availabilityZone,
 
             ImmutableArray<Outputs.GetClusterCacheNodeResult> cacheNodes,
 
-            string clusterAddress,
+            string? clusterAddress,
 
             string clusterId,
 
-            string configurationEndpoint,
+            string? configurationEndpoint,
 
-            string engine,
+            string? engine,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string id,
+            string? id,
 
-            string ipDiscovery,
+            string? ipDiscovery,
 
             ImmutableArray<Outputs.GetClusterLogDeliveryConfigurationResult> logDeliveryConfigurations,
 
-            string maintenanceWindow,
+            string? maintenanceWindow,
 
-            string networkType,
+            string? networkType,
 
-            string nodeType,
+            string? nodeType,
 
-            string notificationTopicArn,
+            string? notificationTopicArn,
 
-            int numCacheNodes,
+            int? numCacheNodes,
 
-            string parameterGroupName,
+            string? parameterGroupName,
 
-            int port,
+            int? port,
 
-            string preferredOutpostArn,
+            string? preferredOutpostArn,
 
-            string replicationGroupId,
+            string? replicationGroupId,
 
             ImmutableArray<string> securityGroupIds,
 
-            int snapshotRetentionLimit,
+            int? snapshotRetentionLimit,
 
-            string snapshotWindow,
+            string? snapshotWindow,
 
-            string subnetGroupName,
+            string? subnetGroupName,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             AvailabilityZone = availabilityZone;

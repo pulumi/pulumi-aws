@@ -57,57 +57,57 @@ export interface GetQuerySuggestionsBlockListResult {
     /**
      * ARN of the block list.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Date-time a block list was created.
      */
-    readonly createdAt: string;
+    readonly createdAt?: string;
     /**
      * Description for the block list.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Error message containing details if there are issues processing the block list.
      */
-    readonly errorMessage: string;
+    readonly errorMessage?: string;
     /**
      * Current size of the block list text file in S3.
      */
-    readonly fileSizeBytes: number;
+    readonly fileSizeBytes?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly indexId: string;
     /**
      * Current number of valid, non-empty words or phrases in the block list text file.
      */
-    readonly itemCount: number;
+    readonly itemCount?: number;
     /**
      * Name of the block list.
      */
-    readonly name: string;
+    readonly name?: string;
     readonly querySuggestionsBlockListId: string;
     /**
      * ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
-    readonly roleArn: string;
+    readonly roleArn?: string;
     /**
      * S3 location of the block list input data. Detailed below.
      */
-    readonly sourceS3Paths: outputs.kendra.GetQuerySuggestionsBlockListSourceS3Path[];
+    readonly sourceS3Paths?: outputs.kendra.GetQuerySuggestionsBlockListSourceS3Path[];
     /**
      * Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * Metadata that helps organize the block list you create.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * Date and time that the block list was last updated.
      */
-    readonly updatedAt: string;
+    readonly updatedAt?: string;
 }
 /**
  * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRegexPatternSetResult {
@@ -15,23 +17,23 @@ public final class GetRegexPatternSetResult {
      * @return ARN of the entity.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Description of the set that helps with identification.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
      * 
      */
-    private List<GetRegexPatternSetRegularExpression> regularExpressions;
+    private @Nullable List<GetRegexPatternSetRegularExpression> regularExpressions;
     private String scope;
 
     private GetRegexPatternSetResult() {}
@@ -39,22 +41,22 @@ public final class GetRegexPatternSetResult {
      * @return ARN of the entity.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Description of the set that helps with identification.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -64,7 +66,7 @@ public final class GetRegexPatternSetResult {
      * 
      */
     public List<GetRegexPatternSetRegularExpression> regularExpressions() {
-        return this.regularExpressions;
+        return this.regularExpressions == null ? List.of() : this.regularExpressions;
     }
     public String scope() {
         return this.scope;
@@ -79,11 +81,11 @@ public final class GetRegexPatternSetResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private List<GetRegexPatternSetRegularExpression> regularExpressions;
+        private @Nullable List<GetRegexPatternSetRegularExpression> regularExpressions;
         private String scope;
         public Builder() {}
         public Builder(GetRegexPatternSetResult defaults) {
@@ -97,18 +99,18 @@ public final class GetRegexPatternSetResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -117,8 +119,8 @@ public final class GetRegexPatternSetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder regularExpressions(List<GetRegexPatternSetRegularExpression> regularExpressions) {
-            this.regularExpressions = Objects.requireNonNull(regularExpressions);
+        public Builder regularExpressions(@Nullable List<GetRegexPatternSetRegularExpression> regularExpressions) {
+            this.regularExpressions = regularExpressions;
             return this;
         }
         public Builder regularExpressions(GetRegexPatternSetRegularExpression... regularExpressions) {

@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterResult {
@@ -15,135 +17,135 @@ public final class GetClusterResult {
      * @return ARN of the MSK cluster.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      * 
      */
-    private String bootstrapBrokers;
+    private @Nullable String bootstrapBrokers;
     /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private String bootstrapBrokersPublicSaslIam;
+    private @Nullable String bootstrapBrokersPublicSaslIam;
     /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private String bootstrapBrokersPublicSaslScram;
+    private @Nullable String bootstrapBrokersPublicSaslScram;
     /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private String bootstrapBrokersPublicTls;
+    private @Nullable String bootstrapBrokersPublicTls;
     /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private String bootstrapBrokersSaslIam;
+    private @Nullable String bootstrapBrokersSaslIam;
     /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private String bootstrapBrokersSaslScram;
+    private @Nullable String bootstrapBrokersSaslScram;
     /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private String bootstrapBrokersTls;
+    private @Nullable String bootstrapBrokersTls;
     private String clusterName;
     /**
      * @return UUID of the MSK cluster, for use in IAM policies.
      * 
      */
-    private String clusterUuid;
+    private @Nullable String clusterUuid;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Apache Kafka version.
      * 
      */
-    private String kafkaVersion;
+    private @Nullable String kafkaVersion;
     /**
      * @return Number of broker nodes in the cluster.
      * 
      */
-    private Integer numberOfBrokerNodes;
+    private @Nullable Integer numberOfBrokerNodes;
     /**
      * @return Map of key-value pairs assigned to the cluster.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    private String zookeeperConnectString;
+    private @Nullable String zookeeperConnectString;
     /**
      * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    private String zookeeperConnectStringTls;
+    private @Nullable String zookeeperConnectStringTls;
 
     private GetClusterResult() {}
     /**
      * @return ARN of the MSK cluster.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      * 
      */
-    public String bootstrapBrokers() {
-        return this.bootstrapBrokers;
+    public Optional<String> bootstrapBrokers() {
+        return Optional.ofNullable(this.bootstrapBrokers);
     }
     /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersPublicSaslIam() {
-        return this.bootstrapBrokersPublicSaslIam;
+    public Optional<String> bootstrapBrokersPublicSaslIam() {
+        return Optional.ofNullable(this.bootstrapBrokersPublicSaslIam);
     }
     /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersPublicSaslScram() {
-        return this.bootstrapBrokersPublicSaslScram;
+    public Optional<String> bootstrapBrokersPublicSaslScram() {
+        return Optional.ofNullable(this.bootstrapBrokersPublicSaslScram);
     }
     /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersPublicTls() {
-        return this.bootstrapBrokersPublicTls;
+    public Optional<String> bootstrapBrokersPublicTls() {
+        return Optional.ofNullable(this.bootstrapBrokersPublicTls);
     }
     /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersSaslIam() {
-        return this.bootstrapBrokersSaslIam;
+    public Optional<String> bootstrapBrokersSaslIam() {
+        return Optional.ofNullable(this.bootstrapBrokersSaslIam);
     }
     /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersSaslScram() {
-        return this.bootstrapBrokersSaslScram;
+    public Optional<String> bootstrapBrokersSaslScram() {
+        return Optional.ofNullable(this.bootstrapBrokersSaslScram);
     }
     /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersTls() {
-        return this.bootstrapBrokersTls;
+    public Optional<String> bootstrapBrokersTls() {
+        return Optional.ofNullable(this.bootstrapBrokersTls);
     }
     public String clusterName() {
         return this.clusterName;
@@ -152,50 +154,50 @@ public final class GetClusterResult {
      * @return UUID of the MSK cluster, for use in IAM policies.
      * 
      */
-    public String clusterUuid() {
-        return this.clusterUuid;
+    public Optional<String> clusterUuid() {
+        return Optional.ofNullable(this.clusterUuid);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Apache Kafka version.
      * 
      */
-    public String kafkaVersion() {
-        return this.kafkaVersion;
+    public Optional<String> kafkaVersion() {
+        return Optional.ofNullable(this.kafkaVersion);
     }
     /**
      * @return Number of broker nodes in the cluster.
      * 
      */
-    public Integer numberOfBrokerNodes() {
-        return this.numberOfBrokerNodes;
+    public Optional<Integer> numberOfBrokerNodes() {
+        return Optional.ofNullable(this.numberOfBrokerNodes);
     }
     /**
      * @return Map of key-value pairs assigned to the cluster.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    public String zookeeperConnectString() {
-        return this.zookeeperConnectString;
+    public Optional<String> zookeeperConnectString() {
+        return Optional.ofNullable(this.zookeeperConnectString);
     }
     /**
      * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    public String zookeeperConnectStringTls() {
-        return this.zookeeperConnectStringTls;
+    public Optional<String> zookeeperConnectStringTls() {
+        return Optional.ofNullable(this.zookeeperConnectStringTls);
     }
 
     public static Builder builder() {
@@ -207,22 +209,22 @@ public final class GetClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String bootstrapBrokers;
-        private String bootstrapBrokersPublicSaslIam;
-        private String bootstrapBrokersPublicSaslScram;
-        private String bootstrapBrokersPublicTls;
-        private String bootstrapBrokersSaslIam;
-        private String bootstrapBrokersSaslScram;
-        private String bootstrapBrokersTls;
+        private @Nullable String arn;
+        private @Nullable String bootstrapBrokers;
+        private @Nullable String bootstrapBrokersPublicSaslIam;
+        private @Nullable String bootstrapBrokersPublicSaslScram;
+        private @Nullable String bootstrapBrokersPublicTls;
+        private @Nullable String bootstrapBrokersSaslIam;
+        private @Nullable String bootstrapBrokersSaslScram;
+        private @Nullable String bootstrapBrokersTls;
         private String clusterName;
-        private String clusterUuid;
-        private String id;
-        private String kafkaVersion;
-        private Integer numberOfBrokerNodes;
-        private Map<String,String> tags;
-        private String zookeeperConnectString;
-        private String zookeeperConnectStringTls;
+        private @Nullable String clusterUuid;
+        private @Nullable String id;
+        private @Nullable String kafkaVersion;
+        private @Nullable Integer numberOfBrokerNodes;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String zookeeperConnectString;
+        private @Nullable String zookeeperConnectStringTls;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -245,43 +247,43 @@ public final class GetClusterResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder bootstrapBrokers(String bootstrapBrokers) {
-            this.bootstrapBrokers = Objects.requireNonNull(bootstrapBrokers);
+        public Builder bootstrapBrokers(@Nullable String bootstrapBrokers) {
+            this.bootstrapBrokers = bootstrapBrokers;
             return this;
         }
         @CustomType.Setter
-        public Builder bootstrapBrokersPublicSaslIam(String bootstrapBrokersPublicSaslIam) {
-            this.bootstrapBrokersPublicSaslIam = Objects.requireNonNull(bootstrapBrokersPublicSaslIam);
+        public Builder bootstrapBrokersPublicSaslIam(@Nullable String bootstrapBrokersPublicSaslIam) {
+            this.bootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
             return this;
         }
         @CustomType.Setter
-        public Builder bootstrapBrokersPublicSaslScram(String bootstrapBrokersPublicSaslScram) {
-            this.bootstrapBrokersPublicSaslScram = Objects.requireNonNull(bootstrapBrokersPublicSaslScram);
+        public Builder bootstrapBrokersPublicSaslScram(@Nullable String bootstrapBrokersPublicSaslScram) {
+            this.bootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
             return this;
         }
         @CustomType.Setter
-        public Builder bootstrapBrokersPublicTls(String bootstrapBrokersPublicTls) {
-            this.bootstrapBrokersPublicTls = Objects.requireNonNull(bootstrapBrokersPublicTls);
+        public Builder bootstrapBrokersPublicTls(@Nullable String bootstrapBrokersPublicTls) {
+            this.bootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
             return this;
         }
         @CustomType.Setter
-        public Builder bootstrapBrokersSaslIam(String bootstrapBrokersSaslIam) {
-            this.bootstrapBrokersSaslIam = Objects.requireNonNull(bootstrapBrokersSaslIam);
+        public Builder bootstrapBrokersSaslIam(@Nullable String bootstrapBrokersSaslIam) {
+            this.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
             return this;
         }
         @CustomType.Setter
-        public Builder bootstrapBrokersSaslScram(String bootstrapBrokersSaslScram) {
-            this.bootstrapBrokersSaslScram = Objects.requireNonNull(bootstrapBrokersSaslScram);
+        public Builder bootstrapBrokersSaslScram(@Nullable String bootstrapBrokersSaslScram) {
+            this.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
             return this;
         }
         @CustomType.Setter
-        public Builder bootstrapBrokersTls(String bootstrapBrokersTls) {
-            this.bootstrapBrokersTls = Objects.requireNonNull(bootstrapBrokersTls);
+        public Builder bootstrapBrokersTls(@Nullable String bootstrapBrokersTls) {
+            this.bootstrapBrokersTls = bootstrapBrokersTls;
             return this;
         }
         @CustomType.Setter
@@ -290,38 +292,38 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder clusterUuid(String clusterUuid) {
-            this.clusterUuid = Objects.requireNonNull(clusterUuid);
+        public Builder clusterUuid(@Nullable String clusterUuid) {
+            this.clusterUuid = clusterUuid;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kafkaVersion(String kafkaVersion) {
-            this.kafkaVersion = Objects.requireNonNull(kafkaVersion);
+        public Builder kafkaVersion(@Nullable String kafkaVersion) {
+            this.kafkaVersion = kafkaVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder numberOfBrokerNodes(Integer numberOfBrokerNodes) {
-            this.numberOfBrokerNodes = Objects.requireNonNull(numberOfBrokerNodes);
+        public Builder numberOfBrokerNodes(@Nullable Integer numberOfBrokerNodes) {
+            this.numberOfBrokerNodes = numberOfBrokerNodes;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder zookeeperConnectString(String zookeeperConnectString) {
-            this.zookeeperConnectString = Objects.requireNonNull(zookeeperConnectString);
+        public Builder zookeeperConnectString(@Nullable String zookeeperConnectString) {
+            this.zookeeperConnectString = zookeeperConnectString;
             return this;
         }
         @CustomType.Setter
-        public Builder zookeeperConnectStringTls(String zookeeperConnectStringTls) {
-            this.zookeeperConnectStringTls = Objects.requireNonNull(zookeeperConnectStringTls);
+        public Builder zookeeperConnectStringTls(@Nullable String zookeeperConnectStringTls) {
+            this.zookeeperConnectStringTls = zookeeperConnectStringTls;
             return this;
         }
         public GetClusterResult build() {

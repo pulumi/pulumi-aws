@@ -227,15 +227,15 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         example_repository = aws.codeartifact.Repository("exampleRepository",
             repository="example",
             domain=example_domain.domain)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = example_repository.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["codeartifact:ReadFromRepository"],
-            resources=[example_repository.arn],
-        )])
+            resources=[arn],
+        )]))
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
             repository=example_repository.repository,
             domain=example_domain.domain,
@@ -280,15 +280,15 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         example_repository = aws.codeartifact.Repository("exampleRepository",
             repository="example",
             domain=example_domain.domain)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = example_repository.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["codeartifact:ReadFromRepository"],
-            resources=[example_repository.arn],
-        )])
+            resources=[arn],
+        )]))
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
             repository=example_repository.repository,
             domain=example_domain.domain,
@@ -396,7 +396,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> pulumi.Output[str]:
+    def domain_owner(self) -> pulumi.Output[Optional[str]]:
         """
         The account number of the AWS account that owns the domain.
         """
@@ -412,7 +412,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyRevision")
-    def policy_revision(self) -> pulumi.Output[str]:
+    def policy_revision(self) -> pulumi.Output[Optional[str]]:
         """
         The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         """
@@ -428,7 +428,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Output[str]:
+    def resource_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the resource associated with the resource policy.
         """

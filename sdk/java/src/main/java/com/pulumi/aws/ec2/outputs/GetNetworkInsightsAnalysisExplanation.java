@@ -40,202 +40,204 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisExplanation {
-    private List<GetNetworkInsightsAnalysisExplanationAclRule> aclRules;
-    private List<GetNetworkInsightsAnalysisExplanationAcl> acls;
-    private String address;
-    private List<String> addresses;
-    private List<GetNetworkInsightsAnalysisExplanationAttachedTo> attachedTos;
-    private List<String> availabilityZones;
-    private List<String> cidrs;
-    private List<GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners;
-    private List<GetNetworkInsightsAnalysisExplanationComponent> components;
-    private List<GetNetworkInsightsAnalysisExplanationCustomerGateway> customerGateways;
-    private List<GetNetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs;
-    private List<GetNetworkInsightsAnalysisExplanationDestination> destinations;
-    private String direction;
-    private List<GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners;
-    private String explanationCode;
-    private List<GetNetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables;
-    private List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways;
-    private String loadBalancerArn;
-    private Integer loadBalancerListenerPort;
-    private List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup;
-    private List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups;
-    private Integer loadBalancerTargetPort;
-    private String missingComponent;
-    private List<GetNetworkInsightsAnalysisExplanationNatGateway> natGateways;
-    private List<GetNetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces;
-    private String packetField;
-    private Integer port;
-    private List<GetNetworkInsightsAnalysisExplanationPortRange> portRanges;
-    private List<GetNetworkInsightsAnalysisExplanationPrefixList> prefixLists;
-    private List<String> protocols;
-    private List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes;
-    private List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables;
-    private List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup;
-    private List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules;
-    private List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups;
-    private List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs;
-    private String state;
-    private List<GetNetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables;
-    private List<GetNetworkInsightsAnalysisExplanationSubnet> subnets;
-    private List<GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments;
-    private List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes;
-    private List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables;
-    private List<GetNetworkInsightsAnalysisExplanationTransitGateway> transitGateways;
-    private List<GetNetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints;
-    private List<GetNetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections;
-    private List<GetNetworkInsightsAnalysisExplanationVpc> vpcs;
-    private List<GetNetworkInsightsAnalysisExplanationVpnConnection> vpnConnections;
-    private List<GetNetworkInsightsAnalysisExplanationVpnGateway> vpnGateways;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationAclRule> aclRules;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationAcl> acls;
+    private @Nullable String address;
+    private @Nullable List<String> addresses;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationAttachedTo> attachedTos;
+    private @Nullable List<String> availabilityZones;
+    private @Nullable List<String> cidrs;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationComponent> components;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationCustomerGateway> customerGateways;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationDestination> destinations;
+    private @Nullable String direction;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners;
+    private @Nullable String explanationCode;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways;
+    private @Nullable String loadBalancerArn;
+    private @Nullable Integer loadBalancerListenerPort;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups;
+    private @Nullable Integer loadBalancerTargetPort;
+    private @Nullable String missingComponent;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationNatGateway> natGateways;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces;
+    private @Nullable String packetField;
+    private @Nullable Integer port;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationPortRange> portRanges;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationPrefixList> prefixLists;
+    private @Nullable List<String> protocols;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs;
+    private @Nullable String state;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationSubnet> subnets;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationTransitGateway> transitGateways;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationVpc> vpcs;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationVpnConnection> vpnConnections;
+    private @Nullable List<GetNetworkInsightsAnalysisExplanationVpnGateway> vpnGateways;
 
     private GetNetworkInsightsAnalysisExplanation() {}
     public List<GetNetworkInsightsAnalysisExplanationAclRule> aclRules() {
-        return this.aclRules;
+        return this.aclRules == null ? List.of() : this.aclRules;
     }
     public List<GetNetworkInsightsAnalysisExplanationAcl> acls() {
-        return this.acls;
+        return this.acls == null ? List.of() : this.acls;
     }
-    public String address() {
-        return this.address;
+    public Optional<String> address() {
+        return Optional.ofNullable(this.address);
     }
     public List<String> addresses() {
-        return this.addresses;
+        return this.addresses == null ? List.of() : this.addresses;
     }
     public List<GetNetworkInsightsAnalysisExplanationAttachedTo> attachedTos() {
-        return this.attachedTos;
+        return this.attachedTos == null ? List.of() : this.attachedTos;
     }
     public List<String> availabilityZones() {
-        return this.availabilityZones;
+        return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
     public List<String> cidrs() {
-        return this.cidrs;
+        return this.cidrs == null ? List.of() : this.cidrs;
     }
     public List<GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners() {
-        return this.classicLoadBalancerListeners;
+        return this.classicLoadBalancerListeners == null ? List.of() : this.classicLoadBalancerListeners;
     }
     public List<GetNetworkInsightsAnalysisExplanationComponent> components() {
-        return this.components;
+        return this.components == null ? List.of() : this.components;
     }
     public List<GetNetworkInsightsAnalysisExplanationCustomerGateway> customerGateways() {
-        return this.customerGateways;
+        return this.customerGateways == null ? List.of() : this.customerGateways;
     }
     public List<GetNetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs() {
-        return this.destinationVpcs;
+        return this.destinationVpcs == null ? List.of() : this.destinationVpcs;
     }
     public List<GetNetworkInsightsAnalysisExplanationDestination> destinations() {
-        return this.destinations;
+        return this.destinations == null ? List.of() : this.destinations;
     }
-    public String direction() {
-        return this.direction;
+    public Optional<String> direction() {
+        return Optional.ofNullable(this.direction);
     }
     public List<GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners() {
-        return this.elasticLoadBalancerListeners;
+        return this.elasticLoadBalancerListeners == null ? List.of() : this.elasticLoadBalancerListeners;
     }
-    public String explanationCode() {
-        return this.explanationCode;
+    public Optional<String> explanationCode() {
+        return Optional.ofNullable(this.explanationCode);
     }
     public List<GetNetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables() {
-        return this.ingressRouteTables;
+        return this.ingressRouteTables == null ? List.of() : this.ingressRouteTables;
     }
     public List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways() {
-        return this.internetGateways;
+        return this.internetGateways == null ? List.of() : this.internetGateways;
     }
-    public String loadBalancerArn() {
-        return this.loadBalancerArn;
+    public Optional<String> loadBalancerArn() {
+        return Optional.ofNullable(this.loadBalancerArn);
     }
-    public Integer loadBalancerListenerPort() {
-        return this.loadBalancerListenerPort;
+    public Optional<Integer> loadBalancerListenerPort() {
+        return Optional.ofNullable(this.loadBalancerListenerPort);
     }
     public List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup() {
-        return this.loadBalancerTargetGroup;
+        return this.loadBalancerTargetGroup == null ? List.of() : this.loadBalancerTargetGroup;
     }
     public List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups() {
-        return this.loadBalancerTargetGroups;
+        return this.loadBalancerTargetGroups == null ? List.of() : this.loadBalancerTargetGroups;
     }
-    public Integer loadBalancerTargetPort() {
-        return this.loadBalancerTargetPort;
+    public Optional<Integer> loadBalancerTargetPort() {
+        return Optional.ofNullable(this.loadBalancerTargetPort);
     }
-    public String missingComponent() {
-        return this.missingComponent;
+    public Optional<String> missingComponent() {
+        return Optional.ofNullable(this.missingComponent);
     }
     public List<GetNetworkInsightsAnalysisExplanationNatGateway> natGateways() {
-        return this.natGateways;
+        return this.natGateways == null ? List.of() : this.natGateways;
     }
     public List<GetNetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces() {
-        return this.networkInterfaces;
+        return this.networkInterfaces == null ? List.of() : this.networkInterfaces;
     }
-    public String packetField() {
-        return this.packetField;
+    public Optional<String> packetField() {
+        return Optional.ofNullable(this.packetField);
     }
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     public List<GetNetworkInsightsAnalysisExplanationPortRange> portRanges() {
-        return this.portRanges;
+        return this.portRanges == null ? List.of() : this.portRanges;
     }
     public List<GetNetworkInsightsAnalysisExplanationPrefixList> prefixLists() {
-        return this.prefixLists;
+        return this.prefixLists == null ? List.of() : this.prefixLists;
     }
     public List<String> protocols() {
-        return this.protocols;
+        return this.protocols == null ? List.of() : this.protocols;
     }
     public List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes() {
-        return this.routeTableRoutes;
+        return this.routeTableRoutes == null ? List.of() : this.routeTableRoutes;
     }
     public List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables() {
-        return this.routeTables;
+        return this.routeTables == null ? List.of() : this.routeTables;
     }
     public List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup() {
-        return this.securityGroup;
+        return this.securityGroup == null ? List.of() : this.securityGroup;
     }
     public List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules() {
-        return this.securityGroupRules;
+        return this.securityGroupRules == null ? List.of() : this.securityGroupRules;
     }
     public List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups() {
-        return this.securityGroups;
+        return this.securityGroups == null ? List.of() : this.securityGroups;
     }
     public List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs() {
-        return this.sourceVpcs;
+        return this.sourceVpcs == null ? List.of() : this.sourceVpcs;
     }
-    public String state() {
-        return this.state;
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
     }
     public List<GetNetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables() {
-        return this.subnetRouteTables;
+        return this.subnetRouteTables == null ? List.of() : this.subnetRouteTables;
     }
     public List<GetNetworkInsightsAnalysisExplanationSubnet> subnets() {
-        return this.subnets;
+        return this.subnets == null ? List.of() : this.subnets;
     }
     public List<GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments() {
-        return this.transitGatewayAttachments;
+        return this.transitGatewayAttachments == null ? List.of() : this.transitGatewayAttachments;
     }
     public List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes() {
-        return this.transitGatewayRouteTableRoutes;
+        return this.transitGatewayRouteTableRoutes == null ? List.of() : this.transitGatewayRouteTableRoutes;
     }
     public List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables() {
-        return this.transitGatewayRouteTables;
+        return this.transitGatewayRouteTables == null ? List.of() : this.transitGatewayRouteTables;
     }
     public List<GetNetworkInsightsAnalysisExplanationTransitGateway> transitGateways() {
-        return this.transitGateways;
+        return this.transitGateways == null ? List.of() : this.transitGateways;
     }
     public List<GetNetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints() {
-        return this.vpcEndpoints;
+        return this.vpcEndpoints == null ? List.of() : this.vpcEndpoints;
     }
     public List<GetNetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections() {
-        return this.vpcPeeringConnections;
+        return this.vpcPeeringConnections == null ? List.of() : this.vpcPeeringConnections;
     }
     public List<GetNetworkInsightsAnalysisExplanationVpc> vpcs() {
-        return this.vpcs;
+        return this.vpcs == null ? List.of() : this.vpcs;
     }
     public List<GetNetworkInsightsAnalysisExplanationVpnConnection> vpnConnections() {
-        return this.vpnConnections;
+        return this.vpnConnections == null ? List.of() : this.vpnConnections;
     }
     public List<GetNetworkInsightsAnalysisExplanationVpnGateway> vpnGateways() {
-        return this.vpnGateways;
+        return this.vpnGateways == null ? List.of() : this.vpnGateways;
     }
 
     public static Builder builder() {
@@ -247,54 +249,54 @@ public final class GetNetworkInsightsAnalysisExplanation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetNetworkInsightsAnalysisExplanationAclRule> aclRules;
-        private List<GetNetworkInsightsAnalysisExplanationAcl> acls;
-        private String address;
-        private List<String> addresses;
-        private List<GetNetworkInsightsAnalysisExplanationAttachedTo> attachedTos;
-        private List<String> availabilityZones;
-        private List<String> cidrs;
-        private List<GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners;
-        private List<GetNetworkInsightsAnalysisExplanationComponent> components;
-        private List<GetNetworkInsightsAnalysisExplanationCustomerGateway> customerGateways;
-        private List<GetNetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs;
-        private List<GetNetworkInsightsAnalysisExplanationDestination> destinations;
-        private String direction;
-        private List<GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners;
-        private String explanationCode;
-        private List<GetNetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables;
-        private List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways;
-        private String loadBalancerArn;
-        private Integer loadBalancerListenerPort;
-        private List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup;
-        private List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups;
-        private Integer loadBalancerTargetPort;
-        private String missingComponent;
-        private List<GetNetworkInsightsAnalysisExplanationNatGateway> natGateways;
-        private List<GetNetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces;
-        private String packetField;
-        private Integer port;
-        private List<GetNetworkInsightsAnalysisExplanationPortRange> portRanges;
-        private List<GetNetworkInsightsAnalysisExplanationPrefixList> prefixLists;
-        private List<String> protocols;
-        private List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes;
-        private List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables;
-        private List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup;
-        private List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules;
-        private List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups;
-        private List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs;
-        private String state;
-        private List<GetNetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables;
-        private List<GetNetworkInsightsAnalysisExplanationSubnet> subnets;
-        private List<GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments;
-        private List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes;
-        private List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables;
-        private List<GetNetworkInsightsAnalysisExplanationTransitGateway> transitGateways;
-        private List<GetNetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints;
-        private List<GetNetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections;
-        private List<GetNetworkInsightsAnalysisExplanationVpc> vpcs;
-        private List<GetNetworkInsightsAnalysisExplanationVpnConnection> vpnConnections;
-        private List<GetNetworkInsightsAnalysisExplanationVpnGateway> vpnGateways;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationAclRule> aclRules;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationAcl> acls;
+        private @Nullable String address;
+        private @Nullable List<String> addresses;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationAttachedTo> attachedTos;
+        private @Nullable List<String> availabilityZones;
+        private @Nullable List<String> cidrs;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationComponent> components;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationCustomerGateway> customerGateways;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationDestination> destinations;
+        private @Nullable String direction;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners;
+        private @Nullable String explanationCode;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways;
+        private @Nullable String loadBalancerArn;
+        private @Nullable Integer loadBalancerListenerPort;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups;
+        private @Nullable Integer loadBalancerTargetPort;
+        private @Nullable String missingComponent;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationNatGateway> natGateways;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces;
+        private @Nullable String packetField;
+        private @Nullable Integer port;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationPortRange> portRanges;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationPrefixList> prefixLists;
+        private @Nullable List<String> protocols;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs;
+        private @Nullable String state;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationSubnet> subnets;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationTransitGateway> transitGateways;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationVpc> vpcs;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationVpnConnection> vpnConnections;
+        private @Nullable List<GetNetworkInsightsAnalysisExplanationVpnGateway> vpnGateways;
         public Builder() {}
         public Builder(GetNetworkInsightsAnalysisExplanation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -349,354 +351,354 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
 
         @CustomType.Setter
-        public Builder aclRules(List<GetNetworkInsightsAnalysisExplanationAclRule> aclRules) {
-            this.aclRules = Objects.requireNonNull(aclRules);
+        public Builder aclRules(@Nullable List<GetNetworkInsightsAnalysisExplanationAclRule> aclRules) {
+            this.aclRules = aclRules;
             return this;
         }
         public Builder aclRules(GetNetworkInsightsAnalysisExplanationAclRule... aclRules) {
             return aclRules(List.of(aclRules));
         }
         @CustomType.Setter
-        public Builder acls(List<GetNetworkInsightsAnalysisExplanationAcl> acls) {
-            this.acls = Objects.requireNonNull(acls);
+        public Builder acls(@Nullable List<GetNetworkInsightsAnalysisExplanationAcl> acls) {
+            this.acls = acls;
             return this;
         }
         public Builder acls(GetNetworkInsightsAnalysisExplanationAcl... acls) {
             return acls(List.of(acls));
         }
         @CustomType.Setter
-        public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+        public Builder address(@Nullable String address) {
+            this.address = address;
             return this;
         }
         @CustomType.Setter
-        public Builder addresses(List<String> addresses) {
-            this.addresses = Objects.requireNonNull(addresses);
+        public Builder addresses(@Nullable List<String> addresses) {
+            this.addresses = addresses;
             return this;
         }
         public Builder addresses(String... addresses) {
             return addresses(List.of(addresses));
         }
         @CustomType.Setter
-        public Builder attachedTos(List<GetNetworkInsightsAnalysisExplanationAttachedTo> attachedTos) {
-            this.attachedTos = Objects.requireNonNull(attachedTos);
+        public Builder attachedTos(@Nullable List<GetNetworkInsightsAnalysisExplanationAttachedTo> attachedTos) {
+            this.attachedTos = attachedTos;
             return this;
         }
         public Builder attachedTos(GetNetworkInsightsAnalysisExplanationAttachedTo... attachedTos) {
             return attachedTos(List.of(attachedTos));
         }
         @CustomType.Setter
-        public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+        public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
         @CustomType.Setter
-        public Builder cidrs(List<String> cidrs) {
-            this.cidrs = Objects.requireNonNull(cidrs);
+        public Builder cidrs(@Nullable List<String> cidrs) {
+            this.cidrs = cidrs;
             return this;
         }
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
         }
         @CustomType.Setter
-        public Builder classicLoadBalancerListeners(List<GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners) {
-            this.classicLoadBalancerListeners = Objects.requireNonNull(classicLoadBalancerListeners);
+        public Builder classicLoadBalancerListeners(@Nullable List<GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners) {
+            this.classicLoadBalancerListeners = classicLoadBalancerListeners;
             return this;
         }
         public Builder classicLoadBalancerListeners(GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener... classicLoadBalancerListeners) {
             return classicLoadBalancerListeners(List.of(classicLoadBalancerListeners));
         }
         @CustomType.Setter
-        public Builder components(List<GetNetworkInsightsAnalysisExplanationComponent> components) {
-            this.components = Objects.requireNonNull(components);
+        public Builder components(@Nullable List<GetNetworkInsightsAnalysisExplanationComponent> components) {
+            this.components = components;
             return this;
         }
         public Builder components(GetNetworkInsightsAnalysisExplanationComponent... components) {
             return components(List.of(components));
         }
         @CustomType.Setter
-        public Builder customerGateways(List<GetNetworkInsightsAnalysisExplanationCustomerGateway> customerGateways) {
-            this.customerGateways = Objects.requireNonNull(customerGateways);
+        public Builder customerGateways(@Nullable List<GetNetworkInsightsAnalysisExplanationCustomerGateway> customerGateways) {
+            this.customerGateways = customerGateways;
             return this;
         }
         public Builder customerGateways(GetNetworkInsightsAnalysisExplanationCustomerGateway... customerGateways) {
             return customerGateways(List.of(customerGateways));
         }
         @CustomType.Setter
-        public Builder destinationVpcs(List<GetNetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs) {
-            this.destinationVpcs = Objects.requireNonNull(destinationVpcs);
+        public Builder destinationVpcs(@Nullable List<GetNetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs) {
+            this.destinationVpcs = destinationVpcs;
             return this;
         }
         public Builder destinationVpcs(GetNetworkInsightsAnalysisExplanationDestinationVpc... destinationVpcs) {
             return destinationVpcs(List.of(destinationVpcs));
         }
         @CustomType.Setter
-        public Builder destinations(List<GetNetworkInsightsAnalysisExplanationDestination> destinations) {
-            this.destinations = Objects.requireNonNull(destinations);
+        public Builder destinations(@Nullable List<GetNetworkInsightsAnalysisExplanationDestination> destinations) {
+            this.destinations = destinations;
             return this;
         }
         public Builder destinations(GetNetworkInsightsAnalysisExplanationDestination... destinations) {
             return destinations(List.of(destinations));
         }
         @CustomType.Setter
-        public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+        public Builder direction(@Nullable String direction) {
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
-        public Builder elasticLoadBalancerListeners(List<GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners) {
-            this.elasticLoadBalancerListeners = Objects.requireNonNull(elasticLoadBalancerListeners);
+        public Builder elasticLoadBalancerListeners(@Nullable List<GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners) {
+            this.elasticLoadBalancerListeners = elasticLoadBalancerListeners;
             return this;
         }
         public Builder elasticLoadBalancerListeners(GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener... elasticLoadBalancerListeners) {
             return elasticLoadBalancerListeners(List.of(elasticLoadBalancerListeners));
         }
         @CustomType.Setter
-        public Builder explanationCode(String explanationCode) {
-            this.explanationCode = Objects.requireNonNull(explanationCode);
+        public Builder explanationCode(@Nullable String explanationCode) {
+            this.explanationCode = explanationCode;
             return this;
         }
         @CustomType.Setter
-        public Builder ingressRouteTables(List<GetNetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables) {
-            this.ingressRouteTables = Objects.requireNonNull(ingressRouteTables);
+        public Builder ingressRouteTables(@Nullable List<GetNetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables) {
+            this.ingressRouteTables = ingressRouteTables;
             return this;
         }
         public Builder ingressRouteTables(GetNetworkInsightsAnalysisExplanationIngressRouteTable... ingressRouteTables) {
             return ingressRouteTables(List.of(ingressRouteTables));
         }
         @CustomType.Setter
-        public Builder internetGateways(List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways) {
-            this.internetGateways = Objects.requireNonNull(internetGateways);
+        public Builder internetGateways(@Nullable List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways) {
+            this.internetGateways = internetGateways;
             return this;
         }
         public Builder internetGateways(GetNetworkInsightsAnalysisExplanationInternetGateway... internetGateways) {
             return internetGateways(List.of(internetGateways));
         }
         @CustomType.Setter
-        public Builder loadBalancerArn(String loadBalancerArn) {
-            this.loadBalancerArn = Objects.requireNonNull(loadBalancerArn);
+        public Builder loadBalancerArn(@Nullable String loadBalancerArn) {
+            this.loadBalancerArn = loadBalancerArn;
             return this;
         }
         @CustomType.Setter
-        public Builder loadBalancerListenerPort(Integer loadBalancerListenerPort) {
-            this.loadBalancerListenerPort = Objects.requireNonNull(loadBalancerListenerPort);
+        public Builder loadBalancerListenerPort(@Nullable Integer loadBalancerListenerPort) {
+            this.loadBalancerListenerPort = loadBalancerListenerPort;
             return this;
         }
         @CustomType.Setter
-        public Builder loadBalancerTargetGroup(List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup) {
-            this.loadBalancerTargetGroup = Objects.requireNonNull(loadBalancerTargetGroup);
+        public Builder loadBalancerTargetGroup(@Nullable List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup) {
+            this.loadBalancerTargetGroup = loadBalancerTargetGroup;
             return this;
         }
         public Builder loadBalancerTargetGroup(GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup... loadBalancerTargetGroup) {
             return loadBalancerTargetGroup(List.of(loadBalancerTargetGroup));
         }
         @CustomType.Setter
-        public Builder loadBalancerTargetGroups(List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups) {
-            this.loadBalancerTargetGroups = Objects.requireNonNull(loadBalancerTargetGroups);
+        public Builder loadBalancerTargetGroups(@Nullable List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups) {
+            this.loadBalancerTargetGroups = loadBalancerTargetGroups;
             return this;
         }
         public Builder loadBalancerTargetGroups(GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup... loadBalancerTargetGroups) {
             return loadBalancerTargetGroups(List.of(loadBalancerTargetGroups));
         }
         @CustomType.Setter
-        public Builder loadBalancerTargetPort(Integer loadBalancerTargetPort) {
-            this.loadBalancerTargetPort = Objects.requireNonNull(loadBalancerTargetPort);
+        public Builder loadBalancerTargetPort(@Nullable Integer loadBalancerTargetPort) {
+            this.loadBalancerTargetPort = loadBalancerTargetPort;
             return this;
         }
         @CustomType.Setter
-        public Builder missingComponent(String missingComponent) {
-            this.missingComponent = Objects.requireNonNull(missingComponent);
+        public Builder missingComponent(@Nullable String missingComponent) {
+            this.missingComponent = missingComponent;
             return this;
         }
         @CustomType.Setter
-        public Builder natGateways(List<GetNetworkInsightsAnalysisExplanationNatGateway> natGateways) {
-            this.natGateways = Objects.requireNonNull(natGateways);
+        public Builder natGateways(@Nullable List<GetNetworkInsightsAnalysisExplanationNatGateway> natGateways) {
+            this.natGateways = natGateways;
             return this;
         }
         public Builder natGateways(GetNetworkInsightsAnalysisExplanationNatGateway... natGateways) {
             return natGateways(List.of(natGateways));
         }
         @CustomType.Setter
-        public Builder networkInterfaces(List<GetNetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces) {
-            this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
+        public Builder networkInterfaces(@Nullable List<GetNetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces) {
+            this.networkInterfaces = networkInterfaces;
             return this;
         }
         public Builder networkInterfaces(GetNetworkInsightsAnalysisExplanationNetworkInterface... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
         @CustomType.Setter
-        public Builder packetField(String packetField) {
-            this.packetField = Objects.requireNonNull(packetField);
+        public Builder packetField(@Nullable String packetField) {
+            this.packetField = packetField;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder portRanges(List<GetNetworkInsightsAnalysisExplanationPortRange> portRanges) {
-            this.portRanges = Objects.requireNonNull(portRanges);
+        public Builder portRanges(@Nullable List<GetNetworkInsightsAnalysisExplanationPortRange> portRanges) {
+            this.portRanges = portRanges;
             return this;
         }
         public Builder portRanges(GetNetworkInsightsAnalysisExplanationPortRange... portRanges) {
             return portRanges(List.of(portRanges));
         }
         @CustomType.Setter
-        public Builder prefixLists(List<GetNetworkInsightsAnalysisExplanationPrefixList> prefixLists) {
-            this.prefixLists = Objects.requireNonNull(prefixLists);
+        public Builder prefixLists(@Nullable List<GetNetworkInsightsAnalysisExplanationPrefixList> prefixLists) {
+            this.prefixLists = prefixLists;
             return this;
         }
         public Builder prefixLists(GetNetworkInsightsAnalysisExplanationPrefixList... prefixLists) {
             return prefixLists(List.of(prefixLists));
         }
         @CustomType.Setter
-        public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+        public Builder protocols(@Nullable List<String> protocols) {
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
         @CustomType.Setter
-        public Builder routeTableRoutes(List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes) {
-            this.routeTableRoutes = Objects.requireNonNull(routeTableRoutes);
+        public Builder routeTableRoutes(@Nullable List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes) {
+            this.routeTableRoutes = routeTableRoutes;
             return this;
         }
         public Builder routeTableRoutes(GetNetworkInsightsAnalysisExplanationRouteTableRoute... routeTableRoutes) {
             return routeTableRoutes(List.of(routeTableRoutes));
         }
         @CustomType.Setter
-        public Builder routeTables(List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables) {
-            this.routeTables = Objects.requireNonNull(routeTables);
+        public Builder routeTables(@Nullable List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables) {
+            this.routeTables = routeTables;
             return this;
         }
         public Builder routeTables(GetNetworkInsightsAnalysisExplanationRouteTable... routeTables) {
             return routeTables(List.of(routeTables));
         }
         @CustomType.Setter
-        public Builder securityGroup(List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup) {
-            this.securityGroup = Objects.requireNonNull(securityGroup);
+        public Builder securityGroup(@Nullable List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup) {
+            this.securityGroup = securityGroup;
             return this;
         }
         public Builder securityGroup(GetNetworkInsightsAnalysisExplanationSecurityGroup... securityGroup) {
             return securityGroup(List.of(securityGroup));
         }
         @CustomType.Setter
-        public Builder securityGroupRules(List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules) {
-            this.securityGroupRules = Objects.requireNonNull(securityGroupRules);
+        public Builder securityGroupRules(@Nullable List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules) {
+            this.securityGroupRules = securityGroupRules;
             return this;
         }
         public Builder securityGroupRules(GetNetworkInsightsAnalysisExplanationSecurityGroupRule... securityGroupRules) {
             return securityGroupRules(List.of(securityGroupRules));
         }
         @CustomType.Setter
-        public Builder securityGroups(List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+        public Builder securityGroups(@Nullable List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups) {
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(GetNetworkInsightsAnalysisExplanationSecurityGroup... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
         @CustomType.Setter
-        public Builder sourceVpcs(List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs) {
-            this.sourceVpcs = Objects.requireNonNull(sourceVpcs);
+        public Builder sourceVpcs(@Nullable List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs) {
+            this.sourceVpcs = sourceVpcs;
             return this;
         }
         public Builder sourceVpcs(GetNetworkInsightsAnalysisExplanationSourceVpc... sourceVpcs) {
             return sourceVpcs(List.of(sourceVpcs));
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+        public Builder state(@Nullable String state) {
+            this.state = state;
             return this;
         }
         @CustomType.Setter
-        public Builder subnetRouteTables(List<GetNetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables) {
-            this.subnetRouteTables = Objects.requireNonNull(subnetRouteTables);
+        public Builder subnetRouteTables(@Nullable List<GetNetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables) {
+            this.subnetRouteTables = subnetRouteTables;
             return this;
         }
         public Builder subnetRouteTables(GetNetworkInsightsAnalysisExplanationSubnetRouteTable... subnetRouteTables) {
             return subnetRouteTables(List.of(subnetRouteTables));
         }
         @CustomType.Setter
-        public Builder subnets(List<GetNetworkInsightsAnalysisExplanationSubnet> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+        public Builder subnets(@Nullable List<GetNetworkInsightsAnalysisExplanationSubnet> subnets) {
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(GetNetworkInsightsAnalysisExplanationSubnet... subnets) {
             return subnets(List.of(subnets));
         }
         @CustomType.Setter
-        public Builder transitGatewayAttachments(List<GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments) {
-            this.transitGatewayAttachments = Objects.requireNonNull(transitGatewayAttachments);
+        public Builder transitGatewayAttachments(@Nullable List<GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments) {
+            this.transitGatewayAttachments = transitGatewayAttachments;
             return this;
         }
         public Builder transitGatewayAttachments(GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment... transitGatewayAttachments) {
             return transitGatewayAttachments(List.of(transitGatewayAttachments));
         }
         @CustomType.Setter
-        public Builder transitGatewayRouteTableRoutes(List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes) {
-            this.transitGatewayRouteTableRoutes = Objects.requireNonNull(transitGatewayRouteTableRoutes);
+        public Builder transitGatewayRouteTableRoutes(@Nullable List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes) {
+            this.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
             return this;
         }
         public Builder transitGatewayRouteTableRoutes(GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute... transitGatewayRouteTableRoutes) {
             return transitGatewayRouteTableRoutes(List.of(transitGatewayRouteTableRoutes));
         }
         @CustomType.Setter
-        public Builder transitGatewayRouteTables(List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables) {
-            this.transitGatewayRouteTables = Objects.requireNonNull(transitGatewayRouteTables);
+        public Builder transitGatewayRouteTables(@Nullable List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables) {
+            this.transitGatewayRouteTables = transitGatewayRouteTables;
             return this;
         }
         public Builder transitGatewayRouteTables(GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable... transitGatewayRouteTables) {
             return transitGatewayRouteTables(List.of(transitGatewayRouteTables));
         }
         @CustomType.Setter
-        public Builder transitGateways(List<GetNetworkInsightsAnalysisExplanationTransitGateway> transitGateways) {
-            this.transitGateways = Objects.requireNonNull(transitGateways);
+        public Builder transitGateways(@Nullable List<GetNetworkInsightsAnalysisExplanationTransitGateway> transitGateways) {
+            this.transitGateways = transitGateways;
             return this;
         }
         public Builder transitGateways(GetNetworkInsightsAnalysisExplanationTransitGateway... transitGateways) {
             return transitGateways(List.of(transitGateways));
         }
         @CustomType.Setter
-        public Builder vpcEndpoints(List<GetNetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints) {
-            this.vpcEndpoints = Objects.requireNonNull(vpcEndpoints);
+        public Builder vpcEndpoints(@Nullable List<GetNetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints) {
+            this.vpcEndpoints = vpcEndpoints;
             return this;
         }
         public Builder vpcEndpoints(GetNetworkInsightsAnalysisExplanationVpcEndpoint... vpcEndpoints) {
             return vpcEndpoints(List.of(vpcEndpoints));
         }
         @CustomType.Setter
-        public Builder vpcPeeringConnections(List<GetNetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections) {
-            this.vpcPeeringConnections = Objects.requireNonNull(vpcPeeringConnections);
+        public Builder vpcPeeringConnections(@Nullable List<GetNetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections) {
+            this.vpcPeeringConnections = vpcPeeringConnections;
             return this;
         }
         public Builder vpcPeeringConnections(GetNetworkInsightsAnalysisExplanationVpcPeeringConnection... vpcPeeringConnections) {
             return vpcPeeringConnections(List.of(vpcPeeringConnections));
         }
         @CustomType.Setter
-        public Builder vpcs(List<GetNetworkInsightsAnalysisExplanationVpc> vpcs) {
-            this.vpcs = Objects.requireNonNull(vpcs);
+        public Builder vpcs(@Nullable List<GetNetworkInsightsAnalysisExplanationVpc> vpcs) {
+            this.vpcs = vpcs;
             return this;
         }
         public Builder vpcs(GetNetworkInsightsAnalysisExplanationVpc... vpcs) {
             return vpcs(List.of(vpcs));
         }
         @CustomType.Setter
-        public Builder vpnConnections(List<GetNetworkInsightsAnalysisExplanationVpnConnection> vpnConnections) {
-            this.vpnConnections = Objects.requireNonNull(vpnConnections);
+        public Builder vpnConnections(@Nullable List<GetNetworkInsightsAnalysisExplanationVpnConnection> vpnConnections) {
+            this.vpnConnections = vpnConnections;
             return this;
         }
         public Builder vpnConnections(GetNetworkInsightsAnalysisExplanationVpnConnection... vpnConnections) {
             return vpnConnections(List.of(vpnConnections));
         }
         @CustomType.Setter
-        public Builder vpnGateways(List<GetNetworkInsightsAnalysisExplanationVpnGateway> vpnGateways) {
-            this.vpnGateways = Objects.requireNonNull(vpnGateways);
+        public Builder vpnGateways(@Nullable List<GetNetworkInsightsAnalysisExplanationVpnGateway> vpnGateways) {
+            this.vpnGateways = vpnGateways;
             return this;
         }
         public Builder vpnGateways(GetNetworkInsightsAnalysisExplanationVpnGateway... vpnGateways) {

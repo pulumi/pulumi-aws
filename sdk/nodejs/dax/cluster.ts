@@ -63,7 +63,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The ARN of the DAX cluster
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * List of Availability Zones in which the
      * nodes will be created
@@ -72,7 +72,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The DNS name of the DAX cluster without the port appended
      */
-    public /*out*/ readonly clusterAddress!: pulumi.Output<string>;
+    public /*out*/ readonly clusterAddress!: pulumi.Output<string | undefined>;
     /**
      * The type of encryption the
      * cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
@@ -88,7 +88,7 @@ export class Cluster extends pulumi.CustomResource {
      * The configuration endpoint for this DAX cluster,
      * consisting of a DNS name and a port number
      */
-    public /*out*/ readonly configurationEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly configurationEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Description for the cluster
      */
@@ -105,7 +105,7 @@ export class Cluster extends pulumi.CustomResource {
      * (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
      * `sun:05:00-sun:09:00`
      */
-    public readonly maintenanceWindow!: pulumi.Output<string>;
+    public readonly maintenanceWindow!: pulumi.Output<string | undefined>;
     /**
      * The compute and memory capacity of the nodes. See
      * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
@@ -116,7 +116,7 @@ export class Cluster extends pulumi.CustomResource {
      * `availabilityZone`. Referenceable e.g., as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
-    public /*out*/ readonly nodes!: pulumi.Output<outputs.dax.ClusterNode[]>;
+    public /*out*/ readonly nodes!: pulumi.Output<outputs.dax.ClusterNode[] | undefined>;
     /**
      * An Amazon Resource Name (ARN) of an
      * SNS topic to send DAX notifications to. Example:
@@ -127,11 +127,11 @@ export class Cluster extends pulumi.CustomResource {
      * Name of the parameter group to associate
      * with this DAX cluster
      */
-    public readonly parameterGroupName!: pulumi.Output<string>;
+    public readonly parameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * The port used by the configuration endpoint
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
     /**
      * The number of nodes in the DAX cluster. A
      * replication factor of 1 will create a single-node cluster, without any read
@@ -142,7 +142,7 @@ export class Cluster extends pulumi.CustomResource {
      * One or more VPC security groups associated
      * with the cluster
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * Encrypt at rest options
      */
@@ -151,7 +151,7 @@ export class Cluster extends pulumi.CustomResource {
      * Name of the subnet group to be used for the
      * cluster
      */
-    public readonly subnetGroupName!: pulumi.Output<string>;
+    public readonly subnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

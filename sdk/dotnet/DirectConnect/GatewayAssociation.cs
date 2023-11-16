@@ -141,26 +141,26 @@ namespace Pulumi.Aws.DirectConnect
         /// Used for single account Direct Connect gateway associations.
         /// </summary>
         [Output("associatedGatewayId")]
-        public Output<string> AssociatedGatewayId { get; private set; } = null!;
+        public Output<string?> AssociatedGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// Used for cross-account Direct Connect gateway associations.
         /// </summary>
         [Output("associatedGatewayOwnerAccountId")]
-        public Output<string> AssociatedGatewayOwnerAccountId { get; private set; } = null!;
+        public Output<string?> AssociatedGatewayOwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         /// </summary>
         [Output("associatedGatewayType")]
-        public Output<string> AssociatedGatewayType { get; private set; } = null!;
+        public Output<string?> AssociatedGatewayType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Direct Connect gateway association.
         /// </summary>
         [Output("dxGatewayAssociationId")]
-        public Output<string> DxGatewayAssociationId { get; private set; } = null!;
+        public Output<string?> DxGatewayAssociationId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Direct Connect gateway.
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The ID of the AWS account that owns the Direct Connect gateway.
         /// </summary>
         [Output("dxGatewayOwnerAccountId")]
-        public Output<string> DxGatewayOwnerAccountId { get; private set; } = null!;
+        public Output<string?> DxGatewayOwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Direct Connect gateway association proposal.

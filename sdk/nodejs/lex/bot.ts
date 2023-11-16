@@ -86,12 +86,12 @@ export class Bot extends pulumi.CustomResource {
      * The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
      */
     public readonly abortStatement!: pulumi.Output<outputs.lex.BotAbortStatement>;
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Checksum identifying the version of the bot that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the bot.
      */
-    public /*out*/ readonly checksum!: pulumi.Output<string>;
+    public /*out*/ readonly checksum!: pulumi.Output<string | undefined>;
     /**
      * By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
      */
@@ -107,7 +107,7 @@ export class Bot extends pulumi.CustomResource {
     /**
      * The date when the bot version was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * A description of the bot. Must be less than or equal to 200 characters in length.
      */
@@ -123,7 +123,7 @@ export class Bot extends pulumi.CustomResource {
     /**
      * If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
      */
-    public /*out*/ readonly failureReason!: pulumi.Output<string>;
+    public /*out*/ readonly failureReason!: pulumi.Output<string | undefined>;
     /**
      * The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
      */
@@ -135,7 +135,7 @@ export class Bot extends pulumi.CustomResource {
     /**
      * The date when the $LATEST version of this bot was updated.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string | undefined>;
     /**
      * Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
      */
@@ -158,15 +158,15 @@ export class Bot extends pulumi.CustomResource {
      * build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
      * failureReason response element.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * The version of the bot.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
      */
-    public readonly voiceId!: pulumi.Output<string>;
+    public readonly voiceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Bot resource with the given unique name, arguments, and options.

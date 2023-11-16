@@ -585,7 +585,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the resource.
         """
@@ -593,7 +593,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID.
         """
@@ -601,7 +601,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the template was created.
         """
@@ -609,7 +609,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time that the template was last updated.
         """
@@ -641,7 +641,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceEntityArn")
-    def source_entity_arn(self) -> pulumi.Output[str]:
+    def source_entity_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
         """
@@ -649,7 +649,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The template creation status.
         """
@@ -694,7 +694,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionNumber")
-    def version_number(self) -> pulumi.Output[int]:
+    def version_number(self) -> pulumi.Output[Optional[int]]:
         """
         The version number of the template version.
         """

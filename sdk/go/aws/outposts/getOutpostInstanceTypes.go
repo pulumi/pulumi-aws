@@ -58,7 +58,7 @@ type GetOutpostInstanceTypesArgs struct {
 type GetOutpostInstanceTypesResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Set of instance types.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 }
@@ -106,8 +106,8 @@ func (o GetOutpostInstanceTypesResultOutput) Arn() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetOutpostInstanceTypesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostInstanceTypesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetOutpostInstanceTypesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Set of instance types.

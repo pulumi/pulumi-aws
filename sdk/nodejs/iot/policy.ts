@@ -62,11 +62,11 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS to this policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The default version of this policy.
      */
-    public /*out*/ readonly defaultVersionId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultVersionId!: pulumi.Output<string | undefined>;
     /**
      * The name of the policy.
      */

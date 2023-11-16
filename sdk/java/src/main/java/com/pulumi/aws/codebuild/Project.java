@@ -258,14 +258,14 @@ public class Project extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the CodeBuild project.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Configuration block. Detailed below.
@@ -300,14 +300,14 @@ public class Project extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="badgeUrl", refs={String.class}, tree="[0]")
-    private Output<String> badgeUrl;
+    private Output</* @Nullable */ String> badgeUrl;
 
     /**
      * @return URL of the build badge when `badge_enabled` is enabled.
      * 
      */
-    public Output<String> badgeUrl() {
-        return this.badgeUrl;
+    public Output<Optional<String>> badgeUrl() {
+        return Codegen.optional(this.badgeUrl);
     }
     /**
      * Defines the batch build options for the project.
@@ -370,28 +370,28 @@ public class Project extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Short description of the project.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
      * 
      */
     @Export(name="encryptionKey", refs={String.class}, tree="[0]")
-    private Output<String> encryptionKey;
+    private Output</* @Nullable */ String> encryptionKey;
 
     /**
      * @return AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
      * 
      */
-    public Output<String> encryptionKey() {
-        return this.encryptionKey;
+    public Output<Optional<String>> encryptionKey() {
+        return Codegen.optional(this.encryptionKey);
     }
     /**
      * Configuration block. Detailed below.
@@ -468,14 +468,14 @@ public class Project extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publicProjectAlias", refs={String.class}, tree="[0]")
-    private Output<String> publicProjectAlias;
+    private Output</* @Nullable */ String> publicProjectAlias;
 
     /**
      * @return The project identifier used with the public build APIs.
      * 
      */
-    public Output<String> publicProjectAlias() {
-        return this.publicProjectAlias;
+    public Output<Optional<String>> publicProjectAlias() {
+        return Codegen.optional(this.publicProjectAlias);
     }
     /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.

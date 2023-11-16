@@ -75,7 +75,7 @@ export class FindingsFilter extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Findings Filter.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A custom description of the filter. The description can contain as many as 512 characters.
      */
@@ -91,11 +91,11 @@ export class FindingsFilter extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      */
-    public readonly position!: pulumi.Output<number>;
+    public readonly position!: pulumi.Output<number | undefined>;
     /**
      * A map of key-value pairs that specifies the tags to associate with the filter.
      */

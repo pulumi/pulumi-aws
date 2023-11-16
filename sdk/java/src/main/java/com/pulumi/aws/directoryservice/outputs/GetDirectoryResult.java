@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectoryResult {
@@ -19,96 +21,96 @@ public final class GetDirectoryResult {
      * @return Access URL for the directory/connector, such as http://alias.awsapps.com.
      * 
      */
-    private String accessUrl;
+    private @Nullable String accessUrl;
     /**
      * @return Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
      * 
      */
-    private String alias;
-    private List<GetDirectoryConnectSetting> connectSettings;
+    private @Nullable String alias;
+    private @Nullable List<GetDirectoryConnectSetting> connectSettings;
     /**
      * @return Textual description for the directory/connector.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String directoryId;
     /**
      * @return List of IP addresses of the DNS servers for the directory/connector.
      * 
      */
-    private List<String> dnsIpAddresses;
+    private @Nullable List<String> dnsIpAddresses;
     /**
      * @return (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
      * 
      */
-    private String edition;
+    private @Nullable String edition;
     /**
      * @return Directory/connector single-sign on status.
      * 
      */
-    private Boolean enableSso;
+    private @Nullable Boolean enableSso;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Fully qualified name for the directory/connector.
      * 
      */
-    private String name;
-    private List<GetDirectoryRadiusSetting> radiusSettings;
+    private @Nullable String name;
+    private @Nullable List<GetDirectoryRadiusSetting> radiusSettings;
     /**
      * @return ID of the security group created by the directory/connector.
      * 
      */
-    private String securityGroupId;
+    private @Nullable String securityGroupId;
     /**
      * @return Short name of the directory/connector, such as `CORP`.
      * 
      */
-    private String shortName;
+    private @Nullable String shortName;
     /**
      * @return (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
      * 
      */
-    private String size;
+    private @Nullable String size;
     /**
      * @return A map of tags assigned to the directory/connector.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      * 
      */
-    private String type;
-    private List<GetDirectoryVpcSetting> vpcSettings;
+    private @Nullable String type;
+    private @Nullable List<GetDirectoryVpcSetting> vpcSettings;
 
     private GetDirectoryResult() {}
     /**
      * @return Access URL for the directory/connector, such as http://alias.awsapps.com.
      * 
      */
-    public String accessUrl() {
-        return this.accessUrl;
+    public Optional<String> accessUrl() {
+        return Optional.ofNullable(this.accessUrl);
     }
     /**
      * @return Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
      * 
      */
-    public String alias() {
-        return this.alias;
+    public Optional<String> alias() {
+        return Optional.ofNullable(this.alias);
     }
     public List<GetDirectoryConnectSetting> connectSettings() {
-        return this.connectSettings;
+        return this.connectSettings == null ? List.of() : this.connectSettings;
     }
     /**
      * @return Textual description for the directory/connector.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String directoryId() {
         return this.directoryId;
@@ -118,76 +120,76 @@ public final class GetDirectoryResult {
      * 
      */
     public List<String> dnsIpAddresses() {
-        return this.dnsIpAddresses;
+        return this.dnsIpAddresses == null ? List.of() : this.dnsIpAddresses;
     }
     /**
      * @return (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
      * 
      */
-    public String edition() {
-        return this.edition;
+    public Optional<String> edition() {
+        return Optional.ofNullable(this.edition);
     }
     /**
      * @return Directory/connector single-sign on status.
      * 
      */
-    public Boolean enableSso() {
-        return this.enableSso;
+    public Optional<Boolean> enableSso() {
+        return Optional.ofNullable(this.enableSso);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Fully qualified name for the directory/connector.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public List<GetDirectoryRadiusSetting> radiusSettings() {
-        return this.radiusSettings;
+        return this.radiusSettings == null ? List.of() : this.radiusSettings;
     }
     /**
      * @return ID of the security group created by the directory/connector.
      * 
      */
-    public String securityGroupId() {
-        return this.securityGroupId;
+    public Optional<String> securityGroupId() {
+        return Optional.ofNullable(this.securityGroupId);
     }
     /**
      * @return Short name of the directory/connector, such as `CORP`.
      * 
      */
-    public String shortName() {
-        return this.shortName;
+    public Optional<String> shortName() {
+        return Optional.ofNullable(this.shortName);
     }
     /**
      * @return (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
      * 
      */
-    public String size() {
-        return this.size;
+    public Optional<String> size() {
+        return Optional.ofNullable(this.size);
     }
     /**
      * @return A map of tags assigned to the directory/connector.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
     public List<GetDirectoryVpcSetting> vpcSettings() {
-        return this.vpcSettings;
+        return this.vpcSettings == null ? List.of() : this.vpcSettings;
     }
 
     public static Builder builder() {
@@ -199,23 +201,23 @@ public final class GetDirectoryResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accessUrl;
-        private String alias;
-        private List<GetDirectoryConnectSetting> connectSettings;
-        private String description;
+        private @Nullable String accessUrl;
+        private @Nullable String alias;
+        private @Nullable List<GetDirectoryConnectSetting> connectSettings;
+        private @Nullable String description;
         private String directoryId;
-        private List<String> dnsIpAddresses;
-        private String edition;
-        private Boolean enableSso;
-        private String id;
-        private String name;
-        private List<GetDirectoryRadiusSetting> radiusSettings;
-        private String securityGroupId;
-        private String shortName;
-        private String size;
-        private Map<String,String> tags;
-        private String type;
-        private List<GetDirectoryVpcSetting> vpcSettings;
+        private @Nullable List<String> dnsIpAddresses;
+        private @Nullable String edition;
+        private @Nullable Boolean enableSso;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable List<GetDirectoryRadiusSetting> radiusSettings;
+        private @Nullable String securityGroupId;
+        private @Nullable String shortName;
+        private @Nullable String size;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
+        private @Nullable List<GetDirectoryVpcSetting> vpcSettings;
         public Builder() {}
         public Builder(GetDirectoryResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -239,26 +241,26 @@ public final class GetDirectoryResult {
         }
 
         @CustomType.Setter
-        public Builder accessUrl(String accessUrl) {
-            this.accessUrl = Objects.requireNonNull(accessUrl);
+        public Builder accessUrl(@Nullable String accessUrl) {
+            this.accessUrl = accessUrl;
             return this;
         }
         @CustomType.Setter
-        public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+        public Builder alias(@Nullable String alias) {
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
-        public Builder connectSettings(List<GetDirectoryConnectSetting> connectSettings) {
-            this.connectSettings = Objects.requireNonNull(connectSettings);
+        public Builder connectSettings(@Nullable List<GetDirectoryConnectSetting> connectSettings) {
+            this.connectSettings = connectSettings;
             return this;
         }
         public Builder connectSettings(GetDirectoryConnectSetting... connectSettings) {
             return connectSettings(List.of(connectSettings));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -267,69 +269,69 @@ public final class GetDirectoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dnsIpAddresses(List<String> dnsIpAddresses) {
-            this.dnsIpAddresses = Objects.requireNonNull(dnsIpAddresses);
+        public Builder dnsIpAddresses(@Nullable List<String> dnsIpAddresses) {
+            this.dnsIpAddresses = dnsIpAddresses;
             return this;
         }
         public Builder dnsIpAddresses(String... dnsIpAddresses) {
             return dnsIpAddresses(List.of(dnsIpAddresses));
         }
         @CustomType.Setter
-        public Builder edition(String edition) {
-            this.edition = Objects.requireNonNull(edition);
+        public Builder edition(@Nullable String edition) {
+            this.edition = edition;
             return this;
         }
         @CustomType.Setter
-        public Builder enableSso(Boolean enableSso) {
-            this.enableSso = Objects.requireNonNull(enableSso);
+        public Builder enableSso(@Nullable Boolean enableSso) {
+            this.enableSso = enableSso;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder radiusSettings(List<GetDirectoryRadiusSetting> radiusSettings) {
-            this.radiusSettings = Objects.requireNonNull(radiusSettings);
+        public Builder radiusSettings(@Nullable List<GetDirectoryRadiusSetting> radiusSettings) {
+            this.radiusSettings = radiusSettings;
             return this;
         }
         public Builder radiusSettings(GetDirectoryRadiusSetting... radiusSettings) {
             return radiusSettings(List.of(radiusSettings));
         }
         @CustomType.Setter
-        public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = Objects.requireNonNull(securityGroupId);
+        public Builder securityGroupId(@Nullable String securityGroupId) {
+            this.securityGroupId = securityGroupId;
             return this;
         }
         @CustomType.Setter
-        public Builder shortName(String shortName) {
-            this.shortName = Objects.requireNonNull(shortName);
+        public Builder shortName(@Nullable String shortName) {
+            this.shortName = shortName;
             return this;
         }
         @CustomType.Setter
-        public Builder size(String size) {
-            this.size = Objects.requireNonNull(size);
+        public Builder size(@Nullable String size) {
+            this.size = size;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcSettings(List<GetDirectoryVpcSetting> vpcSettings) {
-            this.vpcSettings = Objects.requireNonNull(vpcSettings);
+        public Builder vpcSettings(@Nullable List<GetDirectoryVpcSetting> vpcSettings) {
+            this.vpcSettings = vpcSettings;
             return this;
         }
         public Builder vpcSettings(GetDirectoryVpcSetting... vpcSettings) {

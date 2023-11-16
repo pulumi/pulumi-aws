@@ -18,62 +18,62 @@ public final class GetBotResult {
      * @return ARN of the bot.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Checksum of the bot used to identify a specific revision of the bot&#39;s `$LATEST` version.
      * 
      */
-    private String checksum;
+    private @Nullable String checksum;
     /**
      * @return If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
      * 
      */
-    private Boolean childDirected;
+    private @Nullable Boolean childDirected;
     /**
      * @return Date that the bot was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return Description of the bot.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
      * 
      */
-    private Boolean detectSentiment;
+    private @Nullable Boolean detectSentiment;
     /**
      * @return Set to true if natural language understanding improvements are enabled.
      * 
      */
-    private Boolean enableModelImprovements;
+    private @Nullable Boolean enableModelImprovements;
     /**
      * @return If the `status` is `FAILED`, the reason why the bot failed to build.
      * 
      */
-    private String failureReason;
+    private @Nullable String failureReason;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
      * 
      */
-    private Integer idleSessionTtlInSeconds;
+    private @Nullable Integer idleSessionTtlInSeconds;
     /**
      * @return Date that the bot was updated.
      * 
      */
-    private String lastUpdatedDate;
+    private @Nullable String lastUpdatedDate;
     /**
      * @return Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
      * 
      */
-    private String locale;
+    private @Nullable String locale;
     /**
      * @return Name of the bot, case sensitive.
      * 
@@ -83,12 +83,12 @@ public final class GetBotResult {
      * @return The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
      * 
      */
-    private Double nluIntentConfidenceThreshold;
+    private @Nullable Double nluIntentConfidenceThreshold;
     /**
      * @return Status of the bot.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Version of the bot. For a new bot, the version is always `$LATEST`.
      * 
@@ -98,92 +98,92 @@ public final class GetBotResult {
      * @return Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
      * 
      */
-    private String voiceId;
+    private @Nullable String voiceId;
 
     private GetBotResult() {}
     /**
      * @return ARN of the bot.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Checksum of the bot used to identify a specific revision of the bot&#39;s `$LATEST` version.
      * 
      */
-    public String checksum() {
-        return this.checksum;
+    public Optional<String> checksum() {
+        return Optional.ofNullable(this.checksum);
     }
     /**
      * @return If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
      * 
      */
-    public Boolean childDirected() {
-        return this.childDirected;
+    public Optional<Boolean> childDirected() {
+        return Optional.ofNullable(this.childDirected);
     }
     /**
      * @return Date that the bot was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Description of the bot.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
      * 
      */
-    public Boolean detectSentiment() {
-        return this.detectSentiment;
+    public Optional<Boolean> detectSentiment() {
+        return Optional.ofNullable(this.detectSentiment);
     }
     /**
      * @return Set to true if natural language understanding improvements are enabled.
      * 
      */
-    public Boolean enableModelImprovements() {
-        return this.enableModelImprovements;
+    public Optional<Boolean> enableModelImprovements() {
+        return Optional.ofNullable(this.enableModelImprovements);
     }
     /**
      * @return If the `status` is `FAILED`, the reason why the bot failed to build.
      * 
      */
-    public String failureReason() {
-        return this.failureReason;
+    public Optional<String> failureReason() {
+        return Optional.ofNullable(this.failureReason);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
      * 
      */
-    public Integer idleSessionTtlInSeconds() {
-        return this.idleSessionTtlInSeconds;
+    public Optional<Integer> idleSessionTtlInSeconds() {
+        return Optional.ofNullable(this.idleSessionTtlInSeconds);
     }
     /**
      * @return Date that the bot was updated.
      * 
      */
-    public String lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Optional<String> lastUpdatedDate() {
+        return Optional.ofNullable(this.lastUpdatedDate);
     }
     /**
      * @return Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
      * 
      */
-    public String locale() {
-        return this.locale;
+    public Optional<String> locale() {
+        return Optional.ofNullable(this.locale);
     }
     /**
      * @return Name of the bot, case sensitive.
@@ -196,15 +196,15 @@ public final class GetBotResult {
      * @return The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
      * 
      */
-    public Double nluIntentConfidenceThreshold() {
-        return this.nluIntentConfidenceThreshold;
+    public Optional<Double> nluIntentConfidenceThreshold() {
+        return Optional.ofNullable(this.nluIntentConfidenceThreshold);
     }
     /**
      * @return Status of the bot.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Version of the bot. For a new bot, the version is always `$LATEST`.
@@ -217,8 +217,8 @@ public final class GetBotResult {
      * @return Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
      * 
      */
-    public String voiceId() {
-        return this.voiceId;
+    public Optional<String> voiceId() {
+        return Optional.ofNullable(this.voiceId);
     }
 
     public static Builder builder() {
@@ -230,23 +230,23 @@ public final class GetBotResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String checksum;
-        private Boolean childDirected;
-        private String createdDate;
-        private String description;
-        private Boolean detectSentiment;
-        private Boolean enableModelImprovements;
-        private String failureReason;
-        private String id;
-        private Integer idleSessionTtlInSeconds;
-        private String lastUpdatedDate;
-        private String locale;
+        private @Nullable String arn;
+        private @Nullable String checksum;
+        private @Nullable Boolean childDirected;
+        private @Nullable String createdDate;
+        private @Nullable String description;
+        private @Nullable Boolean detectSentiment;
+        private @Nullable Boolean enableModelImprovements;
+        private @Nullable String failureReason;
+        private @Nullable String id;
+        private @Nullable Integer idleSessionTtlInSeconds;
+        private @Nullable String lastUpdatedDate;
+        private @Nullable String locale;
         private String name;
-        private Double nluIntentConfidenceThreshold;
-        private String status;
+        private @Nullable Double nluIntentConfidenceThreshold;
+        private @Nullable String status;
         private @Nullable String version;
-        private String voiceId;
+        private @Nullable String voiceId;
         public Builder() {}
         public Builder(GetBotResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -270,63 +270,63 @@ public final class GetBotResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder checksum(String checksum) {
-            this.checksum = Objects.requireNonNull(checksum);
+        public Builder checksum(@Nullable String checksum) {
+            this.checksum = checksum;
             return this;
         }
         @CustomType.Setter
-        public Builder childDirected(Boolean childDirected) {
-            this.childDirected = Objects.requireNonNull(childDirected);
+        public Builder childDirected(@Nullable Boolean childDirected) {
+            this.childDirected = childDirected;
             return this;
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder detectSentiment(Boolean detectSentiment) {
-            this.detectSentiment = Objects.requireNonNull(detectSentiment);
+        public Builder detectSentiment(@Nullable Boolean detectSentiment) {
+            this.detectSentiment = detectSentiment;
             return this;
         }
         @CustomType.Setter
-        public Builder enableModelImprovements(Boolean enableModelImprovements) {
-            this.enableModelImprovements = Objects.requireNonNull(enableModelImprovements);
+        public Builder enableModelImprovements(@Nullable Boolean enableModelImprovements) {
+            this.enableModelImprovements = enableModelImprovements;
             return this;
         }
         @CustomType.Setter
-        public Builder failureReason(String failureReason) {
-            this.failureReason = Objects.requireNonNull(failureReason);
+        public Builder failureReason(@Nullable String failureReason) {
+            this.failureReason = failureReason;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder idleSessionTtlInSeconds(Integer idleSessionTtlInSeconds) {
-            this.idleSessionTtlInSeconds = Objects.requireNonNull(idleSessionTtlInSeconds);
+        public Builder idleSessionTtlInSeconds(@Nullable Integer idleSessionTtlInSeconds) {
+            this.idleSessionTtlInSeconds = idleSessionTtlInSeconds;
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+        public Builder lastUpdatedDate(@Nullable String lastUpdatedDate) {
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
-        public Builder locale(String locale) {
-            this.locale = Objects.requireNonNull(locale);
+        public Builder locale(@Nullable String locale) {
+            this.locale = locale;
             return this;
         }
         @CustomType.Setter
@@ -335,13 +335,13 @@ public final class GetBotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder nluIntentConfidenceThreshold(Double nluIntentConfidenceThreshold) {
-            this.nluIntentConfidenceThreshold = Objects.requireNonNull(nluIntentConfidenceThreshold);
+        public Builder nluIntentConfidenceThreshold(@Nullable Double nluIntentConfidenceThreshold) {
+            this.nluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
@@ -350,8 +350,8 @@ public final class GetBotResult {
             return this;
         }
         @CustomType.Setter
-        public Builder voiceId(String voiceId) {
-            this.voiceId = Objects.requireNonNull(voiceId);
+        public Builder voiceId(@Nullable String voiceId) {
+            this.voiceId = voiceId;
             return this;
         }
         public GetBotResult build() {

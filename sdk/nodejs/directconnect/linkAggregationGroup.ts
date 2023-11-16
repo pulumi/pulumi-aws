@@ -61,7 +61,7 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
     /**
      * The ARN of the LAG.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of an existing dedicated connection to migrate to the LAG.
      */
@@ -77,11 +77,11 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
     /**
      * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
-    public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
+    public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether jumbo frames (9001 MTU) are supported.
      */
-    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
+    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean | undefined>;
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
@@ -93,11 +93,11 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the LAG.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string | undefined>;
     /**
      * The name of the service provider associated with the LAG.
      */
-    public readonly providerName!: pulumi.Output<string>;
+    public readonly providerName!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

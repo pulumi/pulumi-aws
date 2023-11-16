@@ -517,7 +517,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
         """
@@ -557,7 +557,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         """

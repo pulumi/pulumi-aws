@@ -92,14 +92,14 @@ public class VpcIpamPreviewNextCidr extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="cidr", refs={String.class}, tree="[0]")
-    private Output<String> cidr;
+    private Output</* @Nullable */ String> cidr;
 
     /**
      * @return The previewed CIDR from the pool.
      * 
      */
-    public Output<String> cidr() {
-        return this.cidr;
+    public Output<Optional<String>> cidr() {
+        return Codegen.optional(this.cidr);
     }
     /**
      * Exclude a particular CIDR range from being returned by the pool.

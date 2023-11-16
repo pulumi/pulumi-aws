@@ -258,19 +258,19 @@ namespace Pulumi.Aws.AppMesh
         /// ARN of the virtual node.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Creation date of the virtual node.
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// Last update date of the virtual node.
         /// </summary>
         [Output("lastUpdatedDate")]
-        public Output<string> LastUpdatedDate { get; private set; } = null!;
+        public Output<string?> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
         /// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.AppMesh
         /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
         [Output("meshOwner")]
-        public Output<string> MeshOwner { get; private set; } = null!;
+        public Output<string?> MeshOwner { get; private set; } = null!;
 
         /// <summary>
         /// Name to use for the virtual node. Must be between 1 and 255 characters in length.
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.AppMesh
         /// Resource owner's AWS account ID.
         /// </summary>
         [Output("resourceOwner")]
-        public Output<string> ResourceOwner { get; private set; } = null!;
+        public Output<string?> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
         /// Virtual node specification to apply.

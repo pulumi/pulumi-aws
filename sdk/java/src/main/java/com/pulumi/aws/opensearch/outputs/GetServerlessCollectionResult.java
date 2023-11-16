@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerlessCollectionResult {
@@ -14,119 +16,119 @@ public final class GetServerlessCollectionResult {
      * @return Amazon Resource Name (ARN) of the collection.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      * 
      */
-    private String collectionEndpoint;
+    private @Nullable String collectionEndpoint;
     /**
      * @return Date the Collection was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return Collection-specific endpoint used to access OpenSearch Dashboards.
      * 
      */
-    private String dashboardEndpoint;
+    private @Nullable String dashboardEndpoint;
     /**
      * @return Description of the collection.
      * 
      */
-    private String description;
-    private String id;
+    private @Nullable String description;
+    private @Nullable String id;
     /**
      * @return The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      * 
      */
-    private String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     /**
      * @return Date the Collection was last modified.
      * 
      */
-    private String lastModifiedDate;
-    private String name;
+    private @Nullable String lastModifiedDate;
+    private @Nullable String name;
     /**
      * @return A map of tags to assign to the collection.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of collection.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetServerlessCollectionResult() {}
     /**
      * @return Amazon Resource Name (ARN) of the collection.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      * 
      */
-    public String collectionEndpoint() {
-        return this.collectionEndpoint;
+    public Optional<String> collectionEndpoint() {
+        return Optional.ofNullable(this.collectionEndpoint);
     }
     /**
      * @return Date the Collection was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Collection-specific endpoint used to access OpenSearch Dashboards.
      * 
      */
-    public String dashboardEndpoint() {
-        return this.dashboardEndpoint;
+    public Optional<String> dashboardEndpoint() {
+        return Optional.ofNullable(this.dashboardEndpoint);
     }
     /**
      * @return Description of the collection.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      * 
      */
-    public String kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<String> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
     /**
      * @return Date the Collection was last modified.
      * 
      */
-    public String lastModifiedDate() {
-        return this.lastModifiedDate;
+    public Optional<String> lastModifiedDate() {
+        return Optional.ofNullable(this.lastModifiedDate);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return A map of tags to assign to the collection.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of collection.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -138,17 +140,17 @@ public final class GetServerlessCollectionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String collectionEndpoint;
-        private String createdDate;
-        private String dashboardEndpoint;
-        private String description;
-        private String id;
-        private String kmsKeyArn;
-        private String lastModifiedDate;
-        private String name;
-        private Map<String,String> tags;
-        private String type;
+        private @Nullable String arn;
+        private @Nullable String collectionEndpoint;
+        private @Nullable String createdDate;
+        private @Nullable String dashboardEndpoint;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String kmsKeyArn;
+        private @Nullable String lastModifiedDate;
+        private @Nullable String name;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetServerlessCollectionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -166,58 +168,58 @@ public final class GetServerlessCollectionResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder collectionEndpoint(String collectionEndpoint) {
-            this.collectionEndpoint = Objects.requireNonNull(collectionEndpoint);
+        public Builder collectionEndpoint(@Nullable String collectionEndpoint) {
+            this.collectionEndpoint = collectionEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder dashboardEndpoint(String dashboardEndpoint) {
-            this.dashboardEndpoint = Objects.requireNonNull(dashboardEndpoint);
+        public Builder dashboardEndpoint(@Nullable String dashboardEndpoint) {
+            this.dashboardEndpoint = dashboardEndpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+        public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
-        public Builder lastModifiedDate(String lastModifiedDate) {
-            this.lastModifiedDate = Objects.requireNonNull(lastModifiedDate);
+        public Builder lastModifiedDate(@Nullable String lastModifiedDate) {
+            this.lastModifiedDate = lastModifiedDate;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetServerlessCollectionResult build() {

@@ -118,65 +118,65 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Amazon Resource Name (ARN) of the collection.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         /// </summary>
-        public readonly string CollectionEndpoint;
+        public readonly string? CollectionEndpoint;
         /// <summary>
         /// Date the Collection was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Collection-specific endpoint used to access OpenSearch Dashboards.
         /// </summary>
-        public readonly string DashboardEndpoint;
+        public readonly string? DashboardEndpoint;
         /// <summary>
         /// Description of the collection.
         /// </summary>
-        public readonly string Description;
-        public readonly string Id;
+        public readonly string? Description;
+        public readonly string? Id;
         /// <summary>
         /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         /// </summary>
-        public readonly string KmsKeyArn;
+        public readonly string? KmsKeyArn;
         /// <summary>
         /// Date the Collection was last modified.
         /// </summary>
-        public readonly string LastModifiedDate;
-        public readonly string Name;
+        public readonly string? LastModifiedDate;
+        public readonly string? Name;
         /// <summary>
         /// A map of tags to assign to the collection.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of collection.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetServerlessCollectionResult(
-            string arn,
+            string? arn,
 
-            string collectionEndpoint,
+            string? collectionEndpoint,
 
-            string createdDate,
+            string? createdDate,
 
-            string dashboardEndpoint,
+            string? dashboardEndpoint,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string kmsKeyArn,
+            string? kmsKeyArn,
 
-            string lastModifiedDate,
+            string? lastModifiedDate,
 
-            string name,
+            string? name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? type)
         {
             Arn = arn;
             CollectionEndpoint = collectionEndpoint;

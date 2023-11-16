@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetDataCatalogEncryptionSettingsResult(
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Glue
 
             ImmutableArray<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult> dataCatalogEncryptionSettings,
 
-            string id)
+            string? id)
         {
             CatalogId = catalogId;
             DataCatalogEncryptionSettings = dataCatalogEncryptionSettings;

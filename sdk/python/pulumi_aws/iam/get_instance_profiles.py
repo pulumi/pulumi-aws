@@ -40,7 +40,7 @@ class GetInstanceProfilesResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         Set of ARNs of instance profiles.
         """
@@ -48,7 +48,7 @@ class GetInstanceProfilesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -56,7 +56,7 @@ class GetInstanceProfilesResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         Set of IAM instance profile names.
         """
@@ -64,7 +64,7 @@ class GetInstanceProfilesResult:
 
     @property
     @pulumi.getter
-    def paths(self) -> Sequence[str]:
+    def paths(self) -> Optional[Sequence[str]]:
         """
         Set of IAM instance profile paths.
         """

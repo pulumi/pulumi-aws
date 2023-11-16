@@ -118,19 +118,19 @@ type ProxyTarget struct {
 	// The name of the DB proxy.
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// Port for the target RDS DB Instance or Aurora DB Cluster.
-	Port pulumi.IntOutput `pulumi:"port"`
+	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Identifier representing the DB Instance or DB Cluster target.
-	RdsResourceId pulumi.StringOutput `pulumi:"rdsResourceId"`
+	RdsResourceId pulumi.StringPtrOutput `pulumi:"rdsResourceId"`
 	// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
-	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
+	TargetArn pulumi.StringPtrOutput `pulumi:"targetArn"`
 	// The name of the target group.
 	TargetGroupName pulumi.StringOutput `pulumi:"targetGroupName"`
 	// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
-	TrackedClusterId pulumi.StringOutput `pulumi:"trackedClusterId"`
+	TrackedClusterId pulumi.StringPtrOutput `pulumi:"trackedClusterId"`
 	// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewProxyTarget registers a new resource with the given unique name, arguments, and options.
@@ -354,23 +354,23 @@ func (o ProxyTargetOutput) DbProxyName() pulumi.StringOutput {
 }
 
 // Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
-func (o ProxyTargetOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+func (o ProxyTargetOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyTarget) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // Port for the target RDS DB Instance or Aurora DB Cluster.
-func (o ProxyTargetOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v *ProxyTarget) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+func (o ProxyTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProxyTarget) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // Identifier representing the DB Instance or DB Cluster target.
-func (o ProxyTargetOutput) RdsResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.RdsResourceId }).(pulumi.StringOutput)
+func (o ProxyTargetOutput) RdsResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyTarget) pulumi.StringPtrOutput { return v.RdsResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
-func (o ProxyTargetOutput) TargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
+func (o ProxyTargetOutput) TargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyTarget) pulumi.StringPtrOutput { return v.TargetArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the target group.
@@ -379,13 +379,13 @@ func (o ProxyTargetOutput) TargetGroupName() pulumi.StringOutput {
 }
 
 // DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
-func (o ProxyTargetOutput) TrackedClusterId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.TrackedClusterId }).(pulumi.StringOutput)
+func (o ProxyTargetOutput) TrackedClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyTarget) pulumi.StringPtrOutput { return v.TrackedClusterId }).(pulumi.StringPtrOutput)
 }
 
 // Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
-func (o ProxyTargetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o ProxyTargetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyTarget) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ProxyTargetArrayOutput struct{ *pulumi.OutputState }

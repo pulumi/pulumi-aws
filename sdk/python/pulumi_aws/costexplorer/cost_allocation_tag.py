@@ -252,7 +252,7 @@ class CostAllocationTag(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of cost allocation tag.
         """

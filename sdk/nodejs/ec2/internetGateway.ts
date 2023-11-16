@@ -60,11 +60,11 @@ export class InternetGateway extends pulumi.CustomResource {
     /**
      * The ARN of the Internet Gateway.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the internet gateway.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -91,7 +91,7 @@ export class InternetGateway extends pulumi.CustomResource {
     /**
      * The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a InternetGateway resource with the given unique name, arguments, and options.

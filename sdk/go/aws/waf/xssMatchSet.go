@@ -65,7 +65,7 @@ type XssMatchSet struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name or description of the SizeConstraintSet.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The parts of web requests that you want to inspect for cross-site scripting attacks.
@@ -226,8 +226,8 @@ func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) X
 }
 
 // Amazon Resource Name (ARN)
-func (o XssMatchSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o XssMatchSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *XssMatchSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name or description of the SizeConstraintSet.

@@ -16,6 +16,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -152,28 +153,28 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
-    private Output<String> catalogId;
+    private Output</* @Nullable */ String> catalogId;
 
     /**
      * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
-    public Output<String> catalogId() {
-        return this.catalogId;
+    public Output<Optional<String>> catalogId() {
+        return Codegen.optional(this.catalogId);
     }
     /**
      * Configuration block for a database resource. See below.
      * 
      */
     @Export(name="database", refs={ResourceLfTagsDatabase.class}, tree="[0]")
-    private Output<ResourceLfTagsDatabase> database;
+    private Output</* @Nullable */ ResourceLfTagsDatabase> database;
 
     /**
      * @return Configuration block for a database resource. See below.
      * 
      */
-    public Output<ResourceLfTagsDatabase> database() {
-        return this.database;
+    public Output<Optional<ResourceLfTagsDatabase>> database() {
+        return Codegen.optional(this.database);
     }
     /**
      * Set of LF-tags to attach to the resource. See below.
@@ -198,14 +199,14 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="table", refs={ResourceLfTagsTable.class}, tree="[0]")
-    private Output<ResourceLfTagsTable> table;
+    private Output</* @Nullable */ ResourceLfTagsTable> table;
 
     /**
      * @return Configuration block for a table resource. See below.
      * 
      */
-    public Output<ResourceLfTagsTable> table() {
-        return this.table;
+    public Output<Optional<ResourceLfTagsTable>> table() {
+        return Codegen.optional(this.table);
     }
     /**
      * Configuration block for a table with columns resource. See below.
@@ -214,7 +215,7 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tableWithColumns", refs={ResourceLfTagsTableWithColumns.class}, tree="[0]")
-    private Output<ResourceLfTagsTableWithColumns> tableWithColumns;
+    private Output</* @Nullable */ ResourceLfTagsTableWithColumns> tableWithColumns;
 
     /**
      * @return Configuration block for a table with columns resource. See below.
@@ -222,8 +223,8 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<ResourceLfTagsTableWithColumns> tableWithColumns() {
-        return this.tableWithColumns;
+    public Output<Optional<ResourceLfTagsTableWithColumns>> tableWithColumns() {
+        return Codegen.optional(this.tableWithColumns);
     }
 
     /**

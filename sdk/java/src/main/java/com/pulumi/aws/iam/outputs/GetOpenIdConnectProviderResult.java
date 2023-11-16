@@ -8,66 +8,68 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOpenIdConnectProviderResult {
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
      * 
      */
-    private List<String> clientIdLists;
+    private @Nullable List<String> clientIdLists;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Map of resource tags for the IAM OIDC provider.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
      * 
      */
-    private List<String> thumbprintLists;
-    private String url;
+    private @Nullable List<String> thumbprintLists;
+    private @Nullable String url;
 
     private GetOpenIdConnectProviderResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
      * 
      */
     public List<String> clientIdLists() {
-        return this.clientIdLists;
+        return this.clientIdLists == null ? List.of() : this.clientIdLists;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Map of resource tags for the IAM OIDC provider.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
      * 
      */
     public List<String> thumbprintLists() {
-        return this.thumbprintLists;
+        return this.thumbprintLists == null ? List.of() : this.thumbprintLists;
     }
-    public String url() {
-        return this.url;
+    public Optional<String> url() {
+        return Optional.ofNullable(this.url);
     }
 
     public static Builder builder() {
@@ -79,12 +81,12 @@ public final class GetOpenIdConnectProviderResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<String> clientIdLists;
-        private String id;
-        private Map<String,String> tags;
-        private List<String> thumbprintLists;
-        private String url;
+        private @Nullable String arn;
+        private @Nullable List<String> clientIdLists;
+        private @Nullable String id;
+        private @Nullable Map<String,String> tags;
+        private @Nullable List<String> thumbprintLists;
+        private @Nullable String url;
         public Builder() {}
         public Builder(GetOpenIdConnectProviderResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,39 +99,39 @@ public final class GetOpenIdConnectProviderResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder clientIdLists(List<String> clientIdLists) {
-            this.clientIdLists = Objects.requireNonNull(clientIdLists);
+        public Builder clientIdLists(@Nullable List<String> clientIdLists) {
+            this.clientIdLists = clientIdLists;
             return this;
         }
         public Builder clientIdLists(String... clientIdLists) {
             return clientIdLists(List.of(clientIdLists));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder thumbprintLists(List<String> thumbprintLists) {
-            this.thumbprintLists = Objects.requireNonNull(thumbprintLists);
+        public Builder thumbprintLists(@Nullable List<String> thumbprintLists) {
+            this.thumbprintLists = thumbprintLists;
             return this;
         }
         public Builder thumbprintLists(String... thumbprintLists) {
             return thumbprintLists(List.of(thumbprintLists));
         }
         @CustomType.Setter
-        public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+        public Builder url(@Nullable String url) {
+            this.url = url;
             return this;
         }
         public GetOpenIdConnectProviderResult build() {

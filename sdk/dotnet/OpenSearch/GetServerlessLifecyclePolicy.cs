@@ -120,42 +120,42 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// The date the lifecycle policy was created.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// Description of the policy. Typically used to store information about the permissions defined in the policy.
         /// </summary>
-        public readonly string Description;
-        public readonly string Id;
+        public readonly string? Description;
+        public readonly string? Id;
         /// <summary>
         /// The date the lifecycle policy was last modified.
         /// </summary>
-        public readonly string LastModifiedDate;
+        public readonly string? LastModifiedDate;
         public readonly string Name;
         /// <summary>
         /// JSON policy document to use as the content for the new policy.
         /// </summary>
-        public readonly string Policy;
+        public readonly string? Policy;
         /// <summary>
         /// Version of the policy.
         /// </summary>
-        public readonly string PolicyVersion;
+        public readonly string? PolicyVersion;
         public readonly string Type;
 
         [OutputConstructor]
         private GetServerlessLifecyclePolicyResult(
-            string createdDate,
+            string? createdDate,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string lastModifiedDate,
+            string? lastModifiedDate,
 
             string name,
 
-            string policy,
+            string? policy,
 
-            string policyVersion,
+            string? policyVersion,
 
             string type)
         {

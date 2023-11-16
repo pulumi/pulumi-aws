@@ -108,10 +108,10 @@ public class Bot extends com.pulumi.resources.CustomResource {
         return this.abortStatement;
     }
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Checksum identifying the version of the bot that was created. The checksum is not
@@ -119,15 +119,15 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="checksum", refs={String.class}, tree="[0]")
-    private Output<String> checksum;
+    private Output</* @Nullable */ String> checksum;
 
     /**
      * @return Checksum identifying the version of the bot that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the bot.
      * 
      */
-    public Output<String> checksum() {
-        return this.checksum;
+    public Output<Optional<String>> checksum() {
+        return Codegen.optional(this.checksum);
     }
     /**
      * By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
@@ -176,14 +176,14 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
-    private Output<String> createdDate;
+    private Output</* @Nullable */ String> createdDate;
 
     /**
      * @return The date when the bot version was created.
      * 
      */
-    public Output<String> createdDate() {
-        return this.createdDate;
+    public Output<Optional<String>> createdDate() {
+        return Codegen.optional(this.createdDate);
     }
     /**
      * A description of the bot. Must be less than or equal to 200 characters in length.
@@ -232,14 +232,14 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="failureReason", refs={String.class}, tree="[0]")
-    private Output<String> failureReason;
+    private Output</* @Nullable */ String> failureReason;
 
     /**
      * @return If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
      * 
      */
-    public Output<String> failureReason() {
-        return this.failureReason;
+    public Output<Optional<String>> failureReason() {
+        return Codegen.optional(this.failureReason);
     }
     /**
      * The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
@@ -274,14 +274,14 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedDate;
+    private Output</* @Nullable */ String> lastUpdatedDate;
 
     /**
      * @return The date when the $LATEST version of this bot was updated.
      * 
      */
-    public Output<String> lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Output<Optional<String>> lastUpdatedDate() {
+        return Codegen.optional(this.lastUpdatedDate);
     }
     /**
      * Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
@@ -347,7 +347,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return When you send a request to create or update a bot, Amazon Lex sets the status response
@@ -356,36 +356,36 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * failure_reason response element.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * The version of the bot.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
-    private Output<String> version;
+    private Output</* @Nullable */ String> version;
 
     /**
      * @return The version of the bot.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Output<Optional<String>> version() {
+        return Codegen.optional(this.version);
     }
     /**
      * The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
      * 
      */
     @Export(name="voiceId", refs={String.class}, tree="[0]")
-    private Output<String> voiceId;
+    private Output</* @Nullable */ String> voiceId;
 
     /**
      * @return The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
      * 
      */
-    public Output<String> voiceId() {
-        return this.voiceId;
+    public Output<Optional<String>> voiceId() {
+        return Codegen.optional(this.voiceId);
     }
 
     /**

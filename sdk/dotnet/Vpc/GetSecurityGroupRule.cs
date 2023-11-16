@@ -128,86 +128,86 @@ namespace Pulumi.Aws.Vpc
         /// <summary>
         /// The Amazon Resource Name (ARN) of the security group rule.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The destination IPv4 CIDR range.
         /// </summary>
-        public readonly string CidrIpv4;
+        public readonly string? CidrIpv4;
         /// <summary>
         /// The destination IPv6 CIDR range.
         /// </summary>
-        public readonly string CidrIpv6;
+        public readonly string? CidrIpv6;
         /// <summary>
         /// The security group rule description.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly ImmutableArray<Outputs.GetSecurityGroupRuleFilterResult> Filters;
         /// <summary>
         /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         /// </summary>
-        public readonly int FromPort;
-        public readonly string Id;
+        public readonly int? FromPort;
+        public readonly string? Id;
         /// <summary>
         /// The IP protocol name or number. Use `-1` to specify all protocols.
         /// </summary>
-        public readonly string IpProtocol;
+        public readonly string? IpProtocol;
         /// <summary>
         /// Indicates whether the security group rule is an outbound rule.
         /// </summary>
-        public readonly bool IsEgress;
+        public readonly bool? IsEgress;
         /// <summary>
         /// The ID of the destination prefix list.
         /// </summary>
-        public readonly string PrefixListId;
+        public readonly string? PrefixListId;
         /// <summary>
         /// The destination security group that is referenced in the rule.
         /// </summary>
-        public readonly string ReferencedSecurityGroupId;
+        public readonly string? ReferencedSecurityGroupId;
         /// <summary>
         /// The ID of the security group.
         /// </summary>
-        public readonly string SecurityGroupId;
-        public readonly string SecurityGroupRuleId;
+        public readonly string? SecurityGroupId;
+        public readonly string? SecurityGroupRuleId;
         /// <summary>
         /// A map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         /// </summary>
-        public readonly int ToPort;
+        public readonly int? ToPort;
 
         [OutputConstructor]
         private GetSecurityGroupRuleResult(
-            string arn,
+            string? arn,
 
-            string cidrIpv4,
+            string? cidrIpv4,
 
-            string cidrIpv6,
+            string? cidrIpv6,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetSecurityGroupRuleFilterResult> filters,
 
-            int fromPort,
+            int? fromPort,
 
-            string id,
+            string? id,
 
-            string ipProtocol,
+            string? ipProtocol,
 
-            bool isEgress,
+            bool? isEgress,
 
-            string prefixListId,
+            string? prefixListId,
 
-            string referencedSecurityGroupId,
+            string? referencedSecurityGroupId,
 
-            string securityGroupId,
+            string? securityGroupId,
 
-            string securityGroupRuleId,
+            string? securityGroupRuleId,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int toPort)
+            int? toPort)
         {
             Arn = arn;
             CidrIpv4 = cidrIpv4;

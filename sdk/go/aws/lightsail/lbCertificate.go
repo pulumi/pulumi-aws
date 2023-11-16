@@ -64,11 +64,11 @@ type LbCertificate struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the lightsail certificate.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The timestamp when the instance was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The domain name (e.g., example.com) for your SSL/TLS certificate.
-	DomainName              pulumi.StringOutput                            `pulumi:"domainName"`
+	DomainName              pulumi.StringPtrOutput                         `pulumi:"domainName"`
 	DomainValidationRecords LbCertificateDomainValidationRecordArrayOutput `pulumi:"domainValidationRecords"`
 	// The load balancer name where you want to create the SSL/TLS certificate.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
@@ -76,7 +76,7 @@ type LbCertificate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
-	SupportCode             pulumi.StringOutput      `pulumi:"supportCode"`
+	SupportCode             pulumi.StringPtrOutput   `pulumi:"supportCode"`
 }
 
 // NewLbCertificate registers a new resource with the given unique name, arguments, and options.
@@ -260,18 +260,18 @@ func (o LbCertificateOutput) ToLbCertificateOutputWithContext(ctx context.Contex
 }
 
 // The ARN of the lightsail certificate.
-func (o LbCertificateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LbCertificateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LbCertificate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp when the instance was created.
-func (o LbCertificateOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o LbCertificateOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LbCertificate) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The domain name (e.g., example.com) for your SSL/TLS certificate.
-func (o LbCertificateOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+func (o LbCertificateOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LbCertificate) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 func (o LbCertificateOutput) DomainValidationRecords() LbCertificateDomainValidationRecordArrayOutput {
@@ -295,8 +295,8 @@ func (o LbCertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }
 
-func (o LbCertificateOutput) SupportCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
+func (o LbCertificateOutput) SupportCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LbCertificate) pulumi.StringPtrOutput { return v.SupportCode }).(pulumi.StringPtrOutput)
 }
 
 type LbCertificateArrayOutput struct{ *pulumi.OutputState }

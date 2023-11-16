@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Ses
         /// The SES receipt rule ARN.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A list of Bounce Action blocks. Documented below.
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Ses
         /// `Require` or `Optional`
         /// </summary>
         [Output("tlsPolicy")]
-        public Output<string> TlsPolicy { get; private set; } = null!;
+        public Output<string?> TlsPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A list of WorkMail Action blocks. Documented below.

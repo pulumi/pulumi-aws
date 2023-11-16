@@ -511,7 +511,7 @@ class ProtectionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protectionGroupArn")
-    def protection_group_arn(self) -> pulumi.Output[str]:
+    def protection_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN (Amazon Resource Name) of the protection group.
         """

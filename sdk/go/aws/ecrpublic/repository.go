@@ -88,16 +88,16 @@ type Repository struct {
 	pulumi.CustomResourceState
 
 	// Full ARN of the repository.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Catalog data configuration for the repository. See below for schema.
 	CatalogData  RepositoryCatalogDataPtrOutput `pulumi:"catalogData"`
 	ForceDestroy pulumi.BoolPtrOutput           `pulumi:"forceDestroy"`
 	// The registry ID where the repository was created.
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	RegistryId pulumi.StringPtrOutput `pulumi:"registryId"`
 	// Name of the repository.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
 	// The URI of the repository.
-	RepositoryUri pulumi.StringOutput `pulumi:"repositoryUri"`
+	RepositoryUri pulumi.StringPtrOutput `pulumi:"repositoryUri"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -295,8 +295,8 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 }
 
 // Full ARN of the repository.
-func (o RepositoryOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RepositoryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Catalog data configuration for the repository. See below for schema.
@@ -309,8 +309,8 @@ func (o RepositoryOutput) ForceDestroy() pulumi.BoolPtrOutput {
 }
 
 // The registry ID where the repository was created.
-func (o RepositoryOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+func (o RepositoryOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the repository.
@@ -319,8 +319,8 @@ func (o RepositoryOutput) RepositoryName() pulumi.StringOutput {
 }
 
 // The URI of the repository.
-func (o RepositoryOutput) RepositoryUri() pulumi.StringOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryUri }).(pulumi.StringOutput)
+func (o RepositoryOutput) RepositoryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.RepositoryUri }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

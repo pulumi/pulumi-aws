@@ -54,7 +54,7 @@ namespace Pulumi.Aws.AppStream
         /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Fully qualified name of the directory.

@@ -121,7 +121,7 @@ func (o GrantConstraintArrayOutput) Index(i pulumi.IntInput) GrantConstraintOutp
 
 type GetKeyMultiRegionConfiguration struct {
 	// Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
-	MultiRegionKeyType string `pulumi:"multiRegionKeyType"`
+	MultiRegionKeyType *string `pulumi:"multiRegionKeyType"`
 	// The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
 	PrimaryKeys []GetKeyMultiRegionConfigurationPrimaryKey `pulumi:"primaryKeys"`
 	// The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
@@ -141,7 +141,7 @@ type GetKeyMultiRegionConfigurationInput interface {
 
 type GetKeyMultiRegionConfigurationArgs struct {
 	// Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
-	MultiRegionKeyType pulumi.StringInput `pulumi:"multiRegionKeyType"`
+	MultiRegionKeyType pulumi.StringPtrInput `pulumi:"multiRegionKeyType"`
 	// The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
 	PrimaryKeys GetKeyMultiRegionConfigurationPrimaryKeyArrayInput `pulumi:"primaryKeys"`
 	// The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
@@ -200,8 +200,8 @@ func (o GetKeyMultiRegionConfigurationOutput) ToGetKeyMultiRegionConfigurationOu
 }
 
 // Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
-func (o GetKeyMultiRegionConfigurationOutput) MultiRegionKeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyMultiRegionConfiguration) string { return v.MultiRegionKeyType }).(pulumi.StringOutput)
+func (o GetKeyMultiRegionConfigurationOutput) MultiRegionKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfiguration) *string { return v.MultiRegionKeyType }).(pulumi.StringPtrOutput)
 }
 
 // The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
@@ -240,9 +240,9 @@ func (o GetKeyMultiRegionConfigurationArrayOutput) Index(i pulumi.IntInput) GetK
 
 type GetKeyMultiRegionConfigurationPrimaryKey struct {
 	// The key ARN of a primary or replica key of a multi-Region key.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The AWS Region of a primary or replica key in a multi-Region key.
-	Region string `pulumi:"region"`
+	Region *string `pulumi:"region"`
 }
 
 // GetKeyMultiRegionConfigurationPrimaryKeyInput is an input type that accepts GetKeyMultiRegionConfigurationPrimaryKeyArgs and GetKeyMultiRegionConfigurationPrimaryKeyOutput values.
@@ -258,9 +258,9 @@ type GetKeyMultiRegionConfigurationPrimaryKeyInput interface {
 
 type GetKeyMultiRegionConfigurationPrimaryKeyArgs struct {
 	// The key ARN of a primary or replica key of a multi-Region key.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The AWS Region of a primary or replica key in a multi-Region key.
-	Region pulumi.StringInput `pulumi:"region"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetKeyMultiRegionConfigurationPrimaryKeyArgs) ElementType() reflect.Type {
@@ -315,13 +315,13 @@ func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) ToGetKeyMultiRegionConfi
 }
 
 // The key ARN of a primary or replica key of a multi-Region key.
-func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region of a primary or replica key in a multi-Region key.
-func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) string { return v.Region }).(pulumi.StringOutput)
+func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 type GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput struct{ *pulumi.OutputState }
@@ -346,9 +346,9 @@ func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) Index(i pulumi.IntI
 
 type GetKeyMultiRegionConfigurationReplicaKey struct {
 	// The key ARN of a primary or replica key of a multi-Region key.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The AWS Region of a primary or replica key in a multi-Region key.
-	Region string `pulumi:"region"`
+	Region *string `pulumi:"region"`
 }
 
 // GetKeyMultiRegionConfigurationReplicaKeyInput is an input type that accepts GetKeyMultiRegionConfigurationReplicaKeyArgs and GetKeyMultiRegionConfigurationReplicaKeyOutput values.
@@ -364,9 +364,9 @@ type GetKeyMultiRegionConfigurationReplicaKeyInput interface {
 
 type GetKeyMultiRegionConfigurationReplicaKeyArgs struct {
 	// The key ARN of a primary or replica key of a multi-Region key.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The AWS Region of a primary or replica key in a multi-Region key.
-	Region pulumi.StringInput `pulumi:"region"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetKeyMultiRegionConfigurationReplicaKeyArgs) ElementType() reflect.Type {
@@ -421,13 +421,13 @@ func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) ToGetKeyMultiRegionConfi
 }
 
 // The key ARN of a primary or replica key of a multi-Region key.
-func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region of a primary or replica key in a multi-Region key.
-func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) string { return v.Region }).(pulumi.StringOutput)
+func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 type GetKeyMultiRegionConfigurationReplicaKeyArrayOutput struct{ *pulumi.OutputState }
@@ -452,7 +452,7 @@ func (o GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) Index(i pulumi.IntI
 
 type GetKeyXksKeyConfiguration struct {
 	// The globally unique identifier for the key
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 // GetKeyXksKeyConfigurationInput is an input type that accepts GetKeyXksKeyConfigurationArgs and GetKeyXksKeyConfigurationOutput values.
@@ -468,7 +468,7 @@ type GetKeyXksKeyConfigurationInput interface {
 
 type GetKeyXksKeyConfigurationArgs struct {
 	// The globally unique identifier for the key
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (GetKeyXksKeyConfigurationArgs) ElementType() reflect.Type {
@@ -523,8 +523,8 @@ func (o GetKeyXksKeyConfigurationOutput) ToGetKeyXksKeyConfigurationOutputWithCo
 }
 
 // The globally unique identifier for the key
-func (o GetKeyXksKeyConfigurationOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyXksKeyConfiguration) string { return v.Id }).(pulumi.StringOutput)
+func (o GetKeyXksKeyConfigurationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKeyXksKeyConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 type GetKeyXksKeyConfigurationArrayOutput struct{ *pulumi.OutputState }

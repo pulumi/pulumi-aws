@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Cognito
         /// The AWS account ID for the user pool owner.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
@@ -103,19 +103,19 @@ namespace Pulumi.Aws.Cognito
         /// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
         /// </summary>
         [Output("cloudfrontDistribution")]
-        public Output<string> CloudfrontDistribution { get; private set; } = null!;
+        public Output<string?> CloudfrontDistribution { get; private set; } = null!;
 
         /// <summary>
         /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
         /// </summary>
         [Output("cloudfrontDistributionArn")]
-        public Output<string> CloudfrontDistributionArn { get; private set; } = null!;
+        public Output<string?> CloudfrontDistributionArn { get; private set; } = null!;
 
         /// <summary>
         /// The Route 53 hosted zone ID of the CloudFront distribution.
         /// </summary>
         [Output("cloudfrontDistributionZoneId")]
-        public Output<string> CloudfrontDistributionZoneId { get; private set; } = null!;
+        public Output<string?> CloudfrontDistributionZoneId { get; private set; } = null!;
 
         /// <summary>
         /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Cognito
         /// The S3 bucket where the static files for this domain are stored.
         /// </summary>
         [Output("s3Bucket")]
-        public Output<string> S3Bucket { get; private set; } = null!;
+        public Output<string?> S3Bucket { get; private set; } = null!;
 
         /// <summary>
         /// The user pool ID.
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Cognito
         /// The app version.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

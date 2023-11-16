@@ -220,7 +220,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.BucketV2("bucket")
-        topic_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        topic_policy_document = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
@@ -231,9 +231,9 @@ class BucketNotification(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="ArnLike",
                 variable="aws:SourceArn",
-                values=[bucket.arn],
+                values=[arn],
             )],
-        )])
+        )]))
         topic_topic = aws.sns.Topic("topicTopic", policy=topic_policy_document.json)
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,
@@ -250,7 +250,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.BucketV2("bucket")
-        queue_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        queue_policy_document = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
@@ -261,9 +261,9 @@ class BucketNotification(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="ArnEquals",
                 variable="aws:SourceArn",
-                values=[bucket.arn],
+                values=[arn],
             )],
-        )])
+        )]))
         queue_queue = aws.sqs.Queue("queueQueue", policy=queue_policy_document.json)
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,
@@ -316,7 +316,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.BucketV2("bucket")
-        queue_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        queue_policy_document = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
@@ -327,9 +327,9 @@ class BucketNotification(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="ArnEquals",
                 variable="aws:SourceArn",
-                values=[bucket.arn],
+                values=[arn],
             )],
-        )])
+        )]))
         queue_queue = aws.sqs.Queue("queueQueue", policy=queue_policy_document.json)
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,
@@ -403,7 +403,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.BucketV2("bucket")
-        topic_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        topic_policy_document = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
@@ -414,9 +414,9 @@ class BucketNotification(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="ArnLike",
                 variable="aws:SourceArn",
-                values=[bucket.arn],
+                values=[arn],
             )],
-        )])
+        )]))
         topic_topic = aws.sns.Topic("topicTopic", policy=topic_policy_document.json)
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,
@@ -433,7 +433,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.BucketV2("bucket")
-        queue_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        queue_policy_document = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
@@ -444,9 +444,9 @@ class BucketNotification(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="ArnEquals",
                 variable="aws:SourceArn",
-                values=[bucket.arn],
+                values=[arn],
             )],
-        )])
+        )]))
         queue_queue = aws.sqs.Queue("queueQueue", policy=queue_policy_document.json)
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,
@@ -499,7 +499,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.BucketV2("bucket")
-        queue_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        queue_policy_document = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
@@ -510,9 +510,9 @@ class BucketNotification(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="ArnEquals",
                 variable="aws:SourceArn",
-                values=[bucket.arn],
+                values=[arn],
             )],
-        )])
+        )]))
         queue_queue = aws.sqs.Queue("queueQueue", policy=queue_policy_document.json)
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,

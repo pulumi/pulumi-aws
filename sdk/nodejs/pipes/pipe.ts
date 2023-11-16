@@ -139,7 +139,7 @@ export class Pipe extends pulumi.CustomResource {
     /**
      * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A description of the pipe. At most 512 characters.
      */
@@ -163,7 +163,7 @@ export class Pipe extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * ARN of the role that allows the pipe to send data to the target.
      */
@@ -175,7 +175,7 @@ export class Pipe extends pulumi.CustomResource {
     /**
      * Parameters to configure a source for the pipe. Detailed below.
      */
-    public readonly sourceParameters!: pulumi.Output<outputs.pipes.PipeSourceParameters>;
+    public readonly sourceParameters!: pulumi.Output<outputs.pipes.PipeSourceParameters | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

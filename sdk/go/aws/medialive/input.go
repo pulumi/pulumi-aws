@@ -73,13 +73,13 @@ type Input struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Input.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Channels attached to Input.
 	AttachedChannels pulumi.StringArrayOutput `pulumi:"attachedChannels"`
 	// Destination settings for PUSH type inputs. See Destinations for more details.
 	Destinations InputDestinationArrayOutput `pulumi:"destinations"`
 	// The input class.
-	InputClass pulumi.StringOutput `pulumi:"inputClass"`
+	InputClass pulumi.StringPtrOutput `pulumi:"inputClass"`
 	// Settings for the devices. See Input Devices for more details.
 	InputDevices InputInputDeviceArrayOutput `pulumi:"inputDevices"`
 	// A list of IDs for all Inputs which are partners of this one.
@@ -87,13 +87,13 @@ type Input struct {
 	// List of input security groups.
 	InputSecurityGroups pulumi.StringArrayOutput `pulumi:"inputSecurityGroups"`
 	// Source type of the input.
-	InputSourceType pulumi.StringOutput `pulumi:"inputSourceType"`
+	InputSourceType pulumi.StringPtrOutput `pulumi:"inputSourceType"`
 	// A list of the MediaConnect Flows. See Media Connect Flows for more details.
 	MediaConnectFlows InputMediaConnectFlowArrayOutput `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the role this input assumes during and after creation.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources InputSourceArrayOutput `pulumi:"sources"`
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -361,8 +361,8 @@ func (o InputOutput) ToInputOutputWithContext(ctx context.Context) InputOutput {
 }
 
 // ARN of the Input.
-func (o InputOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o InputOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Channels attached to Input.
@@ -376,8 +376,8 @@ func (o InputOutput) Destinations() InputDestinationArrayOutput {
 }
 
 // The input class.
-func (o InputOutput) InputClass() pulumi.StringOutput {
-	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.InputClass }).(pulumi.StringOutput)
+func (o InputOutput) InputClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.InputClass }).(pulumi.StringPtrOutput)
 }
 
 // Settings for the devices. See Input Devices for more details.
@@ -396,8 +396,8 @@ func (o InputOutput) InputSecurityGroups() pulumi.StringArrayOutput {
 }
 
 // Source type of the input.
-func (o InputOutput) InputSourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.InputSourceType }).(pulumi.StringOutput)
+func (o InputOutput) InputSourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.InputSourceType }).(pulumi.StringPtrOutput)
 }
 
 // A list of the MediaConnect Flows. See Media Connect Flows for more details.
@@ -411,8 +411,8 @@ func (o InputOutput) Name() pulumi.StringOutput {
 }
 
 // The ARN of the role this input assumes during and after creation.
-func (o InputOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+func (o InputOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The source URLs for a PULL-type input. See Sources for more details.

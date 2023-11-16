@@ -817,7 +817,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the state machine.
         """
@@ -825,7 +825,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date the state machine was created.
         """
@@ -841,12 +841,12 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> pulumi.Output['outputs.StateMachineLoggingConfiguration']:
+    def logging_configuration(self) -> pulumi.Output[Optional['outputs.StateMachineLoggingConfiguration']]:
         """
         Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         """
@@ -862,7 +862,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -878,7 +878,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="revisionId")
-    def revision_id(self) -> pulumi.Output[str]:
+    def revision_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "revision_id")
 
     @property
@@ -891,12 +891,12 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stateMachineVersionArn")
-    def state_machine_version_arn(self) -> pulumi.Output[str]:
+    def state_machine_version_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "state_machine_version_arn")
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of the state machine. Either `ACTIVE` or `DELETING`.
         """
@@ -923,7 +923,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tracingConfiguration")
-    def tracing_configuration(self) -> pulumi.Output['outputs.StateMachineTracingConfiguration']:
+    def tracing_configuration(self) -> pulumi.Output[Optional['outputs.StateMachineTracingConfiguration']]:
         """
         Selects whether AWS X-Ray tracing is enabled.
         """
@@ -939,6 +939,6 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionDescription")
-    def version_description(self) -> pulumi.Output[str]:
+    def version_description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "version_description")
 

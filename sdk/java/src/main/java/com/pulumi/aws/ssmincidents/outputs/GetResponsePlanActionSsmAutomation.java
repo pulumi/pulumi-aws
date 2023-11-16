@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponsePlanActionSsmAutomation {
@@ -16,75 +18,75 @@ public final class GetResponsePlanActionSsmAutomation {
      * @return The automation document&#39;s name.
      * 
      */
-    private String documentName;
+    private @Nullable String documentName;
     /**
      * @return The version of the automation document to use at runtime.
      * 
      */
-    private String documentVersion;
+    private @Nullable String documentVersion;
     /**
      * @return The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
      * 
      */
-    private Map<String,String> dynamicParameters;
+    private @Nullable Map<String,String> dynamicParameters;
     /**
      * @return The key-value pair parameters used when the automation document runs. The following values are supported:
      * 
      */
-    private List<GetResponsePlanActionSsmAutomationParameter> parameters;
+    private @Nullable List<GetResponsePlanActionSsmAutomationParameter> parameters;
     /**
      * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return The account that runs the automation document. This can be in either the management account or an application account.
      * 
      */
-    private String targetAccount;
+    private @Nullable String targetAccount;
 
     private GetResponsePlanActionSsmAutomation() {}
     /**
      * @return The automation document&#39;s name.
      * 
      */
-    public String documentName() {
-        return this.documentName;
+    public Optional<String> documentName() {
+        return Optional.ofNullable(this.documentName);
     }
     /**
      * @return The version of the automation document to use at runtime.
      * 
      */
-    public String documentVersion() {
-        return this.documentVersion;
+    public Optional<String> documentVersion() {
+        return Optional.ofNullable(this.documentVersion);
     }
     /**
      * @return The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
      * 
      */
     public Map<String,String> dynamicParameters() {
-        return this.dynamicParameters;
+        return this.dynamicParameters == null ? Map.of() : this.dynamicParameters;
     }
     /**
      * @return The key-value pair parameters used when the automation document runs. The following values are supported:
      * 
      */
     public List<GetResponsePlanActionSsmAutomationParameter> parameters() {
-        return this.parameters;
+        return this.parameters == null ? List.of() : this.parameters;
     }
     /**
      * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return The account that runs the automation document. This can be in either the management account or an application account.
      * 
      */
-    public String targetAccount() {
-        return this.targetAccount;
+    public Optional<String> targetAccount() {
+        return Optional.ofNullable(this.targetAccount);
     }
 
     public static Builder builder() {
@@ -96,12 +98,12 @@ public final class GetResponsePlanActionSsmAutomation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String documentName;
-        private String documentVersion;
-        private Map<String,String> dynamicParameters;
-        private List<GetResponsePlanActionSsmAutomationParameter> parameters;
-        private String roleArn;
-        private String targetAccount;
+        private @Nullable String documentName;
+        private @Nullable String documentVersion;
+        private @Nullable Map<String,String> dynamicParameters;
+        private @Nullable List<GetResponsePlanActionSsmAutomationParameter> parameters;
+        private @Nullable String roleArn;
+        private @Nullable String targetAccount;
         public Builder() {}
         public Builder(GetResponsePlanActionSsmAutomation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -114,36 +116,36 @@ public final class GetResponsePlanActionSsmAutomation {
         }
 
         @CustomType.Setter
-        public Builder documentName(String documentName) {
-            this.documentName = Objects.requireNonNull(documentName);
+        public Builder documentName(@Nullable String documentName) {
+            this.documentName = documentName;
             return this;
         }
         @CustomType.Setter
-        public Builder documentVersion(String documentVersion) {
-            this.documentVersion = Objects.requireNonNull(documentVersion);
+        public Builder documentVersion(@Nullable String documentVersion) {
+            this.documentVersion = documentVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder dynamicParameters(Map<String,String> dynamicParameters) {
-            this.dynamicParameters = Objects.requireNonNull(dynamicParameters);
+        public Builder dynamicParameters(@Nullable Map<String,String> dynamicParameters) {
+            this.dynamicParameters = dynamicParameters;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(List<GetResponsePlanActionSsmAutomationParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable List<GetResponsePlanActionSsmAutomationParameter> parameters) {
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetResponsePlanActionSsmAutomationParameter... parameters) {
             return parameters(List.of(parameters));
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder targetAccount(String targetAccount) {
-            this.targetAccount = Objects.requireNonNull(targetAccount);
+        public Builder targetAccount(@Nullable String targetAccount) {
+            this.targetAccount = targetAccount;
             return this;
         }
         public GetResponsePlanActionSsmAutomation build() {

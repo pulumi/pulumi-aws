@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFrameworkResult {
@@ -16,32 +18,32 @@ public final class GetFrameworkResult {
      * @return ARN of the backup framework.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      * 
      */
-    private List<GetFrameworkControl> controls;
+    private @Nullable List<GetFrameworkControl> controls;
     /**
      * @return Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    private String creationTime;
+    private @Nullable String creationTime;
     /**
      * @return Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
      * 
      */
-    private String deploymentStatus;
+    private @Nullable String deploymentStatus;
     /**
      * @return Description of the framework.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of a parameter, for example, BackupPlanFrequency.
      * 
@@ -51,55 +53,55 @@ public final class GetFrameworkResult {
      * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetFrameworkResult() {}
     /**
      * @return ARN of the backup framework.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      * 
      */
     public List<GetFrameworkControl> controls() {
-        return this.controls;
+        return this.controls == null ? List.of() : this.controls;
     }
     /**
      * @return Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    public String creationTime() {
-        return this.creationTime;
+    public Optional<String> creationTime() {
+        return Optional.ofNullable(this.creationTime);
     }
     /**
      * @return Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
      * 
      */
-    public String deploymentStatus() {
-        return this.deploymentStatus;
+    public Optional<String> deploymentStatus() {
+        return Optional.ofNullable(this.deploymentStatus);
     }
     /**
      * @return Description of the framework.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of a parameter, for example, BackupPlanFrequency.
@@ -112,15 +114,15 @@ public final class GetFrameworkResult {
      * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -132,15 +134,15 @@ public final class GetFrameworkResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetFrameworkControl> controls;
-        private String creationTime;
-        private String deploymentStatus;
-        private String description;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable List<GetFrameworkControl> controls;
+        private @Nullable String creationTime;
+        private @Nullable String deploymentStatus;
+        private @Nullable String description;
+        private @Nullable String id;
         private String name;
-        private String status;
-        private Map<String,String> tags;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetFrameworkResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -156,36 +158,36 @@ public final class GetFrameworkResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder controls(List<GetFrameworkControl> controls) {
-            this.controls = Objects.requireNonNull(controls);
+        public Builder controls(@Nullable List<GetFrameworkControl> controls) {
+            this.controls = controls;
             return this;
         }
         public Builder controls(GetFrameworkControl... controls) {
             return controls(List.of(controls));
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+        public Builder creationTime(@Nullable String creationTime) {
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
-        public Builder deploymentStatus(String deploymentStatus) {
-            this.deploymentStatus = Objects.requireNonNull(deploymentStatus);
+        public Builder deploymentStatus(@Nullable String deploymentStatus) {
+            this.deploymentStatus = deploymentStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -194,13 +196,13 @@ public final class GetFrameworkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetFrameworkResult build() {

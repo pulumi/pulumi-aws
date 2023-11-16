@@ -428,7 +428,7 @@ class Tracker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[str]:
+    def create_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the tracker resource was created in ISO 8601 format.
         """
@@ -479,7 +479,7 @@ class Tracker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trackerArn")
-    def tracker_arn(self) -> pulumi.Output[str]:
+    def tracker_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
         """
@@ -497,7 +497,7 @@ class Tracker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[str]:
+    def update_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp for when the tracker resource was last updated in ISO 8601 format.
         """

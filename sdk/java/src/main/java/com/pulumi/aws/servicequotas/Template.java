@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -70,14 +71,14 @@ public class Template extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="globalQuota", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> globalQuota;
+    private Output</* @Nullable */ Boolean> globalQuota;
 
     /**
      * @return Indicates whether the quota is global.
      * 
      */
-    public Output<Boolean> globalQuota() {
-        return this.globalQuota;
+    public Output<Optional<Boolean>> globalQuota() {
+        return Codegen.optional(this.globalQuota);
     }
     /**
      * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
@@ -98,14 +99,14 @@ public class Template extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="quotaName", refs={String.class}, tree="[0]")
-    private Output<String> quotaName;
+    private Output</* @Nullable */ String> quotaName;
 
     /**
      * @return Quota name.
      * 
      */
-    public Output<String> quotaName() {
-        return this.quotaName;
+    public Output<Optional<String>> quotaName() {
+        return Codegen.optional(this.quotaName);
     }
     /**
      * AWS Region to which the template applies.
@@ -140,28 +141,28 @@ public class Template extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
-    private Output<String> serviceName;
+    private Output</* @Nullable */ String> serviceName;
 
     /**
      * @return Service name.
      * 
      */
-    public Output<String> serviceName() {
-        return this.serviceName;
+    public Output<Optional<String>> serviceName() {
+        return Codegen.optional(this.serviceName);
     }
     /**
      * Unit of measurement.
      * 
      */
     @Export(name="unit", refs={String.class}, tree="[0]")
-    private Output<String> unit;
+    private Output</* @Nullable */ String> unit;
 
     /**
      * @return Unit of measurement.
      * 
      */
-    public Output<String> unit() {
-        return this.unit;
+    public Output<Optional<String>> unit() {
+        return Codegen.optional(this.unit);
     }
     /**
      * The new, increased value for the quota.

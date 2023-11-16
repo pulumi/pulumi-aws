@@ -62,7 +62,7 @@ type Project struct {
 	// The following arguments are optional:
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The name of the project in the space.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The name of the space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
 }
@@ -255,8 +255,8 @@ func (o ProjectOutput) DisplayName() pulumi.StringOutput {
 }
 
 // The name of the project in the space.
-func (o ProjectOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o ProjectOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The name of the space.

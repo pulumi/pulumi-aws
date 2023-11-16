@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Elb.Outputs
     [OutputType]
     public sealed class GetLoadBalancerListenerResult
     {
-        public readonly int InstancePort;
-        public readonly string InstanceProtocol;
-        public readonly int LbPort;
-        public readonly string LbProtocol;
-        public readonly string SslCertificateId;
+        public readonly int? InstancePort;
+        public readonly string? InstanceProtocol;
+        public readonly int? LbPort;
+        public readonly string? LbProtocol;
+        public readonly string? SslCertificateId;
 
         [OutputConstructor]
         private GetLoadBalancerListenerResult(
-            int instancePort,
+            int? instancePort,
 
-            string instanceProtocol,
+            string? instanceProtocol,
 
-            int lbPort,
+            int? lbPort,
 
-            string lbProtocol,
+            string? lbProtocol,
 
-            string sslCertificateId)
+            string? sslCertificateId)
         {
             InstancePort = instancePort;
             InstanceProtocol = instanceProtocol;

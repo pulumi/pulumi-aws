@@ -66,19 +66,19 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
     /**
      * Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
      */
-    public /*out*/ readonly applianceModeSupport!: pulumi.Output<string>;
+    public /*out*/ readonly applianceModeSupport!: pulumi.Output<string | undefined>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`.
      */
-    public /*out*/ readonly dnsSupport!: pulumi.Output<string>;
+    public /*out*/ readonly dnsSupport!: pulumi.Output<string | undefined>;
     /**
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
      */
-    public /*out*/ readonly ipv6Support!: pulumi.Output<string>;
+    public /*out*/ readonly ipv6Support!: pulumi.Output<string | undefined>;
     /**
      * Identifiers of EC2 Subnets.
      */
-    public /*out*/ readonly subnetIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -104,15 +104,15 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    public /*out*/ readonly transitGatewayId!: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of EC2 VPC.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the AWS account that owns the EC2 VPC.
      */
-    public /*out*/ readonly vpcOwnerId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcOwnerId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcAttachmentAccepter resource with the given unique name, arguments, and options.

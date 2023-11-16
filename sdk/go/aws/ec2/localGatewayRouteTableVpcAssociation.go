@@ -65,7 +65,7 @@ import (
 type LocalGatewayRouteTableVpcAssociation struct {
 	pulumi.CustomResourceState
 
-	LocalGatewayId pulumi.StringOutput `pulumi:"localGatewayId"`
+	LocalGatewayId pulumi.StringPtrOutput `pulumi:"localGatewayId"`
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -265,8 +265,8 @@ func (o LocalGatewayRouteTableVpcAssociationOutput) ToLocalGatewayRouteTableVpcA
 	return o
 }
 
-func (o LocalGatewayRouteTableVpcAssociationOutput) LocalGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalGatewayRouteTableVpcAssociation) pulumi.StringOutput { return v.LocalGatewayId }).(pulumi.StringOutput)
+func (o LocalGatewayRouteTableVpcAssociationOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTableVpcAssociation) pulumi.StringPtrOutput { return v.LocalGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of EC2 Local Gateway Route Table.

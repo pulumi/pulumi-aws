@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContainerRecipeInstanceConfiguration {
@@ -15,12 +17,12 @@ public final class GetContainerRecipeInstanceConfiguration {
      * @return Set of objects with block device mappings for the instance configuration.
      * 
      */
-    private List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
+    private @Nullable List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
     /**
      * @return AMI ID of the base image for container build and test instance.
      * 
      */
-    private String image;
+    private @Nullable String image;
 
     private GetContainerRecipeInstanceConfiguration() {}
     /**
@@ -28,14 +30,14 @@ public final class GetContainerRecipeInstanceConfiguration {
      * 
      */
     public List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings() {
-        return this.blockDeviceMappings;
+        return this.blockDeviceMappings == null ? List.of() : this.blockDeviceMappings;
     }
     /**
      * @return AMI ID of the base image for container build and test instance.
      * 
      */
-    public String image() {
-        return this.image;
+    public Optional<String> image() {
+        return Optional.ofNullable(this.image);
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetContainerRecipeInstanceConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
-        private String image;
+        private @Nullable List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
+        private @Nullable String image;
         public Builder() {}
         public Builder(GetContainerRecipeInstanceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +59,16 @@ public final class GetContainerRecipeInstanceConfiguration {
         }
 
         @CustomType.Setter
-        public Builder blockDeviceMappings(List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings) {
-            this.blockDeviceMappings = Objects.requireNonNull(blockDeviceMappings);
+        public Builder blockDeviceMappings(@Nullable List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings) {
+            this.blockDeviceMappings = blockDeviceMappings;
             return this;
         }
         public Builder blockDeviceMappings(GetContainerRecipeInstanceConfigurationBlockDeviceMapping... blockDeviceMappings) {
             return blockDeviceMappings(List.of(blockDeviceMappings));
         }
         @CustomType.Setter
-        public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+        public Builder image(@Nullable String image) {
+            this.image = image;
             return this;
         }
         public GetContainerRecipeInstanceConfiguration build() {

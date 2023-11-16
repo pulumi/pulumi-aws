@@ -74,10 +74,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")
 public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.CustomResource {
     @Export(name="localGatewayId", refs={String.class}, tree="[0]")
-    private Output<String> localGatewayId;
+    private Output</* @Nullable */ String> localGatewayId;
 
-    public Output<String> localGatewayId() {
-        return this.localGatewayId;
+    public Output<Optional<String>> localGatewayId() {
+        return Codegen.optional(this.localGatewayId);
     }
     /**
      * Identifier of EC2 Local Gateway Route Table.

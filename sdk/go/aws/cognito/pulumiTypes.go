@@ -6606,9 +6606,9 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) SmsMessage() pulumi.String
 }
 
 type GetIdentityPoolCognitoIdentityProvider struct {
-	ClientId             string `pulumi:"clientId"`
-	ProviderName         string `pulumi:"providerName"`
-	ServerSideTokenCheck bool   `pulumi:"serverSideTokenCheck"`
+	ClientId             *string `pulumi:"clientId"`
+	ProviderName         *string `pulumi:"providerName"`
+	ServerSideTokenCheck *bool   `pulumi:"serverSideTokenCheck"`
 }
 
 // GetIdentityPoolCognitoIdentityProviderInput is an input type that accepts GetIdentityPoolCognitoIdentityProviderArgs and GetIdentityPoolCognitoIdentityProviderOutput values.
@@ -6623,9 +6623,9 @@ type GetIdentityPoolCognitoIdentityProviderInput interface {
 }
 
 type GetIdentityPoolCognitoIdentityProviderArgs struct {
-	ClientId             pulumi.StringInput `pulumi:"clientId"`
-	ProviderName         pulumi.StringInput `pulumi:"providerName"`
-	ServerSideTokenCheck pulumi.BoolInput   `pulumi:"serverSideTokenCheck"`
+	ClientId             pulumi.StringPtrInput `pulumi:"clientId"`
+	ProviderName         pulumi.StringPtrInput `pulumi:"providerName"`
+	ServerSideTokenCheck pulumi.BoolPtrInput   `pulumi:"serverSideTokenCheck"`
 }
 
 func (GetIdentityPoolCognitoIdentityProviderArgs) ElementType() reflect.Type {
@@ -6679,16 +6679,16 @@ func (o GetIdentityPoolCognitoIdentityProviderOutput) ToGetIdentityPoolCognitoId
 	return o
 }
 
-func (o GetIdentityPoolCognitoIdentityProviderOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIdentityPoolCognitoIdentityProvider) string { return v.ClientId }).(pulumi.StringOutput)
+func (o GetIdentityPoolCognitoIdentityProviderOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetIdentityPoolCognitoIdentityProvider) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetIdentityPoolCognitoIdentityProviderOutput) ProviderName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIdentityPoolCognitoIdentityProvider) string { return v.ProviderName }).(pulumi.StringOutput)
+func (o GetIdentityPoolCognitoIdentityProviderOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetIdentityPoolCognitoIdentityProvider) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetIdentityPoolCognitoIdentityProviderOutput) ServerSideTokenCheck() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetIdentityPoolCognitoIdentityProvider) bool { return v.ServerSideTokenCheck }).(pulumi.BoolOutput)
+func (o GetIdentityPoolCognitoIdentityProviderOutput) ServerSideTokenCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetIdentityPoolCognitoIdentityProvider) *bool { return v.ServerSideTokenCheck }).(pulumi.BoolPtrOutput)
 }
 
 type GetIdentityPoolCognitoIdentityProviderArrayOutput struct{ *pulumi.OutputState }
@@ -6713,15 +6713,15 @@ func (o GetIdentityPoolCognitoIdentityProviderArrayOutput) Index(i pulumi.IntInp
 
 type GetUserPoolClientAnalyticsConfiguration struct {
 	// (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
-	ApplicationArn string `pulumi:"applicationArn"`
+	ApplicationArn *string `pulumi:"applicationArn"`
 	// (Optional) Application ID for an Amazon Pinpoint application.
-	ApplicationId string `pulumi:"applicationId"`
+	ApplicationId *string `pulumi:"applicationId"`
 	// (Optional) ID for the Analytics Configuration. Conflicts with `applicationArn`.
-	ExternalId string `pulumi:"externalId"`
+	ExternalId *string `pulumi:"externalId"`
 	// (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 	// (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-	UserDataShared bool `pulumi:"userDataShared"`
+	UserDataShared *bool `pulumi:"userDataShared"`
 }
 
 // GetUserPoolClientAnalyticsConfigurationInput is an input type that accepts GetUserPoolClientAnalyticsConfigurationArgs and GetUserPoolClientAnalyticsConfigurationOutput values.
@@ -6737,15 +6737,15 @@ type GetUserPoolClientAnalyticsConfigurationInput interface {
 
 type GetUserPoolClientAnalyticsConfigurationArgs struct {
 	// (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
-	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
 	// (Optional) Application ID for an Amazon Pinpoint application.
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 	// (Optional) ID for the Analytics Configuration. Conflicts with `applicationArn`.
-	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
 	// (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-	UserDataShared pulumi.BoolInput `pulumi:"userDataShared"`
+	UserDataShared pulumi.BoolPtrInput `pulumi:"userDataShared"`
 }
 
 func (GetUserPoolClientAnalyticsConfigurationArgs) ElementType() reflect.Type {
@@ -6800,28 +6800,28 @@ func (o GetUserPoolClientAnalyticsConfigurationOutput) ToGetUserPoolClientAnalyt
 }
 
 // (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
-func (o GetUserPoolClientAnalyticsConfigurationOutput) ApplicationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) string { return v.ApplicationArn }).(pulumi.StringOutput)
+func (o GetUserPoolClientAnalyticsConfigurationOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Application ID for an Amazon Pinpoint application.
-func (o GetUserPoolClientAnalyticsConfigurationOutput) ApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) string { return v.ApplicationId }).(pulumi.StringOutput)
+func (o GetUserPoolClientAnalyticsConfigurationOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) ID for the Analytics Configuration. Conflicts with `applicationArn`.
-func (o GetUserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) string { return v.ExternalId }).(pulumi.StringOutput)
+func (o GetUserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
-func (o GetUserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o GetUserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-func (o GetUserPoolClientAnalyticsConfigurationOutput) UserDataShared() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) bool { return v.UserDataShared }).(pulumi.BoolOutput)
+func (o GetUserPoolClientAnalyticsConfigurationOutput) UserDataShared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) *bool { return v.UserDataShared }).(pulumi.BoolPtrOutput)
 }
 
 type GetUserPoolClientAnalyticsConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -6846,11 +6846,11 @@ func (o GetUserPoolClientAnalyticsConfigurationArrayOutput) Index(i pulumi.IntIn
 
 type GetUserPoolClientTokenValidityUnit struct {
 	// (Optional) Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
-	AccessToken string `pulumi:"accessToken"`
+	AccessToken *string `pulumi:"accessToken"`
 	// (Optional) Time unit in for the value in `idTokenValidity`, defaults to `hours`.
-	IdToken string `pulumi:"idToken"`
+	IdToken *string `pulumi:"idToken"`
 	// (Optional) Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
-	RefreshToken string `pulumi:"refreshToken"`
+	RefreshToken *string `pulumi:"refreshToken"`
 }
 
 // GetUserPoolClientTokenValidityUnitInput is an input type that accepts GetUserPoolClientTokenValidityUnitArgs and GetUserPoolClientTokenValidityUnitOutput values.
@@ -6866,11 +6866,11 @@ type GetUserPoolClientTokenValidityUnitInput interface {
 
 type GetUserPoolClientTokenValidityUnitArgs struct {
 	// (Optional) Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
-	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// (Optional) Time unit in for the value in `idTokenValidity`, defaults to `hours`.
-	IdToken pulumi.StringInput `pulumi:"idToken"`
+	IdToken pulumi.StringPtrInput `pulumi:"idToken"`
 	// (Optional) Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
-	RefreshToken pulumi.StringInput `pulumi:"refreshToken"`
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
 
 func (GetUserPoolClientTokenValidityUnitArgs) ElementType() reflect.Type {
@@ -6925,18 +6925,18 @@ func (o GetUserPoolClientTokenValidityUnitOutput) ToGetUserPoolClientTokenValidi
 }
 
 // (Optional) Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
-func (o GetUserPoolClientTokenValidityUnitOutput) AccessToken() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolClientTokenValidityUnit) string { return v.AccessToken }).(pulumi.StringOutput)
+func (o GetUserPoolClientTokenValidityUnitOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolClientTokenValidityUnit) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Time unit in for the value in `idTokenValidity`, defaults to `hours`.
-func (o GetUserPoolClientTokenValidityUnitOutput) IdToken() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolClientTokenValidityUnit) string { return v.IdToken }).(pulumi.StringOutput)
+func (o GetUserPoolClientTokenValidityUnitOutput) IdToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolClientTokenValidityUnit) *string { return v.IdToken }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
-func (o GetUserPoolClientTokenValidityUnitOutput) RefreshToken() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserPoolClientTokenValidityUnit) string { return v.RefreshToken }).(pulumi.StringOutput)
+func (o GetUserPoolClientTokenValidityUnitOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserPoolClientTokenValidityUnit) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
 
 type GetUserPoolClientTokenValidityUnitArrayOutput struct{ *pulumi.OutputState }

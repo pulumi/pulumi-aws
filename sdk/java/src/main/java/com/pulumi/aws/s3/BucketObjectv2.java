@@ -294,14 +294,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="acl", refs={String.class}, tree="[0]")
-    private Output<String> acl;
+    private Output</* @Nullable */ String> acl;
 
     /**
      * @return [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      * 
      */
-    public Output<String> acl() {
-        return this.acl;
+    public Output<Optional<String>> acl() {
+        return Codegen.optional(this.acl);
     }
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
@@ -322,14 +322,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bucketKeyEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> bucketKeyEnabled;
+    private Output</* @Nullable */ Boolean> bucketKeyEnabled;
 
     /**
      * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
-    public Output<Boolean> bucketKeyEnabled() {
-        return this.bucketKeyEnabled;
+    public Output<Optional<Boolean>> bucketKeyEnabled() {
+        return Codegen.optional(this.bucketKeyEnabled);
     }
     /**
      * Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -364,56 +364,56 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="checksumCrc32", refs={String.class}, tree="[0]")
-    private Output<String> checksumCrc32;
+    private Output</* @Nullable */ String> checksumCrc32;
 
     /**
      * @return The base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
-    public Output<String> checksumCrc32() {
-        return this.checksumCrc32;
+    public Output<Optional<String>> checksumCrc32() {
+        return Codegen.optional(this.checksumCrc32);
     }
     /**
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     @Export(name="checksumCrc32c", refs={String.class}, tree="[0]")
-    private Output<String> checksumCrc32c;
+    private Output</* @Nullable */ String> checksumCrc32c;
 
     /**
      * @return The base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
-    public Output<String> checksumCrc32c() {
-        return this.checksumCrc32c;
+    public Output<Optional<String>> checksumCrc32c() {
+        return Codegen.optional(this.checksumCrc32c);
     }
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     @Export(name="checksumSha1", refs={String.class}, tree="[0]")
-    private Output<String> checksumSha1;
+    private Output</* @Nullable */ String> checksumSha1;
 
     /**
      * @return The base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
-    public Output<String> checksumSha1() {
-        return this.checksumSha1;
+    public Output<Optional<String>> checksumSha1() {
+        return Codegen.optional(this.checksumSha1);
     }
     /**
      * The base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     @Export(name="checksumSha256", refs={String.class}, tree="[0]")
-    private Output<String> checksumSha256;
+    private Output</* @Nullable */ String> checksumSha256;
 
     /**
      * @return The base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
-    public Output<String> checksumSha256() {
-        return this.checksumSha256;
+    public Output<Optional<String>> checksumSha256() {
+        return Codegen.optional(this.checksumSha256);
     }
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
@@ -490,28 +490,28 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="contentType", refs={String.class}, tree="[0]")
-    private Output<String> contentType;
+    private Output</* @Nullable */ String> contentType;
 
     /**
      * @return Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      * 
      */
-    public Output<String> contentType() {
-        return this.contentType;
+    public Output<Optional<String>> contentType() {
+        return Codegen.optional(this.contentType);
     }
     /**
      * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
-    private Output<String> etag;
+    private Output</* @Nullable */ String> etag;
 
     /**
      * @return Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
      * 
      */
-    public Output<String> etag() {
-        return this.etag;
+    public Output<Optional<String>> etag() {
+        return Codegen.optional(this.etag);
     }
     /**
      * Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
@@ -550,14 +550,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -634,14 +634,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serverSideEncryption", refs={String.class}, tree="[0]")
-    private Output<String> serverSideEncryption;
+    private Output</* @Nullable */ String> serverSideEncryption;
 
     /**
      * @return Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
      * 
      */
-    public Output<String> serverSideEncryption() {
-        return this.serverSideEncryption;
+    public Output<Optional<String>> serverSideEncryption() {
+        return Codegen.optional(this.serverSideEncryption);
     }
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -676,14 +676,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageClass", refs={String.class}, tree="[0]")
-    private Output<String> storageClass;
+    private Output</* @Nullable */ String> storageClass;
 
     /**
      * @return [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to &#34;`STANDARD`&#34;.
      * 
      */
-    public Output<String> storageClass() {
-        return this.storageClass;
+    public Output<Optional<String>> storageClass() {
+        return Codegen.optional(this.storageClass);
     }
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -722,14 +722,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionId", refs={String.class}, tree="[0]")
-    private Output<String> versionId;
+    private Output</* @Nullable */ String> versionId;
 
     /**
      * @return Unique version ID value for the object, if bucket versioning is enabled.
      * 
      */
-    public Output<String> versionId() {
-        return this.versionId;
+    public Output<Optional<String>> versionId() {
+        return Codegen.optional(this.versionId);
     }
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).

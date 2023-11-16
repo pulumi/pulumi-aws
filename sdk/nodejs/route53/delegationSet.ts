@@ -57,12 +57,12 @@ export class DelegationSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Delegation Set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      */
-    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    public /*out*/ readonly nameServers!: pulumi.Output<string[] | undefined>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)

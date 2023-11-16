@@ -1156,7 +1156,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Health Check.
         """
@@ -1209,7 +1209,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableSni")
-    def enable_sni(self) -> pulumi.Output[bool]:
+    def enable_sni(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         """
@@ -1217,7 +1217,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> pulumi.Output[int]:
+    def failure_threshold(self) -> pulumi.Output[Optional[int]]:
         """
         The number of consecutive health checks that an endpoint must pass or fail.
         """

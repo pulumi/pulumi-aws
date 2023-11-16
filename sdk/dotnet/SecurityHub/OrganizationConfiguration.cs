@@ -75,7 +75,7 @@ namespace Pulumi.Aws.SecurityHub
         /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         /// </summary>
         [Output("autoEnableStandards")]
-        public Output<string> AutoEnableStandards { get; private set; } = null!;
+        public Output<string?> AutoEnableStandards { get; private set; } = null!;
 
 
         /// <summary>

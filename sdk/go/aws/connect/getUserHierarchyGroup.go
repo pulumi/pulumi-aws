@@ -93,17 +93,17 @@ type LookupUserHierarchyGroupArgs struct {
 // A collection of values returned by getUserHierarchyGroup.
 type LookupUserHierarchyGroupResult struct {
 	// ARN of the hierarchy group.
-	Arn              string `pulumi:"arn"`
-	HierarchyGroupId string `pulumi:"hierarchyGroupId"`
+	Arn              *string `pulumi:"arn"`
+	HierarchyGroupId *string `pulumi:"hierarchyGroupId"`
 	// Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
 	HierarchyPaths []GetUserHierarchyGroupHierarchyPath `pulumi:"hierarchyPaths"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
+	Id         *string `pulumi:"id"`
+	InstanceId string  `pulumi:"instanceId"`
 	// Identifier of the level in the hierarchy group.
-	LevelId string `pulumi:"levelId"`
+	LevelId *string `pulumi:"levelId"`
 	// Name of the hierarchy group.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Map of tags to assign to the hierarchy group.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -153,12 +153,12 @@ func (o LookupUserHierarchyGroupResultOutput) ToLookupUserHierarchyGroupResultOu
 }
 
 // ARN of the hierarchy group.
-func (o LookupUserHierarchyGroupResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupUserHierarchyGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserHierarchyGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserHierarchyGroupResultOutput) HierarchyGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.HierarchyGroupId }).(pulumi.StringOutput)
+func (o LookupUserHierarchyGroupResultOutput) HierarchyGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserHierarchyGroupResult) *string { return v.HierarchyGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
@@ -167,8 +167,8 @@ func (o LookupUserHierarchyGroupResultOutput) HierarchyPaths() GetUserHierarchyG
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupUserHierarchyGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupUserHierarchyGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserHierarchyGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserHierarchyGroupResultOutput) InstanceId() pulumi.StringOutput {
@@ -176,13 +176,13 @@ func (o LookupUserHierarchyGroupResultOutput) InstanceId() pulumi.StringOutput {
 }
 
 // Identifier of the level in the hierarchy group.
-func (o LookupUserHierarchyGroupResultOutput) LevelId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.LevelId }).(pulumi.StringOutput)
+func (o LookupUserHierarchyGroupResultOutput) LevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserHierarchyGroupResult) *string { return v.LevelId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the hierarchy group.
-func (o LookupUserHierarchyGroupResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupUserHierarchyGroupResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserHierarchyGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the hierarchy group.

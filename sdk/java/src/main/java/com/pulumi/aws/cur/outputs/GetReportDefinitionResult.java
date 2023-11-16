@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReportDefinitionResult {
@@ -15,58 +17,58 @@ public final class GetReportDefinitionResult {
      * @return A list of additional artifacts.
      * 
      */
-    private List<String> additionalArtifacts;
+    private @Nullable List<String> additionalArtifacts;
     /**
      * @return A list of schema elements.
      * 
      */
-    private List<String> additionalSchemaElements;
+    private @Nullable List<String> additionalSchemaElements;
     /**
      * @return Preferred format for report.
      * 
      */
-    private String compression;
+    private @Nullable String compression;
     /**
      * @return Preferred compression format for report.
      * 
      */
-    private String format;
+    private @Nullable String format;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return If true reports are updated after they have been finalized.
      * 
      */
-    private Boolean refreshClosedReports;
+    private @Nullable Boolean refreshClosedReports;
     private String reportName;
     /**
      * @return Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
      * 
      */
-    private String reportVersioning;
+    private @Nullable String reportVersioning;
     /**
      * @return Name of customer S3 bucket.
      * 
      */
-    private String s3Bucket;
+    private @Nullable String s3Bucket;
     /**
      * @return Preferred report path prefix.
      * 
      */
-    private String s3Prefix;
+    private @Nullable String s3Prefix;
     /**
      * @return Region of customer S3 bucket.
      * 
      */
-    private String s3Region;
+    private @Nullable String s3Region;
     /**
      * @return Frequency on which report data are measured and displayed.
      * 
      */
-    private String timeUnit;
+    private @Nullable String timeUnit;
 
     private GetReportDefinitionResult() {}
     /**
@@ -74,42 +76,42 @@ public final class GetReportDefinitionResult {
      * 
      */
     public List<String> additionalArtifacts() {
-        return this.additionalArtifacts;
+        return this.additionalArtifacts == null ? List.of() : this.additionalArtifacts;
     }
     /**
      * @return A list of schema elements.
      * 
      */
     public List<String> additionalSchemaElements() {
-        return this.additionalSchemaElements;
+        return this.additionalSchemaElements == null ? List.of() : this.additionalSchemaElements;
     }
     /**
      * @return Preferred format for report.
      * 
      */
-    public String compression() {
-        return this.compression;
+    public Optional<String> compression() {
+        return Optional.ofNullable(this.compression);
     }
     /**
      * @return Preferred compression format for report.
      * 
      */
-    public String format() {
-        return this.format;
+    public Optional<String> format() {
+        return Optional.ofNullable(this.format);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return If true reports are updated after they have been finalized.
      * 
      */
-    public Boolean refreshClosedReports() {
-        return this.refreshClosedReports;
+    public Optional<Boolean> refreshClosedReports() {
+        return Optional.ofNullable(this.refreshClosedReports);
     }
     public String reportName() {
         return this.reportName;
@@ -118,36 +120,36 @@ public final class GetReportDefinitionResult {
      * @return Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
      * 
      */
-    public String reportVersioning() {
-        return this.reportVersioning;
+    public Optional<String> reportVersioning() {
+        return Optional.ofNullable(this.reportVersioning);
     }
     /**
      * @return Name of customer S3 bucket.
      * 
      */
-    public String s3Bucket() {
-        return this.s3Bucket;
+    public Optional<String> s3Bucket() {
+        return Optional.ofNullable(this.s3Bucket);
     }
     /**
      * @return Preferred report path prefix.
      * 
      */
-    public String s3Prefix() {
-        return this.s3Prefix;
+    public Optional<String> s3Prefix() {
+        return Optional.ofNullable(this.s3Prefix);
     }
     /**
      * @return Region of customer S3 bucket.
      * 
      */
-    public String s3Region() {
-        return this.s3Region;
+    public Optional<String> s3Region() {
+        return Optional.ofNullable(this.s3Region);
     }
     /**
      * @return Frequency on which report data are measured and displayed.
      * 
      */
-    public String timeUnit() {
-        return this.timeUnit;
+    public Optional<String> timeUnit() {
+        return Optional.ofNullable(this.timeUnit);
     }
 
     public static Builder builder() {
@@ -159,18 +161,18 @@ public final class GetReportDefinitionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> additionalArtifacts;
-        private List<String> additionalSchemaElements;
-        private String compression;
-        private String format;
-        private String id;
-        private Boolean refreshClosedReports;
+        private @Nullable List<String> additionalArtifacts;
+        private @Nullable List<String> additionalSchemaElements;
+        private @Nullable String compression;
+        private @Nullable String format;
+        private @Nullable String id;
+        private @Nullable Boolean refreshClosedReports;
         private String reportName;
-        private String reportVersioning;
-        private String s3Bucket;
-        private String s3Prefix;
-        private String s3Region;
-        private String timeUnit;
+        private @Nullable String reportVersioning;
+        private @Nullable String s3Bucket;
+        private @Nullable String s3Prefix;
+        private @Nullable String s3Region;
+        private @Nullable String timeUnit;
         public Builder() {}
         public Builder(GetReportDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -189,39 +191,39 @@ public final class GetReportDefinitionResult {
         }
 
         @CustomType.Setter
-        public Builder additionalArtifacts(List<String> additionalArtifacts) {
-            this.additionalArtifacts = Objects.requireNonNull(additionalArtifacts);
+        public Builder additionalArtifacts(@Nullable List<String> additionalArtifacts) {
+            this.additionalArtifacts = additionalArtifacts;
             return this;
         }
         public Builder additionalArtifacts(String... additionalArtifacts) {
             return additionalArtifacts(List.of(additionalArtifacts));
         }
         @CustomType.Setter
-        public Builder additionalSchemaElements(List<String> additionalSchemaElements) {
-            this.additionalSchemaElements = Objects.requireNonNull(additionalSchemaElements);
+        public Builder additionalSchemaElements(@Nullable List<String> additionalSchemaElements) {
+            this.additionalSchemaElements = additionalSchemaElements;
             return this;
         }
         public Builder additionalSchemaElements(String... additionalSchemaElements) {
             return additionalSchemaElements(List.of(additionalSchemaElements));
         }
         @CustomType.Setter
-        public Builder compression(String compression) {
-            this.compression = Objects.requireNonNull(compression);
+        public Builder compression(@Nullable String compression) {
+            this.compression = compression;
             return this;
         }
         @CustomType.Setter
-        public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+        public Builder format(@Nullable String format) {
+            this.format = format;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder refreshClosedReports(Boolean refreshClosedReports) {
-            this.refreshClosedReports = Objects.requireNonNull(refreshClosedReports);
+        public Builder refreshClosedReports(@Nullable Boolean refreshClosedReports) {
+            this.refreshClosedReports = refreshClosedReports;
             return this;
         }
         @CustomType.Setter
@@ -230,28 +232,28 @@ public final class GetReportDefinitionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder reportVersioning(String reportVersioning) {
-            this.reportVersioning = Objects.requireNonNull(reportVersioning);
+        public Builder reportVersioning(@Nullable String reportVersioning) {
+            this.reportVersioning = reportVersioning;
             return this;
         }
         @CustomType.Setter
-        public Builder s3Bucket(String s3Bucket) {
-            this.s3Bucket = Objects.requireNonNull(s3Bucket);
+        public Builder s3Bucket(@Nullable String s3Bucket) {
+            this.s3Bucket = s3Bucket;
             return this;
         }
         @CustomType.Setter
-        public Builder s3Prefix(String s3Prefix) {
-            this.s3Prefix = Objects.requireNonNull(s3Prefix);
+        public Builder s3Prefix(@Nullable String s3Prefix) {
+            this.s3Prefix = s3Prefix;
             return this;
         }
         @CustomType.Setter
-        public Builder s3Region(String s3Region) {
-            this.s3Region = Objects.requireNonNull(s3Region);
+        public Builder s3Region(@Nullable String s3Region) {
+            this.s3Region = s3Region;
             return this;
         }
         @CustomType.Setter
-        public Builder timeUnit(String timeUnit) {
-            this.timeUnit = Objects.requireNonNull(timeUnit);
+        public Builder timeUnit(@Nullable String timeUnit) {
+            this.timeUnit = timeUnit;
             return this;
         }
         public GetReportDefinitionResult build() {

@@ -74,28 +74,28 @@ public class Organization extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accounts", refs={List.class,OrganizationAccount.class}, tree="[0,1]")
-    private Output<List<OrganizationAccount>> accounts;
+    private Output</* @Nullable */ List<OrganizationAccount>> accounts;
 
     /**
      * @return List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
      * 
      */
-    public Output<List<OrganizationAccount>> accounts() {
-        return this.accounts;
+    public Output<Optional<List<OrganizationAccount>>> accounts() {
+        return Codegen.optional(this.accounts);
     }
     /**
      * ARN of the root
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the root
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
@@ -144,70 +144,70 @@ public class Organization extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="masterAccountArn", refs={String.class}, tree="[0]")
-    private Output<String> masterAccountArn;
+    private Output</* @Nullable */ String> masterAccountArn;
 
     /**
      * @return ARN of the master account
      * 
      */
-    public Output<String> masterAccountArn() {
-        return this.masterAccountArn;
+    public Output<Optional<String>> masterAccountArn() {
+        return Codegen.optional(this.masterAccountArn);
     }
     /**
      * Email address of the master account
      * 
      */
     @Export(name="masterAccountEmail", refs={String.class}, tree="[0]")
-    private Output<String> masterAccountEmail;
+    private Output</* @Nullable */ String> masterAccountEmail;
 
     /**
      * @return Email address of the master account
      * 
      */
-    public Output<String> masterAccountEmail() {
-        return this.masterAccountEmail;
+    public Output<Optional<String>> masterAccountEmail() {
+        return Codegen.optional(this.masterAccountEmail);
     }
     /**
      * Identifier of the master account
      * 
      */
     @Export(name="masterAccountId", refs={String.class}, tree="[0]")
-    private Output<String> masterAccountId;
+    private Output</* @Nullable */ String> masterAccountId;
 
     /**
      * @return Identifier of the master account
      * 
      */
-    public Output<String> masterAccountId() {
-        return this.masterAccountId;
+    public Output<Optional<String>> masterAccountId() {
+        return Codegen.optional(this.masterAccountId);
     }
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
     @Export(name="nonMasterAccounts", refs={List.class,OrganizationNonMasterAccount.class}, tree="[0,1]")
-    private Output<List<OrganizationNonMasterAccount>> nonMasterAccounts;
+    private Output</* @Nullable */ List<OrganizationNonMasterAccount>> nonMasterAccounts;
 
     /**
      * @return List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
-    public Output<List<OrganizationNonMasterAccount>> nonMasterAccounts() {
-        return this.nonMasterAccounts;
+    public Output<Optional<List<OrganizationNonMasterAccount>>> nonMasterAccounts() {
+        return Codegen.optional(this.nonMasterAccounts);
     }
     /**
      * List of organization roots. All elements have these attributes:
      * 
      */
     @Export(name="roots", refs={List.class,OrganizationRoot.class}, tree="[0,1]")
-    private Output<List<OrganizationRoot>> roots;
+    private Output</* @Nullable */ List<OrganizationRoot>> roots;
 
     /**
      * @return List of organization roots. All elements have these attributes:
      * 
      */
-    public Output<List<OrganizationRoot>> roots() {
-        return this.roots;
+    public Output<Optional<List<OrganizationRoot>>> roots() {
+        return Codegen.optional(this.roots);
     }
 
     /**

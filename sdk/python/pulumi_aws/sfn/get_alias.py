@@ -47,7 +47,7 @@ class GetAliasResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN identifying the State Machine alias.
         """
@@ -55,7 +55,7 @@ class GetAliasResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> Optional[str]:
         """
         Date the state machine Alias was created.
         """
@@ -71,7 +71,7 @@ class GetAliasResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -84,7 +84,7 @@ class GetAliasResult:
 
     @property
     @pulumi.getter(name="routingConfigurations")
-    def routing_configurations(self) -> Sequence['outputs.GetAliasRoutingConfigurationResult']:
+    def routing_configurations(self) -> Optional[Sequence['outputs.GetAliasRoutingConfigurationResult']]:
         """
         Routing Configuration of state machine alias
         """

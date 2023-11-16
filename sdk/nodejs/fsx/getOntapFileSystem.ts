@@ -52,35 +52,35 @@ export interface GetOntapFileSystemResult {
     /**
      * Amazon Resource Name of the file system.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The number of days to retain automatic backups.
      */
-    readonly automaticBackupRetentionDays: number;
+    readonly automaticBackupRetentionDays?: number;
     /**
      * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
-    readonly dailyAutomaticBackupStartTime: string;
+    readonly dailyAutomaticBackupStartTime?: string;
     /**
      * The file system deployment type.
      */
-    readonly deploymentType: string;
+    readonly deploymentType?: string;
     /**
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
      */
-    readonly diskIopsConfigurations: outputs.fsx.GetOntapFileSystemDiskIopsConfiguration[];
+    readonly diskIopsConfigurations?: outputs.fsx.GetOntapFileSystemDiskIopsConfiguration[];
     /**
      * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      */
-    readonly dnsName: string;
+    readonly dnsName?: string;
     /**
      * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
      */
-    readonly endpointIpAddressRange: string;
+    readonly endpointIpAddressRange?: string;
     /**
      * The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
      */
-    readonly endpoints: outputs.fsx.GetOntapFileSystemEndpoint[];
+    readonly endpoints?: outputs.fsx.GetOntapFileSystemEndpoint[];
     /**
      * Identifier of the file system (e.g. `fs-12345678`).
      */
@@ -88,51 +88,51 @@ export interface GetOntapFileSystemResult {
     /**
      * ARN for the KMS Key to encrypt the file system at rest.
      */
-    readonly kmsKeyId: string;
+    readonly kmsKeyId?: string;
     /**
      * The IDs of the elastic network interfaces from which a specific file system is accessible.
      */
-    readonly networkInterfaceIds: string[];
+    readonly networkInterfaceIds?: string[];
     /**
      * AWS account identifier that created the file system.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * Specifies the subnet in which you want the preferred file server to be located.
      */
-    readonly preferredSubnetId: string;
+    readonly preferredSubnetId?: string;
     /**
      * (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.
      */
-    readonly routeTableIds: string[];
+    readonly routeTableIds?: string[];
     /**
      * The storage capacity of the file system in gibibytes (GiB).
      */
-    readonly storageCapacity: number;
+    readonly storageCapacity?: number;
     /**
      * The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      */
-    readonly storageType: string;
+    readonly storageType?: string;
     /**
      * Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * The tags associated with the file system.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
      */
-    readonly throughputCapacity: number;
+    readonly throughputCapacity?: number;
     /**
      * The ID of the primary virtual private cloud (VPC) for the file system.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
     /**
      * The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    readonly weeklyMaintenanceStartTime: string;
+    readonly weeklyMaintenanceStartTime?: string;
 }
 /**
  * Retrieve information on FSx ONTAP File System.

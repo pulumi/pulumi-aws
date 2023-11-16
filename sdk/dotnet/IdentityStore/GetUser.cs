@@ -109,7 +109,7 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// The name that is typically displayed when the user is referenced.
         /// </summary>
-        public readonly string DisplayName;
+        public readonly string? DisplayName;
         /// <summary>
         /// List of details about the user's email.
         /// </summary>
@@ -122,12 +122,12 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string IdentityStoreId;
         /// <summary>
         /// The user's geographical region or location.
         /// </summary>
-        public readonly string Locale;
+        public readonly string? Locale;
         /// <summary>
         /// Details about the user's full name.
         /// </summary>
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// An alternate name for the user.
         /// </summary>
-        public readonly string Nickname;
+        public readonly string? Nickname;
         /// <summary>
         /// List of details about the user's phone number.
         /// </summary>
@@ -143,28 +143,28 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// The preferred language of the user.
         /// </summary>
-        public readonly string PreferredLanguage;
+        public readonly string? PreferredLanguage;
         /// <summary>
         /// An URL that may be associated with the user.
         /// </summary>
-        public readonly string ProfileUrl;
+        public readonly string? ProfileUrl;
         /// <summary>
         /// The user's time zone.
         /// </summary>
-        public readonly string Timezone;
+        public readonly string? Timezone;
         /// <summary>
         /// The user's title.
         /// </summary>
-        public readonly string Title;
-        public readonly string UserId;
+        public readonly string? Title;
+        public readonly string? UserId;
         /// <summary>
         /// User's user name value.
         /// </summary>
-        public readonly string UserName;
+        public readonly string? UserName;
         /// <summary>
         /// The user type.
         /// </summary>
-        public readonly string UserType;
+        public readonly string? UserType;
 
         [OutputConstructor]
         private GetUserResult(
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.IdentityStore
 
             Outputs.GetUserAlternateIdentifierResult? alternateIdentifier,
 
-            string displayName,
+            string? displayName,
 
             ImmutableArray<Outputs.GetUserEmailResult> emails,
 
@@ -180,31 +180,31 @@ namespace Pulumi.Aws.IdentityStore
 
             Outputs.GetUserFilterResult? filter,
 
-            string id,
+            string? id,
 
             string identityStoreId,
 
-            string locale,
+            string? locale,
 
             ImmutableArray<Outputs.GetUserNameResult> names,
 
-            string nickname,
+            string? nickname,
 
             ImmutableArray<Outputs.GetUserPhoneNumberResult> phoneNumbers,
 
-            string preferredLanguage,
+            string? preferredLanguage,
 
-            string profileUrl,
+            string? profileUrl,
 
-            string timezone,
+            string? timezone,
 
-            string title,
+            string? title,
 
-            string userId,
+            string? userId,
 
-            string userName,
+            string? userName,
 
-            string userType)
+            string? userType)
         {
             Addresses = addresses;
             AlternateIdentifier = alternateIdentifier;

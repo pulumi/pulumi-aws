@@ -59,7 +59,7 @@ type LookupPlanArgs struct {
 type LookupPlanResult struct {
 	ContactId string `pulumi:"contactId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
 	Stages []GetPlanStage `pulumi:"stages"`
 }
@@ -107,8 +107,8 @@ func (o LookupPlanResultOutput) ContactId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupPlanResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPlanResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupPlanResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlanResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.

@@ -74,20 +74,20 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the resource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * The time that the analysis was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly lastPublishedTime!: pulumi.Output<string | undefined>;
     /**
      * The time that the analysis was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * Display name for the analysis.
      *
@@ -97,7 +97,7 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters>;
+    public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      */
@@ -113,7 +113,7 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * The analysis creation status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

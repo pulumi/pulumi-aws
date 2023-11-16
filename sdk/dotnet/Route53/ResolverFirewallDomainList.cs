@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Route53
         /// The ARN (Amazon Resource Name) of the domain list.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A array of domains for the firewall domain list.

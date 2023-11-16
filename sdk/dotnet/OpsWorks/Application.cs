@@ -162,7 +162,7 @@ namespace Pulumi.Aws.OpsWorks
         /// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         /// </summary>
         [Output("shortName")]
-        public Output<string> ShortName { get; private set; } = null!;
+        public Output<string?> ShortName { get; private set; } = null!;
 
         /// <summary>
         /// The SSL configuration of the app. Object is described below.

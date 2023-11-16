@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecretsResult {
@@ -16,12 +18,12 @@ public final class GetSecretsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Map containing each `secret` `name` as the key with its decrypted plaintext value
      * 
      */
-    private Map<String,String> plaintext;
+    private @Nullable Map<String,String> plaintext;
     private List<GetSecretsSecret> secrets;
 
     private GetSecretsResult() {}
@@ -29,15 +31,15 @@ public final class GetSecretsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Map containing each `secret` `name` as the key with its decrypted plaintext value
      * 
      */
     public Map<String,String> plaintext() {
-        return this.plaintext;
+        return this.plaintext == null ? Map.of() : this.plaintext;
     }
     public List<GetSecretsSecret> secrets() {
         return this.secrets;
@@ -52,8 +54,8 @@ public final class GetSecretsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
-        private Map<String,String> plaintext;
+        private @Nullable String id;
+        private @Nullable Map<String,String> plaintext;
         private List<GetSecretsSecret> secrets;
         public Builder() {}
         public Builder(GetSecretsResult defaults) {
@@ -64,13 +66,13 @@ public final class GetSecretsResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder plaintext(Map<String,String> plaintext) {
-            this.plaintext = Objects.requireNonNull(plaintext);
+        public Builder plaintext(@Nullable Map<String,String> plaintext) {
+            this.plaintext = plaintext;
             return this;
         }
         @CustomType.Setter

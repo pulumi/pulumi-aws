@@ -14,25 +14,25 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class GetDataSetLogicalTableMapSourceJoinInstructionResult
     {
         public readonly ImmutableArray<Outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult> LeftJoinKeyProperties;
-        public readonly string LeftOperand;
-        public readonly string OnClause;
+        public readonly string? LeftOperand;
+        public readonly string? OnClause;
         public readonly ImmutableArray<Outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult> RightJoinKeyProperties;
-        public readonly string RightOperand;
-        public readonly string Type;
+        public readonly string? RightOperand;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetDataSetLogicalTableMapSourceJoinInstructionResult(
             ImmutableArray<Outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult> leftJoinKeyProperties,
 
-            string leftOperand,
+            string? leftOperand,
 
-            string onClause,
+            string? onClause,
 
             ImmutableArray<Outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult> rightJoinKeyProperties,
 
-            string rightOperand,
+            string? rightOperand,
 
-            string type)
+            string? type)
         {
             LeftJoinKeyProperties = leftJoinKeyProperties;
             LeftOperand = leftOperand;

@@ -48,28 +48,28 @@ export interface GetCodeSigningConfigResult {
     /**
      * List of allowed publishers as signing profiles for this code signing configuration.
      */
-    readonly allowedPublishers: outputs.lambda.GetCodeSigningConfigAllowedPublisher[];
+    readonly allowedPublishers?: outputs.lambda.GetCodeSigningConfigAllowedPublisher[];
     readonly arn: string;
     /**
      * Unique identifier for the code signing configuration.
      */
-    readonly configId: string;
+    readonly configId?: string;
     /**
      * Code signing configuration description.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Date and time that the code signing configuration was last modified.
      */
-    readonly lastModified: string;
+    readonly lastModified?: string;
     /**
      * List of code signing policies that control the validation failure action for signature mismatch or expiry.
      */
-    readonly policies: outputs.lambda.GetCodeSigningConfigPolicy[];
+    readonly policies?: outputs.lambda.GetCodeSigningConfigPolicy[];
 }
 /**
  * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).

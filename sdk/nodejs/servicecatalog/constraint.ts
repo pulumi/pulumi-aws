@@ -70,11 +70,11 @@ export class Constraint extends pulumi.CustomResource {
     /**
      * Description of the constraint.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Owner of the constraint.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     /**
      * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
      */
@@ -87,7 +87,7 @@ export class Constraint extends pulumi.CustomResource {
      * Product identifier.
      */
     public readonly productId!: pulumi.Output<string>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      *

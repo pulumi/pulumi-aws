@@ -6,6 +6,8 @@ package com.pulumi.aws.iam.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessKeysAccessKey {
@@ -13,39 +15,39 @@ public final class GetAccessKeysAccessKey {
      * @return Access key ID.
      * 
      */
-    private String accessKeyId;
+    private @Nullable String accessKeyId;
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
      * 
      */
-    private String createDate;
+    private @Nullable String createDate;
     /**
      * @return Access key status. Possible values are `Active` and `Inactive`.
      * 
      */
-    private String status;
+    private @Nullable String status;
 
     private GetAccessKeysAccessKey() {}
     /**
      * @return Access key ID.
      * 
      */
-    public String accessKeyId() {
-        return this.accessKeyId;
+    public Optional<String> accessKeyId() {
+        return Optional.ofNullable(this.accessKeyId);
     }
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
      * 
      */
-    public String createDate() {
-        return this.createDate;
+    public Optional<String> createDate() {
+        return Optional.ofNullable(this.createDate);
     }
     /**
      * @return Access key status. Possible values are `Active` and `Inactive`.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -57,9 +59,9 @@ public final class GetAccessKeysAccessKey {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accessKeyId;
-        private String createDate;
-        private String status;
+        private @Nullable String accessKeyId;
+        private @Nullable String createDate;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetAccessKeysAccessKey defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,18 +71,18 @@ public final class GetAccessKeysAccessKey {
         }
 
         @CustomType.Setter
-        public Builder accessKeyId(String accessKeyId) {
-            this.accessKeyId = Objects.requireNonNull(accessKeyId);
+        public Builder accessKeyId(@Nullable String accessKeyId) {
+            this.accessKeyId = accessKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder createDate(String createDate) {
-            this.createDate = Objects.requireNonNull(createDate);
+        public Builder createDate(@Nullable String createDate) {
+            this.createDate = createDate;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetAccessKeysAccessKey build() {

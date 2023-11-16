@@ -200,27 +200,27 @@ export class Domain extends pulumi.CustomResource {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    public readonly accessPolicies!: pulumi.Output<string>;
+    public readonly accessPolicies!: pulumi.Output<string | undefined>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      */
-    public readonly advancedOptions!: pulumi.Output<{[key: string]: string}>;
+    public readonly advancedOptions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
      */
-    public readonly advancedSecurityOptions!: pulumi.Output<outputs.elasticsearch.DomainAdvancedSecurityOptions>;
+    public readonly advancedSecurityOptions!: pulumi.Output<outputs.elasticsearch.DomainAdvancedSecurityOptions | undefined>;
     /**
      * ARN of the domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */
-    public readonly autoTuneOptions!: pulumi.Output<outputs.elasticsearch.DomainAutoTuneOptions>;
+    public readonly autoTuneOptions!: pulumi.Output<outputs.elasticsearch.DomainAutoTuneOptions | undefined>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
-    public readonly clusterConfig!: pulumi.Output<outputs.elasticsearch.DomainClusterConfig>;
+    public readonly clusterConfig!: pulumi.Output<outputs.elasticsearch.DomainClusterConfig | undefined>;
     /**
      * Configuration block for authenticating Kibana with Cognito. Detailed below.
      */
@@ -228,11 +228,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
-    public readonly domainEndpointOptions!: pulumi.Output<outputs.elasticsearch.DomainDomainEndpointOptions>;
+    public readonly domainEndpointOptions!: pulumi.Output<outputs.elasticsearch.DomainDomainEndpointOptions | undefined>;
     /**
      * Unique identifier for the domain.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    public /*out*/ readonly domainId!: pulumi.Output<string | undefined>;
     /**
      * Name of the domain.
      *
@@ -242,7 +242,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
      */
-    public readonly ebsOptions!: pulumi.Output<outputs.elasticsearch.DomainEbsOptions>;
+    public readonly ebsOptions!: pulumi.Output<outputs.elasticsearch.DomainEbsOptions | undefined>;
     /**
      * Version of Elasticsearch to deploy. Defaults to `1.5`.
      */
@@ -250,15 +250,15 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
      */
-    public readonly encryptAtRest!: pulumi.Output<outputs.elasticsearch.DomainEncryptAtRest>;
+    public readonly encryptAtRest!: pulumi.Output<outputs.elasticsearch.DomainEncryptAtRest | undefined>;
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * Domain-specific endpoint for kibana without https scheme.
      */
-    public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
@@ -266,7 +266,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      */
-    public readonly nodeToNodeEncryption!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryption>;
+    public readonly nodeToNodeEncryption!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryption | undefined>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */

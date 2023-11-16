@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidationT
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTlValidationTrust {
-    private List<GetVirtualGatewaySpecListenerTlValidationTrustFile> files;
-    private List<GetVirtualGatewaySpecListenerTlValidationTrustSd> sds;
+    private @Nullable List<GetVirtualGatewaySpecListenerTlValidationTrustFile> files;
+    private @Nullable List<GetVirtualGatewaySpecListenerTlValidationTrustSd> sds;
 
     private GetVirtualGatewaySpecListenerTlValidationTrust() {}
     public List<GetVirtualGatewaySpecListenerTlValidationTrustFile> files() {
-        return this.files;
+        return this.files == null ? List.of() : this.files;
     }
     public List<GetVirtualGatewaySpecListenerTlValidationTrustSd> sds() {
-        return this.sds;
+        return this.sds == null ? List.of() : this.sds;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualGatewaySpecListenerTlValidationTrust {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualGatewaySpecListenerTlValidationTrustFile> files;
-        private List<GetVirtualGatewaySpecListenerTlValidationTrustSd> sds;
+        private @Nullable List<GetVirtualGatewaySpecListenerTlValidationTrustFile> files;
+        private @Nullable List<GetVirtualGatewaySpecListenerTlValidationTrustSd> sds;
         public Builder() {}
         public Builder(GetVirtualGatewaySpecListenerTlValidationTrust defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualGatewaySpecListenerTlValidationTrust {
         }
 
         @CustomType.Setter
-        public Builder files(List<GetVirtualGatewaySpecListenerTlValidationTrustFile> files) {
-            this.files = Objects.requireNonNull(files);
+        public Builder files(@Nullable List<GetVirtualGatewaySpecListenerTlValidationTrustFile> files) {
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualGatewaySpecListenerTlValidationTrustFile... files) {
             return files(List.of(files));
         }
         @CustomType.Setter
-        public Builder sds(List<GetVirtualGatewaySpecListenerTlValidationTrustSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+        public Builder sds(@Nullable List<GetVirtualGatewaySpecListenerTlValidationTrustSd> sds) {
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualGatewaySpecListenerTlValidationTrustSd... sds) {

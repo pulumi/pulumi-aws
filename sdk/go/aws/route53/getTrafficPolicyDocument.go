@@ -202,9 +202,9 @@ type GetTrafficPolicyDocumentArgs struct {
 type GetTrafficPolicyDocumentResult struct {
 	Endpoints []GetTrafficPolicyDocumentEndpoint `pulumi:"endpoints"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Standard JSON policy document rendered based on the arguments above.
-	Json          string                         `pulumi:"json"`
+	Json          *string                        `pulumi:"json"`
 	RecordType    *string                        `pulumi:"recordType"`
 	Rules         []GetTrafficPolicyDocumentRule `pulumi:"rules"`
 	StartEndpoint *string                        `pulumi:"startEndpoint"`
@@ -265,13 +265,13 @@ func (o GetTrafficPolicyDocumentResultOutput) Endpoints() GetTrafficPolicyDocume
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetTrafficPolicyDocumentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTrafficPolicyDocumentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetTrafficPolicyDocumentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Standard JSON policy document rendered based on the arguments above.
-func (o GetTrafficPolicyDocumentResultOutput) Json() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTrafficPolicyDocumentResult) string { return v.Json }).(pulumi.StringOutput)
+func (o GetTrafficPolicyDocumentResultOutput) Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentResult) *string { return v.Json }).(pulumi.StringPtrOutput)
 }
 
 func (o GetTrafficPolicyDocumentResultOutput) RecordType() pulumi.StringPtrOutput {

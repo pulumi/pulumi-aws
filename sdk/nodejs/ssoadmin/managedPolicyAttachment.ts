@@ -56,7 +56,7 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
     /**
      * The name of the IAM Managed Policy.
      */
-    public /*out*/ readonly managedPolicyName!: pulumi.Output<string>;
+    public /*out*/ readonly managedPolicyName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */

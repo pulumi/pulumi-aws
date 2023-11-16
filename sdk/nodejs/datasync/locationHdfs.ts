@@ -72,7 +72,7 @@ export class LocationHdfs extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
      */
@@ -127,7 +127,7 @@ export class LocationHdfs extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LocationHdfs resource with the given unique name, arguments, and options.

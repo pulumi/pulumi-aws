@@ -124,19 +124,19 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// ARN of the organizational unit
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         public readonly string ParentId;
 
         [OutputConstructor]
         private GetOrganizationalUnitResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
             string name,
 

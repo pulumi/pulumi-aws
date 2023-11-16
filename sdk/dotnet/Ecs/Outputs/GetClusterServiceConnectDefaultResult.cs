@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetClusterServiceConnectDefaultResult
     {
-        public readonly string Namespace;
+        public readonly string? Namespace;
 
         [OutputConstructor]
-        private GetClusterServiceConnectDefaultResult(string @namespace)
+        private GetClusterServiceConnectDefaultResult(string? @namespace)
         {
             Namespace = @namespace;
         }

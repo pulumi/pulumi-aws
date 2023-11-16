@@ -52,44 +52,44 @@ export interface GetIdentityPoolResult {
     /**
      * Whether the classic / basic authentication flow is enabled.
      */
-    readonly allowClassicFlow: boolean;
+    readonly allowClassicFlow?: boolean;
     /**
      * Whether the identity pool supports unauthenticated logins or not.
      */
-    readonly allowUnauthenticatedIdentities: boolean;
+    readonly allowUnauthenticatedIdentities?: boolean;
     /**
      * ARN of the Pool.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * An array of Amazon Cognito Identity user pools and their client IDs.
      */
-    readonly cognitoIdentityProviders: outputs.cognito.GetIdentityPoolCognitoIdentityProvider[];
+    readonly cognitoIdentityProviders?: outputs.cognito.GetIdentityPoolCognitoIdentityProvider[];
     /**
      * The "domain" by which Cognito will refer to your users.
      */
-    readonly developerProviderName: string;
+    readonly developerProviderName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly identityPoolName: string;
     /**
      * Set of OpendID Connect provider ARNs.
      */
-    readonly openidConnectProviderArns: string[];
+    readonly openidConnectProviderArns?: string[];
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */
-    readonly samlProviderArns: string[];
+    readonly samlProviderArns?: string[];
     /**
      * Key-Value pairs mapping provider names to provider app IDs.
      */
-    readonly supportedLoginProviders: {[key: string]: string};
+    readonly supportedLoginProviders?: {[key: string]: string};
     /**
      * A map of tags to assigned to the Identity Pool.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS Cognito Identity Pool.

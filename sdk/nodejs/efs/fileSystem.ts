@@ -71,15 +71,15 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
      */
-    public /*out*/ readonly availabilityZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZoneId!: pulumi.Output<string | undefined>;
     /**
      * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
      */
-    public readonly availabilityZoneName!: pulumi.Output<string>;
+    public readonly availabilityZoneName!: pulumi.Output<string | undefined>;
     /**
      * A unique name (a maximum of 64 characters are allowed)
      * used as reference when creating the Elastic File System to ensure idempotent file
@@ -90,15 +90,15 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * If true, the disk will be encrypted.
      */
-    public readonly encrypted!: pulumi.Output<boolean>;
+    public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
      */
@@ -106,19 +106,19 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * The value of the file system's `Name` tag.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * The current number of mount targets that the file system has.
      */
-    public /*out*/ readonly numberOfMountTargets!: pulumi.Output<number>;
+    public /*out*/ readonly numberOfMountTargets!: pulumi.Output<number | undefined>;
     /**
      * The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
-    public readonly performanceMode!: pulumi.Output<string>;
+    public readonly performanceMode!: pulumi.Output<string | undefined>;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
@@ -126,7 +126,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      */
-    public /*out*/ readonly sizeInBytes!: pulumi.Output<outputs.efs.FileSystemSizeInByte[]>;
+    public /*out*/ readonly sizeInBytes!: pulumi.Output<outputs.efs.FileSystemSizeInByte[] | undefined>;
     /**
      * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

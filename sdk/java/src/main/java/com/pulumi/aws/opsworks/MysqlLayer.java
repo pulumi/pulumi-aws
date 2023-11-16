@@ -62,14 +62,14 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name(ARN) of the layer.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
@@ -210,14 +210,14 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsVolumes", refs={List.class,MysqlLayerEbsVolume.class}, tree="[0,1]")
-    private Output<List<MysqlLayerEbsVolume>> ebsVolumes;
+    private Output</* @Nullable */ List<MysqlLayerEbsVolume>> ebsVolumes;
 
     /**
      * @return `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public Output<List<MysqlLayerEbsVolume>> ebsVolumes() {
-        return this.ebsVolumes;
+    public Output<Optional<List<MysqlLayerEbsVolume>>> ebsVolumes() {
+        return Codegen.optional(this.ebsVolumes);
     }
     /**
      * Name of an Elastic Load Balancer to attach to this layer
@@ -262,10 +262,10 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceShutdownTimeout);
     }
     @Export(name="loadBasedAutoScaling", refs={MysqlLayerLoadBasedAutoScaling.class}, tree="[0]")
-    private Output<MysqlLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+    private Output</* @Nullable */ MysqlLayerLoadBasedAutoScaling> loadBasedAutoScaling;
 
-    public Output<MysqlLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
-        return this.loadBasedAutoScaling;
+    public Output<Optional<MysqlLayerLoadBasedAutoScaling>> loadBasedAutoScaling() {
+        return Codegen.optional(this.loadBasedAutoScaling);
     }
     /**
      * A human-readable name for the layer.

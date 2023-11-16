@@ -80,7 +80,7 @@ export class ReportDefinition extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the cur report.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
      */

@@ -46,33 +46,33 @@ export interface GetLinkResult {
     /**
      * ARN of the link.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Label that is assigned to this link.
      */
-    readonly label: string;
+    readonly label?: string;
     /**
      * Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
      */
-    readonly labelTemplate: string;
+    readonly labelTemplate?: string;
     /**
      * ID string that AWS generated as part of the link ARN.
      */
-    readonly linkId: string;
+    readonly linkId?: string;
     readonly linkIdentifier: string;
     /**
      * Types of data that the source account shares with the monitoring account.
      */
-    readonly resourceTypes: string[];
+    readonly resourceTypes?: string[];
     /**
      * ARN of the sink that is used for this link.
      */
-    readonly sinkArn: string;
-    readonly tags: {[key: string]: string};
+    readonly sinkArn?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS CloudWatch Observability Access Manager Link.

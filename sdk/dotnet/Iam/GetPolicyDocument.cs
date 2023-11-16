@@ -1500,11 +1500,11 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Standard JSON policy document rendered based on the arguments above.
         /// </summary>
-        public readonly string Json;
+        public readonly string? Json;
         public readonly ImmutableArray<string> OverridePolicyDocuments;
         public readonly string? PolicyId;
         public readonly ImmutableArray<string> SourcePolicyDocuments;
@@ -1513,9 +1513,9 @@ namespace Pulumi.Aws.Iam
 
         [OutputConstructor]
         private GetPolicyDocumentResult(
-            string id,
+            string? id,
 
-            string json,
+            string? json,
 
             ImmutableArray<string> overridePolicyDocuments,
 

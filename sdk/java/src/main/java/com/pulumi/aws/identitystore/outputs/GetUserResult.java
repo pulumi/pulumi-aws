@@ -23,23 +23,23 @@ public final class GetUserResult {
      * @return List of details about the user&#39;s address.
      * 
      */
-    private List<GetUserAddress> addresses;
+    private @Nullable List<GetUserAddress> addresses;
     private @Nullable GetUserAlternateIdentifier alternateIdentifier;
     /**
      * @return The name that is typically displayed when the user is referenced.
      * 
      */
-    private String displayName;
+    private @Nullable String displayName;
     /**
      * @return List of details about the user&#39;s email.
      * 
      */
-    private List<GetUserEmail> emails;
+    private @Nullable List<GetUserEmail> emails;
     /**
      * @return List of identifiers issued to this resource by an external identity provider.
      * 
      */
-    private List<GetUserExternalId> externalIds;
+    private @Nullable List<GetUserExternalId> externalIds;
     /**
      * @deprecated
      * Use the alternate_identifier attribute instead.
@@ -51,59 +51,59 @@ public final class GetUserResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String identityStoreId;
     /**
      * @return The user&#39;s geographical region or location.
      * 
      */
-    private String locale;
+    private @Nullable String locale;
     /**
      * @return Details about the user&#39;s full name.
      * 
      */
-    private List<GetUserName> names;
+    private @Nullable List<GetUserName> names;
     /**
      * @return An alternate name for the user.
      * 
      */
-    private String nickname;
+    private @Nullable String nickname;
     /**
      * @return List of details about the user&#39;s phone number.
      * 
      */
-    private List<GetUserPhoneNumber> phoneNumbers;
+    private @Nullable List<GetUserPhoneNumber> phoneNumbers;
     /**
      * @return The preferred language of the user.
      * 
      */
-    private String preferredLanguage;
+    private @Nullable String preferredLanguage;
     /**
      * @return An URL that may be associated with the user.
      * 
      */
-    private String profileUrl;
+    private @Nullable String profileUrl;
     /**
      * @return The user&#39;s time zone.
      * 
      */
-    private String timezone;
+    private @Nullable String timezone;
     /**
      * @return The user&#39;s title.
      * 
      */
-    private String title;
-    private String userId;
+    private @Nullable String title;
+    private @Nullable String userId;
     /**
      * @return User&#39;s user name value.
      * 
      */
-    private String userName;
+    private @Nullable String userName;
     /**
      * @return The user type.
      * 
      */
-    private String userType;
+    private @Nullable String userType;
 
     private GetUserResult() {}
     /**
@@ -111,7 +111,7 @@ public final class GetUserResult {
      * 
      */
     public List<GetUserAddress> addresses() {
-        return this.addresses;
+        return this.addresses == null ? List.of() : this.addresses;
     }
     public Optional<GetUserAlternateIdentifier> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
@@ -120,22 +120,22 @@ public final class GetUserResult {
      * @return The name that is typically displayed when the user is referenced.
      * 
      */
-    public String displayName() {
-        return this.displayName;
+    public Optional<String> displayName() {
+        return Optional.ofNullable(this.displayName);
     }
     /**
      * @return List of details about the user&#39;s email.
      * 
      */
     public List<GetUserEmail> emails() {
-        return this.emails;
+        return this.emails == null ? List.of() : this.emails;
     }
     /**
      * @return List of identifiers issued to this resource by an external identity provider.
      * 
      */
     public List<GetUserExternalId> externalIds() {
-        return this.externalIds;
+        return this.externalIds == null ? List.of() : this.externalIds;
     }
     /**
      * @deprecated
@@ -150,8 +150,8 @@ public final class GetUserResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String identityStoreId() {
         return this.identityStoreId;
@@ -160,74 +160,74 @@ public final class GetUserResult {
      * @return The user&#39;s geographical region or location.
      * 
      */
-    public String locale() {
-        return this.locale;
+    public Optional<String> locale() {
+        return Optional.ofNullable(this.locale);
     }
     /**
      * @return Details about the user&#39;s full name.
      * 
      */
     public List<GetUserName> names() {
-        return this.names;
+        return this.names == null ? List.of() : this.names;
     }
     /**
      * @return An alternate name for the user.
      * 
      */
-    public String nickname() {
-        return this.nickname;
+    public Optional<String> nickname() {
+        return Optional.ofNullable(this.nickname);
     }
     /**
      * @return List of details about the user&#39;s phone number.
      * 
      */
     public List<GetUserPhoneNumber> phoneNumbers() {
-        return this.phoneNumbers;
+        return this.phoneNumbers == null ? List.of() : this.phoneNumbers;
     }
     /**
      * @return The preferred language of the user.
      * 
      */
-    public String preferredLanguage() {
-        return this.preferredLanguage;
+    public Optional<String> preferredLanguage() {
+        return Optional.ofNullable(this.preferredLanguage);
     }
     /**
      * @return An URL that may be associated with the user.
      * 
      */
-    public String profileUrl() {
-        return this.profileUrl;
+    public Optional<String> profileUrl() {
+        return Optional.ofNullable(this.profileUrl);
     }
     /**
      * @return The user&#39;s time zone.
      * 
      */
-    public String timezone() {
-        return this.timezone;
+    public Optional<String> timezone() {
+        return Optional.ofNullable(this.timezone);
     }
     /**
      * @return The user&#39;s title.
      * 
      */
-    public String title() {
-        return this.title;
+    public Optional<String> title() {
+        return Optional.ofNullable(this.title);
     }
-    public String userId() {
-        return this.userId;
+    public Optional<String> userId() {
+        return Optional.ofNullable(this.userId);
     }
     /**
      * @return User&#39;s user name value.
      * 
      */
-    public String userName() {
-        return this.userName;
+    public Optional<String> userName() {
+        return Optional.ofNullable(this.userName);
     }
     /**
      * @return The user type.
      * 
      */
-    public String userType() {
-        return this.userType;
+    public Optional<String> userType() {
+        return Optional.ofNullable(this.userType);
     }
 
     public static Builder builder() {
@@ -239,25 +239,25 @@ public final class GetUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetUserAddress> addresses;
+        private @Nullable List<GetUserAddress> addresses;
         private @Nullable GetUserAlternateIdentifier alternateIdentifier;
-        private String displayName;
-        private List<GetUserEmail> emails;
-        private List<GetUserExternalId> externalIds;
+        private @Nullable String displayName;
+        private @Nullable List<GetUserEmail> emails;
+        private @Nullable List<GetUserExternalId> externalIds;
         private @Nullable GetUserFilter filter;
-        private String id;
+        private @Nullable String id;
         private String identityStoreId;
-        private String locale;
-        private List<GetUserName> names;
-        private String nickname;
-        private List<GetUserPhoneNumber> phoneNumbers;
-        private String preferredLanguage;
-        private String profileUrl;
-        private String timezone;
-        private String title;
-        private String userId;
-        private String userName;
-        private String userType;
+        private @Nullable String locale;
+        private @Nullable List<GetUserName> names;
+        private @Nullable String nickname;
+        private @Nullable List<GetUserPhoneNumber> phoneNumbers;
+        private @Nullable String preferredLanguage;
+        private @Nullable String profileUrl;
+        private @Nullable String timezone;
+        private @Nullable String title;
+        private @Nullable String userId;
+        private @Nullable String userName;
+        private @Nullable String userType;
         public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -283,8 +283,8 @@ public final class GetUserResult {
         }
 
         @CustomType.Setter
-        public Builder addresses(List<GetUserAddress> addresses) {
-            this.addresses = Objects.requireNonNull(addresses);
+        public Builder addresses(@Nullable List<GetUserAddress> addresses) {
+            this.addresses = addresses;
             return this;
         }
         public Builder addresses(GetUserAddress... addresses) {
@@ -296,21 +296,21 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
-        public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+        public Builder displayName(@Nullable String displayName) {
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
-        public Builder emails(List<GetUserEmail> emails) {
-            this.emails = Objects.requireNonNull(emails);
+        public Builder emails(@Nullable List<GetUserEmail> emails) {
+            this.emails = emails;
             return this;
         }
         public Builder emails(GetUserEmail... emails) {
             return emails(List.of(emails));
         }
         @CustomType.Setter
-        public Builder externalIds(List<GetUserExternalId> externalIds) {
-            this.externalIds = Objects.requireNonNull(externalIds);
+        public Builder externalIds(@Nullable List<GetUserExternalId> externalIds) {
+            this.externalIds = externalIds;
             return this;
         }
         public Builder externalIds(GetUserExternalId... externalIds) {
@@ -322,8 +322,8 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -332,64 +332,64 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
-        public Builder locale(String locale) {
-            this.locale = Objects.requireNonNull(locale);
+        public Builder locale(@Nullable String locale) {
+            this.locale = locale;
             return this;
         }
         @CustomType.Setter
-        public Builder names(List<GetUserName> names) {
-            this.names = Objects.requireNonNull(names);
+        public Builder names(@Nullable List<GetUserName> names) {
+            this.names = names;
             return this;
         }
         public Builder names(GetUserName... names) {
             return names(List.of(names));
         }
         @CustomType.Setter
-        public Builder nickname(String nickname) {
-            this.nickname = Objects.requireNonNull(nickname);
+        public Builder nickname(@Nullable String nickname) {
+            this.nickname = nickname;
             return this;
         }
         @CustomType.Setter
-        public Builder phoneNumbers(List<GetUserPhoneNumber> phoneNumbers) {
-            this.phoneNumbers = Objects.requireNonNull(phoneNumbers);
+        public Builder phoneNumbers(@Nullable List<GetUserPhoneNumber> phoneNumbers) {
+            this.phoneNumbers = phoneNumbers;
             return this;
         }
         public Builder phoneNumbers(GetUserPhoneNumber... phoneNumbers) {
             return phoneNumbers(List.of(phoneNumbers));
         }
         @CustomType.Setter
-        public Builder preferredLanguage(String preferredLanguage) {
-            this.preferredLanguage = Objects.requireNonNull(preferredLanguage);
+        public Builder preferredLanguage(@Nullable String preferredLanguage) {
+            this.preferredLanguage = preferredLanguage;
             return this;
         }
         @CustomType.Setter
-        public Builder profileUrl(String profileUrl) {
-            this.profileUrl = Objects.requireNonNull(profileUrl);
+        public Builder profileUrl(@Nullable String profileUrl) {
+            this.profileUrl = profileUrl;
             return this;
         }
         @CustomType.Setter
-        public Builder timezone(String timezone) {
-            this.timezone = Objects.requireNonNull(timezone);
+        public Builder timezone(@Nullable String timezone) {
+            this.timezone = timezone;
             return this;
         }
         @CustomType.Setter
-        public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+        public Builder title(@Nullable String title) {
+            this.title = title;
             return this;
         }
         @CustomType.Setter
-        public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+        public Builder userId(@Nullable String userId) {
+            this.userId = userId;
             return this;
         }
         @CustomType.Setter
-        public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+        public Builder userName(@Nullable String userName) {
+            this.userName = userName;
             return this;
         }
         @CustomType.Setter
-        public Builder userType(String userType) {
-            this.userType = Objects.requireNonNull(userType);
+        public Builder userType(@Nullable String userType) {
+            this.userType = userType;
             return this;
         }
         public GetUserResult build() {

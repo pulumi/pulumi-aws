@@ -87,15 +87,15 @@ type LookupResponseHeadersPolicyArgs struct {
 // A collection of values returned by getResponseHeadersPolicy.
 type LookupResponseHeadersPolicyResult struct {
 	// Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-	Comment string `pulumi:"comment"`
+	Comment *string `pulumi:"comment"`
 	// Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 	CorsConfigs []GetResponseHeadersPolicyCorsConfig `pulumi:"corsConfigs"`
 	// Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
 	CustomHeadersConfigs []GetResponseHeadersPolicyCustomHeadersConfig `pulumi:"customHeadersConfigs"`
 	// Current version of the response headers policy.
-	Etag string `pulumi:"etag"`
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Etag *string `pulumi:"etag"`
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
 	// Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
 	RemoveHeadersConfigs []GetResponseHeadersPolicyRemoveHeadersConfig `pulumi:"removeHeadersConfigs"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
@@ -145,8 +145,8 @@ func (o LookupResponseHeadersPolicyResultOutput) ToLookupResponseHeadersPolicyRe
 }
 
 // Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-func (o LookupResponseHeadersPolicyResultOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) string { return v.Comment }).(pulumi.StringOutput)
+func (o LookupResponseHeadersPolicyResultOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
@@ -162,16 +162,16 @@ func (o LookupResponseHeadersPolicyResultOutput) CustomHeadersConfigs() GetRespo
 }
 
 // Current version of the response headers policy.
-func (o LookupResponseHeadersPolicyResultOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) string { return v.Etag }).(pulumi.StringOutput)
+func (o LookupResponseHeadersPolicyResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResponseHeadersPolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResponseHeadersPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResponseHeadersPolicyResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupResponseHeadersPolicyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.

@@ -243,11 +243,11 @@ type SecurityGroupRule struct {
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
-	SecurityGroupRuleId pulumi.StringOutput `pulumi:"securityGroupRuleId"`
+	SecurityGroupRuleId pulumi.StringPtrOutput `pulumi:"securityGroupRuleId"`
 	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
 	Self pulumi.BoolPtrOutput `pulumi:"self"`
 	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
-	SourceSecurityGroupId pulumi.StringOutput `pulumi:"sourceSecurityGroupId"`
+	SourceSecurityGroupId pulumi.StringPtrOutput `pulumi:"sourceSecurityGroupId"`
 	// End port (or ICMP code if protocol is "icmp").
 	ToPort pulumi.IntOutput `pulumi:"toPort"`
 	// Type of rule being created. Valid options are `ingress` (inbound)
@@ -555,8 +555,8 @@ func (o SecurityGroupRuleOutput) SecurityGroupId() pulumi.StringOutput {
 }
 
 // If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
-func (o SecurityGroupRuleOutput) SecurityGroupRuleId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.SecurityGroupRuleId }).(pulumi.StringOutput)
+func (o SecurityGroupRuleOutput) SecurityGroupRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringPtrOutput { return v.SecurityGroupRuleId }).(pulumi.StringPtrOutput)
 }
 
 // Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
@@ -565,8 +565,8 @@ func (o SecurityGroupRuleOutput) Self() pulumi.BoolPtrOutput {
 }
 
 // Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
-func (o SecurityGroupRuleOutput) SourceSecurityGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.SourceSecurityGroupId }).(pulumi.StringOutput)
+func (o SecurityGroupRuleOutput) SourceSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringPtrOutput { return v.SourceSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
 // End port (or ICMP code if protocol is "icmp").

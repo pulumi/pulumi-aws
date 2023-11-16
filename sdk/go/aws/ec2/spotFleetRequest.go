@@ -210,7 +210,7 @@ type SpotFleetRequest struct {
 	// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrOutput `pulumi:"allocationStrategy"`
-	ClientToken        pulumi.StringOutput    `pulumi:"clientToken"`
+	ClientToken        pulumi.StringPtrOutput `pulumi:"clientToken"`
 	// Reserved.
 	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// Indicates whether running Spot
@@ -261,7 +261,7 @@ type SpotFleetRequest struct {
 	// The maximum bid price per unit hour.
 	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
-	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
+	SpotRequestState pulumi.StringPtrOutput `pulumi:"spotRequestState"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -769,8 +769,8 @@ func (o SpotFleetRequestOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringPtrOutput { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
-func (o SpotFleetRequestOutput) ClientToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringOutput { return v.ClientToken }).(pulumi.StringOutput)
+func (o SpotFleetRequestOutput) ClientToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
 // Reserved.
@@ -874,8 +874,8 @@ func (o SpotFleetRequestOutput) SpotPrice() pulumi.StringPtrOutput {
 }
 
 // The state of the Spot fleet request.
-func (o SpotFleetRequestOutput) SpotRequestState() pulumi.StringOutput {
-	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringOutput { return v.SpotRequestState }).(pulumi.StringOutput)
+func (o SpotFleetRequestOutput) SpotRequestState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringPtrOutput { return v.SpotRequestState }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

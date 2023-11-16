@@ -128,56 +128,56 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Timestamp for when the tracker resource was created in ISO 8601 format.
         /// </summary>
-        public readonly string CreateTime;
+        public readonly string? CreateTime;
         /// <summary>
         /// Optional description for the tracker resource.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         /// <summary>
         /// Position filtering method of the tracker resource.
         /// </summary>
-        public readonly string PositionFiltering;
+        public readonly string? PositionFiltering;
         /// <summary>
         /// Key-value map of resource tags for the tracker.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
-        public readonly string TrackerArn;
+        public readonly string? TrackerArn;
         public readonly string TrackerName;
         /// <summary>
         /// Timestamp for when the tracker resource was last updated in ISO 8601 format.
         /// </summary>
-        public readonly string UpdateTime;
+        public readonly string? UpdateTime;
 
         [OutputConstructor]
         private GetTrackerResult(
-            string createTime,
+            string? createTime,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
-            string positionFiltering,
+            string? positionFiltering,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string trackerArn,
+            string? trackerArn,
 
             string trackerName,
 
-            string updateTime)
+            string? updateTime)
         {
             CreateTime = createTime;
             Description = description;

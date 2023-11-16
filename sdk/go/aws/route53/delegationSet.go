@@ -64,7 +64,7 @@ type DelegationSet struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Delegation Set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A list of authoritative name servers for the hosted zone
 	// (effectively a list of NS records).
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
@@ -229,8 +229,8 @@ func (o DelegationSetOutput) ToDelegationSetOutputWithContext(ctx context.Contex
 }
 
 // The Amazon Resource Name (ARN) of the Delegation Set.
-func (o DelegationSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DelegationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DelegationSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DelegationSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A list of authoritative name servers for the hosted zone

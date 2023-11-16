@@ -56,19 +56,19 @@ namespace Pulumi.Aws.Route53Domains
         /// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
         /// </summary>
         [Output("abuseContactEmail")]
-        public Output<string> AbuseContactEmail { get; private set; } = null!;
+        public Output<string?> AbuseContactEmail { get; private set; } = null!;
 
         /// <summary>
         /// Phone number for reporting abuse.
         /// </summary>
         [Output("abuseContactPhone")]
-        public Output<string> AbuseContactPhone { get; private set; } = null!;
+        public Output<string?> AbuseContactPhone { get; private set; } = null!;
 
         /// <summary>
         /// Details about the domain administrative contact.
         /// </summary>
         [Output("adminContact")]
-        public Output<Outputs.RegisteredDomainAdminContact> AdminContact { get; private set; } = null!;
+        public Output<Outputs.RegisteredDomainAdminContact?> AdminContact { get; private set; } = null!;
 
         /// <summary>
         /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Route53Domains
         /// The date when the domain was created as found in the response to a WHOIS query.
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the registered domain.
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Route53Domains
         /// The date when the registration for the domain is set to expire.
         /// </summary>
         [Output("expirationDate")]
-        public Output<string> ExpirationDate { get; private set; } = null!;
+        public Output<string?> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
         /// The list of nameservers for the domain.
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Route53Domains
         /// Details about the domain registrant.
         /// </summary>
         [Output("registrantContact")]
-        public Output<Outputs.RegisteredDomainRegistrantContact> RegistrantContact { get; private set; } = null!;
+        public Output<Outputs.RegisteredDomainRegistrantContact?> RegistrantContact { get; private set; } = null!;
 
         /// <summary>
         /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
@@ -122,19 +122,19 @@ namespace Pulumi.Aws.Route53Domains
         /// Name of the registrar of the domain as identified in the registry.
         /// </summary>
         [Output("registrarName")]
-        public Output<string> RegistrarName { get; private set; } = null!;
+        public Output<string?> RegistrarName { get; private set; } = null!;
 
         /// <summary>
         /// Web address of the registrar.
         /// </summary>
         [Output("registrarUrl")]
-        public Output<string> RegistrarUrl { get; private set; } = null!;
+        public Output<string?> RegistrarUrl { get; private set; } = null!;
 
         /// <summary>
         /// Reseller of the domain.
         /// </summary>
         [Output("reseller")]
-        public Output<string> Reseller { get; private set; } = null!;
+        public Output<string?> Reseller { get; private set; } = null!;
 
         /// <summary>
         /// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Route53Domains
         /// Details about the domain technical contact.
         /// </summary>
         [Output("techContact")]
-        public Output<Outputs.RegisteredDomainTechContact> TechContact { get; private set; } = null!;
+        public Output<Outputs.RegisteredDomainTechContact?> TechContact { get; private set; } = null!;
 
         /// <summary>
         /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
@@ -176,13 +176,13 @@ namespace Pulumi.Aws.Route53Domains
         /// The last updated date of the domain as found in the response to a WHOIS query.
         /// </summary>
         [Output("updatedDate")]
-        public Output<string> UpdatedDate { get; private set; } = null!;
+        public Output<string?> UpdatedDate { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
         /// </summary>
         [Output("whoisServer")]
-        public Output<string> WhoisServer { get; private set; } = null!;
+        public Output<string?> WhoisServer { get; private set; } = null!;
 
 
         /// <summary>

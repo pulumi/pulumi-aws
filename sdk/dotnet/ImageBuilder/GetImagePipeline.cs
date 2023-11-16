@@ -129,43 +129,43 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// ARN of the container recipe.
         /// </summary>
-        public readonly string ContainerRecipeArn;
+        public readonly string? ContainerRecipeArn;
         /// <summary>
         /// Date the image pipeline was created.
         /// </summary>
-        public readonly string DateCreated;
+        public readonly string? DateCreated;
         /// <summary>
         /// Date the image pipeline was last run.
         /// </summary>
-        public readonly string DateLastRun;
+        public readonly string? DateLastRun;
         /// <summary>
         /// Date the image pipeline will run next.
         /// </summary>
-        public readonly string DateNextRun;
+        public readonly string? DateNextRun;
         /// <summary>
         /// Date the image pipeline was updated.
         /// </summary>
-        public readonly string DateUpdated;
+        public readonly string? DateUpdated;
         /// <summary>
         /// Description of the image pipeline.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// ARN of the Image Builder Distribution Configuration.
         /// </summary>
-        public readonly string DistributionConfigurationArn;
+        public readonly string? DistributionConfigurationArn;
         /// <summary>
         /// Whether additional information about the image being created is collected.
         /// </summary>
-        public readonly bool EnhancedImageMetadataEnabled;
+        public readonly bool? EnhancedImageMetadataEnabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// ARN of the image recipe.
         /// </summary>
-        public readonly string ImageRecipeArn;
+        public readonly string? ImageRecipeArn;
         public readonly ImmutableArray<Outputs.GetImagePipelineImageScanningConfigurationResult> ImageScanningConfigurations;
         /// <summary>
         /// List of an object with image tests configuration.
@@ -174,15 +174,15 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// ARN of the Image Builder Infrastructure Configuration.
         /// </summary>
-        public readonly string InfrastructureConfigurationArn;
+        public readonly string? InfrastructureConfigurationArn;
         /// <summary>
         /// Name of the image pipeline.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Platform of the image pipeline.
         /// </summary>
-        public readonly string Platform;
+        public readonly string? Platform;
         /// <summary>
         /// List of an object with schedule settings.
         /// </summary>
@@ -190,51 +190,51 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Status of the image pipeline.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Key-value map of resource tags for the image pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetImagePipelineResult(
             string arn,
 
-            string containerRecipeArn,
+            string? containerRecipeArn,
 
-            string dateCreated,
+            string? dateCreated,
 
-            string dateLastRun,
+            string? dateLastRun,
 
-            string dateNextRun,
+            string? dateNextRun,
 
-            string dateUpdated,
+            string? dateUpdated,
 
-            string description,
+            string? description,
 
-            string distributionConfigurationArn,
+            string? distributionConfigurationArn,
 
-            bool enhancedImageMetadataEnabled,
+            bool? enhancedImageMetadataEnabled,
 
-            string id,
+            string? id,
 
-            string imageRecipeArn,
+            string? imageRecipeArn,
 
             ImmutableArray<Outputs.GetImagePipelineImageScanningConfigurationResult> imageScanningConfigurations,
 
             ImmutableArray<Outputs.GetImagePipelineImageTestsConfigurationResult> imageTestsConfigurations,
 
-            string infrastructureConfigurationArn,
+            string? infrastructureConfigurationArn,
 
-            string name,
+            string? name,
 
-            string platform,
+            string? platform,
 
             ImmutableArray<Outputs.GetImagePipelineScheduleResult> schedules,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ContainerRecipeArn = containerRecipeArn;

@@ -152,7 +152,7 @@ type DomainName struct {
 	pulumi.CustomResourceState
 
 	// ARN of domain name.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
@@ -164,19 +164,19 @@ type DomainName struct {
 	// Private key associated with the domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
 	CertificatePrivateKey pulumi.StringPtrOutput `pulumi:"certificatePrivateKey"`
 	// Upload date associated with the domain certificate.
-	CertificateUploadDate pulumi.StringOutput `pulumi:"certificateUploadDate"`
+	CertificateUploadDate pulumi.StringPtrOutput `pulumi:"certificateUploadDate"`
 	// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
-	CloudfrontDomainName pulumi.StringOutput `pulumi:"cloudfrontDomainName"`
+	CloudfrontDomainName pulumi.StringPtrOutput `pulumi:"cloudfrontDomainName"`
 	// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
-	CloudfrontZoneId pulumi.StringOutput `pulumi:"cloudfrontZoneId"`
+	CloudfrontZoneId pulumi.StringPtrOutput `pulumi:"cloudfrontZoneId"`
 	// Fully-qualified domain name to register.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Configuration block defining API endpoint information including type. See below.
-	EndpointConfiguration DomainNameEndpointConfigurationOutput `pulumi:"endpointConfiguration"`
+	EndpointConfiguration DomainNameEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// Mutual TLS authentication configuration for the domain name. See below.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-	OwnershipVerificationCertificateArn pulumi.StringOutput `pulumi:"ownershipVerificationCertificateArn"`
+	OwnershipVerificationCertificateArn pulumi.StringPtrOutput `pulumi:"ownershipVerificationCertificateArn"`
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	//
 	// When uploading a certificate, the following arguments are supported:
@@ -184,11 +184,11 @@ type DomainName struct {
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName pulumi.StringPtrOutput `pulumi:"regionalCertificateName"`
 	// Hostname for the custom domain's regional endpoint.
-	RegionalDomainName pulumi.StringOutput `pulumi:"regionalDomainName"`
+	RegionalDomainName pulumi.StringPtrOutput `pulumi:"regionalDomainName"`
 	// Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-	RegionalZoneId pulumi.StringOutput `pulumi:"regionalZoneId"`
+	RegionalZoneId pulumi.StringPtrOutput `pulumi:"regionalZoneId"`
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
-	SecurityPolicy pulumi.StringOutput `pulumi:"securityPolicy"`
+	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// When referencing an AWS-managed certificate, the following arguments are supported:
@@ -496,8 +496,8 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 }
 
 // ARN of domain name.
-func (o DomainNameOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DomainNameOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
@@ -526,18 +526,18 @@ func (o DomainNameOutput) CertificatePrivateKey() pulumi.StringPtrOutput {
 }
 
 // Upload date associated with the domain certificate.
-func (o DomainNameOutput) CertificateUploadDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CertificateUploadDate }).(pulumi.StringOutput)
+func (o DomainNameOutput) CertificateUploadDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.CertificateUploadDate }).(pulumi.StringPtrOutput)
 }
 
 // Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
-func (o DomainNameOutput) CloudfrontDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CloudfrontDomainName }).(pulumi.StringOutput)
+func (o DomainNameOutput) CloudfrontDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.CloudfrontDomainName }).(pulumi.StringPtrOutput)
 }
 
 // For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
-func (o DomainNameOutput) CloudfrontZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CloudfrontZoneId }).(pulumi.StringOutput)
+func (o DomainNameOutput) CloudfrontZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.CloudfrontZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Fully-qualified domain name to register.
@@ -546,8 +546,8 @@ func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 }
 
 // Configuration block defining API endpoint information including type. See below.
-func (o DomainNameOutput) EndpointConfiguration() DomainNameEndpointConfigurationOutput {
-	return o.ApplyT(func(v *DomainName) DomainNameEndpointConfigurationOutput { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationOutput)
+func (o DomainNameOutput) EndpointConfiguration() DomainNameEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *DomainName) DomainNameEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationPtrOutput)
 }
 
 // Mutual TLS authentication configuration for the domain name. See below.
@@ -556,8 +556,8 @@ func (o DomainNameOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthentic
 }
 
 // ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-func (o DomainNameOutput) OwnershipVerificationCertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.OwnershipVerificationCertificateArn }).(pulumi.StringOutput)
+func (o DomainNameOutput) OwnershipVerificationCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
@@ -573,18 +573,18 @@ func (o DomainNameOutput) RegionalCertificateName() pulumi.StringPtrOutput {
 }
 
 // Hostname for the custom domain's regional endpoint.
-func (o DomainNameOutput) RegionalDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalDomainName }).(pulumi.StringOutput)
+func (o DomainNameOutput) RegionalDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.RegionalDomainName }).(pulumi.StringPtrOutput)
 }
 
 // Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-func (o DomainNameOutput) RegionalZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalZoneId }).(pulumi.StringOutput)
+func (o DomainNameOutput) RegionalZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.RegionalZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
-func (o DomainNameOutput) SecurityPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.SecurityPolicy }).(pulumi.StringOutput)
+func (o DomainNameOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

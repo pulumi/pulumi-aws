@@ -100,7 +100,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// The account number of the AWS account that owns the domain.
         /// </summary>
         [Output("domainOwner")]
-        public Output<string> DomainOwner { get; private set; } = null!;
+        public Output<string?> DomainOwner { get; private set; } = null!;
 
         /// <summary>
         /// A JSON policy string to be set as the access control resource policy on the provided domain.
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         /// </summary>
         [Output("policyRevision")]
-        public Output<string> PolicyRevision { get; private set; } = null!;
+        public Output<string?> PolicyRevision { get; private set; } = null!;
 
         /// <summary>
         /// The name of the repository to set the resource policy on.
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// The ARN of the resource associated with the resource policy.
         /// </summary>
         [Output("resourceArn")]
-        public Output<string> ResourceArn { get; private set; } = null!;
+        public Output<string?> ResourceArn { get; private set; } = null!;
 
 
         /// <summary>

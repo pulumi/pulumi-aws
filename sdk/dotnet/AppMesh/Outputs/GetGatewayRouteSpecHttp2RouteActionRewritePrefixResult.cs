@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult
     {
-        public readonly string DefaultPrefix;
-        public readonly string Value;
+        public readonly string? DefaultPrefix;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult(
-            string defaultPrefix,
+            string? defaultPrefix,
 
-            string value)
+            string? value)
         {
             DefaultPrefix = defaultPrefix;
             Value = value;
